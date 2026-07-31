@@ -17,7 +17,7 @@ Sie können das Gespräch mit Folgefragen fortsetzen. Operator merkt sich frühe
 
 ## Voraussetzungen {#prerequisites}
 
-Operator hat dieselben Berechtigungen wie Sie, daher erfordern bestimmte Aktionen die entsprechende Berechtigung für die jeweilige Oberfläche. Zum Beispiel erfordert die Bildgenerierung *Medienbibliothek-Assets bearbeiten*. Wenn Sie keinen Einstiegspunkt sehen, überprüfen Sie Ihre Berechtigungen bei Ihrem Admin. Weitere Informationen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+Der Operator verfügt über dieselben Berechtigungen wie Sie, sodass bestimmte Aktionen die entsprechende Berechtigung für die jeweilige Oberfläche erfordern. Zum Beispiel erfordert das Generieren eines Bildes die Berechtigung *Medienbibliothek-Assets bearbeiten*. Wenn Sie keinen Einstiegspunkt sehen, überprüfen Sie Ihre Berechtigungen bei Ihrem Admin. Weitere Informationen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 ## Was Operator erstellen kann {#what-operator-can-create}
 
@@ -100,6 +100,8 @@ Die besten Ergebnisse erzielen Sie, wenn Sie Operator in dem Editor verwenden, i
 ### Content Blocks erstellen {#create-content-blocks}
 
 Operator kann Ihnen helfen, [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) zu erstellen – die wiederverwendbaren Inhaltsbausteine, die Sie in Nachrichten einfügen. Beschreiben Sie den gewünschten Block, und Operator entwirft seinen Inhalt, den Sie überprüfen, bevor Sie ihn speichern. Da Content Blocks geteilt werden, aktualisiert eine Änderung jede Nachricht, die darauf verweist.
+
+Operator erstellt Content Blocks einzeln im Dashboard. Um Content Blocks in großen Mengen zu erstellen, verwenden Sie den Endpunkt [Content-Block erstellen]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) mit einem API-Schlüssel, der die Berechtigung `content_blocks.create` hat.
 
 ### Nachrichten-Templates erstellen {#create-message-templates}
 
@@ -191,13 +193,32 @@ Operator kann Folgendes referenzieren, um Fragen zu beantworten oder die generie
 
 Fragen Sie Operator direkt, wenn Sie nicht sicher sind, ob es eine bestimmte Information nachschlagen kann.
 
-### SQL-Abfragen schreiben {#write-sql-queries}
+### Performance-Daten analysieren {#analyze-performance-data}
+
+Stellen Sie Operator Fragen in natürlicher Sprache zur Performance Ihrer Campaigns und Canvases, und es liefert Charts, Vergleiche und kurze Insights auf Basis Ihrer Workspace-Daten. Im Gegensatz zu den seitenabhängigen Features von Operator, die Kontext von der aktuellen Seite benötigen, beantwortet „Analyze“ Fragen von überall im Dashboard. Weitere Informationen finden Sie unter [Operator Analyze]({{site.baseurl}}/user_guide/brazeai/operator/analyze).
+
+### SQL-Anfragen schreiben {#write-sql-queries}
 
 Operator kann Ihnen helfen, SQL für [Segmenterweiterungen](#campaigns-and-audiences) und für [Abfrage-Templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) im Query Builder zu schreiben. Beschreiben Sie die gewünschte Abfrage in natürlicher Sprache, und Operator generiert SQL, das Sie überprüfen, bevor Sie es ausführen.
 
 ### Datentransformationscode generieren {#generate-data-transformation-code}
 
 Wählen Sie im [Datentransformations]({{site.baseurl}}/user_guide/data/unification/data_transformation)-Editor **Insert Code** aus, um Transformationscode zu generieren, der eine eingehende Webhook-Payload in gültige Braze-API-Anfragen umwandelt. Schritt-für-Schritt-Anleitungen zum Erstellen einer Transformation finden Sie unter [Transformation erstellen]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
+
+## Workspace-Einstellungen {#workspace-settings}
+
+Operator kann Einstellungen auf mehreren Workspace-Konfigurationsseiten überprüfen und aktualisieren. Beschreiben Sie die gewünschte Änderung, und Operator schlägt sie als Aktionskarte vor, die Sie überprüfen, bevor sie gespeichert wird. Unterstützte Einstellungsseiten umfassen unter anderem:
+
+- [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)
+- [Push-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)
+- [Messaging-Rate-Limits]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)
+- [Genehmigungsworkflows]({{site.baseurl}}/user_guide/messaging/governance/approvals), einschließlich [Messaging-Regeln]({{site.baseurl}}/user_guide/messaging/governance/approvals/messaging_rules) und Always-on-Genehmigung
+- [APIs und Bezeichner]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), einschließlich [andere Bezeichner]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers) und API-Limits
+- [Kontaktinformationen in den Admin-Einstellungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/contact_information)
+
+{% alert note %}
+Die Abdeckung von Einstellungsseiten durch Operator wird regelmäßig erweitert. **Fragen Sie Operator direkt**, um die aktuellste Auskunft darüber zu erhalten, was konfiguriert werden kann.
+{% endalert %}
 
 ## Einschränkungen {#limitations}
 
@@ -208,6 +229,7 @@ Die Abdeckung von Operator ändert sich häufig. Wenn Sie nicht sicher sind, ob 
 Die Dashboard-Unterstützung von Operator ist umfassend, hat aber Grenzen.
 
 - **Canvases:** Operator kann keine [Canvases]({{site.baseurl}}/user_guide/messaging/canvas) erstellen oder bearbeiten, kann aber die Konfiguration eines bestehenden Canvas referenzieren – wie Targeting- und Zustellungseinstellungen –, um Fragen zu beantworten und seine Ausgabe zu fundieren.
+- **Campaign-Duplizierung:** Operator kann keine bestehende Campaign aus der Campaign-Listenansicht duplizieren. Um eine ähnliche Campaign zu erstellen, bitten Sie Operator, eine neue von Grund auf zu erstellen, oder duplizieren Sie die Campaign manuell über das Menü **Weitere Aktionen** in der Listenansicht.
 - **Drag-and-Drop-Editoren:** Operator kann kein Nachrichtendesign direkt in einem Drag-and-Drop-Editor generieren oder einfügen, wie z. B. in den Editoren für [E-Mail]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [Banner]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner) und [In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Wechseln Sie zum entsprechenden HTML-Editor, um Operator zu verwenden, oder bitten Sie Operator, Inhalte wie Texte zu generieren, die Sie manuell einfügen können. Siehe [Nachrichten generieren](#generate-messages) für unterstützte Kanäle und Editoren.
 - **Bildschirmsichtbarkeit:** Operator nutzt seitenbezogenen Kontext, um zu verstehen, was Sie betrachten, einschließlich Inhalten in unterstützten Vorschauen und Editoren. Wenn ein Teil einer Seite außerhalb dessen liegt, was Operator lesen kann, teilt es Ihnen dies mit, anstatt zu raten, sodass Sie wissen, dass Sie diesen Inhalt selbst beschreiben müssen.
 - **Nutzungslimits:** Operator hat ein unternehmensweites tägliches Nutzungslimit, das alle 24 Stunden zurückgesetzt wird. Bildgenerierungen werden auf dieses Limit angerechnet. Wenn das Limit erreicht ist, erscheint die Meldung „Tägliches Nutzungslimit überschritten“ und es können keine weiteren Anfragen gestellt werden, bis es zurückgesetzt wird. Schritte zur Fehlerbehebung finden Sie unter [Fehlerbehebung]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting).

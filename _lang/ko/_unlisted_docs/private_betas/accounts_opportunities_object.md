@@ -25,29 +25,29 @@ description: "계정 오브젝트를 사용하여 사용자가 속한 계정을 
 
 ## 작동 방식 {#how-it-works}
 
-계정 오브젝트는 사용자의 회사를 나타내는 커스텀 데이터 구조입니다. 고객 프로필에 연결되므로 B2B 스타일의 세그먼트를 구축하고 메시지를 개인화할 수 있습니다. 회사 이름, 산업, 역할, 거래 상태와 같은 계정 필드를 Braze 카탈로그, 세분화 필터, Liquid 태그와 함께 사용하세요.
+계정 오브젝트는 사용자의 회사를 나타내는 커스텀 데이터 구조입니다. 고객 프로필에 연결되므로 B2B 스타일의 Segments를 구축하고 메시지를 개인화할 수 있습니다. 회사명, 산업, 역할, 거래 상태 등의 계정 필드를 Braze 카탈로그, 세분화 필터, Liquid 태그와 함께 사용하세요.
 
-예를 들어, 의료 분야에서 일하는 사용자를 타겟팅하고 의사와 병원 관리자에게 개인화된 메시지를 보내 메시지의 관련성을 더욱 높일 수 있습니다.
+예를 들어, 의료 분야에서 근무하는 사용자를 타겟팅하고 의사와 병원 관리자에게 개인화된 메시지를 보내 메시지의 관련성을 더욱 높일 수 있습니다.
 
 계정 오브젝트를 사용하려면 세 가지 유형의 데이터를 Braze로 가져와야 합니다:
 
-- **사용자 데이터:** Braze에서 각 사람을 식별하는 데 사용되는 개별 고객 프로필(예: `external_id`, 이메일, 전화번호 또는 사용자 별칭을 통해). CSV를 통해 사용자 데이터를 가져옵니다.
-- **사용자-계정 관계 데이터:** 사용자와 계정 간의 관계로, 사용자가 속한 회사와 해당 계정에서의 역할을 포함합니다. CSV를 통해 이 관계 데이터를 가져옵니다.
-- **계정 데이터:** 회사 이름, 산업, 연간 매출 및 기타 기업 정보와 같은 회사 레코드 자체입니다. 세그먼트와 메시지에서 타겟팅하고 개인화하는 데 사용하는 레코드입니다. CSV 또는 Braze REST API를 통해 계정 데이터를 가져옵니다.
+- **사용자 데이터:** Braze에서 각 개인을 식별하는 데 사용되는 개별 고객 프로필입니다(예: `external_id`, 이메일, 전화번호 또는 사용자 별칭을 통해). CSV를 통해 사용자 데이터를 가져옵니다.
+- **사용자-계정 관계 데이터:** 사용자와 계정 간의 관계로, 소속 회사와 해당 계정에서의 역할을 포함합니다. CSV를 통해 이 관계 데이터를 가져옵니다.
+- **계정 데이터:** 회사명, 산업, 연간 매출 및 기타 기업 정보와 같은 회사 레코드 자체입니다. Segments와 메시지에서 타겟팅하고 개인화하는 데 사용하는 레코드입니다. CSV 또는 Braze REST API를 통해 계정 데이터를 가져옵니다.
 
 계정 오브젝트가 작동하려면 세 가지 데이터 유형을 모두 가져와야 합니다. 사용자 데이터는 Braze에서 사람을 식별하고, 사용자-계정 관계 데이터는 해당 사용자를 특정 계정 및 역할에 연결하며, 계정 데이터는 세분화 및 개인화에 사용되는 회사 수준의 속성을 제공합니다.
 
-## 필수 조건 {#prerequisites}
+## 사전 요구 사항 {#prerequisites}
 
-이 기능을 사용하려면 Braze에 이미 사용자가 있어야 합니다.
+이 기능을 사용하려면 Braze에 사용자가 이미 등록되어 있어야 합니다.
 
 ## Braze로 데이터 가져오기 {#import-data-to-braze}
 
-메시지 내에서 계정 오브젝트를 사용하려면 사용자 데이터가 이미 Braze에 존재해야 합니다. 그런 다음 두 가지 가져오기를 완료하세요: 먼저 사용자-계정 관계 데이터를 가져와 계정 연결 및 역할을 설정합니다(현재 CSV만 지원). 그런 다음 세분화 및 개인화에 사용되는 회사 수준의 세부 정보가 포함된 계정 데이터를 가져옵니다(CSV 또는 Braze REST API를 통해).
+메시지 내에서 계정 객체를 사용하려면 사용자 데이터가 이미 Braze에 존재해야 합니다. 그런 다음 두 가지 가져오기를 완료합니다. 먼저, 사용자-계정 관계 데이터를 가져와 계정 연결 및 역할을 설정합니다(현재 CSV만 지원). 그런 다음, 세분화 및 개인화에 사용되는 회사 수준의 세부 정보가 포함된 계정 데이터를 가져옵니다(CSV 또는 Braze REST API를 통해).
 
 ### 1단계: 사용자-계정 관계 데이터 가져오기 {#step-1-import-user-account-relationship-data}
 
-먼저 다음 필드가 포함된 CSV 파일로 사용자-계정 관계 데이터를 Braze에 가져옵니다. 이를 통해 Braze가 기존 사용자를 올바른 계정 및 역할과 연결할 수 있습니다.
+먼저, 다음 필드가 포함된 CSV 파일로 사용자-계정 관계 데이터를 Braze에 가져옵니다. 이를 통해 Braze가 기존 사용자를 올바른 계정 및 역할과 연결할 수 있습니다.
 
 <style>
 table td {
@@ -57,17 +57,17 @@ table td {
 
 | 필드 이름 | 필드 유형 | 필수 | 설명 |
 |------------------|------------|----------|-------------------------------------------------------------------------------------------------------|
-| `account_id`       | 문자열     | 예      | 사용자가 속한 계정입니다. 계정 오브젝트의 `id` 필드(CRM ID)와 동일합니다. |
-| `external_id`      | 문자열     | 예      | Braze에서의 사용자 [외부 ID](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle/#identified-user-profiles)입니다. |
-| `user_alias_name`  | 문자열     | 아니요*      | Braze에서의 사용자 [별칭 이름](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases)입니다. |
-| `user_alias_label` | 문자열     | 아니요*      | Braze에서의 사용자 [별칭 라벨](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users)입니다. |
-| `email`            | 문자열     | 아니요*     | 사용자의 이메일 주소입니다. |
-| `phone`            | 문자열     | 아니요*      | 사용자의 전화번호입니다. |
-| `user_role`             | 문자열     | 아니요       | 사용자가 계정에서 맡은 역할(예: "director" 또는 "employee")입니다. |
+| `account_id` | 문자열 | 예 | 사용자가 속한 계정입니다. 계정 객체의 `id` 필드(CRM ID)와 동일합니다. |
+| `external_id` | 문자열 | 예 | Braze에서의 사용자 [외부 ID](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle/#identified-user-profiles)입니다. |
+| `user_alias_name` | 문자열 | 아니요* | Braze에서의 사용자 [별칭 이름](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases)입니다. |
+| `user_alias_label` | 문자열 | 아니요* | Braze에서의 사용자 [별칭 라벨](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users)입니다. |
+| `email` | 문자열 | 아니요* | 사용자의 이메일 주소입니다. |
+| `phone` | 문자열 | 아니요* | 사용자의 전화번호입니다. |
+| `user_role` | 문자열 | 아니요 | 계정에서 사용자의 역할입니다(예: "directory" 또는 "employee"). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 <sup>사용자를 식별하려면 `external_id`, `email`, `phone` 또는 `user_alias` 중 하나가 필요합니다.</sup>
 
-#### CSV 파일 사용하기 {#using-a-csv-file}
+#### CSV 파일 사용 {#using-a-csv-file}
 
 사용자-계정 관계가 포함된 CSV를 Braze에 업로드합니다:
 
@@ -75,11 +75,11 @@ table td {
 2. **데이터 업데이트**를 선택합니다.
 3. **CSV 업로드**에서 **사용자**를 선택한 다음 파일을 Braze에 업로드합니다.
 
-![Braze의 계정 페이지에 있는 데이터 업로드 드롭다운.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
+![Braze의 "계정" 페이지에 있는 "데이터 업로드" 드롭다운.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
 
 ### 2단계: 계정 데이터 가져오기 {#step-2-import-account-data}
 
-계정은 사용자가 속한 회사입니다. 다음 필드가 포함된 CSV 파일로 계정 데이터를 Braze에 가져옵니다. 각 계정에는 ID와 이름이 할당되어야 합니다.
+계정은 사용자가 속한 회사입니다. 다음 필드가 포함된 CSV 파일로 계정 데이터를 Braze에 가져옵니다. 각 계정에는 ID와 이름이 반드시 할당되어야 합니다.
 
 <style>
 table td {
@@ -89,33 +89,33 @@ table td {
 
 | 필드 이름 | 필드 유형 | 필수 | 설명 |
 |-----------------------------|------------|----------|------------------------------------------------------------------------------------|
-| `id`                          | 문자열     | 예      | 고객 관계 관리(CRM) 플랫폼에서의 계정 ID입니다. |
-| `name`                        | 문자열     | 예      | 계정의 이름입니다. |
-| `type`                        | 문자열     | 아니요       | 계정 유형(예: 고객, 파트너 또는 리셀러)입니다. |
-| `annual_revenue`              | 문자열     | 아니요       | 계정의 연간 매출입니다. |
-| `industry`                    | 문자열     | 아니요       | 계정이 운영되는 산업입니다. |
-| `number_of_employees`         | 문자열     | 아니요       | 직원 수이며, 범위를 지원합니다. |
-| `address`                     | 문자열     | 아니요       | 계정의 도로 주소입니다. |
-| `city`                        | 문자열     | 아니요       | 계정이 위치한 도시입니다. |
-| `state`                       | 문자열     | 아니요       | 계정이 위치한 주입니다. |
-| `postal_code`                 | 문자열     | 아니요       | 계정 주소의 우편번호입니다. |
-| `country`                     | 문자열     | 아니요       | 계정이 위치한 국가입니다. |
-| `notes`                       | 문자열     | 아니요       | 계정에 대한 추가 메모입니다. |
-| `website`                     | 문자열     | 아니요       | 계정의 웹사이트 URL입니다. |
-| `main_phone`                  | 문자열     | 아니요       | 계정의 대표 전화번호입니다. |
-| `created_date`                | 시간       | 아니요       | 계정이 생성된 날짜입니다. |
-| `account_owner_email_address` | 문자열     | 아니요       | 내부 계정 소유자(예: "회사 A 영업팀의 Tom이 회사 B를 담당")입니다. |
-| `parent_account_id`           | 문자열     | 아니요       | 해당하는 경우 상위 계정의 ID(예: 모회사 ID에 연결)입니다. |
-| `sic_code`                    | 문자열     | 아니요       | 표준 산업 분류 코드입니다. |
-| 커스텀 필드                 | N/A        | 아니요       | 사용자가 정의하고 관리하는 커스텀 필드입니다. |
+| `id` | 문자열 | 예 | 고객 관계 관리(CRM) 플랫폼에서의 계정 ID입니다. |
+| `name` | 문자열 | 예 | 계정의 이름입니다. |
+| `type` | 문자열 | 아니요 | 계정 유형입니다(예: 고객, 파트너 또는 리셀러). |
+| `annual_revenue` | 문자열 | 아니요 | 계정의 연간 매출입니다. |
+| `industry` | 문자열 | 아니요 | 계정이 운영되는 산업입니다. |
+| `number_of_employees` | 문자열 | 아니요 | 직원 수이며, 범위를 지원합니다. |
+| `address` | 문자열 | 아니요 | 계정의 도로 주소입니다. |
+| `city` | 문자열 | 아니요 | 계정이 위치한 구/군/시입니다. |
+| `state` | 문자열 | 아니요 | 계정이 위치한 주/도입니다. |
+| `postal_code` | 문자열 | 아니요 | 계정 주소의 우편번호입니다. |
+| `country` | 문자열 | 아니요 | 계정이 위치한 국가입니다. |
+| `notes` | 문자열 | 아니요 | 계정에 대한 추가 메모입니다. |
+| `website` | 문자열 | 아니요 | 계정의 웹사이트 URL입니다. |
+| `main_phone` | 문자열 | 아니요 | 계정의 대표 전화번호입니다. |
+| `created_date` | 시간 | 아니요 | 계정이 생성된 날짜입니다. |
+| `account_owner_email_address` | 문자열 | 아니요 | 내부 계정 소유자입니다(예: "A사 영업팀의 Tom이 B사를 담당"). |
+| `parent_account_id` | 문자열 | 아니요 | 해당하는 경우 상위 계정의 ID입니다(예: 모회사 ID에 연결). |
+| `sic_code` | 문자열 | 아니요 | 표준 산업 분류 코드입니다. |
+| 커스텀 필드 | N/A | 아니요 | 사용자가 직접 정의하고 관리하는 커스텀 필드입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 {% alert note %}
-일부 필드는 선택 사항이지만, 예약된 필드 이름이므로 데이터를 체계적으로 유지하는 데 도움이 되므로 가능하면 포함하세요.
+일부 필드는 선택 사항이지만, 예약된 필드 이름이므로 데이터를 체계적으로 유지하는 데 도움이 되기 때문에 가능하면 포함하는 것이 좋습니다.
 {% endalert %}
 
 다음으로, CSV 파일을 업로드하거나 Braze REST API를 사용하여 계정 데이터를 Braze에 가져옵니다. 이 데이터는 **데이터 설정**에서 확인할 수 있습니다. 브라우저 내 편집기에서는 이 데이터를 편집할 수 없습니다.
 
-#### CSV 파일 사용하기
+#### CSV 파일 사용
 
 CSV를 통해 데이터를 가져오려면:
 
@@ -123,7 +123,17 @@ CSV를 통해 데이터를 가져오려면:
 2. **데이터 업데이트**를 선택합니다.
 3. **CSV 업로드**에서 **계정 데이터**를 선택한 다음 파일을 Braze에 업로드합니다.
 
-![Braze의 계정 페이지에 있는 데이터 업로드 드롭다운.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
+![Braze의 "계정" 페이지에 있는 "데이터 업로드" 드롭다운.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
+
+### CSV 가져오기 문제 해결 {#troubleshooting-csv-imports}
+
+#### 계정 객체 CSV 가져오기에서 빈 행이 나타나는 경우 {#empty-rows-in-account-objects-csv-imports}
+
+계정 객체 데이터를 가져온 후 **계정** 페이지에서 빈 행이 보이면, 계정 필드 값에 쉼표가 포함되어 있는지 확인하세요.
+
+계정 객체 CSV 가져오기에서 값에 포함된 쉼표가 구분자로 해석될 수 있습니다. 이로 인해 값이 잘못 파싱되어 대시보드에 빈 행이 나타날 수 있습니다.
+
+이 문제를 해결하려면 원본 CSV 파일에서 쉼표를 제거한 후 다시 업로드하세요. 예를 들어, 다시 업로드하기 전에 `"$5,000,000"`을 `"$5000000"` 또는 `"$5 million"`으로 변경합니다.
 
 ## Braze API 사용하기 {#using-the-braze-api}
 
@@ -313,41 +323,41 @@ curl -X DELETE https://YOUR_REST_API_URL/business/accounts/ACC001 \
 
 ## 메시지에서 오브젝트 사용하기 {#using-objects-in-messages}
 
-[Braze로 데이터를 가져온](#importing-data-to-braze) 후, 계정 오브젝트를 사용하여 세그먼트를 구축하고 Liquid를 사용하여 사용자에게 개인화된 메시지를 보낼 수 있습니다.
+[Braze로 데이터를 가져온](#importing-data-to-braze) 후, 계정 오브젝트를 사용하여 Segment를 구축하고 Liquid를 활용해 사용자에게 개인화된 메시지를 보낼 수 있습니다.
 
-### 1단계: 세그먼트 구축 {#step-1-build-a-segment}
+### 1단계: Segment 구축하기 {#step-1-build-a-segment}
 
-다음으로, 사용자 데이터와 계정 데이터를 결합하는 세그먼트를 구축합니다. 이 예시에서는 건강 프로모션 회사에서 새 웨비나 등록을 늘리기 위해 의료 회사의 디렉터를 타겟팅합니다.
+다음으로, 사용자 데이터와 계정 데이터를 결합하는 Segment를 구축합니다. 이 예시에서는 건강 증진 회사에서 새로운 웨비나 등록을 늘리기 위해 헬스케어 기업의 디렉터를 타겟팅합니다.
 
-1. **오디언스** > **Segments**로 이동한 다음 **세그먼트 생성**을 선택합니다.
-2. 세그먼트에 이름을 지정합니다.
-3. **세그먼트 빌더**에서 **비즈니스** 필터를 선택하고 다음 세분화 필터를 설정합니다. 완료되면 **저장**을 선택합니다.
+1. **오디언스** > **Segments**로 이동한 다음 **Segment 만들기**를 선택합니다.
+2. Segment에 이름을 지정합니다.
+3. **Segment 빌더**에서 **Business** 필터를 선택하고 다음 세분화 필터를 설정합니다. 완료되면 **저장**을 선택합니다.
 
-| 필터 | 설명 |
+| 필터                          | 설명                                      |
 |---------------------------------|--------------------------------------------------|
-| `Role is exactly director`      | 역할이 정확히 Director인 사용자를 타겟팅합니다 |
-| `Accounts industry matches regex healthcare` | 의료 관련 산업의 계정에 속한 사용자를 매칭합니다 |
+| `Role is exactly director`      | 역할이 디렉터인 사용자를 타겟팅합니다 |
+| `Accounts industry matches regex healthcare` | 헬스케어 관련 산업에 속한 계정의 사용자를 매칭합니다 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 {% alert important %}
-현재 여러 계정 필터를 사용하려면 **OR/AND** 드롭다운 대신 **기준 추가**를 선택하세요.
+현재 여러 계정 필터를 사용하려면 **OR/AND** 드롭다운 대신 **Add Criteria**를 선택해야 합니다.
 {% endalert %}
 
-![의료 회사의 디렉터인 사용자를 위한 세그먼트를 생성하도록 설정된 세분화 필터.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/build_segment.png %})
+![헬스케어 기업의 디렉터인 사용자를 위한 Segment를 만들기 위해 설정된 세분화 필터.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/build_segment.png %})
 
 {% alert note %}
-세분화는 기준에 일치하는 처음 1,000개의 계정 레코드에서만 작동합니다. 세그먼트당 최대 하나의 비즈니스 필터를 사용할 수 있으며, 모든 기준은 하나의 필터 안에 있어야 합니다.
+세분화는 기준에 일치하는 처음 1,000개의 계정 레코드에서만 작동합니다. Segment당 최대 하나의 비즈니스 필터를 사용할 수 있으며, 모든 기준은 하나의 필터 안에 있어야 합니다.
 {% endalert %}
 
 ### 2단계: Liquid를 사용하여 개인화하기 {#step-2-use-liquid-to-personalize}
 
-이제 메시지를 개인화하여 사용자에게 기회에 대한 정보를 보낼 수 있습니다. 이 예시에서는 디렉터에게 메시지를 작성하고 웨비나에 연결합니다. Braze 카탈로그를 사용하여 개인화를 위한 산업별 이미지를 가져올 수도 있습니다.
+이제 메시지를 개인화하여 사용자에게 기회에 대한 정보를 보낼 수 있습니다. 이 예시에서는 디렉터에게 메시지를 작성하고 웨비나 링크를 제공합니다. Braze 카탈로그를 사용하여 개인화를 위한 산업별 이미지를 가져올 수도 있습니다.
 
 #### 2.1단계: 계정 정보로 개인화하기 {#step-21-personalize-with-account-information}
 
-개인화 유형으로 **비즈니스**를 선택한 다음 **이름**을 선택하여 사용자의 회사 이름으로 메시지를 개인화합니다.
+개인화 유형으로 **Business**를 선택한 다음 **Name**을 선택하여 사용자의 회사 이름으로 메시지를 개인화합니다.
 
-다음이 클립보드에 복사됩니다.
+다음 내용이 클립보드에 복사됩니다.
 
 {% raw %}
 ```javascript
@@ -360,7 +370,7 @@ Braze는 {% raw %}`{% business %}`{% endraw %} 태그를 생성하며, 이 태�
 
 자동 생성된 출력을 조정하여 메시지를 작성합니다.
 
-아래 예시에서는 {% raw %}`{% business %}`{% endraw %} 태그 호출을 메시지 상단으로 이동하고 사용자의 이름으로 개인화합니다. 계정 이름을 사용하여 메시지를 개인화합니다. Liquid 출력은 동일하지만 메시지의 다른 부분에 배치합니다.
+다음 예시에서는 {% raw %}`{% business %}`{% endraw %} 태그 호출을 메시지 상단으로 이동하고 사용자의 이름으로 개인화합니다. 계정 이름을 사용하여 메시지를 개인화합니다. Liquid 출력은 동일하지만 메시지의 다른 부분에 배치합니다.
 
 {% raw %}
 ```javascript
@@ -384,15 +394,15 @@ We would love to invite you and your peers at Sunshine Health to join our latest
 
 #### 2.2단계: 카탈로그와 연결하기 {#step-22-connect-with-catalogs}
 
-다음으로, Braze 카탈로그를 사용하여 의료 회사에 해당하는 이미지를 추가하고 저장하여 메시지를 더욱 개인화합니다.
+다음으로, Braze 카탈로그를 사용하여 헬스케어 회사에 해당하는 이미지를 추가하고 저장함으로써 메시지를 더욱 개인화합니다.
 
-이 예시에서는 다음이 있다고 가정합니다:
+이 예시에서는 다음을 갖추고 있다고 가정합니다:
 
 - `industry_assets`라는 카탈로그가 설정되어 있음
 - 각 카탈로그 항목의 ID는 계정의 산업에 해당하는 산업 이름임
-- 기본 이미지와 보조 이미지에 대한 이미지 URL 링크
+- 기본 이미지와 보조 이미지에 대한 이미지 URL 링크가 있음
 
-다음은 이 개인화에 사용되는 Liquid의 예시입니다.
+다음은 이 개인화에 사용되는 Liquid 예시입니다.
 {% raw %}
 ```javascript
 //Make a call to the business tag.  This sets the accounts array and prepares us to pull account data out.

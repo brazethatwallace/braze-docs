@@ -2,17 +2,46 @@
 page_order: 10.9
 nav_title: 문제 해결
 article_title: Braze SDK의 푸시 알림 문제 해결
+description: "증상 색인, 표준 조사 경로 및 플랫폼별 SDK 점검을 사용하여 푸시 알림 전달 및 표시 문제를 진단합니다."
 channel:
   - push notifications
 ---
 
 # 푸시 알림 문제 해결 {#troubleshoot-push-notifications}
 
-> Braze SDK의 푸시 알림 문제를 해결하는 방법을 알아보세요.
+> 이 페이지를 사용하여 기기에서 푸시 알림 전달 및 표시 문제를 진단하세요. 대시보드 측 전달 점검(구독 상태, Segment, 한도)에 대해서는 [푸시 문제 해결]({{site.baseurl}}/user_guide/channels/push/troubleshooting)을 참조하세요.
+
+디버깅하기 전에 [테스트 사용자]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#adding-test-users)로 자신을 추가하고 [테스트 메시지 발송]({{site.baseurl}}/developer_guide/push_notifications/sending_test_messages)을 검토하세요.
+
+## 시작하기: 증상 매칭 {#start-here-match-your-symptom}
+
+아래 표에서 현재 겪고 있는 동작을 찾은 다음 해당 섹션의 단계를 따르세요. 어떤 섹션이 해당되는지 확실하지 않은 경우 [표준 조사 경로](#standard-investigation-path)를 사용하세요.
+
+| 증상 | 이동 |
+| --- | --- |
+| 특정 플랫폼에서 푸시가 수신되지 않음 | [플랫폼별 문제 해결](#platform-specific-troubleshooting)에서 SDK 탭을 선택하세요 |
+| 저장 시 Liquid 태그 주변의 줄 바꿈이 이상하게 보임 | [푸시 알림의 줄 바꿈](#push-linebreaks) |
+| 대시보드 전달 점검(구독, Segment, 한도) | [푸시 문제 해결]({{site.baseurl}}/user_guide/channels/push/troubleshooting) |
+| 푸시에서 딥링크가 올바르게 열리지 않음 | [딥링킹 문제 해결]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting) |
+| 일반적인 푸시 오류 코드 | [일반적인 푸시 오류 메시지]({{site.baseurl}}/user_guide/channels/push/push_error_codes) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="푸시 SDK 증상" }
+
+## 표준 조사 경로 {#standard-investigation-path}
+
+모든 푸시 알림 인시던트에 대해 이 워크플로를 사용하세요. 1단계부터 시작합니다.
+
+1. 기기에 유효한 푸시 토큰이 있고 기기 설정에서 푸시 권한이 부여되어 있는지 확인합니다.
+2. 대시보드에서 테스트 사용자가 Campaign 또는 Canvas [Segment]({{site.baseurl}}/user_guide/channels/push/troubleshooting#segment)에 일치하고 [대조군]({{site.baseurl}}/user_guide/channels/push/troubleshooting#control-group-status)에 포함되어 있지 않은지 확인합니다.
+3. 테스트 기기로 [테스트 푸시]({{site.baseurl}}/developer_guide/push_notifications/sending_test_messages)를 발송합니다.
+4. [상세 로깅을 활성화]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)하고, 문제를 재현한 다음, [SDK 탭](#platform-specific-troubleshooting)에서 플랫폼별 가이드를 검토합니다.
+5. 문제가 지속되면 상세 로그, 플랫폼, SDK 버전, Campaign 또는 Canvas ID와 함께 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
+
+## 플랫폼별 문제 해결 {#platform-specific-troubleshooting}
+
+플랫폼별 설정 및 표시 점검을 위해 SDK 탭을 선택하세요.
 
 {% sdktabs %}
 {% sdktab web %}
-
 ## 문제 해결 {#troubleshooting}
 
 푸시 알림을 설정한 후 문제가 발생하는 경우 다음 사항을 확인하세요:
@@ -29,7 +58,6 @@ channel:
 {% endsdktab %}
 
 {% sdktab swift %}
-
 ## Braze/APNs 워크플로 이해하기 {#understanding-the-brazeapns-workflow}
 
 Apple 푸시 알림 서비스(APNs)는 Apple 플랫폼에서 실행되는 애플리케이션에 푸시 알림을 전송하기 위한 인프라입니다. 다음은 사용자의 기기에서 푸시 알림이 활성화되는 방식과 Braze가 푸시 알림을 전송하는 방식의 간략한 구조입니다:
@@ -95,12 +123,12 @@ Braze는 대시보드에 업로드된 SSL 푸시 인증서를 사용하여 인�
 #### 등록되지 않은 푸시 토큰으로 발송 수신됨 {#received-unregistered-sending}
 
 - `AppDelegate.braze?.notifications.register(deviceToken:)` 메서드에서 Braze로 전송되는 푸시 토큰이 유효한지 확인하세요. **메시지 활동 로그**에서 푸시 토큰을 확인할 수 있습니다. `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`과 같이 문자와 숫자가 혼합된 긴 문자열이어야 합니다. 푸시 토큰이 다르게 보이는 경우, Braze에 푸시 토큰을 전송하는 [코드]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#swift_step-32-register-push-tokens-with-braze)를 확인하세요.
-- 푸시 프로비저닝 프로필이 테스트 중인 환경과 일치하는지 확인하세요. 유니버설 인증서는 Braze 대시보드에서 개발 또는 프로덕션 APN 환경으로 발송하도록 구성할 수 있습니다. 프로덕션 앱에 개발 인증서를 사용하거나 개발 앱에 프로덕션 인증서를 사용하면 작동하지 않습니다.
+- 푸시 프로비저닝 프로필이 테스트 중인 환경과 일치하는지 확인하세요. 유니버설 인증서는 Braze 대시보드에서 개발 또는 프로덕션 APNs 환경으로 발송하도록 구성할 수 있습니다. 프로덕션 앱에 개발 인증서를 사용하거나 개발 앱에 프로덕션 인증서를 사용하면 작동하지 않습니다.
  - Braze에 업로드한 푸시 토큰이 푸시 토큰을 전송한 앱을 빌드하는 데 사용한 프로비저닝 프로필과 일치하는지 확인하세요.
 
 #### 토픽에 해당하지 않는 기기 토큰 {#device-token-not-for-topic}
 
-APN은 푸시 토큰이 자격 증명에 구성된 토픽(번들 ID)과 일치하지 않을 때 `DeviceTokenNotForTopic`(HTTP 상태 400)을 반환합니다. Braze는 이를 **메시지 활동 로그** 또는 푸시 전달 로그에서 `DeviceTokenNotForTopic`으로 표시할 수 있습니다.
+APNs는 푸시 토큰이 자격 증명에 구성된 토픽(번들 ID)과 일치하지 않을 때 `DeviceTokenNotForTopic`(HTTP 상태 400)을 반환합니다. Braze는 이를 **메시지 활동 로그** 또는 푸시 전달 로그에서 `DeviceTokenNotForTopic`으로 표시할 수 있습니다.
 
 불일치를 해결하려면:
 
@@ -114,7 +142,7 @@ APN은 푸시 토큰이 자격 증명에 구성된 토픽(번들 ID)과 일치�
 
 #### 푸시 토큰으로 발송 시 BadDeviceToken {#baddevicetoken-sending-to-push-token}
 
-`BadDeviceToken`은 APN 오류 코드이며 Braze에서 발생하는 것이 아닙니다. 이 응답이 반환되는 데에는 다음을 포함하여 여러 가지 이유가 있을 수 있습니다:
+`BadDeviceToken`은 APNs 오류 코드이며 Braze에서 발생하는 것이 아닙니다. 이 응답이 반환되는 데에는 다음을 포함하여 여러 가지 이유가 있을 수 있습니다:
 
 {% multi_lang_include developer_guide/push_notifications/invalid_push_token_reasons.md %}
 
@@ -135,7 +163,7 @@ APN은 푸시 토큰이 자격 증명에 구성된 토픽(번들 ID)과 일치�
     2. 개발자 계정에 사용하는 Apple ID를 선택하고 **View Details**를 클릭합니다.
     3. 다음 페이지에서 **<i class="fas fa-redo-alt"></i> Refresh**를 클릭하고 사용 가능한 모든 프로비저닝 프로필을 가져오고 있는지 확인합니다.
 - 앱에서 [푸시 기능이 올바르게 활성화]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#swift_step-2-enable-push-capabilities)되어 있는지 확인하세요.
-- 푸시 프로비저닝 프로필이 테스트 중인 환경과 일치하는지 확인하세요. 유니버설 인증서는 Braze 대시보드에서 개발 또는 프로덕션 APN 환경으로 발송하도록 구성할 수 있습니다. 프로덕션 앱에 개발 인증서를 사용하거나 개발 앱에 프로덕션 인증서를 사용하면 작동하지 않습니다.
+- 푸시 프로비저닝 프로필이 테스트 중인 환경과 일치하는지 확인하세요. 유니버설 인증서는 Braze 대시보드에서 개발 또는 프로덕션 APNs 환경으로 발송하도록 구성할 수 있습니다. 프로덕션 앱에 개발 인증서를 사용하거나 개발 앱에 프로덕션 인증서를 사용하면 작동하지 않습니다.
 - 코드에 브레이크포인트를 설정하여 `registerPushToken` 메서드를 호출하고 있는지 확인하세요.
 - 기기를 사용하여 테스트하고 있는지(푸시는 시뮬레이터에서 작동하지 않습니다) 네트워크 연결 상태가 양호한지 확인하세요.
 
@@ -147,7 +175,7 @@ APN은 푸시 토큰이 자격 증명에 구성된 토픽(번들 ID)과 일치�
 
 #### 대시보드와 앱 인증서 불일치 {#dashboard-and-app-certificate-mismatch}
 
-대시보드에 업로드한 푸시 인증서가 앱을 빌드할 때 사용한 프로비저닝 프로필의 인증서와 동일하지 않으면, APN이 토큰을 거부합니다. 올바른 인증서를 업로드했는지 확인하고, 다른 테스트 알림을 시도하기 전에 앱에서 세션을 한 번 더 완료하세요.
+대시보드에 업로드한 푸시 인증서가 앱을 빌드할 때 사용한 프로비저닝 프로필의 인증서와 동일하지 않으면, APNs가 토큰을 거부합니다. 올바른 인증서를 업로드했는지 확인하고, 다른 테스트 알림을 시도하기 전에 앱에서 세션을 한 번 더 완료하세요.
 
 #### 앱이 제거됨 {#application-was-uninstalled}
 
@@ -171,7 +199,7 @@ APN은 푸시 토큰이 자격 증명에 구성된 토픽(번들 ID)과 일치�
 
 테스트 메시지를 보내려는 사용자의 고객 프로필을 확인하세요. **참여** 탭에 "푸시 가능한 앱" 목록이 있어야 합니다. 테스트 메시지를 보내려는 앱이 이 목록에 있는지 확인하세요. 사용자는 워크스페이스 내 어떤 앱에 대해서든 푸시 토큰이 있으면 "푸시 등록됨"으로 표시되므로, 이는 일종의 거짓 양성일 수 있습니다.
 
-다음은 푸시 등록에 문제가 있거나, 푸시 발송 후 APN에 의해 사용자의 토큰이 유효하지 않은 것으로 Braze에 반환되었음을 나타냅니다:
+다음은 푸시 등록에 문제가 있거나, 푸시 발송 후 APNs에 의해 사용자의 토큰이 유효하지 않은 것으로 Braze에 반환되었음을 나타냅니다:
 
 ![사용자의 연락처 설정을 표시하는 고객 프로필. 푸시 항목에 "앱 없음"이 표시되어 있습니다.]({% image_buster /assets/img_archive/registration_problem.png %}){: style="max-width:50%"}
 
@@ -201,7 +229,6 @@ APN은 푸시 토큰이 자격 증명에 구성된 토픽(번들 ID)과 일치�
 {% endsdktab %}
 
 {% sdktab .NET MAUI (Xamarin) %}
-
 ## 문제 해결
 
 ### 작업 전환기에서 앱을 닫은 후 푸시가 표시되지 않음 {#push-doesnt-appear-after-app-is-closed-from-task-switcher}

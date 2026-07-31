@@ -18,7 +18,7 @@ Cloud Data Ingestion (CDI) を使用して、クラウドアカウント内の1�
 通知メカニズムはプロバイダーによって異なります。
 
 - **Amazon S3:** 新しいファイルがS3に公開されると、Amazon Simple Queue Service (SQS) キューにメッセージが投稿され、Brazeがそのメッセージを消費して新しいファイルを取り込みます。
-- **Google Cloud Storage (GCS):** 新しいファイルがバケットで確定されると、GCSがPub/Subトピックに`OBJECT_FINALIZE`通知を発行します。BrazeはPub/Subサブスクリプションからそれらの通知を消費して新しいファイルを取り込みます。
+- **Google Cloud Storage (GCS):** バケット内で新しいファイルがファイナライズされると、GCSがPub/Subトピックに`OBJECT_FINALIZE`通知を発行します。BrazeはPub/Subサブスクリプションからこれらの通知を消費して、新しいファイルを取り込みます。
 
 Cloud Data Ingestionは以下をサポートしています。
 
@@ -29,7 +29,7 @@ Cloud Data Ingestionは以下をサポートしています。
 
 ## クラウドデータ取り込みの設定 {#setting-up-cloud-data-ingestion}
 
-設定手順はファイルストレージプロバイダーによって異なります。プロバイダーのタブを選択し、その後に続く共通設定セクションを完了してください。
+設定手順はファイルストレージプロバイダーによって異なります。お使いのプロバイダーのタブを選択し、その後に続く共通設定セクションを完了してください。
 
 {% tabs %}
 {% tab Amazon S3 %}
@@ -220,7 +220,7 @@ AWSでの設定を完了するには、IAMロールを作成し、ステップ5�
 - SQS URL（新しい連携ごとに一意である必要があります）
 - フォルダーパス（オプション、ワークスペース内の同期間で一意である必要があります）
 
-7. データタイプを選択し、**接続テスト**を選択して、Brazeが取り込み可能なファイルの一覧を取得できることを確認します（ファイル内のデータではありません）。成功したら、**次へ：通知**を選択します。
+7. データタイプを選択し、**接続テスト**を選択して、Brazeが取り込み可能なファイルの一覧を表示できることを確認します（ファイル内のデータではありません）。成功したら、**次へ：通知**を選択します。
 8. アクセスや権限の問題で同期が中断した場合の通知用に、連絡先メールアドレスを追加します。オプションで、ユーザーレベルのエラーや同期成功の通知を有効にできます。
 9. 同期を作成します。
 
@@ -242,14 +242,14 @@ AWSでの設定を完了するには、IAMロールを作成し、ステップ5�
 | Pub/Subトピック | トピックは、Cloud Storageバケットから新しいファイル通知を受信する名前付きリソースです。 |
 | Pub/Subサブスクリプション | サブスクリプションはトピックにアタッチされ、メッセージを配信します。Brazeはプルサブスクリプションから新しいファイル通知を取得します。 |
 | サービスアカウント | サービスアカウントは、Brazeがバケットとサブスクリプションにアクセスするために使用する非人間IDです。そのJSONキーをBrazeにアップロードします。 |
-| IAMロール | Identity and Access Management（IAM）ロールは、バケットとサブスクリプションに対してサービスアカウントに付与する権限のコレクションです。 |
+| IAMロール | Identity and Access Management（IAM）ロールは、バケットとサブスクリプションでサービスアカウントに割り当てる権限のコレクションです。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="GCPの定義" }
 
 ## Google Cloudでのクラウドデータ取り込みの設定 {#setting-up-cloud-data-ingestion-in-google-cloud}
 
 ### ステップ1:Cloud Storageバケットの作成 {#step-1-create-a-cloud-storage-bucket}
 
-Google Cloudコンソールで、**Cloud Storage** > **Buckets** > **Create**に移動します。プロジェクトIDとバケット名をメモしておいてください。Brazeでソースを設定する際に必要になります。権限をIAMで管理できるように、均一なバケットレベルアクセスを有効にすることをお勧めします。
+Google Cloudコンソールで、**Cloud Storage** > **Buckets** > **Create**に移動します。プロジェクトIDとバケット名をメモしておいてください。Brazeでソースを設定する際に必要になります。IAMで権限を管理できるように、均一なバケットレベルアクセスを有効にすることをお勧めします。
 
 または、gcloudでバケットを作成することもできます。
 
@@ -284,13 +284,13 @@ gcloud pubsub subscriptions create YOUR-SUBSCRIPTION \
 Cloud StorageからPub/Subへの通知の作成は、Google Cloudコンソールでは利用できません。gcloud（ここで示す方法）、Terraform、またはJSON APIを使用する必要があります。詳しくは、Google Cloudドキュメントの[Cloud StorageのPub/Sub通知を設定する](https://cloud.google.com/storage/docs/reporting-changes#enabling)を参照してください。
 {% endalert %}
 
-まず、Cloud Storageサービスエージェントにトピックへの公開権限を付与し、次に`OBJECT_FINALIZE`の通知を作成します。`OBJECT_FINALIZE`イベントは、バケットに新しいオブジェクトが作成またはファイナライズされるたびに発生します。
+まず、Cloud Storageサービスエージェントにトピックへの公開権限を割り当て、次に`OBJECT_FINALIZE`の通知を作成します。`OBJECT_FINALIZE`イベントは、バケットに新しいオブジェクトが作成またはファイナライズされるたびに発生します。
 
 ```shell
 # Get the Cloud Storage service agent for your project
 gcloud storage service-agent --project=YOUR-PROJECT-ID
 
-# Grant it Pub/Sub Publisher on the topic
+# Assign it Pub/Sub Publisher on the topic
 gcloud pubsub topics add-iam-policy-binding YOUR-TOPIC \
   --project=YOUR-PROJECT-ID \
   --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
@@ -308,7 +308,7 @@ gcloud storage buckets notifications create gs://YOUR-BUCKET-NAME \
 - `YOUR-PROJECT-ID`：Google CloudプロジェクトID。人間が読める識別子です（例：`my-gcp-project`）。
 - `YOUR-TOPIC`：[ステップ2](#step-2-create-a-pubsub-topic-and-subscription)で作成したPub/Subトピック。
 - `YOUR-BUCKET-NAME`：Cloud Storageバケット名。
-- `YOUR-PROJECT-NUMBER`：プロジェクト番号。Cloud Storageサービスエージェントのメールアドレスに使用される数値識別子です。プロジェクトIDとは異なります。Google Cloudコンソールの**Dashboard**で確認するか、以下のコマンドを実行してください。
+- `YOUR-PROJECT-NUMBER`：プロジェクト番号。Cloud Storageサービスエージェントのメールアドレスで使用される数値識別子です。プロジェクトIDとは異なります。Google Cloudコンソールの**ダッシュボード**で確認するか、以下のコマンドを実行してください。
 
 ```shell
 gcloud projects describe YOUR-PROJECT-ID --format="value(projectNumber)"
@@ -326,11 +326,11 @@ gcloud iam service-accounts create braze-cdi-gcs \
   --display-name="Braze CDI GCS"
 ```
 
-### ステップ5:権限の付与 {#step-5-grant-permissions}
+### ステップ5:権限の割り当て {#step-5-assign-permissions}
 
-コネクタには、バケットに対する`storage.buckets.get`、`storage.objects.get`、`storage.objects.list`、およびサブスクリプションに対する`pubsub.subscriptions.consume`の権限が必要です。カスタムロールまたは事前定義ロールのいずれかで付与できます。
+コネクタには、バケットに対する`storage.buckets.get`、`storage.objects.get`、`storage.objects.list`、およびサブスクリプションに対する`pubsub.subscriptions.consume`の権限が正確に必要です。カスタムロールまたは事前定義ロールで割り当てることができます。
 
-**カスタムロール：** これらの権限のみを持つカスタムロールを作成し、バケットとサブスクリプションにバインドします。
+**カスタムロール：** これらの権限を正確に持つカスタムロールを作成し、バケットとサブスクリプションにバインドします。
 
 ```shell
 gcloud iam roles create brazeCdiGcs --project=YOUR-PROJECT-ID \
@@ -348,7 +348,7 @@ gcloud pubsub subscriptions add-iam-policy-binding YOUR-SUBSCRIPTION \
   --role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"
 ```
 
-**事前定義ロール：** バケットに`roles/storage.objectViewer`と`roles/storage.legacyBucketReader`を、サブスクリプションに`roles/pubsub.subscriber`を付与します。`objectViewer`ロールは`storage.objects.get`と`storage.objects.list`を提供し、`legacyBucketReader`は`storage.buckets.get`を提供します。
+**事前定義ロール：** バケットに`roles/storage.objectViewer`と`roles/storage.legacyBucketReader`を、サブスクリプションに`roles/pubsub.subscriber`を割り当てます。`objectViewer`ロールは`storage.objects.get`と`storage.objects.list`を提供し、`legacyBucketReader`は`storage.buckets.get`を提供します。
 
 ```shell
 gcloud storage buckets add-iam-policy-binding gs://YOUR-BUCKET-NAME \
@@ -398,8 +398,8 @@ gcloud iam service-accounts keys create braze-cdi-gcs-key.json \
 ![Pub/SubサブスクリプションIDとフォルダーパスフィールドが表示されたGoogle Cloud Storage同期フォーム。]({% image_buster /assets/img/cloud_ingestion/gcs_sync_form.png %})
 
 {: start="6"}
-6. **プレビューと検証**を選択して、Brazeがサブスクリプションに到達し、取り込み可能なファイルの一覧を取得できることを確認します。テストが成功すると、バケット内の既存ファイルが一覧表示されますが、それらのファイルは自動的に同期されません。
-7. エラー通知用の連絡先メールアドレスを追加します。Google Cloud Storageの同期はイベント駆動型のため、スケジュールは不要です。Brazeはファイルがアップロードされると自動的に取り込みます。サマリーを確認し、**同期を作成**を選択します。
+6. **プレビューと検証**を選択して、Brazeがサブスクリプションに到達し、取り込み可能なファイルの一覧を表示できることを確認します。テストが成功すると、バケット内の既存ファイルが一覧表示されますが、それらのファイルは自動的に同期されません。
+7. エラー通知用の連絡先メールアドレスを追加します。Google Cloud Storageの同期はイベント駆動型のため、スケジュールは不要です。Brazeは新しいファイルがアップロードされると自動的に取り込みます。サマリーを確認し、**同期を作成**を選択します。
 
 ### 共有バケット内のフォルダーの同期 {#syncing-a-folder-in-a-shared-bucket}
 
@@ -413,13 +413,13 @@ gcloud iam service-accounts keys create braze-cdi-gcs-key.json \
 共有バケット内で同期したいフォルダーごとに、以下を行います。
 
 1. 同期の**Folder**フィールドをパスプレフィックスに設定します（例：`attributes/`）。Brazeはそのプレフィックスで始まるパスのオブジェクトのみを一覧表示し、取り込みます。
-2. そのフォルダー用の専用トピックとプレフィックススコープの通知を作成し、次にそのトピックにサブスクリプションを作成します。
+2. そのフォルダー用に専用のトピックとプレフィックススコープの通知を作成し、次にそのトピックにサブスクリプションを作成します。
 
     ```shell
     # フォルダーごとに1つのトピック
     gcloud pubsub topics create YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID
 
-    # Cloud Storageサービスエージェントにトピックへのpublisher権限を付与
+    # トピックにCloud Storageサービスエージェントのpublisher権限を割り当てる
     gcloud pubsub topics add-iam-policy-binding YOUR-ATTRIBUTES-TOPIC \
       --project=YOUR-PROJECT-ID \
       --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
@@ -435,7 +435,7 @@ gcloud iam service-accounts keys create braze-cdi-gcs-key.json \
       --topic=YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID --ack-deadline=60
     ```
 
-3. [ステップ5](#step-5-grant-permissions)と同様に、Brazeサービスアカウントにそのサブスクリプションのconsume権限を付与します。
+3. [ステップ5](#step-5-assign-permissions)と同様に、Brazeサービスアカウントにそのサブスクリプションのconsume権限を割り当てます。
 
     ```shell
     gcloud pubsub subscriptions add-iam-policy-binding YOUR-ATTRIBUTES-SUBSCRIPTION \
@@ -444,7 +444,7 @@ gcloud iam service-accounts keys create braze-cdi-gcs-key.json \
       --role="roles/pubsub.subscriber"
     ```
 
-    [ステップ5](#step-5-grant-permissions)でカスタムロールを作成した場合は、代わりに`--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"`を使用してください。
+    [ステップ5](#step-5-assign-permissions)でカスタムロールを作成した場合は、代わりに`--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"`を使用してください。
 4. Brazeで同期を作成する際に、このフォルダーの新しい**Pub/SubサブスクリプションID**と**フォルダーパス**を入力して、そのフォルダーのファイルのみを取り込むようにします。
 
 
@@ -458,7 +458,7 @@ gcloud iam service-accounts keys create braze-cdi-gcs-key.json \
 - ユーザーデータ（属性、カスタムイベント、購入イベント）はユーザー識別子とペイロードを使用します
 - カタログデータはカタログ識別子を使用します
 
-ファイルストレージをカタログデータに使用している場合は、このページと[カタログデータの同期と削除]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)を併せて参照し、カタログ固有の要件と動作を確認してください。
+カタログデータにファイルストレージを使用している場合は、このページと[カタログデータの同期と削除]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)を併せて参照し、カタログ固有の要件と動作を確認してください。
 
 Braze は、ファイルストレージプロバイダーが適用する制約以外に、追加のファイル名要件を設けていません。ファイル名は一意である必要があります。タイムスタンプを付加すると一意性を確保しやすくなります。
 
@@ -471,16 +471,16 @@ Braze は、ファイルストレージプロバイダーが適用する制約�
 | 識別子 | 説明 |
 | --- | --- |
 | `EXTERNAL_ID` | 更新対象のユーザーを識別します。Brazeで使用される `external_id` の値と一致する必要があります。 |
-| `ALIAS_NAME` と `ALIAS_LABEL` | この2つのカラムでユーザーエイリアスオブジェクトを作成します。`alias_name` は一意の識別子で、`alias_label` はエイリアスの種類を指定します。ユーザーは異なるラベルで複数のエイリアスを持つことができますが、`alias_label` ごとに `alias_name` は1つだけです。 |
+| `ALIAS_NAME` と `ALIAS_LABEL` | この2つのカラムでユーザーエイリアスオブジェクトを作成します。`alias_name` は一意の識別子で、`alias_label` はエイリアスのタイプを指定します。ユーザーは異なるラベルで複数のエイリアスを持つことができますが、`alias_label` ごとに `alias_name` は1つだけです。 |
 | `BRAZE_ID` | Brazeユーザー識別子です。Braze SDKによって生成され、Cloud Data Ingestion を通じて Braze ID で新規ユーザーを作成することはできません。新規ユーザーを作成するには、external ID またはユーザーエイリアスを指定してください。 |
 | `EMAIL` | ユーザーのメールアドレスです。同じメールアドレスを持つ複数のプロファイルが存在する場合、最後に更新されたプロファイルが優先されます。メールと電話番号の両方を含める場合、Brazeはメールをプライマリ識別子として使用します。 |
 | `PHONE` | ユーザーの電話番号です。同じ電話番号を持つ複数のプロファイルが存在する場合、最後に更新されたプロファイルが優先されます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザー識別子" }
 
-識別子に加えて、各行には Braze のユーザーに同期するフィールドの JSON 文字列を含む `PAYLOAD` カラムが必要です。
+識別子に加えて、各行にはBrazeのユーザーに同期するフィールドのJSON文字列を含む `PAYLOAD` カラムが必要です。
 
 {% alert note %}
-データウェアハウスソースとは異なり、`UPDATED_AT` カラムはファイルストレージ同期では不要であり、サポートもされていません。
+データウェアハウスソースとは異なり、`UPDATED_AT` カラムはファイルストレージ同期では不要であり、サポートされていません。
 {% endalert %}
 
 ### カタログ識別子 {#catalog-identifiers}
@@ -490,14 +490,14 @@ Braze は、ファイルストレージプロバイダーが適用する制約�
 | カラム | 必須 | 説明 |
 | --- | --- | --- |
 | `ID` | はい | カタログアイテムの一意の識別子です。Brazeでアイテムの作成、更新、削除に使用されます。 |
-| `PAYLOAD` | はい | 同期するカタログフィールドと値の JSON 文字列です。Brazeのカタログスキーマと一致する必要があります。 |
-| `DELETED` | いいえ | `true` の場合、一致する `ID` のカタログアイテムが Braze のカタログから削除されます。作成または更新操作の場合は、このカラムを省略するか `false` に設定してください。 |
+| `PAYLOAD` | はい | 同期するカタログフィールドと値のJSON文字列です。Brazeのカタログスキーマと一致する必要があります。 |
+| `DELETED` | いいえ | `true` の場合、一致する `ID` のカタログアイテムがBrazeのカタログから削除されます。作成または更新操作の場合は、このカラムを省略するか `false` に設定してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="カタログ識別子" }
 
 ### 例 {#examples}
 
 {% tabs %}
-{% tab JSON 属性 %}
+{% tab JSON属性 %}
 ``` json
 {"external_id":"s3-qa-0","payload":"{\"name\": \"GT896\", \"age\": 74, \"subscriber\": true, \"retention\": {\"previous_purchases\": 21, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600803\"}"}
 {"external_id":"s3-qa-1","payload":"{\"name\": \"HSCJC\", \"age\": 86, \"subscriber\": false, \"retention\": {\"previous_purchases\": 0, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600824\"}"}
@@ -508,29 +508,29 @@ Braze は、ファイルストレージプロバイダーが適用する制約�
 {"external_id":"s3-qa-6","payload":"{\"name\": \"T93MJ\", \"age\": 47, \"subscriber\": true, \"retention\": {\"previous_purchases\": 10, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600856\"}"}
 ```
 {% alert important %}
-ソースファイルの各行には有効な JSON が含まれている必要があります。含まれていない場合、そのファイルはスキップされます。
+ソースファイルの各行には有効なJSONが含まれている必要があります。含まれていない場合、そのファイルはスキップされます。
 {% endalert %}
 {% endtab %}
-{% tab JSON カスタムイベント %}
+{% tab JSONカスタムイベント %}
 ``` json
 {"external_id":"s3-qa-0","payload":"{\"app_id\": \"YOUR_APP_ID\", \"name\": \"view-206\", \"time\": \"2024-04-02T14:34:08\", \"properties\": {\"bool_value\": false, \"preceding_event\": \"unsubscribe\", \"important_number\": 206}}"}
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"name\": \"view-206\", \"time\": \"2024-04-02T14:34:08\", \"properties\": {\"bool_value\": false, \"preceding_event\": \"unsubscribe\", \"important_number\": 206}}"}
 ```
 {% alert important %}
-ソースファイルの各行には有効な JSON が含まれている必要があります。含まれていない場合、そのファイルはスキップされます。
+ソースファイルの各行には有効なJSONが含まれている必要があります。含まれていない場合、そのファイルはスキップされます。
 {% endalert %}
 {% endtab %}
-{% tab JSON 購入イベント %}
+{% tab JSON購入イベント %}
 ``` json
 {"external_id":"s3-qa-0","payload":"{\"app_id\": \"YOUR_APP_ID\", \"product_id\": \"product-11\", \"currency\": \"BSD\", \"price\": 8.511527858335066, \"time\": \"2024-04-02T14:34:08\", \"quantity\": 19, \"properties\": {\"is_a_boolean\": true, \"important_number\": 40, \"preceding_event\": \"click\"}}"}
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"product_id\": \"product-11\", \"currency\": \"BSD\", \"price\": 8.511527858335066, \"time\": \"2024-04-02T14:34:08\", \"quantity\": 19, \"properties\": {\"is_a_boolean\": true, \"important_number\": 40, \"preceding_event\": \"click\"}}"}
 ```
 {% alert important %}
-ソースファイルの各行には有効な JSON が含まれている必要があります。含まれていない場合、そのファイルはスキップされます。
+ソースファイルの各行には有効なJSONが含まれている必要があります。含まれていない場合、そのファイルはスキップされます。
 {% endalert %}
 
 {% endtab %}
-{% tab CSV 属性 %}
+{% tab CSV属性 %}
 ```plaintext
 external_id,payload
 s3-qa-load-0-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""SNXIM"", ""age"": 54, ""subscriber"": true, ""retention"": {""previous_purchases"": 19, ""vip"": true}, ""last_visit"": ""2023-08-08T16:03:26.598806""}"
@@ -538,13 +538,13 @@ s3-qa-load-1-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""0J747"", ""age""
 s3-qa-load-2-d0daa196-cdf5-4a69-84ae-4797303aee75,"{""name"": ""EP1U0"", ""age"": 99, ""subscriber"": false, ""retention"": {""previous_purchases"": 23, ""vip"": false}, ""last_visit"": ""2023-08-08T16:03:26.598822""}"
 ```
 {% endtab %}
-{% tab CSV カタログ %}
+{% tab CSVカタログ %}
 ```plaintext
 ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
-オプションの `DELETED` カラムを含めることができます。`DELETED` が `true` の場合、そのカタログアイテムは Braze のカタログから削除されます。必須カラムの一覧については、[カタログ識別子](#catalog-identifiers)を参照してください。削除の動作については、[カタログアイテムの削除](#deleting-catalog-items)を参照してください。エンドツーエンドのカタログ設定フロー（対象カタログの作成と同期動作を含む）については、[カタログデータの同期と削除]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)を参照してください。
+オプションの `DELETED` カラムを含めることができます。`DELETED` が `true` の場合、そのカタログアイテムはBrazeのカタログから削除されます。必須カラムの一覧については、[カタログ識別子](#catalog-identifiers)を参照してください。削除の動作については、[カタログアイテムの削除](#deleting-catalog-items)を参照してください。エンドツーエンドのカタログ設定フロー（ターゲットカタログの作成と同期動作を含む）については、[カタログデータの同期と削除]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)を参照してください。
 {% endtab %}
 
 {% endtabs %}
@@ -569,7 +569,7 @@ ID,PAYLOAD,DELETED
 | 識別子 | 説明 |
 | --- | --- |
 | `EXTERNAL_ID` | Brazeで使用される`external_id`と一致します。 |
-| `ALIAS_NAME`と`ALIAS_LABEL` | 両方の列を組み合わせて、エイリアスでユーザーを識別します。 |
+| `ALIAS_NAME`と`ALIAS_LABEL` | 両方の列を組み合わせてエイリアスでユーザーを識別します。 |
 | `BRAZE_ID` | Brazeが生成したユーザーID（既存ユーザーのみ）。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーの削除" }
 
@@ -616,7 +616,7 @@ ID,PAYLOAD,DELETED
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
 
-同期が実行されると、`deleted: true`の行に対応するカタログアイテムがBrazeで削除されます。カタログの同期と削除の動作の詳細については、[カタログデータの同期と削除]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)を参照してください。
+同期が実行されると、`deleted: true`の行に一致するカタログアイテムがBrazeで削除されます。カタログの同期と削除の動作の詳細については、[カタログデータの同期と削除]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)を参照してください。
 
 ## 知っておくべきこと {#things-to-know}
 
@@ -653,7 +653,7 @@ Amazon S3と同様に、CDIは同期が作成された後にアップロード�
 
 - バケット通知が存在すること。`gcloud storage buckets notifications list gs://YOUR-BUCKET-NAME`でバケットの通知を一覧表示できます。
 - Cloud Storageサービスエージェントがトピックに対して`roles/pubsub.publisher`を持っていること。
-- Brazeサービスアカウントがサブスクリプションに対する消費権限（`pubsub.subscriptions.consume`、カスタムロールまたは`roles/pubsub.subscriber`を通じて付与）を持っていること。
+- Brazeサービスアカウントがサブスクリプションに対する消費権限（`pubsub.subscriptions.consume`、カスタムロールまたは`roles/pubsub.subscriber`を通じて割り当て）を持っていること。
 - サブスクリプションにデッドレターキューが設定されていないこと。BrazeはCloud Data Ingestionサブスクリプションのデッドレターキューをサポートしていません。
 
 詳細については、Google Cloudドキュメントの[Cloud StorageのPub/Sub通知](https://cloud.google.com/storage/docs/pubsub-notifications)を参照してください。

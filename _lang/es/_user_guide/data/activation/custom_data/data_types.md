@@ -135,7 +135,7 @@ Puedes ver hasta 100 informes de uso a la vez seleccionando las casillas de veri
 
 ### Pestaña de valores {#values-tab}
 
-Al ver un informe de uso, selecciona la pestaña **Values** para ver los valores principales de los atributos personalizados seleccionados basados en una muestra de aproximadamente 250 000 usuarios. Ten en cuenta que, dado que los resultados se obtienen de un subconjunto de usuarios, la muestra no incluye todos los valores existentes. Esto significa que la pestaña **Values** no debe usarse para solución de problemas ni para casos que requieran incorporar datos de todos los usuarios.
+Al ver un informe de uso, selecciona la pestaña **Values** para ver los valores principales de los atributos personalizados seleccionados basándose en una muestra de aproximadamente 250 000 usuarios. Ten en cuenta que, dado que los resultados se obtienen de un subconjunto de usuarios, la muestra no incluye todos los valores existentes. Esto significa que la pestaña **Values** no debe usarse para solución de problemas ni para ejemplos que requieran incorporar datos de todos los usuarios.
 
 ![Informe de uso para atributos personalizados seleccionados con una pestaña "Values" abierta que muestra un gráfico circular de valores del atributo de país, como "US" y "PR".]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
@@ -175,7 +175,7 @@ Los siguientes tipos de datos pueden almacenarse como atributos personalizados:
 
 ### Booleanos (verdadero/falso) {#booleans}
 
-Los atributos booleanos son útiles para almacenar datos binarios simples sobre tus usuarios, como estados de suscripción. Puedes encontrar usuarios que tienen explícitamente una variable establecida como verdadera o falsa, además de aquellos que aún no tienen ningún registro de ese atributo.
+Los atributos booleanos son útiles para almacenar datos binarios simples sobre tus usuarios, como estados de suscripción. Puedes encontrar usuarios que tengan explícitamente una variable establecida como verdadera o falsa, además de aquellos que aún no tienen ningún registro de ese atributo.
 
 Para los atributos **booleanos**, están disponibles las siguientes opciones de segmentación.
 
@@ -190,7 +190,7 @@ Para los atributos **booleanos**, están disponibles las siguientes opciones de 
 {% tab Números %}
 
 {% alert tip %}
-El dinero gastado no debe registrarse con este método. Más bien, debe registrarse a través de [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events).
+El dinero gastado no debe registrarse con este método. En su lugar, debe registrarse a través de [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events).
 {% endalert %}
 
 Para los atributos **numéricos**, están disponibles las siguientes opciones de segmentación.
@@ -208,7 +208,7 @@ Para los atributos **numéricos**, están disponibles las siguientes opciones de
 #### Detalles de atributos numéricos {#number-attribute-details}
 
 - Los filtros "Exactamente 0" y "Menor que" incluyen usuarios con campos NULL
-  - Para excluir usuarios sin un valor para atributos personalizados, necesitas incluir el filtro **is not blank**.
+  - Para excluir usuarios sin un valor para atributos personalizados, debes incluir el filtro **is not blank**.
 
 {% endtab %}
 {% tab Cadenas %}
@@ -232,15 +232,17 @@ Para los atributos de **cadena**, están disponibles las siguientes opciones de 
 {% multi_lang_include alerts/note_alerts.md alert='Custom Attributes time attribute' %}
 
 {% alert important %}
-Al segmentar usando el filtro **DOES NOT MATCH REGEX**, ya debes tener un atributo personalizado con un valor asignado en ese perfil de usuario. Braze sugiere usar la lógica "OR" para comprobar si un atributo personalizado está vacío y así asegurar que los usuarios se segmenten correctamente.
+Al segmentar con el filtro **DOES NOT MATCH REGEX**, ya debes tener un atributo personalizado con un valor asignado en ese perfil de usuario. Braze sugiere usar la lógica "OR" para comprobar si un atributo personalizado está vacío y así asegurar que los usuarios se segmenten correctamente.
 {% endalert %}
 
 {% endtab %}
 {% tab Matrices %}
 
+### Matrices {#arrays}
+
 Las matrices tienen un tamaño máximo de 100&nbsp;KB. La longitud predeterminada de un atributo es de hasta 500 elementos (por ejemplo, si envías un atributo como "Películas vistas" configurado en 500, cuando un usuario vea una película número 501, la primera película se elimina y se añade la más reciente). Ten en cuenta que si introduces valores con espacios entre, antes o después de las palabras, Braze también comprobará esos mismos espacios.
 
-Los atributos personalizados de tipo matriz no se pueden importar a través de [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Para cargar valores de matriz, usa el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/cloud_ingestion).
+Los atributos personalizados de tipo matriz no se pueden importar a través de [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Para cargar valores de matrices, usa el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/cloud_ingestion).
 
 {% alert note %}
 La opción de aumentar la longitud máxima no estará disponible si el atributo está configurado para detectar automáticamente el tipo de datos; el tipo de datos debe establecerse como matriz.
@@ -257,7 +259,7 @@ Si un atributo personalizado de matriz aparece en un perfil de usuario pero no m
 
 Establecer **Max Length** en `0` impide que los valores se muestren en el perfil de usuario.
 
-Para ejemplos de comportamiento de matrices enfocados en el SDK, consulta [Resumen de análisis]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#arrays).
+Para ver ejemplos de comportamiento de matrices orientados al SDK, consulta [Resumen de análisis]({{site.baseurl}}/developer_guide/analytics#arrays).
 
 Para los atributos de **matriz**, están disponibles las siguientes opciones de segmentación.
 
@@ -277,7 +279,7 @@ Para los atributos de **matriz**, están disponibles las siguientes opciones de 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalles de atributos numéricos" }
 
 {% alert tip %}
-Para más información sobre cómo usar expresiones regulares (regex), consulta estos recursos:
+Para obtener más información sobre cómo usar expresiones regulares (regex), consulta estos recursos:
 
 - [Expresiones regulares compatibles con Perl (PCRE)](https://www.regextester.com/pregsyntax.html)
 - [Regex con Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
@@ -288,14 +290,14 @@ Para más información sobre cómo usar expresiones regulares (regex), consulta 
 {% endtab %}
 {% tab Hora %}
 
-Los atributos de hora son útiles para almacenar la última vez que se realizó una acción específica, de modo que puedas ofrecer mensajes de reactivación con contenido específico a tus usuarios.
+Los atributos de hora son útiles para almacenar la última vez que se realizó una acción específica, de modo que puedas ofrecer mensajería de reactivación con contenido específico a tus usuarios.
 
-Los filtros de hora que usan fechas relativas (por ejemplo, hace más de 1 día, hace menos de 2 días) miden 1 día como 24 horas. Cualquier Campaign que ejecutes usando estos filtros incluirá a todos los usuarios en incrementos de 24 horas. Por ejemplo, `last used app more than 1 day ago` capturará a todos los usuarios que "usaron la aplicación por última vez hace más de 24 horas" desde el momento exacto en que se ejecuta la Campaign. Lo mismo se aplicará a Campaigns configuradas con rangos de fechas más largos, por lo que cinco días desde la activación significarán las 120 horas anteriores.
+Los filtros de hora que usan fechas relativas (por ejemplo, hace más de 1 día, hace menos de 2 días) miden 1 día como 24 horas. Cualquier Campaign que ejecutes con estos filtros incluirá a todos los usuarios en incrementos de 24 horas. Por ejemplo, `last used app more than 1 day ago` capturará a todos los usuarios que "usaron la aplicación por última vez hace más de 24 horas" desde el momento exacto en que se ejecuta la Campaign. Lo mismo se aplica a Campaigns configuradas con rangos de fechas más largos, por lo que cinco días desde la activación significarán las 120 horas anteriores.
 
-Para segmentar usuarios que tienen un atributo de hora que cae dentro de un rango de tiempo, usa dos filtros de audiencia: `in more than` para el límite inferior e `in less than` para el límite superior. Un solo filtro no puede expresar ambos lados de ese rango. Por ejemplo, para segmentar usuarios con un atributo de hora en las próximas 24 horas (entre ahora y un día a partir de ahora), aplica `in more than 0 days` e `in less than 1 day`.
+Para segmentar usuarios que tienen un atributo de hora dentro de un rango de tiempo, usa dos filtros de audiencia: `in more than` para el límite inferior e `in less than` para el límite superior. Un solo filtro no puede expresar ambos lados de ese rango. Por ejemplo, para segmentar usuarios con un atributo de hora en las próximas 24 horas (entre ahora y un día a partir de ahora), aplica `in more than 0 days` e `in less than 1 day`.
 
 {% alert warning %}
-La última fecha en que ocurrió un evento personalizado o un evento de compra se registra automáticamente y no debe registrarse de nuevo a través de un atributo personalizado de hora.
+La última fecha en que ocurrió un evento personalizado o un evento de compra se registra automáticamente y no debe registrarse de nuevo a través de un atributo de hora personalizado.
 {% endalert %}
 
 Para los atributos de **hora**, están disponibles las siguientes opciones de segmentación.
@@ -310,7 +312,11 @@ Para los atributos de **hora**, están disponibles las siguientes opciones de se
 | Comprobar si el atributo de hora es de **menos de X número** de **días en el futuro** | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | Si este filtro especifica `7` y un perfil de usuario tiene una fecha de menos de siete días en el futuro, el usuario coincidirá con este filtro.|
 | Comprobar si el atributo de hora **existe** en el perfil de un usuario y no es nulo | **IS NOT BLANK** | **N/A** | Si este filtro especifica un atributo de hora que está en un perfil de usuario, el usuario coincidirá con este filtro.|
 | Comprobar si el atributo de hora **no existe** en el perfil de un usuario o es nulo | **IS BLANK** | **N/A** | Si este filtro especifica un atributo de hora que no está en un perfil de usuario, el usuario coincidirá con este filtro. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalles de atributos de hora" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalles de atributos numéricos" }
+
+{% alert note %}
+Al usar los operadores **in less than** o **in more than** con 90 días o más, Braze convierte automáticamente el valor a semanas cuando guardas el Segment. Por ejemplo, 90 días se convierte en 13 semanas.
+{% endalert %}
 
 #### Detalles de atributos de hora {#time-attribute-details}
 
@@ -319,17 +325,17 @@ Para los atributos de **hora**, están disponibles las siguientes opciones de se
 {% endtab %}
 {% tab Objetos %}
 
-Puedes usar atributos personalizados anidados para enviar objetos como tipo de datos para atributos personalizados. Para más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+Puedes usar atributos personalizados anidados para enviar objetos como tipo de datos para atributos personalizados. Para obtener más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% endtab %}
 {% tab Matrices de objetos %}
 
-Usa una matriz de objetos para agrupar atributos relacionados. Para más detalles, consulta [Matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
+Usa una matriz de objetos para agrupar atributos relacionados. Para obtener más detalles, consulta [Matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 
 {% endtab %}
 {% endtabs %}
 
-Puedes cambiar el tipo de datos de tu atributo personalizado, pero debes tener en cuenta los impactos. Consulta [Cambiar el tipo de datos de un atributo personalizado o evento](#changing-custom-attribute-or-event-data-type) para más información.
+Puedes cambiar el tipo de datos de tu atributo personalizado, pero debes tener en cuenta los impactos. Consulta [Cambiar el tipo de datos de un atributo personalizado o evento](#changing-custom-attribute-or-event-data-type) para obtener más información.
 
 ### Operadores consolidados {#consolidated-operators}
 

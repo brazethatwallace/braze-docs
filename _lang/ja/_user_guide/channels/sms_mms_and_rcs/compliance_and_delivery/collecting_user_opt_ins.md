@@ -7,6 +7,7 @@ page_type: reference
 channel:
   - SMS
 
+
 ---
 
 # ユーザーオプトインの収集 {#collect-user-opt-ins}
@@ -15,11 +16,11 @@ channel:
 
 ## オプション1：ユーザーにショートコードまたはロングコードへのテキスト送信を依頼する {#option-1-ask-users-to-text-your-short-or-long-code}
 
-ユーザーに「START」、「UNSTOP」、「YES」、またはカスタムオプトインキーワードをあなたの番号にテキスト送信するよう依頼すると、自動的に購読グループに追加されます。Webサイト、モバイルアプリ、さらには広告でも、ユーザーにオプトインのためのテキスト送信を依頼でき、必要に応じてインセンティブを提供することもできます。
+ユーザーに「START」、「UNSTOP」、「YES」、またはカスタムオプトインキーワードを番号にテキスト送信するよう依頼すると、自動的に購読グループに追加されます。Webサイト、モバイルアプリ、さらには広告でユーザーにオプトインを促すことができ、必要に応じてインセンティブを提供することもできます。
 
 ## オプション2：アプリ内メッセージでユーザーがオプトインする {#option-2-users-opt-in-via-in-app-message}
 
-アプリ内メッセージからユーザーがSMSにオプトインできるようにするには、Brazeが提供する[電話番号キャプチャフォーム]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture)を使用して、電話番号を収集しSMSリストを拡大できるブランド対応フォームを作成します。
+アプリ内メッセージからユーザーがSMSにオプトインできるようにするには、Brazeが提供する[電話番号キャプチャフォーム]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture)を使用して、電話番号を収集しSMSリストを拡大するためのブランド付きフォームを作成します。
 
 ![電話番号キャプチャ用テンプレートを使用したアプリ内メッセージ作成画面。]({% image_buster /assets/img_archive/dnd_iam_phone_capture_select.png %}){: style="max-width:80%;"}
 
@@ -27,7 +28,7 @@ Brazeでは、[SMSダブルオプトイン]({{site.baseurl}}/user_guide/channels
 
 ## オプション3：サインアップフロー {#option-3-sign-up-flow}
 
-新しいユーザーがWebサイトまたはアプリでサインアップまたは登録する際に、電話番号とメールアドレスを尋ねます。プロモーションメールやSMSを受信するためのチェックボックスを含めてください。
+新しいユーザーがWebサイトまたはアプリでサインアップまたは登録する際に、電話番号とメールアドレスを尋ねます。プロモーションメールやSMSの受信に同意するチェックボックスを含めてください。
 
 ユーザーがサインアップした後、以下を行います。
 

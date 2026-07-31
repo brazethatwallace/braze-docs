@@ -24,7 +24,7 @@ Si c'est la première fois que vous créez une campagne e-mail, nous vous recomm
 
 ## Étape 1 : Choisir où créer votre message {#step-1-choose-where-to-build-your-message}
 
-Utilisez les Campaigns pour des communications simples et ponctuelles. Utilisez les Canvas pour des parcours utilisateur en plusieurs étapes.
+Utilisez les Campaigns pour des communications simples et ponctuelles. Utilisez Canvas pour des parcours utilisateur en plusieurs étapes.
 
 {% tabs %}
 {% tab Campaign %}
@@ -34,7 +34,7 @@ Utilisez les Campaigns pour des communications simples et ponctuelles. Utilisez 
 3. Donnez à votre Campaign un nom clair et significatif.
 4. Ajoutez des [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) selon vos besoins.
    * Les tags facilitent la recherche de vos Campaigns et la création de rapports. Par exemple, lorsque vous utilisez le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par tags spécifiques.
-5. Ajoutez et nommez autant de variantes que nécessaire pour votre Campaign. Pour en savoir plus sur ce sujet, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+5. Ajoutez et nommez autant de variantes que nécessaire pour votre Campaign. Pour en savoir plus sur ce sujet, consultez [Test multivarié et test A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
 Si tous les messages de votre Campaign sont similaires ou ont le même contenu, composez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite choisir **Copy from Variant** dans le menu déroulant **Add Variant**.
@@ -68,7 +68,7 @@ Nous recommandons de sélectionner une seule expérience d'édition par campagne
 
 ## Étape 3 : Composer votre e-mail {#step-3-compose-your-email}
 
-Après avoir sélectionné votre modèle, vous verrez un aperçu de votre e-mail où vous pouvez accéder directement à l'éditeur en plein écran pour rédiger votre e-mail, modifier vos informations d'envoi et consulter les avertissements relatifs à la livrabilité ou à la conformité légale. Vous pouvez basculer entre les onglets HTML, classique, texte brut et [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email) pendant la rédaction.
+Après avoir sélectionné votre modèle, vous verrez un aperçu de votre e-mail où vous pouvez accéder directement à l'éditeur en plein écran pour rédiger votre e-mail, modifier vos informations d'envoi et consulter les avertissements relatifs à la livrabilité ou à la conformité légale. Vous pouvez basculer entre les onglets HTML, classique, texte brut et [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email) pendant la composition.
 
 ![Le bouton « Regenerate from HTML ».]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 
@@ -106,7 +106,7 @@ Par exemple, pour conserver un arrière-plan blanc sur une cellule, utilisez cec
 Remplacez `#ffffff` par la couleur souhaitée.
 
 {% alert note %}
-Cette approche ne s'applique pas de manière fiable aux éléments `<table aria-label="Application mobile Gmail et mode sombre #gmail-dark-mode">` seuls, définissez donc le dégradé sur la cellule plutôt que uniquement sur le tableau.
+Cette approche ne s'applique pas de manière fiable aux éléments `<table aria-label="Application mobile Gmail et mode sombre #gmail-dark-mode">` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
   <caption>Application mobile Gmail et mode sombre</caption>
 {% endalert %}
 
@@ -130,7 +130,7 @@ Vous pouvez également ajouter de la personnalisation pour les en-têtes d'e-mai
 
 ##### Pièces jointes d'e-mail {#email-attachments}
 
-Vous pouvez également ajouter des pièces jointes d'e-mail par les méthodes suivantes :
+Vous pouvez également ajouter des pièces jointes aux e-mails par les méthodes suivantes :
 
 {% multi_lang_include email/attachment_upload_options.md %}
 
@@ -203,16 +203,16 @@ Les valeurs des extras d'e-mail ne sont pas publiées vers Currents ou Snowflake
 
 ### Étape 3.2 : Prévisualiser et tester votre message {#step-3b-preview-and-test-your-message}
 
-Après avoir terminé la rédaction de votre e-mail, testez-le avant de l'envoyer. En bas de l'écran d'aperçu, sélectionnez **Preview and Test**.
+Après avoir terminé la composition de votre e-mail, testez-le avant de l'envoyer. En bas de l'écran d'aperçu, sélectionnez **Preview and Test**.
 
 Ici, vous pouvez prévisualiser l'apparence de votre e-mail dans la boîte de réception d'un client. Avec **Preview as User** sélectionné, vous pouvez prévisualiser votre e-mail en tant qu'utilisateur aléatoire, sélectionner un utilisateur spécifique ou créer un utilisateur personnalisé. Cela vous permet de vérifier que vos appels de contenu connecté et de personnalisation fonctionnent comme prévu.
 
-Ensuite, vous pouvez **Copy preview link** pour générer et copier un lien de prévisualisation partageable qui montre à quoi ressemblera l'e-mail pour un utilisateur aléatoire. Le lien sera valide pendant sept jours avant de devoir être régénéré.
+Ensuite, vous pouvez **Copy preview link** pour générer et copier un lien de prévisualisation partageable qui montre à quoi ressemblera l'e-mail pour un utilisateur aléatoire. Pour plus d'informations, consultez [Prévisualisation partageable]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
 Vous pouvez également basculer entre les vues bureau, mobile et texte brut pour avoir une idée de l'apparence de votre message dans différents contextes.
 
 {% alert tip %}
-Curieux de savoir à quoi ressemble votre e-mail pour les utilisateurs en mode sombre ? Sélectionnez le bouton bascule **Dark Mode Preview** situé dans la section **Preview and Test** (éditeur par glisser-déposer uniquement). Si vous utilisez l'éditeur HTML, vous pouvez tout de même gérer le rendu en mode sombre de l'application mobile Gmail avec [Application mobile Gmail et mode sombre](#gmail-dark-mode).
+Curieux de savoir à quoi ressemble votre e-mail pour les utilisateurs en mode sombre ? Sélectionnez la bascule **Dark Mode Preview** située dans la section **Preview and Test** (éditeur par glisser-déposer uniquement). Si vous utilisez l'éditeur HTML, vous pouvez toujours gérer le rendu en mode sombre de l'application mobile Gmail avec [Application mobile Gmail et mode sombre](#gmail-dark-mode).
 {% endalert %}
 
 Lorsque vous êtes prêt pour une vérification finale, sélectionnez **Test Send** et envoyez un message de test à vous-même ou à un groupe de testeurs pour confirmer que l'e-mail s'affiche correctement sur tous les appareils et clients.
@@ -222,14 +222,14 @@ Lorsque vous êtes prêt pour une vérification finale, sélectionnez **Test Sen
 Si vous constatez des problèmes avec votre e-mail ou souhaitez apporter des modifications, sélectionnez **Edit Email** pour revenir à l'éditeur.
 
 {% alert tip %}
-Les clients de messagerie qui prennent en charge le texte d'aperçu récupèrent toujours suffisamment de caractères pour remplir tout l'espace disponible du texte d'aperçu. Cependant, cela peut vous laisser dans des situations où le texte d'aperçu est incomplet ou non optimisé.
-<br><br>Pour éviter cela, vous pouvez créer un espace blanc après le texte d'aperçu souhaité afin que les clients de messagerie ne récupèrent pas d'autres textes ou caractères distrayants dans le contenu de l'enveloppe. Dans la section **Sending Settings**, vous pouvez cocher la case **Add whitespace after preheader** pour ajouter automatiquement un espace blanc. <br><br>Alternativement, si vous avez besoin de plus de contrôle, vous pouvez ajouter manuellement une chaîne de caractères de non-jointure de largeur nulle (‌`&zwnj;`) et d'espaces insécables (`&nbsp;`) après le texte d'aperçu que vous souhaitez afficher. <br><br>Lorsqu'il est ajouté à la fin de votre texte d'aperçu dans la section d'accroche, le morceau de code suivant pour l'éditeur HTML ajoutera l'espace blanc recherché :<br><br>
+Les clients de messagerie qui prennent en charge le texte d'aperçu récupèrent toujours suffisamment de caractères pour remplir tout l'espace disponible pour le texte d'aperçu. Cependant, cela peut vous laisser dans des situations où le texte d'aperçu est incomplet ou non optimisé.
+<br><br>Pour éviter cela, vous pouvez créer un espace blanc après le texte d'aperçu souhaité afin que les clients de messagerie ne récupèrent pas d'autres textes ou caractères distrayants dans le contenu de l'enveloppe. Dans la section **Sending Settings**, vous pouvez cocher la case **Add whitespace after preheader** pour ajouter automatiquement un espace blanc. <br><br>Alternativement, si vous avez besoin de plus de contrôle, vous pouvez ajouter manuellement une chaîne de caractères de non-jointure de largeur nulle (`&zwnj;`) et d'espaces insécables (`&nbsp;`) après le texte d'aperçu que vous souhaitez afficher. <br><br>Lorsqu'il est ajouté à la fin de votre texte d'aperçu dans la section d'accroche, le morceau de code suivant pour l'éditeur HTML ajoutera l'espace blanc recherché :<br><br>
 
 ```html
 <div style="display: none; max-height: 0px; overflow: hidden;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
 ```
 
-Pour l'éditeur par glisser-déposer, ajoutez uniquement les caractères de non-jointure de largeur nulle (‌`&zwnj;`) sans le formatage `<div>` directement dans l'accroche dans la section **Sending Settings**.
+Pour l'éditeur par glisser-déposer, ajoutez uniquement les caractères de non-jointure de largeur nulle (`&zwnj;`) sans le formatage `<div>` directement dans l'accroche dans la section **Sending Settings**.
 {% endalert %}
 
 {% alert note %}
@@ -262,7 +262,7 @@ Ensuite, construisez le reste de votre campagne. Consultez les sections suivante
 Envoyez des e-mails en fonction d'un horaire planifié, d'une action ou d'un déclencheur API. Pour en savoir plus, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 {% alert note %}
-Pour les campagnes déclenchées par API, lorsque l'action de déclenchement est définie sur **Interact With Campaign**, la sélection d'une option **Receive** comme interaction entraînera le déclenchement de votre nouvelle campagne dès que Braze marquera la campagne sélectionnée comme envoyée, même si ce message rebondit ou n'est pas distribué.
+Pour les Campaigns déclenchées par API, lorsque l'action de déclenchement est définie sur **Interact With Campaign**, la sélection d'une option **Receive** comme interaction entraînera le déclenchement de votre nouvelle campagne dès que Braze marquera la Campaign sélectionnée comme envoyée, même si ce message rebondit ou n'est pas distribué.
 {% endalert %}
 
 Vous pouvez également définir la durée de la campagne, spécifier les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) et configurer des règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
@@ -273,21 +273,21 @@ Ensuite, [ciblez les utilisateurs]({{site.baseurl}}/user_guide/messaging/messagi
 
 {% multi_lang_include audience/target_audiences.md %}
 
-Vous pouvez également choisir d'envoyer votre campagne uniquement aux utilisateurs ayant un [statut d'abonnement]({{site.baseurl}}/user_guide/channels/email/subscriptions) spécifique, comme ceux qui sont abonnés et ont accepté de recevoir des e-mails.
+Vous pouvez également choisir d'envoyer votre campagne uniquement aux utilisateurs ayant un [statut d'abonnement]({{site.baseurl}}/user_guide/channels/email/subscriptions) spécifique, comme ceux qui sont abonnés et ont opté pour recevoir des e-mails.
 
-Vous pouvez aussi limiter la distribution à un nombre spécifié d'utilisateurs au sein du Segment, ou autoriser les utilisateurs à recevoir le même message deux fois lors d'une récurrence de la campagne.
+Vous pouvez aussi limiter la distribution à un nombre spécifié d'utilisateurs au sein du Segment, ou permettre aux utilisateurs de recevoir le même message deux fois lors d'une récurrence de la campagne.
 
 {% alert note %}
 Lors de la création d'une nouvelle campagne par e-mail, le groupe de contrôle est défini par défaut à 20 % et peut être ajusté ou supprimé selon les besoins de votre campagne.
 {% endalert %}
 
-#### Campagnes multicanales avec e-mail et notification push {#multichannel-campaigns-with-email-and-push}
+#### Campaigns multicanales avec e-mail et notification push {#multichannel-campaigns-with-email-and-push}
 
-Pour les campagnes multicanales ciblant à la fois les canaux e-mail et notification push, vous pouvez souhaiter limiter votre campagne afin que seuls les utilisateurs explicitement abonnés reçoivent le message (en excluant les utilisateurs inscrits ou désabonnés). Par exemple, supposons que vous ayez trois utilisateurs avec des statuts d'abonnement différents :
+Pour les Campaigns multicanales ciblant à la fois les canaux e-mail et notification push, vous pouvez souhaiter limiter votre campagne afin que seuls les utilisateurs ayant explicitement opté pour la réception reçoivent le message (en excluant les utilisateurs abonnés ou désabonnés). Par exemple, supposons que vous ayez trois utilisateurs avec des statuts d'abonnement différents :
 
 {% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
-Pour ce faire, sous **Audience Summary**, sélectionnez l'envoi de cette campagne aux « utilisateurs abonnés uniquement ». Cette option garantira que seuls les utilisateurs abonnés recevront votre e-mail, et Braze n'enverra votre notification push qu'aux utilisateurs pour lesquels les notifications push sont activées par défaut.
+Pour ce faire, sous **Audience Summary**, sélectionnez l'envoi de cette campagne aux « utilisateurs ayant opté uniquement ». Cette option garantira que seuls les utilisateurs ayant opté recevront votre e-mail, et Braze n'enverra votre notification push qu'aux utilisateurs pour lesquels les notifications push sont activées par défaut.
 
 {% alert important %}
 Avec cette configuration, n'incluez aucun filtre dans l'étape **Target Audiences** qui limiterait l'audience à un seul canal (par exemple, `Foreground Push Enabled = True` ou `Email Subscription = Opted-In`).

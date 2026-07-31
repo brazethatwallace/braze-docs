@@ -17,7 +17,7 @@ Você pode manter o fluxo da conversa com acompanhamentos. O Operator lembra das
 
 ## Pré-requisitos {#prerequisites}
 
-O Operator tem as mesmas permissões que você, então certas ações exigem a permissão relevante para aquela área. Por exemplo, gerar uma imagem exige *Edit Media Library Assets*. Se você não encontrar um ponto de entrada, verifique suas permissões com o administrador. Para saber mais, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+O Operator tem as mesmas permissões que você, então certas ações exigem a permissão relevante para aquela superfície. Por exemplo, gerar uma imagem requer *Editar ativos da biblioteca de mídia*. Se você não encontrar um ponto de entrada, verifique suas permissões com o administrador. Para saber mais, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 ## O que o Operator pode criar {#what-operator-can-create}
 
@@ -68,7 +68,7 @@ O Operator usa as diretrizes da marca configuradas no seu espaço de trabalho pa
 
 ### Gerar texto {#generate-copy}
 
-Você pode usar o Operator para fazer brainstorming ou gerar textos de qualquer lugar, mas a melhor experiência é usá-lo diretamente no criador de mensagens, onde ele pode trabalhar junto com você na mensagem que está sendo criada. Descreva seu produto ou campanha, e o Operator retorna um texto que você pode revisar e inserir.
+Você pode usar o Operator para fazer brainstorming ou gerar textos de qualquer lugar, mas a melhor experiência é usá-lo diretamente no criador de mensagens, onde ele pode trabalhar junto com você na mensagem que está sendo criada. Descreva seu produto ou Campaign, e o Operator retorna um texto que você pode revisar e inserir.
 
 O Operator melhora o copywriter independente de algumas formas:
 
@@ -101,6 +101,8 @@ Você obtém os melhores resultados quando usa o Operator no criador em que est�
 
 O Operator pode ajudar você a criar [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks), as peças reutilizáveis de conteúdo que você insere em diferentes mensagens. Descreva o bloco que você quer, e o Operator rascunha o conteúdo para você revisar antes de salvar. Como os Content Blocks são compartilhados, atualizar um atualiza todas as mensagens que o referenciam.
 
+O Operator cria Content Blocks um de cada vez no dashboard. Para criar Content Blocks em massa, use o endpoint [Create Content Block]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) com uma chave de API que tenha a permissão `content_blocks.create`.
+
 ### Criar modelos de mensagem {#create-message-templates}
 
 O Operator pode ajudar você a criar [modelos de mensagem]({{site.baseurl}}/user_guide/messaging/templates) reutilizáveis que você pode aplicar em diferentes Campaigns. Descreva o modelo que você quer, e o Operator o rascunha para você revisar antes de salvar. Gerar um modelo funciona de forma semelhante a gerar uma mensagem, então consulte [Gerar mensagens](#generate-messages) para os canais e editores compatíveis.
@@ -118,11 +120,11 @@ Assim como na redação de textos, você pode pedir ao Operator para gerar Liqui
 Fornecer contexto ajuda o Operator a entender o panorama geral do seu projeto. É útil incluir contexto como:
 
 - O nome e o setor da sua empresa
-- Uma campanha em que você está trabalhando, como Black Friday ou promoções de fim de ano
+- Uma Campaign em que você está trabalhando, como Black Friday ou promoções de fim de ano
 - Seu objetivo, como aumentar sua taxa de cliques
 - Atributos personalizados específicos que você quer incluir na sua mensagem
 
-Incluir contexto no seu prompt ajuda o Operator a adaptar suas respostas para atender melhor às suas necessidades. Você também pode incluir detalhes da sua campanha, briefing de mensagem ou documento de brainstorming para atualizar o Operator.
+Incluir contexto no seu prompt ajuda o Operator a adaptar suas respostas para atender melhor às suas necessidades. Você também pode incluir detalhes da sua Campaign, briefing de mensagem ou documento de brainstorming para atualizar o Operator.
 
 #### Seja específico {#generate-liquid-be-specific}
 
@@ -143,7 +145,7 @@ Experimente diferentes prompts para ver como o Operator pode aprimorar suas mens
 
 O Operator gera imagens usando o [GPT Image 2.0](https://openai.com/index/introducing-chatgpt-images-2-0/), um sistema de IA da OpenAI e um provedor terceirizado da Braze. Isso permite que você crie imagens realistas e arte a partir de uma descrição em linguagem natural.
 
-Na [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library), selecione **Gerar com o Operator** no painel **Fazer upload de ativos**. Descreva a imagem que você quer, e o Operator a gera e salva diretamente na sua biblioteca de mídia.
+Na [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library), selecione **Generate with Operator** no painel **Upload Assets**. Descreva a imagem que você quer, e o Operator a gera e salva diretamente na sua biblioteca de mídia.
 
 #### Dicas de prompt {#generate-images-prompt-tips}
 
@@ -191,6 +193,10 @@ O Operator pode referenciar os itens a seguir para responder perguntas ou fundam
 
 Pergunte diretamente ao Operator se você não tem certeza se ele pode consultar uma informação específica.
 
+### Analisar dados de desempenho {#analyze-performance-data}
+
+Faça perguntas em linguagem natural ao Operator sobre o desempenho das suas Campaigns e Canvas, e ele retorna gráficos, comparações e insights resumidos extraídos dos dados do seu espaço de trabalho. Diferentemente dos recursos do Operator que dependem do contexto da página em que você está, o Analyze responde de qualquer lugar no dashboard. Para saber mais, consulte [Operator Analyze]({{site.baseurl}}/user_guide/brazeai/operator/analyze).
+
 ### Escrever consultas de SQL {#write-sql-queries}
 
 O Operator pode ajudar você a escrever SQL para [extensões de segmento](#campaigns-and-audiences) e para [modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) do Query Builder. Descreva a consulta que você quer em linguagem natural, e o Operator gera o SQL para você revisar antes de executar.
@@ -198,6 +204,21 @@ O Operator pode ajudar você a escrever SQL para [extensões de segmento](#campa
 ### Gerar código de transformação de dados {#generate-data-transformation-code}
 
 No editor de [Transformação de dados]({{site.baseurl}}/user_guide/data/unification/data_transformation), selecione **Insert Code** para gerar código de transformação que converte uma carga útil de webhook recebida em solicitações válidas da API da Braze. Para instruções passo a passo sobre como criar uma transformação, consulte [Criar uma transformação]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
+
+## Configurações do espaço de trabalho {#workspace-settings}
+
+O Operator pode revisar e atualizar configurações em várias páginas de configuração do espaço de trabalho. Descreva a alteração desejada, e o Operator a propõe como um cartão de ação para você revisar antes de salvar. As páginas de configurações compatíveis incluem, entre outras:
+
+- [Horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)
+- [Configurações de push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)
+- [Limites de frequência de envio de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)
+- [Fluxos de aprovação]({{site.baseurl}}/user_guide/messaging/governance/approvals), incluindo [regras de envio de mensagens]({{site.baseurl}}/user_guide/messaging/governance/approvals/messaging_rules) e aprovação sempre ativa
+- [APIs e identificadores]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), incluindo [outros identificadores]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers) e limites de API
+- [Informações de contato das configurações de administrador]({{site.baseurl}}/user_guide/administer/global/admin_settings/contact_information)
+
+{% alert note %}
+A cobertura de páginas de configurações do Operator é expandida regularmente. **Pergunte diretamente ao Operator** para obter a resposta mais atualizada sobre o que ele pode configurar.
+{% endalert %}
 
 ## Limitações {#limitations}
 
@@ -208,6 +229,7 @@ A cobertura do Operator muda com frequência. Se você não tem certeza se uma t
 O suporte do Operator no dashboard é amplo, mas tem limites.
 
 - **Canvas:** o Operator não pode criar ou editar [Canvas]({{site.baseurl}}/user_guide/messaging/canvas), mas pode referenciar a configuração de um Canvas existente, como direcionamento e configurações de entrega, para responder perguntas e fundamentar seu resultado.
+- **Duplicação de Campaign:** o Operator não pode duplicar uma Campaign existente a partir da visualização de lista de Campaigns. Para criar uma Campaign semelhante, peça ao Operator para criar uma nova do zero, ou duplique a Campaign manualmente pelo menu **More Actions** da visualização de lista.
 - **Editores de arrastar e soltar:** o Operator não pode gerar ou inserir um design de mensagem diretamente em um editor de arrastar e soltar, como os de [e-mail]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner) e [mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Mude para o editor de HTML correspondente para usar o Operator, ou peça ao Operator para gerar conteúdo, como texto, que você pode colar manualmente. Consulte [Gerar mensagens](#generate-messages) para os canais e editores compatíveis.
 - **Visibilidade da tela:** o Operator usa contexto da página para entender o que você está vendo, incluindo conteúdo dentro de prévias e editores compatíveis. Quando parte de uma página está fora do que o Operator pode ler, ele avisa em vez de adivinhar, para que você saiba descrever esse conteúdo por conta própria.
 - **Limites de uso:** o Operator tem um limite diário de uso para toda a empresa que é redefinido a cada 24 horas. As gerações de imagens contam para esse limite. Se o limite for atingido, uma mensagem "Daily usage limit exceeded" aparece e nenhuma solicitação adicional pode ser feita até que ele seja redefinido. Para etapas de solução de problemas, consulte [Solução de problemas]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting).

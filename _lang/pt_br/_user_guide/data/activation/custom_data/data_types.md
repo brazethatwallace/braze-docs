@@ -238,9 +238,11 @@ Ao segmentar usando o filtro **DOES NOT MATCH REGEX**, você já deve ter um atr
 {% endtab %}
 {% tab Arrays %}
 
+### Arrays {#arrays}
+
 Arrays têm um tamanho máximo de 100&nbsp;KB. O comprimento padrão de um atributo é de até 500 itens (por exemplo, se você estiver enviando um atributo como "Filmes Assistidos" definido como 500, quando um usuário assistir a um 501º filme, o primeiro filme será removido e o mais recente será adicionado). Se você inserir valores com espaços entre, antes ou depois das palavras, a Braze também verificará esses mesmos espaços.
 
-Atributos personalizados do tipo array não podem ser importados via [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Para fazer upload de valores de array, use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/cloud_ingestion).
+Atributos personalizados do tipo array não podem ser importados via [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Para fazer upload de valores de array, use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou a [ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/cloud_ingestion).
 
 {% alert note %}
 A opção de aumentar o comprimento máximo não estará disponível se o atributo estiver configurado para detectar automaticamente o tipo de dado; o tipo de dado deve ser definido como array.
@@ -248,16 +250,16 @@ A opção de aumentar o comprimento máximo não estará disponível se o atribu
 
 #### Solução de problemas: atributo personalizado de array não mostra valor no perfil de usuário {#troubleshooting-array-custom-attribute-shows-no-value-on-a-user-profile}
 
-Se um atributo personalizado de array aparecer no perfil de um usuário, mas não mostrar valores, verifique se o **Max Length** do atributo está definido como `0` no dashboard.
+Se um atributo personalizado de array aparece no perfil de um usuário, mas não mostra valores, verifique se o **Comprimento máximo** do atributo está definido como `0` no dashboard.
 
-1. Acesse **Data Settings** > **Custom Attributes**.
+1. Acesse **Configurações de dados** > **Atributos personalizados**.
 2. Filtre a lista por **Array**.
-3. Encontre o atributo e verifique seu **Max Length**.
-4. Se o **Max Length** for `0`, atualize-o para um valor maior que `0`.
+3. Encontre o atributo e verifique seu **Comprimento máximo**.
+4. Se o **Comprimento máximo** for `0`, atualize-o para um valor maior que `0`.
 
-Definir o **Max Length** como `0` impede que os valores sejam exibidos no perfil do usuário.
+Definir o **Comprimento máximo** como `0` impede que os valores sejam exibidos no perfil do usuário.
 
-Para exemplos de comportamento de arrays focados no SDK, consulte [Visão geral de análise de dados]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#arrays).
+Para exemplos de comportamento de arrays focados no SDK, consulte [Visão geral de análise de dados]({{site.baseurl}}/developer_guide/analytics#arrays).
 
 Para atributos de **array**, as seguintes opções de segmentação estão disponíveis.
 
@@ -268,7 +270,7 @@ Para atributos de **array**, as seguintes opções de segmentação estão dispo
 | Verificar se o atributo de array **contém um valor que corresponde parcialmente** a um valor inserido **OU** expressão regular | **MATCHES REGEX** | **STRING** **OU** **REGULAR EXPRESSION**<br>Máximo de 32.764 caracteres | |
 | Verificar se o atributo de array **tem algum valor** ou não está vazio | **HAS A VALUE** | **N/A** | Se este filtro especificar `favorite_genres` e um perfil de usuário contiver `favorite_genres` com qualquer valor, o usuário corresponderá a este filtro. |
 | Verificar se o atributo de array **está vazio** ou não existe | **IS EMPTY** | **N/A** | Se este filtro especificar `favorite_genres` e um perfil de usuário não contiver `favorite_genres` ou contiver `favorite_genres` sem valores, o usuário corresponderá a este filtro.|
-| Verificar se o atributo de array **inclui um valor que corresponde exatamente a qualquer** um dos valores inseridos | **INCLUDES ANY OF** | **STRING**<br>Diferencia maiúsculas de minúsculas; múltiplos valores permitidos (máximo de 256) | Se este filtro especificar `sci-fi, fantasy, romance` e um perfil de usuário tiver qualquer combinação de `sci-fi`, `fantasy` ou `romance`, incluindo apenas um deles (como somente `sci-fi`). Um usuário pode ter `horror` ou outro valor em sua string se também tiver qualquer um de `sci-fi`, `fantasy` e `romance`.|
+| Verificar se o atributo de array **inclui um valor que corresponde exatamente a qualquer** um dos valores inseridos | **INCLUDES ANY OF** | **STRING**<br>Diferencia maiúsculas de minúsculas; múltiplos valores permitidos (máximo de 256) | Se este filtro especificar `sci-fi, fantasy, romance` e um perfil de usuário tiver qualquer combinação de `sci-fi`, `fantasy` ou `romance`, incluindo apenas um deles (como apenas `sci-fi`). Um usuário pode ter `horror` ou outro valor em sua string se também tiver qualquer um de `sci-fi`, `fantasy` e `romance`.|
 | Verificar se o atributo de array **não inclui um valor que corresponde exatamente a nenhum** dos valores inseridos | **INCLUDES NONE OF** | **STRING**<br>Diferencia maiúsculas de minúsculas; múltiplos valores permitidos (máximo de 256) | Se este filtro especificar `sci-fi, fantasy, romance` e um perfil de usuário não tiver nenhuma combinação de `sci-fi`, `fantasy` ou `romance`, o usuário corresponderá a este filtro. O usuário pode ter `horror` ou outro valor se não tiver nenhum de `sci-fi`, `fantasy` ou `romance`.|
 | Verificar se o atributo de array **contém um valor que corresponde parcialmente a qualquer** um dos valores inseridos | **VALUES CONTAIN ANY OF** | **STRING**<br>Diferencia maiúsculas de minúsculas; múltiplos valores permitidos (máximo de 256) | Se este filtro especificar `gold` e um array do perfil de usuário contiver `gold` em pelo menos uma string, o usuário corresponderá a este filtro. Isso inclui valores de string como `gold_tier`, `former_gold_tier` e outros.|
 | Verificar se o atributo de array **não inclui um valor que corresponde parcialmente a nenhum** dos valores inseridos | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>Diferencia maiúsculas de minúsculas; múltiplos valores permitidos (máximo de 256) | Se este filtro especificar `gold` e um array do perfil de usuário não contiver `gold` em nenhuma string, o usuário corresponderá a este filtro. Isso significa que usuários com valores de string como `gold_tier` e `former_gold_tier` não corresponderão a este filtro.|
@@ -288,9 +290,9 @@ Para saber mais sobre como usar expressões regulares (regex), confira estes rec
 {% endtab %}
 {% tab Hora %}
 
-Atributos de hora são úteis para armazenar a última vez que uma ação específica foi realizada, permitindo que você ofereça mensagens de reengajamento específicas para seus usuários.
+Atributos de hora são úteis para armazenar a última vez que uma ação específica foi realizada, permitindo que você ofereça mensagens de reengajamento específicas aos seus usuários.
 
-Filtros de hora que usam datas relativas (por exemplo, mais de 1 dia atrás, menos de 2 dias atrás) medem 1 dia como 24 horas. Qualquer Campaign que você executar usando esses filtros incluirá todos os usuários em incrementos de 24 horas. Por exemplo, `last used app more than 1 day ago` capturará todos os usuários que "usaram o app pela última vez há mais de 24 horas" a partir do momento exato em que a Campaign é executada. O mesmo se aplica a Campaigns configuradas com intervalos de datas mais longos — cinco dias a partir da ativação significarão as 120 horas anteriores.
+Filtros de hora que usam datas relativas (por exemplo, mais de 1 dia atrás, menos de 2 dias atrás) medem 1 dia como 24 horas. Qualquer Campaign que você executar usando esses filtros incluirá todos os usuários em incrementos de 24 horas. Por exemplo, `last used app more than 1 day ago` capturará todos os usuários que "usaram o app pela última vez há mais de 24 horas" a partir do momento exato em que a Campaign é executada. O mesmo se aplica a Campaigns configuradas com intervalos de datas mais longos — então cinco dias a partir da ativação significarão as 120 horas anteriores.
 
 Para direcionar usuários que têm um atributo de hora dentro de um intervalo de tempo, use dois filtros de público: `in more than` para o limite inferior e `in less than` para o limite superior. Um único filtro não pode expressar ambos os lados desse intervalo. Por exemplo, para direcionar usuários com um atributo de hora nas próximas 24 horas (entre agora e um dia a partir de agora), aplique `in more than 0 days` e `in less than 1 day`.
 
@@ -310,7 +312,11 @@ Para atributos de **hora**, as seguintes opções de segmentação estão dispon
 | Verificar se o atributo de hora é **menos de X número** de **dias no futuro** | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | Se este filtro especificar `7` e um perfil de usuário tiver uma data que é menos de sete dias no futuro, o usuário corresponderá a este filtro.|
 | Verificar se o atributo de hora **existe** no perfil de um usuário e não é nulo | **IS NOT BLANK** | **N/A** | Se este filtro especificar um atributo de hora que está no perfil de um usuário, o usuário corresponderá a este filtro.|
 | Verificar se o atributo de hora **não existe** no perfil de um usuário ou é nulo | **IS BLANK** | **N/A** | Se este filtro especificar um atributo de hora que não está no perfil de um usuário, o usuário corresponderá a este filtro. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalhes de atributos de hora" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalhes de atributos numéricos" }
+
+{% alert note %}
+Ao usar os operadores **in less than** ou **in more than** com 90 dias ou mais, a Braze converte automaticamente o valor para semanas quando você salva o Segment. Por exemplo, 90 dias é convertido para 13 semanas.
+{% endalert %}
 
 #### Detalhes de atributos de hora {#time-attribute-details}
 

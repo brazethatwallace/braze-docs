@@ -125,6 +125,11 @@ For the full JavaScript bridge reference, see [Custom code and JavaScript bridge
 
 #### Step 3.3: Configure dismissal behavior (optional) {#dismiss-behavior}
 
+{% alert important %}
+Banner dismissals require the following minimum SDK versions. Older SDK versions do not render Banners with dismissal enabled.
+{% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 reactnative:22.0.0 flutter:20.0.0 %}
+{% endalert %}
+
 {% tabs %}
 {% tab Drag-and-drop editor %}
 

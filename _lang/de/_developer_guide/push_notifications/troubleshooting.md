@@ -2,17 +2,46 @@
 page_order: 10.9
 nav_title: Fehlerbehebung
 article_title: Fehlerbehebung für Push-Benachrichtigungen im Braze SDK
+description: "Diagnostizieren Sie Probleme bei der Zustellung und Anzeige von Push-Benachrichtigungen mithilfe eines Symptomindex, eines standardisierten Untersuchungspfads und plattformspezifischer SDK-Prüfungen."
 channel:
   - push notifications
 ---
 
 # Fehlerbehebung für Push-Benachrichtigungen {#troubleshoot-push-notifications}
 
-> Erfahren Sie, wie Sie Probleme mit Push-Benachrichtigungen im Braze SDK beheben können.
+> Verwenden Sie diese Seite, um Probleme bei der Zustellung und Anzeige von Push-Benachrichtigungen auf einem Gerät zu diagnostizieren. Informationen zu Dashboard-seitigen Zustellungsprüfungen (Abo-Status, Segmente, Obergrenzen) finden Sie unter [Fehlerbehebung für Push]({{site.baseurl}}/user_guide/channels/push/troubleshooting).
+
+Bevor Sie mit dem Debugging beginnen, fügen Sie sich als [Testnutzer:in]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#adding-test-users) hinzu und lesen Sie [Testnachrichten senden]({{site.baseurl}}/developer_guide/push_notifications/sending_test_messages).
+
+## Hier starten: Symptom zuordnen {#start-here-match-your-symptom}
+
+Finden Sie das Verhalten, das Sie beobachten, in der Tabelle und folgen Sie dann den Schritten des jeweiligen Abschnitts. Wenn Sie sich nicht sicher sind, welcher Abschnitt zutrifft, verwenden Sie den [standardisierten Untersuchungspfad](#standard-investigation-path).
+
+| Symptom | Gehe zu |
+| --- | --- |
+| Push wird auf einer Plattform nicht empfangen | Wählen Sie Ihren SDK-Tab unter [Plattformspezifische Fehlerbehebung](#platform-specific-troubleshooting) |
+| Zeilenumbrüche um Liquid-Tags sehen beim Speichern falsch aus | [Zeilenumbrüche in Push-Benachrichtigungen](#push-linebreaks) |
+| Dashboard-Zustellungsprüfungen (Abo, Segment, Obergrenzen) | [Fehlerbehebung für Push]({{site.baseurl}}/user_guide/channels/push/troubleshooting) |
+| Deeplink aus Push öffnet sich nicht korrekt | [Fehlerbehebung für Deeplinking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting) |
+| Häufige Push-Fehlercodes | [Häufige Push-Fehlermeldungen]({{site.baseurl}}/user_guide/channels/push/push_error_codes) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push-SDK-Symptom" }
+
+## Standardisierter Untersuchungspfad {#standard-investigation-path}
+
+Verwenden Sie diesen Workflow für jeden Push-Benachrichtigungsvorfall. Beginnen Sie bei Schritt 1.
+
+1. Bestätigen Sie, dass das Gerät ein gültiges Push-Token hat und die Push-Berechtigung in den Geräteeinstellungen erteilt wurde.
+2. Bestätigen Sie im Dashboard, dass die/der Testnutzer:in dem Campaign- oder Canvas-[Segment]({{site.baseurl}}/user_guide/channels/push/troubleshooting#segment) entspricht und sich nicht in der [Kontrollgruppe]({{site.baseurl}}/user_guide/channels/push/troubleshooting#control-group-status) befindet.
+3. Senden Sie einen [Test-Push]({{site.baseurl}}/developer_guide/push_notifications/sending_test_messages) an das Testgerät.
+4. [Aktivieren Sie die ausführliche Protokollierung]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduzieren Sie das Problem und lesen Sie die plattformspezifischen Hinweise in Ihrem [SDK-Tab](#platform-specific-troubleshooting).
+5. Wenn das Problem weiterhin besteht, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/braze_support) mit ausführlichen Protokollen, Plattform, SDK-Version und Campaign- oder Canvas-ID.
+
+## Plattformspezifische Fehlerbehebung {#platform-specific-troubleshooting}
+
+Wählen Sie Ihren SDK-Tab für plattformspezifische Einrichtungs- und Anzeigeprüfungen.
 
 {% sdktabs %}
 {% sdktab web %}
-
 ## Fehlerbehebung {#troubleshooting}
 
 Wenn nach der Einrichtung von Push-Benachrichtigungen Probleme auftreten, beachten Sie Folgendes:
@@ -29,7 +58,6 @@ Wenn nach der Einrichtung von Push-Benachrichtigungen Probleme auftreten, beacht
 {% endsdktab %}
 
 {% sdktab swift %}
-
 ## Den Braze/APNs-Workflow verstehen {#understanding-the-brazeapns-workflow}
 
 Der Apple Push Notification Service (APNs) ist die Infrastruktur zum Senden von Push-Benachrichtigungen an Anwendungen, die auf Apple-Plattformen laufen. Hier ist die vereinfachte Struktur, wie Push-Benachrichtigungen für die Geräte Ihrer Nutzer:innen aktiviert werden und wie Braze Push-Benachrichtigungen an sie senden kann:
@@ -157,7 +185,7 @@ Wenn Nutzer:innen Ihre Anwendung deinstalliert haben, wird ihr Push-Token ungül
 
 Als letzten Ausweg können Sie von vorne beginnen und ein komplett neues Bereitstellungsprofil erstellen, um Konfigurationsfehler zu beheben, die durch die Arbeit mit mehreren Umgebungen, Profilen und Apps gleichzeitig entstehen. Es gibt viele „bewegliche Teile“ bei der Einrichtung von Push-Benachrichtigungen, daher ist es manchmal am besten, von Anfang an neu zu beginnen. Dies hilft auch dabei, das Problem einzugrenzen, falls Sie die Fehlerbehebung fortsetzen müssen.
 
-### Nachrichten werden nicht an „Push-registrierte“ Nutzer:innen zugestellt {#messages-not-delivered-to-push-registered-users}
+### Nachrichten werden nicht an „push-registrierte“ Nutzer:innen zugestellt {#messages-not-delivered-to-push-registered-users}
 
 #### App ist im Vordergrund {#app-is-foregrounded}
 
@@ -167,9 +195,9 @@ Auf iOS-Versionen, die Push nicht über das `UserNotifications`-Framework integr
 
 Überprüfen Sie den Zeitplan, den Sie für Ihre Testnachricht festgelegt haben. Wenn die Zustellung auf Ortszeit oder [intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence/intelligent_timing) eingestellt ist, haben Sie die Nachricht möglicherweise noch nicht erhalten (oder die App war im Vordergrund, als sie empfangen wurde).
 
-### Nutzer:in nicht „Push-registriert“ für die getestete App {#user-not-push-registered-for-the-app-being-tested}
+### Nutzer:in nicht „push-registriert“ für die getestete App {#user-not-push-registered-for-the-app-being-tested}
 
-Überprüfen Sie das Nutzerprofil der Person, an die Sie eine Testnachricht senden möchten. Unter dem Tab **Engagement** sollte eine Liste der „Push-fähigen Apps“ angezeigt werden. Überprüfen Sie, ob die App, an die Sie Testnachrichten senden möchten, in dieser Liste enthalten ist. Nutzer:innen werden als „Push-registriert“ angezeigt, wenn sie ein Push-Token für eine beliebige App in Ihrem Workspace haben, sodass dies ein falsch positives Ergebnis sein könnte.
+Überprüfen Sie das Nutzerprofil der Person, an die Sie eine Testnachricht senden möchten. Unter dem Tab **Engagement** sollte eine Liste der „push-fähigen Apps“ angezeigt werden. Überprüfen Sie, ob die App, an die Sie Testnachrichten senden möchten, in dieser Liste enthalten ist. Nutzer:innen werden als „Push-registriert“ angezeigt, wenn sie ein Push-Token für eine beliebige App in Ihrem Workspace haben, sodass dies ein falsch positives Ergebnis sein könnte.
 
 Folgendes würde auf ein Problem mit der Push-Registrierung hinweisen oder darauf, dass das Token der Nutzer:innen nach dem Senden von APNs als ungültig an Braze zurückgegeben wurde:
 
@@ -201,7 +229,6 @@ Wenn Öffnungen protokolliert werden, prüfen Sie, ob es sich um ein allgemeines
 {% endsdktab %}
 
 {% sdktab .NET MAUI (Xamarin) %}
-
 ## Fehlerbehebung
 
 ### Push wird nach dem Schließen der App über den Task-Switcher nicht angezeigt {#push-doesnt-appear-after-app-is-closed-from-task-switcher}

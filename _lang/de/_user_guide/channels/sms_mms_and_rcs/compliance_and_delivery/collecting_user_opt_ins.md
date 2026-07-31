@@ -7,6 +7,7 @@ page_type: reference
 channel:
   - SMS
 
+
 ---
 
 # Nutzer:innen-Opt-ins erfassen {#collect-user-opt-ins}
@@ -19,11 +20,11 @@ Bitten Sie Nutzer:innen, „START“, „UNSTOP“, „YES“ oder ein angepasst
 
 ## Option 2: Nutzer:innen melden sich per In-App-Nachricht an {#option-2-users-opt-in-via-in-app-message}
 
-Um Nutzer:innen die Möglichkeit zu geben, sich über eine In-App-Nachricht für SMS anzumelden, verwenden Sie das von Braze bereitgestellte [Formular zur Erfassung von Telefonnummern]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture), um ein markengerechtes Formular zu erstellen, mit dem Sie Telefonnummern sammeln und Ihre SMS-Liste erweitern können.
+Um Nutzer:innen die Möglichkeit zu geben, sich über eine In-App-Nachricht für SMS anzumelden, verwenden Sie das von Braze bereitgestellte [Telefonnummer-Erfassungsformular]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture), um ein markengerechtes Formular zu erstellen, mit dem Sie Telefonnummern erfassen und Ihre SMS-Liste erweitern können.
 
-![In-App-Nachrichten-Editor mit einem Template zur Erfassung von Telefonnummern.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_select.png %}){: style="max-width:80%;"}
+![Nachrichten-Editor für In-App-Nachrichten mit einem Template zur Telefonnummer-Erfassung.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_select.png %}){: style="max-width:80%;"}
 
-Braze empfiehlt, zusätzlich das Feature [SMS-Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) zu nutzen. Dieses Feature funktioniert automatisch mit dem Formular zur Erfassung von Telefonnummern in In-App-Nachrichten und fordert Nutzer:innen auf, ihre Absicht zu bestätigen, nachdem sie ihre Telefonnummer über das Formular übermittelt haben.
+Braze empfiehlt, zusätzlich das Feature [SMS-Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) zu nutzen. Dieses Feature funktioniert automatisch mit dem Telefonnummer-Erfassungsformular der In-App-Nachricht und fordert Nutzer:innen auf, ihre Absicht zu bestätigen, nachdem sie ihre Telefonnummer über das Formular übermittelt haben.
 
 ## Option 3: Registrierungsablauf {#option-3-sign-up-flow}
 

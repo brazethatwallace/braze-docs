@@ -15,9 +15,9 @@ Parce qu'Operator comprend votre espace de travail — vos directives de marque,
 
 Vous pouvez animer la conversation avec des messages de suivi. Operator se souvient des messages précédents jusqu'à ce que vous effaciez votre historique de conversation.
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
-Operator dispose des mêmes autorisations que vous, de sorte que certaines actions nécessitent l'autorisation correspondante pour cette surface. Par exemple, la génération d'une image nécessite l'autorisation *Modifier les ressources de la bibliothèque multimédia*. Si vous ne voyez pas de point d'entrée, vérifiez vos autorisations auprès de votre administrateur. Pour en savoir plus, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+Operator dispose des mêmes permissions que vous, de sorte que certaines actions nécessitent la permission correspondante pour cette surface. Par exemple, la génération d'une image nécessite la permission *Modifier les ressources de la bibliothèque multimédia*. Si vous ne voyez pas de point d'entrée, vérifiez vos permissions auprès de votre administrateur. Pour plus d'informations, consultez la [Liste des permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 ## Ce qu'Operator peut créer {#what-operator-can-create}
 
@@ -100,6 +100,8 @@ Vous obtiendrez les meilleurs résultats en utilisant Operator dans l'éditeur q
 ### Créer des Content Blocks {#create-content-blocks}
 
 Operator peut vous aider à créer des [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks), les éléments de contenu réutilisables que vous insérez dans vos messages. Décrivez le bloc souhaité, et Operator rédige son contenu pour que vous le vérifiiez avant de l'enregistrer. Comme les Content Blocks sont partagés, la mise à jour de l'un met à jour chaque message qui le référence.
+
+Operator crée les Content Blocks un par un dans le tableau de bord. Pour créer des Content Blocks en masse, utilisez l'endpoint [Create Content Block]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) avec une clé API disposant de la permission `content_blocks.create`.
 
 ### Créer des modèles de messages {#create-message-templates}
 
@@ -191,6 +193,10 @@ Operator peut consulter les éléments suivants pour répondre à des questions 
 
 Demandez directement à Operator si vous n'êtes pas sûr qu'il puisse rechercher une information spécifique.
 
+### Analyser les données de performance {#analyze-performance-data}
+
+Posez à Operator des questions en langage naturel sur les performances de vos Campaigns et Canvas, et il vous renvoie des graphiques, des comparaisons et de courtes analyses tirées des données de votre espace de travail. Contrairement aux fonctionnalités contextuelles d'Operator, qui s'appuient sur la page où vous vous trouvez, la fonction Analyze répond depuis n'importe quel endroit du tableau de bord. Pour en savoir plus, consultez [Operator Analyze]({{site.baseurl}}/user_guide/brazeai/operator/analyze).
+
 ### Écrire des requêtes SQL {#write-sql-queries}
 
 Operator peut vous aider à écrire du SQL pour les [extensions de segments](#campaigns-and-audiences) et pour les [modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) du générateur de requêtes. Décrivez la requête souhaitée en langage naturel, et Operator génère le SQL pour que vous le vérifiiez avant de l'exécuter.
@@ -198,6 +204,21 @@ Operator peut vous aider à écrire du SQL pour les [extensions de segments](#ca
 ### Générer du code de transformation des données {#generate-data-transformation-code}
 
 Dans l'éditeur de [transformation des données]({{site.baseurl}}/user_guide/data/unification/data_transformation), sélectionnez **Insérer le code** pour générer du code de transformation qui convertit un payload webhook entrant en requêtes API Braze valides. Pour des instructions étape par étape sur la création d'une transformation, consultez [Créer une transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
+
+## Paramètres de l'espace de travail {#workspace-settings}
+
+Operator peut examiner et mettre à jour les paramètres sur plusieurs pages de configuration de l'espace de travail. Décrivez le changement souhaité, et Operator le propose sous forme de carte d'action que vous examinez avant qu'il ne soit enregistré. Les pages de paramètres prises en charge incluent, sans s'y limiter :
+
+- [Heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)
+- [Paramètres push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)
+- [Limites de débit des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)
+- [Workflows d'approbation]({{site.baseurl}}/user_guide/messaging/governance/approvals), y compris les [règles de messaging]({{site.baseurl}}/user_guide/messaging/governance/approvals/messaging_rules) et l'approbation permanente
+- [API et identifiants]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), y compris les [autres identifiants]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers) et les limites d'API
+- [Coordonnées des paramètres d'administration]({{site.baseurl}}/user_guide/administer/global/admin_settings/contact_information)
+
+{% alert note %}
+La couverture des pages de paramètres par Operator s'étend régulièrement. **Demandez directement à Operator** pour obtenir la réponse la plus à jour sur ce qu'il peut configurer.
+{% endalert %}
 
 ## Limitations {#limitations}
 
@@ -208,6 +229,7 @@ La couverture d'Operator évolue fréquemment. Si vous n'êtes pas sûr qu'un é
 La prise en charge d'Operator dans le tableau de bord est large, mais elle a des limites.
 
 - **Canvas :** Operator ne peut pas créer ni modifier de [Canvas]({{site.baseurl}}/user_guide/messaging/canvas), mais il peut consulter la configuration d'un Canvas existant, comme les paramètres de ciblage et de distribution, pour répondre à des questions et enrichir ses résultats.
+- **Duplication de campagne :** Operator ne peut pas dupliquer une campagne existante depuis la vue de liste des Campaigns. Pour créer une campagne similaire, demandez à Operator d'en créer une nouvelle à partir de zéro, ou dupliquez la campagne manuellement depuis le menu **Plus d'actions** de la vue de liste.
 - **Éditeurs par glisser-déposer :** Operator ne peut pas générer ni insérer un design de message directement dans un éditeur par glisser-déposer, comme ceux pour les [e-mails]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), les [Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner) et les [messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Passez à l'éditeur HTML correspondant pour utiliser Operator, ou demandez à Operator de générer du contenu, comme du texte, que vous pouvez coller manuellement. Consultez [Générer des messages](#generate-messages) pour les canaux et éditeurs pris en charge.
 - **Visibilité de l'écran :** Operator utilise le contexte de la page pour comprendre ce que vous regardez, y compris le contenu dans les aperçus et éditeurs pris en charge. Lorsqu'une partie de la page échappe à ce qu'Operator peut lire, il vous le signale au lieu de deviner, afin que vous sachiez décrire ce contenu vous-même.
 - **Limites d'utilisation :** Operator dispose d'une limite d'utilisation quotidienne à l'échelle de l'entreprise qui se réinitialise toutes les 24 heures. Les générations d'images sont comptabilisées dans cette limite. Si la limite est atteinte, un message « Limite d'utilisation quotidienne dépassée » apparaît et aucune autre requête ne peut être effectuée jusqu'à la réinitialisation. Pour les étapes de résolution des problèmes, consultez [Résolution des problèmes]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting).

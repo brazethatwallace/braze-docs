@@ -251,5 +251,22 @@ Check out the following lists for HTML tags and attributes that aren't allowed i
 - `<transitionend>`
 {% enddetails %}
 
+## Troubleshooting duplicate emails
 
+If users report receiving duplicate emails, the following scenarios can help you identify the cause:
+
+### Configuration error at campaign or Canvas creation
+
+Users may not receive the same email twice, but may receive two separate emails with the same subject line. When a campaign or Canvas is duplicated, it's easy to miss basic email configuration details such as images or the subject line. 
+
+To investigate:
+
+1. Check the user profile and review each Canvas and campaign the user received.
+2. Review the change logs to see if the campaign or Canvas was modified after launch. It's possible the campaign or Canvas had the same subject line as the original when the user received it.
+
+### Campaign sent multiple times
+
+If the number of messages sent is significantly larger than the number of users in the audience, this may indicate the campaign was launched multiple times.
+
+For more information on how Braze handles duplicate email addresses and deduplication, see the [Email FAQ]({{site.baseurl}}/user_guide/channels/email/faq#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address).
 

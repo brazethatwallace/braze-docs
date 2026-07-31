@@ -18,7 +18,7 @@ Para acessar o construtor de landing pages, você precisa de [determinadas permi
 Uma landing page é uma página web ativa e publicada com uma URL compartilhável que seus clientes podem visitar.
 
 {% alert note %}
-Os modelos de landing page são pontos de partida de design não publicados, sem URL pública, o que significa que não podem ser compartilhados com seus clientes. Para criar uma página a partir de um modelo, consulte [Usar modelos](#using-templates).
+Os modelos de landing page são pontos de partida de design não publicados, sem URL pública, o que significa que não podem ser compartilhados com seus clientes. Para criar uma página a partir de um modelo, consulte [Usando modelos](#using-templates).
 {% endalert %}
 
 ### Etapa 1: Criar um novo rascunho {#step-1-create-a-new-draft}
@@ -51,7 +51,7 @@ Sugerimos seguir estas práticas recomendadas:
 
 Se ainda não fez isso, selecione **Save as draft**. Para começar a personalizar sua página, selecione **Edit landing page**. O editor de arrastar e soltar será pré-carregado com um modelo padrão que você pode personalizar para se adequar ao seu caso de uso.
 
-![Exemplo de landing page sendo criada no editor de arrastar e soltar.]({% image_buster /assets/img/landing_pages/template.png %})
+![Um exemplo de landing page sendo criada no editor de arrastar e soltar.]({% image_buster /assets/img/landing_pages/template.png %})
 
 O editor usa dois tipos de componentes para a composição de landing pages: blocos básicos e blocos de formulário. Todos os blocos devem ser colocados em uma linha. Para uma referência dedicada de cada bloco e suas propriedades, consulte [Blocos do editor (landing pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
@@ -78,9 +78,9 @@ Você pode usar esses blocos para adicionar conteúdo e personalizar o layout da
 
 Para aplicar estilos específicos a blocos de texto sem código personalizado, destaque o texto que deseja estilizar e selecione **Wrap with span for style**.
 
-![Caixa de texto com diferentes seções de texto estilizadas, como tamanhos e cores de fonte diferentes, e uma seção destacada que exibe uma barra de ferramentas com a opção "Wrap with span for style".]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+![Caixa de texto com diferentes seções de texto estilizadas, como diferentes tamanhos e cores de fonte, e uma seção destacada que exibe uma barra de ferramentas com a opção "Wrap with span for style".]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
-Ajuste as propriedades do span para atualizar o estilo do texto, que incluem:
+Ajuste as propriedades do span para atualizar o estilo do texto, incluindo:
 
 - Família, peso e tamanho da fonte
 - Altura da linha
@@ -123,7 +123,7 @@ Recomendamos configurar os estilos no nível do contêiner da página antes de p
 
 ![A seção "Page container" com opções para personalizar imagens de fundo, cores, detalhes de borda e estilo de conteúdo.]({% image_buster /assets/img/landing_pages/page_container.png %}){: style="max-width:40%;"}
 
-#### Responsividade para dispositivos do usuário {#responsive-to-user-devices}
+#### Responsivo aos dispositivos dos usuários {#responsive-to-user-devices}
 
 Você pode tornar sua landing page responsiva ao tamanho do dispositivo do usuário empilhando colunas verticalmente em telas menores. Para ativar isso, adicione uma coluna na linha que deseja tornar responsiva e ative **Vertically stack on smaller screens** na seção **Customize columns**.
 
@@ -159,9 +159,20 @@ Se sua página de confirmação abrir em uma nova guia, um usuário que retornar
 
 ### Etapa 5: Visualizar a página {#step-5-preview-the-page}
 
-Você pode visualizar sua landing page na guia **Preview** do editor. Após salvar sua landing page como rascunho, você pode visitar a URL acessando **Landing Pages** e selecionando **Copy URL** ao lado da sua landing page. Você também pode compartilhar a URL com colaboradores.
+Você pode visualizar sua landing page na guia **Preview** do editor. Após salvar sua landing page como rascunho, você pode visitar a URL acessando **Landing Pages** e selecionando **Copy URL** ao lado da sua landing page.
 
 ![Uma landing page com o menu aberto mostrando a opção "Copy URL".]({% image_buster /assets/img/landing_pages/copy-url.png %})
+
+#### Compartilhar um link de prévia {#sharing-a-preview-link}
+
+No editor, você também pode selecionar **Copy preview link** para compartilhar a página com revisores que não têm acesso ao dashboard.
+
+- Se sua landing page não usa Liquid, esse link é o mesmo que a URL direta de **Copy URL**, aberta no modo de prévia.
+- Se sua landing page usa Liquid e você tem o direito Landing Pages Pro, o link renderiza a página ativa sob demanda e reflete suas alterações atuais em vez de um snapshot de quando você gerou o link. O conteúdo é personalizado por usuário.
+
+Para links de prévia em outros canais, consulte [prévia compartilhável]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
+
+### Etapa 6: Publicar {#step-6-publish}
 
 Antes de publicar, certifique-se de que:
 
@@ -172,18 +183,18 @@ Antes de publicar, certifique-se de que:
 Quando estiver pronto, selecione **Publish Landing Page**.
 
 {% alert note %}
-Bloqueadores de pop-up e de anúncios agressivos no iOS e no Safari (incluindo os controles integrados do Safari e extensões de terceiros) podem impactar negativamente o comportamento das landing pages quando um botão **Submit** de formulário também abre outra URL, seja na mesma guia ou em uma nova guia.
+Bloqueadores de pop-up e bloqueadores de anúncios agressivos no iOS e no Safari (incluindo os controles integrados do Safari e extensões de terceiros) podem impactar negativamente o comportamento das landing pages quando um botão **Submit** do formulário também abre outra URL, seja na mesma guia ou em uma nova guia.
 {% endalert %}
 
 ## Usar modelos {#use-templates}
 
-Os modelos de landing page são pontos de partida de design reutilizáveis que ajudam você a criar landing pages mais rapidamente. Um modelo não tem URL pública e não pode ser visitado por clientes. Para criar uma landing page ativa a partir de um modelo, selecione o modelo ao criar uma nova landing page, personalize-o conforme necessário e publique.
+Os modelos de landing page são pontos de partida de design reutilizáveis que ajudam você a criar landing pages mais rapidamente. Um modelo não tem URL pública e não pode ser visitado por clientes. Para criar uma landing page ativa a partir de um modelo, selecione o modelo ao criar uma nova landing page, personalize conforme necessário e publique.
 
 Os modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na página **Landing Page Templates** (**Content** > **Landing Page**). Os modelos de landing page exigem um nome e uma descrição opcional.
 
 ## Gerenciar modelos {#manage-templates}
 
-Você pode visualizar, arquivar ou editar modelos de landing page. É possível duplicar seus próprios modelos de landing page (localizados em **Your Templates**), mas não os modelos da Braze. Ao editar uma landing page, você pode salvar sua landing page como modelo, fazer alterações no modelo ou excluir o conteúdo da landing page.
+Você pode visualizar, arquivar ou editar modelos de landing page. É possível duplicar seus próprios modelos de landing page (localizados em **Seus Modelos**), mas não os modelos da Braze. Ao editar uma landing page, você pode salvar sua landing page como modelo, fazer alterações no modelo ou excluir o conteúdo da landing page.
 
 ![Um menu suspenso com opções para salvar, alterar e excluir uma landing page.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 

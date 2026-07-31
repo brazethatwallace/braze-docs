@@ -242,7 +242,7 @@ A integração requer os seguintes recursos:
 | Tópico Pub/Sub | Um tópico é o recurso nomeado que recebe notificações de novos arquivos do seu bucket do Cloud Storage. |
 | Assinatura Pub/Sub | Uma assinatura se conecta a um tópico e entrega suas mensagens. A Braze consome notificações de novos arquivos a partir de uma assinatura pull. |
 | Conta de serviço | Uma conta de serviço é uma identidade não humana que a Braze usa para acessar seu bucket e sua assinatura. Você faz upload da chave JSON dela na Braze. |
-| Função IAM | Uma função de Identity and Access Management (IAM) é uma coleção de permissões que você concede à conta de serviço no seu bucket e na sua assinatura. |
+| Função IAM | Uma função de Identity and Access Management (IAM) é uma coleção de permissões que você atribui à conta de serviço no seu bucket e na sua assinatura. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Definições do GCP" }
 
 ## Configuração da Ingestão de Dados na Nuvem no Google Cloud {#setting-up-cloud-data-ingestion-in-google-cloud}
@@ -251,7 +251,7 @@ A integração requer os seguintes recursos:
 
 No console do Google Cloud, acesse **Cloud Storage** > **Buckets** > **Create**. Anote o ID do projeto e o nome do bucket — você precisará deles ao configurar a fonte na Braze. Recomendamos ativar o acesso uniforme em nível de bucket para que as permissões sejam gerenciadas com IAM.
 
-Como alternativa, crie o bucket com gcloud:
+Alternativamente, crie o bucket com gcloud:
 
 ```shell
 gcloud storage buckets create gs://YOUR-BUCKET-NAME \
@@ -264,7 +264,7 @@ gcloud storage buckets create gs://YOUR-BUCKET-NAME \
 
 No console do Google Cloud, acesse **Pub/Sub** > **Topics** > **Create topic**. Você pode deixar o Google criar uma assinatura padrão ou criar uma separadamente. Em seguida, crie uma assinatura **pull** nesse tópico.
 
-Como alternativa, use gcloud:
+Alternativamente, use gcloud:
 
 ```shell
 gcloud pubsub topics create YOUR-TOPIC --project=YOUR-PROJECT-ID
@@ -284,13 +284,13 @@ Não configure uma fila de mensagens mortas (dead-letter queue) nesta assinatura
 A criação de uma notificação do Cloud Storage para o Pub/Sub não está disponível no console do Google Cloud. Você deve usar gcloud (mostrado aqui), Terraform ou a API JSON. Para saber mais, consulte [Configure Pub/Sub notifications for Cloud Storage](https://cloud.google.com/storage/docs/reporting-changes#enabling) na documentação do Google Cloud.
 {% endalert %}
 
-Primeiro, conceda ao agente de serviço do Cloud Storage permissão para publicar no tópico e, em seguida, crie a notificação para `OBJECT_FINALIZE`. O evento `OBJECT_FINALIZE` é disparado sempre que um novo objeto é criado ou finalizado no bucket.
+Primeiro, atribua ao agente de serviço do Cloud Storage a permissão para publicar no tópico e, em seguida, crie a notificação para `OBJECT_FINALIZE`. O evento `OBJECT_FINALIZE` é disparado sempre que um novo objeto é criado ou finalizado no bucket.
 
 ```shell
 # Get the Cloud Storage service agent for your project
 gcloud storage service-agent --project=YOUR-PROJECT-ID
 
-# Grant it Pub/Sub Publisher on the topic
+# Assign it Pub/Sub Publisher on the topic
 gcloud pubsub topics add-iam-policy-binding YOUR-TOPIC \
   --project=YOUR-PROJECT-ID \
   --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
@@ -305,10 +305,10 @@ gcloud storage buckets notifications create gs://YOUR-BUCKET-NAME \
 
 Substitua os seguintes espaços reservados nestes comandos:
 
-- `YOUR-PROJECT-ID`: o ID do seu projeto do Google Cloud, o identificador legível (por exemplo, `my-gcp-project`).
-- `YOUR-TOPIC`: o tópico Pub/Sub que você criou na [Etapa 2](#step-2-create-a-pubsub-topic-and-subscription).
-- `YOUR-BUCKET-NAME`: o nome do seu bucket do Cloud Storage.
-- `YOUR-PROJECT-NUMBER`: o número do seu projeto, o identificador numérico usado no endereço de e-mail do agente de serviço do Cloud Storage. Ele é diferente do ID do projeto. Encontre-o no **Dashboard** do console do Google Cloud ou execute o seguinte comando:
+- `YOUR-PROJECT-ID`: O ID do seu projeto do Google Cloud, o identificador legível (por exemplo, `my-gcp-project`).
+- `YOUR-TOPIC`: O tópico Pub/Sub que você criou na [Etapa 2](#step-2-create-a-pubsub-topic-and-subscription).
+- `YOUR-BUCKET-NAME`: O nome do seu bucket do Cloud Storage.
+- `YOUR-PROJECT-NUMBER`: O número do seu projeto, o identificador numérico usado no endereço de e-mail do agente de serviço do Cloud Storage. Ele é diferente do ID do projeto. Encontre-o no **Dashboard** do console do Google Cloud ou execute o seguinte comando:
 
 ```shell
 gcloud projects describe YOUR-PROJECT-ID --format="value(projectNumber)"
@@ -318,7 +318,7 @@ gcloud projects describe YOUR-PROJECT-ID --format="value(projectNumber)"
 
 No console do Google Cloud, acesse **IAM & Admin** > **Service Accounts** > **Create service account**.
 
-Como alternativa, use gcloud:
+Alternativamente, use gcloud:
 
 ```shell
 gcloud iam service-accounts create braze-cdi-gcs \
@@ -326,11 +326,11 @@ gcloud iam service-accounts create braze-cdi-gcs \
   --display-name="Braze CDI GCS"
 ```
 
-### Etapa 5: Conceder permissões {#step-5-grant-permissions}
+### Etapa 5: Atribuir permissões {#step-5-assign-permissions}
 
-O conector precisa exatamente destas permissões: `storage.buckets.get`, `storage.objects.get` e `storage.objects.list` no bucket, e `pubsub.subscriptions.consume` na assinatura. Você pode concedê-las com uma função personalizada ou funções predefinidas.
+O conector precisa exatamente destas permissões: `storage.buckets.get`, `storage.objects.get` e `storage.objects.list` no bucket, e `pubsub.subscriptions.consume` na assinatura. Você pode atribuí-las com uma função personalizada ou funções predefinidas.
 
-**Função personalizada:** crie uma função personalizada com exatamente essas permissões e vincule-a ao bucket e à assinatura:
+**Função personalizada:** Crie uma função personalizada com exatamente essas permissões e vincule-a ao bucket e à assinatura:
 
 ```shell
 gcloud iam roles create brazeCdiGcs --project=YOUR-PROJECT-ID \
@@ -348,7 +348,7 @@ gcloud pubsub subscriptions add-iam-policy-binding YOUR-SUBSCRIPTION \
   --role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"
 ```
 
-**Funções predefinidas:** conceda `roles/storage.objectViewer` e `roles/storage.legacyBucketReader` no bucket, e `roles/pubsub.subscriber` na assinatura. A função `objectViewer` fornece `storage.objects.get` e `storage.objects.list`, e `legacyBucketReader` fornece `storage.buckets.get`:
+**Funções predefinidas:** Atribua `roles/storage.objectViewer` e `roles/storage.legacyBucketReader` no bucket, e `roles/pubsub.subscriber` na assinatura. A função `objectViewer` fornece `storage.objects.get` e `storage.objects.list`, e `legacyBucketReader` fornece `storage.buckets.get`:
 
 ```shell
 gcloud storage buckets add-iam-policy-binding gs://YOUR-BUCKET-NAME \
@@ -367,7 +367,7 @@ gcloud pubsub subscriptions add-iam-policy-binding YOUR-SUBSCRIPTION \
 
 No console do Google Cloud, abra a conta de serviço, acesse **Keys** > **Add key** > **Create new key** e selecione **JSON**.
 
-Como alternativa, use gcloud:
+Alternativamente, use gcloud:
 
 ```shell
 gcloud iam service-accounts keys create braze-cdi-gcs-key.json \
@@ -383,7 +383,7 @@ gcloud iam service-accounts keys create braze-cdi-gcs-key.json \
 {: start="2"}
 2. Preencha os campos da fonte:
     - **Bucket** — o nome do seu bucket
-    - **Project ID** — o ID do seu projeto do GCP
+    - **Project ID** — o ID do seu projeto GCP
     - **Service account JSON key** — faça upload do arquivo de chave da etapa 6 e dê um nome à credencial
 
 ![O formulário de fonte do Google Cloud Storage mostrando os campos Bucket, Project ID e upload de credencial.]({% image_buster /assets/img/cloud_ingestion/gcs_source_form.png %})
@@ -399,7 +399,7 @@ gcloud iam service-accounts keys create braze-cdi-gcs-key.json \
 
 {: start="6"}
 6. Selecione **Preview and validate** para confirmar que a Braze pode acessar a assinatura e listar os arquivos disponíveis para ingestão. Um teste bem-sucedido listará os arquivos existentes no bucket, mas esses arquivos não serão sincronizados automaticamente.
-7. Adicione e-mail(s) de contato para notificações de erros. As sincronizações do Google Cloud Storage são orientadas por eventos, portanto nenhum cronograma é necessário — a Braze ingere novos arquivos à medida que são carregados. Revise o resumo e selecione **Create sync**.
+7. Adicione e-mail(s) de contato para notificações de erros. As sincronizações do Google Cloud Storage são orientadas por eventos, portanto nenhum cronograma é necessário — a Braze ingere novos arquivos à medida que são enviados. Revise o resumo e selecione **Create sync**.
 
 ### Sincronizando uma pasta em um bucket compartilhado {#syncing-a-folder-in-a-shared-bucket}
 
@@ -412,14 +412,14 @@ O caminho da pasta e a assinatura devem ser únicos entre sincronizações em um
 
 Para cada pasta que você deseja sincronizar em um bucket compartilhado:
 
-1. Defina o campo **Folder** da sincronização com o prefixo do caminho (por exemplo, `attributes/`). A Braze só lista e ingere objetos cujo caminho começa com esse prefixo.
-2. Crie um tópico dedicado e uma notificação com escopo de prefixo para essa pasta, e depois crie uma assinatura nesse tópico:
+1. Defina o campo **Folder** da sincronização com o prefixo do caminho (por exemplo, `attributes/`). A Braze listará e ingerirá apenas objetos cujo caminho comece com esse prefixo.
+2. Crie um tópico dedicado e uma notificação com escopo de prefixo para essa pasta, depois crie uma assinatura nesse tópico:
 
     ```shell
     # One topic per folder
     gcloud pubsub topics create YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID
 
-    # Grant the Cloud Storage service agent publisher on the topic
+    # Assign the Cloud Storage service agent publisher on the topic
     gcloud pubsub topics add-iam-policy-binding YOUR-ATTRIBUTES-TOPIC \
       --project=YOUR-PROJECT-ID \
       --member="serviceAccount:service-YOUR-PROJECT-NUMBER@gs-project-accounts.iam.gserviceaccount.com" \
@@ -435,7 +435,7 @@ Para cada pasta que você deseja sincronizar em um bucket compartilhado:
       --topic=YOUR-ATTRIBUTES-TOPIC --project=YOUR-PROJECT-ID --ack-deadline=60
     ```
 
-3. Conceda à conta de serviço da Braze permissão de consumo nessa assinatura, como na [Etapa 5](#step-5-grant-permissions):
+3. Atribua à conta de serviço da Braze a permissão de consumo nessa assinatura, conforme a [Etapa 5](#step-5-assign-permissions):
 
     ```shell
     gcloud pubsub subscriptions add-iam-policy-binding YOUR-ATTRIBUTES-SUBSCRIPTION \
@@ -444,8 +444,8 @@ Para cada pasta que você deseja sincronizar em um bucket compartilhado:
       --role="roles/pubsub.subscriber"
     ```
 
-    Se você criou a função personalizada na [Etapa 5](#step-5-grant-permissions), use `--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"` em vez disso.
-4. Ao criar a sincronização na Braze, insira o novo **Pub/Sub subscription ID** e o **Folder path** desta pasta para que a sincronização ingira apenas os arquivos dessa pasta.
+    Se você criou a função personalizada na [Etapa 5](#step-5-assign-permissions), use `--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"` em vez disso.
+4. Ao criar a sincronização na Braze, insira o novo **Pub/Sub subscription ID** e o **Folder path** dessa pasta para que a sincronização ingira apenas os arquivos dessa pasta.
 
 
 {% endtab %}
@@ -472,7 +472,7 @@ Para sincronizações de dados de usuários (atributos, eventos personalizados, 
 | --- | --- |
 | `EXTERNAL_ID` | Identifica o usuário que você deseja atualizar. Deve corresponder ao valor `external_id` usado na Braze. |
 | `ALIAS_NAME` e `ALIAS_LABEL` | Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador único, e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`. |
-| `BRAZE_ID` | O identificador de usuário da Braze. Ele é gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo ou alias de usuário. |
+| `BRAZE_ID` | O identificador de usuário da Braze. É gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo ou alias de usuário. |
 | `EMAIL` | O endereço de e-mail do usuário. Se existirem vários perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente terá prioridade nas atualizações. Se você incluir e-mail e telefone, a Braze usará o e-mail como identificador principal. |
 | `PHONE` | O número de telefone do usuário. Se existirem vários perfis com o mesmo número de telefone, o perfil atualizado mais recentemente terá prioridade nas atualizações. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Identificadores de usuário" }
@@ -508,7 +508,7 @@ Para sincronizações de catálogo, seu arquivo de origem deve conter as seguint
 {"external_id":"s3-qa-6","payload":"{\"name\": \"T93MJ\", \"age\": 47, \"subscriber\": true, \"retention\": {\"previous_purchases\": 10, \"vip\": false}, \"last_visit\": \"2023-08-08T16:03:26.600856\"}"}
 ```
 {% alert important %}
-Cada linha do seu arquivo de origem deve conter JSON válido, caso contrário o arquivo será ignorado.
+Cada linha no seu arquivo de origem deve conter JSON válido, caso contrário o arquivo será ignorado.
 {% endalert %}
 {% endtab %}
 {% tab JSON Custom Events %}
@@ -517,7 +517,7 @@ Cada linha do seu arquivo de origem deve conter JSON válido, caso contrário o 
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"name\": \"view-206\", \"time\": \"2024-04-02T14:34:08\", \"properties\": {\"bool_value\": false, \"preceding_event\": \"unsubscribe\", \"important_number\": 206}}"}
 ```
 {% alert important %}
-Cada linha do seu arquivo de origem deve conter JSON válido, caso contrário o arquivo será ignorado.
+Cada linha no seu arquivo de origem deve conter JSON válido, caso contrário o arquivo será ignorado.
 {% endalert %}
 {% endtab %}
 {% tab JSON Purchase Events %}
@@ -526,7 +526,7 @@ Cada linha do seu arquivo de origem deve conter JSON válido, caso contrário o 
 {"external_id":"s3-qa-1","payload":"{\"app_id\": \"YOUR_APP_ID\", \"product_id\": \"product-11\", \"currency\": \"BSD\", \"price\": 8.511527858335066, \"time\": \"2024-04-02T14:34:08\", \"quantity\": 19, \"properties\": {\"is_a_boolean\": true, \"important_number\": 40, \"preceding_event\": \"click\"}}"}
 ```
 {% alert important %}
-Cada linha do seu arquivo de origem deve conter JSON válido, caso contrário o arquivo será ignorado.
+Cada linha no seu arquivo de origem deve conter JSON válido, caso contrário o arquivo será ignorado.
 {% endalert %}
 
 {% endtab %}
@@ -551,7 +551,7 @@ Inclua uma coluna `DELETED` opcional. Quando `DELETED` é `true`, o item do cat�
 
 ## Excluindo dados {#deleting-data}
 
-A ingestão de dados na nuvem para armazenamento de arquivos permite excluir usuários e itens de catálogo por meio de uploads de arquivos. Use sincronizações e formatos de arquivo separados para cada caso.
+A ingestão de dados na nuvem para armazenamento de arquivos permite excluir usuários e itens de catálogo por meio de uploads de arquivos. Use sincronizações e formatos de arquivo separados para cada tipo.
 
 - **[Excluindo usuários](#deleting-users)** – Crie uma sincronização com o tipo de dados **Delete Users** e faça upload de arquivos que contenham apenas identificadores de usuários (sem carga útil).
 - **[Excluindo itens de catálogo](#deleting-catalog-items)** – Use sua sincronização de catálogo existente e adicione uma coluna `deleted` (ou `DELETED`) para marcar itens para remoção.
@@ -564,7 +564,7 @@ Para excluir perfis de usuário na Braze usando arquivos no seu bucket de origem
 2. Ao configurar a sincronização na Braze, defina **Data Type** como **Delete Users**.
 3. Faça upload de arquivos no seu bucket de origem que contenham apenas colunas de identificadores de usuários. Não inclua uma coluna `PAYLOAD` — a sincronização falha se a carga útil estiver presente, para evitar exclusões acidentais.
 
-Cada linha no arquivo deve identificar exatamente um usuário usando uma das opções:
+Cada linha no arquivo deve identificar exatamente um usuário usando uma das seguintes opções:
 
 | Identificador | Descrição |
 | --- | --- |
@@ -635,11 +635,11 @@ Você pode usar arquivos existentes para validar se a Braze consegue acessar seu
 
 ### Tratamento de erros inesperados em arquivos (Amazon S3) {#handling-unexpected-file-errors-amazon-s3}
 
-Se você está observando um número alto de erros ou arquivos com falha, pode ser que outro processo esteja adicionando arquivos ao bucket S3 em uma pasta diferente da pasta de destino da CDI.
+Se você está observando um número alto de erros ou arquivos com falha, pode haver outro processo adicionando arquivos ao bucket S3 em uma pasta diferente da pasta de destino da CDI.
 
-Quando arquivos são enviados para o bucket de origem, mas não para a pasta de origem, a CDI processa a notificação do SQS, mas não executa nenhuma ação no arquivo. Isso pode aparecer como um erro.
+Quando arquivos são enviados para o bucket de origem, mas não para a pasta de origem, a CDI processa a notificação do SQS, mas não executa nenhuma ação no arquivo, então isso pode aparecer como um erro.
 
-Se o problema estiver relacionado a notificações do S3 ou permissões de destino do SQS (por exemplo, erros de validação de destino), consulte a documentação da AWS:
+Se o seu problema está relacionado a notificações do S3 ou permissões de destino do SQS (por exemplo, erros de validação de destino), consulte a documentação da AWS:
 
 - [Ativando e configurando notificações de eventos usando o console do Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications.html)
 - [Concedendo permissões para publicar mensagens de notificação de eventos em um destino](https://docs.aws.amazon.com/AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.html)
@@ -647,13 +647,13 @@ Se o problema estiver relacionado a notificações do S3 ou permissões de desti
 
 ### Tratamento de erros inesperados em arquivos (Google Cloud Storage) {#handling-unexpected-file-errors-google-cloud-storage}
 
-Assim como o Amazon S3, a CDI só processa arquivos enviados após a criação da sincronização. Cada novo objeto dispara uma mensagem `OBJECT_FINALIZE` para o tópico do Pub/Sub. Para ingerir arquivos que já existem no bucket, faça o re-upload deles.
+Assim como o Amazon S3, a CDI só processa arquivos enviados após a criação da sincronização. Cada novo objeto dispara uma mensagem `OBJECT_FINALIZE` para o seu tópico Pub/Sub. Para ingerir arquivos que já existem no bucket, faça o re-upload deles.
 
 Se os arquivos não estão sendo ingeridos, verifique o seguinte:
 
 - A notificação do bucket existe. Liste as notificações do bucket com `gcloud storage buckets notifications list gs://YOUR-BUCKET-NAME`.
 - O agente de serviço do Cloud Storage tem `roles/pubsub.publisher` no tópico.
-- A conta de serviço da Braze tem permissão de consumo na inscrição (`pubsub.subscriptions.consume`, concedida por meio do papel personalizado ou de `roles/pubsub.subscriber`).
-- A inscrição não tem uma fila de mensagens mortas (dead-letter queue) configurada. A Braze não oferece suporte a filas de mensagens mortas para inscrições de Cloud Data Ingestion.
+- A conta de serviço da Braze tem permissão de consumo na inscrição (`pubsub.subscriptions.consume`, atribuída por meio da função personalizada ou `roles/pubsub.subscriber`).
+- A inscrição não tem uma fila de mensagens mortas configurada. A Braze não oferece suporte a filas de mensagens mortas para inscrições de Cloud Data Ingestion.
 
 Para saber mais, consulte [Notificações Pub/Sub para Cloud Storage](https://cloud.google.com/storage/docs/pubsub-notifications) na documentação do Google Cloud.

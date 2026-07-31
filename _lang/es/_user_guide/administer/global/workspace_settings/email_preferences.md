@@ -85,7 +85,7 @@ También puedes utilizar [Liquid]({{site.baseurl}}/user_guide/messaging/design_a
 {% endtab %}
 {% tab Dirección CCO %}
 
-Esta sección te permite gestionar las direcciones CCO que puedes añadir a los mensajes de correo electrónico salientes enviados desde Braze. Añadir una dirección CCO a un mensaje de correo electrónico envía una copia idéntica del mensaje que tu usuario recibe a tu buzón de entrada CCO. Esta es una herramienta útil para conservar copias de los mensajes que enviaste a tus usuarios para requisitos de cumplimiento o problemas de soporte al cliente. Los correos electrónicos CCO no se incluyen en los informes ni en los análisis de correo electrónico.
+Esta sección te permite gestionar las direcciones CCO que puedes añadir a los mensajes de correo electrónico salientes enviados desde Braze. Añadir una dirección CCO a un mensaje de correo electrónico envía una copia idéntica del mensaje que tu usuario recibe a tu buzón de entrada CCO. Esta es una herramienta útil para conservar copias de los mensajes que enviaste a tus usuarios para requisitos de cumplimiento o problemas de atención al cliente. Los correos electrónicos CCO no se incluyen en los informes ni en los análisis de correo electrónico.
 
 Las direcciones CCO están disponibles para Amazon SES, SendGrid y SparkPost. Como alternativa a las direcciones CCO, recomendamos utilizar el [archivado de mensajes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) para guardar una copia de los mensajes enviados a los usuarios con fines de archivado o cumplimiento.
 
@@ -97,9 +97,9 @@ Si necesitas que todos los mensajes de correo electrónico enviados desde Braze 
 
 #### CCO dinámico {#dynamic-bcc}
 
-Con CCO dinámico, puedes utilizar Liquid en tu dirección CCO. Ten en cuenta que esta característica solo está disponible en **Preferencias de correo electrónico** y no se puede configurar en la propia Campaign. Solo se permite una dirección CCO por destinatario de correo electrónico.
+Con el CCO dinámico, puedes utilizar Liquid en tu dirección CCO. Ten en cuenta que esta característica solo está disponible en **Preferencias de correo electrónico** y no se puede configurar en la propia Campaign. Solo se permite una dirección CCO por destinatario de correo electrónico.
 
-Por ejemplo, puedes añadir {% raw %}`{{custom_attribute.${support_agent}}}`{% endraw %} como dirección CCO para los correos electrónicos de tu equipo de soporte.
+Por ejemplo, puedes añadir {% raw %}`{{custom_attribute.${support_agent}}}`{% endraw %} como la dirección CCO para los correos electrónicos de tu equipo de soporte.
 
 ![Sección de dirección CCO de la pestaña de ajustes de correo electrónico con una dirección CCO que utiliza Liquid.]({% image_buster /assets/img/email_settings/dynamic_bcc.png %}){: style="max-width:90%;" }
 
@@ -116,7 +116,7 @@ El píxel de seguimiento de apertura de correo electrónico es una imagen invisi
 
 El comportamiento predeterminado en Braze es añadir el píxel de seguimiento en la parte inferior de tu correo electrónico, normalmente en una etiqueta `<body>`. Para la mayoría de los usuarios, este es el lugar ideal para colocar el píxel.
 
-Aunque el píxel ya está diseñado para causar la menor cantidad posible de cambios visuales, cualquier cambio visual no intencionado sería menos visible en la parte inferior de un correo electrónico. Este es también el comportamiento predeterminado para proveedores de correo electrónico como SendGrid y SparkPost.
+Aunque el píxel ya está diseñado para causar la menor cantidad posible de cambios visuales, cualquier cambio visual no intencionado sería menos visible en la parte inferior de un correo electrónico. Este también es el comportamiento predeterminado para proveedores de correo electrónico como SendGrid y SparkPost.
 
 Para reducir comportamientos inesperados, mantén Liquid dentro de las etiquetas `<html>`. Las etiquetas anidadas o duplicadas a nivel de documento pueden cambiar la forma en que se analiza el correo electrónico y dónde se ubica el píxel, lo que puede afectar al seguimiento de apertura y al diseño. Para más información, consulta [Uso de Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid).
 
@@ -312,7 +312,7 @@ Braze te permite configurar una **página de cancelación de suscripción person
 {% endtab %}
 {% tab Página de adhesión voluntaria personalizada %}
 
-Puedes crear una página de adhesión voluntaria personalizada utilizando tu propio HTML. Incluir esto en tu correo electrónico puede ser especialmente beneficioso si deseas que tu marca y mensaje se mantengan consistentes a lo largo del ciclo de vida del usuario. Ten en cuenta que esta página debe tener un tamaño inferior a 750 KB.
+Puedes crear una página de adhesión voluntaria personalizada utilizando tu propio HTML. Incluir esto en tu correo electrónico puede ser especialmente beneficioso si deseas que tu marca y mensaje se mantengan consistentes a lo largo del ciclo de vida de tu usuario. Ten en cuenta que esta página debe tener un tamaño inferior a 750 KB.
 
 ![Editor HTML de página de adhesión voluntaria personalizada y vista previa para la confirmación de suscripción de correo electrónico con marca.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
@@ -322,7 +322,7 @@ Puedes crear una página de adhesión voluntaria personalizada utilizando tu pro
 {% endtabs %}
 
 {% alert tip %}
-Cuando estés en la sección **Vista previa** de una página de suscripción o pie de página, selecciona **Copiar enlace de vista previa** para generar y copiar un enlace de vista previa compartible que muestre cómo se ve el pie de página del correo electrónico, la página de cancelación de suscripción o la página de adhesión voluntaria para un usuario aleatorio. El enlace dura siete días antes de que sea necesario regenerarlo.
+Cuando estés en la sección **Vista previa** de una página de suscripción o pie de página, selecciona **Copiar enlace de vista previa** para generar y copiar un enlace de vista previa compartible que muestre cómo se ve el pie de página del correo electrónico, la página de cancelación de suscripción o la página de adhesión voluntaria para un usuario aleatorio. Para más información, consulta [Vista previa compartible]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 {% endalert %}
 
 ## Preguntas frecuentes {#frequently-asked-questions}
@@ -338,15 +338,15 @@ Un centro de preferencias no se considera un enlace de cancelación de suscripci
 {% enddetails %}
 
 {% details ¿Necesito editar Campaigns y Canvas de correo electrónico anteriores para aplicar la configuración de cancelación de suscripción con un clic después de habilitarla? %}
-Si no tienes ninguno de los casos de uso para la configuración de cancelación de suscripción con un clic a nivel de mensaje, no se requiere ninguna acción siempre que la configuración esté activada en **Preferencias de correo electrónico**. Braze añade automáticamente los encabezados de cancelación de suscripción con un clic a todos los mensajes de marketing y promocionales salientes. Sin embargo, si necesitas configurar el comportamiento de cancelación de suscripción con un clic a nivel de mensaje individual, debes actualizar las Campaigns de correo electrónico y los pasos en Canvas anteriores de forma correspondiente.
+Si no tienes ninguno de los casos de uso para la configuración de cancelación de suscripción con un clic a nivel de mensaje, no se requiere ninguna acción siempre que la configuración esté activada en **Preferencias de correo electrónico**. Braze añade automáticamente los encabezados de cancelación de suscripción con un clic a todos los mensajes de marketing y promocionales salientes. Sin embargo, si necesitas configurar el comportamiento de cancelación de suscripción con un clic a nivel de mensaje, debes actualizar las Campaigns de correo electrónico y los pasos en Canvas anteriores de forma correspondiente.
 {% enddetails %}
 
-{% details Puedo ver el encabezado list-unsubscribe y de cancelación de suscripción con un clic en el mensaje original o en los datos sin procesar, pero ¿por qué no veo el botón de cancelación de suscripción en Gmail o Yahoo? %}
+{% details Puedo ver el encabezado list-unsubscribe y de cancelación de suscripción con un clic en el mensaje original o en los datos sin procesar, pero ¿por qué no veo el botón Cancelar suscripción en Gmail o Yahoo? %}
 Gmail y Yahoo deciden en última instancia si muestran o no el encabezado list-unsubscribe o de cancelación de suscripción con un clic. Para remitentes nuevos o remitentes con baja reputación del remitente, esto puede ocasionar que el botón de cancelación de suscripción no se muestre.
 {% enddetails %}
 
 {% details ¿El encabezado personalizado de cancelación de suscripción con un clic es compatible con Liquid? %}
-Sí, Liquid y la lógica condicional son compatibles para permitir URLs dinámicas de cancelación de suscripción con un clic en el encabezado.
+Sí, Liquid y la lógica condicional son compatibles para permitir URL dinámicas de cancelación de suscripción con un clic en el encabezado.
 {% enddetails %}
 
 {% alert tip %}
@@ -355,12 +355,12 @@ Si añades lógica condicional, evita tener valores de salida que agreguen espac
 
 ### Cancelación de suscripción con un clic a nivel de mensaje
 
-{% details Si añado los encabezados de correo electrónico para la cancelación con un clic manualmente y tengo activado el encabezado de cancelación de suscripción de correo electrónico, ¿cuál es el comportamiento esperado? %}
+{% details Si añado los encabezados de correo electrónico para la cancelación con un clic manualmente, y tengo activado el encabezado de cancelación de suscripción de correo electrónico, ¿cuál es el comportamiento esperado? %}
 Los encabezados de correo electrónico añadidos para la cancelación de suscripción con un clic se aplican a todos los envíos futuros de esta Campaign.
 {% enddetails %}
 
 {% details ¿Por qué los grupos de suscripción deben coincidir entre las variantes del mensaje para poder lanzar? %}
-Para una Campaign con pruebas A/B, Braze envía aleatoriamente a un usuario una de las variantes. Si tienes dos grupos de suscripción diferentes configurados en la misma Campaign (la variante A está configurada con el grupo de suscripción A y la variante B está configurada con el grupo de suscripción B), no podemos garantizar que los usuarios que solo están suscritos al grupo de suscripción B reciban la variante B. Puede haber un escenario en el que los usuarios cancelen la suscripción de un grupo de suscripción del que ya se habían dado de baja.
+Para una Campaign con pruebas A/B, Braze envía aleatoriamente a un usuario una de las variantes. Si tienes dos grupos de suscripción diferentes configurados en la misma Campaign (la variante A está configurada con el grupo de suscripción A, y la variante B está configurada con el grupo de suscripción B), no podemos garantizar que los usuarios que solo están suscritos al grupo de suscripción B reciban la variante B. Puede haber un escenario en el que los usuarios cancelen la suscripción de un grupo de suscripción del que ya se habían dado de baja.
 {% enddetails %}
 
 {% details La configuración del encabezado de cancelación de suscripción de correo electrónico está desactivada en Preferencias de correo electrónico, pero en la información de envío de mi Campaign, la configuración de cancelación de suscripción con un clic está establecida en "Usar predeterminado del espacio de trabajo". ¿Es un error? %}

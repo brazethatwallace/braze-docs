@@ -1,18 +1,47 @@
 ---
 page_order: 10.9
 nav_title: Solución de problemas
-article_title: Solución de problemas con las notificaciones push para el SDK de Braze
+article_title: Solución de problemas de notificaciones push para el SDK de Braze
+description: "Diagnostica problemas de entrega y visualización de notificaciones push utilizando un índice de síntomas, una ruta de investigación estándar y comprobaciones específicas del SDK por plataforma."
 channel:
   - push notifications
 ---
 
-# Solución de problemas con las notificaciones push {#troubleshoot-push-notifications}
+# Solución de problemas de notificaciones push {#troubleshoot-push-notifications}
 
-> Aprende a solucionar problemas relacionados con las notificaciones push para el SDK de Braze.
+> Usa esta página para diagnosticar problemas de entrega y visualización de notificaciones push en un dispositivo. Para comprobaciones de entrega del lado del panel (estado de suscripción, Segments, límites), consulta [Solución de problemas de push]({{site.baseurl}}/user_guide/channels/push/troubleshooting).
+
+Antes de depurar, añádete como [usuario de prueba]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#adding-test-users) y revisa [Envío de mensajes de prueba]({{site.baseurl}}/developer_guide/push_notifications/sending_test_messages).
+
+## Empieza aquí: identifica tu síntoma {#start-here-match-your-symptom}
+
+Busca el comportamiento que estás observando en la tabla y sigue los pasos de esa sección. Si no estás seguro de qué sección aplica, usa la [ruta de investigación estándar](#standard-investigation-path).
+
+| Síntoma | Ir a |
+| --- | --- |
+| Push no recibido en una plataforma | Selecciona la pestaña de tu SDK en [Solución de problemas específica por plataforma](#platform-specific-troubleshooting) |
+| Los saltos de línea alrededor de las etiquetas de Liquid se ven mal al guardar | [Saltos de línea en las notificaciones push](#push-linebreaks) |
+| Comprobaciones de entrega del panel (suscripción, Segment, límites) | [Solución de problemas de push]({{site.baseurl}}/user_guide/channels/push/troubleshooting) |
+| El vínculo profundo desde push no se abre correctamente | [Solución de problemas de vinculación en profundidad]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting) |
+| Códigos de error de push comunes | [Mensajes de error de push comunes]({{site.baseurl}}/user_guide/channels/push/push_error_codes) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Síntoma de push del SDK" }
+
+## Ruta de investigación estándar {#standard-investigation-path}
+
+Usa este flujo de trabajo para cada incidente de notificación push. Comienza en el paso 1.
+
+1. Confirma que el dispositivo tiene un token de push válido y que el permiso de push está concedido en la configuración del dispositivo.
+2. En el panel, confirma que el usuario de prueba coincide con el [Segment]({{site.baseurl}}/user_guide/channels/push/troubleshooting#segment) de la Campaign o Canvas y no está en el [grupo de control]({{site.baseurl}}/user_guide/channels/push/troubleshooting#control-group-status).
+3. Envía un [push de prueba]({{site.baseurl}}/developer_guide/push_notifications/sending_test_messages) al dispositivo de prueba.
+4. [Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduce el problema y revisa la guía específica de la plataforma en tu [pestaña del SDK](#platform-specific-troubleshooting).
+5. Si el problema persiste, contacta con [soporte de Braze]({{site.baseurl}}/braze_support) con los registros detallados, la plataforma, la versión del SDK y el ID de la Campaign o Canvas.
+
+## Solución de problemas específica por plataforma {#platform-specific-troubleshooting}
+
+Selecciona la pestaña de tu SDK para comprobaciones de configuración y visualización específicas de la plataforma.
 
 {% sdktabs %}
 {% sdktab web %}
-
 ## Solución de problemas {#troubleshooting}
 
 Si experimentas problemas después de configurar las notificaciones push, ten en cuenta lo siguiente:
@@ -29,7 +58,6 @@ Si experimentas problemas después de configurar las notificaciones push, ten en
 {% endsdktab %}
 
 {% sdktab swift %}
-
 ## Comprender el flujo de trabajo de Braze/APN {#understanding-the-brazeapns-workflow}
 
 El servicio de notificaciones push de Apple (APN) es la infraestructura para enviar notificaciones push a aplicaciones que se ejecutan en las plataformas de Apple. A continuación se muestra la estructura simplificada de cómo se habilitan las notificaciones push para los dispositivos de tus usuarios y cómo Braze puede enviarles notificaciones push:
@@ -201,7 +229,6 @@ Si las aperturas se están registrando, comprueba si se trata de un problema con
 {% endsdktab %}
 
 {% sdktab .NET MAUI (Xamarin) %}
-
 ## Solución de problemas
 
 ### La notificación push no aparece después de cerrar la aplicación desde el selector de tareas {#push-doesnt-appear-after-app-is-closed-from-task-switcher}

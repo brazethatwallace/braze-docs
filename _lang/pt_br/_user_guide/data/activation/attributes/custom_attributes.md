@@ -46,6 +46,10 @@ Se um atributo personalizado de array aparecer em um perfil de usuário sem valo
 Para o direcionamento adequado de mensagens, certifique-se de que o tipo de dados do seu atributo personalizado corresponda ao atributo personalizado real. <br><br>Por exemplo, se `newsletter_subscribed` for definido como uma string, sua sintaxe Liquid deve ser {% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == 'true' %}`{% endraw %}. Se `newsletter_subscribed` for definido como booleano, a sintaxe Liquid não deve ter aspas simples: {% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == true %}`{% endraw %}.
 {% endalert %}
 
+### Solução de problemas com atributos personalizados ou eventos duplicados {#troubleshooting-duplicate-custom-attributes-or-events}
+
+{% multi_lang_include data_activation/troubleshooting_duplicate_custom_data_entries.md %}
+
 Nesta página, você pode visualizar, gerenciar, criar ou bloquear atributos personalizados existentes. Selecione o menu ao lado de um atributo personalizado para as seguintes ações:
 
 ### Lista de bloqueio {#blocklisting}
@@ -115,7 +119,7 @@ Você pode visualizar até 100 relatórios de uso por vez selecionando as caixas
 
 Ao visualizar um relatório de uso, selecione a guia **Valores** para ver os principais valores dos atributos personalizados selecionados com base em uma amostra de aproximadamente 250.000 usuários. Como os resultados são amostrados a partir de um subconjunto de usuários, a amostra não incluirá todos os valores existentes. Isso significa que a guia **Valores** não deve ser usada para solução de problemas ou para casos de uso que exigem a incorporação de dados de todos os usuários.
 
-![Relatório de uso para atributos personalizados selecionados com a guia "Valores" aberta, mostrando um gráfico de pizza dos valores do atributo de país, como "US" e "PR".]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
+![Relatório de uso para atributos personalizados selecionados com a guia "Valores" aberta, mostrando um gráfico de pizza com valores do atributo de país, como "US" e "PR".]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
 ## Definir atributos personalizados {#set-custom-attributes}
 
@@ -154,5 +158,5 @@ Ao limpar ou remover a definição de um atributo personalizado, o comportamento
 {% alert important %}
 Para tipos de dados que não são string, em que o tipo de dado é definido manualmente no dashboard da Braze (não detectado automaticamente), você deve usar `null` para remover a definição do valor. Passar `""` é válido apenas para atributos do tipo string — por exemplo, definir um atributo booleano como `""` é tratado como uma string vazia, que é um valor inválido para esse tipo. Para remover a definição de um booleano, passe `null`.
 
-Note que a importação de CSV não oferece suporte a `null` — valores booleanos em importações de CSV devem ser `TRUE` ou `FALSE`.
+Observe que a importação de CSV não oferece suporte a `null` — valores booleanos em importações de CSV devem ser `TRUE` ou `FALSE`.
 {% endalert %}

@@ -6,44 +6,44 @@
 リモートMCPサーバーは早期アクセス段階です。アクセスをリクエストするには、アカウントマネージャーにお問い合わせください。
 {% endalert %}
 
-## モデルコンテキストプロトコル（MCP）とは {#what-is-model-context-protocol-mcp}
+## Model Context Protocol（MCP）とは {#what-is-model-context-protocol-mcp}
 
-モデルコンテキストプロトコル（MCP）とは、AIエージェントが別のプラットフォームのデータに接続し、そのデータと連動できるようにする規格です。主に2つの部分で構成されています。
+Model Context Protocol（MCP）は、AIエージェントが別のプラットフォームのデータに接続し、連携できるようにする標準規格です。MCPには主に2つの構成要素があります。
 
-- **MCPクライアント：** AIエージェントが動作するアプリケーション（CursorやClaudeなど）。
-- **MCPサーバー：** 別のプラットフォーム（Brazeなど）が提供するサービスで、AIが使用できるツールとアクセス可能なデータを定義します。
+- **MCPクライアント：** CursorやClaudeなど、AIエージェントが動作するアプリケーションです。
+- **MCPサーバー：** Brazeのような別のプラットフォームが提供するサービスで、AIが使用できるツールやアクセスできるデータを定義します。
 
 ## Braze MCPサーバーについて {#about-the-braze-mcp-server}
 
-[Braze MCPサーバーの設定]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}後、エージェントやアシスタント、チャットボットなどのAIツールをBrazeに直接接続し、キャンバスやキャンペーンの分析、カスタム属性、セグメントなどの集計データを読み取れるようになります。Braze MCPサーバーは以下のようなユースケースに最適です。
+[Braze MCPサーバーのセットアップ]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}が完了すると、エージェント、アシスタント、チャットボットなどのAIツールをBrazeに直接接続できるようになります。これにより、キャンバスやキャンペーンの分析、カスタム属性、セグメントなどの集計データを読み取ることが可能になります。Braze MCPサーバーは、以下のような用途に最適です。
 
 - Brazeのコンテキストを必要とするAI搭載ツールの構築。
 - マルチステップのエージェントワークフローを作成するCRMエンジニア。
-- 自然言語クエリを試す技術系マーケター。
+- 自然言語クエリを試すテクニカルマーケター。
 
-Braze MCPサーバーには、読み取りと書き込みの両方のツールが含まれています。これらのツールはBrazeユーザープロファイルからデータを返すことはありません。エージェントはBrazeダッシュボードのユーザー権限を継承します。利用可能なツールの完全なリストについては、[利用可能なAPI機能]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}を参照してください。
+Braze MCPサーバーには、読み取りツールと書き込みツールの両方が含まれています。これらのツールは、Brazeユーザープロファイルからデータを返しません。エージェントは、Brazeダッシュボードのユーザー権限を継承します。利用可能なツールの完全なリストについては、[利用可能なAPI関数]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}を参照してください。
 
 {% alert warning %}
 ユーザーレベルのPIIを公開するツールは利用できません。
 {% endalert %}
 
-MCPサーバーを使用して、キャンペーンやキャンバスのパフォーマンスに関する質問をしたり、セグメントやカスタム属性を調べたり、レポートを生成したり、メールテンプレート、コンテンツブロック、メディアライブラリのアセットなどのコンテンツを自然言語で作成したりできます。
+MCPサーバーを使用して、キャンペーンやキャンバスのパフォーマンスに関する質問をしたり、セグメントやカスタム属性を探索したり、レポートを生成したり、メールテンプレート、Content Blocks、メディアライブラリアセットなどのコンテンツを自然言語で作成したりできます。
 
 ## ベータ版MCPサーバーは非推奨ですか？ {#is-the-beta-mcp-server-deprecated}
 
-はい。2025年8月にリリースされたローカルホスト型MCPサーバーは非推奨であり、追加の更新は行われません。引き続き使用できますが、Brazeはリモートホスト版への移行を推奨しています。
+はい。2025年8月にリリースされたローカルホスト型MCPサーバーは非推奨であり、今後の追加アップデートは行われません。引き続き使用することは可能ですが、Brazeではリモートホスト版への移行を推奨しています。
 
 ### リモートサーバーはどう違いますか？ {#how-is-the-remote-server-different}
 
-以前のBraze MCPサーバーはローカルマシン上で動作していました。パッケージのインストール、設定ファイルの管理、適切な権限を持つBraze APIキーの作成が必要でした。リモートMCPサーバーでは、そのローカル設定が不要になります。
+以前のBraze MCPサーバーはローカルマシン上で動作していました。パッケージのインストール、設定ファイルの管理、適切な権限を持つBraze APIキーの作成が必要でした。リモートMCPサーバーでは、このローカルセットアップが不要になります。
 
-サポートされているMCPクライアントから1分以内に接続できます。認証にはOAuthを使用します。アクセスは共有APIキーではなくBrazeダッシュボードのユーザーアカウントに紐づいているため、エージェントが閲覧・実行できる内容はダッシュボードの権限と同じです。ダッシュボードユーザーがBrazeでアクセスを失うと、クライアントもアクセスを失います。
+サポートされているMCPクライアントから1分以内に接続できます。認証にはOAuthを使用します。アクセスは共有APIキーではなくBrazeダッシュボードのユーザーアカウントに紐づいているため、エージェントが閲覧・操作できる範囲はダッシュボードの権限と同じです。ダッシュボードユーザーがBrazeへのアクセスを失うと、クライアントもアクセスを失います。
 
 主な違いは以下のとおりです。
 
-- **設定：** パッケージのインストールや設定ファイルの編集の代わりに、BrazeのURLを貼り付けるだけです。
-- **認証：** APIキーの作成の代わりに、Brazeアカウントでサインインします。
-- **権限：** APIキーの権限ではなく、ダッシュボードのユーザーアカウントに基づいてアクセスが決まります。
+- **セットアップ：** パッケージのインストールや設定ファイルの編集の代わりに、BrazeのURLを貼り付けるだけです。
+- **認証：** APIキーを作成する代わりに、Brazeアカウントでサインインします。
+- **権限：** APIキーの権限ではなく、ダッシュボードのユーザーアカウントに基づいてアクセスが制御されます。
 - **ワークスペースの指定：** ローカル設定で固定するのではなく、リクエストごとにワークスペースのコンテキストが渡されます。
 
 ## よくある質問（FAQ） {#faq}
@@ -57,6 +57,7 @@ OAuthを使用したリモートMCPサーバーをサポートするMCPクライ
 - Cursor
 - OpenAI Codex
 - Claude Code
+- Visual Studio Code
 
 ### MCPクライアントはBrazeのどのデータにアクセスできますか？ {#what-braze-data-can-my-mcp-client-access}
 

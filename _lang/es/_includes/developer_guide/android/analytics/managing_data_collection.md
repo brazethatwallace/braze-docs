@@ -17,11 +17,11 @@ Este artículo proporciona información sobre los datos que procesa el SDK de Br
 | ¿Proporcionas alguna forma de que los usuarios puedan solicitar que se eliminen sus datos? | Sí. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Preguntas" }
 
-Para obtener más información sobre la gestión de las solicitudes de los usuarios sobre sus datos y su eliminación, consulta la [Información sobre la retención de datos de Braze]({{site.baseurl}}/api/data_retention/).
+Para obtener más información sobre la gestión de las solicitudes de los usuarios sobre sus datos y su eliminación, consulta la [Información sobre la retención de datos de Braze]({{site.baseurl}}/api/data_retention).
 
 ### Recopilación de datos {#data-collection}
 
-Los datos recopilados por Braze vienen determinados por tu integración específica y los datos de usuario que elijas recopilar. Para saber más sobre qué datos recopila Braze de manera predeterminada y cómo desactivar determinados atributos, consulta nuestras [opciones de recopilación de datos del SDK]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#minimum-integration).
+Los datos recopilados por Braze vienen determinados por tu integración específica y los datos de usuario que elijas recopilar. Para saber más sobre qué datos recopila Braze de manera predeterminada y cómo desactivar determinados atributos, consulta nuestras [opciones de recopilación de datos del SDK]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection#minimum-integration).
 
 <table aria-label="Recopilación de datos" id="datatypes">
     <thead>
@@ -177,16 +177,116 @@ Los datos recopilados por Braze vienen determinados por tu integración específ
     </tbody>
 </table>
 
-Para obtener más información sobre otros datos de dispositivo que Braze recopila y que pueden quedar fuera del ámbito de las directrices de seguridad de datos de Google Play, consulta nuestro [resumen de almacenamiento de Android]({{site.baseurl}}/developer_guide/storage/?tab=android) y nuestras [opciones de recopilación de datos del SDK]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#minimum-integration).
+Para obtener más información sobre otros datos de dispositivo que Braze recopila y que pueden quedar fuera del ámbito de las directrices de seguridad de datos de Google Play, consulta nuestro [resumen de almacenamiento de Android]({{site.baseurl}}/developer_guide/storage/?tab=android) y nuestras [opciones de recopilación de datos del SDK]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection#minimum-integration).
 
 ## Desactivar el seguimiento de datos {#disabling-data-tracking}
 
-Para desactivar la actividad de seguimiento de datos en el SDK de Android, utiliza el método [`disableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-sdk.html). Esto hará que se cancelen todas las conexiones de red, lo que significa que el SDK de Braze ya no pasará ningún dato a los servidores de Braze.
+Para desactivar la actividad de seguimiento de datos en el SDK de Android, utiliza el método [`disableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-sdk.html). Esto hará que se cancelen todas las conexiones de red, lo que significa que el SDK de Braze ya no enviará ningún dato a los servidores de Braze.
 
 ## Borrar datos almacenados previamente {#wiping-previously-stored-data}
 
 Puedes utilizar el método [`wipeData()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/wipe-data.html) para borrar completamente todos los datos del lado del cliente almacenados en el dispositivo.
 
-## Reanudar el seguimiento de datos {#resuming-data-tracking}
+## Reanudación del seguimiento de datos {#resuming-data-tracking}
 
-Para reanudar la recopilación de datos, puedes utilizar el método [`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html). Ten en cuenta que esto no restaurará ningún dato borrado previamente.
+Para reanudar la recopilación de datos, puedes utilizar el método [`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html). Ten en cuenta que esto no restaurará ningún dato previamente borrado.
+
+## Cierre de sesión y cancelación del registro push {#logout-and-unregister-push}
+
+El SDK de Braze proporciona métodos para dejar de segmentar un dispositivo cuando un usuario cancela su registro de notificaciones push o cierra sesión. Estos métodos eliminan los datos de registro push del usuario actual en el servidor de Braze y en el SDK, de modo que Braze ya no envía futuras Campaigns de notificaciones push a ese usuario.
+
+### Cierre de sesión {#logout}
+
+Cuando un usuario cierra sesión en una aplicación, llama al método `logout` del SDK para eliminar el registro push del dispositivo del usuario actual y realizar automáticamente acciones de limpieza en el SDK. El método `logout` realiza lo siguiente:
+
+- Cancela el registro del token push del dispositivo del usuario actual en el servidor de Braze.
+- Si la llamada de cancelación de registro tiene éxito, el SDK borra los datos del SDK almacenados localmente y desactiva el SDK.
+- En caso de fallo, genera un error y un indicador `isRetriable` para permitir al integrador tomar medidas.
+
+El siguiente ejemplo de devolución de llamada muestra el manejo de éxito y error de `logout`. Úsalo para flujos de cierre de sesión basados en devoluciones de llamada, y reemplaza el registro con tu lógica de reintento o reautenticación.
+
+```kotlin
+// Completion callback
+Braze.getInstance(context).logout { result ->
+  result
+    .onSuccess {
+      Log.d(TAG, "Logout successful")
+    }
+    .onFailure { error ->
+      val pushError = error as? BrazePushUnregistrationException
+      Log.e(TAG, "Logout failed: ${error.message}, isRetriable: ${pushError?.isRetriable}")
+    }
+}
+```
+
+El siguiente ejemplo de corrutina muestra la API suspendida de `logout`. Úsalo en flujos basados en corrutinas y personaliza las ramas de éxito y fallo para tu aplicación.
+
+```kotlin
+lifecycleScope.launch {
+  runCatching { Braze.getInstance(context).logout() }
+    .onSuccess {
+      Log.d(TAG, "Logout successful")
+    }
+    .onFailure { error ->
+      val pushError = error as? BrazePushUnregistrationException
+      Log.e(TAG, "Logout failed: ${error.message}, isRetriable: ${pushError?.isRetriable}")
+    }
+}
+```
+
+#### Reactivar el seguimiento y push después de `logout` {#re-enable-tracking-and-push-after-logout}
+
+Después de un `logout` exitoso, reactiva el SDK con [`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html), y luego vuelve a registrarte para notificaciones con tu sistema operativo (SO) o proveedor de push siguiendo la [configuración push de Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android).
+
+#### Evitar llamadas de cancelación de registro inmediatas {#avoid-immediate-unregister-calls}
+
+Evita llamar a `logout` o `unregisterPush` directamente después de registrarte para notificaciones push con el SO o el proveedor de push. Debido al procesamiento asíncrono del servidor, esto puede, en raras ocasiones, volver a añadir el token push al usuario de Braze.
+
+### Cancelar el registro push {#unregister-push}
+
+Para dejar de enviar push a un dispositivo sin limpieza automatizada adicional, utiliza el método `unregisterPush`. Esto elimina el token push del dispositivo del usuario actual en el servidor de Braze y borra el token almacenado localmente.
+
+El siguiente ejemplo de devolución de llamada muestra cómo manejar los resultados de `unregisterPush`. Úsalo cuando tu flujo esté basado en devoluciones de llamada, y reemplaza el registro con tu propia lógica de reintento.
+
+```kotlin
+// Completion callback
+Braze.getInstance(context).unregisterPush { result ->
+  result
+    .onSuccess {
+      Log.d(TAG, "Push unregistered successfully")
+    }
+    .onFailure { error ->
+      val pushError = error as? BrazePushUnregistrationException
+      Log.e(
+        TAG,
+        "Push unregistration failed: ${error.message}, isRetriable: ${pushError?.isRetriable}"
+      )
+    }
+}
+```
+
+El siguiente ejemplo de corrutina muestra la API suspendida de `unregisterPush`. Úsalo en flujos basados en corrutinas y personaliza las ramas de éxito y fallo para tu aplicación.
+
+```kotlin
+lifecycleScope.launch {
+  runCatching { Braze.getInstance(context).unregisterPush() }
+    .onSuccess {
+      Log.d(TAG, "Push unregistered successfully")
+    }
+    .onFailure { error ->
+      val pushError = error as? BrazePushUnregistrationException
+      Log.e(
+        TAG,
+        "Push unregistration failed: ${error.message}, isRetriable: ${pushError?.isRetriable}"
+      )
+    }
+}
+```
+
+#### Volver a registrar push después de `unregisterPush` {#re-register-push-after-unregisterpush}
+
+Después de llamar a `unregisterPush`, vuelve a registrarte para notificaciones con tu SO o proveedor de push siguiendo la [configuración push de Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) antes de enviar notificaciones push de Braze de nuevo.
+
+#### Evitar llamadas de cancelación de registro inmediatas
+
+Evita llamar a `logout` o `unregisterPush` directamente después de registrarte para notificaciones push con el SO o el proveedor de push. Debido al procesamiento asíncrono del servidor, esto puede, en raras ocasiones, volver a añadir el token push al usuario de Braze.

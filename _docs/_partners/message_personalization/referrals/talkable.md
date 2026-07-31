@@ -83,7 +83,7 @@ On every opt-in event, Talkable creates or updates the matching Braze user profi
 | `phone` | String | Captured as a user attribute only. Braze expects E.164 format; sent as stored in Talkable. |
 | `first_name` | String | The person's first name. |
 | `last_name` | String | The person's last name. |
-| Subscription group enrollment | Not applicable | Added only when a subscription group is configured. The user is enrolled as subscribed. |
+| Subscription group enrollment | Not applicable | Talkable enrolls the user as subscribed when a subscription group is configured. |
 | User alias | Not applicable | Added only when a user alias is configured. For more information, see [Customizing Talkable](#customizing-talkable). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Default user attributes sent to Braze" }
 

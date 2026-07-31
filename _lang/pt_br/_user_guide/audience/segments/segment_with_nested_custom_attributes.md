@@ -19,41 +19,45 @@ Digamos que você faz parte de uma equipe de marketing de um app de streaming de
 
 ## Filtrar por atributos personalizados aninhados {#filter-by-nested-custom-attributes}
 
-Vamos criar um Segment com base em um atributo personalizado aninhado para segmentar seus usuários que tocaram a música mais reproduzida mais de 300 vezes.
+Vamos criar um Segment com base em um atributo personalizado aninhado para direcionar os usuários que tocaram sua música mais ouvida mais de 300 vezes.
 
 ### Etapa 1: Adicionar o filtro {#step-1-add-the-filter}
 
-Selecione o filtro **Nested Custom Attributes** para exibir um menu suspenso no qual você pode selecionar um atributo personalizado aninhado específico. Vamos selecionar `most_played_song`, que contém dados sobre a música mais reproduzida de um usuário.
+Selecione o filtro **Nested Custom Attributes** para exibir um menu suspenso no qual você pode selecionar um atributo personalizado aninhado específico. Vamos selecionar `most_played_song`, que contém dados sobre a música mais ouvida de um usuário.
 
 ### Etapa 2: Selecionar a propriedade {#step-2-select-the-property}
 
-Selecione a **Property** dentro do atributo personalizado aninhado pela qual você deseja filtrar. Vamos selecionar `play_analytics.count`, que rastreia quantas vezes um usuário tocou sua música mais reproduzida.
+Selecione a **Property** dentro do atributo personalizado aninhado pela qual você deseja filtrar. Vamos selecionar `play_analytics.count`, que rastreia quantas vezes um usuário tocou sua música mais ouvida.
 
 ### Etapa 3: Selecionar uma comparação e o valor do atributo personalizado aninhado {#step-3-select-a-comparison-and-nested-custom-attribute-value}
 
 Ao filtrar por atributos personalizados aninhados, o tipo de dados da sua propriedade determina os comparadores disponíveis para filtragem. Por exemplo, como `play_analytics.count` é um número, você pode selecionar um comparador na categoria **Number**.
 
-Para filtrar por usuários que tocaram sua música mais reproduzida pelo menos 300 vezes, selecione a comparação **More than** e insira "300" como valor.
+Para filtrar por usuários que tocaram sua música mais ouvida pelo menos 300 vezes, selecione a comparação **More than** e insira "300" como valor.
 
 ![Um usuário escolhendo um operador com base no tipo de dados do atributo personalizado aninhado]({% image_buster /assets/img_archive/nca_comparator.png %})
 
-## Filtrar por tipos de dados de tempo {#filter-for-time-data-types}
+## Filtrar tipos de dados de Hora {#filter-for-time-data-types}
 
-Ao filtrar um atributo personalizado aninhado de tempo, você pode escolher filtrar com operadores nas categorias **Day of Year** ou **Time** ao comparar o valor de data.
+Ao filtrar um atributo personalizado aninhado de hora, você pode escolher filtrar com operadores nas categorias **Dia do Ano** ou **Hora** ao comparar o valor da data.
 
-Se você selecionar um operador na categoria **Day of Year**, apenas o mês e o dia serão verificados na comparação, em vez do timestamp completo do valor do atributo personalizado aninhado. Selecionar um operador na categoria **Time** compara o timestamp completo, incluindo o ano.
+Se você selecionar um operador na categoria **Dia do Ano**, apenas o mês e o dia serão verificados na comparação, em vez do timestamp completo do valor do atributo personalizado aninhado. Selecionar um operador na categoria **Hora** compara o timestamp completo, incluindo o ano.
+
+{% alert note %}
+Ao usar operadores de **Hora** que suportam unidades de dia e semana (como **é mais que**, **é menos que**, **exatamente** e **depois**), a Braze converte automaticamente o valor para semanas quando você salva o Segment. Por exemplo, 91 dias são convertidos em 13 semanas. Tanto unidades de dia quanto de semana são suportadas para esses filtros.
+{% endalert %}
 
 ## Usar segmentação multicritério {#use-multi-criteria-segmentation}
 
-Use a **Multi-Criteria Segmentation** para criar um Segment que corresponda a múltiplos critérios dentro de um único objeto. Isso qualifica o usuário no Segment se ele tiver pelo menos um objeto no vetor que atenda a todos os critérios especificados. Por exemplo, os usuários só correspondem a esse Segment se a chave deles não estiver em branco e se o número for maior que 0.
+Use a **Segmentação Multicritério** para criar um Segment que corresponda a vários critérios dentro de um único objeto. Isso qualifica o usuário no Segment se ele tiver pelo menos um objeto no vetor que corresponda a todos os critérios especificados. Por exemplo, os usuários só correspondem a esse Segment se a chave deles não estiver em branco e se o número deles for maior que 0.
 
-### Copiar Liquid para Segment {#copy-liquid-for-segment}
+### Copiar Liquid para o Segment {#copy-liquid-for-segment}
 
-Você também pode usar o recurso **Copy Liquid for segment** para gerar código Liquid para esse Segment e usá-lo em uma mensagem. Por exemplo, digamos que você tem um vetor de objetos de conta e um Segment que segmenta clientes com contas tributáveis ativas. Para fazer com que os clientes contribuam para a meta da conta associada a uma de suas contas ativas e tributáveis, você vai querer criar uma mensagem para incentivá-los.
+Você também pode usar o recurso **Copiar Liquid para o Segment** para gerar código Liquid para esse Segment e usá-lo em uma mensagem. Por exemplo, digamos que você tenha um vetor de objetos de conta e um Segment que segmenta clientes com contas tributáveis ativas. Para fazer com que os clientes contribuam para a meta da conta associada a uma de suas contas ativas e tributáveis, você vai querer criar uma mensagem para incentivá-los.
 
-![Um exemplo de Segment com a caixa de seleção marcada para Multi-Criteria Segmentation.]({% image_buster /assets/img_archive/nca_multi_criteria.png %})
+![Um exemplo de Segment com a caixa de seleção marcada para Segmentação Multicritério.]({% image_buster /assets/img_archive/nca_multi_criteria.png %})
 
-Quando você seleciona **Copy Liquid for segment**, a Braze gera automaticamente código Liquid que retorna um vetor de objeto contendo apenas contas que são ativas e tributáveis.
+Quando você seleciona **Copiar Liquid para o Segment**, a Braze gera automaticamente código Liquid que retorna um vetor de objeto que contém apenas contas ativas e tributáveis.
 
 {% raw %}
 

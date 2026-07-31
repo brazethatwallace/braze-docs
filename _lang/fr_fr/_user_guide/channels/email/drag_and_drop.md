@@ -29,10 +29,10 @@ L'éditeur par glisser-déposer utilise le [Contenu](#content) et les [Lignes](#
     <tbody>
     <tr>
         <td style="text-align: center;">
-            <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="L'onglet « Lignes » qui présente différentes combinaisons structurelles pour la mise en page de votre e-mail." style="max-width: 100%; height: auto;">
+            <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="L'onglet « Lignes » qui inclut différentes combinaisons structurelles pour la mise en page de votre e-mail." style="max-width: 100%; height: auto;">
         </td>
         <td style="text-align: center;">
-            <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="L'onglet « Contenu » qui comprend les blocs de base, les médias et les blocs avancés." style="max-width: 100%; height: auto;">
+            <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="L'onglet « Contenu » qui inclut les blocs de base, les médias et les blocs avancés." style="max-width: 100%; height: auto;">
         </td>
     </tr>
     </tbody>
@@ -63,7 +63,7 @@ Les blocs médias vous permettent d'ajouter différents contenus visuels tels qu
 {% endtab %}
 {% tab Avancés %}
 
-Bien que l'éditeur par glisser-déposer simplifie votre flux de travail avec ces blocs, vous pouvez également utiliser les blocs avancés pour insérer du HTML ou ajouter un menu dans le corps de votre e-mail. Notez que l'utilisation de votre propre HTML peut affecter le rendu du message.
+Bien que l'éditeur par glisser-déposer simplifie votre flux de travail avec ces blocs, vous pouvez également utiliser des blocs avancés pour insérer du HTML ou ajouter un menu dans le corps de votre e-mail. Notez que l'utilisation de votre propre HTML peut affecter le rendu du message.
 
 {% endtab %}
 {% endtabs %}
@@ -74,11 +74,11 @@ Les **Lignes** sont des unités structurelles qui définissent la composition ho
 
 #### Imbriquer des images dans des blocs de texte {#nesting-images-inside-text-blocks}
 
-Vous ne pouvez pas imbriquer une image à l'intérieur d'un paragraphe ou d'un autre bloc de texte dans l'éditeur par glisser-déposer. Pour placer une image à côté ou à l'intérieur d'une mise en page textuelle, utilisez des colonnes dans une **Ligne** : par exemple, une ligne multi-colonnes sur ordinateur avec **Masquer sur mobile** pour cette ligne, et une ligne distincte réservée au mobile (avec **Masquer sur ordinateur** et **Ne pas empiler sur mobile** si nécessaire) afin que l'image et le texte s'alignent correctement sur les petits écrans.
+Vous ne pouvez pas imbriquer une image dans un paragraphe ou un autre bloc de texte dans l'éditeur par glisser-déposer. Pour placer une image à côté ou au sein d'une mise en page textuelle, utilisez des colonnes dans une **Ligne** : par exemple, une ligne multi-colonnes sur ordinateur avec **Masquer sur mobile** pour cette ligne, et une ligne distincte réservée au mobile (avec **Masquer sur ordinateur** et **Ne pas empiler sur mobile** si nécessaire) afin que l'image et le texte s'alignent correctement sur les petits écrans.
 
 #### Style Cartes {#cards-style}
 
-Le **Style Cartes** est une propriété de ligne qui vous permet d'ajouter un espacement entre les colonnes et d'arrondir leurs coins. Grâce au formatage en style carte, vous pouvez créer des mises en page plus attrayantes visuellement pour mettre en valeur votre contenu le plus important, comme les nouvelles fonctionnalités produit, les témoignages, les offres spéciales, les actualités, et bien plus encore.
+Le **Style Cartes** est une propriété de ligne qui vous permet d'ajouter un espacement entre les colonnes et d'arrondir leurs coins. Grâce au formatage en style carte, vous pouvez créer des mises en page plus visuellement attrayantes pour mettre en valeur votre contenu le plus important, comme les nouvelles fonctionnalités produit, les témoignages, les offres spéciales, les actualités, et bien plus encore.
 
 ## Utiliser l'éditeur par glisser-déposer {#using-the-drag-and-drop-editor}
 
@@ -112,23 +112,23 @@ Ensuite, sélectionnez **Modifier le corps de l'e-mail** pour commencer à conce
 
 ### Étape 2 : Créer votre e-mail {#step-2-build-your-email}
 
-L'expérience d'édition par glisser-déposer est divisée en trois sections : **Paramètres d'envoi**, **Contenu** et **Prévisualisation et test**. La magie de la création du corps de votre e-mail se produit dans la section **Contenu**. Avant de créer votre e-mail, il est important de comprendre les composants clés qui guident votre expérience de création d'e-mail. Si vous avez besoin de les revoir, consultez [À propos de l'éditeur](#about-the-editor).
+L'expérience d'édition par glisser-déposer est divisée en trois sections : **Paramètres d'envoi**, **Contenu** et **Aperçu et test**. La magie de la création du corps de votre e-mail se produit dans la section **Contenu**. Avant de créer votre e-mail, il est important de comprendre les composants clés qui guident votre expérience de création d'e-mail. Si vous avez besoin de les revoir, consultez [À propos de l'éditeur](#about-the-editor).
 
 Lorsque vous êtes prêt, utilisez les blocs de contenu par glisser-déposer pour créer votre e-mail.
 
-1. Sélectionnez le panneau **Lignes**. Glissez-déposez les configurations de lignes dans l'éditeur principal. Cela définira la mise en page du contenu de votre e-mail.
+1. Sélectionnez le panneau **Lignes**. Glissez et déposez les configurations de lignes dans l'éditeur principal. Cela définira la mise en page du contenu de votre e-mail.
 - Notez que les nouvelles configurations doivent être glissées en haut ou en bas d'une section existante.
 - Lorsque vous sélectionnez une configuration de ligne, les paramètres **Propriétés de la ligne** apparaissent pour une personnalisation plus poussée des couleurs d'arrière-plan, des images et des tailles de colonnes personnalisées.
-2. Sélectionnez le panneau **Contenu**. Glissez-déposez les tuiles de contenu souhaitées dans les composants de ligne.
+2. Sélectionnez le panneau **Contenu**. Glissez et déposez les tuiles de contenu souhaitées dans les composants de ligne.
 - Vous pouvez également glisser n'importe quelle tuile de **Contenu** dans l'éditeur principal. Cela crée une ligne pour la tuile.
 - Vous pouvez affiner davantage la tuile en la sélectionnant et en ajustant les champs dans **Propriétés du contenu** et **Options du bloc**. Cela inclut la modification de l'espacement des lettres, du remplissage, de la hauteur de ligne, et plus encore.
 
 Consultez [Autres personnalisations](#other-customizations) pour d'autres façons de personnaliser davantage votre e-mail par glisser-déposer.
 
-Pendant la création de votre e-mail, vous pouvez basculer entre une vue bureau et mobile pour prévisualiser l'apparence de votre e-mail pour vos groupes d'utilisateurs. Cela vérifiera que votre contenu est responsive, et vous pourrez effectuer les ajustements nécessaires au fur et à mesure.
+Pendant la création de votre e-mail, vous pouvez basculer entre une vue bureau et mobile pour prévisualiser l'apparence de votre e-mail pour vos groupes d'utilisateurs. Cela vous permettra de vérifier que votre contenu est responsive, et vous pourrez effectuer les ajustements nécessaires au fur et à mesure.
 
 {% alert tip %}
-Besoin d'aide pour rédiger un texte percutant ? Essayez d'utiliser l'[assistant de rédaction par IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Saisissez un nom ou une description de produit, et l'IA générera un texte marketing de qualité humaine à utiliser dans vos communications.
+Besoin d'aide pour rédiger un texte percutant ? Essayez d'utiliser l'[assistant de rédaction IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Saisissez un nom ou une description de produit, et l'IA générera un texte marketing au style naturel à utiliser dans vos communications.
 
 ![Bouton de rédaction, situé dans le panneau Contenu à côté des paramètres de style dans l'éditeur par glisser-déposer.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}
@@ -164,18 +164,18 @@ Les fonctionnalités avancées apparaîtront dans le compositeur de Campaign ou 
 Après avoir ajouté vos informations d'envoi, il est enfin temps de tester votre e-mail.
 
 {% alert tip %}
-Si l'e-mail semble différent dans l'éditeur par rapport à la prévisualisation ou à l'envoi test, vérifiez que toutes les balises sont fermées, que les attributs d'image ont des valeurs et que les images d'arrière-plan ne sont pas floues sur les bords.
+Si l'e-mail semble différent dans l'éditeur par rapport à l'aperçu ou à l'envoi test, vérifiez que toutes les balises sont fermées, que les attributs d'image ont des valeurs et que les images d'arrière-plan ne sont pas floues sur les bords.
 {% endalert %}
 
-Accédez à la section **Prévisualisation et test**. Ici, vous avez la possibilité de prévisualiser votre e-mail en tant qu'utilisateur ou d'envoyer un message test. Cette section inclut également [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), qui vous permet de vérifier que votre e-mail s'affiche correctement sur différents clients mobiles et web.
+Accédez à la section **Aperçu et test**. Ici, vous avez la possibilité de prévisualiser votre e-mail en tant qu'utilisateur ou d'envoyer un message test. Cette section inclut également [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), qui vous permet de vérifier que votre e-mail s'affiche correctement sur différents clients mobiles et web.
 
 {% alert tip %}
-Vous pouvez également utiliser le bouton **Prévisualisation en mode sombre** dans le panneau de prévisualisation pour afficher le corps de votre e-mail en mode sombre et ajuster votre e-mail si nécessaire.
+Vous pouvez également utiliser le bouton **Aperçu en mode sombre** dans le panneau d'aperçu pour visualiser le corps de votre e-mail en mode sombre et ajuster votre e-mail si nécessaire.
 {% endalert %}
 
 Comme vous pouvez visualiser trois versions différentes du même e-mail dans l'éditeur, dans Inbox Vision et en tant qu'e-mail test réel, il est important d'aligner les détails sur toutes vos plateformes.
 
-#### Prévisualisation et envoi test {#preview-and-test-send}
+#### Aperçu et envoi test {#preview-and-test-send}
 
 Sous l'onglet **Prévisualiser en tant qu'utilisateur**, vous pouvez sélectionner les types d'utilisateurs suivants pour prévisualiser votre message.
 
@@ -187,17 +187,15 @@ Sous l'onglet **Prévisualiser en tant qu'utilisateur**, vous pouvez sélectionn
 L'utilisateur aléatoire peut ou non faire partie de vos critères de segmentation. La segmentation est sélectionnée par la suite, donc Braze ne connaît pas votre audience cible à ce stade.
 {% endalert %}
 
-Vous pouvez également sélectionner **Copier le lien de prévisualisation** pour générer et copier un lien de prévisualisation partageable qui montre à quoi ressemblera l'e-mail pour un utilisateur aléatoire. Le lien sera valide pendant sept jours avant de devoir être régénéré.
+Vous pouvez également sélectionner **Copier le lien d'aperçu** pour générer et copier un lien d'aperçu partageable qui montre à quoi ressemblera l'e-mail pour un utilisateur aléatoire. Pour plus d'informations, consultez [Aperçu partageable]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
-Notez que toute modification apportée à un modèle d'e-mail ne sera pas reflétée dans un lien généré précédemment. Vous devrez générer un nouveau lien de prévisualisation pour voir les modifications.
-
-![Prévisualisation d'e-mail avec un bouton « Copier le lien de prévisualisation » et copier le lien généré.]({% image_buster /assets/img/dnd_email_link_preview.png %})
+![Aperçu de l'e-mail avec un bouton pour « Copier le lien d'aperçu » et copier le lien généré.]({% image_buster /assets/img/dnd_email_link_preview.png %})
 
 #### Utiliser Inbox Vision {#use-inbox-vision}
 
-Inbox Vision vous permet de visualiser vos Campaigns d'e-mail du point de vue des clients de messagerie et des appareils mobiles. Pour tester votre e-mail à l'aide d'Inbox Vision, sélectionnez **Inbox Vision** dans la section **Prévisualisation et test** et sélectionnez **Lancer Inbox Vision**.
+Inbox Vision vous permet de visualiser vos Campaigns d'e-mail du point de vue des clients de messagerie et des appareils mobiles. Pour tester votre e-mail à l'aide d'Inbox Vision, sélectionnez **Inbox Vision** dans la section **Aperçu et test** et sélectionnez **Lancer Inbox Vision**.
 
-Il est important de tester et de vérifier les détails les plus fins de votre e-mail. Par exemple, les images d'arrière-plan dans les e-mails peuvent parfois provoquer l'apparition de lignes blanches ou de déconnexions entre les images, ou des clients tels que Windows Outlook peuvent ne pas afficher les images d'arrière-plan. Utiliser Inbox Vision peut aider à identifier ces différences entre les clients. Dans ce cas, définissez une couleur d'arrière-plan de secours afin que ces images puissent s'afficher comme prévu.
+Il est important de tester et de vérifier les détails les plus fins de votre e-mail. Par exemple, les images d'arrière-plan dans les e-mails peuvent parfois provoquer l'apparition de lignes blanches ou de déconnexions entre les images, ou des clients tels que Windows Outlook peuvent ne pas afficher les images d'arrière-plan. L'utilisation d'Inbox Vision peut aider à identifier ces divergences entre les clients. Dans ce cas, définissez une couleur d'arrière-plan de secours afin que ces images puissent s'afficher comme prévu.
 
 Pour plus d'informations, consultez [Envoyer des messages test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=email).
 
@@ -224,7 +222,7 @@ Au fur et à mesure que vous construisez vos e-mails par glisser-déposer, vous 
 Vous pouvez créer un thème personnalisé pour votre éditeur par glisser-déposer en utilisant les [paramètres de style globaux]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings).
 {% endalert %}
 
-### Images en largeur automatique {#auto-width-images}
+### Largeur automatique des images {#auto-width-images}
 
 Les images ajoutées à votre e-mail seront automatiquement définies sur **Largeur automatique**. Pour ajuster ce paramètre, désactivez **Largeur automatique** et modifiez le pourcentage de largeur selon vos besoins.
 
@@ -240,7 +238,7 @@ Grâce à la superposition de couleurs, vous pouvez modifier la couleur de l'arr
 
 ![Options de bloc pour l'éditeur par glisser-déposer.]({% image_buster /assets/img/dnd/dnd3.png %}){: style="float:right;max-width:25%;margin-left:15px;"}
 
-Pour ajuster l'espacement, faites défiler jusqu'à **Options de bloc** et sélectionnez **Plus d'options**. Vous pouvez affiner votre espacement pour que votre e-mail soit exactement comme vous le souhaitez.
+Pour ajuster l'espacement, faites défiler jusqu'à **Options de bloc** et sélectionnez **Plus d'options**. Vous pouvez affiner votre espacement pour obtenir un e-mail parfaitement mis en forme.
 
 ### Arrière-plan du contenu {#content-background}
 

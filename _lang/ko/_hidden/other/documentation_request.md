@@ -457,7 +457,7 @@ hide_toc: true
               <div id="disclosure-warning" class="alert alert-important" role="alert">
                 <div class="alert-msg">
                   <b>중요: </b>
-                  Copilot이 이 제안을 작성하며, 문서 팀에서 검토합니다. <strong>고객별 정보</strong>나 <strong>링크</strong>가 포함되어 있지 않은지 확인해 주세요.
+                  인공지능이 이 제안의 초안 작성을 지원하며, 문서 팀과 기타 내부 이해관계자가 게시 전에 검토합니다. <strong>고객별 정보</strong>나 <strong>고객 링크</strong>가 포함되어 있지 않은지 확인해 주세요.
                 </div>
               </div>
               </div>

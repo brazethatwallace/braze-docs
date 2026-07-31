@@ -8,20 +8,20 @@ Der Remote-MCP-Server befindet sich im Early Access. Kontaktieren Sie Ihren Acco
 
 ## Was ist das Model Context Protocol (MCP)? {#what-is-model-context-protocol-mcp}
 
-​​Das Model Context Protocol (MCP) ist ein Standard, der es KI-Agenten ermöglicht, sich mit Daten aus einer anderen Plattform zu verbinden und mit diesen zu arbeiten. Es besteht aus zwei Hauptteilen:
+​​Model Context Protocol, oder MCP, ist ein Standard, der es KI-Agenten ermöglicht, sich mit Daten einer anderen Plattform zu verbinden und damit zu arbeiten. Es besteht aus zwei Hauptteilen:
 
-- **MCP-Client:** Die Anwendung, in der der KI-Agent ausgeführt wird, wie beispielsweise Cursor oder Claude.
-- **MCP-Server:** Ein Dienst, der von einer anderen Plattform wie Braze bereitgestellt wird und festlegt, welche Tools die KI verwenden und auf welche Daten sie zugreifen kann.
+- **MCP-Client:** Die Anwendung, in der der KI-Agent ausgeführt wird, wie z. B. Cursor oder Claude.
+- **MCP-Server:** Ein Dienst, der von einer anderen Plattform wie Braze bereitgestellt wird und definiert, welche Tools die KI nutzen kann und auf welche Daten sie zugreifen kann.
 
-## Informationen zum Braze MCP-Server {#about-the-braze-mcp-server}
+## Über den Braze MCP-Server {#about-the-braze-mcp-server}
 
-Nach [der Einrichtung des Braze MCP-Servers]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %} können Sie KI-Tools wie Agenten, Assistenten und Chatbots direkt mit Braze verbinden, sodass diese aggregierte Daten wie Canvas- und Campaign-Analytics, angepasste Attribute, Segmente und mehr lesen können. Der Braze MCP-Server eignet sich hervorragend für:
+Nach dem [Einrichten des Braze MCP-Servers]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %} können Sie KI-Tools wie Agenten, Assistenten und Chatbots direkt mit Braze verbinden, sodass diese aggregierte Daten wie Canvas- und Campaign-Analytics, angepasste Attribute, Segmente und mehr lesen können. Der Braze MCP-Server eignet sich hervorragend für:
 
-- Entwicklung von KI-gestützten Tools, die den Kontext von Braze erfordern.
-- CRM-Ingenieur:innen, die mehrstufige Agenten-Workflows erstellen.
-- Technische Marketer, die mit Abfragen in natürlicher Sprache experimentieren.
+- Die Entwicklung KI-gestützter Tools, die Braze-Kontext benötigen.
+- CRM-Entwickler:innen, die mehrstufige Agenten-Workflows erstellen.
+- Technische Marketer, die mit natürlichsprachlichen Abfragen experimentieren.
 
-Der Braze MCP-Server umfasst sowohl Lese- als auch Schreib-Tools. Diese Tools geben keine Daten aus Braze-Nutzerprofilen zurück. Ihre Agenten erben die Berechtigungen Ihres Braze-Dashboard-Nutzerkontos. Die vollständige Liste der verfügbaren Tools finden Sie unter [Verfügbare API-Funktionen]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
+Der Braze MCP-Server umfasst sowohl Lese- als auch Schreib-Tools. Diese Tools geben keine Daten aus Braze-Nutzerprofilen zurück. Ihre Agenten übernehmen Ihre Braze-Dashboard-Nutzerberechtigungen. Die vollständige Liste der verfügbaren Tools finden Sie unter [Verfügbare API-Funktionen]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 {% alert warning %}
 Tools, die PII auf Nutzerebene offenlegen, sind nicht verfügbar.
@@ -35,9 +35,9 @@ Ja. Der lokal gehostete MCP-Server, der im August 2025 veröffentlicht wurde, is
 
 ### Wie unterscheidet sich der Remote-Server? {#how-is-the-remote-server-different}
 
-Der bisherige Braze MCP-Server lief lokal auf Ihrem Rechner. Sie mussten ein Paket installieren, eine Konfigurationsdatei verwalten und einen Braze-API-Schlüssel mit den richtigen Berechtigungen erstellen. Der Remote-MCP-Server macht dieses lokale Setup überflüssig.
+Der bisherige Braze-MCP-Server lief lokal auf Ihrem Rechner. Sie mussten ein Paket installieren, eine Konfigurationsdatei verwalten und einen Braze-API-Schlüssel mit den richtigen Berechtigungen erstellen. Der Remote-MCP-Server macht dieses lokale Setup überflüssig.
 
-Verbinden Sie sich von einem unterstützten MCP-Client in weniger als einer Minute. Die Authentifizierung erfolgt über OAuth. Der Zugriff ist an Ihr Braze-Dashboard-Nutzerkonto gebunden, nicht an einen gemeinsam genutzten API-Schlüssel, sodass das, was ein Agent sehen und tun kann, Ihren Dashboard-Berechtigungen entspricht. Wenn ein:e Dashboard-Nutzer:in den Zugriff in Braze verliert, verliert auch der Client den Zugriff.
+Verbinden Sie sich von einem unterstützten MCP-Client in weniger als einer Minute. Die Authentifizierung erfolgt über OAuth. Der Zugriff ist an Ihr Braze-Dashboard-Nutzerkonto gebunden, nicht an einen gemeinsam genutzten API-Schlüssel. Was ein Agent sehen und tun kann, entspricht also Ihren Dashboard-Berechtigungen. Wenn ein:e Dashboard-Nutzer:in den Zugriff in Braze verliert, verliert auch der Client den Zugriff.
 
 Die wichtigsten Unterschiede sind:
 
@@ -57,6 +57,7 @@ Jeder MCP-Client, der Remote-MCP-Server mit OAuth unterstützt, kann verwendet w
 - Cursor
 - OpenAI Codex
 - Claude Code
+- Visual Studio Code
 
 ### Auf welche Braze-Daten hat mein MCP-Client Zugriff? {#what-braze-data-can-my-mcp-client-access}
 

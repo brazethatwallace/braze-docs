@@ -17,7 +17,7 @@ Puedes continuar la conversación con seguimientos. Operator recuerda los mensaj
 
 ## Requisitos previos {#prerequisites}
 
-Operator tiene los mismos permisos que tú, por lo que ciertas acciones requieren el permiso correspondiente para esa superficie. Por ejemplo, generar una imagen requiere *Edit Media Library Assets*. Si no ves un punto de entrada, verifica tus permisos con tu administrador. Para más información, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+Operator tiene los mismos permisos que tú, por lo que ciertas acciones requieren el permiso correspondiente para esa superficie. Por ejemplo, generar una imagen requiere *Editar activos de la biblioteca multimedia*. Si no ves un punto de entrada, comprueba tus permisos con tu administrador. Para más información, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 ## Qué puede crear Operator {#what-operator-can-create}
 
@@ -101,6 +101,8 @@ Obtienes los mejores resultados cuando usas Operator en el creador en el que est
 
 Operator puede ayudarte a crear [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks), las piezas de contenido reutilizables que insertas en los mensajes. Describe el bloque que deseas, y Operator redacta su contenido para que lo revises antes de guardarlo. Como los Content Blocks son compartidos, actualizar uno actualiza cada mensaje que lo referencia.
 
+Operator crea Content Blocks de uno en uno en el panel. Para crear Content Blocks de forma masiva, usa el endpoint [Crear bloque de contenido]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) con una clave de API que tenga el permiso `content_blocks.create`.
+
 ### Crear plantillas de mensajes {#create-message-templates}
 
 Operator puede ayudarte a crear [plantillas de mensajes]({{site.baseurl}}/user_guide/messaging/templates) reutilizables que puedes aplicar en todas las Campaigns. Describe la plantilla que deseas, y Operator la redacta para que la revises antes de guardarla. Generar una plantilla funciona de manera muy similar a generar un mensaje, así que consulta [Generar mensajes](#generate-messages) para los canales y editores compatibles.
@@ -160,7 +162,7 @@ Más allá de su revisión predeterminada, puedes dirigir a Operator para que se
 - **Ortografía y gramática:** Revisa errores ortográficos y gramaticales y sugiere correcciones que mejoren la precisión de tu contenido.
 - **Tono:** Evalúa si el tono coincide con tu estilo de comunicación previsto y señala cualquier cosa que pueda malinterpretarse.
 - **Lenguaje ofensivo:** Busca lenguaje potencialmente ofensivo o inapropiado para que puedas revisarlo y mantener tu mensajería respetuosa.
-- **Contenido accidental:** Detecta código suelto, marcado o mensajes de prueba que agregaste involuntariamente, incluyendo Liquid que no se renderizó para un usuario de prueba.
+- **Contenido accidental:** Detecta código suelto, marcado o mensajes de prueba que se agregaron involuntariamente, incluyendo Liquid que no se renderizó para un usuario de prueba.
 - **Otros idiomas:** Revisa contenido escrito en otro idioma. El soporte para contenido en idiomas distintos al inglés puede variar, así que revisa los resultados cuidadosamente.
 
 #### Mejores prácticas {#review-content-quality-best-practices}
@@ -191,6 +193,10 @@ Operator puede consultar lo siguiente para responder preguntas o fundamentar el 
 
 Pregunta directamente a Operator si no estás seguro de si puede buscar una información específica.
 
+### Analizar datos de rendimiento {#analyze-performance-data}
+
+Haz preguntas a Operator en lenguaje natural sobre el rendimiento de tus Campaigns y Canvas, y te devolverá gráficos, comparaciones e información breve extraída de los datos de tu espacio de trabajo. A diferencia de las funciones de Operator que dependen del contexto de la página en la que te encuentras, Analyze responde desde cualquier lugar del panel. Para más información, consulta [Operator Analyze]({{site.baseurl}}/user_guide/brazeai/operator/analyze).
+
 ### Escribir consultas SQL {#write-sql-queries}
 
 Operator puede ayudarte a escribir SQL para [extensiones de segmento](#campaigns-and-audiences) y para [plantillas de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) del Query Builder. Describe la consulta que deseas en lenguaje natural, y Operator genera el SQL para que lo revises antes de ejecutarlo.
@@ -198,6 +204,21 @@ Operator puede ayudarte a escribir SQL para [extensiones de segmento](#campaigns
 ### Generar código de transformación de datos {#generate-data-transformation-code}
 
 En el editor de [transformación de datos]({{site.baseurl}}/user_guide/data/unification/data_transformation), selecciona **Insert Code** para generar código de transformación que convierte una carga útil de webhook entrante en solicitudes válidas de la API de Braze. Para instrucciones paso a paso sobre cómo crear una transformación, consulta [Crear una transformación]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
+
+## Configuración del espacio de trabajo {#workspace-settings}
+
+Operator puede revisar y actualizar la configuración en varias páginas de configuración del espacio de trabajo. Describe el cambio que deseas y Operator lo propone como una tarjeta de acción que revisas antes de guardarlo. Las páginas de configuración compatibles incluyen, entre otras:
+
+- [Horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)
+- [Configuración de push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)
+- [Límites de velocidad de mensajería]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)
+- [Flujos de trabajo de aprobación]({{site.baseurl}}/user_guide/messaging/governance/approvals), incluyendo [reglas de mensajería]({{site.baseurl}}/user_guide/messaging/governance/approvals/messaging_rules) y aprobación permanente
+- [API e identificadores]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), incluyendo [otros identificadores]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers) y límites de API
+- [Información de contacto de configuración de administrador]({{site.baseurl}}/user_guide/administer/global/admin_settings/contact_information)
+
+{% alert note %}
+La cobertura de Operator sobre las páginas de configuración se amplía regularmente. **Pregunta directamente a Operator** para obtener la respuesta más actualizada sobre lo que puede configurar.
+{% endalert %}
 
 ## Limitaciones {#limitations}
 
@@ -207,9 +228,10 @@ La cobertura de Operator cambia con frecuencia. Si no estás seguro de si una pa
 
 El soporte de Operator en el panel es amplio, pero tiene límites.
 
-- **Canvas:** Operator no puede crear ni editar [Canvas]({{site.baseurl}}/user_guide/messaging/canvas), pero puede consultar la configuración de un Canvas existente, como segmentación y configuración de entrega, para responder preguntas y fundamentar su resultado.
-- **Editores de arrastrar y soltar:** Operator no puede generar ni insertar un diseño de mensaje directamente en un editor de arrastrar y soltar, como los de [correo electrónico]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner) y [mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Cambia al editor HTML correspondiente para usar Operator, o pídele a Operator que genere contenido, como texto, que puedas pegar manualmente. Consulta [Generar mensajes](#generate-messages) para los canales y editores compatibles.
-- **Visibilidad de pantalla:** Operator utiliza contexto consciente de la página para comprender lo que estás viendo, incluyendo el contenido dentro de vistas previas y editores compatibles. Cuando parte de una página queda fuera de lo que Operator puede leer, te lo indica en lugar de adivinar, para que sepas que debes describir ese contenido tú mismo.
+- **Canvas:** Operator no puede crear ni editar [Canvas]({{site.baseurl}}/user_guide/messaging/canvas), pero puede consultar la configuración de un Canvas existente, como la segmentación y la configuración de entrega, para responder preguntas y fundamentar su resultado.
+- **Duplicación de Campaigns:** Operator no puede duplicar una Campaign existente desde la vista de lista de Campaigns. Para crear una Campaign similar, pide a Operator que cree una nueva desde cero, o duplica la Campaign manualmente desde el menú **Más acciones** de la vista de lista.
+- **Editores de arrastrar y soltar:** Operator no puede generar ni insertar un diseño de mensaje directamente en un editor de arrastrar y soltar, como los de [correo electrónico]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner) y [mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Cambia al editor HTML correspondiente para usar Operator, o pide a Operator que genere contenido, como texto, que puedas pegar manualmente. Consulta [Generar mensajes](#generate-messages) para ver los canales y editores compatibles.
+- **Visibilidad de pantalla:** Operator utiliza contexto consciente de la página para comprender lo que estás viendo, incluido el contenido dentro de vistas previas y editores compatibles. Cuando parte de una página queda fuera de lo que Operator puede leer, te lo indica en lugar de adivinar, para que sepas que debes describir ese contenido tú mismo.
 - **Límites de uso:** Operator tiene un límite de uso diario a nivel de empresa que se restablece cada 24 horas. Las generaciones de imágenes cuentan para este límite. Si se alcanza el límite, aparece un mensaje de "Límite de uso diario excedido" y no se pueden realizar más solicitudes hasta que se restablezca. Para pasos de solución de problemas, consulta [Solución de problemas]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting).
 
 ## Asistentes anteriores {#legacy-assistants}

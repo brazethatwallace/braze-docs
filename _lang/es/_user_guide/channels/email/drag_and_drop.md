@@ -41,7 +41,7 @@ El editor de arrastrar y soltar utiliza [Contenido](#content) y [Filas](#rows) c
 
 ### Contenido {#content}
 
-**Contenido** incluye una serie de mosaicos que representan diferentes tipos de contenido que puedes usar en tu mensaje. Están organizados en tres categorías: básico, multimedia y avanzado.
+**Contenido** incluye una serie de bloques que representan diferentes tipos de contenido que puedes usar en tu mensaje. Están organizados en tres categorías: básico, multimedia y avanzado.
 
 {% tabs %}
 {% tab Básico %}
@@ -63,7 +63,7 @@ Con los bloques multimedia, puedes añadir diferentes contenidos visuales como i
 {% endtab %}
 {% tab Avanzado %}
 
-Aunque el editor de arrastrar y soltar simplifica tu flujo de trabajo con estos bloques, también puedes usar bloques avanzados para insertar HTML o añadir un menú al cuerpo de tu correo electrónico. Ten en cuenta que usar tu propio HTML puede afectar la forma en que se renderiza el mensaje.
+Aunque el editor de arrastrar y soltar simplifica tu flujo de trabajo con estos bloques, también puedes usar bloques avanzados para insertar HTML o añadir un menú al cuerpo de tu correo electrónico. Ten en cuenta que usar tu propio HTML puede afectar la forma en que se muestra el mensaje.
 
 {% endtab %}
 {% endtabs %}
@@ -74,21 +74,21 @@ Las **filas** son unidades estructurales que definen la composición horizontal 
 
 #### Anidar imágenes dentro de bloques de texto {#nesting-images-inside-text-blocks}
 
-No puedes anidar una imagen dentro de un párrafo u otro bloque de texto en el editor de arrastrar y soltar. Para colocar una imagen junto a un diseño de texto o dentro de él, usa columnas en una **fila**: por ejemplo, una fila de varias columnas en escritorio con **Hide on mobile** para esa fila, y una fila separada solo para móvil (con **Hide on desktop** y **Do not stack on mobile** según sea necesario) para que la imagen y el texto se alineen correctamente en pantallas pequeñas.
+No puedes anidar una imagen dentro de un párrafo u otro bloque de texto en el editor de arrastrar y soltar. Para colocar una imagen junto a un diseño de texto o dentro de él, usa columnas en una **fila**: por ejemplo, una fila de varias columnas en escritorio con **Ocultar en móvil** para esa fila, y una fila separada solo para móvil (con **Ocultar en escritorio** y **No apilar en móvil** según sea necesario) para que la imagen y el texto se alineen correctamente en pantallas pequeñas.
 
 #### Estilo de tarjetas {#cards-style}
 
-**Estilo de tarjetas** es una propiedad de fila que te permite añadir espaciado entre columnas y redondear sus esquinas. Con el formato de estilo de tarjetas, puedes crear diseños más atractivos visualmente para destacar tu contenido más importante, como nuevas características de producto, testimonios, ofertas especiales, novedades y más.
+**Estilo de tarjetas** es una propiedad de fila que te permite añadir espaciado entre columnas y redondear sus esquinas. Con el formato de estilo de tarjetas, puedes crear diseños más atractivos visualmente para destacar tu contenido más importante, como nuevas características de productos, testimonios, ofertas especiales, novedades y más.
 
 ## Uso del editor de arrastrar y soltar {#using-the-drag-and-drop-editor}
 
 ¿No tienes claro si tu mensaje de correo electrónico debe enviarse usando una Campaign o un Canvas? Las Campaigns son mejores para envíos de mensajería únicos y dirigidos, mientras que los Canvas son mejores para recorridos de usuario de varios pasos.
 
 {% alert note %}
-No puedes guardar un correo electrónico de arrastrar y soltar desde una Campaign o un Canvas directamente en **Templates** > **Email Templates** como una plantilla de correo electrónico. Primero crea la plantilla en **Templates**, o consulta [¿Puedo guardar mi correo electrónico de arrastrar y soltar como plantilla después de crearlo en mi Campaign o Canvas?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) para recrear una plantilla de arrastrar y soltar o exportar HTML con **Download file**.
+No puedes guardar un correo electrónico de arrastrar y soltar desde una Campaign o un Canvas directamente en **Plantillas** > **Plantillas de correo electrónico** como plantilla de correo electrónico. Primero crea la plantilla en **Plantillas**, o consulta [¿Puedo guardar mi correo electrónico de arrastrar y soltar como plantilla después de crearlo dentro de mi Campaign o Canvas?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) para recrear una plantilla de arrastrar y soltar o exportar HTML con **Descargar archivo**.
 {% endalert %}
 
-Después de seleccionar dónde construir tu mensaje, veamos los pasos para crear un correo electrónico con arrastrar y soltar.
+Después de seleccionar dónde construir tu mensaje, veamos los pasos para crear un correo electrónico de arrastrar y soltar.
 
 ### Paso 1: Selecciona tu plantilla {#step-1-select-your-template}
 
@@ -99,61 +99,61 @@ Después de seleccionar el editor de arrastrar y soltar como tu experiencia de e
 - Usar una plantilla de correo electrónico de arrastrar y soltar guardada.
 
 {% alert note %}
-Para usar una plantilla HTML personalizada existente o plantillas creadas por terceros, debes recrear la plantilla yendo a **Content** > **Email** y seleccionando **Drag-And-Drop Editor** como tu experiencia de edición.
+Para usar una plantilla HTML personalizada existente o plantillas creadas por terceros, debes recrear la plantilla yendo a **Contenido** > **Correo electrónico** y seleccionando **Editor de arrastrar y soltar** como tu experiencia de edición.
 {% endalert %}
 
-También puedes acceder a todas las plantillas desde la sección **Templates**.
+También puedes acceder a todas las plantillas desde la sección **Plantillas**.
 
-Después de seleccionar tu plantilla, verás un resumen de tu correo electrónico en **Email Variants** que incluye la información de envío y el cuerpo del correo electrónico.
+Después de seleccionar tu plantilla, verás un resumen de tu correo electrónico en **Variantes de correo electrónico** que incluye la información de envío y el cuerpo del correo electrónico.
 
-Luego, selecciona **Edit Email Body** para comenzar a diseñar la estructura del correo electrónico en el editor de arrastrar y soltar.
+Luego, selecciona **Editar cuerpo del correo electrónico** para comenzar a diseñar la estructura del correo electrónico en el editor de arrastrar y soltar.
 
-![La sección "Email Variants" con un ejemplo de cuerpo de correo electrónico.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
+![La sección "Variantes de correo electrónico" con un ejemplo de cuerpo de correo electrónico.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
 
 ### Paso 2: Crea tu correo electrónico {#step-2-build-your-email}
 
-La experiencia de edición de arrastrar y soltar se divide en tres secciones: **Sending Settings**, **Content** y **Preview & Test**. La magia de construir el cuerpo de tu correo electrónico ocurre en la sección **Content**. Antes de crear tu correo electrónico, es importante comprender los componentes clave que guían tu experiencia de creación de correos electrónicos. Si necesitas repasar, consulta [Acerca del editor](#about-the-editor).
+La experiencia de edición de arrastrar y soltar se divide en tres secciones: **Configuración de envío**, **Contenido** y **Vista previa y prueba**. La magia de crear el cuerpo de tu correo electrónico ocurre en la sección **Contenido**. Antes de crear tu correo electrónico, es importante comprender los componentes clave que guían tu experiencia de creación de correos electrónicos. Si necesitas repasar, consulta [Acerca del editor](#about-the-editor).
 
 Cuando estés listo, usa los bloques de contenido de arrastrar y soltar para crear tu correo electrónico.
 
-1. Selecciona el panel **Rows**. Arrastra y suelta las configuraciones de filas en el editor principal. Esto definirá el diseño del contenido de tu correo electrónico.
+1. Selecciona el panel **Filas**. Arrastra y suelta las configuraciones de filas en el editor principal. Esto definirá el diseño del contenido de tu correo electrónico.
 - Ten en cuenta que las nuevas configuraciones deben arrastrarse a la parte superior o inferior de una sección existente.
-- Cuando selecciones una configuración de fila, aparecerán los ajustes de **Row Properties** para una mayor personalización de los colores de fondo de la fila, imágenes y tamaños de columna personalizados.
-2. Selecciona el panel **Content**. Arrastra y suelta los bloques de contenido deseados en los componentes de fila.
-- También puedes arrastrar cualquiera de los bloques de **Content** al editor principal. Esto creará una fila para el bloque.
-- Puedes refinar aún más el bloque seleccionándolo y ajustando los campos en **Content Properties** y **Block Options**. Esto incluye editar el espaciado entre letras, el relleno, la altura de línea y más.
+- Cuando selecciones una configuración de fila, aparecerá la configuración de **Propiedades de fila** para una mayor personalización de los colores de fondo de la fila, imágenes y tamaños de columna personalizados.
+2. Selecciona el panel **Contenido**. Arrastra y suelta los bloques de contenido deseados en los componentes de fila.
+- También puedes arrastrar cualquiera de los bloques de **Contenido** al editor principal. Esto crea una fila para el bloque.
+- Puedes refinar aún más el bloque seleccionándolo y ajustando los campos en **Propiedades de contenido** y **Opciones de bloque**. Esto incluye editar el espaciado entre letras, el relleno, la altura de línea y más.
 
 Consulta [Otras personalizaciones](#other-customizations) para conocer otras formas de personalizar aún más tu correo electrónico de arrastrar y soltar.
 
 A medida que creas tu correo electrónico, puedes alternar entre una vista de escritorio y una vista móvil para previsualizar cómo se verá tu mensaje de correo electrónico para tus grupos de usuarios. Esto verificará que tu contenido sea receptivo, y puedes hacer los ajustes necesarios sobre la marcha.
 
 {% alert tip %}
-¿Necesitas ayuda para crear un texto increíble? Prueba usar el [asistente de redacción con IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Ingresa el nombre o la descripción de un producto, y la IA generará un texto de marketing similar al humano para usar en tu mensajería.
+¿Necesitas ayuda para crear un texto increíble? Prueba usar el [asistente de redacción con IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Ingresa un nombre o descripción de producto, y la IA generará un texto de marketing similar al humano para usar en tu mensajería.
 
-![Botón de redactor, ubicado en el panel Content junto a Style Settings en el editor de arrastrar y soltar.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
+![Botón de redactor, ubicado en el panel de Contenido junto a Configuración de estilo en el editor de arrastrar y soltar.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}
 
 ### Paso 3: Agrega tu información de envío {#step-3-add-your-sending-information}
 
-Una vez que hayas terminado de diseñar y crear tu mensaje de correo electrónico, es hora de agregar tu información de envío en la sección **Sending Settings**.
+Una vez que hayas terminado de diseñar y crear tu mensaje de correo electrónico, es hora de agregar tu información de envío en la sección **Configuración de envío**.
 
 {% multi_lang_include email/sending_info_steps.md %}
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
-Una vista previa en el panel del lado derecho se completará con la información de envío que hayas agregado. Esta información también se puede actualizar navegando a **Settings** > **Email Preferences** > **Sending Configuration**.
+Una vista previa en el panel del lado derecho se completará con la información de envío que hayas agregado. Esta información también se puede actualizar navegando a **Configuración** > **Preferencias de correo electrónico** > **Configuración de envío**.
 
 #### Agregar archivos adjuntos de correo electrónico {#add-email-attachments}
 
-En **Sending Settings** > **Advanced**, puedes agregar archivos adjuntos de correo electrónico mediante los siguientes métodos:
+En **Configuración de envío** > **Avanzado**, puedes agregar archivos adjuntos de correo electrónico mediante los siguientes métodos:
 
 {% multi_lang_include email/attachment_upload_options.md %}
 
-Consulta las [directrices de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) para conocer las mejores prácticas específicas a considerar.
+Consulta las [Directrices de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) para conocer las mejores prácticas específicas a considerar.
 
-#### Personalizar el encabezado de tu correo electrónico (avanzado) {#personalize-your-email-header-advanced}
+#### Personaliza el encabezado de tu correo electrónico (avanzado) {#personalize-your-email-header-advanced}
 
-En **Sending Settings**, puedes agregar personalización para los encabezados de correo electrónico y extras de correo electrónico, lo que te permite enviar datos adicionales a otros proveedores de servicios de correo electrónico. Personalizar un encabezado de correo electrónico, como incluir el nombre del destinatario, también puede contribuir a la probabilidad de que tu correo electrónico sea abierto.
+En **Configuración de envío**, puedes agregar personalización para los encabezados de correo electrónico y extras de correo electrónico, lo que te permite enviar datos adicionales a otros proveedores de servicios de correo electrónico. Personalizar un encabezado de correo electrónico, como incluir el nombre de un destinatario, también puede contribuir a la probabilidad de que tu correo electrónico sea abierto.
 
 {% alert note %}
 La funcionalidad avanzada aparecerá en el creador de Campaign o Canvas. En la funcionalidad avanzada, puedes modificar tu configuración de CSS en línea e ingresar un encabezado o pares clave-valor adicionales (si están configurados).
@@ -161,41 +161,39 @@ La funcionalidad avanzada aparecerá en el creador de Campaign o Canvas. En la f
 
 ### Paso 4: Prueba tu correo electrónico {#step-4-test-your-email}
 
-Después de agregar tu información de envío, es hora de probar finalmente tu correo electrónico.
+Después de agregar tu información de envío, es hora de finalmente probar tu correo electrónico.
 
 {% alert tip %}
-Si el correo electrónico se ve diferente en el editor que en la vista previa o en el envío de prueba, confirma que todas las etiquetas estén cerradas, que los atributos de imagen tengan valores y que las imágenes de fondo no estén borrosas en los bordes.
+Si el correo electrónico se ve diferente en el editor que en la vista previa o el envío de prueba, confirma que todas las etiquetas estén cerradas, que los atributos de imagen tengan valores y que las imágenes de fondo no estén borrosas en los bordes.
 {% endalert %}
 
-Ve a la sección **Preview and Test**. Aquí tienes la opción de previsualizar tu correo electrónico como un usuario o enviar un mensaje de prueba. Esta sección también incluye [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), que te permite verificar que tu correo electrónico se haya renderizado correctamente en diferentes clientes móviles y web.
+Ve a la sección **Vista previa y prueba**. Aquí tienes la opción de previsualizar tu correo electrónico como un usuario o enviar un mensaje de prueba. Esta sección también incluye [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), que te permite verificar que tu correo electrónico se haya renderizado correctamente en diferentes clientes móviles y web.
 
 {% alert tip %}
-También puedes usar el interruptor **Dark Mode Preview** en el panel de vista previa para ver el cuerpo de tu correo electrónico en modo oscuro y ajustar tu correo electrónico según sea necesario.
+También puedes usar el interruptor de **Vista previa en modo oscuro** en el panel de vista previa para ver el cuerpo de tu correo electrónico en modo oscuro y ajustar tu correo electrónico según sea necesario.
 {% endalert %}
 
 Dado que puedes ver tres versiones diferentes del mismo correo electrónico en el editor real, en Inbox Vision y como un correo electrónico de prueba real, es importante alinear los detalles en todas tus plataformas.
 
 #### Vista previa y envío de prueba {#preview-and-test-send}
 
-En la pestaña **Preview as a User**, puedes seleccionar los siguientes tipos de usuario para previsualizar tu mensaje.
+En la pestaña **Vista previa como usuario**, puedes seleccionar los siguientes tipos de usuario para previsualizar tu mensaje.
 
-- **Random User:** Braze seleccionará aleatoriamente un usuario de la base de datos y previsualizará el correo electrónico basándose en sus atributos o información de eventos.
-- **Select User:** Puedes seleccionar un usuario específico basándote en su dirección de correo electrónico o ID externo. El correo electrónico se previsualizará basándose en los atributos e información de eventos de ese usuario.
-- **Custom User:** Puedes personalizar un usuario. Braze ofrecerá campos de entrada para todos los atributos y eventos disponibles. Puedes ingresar cualquier información que desees ver en el correo electrónico de vista previa.
+- **Usuario aleatorio:** Braze seleccionará aleatoriamente un usuario de la base de datos y previsualizará el correo electrónico basándose en sus atributos o información de eventos.
+- **Seleccionar usuario:** Puedes seleccionar un usuario específico basándote en su dirección de correo electrónico o ID externo. El correo electrónico se previsualizará basándose en los atributos e información de eventos de ese usuario.
+- **Usuario personalizado:** Puedes personalizar un usuario. Braze ofrecerá campos de entrada para todos los atributos y eventos disponibles. Puedes ingresar cualquier información que desees ver en el correo electrónico de vista previa.
 
 {% alert note %}
 El usuario aleatorio puede o no ser parte de tus criterios de segmentación. La segmentación se selecciona después, por lo que Braze no conoce tu público objetivo en este punto.
 {% endalert %}
 
-También puedes seleccionar **Copy preview link** para generar y copiar un enlace de vista previa compartible que muestre cómo se verá el correo electrónico para un usuario aleatorio. El enlace durará siete días antes de que necesite ser regenerado.
+También puedes seleccionar **Copiar enlace de vista previa** para generar y copiar un enlace de vista previa compartible que muestre cómo se verá el correo electrónico para un usuario aleatorio. Para más información, consulta [Vista previa compartible]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
-Ten en cuenta que cualquier edición realizada en una plantilla de correo electrónico no se reflejará en un enlace generado previamente. Necesitarás generar un nuevo enlace de vista previa para ver cualquier edición.
-
-![Vista previa de correo electrónico con un botón para "Copy preview link" y copiar el enlace generado.]({% image_buster /assets/img/dnd_email_link_preview.png %})
+![Vista previa de correo electrónico con un botón para "Copiar enlace de vista previa" y copiar el enlace generado.]({% image_buster /assets/img/dnd_email_link_preview.png %})
 
 #### Usar Inbox Vision {#use-inbox-vision}
 
-Inbox Vision te permite ver tus Campaigns de correo electrónico desde la perspectiva de los clientes de correo electrónico y dispositivos móviles. Para probar tu mensaje de correo electrónico usando Inbox Vision, selecciona **Inbox Vision** en la sección **Preview & Test** y selecciona **Run Inbox Vision**.
+Inbox Vision te permite ver tus Campaigns de correo electrónico desde la perspectiva de los clientes de correo electrónico y dispositivos móviles. Para probar tu mensaje de correo electrónico usando Inbox Vision, selecciona **Inbox Vision** en la sección **Vista previa y prueba** y selecciona **Ejecutar Inbox Vision**.
 
 Es importante probar y verificar los detalles más finos de tu mensaje de correo electrónico. Por ejemplo, las imágenes de fondo en los mensajes de correo electrónico a veces pueden causar que aparezcan líneas blancas o desconexiones entre imágenes, o clientes como Windows Outlook pueden no mostrar imágenes de fondo. Usar Inbox Vision puede ayudar a identificar estas discrepancias entre clientes. En este escenario, establece un color de fondo alternativo para que estas imágenes se rendericen como se espera.
 
@@ -208,7 +206,7 @@ El motor subyacente que produce HTML a partir del editor de arrastrar y soltar h
 
 Nuestro tamaño promedio de datos HTML exportados se ha reducido, lo que lleva a una carga y renderizado más rápidos, menor recorte en dispositivos móviles y menor consumo de ancho de banda.
 
-El renderizado HTML ha mejorado gracias a las siguientes actualizaciones que minimizan la cantidad de comentarios condicionales y consultas de medios CSS. Como resultado, los archivos HTML son más pequeños y están codificados de manera más eficiente.
+El renderizado HTML ha mejorado basándose en las siguientes actualizaciones que minimizan la cantidad de comentarios condicionales y consultas de medios CSS. Como resultado, los archivos HTML son más pequeños y están codificados de manera más eficiente.
 - Migración de un diseño basado en elementos `<div>` a una base de código con formato estándar `<table aria-label="Usar Inbox Vision">`
   <caption>Usar Inbox Vision</caption>
 - Los [bloques de editor (correo electrónico)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email) han sido recodificados para mayor concisión
@@ -240,7 +238,7 @@ Usando capas de color, puedes cambiar el color del fondo del correo electrónico
 
 ![Opciones de bloque del editor de arrastrar y soltar.]({% image_buster /assets/img/dnd/dnd3.png %}){: style="float:right;max-width:25%;margin-left:15px;"}
 
-Para ajustar el relleno, desplázate hacia abajo hasta **Opciones de bloque** y selecciona **Más opciones**. Puedes ajustar con precisión el relleno para que tu correo electrónico se vea perfecto.
+Para ajustar el relleno, desplázate hacia abajo hasta **Opciones de bloque** y selecciona **Más opciones**. Puedes ajustar con precisión el relleno para que tu correo electrónico se vea exactamente como deseas.
 
 ### Fondo de contenido {#content-background}
 
@@ -267,7 +265,7 @@ La personalización con Liquid no es compatible con los bloques de imagen ni con
 
 #### Imágenes dinámicas {#dynamic-images}
 
-Puedes optar por incluir imágenes dinámicas en tus mensajes de correo electrónico incluyendo [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) o [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) en el atributo de origen de tu imagen. Por ejemplo, en lugar de una imagen estática, puedes insertar {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} como la URL de la imagen para incluir el nombre del usuario en la imagen. Esto ayuda a personalizar tus correos electrónicos para cada usuario.
+Puedes optar por incluir imágenes dinámicas en tu mensajería de correo electrónico incluyendo [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) o [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) en el atributo de origen de tu imagen. Por ejemplo, en lugar de una imagen estática, puedes insertar {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} como la URL de la imagen para incluir el nombre de un usuario en la imagen. Esto ayuda a personalizar tus correos electrónicos para cada usuario.
 
 {% alert important %}
 La URL de tu imagen debe comenzar con `https://`. Usar `http://` provoca un fallo en tu aplicación.
@@ -279,7 +277,7 @@ Al redactar tu mensaje, puedes alternar la dirección del texto entre izquierda 
 
 ![Menú del editor de arrastrar y soltar de correo electrónico con botón para alternar la alineación del texto entre derecha a izquierda e izquierda a derecha.]({% image_buster /assets/img/dnd/dnd_template1.png %}){: style="max-width:50%;"}
 
-La apariencia final de los mensajes de derecha a izquierda depende en gran medida de cómo los proveedores de servicios los renderizan. Para conocer las mejores prácticas sobre cómo crear mensajes de derecha a izquierda que se muestren con la mayor precisión posible, consulta [Crear mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+La apariencia final de los mensajes de derecha a izquierda depende en gran medida de cómo los proveedores de servicios los renderizan. Para conocer las mejores prácticas sobre la creación de mensajes de derecha a izquierda que se muestren con la mayor precisión posible, consulta [Crear mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ### HTML
 

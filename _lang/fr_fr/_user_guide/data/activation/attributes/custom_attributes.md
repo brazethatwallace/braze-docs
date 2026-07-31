@@ -23,7 +23,7 @@ Voici quelques cas d'usage courants des attributs personnalisés :
 
 - Cibler et exclure des audiences en segmentant les utilisateurs selon des caractéristiques telles que le niveau de fidélité, le statut d'abonnement, la langue préférée ou le type de forfait
 - Personnaliser les messages avec [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) en référençant des attributs tels que le prénom d'un utilisateur, ses points de récompense ou sa catégorie préférée
-- Suivre les étapes du cycle de vie et les états utilisateur, comme l'étape d'onboarding, le statut du compte ou la date de fin d'essai
+- Suivre les étapes du cycle de vie et les états des utilisateurs, comme l'étape d'onboarding, le statut du compte ou la date de fin d'essai
 - Comptabiliser les actions de faible valeur avec des [attributs numériques]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), par exemple en incrémentant un attribut `feature_views_count` chaque fois qu'un utilisateur consulte une fonctionnalité
 - Enregistrer la dernière occurrence d'actions de faible valeur à l'aide d'[attributs temporels]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), tels que `last_support_ticket_at` ou `last_password_reset_at`
 - Stocker les centres d'intérêt et l'historique des utilisateurs sous forme de [tableaux]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), comme les genres préférés ou les contenus récemment consultés, pour un ciblage basé sur les centres d'intérêt
@@ -45,6 +45,10 @@ Si un attribut personnalisé de type tableau apparaît sur un profil utilisateur
 {% alert important %}
 Pour un ciblage correct des messages, assurez-vous que le type de données de votre attribut personnalisé correspond bien à l'attribut personnalisé réel. <br><br>Par exemple, si `newsletter_subscribed` est défini comme une chaîne de caractères, votre syntaxe Liquid devrait ressembler à {% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == 'true' %}`{% endraw %}. Si `newsletter_subscribed` est défini comme une valeur booléenne, la syntaxe Liquid ne doit pas contenir de guillemets simples : {% raw %}`{% if {{custom_attribute.${newsletter_subscribed}}} == true %}`{% endraw %}.
 {% endalert %}
+
+### Résolution des problèmes liés aux attributs personnalisés ou événements en double {#troubleshooting-duplicate-custom-attributes-or-events}
+
+{% multi_lang_include data_activation/troubleshooting_duplicate_custom_data_entries.md %}
 
 Depuis cette page, vous pouvez afficher, gérer, créer ou bloquer des attributs personnalisés existants. Sélectionnez le menu à côté d'un attribut personnalisé pour accéder aux actions suivantes :
 
@@ -99,7 +103,7 @@ L'attribut personnalisé ne doit pas être actuellement utilisé dans des Campai
 4. Mettez à jour les valeurs de l'attribut sur les profils utilisateur existants pour qu'elles correspondent au nouveau type de données (par exemple, en utilisant l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)).
 5. Réappliquez l'attribut aux Segments, Campaigns et Canvas concernés, puis réactivez les Campaigns ou Canvas arrêtés.
 
-### Points à connaître {#things-to-know}
+### Points importants {#things-to-know}
 
 - **Les données utilisateur ne sont pas mises à jour rétroactivement.** Si un profil utilisateur possédait l'attribut avec l'ancien type de données, cette valeur reste inchangée. Le filtre de segmentation recherche le nouveau type de données, de sorte que les utilisateurs ayant l'ancienne valeur sont exclus des Segments correspondants tant que leur profil n'est pas mis à jour.
 - **Les nouvelles données doivent correspondre au nouveau type de données.** Après la modification, les appels API ou les événements SDK qui envoient l'ancien type de données pour cet attribut ne seront pas acceptés. Seules les valeurs correspondant au nouveau type de données sont ingérées.
@@ -135,7 +139,7 @@ Les listes suivantes présentent les méthodes utilisées sur différentes plate
 
 ## Stockage des attributs personnalisés {#custom-attribute-storage}
 
-Toutes les données stockées dans le **profil utilisateur**, y compris les données d'attributs personnalisés, sont conservées indéfiniment tant que chaque profil est <a href="/docs/user_archival#active-users">actif</a>.
+Toutes les données stockées sur le **profil utilisateur**, y compris les données d'attributs personnalisés, sont conservées indéfiniment tant que chaque profil est <a href="/docs/user_archival#active-users">actif</a>.
 
 Pour une référence complète de tous les types de données que vous pouvez stocker en tant qu'attributs personnalisés — y compris les booléens, les nombres, les chaînes de caractères, les tableaux, les dates, les objets et les tableaux d'objets — consultez [Types de données des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types).
 
@@ -154,5 +158,5 @@ Lors de l'effacement ou de la suppression d'un attribut personnalisé, le compor
 {% alert important %}
 Pour les types de données non-string dont le type est défini manuellement dans le tableau de bord de Braze (et non détecté automatiquement), vous devez utiliser `null` pour supprimer la valeur. Transmettre `""` n'est valide que pour les attributs de type string — par exemple, définir un attribut booléen sur `""` est traité comme une chaîne vide, ce qui est une valeur invalide pour ce type. Pour supprimer un booléen, transmettez `null`.
 
-Notez que l'importation CSV ne prend pas en charge `null` — les valeurs booléennes dans les importations CSV doivent être `TRUE` ou `FALSE`.
+Notez que l'import CSV ne prend pas en charge `null` — les valeurs booléennes dans les imports CSV doivent être `TRUE` ou `FALSE`.
 {% endalert %}

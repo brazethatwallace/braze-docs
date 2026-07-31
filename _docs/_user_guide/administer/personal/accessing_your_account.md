@@ -214,7 +214,7 @@ If you've solved the prior issues and your dashboard still won't load or work as
 
 ### The user belongs to no workspace
 
-Verify this by going to **Settings** > **Company Users** and checking the user's workspace-level permissions. Add the necessary workspaces to **Workspaces**.
+Admins can resolve this by going to **Settings** > **Company Users**, checking the user's workspace-level permissions, and adding the necessary workspaces to **Workspaces**.
 
 ### Troubleshooting as a new user
 

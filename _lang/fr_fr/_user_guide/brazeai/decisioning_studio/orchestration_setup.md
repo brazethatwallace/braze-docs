@@ -17,8 +17,8 @@ L'orchestration est la connexion entre Decisioning Studio et votre plateforme d'
 
 Voyez les choses ainsi :
 
-- **Decisioning Studio** décide *quoi* envoyer et *quand* l'envoyer
-- **Votre CEP** gère *comment* l'envoyer
+- **Decisioning Studio** décide quoi envoyer et quand l'envoyer
+- **Votre CEP** gère la manière de l'envoyer
 
 ## Choisir votre CEP {#choose-your-cep}
 
@@ -39,7 +39,7 @@ Si vous utilisez déjà Braze comme CEP, nous vous recommandons d'utiliser l'int
 
 ## Prérequis {#prerequisites}
 
-Avant de configurer l'orchestration, rassemblez les éléments suivants en fonction de la plateforme d'engagement client (CEP) choisie.
+Avant de configurer l'orchestration, rassemblez les éléments suivants en fonction de la plateforme d'engagement client (CEP) que vous avez choisie.
 
 {% tabs %}
 {% tab Braze %}
@@ -81,7 +81,7 @@ Si vous utilisez une CEP autre que Braze ou Salesforce Marketing Cloud, Decision
 {% endtab %}
 {% endtabs %}
 
-## Planifier vos campagnes {#plan-your-campaigns}
+## Planifiez vos campagnes {#plan-your-campaigns}
 
 Avant de configurer l'orchestration, tenez compte des détails suivants :
 
@@ -91,7 +91,7 @@ Un modèle de base est tout modèle de message que votre agent de décision pour
 
 - **Combien de modèles ?** Votre agent peut fonctionner avec un seul modèle ou plusieurs. S'il y en a plusieurs, l'agent peut personnaliser le modèle que chaque client reçoit.
 - **Quels canaux ?** E-mail, notification push, SMS ou une combinaison. Chaque canal peut nécessiter des modèles et des Campaigns distincts.
-- **Quels éléments dynamiques ?** Identifiez les parties de votre message que l'agent personnalise (lignes d'objet, CTA, offres, timing, etc.). Ceux-ci deviennent des propriétés de déclenchement API ou des marques substitutives dynamiques.
+- **Quels éléments dynamiques ?** Identifiez les parties de votre message que l'agent personnalise (comme les lignes d'objet, les CTA, les offres, le timing). Ceux-ci deviennent des propriétés de déclenchement API ou des marques substitutives dynamiques.
 
 ### Paramètres de rééligibilité {#re-eligibility-settings}
 
@@ -101,7 +101,7 @@ Vos Campaigns doivent permettre aux utilisateurs de recevoir des messages plusie
 - En production, l'agent peut déterminer que la même Campaign est optimale pour un utilisateur sur des jours consécutifs
 
 {% alert note %}
-Bien que vous configuriez la rééligibilité pour les tests, les agents Decisioning Studio sont conçus pour respecter les limites de fréquence et n'envoient pas la même Campaign à un utilisateur plus d'une fois par jour en production.
+Lors de la configuration de la rééligibilité pour les tests, les agents Decisioning Studio sont conçus pour respecter les limites de fréquence et n'envoient pas la même Campaign à un utilisateur plus d'une fois par jour en production.
 {% endalert %}
 
 ### Propriétés de déclenchement API {#api-trigger-properties}
@@ -137,7 +137,7 @@ Accédez à **Paramètres** > **Clés API**, puis créez une nouvelle clé avec 
 
 Configurez une Campaign déclenchée par API pour chaque modèle de base avec des propriétés de déclenchement API pour toutes les dimensions optimisées.
 
-Un modèle de base est tout modèle que l'agent Decisioning peut utiliser pour orchestrer des messages. Un agent Decisioning peut avoir 1 modèle de base ou plusieurs, auquel cas le choix du bon modèle de base pour chaque client est l'une des décisions que l'agent personnalise.
+Un modèle de base est tout modèle que l'agent Decisioning peut utiliser pour orchestrer les messages. Un agent Decisioning peut avoir 1 modèle de base ou plusieurs, auquel cas le choix du bon modèle de base pour chaque client est l'une des décisions que l'agent personnalise.
 
 ### Étape 3 : Configurer la rééligibilité {#step-3-configure-re-eligibility}
 
@@ -169,7 +169,7 @@ Supposons qu'un agent Decisioning Studio optimise le message d'une Campaign de n
 
 ![Exemple de Campaign de notification push Decisioning Studio - configuration]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_1.png %})
 
-![Exemple de Campaign de notification push Decisioning Studio - contenu]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_2.png %})
+![Exemple de Campaign de notification push Decisioning Studio - propriétés]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_2.png %})
 
 Ce qui donne le message suivant :
 
@@ -181,7 +181,7 @@ Supposons que l'agent Decisioning Studio optimise les champs d'une Campaign SMS.
 
 ![Exemple de Campaign SMS Decisioning Studio - configuration]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_1.png %})
 
-![Exemple de Campaign SMS Decisioning Studio - contenu]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_2.png %})
+![Exemple de Campaign SMS Decisioning Studio - propriétés]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_2.png %})
 
 Ce qui donne le message suivant :
 
@@ -195,11 +195,11 @@ Ce qui donne le message suivant :
 Decisioning Studio prend en charge l'intégration native avec Salesforce Marketing Cloud. Decisioning Studio déclenche des événements API dans un parcours avec les données nécessaires pour remplir les éléments dynamiques.
 
 {% alert important %}
-Lors de la configuration des cas d'usage, **les ID API doivent être saisis en majuscules**. Cela inclut les ID de parcours, les ID de Campaign et tout autre identifiant. Si les ID API sont saisis en minuscules alors que vos données SFMC contiennent des UUID en majuscules, les filtres d'événements ne correspondront pas et les indicateurs de reporting ne se rempliront pas correctement.
+Pour votre configuration, les ID API doivent être saisis en majuscules. Cela inclut les ID de parcours, les ID de Campaign et tout autre identifiant. Si les ID API sont saisis en minuscules alors que vos données SFMC contiennent des UUID en majuscules, les filtres d'événements ne correspondent pas et les indicateurs de reporting ne se remplissent pas correctement.
 {% endalert %}
 
 {% endtab %}
-{% tab Autres plateformes %}
+{% tab Other CEPs %}
 
 ## Configurer d'autres intégrations de plateformes d'engagement client {#set-up-other-cep-integrations}
 
@@ -213,7 +213,7 @@ Par exemple, le fichier de recommandations suivant :
 
 Pourrait être utilisé pour optimiser une Campaign e-mail qui ressemble à ceci :
 
-![Exemple de Campaign e-mail optimisée par Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_custom_example_1.png %})
+![Exemple de Campaign e-mail personnalisée Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_custom_example_1.png %})
 
 {% endtab %}
 {% endtabs %}

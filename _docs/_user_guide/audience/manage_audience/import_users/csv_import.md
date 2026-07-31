@@ -433,6 +433,17 @@ If you used [file validation](#file-validation), start with the error report, as
 
 For troubleshooting CSV import, review these common issues in the following sections.
 
+### CSV import stuck on Calculating
+
+In **Import Users**, `Calculating` means Braze is still preparing the file for processing. During this step, the row count can display as `0 / Calculating` until preparation finishes.
+
+If your import appears stuck on Calculating:
+
+- Let the import continue. Don't cancel and re-upload unless Braze Support advises it.
+- Confirm your file is within supported limits in [Constructing your CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#import-options).
+- Review [Step 4: Upload your file](#step-4-upload-your-file) and [Step 8: Start your CSV import](#step-8-start-your-csv-import) for expected dashboard behavior and processing times.
+- Contact Braze Support if `Calculating` lasts far longer than expected for your file size after you've confirmed those checks.
+
 ### Use email as `external_id`
 
 Braze does not recommend using an email address as `external_id`. If you use email as `external_id`, include both `external_id` and `email` columns in your CSV so users remain targetable on the email channel. Use a comma (`,`) as the column delimiter—not a colon (`:`).

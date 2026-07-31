@@ -399,7 +399,7 @@ hide_toc: true
 
       $('#doc_form').submit(function(e) {
         $('#submit_progress').css('display','inline');
-        $('#submit_text').html('Submitting');
+        $('#submit_text').html('Wird gesendet');
         $('#ticket_submit_button').prop("disabled",true);
 
         e.preventDefault();
@@ -457,7 +457,7 @@ hide_toc: true
               <div id="disclosure-warning" class="alert alert-important" role="alert">
                 <div class="alert-msg">
                   <b>Wichtig: </b>
-                  Copilot wird diesen Vorschlag verfassen, und er wird vom Docs-Team überprüft. Bestätigen Sie, dass <strong>keine kundenspezifischen Informationen</strong> oder <strong>Links</strong> enthalten sind.
+                  KI unterstützt bei der Erstellung dieses Vorschlags, der vom Docs-Team und anderen internen Stakeholdern vor der Veröffentlichung geprüft wird. Bestätigen Sie, dass <strong>keine kundenspezifischen Informationen</strong> oder <strong>Kund:innen-Links</strong> enthalten sind.
                 </div>
               </div>
               </div>
@@ -515,7 +515,7 @@ hide_toc: true
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="Y" id="doc_verify" name="Verified">
                 <label class="form-check-label" for="doc_verify" id="doc_verify_label">
-                <span></span> Ich habe diese Informationen mit dem zuständigen Produktteam verifiziert
+                <span></span> Ich habe diese Informationen mit dem zuständigen Produktteam überprüft
               </label>
               </div>
               </div>
