@@ -106,9 +106,9 @@ Braze doesn't receive confirmation from partners that individual users have been
 
 ### Audience Sync error emails
 
-If the error is related to the overall partner integration (such as an authorization issue), an email is sent to the user who connected the integration.
+If the error is related to the overall partner integration (such as an authorization issue), an email is sent to the user who connected the integration. If that user no longer exists, then the administrators will receive the emails.
 
-If the error is related to issues with the Audience Sync component (such as "Audience Does Not Exist") in Canvas, an email is sent to the user who set up the Canvas.
+If the error is related to issues with the Audience Sync component (such as "Audience Does Not Exist") in Canvas, an email is sent to the user who set up the Canvas. If that user no longer exists, then it falls back to the company administrator.
 
 To configure who will receive these emails, contact your customer success manager to add recipients under **Notification Preferences**. This preference covers both integration errors and Audience Sync component errors. Recipients you add receive these emails in addition to the user associated with the error.
 
