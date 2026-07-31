@@ -207,6 +207,18 @@ Some fields may be absent in a user's **Message History** tab in the following s
 - When data is missing for **Campaign/Canvas**, a manual test may have been sent. Manual tests are logged in the **Messaging History** tab, but the campaign or Canvas that was sent won't be logged.
 - When a user is in a seed group or other internal test audience, **Messaging History** may show limited campaign or Canvas metadata compared to production sends.
 
+## Data size constraints
+
+Braze doesn't enforce an overall capacity on the total size of a user profile. However, specific data types associated with users have defined size capacities.
+
+### Custom attribute arrays
+
+Custom attribute arrays (including arrays of objects) have a capacity of 100 KB. When you send an array that exceeds this capacity, the custom attribute isn't processed. The API returns a success response (201), but the array doesn't appear in the user profile and existing data for that attribute isn't updated.
+
+If your arrays approach this capacity, consider limiting the number of objects you populate to keep the total size within 100 KB.
+
+For more information on custom attributes, see [Custom attribute data types]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes#custom-attribute-data-types).
+
 ## Related articles
 
 - [User profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
