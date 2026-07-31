@@ -26,9 +26,8 @@ Embedded videos are not natively supported by many email clients and can signifi
 
 | Requirement | Description | 
 | ----------- | ----------- |
-| Playable Account | A Playable account is required to take advantage of this partnership. If you do not already have a Playable account, [sign up for a Playable account](https://signup.playable.video).
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
-Video Content | Upload video files to Playable or provide video URLs from websites like Facebook, Instagram, YouTube, X (formerly Twitter), TikTok, and more. |
+| Playable Account | A Playable account is required to take advantage of this partnership. If you do not already have a Playable account, [sign up for a Playable account](https://signup.playable.video). |
+| Video Content | Upload video files to Playable or provide video URLs from websites like Facebook, Instagram, YouTube, X (formerly Twitter), TikTok, and more. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Implementation
