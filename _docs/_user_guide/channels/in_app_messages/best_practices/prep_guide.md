@@ -45,6 +45,7 @@ For example, a user might receive an in-app message with an eight-second delay a
 - For fullscreen in-app messages, is your image or other media within the [safe zone]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen#image-safe-zone)?
 - For survey in-app messages, do you want to log attributes or submissions? Have you set up your confirmation page?
 - For custom HTML in-app messages, does your HTML include UTF-8 encoding to properly display special characters? See [Custom HTML in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#character-encoding) for details.
+- If you're including video in your in-app message: While Braze doesn't enforce a technical limit on video file size for local playback on device, keep in mind that users may have slow connections, costly data plans, or limited storage. Optimize video files to balance quality and file size.
 
 ## Conversion considerations
 
