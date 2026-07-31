@@ -228,13 +228,13 @@ If you're a new Braze user having trouble logging in or accessing your account f
 
 #### I received the email, but I'm stuck setting up two-factor authentication (2FA)
 
-If you select **Enable** during 2FA setup but the verification code never arrives, the issue is often caused by browser extensions, cookie settings, or network restrictions interfering with the Authy redirect. Try the following:
+If you select **Start setup** during 2FA setup but never receive a verification code (for SMS or email) or cannot complete authenticator app setup, browser extensions, cookie settings, or network restrictions may be interfering. Try the following:
 
-- Disable ad-blockers and enable third-party cookies: Ad-blockers or privacy extensions may block the Authy verification flow. Temporarily disable them and confirm third-party cookies are enabled in your browser settings.
+- Disable ad-blockers and enable third-party cookies: Ad-blockers or privacy extensions may block the 2FA verification flow. Temporarily disable them and confirm third-party cookies are enabled in your browser settings.
 - Try a different browser: Switch to a different browser to rule out browser-specific issues.
-- Switch networks: If you're on a corporate network, firewall policies may interfere with Authy. Try switching to a personal connection or mobile hotspot.
-- Install the Authy app before browser setup: Download and install the Authy app on your mobile device before attempting to set up 2FA in the browser.
-- Delete stale Authy profiles: If you previously set up Authy but the setup didn't complete, delete any stale profiles in your Authy app and re-scan the QR code.
+- Switch networks: If you're on a corporate network, firewall policies may interfere with 2FA setup. Try switching to a personal connection or mobile hotspot.
+- Install an authenticator app before browser setup: Download and install an authenticator app (such as Authy, Google Authenticator, or LastPass Authenticator) on your mobile device before selecting **Authenticator app** during setup.
+- Delete stale authenticator profiles: If you previously started authenticator app setup but it didn't complete, delete any stale profiles in your app and re-scan the QR code.
 
 If you continue to have trouble after trying these steps:
 
