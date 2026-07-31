@@ -485,6 +485,12 @@ If an image is functioning like a link or call-to-action, describe the intended 
 
 If the image doesn't have a purpose, make that known too. Decorative images, like logos, should have an empty alt tag (`alt=""`) so screen readers know to skip announcing it. Without it, usually the image file name is read instead.
 
+#### How email clients display alt text
+
+The display and rendering of alt text in email messages is controlled by the recipient's email client (such as Gmail, Outlook, or Apple Mail), not by Braze. If you notice differences in how alt text appears across different email clients or platforms—for example, alt text displaying differently in Gmail on desktop versus the Gmail mobile app—this is due to how each client chooses to render the same HTML.
+
+While you can include alt text of any length in your email HTML, some email clients may truncate or hide alt text that is too long to fit within the image's dimensions. If you have questions about alt text behavior in a specific email client, contact [Support]({{site.baseurl}}/support_contact/).
+
 ### Videos
 
 Videos are engaging, but if they're not accessible, you risk excluding part of your audience. Use the following tips to make your video content more inclusive:

@@ -357,7 +357,7 @@ For additional guidance, see [Google's Bulk Email Senders Guidelines](https://su
 
 ### How can I optimize images in Outlook?
 
-Outlook often uses Microsoft Word rendering rather than standard browser rendering, which can cause images to render incorrectly or add borders around images.
+Outlook often uses Microsoft Word rendering rather than standard browser rendering, which can cause images to render incorrectly or add borders around images. This same client-specific rendering also affects [how alt text displays]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text) across different email clients.
 
 If images display larger than their expected width in Outlook, add the following CSS to the image:
 

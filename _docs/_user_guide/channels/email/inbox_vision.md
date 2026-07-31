@@ -91,7 +91,7 @@ Accessibility testing highlights potential accessibility issues in your email an
 
 ### How it works
 
-When you run Inbox Vision, Braze automatically checks for common accessibility issues in the [WCAG 2.2 AA rule set](https://www.w3.org/WAI/WCAG22/quickref/?versions=2.2&currentsidebar=%23col_customize&levels=aaa) (such as missing alt text, insufficient color contrast, improper heading structure) and categorizes severity to help you prioritize fixes. 
+When you run Inbox Vision, Braze automatically checks for common accessibility issues in the [WCAG 2.2 AA rule set](https://www.w3.org/WAI/WCAG22/quickref/?versions=2.2&currentsidebar=%23col_customize&levels=aaa) (such as missing alt text, insufficient color contrast, improper heading structure) and categorizes severity to help you prioritize fixes. Note that even when alt text is present, [how it displays]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text) is controlled by the recipient's email client, not Braze.
 
 {% alert important %}
 Accessibility Testing may be used to support Customer's compliance efforts of regulations or laws such as the [European Accessibility Act](https://www.braze.com/resources/articles/european-accessibility-at-what-it-means-for-marketers); however, Customer acknowledges that Braze makes no representations or warranties with respect to whether or not use of Accessibility Testing satisfies Customer's compliance obligations, and disclaims all liability in relation thereto.
