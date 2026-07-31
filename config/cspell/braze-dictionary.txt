@@ -358,9 +358,9 @@ Hightouch's
 HIPAA
 HMAC
 homehub
-hotspot
 Homescreen
 Hostnames
+hotspot
 HSTS
 HTML
 HTTP
