@@ -110,7 +110,7 @@ If the error is related to the overall partner integration (such as an authoriza
 
 If the error is related to issues with the Audience Sync component (such as "Audience Does Not Exist") in Canvas, an email is sent to the user who set up the Canvas.
 
-To configure who will receive these emails, contact your customer success manager to add recipients under **Notification Preferences**. This preference covers both types of errors above. Recipients you add receive these emails in addition to the user associated with the error.
+To configure who will receive these emails, contact your customer success manager to add recipients under **Notification Preferences**. This preference covers both integration errors and Audience Sync component errors. Recipients you add receive these emails in addition to the user associated with the error.
 
 ## Data privacy considerations
 
