@@ -30,6 +30,10 @@ While there are no limits to how many text characters you can include in an in-a
 
 All in-app messages have a recommended image size of 500 KB, maximum image size of 5 MB, and support PNG, JPEG, and GIF file types. WebP images aren't supported across all devices or browsers; we suggest converting WebP images to PNG or JPEG before adding them to in-app messages.
 
+{% alert note %}
+SVG images are not supported for in-app messages. While the media library accepts SVG uploads, SVG images may render on Web SDK but display incorrectly on iOS and other platforms. Use PNG, JPEG, or GIF instead.
+{% endalert %}
+
 {% tabs %}
 {% tab Portrait %}
 
@@ -67,6 +71,10 @@ All in-app messages have a recommended image size of 500 KB, maximum image size 
 
 {% endtab %}
 {% endtabs %}
+
+{% alert tip %}
+In-app message rendering on Web SDK may be affected by non-default browser text-size settings. Users with custom text-size scaling may experience minor rendering issues, such as a 1px gap along the edge of a modal image. When previewing and testing in-app messages, we recommend using default browser text-size settings for the most accurate representation.
+{% endalert %}
 
 {% endif %}
 
