@@ -39,7 +39,7 @@ To minimize cross-platform differences:
 
 - Use explicit CSS values rather than relying on browser defaults
 - Include a viewport meta tag (for example, `<meta name="viewport" content="width=device-width, initial-scale=1">`)
-- Test on actual devices using test sends before launching your campaign
+- Test on actual devices with test sends
 
 ## Character encoding {#character-encoding}
 
