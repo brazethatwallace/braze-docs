@@ -11,7 +11,7 @@ search_tag: Partner
 
 > [Simon AI][1] 에이전틱 마케팅 플랫폼은 마케팅 팀이 진정한 일대일 개인화를 달성할 수 있도록 지원합니다. 컴포저블 CDP와 Snowflake AI Data Cloud에서 직접 작동하는 AI 에이전트를 결합하여 마케터의 데이터 및 실행 팀 역할을 수행합니다.
 
-Braze와 Simon AI 통합을 사용하여 고급 오디언스를 구축하고 Braze에 동기화하여 실시간, 노코드 오케스트레이션을 수행할 수 있습니다. 이 통합을 통해 Simon AI의 ID 확인, 고객 데이터 통합, AI 기반 세분화를 활용하여 다운스트림에서 더욱 개인화되고 효과적인 Braze 캠페인(Campaign)을 구동할 수 있습니다.
+Braze와 Simon AI 통합을 사용하여 고급 오디언스를 구축하고 Braze에 동기화하여 실시간, 노코드 오케스트레이션을 수행할 수 있습니다. 이 통합을 통해 Simon AI의 ID 확인, 고객 데이터 통합, AI 기반 세분화를 활용하여 다운스트림에서 더욱 개인화되고 효과적인 Braze Campaigns를 구동할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 

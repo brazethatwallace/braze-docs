@@ -21,6 +21,8 @@ description: "この記事では、ダッシュボードのユーザーアカウ
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#9c7c71ea-afd6-414a-99d1-4eb1fe274f16 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## 前提条件 {#prerequisites}
 
 このエンドポイントを使用するには、SCIMトークンが必要です。`X-Request-Origin`ヘッダーとしてサービスOriginを使用します。詳細については、[自動ユーザープロビジョニング]({{site.baseurl}}/scim/automated_user_provisioning)を参照してください。
@@ -52,9 +54,9 @@ curl --location --request DELETE 'https://rest.iad-01.braze.com/scim/v2/Users/df
 --header 'Authorization: Bearer YOUR-SCIM-TOKEN-HERE' \
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
-### エラー応答例 {#example-error-response}
+### エラーレスポンス例 {#example-error-response}
 
 ```http
 HTTP/1.1 204 Not Found

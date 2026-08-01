@@ -46,6 +46,10 @@ If an array custom attribute appears on a user profile without values, verify th
 For proper message targeting, be sure that your custom attribute data type matches the actual custom attribute. <br><br>For example, if `newsletter_subscribed` is defined as a string, your Liquid syntax should look like {% raw %}```{% if {{custom_attribute.${newsletter_subscribed}}} == 'true' %}```{% endraw %}. If `newsletter_subscribed` is defined as a Boolean, the Liquid syntax shouldn't have single-quotation marks: {% raw %}```{% if {{custom_attribute.${newsletter_subscribed}}} == true %}```{% endraw %}.
 {% endalert %}
 
+### Troubleshooting duplicate custom attributes or events
+
+{% multi_lang_include data_activation/troubleshooting_duplicate_custom_data_entries.md %}
+
 From this page, you can view, manage, create, or blocklist existing custom attributes. Select the menu next to a custom attribute for the following actions:
 
 ### Blocklist {#blocklisting}

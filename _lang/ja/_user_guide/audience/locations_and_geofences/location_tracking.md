@@ -44,7 +44,7 @@ Brazeは、最初のSDKセッション開始時のIPアドレスを使用して�
 
 ## デフォルトの位置属性をハード設定する {#hard-setting-the-default-location-attribute}
 
-APIの[`users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、[`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) 標準属性項目を更新することもできます。例を以下に示します。
+APIの[`users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、[`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) 標準属性項目を更新することもできます。例を以下に示します。
 
 ```
 https://[your_braze_rest_endpoint]/users/track

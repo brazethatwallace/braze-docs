@@ -97,8 +97,8 @@ Le raccourcissement de liens est également activé pour les messages API unique
 
 | Paramètre | Obligatoire | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `link_shortening_enabled`| Facultatif | Booléen | Définissez `link_shortening_enabled` sur `true` pour activer le raccourcissement de liens et le suivi des clics au niveau de la Campaign. Pour utiliser le suivi, un `campaign_id` et un `message_variation_id` doivent être présents.|
-| `user_click_tracking_enabled`| Facultatif | Booléen | Définissez `user_click_tracking_enabled` sur `true` pour activer le raccourcissement de liens, ainsi que le suivi des clics au niveau de la Campaign et au niveau de l'utilisateur. Vous pouvez utiliser les données suivies pour créer des segments d'utilisateurs ayant cliqué sur des URL.<br><br> Pour utiliser ce paramètre, `link_shortening_enabled` doit être `true`, et un `campaign_id` et un `message_variation_id` doivent être présents. |
+| `link_shortening_enabled` | Facultatif | Booléen | Définissez `link_shortening_enabled` sur `true` pour activer le raccourcissement de liens et le suivi des clics au niveau de la Campaign. Pour utiliser le suivi, un `campaign_id` et un `message_variation_id` doivent être présents. |
+| `user_click_tracking_enabled` | Facultatif | Booléen | Définissez `user_click_tracking_enabled` sur `true` pour activer le raccourcissement de liens, ainsi que le suivi des clics au niveau de la Campaign et au niveau de l'utilisateur. Vous pouvez utiliser les données suivies pour créer des segments d'utilisateurs ayant cliqué sur des URL.<br><br> Pour utiliser ce paramètre, `link_shortening_enabled` doit être `true`, et un `campaign_id` et un `message_variation_id` doivent être présents. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Raccourcir les URL dans l'endpoint /messages/send" }
 
 Pour une liste complète des paramètres de requête, consultez les [paramètres de requête]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).

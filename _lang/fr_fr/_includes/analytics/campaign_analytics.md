@@ -86,7 +86,7 @@ Le tableau suivant résume la signification de chaque libellé.
 | --- | --- |
 | **Estimated Audience** | Braze n'effectue pas par défaut un comptage complet de la base de données. La taille de l'audience est estimée à partir d'un échantillon et extrapolée, de manière similaire à la plage **Reachable users** dans le générateur de segments. Des marges d'erreur sont attendues, en particulier pour les grands espaces de travail ou les petits segments par rapport à l'ensemble de l'espace de travail. |
 | **Current Audience** | Braze peut calculer la statistique par défaut avec un balayage complet des profils de l'espace de travail, de sorte que la taille d'audience affichée est un comptage actuel et non échantillonné (toujours soumis à l'accessibilité du canal, aux règles d'abonnement et aux autres options de ciblage). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Audience estimée et audience actuelle" }
 
 Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **Reachable users**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
@@ -210,7 +210,7 @@ L'analytique de campagne affiche les données de clics pour un maximum de 100 UR
 Dans cette vue, vous pouvez utiliser la bascule **Show Heatmap** pour afficher une vue visuelle de votre e-mail qui montre la fréquence globale et l'emplacement des clics au cours de la durée de vie de la campagne. Dans le panneau **Link Table by Total Clicks**, vous pouvez afficher tous les liens de votre campagne e-mail et les trier par nombre total de clics. Cela peut fournir des informations supplémentaires sur les endroits où vos utilisateurs naviguent. Pour enregistrer une copie de la carte thermique à des fins de référence, sélectionnez le bouton de téléchargement.
 
 {% alert note %}
-Si les liens utilisent Liquid pour des URL dynamiques, les URL cliquées peuvent ne pas correspondre suffisamment au lien rendu dans le message pour que la carte thermique associe les clics à ce lien, de sorte que ces liens peuvent ne pas apparaître sur la carte thermique. Utilisez les données de clics dans le panneau **Link Table by Total Clicks** pour obtenir une vue complète.
+Si les liens utilisent Liquid pour des URL dynamiques, les URL cliquées peuvent ne pas correspondre suffisamment au lien rendu dans le message pour que la carte thermique associe les clics à ce lien, de sorte que ces liens peuvent ne pas apparaître sur la carte thermique. Pour attribuer les données de clics aux liens avec modèle sur la carte thermique, utilisez l'[aliasing de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing). Pour obtenir une vue complète, utilisez les données de clics dans le panneau **Link Table by Total Clicks**.
 {% endalert %}
 
 ![Exemple de la page Aperçu et carte thermique qui inclut une campagne e-mail et un panneau avec des exemples d'alias de liens et leur nombre total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})

@@ -61,15 +61,17 @@ Die Standard-Zielgruppenpfade-Komponente enthält zwei Standard-Zielgruppen: **G
 
 ### Zielgruppen definieren {#defining-audience-groups}
 
-Der folgende Screenshot zeigt das Layout eines erweiterten Zielgruppenpfade-Schritts. Hier können Sie bis zu acht Zielgruppen definieren (eine voreingestellte und sieben anpassbare). Um eine Zielgruppe zu definieren, wählen Sie den Gruppennamen im Zielgruppenpfade-Editor aus. Sie können Ihre Zielgruppe umbenennen, die Filter und Segmente auswählen, die für Ihre Gruppe gelten, und Gruppen hinzufügen oder löschen.
-
-Wenn Sie beispielsweise Onboarding-Nachrichten an eine Gruppe von Nutzer:innen senden möchten, könnten Sie Retargeting-Filter auswählen, wie „Hat E-Mail angeklickt“ und „Hat In-App-Nachricht angeklickt“.
+Der folgende Screenshot zeigt das Layout eines erweiterten Zielgruppenpfade-Schritts. Hier können Sie bis zu acht Zielgruppen definieren (eine voreingestellte und sieben anpassbare). Um eine Zielgruppe zu definieren, wählen Sie den Gruppennamen im Zielgruppenpfade-Editor aus. Sie können Ihre Zielgruppe umbenennen, die Filter und Segmente auswählen, die für Ihre Gruppe gelten, und Gruppen hinzufügen oder löschen. Wenn Sie beispielsweise Onboarding-Nachrichten an eine Gruppe von Nutzer:innen senden möchten, könnten Sie Retargeting-Filter auswählen, wie „Hat E-Mail angeklickt“ und „Hat In-App-Nachricht angeklickt“.
 
 ![Ein erweiterter Zielgruppenpfad mit Gruppen für „Liebt asiatische Küche“, „Liebt lateinamerikanische Küche“, „Liebt europäische Küche“ und „Alle anderen“.]({% image_buster /assets/img/audience_path/audience_path3.png %})
 
 Nachdem der Zielgruppenpfade-Schritt abgeschlossen ist, hat jede Zielgruppe einen separaten Branch. Sie können Zielgruppenpfade weiter verwenden, um Ihre Zielgruppe weiter zu filtern, oder Ihre Canvas-Journey mit den Standard-Canvas-Schritten fortsetzen.
 
 ![Zwei Zielgruppenpfade mit verschiedenen Gruppen basierend auf Engagement.]({% image_buster /assets/img/audience_path/audience_path4.png %}){: style="max-width:50%"}
+
+#### Vergleichsfilter mit Kontextvariablen verwenden {#using-comparison-filters-with-context-variables}
+
+Wenn Sie nach einer Kontextvariable aufteilen, die ein Datum enthält, lesen Sie [Tag-des-Jahres- und Zeitfilter für Datums-Kontextvariablen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#day-of-year-and-time-filters-for-date-context-variables), um den richtigen Vergleichstyp auszuwählen.
 
 ### Zielgruppen testen {#testing-audience-groups}
 
@@ -85,7 +87,7 @@ Indem Sie diese Segmente an den Anfang der Liste setzen, können Sie Nutzer:inne
 
 ![Ein Zielgruppenpfad mit Gruppen für „Mag Big Brand Schuhe“, „Mag Big Brand“ und „Alle anderen“.]({% image_buster /assets/img/audience_path/audience_path2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
 
-Nehmen wir beispielsweise an, Sie möchten einer Gruppe von Nutzer:innen Werbung für neue Produkte senden. Sie würden zunächst die Filter, die unter diese Produkte fallen, **an erste Stelle** im Zielgruppenpfad setzen. Wenn Sie eine Marketing-Campaign für das Unternehmen „Big Brand“ erstellen und eine neue Einzelhandelsmarke gerade auf den Markt gekommen ist, könnten Sie Filter wie „Mag Big Brand Schuhe“ oder „Mag Big Brand Taschen“ auswählen und verschiedene E-Mail-Nachrichten basierend auf der gefilterten Gruppe senden.
+Nehmen wir beispielsweise an, Sie möchten einer Gruppe von Nutzer:innen Werbung für neue Produkte senden. Sie würden zunächst die Filter, die unter diese Produkte fallen, **an erste Stelle** im Zielgruppenpfad setzen. Wenn Sie eine Marketing-Kampagne für das Unternehmen „Big Brand“ erstellen und eine neue Einzelhandelsmarke gerade auf den Markt gekommen ist, könnten Sie Filter wie „Mag Big Brand Schuhe“ oder „Mag Big Brand Taschen“ auswählen und verschiedene E-Mail-Nachrichten basierend auf der gefilterten Gruppe senden.
 
 Wenn Nutzer:innen diese Zielgruppenpfade-Komponente erreichen, werden sie zuerst für Zielgruppe 1 „Mag Big Brand Schuhe“ ausgewertet – den ersten Pfad in der Liste. Falls zutreffend, fahren sie mit der nächsten Komponente in Ihrem Canvas fort. Falls sie „Big Brand Schuhe“ nicht mögen, werden sie für die nächste Zielgruppe ausgewertet, Zielgruppe 2 „Mag Big Brand Taschen“, und fahren mit dem nächsten Schritt fort, wenn die Kriterien erfüllt sind. Nutzer:innen, die in keine der vorherigen Gruppen fallen, werden schließlich der Gruppe „Alle anderen“ zugeordnet und fahren ebenfalls mit dem nächsten Canvas-Schritt fort, den Sie für diesen Pfad definiert haben.
 
@@ -99,7 +101,7 @@ Eine [zufällige Bucket-Nummer]({{site.baseurl}}/user_guide/messaging/ab_testing
 
 Versuchen Sie in diesem Szenario stattdessen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) zu verwenden.
 
-### Intelligenter Kanal-Filter mit Zielgruppenpfaden verwenden {#using-intelligent-channel-filter-with-audience-paths}
+### Intelligenter-Kanal-Filter mit Zielgruppenpfaden verwenden {#using-intelligent-channel-filter-with-audience-paths}
 
 Durch die Kombination von Zielgruppenpfade-Schritten und Filtern für den intelligenten Kanal können Sie Ihr Messaging-Erlebnis an die Präferenzen und das Verhalten jeder:jedes Nutzer:in anpassen. So erhalten Ihre Nutzer:innen die relevantesten Nachrichten über die passenden Kanäle.
 

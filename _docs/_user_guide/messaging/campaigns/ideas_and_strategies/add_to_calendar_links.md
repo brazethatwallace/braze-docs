@@ -12,9 +12,12 @@ channel: email
 
 > When promoting an event, sale, or appointment, you can help users easily save the event to their calendar by adding an "add to calendar" link to your emails.
 
-To do so, draft your email and determine where you want your links to be. Then add two options: one for Google Calendar and one for other calendars (such as iCal or Outlook). For example, "Add to Google Calendar" and "Add to iCal or Outlook".
+Draft your email and choose where the two calendar options appear: one link for Google Calendar and one for other calendars (such as iCal or Outlook). Use link text like "Add to Google Calendar" and "Add to iCal or Outlook".
 
-![Link dialog when adding a link in the dashboard. The "Link Info" tab is selected and the text is set to "Add to Google Calendar".]({% image_buster /assets/img_archive/calendar_1.png %}){: style="max-width:50%"}
+How you attach the URLs depends on which email editor you use:
+
+- **Drag-and-drop editor:** In a **Paragraph** block, select the words to link, open the **Link** control in the toolbar, and paste the URL from [URL format](#url-format). Or use a **Button** block, set **Link type** to **Open web page**, and paste the URL in **URL**.
+- **HTML editor:** Use the rich text link controls for linked text, or add `<a href="...">` tags in your HTML for each calendar URL.
 
 ## URL format
 
@@ -83,18 +86,23 @@ When clicked, Google Calendar opens in a new tab or window with the event's deta
 
 ### iCal or Outlook
 
-When clicked on desktop, an ICS file is downloaded. The user then needs to open the ICS file, which will open iCal or Outlook and prompt the user to add the event to their calendar.
+When clicked on desktop, an ICS file is downloaded. The user then needs to open the ICS file, which opens iCal or Outlook and prompts the user to add the event to their calendar.
 
 ![iCal calendar with a dialog for adding a new event, which prompts the user to select a calendar and confirm.]({% image_buster /assets/img_archive/calendar_3.png %}){: style="max-width:75%"}
 
 ![iCal calendar with the event added.]({% image_buster /assets/img_archive/calendar_4.png %}){: style="max-width:81%"}
 
-On mobile, users need to press and hold the link, which prompts them to add it to their calendar.
+On mobile, behavior depends on the device and email app.
+
+{% alert note %}
+On iPhone, the Mail app and Microsoft Outlook download the ICS file when users tap the iCal link, but those apps do not open Calendar from the link. To add the event, open the downloaded file from **Files**, **Downloads**, or the attachment view (depending on the app), then complete the steps in Calendar.
+{% endalert %}
+
+In some other mobile email apps or browsers, pressing and holding the link can show an option to add the event to a calendar.
 
 ![iOS pop-up when you press and hold on a calendar link, which includes a button to "Add to Calendar".]({% image_buster /assets/img_archive/calendar_5.png %}){: style="max-width:50%"}
 
 For more information, refer to:
 * [Create events for Google Calendar](https://developers.google.com/calendar/api/guides/create-events)
 * [Create an Add to calendar link in an email message](https://support.microsoft.com/en-us/office/create-an-add-to-calendar-link-in-an-email-message-34f8ea28-322a-4867-b423-2998f9634e59)
-
 

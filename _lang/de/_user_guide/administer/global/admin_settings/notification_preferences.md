@@ -11,7 +11,7 @@ description: "Dieser Referenzartikel behandelt Ihre verfügbaren Optionen zur Ü
 
 > Wenn Sie das Messaging und die Aktivitäten in Ihrem Unternehmenskonto überwachen möchten, können Sie bestimmte Benachrichtigungen einrichten und festlegen, wohin diese gesendet werden sollen.
 
-Auf der Seite **Präferenzen für Benachrichtigungen** können Sie konfigurieren, wer (wenn überhaupt) Benachrichtigungen über Ihr Unternehmen erhält. Sie können festlegen, wer Benachrichtigungen über die Zustellung von Kampagnen oder technische Fehler erhalten soll. Außerdem können Sie Empfänger:innen für den wöchentlichen Analytics-Bericht angeben. Für die meisten Benachrichtigungen unterstützt Braze E-Mail- und Webhook-Kanäle.
+Auf der Seite **Präferenzen für Benachrichtigungen** können Sie konfigurieren, wer (wenn überhaupt) Benachrichtigungen über Ihr Unternehmen erhält. Sie können festlegen, wer Benachrichtigungen über die Zustellung von Campaigns oder technische Fehler erhalten soll. Außerdem können Sie Empfänger:innen für den wöchentlichen Analytics-Bericht angeben. Für die meisten Benachrichtigungen unterstützt Braze E-Mail- und Webhook-Kanäle.
 
 Um auf diese Seite zuzugreifen, gehen Sie zu **Einstellungen** > **Admin-Einstellungen** > **Präferenzen für Benachrichtigungen**.
 
@@ -33,10 +33,10 @@ Je nach Benachrichtigungstyp werden **All Dashboard Users** und **All Admins** m
 | AWS-Zugangsdaten-Fehler | Benachrichtigt Empfänger:innen, wenn Braze beim Versuch, Ihre Amazon-Web-Services-Zugangsdaten für einen Datenexport zu verwenden, einen Fehler erhält. Dies umfasst auch Zugangsdaten-Fehler-Benachrichtigungen für Google Cloud Storage und Azure (Microsoft Cloud Services). | E-Mail, Webhook |
 | Campaign automatisch gestoppt | Benachrichtigt Empfänger:innen, wenn Braze eine Campaign gestoppt hat. | E-Mail |
 | Canvas automatisch gestoppt | Benachrichtigt Empfänger:innen, wenn Braze einen Canvas gestoppt hat. | E-Mail |
-| Ablauf von Campaign-Interaktionsdaten | Benachrichtigt Empfänger:innen über jede Campaign, bei der der Ablauf von Campaign-Interaktionsdaten ansteht, zusammen mit Informationen über Segmente, Kampagnen oder Canvases, die diese in einem Retargeting-Filter referenzieren und in den letzten 30 Tagen zum Senden einer Nachricht verwendet wurden. | E-Mail |
+| Ablauf von Campaign-Interaktionsdaten | Benachrichtigt Empfänger:innen über jede Campaign, bei der der Ablauf von Campaign-Interaktionsdaten ansteht, zusammen mit Informationen über Segmente, Campaigns oder Canvases, die diese in einem Retargeting-Filter referenzieren und in den letzten 30 Tagen zum Senden einer Nachricht verwendet wurden. | E-Mail |
 | Campaign/Canvas aktualisiert | Benachrichtigt Empfänger:innen, wenn eine aktive Campaign oder ein aktiver Canvas aktualisiert oder deaktiviert wird, sowie wenn eine inaktive Campaign oder ein inaktiver Canvas reaktiviert wird oder Entwürfe gestartet werden. | E-Mail |
 | Campaign-/Canvas-Volumenlimit erreicht | Benachrichtigt Empfänger:innen, wenn eine Campaign oder ein Canvas das Volumenlimit erreicht hat. | E-Mail |
-| Ablauf von Canvas-Interaktionsdaten | Benachrichtigt Empfänger:innen über jeden Canvas, bei dem der Ablauf von Canvas-Interaktionsdaten ansteht, zusammen mit Informationen über Segmente, Kampagnen oder Canvases, die diesen in einem Retargeting-Filter referenzieren und in den letzten 30 Tagen zum Senden einer Nachricht verwendet wurden. | E-Mail |
+| Ablauf von Canvas-Interaktionsdaten | Benachrichtigt Empfänger:innen über jeden Canvas, bei dem der Ablauf von Canvas-Interaktionsdaten ansteht, zusammen mit Informationen über Segmente, Campaigns oder Canvases, die diesen in einem Retargeting-Filter referenzieren und in den letzten 30 Tagen zum Senden einer Nachricht verwendet wurden. | E-Mail |
 | Kommentare in Canvases | Benachrichtigt Empfänger:innen, wenn ein Canvas neue Kommentare hat. | E-Mail |
 | Connected-Content-Fehler | Benachrichtigt Empfänger:innen, wenn ein Connected-Content-Endpunkt Fehler aufweist. | E-Mail |
 | Push-Fehler | Benachrichtigt Empfänger:innen, wenn ein Push-Endpunkt Fehler aufweist. | E-Mail, Webhook |

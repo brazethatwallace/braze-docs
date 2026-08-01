@@ -15,53 +15,57 @@ Les événements personnalisés sont des actions effectuées par vos utilisateur
 
 ## Cas d'usage {#use-cases}
 
-Parmi les cas d'usage courants d'événements personnalisés figurent les situations suivantes :
+Voici quelques cas d'usage courants des événements personnalisés :
 
 {% multi_lang_include data_activation/custom_event_use_cases.md %}
 
-## Gérer les événements personnalisés {#managing-custom-events}
+## Gestion des événements personnalisés {#managing-custom-events}
 
-Vous pouvez gérer, créer ou bloquer des événements personnalisés dans le tableau de bord en accédant à **Paramètres des données** > **Événements personnalisés**.
+Vous pouvez gérer, créer ou bloquer des événements personnalisés dans le tableau de bord en accédant à **Data Settings** > **Custom Events**.
 
-Sélectionnez le menu à côté d'un événement personnalisé pour effectuer les actions suivantes :
+### Résolution des problèmes liés aux attributs ou événements personnalisés en double {#troubleshooting-duplicate-custom-attributes-or-events}
+
+{% multi_lang_include data_activation/troubleshooting_duplicate_custom_data_entries.md %}
+
+Sélectionnez le menu à côté d'un événement personnalisé pour accéder aux actions suivantes :
 
 ### Blocage {#blocklisting}
 
-Vous pouvez bloquer des événements personnalisés individuellement via le menu d'actions, ou sélectionner et bloquer jusqu'à 100 événements en masse.
+Vous pouvez bloquer des événements personnalisés individuels via le menu d'actions, ou sélectionner et bloquer jusqu'à 100 événements en masse.
 
 Lorsque vous bloquez un événement personnalisé :
 
 {% multi_lang_include data_activation/custom_event_block_effects.md %}
 
-De plus, si un événement personnalisé bloqué est actuellement référencé par des filtres ou des déclencheurs dans d'autres zones de Braze, une fenêtre modale d'avertissement apparaîtra pour expliquer que toutes les instances de filtres ou de déclencheurs qui le référencent seront supprimées et archivées.
+De plus, si un événement personnalisé bloqué est actuellement référencé par des filtres ou des déclencheurs dans d'autres zones de Braze, une fenêtre modale d'avertissement apparaîtra pour expliquer que toutes les instances des filtres ou déclencheurs qui le référencent seront supprimées et archivées.
 
-Pour plus de détails sur le blocage et la suppression de données personnalisées, consultez [Bloquer des données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).
+Pour plus de détails sur le blocage et la suppression de données personnalisées, consultez [Bloquer les données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).
 
-### Ajouter des descriptions {#adding-descriptions}
+### Ajout de descriptions {#adding-descriptions}
 
-Vous pouvez ajouter une description à un événement personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) `Manage Events, Attributes, Purchases`. Sélectionnez **Modifier la description** pour l'événement personnalisé et saisissez ce que vous souhaitez, comme une note pour votre équipe.
+Vous pouvez ajouter une description à un événement personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) `Manage Events, Attributes, Purchases`. Sélectionnez **Edit description** pour l'événement personnalisé et saisissez ce que vous souhaitez, par exemple une note pour votre équipe.
 
-### Ajouter des étiquettes {#adding-tags}
+### Ajout de tags {#adding-tags}
 
-Vous pouvez ajouter des étiquettes à un événement personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) « Manage Events, Attributes, Purchases ». Les étiquettes peuvent ensuite être utilisées pour filtrer la liste des événements.
+Vous pouvez ajouter des tags à un événement personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) « Manage Events, Attributes, Purchases ». Les tags peuvent ensuite être utilisés pour filtrer la liste des événements.
 
-### Exporter des données {#exporting-data}
+### Exportation des données {#exporting-data}
 
-Pour exporter la liste des événements personnalisés sous forme de fichier CSV, sélectionnez **Tout exporter** en haut de la page. Le fichier CSV est généré et un lien de téléchargement vous est envoyé par e-mail.
+Pour exporter la liste des événements personnalisés sous forme de fichier CSV, sélectionnez **Export all** en haut de la page. Le fichier CSV est généré et un lien de téléchargement vous est envoyé par e-mail.
 
 {% alert note %}
-Il n'y a pas de limite fixe dans le tableau de bord quant au nombre d'**événements personnalisés** ou d'**attributs personnalisés** distincts que vous pouvez définir ou stocker sur un profil ; les limites pratiques dépendent de la forme des données, du volume d'ingestion et des performances de l'espace de travail. Si vous prévoyez de suivre un très grand catalogue d'événements ou d'attributs, collaborez avec votre équipe de compte Braze sur la modélisation et l'hygiène des données (par exemple, le [blocage]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data) des données inutilisées).
+Il n'y a pas de limite fixe dans le tableau de bord quant au nombre d'**événements personnalisés** ou d'**attributs personnalisés** distincts que vous pouvez définir ou stocker sur un profil ; les limites pratiques dépendent de la forme des données, du volume d'ingestion et des performances de l'espace de travail. Si vous prévoyez de suivre un très grand catalogue d'événements ou d'attributs, travaillez avec votre équipe de compte Braze sur la modélisation et l'hygiène des données (par exemple, le [blocage]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data) des données inutilisées).
 {% endalert %}
 
-## Consulter les rapports d'utilisation {#viewing-usage-reports}
+## Consultation des rapports d'utilisation {#viewing-usage-reports}
 
 Le rapport d'utilisation répertorie tous les Canvas, Campaigns et Segments qui utilisent un événement personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
 
-Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant les cases correspondantes à côté des événements personnalisés, puis en sélectionnant **Afficher le rapport d'utilisation**.
+Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant les cases correspondant aux événements personnalisés concernés, puis en sélectionnant **Afficher le rapport d'utilisation**.
 
-## Enregistrer des événements personnalisés {#logging-custom-events}
+## Enregistrement des événements personnalisés {#logging-custom-events}
 
-Les événements personnalisés nécessitent une configuration supplémentaire. Consultez la documentation de chaque plateforme ci-dessous pour en savoir plus sur les méthodes utilisées pour enregistrer des événements personnalisés et sur la façon d'ajouter des propriétés et des quantités à vos événements personnalisés.
+Les événements personnalisés nécessitent une configuration supplémentaire. Consultez la documentation suivante par plateforme pour connaître les méthodes utilisées pour enregistrer les événements personnalisés et savoir comment ajouter des propriétés et des quantités à vos événements personnalisés.
 
 {% details Développer pour la documentation par plateforme %}
 
@@ -77,7 +81,7 @@ Les événements personnalisés nécessitent une configuration supplémentaire. 
 
 ## Stockage des événements personnalisés {#custom-event-storage}
 
-Toutes les données stockées dans le **profil utilisateur**, y compris les métadonnées des événements personnalisés (première ou dernière occurrence, nombre total et X sur Y au cours des 30 derniers jours), sont conservées indéfiniment tant que chaque profil est <a href="/docs/user_archival#active-users">actif</a>.
+Toutes les données stockées sur le **profil utilisateur**, y compris les métadonnées d'événement personnalisé (première ou dernière occurrence, nombre total et X sur Y au cours des 30 derniers jours), sont conservées indéfiniment tant que chaque profil est <a href="/docs/user_archival#active-users">actif</a>.
 
 ## Consulter l'historique des événements d'un utilisateur {#view-a-users-event-history}
 
@@ -85,30 +89,30 @@ Toutes les données stockées dans le **profil utilisateur**, y compris les mét
 L'historique des événements est actuellement en accès anticipé. Contactez votre gestionnaire de compte Braze si vous souhaitez y participer.
 {% endalert %}
 
-Utilisez l'onglet **Historique des événements** sur le profil d'un utilisateur pour consulter ses événements personnalisés et achats récents. Cela vous permet de confirmer que votre intégration enregistre correctement les événements et de résoudre les problèmes au niveau de l'utilisateur directement dans le tableau de bord.
+Utilisez l'onglet **Event History** sur le profil d'un utilisateur pour consulter ses événements personnalisés et achats récents. Cela vous permet de confirmer que votre intégration enregistre correctement les événements et de résoudre les problèmes au niveau de l'utilisateur directement dans le tableau de bord.
 
 Pour consulter l'historique des événements d'un utilisateur :
 
-1. Accédez à **Audience** > **Rechercher des utilisateurs**, puis sélectionnez un utilisateur pour ouvrir son profil.
-2. Sélectionnez l'onglet **Historique des événements**.
+1. Accédez à **Audience** > **Search Users**, puis sélectionnez un utilisateur pour ouvrir son profil.
+2. Sélectionnez l'onglet **Event History**.
 
 L'onglet répertorie les événements personnalisés et les achats de l'utilisateur au cours des 30 derniers jours, jusqu'à ses 100 événements les plus récents, classés du plus récent au plus ancien.
 
 Chaque événement comprend :
 
-- **Type d'événement :** indique s'il s'agit d'un événement personnalisé ou d'un achat.
+- **Type d'événement :** indique si l'événement est un événement personnalisé ou un achat.
 - **Nom de l'événement :** le nom de l'événement tel qu'il a été enregistré.
 - **Heure :** le moment où l'événement s'est produit.
-- **Propriétés :** les propriétés complètes de l'événement pour cette occurrence, affichées au format JSON.
+- **Propriétés :** les propriétés d'événement complètes pour cette occurrence, affichées au format JSON.
 
-Parmi les cas d'usage courants :
+Les cas d'usage courants incluent :
 
 - Vérifier que votre intégration SDK ou API envoie les événements comme prévu pendant le développement ou après une mise en production.
-- Résoudre un problème lié au fait qu'un utilisateur est entré ou non dans une campagne ou un Canvas déclenché par un événement.
-- Investiguer un problème d'assistance pour un utilisateur spécifique sans avoir à configurer une exportation de données.
+- Résoudre les problèmes liés au fait qu'un utilisateur est entré ou non dans une Campaign ou un Canvas déclenché par un événement.
+- Investiguer un problème de support pour un utilisateur spécifique sans avoir à configurer une exportation de données.
 
 {% alert note %}
-La consultation de l'onglet **Historique des événements** nécessite les autorisations utilisateur **Rechercher des utilisateurs**, **Voir les informations personnelles** et **Voir les propriétés d'événement utilisateur**, car les propriétés d'événement peuvent contenir des données personnelles. Pour en savoir plus, consultez [Autorisations utilisateur de l'entreprise]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+La consultation de l'onglet **Event History** nécessite les autorisations utilisateur **Search Users**, **View PII** et **View User Event Properties**, car les propriétés d'événement peuvent contenir des données personnelles. Pour plus d'informations, consultez [Autorisations des utilisateurs de l'entreprise]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
 ## Filtres de segmentation {#segmentation-filters}
@@ -117,32 +121,32 @@ Le tableau suivant présente les filtres disponibles pour segmenter les utilisat
 
 | Options de segmentation | Filtre déroulant | Options de saisie |
 | ---------------------| --------------- | ------------- |
-| Vérifier si l'événement personnalisé s'est produit **plus de X fois** | **MORE THAN** | **NUMBER** |
-| Vérifier si l'événement personnalisé s'est produit **moins de X fois** | **LESS THAN** | **NUMBER** |
-| Vérifier si l'événement personnalisé s'est produit **exactement X fois** | **EXACTLY** | **NUMBER** |
-| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **après la date X** | **AFTER** | **TIME** |
-| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **avant la date X** | **BEFORE** | **TIME** |
-| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **il y a plus de X jours** | **MORE THAN** | **NUMBER OF DAYS AGO** (nombre positif) |
-| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **il y a moins de X jours** | **LESS THAN** | **NUMBER OF DAYS AGO** (nombre positif) |
-| Vérifier si l'événement personnalisé s'est produit **plus de X fois (max = 50)** | **MORE THAN** | au cours des **Y derniers jours (Y = 1, 3, 7, 14, 21, 30)** |
-| Vérifier si l'événement personnalisé s'est produit **moins de X fois (max = 50)** | **LESS THAN** | au cours des **Y derniers jours (Y = 1, 3, 7, 14, 21, 30)** |
-| Vérifier si l'événement personnalisé s'est produit **exactement X fois (max = 50)** | **EXACTLY** | au cours des **Y derniers jours (Y = 1, 3, 7, 14, 21, 30)** |
+| Vérifier si l'événement personnalisé s'est produit **plus de X fois** | **PLUS DE** | **NOMBRE** |
+| Vérifier si l'événement personnalisé s'est produit **moins de X fois** | **MOINS DE** | **NOMBRE** |
+| Vérifier si l'événement personnalisé s'est produit **exactement X fois** | **EXACTEMENT** | **NOMBRE** |
+| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **après la date X** | **APRÈS** | **DATE** |
+| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **avant la date X** | **AVANT** | **DATE** |
+| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **il y a plus de X jours** | **PLUS DE** | **NOMBRE DE JOURS** (nombre positif) |
+| Vérifier si l'événement personnalisé s'est produit pour la dernière fois **il y a moins de X jours** | **MOINS DE** | **NOMBRE DE JOURS** (nombre positif) |
+| Vérifier si l'événement personnalisé s'est produit **plus de X fois (max = 50)** | **PLUS DE** | au cours des **Y derniers jours (Y = 1, 3, 7, 14, 21, 30)** |
+| Vérifier si l'événement personnalisé s'est produit **moins de X fois (max = 50)** | **MOINS DE** | au cours des **Y derniers jours (Y = 1, 3, 7, 14, 21, 30)** |
+| Vérifier si l'événement personnalisé s'est produit **exactement X fois (max = 50)** | **EXACTEMENT** | au cours des **Y derniers jours (Y = 1, 3, 7, 14, 21, 30)** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtres de segmentation" }
 
-## Analyses {#analytics}
+## Analyse {#analytics}
 
-Braze enregistre le nombre de fois que chaque événement personnalisé s'est produit ainsi que la date de sa dernière occurrence pour chaque utilisateur, à des fins de segmentation. Consultez ces analyses en accédant à **Analytics** > **Rapport d'événements personnalisés**.
+Braze enregistre le nombre de fois où des événements personnalisés se sont produits et la dernière fois qu'ils ont été effectués par chaque utilisateur à des fins de segmentation. Consultez ces analyses en accédant à **Analytics** > **Rapport d'événements personnalisés**.
 
 Sur la page **Rapport d'événements personnalisés** du tableau de bord, vous pouvez visualiser de manière agrégée la fréquence de chaque événement personnalisé. Les lignes grises superposées sur la série temporelle indiquent la dernière fois qu'une campagne a été envoyée, ce qui est utile pour observer l'impact de vos campagnes sur l'activité des événements personnalisés.
 
 ![Graphique du nombre d'événements personnalisés sur la page Événements personnalisés du tableau de bord montrant les tendances d'un événement personnalisé]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-Vous pouvez également utiliser les **filtres** pour ventiler vos événements personnalisés par heure, utilisateurs actifs mensuels (MAU), Segments ou formules de KPI.
+Vous pouvez également utiliser les **Filtres** pour ventiler vos événements personnalisés par heure, utilisateurs actifs mensuels (MAU), Segments ou formules de KPI.
 
 ![Filtres du graphique d'événements personnalisés]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[Incrémentez des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) pour maintenir un compteur sur une action utilisateur similaire à un événement personnalisé. Cependant, vous ne pouvez pas visualiser les données d'attributs personnalisés sous forme de série temporelle. Les actions utilisateur qui n'ont pas besoin d'être analysées sous forme de série temporelle doivent être enregistrées avec cette méthode.
+[Incrémentez les attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) pour maintenir un compteur sur une action utilisateur similaire à un événement personnalisé. Cependant, vous ne pouvez pas visualiser les données d'attributs personnalisés sous forme de série temporelle. Les actions utilisateur qui n'ont pas besoin d'être analysées sous forme de série temporelle doivent être enregistrées à l'aide de cette méthode.
 {% endalert %}
 
 ### Pourquoi les analyses d'événements personnalisés ne s'affichent pas {#why-custom-events-analytics-arent-showing}

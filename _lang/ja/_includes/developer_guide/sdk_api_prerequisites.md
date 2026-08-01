@@ -1,0 +1,3 @@
+- **Brazeアカウント:** APIアクセスが可能なBrazeアカウント
+- **APIキー:** Brazeダッシュボードから取得したアプリのAPIキー
+- **SDKエンドポイント:** BrazeのSDKエンドポイントURL（例: `sdk.iad-01.braze.com`）

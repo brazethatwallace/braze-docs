@@ -33,6 +33,19 @@ Everything after the colon within a deep link is free-form text. It's up to you 
 For apps built with wrapper frameworks (for example, Flutter or Cordova), Braze does not provide wrapper-specific deep linking support. You must configure deep links at the native iOS and Android layers. For Cordova, see [Deep linking in push notifications]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=cordova).
 {% endalert %}
 
+### System URI schemes
+
+Standard URI schemes handled natively by iOS and Android (such as `tel:`, `mailto:`, and `sms:`) can be entered directly in the deep link URL field without requiring a custom deep link integration in your app.
+
+| Scheme | Example | Action |
+| ------ | ------- | ------ |
+| `tel:` | `tel:+18005555555` | Opens phone dialer |
+| `mailto:` | `mailto:support@example.com` | Opens email compose |
+| `sms:` | `sms:+18005555555` | Opens SMS compose |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="System URI schemes"}
+
+These work for push notification on-click behaviors and in-app message button actions. No additional SDK configuration or app code changes are needed.
+
 ### UTM tags and campaign attribution
 
 #### What is a UTM tag?

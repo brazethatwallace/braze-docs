@@ -92,7 +92,9 @@ Antes de añadir bloques, configura los [estilos a nivel de mensaje](#set-messag
 
 Cada bloque tiene su propia configuración, como control granular del relleno. El panel del lado derecho cambia automáticamente a un panel de estilos para el elemento de contenido seleccionado. Para más información, consulta [Propiedades de bloques del editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties).
 
-A medida que construyes tu mensaje dentro de la aplicación, puedes seleccionar una vista de móvil, tableta o escritorio en la barra de herramientas para previsualizar cómo se verá tu mensaje dentro de la aplicación para tus grupos de usuarios. Esto asegurará que tu contenido sea adaptable y podrás hacer los ajustes necesarios sobre la marcha.
+A medida que construyes tu mensaje dentro de la aplicación, puedes seleccionar una vista de móvil, tableta o escritorio en la barra de herramientas para previsualizar cómo se verá tu mensaje dentro de la aplicación para tus grupos de usuarios. Esto asegura que tu contenido sea adaptable y puedas hacer los ajustes necesarios sobre la marcha.
+
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='in_app_message' %}
 
 ## Detalles creativos {#creative-details}
 
@@ -102,7 +104,7 @@ En un navegador de tableta o escritorio, un mensaje dentro de la aplicación de 
 
 ![Ejemplo de mensaje dentro de la aplicación a pantalla completa.]({% image_buster /assets/img_archive/dnd_iam_fullscreen_example.png %}){: style="border:none"}
 
-### Añadir una imagen de fondo {#adding-a-background-image}
+### Añadir una imagen de fondo {#add-a-background-image}
 
 Puedes añadir una imagen al fondo de tu mensaje desde la pestaña **Message styles**.
 
@@ -139,7 +141,7 @@ https://example.com/images/default-background.png
 ```
 {% endraw %}
 
-### Añadir Liquid {#adding-liquid}
+### Añadir Liquid {#add-liquid}
 
 ![Icono para añadir personalización con Liquid.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
@@ -147,7 +149,7 @@ Para añadir [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/pers
 
 A continuación, toma tu fragmento de código Liquid generado e insértalo en tu mensaje. Después de diseñar y construir tu mensaje dentro de la aplicación, ve a **Preview & Test** para previsualizar tu mensaje.
 
-### Usar el asistente de redacción con inteligencia artificial {#using-the-ai-copywriter}
+### Usar el asistente de redacción con inteligencia artificial {#use-the-ai-copywriter}
 
 Cuando un bloque de texto está seleccionado en tu mensaje dentro de la aplicación, selecciona <i class="fa-solid fa-wand-magic-sparkles" title="Asistente de redacción con IA"></i> **AI copywriter** en la barra de herramientas del bloque para lanzar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). El asistente de redacción con inteligencia artificial pasa un nombre o descripción breve del producto a la herramienta de generación de texto GPT3 de OpenAI para generar textos de marketing similares a los escritos por humanos para tu mensajería.
 
@@ -157,7 +159,7 @@ Puedes ahorrarte algunos clics resaltando el texto dentro del bloque antes de ha
 
 ![GIF del asistente de redacción con IA.]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
 
-### Restablecer estilos a los valores predeterminados {#resetting-styles-to-default}
+### Restablecer estilos a los valores predeterminados {#reset-styles-to-default}
 
 Las propiedades que hayas cambiado respecto a su estilo predeterminado están marcadas con un punto naranja. Para restablecer una propiedad específica a su estilo predeterminado, pasa el cursor sobre el campo y selecciona **Reset to default**.
 
@@ -165,7 +167,7 @@ Las propiedades que hayas cambiado respecto a su estilo predeterminado están ma
 
 También puedes restablecer todos los estilos de un elemento seleccionado haciendo clic en <i class="fas fa-paintbrush" title="Botón de copiar o pegar estilos"></i> junto al nombre del panel de propiedades y seleccionando **Reset to default styles**.
 
-### Copiar y pegar estilos {#copying-and-pasting-styles}
+### Copiar y pegar estilos {#copy-and-paste-styles}
 
 Después de hacer cambios en el estilo de un elemento, puedes copiar y pegar esos estilos en otro elemento. Al pegar estilos, solo se aplican las propiedades relevantes para ese elemento.
 

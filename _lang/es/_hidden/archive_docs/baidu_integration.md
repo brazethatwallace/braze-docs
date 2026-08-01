@@ -5,6 +5,7 @@ platform: Android
 permalink: /baidu_integration/
 description: "Este artículo muestra cómo configurar una integración de Baidu en Android."
 hidden: true
+excerpt_separator: ""
 ---
 # Integración con Baidu {#baidu-integration}
 {% alert warning %}
@@ -19,57 +20,57 @@ Braze puede enviar notificaciones push a dispositivos Android utilizando [Baidu 
 
 ## Paso 1: Crear una cuenta de Baidu {#step-1-create-a-baidu-account}
 
-Para crear una cuenta de Baidu, visita el [portal de Baidu](https://www.baidu.com/) y haz clic en **登录** (iniciar sesión) para que aparezca un cuadro de diálogo que te permitirá iniciar sesión o crear una cuenta nueva.
+Para crear una cuenta de Baidu, visita el [portal de Baidu](https://www.baidu.com/) y haz clic en **登录** (Iniciar sesión) para abrir un cuadro de diálogo que te permitirá iniciar sesión o crear una cuenta nueva.
 
-![]({% image_buster /assets/img_archive/baidu_portal.png %})
+![Portal de Baidu]({% image_buster /assets/img_archive/baidu_portal.png %})
 
-Para crear una nueva cuenta, en la parte inferior del cuadro de diálogo de inicio de sesión, haz clic en **立即注册** (nueva cuenta).
+Para crear una cuenta nueva, en la parte inferior del cuadro de diálogo de inicio de sesión, haz clic en **立即注册** (cuenta nueva).
 
-![]({% image_buster /assets/img_archive/baidu_login_dialog.png %}){: style="max-width:70%;"}
+![Cuadro de diálogo de inicio de sesión de Baidu]({% image_buster /assets/img_archive/baidu_login_dialog.png %}){: style="max-width:70%;"}
 
-Introduce tu nombre de usuario, número de teléfono y contraseña en la página de creación de cuenta. A continuación, haz clic en el botón de recibir código de verificación. Recibirás un mensaje SMS de Baidu con un código de verificación. Por último, acepta el acuerdo de licencia y haz clic en **注册** (crear cuenta) para registrarte. Si estos pasos de configuración fallan, intenta registrarte a través del inicio de sesión en Baidu Cloud como se describe en este [artículo sobre el inicio de sesión](https://www.adchina.io/how-to-open-a-baidu-account-outside-china/).
+Introduce tu nombre de usuario, número de teléfono y contraseña en la página de creación de cuenta. A continuación, haz clic en el botón para recibir el código de verificación. Recibirás un mensaje SMS de Baidu con un código de verificación. Por último, acepta el acuerdo de licencia y haz clic en **注册** (crear cuenta) para registrarte. Si estos pasos de configuración fallan, intenta registrarte a través del inicio de sesión de Baidu Cloud como se describe en este [artículo de inicio de sesión](https://www.adchina.io/how-to-open-a-baidu-account-outside-china/).
 
 ![Página de registro de Baidu]({% image_buster /assets/img_archive/baidu_signup.png %}){: style="max-width:80%;"}
 
 ## Paso 2: Registrarse como desarrollador de Baidu {#step-2-register-as-a-baidu-developer}
 
-A continuación, debes registrarte como desarrollador de Baidu. Primero, visita el [portal de desarrolladores de Baidu](http://developer.baidu.com/) y elige **注册** (crear nueva cuenta de desarrollador) para iniciar el registro.
+A continuación, debes registrarte como desarrollador de Baidu. Primero, visita el [portal de desarrolladores de Baidu](http://developer.baidu.com/) y elige **注册** (crear nueva cuenta de desarrollador) para comenzar el registro.
 
-![]({% image_buster /assets/img_archive/baidu_dev_portal.png %})
+![Portal de desarrolladores de Baidu]({% image_buster /assets/img_archive/baidu_dev_portal.png %})
 
-En la página de registro, elige tu tipo de cuenta (个人 para personal, 公司 para empresa) y el tipo de desarrollador (desarrollador está preseleccionado y es correcto en la mayoría de los casos). Introduce tu nombre, una biografía y un número de teléfono con el código del país entre paréntesis (por ejemplo, (1)xxxxxxxxxx). Haz clic en **发送验证码** (enviar código de verificación) e introduce el código de verificación en la línea siguiente. Los dos campos siguientes, sitio web del desarrollador y logotipo del desarrollador, son opcionales. Acepta el acuerdo de licencia y haz clic en **提交** (enviar) para enviarlo. Ahora tienes una cuenta de desarrollador de Baidu.
+En la página de registro, elige tu tipo de cuenta (个人 para personal, 公司 para empresa) y el tipo de desarrollador (desarrollador está preseleccionado y es correcto para la mayoría de los casos). Introduce tu nombre, una biografía y un número de teléfono con el código de país entre paréntesis (por ejemplo, (1)xxxxxxxxxx). Haz clic en **发送验证码** (enviar código de verificación) e introduce el código de verificación en la siguiente línea. Los dos campos siguientes, sitio web del desarrollador y logotipo del desarrollador, son opcionales. Acepta el acuerdo de licencia y haz clic en **提交** (enviar) para completar el envío. Ahora tienes una cuenta de desarrollador de Baidu.
 
-![]({% image_buster /assets/img_archive/baidu_dev_reg.png %})
+![Página de registro de desarrollador de Baidu]({% image_buster /assets/img_archive/baidu_dev_reg.png %})
 
-## Paso 3: Registrar tu aplicación en Baidu {#step-3-register-your-application-with-baidu}
+## Paso 3: Registra tu aplicación con Baidu {#step-3-register-your-application-with-baidu}
 
-Para registrar tu aplicación en Baidu, visita el [portal de proyectos de Baidu](http://developer.baidu.com/console#app/project) y haz clic en **创建工程** (crear proyecto).
+Para registrar tu aplicación con Baidu, visita el [portal de proyectos de Baidu](http://developer.baidu.com/console#app/project) y haz clic en **创建工程** (crear proyecto).
 
-![]({% image_buster /assets/img_archive/baidu_project.png %})
+![Portal de proyectos de Baidu]({% image_buster /assets/img_archive/baidu_project.png %})
 
-En la página siguiente, introduce el nombre de tu aplicación. Las dos casillas siguientes sirven para activar servicios adicionales de Baidu. En la mayoría de los casos, deben dejarse en blanco.
+En la página siguiente, introduce el nombre de tu aplicación. Las dos casillas de verificación siguientes sirven para activar servicios adicionales de Baidu. En la mayoría de los casos, deben dejarse en blanco.
 
-![]({% image_buster /assets/img_archive/baidu_app_name.png %})
+![Página de nombre de la aplicación en Baidu]({% image_buster /assets/img_archive/baidu_app_name.png %})
 
-Al configurar tu aplicación, accederás a una consola que muestra información sobre tu aplicación, incluida la clave de API. A continuación, ve a **云推送** (cloud push) en la barra lateral. En la página siguiente, haz clic en **推送设置** (configurar push).
+Una vez configurada tu aplicación, accederás a una consola que muestra información sobre tu aplicación, incluida la clave de API. A continuación, navega a **云推送** (push en la nube) en la barra lateral. En la página siguiente, haz clic en **推送设置** (configurar push).
 
-![]({% image_buster /assets/img_archive/baidu_app_console.png %})
+![Consola de la aplicación en Baidu]({% image_buster /assets/img_archive/baidu_app_console.png %})
 
-![]({% image_buster /assets/img_archive/baidu_continue.png %})
+![Página de continuación en Baidu]({% image_buster /assets/img_archive/baidu_continue.png %})
 
-En la página siguiente, introduce el nombre del paquete de tu aplicación (por ejemplo, `com.braze.sample`) y especifica si deseas almacenar en caché los mensajes y, en caso afirmativo, durante cuánto tiempo (en horas). Esto indica a Baidu cuánto tiempo debe seguir intentando enviar mensajes a usuarios desconectados. Haz clic en **保存设置** (guardar configuración) para guardar.
+En la página siguiente, introduce el nombre del paquete de tu aplicación (por ejemplo, `com.braze.sample`) y especifica si deseas almacenar mensajes en caché y, de ser así, durante cuánto tiempo (en horas). Esto indica a Baidu durante cuánto tiempo debe seguir intentando enviar mensajes a usuarios sin conexión. Haz clic en **保存设置** (guardar configuración) para guardar.
 
-![]({% image_buster /assets/img_archive/baidu_configure_cloud.png %})
+![Página de configuración de push en la nube de Baidu]({% image_buster /assets/img_archive/baidu_configure_cloud.png %})
 
 ## Paso 4: Añadir Baidu a tu aplicación {#step-4-add-baidu-to-your-application}
 
-Visita el [portal del SDK push de Baidu](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk) y descarga el último SDK para Android de Baidu Cloud Push.
+Visita el [portal del SDK push de Baidu](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk) y descarga el SDK más reciente de Baidu Cloud Push para Android.
 
-![]({% image_buster /assets/img_archive/baidu_sdk.png %})
+![Portal del SDK de Baidu]({% image_buster /assets/img_archive/baidu_sdk.png %})
 
-Dentro del SDK, encontrarás el jar del servicio push y las bibliotecas nativas específicas de la plataforma. Intégralos en tu proyecto. Asegúrate de que tu aplicación apunte a la versión más alta del SDK actualmente soportada por Baidu. Esta documentación es actual para Baidu Cloud push Android SDK versión `4.6.2.38`.
+Dentro del SDK, encontrarás el archivo jar del servicio push y las bibliotecas nativas específicas de cada plataforma. Intégralas en tu proyecto. Asegúrate de que tu aplicación apunte a la versión más alta del SDK actualmente compatible con Baidu. Esta documentación está actualizada para la versión `4.6.2.38` del SDK de Baidu Cloud Push para Android.
 
-Añade los siguientes permisos necesarios de Baidu al `AndroidManifest.xml` de tu aplicación.
+Añade los siguientes permisos requeridos de Baidu al archivo `AndroidManifest.xml` de tu aplicación.
 
 ```xml
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -82,7 +83,7 @@ Añade los siguientes permisos necesarios de Baidu al `AndroidManifest.xml` de t
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 ```
 
-La biblioteca de Baidu contiene receptores de difusión que gestionan los mensajes push entrantes. Declara los receptores internos de Baidu en el `AndroidManifest.xml` de tu aplicación, dentro del elemento `<application>`.
+La biblioteca de Baidu contiene receptores de difusión que gestionan los mensajes push entrantes. Declara los receptores internos de Baidu en el archivo `AndroidManifest.xml` de tu aplicación dentro del elemento `<application>`.
 
 ```xml
   <!-- 用于接收系统消息以保证 PushService 正常运行 -->
@@ -122,7 +123,7 @@ La biblioteca de Baidu contiene receptores de difusión que gestionan los mensaj
       </service>
 ```
 
-También tendrás que crear un receptor de difusión que escuche los mensajes y notificaciones push entrantes. Declara tu receptor en el `AndroidManifest.xml` de tu aplicación dentro del elemento `<application>`. Este receptor tendrá que extender `com.baidu.android.pushservice.PushMessageReceiver` e implementar métodos que reciban actualizaciones de eventos del servicio push de Baidu.
+También necesitarás crear un receptor de difusión que escuche los mensajes push y las notificaciones entrantes. Declara tu receptor en el archivo `AndroidManifest.xml` de tu aplicación dentro del elemento `<application>`. Este receptor deberá extender `com.baidu.android.pushservice.PushMessageReceiver` e implementar métodos que reciban actualizaciones de eventos del servicio push de Baidu.
 
 ```xml
       <receiver android:name=".MyPushMessageReceiver">
@@ -134,13 +135,13 @@ También tendrás que crear un receptor de difusión que escuche los mensajes y 
       </receiver>
 ```
 
-En el método `onCreate()` de tu actividad principal, añade la siguiente línea, que registrará tu aplicación en Baidu y empezará a escuchar los mensajes push entrantes. Asegúrate de sustituir "Your-API-Key" por la clave de API de Baidu de tu proyecto.
+En el método `onCreate()` de tu actividad principal, añade la siguiente línea, que registrará tu aplicación con Baidu y comenzará a escuchar mensajes push entrantes. Asegúrate de reemplazar "Your-API-Key" con la clave de API de Baidu de tu proyecto.
 
 ```
 PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY, "Your-API-Key");
 ```
 
-Por último, tendrás que registrar a tus usuarios en Braze. En el método `onBind()` del receptor de difusión de Baidu que creaste en este paso, envía el `channelId` a Braze utilizando `Braze.registerAppboyPushMessages(channelId)`.
+Por último, necesitarás registrar a tus usuarios con Braze. En el método `onBind()` del receptor de difusión de Baidu que creaste en este paso, envía el `channelId` a Braze usando `Braze.registerAppboyPushMessages(channelId)`.
 
 {% tabs %}
 {% tab JAVA %}
@@ -159,9 +160,9 @@ Braze.getInstance(context).setRegisteredPushToken(channelId)
 {% endtab %}
 {% endtabs %}
 
-## Paso 5: Registrar aperturas de push {#step-5-registering-push-opens}
+## Paso 5: Registrar las aperturas de push {#step-5-registering-push-opens}
 
-Baidu admite el envío de pares clave-valor adicionales con mensajes push en formato JSON. Se llamará al método `public void onNotificationClicked(Context context, String title, String description, String customContentString)` de tu receptor de difusión cada vez que un usuario haga clic en un mensaje push entrante. El parámetro `customContentString` contiene los extras en formato JSON. Todos los mensajes de Braze contendrán los dos siguientes pares clave-valor:
+Baidu admite el envío de pares clave-valor adicionales con mensajes push en formato JSON. El método `public void onNotificationClicked(Context context, String title, String description, String customContentString)` de tu receptor de difusión se llamará cada vez que un usuario haga clic en un mensaje push entrante. El parámetro `customContentString` contiene los extras en formato JSON. Todos los mensajes de Braze contendrán los siguientes dos pares clave-valor:
 
   ```json
   {
@@ -170,7 +171,7 @@ Baidu admite el envío de pares clave-valor adicionales con mensajes push en for
   }
   ```
 
-Siempre que se llame a `onNotificationClicked`, tu receptor de Baidu debe enviar un [Intent](http://developer.android.com/reference/android/content/Intent.html) a tu aplicación que contenga `customContentString`. Tu aplicación registrará el clic en Braze utilizando `customContentString`.
+Cada vez que se llame a `onNotificationClicked` en tu receptor de Baidu, tu receptor debe enviar un [Intent](http://developer.android.com/reference/android/content/Intent.html) a tu aplicación que contenga `customContentString`. Tu aplicación registrará el clic en Braze utilizando el `customContentString`.
 
 El siguiente código de ejemplo pasa `customContentString` a Braze y registra un clic:
 
@@ -226,16 +227,16 @@ try {
 
 ## Paso 7: Configurar las claves de Baidu {#step-7-set-up-baidu-keys}
 
-Tienes que introducir tu clave de API de Baidu y tu clave secreta de Baidu en el panel de Braze. Ambas claves están disponibles en la consola de la aplicación de Baidu.
+Necesitas introducir tu clave de API de Baidu y tu clave secreta de Baidu en el panel de Braze. Ambas claves están disponibles en la consola de aplicaciones de Baidu.
 
 En la página **Administrar configuración**, selecciona tu aplicación Android China e introduce tu clave de API de Baidu y tu clave secreta de Baidu en la sección de notificaciones push.
 
-![]({% image_buster /assets/img_archive/baidu_api_key.png %} "APIKey"){: style="max-width:80%;"}
+![Clave de API de Baidu]({% image_buster /assets/img_archive/baidu_api_key.png %} "APIKey"){: style="max-width:80%;"}
 
 ## Recursos adicionales {#additional-resources}
 
 - [Portal de Baidu](https://www.baidu.com/)
-- [Portal de desarrolladores de Baidu](http://developer.baidu.com/)
+- [Portal para desarrolladores de Baidu](http://developer.baidu.com/)
 - [Portal de proyectos de Baidu](http://developer.baidu.com/console#app/project)
 - [Portal del SDK push de Baidu](http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk)
-- [Documentación sobre la integración con Baidu](http://developer.baidu.com/wiki/index.php?title=docs/frontia/guide-android/overview)
+- [Documentación de integración de Baidu](http://developer.baidu.com/wiki/index.php?title=docs/frontia/guide-android/overview)

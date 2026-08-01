@@ -433,43 +433,185 @@ When leaving a comment on a Jira ticket, post it via the Jira REST
 API using the service account credentials already available as
 `JIRA_USER_EMAIL` and `JIRA_API_TOKEN` in the agent environment. Do
 not use the Atlassian MCP `addCommentToJiraIssue` tool. Replace
-`${TICKET_ID}` with the Jira ticket ID for this run, and put the
-comment text in the ADF `text` field:
+`${TICKET_ID}` with the Jira ticket ID for this run.
+
+**@-mention the assignee:** Edge-case comments should @-mention the
+Jira ticket assignee when one is set so reporters know who to contact.
+You may reuse the assignee `accountId` and `displayName` from Step 1
+(Atlassian MCP), or fetch them with the curl below before posting.
+
+- For **already documented**, **bug or workaround**, and
+  **deprecated/removed behavior** (when closing without an edit):
+  include a closing line such as "If you disagree, reply here and
+  @assignee can take another look."
+- For **not enough information** and **Salesforce link missing**:
+  @-mention the assignee at the start of the comment — they are the
+  writer who will action the ticket.
+
+Build the comment body as Atlassian Document Format (ADF) JSON. When
+an assignee is set, use a `mention` node (same pattern as
+`.github/workflows/jira-pr-comment.yml`). Replace `${COMMENT_TEXT}`
+with the edge-case message:
 
 ```bash
 AUTH_B64=$(printf '%s:%s' "${JIRA_USER_EMAIL}" "${JIRA_API_TOKEN}" | base64 -w0)
 
+ASSIGNEE_ACCOUNT_ID=""
+ASSIGNEE_DISPLAY_NAME=""
+set +e
+ISSUE_HTTP=$(curl -sS -o /tmp/jira-issue-response.json -w '%{http_code}' \
+  --request GET \
+  --url "https://braze.atlassian.net/rest/api/3/issue/${TICKET_ID}?fields=assignee" \
+  --header "Authorization: Basic ${AUTH_B64}" \
+  --header 'Accept: application/json')
+ISSUE_CURL_EXIT=$?
+set -e
+
+if [ "${ISSUE_CURL_EXIT}" -eq 0 ] && [ "${ISSUE_HTTP}" -ge 200 ] && [ "${ISSUE_HTTP}" -lt 300 ]; then
+  ASSIGNEE_ACCOUNT_ID=$(jq -r '.fields.assignee.accountId // empty' /tmp/jira-issue-response.json)
+  ASSIGNEE_DISPLAY_NAME=$(jq -r '.fields.assignee.displayName // empty' /tmp/jira-issue-response.json)
+else
+  echo "Warning: Could not fetch Jira assignee (HTTP ${ISSUE_HTTP:-?}); commenting without mention."
+fi
+
+COMMENT_TEXT="<COMMENT_TEXT>"
+
+if [ -n "${ASSIGNEE_ACCOUNT_ID}" ]; then
+  COMMENT_JSON=$(jq -n \
+    --arg comment_text "${COMMENT_TEXT}" \
+    --arg account_id "${ASSIGNEE_ACCOUNT_ID}" \
+    --arg mention_text "@${ASSIGNEE_DISPLAY_NAME}" \
+    '{
+      body: {
+        version: 1,
+        type: "doc",
+        content: [
+          {
+            type: "paragraph",
+            content: [
+              { type: "text", text: $comment_text }
+            ]
+          },
+          {
+            type: "paragraph",
+            content: [
+              {
+                type: "text",
+                text: "If you disagree, reply here and "
+              },
+              {
+                type: "mention",
+                attrs: {
+                  id: $account_id,
+                  text: $mention_text
+                }
+              },
+              {
+                type: "text",
+                text: " can take another look."
+              }
+            ]
+          }
+        ]
+      }
+    }')
+else
+  COMMENT_JSON=$(jq -n \
+    --arg comment_text "${COMMENT_TEXT}" \
+    '{
+      body: {
+        version: 1,
+        type: "doc",
+        content: [
+          {
+            type: "paragraph",
+            content: [
+              { type: "text", text: $comment_text }
+            ]
+          }
+        ]
+      }
+    }')
+fi
+
+set +e
 HTTP_CODE=$(curl -sS -o /dev/null -w '%{http_code}' \
   --request POST \
   --url "https://braze.atlassian.net/rest/api/3/issue/${TICKET_ID}/comment" \
   --header "Authorization: Basic ${AUTH_B64}" \
   --header 'Content-Type: application/json' \
-  --data '{
-    "body": {
-      "version": 1,
-      "type": "doc",
-      "content": [
-        {
-          "type": "paragraph",
-          "content": [
-            {
-              "type": "text",
-              "text": "<COMMENT_TEXT>"
-            }
-          ]
-        }
-      ]
-    }
-  }')
+  --header 'Accept: application/json' \
+  --data "${COMMENT_JSON}")
+COMMENT_CURL_EXIT=$?
+set -e
+
+if [ "${COMMENT_CURL_EXIT}" -ne 0 ] || [ "${HTTP_CODE:-0}" -lt 200 ] || [ "${HTTP_CODE:-0}" -ge 300 ]; then
+  echo "Warning: Jira comment failed (HTTP ${HTTP_CODE:-?}, curl exit ${COMMENT_CURL_EXIT}); continuing."
+fi
 ```
+
+For **not enough information** and **Salesforce link missing**, when
+an assignee is set, put the `mention` node at the **start** of the
+first paragraph instead of the disagree footer — for example:
+`[@assignee] — This ticket contains a Salesforce link but...`
 
 If the curl call fails (non-zero exit or HTTP status outside 2xx),
 log a warning and continue — do not treat it as a blocker.
 
+**Jira transition to Done (Won't Do) — selected edge cases only**
+
+For the edge cases **already documented**, **bug or workaround**, and
+**deprecated/removed behavior** (when closing without an edit), after
+posting the comment via curl, transition the ticket to Done with
+resolution "Won't Do" using the same `${AUTH_B64}` constructed above:
+
+```bash
+set +e
+HTTP_CODE=$(curl -sS -o /dev/null -w '%{http_code}' \
+  --request POST \
+  --url "https://braze.atlassian.net/rest/api/3/issue/${TICKET_ID}/transitions" \
+  --header "Authorization: Basic ${AUTH_B64}" \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "transition": { "id": "111" },
+    "fields": {
+      "resolution": { "name": "Won'\''t Do" }
+    }
+  }')
+TRANSITION_CURL_EXIT=$?
+set -e
+
+echo "Jira transition HTTP status: ${HTTP_CODE} (curl exit ${TRANSITION_CURL_EXIT})"
+
+if [ "${TRANSITION_CURL_EXIT}" -ne 0 ] || [ "${HTTP_CODE:-0}" -lt 200 ] || [ "${HTTP_CODE:-0}" -ge 300 ]; then
+  echo "Warning: Jira transition failed (HTTP ${HTTP_CODE:-?}, curl exit ${TRANSITION_CURL_EXIT}); continuing."
+fi
+```
+
+If the transition fails (non-2xx or curl error), log a warning and
+continue — do not treat it as a blocker.
+
+Do **not** transition tickets for **not enough information** or
+**Salesforce link missing** — those should remain in To Do for the
+writer to action.
+
+**Already documented:**
+When verification (Step 3) shows the reported issue has already been
+addressed in the docs — for example, by a recent PR or existing
+content that fully covers what the ticket asks for:
+1. Post a comment via curl explaining what you found and referencing
+   the existing content and/or PR. @-mention the assignee with the
+   disagree footer (see above).
+2. Transition the ticket to Done / Won't Do using the transition curl
+   above.
+3. Close this run without making any edit.
+
 **The ticket contains a Salesforce link but the content has not
 been pasted in:**
-Post a comment with this text, then close this run without making
-an edit:
+Post a comment with this text (@-mention the assignee at the start
+when one is set), then close this run without making an edit. Do
+**not** transition the ticket — leave it in To Do for the writer to
+action.
 
 > This ticket contains a Salesforce link but the content has not been pasted in. Please add the relevant content directly to the ticket description and move back to To Do to re-trigger the workflow.
 
@@ -480,22 +622,29 @@ Workaround content creates maintenance burden and misleads customers
 once the underlying issue is resolved. Post a comment flagging the
 ticket as a likely bug (for example: "This ticket appears to describe
 a product bug rather than a documentation gap. Please investigate
-whether this should be filed as a Product Question instead."), then
-close this run without making an edit.
+whether this should be filed as a Product Question instead."). @-mention
+the assignee with the disagree footer (see above), then transition the
+ticket to Done / Won't Do using the transition curl above, then close
+this run without making an edit.
 
 **The ticket asks you to document deprecated, removed-from-UI, or
 retired product behavior:**
 Do not add documentation that presents that behavior as current or
 recommended. Post a comment summarizing what you verified
-(deprecated, removed UI, retired API, and so on) and close this run
-without a how-to edit, unless the ticket is strictly about
-**removing** inaccurate legacy copy — in that case, make only the
-minimal reductive/corrective edit allowed elsewhere in this file.
+(deprecated, removed UI, retired API, and so on). @-mention the assignee
+with the disagree footer (see above), then transition the ticket to
+Done / Won't Do using the transition curl above, then close this run
+without a how-to edit — unless the ticket is strictly about
+**removing** inaccurate legacy copy, in which case make only the
+minimal reductive/corrective edit allowed elsewhere in this file and
+follow the normal PR workflow instead of transitioning the ticket.
 
 **The ticket does not contain enough information to identify the
 correct fix:**
-Post a comment with specific questions for the assigned writer. Do
-not make speculative edits.
+Post a comment with specific questions for the assigned writer
+(@-mention the assignee at the start when one is set). Do not make
+speculative edits. Do **not** transition the ticket — leave it in To
+Do for the writer to action.
 
 **The fix would require editing more than one page, or requires a
 structural rewrite:**

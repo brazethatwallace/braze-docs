@@ -16,18 +16,19 @@ channel: email
 
 Voici quelques conseils rapides à garder à l'esprit lors de la création de votre contenu :
 
-- Lorsque vous mettez en forme votre e-mail, utilisez des feuilles de style en ligne comme CSS.
-- Pour utiliser un même modèle d'e-mail pour les versions mobile et bureau, maintenez la largeur en dessous de 500 pixels.
-- Les images doivent faire moins de 5&nbsp;Mo. Nous recommandons d'utiliser les formats PNG, JPEG ou GIF pour une compatibilité maximale. Évitez les formats SVG et WebP, car de nombreux clients de messagerie majeurs ne les prennent pas encore en charge.
+- Lorsque vous mettez en forme votre e-mail, utilisez des feuilles de style en ligne (inline CSS).
+- Pour utiliser un même modèle d'e-mail pour les versions mobile et ordinateur, maintenez la largeur en dessous de 500 pixels.
+- Les images doivent peser moins de 5&nbsp;Mo. Nous recommandons d'utiliser les formats PNG, JPEG ou GIF pour une compatibilité maximale. Évitez les formats SVG et WebP, car de nombreux clients de messagerie majeurs ne les prennent pas encore en charge.
 - Ne définissez pas de hauteurs et de largeurs pour les images, car cela peut provoquer des espaces blancs inutiles dans un e-mail dégradé.
 - Les balises `div` ne doivent pas être utilisées, car la plupart des clients de messagerie ne prennent pas en charge leur utilisation. Utilisez plutôt des tableaux imbriqués.
 - Évitez d'utiliser JavaScript, car il ne fonctionne avec aucun fournisseur de services d'e-mailing.
-- Braze améliore les temps de chargement en utilisant un CDN mondial pour héberger toutes les images d'e-mail.
+- Évitez les propriétés CSS `position: absolute` et `position: relative` dans les modèles d'e-mail. La plupart des clients de messagerie ne prennent pas en charge le positionnement CSS, ce qui entraîne des écarts de mise en page entre l'aperçu Braze et les e-mails livrés. Utilisez des mises en page basées sur des tableaux pour obtenir des effets de superposition ou de chevauchement.
+- Braze améliore les temps de chargement en utilisant un CDN global pour héberger toutes les images d'e-mail.
 - Sur mobile, les colonnes d'images sont étroites (~100 px chacune), de sorte que les rangées multi-images s'affichent correctement (par exemple, quatre images ≈ quatre colonnes utilisables).
 
 ## Texte alternatif {#alternative-text}
 
-Étant donné que les filtres anti-spam vérifient la présence d'une version HTML et d'une version en texte brut d'un message, l'utilisation d'alternatives en texte brut est un excellent moyen de réduire votre score de spam. De plus, le texte alternatif `(alt="")` peut servir à compléter, et dans certains cas à remplacer, les images incluses dans le corps de votre e-mail qui auraient pu être filtrées par le fournisseur de messagerie de l'utilisateur. Les lecteurs d'écran annoncent le texte alternatif pour décrire les images, c'est donc une opportunité d'utiliser un langage simple pour fournir des informations clés sur une image.
+Étant donné que les filtres anti-spam vérifient la présence d'une version HTML et d'une version en texte brut d'un message, l'utilisation d'alternatives en texte brut est un excellent moyen de réduire votre score de spam. De plus, le texte alternatif `(alt="")` peut servir à compléter, et dans certains cas à remplacer, les images incluses dans le corps de votre e-mail qui auraient pu être filtrées par le fournisseur de messagerie de l'utilisateur. Les lecteurs d'écran annoncent le texte alternatif pour expliquer les images, c'est donc une opportunité d'utiliser un langage simple pour fournir des informations clés sur une image.
 
 {% alert note %}
 Si votre texte alternatif contient des guillemets, utilisez des guillemets simples (`'`) au lieu de guillemets doubles (`"`). Les guillemets doubles peuvent provoquer la fermeture prématurée de l'attribut HTML, coupant ainsi le texte. Par exemple, `alt="Product 'Premium' Edition"` fonctionne correctement, mais `alt="Product "Premium" Edition"` est tronqué.
@@ -39,18 +40,18 @@ Si votre texte alternatif contient des guillemets, utilisez des guillemets simpl
 La validation est utilisée pour les adresses e-mail du tableau de bord, les adresses e-mail des utilisateurs finaux (vos clients), ainsi que les adresses d'expéditeur et de réponse d'un message e-mail.
 {% endalert %}
 
-La validation des e-mails se produit lorsque l'adresse e-mail d'un utilisateur est mise à jour ou importée dans Braze via l'API, un téléchargement CSV, le SDK, ou modifiée dans le tableau de bord. Notez que vos adresses e-mail ne peuvent pas contenir d'espaces, et si elles sont envoyées via l'API, les espaces peuvent entraîner une erreur `400`.
+La validation des e-mails se produit lorsque l'adresse e-mail d'un utilisateur est mise à jour ou importée dans Braze via l'API, un téléchargement CSV, le SDK, ou modifiée dans le tableau de bord. Notez que vos adresses e-mail ne peuvent pas contenir d'espaces. Si elles sont envoyées via l'API, les espaces peuvent entraîner une erreur `400`.
 
-Les adresses e-mail ciblées via les serveurs Braze doivent être validées conformément aux normes [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822). Braze n'accepte pas certains caractères et les considère comme invalides. Si un e-mail est rejeté, Braze marque l'e-mail comme invalide et le statut d'abonnement n'est pas modifié.
+Les adresses e-mail ciblées via les serveurs Braze doivent être validées conformément aux normes [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822). Braze n'accepte pas certains caractères et les considère comme non valides. Si un e-mail est rejeté, Braze marque l'e-mail comme non valide et le statut d'abonnement n'est pas modifié.
 
-Pour plus d'informations sur les caractères non autorisés et les règles de validation des e-mails, consultez [Validation des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation#how-it-works).
+Pour en savoir plus sur les caractères non autorisés et les règles de validation des e-mails, consultez [Validation des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation#how-it-works).
 
 ## Adresses d'expéditeur et de réponse {#from-and-reply-to-addresses}
 
-Lorsque vous configurez vos adresses d'expéditeur (« from »), assurez-vous que le domaine de votre e-mail d'expéditeur correspond à votre domaine d'envoi (par exemple `marketing.yourdomain.com`). Si ce n'est pas le cas, cela peut entraîner un désalignement SPF et DKIM. Toutes les adresses de réponse peuvent être définies sur votre domaine racine.
+Lorsque vous configurez vos adresses d'expéditeur, assurez-vous que le domaine de votre e-mail d'expéditeur correspond à votre domaine d'envoi (par exemple `marketing.yourdomain.com`). Ne pas respecter cette règle peut entraîner un désalignement SPF et DKIM. Toutes les adresses de réponse peuvent être définies sur votre domaine racine.
 
 {% alert note %}
-L'encodage Unicode n'est pas pris en charge dans les adresses d'expéditeur (« from »).
+L'encodage Unicode n'est pas pris en charge dans les adresses d'expéditeur.
 {% endalert %}
 
 ## Pièces jointes dans les e-mails {#attachments}
@@ -69,8 +70,8 @@ La mise en page peut se casser lorsque le HTML/CSS généré par Braze entre en 
 
 - Supprimez d'abord le HTML/CSS personnalisé
 - Vérifiez que les polices personnalisées se chargent correctement dans l'aperçu
-- Contrôlez le remplissage (padding) des lignes et des colonnes
-- Privilégiez les mises en page basées sur des tableaux et restez dans les limites de largeur de l'éditeur.
+- Vérifiez le remplissage (padding) des lignes et des colonnes
+- Privilégiez les mises en page basées sur des tableaux et restez dans la largeur de l'éditeur.
 
 Les Content Blocks qui intègrent du HTML provenant de l'extérieur de l'éditeur peuvent également casser la mise en page.
 
@@ -80,11 +81,11 @@ Les paramètres UTM balisent les URL à des fins d'analyse. Vous pouvez les cons
 
 - N'utilisez qu'un seul point d'interrogation `?` dans l'URL finale (des caractères `?` supplémentaires peuvent interrompre les requêtes).
 - Évitez les espaces et les caractères spéciaux dans les valeurs (utilisez `_` ou `-`).
-- Vérifiez que votre outil d'analyse ingère bien les UTM. Supprimez les espaces de fin à l'intérieur des blocs Liquid `capture`. Les UTM sont sensibles à la casse.
+- Vérifiez que votre outil d'analyse ingère les UTM. Supprimez les espaces de fin à l'intérieur des blocs Liquid `capture`. Les UTM sont sensibles à la casse.
 
 ### Vérifier les détails HTML {#check-html-details}
 
-Gardez à l'esprit que certaines balises et certains attributs HTML ne sont pas autorisés, car ils peuvent potentiellement permettre l'exécution de code malveillant dans le navigateur.
+Gardez à l'esprit que certaines balises et certains attributs HTML ne sont pas autorisés, car ils pourraient permettre l'exécution de code malveillant dans le navigateur.
 
 Consultez les listes suivantes pour connaître les balises et attributs HTML qui ne sont pas autorisés dans vos e-mails :
 {% details Développer pour voir les balises HTML non autorisées %}
@@ -249,3 +250,22 @@ Consultez les listes suivantes pour connaître les balises et attributs HTML qui
 - `<seeksegmenttime>`
 - `<transitionend>`
 {% enddetails %}
+
+## Résolution des problèmes d'e-mails en double {#troubleshooting-duplicate-emails}
+
+Si des utilisateurs signalent qu'ils reçoivent des e-mails en double, les scénarios suivants peuvent vous aider à identifier la cause :
+
+### Erreur de configuration lors de la création d'une campagne ou d'un Canvas {#configuration-error-at-campaign-or-canvas-creation}
+
+Il est possible que les utilisateurs ne reçoivent pas le même e-mail deux fois, mais qu'ils reçoivent deux e-mails distincts avec la même ligne d'objet. Lorsqu'une campagne ou un Canvas est dupliqué, il est facile de passer à côté de détails de configuration de base tels que les images ou la ligne d'objet.
+
+Pour investiguer :
+
+1. Vérifiez le profil utilisateur et examinez chaque Canvas et Campaign que l'utilisateur a reçu.
+2. Consultez les journaux de modifications pour voir si la campagne ou le Canvas a été modifié après le lancement. Il est possible que la campagne ou le Canvas ait eu la même ligne d'objet que l'original au moment où l'utilisateur l'a reçu.
+
+### Campaign envoyée plusieurs fois {#campaign-sent-multiple-times}
+
+Si le nombre de messages envoyés est nettement supérieur au nombre d'utilisateurs dans l'audience, cela peut indiquer que la campagne a été lancée plusieurs fois.
+
+Pour plus d'informations sur la façon dont Braze gère les adresses e-mail en double et la déduplication, consultez la [FAQ sur les e-mails]({{site.baseurl}}/user_guide/channels/email/faq#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address).

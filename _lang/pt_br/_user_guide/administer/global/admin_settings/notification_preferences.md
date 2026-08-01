@@ -38,14 +38,14 @@ Dependendo do tipo de notificação, **All Dashboard Users** e **All Admins** po
 | Limite de volume de envios de Campaign/Canvas atingido | Notifica os destinatários quando uma Campaign ou um Canvas atinge seu limite de volume de envios. | E-mail |
 | Expiração de interação de Canvas | Notifica os destinatários sobre qualquer Canvas cujos dados de interação estão prestes a expirar, junto com informações sobre Segments, Campaigns ou Canvas que fazem referência a ele em um filtro de redirecionamento e que foram usados para enviar uma mensagem nos últimos 30 dias. | E-mail |
 | Comentários em Canvas | Notifica os destinatários quando um Canvas tem novos comentários. | E-mail |
-| Erros de Conteúdo conectado | Notifica os destinatários quando um endpoint de Conteúdo conectado apresenta erros. | E-mail |
+| Erros de Connected Content | Notifica os destinatários quando um endpoint de Connected Content apresenta erros. | E-mail |
 | Erros de push | Notifica os destinatários quando um endpoint de push apresenta erros. | E-mail, Webhook |
 | Limite de Campaign agendada atingido | Notifica os destinatários quando o limite de uma Campaign agendada recorrente é atingido. | E-mail, Webhook |
 | Campaign agendada concluiu o envio | Notifica os destinatários quando uma Campaign agendada termina de enviar. | E-mail, Webhook |
 | Erros de webhook | Notifica os destinatários quando um endpoint de webhook apresenta erros. | E-mail |
 | Relatório semanal de análise de dados | Envia um resumo da atividade do espaço de trabalho da semana anterior para os destinatários toda segunda-feira. Os destinatários recebem um resumo para cada espaço de trabalho ao qual pertencem. | E-mail |
 | Limites diários de volume de entrada de Canvas/Campaign | Envia notificações cada vez que um limite de envio é atingido. | E-mail |
-| Erro no Console do agente | Notifica os destinatários quando um agente do [Console do agente]({{site.baseurl}}/user_guide/brazeai/agents) atingiu seu limite de execução, usa um modelo que se tornou indisponível ou encontra um erro de cobrança com seu provedor de LLM (somente para chave de API própria). | E-mail |
+| Erro no console de agentes | Notifica os destinatários quando um agente do [console de agentes]({{site.baseurl}}/user_guide/brazeai/agents) atingiu seu limite de invocação, usa um modelo que se tornou indisponível ou encontra um erro de cobrança com seu provedor de LLM (somente para chave de API própria). | E-mail |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notificações disponíveis" }
 
 {% alert note %}

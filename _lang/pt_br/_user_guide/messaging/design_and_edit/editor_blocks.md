@@ -187,7 +187,7 @@ Cria um link para conteúdo de vídeo. Apenas YouTube e Vimeo são compatíveis.
 Vídeos hospedados pelo Vimeo só funcionam se estiverem definidos como públicos. Todas as outras configurações de segurança disponíveis no Vimeo (por exemplo, "Ocultar do Vimeo.com") geram um formato de link diferente que não é compatível com este Content Block. Esses tipos de links são alterados pelo construtor, o que impede a Braze de gerar uma miniatura.
 {% endalert %}
 
-### Social
+### Social {#social}
 
 Insere ícones de plataformas de redes sociais. Você pode fazer upload de imagens personalizadas para ícones específicos da marca.
 
@@ -226,7 +226,7 @@ Insere HTML bruto. Recomendado para [Liquid]({{site.baseurl}}/liquid), como Conn
 | HTML | Adicione ou edite HTML bruto, incluindo [Liquid]({{site.baseurl}}/liquid) para personalização ou lógica condicional. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
-### Menu
+### Menu {#menu}
 
 Cria um menu flexível para a mensagem que você está criando.
 
@@ -260,7 +260,7 @@ Renderiza linhas de produtos de um [Catálogo de Produtos]({{site.baseurl}}/user
 | Título do produto | Mostra ou oculta o título do produto para cada bloco. |
 | Preço | Mostra ou oculta o preço do produto. |
 | Botão para URL do produto | Mostra ou oculta um botão de chamada para ação vinculado à URL do produto. |
-| Quantidade | *(Dinâmico, apenas Canvas, quando o gatilho de entrada não é um evento de visualização de produto)* Mostra ou oculta a quantidade do produto do evento-gatilho. |
+| Quantidade | *(Dinâmico, apenas Canvas, quando o evento-gatilho de entrada não é um evento de visualização de produto)* Mostra ou oculta a quantidade do produto do evento-gatilho. |
 | Orientação do produto | Define a posição da imagem dentro de cada bloco: **Imagem à esquerda**, **Imagem ao centro** ou **Imagem à direita**. |
 | Alinhamento | Define o alinhamento horizontal do conteúdo dentro de cada bloco. |
 | Máximo de produtos por linha | Define quantos produtos aparecem por linha: **1**, **2** ou **3** (**3** está disponível apenas quando a orientação é **Imagem ao centro**). |
@@ -272,7 +272,7 @@ Renderiza linhas de produtos de um [Catálogo de Produtos]({{site.baseurl}}/user
 
 Você pode adicionar personalização ao seu e-mail usando Liquid ou Connected Content.
 
-- **Liquid:** Em **Conteúdo** > **Personalização**, selecione um atributo, copie o snippet e cole-o em um bloco de Título, Parágrafo ou Lista (Liquid básico) ou bloco HTML (Liquid avançado). Em geral, embora você possa usar Liquid básico em blocos de Título, Parágrafo e Lista, recomendamos usar blocos HTML para lógica mais pesada para evitar problemas de layout. Observe que o Liquid não é compatível em blocos de imagem ou em campos de URL de botão.
+- **Liquid:** Em **Conteúdo** > **Personalização**, selecione um atributo, copie o snippet e cole-o em um bloco HTML. Embora snippets básicos de Liquid possam funcionar em blocos de Título, Parágrafo e Lista, colocar Liquid nesses blocos pode causar comportamento inesperado e problemas de layout. Para evitar problemas, use blocos HTML para qualquer lógica Liquid. Observe que o Liquid não é compatível em blocos de imagem ou em campos de URL de botão.
 - **[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content):** Adicione um bloco **HTML** e coloque sua chamada {% raw %}`{% connected_content %}`{% endraw %} lá.
 
 {% endsdktab %}
@@ -306,7 +306,7 @@ Adiciona uma lista de opções da qual os usuários podem selecionar uma. Quando
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
-### Imagem
+### Imagem {#image}
 
 Insere uma imagem da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
 
@@ -320,7 +320,7 @@ Para especificações de imagem, consulte nossas [especificações de imagem de 
 
 {% multi_lang_include drag_and_drop/editor_block_properties/image_actions.md %}
 
-### Link
+### Link {#link}
 
 Insere um hiperlink que os usuários podem clicar para navegar até uma URL especificada. Pode ser incorporado dentro do texto ou independente.
 
@@ -330,7 +330,7 @@ Insere um hiperlink que os usuários podem clicar para navegar até uma URL espe
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
-### Espaçador
+### Espaçador {#spacer}
 
 Adiciona espaço ou preenchimento entre outros blocos.
 
@@ -388,7 +388,7 @@ Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir e
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
-### Saved row
+### Saved row {#saved-row}
 
 Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
 -->
@@ -470,7 +470,7 @@ Insere HTML, CSS ou JavaScript personalizado para personalização avançada, co
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Código personalizado" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
-### Countdown timer
+### Countdown timer {#countdown-timer}
 
 Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
 

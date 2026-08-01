@@ -19,19 +19,21 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para procu
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#3df40764-8f74-4532-aed3-ab8a6cb92122 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de um token SCIM. Você usará a origem de seu serviço como o cabeçalho `X-Request-Origin`. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning).
+Para usar esse endpoint, você precisará de um token SCIM. Você usará a Origin do seu serviço como o cabeçalho `X-Request-Origin`. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning).
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='look up dashboard user' %}
 
 ## Parâmetros de caminho {#path-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `id` | Obrigatória | String | O ID do recurso do usuário. Esse parâmetro é retornado pelos métodos `POST` `/scim/v2/Users/` ou `GET`  `/scim/v2/Users?filter=userName eq "user@example.com"`. |
+| `id` | Obrigatório | String | O ID do recurso do usuário. Esse parâmetro é retornado pelos métodos `POST` `/scim/v2/Users/` ou `GET`  `/scim/v2/Users?filter=userName eq "user@example.com"`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
 ## Corpo da solicitação {#request-body}

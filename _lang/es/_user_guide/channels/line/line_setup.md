@@ -95,14 +95,14 @@ Después de que se complete el proceso de integración, Braze extraerá automát
 
 | Tipo de información | Ubicación |
 | --- | --- |
-| Provider ID | Selecciona tu proveedor y luego ve a ***Settings** > **Basic information** |
+| Provider ID | Selecciona tu proveedor y luego ve a **Settings** > **Basic information** |
 | Channel ID | Selecciona tu proveedor y luego ve a **Channels** > tu canal > **Basic settings** |
 | Channel secret | Selecciona tu proveedor y luego ve a **Channels** > tu canal > **Basic settings**. |
 | Channel access token | Selecciona tu proveedor y luego ve a **Channels** > tu canal > **Messaging API**. Si no hay un token de acceso del canal, selecciona **Issue**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2.1: Editar la configuración del webhook" }
 
 {% alert note %}
-Si necesitas actualizar o rotar el secreto del canal para un canal LINE ya integrado, ponte en contacto con [soporte de Braze]({{site.baseurl}}/braze_support) para solicitar una actualización.
+Puedes actualizar o rotar el secreto del canal y el token de acceso del canal para un canal LINE ya integrado yendo a **Partner Integrations** > **Technology Partners** > **LINE** y seleccionando tu integración.
 {% endalert %}
 
 {: start="3"}

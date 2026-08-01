@@ -211,7 +211,7 @@ The **Message Performance** panel outlines how well your message has performed a
 이 보기에서 **Show Heatmap** 토글을 사용하면 캠페인 기간 동안의 전체 클릭 빈도와 위치를 시각적으로 확인할 수 있습니다. **Link Table by Total Clicks** 패널에서는 이메일 캠페인의 모든 링크를 확인하고 총 클릭 수로 정렬할 수 있습니다. 이를 통해 사용자가 어디로 이동하는지에 대한 추가 인사이트를 얻을 수 있습니다. 히트맵 사본을 저장하려면 다운로드 버튼을 선택하세요.
 
 {% alert note %}
-링크가 동적 URL에 Liquid를 사용하는 경우, 클릭된 URL이 메시지의 렌더링된 링크와 충분히 일치하지 않아 히트맵이 해당 링크와 클릭을 연결하지 못할 수 있으므로, 해당 링크가 히트맵에 표시되지 않을 수 있습니다. 전체 그림을 보려면 **Link Table by Total Clicks** 패널의 클릭 데이터를 사용하세요.
+링크가 동적 URL에 Liquid를 사용하는 경우, 클릭된 URL이 메시지의 렌더링된 링크와 충분히 일치하지 않아 히트맵이 해당 링크와 클릭을 연결하지 못할 수 있으므로, 해당 링크가 히트맵에 표시되지 않을 수 있습니다. 템플릿화된 링크에 클릭 데이터를 연결하려면 [링크 별칭 지정]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing)을 사용하세요. 전체 그림을 보려면 **Link Table by Total Clicks** 패널의 클릭 데이터를 사용하세요.
 {% endalert %}
 
 ![이메일 캠페인과 총 클릭 수가 포함된 링크 별칭 예시 패널이 있는 Preview & Heatmap 페이지 예시.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
@@ -534,7 +534,7 @@ Estimated Real Open Rate는 Campaigns에서만 사용할 수 있으며, Currents
 궁극적으로 이메일이 서버를 떠난 후에는 가시성이 제한되지만, 결과에 영향을 미치는 NHI를 관리하기 위한 권장 사항은 다음과 같습니다:
 
 1. 이는 모든 발신자와 거의 모든 수신자에게 발생할 수 있다는 점을 인지하세요. 열람과 마찬가지로 클릭도 메시지와의 인간 상호작용을 완전히 신뢰할 수 있는 지표가 아니므로 NHI를 방지할 수는 없습니다.
-2. 높은 긍정적 참여는 낮은 NHI와 상관관계가 있는 경향이 있으므로, 이메일 메시징 [모범 사례]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices)를 따르는 것이 중요합니다. 여기에는 사용자로부터 이메일 전송에 대한 명시적인 동의를 받고, 참여하지 않는 가입자를 정기적으로 서비스 종료하는 것이 포함됩니다.
+2. 높은 긍정적 참여는 낮은 NHI와 상관관계가 있는 경향이 있으므로, 이메일 메시징 [모범 사례]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices)를 따르는 것이 중요합니다. 여기에는 사용자로부터 이메일 전송에 대한 명시적인 동의를 받고, 참여하지 않는 구독자를 정기적으로 서비스 종료하는 것이 포함됩니다.
 3. 가능하면 이메일에 HTTPS 링크를 사용하세요. 보안 링크를 사용하는 발신자에게는 NHI가 덜 발생합니다.
 4. 단일 클릭 탈퇴 프로세스를 사용하는 경우, 사용자가 알림 환경설정을 편집하고 관리할 수 있는 페이지로 이동하는 [환경설정 센터]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview)를 만드는 것을 고려하세요. NHI가 실수로 사용자의 구독을 취소할 수 있으므로 이 방법이 유용합니다.
 5. 전환, 앱 세션 또는 사이트 방문과 같은 [다른 측정기준]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#email-performance)을 사용하여 이메일 마케팅 성과를 측정하는 것도 고려해 보세요.

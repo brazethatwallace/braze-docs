@@ -25,25 +25,25 @@ Los objetos de cuenta están actualmente en beta. Ponte en contacto con tu direc
 
 ## Cómo funciona {#how-it-works}
 
-Los objetos de cuenta son estructuras de datos personalizadas que representan la empresa de un usuario. Se conectan a los perfiles de usuario, para que puedas crear segmentos de estilo B2B y personalizar mensajes. Usa campos de cuenta como nombre de la empresa, industria, rol o estado del acuerdo con catálogos de Braze, filtros de segmentación y etiquetas de Liquid.
+Los objetos de cuenta son estructuras de datos personalizadas que representan la empresa de un usuario. Se conectan a los perfiles de usuario, para que puedas crear segmentos de estilo B2B y personalizar mensajes. Usa campos de cuenta como nombre de la empresa, sector, rol o estado de la operación con catálogos de Braze, filtros de segmentación y etiquetas de Liquid.
 
-Por ejemplo, puedes dirigirte a usuarios que trabajan en el sector salud y enviar mensajes personalizados a médicos y administradores de hospitales para hacer tu mensaje aún más relevante.
+Por ejemplo, puedes dirigirte a usuarios que trabajan en el sector sanitario y enviar mensajes personalizados a médicos y administradores de hospitales para que tu mensaje sea aún más relevante.
 
-Para usar objetos de cuenta, importas tres tipos de datos a Braze:
+Para usar objetos de cuenta, importas tres tipos de datos en Braze:
 
-- **Datos de usuario:** Perfiles de usuario individuales utilizados para identificar a cada persona en Braze (por ejemplo, a través de `external_id`, correo electrónico, teléfono o alias de usuario). Importa datos de usuario a través de CSV.
-- **Datos de relación usuario-cuenta:** La relación entre un usuario y una cuenta, incluyendo a qué empresa pertenecen y el rol que tienen en esa cuenta. Importa estos datos de relación a través de CSV.
-- **Datos de cuenta:** Los registros de la empresa en sí, como nombre de la empresa, industria, ingresos anuales y otros detalles firmográficos. Estos son los registros que usas para segmentar y personalizar en segmentos y mensajes. Importa datos de cuenta a través de CSV o la REST API de Braze.
+- **Datos de usuario:** Perfiles de usuario individuales que se usan para identificar a cada persona en Braze (por ejemplo, a través de `external_id`, correo electrónico, teléfono o alias de usuario). Importa datos de usuario a través de CSV.
+- **Datos de relación usuario-cuenta:** La relación entre un usuario y una cuenta, incluyendo a qué empresa pertenece y el rol que tiene en esa cuenta. Importa estos datos de relación a través de CSV.
+- **Datos de cuenta:** Los propios registros de la empresa, como nombre de la empresa, sector, ingresos anuales y otros detalles firmográficos. Estos son los registros que usas para segmentar y personalizar en Segments y mensajes. Importa datos de cuenta a través de CSV o la REST API de Braze.
 
-Los tres tipos de datos deben importarse para que los objetos de cuenta funcionen. Los datos de usuario identifican a las personas en Braze, los datos de relación usuario-cuenta conectan a esos usuarios con cuentas y roles específicos, y los datos de cuenta proporcionan los atributos a nivel de empresa utilizados para la segmentación y personalización.
+Los tres tipos de datos deben importarse para que los objetos de cuenta funcionen. Los datos de usuario identifican a las personas en Braze, los datos de relación usuario-cuenta conectan a esos usuarios con cuentas y roles específicos, y los datos de cuenta proporcionan los atributos a nivel de empresa que se usan para la segmentación y la personalización.
 
 ## Requisitos previos {#prerequisites}
 
-Antes de poder usar esta característica, debes tener usuarios en Braze previamente.
+Antes de poder usar esta característica, ya debes tener usuarios en Braze.
 
 ## Importar datos a Braze {#import-data-to-braze}
 
-Para usar objetos de cuenta dentro de tus mensajes, tus datos de usuario ya deben existir en Braze. A partir de ahí, completa dos importaciones: primero, importa los datos de relación usuario-cuenta para establecer las asociaciones de cuenta y los roles (actualmente solo a través de CSV). Luego, importa los datos de cuenta con los detalles a nivel de empresa utilizados para la segmentación y personalización (a través de CSV o la REST API de Braze).
+Para usar objetos de cuenta dentro de tus mensajes, tus datos de usuario ya deben existir en Braze. A partir de ahí, completa dos importaciones: primero, importa los datos de relación usuario-cuenta para establecer las asociaciones y roles de cuenta (actualmente solo mediante CSV). Luego, importa los datos de cuenta con los detalles a nivel de empresa utilizados para la segmentación y personalización (mediante CSV o la REST API de Braze).
 
 ### Paso 1: Importar datos de relación usuario-cuenta {#step-1-import-user-account-relationship-data}
 
@@ -56,24 +56,24 @@ table td {
 </style>
 
 | Nombre del campo | Tipo de campo | Obligatorio | Descripción |
-|------------------|------------|----------|-------------------------------------------------------------------------------------------------------|
-| `account_id`       | String     | Sí      | La cuenta a la que pertenece el usuario. Es el mismo que el campo `id` del objeto de cuenta (ID de CRM). |
-| `external_id`      | String     | Sí      | El [ID externo](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle/#identified-user-profiles) del usuario en Braze. |
-| `user_alias_name`  | String     | No*      | El [nombre de alias](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases) del usuario en Braze. |
-| `user_alias_label` | String     | No*      | La [etiqueta de alias](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users) del usuario en Braze. |
-| `email`            | String     | No*     | La dirección de correo electrónico del usuario. |
-| `phone`            | String     | No*      | El número de teléfono del usuario. |
-| `user_role`             | String     | No       | El rol que tiene el usuario en la cuenta, como "director" o "empleado". |
+|------------------|---------------|-------------|-------------|
+| `account_id` | String | Sí | La cuenta a la que pertenece el usuario. Es el mismo que el campo `id` del objeto de cuenta (ID de CRM). |
+| `external_id` | String | Sí | El [ID externo](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle/#identified-user-profiles) del usuario en Braze. |
+| `user_alias_name` | String | No* | El [nombre de alias](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases) del usuario en Braze. |
+| `user_alias_label` | String | No* | La [etiqueta de alias](https://www.braze.com/user_guide/data/user_data_collection/user_profile_lifecycle/#what-happens-when-you-identify-anonymous-users) del usuario en Braze. |
+| `email` | String | No* | La dirección de correo electrónico del usuario. |
+| `phone` | String | No* | El número de teléfono del usuario. |
+| `user_role` | String | No | El rol que tiene el usuario en la cuenta, como "director" o "empleado". |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
-<sup>*Se requiere uno de `external_id`, `email`, `phone` o `user_alias` para identificar a un usuario.</sup>
+<sup>Se requiere uno de `external_id`, `email`, `phone` o `user_alias` para identificar a un usuario.</sup>
 
 #### Usar un archivo CSV {#using-a-csv-file}
 
-Carga tu CSV con las relaciones usuario-cuenta a Braze:
+Sube tu CSV con las relaciones usuario-cuenta a Braze:
 
 1. Ve a **Data Settings** > **Accounts**.
 2. Selecciona **Update data**.
-3. En **CSV upload**, selecciona **Users** y luego carga tu archivo a Braze.
+3. En **CSV upload**, selecciona **Users** y luego sube tu archivo a Braze.
 
 ![El menú desplegable "Upload data" en la página "Accounts" en Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
 
@@ -88,42 +88,52 @@ table td {
 </style>
 
 | Nombre del campo | Tipo de campo | Obligatorio | Descripción |
-|-----------------------------|------------|----------|------------------------------------------------------------------------------------|
-| `id`                          | String     | Sí      | El ID de la cuenta en tu plataforma de administración de las relaciones con el cliente (CRM). |
-| `name`                        | String     | Sí      | El nombre de la cuenta.                                                                |
-| `type`                        | String     | No       | El tipo de cuenta, como cliente, partner o revendedor.                                                                                   |
-| `annual_revenue`              | String     | No       | Ingresos anuales de la cuenta.                                                      |
-| `industry`                    | String     | No       | Industria en la que opera la cuenta.                                             |
-| `number_of_employees`         | String     | No       | Número de empleados, admite rangos.                                           |
-| `address`                     | String     | No       | Dirección de la cuenta.                                                      |
-| `city`                        | String     | No       | Ciudad donde se encuentra la cuenta.                                                  |
-| `state`                       | String     | No       | Estado donde se encuentra la cuenta.                                                 |
-| `postal_code`                 | String     | No       | Código postal de la dirección de la cuenta.                                              |
-| `country`                     | String     | No       | País donde se encuentra la cuenta.                                               |
-| `notes`                       | String     | No       | Notas adicionales sobre la cuenta.                                                 |
-| `website`                     | String     | No       | URL del sitio web de la cuenta.                                                        |
-| `main_phone`                  | String     | No       | Número de teléfono principal de la cuenta.                                                  |
-| `created_date`                | Time       | No       | Fecha en que se creó la cuenta.                                                  |
-| `account_owner_email_address` | String     | No       | Un propietario interno de la cuenta (como "Tom del equipo de ventas de la Empresa A es propietario de la Empresa B").      |
-| `parent_account_id`           | String     | No       | ID de la cuenta principal, si aplica (como vincular al ID de una empresa matriz). |
-| `sic_code`                    | String     | No       | Código de clasificación industrial estándar.                                              |
-| Campos personalizados                 | N/A        | No       | Campos personalizados que tú defines y administras.                                                             |
+|------------------|---------------|-------------|-------------|
+| `id` | String | Sí | El ID de la cuenta en tu plataforma de administración de las relaciones con el cliente (CRM). |
+| `name` | String | Sí | El nombre de la cuenta. |
+| `type` | String | No | El tipo de cuenta, como cliente, partner o revendedor. |
+| `annual_revenue` | String | No | Ingresos anuales de la cuenta. |
+| `industry` | String | No | Industria en la que opera la cuenta. |
+| `number_of_employees` | String | No | Número de empleados, admite rangos. |
+| `address` | String | No | Dirección de la cuenta. |
+| `city` | String | No | Ciudad donde se encuentra la cuenta. |
+| `state` | String | No | Estado donde se encuentra la cuenta. |
+| `postal_code` | String | No | Código postal de la dirección de la cuenta. |
+| `country` | String | No | País donde se encuentra la cuenta. |
+| `notes` | String | No | Notas adicionales sobre la cuenta. |
+| `website` | String | No | URL del sitio web de la cuenta. |
+| `main_phone` | String | No | Número de teléfono principal de la cuenta. |
+| `created_date` | Time | No | Fecha en que se creó la cuenta. |
+| `account_owner_email_address` | String | No | Un propietario interno de la cuenta (como "Tom del equipo de ventas de la Empresa A es propietario de la Empresa B"). |
+| `parent_account_id` | String | No | ID de la cuenta principal, si aplica (como vincular al ID de una empresa matriz). |
+| `sic_code` | String | No | Código de clasificación industrial estándar. |
+| Campos personalizados | N/A | No | Campos personalizados que tú defines y administras. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 {% alert note %}
 Aunque algunos campos son opcionales, inclúyelos cuando sea posible porque son nombres de campo reservados y ayudan a mantener tus datos organizados.
 {% endalert %}
 
-A continuación, importa tus datos de cuenta a Braze cargando un archivo CSV o usando la REST API de Braze. Puedes ver estos datos en **Data Settings**. No puedes editar estos datos en el editor del navegador.
+A continuación, importa tus datos de cuenta a Braze subiendo un archivo CSV o usando la REST API de Braze. Puedes ver estos datos en **Data Settings**. No puedes editar estos datos en el editor del navegador.
 
 #### Usar un archivo CSV
 
-Para importar tus datos a través de CSV:
+Para importar tus datos mediante CSV:
 
 1. Ve a **Data Settings** > **Accounts**.
 2. Selecciona **Update data**.
-3. En **CSV upload**, selecciona **Account Data** y luego carga tu archivo a Braze.
+3. En **CSV upload**, selecciona **Account Data** y luego sube tu archivo a Braze.
 
 ![El menú desplegable "Upload data" en la página "Accounts" en Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
+
+### Solución de problemas en importaciones CSV {#troubleshooting-csv-imports}
+
+#### Filas vacías en importaciones CSV de objetos de cuenta {#empty-rows-in-account-objects-csv-imports}
+
+Si importas datos de objetos de cuenta y ves filas vacías en la página **Accounts**, verifica si los valores de los campos de cuenta contienen comas.
+
+En las importaciones CSV de objetos de cuenta, las comas en los valores pueden interpretarse como separadores. Esto puede causar que los valores se analicen incorrectamente y generen filas vacías en el panel.
+
+Para solucionar este problema, elimina las comas del archivo CSV original y súbelo de nuevo. Por ejemplo, cambia `"$5,000,000"` a `"$5000000"` o `"$5 million"` antes de volver a subirlo.
 
 ## Usar la API de Braze {#using-the-braze-api}
 
@@ -311,32 +321,32 @@ curl -X DELETE https://YOUR_REST_API_URL/business/accounts/ACC001 \
   -H "Authorization: Bearer YOUR-REST-API-KEY"
 ```
 
-## Usar objetos en mensajes {#using-objects-in-messages}
+## Uso de objetos en mensajes {#using-objects-in-messages}
 
-Después de haber [importado tus datos a Braze](#importing-data-to-braze), puedes usar objetos de cuenta para crear un segmento y enviar mensajes personalizados a los usuarios usando Liquid.
+Después de [importar tus datos a Braze](#importing-data-to-braze), puedes usar objetos de cuenta para crear un Segment y enviar mensajes personalizados a los usuarios mediante Liquid.
 
-### Paso 1: Crear un segmento {#step-1-build-a-segment}
+### Paso 1: Crear un Segment {#step-1-build-a-segment}
 
-A continuación, crea un segmento que combine datos de usuario y datos de cuenta. Para este ejemplo, te diriges a directores en empresas del sector salud para aumentar el registro en un nuevo webinar de tu empresa de promoción de la salud.
+A continuación, crea un Segment que combine datos de usuario y datos de cuenta. En este ejemplo, te diriges a directores de empresas de salud para aumentar la inscripción a un nuevo webinar en tu empresa de promoción de la salud.
 
-1. Ve a **Audience** > **Segments** y selecciona **Create Segment**.
-2. Dale un nombre a tu segmento.
-3. En el **Segment Builder**, selecciona el filtro **Business** y configura los siguientes filtros de segmentación. Cuando termines, selecciona **Save**.
+1. Ve a **Audiencia** > **Segments** y selecciona **Crear Segment**.
+2. Asigna un nombre a tu Segment.
+3. En el **Generador de Segments**, selecciona el filtro **Business** y configura los siguientes filtros de segmentación. Cuando hayas terminado, selecciona **Guardar**.
 
 | Filtro                          | Descripción                                      |
 |---------------------------------|--------------------------------------------------|
-| `Role is exactly director`      | Se dirige a usuarios cuyo rol es específicamente director |
-| `Accounts industry matches regex healthcare` | Coincide con usuarios en cuentas con industrias relacionadas con el sector salud |
+| `Role is exactly director`      | Se dirige a usuarios cuyo rol es específicamente Director |
+| `Accounts industry matches regex healthcare` | Coincide con usuarios en cuentas con industrias relacionadas con la salud |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 {% alert important %}
-Actualmente, para usar múltiples filtros de cuenta, selecciona **Add Criteria** en lugar de usar el menú desplegable **OR/AND**.
+Actualmente, para usar múltiples filtros de cuenta, selecciona **Agregar criterios** en lugar de usar el desplegable **OR/AND**.
 {% endalert %}
 
-![Filtros de segmentación configurados para crear un segmento de usuarios que son directores en empresas del sector salud.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/build_segment.png %})
+![Filtros de segmentación configurados para crear un segmento de usuarios que son directores en empresas de salud.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/build_segment.png %})
 
 {% alert note %}
-La segmentación funciona solo con los primeros 1,000 registros de cuenta que coincidan con los criterios. Puedes tener hasta un filtro de empresa por segmento, y todos los criterios deben estar en un solo filtro.
+La segmentación funciona solo en los primeros 1000 registros de cuenta que coincidan con los criterios. Puedes tener hasta un filtro de negocio por Segment, y todos los criterios deben estar en un solo filtro.
 {% endalert %}
 
 ### Paso 2: Usar Liquid para personalizar {#step-2-use-liquid-to-personalize}
@@ -360,7 +370,7 @@ Braze genera la etiqueta {% raw %}`{% business %}`{% endraw %}, que establece un
 
 Ajusta la salida autogenerada para crear tu mensaje.
 
-En el ejemplo a continuación, mueve la llamada a la etiqueta {% raw %}`{% business %}`{% endraw %} a la parte superior del mensaje y personaliza con el nombre del usuario. Usa el nombre de la cuenta para personalizar el mensaje. La salida de Liquid permanece igual, pero la colocas en diferentes partes del mensaje.
+En el siguiente ejemplo, mueve la llamada a la etiqueta {% raw %}`{% business %}`{% endraw %} a la parte superior del mensaje y personaliza con el nombre del usuario. Usa el nombre de la cuenta para personalizar el mensaje. La salida de Liquid permanece igual, pero la colocas en diferentes partes del mensaje.
 
 {% raw %}
 ```javascript
@@ -372,7 +382,7 @@ We would love to invite you and your peers at {{ business_accounts[0].name }} to
 ```
 {% endraw %}
 
-La salida es similar a la siguiente:
+La salida es similar a lo siguiente:
 
 {% raw %}
 ```javascript
@@ -384,7 +394,7 @@ We would love to invite you and your peers at Sunshine Health to join our latest
 
 #### Paso 2.2: Conectar con catálogos {#step-22-connect-with-catalogs}
 
-A continuación, personaliza aún más tu mensaje usando catálogos de Braze para agregar y almacenar una imagen que corresponda a la empresa del sector salud.
+A continuación, personaliza aún más tu mensaje usando catálogos de Braze para agregar y almacenar una imagen que corresponda a la empresa de salud.
 
 Para este ejemplo, supón que tienes lo siguiente:
 

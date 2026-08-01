@@ -399,7 +399,7 @@ hide_toc: true
 
       $('#doc_form').submit(function(e) {
         $('#submit_progress').css('display','inline');
-        $('#submit_text').html('Submitting');
+        $('#submit_text').html('Envoi en cours');
         $('#ticket_submit_button').prop("disabled",true);
 
         e.preventDefault();
@@ -457,7 +457,7 @@ hide_toc: true
               <div id="disclosure-warning" class="alert alert-important" role="alert">
                 <div class="alert-msg">
                   <b>Important : </b>
-                  Copilot rédigera cette suggestion, et elle sera examinée par l'équipe Docs. Confirmez qu'<strong>aucune information spécifique à un client</strong> ni aucun <strong>lien</strong> n'est inclus.
+                  L'IA contribue à la rédaction de cette suggestion, qui est examinée par l'équipe Docs et d'autres parties prenantes internes avant publication. Confirmez qu'<strong>aucune information spécifique à un client</strong> ni aucun <strong>lien client</strong> n'apparaît.
                 </div>
               </div>
               </div>
@@ -507,7 +507,7 @@ hide_toc: true
               <div class="form-group">
 
                 <label for="doc_snippet" id="doc_snippet_label" style="margin-bottom:6px;line-height:1.2;">Extraits de code (facultatif)</label>
-                <div class="sublabel" style="margin-bottom:6px;">Utile si vous êtes développeur. Incluez le contexte et précisez le langage de programmation utilisé.</div>
+                <div class="sublabel" style="margin-bottom:6px;">Utile si vous êtes développeur ou développeuse. Incluez le contexte et précisez le langage de programmation utilisé.</div>
                 <textarea name="Snippet" class="form-control" id="doc_snippet" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="7"></textarea>
               </div>

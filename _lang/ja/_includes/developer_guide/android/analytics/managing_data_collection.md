@@ -17,11 +17,11 @@
 | ユーザーがデータの削除を要求する方法を提供していますか？ | はい。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Questions" }
 
-データおよび削除に対するユーザーリクエストの処理の詳細については、[Brazeデータリテンション情報]({{site.baseurl}}/api/data_retention/)を参照してください。
+データおよび削除に対するユーザーリクエストの処理の詳細については、[Brazeデータリテンション情報]({{site.baseurl}}/api/data_retention)を参照してください。
 
 ### データ収集 {#data-collection}
 
-Brazeによって収集されるデータは、特定の統合と収集するユーザーデータによって決まります。デフォルトで収集されるデータの詳細、および特定の属性を無効にする方法については、[SDKデータ収集オプション]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#minimum-integration)を参照してください。
+Brazeによって収集されるデータは、特定の統合と収集するユーザーデータによって決まります。デフォルトで収集されるデータの詳細、および特定の属性を無効にする方法については、[SDKデータ収集オプション]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection#minimum-integration)を参照してください。
 
 <table aria-label="Data collection" id="datatypes">
     <thead>
@@ -177,16 +177,116 @@ Brazeによって収集されるデータは、特定の統合と収集するユ
     </tbody>
 </table>
 
-Google Playのデータセーフティガイドラインの対象外となる可能性がある、Brazeが収集するその他のデバイスデータの詳細については、[Androidストレージの概要]({{site.baseurl}}/developer_guide/storage/?tab=android)および[SDKデータ収集オプション]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#minimum-integration)を参照してください。
+Google Playのデータセーフティガイドラインの対象外となる可能性がある、Brazeが収集するその他のデバイスデータの詳細については、[Androidストレージの概要]({{site.baseurl}}/developer_guide/storage/?tab=android)および[SDKデータ収集オプション]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection#minimum-integration)を参照してください。
 
-## トラッキングを無効にする {#disabling-data-tracking}
+## データトラッキングを無効にする {#disabling-data-tracking}
 
-Android SDKのデータトラッキングアクティビティを無効にするには、[`disableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-sdk.html)メソッドを使用します。これにより、すべてのネットワーク接続がキャンセルされ、Braze SDKはBrazeサーバーにデータを渡さなくなります。
+Android SDKのデータトラッキングアクティビティを無効にするには、メソッド[`disableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-sdk.html)を使用します。これにより、すべてのネットワーク接続がキャンセルされ、Braze SDKはBrazeサーバーへのデータ送信を停止します。
 
-## 過去に保存したデータを消去する {#wiping-previously-stored-data}
+## 以前に保存されたデータを消去する {#wiping-previously-stored-data}
 
-[`wipeData()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/wipe-data.html)メソッドを使用すると、デバイスに保存されているクライアント側のデータをすべて消去できます。
+デバイスに保存されているすべてのクライアント側データを完全に消去するには、メソッド[`wipeData()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/wipe-data.html)を使用します。
 
 ## データトラッキングを再開する {#resuming-data-tracking}
 
-データ収集を再開するには、[`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html)メソッドを使用します。これは、以前に消去したデータを復元するものではないことに留意してください。
+データ収集を再開するには、[`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html)メソッドを使用します。なお、以前に消去されたデータは復元されません。
+
+## ログアウトとプッシュ登録解除 {#logout-and-unregister-push}
+
+Braze SDKは、ユーザーがプッシュ通知の登録を解除したりログアウトしたりする際に、デバイスへのターゲティングを停止するためのメソッドを提供しています。これらのメソッドは、BrazeサーバーおよびSDKから現在のユーザーのプッシュ登録データを削除するため、Brazeはそのユーザーに今後のプッシュ通知キャンペーンを送信しなくなります。
+
+### ログアウト {#logout}
+
+ユーザーがアプリケーションからログアウトする際に、SDKの`logout`メソッドを呼び出して、現在のユーザーからデバイスのプッシュ登録を削除し、SDK上のクリーンアップアクションを自動的に実行します。`logout`メソッドは以下を実行します。
+
+- Brazeサーバー上の現在のユーザーからデバイスのプッシュトークンの登録を解除します。
+- 登録解除の呼び出しが成功した場合、SDKはローカルに保存されたSDKデータを消去し、SDKを無効化します。
+- 失敗した場合、エラーと`isRetriable`フラグを発生させ、インテグレーターがアクションを実行できるようにします。
+
+以下のコールバックの例は、`logout`の成功とエラーのハンドリングを示しています。コールバックベースのログアウトフローに使用し、ログ出力をリトライまたは再認証ロジックに置き換えてください。
+
+```kotlin
+// Completion callback
+Braze.getInstance(context).logout { result ->
+  result
+    .onSuccess {
+      Log.d(TAG, "Logout successful")
+    }
+    .onFailure { error ->
+      val pushError = error as? BrazePushUnregistrationException
+      Log.e(TAG, "Logout failed: ${error.message}, isRetriable: ${pushError?.isRetriable}")
+    }
+}
+```
+
+以下のコルーチンの例は、サスペンド関数の`logout` APIを示しています。コルーチンベースのフローで使用し、アプリに合わせて成功と失敗のブランチをカスタマイズしてください。
+
+```kotlin
+lifecycleScope.launch {
+  runCatching { Braze.getInstance(context).logout() }
+    .onSuccess {
+      Log.d(TAG, "Logout successful")
+    }
+    .onFailure { error ->
+      val pushError = error as? BrazePushUnregistrationException
+      Log.e(TAG, "Logout failed: ${error.message}, isRetriable: ${pushError?.isRetriable}")
+    }
+}
+```
+
+#### `logout`後にトラッキングとプッシュを再有効化する {#re-enable-tracking-and-push-after-logout}
+
+`logout`が成功した後、[`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html)でSDKを再有効化し、[Androidプッシュ設定]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)に従ってオペレーティングシステム（OS）またはプッシュプロバイダーで通知を再登録してください。
+
+#### 即時の登録解除呼び出しを避ける {#avoid-immediate-unregister-calls}
+
+OSまたはプッシュプロバイダーでプッシュ通知を登録した直後に`logout`または`unregisterPush`を呼び出すことは避けてください。非同期のサーバー処理により、まれにプッシュトークンがBrazeユーザーに再追加される可能性があります。
+
+### プッシュ登録解除 {#unregister-push}
+
+追加の自動クリーンアップなしにデバイスへのプッシュ送信を停止するには、`unregisterPush`メソッドを使用します。これにより、Brazeサーバー上の現在のユーザーからデバイスのプッシュトークンが削除され、ローカルに保存されたトークンがクリアされます。
+
+以下のコールバックの例は、`unregisterPush`の結果をハンドリングする方法を示しています。コールバックベースのフローで使用し、ログ出力を独自のリトライハンドリングに置き換えてください。
+
+```kotlin
+// Completion callback
+Braze.getInstance(context).unregisterPush { result ->
+  result
+    .onSuccess {
+      Log.d(TAG, "Push unregistered successfully")
+    }
+    .onFailure { error ->
+      val pushError = error as? BrazePushUnregistrationException
+      Log.e(
+        TAG,
+        "Push unregistration failed: ${error.message}, isRetriable: ${pushError?.isRetriable}"
+      )
+    }
+}
+```
+
+以下のコルーチンの例は、サスペンド関数の`unregisterPush` APIを示しています。コルーチンベースのフローで使用し、アプリに合わせて成功と失敗のブランチをカスタマイズしてください。
+
+```kotlin
+lifecycleScope.launch {
+  runCatching { Braze.getInstance(context).unregisterPush() }
+    .onSuccess {
+      Log.d(TAG, "Push unregistered successfully")
+    }
+    .onFailure { error ->
+      val pushError = error as? BrazePushUnregistrationException
+      Log.e(
+        TAG,
+        "Push unregistration failed: ${error.message}, isRetriable: ${pushError?.isRetriable}"
+      )
+    }
+}
+```
+
+#### `unregisterPush`後にプッシュを再登録する {#re-register-push-after-unregisterpush}
+
+`unregisterPush`を呼び出した後、Brazeプッシュ通知を再度送信する前に、[Androidプッシュ設定]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)に従ってOSまたはプッシュプロバイダーで通知を再登録してください。
+
+#### 即時の登録解除呼び出しを避ける
+
+OSまたはプッシュプロバイダーでプッシュ通知を登録した直後に`logout`または`unregisterPush`を呼び出すことは避けてください。非同期のサーバー処理により、まれにプッシュトークンがBrazeユーザーに再追加される可能性があります。

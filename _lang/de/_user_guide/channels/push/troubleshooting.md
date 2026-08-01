@@ -3,15 +3,43 @@ nav_title: Fehlerbehebung
 article_title: Fehlerbehebung für Push
 page_order: 5
 page_type: reference
-description: "Schritte zur Fehlerbehebung bei Problemen mit dem Push-Messaging-Kanal."
+description: "Diagnostizieren Sie Probleme bei der Push-Zustellung, beim Klickverhalten und bei Zugangsdaten mithilfe eines Symptomindex und eines standardisierten Untersuchungspfads."
 channel: push
 ---
 
 # Fehlerbehebung für Push {#troubleshoot-push}
 
-> Verwenden Sie diese Seite, um Probleme mit dem Push-Messaging-Kanal zu beheben.
+> Verwenden Sie diese Seite, um Probleme bei der Push-Zustellung, beim Klickverhalten und bei Zugangsdaten zu beheben. Informationen zur SDK-spezifischen Einrichtung finden Sie unter [Fehlerbehebung für Push-Benachrichtigungen im Braze SDK]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting). Fehlercodes finden Sie unter [Häufige Push-Fehlermeldungen]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
+
+## Hier starten: Symptom zuordnen {#start-here-match-your-symptom}
+
+| Symptom | Gehe zu |
+| --- | --- |
+| Nutzer:in hat keine Push-Benachrichtigung erhalten | [Fehlende Push-Benachrichtigungen](#missing-push-notifications) |
+| Push-Benachrichtigungen kommen verspätet an | [Verzögerte Push-Benachrichtigungen](#delayed-push-notifications) |
+| Push-Versand langsamer als erwartet | [Push-Benachrichtigungen werden langsamer als erwartet gesendet](#push-notifications-are-sending-slower-than-expected) |
+| `MismatchSenderID`-Fehler (Android) | [Fehler: MismatchSenderID](#error-mismatch-sender-id) |
+| Tippen auf eine Push-Benachrichtigung öffnet die App nicht | [Klick auf eine Push-Benachrichtigung öffnet die App nicht](#clicking-a-push-notification-does-not-open-the-app) |
+| Push-Links öffnen sich in der App statt im Browser | [Push-Klicks öffnen sich unerwartet in der App](#push-clicks-unexpectedly-open-in-app) |
+| Probleme mit Web-Push-Berechtigungen oder -Zustellung | [Web-Push-Benachrichtigungen verhalten sich nicht wie erwartet](#web-push-notifications-are-not-behaving-as-expected) |
+| Migration von `.p12` zu `.p8` erforderlich (iOS) | [Zu einem .p8-Authentifizierungsschlüssel migrieren](#migrate-to-a-p8-authentication-key) |
+| Bestimmter Push-Fehlercode in den Protokollen | [Push-Fehlermeldungen](#push-error-messages) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push-Symptom" }
+
+## Standardmäßiger Untersuchungspfad {#standard-investigation-path}
+
+Verwenden Sie diesen Workflow, wenn ein:e Nutzer:in oder ein Testgerät keine Push-Benachrichtigung erhalten hat. Beginnen Sie bei Schritt 1.
+
+1. Bestätigen Sie, dass die/der Nutzer:in Push-abonniert oder Opt-in ist und ein gültiges Push-Token im Tab **Engagement** ihres/seines Profils hat.
+2. Bestätigen Sie, dass die/der Nutzer:in zum Sendezeitpunkt in der Zielgruppe der Campaign oder des Canvas ist (Segmente werden in Echtzeit aktualisiert).
+3. Überprüfen Sie globale Frequency-Capping-Regeln, Rate-Limits und die Kontrollgruppenzuweisung für die Campaign oder den Canvas.
+4. Bestätigen Sie, dass Sie den richtigen Push-Typ für das Gerät verwenden (zum Beispiel Android, iOS oder Kindle).
+5. Bestellen Sie bei internen Tests, dass die Testperson in der richtigen App auf dem Gerät angemeldet ist.
+6. Wenn die Zustellung weiterhin fehlschlägt, lesen Sie [Häufige Push-Fehlermeldungen]({{site.baseurl}}/user_guide/channels/push/push_error_codes) oder kontaktieren Sie den [Braze-Support]({{site.baseurl}}/braze_support) mit der Campaign- oder Canvas-ID, der Nutzer-ID und dem Zeitstempel mit Zeitzone.
 
 ## Fehlende Push-Benachrichtigungen {#missing-push-notifications}
+
+**Symptom:** Ein:e Nutzer:in hat eine erwartete Push-Benachrichtigung nicht erhalten.
 
 Wenn Push-Benachrichtigungen nicht wie erwartet ankommen, arbeiten Sie die folgenden Prüfungen durch:
 
@@ -49,7 +77,9 @@ Sie können auch bestätigen, dass die Nutzer:innen Teil des Segments sind, inde
 
 ### Obergrenzen für Push-Benachrichtigungen {#push-notification-caps}
 
-Wenn in Ihrem Workspace globales Frequency-Capping aktiv ist, haben Sie möglicherweise Ihre Obergrenze für den Zeitraum bereits erreicht und erhalten die Push-Benachrichtigung nicht. Prüfen Sie im Dashboard das [globale Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over) und Ihre Limits. Wenn die Campaign die Frequency-Capping-Regeln einhält, zeigen die Campaign-Details an, wie viele Nutzer:innen betroffen waren.
+Überprüfen Sie die globalen Frequency-Capping-Regeln. Möglicherweise haben Sie die Push-Benachrichtigung nicht erhalten, weil in Ihrem Workspace globales Frequency-Capping aktiv ist und Sie Ihre Obergrenze für Push-Benachrichtigungen im angegebenen Zeitraum bereits erreicht haben.
+
+Prüfen Sie auf der **Analytics**-Seite der Campaign, ob ein Frequency-Capping-Banner angezeigt wird, das ungefähr angibt, wie viele Nutzer:innen die Campaign in den letzten 30 Tagen nicht erhalten haben. Um einzelne Sendungen zu untersuchen, verwenden Sie das [Messaging-Diagnostics-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) und filtern Sie nach **Frequency capped**. Um Regeln zu überprüfen oder zu ändern, lesen Sie [Globales Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over).
 
 ![Campaign-Details]({% image_buster /assets/img_archive/trouble3.png %})
 
@@ -87,73 +117,80 @@ Wenn Sie Push mit internen Nutzer:innen testen, bestätigen Sie, dass die vorges
 Wenn Sie Push-Nachrichten mit Bildern auf Android senden, kann FCM das Bild manchmal verwerfen und nur den Text in der Push-Nachricht anzeigen. Dieses Problem wird in der Regel durch Probleme mit der Serververbindung verursacht.
 {% endalert %}
 
-## Fehler: MismatchSenderID {#error-mismatchsenderid}
+## Fehler: MismatchSenderID {#error-mismatch-sender-id}
 
-MismatchSenderID weist auf einen Authentifizierungsfehler bei Firebase Cloud Messaging (FCM) hin. Bestätigen Sie, dass Ihre Firebase-Sender-ID und Ihr FCM-API-Schlüssel korrekt sind.
+**Symptom:** Android-Push schlägt mit einem `MismatchSenderID`-Fehler fehl.
 
-So finden Sie den richtigen Firebase-Server-Key und ersetzen ihn:
+MismatchSenderID weist auf einen Authentifizierungsfehler bei Firebase Cloud Messaging (FCM) hin. Überprüfen Sie, ob Ihre Firebase-Sender-ID und Ihr FCM-API-Schlüssel korrekt sind.
 
-1. Gehen Sie zur Firebase-Konsole für Ihre App.
-2. Wählen Sie unter **Project Overview** die Option **Project Settings**.
-3. Überprüfen Sie im Tab **Cloud Messaging**, ob die Sender-ID unter den API-Schlüsseln mit der in Braze übereinstimmt (unter **Settings** > **App Settings** > **Cloud Messaging API Key**).
+So finden und ersetzen Sie den richtigen Firebase-Server-Key:
+
+1. Öffnen Sie die Firebase-Konsole für Ihre App.
+2. Wählen Sie unter **Projektübersicht** die Option **Projekteinstellungen** aus.
+3. Überprüfen Sie auf dem Tab **Cloud Messaging**, ob die bei den API-Schlüsseln aufgeführte Sender-ID mit der in Braze übereinstimmt (unter **Einstellungen** > **App-Einstellungen** > **Cloud Messaging API Key**).
 
 {% alert warning %}
-Ändern Sie Ihre Sender-ID nicht in Ihrem Braze-Dashboard. Dadurch werden bestehende Push-Registrierungen ungültig. Wenn die Sender-ID nicht übereinstimmt, müssen Sie Ihr Firebase-Projekt mit der passenden Sender-ID finden.
+Ändern Sie Ihre Sender-ID nicht im Braze-Dashboard. Dadurch werden bestehende Push-Registrierungen ungültig. Wenn die Sender-ID nicht übereinstimmt, müssen Sie Ihr Firebase-Projekt mit der passenden Sender-ID finden.
 {% endalert %}
 
-{:start="4"}
 4. Kopieren Sie den **Server Key** unter **Project credentials**.
-5. Gehen Sie in Braze zu **Settings** > **App Settings**, wählen Sie Ihre App aus und fügen Sie den Server-Key in das Feld **Cloud Messaging API Key** ein (und ersetzen Sie den veralteten Schlüssel).
-6. Wählen Sie **Save**.
-7. Senden Sie zur Überprüfung eine Test-Push-Benachrichtigung an ein Gerät, bevor und nachdem Sie den API-Schlüssel geändert haben, ohne die Anwendung zu öffnen. So wird bestätigt, dass Nutzer:innen weiterhin Push-Benachrichtigungen erhalten, ohne dass eine neue Push-Registrierungs-ID (Push-Token) generiert werden muss.
+5. Gehen Sie in Braze zu **Einstellungen** > **App-Einstellungen**, wählen Sie Ihre App aus und fügen Sie den Server-Key in das Feld **Cloud Messaging API Key** ein (wobei der veraltete Schlüssel ersetzt wird).
+6. Wählen Sie **Speichern**.
+7. Senden Sie zur Überprüfung vor und nach der Änderung des API-Schlüssels eine Test-Push-Benachrichtigung an ein Gerät, ohne die Anwendung zu öffnen. So können Sie bestätigen, dass Nutzer:innen weiterhin Push-Benachrichtigungen erhalten, ohne dass eine neue Push-Registrierungs-ID (Push-Token) generiert werden muss.
 
 ## Fehlerbehebungsszenarien {#troubleshooting-scenarios}
 
 ### Verzögerte Push-Benachrichtigungen {#delayed-push-notifications}
 
+**Symptom:** Push-Benachrichtigungen kommen später als erwartet an.
+
 Ihre Push-Benachrichtigungen können aus folgenden Gründen verzögert werden:
 
 - Eine schwache Datenverbindung auf dem Gerät
-- Angepasster Code in der App, der Braze-Push-Benachrichtigungen unterdrücken kann
+- Benutzerdefinierter Code in der App, der Braze-Push-Benachrichtigungen unterdrücken kann
 - Nutzereinstellungen für Push-Benachrichtigungen in den Geräteeinstellungen
 - Nachrichtenpriorität der Push-Benachrichtigung bei der Erstellung in der Campaign oder im Canvas
-- Verkehrsverzögerungen oder Probleme bei den Push-Dienstanbietern (FCM und APNs)
+- Verkehrsverzögerungen oder Probleme mit den Push-Dienstanbietern (FCM und APNs)
 
 ### Push-Benachrichtigungen werden langsamer als erwartet gesendet {#push-notifications-are-sending-slower-than-expected}
 
-Stellen Sie sicher, dass Ihr Push-Benachrichtigungs-Setup diesen Best Practices folgt:
+**Symptom:** Campaign- oder Canvas-Push-Sendungen benötigen länger als erwartet, um abgeschlossen zu werden.
+
+Stellen Sie sicher, dass Ihre Push-Benachrichtigungseinrichtung diesen Best Practices folgt:
 
 - Wenn Sie an große Zielgruppen senden, ohne den Push-Aktivierungsstatus zu berücksichtigen, kann dies zu einer langsameren Sendegeschwindigkeit führen. Erwägen Sie stattdessen, nur an Push-aktivierte Nutzer:innen zu senden, um die Größe Ihrer Zielgruppe zu reduzieren.
-- Versuchen Sie nach Möglichkeit, Ihre Campaigns im Voraus zu planen, anstatt sie sofort zu senden.
-- Wenn Sie eine größere Anzahl von Nutzer:innen mit Push-Benachrichtigungen in einem Canvas ansprechen, können Sie davon ausgehen, dass nachfolgende Nachrichtenschritte im Canvas andere Verarbeitungszeiten erfordern als eine Campaign, die sofort an Nutzer:innen sendet. In diesem Fall würden Campaigns in der Regel schneller fertig senden als ein Canvas, da der erste „Schritt“ eines Canvas darin besteht, zu prüfen, ob Nutzer:innen für die spezifische User-Journey qualifiziert sind.
+- Planen Sie Ihre Campaigns nach Möglichkeit im Voraus, anstatt sie sofort zu senden.
+- Wenn Sie eine größere Anzahl von Nutzer:innen mit Push-Benachrichtigungen in einem Canvas ansprechen, können Sie davon ausgehen, dass nachfolgende Nachrichtenschritte im Canvas andere Verarbeitungszeiten erfordern als eine Campaign, die sofort an Nutzer:innen sendet. In diesem Fall würden Campaigns in der Regel schneller fertig senden als ein Canvas, da der erste „Schritt“ eines Canvas darin besteht, zu prüfen, ob Nutzer:innen für die jeweilige User Journey qualifiziert sind.
 
-## Tippen auf eine Push-Benachrichtigung öffnet die App nicht {#clicking-a-push-notification-doesnt-open-the-app}
+## Tippen auf eine Push-Benachrichtigung öffnet die App nicht {#clicking-a-push-notification-does-not-open-the-app}
 
-Wenn das Tippen auf eine Push-Benachrichtigung Ihre App nicht öffnet, überprüfen Sie je nach Plattform Folgendes.
+**Symptom:** Das Tippen auf eine Push-Benachrichtigung öffnet die App nicht oder navigiert nicht wie konfiguriert.
+
+Wenn das Tippen auf eine Push-Benachrichtigung Ihre App nicht öffnet, überprüfen Sie Folgendes je nach Plattform.
 
 ### Android
 
 1. **Klickverhalten überprüfen:** Bestätigen Sie, dass die Campaign so konfiguriert ist, dass die App beim Klicken geöffnet wird.
-2. **Deeplink-Behandlung prüfen:** Überprüfen Sie in Ihrer `braze.xml`-Datei, ob `com_braze_handle_push_deep_links_automatically` auf `true` oder `false` gesetzt ist.
-   - Wenn auf `true` gesetzt, behandelt das Braze SDK Deeplinks direkt und die App sollte wie erwartet geöffnet werden.
-   - Wenn auf `false` gesetzt, benötigt Ihre App einen Broadcast-Receiver, der Push-Empfangs- und Öffnungs-Intents abhört und verarbeitet. Überprüfen Sie, ob dieser Receiver korrekt implementiert ist.
-3. **Ausführliche Logs erfassen:** [Aktivieren Sie ausführliches Logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduzieren Sie das Problem und stellen Sie die Logs zusammen mit Ihrer `braze.xml` und `AndroidManifest.xml` dem Braze-Support zur Verfügung.
+2. **Deeplink-Verarbeitung prüfen:** Überprüfen Sie in Ihrer `braze.xml`-Datei, ob `com_braze_handle_push_deep_links_automatically` auf `true` oder `false` gesetzt ist.
+   - Wenn auf `true` gesetzt, verarbeitet das Braze SDK Deeplinks direkt und die App sollte wie erwartet geöffnet werden.
+   - Wenn auf `false` gesetzt, benötigt Ihre App einen Broadcast-Receiver, der Push-Empfangs- und Push-Öffnungs-Intents abhört und verarbeitet. Stellen Sie sicher, dass dieser Receiver korrekt implementiert ist.
+3. **Ausführliche Logs erfassen:** [Aktivieren Sie die ausführliche Protokollierung]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduzieren Sie das Problem und stellen Sie die Logs zusammen mit Ihrer `braze.xml` und `AndroidManifest.xml` dem Braze-Support zur Verfügung.
 
 ### iOS
 
 1. **Klickverhalten überprüfen:** Bestätigen Sie, dass die Campaign so konfiguriert ist, dass die App beim Klicken geöffnet wird.
-2. **Push-Integration prüfen:** Deeplinking von einer Push-Benachrichtigung in die App wird automatisch durch die Braze [Standard-Push-Integration]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift) behandelt. Bestätigen Sie, dass die Integration korrekt implementiert ist, einschließlich aller angepassten Delegate-Behandlungen.
-3. **Ausführliche Logs erfassen:** [Aktivieren Sie ausführliches Logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduzieren Sie das Problem und stellen Sie die Logs dem Braze-Support zur Verfügung.
+2. **Push-Integration prüfen:** Deeplinking von einer Push-Benachrichtigung in die App wird automatisch durch die [Standard-Push-Integration]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift) von Braze verarbeitet. Bestätigen Sie, dass die Integration korrekt implementiert ist, einschließlich einer eventuellen benutzerdefinierten Delegate-Verarbeitung.
+3. **Ausführliche Logs erfassen:** [Aktivieren Sie die ausführliche Protokollierung]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduzieren Sie das Problem und stellen Sie die Logs dem Braze-Support zur Verfügung.
 
 ## Push-Klicks öffnen unerwartet in der App {#push-clicks-unexpectedly-open-in-app}
+
+**Symptom:** Links in Push-Benachrichtigungen öffnen sich innerhalb der App statt im Webbrowser des Geräts.
 
 Wenn Links in Push-Benachrichtigungen unerwartet in Ihrer App statt in Ihrem Webbrowser geöffnet werden, liegt möglicherweise ein Problem mit Ihrer Campaign-Konfiguration oder SDK-Implementierung vor. Folgen Sie diesen Schritten zur Hilfe.
 
 ### Klickverhalten überprüfen {#verify-on-click-behavior}
 
 Überprüfen Sie in Ihrer Campaign oder Ihrem Canvas-Schritt, ob **Open web URL inside mobile app** nicht ausgewählt ist. Falls doch, deaktivieren Sie die Auswahl und starten Sie erneut.
-
-![Feld „Klickverhalten“ bei der Konfiguration einer Push-Benachrichtigung, eingestellt auf „Open web URL“ mit deaktiviertem „Open web URL inside mobile app“.]({% image_buster /assets/img/push_on_click.png %})
 
 Die Standardinteraktion für das Klickverhalten „Open web URL“ unterscheidet sich je nach SDK-Version. Für SDK-Versionen iOS 2.29.0 und Android 2.0.0 und höher ist diese Option standardmäßig ausgewählt und Web-URLs werden in einer Webansicht innerhalb der App geöffnet. Vor diesen Versionen ist diese Option standardmäßig deaktiviert und Web-URLs werden im Standard-Webbrowser des Geräts geöffnet.
 
@@ -174,6 +211,8 @@ Wenn Deeplinks funktionieren, wenn die App nicht läuft oder wenn der Link direk
 
 ## Zu einem .p8-Authentifizierungsschlüssel migrieren {#migrate-to-a-p8-authentication-key}
 
+**Symptom:** Sie müssen iOS-Push-Zugangsdaten von einem älteren Zertifikat zu einem `.p8`-Schlüssel migrieren, oder die Push-Zustellung ist nach einer Änderung der Zugangsdaten fehlgeschlagen.
+
 Apple `.p8`-Authentifizierungsschlüssel sind der erforderliche Ansatz für APNs-Push in Braze. Im Gegensatz zu älteren Zertifikatsdateitypen laufen `.p8`-Schlüssel nicht ab und unterstützen alle Ihre Apps unter einem einzigen Schlüssel, wodurch jährliche Zertifikatserneuerungen entfallen und das Risiko von Push-Zustellungsfehlern reduziert wird.
 
 Wenn Sie derzeit ein `.p12`- oder `.pem`-Zertifikat verwenden, migrieren Sie so bald wie möglich zu einem `.p8`-Schlüssel. Anweisungen zum Erstellen und Hochladen eines `.p8`-Schlüssels finden Sie unter [APNs-Push-Zertifikat hochladen]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift). Apples Anleitung zum Generieren eines `.p8`-Schlüssels aus Ihrem Entwicklerkonto finden Sie unter [Mit APNs über Authentifizierungstoken kommunizieren](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
@@ -190,21 +229,23 @@ Verwenden Sie die folgende Tabelle, um Zugangsdatentypen, Ablauf und Dashboard-A
 
 Wenn Sie ein `.p12`-Zertifikat durch einen `.p8`-Schlüssel ersetzen (oder neue Zugangsdaten hochladen), kann die Push-Zustellung kurzzeitig pausieren, während Braze die Änderung verarbeitet. Planen Sie Updates nach Möglichkeit während eines Wartungsfensters.
 
-Bestätigen Sie unter **Settings** > **App Settings** > **Push Notification Settings**, dass **App Bundle ID**, **Team ID** und **Key ID** (für `.p8`-Schlüssel) mit den Werten in Ihrem Apple-Entwicklerkonto übereinstimmen. Mehrere Braze-Workspaces können dieselben Apple-Push-Zugangsdaten verwenden, wenn die iOS-App-**Bundle-ID** identisch ist; die Zugangsdaten-Umgebung (Entwicklung versus Produktion) muss mit der Art übereinstimmen, wie die App erstellt wurde.
+Bestätigen Sie unter **Einstellungen** > **App-Einstellungen** > **Push-Benachrichtigungseinstellungen**, dass **App Bundle ID**, **Team ID** und **Key ID** (für `.p8`-Schlüssel) mit den Werten in Ihrem Apple-Entwicklerkonto übereinstimmen. Mehrere Braze-Workspaces können dieselben Apple-Push-Zugangsdaten verwenden, wenn die iOS-App-**Bundle-ID** identisch ist; die Zugangsdaten-Umgebung (Entwicklung versus Produktion) muss mit der Art übereinstimmen, wie die App erstellt wurde.
 
-Apps mit [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) oder höher können [Dynamic APNs gateway management]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#dynamic-apns-gateway-management) verwenden, das Token automatisch an die richtige APNs-Umgebung weiterleitet.
+Apps mit [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) oder höher können [Dynamisches APNs-Gateway-Management]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#dynamic-apns-gateway-management) verwenden, das Token automatisch an die richtige APNs-Umgebung weiterleitet.
 
-## Web-Push-Benachrichtigungen verhalten sich nicht wie erwartet {#web-push-notifications-arent-behaving-as-expected}
+## Web-Push-Benachrichtigungen verhalten sich nicht wie erwartet {#web-push-notifications-are-not-behaving-as-expected}
 
-Wenn Sie Probleme mit Push-Benachrichtigungen in Ihrem Browser haben, müssen Sie möglicherweise die Benachrichtigungsberechtigungen Ihrer Website zurücksetzen und den Speicher Ihrer Website löschen. Folgen Sie diesen Schritten zur Hilfe.
+**Symptom:** Browser-Push-Benachrichtigungen werden nicht angezeigt oder die Website-Berechtigungen scheinen festzuhängen.
+
+Wenn Sie Probleme mit Push-Benachrichtigungen in Ihrem Browser haben, müssen Sie möglicherweise die Benachrichtigungsberechtigungen Ihrer Website zurücksetzen und den Speicher Ihrer Website löschen. Verwenden Sie die folgenden Schritte als Hilfe.
 
 {% tabs %}
 {% tab Chrome %}
 
 ### Chrome auf dem Desktop zurücksetzen {#reset-chrome-on-desktop}
 
-1. Wählen Sie neben Ihrer URL im Chrome-Browser das Schieberegler-Symbol **View Site Information** aus.
-2. Wählen Sie unter **Notifications** die Option **Reset permission**.
+1. Wählen Sie neben Ihrer URL im Chrome-Browser das Schieberegler-Symbol **Website-Informationen anzeigen** aus.
+2. Wählen Sie unter **Benachrichtigungen** die Option **Berechtigung zurücksetzen** aus.
 3. Öffnen Sie die Chrome DevTools. Die folgenden Tastenkombinationen gelten je nach Betriebssystem.
 
 <style>
@@ -222,26 +263,26 @@ table {
 {:start="4"}
 4. Navigieren Sie in den DevTools zum Tab **Application**.
 5. Wählen Sie in der Seitenleiste **Storage** aus.
-6. Wählen Sie **Clear site data**.
-7. Chrome fordert Sie auf, die Seite neu zu laden, um Ihre aktualisierten Einstellungen anzuwenden. Wählen Sie **Reload**.
+6. Wählen Sie **Clear site data** aus.
+7. Chrome fordert Sie auf, die Seite neu zu laden, um Ihre aktualisierten Einstellungen anzuwenden. Wählen Sie **Reload** aus.
 
 Ihre Push-Berechtigungen sind jetzt zurückgesetzt. Öffnen Sie einen neuen Tab zu Ihrer Website und probieren Sie es aus.
 
 ### Chrome auf Android zurücksetzen {#reset-chrome-on-android}
 
-Wenn Sie eine Benachrichtigung von Ihrer Website in Ihrer Android-Benachrichtigungsleiste sehen:
+Wenn eine Benachrichtigung von Ihrer Website in Ihrer Android-Benachrichtigungsleiste sichtbar ist:
 
-1. Tippen Sie in der Push-Benachrichtigung auf <i class="fas fa-cog" title="Einstellungen"></i> **Einstellungen** und wählen Sie **Site settings**.
-2. Tippen Sie unter **Site settings** auf **Clear & Reset**.
+1. Wählen Sie in der Push-Benachrichtigung <i class="fas fa-cog" title="Einstellungen"></i> **Einstellungen** und dann **Website-Einstellungen** aus.
+2. Tippen Sie unter **Website-Einstellungen** auf **Löschen und zurücksetzen**.
 
 Wenn Sie keine Benachrichtigung von Ihrer Website geöffnet haben:
 
 1. Öffnen Sie Chrome auf Android.
-2. Tippen Sie auf das Menü <i class="fas fa-ellipsis-vertical"></i>.
-3. Gehen Sie zu **Settings** > **Site Settings** > **Notifications**.
-4. Überprüfen Sie, ob Benachrichtigungen auf **Ask before sending (recommended)** eingestellt sind.
+2. Tippen Sie auf das <i class="fas fa-ellipsis-vertical"></i>-Menü.
+3. Gehen Sie zu **Einstellungen** > **Website-Einstellungen** > **Benachrichtigungen**.
+4. Überprüfen Sie, ob Benachrichtigungen auf **Vor dem Senden fragen (empfohlen)** eingestellt sind.
 5. Suchen Sie Ihre Website in der Liste.
-6. Wählen Sie den Eintrag aus und tippen Sie auf **Clear and Reset**.
+6. Wählen Sie den Eintrag aus und tippen Sie auf **Löschen und zurücksetzen**.
 
 Ihre Push-Berechtigungen sind jetzt zurückgesetzt. Öffnen Sie einen neuen Tab zu Ihrer Website und probieren Sie es aus.
 
@@ -251,15 +292,15 @@ Ihre Push-Berechtigungen sind jetzt zurückgesetzt. Öffnen Sie einen neuen Tab 
 ### Firefox auf dem Desktop zurücksetzen {#reset-firefox-on-desktop}
 
 1. Wählen Sie neben Ihrer Website-URL <i class="fa-solid fa-circle-info" alt="Info-Symbol"></i> oder <i class="fas fa-lock" alt="Schloss-Symbol"></i> aus.
-2. Wählen Sie unter **Permissions** neben **Receive Notifications** das Symbol <i class="fa-solid fa-circle-xmark" title="Diese Berechtigung löschen und erneut fragen"></i> **Berechtigung löschen**, um die Benachrichtigungsberechtigungen zu löschen.
-3. Wählen Sie im selben Menü **Clear Cookies and Site Data**.
-4. Wählen Sie im Bestätigungsdialog **OK**.
+2. Wählen Sie unter **Berechtigungen** neben **Benachrichtigungen empfangen** die Option <i class="fa-solid fa-circle-xmark" title="Diese Berechtigung löschen und erneut fragen"></i> **Berechtigung löschen** aus, um die Benachrichtigungsberechtigungen zu löschen.
+3. Wählen Sie im selben Menü **Cookies und Website-Daten löschen** aus.
+4. Wählen Sie im Bestätigungsdialog **OK** aus.
 
 Ihre Push-Berechtigungen sind jetzt zurückgesetzt. Öffnen Sie einen neuen Tab zu Ihrer Website und probieren Sie es aus.
 
 ### Firefox auf Android zurücksetzen {#reset-firefox-on-android}
 
-Um Push-Berechtigungen auf Android zurückzusetzen, lesen Sie [Ihren Browserverlauf und andere persönliche Daten löschen](https://support.mozilla.org/en-US/kb/clear-your-browsing-history-and-other-personal-data#w_clear-specific-items-from-your-browser) im Mozilla-Support.
+Um Push-Berechtigungen auf Android zurückzusetzen, lesen Sie [Browserverlauf und andere persönliche Daten löschen](https://support.mozilla.org/en-US/kb/clear-your-browsing-history-and-other-personal-data#w_clear-specific-items-from-your-browser) im Mozilla-Support.
 
 {% endtab %}
 {% tab Safari %}
@@ -271,13 +312,13 @@ Diese Schritte gelten nur für macOS, da Apple Web-Push für Safari unter Window
 {% endalert %}
 
 1. Öffnen Sie Safari.
-2. Gehen Sie in der [Menüleiste auf dem Mac](https://support.apple.com/guide/mac-help/whats-in-the-menu-bar-mchlp1446/mac) zu **Safari** > **Settings** > **Websites** > **Notifications**.
+2. Gehen Sie über die [Menüleiste auf dem Mac](https://support.apple.com/guide/mac-help/whats-in-the-menu-bar-mchlp1446/mac) zu **Safari** > **Einstellungen** > **Websites** > **Benachrichtigungen**.
 3. Wählen Sie Ihre Website aus der Liste aus.
-4. Wählen Sie **Remove**, um die Benachrichtigungsberechtigungen für die Website zu löschen.
-5. Gehen Sie dann zu **Privacy** > **Manage Website Data**.
+4. Wählen Sie **Entfernen** aus, um die Benachrichtigungsberechtigungen für die Website zu löschen.
+5. Gehen Sie dann zu **Datenschutz** > **Websitedaten verwalten**.
 6. Wählen Sie Ihre Website aus der Liste aus.
-7. Wählen Sie **Remove** oder, um alle Website-Daten zu entfernen, wählen Sie **Remove All**.
-8. Wählen Sie **Done**.
+7. Wählen Sie **Entfernen** aus, oder um alle Website-Daten zu entfernen, wählen Sie **Alle entfernen** aus.
+8. Wählen Sie **Fertig** aus.
 
 Ihre Push-Berechtigungen sind jetzt zurückgesetzt. Öffnen Sie einen neuen Tab zu Ihrer Website und probieren Sie es aus.
 
@@ -286,14 +327,14 @@ Ihre Push-Berechtigungen sind jetzt zurückgesetzt. Öffnen Sie einen neuen Tab 
 
 ## Push-Open-Metriken {#push-open-metrics}
 
-Braze protokolliert einen Direct Open, wenn Nutzer:innen auf die Benachrichtigung tippen und Ihre App eine Sitzung startet. Das Erweitern einer Rich-Push-Benachrichtigung ohne Öffnen der App protokolliert keinen Direct Open.
+Braze protokolliert ein Direct Open, wenn ein:e Nutzer:in auf die Benachrichtigung tippt und Ihre App eine Sitzung startet. Das Erweitern einer Rich-Push-Benachrichtigung ohne Öffnen der App protokolliert kein Direct Open.
 
-Wenn Nutzer:innen Ihre App nach dem Empfang einer Push-Benachrichtigung öffnen, ohne auf die Benachrichtigung zu tippen, kann Braze stattdessen einen Influenced Open protokollieren. Definitionen und Berichte finden Sie unter [Influenced Opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
+Wenn ein:e Nutzer:in Ihre App nach dem Empfang einer Push-Benachrichtigung öffnet, ohne auf die Benachrichtigung zu tippen, protokolliert Braze möglicherweise stattdessen ein Influenced Open. Definitionen und Berichte finden Sie unter [Influenced Opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
 
 ## Push-Fehlermeldungen {#push-error-messages}
+
+**Symptom:** Sie sehen einen bestimmten Push-Fehlercode (zum Beispiel `DEVICE_UNREGISTERED`, `Unregistered` oder `NotRegistered`).
 
 Definitionen häufiger Push-Fehlercodes (einschließlich `DEVICE_UNREGISTERED`, `NotRegistered` und `Unregistered`) finden Sie unter [Häufige Push-Fehlermeldungen]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
 
 Wenn FCM Fehler wie `DEVICE_UNREGISTERED` oder `NotRegistered` zurückgibt, entfernt Braze in der Regel das betroffene Push-Token aus dem Nutzerprofil. Diese Entfernung weist häufig darauf hin, dass die App deinstalliert wurde oder das Token nicht mehr gültig ist. Uninstall-Tracking-Campaigns verwenden dieselbe Token-Entfernungslogik im großen Maßstab.
-
-Benötigen Sie weitere Hilfe? Eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support).

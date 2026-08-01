@@ -22,6 +22,8 @@ tool: Campaigns
 
 ## オブジェクト本体 {#object-body}
 
+`trigger_properties` オブジェクトは、データ型として文字列、数値、ブール値、日付、オブジェクト、および配列をサポートしています。
+
 ```json
 {
   "trigger_properties" : {
@@ -39,4 +41,11 @@ tool: Campaigns
 }
 ```
 
+## Liquid テンプレートの例 {#liquid-templating-examples}
 
+`api_trigger_properties` 名前空間を使用して、メッセージテンプレートでトリガープロパティを参照できます。
+
+- 文字列: {% raw %}`{{api_trigger_properties.${product_name}}}`{% endraw %} は `"shoes"` を返します
+- 数値: {% raw %}`{{api_trigger_properties.${product_price}}}`{% endraw %} は `79.99` を返します
+- ネストされたオブジェクト: {% raw %}`{{api_trigger_properties.${details}.${color}}}`{% endraw %} は `"red"` を返します
+- 配列要素: {% raw %}`{{api_trigger_properties.${related_skus}[0]}}`{% endraw %} は `"123"` を返します

@@ -14,7 +14,7 @@ Procurando definições para os termos e métricas listados em seu relatório? C
   {% elsif include.channel == "webhook" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics) e filtre por Webhook.{% endif %}
 {% endalert %}
 
-Na guia **Campaign Analytics**, você pode visualizar seus relatórios em uma série de painéis. Você pode ver mais ou menos do que os listados nas seções abaixo, mas cada um tem seu próprio propósito útil.
+Na guia **Campaign Analytics**, você pode visualizar seus relatórios em uma série de painéis. Você pode ver mais ou menos do que os listados nas seções a seguir, mas cada um tem seu próprio propósito útil.
 
 ### Período {#time-range}
 
@@ -210,7 +210,7 @@ A análise de dados da campanha exibe dados de cliques para até 100 URLs única
 Nesta visualização, você pode usar o botão **Show Heatmap** para exibir uma visão visual do seu e-mail que mostra a frequência geral e a localização dos cliques durante a duração da campanha. No painel **Link Table by Total Clicks**, você pode ver todos os links na sua campanha de e-mail e classificar por total de cliques. Isso pode fornecer um insight adicional sobre onde seus usuários navegam. Para salvar uma cópia do mapa de calor para referência, selecione o botão de download.
 
 {% alert note %}
-Se os links usarem Liquid para URLs dinâmicas, as URLs clicadas podem não corresponder ao link renderizado na mensagem de forma suficiente para que o mapa de calor associe os cliques a esse link, então esses links podem não aparecer no mapa de calor. Use os dados de cliques no painel **Link Table by Total Clicks** para ter uma visão completa.
+Se os links usarem Liquid para URLs dinâmicas, as URLs clicadas podem não corresponder ao link renderizado na mensagem de forma suficiente para que o mapa de calor associe os cliques a esse link, então esses links podem não aparecer no mapa de calor. Para atribuir dados de cliques a links com templates no mapa de calor, use [alias de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing). Para uma visão completa, use os dados de cliques no painel **Link Table by Total Clicks**.
 {% endalert %}
 
 ![Exemplo da página de Preview & Heatmap que inclui uma campanha de e-mail e um painel com exemplos de alias de link com seus cliques totais.]({% image_buster /assets/img_archive/email_heatmap_example.png %})

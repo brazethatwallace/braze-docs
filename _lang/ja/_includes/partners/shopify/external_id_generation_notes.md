@@ -1,0 +1,3 @@
+- Brazeがエンドポイントにリクエストを送信した時点でexternal IDが生成されていない場合、`changeUser`関数の呼び出し時にShopifyの顧客IDがデフォルトで使用されます。このステップは、匿名ユーザープロファイルと識別済みユーザープロファイルを統合するために重要です。その結果、ワークスペース内に異なるタイプのexternal IDが一時的に共存する期間が発生する場合があります。
+- `braze.external_id`メタフィールドでexternal IDが利用可能になると、インテグレーションはこのexternal IDを優先的に割り当てます。
+    - Shopifyの顧客IDが以前Brazeのexternal IDとして設定されていた場合、`braze.external_id`メタフィールドの値に置き換えられます。

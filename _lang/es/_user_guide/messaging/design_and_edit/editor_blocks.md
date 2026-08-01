@@ -170,7 +170,7 @@ Para evitar que el botón de descarga aparezca en imágenes más grandes, puedes
 
 Añadir este enlace evita que Gmail muestre el botón de descarga sin afectar la experiencia del usuario.
 
-### Video
+### Video {#video}
 
 Crea un enlace a contenido de video. Solo se admiten YouTube y Vimeo.
 
@@ -272,7 +272,7 @@ Renderiza filas de productos de un [catálogo de productos]({{site.baseurl}}/use
 
 Puedes añadir personalización a tu correo electrónico usando Liquid o contenido conectado.
 
-- **Liquid:** En **Contenido** > **Personalización**, selecciona un atributo, copia el fragmento de código y pégalo en un bloque de título, párrafo o lista (Liquid básico) o en un bloque HTML (Liquid avanzado). En general, aunque puedes usar Liquid básico en bloques de título, párrafo y lista, recomendamos usar bloques HTML para lógica más compleja y así evitar problemas de diseño. Ten en cuenta que Liquid no es compatible en bloques de imagen ni en campos de URL de botones.
+- **Liquid:** En **Contenido** > **Personalización**, selecciona un atributo, copia el fragmento de código y pégalo en un bloque HTML. Aunque los fragmentos de código básicos de Liquid pueden funcionar en bloques de título, párrafo y lista, colocar Liquid en estos bloques puede causar comportamientos inesperados y problemas de diseño. Para evitar problemas, usa bloques HTML para cualquier lógica de Liquid. Ten en cuenta que Liquid no es compatible en bloques de imagen ni en campos de URL de botones.
 - **[Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content):** Añade un bloque **HTML** y coloca tu llamada {% raw %}`{% connected_content %}`{% endraw %} allí.
 
 {% endsdktab %}
@@ -306,7 +306,7 @@ Añade una lista de opciones de las cuales los usuarios pueden seleccionar una. 
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
-### Imagen
+### Imagen {#image}
 
 Inserta una imagen de la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
 
@@ -330,7 +330,7 @@ Inserta un hipervínculo en el que los usuarios pueden hacer clic para navegar a
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
-### Espaciador
+### Espaciador {#spacer}
 
 Añade espacio o relleno entre otros bloques.
 

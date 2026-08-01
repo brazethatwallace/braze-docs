@@ -25,14 +25,14 @@ LemniskとBrazeの統合により、ブランドや企業は、リアルタイ�
 | Lemniskアカウント | このパートナーシップを利用するには、[Lemnisk](https://www.lemnisk.co/)のアカウントが必要です。 |
 | LemniskのExternal API | Lemniskのカスタマーサクセスマネージャーに連絡して、アカウントの**External API**を有効にしてもらいます。 |
 | Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントは、[アカウントのBraze URL]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/#api-and-sdk-endpoints)に依存します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントは、[アカウントのBraze URL]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)に依存します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## Lemniskの統合 {#integrating-lemnisk}
 
-### ステップ 1: Braze External APIを作成する {#create-a-braze-external-api}
+### ステップ1: Braze External APIを作成する {#create-a-braze-external-api}
 
-Lemniskで、External APIチャネルに移動します。**Add New External API**を選択します。ここでは、[Track Users]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントをExternal APIとして設定します。
+Lemniskで、External APIチャネルに移動します。**Add New External API**を選択します。ここでは、[Track Users]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントをExternal APIとして設定します。
 
 ![LemniskでExternal API作成プロセスを開始する]({% image_buster /assets/img/lemnisk/open_external_api.png %})
 
@@ -40,13 +40,13 @@ Lemniskで、External APIチャネルに移動します。**Add New External API
 
 ![Lemniskで新しいExternal APIの基本設定の詳細を入力する]({% image_buster /assets/img/lemnisk/ext_api_basic_details.png %})
 
-**External API details**で、`users.track` エンドポイントの関連する詳細を入力します。{% raw %}`{{}}`{% endraw %}を使って複数のエンゲージメントレベルのフィールドを定義でき、キャンペーンごとに異なる値を設定できます。
+**External API details**で、`users.track`エンドポイントの関連する詳細を入力します。{% raw %}`{{}}`{% endraw %}を使って複数のエンゲージメントレベルのフィールドを定義でき、キャンペーンごとに異なる値を設定できます。
 
 ![External APIエンドポイントとペイロードの詳細を記入する]({% image_buster /assets/img/lemnisk/ext_api_ext_api_details.png %})
 
 Track Usersの設定を完了するには、**Save**を選択します。自動的に**Test API**ページにリダイレクトされます。
 
-### ステップ 2: 設定をテストする {#step-2-test-the-configuration}
+### ステップ2: 設定をテストする {#step-2-test-the-configuration}
 
 **Test API**ページで、JSONツリービューにAPIパラメータのテスト値を入力し、**Test Configuration**を選択します。
 
@@ -58,7 +58,7 @@ Track Usersの設定を完了するには、**Save**を選択します。自動�
 
 ![Brazeでユーザープロファイルとアクティビティ概要を表示する]({% image_buster /assets/img/lemnisk/braze_cov.png %})
 
-### ステップ 3: Brazeでユーザーイベントをトリガーする {#step-3-trigger-user-events-in-braze}
+### ステップ3: Brazeでユーザーイベントをトリガーする {#step-3-trigger-user-events-in-braze}
 
 1. Lemniskで新しいセグメントを作成します。たとえば、ユーザーがリードフォームを送信するとすぐにBrazeに情報を送信するセグメントを作成できます。
 2. 新しいセグメントで、**External API** > **Add Engagement**に進みます。

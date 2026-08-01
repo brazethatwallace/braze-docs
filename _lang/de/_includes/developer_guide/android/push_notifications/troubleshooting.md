@@ -173,7 +173,7 @@ Der im Braze-Dashboard angegebene Firebase Cloud Messaging-Serverschlüssel ist 
 
 ![Die Firebase-Plattform unter „Einstellungen“ und dann „Cloud Messaging“ zeigt Ihre Server-ID und Ihren Serverschlüssel an.]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
 
-### Push-Klicks nicht protokolliert {#push-clicks-not-logged}
+### Push-Klicks werden nicht protokolliert {#push-clicks-not-logged}
 
 Wenn Push-Klicks nicht protokolliert werden, ist es möglich, dass die Push-Klickdaten noch nicht auf unsere Server übertragen wurden. Das Braze Android SDK kann die Häufigkeit der Übertragungen drosseln.
 

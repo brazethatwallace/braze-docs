@@ -100,9 +100,11 @@ Em seguida, personalize a página de confirmação selecionando **Confirmation P
 
 ## Etapa 6: Pré-visualizar e lançar sua Central de Preferências {#step-6-preview-and-launch-your-preference-center}
 
-Você pode pré-visualizar sua Central de Preferências selecionando a guia **Preview** dentro do editor. No entanto, a funcionalidade de teste está desativada. Além disso, envios de teste de Campaigns ou etapas do Canvas que incluem a Liquid tag da Central de Preferências não geram um link válido. Para testar a funcionalidade completa da sua Central de Preferências, envie uma Campaign ou um Canvas ativo. Após editar sua Central de Preferências, você pode fechar o editor selecionando **Done**.
+Você pode pré-visualizar sua Central de Preferências selecionando a guia **Preview** dentro do editor. A prévia mostra tanto a Central de Preferências quanto a página de confirmação.
 
-A prévia mostra tanto a Central de Preferências quanto a página de confirmação. Selecione **Save as Draft** para retornar a essa Central de Preferências mais tarde, ou, se estiver satisfeito, selecione **Launch Preference Center**.
+No entanto, a funcionalidade de teste está desativada. Além disso, envios de teste de Campaigns ou etapas do Canvas que incluem a Liquid tag da Central de Preferências não geram um link válido. Essa prévia não permite salvar alterações de inscrição — ela apenas mostra a aparência da página. Para testar o salvamento de preferências, consulte [Testando Centrais de Preferências](#testing-preference-centers). Após editar sua Central de Preferências, você pode fechar o editor selecionando o botão **Done**.
+
+Selecione **Save as Draft** para retornar a essa Central de Preferências mais tarde, ou, se estiver satisfeito, selecione **Launch Preference Center**.
 
 Ao lançar a Central de Preferências, você será solicitado a confirmar o nome, pois ele não pode ser editado após o lançamento. Depois de confirmar o nome, a Central de Preferências será lançada e estará pronta para uso.
 
@@ -115,6 +117,14 @@ Para inserir um link para a Central de Preferências nos seus e-mails, copie a L
 ![A opção Copy Liquid na linha de uma Central de Preferências.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
 
 Adicione a Liquid tag no local desejado do seu e-mail, de forma semelhante a como as [URLs de cancelamento de inscrição]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link) são inseridas.
+
+{% multi_lang_include preference_center/testing.md %}
+
+## Perguntas frequentes {#frequently-asked-questions}
+
+### Por que minha Central de Preferências não funciona em um envio de teste? {#why-doesnt-my-preference-center-work-in-a-test-send}
+
+Os links da Central de Preferências exigem um contexto de envio ativo. Envios de teste não geram URLs válidas da Central de Preferências, e o botão **Save Preferences** fica desativado se a página for carregada. Esse é o comportamento esperado. Para testar de ponta a ponta, lance uma Campaign ou etapa do Canvas para um usuário teste ou um segmento interno pequeno. Para mais detalhes, consulte [Testando Centrais de Preferências](#testing-preference-centers).
 
 ## Tratamento de erros {#handle-errors}
 

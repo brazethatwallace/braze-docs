@@ -101,6 +101,8 @@ You get the best results when you use Operator in the composer you're building, 
 
 Operator can help you create [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks), the reusable pieces of content you insert across messages. Describe the block you want, and Operator drafts its content for you to review before you save it. Because Content Blocks are shared, updating one updates every message that references it.
 
+Operator creates Content Blocks one at a time in the dashboard. To create Content Blocks in bulk, use the [Create Content Block]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) endpoint with an API key that has the `content_blocks.create` permission.
+
 ### Create message templates {#create-message-templates}
 
 Operator can help you create reusable [message templates]({{site.baseurl}}/user_guide/messaging/templates) that you can apply across campaigns. Describe the template you want, and Operator drafts it for you to review before you save it. Generating a template works much like generating a message, so see [Generate messages](#generate-messages) for the supported channels and editors.
@@ -191,6 +193,10 @@ Operator can reference the following to answer questions or ground the content i
 
 Ask Operator directly if you're not sure whether it can look up a specific piece of information.
 
+### Analyze performance data {#analyze-performance-data}
+
+Ask Operator plain-language questions about your campaign and Canvas performance, and it returns charts, comparisons, and short insights pulled from your workspace data. Unlike Operator's page-aware features, which need context from the page you're on, Analyze answers from anywhere in the dashboard. For more information, see [Operator Analyze]({{site.baseurl}}/user_guide/brazeai/operator/analyze).
+
 ### Write SQL queries {#write-sql-queries}
 
 Operator can help you write SQL for [Segment Extensions](#campaigns-and-audiences) and for Query Builder [query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates). Describe the query you want in natural language, and Operator generates SQL for you to review before you run it.
@@ -198,6 +204,21 @@ Operator can help you write SQL for [Segment Extensions](#campaigns-and-audience
 ### Generate data transformation code {#generate-data-transformation-code}
 
 In the [Data Transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) editor, select **Insert Code** to generate transformation code that turns an incoming webhook payload into valid Braze API requests. For step-by-step instructions on creating a transformation, see [Create a transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
+
+## Workspace settings {#workspace-settings}
+
+Operator can review and update settings across several workspace configuration pages. Describe the change you want, and Operator proposes it as an action card you review before it's saved. Supported settings pages include but aren't limited to:
+
+- [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)
+- [Push settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)
+- [Messaging rate limits]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)
+- [Approval workflows]({{site.baseurl}}/user_guide/messaging/governance/approvals), including [messaging rules]({{site.baseurl}}/user_guide/messaging/governance/approvals/messaging_rules) and always-on approval
+- [APIs and identifiers]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), including [other identifiers]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers) and API limits
+- [Admin settings contact information]({{site.baseurl}}/user_guide/administer/global/admin_settings/contact_information)
+
+{% alert note %}
+Operator's coverage of settings pages expands regularly. **Ask Operator directly** for the most current answer of what it can configure.
+{% endalert %}
 
 ## Limitations {#limitations}
 
@@ -208,6 +229,7 @@ Operator's coverage changes frequently. If you're not sure whether a specific sc
 Operator's dashboard support is broad, but it has boundaries.
 
 - **Canvases:** Operator can't create or edit [Canvases]({{site.baseurl}}/user_guide/messaging/canvas), but it can reference an existing Canvas's configuration, such as targeting and delivery settings, to answer questions and ground its output.
+- **Campaign duplication:** Operator can't duplicate an existing campaign from the campaigns list view. To create a similar campaign, ask Operator to build a new one from scratch, or duplicate the campaign manually from the list view's **More Actions** menu.
 - **Drag-and-drop editors:** Operator can't generate or insert a message design directly in a drag-and-drop editor, such as the ones for [email]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner), and [in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Switch to the corresponding HTML editor to use Operator, or ask Operator to generate content, such as copy, that you can paste in manually. See [Generate messages](#generate-messages) for supported channels and editors.
 - **Screen visibility:** Operator uses page-aware context to understand what you're looking at, including content inside supported previews and editors. When part of a page falls outside what Operator can read, it tells you instead of guessing, so you know to describe that content yourself.
 - **Usage limits:** Operator has a company-wide daily usage limit that resets every 24 hours. Image generations count toward this limit. If the limit is reached, a "Daily usage limit exceeded" message appears and no further requests can be made until it resets. For troubleshooting steps, see [Troubleshooting]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting).

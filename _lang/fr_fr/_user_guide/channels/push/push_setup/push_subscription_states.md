@@ -92,7 +92,7 @@ Le push autorisé nécessite une autorisation explicite de l'utilisateur avant d
 
 Avant iOS 12 (sorti en 2018), tous les utilisateurs devaient explicitement s'abonner pour recevoir des notifications push.
 
-Avec iOS 12, Apple a introduit l'[autorisation provisoire](https://www.braze.com/resources/articles/mastering-provisional-push), permettant aux marques d'envoyer des notifications push silencieuses dans le centre de notifications de leurs utilisateurs avant qu'ils ne s'abonnent explicitement, vous donnant ainsi la possibilité de démontrer la valeur de vos messages en amont. Consultez [autorisation provisoire]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push) pour en savoir plus.
+Avec iOS 12, Apple a introduit l'[autorisation provisoire](https://www.braze.com/resources/articles/mastering-provisional-push), permettant aux marques d'envoyer des notifications push silencieuses dans le centre de notifications de leurs utilisateurs avant qu'ils ne s'abonnent explicitement, vous donnant ainsi la possibilité de démontrer la valeur de vos messages en amont. Consultez [Autorisation provisoire]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push) pour en savoir plus.
 
 ### Web {#web}
 
@@ -115,6 +115,8 @@ Lorsqu'un profil utilisateur possède un jeton push de premier plan valide assoc
 
 {% alert note %}
 Le filtre `Foreground Push Enabled for App` ne prend en compte que la présence d'un jeton push de premier plan et d'arrière-plan valide pour l'application donnée. Cependant, le filtre plus générique [`Foreground Push Enabled`](#foreground-push-enabled) segmente les utilisateurs qui ont explicitement activé les notifications push pour n'importe quelle application de votre espace de travail. Ce décompte inclut uniquement le push au premier plan et n'inclut pas les utilisateurs qui se sont désabonnés. Vous pouvez en savoir plus sur ces filtres et d'autres dans [Filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
+
+Pour un faible pourcentage d'utilisateurs, des délais de traitement peuvent provoquer un décalage temporaire : un utilisateur peut avoir un jeton push de premier plan valide sur son profil mais ne pas correspondre au filtre `Foreground Push Enabled`. Son profil peut brièvement indiquer que le push au premier plan n'est pas activé même si un jeton est présent. Cela se résout généralement une fois le traitement terminé.
 {% endalert %}
 
 ### Plusieurs utilisateurs sur un même appareil {#multiple-users-on-one-device}

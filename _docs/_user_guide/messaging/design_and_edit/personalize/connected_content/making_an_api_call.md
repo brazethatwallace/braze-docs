@@ -290,6 +290,40 @@ If Connected Content requests consistently return `403 Forbidden` and authentica
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
+### Using IP allowlisting with Amazon S3
+
+When using Connected Content to retrieve files from Amazon S3, configure your bucket to allow unauthenticated HTTP `GET` requests from Braze IP addresses.
+
+1. **Add a bucket policy with IP conditions:** Grant `s3:GetObject` on your bucket objects with `Principal: "*"` and an `IpAddress` condition that uses the [Braze IP ranges](#connected-content-ip-allowlisting) for your instance. You do not need to set public-read ACLs on individual objects.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::your-bucket-name/*",
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": ["{YOUR_BRAZE_IP_RANGE}"]
+        }
+      }
+    }
+  ]
+}
+```
+
+Replace `{YOUR_BRAZE_IP_RANGE}` with the Braze IP ranges for your instance listed in [Connected Content IP allowlisting](#connected-content-ip-allowlisting). You can add one or more ranges as separate values in the `aws:SourceIp` array.
+
+{: start="2"}
+2. **Review S3 Block Public Access settings:** Bucket policies that use `Principal: "*"` are treated as public access by AWS, even with IP conditions. You may need to allow bucket-policy-based public access while keeping ACL-based public access blocked.
+
+3. **Use the S3 object URL in your Connected Content tag:** Reference the object with its standard S3 URL (for example, `https://your-bucket.s3.amazonaws.com/path/to/object.json`).
+
+For more information about bucket policies and condition keys, refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazon-s3-policy-keys.html).
+
 ### `User-Agent` header
 
 Braze includes a `User-Agent` header in all Connected Content and webhook requests that is similar to the following:
@@ -321,6 +355,26 @@ You can also use [Webhook.site](https://webhook.site/) to troubleshoot your Conn
 You can also verify the Liquid tag includes the parameters your endpoint expects (for example, `:method`, `:headers`, `:content_type`, `:body`, and `:basic_auth` when required). If you rely on the HTTP status code key in a saved JSON object, the endpoint must return a JSON object and a `2XX` status.
 
 For high error rates from your host, review [Unhealthy host detection]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors#unhealthy-host-detection) and [Connected Content call volume](#understanding-connected-content-call-volume).
+
+### Ampersand encoding in email POST requests
+
+In email messages, HTML parsing automatically converts ampersands (`&`) inside {% raw %}`{% capture %}`{% endraw %} blocks to `&amp;`. For `application/x-www-form-urlencoded` POST requests, this causes the request to send parameter names with an `amp;` prefix (for example, `amp;username`), which can break the API call.
+
+To work around this issue, use the `replace` filter to remove the `amp;` prefix before passing the body to `:body`:
+
+{% raw %}
+```liquid
+{% capture body_with_amps %}
+grant_type=client_credentials&username=test&password=test
+{% endcapture %}
+{% connected_content https://api.example.com/token
+   :method post
+   :body {{body_with_amps | replace: "amp;", ""}}
+   :content_type application/x-www-form-urlencoded
+   :save token
+%}
+```
+{% endraw %}
 
 ## Frequently asked questions
 

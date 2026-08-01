@@ -37,20 +37,20 @@ description: "Dieser Artikel beschreibt die Schritte zur Verwendung von Locales 
 {% endtab %}
 {% endtabs %}
 
-## Locales verwenden {#use-locales}
+## Lokale verwenden {#use-locales}
 
-### Schritt 1: Locales einrichten {#step-1-set-up-locales}
+### Schritt 1: Lokale einrichten {#step-1-set-up-locales}
 
-Bevor Sie Übersetzungen zu einer Nachricht hinzufügen können, müssen Sie zunächst [die Locales erstellen, die Sie unterstützen möchten]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings). Locales definieren die verfügbaren Sprach- (und optional Regions-)Varianten für das Messaging.
+Bevor Sie Übersetzungen zu einer Nachricht hinzufügen können, müssen Sie zunächst [die Lokale erstellen, die Sie unterstützen möchten]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings). Lokale definieren die verfügbaren Sprach- (und optional Regions-)Varianten für das Messaging.
 
 ### Schritt 2: Inhalte zur Übersetzung markieren {#step-2-mark-content-for-translation}
 
-Umschließen Sie den zu übersetzenden Text mit den Liquid-Übersetzungs-Tags {% raw %}`{% translation your_id_here %}` und `{% endtranslation %}`{% endraw %} und weisen Sie eine Tag-ID zu. Übersetzungs-Tag-IDs müssen innerhalb einer Nachricht eindeutig sein. Verwenden Sie am besten semantische ID-Namen, die den Text klar beschreiben, wie z. B. {% raw %}`{% translation header %}`{% endraw %}.
+Umschließen Sie den Text, den Sie übersetzen möchten, mit den Liquid-Übersetzungs-Tags {% raw %}`{% translation your_id_here %}` und `{% endtranslation %}`{% endraw %} und weisen Sie eine Tag-ID zu. Übersetzungs-Tag-IDs müssen innerhalb einer Nachricht eindeutig sein. Verwenden Sie semantische ID-Namen, die den Text klar beschreiben, wie z. B. {% raw %}`{% translation header %}`{% endraw %}.
 
 Hier ist ein Beispiel für eine zur Übersetzung markierte Nachricht: {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
 {% alert tip %}
-Markieren Sie den zu übersetzenden Text und verwenden Sie die Tastenkombination **Cmd + Alt + L** (macOS) oder **Strg + Alt + L** (Windows), um ihn mit Übersetzungs-Tags zu umschließen.<br><br> Diese Tastenkombination funktioniert in allen Kanälen, die mehrsprachiges Messaging unterstützen, mit Ausnahme der Drag-and-Drop-Editoren für E-Mail und Content Blocks. Verwenden Sie dort den Button **Personalisierung hinzufügen**, um Übersetzungs-Tags hinzuzufügen.
+Markieren Sie den Text, den Sie übersetzen möchten, und verwenden Sie die Tastenkombination **Cmd + Alt + L** (macOS) oder **Strg + Alt + L** (Windows), um ihn in Übersetzungs-Tags einzuschließen.<br><br> Diese Tastenkombination funktioniert in allen Kanälen, die mehrsprachiges Messaging unterstützen, mit Ausnahme der Drag-and-Drop-Editoren für E-Mail und Content Blocks. Verwenden Sie dort den Button **Personalisierung hinzufügen**, um Übersetzungs-Tags hinzuzufügen.
 {% endalert %}
 
 #### URLs lokalisieren {#localize-urls}
@@ -63,7 +63,7 @@ Statische URLs werden manuell im Editor eingegeben (z. B. `https://example.com`)
 
 | Empfehlung | Begründung |
 | --- | --- |
-| Belassen Sie das Protokoll (`https://`) außerhalb der Übersetzungs-Tags. Umschließen Sie nur die Domain und den Pfad (z. B. `example.com/en`). | Übersetzer:innen könnten versehentlich Sonderzeichen ändern oder entfernen, was zu fehlerhaften Links führt. |
+| Behalten Sie das Protokoll (`https://`) außerhalb der Übersetzungs-Tags. Umschließen Sie nur die Domain und den Pfad (z. B. `example.com/en`). | Übersetzer:innen könnten versehentlich Sonderzeichen ändern oder entfernen, was zu fehlerhaften Links führt. |
 | Fügen Sie keine Abfrageparameter in Übersetzungs-Tags ein (z. B. `?utm_source=promo`). | Übersetzer:innen könnten versehentlich Sonderzeichen ändern oder entfernen, was zu fehlerhaften Links führt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Standard-URLs (statisch)" }
 
@@ -99,9 +99,9 @@ Wenn Sie [E-Mail-Link-Tracking](#email-link-tracking) (Link Aliasing oder Link-T
 
 #### HTML-Attribute und -Struktur {#html-attributes-and-structure}
 
-Umschließen Sie nur für Menschen lesbaren Text mit Übersetzungs-Tags. Vermeiden Sie es, HTML-Attribute (wie `class`, `style` oder `id`) oder anderen strukturellen Code einzuschließen. HTML-Attribute steuern Layout, Styling und Funktionalität. Wenn Sie sie in Übersetzungs-Tags einschließen, kann dies die Formatierung oder Styles in lokalisierten Versionen Ihrer Nachricht beeinträchtigen.
+Umschließen Sie nur für Menschen lesbaren Text mit Übersetzungs-Tags. Vermeiden Sie es, HTML-Attribute (wie `class`, `style` oder `id`) oder anderen strukturellen Code einzuschließen. HTML-Attribute steuern Layout, Styling und Funktionalität. Wenn Sie sie in Übersetzungs-Tags einschließen, kann dies die Formatierung oder Styles in lokalisierten Versionen Ihrer Nachricht beschädigen.
 
-Dieser Text ist korrekt umschlossen:
+Dieser Text ist korrekt eingeschlossen:
 
 {% raw %}
 ```
@@ -111,9 +111,9 @@ Dieser Text ist korrekt umschlossen:
 ```
 {% endraw %}
 
-{% details Falsch umschlossener Text %}
+{% details Falsch eingeschlossener Text %}
 
-Dieser Text ist **falsch** umschlossen:
+Dieser Text ist **falsch** eingeschlossen:
 
 {% raw %}
 ```
@@ -127,38 +127,50 @@ Dieser Text ist **falsch** umschlossen:
 
 {% enddetails %}
 
-### Schritt 3: Locales zu Ihrer Nachricht hinzufügen {#step-3-add-locales-to-your-message}
+### Schritt 3: Lokale zu Ihrer Nachricht hinzufügen {#step-3-add-locales-to-your-message}
 
-Nachdem Sie Übersetzungs-Tags zu Ihrer Nachricht hinzugefügt haben, wählen Sie im Editor **Sprachen verwalten** (in den Drag-and-Drop-Editoren für E-Mail und Content Blocks: **Sprachen**) und wählen Sie mindestens ein Locale aus, für das Sie Übersetzungen hinzufügen möchten.
+Nachdem Sie Übersetzungs-Tags zu Ihrer Nachricht hinzugefügt haben, wählen Sie im Editor **Sprachen verwalten** (in den Drag-and-Drop-Editoren für E-Mail und Content Blocks: **Sprachen**) und wählen Sie mindestens ein Lokal aus, für das Sie Übersetzungen hinzufügen möchten.
 
-![Das Dropdown „Locale hinzufügen“ mit Optionen zur Auswahl des Standard-Locales oder angepasster Attribute.]({% image_buster /assets/img/multi-language_support/select_locale_type.png %}){: style="max-width:70%;"}
+![Das Dropdown „Lokal hinzufügen“ mit Optionen zur Auswahl des Standard-Lokals oder angepasster Attribute.]({% image_buster /assets/img/multi-language_support/select_locale_type.png %}){: style="max-width:70%;"}
 
 #### Content Blocks mit Übersetzungen {#content-blocks-containing-translation}
 
 Wenn Ihre Nachricht Content Blocks enthält, für die bereits Übersetzungen gespeichert sind, müssen Sie diese Übersetzungen nicht erneut hochladen. Gespeicherte Übersetzungen werden automatisch angewendet, wenn der Content Block zu Ihrer Nachricht hinzugefügt wird.
 
-Im Modal **Sprachen verwalten** erscheinen Content Blocks mit gespeicherten Übersetzungen in der Liste zusammen mit den von ihnen unterstützten Locales. So können Sie sehen, welche Teile Ihrer Nachricht bereits lokalisiert sind, bevor Sie neue Übersetzungen hinzufügen.
+Im Modal **Sprachen verwalten** erscheinen Content Blocks mit gespeicherten Übersetzungen in der Liste zusammen mit den unterstützten Lokalen. So können Sie sehen, welche Teile Ihrer Nachricht bereits lokalisiert sind, bevor Sie neue Übersetzungen hinzufügen.
 
 ![Der Bereich „Sprachen verwalten“ mit einer Liste von Content Blocks, die gespeicherte Übersetzungen haben.]({% image_buster /assets/img/multi-language_support/content_blocks_translations.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-Stellen Sie sicher, dass jeder Content Block Übersetzungen für jedes Locale enthält, das Sie zu Ihrer Nachricht hinzugefügt haben. Wenn einem Content Block Übersetzungen für eines der hinzugefügten Locales fehlen, wird er für Nutzer:innen in diesem Locale in der Originalsprache angezeigt.
+Stellen Sie sicher, dass jeder Content Block Übersetzungen für jedes Lokal enthält, das Sie zu Ihrer Nachricht hinzugefügt haben. Wenn einem Content Block Übersetzungen für eines der hinzugefügten Lokale fehlen, wird er für Nutzer:innen in diesem Lokal in der Originalsprache angezeigt.
 {% endalert %}
 
 ### Schritt 4: Übersetzungen hinzufügen {#step-4-add-translations}
 
-Nachdem Sie Locales ausgewählt haben, fügen Sie Übersetzungen zu Ihrer Nachricht mit einer der folgenden Methoden hinzu:
+Nachdem Sie Lokale ausgewählt haben, fügen Sie Übersetzungen zu Ihrer Nachricht mit einer der folgenden Methoden hinzu:
 
-![Der Tab „Übersetzungen hinzufügen“ mit Optionen zum Hochladen von Übersetzungen per CSV oder durch Verbindung mit Übersetzungspartnern.]({% image_buster /assets/img/multi-language_support/add_translations.png %}){: style="max-width:70%;"}
+![Der Tab „Übersetzungen hinzufügen“ mit Optionen zum Hochladen von Übersetzungen per CSV oder zur Verbindung mit Übersetzungspartnern.]({% image_buster /assets/img/multi-language_support/add_translations.png %}){: style="max-width:70%;"}
 
 {% tabs %}
 {% tab CSV-Template hochladen %}
 
-Wählen Sie **Template herunterladen**, um eine CSV-Datei herunterzuladen, die eine Matrix Ihrer ausgewählten Übersetzungs-IDs und Locales enthält. Geben Sie die Übersetzungen für jedes Locale ein. Laden Sie die ausgefüllte Datei hoch, und die Übersetzungen werden auf Ihre Nachricht angewendet.
+Wählen Sie **Template herunterladen**, um eine CSV-Datei herunterzuladen, die eine Matrix Ihrer ausgewählten Übersetzungs-IDs und Lokale enthält.
 
 {% alert important %}
 Um Anzeigeprobleme mit nicht-englischen Zeichen zu vermeiden, verwenden Sie für Ihre Übersetzungs-CSV nicht Excel.
 {% endalert %}
+
+Wenn Sie das Template ausfüllen, übersetzen Sie nur den Textinhalt für jedes Lokal. Wenn HTML-Tags im heruntergeladenen Template vorhanden sind, lassen Sie diese unverändert und übersetzen Sie nur den Text innerhalb der Tags.
+
+Wenn das Template beispielsweise Folgendes enthält:
+
+```
+<p style="margin:0;margin-bottom:0">A charming bakery dedicated to crafting artisanal breads.</p>
+```
+
+Übersetzen Sie nur den Text `A charming bakery dedicated to crafting artisanal breads.` und lassen Sie die HTML-Tags `<p style="margin:0;margin-bottom:0">` und `</p>` unverändert.
+
+Laden Sie dann die ausgefüllte Datei hoch, und die Übersetzungen werden auf Ihre Nachricht angewendet.
 
 ![CSV mit Übersetzungs-Tags für einen Titel, Angebotstext, Angebotsbetrag und CTA.]({% image_buster /assets/img/multi-language_support/csv_template_example.png %}){: style="max-width:50%;"}
 
@@ -181,9 +193,9 @@ Wenn Sie die Übersetzungs-API mit Canvas-Schritten verwenden, die nach dem Star
 
 ### Schritt 5: Übersetzungen in der Vorschau anzeigen {#step-5-preview-translations}
 
-Um eine Vorschau Ihrer Nachricht anzuzeigen, wählen Sie die Option **Mehrsprachige:r Nutzer:in** aus dem Dropdown **Vorschau als Nutzer:in**. So können Sie zwischen verschiedenen Locale-Definitionen wechseln, um alle Übersetzungen Ihrer Nachricht in der Vorschau anzuzeigen.
+Um eine Vorschau Ihrer Nachricht anzuzeigen, wählen Sie die Option **Mehrsprachige:r Nutzer:in** aus dem Dropdown **Vorschau als Nutzer:in**. So können Sie zwischen verschiedenen Lokal-Definitionen wechseln, um alle Übersetzungen Ihrer Nachricht in der Vorschau anzuzeigen.
 
-![Locale-Vorschauen]({% image_buster /assets/img/multi-language_support/multi_language_user_preview.png %}){: style="max-width:70%;"}
+![Lokal-Vorschauen]({% image_buster /assets/img/multi-language_support/multi_language_user_preview.png %}){: style="max-width:70%;"}
 
 ## Übersetzungen verwalten {#manage-translations}
 
@@ -193,9 +205,9 @@ Wenn Sie einen Canvas-Schritt, eine Campaign oder eine Variante duplizieren, wer
 
 ### Übersetzungen in Content Blocks speichern {#save-translations-in-content-blocks}
 
-Content Blocks unterstützen Mehrsprachigkeit auf die gleiche Weise wie Nachrichten. Beim Erstellen oder Bearbeiten von Content Blocks können Sie Inhalte für die Übersetzung taggen, Locales hinzufügen und Übersetzungen per CSV oder über die [Übersetzungs-API]({{site.baseurl}}/api/endpoints/translations) hochladen.
+Content Blocks unterstützen Mehrsprachigkeit auf die gleiche Weise wie Nachrichten. Beim Erstellen oder Bearbeiten von Content Blocks können Sie Inhalte zur Übersetzung markieren, Locales hinzufügen und Übersetzungen per CSV oder über die [Übersetzungs-API]({{site.baseurl}}/api/endpoints/translations) hochladen.
 
-Gespeicherte Übersetzungen bleiben mit dem Content Block verknüpft. Wenn der Block zu einer Nachricht hinzugefügt wird, werden seine Übersetzungen automatisch einbezogen.
+Gespeicherte Übersetzungen bleiben mit dem Content Block verknüpft. Wenn der Block einer Nachricht hinzugefügt wird, werden seine Übersetzungen automatisch einbezogen.
 
 ### Rechts-nach-links-Nachrichten {#right-to-left-messages}
 
@@ -213,7 +225,7 @@ In E-Mail-Campaigns verfolgt Braze Links, indem Tracking-Informationen (Query-Pa
 
 Wenn eine URL in Übersetzungs-Tags eingeschlossen ist, kann Braze möglicherweise nicht bestimmen, wo diese Tracking-Informationen hinzugefügt werden sollen. Um sicherzustellen, dass dies korrekt funktioniert, müssen Sie ein Sonderzeichen am Ende der URL einfügen, das angibt, wo das Tracking hinzugefügt werden soll.
 
-URLs verwenden zwei Sonderzeichen, um dies zu steuern:
+URLs verwenden zwei Sonderzeichen, um dieses Verhalten zu steuern:
   - `?` fügt Tracking zu einer URL hinzu, die noch keines enthält.
   - `&` fügt zusätzliches Tracking hinzu, wenn bereits ein `?` in der URL vorhanden ist. Eine URL kann nur ein `?` enthalten.
 
@@ -243,7 +255,7 @@ Auf Nachrichtenebene legen Sie die Barrierefreiheitssprache im Abschnitt **Barri
 
 Für mehrsprachige Nachrichten legen Sie die Barrierefreiheitssprache für jedes Locale in den **Lokalisierungseinstellungen** fest. Sie können {% raw %}`{{accessibility_language}}`{% endraw %} im Abschnitt **Barrierefreiheit** verwenden, damit die Dokument- oder Kartensprache diesen Locale-Werten zugeordnet wird.
 
-Ob dieses Token standardmäßig für neue Nachrichten angezeigt wird, hängt vom Kanal und Editor ab. Beispielsweise verhalten sich In-App-Nachrichten und Banner anders als Landing-Pages und Drag-and-Drop-E-Mails. Weitere Details finden Sie unter [Barrierefreiheitssprache]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language).
+Ob dieses Token standardmäßig für neue Nachrichten angezeigt wird, hängt vom Kanal und Editor ab. Beispielsweise verhalten sich In-App-Nachrichten und Banner anders als Landing-Pages und Drag-and-Drop-E-Mails. Weitere Informationen finden Sie unter [Barrierefreiheitssprache]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -255,9 +267,20 @@ Bei der Verwendung von Übersetzungs-Tags gelten die folgenden Limits:
 - Jeder Standardtext (der Inhalt zwischen Übersetzungs-Tags) kann bis zu 2.000 Zeichen umfassen.
 - Die Übersetzungen pro Locale können bis zu 409.600 Bytes (ca. 409,6&nbsp;KB) umfassen.
 
+### Warum erhalte ich einen Fehler beim Herunterladen mehrsprachiger E-Mail-Templates? {#why-am-i-receiving-an-error-when-downloading-multi-language-email-templates}
+
+Wenn beim Herunterladen mehrsprachiger E-Mail-Templates Fehler auftreten, umschließen die Übersetzungs-Tags möglicherweise HTML-Attribute oder CSS-Styling, die mit der Verarbeitung von E-Mail-Bodys durch Braze in Konflikt stehen.
+
+Braze behandelt den HTML-Body und den Plaintext-Body als separate Komponenten derselben Nachricht. Wenn Übersetzungs-Tags `href`-Referenzen und CSS-Styling enthalten, kann dies zu widersprüchlichen Tags führen, die das korrekte Herunterladen des Templates verhindern.
+
+So lösen Sie das Problem:
+- Schließen Sie `href`-Referenzen und CSS-Styling von Übersetzungs-Tags aus.
+- Umschließen Sie nur menschenlesbaren Textinhalt mit Übersetzungs-Tags, wie unter [HTML-Attribute und -Struktur](#html-attributes-and-structure) beschrieben.
+- Für URLs folgen Sie der Anleitung unter [URLs lokalisieren](#localize-urls).
+
 #### Kann ich eine Änderung an der übersetzten Kopie in einer meiner Locales vornehmen? {#can-i-make-a-change-to-the-translated-copy-in-one-of-my-locales}
 
-Ja. Nehmen Sie zuerst die Änderung in der CSV-Datei vor und laden Sie die Datei dann erneut hoch, um die Änderung an der übersetzten Kopie vorzunehmen.
+Ja. Nehmen Sie zuerst die Bearbeitung in der CSV-Datei vor und laden Sie die Datei dann erneut hoch, um eine Änderung an der übersetzten Kopie vorzunehmen.
 
 ### Stellt Braze Übersetzungen bereit? {#does-braze-provide-translations}
 
@@ -269,13 +292,13 @@ Nein.
 
 #### Kann ich ganze HTML-Nachrichten in einen Übersetzungs-Tag einschließen? {#can-i-wrap-entire-html-messages-in-a-translation-tag}
 
-Nein. Als Best Practice sollten Sie nur menschenlesbaren Text oder Inhalte einschließen, die lokalisiert werden müssen. Dies hilft, fehlerhafte Formatierungen, Links oder andere Nicht-Text-Elemente zu vermeiden.
+Nein. Als Best Practice sollten Sie nur menschenlesbaren Text oder Inhalte umschließen, die lokalisiert werden müssen. Dies hilft, fehlerhafte Formatierungen, Links oder andere Nicht-Text-Elemente zu vermeiden.
 
-Erwägen Sie außerdem, kleinere, semantisch zusammenhängende Textabschnitte einzuschließen, um genaue Übersetzungen zu erstellen und Performance- oder Größenbeschränkungen zu vermeiden.
+Erwägen Sie außerdem, kleinere, semantisch zusammenhängende Textabschnitte zu umschließen, um genaue Übersetzungen zu erstellen und Performance- oder Größenbeschränkungen zu vermeiden.
 
 #### Kann ich eine Änderung an der übersetzten Kopie in einer meiner Locales vornehmen?
 
-Ja. Wenn Sie eine CSV-Datei verwenden, nehmen Sie zuerst die Änderung in der Datei vor und laden Sie sie dann erneut hoch, um die Änderung an der übersetzten Kopie vorzunehmen. Wenn Sie die [Übersetzungs-API]({{site.baseurl}}/api/endpoints/translations) verwenden, nutzen Sie die Update-Endpunkte, um Änderungen vorzunehmen.
+Ja. Wenn Sie eine CSV-Datei verwenden, nehmen Sie zuerst die Bearbeitung in der Datei vor und laden Sie sie dann erneut hoch, um eine Änderung an der übersetzten Kopie vorzunehmen. Wenn Sie die [Übersetzungs-API]({{site.baseurl}}/api/endpoints/translations) verwenden, nutzen Sie die Update-Endpunkte, um Änderungen vorzunehmen.
 
 #### Welche Validierungen oder zusätzlichen Prüfungen führt Braze durch? {#what-validations-or-extra-checks-does-braze-do}
 
@@ -291,5 +314,5 @@ Ja. Wenn Sie eine CSV-Datei verwenden, nehmen Sie zuerst die Änderung in der Da
 | Eine oder mehrere Locales in einer Nachricht wurden in den Einstellungen gelöscht und existieren nicht mehr. | Bereits hinzugefügte Übersetzungen bleiben in der Nachricht bestehen. Wenn sie aus der Nachricht gelöscht werden, gehen die Übersetzungen verloren. |
 | Übersetzungs-Tags enthalten vollständige URLs oder durch Liquid generierte URLs. | Übersetzungs-Tags mit URLs werden identifiziert, falls Probleme mit fehlerhaften Links oder Link-Tracking auftreten. |
 | Übersetzungs-Tags enthalten Abfrageparameter. | Übersetzungs-Tags mit Abfrageparametern werden identifiziert, falls Probleme mit fehlerhaften Links oder Link-Tracking auftreten. |
-| Übersetzungs-Tags enthalten HTML-Attribute oder -Strukturen. | Übersetzungs-Tags mit HTML-Attributen oder -Strukturen werden identifiziert, falls Probleme mit Stilen und Formatierungen auftreten. |
+| Übersetzungs-Tags enthalten HTML-Attribute oder -Strukturen. | Übersetzungs-Tags mit HTML-Attributen oder -Strukturen werden identifiziert, falls Probleme mit Styles und Formatierung auftreten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Welche Validierungen oder zusätzlichen Prüfungen führt Braze durch?" }

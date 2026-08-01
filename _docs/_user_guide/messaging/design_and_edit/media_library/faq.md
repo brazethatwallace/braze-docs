@@ -30,6 +30,10 @@ No, the media library doesn't support video files. We recommend you host these e
 
 No, the media library doesn't support cropping GIF images.
 
+### How do I copy the URL of an image uploaded to the media library?
+
+To copy the URL of an image uploaded to the media library, navigate to **Content** > **Media Library**. Hover over the image you want to reference, then select the **Copy Image URL** icon to copy the image URL to your clipboard.
+
 ### Can I use SVG images in email?
 
 SVG images are not recommended for email due to limited support across email clients. Gmail and several other major email providers do not render SVG images, which can result in broken or missing images for recipients. For reliable email rendering, use PNG, JPEG, or GIF formats instead.
@@ -68,4 +72,8 @@ You can generate images from **Content** > **Media Library** by selecting **AI I
 ### Can I create vanity URLs for media library image assets?
 
 Vanity URLs for Media Library assets aren't supported because custom URLs would break CDN delivery. You can replace an image at its existing URL when campaigns already reference that URL. For more information, see [Replace a file]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
+
+### Why does Chrome save JPEG or PNG images as WebP files?
+
+When using Chrome to save images from the media library, the browser may automatically convert JPEG or PNG files to WebP format. This is Chrome's default behavior for image downloads and is not specific to Braze. If you need to save images in their original format, try using a different browser such as Safari or Firefox.
 

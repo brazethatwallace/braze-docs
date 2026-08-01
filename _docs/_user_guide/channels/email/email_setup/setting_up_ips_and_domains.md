@@ -38,6 +38,8 @@ After receiving your email, we'll get to work configuring your IPs, domains and 
 
 After your IPs, domains, subdomains, and IP pools are configured, we'll send you a list of DNS records. Ask your engineers and developers to add these DNS records where needed, and after they have been added, let the Braze Onboarding team know.
 
+For in-depth explanations of how DNS records work across Braze email service providers, including SPF, DKIM, DMARC, and ESP-specific record structures, see [Understanding DNS records]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/understanding_dns_records).
+
 {% multi_lang_include channels/email/dns_records.md %}
 
 After Braze provides your DNS records, add them as soon as your DNS or IT team is able. Domain verification is time-bound, and if records are added too late, verification may fail even if the DNS records later resolve correctly. If your DNS records appear correct but verification fails, contact the Braze Onboarding or Support team to reinitiate verification.
@@ -48,7 +50,7 @@ We'll check your setup and validate all information in our internal systems. The
 
 ## Method 2: Self-service email setup
 
-This method will set up one sending domain, one tracking domain, and one IP in total for a company. If you're planning to set up more, please consult with Braze Onboarding team (method 1).
+This method sets up one sending domain, one tracking domain, and one IP in total for a company. If you plan to set up more, consult the Braze Onboarding team (method 1).
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
 <br>If you're using the self-service email setup feature, be sure to also consult with the Braze Onboarding team.
@@ -82,7 +84,7 @@ The sending domain must be a subordinate to a domain you own. For example, if yo
 
 ### Step 3: Add and verify a tracking domain
 
-A tracking domain is used to wrap links in your emails for click-tracking and branding purposes. This will be visible to users when they hover over or click your email links. We recommend matching this to your sending domain.
+A tracking domain is used to wrap links in your emails for click-tracking and branding purposes. This is visible to your users when they hover over or click your email links. We recommend matching this to your sending domain.
 
 1. Enter a tracking domain and select **Submit**. 
 2. Next, add the CNAME records from the bottom of the page to your DNS provider. 

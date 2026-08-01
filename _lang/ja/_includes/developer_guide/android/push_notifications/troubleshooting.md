@@ -37,8 +37,7 @@ sequenceDiagram
 
 ```
 
-
-### ステップ1：Google Cloud APIキーを構成する {#step-1-configuring-your-google-cloud-api-key}
+### ステップ1：Google Cloud APIキーを構成する {#step-1-configure-your-google-cloud-api-key}
 
 アプリの開発では、Firebase送信者IDをBraze Android SDKに提供する必要があります。また、サーバーアプリケーション用のAPIキーをBrazeダッシュボードに提供する必要があります。BrazeはこのAPIキーを使用してデバイスにメッセージを送信します。Google DeveloperのコンソールでFCMサービスが有効になっていることも確認する必要があります。
 
@@ -50,23 +49,23 @@ sequenceDiagram
 
 一般的な統合では、Braze Android SDKがFCM機能のデバイス登録を処理します。これは通常、アプリを初めて開いた直後に行われます。登録後、BrazeにFCM登録IDが提供されます。このIDは、そのデバイスに対してメッセージを送信するために使用されます。ユーザーの登録IDが保存され、そのユーザーが以前にアプリのプッシュトークンを持っていなかった場合は「プッシュ登録済み」になります。
 
-### ステップ3：Brazeプッシュキャンペーンを開始する {#step-3-launching-a-braze-push-campaign}
+### ステップ3：Brazeプッシュキャンペーンを開始する {#step-3-launch-a-braze-push-campaign}
 
 プッシュキャンペーンが開始されると、BrazeはFCMにメッセージの配信リクエストを行います。Brazeは、ダッシュボードにコピーされたAPIキーを使用して認証を行い、提供されたプッシュトークンにプッシュ通知を送信できることを確認します。
 
-### ステップ4：無効なトークンを削除する {#step-4-removing-invalid-tokens}
+### ステップ4：無効なトークンを削除する {#step-4-remove-invalid-tokens}
 
 メッセージを送信しようとしたプッシュトークンのいずれかが無効であるとFCMから通知された場合、関連付けられていたユーザープロファイルからそれらのトークンを削除します。ユーザーが他にプッシュトークンを持っていない場合は、**セグメント**ページに「プッシュ登録済み」として表示されなくなります。
 
 FCMの詳細については、[クラウドメッセージング](https://firebase.google.com/docs/cloud-messaging/)を参照してください。
 
-## プッシュエラーログの活用 {#utilizing-the-push-error-logs}
+## プッシュエラーログを使用する {#use-the-push-error-logs}
 
-Brazeは、プッシュ通知エラーをメッセージアクティビティログに出力します。このエラーログは、キャンペーンが期待どおりに機能していない理由を特定するのに非常に役立つさまざまな警告を提供します。エラーメッセージをクリックすると、特定のインシデントのトラブルシューティングに役立つ関連ドキュメントにリダイレクトされます。
+Brazeは、プッシュ通知エラーをメッセージアクティビティログに出力します。このエラーログは、キャンペーンが期待どおりに機能していない理由を特定するのに非常に役立つさまざまな警告を提供します。エラーメッセージを選択すると、特定のインシデントのトラブルシューティングに役立つ関連ドキュメントにリダイレクトされます。
 
 ![プッシュ通知エラーエントリが表示されたBrazeメッセージアクティビティログ。]({% image_buster /assets/img_archive/message_activity_log.png %})
 
-## トラブルシューティングのシナリオ {#troubleshooting-scenarios}
+## トラブルシューティング {#troubleshooting}
 
 ### プッシュが送信されない {#push-isnt-sending}
 
@@ -99,7 +98,9 @@ FCM登録はBrazeの外部で処理されるため、登録の失敗は次の2�
 
 FCMプッシュが正しく機能するためには、Google Play開発者サービスがデバイス上に存在する必要があります。Google Play開発者サービスがデバイス上にない場合、プッシュ登録は行われません。
 
-**注：** Google APIがインストールされていないAndroidエミュレーターには、Google Play開発者サービスはインストールされません。
+{% alert note %}
+Google APIがインストールされていないAndroidエミュレーターには、Google Play開発者サービスはインストールされません。
+{% endalert %}
 
 #### デバイスがインターネットに接続されていない {#device-not-connected-to-the-internet}
 
@@ -107,7 +108,7 @@ FCMプッシュが正しく機能するためには、Google Play開発者サー
 
 ### プッシュ通知をタップしてもアプリが開かない {#tapping-push-notification-doesnt-open-the-app}
 
-`com_braze_handle_push_deep_links_automatically`が`true`または`false`に設定されているかどうか確認します。プッシュ通知がタップされたときにBrazeがアプリとディープリンクを自動的に開くようにするには、`braze.xml`ファイルで`com_braze_handle_push_deep_links_automatically`を`true`に設定します。
+`com_braze_handle_push_deep_links_automatically`が`true`または`false`に設定されているかどうかを確認します。プッシュ通知がタップされたときにBrazeがアプリとディープリンクを自動的に開くようにするには、`braze.xml`ファイルで`com_braze_handle_push_deep_links_automatically`を`true`に設定します。
 
 `com_braze_handle_push_deep_links_automatically`がデフォルトの`false`に設定されている場合は、Brazeプッシュコールバックを使用して、プッシュの受信および開封インテントをリッスンし、処理する必要があります。
 
@@ -126,8 +127,6 @@ FCMプッシュが正しく機能するためには、Google Play開発者サー
 1. [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/android/client#retrieve-the-current-registration-token)からの有効なプッシュトークンをBrazeに渡すようにしてください。
 
 #### エラー：NotRegistered {#error-notregistered}
-
-1. `NotRegistered`は通常、アプリがデバイスから削除されたときに発生します。Brazeはアプリがデバイスからアンインストールされたことを通知するために、内部で`NotRegistered`を使用します。
 
 2. `NotRegistered`は、複数の登録が行われ、2番目の登録によって最初のトークンが無効になった場合にも発生する可能性があります。
 
@@ -176,9 +175,11 @@ Brazeダッシュボードで提供されたFirebase Cloud Messagingサーバー
 
 ### プッシュクリックが記録されない {#push-clicks-not-logged}
 
-Brazeはプッシュクリックを自動的に記録するため、このシナリオは比較的まれです。
+プッシュクリックがログに記録されない場合は、プッシュクリックデータがまだサーバーにフラッシュされていない可能性があります。Braze Android SDKはフラッシュを調整する場合があります。
 
-プッシュクリックがログに記録されない場合は、プッシュクリックデータがまだサーバーにフラッシュされていない可能性があります。Brazeは、ネットワーク接続の強度に基づいてフラッシュの頻度を調整します。ネットワーク接続が良好であれば、ほとんどの状況でプッシュクリックデータは1分以内にサーバーに到着します。
+カスタムプッシュハンドラーを実装している場合は、[ネイティブプッシュ分析を適切に保持]({{site.baseurl}}/developer_guide/push_notifications/logging_message_data/?tab=android#preserving-native-push-analytics-with-custom-push-handling)していることを確認してください。
+
+プッシュクリックの記録はネットワーク操作であり、ネットワークの制限に依存します。そのため、Braze Android SDKはネットワーク障害に対応し、失敗したリクエストを再試行しますが、一部のイベント損失が発生する可能性があります。
 
 ### ディープリンクが機能しない {#deep-links-not-working}
 

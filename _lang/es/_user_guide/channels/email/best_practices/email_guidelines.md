@@ -16,13 +16,14 @@ channel: email
 
 Aquí tienes algunos consejos rápidos a tener en cuenta mientras construyes tu contenido:
 
-- Al dar formato a tu correo electrónico, usa hojas de estilo en línea como CSS.
+- Al dar formato a tu correo electrónico, utiliza hojas de estilo en línea como CSS.
 - Para usar una plantilla de correo electrónico tanto para versiones móviles como de escritorio, mantén el ancho por debajo de 500 píxeles.
-- Las imágenes deben tener menos de 5&nbsp;MB. Recomendamos usar PNG, JPEG o GIF para máxima compatibilidad. Evita SVG y WebP, ya que muchos clientes de correo electrónico importantes aún no los admiten.
+- Las imágenes deben pesar menos de 5&nbsp;MB. Recomendamos usar PNG, JPEG o GIF para máxima compatibilidad. Evita SVG y WebP, ya que muchos clientes de correo electrónico importantes aún no los admiten.
 - No establezcas alturas y anchos para las imágenes, ya que esto puede causar espacios en blanco innecesarios en un correo electrónico degradado.
-- No se deben usar etiquetas `div`, ya que la mayoría de los clientes de correo electrónico no admiten su uso. En su lugar, usa tablas anidadas.
+- No deben usarse etiquetas `div`, ya que la mayoría de los clientes de correo electrónico no admiten su uso. En su lugar, utiliza tablas anidadas.
 - Evita usar JavaScript porque no funciona con ningún ESP.
-- Braze mejora los tiempos de carga usando un CDN global para alojar todas las imágenes de correo electrónico.
+- Evita `position: absolute` y `position: relative` de CSS en las plantillas de correo electrónico. La mayoría de los clientes de correo electrónico no admiten el posicionamiento CSS, lo que causa discrepancias de diseño entre la vista previa de Braze y los correos electrónicos entregados. Utiliza diseños basados en tablas para lograr efectos de capas o superposición.
+- Braze mejora los tiempos de carga utilizando un CDN global para alojar todas las imágenes de correo electrónico.
 - En dispositivos móviles, las columnas de imágenes son estrechas (~100px cada una), por lo que las filas con múltiples imágenes aún caben (por ejemplo, cuatro imágenes ≈ cuatro columnas utilizables).
 
 ## Texto alternativo {#alternative-text}
@@ -69,7 +70,7 @@ El diseño puede romperse cuando el HTML/CSS generado por Braze entra en conflic
 
 - Elimina primero el HTML/CSS personalizado
 - Valida que las fuentes personalizadas se carguen correctamente en la vista previa
-- Revisa el relleno de filas y columnas
+- Comprueba el relleno de filas y columnas
 - Prefiere diseños basados en tablas y mantente dentro del ancho del editor.
 
 Los Content Blocks que incorporan HTML externo al editor también pueden romper el diseño.
@@ -249,3 +250,22 @@ Consulta las siguientes listas de etiquetas y atributos HTML que no están permi
 - `<seeksegmenttime>`
 - `<transitionend>`
 {% enddetails %}
+
+## Solución de problemas de correos electrónicos duplicados {#troubleshooting-duplicate-emails}
+
+Si los usuarios informan que reciben correos electrónicos duplicados, los siguientes escenarios pueden ayudarte a identificar la causa:
+
+### Error de configuración en la creación de la Campaign o Canvas {#configuration-error-at-campaign-or-canvas-creation}
+
+Es posible que los usuarios no reciban el mismo correo electrónico dos veces, sino que reciban dos correos electrónicos separados con la misma línea del asunto. Cuando se duplica una Campaign o Canvas, es fácil pasar por alto detalles básicos de configuración del correo electrónico, como las imágenes o la línea del asunto.
+
+Para investigar:
+
+1. Revisa el perfil de usuario y examina cada Canvas y Campaign que recibió el usuario.
+2. Revisa los registros de cambios para ver si la Campaign o Canvas se modificó después del lanzamiento. Es posible que la Campaign o Canvas tuviera la misma línea del asunto que la original cuando el usuario la recibió.
+
+### Campaign enviada varias veces {#campaign-sent-multiple-times}
+
+Si el número de mensajes enviados es significativamente mayor que el número de usuarios en la audiencia, esto puede indicar que la Campaign se lanzó varias veces.
+
+Para obtener más información sobre cómo Braze gestiona las direcciones de correo electrónico duplicadas y la deduplicación, consulta las [Preguntas frecuentes sobre correo electrónico]({{site.baseurl}}/user_guide/channels/email/faq#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address).

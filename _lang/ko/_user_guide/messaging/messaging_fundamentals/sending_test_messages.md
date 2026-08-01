@@ -23,7 +23,7 @@ description: "이 참조 문서에서는 다양한 Braze 채널에서 테스트 
 
 ### 선택 사항: 콘텐츠 테스트 그룹 만들기 {#optional-create-a-content-test-group}
 
-테스트 사용자를 구성하는 편리한 방법은 [콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups)을 만드는 것입니다. 이 그룹에는 캠페인에서 테스트 메시지를 받을 사용자 그룹이 포함됩니다. 캠페인의 **테스트 수신자** 아래 **콘텐츠 테스트 그룹 추가** 필드에 이 테스트 그룹을 추가하면 개별 테스트 사용자를 만들거나 추가하지 않고도 테스트를 시작할 수 있습니다.
+테스트 사용자를 구성하는 편리한 방법은 [콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups)을 만드는 것입니다. 이 그룹에는 Campaign에서 테스트 메시지를 받을 사용자 그룹이 포함됩니다. 캠페인의 **테스트 수신자** 아래 **콘텐츠 테스트 그룹 추가** 필드에 이 테스트 그룹을 추가하면 개별 테스트 사용자를 만들거나 추가하지 않고도 테스트를 시작할 수 있습니다.
 
 ## 2단계: 채널별 테스트 메시지 보내기 {#step-2-send-channel-specific-test-messages}
 
@@ -155,6 +155,8 @@ Content Cards가 전송된 후 개발자 콘솔의 [이벤트 사용자 로그](
 4. **테스트 보내기**를 선택하여 작성한 이메일을 받은편지함으로 보냅니다.
 
 ![테스트 이메일]({% image_buster /assets/img_archive/testemail.png %}){: style="max-width:40%;" }
+
+이메일에 [환경설정 센터]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) 링크가 포함된 경우, 테스트 전송에서는 작동하는 링크가 생성되지 않으며 환경설정을 저장할 수도 없습니다. 환경설정 센터를 테스트하려면 테스트 사용자 또는 소규모 내부 Segment에 메시지를 발송하세요. 자세한 내용은 [환경설정 센터 테스트]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers)를 참조하세요.
 
 이메일 캠페인에 큰 이미지가 포함되어 있고 Outlook에서 예상대로 표시되지 않는 경우, CSS나 HTML로만 크기를 조정하는 대신 이미지 편집 또는 크기 조정 도구를 사용하여 이미지의 실제 파일 크기를 줄이는 것을 고려하세요.
 
@@ -382,9 +384,9 @@ Liquid을 사용하여 값을 수동으로 입력하여 커스텀 이벤트 속�
 
 ## 제한 사항 {#limitations}
 
-테스트 메시지가 실제 사용자에게 전송되는 캠페인 또는 Canvases와 동일하게 작동하지 않는 몇 가지 상황이 있습니다. 이러한 경우 이 동작을 검증하기 위해 제한된 테스트 사용자 세트에 캠페인 또는 Canvas를 시작하는 것을 고려하세요.
+테스트 메시지가 실제 사용자에게 전송되는 Campaigns 또는 Canvases와 동일하게 작동하지 않는 몇 가지 상황이 있습니다. 이러한 경우 이 동작을 검증하기 위해 제한된 테스트 사용자 세트에 캠페인 또는 Canvas를 시작하는 것을 고려하세요.
 
-- 테스트 메시지에서 Braze 환경설정 센터를 보면 **환경설정 저장** 버튼이 회색으로 비활성화됩니다.
+- 테스트 메시지에서 Braze [환경설정 센터]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)를 보면 **환경설정 저장** 버튼이 비활성화됩니다. 환경설정 센터 Liquid 태그도 유효한 링크로 확인되지 않을 수 있습니다. 이는 예상된 동작입니다. 포괄적인 테스트를 수행하려면 [환경설정 센터 테스트]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers)를 참조하세요.
 - 인앱 메시지 및 Content Cards 테스트의 경우 타겟 사용자는 타겟 기기에 대한 푸시 토큰이 있어야 합니다.
 - 이메일의 구독 취소 링크를 테스트하려면 테스트 사용자의 이메일 주소가 해당 워크스페이스에 있는지 확인하세요.
 - `List-Unsubscribe` 헤더는 테스트 메시지 기능으로 전송된 이메일에 포함되지 않습니다.

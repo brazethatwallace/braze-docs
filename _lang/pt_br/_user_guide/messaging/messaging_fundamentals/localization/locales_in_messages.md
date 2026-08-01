@@ -55,16 +55,16 @@ Destaque o texto que deseja traduzir e use o atalho de teclado **Cmd + Alt + L**
 
 #### Localizar URLs {#localize-urls}
 
-Ao traduzir conteúdo, as URLs exigem tratamento especial para evitar links quebrados.
+Ao traduzir conteúdo, URLs exigem tratamento especial para evitar links quebrados.
 
 ##### URLs padrão (estáticas) {#standard-static-urls}
 
 URLs estáticas são inseridas manualmente no editor (por exemplo, `https://example.com`). Também recomendamos o seguinte:
 
-| Recomendação | Justificativa |
+| Recomendação | Motivo |
 | --- | --- |
-| Mantenha o protocolo (`https://`) fora das tags de tradução. Envolva apenas o domínio e o caminho (por exemplo, `example.com/en`). | Os tradutores podem alterar ou remover acidentalmente caracteres especiais, causando links quebrados. |
-| Não inclua parâmetros de consulta dentro das tags de tradução (por exemplo, `?utm_source=promo`). | Os tradutores podem alterar ou remover acidentalmente caracteres especiais, resultando em links quebrados. |
+| Mantenha o protocolo (`https://`) fora das tags de tradução. Envolva apenas o domínio e o caminho (por exemplo, `example.com/en`). | Tradutores podem alterar ou remover acidentalmente caracteres especiais, causando links quebrados. |
+| Não inclua parâmetros de consulta dentro das tags de tradução (por exemplo, `?utm_source=promo`). | Tradutores podem alterar ou remover acidentalmente caracteres especiais, resultando em links quebrados. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="URLs padrão (estáticas)" }
 
 Uma URL padrão que segue ambas as recomendações é:
@@ -77,12 +77,12 @@ Uma URL padrão que segue ambas as recomendações é:
 
 ##### URLs geradas por Liquid {#liquid-generated-urls}
 
-Se a sua URL é gerada com Liquid (por exemplo, {% raw %}`{% landing_page_url %}`{% endraw %}), recomendamos o seguinte:
+Se sua URL é gerada com Liquid (por exemplo, {% raw %}`{% landing_page_url %}`{% endraw %}), recomendamos o seguinte:
 
-| Recomendação | Justificativa |
+| Recomendação | Motivo |
 | --- | --- |
 | Envolva a URL gerada por Liquid em tags de tradução somente se ela precisar ser localizada. | A sintaxe Liquid deve ser cuidadosamente preservada para renderizar corretamente. |
-| Não inclua parâmetros de consulta (por exemplo, `?utm_source=promo`) dentro das tags de tradução. | Os tradutores podem alterar ou remover acidentalmente caracteres especiais, resultando em links quebrados. |
+| Não inclua parâmetros de consulta (por exemplo, `?utm_source=promo`) dentro das tags de tradução. | Tradutores podem alterar ou remover acidentalmente caracteres especiais, resultando em links quebrados. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="URLs geradas por Liquid" }
 
 Uma URL gerada por Liquid que segue ambas as recomendações é:
@@ -94,12 +94,12 @@ Uma URL gerada por Liquid que segue ambas as recomendações é:
 {% endraw %}
 
 {% alert important %}
-Se você está usando [rastreamento de links de e-mail](#email-link-tracking) (alias de link ou modelos de link), é necessária configuração adicional quando as URLs estão envolvidas em tags de tradução.
+Se você está usando [rastreamento de links de e-mail](#email-link-tracking) (alias de link ou modelos de link), é necessária configuração adicional quando URLs são envolvidas em tags de tradução.
 {% endalert %}
 
 #### Atributos e estrutura HTML {#html-attributes-and-structure}
 
-Envolva apenas texto legível por humanos em tags de tradução. Evite envolver atributos HTML (como `class`, `style` ou `id`) ou outro código estrutural. Os atributos HTML controlam layout, estilo e funcionalidade. Envolvê-los em tags de tradução pode quebrar a formatação ou os estilos nas versões localizadas da sua mensagem.
+Envolva apenas texto legível por humanos em tags de tradução. Evite envolver atributos HTML (como `class`, `style` ou `id`) ou outro código estrutural. Atributos HTML controlam layout, estilo e funcionalidade. Envolvê-los em tags de tradução pode quebrar a formatação ou os estilos nas versões localizadas da sua mensagem.
 
 Este texto está corretamente envolvido:
 
@@ -135,7 +135,7 @@ Após adicionar tags de tradução à sua mensagem, selecione **Gerenciar idioma
 
 #### Content Blocks com traduções {#content-blocks-containing-translation}
 
-Se a sua mensagem contém Content Blocks que já possuem traduções salvas, você não precisa reenviar essas traduções. As traduções salvas são aplicadas automaticamente quando o Content Block é adicionado à sua mensagem.
+Se sua mensagem contém Content Blocks que já possuem traduções salvas, você não precisa reenviar essas traduções. As traduções salvas são aplicadas automaticamente quando o Content Block é adicionado à sua mensagem.
 
 No modal **Gerenciar idiomas**, os Content Blocks com traduções salvas aparecem na lista, junto com os locais que suportam. Isso permite que você veja quais partes da sua mensagem já estão localizadas antes de adicionar novas traduções.
 
@@ -149,18 +149,30 @@ Certifique-se de que cada Content Block inclua traduções para todos os locais 
 
 Após selecionar os locais, adicione traduções à sua mensagem usando um dos seguintes métodos:
 
-![A guia Adicionar traduções com opções para enviar traduções por CSV ou conectar-se a parceiros de tradução.]({% image_buster /assets/img/multi-language_support/add_translations.png %}){: style="max-width:70%;"}
+![A guia Adicionar traduções com opções para enviar traduções por CSV ou conectando-se a parceiros de tradução.]({% image_buster /assets/img/multi-language_support/add_translations.png %}){: style="max-width:70%;"}
 
 {% tabs %}
 {% tab Enviar modelo CSV %}
 
-Selecione **Baixar modelo** para baixar um CSV contendo uma matriz dos seus IDs de tradução e locais selecionados. Insira as traduções para cada local. Envie o arquivo preenchido e as traduções serão aplicadas à sua mensagem.
+Selecione **Baixar modelo** para baixar um CSV contendo uma matriz dos seus IDs de tradução e locais selecionados.
 
 {% alert important %}
 Para evitar problemas de exibição com caracteres não ingleses, evite usar o Excel para o seu CSV de tradução.
 {% endalert %}
 
-![CSV com tags de tradução para título, texto da oferta, valor da oferta e CTA.]({% image_buster /assets/img/multi-language_support/csv_template_example.png %}){: style="max-width:50%;"}
+Ao preencher o modelo, traduza apenas o conteúdo de texto para cada local. Se tags HTML estiverem presentes no modelo baixado, deixe-as inalteradas e traduza apenas o texto dentro das tags.
+
+Por exemplo, se o modelo contém:
+
+```
+<p style="margin:0;margin-bottom:0">A charming bakery dedicated to crafting artisanal breads.</p>
+```
+
+Traduza apenas o texto `A charming bakery dedicated to crafting artisanal breads.` e mantenha as tags HTML `<p style="margin:0;margin-bottom:0">` e `</p>` como estão.
+
+Em seguida, envie o arquivo preenchido e as traduções serão aplicadas à sua mensagem.
+
+![CSV com tags de tradução para um título, texto da oferta, valor da oferta e CTA.]({% image_buster /assets/img/multi-language_support/csv_template_example.png %}){: style="max-width:50%;"}
 
 {% endtab %}
 {% tab Usar a API de tradução %}
@@ -199,7 +211,7 @@ As traduções salvas permanecem associadas ao Content Block. Quando o bloco é 
 
 ### Mensagens da direita para a esquerda {#right-to-left-messages}
 
-Ao preencher o arquivo de tradução para idiomas escritos da direita para a esquerda (como árabe), envolva a tradução com `span` para que seja formatada corretamente:
+Ao preencher o arquivo de tradução para idiomas escritos da direita para a esquerda (como árabe), envolva a tradução com `span` para que ela seja formatada corretamente:
 
 {% raw %}
 ```
@@ -227,7 +239,7 @@ As URLs usam dois caracteres especiais para controlar como isso funciona:
 
 ### Configurações de idioma e acessibilidade {#language-settings-and-accessibility}
 
-Comece com [Idioma de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) em [Acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) para contexto de WCAG, comportamento de canal e editor (incluindo landing pages) e configurações de **Acessibilidade** no nível da mensagem.
+Comece com [Idioma de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) em [Acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) para contexto WCAG, comportamento de canal e editor (incluindo landing pages) e configurações de **Acessibilidade** no nível da mensagem.
 
 Ao usar **mensagens em vários idiomas**, alinhe o idioma de acessibilidade com cada local para que os envios localizados declarem o idioma apropriado.
 
@@ -255,6 +267,17 @@ Ao usar tags de tradução, os seguintes limites se aplicam:
 - Cada texto padrão (o conteúdo entre as tags de tradução) pode ter até 2.000 caracteres.
 - As traduções por localidade podem ter até 409.600 bytes (aproximadamente 409,6&nbsp;KB).
 
+### Por que estou recebendo um erro ao baixar modelos de e-mail multilíngues? {#why-am-i-receiving-an-error-when-downloading-multi-language-email-templates}
+
+Se você encontrar erros ao baixar modelos de e-mail multilíngues, as tags de tradução podem estar envolvendo atributos HTML ou estilos CSS que entram em conflito com a forma como a Braze processa os corpos de e-mail.
+
+A Braze trata o corpo HTML e o corpo de texto simples como componentes separados da mesma mensagem. Quando as tags de tradução incluem referências `href` e estilos CSS, isso pode gerar tags conflitantes que impedem o download correto do modelo.
+
+Para resolver isso:
+- Exclua referências `href` e estilos CSS das tags de tradução.
+- Envolva apenas conteúdo de texto legível por humanos nas tags de tradução, conforme descrito em [Atributos e estrutura HTML](#html-attributes-and-structure).
+- Para URLs, siga as orientações em [Localizar URLs](#localize-urls).
+
 #### Posso fazer uma alteração no texto traduzido em uma das minhas localidades? {#can-i-make-a-change-to-the-translated-copy-in-one-of-my-locales}
 
 Sim. Primeiro, faça a edição no CSV e depois faça o upload do arquivo novamente para alterar o texto traduzido.
@@ -269,27 +292,27 @@ Não.
 
 #### Posso envolver mensagens HTML inteiras em uma tag de tradução? {#can-i-wrap-entire-html-messages-in-a-translation-tag}
 
-Não. Como prática recomendada, você deve envolver apenas texto legível ou conteúdo que precisa ser localizado. Isso ajuda a evitar problemas com formatação, links ou outros elementos que não são texto.
+Não. Como prática recomendada, você deve envolver apenas texto legível por humanos ou conteúdo que precisa ser localizado. Isso ajuda a evitar formatação quebrada, links ou outros elementos que não são texto.
 
-Além disso, considere envolver partes menores e semanticamente relacionadas do texto para criar traduções precisas e evitar limitações de performance ou tamanho.
+Além disso, considere envolver partes menores e semanticamente relacionadas do texto para criar traduções precisas e evitar limitações de desempenho ou tamanho.
 
 #### Posso fazer uma alteração no texto traduzido em uma das minhas localidades?
 
 Sim. Se estiver usando um CSV, primeiro faça a edição no arquivo e depois faça o upload novamente para alterar o texto traduzido. Se estiver usando a [API de tradução]({{site.baseurl}}/api/endpoints/translations), use os endpoints de atualização para fazer alterações.
 
-#### Quais validações ou verificações extras a Braze faz? {#what-validations-or-extra-checks-does-braze-do}
+#### Quais validações ou verificações adicionais a Braze realiza? {#what-validations-or-extra-checks-does-braze-do}
 
 | Cenário | Validação na Braze |
 | --- | --- |
-| Uma mensagem contém dois ou mais IDs de tradução correspondentes que mapeiam para textos diferentes. | Este arquivo de tradução não será baixado. |
-| Um arquivo de tradução está sem um ou mais IDs de tag de tradução. | Este arquivo de tradução não será enviado. |
-| Um arquivo de tradução contém localidades que não existem na mensagem. | Este arquivo de tradução não será enviado. |
-| As tags de tradução devem ser adicionadas a uma mensagem antes de baixar o modelo de tradução. | Este arquivo de tradução não será baixado. |
+| Uma mensagem contém dois ou mais IDs de tradução correspondentes que mapeiam para textos diferentes. | O download deste arquivo de tradução não será realizado. |
+| Um arquivo de tradução está sem um ou mais IDs de tag de tradução. | O upload deste arquivo de tradução não será realizado. |
+| Um arquivo de tradução contém localidades que não estão presentes na mensagem. | O upload deste arquivo de tradução não será realizado. |
+| As tags de tradução devem ser adicionadas a uma mensagem antes de baixar o modelo de tradução. | O download deste arquivo de tradução não será realizado. |
 | Tags de tradução encontradas no arquivo enviado estão ausentes na sua mensagem. | As traduções extras não serão salvas na mensagem. |
-| {% raw %}Uma mensagem contém uma ou mais tags Liquid com erro. Para abrir tags, use `{% translation your_id_here %}`, e feche tags de tradução com `{% endtranslation %}`.{% endraw %} | Este arquivo de tradução não será baixado. |
+| {% raw %}Uma mensagem contém uma ou mais tags Liquid quebradas. Para abrir tags, use `{% translation your_id_here %}`, e feche tags de tradução com `{% endtranslation %}`.{% endraw %} | O download deste arquivo de tradução não será realizado. |
 | Um arquivo de tradução contém texto padrão que não corresponde ao que está na mensagem. | As traduções são adicionadas, mas o texto original da mensagem não é atualizado. |
 | Uma ou mais localidades em uma mensagem foram excluídas nas configurações e não existem mais. | As traduções que já foram adicionadas continuam existindo na mensagem. Se forem excluídas da mensagem, as traduções serão perdidas. |
 | As tags de tradução contêm URLs completas ou URLs geradas por Liquid. | Tags de tradução contendo URLs são identificadas para o caso de ocorrerem problemas com links quebrados ou rastreamento de links. |
 | As tags de tradução incluem parâmetros de consulta. | Tags de tradução contendo parâmetros de consulta são identificadas para o caso de ocorrerem problemas com links quebrados ou rastreamento de links. |
 | As tags de tradução contêm atributos ou estruturas HTML. | Tags de tradução contendo atributos ou estruturas HTML são identificadas para o caso de ocorrerem problemas com estilos e formatação. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Quais validações ou verificações extras a Braze faz?" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Quais validações ou verificações adicionais a Braze realiza?" }

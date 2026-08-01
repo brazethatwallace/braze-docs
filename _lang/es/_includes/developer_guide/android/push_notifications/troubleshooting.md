@@ -171,7 +171,7 @@ Los usuarios han desinstalado la aplicación. Esto invalidará su token de notif
 
 La clave del servidor de Firebase Cloud Messaging proporcionada en el panel de Braze no es válida. El ID de remitente proporcionado debe coincidir con el indicado en el archivo `braze.xml` de tu aplicación. La clave del servidor y el ID del remitente se encuentran aquí, en tu consola de Firebase:
 
-![La plataforma Firebase, en "Configuración" y luego en "Mensajería en la nube", mostrará el ID de tu servidor y la clave del servidor.]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
+![La plataforma Firebase, en «Configuración» y luego en «Mensajería en la nube», mostrará el ID de tu servidor y la clave del servidor.]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
 
 ### Los clics push no se registran {#push-clicks-not-logged}
 

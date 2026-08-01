@@ -17,43 +17,47 @@ description: "중첩 고객 속성을 사용하여 Segments를 구축합니다: 
 - 중첩 날짜 값에 **Day of Year** 연산자와 **Time** 연산자를 언제 사용해야 하는지, 그리고 **다중 기준 세분화**가 배열 내 하나 이상의 오브젝트가 나열된 모든 기준을 충족할 때 사용자를 매칭하는 방식.
 - 오브젝트 또는 오브젝트 배열의 스키마를 생성하고, 대시보드에서 탐색한 후, 경로를 직접 입력하는 대신 경로 선택기를 사용하여 Segment(예: 잔액이 100 미만인 사용자)를 완성하는 방법.
 
-## 중첩 고객 속성으로 필터링하기 {#filter-by-nested-custom-attributes}
+## 중첩 커스텀 속성으로 필터링하기 {#filter-by-nested-custom-attributes}
 
-가장 많이 재생한 곡을 300회 이상 재생한 사용자를 타겟팅하기 위해 중첩 고객 속성을 기반으로 Segment를 만들어 보겠습니다.
+중첩 커스텀 속성을 기반으로 Segment를 만들어 가장 많이 재생한 곡을 300회 이상 재생한 사용자를 타겟팅해 보겠습니다.
 
-### 1단계: 필터 추가 {#step-1-add-the-filter}
+### 1단계: 필터 추가하기 {#step-1-add-the-filter}
 
-**Nested Custom Attributes** 필터를 선택하면 특정 중첩 고객 속성을 선택할 수 있는 드롭다운이 표시됩니다. 사용자의 가장 많이 재생한 곡에 대한 데이터를 포함하는 `most_played_song`을 선택하겠습니다.
+**중첩 커스텀 속성** 필터를 선택하면 특정 중첩 커스텀 속성을 선택할 수 있는 드롭다운이 표시됩니다. 사용자가 가장 많이 재생한 곡에 대한 데이터를 포함하는 `most_played_song`을 선택합니다.
 
-### 2단계: 등록정보 선택 {#step-2-select-the-property}
+### 2단계: 속성정보 선택하기 {#step-2-select-the-property}
 
-필터링할 중첩 고객 속성 내의 **등록정보**를 선택합니다. 사용자가 가장 많이 재생한 곡을 몇 번 재생했는지 추적하는 `play_analytics.count`를 선택하겠습니다.
+필터링할 중첩 커스텀 속성 내의 **속성정보**를 선택합니다. 사용자가 가장 많이 재생한 곡의 재생 횟수를 추적하는 `play_analytics.count`를 선택합니다.
 
-### 3단계: 비교 연산자 및 중첩 고객 속성 값 선택 {#step-3-select-a-comparison-and-nested-custom-attribute-value}
+### 3단계: 비교 연산자 및 중첩 커스텀 속성 값 선택하기 {#step-3-select-a-comparison-and-nested-custom-attribute-value}
 
-중첩 고객 속성으로 필터링할 때, 등록정보의 데이터 유형에 따라 사용할 수 있는 비교 연산자가 결정됩니다. 예를 들어, `play_analytics.count`는 숫자이므로 **숫자** 카테고리에서 비교 연산자를 선택할 수 있습니다.
+중첩 커스텀 속성으로 필터링할 때, 속성정보의 데이터 유형에 따라 사용할 수 있는 비교 연산자가 결정됩니다. 예를 들어, `play_analytics.count`는 숫자이므로 **숫자** 카테고리에서 비교 연산자를 선택할 수 있습니다.
 
-가장 많이 재생한 곡을 최소 300회 이상 재생한 사용자를 필터링하려면 **More than** 비교 연산자를 선택한 다음 값으로 "300"을 입력합니다.
+가장 많이 재생한 곡을 최소 300회 이상 재생한 사용자를 필터링하려면 **초과** 비교 연산자를 선택한 다음 값으로 "300"을 입력합니다.
 
-![중첩 고객 속성의 데이터 유형에 따라 연산자를 선택하는 사용자]({% image_buster /assets/img_archive/nca_comparator.png %})
+![중첩 커스텀 속성의 데이터 유형에 따라 연산자를 선택하는 사용자]({% image_buster /assets/img_archive/nca_comparator.png %})
 
-## 시간 데이터 유형으로 필터링하기 {#filter-for-time-data-types}
+## 시간 데이터 유형 필터링 {#filter-for-time-data-types}
 
-중첩 시간 커스텀 속성으로 필터링할 때, 날짜 값을 비교할 때 **Day of Year** 또는 **Time** 카테고리의 연산자를 선택하여 필터링할 수 있습니다.
+중첩 시간 커스텀 속성을 필터링할 때, 날짜 값을 비교하기 위해 **Day of Year** 또는 **Time** 카테고리의 연산자를 선택하여 필터링할 수 있습니다.
 
-**Day of Year** 카테고리의 연산자를 선택하면, 중첩 고객 속성 값의 전체 타임스탬프 대신 월과 일만 비교에 사용됩니다. **Time** 카테고리의 연산자를 선택하면 연도를 포함한 전체 타임스탬프를 비교합니다.
+**Day of Year** 카테고리의 연산자를 선택하면, 중첩 커스텀 속성 값의 전체 타임스탬프 대신 월과 일만 비교에 사용됩니다. **Time** 카테고리의 연산자를 선택하면 연도를 포함한 전체 타임스탬프를 비교합니다.
 
-## 다중 기준 세분화 사용하기 {#use-multi-criteria-segmentation}
+{% alert note %}
+일 및 주 단위를 지원하는 **Time** 연산자(예: **is more than**, **is less than**, **exactly**, **after**)를 사용할 때, Braze는 Segment를 저장할 때 값을 자동으로 주 단위로 변환합니다. 예를 들어, 91일은 13주로 변환됩니다. 이러한 필터에는 일 및 주 단위가 모두 지원됩니다.
+{% endalert %}
 
-**다중 기준 세분화**를 사용하여 단일 오브젝트 내에서 여러 기준에 일치하는 Segment를 만들 수 있습니다. 배열 내 하나 이상의 오브젝트가 지정된 모든 기준에 일치하면 해당 사용자가 Segment에 포함됩니다. 예를 들어, 키가 비어 있지 않고 숫자가 0보다 큰 경우에만 사용자가 이 Segment에 매칭됩니다.
+## 다중 기준 세분화 사용 {#use-multi-criteria-segmentation}
+
+**다중 기준 세분화**를 사용하여 단일 오브젝트 내에서 여러 기준에 일치하는 Segment를 만들 수 있습니다. 이 기능은 배열 내에 지정된 모든 기준과 일치하는 오브젝트가 하나 이상 있는 경우 해당 사용자를 Segment에 포함시킵니다. 예를 들어, 키가 비어 있지 않고 숫자가 0보다 큰 경우에만 사용자가 이 Segment에 일치합니다.
 
 ### Segment용 Liquid 복사 {#copy-liquid-for-segment}
 
-**Segment용 Liquid 복사** 기능을 사용하여 이 Segment에 대한 Liquid 코드를 생성하고 메시지에서 활용할 수도 있습니다. 예를 들어, 계정 오브젝트 배열이 있고 활성 과세 계정을 가진 고객을 타겟팅하는 Segment가 있다고 가정해 보겠습니다. 고객이 활성 과세 계정 중 하나와 연결된 계정 목표에 기여하도록 유도하려면, 이를 독려하는 메시지를 만들어야 합니다.
+**Segment용 Liquid 복사** 기능을 사용하여 이 Segment에 대한 Liquid 코드를 생성하고 메시지에서 활용할 수도 있습니다. 예를 들어, 계정 오브젝트 배열이 있고 활성 과세 계정을 가진 고객을 타겟팅하는 Segment가 있다고 가정해 보겠습니다. 고객이 활성 상태이면서 과세 대상인 계정과 연결된 계정 목표에 기여하도록 유도하려면 메시지를 만들어 넛지해야 합니다.
 
-![다중 기준 세분화 체크박스가 선택된 예시 Segment.]({% image_buster /assets/img_archive/nca_multi_criteria.png %})
+![다중 기준 세분화 체크박스가 선택된 Segment 예시.]({% image_buster /assets/img_archive/nca_multi_criteria.png %})
 
-**Segment용 Liquid 복사**를 선택하면, Braze가 활성이면서 과세 대상인 계정만 포함하는 오브젝트 배열을 반환하는 Liquid 코드를 자동으로 생성합니다.
+**Segment용 Liquid 복사**를 선택하면 Braze가 활성 상태이면서 과세 대상인 계정만 포함하는 오브젝트 배열을 반환하는 Liquid 코드를 자동으로 생성합니다.
 
 {% raw %}
 
@@ -75,7 +79,7 @@ Get to your {{segmented_nested_objects[0].goal}} goal faster, make a deposit usi
 
 {% endraw %}
 
-이렇게 하면 고객에게 다음과 같은 메시지가 전달됩니다: "Get to your retirement goal faster, make a deposit using our new fast deposit feature!"
+이 코드는 고객에게 다음과 같은 메시지를 반환합니다: "Get to your retirement goal faster, make a deposit using our new fast deposit feature!"
 
 ## 중첩 오브젝트 탐색기를 사용하여 스키마 생성하기 {#generate-schema}
 

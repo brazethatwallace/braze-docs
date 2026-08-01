@@ -32,13 +32,15 @@ guide_featured_list:
 ---
 
 
-## 대시보드 액세스 권한이 있는 사용자 목록을 내보내는 방법 {#how-to-export-a-list-of-users-with-dashboard-access}
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' subject='endpoints' %}
 
-이 워크플로를 사용하여 Braze 대시보드에 액세스할 수 있는 사용자를 감사할 수 있습니다.
+## 대시보드 접근 권한이 있는 사용자 목록을 내보내는 방법 {#how-to-export-a-list-of-users-with-dashboard-access}
+
+이 워크플로를 사용하여 Braze 대시보드에 접근 권한이 있는 사용자를 감사할 수 있습니다.
 
 1. **설정** > **관리자 설정** > **보안 설정** > **보안 이벤트 다운로드**에서 보안 이벤트 보고서를 다운로드합니다.
 2. 보고서에서 사용자 이메일을 추출합니다.
 3. 각 이메일에 대해 [GET: 이메일로 기존 대시보드 사용자 계정 검색]({{site.baseurl}}/api/endpoints/scim/get_search_existing_dashboard_user)을 사용하여 사용자 세부 정보를 조회합니다.
-4. 필요한 경우 반환된 리소스 `id`를 [GET: 리소스 ID로 기존 대시보드 사용자 계정 조회]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information)와 함께 사용하여 추가 사용자 세부 정보를 확인합니다.
+4. 필요한 경우, 반환된 리소스 `id`를 [GET: 기존 대시보드 사용자 계정 조회]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information)와 함께 사용하여 추가 사용자 세부 정보를 확인합니다.
 
 전체 SCIM 엔드포인트 목록은 [SCIM 엔드포인트]({{site.baseurl}}/api/endpoints/scim)를 참조하세요. 보고서 소스에 대한 자세한 내용은 [보안 이벤트 보고서 다운로드]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report)를 참조하세요.

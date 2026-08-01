@@ -1,0 +1,3 @@
+- すべての画像は5&nbsp;MB未満である必要があります。
+- PNG、JPEG、および[GIF]({{site.baseurl}}/developer_guide/in_app_messages/gifs?sdktab=android)のファイル形式のみ使用できます。
+- 画像サイズは500&nbsp;KBを推奨します。

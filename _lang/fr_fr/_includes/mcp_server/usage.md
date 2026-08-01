@@ -4,47 +4,47 @@
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
-Avant de pouvoir utiliser cette fonctionnalité, vous devez [configurer le serveur Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}.
+Avant de pouvoir utiliser cette fonctionnalité, vous devrez [configurer le serveur Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}.
 
 ## Bonnes pratiques {#best-practices}
 
 Lorsque vous utilisez le serveur Braze MCP via des outils de langage naturel, gardez ces conseils à l'esprit :
 
-- Confirmez l'espace de travail dans votre requête, surtout si vous avez accès à plusieurs espaces de travail.
-- Soyez précis sur les plages de dates et les indicateurs lorsque vous demandez des analyses.
+- Confirmez l'espace de travail dans votre prompt, surtout si vous avez accès à plusieurs espaces de travail.
+- Soyez précis concernant les plages de dates et les indicateurs lorsque vous demandez des analyses.
 - Demandez à l'agent de confirmer quels outils il a utilisés lors de la validation des résultats.
 - Comparez les recommandations à fort impact avec les données sources dans le tableau de bord de Braze.
 
 ## Exemples d'utilisation {#usage-examples}
 
-Après avoir [configuré le serveur Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}, vous pouvez interagir avec Braze en langage naturel. Voici quelques exemples pour vous aider à démarrer.
+Après avoir [configuré le serveur Braze MCP]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}, vous pouvez interagir avec Braze en langage naturel. Voici quelques exemples pour commencer.
 
-### À quels espaces de travail ai-je accès ? {#which-workspaces-can-i-access}
+### Quels espaces de travail puis-je consulter ? {#which-workspaces-can-i-access}
 
 {% tabs %}
-{% tab Exemple de requête %}
+{% tab Exemple de prompt %}
 
 `Show my available Braze workspaces and tell me which one to use for production campaign analytics.`
 {% endtab %}
 {% tab Exemple de réponse %}
 
-J'ai appelé `get_workspaces` et trouvé ces espaces de travail :
+J'ai appelé `get_workspaces` et trouvé les espaces de travail suivants :
 
 - `Marketing - Production` (`app_group_id` : `YOUR-APP-GROUP-ID-1`)
 - `Marketing - Staging` (`app_group_id` : `YOUR-APP-GROUP-ID-2`)
 
-Utilisez `Marketing - Production` pour les requêtes d'analyse de campagnes en production.
+Utilisez `Marketing - Production` pour les prompts d'analyse de Campaigns en production.
 {% endtab %}
 {% endtabs %}
 
-Pour plus d'informations, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#workspaces){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#workspaces){% endif %}.
+Pour en savoir plus, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#workspaces){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#workspaces){% endif %}.
 
-### Afficher les performances des campagnes de la semaine dernière {#show-me-campaign-performance-for-last-week}
+### Afficher les performances des Campaigns de la semaine dernière {#show-me-campaign-performance-for-last-week}
 
 {% tabs %}
-{% tab Exemple de requête %}
+{% tab Exemple de prompt %}
 
 `In the Marketing - Production workspace, show campaign performance for the last seven days, including sends, opens, clicks, and top performers.`
 {% endtab %}
@@ -57,18 +57,18 @@ Résumé :
 - Total d'envois : `YOUR-TEST-SENDS`
 - Total d'ouvertures : `YOUR-TEST-OPENS`
 - Total de clics : `YOUR-TEST-CLICKS`
-- Campagne avec le plus d'ouvertures : `YOUR-TEST-CAMPAIGN-NAME`
+- Meilleure Campaign par ouvertures : `YOUR-TEST-CAMPAIGN-NAME`
 
-Je peux détailler ces résultats par campagne, canal ou jour si nécessaire.
+Je peux détailler ces résultats par Campaign, par canal ou par jour si nécessaire.
 {% endtab %}
 {% endtabs %}
 
-Pour plus d'informations, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#campaigns){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#campaigns){% endif %}.
+Pour en savoir plus, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#campaigns){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#campaigns){% endif %}.
 
 ### Créer un modèle d'e-mail {#create-an-email-template}
 
 {% tabs %}
-{% tab Exemple de requête %}
+{% tab Exemple de prompt %}
 
 `In the Marketing - Production workspace, create an onboarding email template named "YOUR-TEST-TEMPLATE-NAME".`
 {% endtab %}
@@ -82,16 +82,16 @@ J'ai utilisé `create_email_template` et créé votre modèle.
 {% endtab %}
 {% endtabs %}
 
-Pour plus d'informations, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#templates){% endif %}.
+Pour en savoir plus, consultez [Fonctions API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#templates){% endif %}.
 
-## Exemples de workflows {#example-workflows}
+## Exemples de flux de travail {#example-workflows}
 
-Ces exemples combinent plusieurs outils pour accomplir une tâche de bout en bout.
+Ces exemples combinent plusieurs outils pour accomplir une tâche du début à la fin.
 
 ### Rapport sur plusieurs espaces de travail {#report-across-multiple-workspaces}
 
 {% tabs %}
-{% tab Exemple de requête %}
+{% tab Exemple de prompt %}
 
 `Get me an analytics report for the past week from my US Prod workspace and my EU Prod workspace, and compare total sends and open rates.`
 {% endtab %}
@@ -102,14 +102,14 @@ J'ai appelé `get_workspaces` pour confirmer l'accès, puis exécuté `get_campa
 - `US Prod` : `YOUR-TEST-SENDS` envois, `YOUR-TEST-OPEN-RATE` taux d'ouverture
 - `EU Prod` : `YOUR-TEST-SENDS` envois, `YOUR-TEST-OPEN-RATE` taux d'ouverture
 
-`US Prod` a envoyé plus de messages cette semaine, tandis que `EU Prod` a obtenu le meilleur taux d'ouverture. Je peux détailler chaque espace de travail par campagne ou par canal.
+`US Prod` a envoyé plus de messages cette semaine, tandis que `EU Prod` a obtenu le meilleur taux d'ouverture. Je peux détailler chaque espace de travail par Campaign ou par canal.
 {% endtab %}
 {% endtabs %}
 
-### Copier des modèles du staging vers la production {#copy-templates-from-staging-to-production}
+### Copier des modèles de staging vers la production {#copy-templates-from-staging-to-production}
 
 {% tabs %}
-{% tab Exemple de requête %}
+{% tab Exemple de prompt %}
 
 `Copy the email templates from my Staging workspace to my Production workspace.`
 {% endtab %}
@@ -120,14 +120,14 @@ J'ai utilisé `get_email_templates` et `get_email_template_info` pour lire les m
 - `YOUR-TEST-TEMPLATE-NAME-1` : créé dans `Production` (`YOUR-TEST-TEMPLATE-ID-1`)
 - `YOUR-TEST-TEMPLATE-NAME-2` : créé dans `Production` (`YOUR-TEST-TEMPLATE-ID-2`)
 
-J'ai ignoré les modèles de l'éditeur par glisser-déposer, que `get_email_template_info` ne prend pas en charge. N'hésitez pas à me demander de vérifier les modèles copiés.
+J'ai ignoré les modèles de l'éditeur par glisser-déposer, que `get_email_template_info` ne prend pas en charge. Dites-moi si vous souhaitez que je passe en revue les modèles copiés.
 {% endtab %}
 {% endtabs %}
 
-### Résumé hebdomadaire de la santé des campagnes {#summarize-weekly-campaign-health}
+### Résumé hebdomadaire de la santé des Campaigns {#summarize-weekly-campaign-health}
 
 {% tabs %}
-{% tab Exemple de requête %}
+{% tab Exemple de prompt %}
 
 `Give me a weekly campaign health summary for the Production workspace.`
 {% endtab %}
@@ -135,12 +135,12 @@ J'ai ignoré les modèles de l'éditeur par glisser-déposer, que `get_email_tem
 
 J'ai utilisé `get_campaign_list` et `get_campaign_dataseries` pour récupérer les sept derniers jours d'activité dans `Production`.
 
-- Total d'envois : `YOUR-TEST-SENDS`
+- Total des envois : `YOUR-TEST-SENDS`
 - Taux d'ouverture : `YOUR-TEST-OPEN-RATE`
 - Taux de clics : `YOUR-TEST-CLICK-RATE`
-- Campagne avec le plus de conversions : `YOUR-TEST-CAMPAIGN-NAME`
+- Campaign avec le plus de conversions : `YOUR-TEST-CAMPAIGN-NAME`
 
-Les envois ont augmenté d'une semaine à l'autre. Je peux ajouter une ventilation par canal ou signaler les campagnes dont l'engagement est en baisse.
+Les envois ont augmenté d'une semaine à l'autre. Je peux ajouter une ventilation par canal ou signaler les Campaigns dont l'engagement est en baisse.
 {% endtab %}
 {% endtabs %}
 
@@ -148,15 +148,15 @@ Les envois ont augmenté d'une semaine à l'autre. Je peux ajouter une ventilati
 
 Lorsque vous envoyez une requête, plusieurs étapes se déroulent en arrière-plan :
 
-1. **Vous formulez votre requête dans votre client.** Vous saisissez une demande en langage naturel, par exemple pour obtenir les performances des campagnes de la semaine dernière.
-2. **Le modèle du client sélectionne les outils.** Le modèle d'IA de votre client interprète votre demande et la traduit en un ou plusieurs appels d'outils Braze, tels que `get_campaign_list` et `get_campaign_dataseries`.
+1. **Vous formulez votre demande dans le client.** Vous saisissez une requête en langage naturel, par exemple en demandant les performances des Campaigns de la semaine dernière.
+2. **Le modèle du client sélectionne les outils.** Le modèle d'IA de votre client interprète votre requête et la traduit en un ou plusieurs appels d'outils Braze, tels que `get_campaign_list` et `get_campaign_dataseries`.
 3. **Braze exécute l'appel d'outil.** Le serveur MCP distant reçoit chaque appel d'outil via votre session OAuth authentifiée, applique l'espace de travail que vous avez spécifié et l'exécute sur l'endpoint REST API de Braze correspondant.
 4. **Braze renvoie le résultat.** Le serveur renvoie les données à votre client, qui les met en forme et vous les présente.
 
 Votre accès est l'intersection de deux éléments :
 
 - **Les scopes accordés lors de l'autorisation de la connexion**, tels que `mcp:tools`.
-- **Vos propres permissions utilisateur dans le tableau de bord.** Si vous ne pouvez pas consulter les campagnes dans le tableau de bord, votre agent ne le peut pas non plus. Si vous pouvez créer des modèles d'e-mail, votre agent le peut aussi. Un agent ne peut jamais dépasser votre propre niveau d'accès.
+- **Vos propres permissions d'utilisateur du tableau de bord.** Si vous ne pouvez pas consulter les Campaigns dans le tableau de bord, votre agent ne le peut pas non plus. Si vous pouvez créer des modèles d'e-mail, votre agent le peut aussi. Un agent ne peut jamais dépasser votre propre niveau d'accès.
 
 Le contexte de l'espace de travail est transmis avec chaque requête plutôt que stocké dans un fichier de configuration local, de sorte qu'une seule connexion peut fonctionner sur tous les espaces de travail auxquels vous êtes autorisé à accéder.
 

@@ -41,6 +41,10 @@ Nachdem Sie den Standard-Onboarding-Pfad ausgewählt haben, müssen Sie aus eine
     - Nur identifizierte Nutzer:innen tracken
     - Startet das Tracking von Daten, wenn sich Besucher:innen der Website registrieren oder bei ihren Konten anmelden
 
+{% alert note %}
+Neue Kund:innen werden während der Einrichtung mit den neuesten Versionen des Braze Web SDK und des JavaScript SDK bereitgestellt. Bestehende Kund:innen können ihre aktuelle SDK-Version in den Integrationseinstellungen einsehen, werden benachrichtigt, wenn eine neuere Version verfügbar ist, und können Upgrades selbstständig über die Integrationseinstellungen durchführen.
+{% endalert %}
+
 ## 3. Schritt: Konfigurieren Sie Ihre Shopify-Daten {#step-3-configure-your-shopify-data}
 
 ### Standard-Dateneinrichtung {#standard-data-setup}
@@ -163,7 +167,7 @@ Nachdem Sie das Metafeld erstellt haben, füllen Sie es für Ihre Kund:innen aus
 
 Der Shopify-Webhook `customers/create` kann ausgelöst werden, bevor das Metafeld `braze.external_id` in das Nutzerprofil geschrieben wurde. In diesem Fall:
 
-1. Wenn das Metafeld fehlt, ruft Braze den konfigurierten Endpunkt ([Schritt 4.2](#step-42-create-an-endpoint-to-retrieve-your-external-id)) auf, um die externe ID abzurufen.
+1. Wenn das Metafeld fehlt, ruft Braze den konfigurierten Endpunkt (Schritt 4.2) auf, um die externe ID abzurufen.
 2. Wenn auch dieser Aufruf fehlschlägt oder ein Timeout auftritt, erstellt Braze ein temporäres Nutzerprofil mit der Shopify-Kund:innen-ID als externe ID.
 3. Bei jedem nachfolgenden Event, bei dem das Metafeld vorhanden ist (z. B. `customers/update` oder `orders/create` für ein `ecommerce.order_placed`-Event), erkennt Braze automatisch die Abweichung und führt das temporäre Profil mit der korrekten externen ID zusammen.
 

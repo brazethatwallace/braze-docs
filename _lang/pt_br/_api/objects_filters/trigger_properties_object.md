@@ -22,6 +22,8 @@ O objeto `trigger_properties` e a sintaxe {% raw %}`api_trigger_properties.${pro
 
 ## Corpo do objeto {#object-body}
 
+O objeto `trigger_properties` suporta strings, números, booleanos, datas, objetos e arrays como tipos de dados.
+
 ```json
 {
   "trigger_properties" : {
@@ -39,4 +41,11 @@ O objeto `trigger_properties` e a sintaxe {% raw %}`api_trigger_properties.${pro
 }
 ```
 
+## Exemplos de modelos Liquid {#liquid-templating-examples}
 
+Faça referência às propriedades de disparo nos seus modelos de mensagem usando o namespace `api_trigger_properties`:
+
+- Strings: {% raw %}`{{api_trigger_properties.${product_name}}}`{% endraw %} retorna `"shoes"`
+- Números: {% raw %}`{{api_trigger_properties.${product_price}}}`{% endraw %} retorna `79.99`
+- Objetos aninhados: {% raw %}`{{api_trigger_properties.${details}.${color}}}`{% endraw %} retorna `"red"`
+- Elementos de array: {% raw %}`{{api_trigger_properties.${related_skus}[0]}}`{% endraw %} retorna `"123"`

@@ -25,7 +25,7 @@ Wählen Sie den Editor aus, den Sie verwenden:
 {% sdktab email %}
 ## E-Mail-Editor-Blöcke {#email-editor-blocks}
 
-Editor-Blöcke befinden sich im Bereich **Inhalt** für E-Mail-Nachrichten. Ziehen Sie einen Block in eine Spalte im **Drag-and-Drop-Editor**; er passt sich automatisch an die Spaltenbreite an.
+Editor-Blöcke befinden sich im Bereich **Content** für E-Mail-Nachrichten. Ziehen Sie einen Block in eine Spalte im **Drag-and-Drop-Editor**; er passt sich automatisch an die Spaltenbreite an.
 
 Weitere Informationen zum Erstellen von E-Mails im **Drag-and-Drop-Editor** finden Sie unter [E-Mail per Drag-and-Drop erstellen]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) und <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Weitere Anpassungen</a> in diesem Artikel.
 
@@ -33,7 +33,7 @@ Weitere Informationen zum Erstellen von E-Mails im **Drag-and-Drop-Editor** find
 Sie können auch [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes) zu jeder URL innerhalb der Editor-Blöcke `Image`, `Button` oder `Text` hinzufügen.
 {% endalert %}
 
-### Title
+### Title {#title}
 
 Fügt Text für Überschriften innerhalb der E-Mail hinzu.
 
@@ -51,7 +51,7 @@ Fügt Text für Überschriften innerhalb der E-Mail hinzu.
 | Text direction | Standard ist links nach rechts, kann aber auf [rechts nach links]({{site.baseurl}}/right_to_left_messages) geändert werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
 
-### Paragraph
+### Paragraph {#paragraph}
 
 Gibt Text in die Nachricht ein. Eine Symbolleiste hilft bei der Schrift- und Textbearbeitung.
 
@@ -69,7 +69,7 @@ Gibt Text in die Nachricht ein. Eine Symbolleiste hilft bei der Schrift- und Tex
 | Text direction | Standard ist links nach rechts, kann aber auf [rechts nach links]({{site.baseurl}}/right_to_left_messages) geändert werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
 
-### List
+### List {#list}
 
 Fügt eine Aufzählungsliste hinzu.
 
@@ -91,7 +91,7 @@ Fügt eine Aufzählungsliste hinzu.
 | Text direction | Standard ist links nach rechts, kann aber auf [rechts nach links]({{site.baseurl}}/right_to_left_messages) geändert werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
 
-### Button
+### Button {#button}
 
 Fügt einen Standard-Button hinzu. Über die Eigenschaften können Sie das Styling bearbeiten und das Linkverhalten festlegen.
 
@@ -112,7 +112,7 @@ Fügt einen Standard-Button hinzu. Über die Eigenschaften können Sie das Styli
 | Message | Für den Linktyp **Send SMS**: Legt den Inhalt fest, der in einem SMS-Entwurf vorausgefüllt wird, wenn Nutzer:innen den Button auswählen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
-### Divider
+### Divider {#divider}
 
 Fügt eine durchgezogene, gepunktete oder gestrichelte Linie ein, um beim Abstand zu helfen.
 
@@ -124,7 +124,7 @@ Fügt eine durchgezogene, gepunktete oder gestrichelte Linie ein, um beim Abstan
 | Align | Verschiebt die Linie nach links, zentriert oder rechts. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
 
-### Spacer
+### Spacer {#spacer}
 
 Fügt Abstand oder Padding zwischen anderen Blöcken hinzu.
 
@@ -133,7 +133,7 @@ Fügt Abstand oder Padding zwischen anderen Blöcken hinzu.
 | Height | Passt die Höhe des Abstandshalter-Blocks an. Der Standardwert beträgt 60 px. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Spacer" }
 
-### Image
+### Image {#image}
 
 Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) ein. Für dynamische Bilder (Bilder mit Liquid oder Connected Content) müssen Sie ein Fallback-Bild festlegen, um die automatischen Breiteneinstellungen zu verwenden. Bildspezifikationen finden Sie unter [E-Mail-Bildspezifikationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications#email).
 
@@ -170,7 +170,7 @@ Um zu verhindern, dass der Download-Button bei größeren Bildern erscheint, kö
 
 Das Hinzufügen dieses Links verhindert, dass Gmail den Download-Button anzeigt, ohne die Nutzererfahrung zu beeinträchtigen.
 
-### Video
+### Video {#video}
 
 Erstellt einen Link zu Videoinhalten. Nur YouTube und Vimeo werden unterstützt.
 
@@ -187,7 +187,7 @@ Erstellt einen Link zu Videoinhalten. Nur YouTube und Vimeo werden unterstützt.
 Videos, die auf Vimeo gehostet werden, funktionieren nur, wenn sie auf öffentlich gesetzt sind. Alle anderen Sicherheitseinstellungen in Vimeo (z. B. „Von Vimeo.com ausblenden“) erzeugen ein anderes Linkformat, das von diesem Content Block nicht unterstützt wird. Diese Arten von Links werden vom Builder verändert, was Braze daran hindert, ein Vorschaubild zu generieren.
 {% endalert %}
 
-### Social
+### Social {#social}
 
 Fügt Social-Media-Plattform-Icons ein. Sie können benutzerdefinierte Bilder für markenspezifische Icons hochladen.
 
@@ -199,7 +199,7 @@ Fügt Social-Media-Plattform-Icons ein. Sie können benutzerdefinierte Bilder f�
 | Icon spacing | Bestimmt den Abstand zwischen den einzelnen Social-Icons. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Social" }
 
-### Icons
+### Icons {#icons}
 
 Fügt ein Icon ein. Sie können benutzerdefinierte Bilder hochladen. Braze verwendet ein übergroßes Platzhalter-Icon, bis Sie ein Bild hochladen.
 
@@ -226,7 +226,7 @@ Fügt rohes HTML ein. Empfohlen für [Liquid]({{site.baseurl}}/liquid), wie Conn
 | HTML | Fügen Sie rohes HTML hinzu oder bearbeiten Sie es, einschließlich [Liquid]({{site.baseurl}}/liquid) für Personalisierung oder bedingte Logik. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
-### Menu
+### Menu {#menu}
 
 Erstellt ein flexibles Menü für die Nachricht, die Sie gestalten.
 
@@ -246,7 +246,7 @@ Erstellt ein flexibles Menü für die Nachricht, die Sie gestalten.
 | All sides | Legt eine einheitliche Padding-Zahl fest, wenn das Elementpadding deaktiviert ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Menu" }
 
-### Product
+### Product {#product}
 
 Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks), entweder als statische Artikel aus einer Katalogauswahl (bis zu 12) oder als dynamische Produkte, die durch einen [Canvas-E-Commerce-Trigger]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases) gesteuert werden (bis zu 24).
 
@@ -272,12 +272,12 @@ Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/mes
 
 Sie können Ihre E-Mail mithilfe von Liquid oder Connected Content personalisieren.
 
-- **Liquid:** Wählen Sie unter **Content** > **Personalization** ein Attribut aus, kopieren Sie das Snippet und fügen Sie es in einen Title-, Paragraph- oder List-Block (einfaches Liquid) oder HTML-Block (erweitertes Liquid) ein. Im Allgemeinen können Sie einfaches Liquid in Title-, Paragraph- und List-Blöcken verwenden, wir empfehlen jedoch HTML-Blöcke für umfangreichere Logik, um Layoutprobleme zu vermeiden. Beachten Sie, dass Liquid in Image-Blöcken oder in Button-URL-Feldern nicht unterstützt wird.
+- **Liquid:** Wählen Sie unter **Content** > **Personalization** ein Attribut aus, kopieren Sie das Snippet und fügen Sie es in einen HTML-Block ein. Einfache Liquid-Snippets funktionieren zwar möglicherweise in Title-, Paragraph- und List-Blöcken, aber die Platzierung von Liquid in diesen Blöcken kann zu unerwartetem Verhalten und Layoutproblemen führen. Um Probleme zu vermeiden, verwenden Sie HTML-Blöcke für jegliche Liquid-Logik. Beachten Sie, dass Liquid in Image-Blöcken oder in Button-URL-Feldern nicht unterstützt wird.
 - **[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content):** Fügen Sie einen **HTML**-Block hinzu und platzieren Sie Ihren {% raw %}`{% connected_content %}`{% endraw %}-Aufruf dort.
 
 {% endsdktab %}
 
-{% sdktab In-App Messages %}
+{% sdktab in-app messages %}
 ## In-App-Nachrichten-Editor-Blöcke {#in-app-message-editor-blocks}
 
 Editor-Blöcke befinden sich im Bereich **Build** für In-App-Nachrichten. Ziehen Sie einen Block in eine Spalte; er passt sich automatisch an die Spaltenbreite an. Wählen Sie einen Block aus, um seine Einstellungen im rechten Seitenpanel zu bearbeiten.
@@ -320,7 +320,7 @@ Bildspezifikationen finden Sie in unseren [In-App-Nachrichten-Bildspezifikatione
 
 {% multi_lang_include drag_and_drop/editor_block_properties/image_actions.md %}
 
-### Link
+### Link {#link}
 
 Fügt einen Hyperlink ein, auf den Nutzer:innen klicken können, um zu einer bestimmten URL zu navigieren. Kann in Text eingebettet oder eigenständig sein.
 
@@ -343,7 +343,7 @@ Fügt benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen 
 | Eigenschaft | Beschreibung |
 | --- | --- |
 | Custom code | Ermöglicht das Hinzufügen, Bearbeiten oder Löschen von HTML, CSS und JavaScript für eine In-App-Nachricht. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Benutzerdefinierter Code" }
 
 ### Telefonnummernerfassung {#phone-capture}
 
@@ -363,7 +363,7 @@ Fügt ein Formularfeld ein, das Standardattribute (wie Vor- und Nachname) oder e
 
 {% multi_lang_include drag_and_drop/editor_block_properties/short_text_properties.md %}
 
-### Dropdown
+### Dropdown {#dropdown}
 
 Fügt ein Dropdown mit einer vordefinierten Liste von Elementen ein, aus denen Nutzer:innen eines auswählen können. Sie können beliebige angepasste Attribut-Strings zur Liste hinzufügen.
 
@@ -399,7 +399,7 @@ Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content 
 
 {% endsdktab %}
 
-{% sdktab Landing-Pages %}
+{% sdktab landing pages %}
 ## Landing-Page-Editor-Blöcke {#landing-page-editor-blocks}
 
 Editor-Blöcke für Landing-Pages befinden sich im Bereich **Build** des **Drag-and-Drop-Editors** unter **Rows** und Blockkategorien. Ziehen Sie einen Block in eine Zeilenspalte; er passt sich automatisch an die Spaltenbreite an. Wählen Sie einen Block aus, um seine Einstellungen im rechten Eigenschaftenpanel zu bearbeiten.
@@ -467,10 +467,10 @@ Fügt benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen 
 | Eigenschaft | Beschreibung |
 | --- | --- |
 | Custom code | Ermöglicht das Hinzufügen, Bearbeiten oder Löschen von HTML, CSS und JavaScript. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Benutzerdefinierter Code" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
-### Countdown-Timer
+### Countdown-Timer {#countdown-timer}
 
 Zeigt einen Countdown bis zu einem von Ihnen festgelegten Datum und Uhrzeit an. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
 
@@ -531,7 +531,7 @@ Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content 
 
 {% endsdktab %}
 
-{% sdktab Banner %}
+{% sdktab banners %}
 ## Banner-Editor-Blöcke {#banner-editor-blocks}
 
 Ziehen Sie im Banner-Composer Zeilen und Blöcke aus dem Bereich **Build** in die Arbeitsfläche, um Ihre Nachricht zu gestalten. Wählen Sie **Styles**, um seitenweites Styling anzupassen, oder wählen Sie einen Block oder eine Zeile aus, um deren Eigenschaften im Seitenpanel zu bearbeiten.
@@ -593,7 +593,7 @@ Fügt benutzerdefiniertes HTML für erweiterte Layouts oder eingebettete Inhalte
 | Eigenschaft | Beschreibung |
 | --- | --- |
 | Custom code | Fügen Sie HTML (und zugehörige Assets) für das Banner hinzu oder bearbeiten Sie es. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Benutzerdefinierter Code" }
 
 ### Telefonnummernerfassung
 
@@ -626,7 +626,7 @@ Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content 
 
 {% endsdktab %}
 
-{% sdktab Präferenzzentrum %}
+{% sdktab preference center %}
 ## Präferenzzentrum-Editor-Blöcke {#preference-center-editor-blocks}
 
 Ziehen Sie Blöcke aus dem Bereich **Build** in eine Zeile im Drag-and-Drop-Präferenzzentrum-Editor. Jeder Block hat eigene Einstellungen; das rechte Seitenpanel wechselt zu den Eigenschaften oder dem Styling des ausgewählten Elements.

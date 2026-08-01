@@ -14,12 +14,12 @@ page_order: 1
 Verwenden Sie KI-Artikelempfehlungen, um die beliebtesten Produkte zu berechnen oder personalisierte KI-Empfehlungen für einen bestimmten [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs) zu erstellen. Nachdem Sie Ihre Empfehlung erstellt haben, können Sie Personalisierung nutzen, um diese Produkte in Ihre Nachrichten einzufügen.
 
 {% alert tip %}
-[KI-personalisierte Empfehlungen](#recommendation-types) funktionieren am besten mit mindestens einigen Hundert Katalogartikeln, höchstens 100.000 Katalogartikeln und in der Regel mindestens 30.000 Nutzer:innen mit Kauf- oder Interaktionsdaten. Dies ist nur ein grober Richtwert und kann variieren. Die anderen Empfehlungstypen können mit weniger Daten arbeiten, auch wenn **Beliebteste** als Fallback verwendet wird.
+[KI-Personalisierte Empfehlungen](#recommendation-types) funktionieren am besten mit mindestens einigen Hundert Katalogartikeln, höchstens 100.000 Katalogartikeln und in der Regel mindestens 30.000 Nutzer:innen mit Kauf- oder Interaktionsdaten. Dies ist nur ein grober Richtwert und kann variieren. Die anderen Empfehlungstypen können mit weniger Daten arbeiten, auch wenn **Beliebteste** als Fallback verwendet wird.
 {% endalert %}
 
 {% multi_lang_include brazeai/recommendations/ai.md section="Plan-specific features" %}
 
-## Erstellen einer KI-Artikelempfehlung {#creating-an-ai-item-recommendation}
+## KI-Artikelempfehlung erstellen {#creating-an-ai-item-recommendation}
 
 ### Voraussetzungen {#prerequisites}
 
@@ -39,7 +39,7 @@ Sie können eine KI-Artikelempfehlung von zwei Stellen im Dashboard aus erstelle
 {% endtab %}
 
 {% tab Über einen Katalog %}
-Sie können eine Empfehlung auch direkt aus einem einzelnen Katalog heraus erstellen. Wählen Sie Ihren Katalog auf der Seite **Catalogs** aus und wählen Sie dann **Create Recommendation**.
+Sie können eine Empfehlung auch direkt aus einem einzelnen Katalog heraus erstellen. Wählen Sie Ihren Katalog auf der Seite **Catalogs** aus und klicken Sie dann auf **Create Recommendation**.
 {% endtab %}
 {% endtabs %}
 
@@ -51,21 +51,21 @@ Geben Sie Ihrer Empfehlung einen Namen und eine optionale Beschreibung.
 
 ### Schritt 3: Empfehlung definieren {#recommendation-type}
 
-Wählen Sie einen Empfehlungstyp aus. Jeder Typ verwendet die Artikelinteraktionsdaten der letzten sechs Monate, wie z. B. Kauf-, Bestellungs- oder angepasste Event-Daten. Ausführlichere Informationen und Anwendungsfälle für jeden Typ finden Sie unter [Typen und Anwendungsfälle]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
+Wählen Sie einen Empfehlungstyp aus. Jeder Typ verwendet die Artikelinteraktionsdaten der letzten sechs Monate, wie z. B. Käufe, aufgegebene Bestellungen oder angepasste Event-Daten. Ausführlichere Informationen und Anwendungsfälle für jeden Typ finden Sie unter [Typen und Anwendungsfälle]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
 
 {% alert tip %}
-Bei Verwendung von **Neueste** oder **KI-Personalisiert** erhalten Nutzer:innen mit unzureichenden Daten für individualisierte Empfehlungen als Fallback **Beliebteste** Artikel. Der Fallback **Beliebteste** gibt nur Artikel zurück, die im verknüpften Katalog vorhanden sind.<br><br>Für **KI-Personalisiert**-Empfehlungen können Sie die **Personalisierungsrate** auf der Seite **Analytics** einsehen, um zu erfahren, welcher Prozentsatz der Nutzer:innen, die das konfigurierte Event in den letzten 24 Monaten ausgeführt haben, personalisierte Empfehlungen in ihrem Profil gespeichert hat. Für **Neueste**-Empfehlungen zeigt die Seite **Analytics** den Anteil der Nutzer:innen, die **Neueste**-Empfehlungen erhalten, im Vergleich zum Fallback **Beliebteste**.
+Bei Verwendung von **Neueste** oder **KI-Personalisiert** erhalten Nutzer:innen mit unzureichenden Daten für individualisierte Empfehlungen als Fallback die **Beliebtesten** Artikel. Der Fallback **Beliebteste** gibt nur Artikel zurück, die im verknüpften Katalog vorhanden sind.<br><br>Für **KI-Personalisiert**-Empfehlungen können Sie auf der Seite **Analytics** die **Personalisierungsrate** einsehen, um zu erfahren, welcher Prozentsatz der Nutzer:innen, die das konfigurierte Event in den letzten 24 Monaten ausgeführt haben, personalisierte Empfehlungen in ihrem Profil gespeichert hat. Für **Neueste**-Empfehlungen zeigt die Seite **Analytics** den Anteil der Nutzer:innen, die **Neueste**-Empfehlungen erhalten, im Vergleich zum Fallback **Beliebteste**.
 {% endalert %}
 
 #### Schritt 3.1: Frühere Käufe oder Interaktionen ausschließen (optional) {#step-31-exclude-prior-purchases-or-interactions-optional}
 
-Um zu vermeiden, dass Artikel vorgeschlagen werden, die ein:e Nutzer:in bereits gekauft oder mit denen er/sie bereits interagiert hat, wählen Sie **Do not recommend items users have previously interacted with**. Diese Option ist nur verfügbar, wenn der Empfehlungs-**Typ** auf **KI-Personalisiert** eingestellt ist.
+Um zu vermeiden, dass Artikel vorgeschlagen werden, die Nutzer:innen bereits gekauft oder mit denen sie bereits interagiert haben, wählen Sie **Do not recommend items users have previously interacted with**. Diese Option ist nur verfügbar, wenn der Empfehlungs-**Typ** auf **KI-Personalisiert** eingestellt ist.
 
-![Schritt „Empfehlung definieren“ mit „KI-Personalisiert“ als Typ und der ausgewählten Option „Keine Artikel empfehlen, mit denen Nutzer:innen zuvor interagiert haben“.]({% image_buster /assets/img/item_recs_2-3.png %})
+![Schritt „Empfehlung definieren“ mit „KI-Personalisiert“ als Typ und der ausgewählten Option „Keine Artikel empfehlen, mit denen Nutzer:innen bereits interagiert haben“.]({% image_buster /assets/img/item_recs_2-3.png %})
 
-Diese Einstellung verhindert, dass Nachrichten Artikel wiederverwenden, die ein:e Nutzer:in bereits gekauft oder mit denen er/sie interagiert hat, sofern die Empfehlung kürzlich aktualisiert wurde. Artikel, die zwischen Empfehlungsaktualisierungen gekauft oder mit denen interagiert wurde, können weiterhin erscheinen. Bei der kostenlosen Version der Artikelempfehlungen erfolgen Aktualisierungen wöchentlich. Bei der Pro-Version der KI-Artikelempfehlungen erfolgen Aktualisierungen alle 24 Stunden.
+Diese Einstellung verhindert, dass Nachrichten Artikel wiederverwenden, die Nutzer:innen bereits gekauft oder mit denen sie interagiert haben, sofern die Empfehlung kürzlich aktualisiert wurde. Artikel, die zwischen Empfehlungsaktualisierungen gekauft oder mit denen interagiert wurde, können weiterhin erscheinen. Bei der kostenlosen Version der Artikelempfehlungen erfolgen Aktualisierungen wöchentlich. Bei der Pro-Version der KI-Artikelempfehlungen erfolgen Aktualisierungen alle 24 Stunden.
 
-Wenn beispielsweise bei Verwendung der Pro-Version der KI-Artikelempfehlungen ein:e Nutzer:in etwas kauft und dann innerhalb von 30 Minuten eine Marketing-E-Mail erhält, ist der gerade gekaufte Artikel möglicherweise nicht rechtzeitig aus der E-Mail ausgeschlossen. Nachrichten, die nach 24 Stunden gesendet werden, enthalten diesen Artikel jedoch nicht mehr.
+Wenn Sie beispielsweise die Pro-Version der KI-Artikelempfehlungen verwenden und Nutzer:innen etwas kaufen und dann innerhalb von 30 Minuten eine Marketing-E-Mail erhalten, ist der gerade gekaufte Artikel möglicherweise noch nicht rechtzeitig aus der E-Mail ausgeschlossen. Nachrichten, die nach 24 Stunden gesendet werden, enthalten diesen Artikel jedoch nicht mehr.
 
 #### Schritt 3.2: Katalog auswählen {#step-32-select-a-catalog}
 
@@ -81,12 +81,12 @@ Wenn Sie mehr Kontrolle über Ihre Empfehlung wünschen, wählen Sie eine [Auswa
 Wenn Sie Ihre Auswahl nicht finden können, stellen Sie sicher, dass sie zuerst in Ihrem Katalog eingerichtet ist.
 {% endalert %}
 
-### Schritt 4: Interaktion für die Empfehlungen auswählen {#step-4-select-the-interaction-to-drive-recommendations}
+### Schritt 4: Interaktion für die Empfehlung auswählen {#step-4-select-the-interaction-to-drive-recommendations}
 
 Wählen Sie das Event aus, für das diese Empfehlung optimiert werden soll. Dieses Event ist in der Regel ein Kauf, kann aber auch jede andere Interaktion mit einem Artikel sein.
 
 {% alert tip %}
-Bei der Konfiguration von KI-Artikelempfehlungen ist die Wahl des Events wichtig. Ihr auslösendes Event bestimmt, wer eine KI-generierte Empfehlung erhält – KI-Artikelempfehlungen werden für Nutzer:innen generiert, die das von Ihnen konfigurierte Event abgeschlossen haben, sodass diese Wahl direkt bestimmt, wer Empfehlungen erhält. Wählen Sie ein Event, das das gesamte Zielgruppensegment abdeckt, das Sie erreichen möchten.<br><br>Gleichzeitig sollten Sie Abdeckung und Relevanz abwägen. Events am oberen Ende des Funnels (wie „Produkt angesehen“) erfassen tendenziell eine breitere Zielgruppe, sind aber weniger mit Geschäftsergebnissen verbunden, während Events am unteren Ende des Funnels (wie „Gekauft“) tendenziell gezieltere, geschäftsrelevantere Empfehlungen erzeugen. Das beste Event ist eines, das Abdeckung und Einfluss auf das Geschäftsergebnis in Einklang bringt.
+Bei der Konfiguration von KI-Artikelempfehlungen ist die Wahl des Events wichtig. Ihr auslösendes Event bestimmt, wer eine KI-generierte Empfehlung erhält – KI-Artikelempfehlungen werden für Nutzer:innen generiert, die das von Ihnen konfigurierte Event abgeschlossen haben, sodass diese Wahl direkt bestimmt, wer Empfehlungen erhält. Wählen Sie ein Event, das das gesamte Zielgruppensegment abdeckt, das Sie erreichen möchten.<br><br>Gleichzeitig sollten Sie Abdeckung und Relevanz abwägen. Events am oberen Ende des Funnels (wie „Produkt angesehen“) erfassen tendenziell eine breitere Zielgruppe, sind aber weniger mit Geschäftsergebnissen verbunden, während Events am unteren Ende des Funnels (wie „Gekauft“) tendenziell gezieltere, geschäftsrelevantere Empfehlungen liefern. Das beste Event ist eines, das Abdeckung und Einfluss auf das Geschäftsergebnis in Einklang bringt.
 {% endalert %}
 
 Sie können optimieren für:
@@ -121,9 +121,9 @@ Es gibt einige Anforderungen für die Auswahl Ihrer Eigenschaft:
 - Muss dem `id`-Feld Ihres ausgewählten Katalogs zugeordnet sein.
 - **Wenn Sie das Event „Bestellung aufgegeben“ ausgewählt haben oder [E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) zum Trainieren von Artikelempfehlungen verwenden:** Geben Sie `products.product_id` für die Produkt-ID ein.
   - Das Feld kann sich in einem Array von Produkten befinden oder mit einem Array von IDs enden. In beiden Fällen wird jede Produkt-ID als separates, sequenzielles Event mit demselben Zeitstempel behandelt.
-- **Wenn Sie das Kauf-Objekt ausgewählt haben:** Muss die `product_id` oder ein Feld der `properties` Ihres Interaktions-Events sein.
+- **Wenn Sie das Kauf-Objekt ausgewählt haben:** Muss die `product_id` oder ein Feld des `properties`-Objekts Ihres Interaktions-Events sein.
 - **Wenn Sie ein angepasstes Event ausgewählt haben:** Muss ein Feld der `properties` Ihres angepassten Events sein.
-- Verschachtelte Felder müssen im Dropdown **Eigenschaftsname** in Punktnotation im Format `event_property.nested_property` eingegeben werden. Wenn Sie beispielsweise die verschachtelte Eigenschaft `district_name` innerhalb der Event-Eigenschaft `location` auswählen, geben Sie `location.district_name` ein.
+- Verschachtelte Felder müssen im Dropdown **Eigenschaftsname** in Punktnotation im Format `event_property.nested_property` eingegeben werden. Wenn Sie beispielsweise die verschachtelte Eigenschaft `district_name` innerhalb der Event-Eigenschaft `location` auswählen, geben Sie `location.district_name` ein. Weitere Informationen zu verschachtelten Eigenschaften in angepassten Events finden Sie unter [Verschachtelte Objekte]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 #### Beispielzuordnungen {#example-mappings}
 
@@ -170,7 +170,7 @@ Die folgenden Beispielzuordnungen beziehen sich beide auf diesen Beispielkatalog
 {% tabs %}
 {% tab Angepasstes Event %}
 
-Angenommen, Sie möchten das angepasste Event `added_to_cart` verwenden, um ähnliche Produkte zu empfehlen, bevor die Kund:in zur Kasse geht. Das Event `added_to_cart` hat eine Event-Eigenschaft `product_sku`.
+Angenommen, Sie möchten das angepasste Event `added_to_cart` verwenden, um ähnliche Produkte zu empfehlen, bevor Kund:innen zur Kasse gehen. Das Event `added_to_cart` hat eine Event-Eigenschaft `product_sku`.
 
 Dann muss die Eigenschaft `product_sku` mindestens einen der Werte aus der Spalte `id` im Beispielkatalog enthalten: „ADI-BL-7“, „ADI-RD-8“, „ADI-WH-9“ oder „ADI-PP-10“. Sie benötigen nicht für jeden Katalogartikel Events, aber Sie brauchen einige davon, damit das Empfehlungssystem genügend Inhalte hat, um damit zu arbeiten.
 
@@ -194,7 +194,7 @@ Dieses Event hat `"product_sku": "ADI-BL-7"`, was dem ersten Artikel im Beispiel
 }
 ```
 
-##### Beispiel für ein angepasstes Event-Objekt mit einem Array von Produkten {#example-custom-event-object-with-an-array-of-products}
+##### Beispiel für ein angepasstes Event-Objekt mit einem Produkt-Array {#example-custom-event-object-with-an-array-of-products}
 
 Wenn Ihre Event-Eigenschaften mehrere Produkte in einem Array enthalten, wird jede Produkt-ID als separates, sequenzielles Event behandelt. Dieses Event kann die Eigenschaft `products.sku` verwenden, um den ersten und dritten Artikel im Beispielkatalog zuzuordnen.
 
@@ -248,7 +248,7 @@ Ein Kauf-Objekt wird über die API übergeben, wenn ein Kauf getätigt wurde.
 
 In Bezug auf die Zuordnung gilt für Kauf-Objekte eine ähnliche Logik wie für angepasste Events, außer dass Sie zwischen der `product_id` des Kauf-Objekts oder einem Feld im `properties`-Objekt wählen können.
 
-Denken Sie daran, dass Sie nicht für jeden Katalogartikel Events benötigen, aber Sie brauchen einige davon, damit das Empfehlungssystem genügend Inhalte hat, um damit zu arbeiten.
+Denken Sie daran, dass Sie nicht für jeden Katalogartikel Events benötigen, aber einige davon brauchen, damit das Empfehlungssystem genügend Inhalte hat, um damit zu arbeiten.
 
 ##### Beispiel für ein Kauf-Objekt, das der Produkt-ID zugeordnet ist {#example-purchase-object-mapped-to-product-id}
 

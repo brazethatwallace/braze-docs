@@ -14,8 +14,8 @@ description: "이 페이지에서는 내보내기 작업의 상태를 확인하�
 
 ## 보류 중인 내보내기 취소하기 {#cancelling-a-pending-export}
 
-**내보내기 로그** 페이지에서 <i class="fas fa-ellipsis-vertical"></i> 메뉴를 선택한 다음 **내보내기 취소**를 선택하거나, **내보내기 ID**를 선택한 다음 내보내기 페이지에서 **내보내기 취소**를 선택하면 보류 중인 내보내기를 바로 취소할 수 있습니다.
+**내보내기 로그** 페이지에서 <i class="fas fa-ellipsis-vertical"></i> 메뉴를 선택한 다음 **Cancel Export**를 선택하거나, **Export ID**를 선택한 다음 내보내기 페이지에서 **Cancel Export**를 선택하면 보류 중인 내보내기를 바로 취소할 수 있습니다.
 
 ## 특정 내보내기 로그 공유하기 {#sharing-a-specific-export-log}
 
-**내보내기 ID**를 선택한 다음 **로그 공유**를 선택하여 내보내기 로그를 공유할 수 있습니다.
+**Export ID**를 선택한 다음 **Share Log**를 선택하여 내보내기 로그를 공유할 수 있습니다.

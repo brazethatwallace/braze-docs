@@ -143,6 +143,8 @@ WhatsApp[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canv
 
 応答メッセージは、ユーザーのメッセージを受信してから24時間以内に送信する必要があります。成功するエクスペリエンスの構築を支援するために、Brazeはメッセージロジックをチェックして、応答メッセージのブロックを解除する上流の受信ユーザーメッセージがあることを確認します。
 
+サブ分単位の返信が必要な双方向キャンバスフローでは、受信トリガーと応答メッセージ送信の間のステップを最小限に抑えてください。キャンバスのアーキテクチャ、webhookのラウンドトリップ、ユーザー更新のバッチ処理によりレイテンシーが増加する可能性があります。[双方向フローの応答レイテンシーを最小化する]({{site.baseurl}}/user_guide/channels/whatsapp/best_practices#minimize-response-latency-for-two-way-flows)を参照してください。
+
 以下のイベントが応答メッセージのブロックを解除します。
 
 - 受信メッセージ
@@ -178,7 +180,7 @@ sequenceDiagram
 #### 注意事項 {#things-to-know}
 
 - 応答メッセージステップは、ユーザーの受信メッセージから24時間以内に送信される必要があります。ほとんどのキャンバスフローでは、アクションパスの評価直後に応答が送信されるため、これは問題になりません。
-- 24時間のカスタマーサービスウィンドウとキャンバスの[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)を混同しないでください。コンバージョンイベントは最大30日間のウィンドウを使用できます。コンバージョンウィンドウはアトリビューションを制御するものであり、応答メッセージの送信可否には影響しません。
+- 24時間のカスタマーサービスウィンドウはキャンバスの[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)とは異なります。コンバージョンイベントは最大30日間のウィンドウを使用できます。コンバージョンウィンドウはアトリビューションを制御するものであり、応答メッセージの送信可否には影響しません。
 - 課金については、[WhatsApp応答メッセージは無料ですか？]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free)を参照してください。
 
 ### カスタム時間属性によるフィルタリング {#filtering-by-a-custom-time-attribute}
@@ -194,3 +196,7 @@ sequenceDiagram
 {% alert note %}
 `inbound_media_urls`の値を後で使用するためにユーザーカスタム属性に保存する場合は、この7日間の有効期限に注意してください。有効期限が切れた後にURLにアクセスしようとすると、リンク切れになります。
 {% endalert %}
+
+### 受信プロファイル名 {#inbound-profile-name}
+
+Metaが受信WhatsAppメッセージに表示名を含めた場合、Brazeはその受信イベントで{% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %} Liquid属性として公開します。この値はユーザーがWhatsAppで設定した名前を反映しており、CRMプロファイルデータと一致しない場合があります。ユーザー向けのコピーで使用する前にデータを検証するか、キャンバスのユーザー更新ステップを使用してプロファイルフィールドに保存し、後で使用してください。WhatsApp Liquid属性の完全なリストについては、[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)を参照してください。

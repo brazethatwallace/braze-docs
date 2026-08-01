@@ -2,13 +2,43 @@
 page_order: 10.9
 nav_title: トラブルシューティング
 article_title: Braze SDKのプッシュ通知のトラブルシューティング
+description: "症状インデックス、標準的な調査パス、プラットフォーム固有のSDKチェックを使用して、プッシュ通知の配信と表示の問題を診断します。"
 channel:
   - push notifications
 ---
 
 # プッシュ通知のトラブルシューティング {#troubleshoot-push-notifications}
 
-> Braze SDKのプッシュ通知のトラブルシューティング方法について説明します。
+> このページでは、デバイス上のプッシュ通知の配信と表示の問題を診断します。ダッシュボード側の配信チェック（購読ステータス、セグメント、キャップ）については、[プッシュ通知のトラブルシューティング]({{site.baseurl}}/user_guide/channels/push/troubleshooting)を参照してください。
+
+デバッグを開始する前に、自分自身を[テストユーザー]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#adding-test-users)として追加し、[テストメッセージの送信]({{site.baseurl}}/developer_guide/push_notifications/sending_test_messages)を確認してください。
+
+## まずはここから：症状を確認する {#start-here-match-your-symptom}
+
+以下の表から該当する動作を見つけて、そのセクションの手順に従ってください。どのセクションが該当するかわからない場合は、[標準的な調査パス](#standard-investigation-path)を使用してください。
+
+| 症状 | 参照先 |
+| --- | --- |
+| 特定のプラットフォームでプッシュが受信されない | [プラットフォーム固有のトラブルシューティング](#platform-specific-troubleshooting)でSDKタブを選択してください |
+| 保存時にLiquidタグ周辺の改行がおかしく見える | [プッシュ通知の改行](#push-linebreaks) |
+| ダッシュボード側の配信チェック（購読、セグメント、キャップ） | [プッシュ通知のトラブルシューティング]({{site.baseurl}}/user_guide/channels/push/troubleshooting) |
+| プッシュからのディープリンクが正しく開かない | [ディープリンクのトラブルシューティング]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting) |
+| 一般的なプッシュエラーコード | [一般的なプッシュエラーメッセージ]({{site.baseurl}}/user_guide/channels/push/push_error_codes) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="プッシュSDKの症状" }
+
+## 標準的な調査パス {#standard-investigation-path}
+
+すべてのプッシュ通知インシデントに対して、このワークフローを使用してください。ステップ1から開始します。
+
+1. デバイスに有効なプッシュトークンがあり、デバイス設定でプッシュ権限が付与されていることを確認します。
+2. ダッシュボードで、テストユーザーがキャンペーンまたはキャンバスの[セグメント]({{site.baseurl}}/user_guide/channels/push/troubleshooting#segment)に一致し、[コントロールグループ]({{site.baseurl}}/user_guide/channels/push/troubleshooting#control-group-status)に含まれていないことを確認します。
+3. テストデバイスに[テストプッシュ]({{site.baseurl}}/developer_guide/push_notifications/sending_test_messages)を送信します。
+4. [詳細ログを有効化]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)し、問題を再現して、[SDKタブ](#platform-specific-troubleshooting)のプラットフォーム固有のガイダンスを確認します。
+5. 問題が解決しない場合は、詳細ログ、プラットフォーム、SDKバージョン、キャンペーンまたはキャンバスIDを添えて[Brazeサポート]({{site.baseurl}}/braze_support)にお問い合わせください。
+
+## プラットフォーム固有のトラブルシューティング {#platform-specific-troubleshooting}
+
+プラットフォーム固有の設定と表示チェックについては、SDKタブを選択してください。
 
 {% sdktabs %}
 {% sdktab web %}

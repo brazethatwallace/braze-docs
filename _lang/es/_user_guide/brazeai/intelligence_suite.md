@@ -14,12 +14,12 @@ tool:
 
 ## Casos de uso {#use-cases}
 
-La Intelligence Suite proporciona potentes características para analizar el historial de usuarios y el rendimiento de campañas y Canvas, y luego realizar ajustes automáticos para aumentar la participación, la audiencia y las conversiones. Para ver algunos ejemplos de cómo estas características pueden beneficiar a distintos sectores, consulta los siguientes casos de uso.
+La Intelligence Suite proporciona potentes características para analizar el historial de usuarios y el rendimiento de Campaigns y Canvas, y luego realizar ajustes automáticos para aumentar la participación, la audiencia y las conversiones. Para ver algunos ejemplos de cómo estas características pueden beneficiar a distintos sectores, consulta los siguientes casos de uso.
 
 ### Comercio electrónico {#ecommerce}
 
 - **Ventas flash:** Utiliza el [filtro de canal inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) para estudiar el historial del usuario e identificar a los usuarios que son más receptivos a las notificaciones push frente a los correos electrónicos, y luego envía notificaciones push y correos electrónicos a los usuarios respectivos. Opcionalmente, selecciona un canal específico para los usuarios que no dispongan de datos suficientes para determinar su canal preferido.
-- **Banners promocionales:** Utiliza [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) para analizar el rendimiento de diferentes banners promocionales en una campaña recurrente y, a continuación, selecciona y envía automáticamente el banner que genere las tasas de click-through más altas.
+- **Banners promocionales:** Utiliza [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) para analizar el rendimiento de diferentes banners promocionales en una Campaign recurrente y, a continuación, selecciona y envía automáticamente el banner que genere las tasas de click-through más altas.
 
 ### Viajes {#travel}
 

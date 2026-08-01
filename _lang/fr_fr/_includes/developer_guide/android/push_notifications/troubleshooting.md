@@ -75,7 +75,7 @@ Il se peut que vos notifications push ne soient pas envoyées en raison des situ
 - Vos identifiants n'ont pas la bonne portée de permission.
 - Vous avez téléchargé des identifiants erronés dans le mauvais espace de travail de Braze (mauvais ID d'expéditeur).
 
-Pour toute autre question susceptible de vous empêcher d'envoyer une notification push, consultez le [guide d'utilisation : résolution des problèmes des notifications push]({{site.baseurl}}/user_guide/message_building_by_channel/push/troubleshooting).
+Pour d'autres problèmes susceptibles de vous empêcher d'envoyer une notification push, consultez le [guide d'utilisation : résolution des problèmes des notifications push]({{site.baseurl}}/user_guide/message_building_by_channel/push/troubleshooting).
 
 ### Aucun utilisateur « push registered » ne s'affiche dans le tableau de bord de Braze (avant l'envoi de messages) {#no-push-registered-users-showing-in-the-braze-dashboard-prior-to-sending-messages}
 

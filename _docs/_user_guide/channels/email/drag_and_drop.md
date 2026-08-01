@@ -187,9 +187,7 @@ Under the **Preview as a User** tab, you can select the following user types to 
 The random user may or may not be part of your segmentation criteria. Segmentation is selected afterward, so Braze is unaware of your target audience at this point.
 {% endalert %}
 
-You can also select **Copy preview link** to generate and copy a shareable preview link that shows what the email will look like for a random user. The link will last for seven days before it needs to be regenerated. 
-
-Note that any edits made to an email template won't reflect in a previously generated link. You'll need to generate a new link preview to see any edits.
+You can also select **Copy preview link** to generate and copy a shareable preview link that shows what the email will look like for a random user. For more information, see [Shareable preview]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
 ![Email preview with a button to "Copy preview link" and copy the generated link.]({% image_buster /assets/img/dnd_email_link_preview.png %})
 
@@ -303,7 +301,7 @@ To set up universal links, refer to [Universal links and App Links]({{site.baseu
 
 Alternatively, you can integrate with one of our attribution partners, such as [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) or [AppsFlyer]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/appsflyer#email-deep-linking-and-click-tracking), to manage universal links.
 
-Lastly, predefined attributes are available to help make your message accessible. Learn more at our dedicated [Building accessible messages in Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) article.
+Lastly, predefined attributes are available to help make your message accessible. Learn more at our dedicated [Building accessible messages in Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) article, including [how email clients display alt text]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text).
 
 #### Custom head tags
 

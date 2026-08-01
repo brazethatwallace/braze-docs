@@ -125,6 +125,14 @@ Campaigns and Canvases with previously deleted messaging interaction data cannot
 
 ## Troubleshooting
 
+### Why does a campaign or Canvas expiration date keep showing tomorrow?
+
+If a stopped campaign or Canvas is still referenced by an active retargeting filter (for example, in an active segment, campaign, Canvas, or Content Card), Braze doesn't offload its interaction data yet.
+
+In this case, the expiration date shown in the UI reflects the next scheduled cleanup run, so it can appear as "tomorrow" and continue moving forward while references still exist.
+
+After you remove all active retargeting references, the interaction data is offloaded in the next cleanup cycle (typically the next day).
+
 You might encounter the following error messages when trying to resume or unarchive campaigns, Canvases, or Content Cards with expired interaction data:
 
 | Error message | When it appears | Troubleshooting |

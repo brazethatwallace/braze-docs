@@ -65,6 +65,10 @@ Der allgemeine Workflow zum Erstellen eines Braze-zu-Braze-Webhooks umfasst die 
 
 In diesem Anwendungsfall erstellen Sie zwei Canvases und verwenden einen Braze-zu-Braze-Webhook, um den zweiten Canvas aus dem ersten zu triggern. Dies funktioniert wie ein Entry-Trigger, wenn Nutzer:innen einen bestimmten Punkt in einem anderen Canvas erreichen.
 
+{% alert note %}
+Der Trigger **Mit Canvas-Schritt interagieren** ist nur für Campaigns verfügbar, nicht für aktionsbasierte Canvas-Eintritte. Wenn Sie einen Canvas basierend darauf triggern müssen, dass Nutzer:innen einen bestimmten Schritt in einem anderen Canvas erreichen, verwenden Sie diesen Braze-zu-Braze-Webhook-Ansatz oder die Canvas-Komponente [An Ziel senden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination).
+{% endalert %}
+
 1. Beginnen Sie mit der Erstellung Ihres zweiten Canvas – dem Canvas, der von Ihrem initialen Canvas getriggert werden soll.
 2. Wählen Sie als Canvas-**Entry-Zeitplan** die Option **API-Triggered**.
 3. Notieren Sie sich Ihre **Canvas-ID**. Sie benötigen diese in einem späteren Schritt.

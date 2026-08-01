@@ -24,20 +24,20 @@ Se esta é a primeira vez que você cria uma campanha de e-mail, recomendamos fo
 
 ## Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
 
-Use Campaigns para envios de mensagens simples e únicos. Use Canvas para jornadas de usuário com várias etapas.
+Use Campaigns para envio de mensagens simples e únicas. Use Canvas para jornadas de usuário com várias etapas.
 
 {% tabs %}
 {% tab Campaign %}
 
 1. Acesse **Messaging** > **Campaigns** e selecione **Create Campaign**.
-2. Selecione **Email** ou, para Campaigns direcionadas a vários canais, selecione **Multichannel**.
-3. Dê à sua Campaign um nome claro e significativo.
+2. Selecione **Email** ou, para campanhas direcionadas a vários canais, selecione **Multichannel**.
+3. Dê à sua campanha um nome claro e significativo.
 4. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário.
-   * As tags facilitam a busca e a criação de relatórios das suas Campaigns. Por exemplo, ao usar o [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar por tags específicas.
-5. Adicione e nomeie quantas variantes forem necessárias para a sua Campaign. Para saber mais sobre esse tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+   * As tags facilitam a busca e a criação de relatórios das suas campanhas. Por exemplo, ao usar o [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar por tags específicas.
+5. Adicione e nomeie quantas variantes forem necessárias para sua campanha. Para saber mais sobre esse tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conteúdo, crie sua mensagem antes de adicionar variantes adicionais. Em seguida, escolha **Copy from Variant** no menu suspenso **Add Variant**.
+Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conteúdo, crie sua mensagem antes de adicionar variantes adicionais. Em seguida, escolha **Copy from Variant** no menu suspenso **Add Variant**.
 {% endalert %}
 {% endtab %}
 {% tab Canvas %}
@@ -68,14 +68,14 @@ Recomendamos selecionar uma experiência de edição por campanha de e-mail. Por
 
 ## Etapa 3: Crie seu e-mail {#step-3-compose-your-email}
 
-Depois de selecionar seu modelo, você verá uma visão geral do seu e-mail, onde pode ir diretamente ao editor em tela cheia para redigir seu e-mail, alterar suas informações de envio e visualizar alertas sobre entregabilidade ou conformidade legal. Você pode alternar entre as guias HTML, clássico, texto simples e [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email) enquanto compõe.
+Depois de selecionar seu modelo, você verá uma visão geral do seu e-mail, onde pode ir diretamente ao editor em tela cheia para redigir seu e-mail, alterar suas informações de envio e visualizar alertas sobre entregabilidade ou conformidade legal. Você pode alternar entre as guias HTML, clássico, texto simples e [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email) enquanto cria seu e-mail.
 
 ![O botão "Regenerar a partir do HTML".]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 
 A Braze atualiza automaticamente a versão em texto simples a partir da versão HTML até detectar uma edição no texto simples. Depois que a Braze detecta uma edição, ela para de atualizar o texto simples porque assume que você fez alterações intencionais. Para restaurar a sincronização automática, acesse **Texto simples** e selecione **Regenerar a partir do HTML** (visível apenas quando o texto simples não está sincronizando).
 
 {% alert tip %}
-Para adicionar movimento em um e-mail com uma prévia precisa, use GIFs em vez de elementos que exigem JavaScript, pois a maioria das caixas de entrada não suporta JavaScript.
+Para adicionar movimento em um e-mail com uma prévia precisa, use GIFs em vez de elementos que exigem JavaScript, pois a maioria das caixas de entrada não oferece suporte a JavaScript.
 {% endalert %}
 
 
@@ -86,7 +86,7 @@ A Braze remove automaticamente os manipuladores de eventos HTML referenciados co
 {% alert tip %}
 Precisa de ajuda para criar textos incríveis? Experimente usar o [Assistente de Copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Insira o nome ou a descrição de um produto e a IA gerará textos de marketing semelhantes aos escritos por humanos para uso nas suas mensagens.
 
-![Botão para iniciar o Assistente de Copywriting com IA, localizado na guia Corpo do criador de e-mail.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_email.png %}){: style="max-width:80%"}
+![Botão Iniciar Assistente de Copywriting com IA, localizado na guia Corpo do criador de e-mail.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_email.png %}){: style="max-width:80%"}
 {% endalert %}
 
 Precisa de ajuda para criar mensagens da direita para a esquerda em idiomas como árabe e hebraico? Consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages) para conhecer as práticas recomendadas.
@@ -97,7 +97,7 @@ O app móvel do Gmail (Android e iOS) pode inverter as cores de fundo quando o d
 
 Para evitar isso, na célula da tabela que precisa de um fundo estável, use um `linear-gradient` CSS de cor única em vez de `background-color`. O Gmail tem menos probabilidade de inverter esse tratamento do que uma cor de fundo sólida.
 
-Por exemplo, para manter um fundo branco em uma célula, use isto:
+Por exemplo, para manter um fundo branco em uma célula, use o seguinte:
 
 ```html
 <td style="background-image: linear-gradient(#ffffff, #ffffff);">
@@ -120,7 +120,7 @@ Depois de finalizar o design e a construção da sua mensagem de e-mail, adicion
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
-Uma prévia no painel à direita será preenchida com as informações de envio que você adicionou. Essas informações também podem ser atualizadas acessando **Configurações** > **Preferências de e-mail** > **Configuração de envio**.
+Uma prévia no painel do lado direito será preenchida com as informações de envio que você adicionou. Essas informações também podem ser atualizadas acessando **Configurações** > **Preferências de e-mail** > **Configuração de envio**.
 
 #### Avançado {#advanced}
 
@@ -138,9 +138,9 @@ Consulte as [Diretrizes de e-mail]({{site.baseurl}}/user_guide/channels/email/be
 
 ##### Cabeçalhos de e-mail {#email-headers}
 
-Para adicionar cabeçalhos de e-mail, selecione **Adicionar novo cabeçalho**. Os cabeçalhos de e-mail contêm informações sobre o e-mail sendo enviado. Esses [pares de chave-valor]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) geralmente incluem informações sobre remetente, destinatário, protocolo de autenticação e roteamento. A Braze adiciona automaticamente as informações de cabeçalho exigidas pela RFC para que os e-mails cheguem aos provedores de caixa de entrada.
+Para adicionar cabeçalhos de e-mail, selecione **Adicionar novo cabeçalho**. Os cabeçalhos de e-mail contêm informações sobre o e-mail que está sendo enviado. Esses [pares de chave-valor]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) geralmente incluem informações sobre remetente, destinatário, protocolo de autenticação e roteamento. A Braze adiciona automaticamente as informações de cabeçalho exigidas pela RFC para que os e-mails cheguem aos provedores de caixa de entrada.
 
-A Braze oferece a flexibilidade de adicionar cabeçalhos de e-mail adicionais conforme necessário para casos de uso avançados. Existem alguns campos reservados que a plataforma da Braze substituirá durante o envio.
+A Braze permite a flexibilidade de adicionar cabeçalhos de e-mail adicionais conforme necessário para casos de uso avançados. Existem alguns campos reservados que a plataforma da Braze substituirá durante o envio.
 
 Evite usar as seguintes chaves:
 
@@ -199,31 +199,31 @@ Para adicionar extras de e-mail, acesse **Informações de envio** e selecione *
 O total de pares de chave-valor adicionados não deve exceder 1 KB. Caso contrário, as mensagens sofrerão interrupção.
 {% endalert %}
 
-Os valores de extras de e-mail não são publicados no Currents ou no Snowflake. Se você deseja enviar metadados adicionais ou valores dinâmicos para o Currents ou o Snowflake, use [`message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras) em vez disso.
+Os valores de extras de e-mail não são publicados no Currents ou no Snowflake. Se você deseja enviar metadados adicionais ou valores dinâmicos para o Currents ou o Snowflake, use [`message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras).
 
 ### Etapa 3.2: Pré-visualize e teste sua mensagem {#step-3b-preview-and-test-your-message}
 
-Depois de finalizar a composição do seu e-mail, teste-o antes de enviar. Na parte inferior da tela de visão geral, selecione **Prévia e teste**.
+Depois de finalizar a criação do seu e-mail, teste-o antes de enviar. Na parte inferior da tela de visão geral, selecione **Pré-visualizar e testar**.
 
 Aqui, você pode pré-visualizar como seu e-mail aparecerá na caixa de entrada de um cliente. Com **Pré-visualizar como usuário** selecionado, você pode pré-visualizar seu e-mail como um usuário aleatório, selecionar um usuário específico ou criar um usuário personalizado. Isso permite testar se suas chamadas de Connected Content e personalização estão funcionando como esperado.
 
-Em seguida, você pode **Copiar link de prévia** para gerar e copiar um link de prévia compartilhável que mostra como o e-mail ficará para um usuário aleatório. O link durará sete dias antes de precisar ser regenerado.
+Em seguida, você pode **Copiar link de prévia** para gerar e copiar um link de prévia compartilhável que mostra como o e-mail ficará para um usuário aleatório. Para saber mais, consulte [Prévia compartilhável]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
 Você também pode alternar entre as visualizações de desktop, dispositivo móvel e texto simples para ter uma ideia de como sua mensagem aparecerá em diferentes contextos.
 
 {% alert tip %}
-Quer saber como seu e-mail fica para usuários no modo escuro? Selecione o botão **Prévia do modo escuro** localizado na seção **Prévia e teste** (apenas no editor de arrastar e soltar). Se você usa o editor de HTML, ainda pode lidar com a renderização do modo escuro do app móvel do Gmail com [App móvel do Gmail e modo escuro](#gmail-dark-mode).
+Quer saber como seu e-mail fica para usuários no modo escuro? Selecione o botão **Prévia do modo escuro** localizado na seção **Pré-visualizar e testar** (apenas no editor de arrastar e soltar). Se você usa o editor de HTML, ainda pode resolver a renderização do modo escuro no app móvel do Gmail com [App móvel do Gmail e modo escuro](#gmail-dark-mode).
 {% endalert %}
 
 Quando estiver pronto para uma verificação final, selecione **Envio de teste** e envie uma mensagem de teste para você ou para um grupo de testadores para confirmar que o e-mail é exibido corretamente em diferentes dispositivos e clientes.
 
-![Opção de envio de teste e exemplo de prévia de e-mail ao compor seu e-mail.]({% image_buster /assets/img_archive/newEmailTest.png %})
+![Opção de envio de teste e exemplo de prévia de e-mail ao criar seu e-mail.]({% image_buster /assets/img_archive/newEmailTest.png %})
 
 Se você encontrar algum problema com seu e-mail ou quiser fazer alterações, selecione **Editar e-mail** para retornar ao editor.
 
 {% alert tip %}
-Os clientes de e-mail que suportam texto de prévia sempre puxam caracteres suficientes para preencher todo o espaço disponível de texto de prévia. No entanto, isso pode deixar você em situações em que o texto de prévia fica incompleto ou não otimizado.
-<br><br>Para evitar isso, você pode criar espaço em branco após o texto de prévia desejado para que os clientes de e-mail não puxem outros textos ou caracteres que distraiam para o conteúdo do envelope. Na seção **Configurações de envio**, você pode marcar a caixa de seleção **Adicionar espaço em branco após o pré-cabeçalho** para adicionar espaço em branco automaticamente. <br><br>Alternativamente, se você precisar de mais controle, pode adicionar manualmente uma sequência de não-juntores de largura zero (‌`&zwnj;`) e espaços não separáveis (`&nbsp;`) após o texto de prévia que deseja exibir. <br><br>Quando adicionado ao final do seu texto de prévia na seção de pré-cabeçalho, o seguinte trecho de código para o editor de HTML adicionará o espaço em branco que você procura:<br><br>
+Os clientes de e-mail que oferecem suporte a texto de prévia sempre puxam caracteres suficientes para preencher todo o espaço disponível de texto de prévia. No entanto, isso pode deixar você em situações em que o texto de prévia fica incompleto ou não otimizado.
+<br><br>Para evitar isso, você pode criar espaço em branco após o texto de prévia desejado para que os clientes de e-mail não puxem outros textos ou caracteres que distraiam para o conteúdo do envelope. Na seção **Configurações de envio**, você pode marcar a caixa de seleção **Adicionar espaço em branco após o pré-cabeçalho** para adicionar espaço em branco automaticamente. <br><br>Como alternativa, se você precisar de mais controle, pode adicionar manualmente uma cadeia de não-juntores de largura zero (‌`&zwnj;`) e espaços não separáveis (`&nbsp;`) após o texto de prévia que deseja exibir. <br><br>Quando adicionado ao final do seu texto de prévia na seção de pré-cabeçalho, o seguinte trecho de código para o editor de HTML adicionará o espaço em branco que você procura:<br><br>
 
 ```html
 <div style="display: none; max-height: 0px; overflow: hidden;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
@@ -240,7 +240,7 @@ No app Apple Mail, os links de imagem em e-mails HTML devem usar URLs `https://`
 
 Antes do envio, o editor sinaliza problemas comuns:
 
-- Nome de exibição do remetente e cabeçalho não definidos juntos
+- Nome de exibição do remetente e cabeçalho não configurados juntos
 - Endereços de remetente ou de resposta inválidos
 - Chaves de cabeçalho duplicadas
 - Erros de sintaxe Liquid
@@ -295,7 +295,7 @@ Com essa configuração, não inclua nenhum filtro na etapa **Públicos-alvo** q
 
 ### Escolha os eventos de conversão {#choose-conversion-events}
 
-A Braze permite que você acompanhe a frequência com que os usuários realizam ações específicas, chamadas [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), após receberem uma campanha. Você pode especificar qualquer uma das seguintes ações como evento de conversão:
+A Braze permite que você rastreie a frequência com que os usuários realizam ações específicas, chamadas [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), após receberem uma campanha. Você pode especificar qualquer uma das seguintes ações como evento de conversão:
 
 - Abre o app
 - Realiza uma compra (pode ser uma compra genérica ou de um item específico)

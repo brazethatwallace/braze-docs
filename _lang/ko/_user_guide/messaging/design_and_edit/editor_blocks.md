@@ -272,7 +272,7 @@ Vimeo에서 호스팅하는 비디오는 공개로 설정된 경우에만 작동
 
 Liquid 또는 연결된 콘텐츠를 사용하여 이메일에 개인화를 추가할 수 있습니다.
 
-- **Liquid:** **콘텐츠** > **개인화**에서 속성을 선택하고 스니펫을 복사한 다음 제목, 단락 또는 목록 블록(기본 Liquid) 또는 HTML 블록(고급 Liquid)에 붙여넣습니다. 일반적으로 제목, 단락, 목록 블록에서 기본 Liquid를 사용할 수 있지만, 레이아웃 문제를 방지하기 위해 복잡한 로직에는 HTML 블록을 사용하는 것이 좋습니다. Liquid는 이미지 블록이나 버튼 URL 필드에서는 지원되지 않습니다.
+- **Liquid:** **콘텐츠** > **개인화**에서 속성을 선택하고 스니펫을 복사한 다음 HTML 블록에 붙여넣습니다. 기본 Liquid 스니펫은 제목, 단락, 목록 블록에서도 작동할 수 있지만, 이러한 블록에 Liquid를 배치하면 예기치 않은 동작과 레이아웃 문제가 발생할 수 있습니다. 문제를 방지하려면 모든 Liquid 로직에 HTML 블록을 사용하세요. Liquid는 이미지 블록이나 버튼 URL 필드에서는 지원되지 않습니다.
 - **[연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content):** **HTML** 블록을 추가하고 {% raw %}`{% connected_content %}`{% endraw %} 호출을 배치합니다.
 
 {% endsdktab %}
@@ -306,7 +306,7 @@ Liquid 또는 연결된 콘텐츠를 사용하여 이메일에 개인화를 추�
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
-### 이미지
+### 이미지 {#image}
 
 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)에서 이미지를 삽입합니다.
 
@@ -330,7 +330,7 @@ Liquid 또는 연결된 콘텐츠를 사용하여 이메일에 개인화를 추�
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
-### 스페이서
+### 스페이서 {#spacer}
 
 다른 블록 사이에 공간 또는 패딩을 추가합니다.
 
@@ -388,9 +388,9 @@ Liquid 또는 연결된 콘텐츠를 사용하여 이메일에 개인화를 추�
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
-### 저장된 행 {#saved-row}
+### Saved row {#saved-row}
 
-이전에 드래그 앤 드롭 Content Block으로 저장한 재사용 가능한 행을 삽입합니다. 저장된 행은 원본 Content Block에 **연결되지 않습니다** — 원본이 업데이트되면 최신 버전을 가져오려면 편집기에 다시 드래그해야 합니다. 자세한 내용은 [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)를 참조하세요. **행** 아래에 **저장된 행**이 보이지 않으면 [Braze 지원팀]({{site.baseurl}}/user_guide/administer/personal/braze_support) 또는 Braze 고객 성공 매니저에게 문의하세요.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
 -->
 
 ## 알아두어야 할 사항 {#things-to-know}
@@ -470,11 +470,11 @@ Liquid 또는 연결된 콘텐츠를 사용하여 이메일에 개인화를 추�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="커스텀 코드" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
-### 카운트다운 타이머 {#countdown-timer}
+### Countdown timer {#countdown-timer}
 
-설정한 날짜와 시간까지의 카운트다운을 표시합니다. 이 블록이 보이지 않으면 [Braze 지원팀]({{site.baseurl}}/user_guide/administer/personal/braze_support) 또는 Braze 고객 성공 매니저에게 문의하세요.
+Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
 
-**카운트다운 타이머** 블록을 추가한 후 속성 패널을 사용하여 대상 날짜와 시간, 레이블, 스타일을 설정합니다.
+After you add a **Countdown timer** block, use the properties panel to set the target date and time, labels, and styling.
 -->
 
 ### 이메일 수집
@@ -520,9 +520,9 @@ Liquid 또는 연결된 콘텐츠를 사용하여 이메일에 개인화를 추�
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
-### 저장된 행
+### Saved row
 
-이전에 드래그 앤 드롭 Content Block으로 저장한 재사용 가능한 행을 삽입합니다. 저장된 행은 원본 Content Block에 **연결되지 않습니다** — 원본이 업데이트되면 최신 버전을 가져오려면 편집기에 다시 드래그해야 합니다. 자세한 내용은 [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)를 참조하세요. **행** 아래에 **저장된 행**이 보이지 않으면 [Braze 지원팀]({{site.baseurl}}/user_guide/administer/personal/braze_support) 또는 Braze 고객 성공 매니저에게 문의하세요.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
 -->
 
 ## 알아두어야 할 사항
@@ -614,9 +614,9 @@ Liquid 또는 연결된 콘텐츠를 사용하여 이메일에 개인화를 추�
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
-### 저장된 행
+### Saved row
 
-이전에 드래그 앤 드롭 Content Block으로 저장한 재사용 가능한 행을 삽입합니다. 저장된 행은 원본 Content Block에 **연결되지 않습니다** — 원본이 업데이트되면 최신 버전을 가져오려면 편집기에 다시 드래그해야 합니다. 자세한 내용은 [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)를 참조하세요. **행** 아래에 **저장된 행**이 보이지 않으면 [Braze 지원팀]({{site.baseurl}}/user_guide/administer/personal/braze_support) 또는 Braze 고객 성공 매니저에게 문의하세요.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
 -->
 
 ## 알아두어야 할 사항

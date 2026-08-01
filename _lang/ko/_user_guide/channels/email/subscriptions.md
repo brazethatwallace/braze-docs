@@ -129,7 +129,7 @@ Segments를 만들 때 구독 그룹 이름을 필터로 설정하여 해당 그
 **구독 그룹** 페이지에서 그룹을 보관하려면 다음을 수행합니다:
 
 1. 구독 그룹 목록에서 해당 그룹을 찾습니다.
-2. <i class="fa-solid fa-ellipsis-vertical" aria-label="더보기 메뉴 열기"></i>&nbsp;드롭다운 메뉴에서 **보관**을 선택합니다.
+2. <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;드롭다운 메뉴에서 **보관**을 선택합니다.
 
 Braze는 보관된 그룹의 사용자에 대한 상태 변경을 처리하지 않습니다. 예를 들어, Alex가 구독 그룹 1에 구독된 상태에서 해당 그룹을 보관하면, Alex가 탈퇴 링크를 클릭하더라도 "구독됨" 상태로 유지됩니다. 구독 그룹 1이 보관되어 해당 그룹을 사용하여 메시지를 보낼 수 없으므로 이는 문제가 되지 않습니다.
 
@@ -152,14 +152,15 @@ Braze는 보관된 그룹의 사용자에 대한 상태 변경을 처리하지 �
 
 ### 사용자의 이메일 구독 그룹 확인하기 {#checking-a-users-email-subscription-group}
 
-- **사용자 프로필:** 개별 사용자 프로필은 Braze 대시보드의 [사용자 검색]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles) 페이지에서 접근할 수 있습니다. 여기에서 이메일 주소, 전화번호 또는 외부 사용자 ID로 사용자 프로필을 조회할 수 있습니다. **인게이지먼트** 탭에서 사용자의 이메일 구독 그룹도 확인할 수 있습니다.
-- **Braze REST API:** [사용자의 구독 그룹 목록 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) 또는 [사용자의 구독 그룹 상태 목록 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)를 사용하여 개별 사용자 프로필의 구독 그룹을 확인할 수 있습니다.
+- **고객 프로필:** 개별 고객 프로필은 Braze 대시보드의 [사용자 검색]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles) 페이지에서 접근할 수 있습니다. 여기에서 이메일 주소, 전화번호 또는 외부 사용자 ID로 고객 프로필을 조회할 수 있습니다. **인게이지먼트** 탭에서 사용자의 이메일 구독 그룹도 확인할 수 있습니다.
+- **Braze REST API:** [사용자의 구독 그룹 목록 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) 또는 [사용자의 구독 그룹 상태 목록 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)를 사용하여 개별 고객 프로필의 구독 그룹을 확인할 수 있습니다.
 
 ## 이메일 환경설정 센터 {#email-preference-center}
 
-이메일 환경설정 센터를 사용하면 구독 그룹 뉴스레터를 수신하는 사용자를 관리할 수 있습니다. 대시보드의 **Subscription Groups**에서 확인할 수 있습니다. 생성한 각 구독 그룹은 환경설정 센터 목록에 추가됩니다.
+이메일 환경설정 센터를 사용하면 구독 그룹 뉴스레터를 수신하는 사용자를 관리할 수 있습니다. 대시보드의 **구독 그룹**에서 확인할 수 있습니다. 생성한 각 구독 그룹은 환경설정 센터 목록에 추가됩니다.
 
-환경설정 센터를 추가하거나 커스터마이즈하는 방법에 대해 자세히 알아보려면 [환경설정 센터]({{site.baseurl}}/user_guide/channels/email/subscriptions)를 참조하세요.
+환경설정 센터를 추가하거나 커스터마이즈하는 방법에 대해 자세히 알아보려면 [환경설정 센터]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)를 참조하세요.
+
 
 ## 이메일 구독 변경 {#changing-email-subscriptions}
 
@@ -230,10 +231,10 @@ Braze는 세 가지 타겟팅 상태를 지원합니다:
 이러한 타겟팅 설정을 사용할 때 해당되는 [스팸 관련 법률]({{site.baseurl}}/help/best_practices/spam_regulations#spam-regulations)을 준수하는 것은 사용자의 책임입니다.
 {% endalert %}
 
-## 사용자 구독별 세그먼트 {#segmenting-by-user-subscriptions}
+## 사용자 구독별 세분화 {#segmenting-by-user-subscriptions}
 
-"이메일 구독 상태" 및 "푸시 구독 상태" 필터를 사용하여 구독 상태별로 사용자를 세그먼트합니다.
+"이메일 구독 상태" 및 "푸시 구독 상태" 필터를 사용하여 구독 상태별로 사용자를 세분화합니다.
 
-이를 사용하여 옵트인도 옵트아웃도 하지 않은 사용자를 타겟팅하고 명시적 옵트인을 유도합니다. "이메일/푸시 구독 상태가 가입됨" 필터로 세그먼트를 생성하고 가입됨 상태이지만 옵트인하지 않은 사용자에게 Campaign을 발송합니다.
+이를 사용하여 옵트인도 옵트아웃도 하지 않은 사용자를 타겟팅하고 명시적 옵트인을 유도합니다. "이메일/푸시 구독 상태가 가입됨" 필터로 Segment를 생성하고 가입됨 상태이지만 옵트인하지 않은 사용자에게 Campaign을 발송합니다.
 
-![세그먼트 필터로 사용된 이메일 구독 상태.]({% image_buster /assets/img_archive/not_optin.png %})
+![Segment 필터로 사용된 이메일 구독 상태.]({% image_buster /assets/img_archive/not_optin.png %})

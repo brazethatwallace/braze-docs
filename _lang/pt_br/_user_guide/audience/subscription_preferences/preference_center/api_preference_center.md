@@ -65,11 +65,9 @@ Você também pode usar uma combinação de HTML que inclua Liquid. Por exemplo,
 ```
 {%endraw%}
 
-A Central de Preferências tem uma caixa de seleção que permite que seus usuários cancelem a inscrição de todos os e-mails. Observe que você não pode salvar essas preferências se enviadas como mensagem de teste.
+A Central de Preferências tem uma caixa de seleção que permite que seus usuários cancelem a inscrição de todos os e-mails.
 
-{% alert important %}
-A Liquid tag acima só funciona ao lançar uma Campaign ou Canvas. Enviar um e-mail de teste não gera um link válido. Para verificar o link da Central de Preferências, lance a mensagem em uma Campaign direcionada apenas ao seu perfil de teste.
-{% endalert %}
+{% multi_lang_include preference_center/testing.md section="api" %}
 
 #### Editar uma Central de Preferências {#edit-a-preference-center}
 
@@ -116,6 +114,10 @@ Essa abordagem não requer pares de campo-valor de query string incorporados na 
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
+### Por que minha Central de Preferências não funciona em um envio de teste? {#why-doesnt-my-preference-center-work-in-a-test-send}
+
+Os links da Central de Preferências exigem um contexto de envio real. Envios de teste não geram URLs válidas da Central de Preferências, e o botão **Save Preferences** fica desativado se a página for carregada. Esse é o comportamento esperado. Para testar de ponta a ponta, lance uma Campaign ou etapa do Canvas para um usuário teste ou um Segment interno pequeno, ou use o [endpoint Gerar URL da Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center). Para mais detalhes, consulte [Testando centrais de preferências](#testing-preference-centers).
+
 ### Eu não criei uma Central de Preferências. Por que estou vendo "PreferenceCenterBrazeDefault" no meu dashboard? {#i-havent-created-a-preference-center-why-am-i-seeing-preferencecenterbrazedefault-on-my-dashboard}
 
 Isso é usado para renderizar a Central de Preferências quando o Liquid legado {%raw%}`${preference_center_url}`{%endraw%} é utilizado, o que significa que etapas do Canvas ou modelos que referenciam {%raw%}`${preference_center_url}` ou `preference_center.${PreferenceCenterBrazeDefault}`{%endraw%} não funcionarão. Isso também se aplica a mensagens enviadas anteriormente que incluíam o Liquid legado ou "PreferenceCenterBrazeDefault" como parte da mensagem.
@@ -124,7 +126,7 @@ Se você referenciar {%raw%}`${preference_center_url}`{%endraw%} em uma nova men
 
 ### As centrais de preferências suportam múltiplos idiomas? {#do-preference-centers-support-multiple-languages}
 
-Não. No entanto, você pode usar Liquid ao escrever o HTML para páginas personalizadas de opt-in e descadastramento. Se você estiver usando links dinâmicos para gerenciar cancelamentos de inscrição, trata-se de um link único.
+Não. No entanto, você pode usar Liquid ao escrever o HTML para páginas personalizadas de aceitação e cancelamento de inscrição. Se você estiver usando links dinâmicos para gerenciar cancelamentos de inscrição, trata-se de um link único.
 
 Por exemplo, se você estiver rastreando a taxa de cancelamento de inscrição para usuários que falam espanhol, precisaria usar Campaigns separadas ou aproveitar a análise de dados do Currents (como verificar quando um usuário cancela a inscrição e conferir o idioma preferido desse usuário).
 
