@@ -185,6 +185,22 @@ When you're finished, select **Done**.
 
 ![The properties page with a string property with a key of color and value of #FF0000.]({% image_buster /assets/img/banners/example_property.png %})
 
+#### Step 3.5: Personalize with Connected Content (optional)
+
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Connected Content for Banners' %}
+
+Because Banners render inline during a session refresh, Connected Content in this channel works differently than in other channels:
+
+- Only GET requests are supported.
+- All placements in a single refresh (up to 10) share a rendering budget of approximately two seconds. If a call is slow, times out, or the budget is exceeded, the Connected Content result for that placement is treated as null. Banners don’t retry.
+
+For best results:
+
+- Keep your endpoints fast and [cache responses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/) whenever possible.
+- Limit the number of unique Connected Content URLs across the placements that render together.
+- Avoid chaining calls where one Connected Content response determines the URL for the next. Each additional call adds to the shared budget.
+- Use Liquid guard statements or the [`default` filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) to handle null results and avoid blank Banners.
+
 ### Step 4: Build the remainder of your campaign or Canvas
 
 {% tabs %}
