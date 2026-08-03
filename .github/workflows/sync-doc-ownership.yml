@@ -229,20 +229,20 @@ jobs:
           fi
 
           if [ "$JOB_RESULT" = "failure" ]; then
-            TEXT=":x: *Doc ownership sync* failed${CONTEXT}\n${RUN_URL}"
+            printf -v TEXT '%s\n%s' ":x: *Doc ownership sync* failed${CONTEXT}" "${RUN_URL}"
           elif [ "$JOB_RESULT" != "success" ]; then
-            TEXT=":warning: *Doc ownership sync* ended (${JOB_RESULT})${CONTEXT}\n${RUN_URL}"
+            printf -v TEXT '%s\n%s' ":warning: *Doc ownership sync* ended (${JOB_RESULT})${CONTEXT}" "${RUN_URL}"
           elif [ "${CHANGED:-false}" = "true" ] || [ "${CSV_CHANGED:-false}" = "true" ]; then
             TEXT=":white_check_mark: *Doc ownership sync*${CONTEXT} — updated <${SHEET_URL}|Page Paths> (+${ADDED_COUNT:-0}/-${REMOVED_COUNT:-0}; ${TOTAL_COUNT:-0} total)"
-            TEXT="${TEXT}\n${ONCALL_DOCS_MENTION} please review any new blank assignments and update accordingly."
+            TEXT+=$'\n'"${ONCALL_DOCS_MENTION} please review any new blank assignments and update accordingly."
             if [ -n "${PR_URL:-}" ] && [ -n "${PR_NUMBER:-}" ]; then
-              TEXT="${TEXT}\nDraft CSV PR: <${PR_URL}|#${PR_NUMBER}>"
+              TEXT+=$'\n'"Updated assignments to merge: <${PR_URL}|#${PR_NUMBER}>"
             elif [ "${CSV_CHANGED:-false}" = "true" ]; then
-              TEXT="${TEXT}\nCSV changed (no PR URL captured)."
+              TEXT+=$'\n'"CSV changed (no PR URL captured)."
             fi
           else
-            TEXT=":white_check_mark: *Doc ownership sync*${CONTEXT} — no changes (+${ADDED_COUNT:-0}/-${REMOVED_COUNT:-0})\n${RUN_URL}"
-            TEXT="${TEXT}\n${ONCALL_DOCS_MENTION} please review any new blank assignments and update accordingly."
+            printf -v TEXT '%s\n%s' ":white_check_mark: *Doc ownership sync*${CONTEXT} — no changes (+${ADDED_COUNT:-0}/-${REMOVED_COUNT:-0})" "${RUN_URL}"
+            TEXT+=$'\n'"${ONCALL_DOCS_MENTION} please review any new blank assignments and update accordingly."
           fi
 
           PAYLOAD=$(jq -n \
