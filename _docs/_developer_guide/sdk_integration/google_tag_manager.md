@@ -26,9 +26,18 @@ Google Tag Manager (GTM) lets you remotely add, remove, and edit tags on your we
 | Action tag | This tag lets you [create Content Cards]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager), [set user attributes]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web), and [manage data collection]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web).|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="About Google Tag Manager for Web #google-tag-manager" }
 
-## Tag sequencing for Braze action tags
+## Tag sequencing for Braze action tags {#tag-sequencing-for-braze-action-tags}
 
-Custom events and other Braze action tags can fail when they fire before the **Braze Initialization** tag finishes loading the Web SDK. In Google Tag Manager, open the action tag, go to **Advanced Settings** > **Tag Sequencing**, select **A tag that fires before [this tag] is fired**, and choose your Braze Initialization tag.
+The Braze Initialization tag must fire before any tags that call Braze SDK methods (such as `braze.getUser()`, `braze.logCustomEvent()`, or `braze.logPurchase()`). If these methods fire before the SDK is initialized, you may encounter errors like `Uncaught TypeError: Cannot read properties of undefined (reading 'getUser')`.
+
+To configure tag sequencing in Google Tag Manager:
+
+1. Open the tag that calls Braze SDK methods (such as a Custom HTML tag or Braze action tag).
+2. Go to **Advanced Settings** > **Tag Sequencing**.
+3. Select **A tag that fires before [this tag] is fired**.
+4. Choose your **Braze Initialization** tag.
+
+This ensures the SDK is fully loaded before any other tags attempt to call Braze methods.
 
 For more detail, see [Verify tag sequencing for custom events]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_tag-sequencing).
 
