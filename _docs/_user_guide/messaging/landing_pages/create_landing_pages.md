@@ -67,7 +67,7 @@ You can use these blocks to add content and customize the layout of your landing
 | Title       | A text block for adding a heading or title to your content. Useful for structuring sections and improving readability. |
 | Paragraph   | A text block for longer descriptions or additional context. Supports rich text formatting. |
 | Button      | A clickable element that directs users to a specified action, such as opening a link or submitting a form. |
-| Radio Button | Adds a list of options from which users can select one. When submitted, the user profile logs the associated custom attribute. |
+| Radio Button | Adds a list of options from which users are required to select one. When submitted, the user profile logs the associated custom attribute. |
 | Image       | A block for displaying images. You can upload an image or provide a URL to reference an external source. |
 | Link        | A hyperlink that users can click to navigate to a specified URL. Can be embedded within text or standalone. |
 | Spacer      | An invisible block that adds vertical spacing between elements for improved layout and readability. |
@@ -135,7 +135,11 @@ When enabled, you can also reverse stack columns to control the vertical order o
 
 #### Optional and required fields
 
-You can choose whether a form field is required or optional. Required fields must be filled out before the form can be submitted. Optional fields can be left blank or unselected by a user.
+You can choose whether certain form fields are required or optional. Required fields must be filled out before the form can be submitted. Optional fields can be left blank or unselected by a user.
+
+{% alert note %}
+Radio buttons are always required and can't be set to optional. If you need an optional single-choice field, consider using a dropdown instead.
+{% endalert %}
 
 For example, to enforce consent capture before form submission, you can turn on **Required field input** to set a checkbox to be required with the appropriate disclaimer text.
 
