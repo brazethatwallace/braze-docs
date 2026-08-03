@@ -47,7 +47,7 @@ glossaries:
     tags:
       - Segment or CSV membership
   - name: Updated/Imported from CSV
-    description: Segments your users based on whether they were a part of a CSV upload or not.
+    description: Segments your users based on whether they were a part of a CSV upload or not. Braze retains only the most recent 100 CSV imports per user profile for segmentation purposes. If a user appears in more than 100 CSV imports that were selected for retargeting, only the 100 most recent are available for this filter. Older imports no longer match that user.
     tags:
       - Segment or CSV membership
   - name: Custom Attributes

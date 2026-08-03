@@ -248,7 +248,7 @@ Vimeoでホストされている動画は、公開に設定されている場合
 
 ### 商品 {#product}
 
-[商品カタログ]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks)から商品行をレンダリングします。カタログのセレクションからの静的アイテム（最大12件）、またはキャンバスの[eコマーストリガー]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases)によるダイナミック商品（最大24件）として表示できます。
+[商品カタログ]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks)から商品行をレンダリングします。カタログのセレクションからの静的アイテム（最大12件）、またはキャンバスの[eコマーストリガー]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases)（最大24件）によるダイナミック商品として表示できます。
 
 | プロパティ | 説明 |
 | --- | --- |
@@ -272,7 +272,7 @@ Vimeoでホストされている動画は、公開に設定されている場合
 
 LiquidまたはConnected Contentを使用してメールにパーソナライゼーションを追加できます。
 
-- **Liquid:** **コンテンツ** > **パーソナライゼーション**で属性を選択し、スニペットをコピーして、タイトル、段落、またはリストブロック（基本的なLiquid）またはHTMLブロック（高度なLiquid）に貼り付けます。一般的に、タイトル、段落、リストブロックで基本的なLiquidを使用できますが、レイアウトの問題を避けるために、より複雑なロジックにはHTMLブロックの使用をお勧めします。なお、Liquidは画像ブロックやボタンのURLフィールドではサポートされていません。
+- **Liquid:** **コンテンツ** > **パーソナライゼーション**で属性を選択し、スニペットをコピーして、HTMLブロックに貼り付けます。基本的なLiquidスニペットはタイトル、段落、リストブロックでも動作する場合がありますが、これらのブロックにLiquidを配置すると予期しない動作やレイアウトの問題が発生する可能性があります。問題を避けるために、LiquidロジックにはHTMLブロックを使用してください。なお、Liquidは画像ブロックやボタンのURLフィールドではサポートされていません。
 - **[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content):** **HTML**ブロックを追加し、そこに{% raw %}`{% connected_content %}`{% endraw %}コールを配置します。
 
 {% endsdktab %}

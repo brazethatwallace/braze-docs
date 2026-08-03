@@ -870,6 +870,7 @@ truncatewords
 Trustpilot
 Trustpilot's
 Trustpilot’s
+Tuist
 tvos
 Twilio
 Typeform

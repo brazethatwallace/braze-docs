@@ -228,6 +228,10 @@ If opens are being logged, check whether it is an issue with the deep link in ge
 {% multi_lang_include developer_guide/android/push_notifications/troubleshooting.md %}
 {% endsdktab %}
 
+{% sdktab flutter %}
+{% multi_lang_include developer_guide/flutter/push_notifications/troubleshooting.md %}
+{% endsdktab %}
+
 {% sdktab .NET MAUI (Xamarin) %}
 ## Troubleshooting
 

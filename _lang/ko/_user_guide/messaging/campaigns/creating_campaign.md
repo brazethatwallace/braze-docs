@@ -11,72 +11,72 @@ tool: Campaigns
 
 > 하나 이상의 지원 채널을 통해 단일 메시징 단계로 소비자에게 도달하려면 캠페인을 사용하세요. 다단계 여정의 경우 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas)를 사용하세요.
 
-## 필수 조건 {#prerequisites}
+## 사전 요구 사항 {#prerequisites}
 
-캠페인을 생성하고 시작하려면 "캠페인 편집" 및 "캠페인 시작" 권한이 필요합니다. 워크스페이스 권한의 전체 목록과 대시보드에서의 표시 방식은 [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 참조하세요.
+Campaign을 생성하고 실행하려면 "Campaign 편집" 및 "Campaign 실행" 권한이 필요합니다. 워크스페이스 권한의 전체 목록과 대시보드에서 표시되는 방식에 대해서는 [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 참조하세요.
 
 ### 시작하기 전에 {#before-you-begin}
 
-- 메시지를 수신할 대상을 정의하는 [Segment(세그먼트)]({{site.baseurl}}/user_guide/audience/segments)를 구축하거나 선택하세요.
-- 메시징 채널, 전달 유형 및 전환 목표가 사용 사례에 맞는지 [캠페인 기본 사항]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics)을 검토하세요.
-- 전달, 타겟팅 및 전환에 대한 안내 워크스루를 보려면 [캠페인 설정](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) Braze 학습 과정을 수강하세요.
-- Operator에게 브리프를 기반으로 캠페인 초안을 작성하거나 타겟팅 및 전달 선택을 개선하도록 요청하세요. 자세한 내용은 [Operator로 할 수 있는 것]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences)을 참조하세요.
+- 메시지를 수신할 대상을 정의하는 [Segments]({{site.baseurl}}/user_guide/audience/segments)를 구축하거나 선택하세요.
+- 메시징 채널, 전달 유형 및 전환 목표가 사용 사례에 맞는지 [Campaign 기본 사항]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics)을 검토하세요.
+- 전달, 타겟팅 및 전환에 대한 안내 워크스루를 보려면 [Campaign 설정](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) Braze 학습 과정을 수강하세요.
+- Operator에게 브리프를 기반으로 Campaign 초안을 작성하거나 타겟팅 및 전달 선택을 개선하도록 요청하세요. 자세한 내용은 [Operator로 할 수 있는 것]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences)을 참조하세요.
 
-## 캠페인 작성기 {#campaign-composer}
+## Campaign 작성기 {#campaign-composer}
 
-캠페인 작성기에서 전달, 오디언스, 전환 및 시작 설정을 정의합니다. 계속하기 전에 단일 채널 캠페인을 생성할지 멀티채널 캠페인을 생성할지 결정하세요.
+Campaign 작성기에서는 전달, 오디언스, 전환 및 실행 설정을 정의합니다. 계속하기 전에 단일 채널 또는 멀티채널 Campaign을 만들지 결정하세요.
 
 {% tabs %}
 {% tab 단일 채널 %}
 
-단일 채널 캠페인은 시작당 하나의 메시징 채널을 통해 사용자에게 도달합니다.
+단일 채널 Campaign은 실행당 하나의 메시징 채널을 통해 사용자에게 도달합니다.
 
 ### 차이점 {#whats-different}
 
 #### 전환 및 보고 {#single-channel-conversions}
 
-단일 채널 캠페인의 경우, Braze는 해당 채널의 발송에 대해 캠페인에 할당한 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 추적합니다. 기여도 기간 및 집계 규칙은 [전환 추적 규칙]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)을 참조하세요.
+단일 채널 Campaign의 경우, Braze는 해당 채널의 발송에 대해 Campaign에 할당한 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 추적합니다. 기여 기간 및 집계 규칙에 대해서는 [전환 추적 규칙]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)을 참조하세요.
 
-워크스페이스 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) 및 발송 제한은 여전히 적용됩니다.
+워크스페이스 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) 및 발송 제한이 여전히 적용됩니다.
 
-### 단일 채널 캠페인 생성 {#create-a-single-channel-campaign}
+### 단일 채널 Campaign 만들기 {#create-a-single-channel-campaign}
 
-캠페인을 생성하려면:
+Campaign을 만들려면:
 
 1. **메시징** > **Campaigns**로 이동합니다.
-2. **캠페인 생성**을 선택합니다.
+2. **Campaign 만들기**를 선택합니다.
 3. 사용 사례에 맞는 [채널]({{site.baseurl}}/user_guide/channels)을 선택합니다.
-4. [작성 단계](#step-1-compose-messages)에서 해당 채널의 문구를 작성하고 미리보기합니다.
+4. [작성 단계](#step-1-compose-messages)에서 해당 채널의 문구를 작성하고 미리 봅니다.
 
-각 캠페인은 한 번에 하나의 채널 유형을 사용합니다. 크리에이티브 분할을 비교하거나 [A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing)를 실행하려면 배리언트를 추가하세요.
+각 Campaign은 한 번에 하나의 채널 유형을 사용합니다. 크리에이티브 분할을 비교하거나 [A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing)를 실행하려면 배리언트를 추가하세요.
 
 {% endtab %}
 {% tab 멀티채널 %}
 
-멀티채널 캠페인은 단일 시작에서 둘 이상의 메시징 채널을 통해 사용자에게 도달합니다. 예를 들어, 이메일과 푸시 알림을 함께 발송할 수 있습니다.
+멀티채널 Campaign은 한 번의 실행으로 둘 이상의 메시징 채널을 통해 사용자에게 도달합니다. 예를 들어, 이메일과 푸시 알림을 함께 발송할 수 있습니다.
 
 {% alert note %}
-[인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages)는 멀티채널 캠페인에서 사용할 수 없습니다. 대신 단일 채널 캠페인 또는 Canvas를 생성하세요.
+[In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages)는 멀티채널 Campaign에서 사용할 수 없습니다. 대신 단일 채널 Campaign 또는 Canvas를 만드세요.
 {% endalert %}
 
 ### 차이점
 
 #### 대조군 {#multichannel-control-groups}
 
-캠페인 대조군은 하나의 채널 내에서 배리언트를 비교합니다(예: 이메일 A 대 이메일 B). 하나의 멀티채널 캠페인 내에서 전체 채널을 비교하는 데는 사용되지 않습니다. 여정 전반에서 채널, 크리에이티브 또는 타이밍을 함께 테스트하려면 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas)를 사용하세요.
+Campaign 대조군은 하나의 채널 내에서 배리언트를 비교합니다(예: 이메일 A 대 이메일 B). 하나의 멀티채널 Campaign 내에서 전체 채널을 비교하는 데는 사용되지 않습니다. 여정 전반에 걸쳐 채널, 크리에이티브 또는 타이밍을 함께 테스트하려면 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas)를 사용하세요.
 
 #### 전환 및 보고 {#multichannel-conversions}
 
-멀티채널 캠페인의 경우, Braze는 채널별로 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 추적합니다. 사용자가 둘 이상의 채널에서 메시지를 수신한 후 전환하면, Braze는 해당 전환을 여러 채널에 걸쳐 기여할 수 있습니다. 전환 수가 *고유 사용자*를 초과할 수 있으며, 비율이 100%를 초과할 수 있습니다. 전체 규칙은 [전환 추적 규칙]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)을 참조하세요.
+멀티채널 Campaign의 경우, Braze는 채널별로 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 추적합니다. 사용자가 둘 이상의 채널에서 메시지를 수신한 후 전환하면, Braze는 해당 전환을 여러 채널에 걸쳐 기여할 수 있습니다. 전환 수가 *고유 사용자*를 초과할 수 있으며, 비율이 100%를 초과할 수 있습니다. 전체 규칙은 [전환 추적 규칙]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)을 참조하세요.
 
-여러 채널에 걸친 발송의 사용량 제한은 [멀티채널 Campaigns 및 Canvases]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases)에 설명되어 있습니다. 워크스페이스 전체 규칙(멀티채널 발송이 한도에 어떻게 집계되는지 포함)은 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)을 참조하세요.
+여러 채널에 걸친 발송의 사용량 제한은 [멀티채널 Campaign 및 Canvases]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases)에 설명되어 있습니다. 워크스페이스 전체 규칙(멀티채널 발송이 한도에 포함되는 방식 포함)은 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)을 참조하세요.
 
-### 멀티채널 캠페인 생성 {#create-a-multichannel-campaign}
+### 멀티채널 Campaign 만들기 {#create-a-multichannel-campaign}
 
 1. **메시징** > **Campaigns**로 이동합니다.
-2. **캠페인 생성**을 선택합니다.
+2. **Campaign 만들기**를 선택합니다.
 3. **멀티채널**을 선택합니다.
-4. [작성 단계](#step-1-compose-messages)에서 **채널 추가**를 선택하고 필요한 각 채널을 선택합니다. 각 채널의 문구를 작성하는 동안 채널 아이콘을 선택하여 작성기 간에 전환합니다.
+4. [작성 단계](#step-1-compose-messages)에서 **채널 추가**를 선택하고 필요한 각 채널을 선택합니다. 각 채널의 문구를 작성하면서 채널 아이콘을 선택하여 작성기 간에 전환할 수 있습니다.
 
 {% endtab %}
 {% endtabs %}
@@ -139,6 +139,10 @@ Braze 전반의 스케줄링 개념은 [캠페인 스케줄]({{site.baseurl}}/us
 
 Segment 또는 필터를 추가한 후, **오디언스 요약**은 해당 Segment 모집단의 모습을 미리 보여주며, 해당 Segment 내에서 선택한 채널을 통해 도달 가능한 사용자 수를 포함합니다. 도달 가능 수는 워크스페이스 데이터, 채널 설정 및 필터를 반영합니다. 정확한 Segment 멤버십은 항상 메시지가 발송되기 전에 계산된다는 점을 유의하세요. 매우 큰 오디언스의 경우, Braze는 정확한 통계를 계산할 때까지 추정치를 표시할 수 있습니다.
 
+{% alert note %}
+[글로벌 컨트롤 그룹]({{site.baseurl}}/user_guide/audience/global_control_group)이 설정되어 있는 경우, 캠페인 타겟 오디언스에 표시되는 도달 가능 사용자 수는 동일한 Segment에 대해 표시되는 도달 가능 사용자 수보다 적습니다. 이는 캠페인이 글로벌 컨트롤 그룹에 속한 사용자를 제외하는 반면, Segment 수에는 해당 사용자가 포함되기 때문입니다.
+{% endalert %}
+
 ### 사용자 조회 {#user-lookup}
 
 Segment 또는 필터를 추가한 후, 사용자를 조회하여 Segment 기준에 일치하는지 확인함으로써 오디언스가 예상대로 설정되었는지 테스트할 수 있습니다. 이를 위해 **사용자 조회** 섹션에서 사용자의 `external_id` 또는 `braze_id`를 검색하세요. 여기서는 이메일 주소로 검색할 수 없습니다. 자세한 내용은 [Segment 테스트]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments)를 참조하세요.
@@ -191,4 +195,4 @@ Segment 또는 필터를 추가한 후, 사용자를 조회하여 Segment 기준
 - [디자인 및 편집]({{site.baseurl}}/user_guide/messaging/design_and_edit)
 - [A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing)
 - [발송 전 확인 사항]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send)
-- [캠페인 분석]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics)
+- [Campaign 분석]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics)

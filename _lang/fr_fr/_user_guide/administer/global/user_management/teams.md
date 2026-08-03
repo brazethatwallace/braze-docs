@@ -32,13 +32,13 @@ Si une équipe est définie par un attribut personnalisé, une langue ou un pays
 
 ## Assigner des utilisateurs à des Teams {#assign-users-to-teams}
 
-Les administrateurs Braze et les utilisateurs à accès limité disposant de l'autorisation au niveau de l'entreprise « Can Manage Company Settings » peuvent attribuer des autorisations au niveau de l'équipe à un utilisateur de l'entreprise disposant d'un accès limité. Lorsqu'ils sont assignés à une équipe, les utilisateurs de l'entreprise sont limités à la lecture ou à l'écriture des données disponibles pour leurs Teams spécifiques, telles que la langue de l'utilisateur, l'emplacement ou l'attribut personnalisé, tels que définis lors de la création de l'équipe.
+Les administrateurs Braze et les utilisateurs à accès limité disposant de l'autorisation au niveau de l'entreprise « Can Manage Company Settings » peuvent attribuer des autorisations au niveau de l'équipe à un utilisateur de l'entreprise avec un accès limité. Lorsqu'ils sont assignés à une équipe, les utilisateurs de l'entreprise sont limités à la lecture ou à l'écriture des données disponibles pour leurs équipes spécifiques, telles que la langue de l'utilisateur, l'emplacement ou l'attribut personnalisé, tels que définis lors de la création de l'équipe.
 
 ### Limiter les autorisations d'un utilisateur de l'entreprise sans supprimer l'utilisateur {#limit-company-user-permissions-without-deleting-a-user}
 
 Pour empêcher un utilisateur de l'entreprise de se connecter tout en préservant son compte, [suspendez l'utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users). La suspension place le compte dans un état inactif où l'utilisateur ne peut pas se connecter.
 
-Si l'utilisateur doit pouvoir continuer à se connecter avec des capacités limitées, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, sélectionnez l'utilisateur et modifiez ses autorisations. Supprimez les autorisations au niveau de l'espace de travail pour les Campaigns, les Canvas, les Segments et les données utilisateur, et ne conservez qu'un accès minimal, par exemple « View Media Library Assets ». Pour en savoir plus, consultez [Modifier les autorisations d'un utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
+Si l'utilisateur doit pouvoir continuer à se connecter avec des capacités limitées, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, sélectionnez l'utilisateur et modifiez ses autorisations. Supprimez les autorisations au niveau de l'espace de travail pour les Campaigns, les Canvas, les Segments et les données utilisateur, et ne laissez qu'un accès minimal, par exemple « View Media Library Assets ». Pour plus d'informations, consultez [Modifier les autorisations d'un utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 
 Les autorisations d'équipe fonctionnent en complément des autorisations de l'espace de travail. Si vous assignez l'utilisateur à une équipe, n'accordez que les autorisations minimales au niveau de l'équipe dont il a besoin, et n'accordez pas d'autorisations pour les Campaigns, les Canvas, les Segments ou les profils utilisateur. L'utilisateur reste dans l'espace de travail et peut se connecter, mais il ne peut pas effectuer la plupart des actions de communication ou d'audience.
 
@@ -51,8 +51,8 @@ Effectuez ensuite les étapes suivantes :
 ![Autorisations au niveau de l'espace de travail avec l'ensemble d'autorisations Banner Template.]({% image_buster /assets/img/team_level_permissions.png %})
 
 {: start="2"}
-2. Sélectionnez **+ Add team-level permissions**, puis sélectionnez l'équipe (**Team**) à laquelle vous souhaitez ajouter cet utilisateur.
-3. Attribuez des autorisations spécifiques depuis la section des autorisations **Team**.
+2. Sélectionnez **+ Ajouter des autorisations au niveau de l'équipe**, puis sélectionnez l'**équipe** à laquelle vous souhaitez ajouter cet utilisateur.
+3. Attribuez des autorisations spécifiques depuis la section des autorisations de l'**équipe**.
 
 ![Autorisations de modèle de page de destination au niveau de l'équipe.]({% image_buster /assets/img/teams.png %})
 
@@ -108,7 +108,7 @@ Pour consulter les descriptions de ce que chaque autorisation utilisateur inclut
 
 Vous pouvez attribuer une équipe aux Canvas, Campaigns, Content Cards, Segments, modèles d'e-mail, modèles de webhook, Content Blocks et ressources de la bibliothèque multimédia à l'aide du filtre **Ajouter une équipe**.
 
-Pour les Canvas, les filtres d'équipe ne valident les utilisateurs qu'à l'entrée du Canvas. Une fois qu'un utilisateur entre dans un Canvas, il continue de recevoir les messages de toutes les étapes du Canvas, même si ses attributs changent et qu'il ne correspond plus aux critères du filtre d'équipe. Les filtres d'équipe ne fonctionnent pas comme des validations de réception qui réévaluent les utilisateurs à chaque étape de message.
+Pour les Canvas, Braze ne vérifie si les utilisateurs correspondent aux critères du filtre d'équipe qu'au moment de leur entrée dans le Canvas. Une fois qu'un utilisateur entre dans un Canvas, il continue de recevoir les messages de toutes les étapes du Canvas, même si ses attributs changent et qu'il ne correspond plus aux critères du filtre d'équipe. Les filtres d'équipe ne fonctionnent pas comme les [validations de réception]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations), qui réévaluent les utilisateurs à chaque envoi d'étape de message.
 
 ![Ajout d'une étiquette d'équipe à une campagne.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 
@@ -157,7 +157,7 @@ Le processus général serait le suivant :
 
 1. L'équipe de développement crée une Campaign et ajoute le tag d'équipe « Développement ».
 2. L'équipe de développement lance la Campaign auprès des utilisateurs test.
-3. L'équipe d'approbation valide la conception locale de la Campaign, la promeut et la lance. Pour la lancer, l'équipe d'approbation remplace le tag d'équipe « Développement » par « [All Teams] » et relance la Campaign.
+3. L'équipe d'approbation valide la conception locale de la Campaign, la promeut et la lance. Pour le lancement, l'équipe d'approbation remplace le tag d'équipe « Développement » par « [All Teams] » et relance la Campaign.
 
 Pour les modifications apportées aux Campaigns actives :
 

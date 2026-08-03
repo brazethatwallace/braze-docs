@@ -25,24 +25,26 @@ Los ajustes de correo electrónico en la sección **Configuración de envío** d
 
 Al configurar tus ajustes de correo electrónico, los ajustes de correo electrónico saliente identifican qué nombre y direcciones de correo electrónico se utilizan cuando Braze envía correos electrónicos a tus usuarios.
 
+Si necesitas añadir un nuevo dominio o grupo de IP (proveedor de envío) a tu espacio de trabajo, o eliminar uno de la lista disponible, ponte en contacto con tu administrador de éxito de cliente para obtener ayuda.
+
 {% tabs local %}
 {% tab Nombre para mostrar y dirección %}
 
-En esta sección, puedes añadir los nombres y direcciones de correo electrónico que puedes utilizar cuando Braze envía correos electrónicos a tus usuarios. Los nombres para mostrar y las direcciones de correo electrónico están disponibles en las opciones de **Información de envío** cuando redactas tu Campaign de correo electrónico. Ten en cuenta que las actualizaciones realizadas en los ajustes de correo electrónico saliente no afectan retroactivamente a los envíos existentes.
+En esta sección, puedes añadir los nombres y direcciones de correo electrónico que puedes usar cuando Braze envía correos electrónicos a tus usuarios. Los nombres para mostrar y las direcciones de correo electrónico están disponibles en las opciones de **Información de envío** mientras redactas tu Campaign de correo electrónico. Ten en cuenta que las actualizaciones realizadas en los ajustes de correo electrónico saliente no afectan retroactivamente a los envíos existentes.
 
 ![Sección "Ajustes de correo electrónico saliente" con campos para diferentes nombres para mostrar y dominios.]({% image_buster /assets/img/email_settings/display_name_address.png %})
 
 {% alert note %}
-Los clientes de Apple Mail no reconocen el símbolo `@` cuando se utiliza en un nombre para mostrar personalizado. Los diferentes proveedores de buzón de correo controlan cómo se muestra la dirección del nombre para mostrar a sus usuarios, por lo que el nombre para mostrar puede aparecer de forma diferente según el cliente de correo electrónico.
+Los clientes de Apple Mail no reconocen el símbolo `@` cuando se utiliza en un nombre para mostrar personalizado. Los diferentes proveedores de buzón controlan cómo se muestra la dirección del nombre para mostrar a sus usuarios, por lo que el nombre para mostrar puede aparecer de forma diferente según el cliente de correo electrónico.
 {% endalert %}
 
 #### Personalizar con Liquid {#personalize-with-liquid}
 
-También puedes utilizar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) en los campos **Nombre para mostrar del remitente**, **Parte local** y **Dominio** para crear dinámicamente plantillas del nombre del remitente y la dirección de correo electrónico basándote en atributos personalizados. Ten en cuenta que para utilizar Liquid en el campo **Dominio**, debes ir a las opciones de **Información de envío** de una Campaign de correo electrónico y seleccionar la casilla **Personalizar nombre para mostrar del remitente + dirección**.
+También puedes usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) en los campos **Nombre para mostrar del remitente**, **Parte local** y **Dominio** para crear dinámicamente una plantilla del nombre del remitente y la dirección de correo electrónico basándote en atributos personalizados. Ten en cuenta que para usar Liquid en el campo **Dominio**, debes ir a las opciones de **Información de envío** de una Campaign de correo electrónico y seleccionar la casilla **Personalizar nombre para mostrar del remitente + dirección**.
 
 ![Ajustes de envío con campos para personalizar el nombre para mostrar del remitente, la dirección y el dominio.]({% image_buster /assets/img/email_settings/email_campaign_domain.png %})
 
-Por ejemplo, puedes utilizar lógica condicional para enviar desde diferentes marcas o regiones:
+Por ejemplo, puedes usar lógica condicional para enviar desde diferentes marcas o regiones:
 
 {% raw %}
 ```liquid
@@ -59,7 +61,7 @@ Default to English Display Name
 {% endtab %}
 {% tab Dirección de respuesta %}
 
-Añadir una dirección de correo electrónico en esta sección te permite seleccionarla como dirección de respuesta para tu Campaign de correo electrónico. También puedes establecer una dirección de correo electrónico como predeterminada seleccionando **Establecer como predeterminada**. Estas direcciones de correo electrónico estarán disponibles en las opciones de **Información de envío** cuando redactes tu Campaign de correo electrónico.
+Añadir una dirección de correo electrónico en esta sección te permite seleccionarla como dirección de respuesta para tu Campaign de correo electrónico. También puedes establecer una dirección de correo electrónico como predeterminada seleccionando **Establecer como predeterminada**. Estas direcciones de correo electrónico estarán disponibles en las opciones de **Información de envío** mientras redactas tu Campaign de correo electrónico.
 
 ![Sección "Dirección de respuesta" con campos para introducir múltiples direcciones de respuesta.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
@@ -69,7 +71,7 @@ Los dominios de envío de Braze no aceptan correo electrónico entrante. Si un d
 
 #### Personalizar con Liquid
 
-También puedes utilizar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) en el campo **Dirección de respuesta** para crear dinámicamente plantillas de la dirección de respuesta basándote en atributos personalizados. Por ejemplo, puedes utilizar lógica condicional para enviar respuestas a diferentes regiones o departamentos:
+También puedes usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) en el campo **Dirección de respuesta** para crear dinámicamente una plantilla de la dirección de respuesta basándote en atributos personalizados. Por ejemplo, puedes usar lógica condicional para enviar respuestas a diferentes regiones o departamentos:
 
 {% raw %}
 ```liquid
@@ -85,9 +87,9 @@ También puedes utilizar [Liquid]({{site.baseurl}}/user_guide/messaging/design_a
 {% endtab %}
 {% tab Dirección CCO %}
 
-Esta sección te permite gestionar las direcciones CCO que puedes añadir a los mensajes de correo electrónico salientes enviados desde Braze. Añadir una dirección CCO a un mensaje de correo electrónico envía una copia idéntica del mensaje que tu usuario recibe a tu buzón de entrada CCO. Esta es una herramienta útil para conservar copias de los mensajes que enviaste a tus usuarios para requisitos de cumplimiento o problemas de atención al cliente. Los correos electrónicos CCO no se incluyen en los informes ni en los análisis de correo electrónico.
+Esta sección te permite gestionar las direcciones CCO que puedes añadir a los mensajes de correo electrónico salientes enviados desde Braze. Añadir una dirección CCO a un mensaje de correo electrónico envía una copia idéntica del mensaje que tu usuario recibe a tu buzón de entrada CCO. Esta es una herramienta útil para conservar copias de los mensajes que enviaste a tus usuarios para requisitos de cumplimiento o problemas de soporte al cliente. Los correos electrónicos CCO no se incluyen en los informes ni en los análisis de correo electrónico.
 
-Las direcciones CCO están disponibles para Amazon SES, SendGrid y SparkPost. Como alternativa a las direcciones CCO, recomendamos utilizar el [archivado de mensajes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) para guardar una copia de los mensajes enviados a los usuarios con fines de archivado o cumplimiento.
+Las direcciones CCO están disponibles para Amazon SES, SendGrid y SparkPost. Como alternativa a las direcciones CCO, recomendamos usar el [archivado de mensajes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) para guardar una copia de los mensajes enviados a los usuarios con fines de archivado o cumplimiento.
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
@@ -97,7 +99,7 @@ Si necesitas que todos los mensajes de correo electrónico enviados desde Braze 
 
 #### CCO dinámico {#dynamic-bcc}
 
-Con el CCO dinámico, puedes utilizar Liquid en tu dirección CCO. Ten en cuenta que esta característica solo está disponible en **Preferencias de correo electrónico** y no se puede configurar en la propia Campaign. Solo se permite una dirección CCO por destinatario de correo electrónico.
+Con el CCO dinámico, puedes usar Liquid en tu dirección CCO. Ten en cuenta que esta característica solo está disponible en **Preferencias de correo electrónico** y no se puede configurar en la propia Campaign. Solo se permite una dirección CCO por destinatario de correo electrónico.
 
 Por ejemplo, puedes añadir {% raw %}`{{custom_attribute.${support_agent}}}`{% endraw %} como la dirección CCO para los correos electrónicos de tu equipo de soporte.
 
@@ -116,9 +118,9 @@ El píxel de seguimiento de apertura de correo electrónico es una imagen invisi
 
 El comportamiento predeterminado en Braze es añadir el píxel de seguimiento en la parte inferior de tu correo electrónico, normalmente en una etiqueta `<body>`. Para la mayoría de los usuarios, este es el lugar ideal para colocar el píxel.
 
-Aunque el píxel ya está diseñado para causar la menor cantidad posible de cambios visuales, cualquier cambio visual no intencionado sería menos visible en la parte inferior de un correo electrónico. Este también es el comportamiento predeterminado para proveedores de correo electrónico como SendGrid y SparkPost.
+Aunque el píxel ya está diseñado para causar la menor cantidad posible de cambios visuales, cualquier cambio visual no intencionado sería menos visible en la parte inferior de un correo electrónico. Este es también el comportamiento predeterminado para proveedores de correo electrónico como SendGrid y SparkPost.
 
-Para reducir comportamientos inesperados, mantén Liquid dentro de las etiquetas `<html>`. Las etiquetas anidadas o duplicadas a nivel de documento pueden cambiar la forma en que se analiza el correo electrónico y dónde se ubica el píxel, lo que puede afectar al seguimiento de apertura y al diseño. Para más información, consulta [Uso de Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid).
+Para reducir comportamientos inesperados, mantén Liquid dentro de las etiquetas `<html>`. Las etiquetas de nivel de documento anidadas o duplicadas pueden cambiar la forma en que se analiza el correo electrónico y dónde se coloca el píxel, lo que puede afectar al seguimiento de apertura y al diseño. Para más información, consulta [Uso de Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid).
 
 ### Actualizar la ubicación {#update-the-placement}
 
@@ -273,9 +275,9 @@ Usa el conmutador para incluir "[TEST]" y "[SEED]" en las líneas de asunto de t
 
 ![Conmutador de preferencias de correo electrónico del espacio de trabajo que añade los prefijos TEST y SEED a las líneas de asunto de los correos electrónicos de prueba y semilla.]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
 
-## CSS en línea en nuevos correos electrónicos de forma predeterminada {#inline-css-on-new-emails-by-default}
+## CSS en línea en correos electrónicos nuevos de forma predeterminada {#inline-css-on-new-emails-by-default}
 
-El CSS en línea es una técnica que aplica automáticamente estilos CSS en línea para tus correos electrónicos y nuevos correos electrónicos. Para algunos clientes de correo electrónico, esto puede mejorar la forma en que se renderizan tus correos electrónicos.
+La inserción de CSS en línea es una técnica que aplica automáticamente estilos CSS en línea para tus correos electrónicos y correos electrónicos nuevos. Para algunos clientes de correo electrónico, esto puede mejorar la forma en que se renderizan tus correos electrónicos.
 
 Cambiar esta configuración no afecta a ninguno de tus mensajes de correo electrónico ni plantillas existentes. Puedes anular este valor predeterminado en cualquier momento mientras redactas mensajes o plantillas. Para más información, consulta [CSS en línea]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline).
 
@@ -303,7 +305,7 @@ Para la creación de plantillas Liquid de pie de página personalizado, consulta
 {% endtab %}
 {% tab Página de cancelación de suscripción personalizada %}
 
-Braze te permite configurar una **página de cancelación de suscripción personalizada** con tu propio HTML. Esta página aparece después de que un usuario haya seleccionado cancelar la suscripción en la parte inferior de un correo electrónico. Ten en cuenta que esta página debe tener un tamaño inferior a 750 KB.
+Braze te permite configurar una **página de cancelación de suscripción personalizada** con tu propio HTML. Esta página aparece después de que un usuario haya seleccionado cancelar la suscripción desde la parte inferior de un correo electrónico. Ten en cuenta que esta página debe tener un tamaño inferior a 750 KB.
 
 ![Editor HTML de página de cancelación de suscripción personalizada y vista previa de la página que se muestra después de que un usuario cancela la suscripción de correo electrónico.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
@@ -312,7 +314,7 @@ Braze te permite configurar una **página de cancelación de suscripción person
 {% endtab %}
 {% tab Página de adhesión voluntaria personalizada %}
 
-Puedes crear una página de adhesión voluntaria personalizada utilizando tu propio HTML. Incluir esto en tu correo electrónico puede ser especialmente beneficioso si deseas que tu marca y mensaje se mantengan consistentes a lo largo del ciclo de vida de tu usuario. Ten en cuenta que esta página debe tener un tamaño inferior a 750 KB.
+Puedes crear una página de adhesión voluntaria personalizada utilizando tu propio HTML. Incluir esto en tu correo electrónico puede ser especialmente beneficioso si deseas que tu marca y mensaje se mantengan consistentes a lo largo del ciclo de vida del usuario. Ten en cuenta que esta página debe tener un tamaño inferior a 750 KB.
 
 ![Editor HTML de página de adhesión voluntaria personalizada y vista previa para la confirmación de suscripción de correo electrónico con marca.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
@@ -355,12 +357,12 @@ Si añades lógica condicional, evita tener valores de salida que agreguen espac
 
 ### Cancelación de suscripción con un clic a nivel de mensaje
 
-{% details Si añado los encabezados de correo electrónico para la cancelación con un clic manualmente, y tengo activado el encabezado de cancelación de suscripción de correo electrónico, ¿cuál es el comportamiento esperado? %}
+{% details Si añado los encabezados de correo electrónico para la cancelación con un clic manualmente y tengo activado el encabezado de cancelación de suscripción de correo electrónico, ¿cuál es el comportamiento esperado? %}
 Los encabezados de correo electrónico añadidos para la cancelación de suscripción con un clic se aplican a todos los envíos futuros de esta Campaign.
 {% enddetails %}
 
 {% details ¿Por qué los grupos de suscripción deben coincidir entre las variantes del mensaje para poder lanzar? %}
-Para una Campaign con pruebas A/B, Braze envía aleatoriamente a un usuario una de las variantes. Si tienes dos grupos de suscripción diferentes configurados en la misma Campaign (la variante A está configurada con el grupo de suscripción A, y la variante B está configurada con el grupo de suscripción B), no podemos garantizar que los usuarios que solo están suscritos al grupo de suscripción B reciban la variante B. Puede haber un escenario en el que los usuarios cancelen la suscripción de un grupo de suscripción del que ya se habían dado de baja.
+Para una Campaign con pruebas A/B, Braze envía aleatoriamente a un usuario una de las variantes. Si tienes dos grupos de suscripción diferentes configurados en la misma Campaign (la variante A está configurada con el grupo de suscripción A y la variante B está configurada con el grupo de suscripción B), no podemos garantizar que los usuarios que solo están suscritos al grupo de suscripción B reciban la variante B. Puede haber un escenario en el que los usuarios cancelen la suscripción de un grupo de suscripción del que ya se habían dado de baja.
 {% enddetails %}
 
 {% details La configuración del encabezado de cancelación de suscripción de correo electrónico está desactivada en Preferencias de correo electrónico, pero en la información de envío de mi Campaign, la configuración de cancelación de suscripción con un clic está establecida en "Usar predeterminado del espacio de trabajo". ¿Es un error? %}

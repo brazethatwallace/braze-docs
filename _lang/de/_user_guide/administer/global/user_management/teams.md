@@ -32,7 +32,7 @@ Wenn ein Team durch ein angepasstes Attribut, eine Sprache oder ein Land definie
 
 ## Nutzer:innen Teams zuweisen {#assign-users-to-teams}
 
-Braze-Administrator:innen und eingeschränkte Nutzer:innen mit der unternehmensweiten Berechtigung „Unternehmenseinstellungen verwalten“ können einem/einer Unternehmensnutzer:in mit eingeschränktem Zugriff Berechtigungen auf Team-Ebene zuweisen. Wenn Unternehmensnutzer:innen einem Team zugewiesen werden, sind sie darauf beschränkt, nur Daten zu lesen oder zu schreiben, die ihren jeweiligen Teams zur Verfügung stehen – wie z. B. Nutzersprache, Standort oder angepasste Attribute, wie bei der Erstellung des Teams festgelegt.
+Braze-Administrator:innen und eingeschränkte Nutzer:innen mit der unternehmensweiten Berechtigung „Unternehmenseinstellungen verwalten“ können einem/einer Unternehmensnutzer:in mit eingeschränktem Zugriff Berechtigungen auf Team-Ebene zuweisen. Wenn Unternehmensnutzer:innen einem Team zugewiesen werden, sind sie darauf beschränkt, nur Daten zu lesen oder zu schreiben, die ihren jeweiligen Teams zur Verfügung stehen – beispielsweise Nutzersprache, Standort oder angepasste Attribute, wie bei der Erstellung des Teams festgelegt.
 
 ### Berechtigungen von Unternehmensnutzer:innen einschränken, ohne sie zu löschen {#limit-company-user-permissions-without-deleting-a-user}
 
@@ -48,13 +48,13 @@ Führen Sie dann die folgenden Schritte aus:
 
 1. Fügen Sie im Abschnitt **Berechtigungen auf Workspace-Ebene** die/den Nutzer:in dem entsprechenden Workspace hinzu, falls sie/er noch nicht enthalten ist.
 
-![Berechtigungen auf Workspace-Ebene mit festgelegter Banner-Template-Berechtigung.]({% image_buster /assets/img/team_level_permissions.png %})
+![Berechtigungen auf Workspace-Ebene mit der festgelegten Banner-Template-Berechtigung.]({% image_buster /assets/img/team_level_permissions.png %})
 
 {: start="2"}
-2. Wählen Sie **+ Team-Berechtigungen hinzufügen** und dann das **Team**, dem Sie diese:n Nutzer:in hinzufügen möchten.
+2. Wählen Sie **+ Berechtigungen auf Team-Ebene hinzufügen** und dann das **Team** aus, dem Sie diese:n Nutzer:in hinzufügen möchten.
 3. Weisen Sie spezifische Berechtigungen im Abschnitt **Team**-Berechtigungen zu.
 
-![Landing-Page-Template-Berechtigungen auf Team-Ebene.]({% image_buster /assets/img/teams.png %})
+![Berechtigungen für Landing-Page-Templates auf Team-Ebene.]({% image_buster /assets/img/teams.png %})
 
 ### Verfügbare Berechtigungen auf Team-Ebene {#available-team-level-permissions}
 
@@ -108,7 +108,7 @@ Beschreibungen der einzelnen Nutzerberechtigungen und ihrer Verwendung finden Si
 
 Sie können ein Team Canvases, Campaigns, Content Cards, Segmenten, E-Mail-Templates, Webhook-Templates, Content Blocks und Medienbibliothek-Assets mit dem Filter **Team hinzufügen** zuweisen.
 
-Bei Canvases validieren Team-Filter Nutzer:innen nur beim Canvas-Entry. Nachdem ein:e Nutzer:in ein Canvas betreten hat, erhält er/sie weiterhin Nachrichten aus allen Canvas-Schritten, auch wenn sich die Attribute ändern und er/sie die Kriterien des Team-Filters nicht mehr erfüllt. Team-Filter verhalten sich nicht wie Zustellungsvalidierungen, die Nutzer:innen bei jedem Nachrichtenschritt erneut auswerten.
+Bei Canvases prüft Braze nur beim Eintritt in das Canvas, ob Nutzer:innen die Kriterien des Team-Filters erfüllen. Nachdem ein:e Nutzer:in ein Canvas betreten hat, erhält er/sie weiterhin Nachrichten aus allen Canvas-Schritten, auch wenn sich die Attribute ändern und er/sie die Kriterien des Team-Filters nicht mehr erfüllt. Team-Filter verhalten sich nicht wie [Zustellungsvalidierungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations), die Nutzer:innen bei jedem Nachrichtenschritt-Versand erneut auswerten.
 
 ![Hinzufügen eines Team-Tags zu einer Campaign.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 
@@ -149,7 +149,7 @@ Da Michelle die Berechtigung auf Workspace-Ebene „Zugriff auf Campaigns, Canva
 
 ## Testen mit Teams {#test-with-teams}
 
-Ein möglicher Anwendungsfall für Teams ist die Einrichtung eines Teams-basierten Genehmigungssystems zum Testen und Veröffentlichen von Inhalten in einer Produktionsumgebung.
+Ein möglicher Anwendungsfall für Teams ist die Einrichtung eines teambasierten Genehmigungssystems zum Testen und Veröffentlichen von Inhalten in einer Produktionsumgebung.
 
 Erstellen Sie dazu ein „Development“-Team, das nur Zugriff auf Testnutzer:innen hat. Sie können den Zugriff eines Teams auf Testnutzer:innen beschränken, wenn Ihre Testnutzer:innen anhand eines angepassten Attributs identifizierbar sind. Fügen Sie dann das angepasste Attribut als Definition hinzu, wenn Sie das Team erstellen oder bearbeiten (siehe den vorherigen Abschnitt [Teams erstellen](#creating-Teams)). Ihre Genehmigenden sollten Zugriff auf alle Nutzer:innen haben.
 

@@ -13,70 +13,70 @@ tool: Campaigns
 
 ## Voraussetzungen {#prerequisites}
 
-Um eine Kampagne zu erstellen und zu starten, benötigen Sie die Berechtigungen „Kampagnen bearbeiten“ und „Kampagnen starten“. Eine vollständige Liste der Workspace-Berechtigungen und wie sie im Dashboard angezeigt werden, finden Sie unter [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Um eine Campaign zu erstellen und zu starten, benötigen Sie die Berechtigungen „Campaigns bearbeiten“ und „Kampagnen starten“. Eine vollständige Liste der Workspace-Berechtigungen und wie sie im Dashboard angezeigt werden finden Sie unter [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ### Bevor Sie beginnen {#before-you-begin}
 
 - Erstellen oder wählen Sie die [Segmente]({{site.baseurl}}/user_guide/audience/segments) aus, die festlegen, wer Ihre Nachrichten erhalten soll.
-- Lesen Sie [Kampagnen-Grundlagen]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics), damit Messaging-Kanäle, Zustellungstypen und Conversion Goals zu Ihrem Anwendungsfall passen.
-- Für eine geführte Anleitung zu Zustellung, Targeting und Conversions absolvieren Sie den Braze-Lernkurs [Campaign Setup](https://learning.braze.com/campaign-setup-delivery-targeting-conversions).
-- Bitten Sie Operator, Ihnen beim Entwurf Ihrer Kampagne aus einem Briefing zu helfen oder Targeting- und Zustellungsentscheidungen zu verfeinern. Weitere Informationen finden Sie unter [Was Sie mit Operator tun können]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
+- Lesen Sie die [Campaign-Grundlagen]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics), damit Messaging-Kanäle, Zustellungsarten und Konversions-Ziele zu Ihrem Anwendungsfall passen.
+- Für eine geführte Anleitung zu Zustellung, Targeting und Konversionen absolvieren Sie den Braze-Lernkurs [Campaign Setup](https://learning.braze.com/campaign-setup-delivery-targeting-conversions).
+- Bitten Sie den Operator, Ihnen beim Entwurf Ihrer Campaign aus einem Briefing zu helfen oder Targeting- und Zustellungsentscheidungen zu verfeinern. Weitere Informationen finden Sie unter [Was Sie mit dem Operator tun können]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
-## Kampagnen-Composer {#campaign-composer}
+## Campaign-Composer {#campaign-composer}
 
-Im Kampagnen-Composer definieren Sie Zustellung, Zielgruppen, Conversions und Starteinstellungen. Entscheiden Sie, ob Sie eine Einzelkanal- oder Multichannel-Kampagne erstellen, bevor Sie fortfahren.
+Im Campaign-Composer definieren Sie Zustellung, Zielgruppen, Konversionen und Starteinstellungen. Entscheiden Sie vor dem Fortfahren, ob Sie eine Einkanal- oder eine Mehrkanal-Campaign erstellen möchten.
 
 {% tabs %}
-{% tab Einzelkanal %}
+{% tab Einkanal %}
 
-Eine Einzelkanal-Kampagne erreicht Nutzer:innen über einen Messaging-Kanal pro Start.
+Eine Einkanal-Campaign erreicht Nutzer:innen über einen einzelnen Messaging-Kanal pro Start.
 
 ### Was ist anders {#whats-different}
 
-#### Conversions und Reporting {#single-channel-conversions}
+#### Konversionen und Reporting {#single-channel-conversions}
 
-Bei Einzelkanal-Kampagnen verfolgt Braze [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), die Sie der Kampagne zuweisen, anhand der Sends dieses Kanals. Informationen zu Attributionsfenstern und Zählregeln finden Sie unter [Conversion-Tracking-Regeln]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules).
+Bei Einkanal-Campaigns verfolgt Braze [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), die Sie der Campaign zuweisen, anhand der Sends dieses Kanals. Informationen zu Attributionsfenstern und Zählregeln finden Sie unter [Regeln für das Konversions-Tracking]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules).
 
-Das [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) und die Sendelimits des Workspace gelten weiterhin.
+Die Workspace-weiten [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)-Regeln und Sendelimits gelten weiterhin.
 
-### Einzelkanal-Kampagne erstellen {#create-a-single-channel-campaign}
+### Eine Einkanal-Campaign erstellen {#create-a-single-channel-campaign}
 
-So erstellen Sie eine Kampagne:
+So erstellen Sie eine Campaign:
 
 1. Gehen Sie zu **Messaging** > **Campaigns**.
-2. Wählen Sie **Kampagne erstellen**.
-3. Wählen Sie den [Kanal]({{site.baseurl}}/user_guide/channels), der zu Ihrem Anwendungsfall passt.
-4. Verfassen und prüfen Sie im [Schritt „Verfassen“](#step-1-compose-messages) den Text für diesen Kanal.
+2. Wählen Sie **Create campaign** aus.
+3. Wählen Sie den [Kanal]({{site.baseurl}}/user_guide/channels) aus, der zu Ihrem Anwendungsfall passt.
+4. Verfassen und überprüfen Sie im [Schritt „Compose“](#step-1-compose-messages) den Text für diesen Kanal.
 
-Jede Kampagne verwendet jeweils einen Kanaltyp. Fügen Sie Varianten hinzu, wenn Sie kreative Aufteilungen vergleichen oder [A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing) durchführen möchten.
+Jede Campaign verwendet jeweils einen Kanaltyp. Fügen Sie Varianten hinzu, wenn Sie kreative Aufteilungen vergleichen oder [A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing) durchführen möchten.
 
 {% endtab %}
-{% tab Multichannel %}
+{% tab Mehrkanal %}
 
-Eine Multichannel-Kampagne erreicht Nutzer:innen über mehr als einen Messaging-Kanal in einem einzigen Start. Senden Sie beispielsweise eine E-Mail und eine Push-Benachrichtigung zusammen.
+Eine Mehrkanal-Campaign erreicht Nutzer:innen über mehr als einen Messaging-Kanal in einem einzigen Start. Senden Sie beispielsweise eine E-Mail und eine Push-Benachrichtigung gleichzeitig.
 
 {% alert note %}
-[In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages) sind in Multichannel-Kampagnen nicht verfügbar. Erstellen Sie stattdessen eine Einzelkanal-Kampagne oder ein Canvas.
+[In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages) sind in Mehrkanal-Campaigns nicht verfügbar. Erstellen Sie stattdessen eine Einkanal-Campaign oder ein Canvas.
 {% endalert %}
 
 ### Was ist anders
 
 #### Kontrollgruppen {#multichannel-control-groups}
 
-Kampagnen-Kontrollgruppen vergleichen Varianten innerhalb eines Kanals (z. B. E-Mail A versus E-Mail B). Sie werden nicht verwendet, um ganze Kanäle innerhalb einer Multichannel-Kampagne zu vergleichen. Um Kanäle, Kreativmaterial oder Timing gemeinsam über eine Journey hinweg zu testen, verwenden Sie [Canvas]({{site.baseurl}}/user_guide/messaging/canvas).
+Kontrollgruppen in Campaigns vergleichen Varianten innerhalb eines Kanals (zum Beispiel E-Mail A gegenüber E-Mail B). Sie werden nicht verwendet, um ganze Kanäle innerhalb einer Mehrkanal-Campaign zu vergleichen. Um Kanäle, Kreativmaterial oder Timing kanalübergreifend in einer Journey zu testen, verwenden Sie [Canvas]({{site.baseurl}}/user_guide/messaging/canvas).
 
-#### Conversions und Reporting {#multichannel-conversions}
+#### Konversionen und Reporting {#multichannel-conversions}
 
-Bei Multichannel-Kampagnen verfolgt Braze [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) pro Kanal. Wenn Nutzer:innen nach dem Empfang von Nachrichten über mehr als einen Kanal konvertieren, kann Braze diese Conversion über diese Kanäle hinweg attribuieren. Conversion-Zahlen können *Unique Users* übersteigen, und Raten können 100 % überschreiten. Die vollständigen Regeln finden Sie unter [Conversion-Tracking-Regeln]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules).
+Bei Mehrkanal-Campaigns verfolgt Braze [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) pro Kanal. Wenn Nutzer:innen nach dem Empfang von Nachrichten über mehr als einen Kanal konvertieren, kann Braze diese Konversion den jeweiligen Kanälen zuordnen. Die Konversionszahlen können die Anzahl der *eindeutigen Nutzer:innen* übersteigen, und die Raten können 100 % überschreiten. Die vollständigen Regeln finden Sie unter [Regeln für das Konversions-Tracking]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules).
 
-Rate-Limits für Sends, die mehrere Kanäle umfassen, werden unter [Multichannel-Kampagnen und Canvases]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases) beschrieben. Workspace-weite Regeln (einschließlich der Anrechnung von Multichannel-Sends auf Obergrenzen) finden Sie unter [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
+Rate-Limits für Sends über mehrere Kanäle hinweg werden unter [Mehrkanal-Campaigns und Canvases]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases) beschrieben. Workspace-weite Regeln (einschließlich der Anrechnung von Mehrkanal-Sends auf Obergrenzen) finden Sie unter [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
 
-### Multichannel-Kampagne erstellen {#create-a-multichannel-campaign}
+### Eine Mehrkanal-Campaign erstellen {#create-a-multichannel-campaign}
 
 1. Gehen Sie zu **Messaging** > **Campaigns**.
-2. Wählen Sie **Kampagne erstellen**.
-3. Wählen Sie **Multichannel**.
-4. Wählen Sie im [Schritt „Verfassen“](#step-1-compose-messages) **Kanal hinzufügen** und wählen Sie jeden benötigten Kanal aus. Wählen Sie die Kanalsymbole, um zwischen den Composern zu wechseln, während Sie den Text für jeden Kanal verfassen.
+2. Wählen Sie **Create campaign** aus.
+3. Wählen Sie **Multichannel** aus.
+4. Wählen Sie im [Schritt „Compose“](#step-1-compose-messages) die Option **Add channel** aus und wählen Sie jeden benötigten Kanal. Wählen Sie die Kanal-Symbole aus, um zwischen den Composern zu wechseln, während Sie den Text für jeden Kanal verfassen.
 
 {% endtab %}
 {% endtabs %}
@@ -139,6 +139,10 @@ In diesem Abschnitt können Sie Nutzer:innen ansprechen, indem Sie Segmente oder
 
 Nach dem Hinzufügen von Segmenten oder Filtern zeigt die **Zielgruppen-Zusammenfassung** eine Vorschau der Segment-Population, einschließlich der Anzahl der Nutzer:innen innerhalb dieses Segments, die über Ihre ausgewählten Kanäle erreichbar sind. Die Erreichbarkeitszahlen spiegeln Ihre Workspace-Daten, Kanaleinrichtung und Filter wider. Beachten Sie, dass die genaue Segment-Zugehörigkeit immer vor dem Nachrichtenversand berechnet wird. Bei sehr großen Zielgruppen zeigt Braze möglicherweise Schätzungen an, bis Sie exakte Statistiken berechnen.
 
+{% alert note %}
+Wenn Sie eine [globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group) eingerichtet haben, ist die angezeigte Anzahl erreichbarer Nutzer:innen in der Zielgruppe Ihrer Kampagne kleiner als die Anzahl erreichbarer Nutzer:innen, die für dasselbe Segment angezeigt wird. Das liegt daran, dass die Kampagne Nutzer:innen in der globalen Kontrollgruppe ausschließt, die Segment-Zählung hingegen nicht.
+{% endalert %}
+
 ### Nutzer:innen-Suche {#user-lookup}
 
 Nach dem Hinzufügen von Segmenten oder Filtern können Sie testen, ob Ihre Zielgruppe wie erwartet eingerichtet ist, indem Sie nach Nutzer:innen suchen, um zu bestätigen, ob sie den Segmentkriterien entsprechen. Suchen Sie dazu im Abschnitt **Nutzer:innen-Suche** nach der `external_id` oder `braze_id` von Nutzer:innen. Eine Suche nach E-Mail-Adresse ist hier nicht möglich. Weitere Informationen finden Sie unter [Segmente testen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments).
@@ -188,7 +192,7 @@ Wenn Ihr Workspace Genehmigungen verwendet, muss ein Teammitglied mit der Berech
 
 ## Verwandte Artikel {#related-articles}
 
-- [Entwerfen und bearbeiten]({{site.baseurl}}/user_guide/messaging/design_and_edit)
+- [Gestalten und bearbeiten]({{site.baseurl}}/user_guide/messaging/design_and_edit)
 - [A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing)
-- [Wissenswertes vor dem Senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send)
-- [Kampagnen-Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics)
+- [Vor dem Senden beachten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send)
+- [Campaign-Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics)

@@ -15,12 +15,12 @@ channel: email
 
 | Síntoma | Ir a |
 | --- | --- |
-| Las tasas de apertura de correo electrónico cayeron repentinamente | [Tasas de apertura de correo electrónico bajas](#low-email-open-rates) |
+| Las tasas de apertura de correo electrónico bajaron repentinamente | [Tasas de apertura de correo electrónico bajas](#low-email-open-rates) |
 | Los enlaces rastreados devuelven HTTP 403 | [HTTP 403 en enlaces de redirección](#http-403-on-redirect-links) |
-| El DNS o CNAME apunta al ESP en lugar del CDN | [Problemas con el registro de dominios](#domain-registry-issues) |
+| El DNS o CNAME apunta al ESP en lugar del CDN | [Problemas con el registro de dominio](#domain-registry-issues) |
 | "La conexión no es privada" o los enlaces fallan durante la configuración | [Problemas con el CDN](#cdn-issues) |
-| La configuración SSL está completa pero los enlaces siguen mostrando HTTP | [Estado de habilitación de SSL](#ssl-enablement-status) |
-| La URL rastreada falla pero la URL sin seguimiento funciona | [Problemas con el seguimiento de clics](#click-tracking-issues) |
+| La configuración SSL está completa pero los enlaces aún muestran HTTP | [Estado de habilitación de SSL](#ssl-enablement-status) |
+| La URL rastreada falla pero la URL sin rastreo funciona | [Problemas con el seguimiento de clics](#click-tracking-issues) |
 | Errores de habilitación de SSL específicos de Amazon SES | [Amazon SES](#amazon-ses) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Síntoma de SSL" }
 
@@ -35,8 +35,82 @@ channel: email
 
 ## Conceptos clave {#key-concepts}
 
-- **URL con seguimiento:** Envuelve el enlace HTTPS original en tu dominio de seguimiento. Cuando un usuario hace clic en él, el dominio de seguimiento resuelve la solicitud y redirige al destino final. Un CDN te permite hacer seguimiento de URL seguras (HTTPS). Sin él, los usuarios pueden encontrar un error de privacidad de "la conexión no es segura".
+- **Dominio de seguimiento de clics (CTD):** El subdominio de marca que Braze utiliza para envolver enlaces con fines de seguimiento de clics (por ejemplo, `clicks.mail.yourbrand.com`).
+- **URL con seguimiento:** Envuelve el enlace HTTPS original en tu dominio de seguimiento. Cuando un usuario hace clic en él, el dominio de seguimiento resuelve la solicitud y redirige al destino final. Un CDN te permite rastrear URLs seguras (HTTPS). Sin él, los usuarios pueden encontrar un error de privacidad de "la conexión no es segura".
 - **URL sin seguimiento:** Mantiene la URL original intacta, omitiendo el CDN para servir como un entorno de control.
+- **Enrutamiento de Fase 1 y Fase 2:** La Fase 1 apunta el CNAME de tu dominio de seguimiento de clics directamente a tu proveedor de servicios de correo electrónico (ESP) para la verificación HTTP inicial. La Fase 2 apunta el CNAME a tu CDN o firewall de aplicaciones web (WAF), que termina SSL y redirige las solicitudes al ESP con los encabezados requeridos. Para destinos CNAME específicos de cada ESP, consulta [Enrutamiento de Fase 1 y Fase 2 del ESP](#esp-phase-1-and-phase-2-routing).
+
+## Dominios de seguimiento de clics y fases de DNS {#click-tracking-domains-and-dns-phases}
+
+El seguimiento de clics con SSL requiere una configuración de DNS en dos fases porque Braze no aprovisiona ni renueva certificados de seguridad externos en tu nombre.
+
+1. **Fase 1 (configuración inicial):** El CNAME de tu dominio de seguimiento de clics apunta directamente al endpoint de tu ESP para la verificación HTTP sin cifrar.
+2. **Fase 2 (implementación de SSL):** Actualizas el CNAME para que apunte a tu CDN o WAF edge, que contiene tu certificado SSL personalizado y redirige las solicitudes al ESP con los encabezados requeridos. El ESP registra el clic y redirige al destinatario al destino final.
+
+{% alert important %}
+Braze habilita el seguimiento de clics con SSL solo después de que se complete la verificación de la Fase 1. Si SSL está habilitado pero tu DNS aún apunta al ESP (Fase 1), los destinatarios pueden ver [errores de discrepancia de nombre SSL](#ssl-name-mismatch-errors).
+{% endalert %}
+
+## Enrutamiento ESP Fase 1 y Fase 2 {#esp-phase-1-and-phase-2-routing}
+
+Al solucionar errores de seguimiento de enlaces, comprueba si tu registro de DNS apunta a la red ESP sin cifrar (Fase 1) o a tu CDN (Fase 2).
+
+| ESP | Destino CNAME Fase 1 (directo al ESP) | Destino CNAME Fase 2 | Configuración de CDN requerida |
+| --- | --- | --- | --- |
+| Amazon SES | `r.us-east-1.awstrack.me` (US)<br>`r.eu-central-1.awstrack.me` (EU) | Tu endpoint de CDN (por ejemplo, `d123.cloudfront.net`, `ssl.fastly.net` o Cloudflare) | Habilita el encabezado `X-Forwarded-Host` con el nombre de tu dominio de seguimiento de clics |
+| SendGrid | `sendgrid.net` | Tu endpoint de CDN | Reenvía los encabezados `Host` originales (o los ID de seguimiento con marca personalizada) al origen sin eliminar parámetros |
+| SparkPost | `spgo.io` | Tu endpoint de CDN | Habilita `X-Forwarded-Host` y reenvía el encabezado `User-Agent` original intacto |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Enrutamiento ESP Fase 1 y Fase 2" }
+
+Para los pasos de configuración de CDN y la documentación de partners, consulta [SSL en Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl).
+
+## Errores de discrepancia de nombre SSL {#ssl-name-mismatch-errors}
+
+Una discrepancia de nombre SSL es un fallo de autenticación de identidad durante el handshake TLS. Ocurre cuando un navegador establece una conexión cifrada pero el dominio en la barra de direcciones no coincide con ninguna entrada en los campos de nombre común (CN) o nombres alternativos del sujeto (SAN) del certificado.
+
+### El DNS aún apunta al ESP (Fase 1) {#dns-still-points-to-the-esp-phase-1}
+
+Si indicas a Braze que habilite el seguimiento de clics SSL pero dejas tu CNAME de DNS apuntando directamente al ESP (por ejemplo, `sendgrid.net` de SendGrid), el navegador del destinatario abre tu dominio de seguimiento de clics y llega a la infraestructura del ESP. El ESP no tiene registro de tu certificado personalizado y sirve su propio certificado alternativo (por ejemplo, `*.sendgrid.net`). La discrepancia de nombre hace que la conexión falle y devuelve una advertencia de conexión privada.
+
+### El certificado no cubre el subdominio de seguimiento (Fase 2) {#certificate-does-not-cover-the-tracking-subdomain-phase-2}
+
+Si tu DNS apunta a tu CDN (Cloudflare, CloudFront, etc.) pero tu equipo de seguridad aplicó un certificado que solo cubre los activos web principales (por ejemplo, `yourbrand.com` y `www.yourbrand.com`), el subdominio específico de seguimiento de clics (por ejemplo, `clicks.mail.yourbrand.com`) no está incluido. El CDN sirve un certificado que no coincide con el dominio de seguimiento, y los navegadores muestran un error de privacidad.
+
+## Flujo de trabajo de triaje {#triage-workflow}
+
+### Paso 1: Ejecuta una búsqueda CNAME autorizada {#step-1-run-an-authoritative-cname-lookup}
+
+Abre tu terminal y comprueba el enrutamiento DNS sin procesar de tu dominio de seguimiento de clics:
+
+```bash
+dig CNAME clicks.mail.yourbrand.com
+```
+
+En la sección `ANSWER SECTION`, revisa a dónde resuelve el CNAME:
+
+| Resultado | Qué significa | Siguiente paso |
+| --- | --- | --- |
+| Resuelve a un endpoint de ESP (`sendgrid.net`, `spgo.io` o `awstrack.me`) | El DNS todavía está en la Fase 1 | Actualiza tu registro de dominio para enrutar el tráfico a través de tu CDN. Consulta [Enrutamiento de ESP en Fase 1 y Fase 2](#esp-phase-1-and-phase-2-routing). |
+| Resuelve a un endpoint de distribución CDN | El enrutamiento DNS de la Fase 2 es correcto | Continúa con el Paso 2 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Resultados de la búsqueda CNAME" }
+
+### Paso 2: Valida el certificado TLS {#step-2-validate-the-tls-certificate}
+
+Fuerza una validación TLS en vivo contra tu dominio de seguimiento de clics para ver exactamente qué certificado reciben los navegadores. Introduce tu dominio de seguimiento de clics en un verificador SSL externo, como [SSL Checker de SSL Shopper](https://www.sslshopper.com/ssl-checker.html#hostname=clicks.mail.yourbrand.com) (reemplaza `clicks.mail.yourbrand.com` con tu dominio).
+
+Confirma lo siguiente:
+
+- El certificado es válido y no ha expirado
+- Tu dominio de seguimiento de clics aparece en el Common Name o en los Subject Alternative Names
+- La cadena de certificados está completa, sin advertencias de certificados intermedios no confiables
+
+{% alert tip %}
+Para un informe TLS más detallado, también puedes usar [Qualys SSL Labs SSL Server Test](https://www.ssllabs.com/ssltest/).
+{% endalert %}
+
+### Paso 3: Revisa los problemas de configuración del CDN {#step-3-review-cdn-configuration-issues}
+
+Si los enlaces en correos electrónicos en vivo fallan durante la configuración, confirma que el DNS no se apuntó a tu CDN antes de que la configuración estuviera completa. Esto puede manifestarse como un enlace incorrecto o un error de conexión. Ponte en contacto con tu proveedor de CDN y revisa su documentación para solucionar problemas de proxy y configuración de origen. Coordínate con el equipo que gestiona tu configuración de SSL y CDN para obtener asistencia adicional.
 
 ## Tasas bajas de apertura de correo electrónico {#low-email-open-rates}
 
@@ -48,9 +122,9 @@ Si de repente experimentas tasas bajas de apertura de correo electrónico, confi
 
 **Síntoma:** Los enlaces de correo electrónico con seguimiento devuelven "403 Forbidden".
 
-Si los enlaces de redirección con seguimiento devuelven "403 Forbidden", el fallo suele ocurrir en tu red de entrega de contenido (CDN) o firewall de aplicaciones web (WAF), por ejemplo, reglas en AWS WAF o Amazon CloudFront que bloquean ciertos agentes de usuario, cadenas de consulta o patrones de redirección. Revisa los registros de solicitudes bloqueadas y las métricas con tu CDN o proveedor de nube. Para AWS, consulta [Solución de problemas con CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
+Si los enlaces de redirección con seguimiento devuelven `403 Forbidden`, el fallo suele ocurrir en tu red de entrega de contenido (CDN) o firewall de aplicaciones web (WAF), por ejemplo, reglas en AWS WAF o Amazon CloudFront que bloquean ciertos agentes de usuario, cadenas de consulta o patrones de redirección. Revisa los registros de solicitudes bloqueadas y las métricas con tu CDN o proveedor de nube. Para AWS, consulta [Solución de problemas con CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html).
 
-Para ver si el problema es específico del seguimiento de clics, desactiva el seguimiento de clics para un enlace de prueba (consulta [Desactivar el seguimiento de clics enlace por enlace]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)). Si la URL de destino carga cuando el seguimiento de clics está desactivado pero devuelve 403 cuando está activado, concéntrate en la configuración de tu dominio de seguimiento de clics, CDN y WAF.
+Para ver si el problema es específico del seguimiento de clics, desactiva el seguimiento de clics para un enlace de prueba (consulta [Desactivar el seguimiento de clics enlace por enlace]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)). Si la URL de destino carga cuando el seguimiento de clics está desactivado pero devuelve `403` cuando está activado, concéntrate en la configuración de tu dominio de seguimiento de clics, CDN y WAF. Si tu CNAME aún apunta al ESP mientras SSL está habilitado, es posible que veas un [error de discrepancia de nombre SSL](#ssl-name-mismatch-errors) en su lugar; comienza con el [flujo de trabajo de triaje](#triage-workflow).
 
 ## Problemas con el registro de dominio {#domain-registry-issues}
 
@@ -77,7 +151,7 @@ Si completas la configuración de SSL y los enlaces siguen apareciendo como HTTP
 Si estás usando Amazon SES como tu proveedor de servicios de correo electrónico, los siguientes problemas de configuración pueden impedir que Braze habilite SSL o causar errores durante la configuración:
 
 - **Discrepancia de región:** Confirma que el origen de tu CDN apunte al dominio de seguimiento de AWS para tu clúster de Braze. Los clústeres de EE. UU. usan `r.us-east-1.awstrack.me`. Los clústeres de la UE usan `r.eu-central-1.awstrack.me`. Usar la región incorrecta puede bloquear la habilitación de SSL.
-- **Encabezado de host:** Amazon SES requiere que tu CDN reenvíe el encabezado de host correcto. Habilita el encabezado `X-Forwarded-Host` en tu dominio de seguimiento de clics. Para más información, consulta la sección [Amazon SES](#amazon-ses).
+- **Encabezado de host:** Amazon SES requiere que tu CDN reenvíe el encabezado de host correcto. Habilita el encabezado `X-Forwarded-Host` en tu dominio de seguimiento de clics. Para los requisitos de enrutamiento de la fase 1 y la fase 2, consulta [Enrutamiento de la fase 1 y la fase 2 del ESP](#esp-phase-1-and-phase-2-routing).
 - **Configuración de proxy:** Una configuración de proxy o CDN que sobrescriba o entre en conflicto con el encabezado de host puede causar que la habilitación de SSL falle. Revisa la configuración del proxy con tu proveedor de CDN para confirmar que no interfiera con el reenvío del encabezado de host.
 - **Registro alias de Route 53:** Si usas Route 53 para administrar el DNS de tu dominio, crea un [registro alias en Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-creating.html) que apunte a tu distribución de CDN (por ejemplo, `d111111abcdef8.cloudfront.net`). Usar un CNAME estándar en lugar de un registro alias puede devolver errores HTTP 400.
 - **Reenvío de encabezados deshabilitado:** Si la habilitación de SSL sigue fallando después de configurar `X-Forwarded-Host`, intenta deshabilitar el reenvío de encabezados en tu CDN o proxy. Algunas configuraciones resuelven el problema cuando el reenvío se desactiva por completo. Trabaja con tu equipo de TI o proveedor de CDN para probar esta configuración.
@@ -88,7 +162,7 @@ Si estás usando Amazon SES como tu proveedor de servicios de correo electrónic
 
 Los problemas comunes de redirección suelen ser resultado de una configuración incorrecta entre el CDN que aloja el dominio de seguimiento y sus certificados SSL asociados o registros DNS CNAME. Estas malas configuraciones a menudo causan que los usuarios reciban un error de privacidad de "la conexión no es segura" o un fallo `404` después de hacer clic en un enlace de correo electrónico con seguimiento.
 
-Usa la siguiente plantilla para probar la configuración del CDN de tu dominio de seguimiento, que es el mecanismo que soporta los análisis de los enlaces dentro de tus correos electrónicos.
+Después de completar el [flujo de trabajo de triaje](#triage-workflow), usa la siguiente plantilla para probar la configuración del CDN de tu dominio de seguimiento, que es el mecanismo que soporta los análisis de los enlaces dentro de tus correos electrónicos.
 
 1. Copia y pega la siguiente plantilla en una Campaign de correo electrónico HTML de Braze.
 
@@ -296,7 +370,7 @@ Usa la siguiente tabla para diagnosticar errores comunes al probar el seguimient
 
 | Código de error | Solución de problemas |
 | --- | --- |
-| `"Your connection is not private" (NET::ERR_CERT_COMMON_NAME_INVALID)` | Verifica que tu dominio de seguimiento tenga un certificado SSL válido. |
+| `"Your connection is not private" (NET::ERR_CERT_COMMON_NAME_INVALID)` | Completa el [flujo de trabajo de triaje](#triage-workflow) y consulta [Errores de discrepancia de nombre SSL](#ssl-name-mismatch-errors). Verifica que tu dominio de seguimiento de clics aparezca en el Common Name o en los Subject Alternative Names del certificado. |
 | `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | Revisa tu configuración de DNS. Asegúrate de que tu subdominio de seguimiento esté configurado según la configuración recomendada por tu CDN y ESP. |
 | `525 / 526 SSL Error` | Verifica que la configuración de SSL en tu CDN (como Cloudflare) coincida con la capacidad de tu Origin. |
 | `404 Not Found` | Verifica que tu CDN esté configurado para reenviar la ruta completa de la URL al ESP, en lugar de apuntar a un directorio raíz vacío. |

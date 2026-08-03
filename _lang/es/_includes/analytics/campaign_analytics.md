@@ -210,10 +210,10 @@ Los análisis de campaña muestran datos de clics para un máximo de 100 URL ún
 En esta vista, puedes usar la opción **Show Heatmap** para obtener una vista visual de tu correo electrónico que muestre la frecuencia general y la ubicación de los clics dentro de la duración de la campaña. En el panel **Link Table by Total Clicks**, puedes ver todos los enlaces de tu campaña de correo electrónico y ordenarlos por clics totales. Esto puede proporcionar información adicional sobre por dónde navegan tus usuarios. Para guardar una copia del mapa de calor como referencia, selecciona el botón de descarga.
 
 {% alert note %}
-Si los enlaces utilizan Liquid para URL dinámicas, las URL en las que se hizo clic pueden no coincidir lo suficiente con el enlace renderizado en el mensaje como para que el mapa de calor asocie los clics con ese enlace, por lo que esos enlaces podrían no aparecer en el mapa de calor. Utiliza los datos de clics del panel **Link Table by Total Clicks** para obtener una imagen completa.
+Si los enlaces utilizan Liquid para URL dinámicas, las URL en las que se hizo clic pueden no coincidir lo suficiente con el enlace renderizado en el mensaje como para que el mapa de calor asocie los clics con ese enlace, por lo que esos enlaces podrían no aparecer en el mapa de calor. Para atribuir los datos de clics a los enlaces con plantillas en el mapa de calor, utiliza el [aliasing de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing). Para obtener una imagen completa, utiliza los datos de clics del panel **Link Table by Total Clicks**.
 {% endalert %}
 
-![Ejemplo de la página Preview & Heatmap, que incluye una campaña por correo electrónico y un panel con ejemplos de alias de enlaces con su total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+![Ejemplo de la página Preview & Heatmap que incluye una campaña de correo electrónico y un panel con ejemplos de alias de enlaces con su total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
 #### Imágenes {#images}
 
@@ -914,7 +914,7 @@ El panel **Keyword Responses** te muestra una cronología de las palabras clave 
 
 Aquí también puedes ver la distribución de la respuesta de cada categoría de palabras clave para determinar los próximos pasos para [reorientar]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns) y [crear un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment) cómodamente.
 
-![La tabla situada debajo del gráfico de líneas tiene columnas para categoría de palabras clave, distribución de respuestas y reorientación, donde se te ofrece la opción de crear un segmento con la categoría de palabras clave.]({% image_buster /assets/img/sms/keyword_segments.png %})
+![Una tabla con columnas para categoría de palabras clave, distribución de respuestas y reorientación, donde se te ofrece la opción de crear un segmento con la categoría de palabras clave.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
 {% endif %}
 

@@ -57,6 +57,16 @@ By selecting the maximum user limit, you can limit the volume of messages sent o
 The maximum user cap limits the number of users dispatched, not the number of messages successfully sent. Because aborted messages count toward this cap, the actual number of messages sent may be lower than the configured limit. For example, if you set a cap of 10,000 and 2,000 messages are aborted due to Liquid logic or other conditions, only 8,000 messages are sent.
 {% endalert %}
 
+##### Maximum user cap for multichannel campaigns
+
+For multichannel campaigns, Braze first selects one audience up to your configured maximum user cap. Braze then evaluates each user in that capped audience for each channel in the campaign.
+
+As a result, the capped audience size stays the same, but sends per channel can differ based on channel eligibility. For example, if you set a maximum user cap of 500,000 and a user is only eligible for push and Content Cards, that user receives those channels but not email.
+
+If you split those channels into separate campaigns that each target the same segment and each has its own maximum user cap, each campaign evaluates and caps users independently. Braze does not guarantee that each campaign selects the exact same subset of users.
+
+If you need follow-up campaigns to target users who were sent an earlier campaign, create a segment using the **Received Campaign** filter, then use that segment for the follow-up campaigns.
+
 ##### Maximum user cap with optimizations
 
 If you're using an optimization like Winning Variant or Personalized Variant, the campaign will consist of two sends: the initial experiment and the final send. 

@@ -82,14 +82,14 @@ For a full list of push notification fields, refer to the following table:
 | ------------------ | --------- | ----------- |
 | `payloadType`     | String    | Specifies the notification payload type. The two values that are sent from the Braze Flutter SDK are `push_opened` and `push_received`.  Only `push_opened` events are supported on iOS. |
 | `url`              | String    | Specifies the URL that was opened by the notification. |
-| `useWebview`      | Boolean   | If `true`, URL will open in-app in a modal webview. If `false`, the URL will open in the device browser. |
+| `useWebview`      | Boolean   | If `true`, URL opens in-app in a modal webview. If `false`, the URL opens in the device browser. |
 | `title`            | String    | Represents the title of the notification. |
 | `body`             | String    | Represents the body or content text of the notification. |
 | `summaryText`     | String    | Represents the summary text of the notification. This is mapped from `subtitle` on iOS. |
 | `badgeCount`      | Number   | Represents the badge count of the notification. |
 | `timestamp`        | Number | Represents the time at which the payload was received by the application. |
 | `isSilent`        | Boolean   | If `true`, the payload is received silently. For details on sending Android silent push notifications, refer to [Silent push notifications on Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). For details on sending iOS silent push notifications, refer to [Silent push notifications on iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `isBrazeInternal`| Boolean   | This will be `true` if a notification payload was sent for an internal SDK feature, such as Feature Flag sync or uninstall tracking. The payload is received silently for the user. |
+| `isBrazeInternal`| Boolean   | This is `true` if a notification payload was sent for an internal SDK feature, such as Feature Flag sync or uninstall tracking. The payload is received silently for the user. |
 | `imageUrl`        | String    | Specifies the URL associated with the notification image. |
 | `brazeProperties` | Object    | Represents Braze properties associated with the campaign (key-value pairs). |
 | `ios`              | Object    | Represents iOS-specific fields. |
@@ -108,3 +108,26 @@ To test your integration after configuring push notifications in the native laye
 {% alert tip %}
 Starting with Xcode 14, you can test remote push notifications on an iOS simulator.
 {% endalert %}
+
+### Step 4: Add deep links (Android)
+
+{% alert warning %}
+On Android, `com_braze_handle_push_deep_links_automatically` defaults to `false`. With the default, tapping a push notification still sends a `push_opened` event to your Dart listener, but the native SDK does not bring your app to the foreground or open the deep link destination automatically. If your app doesn't launch when a notification is tapped, this flag is the most likely cause.
+{% endalert %}
+
+To enable Braze to automatically open your app and any deep links when a push notification is tapped, set `com_braze_handle_push_deep_links_automatically` to `true` in your `braze.xml`:
+
+```xml
+<bool name="com_braze_handle_push_deep_links_automatically">true</bool>
+```
+
+This flag can also be set through [runtime configuration]({{site.baseurl}}/developer_guide/sdk_integration#android_runtime-configuration) in your native Android code:
+
+```kotlin
+val brazeConfig = BrazeConfig.Builder()
+        .setHandlePushDeepLinksAutomatically(true)
+        .build()
+Braze.configure(this, brazeConfig)
+```
+
+If you want to custom handle deep links instead, use the `subscribeToPushNotificationEvents()` listener described in Step 2 to route the `push_opened` event's `url` field yourself. For more information, see [Deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=flutter).
