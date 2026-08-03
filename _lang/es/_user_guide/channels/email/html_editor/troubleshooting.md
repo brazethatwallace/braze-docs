@@ -57,6 +57,7 @@ Los correos electrónicos se renderizan de forma diferente según los navegadore
 
 - Previsualiza tus correos electrónicos usando [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para ver cómo se ven en diferentes navegadores y clientes de correo electrónico.
 - Una vez que hayas identificado qué navegadores o clientes de correo electrónico están causando problemas, informa a tu equipo de desarrolladores de que necesitarán modificar su HTML y hacer ajustes para adaptarse a esos navegadores o clientes de correo electrónico.
+- Si el problema es específico de [cómo se muestra el texto alternativo]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text), ten en cuenta que este comportamiento lo controla el cliente de correo electrónico del destinatario, no Braze.
 
 ### HTML desbalanceado en plantillas Liquid {#unbalanced-html-in-liquid-templates}
 

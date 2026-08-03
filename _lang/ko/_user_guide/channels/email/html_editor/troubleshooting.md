@@ -21,7 +21,7 @@ channel: email
 | 이메일 클라이언트마다 이메일이 다르게 표시됨 | [이메일 렌더링](#email-rendering) |
 | 이메일에 Liquid 코드 또는 깨진 링크가 표시됨 | [Liquid 템플릿의 불균형 HTML](#unbalanced-html-in-liquid-templates) |
 | Inbox Vision 미리보기가 발송된 이메일과 일치하지 않음 | [CSS 인라이닝](#css-inlining) |
-| 테스트 이메일에서 이미지 뒤에 공백이나 줄이 표시됨 | [이미지 아래 공백](#white-space-under-images) |
+| 테스트 이메일에서 이미지 아래에 공백 또는 줄이 표시됨 | [이미지 아래 공백](#white-space-under-images) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML 이메일 증상" }
 
 ## 표준 조사 경로 {#standard-investigation-path}
@@ -57,6 +57,7 @@ HTML 이메일 렌더링 또는 편집기 동작이 예상과 다를 때 이 워
 
 - [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision)을 사용하여 다양한 브라우저와 이메일 클라이언트에서 이메일이 어떻게 보이는지 미리보기할 수 있습니다.
 - 문제를 일으키는 브라우저 또는 이메일 클라이언트를 파악한 후, 개발자 팀에 해당 브라우저 또는 이메일 클라이언트에 맞게 HTML을 수정해야 한다고 알려주세요.
+- [대체 텍스트가 표시되는 방식]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text)과 관련된 문제인 경우, 이 동작은 수신자의 이메일 클라이언트에 의해 제어되며 Braze가 아니라는 점을 유의하세요.
 
 ### Liquid 템플릿에서 불균형한 HTML {#unbalanced-html-in-liquid-templates}
 

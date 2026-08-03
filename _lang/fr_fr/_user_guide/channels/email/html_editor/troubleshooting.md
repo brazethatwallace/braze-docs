@@ -22,7 +22,7 @@ Identifiez votre symptôme dans le tableau ci-dessous pour accéder à la sectio
 | L'e-mail affiche du code Liquid ou des liens cassés | [HTML déséquilibré dans les modèles Liquid](#unbalanced-html-in-liquid-templates) |
 | L'aperçu Inbox Vision ne correspond pas à l'e-mail envoyé | [Insertion CSS](#css-inlining) |
 | Espaces blancs ou lignes après les images dans les e-mails de test | [Espace blanc sous les images](#white-space-under-images) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Symptôme d'e-mail HTML" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Symptômes liés aux e-mails HTML" }
 
 ## Parcours d'investigation standard {#standard-investigation-path}
 
@@ -57,6 +57,7 @@ Les e-mails s'affichent différemment selon les navigateurs et les clients de me
 
 - Prévisualisez vos e-mails en utilisant [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) pour voir à quoi ressemblent vos e-mails dans différents navigateurs et clients de messagerie.
 - Une fois que vous avez identifié les navigateurs ou clients de messagerie à l'origine des problèmes, informez votre équipe de développement qu'elle devra modifier le HTML et apporter des ajustements pour prendre en charge ces navigateurs ou clients de messagerie.
+- Si le problème est lié à [l'affichage du texte alternatif]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text), gardez à l'esprit que ce comportement est contrôlé par le client de messagerie du destinataire, et non par Braze.
 
 ### HTML déséquilibré dans les modèles Liquid {#unbalanced-html-in-liquid-templates}
 

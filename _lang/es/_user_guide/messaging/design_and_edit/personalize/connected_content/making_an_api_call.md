@@ -132,7 +132,7 @@ Para más información sobre códigos de error comunes, consulta [Solucionar pro
 Los siguientes son mecanismos diferentes:
 
 - **429 Too Many Requests:** Tu endpoint (o un servicio upstream) está devolviendo esta respuesta. Significa que tu servidor o middleware está rechazando tráfico, a menudo porque tiene su propio límite de velocidad. Braze no aplica un límite de velocidad separado al contenido conectado; el volumen de solicitudes de contenido conectado escala directamente con tu [límite de velocidad de entrega de mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting). Dado que los mensajes pueden renderizarse múltiples veces por destinatario (por ejemplo, para HTML de correo electrónico, texto plano y AMP), el número de solicitudes de contenido conectado puede superar ese límite de velocidad; no asumas que será menor o igual a los mensajes por minuto que configures. Si ves errores 429, escala tu endpoint o middleware para manejar el volumen de solicitudes esperado, o reduce el [límite de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) de la Campaign o Canvas para que se envíen menos mensajes (y por lo tanto menos llamadas de contenido conectado) por minuto.
-- **Detección de host no saludable:** Una protección del lado de Braze que se activa después de una alta tasa y volumen de *fallos* en una ventana de un minuto. El conteo de fallos incluye los códigos de estado `408`, `429`, `502`, `503`, `504` y `529`. Cuando se activa, Braze detiene temporalmente las solicitudes a ese host y simula una respuesta de fallo. Esto es independiente de tu propio límite de velocidad. Para los umbrales de detección y más detalles, consulta [Solucionar problemas de solicitudes de webhook y contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection). Para evitar activar la detección de host no saludable, asegúrate de que tu endpoint pueda manejar el volumen de llamadas descrito en [Comprender el volumen de llamadas de contenido conectado](#understanding-connected-content-call-volume) y [Mejores prácticas para endpoints de alto volumen](#best-practices-for-high-volume-endpoints).
+- **Detección de host no saludable:** Una protección del lado de Braze que se activa después de una alta tasa y volumen de *fallos* en una ventana de un minuto. El recuento de fallos incluye los códigos de estado `408`, `429`, `502`, `503`, `504` y `529`. Cuando se activa, Braze detiene temporalmente las solicitudes a ese host y simula una respuesta de fallo. Esto es independiente de tu propio límite de velocidad. Para los umbrales de detección y más detalles, consulta [Solucionar problemas de solicitudes de webhook y contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection). Para evitar activar la detección de host no saludable, asegúrate de que tu endpoint pueda manejar el volumen de llamadas descrito en [Comprender el volumen de llamadas de contenido conectado](#understanding-connected-content-call-volume) y [Mejores prácticas para endpoints de alto volumen](#best-practices-for-high-volume-endpoints).
 
 ## Permitir un rendimiento eficiente {#allowing-for-efficient-performance}
 
@@ -142,7 +142,7 @@ Para más información sobre la planificación de la capacidad del endpoint y la
 
 ## Cosas que debes saber {#things-to-know}
 
-- Braze no cobra por las llamadas a la API y no cuenta para tu uso de puntos de datos asignado.
+- Braze no cobra por las llamadas a la API y no cuenta para tu uso de punto de datos asignado.
 - Hay un límite de 1 MB para las respuestas de contenido conectado.
 - El contenido conectado se ejecuta cuando se renderiza el mensaje. Para los mensajes dentro de la aplicación, el mensaje se renderiza en el momento de la impresión.
 - Las llamadas de contenido conectado no siguen redirecciones.
@@ -160,14 +160,14 @@ Las llamadas de contenido conectado dentro de una sola plantilla de mensaje se e
 
 ### Envío global y volumen de solicitudes {#global-sending-and-request-volume}
 
-Aunque las llamadas de contenido conectado se ejecutan secuencialmente dentro de un solo mensaje, los mensajes se envían en paralelo a través de tus Campaigns y Canvas. Los envíos de alto volumen pueden generar un tráfico de solicitudes significativo hacia tus endpoints durante los períodos de envío pico. Para gestionar y limitar ese tráfico, incluyendo los límites de velocidad de mensajería del espacio de trabajo, la limitación de velocidad de entrega y el almacenamiento en caché, consulta [Mejores prácticas para endpoints de alto volumen](#best-practices-for-high-volume-endpoints).
+Aunque las llamadas de contenido conectado se ejecutan secuencialmente dentro de un solo mensaje, los mensajes se envían en paralelo a través de tus Campaigns y Canvas. Los envíos de alto volumen pueden generar un tráfico de solicitudes significativo a tus endpoints durante los períodos de envío pico. Para gestionar y limitar ese tráfico, incluidos los límites de velocidad de mensajería del espacio de trabajo, la limitación de velocidad de entrega y el almacenamiento en caché, consulta [Mejores prácticas para endpoints de alto volumen](#best-practices-for-high-volume-endpoints).
 
 ## Prácticas recomendadas para endpoints de alto volumen {#best-practices-for-high-volume-endpoints}
 
 Si tus mensajes utilizan contenido conectado y envías a gran volumen, planifica para más solicitudes que el número de destinatarios o envíos:
 
-- **Estima la carga máxima:** Utiliza un multiplicador conservador al dimensionar tu endpoint o middleware: las solicitudes de contenido conectado pueden superar el número de destinatarios o mensajes enviados. Por ejemplo, para correo electrónico, un solo destinatario puede generar múltiples llamadas (HTML, texto plano y AMP), por lo que destinatarios × 2 o × 3 se usa a menudo como estimación conservadora.
-- **Usa el almacenamiento en caché cuando sea apropiado:** Las solicitudes GET se almacenan en caché de forma predeterminada. Para solicitudes POST, añade `:cache_max_age` cuando la respuesta pueda reutilizarse durante un periodo (por ejemplo, un token o contenido que no cambia por solicitud). Consulta [Almacenamiento en caché de respuestas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) y las [preguntas frecuentes sobre almacenamiento en caché de POST](#what-is-caching-behavior) en la siguiente sección.
+- **Estima la carga máxima:** Utiliza un multiplicador conservador al dimensionar tu endpoint o middleware: las solicitudes de contenido conectado pueden superar el número de destinatarios o mensajes enviados. Por ejemplo, para correo electrónico, un solo destinatario puede generar múltiples llamadas (HTML, texto plano y AMP), por lo que destinatarios × 2 o × 3 se utiliza a menudo como estimación conservadora.
+- **Usa el almacenamiento en caché cuando sea apropiado:** Las solicitudes GET se almacenan en caché de forma predeterminada. Para las solicitudes POST, añade `:cache_max_age` cuando la respuesta pueda reutilizarse durante un periodo (por ejemplo, un token o contenido que no cambia por solicitud). Consulta [Almacenamiento en caché de respuestas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) y las [preguntas frecuentes sobre almacenamiento en caché de POST](#what-is-caching-behavior) en la siguiente sección.
 - **Establece límites de velocidad de mensajes:** Los [límites de velocidad de mensajería del espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) y la [limitación de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) en Campaigns o Canvas limitan indirectamente el volumen de solicitudes de contenido conectado; Braze no aplica límites de velocidad al contenido conectado en sí. Estos son valores aproximados, no exactos, porque las solicitudes de contenido conectado no tienen una relación 1:1 con los mensajes. Úsalos para mantener el volumen de mensajes (y, por tanto, de contenido conectado) dentro de lo que tu endpoint pueda manejar.
 - **Diseña para idempotencia y reintentos:** Braze puede llamar a tu endpoint más de una vez por destinatario. Asegúrate de que tu endpoint pueda tolerar solicitudes duplicadas sin efectos secundarios incorrectos.
 
@@ -227,11 +227,11 @@ Después puedes usar esta credencial en tus llamadas a la API haciendo referenci
 
 ### Uso de Open Authentication (OAuth) {#use-open-authentication-oauth}
 
-Algunas configuraciones de API requieren la obtención de un token de acceso que luego se puede usar para autenticar el endpoint de la API al que deseas acceder.
+Algunas configuraciones de API requieren la obtención de un token de acceso que luego puede utilizarse para autenticar el endpoint de la API al que deseas acceder.
 
 #### Paso 1: Obtener el token de acceso {#step-1-retrieve-the-access-token}
 
-El siguiente ejemplo ilustra cómo obtener y guardar un token de acceso en una variable local, que luego se puede usar para autenticar la llamada a la API posterior. Se puede añadir un parámetro `:cache_max_age` para que coincida con el tiempo de validez del token de acceso y reducir el número de llamadas salientes de contenido conectado. Consulta [Almacenamiento en caché configurable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) para más información.
+El siguiente ejemplo ilustra cómo obtener y guardar un token de acceso en una variable local, que luego puede utilizarse para autenticar la llamada a la API posterior. Se puede añadir un parámetro `:cache_max_age` para que coincida con el tiempo de validez del token de acceso y reducir el número de llamadas salientes de contenido conectado. Consulta [Almacenamiento en caché configurable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) para más información.
 
 {% raw %}
 ```
@@ -254,7 +254,7 @@ Cuando el endpoint del token espera `application/x-www-form-urlencoded` y pasas 
 
 #### Paso 2: Autorizar la API usando el token de acceso obtenido {#step-2-authorize-the-api-using-the-retrieved-access-token}
 
-Una vez guardado el token, se puede insertar dinámicamente como plantilla en la llamada de contenido conectado posterior para autorizar la solicitud:
+Una vez guardado el token, se puede insertar dinámicamente mediante plantillas en la llamada de contenido conectado posterior para autorizar la solicitud:
 
 {% raw %}
 ```
@@ -281,11 +281,11 @@ Puedes editar el nombre de la credencial para los tipos de autenticación.
 
 Cuando se envía un mensaje que utiliza contenido conectado desde Braze, los servidores de Braze realizan automáticamente solicitudes de red a los servidores de nuestros clientes o de terceros para obtener datos. Con la lista de IP permitidas, puedes verificar que las solicitudes de contenido conectado realmente provienen de Braze, añadiendo una capa de seguridad.
 
-Braze enviará solicitudes de contenido conectado desde los siguientes rangos de IP. Los rangos enumerados se añaden automática y dinámicamente a cualquier clave de API que haya sido habilitada para la lista de permitidos.
+Braze enviará solicitudes de contenido conectado desde los siguientes rangos de IP. Los rangos enumerados se añaden automática y dinámicamente a cualquier clave de API que se haya habilitado para la lista de permitidas.
 
 Braze tiene un conjunto reservado de IP que se utilizan para todos los servicios, y no todas están activas en un momento dado. Esto está diseñado para que Braze pueda enviar desde un centro de datos diferente o realizar mantenimiento, si es necesario, sin afectar a los clientes. Braze puede utilizar una, un subconjunto o todas las siguientes IP enumeradas al realizar solicitudes de contenido conectado.
 
-Si las solicitudes de contenido conectado devuelven consistentemente `403 Forbidden` y la autenticación está configurada correctamente, añade estas IP a la lista de permitidos en el servidor que recibe la solicitud. Un `403` también puede indicar permisos insuficientes o credenciales no válidas, así que confirma tanto la configuración de red como la de autenticación. Para orientación específica sobre webhooks, consulta [403 Forbidden y lista de IP permitidas]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#403-forbidden-and-ip-allowlisting).
+Si las solicitudes de contenido conectado devuelven consistentemente `403 Forbidden` y la autenticación está configurada correctamente, añade estas IP a la lista de permitidas en el servidor que recibe la solicitud. Un `403` también puede indicar permisos insuficientes o credenciales no válidas, así que confirma tanto la configuración de red como la de autenticación. Para orientación específica sobre webhooks, consulta [403 Forbidden y lista de IP permitidas]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#403-forbidden-and-ip-allowlisting).
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
@@ -314,7 +314,7 @@ Cuando utilices contenido conectado para recuperar archivos de Amazon S3, config
 }
 ```
 
-Sustituye `{YOUR_BRAZE_IP_RANGE}` por los rangos de IP de Braze para tu instancia enumerados en [Lista de IP permitidas de contenido conectado](#connected-content-ip-allowlisting). Puedes añadir uno o más rangos como valores separados en el array `aws:SourceIp`.
+Reemplaza `{YOUR_BRAZE_IP_RANGE}` con los rangos de IP de Braze para tu instancia enumerados en [Lista de IP permitidas de contenido conectado](#connected-content-ip-allowlisting). Puedes añadir uno o más rangos como valores separados en el array `aws:SourceIp`.
 
 {: start="2"}
 2. **Revisa la configuración de bloqueo de acceso público de S3:** Las políticas de contenedor que utilizan `Principal: "*"` son tratadas como acceso público por AWS, incluso con condiciones de IP. Es posible que necesites permitir el acceso público basado en políticas de contenedor mientras mantienes bloqueado el acceso público basado en ACL.
@@ -325,7 +325,7 @@ Para más información sobre políticas de contenedor y claves de condición, co
 
 ### Encabezado `User-Agent` {#user-agent-header}
 
-Braze incluye un encabezado `User-Agent` en todas las solicitudes de contenido conectado y webhooks que es similar al siguiente:
+Braze incluye un encabezado `User-Agent` en todas las solicitudes de contenido conectado y webhook que es similar al siguiente:
 
 ```text
 Braze Sender 75e404755ae1270441f07eb238f0faf25e44dfdc
@@ -339,21 +339,41 @@ Ten en cuenta que el valor del hash cambia regularmente. Si estás filtrando el 
 
 Si tu llamada de contenido conectado no se renderiza correctamente o no se renderiza en absoluto, comprueba los siguientes detalles:
 
-- **Confirma que se realizó una llamada de contenido conectado:** Puedes comprobar que se realizó una llamada en la [pestaña historial de mensajes]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab). También puedes hacer un envío de prueba de una única solicitud de contenido conectado.
+- **Confirma que se realizó una llamada de contenido conectado:** Puedes comprobar que se realizó una llamada en la [pestaña historial de mensajes]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab). También puedes hacer un envío de prueba de una sola solicitud de contenido conectado.
 - **Verifica a través de Postman o una solicitud CURL si la solicitud ideal tiene éxito:** Si la solicitud funciona y devuelve una respuesta, compara la solicitud en detalle (incluidos los encabezados). Confirma que los encabezados están capturados en pares clave-valor con comillas dobles.
 - **Valida que la autorización se gestiona correctamente:** Confirma que se utiliza la opción `:basic_auth`/`:auth_credentials` y que se ha añadido la autorización de contenido conectado a la configuración del espacio de trabajo de contenido conectado. A veces, la URL de contenido conectado requiere encabezados más allá de la autenticación que deben introducirse.
 - **Verifica que los datos están en un formato esperado:** Para el cuerpo de la respuesta, Braze analiza JSON válido en un objeto Liquid; de lo contrario, la respuesta se trata como texto plano (incluido HTML). La opción `:content_type` establece los encabezados `Content-Type` y `Accept` de salida en tu solicitud y no afecta al análisis de la respuesta. Para el `:body` de la solicitud, si tu JSON contiene espacios, sigue las indicaciones en la sección [Proporcionar cuerpo JSON]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#providing-json-body).
-- **Confirma que los datos se han analizado correctamente:** Comprueba que Liquid hace referencia correctamente al campo esperado. Para JSON anidado, usa {% raw %}`{{sampleresult.data[0].sample_field}}`{% endraw %} para apuntar al campo anidado deseado. Puedes comprobar las propiedades del JSON anidado imprimiendo el resultado esperado con {% raw %}`RESPONSE:{{sampleresult.data}}`{% endraw %}.
+- **Confirma que los datos se han analizado correctamente:** Comprueba que el Liquid hace referencia correctamente al campo esperado. Para JSON anidado, usa {% raw %}`{{sampleresult.data[0].sample_field}}`{% endraw %} para apuntar al campo anidado deseado. Puedes comprobar las propiedades del JSON anidado imprimiendo el resultado esperado con {% raw %}`RESPONSE:{{sampleresult.data}}`{% endraw %}.
 - **Comprueba el código de estado de la respuesta:** El código de estado de la respuesta debe ser un código `2XX`. El contenido conectado no tiene forma de consumir la respuesta cuando el código no es `2XX`.
 
-También puedes usar [Webhook.site](https://webhook.site/) para solucionar problemas con tus llamadas de contenido conectado y diagnosticar problemas con los encabezados de solicitud, el cuerpo de la solicitud y otra información que se envía en la llamada.
+También puedes usar [Webhook.site](https://webhook.site/) para solucionar problemas de tus llamadas de contenido conectado y diagnosticar problemas con los encabezados de solicitud, el cuerpo de la solicitud y otra información que se envía en la llamada.
 
 1. Cambia la URL en tu llamada de contenido conectado por la URL única generada en el sitio.
 2. Previsualiza y prueba tu Campaign o paso en Canvas para ver las solicitudes llegar a este sitio web.
 
 También puedes verificar que la etiqueta de Liquid incluya los parámetros que tu endpoint espera (por ejemplo, `:method`, `:headers`, `:content_type`, `:body` y `:basic_auth` cuando sea necesario). Si dependes de la clave del código de estado HTTP en un objeto JSON guardado, el endpoint debe devolver un objeto JSON y un estado `2XX`.
 
-Para tasas de error altas de tu host, consulta [Detección de host en mal estado]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors#unhealthy-host-detection) y [Volumen de llamadas de contenido conectado](#understanding-connected-content-call-volume).
+Para tasas de error altas de tu host, revisa [Detección de host no saludable]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors#unhealthy-host-detection) y [Volumen de llamadas de contenido conectado](#understanding-connected-content-call-volume).
+
+### Codificación de ampersand en solicitudes POST de correo electrónico {#ampersand-encoding-in-email-post-requests}
+
+En los mensajes de correo electrónico, el análisis HTML convierte automáticamente los ampersands (`&`) dentro de los bloques {% raw %}`{% capture %}`{% endraw %} a `&amp;`. Para solicitudes POST `application/x-www-form-urlencoded`, esto hace que la solicitud envíe nombres de parámetros con un prefijo `amp;` (por ejemplo, `amp;username`), lo que puede romper la llamada a la API.
+
+Para solucionar este problema, usa el filtro `replace` para eliminar el prefijo `amp;` antes de pasar el cuerpo a `:body`:
+
+{% raw %}
+```liquid
+{% capture body_with_amps %}
+grant_type=client_credentials&username=test&password=test
+{% endcapture %}
+{% connected_content https://api.example.com/token
+   :method post
+   :body {{body_with_amps | replace: "amp;", ""}}
+   :content_type application/x-www-form-urlencoded
+   :save token
+%}
+```
+{% endraw %}
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
@@ -361,13 +381,13 @@ Para tasas de error altas de tu host, consulta [Detección de host en mal estado
 
 Braze puede realizar la misma llamada a la API de contenido conectado más de una vez por destinatario para renderizar la carga útil de un mensaje. Las cargas útiles de los mensajes pueden renderizarse varias veces por destinatario para validación, lógica de reintentos u otros fines internos. Sin embargo, ten en cuenta que solo una de las llamadas de contenido conectado completa un mensaje.
 
-Es esperable que una llamada a la API de contenido conectado se realice más de una vez por destinatario, incluso si la lógica de reintentos no se utiliza en la llamada. Recomendamos establecer el límite de velocidad de cualquier mensaje que contenga contenido conectado o configurar tus servidores para que puedan manejar mejor el volumen esperado que contempla múltiples llamadas de contenido conectado por envío de mensaje.
+Es esperable que una llamada a la API de contenido conectado se realice más de una vez por destinatario, incluso si la lógica de reintentos no se utiliza en la llamada. Recomendamos configurar el límite de velocidad de cualquier mensaje que contenga contenido conectado o configurar tus servidores para que puedan manejar mejor el volumen esperado que contempla múltiples llamadas de contenido conectado por envío de mensaje.
 
 Consulta [Comprender el volumen de llamadas de contenido conectado](#understanding-connected-content-call-volume) y [Mejores prácticas para endpoints de alto volumen](#best-practices-for-high-volume-endpoints) para más detalles y mitigación.
 
 ### ¿Cómo funciona el límite de velocidad con el contenido conectado? {#how-does-rate-limiting-work-with-connected-content}
 
-El contenido conectado no tiene su propio límite de velocidad. En su lugar, el límite de velocidad se basa en la tasa de envío de mensajes. Recomendamos establecer el límite de velocidad de mensajería más alto que tu límite de velocidad previsto para el contenido conectado si hay más llamadas de contenido conectado que mensajes enviados.
+El contenido conectado no tiene su propio límite de velocidad. En su lugar, el límite de velocidad se basa en la tasa de envío de mensajes. Recomendamos configurar el límite de velocidad de mensajería más alto que tu límite de velocidad previsto para el contenido conectado si hay más llamadas de contenido conectado que mensajes enviados.
 
 ### ¿Cuál es el comportamiento de almacenamiento en caché? {#what-is-caching-behavior}
 

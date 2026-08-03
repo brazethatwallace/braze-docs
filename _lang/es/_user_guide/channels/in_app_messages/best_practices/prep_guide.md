@@ -16,7 +16,7 @@ toc_headers: h2
 ## Consideraciones generales {#general-considerations}
 
 - Si estás creando una Campaign, ¿cuántas variantes de este mensaje te gustaría mostrar? Para ideas sobre pruebas de variantes, consulta [Consejos para diferentes canales]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#tips-different-channels).
-- Si estás creando un Canvas, ¿este mensaje se combinará con otros canales de mensajería en ese paso?
+- Si estás creando un Canvas, ¿se combinará este mensaje con otros canales de mensajería en ese paso?
 - ¿Cuándo te gustaría que [tu mensaje expire]({{site.baseurl}}/canvas_in-app_messages)?
 
 ## Consideraciones de segmentación {#targeting-considerations}
@@ -24,32 +24,34 @@ toc_headers: h2
 - Los mensajes dentro de la aplicación son ideales para usuarios que visitan tu aplicación con regularidad. ¿Estás incluyendo a esta audiencia?
 - ¿Dónde quieres que tus usuarios vean tu mensaje? ¿En tu aplicación Web? ¿En tu aplicación móvil?
 - ¿Qué evento debería desencadenar este mensaje?
-- ¿Alguno de tus usuarios está usando versiones anteriores de tu aplicación? Si es así, es posible que no puedan ver algunos elementos de tu mensaje.
-- ¿Para qué tipo de dispositivo o dispositivos estás creando este mensaje? Recuerda que puedes previsualizar tu mensaje usando el cuadro **Preview** o la pestaña **Test**. Consulta [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) para más información.
+- ¿Alguno de tus usuarios utiliza versiones anteriores de tu aplicación? Si es así, es posible que no puedan ver algunos elementos de tu mensaje.
+- ¿Para qué tipo de dispositivo o dispositivos estás creando este mensaje? Recuerda que puedes obtener una vista previa de tu mensaje usando el cuadro de **vista previa** o la pestaña **Test**. Consulta [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) para más información.
 
-## Planificación, demoras e inicios de sesión {#scheduling-delays-and-session-starts}
+## Programación, retrasos e inicios de sesión {#scheduling-delays-and-session-starts}
 
-Cuando una Campaign de mensaje dentro de la aplicación tiene **Schedule Delay** con un desencadenante en el inicio de sesión, un usuario que inicia una sesión y luego cierra la aplicación antes de que se muestre el mensaje dentro de la aplicación aún puede recibir ese mensaje en el siguiente inicio de sesión, después de que expire la demora.
+Cuando una campaña de mensajes dentro de la aplicación tiene un **Retraso de programación** con un desencadenante en el inicio de sesión, un usuario que inicia una sesión y luego cierra la aplicación antes de que se muestre el mensaje dentro de la aplicación puede seguir recibiendo ese mensaje en el siguiente inicio de sesión, después de que expire el retraso.
 
-Ese comportamiento puede producir una visualización inesperada, especialmente si **Re-evaluate campaign eligibility before displaying** no está seleccionado en la Campaign.
+Ese comportamiento puede producir una visualización inesperada, especialmente si no se selecciona **Reevaluar la elegibilidad de la campaña antes de mostrar** en la Campaign.
 
-Por ejemplo, un usuario podría recibir un mensaje dentro de la aplicación con una demora de ocho segundos un mes después del lanzamiento de la Campaign. Esto puede ocurrir si inició una sesión, terminó la sesión inmediatamente, inició una sesión un mes después y luego, ocho segundos más tarde, recibió el mensaje dentro de la aplicación. Si navega fuera de la aplicación sin cerrarla, el mensaje dentro de la aplicación se muestra cuando regresa a la aplicación.
+Por ejemplo, un usuario podría recibir un mensaje dentro de la aplicación con un retraso de ocho segundos un mes después del lanzamiento de la Campaign. Esto puede ocurrir si inició una sesión, la finalizó de inmediato, inició una sesión un mes después y luego, ocho segundos más tarde, recibió el mensaje dentro de la aplicación. Si se aleja de la aplicación sin cerrarla, el mensaje dentro de la aplicación se muestra cuando regresa a la aplicación.
 
 ## Consideraciones de contenido {#content-considerations}
 
 - ¿Qué idiomas usarás en este mensaje?
 - ¿Cuál es el texto de tu encabezado y cuerpo? ¿Son llamativos y relevantes para tu usuario?
-- Los mensajes dentro de la aplicación solo aparecen durante un período de tiempo determinado. ¿Tu texto es conciso y memorable?
+- Los mensajes dentro de la aplicación solo aparecen durante un tiempo determinado. ¿Tu texto es conciso y memorable?
 - ¿Usarás [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) para agregar texto personalizado?
 - ¿Los usuarios necesitan copiar el texto del mensaje (como un código de descuento o cupón)? En iOS y Android, los usuarios pueden mantener presionado el texto o los campos de entrada de texto para copiar contenido. Mantener presionado no funciona en imágenes, así que usa texto o campos de entrada de texto en lugar de imágenes que contengan códigos u otro texto que los usuarios puedan necesitar copiar.
-- Para mensajes dentro de la aplicación de pantalla completa, ¿tu imagen u otro contenido multimedia está dentro de la [zona segura]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen#image-safe-zone)?
-- Para mensajes dentro de la aplicación tipo cuestionario, ¿quieres registrar atributos o envíos? ¿Has configurado tu página de confirmación?
+- Para mensajes dentro de la aplicación a pantalla completa, ¿tu imagen u otro contenido multimedia está dentro de la [zona segura]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen#image-safe-zone)?
+- Para mensajes dentro de la aplicación de tipo cuestionario, ¿quieres registrar atributos o envíos? ¿Has configurado tu página de confirmación?
+- Para mensajes dentro de la aplicación con HTML personalizado, ¿tu HTML incluye codificación UTF-8 para mostrar correctamente los caracteres especiales? Consulta [Mensajes dentro de la aplicación con HTML personalizado]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#character-encoding) para más detalles.
+- Si incluyes video en tu mensaje dentro de la aplicación: aunque Braze no impone un límite técnico en el tamaño del archivo de video para la reproducción local en el dispositivo, ten en cuenta que los usuarios pueden tener conexiones lentas, planes de datos costosos o almacenamiento limitado. Optimiza los archivos de video para equilibrar calidad y tamaño de archivo.
 
 ## Consideraciones de conversión {#conversion-considerations}
 
-- ¿Cuál es tu objetivo para este mensaje? ¿Cómo puedes representarlo en tu mensaje?
-- ¿Tus botones ofrecen opciones que tienen sentido para tu usuario? ¿Cuál es tu [llamada a la acción principal]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#buttons)?
-- ¿Estás usando [vínculos profundos a contenido dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content)? ¿Estás usando este mensaje dentro de la aplicación para enviar y aceptar una [solicitud de permiso o preparación push]({{site.baseurl}}/user_guide/channels/push/best_practices)?
+- ¿Cuál es tu objetivo con este mensaje? ¿Cómo puedes representarlo en tu mensaje?
+- ¿Tus botones ofrecen opciones que tengan sentido para tu usuario? ¿Cuál es tu [llamada a la acción principal]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#buttons)?
+- ¿Estás usando [vínculos profundos a otro contenido dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content)? ¿Estás usando este mensaje dentro de la aplicación para enviar y aceptar una [solicitud de permiso o de preparación push]({{site.baseurl}}/user_guide/channels/push/best_practices)?
 - ¿Tienes una opción de salida del mensaje? Si no, siempre puedes copiar y pegar este fragmento de código para crear un botón rápido:
     ```html
     <a href="appboy://close">X</a>
@@ -59,19 +61,19 @@ Por ejemplo, un usuario podría recibir un mensaje dentro de la aplicación con 
 
 ### Agregar vínculos profundos para diferentes dispositivos {#adding-deep-links-for-different-devices}
 
-El editor de arrastrar y soltar no admite agregar diferentes vínculos profundos para diferentes dispositivos (a diferencia del editor tradicional).
+El editor de arrastrar y soltar no permite agregar diferentes vínculos profundos para diferentes dispositivos (a diferencia del editor tradicional).
 
 ### Ajustar la opacidad de la imagen de fondo {#adjusting-background-image-opacity}
 
-La configuración de opacidad no permite la transparencia completa de las imágenes de fondo (a diferencia del editor de IAM tradicional). Puedes usar la configuración de opacidad para hacer que el color de fondo del mensaje sea completamente transparente.
+La configuración de opacidad no permite la transparencia completa de las imágenes de fondo (a diferencia del editor tradicional de IAM). Puedes usar la configuración de opacidad para hacer que el color de fondo del mensaje sea completamente transparente.
 
 ### Configurar el ancho máximo {#setting-the-maximum-width}
 
-El ancho máximo en el editor de arrastrar y soltar está limitado a 325 px; esto está pensado principalmente para acomodar la vista previa del panel. Los mensajes pueden mostrarse correctamente en dispositivos con pantallas más pequeñas.
+El ancho máximo en el editor de arrastrar y soltar está limitado a 325 px; esto está pensado principalmente para adaptarse a la vista previa del panel. Los mensajes pueden mostrarse correctamente en dispositivos con pantallas más pequeñas.
 
 ### Seleccionar diferentes fondos para diferentes plataformas {#selecting-different-backgrounds-for-different-platforms}
 
-No es posible mostrar dos fondos diferentes para el mismo mensaje en diferentes plataformas (como Web y móvil).
+No es posible mostrar dos fondos diferentes para el mismo mensaje en diferentes plataformas (como web y móvil).
 
 ### Aplicar estilos de mensaje {#applying-message-styles}
 
@@ -89,6 +91,6 @@ Actualmente, solo los mensajes dentro de la aplicación modales y de pantalla co
 
 La imagen de fondo estirará el mensaje dentro de la aplicación, ya que el modal se ajusta para adaptarse al tamaño y la relación de aspecto de la imagen de fondo; puedes ajustar la relación según sea necesario.
 
-### Imágenes de fondo y comportamiento al hacer clic {#background-images-and-on-click-behavior}
+### Imágenes de fondo y comportamiento de clic {#background-images-and-on-click-behavior}
 
-Estos persisten entre páginas. Para mensajes dentro de la aplicación de varias páginas con diferentes imágenes completas en cada página, agrega un botón para permitir que los usuarios hagan clic para ir a la siguiente página.
+Estos persisten entre páginas. Para mensajes dentro de la aplicación de varias páginas con diferentes imágenes completas en cada página, agrega un botón para permitir que los usuarios hagan clic para ir a la página siguiente.

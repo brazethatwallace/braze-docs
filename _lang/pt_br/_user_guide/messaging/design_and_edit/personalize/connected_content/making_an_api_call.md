@@ -107,11 +107,11 @@ As solicitações de Connected Content suportam apenas solicitações GET e POST
 
 Se a URL estiver indisponível e retornar uma página 404, a Braze renderiza uma string vazia em seu lugar. Se a URL retornar uma página HTTP 500 ou 502, a URL falhará na lógica de nova tentativa.
 
-Se o endpoint retornar JSON, você pode detectar isso verificando se o valor `connected` é nulo e, em seguida, [interromper condicionalmente a mensagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content). A Braze permite apenas URLs que se comunicam pelas portas 80 (HTTP) e 443 (HTTPS).
+Se o endpoint retornar JSON, você pode detectar isso verificando se o valor `connected` é nulo e, em seguida, [interromper condicionalmente a mensagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content). A Braze permite apenas URLs que se comunicam pela porta 80 (HTTP) e 443 (HTTPS).
 
 ### Detecção de host não íntegro {#unhealthy-host-detection}
 
-O Connected Content emprega um mecanismo de detecção de host não íntegro para identificar quando o host de destino apresenta uma alta taxa de lentidão significativa ou sobrecarga, resultando em timeouts, excesso de solicitações ou outros problemas que impedem a Braze de se comunicar com sucesso com o endpoint de destino. Ele atua como uma proteção para reduzir a carga desnecessária que pode estar causando dificuldades no host de destino. Também serve para estabilizar a infraestrutura da Braze e manter velocidades rápidas de envio de mensagens.
+O Connected Content emprega um mecanismo de detecção de host não íntegro para identificar quando o host de destino apresenta uma alta taxa de lentidão significativa ou sobrecarga, resultando em timeouts, excesso de solicitações ou outros resultados que impedem a Braze de se comunicar com sucesso com o endpoint de destino. Ele atua como uma proteção para reduzir a carga desnecessária que pode estar causando dificuldades ao host de destino. Também serve para estabilizar a infraestrutura da Braze e manter velocidades rápidas de envio de mensagens.
 
 Se o host de destino apresentar uma alta taxa de lentidão significativa ou sobrecarga, a Braze interrompe temporariamente as solicitações ao host de destino por um minuto, simulando respostas que indicam a falha. Após um minuto, a Braze verifica a integridade do host usando um pequeno número de solicitações antes de retomar as solicitações em velocidade total, caso o host seja considerado íntegro. Se o host ainda estiver não íntegro, a Braze aguarda mais um minuto antes de tentar novamente.
 
@@ -124,15 +124,15 @@ Você pode adicionar URLs específicas a uma lista de permissões para uso com C
 {% endalert %}
 
 {% alert tip %}
-Para saber mais sobre códigos de erro comuns, consulte [Solucionar problemas de solicitações de webhook e Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection).
+Para saber mais sobre códigos de erro comuns, consulte [Solucionar problemas de webhooks e solicitações de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection).
 {% endalert %}
 
 ### Limites de frequência (429) versus detecção de host não íntegro {#rate-limits-429-versus-unhealthy-host-detection}
 
 Os seguintes são mecanismos diferentes:
 
-- **429 Too Many Requests:** Seu endpoint (ou um serviço upstream) está retornando essa resposta. Isso significa que seu servidor ou middleware está recusando tráfego, geralmente porque possui seu próprio limite de frequência. A Braze não aplica um limite de frequência separado ao Connected Content; o volume de solicitações do Connected Content escala diretamente com o [limite de frequência de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) da sua mensagem. Como as mensagens podem ser renderizadas várias vezes por destinatário (por exemplo, para HTML de e-mail, texto simples e AMP), o número de solicitações de Connected Content pode exceder esse limite de frequência — não presuma que será menor ou igual ao número de mensagens por minuto que você definiu. Se você estiver recebendo erros 429, escale seu endpoint ou middleware para lidar com o volume de solicitações esperado, ou reduza o [limite de frequência de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) da Campaign ou do Canvas para que menos mensagens (e, consequentemente, menos chamadas de Connected Content) sejam enviadas por minuto.
-- **Detecção de host não íntegro:** Uma proteção do lado da Braze que é acionada após uma alta taxa e volume de *falhas* em uma janela de um minuto. A contagem de falhas inclui os códigos de status `408`, `429`, `502`, `503`, `504` e `529`. Quando acionada, a Braze interrompe temporariamente as solicitações para esse host e simula uma resposta de falha. Isso é independente do seu próprio limite de frequência. Para limites de detecção e mais detalhes, consulte [Solucionar problemas de solicitações de webhook e Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection). Para evitar acionar a detecção de host não íntegro, certifique-se de que seu endpoint consiga lidar com o volume de chamadas descrito em [Entendendo o volume de chamadas do Connected Content](#understanding-connected-content-call-volume) e [Práticas recomendadas para endpoints de alto volume](#best-practices-for-high-volume-endpoints).
+- **429 Too Many Requests:** Seu endpoint (ou um serviço upstream) está retornando essa resposta. Isso significa que seu servidor ou middleware está recusando tráfego, geralmente porque possui seu próprio limite de frequência. A Braze não aplica um limite de frequência separado ao Connected Content; o volume de solicitações do Connected Content escala diretamente com o [limite de frequência de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) de suas mensagens. Como as mensagens podem ser renderizadas várias vezes por destinatário (por exemplo, para HTML de e-mail, texto simples e AMP), o número de solicitações de Connected Content pode exceder esse limite de frequência — não assuma que será menor ou igual ao número de mensagens por minuto que você definiu. Se você estiver recebendo erros 429, escale seu endpoint ou middleware para lidar com o volume de solicitações esperado, ou reduza o [limite de frequência de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) da Campaign ou do Canvas para que menos mensagens (e, consequentemente, menos chamadas de Connected Content) sejam enviadas por minuto.
+- **Detecção de host não íntegro:** Uma proteção do lado da Braze que é acionada após uma alta taxa e volume de *falhas* em uma janela de um minuto. A contagem de falhas inclui os códigos de status `408`, `429`, `502`, `503`, `504` e `529`. Quando acionada, a Braze interrompe temporariamente as solicitações para esse host e simula uma resposta de falha. Isso é independente do seu próprio limite de frequência. Para limites de detecção e mais detalhes, consulte [Solucionar problemas de webhooks e solicitações de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection). Para evitar acionar a detecção de host não íntegro, certifique-se de que seu endpoint consiga lidar com o volume de chamadas descrito em [Entendendo o volume de chamadas do Connected Content](#understanding-connected-content-call-volume) e [Práticas recomendadas para endpoints de alto volume](#best-practices-for-high-volume-endpoints).
 
 ## Garantir desempenho eficiente {#allowing-for-efficient-performance}
 
@@ -140,7 +140,7 @@ Como a Braze entrega mensagens em uma taxa muito rápida, certifique-se de que s
 
 Para saber mais sobre planejamento de capacidade de endpoints e redução do volume de chamadas, consulte [Práticas recomendadas para endpoints de alto volume](#best-practices-for-high-volume-endpoints).
 
-## Informações importantes {#things-to-know}
+## O que você precisa saber {#things-to-know}
 
 - A Braze não cobra por chamadas de API e elas não contam para o uso de pontos de dados.
 - Há um limite de 1 MB para respostas do Connected Content.
@@ -167,7 +167,7 @@ Embora as chamadas do Connected Content sejam executadas sequencialmente dentro 
 Se suas mensagens usam Connected Content e você envia em alto volume, planeje para mais solicitações do que o número de destinatários ou envios:
 
 - **Estime a carga de pico:** Use um multiplicador conservador ao dimensionar seu endpoint ou middleware — as solicitações de Connected Content podem exceder o número de destinatários ou mensagens enviadas. Por exemplo, para e-mail, um único destinatário pode gerar múltiplas chamadas (HTML, texto simples e AMP), então destinatários × 2 ou × 3 é frequentemente usado como uma estimativa conservadora.
-- **Use cache quando apropriado:** Solicitações GET são armazenadas em cache por padrão. Para solicitações POST, adicione `:cache_max_age` quando a resposta puder ser reutilizada por um período (por exemplo, token ou conteúdo que não muda a cada solicitação). Consulte [Armazenando respostas em cache]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) e as [Perguntas frequentes sobre cache de POST](#what-is-caching-behavior) na seção a seguir.
+- **Use cache quando apropriado:** Solicitações GET são armazenadas em cache por padrão. Para solicitações POST, adicione `:cache_max_age` quando a resposta puder ser reutilizada por um período (por exemplo, token ou conteúdo que não muda por solicitação). Consulte [Respostas em cache]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) e as [Perguntas frequentes sobre cache de POST](#what-is-caching-behavior) na seção a seguir.
 - **Defina limites de frequência de mensagens:** Os [limites de frequência de envio de mensagens do espaço de trabalho]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) e o [limite de frequência de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) em Campaigns ou Canvas limitam indiretamente o volume de solicitações de Connected Content — a Braze não aplica limite de frequência ao Connected Content em si. Esses são indicadores aproximados, não perfeitos, porque as solicitações de Connected Content não são 1:1 com as mensagens. Use-os para manter o volume de mensagens (e, consequentemente, de Connected Content) dentro do que seu endpoint pode suportar.
 - **Projete para idempotência e novas tentativas:** A Braze pode chamar seu endpoint mais de uma vez por destinatário. Certifique-se de que seu endpoint possa tolerar solicitações duplicadas sem efeitos colaterais incorretos.
 
@@ -175,17 +175,17 @@ Se suas mensagens usam Connected Content e você envia em alto volume, planeje p
 
 ### Usando autenticação básica {#using-basic-authentication}
 
-Se a URL exigir autenticação básica, a Braze pode armazenar uma credencial de autenticação básica para você usar em sua chamada de API. Você pode gerenciar credenciais de autenticação básica existentes e adicionar novas em **Settings** > **Connected Content**.
+Se a URL exigir autenticação básica, a Braze pode armazenar uma credencial de autenticação básica para você usar em sua chamada de API. Você pode gerenciar credenciais de autenticação básica existentes e adicionar novas em **Configurações** > **Connected Content**.
 
 ![As configurações de Connected Content no dashboard da Braze.]({% image_buster /assets/img/connected_content/basic_auth_mgmt.png %})
 
-Para adicionar uma nova credencial, selecione **Add credential** > **Basic authentication**.
+Para adicionar uma nova credencial, selecione **Adicionar credencial** > **Autenticação básica**.
 
-![Menu suspenso "Add credential" com a opção de usar autenticação básica ou autenticação por token.]({% image_buster /assets/img/connected_content/add_credential_button.png %}){: style="max-width:60%"}
+![Menu suspenso "Adicionar credencial" com a opção de usar autenticação básica ou autenticação por token.]({% image_buster /assets/img/connected_content/add_credential_button.png %}){: style="max-width:60%"}
 
 Dê um nome à sua credencial e insira o nome de usuário e a senha.
 
-![A janela "Create New Credential" com a opção de inserir um nome, nome de usuário e senha.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
+![A janela "Criar nova credencial" com a opção de inserir um nome, nome de usuário e senha.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
 
 Você pode então usar essa credencial de autenticação básica em suas chamadas de API referenciando o nome do token:
 
@@ -196,16 +196,16 @@ Hi there, here is some fun trivia for you!: {% connected_content https://yourweb
 {% endraw %}
 
 {% alert note %}
-Se você excluir uma credencial, lembre-se de que qualquer chamada de Connected Content que tentar usá-la será interrompida.
+Se você excluir uma credencial, tenha em mente que qualquer chamada de Connected Content que tentar usá-la será interrompida.
 {% endalert %}
 
-As credenciais armazenadas são aplicadas às solicitações {% raw %}`{% connected_content %}`{% endraw %} enquanto a Braze renderiza uma mensagem. Elas não são aplicadas à solicitação HTTP principal configurada em uma etapa de [webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#authentication-and-connected-content-credentials). Use cabeçalhos de solicitação ou uma tag {% raw %}`{% connected_content %}`{% endraw %} dentro de um campo de cabeçalho ou corpo do webhook quando precisar recuperar segredos para essa chamada.
+As credenciais armazenadas se aplicam a solicitações {% raw %}`{% connected_content %}`{% endraw %} enquanto a Braze renderiza uma mensagem. Elas não são aplicadas à solicitação HTTP principal configurada em uma etapa de [webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#authentication-and-connected-content-credentials). Use cabeçalhos de solicitação ou uma tag {% raw %}`{% connected_content %}`{% endraw %} dentro de um campo de cabeçalho ou corpo do webhook quando precisar recuperar segredos para essa chamada.
 
 ### Usando autenticação por token {#using-token-authentication}
 
 Ao usar o Connected Content da Braze, você pode descobrir que certas APIs exigem um token em vez de um nome de usuário e senha. A Braze também pode armazenar credenciais que contêm valores de cabeçalho de autenticação por token.
 
-Para adicionar uma credencial que contém valores de token, selecione **Add credential** > **Token authentication**. Em seguida, adicione os pares chave-valor para os cabeçalhos da sua chamada de API e o domínio permitido.
+Para adicionar uma credencial que contém valores de token, selecione **Adicionar credencial** > **Autenticação por token**. Em seguida, adicione os pares chave-valor para os cabeçalhos da sua chamada de API e o domínio permitido.
 
 ![Um exemplo de token "token_credential_abc" com detalhes de autenticação por token.]({% image_buster /assets/img/connected_content/token_auth.png %}){: style="max-width:60%"}
 
@@ -225,9 +225,9 @@ Você pode então usar essa credencial em suas chamadas de API referenciando o n
 ```
 {% endraw %}
 
-### Usando Open Authentication (OAuth) {#use-open-authentication-oauth}
+### Usar Open Authentication (OAuth) {#use-open-authentication-oauth}
 
-Algumas configurações de API exigem a recuperação de um token de acesso que pode então ser usado para autenticar o endpoint da API que você deseja acessar.
+Algumas configurações de API exigem a recuperação de um token de acesso que pode então ser usado para autenticar o endpoint de API que você deseja acessar.
 
 #### Etapa 1: Recuperar o token de acesso {#step-1-retrieve-the-access-token}
 
@@ -289,7 +289,7 @@ Se as solicitações de Connected Content retornarem consistentemente `403 Forbi
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
-### Usando a lista de permissões de IP com Amazon S3 {#using-ip-allowlisting-with-amazon-s3}
+### Usando a lista de permissões de IP com o Amazon S3 {#using-ip-allowlisting-with-amazon-s3}
 
 Ao usar o Connected Content para recuperar arquivos do Amazon S3, configure seu bucket para permitir solicitações HTTP `GET` não autenticadas a partir dos endereços IP da Braze.
 
@@ -341,19 +341,39 @@ Se a sua chamada de Connected Content não está sendo renderizada corretamente 
 
 - **Confirme que uma chamada de Connected Content foi feita:** Você pode verificar se uma chamada foi feita na [guia Histórico de mensagens]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab). Você também pode fazer um envio de teste de uma única solicitação de Connected Content.
 - **Verifique por meio do Postman ou de uma solicitação CURL se a solicitação ideal é bem-sucedida:** Se a solicitação funcionar e retornar uma resposta, compare a solicitação em detalhes (incluindo os cabeçalhos). Confirme que os cabeçalhos estão capturados em pares de chave-valor com aspas duplas.
-- **Valide se a autorização está sendo tratada corretamente:** Confirme que a opção `:basic_auth`/`:auth_credentials` está sendo usada e que a autorização do Connected Content foi adicionada às configurações do espaço de trabalho do Connected Content. Às vezes, a URL do Connected Content requer cabeçalhos além da autenticação que precisam ser inseridos.
+- **Valide se a autorização está sendo tratada corretamente:** Confirme que a opção `:basic_auth`/`:auth_credentials` está sendo usada e que a autorização do Connected Content foi adicionada às configurações do espaço de trabalho do Connected Content. Às vezes, a URL do Connected Content exige cabeçalhos além da autenticação que precisam ser inseridos.
 - **Verifique se os dados estão em um formato esperado:** Para o corpo da resposta, a Braze faz o parse de JSON válido em um objeto Liquid; caso contrário, a resposta é tratada como texto simples (incluindo HTML). A opção `:content_type` define os cabeçalhos `Content-Type` e `Accept` de saída na sua solicitação e não afeta o parse da resposta. Para o `:body` da solicitação, se o seu JSON contiver espaços, siga as orientações na seção [Fornecendo corpo JSON]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#providing-json-body).
 - **Confirme que os dados foram parseados corretamente:** Verifique se o Liquid está referenciando corretamente o campo esperado. Para JSON aninhado, use {% raw %}`{{sampleresult.data[0].sample_field}}`{% endraw %} para apontar para o campo aninhado desejado. Você pode verificar as propriedades do JSON aninhado imprimindo o resultado esperado com {% raw %}`RESPONSE:{{sampleresult.data}}`{% endraw %}.
 - **Verifique o código de status da resposta:** O código de status da resposta deve ser um código `2XX`. O Connected Content não tem como consumir a resposta quando o código não é `2XX`.
 
 Você também pode usar o [Webhook.site](https://webhook.site/) para solucionar problemas nas suas chamadas de Connected Content e diagnosticar problemas com os cabeçalhos da solicitação, o corpo da solicitação e outras informações que estão sendo enviadas na chamada.
 
-1. Substitua a URL na sua chamada de Connected Content pela URL única gerada no site.
+1. Substitua a URL na sua chamada de Connected Content pela URL exclusiva gerada no site.
 2. Faça a prévia e teste sua Campaign ou etapa do Canvas para ver as solicitações chegando a esse website.
 
 Você também pode verificar se a Liquid tag inclui os parâmetros que o seu endpoint espera (por exemplo, `:method`, `:headers`, `:content_type`, `:body` e `:basic_auth` quando necessário). Se você depende da chave de código de status HTTP em um objeto JSON salvo, o endpoint deve retornar um objeto JSON e um status `2XX`.
 
 Para altas taxas de erro do seu host, consulte [Detecção de host não íntegro]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors#unhealthy-host-detection) e [Volume de chamadas de Connected Content](#understanding-connected-content-call-volume).
+
+### Codificação de "e" comercial em solicitações POST de e-mail {#ampersand-encoding-in-email-post-requests}
+
+Em mensagens de e-mail, o parse de HTML converte automaticamente os "e" comerciais (`&`) dentro de blocos {% raw %}`{% capture %}`{% endraw %} para `&amp;`. Para solicitações POST `application/x-www-form-urlencoded`, isso faz com que a solicitação envie nomes de parâmetros com o prefixo `amp;` (por exemplo, `amp;username`), o que pode quebrar a chamada de API.
+
+Para contornar esse problema, use o filtro `replace` para remover o prefixo `amp;` antes de passar o corpo para `:body`:
+
+{% raw %}
+```liquid
+{% capture body_with_amps %}
+grant_type=client_credentials&username=test&password=test
+{% endcapture %}
+{% connected_content https://api.example.com/token
+   :method post
+   :body {{body_with_amps | replace: "amp;", ""}}
+   :content_type application/x-www-form-urlencoded
+   :save token
+%}
+```
+{% endraw %}
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
@@ -367,7 +387,7 @@ Consulte [Entendendo o volume de chamadas de Connected Content](#understanding-c
 
 ### Como o limite de frequência funciona com o Connected Content? {#how-does-rate-limiting-work-with-connected-content}
 
-O Connected Content não tem seu próprio limite de frequência. Em vez disso, o limite de frequência é baseado na taxa de envio de mensagens. Recomendamos definir o limite de frequência de envio de mensagens acima do limite de frequência pretendido para o Connected Content, caso haja mais chamadas de Connected Content do que mensagens enviadas.
+O Connected Content não possui seu próprio limite de frequência. Em vez disso, o limite de frequência é baseado na taxa de envio de mensagens. Recomendamos definir o limite de frequência de envio de mensagens acima do limite de frequência pretendido para o Connected Content, caso haja mais chamadas de Connected Content do que mensagens enviadas.
 
 ### Qual é o comportamento de cache? {#what-is-caching-behavior}
 

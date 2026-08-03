@@ -37,7 +37,7 @@ glossary_tags:
 
 glossaries:
   - name: Segment Membership
-    description: Permite filtrar com base na associação a segmentos em qualquer lugar onde filtros são usados (como segmentos, Campaigns e outros) e direcionar vários segmentos diferentes dentro de uma única Campaign. <br><br>Para capturar a associação a um segmento em um momento específico, exporte os usuários do segmento no dashboard ou chame o <a href="/docs/api/endpoints/export/user_data/post_users_segment/"><code>/users/export/segment</code> endpoint</a> antes de enviar uma Campaign ou Canvas. A Braze não armazena o histórico de segmentação por usuário, então você não pode verificar retroativamente se um usuário estava em um segmento em um momento passado. Para saber mais, consulte <a href="/docs/user_guide/data/distribution/export_braze_data/segment_data_to_csv/">Exportar dados de segmento para CSV</a>.<br><br>Observe que segmentos que já usam esse filtro não podem ser incluídos ou aninhados em outros segmentos, pois isso pode criar um ciclo em que o Segment A inclui o Segment B, que então tenta incluir o Segment A novamente. Se isso acontecesse, o segmento ficaria referenciando a si mesmo, tornando impossível calcular quem realmente pertence a ele. Além disso, aninhar segmentos dessa forma adiciona complexidade e pode deixar as coisas mais lentas. Em vez disso, recrie o segmento que você está tentando incluir usando os mesmos filtros.<br><br>Se um segmento não aparecer no menu suspenso do filtro **Segment Membership**, recrie-o com os mesmos filtros e selecione o novo segmento, ou confirme que ele não depende desse público de uma forma que criaria um ciclo.
+    description: Permite filtrar com base na associação a segmentos em qualquer lugar onde filtros são usados (como segmentos, Campaigns e outros) e direcionar vários segmentos diferentes dentro de uma única Campaign. <br><br>Para capturar a associação a um segmento em um momento específico, exporte os usuários do segmento no dashboard ou chame o <a href="/docs/api/endpoints/export/user_data/post_users_segment/"><code>/users/export/segment</code> endpoint</a> antes de enviar uma Campaign ou Canvas. A Braze não armazena o histórico de segmentação por usuário, então você não pode verificar retroativamente se um usuário estava em um segmento em um momento passado. Para saber mais, consulte <a href="/docs/user_guide/data/distribution/export_braze_data/segment_data_to_csv/">Exportar dados de segmento para CSV</a>.<br><br>Observe que segmentos que já usam esse filtro não podem ser incluídos ou aninhados em outros segmentos, pois isso pode criar um ciclo em que o Segmento A inclui o Segmento B, que então tenta incluir o Segmento A novamente. Se isso acontecesse, o segmento ficaria referenciando a si mesmo, tornando impossível calcular quem realmente pertence a ele. Além disso, aninhar segmentos dessa forma adiciona complexidade e pode deixar as coisas mais lentas. Em vez disso, recrie o segmento que você está tentando incluir usando os mesmos filtros.<br><br>Se um segmento não aparecer no menu suspenso do filtro **Segment Membership**, recrie-o com os mesmos filtros e selecione o novo segmento, ou confirme que ele não depende desse público de uma forma que criaria um ciclo.
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
@@ -45,7 +45,7 @@ glossaries:
     tags:
       - Segment or CSV membership
   - name: Updated/Imported from CSV
-    description: Segmenta seus usuários com base em se eles fizeram parte de um upload de CSV ou não.
+    description: Segmenta seus usuários com base em se eles fizeram parte de um upload de CSV ou não. A Braze retém apenas as 100 importações de CSV mais recentes por perfil de usuário para fins de segmentação. Se um usuário aparecer em mais de 100 importações de CSV que foram selecionadas para redirecionamento, apenas as 100 mais recentes estarão disponíveis para esse filtro. Importações mais antigas não correspondem mais a esse usuário.
     tags:
       - Segment or CSV membership
   - name: Custom Attributes
@@ -345,7 +345,7 @@ glossaries:
     tags:
       - Purchase behavior
   - name: First Purchase For App
-    description: Segmenta seus usuários pela primeira vez que um usuário fez uma compra no seu app.
+    description: Segmenta seus usuários pela primeira vez que um usuário fez uma compra a partir do seu app.
     tags:
       - Purchase behavior
   - name: Last Made Purchase

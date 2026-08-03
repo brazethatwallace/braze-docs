@@ -45,7 +45,7 @@ glossaries:
     tags:
       - Segment or CSV membership
   - name: Updated/Imported from CSV
-    description: "Segmente vos utilisateurs selon qu'ils faisaient partie ou non d'un import CSV."
+    description: "Segmente vos utilisateurs selon qu'ils faisaient partie ou non d'un import CSV. Braze ne conserve que les 100 imports CSV les plus récents par profil utilisateur à des fins de segmentation. Si un utilisateur apparaît dans plus de 100 imports CSV sélectionnés pour le reciblage, seuls les 100 plus récents sont disponibles pour ce filtre. Les imports plus anciens ne correspondent plus à cet utilisateur."
     tags:
       - Segment or CSV membership
   - name: Custom Attributes

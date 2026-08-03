@@ -25,11 +25,23 @@ HTMLアプリ内メッセージを使用すると、メッセージの外観を�
 - インタラクティブなコンポーネント
 - カスタムアニメーション
 
-カスタムHTMLメッセージでは、[JavaScript Bridge](#javascript-bridge)のメソッドを使用して、イベントの記録、カスタム属性の設定、メッセージの閉じるなどの操作が可能です。HTMLアプリ内メッセージの使用方法やカスタマイズ方法の詳細な手順、およびすぐに使い始められるHTML5アプリ内メッセージテンプレートのセットについては、[GitHubリポジトリ](https://github.com/braze-inc/in-app-message-templates)をご覧ください。
+カスタムHTMLメッセージでは、[JavaScript Bridge](#javascript-bridge)メソッドを使用して、イベントの記録、カスタム属性の設定、メッセージの閉じるなどの操作を行うことができます。HTMLアプリ内メッセージの使用方法やカスタマイズ方法の詳細な手順、およびすぐに使い始められるHTML5アプリ内メッセージテンプレートのセットについては、[GitHubリポジトリ](https://github.com/braze-inc/in-app-message-templates)をご覧ください。
 
 {% alert note %}
 Web SDKを通じてHTMLアプリ内メッセージを有効にするには、Brazeに`allowUserSuppliedJavascript`初期化オプションを指定する必要があります（例：`braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`）。これはセキュリティ上の理由によるもので、HTMLアプリ内メッセージはJavaScriptを実行できるため、サイト管理者が有効化する必要があります。
 {% endalert %}
+
+## 文字エンコーディング {#character-encoding}
+
+カスタムHTMLアプリ内メッセージにキリル文字、アクセント付き文字、その他の非ASCIIテキストなどの特殊文字を含める場合は、正しく表示されるようにHTMLにUTF-8エンコーディングを指定してください。UTF-8エンコーディングを指定しないと、Webビューでレンダリングされる際にこれらの文字が正しく表示されなかったり、欠落したりすることがあります。
+
+UTF-8エンコーディングを有効にするには、HTMLの`<head>`セクション内に以下のmetaタグを追加します。
+
+```html
+<meta charset="UTF-8">
+```
+
+これにより、アプリ内メッセージを表示するWebビューで想定される文字セットであるUTF-8エンコーディングが強制されます。
 
 ## JavaScript bridge {#javascript-bridge}
 
@@ -37,7 +49,7 @@ Web SDKを通じてHTMLアプリ内メッセージを有効にするには、Bra
 
 ## リンクベースのアクション {#link-based-actions}
 
-カスタムJavaScriptに加えて、Braze SDKは便利なURLショートカットを使用して分析データを送信することもできます。これらのクエリパラメーターとURLスキームはすべて大文字と小文字が区別されることに注意してください。
+カスタムJavaScriptに加えて、Braze SDKはこれらの便利なURLショートカットを使用して分析データを送信することもできます。これらのクエリパラメーターとURLスキームはすべて大文字と小文字が区別されることに注意してください。
 
 ### ボタンクリックトラッキング（非推奨） {#button-click-tracking-deprecated}
 
@@ -83,7 +95,7 @@ BrazeにHTTPまたはHTTPSリンクをディープリンクとして処理させ
 
 カスタムHTMLアプリ内メッセージを作成する際、インタラクティブなコンテンツをBraze内で直接プレビューできます。
 
-エディターのメッセージプレビューパネルには、メッセージに含まれるJavaScriptをレンダリングしたリアルなプレビューが表示されます。プレビューパネルでは、ページネーションのクリック、フォームやアンケートの送信、JavaScriptアニメーションの確認など、カスタムメッセージのプレビューと操作が可能です。
+エディターのメッセージプレビューパネルには、メッセージに含まれるJavaScriptをレンダリングしたリアルなプレビューが表示されます。プレビューパネルからカスタムメッセージをプレビューし、ページネーションのクリック、フォームやアンケートの送信、JavaScriptアニメーションの確認など、さまざまな操作を行えます。
 
 ![ページをスワイプしてHTMLプレビューを操作する様子。]({% image_buster /assets/img/iam-beta-javascript-preview.gif %})
 
@@ -101,7 +113,7 @@ HTMLアップロードでカスタムコードのアプリ内メッセージを�
 
 | ファイルタイプ | ファイル拡張子 |
 | :--------------- | :-------------------------------- |
-| フォントファイル | `.ttf`, `.woff`, `.otf`, `.woff2` |
+| フォントファイル | `.ttf`、`.woff`、`.otf`、`.woff2` |
 | SVG画像 | `.svg` |
 | JavaScriptファイル | `.js` |
 | CSSファイル | `.css` |
@@ -134,7 +146,7 @@ HTMLエディター内で<i class="fa-solid fa-magnifying-glass" aria-label="検
 
 ### ボタントラッキング {#button-tracking-improvements}
 
-[`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types) JavaScriptメソッドを使用して、カスタムコードのアプリ内メッセージ内のパフォーマンスをトラッキングできます。これにより、`brazeBridge.logClick('0')`、`brazeBridge.logClick('1')`、または`brazeBridge.logClick()`を使用して、それぞれ「ボタン1」、「ボタン2」、「ボディクリック」をプログラムでトラッキングできます。
+カスタムコードのアプリ内メッセージ内で、[`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types) JavaScriptメソッドを使用してパフォーマンスをトラッキングできます。これにより、`brazeBridge.logClick('0')`、`brazeBridge.logClick('1')`、または`brazeBridge.logClick()`を使用して、それぞれ「ボタン1」、「ボタン2」、「ボディクリック」をプログラムでトラッキングできます。
 
 | クリック | メソッド |
 | ---------- | ---------------------------- |
@@ -154,11 +166,11 @@ HTMLエディター内で<i class="fa-solid fa-magnifying-glass" aria-label="検
 
 #### ボタンクリックでリンクが開かない {#button-clicks-do-not-open-the-link}
 
-カスタムHTMLアプリ内メッセージのボタンがクリックしても読み込まれない場合は、リンクが有効なURLまたはサポートされているディープリンクスキームを使用しているか確認してください。不正なURLやサポートされていないカスタムスキームは、クリックアクションの完了を妨げる可能性があります。
+カスタムHTMLアプリ内メッセージのボタンがクリック時に読み込まれない場合は、リンクが有効なURLまたはサポートされているディープリンクスキームを使用しているか確認してください。不正なURLやサポートされていないカスタムスキームは、クリックアクションの完了を妨げる可能性があります。
 
 #### メッセージを閉じる際のボディクリック {#body-clicks-when-closing-the-message}
 
-`brazeBridge.closeMessage()`を呼び出すとメッセージは閉じますが、それ自体では分析を記録しません。ユーザーがメッセージを閉じる際にボディクリックを記録するには、`brazeBridge.closeMessage()`の前に`brazeBridge.logClick()`を呼び出して、プラットフォーム間でクリックログの一貫性を保ちます。
+`brazeBridge.closeMessage()`を呼び出すとメッセージは閉じられますが、それ自体では分析を記録しません。ユーザーがメッセージを閉じる際にボディクリックを記録するには、`brazeBridge.closeMessage()`の前に`brazeBridge.logClick()`を呼び出して、プラットフォーム間でクリックログの一貫性を保ちます。
 
 ### 後方互換性のない変更 {#backward-incompatible-changes}
 

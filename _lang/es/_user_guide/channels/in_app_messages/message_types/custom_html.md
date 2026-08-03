@@ -16,7 +16,7 @@ Este tipo de mensaje está disponible en el [editor tradicional]({{site.baseurl}
 
 ## Cómo funciona {#how-it-works}
 
-Los mensajes dentro de la aplicación HTML permiten un mayor control sobre la apariencia de un mensaje, incluyendo lo siguiente:
+Los mensajes HTML dentro de la aplicación permiten un mayor control sobre la apariencia y el estilo de un mensaje, incluyendo lo siguiente:
 
 - Fuentes y estilos personalizados
 - Videos
@@ -25,11 +25,23 @@ Los mensajes dentro de la aplicación HTML permiten un mayor control sobre la ap
 - Componentes interactivos
 - Animaciones personalizadas
 
-Los mensajes HTML personalizados pueden utilizar los métodos del [puente JavaScript](#javascript-bridge) para registrar eventos, establecer atributos personalizados, cerrar el mensaje y más. Consulta nuestro [repositorio de GitHub](https://github.com/braze-inc/in-app-message-templates) que contiene instrucciones detalladas sobre cómo usar y personalizar los mensajes dentro de la aplicación HTML para tus necesidades, y un conjunto de plantillas de mensajes dentro de la aplicación HTML5 para ayudarte a comenzar.
+Los mensajes HTML personalizados pueden utilizar los métodos del [puente JavaScript](#javascript-bridge) para registrar eventos, establecer atributos personalizados, cerrar el mensaje y más. Consulta nuestro [repositorio de GitHub](https://github.com/braze-inc/in-app-message-templates) que contiene instrucciones detalladas sobre cómo usar y personalizar los mensajes HTML dentro de la aplicación según tus necesidades, y un conjunto de plantillas de mensajes dentro de la aplicación HTML5 para ayudarte a comenzar.
 
 {% alert note %}
-Para habilitar los mensajes dentro de la aplicación HTML a través del SDK Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze: por ejemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad, ya que los mensajes dentro de la aplicación HTML pueden ejecutar JavaScript, por lo que requerimos que un administrador del sitio los habilite.
+Para habilitar los mensajes HTML dentro de la aplicación a través del SDK Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze: por ejemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad, ya que los mensajes HTML dentro de la aplicación pueden ejecutar JavaScript, por lo que requerimos que un administrador del sitio los habilite.
 {% endalert %}
+
+## Codificación de caracteres {#character-encoding}
+
+Al crear mensajes dentro de la aplicación HTML personalizados con caracteres especiales, como escritura cirílica, caracteres acentuados u otro texto no ASCII, incluye la codificación UTF-8 en tu HTML para garantizar una visualización correcta. Sin la codificación UTF-8, estos caracteres pueden aparecer rotos o ausentes cuando se renderizan en la vista web.
+
+Para habilitar la codificación UTF-8, añade la siguiente metaetiqueta dentro de la sección `<head>` de tu HTML:
+
+```html
+<meta charset="UTF-8">
+```
+
+Esto fuerza la codificación UTF-8, que es el conjunto de caracteres esperado para las vistas web que muestran mensajes dentro de la aplicación.
 
 ## Puente JavaScript {#javascript-bridge}
 
@@ -91,11 +103,11 @@ El panel de vista previa del mensaje en el editor muestra una vista previa reali
 Los métodos JavaScript de `brazeBridge` que utilices en tu HTML no actualizarán los perfiles de usuario mientras previsualizas en el panel.
 {% endalert %}
 
-### Crear una Campaign {#instructions}
+### Crear una campaña {#instructions}
 
 #### Archivos de activos {#asset-files}
 
-Al crear mensajes dentro de la aplicación de código personalizado con carga HTML, puedes subir activos de Campaign a la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) para referenciarlos en tu mensaje.
+Al crear mensajes dentro de la aplicación de código personalizado con carga HTML, puedes subir activos de la campaña a la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) para referenciarlos en tu mensaje.
 
 Los siguientes tipos de archivo son compatibles para la carga:
 
@@ -109,16 +121,16 @@ Los siguientes tipos de archivo son compatibles para la carga:
 
 Braze recomienda subir activos a la biblioteca de medios por dos razones:
 
-1. Los activos añadidos a una Campaign a través de la biblioteca de medios permiten que tus mensajes se muestren incluso cuando el usuario está sin conexión o tiene una conexión a internet deficiente.
-2. Los activos subidos a Braze se pueden reutilizar en distintas Campaigns.
+1. Los activos añadidos a una campaña a través de la biblioteca de medios permiten que tus mensajes se muestren incluso cuando el usuario está sin conexión o tiene una conexión a internet deficiente.
+2. Los activos subidos a Braze se pueden reutilizar en distintas campañas.
 
 ##### Añadir archivos de activos {#adding-asset-files}
 
-Puedes añadir activos nuevos o existentes a tu Campaign.
+Puedes añadir activos nuevos o existentes a tu campaña.
 
-Para añadir nuevos activos a tu Campaign, utiliza la sección de arrastrar y soltar para subir un archivo. Los activos añadidos en esta sección también se agregarán automáticamente a la biblioteca de medios. Para añadir activos que ya hayas subido a la biblioteca de medios, selecciona **Añadir desde la biblioteca de medios**.
+Para añadir nuevos activos a tu campaña, utiliza la sección de arrastrar y soltar para subir un archivo. Los activos añadidos en esta sección también se agregarán automáticamente a la biblioteca de medios. Para añadir activos que ya hayas subido a la biblioteca de medios, selecciona **Añadir desde la biblioteca de medios**.
 
-Una vez añadidos tus activos, aparecerán en la sección **Activos para esta Campaign**.
+Una vez añadidos tus activos, aparecerán en la sección **Activos para esta campaña**.
 
 Si el nombre de un activo coincide con el de un activo HTML local, se reemplaza automáticamente (por ejemplo, se sube `cat.png` y existe `<img src="cat.png" />`).
 
@@ -148,11 +160,11 @@ Puedes hacer seguimiento del rendimiento dentro de tu mensaje dentro de la aplic
 Este método de seguimiento de botones reemplaza los métodos anteriores de seguimiento automático de clics (como `?abButtonId=0`), que han sido eliminados.
 {% endalert %}
 
-Utiliza [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) para mensajes HTML con vista previa cuando necesites más de dos botones con seguimiento. El botón 1 y el botón 2 se asignan a `'0'` y `'1'`; los botones adicionales usan ID personalizados (hasta 100 ID únicos por Campaign). Para restricciones de caracteres en los ID de botones, consulta [Seguimiento de botones](#button-tracking-improvements).
+Utiliza [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) para mensajes HTML con vista previa cuando necesites más de dos botones con seguimiento. El Botón 1 y el Botón 2 se asignan a `'0'` y `'1'`; los botones adicionales usan ID personalizados (hasta 100 ID únicos por campaña). Para restricciones de caracteres en los ID de botones, consulta [Seguimiento de botones](#button-tracking-improvements).
 
 ### Solucionar problemas con enlaces HTML personalizados y comportamiento de cierre {#troubleshoot-custom-html-links-and-close-behavior}
 
-#### Los clics en botones no abren el enlace {#button-clicks-do-not-open-the-link}
+#### Los clics en los botones no abren el enlace {#button-clicks-do-not-open-the-link}
 
 Si un botón en tu mensaje dentro de la aplicación con HTML personalizado no carga al hacer clic, verifica que el enlace utilice una URL válida o un esquema de vínculo profundo compatible. Las URL mal formadas o los esquemas personalizados no compatibles pueden impedir que la acción de clic se complete.
 
@@ -162,8 +174,8 @@ Llamar a `brazeBridge.closeMessage()` cierra el mensaje pero no registra anális
 
 ### Cambios incompatibles con versiones anteriores {#backward-incompatible-changes}
 
-1. El vínculo profundo `braze://close`, que anteriormente era compatible con aplicaciones móviles, ha sido eliminado en favor del JavaScript `brazeBridge.closeMessage()`. Esto permite mensajes HTML multiplataforma, ya que la Web no admite vínculos profundos.
-2. El seguimiento automático de clics, que usaba `?abButtonId=0` para los ID de botones, y el seguimiento de "clic en el cuerpo" en botones de cierre han sido eliminados. Los siguientes ejemplos de código muestran cómo cambiar tu HTML para usar nuestros nuevos métodos JavaScript de seguimiento de clics:
+1. El vínculo profundo `braze://close`, que anteriormente era compatible con aplicaciones móviles, ha sido eliminado en favor del JavaScript `brazeBridge.closeMessage()`. Esto permite mensajes HTML multiplataforma, ya que la web no admite vínculos profundos.
+2. El seguimiento automático de clics, que usaba `?abButtonId=0` para los ID de botones, y el seguimiento de "clic en el cuerpo" en los botones de cierre han sido eliminados. Los siguientes ejemplos de código muestran cómo cambiar tu HTML para usar nuestros nuevos métodos JavaScript de seguimiento de clics:
 
    | Antes | Después |
    |:-------- |:------------|

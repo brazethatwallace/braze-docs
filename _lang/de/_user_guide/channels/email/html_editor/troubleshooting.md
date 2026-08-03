@@ -57,6 +57,7 @@ E-Mails werden je nach Browser und E-Mail-Client unterschiedlich dargestellt. No
 
 - Nutzen Sie die Vorschau Ihrer E-Mails mit [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), um zu sehen, wie Ihre E-Mails in verschiedenen Browsern und E-Mail-Clients aussehen.
 - Nachdem Sie festgestellt haben, welche Browser oder E-Mail-Clients Probleme verursachen, informieren Sie Ihr Entwickler:innen-Team, damit es das HTML anpassen und Änderungen für diese Browser oder E-Mail-Clients vornehmen kann.
+- Wenn das Problem speziell damit zusammenhängt, [wie Alternativtext angezeigt wird]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text), beachten Sie, dass dieses Verhalten vom E-Mail-Client der Empfänger:innen gesteuert wird, nicht von Braze.
 
 ### Unausgeglichenes HTML in Liquid-Templates {#unbalanced-html-in-liquid-templates}
 

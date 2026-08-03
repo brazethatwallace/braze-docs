@@ -21,27 +21,29 @@ channel: email
 
 Nein, Braze bietet diese Funktionalität nicht an. Der Grund dafür ist, dass eine zunehmende Mehrheit der E-Mails auf mobilen Geräten und in modernen E-Mail-Clients geöffnet wird, die Bilder und Inhalte problemlos darstellen.
 
-**Workaround:** Um dasselbe Ergebnis zu erzielen, können Sie den Inhalt Ihrer E-Mail auf einer externen Landing-Page hosten (z. B. auf Ihrer Website), die dann über die E-Mail-Campaign verlinkt werden kann, die Sie gerade erstellen. Verwenden Sie dazu das **Link**-Tool beim Bearbeiten des E-Mail-Textes.
+**Workaround:** Um dasselbe Ergebnis zu erzielen, können Sie den Inhalt Ihrer E-Mail auf einer externen Landing-Page (z. B. Ihrer Website) hosten, die dann über das **Link**-Tool beim Bearbeiten des E-Mail-Textes aus der E-Mail-Campaign heraus verlinkt werden kann.
 
 ### Wie erstelle ich einen angepassten Abmeldelink für meine E-Mail-Templates? {#how-do-i-create-a-custom-unsubscribe-link-for-my-email-templates}
 
 Es gibt eine Weiterleitungsoption für die Abmeldeseite.
 
-Sie könnten den Abmeldelink in der angepassten Fußzeile von {% raw %} `{{${set_user_to_unsubscribed_url}}}` {% endraw %} zu einem Link auf Ihre eigene Website ändern, der einen Abfrageparameter mit der Nutzer-ID enthält. Ein Beispiel:
+Sie könnten den Abmeldelink in der angepassten Fußzeile von {% raw %} `{{${set_user_to_unsubscribed_url}}}` {% endraw %} zu einem Link auf Ihre eigene Website mit einem Abfrageparameter ändern, der die Nutzer-ID enthält. Ein Beispiel wäre:
 {% raw %}
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-Anschließend könnten Sie den [`/email/status`-Endpunkt]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) aufrufen, um den Abo-Status der Nutzer:in zu aktualisieren. Weitere Details finden Sie in unserer Dokumentation zum [Ändern des E-Mail-Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
+Anschließend könnten Sie den [`/email/status`-Endpunkt]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) aufrufen, um den Abo-Status der Nutzer:innen zu aktualisieren. Weitere Details finden Sie in unserer Dokumentation zum [Ändern des E-Mail-Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
-Um diesen neuen Link zu speichern, muss der Standard-Braze-Abmelde-Tag {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} in der Fußzeile enthalten sein. Das bedeutet, dass Sie den Standardlink einfügen müssen, indem Sie ihn „verstecken“ – entweder durch Platzierung des Tags in einem Kommentar oder in einem versteckten `<div>`-Tag.
+Um diesen neuen Link zu speichern, muss der Standard-Braze-Abmelde-Tag {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} in der Fußzeile enthalten sein. Das bedeutet, dass Sie den Standardlink einbinden müssen, indem Sie ihn „verstecken“ – entweder durch Platzierung des Tags in einem Kommentar oder in einem ausgeblendeten `<div>`-Tag.
 
 - **Tag-in-Kommentar-Beispiel:** Tag in Kommentar platzieren: `<!-- ${set_user_to_unsubscribed_url} -->`
-- **Kommentar in verstecktem `<div>`-Tag-Beispiel:** {%raw%}`<div style="display:none;max-height:0px;overflow:hidden;">${set_user_to_unsubscribed_url}</div>`{%endraw%}
+- **Kommentar in ausgeblendetem `<div>`-Tag-Beispiel:** {%raw%}`<div style="display:none;max-height:0px;overflow:hidden;">${set_user_to_unsubscribed_url}</div>`{%endraw%}
 
-### Was passiert, wenn ich ein E-Mail-Template bearbeite, das derzeit in einer Campaign verwendet wird? {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign}
+### Was passiert, wenn ich ein E-Mail-Template bearbeite, das derzeit in einer Campaign oder einem Canvas verwendet wird? {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign-or-canvas}
 
-Änderungen an einem bestehenden Template werden nicht in Campaigns übernommen, die mit früheren Versionen dieses Templates erstellt wurden. Bei API-Campaigns, die ein Template im REST API-Body verwenden, nutzt Braze zum Sendezeitpunkt die neueste Version des Templates.
+E-Mail-Templates dienen als Ausgangspunkt beim Erstellen einer E-Mail in einer Campaign oder einem Canvas. Wenn Sie ein Template auswählen, können Sie es innerhalb der Campaign oder des Canvas bearbeiten, und diese Änderungen sind unabhängig vom ursprünglichen Template.
+
+Änderungen an einem bestehenden Template werden nicht in Campaigns oder Canvases übernommen, die mit früheren Versionen dieses Templates erstellt wurden. Ebenso werden Änderungen an der E-Mail innerhalb einer Campaign oder eines Canvas nicht mit dem ursprünglichen Template synchronisiert. Bei API-Campaigns, die eine `email_template_id` im Anfrage-Body enthalten, verwendet Braze die neueste Version des Templates zum Sendezeitpunkt.
 
 ## Link-Templates {#link-templates}
 
@@ -53,7 +55,7 @@ Ja, Sie können beliebig viele Templates in Ihre E-Mail-Nachrichten einfügen. A
 
 Es gibt mehrere Möglichkeiten, eine Vorschau Ihrer Links anzuzeigen. Nachdem Sie das [Link-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template) angewendet haben, können Sie eine [Test-E-Mail]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) an sich selbst senden, um alle Links anzuzeigen.
 
-Im Vorschaubereich können Sie die Links auch in einem neuen Tab öffnen, um sie anzuzeigen. Sie können auch mit dem Mauszeiger über die Links im Vorschaubereich fahren und sie am unteren Rand Ihres Browsers sehen.
+Im Vorschaufenster können Sie die Links auch in einem neuen Tab öffnen, um sie anzuzeigen. Sie können auch mit dem Mauszeiger über die Links im Vorschaufenster fahren und sie am unteren Rand Ihres Browsers sehen.
 
 ### Wie funktioniert Link-Templating mit Liquid? {#how-does-link-templating-work-with-liquid}
 
@@ -79,6 +81,6 @@ Bestehende Content Blocks werden bei der Aktivierung von Link Aliasing nicht ver
 
 Nein, Braze Link Aliasing erkennt das HTML nicht korrekt.
 
-Wenn eine solche Logik zusammen mit Features verwendet wird, die das HTML parsen müssen (wie ein Preheader oder Link-Templating), kann die zum Scannen des HTML verwendete Bibliothek das Anchor-Tag so verändern, dass das korrekte `href` nicht richtig als Template verarbeitet wird. Die Bibliothek stuft das HTML dann als ungültig ein, da sie den Liquid-Code nicht berücksichtigt.
+Wenn eine solche Logik zusammen mit Features verwendet wird, die das HTML parsen müssen (z. B. ein Preheader oder Link-Templating), kann die zum Scannen des HTML verwendete Bibliothek das Anchor-Tag so verändern, dass das korrekte `href` nicht richtig als Template verarbeitet wird. Die Bibliothek stuft das HTML dann als ungültig ein, da sie den Liquid-Code nicht berücksichtigt.
 
-Verwenden Sie stattdessen Liquid-Logik, die in jeder Phase ein vollständiges Anchor-Tag enthält. Dies beeinträchtigt das HTML-Parsing nicht, da die Logik mehrere Instanzen von validem HTML enthält. Sie können Ihre Logik auch vereinfachen, indem Sie eine Variable zuweisen und diese dann als Template in das entsprechende Anchor-Tag einfügen.
+Verwenden Sie stattdessen Liquid-Logik, die in jeder Phase ein vollständiges Anchor-Tag enthält. Dies beeinträchtigt das HTML-Parsing nicht, da die Logik mehrere Instanzen von gültigem HTML enthält. Sie können Ihre Logik auch vereinfachen, indem Sie eine Variable zuweisen und diese dann als Template in das entsprechende Anchor-Tag einfügen.

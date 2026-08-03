@@ -48,7 +48,7 @@ glossaries:
       - Segment or CSV membership
   - name: Updated/Imported from CSV
     display_name: "CSVからの更新/インポート"
-    description: ユーザーがCSVアップロードの一部であったかどうかに基づいてセグメント化します。
+    description: ユーザーがCSVアップロードの一部であったかどうかに基づいてセグメント化します。Brazeはセグメンテーション目的で、ユーザープロファイルごとに直近100件のCSVインポートのみを保持します。リターゲティング用に選択された100件を超えるCSVインポートにユーザーが含まれている場合、直近100件のみがこのフィルターで利用可能です。それより古いインポートはそのユーザーに一致しなくなります。
     tags:
       - Segment or CSV membership
   - name: Custom Attributes
@@ -758,7 +758,7 @@ glossaries:
       - Social activity
   - name: Phone Number
     display_name: "電話番号"
-    description: E.164形式の電話番号フィールドでユーザーをセグメント化します。<br><br>電話番号がBrazeに送信されると、BrazeはSMS、RCS、WhatsAppチャネルでの送信に使用される<a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers">E.164形式</a> に変換しようとします。番号が正しくフォーマットされていない場合、変換プロセスが失敗し、ユーザープロファイルに未フォーマットの電話番号はあるが送信用電話番号がないという結果になります。このセグメントフィルターは、E.164形式の電話番号（利用可能な場合）でユーザーを返します。<br><br>ユースケース:<br>- SMS、RCS、またはWhatsAppメッセージを送信する際に、最も正確なターゲットオーディエンスサイズを把握するためにこのフィルターを使用します。<br>- このフィルターで正規表現（regex）を使用して、特定の国コードの電話番号でセグメント化します。<br>- E.164変換プロセスに失敗した電話番号でユーザーをセグメント化するためにこのフィルターを使用します。
+    description: E.164形式の電話番号フィールドでユーザーをセグメント化します。<br><br>電話番号がBrazeに送信されると、BrazeはSMS、RCS、WhatsAppチャネルでの送信に使用される<a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers">E.164形式</a> に変換しようとします。番号が正しくフォーマットされていない場合、変換プロセスが失敗し、ユーザープロファイルに未フォーマットの電話番号はあるが送信用電話番号がないという結果になります。このセグメントフィルターは、E.164形式の電話番号（利用可能な場合）でユーザーを返します。<br><br>ユースケース:<br>- SMS、RCS、またはWhatsAppメッセージを送信する際に、最も正確なターゲットオーディエンスサイズを把握するためにこのフィルターを使用します。<br>- このフィルターで正規表現（regex）を使用して、特定の国コードの電話番号でセグメント化します。<br>- E.164変換プロセスに失敗した電話番号でユーザーをセグメント化するためにこのフィルターを使用します。
     tags:
       - Other Filters
 ---
