@@ -52,9 +52,11 @@ If you want to use your unique discount codes in a single-send campaign, or you 
 
 ![A Liquid code snippet with a button copy it.][4]{: style="max-width:60%;"}
 
-Paste the Liquid snippet into a campaign or Canvas step. 
+Paste the Liquid snippet into a campaign or Canvas step.
 
-![A GIF showing the Liquid snippet being added to a Canvas step.][5]
+<video autoplay muted loop playsinline loading="lazy" style="max-width:100%;" aria-label="A video showing the Liquid snippet being added to a Canvas step.">
+  <source src="{% image_buster /assets/img/shopify/liquid_promo_code.mp4 %}" type="video/mp4">
+</video>
 
 If you want users to receive a single unique discount code no matter how many times the discount code is referenced in campaigns or Canvases, create a [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) step directly before the first Message step that assigns the discount code to a custom attribute, like "Promo Code".
 
@@ -89,5 +91,4 @@ When a discount code is referenced by multiple steps in the same Canvas or by se
 [2]: {% image_buster /assets/img/shopify/export_discount_codes.png %}
 [3]: {% image_buster /assets/img/shopify/edited_codes_csv.png %}
 [4]: {% image_buster /assets/img/shopify/liquid_code_snippet.png %}
-[5]: {% image_buster /assets/img/shopify/liquid_promo_code.gif %}
 [6]: {% image_buster /assets/img/shopify/user_update_step.png %}

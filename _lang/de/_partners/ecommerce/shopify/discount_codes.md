@@ -54,7 +54,9 @@ Wenn Sie Ihre eindeutigen Rabattcodes in einer einzelnen Campaign verwenden möc
 
 Fügen Sie das Liquid-Snippet in eine Campaign oder einen Canvas-Schritt ein.
 
-![Ein GIF, das zeigt, wie das Liquid-Snippet zu einem Canvas-Schritt hinzugefügt wird.][5]
+<video autoplay muted loop playsinline loading="lazy" style="max-width:100%;" aria-label="Ein Video, das zeigt, wie das Liquid-Snippet zu einem Canvas-Schritt hinzugefügt wird.">
+  <source src="{% image_buster /assets/img/shopify/liquid_promo_code.mp4 %}" type="video/mp4">
+</video>
 
 Wenn Sie möchten, dass Nutzer:innen einen einzigen eindeutigen Rabattcode erhalten, unabhängig davon, wie oft der Rabattcode in Campaigns oder Canvases referenziert wird, erstellen Sie einen [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt direkt vor dem ersten Nachrichtenschritt, der den Rabattcode einem angepassten Attribut wie „Promo Code“ zuweist.
 
@@ -89,5 +91,4 @@ Wenn ein Rabattcode in mehreren Schritten desselben Canvas oder in separaten Cam
 [2]: {% image_buster /assets/img/shopify/export_discount_codes.png %}
 [3]: {% image_buster /assets/img/shopify/edited_codes_csv.png %}
 [4]: {% image_buster /assets/img/shopify/liquid_code_snippet.png %}
-[5]: {% image_buster /assets/img/shopify/liquid_promo_code.gif %}
 [6]: {% image_buster /assets/img/shopify/user_update_step.png %}

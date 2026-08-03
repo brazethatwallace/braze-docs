@@ -54,7 +54,9 @@ Se quiser usar seus códigos de desconto exclusivos em uma Campaign de envio ún
 
 Cole o snippet Liquid em uma Campaign ou etapa do Canvas.
 
-![Um GIF mostrando o snippet Liquid sendo adicionado a uma etapa do Canvas.][5]
+<video autoplay muted loop playsinline loading="lazy" style="max-width:100%;" aria-label="Um vídeo mostrando o snippet Liquid sendo adicionado a uma etapa do Canvas.">
+  <source src="{% image_buster /assets/img/shopify/liquid_promo_code.mp4 %}" type="video/mp4">
+</video>
 
 Se quiser que os usuários recebam um único código de desconto exclusivo, não importa quantas vezes o código de desconto seja referenciado em Campaigns ou Canvas, crie uma etapa de [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) diretamente antes da primeira etapa de Mensagem que atribua o código de desconto a um atributo personalizado, como "Promo Code".
 
@@ -89,5 +91,4 @@ Quando um código de desconto é referenciado por várias etapas no mesmo Canvas
 [2]: {% image_buster /assets/img/shopify/export_discount_codes.png %}
 [3]: {% image_buster /assets/img/shopify/edited_codes_csv.png %}
 [4]: {% image_buster /assets/img/shopify/liquid_code_snippet.png %}
-[5]: {% image_buster /assets/img/shopify/liquid_promo_code.gif %}
 [6]: {% image_buster /assets/img/shopify/user_update_step.png %}

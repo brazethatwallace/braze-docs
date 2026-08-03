@@ -54,7 +54,9 @@ Si vous souhaitez utiliser vos codes de réduction uniques dans une Campaign à 
 
 Collez l'extrait de code Liquid dans une Campaign ou une étape du Canvas.
 
-![Un GIF montrant l'extrait de code Liquid ajouté à une étape du Canvas.][5]
+<video autoplay muted loop playsinline loading="lazy" style="max-width:100%;" aria-label="Una vidéo montrant l'extrait de code Liquid ajouté à une étape du Canvas.">
+  <source src="{% image_buster /assets/img/shopify/liquid_promo_code.mp4 %}" type="video/mp4">
+</video>
 
 Si vous souhaitez que les utilisateurs reçoivent un seul code de réduction unique, quel que soit le nombre de fois où le code de réduction est référencé dans les Campaigns ou les Canvas, créez une étape de [mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) directement avant la première étape de message qui attribue le code de réduction à un attribut personnalisé, tel que « Promo Code ».
 
@@ -89,5 +91,4 @@ Lorsqu'un code de réduction est référencé par plusieurs étapes du même Can
 [2]: {% image_buster /assets/img/shopify/export_discount_codes.png %}
 [3]: {% image_buster /assets/img/shopify/edited_codes_csv.png %}
 [4]: {% image_buster /assets/img/shopify/liquid_code_snippet.png %}
-[5]: {% image_buster /assets/img/shopify/liquid_promo_code.gif %}
 [6]: {% image_buster /assets/img/shopify/user_update_step.png %}

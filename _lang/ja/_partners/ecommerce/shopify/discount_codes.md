@@ -54,7 +54,9 @@ Brazeで、**Data Settings** > **Promotion Codes** > **Create Promotion Code Lis
 
 キャンペーンまたはキャンバスステップにLiquidスニペットを貼り付けます。
 
-![キャンバスステップにLiquidスニペットが追加される様子を示すGIF。][5]
+<video autoplay muted loop playsinline loading="lazy" style="max-width:100%;" aria-label="キャンバスステップにLiquidスニペットが追加される様子を示す動画。">
+  <source src="{% image_buster /assets/img/shopify/liquid_promo_code.mp4 %}" type="video/mp4">
+</video>
 
 キャンペーンやキャンバスで割引コードが何度参照されても、ユーザーに単一のユニークな割引コードを受け取らせたい場合は、最初のメッセージステップの直前に[ユーザー更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)ステップを作成し、割引コードを「Promo Code」のようなカスタム属性に割り当てます。
 
@@ -89,5 +91,4 @@ Brazeで、**Data Settings** > **Promotion Codes** > **Create Promotion Code Lis
 [2]: {% image_buster /assets/img/shopify/export_discount_codes.png %}
 [3]: {% image_buster /assets/img/shopify/edited_codes_csv.png %}
 [4]: {% image_buster /assets/img/shopify/liquid_code_snippet.png %}
-[5]: {% image_buster /assets/img/shopify/liquid_promo_code.gif %}
 [6]: {% image_buster /assets/img/shopify/user_update_step.png %}
