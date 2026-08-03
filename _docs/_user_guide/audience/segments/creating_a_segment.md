@@ -27,7 +27,14 @@ Optionally, you can do the following:
 - Add a [team]({{site.baseurl}}/user_guide/administer/global/user_management/teams) to your segment.
 - Add [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) to your segment for further organization.
 
-![Create Segment modal where the segment is named "Lapsed Users" with the Segment Description as "This is our main Lapsed User segment to target non-actives within the past fourteen days." with two buttons: Cancel and Create Segment.]({% image_buster /assets/img_archive/segment_app_selection.png %}){: style="max-width:80%;"}
+Segments are saved as soon as you select **Create Segment**. You don't need to select **Save** on the segment editor first.
+
+{% alert note %}
+If you have the team-level "Edit Segments" permission only (not workspace-level), Braze assigns a team when the segment is created:
+<br><br>
+- **One eligible team:** That team is assigned automatically.
+- **Multiple eligible teams:** Braze assigns the first team in your list of eligible teams. You can change the team on the segment editor before sharing or using the segment.
+{% endalert %}
 
 ## Step 3: Choose your app or platform
 
