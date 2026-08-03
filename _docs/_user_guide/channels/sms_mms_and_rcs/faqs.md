@@ -46,7 +46,7 @@ To prevent unnecessarily large updates, Braze will update a maximum of 100 user 
 
 ### Why do I see a spike in SMS subscriptions from a specific source?
 
-If you observe an unexpectedly large increase in subscription counts—particularly when reviewing data from the [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) endpoint via Currents—this may be caused by duplicate user profiles.
+If you observe an unexpectedly large increase in subscription counts—particularly when reviewing data from the [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) endpoint through Currents—this may be caused by duplicate user profiles.
 
 When a request is made to the `/subscription/status/set` endpoint with only a phone number (no `external_id` provided), Braze updates all user profiles that share that phone number. If your workspace has duplicate profiles, the count of users who updated their subscription state is inflated, even though only one phone number changed.
 
