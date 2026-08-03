@@ -4142,7 +4142,7 @@ validurls['/docs/user_guide/brazeai/recommendations'] = '/docs/user_guide/brazea
 
 // BrazeAI > Intelligence Suite children
 validurls['/docs/user_guide/brazeai/intelligence/intelligent_channel'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_channel';
-validurls['/docs/user_guide/brazeai/intelligence/tutorial'] = '/docs/user_guide/brazeai/intelligence_suite/tutorial';
+validurls['/docs/user_guide/brazeai/intelligence/tutorial'] = '/docs/user_guide/brazeai/intelligence_suite/use_case';
 
 // BrazeAI > Item recommendations children
 validurls['/docs/user_guide/brazeai/recommendations/viewing_analytics'] = '/docs/user_guide/brazeai/item_recommendations/viewing_analytics';
