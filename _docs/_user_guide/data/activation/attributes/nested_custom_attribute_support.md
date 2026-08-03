@@ -128,7 +128,9 @@ This approach can't be used to delete a nested key inside an [array of objects](
 
 ## SDK example
 
-{% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 %}
+{% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 unity:5.1.0 %}
+
+The following samples show how to create, merge-update, and delete the same nested custom attribute object (`most_played_song`) across each SDK.
 
 {% tabs local %}
 {% tab Android SDK %}
@@ -235,6 +237,38 @@ braze.getUser().setCustomUserAttribute("most_played_song", json, true);
 ```javascript
 import * as braze from "@braze/web-sdk";
 braze.getUser().setCustomUserAttribute("most_played_song", null);
+```
+
+{% endtab %}
+{% tab Unity SDK %}
+
+**Create**
+```csharp
+Dictionary<string, object> attributes = new Dictionary<string, object>();
+attributes.Add("song_name", "Solea");
+attributes.Add("artist_name", "Miles Davis");
+attributes.Add("album_name", "Sketches of Spain");
+attributes.Add("genre", "Jazz");
+
+Dictionary<string, object> playAnalytics = new Dictionary<string, object>();
+playAnalytics.Add("count", 1000);
+playAnalytics.Add("top_10_listeners", true);
+attributes.Add("play_analytics", playAnalytics);
+
+AppboyBinding.SetCustomUserAttribute("most_played_song", attributes);
+```
+
+**Update**
+```csharp
+Dictionary<string, object> attributes = new Dictionary<string, object>();
+attributes.Add("year_released", 1960);
+
+AppboyBinding.SetCustomUserAttribute("most_played_song", attributes, true);
+```
+
+**Delete**
+```csharp
+AppboyBinding.UnsetCustomUserAttribute("most_played_song");
 ```
 
 {% endtab %}

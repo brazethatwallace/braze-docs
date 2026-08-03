@@ -151,6 +151,29 @@ AppboyBinding.AddToCustomUserAttributeArray("key", "Attribute")
 AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
 ```
 {% endtab %}
+
+{% tab Nested objects %}
+
+You can set custom attributes containing nested objects (available in Unity SDK 5.1.0 and later). For more information, see [Nested custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+The following examples show how to set a nested object attribute, merge updates into an existing object, and set an array of nested objects.
+
+```csharp
+AppboyBinding.SetCustomUserAttribute("custom object attribute key", dictionary(Dictionary<string, object>));
+```
+
+To update an existing nested object, use the merge parameter:
+
+```csharp
+AppboyBinding.SetCustomUserAttribute("custom object attribute key", dictionary(Dictionary<string, object>), merge(bool));
+```
+
+You can also set an array of nested objects:
+
+```csharp
+AppboyBinding.SetCustomUserAttribute("custom object array attribute key", list(List<Dictionary<string, object>>));
+```
+
+{% endtab %}
 {% endtabs %}
 
 {% alert important %}
