@@ -48,7 +48,7 @@ To prevent unnecessarily large updates, Braze will update a maximum of 100 user 
 
 If you observe an unexpectedly large increase in subscription counts—particularly when reviewing data from the [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) endpoint via Currents—this may be caused by duplicate user profiles.
 
-When a request is made to the `/subscription/status/set` endpoint with only a phone number (no `external_id` provided), Braze updates all user profiles that share that phone number. If your workspace has duplicate profiles, the count of users who updated their subscription state will be inflated, even though only one phone number changed.
+When a request is made to the `/subscription/status/set` endpoint with only a phone number (no `external_id` provided), Braze updates all user profiles that share that phone number. If your workspace has duplicate profiles, the count of users who updated their subscription state is inflated, even though only one phone number changed.
 
 To analyze subscription data more accurately when pulling from Currents, update your query to count distinct phone numbers rather than counting all subscription state change events.
 
