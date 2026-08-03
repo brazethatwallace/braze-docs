@@ -39,7 +39,7 @@ The Swift SDK team has plans to sunset the `BrazeKitCompat` library, but no spec
 
 Yes. The Swift SDK supports delayed initialization, which is useful for apps that need to wait for user consent before starting the SDK. Call `Braze.prepareForDelayedInitialization()` (optionally with an `analyticsBehavior` parameter) early in `application(_:didFinishLaunchingWithOptions:)`, then initialize the SDK later by calling the standard Braze initializer after consent is gathered.
 
-For detailed implementation, see [Set up delayed initialization]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#step-2-set-up-delayed-initialization-optional).
+For detailed implementation, see [Set up delayed initialization]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_step-2-set-up-delayed-initialization-optional).
 
 ### What is the minimum Swift SDK version required for delayed initialization?
 
