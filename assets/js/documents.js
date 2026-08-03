@@ -364,9 +364,9 @@ $(document).ready(function() {
         }
       }
     }
-    var mermaid_charts = $('.language-mermaid').not('[data-processed="true"]').filter(':visible');
-    mermaid.run({ nodes: mermaid_charts });
-    setPanZoom(mermaid_charts)
+    if (typeof mermaid !== 'undefined') {
+      runMermaidCharts();
+    }
   }
 
   // see if a details tag should be auto-opened
@@ -709,6 +709,20 @@ $(document).ready(function() {
     });
     $btn.filter('.nav_toggle').find('i.fas').removeClass('fa-chevron-down').addClass('fa-chevron-right');
   });
+
+  function runMermaidCharts() {
+    if (typeof mermaid === 'undefined') {
+      return;
+    }
+
+    var mermaid_charts = $('.language-mermaid').not('[data-processed="true"]').filter(':visible');
+    if (!mermaid_charts.length) {
+      return;
+    }
+
+    mermaid.run({ nodes: mermaid_charts });
+    setPanZoom(mermaid_charts);
+  }
 
   function setPanZoom(mermaid_charts){
     setTimeout(function() {
@@ -1195,15 +1209,13 @@ $(document).ready(function() {
   setAdaTableRole();
 
   // intialized mermaid
-  mermaid.initialize({
-    startOnLoad: false,
-    theme: "default",
-  });
-  var mermaid_charts = $('.language-mermaid').not('[data-processed="true"]').filter(':visible');
-  mermaid.run({ nodes: mermaid_charts });
-
-  // Add svgPanZoom to the rendered Mermaid charts
-  setPanZoom(mermaid_charts)
+  if (typeof mermaid !== 'undefined') {
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: "default",
+    });
+    runMermaidCharts();
+  }
 
 
 });

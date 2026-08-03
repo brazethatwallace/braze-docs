@@ -5550,6 +5550,16 @@
     "permanent": true
   },
   {
+    "source": "/docs/developer_guide/platforms/legacy_sdks/ios/changelog/support/examples/objc/sources/banners-custom-ui",
+    "destination": "https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/Banners-Custom-UI",
+    "permanent": true
+  },
+  {
+    "source": "/docs/developer_guide/platforms/legacy_sdks/ios/changelog/support/examples/swift/sources/banners-custom-ui",
+    "destination": "https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/Banners-Custom-UI",
+    "permanent": true
+  },
+  {
     "source": "/docs/developer_guide/platforms/legacy_sdks/ios/changelog/swift_changelog/changelog/swift_changelog",
     "destination": "/docs/developer_guide/platforms/legacy_sdks/ios/changelog/swift_changelog",
     "permanent": true

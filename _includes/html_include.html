@@ -43,7 +43,9 @@
 
 {% include analytics.html %}
 
+{% if page.needs_swiper %}
 <link type="text/css" rel="stylesheet" href="{{site.baseurl}}/assets/css/swiper.css" />
+{% endif %}
 {%- css_asset_tag global -%}
 - /assets/css/application.scss
 
@@ -104,9 +106,13 @@
 - /assets/js/contentcards.js
 {% endjavascript_asset_tag %}
 
+{% if page.needs_swiper %}
 <script type='text/javascript' src='{{site.baseurl}}/assets/js/swiper.js' ></script>
+{% endif %}
 
+{% if page.needs_mermaid %}
 <script src="{{site.baseurl}}/assets/js/mermaid.js"></script>
+{% endif %}
 
 <script type="text/javascript" src="{{site.baseurl}}/assets/js/copy-heading-tag-links.js"></script>
 
@@ -120,10 +126,12 @@
   var query_params = new URLSearchParams(window.location.search);
 </script>
 
+{% if page.needs_mathjax %}
 <!-- Adds LaTeX support -->
 <script type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+{% endif %}
 
 <meta name="tool" content="{{ page.tool | join: ', ' | default: '' }}" />
 <meta name="platform" content="{{ page.platform | join: ', ' | default: '' }}" />
