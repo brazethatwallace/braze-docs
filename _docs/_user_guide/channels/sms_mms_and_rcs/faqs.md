@@ -44,6 +44,14 @@ If you stagger your users into a Canvas and have different schedule times for ea
 
 To prevent unnecessarily large updates, Braze will update a maximum of 100 user profiles that share an identifier when a subscription update is made. If more than 100 user profiles share the same phone number, not all profiles will be updated.
 
+### Why do I see a spike in SMS subscriptions from a specific source?
+
+If you observe an unexpectedly large increase in subscription counts—particularly when reviewing data from the [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) endpoint via Currents—this may be caused by duplicate user profiles.
+
+When a request is made to the `/subscription/status/set` endpoint with only a phone number (no `external_id` provided), Braze updates all user profiles that share that phone number. If your workspace has duplicate profiles, the count of users who updated their subscription state will be inflated, even though only one phone number changed.
+
+To analyze subscription data more accurately when pulling from Currents, update your query to count distinct phone numbers rather than counting all subscription state change events.
+
 ### What are shared short codes?
 
 With a shared short code, all text messages, no matter what business or organization sends them, arrive on a consumer's mobile device from the same 5-6 digit phone number. While shared short codes are relatively low-cost and immediately available, this means that your business will not have a dedicated short code.
