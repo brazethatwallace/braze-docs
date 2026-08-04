@@ -26,6 +26,7 @@ Antes de depurar, adicione-se como [usuário teste]({{site.baseurl}}/user_guide/
 | `triggers` ausentes ou vazios nos registros de usuários de eventos | [Solução de problemas de entrega](#delivery-troubleshooting) |
 | Gatilhos retornados, mas nada é exibido no dispositivo | [Solução de problemas de exibição por plataforma](#platform-specific-display-troubleshooting) |
 | Falha ao carregar ativos da mensagem no app (iOS, `NSURLError` -1008) | [Carregamento de ativos (guia Swift)](?sdktab=swift#swift_asset-loading) |
+| Links não são exibidos ou os logs do dispositivo mostram um erro de análise de ação ao clicar | [Configuração de link inválida](#invalid-link-setup) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sintoma de mensagem no app" }
 
 ## Caminho de investigação padrão {#standard-investigation-path}
@@ -180,6 +181,20 @@ Para Campaigns arquivadas, configuração de gatilhos e horário de silêncio, c
 ![Link para visualizar o changelog na página de detalhes da Campaign com sete alterações desde a última visualização do usuário.]({% image_buster /assets/img_archive/trouble4.png %})
 
 Se você usa um delegate ou handler personalizado para exibir mensagens no app manualmente, é necessário registrar impressões e cliques por conta própria. Consulte a guia do seu SDK em [Solução de problemas de exibição por plataforma](#platform-specific-display-troubleshooting) para detalhes sobre Swift e Android, ou [Registrar dados de mensagens no app]({{site.baseurl}}/developer_guide/in_app_messages/logging_message_data) para Web.
+
+## Configuração de link inválida {#invalid-link-setup}
+
+**Sintoma:** Links não são exibidos em uma mensagem no app, ou os logs do dispositivo fazem referência a um erro de análise de ação ao clicar (por exemplo, um erro mencionando uma ação de clique de mensagem de plataforma inválida).
+
+Isso geralmente indica um link inválido ou malformado na configuração da mensagem no app.
+
+Verifique o seguinte:
+
+- Altere temporariamente o comportamento ao clicar para **Fechar mensagem**. Se a mensagem for exibida corretamente, o URL do link provavelmente está causando o problema.
+- Revise a configuração de links para o seu editor e tipo de mensagem:
+  - **HTML personalizado:** [Solução de problemas de links e comportamento de fechamento em HTML personalizado]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#troubleshoot-custom-html-links-and-close-behavior)
+  - **Arrastar e soltar:** [Links e deep links]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-should-i-know-when-customizing-drag-and-drop-in-app-messages) nas Perguntas frequentes sobre In-App Messages e [requisitos mínimos de SDK para links de texto]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#more-information-on-minimum-sdks)
+  - **Mensagens com botões:** [Personalizar mensagens no app]({{site.baseurl}}/developer_guide/in_app_messages/customization) para a sua plataforma
 
 ## Solução de problemas de exibição por plataforma {#platform-specific-display-troubleshooting}
 

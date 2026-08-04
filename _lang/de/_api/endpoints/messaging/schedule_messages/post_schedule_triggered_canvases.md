@@ -22,6 +22,10 @@ Sie können `context` übergeben, das als Template in die Nachrichten eingefügt
 
 Beachten Sie, dass Sie zum Versenden von Nachrichten über diesen Endpunkt eine [Canvas-ID]({{site.baseurl}}/api/identifier_types#canvas-identifier) benötigen, die beim Erstellen eines Canvas generiert wird.
 
+{% alert note %}
+Canvas-Eintritte werden zum geplanten Nachrichtenversandzeitpunkt erfasst, nicht zum Zeitpunkt dieser API-Anfrage. Nutzer:innen, die für einen zukünftigen Zeitplan getriggert werden, erscheinen erst als Eintritte, wenn der geplante Zeitpunkt erreicht ist.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}

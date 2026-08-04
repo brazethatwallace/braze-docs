@@ -31,6 +31,16 @@ As mensagens HTML personalizadas podem usar os métodos do [JavaScript Bridge](#
 Para ativar mensagens no app em HTML por meio do SDK para web, você deve fornecer a opção de inicialização `allowUserSuppliedJavascript` à Braze: por exemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Isso é necessário por motivos de segurança, já que mensagens no app em HTML podem executar JavaScript, então exigimos que um mantenedor do site as ative.
 {% endalert %}
 
+### Ambientes de renderização {#rendering-environments}
+
+As mensagens no app em HTML personalizadas são renderizadas diretamente no navegador na web, mas dentro de uma WebView da plataforma no iOS e Android. Como cada ambiente usa um mecanismo de renderização diferente, o mesmo HTML e CSS podem apresentar pequenas diferenças visuais entre plataformas, especialmente em layouts de colunas, fontes e espaçamento.
+
+Para minimizar diferenças entre plataformas:
+
+- Use valores CSS explícitos em vez de depender dos padrões do navegador
+- Inclua uma meta tag de viewport (por exemplo, `<meta name="viewport" content="width=device-width, initial-scale=1">`)
+- Teste em dispositivos reais com envios de teste
+
 ## Codificação de caracteres {#character-encoding}
 
 Ao criar mensagens no app com HTML personalizado que contenham caracteres especiais — como script cirílico, caracteres acentuados ou outros textos não ASCII — inclua a codificação UTF-8 no seu HTML para garantir a exibição correta. Sem a codificação UTF-8, esses caracteres podem aparecer quebrados ou ausentes quando renderizados na webview.
@@ -95,12 +105,12 @@ Por exemplo, `<a onclick="brazeBridge.closeMessage()" href="#">Fechar</a>` fecha
 
 Ao criar mensagens no app com HTML personalizado, você pode visualizar seu conteúdo interativo diretamente na Braze.
 
-O painel de prévia de mensagens do editor mostra uma prévia realista que renderiza o JavaScript incluído na sua mensagem. Você pode visualizar e interagir com suas mensagens personalizadas no painel de prévia clicando na paginação, enviando formulários ou pesquisas, assistindo a animações JavaScript e muito mais!
+O painel de prévia de mensagem do editor mostra uma prévia realista que renderiza o JavaScript incluído na sua mensagem. Você pode visualizar e interagir com suas mensagens personalizadas no painel de prévia clicando na paginação, enviando formulários ou pesquisas, assistindo animações JavaScript e muito mais!
 
-![Interagindo com a prévia de HTML ao deslizar entre as páginas.]({% image_buster /assets/img/iam-beta-javascript-preview.gif %})
+![Interagindo com a prévia de HTML ao deslizar entre páginas.]({% image_buster /assets/img/iam-beta-javascript-preview.gif %})
 
 {% alert tip %}
-Quaisquer métodos JavaScript `brazeBridge` que você usar no seu HTML não atualizarão os perfis de usuário durante a prévia no dashboard.
+Quaisquer métodos JavaScript `brazeBridge` que você usar no seu HTML não atualizarão perfis de usuário durante a prévia no dashboard.
 {% endalert %}
 
 ### Criando uma campaign {#instructions}
@@ -111,8 +121,8 @@ Ao criar mensagens no app com código personalizado usando upload de HTML, você
 
 Os seguintes tipos de arquivo são compatíveis para upload:
 
-| Tipo de arquivo       | Extensão do arquivo               |
-| :-------------------- | :-------------------------------- |
+| Tipo de arquivo        | Extensão do arquivo               |
+| :--------------------- | :-------------------------------- |
 | Arquivos de fonte      | `.ttf`, `.woff`, `.otf`, `.woff2` |
 | Imagens SVG            | `.svg`                            |
 | Arquivos JavaScript    | `.js`                             |
@@ -128,17 +138,17 @@ A Braze recomenda fazer upload de ativos para a biblioteca de mídia por dois mo
 
 Você pode adicionar ativos novos ou existentes à sua campaign.
 
-Para adicionar novos ativos à sua campaign, use a seção de arrastar e soltar para fazer upload de um arquivo. Os ativos adicionados nesta seção também serão automaticamente adicionados à biblioteca de mídia. Para adicionar ativos que você já enviou para a biblioteca de mídia, selecione **Adicionar da Biblioteca de Mídia**.
+Para adicionar novos ativos à sua campaign, use a seção de arrastar e soltar para fazer upload de um arquivo. Ativos adicionados nesta seção também serão automaticamente adicionados à biblioteca de mídia. Para adicionar ativos que você já enviou para a biblioteca de mídia, selecione **Adicionar da biblioteca de mídia**.
 
 Depois que seus ativos forem adicionados, eles aparecerão na seção **Ativos para esta campaign**.
 
 Se o nome de um arquivo de ativo corresponder ao de um ativo HTML local, ele será substituído automaticamente (por exemplo, `cat.png` é enviado e `<img src="cat.png" />` existe).
 
-Caso contrário, passe o cursor sobre um ativo da lista e selecione <i class="fas fa-copy"></i> **Copiar** para copiar a URL do arquivo para a área de transferência. Em seguida, cole a URL do ativo copiado no seu HTML como faria normalmente ao referenciar um ativo remoto.
+Caso contrário, passe o cursor sobre um ativo da lista e selecione <i class="fas fa-copy"></i> **Copiar** para copiar a URL do arquivo para a área de transferência. Em seguida, cole a URL do ativo copiado no seu HTML como você faria normalmente ao referenciar um ativo remoto.
 
 ### Editor de HTML {#html-editor}
 
-As alterações que você faz no HTML são renderizadas automaticamente no painel de prévia conforme você digita. Quaisquer métodos JavaScript [`brazeBridge`](#bridge) que você usar no seu HTML não atualizarão os perfis de usuário durante a prévia no dashboard.
+As alterações que você faz no HTML são renderizadas automaticamente no painel de prévia conforme você digita. Quaisquer métodos JavaScript [`brazeBridge`](#bridge) que você usar no seu HTML não atualizarão perfis de usuário durante a prévia no dashboard.
 
 {% alert tip %}
 Você pode selecionar <i class="fa-solid fa-magnifying-glass" aria-label="Pesquisar"></i> **Pesquisar** no editor de HTML para buscar dentro do seu código!
@@ -154,7 +164,7 @@ Você pode rastrear o desempenho dentro da sua mensagem no app com código perso
 | Botão 2    | `brazeBridge.logClick('1')` |
 | Clique no corpo | `brazeBridge.logClick()`    |
 | Rastreamento de botão personalizado | `brazeBridge.logClick('your custom name here')` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Rastreamento de botões #button-tracking-improvements" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rastreamento de botões" }
 
 {% alert note %}
 Este método de rastreamento de botões substitui os métodos anteriores de rastreamento automático de cliques (como `?abButtonId=0`), que foram removidos.
@@ -170,7 +180,7 @@ Se um botão na sua mensagem no app com HTML personalizado não carregar ao ser 
 
 #### Cliques no corpo ao fechar a mensagem {#body-clicks-when-closing-the-message}
 
-Chamar `brazeBridge.closeMessage()` fecha a mensagem, mas não registra análise de dados por conta própria. Para registrar um clique no corpo quando o usuário fecha a mensagem, chame `brazeBridge.logClick()` antes de `brazeBridge.closeMessage()` para que o registro de cliques permaneça consistente entre as plataformas.
+Chamar `brazeBridge.closeMessage()` fecha a mensagem, mas não registra dados de análise por conta própria. Para registrar um clique no corpo quando o usuário fecha a mensagem, chame `brazeBridge.logClick()` antes de `brazeBridge.closeMessage()` para que o registro de cliques permaneça consistente entre plataformas.
 
 ### Alterações incompatíveis com versões anteriores {#backward-incompatible-changes}
 
@@ -183,4 +193,4 @@ Chamar `brazeBridge.closeMessage()` fecha a mensagem, mas não registra análise
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Alterações incompatíveis com versões anteriores #backward-incompatible-changes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Alterações incompatíveis com versões anteriores" }

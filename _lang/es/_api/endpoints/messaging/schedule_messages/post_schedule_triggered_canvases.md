@@ -22,6 +22,10 @@ Puedes pasar `context` que se aplicará como plantilla en los mensajes enviados 
 
 Ten en cuenta que para enviar mensajes con este endpoint, debes tener un [ID de Canvas]({{site.baseurl}}/api/identifier_types#canvas-identifier), creado cuando construyes un Canvas.
 
+{% alert note %}
+Las entradas de Canvas se registran en el momento del mensaje programado, no cuando se realiza esta solicitud de API. Los usuarios desencadenados para una programación con fecha futura no aparecerán como entradas hasta que llegue esa hora programada.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
@@ -67,9 +71,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `canvas_id` | Obligatorio | Cadena | Ver [identificador de Canvas]({{site.baseurl}}/api/identifier_types). |
 | `recipients` | Opcional | Matriz de objetos de destinatarios | Ver [objeto de destinatarios]({{site.baseurl}}/api/objects_filters/recipient_object). |
 | `audience` | Opcional | Objeto de audiencia conectada | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience). |
-| `broadcast` | Opcional | Booleano | Debes establecer `broadcast` en true cuando envíes un mensaje a un segmento completo al que se dirige una campaña o un Canvas. Este parámetro está predeterminado como false (a partir del 31 de agosto de 2017). <br><br> Si `broadcast` tiene el valor true, no se puede incluir una lista `recipients`. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
+| `broadcast` | Opcional | Booleano | Debes establecer `broadcast` en true cuando envíes un mensaje a un segmento completo al que se dirige una campaña o un Canvas. Este parámetro tiene como valor predeterminado false (a partir del 31 de agosto de 2017). <br><br> Si `broadcast` tiene el valor true, no se puede incluir una lista `recipients`. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
 | `context` | Opcional | Objeto | Pares clave-valor de personalización para todos los usuarios de este envío. Ver [objeto de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context). |
-| `schedule` | Obligatorio | Objeto de planificación | Ver [objeto de planificación]({{site.baseurl}}/api/objects_filters/schedule_object). |
+| `schedule` | Obligatorio | Objeto de programación | Ver [objeto de programación]({{site.baseurl}}/api/objects_filters/schedule_object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}

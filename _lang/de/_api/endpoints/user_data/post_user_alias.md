@@ -22,6 +22,8 @@ Pro Anfrage können bis zu 50 Nutzer-Aliase angegeben werden.
 
 **Um neue Nutzer:innen zu erstellen, die nur über einen Alias verfügen**, muss die `external_id` im neuen Nutzer-Alias-Objekt weggelassen werden. Nachdem die Nutzer:innen erstellt wurden, verwenden Sie den Endpunkt `/users/track`, um die Alias-Nutzer:innen mit Attributen, Ereignissen und Käufen zu verknüpfen, und den Endpunkt `/users/identify`, um die Nutzer:innen mit einer `external_id` zu identifizieren.
 
+Sie können API-getriggerte Campaigns über `user_alias` an Nutzer:innen senden, indem Sie den Endpunkt [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) verwenden.
+
 ## Wenn `alias_label` und `alias_name` bereits existieren {#when-alias_label-and-alias_name-already-exist}
 
 Die Kombination aus `alias_label` und `alias_name` muss in Ihrer Nutzerbasis eindeutig sein. Weitere Informationen finden Sie unter [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).

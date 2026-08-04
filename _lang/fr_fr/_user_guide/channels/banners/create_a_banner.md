@@ -31,9 +31,9 @@ Vous ne savez pas si votre message doit être envoyé via une campagne ou un Can
 1. Allez dans **Messagerie** > **Campaigns** et sélectionnez **Créer une campagne**.
 2. Sélectionnez **Banner**.
 3. Donnez à votre campagne un nom clair et significatif.
-4. Ajoutez des [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) selon vos besoins. Les tags facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le générateur de rapports, vous pouvez filtrer par les tags pertinents.
+4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) selon vos besoins. Les tags facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le générateur de rapports, vous pouvez filtrer par les tags pertinents.
 5. Sélectionnez l'emplacement que vous avez précédemment créé pour l'associer à votre campagne.
-6. Ajoutez des variantes selon vos besoins. Vous pouvez choisir un type de message et une mise en page différents pour chacune. Pour plus d'informations sur les variantes, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+6. Ajoutez des variantes selon vos besoins. Vous pouvez choisir un type de message et une mise en page différents pour chacune. Pour plus d'informations sur les variantes, consultez [Test multivarié et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 7. Choisissez une date et une heure de début pour votre campagne Banner. Par défaut, les Banners durent indéfiniment. Vous pouvez modifier cela en sélectionnant **Heure de fin** et en spécifiant une date et une heure de fin.
 
 {% alert tip %}
@@ -59,7 +59,7 @@ Ensuite, choisissez comment vous souhaitez commencer la création :
 
 - **Éditeur par glisser-déposer :** Commencez avec un Banner vierge et construisez visuellement avec des blocs et des lignes.
 - **Éditeur HTML :** Commencez avec un Banner vierge et travaillez directement en HTML.
-- **Modèles :** Ouvrez la bibliothèque de modèles et sélectionnez un design parmi les **Modèles Braze** ou **Vos modèles**. Les modèles s'ouvrent dans l'éditeur par glisser-déposer pour personnalisation.
+- **Modèles :** Ouvrez la bibliothèque de modèles et sélectionnez un design parmi les **modèles Braze** ou **vos modèles**. Les modèles s'ouvrent dans l'éditeur par glisser-déposer pour personnalisation.
 
 ![Options pour choisir l'éditeur par glisser-déposer, l'éditeur HTML ou les modèles pour votre Banner.]({% image_buster /assets/img/banners/choose_banner_editing_experience.png %})
 
@@ -68,11 +68,11 @@ Ensuite, choisissez comment vous souhaitez commencer la création :
 {% tabs %}
 {% tab Éditeur par glisser-déposer %}
 
-Vous pouvez glisser-déposer des blocs et des lignes dans la zone de travail pour commencer à construire votre message. Pour une référence des blocs de l'éditeur Banner et des liens vers les détails des propriétés partagées, consultez [Blocs éditeur (Banners)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners).
+Vous pouvez glisser-déposer des blocs et des lignes dans la zone de travail pour commencer à créer votre message. Pour une référence des blocs de l'éditeur Banner et des liens vers les détails des propriétés partagées, consultez [Blocs éditeur (Banners)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-Pour personnaliser les propriétés d'arrière-plan, les paramètres de bordure et plus encore de votre message, sélectionnez **Styles**. Si vous souhaitez uniquement personnaliser le style d'un bloc ou d'une ligne spécifique, sélectionnez-le pour effectuer les modifications.
+Pour personnaliser les propriétés d'arrière-plan de votre message, les paramètres de bordure et plus encore, sélectionnez **Styles**. Si vous souhaitez uniquement personnaliser le style d'un bloc ou d'une ligne spécifique, sélectionnez-le pour effectuer les modifications.
 
 ![Panneau de style du compositeur Banner.]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
@@ -185,6 +185,22 @@ Lorsque vous avez terminé, sélectionnez **Terminé**.
 
 ![La page des propriétés avec une propriété de type chaîne de caractères ayant une clé « color » et une valeur « #FF0000 ».]({% image_buster /assets/img/banners/example_property.png %})
 
+#### Étape 3.5 : Personnaliser avec le contenu connecté (facultatif) {#step-35-personalize-with-connected-content-optional}
+
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Connected Content for Banners' %}
+
+Étant donné que les Banners s'affichent en ligne lors d'une actualisation de session, le contenu connecté dans ce canal fonctionne différemment des autres canaux :
+
+- Seules les requêtes GET sont prises en charge.
+- Tous les emplacements dans une seule actualisation (jusqu'à 10) partagent un budget de rendu d'environ deux secondes. Si un appel est lent, expire ou si le budget est dépassé, le résultat du contenu connecté pour cet emplacement est traité comme nul. Les Banners ne réessaient pas.
+
+Pour de meilleurs résultats :
+
+- Gardez vos endpoints rapides et [mettez en cache les réponses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) autant que possible.
+- Limitez le nombre d'URL de contenu connecté uniques parmi les emplacements qui s'affichent ensemble.
+- Évitez de chaîner les appels où une réponse de contenu connecté détermine l'URL de l'appel suivant. Chaque appel supplémentaire s'ajoute au budget partagé.
+- Utilisez des instructions de garde Liquid ou le [filtre `default`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) pour gérer les résultats nuls et éviter les Banners vides.
+
 ### Étape 4 : Construire le reste de votre campagne ou Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
@@ -225,7 +241,7 @@ Braze vous permet de suivre les [événements de conversion]({{site.baseurl}}/us
 
 {% tab Canvas %}
 
-Si vous ne l'avez pas encore fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, mettre en œuvre les [tests multivariés]({{site.baseurl}}/user_guide/messaging/ab_testing) et la [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de notre documentation Canvas.
+Si vous ne l'avez pas encore fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, mettre en œuvre le [test multivarié]({{site.baseurl}}/user_guide/messaging/ab_testing) et la [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de notre documentation Canvas.
 
 Pour contrôler la rééligibilité des étapes Banner dans Canvas, utilisez les paramètres de réentrée Canvas. Pour plus d'informations, consultez [Rééligibilité pour les campagnes et Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 

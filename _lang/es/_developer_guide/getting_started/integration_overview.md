@@ -91,6 +91,8 @@ El administrador de tu equipo también creará diferentes [espacios de trabajo](
 
 Es importante destacar que los espacios de trabajo proporcionan claves de API para múltiples plataformas (como iOS y Android). Utilizarás las claves de API correlacionadas para asociar los datos del SDK a un espacio de trabajo concreto. Navega hasta tus espacios de trabajo para acceder a la clave de API de cada una de tus aplicaciones. Asegúrate de que cada clave de API tiene los permisos correctos para realizar el trabajo que le has asignado. Para más detalles, consulta [el artículo sobre el aprovisionamiento de la API]({{site.baseurl}}/api/basics#rest-api-key-permissions).
 
+Para implementaciones Web que abarcan múltiples dominios raíz, consulta [Integración multidominio para el SDK Web de Braze]({{site.baseurl}}/developer_guide/platforms/web/multi_domain_integration) a la hora de decidir si utilizar una sola aplicación o aplicaciones y claves de API independientes.
+
 {% alert important %}
 Es importante que configures entornos diferentes para desarrollo y producción. Configurar un entorno de pruebas evitará que gastes dinero real durante la incorporación y el control de calidad. Para crear un entorno de pruebas, configura un espacio de trabajo de pruebas y asegúrate de utilizar su clave de API para no llenar tu espacio de trabajo de producción con datos de prueba.
 {% endalert %}
@@ -229,36 +231,36 @@ Realizarás un seguimiento de las actualizaciones de la plataforma Braze a trav�
 
 ## Límites de velocidad del SDK {#sdk-rate-limits}
 
-### Usuarios activos al mes CY 24-25, MAU universal, MAU web y MAU móvil {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
+### Monthly Active Users CY 24-25, Universal MAU, Web MAU y Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
-Para los clientes que hayan adquirido usuarios activos al mes CY 24-25, MAU universal, MAU web y MAU móvil, Braze aplica límites de velocidad del lado del servidor en las solicitudes de API utilizadas por nuestros SDK para actualizar sesiones, atributos de usuario, eventos y otros datos del perfil de usuario. Esto se hace para garantizar la estabilidad de la plataforma y mantener un servicio rápido y fiable.
+Para los clientes que han adquirido Monthly Active Users CY 24-25, Universal MAU, Web MAU y Mobile MAU, Braze aplica límites de velocidad del lado del servidor en las solicitudes de API utilizadas por nuestros SDK para actualizar sesiones, atributos de usuario, eventos y otros datos del perfil de usuario. Esto es para garantizar la estabilidad de la plataforma y mantener un servicio rápido y fiable.
 
-* Los límites de velocidad por hora se establecen en función del tráfico de SDK previsto en tu cuenta, que puede corresponder al número de usuarios activos al mes (MAU) que hayas adquirido, al sector, a la estacionalidad o a otros factores. Cuando se alcance el límite de velocidad por hora, Braze ralentizará las solicitudes hasta la hora siguiente.
-* El SDK reintenta automáticamente todas las solicitudes con límite de velocidad.
+* Los límites de velocidad por hora se establecen en función del tráfico esperado del SDK en tu cuenta, que puede corresponder al número de usuarios activos al mes (MAU) que has adquirido, el sector, la estacionalidad u otros factores. Cuando se alcanza el límite de velocidad por hora, Braze limitará las solicitudes hasta la hora siguiente.
+* Todas las solicitudes con límite de velocidad son reintentadas automáticamente por el SDK.
 * Las solicitudes del SDK se correlacionan con la cantidad de datos personalizados recopilados en tu implementación. Si estás constantemente cerca o en tu límite de velocidad por hora, considera:
     * Revisar tu integración de SDK para reducir la recopilación excesiva de datos.
-    * Bloquear los datos personalizados que no sean esenciales para tus casos de uso de marketing.
-* Los límites de velocidad de ráfaga son límites de velocidad de corta duración que se aplican cuando llega un gran volumen de solicitudes en un periodo muy corto (es decir, en cuestión de segundos). No es necesario que actúes cuando se produzcan límites de ráfaga, y el SDK volverá a intentarlo poco después.
-* Los límites de velocidad constantes controlan el volumen de solicitudes sostenido durante un intervalo de tiempo superior al intervalo de ráfaga (por ejemplo, varios minutos) y ayudan a suavizar el tráfico continuo entre los límites de ráfaga y tu límite de velocidad por hora.
+    * Incluir en la lista de bloqueo los datos personalizados que no sean esenciales para tus casos de uso de marketing.
+* Los límites de velocidad de ráfaga son límites de velocidad de corta duración que se aplican cuando un gran volumen de solicitudes llega en un período muy corto (es decir, en cuestión de segundos). No necesitas tomar ninguna acción cuando se producen límites de ráfaga, y el SDK reintentará poco después.
+* Los límites de velocidad estables controlan el volumen sostenido de solicitudes durante una ventana móvil más larga que la ventana de ráfaga (por ejemplo, varios minutos) y ayudan a suavizar el tráfico continuo entre los límites de ráfaga y tu límite de velocidad por hora.
 
 ### Encontrar tus límites de velocidad {#finding-your-rate-limits}
 
-Para encontrar los límites actuales basados en el rendimiento esperado del SDK, ve a **Settings** > **APIs and Identifiers** > **API and SDK limits**.
+Para encontrar los límites actuales basados en el rendimiento esperado del SDK, ve a **Configuración** > **API e identificadores** > **Límites de API y SDK**.
 
-Para el uso histórico, ve a **Settings** > **APIs and Identifiers** > **API and SDK dashboard**.
+Para el uso histórico, ve a **Configuración** > **API e identificadores** > **Panel de API y SDK**.
 
 ### Solicitar límites de velocidad más altos {#requesting-higher-rate-limits}
 
-Si necesitas un límite de velocidad más alto en Braze, ponte en contacto con soporte de Braze o con tu administrador de éxito de cliente e incluye los siguientes datos:
+Si necesitas un límite de velocidad de Braze más alto, contacta con soporte de Braze o tu administrador de éxito de cliente e incluye los siguientes detalles:
 
 * Si necesitas un aumento temporal o permanente.
 * Por qué necesitas el aumento.
 * Qué endpoints y entornos se ven afectados.
-* Tu volumen de tráfico aproximado y calendario, incluyendo la fecha de inicio, la duración y las horas punta.
+* Tu volumen de tráfico aproximado y cronograma, incluyendo la fecha de inicio, la duración y las horas pico.
 * Si puedes agrupar llamadas o distribuir el tráfico a lo largo del tiempo.
 
-Una vez enviada tu solicitud, Braze la revisará y te informará del resultado.
+Después de enviar tu solicitud, Braze la revisará y te informará del resultado.
 
 ### Cambios y soporte {#changes-and-support}
 
-Braze puede modificar los límites de velocidad para proteger la estabilidad del sistema o permitir un mayor caudal de datos en tu cuenta. Ponte en contacto con soporte de Braze o con tu administrador de éxito de cliente si tienes preguntas o dudas sobre los límites de velocidad y cómo afectan a tu negocio.
+Braze puede modificar los límites de velocidad para proteger la estabilidad del sistema o permitir un mayor rendimiento de datos en tu cuenta. Contacta con soporte de Braze o tu administrador de éxito de cliente si tienes preguntas o inquietudes sobre los límites de velocidad y cómo afectan a tu negocio.

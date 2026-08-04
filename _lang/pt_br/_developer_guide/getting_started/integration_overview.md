@@ -91,6 +91,8 @@ O administrador da sua equipe também criará diferentes [espaços de trabalho](
 
 É importante ressaltar que os espaços de trabalho fornecem chaves de API para várias plataformas (como iOS e Android). Você usará as chaves de API correlacionadas para associar os dados do SDK a um espaço de trabalho específico. Navegue até seus espaços de trabalho para acessar a chave de API de cada um de seus apps. Confira se cada chave de API tem as permissões corretas para executar o trabalho que você definiu como escopo. Consulte o [artigo sobre provisionamento da API]({{site.baseurl}}/api/basics#rest-api-key-permissions) para saber mais.
 
+Para implementações web que abrangem vários domínios raiz, consulte [Integração multidomínio para o SDK web da Braze]({{site.baseurl}}/developer_guide/platforms/web/multi_domain_integration) ao decidir se deve usar um único app ou apps e chaves de API separados.
+
 {% alert important %}
 É importante que você configure ambientes diferentes para desenvolvimento e produção. A configuração de um ambiente de teste evitará que você gaste dinheiro real durante a integração e o controle de qualidade. Para criar um ambiente de teste, configure um espaço de trabalho de teste e certifique-se de usar a respectiva chave de API para não preencher o espaço de trabalho de produção com dados de teste.
 {% endalert %}
@@ -227,38 +229,38 @@ Após a transferência para seus profissionais de marketing, você continuará a
 
 Você fará o rastreamento das atualizações da plataforma Braze por meio do [GitHub](https://github.com/braze-inc/) da Braze. Ocasionalmente, seu administrador também receberá e-mails sobre atualizações urgentes e correções de bugs diretamente da Braze.
 
-## Limites de taxa do SDK {#sdk-rate-limits}
+## Limites de frequência do SDK {#sdk-rate-limits}
 
-### Usuários ativos mensais CY 24-25, MAU universal, MAU web e MAU móvel {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
+### Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
-Para clientes que adquiriram Usuários Ativos Mensais CY 24-25, MAU Universal, MAU Web e MAU Móvel, a Braze aplica limites de taxa do lado do servidor nas solicitações de API usadas por nossos SDKs para atualizar sessões, atributos de usuário, eventos e outros dados de perfil de usuário. Isso é para garantir a estabilidade da plataforma e manter um serviço rápido e confiável.
+Para clientes que adquiriram Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU, a Braze aplica limites de frequência no lado do servidor para solicitações de API usadas por nossos SDKs para atualizar sessões, atributos de usuários, eventos e outros dados de perfil de usuário. Isso garante a estabilidade da plataforma e mantém um serviço rápido e confiável.
 
-* Os limites de taxa por hora são definidos de acordo com o tráfego esperado do SDK na sua conta, que pode corresponder ao número de usuários ativos mensais (MAU) que você adquiriu, setor, sazonalidade ou outros fatores. Quando o limite de taxa por hora é atingido, a Braze limitará as solicitações até a próxima hora.
-* Todas as solicitações com limite de taxa são automaticamente reprocessadas pelo SDK.
-* As solicitações do SDK estão correlacionadas com a quantidade de dados personalizados coletados na sua implementação. Se você está consistentemente perto ou no seu limite de taxa por hora, considere:
-    * Revisar sua integração de SDK para reduzir a coleta excessiva de dados.
+* Os limites de frequência por hora são definidos de acordo com o tráfego esperado do SDK na sua conta, que pode corresponder ao número de usuários ativos mensais (MAU) que você adquiriu, ao setor, à sazonalidade ou a outros fatores. Quando o limite de frequência por hora é atingido, a Braze limita as solicitações até a próxima hora.
+* Todas as solicitações limitadas são automaticamente reenviadas pelo SDK.
+* As solicitações do SDK estão relacionadas à quantidade de dados personalizados coletados na sua implementação. Se você está consistentemente próximo ou no seu limite de frequência por hora, considere:
+    * Revisar sua integração SDK para reduzir a coleta excessiva de dados.
     * Bloquear dados personalizados que não são essenciais para seus casos de uso de marketing.
-* Os limites de taxa de burst são limites de curta duração que se aplicam quando um alto volume de solicitações chega em um período muito curto (ou seja, em segundos). Você não precisa tomar medidas quando os limites de burst ocorrem, e o SDK tentará novamente em breve.
-* Os limites de taxa constantes controlam o volume de solicitações sustentadas ao longo de uma janela móvel maior que a janela de burst (por exemplo, vários minutos) e ajudam a suavizar o tráfego contínuo entre os limites de burst e seu limite de taxa por hora.
+* Os limites de frequência de pico são limites de curta duração que se aplicam quando um grande volume de solicitações chega em um período muito curto (ou seja, em segundos). Você não precisa tomar nenhuma ação quando os limites de pico ocorrem, e o SDK fará uma nova tentativa logo em seguida.
+* Os limites de frequência contínuos controlam o volume sustentado de solicitações em uma janela móvel mais longa que a janela de pico (por exemplo, vários minutos) e ajudam a suavizar o tráfego contínuo entre os limites de pico e o seu limite de frequência por hora.
 
-### Encontrando seus limites de taxa {#finding-your-rate-limits}
+### Encontrando seus limites de frequência {#finding-your-rate-limits}
 
-Para encontrar os limites atuais com base na taxa de transferência esperada do SDK, acesse **Configurações** > **APIs e identificadores** > **Limites de API e SDK**.
+Para encontrar os limites atuais com base na taxa de transferência esperada do SDK, acesse **Configurações** > **APIs e Identificadores** > **Limites de API e SDK**.
 
-Para uso histórico, acesse **Configurações** > **APIs e identificadores** > **Dashboard de API e SDK**.
+Para o histórico de uso, acesse **Configurações** > **APIs e Identificadores** > **Dashboard de API e SDK**.
 
-### Solicitando limites de taxa mais altos {#requesting-higher-rate-limits}
+### Solicitando limites de frequência mais altos {#requesting-higher-rate-limits}
 
-Se você precisar de um limite de taxa mais alto na Braze, entre em contato com o suporte da Braze ou seu gerente de sucesso do cliente e inclua os seguintes detalhes:
+Se você precisa de um limite de frequência mais alto na Braze, entre em contato com o suporte da Braze ou com seu gerente de sucesso do cliente e inclua os seguintes detalhes:
 
 * Se você precisa de um aumento temporário ou permanente.
 * Por que você precisa do aumento.
 * Quais endpoints e ambientes são afetados.
-* Seu volume de tráfego aproximado e cronograma, incluindo data de início, duração e horários de pico.
+* Seu volume aproximado de tráfego e cronograma, incluindo data de início, duração e horários de pico.
 * Se você pode agrupar chamadas ou distribuir o tráfego ao longo do tempo.
 
-Após enviar sua solicitação, a Braze a revisa e atualiza você com o resultado.
+Após enviar sua solicitação, a Braze a analisa e informa o resultado.
 
-### Mudanças e suporte {#changes-and-support}
+### Alterações e suporte {#changes-and-support}
 
-A Braze pode modificar os limites de taxa para proteger a estabilidade do sistema ou permitir um aumento na taxa de transferência de dados na sua conta. Entre em contato com o suporte da Braze ou com seu gerente de sucesso do cliente para perguntas ou preocupações sobre limites de taxa e como eles impactam seu negócio.
+A Braze pode modificar os limites de frequência para proteger a estabilidade do sistema ou permitir maior taxa de transferência de dados na sua conta. Entre em contato com o suporte da Braze ou com seu gerente de sucesso do cliente para dúvidas ou preocupações sobre limites de frequência e como eles impactam o seu negócio.

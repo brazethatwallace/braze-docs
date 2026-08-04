@@ -22,6 +22,10 @@ description: "この記事では、「APIトリガーキャンバスのスケジ
 
 このエンドポイントを使用してメッセージを送信するには、キャンバスを構築するときに作成される[キャンバスID]({{site.baseurl}}/api/identifier_types#canvas-identifier)が必要です。
 
+{% alert note %}
+キャンバスのエントリは、このAPIリクエストが行われた時点ではなく、スケジュールされたメッセージの送信時刻に記録されます。将来の日時にスケジュールされたユーザーは、そのスケジュール時刻が到来するまでエントリとして表示されません。
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
 ## 前提条件 {#prerequisites}

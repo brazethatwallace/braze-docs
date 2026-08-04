@@ -18,55 +18,55 @@ platform:
 
 > Dieser Leitfaden unterstützt Sie bei der Migration von Content Cards zu Bannern für Anwendungsfälle im Bereich des bannerartigen Messaging. Banner eignen sich ideal für Inline-Anzeigen, persistente In-App- und Web-Nachrichten, die an bestimmten Stellen in Ihrer App erscheinen.
 
-## Warum zu Bannern migrieren? {#why-migrate-to-banners}
+## Warum zu Banner migrieren? {#why-migrate-to-banners}
 
-- Wenn Ihr Entwicklerteam angepasste Content Cards erstellt oder wartet, kann die Migration zu Bannern diese laufenden Investitionen reduzieren. Mit Bannern können Marketer die UI direkt steuern, wodurch Entwickler:innen für andere Aufgaben entlastet werden.
-- Wenn Sie neue Homepage-Nachrichten, Onboarding-Abläufe oder persistente Ankündigungen einführen möchten, empfehlen wir, zunächst mit Bannern zu beginnen, anstatt auf Content Cards aufzubauen. Sie profitieren von Realtime-Personalisierung, keiner 30-tägigen Ablaufzeit, keiner Größenbeschränkung und nativer Priorisierung vom ersten Tag an.
-- Wenn Sie mit der 30-tägigen Ablaufgrenze arbeiten, komplexe Logik zur erneuten Berechtigungsprüfung verwalten oder von veralteter Personalisierung frustriert sind, lösen Banner diese Probleme auf native Weise.
+- Wenn Ihr Entwicklerteam angepasste Content Cards erstellt oder pflegt, kann die Migration zu Banner diesen laufenden Aufwand reduzieren. Banner ermöglichen es Marketern, die UI direkt zu steuern, sodass Entwickler:innen für andere Aufgaben frei werden.
+- Wenn Sie neue Homepage-Nachrichten, Onboarding-Flows oder persistente Ankündigungen einführen, starten Sie mit Banner anstatt auf Content Cards aufzubauen. Sie profitieren von Anfang an von Realtime-Personalisierung, keiner 30-Tage-Ablaufbegrenzung, keiner Größenbeschränkung und nativer Priorisierung.
+- Wenn Sie die 30-Tage-Ablaufbegrenzung umgehen, komplexe Logik für erneute Berechtigung verwalten oder von veralteter Personalisierung frustriert sind – Banner löst diese Probleme nativ.
 
-Banner bieten gegenüber Content Cards mehrere Vorteile für das Messaging im Banner-Stil:
+Banner bieten gegenüber Content Cards für bannerartige Nachrichten mehrere Vorteile:
 
 ### Beschleunigte Produktion {#accelerated-production}
 
-- **Reduzierter laufender technischer Support erforderlich**: Marketer können mithilfe eines Drag-and-Drop-Editors und angepasstem HTML individuelle Nachrichten erstellen, ohne dass sie für die Anpassung die Unterstützung von Entwickler:innen benötigen.
-- **Flexible Anpassungsmöglichkeiten**: Entwerfen Sie direkt im Editor, verwenden Sie HTML oder nutzen Sie vorhandene Datenmodelle mit angepassten Eigenschaften.
+- **Weniger laufender Engineering-Aufwand erforderlich**: Marketer können angepasste Nachrichten mit einem Drag-and-Drop-Editor und benutzerdefiniertem HTML erstellen, ohne Unterstützung von Entwickler:innen für die Anpassung zu benötigen.
+- **Flexible Anpassungsoptionen**: Gestalten Sie direkt im Editor, verwenden Sie HTML oder nutzen Sie bestehende Datenmodelle mit angepassten Eigenschaften.
 
-### Verbesserte Benutzererfahrung {#better-ux}
+### Bessere UX {#better-ux}
 
-- **Dynamische Content-Updates**: Banner aktualisieren Liquid-Logik und die Berechtigung bei jeder Aktualisierung, um sicherzustellen, dass Nutzer:innen stets die relevantesten Inhalte sehen.
-- **Native Platzierungsunterstützung**: Nachrichten werden in bestimmten Kontexten und nicht in einem Feed angezeigt, wodurch eine bessere kontextuelle Relevanz gewährleistet wird.
-- **Native Priorisierung**: Steuerung der Anzeigereihenfolge ohne angepasste Logik, wodurch die Verwaltung der Nachrichtenhierarchie vereinfacht wird.
+- **Dynamische Content-Aktualisierungen**: Banner aktualisieren Liquid-Logik und Berechtigung bei jedem Refresh, sodass Nutzer:innen immer den relevantesten Content sehen.
+- **Native Platzierungsunterstützung**: Nachrichten erscheinen in bestimmten Kontexten statt in einem Feed und bieten so eine bessere kontextuelle Relevanz.
+- **Native Priorisierung**: Kontrolle über die Anzeigereihenfolge ohne angepasste Logik, was die Verwaltung der Nachrichtenhierarchie erleichtert.
 
 ### Persistenz {#persistence}
 
-- **Keine Verfallsfrist**: Banner-Campaigns haben keine 30-tägige Ablaufgrenze wie Content Cards, was eine echte Persistenz der Nachrichten ermöglicht.
+- **Keine Ablaufbegrenzung**: Banner-Campaigns haben keine 30-Tage-Ablaufbegrenzung wie Content Cards, was eine echte Persistenz von Nachrichten ermöglicht.
 
-## Wann sollte die Migration erfolgen? {#when-to-migrate}
+## Wann Sie migrieren sollten {#when-to-migrate}
 
-Erwägen Sie eine Migration zu Bannern, wenn Sie Content Cards für folgende Zwecke verwenden:
+Ziehen Sie eine Migration zu Banner in Betracht, wenn Sie Content Cards für Folgendes verwenden:
 
-- Homepage-Banner, Aktionen auf Produktseiten, Checkout-Angebote
-- Persistente Navigationsansagen oder Sidebar-Nachrichten
-- Always-on-Nachrichten, die länger als 30 Tage angezeigt werden
-- Nachrichten, bei denen Sie eine Realtime-Personalisierung und eine Eignungsprüfung wünschen
+- Hero-Bereiche auf der Startseite, Aktionen auf Produktseiten, Angebote im Checkout
+- Persistente Navigationshinweise oder Sidebar-Nachrichten
+- Always-on-Nachrichten, die länger als 30 Tage laufen
+- Nachrichten, bei denen Sie Realtime-Personalisierung und Berechtigungsprüfung wünschen
 
-## Wann sollten Sie Content Cards beibehalten? {#when-to-keep-content-cards}
+## Wann Sie Content Cards weiterhin verwenden sollten {#when-to-keep-content-cards}
 
 Verwenden Sie weiterhin Content Cards, wenn Sie Folgendes benötigen:
 
 - **Feed-Erlebnisse:** Jeder Anwendungsfall, der mehrere scrollbare Nachrichten oder einen kartenbasierten „Posteingang“ umfasst.
-- **Besondere Features:** Nachrichten, die Connected-Content oder Aktionscodes erfordern, da Banner diese nicht nativ unterstützen.
-- **Getriggerte Zustellung:** Anwendungsfälle, die eine API-gesteuerte oder aktionsbasierte Zustellung erfordern. Obwohl Banner keine API-gesteuerte oder aktionsbasierte Zustellung unterstützen, bedeutet die Realtime-Berechtigungsevaluierung, dass Nutzer:innen bei jeder Aktualisierung sofort anhand ihrer Segmentzugehörigkeit qualifiziert oder disqualifiziert werden.
+- **Bestimmte Features:** Nachrichten, die Aktionscodes erfordern, da Banner diese nicht nativ unterstützen. Banner unterstützen [Connected Content]({{site.baseurl}}/developer_guide/banners#connected-content) im Early Access.
+- **Getriggerte Zustellung:** Anwendungsfälle, die zwingend eine API-getriggerte oder aktionsbasierte Zustellung erfordern. Obwohl Banner keine API-getriggerte oder aktionsbasierte Zustellung unterstützen, bedeutet die Echtzeit-Eignungsbewertung, dass Nutzer:innen bei jeder Aktualisierung sofort basierend auf der Segmentzugehörigkeit qualifiziert oder disqualifiziert werden.
 
 ## Migrationsleitfaden {#migration-guide}
 
 ### Voraussetzungen {#prerequisites}
 
-Stellen Sie vor der Migration sicher, dass das Braze SDK die Mindestversionsanforderungen erfüllt:
+Stellen Sie vor der Migration sicher, dass Ihr Braze SDK die Mindestversionsanforderungen erfüllt:
 
 {% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
-Für das Schließen und die erneute Berechtigung sind die folgenden Mindestversionen des SDK erforderlich:
+Für Dismissals und erneute Berechtigung sind die folgenden SDK-Mindestversionen erforderlich:
 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
@@ -196,10 +196,10 @@ StreamSubscription bannerStreamSubscription = braze.subscribeToBanners((List<Bra
 {% endtab %}
 {% endtabs %}
 
-### Inhalt anzeigen {#display-content}
+### Inhalte anzeigen {#display-content}
 
 {% alert note %}
-Content Cards können manuell mit angepasster UI-Logik gerendert werden, während Banner nur mit den vorgefertigten SDK-Methoden gerendert werden können.
+Content Cards können manuell mit benutzerdefinierter UI-Logik gerendert werden, während Banner nur mit den mitgelieferten SDK-Methoden gerendert werden können.
 {% endalert %}
 
 #### Content-Cards-Ansatz
@@ -383,10 +383,10 @@ braze.requestBannersRefresh(["sample_placement_id"]);
 {% endtab %}
 {% endtabs %}
 
-### Analytics protokollieren (angepasste Implementierungen) {#log-analytics-custom-implementations}
+### Analytics protokollieren (benutzerdefinierte Implementierungen) {#log-analytics-custom-implementations}
 
 {% alert note %}
-Sowohl Content Cards als auch Banner erfassen automatisch Analytics, wenn ihre Standard-UI-Komponenten verwendet werden. Die folgenden Beispiele beziehen sich auf angepasste Implementierungen, bei denen Sie Ihre eigene UI erstellen.
+Sowohl Content Cards als auch Banner erfassen Analytics automatisch, wenn ihre Standard-UI-Komponenten verwendet werden. Die folgenden Beispiele gelten für benutzerdefinierte Implementierungen, bei denen Sie Ihre eigene UI erstellen.
 {% endalert %}
 
 #### Content-Cards-Ansatz
@@ -455,7 +455,7 @@ braze.logContentCardClicked(card);
 {% tab Web %}
 
 {% alert important %}
-Analytics werden bei der Verwendung von `insertBanner()` automatisch erfasst. Bei der Verwendung von `insertBanner()` sollte keine manuelle Protokollierung verwendet werden.
+Analytics werden automatisch erfasst, wenn `insertBanner()` verwendet wird. Manuelles Logging sollte bei Verwendung von `insertBanner()` nicht eingesetzt werden.
 {% endalert %}
 
 ```javascript
@@ -473,7 +473,7 @@ braze.logBannerClick("sample_placement_id", buttonId);
 {% tab Android %}
 
 {% alert important %}
-Bei der Verwendung von BannerView werden Analytics automatisch erfasst. Bei der Verwendung von BannerView sollte keine manuelle Protokollierung durchgeführt werden.
+Analytics werden automatisch erfasst, wenn BannerView verwendet wird. Manuelles Logging sollte bei Verwendung von BannerView nicht eingesetzt werden.
 {% endalert %}
 
 ```kotlin
@@ -491,7 +491,7 @@ Braze.getInstance(context).logBannerClick("sample_placement_id", buttonId);
 {% tab Swift %}
 
 {% alert important %}
-Bei der Verwendung von BannerUIView werden Analytics automatisch erfasst. Die manuelle Protokollierung sollte nicht für die Standard-BannerUIView verwendet werden.
+Analytics werden automatisch erfasst, wenn BannerUIView verwendet wird. Manuelles Logging sollte bei der Standard-BannerUIView nicht eingesetzt werden.
 {% endalert %}
 
 ```swift
@@ -516,7 +516,7 @@ braze.banners.getBanner(for: "sample_placement_id") { banner in
 {% tab React Native %}
 
 {% alert important %}
-Bei der Verwendung von BrazeBannerView werden Analytics automatisch erfasst. Es ist keine manuelle Protokollierung erforderlich.
+Analytics werden automatisch erfasst, wenn BrazeBannerView verwendet wird. Manuelles Logging ist nicht erforderlich.
 {% endalert %}
 
 ```javascript
@@ -530,7 +530,7 @@ Bei der Verwendung von BrazeBannerView werden Analytics automatisch erfasst. Es 
 {% tab Flutter %}
 
 {% alert important %}
-Bei der Verwendung von BrazeBannerView werden Analytics automatisch erfasst. Es ist keine manuelle Protokollierung erforderlich.
+Analytics werden automatisch erfasst, wenn BrazeBannerView verwendet wird. Manuelles Logging ist nicht erforderlich.
 {% endalert %}
 
 ```dart
@@ -633,7 +633,7 @@ if (banner != null) {
 {% endtab %}
 {% endtabs %}
 
-### Umgang mit Kontrollgruppen {#handling-control-groups}
+### Kontrollgruppen handhaben {#handling-control-groups}
 
 #### Content-Cards-Ansatz
 
@@ -759,60 +759,60 @@ BrazeBannerView(
 
 ## Einschränkungen {#limitations}
 
-Beachten Sie bei der Migration von Content Cards zu Bannern die folgenden Einschränkungen:
+Beachten Sie bei der Migration von Content Cards zu Banner die folgenden Einschränkungen:
 
 ### Migration getriggerter Nachrichten {#migrating-triggered-messages}
 
-Banner unterstützen ausschließlich geplante Zustellungs-Campaigns. Um eine Nachricht zu migrieren, die zuvor API-gesteuert oder aktionsbasiert war, konvertieren Sie sie in ein segmentbasiertes Targeting:
+Banner unterstützen nur Campaigns mit geplanter Zustellung. Um eine Nachricht zu migrieren, die zuvor API-getriggert oder aktionsbasiert war, konvertieren Sie sie in segmentbasiertes Targeting:
 
-- **Beispiel:** Anstatt eine Karte „Profil vervollständigen“ mit der API zu triggern, erstellen Sie ein Segment für Nutzer:innen, die sich in den letzten 7 Tagen registriert haben, ihr Profil jedoch noch nicht vervollständigt haben.
-- **Realtime-Berechtigung:** Nutzer:innen werden bei jeder Aktualisierung sofort für das Banner qualifiziert oder disqualifiziert, basierend auf ihrer Segmentzugehörigkeit.
+- **Beispiel:** Anstatt eine „Profil vervollständigen“-Karte über die API zu triggern, erstellen Sie ein Segment für Nutzer:innen, die sich in den letzten 7 Tagen registriert, aber ihr Profil noch nicht vervollständigt haben.
+- **Realtime-Berechtigung:** Nutzer:innen qualifizieren oder disqualifizieren sich bei jeder Aktualisierung sofort für das Banner, basierend auf ihrer Segmentzugehörigkeit.
 
-### Unterschiede in den Features {#feature-differences}
+### Feature-Unterschiede {#feature-differences}
 
 | Feature | Content Cards | Banner |
 |---------|--------------|---------|
-| **Inhaltsstruktur** |
-| Mehrere Karten im Feed | ✅ Unterstützt | ✅ Es können mehrere Platzierungen erstellt werden, um eine karussellähnliche Implementierung zu erzielen. Pro Platzierung wird nur ein Banner zurückgegeben. |
-| Mehrere Platzierungen | N/A | ✅ Mehrere Platzierungen werden unterstützt |
-| Kartentypen (klassisch, mit Bildunterschrift, nur Bild) | ✅ Mehrere vordefinierte Typen | ✅ Einzelnes HTML-basiertes Banner (flexibler) |
-| **Inhaltsverwaltung** |
-| Drag-and-Drop-Editor | ❌ Erfordert Entwickler:innen für die Anpassung | ✅ Marketer können ohne technische Unterstützung Inhalte erstellen und aktualisieren |
-| Angepasstes HTML/CSS | ❌ Beschränkt auf die Kartenstruktur | ✅ Vollständige HTML/CSS-Unterstützung |
-| Schlüssel-Wert-Paare für die Anpassung | ✅ Für erweiterte Anpassungen erforderlich | ✅ Stark typisierte Schlüssel-Wert-Paare, die als „Eigenschaften“ bezeichnet werden, ermöglichen eine erweiterte Anpassung |
+| **Content-Struktur** |
+| Mehrere Karten im Feed | ✅ Unterstützt | ✅ Es können mehrere Placements erstellt werden, um eine Karussell-ähnliche Implementierung zu erreichen. Pro Placement wird nur ein Banner zurückgegeben. |
+| Mehrere Placements | N/A | ✅ Mehrere Placements unterstützt |
+| Kartentypen (Classic, Captioned, Image Only) | ✅ Mehrere vordefinierte Typen | ✅ Einzelnes HTML-basiertes Banner (flexibler) |
+| **Content-Verwaltung** |
+| Drag-and-Drop-Editor | ❌ Erfordert Entwickler:in für Anpassungen | ✅ Marketer können ohne Entwicklerteam erstellen/aktualisieren |
+| Benutzerdefiniertes HTML/CSS | ❌ Auf Kartenstruktur beschränkt | ✅ Volle HTML/CSS-Unterstützung |
+| Schlüssel-Wert-Paare für Anpassungen | ✅ Erforderlich für erweiterte Anpassungen | ✅ Stark typisierte Schlüssel-Wert-Paare namens „Properties“ für erweiterte Anpassungen |
 | Message Extras | ✅ Unterstützt | ❌ Derzeit nicht unterstützt |
 | **Persistenz und Ablauf** |
-| Ablauf der Karte | ✅ Unterstützt (30-Tage-Limit) | ✅ Unterstützt (ohne Ablauflimit) |
-| Wahre Persistenz | ❌ Maximal 30 Tage | ✅ Unbegrenzte Persistenz |
+| Kartenablauf | ✅ Unterstützt (30-Tage-Limit) | ✅ Unterstützt (kein Ablauflimit) |
+| Echte Persistenz | ❌ Maximal 30 Tage | ✅ Unbegrenzte Persistenz |
 | **Anzeige und Targeting** |
-| Feed-UI | ✅ Standard-Feed verfügbar | ❌ Nur platzierungsbasiert |
-| Kontextspezifische Platzierung | ❌ Feed-basiert | ✅ Native Platzierungsunterstützung |
-| Priorisierung | ❌ Erfordert angepasste Logik | ✅ Native Priorisierung |
+| Feed-UI | ✅ Standard-Feed verfügbar | ❌ Nur Placement-basiert |
+| Kontextspezifisches Placement | ❌ Feed-basiert | ✅ Natives Placement unterstützt |
+| Priorisierung | ❌ Erfordert benutzerdefinierte Logik | ✅ Native Priorisierung |
 | **Nutzer:innen-Interaktion** |
 | Manuelles Schließen | ✅ Unterstützt | ✅ Unterstützt |
-| Erneute Berechtigung nach dem Schließen | ❌ Erfordert angepasste Filter oder Campaign-Logik | ✅ Standard-Wartezeit |
+| Erneute Berechtigung nach Schließen | ❌ Erfordert benutzerdefinierte Filter oder Campaign-Logik | ✅ Standard-Wartezeit |
 | Gepinnte Karten | ✅ Unterstützt | N/A |
 | **Analytics** |
 | Automatische Analytics (Standard-UI) | ✅ Unterstützt | ✅ Unterstützt |
 | Prioritätssortierung | ❌ Nicht unterstützt | ✅ Unterstützt |
-| **Inhaltsupdates** |
-| Liquid-Template-Aktualisierung | ❌ Einmal pro Karte beim Senden/Starten | ✅ Aktualisiert bei jeder Aktualisierung |
-| Aktualisierung der Berechtigung | ❌ Einmal pro Karte beim Senden/Starten | ✅ Wird bei jeder Sitzung aktualisiert |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Unterschiede in den Features" }
+| **Content-Aktualisierungen** |
+| Liquid-Templating-Aktualisierung | ❌ Einmal pro Karte beim Senden/Start | ✅ Aktualisiert bei jeder Aktualisierung |
+| Berechtigungsaktualisierung | ❌ Einmal pro Karte beim Senden/Start | ✅ Aktualisiert bei jeder Sitzung |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Feature-Unterschiede" }
 
 ### Produkteinschränkungen {#product-limitations}
 
-- Bis zu 25 aktive Nachrichten pro Platzierung.
-- Bis zu 10 Platzierungs-IDs pro Aktualisierungsanfrage; darüber hinausgehende Anfragen werden gekürzt.
+- Bis zu 25 aktive Nachrichten pro Placement.
+- Bis zu 10 Placement-IDs pro Aktualisierungsanfrage; darüber hinausgehende Anfragen werden abgeschnitten.
 
 ### SDK-Einschränkungen {#sdk-limitations}
 
-- Banner werden derzeit auf den Plattformen .NET MAUI (Xamarin), Cordova, Unity, Vega oder TV nicht unterstützt.
-- Stellen Sie sicher, dass Sie die in den Voraussetzungen aufgeführten Mindestversionen des SDK verwenden.
+- Banner werden derzeit nicht auf .NET MAUI (Xamarin), Cordova, Unity, Vega oder TV-Plattformen unterstützt.
+- Stellen Sie sicher, dass Sie die in den Voraussetzungen aufgeführten Mindest-SDK-Versionen verwenden.
 
 ## Verwandte Artikel {#related-articles}
 
 - [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements)
-- [Anleitung: Anzeige eines Banners anhand der Platzierungs-ID]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
+- [Tutorial: Ein Banner anhand der Platzierungs-ID anzeigen]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
 - [Banner-Analytics]({{site.baseurl}}/developer_guide/banners/analytics)
-- [Häufig gestellte Fragen zu Bannern]({{site.baseurl}}/developer_guide/banners/faq)
+- [Banner-FAQ]({{site.baseurl}}/developer_guide/banners/faq)

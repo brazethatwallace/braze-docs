@@ -68,7 +68,7 @@ description: "이 참조 문서에서는 중첩 커스텀 속성을 커스텀 �
 
 {% endtab %}
 {% tab 업데이트 %}
-기존 오브젝트를 업데이트하려면 요청에 `_merge_objects` 파라미터를 포함하여 `users/track`으로 POST를 보냅니다. 이렇게 하면 업데이트 내용이 기존 오브젝트 데이터와 딥 머지됩니다. 딥 머지는 첫 번째 레벨만이 아니라 오브젝트의 모든 레벨이 다른 오브젝트에 병합되도록 합니다. 이 예시에서는 Braze에 이미 `most_played_song` 오브젝트가 있으며, 이제 `most_played_song` 오브젝트에 새 필드 `year_released`를 추가합니다.
+기존 오브젝트를 업데이트하려면 요청에 `_merge_objects` 파라미터를 포함하여 `users/track`으로 POST를 보냅니다. 이렇게 하면 업데이트 내용이 기존 오브젝트 데이터와 딥 병합됩니다. 딥 병합은 첫 번째 레벨만 병합하는 것이 아니라 오브젝트의 모든 레벨이 다른 오브젝트에 병합되도록 합니다. 이 예시에서는 Braze에 이미 `most_played_song` 오브젝트가 있으며, 이제 `most_played_song` 오브젝트에 새 필드 `year_released`를 추가합니다.
 
 ```json
 {
@@ -128,7 +128,9 @@ description: "이 참조 문서에서는 중첩 커스텀 속성을 커스텀 �
 
 ## SDK 예제 {#sdk-example}
 
-{% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 %}
+{% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 unity:5.1.0 %}
+
+다음 샘플은 각 SDK에서 동일한 중첩 커스텀 속성 오브젝트(`most_played_song`)를 생성, 병합 업데이트 및 삭제하는 방법을 보여줍니다.
 
 {% tabs local %}
 {% tab Android SDK %}
@@ -203,7 +205,7 @@ braze.user.unsetCustomAttribute(key: "most_played_song")
 ```
 
 {% endtab %}
-{% tab Web SDK %}
+{% tab 웹 SDK %}
 
 **생성**
 ```javascript
@@ -238,6 +240,38 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 ```
 
 {% endtab %}
+{% tab Unity SDK %}
+
+**생성**
+```csharp
+Dictionary<string, object> attributes = new Dictionary<string, object>();
+attributes.Add("song_name", "Solea");
+attributes.Add("artist_name", "Miles Davis");
+attributes.Add("album_name", "Sketches of Spain");
+attributes.Add("genre", "Jazz");
+
+Dictionary<string, object> playAnalytics = new Dictionary<string, object>();
+playAnalytics.Add("count", 1000);
+playAnalytics.Add("top_10_listeners", true);
+attributes.Add("play_analytics", playAnalytics);
+
+AppboyBinding.SetCustomUserAttribute("most_played_song", attributes);
+```
+
+**업데이트**
+```csharp
+Dictionary<string, object> attributes = new Dictionary<string, object>();
+attributes.Add("year_released", 1960);
+
+AppboyBinding.SetCustomUserAttribute("most_played_song", attributes, true);
+```
+
+**삭제**
+```csharp
+AppboyBinding.UnsetCustomUserAttribute("most_played_song");
+```
+
+{% endtab %}
 {% endtabs %}
 
 ## 오브젝트 속성정보로 날짜 캡처하기 {#capturing-dates-as-object-properties}
@@ -268,7 +302,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 ## Liquid 템플릿 {#liquid-templating}
 
-다음 Liquid 템플릿 예제는 앞선 API 요청에서 저장된 커스텀 속성 오브젝트 속성정보를 참조하고 이를 메시징에 사용하는 방법을 보여줍니다.
+다음 Liquid 템플릿 예시는 앞선 API 요청에서 저장된 커스텀 속성 오브젝트 속성정보를 참조하고 이를 메시징에 사용하는 방법을 보여줍니다.
 
 `custom_attribute` 개인화 태그와 점 표기법을 사용하여 오브젝트의 속성정보에 접근합니다. 오브젝트 이름(오브젝트 배열을 참조하는 경우 배열 내 위치 포함)을 지정한 다음, 점(마침표)과 속성정보 이름을 차례로 입력합니다.
 
@@ -282,7 +316,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 1. Campaign 또는 Canvas로 이동한 다음, 개인화를 추가할 메시지 단계를 엽니다.
 2. 메시지 작성기에서 값을 표시할 위치에 Liquid 스니펫을 삽입합니다.
-3. 중첩 커스텀 속성이 프로필에 이미 설정된 기존 사용자로 **미리보기 및 테스트**를 사용하여 값이 예상대로 렌더링되는지 확인합니다.
+3. **미리보기 및 테스트**를 사용하여 프로필에 중첩 커스텀 속성이 이미 있는 기존 사용자로 값이 예상대로 렌더링되는지 확인합니다.
 
 ### 개인화 {#personalization}
 
@@ -302,7 +336,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 4. 생성된 **Liquid 스니펫**을 검토하여 예상 경로와 일치하는지 확인합니다.
 5. **삽입**을 선택합니다.
 
-이 예제에서 Braze는 `preferences.neighborhood_office`의 중첩 값을 메시지에 삽입합니다. 기본값은 속성에 대한 자체 값이 없는 사용자를 위해 메시지에 포함되는 대체 값입니다.
+이 예시에서 Braze는 `preferences.neighborhood_office`의 중첩 값을 메시지에 삽입합니다. 기본값은 속성에 대한 자체 값이 없는 사용자를 위해 메시지에 포함되는 대체 값입니다.
 
 {% alert tip %}
 중첩 커스텀 속성을 삽입하는 옵션이 보이지 않는 경우 스키마가 생성되었는지 확인하세요.
@@ -372,15 +406,15 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
    - 확인하려는 중첩 속성이 포함된 최상위 커스텀 속성을 검색합니다.
    - 해당 행에 **스키마 생성**이 표시되면 선택하여 먼저 스키마를 생성합니다.
    - 스키마가 생성된 후, 해당 속성의 **속성 이름** 열에서 플러스 아이콘을 선택합니다.
-   - **스키마 편집** Modal에서 중첩 속성과 **데이터 유형** 열의 해당 값을 확인합니다.
+   - **스키마 편집** Modal에서 중첩 속성과 **데이터 유형** 열의 해당 값을 검토합니다.
 
-데이터 유형이 고객 프로필 전체에서 의도한 형식과 일치하지 않는 경우, 영향을 받은 고객 프로필에서 잘못된 형식의 값을 제거하고 적절한 API 요청 또는 SDK 메서드를 사용하여 올바른 형식으로 속성을 다시 전송하세요.
+데이터 유형이 고객 프로필 전체에서 의도한 형식과 일치하지 않는 경우, 영향을 받는 고객 프로필에서 잘못된 형식의 값을 제거하고 적절한 API 요청 또는 SDK 메서드를 사용하여 올바른 형식으로 속성을 다시 전송하세요.
 
 ## 오브젝트 배열에서의 세분화 동작 {#segmentation-behavior-with-arrays-of-objects}
 
-여러 개의 `중첩 커스텀 속성` 필터를 AND 로직으로 사용하여 오브젝트 배열을 기준으로 세분화할 때, 각 필터는 배열의 모든 항목에 대해 독립적으로 평가됩니다. 배열 내 _어떤_ 항목이든 각 개별 필터를 충족하면 해당 사용자는 Segment에 포함됩니다. 필터가 반드시 _같은_ 항목과 일치할 필요는 없습니다.
+여러 개의 `중첩 커스텀 속성` 필터를 AND 로직으로 사용하여 오브젝트 배열을 기준으로 세분화할 때, 각 필터는 배열의 모든 항목에 대해 독립적으로 평가됩니다. 배열 내 _어떤_ 항목이든 각 개별 필터를 충족하면 해당 사용자는 Segment에 포함됩니다. 필터가 _동일한_ 항목과 일치할 필요는 없습니다.
 
-예를 들어, 사용자가 다음과 같은 배열을 가지고 있다고 가정합니다.
+예를 들어, 사용자가 다음과 같은 배열을 가지고 있다고 가정합니다:
 
 ```json
 {
@@ -391,14 +425,14 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 }
 ```
 
-다음과 같은 AND 필터가 적용된 Segment가 있습니다.
+다음과 같은 AND 필터가 적용된 Segment가 있습니다:
 
 - `orders[].price`가 50보다 큼
 - `orders[].price`가 30보다 작음
 
-이 사용자는 첫 번째 필터가 "Shoes" 항목(80 > 50)과 일치하고, 두 번째 필터가 "Hat" 항목(25 < 30)과 일치하므로 조건을 충족합니다. 단일 항목이 두 조건을 모두 만족하지 않더라도 해당 사용자는 여전히 Segment에 포함됩니다.
+이 사용자는 첫 번째 필터가 "Shoes" 항목(80 > 50)과 일치하고, 두 번째 필터가 "Hat" 항목(25 < 30)과 일치하기 때문에 조건을 충족합니다. 단일 항목이 두 조건을 모두 만족하지 않더라도 사용자는 여전히 Segment에 포함됩니다.
 
-배열 내 동일한 항목이 모든 조건을 충족해야 하는 경우, 동일한 경로에서 [다중 기준 세분화]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation)를 사용하거나, 항목 간 교차 매칭을 방지하도록 데이터를 재구성하세요.
+배열 내 동일한 항목에서 모든 조건이 일치해야 하는 경우, 동일한 경로에서 [다중 기준 세분화]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation)를 사용하거나, 항목 간 교차 매칭을 방지하도록 데이터를 재구성하세요.
 
 ## 데이터 포인트 {#data-points}
 
@@ -426,5 +460,5 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 ```
 
 {% alert note %}
-커스텀 속성 오브젝트를 `null`로 업데이트하는 경우에도 데이터 포인트가 소비됩니다.
+커스텀 속성 오브젝트를 `null`로 업데이트하는 것도 데이터 포인트를 소비합니다.
 {% endalert %}

@@ -26,7 +26,7 @@ Puedes resolver esto añadiendo valores predeterminados o cualquier valor al Liq
 
 Tu empresa tiene un límite en la cantidad de correos electrónicos que puedes previsualizar con Inbox Vision. Puedes monitorear esto en la pestaña **Email Previews** de Inbox Vision.
 
-Incluye una línea del asunto y un dominio de envío válido para ver las vistas previas. Ten en cuenta las diferencias de renderizado entre escritorio y móvil. Usa las vistas previas para confirmar que el correo electrónico aparece como se esperaba.
+Incluye una línea del asunto y un dominio de envío válido para ver las vistas previas. Ten en cuenta las diferencias de renderizado entre escritorio y dispositivos móviles. Usa las vistas previas para confirmar que el correo electrónico aparece como se espera.
 
 {% alert note %}
 Si al previsualizar una Campaign aparece un error de permiso, borra tu caché y cookies, o prueba con una ventana de incógnito. Las extensiones del navegador a veces bloquean la vista previa.
@@ -34,7 +34,7 @@ Si al previsualizar una Campaign aparece un error de permiso, borra tu caché y 
 
 Para probar tu mensaje de correo electrónico en Inbox Vision:
 
-1. Ve a tu editor de arrastrar y soltar o al editor de correo electrónico HTML.
+1. Ve a tu editor de arrastrar y soltar o editor de correo electrónico HTML.
 2. En tu editor, selecciona **Preview & Test**.
 3. Selecciona **Inbox Vision**.
 4. Selecciona **Run Inbox Vision**. Esto tarda hasta diez minutos.
@@ -59,7 +59,7 @@ El análisis de código resalta posibles problemas de HTML, muestra el número d
 
 ### Ver la información del análisis de código {#viewing-code-analysis-information}
 
-Encuentra esta información en la pestaña **Inbox Vision** seleccionando <i class="fas fa-list"></i> **Vista de lista**. La vista de lista solo está disponible para plantillas de correo electrónico HTML. Para plantillas de arrastrar y soltar, usa las vistas previas para resolver problemas en su lugar.
+Encuentra esta información en la pestaña **Inbox Vision** seleccionando <i class="fas fa-list"></i> **Vista de lista**. La vista de lista solo está disponible para plantillas de correo electrónico HTML. Para plantillas de arrastrar y soltar, usa las vistas previas para resolver los problemas en su lugar.
 
 ![Ejemplo de análisis de código en la vista previa de Inbox Vision.]({% image_buster /assets/img_archive/inboxvision2.png %})
 
@@ -69,13 +69,13 @@ El análisis de código puede aparecer más rápido que la vista previa para un 
 
 ## Pruebas de correo no deseado {#spam-testing}
 
-Las pruebas de correo no deseado estiman si un correo electrónico podría ser filtrado como correo no deseado. Las pruebas se ejecutan a través de filtros como IronPort, SpamAssassin y Barracuda, y filtros de ISP como Gmail y Outlook, utilizando buzones de entrada estáticos que no abren ni hacen clic de forma predeterminada.
+Las pruebas de correo no deseado estiman si un correo podría ser filtrado como correo no deseado. Las pruebas se ejecutan a través de filtros como IronPort, SpamAssassin y Barracuda, y filtros de ISP como Gmail y Outlook, utilizando buzones de entrada estáticos que no abren ni hacen clic de forma predeterminada.
 
 {% alert important %}
 La ubicación en el buzón de entrada depende principalmente de la participación de los destinatarios en vivo. Los resultados de las pruebas de correo no deseado pueden no coincidir con lo que ves en Campaigns reales.
 {% endalert %}
 
-Para obtener una lectura más clara sobre la capacidad de entrega, prueba el contenido con pequeñas cohortes en vivo: las aperturas y los clics sólidos son la señal más fiable. Utiliza las pruebas de correo no deseado como un dato más junto con el seguimiento de la participación.
+Para obtener una lectura más clara sobre la capacidad de entrega, prueba el contenido con pequeñas cohortes en vivo: las aperturas y los clics sólidos son la señal más fiable. Usa las pruebas de correo no deseado como un dato más junto con el monitoreo de la participación.
 
 ### Ver los resultados de las pruebas de correo no deseado {#viewing-spam-test-results}
 
@@ -120,7 +120,7 @@ Inbox Vision clasifica los problemas de accesibilidad por gravedad para ayudarte
 | Estado | Definición |
 | --- | --- |
 | Crítico | Problemas que pueden bloquear el acceso al contenido o la funcionalidad para usuarios con discapacidades. Son los más graves y deben priorizarse para su corrección. |
-| Grave | Problemas que pueden causar barreras significativas, pero que pueden no bloquear completamente el acceso. Deben abordarse con prontitud. |
+| Grave | Problemas que pueden causar barreras significativas pero que pueden no bloquear completamente el acceso. Deben abordarse con prontitud. |
 | Moderado | Problemas que pueden causar cierta dificultad a los usuarios con discapacidades, pero es menos probable que bloqueen el acceso por completo. |
 | Menor | Problemas que tienen un impacto relativamente bajo en la accesibilidad y pueden causar solo inconvenientes menores. |
 | Necesita revisión | No se puede detectar si podría haber un problema o no. Esto puede ocurrir cuando no es posible determinar la relación de contraste porque el texto está colocado sobre una imagen de fondo. Debes revisar manualmente porque no se puede determinar automáticamente. |
@@ -139,24 +139,26 @@ El editor de arrastrar y soltar no admite la configuración de un elemento `<tit
 
 ### Revisa tu lista de suscriptores de correo electrónico {#review-your-email-subscriber-list}
 
-Consulta el [panel de información de correo electrónico]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard) para determinar el tipo de dispositivo y los proveedores más populares donde tus suscriptores interactúan. Si necesitas más detalle, como el navegador, el modelo de dispositivo y más, puedes aprovechar tus datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) o el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) para obtener este nivel de detalle sobre la participación reciente de tus usuarios con el correo electrónico.
+Consulta el [panel de información de correo electrónico]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard) para determinar el tipo de dispositivo y los proveedores más populares donde tus suscriptores interactúan.
 
-De lo contrario, Braze utiliza de forma predeterminada las 20 vistas previas principales basadas en datos generales del sector y de expertos, lo que cubre la mayoría de los entornos donde tus suscriptores interactúan con tus correos electrónicos. Si tu análisis de datos apunta a otras vistas previas más populares, puedes definir un conjunto predeterminado de vistas previas cada vez que ejecutes Inbox Vision.
+Si necesitas más detalle, como el navegador, el modelo de dispositivo y más, puedes aprovechar tus datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) o el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) para obtener este nivel de detalle sobre la participación reciente de tus usuarios con el correo electrónico.
 
 ### Selecciona vistas previas significativas y vistas previas afectadas {#select-meaningful-previews-and-impacted-previews}
 
-Si tu negocio se encuentra principalmente en EE. UU., puede haber vistas previas específicas, como vistas previas internacionales como GMX.de, que solo son utilizadas por un número reducido de usuarios. Recomendamos priorizar y optimizar para los buzones de entrada con un impacto significativo en los suscriptores y reservar tus vistas previas para buzones de entrada de mayor impacto.
+Si tu negocio se encuentra principalmente en EE. UU., puede haber vistas previas específicas, como las internacionales (por ejemplo, GMX.de), que solo utiliza un número reducido de usuarios. Recomendamos priorizar y optimizar para los buzones de entrada con un impacto significativo en los suscriptores y reservar tus vistas previas para los buzones de mayor impacto.
 
 Al realizar correcciones que afecten a vistas previas específicas, asegúrate de seleccionar solo las vistas previas afectadas para evitar consumir vistas previas no utilizadas.
 
 ### Ejecuta Inbox Vision en la versión final del correo electrónico {#run-inbox-vision-on-the-final-email-version}
 
-Sugerimos ejecutar Inbox Vision cuando el mensaje de correo electrónico esté listo para producción o cerca de estarlo. Esto te permite reducir el número de vistas previas generadas, ya que el correo electrónico pasa por múltiples iteraciones antes de finalizarse y estar listo para enviarse a los usuarios.
+Sugerimos ejecutar Inbox Vision cuando el mensaje de correo electrónico esté listo para producción o cerca de estarlo. Esto te permite reducir la cantidad de vistas previas generadas, ya que el correo electrónico pasa por múltiples iteraciones antes de finalizarse y estar listo para enviarse a los usuarios.
 
 Ejecutar Inbox Vision cada vez que realizas una sola edición o cambio puede consumir vistas previas rápidamente. Sugerimos realizar todos los cambios necesarios en el correo electrónico primero y luego ejecutar Inbox Vision para previsualizar cómo todos tus cambios pueden afectar la representación de tu correo electrónico en los distintos entornos.
 
-Braze ejecuta pruebas a través de clientes de correo electrónico reales y trabaja para garantizar que las representaciones sean precisas. Si ves un problema de forma constante con un cliente, abre un [ticket de soporte]({{site.baseurl}}/braze_support).
+Braze ejecuta pruebas a través de clientes de correo electrónico reales y trabaja para garantizar que las representaciones sean precisas. Braze utiliza de forma predeterminada las 20 vistas previas principales basándose en datos generales de la industria y de expertos, lo que cubre la mayoría de los entornos donde tus usuarios interactúan con tus correos electrónicos. Si tu análisis de datos apunta a otras vistas previas más populares, puedes definir un conjunto predeterminado de vistas previas cada vez que ejecutes Inbox Vision.
+
+Si ves un problema de forma recurrente con un cliente, abre un [ticket de soporte]({{site.baseurl}}/braze_support).
 
 ### Precisión de las pruebas frente a los buzones de entrada en vivo {#test-accuracy-versus-live-inboxes}
 
-Un mensaje enviado puede verse diferente de la vista previa del editor porque los proveedores interpretan el mismo HTML de manera distinta. Descarga una copia del HTML enviado para comparar y utiliza la inserción en línea de CSS en los casos en que los clientes eliminan los bloques `<style>`.
+Un mensaje enviado puede verse diferente de la vista previa del editor porque los proveedores interpretan el mismo HTML de manera distinta. Descarga una copia del HTML enviado para comparar y utiliza CSS en línea donde los clientes eliminan los bloques `<style>`.
