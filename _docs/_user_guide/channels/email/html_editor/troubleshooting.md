@@ -22,6 +22,7 @@ Match your symptom in the table to navigate to the relevant section.
 | Email displays Liquid code or broken links | [Unbalanced HTML in Liquid templates](#unbalanced-html-in-liquid-templates) |
 | Inbox Vision preview doesn't match sent email | [CSS inlining](#css-inlining) |
 | White space or lines after images in test emails | [White space under images](#white-space-under-images) |
+| Superscripts cause inconsistent line spacing | [Superscript line height issues](#superscript-line-height-issues) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML email symptom" }
 
 ## Standard investigation path
@@ -134,4 +135,34 @@ Alternatively, apply the style directly to specific images:
 
 ```html
 <img src="https://example.com/image.jpg" style="display: block;" alt="Image description" />
+```
+
+### Superscript line height issues {#superscript-line-height-issues}
+
+#### Symptom
+
+Text with superscripts appears with inconsistent line spacing, where lines appear closer together or farther apart than intended. This is a common rendering issue across email clients and isn't specific to Braze.
+
+Superscript usage in emails can cause unexpected line height behavior because different email clients handle superscripted text in varying ways.
+
+#### Resolution
+
+Use the HTML editor to control the styling of superscripts and surrounding elements.
+
+To explicitly define line height, add inline CSS to set the `line-height` for the text:
+
+```html
+<p style="line-height: 1.5;">Example text with superscript<sup style="line-height: inherit;">1</sup></p>
+```
+
+To adjust vertical alignment, use the `vertical-align` property to align the superscript without disrupting line height:
+
+```html
+<sup style="vertical-align: top; font-size: smaller;">1</sup>
+```
+
+If superscripts continue to cause issues, use a `<span>` as an alternative to `<sup>` for more control:
+
+```html
+<span style="font-size: smaller; vertical-align: top;">1</span>
 ```
