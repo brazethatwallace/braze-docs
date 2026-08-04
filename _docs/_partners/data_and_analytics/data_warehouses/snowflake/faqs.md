@@ -23,7 +23,24 @@ Use data sharing for the same region in the following scenarios:
 Otherwise, use data sharing for cross region. 
 
 ## What should I do with my data share when I switch to a new Snowflake account?
-You can delete the old data share associated with your old Snowflake account and then create a new share for the new account. All historical data will be available in the new share. 
+You can delete the old data share associated with your old Snowflake account and then create a new share for the new account. All historical data will be available in the new share.
+
+## What happens if I switch my data share to a new Braze workspace?
+
+If you reconfigure an existing data share integration to use a different Braze workspace, you may see this error in Snowflake when querying tables:
+
+> Shared database is no longer available for use. It will need to be re-created if and when the publisher makes it available again.
+
+To resolve this, you need to drop and recreate the share within Snowflake:
+
+1. Drop the database that was created with the previous share.
+2. Create the database again according to the [integration instructions]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/#step-2-create-the-database-in-snowflake).
+3. Re-grant any necessary access privileges to the new database.
+4. Recreate any views (if applicable) that referenced the old database.
+
+{% alert note %}
+In the new Snowflake interface, you can find the Braze share under **Data Products** > **Private Sharing** > **Shared with you**.
+{% endalert %}
 
 ## Why don't I see data in my data share?
 You might have used the wrong Snowflake account ID when creating your data share. The account ID on the data sharing dashboard must match the output of `CURRENT_ACCOUNT()` from your Snowflake account.
