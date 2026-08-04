@@ -41,6 +41,10 @@ You can easily share specific comparisons with your teammates using the page's u
 
 Segment Insights have also been built right into the **Segment Details** view. When looking at a particular segment you've previously set up, you can find the same six statistics outlined within the dynamic, gray Segment Statistics box. From here, you can quickly launch the Segment Insights tool to compare this particular segment with any others you've previously set up, but note that this will overwrite any segments you've previously selected within the Segment Insights tool.
 
+{% alert note %}
+[Segment Insights](#viewing-segment-insights) and the **Segment Details** page calculate size estimations separately using different user samples and sample sizes, so it's expected that the numbers may not match.
+{% endalert %}
+
 ![Segment Insights have also been built right into the Segment Details view. When looking at a particular segment you've previously set up, you can find the same six statistics outlined within the dynamic, gray Segment Statistics box. From here, you can quickly launch the Segment Insights tool to compare this particular segment with any others you've previously set up, but note that this will overwrite any segments you've previously selected within the Segment Insights tool.]({% image_buster /assets/img_archive/Segment_Segment_Insights.png %})
 
 ## Use cases {#insights-use-cases}
