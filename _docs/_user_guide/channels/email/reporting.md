@@ -46,3 +46,9 @@ You may see the message `Email was deferred due to the following reason(s): [IPs
 This pattern usually means you're sending faster than the mailbox provider accepts for your current reputation. In addition to improving engagement and list quality, use [delivery speed rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) to cap how quickly messages leave Braze for a campaign or Canvas. That helps reduce throttling while you work with your deliverability team on longer-term fixes.
 
 If throttling persists for specific domains, reduce volume to those domains and contact Braze deliverability support for guidance.
+
+### Unknown IP reputation status
+
+If your email performance report shows an "unknown" value for IP reputation, this may be related to a Google Postmaster Tools outage. Google Postmaster Tools provides reputation data for Gmail deliverability, and temporary service disruptions can result in missing or unknown reputation values.
+
+If you see an unknown reputation status and have questions about your email deliverability, contact [Braze Support]({{site.baseurl}}/support_contact/).
