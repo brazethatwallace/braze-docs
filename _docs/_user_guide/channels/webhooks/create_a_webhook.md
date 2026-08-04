@@ -237,6 +237,12 @@ Braze retries the earlier in this section status codes up to five times within 3
 
 `Retry-After` and rate-limit response headers can affect how long Braze waits before a **retriable** attempt (for example, after `408`, `429`, or `5XX`). They do not make non-retriable responses, such as `401`, eligible for retry.
 
+<!-- support-analyzer-phase2:webhook_delivery_failures -->
+{% alert note %}
+If webhook sends appear to be missing from analytics, open the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) for the campaign or Canvas step. Braze retries only certain responses (for example `408`, `429`, and `5XX`)—most other `4XX` client errors, including `401 Unauthorized`, are **not** retried. For the full response table, see [Response codes and retry logic](#response-codes-and-retry-logic).
+{% endalert %}
+
+
 #### 403 Forbidden and IP allowlisting
 
 `403 Forbidden` responses means your endpoint received the request but refused it. Common causes include invalid or missing authentication, insufficient API permissions, and network rules (such as a firewall or web application firewall) that block Braze's outbound IP addresses.
