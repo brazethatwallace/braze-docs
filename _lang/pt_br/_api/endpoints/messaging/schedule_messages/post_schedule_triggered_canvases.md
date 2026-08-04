@@ -22,6 +22,10 @@ Você pode passar `context`, que será aplicado como modelo nas mensagens enviad
 
 Para enviar mensagens com este endpoint, você precisa ter um [ID do Canvas]({{site.baseurl}}/api/identifier_types#canvas-identifier), criado quando você constrói um Canvas.
 
+{% alert note %}
+As entradas no Canvas são registradas no horário agendado da mensagem, não quando esta solicitação de API é feita. Usuários disparados para um agendamento com data futura não aparecerão como entradas até que o horário agendado chegue.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}

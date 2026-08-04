@@ -48,8 +48,11 @@ For each filter group, you can view estimated reachable users. Select **Expand e
 
 ## Reachable users estimate
 
-You can view an entire segment's estimated reachable users, including estimated user counts for each channel, in the **Reachable users** side panel. This **estimation** shows you an approximate range for your segment size, and an estimate of what percentage of your overall user base falls into this segment. Note that estimated statistics are cached for 15 minutes unless you make edits to your segment, in which case estimated statistics will automatically update. You can also view an exact count of reachable users (for both the segment overall and per channel) by selecting **Calculate exact statistics**. 
+You can view an entire segment's estimated reachable users, including estimated user counts for each channel, in the **Reachable users** side panel. This estimation shows you an approximate range for your segment size, and an estimate of what percentage of your overall user base falls into this segment. Note that estimated statistics are cached for 15 minutes unless you make edits to your segment, in which case estimated statistics will automatically update. You can also view an exact count of reachable users (for both the segment overall and per channel) by selecting **Calculate exact statistics**. 
 
+{% alert note %}
+Workspaces with more than 50,000 users show **Estimated users**; smaller workspaces show **Exact users**.
+{% endalert %}
 
 ![The "Reachable users" panel stating there are 2.3M—2.4M estimated users.]({% image_buster /assets/img_archive/reachable_users_side_panel.png %})
 

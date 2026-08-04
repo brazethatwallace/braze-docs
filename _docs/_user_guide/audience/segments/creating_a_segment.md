@@ -99,9 +99,13 @@ Braze doesn't generate profiles for users until they've used the app for the fir
 
 ![Segmenter filter groups with the AND operator.]({% image_buster /assets/img_archive/segmenter_filter_groups.png %})
 
-{% alert important %}
-Segments already using the **Segment Membership** filter cannot be further included or nested into other segments. This prevents a cycle where Segment A includes Segment B, which then tries to include Segment A again. If that happened, the segment would keep referencing itself, making it impossible to calculate who actually belongs in it.
+#### Date and recency filter display
 
+When you set a relative time filter using days (such as an event performed more than 84&nbsp;days and less than 91&nbsp;days ago), Braze converts the value to weeks after you save if the day count divides evenly by seven. For example, 91&nbsp;days displays as 13&nbsp;weeks, but 121&nbsp;days stays in days because it doesn't divide evenly. This is a display change only—the values are still stored and processed as days.
+
+{% alert important %}
+Segments already using the **Segment Membership** filter cannot be further included or nested into other segments. This prevents a cycle where Segment A includes Segment B, which then tries to include Segment A again. If this occurs, the segment keeps referencing itself, making it impossible to calculate who belongs in it.
+<br><br>
 Also, nesting segments like this adds complexity and can slow things down. Instead, recreate the segment you're trying to include using the same filters.
 {% endalert %}
 

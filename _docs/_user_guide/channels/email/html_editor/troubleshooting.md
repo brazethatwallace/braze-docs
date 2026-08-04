@@ -22,6 +22,8 @@ Match your symptom in the table to navigate to the relevant section.
 | Email displays Liquid code or broken links | [Unbalanced HTML in Liquid templates](#unbalanced-html-in-liquid-templates) |
 | Inbox Vision preview doesn't match sent email | [CSS inlining](#css-inlining) |
 | White space or lines after images in test emails | [White space under images](#white-space-under-images) |
+| Click analytics don't include query parameters | [Link click analytics limitations](#link-click-analytics-limitations) |
+| Superscripts cause inconsistent line spacing | [Superscript line height issues](#superscript-line-height-issues) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML email symptom" }
 
 ## Standard investigation path
@@ -134,4 +136,61 @@ Alternatively, apply the style directly to specific images:
 
 ```html
 <img src="https://example.com/image.jpg" style="display: block;" alt="Image description" />
+```
+
+## Link click analytics limitations {#link-click-analytics-limitations}
+
+### Symptom
+
+Click analytics for emails with many unique query parameters don't match your expectations. You may see aggregated click counts for de-parameterized URLs after the first 100 unique links.
+
+### How link click tracking works
+
+Braze tracks clicks on both parameterized URLs (with query parameters) and de-parameterized base URLs. For the first 100 unique parameterized links clicked in an email campaign or Canvas, Braze collects and reports data for both:
+
+- The full parameterized URL (for example, `https://example.com?user_id=12345`)
+- The de-parameterized base URL (for example, `https://example.com`)
+
+After the first 100 unique parameterized links are clicked, Braze only increments click counts for the de-parameterized base URL. This means:
+
+- Click analytics aggregate on the base domain and path instead of individual query parameter combinations
+- You can still track meaningful engagement based on link paths
+- Individual user-level click tracking continues to work normally
+
+This behavior prevents analytics from becoming bloated with thousands of unique query parameter combinations while still capturing overall link engagement patterns.
+
+### What this means for your campaigns
+
+If you rely on unique query parameters to track user-specific behavior in external platforms (for example, `https://example.com?user_id=USER_ID`), be aware that Braze click analytics will only preserve those parameters for the first 100 unique links clicked. After that threshold, clicks still register in your analytics but are attributed to the de-parameterized URL.
+
+User-level click data remains available through [Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents) or the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), regardless of how many unique parameterized links are clicked.
+
+### Superscript line height issues {#superscript-line-height-issues}
+
+#### Symptom
+
+Text with superscripts appears with inconsistent line spacing, where lines appear closer together or farther apart than intended. This is a common rendering issue across email clients and isn't specific to Braze.
+
+Superscript usage in emails can cause unexpected line height behavior because different email clients handle superscripted text in varying ways.
+
+#### Resolution
+
+Use the HTML editor to control the styling of superscripts and surrounding elements.
+
+To explicitly define line height, add inline CSS to set the `line-height` for the text:
+
+```html
+<p style="line-height: 1.5;">Example text with superscript<sup style="line-height: inherit;">1</sup></p>
+```
+
+To adjust vertical alignment, use the `vertical-align` property to align the superscript without disrupting line height:
+
+```html
+<sup style="vertical-align: top; font-size: smaller;">1</sup>
+```
+
+If superscripts continue to cause issues, use a `<span>` as an alternative to `<sup>` for more control:
+
+```html
+<span style="font-size: smaller; vertical-align: top;">1</span>
 ```

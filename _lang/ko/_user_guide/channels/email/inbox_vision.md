@@ -22,7 +22,7 @@ channel:
 
 일반적으로 사용자 프로필 정보와 같은 템플릿 정보에 의존하는 이메일 콘텐츠는 Inbox Vision에서 작동하지 않습니다. 이는 Braze가 이 기능을 사용하여 이메일을 전송할 때 빈 사용자를 템플릿으로 사용하기 때문입니다.
 
-Inbox Vision을 실행하기 전에 이메일 메시지의 Liquid에 기본값 또는 임의의 값을 추가하면 이 문제를 해결할 수 있습니다. Inbox Vision에서 테스트를 마치면 원래 이메일 메시지가 다시 나타납니다. 값이 제공되지 않으면 미리보기가 정상적으로 렌더링되지 않을 수 있습니다.
+Inbox Vision을 실행하기 전에 이메일 메시지의 Liquid에 기본값이나 임의의 값을 추가하면 이 문제를 해결할 수 있습니다. Inbox Vision에서 테스트를 마치면 원래 이메일 메시지가 다시 나타납니다. 값이 제공되지 않으면 미리보기가 정상적으로 렌더링되지 않을 수 있습니다.
 
 회사에는 Inbox Vision으로 미리볼 수 있는 이메일 수에 제한이 있습니다. Inbox Vision의 **이메일 미리보기** 탭에서 이를 모니터링할 수 있습니다.
 
@@ -40,10 +40,10 @@ Inbox Vision에서 이메일 메시지를 테스트하려면:
 4. **Inbox Vision 실행**을 선택합니다. 최대 10분이 소요될 수 있습니다.
 5. 그런 다음 타일을 선택하여 미리보기를 더 자세히 확인합니다. 미리보기는 **웹 클라이언트**, **애플리케이션 클라이언트**, **모바일 클라이언트** 섹션으로 그룹화되어 있습니다.
 
-![미리보기할 이메일 클라이언트를 선택하는 옵션]({% image_buster /assets/img/select_email_preview_inbox_vision.png %}){: style="max-width:85%;"}
+![미리보기할 이메일 클라이언트를 선택하는 옵션.]({% image_buster /assets/img/select_email_preview_inbox_vision.png %}){: style="max-width:85%;"}
 
 {:start="5"}
-5. **Inbox Vision 실행**을 선택합니다. 완료까지 2~10분이 소요될 수 있습니다.
+5. **Inbox Vision 실행**을 선택합니다. 완료까지 2분에서 10분 정도 소요될 수 있습니다.
 
 {% alert note %}
 Inbox Vision은 [중단 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)이 포함된 이메일 메시지를 지원하지 않습니다. 이러한 이메일은 정적 콘텐츠로 렌더링되기 때문입니다.
@@ -69,7 +69,7 @@ Braze가 스크린샷을 찍기 전에 이메일이 도착할 때까지 기다�
 
 ## 스팸 테스트 {#spam-testing}
 
-스팸 테스트는 메일이 스팸으로 필터링될 가능성을 추정합니다. IronPort, SpamAssassin, Barracuda와 같은 필터와 Gmail, Outlook과 같은 ISP 필터를 대상으로 테스트가 실행되며, 기본적으로 열람이나 클릭을 하지 않는 정적 시드 받은편지함을 사용합니다.
+스팸 테스트는 메일이 스팸으로 필터링될 가능성이 있는지 추정합니다. IronPort, SpamAssassin, Barracuda와 같은 필터와 Gmail, Outlook과 같은 ISP 필터를 대상으로 테스트가 실행되며, 기본적으로 열람이나 클릭을 하지 않는 정적 시드 받은편지함을 사용합니다.
 
 {% alert important %}
 받은편지함 배치는 주로 실시간 수신자 인게이지먼트에 의해 결정됩니다. 스팸 테스트 결과는 실제 Campaign에서 확인하는 결과와 다를 수 있습니다.
@@ -79,10 +79,10 @@ Braze가 스크린샷을 찍기 전에 이메일이 도착할 때까지 기다�
 
 ### 스팸 테스트 결과 확인하기 {#viewing-spam-test-results}
 
-스팸 테스트 결과를 확인하려면 다음을 수행하세요:
+스팸 테스트 결과를 확인하려면 다음을 수행합니다:
 
 1. **Inbox Vision** 섹션에서 **Spam Testing** 탭을 선택합니다. **Spam Test Result** 테이블에 스팸 필터 이름, 상태, 유형이 표시됩니다.
-2. 결과를 검토하고 이메일 캠페인에 필요한 조정을 수행합니다.
+2. 결과를 검토하고 이메일 캠페인에 필요한 조정을 합니다.
 3. **Re-run Test**를 선택하여 스팸 테스트 결과를 다시 로드합니다.
 
 ## 접근성 테스트 {#accessibility-testing}
@@ -139,24 +139,26 @@ Inbox Vision은 접근성 문제를 심각도별로 분류하여 수정 우선�
 
 ### 이메일 구독자 목록 검토 {#review-your-email-subscriber-list}
 
-[이메일 인사이트 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard)를 참조하여 구독자가 가장 많이 참여하는 인기 기기 유형과 공급자를 확인하세요. 브라우저, 기기 모델 등 더 세부적인 정보가 필요한 경우, [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터 또는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder)를 활용하여 사용자의 최근 이메일 인게이지먼트에 대한 세부 정보를 확인할 수 있습니다.
+[이메일 인사이트 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard)를 참조하여 구독자가 가장 많이 참여하는 기기 유형과 공급자를 확인하세요.
 
-그 외의 경우, Braze는 일반적인 업계 및 전문가 데이터를 기반으로 상위 20개 미리보기를 기본값으로 제공하며, 이는 구독자가 이메일에 참여하는 대부분의 환경을 포함합니다. 데이터 분석 결과 다른 인기 미리보기가 있는 경우, Inbox Vision을 실행할 때마다 기본 미리보기 세트를 직접 정의할 수 있습니다.
+브라우저, 기기 모델 등 더 세부적인 정보가 필요한 경우, [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터 또는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder)를 활용하여 사용자의 최근 이메일 인게이지먼트에 대한 세부 정보를 확인할 수 있습니다.
 
-### 의미 있는 미리보기와 영향을 받는 미리보기 선택 {#select-meaningful-previews-and-impacted-previews}
+### 의미 있는 미리보기 및 영향을 받는 미리보기 선택 {#select-meaningful-previews-and-impacted-previews}
 
-비즈니스가 주로 미국에 기반을 두고 있다면, GMX.de와 같은 해외 미리보기는 소수의 사용자만 사용할 수 있습니다. 상당한 구독자 영향력이 있는 받은편지함을 우선적으로 최적화하고, 미리보기를 영향력이 높은 받은편지함에 활용하는 것을 권장합니다.
+비즈니스가 주로 미국에 기반을 두고 있는 경우, GMX.de와 같은 해외 미리보기는 소수의 사용자만 사용할 수 있습니다. 구독자 영향이 큰 받은편지함을 우선적으로 최적화하고, 미리보기를 영향력이 높은 받은편지함에 활용하는 것을 권장합니다.
 
-특정 미리보기에 영향을 미치는 수정을 할 때는, 사용하지 않는 미리보기가 소모되지 않도록 영향을 받는 미리보기만 선택하세요.
+특정 미리보기에 영향을 미치는 수정을 할 때는 사용하지 않는 미리보기가 소모되지 않도록 영향을 받는 미리보기만 선택하세요.
 
 ### 최종 이메일 버전에서 Inbox Vision 실행 {#run-inbox-vision-on-the-final-email-version}
 
-이메일 메시지가 프로덕션 준비가 완료되었거나 거의 완료된 상태에서 Inbox Vision을 실행하는 것을 권장합니다. 이렇게 하면 이메일이 최종 확정되어 사용자에게 발송될 준비가 되기 전에 여러 번의 반복 작업을 거치므로, 생성되는 미리보기 수를 줄일 수 있습니다.
+이메일 메시지가 프로덕션 준비가 되었거나 거의 완료된 상태에서 Inbox Vision을 실행하는 것을 권장합니다. 이렇게 하면 이메일이 최종 확정되어 사용자에게 발송될 준비가 되기 전에 여러 번 반복되는 과정에서 생성되는 미리보기 수를 줄일 수 있습니다.
 
 단일 편집이나 변경을 할 때마다 Inbox Vision을 실행하면 미리보기가 빠르게 소모될 수 있습니다. 먼저 이메일에 필요한 모든 변경 사항을 적용한 후 Inbox Vision을 실행하여 모든 변경 사항이 다양한 환경에서 이메일 렌더링에 어떤 영향을 미치는지 미리보기하는 것을 권장합니다.
 
-Braze는 실제 이메일 클라이언트를 통해 테스트를 실행하며 렌더링이 정확하도록 노력합니다. 특정 클라이언트에서 지속적으로 문제가 발생하는 경우, [지원 티켓]({{site.baseurl}}/braze_support)을 제출하세요.
+Braze는 실제 이메일 클라이언트를 통해 테스트를 실행하며 렌더링이 정확하도록 노력합니다. Braze는 일반적인 업계 및 전문가 데이터를 기반으로 상위 20개 미리보기를 기본값으로 설정하며, 이는 사용자가 이메일에 참여하는 대부분의 환경을 포함합니다. 데이터 분석 결과 다른 더 인기 있는 미리보기가 있는 경우, Inbox Vision을 실행할 때마다 기본 미리보기 세트를 정의할 수 있습니다.
+
+특정 클라이언트에서 지속적으로 문제가 발생하는 경우, [지원 티켓]({{site.baseurl}}/braze_support)을 제출하세요.
 
 ### 테스트 정확도와 실제 받은편지함 비교 {#test-accuracy-versus-live-inboxes}
 
-발송된 메시지는 편집기 미리보기와 다르게 보일 수 있습니다. 이는 공급자마다 동일한 HTML을 다르게 해석하기 때문입니다. 발송된 HTML의 사본을 다운로드하여 비교하고, 클라이언트가 `<style>` 블록을 제거하는 경우 CSS 인라이닝을 사용하세요.
+발송된 메시지는 공급자가 동일한 HTML을 다르게 해석하기 때문에 편집기 미리보기와 다르게 보일 수 있습니다. 발송된 HTML의 사본을 다운로드하여 비교하고, 클라이언트가 `<style>` 블록을 제거하는 경우 CSS 인라이닝을 사용하세요.

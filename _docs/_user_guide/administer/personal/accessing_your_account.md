@@ -228,7 +228,17 @@ If you're a new Braze user having trouble logging in or accessing your account f
 
 #### I received the email, but I'm stuck setting up two-factor authentication (2FA)
 
-- Reset 2FA: If you're having trouble setting up 2FA, your admin can reset 2FA for your user account in the settings.
+If you select **Start setup** during 2FA setup but never receive a verification code (for SMS or email) or cannot complete authenticator app setup, browser extensions, cookie settings, or network restrictions may be interfering. Try the following:
+
+- Disable ad-blockers and enable third-party cookies: Ad-blockers or privacy extensions may block the 2FA verification flow. Temporarily disable them and confirm third-party cookies are enabled in your browser settings.
+- Try a different browser: Switch to a different browser to rule out browser-specific issues.
+- Switch networks: If you're on a corporate network, firewall policies may interfere with 2FA setup. Try switching to a personal connection or mobile hotspot.
+- Install an authenticator app before browser setup: Download and install an authenticator app (such as Authy, Google Authenticator, or LastPass Authenticator) on your mobile device before selecting **Authenticator app** during setup.
+- Delete stale authenticator profiles: If you previously started authenticator app setup but it didn't complete, delete any stale profiles in your app and re-scan the QR code.
+
+If you continue to have trouble after trying these steps:
+
+- Reset 2FA: Your admin can reset 2FA for your user account in the settings.
 - Re-add user: If issues persist, the admin can delete your user account from the dashboard and re-add you. This allows for the creation of the user with the same details.
 
 If problems continue after these steps, contact [Support]({{site.baseurl}}/braze_support) for further assistance.

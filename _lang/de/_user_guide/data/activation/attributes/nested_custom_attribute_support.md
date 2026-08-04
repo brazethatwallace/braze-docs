@@ -35,16 +35,16 @@ Im folgenden Beispiel enthält das angepasste Attribut `favorite_book` die versc
 - Schlüsselnamen und String-Werte haben eine Größenbeschränkung von 255 Zeichen.
 - Schlüsselnamen dürfen keine Leerzeichen enthalten.
 - Punkte (`.`) und Dollarzeichen (`$`) werden in einem API-Payload nicht unterstützt, wenn Sie versuchen, ein verschachteltes angepasstes Attribut an ein Nutzerprofil zu senden.
-- Nicht alle Braze-Partner unterstützen verschachtelte angepasste Attribute. Lesen Sie die [Partnerdokumentation]({{site.baseurl}}/partners/home), um zu prüfen, ob bestimmte Partnerintegrationen dieses Feature unterstützen.
+- Nicht alle Braze-Partner unterstützen verschachtelte angepasste Attribute. Lesen Sie die [Partner-Dokumentation]({{site.baseurl}}/partners/home), um zu prüfen, ob bestimmte Partnerintegrationen dieses Feature unterstützen.
 - Verschachtelte angepasste Attribute können nicht als Filter bei einem Connected-Audience-API-Aufruf verwendet werden.
 - Standardmäßig umfasst der Segment-Filter **Verschachtelte angepasste Attribute** angepasste Attribute vom Typ „Objekt“, Attribute vom Typ „Array von Objekten“ und angepasste Attribute vom Typ „Array“. Wenn Sie ein Attribut auswählen, enthält der Eigenschaftsschema-Selektor Array-Pfade (mit `[]`-Notation) für verschachtelte Array-Felder. Um angepasste Attribute vom Typ „Array“ auf oberster Ebene aus diesem Filter auszublenden, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support).
-- Wenn Sie Nachrichten im Dashboard mit **Als angepasste:r Nutzer:in anzeigen** in der Vorschau betrachten, können Sie Testdaten nur als String oder String-Array eingeben – verschachtelte Objekte werden nicht unterstützt. Um eine Nachricht in der Vorschau anzuzeigen, die auf verschachtelte angepasste Attribute verweist, wählen Sie eine:n bestehende:n Nutzer:in aus, die/der das verschachtelte Attribut bereits in ihrem/seinem Profil hat. Für verschachtelte angepasste Event-Eigenschaften müssen Sie eine Live-Campaign starten, die auf eine:n Testnutzer:in ausgerichtet ist, um das Rendering zu überprüfen.
+- Wenn Sie Nachrichten im Dashboard mit **Als angepasste:r Nutzer:in in der Vorschau anzeigen** in der Vorschau betrachten, können Sie Testdaten nur als String oder String-Array eingeben – verschachtelte Objekte werden nicht unterstützt. Um eine Nachricht in der Vorschau anzuzeigen, die auf verschachtelte angepasste Attribute verweist, wählen Sie eine:n bestehende:n Nutzer:in aus, die bzw. der das verschachtelte Attribut bereits in ihrem bzw. seinem Profil hat. Für verschachtelte angepasste Event-Eigenschaften müssen Sie eine Live-Campaign starten, die auf eine:n Testnutzer:in ausgerichtet ist, um das Rendering zu überprüfen.
 
 ## API-Beispiel {#api-example}
 
 {% tabs local %}
 {% tab Erstellen %}
-Das folgende Beispiel zeigt eine `/users/track`-Anfrage mit einem „Most Played Song“-Objekt. Um die Eigenschaften des Songs zu erfassen, senden wir eine API-Anfrage, die `most_played_song` als Objekt zusammen mit einer Reihe von Objekt-Eigenschaften auflistet.
+Das folgende Beispiel zeigt eine `/users/track`-Anfrage mit einem „Most Played Song“-Objekt. Um die Eigenschaften des Songs zu erfassen, senden wir eine API-Anfrage, die `most_played_song` als Objekt zusammen mit einer Reihe von Objekteigenschaften auflistet.
 
 ```json
 {
@@ -101,7 +101,7 @@ Nachdem diese Anfrage empfangen wurde, sieht das angepasste Attribut-Objekt wie 
 ```
 
 {% alert warning %}
-Sie müssen `_merge_objects` auf `true` setzen, da Ihre Objekte sonst überschrieben werden. `_merge_objects` ist standardmäßig auf `false` gesetzt.
+Sie müssen `_merge_objects` auf `true` setzen, da Ihre Objekte andernfalls überschrieben werden. `_merge_objects` ist standardmäßig auf `false` gesetzt.
 {% endalert %}
 
 {% endtab %}
@@ -128,7 +128,9 @@ Dieser Ansatz kann nicht verwendet werden, um einen verschachtelten Schlüssel i
 
 ## SDK-Beispiel {#sdk-example}
 
-{% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 %}
+{% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 unity:5.1.0 %}
+
+Die folgenden Beispiele zeigen, wie Sie dasselbe verschachtelte angepasste Attribut-Objekt (`most_played_song`) über die einzelnen SDKs erstellen, per Merge aktualisieren und löschen können.
 
 {% tabs local %}
 {% tab Android SDK %}
@@ -238,9 +240,41 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 ```
 
 {% endtab %}
+{% tab Unity SDK %}
+
+**Erstellen**
+```csharp
+Dictionary<string, object> attributes = new Dictionary<string, object>();
+attributes.Add("song_name", "Solea");
+attributes.Add("artist_name", "Miles Davis");
+attributes.Add("album_name", "Sketches of Spain");
+attributes.Add("genre", "Jazz");
+
+Dictionary<string, object> playAnalytics = new Dictionary<string, object>();
+playAnalytics.Add("count", 1000);
+playAnalytics.Add("top_10_listeners", true);
+attributes.Add("play_analytics", playAnalytics);
+
+AppboyBinding.SetCustomUserAttribute("most_played_song", attributes);
+```
+
+**Aktualisieren**
+```csharp
+Dictionary<string, object> attributes = new Dictionary<string, object>();
+attributes.Add("year_released", 1960);
+
+AppboyBinding.SetCustomUserAttribute("most_played_song", attributes, true);
+```
+
+**Löschen**
+```csharp
+AppboyBinding.UnsetCustomUserAttribute("most_played_song");
+```
+
+{% endtab %}
 {% endtabs %}
 
-## Erfassen von Datumsangaben als Objekteigenschaften {#capturing-dates-as-object-properties}
+## Datumsangaben als Objekteigenschaften erfassen {#capturing-dates-as-object-properties}
 
 Um Datumsangaben als Objekteigenschaften zu erfassen, müssen Sie den Schlüssel `$time` verwenden. Im folgenden Beispiel wird ein Objekt „Important Dates“ verwendet, um die Objekteigenschaften `birthday` und `wedding_anniversary` zu erfassen. Der Wert für diese Datumsangaben ist ein Objekt mit einem `$time`-Schlüssel, der kein Nullwert sein darf.
 
@@ -266,9 +300,9 @@ Wenn Sie Datumsangaben nicht von Anfang an als Objekteigenschaften erfasst haben
 Bei verschachtelten angepassten Attributen speichert Braze Werte nicht für Nutzer:innen, wenn das Jahr kleiner als 0 oder größer als 3000 ist.
 {% endalert %}
 
-## Liquid-Templating {#liquid-templating}
+## Liquid-Vorlagen {#liquid-templating}
 
-Das folgende Liquid-Templating-Beispiel zeigt, wie Sie die angepassten Attribut-Objekteigenschaften referenzieren, die aus der vorhergehenden API-Anfrage gespeichert wurden, und sie in Ihren Nachrichten verwenden.
+Das folgende Liquid-Vorlagenbeispiel zeigt, wie Sie die angepassten Attribut-Objekteigenschaften referenzieren, die aus der vorhergehenden API-Anfrage gespeichert wurden, und sie in Ihren Nachrichten verwenden.
 
 Verwenden Sie den Personalisierungs-Tag `custom_attribute` und die Punktnotation, um auf Eigenschaften eines Objekts zuzugreifen. Geben Sie den Namen des Objekts (und die Position im Array, wenn Sie auf ein Objekt-Array verweisen) an, gefolgt von einem Punkt, gefolgt vom Eigenschaftsnamen.
 
@@ -280,9 +314,9 @@ Verwenden Sie den Personalisierungs-Tag `custom_attribute` und die Punktnotation
 
 So verwenden Sie verschachtelte angepasste Attribute als Liquid in Ihrer Nachricht:
 
-1. Gehen Sie zu einer Campaign oder einem Canvas und öffnen Sie den Nachrichtenschritt, in dem Sie Personalisierung hinzufügen möchten.
+1. Gehen Sie zu einer Campaign oder einem Canvas und öffnen Sie dann den Nachrichtenschritt, in dem Sie Personalisierung hinzufügen möchten.
 2. Fügen Sie im Nachrichten-Editor das Liquid-Snippet an der Stelle ein, an der der Wert erscheinen soll.
-3. Verwenden Sie **Vorschau & Test** mit einer bestehenden Nutzer:in, die das verschachtelte angepasste Attribut bereits in ihrem Profil hat, um zu bestätigen, dass der Wert wie erwartet gerendert wird.
+3. Verwenden Sie **Vorschau und Test** mit einer bestehenden Nutzer:in, die das verschachtelte angepasste Attribut bereits in ihrem Profil hat, um zu bestätigen, dass der Wert wie erwartet gerendert wird.
 
 ### Personalisierung {#personalization}
 
@@ -290,7 +324,7 @@ Sie können **Personalisierung hinzufügen** verwenden, um ein verschachteltes a
 
 So öffnen Sie **Personalisierung hinzufügen**:
 
-1. Gehen Sie zu einer Campaign oder einem Canvas und öffnen Sie den Nachrichtenschritt, in dem Sie Personalisierung hinzufügen möchten.
+1. Gehen Sie zu einer Campaign oder einem Canvas und öffnen Sie dann den Nachrichtenschritt, in dem Sie Personalisierung hinzufügen möchten.
 2. Wählen Sie im Nachrichten-Editor **Personalisierung** aus, um die Seitenleiste **Personalisierung hinzufügen** zu öffnen, in der Sie Personalisierungsoptionen auswählen können.
 
 So konfigurieren Sie die Personalisierung mit verschachtelten angepassten Attributen:
@@ -362,7 +396,7 @@ Wenn Sie feststellen, dass verschachtelte angepasste Attributwerte nicht konsist
 
 So diagnostizieren und beheben Sie dieses Problem:
 
-1. **Nutzerbeispiele vergleichen:** Beschaffen Sie sich ein erfolgreiches und ein nicht erfolgreiches Nutzerbeispiel, bei dem das verschachtelte angepasste Attribut hätte gesetzt werden sollen.
+1. **Nutzerbeispiele vergleichen:** Beschaffen Sie sich ein erfolgreiches und ein nicht erfolgreiches Nutzerbeispiel, bei dem das verschachtelte angepasste Attribut gesetzt worden sein sollte.
 2. **Datenstruktur überprüfen:** Sehen Sie sich die angepassten Attributwerte in beiden Profilen an und vergleichen Sie sie:
    - Sind die Eigenschaften unter einem Objekt gespeichert?
    - Sind die Eigenschaften als Array von Eigenschaften gespeichert?
@@ -370,15 +404,15 @@ So diagnostizieren und beheben Sie dieses Problem:
 4. **Datentyp überprüfen:** So identifizieren Sie den Datentyp eines angepassten Attributs:
    - Gehen Sie zu **Dateneinstellungen** > **Angepasste Attribute**.
    - Suchen Sie nach dem übergeordneten angepassten Attribut, das das verschachtelte Attribut enthält, das Sie überprüfen möchten.
-   - Wenn in der Zeile **Schema generieren** angezeigt wird, wählen Sie diese Option, um zuerst das Schema zu generieren.
+   - Wenn in der Zeile **Schema generieren** angezeigt wird, wählen Sie diese Option, um das Schema zuerst zu generieren.
    - Nachdem das Schema generiert wurde, wählen Sie das Plus-Symbol in der Spalte **Attributname** für dieses Attribut.
    - Überprüfen Sie im Modal **Schema bearbeiten** die verschachtelten Attribute und ihre entsprechenden Werte in der Spalte **Datentyp**.
 
-Wenn Sie feststellen, dass der Datentyp nicht dem beabsichtigten Format über die Nutzerprofile hinweg entspricht, entfernen Sie den falsch formatierten Wert aus den betroffenen Nutzerprofilen und senden Sie das Attribut im korrekten Format erneut, indem Sie die entsprechende API-Anfrage oder SDK-Methode verwenden.
+Wenn Sie feststellen, dass der Datentyp nicht mit dem beabsichtigten Format über die Nutzerprofile hinweg übereinstimmt, entfernen Sie den falsch formatierten Wert aus den betroffenen Nutzerprofilen und senden Sie das Attribut im korrekten Format erneut, indem Sie die entsprechende API-Anfrage oder SDK-Methode verwenden.
 
 ## Segmentierungsverhalten bei Objekt-Arrays {#segmentation-behavior-with-arrays-of-objects}
 
-Wenn Sie mehrere Filter für verschachtelte angepasste Attribute mit UND-Logik verwenden, um auf einem Objekt-Array zu segmentieren, wird jeder Filter unabhängig über alle Elemente im Array ausgewertet. Nutzer:innen qualifizieren sich für das Segment, wenn _irgendein_ Element im Array jeden einzelnen Filter erfüllt – die Filter müssen nicht auf _dasselbe_ Element zutreffen.
+Wenn Sie mehrere Filter für `Nested Custom Attribute` mit UND-Logik verwenden, um auf einem Objekt-Array zu segmentieren, wird jeder Filter unabhängig über alle Elemente im Array ausgewertet. Nutzer:innen qualifizieren sich für das Segment, wenn _irgendein_ Element im Array jeden einzelnen Filter erfüllt – die Filter müssen nicht auf _dasselbe_ Element zutreffen.
 
 Angenommen, Nutzer:innen haben das folgende Array:
 
@@ -398,7 +432,7 @@ Ein Segment mit den folgenden UND-Filtern:
 
 Diese Nutzer:innen würden sich qualifizieren, weil der erste Filter auf den Artikel „Shoes“ zutrifft (80 > 50) und der zweite Filter auf den Artikel „Hat“ zutrifft (25 < 30). Obwohl kein einzelnes Element beide Bedingungen erfüllt, werden die Nutzer:innen trotzdem in das Segment aufgenommen.
 
-Wenn alle Bedingungen auf dasselbe Element innerhalb eines Arrays zutreffen müssen, verwenden Sie die [Multikriterien-Segmentierung]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) auf demselben Pfad oder strukturieren Sie Ihre Daten um, um elementübergreifende Übereinstimmungen zu vermeiden.
+Wenn alle Bedingungen auf dasselbe Element innerhalb eines Arrays zutreffen müssen, verwenden Sie die [Multikriterien-Segmentierung]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) auf demselben Pfad oder strukturieren Sie Ihre Daten um, um elementübergreifendes Matching zu vermeiden.
 
 ## Datenpunkte {#data-points}
 

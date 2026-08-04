@@ -39,6 +39,8 @@ python3 scripts/salesforce-analyzer/generate_kb_phase1_outputs.py --no-prune
 
 python3 scripts/salesforce-analyzer/sf_kb_sync_tracker.py [--dry-run]
 
+python3 scripts/salesforce-analyzer/sf_kb_overlap_scan.py [--doc-path '_docs/...']
+
 python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py [--limit N] [--doc-path '_docs/...']
 
 python3 scripts/salesforce-analyzer/sf_kb_jira_ticket.py --pr-url '...' --pr-title '[BD-####](SF) ...' --doc-path '_docs/...'   # needs JIRA_USER_EMAIL + JIRA_API_TOKEN
@@ -51,7 +53,8 @@ python3 scripts/prune_data_files.py --confirm [--group support-csv|kb-generated|
 
 | Script | Purpose |
 |--------|---------|
-| `generate_kb_phase1_outputs.py` | Phase 1 gates, path inference, actioned/skipped markdown; `--infer-doc-paths` / prune flags |
+| `generate_kb_phase1_outputs.py` | Phase 1 gates, path inference, actioned/skipped markdown; `--infer-doc-paths` / prune flags; overlap scan in actioned output |
+| `sf_kb_overlap_scan.py` | Overlap scan before Phase 2: open/draft/merged PRs, `article_id` claims, `develop` marker/commits, remote `sf-cursor-*` branches |
 | `sf_kb_sync_tracker.py` | PR-labeled `article_id`s → drop from CSV → rerun Phase 1 markdown |
 | `prune_data_files.py` | Remove stale `_data/` artifacts (`--group kb-generated` after Phase 3 write-back) |
 | `sf_kb_phase2_run_batches.py` | `gh` (+ optional Jira): pastes full `suggested_change` into `_docs/` (expects strong draft); polish to ship-ready before merge |
@@ -70,7 +73,7 @@ If the script marks something actionable, accept it and proceed to Phase 2 witho
 
 | Gate | Skip condition |
 |------|----------------|
-| `implementation_status` | First line is `archived` or `actioned`, or any unlisted value |
+| `implementation_status` | First line is `archived` or `actioned`, or any value other than empty, `not started`, `to be actioned`, or `delta ka` |
 | `target` | Value is `inconclusive` |
 | `conflict_resolution` | Contains `human review`, `no source`, `codebase inconclusive`, or `inconclusive —` |
 | `suggested_change` | Empty, whitespace, or first line starts with: `might`, `may`, `consider reviewing`, `review`, `tbd`, `unclear`, `needs investigation`, `needs sme`, `flag for` |
@@ -104,6 +107,15 @@ If the script marks something actionable, accept it and proceed to Phase 2 witho
 ## Phase 2: Draft + PR
 
 **Scope:** section 1 of `kb_articles_actioned.md` — same `doc_path` → one PR, one primary `_docs` file (`_includes/` only if needed).
+
+**Overlap scan (required before opening work):** Run `sf_kb_overlap_scan.py` or `sf_kb_phase2_run_batches.py` (which runs the scan automatically). A batch is **blocked** when any of the following apply:
+
+- An **open** or **draft** PR (any label) already edits the target `_docs/` / `_includes/` file
+- The batch `article_id`(s) already appear in an open or merged PR body
+- `develop` already contains the Phase 2 batch marker (`<!-- sf-kb-phase2-batch -->`) in that file
+- A remote `sf-cursor-<slug>-*` branch exists for the doc path
+
+**Warnings** (non-blocking unless you pass `--ignore-warnings` to the Phase 2 runner): recent merged PRs that touched the same file, or recent `SF KB` commits on `develop` for that path.
 
 1. Read backlog; optional `sf_kb_articles.csv`; redact PII.
 2. **Verify** in reference repos (`inconclusive` especially). Prefer platform/source over SF copy.

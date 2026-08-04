@@ -147,10 +147,10 @@ This filter allows you to segment based on a user's custom attribute. These filt
 
 The custom attribute's data type determines the comparisons that are valid for a given filter.
 
-| Custom Attribute Type | Allowed Comparisons |
+| Custom attribute type | Allowed comparisons |
 | ---------------------| --------------- |
-| String | `equals`, `not_equal`, `matches_regex`, `does_not_match_regex`, `exists`, `does_not_exist` |
-| Array | `includes_value`, `does_not_include_value`, `exists`, `does_not_exist` |
+| String | `equals`, `not_equal`, `matches_regex`, `does_not_match_regex`, `exists`, `does_not_exist`, `is_any_of`, `is_none_of` |
+| Array | `includes_value`, `does_not_include_value`, `exists`, `does_not_exist`, `is_any_of`, `is_none_of` |
 | Numeric | `equals`, `not_equal`, `greater_than`, `greater_than_or_equal_to`, `less_than`, `less_than_or_equal_to`, `exists`, `does_not_exist` |
 | Boolean | `equals`, `not_equal`, `exists`, `does_not_exist` |
 | Time | `less_than_x_days_ago`, `greater_than_x_days_ago`, `less_than_x_days_in_the_future`, `greater_than_x_days_in_the_future`, `after`, `before`, `exists`, `does_not_exist` |
@@ -164,7 +164,23 @@ The custom attribute's data type determines the comparisons that are valid for a
 |`matches_regex` | When using the `matches_regex` comparison, the value passed must be a string. To read more about using regular expressions with Braze, refer to [Regular expressions]({{site.baseurl}}/user_guide/engagement_tools/segments/regex#regex-with-braze) and [Custom attribute data types]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#custom-attribute-data-types). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Attribute comparison caveats" }
 
-#### Custom attribute example
+#### Multi-value comparisons
+
+Both `is_any_of` and `is_none_of` support matching against multiple values in a single comparison. These comparisons work with both string and array custom attributes.
+
+- `is_any_of`: Matches users whose attribute value equals any of the provided values. The `value` can be a single string or an array of strings.
+- `is_none_of`: Matches users whose attribute value does not match any of the provided values. The `value` can be a single string or an array of strings. Note that users without the attribute on their profile always qualify for this comparison.
+
+For array attributes:
+
+- `includes_value` can also accept an array of values to check if the user's array contains any of the specified values.
+- When using `is_any_of` or `is_none_of` with array attributes, they function the same as `includes_value` and `does_not_include_value` respectively.
+
+{% alert tip %}
+For multi-value matching, use `is_any_of` rather than `includes_value`.
+{% endalert %}
+
+#### Custom attribute examples
 
 ```json
 {
@@ -198,6 +214,50 @@ The custom attribute's data type determines the comparisons that are valid for a
   }
 }
 ```
+
+#### Multi-value comparison examples
+
+##### `is_any_of` with an array of strings
+
+```json
+{
+  "custom_attribute":
+  {
+    "custom_attribute_name": "favorite_color",
+    "comparison": "is_any_of",
+    "value": ["red", "blue", "green"]
+  }
+}
+```
+
+##### `is_none_of` with an array of strings
+
+```json
+{
+  "custom_attribute":
+  {
+    "custom_attribute_name": "subscription_tier",
+    "comparison": "is_none_of",
+    "value": ["bronze", "silver"]
+  }
+}
+```
+
+##### `includes_value` with an array (array attribute)
+
+```json
+{
+  "custom_attribute":
+  {
+    "custom_attribute_name": "subscribed_products",
+    "comparison": "includes_value",
+    "value": ["1001", "1002", "1003"]
+  }
+}
+```
+
+This matches users whose `subscribed_products` array contains any of the values `"1001"`, `"1002"`, or `"1003"`.
+
 ### Push subscription filter
 
 This filter allows you to segment based on a user's push subscription status.

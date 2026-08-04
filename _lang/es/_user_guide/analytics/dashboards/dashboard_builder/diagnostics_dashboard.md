@@ -16,7 +16,7 @@ El dashboard de **diagnóstico de mensajería** está disponible de forma genera
 {% endalert %}
 
 {% alert note %}
-Para acceder al dashboard de **diagnóstico de mensajería**, necesitas el [permiso de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) "View Dashboard Reports" en tu espacio de trabajo.
+Para acceder al dashboard de **diagnóstico de mensajería**, necesitas los [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) "View Dashboard Reports" y "View PII" en tu espacio de trabajo.
 {% endalert %}
 
 ## Conceptos clave {#key-concepts}
@@ -25,7 +25,7 @@ Para acceder al dashboard de **diagnóstico de mensajería**, necesitas el [perm
 
 Es fundamental entender que este panel informa sobre cómo Braze procesó internamente un mensaje, no sobre el estado final de entrega del mensaje.
 
-Un mensaje marcado como "enviado" en este panel significa que Braze procesó y despachó el mensaje con éxito. Para la mayoría de los canales, esto significa que Braze entregó el mensaje al partner de envío externo correspondiente. Sin embargo, no garantiza la entrega final al dispositivo del usuario.
+Un mensaje marcado como "enviado" en este panel significa que Braze procesó y despachó el mensaje correctamente. Para la mayoría de los canales, esto significa que Braze entregó el mensaje al partner de envío externo correspondiente. Sin embargo, no garantiza la entrega final al dispositivo del usuario.
 
 Cuando Braze "envía" un mensaje, la entrega final puede depender de servicios externos. Considera los siguientes ejemplos para cada canal.
 
@@ -34,11 +34,11 @@ Cuando Braze "envía" un mensaje, la entrega final puede depender de servicios e
 | Content Cards | La tarjeta fue enviada y es elegible para ser vista. |
 | Correo electrónico | Braze entrega el mensaje a un proveedor de servicios de correo electrónico (ESP). El ESP es entonces responsable de la entrega final. Ese ESP, por ejemplo, puede reportar un "rebote" si la dirección de correo electrónico no es válida o el buzón de entrada está lleno. |
 | In-App Messages | El mensaje fue visto por el usuario y se registró una impresión. |
-| LINE | El mensaje fue entregado con éxito a un partner de envío. |
+| LINE | El mensaje fue entregado correctamente a un partner de envío. |
 | Push | Braze entrega el mensaje al servicio de notificaciones push correspondiente (como Apple Push Notification service para iOS o Firebase Cloud Messaging para Android). Ese servicio es responsable de la entrega final de la notificación al dispositivo. |
 | SMS/MMS/RCS | Braze entrega el mensaje a una pasarela de SMS (como Twilio). Esa pasarela es responsable de la entrega final al operador móvil. |
-| Webhooks | La solicitud del webhook se realizó con éxito, devolviendo una respuesta `2xx`. |
-| WhatsApp | El mensaje fue entregado con éxito a un partner de envío. |
+| Webhooks | La solicitud de webhook se realizó correctamente, devolviendo una respuesta `2xx`. |
+| WhatsApp | El mensaje fue entregado correctamente a un partner de envío. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Enviado y entregado" }
 
 ### Actualización de los datos {#data-freshness}
@@ -72,7 +72,7 @@ En la parte superior de la página, hay mosaicos de resumen clave para el period
   - **Webhooks:** La solicitud de webhook se realizó correctamente y devolvió una respuesta `2xx`.
   - **Content Cards:** La tarjeta se envió y es elegible para ser vista.
   - **In-App Messages:** El mensaje se mostró al usuario.
-- **No enviados:** El recuento total de mensajes que fueron cancelados. Esto incluye miembros de la audiencia de Canvas que no entraron al Canvas o salieron del Canvas porque experimentaron un fallo en un paso o cumplieron los criterios de salida al realizar un evento de salida.
+- **No enviados:** El recuento total de mensajes que fueron cancelados. Esto incluye miembros de la audiencia de Canvas que no entraron en el Canvas o salieron del Canvas porque experimentaron un fallo en un paso o cumplieron los criterios de salida mientras realizaban un evento de salida.
 
 ### Resultados de mensajes a lo largo del tiempo {#message-outcomes-over-time}
 
@@ -91,7 +91,7 @@ Cuando aplicas ambos filtros, la tabla devuelve las filas que coinciden tanto co
 
 Selecciona una fila en la tabla para abrir el panel de detalles. El panel de detalles proporciona contexto adicional sobre ese resultado y Ask Operator ofrece orientación de corrección para ayudarte a solucionar el problema subyacente.
 
-![Registro granular de resultados de Messaging Diagnostics con una fila seleccionada y acceso al panel de detalles.]({% image_buster /assets/img/messaging_diagnostics_dashboard_details_log.png %}){: style="max-width:45%;"} ![Panel de detalles de Messaging Diagnostics expandido con contexto del resultado y orientación de corrección.]({% image_buster /assets/img/messaging_diagnostics_dashboard_drawer_expanded.png %}){: style="max-width:45%;"}
+![Registro granular de resultados de diagnóstico de mensajería con una fila seleccionada y acceso al panel de detalles.]({% image_buster /assets/img/messaging_diagnostics_dashboard_details_log.png %}){: style="max-width:45%;"} ![Panel de detalles de diagnóstico de mensajería expandido con contexto del resultado y orientación de corrección.]({% image_buster /assets/img/messaging_diagnostics_dashboard_drawer_expanded.png %}){: style="max-width:45%;"}
 
 {% alert note %}
 Los filtros de canal se aplican a resultados que están vinculados a un canal de mensajería específico. Algunos resultados son independientes del canal, por lo que pueden seguir apareciendo en vistas agregadas incluso cuando aplicas un filtro de canal.
@@ -102,7 +102,7 @@ Los filtros de canal se aplican a resultados que están vinculados a un canal de
 Las siguientes definiciones explican los resultados de cancelación que se muestran en el panel. Los resultados están agrupados por categoría para facilitar la búsqueda del que estás investigando.
 
 {% alert note %}
-Los resultados de cancelación en Messaging Diagnostics son etiquetas legibles del panel. En los [eventos de participación de mensajes de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), la información de cancelación se representa con campos como `abort_type` y `abort_log`. Dado que estos conjuntos de datos tienen representaciones y rutas de procesamiento diferentes, los recuentos o la nomenclatura pueden diferir entre Currents y Messaging Diagnostics.
+Los resultados de cancelación en diagnóstico de mensajería son etiquetas legibles del panel. En los [eventos de participación de mensajes de Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), la información de cancelación se representa con campos como `abort_type` y `abort_log`. Dado que estos conjuntos de datos tienen representaciones y rutas de procesamiento diferentes, los recuentos o la nomenclatura pueden diferir entre Currents y el diagnóstico de mensajería.
 {% endalert %}
 
 #### Contenido y renderizado {#content-and-rendering}
@@ -111,11 +111,11 @@ Los resultados de cancelación en Messaging Diagnostics son etiquetas legibles d
 | ---- | ---- |
 | Content Card expirada | La Content Card expiró antes de que el usuario la viera. |
 | Content Card no válida | La Content Card tenía errores y no se envió al usuario. Algunas razones comunes incluyen: {::nomarkdown}<ul><li> Se superó el tamaño máximo (2 KB) </li><li> La fecha de expiración no es válida </li><li> El mensaje contiene caracteres no válidos </li></ul>{:/} |
-| Fallo de contenido conectado | Braze intentó enviar el mensaje, pero el contenido conectado falló después del número máximo de reintentos (cinco por defecto). **Nota:** Este recuento representa el número de mensajes cancelados por alcanzar el número máximo de reintentos, no el número total de solicitudes de contenido conectado fallidas. |
+| Fallo de contenido conectado | Braze intentó enviar el mensaje, pero el contenido conectado falló después del número máximo de reintentos (el predeterminado es cinco). **Nota:** Este recuento representa el número de mensajes cancelados por alcanzar el número máximo de reintentos, no el número total de solicitudes de contenido conectado fallidas. |
 | Tiempo de espera de renderizado de mensaje dentro de la aplicación | Después de múltiples intentos de reintento, el Liquid no pudo renderizarse y se agotó el tiempo de espera. |
 | Cancelación por Liquid | Se llamó a la etiqueta de Liquid [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages), por lo que se canceló el envío. |
-| Tiempo de espera de renderizado de Liquid | El renderizado de la plantilla de Liquid tardó demasiado. Es más probable que ocurra con Banners, mensajes dentro de la aplicación y correo electrónico. |
-| Error de sintaxis de Liquid | La plantilla de Liquid tuvo un error de análisis, por lo que se canceló el mensaje. |
+| Tiempo de espera de renderizado de Liquid | El renderizado de la plantilla de Liquid tardó demasiado. Es más probable que ocurra con banners, mensajes dentro de la aplicación y correo electrónico. |
+| Error de sintaxis de Liquid | La plantilla de Liquid tenía un error de análisis, por lo que se canceló el mensaje. |
 | Fallo de URL de medios | Braze no pudo procesar la URL de medios en el mensaje. Esto puede ocurrir cuando la URL está bloqueada, no es válida, se agota el tiempo de espera, devuelve un estado HTTP no válido o falla la validación SSL. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Contenido y renderizado" }
 
@@ -123,7 +123,7 @@ Los resultados de cancelación en Messaging Diagnostics son etiquetas legibles d
 
 | Resultado de cancelación | Explicación |
 | ---- | ---- |
-| Fallo en el paso de retraso | El [paso de retraso]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays) falló, lo que provocó que el usuario saliera del Canvas. Este fallo puede ocurrir cuando: {::nomarkdown}<ul><li> La variable proporcionada al paso de retraso personalizado estaba vacía o era de un tipo no válido </li><li> El retraso supera la duración máxima permitida dentro del Canvas</li></ul>{:/} |
+| Fallo del paso de retraso | El [paso de retraso]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays) falló, lo que provocó que el usuario saliera del Canvas. Este fallo puede ocurrir cuando: {::nomarkdown}<ul><li> La variable proporcionada al paso de retraso personalizado estaba vacía o era de un tipo no válido </li><li> El retraso supera la duración máxima permitida dentro del Canvas</li></ul>{:/} |
 | Evento de excepción o de salida | El usuario era previamente elegible para recibir el mensaje, pero {::nomarkdown}<ul><li> realizó un <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">evento de excepción</a> para una Campaign basada en acciones, por lo que se canceló el mensaje, o </li><li> cumplió los <a href="/docs/user_guide/messaging/canvas/create_a_canvas#setting-exit-criteria">criterios de salida</a> del Canvas, por lo que fue eliminado a mitad del recorrido.</li></ul>{:/} |
 | Campaign inactiva | La Campaign se detuvo mientras el mensaje estaba en tránsito, por lo que se canceló. |
 | Canvas inactivo | El Canvas se detuvo antes de que el usuario entrara en el recorrido. |
@@ -131,14 +131,14 @@ Los resultados de cancelación en Messaging Diagnostics son etiquetas legibles d
 | Límite de volumen alcanzado | La Campaign alcanzó el límite de volumen establecido, por lo que se canceló el envío. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estado de Campaign y Canvas" }
 
-#### Limitación de frecuencia y sincronización {#rate-limiting-and-timing}
+#### Limitación de velocidad y sincronización {#rate-limiting-and-timing}
 
 | Resultado de cancelación | Explicación |
 | ---- | ---- |
-| Limitación de frecuencia alcanzada | El usuario ya recibió el número máximo de mensajes permitidos según las reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) de tu espacio de trabajo, por lo que se canceló el envío. |
+| Limitación de frecuencia | El usuario ya recibió el número máximo de mensajes permitidos según las reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) de tu espacio de trabajo, por lo que se canceló el envío. |
 | Cancelación por horas tranquilas | Las horas tranquilas estaban habilitadas para la Campaign o el paso en Canvas con la alternativa configurada como **Cancelar mensaje**. El usuario desencadenó la Campaign o entró en el paso de mensaje del Canvas durante las horas tranquilas, por lo que se canceló el mensaje. Sin embargo, esto no hace que el usuario salga del Canvas. |
-| Limitación de velocidad superior a 72 horas | El mensaje fue limitado durante más de 72 horas debido a los [límites de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting), por lo que se canceló el envío. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Limitación de frecuencia y sincronización" }
+| Límite de velocidad superado en 72 horas | El mensaje fue limitado durante más de 72 horas debido a los [límites de velocidad de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting), por lo que se canceló el envío. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limitación de velocidad y sincronización" }
 
 #### Elegibilidad del usuario y perfil {#user-eligibility-and-profile}
 
@@ -168,21 +168,21 @@ Los resultados de cancelación en Messaging Diagnostics son etiquetas legibles d
 
 ### ¿Qué significa un fallo de "comprobación previa"? {#what-does-a-pre-check-failure-mean}
 
-Una "comprobación previa" se refiere a una verificación de validación agrupada y de alta velocidad que se ejecuta al inicio de una etapa del pipeline (como cuando se desencadena un mensaje o se envía un paso de mensaje en Canvas). Piensa en ella como una salida anticipada diseñada para máxima velocidad. En lugar de ejecutar muchas comprobaciones separadas que consumen muchos recursos (como validar cada detalle del perfil de un usuario), Braze agrupa varias validaciones básicas en una sola "primera pasada".
+Una "comprobación previa" se refiere a una validación agrupada de alta velocidad que se ejecuta al inicio de una etapa del pipeline (como cuando se desencadena un mensaje o se envía un paso de mensaje en Canvas). Piensa en ella como una salida anticipada diseñada para máxima velocidad. En lugar de ejecutar muchas comprobaciones separadas que consumen muchos recursos (como validar cada detalle del perfil de un usuario), Braze agrupa varias validaciones básicas en una sola "primera pasada".
 
 Si un usuario no supera esta comprobación agrupada, se descarta de inmediato. Este enfoque agrupado permite a Braze procesar volúmenes masivos de mensajes a alta velocidad y puede contribuir a un rendimiento más rápido y estable para tus Campaigns y Canvas al reducir la latencia de procesamiento de cada mensaje.
 
 ### ¿Qué significa un resultado de cancelación "otro"? {#what-does-an-other-abort-outcome-mean}
 
-Se trata de cancelaciones que no encajan en las categorías existentes del panel. Si sigues observando una gran proporción de cancelaciones con "Otro", contacta con [soporte de Braze]({{site.baseurl}}/braze_support) para obtener más ayuda.
+Son cancelaciones que no encajan en las categorías existentes del panel. Si sigues observando una gran proporción de cancelaciones con "Otro", contacta con [soporte de Braze]({{site.baseurl}}/braze_support) para obtener más ayuda.
 
 ### ¿Por qué la suma de _No enviados_ y _Enviados_ es menor que el tamaño de audiencia esperado? {#why-is-the-sum-of-_not-sent_-and-_sent_-lower-than-my-expected-audience-size}
 
 Esto puede ocurrir por varias razones:
 
 - **Criterios de audiencia:** Menos usuarios de los esperados pueden haber cumplido los criterios de audiencia (por ejemplo, no estaban en el Segment o no tenían los atributos necesarios) cuando se lanzó la Campaign o el Canvas.
-- **Procesamiento en curso:** Es posible que los mensajes aún se estén procesando activamente. Los usuarios pueden estar todavía en pasos anteriores del Canvas y no haber llegado a ningún paso de mensaje.
-- **Actualización de datos:** Los datos del panel se actualizan aproximadamente cada 15 minutos, pero esto no está garantizado. Es posible que los datos más recientes de esta Campaign o Canvas aún no hayan llegado al panel.
+- **Procesamiento en curso:** Los mensajes pueden estar aún procesándose activamente. Los usuarios pueden estar todavía en pasos anteriores del Canvas y no haber llegado a ningún paso de mensaje.
+- **Actualización de datos:** Los datos del panel se actualizan aproximadamente cada 15 minutos, pero esto no está garantizado. Los datos más recientes de esta Campaign o Canvas pueden no haber llegado aún al panel.
 - **Casos límite:** Existe una pequeña posibilidad de que estés encontrando un caso límite que no se captura en este panel en este momento. Si sospechas que este es el caso, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ### ¿Por qué la suma de _No enviados_ y _Enviados_ es mayor que la audiencia de una Campaign y un Canvas? {#why-is-the-sum-of-_not-sent_-and-_sent_-greater-than-the-audience-for-a-campaign-and-canvas}

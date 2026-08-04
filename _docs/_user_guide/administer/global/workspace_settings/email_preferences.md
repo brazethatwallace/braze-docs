@@ -84,6 +84,12 @@ You can also use [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/
 ```
 {% endraw %}
 
+{% alert tip %}
+If you use a Content Block to populate **Reply-To Address**, make sure the final rendered value is a valid email address and includes an `@`. Braze can't validate this when you save the setting because the final value isn't known until send time.
+
+- If your Content Block stores the local part (the text before `@`) and domain separately, build the field as one address (for example, {% raw %}`{{content_blocks.${reply_to_local}}}@{{content_blocks.${reply_to_domain}}}`{% endraw %}).
+{% endalert %}
+
 {% endtab %}
 {% tab BCC Address %}
 

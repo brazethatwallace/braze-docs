@@ -81,7 +81,7 @@ jobs:
       - name: "Set up Node"
         uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: "Parse-check global redirect list"
         run: node --check assets/js/broken_redirect_list.js

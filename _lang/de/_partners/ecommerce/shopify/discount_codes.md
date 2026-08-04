@@ -18,37 +18,37 @@ Dies ist eine von der Community eingereichte Integration, die nicht direkt von B
 
 | Anforderung | Beschreibung |
 | --- | --- |
-| Einen Shopify-Shop einrichten | Bestätigen Sie, dass Sie bereits [einen Shopify-Shop mit Braze eingerichtet]({{site.baseurl}}/shopify_overview) haben. |
-| Die App Bulk Discount Code Bot installieren | Laden Sie die App [Bulk Discount Code Bot](https://apps.shopify.com/bulk-discount-generator) im Shopify App Store herunter. |
+| Shopify-Shop einrichten | Bestätigen Sie, dass Sie bereits einen [Shopify-Shop mit Braze eingerichtet]({{site.baseurl}}/shopify_overview) haben. |
+| Die App „Bulk Discount Code Bot“ installieren | Laden Sie die App [Bulk Discount Code Bot](https://apps.shopify.com/bulk-discount-generator) im Shopify App Store herunter. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Anforderungen" }
 
-## Eindeutige Rabattcodes generieren {#generating-unique-discount-codes}
+## Generieren eindeutiger Rabattcodes {#generating-unique-discount-codes}
 
-### Schritt 1: Konfigurieren Sie Ihre Rabattcodes {#step-1-configure-your-discount-codes}
+### Schritt 1: Rabattcodes konfigurieren {#step-1-configure-your-discount-codes}
 
-Verwenden Sie den Bulk Discount Code Bot, um Ihre Rabattcodes nach der Anzahl der zu generierenden Codes, der Codelänge, dem Rabattwert und vielem mehr zu konfigurieren.
+Verwenden Sie den Bulk Discount Code Bot, um Ihre Rabattcodes basierend auf der Anzahl der zu generierenden Codes, der Codelänge, dem Rabattwert und mehr zu konfigurieren.
 
-![Die Konfigurationsoptionen für ein Rabattset.][1]
+![Die Konfigurationsoptionen für ein Rabattcode-Set.][1]
 
-### Schritt 2: Exportieren Sie Ihre Codes {#step-2-export-your-codes}
+### Schritt 2: Codes exportieren {#step-2-export-your-codes}
 
-Suchen Sie Ihr Rabattset in der Suchleiste des Bulk Discount Code Bot und wählen Sie dann **Export Codes** > **Download Codes**, um eine CSV-Datei in Ihren Download-Ordner herunterzuladen.
+Suchen Sie Ihr Rabattcode-Set in der Suchleiste des Bulk Discount Code Bot und wählen Sie dann **Export Codes** > **Download Codes** aus, um eine CSV-Datei in Ihren Downloads-Ordner herunterzuladen.
 
-![Suchleiste mit einem Dropdown, das das Rabattset anzeigt, und einer Reihe von Buttons zur Auswahl.][2]{: style="max-width:70%;"}
+![Suchleiste mit einem Dropdown, das das Rabattcode-Set und eine Reihe von Buttons zur Auswahl anzeigt.][2]{: style="max-width:70%;"}
 
 Löschen Sie in der CSV-Datei Zeile 1, um die Spaltenüberschrift „Promo“ zu entfernen. Dadurch wird verhindert, dass „Promo“ in Braze zu einem Rabattcode wird.
 
 ![Ein Flussdiagramm, das die Entfernung der Zeilenüberschrift „Promo“ in einer CSV-Datei zeigt.][3]{: style="max-width:60%;"}
 
-### Schritt 3: Fügen Sie Ihre Rabattcodes zu Braze hinzu {#step-3-add-your-discount-codes-to-braze}
+### Schritt 3: Rabattcodes zu Braze hinzufügen {#step-3-add-your-discount-codes-to-braze}
 
-Gehen Sie in Braze zu **Dateneinstellungen** > **Aktionscodes** > **Aktionscodeliste erstellen** und [konfigurieren Sie Ihre Rabattcodeliste]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#create). Stellen Sie sicher, dass das Ablaufdatum mit dem übereinstimmt, das im Bulk Discount Code Bot konfiguriert wurde.
+Gehen Sie in Braze zu **Data Settings** > **Promotion Codes** > **Create Promotion Code List** und [konfigurieren Sie Ihre Rabattcode-Liste]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#create). Stellen Sie sicher, dass das Ablaufdatum mit dem vom Bulk Discounts Code Bot konfigurierten Datum übereinstimmt.
 
-Laden Sie dann Ihre CSV-Datei hoch und wählen Sie **Save List**.
+Laden Sie dann Ihre CSV-Datei hoch und wählen Sie **Save List** aus.
 
-### Schritt 4: Fügen Sie Ihre Rabattcodes zu einer Braze-Campaign oder einem Canvas-Schritt hinzu {#step-4-add-your-discount-codes-to-a-braze-campaign-or-canvas-step}
+### Schritt 4: Rabattcodes zu einer Braze-Campaign oder einem Canvas-Schritt hinzufügen {#step-4-add-your-discount-codes-to-a-braze-campaign-or-canvas-step}
 
-Wenn Sie Ihre eindeutigen Rabattcodes in einer einzelnen Campaign verwenden möchten oder es Ihnen nichts ausmacht, dass Nutzer:innen mehrere eindeutige Codes über verschiedene Campaigns oder Canvas-Schritte erhalten, kopieren Sie das Liquid-Snippet des Codes aus der Aktionscodeliste, die Sie gespeichert haben.
+Wenn Sie Ihre eindeutigen Rabattcodes in einer Einmalversand-Campaign verwenden möchten oder es Ihnen nichts ausmacht, dass Nutzer:innen mehrere eindeutige Codes über verschiedene Campaigns oder Canvas-Schritte erhalten, kopieren Sie das Liquid-Snippet des Codes aus der gespeicherten Aktionscode-Liste.
 
 ![Ein Liquid-Code-Snippet mit einem Button zum Kopieren.][4]{: style="max-width:60%;"}
 
@@ -58,32 +58,32 @@ Fügen Sie das Liquid-Snippet in eine Campaign oder einen Canvas-Schritt ein.
   <source src="{% image_buster /assets/img/shopify/liquid_promo_code.mp4 %}" type="video/mp4">
 </video>
 
-Wenn Sie möchten, dass Nutzer:innen einen einzigen eindeutigen Rabattcode erhalten, unabhängig davon, wie oft der Rabattcode in Campaigns oder Canvases referenziert wird, erstellen Sie einen [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt direkt vor dem ersten Nachrichtenschritt, der den Rabattcode einem angepassten Attribut wie „Promo Code“ zuweist.
+Wenn Sie möchten, dass Nutzer:innen einen einzigen eindeutigen Rabattcode erhalten, unabhängig davon, wie oft der Rabattcode in Campaigns oder Canvases referenziert wird, erstellen Sie einen [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt direkt vor dem ersten Nachrichten-Schritt, der den Rabattcode einem angepassten Attribut zuweist, z. B. „Promo Code“.
 
 {% alert tip %}
-Sie können auch [ein angepasstes Attribut erstellen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), indem Sie zu **Dateneinstellungen** > **Angepasste Attribute** gehen.
+Sie können auch [ein angepasstes Attribut erstellen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), indem Sie zu **Data Settings** > **Custom Attributes** gehen.
 {% endalert %}
 
-Führen Sie im Nutzeraktualisierung-Schritt für jedes Feld Folgendes aus:
+Gehen Sie im User-Update-Schritt für jedes Feld wie folgt vor:
 - **Attribute Name:** Wählen Sie **Promo Code** aus.
 - **Action:** Wählen Sie **Update** aus.
 - **Key Value:** Fügen Sie das Liquid-Code-Snippet ein.
 
-![Ein Nutzeraktualisierung-Schritt, der ein „Promo Code“-Attribut mit dem Liquid-Snippet aktualisiert.][6]
+![Ein User-Update-Schritt, der ein „Promo Code“-Attribut mit dem Liquid-Snippet aktualisiert.][6]
 
-Jetzt können Sie das angepasste Attribut {% raw %}`{{custom_attribute.${Promo Code}}}`{% endraw %} zu jeder Nachricht hinzufügen, und der Rabattcode wird als Template eingefügt.
+Jetzt können Sie das angepasste Attribut {% raw %}`{{custom_attribute.${Promo Code}}}`{% endraw %} zu jeder Nachricht hinzufügen, und der Rabattcode wird automatisch eingefügt.
 
 ## Verhalten von Rabattcodes {#discount-code-behavior}
 
-{% details Multichannel-Campaign oder Canvas-Schritt %}
+{% details Mehrkanalige Campaign oder Canvas-Schritt %}
 
-Wenn ein Rabattcode-Snippet in einer Multichannel-Campaign oder einem Canvas-Schritt verwendet wird, erhalten Nutzer:innen immer einen eindeutigen Code. Wenn Nutzer:innen über mehr als einen Kanal einen Code erhalten können, erhalten sie über jeden Kanal denselben Code. Mit anderen Worten: Berechtigte Nutzer:innen erhalten nur einen Code für alle Nachrichten, die von dieser Campaign oder diesem Canvas-Schritt gesendet werden.
+Wenn ein Rabattcode-Snippet in einer mehrkanaligen Campaign oder einem Canvas-Schritt verwendet wird, erhalten Nutzer:innen immer einen eindeutigen Code. Wenn Nutzer:innen berechtigt sind, einen Code über mehr als einen Kanal zu erhalten, erhalten sie über jeden Kanal denselben Code. Mit anderen Worten: Berechtigte Nutzer:innen erhalten nur einen Code über alle Nachrichten hinweg, die von dieser Campaign oder diesem Canvas-Schritt gesendet werden.
 
 {% enddetails %}
 
 {% details Verschiedene Canvas-Schritte oder separate Campaigns %}
 
-Wenn ein Rabattcode in mehreren Schritten desselben Canvas oder in separaten Campaigns referenziert wird, erhalten berechtigte Nutzer:innen mehrere eindeutige Aktionscodes (einen Code pro Canvas-Schritt oder Campaign).
+Wenn ein Rabattcode von mehreren Schritten im selben Canvas oder von separaten Campaigns referenziert wird, erhalten berechtigte Nutzer:innen mehrere eindeutige Aktionscodes (einen Code pro Canvas-Schritt oder Campaign).
 
 {% enddetails %}
 

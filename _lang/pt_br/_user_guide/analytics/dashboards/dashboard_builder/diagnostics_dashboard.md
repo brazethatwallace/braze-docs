@@ -16,7 +16,7 @@ O dashboard **Messaging Diagnostics** está disponível de forma geral. Entre em
 {% endalert %}
 
 {% alert note %}
-Para acessar o dashboard **Messaging Diagnostics**, você precisa da [permissão de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) "View Dashboard Reports" no seu espaço de trabalho.
+Para acessar o dashboard **Messaging Diagnostics**, você precisa das [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) "View Dashboard Reports" e "View PII" no seu espaço de trabalho.
 {% endalert %}
 
 ## Conceitos-chave {#key-concepts}
@@ -27,7 +27,7 @@ Para acessar o dashboard **Messaging Diagnostics**, você precisa da [permissão
 
 Uma mensagem marcada como "enviada" neste dashboard significa que a Braze processou e despachou a mensagem com sucesso. Para a maioria dos canais, isso significa que a Braze encaminhou a mensagem ao parceiro de envio terceirizado relevante. No entanto, isso não garante a entrega final ao dispositivo do usuário.
 
-Quando a Braze "envia" uma mensagem, a entrega final pode depender de serviços externos. Considere os seguintes exemplos para cada canal.
+Quando a Braze "envia" uma mensagem, a entrega final pode depender de serviços externos. Considere os exemplos a seguir para cada canal.
 
 | Canal | Exemplo de entrega final |
 | --- | --- |
@@ -67,16 +67,16 @@ O dashboard exibe apenas os últimos sete dias de dados. Todos os timestamps sã
 
 No topo da página, há blocos de resumo com as principais métricas do período selecionado:
 
-- **Sent:** A contagem total de mensagens que a Braze processou e enviou com sucesso.
+- **Enviadas:** A contagem total de mensagens que a Braze processou e enviou com sucesso.
   - **E-mail, SMS/MMS/RCS, WhatsApp, LINE e push:** A mensagem foi entregue com sucesso a um parceiro de envio.
-  - **Webhooks:** A solicitação do webhook foi feita com sucesso, retornando uma resposta `2xx`.
+  - **Webhooks:** A requisição do webhook foi feita com sucesso, retornando uma resposta `2xx`.
   - **Content Cards:** O cartão foi enviado e está elegível para visualização.
   - **In-App Messages:** A mensagem foi exibida para o usuário.
-- **Not Sent:** A contagem total de mensagens que foram interrompidas. Isso inclui membros do público do Canvas que não entraram no Canvas ou saíram do Canvas porque tiveram uma falha em uma etapa ou atenderam aos critérios de saída ao realizar um evento de saída.
+- **Não enviadas:** A contagem total de mensagens que foram interrompidas. Isso inclui membros do público do Canvas que não entraram no Canvas ou saíram do Canvas porque tiveram uma falha em uma etapa ou atenderam aos critérios de saída ao realizar um evento de saída.
 
 ### Resultados de mensagens ao longo do tempo {#message-outcomes-over-time}
 
-Este gráfico de série temporal mostra um detalhamento por hora dos motivos pelos quais uma mensagem foi interrompida ou por que um usuário foi removido de um Canvas. Os rótulos de resultado neste gráfico são rótulos normalizados do dashboard, não valores brutos do payload do evento. Este gráfico não exibe o número de envios.
+Este gráfico de série temporal mostra uma análise por hora dos motivos pelos quais uma mensagem foi interrompida ou por que um usuário foi removido de um Canvas. Os rótulos de resultado neste gráfico são rótulos normalizados do dashboard, não valores brutos do payload do evento. Este gráfico não exibe o número de envios.
 
 ### Log granular de resultados de mensagens {#message-outcomes-granular-log}
 
@@ -94,7 +94,7 @@ Selecione uma linha na tabela para abrir o painel de detalhes. O painel de detal
 ![Log granular de resultados do Messaging Diagnostics com uma linha selecionada e acesso ao painel de detalhes.]({% image_buster /assets/img/messaging_diagnostics_dashboard_details_log.png %}){: style="max-width:45%;"} ![Painel de detalhes do Messaging Diagnostics expandido com contexto do resultado e orientações de correção.]({% image_buster /assets/img/messaging_diagnostics_dashboard_drawer_expanded.png %}){: style="max-width:45%;"}
 
 {% alert note %}
-Os filtros de canal se aplicam a resultados vinculados a um canal de envio de mensagens específico. Alguns resultados são independentes de canal, então eles ainda podem aparecer em visualizações agregadas mesmo quando você aplica um filtro de canal.
+Os filtros de canal se aplicam a resultados vinculados a um canal de envio de mensagens específico. Alguns resultados são independentes de canal, então ainda podem aparecer em visualizações agregadas mesmo quando você aplica um filtro de canal.
 {% endalert %}
 
 ### Resultados de interrupção {#abort-outcomes}
@@ -109,66 +109,66 @@ Os resultados de interrupção no Messaging Diagnostics são rótulos legíveis 
 
 | Resultado de interrupção | Explicação |
 | ---- | ---- |
-| Content Card expired | O Content Card expirou antes que o usuário o visse. |
-| Content Card invalid | O Content Card continha erros e não foi enviado ao usuário. Alguns motivos comuns incluem: {::nomarkdown}<ul><li> Tamanho máximo excedido (2 KB) </li><li> Data de expiração inválida </li><li> A mensagem contém caracteres inválidos </li></ul>{:/} |
-| Connected Content failed | A Braze tentou enviar a mensagem, mas o Connected Content falhou após o número máximo de tentativas (o padrão é cinco). **Nota:** Essa contagem representa o número de mensagens interrompidas por atingir o número máximo de tentativas, não o número total de solicitações de Connected Content que falharam. |
-| In-app-message rendering timeout | Após múltiplas tentativas, o Liquid não pôde ser renderizado e atingiu o tempo limite. |
-| Liquid abort | A tag Liquid [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) foi chamada, então o envio foi cancelado. |
-| Liquid rendering timeout | A renderização do modelo Liquid demorou demais. Isso ocorre com mais frequência em Banners, mensagens no app e e-mail. |
-| Liquid syntax error | O modelo Liquid continha um erro de análise, então a mensagem foi cancelada. |
-| Media URL failure | A Braze não conseguiu processar a URL de mídia na mensagem. Isso pode acontecer quando a URL está bloqueada, é inválida, atinge o tempo limite, retorna um status HTTP inválido ou falha na validação SSL. |
+| Content Card expirado | O Content Card expirou antes que o usuário o visse. |
+| Content Card inválido | O Content Card continha erros e não foi enviado ao usuário. Alguns motivos comuns incluem: {::nomarkdown}<ul><li> Tamanho máximo excedido (2 KB) </li><li> Data de expiração inválida </li><li> A mensagem contém caracteres inválidos </li></ul>{:/} |
+| Falha no Connected Content | A Braze tentou enviar a mensagem, mas o Connected Content falhou após o número máximo de tentativas (o padrão é cinco). **Nota:** Essa contagem representa o número de mensagens interrompidas por atingir o número máximo de tentativas, não o total de requisições de Connected Content que falharam. |
+| Tempo limite de renderização de mensagem no app | Após múltiplas tentativas, o Liquid não pôde ser renderizado e atingiu o tempo limite. |
+| Interrupção por Liquid | A tag Liquid [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) foi chamada, então o envio foi cancelado. |
+| Tempo limite de renderização do Liquid | A renderização do modelo Liquid demorou demais. Mais provável de ocorrer em Banners, mensagens no app e e-mail. |
+| Erro de sintaxe do Liquid | O modelo Liquid teve um erro de análise, então a mensagem foi cancelada. |
+| Falha na URL de mídia | A Braze não conseguiu processar a URL de mídia na mensagem. Isso pode acontecer quando a URL está bloqueada, é inválida, atinge o tempo limite, retorna um status HTTP inválido ou falha na validação SSL. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conteúdo e renderização" }
 
 #### Estado de Campaign e Canvas {#campaign-and-canvas-state}
 
 | Resultado de interrupção | Explicação |
 | ---- | ---- |
-| Delay step failure | A [etapa de postergação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays) falhou, fazendo o usuário sair do Canvas. Essa falha pode ocorrer quando: {::nomarkdown}<ul><li> A variável fornecida à etapa de postergação personalizada estava vazia ou era de um tipo inválido </li><li> A postergação excede a duração máxima permitida dentro do Canvas</li></ul>{:/} |
-| Exception or exit event | O usuário era previamente elegível para receber a mensagem, mas: {::nomarkdown}<ul><li> realizou um <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">evento de exceção</a> para uma Campaign baseada em ação, então a mensagem foi interrompida, ou </li><li> atendeu aos <a href="/docs/user_guide/messaging/canvas/create_a_canvas#setting-exit-criteria">critérios de saída</a> do Canvas e foi removido durante a jornada.</li></ul>{:/} |
-| Inactive campaign | A Campaign foi interrompida enquanto a mensagem estava em trânsito, então foi cancelada. |
-| Inactive Canvas | O Canvas foi interrompido antes que o usuário entrasse na jornada. |
-| Inactive Canvas step | Isso pode ocorrer no Canvas se: {::nomarkdown}<ul><li> A etapa do Canvas foi excluída </li> <li>O Canvas foi interrompido, fazendo com que todas as etapas se tornassem inativas </li></ul>{:/} |
-| Volume limited | A Campaign atingiu o limite de volume de envios definido, então o envio foi cancelado. |
+| Falha na etapa de postergação | A [etapa de postergação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays) falhou, fazendo o usuário sair do Canvas. Essa falha pode acontecer quando: {::nomarkdown}<ul><li> A variável fornecida à etapa de postergação personalizada estava vazia ou era de um tipo inválido </li><li> A postergação ultrapassa a duração máxima permitida dentro do Canvas</li></ul>{:/} |
+| Evento de exceção ou saída | O usuário era previamente elegível para receber a mensagem, mas: {::nomarkdown}<ul><li> realizou um <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">evento de exceção</a> para uma Campaign baseada em ação, então a mensagem foi interrompida, ou </li><li> atendeu aos <a href="/docs/user_guide/messaging/canvas/create_a_canvas#setting-exit-criteria">critérios de saída</a> do Canvas e foi removido durante a jornada.</li></ul>{:/} |
+| Campaign inativa | A Campaign foi interrompida enquanto a mensagem estava em trânsito, então foi cancelada. |
+| Canvas inativo | O Canvas foi interrompido antes que o usuário entrasse na jornada. |
+| Etapa do Canvas inativa | Isso pode ocorrer no Canvas se: {::nomarkdown}<ul><li> A etapa do Canvas foi excluída </li> <li>O Canvas foi interrompido, fazendo com que todas as etapas se tornassem inativas </li></ul>{:/} |
+| Limite de volume atingido | A Campaign atingiu o limite de volume de envios definido, então o envio foi cancelado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estado de Campaign e Canvas" }
 
 #### Limite de frequência e timing {#rate-limiting-and-timing}
 
 | Resultado de interrupção | Explicação |
 | ---- | ---- |
-| Frequency capped | O usuário já recebeu o número máximo de mensagens permitido pelas regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) do seu espaço de trabalho, então o envio foi cancelado. |
-| Quiet Hours abort | O horário de silêncio estava ativado para a Campaign ou etapa do Canvas com o fallback definido como **Abort message**. O usuário disparou a Campaign ou entrou na etapa de mensagem do Canvas durante o horário de silêncio, então a mensagem foi interrompida. No entanto, isso não remove o usuário do Canvas. |
-| Rate limited over 72 hours | A mensagem foi limitada por mais de 72 horas devido aos [limites de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting), então o envio foi cancelado. |
+| Limite de frequência atingido | O usuário já recebeu o número máximo de mensagens permitido pelas regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) do seu espaço de trabalho, então o envio foi cancelado. |
+| Interrupção por horário de silêncio | O horário de silêncio estava ativado para a Campaign ou etapa do Canvas com o fallback definido como **Interromper mensagem**. O usuário disparou a Campaign ou entrou na etapa de mensagem do Canvas durante o horário de silêncio, então a mensagem foi interrompida. No entanto, isso não remove o usuário do Canvas. |
+| Limite de frequência excedido por mais de 72 horas | A mensagem foi limitada por mais de 72 horas devido aos [limites de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting), então o envio foi cancelado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Limite de frequência e timing" }
 
 #### Elegibilidade e perfil do usuário {#user-eligibility-and-profile}
 
 | Resultado de interrupção | Explicação |
 | ---- | ---- |
-| Duplicate user identifier | Múltiplos usuários com um identificador correspondente (como ID externo, endereço de e-mail, número de telefone) eram elegíveis para receber esta mensagem. Para evitar envios duplicados para o mesmo usuário, esta mensagem foi interrompida. |
-| User failed pre-check for Message step | A Braze executa um conjunto inicial de pré-verificações básicas de elegibilidade de público, reelegibilidade e elegibilidade de canal antes das validações completas de entrega para uma etapa de mensagem do Canvas. Este resultado significa que o usuário ou a mensagem falhou em uma dessas verificações, então a mensagem foi interrompida para essa etapa. |
-| User failed pre-check for triggered message | A Braze executa um conjunto inicial de pré-verificações básicas de elegibilidade de público, reelegibilidade e elegibilidade de canal antes de criar uma mensagem para enviar a partir deste disparo. Este resultado significa que o usuário ou a mensagem falhou em uma dessas verificações, então a mensagem foi interrompida. |
-| User no longer eligible | O usuário estava inicialmente no público-alvo, mas não correspondia mais aos critérios de público antes que a Braze enviasse a mensagem ou inserisse o usuário no Canvas. O intervalo entre o usuário atender inicialmente aos critérios de público e deixar de atendê-los pode ser causado por atrasos de: {::nomarkdown}<ul><li>Intelligent Timing</li><li>Horário de silêncio</li><li>Fuso local</li><li>Limites de velocidade de entrega (não aplicável para entrada no Canvas)</li><li>Atrasos no pipeline de envio de mensagens</li></ul>{:/} |
-| User not eligible for step | O usuário não atendeu às [validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) definidas para a etapa de mensagem ou fazia parte de uma [lista de supressão]({{site.baseurl}}/user_guide/audience/suppression_lists). Dependendo das configurações de **Delivery validations**, o usuário pode ter saído do Canvas ou avançado para a próxima etapa. |
-| User not re-eligible | O usuário era elegível para receber a mensagem ou entrar no Canvas, mas o envio foi cancelado por causa das configurações de reelegibilidade ou reentrada. Isso pode acontecer se o usuário já recebeu a Campaign ou entrou no Canvas recentemente, se outro envio da mesma Campaign já está em andamento para esse usuário, ou se a reelegibilidade ou reentrada está desativada. |
-| User profile not found | O usuário nunca existiu ou não existe mais na Braze. Alguns casos comuns incluem: {::nomarkdown}<ul><li> O usuário foi direcionado usando envio de mensagens via API, mas nunca existiu na Braze. </li><li>O usuário foi excluído antes que a mensagem fosse enviada ou a etapa do Canvas fosse executada. </li><li>O usuário foi mesclado com outro perfil antes que a mensagem fosse enviada.</li></ul>{:/} |
+| Identificador de usuário duplicado | Múltiplos usuários com um identificador correspondente (como ID externo, endereço de e-mail, número de telefone) eram elegíveis para receber esta mensagem. Para evitar envios duplicados para o mesmo usuário, esta mensagem foi interrompida. |
+| Usuário falhou na pré-verificação da etapa de mensagem | A Braze executa um conjunto inicial de pré-verificações básicas de elegibilidade de público, reelegibilidade e elegibilidade de canal antes das validações completas de entrega para uma etapa de mensagem do Canvas. Este resultado significa que o usuário ou a mensagem falhou em uma dessas verificações, então a mensagem foi interrompida para essa etapa. |
+| Usuário falhou na pré-verificação de mensagem disparada | A Braze executa um conjunto inicial de pré-verificações básicas de elegibilidade de público, reelegibilidade e elegibilidade de canal antes de criar uma mensagem para enviar a partir deste disparo. Este resultado significa que o usuário ou a mensagem falhou em uma dessas verificações, então a mensagem foi interrompida. |
+| Usuário não é mais elegível | O usuário estava inicialmente no público-alvo, mas não correspondia mais aos critérios de público antes que a Braze enviasse a mensagem ou inserisse o usuário no Canvas. O tempo entre o usuário atender inicialmente aos critérios de público e deixar de atendê-los pode ser devido a atrasos de: {::nomarkdown}<ul><li>Intelligent Timing</li><li>Horário de silêncio</li><li>Fuso local</li><li>Limites de velocidade de entrega (não aplicável para entrada no Canvas)</li><li>Atrasos no pipeline de envio de mensagens</li></ul>{:/} |
+| Usuário não elegível para a etapa | O usuário não atendeu às [validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) definidas para a etapa de mensagem ou fazia parte de uma [lista de supressão]({{site.baseurl}}/user_guide/audience/suppression_lists). Dependendo das configurações de **Validações de entrega**, o usuário pode ter saído do Canvas ou avançado para a próxima etapa. |
+| Usuário não reelegível | O usuário era elegível para receber a mensagem ou entrar no Canvas, mas o envio foi cancelado devido às configurações de reelegibilidade ou reentrada. Isso pode acontecer se o usuário já recebeu a Campaign ou entrou no Canvas recentemente, se outro envio da mesma Campaign já está em andamento para este usuário, ou se a reelegibilidade ou reentrada está desativada. |
+| Perfil de usuário não encontrado | O usuário nunca existiu ou não existe mais na Braze. Alguns casos comuns incluem: {::nomarkdown}<ul><li> O usuário foi direcionado usando envio de mensagens via API, mas nunca existiu na Braze. </li><li>O usuário foi excluído antes que a mensagem fosse enviada ou a etapa do Canvas fosse executada. </li><li>O usuário foi mesclado com outro perfil antes que a mensagem fosse enviada.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Elegibilidade e perfil do usuário" }
 
 #### Canal e entrega {#channel-and-delivery}
 
 | Resultado de interrupção | Explicação |
 | ---- | ---- |
-| Partner delivery error | A Braze tentou enviar esta mensagem ao seu parceiro de entrega por 24 horas, mas o parceiro retornou erros temporários durante todo o período. |
-| Push credentials invalid | As [credenciais de push]({{site.baseurl}}/user_guide/channels/push/faqs#why-doesnt-an-opted-in-user-have-a-push-token) para este app estão ausentes ou inválidas, então o envio foi cancelado. Atualize suas credenciais em **App Settings**. |
-| Subscription group failure | A mensagem não pôde ser enviada devido a problemas de configuração do grupo de inscrições ou do serviço de envio de mensagens. Motivos comuns incluem números de envio ausentes para SMS ou WhatsApp, ou MMS não suportado no serviço de envio de mensagens configurado. |
-| User not eligible for channel | O usuário não é elegível para receber esta mensagem no canal selecionado. Motivos comuns incluem identificadores de canal ausentes ou inválidos, nenhum token de push elegível, restrições de estado de inscrição, capacidade de canal não suportada ou países bloqueados para canais baseados em telefone. |
-| Webhook failed | O webhook recebeu um código de resposta malsucedido (diferente de `2xx`). Códigos de erro comuns podem ser erros de cliente `4XX`, erro de servidor ou tempo limite `5XX`, ou `598 Host Unhealthy` ou solicitações interrompidas brevemente. |
+| Erro de entrega do parceiro | A Braze tentou enviar esta mensagem ao seu parceiro de entrega por 24 horas, mas o parceiro retornou erros temporários durante toda a janela. |
+| Credenciais de push inválidas | As [credenciais de push]({{site.baseurl}}/user_guide/channels/push/faqs#why-doesnt-an-opted-in-user-have-a-push-token) para este app estão ausentes ou inválidas, então o envio foi cancelado. Atualize suas credenciais em **App Settings**. |
+| Falha no grupo de inscrições | A mensagem não pôde ser enviada devido a problemas de configuração do grupo de inscrições ou do serviço de envio de mensagens. Motivos comuns incluem números de envio ausentes para SMS ou WhatsApp, ou MMS não suportado no serviço de envio de mensagens configurado. |
+| Usuário não elegível para o canal | O usuário não é elegível para receber esta mensagem no canal selecionado. Motivos comuns incluem identificadores de canal ausentes ou inválidos, nenhum token de push elegível, restrições de estado de inscrição, capacidade de canal não suportada ou países bloqueados para canais baseados em telefone. |
+| Falha no webhook | O webhook recebeu um código de resposta sem sucesso (diferente de `2xx`). Códigos de erro comuns podem ser erros de cliente `4XX`, erro de servidor ou tempo limite `5XX`, ou `598 Host Unhealthy` ou requisições interrompidas brevemente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canal e entrega" }
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
 ### O que significa uma falha de "pré-verificação"? {#what-does-a-pre-check-failure-mean}
 
-Uma "pré-verificação" se refere a uma validação rápida e agrupada que é executada logo no início de uma etapa do pipeline (como o disparo de uma mensagem ou o envio de uma etapa de Mensagem do Canvas). Pense nisso como uma saída antecipada projetada para máxima velocidade. Em vez de executar várias verificações separadas e que consomem muitos recursos (como validar cada detalhe do perfil de um usuário), a Braze agrupa diversas validações básicas em uma única "primeira passagem".
+Uma "pré-verificação" se refere a uma validação rápida e agrupada que é executada logo no início de uma etapa do pipeline (como o disparo de uma mensagem ou o envio de uma etapa de mensagem do Canvas). Pense nisso como uma saída antecipada projetada para máxima velocidade. Em vez de executar várias verificações separadas e que consomem muitos recursos (como validar cada detalhe do perfil de um usuário), a Braze agrupa diversas validações básicas em uma única "primeira passagem".
 
 Se um usuário falhar nessa verificação agrupada, ele é descartado imediatamente. Essa abordagem agrupada permite que a Braze processe volumes massivos de mensagens em alta velocidade e pode contribuir para um desempenho mais rápido e estável das suas Campaigns e Canvas, reduzindo a latência de processamento de cada mensagem.
 
@@ -181,7 +181,7 @@ São interrupções que não se enquadram nas categorias existentes do dashboard
 Isso pode acontecer por vários motivos:
 
 - **Critérios de público:** Menos usuários do que o esperado podem ter atendido aos critérios de público (por exemplo, não estavam no Segment ou não tinham os atributos necessários) quando a Campaign ou o Canvas foi lançado.
-- **Processamento em andamento:** As mensagens ainda podem estar sendo processadas. Os usuários podem ainda estar em etapas anteriores do Canvas e não ter alcançado nenhuma etapa de Mensagem.
+- **Processamento em andamento:** As mensagens ainda podem estar sendo processadas. Os usuários podem ainda estar em etapas anteriores do Canvas e não ter alcançado nenhuma etapa de mensagem.
 - **Atualização dos dados:** Os dados do dashboard são atualizados aproximadamente a cada 15 minutos, mas isso não é garantido. Os dados mais recentes dessa Campaign ou Canvas podem ainda não ter chegado ao dashboard.
 - **Casos extremos:** Há uma pequena chance de você estar encontrando um caso extremo que não é capturado neste dashboard no momento. Se você suspeitar que esse é o caso, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
@@ -191,5 +191,5 @@ Isso pode ocorrer pelos seguintes motivos:
 
 - **Mensagens multicanal:** A Campaign ou etapa do Canvas foi configurada para enviar em múltiplos canais (como SMS e e-mail). Um único usuário pode receber um resultado de "enviada" para um canal (como e-mail) e um resultado de "interrupção" para outro (como "Usuário não elegível para o canal"). Nesse caso, esse único usuário seria contado duas vezes no gráfico: uma vez como "enviada" e uma vez como "interrupção".
   - **Exemplo:** Você envia uma Campaign de push para 100 usuários, direcionando tanto iOS quanto Android. Se um usuário tiver apenas um dispositivo iOS, ele recebe o push do iOS ("enviada"), mas também dispara uma interrupção para o push do Android ("Usuário não elegível para o canal").
-- **Múltiplas etapas de Mensagem (somente Canvas):** Seu Canvas pode ter mais de uma etapa de Mensagem em uma determinada jornada. Este dashboard agrega todos os resultados, então um único usuário pode ser contado várias vezes se passar por múltiplas etapas de Mensagem dentro do intervalo de tempo selecionado.
+- **Múltiplas etapas de mensagem (somente Canvas):** Seu Canvas pode ter mais de uma etapa de mensagem em uma determinada jornada. Este dashboard agrega todos os resultados, então um único usuário pode ser contado várias vezes se passar por múltiplas etapas de mensagem dentro do intervalo de tempo selecionado.
 - **Mensagens de teste:** O envio de testes (que é contabilizado no dashboard) está fazendo com que as contagens totais sejam maiores do que o tamanho do público.

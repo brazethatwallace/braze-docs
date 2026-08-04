@@ -30,14 +30,14 @@ En el siguiente ejemplo, el atributo personalizado `favorite_book` contiene los 
 
 ## Consideraciones {#considerations}
 
-- Los atributos personalizados anidados están destinados a atributos personalizados enviados a través de Braze SDK o API.
+- Los atributos personalizados anidados están destinados a atributos personalizados enviados a través del SDK o la API de Braze.
 - Los objetos tienen un tamaño máximo de 100&nbsp;KB. Si una actualización hace que el objeto supere los 100&nbsp;KB, Braze descarta la actualización y el atributo permanece sin cambios.
 - Los nombres de clave y los valores de cadena tienen un límite de tamaño de 255 caracteres.
 - Los nombres de clave no pueden contener espacios.
 - Los puntos (`.`) y los signos de dólar (`$`) no son caracteres compatibles en una carga útil de API si intentas enviar un atributo personalizado anidado a un perfil de usuario.
 - No todos los partners de Braze admiten atributos personalizados anidados. Consulta la [documentación del partner]({{site.baseurl}}/partners/home) para confirmar si integraciones específicas del partner admiten esta característica.
 - Los atributos personalizados anidados no se pueden usar como filtro al realizar una llamada a la API de Connected Audience.
-- De forma predeterminada, el filtro de Segment de **atributos personalizados anidados** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedad incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, contacta con [soporte de Braze]({{site.baseurl}}/braze_support).
+- De forma predeterminada, el filtro de Segment **Atributos personalizados anidados** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, contacta con [soporte de Braze]({{site.baseurl}}/braze_support).
 - Al previsualizar mensajes en el panel usando **Vista previa como usuario personalizado**, solo puedes introducir datos simulados como una cadena o una matriz de cadenas; los objetos anidados no son compatibles. Para previsualizar un mensaje que hace referencia a atributos personalizados anidados, selecciona un usuario existente que ya tenga el atributo anidado en su perfil. Para las propiedades de eventos personalizados anidados, debes lanzar una campaña en vivo dirigida a un usuario de prueba para verificar la representación.
 
 ## Ejemplo de API {#api-example}
@@ -128,7 +128,9 @@ Este enfoque no se puede utilizar para eliminar una clave anidada dentro de una 
 
 ## Ejemplo del SDK {#sdk-example}
 
-{% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 %}
+{% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 unity:5.1.0 %}
+
+Los siguientes ejemplos muestran cómo crear, actualizar mediante fusión y eliminar el mismo objeto de atributo personalizado anidado (`most_played_song`) en cada SDK.
 
 {% tabs local %}
 {% tab Android SDK %}
@@ -238,6 +240,38 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 ```
 
 {% endtab %}
+{% tab Unity SDK %}
+
+**Crear**
+```csharp
+Dictionary<string, object> attributes = new Dictionary<string, object>();
+attributes.Add("song_name", "Solea");
+attributes.Add("artist_name", "Miles Davis");
+attributes.Add("album_name", "Sketches of Spain");
+attributes.Add("genre", "Jazz");
+
+Dictionary<string, object> playAnalytics = new Dictionary<string, object>();
+playAnalytics.Add("count", 1000);
+playAnalytics.Add("top_10_listeners", true);
+attributes.Add("play_analytics", playAnalytics);
+
+AppboyBinding.SetCustomUserAttribute("most_played_song", attributes);
+```
+
+**Actualizar**
+```csharp
+Dictionary<string, object> attributes = new Dictionary<string, object>();
+attributes.Add("year_released", 1960);
+
+AppboyBinding.SetCustomUserAttribute("most_played_song", attributes, true);
+```
+
+**Eliminar**
+```csharp
+AppboyBinding.UnsetCustomUserAttribute("most_played_song");
+```
+
+{% endtab %}
 {% endtabs %}
 
 ## Captura de fechas como propiedades de objeto {#capturing-dates-as-object-properties}
@@ -245,7 +279,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 Para capturar fechas como propiedades de objeto, debes usar la clave `$time`. En el siguiente ejemplo, se utiliza un objeto "Important Dates" para capturar el conjunto de propiedades de objeto, `birthday` y `wedding_anniversary`. El valor de estas fechas es un objeto con una clave `$time`, que no puede ser un valor nulo.
 
 {% alert note %}
-Si no capturaste fechas como propiedades de objeto inicialmente, te recomendamos reenviar estos datos usando la clave `$time` para todos los usuarios. De lo contrario, esto puede generar Segments incompletos al usar el atributo `$time`. Sin embargo, si el valor de `$time` en un atributo personalizado anidado no tiene el formato correcto, el atributo personalizado anidado completo no se actualizará.
+Si no has capturado fechas como propiedades de objeto inicialmente, te recomendamos reenviar estos datos usando la clave `$time` para todos los usuarios. De lo contrario, esto puede resultar en Segments incompletos al usar el atributo `$time`. Sin embargo, si el valor de `$time` en un atributo personalizado anidado no tiene el formato correcto, el atributo personalizado anidado completo no se actualizará.
 {% endalert %}
 
 ```json
@@ -280,7 +314,7 @@ Usa la etiqueta de personalización `custom_attribute` y la notación de punto p
 
 Para usar Liquid de atributos personalizados anidados en tu mensaje:
 
-1. Ve a una Campaign o Canvas, luego abre el paso del mensaje donde quieres añadir personalización.
+1. Ve a una Campaign o Canvas y abre el paso de mensaje donde quieras añadir personalización.
 2. En el creador de mensajes, inserta el fragmento de código Liquid donde quieras que aparezca el valor.
 3. Usa **Vista previa y prueba** con un usuario existente que ya tenga el atributo personalizado anidado en su perfil para confirmar que el valor se muestra como se espera.
 
@@ -290,19 +324,19 @@ Puedes usar **Añadir personalización** para insertar un atributo personalizado
 
 Para abrir **Añadir personalización**:
 
-1. Ve a una Campaign o Canvas, luego abre el paso del mensaje donde quieres añadir personalización.
+1. Ve a una Campaign o Canvas y abre el paso de mensaje donde quieras añadir personalización.
 2. En el creador de mensajes, selecciona **Personalización** para abrir la barra lateral **Añadir personalización**, donde puedes elegir opciones de personalización.
 
 Para configurar la personalización de atributos personalizados anidados:
 
 1. En **Tipo de personalización**, selecciona **Atributos personalizados anidados**.
-2. En **Atributo de nivel superior**, selecciona la ruta del atributo personalizado anidado que quieres insertar.
+2. En **Atributo de nivel superior**, selecciona la ruta del atributo personalizado anidado que quieras insertar.
    Por ejemplo, selecciona `preferences.neighborhood_office`.
 3. Opcional: En **Valor predeterminado**, introduce un valor alternativo para los usuarios que no tengan su propio valor para ese atributo.
-4. Revisa el **Fragmento de código Liquid** generado para confirmar que coincide con la ruta esperada.
+4. Revisa el **fragmento de código Liquid** generado para confirmar que coincide con la ruta esperada.
 5. Selecciona **Insertar**.
 
-Para este ejemplo, Braze inserta el valor anidado de `preferences.neighborhood_office` en tu mensaje. Los valores predeterminados son alternativas que tu mensaje incluye para los usuarios que no tienen su propio valor para un atributo.
+En este ejemplo, Braze inserta el valor anidado de `preferences.neighborhood_office` en tu mensaje. Los valores predeterminados son alternativas que tu mensaje incluye para los usuarios que no tienen su propio valor para un atributo.
 
 {% alert tip %}
 Comprueba que se haya generado un esquema si no ves la opción de insertar atributos personalizados anidados.
@@ -343,16 +377,16 @@ Si los datos no aparecen como se esperaba después de regenerar el esquema, es p
 
 Puedes desencadenar cuando un objeto de atributo personalizado anidado cambia. Esta opción no está disponible para cambios en matrices de objetos. Si no ves una opción para ver el explorador de rutas, comprueba que hayas generado un esquema.
 
-Por ejemplo, en una campaña basada en acciones, puedes agregar una nueva acción desencadenante para **Cambiar valor de atributo personalizado** para dirigirte a los usuarios que han cambiado sus preferencias de oficina del vecindario.
+Por ejemplo, en una Campaign basada en acciones, puedes agregar una nueva acción desencadenante para **Cambiar valor de atributo personalizado** para dirigirte a los usuarios que han cambiado sus preferencias de oficina del vecindario.
 
-Para configurar este desencadenador en una campaña basada en acciones:
+Para configurar este desencadenador en una Campaign basada en acciones:
 
-1. Crea o edita una campaña, luego establece el tipo de entrega en **Entrega basada en acciones**.
+1. Crea o edita una Campaign, luego establece el tipo de entrega en **Entrega basada en acciones**.
 2. En la configuración del desencadenador, selecciona **Cambiar valor de atributo personalizado**.
 3. Selecciona la ruta del atributo personalizado anidado que deseas monitorear.
    Por ejemplo, selecciona `preferences.neighborhood_office`.
 4. Selecciona la condición de desencadenamiento que desees, como **cualquier valor nuevo**.
-5. Termina de configurar el mensaje y la audiencia de tu campaña, luego lanza la campaña.
+5. Termina de configurar el mensaje y la audiencia de tu Campaign, luego lanza la Campaign.
 
 ## Solución de problemas {#troubleshooting}
 
@@ -362,11 +396,11 @@ Si notas que los valores de atributos personalizados anidados no se están añad
 
 Para diagnosticar y resolver este problema:
 
-1. **Compara ejemplos de usuarios:** Obtén un ejemplo de usuario exitoso y uno no exitoso en los que el atributo personalizado anidado debería haberse establecido.
+1. **Compara ejemplos de usuarios:** Obtén un ejemplo de usuario exitoso y otro no exitoso en los que el atributo personalizado anidado debería haberse establecido.
 2. **Revisa la estructura de datos:** Visualiza y compara los valores de atributos personalizados en ambos perfiles:
    - ¿Las propiedades están almacenadas dentro de un objeto?
    - ¿Las propiedades están almacenadas como una matriz de propiedades?
-3. **Verifica el filtro de segmentación:** Compara la estructura de datos almacenada con la forma en que se hace referencia al atributo personalizado anidado en tus filtros de segmentación.
+3. **Comprueba el filtro de segmentación:** Compara la estructura de datos almacenada con la forma en que se hace referencia al atributo personalizado anidado en tus filtros de segmentación.
 4. **Verifica el tipo de datos:** Para identificar el tipo de datos de un atributo personalizado:
    - Ve a **Configuración de datos** > **Atributos personalizados**.
    - Busca el atributo personalizado de nivel superior que contiene el atributo anidado que deseas verificar.

@@ -14,8 +14,16 @@ description: "이 문서에서는 커스텀 이벤트 속성정보, 예상 형�
 
 커스텀 이벤트 속성정보는 Braze 프로필에 저장되지 않으므로 데이터 포인트를 기록하지 않습니다(예외 사항은 [데이터 포인트](#data-points)를 참조하세요).
 
+## 사용자의 이벤트 속성정보 값 확인하기 {#viewing-event-property-values-for-a-user}
+
+특정 사용자의 커스텀 이벤트 속성정보 값을 확인하려면 설정에 따라 다음 옵션을 사용할 수 있습니다:
+
+- **Currents:** 고객 행동 이벤트가 활성화되어 있으면 이벤트 속성정보가 Currents 내보내기에 포함됩니다.
+- **이벤트 사용자 로그:** 해당 사용자가 테스트 사용자이고 최근에 이벤트를 수행한 경우, 이벤트와 해당 속성정보가 **설정** > **이벤트 사용자 로그**에 표시됩니다.
+- **세분화:** 해당 속성정보에 대해 커스텀 이벤트 속성정보 저장이 활성화되어 있으면 이벤트 속성정보 필터를 사용하여 Segment를 생성하고 사용자가 조건에 해당하는지 확인할 수 있습니다.
+
 {% alert important %}
-각 커스텀 이벤트 또는 구매에는 최대 256개의 고유한 커스텀 이벤트 속성정보를 포함할 수 있습니다. 커스텀 이벤트 또는 구매가 256개 이상의 속성정보와 함께 기록되면 처음 256개만 캡처되어 사용할 수 있습니다.
+각 커스텀 이벤트 또는 구매에는 최대 256개의 고유한 커스텀 이벤트 속성정보를 포함할 수 있습니다. 커스텀 이벤트 또는 구매가 256개를 초과하는 속성정보와 함께 기록되면 처음 256개만 캡처되어 사용할 수 있습니다.
 {% endalert %}
 
 ## 예상 형식 {#expected-format}
@@ -40,9 +48,9 @@ description: "이 문서에서는 커스텀 이벤트 속성정보, 예상 형�
 
 ### 메시지 트리거 {#trigger-messages}
 
-커스텀 이벤트 속성정보를 사용하여 특정 Campaign 또는 Canvas의 오디언스를 더 세밀하게 좁힐 수 있습니다. 예를 들어, 이커머스 앱에서 사용자가 장바구니를 유기했을 때 메시지를 보내려면 `price`라는 커스텀 이벤트 속성정보를 추가하여 타겟 오디언스를 개선하고 Campaign 개인화를 강화할 수 있습니다.
+커스텀 이벤트 속성정보를 사용하여 특정 Campaign 또는 Canvas의 오디언스를 더 세밀하게 좁힐 수 있습니다. 예를 들어, 이커머스 애플리케이션에서 사용자가 장바구니를 유기했을 때 메시지를 보내려면 `price`라는 커스텀 이벤트 속성정보를 추가하여 타겟 오디언스를 개선하고 Campaign 개인화를 강화할 수 있습니다.
 
-![유기한 장바구니에 대한 커스텀 이벤트 속성정보 필터. 두 개의 필터가 AND 연산자로 결합되어 가격이 100달러에서 200달러 사이인 장바구니를 유기한 사용자에게 이 Campaign을 전송합니다.]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png"){: style="max-width:70%;"}
+![유기한 장바구니에 대한 커스텀 이벤트 속성정보 필터. 두 개의 필터가 AND 연산자로 결합되어 100달러에서 200달러 사이의 가격으로 장바구니를 유기한 사용자에게 이 Campaign을 전송합니다.]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png"){: style="max-width:70%;"}
 
 중첩된 커스텀 이벤트 속성정보는 [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)에서도 지원됩니다.
 
@@ -52,7 +60,7 @@ description: "이 문서에서는 커스텀 이벤트 속성정보, 예상 형�
 
 메시징 템플릿 내에서 개인화를 위해 커스텀 이벤트 속성정보를 사용할 수도 있습니다. 트리거 이벤트와 함께 [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)을 사용하는 모든 Campaign은 해당 이벤트의 커스텀 이벤트 속성정보를 메시징 개인화에 활용할 수 있습니다.
 
-#### 필터 관련 고려 사항 {#considerations-with-filters}
+#### 필터 관련 고려사항 {#considerations-with-filters}
 
 - **API 호출:** API 호출 시 "is blank" 필터를 사용하면, 호출에서 제외된 커스텀 이벤트 속성정보는 "blank"로 간주됩니다. 예를 들어, `"event_property": ""`를 포함하면 해당 사용자는 "not blank"로 간주됩니다.
 - **정수:** 숫자 커스텀 이벤트 속성정보로 필터링할 때 숫자가 매우 큰 경우 "exactly" 필터를 사용하지 마세요. 숫자가 너무 크면 특정 길이에서 반올림될 수 있어 필터가 예상대로 작동하지 않을 수 있습니다.
@@ -72,7 +80,7 @@ Liquid 조건문에서 이벤트 속성정보를 사용할 때, 정수 이벤트
 ```
 {% endraw %}
 
-예를 들어, 게임 앱에서 레벨을 완료한 사용자에게 메시지를 보내려는 경우, 사용자가 해당 레벨을 완료하는 데 걸린 시간 속성정보로 메시지를 더욱 개인화할 수 있습니다.
+예를 들어, 게임 앱에서 레벨을 완료한 사용자에게 메시지를 보내려면 해당 레벨을 완료하는 데 걸린 시간 속성정보로 메시지를 더욱 개인화할 수 있습니다.
 
 다음 메시지는 [조건 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic)을 사용하여 세 가지 다른 세그먼트에 맞게 개인화됩니다. `time_spent`라는 커스텀 이벤트 속성정보는 ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``를 호출하여 메시지에 포함할 수 있습니다.
 
@@ -112,11 +120,11 @@ Canvas의 첫 번째 메시지 단계에서는 `event_properties` 대신 `contex
 
 이벤트 속성정보 세분화를 사용하여 수행된 커스텀 이벤트와 해당 이벤트에 연결된 속성정보를 기반으로 사용자를 타겟팅할 수 있습니다. 이를 통해 구매 및 커스텀 이벤트별 세분화 시 필터링 옵션이 확장됩니다.
 
-커스텀 이벤트의 이벤트 속성정보는 이를 사용하는 모든 Segment에 대해 실시간으로 업데이트됩니다. **데이터 설정** > **커스텀 이벤트**로 이동하여 관련 커스텀 이벤트의 **속성정보 관리**를 선택하면 속성정보를 관리할 수 있습니다. 특정 Segment 필터에서 사용되는 커스텀 이벤트 속성정보의 최대 조회 기간은 30일입니다.
+커스텀 이벤트의 이벤트 속성정보는 이를 사용하는 모든 Segment에 대해 실시간으로 업데이트됩니다. **데이터 설정** > **커스텀 이벤트**로 이동하여 관련 커스텀 이벤트의 **속성정보 관리**를 선택하면 속성정보를 관리할 수 있습니다. 특정 Segment 필터에서 사용되는 커스텀 이벤트 속성정보는 최대 30일의 조회 기간을 가집니다.
 
 #### 세분화를 위한 이벤트 속성정보 추가 {#adding-event-properties-for-segmentation}
 
-이벤트 속성정보 최근성 및 빈도를 기반으로 Segment를 생성하려면 "Edit Custom Event Property Segmentation" [사용자 권한]({{site.baseurl}}/user_guide/data/infrastructure/data_points#viewing-data-point-usage)이 필요합니다.
+이벤트 속성정보 최신성 및 빈도를 기반으로 Segment를 생성하려면 "Edit Custom Event Property Segmentation" [사용자 권한]({{site.baseurl}}/user_guide/data/infrastructure/data_points#viewing-data-point-usage)이 필요합니다.
 
 기본적으로 워크스페이스당 20개의 세분화 가능한 이벤트 속성정보를 사용할 수 있습니다. 이 한도를 늘리려면 Braze 계정 매니저에게 문의하세요.
 
@@ -129,7 +137,7 @@ Canvas의 첫 번째 메시지 단계에서는 `event_properties` 대신 `contex
 
 {% multi_lang_include data_activation/custom_event_property_filters.md %}
 
-![속성정보 '항목 수'가 2이고 값이 지난 30일 동안 1회 이상인 '유기한 장바구니' 필터 그룹.]({% image_buster /assets/img/nested_object3.png %})
+![속성정보 'number of items'가 2이고 값이 지난 30 캘린더일 동안 1회 이상인 'Abandoned Cart' 필터 그룹.]({% image_buster /assets/img/nested_object3.png %})
 
 데이터는 해당 이벤트 속성정보를 활성화한 후에만 기록되며, 이벤트 속성정보는 해당 날짜 이후부터만 사용할 수 있습니다.
 

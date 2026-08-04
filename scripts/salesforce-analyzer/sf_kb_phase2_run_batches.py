@@ -2,7 +2,8 @@
 """
 Phase 2: open PRs by `doc_path` (`gh`, optional Jira).
 
-Reads `kb_articles.csv` (read-only). Skips files with open `salesforce migration` PRs. Appends full
+Reads `kb_articles.csv` (read-only). Skips batches that fail the overlap scan (open/draft/merged
+PRs, ``article_id`` claims, ``develop`` content, remote ``sf-cursor-*`` branches). Appends full
 ``suggested_change`` (strong draft, not shorthand) between HTML markers; commits `_docs/` /
 `_includes/` only.
 
@@ -12,6 +13,7 @@ Usage:
   python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py --dry-run
   python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py --limit 5
   python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py --doc-path '_docs/.../faq.md'
+  python3 scripts/salesforce-analyzer/sf_kb_overlap_scan.py
 """
 
 from __future__ import annotations
@@ -39,6 +41,7 @@ from sf_kb_jira_ticket import (  # noqa: E402
     format_sf_kb_pr_title,
     update_bd6308_task_pr_link,
 )
+from sf_kb_overlap_scan import OverlapScanner, format_scan_summary  # noqa: E402
 
 INTERNAL_TITLE_RE = re.compile(r"\*INTERNAL\*", re.I)
 MARKER = "<!-- sf-kb-phase2-batch -->"
@@ -98,34 +101,6 @@ def lookup_assignee(doc_path: str) -> str | None:
     return best_user
 
 
-def open_pr_paths() -> dict[str, list[int]]:
-    proc = run(
-        [
-            "gh",
-            "pr",
-            "list",
-            "--repo",
-            REPO,
-            "--state",
-            "open",
-            "--label",
-            "salesforce migration",
-            "--limit",
-            "100",
-            "--json",
-            "number,files",
-        ]
-    )
-    out: dict[str, list[int]] = defaultdict(list)
-    for pr in __import__("json").loads(proc.stdout or "[]"):
-        num = pr["number"]
-        for f in pr.get("files") or []:
-            path = f.get("path") or ""
-            if path.startswith("_docs/") or path.startswith("_includes/"):
-                out[path].append(num)
-    return out
-
-
 def batch_theme(doc_path: str, rows: list[dict[str, str]]) -> str:
     stem = Path(doc_path).stem.replace("_", " ")
     if "faq" in doc_path.lower():
@@ -133,6 +108,22 @@ def batch_theme(doc_path: str, rows: list[dict[str, str]]) -> str:
     if "troubleshooting" in doc_path.lower():
         return f"{stem} troubleshooting updates"
     return f"{stem} Salesforce KB updates"
+
+
+def print_overlap_skip(doc_path: str, report) -> None:
+    if report.blocked:
+        summary = "overlap scan blocked this batch"
+    else:
+        summary = "overlap scan reported warnings (re-run with --ignore-warnings to proceed)"
+    print(f"SKIP {doc_path}: {summary}", file=sys.stderr)
+    for line in report.format_lines(indent="  "):
+        print(line, file=sys.stderr)
+
+
+def should_skip_for_overlap(report, *, ignore_warnings: bool) -> bool:
+    if report.blocked:
+        return True
+    return bool(report.warnings) and not ignore_warnings
 
 
 def is_actionable_row(row: dict[str, str]) -> bool:
@@ -215,7 +206,8 @@ def process_batch(
     rows: list[dict[str, str]],
     *,
     dry_run: bool,
-    open_paths: dict[str, list[int]],
+    scanner: OverlapScanner,
+    ignore_warnings: bool,
 ) -> dict | None:
     actionable = [r for r in rows if is_actionable_row(r)]
     skipped_internal = [r for r in rows if r not in actionable]
@@ -223,13 +215,15 @@ def process_batch(
         print(f"SKIP {doc_path}: no actionable rows ({len(skipped_internal)} skipped)", file=sys.stderr)
         return None
 
-    if doc_path in open_paths:
-        prs = open_paths[doc_path]
-        print(
-            f"SKIP {doc_path}: open PR(s) {prs} already touch this file",
-            file=sys.stderr,
-        )
+    article_ids = [r["article_id"].strip() for r in actionable]
+    overlap = scanner.check_batch(doc_path, article_ids)
+    if should_skip_for_overlap(overlap, ignore_warnings=ignore_warnings):
+        print_overlap_skip(doc_path, overlap)
         return None
+    if overlap.warnings:
+        print(f"WARN {doc_path}: overlap warnings (continuing)", file=sys.stderr)
+        for line in overlap.format_lines(indent="  "):
+            print(line, file=sys.stderr)
 
     theme = batch_theme(doc_path, actionable)
     ymd = datetime.now(timezone.utc).strftime("%Y%m%d")
@@ -342,6 +336,11 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--limit", type=int, default=0, help="Max batches (0 = all)")
     parser.add_argument("--doc-path", action="append", default=[], help="Only this doc_path")
+    parser.add_argument(
+        "--ignore-warnings",
+        action="store_true",
+        help="Open PRs even when overlap scan reports non-blocking warnings",
+    )
     args = parser.parse_args()
 
     csv_rows = load_csv_rows()
@@ -355,14 +354,36 @@ def main() -> None:
             continue
         pending[dp].append(row)
 
-    open_paths = open_pr_paths()
+    scanner = OverlapScanner()
+    scanner.refresh()
+    if scanner.available:
+        print(format_scan_summary(
+            scanner.scan_batches(
+                [
+                    (
+                        doc_path,
+                        [r["article_id"].strip() for r in rows if is_actionable_row(r)],
+                    )
+                    for doc_path, rows in pending.items()
+                ]
+            )
+        ))
+    else:
+        print(f"WARN overlap scan unavailable: {scanner.error}", file=sys.stderr)
+
     batches = sorted(pending.items(), key=lambda kv: -len(kv[1]))
     opened = 0
 
     for doc_path, rows in batches:
         if args.limit and opened >= args.limit:
             break
-        result = process_batch(doc_path, rows, dry_run=args.dry_run, open_paths=open_paths)
+        result = process_batch(
+            doc_path,
+            rows,
+            dry_run=args.dry_run,
+            scanner=scanner,
+            ignore_warnings=args.ignore_warnings,
+        )
         if not result:
             continue
         if result.get("mode") == "opened":

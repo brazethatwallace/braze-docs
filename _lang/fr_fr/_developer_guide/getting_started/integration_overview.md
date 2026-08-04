@@ -91,6 +91,8 @@ L'administrateur de votre équipe créera également différents [espaces de tra
 
 Fait important, les espaces de travail fournissent des clés API pour plusieurs plateformes (comme iOS et Android). Vous utiliserez les clés API corrélées pour associer les données du SDK à un espace de travail particulier. Naviguez vers vos espaces de travail pour accéder à la clé API de chacune de vos applications. Assurez-vous que chaque clé API dispose des autorisations nécessaires pour effectuer le travail que vous avez défini. Pour plus de détails, consultez l'[article sur le provisionnement de l'API]({{site.baseurl}}/api/basics#rest-api-key-permissions).
 
+Pour les implémentations Web couvrant plusieurs domaines racines, consultez [Intégration multi-domaine pour le SDK Web de Braze]({{site.baseurl}}/developer_guide/platforms/web/multi_domain_integration) afin de déterminer s'il convient d'utiliser une seule application ou des applications et clés API distinctes.
+
 {% alert important %}
 Il est important que vous mettiez en place des environnements différents pour le développement et la production. La mise en place d'un environnement de test vous évitera de dépenser de l'argent réel lors de l'onboarding et de l'assurance qualité. Pour créer un environnement de test, configurez un espace de travail de test et veillez à utiliser sa clé API afin de ne pas alimenter votre espace de travail de production avec des données de test.
 {% endalert %}
@@ -229,36 +231,36 @@ Vous assurerez le suivi des mises à jour de la plateforme Braze via le [référ
 
 ## Limites de débit du SDK {#sdk-rate-limits}
 
-### Utilisateurs actifs mensuels CY 24-25, MAU universel, MAU Web et MAU mobile {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
+### Monthly Active Users CY 24-25, Universal MAU, Web MAU et Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
-Pour les clients ayant souscrit aux offres Utilisateurs actifs mensuels CY 24-25, MAU universels, MAU Web et MAU mobiles, Braze applique des limites de débit côté serveur sur les requêtes API utilisées par nos SDK pour mettre à jour les sessions, les attributs utilisateur, les événements et autres données de profil utilisateur. Ceci afin d'assurer la stabilité de la plateforme et de maintenir un service rapide et fiable.
+Pour les clients ayant souscrit à Monthly Active Users CY 24-25, Universal MAU, Web MAU et Mobile MAU, Braze applique des limites de débit côté serveur sur les requêtes API utilisées par nos SDK pour mettre à jour les sessions, les attributs utilisateur, les événements et d'autres données de profil utilisateur. Cela permet de garantir la stabilité de la plateforme et de maintenir un service rapide et fiable.
 
-* Les limites de débit horaires sont fixées en fonction du trafic SDK prévu sur votre compte, qui peut correspondre au nombre d'utilisateurs actifs mensuels (MAU) que vous avez acheté, au secteur d'activité, à la saisonnalité ou à d'autres facteurs. Lorsque la limite de débit horaire est atteinte, Braze limite les requêtes jusqu'à l'heure suivante.
-* Toutes les requêtes soumises à une limite de débit sont automatiquement relancées par le SDK.
-* Les requêtes du SDK sont corrélées à la quantité de données personnalisées collectées dans le cadre de votre implémentation. Si vous êtes constamment proche ou à la limite de votre débit horaire, envisagez de :
-    * Réviser votre intégration SDK afin de réduire la collecte excessive de données.
-    * Bloquer les données personnalisées qui ne sont pas essentielles pour vos cas d'usage marketing.
-* Les limites de débit en rafale sont des limites de courte durée qui s'appliquent lorsqu'un volume important de requêtes arrive dans un laps de temps très court (c'est-à-dire en l'espace de quelques secondes). Vous n'avez pas besoin d'agir lorsque des limites de rafale se produisent, et le SDK réessayera peu de temps après.
-* Les limites de débit constant contrôlent le volume de requêtes soutenu sur une fenêtre glissante plus longue que la fenêtre de rafale (par exemple, plusieurs minutes) et contribuent à lisser le trafic continu entre les limites de rafale et votre limite de débit horaire.
+* Les limites de débit horaires sont définies en fonction du trafic SDK attendu sur votre compte, qui peut correspondre au nombre d'utilisateurs actifs mensuels (MAU) que vous avez achetés, au secteur d'activité, à la saisonnalité ou à d'autres facteurs. Lorsque la limite de débit horaire est atteinte, Braze limite les requêtes jusqu'à l'heure suivante.
+* Toutes les requêtes soumises à une limite de débit sont automatiquement réessayées par le SDK.
+* Les requêtes SDK sont corrélées à la quantité de données personnalisées collectées dans votre déploiement. Si vous êtes régulièrement proche ou à votre limite de débit horaire, envisagez de :
+    * Revoir votre intégration SDK pour réduire la collecte excessive de données.
+    * Mettre en liste de blocage les données personnalisées qui ne sont pas essentielles pour vos cas d'usage marketing.
+* Les limites de débit en rafale sont des limites de débit de courte durée qui s'appliquent lorsqu'un volume élevé de requêtes arrive dans un laps de temps très court (c'est-à-dire en quelques secondes). Vous n'avez pas besoin d'agir lorsque des limites en rafale se produisent, et le SDK réessaiera peu après.
+* Les limites de débit soutenues contrôlent le volume de requêtes soutenu sur une fenêtre glissante plus longue que la fenêtre de rafale (par exemple, plusieurs minutes) et aident à lisser le trafic continu entre les limites en rafale et votre limite de débit horaire.
 
 ### Trouver vos limites de débit {#finding-your-rate-limits}
 
-Pour connaître les limites actuelles basées sur le débit attendu du SDK, allez dans **Paramètres** > **API et identifiants** > **Limites API et SDK**.
+Pour trouver les limites actuelles basées sur le débit SDK attendu, accédez à **Paramètres** > **API et identifiants** > **Limites API et SDK**.
 
-Pour consulter l'historique d'utilisation, allez dans **Paramètres** > **API et identifiants** > **Tableau de bord API et SDK**.
+Pour l'historique d'utilisation, accédez à **Paramètres** > **API et identifiants** > **Tableau de bord API et SDK**.
 
-### Demander une augmentation des limites de débit {#requesting-higher-rate-limits}
+### Demander des limites de débit plus élevées {#requesting-higher-rate-limits}
 
-Si vous avez besoin d'une limite de débit Braze plus élevée, contactez l'assistance Braze ou votre gestionnaire de la satisfaction client et incluez les informations suivantes :
+Si vous avez besoin d'une limite de débit Braze plus élevée, contactez le support Braze ou votre gestionnaire du succès des clients et incluez les informations suivantes :
 
 * Si vous avez besoin d'une augmentation temporaire ou permanente.
 * Pourquoi vous avez besoin de cette augmentation.
 * Quels endpoints et environnements sont concernés.
-* Votre volume de trafic approximatif et votre calendrier, y compris la date de début, la durée et les heures de pointe.
+* Votre volume de trafic approximatif et le calendrier, y compris la date de début, la durée et les heures de pointe.
 * Si vous pouvez regrouper les appels ou répartir le trafic dans le temps.
 
-Une fois votre demande soumise, Braze l'examine et vous informe du résultat.
+Après avoir soumis votre demande, Braze l'examine et vous informe du résultat.
 
-### Modifications et assistance {#changes-and-support}
+### Modifications et support {#changes-and-support}
 
-Braze peut modifier les limites de débit afin de protéger la stabilité du système ou de permettre une augmentation du débit de données sur votre compte. Contactez l'assistance Braze ou votre gestionnaire de la satisfaction client pour toute question ou préoccupation concernant les limites de débit et leur impact sur votre entreprise.
+Braze peut modifier les limites de débit pour protéger la stabilité du système ou permettre un débit de données accru sur votre compte. Contactez le support Braze ou votre gestionnaire du succès des clients pour toute question ou préoccupation concernant les limites de débit et leur impact sur votre activité.

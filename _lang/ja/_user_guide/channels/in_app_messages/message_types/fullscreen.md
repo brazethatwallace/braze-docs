@@ -32,47 +32,49 @@ tool:
 
 ## 画像 {#images}
 
-フルスクリーンアプリ内メッセージは、デバイスの高さ全体を埋め、必要に応じて水平方向（左右）にトリミングされます。画像とテキストのフルスクリーンメッセージは、デバイスの高さの50%を占めます。すべてのフルスクリーンアプリ内メッセージは、「ノッチ」付きデバイスのステータスバーも埋めます。
+フルスクリーンのアプリ内メッセージは、デバイスの画面全体の高さを占め、必要に応じて水平方向（左右）がトリミングされます。画像とテキストのフルスクリーンメッセージは、デバイスの高さの50%を占めます。すべてのフルスクリーンアプリ内メッセージは、「ノッチ」付きデバイスではステータスバーの領域も表示されます。
 
 {% multi_lang_include in-app_messages/image_requirements.md %}
 
-{% alert tip %} 自信を持ってアセットを作成しましょう！アプリ内メッセージの画像テンプレートとセーフゾーンオーバーレイは、あらゆるサイズのデバイスに対応するよう設計されています。[デザインテンプレートZIPをダウンロード]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
+{% alert tip %} 安心してアセットを作成しましょう！アプリ内メッセージの画像テンプレートとセーフゾーンオーバーレイは、あらゆるサイズのデバイスに対応するよう設計されています。[デザインテンプレートZIPをダウンロード]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 
 ### 縦向き {#portrait}
 
 | レイアウト | アセットサイズ | 備考 |
 |--- | --- | --- |
-| 画像とテキスト | 6:5のアスペクト比<br> 高解像度 1200 x 1000&nbsp;px<br> 最小 600 x 500&nbsp;px | すべての辺でトリミングが発生する可能性がありますが、画像は常にビューポートの上部50%を埋めます |
-| 画像のみ | 3:5のアスペクト比<br> 高解像度 1200 x 2000&nbsp;px<br> 最小 600 x 1000&nbsp;px | 縦長のデバイスでは主要な辺と右端でトリミングが発生する可能性があります |
+| 画像とテキスト | アスペクト比 6:5<br> 高解像度 1200 x 1000&nbsp;px<br> 最小 600 x 500&nbsp;px | すべての辺でトリミングが発生する可能性がありますが、画像は常にビューポートの上部50%を占めます |
+| 画像のみ | アスペクト比 3:5<br> 高解像度 1200 x 2000&nbsp;px<br> 最小 600 x 1000&nbsp;px | 縦長のデバイスでは、主要な辺と右端でトリミングが発生する可能性があります |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="縦向き" }
 
 ### 横向き {#landscape}
 
 | レイアウト | アセットサイズ | 備考 |
 |--- | --- | --- |
-| 画像とテキスト | 10:3のアスペクト比<br> 高解像度 2000 x 600px<br> 最小 1000 x 300&nbsp;px | すべての辺でトリミングが発生する可能性がありますが、画像は常にビューポートの上部50%を埋めます |
-| 画像のみ | 5:3のアスペクト比<br> 高解像度 2000 x 1200px<br> 最小 1000 x 600&nbsp;px | 縦長のデバイスでは主要な辺と右端でトリミングが発生する可能性があります |
+| 画像とテキスト | アスペクト比 10:3<br> 高解像度 2000 x 600px<br> 最小 1000 x 300&nbsp;px | すべての辺でトリミングが発生する可能性がありますが、画像は常にビューポートの上部50%を占めます |
+| 画像のみ | アスペクト比 5:3<br> 高解像度 2000 x 1200px<br> 最小 1000 x 600&nbsp;px | 縦長のデバイスでは、主要な辺と右端でトリミングが発生する可能性があります |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="横向き" }
 
 ### 画像セーフゾーン {#image-safe-zone}
 
-Brazeプラットフォームでフルスクリーンアプリ内メッセージをプレビューする際、画像セーフゾーンを有効にすると、さまざまなデバイスで表示した際にトリミングされない安全な領域を確認できます。プレビューペインで画像セーフゾーンをテストするだけでなく、いつものように[メッセージをテスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message)することをお勧めします。
+Brazeプラットフォームでフルスクリーンのアプリ内メッセージをプレビューする際、画像セーフゾーンを有効にすると、さまざまなデバイスで表示されたときにトリミングからメッセージ領域を保護できます。セーフゾーンは画像にのみ影響します。閉じるボタンは、プレビューでセーフゾーンの外側に表示されていても、ユーザーには常に表示されます。
 
-![Brazeでアプリ内メッセージをプレビューしている画面。「Show Image Safe Zone」が有効になっています。画像セーフゾーンは、画像のどの部分がトリミングされずに安全に表示されるかを視覚化するオーバーレイです。]({% image_buster /assets/img/image-safe-zone-full-screen-in-app-message.png %})
+プレビューペインで画像セーフゾーンをテストすることに加えて、常に[メッセージのテスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message)を行うことをお勧めします。
 
-## 大画面 {#larger-screens}
+![Brazeでアプリ内メッセージをプレビューしている画面。「画像セーフゾーンを表示」が有効になっており、画像セーフゾーンが画像上にオーバーレイとして表示され、トリミングされない安全な領域を視覚化しています。]({% image_buster /assets/img/image-safe-zone-full-screen-in-app-message.png %})
 
-タブレットやデスクトップブラウザでは、フルスクリーンアプリ内メッセージは以下のスクリーンショットのようにアプリ画面の中央に表示されます。
+## 大きな画面 {#larger-screens}
+
+タブレットやデスクトップブラウザでは、フルスクリーンのアプリ内メッセージは、以下のスクリーンショットに示すように、アプリ画面の中央に表示されます。
 
 {% tabs %}
 {% tab 縦向き %}
 
-![大画面で縦向きに表示されたフルスクリーンアプリ内メッセージ。メッセージは画面中央に配置された大きなモーダルとして表示されます。]({% image_buster /assets/img/full-screen-large-viewport.png %}){: style="border:none;display:block;margin-left:auto;margin-right:auto"}
+![大きな画面で縦向きに表示されたフルスクリーンのアプリ内メッセージ。メッセージは画面中央に配置された大きなモーダルとして表示されます。]({% image_buster /assets/img/full-screen-large-viewport.png %}){: style="border:none;display:block;margin-left:auto;margin-right:auto"}
 
 {% endtab %}
 {% tab 横向き %}
 
-![大画面で横向きに表示されたフルスクリーンアプリ内メッセージ。メッセージは画面中央に配置された大きなモーダルとして表示されます。]({% image_buster /assets/img/full-screen-large-viewport-landscape.png %}){: style="max-width:80%;border:none;display:block;margin-left:auto;margin-right:auto"}
+![大きな画面で横向きに表示されたフルスクリーンのアプリ内メッセージ。メッセージは画面中央に配置された大きなモーダルとして表示されます。]({% image_buster /assets/img/full-screen-large-viewport-landscape.png %}){: style="max-width:80%;border:none;display:block;margin-left:auto;margin-right:auto"}
 
 {% endtab %}
 {% endtabs %}

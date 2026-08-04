@@ -22,6 +22,8 @@ description: "この記事では、「新しいユーザーエイリアスの作
 
 **エイリアスのみの新規ユーザーを作成する**には、新しいユーザーエイリアスオブジェクトから`external_id`を省略する必要があります。ユーザーが作成されたら、`/users/track`エンドポイントを使用してエイリアスのみのユーザーに属性、イベント、購入を関連付け、`/users/identify`エンドポイントを使用して`external_id`でユーザーを識別します。
 
+[`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)エンドポイントを使用して、`user_alias`でAPIトリガーキャンペーンをユーザーに送信できます。
+
 ## `alias_label`と`alias_name`が既に存在する場合 {#when-alias_label-and-alias_name-already-exist}
 
 `alias_label`と`alias_name`の組み合わせは、ユーザー群全体で一意である必要があります。詳細については、[ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)を参照してください。

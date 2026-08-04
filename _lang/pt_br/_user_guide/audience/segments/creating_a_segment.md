@@ -18,22 +18,29 @@ Acesse **Público** > **Segments**.
 
 ## Etapa 2: Nomeie seu Segment {#step-2-name-your-segment}
 
-Selecione **Create Segment** para começar a criar seu Segment. Nomeie seu Segment descrevendo o tipo de usuário que você pretende filtrar. Isso ajuda a identificar o Segment quando você quiser direcioná-lo para suas Campaigns ou Canvas. Títulos vagos de Segments podem ser confusos.
+Selecione **Create Segment** para começar a criar seu Segment. Nomeie seu Segment descrevendo o tipo de usuário que você pretende filtrar. Isso ajuda a identificar o Segment quando você quiser direcioná-lo para suas Campaigns ou Canvas. Títulos vagos de Segment podem ser confusos.
 
-Você também pode pedir ao Operator para ajudar a criar a lógica de filtros do seu Segment a partir de uma descrição do seu público-alvo. Para mais detalhes, consulte [O que você pode fazer com o Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
+Você também pode pedir ao Operator para ajudar a criar a lógica de filtro do seu Segment a partir de uma descrição do seu público-alvo. Para mais detalhes, consulte [O que você pode fazer com o Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
 Opcionalmente, você pode fazer o seguinte:
 - Adicionar uma descrição ao Segment para fornecer mais detalhes sobre a intenção desse público e deixar anotações para outros membros da equipe consultarem.
 - Adicionar uma [equipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams) ao seu Segment.
-- Adicionar [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) ao seu Segment para melhor organização.
+- Adicionar [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) ao seu Segment para uma organização mais detalhada.
 
-![Modal de criação de Segment onde o Segment é nomeado "Lapsed Users" com a descrição "This is our main Lapsed User segment to target non-actives within the past fourteen days." e dois botões: Cancel e Create Segment.]({% image_buster /assets/img_archive/segment_app_selection.png %}){: style="max-width:80%;"}
+Os Segments são salvos assim que você seleciona **Create Segment**. Não é necessário selecionar **Save** no editor de Segment primeiro.
+
+{% alert note %}
+Se você tiver a permissão "Edit Segments" apenas no nível da equipe (não no nível do espaço de trabalho), a Braze atribui uma equipe quando o Segment é criado:
+<br><br>
+- **Uma equipe elegível:** Essa equipe é atribuída automaticamente.
+- **Múltiplas equipes elegíveis:** A Braze atribui a primeira equipe da sua lista de equipes elegíveis. Você pode alterar a equipe no editor de Segment antes de compartilhar ou usar o Segment.
+{% endalert %}
 
 ## Etapa 3: Escolha seu app ou plataforma {#step-3-choose-your-app-or-platform}
 
 Escolha quais apps ou plataformas você deseja direcionar selecionando **Users from all apps** (padrão) ou **Users from specific apps**. **Users from specific apps** direciona usuários com pelo menos uma sessão nos apps especificados.
 
-Por exemplo, se você deseja enviar uma mensagem no app apenas para dispositivos iOS, selecione seu app iOS. Isso garante que usuários que usam tanto um dispositivo iOS quanto Android recebam a mensagem apenas no dispositivo iOS. Na lista de apps específicos, a opção **Users from no apps** permite incluir usuários sem sessões e sem dados de app (normalmente criados por importação de usuário ou REST API).
+Por exemplo, se você deseja enviar uma mensagem no app apenas para dispositivos iOS, selecione seu app iOS. Isso garante que os usuários que usam tanto um dispositivo iOS quanto um Android recebam a mensagem apenas no dispositivo iOS. Na lista de apps específicos, a opção **Users from no apps** permite incluir usuários sem sessões e sem dados de app (normalmente criados por meio de importação de usuário ou REST API).
 
 ![Painel de detalhes do Segment com a opção "Users from all apps" selecionada na seção Apps Used.]({% image_buster /assets/img_archive/Segment2.png %}){: style="max-width:80%;"}
 
@@ -57,7 +64,7 @@ Dentro de um grupo de filtros, os filtros podem ser unidos por "AND" ou "OR". En
 - (A AND B AND C) OR (C AND E AND F)
 - (A OR B OR C) AND (C OR D OR F)
 
-Selecionar "OR" para seus filtros significa que seu Segment conterá usuários que satisfaçam qualquer combinação de um, alguns ou todos esses filtros. Selecionar "AND" significa que os usuários que não passarem nesse filtro não serão incluídos no seu Segment.
+Selecionar "OR" para seus filtros significa que seu Segment conterá usuários que satisfaçam qualquer combinação de um, alguns ou todos esses filtros. Selecionar "AND" significa que os usuários que não passarem por esse filtro não serão incluídos no seu Segment.
 
 {% alert tip %}
 Ao selecionar "OR" para filtros que incluem um filtro negativo (como "não é" em um grupo de inscrições), lembre-se de que os usuários só precisam atender a um dos filtros "OR" para serem incluídos no Segment. Para aplicar o filtro negativo independentemente dos outros filtros, use um [grupo de exclusão](#exclusion).
@@ -84,7 +91,7 @@ Se `not included`, `is not`, `does not equal` ou `does not match regex` forem us
 
 ### Operadores de filtro {#filter-operators}
 
-Dependendo do filtro específico que você selecionar, haverá diferentes operadores para identificar os valores do filtro. Para se aprofundar nos operadores disponíveis para diferentes tipos de atributos personalizados, consulte [Armazenamento de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes). Observe que, ao usar o operador "is any of", o número máximo de itens que você pode incluir nesse campo é 256.
+Dependendo do filtro específico que você selecionar, haverá diferentes operadores para identificar valores de filtro. Para se aprofundar nos operadores disponíveis para diferentes tipos de atributos personalizados, consulte [Armazenamento de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes). Observe que, ao usar o operador "is any of", o número máximo de itens que você pode incluir nesse campo é 256.
 
 {% alert note %}
 A Braze não gera perfis para usuários até que eles tenham usado o app pela primeira vez, então você não pode direcionar usuários que ainda não abriram seu app.
@@ -102,7 +109,7 @@ Além disso, aninhar Segments dessa forma adiciona complexidade e pode tornar as
 
 Ao criar um Segment, você pode aplicar um ou vários grupos de exclusão. Os grupos de exclusão contêm critérios que identificam usuários a serem excluídos do seu Segment e sempre serão conectados aos seus grupos de filtros com um operador "AND NOT".
 
-Os grupos de exclusão substituem os critérios do Segment. Se um usuário se enquadrar nos critérios do seu grupo de exclusão, ele não fará parte do seu Segment, mesmo que atenda aos critérios dos seus grupos de filtros.
+Os grupos de exclusão substituem os critérios do Segment. Se um usuário se enquadrar nos critérios do seu grupo de exclusão, ele não fará parte do seu Segment, mesmo que atenda aos critérios dentro dos seus grupos de filtros.
 
 Crie um grupo de exclusão adicionando filtros da mesma forma que faria para grupos de filtros. A estatística _Usuários contatáveis estimados_ em um grupo de exclusão mostra o número estimado de usuários restantes no seu Segment após a aplicação dos critérios de exclusão.
 
@@ -110,19 +117,19 @@ Os usuários excluídos não serão contados como parte da estatística _Total d
 
 ![Um grupo de exclusão com dois filtros.]({% image_buster /assets/img_archive/segmenter_exclusion_groups.png %})
 
-### Visualizar estatísticas de funil {#viewing-funnel-statistics}
+### Ver estatísticas de funil {#viewing-funnel-statistics}
 
-Selecione **Visualizar estatísticas de funil** para exibir as estatísticas desse grupo de filtros e ver como cada filtro adicionado impacta as estatísticas do seu Segment. Você verá uma contagem estimada e a porcentagem de usuários que são direcionados por todos os filtros até aquele ponto. Depois que as estatísticas forem exibidas para um grupo de filtros, elas serão atualizadas automaticamente sempre que você alterar os filtros. Essas estatísticas são estimadas e podem levar um momento para serem geradas.
+Selecione **Ver estatísticas de funil** para exibir as estatísticas desse grupo de filtros e ver como cada filtro adicionado impacta as estatísticas do seu Segment. Você verá uma contagem estimada e a porcentagem de usuários que são direcionados por todos os filtros até aquele ponto. Depois que as estatísticas forem exibidas para um grupo de filtros, elas serão atualizadas automaticamente sempre que você alterar os filtros. Essas estatísticas são estimadas e podem levar um momento para serem geradas.
 
 Tenha em mente que, se você usar AND entre seus filtros, as estatísticas de funil diminuirão; se usar OR entre seus filtros, as estatísticas de funil aumentarão.
 
 ![Dois filtros com estatísticas de funil do Segment.]({% image_buster /assets/img_archive/segment_funnel_statistics.png %})
 
-Ao adicionar filtros que documentam o fluxo dos seus usuários, você pode ver os pontos em que os usuários desistem. Por exemplo, se você tem um app de rede social e quer ver onde pode estar perdendo usuários durante o processo de integração, pode adicionar filtros de dados personalizados para cadastro, adição de amigos e envio da primeira mensagem. Se você descobrir que 85% dos usuários estão se cadastrando e adicionando amigos, mas apenas 45% enviaram a primeira mensagem, então saberá que deve focar em incentivar mais envios de mensagens durante suas campanhas de integração e marketing.
+Ao adicionar filtros que documentam o fluxo do seu usuário, você pode ver os pontos em que os usuários desistem. Por exemplo, se você tem um app de rede social e quer ver onde pode estar perdendo usuários durante o processo de integração, pode adicionar filtros de dados personalizados para cadastro, adição de amigos e envio da primeira mensagem. Se você descobrir que 85% dos usuários estão se cadastrando e adicionando amigos, mas apenas 45% enviaram a primeira mensagem, então saberá que deve focar em incentivar mais envios de mensagens durante suas Campaigns de integração e marketing.
 
 ### Testar Segments {#testing-segments}
 
-Após adicionar apps e filtros ao seu Segment, você pode testar se ele está configurado conforme o esperado buscando um usuário para confirmar se ele corresponde aos critérios do Segment. Para isso, pesquise o `external_id` ou `braze_id` de um usuário na seção **Busca de usuário**.
+Após adicionar apps e filtros ao seu Segment, você pode testar se o Segment está configurado conforme esperado buscando um usuário para confirmar se ele corresponde aos critérios do Segment. Para isso, pesquise o `external_id` ou `braze_id` de um usuário na seção **Busca de usuário**.
 
 {% alert note %}
 A **Busca de usuário** aceita apenas `external_id` e `braze_id`. Ela não aceita endereços de e-mail, números de telefone ou outros identificadores. Para encontrar um perfil por e-mail, telefone ou outros campos, use [**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles).
@@ -153,7 +160,7 @@ A Braze possui filtros de teste para direcionar usuários específicos por ID de
 
 ## Etapa 5: Salvar seu Segment {#step-5-save-your-segment}
 
-Selecione **Salvar**. Agora você está pronto para começar a enviar mensagens aos seus usuários!
+Selecione **Salvar**. Agora você está pronto para começar a enviar mensagens para seus usuários!
 
 ## Medindo o tamanho do Segment {#measuring-segment-size}
 
@@ -179,7 +186,7 @@ Ao segmentar com filtros dependentes de dispositivo (modelo do dispositivo, sist
 
 ### Notificações por push {#push-notifications}
 
-Você pode especificar que apenas uma notificação por push seja enviada para cada usuário. Ao [compor sua mensagem]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#step-4-compose-your-push-message), selecione **Only send to the user's last used device** em **Additional Settings**.
+Você pode especificar que apenas uma notificação por push seja enviada a cada usuário. Ao [compor sua mensagem]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#step-4-compose-your-push-message), selecione **Only send to the user's last used device** em **Additional Settings**.
 
 !["Configurações adicionais" com uma caixa de seleção para enviar apenas para o último dispositivo usado pelo usuário.]({% image_buster /assets/img_archive/send_to_last_device.png %}){: style="max-width:60%;"}
 

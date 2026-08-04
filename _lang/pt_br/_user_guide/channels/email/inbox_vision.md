@@ -35,15 +35,15 @@ Se a prévia de uma Campaign mostrar um erro de permissão, limpe o cache e os c
 Para testar sua mensagem de e-mail no Inbox Vision:
 
 1. Acesse o editor de arrastar e soltar ou o editor de e-mail HTML.
-2. No editor, selecione **Preview & Test**.
+2. No editor, selecione **Prévia e teste**.
 3. Selecione **Inbox Vision**.
-4. Selecione **Run Inbox Vision**. Isso leva até dez minutos.
-5. Em seguida, selecione um bloco para visualizar a prévia em mais detalhes. Essas prévias são agrupadas nestas seções: **Web Clients**, **Application Clients** e **Mobile Clients**.
+4. Selecione **Executar Inbox Vision**. Isso leva até dez minutos.
+5. Em seguida, selecione um bloco para visualizar a prévia em mais detalhes. Essas prévias são agrupadas nestas seções: **Clientes web**, **Clientes de aplicativo** e **Clientes móveis**.
 
 ![A opção de selecionar clientes de e-mail para prévia.]({% image_buster /assets/img/select_email_preview_inbox_vision.png %}){: style="max-width:85%;"}
 
 {:start="5"}
-5. Selecione **Run Inbox Vision**. Isso pode levar de dois a dez minutos para ser concluído.
+5. Selecione **Executar Inbox Vision**. Isso pode levar de dois a dez minutos para ser concluído.
 
 {% alert note %}
 O Inbox Vision não oferece suporte a mensagens de e-mail que incluem [lógica de interrupção]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) porque esses e-mails são renderizados como conteúdo estático.
@@ -94,12 +94,12 @@ Os testes de acessibilidade destacam possíveis problemas de acessibilidade no s
 Quando você executa o Inbox Vision, a Braze verifica automaticamente problemas comuns de acessibilidade no [conjunto de regras WCAG 2.2 AA](https://www.w3.org/WAI/WCAG22/quickref/?versions=2.2&currentsidebar=%23col_customize&levels=aaa) (como texto alternativo ausente, contraste de cores insuficiente, estrutura inadequada de cabeçalhos) e categoriza a gravidade para ajudar você a priorizar as correções. Observe que, mesmo quando o texto alternativo está presente, [como ele é exibido]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text) é controlado pelo cliente de e-mail do destinatário, não pela Braze.
 
 {% alert important %}
-Os testes de acessibilidade podem ser usados para apoiar os esforços de conformidade do cliente com regulamentações ou leis como o [European Accessibility Act](https://www.braze.com/resources/articles/european-accessibility-at-what-it-means-for-marketers); no entanto, o cliente reconhece que a Braze não faz representações ou garantias quanto ao fato de o uso dos testes de acessibilidade satisfazer ou não as obrigações de conformidade do cliente, e se isenta de toda responsabilidade em relação a isso.
+Os Testes de Acessibilidade podem ser usados para apoiar os esforços de conformidade do Cliente com regulamentações ou leis como o [European Accessibility Act](https://www.braze.com/resources/articles/european-accessibility-at-what-it-means-for-marketers); no entanto, o Cliente reconhece que a Braze não faz representações ou garantias quanto ao fato de o uso dos Testes de Acessibilidade satisfazer ou não as obrigações de conformidade do Cliente, e se isenta de toda responsabilidade em relação a isso.
 {% endalert %}
 
-### Visualização dos resultados dos testes de acessibilidade {#viewing-accessibility-testing-results}
+### Visualizando os resultados dos testes de acessibilidade {#viewing-accessibility-testing-results}
 
-Os testes de acessibilidade geram resultados para cada regra como aprovado, reprovado ou necessita de revisão na guia **Accessibility Testing**. A Braze categoriza cada regra usando POUR (Perceivable, Operable, Understandable, Robust), os quatro princípios por trás do WCAG.
+Os testes de acessibilidade geram resultados para cada regra como aprovado, reprovado ou necessita de revisão na guia **Accessibility Testing**. A Braze categoriza cada regra usando POUR (Perceivable, Operable, Understandable, Robust), os quatro princípios por trás das WCAG.
 
 #### Categorias POUR {#pour-categories}
 
@@ -124,7 +124,7 @@ O Inbox Vision classifica os problemas de acessibilidade por gravidade para ajud
 | Moderado | Problemas que podem causar alguma dificuldade para usuários com deficiência, mas são menos propensos a bloquear o acesso completamente. |
 | Menor | Problemas que têm um impacto relativamente baixo na acessibilidade e podem causar apenas pequenos inconvenientes. |
 | Necessita de revisão | Não foi possível detectar se pode haver um problema ou não. Isso pode ocorrer quando não é possível determinar a taxa de contraste porque o texto está posicionado sobre uma imagem de fundo. Você deve revisar manualmente, pois não é possível determinar automaticamente. |
-| Aprovado | Aprovado nas regras WCAG A, AA ou nas boas práticas de acessibilidade. |
+| Aprovado | Aprovado nas regras WCAG A, AA ou nas melhores práticas de acessibilidade. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Níveis de gravidade" }
 
 {% alert important %}
@@ -139,11 +139,11 @@ O editor de arrastar e soltar não oferece suporte à definição de um elemento
 
 ### Revise sua lista de assinantes de e-mail {#review-your-email-subscriber-list}
 
-Consulte o [dashboard de insights de e-mail]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard) para determinar o tipo de dispositivo e os provedores mais populares onde seus assinantes estão engajando. Se você precisar de mais granularidade, como navegador, modelo do dispositivo e outros detalhes, pode alavancar seus dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) ou do [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) para obter esse nível de detalhe sobre o engajamento recente de e-mail dos seus usuários.
+Consulte o [dashboard de insights de e-mail]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard) para determinar o tipo de dispositivo e os provedores mais populares onde seus assinantes estão engajando.
 
-Caso contrário, a Braze usa como padrão as 20 prévias mais relevantes com base em dados gerais do setor e de especialistas, o que cobre a maioria dos ambientes onde seus assinantes estão engajando com seus e-mails. Se sua análise de dados apontar para outras prévias mais populares, você pode definir um conjunto padrão de prévias toda vez que executar o Inbox Vision.
+Se você precisar de mais granularidade, como navegador, modelo de dispositivo e outros detalhes, pode alavancar seus dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) ou do [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) para obter esse nível de detalhe sobre o engajamento recente de e-mail dos seus usuários.
 
-### Selecione prévias significativas e impactadas {#select-meaningful-previews-and-impacted-previews}
+### Selecione prévias significativas e prévias impactadas {#select-meaningful-previews-and-impacted-previews}
 
 Se o seu negócio é baseado principalmente nos EUA, pode haver prévias específicas, como prévias internacionais como GMX.de, que são usadas apenas por um número nominal de usuários. Recomendamos priorizar e otimizar para caixas de entrada com um impacto significativo de assinantes e reservar suas prévias para caixas de entrada de maior impacto.
 
@@ -155,7 +155,9 @@ Sugerimos executar o Inbox Vision quando a mensagem de e-mail estiver pronta par
 
 Executar o Inbox Vision toda vez que você faz uma única edição ou alteração pode consumir prévias rapidamente. Sugerimos fazer todas as alterações necessárias no e-mail primeiro e depois executar o Inbox Vision para visualizar como todas as suas alterações podem afetar a renderização do seu e-mail em diferentes ambientes.
 
-A Braze executa testes por meio de clientes de e-mail reais e trabalha para garantir que as renderizações sejam precisas. Se você identificar um problema consistente com um cliente, abra um [ticket de suporte]({{site.baseurl}}/braze_support).
+A Braze executa testes por meio de clientes de e-mail reais e trabalha para garantir que as renderizações sejam precisas. A Braze usa como padrão as 20 principais prévias com base em dados gerais do setor e de especialistas, o que cobre a maioria dos ambientes onde seus usuários estão engajando com seus e-mails. Se sua análise de dados apontar para outras prévias mais populares, você pode definir um conjunto padrão de prévias toda vez que executar o Inbox Vision.
+
+Se você identificar consistentemente um problema com um cliente, abra um [ticket de suporte]({{site.baseurl}}/braze_support).
 
 ### Precisão dos testes versus caixas de entrada reais {#test-accuracy-versus-live-inboxes}
 
