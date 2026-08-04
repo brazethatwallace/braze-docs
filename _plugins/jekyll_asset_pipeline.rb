@@ -92,20 +92,4 @@ module JekyllAssetPipeline
     end
 
   end
-
-  # Emit deferred script tags for bundled JavaScript assets.
-  class DeferredJavaScriptTagTemplate < JekyllAssetPipeline::Template
-    def self.filetype
-      '.js'
-    end
-
-    def self.priority
-      1
-    end
-
-    def html
-      "<script src='#{output_path}/#{@filename}' " \
-        "type='text/javascript' defer></script>"
-    end
-  end
 end

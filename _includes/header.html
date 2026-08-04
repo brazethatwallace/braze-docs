@@ -14,7 +14,7 @@
 {%- if jekyll.environment != "production" -%}
   {%- assign domain_script = domain_script | append: "-test" -%}
 {%- endif -%}
-<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="{{domain_script}}" defer></script>
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="{{domain_script}}"></script>
 <script type="text/javascript">
 function OptanonWrapper() { }
 </script>

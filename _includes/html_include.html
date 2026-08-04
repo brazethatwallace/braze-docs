@@ -28,20 +28,18 @@
     }
   </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fast.fonts.net" crossorigin>
-
 <link href="{{site.baseurl}}/assets/css/bootstrap.css" rel="stylesheet" />
 <link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/34a7ffbc-6962-4ab8-b4f5-9aa2b4258efc.css"/>
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 
-<link rel="preload" href="{{site.baseurl}}/assets/css/fontawesome.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="{{site.baseurl}}/assets/css/fontawesome.css" rel="stylesheet" /></noscript>
+<!-- link rel="stylesheet" href="//use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous" -->
+<link href="{{site.baseurl}}/assets/css/fontawesome.css" rel="stylesheet" />
 
-<script type="text/javascript" src="{{site.baseurl}}/assets/js/jquery-3.3.1.js" defer></script>
-<script type="text/javascript" src="{{site.baseurl}}/assets/js/bootstrap.js" defer></script>
+
+<script type="text/javascript" src="{{site.baseurl}}/assets/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="{{site.baseurl}}/assets/js/bootstrap.js"></script>
+
 
 {% include analytics.html %}
 
@@ -94,12 +92,8 @@
 </script>
 
 
-<script type="text/javascript" src="{{site.baseurl}}/assets/js/clipboard.js" defer></script>
-<script type='text/javascript' src='{{site.baseurl}}/assets/js/jquery.mark.js' defer></script>
-
-{% if page.needs_mermaid %}
-<script src="{{site.baseurl}}/assets/js/mermaid.js" defer></script>
-{% endif %}
+<script type="text/javascript" src="{{site.baseurl}}/assets/js/clipboard.js"></script>
+<script type='text/javascript' src='{{site.baseurl}}/assets/js/jquery.mark.js' ></script>
 
 {% javascript_asset_tag global %}
 - /assets/js/highlight.js
@@ -113,10 +107,14 @@
 {% endjavascript_asset_tag %}
 
 {% if page.needs_swiper %}
-<script type='text/javascript' src='{{site.baseurl}}/assets/js/swiper.js' defer></script>
+<script type='text/javascript' src='{{site.baseurl}}/assets/js/swiper.js' ></script>
 {% endif %}
 
-<script type="text/javascript" src="{{site.baseurl}}/assets/js/copy-heading-tag-links.js" defer></script>
+{% if page.needs_mermaid %}
+<script src="{{site.baseurl}}/assets/js/mermaid.js"></script>
+{% endif %}
+
+<script type="text/javascript" src="{{site.baseurl}}/assets/js/copy-heading-tag-links.js"></script>
 
 <script type="text/javascript">
   var base_url = '{{site.baseurl}}';
