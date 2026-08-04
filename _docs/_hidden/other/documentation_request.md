@@ -301,7 +301,7 @@ hide_toc: true
           var r = require("jquery");
           i(exports, r)
         } else i(e, e.jQuery || e.Zepto || e.ender || e.$)
-      }(this, function(e, i) {
+      }(window, function(e, i) {
         function r(e, r) {
           function n(e, i, r) {
             return e[i] = r, e
