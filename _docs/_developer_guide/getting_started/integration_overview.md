@@ -91,6 +91,8 @@ Your team administrator will also create different [workspaces]({{site.baseurl}}
 
 Importantly, workspaces provide API keys for multiple platforms (such as iOS and Android). You'll use the correlated API keys to associate SDK data with a particular workspace. Navigate to your workspaces to access the API key for each of your apps. Make sure each API key has the correct permissions to perform the work you've scoped. See the [API provisioning article]({{site.baseurl}}/api/basics#rest-api-key-permissions) for details.
 
+For Web implementations that span multiple root domains, refer to [Multi-domain integration for the Braze Web SDK]({{site.baseurl}}/developer_guide/platforms/web/multi_domain_integration) when deciding whether to use one app or separate apps and API keys.
+
 {% alert important %}
 It's important that you set up different environments for development and production. Setting up a test environment will prevent you from spending actual money during onboarding and QA. To create a testing environment, set up a testing workspace and be sure to use its API key so that you aren't populating your production workspace with test data.
 {% endalert %}  

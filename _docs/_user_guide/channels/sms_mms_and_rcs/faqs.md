@@ -19,7 +19,9 @@ channel:
 
 ### What is an `app_id` in the SMS API object?
 
-The app identifier API key or `app_id` is a parameter associating activity with a specific app in your workspace. It designates which app within the workspace you are interacting with. For example, you will find that you will have an `app_id` for your iOS app, an `app_id` for your android app, and an `app_id` for your web integration.
+The app identifier API key or `app_id` is a parameter associating activity with a specific app in your workspace. It designates which app within the workspace you are interacting with. For example, you have an `app_id` for your iOS app, an `app_id` for your Android app, and an `app_id` for your web integration.
+
+For SMS, the `app_id` parameter is required when sending SMS messages through the API (such as the `/messages/send` endpoint). It specifies which app in your workspace is associated with the SMS activity or API call. You can use any valid `app_id` from an app configured in your workspace for SMS messaging, regardless of whether the user has that specific app on their profile.
 
 You can find your `app_id` by navigating to **Settings** > **App Settings** and locating the **Identification** section.
 

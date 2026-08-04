@@ -21,7 +21,7 @@ channel: email
 
 Não, a Braze não oferece essa funcionalidade. Isso ocorre porque a grande maioria dos e-mails é aberta em dispositivos móveis e clientes de e-mail modernos, que renderizam imagens e conteúdo sem problemas.
 
-**Alternativa:** Para alcançar o mesmo resultado, você pode hospedar o conteúdo do seu e-mail em uma landing page externa (como seu website), que pode então ser vinculada a partir da Campaign de e-mail que você está criando usando a ferramenta **Link** ao editar o corpo do e-mail.
+**Solução alternativa:** Para obter o mesmo resultado, você pode hospedar o conteúdo do seu e-mail em uma landing page externa (como seu website), que pode então ser vinculada a partir da Campaign de e-mail que você está criando usando a ferramenta **Link** ao editar o corpo do e-mail.
 
 ### Como crio um link de cancelamento de inscrição personalizado para meus modelos de e-mail? {#how-do-i-create-a-custom-unsubscribe-link-for-my-email-templates}
 
@@ -39,9 +39,11 @@ Para salvar esse novo link, a tag padrão de cancelamento de inscrição da Braz
 - **Exemplo de tag em comentário:** colocando a tag em um comentário: `<!-- ${set_user_to_unsubscribed_url} -->`
 - **Exemplo de comentário em tag `<div>` oculta:** {%raw%}`<div style="display:none;max-height:0px;overflow:hidden;">${set_user_to_unsubscribed_url}</div>`{%endraw%}
 
-### O que acontece se eu editar um modelo de e-mail que está sendo usado em uma Campaign? {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign}
+### O que acontece se eu editar um modelo de e-mail que está sendo usado em uma Campaign ou Canvas? {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign-or-canvas}
 
-As edições feitas em um modelo existente não serão refletidas em Campaigns que foram criadas usando versões anteriores desse modelo. Para Campaigns de API que usam um modelo no corpo da REST API, a Braze usará a versão mais recente do modelo no momento do envio.
+Os modelos de e-mail servem como ponto de partida ao criar um e-mail em uma Campaign ou Canvas. Quando você seleciona um modelo, pode editá-lo dentro da Campaign ou Canvas, e essas alterações são independentes do modelo original.
+
+Edições feitas em um modelo existente não serão refletidas em Campaigns ou Canvas que foram criados usando versões anteriores desse modelo. Da mesma forma, alterações feitas no e-mail dentro de uma Campaign ou Canvas não serão sincronizadas de volta ao modelo original. Para Campaigns de API que incluem um `email_template_id` no corpo da solicitação, a Braze usa a versão mais recente do modelo no momento do envio.
 
 ## Modelos de link {#link-templates}
 
@@ -53,19 +55,19 @@ Sim, você pode inserir quantos modelos quiser nas suas mensagens de e-mail. Com
 
 Existem várias maneiras de visualizar seus links. Depois de aplicar o [modelo de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template), você pode enviar um [e-mail de teste]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) para si mesmo para ver todos os links.
 
-No painel de prévia, em uma nova guia, você também pode abrir os links para visualizá-los. Você também pode passar o cursor sobre os links no painel de prévia e vê-los na parte inferior do seu navegador.
+No painel de prévia em uma nova guia, você também pode abrir os links para visualizá-los. Você também pode passar o cursor sobre os links no painel de prévia e vê-los na parte inferior do seu navegador.
 
 ### Como o modelo de link funciona com o Liquid? {#how-does-link-templating-work-with-liquid}
 
 Os modelos de link são expandidos e adicionados a cada URL antes de qualquer expansão do Liquid acontecer. Se parte da sua URL for gerada usando um snippet de Liquid, recomendamos que a base da URL e o ponto de interrogação (?) sejam codificados diretamente para que os modelos de link sejam expandidos corretamente.
 
-Evite adicionar o ponto de interrogação (?) ao seu Liquid, pois isso fará com que os modelos de link adicionem primeiro um ponto de interrogação (?) e, depois, o processo de expansão do Liquid adicione um segundo ponto de interrogação (?).
+Evite adicionar o ponto de interrogação (?) ao seu Liquid, pois isso fará com que os modelos de link adicionem primeiro um ponto de interrogação (?) e, em seguida, o processo de expansão do Liquid adicione um segundo ponto de interrogação (?).
 
 #### URLs codificadas diretamente versus atributos personalizados {#hardcoded-urls-versus-custom-attributes}
 
-Quando você usa uma URL codificada diretamente no editor de HTML (por exemplo, `https://braze.com?12345`), a Braze detecta que um `?` já existe e automaticamente usa `&` para anexar os parâmetros do modelo de link. No entanto, quando você usa um atributo personalizado que contém uma URL com um `?` (por exemplo, {% raw %}`{{custom_attribute.${my_url}}}`{% endraw %} onde `my_url` é `https://braze.com?12345`), a Braze não verifica se um `?` já existe no valor do atributo personalizado. Nesse caso, o modelo de link adiciona outro `?` antes dos parâmetros, resultando em uma URL como `https://braze.com?12345?utm_source=...`.
+Quando você usa uma URL codificada diretamente no editor de HTML (por exemplo, `https://braze.com?12345`), a Braze detecta que um `?` já existe e automaticamente usa `&` para anexar os parâmetros do seu modelo de link. No entanto, quando você usa um atributo personalizado que contém uma URL com um `?` (por exemplo, {% raw %}`{{custom_attribute.${my_url}}}`{% endraw %} onde `my_url` é `https://braze.com?12345`), a Braze não verifica se um `?` já existe no valor do atributo personalizado. Nesse caso, o modelo de link adiciona outro `?` antes dos parâmetros, resultando em uma URL como `https://braze.com?12345?utm_source=...`.
 
-Para evitar esse problema ao usar atributos personalizados que podem conter parâmetros de consulta, codifique diretamente o `?` ou `&` após o atributo personalizado, com base no fato de o valor do atributo personalizado incluir ou não parâmetros de consulta. Por exemplo, se o seu atributo personalizado sempre inclui um `?`, use {% raw %}`{{custom_attribute.${my_url}}}&`{% endraw %} para garantir que o modelo de link anexe os parâmetros corretamente.
+Para evitar esse problema ao usar atributos personalizados que podem conter parâmetros de consulta, codifique diretamente o `?` ou `&` após o atributo personalizado com base no fato de o valor do atributo personalizado incluir ou não parâmetros de consulta. Por exemplo, se o seu atributo personalizado sempre inclui um `?`, use {% raw %}`{{custom_attribute.${my_url}}}&`{% endraw %} para garantir que o modelo de link anexe os parâmetros corretamente.
 
 ## Aliasing de links {#link-aliasing}
 

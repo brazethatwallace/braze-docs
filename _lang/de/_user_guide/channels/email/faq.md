@@ -15,7 +15,7 @@ channel: email
 
 Wenn sich mehrere Nutzer:innen mit übereinstimmenden E-Mail-Adressen in einem Segment befinden, das eine Campaign erhalten soll, wird zum Sendezeitpunkt ein einzelnes Nutzerprofil mit dieser E-Mail-Adresse ausgewählt. Auf diese Weise wird die E-Mail nur einmal gesendet und dedupliziert, sodass sie nicht mehrfach an dieselbe E-Mail-Adresse zugestellt wird.
 
-**Eindeutige E-Mail-Adressen:** Braze erzwingt keine eindeutigen E-Mail-Adressen über Profile hinweg. Wenn Sie auf eine Eins-zu-eins-Beziehung zwischen einer E-Mail-Adresse und einem Profil angewiesen sind, überwachen Sie Duplikate intern beim Erstellen von Nutzer:innen.
+**Eindeutige E-Mail-Adressen:** Braze erzwingt keine eindeutigen E-Mail-Adressen über Profile hinweg. Wenn Sie auf eine Eins-zu-eins-Beziehung zwischen einer E-Mail-Adresse und einem Profil angewiesen sind, überwachen Sie intern beim Erstellen von Nutzer:innen auf Duplikate.
 
 **Deduplizierung vor Liquid:** Bei Sendungen, bei denen Braze innerhalb eines Versands nach E-Mail-Adresse dedupliziert (zum Beispiel geplante Campaigns, bei denen mehrere Segmentmitglieder mit derselben Adresse zusammen verarbeitet werden), erfolgt diese Deduplizierung, bevor Liquid für das ausgewählte Profil ausgeführt wird, das diese Adresse repräsentiert. Wenn Liquid für dieses Profil abbricht (zum Beispiel mit [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)), erhält diese Adresse bei diesem Versand keine Nachricht – einschließlich der Profile, die bereits durch die Deduplizierung übersprungen wurden. Getriggerte Sendungen wenden diese Deduplizierung innerhalb eines Versands nicht auf dieselbe Weise an; mehrere Profile, die eine Adresse teilen, können alle in einem Batch berechtigt bleiben, sodass dieses Abbruchverhalten nicht auf dieselbe Weise gilt (siehe nächster Absatz).
 
@@ -28,13 +28,13 @@ Die folgenden Szenarien können den Eindruck erwecken, dass ein:e Nutzer:in eine
 - **Seed-Listen oder Testempfänger:innen:** Seed-Adressen und interne Testempfänger:innen können eine Sendung zusätzlich zu Ihrer Hauptzielgruppe erhalten, was wie ein Duplikat aussehen kann, wenn ein Posteingang sowohl einem Profil als auch einem Seed-Eintrag entspricht.
 - **Ein Fehler ist bei der Erstellung der Campaign oder des Canvas aufgetreten:** Die Nutzer:innen erhalten möglicherweise nicht dieselbe Sendung zweimal, können aber zwei separate E-Mails mit derselben Betreffzeile erhalten. Wenn eine Campaign oder ein Canvas dupliziert wird, überprüfen Sie E-Mail-Konfigurationsdetails wie Bilder oder Betreffzeilen. Sie können auch Changelogs einsehen, um festzustellen, ob die Campaign oder das Canvas nach dem Start geändert wurde – ein Duplikat kann dieselbe Betreffzeile wie das Original haben, als die Nutzer:innen es erhalten haben.
 - **Mehrere Nutzerprofile haben E-Mail-Weiterleitung:** Wenn ein:e Nutzer:in mehrere Konten in einer bestimmten App hat, aber ein Konto E-Mails weiterleitet, erhält die Person die Campaign einmal pro Posteingang; E-Mails können zweimal im Posteingang erscheinen, in den Nachrichten weitergeleitet werden. Nur einige Anbieter zeigen an, wenn eine E-Mail von einem anderen Konto weitergeleitet wurde.
-- **E-Mail-Konfiguration beim Empfänger:** Einige Clients führen Posteingänge zusammen („universeller Posteingang“). Wenn dieselbe Campaign mehrere Konten anspricht, die einen Posteingang teilen, kann es so aussehen, als hätte eine Person die Campaign zweimal erhalten, obwohl tatsächlich zwei verschiedene Profile angeschrieben wurden. Die empfangende Person kann bestätigen, ob mehrere Konten in einem Posteingang zusammengeführt sind.
+- **E-Mail-Konfiguration bei den Empfänger:innen:** Einige Clients führen Posteingänge zusammen („universeller Posteingang“). Wenn dieselbe Campaign mehrere Konten anspricht, die einen Posteingang teilen, kann es so aussehen, als hätte eine Person die Campaign zweimal erhalten, obwohl tatsächlich zwei verschiedene Profile angeschrieben wurden. Die Empfänger:innen können bestätigen, ob mehrere Konten in einem Posteingang zusammengeführt sind.
 
 Diese Deduplizierung gilt, wenn die angesprochenen Nutzer:innen im selben Versand sind. Die erneute Berechtigung wird pro Profil bewertet, nicht pro E-Mail-Adresse.
 
-Die erneute Berechtigung für E-Mail-Campaigns und Canvas-Schritte verwendet das Profil jeder Nutzerin und jedes Nutzers – nicht den Posteingang – sodass mehrere Profile sich für separate Sendungen qualifizieren können, während diese Logik erfüllt ist. In Kombination mit Triggern kann dies mehr als eine Nachricht an denselben Posteingang zustellen, selbst wenn Sie versuchen, eine einzelne Sperrfrist auf Adressebene einzuhalten. Getriggerte Campaigns (ausgenommen API-getriggerte Campaigns) und Canvases können ebenfalls zweimal an eine Adresse senden, wenn verschiedene Profile mit übereinstimmenden E-Mail-Adressen den Trigger zu unterschiedlichen Zeiten auslösen – zum Beispiel wenn Nutzer:in A und Nutzer:in B `johndoe@example.com` teilen, sich aber in verschiedenen Zeitzonen befinden, während die Zustellung Ortszeitzonen verwendet.
+Die erneute Berechtigung für E-Mail-Campaigns und Canvas-Schritte verwendet das Profil jeder Nutzerin und jedes Nutzers – nicht den Posteingang – sodass mehrere Profile sich für separate Sendungen qualifizieren können, während diese Logik erfüllt ist. In Kombination mit Triggern kann dies mehr als eine Nachricht an denselben Posteingang zustellen, selbst wenn Sie versuchen, eine einzelne Sperrfrist auf Adressebene einzuhalten. Getriggerte Campaigns (ausgenommen API-getriggerte Campaigns) und Canvases können ebenfalls zweimal an eine Adresse senden, wenn verschiedene Profile mit übereinstimmenden E-Mail-Adressen den Trigger zu unterschiedlichen Zeiten auslösen – zum Beispiel wenn Nutzer:in A und Nutzer:in B `johndoe@example.com` teilen, sich aber in verschiedenen Zeitzonen befinden, während die Zustellung lokale Zeitzonen verwendet.
 
-Nutzer:innen werden beim Canvas-Eintritt nicht nach E-Mail dedupliziert, sodass sie über den ersten Schritt eines Canvas hinaus möglicherweise nicht dedupliziert werden, wenn sie aufgrund von Rate-limitiertem Eintritt zu leicht unterschiedlichen Zeiten fortschreiten. Wenn ein:e Nutzer:in, die/der einer bestimmten E-Mail-Adresse zugeordnet ist, eine E-Mail öffnet oder darauf klickt, werden alle Nutzerprofile, die diese E-Mail-Adresse teilen, als geöffnet oder geklickt markiert.
+Nutzer:innen werden beim Canvas-Eintritt nicht nach E-Mail dedupliziert, sodass sie möglicherweise über den ersten Schritt eines Canvas hinaus nicht dedupliziert werden, wenn sie aufgrund von Rate-limitiertem Eintritt zu leicht unterschiedlichen Zeiten fortschreiten. Wenn ein:e Nutzer:in, die/der einer bestimmten E-Mail-Adresse zugeordnet ist, eine E-Mail öffnet oder darauf klickt, werden alle Nutzerprofile, die diese E-Mail-Adresse teilen, als geöffnet oder geklickt markiert.
 
 ### Ausnahme: API-getriggerte Campaigns {#exception-api-triggered-campaigns}
 
@@ -50,11 +50,11 @@ Wenn Sie eine API-Campaign über einen API-Aufruf senden (ausgenommen API-getrig
 
 #### A/B-Tests mit doppelten E-Mail-Adressen {#ab-testing-with-duplicate-email-addresses}
 
-Vermeiden Sie [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing) bei E-Mails, wenn mehrere Profile dieselbe E-Mail-Adresse teilen können. Varianten werden pro Profil zugewiesen, was zu mehr als einer Nachricht an denselben Posteingang führen kann. Wenn Sie in dieser Situation testen müssen, kombinieren Sie keinen **Gewinnervariante**-Schritt mit [Ortszeitzonenversand]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#local-time-zone-campaigns) auf eine Weise, die die Auswahl des Gewinners verzögert – diese Optionen zusammen können die Wahrscheinlichkeit doppelter Sendungen erhöhen.
+Vermeiden Sie [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing) bei E-Mails, wenn mehrere Profile dieselbe E-Mail-Adresse teilen können. Varianten werden pro Profil zugewiesen, was zu mehr als einer Nachricht an denselben Posteingang führen kann. Wenn Sie in dieser Situation testen müssen, kombinieren Sie keinen **Gewinnervariante**-Schritt mit [Zustellung in lokaler Zeitzone]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#local-time-zone-campaigns) auf eine Weise, die die Auswahl der Gewinnervariante verzögert – diese Optionen zusammen können die Wahrscheinlichkeit doppelter Sendungen erhöhen.
 
 #### Canvas und doppelte E-Mail-Adressen {#canvas-and-duplicate-email-addresses}
 
-Bei Canvas-Journeys kann es von Entry-Batching, Schritt-Timing und anderen Faktoren abhängen, ob doppelte E-Mail-Adressen eine oder mehrere Sendungen erhalten. Betrachten Sie das Verhalten als undefiniert, bis Sie es für Ihre Journey validiert haben. Führen Sie nach Möglichkeit doppelte Profile zusammen oder konsolidieren Sie sie. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="deterministic deduplication for duplicate email addresses in Canvas" %}
+Bei Canvas-Journeys kann es von Entry-Batching, Schritt-Timing und anderen Faktoren abhängen, ob doppelte E-Mail-Adressen eine Sendung oder mehr als eine erhalten. Betrachten Sie das Verhalten als undefiniert, bis Sie es für Ihre Journey validiert haben. Führen Sie nach Möglichkeit doppelte Profile zusammen oder konsolidieren Sie sie. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="deterministic deduplication for duplicate email addresses in Canvas" %}
 
 ### Was passiert mit dem Abo-Status, wenn die E-Mail-Adresse einer Nutzerin oder eines Nutzers auf eine geändert wird, die von einer anderen Person geteilt wird? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
@@ -70,7 +70,7 @@ Typischerweise liegt die „magische Zahl“ bei etwa 98 % zugestellter Nachrich
 
 Allerdings kann eine Zustellrate von 98 % oder höher dennoch Zustellbarkeitsprobleme aufweisen. Wenn zum Beispiel alle Ihre Bounces von einer einzigen Domain stammen, ist das ein klares Signal für ein Reputationsproblem bei diesem Anbieter.
 
-Darüber hinaus können Nachrichten zugestellt werden und im Spam landen, was auf potenziell schwerwiegende Reputationsprobleme hinweist. Es ist wichtig, nicht nur die Anzahl der zugestellten Nachrichten zu überwachen, sondern auch Öffnungs- und Klickraten, um festzustellen, ob Nutzer:innen die Nachrichten tatsächlich in ihren Posteingängen sehen. Da Anbieter in der Regel nicht jede Spam-Instanz melden, könnte eine Spam-Rate von selbst 1 % Anlass zur Sorge und weiteren Analyse sein.
+Darüber hinaus können Nachrichten zugestellt werden und im Spam landen, was auf potenziell schwerwiegende Reputationsprobleme hinweist. Es ist wichtig, nicht nur die Anzahl der zugestellten Nachrichten zu überwachen, sondern auch Öffnungs- und Klickraten, um festzustellen, ob Nutzer:innen die Nachrichten tatsächlich in ihren Posteingängen sehen. Da Anbieter in der Regel nicht jede Spam-Instanz melden, könnte eine Spam-Rate von auch nur 1 % Anlass zur Sorge und weiteren Analyse sein.
 
 Schließlich können auch Ihr Geschäft und die Art der E-Mails, die Sie senden, die Zustellung beeinflussen. Zum Beispiel sollte jemand, der hauptsächlich [Transaktions-E-Mails]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign) sendet, eine bessere Rate erwarten als jemand, der viele Marketing-Nachrichten versendet.
 
@@ -82,7 +82,7 @@ Soft Bounces sind E-Mails, die aufgrund eines temporären oder vorübergehenden 
 
 ### Was ist eine E-Mail-Feedback-Schleife? {#what-is-an-email-feedback-loop}
 
-Eine E-Mail-Feedback-Schleife (FBL) ermöglicht es Absendern, ihre Reputation zu überwachen, indem Campaigns identifiziert werden, die ein hohes Beschwerdeaufkommen erhalten. Für Schritte zur Implementierung einer Gmail-Feedback-Schleife siehe den Artikel [Google Feedback Loop](https://support.google.com/a/answer/6254652).
+Eine E-Mail-Feedback-Schleife (FBL) ermöglicht es Absendern, ihre Reputation zu überwachen, indem Campaigns identifiziert werden, die ein hohes Beschwerdeaufkommen erhalten. Schritte zur Implementierung einer Gmail-Feedback-Schleife finden Sie im Artikel [Googles Feedback-Schleife](https://support.google.com/a/answer/6254652).
 
 ### Was sind Open-Tracking-Pixel? {#what-are-open-tracking-pixels}
 
@@ -90,7 +90,7 @@ Eine E-Mail-Feedback-Schleife (FBL) ermöglicht es Absendern, ihre Reputation zu
 
 ### Kann ich Öffnungen für E-Mails verfolgen, die im Nur-Text-Format gerendert werden? {#can-i-track-opens-for-emails-rendered-in-plain-text}
 
-Nein. Braze verfolgt E-Mail-Öffnungen mithilfe eines [Open-Tracking-Pixels]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#open-tracking-pixel), das in das HTML der E-Mail eingebettet ist. Wenn der E-Mail-Client der empfangenden Person die E-Mail lädt, fordert er dieses Bild an, und Braze protokolliert ein Öffnungsereignis.
+Nein. Braze verfolgt E-Mail-Öffnungen mithilfe eines [Open-Tracking-Pixels]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#open-tracking-pixel), das in das HTML der E-Mail eingebettet ist. Wenn der E-Mail-Client der Empfänger:innen die E-Mail lädt, fordert er dieses Bild an, und Braze protokolliert ein Öffnungsereignis.
 
 Da Nur-Text-E-Mails keine Bilder enthalten können, ist das Open-Tracking-Pixel nicht enthalten, sodass Öffnungen für E-Mails im Nur-Text-Format nicht verfolgt werden können. Klicks können weiterhin verfolgt werden, da Hyperlinks im Nur-Text-Format funktionsfähig bleiben.
 
@@ -112,7 +112,7 @@ Beachten Sie bei der Analyse von E-Mail-Metriken, dass Weiterleitungsaktivitäte
 
 Nutzer:innen werden daran gehindert, das Canvas zu betreten, und es werden keine weiteren Nachrichten gesendet.
 
-Bei E-Mail-Campaigns und Canvases stoppt der Stopp-Button den Versand nicht sofort. Wenn die Sendeanfragen gesendet wurden, können sie nicht daran gehindert werden, an die Nutzer:innen zugestellt zu werden, was nach einer gewissen Verzögerung geschehen kann.
+Bei E-Mail-Campaigns und Canvases stoppt der Stopp-Button den Versand nicht sofort. Wenn die Sendeanfragen gesendet wurden, können sie nicht daran gehindert werden, an die Nutzer:innen zugestellt zu werden, was mit einer gewissen Verzögerung geschehen kann.
 
 Obwohl Braze keine weiteren Anfragen sendet, sobald die Campaign oder das Canvas gestoppt wurde, können die Analytics weiterhin steigen, während der ESP bereits laufende Anfragen verarbeitet.
 
@@ -120,8 +120,8 @@ Obwohl Braze keine weiteren Anfragen sendet, sobald die Campaign oder das Canvas
 
 _Gesamtöffnungen_ ist die Anzahl, wie oft die E-Mail von Nutzer:innen geöffnet wurde, während _Gesamtklicks_ die Anzahl ist, wie oft Nutzer:innen innerhalb der zugestellten E-Mail geklickt haben, einschließlich aller Arten von Klicks wie Link-Klicks. Sie sehen möglicherweise mehr Klicks als Öffnungen aus einem der folgenden Gründe:
 
-- Nutzer:innen führen mehrere Klicks auf den E-Mail-Body innerhalb einer einzelnen Öffnung durch.
-- Nutzer:innen klicken auf einige E-Mail-Links im Vorschaubereich ihrer Telefone. In diesem Fall protokolliert Braze diese E-Mail als geklickt, aber nicht als geöffnet.
+- Nutzer:innen führen mehrere Klicks auf den E-Mail-Text innerhalb einer einzelnen Öffnung durch.
+- Nutzer:innen klicken auf einige E-Mail-Links im Vorschaubereich ihres Telefons. In diesem Fall protokolliert Braze diese E-Mail als geklickt, aber nicht als geöffnet.
 - Nutzer:innen öffnen eine E-Mail erneut, die sie zuvor in der Vorschau angesehen haben.
 
 ### Warum sind meine Klickzahlen höher als mein Segment der Nutzer:innen, die geklickt haben? {#why-are-my-click-counts-higher-than-my-segment-of-users-who-clicked}
@@ -142,26 +142,26 @@ Wenn Sie unerwartete Muster in Ihren E-Mail-Öffnungs- oder Klickmetriken bemerk
 
 #### E-Mail-Clipping entfernt das Tracking-Pixel {#email-clipping-removes-the-tracking-pixel}
 
-Wenn eine E-Mail vom E-Mail-Anbieter der empfangenden Person gekürzt wird (z. B. Gmail kürzt Nachrichten über ca. 102 KB), kann Inhalt am Ende der E-Mail abgeschnitten werden. Da das Open-Tracking-Pixel typischerweise am Ende der E-Mail eingefügt wird, kann Clipping das Open-Tracking verhindern.
+Wenn eine E-Mail vom E-Mail-Anbieter der Empfänger:innen gekürzt wird (z. B. Gmail kürzt Nachrichten über ca. 102 KB), kann Inhalt am Ende der E-Mail abgeschnitten werden. Da das Open-Tracking-Pixel typischerweise am Ende der E-Mail eingefügt wird, kann Clipping das Open-Tracking verhindern.
 
 **So identifizieren Sie das Problem:** Prüfen Sie, ob die E-Mail einen Link „Gesamte Nachricht anzeigen“ oder ähnlich am Ende anzeigt. Sie können [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) verwenden, um die vollständige scrollbare E-Mail in der Vorschau anzuzeigen und zu überprüfen, ob die Nachricht gekürzt wird.
 
-**So beheben Sie das Problem:** Sie können Braze so konfigurieren, dass das Tracking-Pixel oben in der E-Mail statt unten platziert wird. Das Verschieben des Tracking-Pixels kann beeinflussen, wie einige E-Mail-Clients Ihr HTML rendern, daher testen Sie Ihre E-Mails in Inbox Vision nach dieser Änderung. Beachten Sie, dass Öffnungen nicht verfolgt werden können, wenn die empfangende Person Bilder deaktiviert hat, unabhängig von der Pixel-Platzierung.
+**So beheben Sie das Problem:** Sie können Braze so konfigurieren, dass das Tracking-Pixel am Anfang der E-Mail statt am Ende platziert wird. Das Verschieben des Tracking-Pixels kann beeinflussen, wie einige E-Mail-Clients Ihr HTML rendern, daher testen Sie Ihre E-Mails in Inbox Vision nach dieser Änderung. Beachten Sie, dass Öffnungen nicht verfolgt werden können, wenn die Empfänger:innen Bilder deaktiviert haben, unabhängig von der Pixel-Platzierung.
 
-#### Tracking-Pixel verursacht weißen Abstand am oberen Rand der E-Mail {#tracking-pixel-causes-white-gap-at-top-of-email}
+#### Tracking-Pixel verursacht weißen Abstand am Anfang der E-Mail {#tracking-pixel-causes-white-gap-at-top-of-email}
 
-Wenn das Open-Tracking-Pixel oben in einer E-Mail positioniert ist, kann eine sichtbare weiße Linie oder Lücke am oberen Rand des E-Mail-Bodys erscheinen, insbesondere auf mobilen Geräten.
+Wenn das Open-Tracking-Pixel am Anfang einer E-Mail positioniert ist, kann eine sichtbare weiße Linie oder ein Abstand am oberen Rand des E-Mail-Textes erscheinen, insbesondere auf mobilen Geräten.
 
-**So identifizieren Sie das Problem:** Gehen Sie in Braze zu **Einstellungen** > **E-Mail-Einstellungen** und wählen Sie den Abschnitt **Open-Tracking-Pixel**. Wenn **Verschieben für SendGrid**, **Verschieben für SparkPost** oder **Verschieben für Amazon SES** für Ihren Sendeanbieter aktiviert ist, wird das Pixel oben in Ihrem E-Mail-HTML positioniert. Wenn Sie eine weiße Lücke oder Linie am oberen Rand Ihrer gerenderten E-Mail bemerken, könnte diese Einstellung die Ursache sein.
+**So identifizieren Sie das Problem:** Gehen Sie in Braze zu **Einstellungen** > **E-Mail-Einstellungen** und wählen Sie den Abschnitt **Open-Tracking-Pixel**. Wenn **Verschieben für SendGrid**, **Verschieben für SparkPost** oder **Verschieben für Amazon SES** für Ihren Sendeanbieter aktiviert ist, wird das Pixel am Anfang Ihres E-Mail-HTML positioniert. Wenn Sie einen weißen Abstand oder eine Linie am oberen Rand Ihrer gerenderten E-Mail bemerken, könnte diese Einstellung die Ursache sein.
 
-**So beheben Sie das Problem:** Deaktivieren Sie den entsprechenden **Verschieben für SendGrid**-, **Verschieben für SparkPost**- oder **Verschieben für Amazon SES**-Schalter im Abschnitt **Open-Tracking-Pixel** für Ihren Sendeanbieter. Das Tracking-Pixel ist normalerweise am Ende einer E-Mail weniger sichtbar. Testen Sie Ihre E-Mails in [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) nach der Änderung der Platzierung. Weitere Informationen finden Sie unter [Platzierung aktualisieren]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement).
+**So beheben Sie das Problem:** Deaktivieren Sie den entsprechenden Schalter **Verschieben für SendGrid**, **Verschieben für SparkPost** oder **Verschieben für Amazon SES** im Abschnitt **Open-Tracking-Pixel** für Ihren Sendeanbieter. Das Tracking-Pixel ist am Ende einer E-Mail in der Regel weniger sichtbar. Testen Sie Ihre E-Mails in [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) nach der Änderung der Platzierung. Weitere Informationen finden Sie unter [Platzierung aktualisieren]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement).
 
 #### Verzögerte Statistiken oder Klicks ohne Öffnungen {#delayed-stats-or-clicks-without-opens}
 
-Open-Tracking basiert darauf, dass die empfangende Person die E-Mail mit aktivierten Bildern lädt. In einigen Fällen können Statistiken verzögert erscheinen oder Klicks ohne entsprechende Öffnungen protokolliert werden, weil:
+Open-Tracking basiert darauf, dass die Empfänger:innen die E-Mail mit aktivierten Bildern laden. In einigen Fällen können Statistiken verzögert erscheinen oder Klicks ohne entsprechende Öffnungen protokolliert werden, weil:
 
-- Die empfangende Person die E-Mail im Vorschaubereich anzeigt, ohne sie vollständig zu öffnen, und dann Links direkt aus der Vorschau klickt.
-- Der E-Mail-Client Bilder (und damit das Tracking-Pixel) erst lädt, nachdem die empfangende Person bereits mit Links interagiert hat.
+- Die Empfänger:innen die E-Mail in einem Vorschaubereich anzeigen, ohne sie vollständig zu öffnen, und dann Links direkt aus der Vorschau klicken.
+- Der E-Mail-Client Bilder (und damit das Tracking-Pixel) erst lädt, nachdem die Empfänger:innen bereits mit Links interagiert haben.
 
 #### Sicherheitssoftware simuliert Link-Klicks {#security-software-simulates-link-clicks}
 
@@ -171,13 +171,13 @@ Dieses Verhalten ist häufiger bei institutionellen E-Mail-Domains (wie Schulen,
 
 **So identifizieren Sie das Problem:** Suchen Sie die IP-Adresse des Klickereignisses (verfügbar in Currents-Daten) in einer Suchmaschine. Wenn die IP mit einem bekannten Sicherheitsanbieter (wie Barracuda Networks) verknüpft ist, sind die Klicks wahrscheinlich automatisiert. Sie können auch einen konsistenten User-Agent-Header über mehrere automatisierte Klicks hinweg sehen.
 
-Für zusätzlichen Kontext dazu, wie Sicherheitsscans E-Mail-Metriken beeinflussen, siehe [Umgang mit steigenden Klickraten]({{site.baseurl}}/user_guide/channels/email/reporting).
+Weitere Informationen darüber, wie Sicherheitsscans E-Mail-Metriken beeinflussen, finden Sie unter [Umgang mit steigenden Klickraten]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### Welche potenziellen Risiken bestehen beim Auslösen von Server-Klicks? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
 Bestimmte Elemente einer E-Mail-Nachricht, wie übermäßig lange Nachrichten oder zu viele Ausrufezeichen, können E-Mail-Sicherheitsreaktionen auslösen. Diese Reaktionen können das Reporting und die IP-Reputation beeinflussen und dazu führen, dass sich Nutzer:innen abmelden.
 
-Für Best Practices zum Umgang mit diesen Reaktionen siehe [Umgang mit steigenden Klickraten]({{site.baseurl}}/user_guide/channels/email/reporting).
+Best Practices zum Umgang mit diesen Reaktionen finden Sie unter [Umgang mit steigenden Klickraten]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### Kann Braze Abmeldelinks verfolgen, die zur Metrik „Abmeldungen“ gezählt werden? {#can-braze-track-unsubscribe-links-counted-toward-the-unsubscribe-metric}
 
@@ -185,9 +185,9 @@ Braze verfolgt Abmeldelinks, wenn das folgende Liquid in E-Mails verwendet wird:
 
 ### Warum sehe ich eine andere Anzahl von Abmeldungen als Klicks auf meinen Abmeldelink? {#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link}
 
-Wenn es mehr _Abmeldungen_ als Nutzer:innen gibt, die den Abmeldelink im E-Mail-Body geklickt haben, erklärt [**List-Unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) oft die Differenz. List-Unsubscribe ist ein zusätzlicher Abmeldepfad im E-Mail-Header (nicht der Link in Ihrem Nachrichtentext). Wenn sich ein:e Nutzer:in auf diese Weise abmeldet, zählt es zu den _Abmeldungen_, wird aber nicht als Klick auf die verfolgte Abmelde-URL im Body gezählt.
+Wenn es mehr _Abmeldungen_ als Nutzer:innen gibt, die den Abmeldelink im E-Mail-Text geklickt haben, erklärt [**List-Unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) oft die Differenz. List-Unsubscribe ist ein zusätzlicher Abmeldepfad im E-Mail-Header (nicht der Link in Ihrem Nachrichtentext). Wenn sich ein:e Nutzer:in auf diese Weise abmeldet, zählt es zu den _Abmeldungen_, wird aber nicht als Klick auf die verfolgte Abmelde-URL im Text gezählt.
 
-Wenn die Gesamtzahl der Klicks auf den Body-Abmeldelink größer ist als die Anzahl der _Abmeldungen_, haben Nutzer:innen möglicherweise mehr als einmal auf den Link geklickt – zum Beispiel wenn sie sich abmelden, erneut abonnieren und sich wieder abmelden. Die E-Mail-Analytics können in der Klickaufschlüsselung mehrere Klicks erfassen.
+Wenn die Gesamtzahl der Klicks auf den Abmeldelink im Text größer ist als die Anzahl der _Abmeldungen_, haben Nutzer:innen möglicherweise mehr als einmal auf den Link geklickt – zum Beispiel wenn sie sich abmelden, erneut abonnieren und sich wieder abmelden. Die E-Mail-Analytics können in der Klickaufschlüsselung mehrere Klicks erfassen.
 
 Wenn ein:e Nutzer:in den Abmeldelink zweimal klickt (zum Beispiel wenn sie sich abgemeldet, erneut abonniert und dann wieder abgemeldet haben), zählt dies in den E-Mail-Analytics zweimal.
 
@@ -195,21 +195,21 @@ Wenn ein:e Nutzer:in den Abmeldelink zweimal klickt (zum Beispiel wenn sie sich 
 
 Nein. Braze bietet diese Funktionalität nicht an. Dies liegt daran, dass eine wachsende Mehrheit der E-Mails auf mobilen Geräten und in modernen E-Mail-Clients geöffnet wird, die Bilder und Inhalte problemlos rendern.
 
-**Workaround:** Um dasselbe Ergebnis zu erzielen, können Sie den Inhalt Ihrer E-Mail auf einer externen Landing-Page (z. B. Ihrer Website) hosten, die dann von der E-Mail-Campaign aus verlinkt werden kann, die Sie erstellen, indem Sie das **Link**-Tool beim Bearbeiten des E-Mail-Bodys verwenden.
+**Workaround:** Um dasselbe Ergebnis zu erzielen, können Sie den Inhalt Ihrer E-Mail auf einer externen Landing-Page (z. B. Ihrer Website) hosten, die dann über die E-Mail-Campaign verlinkt werden kann, die Sie erstellen, indem Sie das **Link**-Tool beim Bearbeiten des E-Mail-Textes verwenden.
 
 ### Wandelt Braze automatisch Nur-Text-URLs oder „www.“-Text in Links um? {#does-braze-automatically-turn-plain-text-urls-or-www-text-into-links}
 
-Nein. Braze scannt Ihre Nachricht nicht und konvertiert keinen Nur-Text, wie Text, der mit `www.` beginnt oder wie eine URL aussieht, in Hyperlinks. Nur Links, die Sie mit HTML-Anchor-Tags (`<a href="...">`) definieren, werden durch normales Rendering und Link-Features in Braze verarbeitet.
+Nein. Braze scannt Ihre Nachricht nicht und konvertiert Nur-Text, wie Text, der mit `www.` beginnt oder wie eine URL aussieht, nicht in Hyperlinks. Nur Links, die Sie mit HTML-Anchor-Tags (`<a href="...">`) definieren, werden durch normales Rendering und Link-Features in Braze verarbeitet.
 
-Wenn eine empfangende Person Nur-Text als klickbaren Link sieht, kommt dieses Verhalten normalerweise von ihrem E-Mail-Client (zum Beispiel Gmail, Outlook oder Apple Mail). Viele Clients erkennen URL-ähnliche Strings, nachdem die Nachricht zugestellt wurde, und wandeln sie auf dem Gerät der empfangenden Person in Links um. Braze kontrolliert dieses Verhalten nicht und kann es für die empfangende Person nicht deaktivieren.
+Wenn ein:e Empfänger:in Nur-Text als klickbaren Link angezeigt sieht, kommt dieses Verhalten in der Regel von ihrem E-Mail-Client (zum Beispiel Gmail, Outlook oder Apple Mail). Viele Clients erkennen URL-ähnliche Zeichenketten, nachdem die Nachricht zugestellt wurde, und wandeln sie auf dem Gerät der Empfänger:innen in Links um. Braze kontrolliert dieses Verhalten nicht und kann es für die Empfänger:innen nicht deaktivieren.
 
-Für vorhersagbares Link-Erscheinungsbild, Tracking und Styling verwenden Sie explizite `<a href>`-Tags anstelle von Nur-Text-URLs.
+Für ein vorhersehbares Link-Erscheinungsbild, Tracking und Styling verwenden Sie explizite `<a href>`-Tags anstelle von Nur-Text-URLs.
 
 ### Kann ich das `target`-Attribut bei E-Mail-Links steuern? {#can-i-control-the-target-attribute-on-email-links}
 
 Obwohl Sie das `target`-Attribut (wie `target="_blank"` oder `target="_top"`) auf Links in Ihrem E-Mail-HTML setzen können, ignorieren oder überschreiben die meisten E-Mail-Clients dieses Attribut. Zum Beispiel erzwingt Gmail effektiv ein `_blank`-ähnliches Verhalten, unabhängig davon, was Sie angeben.
 
-Da das Verhalten der E-Mail-Clients variiert, sollte das `target`-Attribut nicht verwendet werden, um zu steuern, wie Links geöffnet werden. Für Details dazu, welche E-Mail-Clients das `target`-Attribut unterstützen, siehe [caniemail.com](https://www.caniemail.com/features/html-target/).
+Da das Verhalten der E-Mail-Clients variiert, sollte das `target`-Attribut nicht verwendet werden, um zu steuern, wie Links geöffnet werden. Details dazu, welche E-Mail-Clients das `target`-Attribut unterstützen, finden Sie unter [caniemail.com](https://www.caniemail.com/features/html-target/).
 
 ### Warum werden meine Nutzer:innen automatisch durch E-Mail-Sicherheitssoftware abgemeldet? {#why-are-my-users-being-auto-unsubscribed-by-email-security-software}
 
@@ -217,21 +217,21 @@ Einige Sicherheitstools für Unternehmens-E-Mails (wie Barracuda, Proofpoint und
 
 Um dies zu vermeiden:
 
-- **Empfehlen Sie Empfänger:innen, Ihre Sendedomain auf die Allowlist zu setzen:** Arbeiten Sie mit den IT-Teams der betroffenen Empfänger:innen zusammen, um Ihre Sendedomain und Braze-Tracking-Domains zu ihrer E-Mail-Sicherheits-Allowlist hinzuzufügen.
+- **Empfehlen Sie Empfänger:innen, Ihre Sendedomain auf die Allowlist zu setzen:** Arbeiten Sie mit den IT-Teams der betroffenen Empfänger:innen zusammen, um Ihre Sendedomain und Braze-Tracking-Domains zur E-Mail-Sicherheits-Allowlist hinzuzufügen.
 - **Verwenden Sie ein Preference Center:** Anstelle eines direkten Abmeldelinks verwenden Sie ein [Preference Center]({{site.baseurl}}/user_guide/channels/email/subscriptions), das eine Nutzerinteraktion erfordert, um die Abmeldeaktion zu bestätigen. Sicherheitsscanner schließen in der Regel keine mehrstufigen Formulare ab.
 - **Überprüfen Sie Abmeldeprotokolle:** Prüfen Sie den `User-Agent`-Header und die IP-Adresse in Ihren Currents-Abmeldeereignisdaten, um Muster zu identifizieren, die mit automatisiertem Scanning übereinstimmen (wie konsistente `User-Agent`-Header über mehrere Abmeldungen hinweg).
 
-Für weitere Details dazu, wie serverseitiges Scanning E-Mail-Metriken beeinflussen kann, siehe [Umgang mit steigenden Klickraten]({{site.baseurl}}/user_guide/channels/email/reporting).
+Weitere Details dazu, wie serverseitiges Scanning E-Mail-Metriken beeinflussen kann, finden Sie unter [Umgang mit steigenden Klickraten]({{site.baseurl}}/user_guide/channels/email/reporting).
 
-### Warum hat sich meine Machine-Open-Rate unerwartet geändert? {#why-has-my-machine-open-rate-changed-unexpectedly}
+### Warum hat sich meine Rate maschineller Öffnungen unerwartet geändert? {#why-has-my-machine-open-rate-changed-unexpectedly}
 
-[Machine Opens]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) werden durch E-Mail-Sicherheitsfunktionen wie Apple Mail Privacy Protection (MPP) ausgelöst, die E-Mail-Inhalte (einschließlich des Tracking-Pixels) vorladen, ohne dass die Nutzer:innen die E-Mail physisch öffnen. Machine-Open-Raten können schwanken aufgrund von:
+[Maschinelle Öffnungen]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) werden durch E-Mail-Sicherheitsfunktionen wie Apple Mail Privacy Protection (MPP) ausgelöst, die E-Mail-Inhalte (einschließlich des Tracking-Pixels) vorladen, ohne dass die Nutzer:innen die E-Mail physisch öffnen. Raten maschineller Öffnungen können schwanken aufgrund von:
 
 - Änderungen im Anteil Ihrer Zielgruppe, die Apple Mail oder andere datenschutzaktivierte E-Mail-Clients verwenden.
 - Aktualisierungen der Datenschutzfunktionen von E-Mail-Anbietern oder des Bot-Erkennungsverhaltens.
 - Änderungen in Ihrer Zielgruppensegmentierung oder Ihrem Targeting.
 
-Machine-Open-Prozentsätze sind kein zuverlässiges Maß für tatsächliches Engagement. Für eine genauere Ansicht der E-Mail-Performance konzentrieren Sie sich auf *Andere Öffnungen* (Nicht-Machine-Opens) und *Eindeutige Klicks*. Sie können diese Metriken auch über die Zeit mit dem [E-Mail-Performance-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance) vergleichen.
+Prozentsätze maschineller Öffnungen sind kein zuverlässiges Maß für tatsächliches Engagement. Für eine genauere Ansicht der E-Mail-Performance konzentrieren Sie sich auf *Andere Öffnungen* (nicht-maschinelle Öffnungen) und *Eindeutige Klicks*. Sie können diese Metriken auch über die Zeit mit dem [E-Mail-Performance-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance) vergleichen.
 
 ### Warum funktionieren meine Deeplinks in Gmail nicht? {#why-are-my-deep-links-not-working-in-gmail}
 
@@ -239,17 +239,17 @@ Gmail entfernt alle Nicht-HTTP/HTTPS-Links aus E-Mail-Nachrichten. Wenn Ihr Deep
 
 Um dies zu umgehen:
 
-- **Verwenden Sie Universal Links (iOS) oder App Links (Android).** Diese verwenden Standard-`https://`-URLs, die Ihre App öffnen, wenn sie installiert ist, und andernfalls auf eine Webseite zurückfallen. Siehe [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links) für Einrichtungsanweisungen.
+- **Verwenden Sie Universal Links (iOS) oder App Links (Android).** Diese verwenden Standard-`https://`-URLs, die Ihre App öffnen, wenn sie installiert ist, und andernfalls auf eine Webseite zurückfallen. Einrichtungsanweisungen finden Sie unter [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
 - **Verwenden Sie einen Deeplinking-Anbieter.** Dienste wie [Branch](https://www.branch.io/) generieren HTTP-formatierte Deeplinks, die mit E-Mail-Clients kompatibel sind, einschließlich Gmail.
 - **Richten Sie einen Redirect-Endpunkt ein.** Hosten Sie einen `https://`-Endpunkt auf Ihrem Server, der auf die benutzerdefinierte Schema-URL Ihrer App weiterleitet. E-Mail-Clients behalten den `https://`-Link bei, und die Weiterleitung übernimmt das Öffnen der App.
 
-### Enthält die Metrik *Eindeutige Öffnungen* auch *Machine Opens*? {#does-the-unique-opens-metric-include-machine-opens}
+### Enthält die Metrik *Eindeutige Öffnungen* auch *Maschinelle Öffnungen*? {#does-the-unique-opens-metric-include-machine-opens}
 
-Ja. *Eindeutige Öffnungen* enthalten *Machine Opens*. Sie können beide Metriken in der Ansicht **Campaign Analytics** und im **Berichts-Builder** einsehen.
+Ja. *Eindeutige Öffnungen* enthalten *Maschinelle Öffnungen*. Sie können beide Metriken in der Ansicht **Campaign Analytics** und im **Berichts-Builder** einsehen.
 
 ### Warum stimmt mein E-Mail-Zustellvolumen nicht mit meinem Sendevolumen überein? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
-Nachdem eine E-Mail gesendet wurde, entscheidet der Posteingang der empfangenden Person, wann sie zugestellt wird. Nachrichten können aufgrund eines vollen Postfachs, ESP-Drosselung von einer bestimmten IP und ähnlichen Gründen stunden- oder tagelang verzögert werden.
+Nachdem eine E-Mail gesendet wurde, entscheidet der Posteingang der Empfänger:innen, wann sie zugestellt wird. Nachrichten können aufgrund eines vollen Postfachs, ESP-Drosselung von einer bestimmten IP und ähnlichen Gründen stunden- oder tagelang verzögert werden.
 
 Wenn verzögerte Nachrichten an einem anderen Kalendertag als dem Sendetag zugestellt werden, können _Zustellungen_ die _Sendungen_ für denselben Zeitraum übersteigen. Wenn viele Verzögerungen an einem Tag landen, können _Sendungen_ die _Zustellungen_ für diesen Zeitraum übersteigen.
 
@@ -266,11 +266,11 @@ Die Zustellung kann falsch aussehen, selbst wenn Braze wie konfiguriert funktion
 
 - **Doppelte Profile**, die einen Posteingang teilen (siehe [Was passiert, wenn eine E-Mail versendet wird und mehrere Profile dieselbe E-Mail-Adresse haben?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)).
 - **Seed-Listen, Testempfänger:innen oder interne Adressen**, die in der Zielgruppe enthalten sind oder als CC/BCC bei einer Sendung.
-- **Segment- oder Canvas-Timing:** Die/der Nutzer:in entsprach der Zielgruppe oder dem Canvas-Schritt, als Braze die Berechtigung bewertete, dann änderten sich Attribute oder der Abo-Status, bevor sie/er die Nachricht las.
-- **Abo-Gruppen:** Die/der Nutzer:in blieb in einer Gruppe angemeldet, die Ihre Nachricht ansprach, auch wenn ihr/sein globaler Abo-Status etwas anderes nahelegte.
-- **API- oder Dateiimporte**, die die/den Nutzer:in nach der Segmentierung, aber bevor Sie die Änderung erwarteten, aktualisierten.
+- **Segment- oder Canvas-Timing:** Die Nutzer:innen entsprachen der Zielgruppe oder dem Canvas-Schritt, als Braze die Berechtigung bewertete, dann änderten sich Attribute oder der Abo-Status, bevor sie die Nachricht gelesen haben.
+- **Abo-Gruppen:** Die Nutzer:innen blieben in einer Gruppe angemeldet, die Ihre Nachricht ansprach, auch wenn ihr globaler Abo-Status etwas anderes vermuten ließ.
+- **API- oder Dateiimporte**, die die Nutzer:innen nach der Segmentierung, aber bevor Sie die Änderung erwartet haben, aktualisiert haben.
 
-Überprüfen Sie das [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), Campaign- oder Canvas-Changelogs und die Segmentdefinition. Wenn Sie die Sendung immer noch nicht nachvollziehen können, kontaktieren Sie den Braze-Support mit Nutzerbezeichnern, `dispatch_id` (falls verfügbar) und Zeitstempeln.
+Überprüfen Sie das [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), Campaign- oder Canvas-Changelogs und die Segmentdefinition. Wenn Sie den Versand immer noch nicht nachvollziehen können, kontaktieren Sie den Braze-Support mit Nutzerbezeichnern, `dispatch_id` (falls verfügbar) und Zeitstempeln.
 
 ### Warum hat ein:e Nutzer:in meine E-Mail-Nachricht nicht erhalten? {#why-hasnt-a-user-received-my-email-message}
 
@@ -291,25 +291,25 @@ Verwenden Sie die folgenden Tabellen, um die Ursache einzugrenzen.
 
 | Mögliche Ursache | Was zu prüfen ist |
 |---|---|
-| Die/der Nutzer:in war nicht für die Campaign oder das Canvas berechtigt | Überprüfen Sie die **Zielgruppen**-[Einstellungen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) (für Campaigns) oder **Zielgruppe** (für Canvas), um zu bestätigen, dass die/der Nutzer:in alle Zielgruppenfilter, Segmentkriterien und Zustellregeln zum Zeitpunkt des Versands erfüllte. |
+| Die Nutzer:innen waren nicht für die Campaign oder das Canvas berechtigt | Überprüfen Sie die **Zielgruppen**-[Einstellungen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) (für Campaigns) oder **Zielgruppe** (für Canvas), um zu bestätigen, dass die Nutzer:innen alle Zielgruppenfilter, Segmentkriterien und Zustellregeln zum Zeitpunkt des Versands erfüllt haben. |
 | Die Nachricht wurde abgebrochen | Überprüfen Sie das [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) auf Abbruchgründe, wie Liquid-Fehler oder fehlende Pflichtfelder. |
-| Die E-Mail-Adresse der/des Nutzer:in war ungültig oder fehlte | Überprüfen Sie in der **Nutzersuche** das Profil der/des Nutzer:in, um zu verifizieren, dass zum Zeitpunkt des Versands eine gültige E-Mail-Adresse hinterlegt war. |
-| Die E-Mail-Adresse der/des Nutzer:in hatte zuvor einen Hard Bounce | Ein Hard Bounce markiert die E-Mail-Adresse als ungültig und verhindert zukünftige Sendungen an diese Adresse. Ebenso sendet Braze, wenn ein:e Empfänger:in Ihre E-Mail als Spam markiert, nur Transaktions-E-Mails an diese:n Nutzer:in, keine Standard-Campaigns. Überprüfen Sie den Tab **Engagement** im Profil der/des Nutzer:in. Weitere Informationen finden Sie unter [Abgemeldete E-Mail-Adressen]({{site.baseurl}}/user_guide/channels/email/subscriptions#unsubscribed-email-addresses) und [Bounces und ungültige E-Mails]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails). |
-| Die/der Nutzer:in hat sich von E-Mails abgemeldet | Überprüfen Sie den Abo-Status der/des Nutzer:in unter **Kontakteinstellungen** im Tab **Engagement**. Braze sendet keine E-Mails an Nutzer:innen, die sich abgemeldet haben. |
+| Die E-Mail-Adresse der Nutzer:innen war ungültig oder fehlte | Überprüfen Sie in der **Nutzersuche** das Profil der Nutzer:innen, um zu verifizieren, dass zum Zeitpunkt des Versands eine gültige E-Mail-Adresse hinterlegt war. |
+| Die E-Mail-Adresse der Nutzer:innen hatte zuvor einen Hard Bounce | Ein Hard Bounce markiert die E-Mail-Adresse als ungültig und verhindert zukünftige Sendungen an diese Adresse. Ebenso sendet Braze, wenn ein:e Empfänger:in Ihre E-Mail als Spam markiert, nur Transaktions-E-Mails an diese:n Nutzer:in, keine Standard-Campaigns. Überprüfen Sie den Tab **Engagement** im Profil der Nutzer:innen. Weitere Informationen finden Sie unter [Abgemeldete E-Mail-Adressen]({{site.baseurl}}/user_guide/channels/email/subscriptions#unsubscribed-email-addresses) und [Bounces und ungültige E-Mails]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails). |
+| Die Nutzer:innen haben sich von E-Mails abgemeldet | Überprüfen Sie den Abo-Status der Nutzer:innen unter **Kontakteinstellungen** im Tab **Engagement**. Braze sendet keine E-Mails an Nutzer:innen, die sich abgemeldet haben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ursache für nicht gesendete E-Mail" }
 
 #### Die E-Mail wurde gesendet, ist aber nicht im Posteingang angekommen {#the-email-was-sent-but-didnt-arrive-in-their-inbox}
 
 | Mögliche Ursache | Was zu prüfen ist |
 |---|---|
-| Der Postfachanbieter (MBP) war nicht erreichbar | Ein temporäres Problem verhinderte, dass die E-Mail den MBP der empfangenden Person erreichte. Dies löst sich typischerweise durch Wiederholungsversuche von selbst. E-Mail-Anbieter wiederholen Soft Bounces bis zu 72 Stunden lang. |
-| Der MBP hat die E-Mail zurückgewiesen | Der Mailserver der empfangenden Person hat die E-Mail abgelehnt. Überprüfen Sie das [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) für Bounce-Details. |
-| Der MBP hat die E-Mail stillschweigend verworfen | Der MBP hat die E-Mail akzeptiert, sie aber der/dem Nutzer:in nicht angezeigt und keinen Bounce zurückgegeben. Dies liegt außerhalb der Kontrolle von Braze und kann in Braze-Protokollen nicht erkannt werden. |
-| Die E-Mail ist im Spam-Ordner gelandet | Der MBP hat die Nachricht als Spam identifiziert und in den Spam- oder Junk-Ordner der/des Nutzer:in geleitet. Bitten Sie die/den Nutzer:in, ihren/seinen Spam-Ordner zu überprüfen. |
-| Die empfangende Person hat benutzerdefinierte E-Mail-Filterung | Die/der Nutzer:in oder ihr/sein IT-Administrator hat möglicherweise Postfachregeln konfiguriert, die eingehende Nachrichten filtern, umleiten oder löschen. |
+| Der Postfachanbieter (MBP) war nicht erreichbar | Ein temporäres Problem verhinderte, dass die E-Mail den MBP der Empfänger:innen erreichte. Dies löst sich in der Regel durch Wiederholungsversuche von selbst. E-Mail-Anbieter wiederholen Soft Bounces bis zu 72 Stunden lang. |
+| Der MBP hat die E-Mail zurückgewiesen | Der Mailserver der Empfänger:innen hat die E-Mail abgelehnt. Überprüfen Sie das [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) auf Bounce-Details. |
+| Der MBP hat die E-Mail stillschweigend verworfen | Der MBP hat die E-Mail akzeptiert, sie aber den Nutzer:innen nicht angezeigt und keinen Bounce zurückgegeben. Dies liegt außerhalb der Kontrolle von Braze und kann in Braze-Protokollen nicht erkannt werden. |
+| Die E-Mail ist im Spam-Ordner gelandet | Der MBP hat die Nachricht als Spam identifiziert und in den Spam- oder Junk-Ordner der Nutzer:innen geleitet. Bitten Sie die Nutzer:innen, ihren Spam-Ordner zu überprüfen. |
+| Die Empfänger:innen haben benutzerdefinierte E-Mail-Filterung | Die Nutzer:innen oder ihre IT-Administrator:innen haben möglicherweise Postfachregeln konfiguriert, die eingehende Nachrichten filtern, umleiten oder löschen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ursache für E-Mail nicht im Posteingang" }
 
-### Wie behebe ich E-Mail-Zustellbarkeitsprobleme? {#how-do-i-troubleshoot-email-deliverability-issues}
+### Wie behebe ich Probleme mit der E-Mail-Zustellbarkeit? {#how-do-i-troubleshoot-email-deliverability-issues}
 
 Wenn Ihre E-Mails verzögert, zurückgestellt oder zurückgewiesen werden, überprüfen Sie das [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) auf Bounce- und Zurückstellungsdetails und identifizieren Sie dann, wo das Problem in der Zustellkette auftritt. Häufige Zustellbarkeitsprobleme fallen in vier Kategorien:
 
@@ -321,45 +321,45 @@ Ihr E-Mail-Anbieter (ESP), wie Amazon SES, SparkPost oder SendGrid, gibt SMTP-An
 - **429:** API-Rate-Limit überschritten. Sie haben zu viele Anfragen innerhalb des erlaubten Zeitfensters gesendet.
 - **450 / 451:** Temporäre Zurückstellung aufgrund von Volumen oder Verbindungen. Der Empfängerserver bittet Sie, langsamer zu senden.
 
-Wenn Sie diese Codes im [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) oder Ihrem ESP-Dashboard sehen, reduzieren Sie das Sendevolumen an die betroffene Domain und verwenden Sie progressiv längere Wiederholungsintervalle. Wenn Sie bei aktivem Rate-Limiting mit vollem Volumen weitersenden, können temporäre Zurückstellungen zu permanenten Ablehnungen eskalieren.
+Wenn Sie diese Codes im [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) oder Ihrem ESP-Dashboard sehen, reduzieren Sie das Sendevolumen an die betroffene Domain und verwenden Sie progressiv längere Wiederholungsintervalle. Das Fortsetzen mit vollem Volumen bei aktiver Rate-Limitierung kann temporäre Zurückstellungen zu permanenten Ablehnungen eskalieren.
 
 #### Rate-Limits von Postfachanbietern {#mailbox-provider-rate-limits}
 
-Postfachanbieter erzwingen ihre eigenen Rate-Limits für eingehende E-Mails, getrennt von den Sendekontrollen von Braze. Diese Limits können streng sein und liegen außerhalb Ihrer direkten Kontrolle:
+Postfachanbieter erzwingen ihre eigenen Rate-Limits für eingehende E-Mails, unabhängig von den Sendekontrollen von Braze. Diese Limits können streng sein und liegen außerhalb Ihrer direkten Kontrolle:
 
-- Virgin Media / NTL (Großbritannien): Verwendet stündliches Rate-Limiting, das `421 4.1.1 MXIN503 Hourly ratelimit for your IP exceeded`-Fehler auslöst. Diese Limits können auch Absender mit geringem Volumen betreffen. Sie werden auf IP-Ebene über alle Absender hinweg durchgesetzt, die diese IP teilen.
-- Gmail, Yahoo, iCloud, Microsoft: Jeder Anbieter hat proprietäre Drosselungsschwellen basierend auf Ihrer Absender-Reputation, Ihrem Volumen und Ihren Engagement-Mustern.
+- Virgin Media / NTL (Großbritannien): Verwendet stündliche Rate-Limitierung, die `421 4.1.1 MXIN503 Hourly ratelimit for your IP exceeded`-Fehler auslöst. Diese Limits können auch Absender mit geringem Volumen betreffen. Sie werden auf IP-Ebene über alle Absender hinweg erzwungen, die diese IP teilen.
+- Gmail, Yahoo, iCloud, Microsoft: Jeder Anbieter hat proprietäre Drosselungsschwellenwerte basierend auf Ihrer Absender-Reputation, Ihrem Volumen und Ihren Engagement-Mustern.
 
-Wenn Sie auf anbieterspezifisches Rate-Limiting stoßen, erwägen Sie, Ihre Sendungen über einen längeren Zeitraum zu verteilen oder nach Postfachanbieter zu segmentieren, um das Volumen gleichmäßiger zu verteilen. Überprüfen Sie Ihre Empfängerliste auf Konzentration bei einem Anbieter – wenn die meisten Empfänger:innen eine Domain verwenden, staffeln Sie die Zustellung.
+Wenn Sie auf anbieterspezifische Rate-Limitierung stoßen, erwägen Sie, Ihre Sendungen über einen längeren Zeitraum zu verteilen oder nach Postfachanbieter zu segmentieren, um das Volumen gleichmäßiger zu verteilen. Überprüfen Sie Ihre Empfängerliste auf Konzentration bei einem Anbieter – wenn die meisten Empfänger:innen eine Domain verwenden, staffeln Sie die Zustellung.
 
-#### Verzögerungen bei Unternehmens-E-Mails durch Antivirus-Scanning {#corporate-email-delays-from-antivirus-scanning}
+#### Verzögerungen bei Unternehmens-E-Mails durch Antivirenscanning {#corporate-email-delays-from-antivirus-scanning}
 
-Geschäftliche E-Mail-Adressen durchlaufen oft Sicherheits-Gateways des Unternehmens, die Nachrichten vor der Zustellung scannen. Dies kann E-Mails um 15 bis 20 Minuten oder länger verzögern, insbesondere bei Nachrichten mit:
+Geschäftliche E-Mail-Adressen durchlaufen oft Sicherheits-Gateways von Unternehmen, die Nachrichten vor der Zustellung scannen. Dies kann E-Mails um 15 bis 20 Minuten oder länger verzögern, insbesondere bei Nachrichten mit:
 
 - Großen Anhängen
 - Links zu unbekannten Domains
 - Inhalten, die Phishing-Mustern ähneln
 
-Diese Verzögerungen treten auf, weil Sicherheitssysteme Nachrichten für Verhaltensanalysen in isolierten Sandbox-Umgebungen in die Warteschlange stellen. Wenn ein großes Volumen an E-Mails gleichzeitig eintrifft, werden Nachrichten zur Analyse in die Warteschlange gestellt und die Verzögerung verlängert sich weiter. Dies ist normales Verhalten für Unternehmens-E-Mail-Sicherheit und kann nicht umgangen werden. Wenn Sie zeitkritische Nachrichten an Unternehmensempfänger:innen senden, berücksichtigen Sie dieses Verarbeitungsfenster in Ihrer Kommunikationsplanung.
+Diese Verzögerungen treten auf, weil Sicherheitssysteme Nachrichten für Verhaltensanalysen in isolierten Sandbox-Umgebungen in die Warteschlange stellen. Wenn ein großes Volumen an E-Mails gleichzeitig eintrifft, werden Nachrichten zur Analyse in die Warteschlange gestellt und die Verzögerung verlängert sich weiter. Dies ist normales Verhalten für E-Mail-Sicherheit in Unternehmen und kann nicht umgangen werden. Berücksichtigen Sie bei zeitkritischen Nachrichten an Unternehmensempfänger:innen dieses Verarbeitungsfenster in Ihrer Kommunikationsplanung.
 
 #### Fehlerbehebung bei Google 421 4.7.28 Rate-Limit-Fehlern {#troubleshooting-google-421-4728-rate-limit-errors}
 
-Gmail gibt einen `421-4.7.28`-Fehler zurück, wenn es eine ungewöhnliche Rate unerwünschter E-Mails von Ihrer IP-Adresse, Ihrem Sende-IP-Bereich, Ihrer SPF-Domain, DKIM-Domain oder URL-Domain erkennt. Dies ist eine temporäre Drosselung, keine permanente Sperre, signalisiert aber, dass Ihr Sendevolumen, Ihre Sendegeschwindigkeit oder Ihre Reputation nicht den aktuellen Erwartungen von Gmail entsprechen.
+Gmail gibt einen `421-4.7.28`-Fehler zurück, wenn es eine ungewöhnliche Rate unerwünschter E-Mails von Ihrer IP-Adresse, Ihrem Sende-IP-Bereich, Ihrer SPF-Domain, DKIM-Domain oder URL-Domain erkennt. Dies ist eine temporäre Drosselung, keine permanente Blockierung, signalisiert aber, dass Ihr Sendevolumen, Ihre Sendegeschwindigkeit oder Ihre Reputation nicht den aktuellen Erwartungen von Gmail entspricht.
 
 Wenn Sie diesen Fehler erhalten:
 
-1. Pausieren Sie nicht-essentielle Sendungen sofort für 24 bis 48 Stunden. Wenn Sie während der Drosselung weitersenden, eskaliert das Problem und kann zu permanenten 550-Ablehnungen führen.
+1. Pausieren Sie nicht-essentielle Sendungen sofort für 24 bis 48 Stunden. Das Fortsetzen des Sendens bei aktiver Drosselung eskaliert das Problem und kann zu permanenten 550-Ablehnungen führen.
 2. Bestätigen Sie, dass SPF, DKIM und DMARC korrekt konfiguriert sind und dass Ihr From:-Header mit Ihrer Authentifizierung übereinstimmt.
-3. Überprüfen Sie [Google Postmaster Tools](https://postmaster.google.com/) und das Braze [Deliverability Center]({{site.baseurl}}/user_guide/analytics/dashboards/deliverability_center) (nach Verbindung mit Google Postmaster) auf den Compliance-Status Ihrer Domain und die Spam-Beschwerderate. Ihre von Nutzer:innen gemeldete Spam-Rate muss unter 0,1 % bleiben (die harte Obergrenze liegt bei 0,3 %).
-4. Nehmen Sie nach der Pause die Sendungen mit 10 bis 20 % des vorherigen Volumens nur an Ihre engagiertesten Empfänger:innen wieder auf. Erhöhen Sie das Volumen langsam über mehrere Wochen, nur wenn keine weiteren 4xx-Fehler auftreten.
+3. Überprüfen Sie [Google Postmaster Tools](https://postmaster.google.com/) und das Braze [Zustellbarkeits-Center]({{site.baseurl}}/user_guide/analytics/dashboards/deliverability_center) (nach Verbindung mit Google Postmaster) auf den Compliance-Status Ihrer Domain und die Spam-Beschwerderate. Ihre von Nutzer:innen gemeldete Spam-Rate muss unter 0,1 % bleiben (die harte Obergrenze liegt bei 0,3 %).
+4. Nehmen Sie nach der Pause das Senden mit 10 bis 20 % des vorherigen Volumens wieder auf, nur an Ihre engagiertesten Empfänger:innen. Erhöhen Sie das Volumen langsam über mehrere Wochen, nur wenn keine weiteren 4xx-Fehler auftreten.
 
-Für zusätzliche Anleitungen siehe [Googles Richtlinien für Massenversender](https://support.google.com/mail/answer/81126).
+Weitere Hinweise finden Sie in [Googles Richtlinien für Massenversender](https://support.google.com/mail/answer/81126).
 
 ### Wie kann ich Bilder in Outlook optimieren? {#how-can-i-optimize-images-in-outlook}
 
-Outlook verwendet oft Microsoft-Word-Rendering anstelle von Standard-Browser-Rendering, was dazu führen kann, dass Bilder falsch gerendert werden oder Rahmen um Bilder hinzugefügt werden.
+Outlook verwendet oft Microsoft Word-Rendering anstelle von Standard-Browser-Rendering, was dazu führen kann, dass Bilder falsch gerendert werden oder Rahmen um Bilder hinzugefügt werden. Dasselbe clientspezifische Rendering beeinflusst auch, [wie Alt-Text angezeigt wird]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text) in verschiedenen E-Mail-Clients.
 
-Wenn Bilder in Outlook größer als ihre erwartete Breite angezeigt werden, fügen Sie dem Bild das folgende CSS hinzu:
+Wenn Bilder in Outlook breiter als erwartet angezeigt werden, fügen Sie dem Bild das folgende CSS hinzu:
 
 ```css
 max-width: 100%;
@@ -371,7 +371,7 @@ Zum Beispiel:
 <img src="your-image.png" style="max-width: 100%;" alt="Description">
 ```
 
-Sie können Inhalte auch so umschließen, dass sie in Outlook Desktop mithilfe von bedingten Kommentaren ausgeblendet werden:
+Sie können Inhalte auch so umschließen, dass sie in Outlook Desktop ausgeblendet werden, indem Sie bedingte Kommentare verwenden:
 
 ```html
 <!--[if !mso]><!-- -->
@@ -381,7 +381,7 @@ Sie können Inhalte auch so umschließen, dass sie in Outlook Desktop mithilfe v
 
 ### Kann ich SVG- oder WebP-Bilder in meinen E-Mail-Nachrichten verwenden? {#can-i-use-svg-or-webp-images-in-my-email-messages}
 
-SVG-Bilder werden für E-Mails aufgrund der eingeschränkten Unterstützung durch E-Mail-Clients nicht empfohlen. Gmail und mehrere andere große E-Mail-Anbieter rendern SVG-Bilder nicht, was zu fehlerhaften oder fehlenden Bildern für Empfänger:innen führen kann. WebP wird nicht konsistent über alle Clients hinweg unterstützt.
+SVG-Bilder werden für E-Mails aufgrund der eingeschränkten Unterstützung in E-Mail-Clients nicht empfohlen. Gmail und mehrere andere große E-Mail-Anbieter rendern SVG-Bilder nicht, was zu fehlerhaften oder fehlenden Bildern für Empfänger:innen führen kann. WebP wird nicht konsistent über alle Clients hinweg unterstützt.
 
 Verwenden Sie stattdessen weit verbreitete Formate wie PNG oder JPEG, damit Bilder zuverlässig gerendert werden.
 
@@ -393,7 +393,7 @@ Stattdessen können Sie ein GIF oder ein statisches Bild erstellen, das einem Vi
 
 ### Können Liquid-Variablen, die in einem Teil des Nachrichten-Editors zugewiesen werden, in einem anderen verwendet werden? {#can-liquid-variables-assigned-in-one-part-of-the-message-composer-be-used-in-another}
 
-Nein. Jeder Teil der E-Mail (Betreff, Body, Header, Buttons usw.) wird separat generiert, sodass Liquid, das in einem Feld zugewiesen wird, in einem anderen nicht verfügbar ist. Weisen Sie Variablen in jedem Feld zu, das sie benötigt.
+Nein. Jeder Teil der E-Mail (Betreff, Text, Header, Buttons usw.) wird separat generiert, sodass Liquid, das in einem Feld zugewiesen wird, in einem anderen nicht verfügbar ist. Weisen Sie Variablen in jedem Feld zu, das sie benötigt.
 
 ### Mein E-Mail-Template fehlt. Wo ist es? {#my-email-template-is-missing-where-is-it}
 
@@ -405,7 +405,7 @@ Bestätigen Sie zunächst, dass Sie die [Nutzerberechtigungen]({{site.baseurl}}/
 
 ### Kann ich Hyperlinks in E-Mail-Betreffzeilen oder Preheadern hinzufügen? {#can-i-add-hyperlinks-in-email-subject-lines-or-preheaders}
 
-Nein. Das Hinzufügen von Hyperlinks in E-Mail-Betreffzeilen wird von Postfachanbietern nicht unterstützt. Einige Postfachanbieter scannen Betreffzeilen automatisch und konvertieren physische Adressen, Daten oder Uhrzeiten in klickbare Links, aber dies geschieht automatisch auf dem Gerät der empfangenden Person und liegt außerhalb der Kontrolle von Braze (oder eines anderen ESP).
+Nein. Das Hinzufügen von Hyperlinks in E-Mail-Betreffzeilen wird von Postfachanbietern nicht unterstützt. Einige Postfachanbieter scannen Betreffzeilen automatisch und konvertieren physische Adressen, Daten oder Uhrzeiten in klickbare Links, aber dies geschieht automatisch auf dem Gerät der Empfänger:innen und liegt außerhalb der Kontrolle von Braze (oder eines anderen ESP).
 
 Ebenso wird das Hinzufügen von Hyperlinks im Preheader branchenweit nicht unterstützt.
 
@@ -418,13 +418,13 @@ Im [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/glob
 Typische Ursachen sind:
 
 - Fehlende, falsche oder nicht erreichbare **MX-Einträge** für diese Domain
-- Hostnamen für eingehende E-Mails, die nicht aufgelöst werden oder die **PTR (Reverse-DNS)**-Prüfungen nicht bestehen, die von der empfangenden Infrastruktur erwartet werden
+- Hostnamen für eingehende E-Mails, die nicht aufgelöst werden oder die **PTR (Reverse DNS)**-Prüfungen nicht bestehen, die von der empfangenden Infrastruktur erwartet werden
 - Ungültige oder falsch geschriebene Domains in der E-Mail-Adresse
 
 **Nächste Schritte:**
 
 - Bestätigen Sie die Adress- und Domain-Schreibweise.
-- Wenn die Adresse korrekt ist, kontaktieren Sie die Postfachbesitzer:in oder das IT-Team für diese Domain.
+- Wenn die Adresse korrekt ist, kontaktieren Sie die Postfachinhaber:innen oder das IT-Team für diese Domain.
 - Bitten Sie sie, MX- und zugehörige DNS-Einträge, einschließlich PTR-Einträge für ihre Mailserver, bei ihrem DNS-Anbieter zu überprüfen.
 
 Andere Empfänger:innen sind in der Regel nicht betroffen. Informationen dazu, wie Soft Bounces im Reporting erscheinen, finden Sie unter [Soft Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce).
@@ -433,12 +433,12 @@ Andere Empfänger:innen sind in der Regel nicht betroffen. Informationen dazu, w
 
 Wenn Sie eine Test-E-Mail von Braze an Ihre eigene E-Mail-Adresse senden und eine Spam-Warnung oder Phishing-Warnung sehen – wie „die Sendedomain ähnelt der Domain Ihres Unternehmens, aber wir erkennen sie nicht“ – handelt es sich um eine gängige Anti-Phishing-Sicherheitsfunktion, nicht um einen Fehler in Ihrem Braze-Setup.
 
-Diese Warnung erscheint typischerweise, wenn die Sendedomain der E-Mail mit der Empfängerdomain übereinstimmt (zum Beispiel beide `@yourcompany.com` sind). E-Mail-Sicherheitssysteme markieren dies, weil Betrüger oft Domains fälschen, die der Unternehmensdomain einer empfangenden Person ähneln.
+Diese Warnung erscheint typischerweise, wenn die Sendedomain der E-Mail mit der Empfängerdomain übereinstimmt (zum Beispiel beide `@ihrfirma.com` sind). E-Mail-Sicherheitssysteme markieren dies, weil Betrüger oft Domains fälschen, die der Firmendomain der Empfänger:innen ähneln.
 
 Um zu überprüfen, ob Ihre E-Mail korrekt konfiguriert ist:
 
 1. Zeigen Sie die Originalnachricht (Roh-E-Mail-Header) in Ihrem E-Mail-Client an.
-2. Überprüfen Sie, ob SPF-, DKIM- und DMARC-Authentifizierung alle bestehen.
+2. Prüfen Sie, ob SPF-, DKIM- und DMARC-Authentifizierung alle bestehen.
 3. Wenn alle drei bestehen, ist Ihr Braze-E-Mail-Versand korrekt konfiguriert.
 
 Um zu verhindern, dass diese Warnung erscheint:

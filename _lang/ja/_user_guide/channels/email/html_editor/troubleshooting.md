@@ -57,6 +57,7 @@ HTMLメールのレンダリングやエディターの動作が期待どおり�
 
 - [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision)を使用してメールをプレビューし、さまざまなブラウザやメールクライアントでメールがどのように表示されるかを確認してください。
 - 問題を引き起こしているブラウザやメールクライアントを特定したら、開発者チームにHTMLを修正し、それらのブラウザやメールクライアントに対応するための編集が必要であることを伝えてください。
+- 問題が[代替テキストの表示方法]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text)に関するものである場合、この動作はBrazeではなく受信者のメールクライアントによって制御されることに留意してください。
 
 ### LiquidテンプレートでのHTMLの不均衡 {#unbalanced-html-in-liquid-templates}
 

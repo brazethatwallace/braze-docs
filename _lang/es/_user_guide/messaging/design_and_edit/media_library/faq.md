@@ -16,9 +16,9 @@ description: "Este artículo ofrece respuestas a las preguntas frecuentes sobre 
 
 ### ¿Existen límites de almacenamiento para las imágenes en la biblioteca de medios? {#are-there-storage-limits-for-images-within-the-media-library}
 
-No, no hay límites de almacenamiento para los activos en la biblioteca de medios. Sin embargo, sí hay límites de tamaño para los activos (máximo 5 MB).
+No, no hay límites de almacenamiento para los activos en la biblioteca de medios. Sin embargo, existen límites de tamaño para los activos (máximo 5 MB).
 
-### ¿Los activos subidos tienen fecha de expiración? {#are-there-expiration-dates-for-uploaded-assets}
+### ¿Los activos subidos tienen fecha de caducidad? {#are-there-expiration-dates-for-uploaded-assets}
 
 No, los activos subidos a la biblioteca de medios se conservarán durante toda la duración de tu contrato con Braze.
 
@@ -36,13 +36,13 @@ Para copiar la URL de una imagen subida a la biblioteca de medios, ve a **Conten
 
 ### ¿Puedo usar imágenes SVG en correo electrónico? {#can-i-use-svg-images-in-email}
 
-No se recomiendan las imágenes SVG para correo electrónico debido al soporte limitado entre los clientes de correo electrónico. Gmail y varios otros proveedores de correo electrónico importantes no renderizan imágenes SVG, lo que puede resultar en imágenes rotas o faltantes para los destinatarios. Para una renderización confiable del correo electrónico, usa los formatos PNG, JPEG o GIF en su lugar.
+No se recomiendan las imágenes SVG para correo electrónico debido a la compatibilidad limitada entre los clientes de correo electrónico. Gmail y varios otros proveedores de correo electrónico importantes no renderizan imágenes SVG, lo que puede resultar en imágenes rotas o faltantes para los destinatarios. Para una renderización fiable del correo electrónico, usa los formatos PNG, JPEG o GIF en su lugar.
 
 ### ¿Cómo recorto una imagen existente? {#how-do-i-crop-an-existing-image}
 
 Puedes recortar una imagen existente seleccionándola en la biblioteca de medios y haciendo clic en **Recortar y guardar nueva imagen**.
 
-![Vista previa de una imagen en la biblioteca de medios.]({% image_buster /assets/img_archive/media_library_crop1.png %}){: height="75%" width="75%"}
+![Vista previa de una imagen de la biblioteca de medios.]({% image_buster /assets/img_archive/media_library_crop1.png %}){: height="75%" width="75%"}
 
 Serás redirigido a un creador de recorte donde puedes seleccionar el tipo de proporción y editar el nombre de la nueva imagen. Cuando selecciones **Guardar**, tu nueva imagen estará lista para usarse.
 
@@ -50,7 +50,7 @@ Serás redirigido a un creador de recorte donde puedes seleccionar el tipo de pr
 
 ### Mi imagen sigue agotando el tiempo de espera cuando intento subirla. ¿Qué puedo hacer al respecto? {#my-image-keeps-timing-out-when-i-try-to-upload-it-what-can-i-do-about-this}
 
-Esto puede ocurrir por diversas razones, pero una solución común es asegurarte de que tu imagen esté optimizada antes de intentar subirla. Esto implica pasar tu imagen por un optimizador de imágenes como [ImageOptim](https://imageoptim.com/mac).
+Esto puede ocurrir por diversas razones, pero una solución común es asegurarte de que tu imagen esté optimizada antes de intentar subirla. Esto significa pasar tu imagen por un optimizador de imágenes como [ImageOptim](https://imageoptim.com/mac).
 
 Además, si tu imagen fue creada en Photoshop (o un software similar) y tiene muchas capas, combinar y reducir el número de capas también puede ayudar.
 
@@ -72,3 +72,7 @@ Puedes generar imágenes desde **Contenido** > **Biblioteca de medios** seleccio
 ### ¿Puedo crear URLs personalizadas para los activos de imagen de la biblioteca de medios? {#can-i-create-vanity-urls-for-media-library-image-assets}
 
 Las URLs personalizadas para los activos de la biblioteca de medios no son compatibles porque las URLs personalizadas interrumpirían la entrega del CDN. Puedes reemplazar una imagen en su URL existente cuando las Campaigns ya hacen referencia a esa URL. Para más información, consulta [Reemplazar un archivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
+
+### ¿Por qué Chrome guarda las imágenes JPEG o PNG como archivos WebP? {#why-does-chrome-save-jpeg-or-png-images-as-webp-files}
+
+Cuando usas Chrome para guardar imágenes de la biblioteca de medios, el navegador puede convertir automáticamente los archivos JPEG o PNG al formato WebP. Este es el comportamiento predeterminado de Chrome para la descarga de imágenes y no es específico de Braze. Si necesitas guardar las imágenes en su formato original, intenta usar un navegador diferente como Safari o Firefox.

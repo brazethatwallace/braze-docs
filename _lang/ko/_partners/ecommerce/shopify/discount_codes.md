@@ -54,7 +54,9 @@ Braze에서 **데이터 설정** > **프로모션 코드** > **프로모션 코�
 
 Liquid 스니펫을 Campaign 또는 캔버스 단계에 붙여넣습니다.
 
-![Liquid 스니펫이 캔버스 단계에 추가되는 것을 보여주는 GIF.][5]
+<video autoplay muted loop playsinline loading="lazy" style="max-width:100%;" aria-label="Liquid 스니펫이 캔버스 단계에 추가되는 것을 보여주는 동영상.">
+  <source src="{% image_buster /assets/img/shopify/liquid_promo_code.mp4 %}" type="video/mp4">
+</video>
 
 Campaigns 또는 Canvases에서 할인 코드가 몇 번 참조되더라도 사용자가 하나의 고유 할인 코드만 받도록 하려면, 첫 번째 메시지 단계 바로 앞에 "Promo Code"와 같은 커스텀 속성에 할인 코드를 할당하는 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) 단계를 생성합니다.
 
@@ -89,5 +91,4 @@ Campaigns 또는 Canvases에서 할인 코드가 몇 번 참조되더라도 사�
 [2]: {% image_buster /assets/img/shopify/export_discount_codes.png %}
 [3]: {% image_buster /assets/img/shopify/edited_codes_csv.png %}
 [4]: {% image_buster /assets/img/shopify/liquid_code_snippet.png %}
-[5]: {% image_buster /assets/img/shopify/liquid_promo_code.gif %}
 [6]: {% image_buster /assets/img/shopify/user_update_step.png %}

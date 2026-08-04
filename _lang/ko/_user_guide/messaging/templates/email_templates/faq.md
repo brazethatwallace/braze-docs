@@ -36,12 +36,14 @@ channel: email
 
 이 새 링크를 저장하려면 기본값 Braze 탈퇴 태그 {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%}가 푸터에 있어야 합니다. 즉, 태그를 주석에 넣거나 숨겨진 `<div>` 태그에 배치하여 기본값 링크를 "숨기는" 방식으로 포함해야 합니다.
 
-- **주석에 태그 넣기 예시:** 주석에 태그를 넣는 예시: `<!-- ${set_user_to_unsubscribed_url} -->`
-- **숨겨진 `<div>` 태그에 주석 넣기 예시:** {%raw%}`<div style="display:none;max-height:0px;overflow:hidden;">${set_user_to_unsubscribed_url}</div>`{%endraw%}
+- **주석 내 태그 예시:** 태그를 주석에 넣는 예시: `<!-- ${set_user_to_unsubscribed_url} -->`
+- **숨겨진 `<div>` 태그 내 주석 예시:** {%raw%}`<div style="display:none;max-height:0px;overflow:hidden;">${set_user_to_unsubscribed_url}</div>`{%endraw%}
 
-### 현재 Campaign에서 사용 중인 이메일 템플릿을 편집하면 어떻게 되나요? {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign}
+### 현재 Campaign 또는 Canvas에서 사용 중인 이메일 템플릿을 편집하면 어떻게 되나요? {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign-or-canvas}
 
-기존 템플릿에 대한 수정 사항은 해당 템플릿의 이전 버전을 사용하여 생성된 Campaigns에는 반영되지 않습니다. REST API 본문에서 템플릿을 사용하는 API Campaigns의 경우, Braze는 발송 시점의 최신 버전 템플릿을 사용합니다.
+이메일 템플릿은 Campaign 또는 Canvas에서 이메일을 작성할 때 시작점 역할을 합니다. 템플릿을 선택하면 Campaign 또는 Canvas 내에서 편집할 수 있으며, 이러한 변경 사항은 원본 템플릿과 독립적입니다.
+
+기존 템플릿에 대한 편집 사항은 해당 템플릿의 이전 버전을 사용하여 생성된 Campaigns 또는 Canvases에 반영되지 않습니다. 마찬가지로, Campaign 또는 Canvas 내에서 이메일에 대한 변경 사항은 원본 템플릿에 다시 동기화되지 않습니다. 요청 본문에 `email_template_id`를 포함하는 API Campaigns의 경우, Braze는 발송 시점의 최신 버전 템플릿을 사용합니다.
 
 ## 링크 템플릿 {#link-templates}
 
@@ -53,13 +55,13 @@ channel: email
 
 링크를 미리 보는 방법은 여러 가지가 있습니다. [링크 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template)을 적용한 후, 자신에게 [테스트 이메일]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages)을 보내 모든 링크를 확인할 수 있습니다.
 
-미리보기 창에서 새 탭으로 링크를 열어 확인할 수도 있습니다. 또한 미리보기 창에서 링크 위에 마우스를 올리면 브라우저 하단에서 링크를 확인할 수 있습니다.
+새 탭의 미리보기 창에서 링크를 열어 확인할 수도 있습니다. 또한 미리보기 창에서 링크 위에 마우스를 올리면 브라우저 하단에서 링크를 확인할 수 있습니다.
 
 ### 링크 템플릿은 Liquid와 어떻게 작동하나요? {#how-does-link-templating-work-with-liquid}
 
-링크 템플릿은 Liquid 확장이 발생하기 전에 각 URL에 확장되어 추가됩니다. URL의 일부가 Liquid 스니펫을 사용하여 생성되는 경우, 링크 템플릿이 올바르게 확장되려면 URL 기본 경로와 물음표(?)를 하드코딩하는 것이 좋습니다.
+링크 템플릿은 Liquid 확장이 발생하기 전에 각 URL에 확장 및 추가됩니다. URL의 일부가 Liquid 스니펫을 사용하여 생성되는 경우, 링크 템플릿이 올바르게 확장되도록 URL 기본 경로와 물음표(?)를 하드코딩하는 것이 좋습니다.
 
-Liquid에 물음표(?)를 추가하지 마세요. 링크 템플릿이 먼저 물음표(?)를 추가한 다음, 나중에 Liquid 확장 프로세스가 두 번째 물음표(?)를 추가하게 됩니다.
+Liquid에 물음표(?)를 추가하지 마세요. 링크 템플릿이 먼저 물음표(?)를 추가한 다음, 이후 Liquid 확장 프로세스에서 두 번째 물음표(?)를 추가하게 됩니다.
 
 #### 하드코딩된 URL과 커스텀 속성 비교 {#hardcoded-urls-versus-custom-attributes}
 

@@ -1901,6 +1901,8 @@ validurls['/docs/api/home/en'] = '/docs/api/home';
 validurls['/docs/partners/braze_currents/how_it_works'] = '/docs/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents';
 validurls['/docs/react_native'] = '/docs/developer_guide/sdk_integration?sdktab=react%20native';
 validurls['/docs/developer_guide/platform_integration_guides/swift/changelog/examples/podfile'] = '/docs/developer_guide/changelogs?sdktab=swift';
+validurls['/docs/developer_guide/platforms/legacy_sdks/ios/changelog/support/examples/swift/sources/banners-custom-ui'] = 'https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/Banners-Custom-UI';
+validurls['/docs/developer_guide/platforms/legacy_sdks/ios/changelog/support/examples/objc/sources/banners-custom-ui'] = 'https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/Banners-Custom-UI';
 validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopfiy/shopify_backfill'] = '/docs/partners/ecommerce/shopify/shopify_data_features#historical-backfill';
 validurls['/docs/help/best_practices/user_onboarding'] = '/docs/user_guide/home';
 validurls['/docs/user_guide/engagement_tools/testing/random_bucket_numbers/undefined/user_guide/introduction'] = '/docs/user_guide/messaging/ab_testing/concepts/random_bucket_numbers';
@@ -4140,7 +4142,7 @@ validurls['/docs/user_guide/brazeai/recommendations'] = '/docs/user_guide/brazea
 
 // BrazeAI > Intelligence Suite children
 validurls['/docs/user_guide/brazeai/intelligence/intelligent_channel'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_channel';
-validurls['/docs/user_guide/brazeai/intelligence/tutorial'] = '/docs/user_guide/brazeai/intelligence_suite/tutorial';
+validurls['/docs/user_guide/brazeai/intelligence/tutorial'] = '/docs/user_guide/brazeai/intelligence_suite/use_case';
 
 // BrazeAI > Item recommendations children
 validurls['/docs/user_guide/brazeai/recommendations/viewing_analytics'] = '/docs/user_guide/brazeai/item_recommendations/viewing_analytics';

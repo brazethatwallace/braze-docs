@@ -12,15 +12,15 @@ channel: email
 
 ## Comece aqui: identifique seu sintoma {#start-here-match-your-symptom}
 
-Identifique seu sintoma na tabela para acessar a seção relevante.
+Encontre seu sintoma na tabela abaixo para ir à seção correspondente.
 
 | Sintoma | Acesse |
 | --- | --- |
-| O HTML do e-mail de teste aparece incorretamente | [HTML renderiza incorretamente em e-mails de teste](#html-renders-incorrectly-in-test-emails) |
+| O HTML do e-mail de teste aparece incorretamente | [O HTML é renderizado incorretamente em e-mails de teste](#html-renders-incorrectly-in-test-emails) |
 | O editor se comporta de forma estranha no Chrome | [Conflitos de extensão](#extension-conflicts) |
-| O e-mail aparece diferente em diferentes clientes | [Renderização de e-mail](#email-rendering) |
+| O e-mail aparece diferente em diferentes clientes de e-mail | [Renderização de e-mail](#email-rendering) |
 | O e-mail exibe código Liquid ou links quebrados | [HTML desbalanceado em modelos Liquid](#unbalanced-html-in-liquid-templates) |
-| A prévia do Inbox Vision não corresponde ao e-mail enviado | [CSS inline](#css-inlining) |
+| A prévia do Inbox Vision não corresponde ao e-mail enviado | [Inlining de CSS](#css-inlining) |
 | Espaço em branco ou linhas após imagens em e-mails de teste | [Espaço em branco abaixo das imagens](#white-space-under-images) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sintoma de e-mail HTML" }
 
@@ -57,6 +57,7 @@ Os e-mails são renderizados de forma diferente dependendo dos navegadores e cli
 
 - Pré-visualize seus e-mails usando o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para ver como seus e-mails aparecem em diferentes navegadores e clientes de e-mail.
 - Depois de identificar quais navegadores ou clientes de e-mail estão causando problemas, informe sua equipe de desenvolvimento que será necessário modificar o HTML e fazer ajustes para acomodar esses navegadores ou clientes de e-mail.
+- Se o problema for específico de [como o texto alternativo é exibido]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text), tenha em mente que esse comportamento é controlado pelo cliente de e-mail do destinatário, não pela Braze.
 
 ### HTML desbalanceado em modelos Liquid {#unbalanced-html-in-liquid-templates}
 

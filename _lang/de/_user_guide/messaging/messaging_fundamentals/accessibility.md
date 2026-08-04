@@ -20,30 +20,30 @@ Dieser Inhalt dient als allgemeine Orientierung und garantiert keine Einhaltung 
 
 ## Barrierefreiheit bei Braze {#accessibility-at-braze}
 
-Barrierefreie Kommunikation zu unterstützen bedeutet, offen, neugierig und lernbereit zu bleiben. Bei Braze liegt uns daran, Menschen zu verbinden – und wir wissen, dass Raum für alle zu schaffen ein Teil davon ist. Barrierefreiheit ist etwas, das wir nie als „erledigt“ betrachten, und wir begrüßen die Möglichkeit, weiter zu lernen.
+Barrierefreie Kommunikation zu unterstützen bedeutet, offen, neugierig und lernbereit zu bleiben. Bei Braze liegt uns daran, Menschen miteinander zu verbinden – und wir wissen, dass es dazugehört, Raum für alle zu schaffen. Barrierefreiheit ist für uns nie „abgeschlossen“, und wir freuen uns über jede Gelegenheit, weiter dazuzulernen.
 
 {% multi_lang_include accessibility/feedback.md %}
 
-## Zu berücksichtigende Behinderungsbereiche {#areas-of-disability-to-consider}
+## Zu berücksichtigende Bereiche von Behinderungen {#areas-of-disability-to-consider}
 
 *Dieser Abschnitt ist teilweise adaptiert von [W3C: Diverse Abilities and Barriers](https://www.w3.org/WAI/people-use-web/abilities-barriers/).*
 
 {% tabs local %}
 {% tab Visuell %}
 
-Visuelle Behinderungen können von leichtem oder mäßigem Sehverlust in einem oder beiden Augen bis hin zu erheblichem oder vollständigem Sehverlust in beiden Augen reichen. Manche Menschen haben eine verminderte oder fehlende Empfindlichkeit für bestimmte Farben oder eine erhöhte Empfindlichkeit gegenüber hellen Farben.
+Visuelle Behinderungen können von leichtem oder mäßigem Sehverlust in einem oder beiden Augen bis hin zu erheblichem oder vollständigem Sehverlust in beiden Augen reichen. Manche Menschen haben eine verminderte oder fehlende Empfindlichkeit gegenüber bestimmten Farben oder eine erhöhte Empfindlichkeit gegenüber hellen Farben.
 
 Um mit Ihren Inhalten zu interagieren, benötigen diese Nutzer:innen die Möglichkeit:
 
 - Textgröße und Bilder zu vergrößern oder zu verkleinern
 - Einstellungen für Schriftarten, Farben und Abstände anzupassen
-- Sich den Inhalt per Text-to-Speech-Synthese vorlesen zu lassen (also einen Screenreader zu verwenden)
-- Sich Audiobeschreibungen von Videos anzuhören
-- Text über eine aktualisierbare Braillezeile zu lesen
+- Sich den Inhalt per Text-to-Speech-Synthese vorlesen zu lassen (d. h. einen Screenreader zu verwenden)
+- Audiobeschreibungen von Videos anzuhören
+- Text mithilfe einer aktualisierbaren Braillezeile zu lesen
 
 {% alert note %}
 - Weltweit haben mindestens 2,2 Milliarden Menschen eine Nah- oder Fernsehbeeinträchtigung (siehe [WHO](https://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment))
-- Etwa 1 von 12 Männern und 1 von 200 Frauen haben eine Form von Farbsehschwäche – geschätzt 300 Millionen Menschen weltweit (siehe [NHS](https://www.nhs.uk/conditions/colour-vision-deficiency/))
+- Etwa 1 von 12 Männern und 1 von 200 Frauen haben eine Form von Farbsehschwäche – schätzungsweise 300 Millionen Menschen weltweit (siehe [NHS](https://www.nhs.uk/conditions/colour-vision-deficiency/))
 {% endalert %}
 
 {% endtab %}
@@ -56,17 +56,17 @@ Um Ihre Inhalte zu verstehen, sind diese Nutzer:innen angewiesen auf:
 - Transkripte und Untertitel von Audioinhalten
 - Mediaplayer, die Untertitel anzeigen und Optionen zur Anpassung von Textgröße und Farben der Untertitel bieten
 - Optionen zum Stoppen, Pausieren und Anpassen der Lautstärke von Audioinhalten (unabhängig von der Systemlautstärke)
-- Hochwertige Vordergrund-Audioinhalte, die sich deutlich von Hintergrundgeräuschen unterscheiden
+- Hochwertige Vordergrund-Audioinhalte, die klar von Hintergrundgeräuschen unterscheidbar sind
 
 {% alert note %}
-- Jede achte Person in den Vereinigten Staaten (13 % oder 30 Millionen) ab 12 Jahren hat einen Hörverlust in beiden Ohren, basierend auf standardisierten Hörtests
+- Einer von acht Menschen in den Vereinigten Staaten (13 % oder 30 Millionen) ab 12 Jahren hat einen Hörverlust in beiden Ohren, basierend auf standardisierten Hörtests
 - Etwa 15 % der amerikanischen Erwachsenen (37,5 Millionen) ab 18 Jahren berichten von Hörproblemen (siehe [NIH](https://www.nidcd.nih.gov/health/statistics/quick-statistics-hearing))
 {% endalert %}
 
 {% endtab %}
-{% tab Motorisch %}
+{% tab Körperlich %}
 
-Motorische Behinderungen können Schwäche und Einschränkungen der Muskelkontrolle oder -empfindung, Gelenkerkrankungen, Schmerzen, die die Bewegung behindern, und fehlende Gliedmaßen umfassen.
+Körperliche Behinderungen können Schwäche und Einschränkungen der Muskelkontrolle oder -empfindung, Gelenkerkrankungen, Schmerzen, die die Bewegung behindern, sowie fehlende Gliedmaßen umfassen.
 
 Diese Nutzer:innen sind auf Tastaturunterstützung angewiesen, um Funktionen zu aktivieren (auch wenn sie keine Standardtastatur verwenden). Um mit Ihren Inhalten zu interagieren, benötigen diese Nutzer:innen:
 
@@ -76,26 +76,26 @@ Diese Nutzer:innen sind auf Tastaturunterstützung angewiesen, um Funktionen zu 
 - Mechanismen zum Überspringen von Inhaltsblöcken, wie Seitenüberschriften oder Navigationsleisten
 
 {% alert note %}
-Fast 2 Millionen Menschen in den USA leben mit dem Verlust einer Gliedmaße (siehe [Amputee Coalition](https://www.amputee-coalition.org/limb-loss-resource-center/resources-filtered/resources-by-topic/limb-loss-statistics/limb-loss-statistics/#1))
+Fast 2 Millionen Menschen in den USA leben mit dem Verlust von Gliedmaßen (siehe [Amputee Coalition](https://www.amputee-coalition.org/limb-loss-resource-center/resources-filtered/resources-by-topic/limb-loss-statistics/limb-loss-statistics/#1))
 {% endalert %}
 
 {% endtab %}
 {% tab Kognitiv %}
 
-Kognitive, Lern- und neurologische Behinderungen umfassen Neurodiversität und neurologische Störungen sowie Verhaltens- und psychische Gesundheitsstörungen, die nicht unbedingt neurologischer Natur sind. Sie können jeden Teil des Nervensystems betreffen und beeinflussen, wie gut Menschen hören, sich bewegen, sehen, sprechen und Informationen verstehen.
+Kognitive, lernbezogene und neurologische Behinderungen umfassen Neurodiversität und neurologische Störungen sowie Verhaltens- und psychische Gesundheitsstörungen, die nicht unbedingt neurologischer Natur sind. Sie können jeden Teil des Nervensystems betreffen und beeinflussen, wie gut Menschen hören, sich bewegen, sehen, sprechen und Informationen verstehen.
 
 Je nach individuellen Bedürfnissen sind diese Nutzer:innen angewiesen auf:
 
 - Klar strukturierte Inhalte
-- Konsistente Beschriftung von Formularen, Buttons und anderen Inhalten
-- Vorhersehbare Linkziele und allgemeine Interaktion
+- Einheitliche Beschriftung von Formularen, Buttons und anderen Inhalten
+- Vorhersehbare Linkziele und insgesamt vorhersehbare Interaktion
 - Verschiedene Navigationsmöglichkeiten, wie Menüs und Suchleisten
 - Einstellungen zum Deaktivieren von blinkenden, blitzenden oder anderweitig ablenkenden Inhalten
 - Einfacheren Text, der durch Bilder unterstützt wird
 
 
 {% alert note %}
-- Jede fünfte Person in den Vereinigten Staaten hat Lern- und Aufmerksamkeitsprobleme (siehe [LDA](https://ldaamerica.org/lda_today/the-state-of-learning-disabilities-today/#:~:text=LD%20Today,have%20learning%20and%20attention%20issues.))
+- Einer von fünf Menschen in den Vereinigten Staaten hat Lern- und Aufmerksamkeitsprobleme (siehe [LDA](https://ldaamerica.org/lda_today/the-state-of-learning-disabilities-today/#:~:text=LD%20Today,have%20learning%20and%20attention%20issues.))
 - Etwa 10–20 % der Weltbevölkerung gelten als neurodivergent (siehe [Deloitte](https://www2.deloitte.com/us/en/insights/topics/talent/neurodiversity-in-the-workplace.html))
 - Etwa 1 von 100 Kindern weltweit hat Autismus (siehe [WHO](https://www.who.int/news-room/fact-sheets/detail/autism-spectrum-disorders))
 {% endalert %}
@@ -103,79 +103,79 @@ Je nach individuellen Bedürfnissen sind diese Nutzer:innen angewiesen auf:
 {% endtab %}
 {% endtabs %}
 
-## Bewährte Praktiken {#best-practices}
+## Best Practices {#best-practices}
 
-Barrierefreie Inhalte zu erstellen muss nicht überwältigend sein. Kleine, durchdachte Entscheidungen können einen großen Unterschied machen. Dieser Abschnitt führt Sie durch praktische Tipps, die mehr Menschen helfen, Ihre Nachrichten erfolgreich zu lesen, zu navigieren und mit ihnen zu interagieren. Ob Sie Ihren Text anpassen, Ihre Buttons gestalten oder Alt-Text zu Bildern hinzufügen – jede Verbesserung trägt zu einem inklusiveren Erlebnis bei. Legen wir los.
+Barrierefreie Inhalte zu erstellen muss nicht überwältigend sein. Kleine, durchdachte Entscheidungen können einen großen Unterschied machen. Dieser Abschnitt führt Sie durch praktische Tipps, die mehr Menschen dabei helfen, Ihre Nachrichten erfolgreich zu lesen, zu navigieren und mit ihnen zu interagieren. Ob Sie Ihren Text anpassen, Ihre Buttons gestalten oder Alt-Text zu Bildern hinzufügen – jede Verbesserung trägt zu einem inklusiveren Erlebnis bei. Legen wir los.
 
 ### Inhalt {#content}
 
 #### Struktur und Aufbau {#structure-and-flow}
 
-Beginnen wir mit dem Fundament. Wenn Ihre Inhalte eine klare Struktur haben, ist es für alle einfacher zu folgen – besonders für Menschen, die auf Screenreader oder Tastaturnavigation angewiesen sind.
+Beginnen wir mit dem Fundament. Wenn Ihr Inhalt eine klare Struktur hat, ist er für alle leichter zu verfolgen – besonders für Menschen, die auf Screenreader oder Tastaturnavigation angewiesen sind.
 
-- **Gliedern Sie Ihre Inhalte in Abschnitte:** Die Verwendung von Überschriften, Aufzählungszeichen und Listen hilft Menschen, Ihre Inhalte schnell zu verstehen und zu überfliegen – auch wenn sie es eilig haben.
-- **Überspringen Sie keine Überschriftenebenen:** Überschriften geben Ihren Inhalten Struktur und helfen Leser:innen, schnell zu verstehen, wie Abschnitte zueinander in Beziehung stehen. Wenn Sie Überschriftenebenen überspringen (zum Beispiel direkt von einer H2 zu einer H4 springen), brechen Sie diese logische Struktur auf. Das erschwert es Nutzer:innen, insbesondere denen, die Screenreader verwenden, Ihre Nachricht zu navigieren und zu verstehen. Folgen Sie immer einer logischen, sequenziellen Hierarchie von Überschriften (H1 zu H2 zu H3 usw.), um sicherzustellen, dass Ihre Inhalte organisiert, barrierefrei und für alle leicht verständlich bleiben.
+- **Gliedern Sie Ihren Inhalt in Abschnitte:** Überschriften, Aufzählungszeichen und Listen helfen Menschen, Ihren Inhalt schnell zu verstehen und zu überfliegen – auch wenn sie es eilig haben.
+- **Überspringen Sie keine Überschriftenebenen:** Überschriften geben Ihrem Inhalt Struktur und helfen Leser:innen, schnell zu verstehen, wie Abschnitte zusammenhängen. Wenn Sie Überschriftenebenen überspringen (zum Beispiel direkt von einer H2 zu einer H4 springen), brechen Sie diese logische Struktur auf. Das erschwert es Nutzer:innen, insbesondere denjenigen, die Screenreader verwenden, Ihre Nachricht zu navigieren und klar zu verstehen. Folgen Sie immer einer logischen, sequenziellen Hierarchie von Überschriften (H1 zu H2 zu H3 usw.), um sicherzustellen, dass Ihr Inhalt organisiert, barrierefrei und für alle leicht zu verfolgen bleibt.
 
 #### Lesbarkeit {#readability}
 
-Sobald Ihre Struktur steht, ist der nächste Schritt sicherzustellen, dass Ihre Worte tatsächlich leicht zu lesen sind. Das bedeutet, Dinge einfach, übersichtlich und auf verschiedenen Geräten und für verschiedene Nutzerbedürfnisse komfortabel lesbar zu halten.
+Sobald Ihre Struktur steht, ist der nächste Schritt sicherzustellen, dass Ihre Worte tatsächlich leicht zu lesen sind. Das bedeutet, Dinge einfach, übersichtlich und komfortabel lesbar über verschiedene Geräte und Nutzerbedürfnisse hinweg zu halten.
 
-- **Schreiben Sie kurze, klare Sätze:** Kurze Sätze sind für alle leicht verständlich, besonders für Menschen, die Screenreader verwenden oder Schwierigkeiten haben, komplexe Informationen zu verarbeiten. Schreiben Sie auf dem Leseniveau der siebten Klasse in den USA. Sie können Ressourcen wie die [Hemingway App](https://hemingwayapp.com/) verwenden, um das Leseniveau Ihres Textes zu überprüfen.
-- **Wählen Sie lesbare Schriftgrößen und Abstände:** Text, der zu klein ist, kann schwer zu lesen sein – besonders auf Mobilgeräten. Verwenden Sie mindestens 14px für Fließtext. Machen Sie Überschriften größer, damit Nutzer:innen den Unterschied deutlich erkennen können. Zusätzlicher Zeilenabstand (etwa 1,5-fache Zeilenhöhe) und Absatzabstände verbessern die Lesbarkeit, besonders für Menschen mit visuellen oder kognitiven Bedürfnissen.
-- **Vermeiden Sie Blocksatz:** Blocksatz erzeugt ungleichmäßige Abstände zwischen Wörtern, was das Lesen für Menschen mit Legasthenie oder kognitiven Behinderungen erschwert. Erwägen Sie, Inhalte, die über mehr als zwei Zeilen umbrechen, für Links-nach-rechts-Sprachen linksbündig oder für [Rechts-nach-links-Sprachen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages) rechtsbündig auszurichten.
+- **Schreiben Sie kurze, klare Sätze:** Kurze Sätze sind für alle leicht zu verstehen, besonders für Menschen, die Screenreader verwenden oder Schwierigkeiten haben, komplexe Informationen zu verarbeiten. Schreiben Sie auf einem Leseniveau der siebten Klasse (US-Standard). Sie können Ressourcen wie die [Hemingway App](https://hemingwayapp.com/) verwenden, um das Leseniveau Ihres Textes zu prüfen.
+- **Wählen Sie lesbare Schriftgrößen und Abstände:** Text, der zu klein ist, kann schwer zu lesen sein – besonders auf Mobilgeräten. Verwenden Sie mindestens 14px für Fließtext. Machen Sie Überschriften größer, damit Nutzer:innen den Unterschied klar erkennen können. Zusätzlicher Zeilenabstand (etwa 1,5-fache Zeilenhöhe) und Absatzabstände verbessern die Lesbarkeit, besonders für Menschen mit visuellen oder kognitiven Bedürfnissen.
+- **Vermeiden Sie Blocksatz:** Blocksatz erzeugt ungleichmäßige Abstände zwischen Wörtern, was das Lesen für Menschen mit Legasthenie oder kognitiven Beeinträchtigungen erschwert. Erwägen Sie, Inhalte, die über mehr als zwei Zeilen umbrechen, für Links-nach-rechts-Sprachen linksbündig oder für [Rechts-nach-links-Sprachen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages) rechtsbündig auszurichten.
 - **Verwenden Sie Fett, Kursiv und Großbuchstaben sparsam:** Zu viel hervorgehobener Text erschwert das Lesen – besonders für Menschen mit Legasthenie oder Sehbeeinträchtigungen. Halten Sie es einfach.
 
 #### Klarheit und Benutzerfreundlichkeit {#clarity-and-usability}
 
-Zum Schluss sprechen wir über die feineren Details – die Dinge, die Nutzer:innen helfen, Ihre Inhalte nicht nur zu sehen, sondern auch zu verstehen und mit ihnen zu interagieren.
+Zum Schluss sprechen wir über die feineren Details – die Dinge, die Nutzer:innen helfen, Ihren Inhalt nicht nur zu sehen, sondern auch zu verstehen und damit zu interagieren.
 
-- **Beschriften Sie Links und Buttons klar:** Stellen Sie sicher, dass Ihr [Link](#links)- und [Button](#buttons)-Text klar erklärt, was als Nächstes passiert. Das hilft Menschen, die Screenreader verwenden oder mit der Tastatur navigieren, zu wissen, was sie erwartet.
-- **Gehen Sie sparsam mit Symbolen und Emojis um:** Sonderzeichen und Emojis können Ihre Inhalte verspielt machen, aber sie können verwirrend sein, wenn sie von Screenreadern vorgelesen werden. Verwenden Sie sie sparsam und stellen Sie sicher, dass sie keinen klaren, beschreibenden Text ersetzen.
-- **Testen Sie auf Textabschneidung:** Testen Sie Ihren Text immer, indem Sie eine [Testnachricht senden]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages), um sicherzustellen, dass Ihr Text nicht abgeschnitten wird. Wenn Ihre Nachricht abgeschnitten wird, schadet das sowohl Ihnen als auch Ihrer Zielgruppe, da Ihre Inhalte sie nicht erreichen.
+- **Beschriften Sie Links und Buttons klar:** Stellen Sie sicher, dass Ihre [Link-Hinweise](#links) und [Button](#buttons)-Texte klar erklären, was als Nächstes passiert. Das hilft Menschen, die Screenreader verwenden oder mit der Tastatur navigieren, zu wissen, was sie erwartet.
+- **Gehen Sie sparsam mit Symbolen und Emojis um:** Sonderzeichen und Emojis können Ihren Inhalt verspielt machen, aber sie können verwirrend sein, wenn sie von Screenreadern vorgelesen werden. Verwenden Sie sie sparsam und stellen Sie sicher, dass sie keinen klaren, beschreibenden Text ersetzen.
+- **Testen Sie auf Textabschneidung:** Testen Sie Ihren Text immer, indem Sie eine [Testnachricht senden]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages), um sicherzustellen, dass Ihr Text nicht abgeschnitten wird. Wenn Ihre Nachricht abgeschnitten wird, schadet das sowohl Ihnen als auch Ihrer Zielgruppe, da Ihr Inhalt sie nicht vollständig erreicht.
 
 ### Barrierefreiheitssprache {#accessibility-language}
 
-Die **Barrierefreiheitssprache** teilt Screenreadern und anderen assistiven Tools mit, in welcher Sprache Ihr Inhalt verfasst ist. Für Kanäle, die eine vollständige HTML-Seite oder E-Mail senden, kann Braze ein Sprach-Tag (`lang`) hinzufügen, wenn Sie es im Editor oder über Liquid festlegen. Das unterstützt das [WCAG 2.1 Erfolgskriterium 3.1.1 Sprache der Seite (Stufe A)](https://www.w3.org/WAI/WCAG21/Understanding/language-of-page.html).
+Die **Barrierefreiheitssprache** teilt Screenreadern und anderen assistiven Technologien mit, in welcher Sprache Ihr Inhalt verfasst ist. Für Kanäle, die eine vollständige HTML-Seite oder E-Mail senden, kann Braze ein Sprach-Tag (`lang`) hinzufügen, wenn Sie es im Editor oder über Liquid festlegen. Das unterstützt das [WCAG 2.1 Erfolgskriterium 3.1.1 Sprache der Seite (Stufe A)](https://www.w3.org/WAI/WCAG21/Understanding/language-of-page.html).
 
-Wenn Sie die Barrierefreiheitssprache leer lassen und kein sicherer Standardwert verfügbar ist, lässt Braze das Sprach-Tag weg. Wenn keine Sprache festgelegt ist, greifen assistive Tools oft auf die Telefon- oder Computersprache der Person zurück. Wenn diese von der Nachrichtensprache abweicht, kann die Aussprache falsch klingen.
+Wenn Sie die Barrierefreiheitssprache leer lassen und kein sicherer Standardwert verfügbar ist, lässt Braze das Sprach-Tag weg. Wenn keine Sprache festgelegt ist, greifen assistive Technologien oft auf die Telefon- oder Computersprache der Person zurück. Wenn diese von der Nachrichtensprache abweicht, kann die Aussprache falsch klingen.
 
 Campaigns und Canvases verwenden dieselben Editoren für diese Optionen, es sei denn, ein Feature ist für Ihren Workspace nicht verfügbar.
 
 #### Barrierefreiheitssprache konfigurieren {#configure-accessibility-language}
 
-Wenn Ihr Editor diese Option enthält, gehen Sie zum Abschnitt **Accessibility** in den Nachrichteneinstellungen. Wählen Sie eine Sprache aus dem Dropdown oder verwenden Sie Liquid (zum Beispiel {% raw %}`{{accessibility_language}}`{% endraw %}, wenn [mehrsprachige Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) aktiviert sind und die **Einstellungen für die Lokalisierung** konfiguriert sind).
+Wenn Ihr Editor diese Option enthält, gehen Sie zum Abschnitt **Barrierefreiheit** in den Nachrichteneinstellungen. Wählen Sie eine Sprache aus dem Dropdown oder verwenden Sie Liquid (zum Beispiel {% raw %}`{{accessibility_language}}`{% endraw %}, wenn [mehrsprachige Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) aktiviert sind und die **Lokalisierungseinstellungen** festgelegt sind).
 
 #### Mehrsprachige Nachrichten {#multi-language-messages}
 
-Legen Sie in den **Einstellungen für die Lokalisierung** eine Barrierefreiheitssprache für jede Locale fest, damit Liquid {% raw %}`{{accessibility_language}}`{% endraw %} für lokalisierte Sendungen ausfüllen kann. Ob dieser Wert für neue Nachrichten bereits vorausgewählt ist, hängt vom Kanal ab. Für CSV- und Übersetzungs-Workflows beginnen Sie mit [Spracheinstellungen und Barrierefreiheit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility).
+Legen Sie in den **Lokalisierungseinstellungen** eine Barrierefreiheitssprache für jedes Gebietsschema fest, damit Liquid {% raw %}`{{accessibility_language}}`{% endraw %} für lokalisierte Sendungen ausfüllen kann. Ob dieser Wert für neue Nachrichten bereits vorausgewählt ist, hängt vom Kanal ab. Für CSV- und Übersetzungs-Workflows beginnen Sie mit [Spracheinstellungen und Barrierefreiheit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility).
 
 #### Kanal- und Editor-Unterstützung {#channel-and-editor-support}
 
-Verwenden Sie diese Tabelle, um Kanäle zu vergleichen. Standardwerte können abweichen, prüfen Sie daher stichprobenartig, was Ihre Zielgruppe tatsächlich erhält.
+Verwenden Sie diese Tabelle, um Kanäle zu vergleichen. Standardwerte können sich unterscheiden, also überprüfen Sie stichprobenartig, was Ihre Zielgruppe tatsächlich erhält.
 
 | Kanal | Wissenswertes |
 | --- | --- |
-| E-Mail (Drag-and-Drop, vollständiges Template) | Legen Sie die Sprache im Editor fest. Bei mehrsprachigen Nachrichten kann ein vollständiges E-Mail-Template die Sprache jeder Locale automatisch zuordnen. Wenn Sie nur Content Blocks (einzelne Zeile) verwenden, funktionieren diese Abkürzungen nicht auf die gleiche Weise – wählen Sie die Sprache selbst, wo der Editor es erlaubt. |
+| E-Mail (Drag-and-Drop, vollständiges Template) | Legen Sie die Sprache im Editor fest. Mit mehrsprachigen Nachrichten kann ein vollständiges E-Mail-Template die Sprache jedes Gebietsschemas automatisch zuordnen. Wenn Sie nur Content Blocks (einzelne Zeile) verwenden, funktionieren diese Abkürzungen nicht auf die gleiche Weise – wählen Sie die Sprache selbst, wo der Editor es erlaubt. |
 | E-Mail (HTML-Code) | Braze fügt kein Sprach-Tag für Sie hinzu. Fügen Sie es in Ihrem HTML hinzu, wenn Sie es benötigen. |
-| In-App-Nachrichten (Drag-and-Drop) | Wenn Sie unter **Accessibility** eine Sprache auswählen, fügt Braze diese Sprache dem äußeren HTML der Nachricht hinzu, sodass Screenreader die gesamte Nachricht als diese Sprache behandeln. Bei aktivierten mehrsprachigen Nachrichten können neue Nachrichten standardmäßig Ihre Locale-Sprachen verwenden. Die **Vorschau** zeigt möglicherweise keine Sprache an, bis Sie eine unter **Einstellungen** auswählen. |
+| In-App-Nachrichten (Drag-and-Drop) | Wenn Sie eine Sprache unter **Barrierefreiheit** auswählen, fügt Braze diese Sprache dem äußeren HTML der Nachricht hinzu, sodass Screenreader die gesamte Nachricht als diese Sprache behandeln. Wenn mehrsprachige Nachrichten aktiviert sind, können neue Nachrichten standardmäßig auf Ihre Gebietsschema-Sprachen eingestellt sein. Die **Vorschau** zeigt möglicherweise keine Sprache an, bis Sie eine unter **Einstellungen** auswählen. |
 | Banner | Gleiches Verhalten wie bei In-App-Nachrichten. |
-| Landing-Pages | Sie können die Sprache auf der Live-Seite festlegen. Wählen Sie eine Sprache oder verwenden Sie Liquid, wenn Ihr Konto Liquid auf Landing-Pages erlaubt. Standardwerte unterscheiden sich ebenfalls von In-App-Nachrichten und Bannern – prüfen Sie die veröffentlichte Seite. |
-| Content Cards | Cards verwenden ein **Language**-Feld für Apps anstelle einer expliziten Barrierefreiheitssprache. |
+| Landing-Pages | Sie können die Sprache auf der Live-Seite festlegen. Wählen Sie eine Sprache oder verwenden Sie Liquid, wenn Ihr Konto Liquid auf Landing-Pages erlaubt. Standardwerte unterscheiden sich auch von In-App-Nachrichten und Bannern – überprüfen Sie die veröffentlichte Seite. |
+| Content Cards | Cards verwenden ein **Sprache**-Feld für Apps anstelle einer expliziten Barrierefreiheitssprache. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Kanal- und Editor-Unterstützung" }
 
 Wenn Sie HTML selbst schreiben, können Sie trotzdem ein Sprach-Tag für einen Teil der Nachricht hinzufügen (zum Beispiel einen Satz in einer anderen Sprache). Weitere Muster finden Sie unter [Benutzerdefiniertes HTML](#custom-html).
 
 #### Standardreferenz {#standards-reference}
 
-Wenn Braze ein Sprach-Tag auf Root-Ebene zum HTML hinzufügt, folgt es der HTML-Regel [`lang`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang). Testtools suchen oft nach [`html-has-lang`](https://dequeuniversity.com/rules/axe/4.2/html-has-lang). Content Cards verwenden stattdessen Ihr **Language**-Feld anstelle dieses HTML-Musters.
+Wenn Braze ein Sprach-Tag auf Root-Ebene zu HTML hinzufügt, folgt es der HTML-Regel [`lang`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang). Testtools suchen oft nach [`html-has-lang`](https://dequeuniversity.com/rules/axe/4.2/html-has-lang). Content Cards verwenden Ihr **Sprache**-Feld anstelle dieses HTML-Musters.
 
 ### Buttons {#buttons}
 
-Verwenden Sie **Buttons**, um eine Aktion anzuzeigen, wie das Absenden eines Formulars oder das Abspielen eines Karussells. Wenn Sie zu einer neuen URL navigieren, erwägen Sie stattdessen die Verwendung eines [Links](#links).
+Verwenden Sie **Buttons**, um eine Aktion anzuzeigen, wie das Absenden eines Formulars oder das Abspielen eines Karussells. Wenn Sie zu einer neuen URL navigieren, erwägen Sie stattdessen einen [Link-Hinweis](#links).
 
 #### Schreiben Sie klaren, handlungsorientierten Text {#write-clear-action-oriented-text}
 
-Ähnlich wie bei Linktexten sollten Button-Beschriftungen die Aktion klar beschreiben. Effektiver Button-Text ist spezifisch und handlungsorientiert. Zum Beispiel sagt „Bestellung absenden“ den Nutzer:innen klar, was passiert, wenn sie klicken, während einfach „Absenden“ mehrdeutig sein kann. Jede Beschriftung sollte die beabsichtigte Aktion genau beschreiben, damit Screenreader und alle Nutzer:innen das Ergebnis leicht verstehen und vorhersagen können, wenn sie mit Ihren Buttons interagieren.
+Ähnlich wie bei Linktexten sollten Button-Beschriftungen die Aktion klar beschreiben. Effektiver Button-Text ist spezifisch und handlungsorientiert. Zum Beispiel sagt „Bestellung absenden“ den Nutzer:innen klar, was passiert, wenn sie klicken, während einfach „Absenden“ mehrdeutig sein kann. Jede Beschriftung sollte die beabsichtigte Aktion präzise beschreiben, damit Screenreader und alle Nutzer:innen das Ergebnis leicht verstehen und vorhersagen können, wenn sie mit Ihren Buttons interagieren.
 
 <table role="presentation" class="reset-td-br-1 reset-td-br-2">
   <thead>
@@ -216,16 +216,16 @@ Halten Sie Button-Texte kurz, um Abschneidung zu vermeiden. Wenn der Text eines 
 
 #### Verwenden Sie ausreichenden Farbkontrast {#use-sufficient-color-contrast}
 
-Button-Text muss vor der Hintergrundfarbe des Buttons gut lesbar sein. Überprüfen Sie, ob Ihr Button-Text die WCAG 2.2 AA [Kontrastminima](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) erfüllt:
+Button-Text muss vor der Hintergrundfarbe des Buttons gut lesbar sein. Stellen Sie sicher, dass Ihr Button-Text die WCAG 2.2 AA [Kontrastminima](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) erfüllt:
 
 - 4,5:1 Kontrastverhältnis für normalgroßen Text (die meisten Buttons)
 - 3:1 Kontrastverhältnis für großen Text (typischerweise 18pt oder größer)
 
-Hoher Kontrast hilft sicherzustellen, dass Buttons für alle lesbar und klickbar bleiben, einschließlich Nutzer:innen mit Sehbeeinträchtigungen oder solchen, die Ihre Nachricht unter schwierigen Bedingungen betrachten. Weitere Informationen finden Sie im Abschnitt [Farbkontrast](#color-contrast).
+Hoher Kontrast hilft, dass Buttons für alle lesbar und klickbar bleiben, einschließlich Nutzer:innen mit Sehbeeinträchtigungen oder solchen, die Ihre Nachricht unter schwierigen Bedingungen betrachten. Weitere Hinweise finden Sie im Abschnitt [Farbkontrast](#color-contrast).
 
 #### Machen Sie Buttons leicht antippbar {#make-buttons-easy-to-tap}
 
-Stellen Sie sicher, dass Ihre Buttons (und Links) groß genug sind und weit genug voneinander entfernt sind, damit Nutzer:innen auf Mobilgeräten sie leicht bedienen können. Kleine oder eng beieinander liegende [Touch-Ziele](#touch-targets) können für Nutzer:innen mit motorischen Behinderungen frustrierend oder unmöglich zu bedienen sein.
+Stellen Sie sicher, dass Ihre Buttons (und Links) groß genug sind und weit genug voneinander entfernt liegen, damit Nutzer:innen auf Mobilgeräten sie leicht bedienen können. Kleine oder eng beieinanderliegende [Touch-Ziele](#touch-targets) können für Nutzer:innen mit motorischen Beeinträchtigungen frustrierend oder unmöglich zu bedienen sein.
 
 ### Links {#links}
 
@@ -233,7 +233,7 @@ Verwenden Sie Links zur Navigation, zum Beispiel um Nutzer:innen auf eine extern
 
 #### Schreiben Sie beschreibenden Linktext {#write-descriptive-link-text}
 
-Schreiben Sie Linktexte, die klar beschreiben, wohin der Link die Nutzer:innen führt. Screenreader-Nutzer:innen springen oft von Link zu Link, um Inhalte zu überfliegen. Stellen Sie daher sicher, dass Ihr Linktext für sich allein stehen kann. Vermeiden Sie Formulierungen wie „hier klicken“, „mehr“ und „für Details klicken“, da diese ohne Kontext mehrdeutig sind.
+Schreiben Sie Linktexte, die klar beschreiben, wohin der Link die Nutzer:innen führt. Screenreader-Nutzer:innen springen oft von Link zu Link, um Inhalte zu überfliegen, also stellen Sie sicher, dass Ihr Linktext für sich allein stehen kann. Vermeiden Sie Formulierungen wie „hier klicken“, „mehr“ und „für Details klicken“, da sie ohne Kontext mehrdeutig sind.
 
 Überlegen Sie zum Beispiel, wie Sie einen Link zu einem Wetterbericht formulieren könnten.
 
@@ -242,7 +242,7 @@ Schreiben Sie Linktexte, die klar beschreiben, wohin der Link die Nutzer:innen f
 | Hier klicken | Hier klicken, um den heutigen Wetterbericht aufzurufen | Heutiger Wetterbericht |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Beschreibenden Linktext schreiben" }
 
-Wie bei allen Inhalten gilt: Halten Sie es unkompliziert mit so wenig überflüssigen Wörtern wie möglich.
+Wie bei allen Inhalten: Halten Sie es unkompliziert mit so wenig überflüssigen Wörtern wie möglich.
 
 #### Vermeiden Sie es, Links wie Buttons zu gestalten {#avoid-styling-links-like-buttons}
 
@@ -272,14 +272,14 @@ Verwenden Sie das richtige Element für die Aktion:
 
 ### Touch-Ziele {#touch-targets}
 
-Touch-Ziele sind alle Teile Ihrer Nachricht, die Nutzer:innen antippen, um eine Aktion auszuführen, wie Buttons, Links oder Symbole. Diese Elemente müssen groß genug und weit genug voneinander entfernt sein, damit Menschen sie leicht antippen können, besonders auf Mobilgeräten.
+Touch-Ziele sind alle Teile Ihrer Nachricht, die Nutzer:innen antippen, um eine Aktion auszuführen, wie Buttons, Links oder Symbole. Diese Elemente müssen groß genug sein und weit genug voneinander entfernt liegen, damit Menschen sie leicht antippen können, besonders auf Mobilgeräten.
 
 Wenn Touch-Ziele zu klein oder zu nah beieinander sind, kann es für Nutzer:innen mit Mobilitäts- oder Geschicklichkeitseinschränkungen frustrierend oder unmöglich sein, mit Ihrer Nachricht zu interagieren. Eine Verbesserung kann dazu beitragen, Fehler zu reduzieren und ein reibungsloseres Erlebnis für alle zu schaffen.
 
 Hier ist, worauf Sie achten sollten:
-- **Verwenden Sie eine angemessene Touch-Ziel-Größe.** Streben Sie eine Mindestgröße von 44 x 44 Pixeln für Touch-Ziele an. Dies entspricht den WCAG 2.2-Richtlinien für [Touch-Ziele](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html) und gängigen Standards für mobile Benutzerfreundlichkeit.
-- **Geben Sie jedem Ziel Freiraum.** Wenn Tippziele zu nah beieinander liegen – wie gestapelte Links oder eng gruppierte Buttons – kann es leicht passieren, dass man daneben tippt oder das falsche Element trifft. Fügen Sie Abstände oder Padding zwischen den Elementen hinzu, um das zu verhindern.
-- **Verlassen Sie sich nicht nur auf visuelle Darstellung.** Selbst kleine Symbole können durch zusätzliches Padding benutzerfreundlicher gemacht werden, sodass sie die Mindestgrößenanforderungen erfüllen, ohne das Layout zu verändern.
+- **Verwenden Sie eine angemessene Touch-Ziel-Größe.** Streben Sie eine Mindestgröße von 44 x 44 Pixeln für Touch-Ziele an. Dies entspricht den WCAG 2.2 Richtlinien für [Touch-Ziele](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html) und gängigen Standards für mobile Benutzerfreundlichkeit.
+- **Geben Sie jedem Ziel Freiraum.** Wenn Tipp-Ziele zu nah beieinander liegen – wie gestapelte Links oder eng gruppierte Buttons – kann es leicht passieren, dass man daneben tippt oder das falsche Element trifft. Fügen Sie Abstände oder Padding zwischen Elementen hinzu, um das zu verhindern.
+- **Verlassen Sie sich nicht nur auf visuelle Darstellung.** Auch kleine Symbole können durch zusätzliches Padding benutzerfreundlicher gemacht werden, sodass sie die Mindestgrößenanforderungen erfüllen, ohne das Layout zu verändern.
 - **Vorschau auf Mobilgeräten.** Testen Sie Ihre Nachricht auf verschiedenen Bildschirmgrößen und stellen Sie sicher, dass interaktive Elemente leicht zu bedienen sind.
 
 Die Verbesserung von Touch-Zielen ist eine der effektivsten Möglichkeiten, Ihre Nachricht auf Mobilgeräten barrierefreier zu machen – und es ist gute UX für alle.
@@ -288,17 +288,17 @@ Die Verbesserung von Touch-Zielen ist eine der effektivsten Möglichkeiten, Ihre
 
 #### Alt-Text bereitstellen {#provide-alt-text}
 
-Alternativer Text (Alt-Text) ist eine kurze Beschreibung des Inhalts oder der Funktion eines Bildes, die Screenreader und andere assistive Technologien den Nutzer:innen bereitstellen. Schreiben Sie für jedes bedeutungsvolle Bild beschreibenden Alt-Text, damit Nutzer:innen, die die visuellen Inhalte nicht sehen können, Ihre Nachricht oder Ihren Call-to-Action trotzdem verstehen.
+Alternativer Text (Alt-Text) ist eine kurze Beschreibung des Inhalts oder der Funktion eines Bildes, die Screenreader und andere assistive Technologien den Nutzer:innen bereitstellen. Schreiben Sie für jedes bedeutungsvolle Bild beschreibenden Alt-Text, damit Nutzer:innen, die die visuellen Inhalte nicht sehen können, Ihre Nachricht oder Ihren Handlungsaufruf trotzdem verstehen.
 
 #### Vermeiden Sie Bilder mit Text {#avoid-images-of-text}
 
 Vermeiden Sie es nach Möglichkeit, Text in Bilder einzubetten – Screenreader können bildbasierten Text nicht lesen, und Nutzer:innen können Schriftgröße oder -farbe nicht einfach für bessere Sichtbarkeit anpassen. Beachten Sie diese Tipps:
 
-- **Entfernen Sie Text, wo möglich:** Verschieben Sie beschreibenden oder werblichen Text aus dem Bild in ein Textfeld in Ihrer Nachricht. So können Nutzer:innen ihn nach Bedarf mit ihren Geräte- oder Browsereinstellungen vergrößern oder umfärben.
-- **Testen Sie auf Lesbarkeit und Kontrast:** Wenn Sie Text im Bild beibehalten müssen, befolgen Sie die Best Practices für [Farbkontrast](#color-contrast) und verwenden Sie eine [große Schriftgröße](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#dfn-large-scale). Das bedeutet, dass Text mindestens 18 Punkt (etwa 24 Pixel) für nicht fetten Text oder 14 Punkt (etwa 18 Pixel) für fetten Text betragen sollte. Diese Größen helfen, dass Text lesbar bleibt, ohne dass Nutzer:innen hineinzoomen müssen, und verbessern den Gesamtkontrast und die Lesbarkeit des Inhalts. Testen Sie, ob er auf kleineren Bildschirmen noch lesbar ist.
+- **Entfernen Sie Text, wo Sie können:** Verschieben Sie beschreibenden oder werblichen Text aus dem Bild in ein Textfeld in Ihrer Nachricht. So können Nutzer:innen ihn nach Bedarf mit ihren Geräte- oder Browsereinstellungen vergrößern oder umfärben.
+- **Testen Sie auf Lesbarkeit und Kontrast:** Wenn Sie Text im Bild behalten müssen, befolgen Sie die Best Practices für [Farbkontrast](#color-contrast) und verwenden Sie eine [große Schriftgröße](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html#dfn-large-scale). Das bedeutet, dass Text mindestens 18 Punkt (etwa 24 Pixel) für nicht-fetten Text oder 14 Punkt (etwa 18 Pixel) für fetten Text betragen sollte. Diese Größen helfen, dass Text ohne Zoomen lesbar bleibt, und verbessern den Gesamtkontrast und die Lesbarkeit des Inhalts. Testen Sie, ob er auf kleineren Bildschirmen noch lesbar ist.
 - **Stellen Sie Alt-Text bereit:** Für wesentlichen Text, der im Bild bleiben muss, fügen Sie Alt-Text hinzu, der die Worte beschreibt.
 
-Wenn Bilder Text enthalten, der nicht bearbeitet werden kann, verlieren Nutzer:innen mit Sehbeeinträchtigungen die Flexibilität, Leseanpassungen vorzunehmen. Indem Sie Text von Bildern trennen, helfen Sie mehr Nutzer:innen, Ihre Nachricht komfortabel zu lesen und mit ihr zu interagieren.
+Wenn Bilder Text enthalten, der nicht bearbeitet werden kann, verlieren Nutzer:innen mit Sehbeeinträchtigungen die Flexibilität, Leseanpassungen vorzunehmen. Indem Sie Text von Bildern trennen, helfen Sie mehr Nutzer:innen, Ihre Nachricht komfortabel zu lesen und damit zu interagieren.
 
 #### Tipps zum Schreiben von Alt-Text {#tips-for-writing-alt-text}
 
@@ -311,7 +311,7 @@ Wenn Bilder Text enthalten, der nicht bearbeitet werden kann, verlieren Nutzer:i
 
 ##### Beschreiben Sie, was tatsächlich im Bild zu sehen ist {#tip-1}
 
-Screenreader-Nutzer:innen sind auf Alt-Text angewiesen, um den Inhalt oder die Funktion eines Bildes zu verstehen. Vermeiden Sie generisches „Marketing-Sprech“, das nicht zu dem passt, was visuell gezeigt wird.
+Screenreader-Nutzer:innen verlassen sich auf Alt-Text, um den Inhalt oder die Funktion eines Bildes zu verstehen. Vermeiden Sie generische „Marketing-Sprache“, die nicht dem entspricht, was visuell gezeigt wird.
 
 <table role="presentation" class="reset-td-br-1 reset-td-br-2">
   <thead>
@@ -342,7 +342,7 @@ Screenreader-Nutzer:innen sind auf Alt-Text angewiesen, um den Inhalt oder die F
 
 ##### Halten Sie es kurz, aber spezifisch {#tip-2}
 
-Prägnanter Alt-Text erleichtert es Nutzer:innen, die Information zu verarbeiten. Fügen Sie genug Details hinzu, um den Zweck zu vermitteln, aber lassen Sie Überflüssiges weg. Als Faustregel gilt: Halten Sie Alt-Text auf 125 Zeichen oder weniger. Wenn mehr als ein kurzer Satz nötig ist, erwägen Sie die Verwendung einer der [Methoden für lange Beschreibungen](https://www.w3.org/WAI/tutorials/images/complex/) von W3C.
+Prägnanter Alt-Text erleichtert es Nutzer:innen, ihn zu verarbeiten. Fügen Sie genug Details hinzu, um den Zweck zu vermitteln, aber lassen Sie Überflüssiges weg. Als Faustregel gilt: Halten Sie Alt-Text auf 125 Zeichen oder weniger. Wenn mehr als ein kurzer Satz nötig ist, erwägen Sie eine der [Methoden für lange Beschreibungen](https://www.w3.org/WAI/tutorials/images/complex/) von W3C.
 
 <table role="presentation" class="reset-td-br-1 reset-td-br-2">
   <thead>
@@ -358,7 +358,7 @@ Prägnanter Alt-Text erleichtert es Nutzer:innen, die Information zu verarbeiten
     </tr>
     <tr>
       <td>„Vier Laptops auf einem Displayständer“</td>
-      <td>„Entdecken Sie den ultimativen Produktivitätsbooster, der Ihre Arbeitsweise jeden Tag und auf jede erdenkliche Weise neu definiert.“ (Beschreibt nicht, was tatsächlich gezeigt wird)</td>
+      <td>„Entdecken Sie den ultimativen Produktivitätsbooster, der Ihre Arbeitsweise jeden Tag neu definiert.“ (Beschreibt nicht, was tatsächlich gezeigt wird)</td>
     </tr>
     <tr>
       <td>„Gruppe von Freunden, die an einem sonnigen Tag Eis essen“</td>
@@ -384,11 +384,11 @@ Screenreader kündigen ein Bild bereits an. Beginnen Sie direkt mit der Beschrei
   </thead>
   <tbody>
     <tr>
-      <td>„Für einen Brunch gedeckter Tisch mit Pfannkuchen, Obst und Kaffee.“</td>
-      <td>„Bild eines für einen Brunch gedeckten Tisches“</td>
+      <td>„Für Brunch gedeckter Tisch mit Pfannkuchen, Obst und Kaffee.“</td>
+      <td>„Bild eines für Brunch gedeckten Tisches“</td>
     </tr>
     <tr>
-      <td>„Straßenplakat mit fettem „Große Eröffnung“-Text"</td>
+      <td>„Straßenplakat mit fettem Text „Große Eröffnung“"</td>
       <td>„Foto eines Plakats am Straßenrand“</td>
     </tr>
     <tr>
@@ -400,7 +400,7 @@ Screenreader kündigen ein Bild bereits an. Beginnen Sie direkt mit der Beschrei
 
 ##### Geben Sie Text wieder, der im Bild erscheint {#tip-4}
 
-Wenn ein Bild wesentlichen Text enthält, fügen Sie diese Information in den Alt-Text ein, damit Nutzer:innen sie nicht verpassen.
+Wenn ein Bild wesentlichen Text enthält, nehmen Sie diese Information in den Alt-Text auf, damit Nutzer:innen sie nicht verpassen.
 
 <table role="presentation" class="reset-td-br-1 reset-td-br-2">
   <thead>
@@ -415,7 +415,7 @@ Wenn ein Bild wesentlichen Text enthält, fügen Sie diese Information in den Al
   </thead>
   <tbody>
     <tr>
-      <td>„Banner mit dem Text „Sommerschlussverkauf – 50 % Rabatt auf alle Bademode“"</td>
+      <td>„Banner mit dem Text „Sommerschlussverkauf – 50 % Rabatt auf alle Bademode.“"</td>
       <td>„Banner, das einen Verkauf bewirbt.“ (Erwähnt den tatsächlichen Rabatt nicht)</td>
     </tr>
     <tr>
@@ -423,7 +423,7 @@ Wenn ein Bild wesentlichen Text enthält, fügen Sie diese Information in den Al
       <td>„Logo-Bild für ein Café.“ (Enthält nicht den Text „Café Toscana“)</td>
     </tr>
     <tr>
-      <td>„Anzeige mit dem Text „Konzerttickets jetzt erhältlich – Start am 5. Juni“"</td>
+      <td>„Anzeige mit dem Text „Konzertkarten jetzt erhältlich – Start am 5. Juni“"</td>
       <td>„Konzertanzeige.“ (Keine Veranstaltungsdetails)</td>
     </tr>
   </tbody>
@@ -443,11 +443,11 @@ Füllen Sie Alt-Text nicht mit SEO-Begriffen oder Handlungsaufforderungen auf, d
   <tbody>
     <tr>
       <td>„Laptop, der das Braze-Dashboard-Analytics-Chart zeigt“</td>
-      <td>„Steigern Sie Conversions und katapultieren Sie den ROI mit der besten Plattform der Welt!“ (Fügt unnötige Marketingsprache hinzu)</td>
+      <td>„Steigern Sie Konversionen und katapultieren Sie den ROI mit der besten Plattform der Welt!“ (Fügt unnötige Marketing-Sprache hinzu)</td>
     </tr>
     <tr>
-      <td>„Hinterhof-Terrassenset mit vier Stühlen und einem Glastisch“</td>
-      <td>„Veranstalten Sie eine unglaubliche Sommerparty für alle Ihre Freunde und Familie!“ (Beschreibt ein Szenario, nicht das Bild)</td>
+      <td>„Hinterhof-Terrassen-Set mit vier Stühlen und einem Glastisch“</td>
+      <td>„Veranstalten Sie jetzt eine unglaubliche Sommerparty für alle Ihre Freunde und Familie!“ (Beschreibt ein Szenario, nicht das Bild)</td>
     </tr>
     <tr>
       <td>„Mobiltelefon, das eine Wetter-App mit 24 °C anzeigt“</td>
@@ -458,7 +458,7 @@ Füllen Sie Alt-Text nicht mit SEO-Begriffen oder Handlungsaufforderungen auf, d
 
 ##### Berücksichtigen Sie den Zweck des Bildes {#tip-6}
 
-Wenn ein Bild als Link oder Call-to-Action fungiert, beschreiben Sie die beabsichtigte Aktion („Einkaufen“, „Link zu“, „Anmelden“), nicht nur das Label oder das gezeigte Produkt.
+Wenn ein Bild als Link oder Handlungsaufforderung fungiert, beschreiben Sie die beabsichtigte Aktion („Einkaufen“, „Link zu“, „Anmelden“), nicht nur das Label oder das gezeigte Produkt.
 
 <table role="presentation" class="reset-td-br-1 reset-td-br-2">
   <thead>
@@ -477,13 +477,19 @@ Wenn ein Bild als Link oder Call-to-Action fungiert, beschreiben Sie die beabsic
       <td>„Kostenloses E-Book“ (Macht nicht deutlich, dass es sich um einen Link handelt)</td>
     </tr>
     <tr>
-      <td>„Für den Newsletter anmelden“</td>
-      <td>„Newsletter“ (Beschreibt nicht, was die Nutzer:innen tun können)</td>
+      <td>„Für die Mailingliste anmelden“</td>
+      <td>„Mailingliste“ (Beschreibt nicht, was Nutzer:innen tun können)</td>
     </tr>
   </tbody>
 </table>
 
-Wenn das Bild keinen Zweck hat, machen Sie das ebenfalls deutlich. Dekorative Bilder, wie Logos, sollten ein leeres Alt-Tag (`alt=""`) haben, damit Screenreader wissen, dass sie es überspringen können. Ohne dieses wird normalerweise stattdessen der Bilddateiname vorgelesen.
+Wenn das Bild keinen Zweck hat, machen Sie auch das deutlich. Dekorative Bilder, wie Logos, sollten ein leeres Alt-Tag (`alt=""`) haben, damit Screenreader wissen, dass sie es überspringen können. Ohne dieses wird normalerweise stattdessen der Bilddateiname vorgelesen.
+
+#### Wie E-Mail-Clients Alt-Text anzeigen {#how-email-clients-display-alt-text}
+
+Die Anzeige und Darstellung von Alt-Text in E-Mail-Nachrichten wird vom E-Mail-Client der Empfänger:innen (wie Gmail, Outlook oder Apple Mail) gesteuert, nicht von Braze. Wenn Sie Unterschiede in der Darstellung von Alt-Text in verschiedenen E-Mail-Clients oder Plattformen bemerken – zum Beispiel Alt-Text, der in Gmail auf dem Desktop anders angezeigt wird als in der Gmail-Mobil-App – liegt das daran, wie jeder Client dasselbe HTML rendert.
+
+Sie können Alt-Text beliebiger Länge in Ihr E-Mail-HTML einfügen, aber einige E-Mail-Clients können Alt-Text abschneiden oder ausblenden, der zu lang ist, um in die Abmessungen des Bildes zu passen. Wenn Sie Fragen zum Verhalten von Alt-Text in einem bestimmten E-Mail-Client haben, wenden Sie sich an den [Support]({{site.baseurl}}/support_contact).
 
 ### Videos {#videos}
 
@@ -502,9 +508,11 @@ Fügen Sie Ihren Videos Untertitel hinzu, damit Nutzer:innen den Dialogen, Sound
 - Zuschauer:innen, die in einer lautlosen Umgebung schauen
 - Nicht-Muttersprachler:innen, die lieber mitlesen
 
-Untertitel können ein- und ausgeschaltet werden, sodass Nutzer:innen wählen können, was für sie am besten funktioniert.
+Untertitel können ein- oder ausgeschaltet werden, sodass Nutzer:innen wählen können, was für sie am besten funktioniert.
 
-{% multi_lang_include accessibility/video.md %}
+{% alert note %}
+Braze generiert nicht automatisch Untertitel für Ihre Videos. Es liegt in Ihrer Verantwortung, Ihre Videodateien mit korrekten Untertiteln zu versehen, bevor Sie sie in Ihre Nachricht einfügen.
+{% endalert %}
 
 
 #### Stellen Sie Wiedergabesteuerungen bereit {#playback-controls}
@@ -523,25 +531,28 @@ Lassen Sie Nutzer:innen selbst entscheiden, wann sie ein Video abspielen, indem 
 
 #### Vermeiden Sie blinkende oder stroboskopische Inhalte {#no-seizures}
 
-Verwenden Sie keine Videos mit blinkenden oder stroboskopischen Effekten, insbesondere bei hoher Frequenz. Diese können bei Nutzer:innen mit photosensitiver Epilepsie Anfälle auslösen und bei anderen Unbehagen verursachen.
+Verwenden Sie keine Videos mit blinkenden oder stroboskopischen Effekten, besonders bei hoher Frequenz. Diese können bei Nutzer:innen mit photosensitiver Epilepsie Anfälle auslösen und bei anderen Unbehagen verursachen.
 
 ### Farbkontrast {#color-contrast}
 
-Ausreichender Farbkontrast hilft sicherzustellen, dass Ihre Nachrichten für alle leicht lesbar sind, einschließlich Menschen mit Sehschwäche oder solchen, die Ihre Inhalte bei hellem Licht oder unter schwierigen Bedingungen betrachten. Streben Sie Kontrastverhältnisse an, die den [WCAG 2.2 AA-Anforderungen](https://www.w3.org/TR/WCAG/#contrast-minimum) entsprechen:
+Ausreichender Farbkontrast hilft sicherzustellen, dass Ihre Nachrichten für alle leicht zu lesen sind, einschließlich Menschen mit eingeschränktem Sehvermögen oder solchen, die Ihre Inhalte bei hellem Licht oder unter schwierigen Bedingungen betrachten. Streben Sie Kontrastverhältnisse an, die den [WCAG 2.2 AA-Anforderungen](https://www.w3.org/TR/WCAG/#contrast-minimum) entsprechen:
 
 - 4,5:1 Kontrastverhältnis für normalen Text (Fließtext, Buttons und Links)
 - 3:1 Kontrastverhältnis für großen Text (Überschriften und größere Beschriftungen)
 
 Sie können Ihre Farbwahl mit dem [WebAim Contrast Checker Tool](https://webaim.org/resources/contrastchecker/) testen.
 
-{% multi_lang_include accessibility/color.md %}
+{% alert note %}
+Die Braze-Editoren erlauben es Ihnen, angepasste Farbkombinationen auszuwählen. Denken Sie daran, dass bestimmte Farbwahlen die Zugänglichkeit beeinträchtigen können. Wählen Sie Ihre Farben sorgfältig aus, um sicherzustellen, dass Ihr Inhalt lesbar ist und den Standards für Barrierefreiheit entspricht.
+{% endalert %}
+
 
 ### Benutzerdefiniertes HTML {#custom-html}
 
-Wenn Sie benutzerdefiniertes HTML in Ihren Nachrichten verwenden:
+Wenn Sie benutzerdefiniertes HTML in Ihrem Messaging verwenden:
 
-- Verwenden Sie [semantisches HTML](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML). Das bedeutet, die richtigen HTML-Elemente für ihren vorgesehenen Zweck zu verwenden, anstatt ein Element so zu gestalten, dass es wie ein anderes aussieht. Die meisten HTML-Elemente haben eine eigene integrierte Barrierefreiheitsunterstützung.
-- Für die Sprache auf Dokumentebene, bei der Braze HTML-Metadaten beim Export hinzufügen kann, lesen Sie den Abschnitt [Barrierefreiheitssprache](#accessibility-language); das Verhalten variiert je nach Kanal. Wenn Sie Inhalte selbst auszeichnen, setzen Sie das [`lang`-Attribut](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang) in Ihrem HTML, um die Sprache Ihres Inhalts zu identifizieren. Screenreader verwenden für jede Sprache unterschiedliche Klangbibliotheken, basierend auf der Aussprache und den Eigenschaften dieser Sprache. Wenn dies nicht angegeben ist, nimmt ein Screenreader an, dass der Inhalt in der Standardsprache geschrieben ist, die der/die Nutzer:in beim Einrichten des Screenreaders gewählt hat. Wenn die Nachricht nicht tatsächlich in der Standardsprache verfasst ist, kann der Screenreader die Nachricht möglicherweise nicht korrekt aussprechen.
+- Verwenden Sie [semantisches HTML](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML). Das bedeutet, die richtigen HTML-Elemente für ihren vorgesehenen Zweck zu verwenden, anstatt ein Element so zu gestalten, dass es wie ein anderes aussieht. Die meisten HTML-Elemente haben ihre eigene eingebaute Barrierefreiheitsunterstützung.
+- Für die Sprache auf Dokumentebene, bei der Braze HTML-Metadaten beim Export hinzufügen kann, siehe [Barrierefreiheitssprache](#accessibility-language); das Verhalten variiert je nach Kanal. Wenn Sie Inhalte selbst auszeichnen, setzen Sie das [`lang`-Attribut](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang) in Ihrem HTML, um die Sprache Ihres Inhalts zu identifizieren. Screenreader verwenden verschiedene Klangbibliotheken für jede Sprache basierend auf der Aussprache und den Eigenschaften dieser Sprache. Wenn dies nicht angegeben ist, nimmt ein Screenreader an, dass der Inhalt in der Standardsprache geschrieben ist, die die Nutzer:innen bei der Einrichtung des Screenreaders gewählt haben. Wenn die Nachricht nicht tatsächlich in der Standardsprache verfasst ist, kann der Screenreader die Nachricht möglicherweise nicht korrekt aussprechen.
 
 {% raw %}
 ```html
@@ -550,17 +561,17 @@ Wenn Sie benutzerdefiniertes HTML in Ihren Nachrichten verwenden:
 {% endraw %}
 
 {% alert note %}
-Bei Verwendung des E-Mail-Drag-and-Drop-Editors legen Sie die Sprache über den Tab **Einstellungen** fest, wenn diese Steuerung verfügbar ist. Vollständige Templates und reine Content-Block-E-Mails können unterschiedliche Standardwerte für die Barrierefreiheitssprache verwenden – siehe [Barrierefreiheitssprache](#accessibility-language). Andere Kanäle werden ebenfalls in diesem Abschnitt behandelt.
+Wenn Sie den Drag-and-Drop-E-Mail-Editor verwenden, legen Sie die Sprache über den Tab **Einstellungen** fest, wenn diese Steuerung verfügbar ist. Vollständige Templates und reine Content-Block-E-Mails können unterschiedliche Standardwerte für die Barrierefreiheitssprache verwenden – siehe [Barrierefreiheitssprache](#accessibility-language). Andere Kanäle werden ebenfalls in diesem Abschnitt behandelt.
 {% endalert %}
 
-- Verwenden Sie [ARIA-Attribute](#aria-attributes), um zusätzlichen Kontext bereitzustellen. Diese Attribute liefern assistiven Technologien zusätzliche Informationen und helfen, die Rolle, den Zustand oder die Eigenschaften von UI-Elementen zu verdeutlichen, die andernfalls unklar sein könnten.
+- Verwenden Sie [ARIA-Attribute](#aria-attributes), um zusätzlichen Kontext zu geben. Diese Attribute liefern zusätzliche Informationen für assistive Technologien und helfen, die Rolle, den Zustand oder die Eigenschaften von UI-Elementen zu verdeutlichen, die andernfalls unklar sein könnten.
 
 ### ARIA-Attribute {#aria-attributes}
 
-Wenn Sie benutzerdefinierten Code in Braze-Editoren verwenden, können Sie Accessible Rich Internet Applications ([ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)) nutzen, um zusätzliche Barrierefreiheitsunterstützung für Nutzer:innen bereitzustellen, die auf assistive Technologien angewiesen sind. ARIA-Rollen und -Attribute helfen Screenreadern, Ihre Inhalte klarer zu interpretieren, besonders wenn Sie Elemente verwenden, die von sich aus keine Bedeutung vermitteln (wie `<div>` oder `<span>`).
+Wenn Sie benutzerdefinierten Code in Braze-Editoren verwenden, können Sie Accessible Rich Internet Applications ([ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)) nutzen, um zusätzliche Barrierefreiheitsunterstützung für Nutzer:innen bereitzustellen, die auf assistive Technologien angewiesen sind. ARIA-Rollen und -Attribute helfen Screenreadern, Ihren Inhalt klarer zu interpretieren, besonders wenn Sie Elemente verwenden, die von sich aus keine Bedeutung vermitteln (wie `<div>` oder `<span>`).
 
 {% alert important %}
-Obwohl ARIA dafür konzipiert ist, Webinhalte barrierefreier zu machen, kann es bei falscher Verwendung mehr schaden als nützen. ARIA ersetzt kein semantisches HTML, es ergänzt es – verwenden Sie ARIA daher nur, wenn native HTML-Elemente Ihre Anforderungen nicht erfüllen.
+Obwohl ARIA dafür konzipiert ist, Webinhalte barrierefreier zu machen, kann es bei falscher Verwendung mehr schaden als nützen. ARIA ersetzt kein semantisches HTML, es ergänzt es – verwenden Sie ARIA also nur, wenn native HTML-Elemente Ihre Anforderungen nicht erfüllen.
 {% endalert %}
 
 Hier sind einige Beispiele, die besonders in Messaging-Kontexten nützlich sind:
@@ -585,7 +596,7 @@ Hier sind einige Beispiele, die besonders in Messaging-Kontexten nützlich sind:
 
 #### aria-labelledby {#aria-labelledby}
 
-`aria-labelledby` verbindet ein Element mit etwas, das bereits ein sichtbares Label hat. Wenn Sie also ein Banner oder einen Bereich haben, der mit einem Titel laut vorgelesen werden soll, können Sie `aria-labelledby` verwenden, um assistiver Technologie mitzuteilen: „Verwende diese Überschrift dort drüben, um diesen Teil zu benennen.“
+`aria-labelledby` verbindet ein Element mit etwas, das bereits ein sichtbares Label hat. Wenn Sie also ein Banner oder einen Bereich haben, der mit einem Titel vorgelesen werden soll, können Sie `aria-labelledby` verwenden, um assistiver Technologie mitzuteilen: „Verwende diese Überschrift dort drüben, um diesen Teil zu benennen.“
 
 {% raw %}
 ```html
@@ -598,7 +609,7 @@ Hier sind einige Beispiele, die besonders in Messaging-Kontexten nützlich sind:
 
 `aria-hidden="true"` verbirgt Dinge vor Screenreadern. Es ist hilfreich für Text oder visuelle Elemente, die keine wichtige Bedeutung vermitteln – wie ein Glitzern, ein Häkchen oder ein Emoji, das rein dekorativ verwendet wird.
 
-Das hält das Erlebnis für Screenreader-Nutzer:innen sauberer, die sonst möglicherweise redundante oder verwirrende Inhalte hören würden. Es ist auch nützlich, um Dinge wie Offscreen-Akkordeon-Inhalte zu verbergen, die noch nicht aufgeklappt wurden.
+Das hält das Erlebnis für Screenreader-Nutzer:innen sauberer, die sonst möglicherweise redundante oder verwirrende Inhalte hören würden. Es ist auch nützlich, um Dinge wie Offscreen-Akkordeon-Inhalte auszublenden, die noch nicht aufgeklappt wurden.
 
 {% raw %}
 ```html
@@ -606,11 +617,11 @@ Das hält das Erlebnis für Screenreader-Nutzer:innen sauberer, die sonst mögli
 ```
 {% endraw %}
 
-Im Allgemeinen ist es besser, `alt=""` für [dekorative Bilder](#images) und Symbole zu verwenden als `aria-hidden="true"`. Während semantisches HTML von allen Screenreadern und assistiver Software weitgehend unterstützt wird, variiert die ARIA-Unterstützung. Selbst wenn Sie `aria-hidden` verwenden, sollten Sie trotzdem ein leeres Alt-Attribut einfügen.
+Im Allgemeinen ist es besser, `alt=""` für [dekorative Bilder](#images) und Symbole zu verwenden als `aria-hidden="true"`. Während semantisches HTML von allen Screenreadern und assistiver Software weitgehend unterstützt wird, variiert die ARIA-Unterstützung. Auch wenn Sie `aria-hidden` verwenden, sollten Sie trotzdem ein leeres Alt-Attribut einfügen.
 
 #### role="presentation" {#rolepresentation}
 
-`role="presentation"` teilt assistiver Technologie mit, rein layoutbezogene Elemente zu ignorieren, wie Design-Tabellen. E-Mails verwenden beispielsweise oft Tabellen nur zur Ausrichtung. Ohne diese Rolle könnten Screenreader annehmen, dass Ihr Layout eine Datentabelle ist, und beginnen, Zeilen- und Spaltennummern vorzulesen.
+`role="presentation"` teilt assistiver Technologie mit, rein layoutbezogene Elemente zu ignorieren, wie Design-Tabellen. E-Mails verwenden zum Beispiel oft Tabellen nur zur Ausrichtung. Ohne diese Rolle könnten Screenreader annehmen, dass Ihr Layout eine Datentabelle ist, und beginnen, Zeilen- und Spaltennummern vorzulesen.
 
 {% raw %}
 ```html
@@ -618,7 +629,7 @@ Im Allgemeinen ist es besser, `alt=""` für [dekorative Bilder](#images) und Sym
 ```
 {% endraw %}
 
-E-Mails, die im E-Mail-Drag-and-Drop-Editor erstellt werden, haben Präsentationselemente automatisch mit dem ARIA-Attribut `role="presentation"` gekennzeichnet.
+E-Mails, die im Drag-and-Drop-E-Mail-Editor erstellt werden, haben Präsentationselemente automatisch mit dem ARIA-Attribut `role="presentation"` markiert.
 
 #### aria-live="polite" {#aria-livepolite}
 
@@ -632,40 +643,40 @@ E-Mails, die im E-Mail-Drag-and-Drop-Editor erstellt werden, haben Präsentation
 
 ## Automatisierte Barrierefreiheitstests {#automated-accessibility-testing}
 
-Um Ihnen zu helfen, Barrierefreiheitsprobleme frühzeitig zu erkennen und zu beheben, bietet Braze automatisierte Barrierefreiheitstests in den folgenden Bereichen:
+Um Ihnen zu helfen, Probleme mit der Barrierefreiheit frühzeitig zu erkennen und zu beheben, bietet Braze automatisierte Barrierefreiheitstests in den folgenden Bereichen an:
 
 - [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing) für E-Mails
-- [Barrierefreiheits-Scanner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner) für Nachrichten, die mit unserem HTML-Editor erstellt wurden (zum Beispiel HTML-In-App-Nachrichten, HTML Content Blocks, [benutzerdefinierte E-Mail-Fußzeilen]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [E-Mail-Opt-in-Seiten]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-opt-in-page) und [E-Mail-Abmeldeseiten]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-unsubscribe-page)).
+- [Barrierefreiheits-Scanner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner) für Nachrichten, die mit unserem HTML-Editor erstellt wurden (z. B. HTML-In-App-Nachrichten, HTML Content Blocks, [angepasste E-Mail-Fußzeilen]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [E-Mail-Opt-in-Seiten]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-opt-in-page) und [E-Mail-Abmeldeseiten]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-unsubscribe-page)).
 
-Diese Tests prüfen Ihre Nachricht anhand des Standards der Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) – einer Reihe international anerkannter technischer Standards für barrierefreie Inhalte. Alle Probleme, die automatisch erkannt werden können, werden markiert und nach Schweregrad kategorisiert, um Ihnen bei der Priorisierung zu helfen.
+Diese Tests prüfen Ihre Nachricht anhand der Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) – einem Satz international anerkannter technischer Standards für barrierefreie Inhalte. Alle Probleme, die automatisch erkannt werden können, werden markiert und nach Schweregrad kategorisiert, um Ihnen bei der Priorisierung zu helfen.
 
 {% alert note %}
-Inbox Vision funktioniert sowohl für HTML- als auch für Drag-and-Drop-E-Mails. Der Scanner läuft nur bei Inhalten, die mit dem HTML-Editor erstellt wurden.
+Inbox Vision funktioniert sowohl für HTML- als auch für Drag-and-Drop-E-Mails. Der Scanner wird nur für Inhalte ausgeführt, die mit dem HTML-Editor erstellt wurden.
 {% endalert %}
 
 ### Was automatisierte Tests erkennen können und was nicht {#what-automated-testing-can-and-cant-catch}
 
-Automatisierte Barrierefreiheitstests sind ein guter Ausgangspunkt – aber sie können nicht alles erkennen. Einige Probleme erfordern eine menschliche Beurteilung, besonders wenn Kontext oder visuelles Design eine Rolle dabei spielen, wie Nutzer:innen Ihre E-Mail erleben.
+Automatisierte Barrierefreiheitstests sind ein guter Ausgangspunkt – aber sie können nicht alles erfassen. Einige Probleme erfordern eine manuelle Überprüfung, insbesondere wenn Kontext oder visuelles Design eine Rolle dabei spielen, wie Nutzer:innen Ihre E-Mail erleben.
 
-Möglicherweise sehen Sie einige Probleme, die als **Überprüfung erforderlich** markiert sind. Das sind Fälle, in denen der Checker nicht sicher feststellen kann, ob etwas ein Barrierefreiheitsproblem darstellt. In diesem Fall empfehlen wir, es manuell zu überprüfen.
+Möglicherweise sehen Sie einige Probleme, die als **Needs review** markiert sind. Das sind Fälle, in denen die Prüfung nicht sicher feststellen kann, ob etwas ein Problem für die Barrierefreiheit darstellt. In diesem Fall empfehlen wir, es manuell zu überprüfen.
 
-Einige Beispiele für das, was automatisierte Tools nicht zuverlässig erkennen können:
+Einige Beispiele dafür, was automatisierte Tools nicht zuverlässig erkennen können:
 
 - Ob die Fokusreihenfolge interaktiver Elemente einer logischen Abfolge folgt
 - Ob Inhalte vollständig mit einer Tastatur bedienbar sind, ohne dass eine Maus erforderlich ist
-- Ob Alt-Text ein Bild sinnvoll beschreibt
-- Ob Überschriften richtig verwendet werden, um Inhalte zu strukturieren
+- Ob Alt-Texte ein Bild aussagekräftig beschreiben
+- Ob Überschriften korrekt verwendet werden, um Inhalte zu strukturieren
 - Ob Links und Buttons klar beschriftet und leicht verständlich sind
-- Ob Touch-Ziele groß genug und angemessen beabstandet sind
-- Ob Text auf Hintergrundbildern die Farbkontrastanforderungen erfüllt
+- Ob Touch-Ziele groß genug und angemessen platziert sind
+- Ob Text auf Hintergrundbildern die Anforderungen an den Farbkontrast erfüllt
 - Ob Anweisungen oder Beschriftungen klar und für alle Nutzer:innen hilfreich sind
 
-Diese Einschränkungen sind nicht Braze-spezifisch – sie gelten für alle automatisierten Barrierefreiheitstools. Automatisierte Prüfungen können nicht jede assistive Technologie, jeden Screenreader oder jedes Nutzerbedürfnis simulieren. Deshalb ist Barrierefreiheit keine einmalige Prüfung&#8212;sie ist eine kontinuierliche Praxis.
+Diese Einschränkungen sind nicht spezifisch für Braze – sie gelten für alle automatisierten Barrierefreiheitstools. Automatisierte Prüfungen können nicht jede assistive Technologie, jeden Screenreader oder jedes Nutzerbedürfnis simulieren. Deshalb ist Barrierefreiheit keine einmalige Prüfung – sondern eine kontinuierliche Praxis.
 
-Selbst wenn Ihre Nachricht jede automatisierte Prüfung besteht, ist es dennoch wichtig:
+Auch wenn Ihre Nachricht jede automatisierte Prüfung besteht, ist es dennoch wichtig:
 
-- Markierte Probleme sorgfältig zu überprüfen, insbesondere solche, die als **Überprüfung erforderlich** gekennzeichnet sind.
-- Wo möglich manuell zu testen, besonders bei Layout- und Interaktionsmustern.
+- Markierte Probleme sorgfältig zu überprüfen, insbesondere solche, die als **Needs review** gekennzeichnet sind.
+- Wo möglich manuell zu testen, insbesondere bei Layout- und Interaktionsmustern.
 - Tools wie Screenreader, reine Tastaturnavigation und Browser-Zoom zu verwenden, um verschiedene Zugangsbedürfnisse zu simulieren.
 
-Indem Sie automatisierte Tests mit durchdachter manueller Überprüfung kombinieren, erkennen Sie mehr potenzielle Probleme und erstellen inklusivere, benutzerfreundlichere Kampagnen für alle Empfänger:innen.
+Durch die Kombination automatisierter Tests mit durchdachter manueller Überprüfung erkennen Sie mehr potenzielle Probleme und erstellen inklusivere, benutzerfreundlichere Campaigns für alle Empfänger:innen.

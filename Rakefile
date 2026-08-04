@@ -3,6 +3,19 @@ require 'find'
 require 'thread'
 require 'yaml'
 
+def resolve_utf8_locale(existing_locale)
+  return existing_locale if existing_locale.to_s.match?(/UTF-8/i)
+
+  return 'C.UTF-8'
+end
+
+def default_utf8_build_env
+  {
+    'LANG' => resolve_utf8_locale(ENV['LANG']),
+    'LC_ALL' => resolve_utf8_locale(ENV['LC_ALL'])
+  }
+end
+
 # File watching functionality
 def watch_includes_folder
   puts "Starting file watcher for _includes folder..."
@@ -15,9 +28,10 @@ rescue => e
   puts "File watcher error: #{e.message}"
 end
 
-def pipe(command)
+def pipe(command, env = {})
   output = ''
-  IO.popen(command) do |io|
+  runtime_env = default_utf8_build_env.merge(env)
+  IO.popen(runtime_env, command) do |io|
     until io.eof?
       buffer = io.gets
       output << buffer

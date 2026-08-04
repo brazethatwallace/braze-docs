@@ -39,9 +39,11 @@ Para guardar este nuevo enlace, la etiqueta predeterminada de cancelación de su
 - **Ejemplo de etiqueta en comentario:** ejemplo de colocar la etiqueta en un comentario: `<!-- ${set_user_to_unsubscribed_url} -->`
 - **Ejemplo de comentario en etiqueta `<div>` oculta:** {%raw%}`<div style="display:none;max-height:0px;overflow:hidden;">${set_user_to_unsubscribed_url}</div>`{%endraw%}
 
-### ¿Qué sucede si edito una plantilla de correo electrónico que se está utilizando actualmente en una Campaign? {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign}
+### ¿Qué sucede si edito una plantilla de correo electrónico que se está utilizando actualmente en una Campaign o Canvas? {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign-or-canvas}
 
-Las ediciones realizadas en una plantilla existente no se reflejarán en las Campaigns que se crearon usando versiones anteriores de esa plantilla. Para las Campaigns de API que usan una plantilla en el cuerpo de la REST API, Braze utilizará la última versión de la plantilla en el momento del envío.
+Las plantillas de correo electrónico sirven como punto de partida al crear un correo electrónico en una Campaign o Canvas. Cuando seleccionas una plantilla, puedes editarla dentro de la Campaign o Canvas, y esos cambios son independientes de la plantilla original.
+
+Las ediciones realizadas en una plantilla existente no se reflejarán en Campaigns o Canvas que se crearon usando versiones anteriores de esa plantilla. De igual manera, los cambios realizados en el correo electrónico dentro de una Campaign o Canvas no se sincronizarán con la plantilla original. Para Campaigns de API que incluyen un `email_template_id` en el cuerpo de la solicitud, Braze utiliza la última versión de la plantilla en el momento del envío.
 
 ## Plantillas de enlaces {#link-templates}
 
@@ -55,17 +57,17 @@ Hay varias formas de previsualizar tus enlaces. Después de haber aplicado la [p
 
 Desde el panel de vista previa en una nueva pestaña, también puedes abrir los enlaces para verlos. También puedes pasar el cursor sobre los enlaces en el panel de vista previa y verlos en la parte inferior de tu navegador.
 
-### ¿Cómo funciona la creación de plantillas de enlaces con Liquid? {#how-does-link-templating-work-with-liquid}
+### ¿Cómo funciona la plantilla de enlaces con Liquid? {#how-does-link-templating-work-with-liquid}
 
-Las plantillas de enlaces se expanden y se añaden a cada URL antes de que ocurra cualquier expansión de Liquid. Si parte de tu URL se genera mediante un fragmento de código Liquid, recomendamos que la base de la URL y el signo de interrogación (?) estén codificados de forma fija para que las plantillas de enlaces se expandan correctamente.
+Las plantillas de enlaces se expanden y se añaden a cada URL antes de que ocurra cualquier expansión de Liquid. Si parte de tu URL se genera usando un fragmento de código Liquid, recomendamos que la base de la URL y el signo de interrogación (?) estén codificados de forma fija para que las plantillas de enlaces se expandan correctamente.
 
-Evita añadir el signo de interrogación (?) a tu Liquid, ya que esto hará que las plantillas de enlaces primero añadan un signo de interrogación (?) y luego el proceso de expansión de Liquid añada un segundo signo de interrogación (?).
+Evita añadir el signo de interrogación (?) a tu Liquid, ya que esto hará que las plantillas de enlaces primero añadan un signo de interrogación (?), y luego el proceso de expansión de Liquid añadirá un segundo signo de interrogación (?).
 
 #### URLs codificadas de forma fija frente a atributos personalizados {#hardcoded-urls-versus-custom-attributes}
 
 Cuando usas una URL codificada de forma fija en el editor HTML (por ejemplo, `https://braze.com?12345`), Braze detecta que ya existe un `?` y automáticamente usa `&` para añadir los parámetros de tu plantilla de enlaces. Sin embargo, cuando usas un atributo personalizado que contiene una URL con un `?` (por ejemplo, {% raw %}`{{custom_attribute.${my_url}}}`{% endraw %} donde `my_url` es `https://braze.com?12345`), Braze no comprueba si ya existe un `?` en el valor del atributo personalizado. En este caso, la plantilla de enlaces añade otro `?` antes de los parámetros, lo que resulta en una URL como `https://braze.com?12345?utm_source=...`.
 
-Para evitar este problema al usar atributos personalizados que puedan contener parámetros de consulta, codifica de forma fija el `?` o `&` después del atributo personalizado en función de si el valor del atributo personalizado incluye parámetros de consulta. Por ejemplo, si tu atributo personalizado siempre incluye un `?`, usa {% raw %}`{{custom_attribute.${my_url}}}&`{% endraw %} para asegurarte de que la plantilla de enlaces añada los parámetros correctamente.
+Para evitar este problema al usar atributos personalizados que pueden contener parámetros de consulta, codifica de forma fija el `?` o `&` después del atributo personalizado en función de si el valor del atributo personalizado incluye parámetros de consulta. Por ejemplo, si tu atributo personalizado siempre incluye un `?`, usa {% raw %}`{{custom_attribute.${my_url}}}&`{% endraw %} para asegurarte de que la plantilla de enlaces añada los parámetros correctamente.
 
 ## Aliasing de enlaces {#link-aliasing}
 
@@ -73,7 +75,7 @@ Para evitar este problema al usar atributos personalizados que puedan contener p
 
 Para todos los Content Blocks nuevos que se creen, el aliasing de enlaces se aplica en todos los espacios de trabajo, ya que se trata de una característica a nivel de empresa.
 
-Los Content Blocks existentes no se modificarán cuando se habilite el aliasing de enlaces. Aunque las plantillas de enlaces existentes no se modificarán, la sección de plantilla de enlace existente en un mensaje se eliminará. Consulta [Aliasing de enlaces en Content Blocks]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-aliasing-in-content-blocks) para obtener más información.
+Los Content Blocks existentes no se modificarán cuando se habilite el aliasing de enlaces. Aunque las plantillas de enlaces existentes no se modificarán, la sección de plantilla de enlaces existente en un mensaje se eliminará. Consulta [Aliasing de enlaces en Content Blocks]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-aliasing-in-content-blocks) para obtener más información.
 
 ### ¿Puedo usar lógica condicional de Liquid completamente dentro de una etiqueta de anclaje HTML? {#can-i-use-liquid-conditional-logic-entirely-within-an-html-anchor-tag}
 

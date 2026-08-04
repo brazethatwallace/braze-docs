@@ -23,34 +23,36 @@ toc_headers: h2
 
 - In-App-Nachrichten eignen sich am besten für Nutzer:innen, die Ihre App regelmäßig besuchen. Schließen Sie diese Zielgruppe ein?
 - Wo sollen Ihre Nutzer:innen Ihre Nachricht sehen? In Ihrer Web-App? In Ihrer mobilen App?
-- Welches Ereignis soll diese Nachricht auslösen?
+- Welches Ereignis soll diese Nachricht triggern?
 - Verwenden einige Ihrer Nutzer:innen ältere Versionen Ihrer App? Falls ja, können sie möglicherweise einige Elemente Ihrer Nachricht nicht sehen.
 - Für welchen Gerätetyp oder welche Geräte erstellen Sie diese Nachricht? Denken Sie daran, dass Sie Ihre Nachricht über das Feld **Vorschau** oder den Tab **Test** in der Vorschau anzeigen können. Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
 
-## Zeitplanung, Delays und Sitzungsstarts {#scheduling-delays-and-session-starts}
+## Zeitplanung, Verzögerungen und Sitzungsstarts {#scheduling-delays-and-session-starts}
 
-Wenn eine In-App-Nachrichten-Campaign **Delay planen** mit einem Trigger beim Sitzungsstart hat, kann ein:e Nutzer:in, der/die eine Sitzung startet und dann die App schließt, bevor die In-App-Nachricht angezeigt wird, diese Nachricht trotzdem beim nächsten Sitzungsstart erhalten, nachdem der Delay abgelaufen ist.
+Wenn eine In-App-Nachricht-Campaign eine **Zeitplanverzögerung** mit einem Trigger beim Sitzungsstart hat, kann eine Nutzer:in, die eine Sitzung startet und dann die App schließt, bevor die In-App-Nachricht angezeigt wird, diese Nachricht trotzdem beim nächsten Sitzungsstart erhalten, nachdem die Verzögerung abgelaufen ist.
 
-Dieses Timing kann zu unerwartetem Anzeigeverhalten führen, insbesondere wenn **Re-evaluate campaign eligibility before displaying** in der Campaign nicht ausgewählt ist.
+Dieses Timing kann zu unerwartetem Anzeigeverhalten führen, insbesondere wenn **Kampagnenberechtigung vor der Anzeige erneut prüfen** in der Campaign nicht ausgewählt ist.
 
-Beispielsweise könnte ein:e Nutzer:in eine In-App-Nachricht mit einem acht Sekunden langen Delay einen Monat nach dem Start der Campaign erhalten. Das kann passieren, wenn die Person eine Sitzung gestartet, die Sitzung sofort beendet, einen Monat später eine neue Sitzung gestartet hat und dann acht Sekunden später die In-App-Nachricht erhalten hat. Wenn sie die App verlässt, ohne sie zu schließen, wird die In-App-Nachricht angezeigt, wenn sie zur App zurückkehrt.
+Beispielsweise könnte eine Nutzer:in eine In-App-Nachricht mit einer Verzögerung von acht Sekunden einen Monat nach dem Start der Campaign erhalten. Das kann passieren, wenn sie eine Sitzung gestartet, die Sitzung sofort beendet, einen Monat später eine neue Sitzung gestartet hat und dann acht Sekunden später die In-App-Nachricht erhalten hat. Wenn sie die App verlässt, ohne sie zu schließen, wird die In-App-Nachricht angezeigt, wenn sie zur App zurückkehrt.
 
 ## Überlegungen zum Inhalt {#content-considerations}
 
 - Welche Sprachen werden Sie in dieser Nachricht verwenden?
-- Was ist Ihr Header- und Body-Text? Sind sie auffällig und relevant für Ihre Nutzer:innen?
-- In-App-Nachrichten werden nur für eine festgelegte Zeitspanne angezeigt. Ist Ihr Text prägnant und einprägsam?
+- Wie lauten Ihre Überschrift und Ihr Fließtext? Sind sie aufmerksamkeitsstark und relevant für Ihre Nutzer:innen?
+- In-App-Nachrichten werden nur für eine begrenzte Zeit angezeigt. Ist Ihr Text prägnant und einprägsam?
 - Werden Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) verwenden, um angepassten Text hinzuzufügen?
-- Müssen Nutzer:innen Nachrichtentext kopieren (z. B. einen Rabatt- oder Gutscheincode)? Auf iOS und Android können Nutzer:innen Text oder Texteingabefelder durch langes Drücken kopieren. Langes Drücken funktioniert nicht bei Bildern – verwenden Sie daher Text oder Texteingabefelder anstelle von Bildern, die Codes oder andere Inhalte enthalten, die Nutzer:innen möglicherweise kopieren müssen.
-- Befindet sich Ihr Bild oder anderes Medium bei Vollbild-In-App-Nachrichten innerhalb der [sicheren Zone]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen#image-safe-zone)?
+- Müssen Nutzer:innen den Nachrichtentext kopieren (z. B. einen Rabatt- oder Gutscheincode)? Auf iOS und Android können Nutzer:innen Text oder Texteingabefelder durch langes Drücken kopieren. Langes Drücken funktioniert nicht bei Bildern – verwenden Sie daher Text oder Texteingabefelder anstelle von Bildern, die Codes oder andere Inhalte enthalten, die Nutzer:innen möglicherweise kopieren müssen.
+- Befindet sich bei Vollbild-In-App-Nachrichten Ihr Bild oder anderes Medium innerhalb der [sicheren Zone]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen#image-safe-zone)?
 - Möchten Sie bei Umfrage-In-App-Nachrichten Attribute oder Einreichungen protokollieren? Haben Sie Ihre Bestätigungsseite eingerichtet?
+- Enthält Ihr HTML bei angepassten HTML-In-App-Nachrichten UTF-8-Kodierung, um Sonderzeichen korrekt darzustellen? Weitere Informationen finden Sie unter [Angepasste HTML-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#character-encoding).
+- Wenn Sie Video in Ihre In-App-Nachricht einbinden: Braze erzwingt zwar keine technische Begrenzung der Videodateigröße für die lokale Wiedergabe auf dem Gerät, bedenken Sie jedoch, dass Nutzer:innen möglicherweise langsame Verbindungen, teure Datentarife oder begrenzten Speicherplatz haben. Optimieren Sie Videodateien, um ein ausgewogenes Verhältnis zwischen Qualität und Dateigröße zu erreichen.
 
-## Überlegungen zu Konversionen {#conversion-considerations}
+## Überlegungen zur Konversion {#conversion-considerations}
 
 - Was ist Ihr Ziel für diese Nachricht? Wie können Sie das in Ihrer Nachricht darstellen?
 - Bieten Ihre Buttons Optionen, die für Ihre Nutzer:innen sinnvoll sind? Was ist Ihr [primärer Call-to-Action]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#buttons)?
-- Erstellen Sie [Deeplinks zu anderen In-App-Inhalten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content)? Verwenden Sie diese In-App-Nachricht, um eine [Berechtigungs- oder Push-Priming-Anfrage]({{site.baseurl}}/user_guide/channels/push/best_practices) zu senden und zu akzeptieren?
-- Haben Sie eine Option zum Schließen der Nachricht? Falls nicht, können Sie jederzeit dieses Snippet kopieren und einfügen, um einen schnellen Button zu erstellen:
+- Nutzen Sie [Deeplinking zu anderen In-App-Inhalten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content)? Verwenden Sie diese In-App-Nachricht, um eine [Berechtigungs- oder Push-Priming-Anfrage]({{site.baseurl}}/user_guide/channels/push/best_practices) zu senden und zu akzeptieren?
+- Haben Sie eine Exit-Option für die Nachricht? Falls nicht, können Sie jederzeit dieses Snippet kopieren und einfügen, um einen schnellen Button zu erstellen:
     ```html
     <a href="appboy://close">X</a>
     ```
@@ -59,19 +61,19 @@ Beispielsweise könnte ein:e Nutzer:in eine In-App-Nachricht mit einem acht Seku
 
 ### Deeplinks für verschiedene Geräte hinzufügen {#adding-deep-links-for-different-devices}
 
-Der Drag-and-Drop-Editor unterstützt nicht das Hinzufügen verschiedener Deeplinks für verschiedene Geräte (im Gegensatz zum traditionellen Editor).
+Der Drag-and-Drop-Editor unterstützt nicht das Hinzufügen unterschiedlicher Deeplinks für verschiedene Geräte (im Gegensatz zum traditionellen Editor).
 
-### Deckkraft des Hintergrundbilds anpassen {#adjusting-background-image-opacity}
+### Deckkraft von Hintergrundbildern anpassen {#adjusting-background-image-opacity}
 
 Die Deckkraft-Einstellung erlaubt keine vollständige Transparenz von Hintergrundbildern (im Gegensatz zum traditionellen IAM-Editor). Sie können die Deckkraft-Einstellungen verwenden, um die Hintergrundfarbe der Nachricht vollständig transparent zu machen.
 
 ### Maximale Breite festlegen {#setting-the-maximum-width}
 
-Die maximale Breite im Drag-and-Drop-Editor ist auf 325 px begrenzt; dies dient hauptsächlich der Dashboard-Vorschau. Nachrichten können auf kleineren Bildschirmgeräten korrekt angezeigt werden.
+Die maximale Breite im Drag-and-Drop-Editor ist auf 325 px begrenzt; dies dient in erster Linie der Dashboard-Vorschau. Nachrichten können auf Geräten mit kleineren Bildschirmen korrekt angezeigt werden.
 
-### Verschiedene Hintergründe für verschiedene Plattformen auswählen {#selecting-different-backgrounds-for-different-platforms}
+### Unterschiedliche Hintergründe für verschiedene Plattformen auswählen {#selecting-different-backgrounds-for-different-platforms}
 
-Es ist nicht möglich, zwei verschiedene Hintergründe für dieselbe Nachricht auf verschiedenen Plattformen (z. B. Internet und Mobilgerät) anzuzeigen.
+Es ist nicht möglich, zwei verschiedene Hintergründe für dieselbe Nachricht auf unterschiedlichen Plattformen (z. B. Internet und Mobilgerät) anzuzeigen.
 
 ### Nachrichtenstile anwenden {#applying-message-styles}
 
@@ -85,10 +87,10 @@ Die Maßeinheit für Spacer-Blöcke ist Pixel (px) und kann nicht geändert werd
 
 Derzeit werden im Drag-and-Drop-Editor nur modale und Vollbild-In-App-Nachrichten unterstützt.
 
-### Anpassung an Größe und Seitenverhältnis {#adjusting-to-size-and-aspect-ratio}
+### Größe und Seitenverhältnis anpassen {#adjusting-to-size-and-aspect-ratio}
 
 Das Hintergrundbild dehnt die In-App-Nachricht, da sich das Modal an die Größe und das Seitenverhältnis des Hintergrundbilds anpasst; Sie können das Verhältnis nach Bedarf anpassen.
 
 ### Hintergrundbilder und Klickverhalten {#background-images-and-on-click-behavior}
 
-Diese bleiben über Seiten hinweg bestehen. Fügen Sie bei mehrseitigen In-App-Nachrichten mit verschiedenen Vollbildern auf jeder Seite einen Button hinzu, damit Nutzer:innen zur nächsten Seite klicken können.
+Diese bleiben seitenübergreifend bestehen. Fügen Sie bei mehrseitigen In-App-Nachrichten mit unterschiedlichen Vollbildern auf jeder Seite einen Button hinzu, damit Nutzer:innen zur nächsten Seite klicken können.

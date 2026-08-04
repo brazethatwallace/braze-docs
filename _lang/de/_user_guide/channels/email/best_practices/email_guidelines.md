@@ -28,10 +28,12 @@ Hier sind einige kurze Tipps, die Sie beim Erstellen Ihrer Inhalte beachten soll
 
 ## Alternativtext {#alternative-text}
 
-Da Spam-Filter sowohl nach einer HTML- als auch nach einer Nur-Text-Version einer Nachricht suchen, ist die Verwendung von Nur-Text-Alternativen eine hervorragende Möglichkeit, Ihren Spam-Score zu senken. Darüber hinaus kann Alternativtext `(alt="")` dazu dienen, Bilder im E-Mail-Text zu ergänzen und in einigen Fällen zu ersetzen, die möglicherweise vom E-Mail-Anbieter der Nutzer:innen herausgefiltert wurden. Screenreader lesen Alternativtext vor, um Bilder zu erklären. Dies ist also eine Gelegenheit, in einfacher Sprache wichtige Informationen über ein Bild bereitzustellen.
+Da Spamfilter sowohl auf eine HTML- als auch auf eine Nur-Text-Version einer Nachricht achten, ist die Verwendung von Nur-Text-Alternativen eine hervorragende Möglichkeit, Ihren Spam-Score zu senken. Darüber hinaus kann Alternativtext `(alt="")` dazu dienen, Bilder im E-Mail-Text zu ergänzen und in manchen Fällen zu ersetzen, die möglicherweise vom E-Mail-Anbieter der Nutzer:innen herausgefiltert wurden. Screenreader lesen Alternativtext vor, um Bilder zu erklären – dies ist also eine Gelegenheit, in einfacher Sprache wichtige Informationen über ein Bild bereitzustellen.
+
+Der E-Mail-Client der Empfänger:innen – nicht Braze – steuert, wie Alternativtext angezeigt wird. Einzelheiten zu diesem Verhalten bei Clients wie Gmail, Outlook und Apple Mail finden Sie unter [Wie E-Mail-Clients Alternativtext anzeigen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text).
 
 {% alert note %}
-Wenn Ihr Alternativtext Anführungszeichen enthält, verwenden Sie einfache Anführungszeichen (`'`) anstelle von doppelten Anführungszeichen (`"`). Doppelte Anführungszeichen können dazu führen, dass HTML das Attribut vorzeitig schließt und der Text abgeschnitten wird. Zum Beispiel funktioniert `alt="Product 'Premium' Edition"` korrekt, aber `alt="Product "Premium" Edition"` wird abgeschnitten.
+Wenn Ihr Alternativtext Anführungszeichen enthält, verwenden Sie einfache Anführungszeichen (`'`) anstelle von doppelten Anführungszeichen (`"`). Doppelte Anführungszeichen können dazu führen, dass das HTML-Attribut vorzeitig geschlossen wird und der Text abgeschnitten wird. Zum Beispiel funktioniert `alt="Product 'Premium' Edition"` korrekt, aber `alt="Product "Premium" Edition"` wird abgeschnitten.
 {% endalert %}
 
 ## E-Mail-Validierung {#email-validation}
@@ -44,11 +46,11 @@ Die E-Mail-Validierung erfolgt, wenn die E-Mail-Adresse einer Nutzer:in aktualis
 
 E-Mail-Adressen, die über die Braze-Server angesprochen werden, müssen gemäß den Standards von [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822) validiert werden. Braze akzeptiert bestimmte Zeichen nicht und erkennt sie als ungültig. Wenn eine E-Mail einen Bounce verursacht, markiert Braze die E-Mail als ungültig, und der Abo-Status wird nicht geändert.
 
-Informationen zu unzulässigen Zeichen und Regeln zur E-Mail-Validierung finden Sie unter [E-Mail-Validierung]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation#how-it-works).
+Informationen zu unzulässigen Zeichen und E-Mail-Validierungsregeln finden Sie unter [E-Mail-Validierung]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation#how-it-works).
 
-## Absender- und Antwort-E-Mail-Adressen {#from-and-reply-to-addresses}
+## Absender- und Antwort-Adressen {#from-and-reply-to-addresses}
 
-Wenn Sie Ihre Absenderadressen festlegen, stellen Sie sicher, dass Ihre Absender-E-Mail-Domain mit Ihrer Versanddomain übereinstimmt (z. B. `marketing.yourdomain.com`). Andernfalls kann es zu einer Fehlausrichtung von SPF und DKIM kommen. Alle Antwort-E-Mail-Adressen können auf Ihre Root-Domain gesetzt werden.
+Achten Sie beim Festlegen Ihrer Absenderadressen darauf, dass die Domain Ihrer Absender-E-Mail mit Ihrer Versanddomain übereinstimmt (z. B. `marketing.yourdomain.com`). Andernfalls kann es zu einer Fehlausrichtung von SPF und DKIM kommen. Alle Antwort-E-Mails können auf Ihre Root-Domain gesetzt werden.
 
 {% alert note %}
 Unicode-Kodierung wird in Absenderadressen nicht unterstützt.
@@ -88,7 +90,7 @@ UTM-Parameter kennzeichnen URLs für Analytics. Sie können sie mit Liquid und a
 Beachten Sie, dass einige HTML-Tags und -Attribute nicht zulässig sind, da sie potenziell Schadcode im Browser ausführen könnten.
 
 Sehen Sie sich die folgenden Listen für HTML-Tags und -Attribute an, die in Ihren E-Mails nicht zulässig sind:
-{% details Aufklappen für nicht zulässige HTML-Tags %}
+{% details Für nicht zulässige HTML-Tags aufklappen %}
 - `<!doctype>`
 - `<applet>`
 - `<bgsound>`
@@ -106,7 +108,7 @@ Sehen Sie sich die folgenden Listen für HTML-Tags und -Attribute an, die in Ihr
 - `<svg>`
 {% enddetails %}
 
-{% details Aufklappen für nicht zulässige HTML-Attribute %}
+{% details Für nicht zulässige HTML-Attribute aufklappen %}
 - `<animationend>`
 - `<animationiteration>`
 - `<animationstart>`
@@ -255,7 +257,7 @@ Sehen Sie sich die folgenden Listen für HTML-Tags und -Attribute an, die in Ihr
 
 Wenn Nutzer:innen berichten, dass sie doppelte E-Mails erhalten, können die folgenden Szenarien Ihnen helfen, die Ursache zu identifizieren:
 
-### Konfigurationsfehler bei der Erstellung von Campaigns oder Canvas {#configuration-error-at-campaign-or-canvas-creation}
+### Konfigurationsfehler bei der Erstellung einer Campaign oder eines Canvas {#configuration-error-at-campaign-or-canvas-creation}
 
 Nutzer:innen erhalten möglicherweise nicht dieselbe E-Mail zweimal, aber sie könnten zwei separate E-Mails mit derselben Betreffzeile erhalten. Wenn eine Campaign oder ein Canvas dupliziert wird, können grundlegende E-Mail-Konfigurationsdetails wie Bilder oder die Betreffzeile leicht übersehen werden.
 

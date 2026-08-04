@@ -17,7 +17,7 @@ channel: email
 Aqui estão algumas dicas rápidas para ter em mente ao criar seu conteúdo:
 
 - Ao formatar seu e-mail, use folhas de estilo inline como CSS.
-- Para usar um único modelo de e-mail tanto para versões mobile quanto desktop, mantenha a largura abaixo de 500 pixels.
+- Para usar um único modelo de e-mail para versões mobile e desktop, mantenha a largura abaixo de 500 pixels.
 - As imagens devem ter menos de 5&nbsp;MB. Recomendamos usar PNG, JPEG ou GIF para máxima compatibilidade. Evite SVG e WebP, pois muitos dos principais clientes de e-mail ainda não oferecem suporte a esses formatos.
 - Não defina alturas e larguras para imagens, pois isso pode causar espaços em branco desnecessários em um e-mail degradado.
 - Tags `div` não devem ser usadas, pois a maioria dos clientes de e-mail não oferece suporte ao seu uso. Em vez disso, use tabelas aninhadas.
@@ -28,7 +28,9 @@ Aqui estão algumas dicas rápidas para ter em mente ao criar seu conteúdo:
 
 ## Texto alternativo {#alternative-text}
 
-Como os filtros de spam verificam tanto a versão HTML quanto a versão em texto simples de uma mensagem, utilizar alternativas em texto simples é uma ótima maneira de reduzir sua pontuação de SPAM. Além disso, o texto alternativo `(alt="")` pode servir para complementar e, em alguns casos, substituir imagens incluídas no corpo do seu e-mail que podem ter sido filtradas pelo provedor de e-mail do usuário. Leitores de tela anunciam o texto alternativo para explicar imagens, então essa é uma oportunidade de usar linguagem simples para fornecer informações importantes sobre uma imagem.
+Como os filtros de spam verificam tanto a versão HTML quanto a versão em texto simples de uma mensagem, utilizar alternativas em texto simples é uma ótima maneira de reduzir sua pontuação de SPAM. Além disso, o texto alternativo `(alt="")` pode servir para complementar e, em alguns casos, substituir imagens incluídas no corpo do seu e-mail que podem ter sido filtradas pelo provedor de e-mail do usuário. Leitores de tela anunciam o texto alternativo para explicar imagens, então essa é uma oportunidade de usar linguagem simples para fornecer informações essenciais sobre uma imagem.
+
+O cliente de e-mail do destinatário, e não a Braze, controla como o texto alternativo é exibido. Para saber mais sobre esse comportamento em clientes como Gmail, Outlook e Apple Mail, consulte [Como os clientes de e-mail exibem o texto alternativo]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text).
 
 {% alert note %}
 Se o seu texto alternativo contiver aspas, use aspas simples (`'`) em vez de aspas duplas (`"`). Aspas duplas podem fazer com que o HTML feche o atributo prematuramente, cortando o texto. Por exemplo, `alt="Product 'Premium' Edition"` funciona corretamente, mas `alt="Product "Premium" Edition"` é truncado.
@@ -70,8 +72,8 @@ O layout pode quebrar quando o HTML/CSS gerado pela Braze entra em conflito com 
 
 - Remova o HTML/CSS personalizado primeiro
 - Valide se as fontes personalizadas carregam corretamente na prévia
-- Verifique o padding de linhas e colunas
-- Prefira layouts baseados em tabela e mantenha-se dentro da largura do editor.
+- Verifique o preenchimento (padding) de linhas e colunas
+- Prefira layouts baseados em tabelas e mantenha-se dentro da largura do editor.
 
 Content Blocks que importam HTML de fora do editor também podem quebrar o layout.
 
@@ -79,13 +81,13 @@ Content Blocks que importam HTML de fora do editor também podem quebrar o layou
 
 Os parâmetros UTM marcam URLs para análise de dados. Você pode criá-los com Liquid e atributos personalizados.
 
-- Use apenas um ponto de interrogação `?` na URL final (caracteres `?` adicionais podem quebrar as requisições).
+- Use apenas um ponto de interrogação `?` na URL final (`?` adicionais podem quebrar as requisições).
 - Evite espaços e caracteres especiais nos valores (use `_` ou `-`).
-- Confirme se sua ferramenta de análise de dados ingere UTMs. Remova espaços em branco no final dos blocos `capture` do Liquid. Os UTMs diferenciam maiúsculas de minúsculas.
+- Confirme que sua ferramenta de análise de dados processa UTMs. Remova espaços extras dentro dos blocos Liquid `capture`. UTMs diferenciam maiúsculas de minúsculas.
 
 ### Verifique os detalhes do HTML {#check-html-details}
 
-Tenha em mente que algumas tags e atributos HTML não são permitidos, pois podem potencialmente permitir a execução de código malicioso no navegador.
+Tenha em mente que algumas tags e atributos HTML não são permitidos, pois podem permitir a execução de código malicioso no navegador.
 
 Confira as listas a seguir para tags e atributos HTML que não são permitidos nos seus e-mails:
 {% details Expandir para ver tags HTML não permitidas %}
@@ -253,16 +255,16 @@ Confira as listas a seguir para tags e atributos HTML que não são permitidos n
 
 ## Solução de problemas para e-mails duplicados {#troubleshooting-duplicate-emails}
 
-Se os usuários relatarem que estão recebendo e-mails duplicados, os cenários a seguir podem ajudar a identificar a causa:
+Se os usuários relatarem o recebimento de e-mails duplicados, os cenários a seguir podem ajudar a identificar a causa:
 
-### Erro de configuração na criação da campanha ou do Canvas {#configuration-error-at-campaign-or-canvas-creation}
+### Erro de configuração na criação de Campaign ou Canvas {#configuration-error-at-campaign-or-canvas-creation}
 
-Os usuários podem não ter recebido o mesmo e-mail duas vezes, mas sim dois e-mails separados com a mesma linha de assunto. Quando uma campanha ou um Canvas é duplicado, é fácil deixar passar detalhes básicos de configuração do e-mail, como imagens ou a linha de assunto.
+Os usuários podem não ter recebido o mesmo e-mail duas vezes, mas sim dois e-mails separados com a mesma linha de assunto. Quando uma Campaign ou Canvas é duplicada, é fácil deixar passar detalhes básicos de configuração do e-mail, como imagens ou a linha de assunto.
 
 Para investigar:
 
-1. Verifique o perfil de usuário e analise cada Canvas e Campaign que o usuário recebeu.
-2. Revise os registros de alterações para ver se a Campaign ou o Canvas foi modificado após o lançamento. É possível que a Campaign ou o Canvas tivesse a mesma linha de assunto que o original quando o usuário o recebeu.
+1. Verifique o perfil de usuário e revise cada Canvas e Campaign que o usuário recebeu.
+2. Revise os registros de alterações para verificar se a Campaign ou Canvas foi modificada após o lançamento. É possível que a Campaign ou Canvas tivesse a mesma linha de assunto da original quando o usuário a recebeu.
 
 ### Campaign enviada várias vezes {#campaign-sent-multiple-times}
 

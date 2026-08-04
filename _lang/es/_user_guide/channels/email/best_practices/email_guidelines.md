@@ -18,9 +18,9 @@ Aquí tienes algunos consejos rápidos a tener en cuenta mientras construyes tu 
 
 - Al dar formato a tu correo electrónico, utiliza hojas de estilo en línea como CSS.
 - Para usar una plantilla de correo electrónico tanto para versiones móviles como de escritorio, mantén el ancho por debajo de 500 píxeles.
-- Las imágenes deben pesar menos de 5&nbsp;MB. Recomendamos usar PNG, JPEG o GIF para máxima compatibilidad. Evita SVG y WebP, ya que muchos clientes de correo electrónico importantes aún no los admiten.
+- Las imágenes deben tener menos de 5&nbsp;MB. Recomendamos usar PNG, JPEG o GIF para máxima compatibilidad. Evita SVG y WebP, ya que muchos clientes de correo electrónico importantes aún no los admiten.
 - No establezcas alturas y anchos para las imágenes, ya que esto puede causar espacios en blanco innecesarios en un correo electrónico degradado.
-- No deben usarse etiquetas `div`, ya que la mayoría de los clientes de correo electrónico no admiten su uso. En su lugar, utiliza tablas anidadas.
+- No se deben usar etiquetas `div`, ya que la mayoría de los clientes de correo electrónico no admiten su uso. En su lugar, utiliza tablas anidadas.
 - Evita usar JavaScript porque no funciona con ningún ESP.
 - Evita `position: absolute` y `position: relative` de CSS en las plantillas de correo electrónico. La mayoría de los clientes de correo electrónico no admiten el posicionamiento CSS, lo que causa discrepancias de diseño entre la vista previa de Braze y los correos electrónicos entregados. Utiliza diseños basados en tablas para lograr efectos de capas o superposición.
 - Braze mejora los tiempos de carga utilizando un CDN global para alojar todas las imágenes de correo electrónico.
@@ -29,6 +29,8 @@ Aquí tienes algunos consejos rápidos a tener en cuenta mientras construyes tu 
 ## Texto alternativo {#alternative-text}
 
 Dado que los filtros de correo no deseado buscan tanto una versión HTML como una versión de texto sin formato de un mensaje, utilizar alternativas de texto sin formato es una excelente manera de reducir tu puntuación de correo no deseado. Además, el texto alternativo `(alt="")` puede servir para complementar y, en algunos casos, sustituir las imágenes incluidas en el cuerpo de tu correo electrónico que pueden haber sido filtradas por el proveedor de correo electrónico del usuario. Los lectores de pantalla anuncian el texto alternativo para explicar las imágenes, por lo que esta es una oportunidad para usar un lenguaje sencillo y proporcionar información clave sobre una imagen.
+
+El cliente de correo electrónico del destinatario, no Braze, controla cómo se muestra el texto alternativo. Para obtener más detalles sobre este comportamiento en clientes como Gmail, Outlook y Apple Mail, consulta [Cómo los clientes de correo electrónico muestran el texto alternativo]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text).
 
 {% alert note %}
 Si tu texto alternativo contiene comillas, usa comillas simples (`'`) en lugar de comillas dobles (`"`). Las comillas dobles pueden hacer que el HTML cierre prematuramente el atributo, cortando el texto. Por ejemplo, `alt="Product 'Premium' Edition"` funciona correctamente, pero `alt="Product "Premium" Edition"` se trunca.
@@ -48,7 +50,7 @@ Para obtener información sobre los caracteres no permitidos y las reglas de val
 
 ## Direcciones de remitente y responder a {#from-and-reply-to-addresses}
 
-Al configurar tus direcciones de remitente, asegúrate de que el dominio del correo electrónico del remitente coincida con tu dominio de envío (como `marketing.yourdomain.com`). No hacerlo puede provocar una desalineación de SPF y DKIM. Todos los correos electrónicos de responder a se pueden configurar con tu dominio raíz.
+Al configurar tus direcciones de remitente, asegúrate de que el dominio del correo electrónico de remitente coincida con tu dominio de envío (como `marketing.yourdomain.com`). No hacerlo puede provocar una desalineación de SPF y DKIM. Todos los correos electrónicos de responder a se pueden configurar con tu dominio raíz.
 
 {% alert note %}
 La codificación Unicode no es compatible en las direcciones de remitente.
@@ -81,9 +83,9 @@ Los parámetros UTM etiquetan las URL para análisis. Puedes crearlos con Liquid
 
 - Usa solo un signo de interrogación `?` en la URL final (los caracteres `?` adicionales pueden interrumpir las solicitudes).
 - Evita espacios y caracteres especiales en los valores (usa `_` o `-`).
-- Confirma que tu herramienta de análisis ingiere los UTM. Elimina los espacios finales dentro de los bloques `capture` de Liquid. Los UTM distinguen entre mayúsculas y minúsculas.
+- Confirma que tu herramienta de análisis ingiere los UTM. Elimina los espacios finales dentro de los bloques Liquid `capture`. Los UTM distinguen entre mayúsculas y minúsculas.
 
-### Verificar los detalles del HTML {#check-html-details}
+### Verificar los detalles HTML {#check-html-details}
 
 Ten en cuenta que algunas etiquetas y atributos HTML no están permitidos, ya que podrían permitir que código malicioso se ejecute en el navegador.
 
