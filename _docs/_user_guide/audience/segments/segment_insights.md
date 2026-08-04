@@ -21,6 +21,10 @@ Go to the **Segment Insights** page of your dashboard, under **Analytics**, and 
 
 ![Segment Insights dashboard comparing three segments, "UK Users", "FR Users", and "CA Users" against a baseline segment, "All Users".]({% image_buster /assets/img_archive/segment_insights.png %})
 
+{% alert note %}
+Statistics on the Segment Insights page are estimated by default. To calculate exact values, open a segment and select **Calculate Exact Statistics**. Estimates can be higher or lower than exact values, especially in large workspaces or for small segments.
+{% endalert %}
+
 The baseline segment can either be a specific segment you select, or a segment containing all of your users. You can compare the following statistics using Segment Insights:
 
 | Measurement | Description | Formula |
