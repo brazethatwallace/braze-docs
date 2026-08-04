@@ -44,6 +44,16 @@ CONFLICT_SKIP_SUBSTRINGS = (
     "inconclusive —",
 )
 
+# First-line implementation_status values that may proceed through Phase 1 (empty allowed).
+PHASE1_ALLOWED_IMPL_STATUSES = frozenset(
+    {
+        "",
+        "not started",
+        "to be actioned",
+        "delta ka",
+    }
+)
+
 # First-line suggested_change starters treated as non-actionable briefs.
 VAGUE_STARTERS = (
     "might ",
@@ -1088,7 +1098,7 @@ def classify_row(
             "`implementation_status` first line is `actioned`.",
             ctx="Work already recorded as done or superseded in the migration tracker.",
         )
-    if impl and impl not in ("", "to be actioned", "delta ka"):
+    if impl and impl not in PHASE1_ALLOWED_IMPL_STATUSES:
         raw_first = str(row.get("implementation_status") or "").strip().split("\n", 1)[0].strip()
         return skip(
             f"`implementation_status` first line is `{impl}` — unlisted or non-public disposition; "
@@ -1408,25 +1418,55 @@ def main() -> None:
             "from the file path for GitHub assignee when opening PRs manually. "
             "`sf_kb_phase2_run_batches.py` adds `--assignee` only when the CSV resolves to a username; otherwise the PR stays unassigned.",
             "",
-            f"**Open PRs:** **{len(pr_batches_sorted)}** (one per primary doc).",
+            "Run `python3 scripts/salesforce-analyzer/sf_kb_overlap_scan.py` (or Phase 2 batch runner) "
+            "to check for overlap with open/draft/merged PRs, claimed `article_id`s, `develop` content, "
+            "and remote `sf-cursor-*` branches before opening work.",
             "",
-            "| Primary `_docs` target | Articles | Suggested reviewer vertical | Suggested branch slug | Product owner |",
-            "| --- | ---: | --- | --- | --- |",
+            f"**Phase 2 batches:** **{len(pr_batches_sorted)}** (one per primary doc).",
+            "",
+            "| Primary `_docs` target | Articles | Overlap | Suggested reviewer vertical | Suggested branch slug | Product owner |",
+            "| --- | ---: | --- | --- | --- | --- |",
         ]
     )
     if not pr_batches_sorted:
-        act_lines.append("| _none_ | 0 | | | |")
+        act_lines.append("| _none_ | 0 | | | | |")
         act_lines.append("")
     else:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from sf_kb_overlap_scan import OverlapScanner, format_scan_summary  # noqa: WPS433
+
+        scanner = OverlapScanner(fetch_develop=False)
+        scanner.refresh()
+        overlap_inputs = [
+            (
+                path_key,
+                [c.row.get("article_id", "").strip() for c in group if c.row.get("article_id", "").strip()],
+            )
+            for path_key, group in pr_batches_sorted
+        ]
+        overlap_reports = scanner.scan_batches(overlap_inputs) if scanner.available else {}
+        if scanner.available:
+            act_lines.append(f"**Overlap scan:** {format_scan_summary(overlap_reports)}.")
+            act_lines.append("")
+        else:
+            act_lines.append(
+                f"**Overlap scan:** unavailable ({scanner.error or 'unknown error'}). "
+                "Re-run `sf_kb_overlap_scan.py` before Phase 2."
+            )
+            act_lines.append("")
+
         for path_key, group in pr_batches_sorted:
             hint = product_vertical_hint(path_key)
             slug = doc_path_branch_slug(path_key)
+            overlap = overlap_reports.get(path_key)
+            overlap_cell = overlap.status_label() if overlap else "unknown"
             act_lines.append(
-                f"| `{path_key}` | {len(group)} | {hint} | `sf-cursor-{slug}-<YYYYMMDD>` |  |"
+                f"| `{path_key}` | {len(group)} | {overlap_cell} | {hint} | `sf-cursor-{slug}-<YYYYMMDD>` |  |"
             )
         act_lines.append("")
         for path_key, group in pr_batches_sorted:
             slug = doc_path_branch_slug(path_key)
+            overlap = overlap_reports.get(path_key)
             act_lines.append(
                 f"### PR batch: `{path_key}` — **{len(group)}** article(s)"
             )
@@ -1437,6 +1477,9 @@ def main() -> None:
             act_lines.append(
                 f"- **Reviewer hint:** {product_vertical_hint(path_key)}"
             )
+            if overlap and overlap.hits:
+                act_lines.append("- **Overlap scan:**")
+                act_lines.extend(overlap.format_lines(indent="  "))
             act_lines.append("")
             for c in sorted(group, key=lambda x: score_key(x.row)):
                 r = c.row
