@@ -21,13 +21,13 @@ channel:
 
 Der App-Bezeichner-API-Schlüssel oder die `app_id` ist ein Parameter, der Aktivitäten mit einer bestimmten App in Ihrem Workspace verknüpft. Er legt fest, mit welcher App innerhalb des Workspace Sie interagieren. Beispielsweise haben Sie eine `app_id` für Ihre iOS-App, eine `app_id` für Ihre Android-App und eine `app_id` für Ihre Web-Integration.
 
-Für SMS ist der Parameter `app_id` beim Senden von SMS-Nachrichten über die API (z. B. über den Endpunkt `/messages/send`) erforderlich. Er gibt an, welche App in Ihrem Workspace mit der SMS-Aktivität oder dem API-Aufruf verknüpft ist. Sie können jede gültige `app_id` einer in Ihrem Workspace konfigurierten App für SMS-Messaging verwenden, unabhängig davon, ob die Nutzer:innen diese bestimmte App in ihrem Profil haben.
+Für SMS ist der Parameter `app_id` erforderlich, wenn Sie SMS-Nachrichten über die API senden (z. B. über den Endpunkt `/messages/send`). Er gibt an, welche App in Ihrem Workspace mit der SMS-Aktivität oder dem API-Aufruf verknüpft ist. Sie können jede gültige `app_id` einer in Ihrem Workspace konfigurierten App für SMS-Messaging verwenden, unabhängig davon, ob die Nutzer:innen diese bestimmte App in ihrem Profil haben.
 
 Sie finden Ihre `app_id`, indem Sie zu **Einstellungen** > **App-Einstellungen** navigieren und den Abschnitt **Identification** suchen.
 
 ### Was passiert, wenn mehrere Nutzer:innen dieselbe Telefonnummer haben? {#what-happens-if-multiple-users-have-the-same-phone-number}
 
-Wenn mehrere Nutzerprofile, die dieselbe Telefonnummer teilen (für SMS aktiviert), gleichzeitig für eine aktionsbasierte Campaign oder eine Canvas-Komponente infrage kommen, die durch ein eingehendes SMS-Ereignis ausgelöst wird, dedupliziert Braze die Nutzer:innen auf der Ebene der Canvas-Komponente. Dadurch wird verhindert, dass Nutzer:innen mehr als eine SMS für eine Canvas-Komponente erhalten, selbst wenn mehrere Nutzer:innen dieselbe Telefonnummer teilen.
+Wenn mehrere Nutzerprofile, die sich eine Telefonnummer teilen (für SMS aktiviert), gleichzeitig für eine aktionsbasierte Campaign oder Canvas-Komponente infrage kommen, die durch den Eingang einer SMS ausgelöst wird, dedupliziert Braze die Nutzer:innen auf der Ebene der Canvas-Komponente. Dadurch wird verhindert, dass Nutzer:innen mehr als eine SMS für eine Canvas-Komponente erhalten, selbst wenn mehrere Nutzer:innen dieselbe Telefonnummer teilen.
 
 {% alert note %}
 Braze dedupliziert bei geplanten Canvases nicht nach Telefonnummer.
@@ -36,23 +36,31 @@ Braze dedupliziert bei geplanten Canvases nicht nach Telefonnummer.
 Braze verwendet den folgenden Ablauf, um das Empfängerprofil zu bestimmen:
 - Prüfen, welches Profil zuletzt eine SMS erhalten hat (bis zu 7 Tage zurück); falls eines existiert, wird die Nachricht an diese:n Nutzer:in gesendet.
 - Falls keines der Profile in den letzten 7 Tagen eine SMS erhalten hat, wird die Nachricht an das Profil gesendet, das einen Nutzer-Alias „phone“ hat, der mit der Telefonnummer übereinstimmt.
-- Falls keines existiert, wird die Nachricht an ein zufälliges Profil aus den verfügbaren gesendet.
+- Falls keines existiert, wird die Nachricht an ein zufälliges Profil unter den verfügbaren gesendet.
 
-Wenn Sie ein „START“- oder „STOP“-Schlüsselwort von der geteilten Telefonnummer erhalten, werden alle Nutzerprofile für SMS abonniert und aktiviert bzw. abgemeldet. Dies gilt auch für API-Statusänderungen. Wenn beispielsweise mehrere Profile mit unterschiedlichen externen IDs dieselben Telefonnummern haben, aktualisiert eine Änderung des Abo-Gruppen-Status über die API alle Profile mit dieser Telefonnummer, auch wenn nur eine externe ID angegeben wird.
+Wenn Sie ein „START“- oder „STOP“-Schlüsselwort von der gemeinsamen Telefonnummer erhalten, werden alle Nutzerprofile für SMS abonniert und aktiviert bzw. abgemeldet. Dies gilt auch für API-Statusänderungen. Wenn beispielsweise mehrere Profile mit unterschiedlichen externen IDs dieselben Telefonnummern haben, aktualisiert eine Änderung des Abo-Gruppen-Status über die API alle Profile mit dieser Telefonnummer, auch wenn nur eine externe ID angegeben wird.
 
 {% alert important %}
-Wenn Sie Ihre Nutzer:innen gestaffelt in einen Canvas eintreten lassen und unterschiedliche Zeitpläne für jede Canvas-Komponente haben, können Sie Nutzer:innen mit derselben E-Mail-Adresse oder Telefonnummer doppelte Nachrichten senden.
+Wenn Sie Ihre Nutzer:innen gestaffelt in einen Canvas eintreten lassen und unterschiedliche Zeitpläne für jede Canvas-Komponente haben, können Sie Nutzer:innen mit derselben E-Mail oder Telefonnummer doppelte Nachrichten senden.
 {% endalert %}
 
-Um unnötig große Aktualisierungen zu vermeiden, aktualisiert Braze maximal 100 Nutzerprofile, die einen Bezeichner teilen, wenn eine Abo-Aktualisierung vorgenommen wird. Wenn mehr als 100 Nutzerprofile dieselbe Telefonnummer teilen, werden nicht alle Profile aktualisiert.
+Um unnötig große Aktualisierungen zu vermeiden, aktualisiert Braze maximal 100 Nutzerprofile, die sich einen Bezeichner teilen, wenn eine Abo-Aktualisierung vorgenommen wird. Wenn mehr als 100 Nutzerprofile dieselbe Telefonnummer teilen, werden nicht alle Profile aktualisiert.
 
-### Was sind geteilte Shortcodes? {#what-are-shared-short-codes}
+### Warum sehe ich einen Anstieg bei SMS-Abos aus einer bestimmten Quelle? {#why-do-i-see-a-spike-in-sms-subscriptions-from-a-specific-source}
 
-Bei einem geteilten Shortcode kommen alle Textnachrichten – unabhängig davon, welches Unternehmen oder welche Organisation sie sendet – von derselben 5- bis 6-stelligen Telefonnummer auf dem Mobilgerät der Verbraucher:innen an. Geteilte Shortcodes sind zwar relativ kostengünstig und sofort verfügbar, aber Ihr Unternehmen hat keinen dedizierten Shortcode.
+Wenn Sie einen unerwartet großen Anstieg bei den Abo-Zahlen beobachten – insbesondere bei der Auswertung von Daten des Endpunkts [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) über Currents – kann dies durch doppelte Nutzerprofile verursacht werden.
+
+Wenn eine Anfrage an den Endpunkt `/subscription/status/set` nur mit einer Telefonnummer (ohne `external_id`) gestellt wird, aktualisiert Braze alle Nutzerprofile, die diese Telefonnummer teilen. Wenn Ihr Workspace doppelte Profile enthält, ist die Anzahl der Nutzer:innen, die ihren Abo-Status aktualisiert haben, überhöht, obwohl sich nur eine Telefonnummer geändert hat.
+
+Um Abo-Daten beim Abruf aus Currents genauer zu analysieren, aktualisieren Sie Ihre Abfrage so, dass sie eindeutige Telefonnummern zählt, anstatt alle Abo-Statusänderungs-Events zu zählen.
+
+### Was sind gemeinsam genutzte Shortcodes? {#what-are-shared-short-codes}
+
+Bei einem gemeinsam genutzten Shortcode kommen alle Textnachrichten – unabhängig davon, welches Unternehmen oder welche Organisation sie sendet – von derselben 5- bis 6-stelligen Telefonnummer auf dem Mobilgerät der Verbraucher:innen an. Gemeinsam genutzte Shortcodes sind zwar relativ kostengünstig und sofort verfügbar, aber Ihr Unternehmen hat keinen dedizierten Shortcode.
 
 Einige Nachteile dieses Ansatzes sind:
 
-- Wenn sich Ihre Kund:innen von den Nachrichten eines anderen Unternehmens abmelden, das einen Shortcode mit Ihnen teilt, werden sie auch von Ihren Nachrichten abgemeldet.
+- Wenn sich Ihre Kund:innen von den Nachrichten eines anderen Unternehmens abmelden, das einen Shortcode mit Ihnen teilt, haben sie sich auch von Ihren Nachrichten abgemeldet.
 - Wenn ein Unternehmen gegen die Regeln verstößt, werden die Nachrichten aller Unternehmen gesperrt.
 - Sicherheitsprobleme
 
@@ -68,17 +76,17 @@ MMS und SMS haben unterschiedliche Kosten und werden separat nach Volumen abgere
 
 ### Wie kann ich Mehrkosten vermeiden? {#how-can-i-avoid-overages}
 
-Auch wenn wir nicht versprechen können, dass es nie zu Mehrkosten kommt, können Sie folgende Vorsichtsmaßnahmen treffen, um die Wahrscheinlichkeit einer Überschreitung Ihrer zugewiesenen Limits zu verringern:
+Auch wenn wir nicht versprechen können, dass es nie zu Mehrkosten kommt, können Sie folgende Vorsichtsmaßnahmen ergreifen, um die Wahrscheinlichkeit einer Überschreitung Ihrer zugewiesenen Limits zu verringern:
 
 - Achten Sie auf die Zeichenanzahl in Ihrer SMS. Das unbeabsichtigte Senden von mehr als einem Segment kann zu Mehrkosten führen. Weitere Details finden Sie in unserer [Segment-Aufschlüsselung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Berechnen Sie Ihre SMS-Zeichen sorgfältig unter Berücksichtigung von Liquid oder Connected-Content. Der Braze-SMS-Composer in Ihrem Dashboard schätzt die Nutzung dieser Features nicht ein und berücksichtigt sie nicht.
-- Berücksichtigen Sie die Art der Kodierung, die Ihre Nachricht verwendet – wenn Ihre Nachricht GSM-7-Kodierung nutzt, können Sie in der Regel davon ausgehen, dass Sie eine Nachricht mit 128 Zeichen pro Nachrichtensegment senden können. Wenn Ihre Nachricht [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set)-Kodierung nutzt, können Sie in der Regel davon ausgehen, dass Sie eine Nachricht mit 67 Zeichen pro Nachrichtensegment senden können.
+- Berücksichtigen Sie die Art der Kodierung, die Ihre Nachricht verwendet – wenn Ihre Nachricht GSM-7-Kodierung nutzt, können Sie in der Regel davon ausgehen, dass Sie eine Nachricht mit 128 Zeichen pro Nachrichtensegment senden können. Wenn Ihre Nachricht [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set)-Kodierung verwendet, können Sie in der Regel davon ausgehen, dass Sie eine Nachricht mit 67 Zeichen pro Nachrichtensegment senden können.
 - Testen, testen und nochmals testen! Testen Sie Ihre SMS-Nachrichten immer vor dem Versand, insbesondere wenn Sie Liquid und Connected-Content verwenden.
 
 ### Wird eine an ein Festnetztelefon gesendete Nachricht trotzdem auf mein SMS-Sendekontingent angerechnet? {#if-a-message-is-sent-to-a-landline-will-the-message-still-count-toward-my-sms-send-count}
 
 In den USA, Kanada und Großbritannien:
-- Wenn eine SMS an ein Festnetztelefon gesendet wird, wird sie als **Undelivered** markiert. Beachten Sie, dass Twilio dennoch Gebühren für den Zustellversuch erhebt, sodass Nachrichten, die in Ihren Nachrichtenprotokollen als **Sent**, **Delivered** oder **Undelivered** markiert sind, abgerechnet werden.
+- Wenn eine SMS an ein Festnetztelefon gesendet wird, wird sie als **Undelivered** markiert. Beachten Sie, dass Twilio dennoch Gebühren für den Zustellversuch erhebt. Nachrichten, die in Ihren Nachrichtenprotokollen als **Sent**, **Delivered** oder **Undelivered** markiert sind, werden daher abgerechnet.
 - In Großbritannien wandeln einige Mobilfunkanbieter die SMS in eine Sprachnachricht um und stellen die Nachricht so zu.
 
 In anderen Ländern:
@@ -86,7 +94,7 @@ In anderen Ländern:
 
 ### Warum warnt mich das Braze-Dashboard, dass mir möglicherweise zusätzliche Nachrichtensegmente berechnet werden, obwohl meine Nachricht unter 160 (GSM-7) oder 70 (UCS-2) Zeichen liegt? {#why-is-the-braze-dashboard-warning-me-i-may-be-charged-for-additional-message-segments-when-my-message-is-under-160-gsm-7-or-70-ucs-2-characters}
 
-Ihnen könnten zusätzliche Nachrichtensegmente berechnet werden, wenn Ihre Nachricht Liquid-Personalisierung enthält. Content-Block-Templating findet erst statt, wenn die Nachricht zum Versand vorbereitet wird. Wenn Sie eine SMS mit einem Content-Block bearbeiten, weiß Braze nicht, was der Content-Block enthalten wird, sondern liefert nur eine grobe Schätzung. Wir empfehlen Nutzer:innen, den Testbereich zu verwenden, um eine Vorschau der Nachricht anzuzeigen und besser einschätzen zu können, was zu erwarten ist.
+Ihnen könnten zusätzliche Nachrichtensegmente berechnet werden, wenn Ihre Nachricht Liquid-Personalisierung enthält. Das Templating von Content-Blöcken erfolgt erst, wenn die Nachricht für den Versand vorbereitet wird. Wenn Sie eine SMS mit einem Content-Block bearbeiten, weiß Braze nicht, was der Content-Block enthalten wird, sondern liefert nur eine grobe Schätzung. Wir empfehlen, den Testbereich zu verwenden, um eine Vorschau der Nachricht anzuzeigen und besser einschätzen zu können, was Sie erwartet.
 
 ## Versand und Zustellbarkeit {#sending-and-deliverability}
 
@@ -98,7 +106,7 @@ Sie können jeden beliebigen Link in jede SMS-Campaign einfügen. Es gibt jedoch
 - Unternehmen verwenden häufig Link-Shortener, um die Auswirkung eines Links auf die Zeichenanzahl zu begrenzen. Wenn jedoch ein gekürzter Link über einen Langcode gesendet wird, können Mobilfunkanbieter die Nachricht blockieren oder ablehnen, da sie die Link-Weiterleitung als verdächtig einstufen könnten.
 - Die Verwendung eines [Shortcodes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup) wäre der zuverlässigste Nummerntyp für das Einfügen von Links.
 
-Braze verfügt auch über ein eigenes Link-Shortening-Feature, das Links automatisch kürzt und Click-through-Analytics bereitstellt. Weitere Informationen finden Sie unter [Link-Shortening]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening).
+Braze verfügt außerdem über ein eigenes Link-Shortening-Feature, das Links automatisch kürzt und Click-through-Analytics bereitstellt. Weitere Informationen finden Sie unter [Link-Shortening]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening).
 
 ### Muss die Sendegeschwindigkeit von SMS-Nachrichten begrenzt werden? {#do-you-need-to-rate-limit-how-fast-you-send-sms-messages}
 
@@ -124,11 +132,11 @@ Emojis können schwierig sein, da es keine standardisierte Zeichenanzahl für al
 
 ### Wie erstellt man eine Logik für selektive SMS-Opt-ins, damit Nutzer:innen in der richtigen Abo-Gruppe sind? {#how-do-you-create-logic-for-selective-opt-ins-to-sms-so-users-are-in-the-right-subscription-group}
 
-Angepasste Keywords werden als angepasste Events geschrieben, sodass Sie Segmente basierend auf den Keywords erstellen sollten, die Kund:innen per SMS senden können. Wenn sich ein:e Nutzer:in beispielsweise für VIP-Nachrichten per SMS anmeldet, aber nicht für Benachrichtigungen, können Sie ein VIP-Segment und ein Benachrichtigungs-Segment erstellen und die/den Nutzer:in dann dem entsprechenden Segment zuweisen.
+Angepasste Keywords würden als angepasste Events geschrieben, sodass Sie Segmente basierend auf den Keywords erstellen sollten, die Kund:innen per SMS senden können. Wenn sich ein:e Nutzer:in beispielsweise für VIP-Nachrichten per SMS anmeldet, aber nicht für Benachrichtigungen, können Sie ein VIP-Segment und ein Benachrichtigungs-Segment erstellen und die/den Nutzer:in dann dem entsprechenden Segment zuweisen.
 
 ### Wenn ein:e Nutzer:in „Stop“ an unseren Shortcode sendet, wird er/sie von der Abo-Gruppe abgemeldet? {#if-a-user-texts-stop-to-our-short-code-are-they-unsubscribed-from-the-subscription-group}
 
-Wie sieht das im Nutzerprofil aus? Die Abo-Gruppe wird auf 2 Striche (- -) zurückgesetzt, und es werden angepasste Events für das Anmelden und Abmelden erstellt.
+Wie sieht das im Nutzerprofil aus? Die Abo-Gruppe wird auf 2 Striche (- -) zurückgesetzt, und es gibt angepasste Events für das An- und Abmelden.
 
 ### Wenn ein:e Nutzer:in abgemeldet ist und ein Keyword an unseren Short- und Langcode sendet, erhält er/sie die Antwort, die wir für dieses Keyword in Braze konfiguriert haben? {#if-a-user-is-opted-out-and-sends-a-keyword-to-our-short-and-long-code-do-they-receive-the-response-we-configured-for-that-keyword-in-braze}
 

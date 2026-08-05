@@ -27,7 +27,7 @@ Um auf das Profil von Nutzer:innen zuzugreifen, gehen Sie zur Seite **Search Use
 Wenn eine Übereinstimmung gefunden wird, können Sie die Informationen einsehen, die Sie für diese:n Nutzer:in mit dem Braze SDK erfasst haben. Falls Ihre Suche mehrere Nutzerprofile zurückgibt, können Sie jedes Profil einzeln zusammenführen oder eine Massenzusammenführung durchführen. Eine vollständige Anleitung finden Sie unter [Doppelte Nutzer:innen zusammenführen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
 
 {% alert note %}
-**Search Users** ist nicht dasselbe wie **User Lookup** im Segment- oder Campaign-Composer. **User Lookup** prüft, ob bestimmte Nutzer:innen Ihrer Zielgruppe entsprechen, und akzeptiert nur `external_id` oder `braze_id`. **Search Users** auf dieser Seite unterstützt E-Mail, Telefonnummer, Push-Token und Nutzer-Alias. Weitere Informationen finden Sie unter [Segments testen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments).
+**Search Users** ist nicht dasselbe wie **User Lookup** im Segment- oder Campaign-Composer. **User Lookup** prüft, ob bestimmte Nutzer:innen zu Ihrer Zielgruppe passen, und akzeptiert nur `external_id` oder `braze_id`. **Search Users** auf dieser Seite unterstützt E-Mail, Telefonnummer, Push-Token und Nutzer-Alias. Weitere Informationen finden Sie unter [Segmente testen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments).
 {% endalert %}
 
 {% alert important %}
@@ -40,7 +40,7 @@ Wenn eine Telefonnummer für die Suche verwendet wird, wird sie in das [`E.164`]
 
 Nutzerprofile sind eine hervorragende Ressource für die Fehlerbehebung und das Testen, da Sie leicht auf Informationen über den Engagement-Verlauf, die Segmentzugehörigkeit, das Gerät und das Betriebssystem von Nutzer:innen zugreifen können.
 
-Wenn beispielsweise Nutzer:innen ein Problem melden und Sie nicht sicher sind, welches Gerät und welches Betriebssystem sie verwenden, können Sie den [Tab „Übersicht“](#overview-tab) nutzen, um diese Informationen zu finden (sofern Sie deren E-Mail-Adresse oder Nutzer-ID haben). Sie können auch die Sprache von Nutzer:innen einsehen, was hilfreich sein kann, wenn Sie eine [mehrsprachige Campaign]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) beheben, die sich nicht wie erwartet verhalten hat.
+Wenn beispielsweise Nutzer:innen ein Problem melden und Sie nicht sicher sind, welches Gerät und Betriebssystem sie verwenden, können Sie den [Tab „Übersicht“](#overview-tab) nutzen, um diese Informationen zu finden (sofern Sie deren E-Mail-Adresse oder Nutzer-ID haben). Sie können auch die Sprache von Nutzer:innen einsehen, was hilfreich sein kann, wenn Sie eine [mehrsprachige Campaign]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) untersuchen, die sich nicht wie erwartet verhalten hat.
 
 Sie können den [Tab „Engagement“](#engagement-tab) verwenden, um zu überprüfen, ob bestimmte Nutzer:innen eine Campaign erhalten haben. Darüber hinaus können Sie, wenn diese Nutzer:innen die Campaign erhalten haben, sehen, wann sie sie erhalten haben. Sie können auch überprüfen, ob Nutzer:innen sich in einem bestimmten Segment befinden und ob sie für Push, E-Mail oder beides ein Opt-in erteilt haben. Diese Informationen sind für die Fehlerbehebung nützlich. Sie sollten diese Informationen beispielsweise prüfen, wenn Nutzer:innen eine Campaign nicht erhalten, die Sie erwartet hätten, oder eine Campaign erhalten, die Sie nicht erwartet hätten.
 
@@ -64,10 +64,10 @@ Der Tab **Übersicht** enthält grundlegende Informationen über Nutzer:innen un
 | Übersichtskategorie | Enthält |
 | --- | --- |
 | Profil | Geschlecht, Altersgruppe, Standort, Sprache, Gebietsschema, Zeitzone und Geburtstag. |
-| Sitzungsübersicht | Wie viele Sitzungen stattfanden, wann die erste und letzte Sitzung war und in welchen Apps. |
+| Sitzungsübersicht | Wie viele Sitzungen stattgefunden haben, wann die erste und letzte Sitzung war und in welchen Apps. |
 | Angepasste Attribute | Welche angepassten Attribute diesen Nutzer:innen zugeordnet sind und deren zugehörige Werte, einschließlich verschachtelter angepasster Attribute. |
 | Letzte Geräte | Auf wie vielen Geräten sich die Nutzer:innen angemeldet haben, Details zu jedem Gerät und die zugehörigen Werbe-IDs (falls vorhanden). |
-| Angepasste Events | Welche angepassten Events diese Nutzer:innen ausgeführt haben, wie oft und wann sie jedes Event zuletzt ausgeführt haben. |
+| Angepasste Events | Welche angepassten Events diese Nutzer:innen durchgeführt haben, wie oft und wann sie jedes Event zuletzt durchgeführt haben. |
 | Käufe | Lifetime-Umsatz, der diesen Nutzer:innen zugeordnet ist, ihr letzter Kauf, die Gesamtzahl der Käufe und eine Liste jedes Kaufs. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tab „Übersicht“" }
 
@@ -84,7 +84,7 @@ Der Tab **Engagement** enthält Informationen über die Interaktionen von Nutzer
 | Engagement-Kategorie | Enthält |
 | --- | --- |
 | Kontakteinstellungen | Abo-Status für E-Mail, SMS und Push sowie die Abo-Gruppen, denen diese Nutzer:innen für diese drei Kanäle zugeordnet sind. Dieser Bereich enthält auch Changelog-Informationen für Push-Token. Weitere Informationen zur Einrichtung von Abos und Opt-ins finden Sie unter [E-Mail]({{site.baseurl}}/user_guide/channels/email/subscriptions), [SMS]({{site.baseurl}}/sms_rcs_subscription_groups) und [Push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states). |
-| Empfangene Campaigns | **Empfangene Campaigns** zeigt kanalspezifische Sende- und Anzeigezeitpunkte. Die meisten Kanäle protokollieren einen Versand, wenn Braze die Nachricht an den Zustellungsanbieter übergibt, auch wenn die Nachricht letztendlich nicht zugestellt wird. **Content Cards** sind anders: Campaigns erscheinen hier erst, nachdem die Nutzer:innen die Karte in der App angesehen haben. Eine Aufschlüsselung nach Kanal finden Sie unter [Wann Campaigns unter „Empfangene Campaigns“ erscheinen](#when-campaigns-appear-in-campaigns-received). <br><br>Wenn eine Nachricht empfangen, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner wie das Profil teilen, das die Interaktion protokolliert hat (z. B. dieselbe E-Mail-Adresse für E-Mail oder dieselbe Telefonnummer für SMS oder WhatsApp). Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht empfangen, geöffnet oder angeklickt hat, können diesen Filter erfüllen, auch wenn sie ursprünglich nicht in der Campaign waren oder die Nachricht nicht direkt erhalten haben.<br><br>Diese Listen verwenden [Nachrichteninteraktionsdaten]({{site.baseurl}}/api/data_retention/messaging_interaction_data) (einschließlich Ablaufregeln), um zu bestimmen, was für Retargeting und Verlauf angezeigt wird.<br><br> Wählen Sie eine Campaign aus der Liste aus, um sie anzuzeigen. |
+| Empfangene Campaigns | **Empfangene Campaigns** zeigt kanalspezifische Sende- und Anzeigezeitpunkte an. Die meisten Kanäle protokollieren einen Versand, wenn Braze die Nachricht an den Zustellungsanbieter übergibt, auch wenn die Nachricht letztendlich nicht zugestellt wird. **Content Cards** sind anders: Campaigns erscheinen hier erst, nachdem die Nutzer:innen die Karte in der App angesehen haben. Eine Aufschlüsselung nach Kanal finden Sie unter [Wann Campaigns unter „Empfangene Campaigns“ erscheinen](#when-campaigns-appear-in-campaigns-received). <br><br>Wenn eine Nachricht empfangen, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner wie das Profil teilen, das die Interaktion protokolliert hat (z. B. dieselbe E-Mail-Adresse für E-Mail oder dieselbe Telefonnummer für SMS oder WhatsApp). Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht empfangen, geöffnet oder angeklickt hat, können diesen Filter erfüllen, auch wenn sie ursprünglich nicht in der Campaign waren oder die Nachricht nicht direkt erhalten haben.<br><br>Diese Listen verwenden [Nachrichteninteraktionsdaten]({{site.baseurl}}/api/data_retention/messaging_interaction_data) (einschließlich Ablaufregeln), um zu bestimmen, was für Retargeting und Verlauf angezeigt wird.<br><br> Wählen Sie eine Campaign aus der Liste aus, um sie anzuzeigen. |
 | Segments | Segments, in denen diese Nutzer:innen enthalten sind. Wählen Sie ein Segment aus der Liste aus, um es anzuzeigen. |
 | Kommunikationsstatistiken | Wann diese Nutzer:innen zuletzt Nachrichten von Ihnen über jeden Kanal erhalten haben. |
 | Install-Attribution | Informationen darüber, wie und wann Nutzer:innen Ihre App installiert haben. Erfahren Sie mehr über das [Verstehen von Nutzerinstallationen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution). |
@@ -107,11 +107,11 @@ Der Tab **Event-Verlauf** zeigt die angepassten Events und Käufe, die Nutzer:in
 
 | Event-Verlauf-Kategorie | Enthält |
 | --- | --- |
-| Event-Liste | Angepasste Events und Käufe der letzten 30 Tage (bis zu 100 neueste), sortiert nach Aktualität. |
+| Event-Liste | Angepasste Events und Käufe der letzten 30 Tage (bis zu 100 neueste), sortiert nach dem neuesten zuerst. |
 | Event-Typ | Ob die Zeile ein **angepasstes Event** oder ein **Kauf** ist. |
 | Zeitstempel | Wann das Event protokolliert wurde. |
 | Event-Name | Der Name des angepassten Events oder Kaufs. |
-| Event-Eigenschaften | Vollständige Event-Eigenschaften für das Event, dargestellt als JSON. |
+| Event-Eigenschaften | Vollständige Event-Eigenschaften für das Event, angezeigt als JSON. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tab „Event-Verlauf“" }
 
 {% endtab %}
@@ -141,7 +141,7 @@ Diese Beschreibungen behandeln, wann ein Versand für **Empfangene Campaigns** p
 
 Der Tab **Nachrichtenverlauf** des Nutzerprofils zeigt aktuelle nachrichtenbezogene Ereignisse (ca. 40) für einzelne Nutzer:innen aus den letzten 30 Tagen. Diese Ereignisse umfassen die Nachrichten, die den Nutzer:innen gesendet wurden, die sie empfangen und mit denen sie interagiert haben, und mehr.
 
-Die Daten in diesem Tab werden nach einer Zusammenführung von Nutzer:innen nicht aktualisiert. Außerdem erscheinen Ereignisse, die mit über die API gesendeten Nachrichten verknüpft sind (z. B. der [Endpunkt `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#creating-new-users-with-api-sends)), nicht in diesem Tab, wenn in diesen Sendungen keine Campaign-ID angegeben ist.
+Die Daten in diesem Tab werden nach einer Zusammenführung von Nutzer:innen nicht aktualisiert. Außerdem erscheinen Ereignisse, die mit über die API gesendeten Nachrichten verknüpft sind (z. B. der [Endpunkt /messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#creating-new-users-with-api-sends)), nicht in diesem Tab, wenn in diesen Sendungen keine Campaign-ID angegeben ist.
 
 {% alert important %}
 RCS-Ereignisse werden derzeit im Tab **Nachrichtenverlauf** nicht unterstützt.
@@ -153,9 +153,9 @@ RCS-Ereignisse werden derzeit im Tab **Nachrichtenverlauf** nicht unterstützt.
 
 Für jedes Ereignis in der Tabelle **Nachrichtenverlauf** können Sie den Messaging-Kanal, den Ereignistyp, den Zeitstempel des Ereignisses, die zugehörige Campaign oder Canvas-Nachricht und die Gerätedaten der Nutzer:innen sehen. Um nach bestimmten Ereignissen zu filtern, klicken Sie auf **Filter** und wählen Sie Ereignisse aus der Liste aus.
 
-##### Nachrichteninteraktions-Ereignisse {#message-engagement-events}
+##### Nachrichteninteraktionsereignisse {#message-engagement-events}
 
-Die folgenden Nachrichteninteraktions-Ereignisse sind für E-Mail, SMS, Push, In-App Messages, Content Cards und Webhooks verfügbar. Weitere Informationen darüber, wie bestimmte Ereignisse getrackt werden, finden Sie im [Glossar der Nachrichteninteraktions-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
+Die folgenden Nachrichteninteraktionsereignisse sind für E-Mail, SMS, Push, In-App Messages, Content Cards und Webhooks verfügbar. Weitere Informationen darüber, wie bestimmte Ereignisse getrackt werden, finden Sie im [Glossar der Nachrichteninteraktionsereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
 | Kanal | Verfügbare Engagement-Ereignisse |
 | --- | --- |
@@ -166,20 +166,20 @@ Die folgenden Nachrichteninteraktions-Ereignisse sind für E-Mail, SMS, Push, In
 | Content Cards | Klick<br>Verwerfen<br>Impression<br>Versand |
 | Webhooks | Versand |
 | WhatsApp | Abbruch<br>Zustellung<br>Fehler<br>Frequency-Capping<br>Eingehender Empfang<br>Gelesen<br>Versand |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Nachrichteninteraktions-Ereignisse" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nachrichteninteraktionsereignisse" }
 
-##### Nachrichtenabbruch-Ereignisse {#message-abort-events}
+##### Nachrichtenabbruchereignisse {#message-abort-events}
 
-Nachrichtenabbruch-Ereignisse treten auf, wenn eine an Nutzer:innen gesendete Nachricht aufgrund von bedingter Logik in [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) oder [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content) oder durch Liquid-Rendering-Timeouts abgebrochen wurde.
+Nachrichtenabbruchereignisse treten auf, wenn eine an Nutzer:innen gesendete Nachricht aufgrund von bedingter Logik in [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) oder [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content) oder durch Liquid-Rendering-Timeouts abgebrochen wurde.
 
-Abbruch-Ereignisse sind für die folgenden Kanäle verfügbar:
+Abbruchereignisse sind für die folgenden Kanäle verfügbar:
 
 - E-Mail
 - SMS
 - Push
 - Webhooks
 
-Abbruch-Ereignisse sind derzeit nicht für In-App Messages und Content Cards verfügbar.
+Abbruchereignisse sind derzeit nicht für In-App Messages und Content Cards verfügbar.
 
 ##### Frequency-Capping-Ereignisse {#frequency-cap-events}
 
@@ -189,11 +189,11 @@ Ein Frequency-Capping-Ereignis tritt auf, wenn Nutzer:innen für den Empfang ein
 
 Einige Nachrichtenversendungen können im Nachrichtenverlauf mit leeren Zielen erscheinen (gekennzeichnet durch „—“). Dies liegt daran, dass einige Kanäle, wie Content Cards und Webhooks, beim Nachrichtenversand keine Gerätedaten erfassen.
 
-Content-Card-Versendungen werden protokolliert, wenn die Karte zur Ansicht verfügbar ist. Da Content Cards auf mehreren Geräten angesehen werden können, werden Gerätedaten beim Versand nicht protokolliert. Stattdessen werden diese Informationen bei der Impression protokolliert (wenn die Karte tatsächlich angesehen wird). Webhooks werden an einen System-Endpunkt gesendet (nicht an ein Gerät), daher sind Gerätedaten nicht anwendbar.
+Content-Card-Versendungen werden protokolliert, wenn die Karte zur Ansicht verfügbar ist. Da Content Cards auf mehreren Geräten angesehen werden können, werden Gerätedaten beim Versand nicht protokolliert. Stattdessen werden diese Informationen bei der Impression protokolliert (wenn die Karte tatsächlich angesehen wird). Webhooks werden an einen Systemendpunkt gesendet (nicht an ein Gerät), daher sind Gerätedaten nicht anwendbar.
 
 #### Hinweis zum E-Mail-Öffnungsereignis {#note-on-email-open-event}
 
-Das Tracking von E-Mail-Öffnungen ist in jedem Tool fehleranfällig, einschließlich Braze. Mit einer Vielzahl von Datenschutzfunktionen, die von verschiedenen E-Mail-Clients angeboten werden und entweder das automatische Laden von Bildern blockieren oder sie proaktiv auf dem Server laden, sind E-Mail-Öffnungsereignisse sowohl für falsch positive als auch für falsch negative Ergebnisse anfällig.
+Das Tracking von E-Mail-Öffnungen ist in jedem Tool fehleranfällig, einschließlich Braze. Mit einer Vielzahl von Datenschutzfunktionen, die von verschiedenen E-Mail-Clients angeboten werden und entweder das automatische Laden von Bildern blockieren oder sie proaktiv auf dem Server laden, sind E-Mail-Öffnungsereignisse sowohl für falsch-positive als auch für falsch-negative Ergebnisse anfällig.
 
 Während E-Mail-Öffnungsstatistiken in der Gesamtbetrachtung nützlich sein können, z. B. um die Wirksamkeit verschiedener Betreffzeilen zu vergleichen, sollten Sie nicht davon ausgehen, dass ein einzelnes Öffnungsereignis für einzelne Nutzer:innen aussagekräftig ist.
 
@@ -202,10 +202,22 @@ Während E-Mail-Öffnungsstatistiken in der Gesamtbetrachtung nützlich sein kö
 Einige Felder können im Tab **Nachrichtenverlauf** von Nutzer:innen in den folgenden Szenarien fehlen:
 
 - Wenn bei einem Ereignis Daten für **Nachricht gesendet** fehlen, bedeutet dies, dass die Campaign keine Nachrichtenvarianten hat.
-- Wenn bei einem Ereignis Daten für **Campaign/Canvas** und **Nachricht gesendet** fehlen, bedeutet dies, dass diese Nachricht über eine API-Campaign (nicht API-getriggerte Campaigns) gesendet wurde, die `campaign_id` und `message_variation_id` nicht angegeben hat. Diese Felder sind optional und können im Anfragekörper weggelassen werden. Wenn diese Felder angegeben werden, werden die Informationen in den Nachrichtenverlaufsprotokollen ausgefüllt.
+- Wenn bei einem Ereignis Daten für **Campaign/Canvas** und **Nachricht gesendet** fehlen, bedeutet dies, dass diese Nachricht über eine API-Campaign (nicht API-getriggerte Campaigns) gesendet wurde, die `campaign_id` und `message_variation_id` nicht angegeben hat. Diese Felder sind optional und können im Anfragekörper weggelassen werden. Wenn diese Felder angegeben werden, werden die Informationen in die Nachrichtenverlaufsprotokolle übernommen.
    - Wenn eine bestimmte Nachricht im Nachrichtenverlauf vollständig fehlt, aber im Protokoll **Empfangene Campaigns** erscheint, haben die Nutzer:innen die Campaign wahrscheinlich erhalten, bevor sie als aktuelle Nutzer:innen identifiziert wurden. Wenn ein bestehendes Profil verwaist ist, wird das Protokoll **Empfangene Campaigns** übertragen, der Nachrichtenverlauf jedoch nicht.
 - Wenn Daten für **Campaign/Canvas** fehlen, wurde möglicherweise ein manueller Test gesendet. Manuelle Tests werden im Tab **Nachrichtenverlauf** protokolliert, aber die Campaign oder der Canvas, die gesendet wurden, werden nicht protokolliert.
 - Wenn Nutzer:innen in einer Seed-Gruppe oder einer anderen internen Testzielgruppe sind, kann der **Nachrichtenverlauf** im Vergleich zu Produktionsversendungen eingeschränkte Campaign- oder Canvas-Metadaten anzeigen.
+
+## Beschränkungen der Datengröße {#data-size-constraints}
+
+Braze erzwingt keine Gesamtkapazitätsbeschränkung für die Gesamtgröße eines Nutzerprofils. Bestimmte Datentypen, die mit Nutzer:innen verknüpft sind, haben jedoch definierte Kapazitätsgrenzen.
+
+### Arrays angepasster Attribute {#custom-attribute-arrays}
+
+Arrays angepasster Attribute (einschließlich Arrays von Objekten) haben eine Kapazität von 100 KB. Wenn Sie ein Array senden, das diese Kapazität überschreitet, wird das angepasste Attribut nicht verarbeitet. Die API gibt eine Erfolgsantwort (201) zurück, aber das Array erscheint nicht im Nutzerprofil und vorhandene Daten für dieses Attribut werden nicht aktualisiert.
+
+Wenn Ihre Arrays sich dieser Kapazität nähern, sollten Sie die Anzahl der Objekte begrenzen, die Sie befüllen, um die Gesamtgröße innerhalb von 100 KB zu halten.
+
+Weitere Informationen zu angepassten Attributen finden Sie unter [Datentypen angepasster Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types).
 
 ## Verwandte Artikel {#related-articles}
 

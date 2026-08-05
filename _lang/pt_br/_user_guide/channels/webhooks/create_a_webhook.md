@@ -20,7 +20,7 @@ Para saber mais sobre o que são webhooks e como você pode usá-los na Braze, c
 
 ## Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
 
-Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canvas? Campaigns são melhores para campanhas de mensagens únicas e direcionadas, enquanto Canvas são melhores para jornadas de usuário com várias etapas.
+Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canvas? Campaigns são melhores para campanhas de mensagens únicas e direcionadas, enquanto Canvas é melhor para jornadas de usuário com várias etapas.
 
 {% tabs %}
 {% tab Campaign %}
@@ -32,7 +32,7 @@ Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canv
 3. Dê à sua campanha um nome claro e significativo.
 4. (Opcional) Adicione uma descrição para descrever como essa campanha será usada.
 4. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário.
-   * As tags facilitam a busca e a criação de relatórios das suas campanhas. Por exemplo, ao usar o [Construtor de Relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar por tags específicas.
+   * As tags facilitam a localização e a criação de relatórios das suas campanhas. Por exemplo, ao usar o [Construtor de Relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar por tags específicas.
 5. Adicione e nomeie quantas variantes forem necessárias para sua campanha. Você pode escolher diferentes modelos de webhook para cada uma das variantes adicionadas. Para saber mais sobre esse tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
@@ -66,9 +66,9 @@ A guia **Compose** é composta pelos seguintes campos:
 
 A [internacionalização]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) é compatível com a URL e o corpo da solicitação. Para internacionalizar sua mensagem, selecione **Add languages** e preencha os campos obrigatórios.
 
-Recomendamos selecionar seus idiomas antes de escrever o conteúdo para que você possa preencher o texto no local correto no Liquid. Para consultar a lista completa de idiomas disponíveis, acesse [Idiomas compatíveis]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
+Recomendamos selecionar seus idiomas antes de escrever o conteúdo para que você possa preencher o texto no local correto no Liquid. Para ver a lista completa de idiomas disponíveis, consulte [Idiomas compatíveis]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
 
-Se você estiver adicionando texto em um idioma escrito da direita para a esquerda, saiba que a aparência final das mensagens da direita para a esquerda depende em grande parte de como os provedores de serviço as renderizam. Para conferir as práticas recomendadas sobre como criar mensagens da direita para a esquerda que sejam exibidas da forma mais precisa possível, consulte [Criação de mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+Se você estiver adicionando texto em um idioma escrito da direita para a esquerda, a aparência final das mensagens da direita para a esquerda depende em grande parte de como os provedores de serviço as renderizam. Para conhecer as práticas recomendadas sobre como criar mensagens da direita para a esquerda que sejam exibidas com a maior precisão possível, consulte [Criação de mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ### URL do webhook {#webhook-url}
 
@@ -132,15 +132,15 @@ Alguns endpoints podem exigir que você inclua cabeçalhos na sua solicitação.
 
 ![Exemplos de cabeçalhos de solicitação para a chave "Authorization" e a chave "Content-Type".]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
 
-Os cabeçalhos de solicitação mais comuns são as especificações de [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) (que descrevem o tipo de dados esperado no corpo da solicitação, como XML ou JSON) e os cabeçalhos de [`Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) que contêm suas credenciais com o seu fornecedor ou sistema.
+Os cabeçalhos de solicitação mais comuns são as especificações de [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) (que descrevem o tipo de dados esperado no corpo da solicitação, como XML ou JSON) e os cabeçalhos de [`Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization), que contêm suas credenciais com o fornecedor ou sistema.
 
 {% alert note %}
-Os nomes dos cabeçalhos HTTP não diferenciam maiúsculas de minúsculas, conforme a [RFC 7230, seção 3.2 ("Each header field consists of a case-insensitive field name")](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2). Se o seu endpoint receptor ou quaisquer serviços intermediários (como CDNs) transformarem a capitalização dos cabeçalhos, isso não afetará o processamento — `Content-Type`, `content-type` e `CONTENT-TYPE` são todos tratados de forma idêntica.
+Os nomes dos cabeçalhos HTTP não diferenciam maiúsculas de minúsculas, conforme a [RFC 7230, seção 3.2 ("Each header field consists of a case-insensitive field name")](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2). Se o endpoint receptor ou qualquer serviço intermediário (como CDNs) transformar a capitalização do cabeçalho, isso não afetará o processamento — `Content-Type`, `content-type` e `CONTENT-TYPE` são todos tratados de forma idêntica.
 {% endalert %}
 
 As especificações de tipo de conteúdo devem usar a chave `Content-Type`. Os valores mais comuns são `application/json` ou `application/x-www-form-urlencoded`.
 
-Os cabeçalhos de autorização devem usar a chave `Authorization`. Os valores mais comuns são {% raw %} `Bearer {{YOUR_TOKEN}}` ou `Basic {{YOUR_TOKEN}}` {% endraw %} em que `YOUR_TOKEN` são as credenciais fornecidas pelo seu fornecedor ou sistema.
+Os cabeçalhos de autorização devem usar a chave `Authorization`. Os valores mais comuns são {% raw %} `Bearer {{YOUR_TOKEN}}` ou `Basic {{YOUR_TOKEN}}` {% endraw %}, em que `YOUR_TOKEN` são as credenciais fornecidas pelo seu fornecedor ou sistema.
 
 ## Etapa 4: Envie uma mensagem de teste {#step-4-test-send-your-message}
 
@@ -177,7 +177,7 @@ Os webhooks podem ser entregues com base em um horário agendado, uma ação ou 
 
 Para entrega baseada em ação, você também pode definir a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) para receber a campanha, ou ativar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
+Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) para receber a campanha ou ativar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
 
 ### Escolha os usuários a serem direcionados {#choose-users-to-target}
 
@@ -193,7 +193,7 @@ A Braze permite que você acompanhe a frequência com que os usuários realizam 
 
 {% tab Canvas %}
 
-Se ainda não tiver feito isso, conclua as seções restantes da sua etapa do Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, implementar testes multivariantes e seleção inteligente, e muito mais, consulte a etapa [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) da nossa documentação do Canvas.
+Se ainda não tiver feito isso, conclua as seções restantes da sua etapa do Canvas. Para mais detalhes sobre como criar o restante do seu Canvas, implementar testes multivariantes e seleção inteligente, e muito mais, consulte a etapa [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) na nossa documentação do Canvas.
 
 {% endtab %}
 {% endtabs %}
@@ -215,18 +215,18 @@ Se o envio do webhook falhar, uma mensagem de erro será registrada no [Registro
 
 ![Erro de webhook com a mensagem "An active access token must be used to query information about the current user".]({% image_buster /assets/img_archive/webhook-error.png %})
 
-Se a mensagem de erro não for clara o suficiente sobre a origem do problema, consulte a documentação do endpoint de API que você está usando. Normalmente, ela fornece uma explicação dos códigos de erro que o endpoint utiliza e as causas mais comuns.
+Se a mensagem de erro não for clara o suficiente sobre a origem do problema, consulte a documentação do endpoint de API que você está usando. Normalmente, ela fornece uma explicação dos códigos de erro que o endpoint utiliza e suas causas mais comuns.
 
 #### Códigos de resposta e lógica de nova tentativa {#response-codes-and-retry-logic}
 
-Quando a solicitação do webhook é enviada, o servidor receptor retorna um código de resposta indicando o que aconteceu com a solicitação. A tabela a seguir resume as diferentes respostas que o servidor pode enviar, como elas afetam a análise de dados da campanha e se, em caso de erros, a Braze tentará reenviar a campanha:
+Quando a solicitação de webhook é enviada, o servidor receptor retorna um código de resposta indicando o que aconteceu com a solicitação. A tabela a seguir resume as diferentes respostas que o servidor pode enviar, como elas impactam a análise de dados da campanha e se, em caso de erros, a Braze tentará reenviar a campanha:
 
 | Código de resposta | Marcado como recebido? | Novas tentativas? |
 |---------------|-----------|----------|
 | `20x` (sucesso)  | Sim |   N/A  |
 | `30x` (redirecionamento)  | Não | Não |
 | `408` (tempo limite da solicitação)  | Não | Sim |
-| `429` (limite de frequência)  | Não | Sim |
+| `429` (limite de frequência excedido)  | Não | Sim |
 | `Outros 4XX` (erro do cliente)  | Não | Não |
 | `5XX` (erro do servidor)   | Não | Sim |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Códigos de resposta e lógica de nova tentativa" }
@@ -235,19 +235,25 @@ Quando a solicitação do webhook é enviada, o servidor receptor retorna um có
 A Braze faz novas tentativas para os códigos de status mencionados anteriormente nesta seção até cinco vezes em 30 minutos, usando backoff exponencial. Se não for possível alcançar seu endpoint, as novas tentativas podem se estender por um período de 24 horas.<br><br>Cada webhook tem um tempo limite de 90 segundos.
 {% endalert %}
 
-Os cabeçalhos de resposta `Retry-After` e de limite de frequência podem afetar o tempo que a Braze aguarda antes de uma tentativa **com nova tentativa** (por exemplo, após `408`, `429` ou `5XX`). Eles não tornam respostas sem nova tentativa, como `401`, elegíveis para nova tentativa.
+Os cabeçalhos de resposta `Retry-After` e de limite de frequência podem afetar o tempo que a Braze aguarda antes de uma tentativa **com possibilidade de nova tentativa** (por exemplo, após `408`, `429` ou `5XX`). Eles não tornam respostas sem possibilidade de nova tentativa, como `401`, elegíveis para nova tentativa.
+
+<!-- support-analyzer-phase2:webhook_delivery_failures -->
+{% alert note %}
+Se os envios de webhook parecerem estar ausentes na análise de dados, abra o [Registro de atividade de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) da campanha ou etapa do Canvas. A Braze faz novas tentativas apenas para determinadas respostas (por exemplo, `408`, `429` e `5XX`) — a maioria dos outros erros de cliente `4XX`, incluindo `401 Unauthorized`, **não** são reenviados. Para a tabela completa de respostas, consulte [Códigos de resposta e lógica de nova tentativa](#response-codes-and-retry-logic).
+{% endalert %}
+
 
 #### 403 Forbidden e lista de permissões de IP {#403-forbidden-and-ip-allowlisting}
 
-Respostas `403 Forbidden` significam que seu endpoint recebeu a solicitação, mas a recusou. As causas mais comuns incluem autenticação inválida ou ausente, permissões de API insuficientes e regras de rede (como um firewall ou firewall de aplicação web) que bloqueiam os endereços IP de saída da Braze.
+Respostas `403 Forbidden` significam que seu endpoint recebeu a solicitação, mas a recusou. As causas mais comuns incluem autenticação inválida ou ausente, permissões de API insuficientes e regras de rede (como firewall ou firewall de aplicação web) que bloqueiam os endereços IP de saída da Braze.
 
-Se as solicitações de webhook retornarem consistentemente `403` e seus cabeçalhos de autenticação estiverem corretos, adicione os IPs da Braze para o seu cluster à lista de permissões do servidor que recebe o webhook. Consulte [Lista de permissões de IP](#ip-allowlisting). As solicitações de Connected Content usam os mesmos IPs de saída; consulte [Lista de permissões de IP do Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
+Se as solicitações de webhook retornarem consistentemente `403` e seus cabeçalhos de autenticação estiverem corretos, adicione os IPs da Braze para o seu cluster à lista de permissões no servidor que recebe o webhook. Consulte [Lista de permissões de IP](#ip-allowlisting). As solicitações de Connected Content usam os mesmos IPs de saída; consulte [Lista de permissões de IP do Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
 
 Para outras etapas de solução de problemas com `4XX`, consulte [Solucionar problemas de solicitações de webhook e Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#4xx-errors).
 
 #### Autenticação e credenciais de Connected Content {#authentication-and-connected-content-credentials}
 
-A solicitação HTTP de webhook de saída não oferece suporte à anexação de [credenciais de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` ou `:auth_credentials`) para autenticação no seu endpoint. Em vez disso, configure a autenticação usando **Cabeçalhos da solicitação** no webhook. Para buscar um token ou segredo no momento do envio, você pode inserir uma tag {% raw %}`{% connected_content %}`{% endraw %} em um campo de cabeçalho ou corpo para que o Liquid a resolva antes do envio do webhook.
+A solicitação HTTP de webhook de saída não suporta a anexação de [credenciais de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` ou `:auth_credentials`) para autenticação no seu endpoint. Em vez disso, configure a autenticação usando **Cabeçalhos da solicitação** no webhook. Para buscar um token ou segredo no momento do envio, você pode inserir uma tag {% raw %}`{% connected_content %}`{% endraw %} em um campo de cabeçalho ou corpo para que o Liquid a resolva antes do envio do webhook.
 
 #### Modelos de webhook salvos e uso em Campaigns {#saved-webhook-templates-and-campaign-usage}
 
@@ -261,16 +267,16 @@ Para explicações detalhadas, etapas de solução de problemas e orientações 
 
 Quando um webhook é enviado pela Braze, os servidores da Braze fazem solicitações de rede para os servidores de nossos clientes ou de terceiros. Com a lista de permissões de IP, você pode verificar se as solicitações de webhook estão vindo da Braze, adicionando uma camada de segurança.
 
-A Braze enviará webhooks a partir dos seguintes IPs. Os IPs listados são adicionados automática e dinamicamente a todas as chaves de API que foram habilitadas para a lista de permissões.
+A Braze enviará webhooks a partir dos seguintes IPs. Os IPs listados são adicionados automática e dinamicamente a quaisquer chaves de API que tenham sido habilitadas para a lista de permissões.
 
 {% alert important %}
-Se você estiver fazendo um webhook de Braze para Braze e usando a lista de permissões, deverá incluir todos os IPs a seguir, incluindo `127.0.0.1`.
+Se você estiver fazendo um webhook de Braze para Braze e usando a lista de permissões, adicione todos os IPs a seguir, incluindo `127.0.0.1`.
 {% endalert %}
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### Excluir usuários {#delete-users}
 
-Para excluir um usuário individual ou um segmento de usuários, acesse **Público** > **Gerenciar público** > **Excluir usuários**. O dashboard oferece suporte à exclusão em massa de segmentos (até 10 milhões de perfis), inclui uma janela de cancelamento de 7 dias e não consome os limites de frequência compartilhados da REST API. Para etapas, limites e permissões, consulte [Excluir usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
+Para excluir um usuário individual ou um segmento de usuários, acesse **Público** > **Gerenciar público** > **Excluir usuários**. O dashboard suporta exclusão em massa de segmentos (até 10 milhões de perfis), inclui uma janela de cancelamento de 7 dias e não consome os limites de frequência compartilhados da REST API. Para etapas, limites e permissões, consulte [Excluir usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
 
 Para exclusão programática em lotes menores, use o [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) em vez de uma campanha de webhook.

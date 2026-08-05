@@ -29,7 +29,7 @@ Vous pouvez vous connecter depuis le site [Braze.com](https://www.braze.com), ou
 * [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta)
 * [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)
 
-Une fois connecté à Braze via le SSO, vous ne pouvez plus utiliser votre mot de passe pour vous connecter au tableau de bord. Les deux adresses e-mail dirigeront les e-mails vers la même boîte de réception, mais Braze les reconnaîtra comme des comptes distincts lors de la connexion. La suppression des cookies vous déconnectera, et tout travail non enregistré sera perdu.
+Une fois connecté à Braze via SSO, vous ne pouvez plus utiliser votre mot de passe pour vous connecter au tableau de bord. Les deux adresses e-mail dirigeront les e-mails vers la même boîte de réception, mais Braze les reconnaîtra comme des comptes distincts lors de la connexion. La suppression des cookies vous déconnectera, et tout travail non enregistré sera perdu.
 
 ## Navigateurs pris en charge {#supported-browsers}
 
@@ -62,7 +62,7 @@ Si votre fournisseur de messagerie ne prend pas en charge l'aliasing avec `+`, v
 La fonctionnalité de développeurs multi-entreprises permet de partager un seul compte utilisateur entre plusieurs entreprises. Les utilisateurs du tableau de bord peuvent basculer entre les tableaux de bord de différentes entreprises depuis le menu de leur profil utilisateur.
 
 Si vous utilisez l'authentification unique (SSO) et souhaitez configurer les développeurs multi-entreprises, vous devez activer un identifiant d'entité SAML personnalisé en mettant en place une intégration SSO SAML personnalisée. Suivez les étapes décrites dans [Connexion initiée par le fournisseur de services (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), en appliquant les modifications suivantes :
-- Remplacez l'**identifiant d'entité** par `braze_dashboard_<companyID>` pour chaque intégration de tableau de bord.
+- Remplacez l'**Entity ID** par `braze_dashboard_<companyID>` pour chaque intégration de tableau de bord.
 - Contactez votre gestionnaire du succès des clients ou votre gestionnaire de compte pour activer le feature flipper `saml_sso_custom_entity_id` pour chaque tableau de bord.
 
 #### Authentification à deux facteurs (2FA) {#two-factor-authentication-2fa}
@@ -74,7 +74,7 @@ Le fonctionnement de la 2FA pour les développeurs multi-entreprises dépend de 
 
 Lorsque vous basculez entre les comptes depuis le tableau de bord, vous n'avez besoin de compléter la 2FA qu'une seule fois — la première fois que vous vous connectez à un compte lié au cours de cette session.
 
-### Considérations relatives à l'authentification unique (SSO) {#considerations-for-single-sign-on-sso}
+### Considérations pour l'authentification unique (SSO) {#considerations-for-single-sign-on-sso}
 
 Si vous utilisez l'authentification unique (SSO), sachez que le fait d'avoir plusieurs adresses e-mail différentes peut entraîner des complications. Vérifiez que vos paramètres SSO sont correctement configurés pour éviter les problèmes d'accès.
 
@@ -99,7 +99,7 @@ La suppression des cookies vous déconnecte, ce qui entraîne la perte de tout t
 - [Supprimer les cookies et les données de site dans Firefox](https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox)
 - [Supprimer tous les cookies dans Microsoft Edge](https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d#bkmk_deleteallcookies)
 
-Si vider le cache et les cookies de votre navigateur ne résout pas vos problèmes, contactez le [Support]({{site.baseurl}}/support_contact).
+Si le fait de vider le cache et les cookies de votre navigateur ne résout pas vos problèmes, contactez le [Support]({{site.baseurl}}/support_contact).
 
 ### Erreur « Aw, Snap! » dans Google Chrome {#aw-snap-error-in-google-chrome}
 
@@ -117,15 +117,15 @@ Cette erreur peut apparaître lorsqu'un utilisateur de l'entreprise n'appartient
 
 ### Accéder à l'éditeur par glisser-déposer {#accessing-the-drag-and-drop-editor}
 
-Pour la plupart des utilisateurs de l'entreprise, l'éditeur par glisser-déposer devrait se charger. Cependant, si vous utilisez un VPN ou êtes derrière un pare-feu, vous devrez peut-être ajouter un domaine à la liste d'autorisation. Contactez votre administrateur informatique pour vérifier que `*.bz-rndr.com` est autorisé.
+Pour la plupart des utilisateurs de l'entreprise, l'éditeur par glisser-déposer devrait se charger. Cependant, si vous utilisez un VPN ou êtes derrière un pare-feu, vous devrez peut-être ajouter un domaine à la liste d'autorisation. Contactez votre administrateur informatique pour vérifier que `*.bz-rndr.com` est bien autorisé.
 
 L'éditeur peut rencontrer des problèmes de chargement pour les raisons suivantes :
 
-- **Erreur transitoire :** il s'agit de défaillances temporaires pouvant affecter la connectivité, la communication ou le transfert de données. Heureusement, elles se résolvent généralement d'elles-mêmes sans intervention significative, car elles sont souvent causées par des conditions éphémères et n'indiquent pas de problèmes systémiques.
+- **Erreur transitoire :** il s'agit de défaillances temporaires qui peuvent affecter la connectivité, la communication ou le transfert de données. Heureusement, elles se résolvent généralement d'elles-mêmes sans intervention significative, car elles sont souvent causées par des conditions éphémères et n'indiquent pas de problèmes systémiques.
 - **Erreur majeure :** cela peut impliquer un problème d'infrastructure ou de produit sous-jacent. Vous pouvez consulter notre [page de statut du système Braze](https://braze.statuspage.io/) car nous sommes probablement au courant de la situation et travaillons activement à sa résolution.
 
 {% alert important %}
-Si vous rencontrez toujours des problèmes, [ouvrez un ticket de support]({{site.baseurl}}/user_guide/administer/personal/braze_support). Avant de le faire, vérifiez que votre administrateur informatique a confirmé que `*.bz-rndr.com` est autorisé de votre côté.
+Si vous rencontrez toujours des problèmes, [ouvrez un ticket de support]({{site.baseurl}}/user_guide/administer/personal/braze_support). Avant cela, vérifiez que votre administrateur informatique a confirmé que `*.bz-rndr.com` est bien autorisé de votre côté.
 {% endalert %}
 
 ### Accéder à Braze Learning {#accessing-braze-learning}
@@ -147,7 +147,7 @@ Un administrateur doit réinitialiser la 2FA pour l'utilisateur concerné en pro
 
 1. Accédez à **Gérer les utilisateurs**.
 2. Sélectionnez **Modifier l'utilisateur** pour l'utilisateur rencontrant des problèmes de 2FA.
-3. Choisissez l'option pour réinitialiser la 2FA.
+3. Choisissez l'option de réinitialisation de la 2FA.
 4. Confirmez la réinitialisation de la 2FA lorsque vous y êtes invité.
 5. Si la réinitialisation ne résout pas immédiatement le problème, videz vos cookies et votre cache.
 
@@ -159,12 +159,12 @@ Braze ne peut pas réinitialiser la 2FA au nom des utilisateurs pour des raisons
 - Si la 2FA n'est pas imposée au niveau de l'entreprise : l'utilisateur se connecte au tableau de bord sans avoir besoin de reconfigurer la 2FA. S'il souhaite activer la 2FA, il peut le faire dans les paramètres du compte.
 
 {% alert note %}
-Ce processus de réinitialisation s'applique également aux utilisateurs qui ont été verrouillés de leur compte pour avoir demandé trop de jetons au cours de la dernière heure.
+Ce processus de réinitialisation s'applique également aux utilisateurs qui ont été verrouillés hors de leur compte pour avoir demandé trop de jetons au cours de la dernière heure.
 {% endalert %}
 
-### Compte verrouillé {#locked-out-of-account}
+### Verrouillé hors de votre compte {#locked-out-of-account}
 
-Si vous êtes verrouillé de votre compte Braze, vous pouvez y accéder à nouveau en suivant ces étapes.
+Si vous êtes verrouillé hors de votre compte Braze, vous pouvez y accéder à nouveau en suivant ces étapes.
 
 Vous pouvez identifier le type de verrouillage que vous rencontrez grâce au message d'erreur que vous recevez :
 
@@ -195,17 +195,17 @@ Cela n'arrive pas très souvent, mais Braze prend la suspension et la suppressio
 
 ### Le tableau de bord de Braze ne se charge pas ou ne fonctionne pas comme prévu {#braze-dashboard-wont-load-or-work-as-expected}
 
-Tout d'abord, testez si le tableau de bord se charge dans un autre navigateur. Si le problème ne persiste pas dans un autre navigateur, essayez les solutions suivantes :
+Commencez par tester si le tableau de bord se charge dans un autre navigateur. Si le problème ne persiste pas dans un autre navigateur, essayez ce qui suit :
 
 - **Relancez le tableau de bord :** déconnectez-vous, quittez votre navigateur, puis essayez de vous reconnecter à votre tableau de bord.
 - **Actualisez votre navigateur local :** [videz vos cookies et le cache de votre navigateur](#clearing-your-browser-cache-and-cookies), puis essayez de vous reconnecter à votre tableau de bord.
 - **Utilisez des plugins ou outils tiers compatibles :** les bloqueurs de publicités ou les logiciels de sécurité peuvent empêcher le chargement du tableau de bord de Braze. Testez cela en désactivant un bloqueur de publicités, puis en vous connectant à votre tableau de bord de Braze.
         - Vous pouvez également vérifier les journaux de la console de votre navigateur. Les erreurs liées à `ERR_BLOCKED_BY_CLIENT` peuvent indiquer que le contenu est bloqué par un bloqueur de publicités.
-- **Vérifiez la qualité de votre connexion :** la qualité de votre connexion peut être insuffisante. Essayez de vous connecter à votre tableau de bord de Braze sur un autre appareil.
+- **Vérifiez la qualité de votre connexion :** la qualité de votre connexion peut être mauvaise. Essayez de vous connecter à votre tableau de bord de Braze sur un autre appareil.
 - **Confirmez que vous accédez au bon cluster :** assurez-vous que vous vous connectez au cluster attribué à votre entreprise. Par exemple, vous êtes peut-être assigné à US-03, mais vous vous connectez à US-01.
-- **Mettez à jour votre navigateur :** mettez à jour votre navigateur vers la dernière version [prise en charge](#supported-browsers), puis essayez de vous reconnecter à votre tableau de bord.
+- **Mettez à jour votre navigateur :** mettez à jour votre navigateur vers la dernière version [prise en charge](#supported-browsers), puis essayez de vous connecter à votre tableau de bord.
 
-Si le problème se produit sur tous les navigateurs, essayez les solutions suivantes :
+Si le problème se produit sur tous les navigateurs, essayez ce qui suit :
 
 - **Vérifiez votre connexion réseau :** essayez de désactiver votre VPN, si possible, ou désactivez puis réactivez votre connexion réseau.
 - **Redémarrez votre appareil :** essayez de vous connecter à votre tableau de bord de Braze après avoir redémarré votre appareil.
@@ -228,8 +228,18 @@ Si vous êtes un nouvel utilisateur de Braze et que vous avez des difficultés �
 
 #### J'ai reçu l'e-mail, mais je suis bloqué lors de la configuration de l'authentification à deux facteurs (2FA) {#i-received-the-email-but-im-stuck-setting-up-two-factor-authentication-2fa}
 
-- Réinitialiser la 2FA : si vous avez des difficultés à configurer la 2FA, votre administrateur peut réinitialiser la 2FA pour votre compte utilisateur dans les paramètres.
-- Rajouter l'utilisateur : si les problèmes persistent, l'administrateur peut supprimer votre compte utilisateur du tableau de bord et vous rajouter. Cela permet de recréer l'utilisateur avec les mêmes informations.
+Si vous sélectionnez **Start setup** lors de la configuration de la 2FA mais que vous ne recevez jamais de code de vérification (par SMS ou e-mail) ou que vous ne parvenez pas à terminer la configuration de l'application d'authentification, des extensions de navigateur, des paramètres de cookies ou des restrictions réseau peuvent interférer. Essayez ce qui suit :
+
+- Désactivez les bloqueurs de publicités et activez les cookies tiers : les bloqueurs de publicités ou les extensions de confidentialité peuvent bloquer le flux de vérification 2FA. Désactivez-les temporairement et confirmez que les cookies tiers sont activés dans les paramètres de votre navigateur.
+- Essayez un autre navigateur : passez à un autre navigateur pour exclure les problèmes spécifiques au navigateur.
+- Changez de réseau : si vous êtes sur un réseau d'entreprise, les politiques de pare-feu peuvent interférer avec la configuration de la 2FA. Essayez de passer à une connexion personnelle ou à un point d'accès mobile.
+- Installez une application d'authentification avant la configuration dans le navigateur : téléchargez et installez une application d'authentification (telle qu'Authy, Google Authenticator ou LastPass Authenticator) sur votre appareil mobile avant de sélectionner **Authenticator app** lors de la configuration.
+- Supprimez les profils d'authentification obsolètes : si vous avez précédemment commencé la configuration de l'application d'authentification sans la terminer, supprimez les profils obsolètes dans votre application et scannez à nouveau le code QR.
+
+Si vous continuez à rencontrer des difficultés après avoir essayé ces étapes :
+
+- Réinitialisez la 2FA : votre administrateur peut réinitialiser la 2FA pour votre compte utilisateur dans les paramètres.
+- Rajoutez l'utilisateur : si les problèmes persistent, l'administrateur peut supprimer votre compte utilisateur du tableau de bord et vous rajouter. Cela permet de recréer l'utilisateur avec les mêmes informations.
 
 Si les problèmes persistent après ces étapes, contactez le [Support]({{site.baseurl}}/braze_support) pour obtenir une assistance supplémentaire.
 

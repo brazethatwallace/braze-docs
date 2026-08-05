@@ -15,33 +15,41 @@ description: "Cet article pratique vous explique comment utiliser, interpréter 
 
 Les statistiques des segments vous montrent les performances d'un segment par rapport à un autre sur un ensemble de KPI présélectionnés.
 
-## Consulter les statistiques des segments {#viewing-segment-insights}
+## Consultation des statistiques des segments {#viewing-segment-insights}
 
-Accédez à la page **Segment Insights** de votre tableau de bord, sous **Analytics**, pour visualiser jusqu'à 10 segments différents comparés à une référence.
+Accédez à la page **Statistiques des segments** de votre tableau de bord, sous **Analytics**, pour visualiser jusqu'à 10 segments différents comparés à une référence.
 
 ![Tableau de bord des statistiques des segments comparant trois segments, « UK Users », « FR Users » et « CA Users » à un segment de référence, « All Users ».]({% image_buster /assets/img_archive/segment_insights.png %})
 
-Le segment de référence peut être un segment spécifique que vous sélectionnez, ou un segment contenant tous vos utilisateurs. Vous pouvez comparer les statistiques suivantes à l'aide des statistiques des segments :
+{% alert note %}
+Les statistiques de la page Statistiques des segments sont estimées par défaut. Pour calculer des valeurs exactes, ouvrez un segment et sélectionnez **Calculate Exact Statistics**. Les estimations peuvent être supérieures ou inférieures aux valeurs exactes, en particulier dans les espaces de travail volumineux ou pour les petits segments.
+{% endalert %}
+
+Le segment de référence peut être un segment spécifique que vous sélectionnez, ou un segment contenant l'ensemble de vos utilisateurs. Vous pouvez comparer les statistiques suivantes à l'aide des statistiques des segments :
 
 | Mesure | Description | Formule |
 | --------------------- | ------------- | ------------- |
-| Sessions par jour | Nombre moyen de sessions quotidiennes des utilisateurs du segment | (nombre total de sessions) / (nombre de jours depuis la première session) |
+| Sessions par jour | Nombre moyen de sessions par jour des utilisateurs du segment | (nombre total de sessions) / (nombre de jours depuis la première session) |
 | Jours depuis la première session | Nombre moyen de jours entre la première session des utilisateurs du segment et maintenant | aujourd'hui – date de la première session |
 | Jours depuis la dernière session | Nombre moyen de jours entre la dernière session des utilisateurs du segment et maintenant | aujourd'hui – date de la dernière session |
 | Chiffre d'affaires à vie en dollars | Chiffre d'affaires moyen à vie en dollars pour les utilisateurs du segment | dépenses à vie de l'utilisateur |
 | Jours depuis le premier achat | Nombre moyen de jours entre la première session et le premier achat des utilisateurs du segment | date du premier achat – date de la première session |
 | Jours depuis le dernier achat | Nombre moyen de jours entre le dernier achat des utilisateurs du segment et maintenant | aujourd'hui – date du dernier achat |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Consulter les statistiques des segments" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Consultation des statistiques des segments" }
 
 Vous pouvez facilement partager des comparaisons spécifiques avec vos collègues en utilisant l'URL unique de la page, et vous pouvez également sélectionner l'icône en forme d'œil à côté de chaque segment pour afficher plus d'informations sur ce segment. Ces comparaisons seront réinitialisées lorsque vous changerez d'espace de travail.
 
 ![Détails du segment « Premium Users (iOS VideoApp) » avec un graphique affichant l'historique des membres et un tableau détaillant la taille estimée pour différents canaux de communication.]({% image_buster /assets/img_archive/Segment_Insights_Info.png %}){: style="max-width:50%;"}
 
-## Page de détails du segment {#segment-details-page}
+## Page Détails du Segment {#segment-details-page}
 
-Les statistiques des segments sont également intégrées directement dans la vue **Segment Details**. Lorsque vous consultez un segment particulier que vous avez précédemment configuré, vous trouverez les six mêmes statistiques dans l'encadré gris dynamique des statistiques du segment. De là, vous pouvez rapidement lancer l'outil de statistiques des segments pour comparer ce segment particulier avec n'importe quel autre que vous avez précédemment configuré, mais notez que cela écrasera tous les segments que vous aviez précédemment sélectionnés dans l'outil de statistiques des segments.
+Les statistiques des segments ont également été intégrées directement dans la vue **Détails du Segment**. Lorsque vous consultez un Segment que vous avez précédemment configuré, vous pouvez retrouver les six mêmes statistiques présentées dans l'encadré gris dynamique Statistiques du Segment. Depuis cet encadré, vous pouvez rapidement lancer l'outil de statistiques des segments pour comparer ce Segment particulier avec n'importe quel autre que vous avez précédemment configuré, mais notez que cela écrasera tous les Segments que vous aviez précédemment sélectionnés dans l'outil de statistiques des segments.
 
-![Les statistiques des segments sont également intégrées dans la vue Segment Details. Lorsque vous consultez un segment précédemment configuré, vous trouverez les six mêmes statistiques dans l'encadré gris dynamique. Vous pouvez rapidement lancer l'outil de statistiques des segments pour comparer ce segment avec d'autres, mais cela écrasera les segments précédemment sélectionnés.]({% image_buster /assets/img_archive/Segment_Segment_Insights.png %})
+{% alert note %}
+Les [statistiques des segments](#viewing-segment-insights) et la page **Détails du Segment** calculent les estimations de taille séparément en utilisant des échantillons d'utilisateurs et des tailles d'échantillons différents. Il est donc normal que les chiffres ne correspondent pas exactement.
+{% endalert %}
+
+![Les statistiques des segments ont également été intégrées directement dans la vue Détails du Segment. Lorsque vous consultez un Segment que vous avez précédemment configuré, vous pouvez retrouver les six mêmes statistiques présentées dans l'encadré gris dynamique Statistiques du Segment. Depuis cet encadré, vous pouvez rapidement lancer l'outil de statistiques des segments pour comparer ce Segment particulier avec n'importe quel autre que vous avez précédemment configuré, mais notez que cela écrasera tous les Segments que vous aviez précédemment sélectionnés dans l'outil de statistiques des segments.]({% image_buster /assets/img_archive/Segment_Segment_Insights.png %})
 
 ## Cas d'usage {#insights-use-cases}
 

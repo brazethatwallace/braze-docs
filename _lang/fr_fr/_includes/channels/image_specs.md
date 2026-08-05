@@ -30,6 +30,10 @@ Bien qu'il n'y ait pas de limite au nombre de caractères que vous pouvez inclur
 
 Tous les messages in-app ont une taille d'image recommandée de 500 Ko, une taille d'image maximale de 5 Mo, et prennent en charge les types de fichiers PNG, JPEG et GIF. Les images WebP ne sont pas prises en charge par tous les appareils ou navigateurs ; nous vous recommandons de convertir les images WebP au format PNG ou JPEG avant de les ajouter à vos messages in-app.
 
+{% alert note %}
+Les images SVG ne sont pas prises en charge pour les messages in-app, car elles ne s'affichent pas de manière fiable sur toutes les plateformes. Utilisez plutôt les formats PNG, JPEG ou GIF.
+{% endalert %}
+
 {% tabs %}
 {% tab Portrait %}
 
@@ -67,6 +71,10 @@ Tous les messages in-app ont une taille d'image recommandée de 500 Ko, une tail
 
 {% endtab %}
 {% endtabs %}
+
+{% alert tip %}
+Le rendu des messages in-app sur le SDK Web peut être affecté par les paramètres personnalisés de taille de texte du navigateur. Les utilisateurs ayant une mise à l'échelle personnalisée de la taille du texte peuvent rencontrer des problèmes de rendu mineurs, comme un espace de 1 px le long du bord d'une image modale. Lors de la prévisualisation et du test des messages in-app, nous recommandons d'utiliser les paramètres de taille de texte par défaut du navigateur pour obtenir la représentation la plus fidèle.
+{% endalert %}
 
 {% endif %}
 

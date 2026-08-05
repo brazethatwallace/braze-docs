@@ -20,7 +20,7 @@ Webhookとは何か、またBrazeでどのように使用できるかについ�
 
 ## ステップ1: メッセージの作成場所を選択する {#step-1-choose-where-to-build-your-message}
 
-メッセージをキャンペーンとキャンバスのどちらで送信すべきかわからない場合、キャンペーンは単一のターゲットメッセージングに適しており、キャンバスはマルチステップのユーザージャーニーに適しています。
+メッセージをキャンペーンとキャンバスのどちらで送信すべきかわからない場合は、以下を参考にしてください。キャンペーンは単一のターゲットメッセージングに適しており、キャンバスはマルチステップのユーザージャーニーに適しています。
 
 {% tabs %}
 {% tab キャンペーン %}
@@ -28,15 +28,15 @@ Webhookとは何か、またBrazeでどのように使用できるかについ�
 **手順:**
 
 1. **メッセージング** > **キャンペーン**に移動し、**キャンペーンを作成**を選択します。
-2. **Webhook**を選択するか、複数のチャネルをターゲットにするキャンペーンの場合は**マルチチャネル**を選択します。
+2. **Webhook**を選択するか、複数のチャネルをターゲットとするキャンペーンの場合は**マルチチャネル**を選択します。
 3. キャンペーンにわかりやすく意味のある名前を付けます。
-4. （オプション）このキャンペーンの用途を説明する説明文を追加します。
+4. (オプション) このキャンペーンの用途を説明する説明文を追加します。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を追加します。
    * タグを使用すると、キャンペーンの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を使用する際に、特定のタグでフィルタリングできます。
-5. キャンペーンに必要な数のバリアントを追加して名前を付けます。追加した各バリアントに異なるWebhookテンプレートを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
+5. キャンペーンに必要な数のバリアントを追加し、名前を付けます。追加した各バリアントに異なるWebhookテンプレートを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
 
 {% alert tip %}
-キャンペーン内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
+キャンペーン内のすべてのメッセージが類似している、または同じ内容になる場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
 {% endalert %}
 
 {% endtab %}
@@ -51,13 +51,13 @@ Webhookとは何か、またBrazeでどのように使用できるかについ�
 
 ## ステップ2: Webhookを作成する {#step-2-build-your-webhook}
 
-Webhookをゼロから作成するか、既存のテンプレートを使用するか、Brazeが提供するテンプレートのいずれかを使用できます。次に、エディターの**作成**タブでWebhookを作成します。
+Webhookをゼロから作成するか、既存のテンプレートを使用するか、Brazeが提供するテンプレートを使用するかを選択できます。次に、エディターの**作成**タブでWebhookを作成します。
 
 **作成**タブは以下のフィールドで構成されています。
 
 - 言語
 - Webhook URL
-- HTTPメソッド
+- HTTP メソッド
 - リクエストボディ
 
 ![Webhookテンプレートの例が表示された「作成」タブ。]({% image_buster /assets/img_archive/webhook_compose.png %})
@@ -74,7 +74,7 @@ URLとリクエストボディで[国際化]({{site.baseurl}}/user_guide/messagi
 
 Webhook URL（HTTP URL）はエンドポイントを指定します。エンドポイントは、Webhookでキャプチャした情報を送信する場所です。
 
-ベンダーに情報を送信する場合、ベンダーはAPIドキュメントでこのURLを提供する必要があります。自社システムに情報を送信する場合は、開発チームに確認して正しいURLを使用していることを確かめてください。
+ベンダーに情報を送信する場合、ベンダーはAPI ドキュメントでこのURLを提供する必要があります。自社システムに情報を送信する場合は、開発チームに確認して正しいURLを使用していることを確認してください。
 
 Brazeでは、標準ポート`80`（HTTP）および`443`（HTTPS）で通信するURLのみが許可されています。
 
@@ -82,39 +82,39 @@ Brazeでは、標準ポート`80`（HTTP）および`443`（HTTPS）で通信す
 
 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を使用してWebhook URLをパーソナライズできます。特定のエンドポイントでは、URLの一部としてユーザーを識別したり、ユーザー固有の情報を提供したりする必要がある場合があります。Liquidを使用する場合は、URLで使用するユーザー固有の情報ごとに[デフォルト値]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web)を含めるようにしてください。
 
-### HTTPメソッド {#http-method}
+### HTTP メソッド {#http-method}
 
 使用するHTTPメソッドは、情報を送信するエンドポイントによって異なります。ほとんどの場合、POSTを使用します。
 
-| HTTPメソッド | 説明 |
+| HTTP メソッド | 説明 |
 | ----------- | ----------- |
 | POST | 受信サーバーに新しい情報を書き込みます。データ送信時に最も一般的に使用されるメソッドです。 |
 | GET | 新しい情報を書き込むのではなく、既存の情報を取得します。定義上、GETリクエストはリクエストボディをサポートしません。 |
 | PUT | エンドポイントの情報を更新し、既存の情報をリクエストボディの内容で置き換えます。 |
 | DELETE | HTTP URL内のリソースを削除します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTPメソッド" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTTP メソッド" }
 
 ### リクエストボディ {#request-body}
 
-リクエストボディは、指定したURLに送信される情報です。Webhookリクエストのボディは、JSONキーと値のペアまたはRawテキストで作成できます。
+リクエストボディは、指定したURLに送信される情報です。Webhookリクエストのボディは、JSONのキーと値のペアまたはローテキストで作成できます。
 
-#### JSONキーと値のペア {#json-key-value-pairs}
+#### JSONのキーと値のペア {#json-key-value-pairs}
 
-JSONキーと値のペアを使用すると、JSON形式を期待するエンドポイント向けのリクエストを簡単に作成できます。これはJSONリクエストを期待するエンドポイントでのみ使用できます。たとえば、キーが`message_body`の場合、対応する値は`Your order just arrived!`のようになります。キーと値のペアを入力すると、コンポーザーがリクエストをJSON構文で設定し、JSONリクエストのプレビューが自動的に表示されます。
+JSONのキーと値のペアを使用すると、JSON形式を期待するエンドポイント向けのリクエストを簡単に作成できます。これはJSONリクエストを期待するエンドポイントでのみ使用できます。たとえば、キーが`message_body`の場合、対応する値は`Your order just arrived!`のようになります。キーと値のペアを入力すると、コンポーザーがリクエストをJSON構文で設定し、JSONリクエストのプレビューが自動的に表示されます。
 
-![JSONキーと値のペアに設定されたリクエストボディ。]({% image_buster /assets/img/webhook_json_1.png %})
+![JSONのキーと値のペアに設定されたリクエストボディ。]({% image_buster /assets/img/webhook_json_1.png %})
 
 Liquidを使用してキーと値のペアをパーソナライズできます。ユーザー属性、[カスタム属性]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids#additional-notes-and-best-practices)、または[イベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events)をリクエストに含めることができます。たとえば、顧客の名とメールアドレスをリクエストに含めることができます。各属性に[デフォルト値]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web)を含めるようにしてください。
 
-#### Rawテキスト {#raw-text}
+#### ローテキスト {#raw-text}
 
-Rawテキストオプションを使用すると、任意の形式のボディを期待するエンドポイント向けのリクエストを柔軟に作成できます。たとえば、XML形式のリクエストを期待するエンドポイント向けのリクエストを作成する場合に使用できます。
+ローテキストオプションを使用すると、任意の形式のボディを期待するエンドポイント向けのリクエストを柔軟に作成できます。たとえば、XML形式のリクエストを期待するエンドポイント向けのリクエストを作成する場合に使用できます。
 
-Rawテキストでは、Liquidを使用した[パーソナライゼーション]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)と[国際化]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization)の両方がサポートされています。
+ローテキストでは、Liquidを使用した[パーソナライゼーション]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)と[国際化]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization)の両方がサポートされています。
 
-![Liquidを使用したRawテキストのリクエストボディの例。]({% image_buster /assets/img_archive/webhook_rawtext.png %})
+![Liquidを使用したローテキストのリクエストボディの例。]({% image_buster /assets/img_archive/webhook_rawtext.png %})
 
-`Content-Type` [リクエストヘッダー](#request-headers-optional)を`application/x-www-form-url-encoded`に設定した場合、リクエストボディはURLエンコードされた文字列としてフォーマットする必要があります。例:
+`Content-Type`[リクエストヘッダー](#request-headers-optional)を`application/x-www-form-url-encoded`に設定した場合、リクエストボディはURLエンコードされた文字列としてフォーマットする必要があります。例：
 
 {% raw %}
 ```
@@ -124,29 +124,29 @@ to={{custom_attribute.${example}}}&text=Your+order+just+arrived
 
 ![URLエンコードされた文字列を含むリクエストボディ。]({% image_buster /assets/img_archive/webhook_rawtext_URL-encoded.png %})
 
-## ステップ3: 追加設定を構成する {#step-3-configure-additional-settings}
+## ステップ3:追加設定を構成する {#step-3-configure-additional-settings}
 
 ### リクエストヘッダー（オプション） {#request-headers-optional}
 
 特定のエンドポイントでは、リクエストにヘッダーを含める必要がある場合があります。コンポーザーの**作成**セクションで、必要な数のヘッダーを追加できます。
 
-![「Authorization」キーと「Content-Type」キーのリクエストヘッダーの例。]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
+![「Authorization」キーと「Content-type」キーのリクエストヘッダーの例。]({% image_buster /assets/img_archive/webhook_request_headers_example.png %})
 
-一般的なリクエストヘッダーには、[`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type)仕様（XMLやJSONなど、ボディで想定されるデータの種類を記述するもの）や、ベンダーまたはシステムの認証情報を含む[`Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization)ヘッダーがあります。
+一般的なリクエストヘッダーには、[`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) 仕様（XML や JSON など、本文で期待されるデータの種類を記述するもの）や、ベンダーまたはシステムの認証情報を含む [`Authorization`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) ヘッダーがあります。
 
 {% alert note %}
-HTTPヘッダー名は、[RFC 7230、セクション3.2（「各ヘッダーフィールドは大文字小文字を区別しないフィールド名で構成される」）](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2)に従い、大文字小文字を区別しません。受信エンドポイントや中間サービス（CDNなど）がヘッダーの大文字小文字を変換しても、ヘッダー処理には影響しません。`Content-Type`、`content-type`、`CONTENT-TYPE`はすべて同一として扱われます。
+HTTP ヘッダー名は [RFC 7230 セクション 3.2（「各ヘッダーフィールドは大文字小文字を区別しないフィールド名で構成される」）](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2) に従い、大文字小文字を区別しません。受信エンドポイントや中間サービス（CDN など）がヘッダーの大文字小文字を変換しても、ヘッダー処理には影響しません。`Content-Type`、`content-type`、`CONTENT-TYPE` はすべて同一に扱われます。
 {% endalert %}
 
-Content-Type仕様では、キー`Content-Type`を使用する必要があります。一般的な値は`application/json`または`application/x-www-form-urlencoded`です。
+Content-Type 仕様では、キー `Content-Type` を使用する必要があります。一般的な値は `application/json` または `application/x-www-form-urlencoded` です。
 
-認証ヘッダーでは、キー`Authorization`を使用する必要があります。一般的な値は{% raw %}`Bearer {{YOUR_TOKEN}}`または`Basic {{YOUR_TOKEN}}`{% endraw %}で、`YOUR_TOKEN`はベンダーまたはシステムから提供された認証情報です。
+Authorization ヘッダーでは、キー `Authorization` を使用する必要があります。一般的な値は {% raw %} `Bearer {{YOUR_TOKEN}}` または `Basic {{YOUR_TOKEN}}` {% endraw %} で、`YOUR_TOKEN` はベンダーまたはシステムから提供された認証情報です。
 
 ## ステップ4: メッセージのテスト送信 {#step-4-test-send-your-message}
 
 キャンペーンを公開する前に、Brazeではwebhookをテストしてリクエストが正しくフォーマットされていることを確認することをお勧めします。
 
-テストを行うには、**テスト**タブに切り替えてテストwebhookを送信します。ランダムユーザー、特定のユーザー（メールアドレスまたは外部ユーザーIDを入力）、または任意の属性を持つカスタマイズされたユーザーとしてwebhookをテストできます。
+テストするには、**テスト**タブに切り替えてテストwebhookを送信します。ランダムなユーザー、特定のユーザー（メールアドレスまたは外部ユーザーIDを入力）、または任意の属性を持つカスタマイズされたユーザーとしてwebhookをテストできます。
 
 テストwebhookを送信すると、レスポンスメッセージを含むダイアログが表示されます。webhookリクエストが失敗した場合は、エラーメッセージを参照してwebhookのトラブルシューティングを行ってください。以下の例は、無効なwebhook URLを使用した場合のwebhookのレスポンスを示しています。
 
@@ -177,7 +177,7 @@ webhookは、スケジュールされた時間、アクション、またはAPI�
 
 アクションベースの配信では、キャンペーンの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)を設定することもできます。
 
-このステップでは、ユーザーがキャンペーンを[再度受け取れるようにする]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility)ことや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)ルールの有効化など、配信コントロールを指定することもできます。
+このステップでは、ユーザーがキャンペーンを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)ルールの有効化など、配信コントロールを指定することもできます。
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
@@ -232,45 +232,51 @@ Webhookリクエストが送信されると、受信サーバーはリクエス�
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="レスポンスコードとリトライロジック" }
 
 {% alert note %}
-Brazeは、このセクションで前述したステータスコードに対して、指数バックオフを使用して30分以内に最大5回リトライします。エンドポイントに到達できない場合、リトライは24時間にわたって分散されることがあります。<br><br>各Webhookは、タイムアウトまでに90秒が許可されています。
+Brazeは、このセクションで前述したステータスコードに対して、指数バックオフを使用して30分以内に最大5回リトライします。エンドポイントに到達できない場合、リトライは24時間にわたって分散されることがあります。<br><br>各Webhookはタイムアウトまでに90秒が許可されています。
 {% endalert %}
 
 `Retry-After`およびレート制限レスポンスヘッダーは、**リトライ可能な**試行（例：`408`、`429`、`5XX`の後）までBrazeが待機する時間に影響を与えることがあります。これらのヘッダーは、`401`などのリトライ不可能なレスポンスをリトライ対象にするものではありません。
 
-#### 403 ForbiddenとIP許可リスト {#403-forbidden-and-ip-allowlisting}
+<!-- support-analyzer-phase2:webhook_delivery_failures -->
+{% alert note %}
+Webhook送信が分析に表示されていないように見える場合は、キャンペーンまたはキャンバスステップの[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)を開いてください。Brazeは特定のレスポンス（例：`408`、`429`、`5XX`）のみをリトライします。`401 Unauthorized`を含むほとんどの`4XX`クライアントエラーはリトライ**されません**。完全なレスポンス表については、[レスポンスコードとリトライロジック](#response-codes-and-retry-logic)を参照してください。
+{% endalert %}
+
+
+#### 403 Forbiddenとip許可リスト {#403-forbidden-and-ip-allowlisting}
 
 `403 Forbidden`レスポンスは、エンドポイントがリクエストを受信したが拒否したことを意味します。一般的な原因には、無効または欠落した認証、不十分なAPI権限、およびBrazeの送信IPアドレスをブロックするネットワークルール（ファイアウォールやWebアプリケーションファイアウォールなど）があります。
 
 Webhookリクエストが一貫して`403`を返し、認証ヘッダーが正しい場合は、Webhookを受信するサーバーでクラスターのBraze IPを許可リストに追加してください。[IP許可リスト](#ip-allowlisting)を参照してください。Connected Contentリクエストは同じ送信IPを使用します。[Connected Content IP許可リスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting)を参照してください。
 
-その他の`4XX`トラブルシューティング手順については、[WebhookとConnected Contentリクエストのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#4xx-errors)を参照してください。
+その他の`4XX`のトラブルシューティング手順については、[WebhookとConnected Contentリクエストのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#4xx-errors)を参照してください。
 
 #### 認証とConnected Content認証情報 {#authentication-and-connected-content-credentials}
 
-送信Webhook HTTPリクエストでは、エンドポイントに対する認証に[Connected Content認証情報]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types)（`:basic_auth`または`:auth_credentials`）を添付することはサポートされていません。代わりに、Webhookの**リクエストヘッダー**を使用して認証を設定してください。送信時にトークンやシークレットを取得するには、ヘッダーまたはボディフィールドに{% raw %}`{% connected_content %}`{% endraw %}タグを配置して、Webhookが送信される前にLiquidが解決するようにします。
+送信Webhook HTTPリクエストは、エンドポイントに対する認証に[Connected Content認証情報]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types)（`:basic_auth`または`:auth_credentials`）の添付をサポートしていません。代わりに、Webhookの**リクエストヘッダー**を使用して認証を設定してください。送信時にトークンやシークレットを取得するには、ヘッダーまたはボディフィールドに{% raw %}`{% connected_content %}`{% endraw %}タグを配置して、Webhookが送信される前にLiquidが解決するようにします。
 
 #### 保存済みWebhookテンプレートとキャンペーンの使用状況 {#saved-webhook-templates-and-campaign-usage}
 
-Brazeには、特定の**保存済みWebhookテンプレート**を参照しているすべてのキャンペーンまたはキャンバスステップを一覧表示する組み込みレポートはありません。使用状況を監査するには、同じURLとHTTPメソッドを使用しているWebhookステップを確認するか、[Brazeサポート]({{site.baseurl}}/support_contact)にお問い合わせください。
+Brazeは、特定の**保存済みWebhookテンプレート**を参照しているすべてのキャンペーンまたはキャンバスステップを一覧表示する組み込みレポートを提供していません。使用状況を監査するには、同じURLとHTTPメソッドを使用しているWebhookステップを確認するか、[Brazeサポート]({{site.baseurl}}/support_contact)にお問い合わせください。
 
 #### トラブルシューティングと追加のエラー詳細 {#troubleshooting-and-additional-error-details}
 
-特定のWebhookエラーの詳細な説明、トラブルシューティング手順、および解決方法については、[WebhookとConnected Contentリクエストのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content)を参照してください。また、異常ホスト検出システムの仕組みや、Brazeが自動メールおよびBraze Currentsの追加ログを通じてエラー通知を提供する方法についても説明しています。
+詳細な説明、トラブルシューティング手順、および特定のWebhookエラーの解決に関するガイダンスについては、[WebhookとConnected Contentリクエストのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content)を参照してください。また、異常ホスト検出システムの仕組みや、Brazeが自動メールおよびBraze Currentsの追加ログを通じてエラー通知を提供する方法についても説明されています。
 
 ### IP許可リスト {#ip-allowlisting}
 
-BrazeからWebhookが送信されると、Brazeサーバーは顧客またはサードパーティのサーバーにネットワークリクエストを送信します。IP許可リストを使用すると、WebhookリクエストがBrazeから送信されていることを確認でき、セキュリティの層を追加できます。
+BrazeからWebhookが送信されると、Brazeサーバーは顧客またはサードパーティのサーバーにネットワークリクエストを送信します。IP許可リストを使用すると、Webhookリクエストがbrazeから送信されていることを確認でき、セキュリティの層を追加できます。
 
 Brazeは以下のIPからWebhookを送信します。リストされたIPは、許可リストにオプトインされたAPIキーに自動的かつ動的に追加されます。
 
 {% alert important %}
-BrazeからBrazeへのWebhookを作成し、許可リストを使用している場合は、`127.0.0.1`を含む以下のすべてのIPを許可リストに追加する必要があります。
+Braze間のWebhookを作成し、許可リストを使用している場合は、`127.0.0.1`を含む以下のすべてのIPを許可リストに追加する必要があります。
 {% endalert %}
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### ユーザーの削除 {#delete-users}
 
-個々のユーザーまたはユーザーのセグメントを削除するには、**オーディエンス** > **オーディエンスの管理** > **ユーザーの削除**に移動します。ダッシュボードは一括セグメント削除（最大1,000万プロファイル）をサポートしており、7日間のキャンセル期間が含まれ、共有REST APIレート制限を消費しません。手順、制限、権限については、[ユーザーの削除]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users)を参照してください。
+個々のユーザーまたはユーザーのセグメントを削除するには、**オーディエンス** > **オーディエンスの管理** > **ユーザーの削除**に移動します。ダッシュボードは一括セグメント削除（最大1,000万プロファイル）をサポートし、7日間のキャンセル期間が含まれ、共有REST APIレート制限を消費しません。手順、制限、権限については、[ユーザーの削除]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users)を参照してください。
 
 より小さなバッチでのプログラムによる削除には、Webhookキャンペーンの代わりに[`/users/delete`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)を使用してください。

@@ -79,14 +79,14 @@ Canvas에서는 생성한 Canvas에 매핑된 인앱 메시지 성과를 확인�
 
 #### Estimated Audience와 Current Audience {#estimated-audience-and-current-audience}
 
-워크스페이스의 크기에 따라 **Campaign Details** 패널에서 오디언스 통계가 **Estimated Audience** 또는 **Current Audience**로 표시될 수 있습니다.
+워크스페이스의 총 사용자 수에 따라 **Campaign Details** 패널에서 오디언스 통계가 **Current Audience** 또는 **Estimated Audience**로 표시됩니다.
 
 다음 표에서는 각 레이블의 의미를 설명합니다.
 
 | 하단 레이블 | 사용 시점 |
 | --- | --- |
-| **Estimated Audience** | Braze는 기본적으로 전체 데이터베이스 카운트를 실행하지 않습니다. 오디언스 크기는 샘플에서 추정되어 외삽되며, Segment 빌더의 **도달 가능 사용자** 범위와 유사합니다. 특히 대규모 워크스페이스나 워크스페이스 대비 작은 Segment의 경우 오차 범위가 예상됩니다. |
-| **Current Audience** | Braze가 워크스페이스 프로필의 전체 스캔으로 기본 통계를 계산할 수 있으므로, 표시되는 오디언스 크기는 샘플링되지 않은 현재 카운트입니다(채널 도달 가능성, 구독 규칙 및 기타 타겟팅 옵션에 따라 달라질 수 있음). |
+| **Current Audience** | 워크스페이스에 50,000명 이하의 사용자가 있습니다. Braze가 기본 통계를 위해 워크스페이스 프로필의 전체 스캔을 실행하므로, 표시되는 오디언스 크기는 샘플링되지 않은 현재 카운트입니다(채널 도달 가능성, 구독 규칙 및 기타 타겟팅 옵션에 따라 달라질 수 있음). |
+| **Estimated Audience** | 워크스페이스에 50,000명 이상의 사용자가 있습니다. Braze는 기본적으로 전체 데이터베이스 카운트를 실행하지 않습니다. 오디언스 크기는 샘플에서 추정되어 외삽되며, Segment 빌더의 **도달 가능 사용자** 범위와 유사합니다. 특히 워크스페이스 대비 작은 Segment의 경우 오차 범위가 예상됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience와 Current Audience" }
 
 샘플링 동작, **Calculate exact statistics** 및 **도달 가능 사용자** 세분화에 대한 자세한 내용은 [Segment 크기 측정]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)을 참조하세요.
@@ -491,7 +491,7 @@ Braze는 열람 추적 픽셀이 로드될 때 이메일 열람을 기록합니�
 
 - **메시지가 잘린 경우.** 긴 HTML은 콘텐츠(하단의 픽셀 포함)를 "전체 메시지 보기" 스타일의 잘림 뒤로 밀어냅니다. Gmail에서는 약 [102&nbsp;KB]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling#email-size)보다 큰 메시지가 잘리는 경우가 많아, 전체 메시지를 열 때까지(그리고 클라이언트에 따라 그때도) 픽셀이 로드되지 않을 수 있습니다.
 - **이미지가 차단되거나 제한된 경우.** 더 엄격한 받은편지함 보안(기업 계정에서 흔함)은 수신자가 이미지 로드를 선택할 때까지 원격 이미지를 차단할 수 있으므로, 추적된 링크를 클릭하더라도 열람 픽셀이 실행되지 않습니다.
-- **메시지가 스팸 또는 대량 메일 폴더에 있는 경우.** 많은 제공업체는 해당 폴더에서 기본적으로 원격 이미지(열람 픽셀 포함)를 로드하지 않습니다.
+- **메시지가 스팸 또는 대량 메일 폴더에 있는 경우.** 많은 제공업체는 해당 폴더에서 기본적으로 원격 이미지(열람 추적 픽셀 포함)를 로드하지 않습니다.
 
 **대응 방법**
 

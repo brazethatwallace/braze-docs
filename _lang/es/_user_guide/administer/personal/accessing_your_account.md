@@ -19,7 +19,7 @@ Si no eres el primer usuario en la cuenta de Braze de tu empresa, ponte en conta
 
 ## Iniciar sesión {#logging-in}
 
-Ya sea la primera vez que inicias sesión o la centésima, aquí te explicamos cómo acceder a tu panel. Si eres el primer usuario de tu empresa, sigue las instrucciones de la sección anterior. De lo contrario, puedes iniciar sesión después de que el administrador de Braze de tu empresa cree tu cuenta.
+Ya sea tu primera vez iniciando sesión o la centésima, aquí te explicamos cómo acceder a tu panel. Si eres el primer usuario de tu empresa, sigue las indicaciones de la sección anterior. De lo contrario, puedes iniciar sesión después de que el administrador de Braze de tu empresa cree tu cuenta.
 
 Puedes iniciar sesión desde el sitio principal de [Braze.com](https://www.braze.com), o usar la URL de tu panel que corresponde a tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) específica. Para tu comodidad, Braze ofrece varias opciones de inicio de sesión único (SSO), como:
 
@@ -49,7 +49,7 @@ Braze no te permite registrar la misma dirección de correo electrónico para va
 
 Si tu proveedor de correo electrónico es Gmail, puedes crear alias añadiendo un signo `+` seguido de cualquier texto a tu dirección de correo electrónico. Por ejemplo:
 - **Correo electrónico original:** `rocky@gmail.com`
-- **Alias de correo electrónico:** `rocky+1@gmail.com`
+- **Correo electrónico de alias:** `rocky+1@gmail.com`
 
 Ambas direcciones de correo electrónico dirigen los mensajes al mismo buzón de entrada, pero Braze las reconoce como cuentas separadas cuando inicias sesión.
 
@@ -62,7 +62,7 @@ Si tu proveedor de correo electrónico no admite el uso de alias con `+`, puedes
 La característica de desarrolladores multiempresa permite compartir una única cuenta de usuario entre varias empresas. Los usuarios del panel pueden alternar entre los paneles de diferentes empresas desde el menú de su perfil de usuario.
 
 Si tienes SSO y quieres configurar desarrolladores multiempresa, necesitas habilitar un ID de entidad SAML personalizado configurando una integración SAML SSO personalizada. Sigue los pasos en [Inicio de sesión iniciado por el proveedor de servicios (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), pero aplica estos cambios:
-- Cambia el **ID de entidad** a `braze_dashboard_<companyID>` para cada integración de panel.
+- Cambia **Entity ID** a `braze_dashboard_<companyID>` para cada integración de panel.
 - Contacta a tu administrador de éxito de cliente o director de cuentas para habilitar el conmutador de características `saml_sso_custom_entity_id` para cada panel.
 
 #### Autenticación de dos factores (2FA) {#two-factor-authentication-2fa}
@@ -72,7 +72,7 @@ El funcionamiento de la 2FA para desarrolladores multiempresa depende de tu mét
 - **Correo electrónico y SMS:** Tu configuración de 2FA se copia a todas las cuentas de desarrollador vinculadas. Después de configurar la 2FA por correo electrónico o SMS en una cuenta, el mismo método se aplica en todos los paneles de tu empresa.
 - **Contraseña de un solo uso basada en el tiempo (TOTP):** La configuración de TOTP no se sincroniza entre cuentas. Si usas una aplicación de autenticación, debes configurar un código separado para cada panel en el que inicies sesión directamente.
 
-Cuando cambias entre cuentas desde dentro del panel, solo necesitas completar la 2FA una vez: la primera vez que inicias sesión en cualquier cuenta vinculada durante esa sesión.
+Cuando cambias entre cuentas desde el panel, solo necesitas completar la 2FA una vez: la primera vez que inicias sesión en cualquier cuenta vinculada durante esa sesión.
 
 ### Consideraciones para el inicio de sesión único (SSO) {#considerations-for-single-sign-on-sso}
 
@@ -86,7 +86,7 @@ Para restablecer tu contraseña, selecciona el enlace **¿Olvidaste tu contrase�
 
 ![Inicio de sesión del panel con el mensaje "¿Olvidaste tu contraseña?".]({% image_buster /assets/img_archive/enable_reset.png %}){: style="max-width:60%"}
 
-### Borrar la caché y las cookies del navegador {#clearing-your-browser-cache-and-cookies}
+### Borrar la caché y las cookies de tu navegador {#clearing-your-browser-cache-and-cookies}
 
 Si tienes problemas con el rendimiento del panel, como que el panel o la lista de rendimiento de Segment no se carguen, intenta borrar la caché y las cookies de tu navegador siguiendo los pasos correspondientes a tu navegador.
 
@@ -99,7 +99,7 @@ Borrar las cookies cierra tu sesión, por lo que se perderá el trabajo no guard
 - [Borrar cookies y datos de sitios en Firefox](https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox)
 - [Eliminar todas las cookies en Microsoft Edge](https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d#bkmk_deleteallcookies)
 
-Si borrar la caché y las cookies del navegador no resuelve tus problemas, contacta con [Soporte]({{site.baseurl}}/support_contact).
+Si borrar la caché y las cookies de tu navegador no resuelve tus problemas, contacta con [Soporte]({{site.baseurl}}/support_contact).
 
 ### Error "Aw, Snap!" en Google Chrome {#aw-snap-error-in-google-chrome}
 
@@ -111,18 +111,18 @@ Este error puede aparecer cuando un usuario de la empresa no pertenece a ningún
 
 1. Ve a la página [Usuarios de la empresa]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users).
 2. Comprueba si el usuario ha sido añadido a un espacio de trabajo.
-3. Si no forma parte de ningún espacio de trabajo, añádelo y asigna los permisos correspondientes.
+3. Si no forma parte de ningún espacio de trabajo, añádelo y asígnale los permisos adecuados.
 4. Pide al usuario que actualice su panel.
 5. Si el problema persiste, contacta con [Soporte]({{site.baseurl}}/support_contact).
 
 ### Acceder al editor de arrastrar y soltar {#accessing-the-drag-and-drop-editor}
 
-Para la mayoría de los usuarios de la empresa, el editor de arrastrar y soltar debería cargarse. Sin embargo, si utilizas una VPN o estás detrás de un firewall, es posible que necesites incluir un dominio en la lista de permitidos. Contacta con tu administrador de TI para comprobar que `*.bz-rndr.com` está en la lista de permitidos.
+Para la mayoría de los usuarios de la empresa, el editor de arrastrar y soltar debería cargarse. Sin embargo, si utilizas una VPN o estás detrás de un cortafuegos, es posible que necesites añadir un dominio a la lista de permitidos. Contacta con tu administrador de TI para comprobar que `*.bz-rndr.com` está en la lista de permitidos.
 
 El editor puede experimentar problemas de carga debido a lo siguiente:
 
-- **Error transitorio:** Son fallos temporales que pueden afectar a la conectividad, la comunicación o la transferencia de datos. Afortunadamente, suelen resolverse por sí solos sin necesidad de una intervención significativa, ya que a menudo son causados por condiciones de corta duración y no indican problemas sistémicos.
-- **Error grave:** Puede implicar un problema subyacente de infraestructura o producto. Puedes consultar nuestra [página de estado del sistema de Braze](https://braze.statuspage.io/), ya que probablemente estemos al tanto de la situación y trabajando activamente para resolverla.
+- **Error transitorio:** Son fallos temporales que pueden afectar a la conectividad, la comunicación o la transferencia de datos. Afortunadamente, suelen resolverse por sí solos sin requerir una intervención significativa, ya que a menudo son causados por condiciones de corta duración y no indican problemas sistémicos.
+- **Error grave:** Puede implicar un problema subyacente de infraestructura o del producto. Puedes consultar nuestra [página de estado del sistema de Braze](https://braze.statuspage.io/), ya que probablemente estemos al tanto de la situación y trabajando activamente para resolverla.
 
 {% alert important %}
 Si sigues experimentando problemas, [abre un ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support). Antes de hacerlo, comprueba que tu administrador de TI haya confirmado que `*.bz-rndr.com` está en la lista de permitidos de tu lado.
@@ -155,8 +155,8 @@ Braze no puede restablecer la 2FA en nombre de los usuarios por razones de segur
 
 #### Consideraciones {#considerations}
 
-- Si la 2FA se aplica a nivel de empresa: después del restablecimiento, Braze solicita al usuario que configure su 2FA de nuevo la próxima vez que inicie sesión.
-- Si la 2FA no se aplica a nivel de empresa: el usuario inicia sesión en el panel sin necesidad de configurar la 2FA de nuevo. Si desea habilitar la 2FA, puede hacerlo en la configuración de la cuenta.
+- Si la 2FA se aplica a nivel de empresa: Después del restablecimiento, Braze solicita al usuario que configure su 2FA de nuevo la próxima vez que inicie sesión.
+- Si la 2FA no se aplica a nivel de empresa: El usuario inicia sesión en el panel sin necesidad de configurar la 2FA de nuevo. Si desea habilitar la 2FA, puede hacerlo en la configuración de la cuenta.
 
 {% alert note %}
 Este proceso de restablecimiento también se aplica a los usuarios que han sido bloqueados de su cuenta por solicitar demasiados tokens en la última hora.
@@ -178,16 +178,16 @@ La seguridad de tu cuenta es importante para nosotros, por lo que se requiere un
 - Comprueba que estás iniciando sesión en la [instancia correcta del panel de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Consulta con el administrador de tu cuenta o tu director de cuentas de Braze para asegurarte.
 - Es posible que tu contraseña haya caducado, por lo que necesitas [restablecerla](#resetting-your-password).
 - Si utilizas un servicio de [inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), consulta con el administrador de tu cuenta que la configuración se haya completado correctamente.
-- Si tu empresa está en varias instancias de Braze, es posible que estés utilizando el correo electrónico incorrecto para iniciar sesión.
+- Si tu empresa tiene varias instancias de Braze, es posible que estés usando el correo electrónico incorrecto para iniciar sesión.
 
 En caso de duda, siempre puedes [restablecer tu contraseña](#resetting-your-password).
 
 #### Error de instancia {#instance-error}
 
-Si estás utilizando la misma máquina que usas habitualmente para iniciar sesión, Braze debería detectar automáticamente la instancia correcta. Sin embargo, si no lo hace o estás iniciando sesión por primera vez, ten en cuenta lo siguiente:
+Si estás usando la misma máquina que usas habitualmente para iniciar sesión, Braze debería detectar automáticamente la instancia correcta. Sin embargo, si no lo hace o estás iniciando sesión por primera vez, ten en cuenta lo siguiente:
 
 - Comprueba que estás iniciando sesión en la [instancia correcta del panel de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Consulta con el administrador de tu cuenta o tu director de cuentas de Braze para asegurarte.
-- Si tu empresa está en varias instancias de Braze, es posible que estés utilizando el correo electrónico incorrecto para iniciar sesión.
+- Si tu empresa tiene varias instancias de Braze, es posible que estés usando el correo electrónico incorrecto para iniciar sesión.
 
 #### Suspensión de cuenta {#account-suspension}
 
@@ -222,14 +222,24 @@ Si eres un usuario nuevo de Braze y tienes problemas para iniciar sesión o acce
 
 #### No recibí el correo electrónico de bienvenida {#i-never-received-the-welcome-email}
 
-- Revisa tu carpeta de correo no deseado: confirma que el correo electrónico de activación de la cuenta no se haya filtrado a tu carpeta de correo no deseado.
-- Verifica tu dirección de correo electrónico: pide a tu administrador que compruebe la dirección de correo electrónico asociada a tu nueva cuenta de Braze para confirmar que es correcta.
-- Políticas de TI: confirma con tu equipo de TI que no haya políticas que puedan impedir la recepción del correo electrónico de activación.
+- Revisa tu carpeta de correo no deseado: Confirma que el correo electrónico de activación de la cuenta no fue filtrado a tu carpeta de correo no deseado.
+- Verifica tu dirección de correo electrónico: Pide a tu administrador que compruebe la dirección de correo electrónico asociada a tu nueva cuenta de Braze para confirmar que es correcta.
+- Políticas de TI: Confirma con tu equipo de TI que no existan políticas que puedan impedir la recepción del correo electrónico de activación.
 
 #### Recibí el correo electrónico, pero estoy atascado configurando la autenticación de dos factores (2FA) {#i-received-the-email-but-im-stuck-setting-up-two-factor-authentication-2fa}
 
-- Restablecer la 2FA: si tienes problemas para configurar la 2FA, tu administrador puede restablecer la 2FA para tu cuenta de usuario en la configuración.
-- Volver a añadir al usuario: si los problemas persisten, el administrador puede eliminar tu cuenta de usuario del panel y volver a añadirte. Esto permite la creación del usuario con los mismos datos.
+Si seleccionas **Iniciar configuración** durante la configuración de la 2FA pero nunca recibes un código de verificación (por SMS o correo electrónico) o no puedes completar la configuración de la aplicación de autenticación, las extensiones del navegador, la configuración de cookies o las restricciones de red pueden estar interfiriendo. Intenta lo siguiente:
+
+- Desactiva los bloqueadores de anuncios y habilita las cookies de terceros: Los bloqueadores de anuncios o las extensiones de privacidad pueden bloquear el flujo de verificación de la 2FA. Desactívalos temporalmente y confirma que las cookies de terceros estén habilitadas en la configuración de tu navegador.
+- Prueba un navegador diferente: Cambia a un navegador diferente para descartar problemas específicos del navegador.
+- Cambia de red: Si estás en una red corporativa, las políticas del cortafuegos pueden interferir con la configuración de la 2FA. Intenta cambiar a una conexión personal o un punto de acceso móvil.
+- Instala una aplicación de autenticación antes de la configuración en el navegador: Descarga e instala una aplicación de autenticación (como Authy, Google Authenticator o LastPass Authenticator) en tu dispositivo móvil antes de seleccionar **Aplicación de autenticación** durante la configuración.
+- Elimina perfiles de autenticación obsoletos: Si previamente iniciaste la configuración de la aplicación de autenticación pero no se completó, elimina los perfiles obsoletos en tu aplicación y vuelve a escanear el código QR.
+
+Si sigues teniendo problemas después de intentar estos pasos:
+
+- Restablecer la 2FA: Tu administrador puede restablecer la 2FA para tu cuenta de usuario en la configuración.
+- Volver a añadir al usuario: Si los problemas persisten, el administrador puede eliminar tu cuenta de usuario del panel y volver a añadirte. Esto permite la creación del usuario con los mismos datos.
 
 Si los problemas continúan después de estos pasos, contacta con [Soporte]({{site.baseurl}}/braze_support) para obtener más ayuda.
 

@@ -78,14 +78,14 @@ Dans Canvas, les performances des messages in-app sont cartographiées sur le Ca
 
 #### Audience estimée et audience actuelle {#estimated-audience-and-current-audience}
 
-Selon la taille de votre espace de travail, le panneau **Campaign Details** peut afficher les statistiques d'audience sous le libellé **Estimated Audience** ou **Current Audience**.
+Selon le nombre total d'utilisateurs dans votre espace de travail, le panneau **Campaign Details** affiche les statistiques d'audience sous le libellé **Current Audience** ou **Estimated Audience**.
 
 Le tableau suivant résume la signification de chaque libellé.
 
 | Libellé | Quand il est utilisé |
 | --- | --- |
-| **Estimated Audience** | Braze n'effectue pas par défaut un comptage complet de la base de données. La taille de l'audience est estimée à partir d'un échantillon et extrapolée, de manière similaire à la plage **Reachable users** dans le générateur de segments. Des marges d'erreur sont attendues, en particulier pour les grands espaces de travail ou les petits segments par rapport à l'ensemble de l'espace de travail. |
-| **Current Audience** | Braze peut calculer la statistique par défaut avec un balayage complet des profils de l'espace de travail, de sorte que la taille d'audience affichée est un comptage actuel et non échantillonné (toujours soumis à l'accessibilité du canal, aux règles d'abonnement et aux autres options de ciblage). |
+| **Current Audience** | L'espace de travail compte 50 000 utilisateurs ou moins. Braze effectue un balayage complet des profils de l'espace de travail pour la statistique par défaut, de sorte que la taille d'audience affichée est un comptage actuel et non échantillonné (toujours soumis à l'accessibilité du canal, aux règles d'abonnement et aux autres options de ciblage). |
+| **Estimated Audience** | L'espace de travail compte plus de 50 000 utilisateurs. Braze n'effectue pas par défaut un comptage complet de la base de données. La taille de l'audience est estimée à partir d'un échantillon et extrapolée, de manière similaire à la plage **Reachable users** dans le générateur de segments. Des marges d'erreur sont attendues, en particulier pour les petits segments par rapport à l'ensemble de l'espace de travail. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Audience estimée et audience actuelle" }
 
 Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **Reachable users**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
@@ -158,7 +158,7 @@ Le panneau **Push Performance** donne un aperçu de la performance de votre mess
 
 Le panneau **SMS/MMS/RCS Performance** présente les performances de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
 
-![Panneau de performances SMS/MMS/RCS comprenant un tableau d'indicateurs pour le groupe de contrôle, la variante 1 et la variante 2.]({% image_buster /assets/img_archive/sms_message_performance.png %})
+![Panneau de performances SMS/MMS/RCS comprenant un tableau d'indicateurs pour un groupe de contrôle, la variante 1 et la variante 2.]({% image_buster /assets/img_archive/sms_message_performance.png %})
 
 {% elsif include.channel == "banner" %}
 ### Performance des bannières {#banner-performance}
