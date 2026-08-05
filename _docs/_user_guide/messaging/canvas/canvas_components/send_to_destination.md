@@ -16,18 +16,20 @@ tool: Canvas
 
 ![A Send to Destination step to send users to a new Canvas.]({% image_buster /assets/img/send_to_destination1.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-Your current Canvas with the Send to Destination step is the source. Within the step, you can choose the destination Canvas. Users from the source Canvas must meet the destination Canvas entry and audience criteria. Let's say you have two Canvases:
+Your current Canvas with the Send to Destination step is the source. Within the step, you can choose the destination Canvas. Users from the source Canvas must meet the destination Canvas audience criteria. Let's say you have two Canvases:
 
 - **Source:** Canvas 1, includes a Send to Destination step that sends users to Canvas 2
-- **Destination:** Canvas 2, with the entry criteria to enter users who ordered an item
+- **Destination:** Canvas 2, with audience criteria to enter users who ordered an item
 
-This step allows users from Canvas 1 to be sent to Canvas 2. When users from Canvas 1 enter the Send to Destination step, they are evaluated against Canvas 2's entry and audience criteria to determine if they're eligible to enter the Canvas. In this case, users who ordered an item can enter Canvas 2 and also continue their journey in Canvas 1. For users who haven't ordered an item, they continue their journey in Canvas 1 only.
+This step allows users from Canvas 1 to be sent to Canvas 2. When users from Canvas 1 enter the Send to Destination step, they are evaluated against Canvas 2's audience criteria to determine if they're eligible to enter the Canvas. In this case, users who ordered an item can enter Canvas 2 and also continue their journey in Canvas 1. For users who haven't ordered an item, they continue their journey in Canvas 1 only.
 
 ### Entry behavior
 
-The Send to Destination step enters users into the destination Canvas as soon as they reach this step. This step acts as a one-time entry point into the destination Canvas. Users who meet the destination Canvas entry and audience criteria begin that Canvas journey. Users who don't meet those criteria at that moment don't enter the destination Canvas and continue in the source Canvas.
+The Send to Destination step enters users into the destination Canvas as soon as they reach this step. This step acts as a one-time entry point into the destination Canvas. Users who meet the destination Canvas audience criteria begin that Canvas journey. Users who don't meet those criteria at that moment don't enter the destination Canvas and continue in the source Canvas.
 
-If the destination Canvas uses a scheduled entry schedule, the Send to Destination step bypasses that entry schedule. It also bypasses [**Limit entrance volume**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) under **Entry Controls** on the destination Canvas when it's set to **Every time Canvas is schedule**. Users sent from this step don't wait for the next scheduled evaluation window—they're evaluated and entered when they reach the Send to Destination step if they meet the destination Canvas entry and audience criteria.
+Send to Destination also respects the destination Canvas [re-entry settings]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) under **Entry Controls**. If a user isn't eligible to re-enter the destination Canvas, they aren't sent to it and continue in the source Canvas.
+
+If the destination Canvas uses a scheduled entry schedule, the Send to Destination step bypasses that entry schedule. It also bypasses [**Limit entrance volume**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) under **Entry Controls** on the destination Canvas when it's set to **Every time Canvas is schedule**. Users sent from this step don't wait for the next scheduled evaluation window—they're evaluated against the destination Canvas audience criteria and entered immediately when they reach the Send to Destination step.
 
 If the destination Canvas uses action-based entry, the Send to Destination step bypasses the requirement for users to perform the configured entry action to enter that Canvas.
 
@@ -63,7 +65,7 @@ Yes. The [context]({{site.baseurl}}/user_guide/messaging/design_and_edit/persona
 
 Yes. You can connect Canvases with the Send to Destination step when users should move directly into another Canvas journey.
 
-You don’t need separate User Update steps, API triggers, or webhooks solely to move users between Canvases, as long as they meet the destination Canvas criteria when they’re sent.
+You don’t need separate User Update steps, API triggers, or webhooks solely to move users between Canvases, as long as they meet the destination Canvas audience criteria when they’re sent.
 
 ### Do users enter at the start of the destination Canvas?
 
@@ -71,8 +73,8 @@ Eligible users enter immediately at the first step of the destination Canvas. Th
 
 ### Does the Send to Destination step respect a scheduled destination Canvas entry schedule?
 
-No. If the destination Canvas uses a scheduled entry type, users sent from the Send to Destination step don't wait for the next scheduled evaluation window. They're evaluated and entered when they reach the Send to Destination step if they meet entry and audience criteria of the destination Canvas.
+No. If the destination Canvas uses a scheduled entry type, users sent from the Send to Destination step don't wait for the next scheduled evaluation window. They're evaluated against the audience criteria and entered immediately when they reach the Send to Destination step.
 
 ### How does advancement behavior work for Send to Destination steps?
 
-Users who enter the Send to Destination step continue their user journey if there are additional steps in the source Canvas. If users also meet the entry rules of the destination Canvas, they can enter that Canvas and begin that journey.
+Users who enter the Send to Destination step continue their user journey if there are additional steps in the source Canvas. If users also meet the audience criteria of the destination Canvas, they can enter that Canvas and begin that journey.
