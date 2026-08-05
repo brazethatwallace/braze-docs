@@ -496,7 +496,7 @@ hide_toc: true
               <div class="form-group">
 
                 <label for="doc_description" id="doc_description_label" style="margin-bottom:6px;line-height:1.2;">설명</label>
-                <div class="sublabel" style="margin-bottom:6px;">요청된 업데이트에 대해 가능한 한 자세히 설명해 주세요.</div>
+                <div class="sublabel" style="margin-bottom:6px;">요청하신 업데이트에 대해 가능한 한 자세히 설명해 주세요.</div>
                 <textarea name="Description" class="form-control" id="doc_description" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="7"></textarea>
               </div>
