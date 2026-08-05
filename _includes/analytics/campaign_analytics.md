@@ -215,6 +215,14 @@ If links use Liquid for dynamic URLs, clicked URLs may not match the rendered li
 
 ![Example of the Preview and Heatmap page that includes an email campaign, and a panel with link alias examples with their total clicks.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
+##### Mobile-only links in the heatmap
+
+The heatmap only shows heat signatures for links visible at the selected preview size.
+
+Links that only appear in the mobile layout are hidden in **Desktop** (and may be hidden in **Overall**, depending on preview width), so those clicks do not show as heat signatures. Those links still appear in the **Link Table by Total Clicks** panel with their total clicks and percentages.
+
+To view heat signatures for mobile-only links, select **Mobile**. The mobile preview matches the drag-and-drop editor's mobile breakpoint (620&nbsp;px). If the email switches layouts only at a narrower width, those links stay hidden even in the **Mobile** preview size.
+
 #### Images
 
 We recommend enabling CORS for your image URLs to help prevent images from breaking in heatmap previews and exports.
