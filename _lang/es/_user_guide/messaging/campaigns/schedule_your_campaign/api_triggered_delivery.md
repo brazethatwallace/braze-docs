@@ -36,12 +36,14 @@ Para Campaigns de correo electrónico, incluye también `email` (y cualquier otr
 Para ver todos los parámetros de solicitud, ejemplos y el comportamiento de reintentos, consulta [Enviar Campaigns desencadenadas por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#recipient-limits-and-profile-creation) y el [objeto de destinatarios]({{site.baseurl}}/api/objects_filters/recipient_object).
 
 {% alert note %}
-Esta guía se aplica a Campaigns desencadenadas por API (`/campaigns/trigger/send`). El [endpoint de correo transaccional]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message) utiliza una estructura de solicitud diferente (`recipient`, singular) y no admite `send_to_existing_only`. Para crear un usuario de forma integrada con envíos transaccionales, pasa `attributes` en el objeto `recipient` en su lugar.
+Esta guía se aplica a Campaigns desencadenadas por API (`/campaigns/trigger/send`). El [endpoint de correo transaccional]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message) utiliza una estructura de solicitud diferente (`recipient`, singular) y no admite `send_to_existing_only`. Para crear un usuario de forma integrada con envíos transaccionales, pasa `attributes` en el objeto `recipient`.
 {% endalert %}
 
 ## Uso del contenido con plantilla incluido en una solicitud de API {#using-the-templated-content-included-with-an-api-request}
 
-Además de desencadenar el mensaje, también puedes incluir contenido con la solicitud de API para que se aplique como plantilla en el mensaje dentro del objeto `trigger_properties`. Se puede hacer referencia a este contenido en el cuerpo del mensaje. Usa exactamente dos llaves por cada etiqueta de Liquid en `trigger_properties` y en el texto del mensaje. Un ejemplo es: {% raw %}`{{api_trigger_properties.${your_property}}}`.{% endraw %} Un `{` o `}` adicional es una causa común de [fallos de personalización activada por API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze).
+Además de desencadenar el mensaje, también puedes incluir contenido con la solicitud de API para que se aplique como plantilla en el mensaje dentro del objeto `trigger_properties`. Este contenido puede referenciarse en el cuerpo del mensaje.
+
+Usa exactamente dos llaves por cada etiqueta de Liquid en `trigger_properties` y en el texto del mensaje. Un ejemplo es: {% raw %}`{{api_trigger_properties.${your_property}}}`.{% endraw %} Una `{` o `}` adicional es una causa común de [fallos de personalización activada por API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze).
 
 Consulta el siguiente ejemplo de notificación social para más contexto.
 
@@ -49,8 +51,8 @@ Consulta el siguiente ejemplo de notificación social para más contexto.
 
 ## Reelegibilidad con Campaigns activadas por API {#re-eligibility-with-api-triggered-campaigns}
 
-El número de veces que un usuario recibe una Campaign activada por API se puede limitar mediante la configuración de reelegibilidad. Esto significa que el usuario recibirá la Campaign solo una vez o una vez en un periodo determinado, independientemente de cuántas veces se active el desencadenador de API.
+El número de veces que un usuario recibe una Campaign activada por API se puede limitar mediante la configuración de reelegibilidad. Esto significa que el usuario recibe la Campaign solo una vez o una vez en un periodo determinado, independientemente de cuántas veces se active el desencadenador de API.
 
-Por ejemplo, supongamos que estás utilizando una Campaign activada por API para enviar al usuario una Campaign sobre un artículo que vio recientemente. En este caso, puedes limitar la Campaign para que envíe un máximo de un mensaje al día, independientemente de cuántos artículos haya visto, mientras se activa el desencadenador de API para cada artículo. Por otro lado, si tu Campaign activada por API es transaccional, querrás asegurarte de que el usuario reciba la Campaign cada vez que realice la transacción, estableciendo el retraso en cero minutos.
+Por ejemplo, supongamos que estás utilizando una Campaign activada por API para enviar al usuario una Campaign sobre un artículo que vio recientemente. En este caso, puedes limitar la Campaign para que envíe un máximo de un mensaje al día, independientemente de cuántos artículos haya visto, mientras se activa el desencadenador de API para cada artículo. Si tu Campaign activada por API es transaccional, asegúrate de que el usuario reciba la Campaign cada vez que realice la transacción estableciendo el retraso en cero minutos.
 
-![Captura de pantalla relacionada con la reelegibilidad con Campaigns activadas por API.]({% image_buster /assets/img_archive/api_triggered_reeligible.png %})
+![Captura de pantalla relacionada con la reelegibilidad en Campaigns activadas por API.]({% image_buster /assets/img_archive/api_triggered_reeligible.png %})

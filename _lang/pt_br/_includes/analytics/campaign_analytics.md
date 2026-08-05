@@ -78,14 +78,14 @@ No Canvas, você verá o desempenho da mensagem no app mapeado no Canvas que voc
 
 #### Estimated Audience e Current Audience {#estimated-audience-and-current-audience}
 
-Dependendo do tamanho do seu espaço de trabalho, o painel **Campaign Details** pode rotular as estatísticas de público como **Estimated Audience** ou **Current Audience**.
+Dependendo do número total de usuários no seu espaço de trabalho, o painel **Campaign Details** rotula as estatísticas de público como **Current Audience** ou **Estimated Audience**.
 
 A tabela a seguir resume o que cada rótulo significa.
 
 | Rótulo do rodapé | Quando é usado |
 | --- | --- |
-| **Estimated Audience** | A Braze não executa uma contagem completa do banco de dados por padrão. O tamanho do público é estimado a partir de uma amostra e extrapolado, de forma semelhante ao intervalo de **usuários contatáveis** no criador de segmentos. Margens de erro são esperadas, especialmente para espaços de trabalho grandes ou segmentos pequenos em relação ao espaço de trabalho. |
-| **Current Audience** | A Braze pode calcular a estatística padrão com uma varredura completa dos perfis do espaço de trabalho, então o tamanho do público exibido é uma contagem atual e não amostrada (ainda sujeita à acessibilidade do canal, regras de inscrição e outras opções de direcionamento). |
+| **Current Audience** | O espaço de trabalho tem 50.000 usuários ou menos. A Braze executa uma varredura completa dos perfis do espaço de trabalho para a estatística padrão, então o tamanho do público exibido é uma contagem atual e não amostrada (ainda sujeita à acessibilidade do canal, regras de inscrição e outras opções de direcionamento). |
+| **Estimated Audience** | O espaço de trabalho tem mais de 50.000 usuários. A Braze não executa uma contagem completa do banco de dados por padrão. O tamanho do público é estimado a partir de uma amostra e extrapolado, de forma semelhante ao intervalo de **usuários contatáveis** no criador de segmentos. Margens de erro são esperadas, especialmente para segmentos pequenos em relação ao espaço de trabalho. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience e Current Audience" }
 
 Para mais detalhes sobre o comportamento de amostragem, **Calculate exact statistics** e segmentação de **Reachable users**, consulte [Medir o tamanho do segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
@@ -213,7 +213,7 @@ Nesta visualização, você pode usar o botão **Show Heatmap** para exibir uma 
 Se os links usarem Liquid para URLs dinâmicas, as URLs clicadas podem não corresponder ao link renderizado na mensagem de forma suficiente para que o mapa de calor associe os cliques a esse link, então esses links podem não aparecer no mapa de calor. Para atribuir dados de cliques a links com templates no mapa de calor, use [alias de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing). Para uma visão completa, use os dados de cliques no painel **Link Table by Total Clicks**.
 {% endalert %}
 
-![Exemplo da página de Preview & Heatmap que inclui uma campanha de e-mail e um painel com exemplos de alias de link com seus cliques totais.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+![Exemplo da página de Preview e Heatmap que inclui uma campanha de e-mail e um painel com exemplos de alias de link com seus cliques totais.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
 #### Imagens {#images}
 

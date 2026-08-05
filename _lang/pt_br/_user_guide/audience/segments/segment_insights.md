@@ -15,33 +15,41 @@ description: "Este artigo de instruções mostra como usar, interpretar e compar
 
 Os insights de segmento mostram o desempenho de um segmento em comparação com outro em um conjunto de KPIs pré-selecionados.
 
-## Visualizando os insights de segmento {#viewing-segment-insights}
+## Visualizando insights de segmento {#viewing-segment-insights}
 
-Acesse a página **Insights de segmento** do seu dashboard, em **Analytics**, para visualizar até 10 segmentos diferentes comparados a uma linha de base.
+Acesse a página **Segment Insights** no seu dashboard, em **Analytics**, para visualizar até 10 segmentos diferentes comparados com uma linha de base.
 
-![Dashboard de insights de segmento comparando três segmentos, "UK Users", "FR Users" e "CA Users" com um segmento de linha de base, "All Users".]({% image_buster /assets/img_archive/segment_insights.png %})
+![Dashboard de Segment Insights comparando três segmentos, "UK Users", "FR Users" e "CA Users" com um segmento de linha de base, "All Users".]({% image_buster /assets/img_archive/segment_insights.png %})
 
-O segmento de linha de base pode ser um segmento específico que você selecionar ou um segmento contendo todos os seus usuários. Você pode comparar as seguintes estatísticas usando os insights de segmento:
+{% alert note %}
+As estatísticas na página de Segment Insights são estimadas por padrão. Para calcular valores exatos, abra um segmento e selecione **Calculate Exact Statistics**. As estimativas podem ser maiores ou menores do que os valores exatos, especialmente em espaços de trabalho grandes ou para segmentos pequenos.
+{% endalert %}
+
+O segmento de linha de base pode ser um segmento específico que você selecionar ou um segmento contendo todos os seus usuários. Você pode comparar as seguintes estatísticas usando Segment Insights:
 
 | Medida | Descrição | Fórmula |
 | --------------------- | ------------- | ------------- |
-| Sessões por dia | Número médio de sessões por dia dos usuários do segmento | (total de sessões) / (nº de dias desde a primeira sessão) |
+| Sessões por dia | Número médio de sessões por dia dos usuários do segmento | (nº total de sessões) / (nº de dias desde a primeira sessão) |
 | Dias desde a primeira sessão | Número médio de dias entre a primeira sessão dos usuários do segmento e agora | hoje – data da primeira sessão |
 | Dias desde a última sessão | Número médio de dias entre a última sessão dos usuários do segmento e agora | hoje – data da última sessão |
-| Receita vitalícia em dólares | Receita vitalícia média em dólares para os usuários do segmento | gasto vitalício do usuário |
+| Receita vitalícia em dólares | Receita média vitalícia em dólares dos usuários do segmento | gasto vitalício do usuário |
 | Dias desde a primeira compra | Número médio de dias entre a primeira sessão e a primeira compra dos usuários do segmento | data da primeira compra – data da primeira sessão |
 | Dias desde a última compra | Número médio de dias entre a última compra dos usuários do segmento e agora | hoje – data da última compra |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Visualizando os insights de segmento" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Visualizando insights de segmento" }
 
-Você pode compartilhar facilmente comparações específicas com seus colegas usando a URL exclusiva da página, e também pode selecionar o ícone de olho ao lado de cada segmento para ver mais informações sobre ele. Essas comparações serão redefinidas quando você alternar entre espaços de trabalho.
+Você pode compartilhar facilmente comparações específicas com seus colegas usando a URL exclusiva da página, e também pode selecionar o ícone de olho ao lado de cada segmento para revelar mais informações sobre ele. Essas comparações serão redefinidas quando você alternar entre espaços de trabalho.
 
-![Detalhes do segmento "Premium Users (iOS VideoApp)" com um gráfico exibindo o histórico de membros e um quadro que detalha o tamanho estimado para vários canais de envio de mensagens.]({% image_buster /assets/img_archive/Segment_Insights_Info.png %}){: style="max-width:50%;"}
+![Detalhes do segmento "Premium Users (iOS VideoApp)" com um gráfico exibindo o histórico de membros e um quadro que detalha o tamanho estimado para diversos canais de envio de mensagens.]({% image_buster /assets/img_archive/Segment_Insights_Info.png %}){: style="max-width:50%;"}
 
-## Página de detalhes do segmento {#segment-details-page}
+## Página de detalhes do Segment {#segment-details-page}
 
-Os insights de segmento também foram integrados diretamente à visualização **Segment Details**. Ao analisar um segmento específico que você configurou anteriormente, você encontrará as mesmas seis estatísticas descritas na caixa dinâmica e cinza de estatísticas do segmento. A partir daqui, você pode iniciar rapidamente a ferramenta de insights de segmento para comparar esse segmento específico com qualquer outro que você tenha configurado anteriormente, mas observe que isso substituirá quaisquer segmentos que você tenha selecionado anteriormente na ferramenta de insights de segmento.
+Os insights de segmento também foram integrados diretamente à visualização **Detalhes do Segment**. Ao analisar um Segment específico que você configurou anteriormente, é possível encontrar as mesmas seis estatísticas descritas na caixa dinâmica e cinza de Estatísticas do Segment. A partir daqui, você pode iniciar rapidamente a ferramenta de insights de segmento para comparar esse Segment específico com qualquer outro que tenha configurado anteriormente. No entanto, observe que isso substituirá quaisquer Segments que você tenha selecionado anteriormente na ferramenta de insights de segmento.
 
-![Os insights de segmento também foram integrados diretamente à visualização Segment Details. Ao analisar um segmento específico que você configurou anteriormente, você encontrará as mesmas seis estatísticas descritas na caixa dinâmica e cinza de estatísticas do segmento. A partir daqui, você pode iniciar rapidamente a ferramenta de insights de segmento para comparar esse segmento específico com qualquer outro que você tenha configurado anteriormente, mas observe que isso substituirá quaisquer segmentos que você tenha selecionado anteriormente na ferramenta de insights de segmento.]({% image_buster /assets/img_archive/Segment_Segment_Insights.png %})
+{% alert note %}
+Os [insights de segmento](#viewing-segment-insights) e a página **Detalhes do Segment** calculam estimativas de tamanho separadamente, usando amostras de usuários e tamanhos de amostra diferentes. Portanto, é esperado que os números possam não coincidir.
+{% endalert %}
+
+![Os insights de segmento também foram integrados diretamente à visualização de detalhes do Segment. Ao analisar um Segment específico que você configurou anteriormente, é possível encontrar as mesmas seis estatísticas descritas na caixa dinâmica e cinza de Estatísticas do Segment. A partir daqui, você pode iniciar rapidamente a ferramenta de insights de segmento para comparar esse Segment específico com qualquer outro que tenha configurado anteriormente. No entanto, observe que isso substituirá quaisquer Segments que você tenha selecionado anteriormente na ferramenta de insights de segmento.]({% image_buster /assets/img_archive/Segment_Segment_Insights.png %})
 
 ## Casos de uso {#insights-use-cases}
 

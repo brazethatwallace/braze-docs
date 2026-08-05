@@ -20,7 +20,7 @@ Ve a **Audiencia** > **Segments**.
 
 Selecciona **Crear Segment** para empezar a construir tu segmento. Nombra tu segmento describiendo el tipo de usuario que pretendes filtrar. Esto te ayuda a identificar el segmento cuando quieras segmentarlo para tus Campaigns o Canvas. Los títulos de segmento vagos pueden resultar confusos.
 
-También puedes pedir a Operator que te ayude a construir la lógica de filtros de tu segmento a partir de una descripción de tu público objetivo. Para más detalles, consulta [Lo que puedes hacer con Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
+También puedes pedir a Operator que te ayude a construir la lógica de filtros de tu segmento a partir de una descripción de tu público objetivo. Para más detalles, consulta [Qué puedes hacer con Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
 Opcionalmente, puedes hacer lo siguiente:
 - Añadir una descripción al segmento para proporcionar más detalles sobre la intención de esta audiencia y dejar notas a las que otros miembros del equipo puedan consultar.
@@ -33,7 +33,7 @@ Los segmentos se guardan en cuanto seleccionas **Crear Segment**. No necesitas s
 Si solo tienes el permiso "Editar Segments" a nivel de equipo (no a nivel de espacio de trabajo), Braze asigna un equipo cuando se crea el segmento:
 <br><br>
 - **Un equipo elegible:** Ese equipo se asigna automáticamente.
-- **Varios equipos elegibles:** Braze asigna el primer equipo en tu lista de equipos elegibles. Puedes cambiar el equipo en el editor de segmentos antes de compartir o usar el segmento.
+- **Varios equipos elegibles:** Braze asigna el primer equipo de tu lista de equipos elegibles. Puedes cambiar el equipo en el editor de segmentos antes de compartir o utilizar el segmento.
 {% endalert %}
 
 ## Paso 3: Elige tu aplicación o plataforma {#step-3-choose-your-app-or-platform}
@@ -99,15 +99,19 @@ Braze no genera perfiles para los usuarios hasta que hayan usado la aplicación 
 
 ![Grupos de filtros del segmentador con el operador AND.]({% image_buster /assets/img_archive/segmenter_filter_groups.png %})
 
-{% alert important %}
-Los Segments que ya usan el filtro **Pertenencia a Segment** no pueden incluirse ni anidarse adicionalmente en otros segmentos. Esto evita un ciclo en el que el Segment A incluye al Segment B, que luego intenta incluir al Segment A de nuevo. Si eso ocurriera, el segmento seguiría referenciándose a sí mismo, haciendo imposible calcular quién realmente pertenece a él.
+#### Visualización de filtros de fecha y antigüedad {#date-and-recency-filter-display}
 
+Cuando configuras un filtro de tiempo relativo usando días (como un evento realizado hace más de 84&nbsp;días y menos de 91&nbsp;días), Braze convierte el valor a semanas después de guardar si el número de días se divide exactamente entre siete. Por ejemplo, 91&nbsp;días se muestra como 13&nbsp;semanas, pero 121&nbsp;días permanece en días porque no se divide exactamente. Este es solo un cambio de visualización: los valores se siguen almacenando y procesando como días.
+
+{% alert important %}
+Los Segments que ya usan el filtro **Segment Membership** no pueden incluirse ni anidarse dentro de otros segmentos. Esto evita un ciclo en el que el Segment A incluye al Segment B, que luego intenta incluir al Segment A de nuevo. Si esto ocurre, el segmento sigue haciendo referencia a sí mismo, lo que hace imposible calcular quién pertenece a él.
+<br><br>
 Además, anidar segmentos de esta manera añade complejidad y puede ralentizar las cosas. En su lugar, recrea el segmento que intentas incluir usando los mismos filtros.
 {% endalert %}
 
 ### Grupos de exclusión (opcional) {#exclusion}
 
-Al construir un segmento, puedes aplicar uno o varios grupos de exclusión. Los grupos de exclusión contienen criterios que identifican a los usuarios que se deben excluir de tu segmento, y siempre estarán conectados a tus grupos de filtros con un operador "AND NOT".
+Al crear un segmento, puedes aplicar uno o varios grupos de exclusión. Los grupos de exclusión contienen criterios que identifican a los usuarios que se deben excluir de tu segmento, y siempre estarán conectados a tus grupos de filtros con un operador "AND NOT".
 
 Los grupos de exclusión anulan los criterios del segmento. Si un usuario cumple los criterios de tu grupo de exclusión, no formará parte de tu segmento, incluso si cumple los criterios dentro de tus grupos de filtros.
 
@@ -119,13 +123,13 @@ Los usuarios excluidos no se contarán como parte de la estadística _Total de u
 
 ### Ver estadísticas de embudo {#viewing-funnel-statistics}
 
-Selecciona **Ver estadísticas de embudo** para mostrar las estadísticas de ese grupo de filtros y ver cómo cada filtro añadido impacta en las estadísticas de tu segmento. Verás un recuento estimado y un porcentaje de usuarios que son segmentados por todos los filtros hasta ese punto. Una vez que se muestren las estadísticas para un grupo de filtros, se actualizarán automáticamente cada vez que cambies los filtros. Estas estadísticas son estimadas y pueden tardar un momento en generarse.
+Selecciona **Ver estadísticas de embudo** para mostrar las estadísticas de ese grupo de filtros y ver cómo cada filtro añadido afecta las estadísticas de tu segmento. Verás un recuento estimado y un porcentaje de los usuarios que son segmentados por todos los filtros hasta ese punto. Una vez que se muestran las estadísticas para un grupo de filtros, se actualizarán automáticamente cada vez que cambies los filtros. Estas estadísticas son estimadas y pueden tardar un momento en generarse.
 
 Ten en cuenta que si usas AND entre tus filtros, las estadísticas de embudo disminuirán; si usas OR entre tus filtros, las estadísticas de embudo aumentarán.
 
 ![Dos filtros con estadísticas de embudo del segmento.]({% image_buster /assets/img_archive/segment_funnel_statistics.png %})
 
-Al añadir filtros que documenten el flujo de tus usuarios, puedes ver los puntos donde los usuarios abandonan. Por ejemplo, si tienes una aplicación de redes sociales y quieres ver dónde podrías estar perdiendo usuarios durante tu proceso de incorporación, puedes añadir filtros de datos personalizados para registrarse, añadir amigos y enviar el primer mensaje. Si descubres que el 85 % de los usuarios se registran y añaden amigos, pero solo el 45 % envió el primer mensaje, entonces sabrás que debes enfocarte en fomentar más envíos de mensajes durante tus campañas de incorporación y marketing.
+Al añadir filtros que documenten el flujo de tus usuarios, puedes ver los puntos donde los usuarios abandonan. Por ejemplo, si tienes una aplicación de redes sociales y quieres ver dónde podrías estar perdiendo usuarios durante tu proceso de incorporación, puedes añadir filtros de datos personalizados para registrarse, añadir amigos y enviar el primer mensaje. Si descubres que el 85 % de los usuarios se registran y añaden amigos, pero solo el 45 % envió el primer mensaje, entonces sabrás que debes enfocarte en fomentar más envíos de mensajes durante tus Campaigns de incorporación y marketing.
 
 ### Segmentos de prueba {#testing-segments}
 
@@ -154,7 +158,7 @@ Cuando un usuario no coincide con parte o la totalidad de los criterios del segm
 
 Puedes crear segmentos de un solo usuario (o segmentos de un puñado de usuarios) usando atributos únicos que identifiquen a los usuarios, como un nombre de usuario o un ID de usuario.
 
-Sin embargo, las estadísticas de segmentación o la vista previa pueden no mostrar a este usuario individual porque las estadísticas del segmento se calculan basándose en una muestra aleatoria con un intervalo de confianza del 95 % de que el resultado está dentro de +/- 1 %. Cuanto mayor sea tu base de usuarios, más probable es que el tamaño de tu segmento sea una estimación aproximada. Para asegurarte de que tu segmento contiene al usuario individual que estás segmentando, selecciona **Calcular estadísticas exactas**. Esto calculará el número exacto de usuarios en tu segmento con una precisión superior al 99,999 %.
+Sin embargo, las estadísticas de segmentación o la vista previa pueden no mostrar a este usuario individual porque las estadísticas de segmentos se calculan basándose en una muestra aleatoria con un intervalo de confianza del 95 % de que el resultado está dentro de +/- 1 %. Cuanto mayor sea tu base de usuarios, más probable es que el tamaño de tu segmento sea una estimación aproximada. Para asegurarte de que tu segmento contiene al usuario individual que estás buscando, selecciona **Calcular estadísticas exactas**. Esto calculará el número exacto de usuarios en tu segmento con una precisión superior al 99,999 %.
 
 Braze tiene filtros de prueba para segmentar usuarios específicos por ID de usuario o dirección de correo electrónico.
 
@@ -182,17 +186,17 @@ Puedes desarchivar el segmento navegando hasta él dentro de la página **Segmen
 
 Los usuarios tienen más de un dispositivo si inician sesión en la misma cuenta en varios dispositivos. Puedes comprobar si hay varios dispositivos en la sección **Dispositivos recientes** de un [perfil de usuario]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
-Al segmentar con filtros dependientes del dispositivo (modelo del dispositivo, sistema operativo del dispositivo y versión de la aplicación), tu segmento contendrá a todos los usuarios que coincidan con los criterios de tu filtro. Estos usuarios recibirán un mensaje en todos sus dispositivos, incluidos los que podrían no cumplir los criterios de tu filtro. Por ejemplo, supongamos que el usuario A tiene dos dispositivos: el dispositivo 1 tiene OS 13.0 y el dispositivo 2 tiene OS 10.0. Si un segmento se dirige a usuarios con OS 10.0, este usuario formará parte de ese segmento y recibirá mensajes en ambos dispositivos.
+Al segmentar con filtros dependientes del dispositivo (modelo del dispositivo, sistema operativo del dispositivo y versión de la aplicación), tu Segment contendrá a todos los usuarios que coincidan con los criterios de tu filtro. Estos usuarios recibirán un mensaje en todos sus dispositivos, incluidos los que podrían no cumplir con los criterios de tu filtro. Por ejemplo, supongamos que el usuario A tiene dos dispositivos: el dispositivo 1 tiene OS 13.0 y el dispositivo 2 tiene OS 10.0. Si un Segment se dirige a usuarios con OS 10.0, este usuario formará parte de ese Segment y recibirá mensajes en ambos dispositivos.
 
 ### Notificaciones push {#push-notifications}
 
 Puedes especificar que solo se envíe una notificación push a cada usuario. Al [redactar tu mensaje]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#step-4-compose-your-push-message), selecciona **Enviar solo al último dispositivo utilizado por el usuario** en **Configuración adicional**.
 
-!["Configuración adicional" con una casilla de verificación para enviar solo al último dispositivo utilizado por el usuario.]({% image_buster /assets/img_archive/send_to_last_device.png %}){: style="max-width:60%;"}
+![Configuración adicional con una casilla de verificación para enviar solo al último dispositivo utilizado por el usuario.]({% image_buster /assets/img_archive/send_to_last_device.png %}){: style="max-width:60%;"}
 
 ### Consideraciones {#considerations}
 
-- **Los mensajes enviados pueden superar el tamaño de la audiencia.** Cuando algunos usuarios tienen más de un dispositivo, cada dispositivo puede recibir un mensaje. Esto provoca un número de envíos de mensajes mayor que el de usuarios en tu segmento.
-- **La pertenencia de un usuario a un segmento podría no verse como esperas.**
+- **Los mensajes enviados pueden superar el tamaño de la audiencia.** Cuando algunos usuarios tienen más de un dispositivo, cada dispositivo puede recibir un mensaje. Esto provoca un número de envíos de mensajes mayor que el de usuarios en tu Segment.
+- **La pertenencia de un usuario a un Segment podría no verse como esperas.**
     - Un usuario puede ser segmentado en su dispositivo actual en función de atributos asociados a un dispositivo diferente. Si no esperabas que un usuario recibiera un mensaje, comprueba su perfil de usuario en busca de varios dispositivos.
-    - Un usuario puede haber estado en tu segmento objetivo en el momento del envío, pero debido a comportamientos asociados con cualquiera de sus dispositivos, puede que ya no forme parte de ese segmento después. Esto puede hacer que un usuario reciba una Campaign o un Canvas aunque actualmente no cumpla los criterios del filtro. <br><br>Por ejemplo, un usuario podría recibir un mensaje dirigido a usuarios con la versión de aplicación más reciente de OS 10.0 aunque actualmente tenga OS 13.0. En este caso, el usuario tenía OS 10.0 cuando se envió el mensaje y luego actualizó a OS 13.0 después.<br><br> De manera similar, si un usuario utiliza posteriormente un dispositivo con una versión de aplicación diferente, su perfil de usuario se actualizará con una nueva versión de aplicación más reciente. Esto podría hacer que parezca que el usuario no debería haber cumplido los requisitos para el mensaje, aunque los cumplía cuando se envió.
+    - Un usuario puede haber estado en tu Segment objetivo en el momento del envío, pero debido a comportamientos asociados con cualquiera de sus dispositivos, puede que ya no forme parte de ese Segment después. Esto puede hacer que un usuario reciba una Campaign o un Canvas aunque actualmente no cumpla con los criterios del filtro. <br><br>Por ejemplo, un usuario podría recibir un mensaje dirigido a usuarios con la versión de aplicación más reciente de OS 10.0, aunque actualmente tenga OS 13.0. En este caso, el usuario tenía OS 10.0 cuando se envió el mensaje y luego actualizó a OS 13.0 después.<br><br> De manera similar, si un usuario utiliza posteriormente un dispositivo con una versión de aplicación diferente, su perfil de usuario se actualizará con una nueva versión de aplicación más reciente. Esto podría hacer que parezca que el usuario no debería haber cumplido los requisitos para el mensaje, aunque los cumplía cuando se envió.

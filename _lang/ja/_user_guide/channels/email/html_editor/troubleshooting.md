@@ -19,9 +19,11 @@ channel: email
 | テストメールのHTMLが正しく表示されない | [テストメールでHTMLが正しくレンダリングされない](#html-renders-incorrectly-in-test-emails) |
 | Chromeでエディターの動作がおかしい | [拡張機能の競合](#extension-conflicts) |
 | メールクライアントによって表示が異なる | [メールのレンダリング](#email-rendering) |
-| メールにLiquidコードや壊れたリンクが表示される | [LiquidテンプレートのHTML不均衡](#unbalanced-html-in-liquid-templates) |
+| メールにLiquidコードや壊れたリンクが表示される | [LiquidテンプレートでのHTML不均衡](#unbalanced-html-in-liquid-templates) |
 | Inbox Visionのプレビューが送信済みメールと一致しない | [CSSインライン化](#css-inlining) |
 | テストメールで画像の後に余白や線が表示される | [画像下の余白](#white-space-under-images) |
+| クリック分析にクエリパラメーターが含まれない | [リンククリック分析の制限事項](#link-click-analytics-limitations) |
+| 上付き文字により行間が不均一になる | [上付き文字の行の高さの問題](#superscript-line-height-issues) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTMLメールの症状" }
 
 ## 標準的な調査パス {#standard-investigation-path}
@@ -134,4 +136,61 @@ Inbox Visionのプレビューが、Brazeで送信されたものと一致しな
 
 ```html
 <img src="https://example.com/image.jpg" style="display: block;" alt="Image description" />
+```
+
+## リンククリック分析の制限事項 {#link-click-analytics-limitations}
+
+### 症状
+
+一意のクエリパラメーターが多数含まれるメールのクリック分析が、期待どおりの結果と一致しません。最初の100個の一意のリンクを超えると、パラメーターが除去されたURLに対して集計されたクリック数が表示されることがあります。
+
+### リンククリックトラッキングの仕組み {#how-link-click-tracking-works}
+
+Brazeは、パラメーター付きURL（クエリパラメーターあり）とパラメーターが除去されたベースURLの両方でクリックをトラッキングします。メールキャンペーンまたはキャンバスでクリックされた最初の100個の一意のパラメーター付きリンクについて、Brazeは以下の両方のデータを収集してレポートします。
+
+- 完全なパラメーター付きURL（例：`https://example.com?user_id=12345`）
+- パラメーターが除去されたベースURL（例：`https://example.com`）
+
+最初の100個の一意のパラメーター付きリンクがクリックされた後、Brazeはパラメーターが除去されたベースURLのクリック数のみを増加させます。これは以下を意味します。
+
+- クリック分析は、個々のクエリパラメーターの組み合わせではなく、ベースドメインとパスで集計されます
+- リンクパスに基づいて有意義なエンゲージメントをトラッキングすることは引き続き可能です
+- 個々のユーザーレベルのクリックトラッキングは引き続き正常に機能します
+
+この動作により、全体的なリンクエンゲージメントパターンをキャプチャしながら、数千の一意のクエリパラメーターの組み合わせによって分析が肥大化するのを防ぎます。
+
+### キャンペーンへの影響 {#what-this-means-for-your-campaigns}
+
+外部プラットフォームでユーザー固有の行動をトラッキングするために一意のクエリパラメーターに依存している場合（例：`https://example.com?user_id=USER_ID`）、Brazeのクリック分析ではクリックされた最初の100個の一意のリンクについてのみそれらのパラメーターが保持されることに注意してください。そのしきい値を超えた後もクリックは分析に記録されますが、パラメーターが除去されたURLに帰属されます。
+
+ユーザーレベルのクリックデータは、クリックされた一意のパラメーター付きリンクの数に関係なく、[Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents)または[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)を通じて引き続き利用可能です。
+
+### 上付き文字の行の高さの問題 {#superscript-line-height-issues}
+
+#### 症状
+
+上付き文字を含むテキストで、行間が意図したよりも近くなったり離れたりして、一貫性のない行間隔で表示されます。これはメールクライアント全般で見られる一般的なレンダリングの問題であり、Braze固有のものではありません。
+
+メールで上付き文字を使用すると、メールクライアントごとに上付き文字テキストの処理方法が異なるため、予期しない行の高さの動作が発生する可能性があります。
+
+#### 解決方法 {#resolution}
+
+HTMLエディターを使用して、上付き文字と周囲の要素のスタイルを制御します。
+
+行の高さを明示的に定義するには、インラインCSSを追加してテキストの`line-height`を設定します。
+
+```html
+<p style="line-height: 1.5;">Example text with superscript<sup style="line-height: inherit;">1</sup></p>
+```
+
+垂直方向の配置を調整するには、`vertical-align`プロパティを使用して、行の高さを乱さずに上付き文字を配置します。
+
+```html
+<sup style="vertical-align: top; font-size: smaller;">1</sup>
+```
+
+上付き文字が引き続き問題を引き起こす場合は、より細かい制御のために`<sup>`の代わりに`<span>`を使用します。
+
+```html
+<span style="font-size: smaller; vertical-align: top;">1</span>
 ```
