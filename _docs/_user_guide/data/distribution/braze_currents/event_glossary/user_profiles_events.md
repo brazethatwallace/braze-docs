@@ -39,7 +39,6 @@ Currents drops events with payloads larger than 900 KB.
 
 <!--overview-end-->
 
-
 {% api %}
 ## User Delete Request events {#user-delete-request-events}
 
@@ -131,6 +130,40 @@ This represents the profile updates for a user.
   "timezone" : "(optional, string) Time zone of the user",
   "update_source" : "(required, string) The source of this update",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.profile.Update
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "archived" : "(optional, boolean) When set to True, indicates that this user was archived within Braze",
+    "country" : "(optional, string) [PII] Country of the user",
+    "custom_attributes" : "(optional, string) Valid JSON string of the updated custom attributes",
+    "dob" : "(optional, string) [PII] Date of birth of the user in ISO-8601 format",
+    "email_address" : "(optional, string) [PII] Email address of the user",
+    "first_name" : "(optional, string) [PII] First name of the user",
+    "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+    "home_city" : "(optional, string) [PII] Home city of the user",
+    "language" : "(optional, string) [PII] Language of the user",
+    "last_name" : "(optional, string) [PII] Last name of the user",
+    "phone_number" : "(optional, string) [PII] Phone number of the user in e.164 format",
+    "time_ms" : "(required, long) Time in milliseconds when the update happened",
+    "update_source" : "(required, string) The source of this update"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "timezone" : "(optional, string) Time zone of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
 }
 ```
 {% endtab %}
