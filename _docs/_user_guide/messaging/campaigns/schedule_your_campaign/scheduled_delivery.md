@@ -62,6 +62,21 @@ Intelligent Timing campaigns work best for one-off and recurring messages where 
 
 For campaigns that use scheduled delivery, audience criteria are always evaluated at the time of the scheduled send, not when the campaign launches. This applies to any delay between scheduling and sending—for example, rate limiting, local time zone, Intelligent Timing, or a trigger schedule.
 
+### Timing of segment changes
+
+If you modify a segment that's used as the audience for a scheduled campaign, changes made close to the scheduled send time are typically included when the audience is evaluated. The exact cutoff varies, but changes are generally included if they finish processing before Braze builds the audience for that send.
+
+For example, if you update a segment at 3:50 pm for a campaign scheduled to send at 4 pm, Braze uses the updated segment criteria when evaluating the audience, assuming the changes finish processing before campaign execution begins.
+
+#### Best practices
+
+To give segment changes time to finish processing before your scheduled campaigns send:
+
+- **Plan ahead:** Make segment changes well before the scheduled send time so they have time to finish processing.
+- **Test first:** When possible, test changes in a smaller campaign before applying them to larger, more critical campaigns.
+
+For more on scheduled delivery options, see [Delivery and entry types]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options).
+
 ## Troubleshooting
 
 ### Why didn't my scheduled email campaign reach the entire estimated audience?
