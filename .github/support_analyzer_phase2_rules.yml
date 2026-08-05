@@ -253,6 +253,8 @@ rules:
         fingerprint: support-analyzer-phase2:sms_optin_keyword
         skip_if_contains:
           - "High rejection rates are often tied to sender registration"
+          - "Before users can receive messages from a campaign or Canvas, they must be subscribed"
+          - "**Cloud Data Ingestion (CDI):**"
         anchor_substring: Design separate SMS subscription groups for each messaging purpose (for example, transactional versus marketing) and for each workspace.
         insert: |+
 
