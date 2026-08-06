@@ -173,6 +173,10 @@ If you haven't done so already, complete the remaining sections of your Canvas c
 
 After you finish building your campaign or Canvas, review its details, [test it]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages), then send it. For more information, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=content%20card).
 
+{% alert note %}
+While Content Cards do not require push notifications in production, test sends require push to be enabled on your test devices because the card is delivered in the push payload. Test Content Cards expire approximately five minutes after they are sent.
+{% endalert %}
+
 {% alert warning %}
 After a Content Card is launched, it can't be edited. It can only be stopped from sending to new users and removed from users' feeds. Refer to [Updating sent cards]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#updating-launched-cards) to understand how you can approach this scenario.
 {% endalert %}
