@@ -24,7 +24,7 @@ Some channels have both a global subscription state and subscription groups:
 | Email | Opted-in, subscribed, or unsubscribed for all email | Optional categories (for example, newsletters or promotions) within email |
 | SMS, MMS, and RCS | No global SMS state; subscription is per group | Required for every send; each group holds sending phone numbers or RCS senders |
 | WhatsApp | No global WhatsApp state; subscription is per group | Created when you integrate WhatsApp; each group maps to a sending phone number |
-| LINE | No global LINE state; subscription is per group | Created per LINE channel integration; follow/unfollow in the LINE app drives state |
+| LINE | No global LINE state; subscription is per group | Created per LINE channel integration; follow or unfollow in the LINE app drives state |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Global subscription state versus subscription groups" }
 
 A user can be globally subscribed to email while unsubscribed from a specific email subscription group. For SMS, a user can be subscribed to a transactional group and unsubscribed from a promotional group at the same time.
@@ -48,11 +48,11 @@ When you build a segment, add a subscription group filter to target users who op
 
 ## Archive subscription groups
 
-Archived subscription groups cannot be edited and no longer appear in segment filters or preference centers. If you archive a group used as a segment filter in an active email campaign, Canvas, or segment, you receive an error until you remove those references.
+Archived subscription groups can't be edited and no longer appear in segment filters or preference centers. If you archive a group used as a segment filter in an active email campaign, Canvas, or segment, you receive an error until you remove those references.
 
 To archive a group from **Subscription Group Management**, find the group and select **Archive** from the <i class="fa-solid fa-ellipsis-vertical"></i> menu.
 
-Braze does not process state changes for users in archived groups. For example, if a user clicks an unsubscribe link in an archived email subscription group, their status in that group does not change—and you cannot send using that group anyway.
+Braze blocks messaging to archived groups, so you can't use an archived subscription group in new or active sends.
 
 Some channels have additional archive rules. See [LINE subscription groups](#line-subscription-groups) for workspace and re-integration behavior.
 
@@ -63,11 +63,13 @@ Some channels have additional archive rules. See [LINE subscription groups](#lin
 
 ### Update subscription group status
 
-You can update a user's subscription group membership through the REST API, SDK, user import, user profile, preference center, Canvas User Update step, and other channel-specific flows. The exact methods depend on the channel—see each [channel section](#channel-specific-behavior) and [SMS, MMS, and RCS subscription groups]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#set-a-users-state) for SMS-specific timing guidance.
+You can update a user's subscription group membership through the REST API, SDK, user import, user profile, email preference center, Canvas User Update step, and other channel-specific flows. The exact methods depend on the channel—see each [channel section](#channel-specific-behavior) and [SMS, MMS, and RCS subscription groups]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#set-a-users-state) for SMS-specific timing guidance.
 
 ## Preference centers
 
-Email, SMS, and WhatsApp subscription groups can appear in a [preference center]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) so users manage category-level opt-ins in one place. Email subscription groups are added to the preference center list automatically when you create them.
+Email subscription groups can appear in an [email preference center]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) so users manage category-level email opt-ins in one place. Active email subscription groups are available to add when you build a preference center; legacy preference centers list all active email groups automatically.
+
+For SMS and WhatsApp, manage subscription state through the REST API, opt-in flows, keywords (SMS), user profile, and other channel-specific methods in each [channel section](#channel-specific-behavior).
 
 ## Channel-specific behavior
 
@@ -113,7 +115,7 @@ Subscription groups for SMS are provisioned during onboarding. For MMS tags, RCS
 
 ### LINE subscription groups
 
-LINE workspaces support up to 100 subscription groups. Each subscription group connects to one LINE channel integration.
+Each LINE subscription group connects to one LINE channel integration.
 
 | State | Definition |
 | --- | --- |
@@ -123,6 +125,6 @@ LINE workspaces support up to 100 subscription groups. Each subscription group c
 
 LINE is the source of truth for subscription status. Braze processes follow and unfollow events to update profiles.
 
-LINE subscription groups cannot be moved between workspaces. If you archive a group and re-integrate the channel in another workspace, Braze creates a new subscription group in the target workspace.
+LINE subscription groups can't be moved between workspaces. If you archive a group and re-integrate the channel in another workspace, Braze creates a new subscription group in the target workspace.
 
 For archive behavior, user reconciliation, and integration steps, see [LINE subscription groups]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups) and [LINE setup]({{site.baseurl}}/user_guide/channels/line/line_setup).
