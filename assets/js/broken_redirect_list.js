@@ -5146,7 +5146,7 @@ validurls['/docs/partners/message_orchestration/attribution/ab180'] = '/docs/par
 // Email — IA restructure (message_building_by_channel → channels)
 validurls['/docs/user_guide/message_building_by_channel/email/creating_an_email'] = '/docs/user_guide/channels/email/html_editor';
 validurls['/docs/user_guide/message_building_by_channel/email/managing_subscriptions'] = '/docs/user_guide/channels/email/subscriptions';
-validurls['/docs/user_guide/message_building_by_channel/email/subscription_groups'] = '/docs/user_guide/channels/email/subscriptions';
+validurls['/docs/user_guide/message_building_by_channel/email/subscription_groups'] = '/docs/user_guide/audience/subscription_preferences/subscription_groups';
 
 // Surveys — old paths that never mapped to the new IA
 validurls['/docs/user_guide/message_building_by_channel/surveys'] = '/docs/user_guide/channels/in_app_messages/message_types/simple_survey';
@@ -5309,7 +5309,7 @@ validurls['/docs/user_guide/message_building_by_channel/content_cards/create_a_c
 validurls['/docs/user_guide/message_building_by_channel/sms_mms_rcs/sms_subscription_groups'] = '/docs/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups';
 
 // Email — IA restructure (message_building_by_channel → channels)
-validurls['/docs/user_guide/message_building_by_channel/email/email_setup/subscription_groups'] = '/docs/user_guide/channels/email/subscriptions';
+validurls['/docs/user_guide/message_building_by_channel/email/email_setup/subscription_groups'] = '/docs/user_guide/audience/subscription_preferences/subscription_groups';
 validurls['/docs/user_guide/message_building_by_channel/email/overview'] = '/docs/user_guide/channels/email';
 
 // Analytics — path fixes
@@ -5332,7 +5332,8 @@ validurls['/docs/user_guide/channels/line/create_a_line_message/click_tracking']
 validurls['/docs/user_guide/analytics/dashboard'] = '/docs/user_guide/analytics/dashboards';
 
 // Email — managing_user_subscriptions/subscription_groups child path not covered by parent redirect
-validurls['/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/subscription_groups'] = '/docs/user_guide/channels/email/subscriptions';
+validurls['/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/subscription_groups'] = '/docs/user_guide/audience/subscription_preferences/subscription_groups';
+validurls['/docs/user_guide/channels/email/subscriptions/#subscription-groups'] = '/docs/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups';
 
 // Messaging fundamentals — missing messaging/ prefix in path
 validurls['/docs/user_guide/messaging_fundamentals/frequency_capping'] = '/docs/user_guide/messaging/messaging_fundamentals/frequency_capping';
@@ -5474,7 +5475,7 @@ validurls['/docs/user_guide/message_building_by_channel/in-app_messages/traditio
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/customize/html_in-app_messages#javascript-bridge'] = '/docs/user_guide/channels/in_app_messages/message_types/custom_html#javascript-bridge';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/create#choose-a-priority'] = '/docs/user_guide/channels/in_app_messages/traditional#choose-a-priority';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/create#fullscreen'] = '/docs/user_guide/channels/in_app_messages/message_types/fullscreen';
-validurls['/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-groups'] = '/docs/user_guide/channels/email/subscriptions#subscription-groups';
+validurls['/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-groups'] = '/docs/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups';
 validurls['/docs/user_guide/message_building_by_channel/push/best_practices/push_primer_messages'] = '/docs/user_guide/channels/push/best_practices/push_primer_messages';
 validurls['/docs/user_guide/message_building_by_channel/whatsapp/overview'] = '/docs/user_guide/channels/whatsapp/whatsapp_setup';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/templates/phone_number_capture'] = '/docs/user_guide/messaging/templates/in_app_message_templates/phone_number_capture';

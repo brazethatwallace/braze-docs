@@ -2,7 +2,7 @@
 nav_title: "Subscriptions"
 article_title: "Subscriptions"
 page_order: 5
-description: "This reference article covers the different user subscription states, how to create and manage subscription groups, and how to segment users based on their subscriptions."
+description: "This reference article covers the different user subscription states, how to manage email subscriptions, and how to segment users based on their subscriptions."
 channel:
   - email
 
@@ -10,7 +10,7 @@ channel:
 
 # Email subscriptions
 
-> Learn about user subscription states, how to create and manage subscription groups, and how to segment users based on their subscriptions.
+> Learn about global email subscription states, footers and unsubscribe pages, preference centers, and campaign targeting. For subscription groups across all channels, see [Subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
 
 This document is for informational purposes only. It is not intended to provide, nor may it be relied upon as providing legal advice in any capacity. Sending marketing and transactional emails may be subject to specific legal requirements. To ensure that you are doing so in compliance with all applicable laws, rules, and regulations specific to your company, you should seek the advice of your legal counsel and/or regulatory compliance team.
 
@@ -97,63 +97,9 @@ When a user's global email subscription state changes, Braze propagates that sta
 
 ## Subscription groups
 
-Subscription groups are segment filters that can further narrow your audience from the [global subscription states](#subscription-states). These groups allow you to present more granular subscription options to end-users.
+Email subscription groups let users opt in or out of specific email categories (such as newsletters or promotions) without changing their global email subscription state. Groups you create are available to add to your [preference center]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
 
-{% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
-
-For example, suppose you send out multiple categories of email campaigns (promotional, newsletter, or product updates). In that case, you can use subscription groups to let your customers pick and choose which email categories they want to subscribe or unsubscribe from in bulk from a single page, using an [email preference center](#email-preference-center). Alternatively, you could use subscription groups to let your customers choose how frequently they want to receive emails from you, by creating subscription groups for daily, weekly, or monthly emails.
-
-Use the [Subscription Group endpoints]({{site.baseurl}}/api/endpoints/subscription_groups) to programmatically manage the subscription groups that you have stored on the Braze dashboard to the **Subscription Group** page.
-
-### Creating a subscription group
-
-1. Go to **Audience** > **Subscription Group Management**.
-2. Select **Create email subscription group**. 
-3. Give your subscription group a name and description.
-4. Select **Save**. 
-
-All subscription groups are automatically added to your preference center.
-
-![Fields to create a subscription group.]({% image_buster /assets/img/sub_group_create.png %}){: style="max-width:75%"}
-
-### Segmenting with a subscription group
-
-When creating your segments, set the subscription group name as a filter to target users who have opted into your group. This is useful for monthly newsletters, coupons, membership tiers, and more.
-
-![Example of targeting users in the "Lapsed Users" segment with the filter for users in the "Weekly Emails" subscription group.]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
-
-### Archiving subscription groups
-
-Archived subscription groups cannot be edited and no longer appear in segment filters or in your preference center. If you attempt to archive a group that is being used as a segment filter in any email, campaign, or Canvas, you receive an error message that prevents you from archiving the group until you remove all usages of it.
-
-To archive your group from the **Subscription Groups** page, do the following:
-
-1. Find your group in the list of subscription groups. 
-2. Select **Archive** from the <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;dropdown menu.
-
-Braze doesn't process state changes for users in archived groups. For example, if you archive Subscription Group 1 while Alex is subscribed to it, Alex remains "subscribed" even if they click an unsubscribe link. This doesn't matter because Subscription Group 1 is archived and you can't send messages using it.
-
-#### Viewing subscription group sizes
-
-You can reference the **Subscription Group Timeseries** graph in the **Subscription Groups** page to view the subscription group size based on the number of users over a period of time. These subscription group sizes are also consistent with other areas of Braze, such as segment size calculation.
-
-![An example "Subscription Group Timeseries" graph dated from December 2nd through 11th. The graph shows a ~10 million increase in the number of users from the 6th to the 7th.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
-
-If the timeseries count diverges sharply from a segment using **Email Subscription Status is Unsubscribed**, remember the graph counts membership in that **subscription group**, while that filter reflects **global** email subscription state—for example, users can be globally subscribed but unsubscribed from a specific group.
-
-#### Viewing subscription groups in campaign analytics
-
-You can see counts of users who changed their subscription state (subscribed or unsubscribed) from a specific email campaign on that campaign's analytics page.
-
-1. From the **Campaign Analytics** page for your campaign, scroll down to the **Email Message Performance** section.
-2. Select the arrow under **Subscription Groups** to see the aggregate count of state changes, as submitted by your customers.
-
-![The "Email Message Performance" page displaying the aggregate count of state changes submitted by customers.]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
-
-### Checking a user's email subscription group
-
-- **User profile:** Individual user profiles can be accessed through the Braze dashboard from the [Search Users]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles) page. Here, you can look up user profiles by email address, phone number, or external user ID. You can also view a user's email subscription groups in the **Engagement** tab.
-- **Braze REST API:** Use the [List user’s subscription groups endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) or [List user’s subscription group status endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) to view individual user profile's subscription groups. 
+For how subscription groups work across Braze—including creating groups, segmenting, archiving, and channel-specific behavior—see [Subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups).
 
 ## Email preference center
 

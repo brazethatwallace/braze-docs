@@ -115,6 +115,8 @@ You can update or rotate the channel secret and channel access token for an alre
 
 ### Step 2.2: Generate LINE subscription groups in Braze
 
+Braze creates a [subscription group]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#line-subscription-groups) for each LINE channel you integrate. For how LINE subscription groups work, see [LINE subscription groups]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups).
+
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
 1. Go to the Braze Technology Partners page for LINE and input the information you noted from your LINE **Providers** tab:

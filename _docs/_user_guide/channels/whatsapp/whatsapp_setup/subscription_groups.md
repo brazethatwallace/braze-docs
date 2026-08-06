@@ -12,7 +12,7 @@ channel:
 
 # WhatsApp subscription groups
 
-> WhatsApp subscription groups are created upon integrating WhatsApp with your app through the **Technology Partner Portal**.
+> WhatsApp subscription groups are created upon integrating WhatsApp with your app through the **Technology Partner Portal**. For a cross-channel overview of subscription groups, see [Subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 

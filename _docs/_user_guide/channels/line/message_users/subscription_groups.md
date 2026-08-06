@@ -11,7 +11,7 @@ alias: /line/subscription_groups/
 
 # LINE subscription groups
 
-> There are two subscription states for LINE users: subscribed and unsubscribed. LINE can have up to 100 subscription groups per workspace, with each subscription group connected to its own LINE channel.
+> There are two subscription states for LINE users: subscribed and unsubscribed. LINE can have up to 100 subscription groups per workspace, with each subscription group connected to its own LINE channel. For a cross-channel overview of subscription groups, see [Subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
 
 | State | Definition |
 | --- | --- |
