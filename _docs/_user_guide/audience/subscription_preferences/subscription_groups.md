@@ -9,7 +9,9 @@ description: "Learn how subscription groups work across Braze channels, how to c
 
 > Learn how subscription groups work across Braze channels, how to create and manage them in the dashboard, and where channel-specific rules apply.
 
-Subscription groups control which users can receive messages from a specific set of sending resources within a channel. For email, subscription groups are optional **category** filters on top of global subscription state. For SMS, WhatsApp, and LINE, subscription groups are **audience** filters required for every send. They let you offer granular opt-in and opt-out choices—such as newsletters versus promotions, or transactional versus marketing SMS—without changing a user's global channel subscription state where one exists.
+Subscription groups control which users can receive messages from a specific set of sending resources within a channel. 
+
+For email, subscription groups are optional category filters on top of global subscription state. For SMS, WhatsApp, and LINE, subscription groups are audience filters required for every send. They let you offer granular opt-in and opt-out choices—such as newsletters versus promotions, or transactional versus marketing SMS—without changing a user's global channel subscription state where one exists.
 
 Use the [Subscription Group endpoints]({{site.baseurl}}/api/endpoints/subscription_groups) to programmatically manage subscription groups stored in your Braze workspace.
 
