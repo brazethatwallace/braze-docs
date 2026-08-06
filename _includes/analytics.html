@@ -46,6 +46,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <script>  
 (function(){
+function showCcPrompt() {
+  var prompt = document.getElementById('cc_prompt');
+  if (prompt) {
+    prompt.style.display = 'block';
+  }
+}
 
 braze.initialize('{{ site.api_key }}', {
   allowUserSuppliedJavascript: true,
@@ -56,7 +62,7 @@ braze.initialize('{{ site.api_key }}', {
 });
 braze.subscribeToContentCardsUpdates(function(updates) {
   if (updates.cards.length > 0) {
-    $('#cc_prompt').show();
+    showCcPrompt();
   }
 });
 
@@ -86,7 +92,7 @@ try {
 
 braze.openSession();
 if (braze.getCachedContentCards()?.cards?.length > 0) {
-  $('#cc_prompt').show();
+  showCcPrompt();
 } else {
   braze.requestContentCardsRefresh();
 }

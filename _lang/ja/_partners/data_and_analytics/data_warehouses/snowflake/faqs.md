@@ -9,69 +9,87 @@ description: "この記事では、Snowflake データ共有に関するよく�
 
 # よくある質問 {#frequently-asked-questions}
 
-## Snowflake データ共有を介して PII データを難読化することは可能ですか？ {#is-it-possible-to-obfuscate-pii-data-via-snowflake-data-sharing}
+## Snowflakeデータ共有を通じてPIIデータを難読化することは可能ですか？ {#is-it-possible-to-obfuscate-pii-data-via-snowflake-data-sharing}
 いいえ、現時点ではサポートされていません。
 
-## 同じリージョンのデータ共有が必要ですか、それともクロスリージョンのデータ共有が必要ですか？ {#do-i-need-data-share-for-the-same-region-or-cross-region}
-以下のシナリオでは、同じリージョンのデータ共有を使用します。
-- Snowflakeアカウントが US-EAST-1（AWS）にあり、Brazeダッシュボードのリージョンが米国にある場合。
-- Snowflakeリージョンが EU-CENTRAL-1（AWS）にあり、Brazeダッシュボードのリージョンが EU にある場合。
-- Snowflakeリージョンが AP-Northeast-1（AWS）にあり、Brazeダッシュボードのリージョンが日本にある場合。
-- Snowflakeリージョンが AP-Southeast-2（AWS）にあり、Brazeダッシュボードのリージョンがオーストラリアにある場合。
-- Snowflakeリージョンが AP-Southeast-3（AWS）にあり、Brazeダッシュボードのリージョンがインドネシアにある場合。
+## 同一リージョンのデータ共有とクロスリージョンのデータ共有のどちらが必要ですか？ {#do-i-need-data-share-for-the-same-region-or-cross-region}
+以下のシナリオでは、同一リージョンのデータ共有を使用してください。
+- Snowflakeアカウントが US-EAST-1（AWS）にあり、Brazeダッシュボードのリージョンが US の場合。
+- Snowflakeリージョンが EU-CENTRAL-1（AWS）にあり、Brazeダッシュボードのリージョンが EU の場合。
+- Snowflakeリージョンが AP-Northeast-1（AWS）にあり、Brazeダッシュボードのリージョンが日本の場合。
+- Snowflakeリージョンが AP-Southeast-2（AWS）にあり、Brazeダッシュボードのリージョンがオーストラリアの場合。
+- Snowflakeリージョンが AP-Southeast-3（AWS）にあり、Brazeダッシュボードのリージョンがインドネシアの場合。
 
-それ以外の場合は、クロスリージョンのデータ共有を使用します。
+上記以外の場合は、クロスリージョンのデータ共有を使用してください。
 
-## 新しい Snowflake アカウントに切り替える場合、データ共有はどうすればよいですか？ {#what-should-i-do-with-my-data-share-when-i-switch-to-a-new-snowflake-account}
-古い Snowflake アカウントに関連付けられている古いデータ共有を削除してから、新しいアカウント用に新しい共有を作成できます。すべての履歴データは新しい共有で利用可能になります。
+## 新しいSnowflakeアカウントに切り替える際、データ共有はどうすればよいですか？ {#what-should-i-do-with-my-data-share-when-i-switch-to-a-new-snowflake-account}
+
+古いSnowflakeアカウントに関連付けられた古いデータ共有を削除し、新しいアカウント用に新しい共有を作成できます。すべての履歴データは新しい共有で利用可能になります。
+
+## 新しいBrazeワークスペースにデータ共有を切り替えるとどうなりますか？ {#what-happens-if-i-switch-my-data-share-to-a-new-braze-workspace}
+
+既存のデータ共有統合を別のBrazeワークスペースを使用するように再構成すると、Snowflakeでテーブルをクエリする際に次のエラーが表示されることがあります。
+
+> Shared database is no longer available for use. It will need to be re-created if and when the publisher makes it available again.
+
+この問題を解決するには、Snowflake内で共有をドロップして再作成する必要があります。
+
+1. 以前の共有で作成されたデータベースをドロップします。
+2. [統合手順]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake#step-2-create-the-database-in-snowflake)に従ってデータベースを再作成します。
+3. 新しいデータベースに必要なアクセス権限を再付与します。
+4. 古いデータベースを参照していたビューを再作成します（該当する場合）。
+
+{% alert note %}
+新しいSnowflakeインターフェイスでは、**Data Products** > **Private Sharing** > **Shared with you**でBrazeの共有を見つけることができます。
+{% endalert %}
 
 ## データ共有にデータが表示されないのはなぜですか？ {#why-dont-i-see-data-in-my-data-share}
-データ共有の作成時に間違った Snowflake アカウント ID を使用した可能性があります。データ共有ダッシュボードのアカウント ID は、Snowflake アカウントの `CURRENT_ACCOUNT()` の出力と一致している必要があります。
+データ共有を作成する際に、誤ったSnowflakeアカウントIDを使用した可能性があります。データ共有ダッシュボードのアカウントIDは、Snowflakeアカウントの`CURRENT_ACCOUNT()`の出力と一致する必要があります。
 
-共有がクロスリージョンの場合、データがすぐに利用可能にならないことがあります。データ量によっては、リージョンへのデータ同期に数時間かかる場合があります。
+共有がクロスリージョンの場合、データがすぐに利用できないことがあります。データ量によっては、お使いのリージョンにデータが同期されるまで数時間かかる場合があります。
 
-## データ共有の作成時に HIPAA コンプライアンスエラーが発生するのはなぜですか？ {#why-am-i-receiving-a-hipaa-compliance-error-when-creating-a-data-share}
+## データ共有の作成時にHIPAAコンプライアンスエラーが表示されるのはなぜですか？ {#why-am-i-receiving-a-hipaa-compliance-error-when-creating-a-data-share}
 
-指定されたアカウントがHIPAAに準拠していないか、[Snowflake Editions](https://docs.snowflake.com/en/user-guide/intro-editions) が Business Critical より低いエディションです。データ共有でHIPAAに準拠するには、Snowflake アカウントを Business Critical Edition にアップグレードする必要があります。アカウントのアップグレードに関する詳細については、Snowflake サポートにお問い合わせください。
+指定されたアカウントがHIPAA準拠ではないか、Business Criticalより低い[Snowflakeエディション](https://docs.snowflake.com/en/user-guide/intro-editions)を使用しています。データ共有でHIPAA準拠にするには、SnowflakeアカウントをBusiness Critical Editionにアップグレードする必要があります。アカウントのアップグレードについては、Snowflakeサポートにお問い合わせください。
 
-## データ共有を削除した後に再作成できないのはなぜですか？ {#why-cant-i-recreate-a-data-share-after-deleting-one}
+## 以前のデータ共有を削除した後、新しいデータ共有を再作成できないのはなぜですか？ {#why-cant-i-recreate-a-data-share-after-deleting-one}
 
-システムが以前のデータ共有の削除をまだ処理している可能性があります。プロビジョニング解除プロセスが完了するまで数分待ってから、新しいデータ共有の作成を再試行してください。
+以前のデータ共有の削除がまだ処理中である可能性があります。プロビジョニング解除プロセスが完了するまで数分待ってから、新しいデータ共有の作成を再度お試しください。
 
-## 同じ Snowflake アカウントに複数のワークスペースがデータを共有している場合、`CREATE DATABASE` を何回実行する必要がありますか？ {#how-many-times-do-i-need-to-run-create-database-when-i-have-multiple-workspaces-sharing-data-to-the-same-snowflake-account}
+## 複数のワークスペースが同じSnowflakeアカウントにデータを共有している場合、`CREATE DATABASE` を何回実行する必要がありますか？ {#how-many-times-do-i-need-to-run-create-database-when-i-have-multiple-workspaces-sharing-data-to-the-same-snowflake-account}
 
-`CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>` は一度だけ実行する必要があります。異なるBrazeワークスペースからの複数のデータ共有が同じ Snowflake アカウントに共有されると、それらは自動的に同じ共有に統合されます。最初のデータベースを作成した後、追加のワークスペースからのデータは、追加の共有リクエストやデータベース作成ステップを必要とせずに、既存のデータベースに自動的に追加されます。
+`CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>` の実行は1回だけで済みます。異なるBrazeワークスペースからの複数のデータ共有が同じSnowflakeアカウントに共有される場合、それらは自動的に同じ共有にまとめられます。最初のデータベースを作成した後、追加のワークスペースからのデータは、追加の共有リクエストやデータベース作成ステップを必要とせずに、既存のデータベースに自動的に追加されます。
 
-たとえば、ワークスペース A から Snowflake アカウント 123 へのデータ共有を作成した場合、共有リクエストを受け入れてデータベースを作成します。後でワークスペース B から同じ Snowflake アカウント 123 にデータ共有を作成した場合、新しい共有リクエストは送信されず、データは既存の共有に即座に追加され、以前に作成したデータベースで利用可能になります。
+たとえば、ワークスペースAからSnowflakeアカウント123へのデータ共有を作成した場合、共有リクエストを承認してデータベースを作成します。その後、ワークスペースBから同じSnowflakeアカウント123へのデータ共有を作成しても、新しい共有リクエストは送信されません。データは既存の共有に即座に追加され、以前作成したデータベースで利用可能になります。
 
-## 複数のワークスペースがある場合、1つのデータベースにすべてのワークスペースのデータが含まれますか？ {#if-i-have-multiple-workspaces-does-a-single-database-contain-data-from-all-of-them}
+## 複数のワークスペースがある場合、1つのデータベースにすべてのデータが含まれますか？ {#if-i-have-multiple-workspaces-does-a-single-database-contain-data-from-all-of-them}
 
-はい。複数のBrazeワークスペースから同じ Snowflake アカウントにデータを共有すると、すべてのデータが1つの共有にまとめられ、同じデータベースで利用可能になります。ワークスペースを区別するには、`app_group_id` でフィルターできます。
+はい。複数のBrazeワークスペースから同じSnowflakeアカウントにデータを共有すると、すべてのデータが1つの共有にまとめられ、同じデータベースで利用できます。`app_group_id`でフィルタリングすることで、ワークスペースを区別できます。
 
-ベストプラクティスとして、将来に備えてクエリには常に `app_group_id` でフィルターをかけてください。これにより、将来ワークスペースを追加した場合でも、ダッシュボードやレポートの正確性が保たれます。このフィルターがないと、新しく追加されたワークスペースからのデータが指標に予期せず含まれてしまう可能性があります。
+ベストプラクティスとして、将来に備えてクエリでは常に`app_group_id`でフィルタリングしてください。これにより、将来ワークスペースを追加した場合でも、ダッシュボードやレポートの正確性が維持されます。このフィルターがないと、新しく追加されたワークスペースのデータが予期せず指標に含まれる可能性があります。
 
-## Snowflake で複数のワークスペースからのデータを管理するための推奨アプローチは何ですか？ {#what-is-the-recommended-approach-for-managing-data-from-multiple-workspaces-in-snowflake}
+## 複数のワークスペースのデータをSnowflakeで管理するための推奨アプローチは何ですか？ {#what-is-the-recommended-approach-for-managing-data-from-multiple-workspaces-in-snowflake}
 
-すべてのBrazeデータを同じデータベースに送り、`app_group_id` でフィルターしてワークスペースを区別します。このアプローチにより、データ管理が簡素化され、組織全体で一貫性のあるレポートが確保されます。
+すべてのBrazeデータを同じデータベースに送信し、`app_group_id` でフィルターしてワークスペースを区別します。このアプローチにより、データ管理が簡素化され、組織全体で一貫したレポートが確保されます。
 
-## 複数のワークスペースに必要な Snowflake Data Share Connectorの数はいくつですか？ {#how-many-snowflake-data-share-connectors-do-i-need-for-multiple-workspaces}
+## 複数のワークスペースに必要なSnowflakeデータ共有コネクターの数はいくつですか？ {#how-many-snowflake-data-share-connectors-do-i-need-for-multiple-workspaces}
 
-必要なコネクターの数は、特定の設定とエンタイトルメントによって異なります。お客様のユースケースに適したエンタイトルメントについては、Brazeアカウントチームにお問い合わせください。
+必要なコネクターの数は、お客様の具体的な構成とエンタイトルメントによって異なります。お客様のユースケースに適したエンタイトルメントについて詳しくは、Brazeアカウントチームにお問い合わせください。
 
-## 同じ Snowflake アカウント内で異なるワークスペースのデータを分離するにはどのようなオプションがありますか？ {#what-options-exist-for-isolating-data-from-different-workspaces-within-the-same-snowflake-account}
+## 同じSnowflakeアカウント内の異なるワークスペースのデータを分離するにはどのような方法がありますか？ {#what-options-exist-for-isolating-data-from-different-workspaces-within-the-same-snowflake-account}
 
-各データ行がどのワークスペースに属するかを識別する `app_group_id` カラムを使用して、論理的に分離できます。最も一般的なアプローチは以下のとおりです。
+`app_group_id`カラムを使用して論理的に分離できます。このカラムは、各データ行がどのワークスペースに属しているかを識別します。最も一般的なアプローチは以下のとおりです。
 
-- **ビュー（推奨）：** ワークスペースごとに `app_group_id` でフィルターしたビューを作成します。データを複製せずに、各チームやユースケースにワークスペースデータのクリーンでスコープされたビューを提供できます。
-- **ローカルテーブルコピー：** `app_group_id` でフィルターした別々のテーブルにデータをコピーします。データが複製されるため、一般的にはビューアプローチが推奨されます。
-- **行アクセスポリシーとロール：** Snowflake ネイティブの行アクセスポリシーとロールを組み合わせて、各ロールがクエリできる行を制限します。データを単一のテーブルに保持しながら、クエリ時にアクセスを制御できます。
+- **ビュー（推奨）：** `app_group_id`でフィルタリングしたビューをワークスペースごとに作成します。データを複製することなく、各チームやユースケースに対してクリーンでスコープされたワークスペースデータのビューを提供できます。
+- **ローカルテーブルコピー：** `app_group_id`でフィルタリングしたデータを別々のテーブルにコピーします。この方法ではデータが複製されるため、一般的にはビューのアプローチが推奨されます。
+- **行アクセスポリシーとロール：** Snowflakeネイティブの行アクセスポリシーとロールを組み合わせて、各ロールがクエリできる行を制限します。データを単一のテーブルに保持しながら、クエリ時にアクセスを制御できます。
 
-これらはSnowflake アカウント内で設定します。
+これらの設定はSnowflakeアカウント内で行います。
 
-## 異なるワークスペースのデータを分離するために、別の Snowflake アカウントを使用できますか？ {#can-i-use-a-different-snowflake-account-to-isolate-data-from-different-workspaces}
+## 異なるワークスペースのデータを分離するために、別々のSnowflakeアカウントを使用できますか？ {#can-i-use-a-different-snowflake-account-to-isolate-data-from-different-workspaces}
 
-はい。ワークスペース A がアカウント X に共有し、ワークスペース B がアカウント Y に共有する場合、各アカウントは個別のデータを持つ独立した共有を受け取ります。ただし、ほとんどの組織ではすべてのビジネスデータに単一の Snowflake アカウントを使用しています。そのため、このアプローチは運用上のオーバーヘッドが増える可能性があります。前のセクションで説明した論理的な分離アプローチと比較して、このトレードオフを検討してから選択してください。
+はい。ワークスペースAがアカウントXに共有し、ワークスペースBがアカウントYに共有する場合、各アカウントは個別のデータを持つ独立した共有を受け取ります。ただし、ほとんどの組織ではすべてのビジネスデータに単一のSnowflakeアカウントを使用しています。そのため、このアプローチは運用上のオーバーヘッドが増える可能性があります。前のセクションで説明した論理的な分離アプローチと比較して、このトレードオフを検討してから選択してください。
 
-## ワークスペースデータの分離は Snowflake データ共有でサポートされているユースケースですか？ {#is-workspace-data-isolation-a-supported-use-case-for-snowflake-data-sharing}
+## ワークスペースのデータ分離は、Snowflakeデータ共有でサポートされるユースケースですか？ {#is-workspace-data-isolation-a-supported-use-case-for-snowflake-data-sharing}
 
-はい、前のセクションで説明した論理的な分離アプローチを通じてサポートされています。Brazeはワークスペースごとに個別の共有を作成しないため、ビュー、行アクセスポリシー、または個別のアカウントを使用して Snowflake レベルで分離を管理します。
+はい、前のセクションで説明した論理的な分離アプローチを通じてサポートされます。Brazeはワークスペースごとに個別の共有を作成しないため、ビュー、行アクセスポリシー、または個別のアカウントを使用してSnowflakeレベルで分離を管理します。

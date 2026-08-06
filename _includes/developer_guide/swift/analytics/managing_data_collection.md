@@ -203,6 +203,10 @@ This Objective-C example shows completion-based `logout` handling. Use it in Obj
 {% endsubtab %}
 {% endsubtabs local %}
 
+{% alert note %}
+`logout` does not end currently-running Live Activities. In the success callback, manually end any running Live Activities using ActivityKit's [`end(_:dismissalPolicy:)`](https://developer.apple.com/documentation/activitykit/activity/end(_:dismissalpolicy:)) method.
+{% endalert %}
+
 #### Re-enable tracking and push after `logout`
 
 After a successful `logout`, set [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/) back to `true`, then re-register for notifications with your operating system (OS) or push provider by following [Swift push setup]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift).
@@ -276,6 +280,10 @@ Avoid calling `logout` or `unregisterPush` directly after registering for push n
 Live Activities can be started remotely using push-to-start tokens. To stop Braze from remotely starting Live Activities on a device, call the `unregisterPushToStart` method to unregister all currently-registered types (default) or a specified list of Activity types.
 
 Note that currently-running Live Activities continue to receive updates and that this method will only remove the ability to start new activities remotely. For more information on Live Activities, see [Live Activities]({{site.baseurl}}/developer_guide/live_notifications/live_activities).
+
+#### End any running Live Activities
+
+`unregisterPushToStart` does not end currently-running Live Activities. In the success callback, manually end any running Live Activities using ActivityKit's [`end(_:dismissalPolicy:)`](https://developer.apple.com/documentation/activitykit/activity/end(_:dismissalpolicy:)) method.
 
 {% alert note %}
 Avoid calling `logout` or `unregisterPushToStart` directly after calling `registerPushToStart` for a Live Activity. Due to the asynchronous nature of server processing, in rare cases, this can lead to the push-to-start token being re-added to the Braze user.

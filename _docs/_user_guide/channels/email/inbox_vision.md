@@ -162,3 +162,13 @@ If you consistently see an issue with a client, open a [support ticket]({{site.b
 ### Test accuracy versus live inboxes
 
 A sent message can look different from the editor preview because providers interpret the same HTML differently. Download a copy of the sent HTML to compare, and use CSS inlining where clients strip `<style>` blocks.
+
+#### Blank email bodies
+
+If recipients report blank email bodies but can still see the sender name or subject line:
+
+1. Confirm which email clients are affected.
+2. Use Inbox Vision to test the variant in those clients and identify HTML or CSS compatibility issues.
+3. If a client strips `<style>` blocks, add `style` attributes to the affected HTML elements. For more on inlining behavior and its limitations, see [CSS inlining]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline). In Gmail, too much CSS can cause the entire `<style>` block to be dropped, which is a common cause of blank email bodies.
+4. In the HTML editor, you can also turn on **Enable inline CSS** under **Sending Info** > **Advanced** to inline stylesheet rules for the entire message. This option isn't available for drag-and-drop emails, which are already inlined by the editor.
+5. Retest in Inbox Vision before sending future campaigns.
