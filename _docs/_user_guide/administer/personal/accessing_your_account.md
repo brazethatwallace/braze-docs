@@ -191,7 +191,16 @@ If you are using the same machine you usually do to log in, Braze should automat
 
 #### Account suspension
 
-This doesn't happen very often, but Braze takes account suspension and deletions very seriously. If you encounter this error, reach out to your company's Braze administrator, Braze account manager, or [Support][support].
+This doesn't happen very often, but Braze takes account suspension and deletions very seriously. If you encounter an "Account has been banned" error when trying to sign in, your dashboard account is temporarily suspended. This can happen for several reasons.
+
+| Reason | Description |
+| --- | --- |
+| Payment issues | Your company's Braze account may have unresolved billing or payment issues. |
+| Policy violations | The account may have violated Braze terms of service or acceptable use policies. |
+| Security concerns | Suspicious activity may have triggered an automatic suspension for security reasons. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reason for account suspension" }
+
+To resolve this issue, contact your company's Braze administrator, Braze account manager, or [Support]({{site.baseurl}}/support_contact).
 
 ### Braze dashboard won't load or work as expected
 

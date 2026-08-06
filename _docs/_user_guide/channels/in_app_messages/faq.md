@@ -169,6 +169,14 @@ When **Background Image** is enabled on one page of a multi-page in-app message,
 
 Web in-app message test sends require push to be enabled on the test device because the test flow delivers a push notification that opens the app or site where the in-app message displays. The same push-based test path applies on any platform where push is not configured with Braze, though missing push is most often encountered on web because many mobile integrations already have push enabled. Use a live campaign to an internal test segment instead. For steps, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
 
+### Do in-app messages require push integration?
+
+In-app messages do not require push notifications to function in production. In-app messages are delivered through the Braze SDK and appear during an active app session without needing push integration.
+
+However, test sends for in-app messages do require push to be enabled on your test devices. This is because test in-app messages are delivered through a push notification that triggers the in-app message display. The test user must have push enabled and must tap the test push notification to view the in-app message.
+
+For production campaigns, users see in-app messages based on your campaign triggers (such as session start or custom events) without push being involved.
+
 ## Why is the close button hidden on full-screen HTML in-app messages on Android?
 
 On devices with edge-to-edge displays (including Android 15+), full-screen HTML in-app messages can draw behind the system status bar and hide a close control at the top of the layout.

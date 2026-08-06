@@ -15,13 +15,13 @@ channel:
 
 When KakaoTalk click tracking is turned on, Braze automatically shortens your URLs, adds tracking mechanisms, and records clicks in real time. This data empowers you to create more targeted segmentation and retargeting strategies, such as segmenting users based on click behavior and triggering messages in response to specific clicks.
 
-KakaoTalk click tracking can be used for text, image, and list item messages. It supports links within buttons and image on-click actions. You can also personalize URLs using Liquid and custom domains.
+KakaoTalk click tracking can be used for text, image, list item, and carousel messages. It supports links within buttons and image on-click actions. You can also personalize URLs using Liquid and custom domains.
 
 ## How it works
 
-You can manage KakaoTalk click tracking settings in the **Link options** section of the composer. When turned on, URLs will be shortened using the default Braze domain (`https://brz.ai`) or the custom domain specified for the subscription group, and personalized for the user.
+You can manage KakaoTalk click tracking settings in the **Link options** section of the composer. When turned on, URLs are shortened using the default Braze domain (`https://brz.ai`) or the custom domain specified for the subscription group, and personalized for the user.
 
-Any URLs that start with `http://` or `https://` will be shortened. You can have up to 25 URLs in a message. Shortened URLs that contain Liquid personalization (such as user-level tracking or UTM parameters) will be valid for two months.
+Any URLs that start with `http://` or `https://` are shortened. You can have up to 25 URLs in a message. Shortened URLs that contain Liquid personalization (such as user-level tracking or UTM parameters) are valid for two months.
 
 ## Set up click tracking
 
@@ -49,6 +49,14 @@ To set up click tracking for a list item message:
 1. Compose a **List item** message and add a URL to the **Website URL** field for any item.
 2. In the **Link options** section of the composer, confirm **Click Tracking** is checked.
 
+### Carousel messages
+
+To set up click tracking for a carousel message:
+
+1. Compose a carousel message.
+2. Add an optional URL to each card **Website URL** field to make the card image tappable, set card buttons to **Open web URL** and enter a URL for each button, or both. Card and button URLs can differ.
+3. In the **Link options** section, select **Click Tracking** if you want Braze to shorten and track those URLs. Click tracking is optional for carousel messages.
+
 ## Custom domains
 
 KakaoTalk click tracking allows you to use your own domain to personalize the look and feel of your shortened URLs, helping portray a consistent brand image. For more information, refer to [Custom domains]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains).
@@ -74,7 +82,7 @@ https://example.com/{{url_var}}
 ```
 {% endraw %}
 
-Braze shortens URLs that are rendered by Liquid, even those included in API-trigger properties. For example, if {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} represents a valid URL, Braze will shorten and track that URL before sending the KakaoTalk message.
+Braze shortens URLs that are rendered by Liquid, even those included in API-trigger properties. For example, if {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} represents a valid URL, Braze shortens and track that URL before sending the KakaoTalk message.
 
 ## Testing
 
@@ -90,7 +98,7 @@ If a draft is created within an active Canvas, a shortened URL won't be generate
 
 The KakaoTalk performance table includes the column **Total Clicks** that shows a count of click events per variant and an associated click rate. For more details on KakaoTalk metrics, refer to [KakaoTalk reporting]({{site.baseurl}}/kakaotalk_reporting).
 
-Click data will be automatically reported in the analytics dashboard.
+Click data is automatically reported in the analytics dashboard.
 
 ## Retarget users
 
