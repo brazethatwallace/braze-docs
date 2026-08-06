@@ -9,7 +9,7 @@ description: "Learn how subscription groups work across Braze channels, how to c
 
 > Learn how subscription groups work across Braze channels, how to create and manage them in the dashboard, and where channel-specific rules apply.
 
-Subscription groups are audience filters that control which users can receive messages from a specific set of sending resources within a channel. They let you offer granular opt-in and opt-out choices—such as newsletters versus promotions, or transactional versus marketing SMS—without changing a user's global channel subscription state where one exists.
+Subscription groups control which users can receive messages from a specific set of sending resources within a channel. For email, subscription groups are optional **category** filters on top of global subscription state. For SMS, WhatsApp, and LINE, subscription groups are **audience** filters required for every send. They let you offer granular opt-in and opt-out choices—such as newsletters versus promotions, or transactional versus marketing SMS—without changing a user's global channel subscription state where one exists.
 
 Use the [Subscription Group endpoints]({{site.baseurl}}/api/endpoints/subscription_groups) to programmatically manage subscription groups stored in your Braze workspace.
 
@@ -31,14 +31,16 @@ A user can be globally subscribed to email while unsubscribed from a specific em
 
 ## Create a subscription group
 
+How you get a subscription group depends on the channel. Email groups are created in the dashboard; SMS, MMS, and RCS groups are provisioned during onboarding; WhatsApp and LINE groups are created during channel integration. See [Channel-specific behavior](#channel-specific-behavior) for other channels.
+
+### Email
+
 1. Go to **Audience** > **Subscription Group Management**.
-2. Select **Create** for the channel you need (for example, **Create email subscription group**).
+2. Select **Create email subscription group**.
 3. Enter a name and description.
 4. Select **Save**.
 
 ![Fields to create a subscription group.]({% image_buster /assets/img/sub_group_create.png %}){: style="max-width:75%"}
-
-Channel-specific setup continues after the group exists—for example, assigning SMS sending numbers or connecting a LINE channel. See [Channel-specific behavior](#channel-specific-behavior).
 
 ## Segment with subscription groups
 
@@ -48,7 +50,7 @@ When you build a segment, add a subscription group filter to target users who op
 
 ## Archive subscription groups
 
-Archived subscription groups can't be edited and no longer appear in segment filters or preference centers. If you archive a group used as a segment filter in an active email campaign, Canvas, or segment, you receive an error until you remove those references.
+Archived subscription groups can't be edited and no longer appear in segment filters or preference centers. If you archive a group used as a segment filter in an active campaign, Canvas, or segment, you receive an error until you remove those references.
 
 To archive a group from **Subscription Group Management**, find the group and select **Archive** from the <i class="fa-solid fa-ellipsis-vertical"></i> menu.
 
