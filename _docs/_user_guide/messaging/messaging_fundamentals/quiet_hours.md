@@ -10,7 +10,11 @@ description: "This reference article covers what quiet hours are, how Braze hand
 
 > Quiet hours prevent messages from being sent during a specified time window. You can use them to avoid contacting users at inconvenient times (like overnight or early in the morning) while still sending at an optimal time outside that window.
 
-Quiet hours are configured at the campaign or Canvas level.
+Quiet hours are configured at the campaign or Canvas level. You can also set [workspace quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/workspace_quiet_hours) as a default for a messaging channel across your workspace (early access).
+
+{% alert tip %}
+Looking for a workspace-wide default? [Workspace quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/workspace_quiet_hours) (early access) lets you set one quiet hours window per channel for every campaign and Canvas in the workspace.
+{% endalert %}
 
 ## How quiet hours work
 
@@ -36,3 +40,7 @@ For more information on configuring quiet hours within an Intelligent Timing cam
 - **Messages send at the same time when quiet hours end.** If a large audience has messages held during quiet hours, all of those messages send at once when the window closes. For time-sensitive campaigns, consider how this affects delivery timing.
 - **Quiet hours are not the same as aborting a message.** Aborting a message discards it entirely. Quiet hours hold the message and deliver it later.
 - **Quiet hours are separate from frequency capping and rate limiting.** Each of these delivery controls applies independently. A message that clears frequency and rate limits can still be held by quiet hours, and a message held by quiet hours is evaluated against rate limits when it eventually sends. For more information, refer to [Rate limiting and frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
+
+## Related articles
+
+- [Workspace quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/workspace_quiet_hours): Set a default quiet hours window per channel across your workspace (early access).
