@@ -131,7 +131,12 @@ To control this, [listen for updates]({{site.baseurl}}/developer_guide/platform_
 
 You can't enable feature flags for users in your [Global Control Group]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts). This means users in your Global Control Group also can't be part of Feature Flag experiments.
 
+### Is email-based recipient identification part of Braze Feature Flags?
+
+No. Email-based recipient identification for message sending is a workspace messaging capability, not the Braze Feature Flags product documented on this page. It uses platform configuration such as the `update_by_email_message_sending` feature flipper and recipient prioritization rules when sending to email addresses.
+
+For API behavior, see [POST: Send messages]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) and [POST: Create and update users]({{site.baseurl}}/api/endpoints/user_data/post_user_track/).
+
 ## Additional questions?
 
 Have questions or feedback? Email our team: [feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com).
-
