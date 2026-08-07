@@ -221,4 +221,8 @@ For example, let's say you wanted to filter users by phone number for a specific
 
 ![Filter for a phone number that matches regex of "^1?718\d\d\d\d\d\d\d".]({% image_buster /assets/img/regex/regeximg3.png %})
 
+<!-- sf-kb-phase2-batch -->
 
+If docs do not state that trigger/event property regex is case sensitive (/g) while segment regex is /gi, add this distinction. Update KA to cite specific docs section.
+
+<!-- /sf-kb-phase2-batch -->
