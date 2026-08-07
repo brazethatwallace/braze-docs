@@ -219,7 +219,7 @@ Wenn Links Liquid für dynamische URLs verwenden, stimmen die angeklickten URLs 
 
 Die Heatmap zeigt nur Wärmesignaturen für Links an, die bei der ausgewählten Vorschaugröße sichtbar sind.
 
-Links, die nur im mobilen Layout erscheinen, sind in der **Desktop**-Ansicht ausgeblendet (und können je nach Vorschaubreite auch in der **Gesamtansicht** ausgeblendet sein), sodass diese Klicks nicht als Wärmesignaturen angezeigt werden. Diese Links erscheinen dennoch im Panel **Link Table by Total Clicks** mit ihren Gesamtklicks und Prozentsätzen.
+Links, die nur im mobilen Layout erscheinen, sind in der **Desktop**-Ansicht ausgeblendet (und können je nach Vorschaubreite auch in **Overall** ausgeblendet sein), sodass diese Klicks nicht als Wärmesignaturen angezeigt werden. Diese Links erscheinen dennoch im Panel **Link Table by Total Clicks** mit ihren Gesamtklicks und Prozentsätzen.
 
 Um Wärmesignaturen für Nur-Mobil-Links anzuzeigen, wählen Sie **Mobile**. Die mobile Vorschau entspricht dem mobilen Breakpoint des Drag-and-Drop-Editors (620&nbsp;px). Wenn die E-Mail erst bei einer schmaleren Breite das Layout wechselt, bleiben diese Links auch in der **Mobile**-Vorschaugröße ausgeblendet.
 

@@ -40,7 +40,7 @@ Bevor Sie skalieren, beachten Sie Folgendes:
 - Überprüfen Sie die Schätzung des **Daily action credit cost limit** und bestätigen Sie, dass Ihr Workspace über genügend Credits für Sends im vollen Umfang verfügt.
 - Entfernen oder rekonfigurieren Sie das Experiment, sodass die gesamte Zielgruppe den Agent-Schritt betritt (oder stufen Sie die Gewinnervariante zum Hauptpfad hoch).
 
-Die Skalierung auf die gesamte Zielgruppe erhöht den Credit-Verbrauch proportional. Überwachen Sie die Nutzung nach dem Launch unter **Settings** > **Billing** > **Credits Usage** > **Agent Console**.
+Die Skalierung auf die gesamte Zielgruppe erhöht den Credit-Verbrauch proportional. Überwachen Sie die Nutzung nach dem Launch unter **Einstellungen** > **Abrechnung** > **Credits-Nutzung** > **Agent Console**.
 
 ## Canvas-Schritt-Agents verwenden {#use-canvas-step-agents}
 
