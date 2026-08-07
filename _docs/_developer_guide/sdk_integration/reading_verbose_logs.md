@@ -529,6 +529,10 @@ In verbose log payloads, Braze uses abbreviated event names. Here's a reference:
 
 ## Troubleshooting
 
+### Geofences not triggering on Android SDK 13.1.0–15.x
+
+Braze Android SDK versions 13.1.0 through 15.x had a regression that could prevent geofence and session location events from firing reliably. Upgrade to Android SDK 16.0.0 or later if geofence triggers stop working after an SDK upgrade in that range. For geofence setup requirements, see [Geofences]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences).
+
 ### When might a user have 0 sessions recorded against their profile?
 
 A user profile can show 0 sessions when you import the user through the REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) or CSV import without **First session** or **Last session** fields. Sessions are recorded when users interact with your app through the SDK. For more detail, see [User profile has 0 sessions]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#user-profile-has-0-sessions).
