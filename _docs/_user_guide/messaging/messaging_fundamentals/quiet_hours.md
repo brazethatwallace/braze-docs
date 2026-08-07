@@ -39,4 +39,4 @@ For more information on configuring quiet hours within an Intelligent Timing cam
 
 ## Related articles
 
-- [Workspace quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/workspace_quiet_hours): Set a default quiet hours window per channel across your workspace (early access).
+- [Workspace quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/workspace_quiet_hours)
