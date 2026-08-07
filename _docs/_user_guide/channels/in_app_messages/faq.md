@@ -177,6 +177,12 @@ However, test sends for in-app messages do require push to be enabled on your te
 
 For production campaigns, users see in-app messages based on your campaign triggers (such as session start or custom events) without push being involved.
 
+### Why do extra or unrendered characters appear in my in-app message?
+
+Copying text from another app (such as a word processor or webpage) can insert invisible or non-printing characters into your message body. Those characters may show up as stray symbols or break Liquid and HTML in custom messages.
+
+To fix stray or unrendered characters, re-type the affected text in the Braze editor, or delete the unwanted characters directly rather than selecting and replacing only the visible text. For custom HTML messages with special characters, add `<meta charset="UTF-8">` inside your HTML `<head>`. See [Character encoding]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#character-encoding) for details.
+
 ## Why is the close button hidden on full-screen HTML in-app messages on Android?
 
 On devices with edge-to-edge displays (including Android 15+), full-screen HTML in-app messages can draw behind the system status bar and hide a close control at the top of the layout.
