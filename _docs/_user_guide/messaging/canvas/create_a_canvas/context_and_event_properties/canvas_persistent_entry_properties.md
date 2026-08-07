@@ -91,3 +91,10 @@ The second step may send another push notification prompting the user to checkou
 
 ![Screenshot related to use case.]({% image_buster /assets/img/persistent_entry_properties/PEP12.png %}){: style="border:0;margin-left:15px;"}
 
+## Troubleshooting
+
+### Entry properties are blank with multiple entry triggers
+
+Persistent entry properties are available only when every entry path into the Canvas can supply the same properties. If you combine triggers that don't all include `canvas_entry_properties`—for example, **Start Session** or **Change Custom Attribute Value** alongside API-triggered or action-based entry—those properties may be blank for users who enter on a path that doesn't provide them.
+
+To use entry properties consistently across steps, limit the Canvas to entry types that pass the properties you need, or use [context and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) and audience filters instead of relying on `canvas_entry_properties` for mixed-trigger entry.
