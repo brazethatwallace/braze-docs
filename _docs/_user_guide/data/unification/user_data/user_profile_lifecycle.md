@@ -70,6 +70,11 @@ Not all data is merged from the anonymous profile. Push tokens and messaging his
 
 For information on how to set an `external_id` against a user profile, see our documentation ([iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web)).
 
+
+### Reporting and merged profiles
+
+When anonymous and identified profiles merge, Braze dashboard campaign summaries can show that a user received a message on the surviving profile while internal log pipelines (for example, Kibana or other log exports) may attribute the send to the orphaned profile ID. This is expected when merge happens after the send. Use the identified user's `external_id` or `braze_id` when correlating dashboard reports with external logs.
+
 {% alert note %}
 Orphaned users are not eligible to receive messages.
 {% endalert %}
@@ -131,9 +136,3 @@ All user IDs can be used to find and identify users within your dashboard for te
 {% alert important %}
 Braze will ban or block users with over 5,000,000 sessions ("dummy users") and will no longer ingest their SDK events, as these users are generally the result of misintegration. If you find that this has happened to a legitimate user, contact your Braze account manager.
 {% endalert %}
-
-<!-- sf-kb-phase2-batch -->
-
-Consider a short note under user profile lifecycle or analytics troubleshooting: merged/orphaned users may reconcile differently between dashboard summaries and external log stores.
-
-<!-- /sf-kb-phase2-batch -->
