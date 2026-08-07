@@ -145,8 +145,17 @@ If you use [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/
 
 For implementation details and debugging guidance, see [Branch for deep linking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking).
 
-<!-- sf-kb-phase2-batch -->
+## Troubleshooting
 
-Add troubleshooting section to universal links / deep linking docs: if all email links open app, check AASA paths (use /uni/* for Sendgrid universal links) and Android pathPrefix; avoid * or /* for click-tracking domain.
+### Why do all links in my email campaign open the app?
 
-<!-- /sf-kb-phase2-batch -->
+When every link in an email opens your app—including links you expect to open in a browser—your Apple App Site Association (AASA) file likely uses overly broad `paths` entries on your click-tracking domain (for example `*` or `/*`).
+
+To fix this:
+
+1. Host your AASA file on your ESP click-tracking domain, not only your primary website domain.
+2. Limit `paths` to URLs that should open the app. For SendGrid, configure AASA paths to match `/uni/` segments and add `universal="true"` only on links that should open the app.
+3. For Android, use specific `pathPrefix` values in your Digital Asset Links configuration—avoid matching the entire click-tracking domain.
+
+For step-by-step SendGrid `/uni/` setup and click-tracking examples, see [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking).
+
