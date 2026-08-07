@@ -221,8 +221,11 @@ For example, let's say you wanted to filter users by phone number for a specific
 
 ![Filter for a phone number that matches regex of "^1?718\d\d\d\d\d\d\d".]({% image_buster /assets/img/regex/regeximg3.png %})
 
-<!-- sf-kb-phase2-batch -->
+### How does regex matching differ between segments and custom event trigger properties?
 
-If docs do not state that trigger/event property regex is case sensitive (/g) while segment regex is /gi, add this distinction. Update KA to cite specific docs section.
+Segment filters automatically apply case-insensitive matching (equivalent to the `/gi` modifier). Custom event trigger properties and trigger filters use case-sensitive matching (equivalent to `/g` only).
 
-<!-- /sf-kb-phase2-batch -->
+If you need case-insensitive matching on a trigger property, use inline flags in your pattern—for example, `(?i)STOP(?-i)` to match `stop`, `STOP`, or `Stop`.
+
+For more examples, see the note in the [Regex debugger](#regex-debugger) section.
+
