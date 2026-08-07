@@ -159,6 +159,17 @@ Braze runs tests through actual email clients and works to ensure renderings are
 
 If you consistently see an issue with a client, open a [support ticket]({{site.baseurl}}/braze_support).
 
+
+### Troubleshooting iframe-heavy clients (for example, GMX)
+
+Some email clients, including GMX, render messages inside iframes and may strip or ignore CSS in `<style>` blocks. If Inbox Vision or live sends show missing styles in these clients:
+
+1. Use table-based layouts instead of CSS positioning.
+2. Apply critical styles as inline `style` attributes on the affected elements.
+3. For drag-and-drop emails, use responsive row classes such as `desktop_hide` and `mobile_hide` to show or hide content by viewport instead of relying on iframe-incompatible CSS.
+
+Test the updated message in Inbox Vision with the affected client preview before sending.
+
 ### Test accuracy versus live inboxes
 
 A sent message can look different from the editor preview because providers interpret the same HTML differently. Download a copy of the sent HTML to compare, and use CSS inlining where clients strip `<style>` blocks.
