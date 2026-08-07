@@ -145,7 +145,7 @@ For more on planning endpoint capacity and reducing call volume, see [Best pract
 - Braze does not charge for API calls and does not count toward your given data point usage.
 - There is a 1 MB limit for Connected Content responses.
 - Connected Content executes when the message is rendered. For in-app messages, the message is rendered at impression time.
-- Connected Content calls do not follow redirects. Only `2xx` responses are treated as successful. If your endpoint returns a `3xx` redirect such as `301` or `302`, Braze does not follow the redirect to the final URL. For symptoms and remediation, see [Why does Connected Content fail when my endpoint returns a redirect?](#why-does-connected-content-fail-when-my-endpoint-returns-a-redirect-301-or-302).
+- Connected Content calls do not follow redirects. Only `2xx` responses are treated as successful. If your endpoint returns a `3xx` redirect (for example, `301` or `302`), Braze does not follow the redirect to the final URL. For symptoms and troubleshooting steps, see [Why does Connected Content fail when my endpoint returns a redirect?](#why-does-connected-content-fail-when-my-endpoint-returns-a-redirect-301-or-302).
 
 ### How Connected Content calls are processed
 
