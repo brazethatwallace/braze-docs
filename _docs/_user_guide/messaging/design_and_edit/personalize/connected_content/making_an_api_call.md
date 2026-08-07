@@ -380,9 +380,7 @@ grant_type=client_credentials&username=test&password=test
 
 ### Why does Connected Content fail when my endpoint returns a redirect (301 or 302)?
 
-Connected Content treats only `2xx` responses as successful. `3xx` redirect responses are not followed and are not treated as successful content retrieval. If your endpoint returns `301 Moved Permanently` or `302 Found`, Braze does not follow the redirect to the final URL.
-
-This can cause Connected Content to render blank in preview or send, or log errors such as HTTP status code `302` for an unsaved campaign. Postman and other clients often follow redirects automatically, so a URL can work in Postman but fail in Braze.
+A redirect can cause Connected Content to render blank in preview or send, or log errors such as HTTP status code `302` for an unsaved campaign. Postman and other clients often follow redirects automatically, so a URL can work in Postman but fail in Braze.
 
 Configure your endpoint to return a `2xx` response (typically `200`) with the response body at the URL Braze calls. If you use services that redirect (for example, some Google Apps Script URLs), use the final destination URL instead of the redirect URL.
 
