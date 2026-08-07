@@ -21,6 +21,12 @@ This Canvas component replaces the need to create excessive audience-based full 
 
 Users are progressed down the first branch whose criteria they meet, so put the most important path first. This reduces ambiguity about where users go and which messages they receive. Note that this order isn't [editable after launch]({{site.baseurl}}/post-launch_edits).
 
+### Audience evaluation with delayed sends
+
+Audience Paths evaluate users when they enter the step. If a user later receives a message from a subsequent Canvas step after a delay—for example, because of a Delay step, rate limiting, local time zone delivery, or Intelligent Timing—Braze may re-verify segment and audience criteria at send time. Users who no longer match the criteria when the message is delivered may not receive it.
+
+For campaigns using scheduled delivery, see [Audience criteria evaluation with delays]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#audience-criteria-evaluation-with-delays).
+
 With Audience Paths, you can:
 
 - Send users down different Canvas paths based on audience criteria.
@@ -49,6 +55,12 @@ Because evaluation is immediate, it's important to add a delay before the Audien
 For example, if users are sent Message A and the next step is an Audience Path that evaluates whether they interacted with that message, all users will progress to the step for those who haven't interacted with that message. This is because the users immediately progressed to the Audience Path step without time to interact with the message. In other words, users are evaluated for an interaction with the message almost immediately after the message sends.
 
 To give users time to interact with a sent message, add a delay between the Message step and Audience Path. For example, a 24-hour delay gives users 24 hours after the message sends to interact with Message A before evaluation.
+
+### Audience checks at send time
+
+Audience Paths evaluate users when they reach the step. Separately, Braze can re-check segment and audience criteria at **send time** for messages scheduled with a delay, local time zone delivery, Intelligent Timing, or other dispatch paths where enough time passes between scheduling and delivery.
+
+If a user's profile no longer matches the audience when the message sends, they may not receive the message even though they qualified when they entered the Canvas or reached an earlier step. When you use delays or time-zone-based delivery, account for this send-time verification when designing paths and message timing.
 
 ## Creating an Audience Path
 
