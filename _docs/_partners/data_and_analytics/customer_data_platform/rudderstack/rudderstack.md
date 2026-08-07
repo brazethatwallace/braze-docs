@@ -254,3 +254,8 @@ rudderanalytics.track("Product Viewed", {
 For the update and remove operations, `identifier` is a required key. If add, update, or remove operations are not present in the nested array, RudderStack uses the create operation to create the properties by default. Refer to [Array of objects]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/) for more information on sending nested custom attributes.
 {% endalert %}
 
+<!-- sf-kb-phase2-batch -->
+
+Add a short troubleshooting note on the RudderStack partner page linking to RudderStack's Braze deduplication docs for this log message so customers find guidance without opening a ticket.
+
+<!-- /sf-kb-phase2-batch -->
