@@ -38,14 +38,17 @@ guide_featured_list:
 
 <br><br>
 
-[16]: [success@braze.com](mailto:success@braze.com)
+# Frequently asked questions
 
-<!-- sf-kb-phase2-batch -->
+> Common questions about Connected Content behavior and troubleshooting.
 
-Consider a Connected Content troubleshooting note that endpoints returning redirects (301/302) may fail during preview or send and that redirect-following limitations apply; optional callout about script.google.com-style redirects.
+## Why does Connected Content fail when my endpoint returns a redirect (301 or 302)?
 
----
+Connected Content treats only **2xx** responses as successful. **3xx redirect responses are not followed** and are not treated as successful content retrieval. If your endpoint returns `301 Moved Permanently` or `302 Found`, Braze does not automatically follow the redirect to the final URL.
 
-Add explicit Connected Content troubleshooting note that 3xx redirects are not treated as successful content retrieval; endpoints should return 200 with final URL.
+This can cause Connected Content to render blank, fail during message preview, or log errors such as HTTP status code 302 for an unsaved campaign. Postman and other clients often follow redirects automatically, so a URL can work in Postman but fail in Braze.
 
-<!-- /sf-kb-phase2-batch -->
+Configure your endpoint to return **200** with the response body at the URL Braze calls. If you use services that redirect (for example, some Google Apps Script URLs), use the final destination URL instead of the redirect URL.
+
+For more information, see [Making an API call]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#things-to-know) and [Troubleshoot webhook and Connected Content requests]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content).
+
