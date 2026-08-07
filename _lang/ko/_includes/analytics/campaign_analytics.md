@@ -216,6 +216,14 @@ The **Message Performance** panel outlines how well your message has performed a
 
 ![이메일 캠페인과 총 클릭 수가 포함된 링크 별칭 예시 패널이 있는 Preview & Heatmap 페이지 예시.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
+##### 히트맵의 모바일 전용 링크 {#mobile-only-links-in-the-heatmap}
+
+히트맵은 선택한 미리보기 크기에서 보이는 링크에 대해서만 히트 시그니처를 표시합니다.
+
+모바일 레이아웃에서만 나타나는 링크는 **Desktop**에서 숨겨지며(**Overall**에서도 미리보기 너비에 따라 숨겨질 수 있음), 해당 클릭은 히트 시그니처로 표시되지 않습니다. 이러한 링크는 여전히 **Link Table by Total Clicks** 패널에 총 클릭 수 및 백분율과 함께 표시됩니다.
+
+모바일 전용 링크의 히트 시그니처를 보려면 **Mobile**을 선택하세요. 모바일 미리보기는 드래그 앤 드롭 편집기의 모바일 중단점(620&nbsp;px)과 일치합니다. 이메일이 더 좁은 너비에서만 레이아웃을 전환하는 경우, **Mobile** 미리보기 크기에서도 해당 링크가 숨겨진 상태로 유지됩니다.
+
 #### 이미지 {#images}
 
 이미지 URL에 CORS를 활성화하여 히트맵 미리보기 및 내보내기에서 이미지가 깨지는 것을 방지하는 것이 좋습니다.

@@ -20,13 +20,13 @@ Wenn Sie eine Nachricht sofort nach dem Start senden möchten, beginnt der Versa
 
 Diese Art von Zeitplan ist für einmalige Campaigns gedacht, die Sie sofort senden möchten, z. B. Nachrichten über ein aktuelles Ereignis. Eine Sport-App könnte beispielsweise Push-Benachrichtigungen zu Spielstandaktualisierungen mit dieser Option planen. Wenn Sie Testnachrichten senden, die nur an Sie selbst oder Ihr Team gerichtet sind, können Sie diese mit dieser Option ebenfalls sofort zustellen.
 
-Wenn Sie die Campaign nach dem Anzeigen des Tests bearbeiten und erneut senden möchten, aktivieren Sie unbedingt das Kontrollkästchen, das Nutzer:innen die [erneute Berechtigung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) zum Empfang der Campaign gewährt. Standardmäßig sendet Braze eine Campaign nur einmal an eine:n Nutzer:in, es sei denn, dieses Kontrollkästchen ist aktiviert.
+Wenn Sie die Campaign nach dem Anzeigen des Tests bearbeiten und erneut senden möchten, aktivieren Sie das Kontrollkästchen, das Nutzer:innen die [erneute Berechtigung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) zum Empfang der Campaign gewährt. Standardmäßig sendet Braze eine Campaign nur einmal an Nutzer:innen, es sei denn, dieses Kontrollkästchen ist aktiviert.
 
 ## Option 2: Zu einem festgelegten Zeitpunkt senden {#option-2-send-at-a-designated-time}
 
 Wenn Sie eine Campaign für einen festgelegten Zeitpunkt planen, können Sie die Tage und Uhrzeiten angeben, an denen Ihre Campaign gesendet wird. Sie können eine Nachricht einmalig, täglich, wöchentlich oder monatlich zu einer bestimmten Tageszeit senden und festlegen, wann Ihre Campaign beginnen und enden soll. Dieses Enddatum ist inklusiv, d. h. der letzte Versand erfolgt am Enddatum.
 
-Wenn Sie einen monatlich wiederkehrenden Zeitplan auswählen, beachten Sie, dass einige Monate den ausgewählten Tag möglicherweise nicht haben. Nehmen wir zum Beispiel an, Sie legen fest, dass eine Campaign monatlich am 31. Tag gesendet wird. In diesem Szenario sendet Braze am letzten Tag des jeweiligen Monats, z. B. am 30. April, da der 31. April nicht existiert.
+Wenn Sie einen monatlich wiederkehrenden Zeitplan auswählen, beachten Sie, dass einige Monate den ausgewählten Tag möglicherweise nicht haben. Angenommen, Sie legen fest, dass eine Campaign monatlich am 31. Tag gesendet wird. In diesem Szenario sendet Braze am letzten Tag des jeweiligen Monats, z. B. am 30. April, da der 31. April nicht existiert.
 
 Wenn Sie **Scheduled Delivery** auswählen und nicht den Versand zur Ortszeit der Nutzer:innen wählen, wird Ihre Campaign gemäß der auf Ihrer Seite **Company Settings** angegebenen Zeitzone gesendet.
 
@@ -34,9 +34,9 @@ Wenn Sie **Scheduled Delivery** auswählen und nicht den Versand zur Ortszeit de
 
 ### Campaigns in lokaler Zeitzone {#local-time-zone-campaigns}
 
-Sie können die Nachricht in der Ortszeit der Nutzer:innen zustellen, damit Mitglieder Ihrer internationalen Zielgruppe keine Benachrichtigungen zu ungünstigen Zeiten erhalten. Campaigns in lokaler Zeitzone müssen 24 Stunden im Voraus geplant werden, um sicherzustellen, dass berechtigte Nutzer:innen aus allen Zeitzonen sie erhalten können. Lesen Sie die [Campaign-FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign), um zu verstehen, wie Campaigns in lokaler Zeitzone funktionieren und welche Zustellregeln damit verbunden sind.
+Sie können die Nachricht in der Ortszeit der Nutzer:innen zustellen, damit Mitglieder Ihrer internationalen Zielgruppe keine Benachrichtigungen zu ungünstigen Zeiten erhalten. Campaigns in lokaler Zeitzone müssen 24 Stunden im Voraus geplant werden, um sicherzustellen, dass berechtigte Nutzer:innen aus allen Zeitzonen sie erhalten können. Lesen Sie die [Campaign-FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign), um zu verstehen, wie Campaigns in lokaler Zeitzone funktionieren und welche Zustellregeln gelten.
 
-Segments, die mit Campaigns in lokaler Zeitzone angesprochen werden, sollten mindestens ein 2-Tage-Fenster umfassen, um Nutzer:innen aus allen Zeitzonen einzubeziehen. Wenn Ihre Campaign beispielsweise für den Abend geplant ist, aber nur ein 1-Tages-Fenster hat, könnten einige Nutzer:innen aus dem Segment herausgefallen sein, wenn ihre Zeitzone erreicht wird. Beispiele für Filter, die ein 2-Tage-Fenster erzeugen, sind „zuletzt verwendet vor mehr als 1 Tag“ und „zuletzt verwendet vor weniger als 3 Tagen“ oder „erster Kauf vor mehr als 7 Tagen“ und „erster Kauf vor weniger als 9 Tagen“.
+Segmente, die mit Campaigns in lokaler Zeitzone angesprochen werden, sollten mindestens ein 2-Tage-Fenster umfassen, um Nutzer:innen aus allen Zeitzonen einzubeziehen. Wenn Ihre Campaign beispielsweise für den Abend geplant ist, aber nur ein 1-Tages-Fenster hat, könnten einige Nutzer:innen bereits aus dem Segment gefallen sein, wenn ihre Zeitzone erreicht wird. Beispiele für Filter, die ein 2-Tage-Fenster erzeugen, sind „zuletzt verwendet vor mehr als 1 Tag“ und „zuletzt verwendet vor weniger als 3 Tagen“ oder „erster Kauf vor mehr als 7 Tagen“ und „erster Kauf vor weniger als 9 Tagen“.
 
 ### Anwendungsfälle {#use-cases}
 
@@ -50,17 +50,32 @@ Festgelegte Zeitpläne eignen sich am besten für im Voraus geplante Nachrichten
 
 ### Zustellregeln {#delivery-rules}
 
-Da der optimale Zeitpunkt einer Nutzerin oder eines Nutzers zu jeder beliebigen Stunde innerhalb von 24 Stunden über alle globalen Zeitzonen hinweg liegen kann, müssen alle Campaigns mit intelligentem Timing 48 Stunden im Voraus geplant werden. Die 48-Stunden-Vorlaufzeit berücksichtigt die Zustellung an alle Nutzer:innen weltweit, da ein einzelner Tag über alle Zeitzonen hinweg etwa 48 Stunden umfasst. Ähnlich wie bei Campaigns mit festgelegter Uhrzeit werden bei Nachrichten mit einem 1-Tages-Fenster außerdem Nutzer:innen verpasst, die das Segment verlassen, bevor ihr optimaler Zeitpunkt in ihrer Zeitzone erreicht wird. Segments für Campaigns mit intelligentem Timing sollten mindestens ein 3-Tages-Fenster einbeziehen, um dies zu berücksichtigen.
+Da der optimale Zeitpunkt einer/eines Nutzer:in zu jeder beliebigen Stunde innerhalb von 24 Stunden über alle globalen Zeitzonen hinweg liegen kann, müssen alle Campaigns mit intelligentem Timing 48 Stunden im Voraus geplant werden. Die 48-Stunden-Vorlaufzeit berücksichtigt die Zustellung an alle Nutzer:innen weltweit, da ein einzelner Tag über alle Zeitzonen hinweg etwa 48 Stunden umfasst. Ähnlich wie bei Campaigns mit festgelegter Uhrzeit werden bei Nachrichten mit einem 1-Tages-Fenster außerdem Nutzer:innen verpasst, die das Segment verlassen, bevor ihr optimaler Zeitpunkt in ihrer Zeitzone erreicht wird. Segments für Campaigns mit intelligentem Timing sollten mindestens ein 3-Tages-Fenster einbeziehen, um dies zu berücksichtigen.
 
-Wenn das Profil einer Nutzerin oder eines Nutzers nicht genügend Daten enthält, um einen optimalen Zeitpunkt zu berechnen, können Sie eine Fallback-Methode wählen: Entweder wird die Nachricht zur beliebtesten Nutzungszeit der App unter allen Nutzer:innen gesendet, oder es wird eine benutzerdefinierte Fallback-Zeit verwendet.
+Wenn das Profil einer/eines Nutzer:in nicht genügend Daten enthält, um einen optimalen Zeitpunkt zu berechnen, können Sie eine Fallback-Methode wählen: Entweder wird die Nachricht zur beliebtesten Nutzungszeit der App unter allen Nutzer:innen gesendet, oder es wird eine benutzerdefinierte Fallback-Zeit verwendet.
 
 ### Anwendungsfälle
 
 Campaigns mit intelligentem Timing eignen sich am besten für einmalige und wiederkehrende Nachrichten, bei denen eine gewisse Flexibilität hinsichtlich des Zustellzeitpunkts besteht – beispielsweise wenn sie nicht für aktuelle Eilmeldungen oder zeitgebundene Ankündigungen gedacht sind.
 
-## Bewertung der Zielgruppenkriterien bei Verzögerungen {#audience-criteria-evaluation-with-delays}
+## Auswertung der Zielgruppenkriterien bei Verzögerungen {#audience-criteria-evaluation-with-delays}
 
 Bei Campaigns mit geplanter Zustellung werden die Zielgruppenkriterien immer zum Zeitpunkt des geplanten Versands ausgewertet, nicht beim Start der Campaign. Dies gilt für jede Verzögerung zwischen Planung und Versand – beispielsweise durch Rate-Limiting, Ortszeit, intelligentes Timing oder einen Trigger-Zeitplan.
+
+### Zeitpunkt von Segment-Änderungen {#timing-of-segment-changes}
+
+Wenn Sie ein Segment ändern, das als Zielgruppe für eine geplante Campaign verwendet wird, werden Änderungen, die kurz vor dem geplanten Versandzeitpunkt vorgenommen werden, in der Regel bei der Auswertung der Zielgruppe berücksichtigt. Der genaue Stichtag variiert, aber Änderungen werden im Allgemeinen einbezogen, wenn ihre Verarbeitung abgeschlossen ist, bevor Braze die Zielgruppe für diesen Versand erstellt.
+
+Wenn Sie beispielsweise ein Segment um 15:50 Uhr für eine Campaign aktualisieren, die um 16:00 Uhr versendet werden soll, verwendet Braze die aktualisierten Segment-Kriterien bei der Auswertung der Zielgruppe – vorausgesetzt, die Verarbeitung der Änderungen ist vor Beginn der Campaign-Ausführung abgeschlossen.
+
+#### Best Practices {#best-practices}
+
+Um sicherzustellen, dass Segment-Änderungen vor dem Versand Ihrer geplanten Campaigns vollständig verarbeitet werden:
+
+- **Vorausplanen:** Nehmen Sie Segment-Änderungen rechtzeitig vor dem geplanten Versandzeitpunkt vor, damit genügend Zeit für die Verarbeitung bleibt.
+- **Zuerst testen:** Testen Sie Änderungen nach Möglichkeit zunächst in einer kleineren Campaign, bevor Sie sie auf größere, kritischere Campaigns anwenden.
+
+Weitere Informationen zu geplanten Zustellungsoptionen finden Sie unter [Zustellungs- und Entry-Typen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options).
 
 ## Fehlerbehebung {#troubleshooting}
 
@@ -70,4 +85,4 @@ Die Anzahl der Zustellungen kann niedriger als die geschätzte Zielgruppe ausfal
 
 ### Warum wurde meine Campaign einen Tag vor der geplanten Zeit gesendet? {#why-did-my-campaign-send-a-day-before-the-scheduled-time}
 
-Wenn eine Campaign früher als der in den **Unternehmenseinstellungen** festgelegte Zeitplan gesendet wird, aktivieren Sie **In lokaler Zeitzone senden** oder fügen Sie ein Zustellzeitfenster für Campaigns mit intelligentem Timing hinzu. Ohne diese Einstellungen kann die Zeitzonenauswertung dazu führen, dass Zustellungen für Nutzer:innen in früheren Zeitzonen vor Ihrem beabsichtigten Zeitplan in die Warteschlange gestellt werden. Weitere Informationen finden Sie unter [Campaigns in lokaler Zeitzone](#local-time-zone-campaigns) und [Wann wertet Braze Nutzer:innen für die Zustellung in der lokalen Zeitzone aus?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#when-does-braze-evaluate-users-for-local-time-zone-delivery).
+Wenn eine Campaign früher als der in den **Unternehmenseinstellungen** festgelegte Zeitplan gesendet wird, aktivieren Sie **In Ortszeit senden** oder fügen Sie ein Zustellzeitfenster für Campaigns mit intelligentem Timing hinzu. Ohne diese Einstellungen kann die Zeitzonenauswertung dazu führen, dass Zustellungen für Nutzer:innen in früheren Zeitzonen vor Ihrem beabsichtigten Zeitplan in die Warteschlange gestellt werden. Weitere Informationen finden Sie unter [Campaigns in Ortszeit](#local-time-zone-campaigns) und [Wann wertet Braze Nutzer:innen für die Zustellung in Ortszeit aus?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#when-does-braze-evaluate-users-for-local-time-zone-delivery).

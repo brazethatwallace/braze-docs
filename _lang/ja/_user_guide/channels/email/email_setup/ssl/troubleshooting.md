@@ -17,21 +17,21 @@ channel: email
 | --- | --- |
 | メールの開封率が突然低下した | [メールの開封率が低い](#low-email-open-rates) |
 | トラッキングリンクがHTTP 403を返す | [リダイレクトリンクでHTTP 403が発生する](#http-403-on-redirect-links) |
-| DNSまたはCNAMEがCDNではなくESPを指している | [ドメインレジストリの問題](#domain-registry-issues) |
+| DNSまたはCNAMEがCDNではなくメールサービスプロバイダー (ESP) を指している | [ドメインレジストリの問題](#domain-registry-issues) |
 | 「接続がプライベートではありません」またはセットアップ中にリンクが壊れる | [CDNの問題](#cdn-issues) |
 | SSLセットアップが完了したがリンクがまだHTTPを表示する | [SSL有効化のステータス](#ssl-enablement-status) |
-| トラッキングURLが失敗するがトラッキングなしのURLは動作する | [クリックトラッキングの問題](#click-tracking-issues) |
+| トラッキングURLが失敗するが、トラッキングなしのURLは動作する | [クリックトラッキングの問題](#click-tracking-issues) |
 | Amazon SES固有のSSL有効化エラー | [Amazon SES](#amazon-ses) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SSLの症状" }
 
 ## 標準的な調査パス {#standard-investigation-path}
 
 1. クリックトラッキングサブドメインが、メールサービスプロバイダー (ESP)（SendGrid、SparkPost、またはAmazon SES）ではなく、[コンテンツデリバリーネットワーク（CDN）]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it)を指していることを確認します。ITチームまたはWebチームに、ドメイン設定がBrazeの設定と一致しているか確認を依頼してください。Brazeの要件については、[SSL証明書の取得]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate)を参照してください。
-2. トラッキングドメインのSSL証明書が有効であることを確認します。ITチームまたはWebチームに、証明書が最新であり、クリックトラッキングサブドメインをカバーしていることを確認してもらってください。設定手順とCDN固有のガイドについては、[SSL証明書の取得]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate)と[その他のリソース]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources)を参照してください。
+2. トラッキングドメインのSSL証明書が有効であることを確認します。ITチームまたはWebチームに、証明書が最新であり、クリックトラッキングサブドメインをカバーしていることの確認を依頼してください。設定手順とCDN固有のガイドについては、[SSL証明書の取得]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate)と[その他のリソース]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources)を参照してください。
 3. [クリックトラッキングのトラブルシューティングテンプレート](#click-tracking-issues)を使用してテストメールを送信します。トラッキングされたURLとトラッキングされていないURLを比較してください。
-4. トラッキングされたリンクが403エラーで失敗する場合は、CDNとWAFのルール（ユーザーエージェント、クエリ文字列、リダイレクトパターン）を確認してください。
-5. 設定が完了しているにもかかわらずリンクがHTTPのままの場合は、BrazeがSSLを有効にしていることを確認するために、カスタマーサクセスマネージャーに連絡してください。
-6. 問題が解決しない場合は、CDNまたはITチームと連携し、エラーコードとCDNまたはドメインプロバイダーからの詳細情報を添えて[Brazeサポート]({{site.baseurl}}/braze_support)にお問い合わせください。
+4. トラッキングリンクが403エラーで失敗する場合は、CDNおよびWAFのルール（ユーザーエージェント、クエリ文字列、リダイレクトパターン）を確認してください。
+5. 設定が完了しているにもかかわらずリンクがHTTPのままの場合は、BrazeがSSLを有効にしていることを確認するため、カスタマーサクセスマネージャーにお問い合わせください。
+6. 問題が解決しない場合は、CDNチームまたはITチームと連携し、エラーコードとCDNまたはドメインプロバイダーからの詳細情報を添えて[Brazeサポート]({{site.baseurl}}/braze_support)にお問い合わせください。
 
 ## 主要な概念 {#key-concepts}
 
@@ -364,7 +364,7 @@ SSLの設定を完了してもリンクがHTTPのまま表示される場合は�
 3. 自分宛にテストメールを送信し、両方のボタンを選択してください。
 4. 期待される動作と成功基準がテンプレートに記載されている通りであることを確認してください。
 
-トラッキングされていないURLは機能するがトラッキングされたURLが失敗する場合、設定にギャップがある可能性があります。トラブルシューティングするには、お使いのメールサービスプロバイダー (ESP) とCDNプロバイダーのドキュメントを参照してください。証明書のプロビジョニングに関する詳細な要件については、[BrazeのSSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl)も確認できます。
+トラッキングされていないURLは機能するがトラッキングされたURLが失敗する場合、設定にギャップがある可能性があります。お使いのメールサービスプロバイダー (ESP) とCDNプロバイダーのドキュメントを参照してください。証明書のプロビジョニングに関する詳細な要件については、[BrazeのSSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl)を参照してください。
 
 以下の表を使用して、クリックトラッキングのテスト時に発生する一般的なエラーを診断してください。
 

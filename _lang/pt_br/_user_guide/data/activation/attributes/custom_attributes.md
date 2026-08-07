@@ -27,7 +27,7 @@ Alguns casos de uso comuns de atributos personalizados incluem:
 - Contar ações de baixo valor com [atributos numéricos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como incrementar um atributo `feature_views_count` cada vez que um usuário visualiza um recurso
 - Registrar quando ações de baixo valor ocorreram pela última vez usando [atributos de tempo]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como `last_support_ticket_at` ou `last_password_reset_at`
 - Armazenar interesses e histórico do usuário como [arrays]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como gêneros favoritos ou conteúdo visualizado recentemente, para direcionamento baseado em interesses
-- Armazenar dados de perfil mais ricos como [objetos]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) ou [arrays de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects), como preferências estruturadas ou múltiplos endereços salvos
+- Armazenar dados de perfil mais detalhados como [objetos]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) ou [arrays de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects), como preferências estruturadas ou múltiplos endereços salvos
 - Disparar mensagens baseadas em ação quando o valor de um atributo muda usando [gatilhos de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), como enviar uma notificação de upgrade de nível quando o `rewards_tier` de um usuário muda
 
 ## Gerenciar atributos personalizados {#managing-custom-attributes}
@@ -113,7 +113,7 @@ O atributo personalizado não pode estar em uso em nenhuma Campaign, Canvas ou S
 
 O relatório de uso lista todos os Canvas, Campaigns e Segments que utilizam um atributo personalizado específico. Essa lista não inclui usos de Liquid.
 
-Você pode visualizar até 100 relatórios de uso por vez selecionando as caixas de seleção ao lado dos respectivos atributos personalizados e, em seguida, selecionando **Visualizar relatório de uso**.
+Você pode visualizar até 100 relatórios de uso por vez, selecionando as caixas de seleção ao lado dos respectivos atributos personalizados e, em seguida, selecionando **Visualizar relatório de uso**.
 
 ### Guia Valores {#values-tab}
 
@@ -125,7 +125,7 @@ Ao visualizar um relatório de uso, selecione a guia **Valores** para ver os pri
 
 A seguir estão os métodos em várias plataformas usados para definir atributos personalizados.
 
-{% details Expandir para documentação por plataforma %}
+{% details Expandir para ver a documentação por plataforma %}
 
 - [Android e FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)
@@ -145,7 +145,7 @@ Para uma referência completa de todos os tipos de dados que você pode armazena
 
 ### Strings em branco versus valores nulos {#blank-strings-versus-null-values}
 
-Ao limpar ou remover a definição de um atributo personalizado, o comportamento difere dependendo de você passar uma string em branco (`""`) ou `null`:
+Ao limpar ou remover um atributo personalizado, o comportamento difere dependendo de você passar uma string em branco (`""`) ou `null`:
 
 | Valor | Comportamento |
 | --- | --- |
@@ -155,8 +155,10 @@ Ao limpar ou remover a definição de um atributo personalizado, o comportamento
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Strings em branco versus valores nulos" }
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Strings em branco versus valores nulos" }
 
-{% alert important %}
-Para tipos de dados que não são string, em que o tipo de dado é definido manualmente no dashboard da Braze (não detectado automaticamente), você deve usar `null` para remover a definição do valor. Passar `""` é válido apenas para atributos do tipo string — por exemplo, definir um atributo booleano como `""` é tratado como uma string vazia, que é um valor inválido para esse tipo. Para remover a definição de um booleano, passe `null`.
+Esse comportamento também afeta a segmentação. Para atributos personalizados, o filtro **IS NOT BLANK** verifica se há um valor não vazio. Isso significa que uma string em branco (`""`) não corresponde, mesmo que o atributo permaneça visível no perfil. Um valor `null` também não corresponde, porque o atributo é removido do perfil.
 
-Observe que a importação de CSV não oferece suporte a `null` — valores booleanos em importações de CSV devem ser `TRUE` ou `FALSE`.
+{% alert important %}
+Para tipos de dados que não são string, em que o tipo de dados é definido manualmente no dashboard da Braze (não detectado automaticamente), você deve usar `null` para remover o valor. Passar `""` é válido apenas para atributos do tipo string — por exemplo, definir um atributo booleano como `""` é tratado como uma string vazia, que é um valor inválido para esse tipo. Para remover um booleano, passe `null`.
+
+Note que a importação de CSV não oferece suporte a `null` — valores booleanos em importações de CSV devem ser `TRUE` ou `FALSE`.
 {% endalert %}
