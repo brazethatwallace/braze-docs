@@ -63,6 +63,10 @@ This can occur for users who met the segment criteria when the in-app message ca
 
 To prevent this, during your campaign setup, select **Re-evaluate campaign eligibility before displaying**.
 
+## Why don't I see opens for in-app messages?
+
+In-app messages do not use an *Opens* metric. Braze logs *Impressions* when the message becomes visible on screen and *Clicks* when users interact with the message body or buttons. If a multichannel export or report includes in-app message rows, compare *Impressions* and *Clicks* instead of email-style opens. For definitions, see [In-app message reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting).
+
 ## Can multiple in-app messages display in the same session?
 
 Yes, but only one in-app message can display per occurrence of a [trigger event]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger). If multiple in-app message campaigns share the same trigger (for example, session start), only the highest-priority message displays each time that trigger occurs. For session start triggers, this means only one message can display per session, and the next opportunity to show another eligible message is the next session.
