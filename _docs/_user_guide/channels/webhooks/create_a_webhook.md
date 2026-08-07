@@ -232,7 +232,7 @@ When the webhook request is sent, the receiving server will return a response co
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response codes and retry logic" }
 
 {% alert note %}
-Braze retries the earlier in this section status codes up to five times within 30 minutes using exponential backoff. If we can't reach your endpoint, retries may be spread over a 24-hour period.<br><br>Each webhook is allowed 90 seconds before it times out.
+Braze retries the earlier in this section status codes up to five times within 30 minutes using exponential backoff. If we can't reach your endpoint, retries may be spread over a 24-hour period.<br><br>Each webhook request is allowed 120 seconds before it times out. Braze may send up to 60 concurrent webhook requests per workspace; concurrency limits are separate from the per-request timeout.
 {% endalert %}
 
 `Retry-After` and rate-limit response headers can affect how long Braze waits before a **retriable** attempt (for example, after `408`, `429`, or `5XX`). They do not make non-retriable responses, such as `401`, eligible for retry.
