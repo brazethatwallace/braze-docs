@@ -17,7 +17,7 @@ Un manifeste de confidentialité est un fichier dans votre projet Xcode qui déc
 ## Déclaration des données de suivi Braze {#declaring-braze-tracking-data}
 
 {% alert tip %}
-Pour un guide complet, consultez le [tutoriel sur les données de suivi de la vie privée](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/e1-privacy-tracking/).
+Pour un guide complet, consultez le [tutoriel sur les données de suivi de la confidentialité](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/e1-privacy-tracking/).
 {% endalert %}
 
 ### Prérequis {#prerequisites}
@@ -93,7 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endtab %}
 
 {% tab Exemple dynamique %}
-Dans l'exemple suivant, la liste de suivi est automatiquement mise à jour après que l'utilisateur final a accepté l'[invite App Tracking Transparency (ATT)](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:)). La demande d'autorisation lors de l'activation de l'application est un événement par scène, donc ce code appartient à la méthode `sceneDidBecomeActive(_:)` de votre fichier `SceneDelegate.swift` plutôt qu'à la méthode `applicationDidBecomeActive(_:)` de `AppDelegate.swift` (requis pour les applications qui ont adopté le [cycle de vie `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)). Votre instance Braze reste accessible depuis `SceneDelegate` via la propriété statique `AppDelegate.braze` configurée à l'étape 1.
+Dans l'exemple suivant, la liste de suivi est automatiquement mise à jour après que l'utilisateur final a accepté l'[invite App Tracking Transparency (ATT)](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:)). La demande d'autorisation lors de l'activation de l'application est un événement par scène, donc ce code appartient à la méthode `sceneDidBecomeActive(_:)` de votre fichier `SceneDelegate.swift` plutôt qu'à la méthode `applicationDidBecomeActive(_:)` de `AppDelegate.swift` (requis pour les applications ayant adopté le [cycle de vie `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)). Votre instance Braze reste accessible depuis `SceneDelegate` via la propriété statique `AppDelegate.braze` configurée à l'étape 1.
 
 ```swift
 func sceneDidBecomeActive(_ scene: UIScene) {
@@ -131,13 +131,13 @@ func sceneDidBecomeActive(_ scene: UIScene) {
 
 ## Désactivation du suivi des données {#disabling-data-tracking}
 
-Pour désactiver l'activité de suivi des données sur le SDK Swift, définissez la propriété [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled) sur `false` dans votre instance Braze. Lorsque `enabled` est défini sur `false`, le SDK Braze ignore tous les appels à l'API publique. Le SDK annule également toutes les actions en cours, telles que les requêtes réseau, le traitement des événements, etc.
+Pour désactiver le suivi des données sur le SDK Swift, définissez la propriété [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled) sur `false` sur votre instance Braze. Lorsque `enabled` est défini sur `false`, le SDK Braze ignore tous les appels à l'API publique. Le SDK annule également toutes les actions en cours, telles que les requêtes réseau, le traitement des événements, etc.
 
 ## Effacer les données précédemment stockées {#wiping-previously-stored-data}
 
-Vous pouvez utiliser la méthode [`wipeData()`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/wipedata()) pour effacer complètement les données SDK stockées localement sur l'appareil d'un utilisateur.
+Vous pouvez utiliser la méthode [`wipeData()`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/wipedata()) pour effacer complètement les données du SDK stockées localement sur l'appareil d'un utilisateur.
 
-Pour les versions 7.0.0 et ultérieures de Braze Swift, le SDK et la méthode `wipeData()` génèrent aléatoirement un UUID pour l'ID de l'appareil. Cependant, si votre `useUUIDAsDeviceId` est défini sur `false` _ou_ si vous utilisez la version 5.7.0 ou antérieure du SDK Swift, vous devrez également effectuer une requête POST vers [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) car votre identifiant pour les fournisseurs (IDFV) sera automatiquement utilisé comme ID d'appareil de cet utilisateur.
+Pour les versions 7.0.0 et ultérieures du SDK Swift de Braze, le SDK et la méthode `wipeData()` génèrent aléatoirement un UUID pour l'ID de l'appareil. Cependant, si votre `useUUIDAsDeviceId` est défini sur `false` _ou_ si vous utilisez la version 5.7.0 ou antérieure du SDK Swift, vous devrez également effectuer une requête POST vers [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) car votre identifiant pour les fournisseurs (IDFV) sera automatiquement utilisé comme ID d'appareil de cet utilisateur.
 
 Si vous utilisez l'intégration manuelle des notifications push et que votre application appelle `wipeData()` puis réactive le SDK au cours de la même exécution de l'application, appelez à nouveau `registerForRemoteNotifications()` afin que Braze puisse recevoir un jeton d'appareil actualisé. Pour plus d'informations, consultez la section [configuration des notifications push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift).
 
@@ -151,11 +151,11 @@ Le SDK Braze fournit des méthodes pour cesser de cibler un appareil lorsqu'un u
 
 ### Déconnexion {#logout}
 
-Lorsqu'un utilisateur se déconnecte d'une application, appelez la méthode `logout` du SDK pour supprimer l'inscription push de l'appareil de l'utilisateur actuel et effectuer automatiquement des actions de nettoyage dans le SDK. La méthode `logout` effectue les opérations suivantes :
+Lorsqu'un utilisateur se déconnecte d'une application, appelez la méthode `logout` du SDK pour supprimer l'inscription push de l'appareil de l'utilisateur actuel et effectuer automatiquement des actions de nettoyage sur le SDK. La méthode `logout` effectue les opérations suivantes :
 
 - Désinscrit le jeton push de l'appareil, ainsi que tous les jetons push-to-start des Live Activities, de l'utilisateur actuel sur le serveur Braze.
 - Si l'appel de désinscription réussit, le SDK efface les données SDK stockées localement et désactive le SDK.
-- En cas d'échec, une erreur est levée avec un indicateur `isRetriable` pour permettre à l'intégrateur d'agir.
+- En cas d'échec, génère une erreur et un indicateur `isRetriable` pour permettre à l'intégrateur d'agir.
 
 {% subtabs local %}
 {% subtab Swift %}
@@ -174,7 +174,7 @@ AppDelegate.braze?.logout { result in
 }
 ```
 
-L'exemple asynchrone suivant montre l'API suspensive `logout`. Utilisez-le pour les flux asynchrones et personnalisez les branches de succès et d'échec pour votre application.
+L'exemple asynchrone suivant montre l'API suspensive `logout`. Utilisez-le pour les flux de travail asynchrones et personnalisez les branches de succès et d'échec pour votre application.
 
 ```swift
 // Async/await
@@ -202,6 +202,10 @@ Cet exemple Objective-C montre la gestion de `logout` basée sur la complétion.
 
 {% endsubtab %}
 {% endsubtabs local %}
+
+{% alert note %}
+`logout` ne met pas fin aux Live Activities en cours d'exécution. Dans le rappel de succès, terminez manuellement toutes les Live Activities en cours en utilisant la méthode [`end(_:dismissalPolicy:)`](https://developer.apple.com/documentation/activitykit/activity/end(_:dismissalpolicy:)) d'ActivityKit.
+{% endalert %}
 
 #### Réactiver le suivi et les notifications push après `logout` {#re-enable-tracking-and-push-after-logout}
 
@@ -232,7 +236,7 @@ AppDelegate.braze?.notifications.unregisterPush { result in
 }
 ```
 
-L'exemple asynchrone suivant montre l'API suspensive `unregisterPush`. Utilisez-le pour les flux asynchrones et personnalisez les branches de succès et d'échec pour votre application.
+L'exemple asynchrone suivant montre l'API suspensive `unregisterPush`. Utilisez-le pour les flux de travail asynchrones et personnalisez les branches de succès et d'échec pour votre application.
 
 ```swift
 // Async/await
@@ -276,6 +280,10 @@ Après avoir appelé `unregisterPush`, réinscrivez-vous aux notifications aupr�
 Les Live Activities peuvent être démarrées à distance à l'aide de jetons push-to-start. Pour empêcher Braze de démarrer à distance des Live Activities sur un appareil, appelez la méthode `unregisterPushToStart` pour désinscrire tous les types actuellement enregistrés (par défaut) ou une liste spécifique de types d'Activity.
 
 Notez que les Live Activities en cours d'exécution continuent de recevoir des mises à jour et que cette méthode supprime uniquement la possibilité de démarrer de nouvelles activités à distance. Pour plus d'informations sur les Live Activities, consultez [Live Activities]({{site.baseurl}}/developer_guide/live_notifications/live_activities).
+
+#### Terminer les Live Activities en cours {#end-any-running-live-activities}
+
+`unregisterPushToStart` ne met pas fin aux Live Activities en cours d'exécution. Dans le rappel de succès, terminez manuellement toutes les Live Activities en cours en utilisant la méthode [`end(_:dismissalPolicy:)`](https://developer.apple.com/documentation/activitykit/activity/end(_:dismissalpolicy:)) d'ActivityKit.
 
 {% alert note %}
 Évitez d'appeler `logout` ou `unregisterPushToStart` directement après avoir appelé `registerPushToStart` pour une Live Activity. En raison de la nature asynchrone du traitement côté serveur, cela peut dans de rares cas entraîner le réajout du jeton push-to-start à l'utilisateur Braze.
@@ -374,11 +382,11 @@ Lorsque cette fonctionnalité n'est pas activée, les appareils continuent de se
 
 #### Ce changement aura-t-il un impact sur mes utilisateurs existants dans Braze ? {#will-this-change-impact-my-existing-users-in-braze}
 
-Non. Lorsqu'elle est activée, cette fonctionnalité n'écrase aucune donnée utilisateur dans Braze. Les nouveaux ID d'appareil UUID ne seront créés que pour les nouveaux appareils ou lorsque `wipedata()` est appelé.
+Non. Lorsqu'elle est activée, cette fonctionnalité n'écrase aucune donnée utilisateur dans Braze. Les nouveaux ID d'appareil UUID ne sont créés que pour les nouveaux appareils ou lorsque `wipedata()` est appelé.
 
 #### Puis-je désactiver cette fonctionnalité après l'avoir activée ? {#can-i-turn-this-feature-off-after-turning-it-on}
 
-Oui, cette fonctionnalité peut être activée et désactivée à votre convenance. Les ID d'appareil précédemment stockés ne seront jamais écrasés.
+Oui, cette fonctionnalité peut être activée et désactivée à votre convenance. Les ID d'appareil précédemment stockés ne sont jamais écrasés.
 
 #### Puis-je toujours capturer la valeur IDFV via Braze ailleurs ? {#can-i-still-capture-the-idfv-value-through-braze-elsewhere}
 
