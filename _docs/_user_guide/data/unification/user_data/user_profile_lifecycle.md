@@ -131,3 +131,9 @@ All user IDs can be used to find and identify users within your dashboard for te
 {% alert important %}
 Braze will ban or block users with over 5,000,000 sessions ("dummy users") and will no longer ingest their SDK events, as these users are generally the result of misintegration. If you find that this has happened to a legitimate user, contact your Braze account manager.
 {% endalert %}
+
+<!-- sf-kb-phase2-batch -->
+
+Consider a short note under user profile lifecycle or analytics troubleshooting: merged/orphaned users may reconcile differently between dashboard summaries and external log stores.
+
+<!-- /sf-kb-phase2-batch -->
