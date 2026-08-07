@@ -49,3 +49,8 @@ These events and tags can be monitored on the Datadog **Metrics Explorer** page.
 
 ![Datadog Metrics Explorer showing Braze event metrics and tags.]({% image_buster /assets/img/datadog.png %})
 
+<!-- sf-kb-phase2-batch -->
+
+Add a short troubleshooting note on the Datadog partner page: ensure the Datadog site selected in Braze matches the customer's Datadog region/site URL; mismatch can prevent metrics such as braze.messaging.sent from appearing as expected.
+
+<!-- /sf-kb-phase2-batch -->
