@@ -144,3 +144,9 @@ If you use [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/
 4. **Forward universal links**: Set `configuration.forwardUniversalLinks = true` in your Braze SDK configuration.
 
 For implementation details and debugging guidance, see [Branch for deep linking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking).
+
+<!-- sf-kb-phase2-batch -->
+
+Add troubleshooting section to universal links / deep linking docs: if all email links open app, check AASA paths (use /uni/* for Sendgrid universal links) and Android pathPrefix; avoid * or /* for click-tracking domain.
+
+<!-- /sf-kb-phase2-batch -->
