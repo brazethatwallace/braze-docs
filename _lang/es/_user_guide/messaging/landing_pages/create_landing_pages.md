@@ -23,7 +23,7 @@ Las plantillas de páginas de inicio son puntos de partida de diseño sin public
 
 ### Paso 1: Crear un nuevo borrador {#step-1-create-a-new-draft}
 
-Ve a **Mensajería** > **Páginas de inicio** y selecciona **Crear página de inicio**. También puedes seleccionar el nombre de una página de inicio existente para duplicarla o hacerle cambios.
+Ve a **Mensajería** > **Páginas de inicio** y selecciona **Crear página de inicio**. También puedes seleccionar el nombre de una página de inicio existente para duplicarla o realizar cambios.
 
 ### Paso 2: Introducir los detalles de la página {#step-2-enter-the-page-details}
 
@@ -35,23 +35,23 @@ Introduce un nombre y una descripción para la página de inicio. Estos detalles
 
 #### Detalles del sitio {#site-details}
 
-Configura las metaetiquetas para personalizar cómo aparece tu página en la pestaña del navegador y optimizar los resultados de los motores de búsqueda. Estos serán visibles para tus clientes.
+Configura las metaetiquetas para personalizar cómo aparece tu página en la pestaña del navegador y optimizar los resultados de los motores de búsqueda. Serán visibles para tus clientes.
 
-Te sugerimos seguir estas mejores prácticas:
+Te sugerimos seguir estas buenas prácticas:
 
 | Campo | Descripción | Recomendaciones |
 | --- | --- | --- |
 | Título del sitio | El título que se muestra en la pestaña del navegador. | Usa hasta 60 caracteres. |
 | Meta descripción | Un fragmento de texto que se muestra en los resultados de búsqueda. | Usa entre 140 y 160 caracteres. |
 | Favicon | El icono que aparece junto al título del sitio en la pestaña del navegador. | Usa una relación de aspecto de 1:1 y un tipo de archivo compatible: PNG, JPEG o ICO. |
-| URL de la página | Esta es la ruta URL a tu página de inicio. Este valor también se referencia al usar [etiquetas de Liquid de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) que puedes incrustar en un mensaje para identificar automáticamente cuándo envían tu formulario. | Este valor debe ser único en tu espacio de trabajo. |
+| URL de la página | Esta es la ruta URL de tu página de inicio. Este valor también se referencia al usar [etiquetas de Liquid de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) que puedes incrustar en un mensaje para identificar automáticamente cuándo envían tu formulario. | Este valor debe ser único en tu espacio de trabajo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Detalles del sitio" }
 
 ### Paso 3: Personalizar la página {#step-3-customize-the-page}
 
 Si aún no lo has hecho, selecciona **Guardar como borrador**. Para empezar a personalizar tu página, selecciona **Editar página de inicio**. El editor de arrastrar y soltar precargará una plantilla predeterminada que puedes personalizar para adaptarla a tu caso de uso.
 
-![Un ejemplo de página de inicio siendo creada en el editor de arrastrar y soltar.]({% image_buster /assets/img/landing_pages/template.png %})
+![Un ejemplo de página de inicio creándose en el editor de arrastrar y soltar.]({% image_buster /assets/img/landing_pages/template.png %})
 
 El editor utiliza dos tipos de componentes para la composición de páginas de inicio: bloques básicos y bloques de formulario. Todos los bloques deben colocarse en una fila. Para una referencia dedicada de cada bloque y sus propiedades, consulta [Bloques de editor (páginas de inicio)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
@@ -67,8 +67,8 @@ Puedes usar estos bloques para añadir contenido y personalizar el diseño de tu
 | Título | Un bloque de texto para añadir un encabezado o título a tu contenido. Útil para estructurar secciones y mejorar la legibilidad. |
 | Párrafo | Un bloque de texto para descripciones más largas o contexto adicional. Admite formato de texto enriquecido. |
 | Botón | Un elemento clicable que dirige a los usuarios a una acción específica, como abrir un enlace o enviar un formulario. |
-| Botón de opción | Añade una lista de opciones de las cuales los usuarios pueden seleccionar una. Al enviarse, el perfil de usuario registra el atributo personalizado asociado. |
-| Imagen | Un bloque para mostrar imágenes. Puedes subir una imagen o proporcionar una URL para hacer referencia a una fuente externa. |
+| Botón de opción | Añade una lista de opciones de las cuales los usuarios deben seleccionar una. Al enviarse, el perfil de usuario registra el atributo personalizado asociado. |
+| Imagen | Un bloque para mostrar imágenes. Puedes subir una imagen o proporcionar una URL para referenciar una fuente externa. |
 | Enlace | Un hipervínculo en el que los usuarios pueden hacer clic para navegar a una URL específica. Puede incrustarse dentro del texto o ser independiente. |
 | Espaciador | Un bloque invisible que añade espacio vertical entre elementos para mejorar el diseño y la legibilidad. |
 | Código personalizado | Un bloque que te permite insertar y ejecutar HTML, CSS o JavaScript personalizado para una personalización avanzada. |
@@ -78,7 +78,7 @@ Puedes usar estos bloques para añadir contenido y personalizar el diseño de tu
 
 Para aplicar estilos específicos a bloques de texto sin código personalizado, resalta el texto que deseas estilizar y luego selecciona **Envolver con span para estilo**.
 
-![Cuadro de texto con diferentes secciones de texto estilizadas, como diferentes tamaños de fuente y colores, y una sección resaltada que muestra una barra de herramientas con la opción "Envolver con span para estilo".]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+![Cuadro de texto con diferentes secciones de texto estilizadas, como diferentes tamaños de fuente y colores, y una sección resaltada que muestra una barra de herramientas con la opción de "Envolver con span para estilo".]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
 Ajusta las propiedades del span para actualizar el estilo de tu texto, que incluye:
 
@@ -103,7 +103,7 @@ Puedes usar estos bloques para crear un formulario que vincule los datos enviado
 | Captura de correo electrónico | Un campo de formulario para direcciones de correo electrónico. Al enviarse, la dirección de correo electrónico se añade al perfil de ese usuario en Braze. |
 | Captura de teléfono | Un campo de formulario para números de teléfono. Al enviarse, el usuario se suscribe a tu grupo de suscripción de SMS o WhatsApp. |
 | Campo de entrada | Un campo de formulario que admite atributos estándar (como nombre y apellido) o una cadena de atributo personalizado de tu elección. |
-| Desplegable | Los usuarios pueden seleccionar un elemento de una lista predefinida. Puedes añadir cualquier cadena de atributos personalizados a la lista. |
+| Desplegable | Los usuarios pueden seleccionar un elemento de una lista predefinida. Puedes añadir cualquier cadena de atributo personalizado a la lista. |
 | Casilla de verificación | Si un usuario marca la casilla, el atributo del bloque se establece en `true`. Si se deja sin marcar, su atributo se establece en `false`. |
 | Grupo de casillas de verificación | Los usuarios pueden seleccionar entre múltiples opciones presentadas. Los valores se establecen o se añaden a un atributo personalizado de tipo array definido. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Texto con span" }
@@ -123,9 +123,9 @@ Te recomendamos configurar los estilos a nivel del contenedor de página antes d
 
 ![La sección "Contenedor de página" con opciones para personalizar imágenes de fondo, colores, detalles de borde y estilo de contenido.]({% image_buster /assets/img/landing_pages/page_container.png %}){: style="max-width:40%;"}
 
-#### Receptivo a los dispositivos del usuario {#responsive-to-user-devices}
+#### Adaptable a los dispositivos del usuario {#responsive-to-user-devices}
 
-Puedes hacer que tu página de inicio sea receptiva al tamaño del dispositivo del usuario apilando columnas verticalmente en pantallas más pequeñas. Para habilitar esto, añade una columna en la fila que deseas hacer receptiva y luego activa **Apilar verticalmente en pantallas más pequeñas** en la sección **Personalizar columnas**.
+Puedes hacer que tu página de inicio sea adaptable al tamaño del dispositivo del usuario apilando columnas verticalmente en pantallas más pequeñas. Para habilitar esto, añade una columna a la fila que deseas hacer adaptable y luego activa **Apilar verticalmente en pantallas más pequeñas** en la sección **Personalizar columnas**.
 
 Cuando está habilitado, también puedes invertir el apilamiento de columnas para controlar el orden vertical del contenido multicolumna en pantallas más pequeñas. Esto hace que las páginas se vean y se sientan mejor en dispositivos móviles sin código personalizado.
 
@@ -135,7 +135,11 @@ Cuando está habilitado, también puedes invertir el apilamiento de columnas par
 
 #### Campos opcionales y obligatorios {#optional-and-required-fields}
 
-Puedes elegir si un campo de formulario es obligatorio u opcional. Los campos obligatorios deben completarse antes de que se pueda enviar el formulario. Los campos opcionales pueden dejarse en blanco o sin seleccionar por el usuario.
+Puedes elegir si ciertos campos de formulario son obligatorios u opcionales. Los campos obligatorios deben completarse antes de que se pueda enviar el formulario. Los campos opcionales pueden dejarse en blanco o sin seleccionar por el usuario.
+
+{% alert note %}
+Los botones de opción siempre son obligatorios y no se pueden establecer como opcionales. Si necesitas un campo de selección única opcional, considera usar un desplegable en su lugar.
+{% endalert %}
 
 Por ejemplo, para exigir la captura de consentimiento antes del envío del formulario, puedes activar **Entrada de campo obligatoria** para establecer una casilla de verificación como obligatoria con el texto de descargo de responsabilidad apropiado.
 

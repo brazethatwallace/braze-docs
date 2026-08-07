@@ -12,7 +12,7 @@ description: "Aprende a inicializar el SDK de Braze utilizando métodos como la 
 
 # Google Tag Manager con el SDK de Braze {#google-tag-manager-with-the-braze-sdk}
 
-> Aprende a utilizar [Google Tag Manager (GTM)](https://developers.google.com/tag-platform/tag-manager) con el SDK de Braze, para que puedas controlar de forma remota el seguimiento de eventos y las actualizaciones de atributos de usuario de Braze sin necesidad de realizar cambios en el código ni lanzar nuevas versiones de la aplicación.
+> Aprende a usar [Google Tag Manager (GTM)](https://developers.google.com/tag-platform/tag-manager) con el SDK de Braze, para que puedas controlar de forma remota el seguimiento de eventos de Braze y las actualizaciones de atributos de usuario sin necesidad de cambios en el código ni nuevas versiones de la aplicación.
 
 {% sdktabs %}
 {% sdktab web %}
@@ -28,7 +28,16 @@ Google Tag Manager (GTM) te permite añadir, eliminar y editar etiquetas de form
 
 ## Secuenciación de etiquetas para las etiquetas de acción de Braze {#tag-sequencing-for-braze-action-tags}
 
-Los eventos personalizados y otras etiquetas de acción de Braze pueden fallar cuando se activan antes de que la etiqueta **Braze Initialization** termine de cargar el SDK Web. En Google Tag Manager, abre la etiqueta de acción, ve a **Advanced Settings** > **Tag Sequencing**, selecciona **A tag that fires before [this tag] is fired** y elige tu etiqueta de inicialización de Braze.
+La etiqueta de inicialización de Braze debe activarse antes que cualquier etiqueta que llame a métodos del SDK de Braze (como `braze.getUser()`, `braze.logCustomEvent()` o `braze.logPurchase()`). Si estos métodos se activan antes de que el SDK esté inicializado, puedes encontrar errores como `Uncaught TypeError: Cannot read properties of undefined (reading 'getUser')`.
+
+Para configurar la secuenciación de etiquetas en Google Tag Manager:
+
+1. Abre la etiqueta que llama a métodos del SDK de Braze (como una etiqueta HTML personalizada o una etiqueta de acción de Braze).
+2. Ve a **Advanced Settings** > **Tag Sequencing**.
+3. Selecciona **A tag that fires before [this tag] is fired**.
+4. Elige tu etiqueta **Braze Initialization**.
+
+Esto garantiza que el SDK esté completamente cargado antes de que cualquier otra etiqueta intente llamar a métodos de Braze.
 
 Para más detalles, consulta [Verificar la secuenciación de etiquetas para eventos personalizados]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_tag-sequencing).
 
@@ -89,7 +98,7 @@ Como parte de la Política de consentimiento de usuarios de la UE de Google, los
 - `$google_ad_user_data`
 - `$google_ad_personalization`
 
-Si estableces estos valores a través de la integración de GTM, los atributos personalizados requieren crear una etiqueta HTML personalizada. A continuación se muestra un ejemplo de cómo registrar estos valores como tipos de datos booleanos (no como cadenas):
+Si configuras estos atributos a través de la integración de GTM, los atributos personalizados requieren crear una etiqueta HTML personalizada. El siguiente es un ejemplo de cómo registrar estos valores como tipos de datos booleanos (no como cadenas):
 
 ```js
 <script>
@@ -112,6 +121,6 @@ Para más información, consulta [Audience Sync con Google]({{site.baseurl}}/par
 
 ## Solución de problemas {#troubleshooting}
 
-Si Braze no se inicializa o los eventos no aparecen como se esperaba, confirma que tu contenedor de GTM está publicado, que los desencadenantes y el orden de activación de las etiquetas están alineados con el [ciclo de vida y la estrategia de inicialización]({{site.baseurl}}/developer_guide/sdk_integration) de tu SDK, y que los dispositivos de prueba no están bloqueando los endpoints de Braze.
+Si Braze no se inicializa o los eventos no aparecen como se esperaba, confirma que tu contenedor de GTM está publicado, que los desencadenantes y el orden de activación de las etiquetas están alineados con tu [ciclo de vida y estrategia de inicialización]({{site.baseurl}}/developer_guide/sdk_integration) del SDK, y que los dispositivos de prueba no están bloqueando los endpoints de Braze.
 
-Para fallos de inicialización, verifica que la etiqueta de Braze o el proveedor de etiquetas personalizado reciba el `actionType` y los parámetros esperados (consulta las pestañas de Android, Swift y Web en esta página). Para habilitar el registro detallado mientras validas los eventos activados por GTM, activa el registro de depuración del SDK de tu plataforma como se describe en las guías de integración de plataforma enlazadas desde esas pestañas.
+Para fallos de inicialización, verifica que la etiqueta de Braze o el proveedor de etiquetas personalizado reciba el `actionType` y los parámetros esperados (consulta las pestañas de Android, Swift y Web en esta página). Para habilitar el registro detallado mientras validas los eventos activados por GTM, habilita el registro de depuración del SDK de tu plataforma como se describe en las guías de integración de plataforma enlazadas desde esas pestañas.

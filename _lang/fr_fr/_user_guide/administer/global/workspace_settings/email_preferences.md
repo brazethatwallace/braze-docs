@@ -66,7 +66,7 @@ L'ajout d'une adresse e-mail dans cette section vous permet de la sélectionner 
 ![Section « Adresse de réponse » avec des champs pour saisir plusieurs adresses de réponse.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
 {% alert note %}
-Les domaines d'envoi de Braze n'acceptent pas les e-mails entrants. Si un destinataire répond à un e-mail envoyé depuis un domaine d'envoi configuré par Braze, sa réponse sera rejetée avec une erreur `550 5.7.1 relaying denied`. L'adresse de réponse n'a pas besoin de partager le même domaine que l'adresse de l'expéditeur. Si vous devez recevoir des réponses — par exemple, pour collecter des confirmations d'invitations de calendrier — utilisez un sous-domaine qui n'est pas configuré pour l'envoi et qui dispose d'une boîte de réception configurée pour accepter les e-mails.
+Les domaines d'envoi Braze n'acceptent pas les e-mails entrants. Si un destinataire répond à un e-mail envoyé depuis un domaine d'envoi configuré par Braze, sa réponse sera rejetée avec une erreur `550 5.7.1 relaying denied`. L'adresse de réponse n'a pas besoin de partager le même domaine que l'adresse de l'expéditeur. Si vous devez recevoir des réponses — par exemple, pour collecter des confirmations d'invitations de calendrier — utilisez un sous-domaine qui n'est pas configuré pour l'envoi et qui dispose d'une boîte de réception configurée pour accepter les e-mails.
 {% endalert %}
 
 #### Personnaliser avec Liquid
@@ -84,6 +84,12 @@ Vous pouvez également utiliser [Liquid]({{site.baseurl}}/user_guide/messaging/d
 ```
 {% endraw %}
 
+{% alert tip %}
+Si vous utilisez un bloc de contenu pour remplir l'**adresse de réponse**, assurez-vous que la valeur finale rendue est une adresse e-mail valide et inclut un `@`. Braze ne peut pas valider cela lorsque vous enregistrez le paramètre, car la valeur finale n'est pas connue avant le moment de l'envoi.
+
+- Si votre bloc de contenu stocke la partie locale (le texte avant `@`) et le domaine séparément, construisez le champ comme une seule adresse (par exemple, {% raw %}`{{content_blocks.${reply_to_local}}}@{{content_blocks.${reply_to_domain}}}`{% endraw %}).
+{% endalert %}
+
 {% endtab %}
 {% tab Adresse CCI %}
 
@@ -93,13 +99,13 @@ Les adresses CCI sont disponibles pour Amazon SES, SendGrid et SparkPost. Comme 
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-Après avoir ajouté une adresse, celle-ci sera disponible à la sélection lors de la composition d'un e-mail dans des Campaigns ou des étapes Canvas. Sélectionnez **Définir par défaut** à côté d'une adresse pour que cette adresse soit sélectionnée par défaut lors du lancement d'une nouvelle campagne d'e-mail ou d'un composant Canvas. Pour remplacer ce paramètre au niveau du message, vous pouvez sélectionner **Pas de CCI** lors de la configuration de votre message.
+Après avoir ajouté une adresse, celle-ci sera disponible à la sélection lors de la composition d'un e-mail dans des Campaigns ou des étapes Canvas. Sélectionnez **Définir par défaut** à côté d'une adresse pour que cette adresse soit sélectionnée par défaut lors du lancement d'une nouvelle campagne d'e-mail ou d'un composant Canvas. Pour remplacer cela au niveau du message, vous pouvez sélectionner **Pas de CCI** lors de la configuration de votre message.
 
 Si vous exigez que tous les e-mails envoyés depuis Braze incluent une adresse CCI, vous pouvez activer le bouton **Exiger une adresse CCI pour toutes vos campagnes d'e-mail**. Cela vous obligera à sélectionner une adresse par défaut, qui sera automatiquement sélectionnée pour les nouvelles campagnes d'e-mail ou les étapes Canvas. L'adresse par défaut sera également automatiquement ajoutée à tous les messages déclenchés via notre REST API. Il n'est pas nécessaire de modifier la requête API existante pour inclure l'adresse.
 
 #### CCI dynamique {#dynamic-bcc}
 
-Avec la CCI dynamique, vous pouvez utiliser Liquid dans votre adresse CCI. Notez que cette fonctionnalité n'est disponible que dans les **Préférences des e-mails** et ne peut pas être définie au niveau de la campagne elle-même. Une seule adresse CCI par destinataire d'e-mail est autorisée.
+Avec la CCI dynamique, vous pouvez utiliser Liquid dans votre adresse CCI. Notez que cette fonctionnalité n'est disponible que dans les **Préférences des e-mails** et ne peut pas être définie sur la campagne elle-même. Une seule adresse CCI par destinataire d'e-mail est autorisée.
 
 Par exemple, vous pouvez ajouter {% raw %}`{{custom_attribute.${support_agent}}}`{% endraw %} comme adresse CCI pour les e-mails de votre équipe de support.
 
@@ -116,11 +122,11 @@ Le pixel de suivi d'ouverture des e-mails est une image invisible de 1 x 1&nbsp;
 
 ### Emplacement {#placement}
 
-Le comportement par défaut dans Braze est d'ajouter le pixel de suivi en bas de votre e-mail, généralement dans une balise `<body>`. Pour la majorité des utilisateurs, c'est l'emplacement idéal pour placer le pixel.
+Le comportement par défaut dans Braze consiste à ajouter le pixel de suivi en bas de votre e-mail, généralement dans une balise `<body>`. Pour la majorité des utilisateurs, c'est l'emplacement idéal pour placer le pixel.
 
 Bien que le pixel soit déjà stylisé pour provoquer le moins de changements visuels possible, tout changement visuel involontaire serait le moins visible en bas d'un e-mail. C'est également le comportement par défaut pour les fournisseurs de services d'e-mail tels que SendGrid et SparkPost.
 
-Pour réduire les comportements inattendus, conservez le Liquid à l'intérieur des balises `<html>`. Les balises de niveau document imbriquées ou dupliquées peuvent modifier la façon dont l'e-mail est analysé et l'emplacement du pixel, ce qui peut affecter le suivi des ouvertures et la mise en page. Pour plus d'informations, consultez [Utiliser Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid).
+Pour réduire les comportements inattendus, conservez le Liquid à l'intérieur des balises `<html>`. Les balises de niveau document imbriquées ou dupliquées peuvent modifier la façon dont l'e-mail est analysé et l'emplacement du pixel, ce qui peut affecter le suivi d'ouverture et la mise en page. Pour plus d'informations, consultez [Utiliser Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/using_liquid).
 
 ### Modifier l'emplacement {#update-the-placement}
 
@@ -275,15 +281,15 @@ Utilisez le bouton pour inclure « [TEST] » et « [SEED] » dans les lignes d'o
 
 ![Option de préférence e-mail de l'espace de travail qui ajoute les préfixes TEST et SEED aux lignes d'objet des e-mails de test et d'initialisation.]({% image_buster /assets/img/email_settings/test_and_seed_email_subject_line.png %}){: style="max-width:70%;"}
 
-## Insertion CSS par défaut pour les nouveaux e-mails {#inline-css-on-new-emails-by-default}
+## Insertion CSS sur les nouveaux e-mails par défaut {#inline-css-on-new-emails-by-default}
 
-L'insertion CSS est une technique qui intègre automatiquement les styles CSS dans vos e-mails et nouveaux e-mails. Pour certains clients de messagerie, cela peut améliorer le rendu de vos e-mails.
+L'insertion CSS est une technique qui intègre automatiquement les styles CSS pour vos e-mails et nouveaux e-mails. Pour certains clients de messagerie, cela peut améliorer le rendu de vos e-mails.
 
 La modification de ce paramètre n'affecte aucun de vos messages ou modèles d'e-mails existants. Vous pouvez remplacer cette valeur par défaut à tout moment lors de la composition de messages ou de modèles. Pour en savoir plus, consultez la section [Insertion CSS]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline).
 
 ## Réabonner les utilisateurs lorsque leur adresse e-mail change {#resubscribe-users-when-their-email-changes}
 
-Vous pouvez réabonner automatiquement les utilisateurs lorsqu'ils changent leur adresse e-mail. Par exemple, si un utilisateur d'un espace de travail précédemment désabonné change son adresse e-mail pour une adresse qui ne figure pas sur la liste de désabonnement de Braze, il est automatiquement réabonné.
+Vous pouvez réabonner automatiquement les utilisateurs lorsqu'ils changent d'adresse e-mail. Par exemple, si un utilisateur d'un espace de travail précédemment désabonné change son adresse e-mail pour une adresse qui ne figure pas sur la liste de désabonnement de Braze, il est automatiquement réabonné.
 
 ![Paramètre de l'espace de travail qui réabonne automatiquement les utilisateurs lorsque leur adresse e-mail change.]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
 
@@ -292,7 +298,7 @@ Vous pouvez réabonner automatiquement les utilisateurs lorsqu'ils changent leur
 {% tabs local %}
 {% tab Pied de page personnalisé %}
 
-Pour les e-mails commerciaux, la [loi CAN-SPAM](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003) exige que tous les e-mails commerciaux incluent une option de désabonnement. Grâce aux paramètres de pied de page personnalisé, vous pouvez rester conforme à la loi CAN-SPAM tout en personnalisant le pied de page de désabonnement de vos e-mails. Pour rester conforme, vous devez ajouter votre pied de page personnalisé à tous les e-mails envoyés dans le cadre de Campaigns pour cet espace de travail.
+Pour les e-mails commerciaux, la [loi CAN-SPAM](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003) exige que tous les e-mails commerciaux incluent une option de désabonnement. Grâce aux paramètres de pied de page personnalisé, vous pouvez rester conforme à la loi CAN-SPAM tout en personnalisant le pied de page de désinscription de vos e-mails. Pour rester conforme, vous devez ajouter votre pied de page personnalisé à tous les e-mails envoyés dans le cadre de Campaigns pour cet espace de travail.
 
 Notez les exigences suivantes lors de la création d'un pied de page personnalisé pour vos communications par e-mail :
 - Doit inclure une URL de désabonnement et une adresse postale physique.
@@ -316,7 +322,7 @@ Braze vous permet de définir une **page de désabonnement personnalisée** avec
 
 Vous pouvez créer une page d'abonnement personnalisée en utilisant votre propre HTML. L'inclure dans vos e-mails peut être particulièrement utile si vous souhaitez que votre image de marque et votre message restent cohérents tout au long du cycle de vie de vos utilisateurs. Notez que cette page doit faire moins de 750 Ko.
 
-![Éditeur HTML et aperçu de la page d'abonnement personnalisée pour la confirmation d'abonnement par e-mail avec votre image de marque.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
+![Éditeur HTML et aperçu de la page d'abonnement personnalisée pour la confirmation d'inscription par e-mail avec votre image de marque.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
 {% multi_lang_include email/external_font_domains.md page_type='opt-in' %}
 
@@ -332,18 +338,18 @@ Dans la section **Aperçu** d'une page d'abonnement ou d'un pied de page, sélec
 ### Désabonnement en un clic
 
 {% details L'URL de désabonnement en un clic (via l'en-tête list-unsubscribe) peut-elle renvoyer vers un centre de préférences ? %}
-Non, cela ne respecte pas la norme RFC 8058, ce qui signifie que vous ne serez pas conforme aux exigences de désabonnement en un clic de Yahoo et Gmail.
+Non, cela ne respecte pas la norme RFC 8058, ce qui signifie que vous ne serez pas en conformité avec l'exigence de désabonnement en un clic de Yahoo et Gmail.
 {% enddetails %}
 
 {% details Pourquoi est-ce que je reçois le message d'erreur « Your email body does not include an unsubscribe link » lors de la composition de mon centre de préférences ? %}
-Un centre de préférences n'est pas considéré comme un lien de désabonnement. Vos destinataires d'e-mails doivent avoir la possibilité de se désabonner de tout e-mail commercial pour rester conforme à la loi CAN-SPAM.
+Un centre de préférences n'est pas considéré comme un lien de désabonnement. Vos destinataires d'e-mails doivent avoir la possibilité de se désabonner de tout e-mail commercial pour rester en conformité avec la loi CAN-SPAM.
 {% enddetails %}
 
 {% details Dois-je modifier les Campaigns et Canvas d'e-mails passés pour appliquer le paramètre de désabonnement en un clic après l'avoir activé ? %}
-Si vous n'avez aucun des cas d'usage pour le paramètre de désabonnement en un clic au niveau du message, aucune action n'est requise tant que le paramètre est activé dans les **Préférences des e-mails**. Braze ajoute automatiquement les en-têtes de désabonnement en un clic à tous les messages marketing et promotionnels sortants. Cependant, si vous devez configurer le comportement de désabonnement en un clic au niveau de chaque message, vous devez mettre à jour les Campaigns d'e-mails et les étapes Canvas précédentes en conséquence.
+Si vous n'avez aucun des cas d'usage pour le paramètre de désabonnement en un clic au niveau du message (list-unsubscribe), aucune action n'est requise tant que le paramètre est activé dans les **Préférences des e-mails**. Braze ajoute automatiquement les en-têtes de désabonnement en un clic à tous les messages marketing et promotionnels sortants. Cependant, si vous devez configurer le comportement de désabonnement en un clic au niveau de chaque message, vous devez mettre à jour les Campaigns d'e-mails et les étapes Canvas antérieures en conséquence.
 {% enddetails %}
 
-{% details Je peux voir l'en-tête list-unsubscribe et l'en-tête de désabonnement en un clic dans le message original ou les données brutes, mais pourquoi ne vois-je pas le bouton Se désabonner dans Gmail ou Yahoo ? %}
+{% details Je peux voir l'en-tête list-unsubscribe et l'en-tête de désabonnement en un clic dans le message original ou les données brutes, mais pourquoi le bouton de désabonnement ne s'affiche-t-il pas dans Gmail ou Yahoo ? %}
 Gmail et Yahoo décident en fin de compte d'afficher ou non l'en-tête list-unsubscribe ou de désabonnement en un clic. Pour les nouveaux expéditeurs ou les expéditeurs ayant une faible réputation d'expéditeur, cela peut occasionnellement empêcher l'affichage du bouton de désabonnement.
 {% enddetails %}
 
@@ -355,17 +361,17 @@ Oui, Liquid et la logique conditionnelle sont pris en charge pour permettre des 
 Si vous ajoutez de la logique conditionnelle, évitez les valeurs de sortie qui ajoutent des espaces à votre URL, car Braze ne supprime pas ces espaces.
 {% endalert %}
 
-### Désabonnement en un clic au niveau du message
+### Désabonnement en un clic au niveau du message (list-unsubscribe)
 
 {% details Si j'ajoute manuellement les en-têtes d'e-mail pour le désabonnement en un clic, et que l'en-tête de désabonnement des e-mails est activé, quel est le comportement attendu ? %}
-Les en-têtes d'e-mail ajoutés pour le désabonnement en un clic s'appliquent à tous les envois futurs de cette Campaign.
+Les en-têtes d'e-mail ajoutés pour le désabonnement en un clic (list-unsubscribe) s'appliquent à tous les envois futurs de cette Campaign.
 {% enddetails %}
 
 {% details Pourquoi les groupes d'abonnement doivent-ils correspondre entre les variantes de message pour le lancement ? %}
 Pour une Campaign avec test A/B, Braze envoie aléatoirement à un utilisateur l'une des variantes. Si vous avez deux groupes d'abonnement différents définis sur la même Campaign (la variante A est associée au groupe d'abonnement A, et la variante B est associée au groupe d'abonnement B), nous ne pouvons pas garantir que les utilisateurs abonnés uniquement au groupe d'abonnement B recevront la variante B. Il peut y avoir un scénario où des utilisateurs se désabonnent d'un groupe d'abonnement dont ils se sont déjà retirés.
 {% enddetails %}
 
-{% details Le paramètre d'en-tête de désabonnement des e-mails est désactivé dans les Préférences des e-mails, mais dans les informations d'envoi de ma Campaign, le paramètre de désabonnement en un clic est défini sur « Utiliser la valeur par défaut de l'espace de travail ». Est-ce un bug ? %}
+{% details Le paramètre d'en-tête de désabonnement des e-mails est désactivé dans les Préférences des e-mails, mais dans les informations d'envoi de ma Campaign, le paramètre de désabonnement en un clic (list-unsubscribe) est défini sur « Utiliser la valeur par défaut de l'espace de travail ». Est-ce un bug ? %}
 Non. Si le paramètre de l'espace de travail est désactivé et que le paramètre du message est défini sur **Utiliser la valeur par défaut de l'espace de travail**, alors Braze suit ce qui est configuré dans les **Préférences des e-mails**. Cela signifie que nous n'ajoutons pas l'en-tête de désabonnement en un clic pour la Campaign.
 {% enddetails %}
 

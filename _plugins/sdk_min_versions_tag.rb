@@ -53,7 +53,7 @@ module Jekyll
           render_html += "<a href='/docs/developer_guide/platforms/legacy_sdks/ios/changelog/swift_changelog/changelog/swift_changelog/##{@legacy_ios_changelog_ref}' class='sdk-versions--chip ios-sdk' target='_blank'><i class='fa-brands fa-apple'></i> &nbsp; iOS: #{@legacy_ios}+ &nbsp;<i class='fa-solid fa-arrow-up-right-from-square'></i></a>"
         end
         if !@legacy_objc.nil?
-          render_html += "<a href='/docs/developer_guide/platforms/legacy_sdks/ios/changelog/swift_changelog/changelog/objc_changelog/##{@legacy_objc_changelog_ref}' class='sdk-versions--chip ios-sdk' target='_blank'><i class='fa-brands fa-apple'></i> &nbsp; iOS Objective-C: #{@legacy_objc} &nbsp;<i class='fa-solid fa-arrow-up-right-from-square'></i></a>"
+          render_html += "<a href='/docs/developer_guide/platforms/legacy_sdks/ios/changelog/objc_changelog/##{@legacy_objc_changelog_ref}' class='sdk-versions--chip ios-sdk' target='_blank'><i class='fa-brands fa-apple'></i> &nbsp; iOS Objective-C: #{@legacy_objc}+ &nbsp;<i class='fa-solid fa-arrow-up-right-from-square'></i></a>"
         end
         if !@swift.nil?
           render_html += "<a href='/docs/developer_guide/platforms/swift/changelog/##{@swift_changelog_ref}' class='sdk-versions--chip ios-sdk' target='_blank'><i class='fa-brands fa-apple'></i> &nbsp; Swift: #{@swift}+ &nbsp;<i class='fa-solid fa-arrow-up-right-from-square'></i></a>"

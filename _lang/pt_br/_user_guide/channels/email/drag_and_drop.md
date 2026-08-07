@@ -58,7 +58,7 @@ Os blocos básicos são a base do seu e-mail. Com esses blocos, você pode adici
 {% endtab %}
 {% tab Mídia %}
 
-Com os blocos de mídia, você pode adicionar diferentes conteúdos visuais, como imagens, vídeos, ícones e links de redes sociais, além de ícones personalizáveis.
+Com os blocos de mídia, você pode adicionar diferentes conteúdos visuais, como imagens, vídeos, ícones e links de redes sociais e ícones personalizáveis.
 
 {% endtab %}
 {% tab Avançado %}
@@ -125,10 +125,10 @@ Quando estiver pronto, use os blocos de conteúdo de arrastar e soltar para cria
 
 Confira [Outras personalizações](#other-customizations) para outras formas de personalizar ainda mais seu e-mail de arrastar e soltar.
 
-Ao criar seu e-mail, você pode alternar entre a visualização para desktop e para dispositivo móvel para ver como sua mensagem de e-mail ficará para seus grupos de usuários. Isso verificará se seu conteúdo é responsivo, e você pode fazer os ajustes necessários ao longo do caminho.
+Ao criar seu e-mail, você pode alternar entre a visualização para desktop e para dispositivo móvel para pré-visualizar como sua mensagem de e-mail ficará para seus grupos de usuários. Isso verificará se seu conteúdo é responsivo, e você pode fazer os ajustes necessários ao longo do caminho.
 
 {% alert tip %}
-Precisa de ajuda para criar textos incríveis? Experimente usar o [Assistente de copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Insira o nome ou a descrição de um produto, e a IA gerará textos de marketing semelhantes aos escritos por humanos para uso no seu envio de mensagens.
+Precisa de ajuda para criar textos incríveis? Experimente usar o [assistente de copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Insira o nome ou a descrição de um produto, e a IA gerará textos de marketing semelhantes aos escritos por humanos para uso no seu envio de mensagens.
 
 ![Botão do assistente de copywriting, localizado no painel de Conteúdo ao lado de Configurações de estilo no editor de arrastar e soltar.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}
@@ -156,7 +156,7 @@ Consulte as [Diretrizes de e-mail]({{site.baseurl}}/user_guide/channels/email/be
 Em **Configurações de envio**, você pode adicionar personalização para cabeçalhos de e-mail e extras de e-mail, o que permite enviar dados adicionais de volta para outros provedores de serviços de e-mail. Personalizar um cabeçalho de e-mail, como incluir o nome do destinatário, também pode contribuir para a probabilidade de seu e-mail ser aberto.
 
 {% alert note %}
-A funcionalidade avançada aparecerá no criador de campanha ou Canvas. Na funcionalidade avançada, você pode modificar sua configuração de CSS inline e inserir um cabeçalho ou pares de chave-valor extras (se configurados).
+A funcionalidade avançada aparecerá no criador de campanha ou Canvas. Na funcionalidade avançada, você pode modificar sua configuração de CSS inline e inserir pares de chave-valor de cabeçalho ou extras (se configurados).
 {% endalert %}
 
 ### Etapa 4: Teste seu e-mail {#step-4-test-your-email}
@@ -167,7 +167,7 @@ Depois de adicionar suas informações de envio, é hora de finalmente testar se
 Se o e-mail parecer diferente no editor do que na prévia ou no envio de teste, confirme que todas as tags estão fechadas, os atributos de imagem têm valores e as imagens de fundo não estão borradas nas bordas.
 {% endalert %}
 
-Acesse a seção **Prévia e teste**. Aqui, você tem a opção de visualizar seu e-mail como um usuário ou enviar uma mensagem de teste. Esta seção também inclui o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), que permite verificar se seu e-mail foi renderizado corretamente em diferentes clientes móveis e web.
+Acesse a seção **Prévia e teste**. Aqui, você tem a opção de pré-visualizar seu e-mail como um usuário ou enviar uma mensagem de teste. Esta seção também inclui o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), que permite verificar se seu e-mail foi renderizado corretamente em diferentes clientes móveis e web.
 
 {% alert tip %}
 Você também pode usar o botão **Prévia do modo escuro** no painel de prévia para visualizar o corpo do seu e-mail no modo escuro e ajustar seu e-mail conforme necessário.
@@ -177,10 +177,10 @@ Como você pode visualizar três versões diferentes do mesmo e-mail no editor r
 
 #### Prévia e envio de teste {#preview-and-test-send}
 
-Na guia **Prévia como usuário**, você pode selecionar os seguintes tipos de usuário para visualizar sua mensagem.
+Na guia **Pré-visualizar como um usuário**, você pode selecionar os seguintes tipos de usuário para pré-visualizar sua mensagem.
 
-- **Usuário aleatório:** a Braze selecionará aleatoriamente um usuário do banco de dados e visualizará o e-mail com base em seus atributos ou informações de eventos.
-- **Selecionar usuário:** você pode selecionar um usuário específico com base em seu endereço de e-mail ou ID externo. O e-mail será visualizado com base nos atributos e informações de eventos desse usuário.
+- **Usuário aleatório:** a Braze selecionará aleatoriamente um usuário do banco de dados e pré-visualizará o e-mail com base em seus atributos ou informações de eventos.
+- **Selecionar usuário:** você pode selecionar um usuário específico com base em seu endereço de e-mail ou ID externo. O e-mail será pré-visualizado com base nos atributos e informações de eventos desse usuário.
 - **Usuário personalizado:** você pode personalizar um usuário. A Braze oferecerá campos para todos os atributos e eventos disponíveis. Você pode inserir qualquer informação que deseja ver no e-mail de prévia.
 
 {% alert note %}
@@ -216,7 +216,7 @@ A renderização HTML foi aprimorada com base nas seguintes atualizações que m
 
 ## Outras personalizações {#other-customizations}
 
-À medida que você continua criando e-mails com arrastar e soltar, pode personalizar ainda mais cada corpo de e-mail usando uma combinação desses detalhes criativos para capturar a atenção e o interesse do seu público na sua mensagem.
+À medida que você continua criando e-mails de arrastar e soltar, pode personalizar ainda mais cada corpo de e-mail usando uma combinação desses detalhes criativos para capturar a atenção e o interesse do seu público na sua mensagem.
 
 {% alert tip %}
 Você pode criar um tema personalizado para o editor de arrastar e soltar usando as [configurações de estilo global]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings).
@@ -230,7 +230,7 @@ As imagens adicionadas ao seu e-mail serão automaticamente definidas como **Lar
 
 ### Camadas de cores {#color-layering}
 
-Usando camadas de cores, você pode alterar a cor do plano de fundo do e-mail, da área de conteúdo e de diferentes componentes de conteúdo. A ordem das cores da frente para trás é: cor do componente de conteúdo, cor de fundo da área de conteúdo e cor de fundo.
+Usando camadas de cores, você pode alterar a cor do fundo do e-mail, da área de conteúdo e de diferentes componentes de conteúdo. A ordem das cores da frente para trás é: cor do componente de conteúdo, cor de fundo da área de conteúdo e cor de fundo.
 
 ![Exemplo de camadas de cores no editor de arrastar e soltar.]({% image_buster /assets/img/dnd/dnd2.png %})
 
@@ -240,7 +240,7 @@ Usando camadas de cores, você pode alterar a cor do plano de fundo do e-mail, d
 
 Para ajustar o preenchimento, role para baixo até **Opções de bloco** e selecione **Mais opções**. Você pode ajustar o preenchimento com precisão para deixar seu e-mail com a aparência ideal.
 
-### Plano de fundo do conteúdo {#content-background}
+### Fundo de conteúdo {#content-background}
 
 Você pode adicionar uma imagem de fundo à configuração da sua linha, permitindo incorporar mais design e conteúdo visual na sua campanha de e-mail.
 
@@ -275,9 +275,9 @@ A URL da sua imagem deve começar com `https://`. Usar `http://` causa falha no 
 
 Ao compor sua mensagem, você pode alternar a direção do texto entre da esquerda para a direita e da direita para a esquerda selecionando o respectivo botão **Direção do texto**. Você pode usar essa opção ao criar mensagens em idiomas como árabe e hebraico.
 
-![Menu do editor de arrastar e soltar de e-mail com botão para alternar o alinhamento do texto entre direita para esquerda e esquerda para direita.]({% image_buster /assets/img/dnd/dnd_template1.png %}){: style="max-width:50%;"}
+![Menu do editor de arrastar e soltar de e-mail com botão para alternar o alinhamento do texto entre da direita para a esquerda e da esquerda para a direita.]({% image_buster /assets/img/dnd/dnd_template1.png %}){: style="max-width:50%;"}
 
-A aparência final das mensagens da direita para a esquerda depende em grande parte de como os provedores de serviço as renderizam. Para práticas recomendadas sobre como criar mensagens da direita para a esquerda que sejam exibidas com a maior precisão possível, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+A aparência final das mensagens da direita para a esquerda depende em grande parte de como os provedores de serviço as renderizam. Para práticas recomendadas sobre como criar mensagens da direita para a esquerda que sejam exibidas da forma mais precisa possível, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ### HTML
 
@@ -301,11 +301,11 @@ Para configurar links universais, consulte [Links universais e App Links]({{site
 
 Como alternativa, você pode integrar com um dos nossos parceiros de atribuição, como [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) ou [AppsFlyer]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/appsflyer#email-deep-linking-and-click-tracking), para gerenciar links universais.
 
-Por fim, atributos predefinidos estão disponíveis para ajudar a tornar sua mensagem acessível. Para saber mais, consulte nosso artigo dedicado [Criando mensagens acessíveis na Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility).
+Por fim, atributos predefinidos estão disponíveis para ajudar a tornar sua mensagem acessível. Saiba mais no nosso artigo dedicado [Criando mensagens acessíveis na Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility), incluindo [como os clientes de e-mail exibem texto alternativo]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text).
 
 #### Tags head personalizadas {#custom-head-tags}
 
-Use tags `<head>` para adicionar CSS e metadados na sua mensagem de e-mail. Por exemplo, você pode usar essas tags para adicionar uma folha de estilos ou favicon. Liquid é compatível com tags `<head>`.
+Use tags `<head>` para adicionar CSS e metadados na sua mensagem de e-mail. Por exemplo, você pode usar essas tags para adicionar uma folha de estilos ou favicon. O Liquid é compatível com tags `<head>`.
 
 Qualquer conteúdo adicionado fora das tags `<head>` será adicionado após a tag `<body>` no seu e-mail. Isso significa que o conteúdo adicionado será exibido no e-mail.
 
@@ -328,13 +328,13 @@ Qualquer conteúdo adicionado fora das tags `<head>` será adicionado após a ta
 | `link` | `rel` | Define relacionamentos entre a mensagem atual e a vinculada. | ```<link rel="stylesheet">``` |
 | `link` | `type` | Tipo do recurso vinculado. | ```<link type="text/css">``` |
 | `link` | `sizes` | Especifica os tamanhos dos ícones. | ```<link rel="icon" sizes="32x32" href="favicon-32.png">``` |
-| `link` | `media` | Especifica a mídia ou dispositivo ao qual os estilos se aplicam. | ```<link rel="stylesheet" media="screen" href="style.css">``` |
+| `link` | `media` | Especifica a mídia ou dispositivo para o qual os estilos se aplicam. | ```<link rel="stylesheet" media="screen" href="style.css">``` |
 | `meta` | `name` | Define o título do documento exibido nas abas do navegador. | ```<meta name="viewport" content="width=device-width, initial-scale=1">``` |
 | `meta` | `content` | Define o título do documento exibido nas abas do navegador. | ```<meta name="description" content="Page about our newest products">``` |
 | `meta` | `charset` | Declara a codificação de caracteres. | ```<meta charset="UTF-8">``` |
 | `meta` | `property` | Define o título do documento exibido nas abas do navegador. | ```<meta property="og:title" content="Website title">``` |
 | `style` | `type` | Tipo MIME do conteúdo de estilo. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
-| `style` | `media` | Especifica a mídia ou dispositivo ao qual os estilos se aplicam. | ```<style media="print">body { font-size: 12pt; }</style>``` |
+| `style` | `media` | Especifica a mídia ou dispositivo para o qual os estilos se aplicam. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | Sem atributos | A tag `title` não aceita nenhum atributo. | ```<title>Kitchenerie</title>``` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tags e atributos permitidos por tag" }
 

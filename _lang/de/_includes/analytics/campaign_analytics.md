@@ -78,14 +78,14 @@ In Canvas sehen Sie die Performance von In-App-Nachrichten, die dem von Ihnen er
 
 #### Estimated Audience und Current Audience {#estimated-audience-and-current-audience}
 
-Je nach Größe Ihres Workspace kann das Panel **Campaign Details** die Zielgruppenstatistiken als **Estimated Audience** oder **Current Audience** bezeichnen.
+Je nach Gesamtzahl der Nutzer:innen in Ihrem Workspace kann das Panel **Campaign Details** die Zielgruppenstatistiken als **Current Audience** oder **Estimated Audience** bezeichnen.
 
 Die folgende Tabelle erklärt, was die jeweilige Bezeichnung bedeutet.
 
 | Bezeichnung in der Fußzeile | Wann sie verwendet wird |
 | --- | --- |
-| **Estimated Audience** | Braze führt standardmäßig keine vollständige Datenbankzählung durch. Die Zielgruppengröße wird anhand einer Stichprobe geschätzt und hochgerechnet, ähnlich wie der Bereich **Erreichbare Nutzer:innen** im Segment Builder. Abweichungen sind zu erwarten, insbesondere bei großen Workspaces oder kleinen Segmenten im Verhältnis zum Workspace. |
-| **Current Audience** | Braze kann die Standardstatistik mit einem vollständigen Scan der Workspace-Profile berechnen, sodass die angezeigte Zielgruppengröße ein aktueller, nicht auf Stichproben basierender Wert ist (der dennoch von Kanal-Erreichbarkeit, Abo-Regeln und anderen Targeting-Optionen abhängt). |
+| **Current Audience** | Der Workspace hat 50.000 Nutzer:innen oder weniger. Braze führt einen vollständigen Scan der Workspace-Profile für die Standardstatistik durch, sodass die angezeigte Zielgruppengröße ein aktueller, nicht auf Stichproben basierender Wert ist (der dennoch von Kanal-Erreichbarkeit, Abo-Regeln und anderen Targeting-Optionen abhängt). |
+| **Estimated Audience** | Der Workspace hat mehr als 50.000 Nutzer:innen. Braze führt standardmäßig keine vollständige Datenbankzählung durch. Die Zielgruppengröße wird anhand einer Stichprobe geschätzt und hochgerechnet, ähnlich wie der Bereich **Erreichbare Nutzer:innen** im Segment Builder. Abweichungen sind zu erwarten, insbesondere bei kleinen Segmenten im Verhältnis zum Workspace. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience und Current Audience" }
 
 Weitere Informationen zum Stichprobenverhalten, zu **Calculate exact statistics** und zur Segmentierung **erreichbarer Nutzer:innen** finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
@@ -214,6 +214,14 @@ Wenn Links Liquid für dynamische URLs verwenden, stimmen die angeklickten URLs 
 {% endalert %}
 
 ![Beispiel für die Seite „Preview & Heatmap“ mit einer E-Mail-Kampagne und einem Panel mit Beispielen für Link-Aliase und deren Gesamtklicks.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+
+##### Nur-Mobil-Links in der Heatmap {#mobile-only-links-in-the-heatmap}
+
+Die Heatmap zeigt nur Wärmesignaturen für Links an, die bei der ausgewählten Vorschaugröße sichtbar sind.
+
+Links, die nur im mobilen Layout erscheinen, sind in der **Desktop**-Ansicht ausgeblendet (und können je nach Vorschaubreite auch in **Overall** ausgeblendet sein), sodass diese Klicks nicht als Wärmesignaturen angezeigt werden. Diese Links erscheinen dennoch im Panel **Link Table by Total Clicks** mit ihren Gesamtklicks und Prozentsätzen.
+
+Um Wärmesignaturen für Nur-Mobil-Links anzuzeigen, wählen Sie **Mobile**. Die mobile Vorschau entspricht dem mobilen Breakpoint des Drag-and-Drop-Editors (620&nbsp;px). Wenn die E-Mail erst bei einer schmaleren Breite das Layout wechselt, bleiben diese Links auch in der **Mobile**-Vorschaugröße ausgeblendet.
 
 #### Bilder {#images}
 

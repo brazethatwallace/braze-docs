@@ -364,7 +364,7 @@ Après avoir complété le [parcours de triage](#triage-workflow), utilisez le m
 3. Envoyez-vous un e-mail de test et sélectionnez les deux boutons.
 4. Vérifiez que le comportement attendu et les critères de réussite correspondent à ce qui est décrit dans le modèle.
 
-Si votre URL non suivie fonctionne mais que votre URL suivie échoue, il se peut qu'il y ait un problème de configuration. Pour résoudre le problème, consultez la documentation de votre fournisseur de services d'e-mailing et de votre CDN. Vous pouvez également consulter [SSL chez Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl) pour connaître les exigences détaillées en matière de provisionnement de certificats.
+Si votre URL non suivie fonctionne mais que votre URL suivie échoue, il se peut qu'il y ait un problème de configuration. Consultez la documentation de votre fournisseur de services d'e-mailing et de votre CDN. Pour connaître les exigences détaillées en matière de provisionnement de certificats, consultez [SSL chez Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl).
 
 Utilisez le tableau suivant pour diagnostiquer les erreurs courantes lors du test du suivi des clics.
 

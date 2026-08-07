@@ -16,7 +16,7 @@ Ce type de message est disponible dans l'[éditeur traditionnel]({{site.baseurl}
 
 ## Fonctionnement {#how-it-works}
 
-Les messages in-app HTML permettent un contrôle accru sur l'apparence et le rendu d'un message, notamment les éléments suivants :
+Les messages in-app HTML offrent un contrôle accru sur l'apparence et le rendu d'un message, notamment les éléments suivants :
 
 - Polices et styles personnalisés
 - Vidéos
@@ -25,11 +25,33 @@ Les messages in-app HTML permettent un contrôle accru sur l'apparence et le ren
 - Composants interactifs
 - Animations personnalisées
 
-Les messages HTML personnalisés peuvent utiliser les méthodes du [pont JavaScript](#javascript-bridge) pour enregistrer des événements, définir des attributs personnalisés, fermer le message, et bien plus encore ! Consultez notre [dépôt GitHub](https://github.com/braze-inc/in-app-message-templates) qui contient des instructions détaillées sur l'utilisation et la personnalisation des messages in-app HTML selon vos besoins, ainsi qu'un ensemble de modèles de messages in-app HTML5 pour vous aider à démarrer.
+Les messages HTML personnalisés peuvent utiliser les méthodes du [pont JavaScript](#javascript-bridge) pour enregistrer des événements, définir des attributs personnalisés, fermer le message, et bien plus encore ! Consultez notre [dépôt GitHub](https://github.com/braze-inc/in-app-message-templates) qui contient des instructions détaillées sur la façon d'utiliser et de personnaliser les messages in-app HTML selon vos besoins, ainsi qu'un ensemble de modèles de messages in-app HTML5 pour vous aider à démarrer.
 
 {% alert note %}
 Pour activer les messages in-app HTML via le SDK Web, vous devez fournir l'option d'initialisation `allowUserSuppliedJavascript` à Braze : par exemple, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Cela est nécessaire pour des raisons de sécurité, car les messages in-app HTML peuvent exécuter du JavaScript, et un responsable du site doit donc les activer.
 {% endalert %}
+
+### Environnements de rendu {#rendering-environments}
+
+Les messages in-app HTML personnalisés s'affichent directement dans le navigateur sur le web, mais à l'intérieur d'une WebView de la plateforme sur iOS et Android. Étant donné que chaque environnement utilise un moteur de rendu différent, le même HTML et CSS peut s'afficher avec de légères différences visuelles selon les plateformes, en particulier pour les mises en page en colonnes, les polices et l'espacement.
+
+Pour minimiser les différences entre plateformes :
+
+- Utilisez des valeurs CSS explicites plutôt que de vous appuyer sur les valeurs par défaut du navigateur
+- Incluez une balise meta viewport (par exemple, `<meta name="viewport" content="width=device-width, initial-scale=1">`)
+- Testez sur des appareils réels avec des envois de test
+
+## Encodage des caractères {#character-encoding}
+
+Lorsque vous créez des messages in-app HTML personnalisés contenant des caractères spéciaux — tels que l'alphabet cyrillique, des caractères accentués ou d'autres textes non ASCII — incluez l'encodage UTF-8 dans votre HTML pour garantir un affichage correct. Sans l'encodage UTF-8, ces caractères peuvent apparaître cassés ou manquants lors du rendu dans la webview.
+
+Pour activer l'encodage UTF-8, ajoutez la balise meta suivante dans la section `<head>` de votre HTML :
+
+```html
+<meta charset="UTF-8">
+```
+
+Cela force l'encodage UTF-8, qui est le jeu de caractères attendu pour les webviews affichant les messages in-app.
 
 ## Pont JavaScript {#javascript-bridge}
 
@@ -45,7 +67,7 @@ En plus du JavaScript personnalisé, les SDK Braze peuvent également envoyer de
 L'utilisation de `abButtonID` n'est pas prise en charge dans les types de messages [HTML avec aperçu]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview). Pour plus d'informations, consultez notre [guide de mise à niveau]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview).
 {% endalert %}
 
-Pour enregistrer les clics sur les boutons dans les analyses des messages in-app, vous pouvez ajouter `abButtonId` comme paramètre de requête à tout deep link, URL de redirection ou élément d'ancrage `<a>`. Utilisez `?abButtonId=0` pour enregistrer un clic sur « Button 1 », et `?abButtonId=1` pour enregistrer un clic sur « Button 2 ».
+Pour enregistrer les clics sur les boutons dans les analyses des messages in-app, vous pouvez ajouter `abButtonId` comme paramètre de requête à n'importe quel deep link, URL de redirection ou élément d'ancrage `<a>`. Utilisez `?abButtonId=0` pour enregistrer un clic sur « Button 1 », et `?abButtonId=1` pour enregistrer un clic sur « Button 2 ».
 
 Comme pour les autres paramètres d'URL, le premier paramètre doit commencer par un point d'interrogation `?`, tandis que les paramètres suivants doivent être séparés par une esperluette `&`.
 
@@ -65,7 +87,7 @@ Les messages in-app ne prennent en charge que les clics sur Button 1 et Button 2
 
 Pour ouvrir des liens en dehors de votre application dans une nouvelle fenêtre, définissez `?abExternalOpen=true`. Le message sera fermé avant l'ouverture du lien.
 
-Pour la création de liens profonds, Braze ouvrira votre URL quelle que soit la valeur de `abExternalOpen`.
+Pour le deep linking, Braze ouvrira votre URL quelle que soit la valeur de `abExternalOpen`.
 
 ### Ouvrir en tant que deep link (mobile uniquement) {#open-as-deeplink-mobile-only}
 
@@ -109,7 +131,7 @@ Les types de fichiers suivants sont pris en charge pour le téléchargement :
 
 Braze recommande de télécharger les ressources dans la bibliothèque multimédia pour deux raisons :
 
-1. Les ressources ajoutées à une campagne via la bibliothèque multimédia permettent à vos messages d'être affichés même lorsque l'utilisateur est hors ligne ou dispose d'une mauvaise connexion Internet.
+1. Les ressources ajoutées à une campagne via la bibliothèque multimédia permettent à vos messages de s'afficher même lorsque l'utilisateur est hors ligne ou dispose d'une mauvaise connexion Internet.
 2. Les ressources téléchargées dans Braze peuvent être réutilisées dans plusieurs campagnes.
 
 ##### Ajouter des fichiers de ressources {#adding-asset-files}
@@ -126,7 +148,7 @@ Sinon, survolez une ressource dans la liste et sélectionnez <i class="fas fa-co
 
 ### Éditeur HTML {#html-editor}
 
-Les modifications que vous apportez dans le HTML sont automatiquement rendues dans le panneau d'aperçu au fur et à mesure de la saisie. Les méthodes JavaScript [`brazeBridge`](#bridge) que vous utilisez dans votre HTML ne mettront pas à jour les profils utilisateur lors de la prévisualisation dans le tableau de bord.
+Les modifications que vous apportez dans le HTML s'affichent automatiquement dans le panneau d'aperçu au fur et à mesure de la saisie. Les méthodes JavaScript [`brazeBridge`](#bridge) que vous utilisez dans votre HTML ne mettront pas à jour les profils utilisateur lors de la prévisualisation dans le tableau de bord.
 
 {% alert tip %}
 Vous pouvez sélectionner <i class="fa-solid fa-magnifying-glass" aria-label="Rechercher"></i> **Rechercher** dans l'éditeur HTML pour effectuer une recherche dans votre code !
@@ -141,20 +163,20 @@ Vous pouvez suivre les performances au sein de votre message in-app avec code pe
 | Bouton 1   | `brazeBridge.logClick('0')` |
 | Bouton 2   | `brazeBridge.logClick('1')` |
 | Clic sur le corps | `brazeBridge.logClick()`    |
-| Suivi de bouton personnalisé |`brazeBridge.logClick('your custom name here')`|
+| Suivi de bouton personnalisé | `brazeBridge.logClick('your custom name here')` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Suivi des boutons" }
 
 {% alert note %}
 Cette méthode de suivi des boutons remplace les méthodes de suivi automatique des clics précédentes (telles que `?abButtonId=0`), qui ont été supprimées.
 {% endalert %}
 
-Utilisez [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) pour les messages HTML avec aperçu lorsque vous avez besoin de plus de deux boutons suivis. Les boutons 1 et 2 correspondent à `'0'` et `'1'` ; les boutons supplémentaires utilisent des ID personnalisés (jusqu'à 100 ID uniques par campagne). Pour les restrictions de caractères sur les ID de boutons, consultez [Suivi des boutons](#button-tracking-improvements).
+Utilisez [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) pour les messages HTML avec aperçu lorsque vous avez besoin de plus de deux boutons suivis. Les boutons 1 et 2 correspondent à `'0'` et `'1'` ; les boutons supplémentaires utilisent des identifiants personnalisés (jusqu'à 100 identifiants uniques par campagne). Pour les restrictions de caractères sur les identifiants de boutons, consultez [Suivi des boutons](#button-tracking-improvements).
 
 ### Résoudre les problèmes de liens HTML personnalisés et de comportement de fermeture {#troubleshoot-custom-html-links-and-close-behavior}
 
 #### Les clics sur les boutons n'ouvrent pas le lien {#button-clicks-do-not-open-the-link}
 
-Si un bouton de votre message in-app HTML personnalisé ne se charge pas lorsqu'on clique dessus, vérifiez que le lien utilise une URL valide ou un schéma de deep link pris en charge. Les URL mal formées ou les schémas personnalisés non pris en charge peuvent empêcher l'action de clic de s'exécuter.
+Si un bouton de votre message in-app HTML personnalisé ne se charge pas lorsqu'on clique dessus, vérifiez que le lien utilise une URL valide ou un schéma de deep link pris en charge. Des URL mal formées ou des schémas personnalisés non pris en charge peuvent empêcher l'action de clic de s'exécuter.
 
 #### Clics sur le corps lors de la fermeture du message {#body-clicks-when-closing-the-message}
 
@@ -162,8 +184,8 @@ L'appel à `brazeBridge.closeMessage()` ferme le message mais n'enregistre pas d
 
 ### Modifications rétro-incompatibles {#backward-incompatible-changes}
 
-1. Le deep link `braze://close`, qui était auparavant pris en charge sur les applications mobiles, a été supprimé au profit du JavaScript `brazeBridge.closeMessage()`. Cela permet des messages HTML multiplateformes, puisque le web ne prend pas en charge les deep links.
-2. Le suivi automatique des clics, qui utilisait `?abButtonId=0` pour les ID de boutons, et le suivi des « clics sur le corps » sur les boutons de fermeture ont été supprimés. Les exemples de code suivants montrent comment modifier votre HTML pour utiliser nos nouvelles méthodes JavaScript de suivi des clics :
+1. Le deep link `braze://close`, qui était auparavant pris en charge sur les applications mobiles, a été supprimé au profit de la méthode JavaScript `brazeBridge.closeMessage()`. Cela permet d'utiliser des messages HTML multiplateformes, car le web ne prend pas en charge les deep links.
+2. Le suivi automatique des clics, qui utilisait `?abButtonId=0` pour les identifiants de boutons, et le suivi des « clics sur le corps » sur les boutons de fermeture ont été supprimés. Les exemples de code suivants montrent comment modifier votre HTML pour utiliser nos nouvelles méthodes JavaScript de suivi des clics :
 
    | Avant | Après |
    |:-------- |:------------|

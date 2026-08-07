@@ -8,10 +8,9 @@ Scenarios:
   4: Docs-team tagged as reviewer, no other reviewers, no approval, older than 24h
   5: Any PR with no activity for 20+ days — fires once as a final catch-all
   6: Docs-team tagged + non-docs approval exists + no docs-team review yet, 24h+ since tagged
-  7: "support analyzer" label + docs-team assignee + no activity for 24h+
+  7: Label "support analyzer" + docs-team assignee + no update for 24h — reminds every 1 day
 
-Scenarios 1–4 and 6 fire once, then remind every 2 days up to 5 reminders.
-Scenario 7 fires once, then reminds every 1 day up to 5 reminders.
+Scenarios 1–4, 6–7 fire once, then remind every 2 days (Scenario 7: every 1 day), up to 5 reminders.
 Scenario 5 fires once only.
 """
 
@@ -59,7 +58,11 @@ def slack_react(token, channel, timestamp, emoji="white_check_mark"):
         print(f"[slack] React failed: {e}", file=sys.stderr)
 
 def slack_post(token, channel, text, thread_ts=None):
-    """Post a message to Slack. Returns the message ts, or None on failure."""
+    """Post a message to Slack. Returns {"ts", "channel"} or None on failure.
+
+    channel is the conversation ID Slack actually used (e.g. D… for DMs when
+    posting to a U… user ID), which reactions.add needs later.
+    """
     payload = {"channel": channel, "text": text, "mrkdwn": True}
     if thread_ts:
         payload["thread_ts"] = thread_ts
@@ -76,7 +79,10 @@ def slack_post(token, channel, text, thread_ts=None):
         with urllib.request.urlopen(req) as resp:
             result = json.loads(resp.read())
             if result.get("ok"):
-                return result.get("ts")
+                return {
+                    "ts": result.get("ts"),
+                    "channel": result.get("channel") or channel,
+                }
             else:
                 print(f"[slack] Error: {result.get('error')}", file=sys.stderr)
                 return None
@@ -120,20 +126,6 @@ def days_since(dt_str):
     dt = datetime.fromisoformat(dt_str.replace("Z", "+00:00"))
     return (datetime.now(timezone.utc) - dt).days
 
-def format_stale_time(dt_str):
-    """Return a human-readable hours/days string since dt_str (hours if < 48h, else days)."""
-    if not dt_str:
-        return "0 hours"
-    dt = datetime.fromisoformat(dt_str.replace("Z", "+00:00"))
-    age = datetime.now(timezone.utc) - dt
-    hours = int(age.total_seconds() // 3600)
-    if hours < 48:
-        unit = "hour" if hours == 1 else "hours"
-        return f"{hours} {unit}"
-    days = age.days
-    unit = "day" if days == 1 else "days"
-    return f"{days} {unit}"
-
 def get_pr_reviews(repo, pr_number, token):
     url = f"https://api.github.com/repos/{repo}/pulls/{pr_number}/reviews"
     try:
@@ -168,15 +160,14 @@ def get_pr_requested_reviewers(repo, pr_number, token):
         return {"users": [], "teams": []}
 
 def should_remind(last_reminded_str, reminder_count, interval_days=None):
-    """Return True if interval_days have passed since last reminder and cap not reached."""
-    if interval_days is None:
-        interval_days = REMINDER_INTERVAL_DAYS
+    """Return True if enough time has passed since last reminder and cap not reached."""
     if reminder_count >= MAX_REMINDERS:
         return False
     if not last_reminded_str:
         return False
+    days = interval_days if interval_days is not None else REMINDER_INTERVAL_DAYS
     last_dt = datetime.fromisoformat(last_reminded_str)
-    return (datetime.now(timezone.utc) - last_dt) >= timedelta(days=interval_days)
+    return (datetime.now(timezone.utc) - last_dt) >= timedelta(days=days)
 
 def resolve_mention(login, github_to_slack, oncall_docs_mention):
     """Convert a GitHub login to a Slack mention string."""
@@ -187,6 +178,19 @@ def resolve_mention(login, github_to_slack, oncall_docs_mention):
         return f"@{slack_id}"
     else:
         return oncall_docs_mention
+
+def mention_to_dm_or_channel(mention, oncall_mention, docs_request_channel):
+    """
+    Return the appropriate Slack channel for a notification:
+    - Single known user (<@UXXX>) → their user ID (DM)
+    - oncall mention or anything else → docs_request_channel
+    """
+    if mention == oncall_mention:
+        return docs_request_channel
+    if mention.startswith("<@U") and mention.endswith(">"):
+        return mention[2:-1]
+    return docs_request_channel
+
 
 def build_author_mention(author, author_lower, pr, docs_team, github_to_slack,
                          oncall_docs_mention, svc_accounts):
@@ -243,9 +247,9 @@ def main():
     github_to_slack    = config.get("github_to_slack", {})
     extra_docs         = set(m.lower() for m in config.get("extra_docs_team_members", [])
                              if not m.startswith("_"))
-    slack_token        = config.get("slack_bot_token", "")
-    slack_channel      = config.get("slack_channel", "")
-    oncall_docs_mention = config.get("oncall_docs_mention", "<!subteam^S096J5PE2TB|oncall-docs>")
+    slack_token           = config.get("slack_bot_token", "")
+    docs_request_channel  = config.get("docs_request_channel", "GBG2SMGV7")
+    oncall_docs_mention   = config.get("oncall_docs_mention", "<!subteam^S096J5PE2TB|oncall-docs>")
     ignored_reviewers  = {r.lower() for r in config.get("ignored_reviewers", [])}
     svc_accounts       = {"brazedocs-svc"}
 
@@ -331,6 +335,12 @@ def main():
         updated_at = pr.get("updated_at", "")
         labels     = [l["name"] for l in pr.get("labels", [])]
         open_days  = days_since(created_at)
+        if pr.get("draft", False):
+            continue
+
+        if any(l["name"].lower() == "do not merge" for l in pr.get("labels", [])):
+            continue
+
         pr_num_str = str(pr_number)
 
         author_mention = build_author_mention(
@@ -355,8 +365,6 @@ def main():
         pr_age         = datetime.now(timezone.utc) - created_dt
         older_than_24h = pr_age >= timedelta(hours=24)
 
-        has_do_not_merge = any(l.lower() == "do not merge" for l in labels)
-
         # ── Scenario 1 ────────────────────────────────────────────────────────
         non_docs_approved_24h = any(
             r["state"] == "APPROVED"
@@ -369,7 +377,7 @@ def main():
             for r in reviews
         )
 
-        if no_docs_reviewer and not has_do_not_merge and non_docs_approved_24h:
+        if no_docs_reviewer and non_docs_approved_24h:
             current_s1.add(pr_number)
             pr_data = {"pr_number": pr_number, "title": pr_title, "url": pr_url,
                        "author_mention": author_mention, "open_days": open_days,
@@ -390,7 +398,7 @@ def main():
 
         stale = days_since(updated_at) >= stale_days
 
-        if approvals and stale and not has_do_not_merge:
+        if approvals and stale:
             current_s2.add(pr_number)
 
             approver_mentions = []
@@ -467,8 +475,7 @@ def main():
         # Look up when docs-team was tagged (shared by Scenarios 4 and 6)
         docs_team_tagged_dt = None
 
-        if docs_team_is_requested and no_other_human_reviewers and no_human_approvals \
-                and not has_do_not_merge:
+        if docs_team_is_requested and no_other_human_reviewers and no_human_approvals:
             docs_team_tagged_dt = get_docs_team_tagged_time(repo, pr_number, token)
             if docs_team_tagged_dt is None:
                 # Fall back to PR age if timeline lookup fails
@@ -492,7 +499,7 @@ def main():
         # Any PR with no activity for 20+ days — fires once as a final catch-all
         ancient = days_since(updated_at) >= 20
 
-        if ancient and not has_do_not_merge:
+        if ancient:
             current_s5.add(pr_number)
             if pr_number not in scenario5_notified:
                 new_s5.append({
@@ -516,7 +523,7 @@ def main():
         )
         docs_has_reviewed = bool(docs_team_individuals & reviewed_logins)
 
-        if docs_team_is_requested and non_docs_approved and not docs_has_reviewed and not has_do_not_merge:
+        if docs_team_is_requested and non_docs_approved and not docs_has_reviewed:
             # Use when docs-team was tagged, not PR creation date
             if docs_team_tagged_dt is None:
                 docs_team_tagged_dt = get_docs_team_tagged_time(repo, pr_number, token)
@@ -535,27 +542,26 @@ def main():
                     remind_s6.append(pr_data)
 
         # ── Scenario 7 ────────────────────────────────────────────────────────
-        # "support analyzer" label + docs-team assignee + no activity for 24h+
-        has_support_analyzer_label = any(l.lower() == "support analyzer" for l in labels)
-        docs_team_assignees = [
-            a for a in pr.get("assignees", [])
-            if a["login"].lower() in docs_team
-        ]
+        # Label "support analyzer" + docs-team assignee + no update for 24h
+        has_support_analyzer = any(l.lower() == "support analyzer" for l in labels)
+        docs_assignees_s7 = [a for a in pr.get("assignees", [])
+                             if a["login"].lower() in docs_team]
         updated_dt = datetime.fromisoformat(updated_at.replace("Z", "+00:00"))
-        stale_24h = (datetime.now(timezone.utc) - updated_dt) >= timedelta(hours=24)
+        no_update_24h = (datetime.now(timezone.utc) - updated_dt) >= timedelta(hours=24)
 
-        if has_support_analyzer_label and docs_team_assignees and stale_24h:
+        if has_support_analyzer and docs_assignees_s7 and no_update_24h:
             current_s7.add(pr_number)
-            assignee_mentions = ", ".join(
+            # Build mention string for all assigned docs-team members
+            assignee_mentions = " ".join(
                 resolve_mention(a["login"], github_to_slack, oncall_docs_mention)
-                for a in docs_team_assignees
+                for a in docs_assignees_s7
             )
+            hours_since_update = int((datetime.now(timezone.utc) - updated_dt).total_seconds() / 3600)
             pr_data = {
-                "pr_number": pr_number,
-                "title": pr_title,
-                "url": pr_url,
+                "pr_number": pr_number, "title": pr_title, "url": pr_url,
                 "assignee_mentions": assignee_mentions,
-                "stale_time": format_stale_time(updated_at),
+                "assignee_count": len(docs_assignees_s7),
+                "hours_since_update": hours_since_update,
             }
             if pr_number not in scenario7_notified:
                 new_s7.append(pr_data)
@@ -653,19 +659,27 @@ def main():
 
     # ── Post resolved reactions ──────────────────────────────────────────────────
     for r in resolved_s1 + resolved_s2 + resolved_s3 + resolved_s4 + resolved_s5 + resolved_s6 + resolved_s7:
-        ts = r.get("thread_ts")
-        if ts and slack_token and slack_channel:
-            slack_react(slack_token, slack_channel, ts)
+        info = r.get("thread_ts")
+        if info and slack_token:
+            if isinstance(info, dict):
+                ts  = info.get("ts")
+                ch  = info.get("channel", docs_request_channel)
+            else:
+                ts  = info  # old string format
+                ch  = docs_request_channel
+            if ts:
+                slack_react(slack_token, ch, ts)
 
     # ── Helper to post and record ────────────────────────────────────────────────
-    def post_and_record(text, pr_number, notified_set=None, notified_dict=None,
+    def post_and_record(text, pr_number, channel=None, notified_set=None, notified_dict=None,
                         last_reminded_dict=None, reminder_count_dict=None,
                         scenario_key=None):
         """Post a Slack message and update the relevant state dicts."""
         pr_num_str = str(pr_number)
-        if slack_token and slack_channel:
-            ts = slack_post(slack_token, slack_channel, text)
-            if ts:
+        target = channel or docs_request_channel
+        if slack_token and target:
+            posted = slack_post(slack_token, target, text)
+            if posted and posted.get("ts"):
                 now_iso = datetime.now(timezone.utc).isoformat()
                 if notified_set is not None:
                     notified_set.add(pr_number)
@@ -676,7 +690,11 @@ def main():
                 if reminder_count_dict is not None:
                     reminder_count_dict[pr_num_str] = reminder_count_dict.get(pr_num_str, 0) + 1
                 if scenario_key:
-                    thread_ts_map[f"{scenario_key}_{pr_number}"] = ts
+                    # Prefer Slack's returned channel (D… for DMs) over the routing target (U…)
+                    thread_ts_map[f"{scenario_key}_{pr_number}"] = {
+                        "ts": posted["ts"],
+                        "channel": posted.get("channel") or target,
+                    }
         else:
             print(text)
 
@@ -688,7 +706,9 @@ def main():
             f"Owner: {pr['author_mention']}  |  Open {pr['open_days']} days  |  {pr['reason']}"
             f"{warning_footer}"
         )
+        ch = mention_to_dm_or_channel(pr["author_mention"], oncall_docs_mention, docs_request_channel)
         post_and_record(text, pr["pr_number"],
+                        channel=ch,
                         notified_set=new_s1_set,
                         last_reminded_dict=scenario1_last_reminded,
                         scenario_key="s1")
@@ -700,7 +720,9 @@ def main():
             f"Owner: {pr['author_mention']}  |  Open {pr['open_days']} days  |  {pr['reason']}"
             f"{warning_footer}"
         )
+        ch = mention_to_dm_or_channel(pr["author_mention"], oncall_docs_mention, docs_request_channel)
         post_and_record(text, pr["pr_number"],
+                        channel=ch,
                         last_reminded_dict=scenario1_last_reminded,
                         reminder_count_dict=scenario1_reminder_count,
                         scenario_key="s1")
@@ -716,7 +738,10 @@ def main():
             f"{oncall_tag}"
             f"{warning_footer}"
         )
+        ch = docs_request_channel if (not pr["assignee_is_docs"] or pr["author_mention"] == oncall_docs_mention) \
+             else mention_to_dm_or_channel(pr["author_mention"], oncall_docs_mention, docs_request_channel)
         post_and_record(text, pr["pr_number"],
+                        channel=ch,
                         notified_dict=new_s2_dict,
                         last_reminded_dict=scenario2_last_reminded,
                         scenario_key="s2")
@@ -731,7 +756,10 @@ def main():
             f"{oncall_tag}"
             f"{warning_footer}"
         )
+        ch = docs_request_channel if (not pr["assignee_is_docs"] or pr["author_mention"] == oncall_docs_mention) \
+             else mention_to_dm_or_channel(pr["author_mention"], oncall_docs_mention, docs_request_channel)
         post_and_record(text, pr["pr_number"],
+                        channel=ch,
                         last_reminded_dict=scenario2_last_reminded,
                         reminder_count_dict=scenario2_reminder_count,
                         scenario_key="s2")
@@ -746,6 +774,7 @@ def main():
             f"{warning_footer}"
         )
         post_and_record(text, pr["pr_number"],
+                        channel=docs_request_channel,
                         notified_set=new_s3_set,
                         last_reminded_dict=scenario3_last_reminded,
                         scenario_key="s3")
@@ -759,6 +788,7 @@ def main():
             f"{warning_footer}"
         )
         post_and_record(text, pr["pr_number"],
+                        channel=docs_request_channel,
                         last_reminded_dict=scenario3_last_reminded,
                         reminder_count_dict=scenario3_reminder_count,
                         scenario_key="s3")
@@ -773,6 +803,7 @@ def main():
             f"{warning_footer}"
         )
         post_and_record(text, pr["pr_number"],
+                        channel=docs_request_channel,
                         notified_set=new_s4_set,
                         last_reminded_dict=scenario4_last_reminded,
                         scenario_key="s4")
@@ -786,6 +817,7 @@ def main():
             f"{warning_footer}"
         )
         post_and_record(text, pr["pr_number"],
+                        channel=docs_request_channel,
                         last_reminded_dict=scenario4_last_reminded,
                         reminder_count_dict=scenario4_reminder_count,
                         scenario_key="s4")
@@ -799,7 +831,9 @@ def main():
             f"Is this still relevant? Time to merge, close, or give it some love."
             f"{warning_footer}"
         )
+        ch = mention_to_dm_or_channel(pr["author_mention"], oncall_docs_mention, docs_request_channel)
         post_and_record(text, pr["pr_number"],
+                        channel=ch,
                         notified_set=new_s5_set,
                         scenario_key="s5")
 
@@ -813,6 +847,7 @@ def main():
             f"{warning_footer}"
         )
         post_and_record(text, pr["pr_number"],
+                        channel=docs_request_channel,
                         notified_set=new_s6_set,
                         last_reminded_dict=scenario6_last_reminded,
                         scenario_key="s6")
@@ -826,33 +861,42 @@ def main():
             f"{warning_footer}"
         )
         post_and_record(text, pr["pr_number"],
+                        channel=docs_request_channel,
                         last_reminded_dict=scenario6_last_reminded,
                         reminder_count_dict=scenario6_reminder_count,
                         scenario_key="s6")
 
     # ── Post Scenario 7 ──────────────────────────────────────────────────────────
     for pr in new_s7:
+        hours = pr["hours_since_update"]
+        time_str = f"{hours // 24} day{'s' if hours // 24 != 1 else ''}" if hours >= 48 else f"{hours} hour{'s' if hours != 1 else ''}"
         text = (
             f"🔎 *Support Analyzer PR needs attention*\n"
             f"<{pr['url']}|#{pr['pr_number']}: {pr['title']}>\n"
-            f"It's been {pr['stale_time']} without updates. "
-            f"{pr['assignee_mentions']} please review this PR and tag in stakeholders as needed."
+            f"It's been {time_str} without updates. {pr['assignee_mentions']} please review this PR and tag in stakeholders as needed."
             f"{warning_footer}"
         )
+        ch = mention_to_dm_or_channel(pr["assignee_mentions"], oncall_docs_mention, docs_request_channel) \
+             if pr["assignee_count"] == 1 else docs_request_channel
         post_and_record(text, pr["pr_number"],
+                        channel=ch,
                         notified_set=new_s7_set,
                         last_reminded_dict=scenario7_last_reminded,
                         scenario_key="s7")
 
     for pr in remind_s7:
+        hours = pr["hours_since_update"]
+        time_str = f"{hours // 24} day{'s' if hours // 24 != 1 else ''}" if hours >= 48 else f"{hours} hour{'s' if hours != 1 else ''}"
         text = (
             f"🔎 *Reminder: Support Analyzer PR still needs attention*\n"
             f"<{pr['url']}|#{pr['pr_number']}: {pr['title']}>\n"
-            f"It's been {pr['stale_time']} without updates. "
-            f"{pr['assignee_mentions']} please review this PR and tag in stakeholders as needed."
+            f"It's been {time_str} without updates. {pr['assignee_mentions']} please review this PR and tag in stakeholders as needed."
             f"{warning_footer}"
         )
+        ch = mention_to_dm_or_channel(pr["assignee_mentions"], oncall_docs_mention, docs_request_channel) \
+             if pr["assignee_count"] == 1 else docs_request_channel
         post_and_record(text, pr["pr_number"],
+                        channel=ch,
                         last_reminded_dict=scenario7_last_reminded,
                         reminder_count_dict=scenario7_reminder_count,
                         scenario_key="s7")

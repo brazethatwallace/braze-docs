@@ -1,18 +1,18 @@
 ---
-nav_title: Google Tag Manager
+nav_title: Google tag manager
 article_title: Google Tag Manager com o SDK da Braze
 platform:
   - Android
   - FireOS
   - Swift
 page_order: 1.1
-description: "Aprenda como inicializar o SDK da Braze usando métodos como inicialização em tempo de execução, inicialização atrasada ou Google Tag Manager."
+description: "Saiba como inicializar o SDK da Braze usando métodos como inicialização em tempo de execução, inicialização atrasada ou Google Tag Manager."
 
 ---
 
 # Google Tag Manager com o SDK da Braze {#google-tag-manager-with-the-braze-sdk}
 
-> Aprenda como usar o [Google Tag Manager (GTM)](https://developers.google.com/tag-platform/tag-manager) com o SDK da Braze, para que você possa controlar remotamente o rastreamento de eventos da Braze e as atualizações de atributos de usuário sem precisar de alterações de código ou novas versões do app.
+> Saiba como usar o [Google Tag Manager (GTM)](https://developers.google.com/tag-platform/tag-manager) com o SDK da Braze para controlar remotamente o rastreamento de eventos e as atualizações de atributos de usuário sem precisar de alterações no código ou novas versões do app.
 
 {% sdktabs %}
 {% sdktab web %}
@@ -28,13 +28,22 @@ O Google Tag Manager (GTM) permite que você adicione, remova e edite tags remot
 
 ## Sequenciamento de tags para tags de ação da Braze {#tag-sequencing-for-braze-action-tags}
 
-Eventos personalizados e outras tags de ação da Braze podem falhar quando são disparados antes que a tag **Braze Initialization** termine de carregar o Web SDK. No Google Tag Manager, abra a tag de ação, acesse **Advanced Settings** > **Tag Sequencing**, selecione **A tag that fires before [this tag] is fired** e escolha sua tag Braze Initialization.
+A tag Braze Initialization deve ser disparada antes de qualquer tag que chame métodos do SDK da Braze (como `braze.getUser()`, `braze.logCustomEvent()` ou `braze.logPurchase()`). Se esses métodos forem disparados antes da inicialização do SDK, você poderá encontrar erros como `Uncaught TypeError: Cannot read properties of undefined (reading 'getUser')`.
+
+Para configurar o sequenciamento de tags no Google Tag Manager:
+
+1. Abra a tag que chama métodos do SDK da Braze (como uma tag HTML personalizada ou tag de ação da Braze).
+2. Acesse **Advanced Settings** > **Tag Sequencing**.
+3. Selecione **A tag that fires before [this tag] is fired**.
+4. Escolha sua tag **Braze Initialization**.
+
+Isso garante que o SDK esteja totalmente carregado antes que outras tags tentem chamar métodos da Braze.
 
 Para saber mais, consulte [Verificar o sequenciamento de tags para eventos personalizados]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_tag-sequencing).
 
 ## Registrar compras com o GTM {#log-purchases-with-gtm}
 
-Nas tags de ação da Braze e nas tags HTML personalizadas, chame `braze.logPurchase()` para registrar receita. O namespace legado `appboy.logPurchase()` não é compatível com as integrações atuais do Web SDK.
+Em tags de ação da Braze e tags HTML personalizadas, chame `braze.logPurchase()` para registrar receita. O namespace legado `appboy.logPurchase()` não é compatível com as integrações atuais do Web SDK.
 
 ## Registrar eventos personalizados com o GTM {#logging-custom-events-with-gtm}
 
@@ -70,7 +79,7 @@ No código do seu site, envie um evento para a camada de dados sempre que quiser
 4. Em **Triggering**, selecione o disparador que você criou na etapa 2.
 5. Salve e publique seu contêiner.
 
-Para incluir propriedades do evento, passe-as como o segundo argumento:
+Para incluir propriedades do evento, passe-as como segundo argumento:
 
 ```html
 <script>
@@ -81,7 +90,7 @@ window.braze.logCustomEvent("my_custom_event", {"property_key": "property_value"
 ## Política de consentimento de usuários da UE do Google {#googles-eu-user-consent-policy}
 
 {% alert important %}
-O Google está atualizando sua [Política de consentimento de usuários da UE](https://www.google.com/about/company/user-consent-policy/) em resposta a mudanças na [Lei dos Mercados Digitais (DMA)](https://ads-developers.googleblog.com/2023/10/updates-to-customer-match-conversion.html), que está em vigor desde 6 de março de 2024. Essa nova mudança exige que os anunciantes divulguem certas informações aos seus usuários finais do EEE e do Reino Unido, bem como obtenham os consentimentos necessários deles. Consulte a documentação a seguir para saber mais.
+O Google está atualizando sua [Política de consentimento de usuários da UE](https://www.google.com/about/company/user-consent-policy/) em resposta a mudanças na [Lei dos Mercados Digitais (DMA)](https://ads-developers.googleblog.com/2023/10/updates-to-customer-match-conversion.html), que está em vigor desde 6 de março de 2024. Essa nova mudança exige que os anunciantes divulguem determinadas informações aos seus usuários finais do EEE e do Reino Unido, bem como obtenham os consentimentos necessários. Consulte a documentação a seguir para saber mais.
 {% endalert %}
 
 Como parte da Política de consentimento de usuários da UE do Google, os seguintes atributos personalizados booleanos precisam ser registrados nos perfis de usuário:
@@ -89,7 +98,7 @@ Como parte da Política de consentimento de usuários da UE do Google, os seguin
 - `$google_ad_user_data`
 - `$google_ad_personalization`
 
-Se você estiver definindo esses atributos por meio da integração com o GTM, os atributos personalizados exigem a criação de uma tag HTML personalizada. A seguir, um exemplo de como registrar esses valores como tipos de dados booleanos (não como strings):
+Se você estiver definindo esses atributos por meio da integração com o GTM, os atributos personalizados exigem a criação de uma tag HTML personalizada. Veja a seguir um exemplo de como registrar esses valores como tipos de dados booleanos (não como strings):
 
 ```js
 <script>
@@ -112,6 +121,6 @@ Para saber mais, consulte [Audience Sync para Google]({{site.baseurl}}/partners/
 
 ## Solução de problemas {#troubleshooting}
 
-Se a Braze não inicializar ou os eventos não aparecerem como esperado, confirme se o contêiner do GTM está publicado, se os disparadores e a ordem de acionamento das tags estão alinhados com o [ciclo de vida e a estratégia de inicialização]({{site.baseurl}}/developer_guide/sdk_integration) do seu SDK, e se os dispositivos de teste não estão bloqueando os endpoints da Braze.
+Se a Braze não inicializar ou os eventos não aparecerem como esperado, confirme se o contêiner do GTM está publicado, se os disparadores e a ordem de disparo das tags estão alinhados com a [estratégia de ciclo de vida e inicialização]({{site.baseurl}}/developer_guide/sdk_integration) do seu SDK, e se os dispositivos de teste não estão bloqueando os endpoints da Braze.
 
-Para falhas de inicialização, verifique se a tag da Braze ou o provedor de tag personalizado está recebendo o `actionType` e os parâmetros esperados (consulte as guias Android, Swift e Web nesta página). Para obter um registro detalhado ao validar eventos disparados pelo GTM, ative o registro de depuração do SDK da sua plataforma conforme descrito nos guias de integração vinculados nessas guias.
+Para falhas de inicialização, verifique se a tag da Braze ou o provedor de tag personalizado está recebendo o `actionType` e os parâmetros esperados (consulte as guias Android, Swift e Web nesta página). Para ativar o registro detalhado ao validar eventos disparados pelo GTM, ative o registro de depuração do SDK da sua plataforma conforme descrito nos guias de integração da plataforma vinculados nessas guias.

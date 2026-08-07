@@ -1,21 +1,21 @@
 ---
 nav_title: Google 태그 관리자
-article_title: Google Tag Manager와 Braze SDK 사용하기
+article_title: Braze SDK와 Google Tag Manager
 platform:
   - Android
   - FireOS
   - Swift
 page_order: 1.1
-description: "런타임 초기화, 지연 초기화 또는 Google Tag Manager와 같은 방법을 사용하여 Braze SDK를 초기화하는 방법을 알아보세요."
+description: "런타임 초기화, 지연 초기화 또는 Google Tag Manager를 사용하여 Braze SDK를 초기화하는 방법을 알아봅니다."
 
 ---
 
-# Google Tag Manager와 Braze SDK 사용하기 {#google-tag-manager-with-the-braze-sdk}
+# Braze SDK와 Google Tag Manager {#google-tag-manager-with-the-braze-sdk}
 
-> [Google Tag Manager(GTM)](https://developers.google.com/tag-platform/tag-manager)를 Braze SDK와 함께 사용하는 방법을 알아보세요. 이를 통해 코드 변경이나 새로운 앱 릴리스 없이 Braze 이벤트 추적 및 사용자 속성 업데이트를 원격으로 제어할 수 있습니다.
+> [Google Tag Manager(GTM)](https://developers.google.com/tag-platform/tag-manager)를 Braze SDK와 함께 사용하여 코드 변경이나 새로운 앱 릴리스 없이 Braze 이벤트 추적 기술 및 사용자 속성 업데이트를 원격으로 제어하는 방법을 알아봅니다.
 
 {% sdktabs %}
-{% sdktab web %}
+{% sdktab 웹 %}
 ## 웹용 Google Tag Manager 정보 {#google-tag-manager}
 
 Google Tag Manager(GTM)를 사용하면 프로덕션 코드 릴리스나 엔지니어링 리소스 없이도 웹사이트에 원격으로 태그를 추가, 제거, 편집할 수 있습니다. Braze는 웹 SDK를 위해 다음과 같은 템플릿을 제공합니다:
@@ -28,7 +28,16 @@ Google Tag Manager(GTM)를 사용하면 프로덕션 코드 릴리스나 엔지�
 
 ## Braze 동작 태그의 태그 시퀀싱 {#tag-sequencing-for-braze-action-tags}
 
-커스텀 이벤트 및 기타 Braze 동작 태그는 **Braze Initialization** 태그가 웹 SDK 로드를 완료하기 전에 실행되면 실패할 수 있습니다. Google Tag Manager에서 동작 태그를 열고 **Advanced Settings** > **Tag Sequencing**으로 이동한 다음 **A tag that fires before [this tag] is fired**를 선택하고 Braze Initialization 태그를 선택합니다.
+Braze 초기화 태그는 Braze SDK 메서드를 호출하는 모든 태그(예: `braze.getUser()`, `braze.logCustomEvent()`, `braze.logPurchase()`)보다 먼저 실행되어야 합니다. SDK가 초기화되기 전에 이러한 메서드가 실행되면 `Uncaught TypeError: Cannot read properties of undefined (reading 'getUser')`와 같은 오류가 발생할 수 있습니다.
+
+Google Tag Manager에서 태그 시퀀싱을 구성하려면 다음을 수행합니다:
+
+1. Braze SDK 메서드를 호출하는 태그(예: 커스텀 HTML 태그 또는 Braze 동작 태그)를 엽니다.
+2. **Advanced Settings** > **Tag Sequencing**으로 이동합니다.
+3. **A tag that fires before [this tag] is fired**를 선택합니다.
+4. **Braze Initialization** 태그를 선택합니다.
+
+이렇게 하면 다른 태그가 Braze 메서드를 호출하기 전에 SDK가 완전히 로드됩니다.
 
 자세한 내용은 [커스텀 이벤트의 태그 시퀀싱 확인]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_tag-sequencing)을 참조하세요.
 
@@ -81,15 +90,15 @@ window.braze.logCustomEvent("my_custom_event", {"property_key": "property_value"
 ## Google의 EU 사용자 동의 정책 {#googles-eu-user-consent-policy}
 
 {% alert important %}
-Google은 2024년 3월 6일부터 시행되는 [디지털 시장법(DMA)](https://ads-developers.googleblog.com/2023/10/updates-to-customer-match-conversion.html)의 변경 사항에 대응하여 [EU 사용자 동의 정책](https://www.google.com/about/company/user-consent-policy/)을 업데이트하고 있습니다. 이 새로운 변경 사항은 광고주가 EEA 및 영국 최종사용자에게 특정 정보를 공개하고 필요한 동의를 얻도록 요구합니다. 자세한 내용은 다음 설명서를 참조하세요.
+Google은 2024년 3월 6일부터 시행되는 [디지털 시장법(DMA)](https://ads-developers.googleblog.com/2023/10/updates-to-customer-match-conversion.html)의 변경 사항에 대응하여 [EU 사용자 동의 정책](https://www.google.com/about/company/user-consent-policy/)을 업데이트하고 있습니다. 이 새로운 변경 사항에 따라 광고주는 EEA 및 영국 최종사용자에게 특정 정보를 공개하고 필요한 동의를 얻어야 합니다. 자세한 내용은 다음 설명서를 참조하세요.
 {% endalert %}
 
-Google의 EU 사용자 동의 정책의 일환으로, 다음 부울 커스텀 속성을 사용자 프로필에 기록해야 합니다:
+Google의 EU 사용자 동의 정책의 일환으로, 다음 부울 커스텀 속성을 고객 프로필에 기록해야 합니다:
 
 - `$google_ad_user_data`
 - `$google_ad_personalization`
 
-GTM 통합을 통해 이러한 값을 설정하는 경우, 커스텀 속성에는 커스텀 HTML 태그를 만들어야 합니다. 다음은 이러한 값을 문자열이 아닌 부울 데이터 유형으로 기록하는 방법의 예시입니다:
+GTM 통합을 통해 이러한 값을 설정하는 경우, 커스텀 속성에는 커스텀 HTML 태그를 만들어야 합니다. 다음은 이러한 값을 부울 데이터 유형(문자열이 아닌)으로 기록하는 방법의 예시입니다:
 
 ```js
 <script>
@@ -101,17 +110,17 @@ window.braze.getUser().setCustomUserAttribute("$google_ad_personalization", true
 
 {% endsdktab %}
 
-{% sdktab android %}
+{% sdktab Android %}
 {% multi_lang_include developer_guide/android/google_tag_manager.md %}
 {% endsdktab %}
 
-{% sdktab swift %}
+{% sdktab Swift %}
 {% multi_lang_include developer_guide/swift/google_tag_manager.md %}
 {% endsdktab %}
 {% endsdktabs %}
 
 ## 문제 해결 {#troubleshooting}
 
-Braze가 초기화되지 않거나 이벤트가 예상대로 표시되지 않는 경우, GTM 컨테이너가 게시되었는지, 트리거 및 태그 실행 순서가 SDK [라이프사이클 및 초기화 전략]({{site.baseurl}}/developer_guide/sdk_integration)과 일치하는지, 테스트 기기가 Braze 엔드포인트를 차단하고 있지 않은지 확인하세요.
+Braze가 초기화되지 않거나 이벤트가 예상대로 표시되지 않는 경우, GTM 컨테이너가 게시되었는지, 트리거 및 태그 실행 순서가 SDK [수명 주기 및 초기화 전략]({{site.baseurl}}/developer_guide/sdk_integration)과 일치하는지, 테스트 기기가 Braze 엔드포인트를 차단하고 있지 않은지 확인하세요.
 
-초기화 실패의 경우, Braze 태그 또는 커스텀 태그 제공업체가 예상되는 `actionType` 및 파라미터를 수신하는지 확인하세요(이 페이지의 Android, Swift, 웹 탭 참조). GTM에서 실행된 이벤트를 검증하는 동안 상세 로깅을 활성화하려면 해당 탭에서 링크된 플랫폼 통합 가이드에 설명된 대로 플랫폼의 SDK 디버그 로깅을 활성화하세요.
+초기화 실패의 경우, Braze 태그 또는 커스텀 태그 제공업체가 예상되는 `actionType` 및 파라미터를 수신하는지 확인하세요(이 페이지의 Android, Swift, 웹 탭 참조). GTM에서 실행된 이벤트를 검증하는 동안 상세 로깅을 활성화하려면, 해당 탭에서 링크된 플랫폼 통합 가이드에 설명된 대로 플랫폼의 SDK 디버그 로깅을 활성화하세요.

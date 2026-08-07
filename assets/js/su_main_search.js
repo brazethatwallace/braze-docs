@@ -113,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Enter key
     if (queryInput) {
+      /*
       queryInput.addEventListener("keypress", function (e) {
         if (e.key === "Enter") {
           e.preventDefault();
@@ -120,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
           handleSearch(queryInput, langSelect);
         }
       });
+      */
 
       if (applyDefaultSearchInputLabel) {
         applyDefaultSearchInputLabel(queryInput);

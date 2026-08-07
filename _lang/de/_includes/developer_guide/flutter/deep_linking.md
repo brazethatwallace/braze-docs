@@ -2,11 +2,15 @@
 
 {% tabs local %}
 {% tab iOS %}
-Bevor Sie Deeplinking in Ihre Flutter-iOS-App implementieren können, konfigurieren Sie Ihre URL-Schemata in Ihrer `Info.plist`-Datei. Weitere Informationen finden Sie unter [Deeplinking für iOS]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#url-schemes).
+Bevor Sie Deeplinking in Ihrer Flutter-iOS-App implementieren können, konfigurieren Sie Ihre URL-Schemata in Ihrer `Info.plist`-Datei. Weitere Informationen finden Sie unter [Deeplinking für iOS]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#url-schemes).
 {% endtab %}
 
 {% tab Android %}
-Für Flutter Android ist kein zusätzliches natives Setup erforderlich, wenn Sie Deeplinks auf der Dart-Schicht verarbeiten. Die in diesem Artikel gezeigte minimale Implementierung ist für die meisten Flutter-Apps ausreichend.
+Für Flutter Android ist kein zusätzliches natives Setup erforderlich, wenn Sie Deeplinks auf der Dart-Ebene verarbeiten. Die in diesem Artikel gezeigte minimale Implementierung ist für die meisten Flutter-Apps ausreichend.
+
+{% alert warning %}
+Das native Flag `com_braze_handle_push_deep_links_automatically` von Braze ist auf Android standardmäßig auf `false` gesetzt. Ohne es in Ihrer `braze.xml` auf `true` zu setzen, wird Ihre App nicht automatisch in den Vordergrund gebracht oder zum Deeplink-Ziel weitergeleitet, wenn Nutzer:innen auf eine Push-Benachrichtigung tippen – auch wenn ein `push_opened`-Event weiterhin Ihren Dart-Listener erreicht. Weitere Informationen finden Sie unter [Deeplinks hinzufügen (Android)]({{site.baseurl}}/developer_guide/push_notifications#flutter_step-4-add-deep-links-android).
+{% endalert %}
 
 Wenn Sie eine erweiterte Linkverarbeitung auf nativer Ebene benötigen (z. B. angepasste `IBrazeDeeplinkHandler`-Implementierungen), lesen Sie [Deeplinking für Android]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=android).
 {% endtab %}
@@ -14,7 +18,7 @@ Wenn Sie eine erweiterte Linkverarbeitung auf nativer Ebene benötigen (z. B. an
 
 ## Deeplinking implementieren {#implementing-deep-linking}
 
-### 1. Schritt: Die in Flutter integrierte Verarbeitung einrichten {#step-1-set-up-flutters-built-in-handling}
+### Schritt 1: Flutters integrierte Verarbeitung einrichten {#step-1-set-up-flutters-built-in-handling}
 
 {% tabs %}
 {% tab iOS %}
@@ -23,30 +27,30 @@ Wenn Sie eine erweiterte Linkverarbeitung auf nativer Ebene benötigen (z. B. an
 3. Setzen Sie den Schlüssel auf `FlutterDeepLinkingEnabled`.
 4. Setzen Sie den Typ auf `Boolean`.
 5. Setzen Sie den Wert auf `YES`.
-    ![Die `Info.plist`-Datei eines Beispielprojekts mit dem hinzugefügten Schlüssel-Wert-Paar.]({% image_buster /assets/img/flutter/flutter-ios-deep-link-info-plist.png %} "Xcode Project Info.plist File")
+    ![Die Info.plist-Datei eines Beispielprojekts mit dem hinzugefügten Schlüssel-Wert-Paar.]({% image_buster /assets/img/flutter/flutter-ios-deep-link-info-plist.png %} "Xcode Project Info.plist File")
 {% endtab %}
 
 {% tab Android %}
-1. Öffnen Sie in Ihrem Android Studio-Projekt die Datei `AndroidManifest.xml`.
+1. Öffnen Sie in Ihrem Android-Studio-Projekt die Datei `AndroidManifest.xml`.
 2. Suchen Sie `.MainActivity` in Ihren `activity`-Tags.
-3. Fügen Sie innerhalb des `activity`-Tags den folgenden `meta-data`-Tag hinzu:
+3. Fügen Sie innerhalb des `activity`-Tags das folgende `meta-data`-Tag hinzu:
     ```xml
     <meta-data android:name="flutter_deeplinking_enabled" android:value="true" />
     ```
 {% endtab %}
 {% endtabs %}
 
-### 2. Schritt: Daten an die Dart-Schicht weiterleiten (optional) {#step-2-forward-data-to-the-dart-layer-optional}
+### Schritt 2: Daten an die Dart-Schicht weiterleiten (optional) {#step-2-forward-data-to-the-dart-layer-optional}
 
-Sie können native Linkverarbeitung, Erstanbieter- oder Drittanbieter-Linkverarbeitung für komplexe Anwendungsfälle verwenden, z. B. um Nutzer:innen an einen bestimmten Ort in Ihrer App zu schicken oder eine bestimmte Funktion aufzurufen.
+Sie können native, eigene oder Drittanbieter-Linkverarbeitung für komplexe Anwendungsfälle verwenden, z. B. um Nutzer:innen an einen bestimmten Ort in Ihrer App zu leiten oder eine bestimmte Funktion aufzurufen.
 
 #### Beispiel: Deeplinking zu einem Warndialog {#example-deep-linking-to-an-alert-dialog}
 
 {% alert note %}
-Das folgende Beispiel basiert zwar nicht auf zusätzlichen Paketen, aber Sie können einen ähnlichen Ansatz verwenden, um native Pakete, Erstanbieter- oder Drittanbieter-Pakete zu implementieren, wie z. B. [`go_router`](https://pub.dev/packages/go_router). Zusätzlicher Dart-Code kann erforderlich sein.
+Das folgende Beispiel ist zwar nicht auf zusätzliche Pakete angewiesen, Sie können jedoch einen ähnlichen Ansatz verwenden, um native, eigene oder Drittanbieter-Pakete zu implementieren, wie z. B. [`go_router`](https://pub.dev/packages/go_router). Zusätzlicher Dart-Code kann erforderlich sein.
 {% endalert %}
 
-Zunächst wird im nativen Layer ein Methodenkanal verwendet, um die URL-String-Daten des Deeplinks an den Dart-Layer weiterzuleiten.
+Zunächst wird ein Method Channel in der nativen Schicht verwendet, um die URL-String-Daten des Deeplinks an die Dart-Schicht weiterzuleiten.
 
 {% tabs %}
 {% tab iOS %}
@@ -106,7 +110,7 @@ class MainActivity : FlutterActivity() {
 {% endtab %}
 {% endtabs %}
 
-Als Nächstes wird eine Callback-Funktion im Dart-Layer verwendet, um einen Warndialog mit den zuvor gesendeten URL-String-Daten anzuzeigen.
+Anschließend wird eine Callback-Funktion in der Dart-Schicht verwendet, um einen Warndialog mit den zuvor gesendeten URL-String-Daten anzuzeigen.
 
 ```dart
 MethodChannel('deepLinkChannel').setMethodCallHandler((call) async {

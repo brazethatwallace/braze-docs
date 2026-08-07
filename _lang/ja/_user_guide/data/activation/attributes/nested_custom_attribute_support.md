@@ -19,7 +19,7 @@ description: "このリファレンス記事では、階層化カスタム属性
 
 階層化属性を使用すると、単一のカスタム属性オブジェクトのデータを活用して、より高度なセグメントを構築し、メッセージをパーソナライズできます。
 
-以下の例では、カスタム属性 `favorite_book` に階層化属性 `title`、`author`、`publishing_date` が含まれています。このオブジェクトを使用して、著者別にユーザーをターゲットにしたり、出版日でフィルターしたり、書籍のタイトルをメッセージに直接挿入したりできます。
+次の例では、カスタム属性`favorite_book`に、階層化属性`title`、`author`、`publishing_date`が含まれています。このオブジェクトを使用して、著者別にユーザーをターゲットにしたり、出版日でフィルターしたり、書籍のタイトルをメッセージに直接挿入したりできます。
 
 ```json
 "favorite_book": {
@@ -132,7 +132,9 @@ description: "このリファレンス記事では、階層化カスタム属性
 
 ## SDKの例 {#sdk-example}
 
-{% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 %}
+{% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 unity:5.1.0 %}
+
+以下のサンプルでは、各SDKで同じ階層化カスタム属性オブジェクト（`most_played_song`）を作成、マージ更新、削除する方法を示しています。
 
 {% tabs local %}
 {% tab Android SDK %}
@@ -242,6 +244,38 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 ```
 
 {% endtab %}
+{% tab Unity SDK %}
+
+**作成**
+```csharp
+Dictionary<string, object> attributes = new Dictionary<string, object>();
+attributes.Add("song_name", "Solea");
+attributes.Add("artist_name", "Miles Davis");
+attributes.Add("album_name", "Sketches of Spain");
+attributes.Add("genre", "Jazz");
+
+Dictionary<string, object> playAnalytics = new Dictionary<string, object>();
+playAnalytics.Add("count", 1000);
+playAnalytics.Add("top_10_listeners", true);
+attributes.Add("play_analytics", playAnalytics);
+
+AppboyBinding.SetCustomUserAttribute("most_played_song", attributes);
+```
+
+**更新**
+```csharp
+Dictionary<string, object> attributes = new Dictionary<string, object>();
+attributes.Add("year_released", 1960);
+
+AppboyBinding.SetCustomUserAttribute("most_played_song", attributes, true);
+```
+
+**削除**
+```csharp
+AppboyBinding.UnsetCustomUserAttribute("most_played_song");
+```
+
+{% endtab %}
 {% endtabs %}
 
 ## オブジェクトプロパティとしての日付のキャプチャ {#capturing-dates-as-object-properties}
@@ -249,7 +283,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 日付をオブジェクトプロパティとしてキャプチャするには、`$time` キーを使用する必要があります。次の例では、「Important Dates」オブジェクトを使用して、`birthday` と `wedding_anniversary` というオブジェクトプロパティのセットをキャプチャしています。これらの日付の値は `$time` キーを持つオブジェクトであり、null 値にすることはできません。
 
 {% alert note %}
-最初に日付をオブジェクトプロパティとしてキャプチャしていなかった場合は、すべてのユーザーに対して `$time` キーを使用してこのデータを再送信することをお勧めします。そうしないと、`$time` 属性を使用する際にセグメントが不完全になる可能性があります。ただし、階層化カスタム属性内の `$time` の値が正しくフォーマットされていない場合、階層化カスタム属性全体が更新されません。
+最初に日付をオブジェクトプロパティとしてキャプチャしていなかった場合は、すべてのユーザーに対して `$time` キーを使用してこのデータを再送信することをお勧めします。そうしないと、`$time` 属性を使用する際にセグメントが不完全になる可能性があります。ただし、階層化カスタム属性の `$time` の値が正しくフォーマットされていない場合、階層化カスタム属性全体が更新されません。
 {% endalert %}
 
 ```json
@@ -347,16 +381,16 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 
 階層化カスタム属性オブジェクトが変更されたときにトリガーできます。このオプションは、オブジェクト配列の変更には使用できません。パスエクスプローラーを表示するオプションが見つからない場合は、スキーマが生成されているか確認してください。
 
-たとえば、アクションベースのキャンペーンでは、**カスタム属性値を変更**の新しいトリガーアクションを追加して、近隣オフィスの設定を変更したユーザーをターゲットにできます。
+たとえば、アクションベースのキャンペーンでは、**カスタム属性値の変更**の新しいトリガーアクションを追加して、近隣オフィスの設定を変更したユーザーをターゲットにできます。
 
 アクションベースのキャンペーンでこのトリガーを設定するには:
 
 1. キャンペーンを作成または編集し、配信タイプを**アクションベース配信**に設定します。
-2. トリガー設定で、**カスタム属性値を変更**を選択します。
-3. 監視したい階層化カスタム属性パスを選択します。
+2. トリガー設定で、**カスタム属性値の変更**を選択します。
+3. 監視したい階層化カスタム属性のパスを選択します。
    たとえば、`preferences.neighborhood_office` を選択します。
 4. **任意の新しい値**など、目的のトリガー条件を選択します。
-5. キャンペーンメッセージとオーディエンスの設定を完了し、キャンペーンを開始します。
+5. キャンペーンのメッセージとオーディエンスの設定を完了し、キャンペーンを開始します。
 
 ## トラブルシューティング {#troubleshooting}
 
@@ -378,13 +412,13 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
    - スキーマが生成されたら、その属性の**属性名**列にあるプラスアイコンを選択します。
    - **スキーマを編集**モーダルで、階層化属性と**データ型**列の対応する値を確認します。
 
-データ型が意図した形式とユーザープロファイル間で一致していない場合は、影響を受けるユーザープロファイルから不正な形式の値を削除し、適切なAPIリクエストまたはSDKメソッドを使用して正しい形式で属性を再送信してください。
+データ型がユーザープロファイル間で意図した形式と一致しない場合は、影響を受けるユーザープロファイルから不正な形式の値を削除し、適切なAPIリクエストまたはSDKメソッドを使用して正しい形式で属性を再送信してください。
 
 ## オブジェクト配列でのセグメンテーション動作 {#segmentation-behavior-with-arrays-of-objects}
 
 複数の`Nested Custom Attribute`フィルターをANDロジックで使用してオブジェクト配列に対するセグメンテーションを行う場合、各フィルターは配列内のすべてのアイテムに対して独立に評価されます。配列内の*いずれかの*アイテムが個々のフィルター条件を満たしていれば、そのユーザーはセグメントの対象となります。フィルターが*同じ*アイテムに一致する必要はありません。
 
-たとえば、あるユーザーが次のような配列を持っているとします。
+たとえば、あるユーザーが以下の配列を持っているとします。
 
 ```json
 {
@@ -395,14 +429,14 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 }
 ```
 
-次のANDフィルターを持つセグメント：
+以下のANDフィルターを持つセグメント：
 
 - `orders[].price`が50より大きい
 - `orders[].price`が30より小さい
 
-このユーザーは、最初のフィルターが「Shoes」アイテム（80 > 50）に一致し、2番目のフィルターが「Hat」アイテム（25 < 30）に一致するため、セグメントの対象となります。単一のアイテムが両方の条件を満たしていなくても、ユーザーはセグメントに入ります。
+このユーザーは、最初のフィルターが「Shoes」アイテム（80 > 50）に一致し、2番目のフィルターが「Hat」アイテム（25 < 30）に一致するため、条件を満たします。単一のアイテムが両方の条件を満たしていなくても、このユーザーはセグメントに入ります。
 
-すべての条件を配列内の同じアイテムに一致させる必要がある場合は、同じパスで[マルチ条件セグメンテーション]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation)を使用するか、クロスアイテムマッチングを避けるようにデータを再構成してください。
+すべての条件を配列内の同じアイテムに一致させる必要がある場合は、同じパスで[マルチ条件セグメンテーション]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation)を使用するか、アイテム間のクロスマッチングを避けるようにデータを再構成してください。
 
 ## データポイント {#data-points}
 

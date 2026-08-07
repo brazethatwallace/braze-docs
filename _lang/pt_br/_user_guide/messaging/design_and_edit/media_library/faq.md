@@ -24,7 +24,7 @@ Não, os ativos enviados para a biblioteca de mídia serão mantidos durante tod
 
 ### Posso enviar ativos de vídeo? {#can-i-upload-video-assets}
 
-Não, a biblioteca de mídia não suporta arquivos de vídeo. Recomendamos que você hospede esses arquivos externamente ou em uma plataforma como o YouTube.
+Não, a biblioteca de mídia não suporta arquivos de vídeo. Recomendamos que você os hospede externamente ou em uma plataforma como o YouTube.
 
 ### Posso recortar todos os tipos de imagem? {#can-i-crop-all-image-types}
 
@@ -42,9 +42,9 @@ Imagens SVG não são recomendadas para e-mail devido ao suporte limitado entre 
 
 Você pode recortar uma imagem existente selecionando a imagem na biblioteca de mídia e clicando em **Recortar e salvar nova imagem**.
 
-![Prévia de imagem na biblioteca de mídia.]({% image_buster /assets/img_archive/media_library_crop1.png %}){: height="75%" width="75%"}
+![Prévia de imagem da biblioteca de mídia.]({% image_buster /assets/img_archive/media_library_crop1.png %}){: height="75%" width="75%"}
 
-Você será redirecionado para um criador de recorte, onde poderá selecionar o tipo de proporção e editar o nome da nova imagem. Ao selecionar **Salvar**, sua nova imagem estará pronta para uso.
+Você será redirecionado para um criador de recorte onde poderá selecionar o tipo de proporção e editar o nome da nova imagem. Ao selecionar **Salvar**, sua nova imagem poderá ser usada.
 
 ![Janela para recortar e salvar imagem da biblioteca de mídia.]({% image_buster /assets/img_archive/media_library_crop2.png %}){: height="75%" width="75%"}
 
@@ -61,14 +61,18 @@ Isso pode acontecer por dois motivos principais:
 1. **Metadados inválidos no arquivo:** O software que a Braze usa para processar imagens pode rejeitar arquivos com metadados inválidos ou incompatíveis. Em alguns casos, o arquivo também pode ser processado de uma forma que ultrapasse o limite de 5 MB. Tente usar uma imagem diferente (por exemplo, reexporte ou salve novamente a imagem no seu editor de imagens) ou uma imagem de outra fonte.
 2. **Caracteres especiais no nome do arquivo:** Nomes de arquivo que contêm caracteres especiais (como `&` ou `%`) podem causar falha no envio. Renomeie o arquivo para usar apenas letras, números, hifens ou underscores e tente enviar novamente.
 
-### Por que não consigo enviar qualquer imagem nos criadores de push? {#why-cant-i-upload-any-image-i-want-into-the-push-composers}
+### Por que não consigo enviar qualquer imagem que eu queira nos criadores de push? {#why-cant-i-upload-any-image-i-want-into-the-push-composers}
 
-Isso acontece porque a maioria dos criadores possui restrições quanto à proporção de tamanho de imagem permitida.
+Isso acontece porque a maioria dos criadores tem restrições quanto à proporção de tamanho de imagem permitida.
 
 ### Gerar uma imagem usando IA {#generate-an-image-using-ai}
 
-Você pode gerar imagens em **Conteúdo** > **Biblioteca de mídia** selecionando **Gerador de imagens com IA**. Você precisa da permissão **Editar ativos da biblioteca de mídia**. Se não vir essa opção, entre em contato com a equipe de clientes da Braze. Para etapas e detalhes de política, consulte [Gerar imagens com BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) e [Gerando imagens com BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai).
+Você pode gerar imagens em **Conteúdo** > **Biblioteca de mídia** selecionando **Gerador de imagens com IA**. Você precisa da permissão **Editar ativos da biblioteca de mídia**. Se você não vir a opção, entre em contato com a equipe de clientes da Braze. Para etapas e detalhes de política, consulte [Gerar imagens com BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) e [Gerando imagens com BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai).
 
 ### Posso criar URLs personalizadas para ativos de imagem da biblioteca de mídia? {#can-i-create-vanity-urls-for-media-library-image-assets}
 
 URLs personalizadas para ativos da biblioteca de mídia não são suportadas porque URLs customizadas quebrariam a entrega via rede de distribuição de conteúdo (CDN). Você pode substituir uma imagem na URL existente quando Campaigns já referenciam essa URL. Para saber mais, consulte [Substituir um arquivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
+
+### Por que o Chrome salva imagens JPEG ou PNG como arquivos WebP? {#why-does-chrome-save-jpeg-or-png-images-as-webp-files}
+
+Ao usar o Chrome para salvar imagens da biblioteca de mídia, o navegador pode converter automaticamente arquivos JPEG ou PNG para o formato WebP. Esse é o comportamento padrão do Chrome para downloads de imagens e não é específico da Braze. Se você precisar salvar imagens no formato original, tente usar um navegador diferente, como Safari ou Firefox.

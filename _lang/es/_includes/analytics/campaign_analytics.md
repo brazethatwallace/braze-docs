@@ -78,14 +78,14 @@ En Canvas, verás el rendimiento de los mensajes dentro de la aplicación mapead
 
 #### Estimated Audience y Current Audience {#estimated-audience-and-current-audience}
 
-Dependiendo del tamaño de tu espacio de trabajo, el panel **Campaign Details** puede etiquetar las estadísticas de audiencia como **Estimated Audience** o **Current Audience**.
+Dependiendo del número total de usuarios en tu espacio de trabajo, el panel **Campaign Details** etiqueta las estadísticas de audiencia como **Current Audience** o **Estimated Audience**.
 
 La siguiente tabla resume lo que significa cada etiqueta.
 
 | Etiqueta del pie | Cuándo se utiliza |
 | --- | --- |
-| **Estimated Audience** | Braze no ejecuta un recuento completo de la base de datos de forma predeterminada. El tamaño de la audiencia se estima a partir de una muestra y se extrapola, de forma similar al rango de **Reachable users** en el generador de segmentos. Se esperan márgenes de error, especialmente para espacios de trabajo grandes o segmentos pequeños como proporción del espacio de trabajo. |
-| **Current Audience** | Braze puede calcular la estadística predeterminada con un escaneo completo de los perfiles del espacio de trabajo, por lo que el tamaño de audiencia mostrado es un recuento actual y sin muestreo (aunque sigue sujeto a la accesibilidad del canal, las reglas de suscripción y otras opciones de segmentación). |
+| **Current Audience** | El espacio de trabajo tiene 50 000 usuarios o menos. Braze ejecuta un escaneo completo de los perfiles del espacio de trabajo para la estadística predeterminada, por lo que el tamaño de audiencia mostrado es un recuento actual y sin muestreo (aunque sigue sujeto a la accesibilidad del canal, las reglas de suscripción y otras opciones de segmentación). |
+| **Estimated Audience** | El espacio de trabajo tiene más de 50 000 usuarios. Braze no ejecuta un recuento completo de la base de datos de forma predeterminada. El tamaño de la audiencia se estima a partir de una muestra y se extrapola, de forma similar al rango de **Reachable users** en el generador de segmentos. Se esperan márgenes de error, especialmente para segmentos pequeños como proporción del espacio de trabajo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience y Current Audience" }
 
 Para más detalles sobre el comportamiento de muestreo, **Calculate exact statistics** y la segmentación de **Reachable users**, consulta [Medir el tamaño del segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
@@ -214,6 +214,14 @@ Si los enlaces utilizan Liquid para URL dinámicas, las URL en las que se hizo c
 {% endalert %}
 
 ![Ejemplo de la página Preview & Heatmap que incluye una campaña de correo electrónico y un panel con ejemplos de alias de enlaces con su total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+
+##### Enlaces solo para móvil en el mapa de calor {#mobile-only-links-in-the-heatmap}
+
+El mapa de calor solo muestra las firmas de calor de los enlaces visibles en el tamaño de vista previa seleccionado.
+
+Los enlaces que solo aparecen en el diseño para móvil están ocultos en **Desktop** (y pueden estar ocultos en **Overall**, dependiendo del ancho de la vista previa), por lo que esos clics no se muestran como firmas de calor. Esos enlaces siguen apareciendo en el panel **Link Table by Total Clicks** con sus clics totales y porcentajes.
+
+Para ver las firmas de calor de los enlaces solo para móvil, selecciona **Mobile**. La vista previa para móvil coincide con el punto de corte para móvil del editor de arrastrar y soltar (620&nbsp;px). Si el correo electrónico cambia de diseño solo a un ancho más estrecho, esos enlaces permanecen ocultos incluso en el tamaño de vista previa **Mobile**.
 
 #### Imágenes {#images}
 

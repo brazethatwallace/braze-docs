@@ -146,7 +146,7 @@ If you see an error message that your connection isn't private, this can indicat
 
 If you complete SSL setup and links still appear as HTTP, contact your Braze customer success manager to confirm Braze enabled SSL. Braze enables SSL only after all setup steps are complete.
 
-### Amazon SES
+### Amazon SES {#amazon-ses}
 
 If you're using Amazon SES as your email service provider, the following configuration issues can prevent Braze from enabling SSL or cause errors during setup:
 
@@ -364,7 +364,7 @@ After completing the [triage workflow](#triage-workflow), use the following temp
 3. Send a test email to yourself and select both buttons.
 4. Verify that the expected behavior and success criteria are as described in the template.
 
-If your untracked URL works but your tracked URL fails, you may have a configuration gap. To troubleshoot, refer to the documentation for your specific ESP and CDN provider. You can also review the [SSL at Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl) for detailed requirements on certificate provisioning.
+If your untracked URL works but your tracked URL fails, you may have a configuration gap. Refer to the documentation for your specific ESP and CDN provider. For detailed requirements on certificate provisioning, see [SSL at Braze]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl).
 
 Use the following table to diagnose common errors when testing click tracking.
 

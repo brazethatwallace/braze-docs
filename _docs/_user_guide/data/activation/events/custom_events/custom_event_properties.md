@@ -14,6 +14,14 @@ Custom event properties are custom event metadata or attributes that describe a 
 
 Custom event properties aren't stored on the Braze profile and therefore don't log data points (see [Data points](#data-points) for exceptions).
 
+## Viewing event property values for a user
+
+To view the value of a custom event property for a specific user, the following options are available depending on your setup:
+
+- **Currents:** If customer behavior events are enabled, event properties are included in the Currents export.
+- **Event User Log:** If the user is a test user and performed the event recently, the event and its properties will appear in **Settings** > **Event User Log**.
+- **Segmentation:** If custom event property storage is enabled for that property, you can create a segment using the event property filter to check if the user qualifies.
+
 {% alert important %}
 Each custom event or purchase can have up to 256 distinct custom event properties. If a custom event or purchase is logged with more than 256 properties, only the first 256 will be captured and available for use.
 {% endalert %}

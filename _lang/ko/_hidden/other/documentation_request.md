@@ -290,81 +290,82 @@ hide_toc: true
     }
   </style>
   <script type="text/javascript">
-    ! function(e, i) {
-      if ("function" == typeof define && define.amd) define(["exports", "jquery"], function(e, r) {
-        return i(e, r)
-      });
-      else if ("undefined" != typeof exports) {
-        var r = require("jquery");
-        i(exports, r)
-      } else i(e, e.jQuery || e.Zepto || e.ender || e.$)
-    }(this, function(e, i) {
-      function r(e, r) {
-        function n(e, i, r) {
-          return e[i] = r, e
-        }
-
-        function a(e, i) {
-          for (var r, a = e.match(t.key); void 0 !== (r = a.pop());)
-            if (t.push.test(r)) {
-              var u = s(e.replace(/\[\]$/, ""));
-              i = n([], u, i)
-            } else t.fixed.test(r) ? i = n([], r, i) : t.named.test(r) && (i = n({}, r, i));
-          return i
-        }
-
-        function s(e) {
-          return void 0 === h[e] && (h[e] = 0), h[e]++
-        }
-
-        function u(e) {
-          switch (i('[name="' + e.name + '"]', r).attr("type")) {
-            case "checkbox":
-              return "on" === e.value ? !0 : e.value;
-            default:
-              return e.value
+    // jQuery is loaded with defer in html_include.html, so wait for DOMContentLoaded
+    // (deferred scripts run before this event) before using $.
+    document.addEventListener('DOMContentLoaded', function() {
+      ! function(e, i) {
+        if ("function" == typeof define && define.amd) define(["exports", "jquery"], function(e, r) {
+          return i(e, r)
+        });
+        else if ("undefined" != typeof exports) {
+          var r = require("jquery");
+          i(exports, r)
+        } else i(e, e.jQuery || e.Zepto || e.ender || e.$)
+      }(window, function(e, i) {
+        function r(e, r) {
+          function n(e, i, r) {
+            return e[i] = r, e
           }
-        }
 
-        function f(i) {
-          if (!t.validate.test(i.name)) return this;
-          var r = a(i.name, u(i));
-          return l = e.extend(!0, l, r), this
-        }
+          function a(e, i) {
+            for (var r, a = e.match(t.key); void 0 !== (r = a.pop());)
+              if (t.push.test(r)) {
+                var u = s(e.replace(/\[\]$/, ""));
+                i = n([], u, i)
+              } else t.fixed.test(r) ? i = n([], r, i) : t.named.test(r) && (i = n({}, r, i));
+            return i
+          }
 
-        function d(i) {
-          if (!e.isArray(i)) throw new Error("formSerializer.addPairs expects an Array");
-          for (var r = 0, t = i.length; t > r; r++) this.addPair(i[r]);
-          return this
-        }
+          function s(e) {
+            return void 0 === h[e] && (h[e] = 0), h[e]++
+          }
 
-        function o() {
-          return l
-        }
+          function u(e) {
+            switch (i('[name="' + e.name + '"]', r).attr("type")) {
+              case "checkbox":
+                return "on" === e.value ? !0 : e.value;
+              default:
+                return e.value
+            }
+          }
 
-        function c() {
-          return JSON.stringify(o())
+          function f(i) {
+            if (!t.validate.test(i.name)) return this;
+            var r = a(i.name, u(i));
+            return l = e.extend(!0, l, r), this
+          }
+
+          function d(i) {
+            if (!e.isArray(i)) throw new Error("formSerializer.addPairs expects an Array");
+            for (var r = 0, t = i.length; t > r; r++) this.addPair(i[r]);
+            return this
+          }
+
+          function o() {
+            return l
+          }
+
+          function c() {
+            return JSON.stringify(o())
+          }
+          var l = {},
+            h = {};
+          this.addPair = f, this.addPairs = d, this.serialize = o, this.serializeJSON = c
         }
-        var l = {},
-          h = {};
-        this.addPair = f, this.addPairs = d, this.serialize = o, this.serializeJSON = c
-      }
-      var t = {
-        validate: /^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,
-        key: /[a-z0-9_]+|(?=\[\])/gi,
-        push: /^$/,
-        fixed: /^\d+$/,
-        named: /^[a-z0-9_]+$/i
-      };
-      return r.patterns = t, r.serializeObject = function() {
-        return new r(i, this).addPairs(this.serializeArray()).serialize()
-      }, r.serializeJSON = function() {
-        return new r(i, this).addPairs(this.serializeArray()).serializeJSON()
-      }, "undefined" != typeof i.fn && (i.fn.serializeObject = r.serializeObject, i.fn.serializeJSON = r.serializeJSON), e.FormSerializer = r, r
-    });
-  </script>
-  <script type="text/javascript">
-    $(document).ready(function() {
+        var t = {
+          validate: /^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,
+          key: /[a-z0-9_]+|(?=\[\])/gi,
+          push: /^$/,
+          fixed: /^\d+$/,
+          named: /^[a-z0-9_]+$/i
+        };
+        return r.patterns = t, r.serializeObject = function() {
+          return new r(i, this).addPairs(this.serializeArray()).serialize()
+        }, r.serializeJSON = function() {
+          return new r(i, this).addPairs(this.serializeArray()).serializeJSON()
+        }, "undefined" != typeof i.fn && (i.fn.serializeObject = r.serializeObject, i.fn.serializeJSON = r.serializeJSON), e.FormSerializer = r, r
+      });
+
       var braze_internal = $('#braze_internal').remove();
       $('#header_nav').after(braze_internal);
 
@@ -398,15 +399,15 @@ hide_toc: true
       });
 
       $('#doc_form').submit(function(e) {
+        e.preventDefault();
         $('#submit_progress').css('display','inline');
         $('#submit_text').html('제출 중');
         $('#ticket_submit_button').prop("disabled",true);
 
-        e.preventDefault();
         var mform = $(this);
         var url = 'https://c9616da7-4322-4bed-9b51-917c1874fb31.trayapp.io/request';
 
-        var jqxhr = $.ajax({
+        $.ajax({
           url: url,
           method: "GET",
           dataType: "json",
@@ -417,14 +418,18 @@ hide_toc: true
           $('#doc_thankyou_msg').fadeTo(800,0,function(){
               $(this).html('<h3>제출해 주셔서 감사합니다!</h3> 궁금한 사항이 있으면 팀에서 연락드리겠습니다. 티켓 상태를 확인하거나 댓글을 추가하려면 이메일에서 티켓 확인 메일을 확인해 주세요.').fadeTo(800,1);
           });
+        }).fail(function() {
+          $('#submit_progress').css('display','none');
+          $('#submit_text').html('요청 제출');
+          $('#ticket_submit_button').prop("disabled",false);
+          alert('요청을 제출하는 중에 문제가 발생했습니다. 다시 시도해 주세요.');
         });
 
       });
-
     });
   </script>
 
-<div id="braze_internal" ><i class="fa-solid fa-lock"></i> 내부 전용. 고객과 공유하지 마십시오.</div>
+<div id="braze_internal" ><i class="fa-solid fa-lock"></i> 내부 전용. 고객과 공유하지 마세요.</div>
 <div class="container-fluid" id="main-container">
 
       <div id="doc_div">
@@ -445,7 +450,7 @@ hide_toc: true
                 요청 유형
                 </label>
               <select id="doc_urgent" name="Request_Type" class="drop-down-sel">
-              <option value="urgent">긴급: Braze 문서에 문제가 있거나 우선순위가 높은 업데이트가 있습니다</option>
+              <option value="urgent">긴급: Braze Docs에 문제가 있거나 우선순위가 높은 업데이트가 있습니다</option>
               <option value="feature">기능: 새로운 기능 또는 기존 기능의 새로운 동작이 있습니다</option>
               <option value="suggestion" selected="selected">제안: 문서에 대한 개선 제안 또는 명확한 설명이 필요합니다</option>
               </select>
@@ -491,7 +496,7 @@ hide_toc: true
               <div class="form-group">
 
                 <label for="doc_description" id="doc_description_label" style="margin-bottom:6px;line-height:1.2;">설명</label>
-                <div class="sublabel" style="margin-bottom:6px;">요청된 업데이트에 대해 가능한 한 자세히 설명해 주세요.</div>
+                <div class="sublabel" style="margin-bottom:6px;">요청하신 업데이트에 대해 가능한 한 자세히 설명해 주세요.</div>
                 <textarea name="Description" class="form-control" id="doc_description" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="7"></textarea>
               </div>

@@ -360,6 +360,7 @@ HMAC
 homehub
 Homescreen
 Hostnames
+hotspot
 HSTS
 HTML
 HTTP
@@ -870,6 +871,7 @@ truncatewords
 Trustpilot
 Trustpilot's
 Trustpilot’s
+Tuist
 tvos
 Twilio
 Typeform

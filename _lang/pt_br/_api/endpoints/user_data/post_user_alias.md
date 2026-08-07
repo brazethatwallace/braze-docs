@@ -22,6 +22,8 @@ Podem ser especificados até 50 aliases de usuário por solicitação.
 
 **A criação de um novo usuário somente de alias** exige que o `external_id` seja omitido no novo objeto de alias de usuário. Depois que o usuário for criado, use o endpoint `/users/track` para associar o usuário somente de alias a atributos, eventos e compras, e o endpoint `/users/identify` para identificar o usuário com um `external_id`.
 
+Você pode enviar Campaigns disparadas por API para usuários por `user_alias` usando o endpoint [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
+
 ## Quando `alias_label` e `alias_name` já existem {#when-alias_label-and-alias_name-already-exist}
 
 A combinação de `alias_label` e `alias_name` deve ser única em toda a sua base de usuários. Para saber mais, consulte [Aliases de usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).
@@ -53,9 +55,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ### Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatório | Tipo de dados | Descrição |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `user_aliases` | Obrigatório | Vetor de objetos de novos aliases de usuário | Consulte o [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Para saber mais sobre `alias_name` e `alias_label`, consulte nossa documentação sobre [aliases de usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).|
+| `user_aliases` | Obrigatória | Vetor de objetos de novos aliases de usuário | Consulte o [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Para saber mais sobre `alias_name` e `alias_label`, consulte nossa documentação sobre [aliases de usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ### Corpo da solicitação do endpoint com a especificação do novo objeto de alias de usuário {#endpoint-request-body-with-new-user-alias-object-specification}

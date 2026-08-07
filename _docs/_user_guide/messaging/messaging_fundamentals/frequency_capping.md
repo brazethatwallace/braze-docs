@@ -57,13 +57,23 @@ By selecting the maximum user limit, you can limit the volume of messages sent o
 The maximum user cap limits the number of users dispatched, not the number of messages successfully sent. Because aborted messages count toward this cap, the actual number of messages sent may be lower than the configured limit. For example, if you set a cap of 10,000 and 2,000 messages are aborted due to Liquid logic or other conditions, only 8,000 messages are sent.
 {% endalert %}
 
+##### Maximum user cap for multichannel campaigns
+
+For multichannel campaigns, Braze first selects one audience up to your configured maximum user cap. Braze then evaluates each user in that capped audience for each channel in the campaign.
+
+As a result, the capped audience size stays the same, but sends per channel can differ based on channel eligibility. For example, if you set a maximum user cap of 500,000 and a user is only eligible for push and Content Cards, that user receives those channels but not email.
+
+If you split those channels into separate campaigns that each target the same segment and each has its own maximum user cap, each campaign evaluates and caps users independently. Braze does not guarantee that each campaign selects the exact same subset of users.
+
+If you need follow-up campaigns to target users who were sent an earlier campaign, create a segment using the **Received Campaign** filter, then use that segment for the follow-up campaigns.
+
 ##### Maximum user cap with optimizations
 
-If you're using an optimization like Winning Variant or Personalized Variant, the campaign will consist of two sends: the initial experiment and the final send. 
+If you're using an optimization like Winning Variant or Personalized Variant, the campaign consists of two sends: the initial experiment and the final send. 
 
-To set up a maximum user cap in this scenario, select **Limit the number of people who will receive this campaign**, then select **In total this campaign should**, and enter an audience limit. Your audience limit will be split up by the percentages shown in the **A/B Testing** panel. 
+To set up a maximum user cap in this scenario, select **Limit send volume**, then select **Lifetime of the campaign**, and enter a value for **Maximum sends**. Your audience limit is split by the percentages shown in the **A/B Testing** panel.
 
-If you select **Every time the campaign is scheduled**, those two phases will be separately limited to the number set. This is typically not desirable.
+If you select **Every time campaign is scheduled**, those two phases will be separately limited to the number set. This is typically not desirable.
 
 #### Setting a maximum impression cap on campaigns
 
@@ -378,6 +388,8 @@ Users who are frequency capped don't generate a send event for that step. To ide
 This usually means the campaign's [delivery speed rate limit](#delivery-speed-rate-limiting) is set too low for the audience size, so completing the send would take longer than the allowed window and Braze surfaces a warning. Increase the delivery speed rate limit, reduce the audience, or use **Limit send volume** so each scheduled occurrence finishes within the allowed send window. You can also set a [workspace messaging rate limit]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) to enforce a cap across campaigns.
 
 **Limit send volume** controls how many users are eligible for a send, not how many messages Braze sends per minute. Only a delivery speed rate limit sets per-minute throughput.
+
+If you're already at the maximum delivery speed rate limit available for your company, contact your customer success manager to request an increase.
 
 ### What does "Sent" mean for frequency capping?
 

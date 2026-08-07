@@ -60,7 +60,7 @@ Next, set up the details for your agent:
 2. (optional) Add tags to filter your agent.
 3. Choose the [model]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) for your agent to use.
 4. If you're not using the **Braze Auto** model, select the model's [thinking level]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels). You can choose from minimal, low, medium, or high. We recommend starting with **Minimal** and testing your agent's responses and adjusting this as needed.
-5. Set a daily invocation limit. By default, this value is set to 250,000, but can be raised to 1,000,000. If you're interested in increasing the limit higher than 1,000,000, contact your customer success manager to learn more.
+5. Set a daily invocation limit. By default, this value is set to 250,000, but can be raised to 1,000,000. If you're interested in increasing the limit higher than 1,000,000, contact your customer success manager to learn more. Set the limit high enough for your planned audience size after testing. A limit that is too low causes daily-limit failures (which do not consume credits but do apply fallback values or leave output `null`).
 
 The **Daily action credit cost limit** field specifies the maximum number of credits this agent can consume per day. Braze calculates it from your workspace's per-invocation credit ratio for the selected model (from your contract, shown on the [Credit Ratios]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage) page) multiplied by the daily invocation limit. The estimate updates when you change the model or invocation limit.
 

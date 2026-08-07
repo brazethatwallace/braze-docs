@@ -8,7 +8,7 @@ Banners are refreshed with their latest data whenever you call the refresh metho
 
 ## How many placements can I request in a session?
 
-In a single refresh request, you can request a maximum of 10 placements. For each one you request, Braze will return the highest-priority Banner a user is eligible for. Additional requests will return an error.
+In a single refresh request, you can request a maximum of 10 placements. For each one you request, Braze returns the highest-priority Banner a user is eligible for. Additional requests return an error.
 
 For more information, see [Placement requests]({% if include.section == "user" %}{{site.baseurl}}/user_guide/message_building_by_channel/banners#requests{% elsif include.section == "developer" %}{{site.baseurl}}/developer_guide/banners#requests{% endif %}).
 
@@ -18,7 +18,7 @@ Each workspace can support up to 200 active Banner campaigns. If this limit is r
 
 ## For campaigns sharing a placement, which Banner is displayed first?
 
-If a user qualifies for multiple Banner campaigns that share the same placement, the Banner with the highest priority will be displayed. For more information, see [Banner priority]({% if include.section == "user" %}{{site.baseurl}}/user_guide/message_building_by_channel/banners/#priority{% elsif include.section == "developer" %}{{site.baseurl}}/developer_guide/banners#priority{% endif %}).
+If a user qualifies for multiple Banner campaigns that share the same placement, the Banner with the highest priority is displayed. For more information, see [Banner priority]({% if include.section == "user" %}{{site.baseurl}}/user_guide/message_building_by_channel/banners/#priority{% elsif include.section == "developer" %}{{site.baseurl}}/developer_guide/banners#priority{% endif %}).
 
 ## Can I use Banners in my existing Content Card feed?
 
@@ -50,7 +50,7 @@ For example, to show a special Banner only to users who have completed a `purcha
 1. **Targeting:** In your campaign, target a segment of users who have performed the custom event `purchase` at least once.
 2. **Priority:** If you have a general Banner for all users and this specific Banner for purchasers targeting the same placement, set the specific Banner's priority to **High** and the general Banner to **Medium** or **Low**.
 
-When the user starts a new session or refreshes Banners after performing the action, Braze evaluates their eligibility. If they match the "Purchase" segment, the high-priority Banner will be displayed.
+When the user starts a new session or refreshes Banners after performing the action, Braze evaluates their eligibility. If they match the "Purchase" segment, the high-priority Banner is displayed.
 
 
 ## Can users dismiss a Banner?
@@ -73,7 +73,14 @@ Users are segmented at the beginning of the session. If a campaign's targeted se
 
 ## How can I compose Banners to ensure the lowest latency?
 
-The simpler the messaging in your Banner, the faster it will render. It’s best to test your Banner campaign against the expected latency for your use case. For example, be sure to test Liquid attributes like `catalog_items`.
+The simpler the messaging in your Banner, the faster it renders. It’s best to test your Banner campaign against the expected latency for your use case. For example, be sure to test Liquid attributes like `catalog_items`.
+
+If you use [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) (in early access), be aware that each call counts against a shared rendering budget of approximately two seconds across all placements in a single refresh. If the budget is exceeded or a call times out, the Connected Content result is treated as null, and Banners don't retry. To minimize latency:
+
+- Keep your endpoints fast and [cache responses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/) whenever possible.
+- Limit the number of unique Connected Content URLs across placements that render together.
+- Avoid chaining calls where one Connected Content response determines the URL for the next.
+- Use Liquid guard statements or the [`default` filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) to handle null results and avoid blank Banners.
 
 ## Are all Liquid tags supported?
 

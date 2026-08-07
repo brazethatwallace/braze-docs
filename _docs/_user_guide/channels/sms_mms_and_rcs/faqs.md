@@ -19,7 +19,9 @@ channel:
 
 ### What is an `app_id` in the SMS API object?
 
-The app identifier API key or `app_id` is a parameter associating activity with a specific app in your workspace. It designates which app within the workspace you are interacting with. For example, you will find that you will have an `app_id` for your iOS app, an `app_id` for your android app, and an `app_id` for your web integration.
+The app identifier API key or `app_id` is a parameter associating activity with a specific app in your workspace. It designates which app within the workspace you are interacting with. For example, you have an `app_id` for your iOS app, an `app_id` for your Android app, and an `app_id` for your web integration.
+
+For SMS, the `app_id` parameter is required when sending SMS messages through the API (such as the `/messages/send` endpoint). It specifies which app in your workspace is associated with the SMS activity or API call. You can use any valid `app_id` from an app configured in your workspace for SMS messaging, regardless of whether the user has that specific app on their profile.
 
 You can find your `app_id` by navigating to **Settings** > **App Settings** and locating the **Identification** section.
 
@@ -43,6 +45,14 @@ If you stagger your users into a Canvas and have different schedule times for ea
 {% endalert %}
 
 To prevent unnecessarily large updates, Braze will update a maximum of 100 user profiles that share an identifier when a subscription update is made. If more than 100 user profiles share the same phone number, not all profiles will be updated.
+
+### Why do I see a spike in SMS subscriptions from a specific source?
+
+If you observe an unexpectedly large increase in subscription counts—particularly when reviewing data from the [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) endpoint through Currents—this may be caused by duplicate user profiles.
+
+When a request is made to the `/subscription/status/set` endpoint with only a phone number (no `external_id` provided), Braze updates all user profiles that share that phone number. If your workspace has duplicate profiles, the count of users who updated their subscription state is inflated, even though only one phone number changed.
+
+To analyze subscription data more accurately when pulling from Currents, update your query to count distinct phone numbers rather than counting all subscription state change events.
 
 ### What are shared short codes?
 

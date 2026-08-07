@@ -17,9 +17,13 @@ description: "이 사용 방법 문서에서는 세그먼트 인사이트를 사
 
 ## 세그먼트 인사이트 보기 {#viewing-segment-insights}
 
-대시보드의 **Analytics** 아래에 있는 **세그먼트 인사이트** 페이지로 이동하여 기준선과 비교할 최대 10개의 서로 다른 Segment를 확인하세요.
+대시보드의 **Analytics** 아래에 있는 **세그먼트 인사이트** 페이지로 이동하여 기준선과 비교한 최대 10개의 서로 다른 Segments를 확인할 수 있습니다.
 
-![기준선 Segment인 "All Users"와 비교하여 "UK Users", "FR Users", "CA Users" 세 개의 Segment를 비교하는 세그먼트 인사이트 대시보드.]({% image_buster /assets/img_archive/segment_insights.png %})
+![세그먼트 인사이트 대시보드에서 기준선 Segment인 "All Users"와 비교하여 "UK Users", "FR Users", "CA Users" 세 개의 Segments를 비교하는 화면.]({% image_buster /assets/img_archive/segment_insights.png %})
+
+{% alert note %}
+세그먼트 인사이트 페이지의 통계는 기본적으로 추정값입니다. 정확한 값을 계산하려면 Segment를 열고 **Calculate Exact Statistics**를 선택하세요. 추정값은 정확한 값보다 높거나 낮을 수 있으며, 특히 대규모 워크스페이스나 소규모 Segments에서 그렇습니다.
+{% endalert %}
 
 기준선 Segment는 직접 선택한 특정 Segment이거나 모든 사용자를 포함하는 Segment일 수 있습니다. 세그먼트 인사이트를 사용하여 다음 통계를 비교할 수 있습니다:
 
@@ -33,15 +37,19 @@ description: "이 사용 방법 문서에서는 세그먼트 인사이트를 사
 | 마지막 구매 이후 일수 | Segment 사용자의 마지막 구매와 현재 사이의 평균 일수 | 오늘 – 마지막 구매 날짜 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="세그먼트 인사이트 보기" }
 
-페이지의 고유 URL을 사용하여 특정 비교를 팀원과 쉽게 공유할 수 있으며, 각 Segment 옆의 눈 아이콘을 선택하여 해당 Segment에 대한 자세한 정보를 확인할 수도 있습니다. 이러한 비교는 워크스페이스를 전환하면 초기화됩니다.
+페이지의 고유 URL을 사용하여 특정 비교 결과를 팀원과 쉽게 공유할 수 있으며, 각 Segment 옆의 눈 아이콘을 선택하여 해당 Segment에 대한 자세한 정보를 확인할 수도 있습니다. 이러한 비교 결과는 워크스페이스를 전환하면 초기화됩니다.
 
-!["Premium Users (iOS VideoApp)" Segment의 세부 정보로, 과거 멤버십을 보여주는 그래프와 다양한 메시징 채널의 예상 규모를 분류한 차트가 표시됩니다.]({% image_buster /assets/img_archive/Segment_Insights_Info.png %}){: style="max-width:50%;"}
+![과거 멤버십을 보여주는 그래프와 다양한 메시징 채널의 추정 규모를 분류한 차트가 포함된 "Premium Users (iOS VideoApp)" Segment의 세부 정보.]({% image_buster /assets/img_archive/Segment_Insights_Info.png %}){: style="max-width:50%;"}
 
 ## Segment 세부 정보 페이지 {#segment-details-page}
 
-세그먼트 인사이트는 **Segment 세부 정보** 보기에도 바로 내장되어 있습니다. 이전에 설정한 특정 Segment를 볼 때, 동적인 회색 Segment 통계 상자 내에서 동일한 6가지 통계를 확인할 수 있습니다. 여기에서 세그먼트 인사이트 도구를 빠르게 실행하여 이 특정 Segment를 이전에 설정한 다른 Segment와 비교할 수 있지만, 이렇게 하면 세그먼트 인사이트 도구에서 이전에 선택한 Segment가 덮어쓰기된다는 점에 유의하세요.
+세그먼트 인사이트는 **Segment 세부 정보** 보기에도 바로 내장되어 있습니다. 이전에 설정한 특정 Segment를 살펴볼 때, 동적인 회색 Segment 통계 상자 안에 동일한 6가지 통계를 확인할 수 있습니다. 여기에서 세그먼트 인사이트 도구를 빠르게 실행하여 이 특정 Segment를 이전에 설정한 다른 Segment와 비교할 수 있습니다. 단, 이렇게 하면 세그먼트 인사이트 도구에서 이전에 선택한 Segment가 덮어쓰기된다는 점에 유의하세요.
 
-![Segment 세부 정보 보기에 내장된 세그먼트 인사이트로, 이전에 설정한 특정 Segment를 볼 때 동적인 회색 Segment 통계 상자 내에서 동일한 6가지 통계를 확인할 수 있습니다.]({% image_buster /assets/img_archive/Segment_Segment_Insights.png %})
+{% alert note %}
+[세그먼트 인사이트](#viewing-segment-insights)와 **Segment 세부 정보** 페이지는 서로 다른 사용자 샘플과 샘플 크기를 사용하여 크기 추정치를 별도로 계산하므로, 수치가 일치하지 않을 수 있습니다.
+{% endalert %}
+
+![세그먼트 인사이트는 Segment 세부 정보 보기에도 내장되어 있습니다. 이전에 설정한 특정 Segment를 살펴볼 때, 동적인 회색 Segment 통계 상자 안에 동일한 6가지 통계를 확인할 수 있습니다. 여기에서 세그먼트 인사이트 도구를 빠르게 실행하여 이 특정 Segment를 이전에 설정한 다른 Segment와 비교할 수 있지만, 세그먼트 인사이트 도구에서 이전에 선택한 Segment가 덮어쓰기된다는 점에 유의하세요.]({% image_buster /assets/img_archive/Segment_Segment_Insights.png %})
 
 ## 사용 사례 {#insights-use-cases}
 

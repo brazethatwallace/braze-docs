@@ -343,6 +343,7 @@ _docs/_developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_
 _docs/_developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/ios_sdk_integration.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview.md,Zair,SDKs,zairro
+_docs/_developer_guide/platforms/legacy_sdks/ios/migration_faq.md,Docs Team,,docs-team
 _docs/_developer_guide/platforms/legacy_sdks/ios/push_notifications.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks/ios/push_notifications/customization.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons.md,Zair,SDKs,zairro
@@ -762,9 +763,9 @@ _docs/_partners/message_personalization/referrals.md,Adam,Partnerships,atom-even
 _docs/_partners/message_personalization/referrals/extole.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/referrals/friendbuy.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/referrals/mention_me.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_personalization/referrals/talkable.md,,,
+_docs/_partners/message_personalization/referrals/talkable.md,Adam,Partnerships,atom-evens
 _docs/_partners/third_party_liability.md,Docs Team,n/a,docs-team
-_docs/_unlisted_docs/private_betas/accounts_opportunities_object.md,,,
+_docs/_unlisted_docs/private_betas/accounts_opportunities_object.md,Zair,Core Objects,zairro
 _docs/_unlisted_docs/private_betas/ai_step.md,Lydia,Intelligence,lydia-xie
 _docs/_unlisted_docs/private_betas/campaign_autosave.md,Lydia,Messaging Experience,lydia-xie
 _docs/_unlisted_docs/private_betas/campaign_qa_agent.md,Lydia,Intelligence,lydia-xie
@@ -773,7 +774,7 @@ _docs/_unlisted_docs/private_betas/custom_attributes_entitlements.md,Zair,Core O
 _docs/_unlisted_docs/private_betas/custom_events_entitlements.md,Zair,Core Objects,zairro
 _docs/_unlisted_docs/private_betas/dnd_content_blocks_preview.md,Bre,FIX,bre-fitzgerald
 _docs/_unlisted_docs/private_betas/email_html_react.md,Lydia,Email,lydia-xie
-_docs/_unlisted_docs/private_betas/get_app_group_apps.md,,,
+_docs/_unlisted_docs/private_betas/get_app_group_apps.md,Bre,Internal Tools (and Ingestion),bre-fitzgerald
 _docs/_unlisted_docs/private_betas/get_campaign_url_info.md,Lydia,Core Messaging,lydia-xie
 _docs/_unlisted_docs/private_betas/get_canvas_url_info.md,Lydia,"Canvas, Logic, & Execution",lydia-xie
 _docs/_unlisted_docs/private_betas/idle_campaigns.md,Lydia,Messaging Experience,lydia-xie
@@ -784,6 +785,7 @@ _docs/_unlisted_docs/private_betas/post_track_users_bulk.md,Zair,Ingestion,zairr
 _docs/_unlisted_docs/private_betas/post_track_users_bulk_partners.md,Zair,Ingestion,zairro
 _docs/_unlisted_docs/private_betas/rate_limiting_v3.md,Lydia,Core Messaging,lydia-xie
 _docs/_unlisted_docs/private_betas/rich_cards.md,Rachel,SMS,rachel-feinberg
+_docs/_unlisted_docs/private_betas/segment_reporting.md,Docs Team,,docs-team
 _docs/_unlisted_docs/private_betas/sender_verification.md,Lydia,Email,lydia-xie
 _docs/_unlisted_docs/private_betas/shopify_beta.md,Rachel,Shopify,rachel-feinberg
 _docs/_unlisted_docs/private_betas/shopify_beta/shopify_custom_integration_upgrade.md,Rachel,Shopify,rachel-feinberg
@@ -1027,6 +1029,7 @@ _docs/_user_guide/channels/email/email_setup/ip_warming/automated_ip_warming.md,
 _docs/_user_guide/channels/email/email_setup/open_pixel_and_click_tracking.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/email_setup/setting_up_ips_and_domains.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses.md,Lydia,Email,lydia-xie
+_docs/_user_guide/channels/email/email_setup/setting_up_ips_and_domains/understanding_dns_records.md,Docs Team,,docs-team
 _docs/_user_guide/channels/email/email_setup/ssl.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/email_setup/ssl/troubleshooting.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/faq.md,Lydia,Email,lydia-xie
@@ -1037,6 +1040,7 @@ _docs/_user_guide/channels/email/html_editor/troubleshooting.md,Lydia,Email,lydi
 _docs/_user_guide/channels/email/inbox_vision.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/reporting.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/reporting/analytics_glossary.md,Lydia,Email,lydia-xie
+_docs/_user_guide/channels/email/reporting/deliverability_glossary.md,Docs Team,,docs-team
 _docs/_user_guide/channels/email/subscriptions.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/use_cases.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/in_app_messages.md,Rachel,In-App Messages,rachel-feinberg
@@ -1413,6 +1417,7 @@ _docs/_user_guide/messaging/governance/approvals/messaging_rules.md,Lydia,Messag
 _docs/_user_guide/messaging/governance/archiving.md,Lydia,Messaging Experience,lydia-xie
 _docs/_user_guide/messaging/governance/copy_across_workspaces.md,Lydia,Messaging Experience,lydia-xie
 _docs/_user_guide/messaging/governance/duplicating.md,Lydia,Messaging Experience,lydia-xie
+_docs/_user_guide/messaging/governance/shareable_preview.md,Docs Team,,docs-team
 _docs/_user_guide/messaging/governance/statuses.md,Lydia,Messaging Experience,lydia-xie
 _docs/_user_guide/messaging/governance/tags.md,Bre,FIX,bre-fitzgerald
 _docs/_user_guide/messaging/landing_pages.md,Rachel,In-App Messages,rachel-feinberg

@@ -23,21 +23,21 @@ channel:
 
 ### 2단계: 메시지를 작성할 위치 선택 {#step-2-choose-where-to-build-your-message}
 
-메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaigns는 단일 타겟팅 메시징 캠페인에 적합하고, Canvases는 다단계 사용자 여정에 더 적합합니다.
+메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaign은 단일 타겟팅 메시징 캠페인에 적합하고, Canvas는 다단계 사용자 여정에 더 적합합니다.
 
 {% tabs %}
 {% tab Campaign %}
 
 1. **메시징** > **Campaigns**로 이동하여 **Campaign 만들기**를 선택합니다.
 2. **배너**를 선택합니다.
-3. 명확하고 의미 있는 이름을 Campaign에 지정합니다.
+3. Campaign에 명확하고 의미 있는 이름을 지정합니다.
 4. 필요에 따라 [팀]({{site.baseurl}}/user_guide/administer/global/user_management/teams)과 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)를 추가합니다. 태그를 사용하면 Campaign을 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, 보고서 빌더를 사용할 때 관련 태그로 필터링할 수 있습니다.
 5. 이전에 만든 배치를 선택하여 Campaign에 연결합니다.
 6. 필요에 따라 배리언트를 추가합니다. 각 배리언트에 대해 다른 메시지 유형과 레이아웃을 선택할 수 있습니다. 배리언트에 대한 자세한 내용은 [다변량 및 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing)를 참조하세요.
 7. 배너 Campaign의 시작 날짜와 시간을 선택합니다. 기본적으로 배너는 무기한 지속됩니다. **종료 시간**을 선택하고 종료 날짜와 시간을 지정하여 이를 변경할 수 있습니다.
 
 {% alert tip %}
-Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 경우, 추가 배리언트를 추가하기 전에 메시지를 먼저 작성하세요. 그런 다음 **배리언트 추가** 드롭다운에서 **배리언트에서 복사**를 선택할 수 있습니다.
+Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 경우, 추가 배리언트를 추가하기 전에 메시지를 작성하세요. 그런 다음 **배리언트 추가** 드롭다운에서 **배리언트에서 복사**를 선택할 수 있습니다.
 {% endalert %}
 
 {% endtab %}
@@ -61,33 +61,33 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 - **HTML 편집기:** 빈 배너에서 시작하여 HTML로 직접 작업합니다.
 - **템플릿:** 템플릿 라이브러리를 열고 **Braze 템플릿** 또는 **내 템플릿**에서 디자인을 선택합니다. 템플릿은 커스터마이징을 위해 드래그 앤 드롭 편집기에서 열립니다.
 
-![배너에 사용할 드래그 앤 드롭 편집기, HTML 편집기 또는 템플릿을 선택하는 옵션]({% image_buster /assets/img/banners/choose_banner_editing_experience.png %})
+![배너에 대해 드래그 앤 드롭 편집기, HTML 편집기 또는 템플릿을 선택하는 옵션.]({% image_buster /assets/img/banners/choose_banner_editing_experience.png %})
 
 #### 3.1단계: 배너 스타일 지정 {#step-31-style-the-banner}
 
 {% tabs %}
 {% tab 드래그 앤 드롭 편집기 %}
 
-블록과 행을 캔버스 영역으로 드래그 앤 드롭하여 메시지 작성을 시작할 수 있습니다. 배너 편집기 블록 및 공유 속성정보 세부 사항에 대한 참조는 [편집기 블록(배너)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners)을 확인하세요.
+블록과 행을 캔버스 영역으로 드래그 앤 드롭하여 메시지 작성을 시작할 수 있습니다. 배너 편집기 블록 및 공유 속성 세부 정보에 대한 참조는 [편집기 블록(배너)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners)을 참조하세요.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 메시지의 배경 속성, 테두리 설정 등을 커스터마이징하려면 **스타일**을 선택합니다. 특정 블록이나 행의 스타일만 커스터마이징하려면 해당 항목을 선택하여 변경합니다.
 
-![배너 작성기의 스타일 패널]({% image_buster /assets/img/banners/banner_card_styles.png %})
+![배너 작성기의 스타일 패널.]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
 {% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='banner' %}
 
 {% endtab %}
 {% tab HTML 편집기 %}
 
-HTML 편집기는 이미 자체 HTML 템플릿을 유지 관리하거나 마크업과 스타일링을 완전히 제어하려는 팀에 가장 적합합니다. 커스텀 HTML을 편집기에 직접 작성하거나 붙여넣을 수 있습니다. Liquid 개인화 태그가 완전히 지원되므로 사용자 속성, 커스텀 속성, 카탈로그 항목 등을 참조할 수 있습니다.
+HTML 편집기는 이미 자체 HTML 템플릿을 유지하고 있거나 마크업과 스타일링을 완전히 제어하고 싶은 팀에 가장 적합합니다. 커스텀 HTML을 편집기에 직접 작성하거나 붙여넣을 수 있습니다. Liquid 개인화 태그가 완전히 지원되므로 사용자 속성, 커스텀 속성, 카탈로그 항목 등을 참조할 수 있습니다.
 
 {% alert tip %}
-배너 HTML 작성에 도움이 필요하신가요? HTML 편집기에서 **Ask Operator**를 선택하고 원하는 배너를 설명하세요. [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator)가 검토하고 편집기에 삽입할 수 있는 HTML을 생성합니다. 자세한 내용은 [메시지 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages)을 참조하세요.
+배너 HTML 작성에 도움이 필요하신가요? HTML 편집기에서 **Ask Operator**를 선택하고 원하는 배너를 설명하세요. [BrazeAI<sup>TM</sup> Operator]({{site.baseurl}}/user_guide/brazeai/operator)가 검토하고 편집기에 삽입할 수 있는 HTML을 생성합니다. 자세한 내용은 [메시지 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages)을 참조하세요.
 {% endalert %}
 
-커스텀 HTML에서 클릭 및 닫기 추적을 위해서는 JavaScript 브릿지 메서드를 명시적으로 호출해야 합니다. 전체 참조는 [배너용 커스텀 코드 및 JavaScript 브릿지]({{site.baseurl}}/user_guide/channels/banners/custom_code)를 확인하세요.
+커스텀 HTML에서 클릭 및 닫기 추적을 위해서는 JavaScript 브릿지 메서드를 명시적으로 호출해야 합니다. 전체 참조는 [배너용 커스텀 코드 및 JavaScript 브릿지]({{site.baseurl}}/user_guide/channels/banners/custom_code)를 참조하세요.
 
 {% endtab %}
 {% endtabs %}
@@ -101,7 +101,7 @@ HTML 편집기는 이미 자체 HTML 템플릿을 유지 관리하거나 마크�
 {% tabs %}
 {% tab 드래그 앤 드롭 편집기 %}
 
-사용자가 배너의 링크를 클릭하면 앱 내부로 더 깊이 이동하거나 다른 웹페이지로 리디렉션할 수 있습니다. 또한 [커스텀 속성 또는 이벤트를 기록]({{site.baseurl}}/developer_guide/analytics)하도록 선택하여 사용자가 배너를 클릭할 때 커스텀 데이터로 사용자 프로필을 업데이트할 수 있습니다. 더 세분화된 클릭 추적을 위해 속성정보 패널의 **보고용 식별자** 필드를 사용하여 각 인터랙티브 요소에 커스텀 식별자를 할당합니다.
+사용자가 배너의 링크를 클릭하면 앱 내부로 더 깊이 이동하거나 다른 웹페이지로 리디렉션할 수 있습니다. 또한 [커스텀 속성 또는 이벤트를 기록]({{site.baseurl}}/developer_guide/analytics)하도록 선택하여 사용자가 배너를 클릭할 때 커스텀 데이터로 사용자 프로필을 업데이트할 수 있습니다. 보다 세분화된 클릭 추적을 위해 속성 패널의 **보고용 식별자** 필드를 사용하여 각 인터랙티브 요소에 커스텀 식별자를 할당합니다.
 
 {% alert important %}
 {::nomarkdown}
@@ -118,7 +118,7 @@ HTML 편집기에서는 클릭 추적이 자동으로 이루어지지 않습니�
 <a href="https://example.com" onclick="brazeBridge.logClick()">Shop now</a>
 ```
 
-전체 JavaScript 브릿지 참조는 [배너용 커스텀 코드 및 JavaScript 브릿지]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge)를 확인하세요.
+전체 JavaScript 브릿지 참조는 [배너용 커스텀 코드 및 JavaScript 브릿지]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge)를 참조하세요.
 
 {% endtab %}
 {% endtabs %}
@@ -133,7 +133,7 @@ HTML 편집기에서는 클릭 추적이 자동으로 이루어지지 않습니�
 {% tabs %}
 {% tab 드래그 앤 드롭 편집기 %}
 
-**닫기 동작** 섹션에서 **배너를 닫을 수 있음** 체크박스를 선택하여 사용자가 배너를 닫을 수 있도록 합니다. 이는 광범위한 오디언스에게 기간 한정 혜택을 홍보하면서도 관심 없는 사용자가 메시지를 숨길 수 있도록 하려는 경우에 유용합니다.
+**닫기 동작** 섹션에서 **배너를 닫을 수 있음** 체크박스를 선택하여 사용자가 배너를 닫을 수 있도록 합니다. 이 기능은 광범위한 오디언스에게 기간 한정 혜택을 홍보하면서도 관심 없는 사용자가 메시지를 숨길 수 있도록 하려는 경우에 유용합니다.
 
 닫기가 활성화되면 **닫기 동작** 섹션에서 닫기 버튼을 커스터마이징할 수 있습니다:
 
@@ -157,7 +157,7 @@ HTML 편집기에서 닫기는 `brazeBridge.closeMessage()`를 사용하여 HTML
 
 사용자가 이 방법으로 배너를 닫으면 Campaign의 타겟팅 기준에 여전히 해당하더라도 해당 사용자에게 다시 표시되지 않습니다.
 
-전체 JavaScript 브릿지 참조는 [배너용 커스텀 코드 및 JavaScript 브릿지]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge)를 확인하세요.
+전체 JavaScript 브릿지 참조는 [배너용 커스텀 코드 및 JavaScript 브릿지]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge)를 참조하세요.
 
 {% endtab %}
 {% endtabs %}
@@ -170,7 +170,7 @@ HTML 편집기에서 닫기는 `brazeBridge.closeMessage()`를 사용하여 HTML
 
 커스텀 속성정보는 드래그 앤 드롭 편집기와 HTML 편집기 모두에서 동일하게 작동합니다. 커스텀 속성정보를 추가하려면 **설정** > **속성정보** > **속성정보 추가**를 선택합니다.
 
-![배너 Campaign에 첫 번째 커스텀 속성정보를 추가하는 옵션이 표시된 속성정보 페이지]({% image_buster /assets/img/banners/add_property.png %})
+![배너 Campaign에 첫 번째 커스텀 속성정보를 추가하는 옵션이 표시된 속성정보 페이지.]({% image_buster /assets/img/banners/add_property.png %})
 
 추가하려는 각 속성정보에 대해 다음을 입력합니다:
 
@@ -183,7 +183,23 @@ HTML 편집기에서 닫기는 `brazeBridge.closeMessage()`를 사용하여 HTML
 
 완료되면 **완료**를 선택합니다.
 
-![키가 color이고 값이 #FF0000인 문자열 속성정보가 있는 속성정보 페이지]({% image_buster /assets/img/banners/example_property.png %})
+![키가 color이고 값이 #FF0000인 문자열 속성정보가 있는 속성정보 페이지.]({% image_buster /assets/img/banners/example_property.png %})
+
+#### 3.5단계: 연결된 콘텐츠로 개인화(선택 사항) {#step-35-personalize-with-connected-content-optional}
+
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Connected Content for Banners' %}
+
+배너는 세션 새로고침 중에 인라인으로 렌더링되므로 이 채널의 연결된 콘텐츠는 다른 채널과 다르게 작동합니다:
+
+- GET 요청만 지원됩니다.
+- 단일 새로고침의 모든 배치(최대 10개)는 약 2초의 렌더링 예산을 공유합니다. 호출이 느리거나 시간 초과되거나 예산이 초과되면 해당 배치의 연결된 콘텐츠 결과는 null로 처리됩니다. 배너는 재시도하지 않습니다.
+
+최상의 결과를 위해:
+
+- 엔드포인트를 빠르게 유지하고 가능하면 [응답을 캐시]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)하세요.
+- 함께 렌더링되는 배치 전체에서 고유한 연결된 콘텐츠 URL 수를 제한하세요.
+- 하나의 연결된 콘텐츠 응답이 다음 URL을 결정하는 체인 호출을 피하세요. 추가 호출마다 공유 예산이 소모됩니다.
+- Liquid 가드 구문 또는 [`default` 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)를 사용하여 null 결과를 처리하고 빈 배너를 방지하세요.
 
 ### 4단계: Campaign 또는 Canvas의 나머지 부분 구성 {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
@@ -210,7 +226,7 @@ HTML 편집기에서 닫기는 `brazeBridge.closeMessage()`를 사용하여 HTML
 
 #### 오디언스 선택 {#choose-your-audience}
 
-1. **타겟 오디언스**에서 Segments 또는 필터를 선택하여 오디언스를 좁힙니다. 대략적인 Segment 인구의 미리보기가 자동으로 제공됩니다. 정확한 Segment 멤버십은 메시지가 전송되기 전에 계산됩니다.
+1. **타겟 오디언스**에서 Segment 또는 필터를 선택하여 오디언스를 좁힙니다. 대략적인 Segment 인구의 미리보기가 자동으로 제공됩니다. 정확한 Segment 멤버십은 메시지가 전송되기 전에 계산됩니다.
 
 {% multi_lang_include audience/target_audiences.md %}
 
@@ -219,7 +235,7 @@ HTML 편집기에서 닫기는 `brazeBridge.closeMessage()`를 사용하여 HTML
 
 #### 전환 이벤트 선택 {#choose-conversion-events}
 
-Braze에서는 Campaign을 받은 후 사용자가 특정 작업을 수행하는 빈도인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 추적할 수 있습니다. 사용자가 지정된 작업을 수행하면 전환으로 카운트되는 최대 30일 기간을 허용할 수 있습니다.
+Braze를 사용하면 Campaign을 받은 후 사용자가 특정 작업을 수행하는 빈도인 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 추적할 수 있습니다. 사용자가 지정된 작업을 수행하면 전환으로 카운트되는 최대 30일 기간을 허용할 수 있습니다.
 
 {% endtab %}
 

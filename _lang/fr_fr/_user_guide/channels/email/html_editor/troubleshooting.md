@@ -22,6 +22,8 @@ Identifiez votre symptôme dans le tableau ci-dessous pour accéder à la sectio
 | L'e-mail affiche du code Liquid ou des liens cassés | [HTML déséquilibré dans les modèles Liquid](#unbalanced-html-in-liquid-templates) |
 | L'aperçu Inbox Vision ne correspond pas à l'e-mail envoyé | [Insertion CSS](#css-inlining) |
 | Espaces blancs ou lignes après les images dans les e-mails de test | [Espace blanc sous les images](#white-space-under-images) |
+| Les analyses de clics n'incluent pas les paramètres de requête | [Limitations de l'analyse des clics sur les liens](#link-click-analytics-limitations) |
+| Les exposants provoquent un espacement de ligne incohérent | [Problèmes de hauteur de ligne avec les exposants](#superscript-line-height-issues) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Symptôme d'e-mail HTML" }
 
 ## Parcours d'investigation standard {#standard-investigation-path}
@@ -57,6 +59,7 @@ Les e-mails s'affichent différemment selon les navigateurs et les clients de me
 
 - Prévisualisez vos e-mails en utilisant [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) pour voir à quoi ressemblent vos e-mails dans différents navigateurs et clients de messagerie.
 - Une fois que vous avez identifié les navigateurs ou clients de messagerie à l'origine des problèmes, informez votre équipe de développement qu'elle devra modifier le HTML et apporter des ajustements pour prendre en charge ces navigateurs ou clients de messagerie.
+- Si le problème est lié à [l'affichage du texte alternatif]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text), gardez à l'esprit que ce comportement est contrôlé par le client de messagerie du destinataire, et non par Braze.
 
 ### HTML déséquilibré dans les modèles Liquid {#unbalanced-html-in-liquid-templates}
 
@@ -133,4 +136,61 @@ Vous pouvez également appliquer le style directement à des images spécifiques
 
 ```html
 <img src="https://example.com/image.jpg" style="display: block;" alt="Image description" />
+```
+
+## Limitations de l'analyse des clics sur les liens {#link-click-analytics-limitations}
+
+### Symptôme
+
+L'analyse des clics pour les e-mails comportant de nombreux paramètres de requête uniques ne correspond pas à vos attentes. Vous pouvez constater des comptages de clics agrégés pour des URL déparamétrées au-delà des 100 premiers liens uniques.
+
+### Fonctionnement du suivi des clics sur les liens {#how-link-click-tracking-works}
+
+Braze suit les clics à la fois sur les URL paramétrées (avec des paramètres de requête) et sur les URL de base déparamétrées. Pour les 100 premiers liens paramétrés uniques cliqués dans une campagne e-mail ou un Canvas, Braze collecte et rapporte les données pour les deux :
+
+- L'URL paramétrée complète (par exemple, `https://example.com?user_id=12345`)
+- L'URL de base déparamétrée (par exemple, `https://example.com`)
+
+Au-delà des 100 premiers liens paramétrés uniques cliqués, Braze incrémente uniquement les comptages de clics pour l'URL de base déparamétrée. Cela signifie que :
+
+- L'analyse des clics s'agrège sur le domaine de base et le chemin plutôt que sur les combinaisons individuelles de paramètres de requête
+- Vous pouvez toujours suivre l'engagement significatif en fonction des chemins de liens
+- Le suivi des clics au niveau de l'utilisateur individuel continue de fonctionner normalement
+
+Ce comportement empêche l'analyse de devenir surchargée par des milliers de combinaisons uniques de paramètres de requête, tout en capturant les tendances globales d'engagement sur les liens.
+
+### Ce que cela signifie pour vos campagnes {#what-this-means-for-your-campaigns}
+
+Si vous vous appuyez sur des paramètres de requête uniques pour suivre le comportement spécifique des utilisateurs dans des plateformes externes (par exemple, `https://example.com?user_id=USER_ID`), sachez que l'analyse des clics de Braze ne conservera ces paramètres que pour les 100 premiers liens uniques cliqués. Au-delà de ce seuil, les clics sont toujours enregistrés dans votre analyse, mais sont attribués à l'URL déparamétrée.
+
+Les données de clics au niveau de l'utilisateur restent disponibles via [Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents) ou le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), quel que soit le nombre de liens paramétrés uniques cliqués.
+
+### Problèmes de hauteur de ligne avec les exposants {#superscript-line-height-issues}
+
+#### Symptôme
+
+Le texte contenant des exposants s'affiche avec un espacement de ligne incohérent, où les lignes apparaissent plus rapprochées ou plus éloignées que prévu. Il s'agit d'un problème de rendu courant dans les clients de messagerie et n'est pas spécifique à Braze.
+
+L'utilisation d'exposants dans les e-mails peut provoquer un comportement inattendu de la hauteur de ligne, car les différents clients de messagerie gèrent le texte en exposant de manières variées.
+
+#### Résolution {#resolution}
+
+Utilisez l'éditeur HTML pour contrôler le style des exposants et des éléments environnants.
+
+Pour définir explicitement la hauteur de ligne, ajoutez du CSS en ligne pour définir le `line-height` du texte :
+
+```html
+<p style="line-height: 1.5;">Example text with superscript<sup style="line-height: inherit;">1</sup></p>
+```
+
+Pour ajuster l'alignement vertical, utilisez la propriété `vertical-align` pour aligner l'exposant sans perturber la hauteur de ligne :
+
+```html
+<sup style="vertical-align: top; font-size: smaller;">1</sup>
+```
+
+Si les exposants continuent de poser des problèmes, utilisez un `<span>` comme alternative à `<sup>` pour un meilleur contrôle :
+
+```html
+<span style="font-size: smaller; vertical-align: top;">1</span>
 ```

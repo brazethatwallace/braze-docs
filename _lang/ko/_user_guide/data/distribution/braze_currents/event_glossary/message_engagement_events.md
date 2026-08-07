@@ -31,7 +31,7 @@ lazy_partner_tabs: true
 
 이 이벤트 분석은 메시지 인게이지먼트 이벤트에 일반적으로 포함되는 정보 유형을 보여줍니다. 구성 요소를 확실히 이해하면 개발자와 비즈니스 인텔리전스 전략 팀이 수신되는 Currents 이벤트 데이터를 사용하여 데이터 중심 보고서와 차트를 만들고 기타 유용한 데이터 측정기준을 활용할 수 있습니다.
 
-![사용자별 속성, Campaign 또는 Canvas 추적 속성, 이벤트별 속성으로 그룹화된 속성이 나열된 이메일 구독 취소 이벤트를 보여주는 메시지 인게이지먼트 이벤트 분석]({% image_buster /assets/img/message_engagement_event.png %})
+![사용자별 속성, Campaign 또는 Canvas 추적 속성, 이벤트별 속성으로 그룹화된 속성 목록이 포함된 이메일 수신 거부 이벤트를 보여주는 메시지 인게이지먼트 이벤트 분석]({% image_buster /assets/img/message_engagement_event.png %})
 
 메시지 인게이지먼트 이벤트는 **사용자별** 속성, **Campaign/Canvas 추적** 속성, **이벤트별** 속성으로 구성됩니다.
 
@@ -48,7 +48,7 @@ lazy_partner_tabs: true
 ### 플랫폼 값 {#platform-values}
 
 특정 이벤트는 사용자 기기의 플랫폼을 지정하는 `platform` 값을 반환합니다.
-<br>다음 표에는 반환 가능한 값이 나열되어 있습니다.
+<br>다음 표에는 반환될 수 있는 값이 나열되어 있습니다.
 
 | 사용자 기기 | 플랫폼 값 |
 | --- | --- |
@@ -63,7 +63,7 @@ lazy_partner_tabs: true
 
 {% enddetails %}
 
-{% details 메시지 인게이지먼트 이벤트 관련 고려 사항 %}
+{% details 메시지 인게이지먼트 이벤트 관련 고려사항 %}
 
 - Currents는 페이로드가 900&nbsp;KB를 초과하는 이벤트를 삭제합니다.
 - Canvas Flow와 관련된 객체에는 그룹화에 사용할 수 있는 ID가 있으며, [Canvas 세부정보 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)를 통해 사람이 읽을 수 있는 이름으로 변환할 수 있습니다.
@@ -75,7 +75,7 @@ lazy_partner_tabs: true
   - `canvas_variation_name`
   - `experiment_split_name`
   - `message_variation_name`
-- 이러한 필드의 완전한 일관성이 필요한 경우 마지막 업데이트 후 1시간을 기다린 다음 사용자에게 메시지를 보내세요.
+- 이러한 필드에 대해 완전한 일관성이 필요한 경우, 마지막 업데이트 후 1시간을 기다린 다음 사용자에게 메시지를 보내세요.
 
 {% enddetails %}
 
@@ -125,6 +125,7 @@ Agent
   "provider_request_id" : "(optional, string) any request ID given to us by the model provider for the api call",
   "reasoning_tokens" : "(required, int) how many reasoning tokens this request used",
   "request_id" : "(required, string) Unique id for this overall LLM request and complete execution",
+  "thinking_level" : "(optional, string) the thinking/reasoning level used for the request",
   "time" : "(required, long) unix timestamp at which this event is logged",
   "total_tokens" : "(required, int) how many total tokens this request used",
   "user_id" : "(optional, string) [PII] Braze user ID of the user who performed this event"
@@ -165,6 +166,7 @@ Agent
     "provider_request_id" : "(optional, string) any request ID given to us by the model provider for the api call",
     "reasoning_tokens" : "(required, int) how many reasoning tokens this request used",
     "request_id" : "(required, string) Unique id for this overall LLM request and complete execution",
+    "thinking_level" : "(optional, string) the thinking/reasoning level used for the request",
     "total_tokens" : "(required, int) how many total tokens this request used"
   },
   "time" : "(required, long) unix timestamp at which this event is logged",
@@ -229,6 +231,104 @@ Agent
   },
   "time" : "(required, long) unix timestamp at which this event is logged",
   "user" : { }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
+{% api %}
+## Content Optimizer 컴포넌트 스토어 업데이트 이벤트 {#content-optimizer-component-store-update-events}
+
+{% apitags %}
+Content Optimizer
+{% endapitags %}
+
+컴포넌트 스토어에 대한 업데이트입니다.
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// contentoptimizer.ComponentStore
+
+{
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "combination_token" : "(required, string) Component combination assigned",
+  "content" : "(optional, string) Rendered content payload in JSON format",
+  "content_optimizer_step_id" : "(required, string) Content Optimizer Step internal ID",
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "id" : "(required, string) Globally unique ID for this event",
+  "is_active" : "(optional, boolean) Whether the combination token is actively used for serving",
+  "time" : "(required, int) UNIX timestamp at which the event happened"
+}
+```
+{% endtab %}
+
+{% tab Amplitude %}
+```json
+// Content Optimizer Component Store Update (contentoptimizer.ComponentStore)
+
+{
+  "event_properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "combination_token" : "(required, string) Component combination assigned",
+    "content" : "(optional, string) Rendered content payload in JSON format",
+    "content_optimizer_step_id" : "(required, string) Content Optimizer Step internal ID",
+    "is_active" : "(optional, boolean) Whether the combination token is actively used for serving"
+  },
+  "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
+  "insert_id" : "(required, string) Globally unique ID for this event",
+  "library" : "Braze",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// contentoptimizer.ComponentStore
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "combination_token" : "(required, string) Component combination assigned",
+    "content" : "(optional, string) Rendered content payload in JSON format",
+    "content_optimizer_step_id" : "(required, string) Content Optimizer Step internal ID",
+    "is_active" : "(optional, boolean) Whether the combination token is actively used for serving"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "external_user_id" : "(optional, string) [PII] External ID of the user"
+  }
+}
+```
+{% endtab %}
+
+{% tab Segment %}
+```json
+// Content Optimizer Component Store Updated (contentoptimizer.ComponentStore)
+
+{
+  "context" : {
+    "device" : { },
+    "traits" : { }
+  },
+  "event" : "(required, string) The event type name, as it is exported to Segment",
+  "messageId" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "combination_token" : "(required, string) Component combination assigned",
+    "content" : "(optional, string) Rendered content payload in JSON format",
+    "content_optimizer_step_id" : "(required, string) Content Optimizer Step internal ID",
+    "is_active" : "(optional, boolean) Whether the combination token is actively used for serving"
+  },
+  "timestamp" : "(required, int) UNIX timestamp at which the event happened",
+  "type" : "track",
+  "userId" : "(optional, string) [PII] External ID of the user"
 }
 ```
 {% endtab %}
@@ -926,7 +1026,7 @@ Subscription
 <tr><td>REST API</td><td>REST API 엔드포인트</td></tr>
 <tr><td>CSV 가져오기</td><td>CSV 사용자 가져오기</td></tr>
 <tr><td>환경설정 센터</td><td>환경설정 센터에서 사용자가 업데이트되는 경우</td></tr>
-<tr><td>인바운드 메시지</td><td>최종 사용자가 SMS 등의 채널을 통해 보낸 인바운드 메시지로 사용자가 업데이트되는 경우</td></tr>
+<tr><td>인바운드 메시지</td><td>최종사용자가 SMS 등의 채널을 통해 보낸 인바운드 메시지로 사용자가 업데이트되는 경우</td></tr>
 <tr><td>마이그레이션</td><td>내부 마이그레이션 또는 유지 관리 스크립트에 의해 사용자가 업데이트되는 경우</td></tr>
 <tr><td>사용자 병합</td><td>사용자 병합 프로세스에 의해 사용자가 업데이트되는 경우</td></tr>
 <tr><td>Canvas 사용자 업데이트 단계</td><td>Canvas 사용자 업데이트 단계에 의해 사용자가 업데이트되는 경우</td></tr>
@@ -1705,6 +1805,167 @@ Canvas, Entry
 {% endapi %}
 
 {% api %}
+## Canvas 콘텐츠 최적화 단계 전환 이벤트 {#canvas-content-optimizer-step-conversion-events}
+
+{% apitags %}
+Canvas, Content Optimizer, Conversion
+{% endapitags %}
+
+콘텐츠 최적화 캔버스 단계에 대한 전환 이벤트입니다.
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.canvas.costep.Conversion
+
+{
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "channel" : "(optional, string) Channel this event belongs to.  Refer to https://www.braze.com/docs/user_guide/channels",
+  "combination_token" : "(required, string) Component combination assigned",
+  "conversion_type" : "(optional, string) The type of conversion (open or click)",
+  "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "id" : "(required, string) Globally unique ID for this event",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+
+{% tab Amplitude %}
+```json
+// Canvas Content Optimizer Step Conversion (users.canvas.costep.Conversion)
+
+{
+  "event_properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "braze_user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+    "channel" : "(optional, string) Channel this event belongs to.  Refer to https://www.braze.com/docs/user_guide/channels",
+    "combination_token" : "(required, string) Component combination assigned",
+    "conversion_type" : "(optional, string) The type of conversion (open or click)",
+    "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to"
+  },
+  "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
+  "insert_id" : "(required, string) Globally unique ID for this event",
+  "library" : "Braze",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.canvas.costep.Conversion
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "channel" : "(optional, string) Channel this event belongs to.  Refer to https://www.braze.com/docs/user_guide/channels",
+    "combination_token" : "(required, string) Component combination assigned",
+    "conversion_type" : "(optional, string) The type of conversion (open or click)",
+    "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab Mixpanel %}
+```json
+// Canvas Content Optimizer Step Conversion (users.canvas.costep.Conversion)
+
+{
+  "event" : "(required, string) The event type name, as it is exported to Mixpanel",
+  "properties" : {
+    "$partner_id" : "braze",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "channel" : "(optional, string) Channel this event belongs to.  Refer to https://www.braze.com/docs/user_guide/channels",
+    "combination_token" : "(required, string) Component combination assigned",
+    "conversion_type" : "(optional, string) The type of conversion (open or click)",
+    "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "distinct_id" : "(required, string) [PII] External ID of the user",
+    "$insert_id" : "(required, string) Globally unique ID for this event",
+    "time" : "(required, int) UNIX timestamp at which the event happened",
+    "token" : "(required, string) The Mixpanel API token",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab mParticle %}
+```json
+// Canvas Content Optimizer Step Conversions (users.canvas.costep.Conversion)
+
+{
+  "device_info" : { },
+  "environment" : "(required, string) The mParticle environment (either 'development' or 'production')",
+  "events" : [
+    {
+      "data" : {
+        "custom_attributes" : {
+          "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+          "channel" : "(optional, string) Channel this event belongs to.  Refer to https://www.braze.com/docs/user_guide/channels",
+          "combination_token" : "(required, string) Component combination assigned",
+          "conversion_type" : "(optional, string) The type of conversion (open or click)",
+          "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+          "source_request_id" : "(required, string) Globally unique ID for this event",
+          "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+        },
+        "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
+        "event_name" : "(required, string) The event type name, as it is exported to mParticle",
+        "source_message_id" : "(required, string) Globally unique ID for this event",
+        "timestamp_unixtime_ms" : "(required, int) UNIX timestamp at which the event happened"
+      },
+      "event_type" : "(required, string) mParticle event type (either 'uninstall' or 'custom_event')"
+    }
+  ],
+  "schema_version" : 2,
+  "user_attributes" : { },
+  "user_identities" : {
+    "customerid" : "(required, string) [PII] External ID of the user"
+  }
+}
+```
+{% endtab %}
+
+{% tab Segment %}
+```json
+// Canvas Content Optimizer Step Converted (users.canvas.costep.Conversion)
+
+{
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "context" : {
+    "device" : { },
+    "traits" : { }
+  },
+  "event" : "(required, string) The event type name, as it is exported to Segment",
+  "messageId" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "channel" : "(optional, string) Channel this event belongs to.  Refer to https://www.braze.com/docs/user_guide/channels",
+    "combination_token" : "(required, string) Component combination assigned",
+    "conversion_type" : "(optional, string) The type of conversion (open or click)",
+    "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to"
+  },
+  "timestamp" : "(required, int) UNIX timestamp at which the event happened",
+  "type" : "track",
+  "userId" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
+{% api %}
 ## Canvas 콘텐츠 최적화 단계 발송 이벤트 {#canvas-content-optimizer-step-send-events}
 
 {% apitags %}
@@ -1723,7 +1984,7 @@ Canvas, Content Optimizer, Sends
   "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
   "channel" : "(optional, string) Channel this event belongs to",
   "combination_token" : "(required, string) Component combination assigned",
-  "content_optimizer_step_id" : "(required, string) CO step internal ID",
+  "content_optimizer_step_id" : "(required, string) Content Optimizer Step internal ID",
   "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
@@ -1744,7 +2005,7 @@ Canvas, Content Optimizer, Sends
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "channel" : "(optional, string) Channel this event belongs to",
     "combination_token" : "(required, string) Component combination assigned",
-    "content_optimizer_step_id" : "(required, string) CO step internal ID",
+    "content_optimizer_step_id" : "(required, string) Content Optimizer Step internal ID",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to"
   },
   "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
@@ -1768,7 +2029,7 @@ Canvas, Content Optimizer, Sends
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "channel" : "(optional, string) Channel this event belongs to",
     "combination_token" : "(required, string) Component combination assigned",
-    "content_optimizer_step_id" : "(required, string) CO step internal ID",
+    "content_optimizer_step_id" : "(required, string) Content Optimizer Step internal ID",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to"
   },
   "time" : "(required, int) UNIX timestamp at which the event happened",
@@ -1792,7 +2053,7 @@ Canvas, Content Optimizer, Sends
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "channel" : "(optional, string) Channel this event belongs to",
     "combination_token" : "(required, string) Component combination assigned",
-    "content_optimizer_step_id" : "(required, string) CO step internal ID",
+    "content_optimizer_step_id" : "(required, string) Content Optimizer Step internal ID",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
@@ -1819,7 +2080,7 @@ Canvas, Content Optimizer, Sends
           "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
           "channel" : "(optional, string) Channel this event belongs to",
           "combination_token" : "(required, string) Component combination assigned",
-          "content_optimizer_step_id" : "(required, string) CO step internal ID",
+          "content_optimizer_step_id" : "(required, string) Content Optimizer Step internal ID",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
           "source_request_id" : "(required, string) Globally unique ID for this event",
           "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
@@ -1858,7 +2119,7 @@ Canvas, Content Optimizer, Sends
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "channel" : "(optional, string) Channel this event belongs to",
     "combination_token" : "(required, string) Component combination assigned",
-    "content_optimizer_step_id" : "(required, string) CO step internal ID",
+    "content_optimizer_step_id" : "(required, string) Content Optimizer Step internal ID",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to"
   },
   "timestamp" : "(required, int) UNIX timestamp at which the event happened",
@@ -3144,6 +3405,7 @@ Banner, Clicks
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
   "id" : "(required, string) Globally unique ID for this event",
+  "is_unique" : "(optional, boolean) Whether this was the user's first click on the message variation, counting toward unique click stats",
   "language" : "(optional, string) [PII] Language of the user",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3184,6 +3446,7 @@ Banner, Clicks
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_model" : "(optional, string) Model of the device",
+    "is_unique" : "(optional, boolean) Whether this was the user's first click on the message variation, counting toward unique click stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "os_version" : "(optional, string) Version of the operating system of the device",
@@ -3226,6 +3489,7 @@ Banner, Clicks
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_model" : "(optional, string) Model of the device",
+    "is_unique" : "(optional, boolean) Whether this was the user's first click on the message variation, counting toward unique click stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "os_version" : "(optional, string) Version of the operating system of the device",
@@ -3271,6 +3535,7 @@ Banner, Clicks
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "is_unique" : "(optional, boolean) Whether this was the user's first click on the message variation, counting toward unique click stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "$os" : "(optional, string) Version of the operating system of the device",
@@ -3317,6 +3582,7 @@ Banner, Clicks
           "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
           "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
+          "is_unique" : "(optional, boolean) Whether this was the user's first click on the message variation, counting toward unique click stats",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "source_request_id" : "(required, string) Globally unique ID for this event"
@@ -3371,6 +3637,7 @@ Banner, Clicks
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "is_unique" : "(optional, boolean) Whether this was the user's first click on the message variation, counting toward unique click stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation"
   },
@@ -3423,6 +3690,7 @@ Banner, Dismissal
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
   "id" : "(required, string) Globally unique ID for this event",
+  "is_unique" : "(optional, boolean) Whether this was the user's first dismissal of the message variation, counting toward unique dismiss stats",
   "language" : "(optional, string) [PII] Language of the user",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3467,6 +3735,7 @@ Banner, Dismissal
     "country" : "(optional, string) [PII] Country of the user",
     "device_model" : "(optional, string) Model of the device",
     "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+    "is_unique" : "(optional, boolean) Whether this was the user's first dismissal of the message variation, counting toward unique dismiss stats",
     "language" : "(optional, string) [PII] Language of the user",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3515,6 +3784,7 @@ Banner, Dismissal
     "country" : "(optional, string) [PII] Country of the user",
     "device_model" : "(optional, string) Model of the device",
     "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+    "is_unique" : "(optional, boolean) Whether this was the user's first dismissal of the message variation, counting toward unique dismiss stats",
     "language" : "(optional, string) [PII] Language of the user",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3566,6 +3836,7 @@ Banner, Dismissal
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "is_unique" : "(optional, boolean) Whether this was the user's first dismissal of the message variation, counting toward unique dismiss stats",
     "language" : "(optional, string) [PII] Language of the user",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3621,6 +3892,7 @@ Banner, Dismissal
           "country" : "(optional, string) [PII] Country of the user",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+          "is_unique" : "(optional, boolean) Whether this was the user's first dismissal of the message variation, counting toward unique dismiss stats",
           "language" : "(optional, string) [PII] Language of the user",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3684,6 +3956,7 @@ Banner, Dismissal
     "country" : "(optional, string) [PII] Country of the user",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+    "is_unique" : "(optional, boolean) Whether this was the user's first dismissal of the message variation, counting toward unique dismiss stats",
     "language" : "(optional, string) [PII] Language of the user",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3740,6 +4013,7 @@ Banner, Impressions
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
   "id" : "(required, string) Globally unique ID for this event",
+  "is_unique" : "(optional, boolean) Whether this was the user's first impression of the message variation, counting toward unique impression stats",
   "language" : "(optional, string) [PII] Language of the user",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
@@ -3779,6 +4053,7 @@ Banner, Impressions
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_model" : "(optional, string) Model of the device",
+    "is_unique" : "(optional, boolean) Whether this was the user's first impression of the message variation, counting toward unique impression stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "os_version" : "(optional, string) Version of the operating system of the device",
@@ -3820,6 +4095,7 @@ Banner, Impressions
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_model" : "(optional, string) Model of the device",
+    "is_unique" : "(optional, boolean) Whether this was the user's first impression of the message variation, counting toward unique impression stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "os_version" : "(optional, string) Version of the operating system of the device",
@@ -3864,6 +4140,7 @@ Banner, Impressions
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "is_unique" : "(optional, boolean) Whether this was the user's first impression of the message variation, counting toward unique impression stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "$os" : "(optional, string) Version of the operating system of the device",
@@ -3909,6 +4186,7 @@ Banner, Impressions
           "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
           "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
+          "is_unique" : "(optional, boolean) Whether this was the user's first impression of the message variation, counting toward unique impression stats",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "source_request_id" : "(required, string) Globally unique ID for this event"
@@ -3962,6 +4240,7 @@ Banner, Impressions
     "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "is_unique" : "(optional, boolean) Whether this was the user's first impression of the message variation, counting toward unique impression stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation"
   },
@@ -4244,6 +4523,7 @@ Content Cards, Clicks
   "device_model" : "(optional, string) Model of the device",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
+  "is_unique" : "(optional, boolean) Whether this was the user's first click on the message variation, counting toward unique click stats",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "os_version" : "(optional, string) Version of the operating system of the device",
@@ -4280,6 +4560,7 @@ Content Cards, Clicks
     "card_id" : "(required, string) ID of the card that generated this event",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "is_unique" : "(optional, boolean) Whether this was the user's first click on the message variation, counting toward unique click stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "os_version" : "(optional, string) Version of the operating system of the device",
@@ -4320,6 +4601,7 @@ Content Cards, Clicks
     "content_card_id" : "(required, string) ID of the card that generated this event",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "is_unique" : "(optional, boolean) Whether this was the user's first click on the message variation, counting toward unique click stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "os_version" : "(optional, string) Version of the operating system of the device",
@@ -4364,6 +4646,7 @@ Content Cards, Clicks
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "is_unique" : "(optional, boolean) Whether this was the user's first click on the message variation, counting toward unique click stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "$os" : "(optional, string) Version of the operating system of the device",
@@ -4409,6 +4692,7 @@ Content Cards, Clicks
           "card_id" : "(required, string) ID of the card that generated this event",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+          "is_unique" : "(optional, boolean) Whether this was the user's first click on the message variation, counting toward unique click stats",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -4463,6 +4747,7 @@ Content Cards, Clicks
     "card_id" : "(required, string) ID of the card that generated this event",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "is_unique" : "(optional, boolean) Whether this was the user's first click on the message variation, counting toward unique click stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to"
@@ -4515,6 +4800,7 @@ Content Cards, Dismissal
   "device_model" : "(optional, string) Model of the device",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
+  "is_unique" : "(optional, boolean) Whether this was the user's first dismissal of the message variation, counting toward unique dismiss stats",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "os_version" : "(optional, string) Version of the operating system of the device",
@@ -4551,6 +4837,7 @@ Content Cards, Dismissal
     "card_id" : "(required, string) ID of the card that generated this event",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "is_unique" : "(optional, boolean) Whether this was the user's first dismissal of the message variation, counting toward unique dismiss stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "os_version" : "(optional, string) Version of the operating system of the device",
@@ -4591,6 +4878,7 @@ Content Cards, Dismissal
     "content_card_id" : "(required, string) ID of the card that generated this event",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "is_unique" : "(optional, boolean) Whether this was the user's first dismissal of the message variation, counting toward unique dismiss stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "os_version" : "(optional, string) Version of the operating system of the device",
@@ -4635,6 +4923,7 @@ Content Cards, Dismissal
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "is_unique" : "(optional, boolean) Whether this was the user's first dismissal of the message variation, counting toward unique dismiss stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "$os" : "(optional, string) Version of the operating system of the device",
@@ -4680,6 +4969,7 @@ Content Cards, Dismissal
           "card_id" : "(required, string) ID of the card that generated this event",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+          "is_unique" : "(optional, boolean) Whether this was the user's first dismissal of the message variation, counting toward unique dismiss stats",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -4734,6 +5024,7 @@ Content Cards, Dismissal
     "card_id" : "(required, string) ID of the card that generated this event",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "is_unique" : "(optional, boolean) Whether this was the user's first dismissal of the message variation, counting toward unique dismiss stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to"
@@ -4786,6 +5077,7 @@ Content Cards, Impressions
   "device_model" : "(optional, string) Model of the device",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "id" : "(required, string) Globally unique ID for this event",
+  "is_unique" : "(optional, boolean) Whether this was the user's first impression of the message variation, counting toward unique impression stats",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
   "os_version" : "(optional, string) Version of the operating system of the device",
@@ -4822,6 +5114,7 @@ Content Cards, Impressions
     "card_id" : "(required, string) ID of the card that generated this event",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "is_unique" : "(optional, boolean) Whether this was the user's first impression of the message variation, counting toward unique impression stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "os_version" : "(optional, string) Version of the operating system of the device",
@@ -4862,6 +5155,7 @@ Content Cards, Impressions
     "content_card_id" : "(required, string) ID of the card that generated this event",
     "device_model" : "(optional, string) Model of the device",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "is_unique" : "(optional, boolean) Whether this was the user's first impression of the message variation, counting toward unique impression stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "os_version" : "(optional, string) Version of the operating system of the device",
@@ -4906,6 +5200,7 @@ Content Cards, Impressions
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "is_unique" : "(optional, boolean) Whether this was the user's first impression of the message variation, counting toward unique impression stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "$os" : "(optional, string) Version of the operating system of the device",
@@ -4951,6 +5246,7 @@ Content Cards, Impressions
           "card_id" : "(required, string) ID of the card that generated this event",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+          "is_unique" : "(optional, boolean) Whether this was the user's first impression of the message variation, counting toward unique impression stats",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "send_id" : "(optional, string) Message send ID this message belongs to",
@@ -5005,6 +5301,7 @@ Content Cards, Impressions
     "card_id" : "(required, string) ID of the card that generated this event",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "dispatch_id" : "(optional, string) ID of the dispatch this message belongs to",
+    "is_unique" : "(optional, boolean) Whether this was the user's first impression of the message variation, counting toward unique impression stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "send_id" : "(optional, string) Message send ID this message belongs to"
@@ -8214,6 +8511,7 @@ Feature Flags, Impressions
   "feature_flag_id_name" : "(optional, string) The Feature Flag Rollout identifier",
   "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
   "id" : "(required, string) Globally unique ID for this event",
+  "is_unique" : "(optional, boolean) Whether this was the user's first impression for this feature flag, counting toward unique impression stats",
   "language" : "(optional, string) [PII] Language of the user",
   "message_variation_id" : "(optional, string) API ID of the message variation this user received",
   "message_variation_name" : "(optional, string) Name of the message variation",
@@ -8248,6 +8546,7 @@ Feature Flags, Impressions
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "feature_flag_id_name" : "(optional, string) The Feature Flag Rollout identifier",
+    "is_unique" : "(optional, boolean) Whether this was the user's first impression for this feature flag, counting toward unique impression stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "os_version" : "(optional, string) Version of the operating system of the device",
@@ -8284,6 +8583,7 @@ Feature Flags, Impressions
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_model" : "(optional, string) Model of the device",
     "feature_flag_id_name" : "(optional, string) The Feature Flag Rollout identifier",
+    "is_unique" : "(optional, boolean) Whether this was the user's first impression for this feature flag, counting toward unique impression stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "os_version" : "(optional, string) Version of the operating system of the device",
@@ -8324,6 +8624,7 @@ Feature Flags, Impressions
     "distinct_id" : "(required, string) [PII] External ID of the user",
     "feature_flag_id_name" : "(optional, string) The Feature Flag Rollout identifier",
     "$insert_id" : "(required, string) Globally unique ID for this event",
+    "is_unique" : "(optional, boolean) Whether this was the user's first impression for this feature flag, counting toward unique impression stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation",
     "$os" : "(optional, string) Version of the operating system of the device",
@@ -8363,6 +8664,7 @@ Feature Flags, Impressions
           "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
           "device_id" : "(optional, string) ID of the device on which the event occurred",
           "feature_flag_id_name" : "(optional, string) The Feature Flag Rollout identifier",
+          "is_unique" : "(optional, boolean) Whether this was the user's first impression for this feature flag, counting toward unique impression stats",
           "message_variation_id" : "(optional, string) API ID of the message variation this user received",
           "message_variation_name" : "(optional, string) Name of the message variation",
           "source_request_id" : "(required, string) Globally unique ID for this event"
@@ -8413,6 +8715,7 @@ Feature Flags, Impressions
     "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
     "device_id" : "(optional, string) ID of the device on which the event occurred",
     "feature_flag_id_name" : "(optional, string) The Feature Flag Rollout identifier",
+    "is_unique" : "(optional, boolean) Whether this was the user's first impression for this feature flag, counting toward unique impression stats",
     "message_variation_id" : "(optional, string) API ID of the message variation this user received",
     "message_variation_name" : "(optional, string) Name of the message variation"
   },
@@ -8759,8 +9062,7 @@ In-App Messages, Clicks
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
-  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -9042,8 +9344,7 @@ In-App Messages, Impressions
   "send_id" : "(optional, string) Message send ID this message belongs to",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "timezone" : "(optional, string) Time zone of the user",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
-  "version" : "(required, string) Deprecated. Which version of in-app message, legacy or triggered"
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -9285,6 +9586,466 @@ In-App Messages, Impressions
 {% endapi %}
 
 {% api %}
+## 랜딩 페이지 클릭 이벤트 {#landing-page-click-events}
+
+{% apitags %}
+Landing Pages, Clicks
+{% endapitags %}
+
+이 이벤트는 최종 사용자가 랜딩 페이지의 특정 요소 및 양식 필드를 클릭할 때 발생합니다.
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.messages.landingpage.Click
+
+{
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "id" : "(required, string) Globally unique ID for this event",
+  "landing_page_api_id" : "(required, string) API ID of the landing page this event belongs to",
+  "landing_page_name" : "(optional, string) Name of the landing page",
+  "target" : "(required, string) Configured tracking ID for the element that was clicked",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+
+{% tab Amplitude %}
+```json
+// Landing Page Click (users.messages.landingpage.Click)
+
+{
+  "event_properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "braze_user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+    "landing_page_api_id" : "(required, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page",
+    "target" : "(required, string) Configured tracking ID for the element that was clicked"
+  },
+  "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
+  "insert_id" : "(required, string) Globally unique ID for this event",
+  "library" : "Braze",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.messages.landingpage.Click
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "landing_page_api_id" : "(required, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page",
+    "target" : "(required, string) Configured tracking ID for the element that was clicked"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab Mixpanel %}
+```json
+// Landing Page Click (users.messages.landingpage.Click)
+
+{
+  "event" : "(required, string) The event type name, as it is exported to Mixpanel",
+  "properties" : {
+    "$partner_id" : "braze",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "distinct_id" : "(required, string) [PII] External ID of the user",
+    "$insert_id" : "(required, string) Globally unique ID for this event",
+    "landing_page_api_id" : "(required, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page",
+    "target" : "(required, string) Configured tracking ID for the element that was clicked",
+    "time" : "(required, int) UNIX timestamp at which the event happened",
+    "token" : "(required, string) The Mixpanel API token",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab mParticle %}
+```json
+// Landing Page Clicks (users.messages.landingpage.Click)
+
+{
+  "device_info" : { },
+  "environment" : "(required, string) The mParticle environment (either 'development' or 'production')",
+  "events" : [
+    {
+      "data" : {
+        "custom_attributes" : {
+          "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+          "landing_page_api_id" : "(required, string) API ID of the landing page this event belongs to",
+          "landing_page_name" : "(optional, string) Name of the landing page",
+          "source_request_id" : "(required, string) Globally unique ID for this event",
+          "target" : "(required, string) Configured tracking ID for the element that was clicked",
+          "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+        },
+        "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
+        "event_name" : "(required, string) The event type name, as it is exported to mParticle",
+        "source_message_id" : "(required, string) Globally unique ID for this event",
+        "timestamp_unixtime_ms" : "(required, int) UNIX timestamp at which the event happened"
+      },
+      "event_type" : "(required, string) mParticle event type (either 'uninstall' or 'custom_event')"
+    }
+  ],
+  "schema_version" : 2,
+  "user_attributes" : { },
+  "user_identities" : {
+    "customerid" : "(required, string) [PII] External ID of the user"
+  }
+}
+```
+{% endtab %}
+
+{% tab Segment %}
+```json
+// Landing Page Clicked (users.messages.landingpage.Click)
+
+{
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "context" : {
+    "device" : { },
+    "traits" : { }
+  },
+  "event" : "(required, string) The event type name, as it is exported to Segment",
+  "messageId" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "landing_page_api_id" : "(required, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page",
+    "target" : "(required, string) Configured tracking ID for the element that was clicked"
+  },
+  "timestamp" : "(required, int) UNIX timestamp at which the event happened",
+  "type" : "track",
+  "userId" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
+{% api %}
+## 랜딩 페이지 양식 제출 이벤트 {#landing-page-form-submission-events}
+
+{% apitags %}
+Landing Pages, Form Submissions
+{% endapitags %}
+
+이 이벤트는 최종 사용자가 랜딩 페이지에서 양식을 작성하고 버튼을 클릭하여 정보를 제출할 때 발생합니다.
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.messages.landingpage.FormSubmission
+
+{
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "id" : "(required, string) Globally unique ID for this event",
+  "landing_page_api_id" : "(optional, string) API ID of the landing page this event belongs to",
+  "landing_page_name" : "(optional, string) Name of the landing page",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+
+{% tab Amplitude %}
+```json
+// Landing Page Form Submission (users.messages.landingpage.FormSubmission)
+
+{
+  "event_properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "braze_user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+    "landing_page_api_id" : "(optional, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page"
+  },
+  "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
+  "insert_id" : "(required, string) Globally unique ID for this event",
+  "library" : "Braze",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.messages.landingpage.FormSubmission
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "landing_page_api_id" : "(optional, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab Mixpanel %}
+```json
+// Landing Page Form Submission (users.messages.landingpage.FormSubmission)
+
+{
+  "event" : "(required, string) The event type name, as it is exported to Mixpanel",
+  "properties" : {
+    "$partner_id" : "braze",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "distinct_id" : "(required, string) [PII] External ID of the user",
+    "$insert_id" : "(required, string) Globally unique ID for this event",
+    "landing_page_api_id" : "(optional, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page",
+    "time" : "(required, int) UNIX timestamp at which the event happened",
+    "token" : "(required, string) The Mixpanel API token",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab mParticle %}
+```json
+// Landing Page Form Submissions (users.messages.landingpage.FormSubmission)
+
+{
+  "device_info" : { },
+  "environment" : "(required, string) The mParticle environment (either 'development' or 'production')",
+  "events" : [
+    {
+      "data" : {
+        "custom_attributes" : {
+          "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+          "landing_page_api_id" : "(optional, string) API ID of the landing page this event belongs to",
+          "landing_page_name" : "(optional, string) Name of the landing page",
+          "source_request_id" : "(required, string) Globally unique ID for this event",
+          "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+        },
+        "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
+        "event_name" : "(required, string) The event type name, as it is exported to mParticle",
+        "source_message_id" : "(required, string) Globally unique ID for this event",
+        "timestamp_unixtime_ms" : "(required, int) UNIX timestamp at which the event happened"
+      },
+      "event_type" : "(required, string) mParticle event type (either 'uninstall' or 'custom_event')"
+    }
+  ],
+  "schema_version" : 2,
+  "user_attributes" : { },
+  "user_identities" : {
+    "customerid" : "(required, string) [PII] External ID of the user"
+  }
+}
+```
+{% endtab %}
+
+{% tab Segment %}
+```json
+// Landing Page Form Submitted (users.messages.landingpage.FormSubmission)
+
+{
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "context" : {
+    "device" : { },
+    "traits" : { }
+  },
+  "event" : "(required, string) The event type name, as it is exported to Segment",
+  "messageId" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "landing_page_api_id" : "(optional, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page"
+  },
+  "timestamp" : "(required, int) UNIX timestamp at which the event happened",
+  "type" : "track",
+  "userId" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
+{% api %}
+## 랜딩 페이지 노출 이벤트 {#landing-page-impression-events}
+
+{% apitags %}
+Landing Pages, Impressions
+{% endapitags %}
+
+이 이벤트는 최종사용자의 브라우저가 랜딩 페이지를 로드하고 표시할 때 발생합니다.
+
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.messages.landingpage.Impression
+
+{
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "id" : "(required, string) Globally unique ID for this event",
+  "landing_page_api_id" : "(required, string) API ID of the landing page this event belongs to",
+  "landing_page_name" : "(optional, string) Name of the landing page",
+  "liquid_enabled" : "(optional, boolean) A boolean that indicates whether the landing page contains Liquid and was processed through the Liquid rendering pipeline.",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+
+{% tab Amplitude %}
+```json
+// Landing Page Impression (users.messages.landingpage.Impression)
+
+{
+  "event_properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "braze_user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+    "landing_page_api_id" : "(required, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page",
+    "liquid_enabled" : "(optional, boolean) A boolean that indicates whether the landing page contains Liquid and was processed through the Liquid rendering pipeline."
+  },
+  "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
+  "insert_id" : "(required, string) Globally unique ID for this event",
+  "library" : "Braze",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.messages.landingpage.Impression
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "landing_page_api_id" : "(required, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page",
+    "liquid_enabled" : "(optional, boolean) A boolean that indicates whether the landing page contains Liquid and was processed through the Liquid rendering pipeline."
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab Mixpanel %}
+```json
+// Landing Page Impression (users.messages.landingpage.Impression)
+
+{
+  "event" : "(required, string) The event type name, as it is exported to Mixpanel",
+  "properties" : {
+    "$partner_id" : "braze",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "distinct_id" : "(required, string) [PII] External ID of the user",
+    "$insert_id" : "(required, string) Globally unique ID for this event",
+    "landing_page_api_id" : "(required, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page",
+    "liquid_enabled" : "(optional, boolean) A boolean that indicates whether the landing page contains Liquid and was processed through the Liquid rendering pipeline.",
+    "time" : "(required, int) UNIX timestamp at which the event happened",
+    "token" : "(required, string) The Mixpanel API token",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab mParticle %}
+```json
+// Landing Page Impressions (users.messages.landingpage.Impression)
+
+{
+  "device_info" : { },
+  "environment" : "(required, string) The mParticle environment (either 'development' or 'production')",
+  "events" : [
+    {
+      "data" : {
+        "custom_attributes" : {
+          "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+          "landing_page_api_id" : "(required, string) API ID of the landing page this event belongs to",
+          "landing_page_name" : "(optional, string) Name of the landing page",
+          "liquid_enabled" : "(optional, boolean) A boolean that indicates whether the landing page contains Liquid and was processed through the Liquid rendering pipeline.",
+          "source_request_id" : "(required, string) Globally unique ID for this event",
+          "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+        },
+        "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
+        "event_name" : "(required, string) The event type name, as it is exported to mParticle",
+        "source_message_id" : "(required, string) Globally unique ID for this event",
+        "timestamp_unixtime_ms" : "(required, int) UNIX timestamp at which the event happened"
+      },
+      "event_type" : "(required, string) mParticle event type (either 'uninstall' or 'custom_event')"
+    }
+  ],
+  "schema_version" : 2,
+  "user_attributes" : { },
+  "user_identities" : {
+    "customerid" : "(required, string) [PII] External ID of the user"
+  }
+}
+```
+{% endtab %}
+
+{% tab Segment %}
+```json
+// Landing Page Viewed (users.messages.landingpage.Impression)
+
+{
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "context" : {
+    "device" : { },
+    "traits" : { }
+  },
+  "event" : "(required, string) The event type name, as it is exported to Segment",
+  "messageId" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "landing_page_api_id" : "(required, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page",
+    "liquid_enabled" : "(optional, boolean) A boolean that indicates whether the landing page contains Liquid and was processed through the Liquid rendering pipeline."
+  },
+  "timestamp" : "(required, int) UNIX timestamp at which the event happened",
+  "type" : "track",
+  "userId" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
+{% api %}
 ## LINE 중단 이벤트 {#line-abort-events}
 
 {% apitags %}
@@ -9518,9 +10279,9 @@ LINE, Abort
 {% endtab %}
 {% endtabs %}
 
-### 속성 세부 정보
+### 속성정보 세부 사항
 
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
 - `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)을 참조하세요.
 - 메시지가 글로벌 빈도 제한 규칙으로 인해 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
 - `abort_log`에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예시: `Frequency cap rule: 5 LINE messages every 1 week`
@@ -11339,7 +12100,7 @@ Push, Bounce
 ### 속성 세부 정보
 
 - Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터를 수집하는 경우, 고객 성공 매니저 또는 계정 매니저에게 연락하여 `ad_id` 전송을 위한 기능 플리퍼를 활성화하세요.
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
 
 {% endapi %}
 
@@ -11550,7 +12311,7 @@ Push, iOS, Opens
 
 - `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) 및 [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id)에서 이 설정에 대해 자세히 알아보세요.
 - Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터를 수집하는 경우, 고객 성공 매니저에게 연락하여 `ad_id` 전송을 활성화하세요.
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
 
 {% endapi %}
 
@@ -11647,7 +12408,7 @@ Push, Opens
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab 커스텀 HTTP 커넥터 %}
 ```json
 // users.messages.pushnotification.Open
 
@@ -12347,7 +13108,7 @@ Push, Sends
 - `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) 및 [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id)에서 이 설정에 대해 자세히 알아보세요.
 - Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터를 수집하는 경우, 고객 성공 매니저에게 연락하여 `ad_id` 전송을 활성화하세요.
 - `message_extras`를 사용하면 연결된 콘텐츠의 동적 데이터, 커스텀 속성(예: 언어, 국가) 및 Canvas 진입 속성으로 전송 이벤트에 주석을 달 수 있습니다. 자세한 내용은 [메시지 추가 정보]({{site.baseurl}}/message_extras_tag)를 참조하세요.
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송을 위한 ID입니다. 같은 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
 
 {% endapi %}
 
@@ -12656,7 +13417,7 @@ RCS, Clicks
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab 커스텀 HTTP 커넥터 %}
 ```json
 // users.messages.rcs.Click
 
@@ -12913,7 +13674,7 @@ RCS, Delivery
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab 커스텀 HTTP 커넥터 %}
 ```json
 // users.messages.rcs.Delivery
 
@@ -14481,7 +15242,7 @@ SMS, Sends
 
 ### 속성 세부 정보
 
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
 
 {% endapi %}
 
@@ -14726,7 +15487,7 @@ SMS, Delivery
 
 ### 속성 세부 정보
 
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
 
 {% endapi %}
 
@@ -16208,6 +16969,390 @@ SMS, Clicks
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "phone" : "(optional, string) [PII] The user's phone number from which the message was received",
   "phone_sha256" : "(optional, string) SHA-256 hash of the E.164 normalized phone number; only present for SMS events"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
+{% api %}
+## 설문조사 응답 이벤트 {#survey-response-events}
+
+{% apitags %}
+Surveys, Responses
+{% endapitags %}
+
+최종사용자가 제출한 설문조사 응답입니다.
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.messages.survey.Response
+
+{
+  "ad_id" : "(optional, string) [PII] Advertising identifier",
+  "ad_id_type" : "(optional, string) One of ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']",
+  "ad_tracking_enabled" : "(optional, boolean) Whether advertising tracking is enabled for the device",
+  "answer_long_string" : "(optional, string) [PII] The raw response when response_type is free_form_text",
+  "answer_multiple_strings" : "(optional, string) [PII] The raw response when answer_type is multiple_string.",
+  "answer_single_boolean" : "(optional, boolean) [PII] The raw response when answer_type is single_boolean",
+  "answer_single_number" : "(optional, double) [PII] The raw response when answer_type is single_number",
+  "answer_single_string" : "(optional, string) [PII] The raw response when answer_type is single_string",
+  "answer_type" : "(optional, string) Answer type of the event, one of ['single_int', 'single_string', 'single_boolean', 'multiple_string']",
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "app_id" : "(optional, string) API ID of the app on which this event occurred",
+  "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
+  "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+  "campaign_name" : "(optional, string) Name of the campaign",
+  "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+  "canvas_name" : "(optional, string) Name of the Canvas",
+  "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+  "canvas_step_message_variation_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+  "canvas_step_name" : "(optional, string) Name of the Canvas step",
+  "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+  "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+  "carrier" : "(optional, string) Carrier of the device",
+  "country" : "(optional, string) [PII] Country of the user",
+  "device_id" : "(optional, string) [PII] ID of the device on which the event occurred",
+  "device_model" : "(optional, string) Model of the device",
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+  "id" : "(required, string) Globally unique ID for this event",
+  "landing_page_api_id" : "(optional, string) API ID of the landing page this event belongs to",
+  "landing_page_name" : "(optional, string) Name of the landing page",
+  "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
+  "message_variation_id" : "(optional, string) API ID of the message variation this user received",
+  "message_variation_name" : "(optional, string) Name of the message variation",
+  "os_version" : "(optional, string) Version of the operating system of the device",
+  "platform" : "(optional, string) Platform of the device",
+  "question_id" : "(required, string) UUID of the question to which this response belongs.",
+  "question_reporting_id" : "(optional, string) The reporting identifier for the survey question",
+  "response_id" : "(optional, string) Unique identifier represent the response",
+  "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
+  "survey_completion_status" : "(optional, string) One of ['completed', 'incomplete']",
+  "survey_id" : "(required, string) UUID of the survey to which this response belongs.",
+  "survey_session_id" : "(optional, string) Unique identifier to group all responses from a single survey session",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "timezone" : "(optional, string) Time zone of the user",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+
+{% tab Amplitude %}
+```json
+// Survey Response (users.messages.survey.Response)
+
+{
+  "adid" : "(optional, string) [PII] Advertising identifier",
+  "device_id" : "(optional, string) [PII] ID of the device on which the event occurred",
+  "event_properties" : {
+    "ad_id" : "(optional, string) [PII] Advertising identifier",
+    "ad_id_type" : "(optional, string) One of ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']",
+    "ad_tracking_enabled" : "(optional, boolean) Whether advertising tracking is enabled for the device",
+    "answer_long_string" : "(optional, string) [PII] The raw response when response_type is free_form_text",
+    "answer_multiple_strings" : "(optional, string) [PII] The raw response when answer_type is multiple_string.",
+    "answer_single_boolean" : "(optional, boolean) [PII] The raw response when answer_type is single_boolean",
+    "answer_single_number" : "(optional, double) [PII] The raw response when answer_type is single_number",
+    "answer_single_string" : "(optional, string) [PII] The raw response when answer_type is single_string",
+    "answer_type" : "(optional, string) Answer type of the event, one of ['single_int', 'single_string', 'single_boolean', 'multiple_string']",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "braze_user_id" : "(required, string) [PII] Braze user ID of the user who performed this event",
+    "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
+    "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+    "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "carrier" : "(optional, string) Carrier of the device",
+    "country" : "(optional, string) [PII] Country of the user",
+    "device_model" : "(optional, string) Model of the device",
+    "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+    "landing_page_api_id" : "(optional, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
+    "message_variation_id" : "(optional, string) API ID of the message variation this user received",
+    "message_variation_name" : "(optional, string) Name of the message variation",
+    "os_version" : "(optional, string) Version of the operating system of the device",
+    "platform" : "(optional, string) Platform of the device",
+    "question_id" : "(required, string) UUID of the question to which this response belongs.",
+    "question_reporting_id" : "(optional, string) The reporting identifier for the survey question",
+    "response_id" : "(optional, string) Unique identifier represent the response",
+    "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
+    "survey_completion_status" : "(optional, string) One of ['completed', 'incomplete']",
+    "survey_id" : "(required, string) UUID of the survey to which this response belongs.",
+    "survey_session_id" : "(optional, string) Unique identifier to group all responses from a single survey session",
+    "timezone" : "(optional, string) Time zone of the user"
+  },
+  "event_type" : "(required, string) The event type name, as it is exported to Amplitude",
+  "idfa" : "(optional, string) [PII] Advertising identifier",
+  "insert_id" : "(required, string) Globally unique ID for this event",
+  "library" : "Braze",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(optional, string) [PII] External ID of the user"
+}
+```
+{% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.messages.survey.Response
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "ad_id" : "(optional, string) [PII] Advertising identifier",
+    "ad_id_type" : "(optional, string) One of ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']",
+    "ad_tracking_enabled" : "(optional, boolean) Whether advertising tracking is enabled for the device",
+    "answer_long_string" : "(optional, string) [PII] The raw response when response_type is free_form_text",
+    "answer_multiple_strings" : "(optional, string) [PII] The raw response when answer_type is multiple_string.",
+    "answer_single_boolean" : "(optional, boolean) [PII] The raw response when answer_type is single_boolean",
+    "answer_single_number" : "(optional, double) [PII] The raw response when answer_type is single_number",
+    "answer_single_string" : "(optional, string) [PII] The raw response when answer_type is single_string",
+    "answer_type" : "(optional, string) Answer type of the event, one of ['single_int', 'single_string', 'single_boolean', 'multiple_string']",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
+    "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+    "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "carrier" : "(optional, string) Carrier of the device",
+    "country" : "(optional, string) [PII] Country of the user",
+    "device_model" : "(optional, string) Model of the device",
+    "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+    "landing_page_api_id" : "(optional, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
+    "message_variation_id" : "(optional, string) API ID of the message variation this user received",
+    "message_variation_name" : "(optional, string) Name of the message variation",
+    "os_version" : "(optional, string) Version of the operating system of the device",
+    "platform" : "(optional, string) Platform of the device",
+    "question_id" : "(required, string) UUID of the question to which this response belongs.",
+    "question_reporting_id" : "(optional, string) The reporting identifier for the survey question",
+    "response_id" : "(optional, string) Unique identifier represent the response",
+    "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
+    "survey_completion_status" : "(optional, string) One of ['completed', 'incomplete']",
+    "survey_id" : "(required, string) UUID of the survey to which this response belongs.",
+    "survey_session_id" : "(optional, string) Unique identifier to group all responses from a single survey session"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "device_id" : "(optional, string) [PII] ID of the device on which the event occurred",
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "timezone" : "(optional, string) Time zone of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab Mixpanel %}
+```json
+// Survey Response (users.messages.survey.Response)
+
+{
+  "event" : "(required, string) The event type name, as it is exported to Mixpanel",
+  "properties" : {
+    "$partner_id" : "braze",
+    "ad_id" : "(optional, string) [PII] Advertising identifier",
+    "ad_id_type" : "(optional, string) One of ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']",
+    "ad_tracking_enabled" : "(optional, boolean) Whether advertising tracking is enabled for the device",
+    "answer_long_string" : "(optional, string) [PII] The raw response when response_type is free_form_text",
+    "answer_multiple_strings" : "(optional, string) [PII] The raw response when answer_type is multiple_string.",
+    "answer_single_boolean" : "(optional, boolean) [PII] The raw response when answer_type is single_boolean",
+    "answer_single_number" : "(optional, double) [PII] The raw response when answer_type is single_number",
+    "answer_single_string" : "(optional, string) [PII] The raw response when answer_type is single_string",
+    "answer_type" : "(optional, string) Answer type of the event, one of ['single_int', 'single_string', 'single_boolean', 'multiple_string']",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
+    "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+    "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "carrier" : "(optional, string) Carrier of the device",
+    "country" : "(optional, string) [PII] Country of the user",
+    "$device" : "(optional, string) Model of the device",
+    "device_id" : "(optional, string) [PII] ID of the device on which the event occurred",
+    "distinct_id" : "(required, string) [PII] External ID of the user",
+    "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+    "$insert_id" : "(required, string) Globally unique ID for this event",
+    "landing_page_api_id" : "(optional, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
+    "message_variation_id" : "(optional, string) API ID of the message variation this user received",
+    "message_variation_name" : "(optional, string) Name of the message variation",
+    "$os" : "(optional, string) Version of the operating system of the device",
+    "platform" : "(optional, string) Platform of the device",
+    "question_id" : "(required, string) UUID of the question to which this response belongs.",
+    "question_reporting_id" : "(optional, string) The reporting identifier for the survey question",
+    "response_id" : "(optional, string) Unique identifier represent the response",
+    "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
+    "survey_completion_status" : "(optional, string) One of ['completed', 'incomplete']",
+    "survey_id" : "(required, string) UUID of the survey to which this response belongs.",
+    "survey_session_id" : "(optional, string) Unique identifier to group all responses from a single survey session",
+    "time" : "(required, int) UNIX timestamp at which the event happened",
+    "timezone" : "(optional, string) Time zone of the user",
+    "token" : "(required, string) The Mixpanel API token",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
+
+{% tab mParticle %}
+```json
+// Survey Responses (users.messages.survey.Response)
+
+{
+  "device_info" : {
+    "android_advertising_id" : "(optional, string) [PII] Advertising identifier",
+    "device_model" : "(optional, string) Model of the device",
+    "ios_advertising_id" : "(optional, string) [PII] Advertising identifier",
+    "ios_idfv" : "(optional, string) [PII] ID of the device on which the event occurred",
+    "limit_ad_tracking" : "(optional, boolean) Whether advertising tracking is enabled for the device",
+    "microsoft_advertising_id" : "(optional, string) [PII] Advertising identifier",
+    "platform" : "(optional, string) Platform of the device",
+    "roku_advertising_id" : "(optional, string) [PII] Advertising identifier"
+  },
+  "environment" : "(required, string) The mParticle environment (either 'development' or 'production')",
+  "events" : [
+    {
+      "data" : {
+        "custom_attributes" : {
+          "ad_id_type" : "(optional, string) One of ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']",
+          "answer_long_string" : "(optional, string) [PII] The raw response when response_type is free_form_text",
+          "answer_multiple_strings" : "(optional, string) [PII] The raw response when answer_type is multiple_string.",
+          "answer_single_boolean" : "(optional, boolean) [PII] The raw response when answer_type is single_boolean",
+          "answer_single_number" : "(optional, double) [PII] The raw response when answer_type is single_number",
+          "answer_single_string" : "(optional, string) [PII] The raw response when answer_type is single_string",
+          "answer_type" : "(optional, string) Answer type of the event, one of ['single_int', 'single_string', 'single_boolean', 'multiple_string']",
+          "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+          "app_id" : "(optional, string) API ID of the app on which this event occurred",
+          "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
+          "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+          "campaign_name" : "(optional, string) Name of the campaign",
+          "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+          "canvas_name" : "(optional, string) Name of the Canvas",
+          "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+          "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+          "canvas_step_name" : "(optional, string) Name of the Canvas step",
+          "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+          "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+          "carrier" : "(optional, string) Carrier of the device",
+          "country" : "(optional, string) [PII] Country of the user",
+          "device_id" : "(optional, string) [PII] ID of the device on which the event occurred",
+          "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+          "landing_page_api_id" : "(optional, string) API ID of the landing page this event belongs to",
+          "landing_page_name" : "(optional, string) Name of the landing page",
+          "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
+          "message_variation_id" : "(optional, string) API ID of the message variation this user received",
+          "message_variation_name" : "(optional, string) Name of the message variation",
+          "os_version" : "(optional, string) Version of the operating system of the device",
+          "question_id" : "(required, string) UUID of the question to which this response belongs.",
+          "question_reporting_id" : "(optional, string) The reporting identifier for the survey question",
+          "response_id" : "(optional, string) Unique identifier represent the response",
+          "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
+          "source_request_id" : "(required, string) Globally unique ID for this event",
+          "survey_completion_status" : "(optional, string) One of ['completed', 'incomplete']",
+          "survey_id" : "(required, string) UUID of the survey to which this response belongs.",
+          "survey_session_id" : "(optional, string) Unique identifier to group all responses from a single survey session",
+          "timezone" : "(optional, string) Time zone of the user",
+          "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+        },
+        "custom_event_type" : "(required, string) The mParticle custom event type if the event_type is 'custom_event' (always 'other')",
+        "event_name" : "(required, string) The event type name, as it is exported to mParticle",
+        "source_message_id" : "(required, string) Globally unique ID for this event",
+        "timestamp_unixtime_ms" : "(required, int) UNIX timestamp at which the event happened"
+      },
+      "event_type" : "(required, string) mParticle event type (either 'uninstall' or 'custom_event')"
+    }
+  ],
+  "schema_version" : 2,
+  "user_attributes" : { },
+  "user_identities" : {
+    "customerid" : "(required, string) [PII] External ID of the user"
+  }
+}
+```
+{% endtab %}
+
+{% tab Segment %}
+```json
+// Survey Responded (users.messages.survey.Response)
+
+{
+  "anonymousId" : "(required, string) [PII] Braze user ID of the user who performed this event",
+  "context" : {
+    "device" : {
+      "model" : "(optional, string) Model of the device"
+    },
+    "traits" : { }
+  },
+  "event" : "(required, string) The event type name, as it is exported to Segment",
+  "messageId" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "ad_id" : "(optional, string) [PII] Advertising identifier",
+    "ad_id_type" : "(optional, string) One of ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']",
+    "ad_tracking_enabled" : "(optional, boolean) Whether advertising tracking is enabled for the device",
+    "answer_long_string" : "(optional, string) [PII] The raw response when response_type is free_form_text",
+    "answer_multiple_strings" : "(optional, string) [PII] The raw response when answer_type is multiple_string.",
+    "answer_single_boolean" : "(optional, boolean) [PII] The raw response when answer_type is single_boolean",
+    "answer_single_number" : "(optional, double) [PII] The raw response when answer_type is single_number",
+    "answer_single_string" : "(optional, string) [PII] The raw response when answer_type is single_string",
+    "answer_type" : "(optional, string) Answer type of the event, one of ['single_int', 'single_string', 'single_boolean', 'multiple_string']",
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "browser" : "(optional, string) Device browser - extracted from user_agent - on which the open occurred",
+    "campaign_id" : "(optional, string) API ID of the campaign this event belongs to",
+    "campaign_name" : "(optional, string) Name of the campaign",
+    "canvas_id" : "(optional, string) API ID of the Canvas this event belongs to",
+    "canvas_name" : "(optional, string) Name of the Canvas",
+    "canvas_step_id" : "(optional, string) API ID of the Canvas step this event belongs to",
+    "canvas_step_message_variation_api_id" : "(optional, string) API ID of the Canvas step message variation this user received",
+    "canvas_step_name" : "(optional, string) Name of the Canvas step",
+    "canvas_variation_id" : "(optional, string) API ID of the Canvas variation this event belongs to",
+    "canvas_variation_name" : "(optional, string) Name of the Canvas variation this user received",
+    "carrier" : "(optional, string) Carrier of the device",
+    "country" : "(optional, string) [PII] Country of the user",
+    "device_id" : "(optional, string) [PII] ID of the device on which the event occurred",
+    "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
+    "landing_page_api_id" : "(optional, string) API ID of the landing page this event belongs to",
+    "landing_page_name" : "(optional, string) Name of the landing page",
+    "message_extras" : "(optional, string) [PII] A JSON string of the tagged key-value pairs during liquid rendering",
+    "message_variation_id" : "(optional, string) API ID of the message variation this user received",
+    "message_variation_name" : "(optional, string) Name of the message variation",
+    "os_version" : "(optional, string) Version of the operating system of the device",
+    "question_id" : "(required, string) UUID of the question to which this response belongs.",
+    "question_reporting_id" : "(optional, string) The reporting identifier for the survey question",
+    "response_id" : "(optional, string) Unique identifier represent the response",
+    "sdk_version" : "(optional, string) Version of the Braze SDK in use during the event",
+    "survey_completion_status" : "(optional, string) One of ['completed', 'incomplete']",
+    "survey_id" : "(required, string) UUID of the survey to which this response belongs.",
+    "survey_session_id" : "(optional, string) Unique identifier to group all responses from a single survey session",
+    "timezone" : "(optional, string) Time zone of the user"
+  },
+  "timestamp" : "(required, int) UNIX timestamp at which the event happened",
+  "type" : "track",
+  "userId" : "(optional, string) [PII] External ID of the user"
 }
 ```
 {% endtab %}

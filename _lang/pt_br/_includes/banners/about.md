@@ -4,35 +4,35 @@
 
 ## Pré-requisitos {#prerequisites}
 
-A disponibilidade de Banners depende do seu pacote da Braze. Entre em contato com seu gerente de conta ou gerente de sucesso do cliente para começar.
+A disponibilidade de Banners depende do seu pacote Braze. Entre em contato com seu gerente de conta ou gerente de sucesso do cliente para começar.
 
-Antes de começar, certifique-se de ter [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements) criados no seu app ou site.
+Antes de começar, certifique-se de que você tenha [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements) criados no seu app ou website.
 
-![Um exemplo de Banner exibido em um dispositivo.]({% image_buster /assets/img/banners/sample_banner.png %})
+![Um exemplo de Banner renderizado em um dispositivo.]({% image_buster /assets/img/banners/sample_banner.png %})
 
 ## Por que usar Banners? {#why-use-banners}
 
-Os Banners permitem que as equipes de marketing e produto personalizem o conteúdo do app ou site dinamicamente, refletindo a elegibilidade e o comportamento do usuário em tempo real. Eles exibem mensagens de forma persistente e inline, proporcionando experiências contextualmente relevantes e não intrusivas que podem ser atualizadas no início de uma sessão ou durante a sessão, quando seu app ou site solicita explicitamente.
+Banners permitem que equipes de marketing e produto personalizem o conteúdo de apps ou websites de forma dinâmica, refletindo a elegibilidade e o comportamento do usuário em tempo real. Eles exibem mensagens inline de forma persistente, proporcionando experiências não intrusivas e contextualmente relevantes que podem ser atualizadas no início de uma sessão ou durante a sessão, quando seu app ou website solicita explicitamente.
 
-Depois que os Banners são integrados a um app ou site, os profissionais de marketing podem projetar e lançar Banners usando um editor de arrastar e soltar ou um editor de HTML completo, eliminando a necessidade de assistência contínua de desenvolvedores, reduzindo a complexidade e melhorando a eficiência.
+Depois que os Banners são integrados a um app ou website, os profissionais de marketing podem criar e lançar Banners usando um editor de arrastar e soltar ou um editor de HTML completo, eliminando a necessidade de assistência contínua de desenvolvedores, reduzindo a complexidade e melhorando a eficiência.
 
 | Caso de uso | Explicação |
 | --- | --- |
 | Anúncios | Mantenha anúncios como eventos futuros ou mudanças de políticas em destaque na experiência do seu app. |
 | Personalização de ofertas | Mostre promoções e incentivos personalizados com base no histórico de navegação, conteúdo do carrinho, nível de inscrição e status de fidelidade de cada usuário. |
-| Engajamento de novos usuários | Guie novos usuários através de fluxos de integração e configuração de conta. |
-| Vendas e promoções | Destaque conteúdo em destaque, produtos em tendência e campanhas de marca em andamento de forma persistente e direta na sua página inicial, sem interromper a experiência do usuário. |
+| Direcionamento de engajamento de novos usuários | Guie novos usuários por fluxos de integração e configuração de conta. |
+| Vendas e promoções | Destaque conteúdo em destaque, produtos em alta e campanhas de marca em andamento de forma persistente e diretamente na sua página inicial, sem interromper a experiência do usuário. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Por que usar Banners?" }
 
 ## Recursos {#features}
 
 Os recursos dos Banners incluem:
 
-- **Construção de conteúdo fácil:** Crie e visualize seu Banner usando um editor visual de arrastar e soltar com suporte para imagens, texto, botões, formulários de captura de e-mail, código personalizado e muito mais. Equipes que preferem gerenciar sua própria marcação podem usar o editor de HTML para controle total sobre o HTML e os estilos do Banner, ou pedir ao [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages) para gerar HTML a partir de uma descrição.
-- **Posicionamentos flexíveis:** Defina múltiplos locais dentro do seu aplicativo ou site onde os Banners podem aparecer, permitindo direcionamento preciso a contextos ou experiências de usuário específicas.
+- **Criação de conteúdo fácil:** Crie e visualize seu Banner usando um editor visual de arrastar e soltar com suporte para imagens, texto, botões, formulários de captura de e-mail, código personalizado e muito mais. Equipes que preferem gerenciar sua própria marcação podem usar o editor de HTML para ter controle total sobre o HTML e os estilos do Banner, ou pedir ao [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages) para gerar HTML a partir de uma descrição.
+- **Posicionamentos flexíveis:** Defina vários locais dentro do seu aplicativo ou website onde os Banners podem aparecer, permitindo direcionamento preciso para contextos ou experiências de usuário específicos.
 - **Personalização dinâmica:** Os Banners recalculam a personalização (lógica Liquid) e a segmentação toda vez que o banner é atualizado. Se um usuário atualizar seu perfil ou um atributo personalizado mudar, a próxima atualização do Banner refletirá essas mudanças.
-- **Priorização nativa:** Defina a prioridade de exibição para quando vários Banners visam o mesmo posicionamento, garantindo que a mensagem certa chegue aos usuários no momento certo.
-- **Bloco de editor de código personalizado:** Use o bloco de editor de código personalizado para adicionar HTML personalizado para personalização avançada ou integração perfeita com seus estilos web existentes.
+- **Priorização nativa:** Defina a prioridade de exibição para quando vários Banners direcionam o mesmo posicionamento, garantindo que a mensagem certa chegue aos usuários no momento certo.
+- **Bloco de editor de código personalizado:** Use o bloco de editor de código personalizado para adicionar HTML personalizado para customização avançada ou integração perfeita com seus estilos web existentes.
 
 ## Sobre os Banners {#about-banners}
 
@@ -74,23 +74,33 @@ Aqui está o que você precisa saber sobre dimensões e tamanhos de Banners:
 - O HTML ocupa toda a largura do contêiner em que é renderizado.
 - Recomendamos criar um elemento de dimensão fixa e testar essas dimensões no criador.
 
+### Connected Content {#connected-content}
+
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Connected Content for Banners' %}
+
+Você pode usar o [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para obter dados em tempo real de APIs externas nos seus Banners. Como os Banners são renderizados inline durante a atualização de sessão, o Connected Content tem limitações específicas neste canal:
+
+- **Somente requisições GET:** Os Banners renderizam apenas requisições Connected Content do tipo `GET`. Requisições `POST` não são compatíveis.
+- **Orçamento de renderização compartilhado:** Todos os posicionamentos retornados em uma única requisição de atualização (até 10) compartilham um orçamento de renderização de aproximadamente dois segundos. Cada chamada de Connected Content conta contra esse orçamento compartilhado, então um posicionamento com chamadas lentas ou numerosas pode consumir o tempo que outros posicionamentos precisam.
+- **Sem novas tentativas:** Se uma chamada de Connected Content falhar, expirar ou o orçamento de renderização for excedido, o resultado do Connected Content para aquele posicionamento é tratado como nulo. Diferentemente de outros canais, os Banners não tentam novamente a requisição nem atrasam a entrega.
+
 ## Limitações {#limitations}
 
-Cada espaço de trabalho pode suportar até 200 campanhas de Banner ativas. Se esse limite for atingido, você precisará [arquivar ou desativar]({{site.baseurl}}/user_guide/messaging/governance/statuses#changing-the-status) uma campanha existente antes de criar uma nova.
+Cada espaço de trabalho pode suportar até 200 Campaigns de Banner ativas. Se esse limite for atingido, você precisará [arquivar ou desativar]({{site.baseurl}}/user_guide/messaging/governance/statuses#changing-the-status) uma Campaign existente antes de criar uma nova.
 
 Além disso, as mensagens de Banner não suportam os seguintes recursos:
 
-- Campaigns disparadas por API e baseadas em ações
-- Conteúdo conectado
+- Campaigns disparadas por API e baseadas em ação
+- [Connected Content](#connected-content) (em acesso antecipado)
 - Códigos promocionais
 - `catalog_items` usando a [tag `:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs#using-liquid)
 
 ## Próximos passos {#next-steps}
 
-- [Criar posicionamentos de Banner no seu app ou site]({{site.baseurl}}/developer_guide/banners/placements)
+- [Criar posicionamentos de Banner no seu app ou website]({{site.baseurl}}/developer_guide/banners/placements)
 - [Criar uma campanha de Banner na Braze]({{site.baseurl}}/user_guide/channels/banners/create_a_banner)
-- [Tutorial: Exibindo um Banner pelo ID de posicionamento]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
+- [Tutorial: Exibindo um Banner por ID de posicionamento]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
 
 {% alert tip %}
-Quer ajudar a priorizar o que vem a seguir? Entre em contato com [banners-feedback@braze.com](mailto:banners-feedback@braze.com).
+Quer ajudar a priorizar o que vem a seguir? Entre em contato pelo e-mail [banners-feedback@braze.com](mailto:banners-feedback@braze.com).
 {% endalert %}

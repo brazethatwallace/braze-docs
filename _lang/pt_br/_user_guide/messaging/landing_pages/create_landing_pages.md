@@ -67,9 +67,9 @@ Você pode usar esses blocos para adicionar conteúdo e personalizar o layout da
 | Título | Um bloco de texto para adicionar um cabeçalho ou título ao seu conteúdo. Útil para estruturar seções e melhorar a legibilidade. |
 | Parágrafo | Um bloco de texto para descrições mais longas ou contexto adicional. Suporta formatação de rich text. |
 | Botão | Um elemento clicável que direciona os usuários para uma ação específica, como abrir um link ou enviar um formulário. |
-| Botão de opção | Adiciona uma lista de opções das quais os usuários podem selecionar uma. Quando enviado, o perfil do usuário registra o atributo personalizado associado. |
+| Botão de opção | Adiciona uma lista de opções das quais os usuários devem selecionar uma. Quando enviado, o perfil do usuário registra o atributo personalizado associado. |
 | Imagem | Um bloco para exibir imagens. Você pode fazer upload de uma imagem ou fornecer uma URL para referenciar uma fonte externa. |
-| Link | Um hiperlink que os usuários podem clicar para navegar até uma URL especificada. Pode ser incorporado dentro do texto ou independente. |
+| Link | Um hiperlink que os usuários podem clicar para navegar até uma URL especificada. Pode ser incorporado dentro do texto ou ser independente. |
 | Espaçador | Um bloco invisível que adiciona espaçamento vertical entre elementos para melhorar o layout e a legibilidade. |
 | Código personalizado | Um bloco que permite inserir e executar HTML, CSS ou JavaScript personalizados para personalização avançada. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Personalizar a página" }
@@ -78,9 +78,9 @@ Você pode usar esses blocos para adicionar conteúdo e personalizar o layout da
 
 Para aplicar estilos específicos a blocos de texto sem código personalizado, destaque o texto que deseja estilizar e selecione **Wrap with span for style**.
 
-![Caixa de texto com diferentes seções de texto estilizadas, como diferentes tamanhos e cores de fonte, e uma seção destacada que exibe uma barra de ferramentas com a opção "Wrap with span for style".]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+![Caixa de texto com diferentes seções de texto estilizadas, como tamanhos e cores de fonte diferentes, e uma seção destacada que exibe uma barra de ferramentas com a opção "Wrap with span for style".]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
-Ajuste as propriedades do span para atualizar o estilo do texto, incluindo:
+Ajuste as propriedades do span para atualizar o estilo do texto, que inclui:
 
 - Família, peso e tamanho da fonte
 - Altura da linha
@@ -135,7 +135,11 @@ Quando ativado, você também pode inverter a ordem de empilhamento das colunas 
 
 #### Campos opcionais e obrigatórios {#optional-and-required-fields}
 
-Você pode escolher se um campo de formulário é obrigatório ou opcional. Campos obrigatórios devem ser preenchidos antes que o formulário possa ser enviado. Campos opcionais podem ser deixados em branco ou não selecionados pelo usuário.
+Você pode escolher se determinados campos de formulário são obrigatórios ou opcionais. Os campos obrigatórios devem ser preenchidos antes que o formulário possa ser enviado. Os campos opcionais podem ser deixados em branco ou não selecionados pelo usuário.
+
+{% alert note %}
+Os botões de opção são sempre obrigatórios e não podem ser definidos como opcionais. Se você precisar de um campo de escolha única opcional, considere usar um menu suspenso.
+{% endalert %}
 
 Por exemplo, para exigir a captura de consentimento antes do envio do formulário, você pode ativar **Required field input** para definir uma caixa de seleção como obrigatória com o texto de aviso apropriado.
 
@@ -143,7 +147,7 @@ Por exemplo, para exigir a captura de consentimento antes do envio do formulári
 
 ### Etapa 4: Criar uma página de confirmação (opcional) {#step-4-create-a-confirmation-page-optional}
 
-Se sua landing page não inclui um formulário, continue para a próxima etapa.
+Se sua landing page não inclui um formulário, prossiga para a próxima etapa.
 
 Se sua landing page inclui um [formulário](#form-blocks), crie uma segunda landing page para servir como experiência de confirmação. Essa página deve agradecer aos usuários ou fornecer um próximo passo após o envio do formulário.
 
@@ -183,12 +187,12 @@ Antes de publicar, certifique-se de que:
 Quando estiver pronto, selecione **Publish Landing Page**.
 
 {% alert note %}
-Bloqueadores de pop-up e bloqueadores de anúncios agressivos no iOS e no Safari (incluindo os controles integrados do Safari e extensões de terceiros) podem impactar negativamente o comportamento das landing pages quando um botão **Submit** do formulário também abre outra URL, seja na mesma guia ou em uma nova guia.
+Bloqueadores de pop-up e de anúncios agressivos no iOS e no Safari (incluindo os controles integrados do Safari e extensões de terceiros) podem impactar negativamente o comportamento das landing pages quando um botão **Submit** de formulário também abre outra URL, seja na mesma guia ou em uma nova guia.
 {% endalert %}
 
 ## Usar modelos {#use-templates}
 
-Os modelos de landing page são pontos de partida de design reutilizáveis que ajudam você a criar landing pages mais rapidamente. Um modelo não tem URL pública e não pode ser visitado por clientes. Para criar uma landing page ativa a partir de um modelo, selecione o modelo ao criar uma nova landing page, personalize conforme necessário e publique.
+Os modelos de landing page são pontos de partida de design reutilizáveis que ajudam você a criar landing pages mais rapidamente. Um modelo não tem URL pública e não pode ser visitado por clientes. Para criar uma landing page ativa a partir de um modelo, selecione o modelo ao criar uma nova landing page, personalize-o conforme necessário e publique-o.
 
 Os modelos podem ser acessados e gerenciados tanto no editor de landing pages quanto na página **Landing Page Templates** (**Content** > **Landing Page**). Os modelos de landing page exigem um nome e uma descrição opcional.
 
@@ -198,7 +202,7 @@ Você pode visualizar, arquivar ou editar modelos de landing page. É possível 
 
 ![Um menu suspenso com opções para salvar, alterar e excluir uma landing page.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
-## Visualizar análise de dados {#view-analytics}
+## Ver análise de dados {#view-analytics}
 
 Para analisar a eficácia da sua landing page, acesse **Messaging** > **Landing Pages** e selecione uma landing page que você publicou. Aqui, você pode acompanhar o número de visualizações de página, cliques na página, envios de formulário e as taxas de envio da sua landing page.
 

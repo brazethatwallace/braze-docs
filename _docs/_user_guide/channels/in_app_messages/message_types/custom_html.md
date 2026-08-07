@@ -31,6 +31,28 @@ Custom HTML messages can use the [JavaScript Bridge](#javascript-bridge) methods
 To enable HTML in-app messages through the Web SDK, you must supply the `allowUserSuppliedJavascript` initialization option to Braze: for example, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. This is for security reasons since HTML in-app messages can execute JavaScript, so we require a site maintainer to enable them.
 {% endalert %}
 
+### Rendering environments
+
+Custom HTML in-app messages render directly in the browser on web, but inside a platform WebView on iOS and Android. Because each environment uses a different rendering engine, the same HTML and CSS may display with slight visual differences across platforms, particularly for column layouts, fonts, and spacing.
+
+To minimize cross-platform differences:
+
+- Use explicit CSS values rather than relying on browser defaults
+- Include a viewport meta tag (for example, `<meta name="viewport" content="width=device-width, initial-scale=1">`)
+- Test on actual devices with test sends
+
+## Character encoding {#character-encoding}
+
+When building custom HTML in-app messages with special characters—such as Cyrillic script, accented characters, or other non-ASCII text—include UTF-8 encoding in your HTML to ensure proper display. Without UTF-8 encoding, these characters may appear broken or missing when rendered in the webview.
+
+To enable UTF-8 encoding, add the following meta tag inside your HTML `<head>` section:
+
+```html
+<meta charset="UTF-8">
+```
+
+This forces UTF-8 encoding, which is the expected character set for webviews that display in-app messages.
+
 ## JavaScript bridge {#javascript-bridge}
 
 {% include javascript_bridge/reference.md %}

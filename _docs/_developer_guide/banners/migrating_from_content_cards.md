@@ -55,7 +55,7 @@ Consider migrating to Banners if you're using Content Cards for:
 Continue using Content Cards if you need:
 
 - **Feed experiences:** Any use case involving multiple scrollable messages or a card-based "Inbox".
-- **Specific features:** Messages that require Connected Content or Promotional Codes, as Banners do not support these natively.
+- **Specific features:** Messages that require promotional codes, as Banners do not support these natively. Banners support [Connected Content]({{site.baseurl}}/developer_guide/banners/#connected-content) in early access.
 - **Triggered delivery:** Use cases strictly requiring API-triggered or action-based delivery. While Banners don’t support API-triggered or action-based delivery, real-time eligibility evaluation means users instantly qualify or disqualify based on segment membership at each refresh.
 
 ## Migration guide

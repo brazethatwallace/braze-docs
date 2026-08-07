@@ -30,6 +30,10 @@ Es gibt zwar keine Beschränkungen für die Anzahl der Textzeichen, die Sie in e
 
 Alle In-App-Nachrichten haben eine empfohlene Bildgröße von 500 KB, eine maximale Bildgröße von 5 MB und unterstützen die Dateitypen PNG, JPEG und GIF. WebP-Bilder werden nicht von allen Geräten oder Browsern unterstützt. Wir empfehlen, WebP-Bilder in das PNG- oder JPEG-Format zu konvertieren, bevor Sie sie zu In-App-Nachrichten hinzufügen.
 
+{% alert note %}
+SVG-Bilder werden für In-App-Nachrichten nicht unterstützt, da sie nicht auf allen Plattformen zuverlässig gerendert werden. Verwenden Sie stattdessen PNG, JPEG oder GIF.
+{% endalert %}
+
 {% tabs %}
 {% tab Portrait %}
 
@@ -67,6 +71,10 @@ Alle In-App-Nachrichten haben eine empfohlene Bildgröße von 500 KB, eine maxim
 
 {% endtab %}
 {% endtabs %}
+
+{% alert tip %}
+Das Rendering von In-App-Nachrichten im Web SDK kann durch benutzerdefinierte Textgrößeneinstellungen des Browsers beeinflusst werden. Nutzer:innen mit benutzerdefinierter Textgrößenskalierung können geringfügige Darstellungsprobleme feststellen, wie z. B. einen 1-px-Spalt am Rand eines modalen Bildes. Beim Testen und Vorschauen von In-App-Nachrichten empfehlen wir, die Standard-Textgrößeneinstellungen des Browsers zu verwenden, um eine möglichst genaue Darstellung zu erhalten.
+{% endalert %}
 
 {% endif %}
 

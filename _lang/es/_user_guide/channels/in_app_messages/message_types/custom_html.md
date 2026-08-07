@@ -16,7 +16,7 @@ Este tipo de mensaje está disponible en el [editor tradicional]({{site.baseurl}
 
 ## Cómo funciona {#how-it-works}
 
-Los mensajes dentro de la aplicación HTML permiten un mayor control sobre la apariencia de un mensaje, incluyendo lo siguiente:
+Los mensajes HTML dentro de la aplicación permiten un mayor control sobre el aspecto y la apariencia de un mensaje, incluyendo lo siguiente:
 
 - Fuentes y estilos personalizados
 - Videos
@@ -25,11 +25,33 @@ Los mensajes dentro de la aplicación HTML permiten un mayor control sobre la ap
 - Componentes interactivos
 - Animaciones personalizadas
 
-Los mensajes HTML personalizados pueden utilizar los métodos del [puente JavaScript](#javascript-bridge) para registrar eventos, establecer atributos personalizados, cerrar el mensaje y más. Consulta nuestro [repositorio de GitHub](https://github.com/braze-inc/in-app-message-templates) que contiene instrucciones detalladas sobre cómo usar y personalizar los mensajes dentro de la aplicación HTML para tus necesidades, y un conjunto de plantillas de mensajes dentro de la aplicación HTML5 para ayudarte a comenzar.
+Los mensajes HTML personalizados pueden utilizar los métodos del [puente JavaScript](#javascript-bridge) para registrar eventos, establecer atributos personalizados, cerrar el mensaje y mucho más. Consulta nuestro [repositorio de GitHub](https://github.com/braze-inc/in-app-message-templates) que contiene instrucciones detalladas sobre cómo usar y personalizar los mensajes HTML dentro de la aplicación según tus necesidades, así como un conjunto de plantillas de mensajes dentro de la aplicación HTML5 para ayudarte a empezar.
 
 {% alert note %}
-Para habilitar los mensajes dentro de la aplicación HTML a través del SDK Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze: por ejemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad, ya que los mensajes dentro de la aplicación HTML pueden ejecutar JavaScript, por lo que requerimos que un administrador del sitio los habilite.
+Para habilitar los mensajes HTML dentro de la aplicación a través del SDK Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze: por ejemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad, ya que los mensajes HTML dentro de la aplicación pueden ejecutar JavaScript, por lo que requerimos que un administrador del sitio los habilite.
 {% endalert %}
+
+### Entornos de renderizado {#rendering-environments}
+
+Los mensajes HTML personalizados dentro de la aplicación se renderizan directamente en el navegador en la Web, pero dentro de un WebView de la plataforma en iOS y Android. Dado que cada entorno utiliza un motor de renderizado diferente, el mismo HTML y CSS puede mostrarse con ligeras diferencias visuales entre plataformas, particularmente en diseños de columnas, fuentes y espaciado.
+
+Para minimizar las diferencias entre plataformas:
+
+- Usa valores CSS explícitos en lugar de depender de los valores predeterminados del navegador
+- Incluye una etiqueta meta de viewport (por ejemplo, `<meta name="viewport" content="width=device-width, initial-scale=1">`)
+- Prueba en dispositivos reales con envíos de prueba
+
+## Codificación de caracteres {#character-encoding}
+
+Al crear mensajes dentro de la aplicación HTML personalizados con caracteres especiales, como escritura cirílica, caracteres acentuados u otro texto no ASCII, incluye la codificación UTF-8 en tu HTML para garantizar una visualización correcta. Sin la codificación UTF-8, estos caracteres pueden aparecer rotos o ausentes cuando se renderizan en la vista web.
+
+Para habilitar la codificación UTF-8, añade la siguiente metaetiqueta dentro de la sección `<head>` de tu HTML:
+
+```html
+<meta charset="UTF-8">
+```
+
+Esto fuerza la codificación UTF-8, que es el conjunto de caracteres esperado para las vistas web que muestran mensajes dentro de la aplicación.
 
 ## Puente JavaScript {#javascript-bridge}
 
@@ -95,7 +117,7 @@ Los métodos JavaScript de `brazeBridge` que utilices en tu HTML no actualizará
 
 #### Archivos de activos {#asset-files}
 
-Al crear mensajes dentro de la aplicación de código personalizado con carga HTML, puedes subir activos de Campaign a la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) para referenciarlos en tu mensaje.
+Al crear mensajes dentro de la aplicación de código personalizado con carga HTML, puedes subir activos de la Campaign a la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) para referenciarlos en tu mensaje.
 
 Los siguientes tipos de archivo son compatibles para la carga:
 
@@ -122,7 +144,7 @@ Una vez añadidos tus activos, aparecerán en la sección **Activos para esta Ca
 
 Si el nombre de un activo coincide con el de un activo HTML local, se reemplaza automáticamente (por ejemplo, se sube `cat.png` y existe `<img src="cat.png" />`).
 
-De lo contrario, pasa el cursor sobre un activo de la lista y selecciona <i class="fas fa-copy"></i> **Copiar** para copiar la URL del archivo a tu portapapeles. Luego pega la URL del activo copiada en tu HTML como lo harías normalmente al referenciar un activo remoto.
+De lo contrario, pasa el cursor sobre un activo de la lista y selecciona <i class="fas fa-copy"></i> **Copiar** para copiar la URL del archivo a tu portapapeles. Luego pega la URL del activo copiado en tu HTML como lo harías normalmente al referenciar un activo remoto.
 
 ### Editor HTML {#html-editor}
 
@@ -148,17 +170,17 @@ Puedes hacer seguimiento del rendimiento dentro de tu mensaje dentro de la aplic
 Este método de seguimiento de botones reemplaza los métodos anteriores de seguimiento automático de clics (como `?abButtonId=0`), que han sido eliminados.
 {% endalert %}
 
-Utiliza [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) para mensajes HTML con vista previa cuando necesites más de dos botones con seguimiento. El botón 1 y el botón 2 se asignan a `'0'` y `'1'`; los botones adicionales usan ID personalizados (hasta 100 ID únicos por Campaign). Para restricciones de caracteres en los ID de botones, consulta [Seguimiento de botones](#button-tracking-improvements).
+Utiliza [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) para mensajes HTML con vista previa cuando necesites más de dos botones con seguimiento. El Botón 1 y el Botón 2 se asignan a `'0'` y `'1'`; los botones adicionales usan ID personalizados (hasta 100 ID únicos por Campaign). Para restricciones de caracteres en los ID de botones, consulta [Seguimiento de botones](#button-tracking-improvements).
 
-### Solucionar problemas con enlaces HTML personalizados y comportamiento de cierre {#troubleshoot-custom-html-links-and-close-behavior}
+### Solución de problemas con enlaces HTML personalizados y comportamiento de cierre {#troubleshoot-custom-html-links-and-close-behavior}
 
-#### Los clics en botones no abren el enlace {#button-clicks-do-not-open-the-link}
+#### Los clics en el botón no abren el enlace {#button-clicks-do-not-open-the-link}
 
 Si un botón en tu mensaje dentro de la aplicación con HTML personalizado no carga al hacer clic, verifica que el enlace utilice una URL válida o un esquema de vínculo profundo compatible. Las URL mal formadas o los esquemas personalizados no compatibles pueden impedir que la acción de clic se complete.
 
 #### Clics en el cuerpo al cerrar el mensaje {#body-clicks-when-closing-the-message}
 
-Llamar a `brazeBridge.closeMessage()` cierra el mensaje pero no registra análisis por sí solo. Para registrar un clic en el cuerpo cuando el usuario cierra el mensaje, llama a `brazeBridge.logClick()` antes de `brazeBridge.closeMessage()` para que el registro de clics sea consistente en todas las plataformas.
+Llamar a `brazeBridge.closeMessage()` cierra el mensaje pero no registra análisis por sí solo. Para registrar un clic en el cuerpo cuando el usuario cierra el mensaje, llama a `brazeBridge.logClick()` antes de `brazeBridge.closeMessage()` para que el registro de clics se mantenga consistente en todas las plataformas.
 
 ### Cambios incompatibles con versiones anteriores {#backward-incompatible-changes}
 

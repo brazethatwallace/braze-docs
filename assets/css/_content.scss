@@ -1265,6 +1265,44 @@ svg[id^="mermaid"] {
   padding-top: 16px !important;
 }
 
+// Partners home A–Z directory: multi-column layout
+.partners-az-list {
+  column-count: 1;
+
+  @media (min-width: $window-medium-px) {
+    column-count: 2 !important;
+    column-gap: 2rem !important;
+  }
+
+  @media (min-width: $window-large-px) {
+    column-count: 3 !important;
+  }
+}
+
+.partners-az-group {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 1.25rem !important;
+
+  h2 {
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  ul {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    list-style: none !important;
+    padding-left: 0 !important;
+  }
+
+  li {
+    margin-bottom: 0.2rem !important;
+  }
+}
+
 .copy-block {
   position: relative;
   padding: 16px 52px 6px 16px;

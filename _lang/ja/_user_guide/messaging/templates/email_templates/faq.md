@@ -27,21 +27,23 @@ channel: email
 
 購読解除ページにはリダイレクトオプションがあります。
 
-カスタムフッターの購読解除リンクを {% raw %} `{{${set_user_to_unsubscribed_url}}}` {% endraw %} から、ユーザー IDを含むクエリパラメーター付きの自社Webサイトへのリンクに変更できます。例は以下の通りです：
+カスタムフッターの購読解除リンクを {% raw %} `{{${set_user_to_unsubscribed_url}}}` {% endraw %} から、ユーザーIDを含むクエリパラメータ付きの自社Webサイトへのリンクに変更できます。例：
 {% raw %}
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-次に、[`/email/status` エンドポイント]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)を呼び出して、ユーザーの購読ステータスを更新できます。詳細については、[メール購読の変更]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions)に関するドキュメントを参照してください。
+次に、[`/email/status`エンドポイント]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)を呼び出して、ユーザーの購読ステータスを更新できます。詳細については、[メール購読の変更]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions)に関するドキュメントを参照してください。
 
-この新しいリンクを保存するには、デフォルトのBraze購読解除タグ {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} がフッターに含まれている必要があります。つまり、タグをコメント内または非表示の `<div>` タグ内に配置して「隠す」ことで、デフォルトリンクを含める必要があります。
+この新しいリンクを保存するには、デフォルトのBraze購読解除タグ {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} がフッターに含まれている必要があります。つまり、タグをコメント内または非表示の`<div>`タグ内に配置して「隠す」ことで、デフォルトリンクを含める必要があります。
 
 - **コメント内のタグの例：** タグをコメント内に配置する例：`<!-- ${set_user_to_unsubscribed_url} -->`
-- **非表示の `<div>` タグ内のコメントの例：** {%raw%}`<div style="display:none;max-height:0px;overflow:hidden;">${set_user_to_unsubscribed_url}</div>`{%endraw%}
+- **非表示の`<div>`タグ内のコメントの例：** {%raw%}`<div style="display:none;max-height:0px;overflow:hidden;">${set_user_to_unsubscribed_url}</div>`{%endraw%}
 
-### 現在キャンペーンで使用されているメールテンプレートを編集するとどうなりますか？ {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign}
+### 現在キャンペーンまたはキャンバスで使用されているメールテンプレートを編集するとどうなりますか？ {#what-happens-if-i-edit-an-email-template-that-is-currently-being-used-in-a-campaign-or-canvas}
 
-既存のテンプレートに加えた編集は、そのテンプレートの以前のバージョンを使用して作成されたキャンペーンには反映されません。REST API本文でテンプレートを使用するAPIキャンペーンの場合、Brazeは送信時にテンプレートの最新バージョンを使用します。
+メールテンプレートは、キャンペーンまたはキャンバスでメールを作成する際の出発点として機能します。テンプレートを選択すると、キャンペーンまたはキャンバス内で編集でき、それらの変更は元のテンプレートとは独立しています。
+
+既存のテンプレートに加えた編集は、そのテンプレートの以前のバージョンを使用して作成されたキャンペーンやキャンバスには反映されません。同様に、キャンペーンやキャンバス内のメールに加えた変更は、元のテンプレートに同期されません。リクエストボディに`email_template_id`を含むAPIキャンペーンの場合、Brazeは送信時にテンプレートの最新バージョンを使用します。
 
 ## リンクテンプレート {#link-templates}
 
@@ -65,7 +67,7 @@ Liquidにクエスチョンマーク（?）を追加しないでください。�
 
 HTMLエディターでハードコードされたURL（例：`https://braze.com?12345`）を使用する場合、Brazeは`?`がすでに存在することを検出し、自動的に`&`を使用してリンクテンプレートのパラメーターを追加します。ただし、`?`を含むURLが格納されたカスタム属性（例：{% raw %}`{{custom_attribute.${my_url}}}`{% endraw %}、ここで`my_url`は`https://braze.com?12345`）を使用する場合、Brazeはカスタム属性の値に`?`がすでに存在するかどうかを確認しません。この場合、リンクテンプレートはパラメーターの前にもう1つの`?`を追加し、`https://braze.com?12345?utm_source=...`のようなURLになります。
 
-クエリパラメーターを含む可能性のあるカスタム属性を使用する際にこの問題を回避するには、カスタム属性の値にクエリパラメーターが含まれているかどうかに基づいて、カスタム属性の後に`?`または`&`をハードコードしてください。例えば、カスタム属性に常に`?`が含まれている場合は、{% raw %}`{{custom_attribute.${my_url}}}&`{% endraw %}を使用して、リンクテンプレートがパラメーターを正しく追加するようにしてください。
+クエリパラメーターを含む可能性のあるカスタム属性を使用する場合にこの問題を回避するには、カスタム属性の値にクエリパラメーターが含まれているかどうかに基づいて、カスタム属性の後に`?`または`&`をハードコードしてください。例えば、カスタム属性に常に`?`が含まれている場合は、{% raw %}`{{custom_attribute.${my_url}}}&`{% endraw %}を使用して、リンクテンプレートがパラメーターを正しく追加するようにします。
 
 ## リンクエイリアス {#link-aliasing}
 
@@ -77,7 +79,7 @@ HTMLエディターでハードコードされたURL（例：`https://braze.com?
 
 ### HTMLアンカータグ内でLiquidの条件ロジックを完全に使用できますか？ {#can-i-use-liquid-conditional-logic-entirely-within-an-html-anchor-tag}
 
-いいえ、BrazeのリンクエイリアスはHTMLを正しく認識できません。
+いいえ、BrazeのリンクエイリアスはそのHTMLを正しく認識できません。
 
 このようなロジックが、HTMLの解析を必要とする機能（プリヘッダーやリンクテンプレートなど）と併用された場合、HTMLをスキャンするために使用されるライブラリがアンカータグを変更し、適切な`href`がテンプレート化されなくなる可能性があります。このライブラリはLiquidコードを認識しないため、HTMLが無効であると判断します。
 

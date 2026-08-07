@@ -135,6 +135,8 @@ For a single user, follow the [standard investigation path](#standard-investigat
 
 Common causes include audience re-evaluation at send time, channel eligibility, control groups, Quiet Hours, Intelligent Timing, rate limits, and in-app message delivery behavior (zero _Sends_ with impressions is expected for in-app messages).
 
+If a Message step shows many users entered but few sends, check whether Liquid `abort_message()` canceled the send. For Message Activity Log checks, missing attributes, and test sends, see [Troubleshooting high abort rates]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#troubleshooting-high-abort-rates).
+
 For a detailed list, see [Why are sends lower than the estimated audience size?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#why-are-sends-lower-than-the-estimated-audience-size) in the Canvas FAQ and [Why are sends lower than the estimated audience size?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#why-are-sends-lower-than-the-estimated-audience-size) for campaigns.
 
 Use the [Messaging Diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) to see abort and drop reasons at the step level.

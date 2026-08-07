@@ -31,6 +31,28 @@ As mensagens HTML personalizadas podem usar os métodos do [JavaScript Bridge](#
 Para ativar mensagens no app em HTML por meio do SDK para web, você deve fornecer a opção de inicialização `allowUserSuppliedJavascript` à Braze: por exemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Isso é necessário por motivos de segurança, já que mensagens no app em HTML podem executar JavaScript, então exigimos que um mantenedor do site as ative.
 {% endalert %}
 
+### Ambientes de renderização {#rendering-environments}
+
+As mensagens no app em HTML personalizadas são renderizadas diretamente no navegador na web, mas dentro de uma WebView da plataforma no iOS e Android. Como cada ambiente usa um mecanismo de renderização diferente, o mesmo HTML e CSS podem apresentar pequenas diferenças visuais entre plataformas, especialmente em layouts de colunas, fontes e espaçamento.
+
+Para minimizar diferenças entre plataformas:
+
+- Use valores CSS explícitos em vez de depender dos padrões do navegador
+- Inclua uma meta tag de viewport (por exemplo, `<meta name="viewport" content="width=device-width, initial-scale=1">`)
+- Teste em dispositivos reais com envios de teste
+
+## Codificação de caracteres {#character-encoding}
+
+Ao criar mensagens no app com HTML personalizado que contenham caracteres especiais — como script cirílico, caracteres acentuados ou outros textos não ASCII — inclua a codificação UTF-8 no seu HTML para garantir a exibição correta. Sem a codificação UTF-8, esses caracteres podem aparecer quebrados ou ausentes quando renderizados na webview.
+
+Para ativar a codificação UTF-8, adicione a seguinte meta tag dentro da seção `<head>` do seu HTML:
+
+```html
+<meta charset="UTF-8">
+```
+
+Isso força a codificação UTF-8, que é o conjunto de caracteres esperado para webviews que exibem mensagens no app.
+
 ## JavaScript bridge {#javascript-bridge}
 
 {% include javascript_bridge/reference.md %}
@@ -91,16 +113,16 @@ O painel de prévia de mensagem do editor mostra uma prévia realista que render
 Quaisquer métodos JavaScript `brazeBridge` que você usar no seu HTML não atualizarão perfis de usuário durante a prévia no dashboard.
 {% endalert %}
 
-### Criando uma campanha {#instructions}
+### Criando uma campaign {#instructions}
 
 #### Arquivos de ativos {#asset-files}
 
-Ao criar mensagens no app com código personalizado usando upload de HTML, você pode fazer upload de ativos da campanha para a [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) para referenciá-los na sua mensagem.
+Ao criar mensagens no app com código personalizado usando upload de HTML, você pode fazer upload de ativos da campaign para a [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) para referenciá-los na sua mensagem.
 
 Os seguintes tipos de arquivo são compatíveis para upload:
 
-| Tipo de arquivo       | Extensão do arquivo               |
-| :-------------------- | :-------------------------------- |
+| Tipo de arquivo        | Extensão do arquivo               |
+| :--------------------- | :-------------------------------- |
 | Arquivos de fonte      | `.ttf`, `.woff`, `.otf`, `.woff2` |
 | Imagens SVG            | `.svg`                            |
 | Arquivos JavaScript    | `.js`                             |
@@ -109,20 +131,20 @@ Os seguintes tipos de arquivo são compatíveis para upload:
 
 A Braze recomenda fazer upload de ativos para a biblioteca de mídia por dois motivos:
 
-1. Ativos adicionados a uma campanha pela biblioteca de mídia permitem que suas mensagens sejam exibidas mesmo quando o usuário está offline ou com uma conexão de internet ruim.
-2. Ativos enviados para a Braze podem ser reutilizados em diferentes campanhas.
+1. Ativos adicionados a uma campaign pela biblioteca de mídia permitem que suas mensagens sejam exibidas mesmo quando o usuário está offline ou com uma conexão de internet ruim.
+2. Ativos enviados para a Braze podem ser reutilizados em diferentes Campaigns.
 
 ##### Adicionando arquivos de ativos {#adding-asset-files}
 
-Você pode adicionar ativos novos ou existentes à sua campanha.
+Você pode adicionar ativos novos ou existentes à sua campaign.
 
-Para adicionar novos ativos à sua campanha, use a seção de arrastar e soltar para fazer upload de um arquivo. Ativos adicionados nesta seção também serão automaticamente adicionados à biblioteca de mídia. Para adicionar ativos que você já enviou para a biblioteca de mídia, selecione **Adicionar da Biblioteca de Mídia**.
+Para adicionar novos ativos à sua campaign, use a seção de arrastar e soltar para fazer upload de um arquivo. Ativos adicionados nesta seção também serão automaticamente adicionados à biblioteca de mídia. Para adicionar ativos que você já enviou para a biblioteca de mídia, selecione **Adicionar da biblioteca de mídia**.
 
-Depois que seus ativos forem adicionados, eles aparecerão na seção **Ativos para esta campanha**.
+Depois que seus ativos forem adicionados, eles aparecerão na seção **Ativos para esta campaign**.
 
-Se o nome de um ativo corresponder ao de um ativo HTML local, ele será substituído automaticamente (por exemplo, `cat.png` é enviado e `<img src="cat.png" />` existe).
+Se o nome de um arquivo de ativo corresponder ao de um ativo HTML local, ele será substituído automaticamente (por exemplo, `cat.png` é enviado e `<img src="cat.png" />` existe).
 
-Caso contrário, passe o cursor sobre um ativo da lista e selecione <i class="fas fa-copy"></i> **Copiar** para copiar a URL do arquivo para a área de transferência. Em seguida, cole a URL do ativo copiado no seu HTML como faria normalmente ao referenciar um ativo remoto.
+Caso contrário, passe o cursor sobre um ativo da lista e selecione <i class="fas fa-copy"></i> **Copiar** para copiar a URL do arquivo para a área de transferência. Em seguida, cole a URL do ativo copiado no seu HTML como você faria normalmente ao referenciar um ativo remoto.
 
 ### Editor de HTML {#html-editor}
 
@@ -148,7 +170,7 @@ Você pode rastrear o desempenho dentro da sua mensagem no app com código perso
 Este método de rastreamento de botões substitui os métodos anteriores de rastreamento automático de cliques (como `?abButtonId=0`), que foram removidos.
 {% endalert %}
 
-Use [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) para mensagens HTML com prévia quando você precisar de mais de dois botões rastreados. Botão 1 e Botão 2 correspondem a `'0'` e `'1'`; botões adicionais usam IDs personalizados (até 100 IDs únicos por campanha). Para restrições de caracteres em IDs de botões, consulte [Rastreamento de botões](#button-tracking-improvements).
+Use [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) para mensagens HTML com prévia quando você precisar de mais de dois botões rastreados. Botão 1 e Botão 2 correspondem a `'0'` e `'1'`; botões adicionais usam IDs personalizados (até 100 IDs únicos por campaign). Para restrições de caracteres em IDs de botões, consulte [Rastreamento de botões](#button-tracking-improvements).
 
 ### Solução de problemas com links HTML personalizados e comportamento de fechamento {#troubleshoot-custom-html-links-and-close-behavior}
 
@@ -158,7 +180,7 @@ Se um botão na sua mensagem no app com HTML personalizado não carregar ao ser 
 
 #### Cliques no corpo ao fechar a mensagem {#body-clicks-when-closing-the-message}
 
-Chamar `brazeBridge.closeMessage()` fecha a mensagem, mas não registra análises por conta própria. Para registrar um clique no corpo quando o usuário fecha a mensagem, chame `brazeBridge.logClick()` antes de `brazeBridge.closeMessage()` para que o registro de cliques permaneça consistente entre plataformas.
+Chamar `brazeBridge.closeMessage()` fecha a mensagem, mas não registra dados de análise por conta própria. Para registrar um clique no corpo quando o usuário fecha a mensagem, chame `brazeBridge.logClick()` antes de `brazeBridge.closeMessage()` para que o registro de cliques permaneça consistente entre plataformas.
 
 ### Alterações incompatíveis com versões anteriores {#backward-incompatible-changes}
 

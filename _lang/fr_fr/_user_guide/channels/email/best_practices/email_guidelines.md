@@ -16,8 +16,8 @@ channel: email
 
 Voici quelques conseils rapides à garder à l'esprit lors de la création de votre contenu :
 
-- Lorsque vous mettez en forme votre e-mail, utilisez des feuilles de style en ligne (inline CSS).
-- Pour utiliser un même modèle d'e-mail pour les versions mobile et ordinateur, maintenez la largeur en dessous de 500 pixels.
+- Lors de la mise en forme de votre e-mail, utilisez des feuilles de style en ligne (inline CSS).
+- Pour utiliser un même modèle d'e-mail pour les versions mobile et bureau, maintenez la largeur en dessous de 500 pixels.
 - Les images doivent peser moins de 5&nbsp;Mo. Nous recommandons d'utiliser les formats PNG, JPEG ou GIF pour une compatibilité maximale. Évitez les formats SVG et WebP, car de nombreux clients de messagerie majeurs ne les prennent pas encore en charge.
 - Ne définissez pas de hauteurs et de largeurs pour les images, car cela peut provoquer des espaces blancs inutiles dans un e-mail dégradé.
 - Les balises `div` ne doivent pas être utilisées, car la plupart des clients de messagerie ne prennent pas en charge leur utilisation. Utilisez plutôt des tableaux imbriqués.
@@ -28,7 +28,9 @@ Voici quelques conseils rapides à garder à l'esprit lors de la création de vo
 
 ## Texte alternatif {#alternative-text}
 
-Étant donné que les filtres anti-spam vérifient la présence d'une version HTML et d'une version en texte brut d'un message, l'utilisation d'alternatives en texte brut est un excellent moyen de réduire votre score de spam. De plus, le texte alternatif `(alt="")` peut servir à compléter, et dans certains cas à remplacer, les images incluses dans le corps de votre e-mail qui auraient pu être filtrées par le fournisseur de messagerie de l'utilisateur. Les lecteurs d'écran annoncent le texte alternatif pour expliquer les images, c'est donc une opportunité d'utiliser un langage simple pour fournir des informations clés sur une image.
+Étant donné que les filtres anti-spam vérifient la présence d'une version HTML et d'une version en texte brut d'un message, l'utilisation d'alternatives en texte brut est un excellent moyen de réduire votre score de spam. De plus, le texte alternatif `(alt="")` peut servir à compléter, et dans certains cas à remplacer, les images incluses dans le corps de votre e-mail qui auraient pu être filtrées par le fournisseur de messagerie de l'utilisateur. Les lecteurs d'écran annoncent le texte alternatif pour décrire les images, c'est donc l'occasion d'utiliser un langage simple pour fournir des informations clés sur une image.
+
+C'est le client de messagerie du destinataire, et non Braze, qui contrôle l'affichage du texte alternatif. Pour en savoir plus sur ce comportement selon les clients comme Gmail, Outlook et Apple Mail, consultez [Comment les clients de messagerie affichent le texte alternatif]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text).
 
 {% alert note %}
 Si votre texte alternatif contient des guillemets, utilisez des guillemets simples (`'`) au lieu de guillemets doubles (`"`). Les guillemets doubles peuvent provoquer la fermeture prématurée de l'attribut HTML, coupant ainsi le texte. Par exemple, `alt="Product 'Premium' Edition"` fonctionne correctement, mais `alt="Product "Premium" Edition"` est tronqué.
@@ -37,7 +39,7 @@ Si votre texte alternatif contient des guillemets, utilisez des guillemets simpl
 ## Validation des e-mails {#email-validation}
 
 {% alert important %}
-La validation est utilisée pour les adresses e-mail du tableau de bord, les adresses e-mail des utilisateurs finaux (vos clients), ainsi que les adresses d'expéditeur et de réponse d'un message e-mail.
+La validation est utilisée pour les adresses e-mail du tableau de bord, les adresses e-mail des utilisateurs finaux (vos clients), ainsi que les adresses d'expéditeur et de réponse d'un e-mail.
 {% endalert %}
 
 La validation des e-mails se produit lorsque l'adresse e-mail d'un utilisateur est mise à jour ou importée dans Braze via l'API, un téléchargement CSV, le SDK, ou modifiée dans le tableau de bord. Notez que vos adresses e-mail ne peuvent pas contenir d'espaces. Si elles sont envoyées via l'API, les espaces peuvent entraîner une erreur `400`.
@@ -71,7 +73,7 @@ La mise en page peut se casser lorsque le HTML/CSS généré par Braze entre en 
 - Supprimez d'abord le HTML/CSS personnalisé
 - Vérifiez que les polices personnalisées se chargent correctement dans l'aperçu
 - Vérifiez le remplissage (padding) des lignes et des colonnes
-- Privilégiez les mises en page basées sur des tableaux et restez dans la largeur de l'éditeur.
+- Privilégiez les mises en page basées sur des tableaux et restez dans les limites de largeur de l'éditeur.
 
 Les Content Blocks qui intègrent du HTML provenant de l'extérieur de l'éditeur peuvent également casser la mise en page.
 
@@ -85,7 +87,7 @@ Les paramètres UTM balisent les URL à des fins d'analyse. Vous pouvez les cons
 
 ### Vérifier les détails HTML {#check-html-details}
 
-Gardez à l'esprit que certaines balises et certains attributs HTML ne sont pas autorisés, car ils pourraient permettre l'exécution de code malveillant dans le navigateur.
+Gardez à l'esprit que certaines balises et certains attributs HTML ne sont pas autorisés, car ils peuvent potentiellement permettre l'exécution de code malveillant dans le navigateur.
 
 Consultez les listes suivantes pour connaître les balises et attributs HTML qui ne sont pas autorisés dans vos e-mails :
 {% details Développer pour voir les balises HTML non autorisées %}

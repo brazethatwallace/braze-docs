@@ -23,9 +23,10 @@ channel:
 | **キャンバス**ステップのアプリ内メッセージが表示されなかった | [キャンバスのアプリ内メッセージ](#canvas-in-app-messages) |
 | アプリ内メッセージが遅れて表示された、または遅延後に表示された | [タイミングと遅延表示](#timing-and-delayed-display) |
 | インプレッションやクリックが正しくない | [インプレッションと分析](#impressions-and-analytics) |
-| イベントユーザーログで`triggers`が欠落または空 | [配信のトラブルシューティング](#delivery-troubleshooting) |
+| イベントユーザーログで `triggers` が欠落または空 | [配信のトラブルシューティング](#delivery-troubleshooting) |
 | トリガーは返されたがデバイスに何も表示されない | [プラットフォーム固有の表示トラブルシューティング](#platform-specific-display-troubleshooting) |
 | アプリ内メッセージのアセットの読み込みに失敗する（iOS、`NSURLError` -1008） | [アセットの読み込み（Swiftタブ）](?sdktab=swift#swift_asset-loading) |
+| リンクが表示されない、またはデバイスログにクリックアクションの解析エラーが表示される | [無効なリンク設定](#invalid-link-setup) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="アプリ内メッセージの症状" }
 
 ## 標準的な調査パス {#standard-investigation-path}
@@ -34,13 +35,13 @@ channel:
 
 1. テストデバイスで**セッション開始**がログに記録されていることを確認します。アプリ内メッセージはセッション開始時にリクエストされます。
 2. [イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log)を開き、そのセッション開始に対するSDKリクエストを見つけます。**Response Data**で以下を確認します。
-   - 生のJSONで、`respond_with`に`"triggers": true`が含まれていることを確認します。
+   - 生のJSONで、`respond_with`に `"triggers": true` が含まれていることを確認します。
    - **Requested Responses**行に**`triggers`**が含まれている必要があります。
    - **Trigger In-App Message**行には、そのリクエストに対して返された各アプリ内メッセージが一覧表示されます。
    - `triggers`キーまたは**Trigger In-App Message**行がない場合は、[メッセージがリクエストされない場合のトラブルシューティング](#troubleshoot-messages-not-being-requested)を参照してください。
    - `triggers`が存在するが空（`[]`）の場合は、[メッセージが返されない場合のトラブルシューティング](#troubleshoot-messages-not-being-returned)を参照してください。
    - **Trigger In-App Message**行が存在するが何も表示されない場合は、[プラットフォーム固有の表示トラブルシューティング](#platform-specific-display-troubleshooting)を参照してください。
-   - 各トリガーペイロードには`type`が含まれます：`inapp`（標準）または`templated_iam`（表示前にテンプレートリクエストが必要）。[アプリ内メッセージの種類]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#types-of-in-app-messages)を参照してください。
+   - 各トリガーペイロードには `type` が含まれます：`inapp`（標準）または `templated_iam`（表示前にテンプレートリクエストが必要）。[アプリ内メッセージの種類]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#types-of-in-app-messages)を参照してください。
 3. ダッシュボード側の適格性（セグメント、再適格性、フリークエンシーキャップ、優先度、コントロールグループ）については、[配信のトラブルシューティング](#delivery-troubleshooting)と[アプリ内メッセージFAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq)を参照してください。
 4. デバイス側の表示の問題（デリゲート、レート制限、画面の向き、セッションタイムアウト）については、[プラットフォーム固有の表示トラブルシューティング](#platform-specific-display-troubleshooting)でSDKタブを選択してください。
 
@@ -86,7 +87,7 @@ channel:
 | カスタムUIまたはハンドラーが表示を抑制している | デリゲート（モバイル）または[`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage)（Web）を確認してください。[カスタマイズ]({{site.baseurl}}/developer_guide/in_app_messages/customization)およびプラットフォームのSDKタブを参照してください。 |
 | このプラットフォームで統合が一度も動作していない | このプラットフォームとアプリバージョンで以前にアプリ内メッセージが表示されたことがあるか確認してください。 |
 | デバイスでトリガーが発火しなかった | トリガーはSDKを通じてローカルで発生する必要があります。REST API呼び出しではSDKのアプリ内メッセージをトリガーできません。[メッセージのトリガー]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages)を参照してください。 |
-| イベントユーザーログで`triggers`が空 | セグメント、再適格性、フリークエンシーキャップ、またはコントロールグループの問題です。[メッセージが返されない場合のトラブルシューティング](#troubleshoot-messages-not-being-returned)を参照してください。 |
+| イベントユーザーログで `triggers` が空 | セグメント、再適格性、フリークエンシーキャップ、またはコントロールグループの問題です。[メッセージが返されない場合のトラブルシューティング](#troubleshoot-messages-not-being-returned)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="プラットフォームの症状と原因" }
 
 ## すべてのユーザーにアプリ内メッセージが表示されなかった {#in-app-message-not-shown-for-all-users}
@@ -134,7 +135,7 @@ SDKはセッション開始時にBrazeサーバーにアプリ内メッセージ
 2. 自分のユーザーをターゲットにしたアプリ内メッセージキャンペーンを設定します。
 3. アプリケーションで新しいセッションを開始します。
 4. [イベントユーザーログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log)で、セッション開始イベントに対するSDKリクエストを見つけます。**Response Data**で以下を確認します。
-   - 生のJSONで、`respond_with`に`"triggers": true`が含まれていることを確認します。
+   - 生のJSONで、`respond_with`に `"triggers": true` が含まれていることを確認します。
    - **Requested Responses**行には、レスポンスのトップレベルキーが一覧表示されます。アプリ内メッセージの場合、**`triggers`**が含まれている必要があります。
    - **Trigger In-App Message**行には、そのリクエストに対して返された各アプリ内メッセージが一覧表示されます。
 
@@ -142,7 +143,7 @@ SDKはセッション開始時にBrazeサーバーにアプリ内メッセージ
    - `triggers`キーまたは**Trigger In-App Message**行がない場合は、[メッセージがリクエストされない場合のトラブルシューティング](#troubleshoot-messages-not-being-requested)を参照してください。
    - `triggers`が存在するが空（`[]`）の場合は、[メッセージが返されない場合のトラブルシューティング](#troubleshoot-messages-not-being-returned)を参照してください。
    - **Trigger In-App Message**行が存在するがデバイスに何も表示されない場合は、[プラットフォーム固有の表示トラブルシューティング](#platform-specific-display-troubleshooting)を参照してください。
-   - 各トリガーペイロードには`type`が含まれます：`inapp`（標準）または`templated_iam`（表示前にテンプレートリクエストが必要）。[アプリ内メッセージの種類]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#types-of-in-app-messages)を参照してください。
+   - 各トリガーペイロードには `type` が含まれます：`inapp`（標準）または `templated_iam`（表示前にテンプレートリクエストが必要）。[アプリ内メッセージの種類]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#types-of-in-app-messages)を参照してください。
 5. レスポンスデータに正しいアプリ内メッセージが表示されていることを確認します。
 
 ![SDKリクエストとレスポンスデータを含むイベントユーザーログ]({% image_buster /assets/img_archive/event_user_log_iams.png %})
@@ -180,6 +181,20 @@ SDKはセッション開始時にBrazeサーバーにアプリ内メッセージ
 ![キャンペーン詳細ページの変更ログを表示するリンク。ユーザーが最後にキャンペーンを閲覧してから7件の変更があります。]({% image_buster /assets/img_archive/trouble4.png %})
 
 デリゲートまたはカスタムハンドラーを使用してアプリ内メッセージを手動で表示している場合は、インプレッションとクリックを自分でログに記録する必要があります。SwiftとAndroidの詳細については、[プラットフォーム固有の表示トラブルシューティング](#platform-specific-display-troubleshooting)のSDKタブを参照してください。Webについては、[アプリ内メッセージデータのログ記録]({{site.baseurl}}/developer_guide/in_app_messages/logging_message_data)を参照してください。
+
+## 無効なリンク設定 {#invalid-link-setup}
+
+**症状：** アプリ内メッセージでリンクが表示されない、またはデバイスログにクリックアクションの解析エラー（無効なプラットフォームメッセージクリックアクションに関するエラーなど）が表示される。
+
+これは通常、アプリ内メッセージの設定で無効または不正な形式のリンクが使用されていることを示しています。
+
+以下を確認してください。
+
+- クリック時の動作を一時的に**メッセージを閉じる**に変更してください。メッセージが正しく表示される場合、リンクURLが問題の原因である可能性が高いです。
+- エディターとメッセージタイプに応じたリンク設定を確認してください。
+  - **カスタムHTML：** [カスタムHTMLリンクと閉じる動作のトラブルシューティング]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#troubleshoot-custom-html-links-and-close-behavior)
+  - **ドラッグ＆ドロップ：** アプリ内メッセージFAQの[リンクとディープリンク]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-should-i-know-when-customizing-drag-and-drop-in-app-messages)および[テキストリンクの最小SDKバージョン要件]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#more-information-on-minimum-sdks)
+  - **ボタン付きメッセージ：** プラットフォームに応じた[アプリ内メッセージのカスタマイズ]({{site.baseurl}}/developer_guide/in_app_messages/customization)
 
 ## プラットフォーム固有の表示トラブルシューティング {#platform-specific-display-troubleshooting}
 

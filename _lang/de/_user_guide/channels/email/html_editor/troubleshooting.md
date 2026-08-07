@@ -22,6 +22,8 @@ Ordnen Sie Ihr Symptom in der folgenden Tabelle zu, um zum entsprechenden Abschn
 | E-Mail zeigt Liquid-Code oder fehlerhafte Links an | [Unausgeglichenes HTML in Liquid-Templates](#unbalanced-html-in-liquid-templates) |
 | Inbox-Vision-Vorschau stimmt nicht mit gesendeter E-Mail überein | [CSS-Inlining](#css-inlining) |
 | Leerraum oder Linien nach Bildern in Test-E-Mails | [Leerraum unter Bildern](#white-space-under-images) |
+| Klick-Analytics enthalten keine Abfrageparameter | [Einschränkungen bei Link-Klick-Analytics](#link-click-analytics-limitations) |
+| Hochgestellte Zeichen verursachen inkonsistenten Zeilenabstand | [Probleme mit der Zeilenhöhe bei hochgestellten Zeichen](#superscript-line-height-issues) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML-E-Mail-Symptom" }
 
 ## Standardmäßiger Untersuchungspfad {#standard-investigation-path}
@@ -57,6 +59,7 @@ E-Mails werden je nach Browser und E-Mail-Client unterschiedlich dargestellt. No
 
 - Nutzen Sie die Vorschau Ihrer E-Mails mit [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), um zu sehen, wie Ihre E-Mails in verschiedenen Browsern und E-Mail-Clients aussehen.
 - Nachdem Sie festgestellt haben, welche Browser oder E-Mail-Clients Probleme verursachen, informieren Sie Ihr Entwickler:innen-Team, damit es das HTML anpassen und Änderungen für diese Browser oder E-Mail-Clients vornehmen kann.
+- Wenn das Problem speziell damit zusammenhängt, [wie Alternativtext angezeigt wird]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text), beachten Sie, dass dieses Verhalten vom E-Mail-Client der Empfänger:innen gesteuert wird, nicht von Braze.
 
 ### Unausgeglichenes HTML in Liquid-Templates {#unbalanced-html-in-liquid-templates}
 
@@ -133,4 +136,61 @@ Alternativ können Sie den Stil direkt auf bestimmte Bilder anwenden:
 
 ```html
 <img src="https://example.com/image.jpg" style="display: block;" alt="Image description" />
+```
+
+## Einschränkungen bei der Klick-Analytics für Links {#link-click-analytics-limitations}
+
+### Symptom
+
+Die Klick-Analytics für E-Mails mit vielen eindeutigen Abfrageparametern entsprechen nicht Ihren Erwartungen. Möglicherweise sehen Sie aggregierte Klickzahlen für deparametrisierte URLs nach den ersten 100 eindeutigen Links.
+
+### Wie das Link-Klick-Tracking funktioniert {#how-link-click-tracking-works}
+
+Braze verfolgt Klicks sowohl auf parametrisierte URLs (mit Abfrageparametern) als auch auf deparametrisierte Basis-URLs. Für die ersten 100 eindeutigen parametrisierten Links, die in einer E-Mail-Campaign oder einem Canvas angeklickt werden, erfasst und meldet Braze Daten für beide:
+
+- Die vollständige parametrisierte URL (zum Beispiel `https://example.com?user_id=12345`)
+- Die deparametrisierte Basis-URL (zum Beispiel `https://example.com`)
+
+Nachdem die ersten 100 eindeutigen parametrisierten Links angeklickt wurden, erhöht Braze die Klickzahlen nur noch für die deparametrisierte Basis-URL. Das bedeutet:
+
+- Klick-Analytics werden auf der Basis-Domain und dem Pfad aggregiert, anstatt auf einzelnen Abfrageparameter-Kombinationen
+- Sie können weiterhin aussagekräftiges Engagement basierend auf Link-Pfaden verfolgen
+- Das individuelle Klick-Tracking auf Nutzer:innenebene funktioniert weiterhin normal
+
+Dieses Verhalten verhindert, dass Analytics durch Tausende eindeutiger Abfrageparameter-Kombinationen aufgebläht werden, während die allgemeinen Link-Engagement-Muster weiterhin erfasst werden.
+
+### Was das für Ihre Campaigns bedeutet {#what-this-means-for-your-campaigns}
+
+Wenn Sie auf eindeutige Abfrageparameter angewiesen sind, um nutzerspezifisches Verhalten in externen Plattformen zu verfolgen (zum Beispiel `https://example.com?user_id=USER_ID`), beachten Sie, dass die Klick-Analytics von Braze diese Parameter nur für die ersten 100 angeklickten eindeutigen Links beibehalten. Nach diesem Schwellenwert werden Klicks weiterhin in Ihren Analytics erfasst, aber der deparametrisierten URL zugeordnet.
+
+Klickdaten auf Nutzer:innenebene bleiben über [Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents) oder das [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) verfügbar, unabhängig davon, wie viele eindeutige parametrisierte Links angeklickt werden.
+
+### Probleme mit der Zeilenhöhe bei hochgestelltem Text {#superscript-line-height-issues}
+
+#### Symptom
+
+Text mit hochgestellten Zeichen wird mit uneinheitlichem Zeilenabstand dargestellt, wobei Zeilen näher zusammen oder weiter auseinander erscheinen als beabsichtigt. Dies ist ein häufiges Darstellungsproblem in E-Mail-Clients und nicht spezifisch für Braze.
+
+Die Verwendung von hochgestelltem Text in E-Mails kann zu unerwartetem Zeilenhöhenverhalten führen, da verschiedene E-Mail-Clients hochgestellten Text unterschiedlich behandeln.
+
+#### Lösung {#resolution}
+
+Verwenden Sie den HTML-Editor, um das Styling von hochgestelltem Text und umgebenden Elementen zu steuern.
+
+Um die Zeilenhöhe explizit zu definieren, fügen Sie Inline-CSS hinzu, um die `line-height` für den Text festzulegen:
+
+```html
+<p style="line-height: 1.5;">Example text with superscript<sup style="line-height: inherit;">1</sup></p>
+```
+
+Um die vertikale Ausrichtung anzupassen, verwenden Sie die Eigenschaft `vertical-align`, um den hochgestellten Text auszurichten, ohne die Zeilenhöhe zu beeinträchtigen:
+
+```html
+<sup style="vertical-align: top; font-size: smaller;">1</sup>
+```
+
+Wenn hochgestellter Text weiterhin Probleme verursacht, verwenden Sie als Alternative zu `<sup>` ein `<span>` für mehr Kontrolle:
+
+```html
+<span style="font-size: smaller; vertical-align: top;">1</span>
 ```

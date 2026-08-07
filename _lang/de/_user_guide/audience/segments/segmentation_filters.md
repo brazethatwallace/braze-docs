@@ -4,7 +4,7 @@ nav_title: Segmentierungsfilter
 article_title: Segmentierungsfilter
 layout: glossary_page
 glossary_top_header: "Segmentierungsfilter"
-glossary_top_text: "Das Braze SDK bietet Ihnen ein leistungsstarkes Arsenal an Filtern, um Ihre Nutzer:innen anhand bestimmter Features und Attribute zu segmentieren und gezielt anzusprechen. Sie können diese Filter nach Filterkategorie durchsuchen oder eingrenzen.<br><br>Um mehr über die verschiedenen Datentypen angepasster Attribute zu erfahren, die Sie zur Segmentierung von Nutzer:innen verwenden können, lesen Sie <a href=\"/docs/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types\">Datentypen angepasster Attribute</a>. Beachten Sie, dass Intervallfilter auf 100 Jahre begrenzt sind."
+glossary_top_text: "Das Braze SDK bietet Ihnen ein leistungsstarkes Arsenal an Filtern, um Ihre Nutzer:innen anhand bestimmter Features und Attribute zu segmentieren und gezielt anzusprechen. Sie können diese Filter nach Filterkategorie durchsuchen oder eingrenzen.<br><br>Um mehr über die verschiedenen Datentypen angepasster Attribute zu erfahren, die Sie zur Segmentierung von Nutzer:innen verwenden können, lesen Sie <a href=\"/docs/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types\">Datentypen angepasster Attribute</a>."
 
 page_type: glossary
 tool: Segments
@@ -45,15 +45,15 @@ glossaries:
     tags:
       - Segment or CSV membership
   - name: Updated/Imported from CSV
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie Teil eines CSV-Uploads waren oder nicht."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie Teil eines CSV-Uploads waren oder nicht. Braze speichert pro Nutzerprofil nur die letzten 100 CSV-Importe für Segmentierungszwecke. Wenn ein:e Nutzer:in in mehr als 100 CSV-Importen vorkommt, die für Retargeting ausgewählt wurden, stehen nur die 100 neuesten für diesen Filter zur Verfügung. Ältere Importe stimmen nicht mehr mit diesem/dieser Nutzer:in überein."
     tags:
       - Segment or CSV membership
   - name: Custom Attributes
-    description: "Bestimmt, ob ein:e Nutzer:in einem angepassten, aufgezeichneten Attributwert entspricht oder nicht. <br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Bestimmt, ob ein:e Nutzer:in einem angepassten, aufgezeichneten Attributwert entspricht oder nicht. Der maximale Rückblickzeitraum beträgt 100 Jahre für Datums- und Zeitintervallvergleiche.<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Custom attribute
   - name: Created At
-    description: "Segmentiert Nutzer:innen danach, wann ihr Nutzerprofil erstellt wurde. Wenn ein:e Nutzer:in per CSV oder API hinzugefügt wurde, spiegelt dieser Filter das Datum wider, an dem sie hinzugefügt wurden. Wenn der/die Nutzer:in nicht per CSV oder API hinzugefügt wurde und die erste Sitzung vom SDK erfasst wird, spiegelt dieser Filter das Datum dieser ersten Sitzung wider."
+    description: "Segmentiert Nutzer:innen danach, wann ihr Nutzerprofil erstellt wurde. Wenn ein:e Nutzer:in per CSV oder API hinzugefügt wurde, spiegelt dieser Filter das Datum wider, an dem sie hinzugefügt wurden. Wenn der/die Nutzer:in nicht per CSV oder API hinzugefügt wurde und die erste Sitzung vom SDK erfasst wird, spiegelt dieser Filter das Datum dieser ersten Sitzung wider. Der maximale Rückblickzeitraum beträgt 100 Jahre."
     tags:
       - Other Filters
   - name: Created From
@@ -61,7 +61,7 @@ glossaries:
     tags:
       - Other Filters
   - name: Nested Custom Attributes
-    description: "Attribute, die Eigenschaften von angepassten Attributen sind.<br><br>Beim Filtern eines verschachtelten angepassten Zeitattributs können Sie wählen, ob nach „Tag des Jahres“ oder „Zeit“ gefiltert werden soll. „Tag des Jahres“ vergleicht nur Monat und Tag. „Zeit“ vergleicht den vollständigen Zeitstempel einschließlich des Jahres. Dieselbe Logik gilt beim Filtern nach Kontextvariablen in Canvas-Zielgruppenpfaden; siehe <a href=\"/docs/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#day-of-year-and-time-filters-for-date-context-variables\">Tag-des-Jahres- und Zeitfilter für Datums-Kontextvariablen</a> für Details."
+    description: "Attribute, die Eigenschaften von angepassten Attributen sind.<br><br>Beim Filtern eines verschachtelten angepassten Zeitattributs können Sie wählen, ob nach „Tag des Jahres“ oder „Zeit“ gefiltert werden soll. „Tag des Jahres“ vergleicht nur Monat und Tag. „Zeit“ vergleicht den vollständigen Zeitstempel einschließlich des Jahres. Der maximale Rückblickzeitraum beträgt 100 Jahre für Zeitintervallvergleiche. Dieselbe Logik gilt beim Filtern nach Kontextvariablen in Canvas-Zielgruppenpfaden; siehe <a href=\"/docs/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#day-of-year-and-time-filters-for-date-context-variables\">Tag-des-Jahres- und Zeitfilter für Datums-Kontextvariablen</a> für Details."
     tags:
       - Custom attribute
   - name: Day of Recurring Event
@@ -73,11 +73,11 @@ glossaries:
     tags:
       - Custom events
   - name: First Did Custom Event
-    description: "Bestimmt den frühesten Zeitpunkt, zu dem ein:e Nutzer:in ein speziell aufgezeichnetes Event ausgeführt hat. (24-Stunden-Zeitraum) <br><br>Beispiel:<br> Erster Warenkorb-Abbruch vor weniger als 1 Tag<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Bestimmt den frühesten Zeitpunkt, zu dem ein:e Nutzer:in ein speziell aufgezeichnetes Event ausgeführt hat. Der maximale Rückblickzeitraum beträgt 100 Jahre. (24-Stunden-Zeitraum) <br><br>Beispiel:<br> Erster Warenkorb-Abbruch vor weniger als 1 Tag<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Custom events
   - name: Last Did Custom Event
-    description: "Bestimmt den letzten Zeitpunkt, zu dem ein:e Nutzer:in ein speziell aufgezeichnetes Event ausgeführt hat. Dieser Filter unterstützt Dezimalwerte, z. B. 0,25 Stunden. (24-Stunden-Zeitraum) <br><br>Beispiel:<br> Letzter Warenkorb-Abbruch vor weniger als 1 Tag<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Bestimmt den letzten Zeitpunkt, zu dem ein:e Nutzer:in ein speziell aufgezeichnetes Event ausgeführt hat. Dieser Filter unterstützt Dezimalwerte, z. B. 0,25 Stunden. Der maximale Rückblickzeitraum beträgt 100 Jahre. (24-Stunden-Zeitraum) <br><br>Beispiel:<br> Letzter Warenkorb-Abbruch vor weniger als 1 Tag<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Custom events
   - name: X Custom Event In Y Days
@@ -113,19 +113,19 @@ glossaries:
     tags:
       - Sessions
   - name: First Used App
-    description: "Segmentiert Ihre Nutzer:innen nach dem frühesten aufgezeichneten Zeitpunkt, zu dem sie Ihre App geöffnet haben. <em>Dies erfasst die erste Sitzung mit einer Version Ihrer App, in die das Braze SDK integriert ist.</em> (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Segmentiert Ihre Nutzer:innen nach dem frühesten aufgezeichneten Zeitpunkt, zu dem sie Ihre App geöffnet haben. <em>Dies erfasst die erste Sitzung mit einer Version Ihrer App, in die das Braze SDK integriert ist.</em> Der maximale Rückblickzeitraum beträgt 100 Jahre. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Sessions
   - name: First Used Specific App
-    description: "Segmentiert Ihre Nutzer:innen nach dem frühesten aufgezeichneten Zeitpunkt, zu dem sie eine Ihrer Apps innerhalb Ihres Workspace geöffnet haben. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Segmentiert Ihre Nutzer:innen nach dem frühesten aufgezeichneten Zeitpunkt, zu dem sie eine Ihrer Apps innerhalb Ihres Workspace geöffnet haben. Der maximale Rückblickzeitraum beträgt 100 Jahre. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Sessions
   - name: Last Used App
-    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie Ihre App geöffnet haben. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie Ihre App geöffnet haben. Der maximale Rückblickzeitraum beträgt 100 Jahre. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Sessions
   - name: Last Used Specific App
-    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie eine bestimmte, festgelegte App geöffnet haben. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie eine bestimmte, festgelegte App geöffnet haben. Der maximale Rückblickzeitraum beträgt 100 Jahre. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Sessions
   - name: Median Session Duration
@@ -145,11 +145,11 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Message from Specific Canvas Step
-    description: "Segmentiert Ihre Nutzer:innen danach, wann sie eine bestimmte Canvas-Komponente erhalten haben.<br><br> Da die Daten für alle Profile aktualisiert werden, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), wenn eine Zustellung, ein Öffnen oder ein Klick erfolgt, kann ein:e Nutzer:in, der/die einen Bezeichner mit jemandem teilt, der eine Nachricht erhalten hat, diesem Filter möglicherweise nicht entsprechen, auch wenn ihm/ihr die Nachricht nie explizit gesendet wurde. Verwenden Sie „Entered Canvas Variation“, um Nutzerprofile von Duplikaten zu isolieren.<br><br> Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Canvas-Komponenten erhalten haben."
+    description: "Segmentiert Ihre Nutzer:innen danach, wann sie eine bestimmte Canvas-Komponente erhalten haben. Der maximale Rückblickzeitraum beträgt 100 Jahre.<br><br> Da die Daten für alle Profile aktualisiert werden, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), wenn eine Zustellung, ein Öffnen oder ein Klick erfolgt, kann ein:e Nutzer:in, der/die einen Bezeichner mit jemandem teilt, der eine Nachricht erhalten hat, diesem Filter möglicherweise nicht entsprechen, auch wenn ihm/ihr die Nachricht nie explizit gesendet wurde. Verwenden Sie „Entered Canvas Variation“, um Nutzerprofile von Duplikaten zu isolieren.<br><br> Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Canvas-Komponenten erhalten haben."
     tags:
       - Retargeting
   - name: Last Received Message from Specific Campaign
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine bestimmte Campaign erhalten haben.<br><br> Da die Daten für alle Profile aktualisiert werden, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), wenn eine Zustellung, ein Öffnen oder ein Klick erfolgt, kann ein:e Nutzer:in, der/die einen Bezeichner mit jemandem teilt, der eine Nachricht erhalten hat, diesem Filter möglicherweise nicht entsprechen, auch wenn ihm/ihr die Nachricht nie explizit gesendet wurde.<br><br> Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Campaigns erhalten haben."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine bestimmte Campaign erhalten haben. Der maximale Rückblickzeitraum beträgt 100 Jahre.<br><br> Da die Daten für alle Profile aktualisiert werden, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), wenn eine Zustellung, ein Öffnen oder ein Klick erfolgt, kann ein:e Nutzer:in, der/die einen Bezeichner mit jemandem teilt, der eine Nachricht erhalten hat, diesem Filter möglicherweise nicht entsprechen, auch wenn ihm/ihr die Nachricht nie explizit gesendet wurde.<br><br> Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Campaigns erhalten haben."
     tags:
       - Retargeting
   - name: Received Message from Campaign or Canvas with Tag
@@ -157,7 +157,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Message from Campaign or Canvas With Tag
-    description: "Segmentiert Ihre Nutzer:innen danach, wann sie eine bestimmte Campaign oder ein bestimmtes Canvas mit einem bestimmten Tag erhalten haben. Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Campaigns oder Canvases erhalten haben. (24-Stunden-Zeitraum)"
+    description: "Segmentiert Ihre Nutzer:innen danach, wann sie eine bestimmte Campaign oder ein bestimmtes Canvas mit einem bestimmten Tag erhalten haben. Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Campaigns oder Canvases erhalten haben. Der maximale Rückblickzeitraum beträgt 100 Jahre. (24-Stunden-Zeitraum)"
     tags:
       - Retargeting
   - name: Has Never Received a Message from Campaign or Canvas Step
@@ -165,27 +165,27 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Email
-    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie eine Ihrer E-Mail-Nachrichten erhalten haben. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie eine Ihrer E-Mail-Nachrichten erhalten haben. Der maximale Rückblickzeitraum beträgt 100 Jahre. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Retargeting
   - name: Last Received Push
-    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie eine Ihrer Push-Benachrichtigungen erhalten haben. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie eine Ihrer Push-Benachrichtigungen erhalten haben. Der maximale Rückblickzeitraum beträgt 100 Jahre. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Retargeting
   - name: Last In App Message Impression
-    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie eine In-App-Nachricht angesehen haben."
+    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie eine In-App-Nachricht angesehen haben. Der maximale Rückblickzeitraum beträgt 100 Jahre."
     tags:
       - Retargeting
   - name: Last Received SMS
-    description: "Segmentiert Ihre Nutzer:innen nach dem Zeitpunkt, zu dem die letzte SMS-, MMS- oder RCS-Nachricht an den SMS- oder RCS-Anbieter zugestellt wurde. Dies garantiert nicht, dass die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wurde. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Segmentiert Ihre Nutzer:innen nach dem Zeitpunkt, zu dem die letzte SMS-, MMS- oder RCS-Nachricht an den SMS- oder RCS-Anbieter zugestellt wurde. Dies garantiert nicht, dass die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wurde. Der maximale Rückblickzeitraum beträgt 100 Jahre. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Retargeting
   - name: Last Received Webhook
-    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem Braze einen Webhook für diese:n Nutzer:in gesendet hat. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem Braze einen Webhook für diese:n Nutzer:in gesendet hat. Der maximale Rückblickzeitraum beträgt 100 Jahre. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Retargeting
   - name: Last Received WhatsApp
-    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie eine WhatsApp-Nachricht erhalten haben. Dies ist der Zeitpunkt, zu dem die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie eine WhatsApp-Nachricht erhalten haben. Dies ist der Zeitpunkt, zu dem die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird. Der maximale Rückblickzeitraum beträgt 100 Jahre. (24-Stunden-Zeitraum)<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Retargeting
   - name: Live Activities Push to Start Registered for App
@@ -233,7 +233,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Sent Specific SMS Inbound Keyword Category
-    description: "Segmentiert Ihre Nutzer:innen danach, wann sie zuletzt eine SMS, MMS oder RCS an eine bestimmte Abo-Gruppe innerhalb einer bestimmten Keyword-Kategorie gesendet haben."
+    description: "Segmentiert Ihre Nutzer:innen danach, wann sie zuletzt eine SMS, MMS oder RCS an eine bestimmte Abo-Gruppe innerhalb einer bestimmten Keyword-Kategorie gesendet haben. Der maximale Rückblickzeitraum beträgt 100 Jahre."
     tags:
       - Retargeting
   - name: Converted From Campaign
@@ -253,7 +253,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Enrolled in Any Control Group
-    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie in die Kontrollgruppe einer Campaign aufgenommen wurden. <br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie in die Kontrollgruppe einer Campaign aufgenommen wurden. Der maximale Rückblickzeitraum beträgt 100 Jahre. <br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Retargeting
   - name: Entered Canvas Variation
@@ -261,11 +261,11 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Any Message
-    description: "Segmentiert Ihre Nutzer:innen, indem die letzte empfangene Nachricht bestimmt wird. (24-Stunden-Zeitraum)<br><br>Für Content Cards, Banner und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in zuletzt eine Impression protokolliert hat, nicht wenn die Card oder In-App-Nachricht zuletzt gesendet wurde.<br><br>Für Push und Webhooks gilt dies, wenn eine beliebige Nachricht an den/die Nutzer:in gesendet wurde.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wurde, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wurde.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gelten Nutzer:innen als „empfangen“ zum Sendezeitpunkt. Selbst wenn die Nachricht das Gerät des/der Nutzer:in nicht erreicht, entspricht der/die Nutzer:in diesem Filter.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat.<br><br>Beispiel:<br>Letzte Nachricht erhalten vor weniger als 1 Tag = vor weniger als 24 Stunden<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Segmentiert Ihre Nutzer:innen, indem die letzte empfangene Nachricht bestimmt wird. Der maximale Rückblickzeitraum beträgt 100 Jahre. (24-Stunden-Zeitraum)<br><br>Für Content Cards, Banner und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in zuletzt eine Impression protokolliert hat, nicht wenn die Card oder In-App-Nachricht zuletzt gesendet wurde.<br><br>Für Push und Webhooks gilt dies, wenn eine beliebige Nachricht an den/die Nutzer:in gesendet wurde.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wurde, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wurde.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gelten Nutzer:innen als „empfangen“ zum Sendezeitpunkt. Selbst wenn die Nachricht das Gerät des/der Nutzer:in nicht erreicht, entspricht der/die Nutzer:in diesem Filter.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat.<br><br>Beispiel:<br>Letzte Nachricht erhalten vor weniger als 1 Tag = vor weniger als 24 Stunden<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Retargeting
   - name: Last Engaged With Message
-    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie auf einen Ihrer Messaging-Kanäle geklickt oder ihn geöffnet haben (Banner, Content Cards, E-Mail, In-App, SMS, RCS, Push, WhatsApp).<br><br>Für Content Cards, Banner und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in eine Impression protokolliert, nicht wenn die Card oder In-App-Nachricht gesendet wird.<br><br> Für Push und Webhooks gilt dies, wenn die Nachricht an den/die Nutzer:in gesendet wird.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird.<br><br> Bei E-Mail-Nachrichten umfasst das Öffnen-Event sowohl maschinelle als auch nicht-maschinelle Öffnungen. (24-Stunden-Zeitraum)<br><br>Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird). Dies umfasst auch die Option, nach „beliebige E-Mail geöffnet (maschinelle Öffnungen)“ und „beliebige E-Mail geöffnet (andere Öffnungen)“ zu filtern.<br><br> Für SMS und RCS gilt dies, wenn der/die Nutzer:in zuletzt einen verkürzten Link in einer Nachricht mit aktiviertem Nutzer-Klick-Tracking ausgewählt hat.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat.<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie auf einen Ihrer Messaging-Kanäle geklickt oder ihn geöffnet haben (Banner, Content Cards, E-Mail, In-App, SMS, RCS, Push, WhatsApp).<br><br>Für Content Cards, Banner und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in eine Impression protokolliert, nicht wenn die Card oder In-App-Nachricht gesendet wird.<br><br> Für Push und Webhooks gilt dies, wenn die Nachricht an den/die Nutzer:in gesendet wird.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird.<br><br> Bei E-Mail-Nachrichten umfasst das Öffnen-Event sowohl maschinelle als auch nicht-maschinelle Öffnungen. Der maximale Rückblickzeitraum beträgt 100 Jahre. (24-Stunden-Zeitraum)<br><br>Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird). Dies umfasst auch die Option, nach „beliebige E-Mail geöffnet (maschinelle Öffnungen)“ und „beliebige E-Mail geöffnet (andere Öffnungen)“ zu filtern.<br><br> Für SMS und RCS gilt dies, wenn der/die Nutzer:in zuletzt einen verkürzten Link in einer Nachricht mit aktiviertem Nutzer-Klick-Tracking ausgewählt hat.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat.<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Retargeting
   - name: Clicked card
@@ -285,7 +285,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Email Opt In Date
-    description: "Segmentiert Ihre Nutzer:innen nach dem Datum, an dem sie sich für E-Mails angemeldet haben."
+    description: "Segmentiert Ihre Nutzer:innen nach dem Datum, an dem sie sich für E-Mails angemeldet haben. Der maximale Rückblickzeitraum beträgt 100 Jahre."
     tags:
       - Channel subscription behavior
   - name: Email Subscription Status
@@ -293,7 +293,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Email Unsubscribed Date
-    description: "Segmentiert Ihre Nutzer:innen nach dem Datum, an dem sie sich von zukünftigen E-Mails abgemeldet haben."
+    description: "Segmentiert Ihre Nutzer:innen nach dem Datum, an dem sie sich von zukünftigen E-Mails abgemeldet haben. Der maximale Rückblickzeitraum beträgt 100 Jahre."
     tags:
       - Channel subscription behavior
   - name: Foreground Push Enabled
@@ -309,7 +309,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Push Opt In Date
-    description: "Segmentiert Ihre Nutzer:innen nach dem Datum, an dem sie sich für Push angemeldet haben."
+    description: "Segmentiert Ihre Nutzer:innen nach dem Datum, an dem sie sich für Push angemeldet haben. Der maximale Rückblickzeitraum beträgt 100 Jahre."
     tags:
       - Channel subscription behavior
   - name: Push Subscription Status
@@ -317,7 +317,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Push Unsubscribed Date
-    description: "Segmentiert Ihre Nutzer:innen nach dem Datum, an dem sie sich von zukünftigen Push-Benachrichtigungen abgemeldet haben."
+    description: "Segmentiert Ihre Nutzer:innen nach dem Datum, an dem sie sich von zukünftigen Push-Benachrichtigungen abgemeldet haben. Der maximale Rückblickzeitraum beträgt 100 Jahre."
     tags:
       - Channel subscription behavior
   - name: Purchased Product
@@ -341,19 +341,19 @@ glossaries:
     tags:
       - Purchase behavior
   - name: First Made Purchase
-    description: "Segmentiert Ihre Nutzer:innen nach dem frühesten Zeitpunkt, zu dem ein:e Nutzer:in einen Kauf in Ihrer App getätigt hat."
+    description: "Segmentiert Ihre Nutzer:innen nach dem frühesten Zeitpunkt, zu dem ein:e Nutzer:in einen Kauf in Ihrer App getätigt hat. Der maximale Rückblickzeitraum beträgt 100 Jahre."
     tags:
       - Purchase behavior
   - name: First Purchase For App
-    description: "Segmentiert Ihre Nutzer:innen nach dem frühesten Zeitpunkt, zu dem ein:e Nutzer:in einen Kauf über Ihre App getätigt hat."
+    description: "Segmentiert Ihre Nutzer:innen nach dem frühesten Zeitpunkt, zu dem ein:e Nutzer:in einen Kauf über Ihre App getätigt hat. Der maximale Rückblickzeitraum beträgt 100 Jahre."
     tags:
       - Purchase behavior
   - name: Last Made Purchase
-    description: "Filtert Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie einen Kauf getätigt haben."
+    description: "Filtert Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie einen Kauf getätigt haben. Der maximale Rückblickzeitraum beträgt 100 Jahre."
     tags:
       - Purchase behavior
   - name: Last Purchased Product
-    description: "Filtert Nutzer:innen danach, wann sie zuletzt ein bestimmtes Produkt gekauft haben."
+    description: "Filtert Nutzer:innen danach, wann sie zuletzt ein bestimmtes Produkt gekauft haben. Der maximale Rückblickzeitraum beträgt 100 Jahre."
     tags:
       - Purchase behavior
   - name: Money Spent
@@ -409,7 +409,7 @@ glossaries:
     tags:
       - Demographic attributes
   - name: City
-    description: "Segmentiert Ihre Nutzer:innen nach ihrem zuletzt angegebenen Standortort."
+    description: "Segmentiert Ihre Nutzer:innen nach ihrem zuletzt angegebenen Ort."
     tags:
       - Demographic attributes
   - name: Language
@@ -453,7 +453,7 @@ glossaries:
     tags:
       - App
   - name: Uninstalled
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie derzeit im Backend als deinstalliert markiert sind. Nutzer:innen, die die App deinstalliert und später erneut installiert haben, sind nicht enthalten. Dieser Filter spiegelt den aktuellen Deinstallationsstatus wider, nicht ein historisches Protokoll jedes Deinstallations-Events."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie derzeit im Backend als deinstalliert markiert sind. Nutzer:innen, die die App deinstalliert und später erneut installiert haben, sind nicht enthalten. Dieser Filter spiegelt den aktuellen Deinstallationsstatus wider, nicht ein historisches Protokoll jedes Deinstallations-Events. Der maximale Rückblickzeitraum beträgt 100 Jahre."
     tags:
       - Uninstall
   - name: Device Carrier

@@ -105,7 +105,11 @@ Keep your diagrams organized and easy to understand:
 - Keep diagrams simple and focused on a single concept or workflow.
 - Use clear, concise labels for nodes and connections.
 - Choose the appropriate diagram type for your use case.
-- Break complex processes into multiple diagrams rather than creating one large diagram.
+- For procedural flows, prefer breaking complex processes into multiple diagrams rather than creating one large diagram. This guidance does not apply to reference diagrams (such as entity-relationship diagrams) where the relationships between entities are themselves the content — those can remain as single comprehensive diagrams.
+
+### Diagram viewing
+
+Every Mermaid diagram on the site automatically gets a **Fullscreen** button in the top-right corner of the rendered diagram. Readers can click it to open the diagram in a zoomable, pannable overlay — no author-side setup required. If your diagram is large enough that the inline preview is hard to read, that's fine: the fullscreen view is the primary reading experience for complex reference diagrams.
 
 ### Styling
 

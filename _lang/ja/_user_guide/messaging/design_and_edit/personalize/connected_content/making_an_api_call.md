@@ -25,13 +25,13 @@ Brazeは、受信者1人あたり同じConnected Content APIの呼び出しを�
 
 ログで送信数や受信者数よりも多くのConnected Contentの呼び出しが確認される場合、その動作は想定どおりです。負荷の軽減とスケーリングの計画については、[大量エンドポイントのベストプラクティス](#best-practices-for-high-volume-endpoints)を参照してください。
 
-## Connected Content コールを送信する {#send-a-connected-content-call}
+## Connected Contentコールを送信する {#send-a-connected-content-call}
 
-Connected Content コールを送信するには、{% raw %}`{% connected_content %}`{% endraw %} タグを使用します。このタグでは、`:save` を使用して変数を割り当てまたは宣言できます。これらの変数の要素は、後でメッセージ内で [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) を使って参照できます。
+Connected Contentコールを送信するには、{% raw %}`{% connected_content %}`{% endraw %} タグを使用します。このタグでは、`:save` を使用して変数を割り当てまたは宣言できます。これらの変数の要素は、後でメッセージ内で [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) を使って参照できます。
 
-### API コールの内訳 {#break-down-the-api-call}
+### APIコールの内訳 {#break-down-the-api-call}
 
-次の例では、Sunrise-Sunset API を使用して、今日の日の出時刻をメッセージに含めています。
+次の例では、Sunrise-Sunset APIを使用して、今日の日の出時刻をメッセージに含めています。
 
 {% raw %}
 ```
@@ -40,22 +40,22 @@ Hi there, today's sunrise in NYC is at {{result.sunrise}}.
 ```
 {% endraw %}
 
-各部分の役割は次のとおりです。
+各部分の役割は以下のとおりです。
 
 | コンポーネント | 役割 |
 | --- | --- |
-| `connected_content` タグ | メッセージのレンダリング中に HTTP リクエストを行うよう Braze に指示します。 |
-| `https://api.sunrise-sunset.org/v2` | Braze が呼び出す API エンドポイントです。 |
+| `connected_content` タグ | メッセージのレンダリング中にHTTPリクエストを行うようBrazeに指示します。 |
+| `https://api.sunrise-sunset.org/v2` | Brazeが呼び出すAPIエンドポイントです。 |
 | `lat=40.7128&lng=-74.0060` | ニューヨーク市の座標を指定するクエリパラメーターです。 |
 | `date=today` | その座標における当日のデータをリクエストします。 |
-| `:save result` | API レスポンスを `result` というローカル変数に保存します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="API コールの内訳" }
+| `:save result` | APIレスポンスを `result` というローカル変数に保存します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="APIコールの内訳" }
 
-### Sunrise-Sunset API レスポンスの仕組み {#how-the-sunrise-sunset-api-response-works}
+### Sunrise-Sunset APIレスポンスの仕組み {#how-the-sunrise-sunset-api-response-works}
 
-このエンドポイントは、`sunrise`、`sunset`、`tzid` などのトップレベルフィールドを含む JSON を返します。時刻はデフォルトでその場所のタイムゾーンで返されます（この例ではニューヨーク時間）。
+このエンドポイントは、`sunrise`、`sunset`、`tzid` などのトップレベルフィールドを含むJSONを返します。時刻はデフォルトでその場所のタイムゾーンで返されます（この例ではニューヨーク時間）。
 
-たとえば、レスポンスの形式は次のようになります。
+たとえば、レスポンスの形式は以下のようになります。
 
 ```json
 {
@@ -66,7 +66,7 @@ Hi there, today's sunrise in NYC is at {{result.sunrise}}.
 }
 ```
 
-### API レスポンスを Liquid にマッピングする {#map-the-api-response-to-liquid}
+### APIレスポンスをLiquidにマッピングする {#map-the-api-response-to-liquid}
 
 レスポンスは `result` として保存されるため、そのオブジェクトから各フィールドを直接参照できます。
 
@@ -78,17 +78,17 @@ Hi there, today's sunrise in NYC is at {{result.sunrise}}.
 ```
 {% endraw %}
 
-Connected Content から JSON を保存する場合は、常にこのパターンを使用します。
+Connected ContentからJSONを保存する場合は、常にこのパターンを使用してください。
 
-1. `:save` で API レスポンスを保存します。
-2. JSON レスポンスから必要なフィールドを見つけます。
-3. Liquid で `saved_variable.field_name` として参照します。
+1. `:save` でAPIレスポンスを保存します。
+2. JSONレスポンス内で必要なフィールドを見つけます。
+3. Liquidで `saved_variable.field_name` として参照します。
 
 ### 変数を追加する {#add-variables}
 
-Connected Content リクエストを行う際に、URL 文字列にユーザープロファイル属性を変数として含めることもできます。
+Connected Contentリクエストを行う際に、URL文字列内の変数としてユーザープロファイル属性を含めることもできます。
 
-たとえば、ユーザーのメールアドレスと ID に基づいてコンテンツを返す Web サービスがあるとします。アットマーク（@）などの特殊文字を含む属性を渡す場合は、次のメールアドレス属性の例に示すように、Liquid フィルター `url_param_escape` を使用して、URL で許可されていない文字を URL フレンドリーなエスケープバージョンに置き換えてください。
+たとえば、ユーザーのメールアドレスとIDに基づいてコンテンツを返すWebサービスがあるとします。アットマーク（@）などの特殊文字を含む属性を渡す場合は、以下のメールアドレス属性の例に示すように、Liquidフィルター `url_param_escape` を使用して、URLで許可されていない文字をURLフレンドリーなエスケープバージョンに置き換えてください。
 
 {% raw %}
 ```
@@ -98,20 +98,20 @@ Hi, here are some articles that you might find interesting:
 ```
 {% endraw %}
 {% alert note %}
-属性値は、Braze の Liquid 構文で正しく動作するために `${}` で囲む必要があります。
+属性値は、Braze版のLiquid構文内で正しく動作するために `${}` で囲む必要があります。
 {% endalert %}
 
-Connected Content リクエストは GET リクエストと POST リクエストのみをサポートしています。
+Connected ContentリクエストはGETリクエストとPOSTリクエストのみをサポートしています。
 
 ## エラーハンドリング {#error-handling}
 
-URLが利用できず404ページに到達した場合、Brazeはその場所に空の文字列をレンダリングします。URLがHTTP 500または502ページに到達した場合、URLはリトライロジックで失敗します。
+URLが利用できず404ページに到達した場合、Brazeはその場所に空の文字列をレンダリングします。URLがHTTP 500または502ページに到達した場合、そのURLはリトライロジックで失敗します。
 
 エンドポイントがJSONを返す場合、`connected`の値がnullかどうかを確認し、[条件付きでメッセージを中止する]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content)ことで検出できます。Brazeはポート80（HTTP）および443（HTTPS）で通信するURLのみを許可します。
 
 ### 異常ホスト検出 {#unhealthy-host-detection}
 
-Connected Contentは、ターゲットホストが著しい遅延や過負荷の高い発生率を経験し、タイムアウト、リクエスト過多、またはBrazeがターゲットエンドポイントとの通信に成功できないその他の結果が生じた場合に検出する異常ホスト検出メカニズムを採用しています。これは、ターゲットホストの問題を引き起こしている可能性のある不要な負荷を軽減するためのセーフガードとして機能します。また、Brazeインフラの安定化と高速なメッセージング速度の維持にも役立ちます。
+Connected Contentは、ターゲットホストが著しい遅延や過負荷の高い発生率を経験し、タイムアウト、リクエスト過多、またはBrazeがターゲットエンドポイントと正常に通信できないその他の結果が生じた場合に検出する異常ホスト検出メカニズムを採用しています。これは、ターゲットホストの負荷を引き起こしている可能性のある不要な負荷を軽減するためのセーフガードとして機能します。また、Brazeインフラの安定化と高速なメッセージング速度の維持にも役立ちます。
 
 ターゲットホストが著しい遅延や過負荷の高い発生率を経験した場合、Brazeはターゲットホストへのリクエストを1分間一時的に停止し、代わりに失敗を示すレスポンスをシミュレートします。1分後、Brazeは少数のリクエストを使用してホストの健全性を確認し、ホストが健全であることが確認された場合はフルスピードでリクエストを再開します。ホストがまだ異常な場合、Brazeはさらに1分間待ってから再試行します。
 
@@ -132,7 +132,7 @@ Connected Contentに使用する特定のURLを許可リストに追加できま
 以下は異なるメカニズムです。
 
 - **429 Too Many Requests:** エンドポイント（または上流のサービス）がこのレスポンスを返しています。これは、サーバーまたはミドルウェアがトラフィックを拒否していることを意味し、多くの場合、独自のレート制限があるためです。BrazeはConnected Contentに個別のレート制限を適用しません。Connected Contentのリクエスト量は、[メッセージ配信速度のレート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)に直接比例してスケールします。メッセージは受信者ごとに複数回レンダリングされる可能性があるため（例：メールのHTML、プレーンテキスト、AMP）、Connected Contentリクエストの数はそのレート制限を超える場合があります。設定した1分あたりのメッセージ数以下になるとは想定しないでください。429が発生する場合は、予想されるリクエスト量を処理できるようにエンドポイントまたはミドルウェアをスケールするか、キャンペーンまたはキャンバスの[配信速度のレート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)を下げて、1分あたりに送信されるメッセージ（およびConnected Content呼び出し）を減らしてください。
-- **異常ホスト検出:** 1分間のウィンドウ内で高い発生率と量の*失敗*が発生した後にトリガーされるBraze側のセーフガードです。失敗カウントには`408`、`429`、`502`、`503`、`504`、`529`のステータスコードが含まれます。トリガーされると、Brazeはそのホストへのリクエストを一時的に停止し、失敗レスポンスをシミュレートします。これはお客様独自のレート制限とは独立しています。検出しきい値と詳細については、[WebhookとConnected Contentリクエストのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection)を参照してください。異常ホスト検出のトリガーを回避するには、[Connected Contentの呼び出し量について](#understanding-connected-content-call-volume)および[大量エンドポイントのベストプラクティス](#best-practices-for-high-volume-endpoints)で説明されている呼び出し量をエンドポイントが処理できるようにしてください。
+- **異常ホスト検出:** 1分間のウィンドウ内で高い発生率と量の*失敗*が発生した後にトリガーされるBraze側のセーフガードです。失敗カウントには、`408`、`429`、`502`、`503`、`504`、`529`のステータスコードが含まれます。トリガーされると、Brazeはそのホストへのリクエストを一時的に停止し、失敗レスポンスをシミュレートします。これは独自のレート制限とは独立しています。検出しきい値と詳細については、[WebhookとConnected Contentリクエストのトラブルシューティング]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection)を参照してください。異常ホスト検出のトリガーを回避するには、[Connected Contentの呼び出し量について](#understanding-connected-content-call-volume)および[大量エンドポイントのベストプラクティス](#best-practices-for-high-volume-endpoints)で説明されている呼び出し量をエンドポイントが処理できるようにしてください。
 
 ## 効率的なパフォーマンスの確保 {#allowing-for-efficient-performance}
 
@@ -143,13 +143,13 @@ Brazeは非常に高速にメッセージを配信するため、コンテンツ
 ## 知っておくべきこと {#things-to-know}
 
 - Brazeは API コールに対して課金せず、所定のデータポイント使用量にもカウントされません。
-- Connected Content のレスポンスには1 MBの制限があります。
-- Connected Content はメッセージがレンダリングされるときに実行されます。アプリ内メッセージの場合、メッセージはインプレッション時にレンダリングされます。
-- Connected Content コールはリダイレクトに従いません。
+- Connected Contentのレスポンスには1 MBの制限があります。
+- Connected Contentはメッセージがレンダリングされるときに実行されます。アプリ内メッセージの場合、メッセージはインプレッション時にレンダリングされます。
+- Connected Contentコールはリダイレクトに従いません。
 
-### Connected Content コールの処理方法 {#how-connected-content-calls-are-processed}
+### Connected Contentコールの処理方法 {#how-connected-content-calls-are-processed}
 
-単一のメッセージテンプレート内の Connected Content コールは、Liquid レンダリング中に順次（上から下へ）実行されます。つまり、後続のコールは先行するコールで設定された変数を参照できます。この例では、最初のコールがユーザーデータを取得し、2番目のコールがそのデータを使用してプリファレンスを取得します。
+単一のメッセージテンプレート内のConnected ContentコールはLiquidレンダリング中に順次（上から下へ）実行されます。つまり、下流のコールは上流のコールで設定された変数を参照できます。この例では、最初のコールがユーザーデータを取得し、2番目のコールがそのデータを使用してプリファレンスを取得します。
 
 {% raw %}
 ```liquid
@@ -160,7 +160,7 @@ Brazeは非常に高速にメッセージを配信するため、コンテンツ
 
 ### グローバル送信とリクエストボリューム {#global-sending-and-request-volume}
 
-Connected Content コールは単一のメッセージ内では順次実行されますが、メッセージはキャンペーンやキャンバス全体で並列に送信されます。大量送信では、ピーク送信期間中にエンドポイントに対して大量のリクエストトラフィックが発生する可能性があります。そのトラフィックの管理とスロットリング（ワークスペースのメッセージングレート制限、配信速度のレート制限、キャッシュなど）については、[大量エンドポイントのベストプラクティス](#best-practices-for-high-volume-endpoints)を参照してください。
+Connected Contentコールは単一のメッセージ内では順次実行されますが、メッセージはキャンペーンやキャンバス全体で並列に送信されます。大量送信では、ピーク送信期間中にエンドポイントに対して大量のリクエストトラフィックが発生する可能性があります。そのトラフィックの管理とスロットリング（ワークスペースのメッセージングレート制限、配信速度のレート制限、キャッシュを含む）については、[大量エンドポイントのベストプラクティス](#best-practices-for-high-volume-endpoints)を参照してください。
 
 ## 大量送信エンドポイントのベストプラクティス {#best-practices-for-high-volume-endpoints}
 
@@ -168,8 +168,8 @@ Connected Content コールは単一のメッセージ内では順次実行さ�
 
 - **ピーク負荷を見積もる:** エンドポイントやミドルウェアのサイジングには、保守的な倍率を使用してください。Connected Contentのリクエストは、受信者数やメッセージ送信数を超える場合があります。たとえば、メールの場合、1人の受信者に対して複数の呼び出し（HTML、プレーンテキスト、AMP）が発生する可能性があるため、受信者数 × 2 または × 3 が保守的な見積もりとしてよく使用されます。
 - **適切な場合はキャッシュを使用する:** GETリクエストはデフォルトでキャッシュされます。POSTリクエストの場合、レスポンスが一定期間再利用できるとき（たとえば、リクエストごとに変わらないトークンやコンテンツなど）は `:cache_max_age` を追加してください。[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)および次のセクションの[POSTキャッシュに関するFAQ](#what-is-caching-behavior)を参照してください。
-- **メッセージのレート制限を設定する:** [ワークスペースのメッセージングレート制限]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)およびキャンペーンやキャンバスの[配信速度レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)は、Connected Contentのリクエスト量を間接的に制限します。Braze自体はConnected Contentをレート制限しません。Connected Contentのリクエストはメッセージと1対1ではないため、これらは完全な制御ではなく近似的な手段です。エンドポイントが処理できる範囲内にメッセージ（およびConnected Content）の量を抑えるために活用してください。
-- **冪等性とリトライを考慮して設計する:** Brazeは1人の受信者に対してエンドポイントを複数回呼び出す場合があります。エンドポイントが重複リクエストを受けても、不正な副作用なく処理できるようにしてください。
+- **メッセージのレート制限を設定する:** [ワークスペースのメッセージングレート制限]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)およびキャンペーンやキャンバスの[配信速度レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)は、Connected Contentのリクエスト量を間接的に制限します。Braze自体はConnected Contentにレート制限を適用しません。Connected Contentのリクエストはメッセージと1:1の関係ではないため、これらは完全な制御手段ではありませんが、メッセージ（ひいてはConnected Content）の量をエンドポイントが処理できる範囲内に抑えるために活用してください。
+- **冪等性とリトライを考慮して設計する:** Brazeは1人の受信者に対してエンドポイントを複数回呼び出す場合があります。エンドポイントが重複リクエストを受けても、意図しない副作用なく処理できるようにしてください。
 
 ## 認証タイプ {#authentication-types}
 
@@ -185,7 +185,7 @@ URLにベーシック認証が必要な場合、BrazeはAPI呼び出しで使用
 
 認証情報に名前を付け、ユーザー名とパスワードを入力します。
 
-![名前、ユーザー名、パスワードを入力するオプションがある「新しい認証情報を作成」ウィンドウ。]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
+![名前、ユーザー名、パスワードを入力するオプションが表示された「新しい認証情報を作成」ウィンドウ。]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
 
 その後、トークンの名前を参照することで、API呼び出しでこのベーシック認証の認証情報を使用できます。
 
@@ -199,11 +199,11 @@ Hi there, here is some fun trivia for you!: {% connected_content https://yourweb
 認証情報を削除すると、その認証情報を使用しようとするすべてのConnected Content呼び出しが中止されることに注意してください。
 {% endalert %}
 
-保存された認証情報は、Brazeがメッセージをレンダリングする際に{% raw %}`{% connected_content %}`{% endraw %}リクエストに適用されます。[Webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#authentication-and-connected-content-credentials)ステップで設定されたプライマリHTTPリクエストには適用されません。その呼び出しのシークレットを取得する必要がある場合は、リクエストヘッダーまたはWebhookのヘッダーやボディフィールド内の{% raw %}`{% connected_content %}`{% endraw %}タグを使用してください。
+保存された認証情報は、Brazeがメッセージをレンダリングする際の{% raw %}`{% connected_content %}`{% endraw %}リクエストに適用されます。[Webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#authentication-and-connected-content-credentials)ステップで設定されたプライマリHTTPリクエストには適用されません。その呼び出しのシークレットを取得する必要がある場合は、リクエストヘッダーまたはWebhookのヘッダーやボディフィールド内の{% raw %}`{% connected_content %}`{% endraw %}タグを使用してください。
 
 ### トークン認証の使用 {#using-token-authentication}
 
-Braze Connected Contentを使用する際、特定のAPIではユーザー名とパスワードの代わりにトークンが必要になる場合があります。Brazeはトークン認証のヘッダー値を保持する認証情報も保存できます。
+Braze Connected Contentを使用する際、特定のAPIではユーザー名とパスワードの代わりにトークンが必要になる場合があります。Brazeは、トークン認証のヘッダー値を保持する認証情報も保存できます。
 
 トークン値を保持する認証情報を追加するには、**認証情報を追加** > **トークン認証**を選択します。次に、API呼び出しヘッダーのキーと値のペアと許可ドメインを追加します。
 
@@ -291,7 +291,7 @@ Connected Contentリクエストが一貫して`403 Forbidden`を返し、認証
 
 ### Amazon S3でのIP許可リストの使用 {#using-ip-allowlisting-with-amazon-s3}
 
-Connected Contentを使用してAmazon S3からファイルを取得する場合、BrazeのIPアドレスからの認証なしHTTP `GET`リクエストを許可するようにバケットを設定します。
+Connected Contentを使用してAmazon S3からファイルを取得する場合、BrazeのIPアドレスからの認証なしHTTP `GET`リクエストを許可するようにバケットを設定してください。
 
 1. **IP条件付きのバケットポリシーを追加する：** `Principal: "*"`と、インスタンスの[BrazeのIP範囲](#connected-content-ip-allowlisting)を使用する`IpAddress`条件を指定して、バケットオブジェクトに`s3:GetObject`を付与します。個々のオブジェクトにpublic-read ACLを設定する必要はありません。
 
@@ -317,7 +317,7 @@ Connected Contentを使用してAmazon S3からファイルを取得する場合
 `{YOUR_BRAZE_IP_RANGE}`を、[Connected Content IP許可リスト](#connected-content-ip-allowlisting)にリストされているインスタンスのBraze IP範囲に置き換えてください。`aws:SourceIp`配列に個別の値として1つ以上の範囲を追加できます。
 
 {: start="2"}
-2. **S3のブロックパブリックアクセス設定を確認する：** `Principal: "*"`を使用するバケットポリシーは、IP条件がある場合でもAWSによってパブリックアクセスとして扱われます。ACLベースのパブリックアクセスをブロックしたまま、バケットポリシーベースのパブリックアクセスを許可する必要がある場合があります。
+2. **S3のパブリックアクセスブロック設定を確認する：** `Principal: "*"`を使用するバケットポリシーは、IP条件がある場合でもAWSによってパブリックアクセスとして扱われます。ACLベースのパブリックアクセスをブロックしたまま、バケットポリシーベースのパブリックアクセスを許可する必要がある場合があります。
 
 3. **Connected ContentタグでS3オブジェクトURLを使用する：** 標準のS3 URLでオブジェクトを参照します（例：`https://your-bucket.s3.amazonaws.com/path/to/object.json`）。
 
@@ -341,9 +341,9 @@ Connected Contentの呼び出しが正しくレンダリングされない、ま
 
 - **Connected Contentの呼び出しが行われたことを確認する：**[メッセージング履歴タブ]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab)で呼び出しが行われたかどうかを確認できます。また、単一のConnected Contentリクエストをテスト送信することもできます。
 - **PostmanまたはCURLリクエストで理想的なリクエストが成功するか確認する：**リクエストが機能してレスポンスが返される場合は、リクエストの詳細（ヘッダーを含む）を比較してください。ヘッダーがダブルクォーテーション付きのキーと値のペアでキャプチャされていることを確認してください。
-- **認証が正しく処理されていることを確認する：**`:basic_auth`/`:auth_credentials`オプションが使用されており、Connected Contentの認証がConnected Contentのワークスペース設定に追加されていることを確認してください。Connected ContentのURLには、認証以外のヘッダーが必要な場合があり、それらを入力する必要があります。
-- **データが期待される形式であることを確認する：**レスポンスボディについて、Brazeは有効なJSONをLiquidオブジェクトに解析します。それ以外の場合、レスポンスはプレーンテキスト（HTMLを含む）として扱われます。`:content_type`オプションはリクエストの送信`Content-Type`および`Accept`ヘッダーを設定しますが、レスポンスの解析には影響しません。リクエストの`:body`について、JSONにスペースが含まれている場合は、[JSONボディの提供]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#providing-json-body)セクションのガイダンスに従ってください。
-- **データが正しく解析されたことを確認する：**Liquidが期待されるフィールドを正しく参照しているか確認してください。ネストされたJSONの場合は、{% raw %}`{{sampleresult.data[0].sample_field}}`{% endraw %}を使用して、目的のネストされたフィールドを指定します。{% raw %}`RESPONSE:{{sampleresult.data}}`{% endraw %}で期待される結果を出力して、ネストされたJSONプロパティを確認できます。
+- **認証が正しく処理されていることを検証する：**`:basic_auth`/`:auth_credentials`オプションが使用されており、Connected Contentの認証がConnected Contentのワークスペース設定に追加されていることを確認してください。Connected Content URLには、認証以外のヘッダーの入力が必要な場合があります。
+- **データが期待される形式であることを確認する：**レスポンスボディについて、Brazeは有効なJSONをLiquidオブジェクトに解析します。それ以外の場合、レスポンスはプレーンテキスト（HTMLを含む）として扱われます。`:content_type`オプションはリクエストの送信時の`Content-Type`および`Accept`ヘッダーを設定しますが、レスポンスの解析には影響しません。リクエストの`:body`について、JSONにスペースが含まれている場合は、[JSONボディの提供]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#providing-json-body)セクションのガイダンスに従ってください。
+- **データが正しく解析されたことを確認する：**Liquidが期待されるフィールドを正しく参照しているか確認してください。ネストされたJSONの場合は、{% raw %}`{{sampleresult.data[0].sample_field}}`{% endraw %}を使用して目的のネストされたフィールドを指定します。{% raw %}`RESPONSE:{{sampleresult.data}}`{% endraw %}で期待される結果を出力して、ネストされたJSONプロパティを確認できます。
 - **レスポンスステータスコードを確認する：**レスポンスステータスコードは`2XX`コードである必要があります。Connected Contentには、コードが`2XX`でない場合にレスポンスを処理する方法がありません。
 
 [Webhook.site](https://webhook.site/)を使用して、Connected Contentの呼び出しのトラブルシューティングを行い、呼び出しで送信されるリクエストヘッダー、リクエストボディ、その他の情報に関する問題を診断することもできます。
@@ -351,27 +351,47 @@ Connected Contentの呼び出しが正しくレンダリングされない、ま
 1. Connected Contentの呼び出しのURLを、サイトで生成された一意のURLに切り替えます。
 2. キャンペーンまたはキャンバスステップをプレビューしてテストし、このWebサイトにリクエストが届くことを確認します。
 
-また、Liquidタグにエンドポイントが期待するパラメーター（例：`:method`、`:headers`、`:content_type`、`:body`、必要に応じて`:basic_auth`）が含まれていることを確認できます。保存されたJSONオブジェクトのHTTPステータスコードキーに依存している場合、エンドポイントはJSONオブジェクトと`2XX`ステータスを返す必要があります。
+また、Liquidタグにエンドポイントが期待するパラメーター（例：`:method`、`:headers`、`:content_type`、`:body`、必要に応じて`:basic_auth`）が含まれていることを確認できます。保存されたJSONオブジェクト内のHTTPステータスコードキーに依存している場合、エンドポイントはJSONオブジェクトと`2XX`ステータスを返す必要があります。
 
 ホストからのエラー率が高い場合は、[異常なホストの検出]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors#unhealthy-host-detection)および[Connected Contentの呼び出しボリューム](#understanding-connected-content-call-volume)を確認してください。
+
+### メールPOSTリクエストでのアンパサンドエンコーディング {#ampersand-encoding-in-email-post-requests}
+
+メールメッセージでは、HTML解析により{% raw %}`{% capture %}`{% endraw %}ブロック内のアンパサンド（`&`）が自動的に`&amp;`に変換されます。`application/x-www-form-urlencoded`のPOSTリクエストの場合、これによりリクエストが`amp;`プレフィックス付きのパラメーター名（例：`amp;username`）を送信し、API呼び出しが失敗する可能性があります。
+
+この問題を回避するには、`replace`フィルターを使用して、ボディを`:body`に渡す前に`amp;`プレフィックスを削除します。
+
+{% raw %}
+```liquid
+{% capture body_with_amps %}
+grant_type=client_credentials&username=test&password=test
+{% endcapture %}
+{% connected_content https://api.example.com/token
+   :method post
+   :body {{body_with_amps | replace: "amp;", ""}}
+   :content_type application/x-www-form-urlencoded
+   :save token
+%}
+```
+{% endraw %}
 
 ## よくある質問 {#frequently-asked-questions}
 
 ### Connected Content の呼び出しがユーザー数や送信数より多いのはなぜですか？ {#why-are-there-more-connected-content-calls-than-users-or-sends}
 
-Braze は、メッセージペイロードをレンダリングするために、受信者1人あたり同じ Connected Content API 呼び出しを複数回行うことがあります。メッセージペイロードは、バリデーション、リトライロジック、その他の内部目的のために、受信者1人あたり複数回レンダリングされることがあります。ただし、メッセージに反映される Connected Content 呼び出しは1回のみです。
+Brazeは、メッセージペイロードをレンダリングするために、受信者1人あたり同じConnected Content API呼び出しを複数回行うことがあります。メッセージペイロードは、バリデーション、リトライロジック、その他の内部目的のために、受信者1人あたり複数回レンダリングされることがあります。ただし、Connected Content呼び出しのうち、実際にメッセージに反映されるのは1回のみです。
 
-リトライロジックが呼び出しで使用されていない場合でも、Connected Content API 呼び出しが受信者1人あたり複数回行われることは想定される動作です。Connected Content を含むメッセージのレート制限を設定するか、メッセージ送信ごとに複数の Connected Content 呼び出しが行われることを考慮した想定ボリュームに対応できるようサーバーを構成することをお勧めします。
+リトライロジックが呼び出しで使用されていない場合でも、Connected Content API呼び出しが受信者1人あたり複数回行われることは想定される動作です。Connected Contentを含むメッセージにレート制限を設定するか、メッセージ送信ごとに複数のConnected Content呼び出しが行われることを考慮した想定ボリュームに対応できるようサーバーを構成することをお勧めします。
 
-詳細と軽減策については、[Connected Content の呼び出しボリュームについて](#understanding-connected-content-call-volume)と[大量エンドポイントのベストプラクティス](#best-practices-for-high-volume-endpoints)を参照してください。
+詳細と軽減策については、[Connected Content の呼び出しボリュームについて](#understanding-connected-content-call-volume)および[大量エンドポイントのベストプラクティス](#best-practices-for-high-volume-endpoints)を参照してください。
 
-### Connected Content でレート制限はどのように機能しますか？ {#how-does-rate-limiting-work-with-connected-content}
+### Connected Content でのレート制限はどのように機能しますか？ {#how-does-rate-limiting-work-with-connected-content}
 
-Connected Content には独自のレート制限はありません。代わりに、レート制限はメッセージ送信レートに基づきます。送信されるメッセージ数よりも Connected Content 呼び出しが多い場合は、メッセージングのレート制限を、意図する Connected Content のレート制限よりも高く設定することをお勧めします。
+Connected Contentには独自のレート制限はありません。代わりに、レート制限はメッセージ送信レートに基づきます。送信されるメッセージ数よりもConnected Content呼び出しが多い場合は、メッセージングのレート制限を、意図するConnected Contentのレート制限よりも高く設定することをお勧めします。
 
 ### キャッシュの動作はどうなっていますか？ {#what-is-caching-behavior}
 
-GET リクエストはデフォルトでキャッシュされます（[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)を参照）。**POST リクエストはデフォルトではキャッシュされません**が、Connected Content 呼び出しに `:cache_max_age` を追加することでキャッシュを有効にできます。これにより、同じ POST（たとえばトークンやコンテンツのリクエスト）がキャッシュウィンドウ内で繰り返し行われる場合に、エンドポイントの負荷を軽減できます。
+GETリクエストはデフォルトでキャッシュされます（[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)を参照）。**POSTリクエストはデフォルトではキャッシュされません**が、Connected Content呼び出しに `:cache_max_age` を追加することでキャッシュを有効にできます。これにより、同じPOST（たとえばトークンやコンテンツのリクエスト）がキャッシュウィンドウ内で繰り返し行われる場合に、エンドポイントの負荷を軽減できます。
 
 {% raw %}
 ```liquid
@@ -379,14 +399,14 @@ GET リクエストはデフォルトでキャッシュされます（[レスポ
 ```
 {% endraw %}
 
-キャッシュは重複する Connected Content 呼び出しの削減に役立ちますが、ユーザーあたり1回の呼び出しになることが保証されるわけではありません。キャッシュの持続時間は5分から4時間です。詳細については、[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)を参照してください。
+キャッシュは重複するConnected Content呼び出しの削減に役立ちますが、ユーザーあたり1回の呼び出しになることが保証されるわけではありません。キャッシュの持続時間は5分から4時間の間です。詳細については、[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)を参照してください。
 
-### Connected Content のデフォルトの HTTP 動作は何ですか？ {#what-is-the-connected-content-http-default-behavior}
+### Connected Content のHTTPデフォルト動作は何ですか？ {#what-is-the-connected-content-http-default-behavior}
 
 {% multi_lang_include connected_content/sections.md section='default behavior' %}
 
 {% multi_lang_include connected_content/sections.md section='http post' %}
 
-### 同じ Connected Content 呼び出しを複数の場所で使用するとどうなりますか？ {#what-happens-if-i-use-the-same-connected-content-call-in-multiple-places}
+### 同じConnected Content呼び出しを複数の場所で使用するとどうなりますか？ {#what-happens-if-i-use-the-same-connected-content-call-in-multiple-places}
 
-各 Connected Content タグは、複数のタグが同じ URL とパラメーターを使用している場合でも、個別に評価されます。URL とキャッシュ設定が許可する場合、同一のリクエストは新しいアウトバウンドリクエストをトリガーするのではなく、キャッシュから提供されることがあります（詳細については[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/caching_responses)を参照してください）。
+各Connected Contentタグは、複数のタグが同じURLとパラメーターを使用している場合でも、個別に評価されます。URLとキャッシュ設定が許可する場合、同一のリクエストは新しいアウトバウンドリクエストをトリガーするのではなく、キャッシュから提供されることがあります（詳細については[レスポンスのキャッシュ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/caching_responses)を参照してください）。

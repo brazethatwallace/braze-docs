@@ -16,24 +16,31 @@ search_rank: 3
 
 Gehen Sie zu **Audience** > **Segments**.
 
-## Schritt 2: Benennen Sie Ihr Segment {#step-2-name-your-segment}
+## Schritt 2: Segment benennen {#step-2-name-your-segment}
 
-Wählen Sie **Segment erstellen** aus, um mit dem Aufbau Ihres Segments zu beginnen. Benennen Sie Ihr Segment, indem Sie die Art der Nutzer:innen beschreiben, nach denen Sie filtern möchten. So können Sie das Segment leichter identifizieren, wenn Sie es für Ihre Campaigns oder Canvases als Zielgruppe verwenden möchten. Vage Segmenttitel können verwirrend sein.
+Wählen Sie **Create Segment** aus, um mit dem Erstellen Ihres Segments zu beginnen. Benennen Sie Ihr Segment, indem Sie die Art der Nutzer:innen beschreiben, die Sie filtern möchten. So können Sie das Segment leichter identifizieren, wenn Sie es für Ihre Campaigns oder Canvases als Zielgruppe verwenden möchten. Vage Segmenttitel können verwirrend sein.
 
 Sie können auch Operator bitten, die Filterlogik Ihres Segments anhand einer Beschreibung Ihrer Zielgruppe zu erstellen. Weitere Informationen finden Sie unter [Was Sie mit Operator tun können]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
 Optional können Sie Folgendes tun:
-- Fügen Sie dem Segment eine Beschreibung hinzu, um weitere Details zur Absicht dieser Zielgruppe anzugeben und Notizen für andere Teammitglieder zu hinterlassen.
-- Fügen Sie Ihrem Segment ein [Team]({{site.baseurl}}/user_guide/administer/global/user_management/teams) hinzu.
-- Fügen Sie Ihrem Segment [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) zur weiteren Organisation hinzu.
+- Eine Beschreibung zum Segment hinzufügen, um weitere Details zur Absicht dieser Zielgruppe anzugeben und Notizen für andere Teammitglieder zu hinterlassen.
+- Ein [Team]({{site.baseurl}}/user_guide/administer/global/user_management/teams) zu Ihrem Segment hinzufügen.
+- [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) zu Ihrem Segment hinzufügen, um es besser zu organisieren.
 
-![Modal „Segment erstellen“, in dem das Segment „Lapsed Users“ benannt ist, mit der Segmentbeschreibung „This is our main Lapsed User segment to target non-actives within the past fourteen days.“ und zwei Buttons: „Cancel“ und „Create Segment“.]({% image_buster /assets/img_archive/segment_app_selection.png %}){: style="max-width:80%;"}
+Segmente werden gespeichert, sobald Sie **Create Segment** auswählen. Sie müssen nicht zuerst im Segment-Editor **Save** auswählen.
+
+{% alert note %}
+Wenn Sie die Berechtigung „Segmente bearbeiten“ nur auf Team-Ebene haben (nicht auf Workspace-Ebene), weist Braze beim Erstellen des Segments ein Team zu:
+<br><br>
+- **Ein berechtigtes Team:** Dieses Team wird automatisch zugewiesen.
+- **Mehrere berechtigte Teams:** Braze weist das erste Team in Ihrer Liste der berechtigten Teams zu. Sie können das Team im Segment-Editor ändern, bevor Sie das Segment teilen oder verwenden.
+{% endalert %}
 
 ## Schritt 3: App oder Plattform auswählen {#step-3-choose-your-app-or-platform}
 
 Wählen Sie aus, welche Apps oder Plattformen Sie ansprechen möchten, indem Sie **Nutzer:innen aus allen Apps** (Standard) oder **Nutzer:innen aus bestimmten Apps** auswählen. **Nutzer:innen aus bestimmten Apps** richtet sich an Nutzer:innen mit mindestens einer Sitzung in den angegebenen Apps.
 
-Wenn Sie beispielsweise eine In-App-Nachricht nur an iOS-Geräte senden möchten, wählen Sie Ihre iOS-App aus. So wird sichergestellt, dass Nutzer:innen, die sowohl ein iOS- als auch ein Android-Gerät verwenden, die Nachricht nur auf ihrem iOS-Gerät erhalten. In der Liste der bestimmten Apps können Sie mit der Option **Nutzer:innen ohne Apps** auch Nutzer:innen ohne Sitzungen und ohne App-Daten einschließen (in der Regel über Nutzerimport oder REST API erstellt).
+Wenn Sie beispielsweise eine In-App-Nachricht nur an iOS-Geräte senden möchten, wählen Sie Ihre iOS-App aus. So wird sichergestellt, dass Nutzer:innen, die sowohl ein iOS- als auch ein Android-Gerät verwenden, die Nachricht nur auf ihrem iOS-Gerät erhalten. In der Liste der bestimmten Apps können Sie mit der Option **Nutzer:innen ohne Apps** Nutzer:innen ohne Sitzungen und ohne App-Daten einschließen (die in der Regel über Nutzerimport oder REST API erstellt wurden).
 
 ![Panel „Segmentdetails“ mit der ausgewählten Option „Nutzer:innen aus allen Apps“ im Abschnitt „Verwendete Apps“.]({% image_buster /assets/img_archive/Segment2.png %}){: style="max-width:80%;"}
 
@@ -49,11 +56,11 @@ Filter sind in Filtergruppen organisiert. Jeder Filter muss Teil einer Filtergru
 
 ![Filtergruppe mit einem Bearbeitungssymbol neben ihrem Namen.]({% image_buster /assets/img_archive/edit_filter_group_name.png %})
 
-Wählen Sie die Symbole neben jedem Filter aus, um den Filter-Editor einzuklappen oder einzelne Filter zu duplizieren. Nach dem Duplizieren eines Filters können Sie dessen Werte in jedem Dropdown-Menü anpassen.
+Wählen Sie die Symbole neben jedem Filter aus, um den Filter-Editor ein- oder auszuklappen oder einzelne Filter zu duplizieren. Nach dem Duplizieren eines Filters können Sie dessen Werte in jedem Dropdown-Menü anpassen.
 
 ### Segmentierungslogik mit AND und OR {#segmentation-logic-using-and-and-or}
 
-Innerhalb einer Filtergruppe können Filter entweder mit „AND“ oder „OR“ verknüpft werden. Zwischen Filtergruppen können Gruppen ebenfalls mit „AND“ oder „OR“ verknüpft werden. Mit Filtergruppen können Sie Segmentierungslogik wie die folgende erstellen:
+Innerhalb einer Filtergruppe können Filter entweder mit „AND“ oder „OR“ verknüpft werden. Zwischen Filtergruppen können Gruppen ebenfalls mit „AND“ oder „OR“ verknüpft werden. Bei der Verwendung von Filtergruppen können Sie Segmentierungslogik wie die folgende erstellen:
 - (A AND B AND C) OR (C AND E AND F)
 - (A OR B OR C) AND (C OR D OR F)
 
@@ -63,9 +70,9 @@ Wenn Sie „OR“ für Ihre Filter auswählen, enthält Ihr Segment Nutzer:innen
 Wenn Sie „OR“ für Filter auswählen, die einen negativen Filter enthalten (z. B. „ist nicht“ in einer Abo-Gruppe), denken Sie daran, dass Nutzer:innen nur einen der „OR“-Filter erfüllen müssen, um in das Segment aufgenommen zu werden. Um den negativen Filter unabhängig von den anderen Filtern anzuwenden, verwenden Sie eine [Ausschlussgruppe](#exclusion).
 {% endalert %}
 
-{% details Wann Sie den OR-Operator vermeiden sollten %}
+{% details Wann der OR-Operator vermieden werden sollte %}
 
-Es kann Situationen beim Nutzer-Targeting geben, in denen die Verwendung des `OR`-Operators vermieden werden sollte. Der `OR`-Operator erstellt eine Aussage, die als wahr ausgewertet wird, wenn ein:e Nutzer:in die Kriterien für einen oder mehrere der Filter in einer Aussage erfüllt. Wenn Sie beispielsweise ein Segment von Nutzer:innen erstellen möchten, die zu „Foodies“ gehören, aber weder zu „Non-foodies“ noch zu „Candy-lovers“, dann würde der `OR`-Operator hier funktionieren.
+Es kann Targeting-Situationen geben, in denen die Verwendung des `OR`-Operators vermieden werden sollte. Der `OR`-Operator erstellt eine Aussage, die als wahr ausgewertet wird, wenn ein:e Nutzer:in die Kriterien für einen oder mehrere der Filter in einer Aussage erfüllt. Wenn Sie beispielsweise ein Segment von Nutzer:innen erstellen möchten, die zu „Foodies“ gehören, aber weder zu „Non-foodies“ noch zu „Candy-lovers“, dann würde der `OR`-Operator hier funktionieren.
 
 ![Filtergruppe für Nutzer:innen im Segment „Foodies“, die nicht in den Segmenten „Non-foodies“ oder „Candy-lovers“ sind.]({% image_buster /assets/img_archive/or_operator_segment.png %})
 
@@ -92,21 +99,25 @@ Braze erstellt keine Profile für Nutzer:innen, bis diese die App zum ersten Mal
 
 ![Segmenter-Filtergruppen mit dem AND-Operator.]({% image_buster /assets/img_archive/segmenter_filter_groups.png %})
 
-{% alert important %}
-Segmente, die bereits den Filter **Segment Membership** verwenden, können nicht weiter in andere Segmente eingeschlossen oder verschachtelt werden. Dies verhindert einen Zyklus, bei dem Segment A Segment B einschließt, das dann versucht, Segment A wieder einzuschließen. Wenn das passieren würde, würde das Segment sich ständig selbst referenzieren, was es unmöglich macht, zu berechnen, wer tatsächlich dazugehört.
+#### Anzeige von Datums- und Aktualitätsfiltern {#date-and-recency-filter-display}
 
-Außerdem erhöht die Verschachtelung von Segmenten die Komplexität und kann die Verarbeitung verlangsamen. Erstellen Sie stattdessen das Segment, das Sie einschließen möchten, mit denselben Filtern neu.
+Wenn Sie einen relativen Zeitfilter mit Tagen festlegen (z. B. ein Ereignis, das vor mehr als 84&nbsp;Tagen und weniger als 91&nbsp;Tagen stattfand), wandelt Braze den Wert nach dem Speichern in Wochen um, wenn die Tagesanzahl gleichmäßig durch sieben teilbar ist. Beispielsweise werden 91&nbsp;Tage als 13&nbsp;Wochen angezeigt, aber 121&nbsp;Tage bleiben in Tagen, da sie nicht gleichmäßig teilbar sind. Dies ist nur eine Änderung der Anzeige – die Werte werden weiterhin als Tage gespeichert und verarbeitet.
+
+{% alert important %}
+Segmente, die bereits den Filter **Segment Membership** verwenden, können nicht weiter in andere Segmente eingeschlossen oder verschachtelt werden. Dies verhindert einen Zyklus, bei dem Segment A Segment B einschließt, das dann versucht, Segment A wieder einzuschließen. Wenn dies auftritt, referenziert das Segment sich selbst weiter, was es unmöglich macht, zu berechnen, wer dazugehört.
+<br><br>
+Außerdem erhöht das Verschachteln von Segmenten die Komplexität und kann die Verarbeitung verlangsamen. Erstellen Sie stattdessen das Segment, das Sie einschließen möchten, mit denselben Filtern neu.
 {% endalert %}
 
 ### Ausschlussgruppen (optional) {#exclusion}
 
-Beim Erstellen eines Segments können Sie eine oder mehrere Ausschlussgruppen anwenden. Ausschlussgruppen enthalten Kriterien, die Nutzer:innen identifizieren, die aus Ihrem Segment ausgeschlossen werden sollen, und sind immer mit einem „AND NOT“-Operator mit Ihren Filtergruppen verbunden.
+Beim Erstellen eines Segments können Sie eine oder mehrere Ausschlussgruppen anwenden. Ausschlussgruppen enthalten Kriterien, die Nutzer:innen identifizieren, die von Ihrem Segment ausgeschlossen werden sollen, und sind immer mit einem „AND NOT“-Operator mit Ihren Filtergruppen verbunden.
 
 Ausschlussgruppen überschreiben Segmentkriterien. Wenn ein:e Nutzer:in die Kriterien Ihrer Ausschlussgruppe erfüllt, wird er/sie nicht Teil Ihres Segments sein, selbst wenn er/sie die Kriterien innerhalb Ihrer Filtergruppen erfüllt.
 
-Erstellen Sie eine Ausschlussgruppe, indem Sie Filter hinzufügen, wie Sie es für Filtergruppen tun würden. Die Statistik _Geschätzte erreichbare Nutzer:innen_ in einer Ausschlussgruppe zeigt die geschätzte Anzahl der Nutzer:innen, die nach Anwendung der Ausschlusskriterien in Ihrem Segment verbleiben.
+Erstellen Sie eine Ausschlussgruppe, indem Sie Filter hinzufügen, wie Sie es für Filtergruppen tun würden. Die Statistik *Geschätzte erreichbare Nutzer:innen* in einer Ausschlussgruppe zeigt die geschätzte Anzahl der Nutzer:innen, die nach Anwendung der Ausschlusskriterien in Ihrem Segment verbleiben.
 
-Ausgeschlossene Nutzer:innen werden nicht in der Statistik _Gesamte erreichbare Nutzer:innen_ Ihres Segments gezählt.
+Ausgeschlossene Nutzer:innen werden nicht in der Statistik *Gesamte erreichbare Nutzer:innen* Ihres Segments gezählt.
 
 ![Eine Ausschlussgruppe mit zwei Filtern.]({% image_buster /assets/img_archive/segmenter_exclusion_groups.png %})
 
@@ -118,7 +129,7 @@ Beachten Sie, dass bei Verwendung von AND zwischen Ihren Filtern die Funnel-Stat
 
 ![Zwei Filter mit Segment-Funnel-Statistiken.]({% image_buster /assets/img_archive/segment_funnel_statistics.png %})
 
-Durch das Hinzufügen von Filtern, die Ihren Nutzerfluss dokumentieren, können Sie die Punkte sehen, an denen Nutzer:innen abspringen. Wenn Sie beispielsweise eine Social-Networking-App betreiben und sehen möchten, wo Sie während Ihres Onboarding-Prozesses möglicherweise Nutzer:innen verlieren, können Sie angepasste Datenfilter für die Registrierung, das Hinzufügen von Freunden und das Senden der ersten Nachricht hinzufügen. Wenn Sie feststellen, dass 85 % der Nutzer:innen sich registrieren und Freunde hinzufügen, aber nur 45 % die erste Nachricht gesendet haben, wissen Sie, dass Sie sich darauf konzentrieren sollten, während Ihres Onboardings und Ihrer Marketing-Campaigns mehr Nachrichtenversand zu fördern.
+Durch das Hinzufügen von Filtern, die Ihren Nutzerfluss dokumentieren, können Sie die Punkte erkennen, an denen Nutzer:innen abspringen. Wenn Sie beispielsweise eine Social-Networking-App betreiben und sehen möchten, wo Sie während Ihres Onboarding-Prozesses möglicherweise Nutzer:innen verlieren, können Sie angepasste Datenfilter für die Registrierung, das Hinzufügen von Freunden und das Senden der ersten Nachricht hinzufügen. Wenn Sie feststellen, dass 85 % der Nutzer:innen sich registrieren und Freunde hinzufügen, aber nur 45 % die erste Nachricht gesendet haben, wissen Sie, dass Sie sich darauf konzentrieren sollten, während Ihres Onboardings und Ihrer Marketing-Campaigns mehr Nachrichtenversand zu fördern.
 
 ### Testsegmente {#testing-segments}
 
@@ -130,12 +141,12 @@ Die **Nutzersuche** akzeptiert nur `external_id` und `braze_id`. Sie akzeptiert 
 
 ![Abschnitt „Nutzersuche“ mit einem Suchfeld.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%;"}
 
-Die Nutzersuche ist verfügbar beim:
+Die Nutzersuche ist verfügbar bei:
 - Erstellen eines Segments
 - Einrichten einer Campaign- oder Canvas-Zielgruppe
 - Einrichten eines Zielgruppenpfad-Schritts
 
-Wenn ein:e Nutzer:in die Segment-, Filter- und App-Kriterien erfüllt, wird eine entsprechende Meldung angezeigt.
+Wenn ein:e Nutzer:in die Segment-, Filter- und App-Kriterien erfüllt, wird eine Meldung dies bestätigen.
 
 ![Eine Nutzersuche nach „testuser“ löst eine Meldung aus, die besagt: „testuser erfüllt alle Segmente, Filter und Apps.“]({% image_buster /assets/img_archive/user_lookup_match.png %})
 
@@ -147,9 +158,9 @@ Wenn ein:e Nutzer:in einen Teil oder alle Segment-, Filter- oder App-Kriterien n
 
 Sie können Einzelnutzer-Segmente (oder Segmente mit einer Handvoll Nutzer:innen) mithilfe eindeutiger Attribute erstellen, die Nutzer:innen identifizieren, wie z. B. ein Nutzername oder eine Nutzer-ID.
 
-Allerdings zeigen die Segmentierungsstatistiken oder die Vorschau diese:n einzelne:n Nutzer:in möglicherweise nicht an, da Segmentstatistiken auf Basis einer Zufallsstichprobe mit einem Konfidenzintervall von 95 % berechnet werden, wobei das Ergebnis innerhalb von +/- 1 % liegt. Je größer Ihre Nutzerbasis ist, desto wahrscheinlicher ist es, dass die Größe Ihres Segments eine grobe Schätzung ist. Um sicherzustellen, dass Ihr Segment die:den einzelne:n Nutzer:in enthält, die/den Sie ansprechen möchten, wählen Sie **Exakte Statistiken berechnen** aus. Dadurch wird die genaue Anzahl der Nutzer:innen in Ihrem Segment mit einer Genauigkeit von über 99,999 % berechnet.
+Allerdings zeigen die Segmentierungsstatistiken oder die Vorschau diese:n einzelne:n Nutzer:in möglicherweise nicht an, da Segmentstatistiken auf Basis einer Zufallsstichprobe mit einem Konfidenzintervall von 95 % berechnet werden, wobei das Ergebnis innerhalb von +/- 1 % liegt. Je größer Ihre Nutzerbasis ist, desto wahrscheinlicher ist es, dass die Größe Ihres Segments eine grobe Schätzung ist. Um sicherzustellen, dass Ihr Segment die:den einzelne:n Nutzer:in enthält, die/den Sie ansprechen möchten, wählen Sie **Exakte Statistiken berechnen** aus. Dies berechnet die genaue Anzahl der Nutzer:innen in Ihrem Segment mit einer Genauigkeit von mehr als 99,999 %.
 
-Braze bietet Testfilter, um bestimmte Nutzer:innen anhand der Nutzer-ID oder E-Mail-Adresse anzusprechen.
+Braze bietet Testfilter, um bestimmte Nutzer:innen nach Nutzer-ID oder E-Mail-Adresse anzusprechen.
 
 ## Schritt 5: Segment speichern {#step-5-save-your-segment}
 

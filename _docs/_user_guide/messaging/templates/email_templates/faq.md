@@ -39,9 +39,11 @@ To save this new link, the default Braze unsubscribe tag {%raw%}(``${set_user_to
 - **Tag in comment example:** putting tag in comment example: `<!-- ${set_user_to_unsubscribed_url} -->`
 - **Comment in hidden `<div>` tag example:** {%raw%}`<div style="display:none;max-height:0px;overflow:hidden;">${set_user_to_unsubscribed_url}</div>`{%endraw%}
 
-### What happens if I edit an email template that is currently being used in a campaign?
+### What happens if I edit an email template that is currently being used in a campaign or Canvas?
 
-Edits made to an existing template won't be reflected in campaigns that were created using previous versions of that template. For API campaigns that use a template in the REST API body, Braze will use the latest version of the template at the time of sending.  
+Email templates serve as a starting point when creating an email in a campaign or Canvas. When you select a template, you can edit it within the campaign or Canvas, and those changes are independent of the original template.
+
+Edits made to an existing template won't be reflected in campaigns or Canvases that were created using previous versions of that template. Similarly, changes made to the email within a campaign or Canvas won't sync back to the original template. For API campaigns that include an `email_template_id` in the request body, Braze uses the latest version of the template at the time of send.
 
 ## Link templates
 

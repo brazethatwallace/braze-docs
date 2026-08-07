@@ -74,6 +74,16 @@ Here's what you need to know about Banner dimensions and sizing:
 - The HTML takes up the full width of the container it's rendered in.
 - We recommend making a fixed dimension element and testing those dimensions in composer.
 
+### Connected Content {#connected-content}
+
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Connected Content for Banners' %}
+
+You can use [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) to pull real-time data from external APIs into your Banner. Because Banners render inline during a session refresh, Connected Content has specific limitations in this channel:
+
+- **GET requests only:** Banners render only `GET` Connected Content requests. `POST` requests aren't supported.
+- **Shared rendering budget:** All placements returned in a single refresh request (up to 10) share one rendering budget of approximately two seconds. Each Connected Content call counts against this shared budget, so a placement with slow or numerous calls can use time that other placements need.
+- **No retries:** If a Connected Content call fails, times out, or the rendering budget is exceeded, the Connected Content result for that placement is treated as null. Unlike other channels, Banners don't retry the request or delay delivery.
+
 ## Limitations
 
 Each workspace can support up to 200 active Banner campaigns. If this limit is reached, you'll need to [archive or deactivate]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status) an existing campaign before creating a new one.
@@ -81,7 +91,7 @@ Each workspace can support up to 200 active Banner campaigns. If this limit is r
 Additionally, Banner messages do not support the following features:
 
 - API-triggered and action-based campaigns
-- Connected Content
+- [Connected Content](#connected-content) (in early access)
 - Promotional codes
 - `catalog_items` using the [`:rerender` tag]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
 

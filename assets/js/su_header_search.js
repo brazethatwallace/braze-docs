@@ -200,6 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
     input.addEventListener("focus", toggleHasTextClass);
 
     // --- Handle Enter key manually ---
+    /*
     input.addEventListener(
       "keypress",
       function (e) {
@@ -212,6 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       true
     );
+    */
 
     // --- Run check immediately and periodically for autofill/preload ---
     const checkDelays = [0, 100, 300, 1000, 2000];

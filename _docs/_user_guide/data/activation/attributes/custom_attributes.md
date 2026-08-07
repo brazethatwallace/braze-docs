@@ -155,6 +155,8 @@ When clearing or unsetting a custom attribute, the behavior differs depending on
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Blank strings versus null values" }
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Blank strings versus null values" }
 
+This behavior also affects segmentation. For custom attributes, the **IS NOT BLANK** filter checks for a non-empty value. This means a blank string (`""`) doesn't match, even though the attribute remains visible on the profile. A `null` value also doesn't match, because the attribute is removed from the profile.
+
 {% alert important %}
 For non-string data types where the data type is manually set in the Braze dashboard (not auto-detected), you must use `null` to unset the value. Passing `""` is valid for only string attributes — for example, setting a Boolean attribute to `""` is treated as an empty string, which is an invalid value for that type. To unset a Boolean, pass `null`.
 

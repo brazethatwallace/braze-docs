@@ -29,7 +29,13 @@ How do you want to split your users? You can use [segments]({{site.baseurl}}/use
 
 {% alert note %} 
 By default, segments and filters for a Decision Split step are checked right after receiving a previous step, unless you add a delay. 
-{% endalert %} 
+{% endalert %}
+
+#### Retargeting filters in Canvases with re-entry
+
+Retargeting filters in a Decision Split step, such as `Clicked/Opened Step In This Canvas`, evaluate engagement across all Canvas entries for a user, including prior entries. For example, if a user interacted with a step during a previous entry, the Decision Split recognizes that interaction when they re-enter the Canvas.
+
+For Canvases with re-entry enabled, use an [Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) step with the **Interact with Step** trigger when you need to evaluate engagement only during the current Canvas entry within a time window. Action Paths count only interactions that occur during the step's evaluation window.
 
 ## Use your split
 

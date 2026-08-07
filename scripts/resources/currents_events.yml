@@ -769,3 +769,27 @@ event_documentation:
   users.UserOrphan:
     api_tags:
       - User Orphan
+  contentoptimizer.ComponentStore:
+    api_tags:
+      - Content Optimizer
+  users.canvas.costep.Conversion:
+    api_tags:
+      - Canvas
+      - Content Optimizer
+      - Conversion
+  users.messages.landingpage.Click:
+    api_tags:
+      - Landing Pages
+      - Clicks
+  users.messages.landingpage.FormSubmission:
+    api_tags:
+      - Landing Pages
+      - Form Submissions
+  users.messages.landingpage.Impression:
+    api_tags:
+      - Landing Pages
+      - Impressions
+  users.messages.survey.Response:
+    api_tags:
+      - Surveys
+      - Responses

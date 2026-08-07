@@ -20,8 +20,10 @@ Busca tu síntoma en la tabla para navegar a la sección correspondiente.
 | El editor se comporta de forma extraña en Chrome | [Conflictos de extensiones](#extension-conflicts) |
 | El correo electrónico se ve diferente en distintos clientes | [Renderizado de correo electrónico](#email-rendering) |
 | El correo electrónico muestra código Liquid o enlaces rotos | [HTML desequilibrado en plantillas Liquid](#unbalanced-html-in-liquid-templates) |
-| La vista previa de Inbox Vision no coincide con el correo electrónico enviado | [CSS en línea](#css-inlining) |
-| Espacio en blanco o líneas después de las imágenes en los correos electrónicos de prueba | [Espacio en blanco debajo de las imágenes](#white-space-under-images) |
+| La vista previa de Inbox Vision no coincide con el correo electrónico enviado | [Inlining de CSS](#css-inlining) |
+| Espacios en blanco o líneas después de las imágenes en los correos electrónicos de prueba | [Espacio en blanco debajo de las imágenes](#white-space-under-images) |
+| Los análisis de clics no incluyen parámetros de consulta | [Limitaciones de los análisis de clics en enlaces](#link-click-analytics-limitations) |
+| Los superíndices causan un espaciado de línea inconsistente | [Problemas de altura de línea con superíndices](#superscript-line-height-issues) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Síntoma de correo electrónico HTML" }
 
 ## Ruta de investigación estándar {#standard-investigation-path}
@@ -57,6 +59,7 @@ Los correos electrónicos se renderizan de forma diferente según los navegadore
 
 - Previsualiza tus correos electrónicos usando [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para ver cómo se ven en diferentes navegadores y clientes de correo electrónico.
 - Una vez que hayas identificado qué navegadores o clientes de correo electrónico están causando problemas, informa a tu equipo de desarrolladores de que necesitarán modificar su HTML y hacer ajustes para adaptarse a esos navegadores o clientes de correo electrónico.
+- Si el problema es específico de [cómo se muestra el texto alternativo]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text), ten en cuenta que este comportamiento lo controla el cliente de correo electrónico del destinatario, no Braze.
 
 ### HTML desbalanceado en plantillas Liquid {#unbalanced-html-in-liquid-templates}
 
@@ -133,4 +136,61 @@ Alternativamente, aplica el estilo directamente a imágenes específicas:
 
 ```html
 <img src="https://example.com/image.jpg" style="display: block;" alt="Image description" />
+```
+
+## Limitaciones de los análisis de clics en enlaces {#link-click-analytics-limitations}
+
+### Síntoma
+
+Los análisis de clics para correos electrónicos con muchos parámetros de consulta únicos no coinciden con tus expectativas. Es posible que veas recuentos de clics agregados para URL sin parámetros después de los primeros 100 enlaces únicos.
+
+### Cómo funciona el seguimiento de clics en enlaces {#how-link-click-tracking-works}
+
+Braze realiza el seguimiento de clics tanto en URL parametrizadas (con parámetros de consulta) como en URL base sin parámetros. Para los primeros 100 enlaces parametrizados únicos en los que se hace clic en una Campaign de correo electrónico o un Canvas, Braze recopila y reporta datos para ambos:
+
+- La URL parametrizada completa (por ejemplo, `https://example.com?user_id=12345`)
+- La URL base sin parámetros (por ejemplo, `https://example.com`)
+
+Después de que se haga clic en los primeros 100 enlaces parametrizados únicos, Braze solo incrementa los recuentos de clics para la URL base sin parámetros. Esto significa que:
+
+- Los análisis de clics se agregan en el dominio base y la ruta en lugar de en combinaciones individuales de parámetros de consulta
+- Aún puedes realizar el seguimiento de la participación significativa basándote en las rutas de los enlaces
+- El seguimiento de clics a nivel de usuario individual sigue funcionando con normalidad
+
+Este comportamiento evita que los análisis se inflen con miles de combinaciones únicas de parámetros de consulta, al tiempo que se capturan los patrones generales de participación con los enlaces.
+
+### Qué significa esto para tus Campaigns {#what-this-means-for-your-campaigns}
+
+Si dependes de parámetros de consulta únicos para realizar el seguimiento del comportamiento específico de los usuarios en plataformas externas (por ejemplo, `https://example.com?user_id=USER_ID`), ten en cuenta que los análisis de clics de Braze solo conservarán esos parámetros para los primeros 100 enlaces únicos en los que se haga clic. Después de ese umbral, los clics siguen registrándose en tus análisis, pero se atribuyen a la URL sin parámetros.
+
+Los datos de clics a nivel de usuario siguen disponibles a través de [Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents) o el [registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), independientemente de cuántos enlaces parametrizados únicos se hayan clicado.
+
+### Problemas de altura de línea con superíndices {#superscript-line-height-issues}
+
+#### Síntoma
+
+El texto con superíndices aparece con un espaciado de línea inconsistente, donde las líneas parecen más juntas o más separadas de lo previsto. Este es un problema de renderizado común en los clientes de correo electrónico y no es específico de Braze.
+
+El uso de superíndices en correos electrónicos puede causar un comportamiento inesperado en la altura de línea porque los distintos clientes de correo electrónico manejan el texto en superíndice de maneras diferentes.
+
+#### Resolución {#resolution}
+
+Usa el editor HTML para controlar el estilo de los superíndices y los elementos circundantes.
+
+Para definir explícitamente la altura de línea, añade CSS en línea para establecer el `line-height` del texto:
+
+```html
+<p style="line-height: 1.5;">Example text with superscript<sup style="line-height: inherit;">1</sup></p>
+```
+
+Para ajustar la alineación vertical, usa la propiedad `vertical-align` para alinear el superíndice sin alterar la altura de línea:
+
+```html
+<sup style="vertical-align: top; font-size: smaller;">1</sup>
+```
+
+Si los superíndices siguen causando problemas, usa un `<span>` como alternativa a `<sup>` para tener más control:
+
+```html
+<span style="font-size: smaller; vertical-align: top;">1</span>
 ```

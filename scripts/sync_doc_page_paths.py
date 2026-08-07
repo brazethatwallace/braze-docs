@@ -7,7 +7,8 @@ Google Sheet, adds new paths with inherited Writer/Team, removes stale paths, wr
 `.github/support_analyzer_doc_assignees.csv`, and appends a row to the Auto-Assign Log tab.
 
 Environment:
-  GOOGLE_APPLICATION_CREDENTIALS  Service account JSON with edit access to the sheet.
+  GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON  Service account JSON (preferred in GitHub Actions).
+  GOOGLE_APPLICATION_CREDENTIALS      Path to service account JSON file (local runs).
 
 Usage:
   python3 scripts/sync_doc_page_paths.py --dry-run
@@ -231,24 +232,49 @@ def csv_matches_plan(csv_path: Path, plan: SyncPlan) -> bool:
     return True
 
 
-def _get_sheets_service():
+def _load_service_account_credentials():
     try:
         from google.oauth2 import service_account
+    except ImportError as exc:
+        raise RuntimeError(
+            "Missing dependencies. Run: pip install -r scripts/requirements-doc-ownership-sync.txt"
+        ) from exc
+
+    raw_json = (os.environ.get("GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON") or "").strip()
+    if raw_json:
+        try:
+            info = json.loads(raw_json)
+        except json.JSONDecodeError as exc:
+            raise RuntimeError(
+                "GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON is not valid JSON. Re-save the "
+                "GitHub secret with the full downloaded service account key file "
+                "(standard JSON with double-quoted keys)."
+            ) from exc
+        if not isinstance(info, dict):
+            raise RuntimeError("GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON must be a JSON object.")
+        return service_account.Credentials.from_service_account_info(info, scopes=SHEETS_SCOPE)
+
+    creds_path = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
+    if creds_path and Path(creds_path).is_file():
+        return service_account.Credentials.from_service_account_file(
+            creds_path, scopes=SHEETS_SCOPE
+        )
+
+    raise RuntimeError(
+        "Set GOOGLE_SHEETS_SERVICE_ACCOUNT_JSON or GOOGLE_APPLICATION_CREDENTIALS to a "
+        "service account JSON file with edit access to the ownership spreadsheet."
+    )
+
+
+def _get_sheets_service():
+    try:
         from googleapiclient.discovery import build
     except ImportError as exc:
         raise RuntimeError(
             "Missing dependencies. Run: pip install -r scripts/requirements-doc-ownership-sync.txt"
         ) from exc
 
-    creds_path = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
-    if not creds_path or not Path(creds_path).is_file():
-        raise RuntimeError(
-            "Set GOOGLE_APPLICATION_CREDENTIALS to a service account JSON file with "
-            "edit access to the ownership spreadsheet."
-        )
-    credentials = service_account.Credentials.from_service_account_file(
-        creds_path, scopes=SHEETS_SCOPE
-    )
+    credentials = _load_service_account_credentials()
     return build("sheets", "v4", credentials=credentials, cache_discovery=False)
 
 

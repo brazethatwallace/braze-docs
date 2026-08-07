@@ -27,7 +27,7 @@ Wenn Sie in Ihren Logs mehr Connected-Content-Aufrufe als Versendungen oder Empf
 
 ## Einen Connected-Content-Aufruf senden {#send-a-connected-content-call}
 
-Um einen Connected-Content-Aufruf zu senden, verwenden Sie den {% raw %}`{% connected_content %}`{% endraw %}-Tag. Mit diesem Tag können Sie Variablen zuweisen oder deklarieren, indem Sie `:save` verwenden. Aspekte dieser Variablen können später in der Nachricht mit [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) referenziert werden.
+Um einen Connected-Content-Aufruf zu senden, verwenden Sie den {% raw %}`{% connected_content %}`{% endraw %}-Tag. Mit diesem Tag können Sie Variablen mithilfe von `:save` zuweisen oder deklarieren. Aspekte dieser Variablen können später in der Nachricht mit [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) referenziert werden.
 
 ### Den API-Aufruf aufschlüsseln {#break-down-the-api-call}
 
@@ -40,9 +40,9 @@ Hi there, today's sunrise in NYC is at {{result.sunrise}}.
 ```
 {% endraw %}
 
-Hier ist, was jeder Teil bewirkt:
+Hier ist die Funktion jedes Teils:
 
-| Komponente | Was sie bewirkt |
+| Komponente | Funktion |
 | --- | --- |
 | `connected_content`-Tag | Weist Braze an, beim Rendern der Nachricht eine HTTP-Anfrage zu stellen. |
 | `https://api.sunrise-sunset.org/v2` | Der API-Endpunkt, den Braze aufruft. |
@@ -55,7 +55,7 @@ Hier ist, was jeder Teil bewirkt:
 
 Dieser Endpunkt gibt JSON mit Feldern auf oberster Ebene wie `sunrise`, `sunset` und `tzid` zurück. Zeiten werden standardmäßig in der Zeitzone des Standorts zurückgegeben (in diesem Beispiel New Yorker Zeit).
 
-Zum Beispiel sieht die Antwortstruktur ähnlich aus wie:
+Die Antwortstruktur sieht beispielsweise so aus:
 
 ```json
 {
@@ -68,7 +68,7 @@ Zum Beispiel sieht die Antwortstruktur ähnlich aus wie:
 
 ### Die API-Antwort auf Liquid abbilden {#map-the-api-response-to-liquid}
 
-Da die Antwort als `result` gespeichert wird, referenzieren Sie jedes Feld direkt aus diesem Objekt.
+Da die Antwort als `result` gespeichert wird, können Sie jedes Feld direkt von diesem Objekt referenzieren.
 
 {% raw %}
 ```liquid
@@ -88,7 +88,7 @@ Verwenden Sie dieses Muster immer, wenn Sie JSON aus Connected-Content speichern
 
 Sie können auch Nutzerprofilattribute als Variablen in den URL-String einfügen, wenn Sie Connected-Content-Anfragen stellen.
 
-Zum Beispiel könnten Sie einen Webdienst haben, der Inhalte basierend auf der E-Mail-Adresse und ID einer Nutzerin oder eines Nutzers zurückgibt. Wenn Sie Attribute übergeben, die Sonderzeichen enthalten, wie das At-Zeichen (@), stellen Sie sicher, dass Sie den Liquid-Filter `url_param_escape` verwenden, um alle in URLs nicht zulässigen Zeichen durch ihre URL-freundlichen, escapten Versionen zu ersetzen, wie im folgenden E-Mail-Adressattribut gezeigt.
+Beispielsweise könnten Sie einen Webdienst haben, der Inhalte basierend auf der E-Mail-Adresse und ID einer Nutzerin oder eines Nutzers zurückgibt. Wenn Sie Attribute übergeben, die Sonderzeichen wie das At-Zeichen (@) enthalten, stellen Sie sicher, dass Sie den Liquid-Filter `url_param_escape` verwenden, um alle in URLs nicht zulässigen Zeichen durch ihre URL-freundlichen, escapten Versionen zu ersetzen, wie im folgenden E-Mail-Adressattribut gezeigt.
 
 {% raw %}
 ```
@@ -111,7 +111,7 @@ Wenn der Endpunkt JSON zurückgibt, können Sie dies erkennen, indem Sie prüfen
 
 ### Erkennung fehlerhafter Hosts {#unhealthy-host-detection}
 
-Connected Content verwendet einen Erkennungsmechanismus für fehlerhafte Hosts, der erkennt, wenn der Zielhost eine hohe Rate an erheblicher Verlangsamung oder Überlastung aufweist, was zu Timeouts, zu vielen Anfragen oder anderen Ergebnissen führt, die Braze daran hindern, erfolgreich mit dem Zielendpunkt zu kommunizieren. Er dient als Schutzmaßnahme, um unnötige Last zu reduzieren, die den Zielhost möglicherweise beeinträchtigt. Außerdem dient er der Stabilisierung der Braze-Infrastruktur und der Aufrechterhaltung schneller Messaging-Geschwindigkeiten.
+Connected Content verwendet einen Mechanismus zur Erkennung fehlerhafter Hosts, der erkennt, wenn der Zielhost eine hohe Rate an erheblicher Verlangsamung oder Überlastung aufweist, was zu Timeouts, zu vielen Anfragen oder anderen Ergebnissen führt, die Braze daran hindern, erfolgreich mit dem Zielendpunkt zu kommunizieren. Er dient als Schutzmaßnahme, um unnötige Last zu reduzieren, die den Zielhost möglicherweise beeinträchtigt. Außerdem dient er der Stabilisierung der Braze-Infrastruktur und der Aufrechterhaltung schneller Messaging-Geschwindigkeiten.
 
 Wenn der Zielhost eine hohe Rate an erheblicher Verlangsamung oder Überlastung aufweist, stoppt Braze vorübergehend Anfragen an den Zielhost für eine Minute und simuliert stattdessen Antworten, die den Fehler anzeigen. Nach einer Minute prüft Braze den Zustand des Hosts mit einer kleinen Anzahl von Anfragen, bevor die Anfragen mit voller Geschwindigkeit wieder aufgenommen werden, sofern der Host als gesund eingestuft wird. Wenn der Host weiterhin fehlerhaft ist, wartet Braze eine weitere Minute, bevor ein erneuter Versuch unternommen wird.
 
@@ -131,7 +131,7 @@ Weitere Informationen zu häufigen Fehlercodes finden Sie unter [Fehlerbehebung 
 
 Die folgenden Mechanismen sind unterschiedlich:
 
-- **429 Too Many Requests:** Ihr Endpunkt (oder ein vorgelagerter Dienst) gibt diese Antwort zurück. Das bedeutet, dass Ihr Server oder Ihre Middleware den Datenverkehr ablehnt, häufig weil ein eigenes Rate-Limit vorhanden ist. Braze wendet kein separates Rate-Limit auf Connected Content an; das Anfragevolumen von Connected Content skaliert direkt mit Ihrem [Rate-Limit für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting). Da Nachrichten pro Empfänger:in mehrfach gerendert werden können (z. B. für E-Mail-HTML, Nur-Text und AMP), kann die Anzahl der Connected-Content-Anfragen dieses Rate-Limit überschreiten – gehen Sie nicht davon aus, dass sie kleiner oder gleich der von Ihnen festgelegten Nachrichten pro Minute ist. Wenn Sie 429-Fehler sehen, skalieren Sie Ihren Endpunkt oder Ihre Middleware, um das erwartete Anfragevolumen zu bewältigen, oder senken Sie das [Rate-Limit für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) der Campaign oder des Canvas, sodass weniger Nachrichten (und damit weniger Connected-Content-Aufrufe) pro Minute gesendet werden.
+- **429 Too Many Requests:** Ihr Endpunkt (oder ein vorgelagerter Dienst) gibt diese Antwort zurück. Das bedeutet, dass Ihr Server oder Ihre Middleware den Datenverkehr ablehnt, häufig weil ein eigenes Rate-Limit vorhanden ist. Braze wendet kein separates Rate-Limit auf Connected Content an; das Anfragevolumen von Connected Content skaliert direkt mit Ihrem [Rate-Limit für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting). Da Nachrichten pro Empfänger:in mehrfach gerendert werden können (z. B. für E-Mail-HTML, Klartext und AMP), kann die Anzahl der Connected-Content-Anfragen dieses Rate-Limit überschreiten – gehen Sie nicht davon aus, dass sie kleiner oder gleich der von Ihnen festgelegten Nachrichten pro Minute ist. Wenn Sie 429-Fehler sehen, skalieren Sie Ihren Endpunkt oder Ihre Middleware, um das erwartete Anfragevolumen zu bewältigen, oder senken Sie das [Rate-Limit für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) der Campaign oder des Canvas, sodass weniger Nachrichten (und damit weniger Connected-Content-Aufrufe) pro Minute gesendet werden.
 - **Erkennung fehlerhafter Hosts:** Eine Braze-seitige Schutzmaßnahme, die nach einer hohen Rate und einem hohen Volumen an *Fehlern* innerhalb eines Einminutenfensters ausgelöst wird. Die Fehleranzahl umfasst die Statuscodes `408`, `429`, `502`, `503`, `504` und `529`. Wenn sie ausgelöst wird, stoppt Braze vorübergehend Anfragen an diesen Host und simuliert eine Fehlerantwort. Dies ist unabhängig von Ihrem eigenen Rate-Limiting. Informationen zu Erkennungsschwellenwerten und weitere Details finden Sie unter [Fehlerbehebung bei Webhook- und Connected-Content-Anfragen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection). Um die Erkennung fehlerhafter Hosts zu vermeiden, stellen Sie sicher, dass Ihr Endpunkt das unter [Aufrufvolumen von Connected Content verstehen](#understanding-connected-content-call-volume) und [Best Practices für Endpunkte mit hohem Volumen](#best-practices-for-high-volume-endpoints) beschriebene Aufrufvolumen bewältigen kann.
 
 ## Effiziente Performance ermöglichen {#allowing-for-efficient-performance}
@@ -142,9 +142,9 @@ Weitere Informationen zur Planung der Endpunktkapazität und zur Reduzierung des
 
 ## Wissenswertes {#things-to-know}
 
-- Braze berechnet keine Gebühren für API-Aufrufe und diese werden nicht auf Ihre Datenpunkt-Nutzung angerechnet.
+- Braze berechnet keine Gebühren für API-Aufrufe und zählt diese nicht zu Ihrer Datenpunkt-Nutzung.
 - Für Connected-Content-Antworten gilt ein Limit von 1 MB.
-- Connected Content wird ausgeführt, wenn die Nachricht gerendert wird. Bei In-App-Nachrichten wird die Nachricht zum Zeitpunkt der Impression gerendert.
+- Connected Content wird ausgeführt, wenn die Nachricht gerendert wird. Bei In-App-Nachrichten erfolgt das Rendern zum Zeitpunkt der Impression.
 - Connected-Content-Aufrufe folgen keinen Weiterleitungen.
 
 ### Wie Connected-Content-Aufrufe verarbeitet werden {#how-connected-content-calls-are-processed}
@@ -160,11 +160,11 @@ Connected-Content-Aufrufe innerhalb eines einzelnen Nachrichten-Templates werden
 
 ### Globaler Versand und Anfragevolumen {#global-sending-and-request-volume}
 
-Während Connected-Content-Aufrufe innerhalb einer einzelnen Nachricht sequenziell ausgeführt werden, werden Nachrichten über Ihre Campaigns und Canvases hinweg parallel versendet. Versendungen mit hohem Volumen können während Spitzenzeiten erheblichen Anfrage-Traffic an Ihre Endpunkte erzeugen. Informationen zur Verwaltung und Drosselung dieses Traffics – einschließlich Workspace-Messaging-Rate-Limits, Zustellgeschwindigkeits-Rate-Limiting und Caching – finden Sie unter [Best Practices für Endpunkte mit hohem Volumen](#best-practices-for-high-volume-endpoints).
+Während Connected-Content-Aufrufe innerhalb einer einzelnen Nachricht sequenziell ausgeführt werden, werden Nachrichten über Ihre Campaigns und Canvases hinweg parallel gesendet. Versendungen mit hohem Volumen können während Spitzenzeiten erheblichen Anfrage-Traffic an Ihre Endpunkte erzeugen. Informationen zum Verwalten und Drosseln dieses Traffics – einschließlich Workspace-Messaging-Rate-Limits, Zustellgeschwindigkeits-Rate-Limiting und Caching – finden Sie unter [Best Practices für Endpunkte mit hohem Volumen](#best-practices-for-high-volume-endpoints).
 
 ## Best Practices für Endpunkte mit hohem Volumen {#best-practices-for-high-volume-endpoints}
 
-Wenn Ihre Nachrichten Connected-Content verwenden und Sie in hohem Volumen versenden, planen Sie mehr Anfragen ein als die Anzahl der Empfänger:innen oder Sendungen:
+Wenn Ihre Nachrichten Connected-Content verwenden und Sie in hohem Volumen senden, planen Sie mehr Anfragen ein als die Anzahl der Empfänger:innen oder Sendungen:
 
 - **Spitzenlast abschätzen:** Verwenden Sie einen konservativen Multiplikator, wenn Sie Ihren Endpunkt oder Ihre Middleware dimensionieren – Connected-Content-Anfragen können die Anzahl der Empfänger:innen oder gesendeten Nachrichten übersteigen. Bei E-Mails kann beispielsweise eine einzelne Empfängerin oder ein einzelner Empfänger mehrere Aufrufe erzeugen (HTML, Nur-Text und AMP), sodass Empfänger:innen × 2 oder × 3 häufig als konservative Schätzung verwendet wird.
 - **Caching nutzen, wo es sinnvoll ist:** GET-Anfragen werden standardmäßig gecacht. Fügen Sie bei POST-Anfragen `:cache_max_age` hinzu, wenn die Antwort für einen bestimmten Zeitraum wiederverwendet werden kann (zum Beispiel Token oder Inhalte, die sich nicht pro Anfrage ändern). Siehe [Antworten cachen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) und die [FAQ zum POST-Caching](#what-is-caching-behavior) im folgenden Abschnitt.
@@ -183,9 +183,9 @@ Um neue Zugangsdaten hinzuzufügen, wählen Sie **Zugangsdaten hinzufügen** > *
 
 ![Dropdown „Zugangsdaten hinzufügen“ mit der Option, einfache Authentifizierung oder Token-Authentifizierung zu verwenden.]({% image_buster /assets/img/connected_content/add_credential_button.png %}){: style="max-width:60%"}
 
-Geben Sie Ihren Zugangsdaten einen Namen und tragen Sie den Benutzernamen und das Passwort ein.
+Geben Sie Ihren Zugangsdaten einen Namen und tragen Sie den Nutzernamen und das Passwort ein.
 
-![Das Fenster „Neue Zugangsdaten erstellen“ mit der Option, einen Namen, Benutzernamen und ein Passwort einzugeben.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
+![Das Fenster „Neue Zugangsdaten erstellen“ mit der Option, einen Namen, Nutzernamen und ein Passwort einzugeben.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
 
 Sie können diese Zugangsdaten für die einfache Authentifizierung dann in Ihren API-Aufrufen verwenden, indem Sie den Namen des Tokens referenzieren:
 
@@ -199,13 +199,13 @@ Hi there, here is some fun trivia for you!: {% connected_content https://yourweb
 Wenn Sie Zugangsdaten löschen, beachten Sie, dass alle Connected-Content-Aufrufe, die versuchen, diese zu verwenden, abgebrochen werden.
 {% endalert %}
 
-Gespeicherte Zugangsdaten werden auf {% raw %}`{% connected_content %}`{% endraw %}-Anfragen angewendet, während Braze eine Nachricht rendert. Sie werden nicht auf die primäre HTTP-Anfrage angewendet, die in einem [Webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#authentication-and-connected-content-credentials)-Schritt konfiguriert ist. Verwenden Sie Anfrage-Header oder ein {% raw %}`{% connected_content %}`{% endraw %}-Tag innerhalb eines Webhook-Header- oder Body-Feldes, wenn Sie Secrets für diesen Aufruf abrufen müssen.
+Gespeicherte Zugangsdaten werden auf {% raw %}`{% connected_content %}`{% endraw %}-Anfragen angewendet, während Braze eine Nachricht rendert. Sie werden nicht auf die primäre HTTP-Anfrage angewendet, die in einem [Webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#authentication-and-connected-content-credentials)-Schritt konfiguriert ist. Verwenden Sie Anfrage-Header oder ein {% raw %}`{% connected_content %}`{% endraw %}-Tag innerhalb eines Webhook-Header- oder Body-Felds, wenn Sie Secrets für diesen Aufruf abrufen müssen.
 
 ### Token-Authentifizierung verwenden {#using-token-authentication}
 
-Bei der Verwendung von Braze Connected-Content kann es vorkommen, dass bestimmte APIs anstelle eines Benutzernamens und Passworts ein Token erfordern. Braze kann auch Zugangsdaten speichern, die Token-Authentifizierungs-Header-Werte enthalten.
+Bei der Verwendung von Braze Connected-Content kann es vorkommen, dass bestimmte APIs anstelle eines Nutzernamens und Passworts ein Token erfordern. Braze kann auch Zugangsdaten speichern, die Token-Authentifizierungs-Header-Werte enthalten.
 
-Um Zugangsdaten mit Token-Werten hinzuzufügen, wählen Sie **Zugangsdaten hinzufügen** > **Token-Authentifizierung**. Fügen Sie dann die Schlüssel-Wert-Paare für Ihre API-Aufruf-Header und die zulässige Domain hinzu.
+Um Zugangsdaten hinzuzufügen, die Token-Werte enthalten, wählen Sie **Zugangsdaten hinzufügen** > **Token-Authentifizierung**. Fügen Sie dann die Schlüssel-Wert-Paare für Ihre API-Aufruf-Header und die zulässige Domain hinzu.
 
 ![Ein Beispiel-Token „token_credential_abc“ mit Token-Authentifizierungsdetails.]({% image_buster /assets/img/connected_content/token_auth.png %}){: style="max-width:60%"}
 
@@ -274,7 +274,7 @@ Nachdem das Token gespeichert wurde, kann es dynamisch in den nachfolgenden Conn
 
 Sie können den Namen der Zugangsdaten für Authentifizierungstypen bearbeiten.
 
-- Bei der einfachen Authentifizierung können Sie den Benutzernamen und das Passwort aktualisieren. Beachten Sie, dass das zuvor eingegebene Passwort nicht sichtbar sein wird.
+- Bei der einfachen Authentifizierung können Sie den Nutzernamen und das Passwort aktualisieren. Beachten Sie, dass das zuvor eingegebene Passwort nicht sichtbar sein wird.
 - Bei der Token-Authentifizierung können Sie die Header-Schlüssel-Wert-Paare und die zulässige Domain aktualisieren. Beachten Sie, dass die zuvor festgelegten Header-Werte nicht sichtbar sein werden.
 
 ## Connected-Content-IP-Allowlisting {#connected-content-ip-allowlisting}
@@ -317,7 +317,7 @@ Wenn Sie Connected Content zum Abrufen von Dateien aus Amazon S3 verwenden, konf
 Ersetzen Sie `{YOUR_BRAZE_IP_RANGE}` durch die Braze-IP-Bereiche für Ihre Instanz, die unter [Connected-Content-IP-Allowlisting](#connected-content-ip-allowlisting) aufgeführt sind. Sie können einen oder mehrere Bereiche als separate Werte im `aws:SourceIp`-Array hinzufügen.
 
 {: start="2"}
-2. **Überprüfen Sie die S3-Einstellungen für „Block Public Access“:** Bucket-Richtlinien, die `Principal: "*"` verwenden, werden von AWS als öffentlicher Zugriff behandelt, auch mit IP-Bedingungen. Möglicherweise müssen Sie den auf Bucket-Richtlinien basierenden öffentlichen Zugriff zulassen, während der ACL-basierte öffentliche Zugriff blockiert bleibt.
+2. **Überprüfen Sie die S3-Block-Public-Access-Einstellungen:** Bucket-Richtlinien, die `Principal: "*"` verwenden, werden von AWS als öffentlicher Zugriff behandelt, auch mit IP-Bedingungen. Möglicherweise müssen Sie den richtlinienbasierten öffentlichen Zugriff zulassen, während der ACL-basierte öffentliche Zugriff blockiert bleibt.
 
 3. **Verwenden Sie die S3-Objekt-URL in Ihrem Connected-Content-Tag:** Referenzieren Sie das Objekt mit seiner Standard-S3-URL (zum Beispiel `https://your-bucket.s3.amazonaws.com/path/to/object.json`).
 
@@ -342,7 +342,7 @@ Wenn Ihr Connected-Content-Aufruf nicht korrekt oder gar nicht gerendert wird, �
 - **Bestätigen Sie, dass ein Connected-Content-Aufruf durchgeführt wurde:** Sie können im [Tab „Messaging-Verlauf“]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab) überprüfen, ob ein Aufruf durchgeführt wurde. Sie können auch einen einzelnen Connected-Content-Request als Test senden.
 - **Überprüfen Sie über Postman oder einen CURL-Request, ob der gewünschte Request erfolgreich ist:** Wenn der Request funktioniert und eine Antwort zurückgibt, vergleichen Sie den Request im Detail (einschließlich Header). Bestätigen Sie, dass die Header in Schlüssel-Wert-Paaren mit doppelten Anführungszeichen erfasst werden.
 - **Stellen Sie sicher, dass die Autorisierung korrekt gehandhabt wird:** Bestätigen Sie, dass die Option `:basic_auth`/`:auth_credentials` verwendet wird und die Connected-Content-Autorisierung zu den Connected-Content-Workspace-Einstellungen hinzugefügt wurde. Manchmal erfordert die Connected-Content-URL Header über die Authentifizierung hinaus, die eingegeben werden müssen.
-- **Überprüfen Sie, ob die Daten im erwarteten Format vorliegen:** Für den Antwort-Body parst Braze gültiges JSON in ein Liquid-Objekt; andernfalls wird die Antwort als Klartext behandelt (einschließlich HTML). Die Option `:content_type` setzt die ausgehenden `Content-Type`- und `Accept`-Header für Ihren Request und beeinflusst nicht das Parsen der Antwort. Wenn Ihr JSON für den Request-`:body` Leerzeichen enthält, folgen Sie der Anleitung im Abschnitt [JSON-Body bereitstellen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#providing-json-body).
+- **Überprüfen Sie, ob die Daten im erwarteten Format vorliegen:** Für den Antwort-Body parst Braze gültiges JSON in ein Liquid-Objekt; andernfalls wird die Antwort als Klartext behandelt (einschließlich HTML). Die Option `:content_type` setzt die ausgehenden `Content-Type`- und `Accept`-Header Ihres Requests und beeinflusst nicht das Parsen der Antwort. Wenn Ihr JSON im Request-`:body` Leerzeichen enthält, folgen Sie der Anleitung im Abschnitt [JSON-Body bereitstellen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#providing-json-body).
 - **Bestätigen Sie, dass die Daten korrekt geparst wurden:** Überprüfen Sie, ob das Liquid korrekt auf das erwartete Feld verweist. Verwenden Sie für verschachteltes JSON {% raw %}`{{sampleresult.data[0].sample_field}}`{% endraw %}, um auf das gewünschte verschachtelte Feld zu verweisen. Sie können die verschachtelten JSON-Eigenschaften überprüfen, indem Sie das erwartete Ergebnis mit {% raw %}`RESPONSE:{{sampleresult.data}}`{% endraw %} ausgeben.
 - **Überprüfen Sie den Antwort-Statuscode:** Der Antwort-Statuscode muss ein `2XX`-Code sein. Connected Content bietet keine Möglichkeit, die Antwort zu verarbeiten, wenn der Code nicht `2XX` ist.
 
@@ -353,25 +353,45 @@ Sie können auch [Webhook.site](https://webhook.site/) verwenden, um Ihre Connec
 
 Sie können auch überprüfen, ob der Liquid-Tag die Parameter enthält, die Ihr Endpunkt erwartet (zum Beispiel `:method`, `:headers`, `:content_type`, `:body` und `:basic_auth`, wenn erforderlich). Wenn Sie sich auf den HTTP-Statuscode-Schlüssel in einem gespeicherten JSON-Objekt verlassen, muss der Endpunkt ein JSON-Objekt und einen `2XX`-Status zurückgeben.
 
-Bei hohen Fehlerraten von Ihrem Host lesen Sie [Erkennung fehlerhafter Hosts]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors#unhealthy-host-detection) und [Aufrufvolumen von Connected Content](#understanding-connected-content-call-volume).
+Bei hohen Fehlerraten von Ihrem Host lesen Sie [Erkennung fehlerhafter Hosts]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors#unhealthy-host-detection) und [Connected-Content-Aufrufvolumen](#understanding-connected-content-call-volume).
+
+### Ampersand-Kodierung in E-Mail-POST-Requests {#ampersand-encoding-in-email-post-requests}
+
+In E-Mail-Nachrichten konvertiert das HTML-Parsing automatisch kaufmännische Und-Zeichen (`&`) innerhalb von {% raw %}`{% capture %}`{% endraw %}-Blöcken zu `&amp;`. Bei `application/x-www-form-urlencoded`-POST-Requests führt dies dazu, dass der Request Parameternamen mit einem `amp;`-Präfix sendet (zum Beispiel `amp;username`), was den API-Aufruf fehlschlagen lassen kann.
+
+Um dieses Problem zu umgehen, verwenden Sie den `replace`-Filter, um das `amp;`-Präfix zu entfernen, bevor Sie den Body an `:body` übergeben:
+
+{% raw %}
+```liquid
+{% capture body_with_amps %}
+grant_type=client_credentials&username=test&password=test
+{% endcapture %}
+{% connected_content https://api.example.com/token
+   :method post
+   :body {{body_with_amps | replace: "amp;", ""}}
+   :content_type application/x-www-form-urlencoded
+   :save token
+%}
+```
+{% endraw %}
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
 ### Warum gibt es mehr Connected-Content-Aufrufe als Nutzer:innen oder Sendungen? {#why-are-there-more-connected-content-calls-than-users-or-sends}
 
-Braze kann denselben Connected-Content-API-Aufruf pro Empfänger:in mehr als einmal durchführen, um eine Nachrichten-Payload zu rendern. Nachrichten-Payloads können pro Empfänger:in mehrfach gerendert werden – für Validierung, Wiederholungslogik oder andere interne Zwecke. Beachten Sie jedoch, dass nur einer der Connected-Content-Aufrufe eine Nachricht befüllt.
+Braze kann denselben Connected-Content-API-Aufruf pro Empfänger:in mehr als einmal durchführen, um einen Nachrichten-Payload zu rendern. Nachrichten-Payloads können pro Empfänger:in mehrfach gerendert werden – für Validierung, Wiederholungslogik oder andere interne Zwecke. Beachten Sie jedoch, dass nur einer der Connected-Content-Aufrufe eine Nachricht befüllt.
 
-Es ist zu erwarten, dass ein Connected-Content-API-Aufruf pro Empfänger:in mehr als einmal durchgeführt werden kann, selbst wenn die Wiederholungslogik im Aufruf nicht verwendet wird. Wir empfehlen, das Rate-Limit für alle Nachrichten mit Connected Content festzulegen oder Ihre Server so zu konfigurieren, dass sie das erwartete Volumen besser bewältigen können, das mehrere Connected-Content-Aufrufe pro Nachrichtenversand berücksichtigt.
+Es ist zu erwarten, dass ein Connected-Content-API-Aufruf pro Empfänger:in mehr als einmal durchgeführt werden kann, auch wenn die Wiederholungslogik im Aufruf nicht verwendet wird. Wir empfehlen, das Rate-Limit für alle Nachrichten mit Connected Content festzulegen oder Ihre Server so zu konfigurieren, dass sie das erwartete Volumen besser bewältigen können, das mehrere Connected-Content-Aufrufe pro Nachrichtenversand berücksichtigt.
 
 Weitere Informationen und Maßnahmen finden Sie unter [Aufrufvolumen von Connected Content verstehen](#understanding-connected-content-call-volume) und [Best Practices für Endpunkte mit hohem Volumen](#best-practices-for-high-volume-endpoints).
 
 ### Wie funktioniert Rate-Limiting mit Connected Content? {#how-does-rate-limiting-work-with-connected-content}
 
-Connected Content hat kein eigenes Rate-Limit. Stattdessen basiert das Rate-Limit auf der Nachrichtenversandrate. Wir empfehlen, das Messaging-Rate-Limit höher als Ihr beabsichtigtes Connected-Content-Rate-Limit festzulegen, wenn es mehr Connected-Content-Aufrufe als gesendete Nachrichten gibt.
+Connected Content hat kein eigenes Rate-Limit. Stattdessen basiert das Rate-Limit auf der Nachrichtenversandrate. Wir empfehlen, das Messaging-Rate-Limit höher als Ihr beabsichtigtes Connected-Content-Rate-Limit festzulegen, wenn mehr Connected-Content-Aufrufe als gesendete Nachrichten anfallen.
 
 ### Wie verhält sich das Caching? {#what-is-caching-behavior}
 
-GET-Anfragen werden standardmäßig gecacht (siehe [Antworten cachen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)). **POST-Anfragen werden standardmäßig nicht gecacht**, aber Sie können das Caching aktivieren, indem Sie `:cache_max_age` zum Connected-Content-Aufruf hinzufügen. Dies kann die Endpunkt-Last reduzieren, wenn dieselbe POST-Anfrage (zum Beispiel eine Token- oder Content-Anfrage) innerhalb des Cache-Fensters wiederholt durchgeführt würde.
+GET-Anfragen werden standardmäßig gecacht (siehe [Antworten cachen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)). **POST-Anfragen werden standardmäßig nicht gecacht**, aber Sie können das Caching aktivieren, indem Sie `:cache_max_age` zum Connected-Content-Aufruf hinzufügen. Dies kann die Endpunkt-Last reduzieren, wenn derselbe POST (z. B. eine Token- oder Content-Anfrage) innerhalb des Cache-Fensters wiederholt durchgeführt würde.
 
 {% raw %}
 ```liquid
@@ -381,7 +401,7 @@ GET-Anfragen werden standardmäßig gecacht (siehe [Antworten cachen]({{site.bas
 
 Caching kann dazu beitragen, doppelte Connected-Content-Aufrufe zu reduzieren, garantiert aber nicht, dass nur ein einziger Aufruf pro Nutzer:in erfolgt. Die Cache-Dauer liegt zwischen fünf Minuten und vier Stunden. Alle Details finden Sie unter [Antworten cachen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses).
 
-### Was ist das HTTP-Standardverhalten von Connected Content? {#what-is-the-connected-content-http-default-behavior}
+### Wie ist das HTTP-Standardverhalten von Connected Content? {#what-is-the-connected-content-http-default-behavior}
 
 {% multi_lang_include connected_content/sections.md section='default behavior' %}
 

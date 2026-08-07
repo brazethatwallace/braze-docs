@@ -12,16 +12,18 @@ channel: email
 
 ## Comece aqui: identifique seu sintoma {#start-here-match-your-symptom}
 
-Identifique seu sintoma na tabela para acessar a seção relevante.
+Identifique seu sintoma na tabela para navegar até a seção relevante.
 
 | Sintoma | Acesse |
 | --- | --- |
-| O HTML do e-mail de teste aparece incorretamente | [HTML renderiza incorretamente em e-mails de teste](#html-renders-incorrectly-in-test-emails) |
+| O HTML do e-mail de teste aparece incorretamente | [O HTML é renderizado incorretamente em e-mails de teste](#html-renders-incorrectly-in-test-emails) |
 | O editor se comporta de forma estranha no Chrome | [Conflitos de extensão](#extension-conflicts) |
 | O e-mail aparece diferente em diferentes clientes | [Renderização de e-mail](#email-rendering) |
 | O e-mail exibe código Liquid ou links quebrados | [HTML desbalanceado em modelos Liquid](#unbalanced-html-in-liquid-templates) |
-| A prévia do Inbox Vision não corresponde ao e-mail enviado | [CSS inline](#css-inlining) |
+| A prévia do Inbox Vision não corresponde ao e-mail enviado | [Inlining de CSS](#css-inlining) |
 | Espaço em branco ou linhas após imagens em e-mails de teste | [Espaço em branco abaixo das imagens](#white-space-under-images) |
+| A análise de dados de cliques não inclui parâmetros de consulta | [Limitações da análise de dados de cliques em links](#link-click-analytics-limitations) |
+| Sobrescritos causam espaçamento de linha inconsistente | [Problemas de altura de linha com sobrescrito](#superscript-line-height-issues) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sintoma de e-mail HTML" }
 
 ## Caminho de investigação padrão {#standard-investigation-path}
@@ -57,6 +59,7 @@ Os e-mails são renderizados de forma diferente dependendo dos navegadores e cli
 
 - Pré-visualize seus e-mails usando o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para ver como seus e-mails aparecem em diferentes navegadores e clientes de e-mail.
 - Depois de identificar quais navegadores ou clientes de e-mail estão causando problemas, informe sua equipe de desenvolvimento que será necessário modificar o HTML e fazer ajustes para acomodar esses navegadores ou clientes de e-mail.
+- Se o problema for específico de [como o texto alternativo é exibido]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text), tenha em mente que esse comportamento é controlado pelo cliente de e-mail do destinatário, não pela Braze.
 
 ### HTML desbalanceado em modelos Liquid {#unbalanced-html-in-liquid-templates}
 
@@ -133,4 +136,61 @@ Alternativamente, aplique o estilo diretamente a imagens específicas:
 
 ```html
 <img src="https://example.com/image.jpg" style="display: block;" alt="Image description" />
+```
+
+## Limitações da análise de dados de cliques em links {#link-click-analytics-limitations}
+
+### Sintoma
+
+A análise de dados de cliques para e-mails com muitos parâmetros de consulta únicos não corresponde às suas expectativas. Você pode ver contagens de cliques agregadas para URLs sem parâmetros após os primeiros 100 links únicos.
+
+### Como funciona o rastreamento de cliques em links {#how-link-click-tracking-works}
+
+A Braze rastreia cliques tanto em URLs parametrizadas (com parâmetros de consulta) quanto em URLs base sem parâmetros. Para os primeiros 100 links parametrizados únicos clicados em uma Campaign de e-mail ou Canvas, a Braze coleta e reporta dados para ambos:
+
+- A URL parametrizada completa (por exemplo, `https://example.com?user_id=12345`)
+- A URL base sem parâmetros (por exemplo, `https://example.com`)
+
+Após os primeiros 100 links parametrizados únicos serem clicados, a Braze incrementa apenas as contagens de cliques para a URL base sem parâmetros. Isso significa que:
+
+- A análise de dados de cliques é agregada no domínio base e no caminho, em vez de combinações individuais de parâmetros de consulta
+- Você ainda pode rastrear engajamento significativo com base nos caminhos dos links
+- O rastreamento de cliques no nível do usuário individual continua funcionando normalmente
+
+Esse comportamento evita que a análise de dados fique sobrecarregada com milhares de combinações únicas de parâmetros de consulta, enquanto ainda captura padrões gerais de engajamento com links.
+
+### O que isso significa para suas campanhas {#what-this-means-for-your-campaigns}
+
+Se você depende de parâmetros de consulta únicos para rastrear o comportamento específico de usuários em plataformas externas (por exemplo, `https://example.com?user_id=USER_ID`), esteja ciente de que a análise de dados de cliques da Braze preservará esses parâmetros apenas para os primeiros 100 links únicos clicados. Após esse limite, os cliques ainda são registrados na sua análise de dados, mas são atribuídos à URL sem parâmetros.
+
+Os dados de cliques no nível do usuário permanecem disponíveis por meio do [Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents) ou do [Registro de atividade de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), independentemente de quantos links parametrizados únicos forem clicados.
+
+### Problemas de altura de linha com sobrescrito {#superscript-line-height-issues}
+
+#### Sintoma
+
+Textos com sobrescritos aparecem com espaçamento de linha inconsistente, onde as linhas parecem mais próximas ou mais afastadas do que o pretendido. Esse é um problema de renderização comum entre clientes de e-mail e não é específico da Braze.
+
+O uso de sobrescrito em e-mails pode causar um comportamento inesperado na altura da linha porque diferentes clientes de e-mail lidam com texto sobrescrito de maneiras variadas.
+
+#### Resolução {#resolution}
+
+Use o editor de HTML para controlar a estilização dos sobrescritos e dos elementos ao redor.
+
+Para definir explicitamente a altura da linha, adicione CSS inline para definir o `line-height` do texto:
+
+```html
+<p style="line-height: 1.5;">Example text with superscript<sup style="line-height: inherit;">1</sup></p>
+```
+
+Para ajustar o alinhamento vertical, use a propriedade `vertical-align` para alinhar o sobrescrito sem afetar a altura da linha:
+
+```html
+<sup style="vertical-align: top; font-size: smaller;">1</sup>
+```
+
+Se os sobrescritos continuarem causando problemas, use um `<span>` como alternativa ao `<sup>` para ter mais controle:
+
+```html
+<span style="font-size: smaller; vertical-align: top;">1</span>
 ```

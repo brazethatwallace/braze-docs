@@ -73,6 +73,10 @@ For options not exposed in the GTM template (such as `contentSecurityNonce`, `lo
 
 The initialization tag should be run on all pages of your site. This allows you to use Braze SDK methods and record web push analytics.
 
+{% alert important %}
+**Tag sequencing:** The Braze Initialization tag must fire before any other tags that call Braze SDK methods (such as `braze.getUser()` or `braze.logCustomEvent()`). If custom events, user attributes, or other Braze method calls fire before the SDK is initialized, you may encounter errors like `Uncaught TypeError: Cannot read properties of undefined (reading 'getUser')`. To ensure proper sequencing, configure your Braze Initialization tag as a setup tag or use GTM's tag sequencing feature to guarantee it fires first. For more information, see [Tag sequencing for Braze action tags]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager/?sdktab=web#web_tag-sequencing-for-braze-action-tags).
+{% endalert %}
+
 ### Step 6: Verify your integration
 
 You can verify your integration using either of the following options:

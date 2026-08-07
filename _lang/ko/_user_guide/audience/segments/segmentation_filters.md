@@ -4,7 +4,7 @@ nav_title: 세분화 필터
 article_title: 세분화 필터
 layout: glossary_page
 glossary_top_header: "세분화 필터"
-glossary_top_text: "Braze SDK는 특정 기능과 속성을 기반으로 사용자를 세분화하고 타겟팅할 수 있는 강력한 필터 모음을 제공합니다. 필터 카테고리별로 이러한 필터를 검색하거나 범위를 좁힐 수 있습니다.<br><br>사용자를 세분화하는 데 사용할 수 있는 다양한 커스텀 속성 데이터 유형에 대해 알아보려면 <a href=\"/docs/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types\">커스텀 속성 데이터 유형</a> 을 참조하세요. 간격 필터는 100년으로 제한됩니다."
+glossary_top_text: "Braze SDK는 특정 기능과 속성을 기반으로 사용자를 세분화하고 타겟팅할 수 있는 강력한 필터 모음을 제공합니다. 필터 카테고리별로 이러한 필터를 검색하거나 범위를 좁힐 수 있습니다.<br><br>사용자를 세분화하는 데 사용할 수 있는 다양한 커스텀 속성 데이터 유형에 대해 알아보려면 <a href=\"/docs/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types\">커스텀 속성 데이터 유형</a> 을 참조하세요."
 
 page_type: glossary
 tool: Segments
@@ -45,15 +45,15 @@ glossaries:
     tags:
       - Segment or CSV membership
   - name: Updated/Imported from CSV
-    description: 사용자가 CSV 업로드에 포함되었는지 여부를 기준으로 세분화합니다.
+    description: 사용자가 CSV 업로드에 포함되었는지 여부를 기준으로 세분화합니다. Braze는 세분화 목적으로 고객 프로필당 가장 최근 100개의 CSV 가져오기만 보관합니다. 사용자가 리타겟팅용으로 선택된 100개 이상의 CSV 가져오기에 포함된 경우, 가장 최근 100개만 이 필터에 사용할 수 있습니다. 이전 가져오기는 더 이상 해당 사용자와 일치하지 않습니다.
     tags:
       - Segment or CSV membership
   - name: Custom Attributes
-    description: 사용자가 커스텀으로 기록된 속성 값과 일치하는지 여부를 판단합니다. <br><br>시간대:<br>회사 시간대
+    description: 사용자가 커스텀으로 기록된 속성 값과 일치하는지 여부를 판단합니다. 날짜 및 시간 간격 비교의 최대 조회 기간은 100년입니다.<br><br>시간대:<br>회사 시간대
     tags:
       - Custom attribute
   - name: Created At
-    description: 고객 프로필이 생성된 시점을 기준으로 사용자를 세분화합니다. 사용자가 CSV 또는 API를 통해 추가된 경우, 이 필터는 추가된 날짜를 반영합니다. 사용자가 CSV 또는 API를 통해 추가되지 않고 SDK에 의해 첫 번째 세션이 추적된 경우, 이 필터는 해당 첫 번째 세션의 날짜를 반영합니다.
+    description: 고객 프로필이 생성된 시점을 기준으로 사용자를 세분화합니다. 사용자가 CSV 또는 API를 통해 추가된 경우, 이 필터는 추가된 날짜를 반영합니다. 사용자가 CSV 또는 API를 통해 추가되지 않고 SDK에 의해 첫 번째 세션이 추적된 경우, 이 필터는 해당 첫 번째 세션의 날짜를 반영합니다. 최대 조회 기간은 100년입니다.
     tags:
       - Other Filters
   - name: Created From
@@ -61,7 +61,7 @@ glossaries:
     tags:
       - Other Filters
   - name: Nested Custom Attributes
-    description: 커스텀 속성의 속성정보인 속성입니다.<br><br>중첩된 시간 커스텀 속성을 필터링할 때 "연중 일자" 또는 "시간"을 기준으로 필터링할 수 있습니다. "연중 일자"는 비교 시 월과 일만 확인합니다. "시간"은 연도를 포함한 전체 타임스탬프를 비교합니다. Canvas 오디언스 경로의 컨텍스트 변수를 필터링할 때도 동일한 로직이 적용됩니다. 자세한 내용은 <a href="/docs/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#day-of-year-and-time-filters-for-date-context-variables">날짜 컨텍스트 변수에 대한 연중 일자 및 시간 필터</a> 를 참조하세요.
+    description: 커스텀 속성의 속성정보인 속성입니다.<br><br>중첩된 시간 커스텀 속성을 필터링할 때 "연중 일자" 또는 "시간"을 기준으로 필터링할 수 있습니다. "연중 일자"는 비교 시 월과 일만 확인합니다. "시간"은 연도를 포함한 전체 타임스탬프를 비교합니다. 시간 간격 비교의 최대 조회 기간은 100년입니다. Canvas 오디언스 경로의 컨텍스트 변수를 필터링할 때도 동일한 로직이 적용됩니다. 자세한 내용은 <a href="/docs/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#day-of-year-and-time-filters-for-date-context-variables">날짜 컨텍스트 변수에 대한 연중 일자 및 시간 필터</a> 를 참조하세요.
     tags:
       - Custom attribute
   - name: Day of Recurring Event
@@ -73,11 +73,11 @@ glossaries:
     tags:
       - Custom events
   - name: First Did Custom Event
-    description: 사용자가 특별히 기록된 이벤트를 수행한 가장 이른 시점을 판단합니다. (24시간 기간) <br><br>예시:<br> 유기한 장바구니 최초 발생이 1일 미만 전<br><br>시간대:<br>회사 시간대
+    description: 사용자가 특별히 기록된 이벤트를 수행한 가장 이른 시점을 판단합니다. 최대 조회 기간은 100년입니다. (24시간 기간) <br><br>예시:<br> 유기한 장바구니 최초 발생이 1일 미만 전<br><br>시간대:<br>회사 시간대
     tags:
       - Custom events
   - name: Last Did Custom Event
-    description: 사용자가 특별히 기록된 이벤트를 수행한 가장 최근 시점을 판단합니다. 이 필터는 0.25시간과 같은 소수를 지원합니다. (24시간 기간) <br><br>예시:<br> 유기한 장바구니 최근 발생이 1일 미만 전<br><br>시간대:<br>회사 시간대
+    description: 사용자가 특별히 기록된 이벤트를 수행한 가장 최근 시점을 판단합니다. 이 필터는 0.25시간과 같은 소수를 지원합니다. 최대 조회 기간은 100년입니다. (24시간 기간) <br><br>예시:<br> 유기한 장바구니 최근 발생이 1일 미만 전<br><br>시간대:<br>회사 시간대
     tags:
       - Custom events
   - name: X Custom Event In Y Days
@@ -113,19 +113,19 @@ glossaries:
     tags:
       - Sessions
   - name: First Used App
-    description: 사용자가 앱을 연 가장 이른 기록 시점을 기준으로 세분화합니다. <em>이는 Braze SDK가 통합된 앱 버전을 사용한 첫 번째 세션을 캡처합니다.</em> (24시간 기간)<br><br>시간대:<br>회사 시간대
+    description: 사용자가 앱을 연 가장 이른 기록 시점을 기준으로 세분화합니다. <em>이는 Braze SDK가 통합된 앱 버전을 사용한 첫 번째 세션을 캡처합니다.</em> 최대 조회 기간은 100년입니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
     tags:
       - Sessions
   - name: First Used Specific App
-    description: 워크스페이스 내 앱 중 하나를 사용자가 연 가장 이른 기록 시점을 기준으로 세분화합니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
+    description: 워크스페이스 내 앱 중 하나를 사용자가 연 가장 이른 기록 시점을 기준으로 세분화합니다. 최대 조회 기간은 100년입니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
     tags:
       - Sessions
   - name: Last Used App
-    description: 사용자가 앱을 연 가장 최근 시점을 기준으로 세분화합니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
+    description: 사용자가 앱을 연 가장 최근 시점을 기준으로 세분화합니다. 최대 조회 기간은 100년입니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
     tags:
       - Sessions
   - name: Last Used Specific App
-    description: 사용자가 특정 지정된 앱을 연 가장 최근 시점을 기준으로 세분화합니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
+    description: 사용자가 특정 지정된 앱을 연 가장 최근 시점을 기준으로 세분화합니다. 최대 조회 기간은 100년입니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
     tags:
       - Sessions
   - name: Median Session Duration
@@ -145,11 +145,11 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Message from Specific Canvas Step
-    description: 사용자가 특정 Canvas 구성요소를 수신한 시점을 기준으로 세분화합니다.<br><br>전달, 열림 또는 클릭이 발생할 때 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터가 업데이트되므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 명시적으로 메시지를 받지 않았더라도 이 필터와 일치할 수 있습니다. 중복 프로필에서 고객 프로필을 분리하려면 "Entered Canvas Variation"을 사용하세요.<br><br>이 필터는 사용자가 다른 Canvas 구성요소를 수신한 시점은 고려하지 않습니다.
+    description: 사용자가 특정 Canvas 구성요소를 수신한 시점을 기준으로 세분화합니다. 최대 조회 기간은 100년입니다.<br><br>전달, 열림 또는 클릭이 발생할 때 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터가 업데이트되므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 명시적으로 메시지를 받지 않았더라도 이 필터와 일치할 수 있습니다. 중복 프로필에서 고객 프로필을 분리하려면 "Entered Canvas Variation"을 사용하세요.<br><br>이 필터는 사용자가 다른 Canvas 구성요소를 수신한 시점은 고려하지 않습니다.
     tags:
       - Retargeting
   - name: Last Received Message from Specific Campaign
-    description: 사용자가 특정 Campaign을 수신했는지 여부를 기준으로 세분화합니다.<br><br>전달, 열림 또는 클릭이 발생할 때 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터가 업데이트되므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 명시적으로 메시지를 받지 않았더라도 이 필터와 일치할 수 있습니다.<br><br>이 필터는 사용자가 다른 Campaigns를 수신한 시점은 고려하지 않습니다.
+    description: 사용자가 특정 Campaign을 수신했는지 여부를 기준으로 세분화합니다. 최대 조회 기간은 100년입니다.<br><br>전달, 열림 또는 클릭이 발생할 때 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터가 업데이트되므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 명시적으로 메시지를 받지 않았더라도 이 필터와 일치할 수 있습니다.<br><br>이 필터는 사용자가 다른 Campaigns를 수신한 시점은 고려하지 않습니다.
     tags:
       - Retargeting
   - name: Received Message from Campaign or Canvas with Tag
@@ -157,7 +157,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Message from Campaign or Canvas With Tag
-    description: 사용자가 특정 태그가 있는 특정 Campaign 또는 Canvas를 수신한 시점을 기준으로 세분화합니다. 이 필터는 사용자가 다른 Campaigns 또는 Canvases를 수신한 시점은 고려하지 않습니다. (24시간 기간)
+    description: 사용자가 특정 태그가 있는 특정 Campaign 또는 Canvas를 수신한 시점을 기준으로 세분화합니다. 이 필터는 사용자가 다른 Campaigns 또는 Canvases를 수신한 시점은 고려하지 않습니다. 최대 조회 기간은 100년입니다. (24시간 기간)
     tags:
       - Retargeting
   - name: Has Never Received a Message from Campaign or Canvas Step
@@ -165,27 +165,27 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Email
-    description: 사용자가 이메일 메시지를 마지막으로 수신한 시점을 기준으로 세분화합니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
+    description: 사용자가 이메일 메시지를 마지막으로 수신한 시점을 기준으로 세분화합니다. 최대 조회 기간은 100년입니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
     tags:
       - Retargeting
   - name: Last Received Push
-    description: 사용자가 푸시 알림을 마지막으로 수신한 시점을 기준으로 세분화합니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
+    description: 사용자가 푸시 알림을 마지막으로 수신한 시점을 기준으로 세분화합니다. 최대 조회 기간은 100년입니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
     tags:
       - Retargeting
   - name: Last In App Message Impression
-    description: 사용자가 인앱 메시지를 마지막으로 본 시점을 기준으로 세분화합니다.
+    description: 사용자가 인앱 메시지를 마지막으로 본 시점을 기준으로 세분화합니다. 최대 조회 기간은 100년입니다.
     tags:
       - Retargeting
   - name: Last Received SMS
-    description: 마지막 SMS, MMS 또는 RCS 메시지가 SMS 또는 RCS 제공업체에 전달된 시점을 기준으로 사용자를 세분화합니다. 이는 메시지가 사용자의 기기에 전달되었음을 보장하지 않습니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
+    description: 마지막 SMS, MMS 또는 RCS 메시지가 SMS 또는 RCS 제공업체에 전달된 시점을 기준으로 사용자를 세분화합니다. 이는 메시지가 사용자의 기기에 전달되었음을 보장하지 않습니다. 최대 조회 기간은 100년입니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
     tags:
       - Retargeting
   - name: Last Received Webhook
-    description: Braze가 해당 사용자에 대해 웹훅을 마지막으로 발송한 시점을 기준으로 세분화합니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
+    description: Braze가 해당 사용자에 대해 웹훅을 마지막으로 발송한 시점을 기준으로 세분화합니다. 최대 조회 기간은 100년입니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
     tags:
       - Retargeting
   - name: Last Received WhatsApp
-    description: 사용자가 WhatsApp 메시지를 마지막으로 수신한 시점을 기준으로 세분화합니다. 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
+    description: 사용자가 WhatsApp 메시지를 마지막으로 수신한 시점을 기준으로 세분화합니다. 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다. 최대 조회 기간은 100년입니다. (24시간 기간)<br><br>시간대:<br>회사 시간대
     tags:
       - Retargeting
   - name: Live Activities Push to Start Registered for App
@@ -233,7 +233,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Sent Specific SMS Inbound Keyword Category
-    description: 사용자가 특정 구독 그룹 내 특정 키워드 카테고리로 SMS, MMS 또는 RCS를 마지막으로 보낸 시점을 기준으로 세분화합니다.
+    description: 사용자가 특정 구독 그룹 내 특정 키워드 카테고리로 SMS, MMS 또는 RCS를 마지막으로 보낸 시점을 기준으로 세분화합니다. 최대 조회 기간은 100년입니다.
     tags:
       - Retargeting
   - name: Converted From Campaign
@@ -253,7 +253,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Enrolled in Any Control Group
-    description: 사용자가 Campaign에서 대조군에 마지막으로 포함된 시점을 기준으로 세분화합니다. <br><br>시간대:<br>회사 시간대
+    description: 사용자가 Campaign에서 대조군에 마지막으로 포함된 시점을 기준으로 세분화합니다. 최대 조회 기간은 100년입니다. <br><br>시간대:<br>회사 시간대
     tags:
       - Retargeting
   - name: Entered Canvas Variation
@@ -261,11 +261,11 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Any Message
-    description: 마지막으로 수신한 메시지를 판단하여 사용자를 세분화합니다. (24시간 기간)<br><br>Content Cards, 배너, 인앱 메시지의 경우, 이는 사용자가 마지막으로 노출을 기록한 시점이며 카드나 인앱 메시지가 마지막으로 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이).<br><br>SMS 및 RCS의 경우, 사용자는 발송 시점에 메시지를 "수신"한 것으로 간주됩니다. 메시지가 사용자의 기기에 도달하지 못하더라도 사용자는 여전히 이 필터와 일치합니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.<br><br>예시:<br>마지막 메시지 수신이 1일 미만 전 = 24시간 미만 전<br><br>시간대:<br>회사 시간대
+    description: 마지막으로 수신한 메시지를 판단하여 사용자를 세분화합니다. 최대 조회 기간은 100년입니다. (24시간 기간)<br><br>Content Cards, 배너, 인앱 메시지의 경우, 이는 사용자가 마지막으로 노출을 기록한 시점이며 카드나 인앱 메시지가 마지막으로 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이).<br><br>SMS 및 RCS의 경우, 사용자는 발송 시점에 메시지를 "수신"한 것으로 간주됩니다. 메시지가 사용자의 기기에 도달하지 못하더라도 사용자는 여전히 이 필터와 일치합니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.<br><br>예시:<br>마지막 메시지 수신이 1일 미만 전 = 24시간 미만 전<br><br>시간대:<br>회사 시간대
     tags:
       - Retargeting
   - name: Last Engaged With Message
-    description: 사용자가 메시징 채널(배너, Content Cards, 이메일, 인앱, SMS, RCS, 푸시, WhatsApp) 중 하나를 마지막으로 클릭하거나 연 시점을 기준으로 세분화합니다.<br><br>Content Cards, 배너, 인앱 메시지의 경우, 이는 사용자가 노출을 기록한 시점이며 카드나 인앱 메시지가 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일 메시징의 경우, 열림 이벤트에는 기계 열림과 비기계 열림이 모두 포함됩니다. (24시간 기간)<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이). 또한 "모든 이메일 열림(기계 열림)" 및 "모든 이메일 열림(기타 열림)"으로 필터링하는 옵션이 포함됩니다.<br><br>SMS 및 RCS의 경우, 이는 사용자가 사용자 클릭 추적이 활성화된 메시지의 단축 링크를 마지막으로 선택한 시점입니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.<br><br>시간대:<br>회사 시간대
+    description: 사용자가 메시징 채널(배너, Content Cards, 이메일, 인앱, SMS, RCS, 푸시, WhatsApp) 중 하나를 마지막으로 클릭하거나 연 시점을 기준으로 세분화합니다.<br><br>Content Cards, 배너, 인앱 메시지의 경우, 이는 사용자가 노출을 기록한 시점이며 카드나 인앱 메시지가 발송된 시점이 아닙니다.<br><br>푸시 및 웹훅의 경우, 이는 메시지가 사용자에게 발송된 시점입니다.<br><br>WhatsApp의 경우, 이는 마지막 메시지 API 요청이 WhatsApp에 전송된 시점이며 메시지가 사용자의 기기에 전달된 시점이 아닙니다.<br><br>이메일 메시징의 경우, 열림 이벤트에는 기계 열림과 비기계 열림이 모두 포함됩니다. 최대 조회 기간은 100년입니다. (24시간 기간)<br><br>이메일의 경우, 타겟팅된 고객 프로필은 이메일 요청이 이메일 서비스 제공업체에 전송될 때 이 필터와 일치합니다(실제로 전달되었는지 여부와 관계없이). 또한 "모든 이메일 열림(기계 열림)" 및 "모든 이메일 열림(기타 열림)"으로 필터링하는 옵션이 포함됩니다.<br><br>SMS 및 RCS의 경우, 이는 사용자가 사용자 클릭 추적이 활성화된 메시지의 단축 링크를 마지막으로 선택한 시점입니다.<br><br>메시지가 전달, 열림 또는 클릭되면, Braze는 동일한 채널 식별자(예&#58; 이메일 또는 전화번호)를 공유하는 모든 프로필의 데이터를 업데이트하므로, 메시지를 수신한 사람과 식별자를 공유하는 사용자는 자신의 프로필에 직접 Campaign이 발송되지 않았더라도 이 필터와 일치할 수 있습니다.<br><br>시간대:<br>회사 시간대
     tags:
       - Retargeting
   - name: Clicked card
@@ -285,7 +285,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Email Opt In Date
-    description: 사용자가 이메일에 옵트인한 날짜를 기준으로 세분화합니다.
+    description: 사용자가 이메일에 옵트인한 날짜를 기준으로 세분화합니다. 최대 조회 기간은 100년입니다.
     tags:
       - Channel subscription behavior
   - name: Email Subscription Status
@@ -293,7 +293,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Email Unsubscribed Date
-    description: 사용자가 향후 이메일을 탈퇴한 날짜를 기준으로 세분화합니다.
+    description: 사용자가 향후 이메일을 탈퇴한 날짜를 기준으로 세분화합니다. 최대 조회 기간은 100년입니다.
     tags:
       - Channel subscription behavior
   - name: Foreground Push Enabled
@@ -309,7 +309,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Push Opt In Date
-    description: 사용자가 푸시에 옵트인한 날짜를 기준으로 세분화합니다.
+    description: 사용자가 푸시에 옵트인한 날짜를 기준으로 세분화합니다. 최대 조회 기간은 100년입니다.
     tags:
       - Channel subscription behavior
   - name: Push Subscription Status
@@ -317,7 +317,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Push Unsubscribed Date
-    description: 사용자가 향후 푸시 알림을 탈퇴한 날짜를 기준으로 세분화합니다.
+    description: 사용자가 향후 푸시 알림을 탈퇴한 날짜를 기준으로 세분화합니다. 최대 조회 기간은 100년입니다.
     tags:
       - Channel subscription behavior
   - name: Purchased Product
@@ -341,19 +341,19 @@ glossaries:
     tags:
       - Purchase behavior
   - name: First Made Purchase
-    description: 사용자가 앱에서 구매한 가장 이른 시점을 기준으로 세분화합니다.
+    description: 사용자가 앱에서 구매한 가장 이른 시점을 기준으로 세분화합니다. 최대 조회 기간은 100년입니다.
     tags:
       - Purchase behavior
   - name: First Purchase For App
-    description: 사용자가 앱에서 구매한 가장 이른 시점을 기준으로 세분화합니다.
+    description: 사용자가 앱에서 구매한 가장 이른 시점을 기준으로 세분화합니다. 최대 조회 기간은 100년입니다.
     tags:
       - Purchase behavior
   - name: Last Made Purchase
-    description: 사용자가 마지막으로 구매한 시점을 기준으로 필터링합니다.
+    description: 사용자가 마지막으로 구매한 시점을 기준으로 필터링합니다. 최대 조회 기간은 100년입니다.
     tags:
       - Purchase behavior
   - name: Last Purchased Product
-    description: 사용자가 특정 제품을 마지막으로 구매한 시점을 기준으로 필터링합니다.
+    description: 사용자가 특정 제품을 마지막으로 구매한 시점을 기준으로 필터링합니다. 최대 조회 기간은 100년입니다.
     tags:
       - Purchase behavior
   - name: Money Spent
@@ -453,7 +453,7 @@ glossaries:
     tags:
       - App
   - name: Uninstalled
-    description: 사용자가 현재 백엔드에서 삭제된 것으로 표시되어 있는지 여부를 기준으로 세분화합니다. 앱을 삭제한 후 나중에 다시 설치한 사용자는 포함되지 않습니다. 이 필터는 현재 삭제 상태를 반영하며, 모든 삭제 이벤트의 이력 로그가 아닙니다.
+    description: 사용자가 현재 백엔드에서 삭제된 것으로 표시되어 있는지 여부를 기준으로 세분화합니다. 앱을 삭제한 후 나중에 다시 설치한 사용자는 포함되지 않습니다. 이 필터는 현재 삭제 상태를 반영하며, 모든 삭제 이벤트의 이력 로그가 아닙니다. 최대 조회 기간은 100년입니다.
     tags:
       - Uninstall
   - name: Device Carrier

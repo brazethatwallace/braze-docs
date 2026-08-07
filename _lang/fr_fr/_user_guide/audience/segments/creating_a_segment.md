@@ -20,14 +20,21 @@ Allez dans **Audience** > **Segments**.
 
 Sélectionnez **Create Segment** pour commencer à créer votre segment. Nommez votre segment en décrivant le type d'utilisateur que vous souhaitez filtrer. Cela vous aide à identifier le segment lorsque vous souhaitez le cibler pour vos Campaigns ou Canvas. Des titres de segment vagues peuvent prêter à confusion.
 
-Vous pouvez également demander à Operator de vous aider à créer la logique de filtre de votre segment à partir d'une description de votre audience cible. Pour plus de détails, consultez [Ce que vous pouvez faire avec Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
+Vous pouvez également demander à Operator de vous aider à construire la logique de filtrage de votre segment à partir d'une description de votre audience cible. Pour plus de détails, consultez [Ce que vous pouvez faire avec Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
 Vous pouvez également effectuer les actions suivantes :
 - Ajouter une description au segment pour fournir plus de détails sur l'intention de cette audience et laisser des notes auxquelles les autres membres de l'équipe pourront se référer.
 - Ajouter une [équipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams) à votre segment.
 - Ajouter des [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) à votre segment pour une meilleure organisation.
 
-![Fenêtre modale de création de segment où le segment est nommé « Lapsed Users » avec la description du segment « This is our main Lapsed User segment to target non-actives within the past fourteen days. » et deux boutons : Cancel et Create Segment.]({% image_buster /assets/img_archive/segment_app_selection.png %}){: style="max-width:80%;"}
+Les segments sont enregistrés dès que vous sélectionnez **Create Segment**. Vous n'avez pas besoin de sélectionner **Save** dans l'éditeur de segment au préalable.
+
+{% alert note %}
+Si vous disposez uniquement de la permission « Edit Segments » au niveau de l'équipe (et non au niveau de l'espace de travail), Braze attribue une équipe lors de la création du segment :
+<br><br>
+- **Une seule équipe éligible :** Cette équipe est attribuée automatiquement.
+- **Plusieurs équipes éligibles :** Braze attribue la première équipe de votre liste d'équipes éligibles. Vous pouvez modifier l'équipe dans l'éditeur de segment avant de partager ou d'utiliser le segment.
+{% endalert %}
 
 ## Étape 3 : Choisir votre application ou plateforme {#step-3-choose-your-app-or-platform}
 
@@ -57,7 +64,7 @@ Au sein d'un groupe de filtres, les filtres peuvent être reliés par « AND » 
 - (A AND B AND C) OR (C AND E AND F)
 - (A OR B OR C) AND (C OR D OR F)
 
-Sélectionner « OR » pour vos filtres signifie que votre segment contiendra les utilisateurs satisfaisant n'importe quelle combinaison d'un, de plusieurs ou de tous ces filtres. Sélectionner « AND » signifie que les utilisateurs qui ne correspondent pas à ce filtre ne seront pas inclus dans votre segment.
+Sélectionner « OR » pour vos filtres signifie que votre segment contiendra les utilisateurs satisfaisant n'importe quelle combinaison d'un, de plusieurs ou de tous ces filtres. Sélectionner « AND » signifie que les utilisateurs qui ne remplissent pas ce filtre ne seront pas inclus dans votre segment.
 
 {% alert tip %}
 Lorsque vous sélectionnez « OR » pour des filtres incluant un filtre négatif (tel que « n'est pas » dans un groupe d'abonnement), n'oubliez pas que les utilisateurs n'ont besoin de remplir qu'un seul des filtres « OR » pour être inclus dans le segment. Pour appliquer le filtre négatif indépendamment des autres filtres, utilisez un [groupe d'exclusion](#exclusion).
@@ -65,7 +72,7 @@ Lorsque vous sélectionnez « OR » pour des filtres incluant un filtre négatif
 
 {% details Quand éviter l'opérateur OR %}
 
-Il peut y avoir des situations de ciblage d'utilisateurs où l'utilisation de l'opérateur `OR` devrait être évitée. L'opérateur `OR` crée une instruction qui est évaluée comme vraie si un utilisateur remplit les critères d'un ou plusieurs des filtres dans une instruction. Par exemple, si vous souhaitez créer un segment d'utilisateurs qui appartiennent à « Foodies » mais n'appartiennent ni à « Non-foodies » ni à « Candy-lovers », alors l'utilisation de l'opérateur `OR` fonctionnerait ici.
+Il peut y avoir des situations de ciblage d'utilisateurs où l'utilisation de l'opérateur `OR` devrait être évitée. L'opérateur `OR` crée une instruction qui est évaluée comme vraie si un utilisateur remplit les critères d'un ou de plusieurs filtres dans une instruction. Par exemple, si vous souhaitez créer un segment d'utilisateurs qui appartiennent à « Foodies » mais n'appartiennent ni à « Non-foodies » ni à « Candy-lovers », alors l'utilisation de l'opérateur `OR` fonctionnerait ici.
 
 ![Groupe de filtres pour les utilisateurs dans le segment « foodies » et n'appartenant pas aux segments « non-foodies » ou « candy-lovers ».]({% image_buster /assets/img_archive/or_operator_segment.png %})
 
@@ -82,7 +89,7 @@ Si `not included`, `is not`, `does not equal` ou `does not match regex` sont uti
 
 {% enddetails %}
 
-### Opérateurs de filtre {#filter-operators}
+### Opérateurs de filtres {#filter-operators}
 
 Selon le filtre spécifique que vous sélectionnez, vous disposerez de différents opérateurs pour identifier les valeurs de filtre. Pour approfondir les opérateurs disponibles pour les différents types d'attributs personnalisés, consultez [Stockage des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes). Notez que lorsque vous utilisez l'opérateur « is any of », le nombre maximum d'éléments que vous pouvez inclure dans ce champ est de 256.
 
@@ -92,9 +99,13 @@ Braze ne génère pas de profils pour les utilisateurs tant qu'ils n'ont pas uti
 
 ![Groupes de filtres du segmenteur avec l'opérateur AND.]({% image_buster /assets/img_archive/segmenter_filter_groups.png %})
 
-{% alert important %}
-Les Segments utilisant déjà le filtre **Segment Membership** ne peuvent pas être davantage inclus ou imbriqués dans d'autres segments. Cela empêche un cycle où le Segment A inclut le Segment B, qui tente ensuite d'inclure le Segment A à nouveau. Si cela se produisait, le segment continuerait à se référencer lui-même, rendant impossible le calcul des utilisateurs qui en font réellement partie.
+#### Affichage des filtres de date et de récence {#date-and-recency-filter-display}
 
+Lorsque vous définissez un filtre de temps relatif en jours (par exemple un événement réalisé il y a plus de 84&nbsp;jours et moins de 91&nbsp;jours), Braze convertit la valeur en semaines après l'enregistrement si le nombre de jours est divisible par sept. Par exemple, 91&nbsp;jours s'affiche comme 13&nbsp;semaines, mais 121&nbsp;jours reste en jours car il n'est pas divisible de manière exacte. Il s'agit uniquement d'un changement d'affichage : les valeurs sont toujours stockées et traitées en jours.
+
+{% alert important %}
+Les Segments utilisant déjà le filtre **Segment Membership** ne peuvent pas être davantage inclus ou imbriqués dans d'autres segments. Cela empêche un cycle où le Segment A inclut le Segment B, qui tente ensuite d'inclure le Segment A à nouveau. Si cela se produit, le segment continue de se référencer lui-même, rendant impossible le calcul des utilisateurs qui en font partie.
+<br><br>
 De plus, l'imbrication de segments de cette manière ajoute de la complexité et peut ralentir les choses. À la place, recréez le segment que vous essayez d'inclure en utilisant les mêmes filtres.
 {% endalert %}
 
@@ -102,9 +113,9 @@ De plus, l'imbrication de segments de cette manière ajoute de la complexité et
 
 Lors de la création d'un segment, vous pouvez appliquer un ou plusieurs groupes d'exclusion. Les groupes d'exclusion contiennent des critères qui identifient les utilisateurs à exclure de votre segment, et seront toujours connectés à vos groupes de filtres avec un opérateur « AND NOT ».
 
-Les groupes d'exclusion priment sur les critères du segment. Si un utilisateur correspond aux critères de votre groupe d'exclusion, il ne fera pas partie de votre segment, même s'il remplit les critères de vos groupes de filtres.
+Les groupes d'exclusion ont priorité sur les critères du segment. Si un utilisateur correspond aux critères de votre groupe d'exclusion, il ne fera pas partie de votre segment, même s'il remplit les critères de vos groupes de filtres.
 
-Créez un groupe d'exclusion en ajoutant des filtres comme vous le feriez pour les groupes de filtres. La statistique _Utilisateurs atteignables estimés_ dans un groupe d'exclusion indique le nombre estimé d'utilisateurs restant dans votre segment après l'application des critères d'exclusion.
+Créez un groupe d'exclusion en ajoutant des filtres comme vous le feriez pour les groupes de filtres. La statistique _Utilisateurs atteignables estimés_ dans un groupe d'exclusion affiche le nombre estimé d'utilisateurs restant dans votre segment après l'application des critères d'exclusion.
 
 Les utilisateurs exclus ne seront pas comptabilisés dans la statistique _Total des utilisateurs atteignables_ de votre segment.
 
@@ -112,7 +123,7 @@ Les utilisateurs exclus ne seront pas comptabilisés dans la statistique _Total 
 
 ### Afficher les statistiques d'entonnoir {#viewing-funnel-statistics}
 
-Sélectionnez **Afficher les statistiques d'entonnoir** pour afficher les statistiques de ce groupe de filtres et voir comment chaque filtre ajouté impacte les statistiques de votre segment. Vous verrez un nombre estimé et un pourcentage d'utilisateurs ciblés par tous les filtres jusqu'à ce point. Une fois les statistiques affichées pour un groupe de filtres, elles se mettront à jour automatiquement chaque fois que vous modifierez les filtres. Ces statistiques sont des estimations et peuvent prendre un moment à se générer.
+Sélectionnez **Afficher les statistiques d'entonnoir** pour afficher les statistiques de ce groupe de filtres et voir comment chaque filtre ajouté impacte les statistiques de votre segment. Vous verrez un nombre estimé et un pourcentage d'utilisateurs ciblés par tous les filtres jusqu'à ce point. Une fois les statistiques affichées pour un groupe de filtres, elles se mettront à jour automatiquement chaque fois que vous modifierez les filtres. Ces statistiques sont estimées et peuvent prendre un moment à se générer.
 
 Gardez à l'esprit que si vous utilisez AND entre vos filtres, les statistiques d'entonnoir diminueront ; si vous utilisez OR entre vos filtres, les statistiques d'entonnoir augmenteront.
 
@@ -125,7 +136,7 @@ En ajoutant des filtres qui documentent votre flux d'utilisateurs, vous pouvez v
 Après avoir ajouté des applications et des filtres à votre segment, vous pouvez vérifier si votre segment est configuré comme prévu en recherchant un utilisateur pour confirmer s'il correspond aux critères du segment. Pour ce faire, recherchez l'`external_id` ou le `braze_id` d'un utilisateur dans la section **Recherche d'utilisateur**.
 
 {% alert note %}
-La **Recherche d'utilisateur** n'accepte que l'`external_id` et le `braze_id`. Elle n'accepte pas les adresses e-mail, les numéros de téléphone ou d'autres identifiants. Pour trouver un profil par e-mail, téléphone ou d'autres champs, utilisez plutôt [**Rechercher des utilisateurs**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles).
+La **Recherche d'utilisateur** accepte uniquement `external_id` et `braze_id`. Elle n'accepte pas les adresses e-mail, les numéros de téléphone ou d'autres identifiants. Pour trouver un profil par e-mail, téléphone ou d'autres champs, utilisez plutôt [**Rechercher des utilisateurs**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles).
 {% endalert %}
 
 ![Section Recherche d'utilisateur avec un champ de recherche.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%;"}
@@ -147,7 +158,7 @@ Lorsqu'un utilisateur ne correspond pas à une partie ou à la totalité des cri
 
 Vous pouvez créer des segments à utilisateur unique (ou des segments d'une poignée d'utilisateurs) en utilisant des attributs uniques qui identifient les utilisateurs, comme un nom d'utilisateur ou un ID utilisateur.
 
-Cependant, les statistiques de segmentation ou l'aperçu peuvent ne pas afficher cet utilisateur individuel car les statistiques de segment sont calculées sur la base d'un échantillon aléatoire avec un intervalle de confiance de 95 % indiquant que le résultat se situe dans une marge de +/- 1 %. Plus votre base d'utilisateurs est importante, plus il est probable que la taille de votre segment soit une estimation approximative. Pour vous assurer que votre segment contient l'utilisateur unique que vous ciblez, sélectionnez **Calculer les statistiques exactes**. Cela calculera le nombre exact d'utilisateurs dans votre segment avec une précision supérieure à 99,999 %.
+Cependant, les statistiques de segmentation ou l'aperçu peuvent ne pas afficher cet utilisateur individuel car les statistiques de segment sont calculées sur la base d'un échantillon aléatoire avec un intervalle de confiance de 95 % indiquant que le résultat se situe à +/- 1 %. Plus votre base d'utilisateurs est grande, plus il est probable que la taille de votre segment soit une estimation approximative. Pour vous assurer que votre segment contient l'utilisateur unique que vous ciblez, sélectionnez **Calculer les statistiques exactes**. Cela calculera le nombre exact d'utilisateurs dans votre segment avec une précision supérieure à 99,999 %.
 
 Braze dispose de filtres de test pour cibler des utilisateurs spécifiques par ID utilisateur ou adresse e-mail.
 
@@ -173,7 +184,7 @@ Vous pouvez désarchiver le segment en y accédant depuis la page **Segments**, 
 
 ## Comportement du ciblage lorsque les utilisateurs possèdent plusieurs appareils {#targeting-behavior-when-users-have-multiple-devices}
 
-Les utilisateurs possèdent plusieurs appareils lorsqu'ils se connectent au même compte sur différents appareils. Vous pouvez vérifier la présence de plusieurs appareils dans la section **Appareils récents** d'un [profil utilisateur]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
+Les utilisateurs possèdent plus d'un appareil s'ils se connectent au même compte sur plusieurs appareils. Vous pouvez vérifier la présence de plusieurs appareils dans la section **Appareils récents** d'un [profil utilisateur]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
 Lors de la segmentation avec des filtres dépendants de l'appareil (modèle d'appareil, système d'exploitation de l'appareil et version de l'application), votre Segment contiendra tous les utilisateurs correspondant à vos critères de filtre. Ces utilisateurs recevront un message sur tous leurs appareils, y compris ceux qui ne répondent pas nécessairement à vos critères de filtre. Par exemple, supposons que l'utilisateur A possède deux appareils : l'appareil 1 est sous OS 13.0 et l'appareil 2 est sous OS 10.0. Si un Segment cible les utilisateurs sous OS 10.0, cet utilisateur fera partie de ce Segment et recevra des messages sur ses deux appareils.
 
@@ -185,7 +196,7 @@ Vous pouvez spécifier qu'une seule notification push est envoyée à chaque uti
 
 ### Considérations {#considerations}
 
-- **Le nombre de messages envoyés peut dépasser la taille de l'audience.** Lorsque certains utilisateurs possèdent plusieurs appareils, chaque appareil peut recevoir un message. Cela entraîne un nombre d'envois de messages supérieur au nombre d'utilisateurs dans votre Segment.
+- **Le nombre de messages envoyés peut dépasser la taille de l'audience.** Lorsque certains utilisateurs possèdent plus d'un appareil, chaque appareil peut recevoir un message. Cela entraîne un nombre d'envois de messages supérieur au nombre d'utilisateurs dans votre Segment.
 - **L'appartenance d'un utilisateur à un Segment peut ne pas correspondre à ce que vous attendez.**
     - Un utilisateur peut être ciblé sur son appareil actuel en fonction d'attributs associés à un autre appareil. Si vous ne vous attendiez pas à ce qu'un utilisateur reçoive un message, vérifiez son profil utilisateur pour détecter la présence de plusieurs appareils.
-    - Un utilisateur peut avoir fait partie de votre Segment cible au moment de l'envoi, mais en raison de comportements associés à l'un de ses appareils, il peut ne plus faire partie de ce Segment par la suite. Cela peut entraîner la réception d'une Campaign ou d'un Canvas par un utilisateur même s'il ne correspond plus actuellement aux critères de filtre. <br><br>Par exemple, un utilisateur pourrait recevoir un message ciblant les utilisateurs dont la version d'application la plus récente est OS 10.0, même s'il dispose actuellement d'OS 13.0. Dans ce cas, l'utilisateur avait OS 10.0 au moment de l'envoi du message, puis a effectué la mise à jour vers OS 13.0 par la suite.<br><br> De même, si un utilisateur utilise ultérieurement un appareil avec une version d'application différente, son profil utilisateur sera mis à jour avec une nouvelle version d'application la plus récente. Cela peut donner l'impression que l'utilisateur n'aurait pas dû être éligible au message, alors qu'il l'était au moment de l'envoi.
+    - Un utilisateur peut avoir fait partie de votre Segment cible au moment de l'envoi, mais en raison de comportements associés à l'un de ses appareils, il peut ne plus faire partie de ce Segment par la suite. Cela peut amener un utilisateur à recevoir une Campaign ou un Canvas même s'il ne correspond plus actuellement aux critères de filtre. <br><br>Par exemple, un utilisateur pourrait recevoir un message ciblant les utilisateurs dont la version d'application la plus récente est OS 10.0, même s'il dispose actuellement d'OS 13.0. Dans ce cas, l'utilisateur avait OS 10.0 au moment de l'envoi du message, puis a effectué la mise à jour vers OS 13.0 par la suite.<br><br> De même, si un utilisateur utilise ultérieurement un appareil avec une version d'application différente, son profil utilisateur sera mis à jour avec une nouvelle version d'application la plus récente. Cela peut donner l'impression que l'utilisateur n'aurait pas dû être éligible au message, alors qu'il l'était au moment de l'envoi.

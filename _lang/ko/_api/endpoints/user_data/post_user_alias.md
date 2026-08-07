@@ -22,6 +22,8 @@ description: "이 문서에서는 새 사용자 별칭 만들기 Braze 엔드포
 
 **별칭 전용 사용자를 새로 만들려면** 새 사용자 별칭 오브젝트에서 `external_id`를 생략해야 합니다. 사용자가 생성된 후 `/users/track` 엔드포인트를 사용하여 별칭 전용 사용자를 속성, 이벤트 및 구매와 연결하고, `/users/identify` 엔드포인트를 사용하여 `external_id`로 사용자를 식별합니다.
 
+`user_alias`를 사용하여 [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) 엔드포인트를 통해 API 트리거 Campaigns를 사용자에게 보낼 수 있습니다.
+
 ## `alias_label`과 `alias_name`이 이미 존재하는 경우 {#when-alias_label-and-alias_name-already-exist}
 
 `alias_label`과 `alias_name`의 조합은 사용자 기반 전체에서 고유해야 합니다. 자세한 내용은 [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)을 참조하세요.

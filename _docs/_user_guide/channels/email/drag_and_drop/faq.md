@@ -79,11 +79,18 @@ Yes. You can add attachments to your email message by going to **Sending Setting
 
 ## How do I download the raw HTML for a drag-and-drop email?
 
+The drag-and-drop editor includes **Download file** as an option to export your email as an HTML file inside a ZIP file.
+
 1. Open your campaign or Canvas and edit the email message.
 2. Select **Edit email body** to open the drag-and-drop editor.
-3. Select **Download file** (bottom of the editor). Extract the archive to access the generated HTML.
+3. Select **Download file**.
+4. Extract the archive to access the generated HTML.
 
-You can paste that HTML into an [HTML block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#content) or the HTML editor when you need low-level edits—for example, to [turn off click tracking for specific links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis).
+{% alert tip %}
+On Windows, move the ZIP file to a permanent location (such as Downloads) before extracting it. Extracting from a temporary folder may prevent you from accessing the HTML file after that folder is cleared.
+{% endalert %}
+
+You can paste that HTML into an [HTML block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#content) or the HTML editor when you need low-level edits (for example, to [turn off click tracking for specific links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)).
 
 ## Why is my drag-and-drop layout breaking?
 
