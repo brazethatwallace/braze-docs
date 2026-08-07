@@ -92,8 +92,10 @@ To search for all segment references, including those in other segments, campaig
 
 ![Target segment filter on the Canvas page.]({% image_buster /assets/img/segment/target_segment.png %}){: style="max-width:45%;"}
 
-<!-- sf-kb-phase2-batch -->
+## Troubleshooting
 
-Add Canvas troubleshooting or Manage segments guidance: if deleting a Canvas variant is blocked because a segment filter references that variant, edit the segment (including archived segments if applicable) to remove the variant reference, then retry deletion.
+### Can't delete a Canvas variant because of an archived segment
 
-<!-- /sf-kb-phase2-batch -->
+If Braze blocks deleting a Canvas variant because a segment filter still references that variant, open the segment that uses the reference—including archived segments—and remove the variant from its filters. After you save the segment, return to the Canvas and retry deleting the variant.
+
+To find which segments reference a Canvas, open the Canvas and review its audience filters, or check each segment's [**Messaging Use**](#messaging-use) section for linked Canvases.
