@@ -87,3 +87,7 @@ Sends can be lower than the estimated audience when users lack an email address,
 
 If a campaign sends earlier than the schedule you set in **Company Settings**, enable **Send in local time zone** or add a delivery time window for Intelligent Timing campaigns. Without those settings, timezone evaluation can queue sends for users in earlier time zones before your intended schedule time. For more information, see [Local time zone campaigns](#local-time-zone-campaigns) and [When does Braze evaluate users for local time zone delivery?]({{site.baseurl}}/user_guide/messaging/campaigns/faq#when-does-braze-evaluate-users-for-local-time-zone-delivery).
 
+### What is the maximum delivery delay for in-app message campaigns?
+
+In-app message campaigns that use a scheduled delivery delay can delay delivery by up to **2 hours** (7,200 seconds). If you need a longer gap between scheduling and display, use a [trigger-based]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) campaign or Canvas step instead.
+
