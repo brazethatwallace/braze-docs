@@ -36,24 +36,50 @@ You can set a workspace quiet hours window for any of the following channels:
     - This covers every push platform in your workspace
     - There is no option to set different quiet hours for individual platforms (for example, iOS vs. Android).
 
-## Set up workspace quiet hours
-
-### Prerequisites
+## Prerequisites
 
 Before you can set up workspace quiet hours, confirm you have the following:
 
 - "Edit Quiet Hours" permission to create or update workspace quiet hours. 
     - The "View Quiet Hours" permission lets a user view the configuration without editing it. Existing campaign and Canvas edit permissions are unaffected; those users can still edit quiet hours at the campaign or Canvas level.
 
-### 
+## Set up workspace quiet hours
 
-1. 
 
-Configuration: set a start time, end time, and channel for each workspace quiet hours window. A channel can have at most one workspace quiet hours window at a time.
-Visibility in campaigns and Canvases: the applicable workspace quiet hours window is surfaced in the campaign and Canvas editor for any channel in use. From there, you can opt out of the workspace default and apply a campaign- or Canvas-specific window instead, the same way you would opt out of a workspace-level frequency cap.
-Impact preview: when you turn on or change a workspace quiet hours window, Braze shows you which existing campaigns and Canvases will be affected so you can review the impact before it takes effect.
-Change log: updates to workspace quiet hours are recorded in a change log, including who made the change and when, since this setting affects every campaign and Canvas on the channel.
+1.  Set a start time, end time, and channel for each workspace quiet hours window. A channel can have at most one workspace quiet hours window at a time.
 
+
+The applicable workspace quiet hours window is surfaced in the campaign and Canvas editor for any channel in use. From there, you can opt out of the workspace default and apply a campaign- or Canvas-specific window instead, the same way you would opt out of a workspace-level frequency cap.
+
+When you turn on or change a workspace quiet hours window, Braze shows which existing campaigns and Canvases are affected so you can review the impact before it takes effect. Updates to workspace quiet hours are recorded in a changelog, including who made the change and when, since this setting affects every campaign and Canvas on the channel.
+
+Precedence: workspace vs. campaign or Canvas quiet hours
+For any given campaign or Canvas, only one quiet hours setting is ever in effect at a time — workspace quiet hours, a campaign- or Canvas-specific window, or none. A campaign- or Canvas-level quiet hours window always takes precedence over the workspace default.
+Configuration present
+Which quiet hours applies
+Campaign or Canvas has its own quiet hours window
+The campaign- or Canvas-level window applies. Workspace quiet hours are ignored for that campaign or Canvas.
+Campaign or Canvas has no quiet hours window of its own, and a workspace quiet hours window exists for the channel it uses
+The workspace quiet hours window applies automatically.
+campaign / Canvas is opted out
+No quiet hours apply.
+
+### What happens to a held message
+
+What happens to a message that falls inside a quiet hours window depends on how the campaign or Canvas is triggered:
+
+- **Action-triggered campaigns and Canvases:** fallback can be either Abort or Send at the next available time, the same options available today.
+- **Scheduled campaigns with a fixed send time:** fallback is Abort. Braze doesn't delay a fixed-time send to the next available slot, since doing so could push a large volume of messages into a compressed sending window once quiet hours end.
+- **Campaigns using Intelligent Timing:** no separate fallback is needed. Braze already factors the workspace quiet hours window into the optimal send time it calculates for each user, so messages aren't scheduled inside the window in the first place.
+- **API-triggered campaigns and API campaigns:** fallback is Abort by default. Use the opt-out if you don't want workspace quiet hours applied to a request.
+
+### API-triggered and API campaigns
+
+Workspace quiet hours apply to API-triggered campaigns and API campaigns by default. You can't configure a custom, campaign-specific quiet hours window through these APIs, only the workspace default applies, unless you opt out.
+
+To send without regard to a workspace quiet hours window, include the optional `ignore_workspace_quiet_hours` parameter in your request.
+
+For scheduled API-triggered sends using `at_optimal_time`, workspace quiet hours are already factored into the optimal send time, similar to Intelligent Timing.
 
 ### Exclusions
 
