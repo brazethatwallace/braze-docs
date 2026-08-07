@@ -39,3 +39,13 @@ guide_featured_list:
 <br><br>
 
 [16]: [success@braze.com](mailto:success@braze.com)
+
+<!-- sf-kb-phase2-batch -->
+
+Consider a Connected Content troubleshooting note that endpoints returning redirects (301/302) may fail during preview or send and that redirect-following limitations apply; optional callout about script.google.com-style redirects.
+
+---
+
+Add explicit Connected Content troubleshooting note that 3xx redirects are not treated as successful content retrieval; endpoints should return 200 with final URL.
+
+<!-- /sf-kb-phase2-batch -->
