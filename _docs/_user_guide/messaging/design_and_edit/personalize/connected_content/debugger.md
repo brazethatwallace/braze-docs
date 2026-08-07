@@ -33,7 +33,7 @@ The Connected Content Debugger is available for the following channels:
 - WhatsApp
 
 {% alert note %}
-During early access, the debugger is available for most channels, but not yet for KakaoTalk, LINE, Banners, or non-channel-specific composition surfaces (like Content Blocks, Canvas User Update step, and Context step). If you don't see the debugger, Connected Content debugging may not yet be supported for that feature.
+During early access, the debugger is available for most channels, but not yet for KakaoTalk, LINE, Banners, or non-channel-specific composition surfaces (such as Content Blocks, Canvas User Update step, and Context step). If you don't see the debugger, Connected Content debugging may not yet be supported for that feature.
 {% endalert %}
 
 ## Use the debugger
@@ -46,7 +46,7 @@ Each time you run a preview, Braze automatically renders the Connected Content c
 ![Connected Content section in the Test section.]({% image_buster /assets/img/connected_content/debugger1.png %})
 
 {:start="3"}
-3. Select **View Details** to open the debugger alongside your preview. The drawer displays a table of the URL and outcome for each Connected Content call.
+3. Select **View details** to open the debugger alongside your preview. The drawer displays a table of the URL and outcome for each Connected Content call.
 
 ![Connected Content calls with three URLs to review.]({% image_buster /assets/img/connected_content/debugger3.png %})
 
@@ -77,8 +77,8 @@ Each Connected Content call appears with its own **Response** and **Request** ta
 
 | Field | Description |
 | --- | --- |
-| Duration | How long the request took to complete, in seconds. |
-| Cached | Indicates whether this response was served from Braze's Connected Content cache rather than a live call to your endpoint. A cached result reflects an earlier response, not necessarily your endpoint's current state. |
+| Duration | How long the request took to complete, in seconds. Duration is shown only for live (non-cached) calls. |
+| Served from cache | Indicates whether this response was served from Braze's Connected Content cache rather than a live call to your endpoint (`Yes` or `No`). A cached result reflects an earlier response, not necessarily your endpoint's current state. |
 | Response body | The body returned by your endpoint. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Response tab" }
 
@@ -102,7 +102,7 @@ Authentication failures are still visible even when credentials are redacted: if
 
 Not every non-`2XX` status code in the **Response** tab comes from your endpoint. Braze enforces its own limits on Connected Content calls, and these can produce responses that look similar to an endpoint error.
 
-If you see the following [response codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#start-here-match-your-symptom), the issue is typically on Braze's side of the call — related to host health, timeout, or payload size. If your endpoint consistently returns large responses, consider trimming the response payload to only the fields your message needs.
+If you see [response codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#start-here-match-your-symptom) such as `408`, `429`, `502`, `503`, `504`, or `599`, the issue is typically on Braze's side of the call — related to host health, timeout, or payload size. If your endpoint consistently returns large responses, consider trimming the response payload to only the fields your message needs.
 
 ### Endpoint returned an unexpected status code
 
@@ -110,8 +110,7 @@ Use the **Request** tab to confirm the exact URL, headers, and body Braze sent. 
 
 ### Response looks stale
 
-Check the **Cached** field on the **Response** tab. If `from_cache` is true, the debugger is showing a previously cached response rather than a fresh call. Add `:no_cache` to your tag temporarily, or wait for the cache to expire (per `:cache_max_age`), to confirm current endpoint behavior.
-
+Check **Served from cache** on the **Response** tab. If it shows `Yes`, the debugger is showing a previously cached response rather than a fresh call. Add `:no_cache` to your tag temporarily, or wait for the cache to expire (per `:cache_max_age`), to confirm current endpoint behavior.
 
 ## Related articles
 

@@ -1,4 +1,4 @@
 {
-    "reason": "Names in screenshot are not PII.",
-    "dismiss_ids": ["d2f87d3c", "7853a26d"]
-  }
+  "reason": "Names in screenshot are not PII.",
+  "dismiss_ids": ["d2f87d3c", "7853a26d"]
+}
