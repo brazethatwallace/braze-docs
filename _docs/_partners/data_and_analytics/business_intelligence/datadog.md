@@ -49,8 +49,13 @@ These events and tags can be monitored on the Datadog **Metrics Explorer** page.
 
 ![Datadog Metrics Explorer showing Braze event metrics and tags.]({% image_buster /assets/img/datadog.png %})
 
-<!-- sf-kb-phase2-batch -->
+## Troubleshooting
 
-Add a short troubleshooting note on the Datadog partner page: ensure the Datadog site selected in Braze matches the customer's Datadog region/site URL; mismatch can prevent metrics such as braze.messaging.sent from appearing as expected.
+### Why are `braze.messaging.sent` metrics missing in Datadog?
 
-<!-- /sf-kb-phase2-batch -->
+If you connected Braze to Datadog but do not see `braze.messaging.sent` in the Metrics Explorer, confirm the **Datadog site** selected in Braze matches your Datadog organization's site URL (for example, `datadoghq.com`, `us3.datadoghq.com`, `us5.datadoghq.com`, or `datadoghq.eu`).
+
+A site mismatch can prevent metrics from appearing in the workspace where you search. In the Braze dashboard, open **Partner Integrations** > **Technology Partners** > **Datadog** and verify the site matches the subdomain in your Datadog account URL.
+
+After you correct the site, allow time for new send activity before you expect metrics to display. Braze does not retry failed metric transmissions, so historical gaps may not backfill.
+
