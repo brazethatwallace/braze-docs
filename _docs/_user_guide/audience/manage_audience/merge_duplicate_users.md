@@ -152,8 +152,15 @@ Before you merge duplicates, use the [Export user profile by identifier endpoint
 - [POST: Merge users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)
 - [Delete users]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users)
 
-<!-- sf-kb-phase2-batch -->
+## Troubleshooting
 
-In Segment + Braze integration docs, reinforce single initialization path to avoid duplicate sessions.
+### Why are users logging duplicate sessions?
 
-<!-- /sf-kb-phase2-batch -->
+Duplicate session activity is different from duplicate user profiles (the merges described on this page). Duplicate sessions often happen when the Braze SDK is initialized more than once for the same user—for example, when you use Segment's device-mode Braze destination and also initialize the Braze SDK or call `changeUser()` directly in your app.
+
+To prevent duplicate sessions:
+
+1. Use a single initialization path. In Segment device mode, let Segment initialize Braze. Do not also call Braze SDK initialization methods in parallel.
+2. Review your Segment connection mode and confirm you are not forwarding the same session events through multiple SDK paths.
+3. See [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment/) for device-mode setup and initialization guidance.
+
