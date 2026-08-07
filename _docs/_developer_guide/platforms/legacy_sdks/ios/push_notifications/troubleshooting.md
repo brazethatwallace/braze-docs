@@ -165,3 +165,10 @@ If at least one user opens your iOS push notification, but few or no _Direct Ope
    - [Register for push]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-1-register-for-push-notifications-with-apns): On every single app launch, preferably within `application:didFinishLaunchingWithOptions:`, the code from step 3 needs to occur. The delegate property of `UNUserNotificationCenter.current()` needs to be assigned to an object that implements `UNUserNotificationCenterDelegate` and contains the `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` method.
    - [Enable push handling]({{site.baseurl}}/developer_guide/platform_integration_guides/legacy_sdks/ios/push_notifications/integration#step-5-enable-push-handling): Verify that the `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` method has been implemented.
 
+### Push Story image clicks do nothing
+
+If tapping a Push Story image does not open the expected action, check your Notification Content Extension `Info.plist`. Do not add `UNNotificationExtensionUserInteractionEnabled`—this key is not supported for Push Story and can cause undefined behavior, including unresponsive image taps. Follow the [Push Story setup]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/push_story) guide for the required `NSExtension` keys instead.
+
+### Xcode build failures after upgrading the Cordova SDK
+
+Cordova Braze SDK 9.0.0 and later use the native iOS Swift SDK 9.0.0 bridge, which requires **Xcode 15.2** or newer. If your build fails after upgrading the Cordova plugin, update Xcode to 15.2+ and confirm your toolchain matches the [Swift SDK release requirements]({{site.baseurl}}/developer_guide/platforms/swift/changelog).
