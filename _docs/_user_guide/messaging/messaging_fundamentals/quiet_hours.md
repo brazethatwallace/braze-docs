@@ -12,10 +12,6 @@ description: "This reference article covers what quiet hours are, how Braze hand
 
 Quiet hours are configured at the campaign or Canvas level. You can also set [workspace quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/workspace_quiet_hours) as a default for a messaging channel across your workspace (early access).
 
-{% alert tip %}
-Looking for a workspace-wide default? [Workspace quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/workspace_quiet_hours) (early access) lets you set one quiet hours window per channel for every campaign and Canvas in the workspace.
-{% endalert %}
-
 ## How quiet hours work
 
 When quiet hours are enabled and a message would otherwise be sent during the restricted window, Braze holds the message and delivers it at the next available time after quiet hours end.
