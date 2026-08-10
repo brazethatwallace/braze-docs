@@ -215,6 +215,14 @@ Si los enlaces utilizan Liquid para URL dinámicas, las URL en las que se hizo c
 
 ![Ejemplo de la página Preview & Heatmap que incluye una campaña de correo electrónico y un panel con ejemplos de alias de enlaces con su total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
+##### Enlaces solo para móvil en el mapa de calor {#mobile-only-links-in-the-heatmap}
+
+El mapa de calor solo muestra las firmas de calor de los enlaces visibles en el tamaño de vista previa seleccionado.
+
+Los enlaces que solo aparecen en el diseño para móvil están ocultos en **Desktop** (y pueden estar ocultos en **Overall**, dependiendo del ancho de la vista previa), por lo que esos clics no se muestran como firmas de calor. Esos enlaces siguen apareciendo en el panel **Link Table by Total Clicks** con sus clics totales y porcentajes.
+
+Para ver las firmas de calor de los enlaces solo para móvil, selecciona **Mobile**. La vista previa para móvil coincide con el punto de corte para móvil del editor de arrastrar y soltar (620&nbsp;px). Si el correo electrónico cambia de diseño solo a un ancho más estrecho, esos enlaces permanecen ocultos incluso en el tamaño de vista previa **Mobile**.
+
 #### Imágenes {#images}
 
 Te recomendamos habilitar CORS en las URL de tus imágenes para evitar que se rompan en las vistas previas y exportaciones de mapas de calor.

@@ -24,10 +24,10 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 Segment를 구�
 - 로열티 등급, 가입 상태, 선호 언어, 플랜 유형 등의 특성을 기반으로 사용자를 세분화하여 오디언스를 타겟팅하거나 제외
 - 사용자의 이름, 리워드 포인트, 선호 카테고리 등의 속성을 참조하여 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)로 메시지 개인화
 - 온보딩 단계, 계정 상태, 체험판 종료일 등 라이프사이클 단계 및 사용자 상태 추적
-- `feature_views_count` 속성처럼 사용자가 기능을 조회할 때마다 값을 증가시키는 등 [숫자 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)을 사용하여 낮은 가치의 액션 카운트
-- `last_support_ticket_at` 또는 `last_password_reset_at`처럼 [시간 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)을 사용하여 낮은 가치의 액션이 마지막으로 발생한 시점 기록
-- 선호 장르나 최근 조회한 콘텐츠 등을 [배열]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)로 저장하여 관심사 기반 타겟팅에 활용
-- 구조화된 환경설정이나 여러 저장된 주소 등 더 풍부한 프로필 데이터를 [객체]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) 또는 [객체 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)로 저장
+- `feature_views_count` 속성을 사용자가 기능을 조회할 때마다 증가시키는 것처럼, [숫자 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)으로 낮은 가치의 행동 횟수 기록
+- `last_support_ticket_at` 또는 `last_password_reset_at`처럼, [시간 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)을 사용하여 낮은 가치의 행동이 마지막으로 발생한 시점 기록
+- 선호 장르나 최근 조회한 콘텐츠 등 사용자 관심사와 이력을 [배열]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)로 저장하여 관심사 기반 타겟팅에 활용
+- 구조화된 선호 설정이나 여러 저장된 주소 등 더 풍부한 프로필 데이터를 [객체]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) 또는 [객체 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)로 저장
 - 사용자의 `rewards_tier`가 변경될 때 등급 상승 알림을 보내는 것처럼, [속성 트리거]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers)를 사용하여 속성 값이 변경될 때 액션 기반 메시지 트리거
 
 ## 커스텀 속성 관리 {#managing-custom-attributes}
@@ -93,19 +93,19 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 Segment를 구�
 
 ### 필수 조건 {#prerequisites}
 
-커스텀 속성은 현재 활성 Campaign, Canvases 또는 Segments에서 사용 중이지 않아야 합니다. 데이터 유형을 변경하려고 할 때 속성이 여전히 참조되고 있으면 대시보드에 오류가 표시되고 변경이 차단됩니다.
+커스텀 속성은 현재 활성 Campaigns, Canvases 또는 Segments에서 사용 중이 아니어야 합니다. 속성이 아직 참조되고 있는 상태에서 데이터 유형을 변경하려고 하면 대시보드에 오류가 표시되고 변경이 차단됩니다.
 
 ### 데이터 유형 변경 {#changing-the-data-type}
 
-1. 속성을 Segments 또는 필터에서 사용하는 활성 Campaign 또는 Canvases를 중지합니다.
+1. 속성을 Segments 또는 필터에서 사용하는 활성 Campaigns 또는 Canvases를 중지합니다.
 2. 모든 Segment, Campaign 및 Canvas 필터에서 속성을 제거합니다.
 3. **데이터 설정** > **커스텀 속성**(또는 **커스텀 이벤트**)으로 이동하여 속성을 찾고 원하는 데이터 유형으로 업데이트합니다.
 4. 기존 고객 프로필의 속성 값을 새 데이터 유형에 맞게 업데이트합니다(예: [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 사용).
-5. 관련 Segments, Campaigns 및 Canvases에 속성을 다시 적용한 다음, 중지했던 Campaign 또는 Canvases를 다시 활성화합니다.
+5. 관련 Segments, Campaigns 및 Canvases에 속성을 다시 적용한 다음, 중지했던 Campaigns 또는 Canvases를 다시 활성화합니다.
 
 ### 알아두어야 할 사항 {#things-to-know}
 
-- **사용자 데이터는 소급 업데이트되지 않습니다.** 고객 프로필에 이전 데이터 유형의 속성이 있었다면 해당 값은 변경되지 않은 채로 유지됩니다. 세분화 필터는 새 데이터 유형을 찾으므로, 이전 값을 가진 사용자는 프로필이 업데이트될 때까지 일치하는 Segments에서 제외됩니다.
+- **사용자 데이터는 소급 업데이트되지 않습니다.** 고객 프로필에 이전 데이터 유형의 속성 값이 있었다면 해당 값은 변경되지 않은 채 유지됩니다. 세분화 필터는 새 데이터 유형을 기준으로 조회하므로, 이전 값을 가진 사용자는 프로필이 업데이트될 때까지 일치하는 Segments에서 제외됩니다.
 - **새 데이터는 새 데이터 유형과 일치해야 합니다.** 변경 후, 이 속성에 대해 이전 데이터 유형을 전송하는 API 호출 또는 SDK 이벤트는 수락되지 않습니다. 새 데이터 유형과 일치하는 값만 수집됩니다.
 - **필터는 자동으로 업데이트되지 않습니다.** 변경된 속성을 참조하는 Segments 및 Campaign 필터는 소급 업데이트되지 않습니다. 변경 후 해당 필터를 제거하고 다시 추가해야 합니다.
 
@@ -119,7 +119,7 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 Segment를 구�
 
 사용량 보고서를 볼 때 **값** 탭을 선택하면 약 250,000명의 사용자 샘플을 기반으로 선택한 커스텀 속성의 상위 값을 확인할 수 있습니다. 결과는 사용자의 하위 집합에서 샘플링되므로 기존의 모든 값이 포함되지 않을 수 있습니다. 따라서 **값** 탭은 문제 해결이나 모든 사용자의 데이터를 포함해야 하는 사용 사례에는 사용하지 않는 것이 좋습니다.
 
-![선택한 커스텀 속성의 사용량 보고서에서 값 탭이 열려 있으며, 'US' 및 'PR' 등의 국가 속성 값을 보여주는 원형 차트가 표시됩니다.]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
+![선택한 커스텀 속성에 대한 사용량 보고서로, 열린 '값' 탭에 'US' 및 'PR' 등의 국가 속성 값을 보여주는 원형 차트가 표시되어 있습니다.]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
 ## 커스텀 속성 설정 {#set-custom-attributes}
 
@@ -155,8 +155,10 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 Segment를 구�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="빈 문자열과 null 값 비교" }
 {: .reset-td-br-1 .reset-td-br-2 aria-label="빈 문자열과 null 값 비교" }
 
-{% alert important %}
-데이터 유형이 Braze 대시보드에서 수동으로 설정된(자동 감지가 아닌) 비문자열 데이터 유형의 경우, 값을 설정 해제하려면 `null`을 사용해야 합니다. `""`을 전달하는 것은 문자열 속성에만 유효합니다. 예를 들어, 부울 속성을 `""`으로 설정하면 빈 문자열로 처리되며, 이는 해당 유형에 유효하지 않은 값입니다. 부울 값을 설정 해제하려면 `null`을 전달하세요.
+이 동작은 세분화에도 영향을 미칩니다. 커스텀 속성의 경우, **IS NOT BLANK** 필터는 비어 있지 않은 값을 확인합니다. 즉, 빈 문자열(`""`)은 프로필에 속성이 계속 표시되더라도 일치하지 않습니다. `null` 값도 속성이 프로필에서 제거되므로 일치하지 않습니다.
 
-CSV 가져오기는 `null`을 지원하지 않습니다. CSV 가져오기에서 부울 값은 `TRUE` 또는 `FALSE`여야 합니다.
+{% alert important %}
+Braze 대시보드에서 데이터 유형이 수동으로 설정된(자동 감지가 아닌) 비문자열 데이터 유형의 경우, 값을 설정 해제하려면 `null`을 사용해야 합니다. `""`를 전달하는 것은 문자열 속성에만 유효합니다. 예를 들어, 부울 속성을 `""`로 설정하면 빈 문자열로 처리되며, 이는 해당 유형에 유효하지 않은 값입니다. 부울 값을 설정 해제하려면 `null`을 전달하세요.
+
+CSV 가져오기는 `null`을 지원하지 않습니다. CSV 가져오기의 부울 값은 `TRUE` 또는 `FALSE`여야 합니다.
 {% endalert %}

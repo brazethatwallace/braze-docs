@@ -10,6 +10,7 @@ tool:
   - Canvas
 
 
+
 ---
 
 # Häufig gestellte Fragen {#frequently-asked-questions}
@@ -22,13 +23,13 @@ Ja. Gehen Sie zum Abschnitt **Vorschau und Test** des Drag-and-Drop-Editors und 
 
 ## Wie sollte ich E-Mails für den Dark Mode und den Light Mode gestalten? {#how-should-i-design-emails-for-dark-mode-and-light-mode}
 
-E-Mails müssen nicht in separaten Light- und Dark-Layouts versendet werden, da E-Mail-Clients und Geräte ihr eigenes dunkles Theme anwenden können. Dies kann jedoch Farben invertieren oder Hintergründe ausblenden, wenn auf dem äußeren Container und den Hauptbereichen keine expliziten Farben gesetzt sind. Um dies zu vermeiden, empfehlen wir, feste Hintergrundfarben zu setzen, damit Ihre Nachricht sowohl im Dark Mode als auch im Light Mode gut lesbar ist.
+E-Mails müssen nicht in separaten Light- und Dark-Layouts versendet werden, da E-Mail-Clients und Geräte ihr eigenes dunkles Theme anwenden können. Allerdings kann dies dazu führen, dass Farben invertiert oder Hintergründe ausgeblendet werden, wenn auf dem äußeren Container und den Hauptbereichen keine expliziten Farben gesetzt sind. Um dies zu vermeiden, empfehlen wir, feste Hintergrundfarben zu setzen, damit Ihre Nachricht sowohl im Dark Mode als auch im Light Mode gut lesbar ist.
 
-Einige E-Mail-Clients ersetzen Hintergrundbilder oder invertieren kontrastarmen Text im Dark Mode, sodass Fließtext fehlen oder zwischen verschiedenen Clients unterschiedlich dargestellt werden kann (zum Beispiel Gmail auf iOS im Vergleich zu Android). Setzen Sie `background-color` auf dem äußeren Container und den Hauptbereichen, anstatt sich für helle Hintergründe ausschließlich auf Hintergrundbilder zu verlassen.
+Einige E-Mail-Clients ersetzen Hintergrundbilder oder invertieren kontrastarmen Text im Dark Mode, sodass Fließtext fehlen oder zwischen verschiedenen Clients unterschiedlich dargestellt werden kann (zum Beispiel Gmail auf iOS im Vergleich zu Android). Setzen Sie `background-color` auf den äußeren Container und die Hauptbereiche, anstatt sich für helle Hintergründe ausschließlich auf Hintergrundbilder zu verlassen.
 
 ## Warum wird meine benutzerdefinierte Schriftart in der Drag-and-Drop-E-Mail-Vorschau nicht angezeigt? {#why-doesnt-my-custom-font-appear-in-drag-and-drop-email-preview}
 
-Benutzerdefinierte Schriftarten werden in der Editor-Vorschau geladen, wenn ein **Text**-Block in der Nachricht auf die Schriftart verweist. Falls die Vorschau nach der Konfiguration einer benutzerdefinierten Schriftart in den Einstellungen des **Drag-and-Drop-E-Mail-Editors** weiterhin eine Fallback-Schriftart anzeigt, fügen Sie einen **Text**-Block hinzu, der diese Schriftart verwendet, damit der Editor sie für die Vorschau lädt. Stellen Sie sicher, dass Cross-Origin Resource Sharing (CORS) für Ihre Schriftartdatei aktiviert ist. Überprüfen Sie **Vorschau und Test** sowie Ihre Ziel-E-Mail-Clients, bevor Sie senden. Informationen zur Einrichtung finden Sie unter [Benutzerdefinierte Schriftart]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings#custom-font).
+Benutzerdefinierte Schriftarten werden in der Editor-Vorschau geladen, wenn ein **Text**-Block in der Nachricht auf die Schriftart verweist. Falls die Vorschau nach der Konfiguration einer benutzerdefinierten Schriftart in den Einstellungen des **Drag-and-Drop-E-Mail-Editors** weiterhin eine Fallback-Schriftart anzeigt, fügen Sie einen **Text**-Block hinzu, der diese Schriftart verwendet, damit der Editor sie für die Vorschau lädt. Stellen Sie sicher, dass Cross-Origin Resource Sharing (CORS) für Ihre Schriftdatei aktiviert ist. Überprüfen Sie **Vorschau und Test** sowie Ihre Ziel-E-Mail-Clients, bevor Sie senden. Informationen zur Einrichtung finden Sie unter [Benutzerdefinierte Schriftart]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings#custom-font).
 
 ## Wie kann ich Textformatierungen beim Kopieren und Einfügen aus einer anderen Anwendung übernehmen? {#how-can-i-carry-over-text-formatting-when-i-copy-and-paste-from-another-application}
 
@@ -49,14 +50,14 @@ Wenn Sie eine E-Mail mit dem Drag-and-Drop-Editor erstellen und eine horizontale
 
 Um dasselbe Format über verschiedene Gerätegrößen hinweg beizubehalten, empfehlen wir, eine separate Zeile mit CTA-Buttons zu erstellen, deren Padding für Mobilgeräte optimiert ist und bei der die Zeile auf Desktop-Geräten ausgeblendet wird. Durch zwei separate Zeilen können Sie das gewünschte Padding für die beste Textdarstellung auf Desktop- und Mobilgeräten festlegen.
 
-## Kann ich die Zeilenhöhe im Drag-and-Drop-Editor anpassen? {#can-i-adjust-the-row-height-in-the-drag-and-drop-editor}
+## Kann ich die Zeilenhöhe im Drag-and-drop-Editor anpassen? {#can-i-adjust-the-row-height-in-the-drag-and-drop-editor}
 
 Die Zeilenhöhe passt sich automatisch an den Inhalt an. Alternativ empfehlen wir Ihnen Folgendes:
 1. Fügen Sie einen Trennlinien-Block hinzu.
 2. Klicken Sie auf den Schalter, um die Transparenz zu aktivieren.
 3. Passen Sie die Höhe an.
 
-## Ist es möglich, im Editor mit Ebenen zu arbeiten? Kann ich ein Hintergrundbild hinzufügen, ein Bild darüberlegen und darüber eine Textebene einfügen? {#is-it-possible-to-build-layers-in-the-editor-can-i-add-a-background-image-layer-on-an-image-and-add-a-text-layer-over-that}
+## Ist es möglich, im Editor mit Ebenen zu arbeiten? Kann ich ein Hintergrundbild hinzufügen, ein Bild darüber legen und darüber eine Textebene platzieren? {#is-it-possible-to-build-layers-in-the-editor-can-i-add-a-background-image-layer-on-an-image-and-add-a-text-layer-over-that}
 
 Der Drag-and-Drop-Editor unterstützt derzeit zwei Ebenen. Sie können ein Hintergrundbild für eine Zeile festlegen und Hintergrundfarben anpassen.
 
@@ -66,7 +67,7 @@ Nein. Sie können eine Drag-and-Drop-E-Mail aus einer Campaign oder einem Canvas
 
 Wenn Sie stattdessen ein wiederverwendbares HTML-Template benötigen, wählen Sie beim Bearbeiten des Drag-and-Drop-Inhalts **Datei herunterladen** aus, öffnen Sie die HTML-Datei aus der ZIP-Datei und fügen Sie das Markup über den HTML-Code-Editor in ein [HTML-E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) ein. Überprüfen Sie anschließend Liquid, Links und gehostete Assets.
 
-Weitere Informationen darüber, wo Templates gespeichert werden, finden Sie unter [Templates und Medien]({{site.baseurl}}/user_guide/messaging/templates).
+Weitere Informationen darüber, wo Templates zu finden sind, finden Sie unter [Templates und Medien]({{site.baseurl}}/user_guide/messaging/templates).
 
 ## Warum kann ich die Füllfarbe eines Buttons im Drag-and-Drop-Editor nicht ändern? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
 
@@ -76,15 +77,22 @@ Stile auf Seitenebene können Stile auf Nachrichtenebene überschreiben. Wenn da
 
 ## Kann ich E-Mail-Anhänge im Drag-and-Drop-Editor hinzufügen? {#can-i-add-email-attachments-to-the-drag-and-drop-editor}
 
-Ja. Sie können Anhänge zu Ihrer E-Mail-Nachricht hinzufügen, indem Sie zu **Sendeeinstellungen** > **Erweitert** navigieren.
+Ja. Sie können Anhänge zu Ihrer E-Mail-Nachricht hinzufügen, indem Sie zu **Sendeeinstellungen** > **Erweitert** gehen.
 
 ## Wie lade ich das Roh-HTML für eine Drag-and-Drop-E-Mail herunter? {#how-do-i-download-the-raw-html-for-a-drag-and-drop-email}
 
+Der Drag-and-Drop-Editor bietet die Option **Datei herunterladen**, um Ihre E-Mail als HTML-Datei in einer ZIP-Datei zu exportieren.
+
 1. Öffnen Sie Ihre Campaign oder Ihr Canvas und bearbeiten Sie die E-Mail-Nachricht.
 2. Wählen Sie **E-Mail-Text bearbeiten** aus, um den Drag-and-Drop-Editor zu öffnen.
-3. Wählen Sie **Datei herunterladen** (am unteren Rand des Editors). Entpacken Sie das Archiv, um auf das generierte HTML zuzugreifen.
+3. Wählen Sie **Datei herunterladen** aus.
+4. Entpacken Sie das Archiv, um auf das generierte HTML zuzugreifen.
 
-Sie können dieses HTML in einen [HTML-Block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#content) oder den HTML-Editor einfügen, wenn Sie Anpassungen auf Code-Ebene vornehmen möchten – zum Beispiel, um das [Klick-Tracking für bestimmte Links zu deaktivieren]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis).
+{% alert tip %}
+Verschieben Sie unter Windows die ZIP-Datei an einen dauerhaften Speicherort (z. B. Downloads), bevor Sie sie entpacken. Das Entpacken aus einem temporären Ordner kann dazu führen, dass Sie nach dem Löschen dieses Ordners nicht mehr auf die HTML-Datei zugreifen können.
+{% endalert %}
+
+Sie können dieses HTML in einen [HTML-Block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#content) oder den HTML-Editor einfügen, wenn Sie Änderungen auf Code-Ebene vornehmen möchten (zum Beispiel, um das [Klick-Tracking für bestimmte Links zu deaktivieren]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)).
 
 ## Warum bricht mein Drag-and-Drop-Layout? {#why-is-my-drag-and-drop-layout-breaking}
 
@@ -103,11 +111,11 @@ Wenn ein Content-Block in der E-Mail-Vorschau nicht gerendert wird, prüfen Sie,
 
 Wenn Sie einen Drag-and-Drop-**Content Block** in einen **Custom-Code**-Block (HTML) einfügen, werden mobilspezifische Formatierungen und Ausrichtungen aus dem Content Block möglicherweise nicht in der gesendeten Nachricht angewendet. Wenn sowohl der Content Block als auch das Template den Drag-and-Drop-Editor verwenden, fügen Sie den Content Block als eigene Zeile hinzu, anstatt ihn in Custom Code zu verschachteln.
 
-Wenn Sie mehrere Content Blocks übereinander anordnen, verwenden Sie für jeden Block eine separate Zeile, anstatt mehrere Blöcke in einer einzigen Zeile zu platzieren.
+Wenn Sie mehrere Content Blocks übereinander anordnen, verwenden Sie für jeden Block eine separate Zeile, anstatt mehrere Blöcke in einer einzelnen Zeile zu platzieren.
 
 ## Warum ignoriert der Drag-and-Drop-Editor die Ausrichtungseinstellungen? {#why-is-the-drag-and-drop-editor-ignoring-alignment-settings}
 
-Wenn der Drag-and-Drop-Editor Ausrichtungseinstellungen ignoriert, entfernen Sie angepasstes CSS oder HTML-Blöcke, entfernen Sie angepasste Schriftarten, prüfen Sie auf CSS-Konflikte und vermeiden Sie das Duplizieren von Zeilenblöcken. Kontaktieren Sie den Braze-Support, wenn das Problem weiterhin besteht.
+Wenn der Drag-and-Drop-Editor die Ausrichtungseinstellungen ignoriert, entfernen Sie benutzerdefiniertes CSS oder HTML-Blöcke, entfernen Sie benutzerdefinierte Schriftarten, prüfen Sie auf CSS-Konflikte und vermeiden Sie das Duplizieren von Zeilenblöcken. Kontaktieren Sie den Braze-Support, wenn das Problem weiterhin besteht.
 
 ## Warum stimmt mein gewählter Hex-Farbcode nicht mit der Schriftfarbe in meiner E-Mail überein? {#why-does-my-chosen-hex-color-code-not-match-the-font-in-my-email}
 

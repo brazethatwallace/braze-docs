@@ -23,12 +23,12 @@ Voici quelques cas d'usage courants des attributs personnalisés :
 
 - Cibler et exclure des audiences en segmentant les utilisateurs selon des caractéristiques telles que le niveau de fidélité, le statut d'abonnement, la langue préférée ou le type de forfait
 - Personnaliser les messages avec [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) en référençant des attributs tels que le prénom d'un utilisateur, ses points de récompense ou sa catégorie préférée
-- Suivre les étapes du cycle de vie et les états des utilisateurs, comme l'étape d'onboarding, le statut du compte ou la date de fin d'essai
+- Suivre les étapes du cycle de vie et les états utilisateur, comme l'étape d'onboarding, le statut du compte ou la date de fin d'essai
 - Comptabiliser les actions de faible valeur avec des [attributs numériques]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), par exemple en incrémentant un attribut `feature_views_count` chaque fois qu'un utilisateur consulte une fonctionnalité
 - Enregistrer la dernière occurrence d'actions de faible valeur à l'aide d'[attributs temporels]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), tels que `last_support_ticket_at` ou `last_password_reset_at`
 - Stocker les centres d'intérêt et l'historique des utilisateurs sous forme de [tableaux]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), comme les genres préférés ou les contenus récemment consultés, pour un ciblage basé sur les centres d'intérêt
 - Stocker des données de profil plus riches sous forme d'[objets]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) ou de [tableaux d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects), tels que des préférences structurées ou plusieurs adresses enregistrées
-- Déclencher des messages basés sur des actions lorsqu'une valeur d'attribut change à l'aide de [déclencheurs d'attributs]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), par exemple en envoyant une notification de montée en niveau lorsque l'attribut `rewards_tier` d'un utilisateur change
+- Déclencher des messages basés sur une action lorsqu'une valeur d'attribut change à l'aide de [déclencheurs d'attributs]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), par exemple en envoyant une notification de montée en niveau lorsque l'attribut `rewards_tier` d'un utilisateur change
 
 ## Gérer les attributs personnalisés {#managing-custom-attributes}
 
@@ -103,7 +103,7 @@ L'attribut personnalisé ne doit pas être actuellement utilisé dans des Campai
 4. Mettez à jour les valeurs de l'attribut sur les profils utilisateur existants pour qu'elles correspondent au nouveau type de données (par exemple, en utilisant l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)).
 5. Réappliquez l'attribut aux Segments, Campaigns et Canvas concernés, puis réactivez les Campaigns ou Canvas arrêtés.
 
-### Points importants {#things-to-know}
+### Points à connaître {#things-to-know}
 
 - **Les données utilisateur ne sont pas mises à jour rétroactivement.** Si un profil utilisateur possédait l'attribut avec l'ancien type de données, cette valeur reste inchangée. Le filtre de segmentation recherche le nouveau type de données, de sorte que les utilisateurs ayant l'ancienne valeur sont exclus des Segments correspondants tant que leur profil n'est pas mis à jour.
 - **Les nouvelles données doivent correspondre au nouveau type de données.** Après la modification, les appels API ou les événements SDK qui envoient l'ancien type de données pour cet attribut ne seront pas acceptés. Seules les valeurs correspondant au nouveau type de données sont ingérées.
@@ -111,13 +111,13 @@ L'attribut personnalisé ne doit pas être actuellement utilisé dans des Campai
 
 ## Consulter les rapports d'utilisation {#view-usage-reports}
 
-Le rapport d'utilisation répertorie tous les Canvas, Campaigns et Segments utilisant un attribut personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
+Le rapport d'utilisation répertorie tous les Canvas, Campaigns et Segments qui utilisent un attribut personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
 
 Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant les cases à côté des attributs personnalisés concernés, puis en sélectionnant **Afficher le rapport d'utilisation**.
 
 ### Onglet Valeurs {#values-tab}
 
-Lors de la consultation d'un rapport d'utilisation, sélectionnez l'onglet **Valeurs** pour afficher les principales valeurs des attributs personnalisés sélectionnés, basées sur un échantillon d'environ 250 000 utilisateurs. Notez que les résultats étant échantillonnés à partir d'un sous-ensemble d'utilisateurs, l'échantillon n'inclura pas toutes les valeurs existantes. Cela signifie que l'onglet **Valeurs** ne doit pas être utilisé pour la résolution des problèmes ou pour des cas d'usage nécessitant l'intégration de données de tous les utilisateurs.
+Lorsque vous consultez un rapport d'utilisation, sélectionnez l'onglet **Valeurs** pour afficher les principales valeurs des attributs personnalisés sélectionnés, basées sur un échantillon d'environ 250 000 utilisateurs. Notez que les résultats étant échantillonnés à partir d'un sous-ensemble d'utilisateurs, l'échantillon n'inclura pas toutes les valeurs existantes. Cela signifie que l'onglet **Valeurs** ne doit pas être utilisé pour la résolution des problèmes ou pour des cas d'usage nécessitant l'intégration de données de tous les utilisateurs.
 
 ![Rapport d'utilisation pour les attributs personnalisés sélectionnés avec un onglet « Valeurs » ouvert montrant un graphique circulaire des valeurs de l'attribut pays, telles que « US » et « PR ».]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
@@ -155,8 +155,10 @@ Lors de l'effacement ou de la suppression d'un attribut personnalisé, le compor
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes vides versus valeurs null" }
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes vides versus valeurs null" }
 
-{% alert important %}
-Pour les types de données non-string dont le type est défini manuellement dans le tableau de bord de Braze (et non détecté automatiquement), vous devez utiliser `null` pour supprimer la valeur. Transmettre `""` n'est valide que pour les attributs de type string — par exemple, définir un attribut booléen sur `""` est traité comme une chaîne vide, ce qui est une valeur invalide pour ce type. Pour supprimer un booléen, transmettez `null`.
+Ce comportement affecte également la segmentation. Pour les attributs personnalisés, le filtre **IS NOT BLANK** vérifie la présence d'une valeur non vide. Cela signifie qu'une chaîne vide (`""`) ne correspond pas, même si l'attribut reste visible sur le profil. Une valeur `null` ne correspond pas non plus, car l'attribut est supprimé du profil.
 
-Notez que l'import CSV ne prend pas en charge `null` — les valeurs booléennes dans les imports CSV doivent être `TRUE` ou `FALSE`.
+{% alert important %}
+Pour les types de données non-chaîne dont le type de données est défini manuellement dans le tableau de bord de Braze (et non détecté automatiquement), vous devez utiliser `null` pour supprimer la valeur. Transmettre `""` n'est valide que pour les attributs de type chaîne de caractères — par exemple, définir un attribut booléen sur `""` est traité comme une chaîne vide, ce qui est une valeur invalide pour ce type. Pour supprimer un booléen, transmettez `null`.
+
+Notez que l'importation CSV ne prend pas en charge `null` — les valeurs booléennes dans les importations CSV doivent être `TRUE` ou `FALSE`.
 {% endalert %}

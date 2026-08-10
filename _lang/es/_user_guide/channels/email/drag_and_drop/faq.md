@@ -10,6 +10,7 @@ tool:
   - Canvas
 
 
+
 ---
 
 # Preguntas frecuentes {#frequently-asked-questions}
@@ -22,13 +23,13 @@ Sí. Ve a la sección **Vista previa y prueba** del editor de arrastrar y soltar
 
 ## ¿Cómo debo diseñar correos electrónicos para el modo oscuro y el modo claro? {#how-should-i-design-emails-for-dark-mode-and-light-mode}
 
-Los correos electrónicos no necesitan enviarse en diseños separados para modo claro y oscuro, ya que los clientes de correo electrónico y los dispositivos pueden aplicar su propio tema oscuro. Sin embargo, esto puede invertir los colores u ocultar los fondos si no se establecen colores explícitos en el contenedor exterior y las secciones principales. Para evitar esto, recomendamos establecer colores de fondo sólidos para que tu mensaje se lea con claridad tanto en modo oscuro como en modo claro.
+Los correos electrónicos no necesitan enviarse en diseños separados para modo claro y oscuro, ya que los clientes de correo electrónico y los dispositivos pueden aplicar su propio tema oscuro. Sin embargo, esto puede invertir colores u ocultar fondos si no se establecen colores explícitos en el contenedor exterior y las secciones principales. Para evitar esto, recomendamos establecer colores de fondo sólidos para que tu mensaje se lea con claridad tanto en modo oscuro como en modo claro.
 
-Algunos clientes de correo electrónico reemplazan las imágenes de fondo o invierten el texto de bajo contraste en modo oscuro, por lo que el texto del cuerpo puede parecer ausente o mostrarse de forma diferente entre clientes (por ejemplo, Gmail en iOS frente a Android). Establece `background-color` en el contenedor exterior y las secciones principales en lugar de depender únicamente de imágenes de fondo para los fondos claros.
+Algunos clientes de correo electrónico reemplazan las imágenes de fondo o invierten el texto de bajo contraste en modo oscuro, por lo que el texto del cuerpo puede parecer ausente o mostrarse de forma diferente entre clientes (por ejemplo, Gmail en iOS frente a Android). Establece `background-color` en el contenedor exterior y las secciones principales en lugar de depender únicamente de imágenes de fondo para fondos claros.
 
 ## ¿Por qué mi fuente personalizada no aparece en la vista previa del correo electrónico de arrastrar y soltar? {#why-doesnt-my-custom-font-appear-in-drag-and-drop-email-preview}
 
-Las fuentes personalizadas se cargan en la vista previa del editor cuando un bloque de **Texto** en el mensaje hace referencia a la fuente. Si la vista previa sigue mostrando una fuente alternativa después de configurar una fuente personalizada en la configuración del **Drag-and-Drop Email Editor**, añade un bloque de **Texto** que utilice esa fuente para que el editor la cargue en la vista previa. Confirma que el uso compartido de recursos entre orígenes (CORS) está habilitado en tu archivo de fuente. Vuelve a comprobar **Preview and Test** y tus clientes de correo electrónico de destino antes de enviar. Para ver los pasos de configuración, consulta [Fuente personalizada]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings#custom-font).
+Las fuentes personalizadas se cargan en la vista previa del editor cuando un bloque de **Texto** en el mensaje hace referencia a la fuente. Si la vista previa sigue mostrando una fuente alternativa después de configurar una fuente personalizada en la configuración del **Drag-and-Drop Email Editor**, añade un bloque de **Texto** que utilice esa fuente para que el editor la cargue en la vista previa. Confirma que el uso compartido de recursos entre orígenes (CORS) esté habilitado en tu archivo de fuente. Vuelve a comprobar **Preview and Test** y tus clientes de correo electrónico de destino antes de enviar. Para ver los pasos de configuración, consulta [Fuente personalizada]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings#custom-font).
 
 ## ¿Cómo puedo conservar el formato de texto cuando copio y pego desde otra aplicación? {#how-can-i-carry-over-text-formatting-when-i-copy-and-paste-from-another-application}
 
@@ -37,7 +38,7 @@ Los distintos editores de texto y aplicaciones tienen sus propias formas de gest
 Para pegar texto sin formato enriquecido, usa uno de estos métodos:
 - En Mac: Pulsa <kbd>cmd</kbd>+<kbd>shift</kbd>+<kbd>V</kbd> en lugar de <kbd>cmd</kbd>+<kbd>V</kbd>
 - En Windows: Pulsa <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>V</kbd> en lugar de <kbd>ctrl</kbd>+<kbd>V</kbd>
-- Haz clic derecho dentro del editor y selecciona **Pegar y coincidir con el estilo**
+- Haz clic derecho dentro del editor y selecciona **Pegar y adaptar estilo**
 
 ## ¿Cómo puedo cambiar el relleno del correo electrónico en móvil sin actualizar el relleno en la vista web? {#how-can-i-change-the-email-padding-on-mobile-without-updating-the-padding-in-the-web-view}
 
@@ -47,13 +48,13 @@ No puedes editar el relleno exclusivamente para las vistas de móvil y web, por 
 
 Al crear un correo electrónico con el editor de arrastrar y soltar, si creas una fila horizontal de botones de llamada a la acción, es posible que los botones cambien a una orientación vertical en dispositivos móviles.
 
-Para mantener el mismo formato en todos los tamaños de dispositivo, te recomendamos crear una fila separada con botones de llamada a la acción que tengan un relleno optimizado para móvil y configurar esa fila para que se oculte en dispositivos de escritorio. Tener dos filas separadas significa que puedes establecer el relleno deseado para la mejor representación del texto en dispositivos de escritorio y móviles.
+Para mantener el mismo formato en todos los tamaños de dispositivo, te recomendamos crear una fila separada con botones de llamada a la acción que tengan un relleno optimizado para móvil y estén configurados para ocultar la fila en un dispositivo de escritorio. Tener dos filas separadas significa que puedes establecer el relleno deseado para la mejor representación del texto en dispositivos de escritorio y móviles.
 
 ## ¿Puedo ajustar la altura de la fila en el editor de arrastrar y soltar? {#can-i-adjust-the-row-height-in-the-drag-and-drop-editor}
 
 La altura de la fila se ajusta automáticamente al contenido. Como alternativa, te recomendamos que:
 1. Añadas un bloque divisor.
-2. Hagas clic en el botón de alternar para activar su transparencia.
+2. Hagas clic en el conmutador para activar su transparencia.
 3. Ajustes la altura.
 
 ## ¿Es posible crear capas en el editor? ¿Puedo añadir una imagen de fondo, superponer una imagen y añadir una capa de texto encima? {#is-it-possible-to-build-layers-in-the-editor-can-i-add-a-background-image-layer-on-an-image-and-add-a-text-layer-over-that}
@@ -66,7 +67,7 @@ No. No puedes guardar un correo electrónico de arrastrar y soltar desde una Cam
 
 Si necesitas una plantilla HTML reutilizable, selecciona **Descargar archivo** mientras editas el cuerpo de arrastrar y soltar, abre el HTML del ZIP y pega el código en una [plantilla de correo electrónico HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) usando el editor de código HTML. Después, vuelve a verificar Liquid, los enlaces y los activos alojados.
 
-Para obtener más información sobre dónde se encuentran las plantillas, consulta [Plantillas y medios]({{site.baseurl}}/user_guide/messaging/templates).
+Para más información sobre dónde se encuentran las plantillas, consulta [Plantillas y medios]({{site.baseurl}}/user_guide/messaging/templates).
 
 ## ¿Por qué no puedo cambiar el color de relleno de un botón en el editor de arrastrar y soltar? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
 
@@ -80,17 +81,24 @@ Sí. Puedes añadir archivos adjuntos a tu mensaje de correo electrónico yendo 
 
 ## ¿Cómo descargo el HTML sin procesar de un correo electrónico de arrastrar y soltar? {#how-do-i-download-the-raw-html-for-a-drag-and-drop-email}
 
+El editor de arrastrar y soltar incluye **Descargar archivo** como opción para exportar tu correo electrónico como un archivo HTML dentro de un archivo ZIP.
+
 1. Abre tu Campaign o Canvas y edita el mensaje de correo electrónico.
 2. Selecciona **Editar cuerpo del correo electrónico** para abrir el editor de arrastrar y soltar.
-3. Selecciona **Descargar archivo** (en la parte inferior del editor). Extrae el archivo comprimido para acceder al HTML generado.
+3. Selecciona **Descargar archivo**.
+4. Extrae el archivo comprimido para acceder al HTML generado.
 
-Puedes pegar ese HTML en un [bloque HTML]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#content) o en el editor HTML cuando necesites ediciones de bajo nivel; por ejemplo, para [desactivar el seguimiento de clics en enlaces específicos]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis).
+{% alert tip %}
+En Windows, mueve el archivo ZIP a una ubicación permanente (como Descargas) antes de extraerlo. Extraer desde una carpeta temporal puede impedir que accedas al archivo HTML después de que esa carpeta se borre.
+{% endalert %}
+
+Puedes pegar ese HTML en un [bloque HTML]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#content) o en el editor HTML cuando necesites ediciones de bajo nivel (por ejemplo, para [desactivar el seguimiento de clics en enlaces específicos]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)).
 
 ## ¿Por qué se rompe mi diseño de arrastrar y soltar? {#why-is-my-drag-and-drop-layout-breaking}
 
 Los problemas de diseño suelen deberse a **HTML o CSS personalizados** que entran en conflicto con el marcado que genera el editor. Prueba estos pasos:
 
-1. Elimina o aísla los bloques HTML personalizados para ver si el problema desaparece.
+1. Elimina o aísla los bloques de HTML personalizado para ver si el problema desaparece.
 2. Revisa la configuración del **editor de correo electrónico de arrastrar y soltar** en busca de fuentes personalizadas que podrían no cargarse en todos los clientes.
 3. En **Row Properties**, revisa el relleno y el ancho de las columnas.
 4. Cuando añadas HTML personalizado, opta por diseños basados en tablas, imágenes fluidas y anchos de tabla totales que se ajusten al ancho de tu correo electrónico: las imágenes con píxeles fijos o las estructuras que no usan tablas suelen romperse en Outlook y otros clientes.
@@ -107,8 +115,8 @@ Cuando apiles varios Content Blocks, utiliza una fila separada para cada bloque 
 
 ## ¿Por qué el editor de arrastrar y soltar ignora la configuración de alineación? {#why-is-the-drag-and-drop-editor-ignoring-alignment-settings}
 
-Si el editor de arrastrar y soltar ignora la configuración de alineación, elimina el CSS personalizado o los bloques HTML, elimina las fuentes personalizadas, comprueba si hay conflictos de CSS y evita duplicar bloques de fila. Contacta con soporte de Braze si el problema persiste.
+Si el editor de arrastrar y soltar ignora la configuración de alineación, elimina el CSS personalizado o los bloques HTML, elimina las fuentes personalizadas, comprueba si hay conflictos de CSS y evita duplicar bloques de fila. Ponte en contacto con soporte de Braze si el problema persiste.
 
-## ¿Por qué el código de color hexadecimal que elegí no coincide con la fuente en mi correo electrónico? {#why-does-my-chosen-hex-color-code-not-match-the-font-in-my-email}
+## ¿Por qué el código de color hexadecimal que elegí no coincide con la fuente de mi correo electrónico? {#why-does-my-chosen-hex-color-code-not-match-the-font-in-my-email}
 
 Si estás utilizando un Content Block, el bloque puede tener su propia configuración de color de fuente. Selecciona el bloque de texto dentro del Content Block y elimina cualquier anulación local de **Font color** para que tu color hexadecimal del estilo global o de párrafo pueda aplicarse.
