@@ -169,6 +169,10 @@ Add a User Update Step to your Canvas. In the step, open the **Advanced JSON Edi
 ```
 {% endraw %}
 
+{% alert important %}
+When using `use_double_opt_in_logic`, a user profile must already exist for the subscription state to be updated. If no user profile is associated with the provided identifier, the subscription state isn't updated.
+{% endalert %}
+
 !["User Update Object" that contains the previously stated JSON code.]({% image_buster /assets/img/sms/user_update_object.png %})
 
 ### Step 4: Test the Canvas
