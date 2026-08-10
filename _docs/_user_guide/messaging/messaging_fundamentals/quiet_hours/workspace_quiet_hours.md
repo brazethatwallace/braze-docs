@@ -29,12 +29,13 @@ You can set a workspace quiet hours window for any of the following channels:
 
 - Content Cards
 - Email
-- In-app messages
+- KakaoTalk
 - LINE
-- SMS
 - Push
-    - This covers every push platform in your workspace
-    - There is no option to set different quiet hours for individual platforms (for example, iOS vs. Android).
+   - This covers every push platform in your workspace. There is no option to set different quiet hours for individual platforms (for example, iOS vs. Android).
+- SMS/MMS/RCS
+- Webhook
+- WhatsApp
 
 ## Prerequisites
 
