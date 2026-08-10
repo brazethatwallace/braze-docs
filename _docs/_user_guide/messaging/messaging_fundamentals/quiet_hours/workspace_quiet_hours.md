@@ -113,6 +113,7 @@ The following are never held by workspace quiet hours, regardless of channel:
 - **Scheduled sends in company time:** Workspace quiet hours are based on each recipient's local time zone, but a scheduled campaign's send time may be set in your company's time zone. That mismatch means a send time that looks fine in company time could still fall inside quiet hours for some recipients. Review the workspace quiet hours details shown in the campaign editor before sending.
 - **Delivery after quiet hours ends:** If a large audience was held during the window, those messages can become eligible to send all at once when the window closes. Plan for this when a channel has a wide audience and a long quiet hours window.
 - **Independent of frequency capping and rate limiting:** Workspace quiet hours apply independently of frequency capping and rate limiting. A message that clears those controls can still be held by quiet hours, and a message held by quiet hours is still evaluated against rate limits once it's ready to send.
+- ** Multi-channel action-triggered campaigns using Intelligent Timing are not held by workspace quiet hours. This is because these messages share a single optimal send time and the workspace quiet hours are defined for a single channel. 
 
 ## Related settings
 
