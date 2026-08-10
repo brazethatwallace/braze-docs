@@ -94,8 +94,4 @@ To search for all segment references, including those in other segments, campaig
 
 ## Troubleshooting
 
-### Can't delete a Canvas variant because of an archived segment
-
-If Braze blocks deleting a Canvas variant because a segment filter still references that variant, open the segment that uses the reference—including archived segments—and remove the variant from its filters. After you save the segment, return to the Canvas and retry deleting the variant.
-
-To find which segments reference a Canvas, open the Canvas and review its audience filters, or check each segment's [**Messaging Use**](#messaging-use) section for linked Canvases.
+{% multi_lang_include audience/segments.md section='Canvas variant archived segment' %}
