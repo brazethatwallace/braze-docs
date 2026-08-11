@@ -135,7 +135,7 @@ Content Blocks cannot be used within an email footer, but you can create a Conte
 
 ## Things to know
 
-- Using HTML Content Blocks in drag-and-drop emails **or** drag-and-drop Content Blocks in HTML emails may result in unexpected rendering issues. This is because the drag-and-drop editor generates HTML and CSS that dynamically renders the content, whereas the HTML editor is more static.
+- Using HTML Content Blocks in drag-and-drop emails or drag-and-drop Content Blocks in HTML emails may result in unexpected rendering issues. This is because the drag-and-drop editor generates HTML and CSS that dynamically render the content, whereas the HTML editor is more static.
 - If you insert a drag-and-drop Content Block using Liquid, Braze doesn't include styles from the block's HTML `<head>`. Responsive styles, such as mobile-specific CSS, may not render as expected. If the block relies on responsive CSS, add that CSS to the message or template that includes the Content Block.
 - Canvas entry properties are only supported in Canvases. If you reference a Content Block with Canvas entry properties in a campaign, it does not populate.
 - If a message with multiple Content Blocks isn't rendering as expected, such as when Liquid tags or HTML appear as visible text instead of being processed, an unclosed tag or other error in one of the Content Blocks is often the cause. To identify the source:
