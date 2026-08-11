@@ -17,7 +17,7 @@ To get started, refer to the following resources:
 - [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
 - [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=unity)
 
-## Plugin Setup
+## Plugin setup
 
 Before you can start using Braze in Unity scripts, you'll need to import the plugin files to your Unity project.
 
@@ -30,14 +30,14 @@ Before you can start using Braze in Unity scripts, you'll need to import the plu
 
 ## Integration Setup
 
-To integrate Braze into your Unity application, complete our instructions for [Integrating the Braze Unity SDK][2].
+To integrate Braze into your Unity application, complete the instructions in [Integrating the Braze Unity SDK][2].
 
 [1]: https://github.com/braze-inc/braze-unity-sdk/releases
 [2]: https://www.braze.com/docs/developer_guide/sdk_integration?sdktab=unity
 
 ## Contact
 
-If you have questions, please contact [support@braze.com](mailto:support@braze.com).
+For questions, contact Braze Technical Support for assistance.
 <!-- END GENERATED README CONTENT -->
 
 For repository details and sample projects, see [https://github.com/braze-inc/braze-unity-sdk](https://github.com/braze-inc/braze-unity-sdk).
