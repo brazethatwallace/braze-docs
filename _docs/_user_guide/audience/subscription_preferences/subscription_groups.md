@@ -85,7 +85,10 @@ Email-specific details:
 
 - **Preference center:** Every email subscription group you create is available to add to a preference center.
 - **Campaign analytics:** On a campaign's **Email Message Performance** page, open **Subscription Groups** to see aggregate subscribe and unsubscribe counts for that send.
-- **Timeseries graph:** On **Subscription Group Management**, use **Subscription Group Timeseries** to view group size over time. This count reflects membership in that group, not global email subscription state.
+
+#### Viewing subscription group sizes
+
+On **Subscription Group Management**, use the **Subscription Group Timeseries** graph to view group size over time. This count reflects membership in that group, not global email subscription state.
 
 For footers, unsubscribe pages, and global email subscription management, see [Email subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions).
 

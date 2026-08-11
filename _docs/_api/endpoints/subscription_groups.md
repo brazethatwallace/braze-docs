@@ -38,7 +38,7 @@ On the **Subscription Group** page, timeseries charts report:
 - **Subscription Group Size:** users subscribed to that group on a given date
 - **Subscription Group Unsubscribed Size:** users unsubscribed from that group on a given date
 
-For dashboard guidance, see [Viewing subscription group sizes]({{site.baseurl}}/user_guide/channels/email/subscriptions/#viewing-subscription-group-sizes).
+For dashboard guidance, see [Viewing subscription group sizes]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#viewing-subscription-group-sizes).
 
 These metrics are group-specific. They can differ from the segment filter `Email Subscription Status is Unsubscribed`, which reflects global email subscription state rather than a single subscription group. For very large workspaces, Braze may display estimated counts when exact counts are unavailable.
 

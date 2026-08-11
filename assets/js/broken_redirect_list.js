@@ -5334,6 +5334,7 @@ validurls['/docs/user_guide/analytics/dashboard'] = '/docs/user_guide/analytics/
 // Email — managing_user_subscriptions/subscription_groups child path not covered by parent redirect
 validurls['/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/subscription_groups'] = '/docs/user_guide/audience/subscription_preferences/subscription_groups';
 validurls['/docs/user_guide/channels/email/subscriptions/#subscription-groups'] = '/docs/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups';
+validurls['/docs/user_guide/channels/email/subscriptions/#viewing-subscription-group-sizes'] = '/docs/user_guide/audience/subscription_preferences/subscription_groups#viewing-subscription-group-sizes';
 
 // Messaging fundamentals — missing messaging/ prefix in path
 validurls['/docs/user_guide/messaging_fundamentals/frequency_capping'] = '/docs/user_guide/messaging/messaging_fundamentals/frequency_capping';
