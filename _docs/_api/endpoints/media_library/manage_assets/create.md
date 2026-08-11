@@ -15,7 +15,7 @@ description: "This article outlines details about the `POST /media_library/creat
 /media_library/create
 {% endapimethod %}
 
-> Use this endpoint to add an asset to the [Braze media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) using either an externally hosted URL (`asset_url`) or binary file data sent in the request body (`asset_file`).
+> Use this endpoint to add an asset to the [Braze media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) using either an externally hosted URL (`asset_url`) or binary file data sent in the request body (`asset_file`).
 
 ## Supported file types
 
