@@ -159,12 +159,12 @@ For a customer-facing reference of standard attributes that's organized by categ
 | dob | (date of birth) String in format "YYYY-MM-DD", for example, 1980-12-21. |
 | email | (string) |
 | email_subscribe | (string) Available values are "opted_in" (explicitly registered to receive email messages), "unsubscribed" (explicitly opted out of email messages), and "subscribed" (neither opted in nor out).  |
-| email_open_tracking_disabled |(boolean) `true` or `false` accepted. Set to `true` to disable the open tracking pixel from being added to all future emails sent to this user. Available for SparkPost and SendGrid only.|
-| email_click_tracking_disabled |(boolean) `true` or `false` accepted. Set to `true` to disable the click tracking for all links within a future email, sent to this user. Available for SparkPost and SendGrid only.|
+| email_open_tracking_disabled |(boolean) `true` or `false` accepted. Set to `true` to disable the open tracking pixel from being added to all future emails sent to this user.|
+| email_click_tracking_disabled |(boolean) `true` or `false` accepted. Set to `true` to disable the click tracking for all links within a future email, sent to this user.|
 | external_id | (string) A unique identifier for a user profile. After assigned an `external_id`, Braze identifies the user profile across a user's devices. On the first instance of assigning an external_id to an unknown user profile, Braze migrates all existing user profile data to the new user profile. |
 | facebook | hash containing any of `id` (string), `likes` (array of strings), `num_friends` (integer). |
 | first_name | (string) |
-| gender | (string) "M", "F", "O" (other), "N" (not applicable), "P" (prefer not to say) or nil (unknown). |
+| gender | (string) "M", "F", "O" (other), "N" (not applicable), "P" (prefer not to say) or null (unknown). |
 | home_city | (string) |
 | language | (string) we require that language be passed to Braze in the [ISO-639-1 standard](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). For supported languages, see our [list of accepted languages]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes).<br><br>Setting `language` on a user by CSV import or API prevents Braze from automatically capturing this information through the SDK. |
 | last_name | (string) |

@@ -29,6 +29,10 @@ description: >
 
 ---
 
+## Local Jira credentials
+
+Copy [`.jira.env.example`](../../../.jira.env.example) to `.jira.env` and run `source scripts/jira_env.sh` before Jira scripts. **Never commit `.jira.env`** — it is gitignored and blocked by the pre-commit hook.
+
 ## Scripts
 
 Phase 1 **writes** the two markdown files and may edit the CSV. Phase 2 **reads** them. `sf_kb_sync_tracker.py` trims the CSV when run explicitly.
