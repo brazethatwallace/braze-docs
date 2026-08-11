@@ -15,7 +15,19 @@ description: "This article outlines details about the `POST /media_library/creat
 /media_library/create
 {% endapimethod %}
 
-> Use this endpoint to add an asset to the [Braze media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) using either an externally hosted URL (`asset_url`) or binary file data sent in the request body (`asset_file`). This endpoint supports images and ZIP files that contain images.
+> Use this endpoint to add an asset to the [Braze media library]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) using either an externally hosted URL (`asset_url`) or binary file data sent in the request body (`asset_file`).
+
+## Supported file types
+
+This endpoint supports the following file types:
+
+| File Type | Formats | Maximum Size | Notes |
+|-----------|---------|--------------|-------|
+| Images | PNG, JPEG, GIF, SVG, WebP | 5 MB | All standard image formats are supported |
+| ZIP files | .zip | 5 MB (uncompressed) | Must contain only images or font files; all files must be in the root of the ZIP (no subdirectories) |
+| Virtual Contact Files | .vcf | 5 MB | Contact card files |
+| Video | Standard video formats | 5 MB | Can only be used in WhatsApp messages |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Supported file types" }
 
 {% alert tip %}
 You can also call this endpoint through the [Braze MCP server]({{site.baseurl}}/user_guide/brazeai/mcp_server) using the [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library) function. This lets AI tools like Claude and Cursor upload assets to your media library through natural language prompts.
