@@ -14,7 +14,7 @@ channel:
 
 # SMS, MMS, and RCS subscription groups
 
-> Subscription groups are the foundation for sending SMS, MMS, and RCS messages through Braze. For a cross-channel overview of subscription groups, see [Subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
+> Subscription groups are the foundation for sending SMS, MMS, and RCS messages through Braze. A subscription group is a collection of [sending entities]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup)—such as RCS-verified senders, SMS short codes, SMS long codes, or SMS alphanumeric sender IDs—used for a specific messaging purpose (for example, transactional versus promotional). For a cross-channel overview of subscription groups, see [Subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 

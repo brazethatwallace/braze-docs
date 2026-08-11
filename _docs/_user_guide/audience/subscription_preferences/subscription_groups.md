@@ -71,7 +71,7 @@ You can update a user's subscription group membership through the REST API, SDK,
 
 ## Preference centers
 
-Email subscription groups can appear in an [email preference center]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) so users manage category-level email opt-ins in one place. Active email subscription groups are available to add when you build a preference center; legacy preference centers list all active email groups automatically.
+Email subscription groups can appear in an [email preference center]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) so users can manage category-level email opt-ins in one place. Active email subscription groups are available to add when you build a preference center; legacy preference centers list all active email groups automatically.
 
 For SMS and WhatsApp, manage subscription state through the REST API, opt-in flows, keywords (SMS), user profile, and other channel-specific methods in each [channel section](#channel-specific-behavior).
 

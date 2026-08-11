@@ -54,7 +54,7 @@ To archive a subscription group:
 
 Currently, users can subscribe and [opt-in and opt-out]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) to WhatsApp messaging in various ways, including [SMS](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal), through a website, a WhatsApp thread, phone, or in person. Note that opt-ins are required.
 
-Opt-in keywords are not currently supported for the WhatsApp channel, so it will be up to you to maintain a user list. WhatsApp has a retrospective approach to opt-ins and rate limits, where if users start reporting or blocking you, your rate limit will be lowered. 
+Opt-in keywords are not currently supported for the WhatsApp channel, so you are responsible for maintaining a user list. WhatsApp has a retrospective approach to opt-ins and rate limits, where if users start reporting or blocking you, your rate limit will be lowered. 
 
 ## Updating a user's subscription status to a WhatsApp Canvas {#update-subscription-status}
 

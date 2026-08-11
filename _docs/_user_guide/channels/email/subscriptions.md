@@ -99,7 +99,7 @@ When a user's global email subscription state changes, Braze propagates that sta
 
 Email subscription groups let users opt in or out of specific email categories (such as newsletters or promotions) without changing their global email subscription state. Groups you create are available to add to your [preference center]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
 
-For how subscription groups work across Braze—including creating groups, segmenting, archiving, and channel-specific behavior—see [Subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups).
+To learn how subscription groups work across Braze—including creating groups, segmenting, archiving, and channel-specific behavior—see [Subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups).
 
 ## Email preference center
 
