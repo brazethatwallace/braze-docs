@@ -74,7 +74,7 @@ Live-Monitoring benachrichtigt Sie im Braze-Dashboard, wenn bei einer Ihrer akti
 
 Nach der Konfiguration können angepasste Domains einer oder mehreren SMS-, RCS- und WhatsApp-Abo-Gruppen zugewiesen werden.
 
-1. Gehen Sie zu **Audience** > **Abo-Gruppenverwaltung**.
+1. Gehen Sie zu **Zielgruppe** > **Abo-Gruppenverwaltung**.
 2. Suchen und wählen Sie Ihre Abo-Gruppe in der Liste aus.
 3. Wählen Sie unter **Details zur Abo-Gruppe** Ihre angepasste Domain im Dropdown-Menü **Link Shortening Domain** aus.
 

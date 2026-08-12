@@ -146,7 +146,7 @@ Wenn die Summen für dieselben Campaigns und denselben Zeitraum dennoch abweiche
 | --- | --- |
 | Zeitraum und Zeitzone | Beide Oberflächen müssen dieselben Kalendertage in derselben Zeitzone abdecken. |
 | Campaign- oder Canvas-Auswahl | Das E-Mail-Performance-Dashboard aggregiert E-Mail-Aktivitäten über den gesamten Workspace. Ein Engagement-Bericht enthält nur die Campaigns oder Canvases, die Sie ausgewählt haben. |
-| Tägliche Zeilen versus Berichtssummen | Wenn **Data Display** den Export in tägliche Zeilen aufteilt, summieren Sie diese Zeilen, um sie mit den Dashboard-Summen für denselben Zeitraum zu vergleichen. |
+| Tägliche Zeilen versus Berichtssummen | Wenn **Datenanzeige** den Export in tägliche Zeilen aufteilt, summieren Sie diese Zeilen, um sie mit den Dashboard-Summen für denselben Zeitraum zu vergleichen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prüfpunkte, wenn E-Mail-Metriken im Engagement-Bericht vom E-Mail-Performance-Dashboard abweichen" }
 
 Abweichungen treten häufiger auf, wenn Engagement-Bericht-Werte mit **Campaign**- oder **Canvas**-Analytics verglichen werden statt mit dem E-Mail-Performance-Dashboard. Campaign- und Canvas-Seiten können Versanddatum-Metriken anzeigen (z. B. Sendungen oder Konversionen, die dem Versanddatum zugeordnet sind) neben ereignisdatumbasierten Öffnungen und Klicks. Siehe [Engagement-Bericht stimmt nicht mit Metriken aus dem Canvas oder der Campaign überein](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign).
@@ -155,12 +155,12 @@ Abweichungen treten häufiger auf, wenn Engagement-Bericht-Werte mit **Campaign*
 
 #### Nicht übereinstimmender Zeitraum {#mismatched-time-range}
 
-Stellen Sie sicher, dass die Daten im Engagement-Bericht mit den Daten in den Canvas- oder Campaign-Analytics übereinstimmen (z. B. beide decken den 1.–15. Dezember ab), auch wenn der Canvas nur einmal gesendet hat. Prüfen Sie in den Engagement-Bericht-Einstellungen unter **Data Display**, ob Sie den richtigen Canvas oder die richtige Campaign betrachten. Wenn **Data Display** so eingestellt ist, dass Daten alle *X* Tage angezeigt werden, erhalten Sie eine Zeile pro Datum, an dem Metriken für jeden Schritt erfasst wurden.
+Stellen Sie sicher, dass die Daten im Engagement-Bericht mit den Daten in den Canvas- oder Campaign-Analytics übereinstimmen (z. B. beide decken den 1.–15. Dezember ab), auch wenn der Canvas nur einmal gesendet hat. Prüfen Sie in den Engagement-Bericht-Einstellungen unter **Datenanzeige**, ob Sie den richtigen Canvas oder die richtige Campaign betrachten. Wenn **Datenanzeige** so eingestellt ist, dass Daten alle *X* Tage angezeigt werden, erhalten Sie eine Zeile pro Datum, an dem Metriken für jeden Schritt erfasst wurden.
 
 Wenn die Summen in einer Tabelle falsch aussehen, entfernen Sie zusätzliche Filter aus dem Export. Sie können die täglichen Zeilen summieren, um sie mit den Canvas- oder Campaign-Summen für denselben Zeitraum abzugleichen.
 
 {% alert note %}
-Wenn Sie Zeilen nach gesamter Campaign oder gesamtem Canvas aggregiert haben möchten statt nach täglichen, wöchentlichen oder anderen wiederkehrenden Buckets, setzen Sie **Data Display** auf **Show Data by Entire Campaign or Canvas**. Wenn Zeilenanzahl oder Daten in der CSV-Datei falsch aussehen, siehe [Show Data by Entire Campaign or Canvas](#show-data-by-entire-campaign-or-canvas).
+Wenn Sie Zeilen nach gesamter Campaign oder gesamtem Canvas aggregiert haben möchten statt nach täglichen, wöchentlichen oder anderen wiederkehrenden Buckets, setzen Sie **Datenanzeige** auf **Daten nach gesamter Campaign oder Canvas anzeigen**. Wenn Zeilenanzahl oder Daten in der CSV-Datei falsch aussehen, siehe [Daten nach gesamter Campaign oder Canvas anzeigen](#show-data-by-entire-campaign-or-canvas).
 {% endalert %}
 
 #### Doppelte Button-Klicks in HTML-In-App-Nachrichten {#duplicate-button-clicks-in-html-in-app-messages}

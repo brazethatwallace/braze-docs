@@ -27,7 +27,7 @@ Die Braze-Integration mit Shopify bietet eine leistungsstarke Lösung für E-Com
 | ----------- | ----------- |
 | Currents | Um Daten nach Shopify zu exportieren, muss [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) für Ihr Konto eingerichtet sein. |
 | Shopify-Shop | Stellen Sie sicher, dass Sie bereits [mindestens einen Shopify-Shop mit Braze eingerichtet]({{site.baseurl}}/shopify_standard_integration) haben. |
-| Berechtigungen als Shopify-Shop-Inhaber:in oder Mitarbeiter:in | {::nomarkdown}<ul><li>Zugriff auf alle Einstellungen unter <b>General</b> und <b>Online Store</b>.</li><li> Zusätzliche Administratorberechtigungen:</li><ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Einstellungen verwalten</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></ul>{:/} |
+| Berechtigungen als Shopify-Shop-Inhaber:in oder Mitarbeiter:in | {::nomarkdown}<ul><li>Zugriff auf alle Einstellungen unter <b>General</b> und <b>Online Store</b>.</li><li> Zusätzliche Administratorberechtigungen:</li><ul><li>Bestellungen: Anzeigen</li><li>Kund:in: Lesen/Schreiben</li><li>Kundenereignisse anzeigen (Web Pixels)</li><li>Einstellungen verwalten</li><li>Von Mitarbeiter:innen/Mitarbeitenden entwickelte Apps anzeigen</li><li>Apps und Kanäle verwalten/installieren</li><li>Angepasste Pixels verwalten/hinzufügen</li></ul></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integration
