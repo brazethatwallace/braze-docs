@@ -143,7 +143,7 @@ Meta has their own throughput limit separate from the WABA messaging limit. The 
 WhatsApp requires that all business-initiated messages start using an approved template. The template includes the copy of the message, along with optional rich media like images, calls-to-action, and quick reply buttons. After WhatsApp approves templates, they can be used to compose a WhatsApp message in Braze. 
 
 #### Where do I create, edit, and manage my WhatsApp templates? 
-You will create, edit, manage, and submit templates for approval directly in the WhatsApp Manager. After your WABA is connected to Braze, you will see all your templates in the dashboard with a status indicator. If a template is rejected, you will resubmit directly through the WhatsApp manager. **Templates cannot be created or edited directly in Braze.**
+You can create and submit templates in Braze using the [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder), or in Meta's WhatsApp Manager. Templates created in either location appear in the Braze dashboard with a status indicator. After submission, locked fields require Meta re-approval; see [editing limitations in the Template Builder FAQ]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder#can-i-edit-a-template-after-its-been-approved) for details.
 
 #### How long does it take WhatsApp to review a template submission? 
 The approval process can take up to 24 hours, but often templates get processed in a matter of hours or minutes. 
