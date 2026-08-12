@@ -15,7 +15,21 @@ description: "Dieser Artikel enthält detaillierte Informationen zum Endpunkt `P
 /media_library/create
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um ein Asset zur [Braze-Medienbibliothek]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) hinzuzufügen, entweder über eine extern gehostete URL (`asset_url`) oder über Binärdaten, die im Anfragetext (`asset_file`) gesendet werden. Dieser Endpunkt unterstützt Bilder und ZIP-Dateien, die Bilder enthalten.
+> Verwenden Sie diesen Endpunkt, um ein Asset zur [Braze-Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) hinzuzufügen, entweder über eine extern gehostete URL (`asset_url`) oder über Binärdaten, die im Anfragetext (`asset_file`) gesendet werden.
+
+## Unterstützte Dateitypen {#supported-file-types}
+
+Dieser Endpunkt unterstützt die folgenden Dateitypen:
+
+| Dateityp | Formate | Maximale Größe | Hinweise |
+|-----------|---------|--------------|-------|
+| Bilder | PNG, JPEG, GIF, SVG, WebP | 5 MB | |
+| ZIP-Dateien | .zip | 50 MB insgesamt; 5 MB pro Datei innerhalb der ZIP | Darf nur Bilder oder SVGs enthalten; alle Dateien müssen sich im Stammverzeichnis der ZIP befinden (keine Unterverzeichnisse) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Unterstützte Dateitypen" }
+
+{% alert note %}
+Virtual Contact Files (.vcf) und Videodateien können in die Medienbibliothek hochgeladen werden, jedoch nur über die Dashboard-UI (**Inhalt** > **Medienbibliothek**), nicht über diesen API-Endpunkt.
+{% endalert %}
 
 {% alert tip %}
 Sie können diesen Endpunkt auch über den [Braze-MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server) mit der Funktion [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library) aufrufen. So können KI-Tools wie Claude und Cursor Assets über natürlichsprachliche Eingaben in Ihre Medienbibliothek hochladen.

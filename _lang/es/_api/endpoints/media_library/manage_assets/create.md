@@ -15,7 +15,21 @@ description: "Este artículo describe los detalles sobre el endpoint `POST /medi
 /media_library/create
 {% endapimethod %}
 
-> Utiliza este endpoint para añadir un activo a la [biblioteca de medios de Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) utilizando una URL alojada externamente (`asset_url`) o datos de archivo binario enviados en el cuerpo de la solicitud (`asset_file`). Este endpoint admite imágenes y archivos ZIP que contienen imágenes.
+> Utiliza este endpoint para añadir un activo a la [biblioteca de medios de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) utilizando una URL alojada externamente (`asset_url`) o datos de archivo binario enviados en el cuerpo de la solicitud (`asset_file`).
+
+## Tipos de archivo compatibles {#supported-file-types}
+
+Este endpoint admite los siguientes tipos de archivo:
+
+| Tipo de archivo | Formatos | Tamaño máximo | Notas |
+|-----------|---------|--------------|-------|
+| Imágenes | PNG, JPEG, GIF, SVG, WebP | 5 MB | |
+| Archivos ZIP | .zip | 50 MB en total; 5 MB por archivo dentro del ZIP | Solo debe contener imágenes o SVG; todos los archivos deben estar en la raíz del ZIP (sin subdirectorios) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tipos de archivo compatibles" }
+
+{% alert note %}
+Los archivos de contacto virtual (.vcf) y los archivos de video se pueden cargar en la biblioteca de medios, pero solo a través de la interfaz del panel (**Contenido** > **Biblioteca de medios**), no a través de este endpoint de API.
+{% endalert %}
 
 {% alert tip %}
 También puedes llamar a este endpoint a través del [servidor MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) utilizando la función [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library). Esto permite que herramientas de IA como Claude y Cursor carguen activos en tu biblioteca de medios mediante indicaciones en lenguaje natural.

@@ -12,6 +12,7 @@ channel:
 
 
 
+
 ---
 
 # SMS、MMS、RCSサブスクリプショングループ {#sms-mms-and-rcs-subscription-groups}
@@ -26,8 +27,8 @@ SMSおよびRCSユーザーには、`subscribed`と`unsubscribed`の2つの購�
 
 | 状態 | 定義 |
 | --------- | ---------- |
-| 購読中 | ユーザーが特定の購読グループからSMSおよびRCSを受信するよう購読しています。ユーザーは、Braze購読APIを通じて購読状態を更新するか、オプトインキーワード応答をテキスト送信することで購読できます。ユーザーがSMS、RCS、またはその両方を受信するには、SMSまたはRCS購読グループに購読している必要があります。[ダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)が有効な場合、ユーザーは購読ステータスが`Subscribed`に更新される前にオプトインの意思を確認する必要があります。 |
-| 購読解除 | ユーザーがSMSおよびRCS購読グループと、その購読グループ内の送信電話番号からのメッセージングを明示的にオプトアウトしました。オプトアウトキーワード応答をテキスト送信するか、[Braze購読API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)を通じてユーザーの購読を解除できます。SMSおよびRCS購読グループから購読解除されたユーザーは、その購読グループに属する送信電話番号からのSMSまたはRCSを受信しなくなります。 |
+| 購読中 | ユーザーは特定の購読グループからSMSおよびRCSを受信するよう購読しています。ユーザーは、BrazeサブスクリプションAPIを通じて購読状態を更新するか、オプトインキーワード応答をテキスト送信することで購読できます。ユーザーがSMS、RCS、またはその両方を受信するには、SMSまたはRCS購読グループに購読している必要があります。[ダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)が有効な場合、ユーザーは購読ステータスが`Subscribed`に更新される前にオプトインの意思を確認する必要があります。 |
+| 購読解除 | ユーザーがSMSおよびRCS購読グループとその購読グループ内の送信電話番号からのメッセージングを明示的にオプトアウトしました。オプトアウトキーワード応答をテキスト送信して購読解除するか、[BrazeサブスクリプションAPI]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)を通じてユーザーの購読を解除できます。SMSおよびRCS購読グループから購読解除されたユーザーは、その購読グループに属する送信電話番号からのSMSまたはRCSを受信しなくなります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="購読グループの状態" }
 
 ### ユーザーの状態を設定する {#set-a-users-state}
@@ -43,24 +44,24 @@ SMSおよびRCSユーザーには、`subscribed`と`unsubscribed`の2つの購�
 - **電話番号キャプチャIAMフォーム：** アプリ内メッセージのドラッグ＆ドロップエディターの電話番号キャプチャテンプレートを通じて、ユーザーの電話番号を収集できます。
 - **ユーザーのオプトイン/オプトアウト時に自動処理：** ユーザーがデフォルトのオプトインまたはオプトアウト[キーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout)をテキスト送信すると、Brazeが自動的にユーザーの購読状態を設定および更新します。
 - **ユーザーインポート：** ユーザーは**Import Users**を通じてメールまたはSMSおよびRCS購読グループに追加できます。購読グループのステータスを更新する場合、CSVに`subscription_group_id`と`subscription_state`の2つの列が必要です。詳細については、[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)を参照してください。
-- **Brazeダッシュボード：** [ユーザー検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)でユーザーのプロファイルを開き、**Engagement**タブの**Contact Settings**でSMSまたはRCS購読グループを更新します。
-- **クラウドデータ取り込み（CDI）：** 同期する行に`subscription_group_id`と`subscription_state`を含めます。[クラウドデータ取り込みテーブル設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup)を参照してください。
+- **Brazeダッシュボード：** サイドバーから**User Search**を選択し、ユーザーのプロファイルを開き、**Engagement**タブの**Contact Settings**でSMSまたはRCS購読グループを更新します。
+- **Cloud Data Ingestion（CDI）：** 同期する行に`subscription_group_id`と`subscription_state`を含めます。[Cloud Data Ingestionテーブル設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup)を参照してください。
 - **ユーザー更新ステップ：** キャンバスの[ユーザー更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)ステップで購読ステータスを更新します。タイミングに関する考慮事項については、[キャンバスでユーザーの状態を更新する](#update-a-users-state-in-a-canvas)を参照してください。
 
 #### キャンバスでユーザーの状態を更新する {#update-a-users-state-in-a-canvas}
 
 キャンバスフローの一部としてユーザーの購読グループステータスを更新する場合は、Webhookではなく[ユーザー更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)ステップを使用してください。ユーザー更新ステップは、処理が完了するまで待ってからユーザーを次のステップに進めるため、後続のメッセージングステップでは更新された購読ステータスが使用されます。
 
-Webhookを使用して購読グループを更新すると、ユーザーはWebhookが送信された時点で進行し、購読変更の処理が完了した時点ではありません。これにより、フォローアップのSMSステップがユーザーの購読前に実行される競合が発生し、一部のユーザーでメッセージが失敗する可能性があります。Webhookを使用する必要がある場合は、次のメッセージングステップの前に少なくとも1分の遅延ステップを追加してください。
+Webhookを使用して購読グループを更新する場合、ユーザーはWebhookが送信された時点で進行し、購読変更の処理が完了した時点ではありません。これにより、フォローアップのSMSステップがユーザーの購読前に実行される競合が発生し、一部のユーザーでメッセージが失敗する可能性があります。Webhookを使用する必要がある場合は、次のメッセージングステップの前に少なくとも1分の遅延ステップを追加してください。
 
-#{% multi_lang_include api/orphaned_subscription_states.md %}
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ### ユーザーのグループを確認する {#check-a-users-group}
 
 ユーザーの購読グループを確認するには、以下のいずれかの方法を使用します。
 
 - **ユーザープロファイル：** 個々のユーザープロファイルには、サイドバーから**User Search**を選択してBrazeダッシュボードからアクセスできます。ここでは、メールアドレス、電話番号、または外部ユーザーIDでユーザープロファイルを検索できます。ユーザープロファイル内のEngagementタブで、ユーザーのSMSおよびRCS購読グループを確認できます。
-- **REST API：** 個々のユーザープロファイルの購読グループは、Braze REST APIを使用して[ユーザーの購読グループを一覧表示エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups)または[ユーザーの購読グループステータスを一覧表示エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)で確認できます。
+- **REST API：** 個々のユーザープロファイルの購読グループは、Braze REST APIを使用して[ユーザーの購読グループを一覧表示するエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups)または[ユーザーの購読グループステータスを一覧表示するエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)で確認できます。
 
 ## 購読グループを使用してメッセージを送信する {#send-messages-with-a-subscription-group}
 
@@ -72,11 +73,11 @@ BrazeでSMSまたはRCSキャンペーンを開始するには、**SMS/MMS/RCS�
 国際的な[通信コンプライアンスおよびガイドライン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)に準拠し、Brazeは選択した購読グループに購読していないユーザーにSMSまたはRCSを送信することはありません。
 {% endalert %}
 
-![購読グループのドロップダウンが開いた状態のSMSコンポーザー。ユーザーが「Messaging Service A for SMS」をハイライトしている。]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
+![SMSコンポーザーで購読グループのドロップダウンが開かれ、「Messaging Service A for SMS」がハイライトされている。]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
 
-## SMSサブスクリプショングループのベストプラクティス {#sms-subscription-group-best-practices}
+## SMS購読グループのベストプラクティス {#sms-subscription-group-best-practices}
 
-メッセージングの目的ごと（例：トランザクションとマーケティング）およびワークスペースごとに、個別のSMS購読グループを設計してください。複数の国で運用する場合は、現地のコンプライアンスルールに対応するために、地域ごとに個別のグループを検討してください。例えば、ブラジルではプロモーション送信時間帯に制限があります。
+メッセージングの目的ごと（例：トランザクションとマーケティング）およびワークスペースごとに、個別のSMS購読グループを設計してください。複数の国で運用する場合は、現地のコンプライアンスルールに対応するために、地域ごとに個別のグループを検討してください。例えば、ブラジルではプロモーション送信の時間帯に制限があります。
 
 ## 購読グループを有効にする {#enable-subscription-groups}
 
@@ -84,7 +85,7 @@ SMS、MMS、またはRCSの購読グループを有効にするには、以下�
 
 {% tabs local %}
 {% tab SMS %}
-SMSオンボーディングプロセス中に、Brazeオンボーディングマネージャーがダッシュボードアカウントの購読グループを設定します。必要な購読グループの数を決定し、適切な送信電話番号を購読グループに追加する作業を一緒に行います。購読グループの設定にかかる時間は、追加する電話番号の種類によって異なります。たとえば、ショートコードの申請には8〜12週間かかる場合がありますが、ロングコードは1日以内に設定できます。Brazeダッシュボードの設定についてご質問がある場合は、Brazeの担当者にお問い合わせください。
+SMSオンボーディングプロセス中に、Brazeオンボーディングマネージャーがダッシュボードアカウントの購読グループを設定します。必要な購読グループの数を決定し、適切な送信電話番号を購読グループに追加する作業を一緒に行います。購読グループの設定にかかる時間は、追加する電話番号の種類によって異なります。たとえば、ショートコードの申請には8〜12週間かかることがありますが、ロングコードは1日以内に設定できます。Brazeダッシュボードの設定についてご質問がある場合は、Brazeの担当者にお問い合わせください。
 {% endtab %}
 
 {% tab MMS %}
@@ -99,32 +100,32 @@ RCSメッセージを送信するには、購読グループ内にRCS認証済�
 RCS認証済みの送信者を追加するには、2つの方法があります。
 - 既存の購読グループに追加する
 - 新しいRCS購読グループを作成する
-どちらを選択するかは、関心のあるRCSのユースケースによって大きく異なります。
+どちらを選択するかは、主に関心のあるRCSユースケースによって異なります。
 
-連携方法に応じて、BrazeはRCS認証済みの送信者を既存のSMS購読グループに追加するか、新しい購読グループを設定できます。いずれの場合も、カスタマーサクセスマネージャーがシームレスで効率的なSMSトラフィックのアップグレードをご案内します。
+連携方法に応じて、BrazeはRCS認証済みの送信者を既存のSMS購読グループに追加するか、新しい購読グループを設定します。いずれの場合も、カスタマーサクセスマネージャーがシームレスで効率的なSMSトラフィックのアップグレードをガイドします。
 {% endtab %}
 {% endtabs %}
 
 ## エージェントコンソールで自然言語によるオプトアウトを処理する {#handle-natural-language-opt-outs-in-the-agent-console}
 
-包括的な購読管理のために、標準キーワードやカスタムキーワード（「もうテキストを送らないでください」など）に該当しないオプトアウトの意図をキャプチャできます。AIエージェントを作成することで、感情分析を使用してこれらのリクエストを自動的に識別し、対応できます。
+包括的な購読管理のために、標準キーワードやカスタムキーワード以外のオプトアウト意図（「テキストを送らないでください」など）をキャプチャできます。AIエージェントを作成することで、感情分析を使用してこれらのリクエストを自動的に識別し、対応できます。
 
 ### 設定 {#setup}
 
-1. [エージェントコンソール]({{site.baseurl}}/user_guide/brazeai/agents)で、「SMS感情分析エージェント」を作成します。
+1. [エージェントコンソール]({{site.baseurl}}/user_guide/brazeai/agents)で、「SMSセンチメント分析エージェント」を作成します。
 
 {% alert tip %}
-初期エージェント設定を支援するために[オペレーター]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)を使用してください。
+初期エージェント設定のサポートには、[オペレーター]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)を使用してください。
 {% endalert %}
 
 {: start="2"}
-2. **Send an SMS inbound message**でトリガーされるアクションベースのキャンバスを、**Other**キーワードカテゴリ内で作成します。
-3. キャンバスに[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)を追加して、オプトアウトの意図を識別します。
-4. リクエストを確認するための後続のSMS[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を追加します：「SMSの購読解除をご希望のようですので、購読解除の手続きを行います。これが間違いの場合は、STARTとテキストを送信して再度オプトインしてください。」
+2. **Other**キーワードカテゴリ内で、**Send an SMS inbound message**によってトリガーされるアクションベースのキャンバスを作成します。
+3. キャンバスに[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)を追加して、オプトアウト意図を識別します。
+4. リクエストを確認するための後続のSMS[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を追加します：「SMSの購読解除をご希望のようですので、購読解除の手続きを行います。間違いの場合は、STARTとテキストを送信して再度オプトインしてください。」
 5. [ユーザー更新ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)を追加して、特定のSMS購読グループにおけるユーザーのステータスを「Unsubscribed」に変更します。
 
 {% alert note %}
-エージェントコンソールを使用すると、メッセージクレジットまたはアクションクレジットが消費されます。
+エージェントコンソールの使用には、メッセージクレジットまたはアクションクレジットが消費されます。
 {% endalert %}
 
 ## SMSトラフィックをRCSに移行する {#migrate-sms-traffic-to-rcs}
@@ -211,7 +212,7 @@ SMSキャンペーンを作成する際に正しいグループが選択され�
 
 ### 国ごとにグループを分ける {#separate-groups-by-country}
 
-SMSの規制は国によって異なります。SMS購読グループを国ごとに分けることをお勧めします。これにより、メッセージを送信するすべての地域でコンプライアンス基準を満たすことができます。
+SMSの規制は国によって異なります。SMSの購読グループを国ごとに分けることをお勧めします。これにより、メッセージを送信するすべての地域でコンプライアンス基準を満たすことができます。
 
 各購読グループでは、**Geographic Permissions**で国の許可リストを設定して、SMS、MMS、RCSが承認された地域にのみ送信されるようにすることもできます。詳細については、[地理的権限]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions)を参照してください。
 
