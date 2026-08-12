@@ -12,8 +12,6 @@ search_tag: Partner
 
 > [Microsoft Foundry](https://azure.microsoft.com/en-us/products/ai-foundry) is a unified Azure platform-as-a-service offering for enterprise AI operations, model builders, and application development.
 
-{% multi_lang_include alerts/early_access_beta_alert.md feature='The Microsoft Foundry integration' %}
-
 ## About the integration
 
 The Braze and Microsoft Foundry integration lets you use generative AI models managed in Microsoft Foundry when building custom AI agents. The integration currently supports two models: gpt-5.4-mini and gpt-5.4-nano. With this integration, your agents can generate personalized copy, make real-time decisions, or update catalog fields using Foundry-managed models.
