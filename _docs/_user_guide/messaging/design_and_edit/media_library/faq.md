@@ -71,7 +71,7 @@ You can generate images from **Content** > **Media Library** by selecting **AI I
 
 ### What happens when I delete an image from the media library?
 
-Deleting an asset removes it from the media library UI, but Braze keeps the file hosted at its existing URL, so launched campaigns and Canvases that reference that URL continue to load the image. To permanently remove an asset from Braze hosting, contact Braze Support. To update what recipients see without changing URLs in every message, use [Replace a file]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) instead.
+Deleting an asset removes it from the media library UI, but Braze keeps the file hosted at its existing URL, so active campaigns and Canvases that reference that URL continue to load the image. To permanently remove an asset from Braze hosting, contact Braze Support. To update what recipients see without changing URLs in every message, use [Replace a file]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) instead.
 
 ### Can I create vanity URLs for media library image assets?
 
