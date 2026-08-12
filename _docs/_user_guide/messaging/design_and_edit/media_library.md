@@ -60,10 +60,6 @@ This applies to every file in the archive—including font files (`.ttf`, `.woff
 
 Alternatively, upload assets individually to the media library without zipping them.
 
-
-### What happens when I delete an image from the media library?
-
-Deleting an asset removes it from the media library UI, but Braze keeps the file hosted at its existing URL so launched campaigns and Canvases that reference that URL continue to load the image. To permanently remove an asset from Braze hosting, contact Braze Support. To update what recipients see without changing URLs in every message, use [Replace a file](#replace-a-file).
 ## Replace a file
 
 You can replace the file of an existing asset in the media library while keeping its URL and asset ID stable. Because the URL doesn't change, any message or campaign that references that asset—including already-sent emails—automatically reflects the updated file. This is useful when you want to update a shared asset (such as a logo) in one place rather than updating every campaign individually.
