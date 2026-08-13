@@ -129,7 +129,7 @@ Se você estiver usando a API do provedor HTTP/2, qualquer carga útil individua
 
 ###### Campaigns disparadas por API {#api-triggered-campaigns}
 
-A Braze permite que você envie pares de chave-valor de string definidos pelo usuário, conhecidos como `extras`. Para acessar seus extras em Campaigns disparadas por API e Campaigns agendadas disparadas por API, no dashboard defina uma chave como "example_key" e um valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Isso resultará em uma saída do console de desenvolvedor de `"extras": { "test": { "foo": 1, "bar": 1 }`.
+A Braze permite que você envie pares de chave-valor de string definidos pelo usuário, conhecidos como `extras`. Para acessar seus extras em Campaigns disparadas por API e Campaigns agendadas disparadas por API, no dashboard defina uma chave como "example_key" e um valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Isso resultará em uma saída do console de desenvolvedor de `"extras": { "test": { "foo": 1, "bar": 1 }`
 
 ### Android
 
@@ -202,3 +202,7 @@ E-mails com bounce não entregarão pares de chave-valor ao SparkPost ou SendGri
 Para adicionar um par de chave-valor a um Content Card, acesse a guia **Settings** no criador de mensagens da Braze e selecione **Add New Pair**.
 
 ![Adicionar par de chave-valor ao Content Card]({% image_buster /assets/img_archive/kvp_content_cards.png %}){: style="max-width:70%;"}
+
+{% alert note %}
+As variantes de controle não suportam pares de chave-valor. Se você precisa capturar análise de dados para grupos de controle em testes A/B, crie uma variante de mensagem com um par de chave-valor como `control=true` e oculte-a no código do seu app enquanto registra impressões.
+{% endalert %}

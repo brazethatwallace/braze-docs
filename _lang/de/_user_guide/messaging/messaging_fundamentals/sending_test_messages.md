@@ -91,7 +91,7 @@ Im Tab **Vorschau** Ihres Composers stimmt die Ansicht Ihrer Nachricht mögliche
 
 - Haben Ihre Testnutzer:innen Push mit einem gültigen Push-Token aktiviert?
 - Werden die Bilder und Medien wie erwartet angezeigt und verhalten sich wie erwartet?
-- Funktioniert Liquid wie erwartet? Haben Sie einen [Standardattributwert]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) berücksichtigt, falls Liquid keine Informationen zurückgibt?
+- Funktioniert Liquid wie erwartet? Haben Sie einen [Standardattributwert]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) berücksichtigt, falls Liquid keine Informationen zurückgibt?
 - Ist Ihr Text klar, prägnant und korrekt?
 - Leiten Ihre Links die Nutzer:innen dorthin, wo sie hingelangen sollen?
 - Haben Ihre Testnutzer:innen Push mit einem gültigen Push-Token aktiviert?
@@ -156,6 +156,8 @@ Von dort aus können Sie Ihre Nachrichteneinstellungen und Inhalte überprüfen,
 
 ![Test-E-Mail]({% image_buster /assets/img_archive/testemail.png %}){: style="max-width:40%;" }
 
+Wenn Ihre E-Mail einen Link zum [Präferenzzentrum]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) enthält, erzeugen Testversendungen keinen funktionierenden Link und ermöglichen kein Speichern von Einstellungen. Um das Präferenzzentrum zu testen, starten Sie die Nachricht an eine:n Testnutzer:in oder ein kleines internes Segment. Weitere Details finden Sie unter [Präferenzzentren testen]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
+
 Wenn Ihre E-Mail-Campaign ein großes Bild enthält und in Outlook nicht wie erwartet angezeigt wird, erwägen Sie, die tatsächlichen Dateiabmessungen des Bildes mit einem Bildbearbeitungs- oder Größenänderungstool zu reduzieren, anstatt es nur mit CSS oder HTML zu skalieren.
 
 {% endtab %}
@@ -198,7 +200,7 @@ In der **Vorschau** stimmt die Ansicht Ihrer Nachricht möglicherweise nicht mit
 ### Test-Checkliste
 
 - Werden die Bilder und Medien wie erwartet angezeigt und verhalten sich wie erwartet?
-- Funktioniert Liquid wie erwartet? Haben Sie einen [Standardattributwert]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) berücksichtigt, falls Liquid keine Informationen zurückgibt?
+- Funktioniert Liquid wie erwartet? Haben Sie einen [Standardattributwert]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) berücksichtigt, falls Liquid keine Informationen zurückgibt?
 - Ist Ihr Text klar, prägnant und korrekt?
 - Leiten Ihre Buttons die Nutzer:innen dorthin, wo sie hingelangen sollen?
 
@@ -385,7 +387,7 @@ Sie können angepasste Event-Eigenschaften testen, indem Sie Werte manuell mit L
 
 Es gibt einige Situationen, in denen sich Testnachrichten nicht genauso verhalten wie Campaigns oder Canvases, die an echte Nutzer:innen gesendet werden. In diesen Fällen sollten Sie erwägen, die Campaign oder das Canvas an eine begrenzte Gruppe von Testnutzer:innen zu starten, um dieses Verhalten zu validieren.
 
-- Das Anzeigen des Braze-Präferenzzentrums über Testnachrichten führt dazu, dass der Button **Einstellungen speichern** ausgegraut ist.
+- Das Anzeigen des Braze-[Präferenzzentrums]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) über Testnachrichten führt dazu, dass der Button **Einstellungen speichern** deaktiviert ist. Liquid-Tags des Präferenzzentrums werden möglicherweise auch nicht zu gültigen Links aufgelöst. Dies ist das erwartete Verhalten. Um End-to-End zu testen, lesen Sie [Präferenzzentren testen]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
 - Zum Testen von In-App-Nachrichten und Content Cards müssen die Zielnutzer:innen ein Push-Token für das Zielgerät haben.
 - Zum Testen von Abmeldelinks in E-Mails stellen Sie sicher, dass die E-Mail-Adresse Ihrer Testnutzer:innen im jeweiligen Workspace vorhanden ist.
 - Der `List-Unsubscribe`-Header ist nicht in E-Mails enthalten, die über die Testnachrichtenfunktion gesendet werden.

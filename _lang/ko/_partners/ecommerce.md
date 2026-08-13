@@ -1,65 +1,42 @@
 ---
-nav_title: eCommerce
+nav_title: "eCommerce"
 article_title: eCommerce 파트너
 page_order: 10
-
 page_type: landing
-description: "이 랜딩 페이지에는 eCommerce 플랫폼과 통합할 수 있도록 지원하는 Braze 파트너(Alloys)가 나열되어 있습니다."
-
-layout: partner_page
+description: "커머스 플랫폼, 카탈로그, 로열티, 결제 및 관련 소매 워크플로우를 Braze에 연결하는 Braze 기술 파트너를 살펴보세요."
+layout: dev_guide
 search_tag: Partner
 
-partner_top_header: "eCommerce"
+guide_top_header: "eCommerce"
+guide_top_text: "이 파트너들은 커머스 플랫폼과 소매 워크플로우를 Braze에 연결하는 데 도움을 줍니다. 카테고리를 탐색하여 통합 가이드를 찾아보세요. 모든 Braze 기술 파트너의 전체 검색 및 필터 가능한 목록은 <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze 마켓플레이스</a> 를 방문하세요."
 
-valid_partner_list:
-- name: Lexer
-  url: /docs/partners/lexer/
-- name: Peak
-  url: /docs/partners/peak/
-- name: Personalize
-  url: /docs/partners/personalize/
-- name: Tangerine
-  url: /docs/partners/tangerine/
-- name: Wunderkind
-  url: /docs/partners/wunderkind/
-- name: Talon.One
-  url: /docs/partners/talonone/
-- name: ViralSweep
-  url: /docs/partners/viralsweep/
-- name: Voucherify
-  url: /docs/partners/voucherify/
-- name: Antavo
-  url: /docs/partners/antavo/
-- name: Kognitiv Inspire
-  url: /docs/partners/kognitiv/
-- name: Yotpo
-  url: /docs/partners/yotpo/
-- name: Narvar
-  url: /docs/partners/narvar/
-- name: Olo
-  url: /docs/partners/olo/
-- name: Recurly
-  url: /docs/partners/recurly/
-- name: RevenueCat
-  url: /docs/partners/revenuecat
-- name: Transcend
-  url: /docs/partners/transcend/
-- name: Constructor
-  url: /docs/partners/constructor/
-- name: Stylitics
-  url: /docs/partners/stylitics/
-- name: Shopify
-  url: /docs/partners/shopify/
-- name: Stripe
-  url: /docs/partners/stripe/
-- name: Okendo
-  url: /docs/partners/okendo/
-- name: Swym
-  url: /docs/partners/swym/
-- name: Algolia
-  url: /docs/partners/algolia/
-- name: Tapcart
-  url: /docs/partners/tapcart/
-- name: Poq
-  url: /docs/partners/poq/
+guide_featured_title: "카테고리"
+guide_featured_list:
+  - name: "eCommerce 분석 및 워크플로우"
+    link: /docs/partners/ecommerce/analytics_workflow
+    image: /assets/img/braze_icons/zap.svg
+  - name: "다이내믹 프라이싱 및 프로모션"
+    link: /docs/partners/ecommerce/dynamic_pricing_promotions
+    image: /assets/img/braze_icons/layers-three-01.svg
+  - name: "Loyalty"
+    link: /docs/partners/ecommerce/loyalty
+    image: /assets/img/braze_icons/bar-chart-01.svg
+  - name: "모바일 앱 플랫폼"
+    link: /docs/partners/ecommerce/mobile_app_platform
+    image: /assets/img/braze_icons/dataflow-01.svg
+  - name: "Ordering, Payments, and Subscription Management"
+    link: /docs/partners/ecommerce/ordering_payments_subscription
+    image: /assets/img/braze_icons/users-01.svg
+  - name: "결제"
+    link: /docs/partners/ecommerce/payments
+    image: /assets/img/braze_icons/target-05.svg
+  - name: "제품 검색 및 추천"
+    link: /docs/partners/ecommerce/product_search_recommendations
+    image: /assets/img/braze_icons/globe-02.svg
+  - name: "Shopify"
+    link: /docs/partners/ecommerce/shopify
+    image: /assets/img/braze_icons/puzzle-piece-01.svg
+  - name: "Tapcart"
+    link: /docs/partners/ecommerce/tapcart
+    image: /assets/img/braze_icons/shopping-cart-03.svg
 ---

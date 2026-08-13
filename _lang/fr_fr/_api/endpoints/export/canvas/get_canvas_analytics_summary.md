@@ -20,7 +20,7 @@ description: "Cet article décrit l'endpoint Braze permettant d'exporter le rés
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `canvas.data_summary`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `canvas.data_summary`.
 
 ## Limite de débit {#rate-limit}
 
@@ -132,7 +132,7 @@ Dans `total_stats`, `variant_stats` et `step_stats`, `conversions` correspond au
       ... (more steps)
     }
   },
-  "message": (required, string) the status of the export, returns 'success' on successful completion
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

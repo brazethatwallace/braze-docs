@@ -12,6 +12,10 @@ channel:
 
 > Le connecteur Bring Your Own (BYO) WhatsApp offre un partenariat entre Braze et Infobip, dans lequel vous donnez à Braze l'accès à votre Infobip WhatsApp Business Manager (WABA). Cela vous permet de gérer et de payer les coûts d'envoi de messages directement avec Infobip tout en utilisant Braze pour la segmentation, la personnalisation et l'orchestration des campagnes. Braze conserve toutes les fonctionnalités existantes offertes par le canal WhatsApp, telles que les messages sortants, le traitement des messages entrants, les flux WhatsApp et l'analytique.
 
+{% alert note %}
+Pour migrer depuis d'autres fournisseurs de solutions métier (BSP) vers l'intégration Braze, consultez [Migrer depuis un autre fournisseur de solutions métier]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-from-another-business-solution-provider).
+{% endalert %}
+
 ## Conditions préalables {#requirements}
 
 | Condition | Description |
@@ -30,9 +34,9 @@ Avant de configurer le connecteur BYO WhatsApp, confirmez que les envois précé
 
 - Le WhatsApp Business Account et le numéro de téléphone n'ont jamais été connectés à un partenaire auparavant.
 - Le WhatsApp Business Account est connecté directement à Braze via l'intégration native.
-    - Suivez les étapes de la [migration de numéro de téléphone WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number) pour migrer vos numéros de téléphone vers un nouveau WhatsApp Business Account, un numéro à la fois.
+    - Suivez les étapes de la section [Migrer entre des WhatsApp Business Accounts]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-between-whatsapp-business-accounts) pour migrer vos numéros de téléphone vers un nouveau WhatsApp Business Account, un numéro à la fois.
 - Le WhatsApp Business Account est connecté à un fournisseur de solutions différent de Braze et Infobip.
-    - Suivez les étapes de la [migration de numéro de téléphone WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number) pour migrer vos numéros de téléphone vers un nouveau WhatsApp Business Account, un numéro à la fois.
+    - Suivez les étapes de la section [Migrer entre des WhatsApp Business Accounts]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-between-whatsapp-business-accounts) pour migrer vos numéros de téléphone vers un nouveau WhatsApp Business Account, un numéro à la fois.
 
 ## Étape 1 : Récupérer les informations du compte Infobip {#step-1}
 
@@ -108,9 +112,9 @@ Confirmez que votre WhatsApp Business Account n'est pas connecté à un autre es
 
 ## Considérations {#considerations}
 
-Bien que toutes les fonctionnalités existantes avec Braze soient prises en charge, les cas d'utilisation suivants ne sont actuellement pas pris en charge.
+Bien que toutes les fonctionnalités existantes avec Braze soient prises en charge, les cas d'usage suivants ne sont actuellement pas pris en charge.
 
-| Cas d'utilisation | Raison |
+| Cas d'usage | Raison |
 | --- | --- |
 | Traitement des messages entrants dans Braze et Infobip | Cela empêche les chaînes logiques déclenchées par l'un ou l'autre système, générant par conséquent des fils de messages en double et potentiellement contradictoires. |
 | Envoi de messages depuis Braze et Infobip | Pour les WhatsApp Business Accounts connectés à Braze, tous les envois proviennent de Braze. |

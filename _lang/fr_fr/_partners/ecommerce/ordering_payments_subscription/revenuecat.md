@@ -142,4 +142,4 @@ Après avoir configuré les paramètres de Braze dans RevenueCat, les événemen
 
 ### Ajouter une clé API d'environnement de test pour les tests {#add-a-sandbox-api-key-for-testing}
 
-Si vous ne fournissez qu'une seule clé API REST Braze à RevenueCat, seuls les événements de production seront envoyés. Si vous souhaitez également envoyer des événements de test en bac à sable, [créez une autre clé API REST Braze]({{site.baseurl}}/api/basics#app-group-rest-api-keys) et ajoutez-la à vos paramètres Braze dans RevenueCat.
+Si vous ne fournissez qu'une seule clé API REST Braze à RevenueCat, seuls les événements de production seront envoyés. Si vous souhaitez également envoyer des événements de test en environnement de test, [créez une autre clé API REST Braze]({{site.baseurl}}/api/basics#creating-rest-api-keys) et ajoutez-la à vos paramètres Braze dans RevenueCat.

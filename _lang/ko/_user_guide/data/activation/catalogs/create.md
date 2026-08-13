@@ -145,6 +145,10 @@ CSV 파일을 업로드하여 카탈로그를 생성합니다. `id`, `title`, `p
 카탈로그가 생성된 후에는 이 이름을 편집할 수 없다는 점에 유의하세요. 카탈로그를 삭제하고 동일한 카탈로그 이름을 사용하여 업데이트된 버전을 다시 업로드할 수 있습니다.
 
 카탈로그를 생성한 후에는 [Campaign에서 카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs)를 참조할 수 있습니다.
+
+{% alert important %}
+이전에 업로드한 CSV 파일은 업로드 날짜로부터 30일 동안 **카탈로그** 페이지에서 다운로드할 수 있습니다. 30일이 지나면 파일은 영구적으로 삭제되며 더 이상 액세스할 수 없습니다.
+{% endalert %}
 {% endtab %}
 
 {% tab 브라우저에서 생성 %}
@@ -152,10 +156,10 @@ CSV 파일을 업로드하여 카탈로그를 생성합니다. `id`, `title`, `p
 
 브라우저에서 카탈로그를 편집하거나 생성하기 전에 워크스페이스에 대한 다음 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 필요합니다:
 
-- 카탈로그 보기
-- 카탈로그 편집
-- 카탈로그 내보내기
-- 카탈로그 삭제
+- View Catalogs
+- Edit Catalogs
+- Export Catalogs
+- Delete Catalogs
 
 ### 1단계: 카탈로그 세부 정보 입력 {#step-1-enter-catalog-details}
 

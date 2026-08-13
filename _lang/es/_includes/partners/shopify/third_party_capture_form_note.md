@@ -1,0 +1,5 @@
+{% alert note %}
+Como se menciona en el [resumen de Shopify]({{site.baseurl}}/shopify_overview), si quieres utilizar un formulario de captura de terceros, tus desarrolladores necesitan integrar el código del SDK de Braze. Esto te permitirá capturar la dirección de correo electrónico y el estado de suscripción global de correo electrónico a partir de los envíos de formularios. Específicamente, necesitas implementar y probar estos métodos en tu archivo `theme.liquid`:<br><br>
+- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): establece la dirección de correo electrónico en el perfil de usuario
+- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): actualiza el estado de suscripción global de correo electrónico
+{% endalert %}

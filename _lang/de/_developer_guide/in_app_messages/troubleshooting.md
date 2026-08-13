@@ -25,7 +25,8 @@ Bevor Sie mit dem Debugging beginnen, fügen Sie sich als [Testnutzer:in]({{site
 | Impressionen oder Klicks sehen falsch aus | [Impressionen und Analytics](#impressions-and-analytics) |
 | `triggers` fehlen oder sind leer in den Event-Nutzerprotokollen | [Fehlerbehebung bei der Zustellung](#delivery-troubleshooting) |
 | Trigger wurden zurückgegeben, aber nichts wird auf dem Gerät angezeigt | [Plattformspezifische Fehlerbehebung bei der Anzeige](#platform-specific-display-troubleshooting) |
-| In-App-Nachrichten-Assets können nicht geladen werden (iOS, `NSURLError` -1008) | [Asset-Laden (Swift-Tab)]({{site.baseurl}}/developer_guide/in_app_messages/troubleshooting?sdktab=swift#asset-loading) |
+| In-App-Nachrichten-Assets können nicht geladen werden (iOS, `NSURLError` -1008) | [Asset-Laden (Swift-Tab)](?sdktab=swift#swift_asset-loading) |
+| Links werden nicht angezeigt oder Geräteprotokolle zeigen einen Klick-Aktions-Parsing-Fehler | [Ungültige Link-Einrichtung](#invalid-link-setup) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Symptom für In-App-Nachrichten" }
 
 ## Standardisierter Untersuchungspfad {#standard-investigation-path}
@@ -180,6 +181,20 @@ Informationen zu archivierten Campaigns, Trigger-Konfiguration und Ruhezeiten fi
 ![Link zum Anzeigen des Changelogs auf der Campaign-Detailseite mit sieben Änderungen seit der letzten Ansicht der Campaign durch den/die Nutzer:in.]({% image_buster /assets/img_archive/trouble4.png %})
 
 Wenn Sie einen Delegate oder angepassten Handler verwenden, um In-App-Nachrichten manuell anzuzeigen, müssen Sie Impressionen und Klicks selbst protokollieren. Siehe Ihren SDK-Tab unter [Plattformspezifische Fehlerbehebung bei der Anzeige](#platform-specific-display-troubleshooting) für Swift- und Android-Details oder [In-App-Nachrichtendaten protokollieren]({{site.baseurl}}/developer_guide/in_app_messages/logging_message_data) für Web.
+
+## Ungültige Link-Einrichtung {#invalid-link-setup}
+
+**Symptom:** Links werden in einer In-App-Nachricht nicht angezeigt, oder Geräteprotokolle verweisen auf einen Klick-Aktions-Parsing-Fehler (z. B. ein Fehler, der eine ungültige Plattform-Nachrichten-Klick-Aktion erwähnt).
+
+Dies deutet in der Regel auf einen ungültigen oder fehlerhaften Link in der In-App-Nachrichten-Einrichtung hin.
+
+Überprüfen Sie Folgendes:
+
+- Ändern Sie vorübergehend das Klickverhalten auf **Nachricht schließen**. Wenn die Nachricht korrekt angezeigt wird, verursacht wahrscheinlich die Link-URL das Problem.
+- Überprüfen Sie die Link-Konfiguration für Ihren Editor und Nachrichtentyp:
+  - **Angepasstes HTML:** [Fehlerbehebung für angepasste HTML-Links und Schließverhalten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#troubleshoot-custom-html-links-and-close-behavior)
+  - **Drag-and-Drop:** [Links und Deeplinks]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-should-i-know-when-customizing-drag-and-drop-in-app-messages) in den FAQ zu In-App-Nachrichten und [Mindest-SDK-Anforderungen für Textlinks]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#more-information-on-minimum-sdks)
+  - **Nachrichten mit Buttons:** [In-App-Nachrichten anpassen]({{site.baseurl}}/developer_guide/in_app_messages/customization) für Ihre Plattform
 
 ## Plattformspezifische Fehlerbehebung bei der Anzeige {#platform-specific-display-troubleshooting}
 

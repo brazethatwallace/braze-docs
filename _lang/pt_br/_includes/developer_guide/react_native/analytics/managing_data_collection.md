@@ -1,50 +1,50 @@
 {% multi_lang_include developer_guide/prerequisites/react_native.md %}
 
-## Desabilitando o rastreamento de dados
+## Desativar o rastreamento de dados {#disabling-data-tracking}
 
-Para desabilitar a coleta de dados, use o método `disableSDK`. Após chamar este método, o SDK do Braze para de enviar dados para os servidores do Braze.
+Para desativar a coleta de dados, use o método `disableSDK`. Após chamar esse método, o SDK da Braze para de enviar dados para os servidores da Braze.
 
 ```javascript
 Braze.disableSDK();
 ```
 
-## Retomando o rastreamento de dados
+## Retomar o rastreamento de dados {#resuming-data-tracking}
 
-Para retomar a coleta de dados após desabilitá-la, use o método `enableSDK`.
+Para retomar a coleta de dados após desativá-la, use o método `enableSDK`.
 
 ```javascript
 Braze.enableSDK();
 ```
 
-## Limpando dados
+## Limpando dados {#wiping-data}
 
-Para excluir todos os dados do SDK do Braze armazenados localmente no dispositivo, use o método `wipeData`. Após chamar este método, o SDK é desabilitado e deve ser reabilitado com `enableSDK`.
+Para excluir todos os dados do SDK da Braze armazenados localmente no dispositivo, use o método `wipeData`. Após chamar esse método, o SDK é desativado e precisa ser reativado com `enableSDK`.
 
 ```javascript
 Braze.wipeData();
 ```
 
-## Liberando dados
+## Envio imediato de dados {#flushing-data}
 
-Para solicitar uma liberação imediata de quaisquer dados pendentes para os servidores do Braze, use `requestImmediateDataFlush`.
+Para solicitar o envio imediato de quaisquer dados pendentes para os servidores da Braze, use `requestImmediateDataFlush`.
 
 ```javascript
 Braze.requestImmediateDataFlush();
 ```
 
-## Configurando o rastreamento de anúncios habilitado
+## Configurar o rastreamento de anúncios como ativado {#setting-ad-tracking-enabled}
 
-Para informar ao Braze se o rastreamento de anúncios está habilitado para este dispositivo, use o método `setAdTrackingEnabled`. O SDK não coleta automaticamente esses dados.
+Para informar a Braze se o rastreamento de anúncios está ativado para este dispositivo, use o método `setAdTrackingEnabled`. O SDK não coleta esses dados automaticamente.
 
 ```javascript
 Braze.setAdTrackingEnabled(true, "GOOGLE_ADVERTISING_ID");
 ```
 
-O segundo parâmetro é o ID de Publicidade do Google e é usado apenas no Android.
+O segundo parâmetro é o Google Advertising ID e é usado apenas no Android.
 
-## Atualizando a lista de permissões da propriedade de rastreamento (apenas iOS)
+## Atualizar a lista de permissões da propriedade de rastreamento (somente iOS) {#updating-the-tracking-property-allow-list-ios-only}
 
-Para atualizar a lista de tipos de dados declarados para rastreamento, use `updateTrackingPropertyAllowList`. Isso não tem efeito no Android.
+Para atualizar a lista de tipos de dados declarados para rastreamento, use `updateTrackingPropertyAllowList`. Essa função não tem efeito no Android.
 
 ```javascript
 Braze.updateTrackingPropertyAllowList({
@@ -57,4 +57,8 @@ Braze.updateTrackingPropertyAllowList({
 });
 ```
 
-Para saber mais, consulte [Manifesto de Privacidade]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest/).
+Para saber mais, consulte [Manifesto de privacidade]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest).
+
+## Logout e cancelamento de registro de push {#logout-and-unregister-push}
+
+Este recurso ainda não é compatível com o SDK do React Native.

@@ -232,7 +232,7 @@ Strings und Arrays erfordern einfache Anführungszeichen, während boolesche Wer
 
 ### Boolescher Wert {#boolean}
 
-[Boolesche Werte]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans) sind binäre Werte und können entweder auf `true` oder `false` gesetzt werden, wie z. B. `registration_complete: true`. Boolesche Werte haben keine Anführungszeichen.
+[Boolesche Werte]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#booleans) sind binäre Werte und können entweder auf `true` oder `false` gesetzt werden, wie z. B. `registration_complete: true`. Boolesche Werte haben keine Anführungszeichen.
 
 {% raw %}
 
@@ -244,7 +244,7 @@ Strings und Arrays erfordern einfache Anführungszeichen, während boolesche Wer
 
 ### Zahl {#number}
 
-[Zahlen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers) sind numerische Werte, die Ganzzahlen oder Gleitkommazahlen sein können. Zum Beispiel könnte eine Nutzerin oder ein Nutzer `shoe_size: 10` oder `levels_completed: 287` haben. Zahlenwerte haben keine Anführungszeichen.
+[Zahlen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) sind numerische Werte, die Ganzzahlen oder Gleitkommazahlen sein können. Zum Beispiel könnte eine Nutzerin oder ein Nutzer `shoe_size: 10` oder `levels_completed: 287` haben. Zahlenwerte haben keine Anführungszeichen.
 
 {% raw %}
 
@@ -266,7 +266,7 @@ Sie können auch andere [grundlegende Operatoren](https://shopify.dev/docs/theme
 
 ### String {#string}
 
-Ein [String]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings) besteht aus alphanumerischen Zeichen und speichert Daten über Ihre Nutzerin oder Ihren Nutzer. Zum Beispiel könnten Sie `favorite_color: red` oder `phone_number: 3025981329` haben. String-Werte müssen Anführungszeichen haben.
+Ein [String]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) besteht aus alphanumerischen Zeichen und speichert Daten über Ihre Nutzerin oder Ihren Nutzer. Zum Beispiel könnten Sie `favorite_color: red` oder `phone_number: 3025981329` haben. String-Werte müssen Anführungszeichen haben.
 
 {% raw %}
 
@@ -280,7 +280,7 @@ Für Strings können Sie sowohl „==“ als auch „contains“ in Ihrem Liquid
 
 ### Array {#array}
 
-Ein [Array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays) ist eine Liste von Informationen über Ihre Nutzerin oder Ihren Nutzer. Zum Beispiel könnte eine Nutzerin oder ein Nutzer `last_viewed_shows: stranger things, planet earth, westworld` haben. Array-Werte müssen Anführungszeichen haben.
+Ein [Array]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) ist eine Liste von Informationen über Ihre Nutzerin oder Ihren Nutzer. Zum Beispiel könnte eine Nutzerin oder ein Nutzer `last_viewed_shows: stranger things, planet earth, westworld` haben. Array-Werte müssen Anführungszeichen haben.
 
 {% raw %}
 
@@ -330,7 +330,7 @@ Da `join` Array-Elemente zu einem String zusammenfügt (Standard-Trennzeichen: e
 
 ### Zeit {#time}
 
-Ein Zeitstempel, der angibt, wann ein Ereignis stattgefunden hat. [Zeit]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time)-Werte müssen einen [mathematischen Filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) haben, um in bedingter Logik verwendet werden zu können.
+Ein Zeitstempel, der angibt, wann ein Ereignis stattgefunden hat. [Zeit]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)-Werte müssen einen [mathematischen Filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) haben, um in bedingter Logik verwendet werden zu können.
 
 {% raw %}
 

@@ -76,6 +76,8 @@ To customize your message's background properties, border settings, and more, se
 
 ![Style panel of the Banner composer.]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='banner' %}
+
 {% endtab %}
 {% tab HTML editor %}
 
@@ -123,6 +125,11 @@ For the full JavaScript bridge reference, see [Custom code and JavaScript bridge
 
 #### Step 3.3: Configure dismissal behavior (optional) {#dismiss-behavior}
 
+{% alert important %}
+Banner dismissals require the following minimum SDK versions. Older SDK versions do not render Banners with dismissal enabled.
+{% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 reactnative:22.0.0 flutter:20.0.0 %}
+{% endalert %}
+
 {% tabs %}
 {% tab Drag-and-drop editor %}
 
@@ -159,9 +166,7 @@ For the full JavaScript bridge reference, see [Custom code and JavaScript bridge
 
 You can add custom properties to a Banner to attach structured metadata, such as strings or JSON objects. These properties don’t affect how the Banner is displayed but can be [accessed through the Braze SDK]({{site.baseurl}}/developer_guide/banners/placements) to modify your app’s behavior or appearance. For example, you could:
 
-- Send metadata for your third-party analytics or integrations.
-- Use metadata such as a `timestamp` or JSON object to trigger conditional logic.
-- Control the behavior of a Banner based on included metadata like `ratio` or `format`.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 Custom properties work the same way in both the drag-and-drop editor and the HTML editor. To add a custom property, select **Settings** > **Properties** > **Add property**.
 
@@ -179,6 +184,22 @@ For each property you'd like to add, fill out the following:
 When you're finished, select **Done**.
 
 ![The properties page with a string property with a key of color and value of #FF0000.]({% image_buster /assets/img/banners/example_property.png %})
+
+#### Step 3.5: Personalize with Connected Content (optional)
+
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Connected Content for Banners' %}
+
+Because Banners render inline during a session refresh, Connected Content in this channel works differently than in other channels:
+
+- Only GET requests are supported.
+- All placements in a single refresh (up to 10) share a rendering budget of approximately two seconds. If a call is slow, times out, or the budget is exceeded, the Connected Content result for that placement is treated as null. Banners don’t retry.
+
+For best results:
+
+- Keep your endpoints fast and [cache responses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/) whenever possible.
+- Limit the number of unique Connected Content URLs across the placements that render together.
+- Avoid chaining calls where one Connected Content response determines the URL for the next. Each additional call adds to the shared budget.
+- Use Liquid guard statements or the [`default` filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) to handle null results and avoid blank Banners.
 
 ### Step 4: Build the remainder of your campaign or Canvas
 

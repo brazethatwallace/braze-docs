@@ -360,6 +360,23 @@ There are many advanced settings available for Android push notifications sent t
 
 A **Notification ID** is a unique identifier for a message category of your choosing that informs the messaging service to only respect the most recent message from that ID. Setting a notification ID allows you to send just the most recent and relevant message, rather than a stack of outdated, irrelevant ones.
 
+#### Preventing duplicate notifications from overwriting
+
+By default, when push notifications have identical titles and body text, Android generates the same notification ID for both messages by hashing the title and body strings together. This causes the second notification to overwrite the first one, resulting in only a single notification appearing in the notification tray.
+
+To prevent identical notifications from overwriting each other, you can specify unique notification ID values in your Android push notification settings. Here are some options:
+
+- **Use Liquid templating with a timestamp:** Generate a unique value based on the current time.
+
+{% raw %}
+```liquid
+{% assign random_number = 'now' | date: '%s' | plus: 1000000 %}
+{{random_number}}
+```
+{% endraw %}
+
+- **Server-side generation:** For truly random values, generate the notification ID on your server and pass it through Liquid. This ensures each notification has a distinct identifier, allowing multiple notifications to display simultaneously.
+
 ### Firebase Messaging Delivery priority {#fcm-priority}
 
 The [Firebase Messaging Delivery Priority](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages) field lets you control whether a push is sent with "normal" or "high" priority to Firebase Cloud Messaging.

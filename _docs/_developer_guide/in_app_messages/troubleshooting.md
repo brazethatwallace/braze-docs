@@ -26,6 +26,7 @@ Before you debug, add yourself as a [test user]({{site.baseurl}}/user_guide/admi
 | `triggers` missing or empty in event user logs | [Delivery troubleshooting](#delivery-troubleshooting) |
 | Triggers returned but nothing displays on the device | [Platform-specific display troubleshooting](#platform-specific-display-troubleshooting) |
 | In-app message assets fail to load (iOS, `NSURLError` -1008) | [Asset loading (Swift tab)](?sdktab=swift#swift_asset-loading) |
+| Links don't display or device logs show a click-action parse error | [Invalid link setup](#invalid-link-setup) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="In-app message symptom" }
 
 ## Standard investigation path
@@ -180,6 +181,20 @@ For archived campaigns, trigger configuration, and Quiet Hours, see the [In-App 
 ![Link to view changelog on the Campaign Details page with seven changes since the user has last viewed the campaign]({% image_buster /assets/img_archive/trouble4.png %})
 
 If you use a delegate or custom handler to display in-app messages manually, you must log impressions and clicks yourself. See your SDK tab under [Platform-specific display troubleshooting](#platform-specific-display-troubleshooting) for Swift and Android details, or [Log in-app message data]({{site.baseurl}}/developer_guide/in_app_messages/logging_message_data) for Web.
+
+## Invalid link setup {#invalid-link-setup}
+
+**Symptom:** Links don't display in an in-app message, or device logs reference a click-action parse error (for example, an error mentioning an invalid platform message click action).
+
+This typically indicates an invalid or malformed link in the in-app message setup.
+
+Check the following:
+
+- Temporarily change the on-click behavior to **Close message**. If the message displays correctly, the link URL is likely causing the issue.
+- Review link configuration for your editor and message type:
+  - **Custom HTML:** [Troubleshoot custom HTML links and close behavior]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#troubleshoot-custom-html-links-and-close-behavior)
+  - **Drag-and-drop:** [Links and deep links]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-should-i-know-when-customizing-drag-and-drop-in-app-messages) in the In-App Message FAQ and [minimum SDK requirements for text links]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#more-information-on-minimum-sdks)
+  - **Messages with buttons:** [Customize in-app messages]({{site.baseurl}}/developer_guide/in_app_messages/customization) for your platform
 
 ## Platform-specific display troubleshooting {#platform-specific-display-troubleshooting}
 

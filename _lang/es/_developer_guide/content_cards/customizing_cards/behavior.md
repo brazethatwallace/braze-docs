@@ -122,11 +122,13 @@ Puedes utilizar esta información para mostrar una señal que indique cuántas C
 
 El siguiente ejemplo utiliza `braze.contentCards` para solicitar y mostrar el número de Content Cards no leídas. Una vez cerrada la aplicación y finalizada la sesión del usuario, este código solicita un recuento de tarjetas, filtrando el número de tarjetas en función de la propiedad `viewed`.
 
+Las aplicaciones que han adoptado el [ciclo de vida `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) (requerido para aplicaciones creadas con [Xcode 27 y versiones posteriores](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)) deben implementar esto en `sceneDidEnterBackground(_:)` de `SceneDelegate.swift` en lugar de `applicationDidEnterBackground(_:)` de `AppDelegate.swift`.
+
 {% subtabs %}
 {% subtab Swift %}
 
 ```swift
-func applicationDidEnterBackground(_ application: UIApplication)
+func sceneDidEnterBackground(_ scene: UIScene)
 ```
 
 Dentro de este método, implementa el siguiente código, que actualiza activamente el recuento de señales mientras el usuario ve las tarjetas durante una sesión determinada:
@@ -140,7 +142,7 @@ UIApplication.shared.applicationIconBadgeNumber = unreadCards?.count ?? 0
 {% subtab Objective-C %}
 
 ```objc
-(void)applicationDidEnterBackground:(UIApplication *)application
+(void)sceneDidEnterBackground:(UIScene *)scene
 ```
 
 Dentro de este método, implementa el siguiente código, que actualiza activamente el recuento de señales mientras el usuario ve las tarjetas durante una sesión determinada:

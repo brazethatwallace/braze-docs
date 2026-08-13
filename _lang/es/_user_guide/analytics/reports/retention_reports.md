@@ -52,7 +52,7 @@ Después de haber seleccionado un evento de retención, selecciona **Run Report*
 
 Esta consulta puede tardar unos minutos en ejecutarse, dependiendo de la cantidad de datos que necesiten recuperarse para generar los resultados. Si tarda demasiado, verás una notificación pidiéndote que intentes cargar el informe de nuevo. Es posible que debas esperar hasta cinco minutos antes de que el informe se cargue.
 
-Una vez generado el informe, no se puede volver a ejecutar con el mismo evento de retención durante 24 horas. Siempre verás una marca de tiempo de cuándo se generó el informe por última vez y una opción para regenerarlo, si ha pasado más de un día. Sin embargo, puedes cambiar el evento de retención y volver a ejecutar el informe para analizar el impacto de la Campaign en diferentes KPI.
+Una vez generado el informe, no se puede volver a ejecutar con el mismo evento de retención durante 24 horas. Siempre verás una marca de tiempo de cuándo se generó el informe por última vez y una opción para regenerarlo si ha pasado más de un día. Sin embargo, puedes cambiar el evento de retención y volver a ejecutar el informe para analizar el impacto de la Campaign en diferentes KPI.
 
 El informe solo mostrará los días en los que la Campaign o Canvas estuvo enviando mensajes. Para algunas Campaigns y Canvas, eso puede significar que el informe solo muestre un día si solo se envió una vez. Si es recurrente o se desencadena automáticamente, es posible que veas múltiples días en la tabla.
 
@@ -71,7 +71,7 @@ El informe solo mostrará los días en los que la Campaign o Canvas estuvo envia
 
 ## Explicación del informe {#report-explanation}
 
-El informe de retención ofrece tanto una fórmula de retención progresiva como una de retención por rango. Para ver tu informe de Campaign o Canvas con uno de estos tipos de retención, selecciona **Rolling Retention** o **Range Retention** para tu **Type of Retention**.
+El informe de retención ofrece tanto una fórmula de retención progresiva como una de retención por rango. Para ver tu informe de Campaign o Canvas con uno de estos tipos de retención, selecciona **Rolling Retention** o **Range Retention** en **Type of Retention**.
 
 ### Retención progresiva {#rolling-retention}
 
@@ -138,7 +138,7 @@ Algunos ejemplos de uso del rendimiento por variante:
 - **Rango de fechas**: Establecido en la página de **Details** de la Campaign o Canvas, el rango de fechas incluye a todos los usuarios que recibieron la Campaign o Canvas durante esta ventana, y de esos usuarios, los datos de aquellos que realizaron su evento de retención durante el rango de fechas aparecerán en el informe. Cada día se miden la tasa de retención, el cambio porcentual respecto al grupo de control y la confianza.
 - **Tasa de retención**: Muestra la tasa de retención por variante. La tasa de retención es equivalente al número de usuarios que realizaron el evento de retención dividido por el total de usuarios que recibieron la Campaign o Canvas.
 - **Cambio porcentual respecto al control**: Cuantifica el cambio porcentual por variante respecto al grupo de control.
-- **Confianza**: {% multi_lang_include analytics/metrics.md metric='Confidence' %} Braze compara la tasa de conversión de cada variante con la tasa de conversión del control mediante un procedimiento estadístico llamado prueba Z para calcular un porcentaje de [confianza]({{site.baseurl}}/user_guide/messaging/ab_testing#understanding-confidence).
+- **Confianza**: {% multi_lang_include analytics/metrics.md metric='Confidence' %} Braze compara la tasa de conversión de cada variante con la tasa de conversión del control mediante un procedimiento estadístico llamado prueba Z para calcular un porcentaje de [confianza]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence).
 - **Unidades**: Puedes ajustar las unidades entre el porcentaje de usuarios y el número de usuarios desde los controles del gráfico; unidades específicas pueden resultar más significativas al evaluar el impacto de una Campaign o Canvas.
 - **Gráfico de variantes**: Este gráfico resume los resultados por variante para el rango de fechas seleccionado.
 

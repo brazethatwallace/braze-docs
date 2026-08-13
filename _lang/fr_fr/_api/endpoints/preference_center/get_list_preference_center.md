@@ -20,7 +20,7 @@ description: "Cet article détaille l'endpoint Braze Répertorier les centres de
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec la permission `preference_center.list`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec la permission `preference_center.list`.
 
 ## Limite de débit {#rate-limit}
 
@@ -28,7 +28,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 ## Paramètres de chemin et de requête {#path-and-request-parameters}
 
-Cet endpoint n'a pas de paramètres de chemin ni de requête.
+Cet endpoint ne possède pas de paramètres de chemin ni de requête.
 
 ## Exemple de requête {#example-request}
 

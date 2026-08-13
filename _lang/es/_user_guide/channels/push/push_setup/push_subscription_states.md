@@ -57,7 +57,7 @@ La siguiente tabla muestra cómo las diferentes acciones del usuario afectan la 
 
 <sup>* Si la aplicación no utiliza push provisional, `Foreground Push Enabled` es `false` hasta que el usuario permita las notificaciones push. Si la aplicación utiliza push provisional, `Foreground Push Enabled` es `true` al inicio de la primera sesión. Para más información, consulta [Autorización provisional y push silencioso](#provisional-push).</sup>
 
-<sup>** A partir de la [versión 7.5.0 de Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), la propiedad de configuración `optInWhenPushAuthorized` controla si el estado de suscripción push se establece automáticamente en `Opted-In` cuando se autoriza el permiso push. Para más información, consulta [Actualización de los estados de suscripción push](#update-push-subscription-state).</sup>
+<sup>** A partir de la [versión 7.5.0 de Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0), la propiedad de configuración `optInWhenPushAuthorized` controla si el estado de suscripción push se establece automáticamente en `Opted-In` cuando se autoriza el permiso push. Para más información, consulta [Tokens push](#push-tokens).</sup>
 
 ## Permiso push {#push-permission}
 
@@ -92,7 +92,7 @@ El push autorizado requiere permiso explícito del usuario antes de enviar cualq
 
 Antes de iOS 12 (lanzado en 2018), todos los usuarios debían adherirse explícitamente para recibir notificaciones push.
 
-En iOS 12, Apple introdujo la [autorización provisional](https://www.braze.com/resources/articles/mastering-provisional-push), que permite a las marcas enviar notificaciones push silenciosas al centro de notificaciones de sus usuarios antes de que se adhieran explícitamente, dándote la oportunidad de demostrar el valor de tus mensajes de forma temprana. Consulta [autorización provisional]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications) para obtener más información.
+En iOS 12, Apple introdujo la [autorización provisional](https://www.braze.com/resources/articles/mastering-provisional-push), que permite a las marcas enviar notificaciones push silenciosas al centro de notificaciones de sus usuarios antes de que se adhieran explícitamente, dándote la oportunidad de demostrar el valor de tus mensajes de forma temprana. Consulta [autorización provisional]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push) para obtener más información.
 
 ### Web {#web}
 
@@ -115,6 +115,8 @@ Cuando un perfil de usuario tiene un token push de primer plano válido asociado
 
 {% alert note %}
 El filtro `Foreground Push Enabled for App` solo considera la presencia de un token push de primer plano y segundo plano válido para la aplicación dada. Sin embargo, el filtro más genérico [`Foreground Push Enabled`](#foreground-push-enabled) segmenta a los usuarios que han activado explícitamente las notificaciones push para cualquier aplicación en tu espacio de trabajo. Este recuento incluye solo push en primer plano y no incluye a los usuarios que han cancelado su suscripción. Puedes obtener más información sobre estos y otros filtros en [Filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
+
+Para un pequeño porcentaje de usuarios, los retrasos en el procesamiento pueden causar una discrepancia temporal: un usuario puede tener un token push de primer plano válido en su perfil pero aún no coincidir con el filtro `Foreground Push Enabled`. Su perfil puede mostrar brevemente que el push en primer plano no está habilitado aunque haya un token presente. Esto generalmente se resuelve una vez que el procesamiento se pone al día.
 {% endalert %}
 
 ### Múltiples usuarios en un dispositivo {#multiple-users-on-one-device}

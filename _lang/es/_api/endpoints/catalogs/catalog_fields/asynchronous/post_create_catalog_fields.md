@@ -6,7 +6,7 @@ page_order: 2
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Crear campos de catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Crear campos de catálogo de Braze."
 
 ---
 {% api %}
@@ -15,11 +15,11 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}/fields
 {% endapimethod %}
 
-> Utiliza este punto de conexión para crear varios campos en tu catálogo.
+> Utiliza este endpoint para crear varios campos en tu catálogo.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.create_fields`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.create_fields`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -77,7 +77,7 @@ Debes proporcionar los valores de los campos de geolocalización como una matriz
 
 ## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto de conexión: `202`, `400` y `404`.
+Existen tres respuestas de código de estado para este endpoint: `202`, `400` y `404`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 

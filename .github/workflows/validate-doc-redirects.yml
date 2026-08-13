@@ -5,6 +5,7 @@ on:
   pull_request:
     paths:
       - "_docs/**"
+      - "_includes/**/*.md"
       - "_config.yml"
       - "_plugins/**"
       - "assets/js/broken_redirect_list.js"
@@ -13,12 +14,18 @@ on:
       - "vercel.json"
       - "scripts/validate_doc_redirects.rb"
       - "scripts/jekyll_url_map_dump.rb"
+      - "scripts/jekyll_doc_maps_dump.rb"
+      - "scripts/jekyll_heading_id_dump.rb"
+      - "scripts/heading_id_extractor.rb"
+      - "scripts/doc_anchor_links.rb"
+      - "scripts/sync_redirect_anchor_pr_comments.js"
       - "scripts/redirect_target_verify_helpers.rb"
       - "scripts/redirect_file_io.rb"
       - "scripts/apply_validurl_by_lhs_csv.rb"
       - "scripts/apply_validurl_rhs_from_csv.rb"
       - "scripts/normalize_broken_redirect_list.rb"
       - "scripts/collapse_validurls_chains.rb"
+      - "spec/scripts/**"
 
 permissions:
   contents: read
@@ -27,6 +34,9 @@ jobs:
   doc-redirects:
     name: "Redirect list vs Jekyll URLs"
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - name: "Checkout PR head"
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
@@ -42,8 +52,24 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
 
+      - name: "Run anchor/redirect helper specs"
+        run: bundle exec rspec spec/scripts/
+
       - name: "Validate redirects"
-        run: bundle exec ruby scripts/validate_doc_redirects.rb --base "origin/${{ github.base_ref }}" --skip-fetch
+        id: validate
+        run: bundle exec ruby scripts/validate_doc_redirects.rb --base "origin/${{ github.base_ref }}" --skip-fetch --json redirect-report.json
+
+      - name: "Sync redirect/anchor PR comments"
+        if: always() && (steps.validate.outcome == 'success' || steps.validate.outcome == 'failure')
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # v9.0.0
+        env:
+          VALIDATE_OUTCOME: ${{ steps.validate.outcome }}
+          REPORT_PATH: redirect-report.json
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const sync = require('./scripts/sync_redirect_anchor_pr_comments.js');
+            await sync({ github, context, core });
 
   redirect-list-js-syntax:
     name: "broken_redirect_list.js syntax"
@@ -53,9 +79,9 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
 
       - name: "Set up Node"
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: "Parse-check global redirect list"
         run: node --check assets/js/broken_redirect_list.js
@@ -68,7 +94,7 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
 
       - name: "Set up Python"
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 

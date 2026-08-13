@@ -66,7 +66,7 @@ toc_headers: h2
 Content generation, canvas step agent
 {% endapitags %}
 
-このキャンバスエージェントを使用して、アプリで検索したが予約しなかったユーザー向けに、連携したメール件名、プリヘッダー、プッシュ通知のタイトルと本文コピーを生成します。目標は、各チャネルの文字数制限を守りながら、ローカライズされたブランドセーフなメッセージングでチェックアウトを促進するキャンバスジャーニーでリターゲティングすることです。
+このキャンバスステップエージェントを使用して、アプリで検索したが予約しなかったユーザー向けに、連携したメール件名、プリヘッダー、プッシュ通知のタイトルと本文コピーを生成します。目標は、各チャネルの文字数制限を守りながら、ローカライズされたブランドセーフなメッセージングでチェックアウトを促進するキャンバスジャーニーでリターゲティングすることです。
 
 {% tabs local %}
 {% tab 前提条件 %}
@@ -147,7 +147,7 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 Data standardization, canvas step agent
 {% endapitags %}
 
-この例では、キャンバスエージェントが旅行後のアンケートからユーザーフィードバックを分析し、センチメントとトピックを分類する方法を説明します。このエージェントの目標は、別のCRMプラットフォーム向けに次のステップを決定することです。
+この例では、キャンバスステップエージェントが旅行後のアンケートからユーザーフィードバックを分析し、センチメントとトピックを分類する方法を説明します。このエージェントの目標は、別のCRMプラットフォーム向けに次のステップを決定することです。
 
 {% tabs local %}
 {% tab 前提条件 %}
@@ -215,7 +215,7 @@ Input & Output Example:
 Affinity agent, canvas step agent
 {% endapitags %}
 
-この例では、キャンバスエージェントが既存のカスタム属性と高インテントの行動シグナルに基づいてユーザーを特定の興味バケットに分類し、最適な次のエクスペリエンスまたはアイテムを1つ推奨する方法を説明します。目標は、カート回復やカテゴリ固有のレコメンデーションなど、正確にターゲットされたエクスペリエンスにユーザーをルーティングすることであり、存在しない属性をハルシネーションすることなく、検証済みのデータのみに基づいて行います。
+この例では、キャンバスステップエージェントが既存のカスタム属性と高インテントの行動シグナルに基づいてユーザーを特定の興味バケットに分類し、最適な次のエクスペリエンスまたはアイテムを1つ推奨する方法を説明します。目標は、カート回復やカテゴリ固有のレコメンデーションなど、正確にターゲットされたエクスペリエンスにユーザーをルーティングすることであり、存在しない属性をハルシネーションすることなく、検証済みのデータのみに基づいて行います。
 
 {% tabs local %}
 {% tab 前提条件 %}
@@ -294,7 +294,7 @@ Recent Search: "cordless drill"
 Affinity agent, canvas step agent
 {% endapitags %}
 
-この例では、キャンバスエージェントが最近の行動やコンテキスト（最近のお気に入りや検索履歴など）からユーザーの現在の動機を推測し、次のステップに最適なルートキーを1つ返す方法を説明します。目標は、手動のセグメンテーションなしに、各ユーザーを最も関連性の高いキャンバスパスに送ることです。
+この例では、キャンバスステップエージェントが最近の行動やコンテキスト（最近のお気に入りや検索履歴など）からユーザーの現在の動機を推測し、次のステップに最適なルートキーを1つ返す方法を説明します。目標は、手動のセグメンテーションなしに、各ユーザーを最も関連性の高いキャンバスパスに送ることです。
 
 {% tabs local %}
 {% tab 前提条件 %}
@@ -366,7 +366,7 @@ Recently Engaged Products: Drill bits
 Affinity agent, canvas step agent
 {% endapitags %}
 
-この例では、キャンバスエージェントが最近の高インテントアクションと行動コンテキスト（キャンバスコンテキスト経由で渡される）に基づいてユーザーを1〜3つの興味カテゴリに割り当て、最適な次のエクスペリエンスまたはアイテムを1つ推奨する方法を説明します。目標は、仮定ではなく検証済みの行動シグナルを使用して、カスタマージャーニーの次のステップをリアルタイムでパーソナライズすることです。
+この例では、キャンバスステップエージェントが最近の高インテントアクションと行動コンテキスト（キャンバスコンテキスト経由で渡される）に基づいてユーザーを1〜3つの興味カテゴリに割り当て、最適な次のエクスペリエンスまたはアイテムを1つ推奨する方法を説明します。目標は、仮定ではなく検証済みの行動シグナルを使用して、カスタマージャーニーの次のステップをリアルタイムでパーソナライズすることです。
 
 {% tabs local %}
 {% tab 前提条件 %}
@@ -448,7 +448,7 @@ Recent Search: "18v cordless drill"
 Classification and routing, canvas step agent
 {% endapitags %}
 
-この例では、キャンバスエージェントが受信した顧客メッセージを1件ずつ評価し、今後のメッセージングからのオプトアウトリクエスト（例：STOP、購読解除、同意の撤回）として扱うべきかどうかを返す方法を説明します。目標は、厳密なブール値を出力してジャーニーを慎重に分岐させ、同意撤回後のメッセージ送信リスクを低減しつつ、ユーザーが明らかに質問をしている場合やエンゲージメントを続けている場合の誤検知を回避することです。
+この例では、キャンバスステップエージェントが受信した顧客メッセージを1件ずつ評価し、今後のメッセージングからのオプトアウトリクエスト（例：STOP、購読解除、同意の撤回）として扱うべきかどうかを返す方法を説明します。目標は、厳密なブール値を出力してジャーニーを慎重に分岐させ、同意撤回後のメッセージ送信リスクを低減しつつ、ユーザーが明らかに質問をしている場合やエンゲージメントを続けている場合の誤検知を回避することです。
 
 {% alert important %}
 オプトアウトと同意の処理には、地域やチャネルによって異なる法的義務が伴います。この例を出発点として扱い、本番環境で使用する前に、自社のコンプライアンス要件（TCPAやGDPRなど）に照らして最終的なロジックを確認してください。
@@ -530,7 +530,7 @@ Input: “This sucks—what’s the promo code?” → false
 Data standardization, canvas step agent
 {% endapitags %}
 
-この例では、キャンバスエージェントが乱雑で非構造化な受信SMSやチャット返信を一貫した構造化フォーマットに正規化し、インテントの分類、エンティティの抽出、オプトアウトやPIIなどのコンプライアンスシグナルのフラグ付けを行う方法を説明します。目標は、下流のオートメーションや内部通知に、信頼性の高いルーティングのためのクリーンで機械可読なデータを提供することです。
+この例では、キャンバスステップエージェントが乱雑で非構造化な受信SMSやチャット返信を一貫した構造化フォーマットに正規化し、インテントの分類、エンティティの抽出、オプトアウトやPIIなどのコンプライアンスシグナルのフラグ付けを行う方法を説明します。目標は、下流のオートメーションや内部通知に、信頼性の高いルーティングのためのクリーンで機械可読なデータを提供することです。
 
 {% tabs local %}
 {% tab 前提条件 %}
@@ -650,7 +650,7 @@ Final Output Specification:
 You must return an object with exactly two keys: "short_description" and "explanation".
 - short_description: Plain text for the catalog cell, maximum 150 characters. No markdown.
 - explanation: String. Brief note on how you combined Destination Name, Country, Primary Vibe, and Price Tier per the brand rules.
-Configure your agent's **Output** with **Fields** that match these key names (catalog agents do not use JSON Schema output in the Agent Console, but your instructions can still ask the model for this key-value shape).
+Configure your agent's **Output** with **Fields** that match these key names (Catalog Agents do not use JSON Schema output in the Agent Console, but your instructions can still ask the model for this key-value shape).
 
 Input & Output Example:
 <input_example>
@@ -821,7 +821,7 @@ existing_category: "hydration"
 Data standardization, canvas step agent
 {% endapitags %}
 
-この例では、キャンバスエージェントが、タイプミスやバリエーションを含む手動入力テキストなどの非構造化ユーザー入力を処理し、LLM支援のカタログ検索結果とのマッチングを使用して、既知のカタログアイテムに対して標準化する方法を説明します。目標は、不完全な入力からユーザーが実際に意図したものを特定することであり、これはLiquidルックアップでは近似マッチを処理できない場合に特に有用です。
+この例では、キャンバスステップエージェントが、タイプミスやバリエーションを含む手動入力テキストなどの非構造化ユーザー入力を処理し、LLM支援のカタログ検索結果とのマッチングを使用して、既知のカタログアイテムに対して標準化する方法を説明します。目標は、不完全な入力からユーザーが実際に意図したものを特定することであり、これはLiquidルックアップでは近似マッチを処理できない場合に特に有用です。
 
 {% tabs local %}
 {% tab 前提条件 %}
@@ -869,7 +869,7 @@ You must return an object containing exactly three keys: "standardized_destinati
 
 Input & Output Example:
 <input_example>
-{{${first_name}}}: Sarah
+{{${first_name}}}: Jane
 {{context.${user_entered_destination}}}: Parisss
 Catalog search for destinations similar to "Parisss" returns: {"destination_name": "Paris"}
 </input_example>

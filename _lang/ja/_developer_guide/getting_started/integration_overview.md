@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}はじめに：統合の概要 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
+# [![Braze Learningコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}はじめに：統合の概要 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
 
 > この記事では、オンボーディングプロセスの基本的な概要を説明します。
 
@@ -34,14 +34,14 @@ platform:
 
 ## 発見と計画 {#discovery}
 
-このフェーズでは、チームと協力してオンボーディングタスクの範囲を設定し、すべての利害関係者が共通の目標に向けて足並みを揃えていることを確認します。
+このフェーズでは、チームと協力してオンボーディングタスクの範囲を設定し、すべての関係者が共通の目標に向けて足並みを揃えていることを確認します。
 
-チームはユースケースのエンドツーエンドの計画を行い、すべてが期待通りに構築でき、そのために適切なデータが利用できることを確認します。このフェーズには、プロジェクトリード、CRMリード、フロントエンドとバックエンドのエンジニアリング、プロダクトオーナー、マーケターが含まれます。
+チームはユースケースのエンドツーエンドの計画を行い、すべてが期待通りに構築でき、そのために適切なデータが利用できることを確認します。このフェーズには、プロジェクトリード、CRMリード、フロントエンドとバックエンドの開発、プロダクトオーナー、マーケターが含まれます。
 
 発見と計画のフェーズには、平均して約6週間かかります。エンジニアリングリードはこのフェーズで週に2〜4時間を費やすことが予想されます。製品に携わる開発者は、発見と計画のフェーズで週に10〜20時間をBrazeに費やすことが予想されます。
 
 {% alert tip %}
-御社のオンボーディング期間中、Brazeは技術概要セッションを開催します。エンジニアにはこれらのセッションに参加することを強く推奨します。技術概要セッションでは、プラットフォームアーキテクチャのスケーラビリティについて話し合ったり、同規模の企業が同様のユースケースで過去にどのように成功したかという実践的な事例を見たりする機会が得られます。
+御社のオンボーディング期間中、Brazeは技術概要セッションを開催します。エンジニアにはこれらのセッションに参加することを強くお勧めします。技術概要セッションでは、プラットフォームアーキテクチャのスケーラビリティについて話し合ったり、同規模の企業が同様のユースケースで過去にどのように成功したかという実践的な事例を見たりする機会が得られます。
 {% endalert %}
 
 ![メール、ショッピングカート、画像、ジオロケーションなど、さまざまなチャネルのアイコン。]({% image_buster /assets/img/getting-started/data-graphic-2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
@@ -65,9 +65,9 @@ CRMチームは、近い将来に立ち上げるメッセージングのユー�
 
 次に、CRMチームは計画したキャンペーンを実施するために必要なデータを定義し、データ要件を作成します。
 
-名前、メール、生年月日、国など、多くの一般的なユーザー属性は、Braze SDKが統合された後に自動的に追跡されます。その他のタイプのデータはカスタムデータとして定義する必要があります。
+名前、メール、生年月日、国など、多くの一般的なユーザー属性は、Braze SDKが統合された後に自動的にトラッキングされます。その他のタイプのデータはカスタムデータとして定義する必要があります。
 
-開発者として、チームと協力して追跡する価値のある追加のカスタムデータを定義します。カスタムデータは、ユーザー群がどのように分類され、セグメント化されるかに影響します。成長スタック全体でイベント分類法を設定し、データがBrazeに出入りする際にシステムとの互換性を確保するよう構造化します。
+開発者として、チームと協力してトラッキングする価値のある追加のカスタムデータを定義します。カスタムデータは、ユーザー群がどのように分類され、セグメント化されるかに影響します。成長スタック全体でイベント分類法を設定し、データがBrazeに出入りする際にシステムとの互換性を確保するよう構造化します。
 
 {% alert tip %}
 ツール間でデータの命名法を統一してください。例えば、データウェアハウスは「期間限定オファーの購入」を特定の方法で記録する場合があります。このフォーマットに合わせてBrazeのカスタムイベントが必要かどうかを決める必要があります。
@@ -77,11 +77,11 @@ CRMチームは、近い将来に立ち上げるメッセージングのユー�
 
 ### カスタマイズの計画 {#customizations-planning}
 
-マーケティング担当者に、希望するカスタマイズについて相談してください。例えば、デフォルトのBraze Content Cardsを実装しますか？ブランドガイドラインに合うようにルック＆フィールを少し調整しますか？コンポーネントのためにまったく新しいUIを開発し、Brazeにその分析を追跡させますか？カスタマイズのレベルが異なれば、必要なスコープのレベルも異なります。
+マーケターに、希望するカスタマイズについて相談してください。例えば、デフォルトのBraze Content Cardsを実装しますか？ブランドガイドラインに合うようにルック＆フィールを少し調整しますか？コンポーネントのためにまったく新しいUIを開発し、Brazeにその分析をトラッキングさせますか？カスタマイズのレベルが異なれば、必要なスコープのレベルも異なります。
 
 ### ダッシュボードへのアクセス {#getting-dashboard-access}
 
-BrazeダッシュボードはウェブUIインターフェイスです。マーケティング担当者はダッシュボードを使って仕事をし、コンテンツを作成します。開発者はダッシュボードを使い、APIキーやプッシュ通知の認証情報など、アプリを統合するための設定を管理します。
+Brazeダッシュボードは、ウェブUIインターフェイスです。マーケターはダッシュボードを使って仕事をし、コンテンツを作成します。開発者はダッシュボードを使い、APIキーやプッシュ通知の認証情報など、アプリを統合するための設定を管理します。
 
 チーム管理者は、ダッシュボードであなた（およびBrazeへのアクセスが必要な他のチームメンバー全員）をユーザーとして追加する必要があります。
 
@@ -89,7 +89,9 @@ BrazeダッシュボードはウェブUIインターフェイスです。マー�
 
 チーム管理者はまた、さまざまな[ワークスペース]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces)を作成します。ワークスペースは、ユーザー、セグメント、APIキーなどのデータを1つの場所にグループ化します。ベストプラクティスとして、同じアプリやよく似たアプリの異なるバージョンのみを1つのワークスペースにまとめることをお勧めします。
 
-重要なのは、ワークスペースが複数のプラットフォーム（iOSやAndroidなど）用のAPIキーを提供することです。SDKデータを特定のワークスペースに関連付けるには、対応するAPIキーを使用します。ワークスペースに移動して、各アプリのAPIキーにアクセスしてください。各APIキーがスコープした作業を実行するための正しい権限を持っていることを確認してください。詳細は[APIプロビジョニングの記事]({{site.baseurl}}/api/basics#rest-api-key)を参照してください。
+重要なのは、ワークスペースが複数のプラットフォーム（iOSやAndroidなど）用のAPIキーを提供することです。SDKデータを特定のワークスペースに関連付けるには、対応するAPIキーを使用します。ワークスペースに移動して、各アプリのAPIキーにアクセスしてください。各APIキーがスコープした作業を実行するための正しい権限を持っていることを確認してください。詳細は[APIプロビジョニングの記事]({{site.baseurl}}/api/basics#rest-api-key-permissions)を参照してください。
+
+Web実装が複数のルートドメインにまたがる場合は、1つのアプリを使用するか、別々のアプリとAPIキーを使用するかを決定する際に、[Braze Web SDKのマルチドメイン統合]({{site.baseurl}}/developer_guide/platforms/web/multi_domain_integration)を参照してください。
 
 {% alert important %}
 開発用と本番用で異なる環境を設定することが重要です。テスト環境を設定することで、オンボーディングやQAで実際にお金を使うことを防ぐことができます。テスト環境を作成するには、テスト用ワークスペースをセットアップし、本番用ワークスペースにテストデータを入力しないように、必ずそのAPIキーを使用してください。
@@ -115,7 +117,7 @@ BrazeはiOSアプリ、Androidアプリ、ウェブアプリなどをサポー�
 
 CDPとサイドバイサイドの統合を行う場合は、CDPのSDKからの呼び出しをBraze SDKにマッピングします。基本的に、以下を実行します。
 * 識別呼び出しを`changeUser`（[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html)、[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/)、[web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)）にマッピングし、属性を設定します。
-* データフラッシュ呼び出しを`requestImmediateDataFlush`（[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-immediate-data-flush.html?query=abstract%20fun%20requestImmediateDataFlush())、[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/requestimmediatedataflush())、[web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestimmediatedataflush)）にマッピングします。
+* データフラッシュ呼び出しを`requestImmediateDataFlush`（[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-immediate-data-flush.html?query=abstract%20fun%20requestImmediateDataFlush())、[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/requestimmediatedataflush()、[web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestimmediatedataflush)）にマッピングします。
 * カスタムイベントや購入を記録します。
 
 選択したプラットフォームによっては、Braze SDKと選択したCDP間の統合例を利用できる場合があります。詳細は[CDPテクノロジーパートナーのリスト]({{site.baseurl}}/partners/data_and_analytics)を参照してください。
@@ -155,13 +157,13 @@ APIを使用する際は、リクエストをバッチ処理し、デルタ値�
 
 Brazeはデータがすべてです。Brazeのデータはユーザープロファイルに保存されます。
 
-データポイントとは、マーケティング担当者にとって適切なデータを確実に取得するための仕組みであり、単に「どんな」データでも集めればいいというものではありません。[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points)について理解を深めてください。
+データポイントとは、マーケターにとって適切なデータを確実に取得するための仕組みであり、単に「どんな」データでも集めればいいというものではありません。[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points)について理解を深めてください。
 
 ### レガシーユーザーデータの移行 {#migrating-legacy-user-data}
 
 Brazeの[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、Brazeの外部で記録された履歴データを移行できます。よくインポートされるデータの例としては、プッシュトークンや過去の購入履歴などがあります。このエンドポイントは、単発のインポートや定期的なバッチ更新に使用できます。
 
-また、ダッシュボードに一度だけ[CSVをアップロード]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#importing-a-csv)することで、ユーザーをインポートし、顧客の属性値を更新することもできます。CSVのアップロードはマーケティング担当者にとって便利ですが、REST APIを使えばより柔軟に対応できます。
+また、ダッシュボードに一度だけ[CSVをアップロード]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#importing-a-csv)することで、ユーザーをインポートし、顧客の属性値を更新することもできます。CSVのアップロードはマーケターにとって便利ですが、REST APIを使えばより柔軟に対応できます。
 
 ### セッショントラッキングの設定 {#setting-up-session-tracking}
 
@@ -197,7 +199,7 @@ QAを始める前に、本番環境とテスト環境がセットアップされ
 | 匿名ユーザープロファイルを作成します。 | プッシュキャンペーンがデバイスに正しく送信され、エンゲージメントが記録されているかテストします。 |
 | `changeUser()`メソッドが呼び出されたときに、匿名ユーザープロファイルが既知のユーザープロファイルになることを確認します。 | アプリ内メッセージが配信され、指標が記録されることをテストします。 |
 |                           | Content Cardsが配信され、指標が記録されていることをテストします。 |
-|                           | コネクテッドコンテンツを促進します（例：AccuWeather）。 |
+|                           | Connected Contentを促進します（例：AccuWeather）。 |
 |                           | すべてのメッセージチャネルの統合が正しく連携していることを確認します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="品質保証" }
 
@@ -229,36 +231,36 @@ Brazeの[GitHub](https://github.com/braze-inc/)を通じて、Brazeプラット�
 
 ## SDKレート制限 {#sdk-rate-limits}
 
-### 月間アクティブユーザー数（CY 24-25）、ユニバーサルMAU、Web MAU、モバイルMAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
+### Monthly Active Users CY 24-25、Universal MAU、Web MAU、Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
-月間アクティブユーザー数（CY 24-25）、ユニバーサルMAU、Web MAU、モバイルMAUを購入した顧客に対して、Brazeはセッション、ユーザー属性、イベント、その他のユーザープロファイルデータを更新するためにSDKが使用するAPIリクエストに対し、サーバーサイドのレート制限を適用します。これはプラットフォームの安定性を確保し、高速で信頼性の高いサービスを維持するためです。
+Monthly Active Users CY 24-25、Universal MAU、Web MAU、Mobile MAUを購入されたお客様に対して、Brazeは、SDKが使用するAPIリクエスト（セッション、ユーザー属性、イベント、その他のユーザープロファイルデータの更新）にサーバーサイドのレート制限を適用します。これはプラットフォームの安定性を確保し、高速で信頼性の高いサービスを維持するためです。
 
-* 時間単位のレート制限は、購入した月間アクティブユーザー数（MAU）、業界、季節性、またはその他の要因に対応する、アカウントで予想されるSDKトラフィックに応じて設定されます。時間あたりのレート制限に達すると、Brazeは次の時間までリクエストをスロットルします。
-* すべてのレート制限されたリクエストはSDKによって自動的に再試行されます。
-* SDKリクエストは、実装で収集されるカスタムデータの量と相関します。常に時間あたりのレート制限に近いか、制限に達している場合は、以下を検討してください。
-    * SDKの統合を見直し、過剰なデータ収集を減らす。
-    * マーケティングのユースケースに不可欠でないカスタムデータをブロックリスト化する。
-* バーストレート制限とは、非常に短時間（つまり数秒以内）に大量のリクエストが到着した場合に適用される、短時間のレート制限です。バースト制限が発生してもアクションを起こす必要はなく、SDKは直後に再試行します。
-* 定常レート制限は、バーストウィンドウよりも長いローリングウィンドウ（例えば数分間）における持続的なリクエスト量をコントロールし、バースト制限と時間単位のレート制限の間で継続的なトラフィックを平滑化するのに役立ちます。
+* 1時間あたりのレート制限は、アカウントで予想されるSDKトラフィックに基づいて設定されます。これは、購入された月間アクティブユーザー数（MAU）、業界、季節性、その他の要因に対応する場合があります。1時間あたりのレート制限に達すると、Brazeは次の1時間までリクエストをスロットリングします。
+* レート制限されたすべてのリクエストは、SDKによって自動的にリトライされます。
+* SDKリクエストは、実装で収集されるカスタムデータの量に相関します。1時間あたりのレート制限に常に近づいている、または達している場合は、以下を検討してください。
+    * SDK統合を見直して、過剰なデータ収集を削減する。
+    * マーケティングユースケースに不可欠でないカスタムデータをブロックリストに登録する。
+* バーストレート制限は、非常に短い期間（つまり数秒以内）に大量のリクエストが到着した場合に適用される短期間のレート制限です。バースト制限が発生した場合にアクションを取る必要はなく、SDKはすぐにリトライします。
+* 定常レート制限は、バーストウィンドウよりも長いローリングウィンドウ（例えば数分間）にわたる持続的なリクエスト量を制御し、バースト制限と1時間あたりのレート制限の間のトラフィックを平滑化するのに役立ちます。
 
 ### レート制限の確認 {#finding-your-rate-limits}
 
-予想されるSDKスループットに基づく現在の制限を確認するには、**設定** > **APIキー** > **APIとSDKの制限**に進みます。
+予想されるSDKスループットに基づく現在の制限を確認するには、**設定** > **APIと識別子** > **APIとSDKの制限**に移動します。
 
-過去の使用状況については、**設定** > **APIキー** > **APIとSDKのダッシュボード**を参照してください。
+過去の使用状況については、**設定** > **APIと識別子** > **APIとSDKダッシュボード**に移動します。
 
 ### より高いレート制限のリクエスト {#requesting-higher-rate-limits}
 
-より高いBrazeレート制限が必要な場合は、Brazeサポートまたはカスタマーサクセスマネージャーに連絡し、以下の詳細を記載してください。
+より高いBrazeレート制限が必要な場合は、Brazeサポートまたはカスタマーサクセスマネージャーに連絡し、以下の詳細を含めてください。
 
-* 一時的な増加か恒久的な増加か。
+* 一時的な増加が必要か、恒久的な増加が必要か。
 * 増加が必要な理由。
 * 影響を受けるエンドポイントと環境。
-* おおよそのトラフィック量とスケジュール（開始日、期間、ピーク時間帯を含む）。
-* 呼び出しをバッチ処理できるか、またはトラフィックを時間をかけて分散できるか。
+* 開始日、期間、ピーク時間を含む、おおよそのトラフィック量とタイムライン。
+* コールをバッチ処理したり、トラフィックを時間的に分散させたりできるかどうか。
 
-リクエストを送信した後、Brazeが確認し、結果をお知らせします。
+リクエストを送信すると、Brazeがそれを確認し、結果をお知らせします。
 
 ### 変更とサポート {#changes-and-support}
 
-Brazeは、システムの安定性を保護するため、またはアカウントのデータスループットを向上させるために、レート制限を変更することがあります。レート制限に関するご質問やご不明な点、レート制限がビジネスに与える影響については、Brazeサポートまたはカスタマーサクセスマネージャーまでお問い合わせください。
+Brazeは、システムの安定性を保護するため、またはアカウントのデータスループットの増加に対応するために、レート制限を変更する場合があります。レート制限とそれがビジネスに与える影響に関するご質問やご懸念については、Brazeサポートまたはカスタマーサクセスマネージャーにお問い合わせください。

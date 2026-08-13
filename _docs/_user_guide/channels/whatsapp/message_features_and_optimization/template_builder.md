@@ -20,7 +20,7 @@ channel:
 
 ### Step 1: Go to WhatsApp Templates
 
-Go to **Content** > **WhatsApp**, then select **Create new template**.
+Go to **Content** > **Templates** > **WhatsApp**, then select **Create new template**.
 
 ![WhatsApp templates page with button to create a new template.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 
@@ -62,6 +62,15 @@ Enter the main content of your message and personalize the body as needed by usi
 {% endraw %}
 
 You can add personalization wherever the **+** plus button appears. Not all fields support personalization.
+
+#### Liquid character limits
+
+Meta enforces character limits on the template structure you submit for approval (for example, 1,024 characters for the body and 60 characters for a text header). In the Template Builder, these limits apply to the template sent to Meta, not the final rendered message at send time.
+
+- **{% raw %}`{{ }}`{% endraw %} variables:** Braze converts Liquid variables to numbered placeholders ({% raw %}`{{1}}`, `{{2}}`{% endraw %}) before checking length. A long expression like {% raw %}`{{${first_name}}}`{% endraw %} counts as a short placeholder, not the full Liquid syntax.
+- **{% raw %}`{% %}`{% endraw %} tags:** Liquid logic tags count as literal text at their full length and appear as uneditable copy in template messages.
+
+For complex personalization, use a [Context step]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) to compute values, then reference shorter variables in the template. For Message Extras and conditional logic constraints, see [Liquid in the WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder/template_builder_liquid).
 
 #### Footer (optional)
 
@@ -116,7 +125,7 @@ Reviews typically complete within five minutes, but can take up to 24 hours.
 
 ### Can I edit a template after it's been approved?
 
-Any changes to locked content (body copy or other Meta-controlled fields) require resubmitting the template for approval, which must be done from the WhatsApp Business Manager. You can update content and personalization when building your campaign or Canvas.
+You can update variable content and personalization when building a campaign or Canvas. Changes to locked content (body copy, button layout, or other Meta-controlled fields) require creating a new template in the Template Builder or editing the template in Meta's WhatsApp Manager and waiting for Meta re-approval. If you use [click tracking]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking), see that article before editing Braze-created templates in Meta's WhatsApp Manager.
 
 ### What happens to templates I submitted before the Template Builder was available?
 

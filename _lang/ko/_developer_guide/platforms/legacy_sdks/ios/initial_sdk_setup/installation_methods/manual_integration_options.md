@@ -13,7 +13,7 @@ noindex: true
 # 수동 통합 {#manual-integration}
 
 {% alert tip %}
-SDK를 [스위프트 패키지 매니저](../swift_package_manager/), [CocoaPods](../cocoapods/), 또는 [Carthage](../carthage_integration/)와 같은 패키지 매니저를 통해 구현할 것을 강력히 권장합니다. 그러면 많은 시간을 절감하고 프로세스의 많은 부분을 자동화할 수 있습니다. 그러나 그렇게 할 수 없는 경우 지침을 따라 통합을 수동으로 완료할 수 있습니다.
+SDK를 [스위프트 패키지 매니저]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods), 또는 [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration)와 같은 패키지 매니저를 통해 구현할 것을 강력히 권장합니다. 그러면 많은 시간을 절감하고 프로세스의 많은 부분을 자동화할 수 있습니다. 그러나 그렇게 할 수 없는 경우 지침을 따라 통합을 수동으로 완료할 수 있습니다.
 {% endalert %}
 
 ## 1단계: Braze SDK 다운로드 {#step-1-downloading-the-braze-sdk}

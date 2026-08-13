@@ -43,9 +43,8 @@ plugins:
 # check in in that state, or it will cause undesirable behavior in prod.
 search_debug: false
 
-# For local testing, set to false to increase build time by not pulling partner api
-# and markdown data. MAKE SURE TO TURN BACK ON PRIOR TO COMMIT.
-partner_api: true
+# For local testing, set to false to skip remote markdown embeds and speed up builds.
+# MAKE SURE TO TURN BACK ON PRIOR TO COMMIT.
 markdown_api: true
 
 # Markdown copy plugin - copies original .md files to _site for LLM processing
@@ -154,11 +153,6 @@ defaults:
     values:
       nav_level: 1
   - scope:
-      path: "_docs/_partners/home.md"
-      type: "partners"
-    values:
-      layout: "partner_page"
-  - scope:
       path: ""
       type: "releases"
     values:
@@ -242,6 +236,7 @@ exclude:
     "scripts",
     ".claude",
     ".cursor",
+    "*.pii-audit-dismiss.json",
   ]
 
 # Setting for image buster

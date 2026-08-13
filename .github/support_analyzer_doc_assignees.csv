@@ -1,9 +1,11 @@
 Page Path,Writer,Team,GitHub Username
-_docs/_api/api_campaigns/transactional_api_campaign.md,Lydia,Core Messaging,lydia-xie
+_docs/_api/api_campaigns.md,Lydia,Core Messaging,lydia-xie
 _docs/_api/api_limits.md,Docs Team,,docs-team
 _docs/_api/basics.md,Docs Team,,docs-team
 _docs/_api/data_retention.md,Docs Team,,docs-team
-_docs/_api/endpoints.md,Docs Team,,docs-team
+_docs/_api/data_retention/messaging_interaction_data.md,Docs Team,,docs-team
+_docs/_api/endpoints/apps.md,Docs Team,,docs-team
+_docs/_api/endpoints/apps/post_update_push_credential.md,Docs Team,,docs-team
 _docs/_api/endpoints/catalogs.md,Zair,Core Objects,zairro
 _docs/_api/endpoints/catalogs/catalog_fields.md,Zair,Core Objects,zairro
 _docs/_api/endpoints/catalogs/catalog_fields/asynchronous.md,Zair,Core Objects,zairro
@@ -52,16 +54,16 @@ _docs/_api/endpoints/export/campaigns/get_campaign_details.md,Lydia,Core Messagi
 _docs/_api/endpoints/export/campaigns/get_campaigns.md,Lydia,Core Messaging,lydia-xie
 _docs/_api/endpoints/export/campaigns/get_send_analytics.md,Lydia,Core Messaging,lydia-xie
 _docs/_api/endpoints/export/canvas.md,Lydia,"Canvas, Logic, & Execution",lydia-xie
-_docs/_api/endpoints/export/canvas/get_canvas_analytics_summary.md,Lydia,"Canvas, Logic, & Execution",lydia-xie
 _docs/_api/endpoints/export/canvas/get_canvas_analytics.md,Lydia,"Canvas, Logic, & Execution",lydia-xie
+_docs/_api/endpoints/export/canvas/get_canvas_analytics_summary.md,Lydia,"Canvas, Logic, & Execution",lydia-xie
 _docs/_api/endpoints/export/canvas/get_canvas_details.md,Lydia,Messaging Experience,lydia-xie
 _docs/_api/endpoints/export/canvas/get_canvases.md,Lydia,Messaging Experience,lydia-xie
 _docs/_api/endpoints/export/custom_attributes.md,Zair,Core Objects,zairro
 _docs/_api/endpoints/export/custom_attributes/get_custom_attributes.md,Zair,Core Objects,zairro
 _docs/_api/endpoints/export/custom_events.md,Zair,Core Objects,zairro
+_docs/_api/endpoints/export/custom_events/get_custom_events.md,Zair,Core Objects,zairro
 _docs/_api/endpoints/export/custom_events/get_custom_events_analytics.md,Rachel,Reporting,rachel-feinberg
 _docs/_api/endpoints/export/custom_events/get_custom_events_data.md,Zair,Core Objects,zairro
-_docs/_api/endpoints/export/custom_events/get_custom_events.md,Zair,Core Objects,zairro
 _docs/_api/endpoints/export/kpi.md,Rachel,Reporting,rachel-feinberg
 _docs/_api/endpoints/export/kpi/get_kpi_daily_new_users_date.md,Rachel,Reporting,rachel-feinberg
 _docs/_api/endpoints/export/kpi/get_kpi_dau_date.md,Rachel,Reporting,rachel-feinberg
@@ -72,19 +74,20 @@ _docs/_api/endpoints/export/purchases/get_list_product_id.md,Zair,Core Objects,z
 _docs/_api/endpoints/export/purchases/get_number_of_purchases.md,Rachel,Reporting,rachel-feinberg
 _docs/_api/endpoints/export/purchases/get_revenue_series.md,Rachel,Reporting,rachel-feinberg
 _docs/_api/endpoints/export/segments.md,Rachel,User Targeting,rachel-feinberg
+_docs/_api/endpoints/export/segments/get_segment.md,Rachel,User Targeting,rachel-feinberg
 _docs/_api/endpoints/export/segments/get_segment_analytics.md,Rachel,User Targeting,rachel-feinberg
 _docs/_api/endpoints/export/segments/get_segment_details.md,Rachel,User Targeting,rachel-feinberg
-_docs/_api/endpoints/export/segments/get_segment.md,Rachel,User Targeting,rachel-feinberg
 _docs/_api/endpoints/export/segments/post_cancel_export.md,Rachel,User Targeting,rachel-feinberg
 _docs/_api/endpoints/export/sessions.md,Rachel,Reporting,rachel-feinberg
 _docs/_api/endpoints/export/sessions/get_sessions_analytics.md,Rachel,Reporting,rachel-feinberg
 _docs/_api/endpoints/export/user_data.md,Zair,Core Objects,zairro
 _docs/_api/endpoints/export/user_data/post_users_global_control_group.md,Rachel,Reporting,rachel-feinberg
-_docs/_api/endpoints/export/user_data/post_users_identifier.md,Rachel,,rachel-feinberg
-_docs/_api/endpoints/export/user_data/post_users_segment.md,Rachel,,rachel-feinberg
+_docs/_api/endpoints/export/user_data/post_users_identifier.md,Rachel,Reporting,rachel-feinberg
+_docs/_api/endpoints/export/user_data/post_users_segment.md,Rachel,Reporting,rachel-feinberg
 _docs/_api/endpoints/media_library.md,Bre,FIX,bre-fitzgerald
 _docs/_api/endpoints/media_library/manage_assets.md,Bre,FIX,bre-fitzgerald
 _docs/_api/endpoints/media_library/manage_assets/create.md,Bre,FIX,bre-fitzgerald
+_docs/_api/endpoints/media_library/manage_assets/replace_file.md,Bre,FIX,bre-fitzgerald
 _docs/_api/endpoints/messaging.md,Lydia,Messaging Experience,lydia-xie
 _docs/_api/endpoints/messaging/duplicate_messages.md,Lydia,Messaging Experience,lydia-xie
 _docs/_api/endpoints/messaging/duplicate_messages/post_duplicate_campaigns.md,Lydia,Messaging Experience,lydia-xie
@@ -132,8 +135,8 @@ _docs/_api/endpoints/sms/post_remove_invalid_numbers.md,Rachel,SMS,rachel-feinbe
 _docs/_api/endpoints/subscription_groups.md,Lydia,Email,lydia-xie
 _docs/_api/endpoints/subscription_groups/get_list_user_subscription_group_status.md,Lydia,Email,lydia-xie
 _docs/_api/endpoints/subscription_groups/get_list_user_subscription_groups.md,Lydia,Email,lydia-xie
-_docs/_api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2.md,Lydia,Email,lydia-xie
 _docs/_api/endpoints/subscription_groups/post_update_user_subscription_group_status.md,Lydia,Email,lydia-xie
+_docs/_api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2.md,Lydia,Email,lydia-xie
 _docs/_api/endpoints/templates.md,Docs Team,n/a,docs-team
 _docs/_api/endpoints/templates/content_blocks_templates.md,Bre,FIX,bre-fitzgerald
 _docs/_api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks.md,Bre,FIX,bre-fitzgerald
@@ -170,9 +173,9 @@ _docs/_api/endpoints/user_data/external_id_migration/post_external_ids_rename.md
 _docs/_api/endpoints/user_data/post_user_alias.md,Zair,Core Objects,zairro
 _docs/_api/endpoints/user_data/post_user_delete.md,Zair,Core Objects,zairro
 _docs/_api/endpoints/user_data/post_user_identify.md,Zair,Core Objects,zairro
+_docs/_api/endpoints/user_data/post_user_track.md,Zair,Ingestion Foundations,zairro
 _docs/_api/endpoints/user_data/post_user_track_bulk.md,Zair,Core Objects,zairro
 _docs/_api/endpoints/user_data/post_user_track_synchronous.md,Zair,Ingestion Foundations,zairro
-_docs/_api/endpoints/user_data/post_user_track.md,Zair,Ingestion Foundations,zairro
 _docs/_api/endpoints/user_data/post_users_alias_update.md,Zair,Core Objects,zairro
 _docs/_api/endpoints/user_data/post_users_merge.md,Zair,Core Objects,zairro
 _docs/_api/errors.md,Docs Team,,docs-team
@@ -209,6 +212,7 @@ _docs/_developer_guide/analytics/logging_channel_data.md,Rachel,Reporting,rachel
 _docs/_developer_guide/analytics/logging_channel_data/content_cards.md,Rachel,Reporting,rachel-feinberg
 _docs/_developer_guide/analytics/logging_channel_data/in_app_messages.md,Rachel,Reporting,rachel-feinberg
 _docs/_developer_guide/analytics/logging_channel_data/push_notifications.md,Rachel,Reporting,rachel-feinberg
+_docs/_developer_guide/analytics/logging_ecommerce_events.md,Rachel,Reporting,rachel-feinberg
 _docs/_developer_guide/analytics/logging_events.md,Rachel,Reporting,rachel-feinberg
 _docs/_developer_guide/analytics/logging_purchases.md,Rachel,Reporting,rachel-feinberg
 _docs/_developer_guide/analytics/managing_data_collection.md,Rachel,Reporting,rachel-feinberg
@@ -239,24 +243,22 @@ _docs/_developer_guide/content_cards/logging_analytics.md,Zair,Content Cards,zai
 _docs/_developer_guide/decisioning_studio.md,Lydia,AI Platform,lydia-xie
 _docs/_developer_guide/decisioning_studio/building_agents.md,Lydia,AI Platform,lydia-xie
 _docs/_developer_guide/decisioning_studio/integration.md,Lydia,AI Platform,lydia-xie
-_docs/_developer_guide/disclosures.md,Zair,,zairro
+_docs/_developer_guide/disclosures.md,Zair,Feature Flags,zairro
 _docs/_developer_guide/disclosures/innovation_statement.md,Docs Team,,docs-team
 _docs/_developer_guide/disclosures/open_source_software_disclosure.md,Docs Team,,docs-team
 _docs/_developer_guide/disclosures/security_and_vulnerability_disclosure.md,Docs Team,,docs-team
 _docs/_developer_guide/disclosures/security_qualifications.md,Docs Team,,docs-team
 _docs/_developer_guide/feature_flags.md,Zair,Feature Flags,zairro
-_docs/_developer_guide/feature_flags/canvas.md,Zair,Feature Flags,zairro
 _docs/_developer_guide/feature_flags/create.md,Zair,Feature Flags,zairro
 _docs/_developer_guide/feature_flags/experiments.md,Zair,Feature Flags,zairro
 _docs/_developer_guide/feature_flags/faq.md,Zair,Feature Flags,zairro
-_docs/_developer_guide/geofences.md,Zair,,zairro
-_docs/_developer_guide/getting_started.md,Zair,,zairro
-_docs/_developer_guide/getting_started/architecture_overview.md,Zair,,zairro
+_docs/_developer_guide/geofences.md,Zair,Feature Flags,zairro
+_docs/_developer_guide/getting_started.md,Zair,Feature Flags,zairro
+_docs/_developer_guide/getting_started/architecture_overview.md,Zair,Feature Flags,zairro
 _docs/_developer_guide/getting_started/build_with_llm.md,Zair,SDKs,zairro
-_docs/_developer_guide/getting_started/customization_overview.md,Zair,,zairro
-_docs/_developer_guide/getting_started/integration_overview.md,Zair,,zairro
-_docs/_developer_guide/getting_started/platform_overview.md,Zair,,zairro
-_docs/_developer_guide/getting_started/sdk_overview.md,Zair,,zairro
+_docs/_developer_guide/getting_started/integration_overview.md,Zair,SDKs,zairro
+_docs/_developer_guide/getting_started/platform_overview.md,Zair,SDKs,zairro
+_docs/_developer_guide/getting_started/sdk_overview.md,Zair,SDKs,zairro
 _docs/_developer_guide/home.md,Docs Team,,docs-team
 _docs/_developer_guide/in_app_messages.md,Rachel,In-App Messaging,rachel-feinberg
 _docs/_developer_guide/in_app_messages/customization.md,Rachel,In-App Messaging,rachel-feinberg
@@ -273,7 +275,6 @@ _docs/_developer_guide/in_app_messages/tutorials/customizing_message_styling.md,
 _docs/_developer_guide/in_app_messages/tutorials/deferring_triggered_messages.md,Rachel,In-App Messaging,rachel-feinberg
 _docs/_developer_guide/live_notifications.md,Zair,Push,zairro
 _docs/_developer_guide/live_notifications/live_activities.md,Zair,Push,zairro
-_docs/_developer_guide/live_notifications/live_updates.md,Zair,Push,zairro
 _docs/_developer_guide/localization.md,Zair,,zairro
 _docs/_developer_guide/mcp_server.md,Zair,,zairro
 _docs/_developer_guide/mcp_server/available_api_functions.md,Zair,,zairro
@@ -284,7 +285,6 @@ _docs/_developer_guide/platforms.md,Zair,,zairro
 _docs/_developer_guide/platforms/android.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/android/android_13.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks.md,Zair,SDKs,zairro
-_docs/_developer_guide/platforms/legacy_sdks/ios.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks/ios/advanced_use_cases.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/beacon_integration.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/fine_network_traffic_control.md,Zair,SDKs,zairro
@@ -343,6 +343,7 @@ _docs/_developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_
 _docs/_developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/ios_sdk_integration.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview.md,Zair,SDKs,zairro
+_docs/_developer_guide/platforms/legacy_sdks/ios/migration_faq.md,Docs Team,,docs-team
 _docs/_developer_guide/platforms/legacy_sdks/ios/push_notifications.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks/ios/push_notifications/customization.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons.md,Zair,SDKs,zairro
@@ -361,9 +362,7 @@ _docs/_developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshoot
 _docs/_developer_guide/platforms/legacy_sdks/ios/push_notifications/unit_tests.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks/ios/sample_apps.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks/ios/storage.md,Zair,SDKs,zairro
-_docs/_developer_guide/platforms/legacy_sdks/macOS.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks/macOS/initial_sdk_setup.md,Zair,SDKs,zairro
-_docs/_developer_guide/platforms/legacy_sdks/tvos.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/legacy_sdks/tvos/initial_sdk_setup.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/swift.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/swift/_archived_updates/ios_14.md,Zair,SDKs,zairro
@@ -380,9 +379,8 @@ _docs/_developer_guide/platforms/web/content_security_policy.md,Zair,SDKs,zairro
 _docs/_developer_guide/platforms/web/smart_tvs.md,Zair,SDKs,zairro
 _docs/_developer_guide/push_notifications.md,Zair,Push,zairro
 _docs/_developer_guide/push_notifications/customization.md,Zair,Push,zairro
-_docs/_developer_guide/push_notifications/deep_linking_troubleshooting.md,Zair,Push,zairro
 _docs/_developer_guide/push_notifications/deep_linking.md,Zair,Push,zairro
-_docs/_developer_guide/push_notifications/examples.md,Zair,Push,zairro
+_docs/_developer_guide/push_notifications/deep_linking_troubleshooting.md,Zair,Push,zairro
 _docs/_developer_guide/push_notifications/ios_deep_linking_guide.md,Zair,Push,zairro
 _docs/_developer_guide/push_notifications/logging_message_data.md,Zair,Push,zairro
 _docs/_developer_guide/push_notifications/push_stories.md,Zair,Push,zairro
@@ -395,7 +393,6 @@ _docs/_developer_guide/push_notifications/troubleshooting.md,Zair,Push,zairro
 _docs/_developer_guide/references.md,Zair,SDKs,zairro
 _docs/_developer_guide/rest_api.md,Docs Team,n/a,docs-team
 _docs/_developer_guide/rest_api/recommending_products.md,Zair,Core Objects,zairro
-_docs/_developer_guide/rest_api/reminder_messaging.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_developer_guide/rest_api/sending_email_messages.md,Lydia,Email,lydia-xie
 _docs/_developer_guide/rest_api/sending_messages.md,Lydia,Core Messaging,lydia-xie
 _docs/_developer_guide/rest_api/sending_sms_messages.md,Rachel,SMS,rachel-feinberg
@@ -406,34 +403,30 @@ _docs/_developer_guide/sdk_integration/debugging.md,Zair,SDKs,zairro
 _docs/_developer_guide/sdk_integration/google_tag_manager.md,Zair,SDKs,zairro
 _docs/_developer_guide/sdk_integration/rate_limits.md,Zair,SDKs,zairro
 _docs/_developer_guide/sdk_integration/reading_verbose_logs.md,Zair,SDKs,zairro
+_docs/_developer_guide/sdk_integration/troubleshooting_certificate_errors.md,Docs Team,,docs-team
 _docs/_developer_guide/sdk_integration/verbose_logging.md,Zair,SDKs,zairro
 _docs/_developer_guide/sdk_integration/version_management.md,Zair,SDKs,zairro
-_docs/_developer_guide/storage.md,Zair,,zairro
-_docs/_developer_guide/tutorials.md,Zair,,zairro
-_docs/_hidden/compliance/audience_sync.md,Rachel,WhatsApp,rachel-feinberg
-_docs/_hidden/compliance/line_channel.md,Rachel,Chat Apps,rachel-feinberg
-_docs/_hidden/misc_reference/scim_api_appendix.md,Rachel,CLIP,rachel-feinberg
+_docs/_developer_guide/sdk_repository_guides.md,Zair,SDKs,zairro
+_docs/_developer_guide/sdk_repository_guides/android.md,Zair,SDKs,zairro
+_docs/_developer_guide/sdk_repository_guides/cordova.md,Zair,SDKs,zairro
+_docs/_developer_guide/sdk_repository_guides/flutter.md,Zair,SDKs,zairro
+_docs/_developer_guide/sdk_repository_guides/javascript.md,Zair,SDKs,zairro
+_docs/_developer_guide/sdk_repository_guides/react_native.md,Zair,SDKs,zairro
+_docs/_developer_guide/sdk_repository_guides/roku.md,Zair,SDKs,zairro
+_docs/_developer_guide/sdk_repository_guides/swift.md,Zair,SDKs,zairro
+_docs/_developer_guide/sdk_repository_guides/unity.md,Zair,SDKs,zairro
+_docs/_developer_guide/sdk_repository_guides/web.md,Zair,SDKs,zairro
+_docs/_developer_guide/sdk_repository_guides/xamarin.md,Zair,SDKs,zairro
+_docs/_developer_guide/storage.md,Zair,SDKs,zairro
+_docs/_developer_guide/tutorials.md,Zair,SDKs,zairro
 _docs/_hidden/other/airship_migration.md,Docs Team,,docs-team
 _docs/_hidden/other/documentation_request.md,Docs Team,,docs-team
 _docs/_hidden/other/dp-technical-assistance.md,Docs Team,,docs-team
 _docs/_hidden/other/feedback.md,Rachel,User Targeting,rachel-feinberg
 _docs/_hidden/other/segment_funnels.md,Rachel,User Targeting,rachel-feinberg
+_docs/_hidden/other/sms_traffic_pumping_fraud_faq.md,Rachel,SMS,rachel-feinberg
 _docs/_hidden/other/support_contact.md,Docs Team,Support,docs-team
 _docs/_hidden/other/user_archival.md,Docs Team,,docs-team
-_docs/_hidden/redirects/advancement_behavior.md,Docs Team,,docs-team
-_docs/_hidden/redirects/content_cards_for_android.md,Docs Team,,docs-team
-_docs/_hidden/redirects/content_cards_for_ios.md,Docs Team,,docs-team
-_docs/_hidden/redirects/content_cards_web.md,Docs Team,,docs-team
-_docs/_hidden/redirects/content_cards.md,Docs Team,,docs-team
-_docs/_hidden/redirects/creating_an_in-app_message.md,Docs Team,,docs-team
-_docs/_hidden/redirects/currents.md,Zair,Currents,zairro
-_docs/_hidden/redirects/eclipse_setup.md,Docs Team,,docs-team
-_docs/_hidden/redirects/email_attachments.md,Docs Team,,docs-team
-_docs/_hidden/redirects/gmail_promotion_tool.md,Docs Team,,docs-team
-_docs/_hidden/redirects/okta.md,Docs Team,,docs-team
-_docs/_hidden/redirects/subscription_group_api.md,Docs Team,,docs-team
-_docs/_hidden/styling_examples.md,Docs Team,,docs-team
-_docs/_home/home.md,Docs Team,,docs-team
 _docs/_partners/additional_channels_and_extensions.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/additional_channels.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/additional_channels/advertising.md,Adam,Partnerships,atom-evens
@@ -442,6 +435,7 @@ _docs/_partners/additional_channels_and_extensions/additional_channels/advertisi
 _docs/_partners/additional_channels_and_extensions/additional_channels/direct_mail.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/additional_channels/direct_mail/inkit.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/additional_channels/direct_mail/lob.md,Adam,Partnerships,atom-evens
+_docs/_partners/additional_channels_and_extensions/additional_channels/direct_mail/mypostcard.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/additional_channels/direct_mail/oppizi.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/additional_channels/direct_mail/optilyz.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/additional_channels/instant_chat.md,Adam,Partnerships,atom-evens
@@ -456,13 +450,9 @@ _docs/_partners/additional_channels_and_extensions/additional_channels/mobile_wa
 _docs/_partners/additional_channels_and_extensions/additional_channels/mobile_wallet/passkit.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/additional_channels/shopgate.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/additional_channels/support.md,Adam,Partnerships,atom-evens
-_docs/_partners/additional_channels_and_extensions/additional_channels/support/pypestream.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/additional_channels/support/zendesk.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/extensions.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/extensions/gamification.md,Adam,Partnerships,atom-evens
-_docs/_partners/additional_channels_and_extensions/extensions/gamification/future_anthem.md,Adam,Partnerships,atom-evens
-_docs/_partners/additional_channels_and_extensions/extensions/gamification/komo.md,Adam,Partnerships,atom-evens
-_docs/_partners/additional_channels_and_extensions/extensions/gamification/odicci.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/extensions/landing_pages.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/extensions/landing_pages/digioh.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/extensions/landing_pages/komo.md,Adam,Partnerships,atom-evens
@@ -471,17 +461,17 @@ _docs/_partners/additional_channels_and_extensions/extensions/learning/edume.md,
 _docs/_partners/additional_channels_and_extensions/extensions/rewards.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/extensions/rewards/dots_eco.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/extensions/rewards/nift.md,Adam,Partnerships,atom-evens
-_docs/_partners/additional_channels_and_extensions/extensions/rewards/punchh.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/extensions/surveys.md,Adam,Partnerships,atom-evens
-_docs/_partners/additional_channels_and_extensions/extensions/surveys/digioh.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/extensions/surveys/iterate.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/extensions/surveys/jebbit.md,Adam,Partnerships,atom-evens
-_docs/_partners/additional_channels_and_extensions/extensions/surveys/komo.md,Adam,Partnerships,atom-evens
+_docs/_partners/additional_channels_and_extensions/extensions/surveys/refiner.md,Docs Team,,docs-team
 _docs/_partners/additional_channels_and_extensions/extensions/surveys/survicate.md,Adam,Partnerships,atom-evens
 _docs/_partners/additional_channels_and_extensions/extensions/surveys/typeform.md,Adam,Partnerships,atom-evens
 _docs/_partners/ai_model_providers.md,Adam,Partnerships,atom-evens
 _docs/_partners/ai_model_providers/anthropic.md,Adam,Partnerships,atom-evens
+_docs/_partners/ai_model_providers/databricks_mosaic.md,Adam,Partnerships,atom-evens
 _docs/_partners/ai_model_providers/google_gemini.md,Adam,Partnerships,atom-evens
+_docs/_partners/ai_model_providers/microsoft_foundry.md,Docs Team,,docs-team
 _docs/_partners/ai_model_providers/openai.md,Adam,Partnerships,atom-evens
 _docs/_partners/canvas_audience_sync.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_partners/canvas_audience_sync/criteo_audience_sync.md,Rachel,WhatsApp,rachel-feinberg
@@ -498,11 +488,10 @@ _docs/_partners/data_and_analytics.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/ab_testing.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/ab_testing/eppo.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/ab_testing/kameleoon.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/analytics/airbridge.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/analytics/amplitude.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/analytics/appsflyer.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/ab_testing/optimizely.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/ab_testing/vwo.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/analytics.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/analytics/apteligent.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/analytics/branch.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/analytics/contentsquare.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/analytics/heap.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/analytics/heap/heap_cohort_import.md,Adam,Partnerships,atom-evens
@@ -513,16 +502,11 @@ _docs/_partners/data_and_analytics/analytics/mixpanel.md,Adam,Partnerships,atom-
 _docs/_partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/analytics/npaw.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/analytics/saleswings.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/analytics/tellius.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/analytics/thoughtspot.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/analytics/validity.md,Docs Team,,docs-team
 _docs/_partners/data_and_analytics/business_intelligence.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/business_intelligence/clarisights.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/business_intelligence/datadog.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/business_intelligence/heap.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/business_intelligence/kubit.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/business_intelligence/looker.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/business_intelligence/mixpanel.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/business_intelligence/mozart_data.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/business_intelligence/tellius.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/business_intelligence/thoughtspot.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/cloud_storage.md,Adam,Partnerships,atom-evens
@@ -533,12 +517,12 @@ _docs/_partners/data_and_analytics/cohort_import.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/cohort_import/appsflyer_audiences.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/cohort_import/kubit.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/cohort_import/splio.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/cohort_import/tinyclues.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/cohort_import/treasuredata.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/actioniq.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/adobe.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/customer_data_platform/adobe/adobe_for_currents.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/adobe/adobe.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/customer_data_platform/adobe/adobe_for_currents.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/adobe/event_forwarding_extension.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/amperity.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/amplitude.md,Adam,Partnerships,atom-evens
@@ -548,39 +532,40 @@ _docs/_partners/data_and_analytics/customer_data_platform/amplitude/amplitude_fo
 _docs/_partners/data_and_analytics/customer_data_platform/amplitude/amplitude_user_profile_api.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/blueconic.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/celebrus.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/customer_data_platform/chord.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/crowdtwist.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/dynamics_365_customer_insights.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/growthloop.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/customer_data_platform/hightouch.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/lemnisk.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/lexer.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/lytics.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/merkury.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/mparticle.md,Zair,Currents,zairro
-_docs/_partners/data_and_analytics/customer_data_platform/mParticle/mparticle_for_currents.md,Zair,Currents,zairro
-_docs/_partners/data_and_analytics/customer_data_platform/mParticle/mparticle.md,Zair,Currents,zairro
+_docs/_partners/data_and_analytics/customer_data_platform/mparticle/mparticle.md,Zair,Currents,zairro
+_docs/_partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents.md,Zair,Currents,zairro
 _docs/_partners/data_and_analytics/customer_data_platform/octolis.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/redpoint.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/rudderstack.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/customer_data_platform/rudderstack/rudderstack_for_currents.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/rudderstack/rudderstack.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/customer_data_platform/rudderstack/rudderstack_for_currents.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/segment.md,Zair,Currents,zairro
+_docs/_partners/data_and_analytics/customer_data_platform/segment/segment.md,Zair,Currents,zairro
 _docs/_partners/data_and_analytics/customer_data_platform/segment/segment_engage.md,Zair,Currents,zairro
 _docs/_partners/data_and_analytics/customer_data_platform/segment/segment_for_currents.md,Zair,Currents,zairro
-_docs/_partners/data_and_analytics/customer_data_platform/segment/segment.md,Zair,Currents,zairro
 _docs/_partners/data_and_analytics/customer_data_platform/simonai.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/customer_data_platform/snowplow.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/tealium.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/customer_data_platform/tealium/tealium.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/tealium/tealium_audience_stream.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/customer_data_platform/tealium/tealium.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/toovio.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/treasure_data.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/customer_data_platform/treasure_data/treasure_data_for_currents.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/treasure_data/treasure_data.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/customer_data_platform/treasure_data/treasure_data_for_currents.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/zeotap.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/zeotap/symphony.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/customer_data_platform/zeotap/zeotap_for_currents.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_data_platform/zeotap/zeotap.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/customer_data_platform/zeotap/zeotap_for_currents.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_relationship_management.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/customer_relationship_management/actionableme.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/data_privacy.md,Adam,Partnerships,atom-evens
@@ -588,9 +573,11 @@ _docs/_partners/data_and_analytics/data_privacy/datagrail.md,Adam,Partnerships,a
 _docs/_partners/data_and_analytics/data_privacy/ketch.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/data_privacy/onetrust.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/data_warehouses.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/data_warehouses/databricks.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/data_warehouses/databricks/delta_sharing.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/data_warehouses/snowflake.md,Zair,Data Lakehouse,zairro
 _docs/_partners/data_and_analytics/data_warehouses/snowflake/data_retention.md,Zair,Data Lakehouse,zairro
-_docs/_partners/data_and_analytics/data_warehouses/snowflake/data_sharing.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/data_warehouses/snowflake/data_sharing.md,Zair,Data Lakehouse,zairro
 _docs/_partners/data_and_analytics/data_warehouses/snowflake/entity_relationships.md,Zair,Data Lakehouse,zairro
 _docs/_partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup.md,Zair,Data Lakehouse,zairro
 _docs/_partners/data_and_analytics/data_warehouses/snowflake/faqs.md,Zair,Data Lakehouse,zairro
@@ -598,17 +585,13 @@ _docs/_partners/data_and_analytics/data_warehouses/snowflake/sample_queries.md,Z
 _docs/_partners/data_and_analytics/data_warehouses/snowflake/user_attributes.md,Zair,Data Lakehouse,zairro
 _docs/_partners/data_and_analytics/leads_capture.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/leads_capture/facebook_via_zapier.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/leads_capture/jebbit.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/leads_capture/justuno.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/leads_capture/outgrow.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/leads_capture/quikly.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/leads_capture/viralsweep.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/leads_capture/wunderkind.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/leads_capture/wyng.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/loyalty.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/loyalty/antavo.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/loyalty/convercus.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/loyalty/eagleeye.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/loyalty/friendbuy.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/loyalty/kognitiv.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/loyalty/lji.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/loyalty/openloyalty.md,Adam,Partnerships,atom-evens
@@ -617,43 +600,31 @@ _docs/_partners/data_and_analytics/loyalty/punchh/code_generation.md,Adam,Partne
 _docs/_partners/data_and_analytics/loyalty/punchh/punchh.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/loyalty/sessionm.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/loyalty/talonone.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/loyalty/voucherify.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/reverse_etl.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/reverse_etl/census.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/reverse_etl/census/census_cohort_import.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/reverse_etl/dinmo.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/reverse_etl/hightouch.md,Adam,Partnerships,atom-evens
+_docs/_partners/data_and_analytics/reverse_etl/hightouch/hightouch.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/reverse_etl/hightouch/hightouch_cohort_import.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/reverse_etl/hightouch/hightouch_personalization_api.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/reverse_etl/hightouch/hightouch.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/reverse_etl/mozart_data.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/reverse_etl/rudderstack.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/workflow_automation.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/workflow_automation/airbyte.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/workflow_automation/fivetran.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/workflow_automation/metarouter.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/workflow_automation/mozart_data.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/workflow_automation/nexla.md,Adam,Partnerships,atom-evens
-_docs/_partners/data_and_analytics/workflow_automation/snowplow.md,Adam,Partnerships,atom-evens
 _docs/_partners/data_and_analytics/workflow_automation/zapier.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/analytics_workflow.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/analytics_workflow/lexer.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/analytics_workflow/okendo.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/analytics_workflow/peak.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/analytics_workflow/personalize.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/analytics_workflow/tangerine.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/analytics_workflow/wunderkind.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/dynamic_pricing_promotions.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/dynamic_pricing_promotions/talonone.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/dynamic_pricing_promotions/viralsweep.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/dynamic_pricing_promotions/voucherify.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/loyalty.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/loyalty/antavo.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/loyalty/kognitiv.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/loyalty/swym.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/loyalty/talonone.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/loyalty/voucherify.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/loyalty/voucherify/voucherify_distribution_with_braze_custom_attributes.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/mobile_app_platform.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/mobile_app_platform/poq.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/ordering_payments_subscription.md,Adam,Partnerships,atom-evens
@@ -667,7 +638,6 @@ _docs/_partners/ecommerce/payments/transcend.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/product_search_recommendations.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/product_search_recommendations/algolia.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/product_search_recommendations/constructor.md,Adam,Partnerships,atom-evens
-_docs/_partners/ecommerce/product_search_recommendations/stylitics.md,Adam,Partnerships,atom-evens
 _docs/_partners/ecommerce/shopify.md,Rachel,Shopify,rachel-feinberg
 _docs/_partners/ecommerce/shopify/discount_codes.md,Rachel,Shopify,rachel-feinberg
 _docs/_partners/ecommerce/shopify/multiple_stores.md,Rachel,Shopify,rachel-feinberg
@@ -675,25 +645,25 @@ _docs/_partners/ecommerce/shopify/shopify_catalogs.md,Rachel,Shopify,rachel-fein
 _docs/_partners/ecommerce/shopify/shopify_catalogs/faq.md,Rachel,Shopify,rachel-feinberg
 _docs/_partners/ecommerce/shopify/shopify_custom_integration.md,Rachel,Shopify,rachel-feinberg
 _docs/_partners/ecommerce/shopify/shopify_data_features.md,Rachel,Shopify,rachel-feinberg
+_docs/_partners/ecommerce/shopify/shopify_for_currents.md,Rachel,Shopify,rachel-feinberg
+_docs/_partners/ecommerce/shopify/shopify_markets.md,Docs Team,,docs-team
 _docs/_partners/ecommerce/shopify/shopify_overview.md,Rachel,Shopify,rachel-feinberg
-_docs/_partners/ecommerce/shopify/shopify_standard_integration_third_party_tagging.md,Rachel,Shopify,rachel-feinberg
+_docs/_partners/ecommerce/shopify/shopify_segments_sync.md,Rachel,Shopify,rachel-feinberg
 _docs/_partners/ecommerce/shopify/shopify_standard_integration.md,Rachel,Shopify,rachel-feinberg
+_docs/_partners/ecommerce/shopify/shopify_standard_integration_third_party_tagging.md,Rachel,Shopify,rachel-feinberg
 _docs/_partners/ecommerce/tapcart.md,Adam,Partnerships,atom-evens
 _docs/_partners/home.md,Adam,Partnerships,atom-evens
 _docs/_partners/isv_partners.md,Adam,Partnerships,atom-evens
 _docs/_partners/isv_partners/api_partner.md,Adam,Partnerships,atom-evens
 _docs/_partners/isv_partners/best_practices.md,Adam,Partnerships,atom-evens
 _docs/_partners/isv_partners/cohort_import.md,Adam,Partnerships,atom-evens
-_docs/_partners/isv_partners/currents_integration.md,Adam,Partnerships,atom-evens
 _docs/_partners/isv_partners/data_transformation.md,Adam,Partnerships,atom-evens
 _docs/_partners/isv_partners/snowflake_datasharing.md,Zair,Data Lakehouse,zairro
 _docs/_partners/message_orchestration.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/ab_testing.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_orchestration/ab_testing/jacquard.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/attribution.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/attribution/adjust.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/attribution/airbridge.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_orchestration/attribution/appsflyer.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/attribution/branch_for_attribution.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/attribution/kochava.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/attribution/linkrunner.md,Adam,Partnerships,atom-evens
@@ -704,29 +674,26 @@ _docs/_partners/message_orchestration/deeplinking.md,Adam,Partnerships,atom-even
 _docs/_partners/message_orchestration/deeplinking/appsflyer.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/deeplinking/appsflyer/appsflyer.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/deeplinking/branch_for_deeplinking.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_orchestration/deeplinking/kochava.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/deeplinking/vizbee_for_tv_deeplinking.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/retargeting.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/retargeting/adikteev.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_orchestration/retargeting/contentsquare.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/retargeting/facebook.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/retargeting/jampp.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_orchestration/retargeting/liveramp.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_orchestration/retargeting/looker.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/retargeting/quikly.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/retargeting/remerge.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_orchestration/retargeting/swym.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_orchestration/retargeting/vizbee.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/templates.md,Adam,Partnerships,atom-evens
+_docs/_partners/message_orchestration/templates/Mailizio.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/templates/alpaco.md,Adam,Partnerships,atom-evens
+_docs/_partners/message_orchestration/templates/better_email.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/templates/blayer.md,Adam,Partnerships,atom-evens
+_docs/_partners/message_orchestration/templates/copy_pastd.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/templates/denada.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/templates/dyspatch.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/templates/email_love.md,Adam,Partnerships,atom-evens
+_docs/_partners/message_orchestration/templates/emailshepherd.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/templates/iam_studio.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/templates/jasper.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/templates/knak.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_orchestration/templates/Mailizio.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/templates/sageflo.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/templates/smartersends.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_orchestration/templates/stensul.md,Adam,Partnerships,atom-evens
@@ -740,30 +707,25 @@ _docs/_partners/message_personalization/dynamic_content.md,Adam,Partnerships,ato
 _docs/_partners/message_personalization/dynamic_content/content_optimization_testing.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/content_optimization_testing/jacquard.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/content_optimization_testing/just_ai.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_personalization/dynamic_content/content_optimization_testing/just_words.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/content_optimization_testing/notify.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/content_optimization_testing/trustpilot.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/otherlevels.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/personalization_engines.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_personalization/dynamic_content/personalization_engines/amazon_personalize.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/personalization_engines/dynamic_yield.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/personalization_engines/limbik.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_personalization/dynamic_content/personalization_engines/movable_ink.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/personalization_engines/sheetlabs.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/personalized_recommendations.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/personalized_recommendations/amazon_personalize.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/personalized_recommendations/amazon_personalize/amazon_personalize.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/personalized_recommendations/amazon_personalize/workshop.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_personalization/dynamic_content/personalized_recommendations/amplitude.md,Zair,Currents,zairro
 _docs/_partners/message_personalization/dynamic_content/personalized_recommendations/certona.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_personalization/dynamic_content/personalized_recommendations/dynamic_yield.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/personalized_recommendations/fullstory.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_personalization/dynamic_content/personalized_recommendations/movable_ink.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/personalized_recommendations/personalize.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/visual_and_interactive_content.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/visual_and_interactive_content/blings.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/visual_and_interactive_content/cataboom.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/visual_and_interactive_content/cloudinary.md,Adam,Partnerships,atom-evens
+_docs/_partners/message_personalization/dynamic_content/visual_and_interactive_content/dailyplay.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/visual_and_interactive_content/future_anthem.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/visual_and_interactive_content/judo.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/visual_and_interactive_content/movable_ink.md,Adam,Partnerships,atom-evens
@@ -774,6 +736,7 @@ _docs/_partners/message_personalization/dynamic_content/visual_and_interactive_c
 _docs/_partners/message_personalization/dynamic_content/visual_and_interactive_content/odicci.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/visual_and_interactive_content/playable.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/visual_and_interactive_content/seen.md,Adam,Partnerships,atom-evens
+_docs/_partners/message_personalization/dynamic_content/visual_and_interactive_content/stayfilm.md,Docs Team,,docs-team
 _docs/_partners/message_personalization/dynamic_content/visual_and_interactive_content/storyly.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/visual_and_interactive_content/stylitics.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/dynamic_content/visual_and_interactive_content/videosmart.md,Adam,Partnerships,atom-evens
@@ -787,7 +750,6 @@ _docs/_partners/message_personalization/localization/lilt.md,Adam,Partnerships,a
 _docs/_partners/message_personalization/localization/lokalise.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/localization/phrase.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/localization/smartling.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_personalization/localization/tangerine.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/localization/transifex.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/location.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/location/accuweather.md,Adam,Partnerships,atom-evens
@@ -801,139 +763,36 @@ _docs/_partners/message_personalization/referrals.md,Adam,Partnerships,atom-even
 _docs/_partners/message_personalization/referrals/extole.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/referrals/friendbuy.md,Adam,Partnerships,atom-evens
 _docs/_partners/message_personalization/referrals/mention_me.md,Adam,Partnerships,atom-evens
-_docs/_partners/message_personalization/referrals/viralsweep.md,Adam,Partnerships,atom-evens
+_docs/_partners/message_personalization/referrals/talkable.md,Adam,Partnerships,atom-evens
 _docs/_partners/third_party_liability.md,Docs Team,n/a,docs-team
-_docs/_releases/2016.md,Docs Team,n/a,docs-team
-_docs/_releases/2016/august.md,Docs Team,n/a,docs-team
-_docs/_releases/2016/december.md,Docs Team,n/a,docs-team
-_docs/_releases/2016/jantomay.md,Docs Team,n/a,docs-team
-_docs/_releases/2016/july.md,Docs Team,n/a,docs-team
-_docs/_releases/2016/june.md,Docs Team,n/a,docs-team
-_docs/_releases/2016/november.md,Docs Team,n/a,docs-team
-_docs/_releases/2016/october.md,Docs Team,n/a,docs-team
-_docs/_releases/2016/september.md,Docs Team,n/a,docs-team
-_docs/_releases/2017.md,Docs Team,n/a,docs-team
-_docs/_releases/2017/april.md,Docs Team,n/a,docs-team
-_docs/_releases/2017/august.md,Docs Team,n/a,docs-team
-_docs/_releases/2017/december.md,Docs Team,n/a,docs-team
-_docs/_releases/2017/february.md,Docs Team,n/a,docs-team
-_docs/_releases/2017/january.md,Docs Team,n/a,docs-team
-_docs/_releases/2017/july.md,Docs Team,n/a,docs-team
-_docs/_releases/2017/june.md,Docs Team,n/a,docs-team
-_docs/_releases/2017/march.md,Docs Team,n/a,docs-team
-_docs/_releases/2017/may.md,Docs Team,n/a,docs-team
-_docs/_releases/2017/november.md,Docs Team,n/a,docs-team
-_docs/_releases/2017/october.md,Docs Team,n/a,docs-team
-_docs/_releases/2017/september.md,Docs Team,n/a,docs-team
-_docs/_releases/2018.md,Docs Team,n/a,docs-team
-_docs/_releases/2018/april.md,Docs Team,n/a,docs-team
-_docs/_releases/2018/august.md,Docs Team,n/a,docs-team
-_docs/_releases/2018/december.md,Docs Team,n/a,docs-team
-_docs/_releases/2018/february.md,Docs Team,n/a,docs-team
-_docs/_releases/2018/january.md,Docs Team,n/a,docs-team
-_docs/_releases/2018/july.md,Docs Team,n/a,docs-team
-_docs/_releases/2018/june.md,Docs Team,n/a,docs-team
-_docs/_releases/2018/march.md,Docs Team,n/a,docs-team
-_docs/_releases/2018/may.md,Docs Team,n/a,docs-team
-_docs/_releases/2018/november.md,Docs Team,n/a,docs-team
-_docs/_releases/2018/october.md,Docs Team,n/a,docs-team
-_docs/_releases/2018/september.md,Docs Team,n/a,docs-team
-_docs/_releases/2019.md,Docs Team,n/a,docs-team
-_docs/_releases/2019/april.md,Docs Team,n/a,docs-team
-_docs/_releases/2019/august.md,Docs Team,n/a,docs-team
-_docs/_releases/2019/december.md,Docs Team,n/a,docs-team
-_docs/_releases/2019/february.md,Docs Team,n/a,docs-team
-_docs/_releases/2019/january.md,Docs Team,n/a,docs-team
-_docs/_releases/2019/july.md,Docs Team,n/a,docs-team
-_docs/_releases/2019/june.md,Docs Team,n/a,docs-team
-_docs/_releases/2019/march.md,Docs Team,n/a,docs-team
-_docs/_releases/2019/may.md,Docs Team,n/a,docs-team
-_docs/_releases/2019/november.md,Docs Team,n/a,docs-team
-_docs/_releases/2019/october.md,Docs Team,n/a,docs-team
-_docs/_releases/2019/september.md,Docs Team,n/a,docs-team
-_docs/_releases/2020.md,Docs Team,n/a,docs-team
-_docs/_releases/2020/april.md,Docs Team,n/a,docs-team
-_docs/_releases/2020/august.md,Docs Team,n/a,docs-team
-_docs/_releases/2020/december.md,Docs Team,n/a,docs-team
-_docs/_releases/2020/february.md,Docs Team,n/a,docs-team
-_docs/_releases/2020/january.md,Docs Team,n/a,docs-team
-_docs/_releases/2020/july.md,Docs Team,n/a,docs-team
-_docs/_releases/2020/june.md,Docs Team,n/a,docs-team
-_docs/_releases/2020/march.md,Docs Team,n/a,docs-team
-_docs/_releases/2020/may.md,Docs Team,n/a,docs-team
-_docs/_releases/2020/november.md,Docs Team,n/a,docs-team
-_docs/_releases/2020/october.md,Docs Team,n/a,docs-team
-_docs/_releases/2020/september.md,Docs Team,n/a,docs-team
-_docs/_releases/2021.md,Docs Team,n/a,docs-team
-_docs/_releases/2021/april.md,Docs Team,n/a,docs-team
-_docs/_releases/2021/august.md,Docs Team,n/a,docs-team
-_docs/_releases/2021/december.md,Docs Team,n/a,docs-team
-_docs/_releases/2021/february.md,Docs Team,n/a,docs-team
-_docs/_releases/2021/january.md,Docs Team,n/a,docs-team
-_docs/_releases/2021/july.md,Docs Team,n/a,docs-team
-_docs/_releases/2021/june.md,Docs Team,n/a,docs-team
-_docs/_releases/2021/march.md,Docs Team,n/a,docs-team
-_docs/_releases/2021/may.md,Docs Team,n/a,docs-team
-_docs/_releases/2021/november.md,Docs Team,n/a,docs-team
-_docs/_releases/2021/october.md,Docs Team,n/a,docs-team
-_docs/_releases/2021/september.md,Docs Team,n/a,docs-team
-_docs/_releases/2022.md,Docs Team,n/a,docs-team
-_docs/_releases/2022/1_11_22.md,Docs Team,n/a,docs-team
-_docs/_releases/2022/10_18_22.md,Docs Team,n/a,docs-team
-_docs/_releases/2022/11_15_22.md,Docs Team,n/a,docs-team
-_docs/_releases/2022/12_13_22.md,Docs Team,n/a,docs-team
-_docs/_releases/2022/2_8_22.md,Docs Team,n/a,docs-team
-_docs/_releases/2022/3_8_22.md,Docs Team,n/a,docs-team
-_docs/_releases/2022/4_5_22.md,Docs Team,n/a,docs-team
-_docs/_releases/2022/5_3_22.md,Docs Team,n/a,docs-team
-_docs/_releases/2022/5_31_22.md,Docs Team,n/a,docs-team
-_docs/_releases/2022/6_28_22.md,Docs Team,n/a,docs-team
-_docs/_releases/2022/7_26_22.md,Docs Team,n/a,docs-team
-_docs/_releases/2022/8_23_22.md,Docs Team,n/a,docs-team
-_docs/_releases/2022/9_20_22.md,Docs Team,n/a,docs-team
-_docs/_releases/2023.md,Docs Team,n/a,docs-team
-_docs/_releases/2023/1_10_23.md,Docs Team,n/a,docs-team
-_docs/_releases/2023/10_17_23.md,Docs Team,n/a,docs-team
-_docs/_releases/2023/11_14_23.md,Docs Team,n/a,docs-team
-_docs/_releases/2023/12_12_23.md,Docs Team,n/a,docs-team
-_docs/_releases/2023/2_7_23.md,Docs Team,n/a,docs-team
-_docs/_releases/2023/3_7_23.md,Docs Team,n/a,docs-team
-_docs/_releases/2023/4_4_23.md,Docs Team,n/a,docs-team
-_docs/_releases/2023/5_2_23.md,Docs Team,n/a,docs-team
-_docs/_releases/2023/5_30_23.md,Docs Team,n/a,docs-team
-_docs/_releases/2023/6_27_23.md,Docs Team,n/a,docs-team
-_docs/_releases/2023/7_25_23.md,Docs Team,n/a,docs-team
-_docs/_releases/2023/8_22_23.md,Docs Team,n/a,docs-team
-_docs/_releases/2023/9_19_23.md,Docs Team,n/a,docs-team
-_docs/_releases/2024.md,Docs Team,n/a,docs-team
-_docs/_releases/2024/1_9_24.md,Docs Team,n/a,docs-team
-_docs/_releases/2024/10_15_24.md,Docs Team,n/a,docs-team
-_docs/_releases/2024/11_12_24.md,Docs Team,n/a,docs-team
-_docs/_releases/2024/12_10_24.md,Docs Team,n/a,docs-team
-_docs/_releases/2024/2_6_24.md,Docs Team,n/a,docs-team
-_docs/_releases/2024/3_5_24.md,Docs Team,n/a,docs-team
-_docs/_releases/2024/4_2_24.md,Docs Team,n/a,docs-team
-_docs/_releases/2024/4_30_24.md,Docs Team,n/a,docs-team
-_docs/_releases/2024/5_28_24.md,Docs Team,n/a,docs-team
-_docs/_releases/2024/6_25_24.md,Docs Team,n/a,docs-team
-_docs/_releases/2024/7_23_24.md,Docs Team,n/a,docs-team
-_docs/_releases/2024/8_20_24.md,Docs Team,n/a,docs-team
-_docs/_releases/2024/9_17_24.md,Docs Team,n/a,docs-team
-_docs/_releases/2025.md,Docs Team,n/a,docs-team
-_docs/_releases/2025/1_7_25.md,Docs Team,n/a,docs-team
-_docs/_releases/2025/10_14_25.md,Docs Team,n/a,docs-team
-_docs/_releases/2025/11_11_25.md,Docs Team,n/a,docs-team
-_docs/_releases/2025/12_9_25.md,Docs Team,n/a,docs-team
-_docs/_releases/2025/2_4_25.md,Docs Team,n/a,docs-team
-_docs/_releases/2025/3_4_25.md,Docs Team,n/a,docs-team
-_docs/_releases/2025/4_1_25.md,Docs Team,n/a,docs-team
-_docs/_releases/2025/4_29_25.md,Docs Team,n/a,docs-team
-_docs/_releases/2025/5_27_25.md,Docs Team,n/a,docs-team
-_docs/_releases/2025/6_24_25.md,Docs Team,n/a,docs-team
-_docs/_releases/2025/7_22_25.md,Docs Team,n/a,docs-team
-_docs/_releases/2025/8_19_25.md,Docs Team,n/a,docs-team
-_docs/_releases/home.md,Docs Team,n/a,docs-team
-_docs/_releases/sdk_changelogs.md,Docs Team,n/a,docs-team
+_docs/_unlisted_docs/private_betas/accounts_opportunities_object.md,Zair,Core Objects,zairro
+_docs/_unlisted_docs/private_betas/ai_step.md,Lydia,Intelligence,lydia-xie
+_docs/_unlisted_docs/private_betas/campaign_autosave.md,Lydia,Messaging Experience,lydia-xie
+_docs/_unlisted_docs/private_betas/campaign_qa_agent.md,Lydia,Intelligence,lydia-xie
+_docs/_unlisted_docs/private_betas/csv_events.md,Zair,Ingestion,zairro
+_docs/_unlisted_docs/private_betas/custom_attributes_entitlements.md,Zair,Core Objects,zairro
+_docs/_unlisted_docs/private_betas/custom_events_entitlements.md,Zair,Core Objects,zairro
+_docs/_unlisted_docs/private_betas/dnd_content_blocks_preview.md,Bre,FIX,bre-fitzgerald
+_docs/_unlisted_docs/private_betas/email_html_react.md,Lydia,Email,lydia-xie
+_docs/_unlisted_docs/private_betas/get_app_group_apps.md,Bre,Internal Tools (and Ingestion),bre-fitzgerald
+_docs/_unlisted_docs/private_betas/get_campaign_url_info.md,Lydia,Core Messaging,lydia-xie
+_docs/_unlisted_docs/private_betas/get_canvas_url_info.md,Lydia,"Canvas, Logic, & Execution",lydia-xie
+_docs/_unlisted_docs/private_betas/idle_campaigns.md,Lydia,Messaging Experience,lydia-xie
+_docs/_unlisted_docs/private_betas/last_touch_attribution_report_builder.md,Rachel,Reporting,rachel-feinberg
+_docs/_unlisted_docs/private_betas/message_prioritization.md,Lydia,Messaging Experience,lydia-xie
+_docs/_unlisted_docs/private_betas/message_template_assistant.md,Lydia,Email,lydia-xie
+_docs/_unlisted_docs/private_betas/post_track_users_bulk.md,Zair,Ingestion,zairro
+_docs/_unlisted_docs/private_betas/post_track_users_bulk_partners.md,Zair,Ingestion,zairro
+_docs/_unlisted_docs/private_betas/rate_limiting_v3.md,Lydia,Core Messaging,lydia-xie
+_docs/_unlisted_docs/private_betas/rich_cards.md,Rachel,SMS,rachel-feinberg
+_docs/_unlisted_docs/private_betas/segment_reporting.md,Docs Team,,docs-team
+_docs/_unlisted_docs/private_betas/sender_verification.md,Lydia,Email,lydia-xie
+_docs/_unlisted_docs/private_betas/shopify_beta.md,Rachel,Shopify,rachel-feinberg
+_docs/_unlisted_docs/private_betas/shopify_beta/shopify_custom_integration_upgrade.md,Rachel,Shopify,rachel-feinberg
+_docs/_unlisted_docs/private_betas/shopify_beta/shopify_standard_integration_upgrade.md,Rachel,Shopify,rachel-feinberg
+_docs/_unlisted_docs/private_betas/shopify_beta/shopify_upgrade_overview.md,Rachel,Shopify,rachel-feinberg
+_docs/_unlisted_docs/private_betas/shopify_collections_sync.md,Rachel,Shopify,rachel-feinberg
+_docs/_unlisted_docs/private_betas/workspace_rate_limits.md,Zair,Ingestion,zairro
 _docs/_user_guide/administer.md,Docs Team,,docs-team
 _docs/_user_guide/administer/global.md,Docs Team,,docs-team
 _docs/_user_guide/administer/global/admin_settings.md,Rachel,CLIP,rachel-feinberg
@@ -943,8 +802,9 @@ _docs/_user_guide/administer/global/admin_settings/security_settings.md,Rachel,C
 _docs/_user_guide/administer/global/admin_settings/security_settings/security_export_s3.md,Rachel,CLIP,rachel-feinberg
 _docs/_user_guide/administer/global/admin_settings/workspace_time_zone.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/administer/global/billing.md,Rachel,Reporting,rachel-feinberg
-_docs/_user_guide/administer/global/billing/message_usage_dashboard.md,Rachel,CLIP,rachel-feinberg
+_docs/_user_guide/administer/global/billing/credits_usage.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/administer/global/create_and_manage_workspaces.md,Zair,Feature Flags,zairro
+_docs/_user_guide/administer/global/create_and_manage_workspaces/migrate_workspace_data.md,Zair,Feature Flags,zairro
 _docs/_user_guide/administer/global/privacy.md,Docs Team,,docs-team
 _docs/_user_guide/administer/global/privacy/managing_consent.md,Docs Team,,docs-team
 _docs/_user_guide/administer/global/privacy/spam_regulations.md,Docs Team,,docs-team
@@ -959,7 +819,6 @@ _docs/_user_guide/administer/global/user_management/automated_user_provisioning.
 _docs/_user_guide/administer/global/user_management/internal_groups.md,Lydia,Email,lydia-xie
 _docs/_user_guide/administer/global/user_management/manage_company_users.md,Rachel,CLIP,rachel-feinberg
 _docs/_user_guide/administer/global/user_management/permissions.md,Rachel,CLIP,rachel-feinberg
-_docs/_user_guide/administer/global/user_management/permissions/granular_permissions_migration.md,Rachel,CLIP,rachel-feinberg
 _docs/_user_guide/administer/global/user_management/teams.md,Rachel,CLIP,rachel-feinberg
 _docs/_user_guide/administer/global/workspace_settings.md,Docs Team,,docs-team
 _docs/_user_guide/administer/global/workspace_settings/apis_and_identifiers.md,Zair,Ingestion Foundations,zairro
@@ -977,7 +836,8 @@ _docs/_user_guide/administer/global/workspace_settings/push_settings.md,Zair,Pus
 _docs/_user_guide/administer/global/workspace_settings/tags.md,Bre,FIX,bre-fitzgerald
 _docs/_user_guide/administer/personal.md,Docs Team,,docs-team
 _docs/_user_guide/administer/personal/accessing_your_account.md,Rachel,CLIP,rachel-feinberg
-_docs/_user_guide/administer/personal/braze_support.md,Docs Team, Support ,docs-team
+_docs/_user_guide/administer/personal/braze_certification.md,Docs Team,Support,docs-team
+_docs/_user_guide/administer/personal/braze_support.md,Docs Team,Support,docs-team
 _docs/_user_guide/administer/personal/language_settings.md,Docs Team,,docs-team
 _docs/_user_guide/administer/personal/product_portal.md,Docs Team,,docs-team
 _docs/_user_guide/administer/personal/sdk_endpoints.md,Zair,SDKs,zairro
@@ -990,12 +850,12 @@ _docs/_user_guide/analytics/dashboards/conversions.md,Rachel,Reporting,rachel-fe
 _docs/_user_guide/analytics/dashboards/dashboard_builder.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/analytics/dashboards/dashboard_builder/ecommerce_revenue_dashboard.md,Rachel,Reporting,rachel-feinberg
+_docs/_user_guide/analytics/dashboards/dashboard_builder/industry_benchmarks_dashboard.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/dashboards/deliverability_center.md,Lydia,Email,lydia-xie
 _docs/_user_guide/analytics/dashboards/home.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/metrics_glossary.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/reports.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/reports/campaign_analytics.md,Rachel,Reporting,rachel-feinberg
-_docs/_user_guide/analytics/reports/canvas_analytics.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/reports/configure_reporting.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/reports/custom_events_report.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/reports/engagement_reports.md,Rachel,Reporting,rachel-feinberg
@@ -1009,7 +869,7 @@ _docs/_user_guide/analytics/reports/report_builder.md,Rachel,Reporting,rachel-fe
 _docs/_user_guide/analytics/reports/report_builder/report_builder_legacy.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/reports/retention_reports.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/analytics/reports/revenue_report.md,Rachel,Reporting,rachel-feinberg
-_docs/_user_guide/analytics/segments/creating_a_segment.md,Rachel,User Targeting,rachel-feinberg
+_docs/_user_guide/analytics/tracking.md,Zair,Push,zairro
 _docs/_user_guide/analytics/tracking/influenced_opens.md,Zair,Push,zairro
 _docs/_user_guide/analytics/tracking/segment_analytics_tracking.md,Rachel,User Targeting,rachel-feinberg
 _docs/_user_guide/analytics/tracking/uninstall_tracking.md,Docs Team,,docs-team
@@ -1022,9 +882,11 @@ _docs/_user_guide/audience/manage_audience.md,Docs Team,n/a,docs-team
 _docs/_user_guide/audience/manage_audience/import_users.md,Zair,Ingestion Foundations,zairro
 _docs/_user_guide/audience/manage_audience/import_users/csv_import.md,Zair,Ingestion Foundations,zairro
 _docs/_user_guide/audience/manage_audience/merge_duplicate_users.md,Zair,Core Objects,zairro
+_docs/_user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior.md,Zair,Core Objects,zairro
 _docs/_user_guide/audience/manage_audience/user_profiles.md,Docs Team,n/a,docs-team
 _docs/_user_guide/audience/manage_audience/user_profiles/delete_users.md,Zair,Core Objects,zairro
 _docs/_user_guide/audience/segments.md,Rachel,User Targeting,rachel-feinberg
+_docs/_user_guide/audience/segments/calculated_filters.md,Docs Team,,docs-team
 _docs/_user_guide/audience/segments/creating_a_segment.md,Rachel,User Targeting,rachel-feinberg
 _docs/_user_guide/audience/segments/location_targeting.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/audience/segments/managing_segments.md,Rachel,User Targeting,rachel-feinberg
@@ -1052,16 +914,17 @@ _docs/_user_guide/brazeai.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/agents.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/agents/creating_agents.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/agents/deploying_agents.md,Lydia,Intelligence,lydia-xie
+_docs/_user_guide/brazeai/agents/examples.md,Docs Team,,docs-team
 _docs/_user_guide/brazeai/agents/faq.md,Lydia,Intelligence,lydia-xie
+_docs/_user_guide/brazeai/agents/knowledge_sources.md,Docs Team,,docs-team
 _docs/_user_guide/brazeai/agents/reference.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/content_optimizer.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/decisioning_studio.md,Lydia,AI Platform,lydia-xie
 _docs/_user_guide/brazeai/decisioning_studio/audience.md,Lydia,AI Platform,lydia-xie
 _docs/_user_guide/brazeai/decisioning_studio/decisioning_studio_go.md,Lydia,Customer Interface,lydia-xie
-_docs/_user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources.md,Lydia,Customer Interface,lydia-xie
-_docs/_user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent.md,Lydia,Customer Interface,lydia-xie
-_docs/_user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent.md,Lydia,Customer Interface,lydia-xie
-_docs/_user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration.md,Lydia,Customer Interface,lydia-xie
+_docs/_user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples.md,Docs Team,,docs-team
+_docs/_user_guide/brazeai/decisioning_studio/decisioning_studio_go/faq.md,Docs Team,,docs-team
+_docs/_user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup.md,Docs Team,,docs-team
 _docs/_user_guide/brazeai/decisioning_studio/design_agents.md,Lydia,AI Platform,lydia-xie
 _docs/_user_guide/brazeai/decisioning_studio/faq.md,Lydia,AI Platform,lydia-xie
 _docs/_user_guide/brazeai/decisioning_studio/get_started.md,Lydia,AI Platform,lydia-xie
@@ -1080,10 +943,11 @@ _docs/_user_guide/brazeai/decisioning_studio/reporting/diagnostics.md,Lydia,AI P
 _docs/_user_guide/brazeai/decisioning_studio/reporting/insights.md,Lydia,AI Platform,lydia-xie
 _docs/_user_guide/brazeai/decisioning_studio/reporting/performance.md,Lydia,AI Platform,lydia-xie
 _docs/_user_guide/brazeai/decisioning_studio/reporting/timeline.md,Lydia,AI Platform,lydia-xie
+_docs/_user_guide/brazeai/decisioning_studio/use_case.md,Lydia,AI Platform,lydia-xie
 _docs/_user_guide/brazeai/generative_ai.md,Lydia,Intelligence,lydia-xie
-_docs/_user_guide/administer/global/workspace_settings/brand_guidelines.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/generative_ai/content_qa.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/generative_ai/copywriting.md,Lydia,Intelligence,lydia-xie
+_docs/_user_guide/brazeai/generative_ai/data_transformation.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/generative_ai/images.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/generative_ai/liquid.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/generative_ai/sql_queries.md,Lydia,Intelligence,lydia-xie
@@ -1092,7 +956,8 @@ _docs/_user_guide/brazeai/intelligence_suite.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/intelligence_suite/intelligent_channel.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/intelligence_suite/intelligent_selection.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/intelligence_suite/intelligent_timing.md,Lydia,Intelligence,lydia-xie
-_docs/_user_guide/brazeai/intelligence_suite/tutorial.md,Lydia,Intelligence,lydia-xie
+_docs/_user_guide/brazeai/intelligence_suite/use_case.md,Lydia,Intelligence,lydia-xie
+_docs/_user_guide/brazeai/intelligence_suite/variant_selection.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/item_recommendations.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/item_recommendations/creating_recommendations.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/brazeai/item_recommendations/creating_recommendations/ai.md,Lydia,Intelligence,lydia-xie
@@ -1105,6 +970,10 @@ _docs/_user_guide/brazeai/mcp_server/available_api_functions.md,Zair,,zairro
 _docs/_user_guide/brazeai/mcp_server/setup.md,Zair,,zairro
 _docs/_user_guide/brazeai/mcp_server/usage.md,Zair,,zairro
 _docs/_user_guide/brazeai/operator.md,Bre,Operator,bre-fitzgerald
+_docs/_user_guide/brazeai/operator/analyze.md,Bre,Operator,bre-fitzgerald
+_docs/_user_guide/brazeai/operator/capabilities.md,Bre,Operator,bre-fitzgerald
+_docs/_user_guide/brazeai/operator/data_privacy_security.md,Bre,Operator,bre-fitzgerald
+_docs/_user_guide/brazeai/operator/prompt_library.md,Bre,Operator,bre-fitzgerald
 _docs/_user_guide/brazeai/operator/reviewing_actions.md,Bre,Operator,bre-fitzgerald
 _docs/_user_guide/brazeai/operator/support_tickets.md,Bre,Operator,bre-fitzgerald
 _docs/_user_guide/brazeai/operator/troubleshooting.md,Bre,Operator,bre-fitzgerald
@@ -1129,7 +998,6 @@ _docs/_user_guide/channels/banners/reporting.md,Lydia,Content Cards,lydia-xie
 _docs/_user_guide/channels/content_cards.md,Lydia,Content Cards,lydia-xie
 _docs/_user_guide/channels/content_cards/best_practices.md,Lydia,Content Cards,lydia-xie
 _docs/_user_guide/channels/content_cards/best_practices/improving_low_latency_requirements.md,Lydia,Content Cards,lydia-xie
-_docs/_user_guide/channels/content_cards/best_practices/know_before_send.md,Lydia,Content Cards,lydia-xie
 _docs/_user_guide/channels/content_cards/create_a_content_card.md,Lydia,Content Cards,lydia-xie
 _docs/_user_guide/channels/content_cards/create_a_content_card/card_creation.md,Lydia,Content Cards,lydia-xie
 _docs/_user_guide/channels/content_cards/creative_details.md,Lydia,Content Cards,lydia-xie
@@ -1142,7 +1010,6 @@ _docs/_user_guide/channels/email/best_practices/apple_mail/mpp.md,Lydia,Email,ly
 _docs/_user_guide/channels/email/best_practices/email_guidelines.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/best_practices/email_styling.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/best_practices/improve_deliverability.md,Lydia,Email,lydia-xie
-_docs/_user_guide/channels/email/best_practices/know_before_you_send.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/best_practices/sunset_policies.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/customize.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/customize/amp_for_email.md,Lydia,Email,lydia-xie
@@ -1150,9 +1017,7 @@ _docs/_user_guide/channels/email/customize/custom_email_footer.md,Lydia,Email,ly
 _docs/_user_guide/channels/email/customize/email_global_style_settings.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/customize/universal_links_and_app_links.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/drag_and_drop.md,Lydia,Email,lydia-xie
-_docs/_user_guide/channels/email/drag_and_drop/dnd_editor_blocks.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/drag_and_drop/faq.md,Lydia,Email,lydia-xie
-_docs/_user_guide/channels/email/drag_and_drop/overview.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/email_setup.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/email_setup/authentication.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/email_setup/consent_and_address_collection.md,Lydia,Email,lydia-xie
@@ -1164,30 +1029,30 @@ _docs/_user_guide/channels/email/email_setup/ip_warming/automated_ip_warming.md,
 _docs/_user_guide/channels/email/email_setup/open_pixel_and_click_tracking.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/email_setup/setting_up_ips_and_domains.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses.md,Lydia,Email,lydia-xie
+_docs/_user_guide/channels/email/email_setup/setting_up_ips_and_domains/understanding_dns_records.md,Docs Team,,docs-team
 _docs/_user_guide/channels/email/email_setup/ssl.md,Lydia,Email,lydia-xie
+_docs/_user_guide/channels/email/email_setup/ssl/troubleshooting.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/faq.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/html_editor.md,Lydia,Email,lydia-xie
-_docs/_user_guide/channels/email/html_editor/creating_an_email_campaign.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/html_editor/css_inline.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/html_editor/gmail_promotions_tab.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/html_editor/troubleshooting.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/inbox_vision.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/reporting.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/reporting/analytics_glossary.md,Lydia,Email,lydia-xie
+_docs/_user_guide/channels/email/reporting/deliverability_glossary.md,Docs Team,,docs-team
 _docs/_user_guide/channels/email/subscriptions.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/email/use_cases.md,Lydia,Email,lydia-xie
 _docs/_user_guide/channels/in_app_messages.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/channels/in_app_messages/best_practices.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/channels/in_app_messages/best_practices/ios_app_rating_prompt.md,Rachel,In-App Messages,rachel-feinberg
-_docs/_user_guide/channels/in_app_messages/best_practices/know_before_send.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/channels/in_app_messages/best_practices/prep_guide.md,Rachel,In-App Messages,rachel-feinberg
-_docs/_user_guide/channels/in_app_messages/creative_details.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/channels/in_app_messages/customize.md,Rachel,In-App Messages,rachel-feinberg
-_docs/_user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/channels/in_app_messages/customize/dark_mode_themes.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/channels/in_app_messages/customize/style_settings.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/channels/in_app_messages/customize/video_in_custom_html.md,Rachel,In-App Messages,rachel-feinberg
-_docs/_user_guide/channels/in_app_messages/drag_and_drop/create_an_in_app_message.md,Rachel,In-App Messages,rachel-feinberg
+_docs/_user_guide/channels/in_app_messages/drag_and_drop.md,Rachel,In-App Messages,rachel-feinberg
+_docs/_user_guide/channels/in_app_messages/drag_and_drop/surveys.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/channels/in_app_messages/faq.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/channels/in_app_messages/message_types.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/channels/in_app_messages/message_types/custom_html.md,Rachel,In-App Messages,rachel-feinberg
@@ -1198,7 +1063,6 @@ _docs/_user_guide/channels/in_app_messages/message_types/simple_survey.md,Rachel
 _docs/_user_guide/channels/in_app_messages/message_types/slideup.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/channels/in_app_messages/reporting.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/channels/in_app_messages/traditional.md,Rachel,In-App Messages,rachel-feinberg
-_docs/_user_guide/channels/in_app_messages/traditional/create.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/channels/kakaotalk.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/kakaotalk/create_kakaotalk_message.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/kakaotalk/kakaotalk_click_tracking.md,Rachel,WhatsApp,rachel-feinberg
@@ -1216,13 +1080,12 @@ _docs/_user_guide/channels/line/reporting.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/push.md,Zair,Push,zairro
 _docs/_user_guide/channels/push/best_practices.md,Zair,Push,zairro
 _docs/_user_guide/channels/push/best_practices/chinese_push_deliverability.md,Zair,Push,zairro
-_docs/_user_guide/channels/push/best_practices/know_before_send.md,Zair,Push,zairro
 _docs/_user_guide/channels/push/best_practices/push_primer_messages.md,Zair,Push,zairro
 _docs/_user_guide/channels/push/create_a_push_message.md,Zair,Push,zairro
 _docs/_user_guide/channels/push/create_a_push_message/message_and_image_formats.md,Zair,Push,zairro
+_docs/_user_guide/channels/push/create_a_push_message/multiple_platform_push.md,Zair,Push,zairro
 _docs/_user_guide/channels/push/create_a_push_message/push_action_buttons.md,Zair,Push,zairro
 _docs/_user_guide/channels/push/create_a_push_message/push_stories.md,Zair,Push,zairro
-_docs/_user_guide/channels/push/create_a_push_message/quick_push_messages.md,Zair,Push,zairro
 _docs/_user_guide/channels/push/faqs.md,Zair,Push,zairro
 _docs/_user_guide/channels/push/platform_specific_resources.md,Zair,Push,zairro
 _docs/_user_guide/channels/push/platform_specific_resources/android.md,Zair,Push,zairro
@@ -1249,9 +1112,8 @@ _docs/_user_guide/channels/sms_mms_and_rcs/billing_calculator.md,Rachel,SMS,rach
 _docs/_user_guide/channels/sms_mms_and_rcs/compliance_and_delivery.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/best_practices.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins.md,Rachel,SMS,rachel-feinberg
-_docs/_user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions.md,Rachel,SMS,rachel-feinberg
-_docs/_user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/know_before_send.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations.md,Rachel,SMS,rachel-feinberg
+_docs/_user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/sms_traffic_pumping_fraud.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/create.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/create/contact_card.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/faqs.md,Rachel,SMS,rachel-feinberg
@@ -1267,13 +1129,13 @@ _docs/_user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/key
 _docs/_user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/message_setup.md,Rachel,SMS,rachel-feinberg
-_docs/_user_guide/channels/sms_mms_and_rcs/message_setup/phone_numbers_capture.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc/10dlc_application.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups.md,Rachel,SMS,rachel-feinberg
+_docs/_user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/message_setup/terms.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers.md,Rachel,SMS,rachel-feinberg
 _docs/_user_guide/channels/sms_mms_and_rcs/reporting.md,Rachel,SMS,rachel-feinberg
@@ -1290,11 +1152,12 @@ _docs/_user_guide/channels/whatsapp/create_a_whatsapp_message.md,Rachel,WhatsApp
 _docs/_user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/whatsapp/faq.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/whatsapp/message_features_and_optimization.md,Rachel,WhatsApp,rachel-feinberg
+_docs/_user_guide/channels/whatsapp/message_features_and_optimization/bsuid.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/whatsapp/message_features_and_optimization/click_tracking.md,Rachel,WhatsApp,rachel-feinberg
-_docs/_user_guide/channels/whatsapp/message_features_and_optimization/custom_domains.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/whatsapp/message_features_and_optimization/optimized_delivery.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/whatsapp/message_features_and_optimization/product_messages.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/whatsapp/message_features_and_optimization/template_builder.md,Rachel,WhatsApp,rachel-feinberg
+_docs/_user_guide/channels/whatsapp/message_features_and_optimization/template_builder/template_builder_liquid.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/whatsapp/message_features_and_optimization/template_builder/whatsapp_carousel_templates.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/whatsapp/message_features_and_optimization/user_retargeting.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows.md,Rachel,WhatsApp,rachel-feinberg
@@ -1305,6 +1168,7 @@ _docs/_user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs.md,R
 _docs/_user_guide/channels/whatsapp/message_processing/quality_rating_and_messaging_limits.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/whatsapp/meta_resources.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/whatsapp/reporting.md,Rachel,WhatsApp,rachel-feinberg
+_docs/_user_guide/channels/whatsapp/send_failures.md,Docs Team,,docs-team
 _docs/_user_guide/channels/whatsapp/use_cases.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/whatsapp/use_cases/ads_that_click_to_whatsapp.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/channels/whatsapp/use_cases/whatsapp_and_external_systems.md,Rachel,WhatsApp,rachel-feinberg
@@ -1324,6 +1188,7 @@ _docs/_user_guide/data/activation/attributes.md,Zair,Core Objects,zairro
 _docs/_user_guide/data/activation/attributes/array_of_objects.md,Zair,Core Objects,zairro
 _docs/_user_guide/data/activation/attributes/custom_attributes.md,Zair,Core Objects,zairro
 _docs/_user_guide/data/activation/attributes/nested_custom_attribute_support.md,Zair,Core Objects,zairro
+_docs/_user_guide/data/activation/attributes/standard_attributes.md,Zair,Core Objects,zairro
 _docs/_user_guide/data/activation/catalogs.md,Zair,Core Objects,zairro
 _docs/_user_guide/data/activation/catalogs/catalog_triggers.md,Zair,Core Objects,zairro
 _docs/_user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications.md,Zair,Core Objects,zairro
@@ -1335,15 +1200,15 @@ _docs/_user_guide/data/activation/custom_data.md,Zair,Core Objects,zairro
 _docs/_user_guide/data/activation/custom_data/blocklist_custom_data.md,Zair,Core Objects,zairro
 _docs/_user_guide/data/activation/custom_data/data_types.md,Zair,Core Objects,zairro
 _docs/_user_guide/data/activation/custom_data/managing_custom_data.md,Zair,Core Objects,zairro
+_docs/_user_guide/data/activation/events.md,Zair,Core Objects,zairro
 _docs/_user_guide/data/activation/events/custom_events.md,Zair,Core Objects,zairro
 _docs/_user_guide/data/activation/events/custom_events/custom_event_properties.md,Zair,Core Objects,zairro
 _docs/_user_guide/data/activation/events/custom_events/nested_objects.md,Zair,Core Objects,zairro
 _docs/_user_guide/data/activation/events/event_naming_conventions.md,Zair,Core Objects,zairro
-_docs/_user_guide/data/activation/events/events_overview.md,Zair,,zairro
-_docs/_user_guide/data/activation/events/purchase_events.md,Rachel,,rachel-feinberg
+_docs/_user_guide/data/activation/events/events_overview.md,Zair,Core Objects,zairro
+_docs/_user_guide/data/activation/events/purchase_events.md,Rachel,Shopify,rachel-feinberg
 _docs/_user_guide/data/activation/events/recommended_events.md,Rachel,Shopify,rachel-feinberg
 _docs/_user_guide/data/activation/events/recommended_events/ecommerce_events.md,Rachel,Shopify,rachel-feinberg
-_docs/_user_guide/data/activation/events/recommended_events/product_blocks.md,Rachel,Shopify,rachel-feinberg
 _docs/_user_guide/data/distribution.md,Docs Team,,docs-team
 _docs/_user_guide/data/distribution/braze_currents.md,Zair,Currents,zairro
 _docs/_user_guide/data/distribution/braze_currents/event_glossary.md,Zair,Currents,zairro
@@ -1354,6 +1219,7 @@ _docs/_user_guide/data/distribution/braze_currents/event_glossary/user_profiles_
 _docs/_user_guide/data/distribution/braze_currents/faq.md,Zair,Currents,zairro
 _docs/_user_guide/data/distribution/braze_currents/setting_up_currents.md,Zair,Currents,zairro
 _docs/_user_guide/data/distribution/braze_currents/setting_up_currents/available_partners.md,Zair,Currents,zairro
+_docs/_user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector.md,Zair,Currents,zairro
 _docs/_user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics.md,Zair,Currents,zairro
 _docs/_user_guide/data/distribution/braze_currents/use_cases.md,Zair,Currents,zairro
 _docs/_user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents.md,Zair,Currents,zairro
@@ -1451,10 +1317,6 @@ _docs/_user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery.
 _docs/_user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/campaign_connector.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/campaigns/test_campaigns.md,Rachel,Reporting,rachel-feinberg
-_docs/_user_guide/messaging/campaigns/test_campaigns/campaign_analytics.md,Rachel,Reporting,rachel-feinberg
-_docs/_user_guide/messaging/campaigns/test_campaigns/campaign_funnel_report.md,Rachel,Reporting,rachel-feinberg
-_docs/_user_guide/messaging/campaigns/test_campaigns/retention_reports.md,Rachel,Reporting,rachel-feinberg
-_docs/_user_guide/messaging/campaigns/test_campaigns/sending_test_messages.md,Rachel,Reporting,rachel-feinberg
 _docs/_user_guide/messaging/campaigns/test_campaigns/triggered_action_based.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/canvas.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/canvas_basics.md,Lydia,Canvas Logic & Execution,lydia-xie
@@ -1462,7 +1324,6 @@ _docs/_user_guide/messaging/canvas/canvas_components.md,Lydia,Canvas Logic & Exe
 _docs/_user_guide/messaging/canvas/canvas_components/action_paths.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/canvas_components/agent_step.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/messaging/canvas/canvas_components/audience_paths.md,Lydia,Canvas Logic & Execution,lydia-xie
-_docs/_user_guide/messaging/canvas/canvas_components/audience_sync.md,Rachel,WhatsApp,rachel-feinberg
 _docs/_user_guide/messaging/canvas/canvas_components/content_optimizer_step.md,Lydia,Intelligence,lydia-xie
 _docs/_user_guide/messaging/canvas/canvas_components/context.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/canvas_components/decision_split.md,Lydia,Canvas Logic & Execution,lydia-xie
@@ -1481,10 +1342,8 @@ _docs/_user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_mess
 _docs/_user_guide/messaging/canvas/create_a_canvas/canvas_comments.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/create_a_canvas/context_and_event_properties.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties.md,Lydia,Canvas Logic & Execution,lydia-xie
-_docs/_user_guide/messaging/canvas/create_a_canvas/context_variables.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/create_a_canvas/exit_criteria.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/faqs.md,Lydia,Canvas Logic & Execution,lydia-xie
-_docs/_user_guide/messaging/canvas/get_started.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/ideas_and_strategies.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/ideas_and_strategies/best_practices.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/ideas_and_strategies/booking_use_case.md,Lydia,Canvas Logic & Execution,lydia-xie
@@ -1495,14 +1354,13 @@ _docs/_user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_
 _docs/_user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/managing_canvases.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/managing_canvases/canvas_drafts.md,Lydia,Canvas Logic & Execution,lydia-xie
+_docs/_user_guide/messaging/canvas/managing_canvases/canvas_threshold_alerts.md,Docs Team,,docs-team
 _docs/_user_guide/messaging/canvas/managing_canvases/canvas_version_history.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/managing_canvases/cloning_canvases.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/testing_canvases.md,Lydia,Canvas Logic & Execution,lydia-xie
-_docs/_user_guide/messaging/canvas/testing_canvases/canvas_funnel_reports.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/testing_canvases/preview_user_paths.md,Lydia,Canvas Logic & Execution,lydia-xie
-_docs/_user_guide/messaging/canvas/testing_canvases/retention_reports.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/testing_canvases/sending_test_canvases.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/canvas/troubleshooting.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/design_and_edit.md,Lydia,Core Messaging,lydia-xie
@@ -1513,7 +1371,6 @@ _docs/_user_guide/messaging/design_and_edit/media_library/faq.md,Bre,FIX,bre-fit
 _docs/_user_guide/messaging/design_and_edit/media_library/image_specifications.md,Bre,FIX,bre-fitzgerald
 _docs/_user_guide/messaging/design_and_edit/personalize.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/personalize/actions_and_media_urls.md,Lydia,Core Messaging,lydia-xie
-_docs/_user_guide/messaging/design_and_edit/personalize/canvas_persistent_entry_properties.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/personalize/connected_content.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses.md,Lydia,Core Messaging,lydia-xie
@@ -1521,6 +1378,7 @@ _docs/_user_guide/messaging/design_and_edit/personalize/connected_content/connec
 _docs/_user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/personalize/connected_content/public_apis.md,Lydia,Core Messaging,lydia-xie
+_docs/_user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/personalize/connected_content/user_profile_fields_connected_content.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/personalize/dashboard_tools.md,Docs Team,n/a,docs-team
 _docs/_user_guide/messaging/design_and_edit/personalize/liquid.md,Lydia,Core Messaging,lydia-xie
@@ -1536,8 +1394,8 @@ _docs/_user_guide/messaging/design_and_edit/personalize/liquid/setting_default_v
 _docs/_user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/personalize/liquid/tutorials.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/personalize/liquid/using_liquid.md,Lydia,Core Messaging,lydia-xie
-_docs/_user_guide/messaging/design_and_edit/personalize/overview.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/personalize/sources.md,Lydia,Core Messaging,lydia-xie
+_docs/_user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/personalize/sources/canvas_entry_properties.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/personalize/sources/catalog.md,Zair,Core Objects,zairro
 _docs/_user_guide/messaging/design_and_edit/personalize/sources/context_variables.md,Lydia,Canvas Logic & Execution,lydia-xie
@@ -1547,24 +1405,25 @@ _docs/_user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/
 _docs/_user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/migrating_from_data_feeds.md,Lydia,Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/personalize/sources/rest_api.md,Lydia,Core Messaging,lydia-xie
-_docs/_user_guide/messaging/design_and_edit/personalize/sources/user_profile.md,Lydia / Zair,Core Messaging / Core Objects,⚠️ Not found
+_docs/_user_guide/messaging/design_and_edit/personalize/sources/user_profile.md,Lydia,Core Messaging / Core Objects,lydia-xie
 _docs/_user_guide/messaging/design_and_edit/product_blocks.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/feature_flags.md,Zair,Feature Flags,zairro
 _docs/_user_guide/messaging/feature_flags/create_feature_flags.md,Zair,Feature Flags,zairro
 _docs/_user_guide/messaging/feature_flags/faq.md,Zair,Feature Flags,zairro
 _docs/_user_guide/messaging/feature_flags/feature_flag_experiments.md,Zair,Feature Flags,zairro
-_docs/_user_guide/messaging/feature_flags/feature_flags_in_canvas.md,Zair,Feature Flags,zairro
 _docs/_user_guide/messaging/governance.md,Docs Team,n/a,docs-team
 _docs/_user_guide/messaging/governance/approvals.md,Lydia,Messaging Experience,lydia-xie
 _docs/_user_guide/messaging/governance/approvals/messaging_rules.md,Lydia,Messaging Experience,lydia-xie
 _docs/_user_guide/messaging/governance/archiving.md,Lydia,Messaging Experience,lydia-xie
 _docs/_user_guide/messaging/governance/copy_across_workspaces.md,Lydia,Messaging Experience,lydia-xie
 _docs/_user_guide/messaging/governance/duplicating.md,Lydia,Messaging Experience,lydia-xie
+_docs/_user_guide/messaging/governance/shareable_preview.md,Docs Team,,docs-team
 _docs/_user_guide/messaging/governance/statuses.md,Lydia,Messaging Experience,lydia-xie
 _docs/_user_guide/messaging/governance/tags.md,Bre,FIX,bre-fitzgerald
 _docs/_user_guide/messaging/landing_pages.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/messaging/landing_pages/about_tracking_data.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/messaging/landing_pages/create_landing_pages.md,Rachel,In-App Messages,rachel-feinberg
+_docs/_user_guide/messaging/landing_pages/create_landing_pages/surveys.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/messaging/landing_pages/customize_the_url.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/messaging/landing_pages/personalize_landing_pages.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/messaging/landing_pages/retargeting_users.md,Rachel,In-App Messages,rachel-feinberg
@@ -1573,12 +1432,14 @@ _docs/_user_guide/messaging/messaging_fundamentals.md,Docs Team,n/a,docs-team
 _docs/_user_guide/messaging/messaging_fundamentals/accessibility.md,Bre,FIX,bre-fitzgerald
 _docs/_user_guide/messaging/messaging_fundamentals/conversion_events.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/messaging_fundamentals/delivery_and_entry_types.md,Lydia,Core Messaging / Canvas Logic & Execution,lydia-xie
-_docs/_user_guide/messaging/messaging_fundamentals/duplicating.md,Lydia,Messaging Experience,lydia-xie
+_docs/_user_guide/messaging/messaging_fundamentals/dispatch_id.md,Lydia,Core Messaging / Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/messaging_fundamentals/frequency_capping.md,Lydia,Core Messaging,lydia-xie
+_docs/_user_guide/messaging/messaging_fundamentals/frequency_capping/faq.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/messaging_fundamentals/know_before_you_send.md,Docs Team,n/a,docs-team
 _docs/_user_guide/messaging/messaging_fundamentals/localization.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/messaging_fundamentals/localization/locales_in_messages.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages.md,Lydia,Core Messaging,lydia-xie
+_docs/_user_guide/messaging/messaging_fundamentals/quiet_hours.md,Lydia,Core Messaging,lydia-xie
 _docs/_user_guide/messaging/messaging_fundamentals/re_eligibility.md,Lydia,Core Messaging / Canvas Logic & Execution,lydia-xie
 _docs/_user_guide/messaging/messaging_fundamentals/sending_test_messages.md,Docs Team,n/a,docs-team
 _docs/_user_guide/messaging/messaging_fundamentals/target_users.md,Rachel,User Targeting,rachel-feinberg
@@ -1605,6 +1466,7 @@ _docs/_user_guide/messaging/templates/in_app_message_templates/email_confirmatio
 _docs/_user_guide/messaging/templates/in_app_message_templates/email_discount.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/messaging/templates/in_app_message_templates/email_image.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/messaging/templates/in_app_message_templates/email_offer.md,Rachel,In-App Messages,rachel-feinberg
+_docs/_user_guide/messaging/templates/in_app_message_templates/in_app_message_template.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/messaging/templates/in_app_message_templates/onboarding.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/messaging/templates/in_app_message_templates/phone_number_capture.md,Rachel,In-App Messages,rachel-feinberg
 _docs/_user_guide/messaging/templates/in_app_message_templates/product_announcement.md,Rachel,In-App Messages,rachel-feinberg

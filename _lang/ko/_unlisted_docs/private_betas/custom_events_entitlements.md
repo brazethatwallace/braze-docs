@@ -8,19 +8,13 @@ hidden: true
 
 > 이 문서에서는 커스텀 이벤트와 속성정보, 관련 세분화 필터, Canvas 진입 속성정보, 관련 분석 등에 대해 설명합니다. Braze 이벤트에 대한 일반적인 내용은 [이벤트]({{site.baseurl}}/user_guide/data/custom_data/events)를 참조하세요.
 
-커스텀 이벤트는 사용자가 수행한 행동이나 사용자에 대한 업데이트입니다. 커스텀 이벤트가 기록되면 다양한 수와 유형의 후속 캠페인을 트리거할 수 있습니다. 그런 다음 [세분화 필터](#segmentation-filters)를 사용하여 해당 커스텀 이벤트가 발생한 빈도와 최근 시점을 기준으로 사용자를 세분화할 수 있습니다. 이러한 특성 덕분에 커스텀 이벤트는 애플리케이션 내에서 높은 가치를 지닌 사용자 상호작용을 추적하는 데 가장 적합합니다.
+커스텀 이벤트는 사용자가 수행한 행동이나 사용자에 대한 업데이트입니다. 커스텀 이벤트가 기록되면 다양한 수와 유형의 후속 Campaign을 트리거할 수 있습니다. 그런 다음 [세분화 필터](#segmentation-filters)를 사용하여 해당 커스텀 이벤트가 발생한 빈도와 최근 시점을 기준으로 사용자를 세분화할 수 있습니다. 이러한 특성 덕분에 커스텀 이벤트는 애플리케이션 내에서 높은 가치를 지닌 사용자 상호작용을 추적하는 데 가장 적합합니다.
 
 ## 사용 사례 {#use-cases}
 
 일반적인 커스텀 이벤트 사용 사례는 다음과 같습니다:
 
-- [실행 기반 전달]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery)을 사용하여 커스텀 이벤트를 기반으로 Campaign 또는 Canvas 트리거
-- 사용자가 커스텀 이벤트를 수행한 횟수, 마지막으로 이벤트가 발생한 시점 등을 기준으로 사용자 세분화
-- 대시보드 [커스텀 이벤트 분석]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-event-analytics)을 사용하여 각 이벤트가 발생한 횟수의 집계 보기
-- [퍼널]({{site.baseurl}}/user_guide/data_and_analytics/reporting/funnel_reports#step-2-select-events-for-funnel-steps) 및 [리텐션]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports) 보고서를 사용하여 추가 분석 확인
-- [영구 진입 속성정보]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/canvas_persistent_entry_properties)를 활용하여 고객 이벤트의 메타데이터를 캔버스 단계에서 개인화에 사용
-- [Currents]({{site.baseurl}}/user_guide/data/braze_currents)를 사용하여 더 정교한 분석 생성
-- 사용자가 Canvas를 종료해야 하는 시점을 정의하기 위한 [종료 기준]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/exit_criteria) 설정
+{% multi_lang_include data_activation/custom_event_use_cases.md %}
 
 ## 권한 {#entitlements}
 
@@ -42,9 +36,7 @@ hidden: true
 
 커스텀 이벤트를 차단하면:
 
-- 해당 이벤트에 대한 향후 데이터가 수집되지 않습니다.
-- 해당 이벤트가 차단 해제되지 않는 한 기존 데이터를 사용할 수 없습니다.
-- 해당 이벤트가 필터나 그래프에 표시되지 않습니다.
+{% multi_lang_include data_activation/custom_event_block_effects.md %}
 
 또한 차단된 커스텀 이벤트가 현재 Braze의 다른 영역에서 필터나 트리거에 의해 참조되고 있는 경우, 해당 이벤트를 참조하는 모든 필터 또는 트리거 인스턴스가 제거되고 아카이브된다는 경고 모달이 표시됩니다.
 
@@ -215,11 +207,9 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 이벤트 속성정보 세분화 필터에는 다음이 포함됩니다:
 
-- 속성정보 A의 값이 B인 커스텀 이벤트를 지난 Y일 동안 X회 수행한 적이 있음.
-- 속성정보 A의 값이 B인 구매를 지난 Y일 동안 X회 한 적이 있음.
-- 1일에서 30일 이내로 세분화하는 기능 추가.
+{% multi_lang_include data_activation/custom_event_property_filters.md %}
 
-![속성정보 'number of items'의 값이 '2'인 'Abandoned Cart'를 지난 '30' 캘린더 일 동안 '1'회 '이상' 수행한 필터 그룹.][3]
+![속성정보 'number of items'의 값이 '2'인 'Abandoned Cart'를 지난 '30' 캘린더 일 동안 '1'회 '이상' 수행한 필터 그룹][3]
 
 데이터는 고객 성공 매니저가 활성화한 후에만 해당 이벤트 속성정보에 대해 기록되며, 이벤트 속성정보는 해당 날짜 이후부터만 사용할 수 있습니다.
 

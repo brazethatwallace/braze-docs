@@ -38,9 +38,9 @@ guide_menu_list:
 ---
 <br><br>
 
-## 카탈로그 활용 사례 {#catalog-use-cases}
+## 카탈로그 사용 사례 {#catalog-use-cases}
 
-모든 유형의 데이터를 카탈로그로 가져올 수 있습니다. 일반적으로 이 데이터는 제품, 할인, 프로모션, 이벤트 등과 같은 오퍼링에 대한 메타데이터입니다. 이 데이터를 사용하여 관련성이 높은 메시지로 사용자를 타겟팅하는 방법에 대한 몇 가지 예는 아래 활용 사례를 참조하세요.
+모든 유형의 데이터를 카탈로그로 가져올 수 있습니다. 일반적으로 이 데이터는 제품, 할인, 프로모션, 이벤트 등과 같은 오퍼링에 대한 메타데이터입니다. 이 데이터를 사용하여 관련성이 높은 메시지로 사용자를 타겟팅하는 방법에 대한 몇 가지 예는 아래 사용 사례를 참조하세요.
 
 ### 소매 및 이커머스 {#retail-and-ecommerce}
 
@@ -60,20 +60,20 @@ guide_menu_list:
 - **여행지:** 여행지와 가장 인기 있는 명소, 레스토랑, 액티비티를 가져온 다음, 이전 여행을 기반으로 사용자에게 개인화된 추천을 제공하세요.
 - **숙박 시설:** 호텔 숙소와 편의시설, 객실 유형 및 가격을 가져온 다음, 선택한 선호도에 따라 사용자에게 프로모션을 전송하세요.
 - **여행 수단:** 항공편, 기차, 렌터카 등 여행 수단에 대한 특가 및 프로모션을 가져온 다음, 최근 검색 기록을 기반으로 사용자에게 전송하세요.
-- **식사 선호도:** 식사 제공에 대한 정보를 가져오고 [선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)을 사용하여 가장 최근에 본 음식 카테고리를 기반으로 특정 식사 선호도를 가진 사용자에게 개인화된 메시지를 보내세요.
+- **식사 선호도:** 식사 오퍼링에 대한 정보를 가져오고 [선택]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)을 사용하여 가장 최근에 본 음식 카테고리를 기반으로 특정 식사 선호도를 가진 사용자에게 개인화된 메시지를 보내세요.
 
 ## 카탈로그와 Liquid가 함께 작동하는 방식 {#how-catalogs-and-liquid-work-together}
 
 카탈로그는 데이터 저장 기능입니다. 개인화를 위해 메시지에서 참조할 수 있는 대규모 데이터 세트가 포함되어 있습니다. 실제로 데이터를 참조하려면 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 템플릿 언어로 사용합니다. 즉, 카탈로그는 데이터가 보관되는 저장소이고, Liquid는 저장소에서 관련 데이터를 가져오는 언어입니다.
 
-Liquid를 사용하여 카탈로그 정보를 가져오는 방법에 대한 예는 [카탈로그 생성]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases)의 추가 활용 사례를 참조하세요.
+Liquid를 사용하여 카탈로그 정보를 가져오는 방법에 대한 예는 [카탈로그 생성]({{site.baseurl}}/user_guide/data/activation/catalogs/create#use-cases)의 추가 사용 사례를 참조하세요.
 
 ## 데이터 저장 제한 {#data-storage-limitations}
 
 카탈로그의 데이터 저장 용량은 카탈로그 항목의 크기에 따라 제한되며, 업로드된 CSV 파일의 크기와 다를 수 있습니다.
 
-카탈로그 무료 버전의 경우 허용되는 저장 용량은 최대 100&nbsp;MB입니다. 저장 공간이 100&nbsp;MB를 초과하지 않는 한 항목 수에는 제한이 없습니다.
+카탈로그 무료 버전의 경우 허용되는 저장 용량은 최대 500&nbsp;MB입니다. 저장 공간이 500&nbsp;MB를 초과하지 않는 한 항목 수에는 제한이 없습니다.
 
-Catalogs Pro의 경우 저장 용량 옵션은 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB 또는 50&nbsp;GB입니다. 무료 버전의 저장 용량(100&nbsp;MB)은 각 요금제에 포함되어 있습니다.
+Catalogs Pro의 경우 저장 용량 옵션은 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB 또는 50&nbsp;GB입니다. 무료 버전의 저장 용량(500&nbsp;MB)은 각 요금제에 포함되어 있습니다.
 
 카탈로그 저장 용량을 업그레이드해야 하는 경우 Braze 계정 매니저에게 문의하세요. 요금제 세부 정보 및 자격 참고 사항은 [카탈로그 저장 용량]({{site.baseurl}}/user_guide/data/activation/catalogs/create#tiers)을 참조하세요.

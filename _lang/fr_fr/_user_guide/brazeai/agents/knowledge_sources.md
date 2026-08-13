@@ -73,7 +73,7 @@ Convertir un catalogue en source de connaissances aide les agents Braze à compr
 
 ### Quand dois-je créer une source de connaissances ? {#when-should-i-create-a-knowledge-source}
 
-Créez une source de connaissances lorsque vous configurez un agent personnalisé (agent Canvas ou agent de catalogue) qui a besoin de données de catalogue comme contexte. Les sources de connaissances aident les agents à récupérer les données du catalogue de manière plus précise que si le catalogue était directement référencé dans les instructions de l'agent.
+Créez une source de connaissances lorsque vous configurez un agent personnalisé (agent d'étape Canvas ou agent de catalogue) qui a besoin de données de catalogue comme contexte. Les sources de connaissances aident les agents à récupérer les données du catalogue de manière plus précise que si le catalogue était directement référencé dans les instructions de l'agent.
 
 ### Si un agent dispose d'une source de connaissances comme contexte, dois-je également lui attribuer le catalogue d'origine comme contexte ? {#if-an-agent-has-been-given-a-knowledge-source-as-context-do-i-also-need-to-assign-the-original-catalog-as-context}
 
@@ -81,4 +81,4 @@ Non. La source de connaissances remplace le catalogue en tant que contexte de l'
 
 ### Comment évaluer l'efficacité d'une source de connaissances ? {#how-should-i-evaluate-the-effectiveness-of-a-knowledge-source}
 
-Dupliquez un agent existant qui référence un catalogue standard, puis remplacez-le par la source de connaissances équivalente. Exécutez quelques invocations de test dans la Console des agents pour vérifier la précision, puis envisagez soit de remplacer l'agent existant là où il est déployé, soit de réaliser un test A/B entre l'ancien agent et le nouveau (en utilisant le chemin d'expérience) pour comprendre l'impact sur les performances.
+Dupliquez un agent existant qui référence un catalogue standard, puis remplacez-le par la source de connaissances équivalente. Exécutez quelques invocations de test dans la Console des agents pour vérifier la précision, puis envisagez soit de remplacer l'agent existant là où il est déployé, soit de réaliser un test A/B entre l'ancien agent et le nouveau (en utilisant le chemin d'expérience) pour évaluer l'impact sur les performances.

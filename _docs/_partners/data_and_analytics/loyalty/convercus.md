@@ -20,10 +20,10 @@ Convercus hosts the integration, so you do not install additional infrastructure
 
 ## Use cases
 
-1. **Tier-up celebration:** When a member moves up a loyalty tier in Convercus, trigger a personalized Braze Canvas with a welcome message, a tier-exclusive perk, and the member's new tier and points balance.
-2. **Birthday and milestone bonuses:** From a Braze journey, book bonus points in Convercus on a member's birthday or anniversary, then send a celebratory message confirming the new balance.
-3. **Lapsed-member win-back:** For inactive members, have Braze assign a personalized coupon in Convercus through a webhook and deliver it across email, push, and in-app messages.
-4. **Live points balance in messaging:** Use Connected Content to pull a member's real-time points balance into Braze Liquid, powering cadences such as "you're X points away from your next reward".
+* **Tier-up celebration:** When a member moves up a loyalty tier in Convercus, trigger a personalized Braze Canvas with a welcome message, a tier-exclusive perk, and the member's new tier and points balance.
+* **Birthday and milestone bonuses:** From a Braze journey, book bonus points in Convercus on a member's birthday or anniversary, then send a celebratory message confirming the new balance.
+* **Lapsed-member win-back:** For inactive members, have Braze assign a personalized coupon in Convercus through a webhook and deliver it across email, push, and in-app messages.
+* **Live points balance in messaging:** Use Connected Content to pull a member's real-time points balance into Braze Liquid, powering cadences such as "you're X points away from your next reward".
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ Before you start, you need the following:
 | --- | --- |
 | A Convercus account | An active Convercus program. Contact your Convercus account manager if you are not yet a customer. |
 | A Braze REST API key | A Braze REST API key with the `users.track` permission. Create this key in the Braze dashboard from **Settings** > **API Keys**. |
-| A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
+| A Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/api/basics/#endpoints). Your endpoint depends on the Braze URL for your instance. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 You need a consistent user identifier between systems: the value used as `external_id` (or the chosen identifier type) in Braze must match the corresponding member identifier in Convercus. Otherwise, events do not attribute to the correct profile.
@@ -51,7 +51,7 @@ In Convercus Selfservice (the customer-facing admin UI—open it using the URL y
    | `apiKey` | Your Braze REST API key (with the `users.track` permission). |
    | `apiEndpoint` | Your Braze REST endpoint, for example `https://rest.iad-01.braze.com`. |
    | Identifier type | Either `external_id` or `user_alias`. Determines how Convercus members are matched to Braze user profiles. |
-   | `defaultOptins` | Multi-select of the program's opt-in channels (from `membershipOptins`). Used as the default for the email subscription webhook when the request omits `optins`. The Braze config is treated as **incomplete** until at least one is selected. |
+   | `defaultOptins` | Multi-select of the program's opt-in channels (from `membershipOptins`). Used as the default for the email subscription webhook when the request omits `optins`. The Braze config is treated as incomplete until at least one is selected. |
    {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Configure Braze in Convercus Selfservice" }
 
 2. Create an API key for inbound calls. Create a per-program `X-Convercus-Key` credential. The raw key is shown once at creation, prefixed `cvc_` (format: `cvc_<base64url>`). Store it in Braze when you configure the webhook campaigns and Connected Content blocks in Step 2. Keys can be revoked at any time from the same card; revocation takes effect immediately.
@@ -108,7 +108,7 @@ The other actions follow the same pattern, changing only the endpoint and the bo
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Error responses and retries" }
 
 {% alert warning %}
-5xx responses are **not safe to retry without confirming success**—these operations are not idempotent, and retries may double-assign coupons or double-credit point bookings. Disable Braze auto-retry on 5xx for these webhooks, or configure a very low maximum retry count.
+5xx responses are not safe to retry without confirming success—these operations are not idempotent, and retries may double-assign coupons or double-credit point bookings. Disable Braze auto-retry on 5xx for these webhooks, or configure a very low maximum retry count.
 {% endalert %}
 
 ### Step 3: Verify data in Braze

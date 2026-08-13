@@ -79,14 +79,14 @@ Canvas에서는 생성한 Canvas에 매핑된 인앱 메시지 성과를 확인�
 
 #### Estimated Audience와 Current Audience {#estimated-audience-and-current-audience}
 
-워크스페이스의 크기에 따라 **Campaign Details** 패널에서 오디언스 통계가 **Estimated Audience** 또는 **Current Audience**로 표시될 수 있습니다.
+워크스페이스의 총 사용자 수에 따라 **Campaign Details** 패널에서 오디언스 통계가 **Current Audience** 또는 **Estimated Audience**로 표시됩니다.
 
 다음 표에서는 각 레이블의 의미를 설명합니다.
 
 | 하단 레이블 | 사용 시점 |
 | --- | --- |
-| **Estimated Audience** | Braze는 기본적으로 전체 데이터베이스 카운트를 실행하지 않습니다. 오디언스 크기는 샘플에서 추정되어 외삽되며, Segment 빌더의 **도달 가능 사용자** 범위와 유사합니다. 특히 대규모 워크스페이스나 워크스페이스 대비 작은 Segment의 경우 오차 범위가 예상됩니다. |
-| **Current Audience** | Braze가 워크스페이스 프로필의 전체 스캔으로 기본 통계를 계산할 수 있으므로, 표시되는 오디언스 크기는 샘플링되지 않은 현재 카운트입니다(채널 도달 가능성, 구독 규칙 및 기타 타겟팅 옵션에 따라 달라질 수 있음). |
+| **Current Audience** | 워크스페이스에 50,000명 이하의 사용자가 있습니다. Braze가 기본 통계를 위해 워크스페이스 프로필의 전체 스캔을 실행하므로, 표시되는 오디언스 크기는 샘플링되지 않은 현재 카운트입니다(채널 도달 가능성, 구독 규칙 및 기타 타겟팅 옵션에 따라 달라질 수 있음). |
+| **Estimated Audience** | 워크스페이스에 50,000명 이상의 사용자가 있습니다. Braze는 기본적으로 전체 데이터베이스 카운트를 실행하지 않습니다. 오디언스 크기는 샘플에서 추정되어 외삽되며, Segment 빌더의 **도달 가능 사용자** 범위와 유사합니다. 특히 워크스페이스 대비 작은 Segment의 경우 오차 범위가 예상됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience와 Current Audience" }
 
 샘플링 동작, **Calculate exact statistics** 및 **도달 가능 사용자** 세분화에 대한 자세한 내용은 [Segment 크기 측정]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)을 참조하세요.
@@ -187,6 +187,13 @@ The **Message Performance** panel outlines how well your message has performed a
 
 ![배리언트 1에 대한 측정기준 표가 포함된 WhatsApp Performance 패널.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### 크레딧과 발송 수 {#credits-versus-send-counts}
+
+캠페인 분석의 WhatsApp 발송 수는 전달 시도를 반영합니다. Meta가 메시지 카테고리(마케팅, 유틸리티, 인증, 서비스)별로 과금하는 경우 소비되는 크레딧이 다를 수 있습니다.
+
+- Braze에서 작성된 응답 메시지는 Braze WhatsApp 크레딧을 소비하지 않습니다.
+- 방향성 발송 볼륨을 확인하려면 **Analytics** > **Daily Stats**를 사용하세요. 캠페인 또는 Canvas별 크레딧 세부 내역은 제공되지 않습니다.
+
 {% endif %}
 
 보기를 간소화하려면 <i class="fas fa-plus"></i> **Add/Remove Columns**를 클릭하고 원하는 측정기준을 선택 해제하세요. 기본적으로 모든 측정기준이 표시됩니다.
@@ -204,10 +211,18 @@ The **Message Performance** panel outlines how well your message has performed a
 이 보기에서 **Show Heatmap** 토글을 사용하면 캠페인 기간 동안의 전체 클릭 빈도와 위치를 시각적으로 확인할 수 있습니다. **Link Table by Total Clicks** 패널에서는 이메일 캠페인의 모든 링크를 확인하고 총 클릭 수로 정렬할 수 있습니다. 이를 통해 사용자가 어디로 이동하는지에 대한 추가 인사이트를 얻을 수 있습니다. 히트맵 사본을 저장하려면 다운로드 버튼을 선택하세요.
 
 {% alert note %}
-링크가 동적 URL에 Liquid를 사용하는 경우, 클릭된 URL이 메시지의 렌더링된 링크와 충분히 일치하지 않아 히트맵이 해당 링크와 클릭을 연결하지 못할 수 있으므로, 해당 링크가 히트맵에 표시되지 않을 수 있습니다. 전체 그림을 보려면 **Link Table by Total Clicks** 패널의 클릭 데이터를 사용하세요.
+링크가 동적 URL에 Liquid를 사용하는 경우, 클릭된 URL이 메시지의 렌더링된 링크와 충분히 일치하지 않아 히트맵이 해당 링크와 클릭을 연결하지 못할 수 있으므로, 해당 링크가 히트맵에 표시되지 않을 수 있습니다. 템플릿화된 링크에 클릭 데이터를 연결하려면 [링크 별칭 지정]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing)을 사용하세요. 전체 그림을 보려면 **Link Table by Total Clicks** 패널의 클릭 데이터를 사용하세요.
 {% endalert %}
 
 ![이메일 캠페인과 총 클릭 수가 포함된 링크 별칭 예시 패널이 있는 Preview & Heatmap 페이지 예시.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+
+##### 히트맵의 모바일 전용 링크 {#mobile-only-links-in-the-heatmap}
+
+히트맵은 선택한 미리보기 크기에서 보이는 링크에 대해서만 히트 시그니처를 표시합니다.
+
+모바일 레이아웃에서만 나타나는 링크는 **Desktop**에서 숨겨지며(**Overall**에서도 미리보기 너비에 따라 숨겨질 수 있음), 해당 클릭은 히트 시그니처로 표시되지 않습니다. 이러한 링크는 여전히 **Link Table by Total Clicks** 패널에 총 클릭 수 및 백분율과 함께 표시됩니다.
+
+모바일 전용 링크의 히트 시그니처를 보려면 **Mobile**을 선택하세요. 모바일 미리보기는 드래그 앤 드롭 편집기의 모바일 중단점(620&nbsp;px)과 일치합니다. 이메일이 더 좁은 너비에서만 레이아웃을 전환하는 경우, **Mobile** 미리보기 크기에서도 해당 링크가 숨겨진 상태로 유지됩니다.
 
 #### 이미지 {#images}
 
@@ -365,6 +380,12 @@ _Messages Sent_는 볼 수 있도록 제공된 Content Cards를 의미하고, _U
 
 _Unique Daily Impressions_는 실제로 본 배너를 의미합니다.
 
+#### 대조군과 배리언트 간의 차이 {#discrepancies-between-control-groups-and-variants}
+
+배너 캠페인에서 대조군을 사용하는 경우, 오디언스 분할이 균등하더라도 대조군 노출이 배리언트 노출보다 높을 수 있습니다. 이 차이는 대조군과 배리언트 배너의 노출 기록 방식 차이로 인해 발생합니다.
+
+대조군과 배리언트 노출 모두 배너 배치가 뷰포트에 진입해야 합니다. 배리언트 노출은 전체 배너가 화면에 표시될 때만 기록됩니다. 대조군 노출은 배치가 뷰포트에 진입하는 즉시 기록될 수 있으며, 이는 배리언트의 경우 전체 배너가 표시되기 전입니다.
+
 {% elsif include.channel == "email" %}
 
 #### 이메일 측정기준 {#email-metrics}
@@ -478,7 +499,7 @@ Braze는 열람 추적 픽셀이 로드될 때 이메일 열람을 기록합니�
 
 - **메시지가 잘린 경우.** 긴 HTML은 콘텐츠(하단의 픽셀 포함)를 "전체 메시지 보기" 스타일의 잘림 뒤로 밀어냅니다. Gmail에서는 약 [102&nbsp;KB]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling#email-size)보다 큰 메시지가 잘리는 경우가 많아, 전체 메시지를 열 때까지(그리고 클라이언트에 따라 그때도) 픽셀이 로드되지 않을 수 있습니다.
 - **이미지가 차단되거나 제한된 경우.** 더 엄격한 받은편지함 보안(기업 계정에서 흔함)은 수신자가 이미지 로드를 선택할 때까지 원격 이미지를 차단할 수 있으므로, 추적된 링크를 클릭하더라도 열람 픽셀이 실행되지 않습니다.
-- **메시지가 스팸 또는 대량 메일 폴더에 있는 경우.** 많은 제공업체는 해당 폴더에서 기본적으로 원격 이미지(열람 픽셀 포함)를 로드하지 않습니다.
+- **메시지가 스팸 또는 대량 메일 폴더에 있는 경우.** 많은 제공업체는 해당 폴더에서 기본적으로 원격 이미지(열람 추적 픽셀 포함)를 로드하지 않습니다.
 
 **대응 방법**
 
@@ -521,7 +542,7 @@ Estimated Real Open Rate는 Campaigns에서만 사용할 수 있으며, Currents
 궁극적으로 이메일이 서버를 떠난 후에는 가시성이 제한되지만, 결과에 영향을 미치는 NHI를 관리하기 위한 권장 사항은 다음과 같습니다:
 
 1. 이는 모든 발신자와 거의 모든 수신자에게 발생할 수 있다는 점을 인지하세요. 열람과 마찬가지로 클릭도 메시지와의 인간 상호작용을 완전히 신뢰할 수 있는 지표가 아니므로 NHI를 방지할 수는 없습니다.
-2. 높은 긍정적 참여는 낮은 NHI와 상관관계가 있는 경향이 있으므로, 이메일 메시징 [모범 사례]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices)를 따르는 것이 중요합니다. 여기에는 사용자로부터 이메일 전송에 대한 명시적인 동의를 받고, 참여하지 않는 가입자를 정기적으로 서비스 종료하는 것이 포함됩니다.
+2. 높은 긍정적 참여는 낮은 NHI와 상관관계가 있는 경향이 있으므로, 이메일 메시징 [모범 사례]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices)를 따르는 것이 중요합니다. 여기에는 사용자로부터 이메일 전송에 대한 명시적인 동의를 받고, 참여하지 않는 구독자를 정기적으로 서비스 종료하는 것이 포함됩니다.
 3. 가능하면 이메일에 HTTPS 링크를 사용하세요. 보안 링크를 사용하는 발신자에게는 NHI가 덜 발생합니다.
 4. 단일 클릭 탈퇴 프로세스를 사용하는 경우, 사용자가 알림 환경설정을 편집하고 관리할 수 있는 페이지로 이동하는 [환경설정 센터]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview)를 만드는 것을 고려하세요. NHI가 실수로 사용자의 구독을 취소할 수 있으므로 이 방법이 유용합니다.
 5. 전환, 앱 세션 또는 사이트 방문과 같은 [다른 측정기준]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/email_reporting#email-performance)을 사용하여 이메일 마케팅 성과를 측정하는 것도 고려해 보세요.
@@ -593,7 +614,7 @@ _Button 1 Clicks_ 및 _Button 2 Clicks_에 대한 보고는 인앱 메시지에�
     </tbody>
 </table>
 
-#### 대조군과 배리언트 간의 차이 {#discrepancies-between-control-groups-and-variants}
+#### 대조군과 배리언트 간의 차이
 
 인앱 메시지 캠페인에서 배리언트를 50대 50으로 분할하면, 대조군이 배리언트보다 약간 높은 비율을 보일 수 있습니다(예: 대조군 51%, 배리언트 49%). 이 차이는 렌더링 시간의 차이로 인해 발생합니다. 예를 들어, 배리언트 메시지가 큰 이미지나 템플릿화된 연결된 콘텐츠를 사용하여 렌더링이 완료되기 전에 사용자가 떠나는 반면, 대조군은 메시지를 표시하지 않고 노출을 기록하는 경우입니다.
 
@@ -866,6 +887,8 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
         </tr>
     </tbody>
 </table>
+
+실패가 증가한 경우 [WhatsApp 발송 실패 조사]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures)를 참조하세요.
 
 #### 최종 사용자 차단 및 보고 측정기준 {#end-user-blocking-and-reporting-metrics}
 

@@ -9,7 +9,7 @@ description: "この記事には2020年7月のリリースノートが含まれ�
 
 ## プロモーションコード {#promotion-codes}
 
-Liquidを使用して、アップロードした[プロモーションコード]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes#promotion-codes)のリストからメッセージを取得できます。この機能は、有効期限が最長6か月で、リストごとに最大2,000万件の個別コードをサポートしています。
+Liquidを使用して、アップロードした[プロモーションコード]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes)のリストからメッセージを取得できます。この機能は、有効期限が最長6か月で、リストごとに最大2,000万件の個別コードをサポートしています。
 
 ## バリアントリテンションレポート {#variant-retention-report}
 

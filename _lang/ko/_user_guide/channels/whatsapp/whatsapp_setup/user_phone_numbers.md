@@ -17,7 +17,7 @@ channel:
 
 ## 전화번호 가져오기 {#importing-phone-numbers}
 
-[CSV 업로드]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) 또는 [API를 통해]({{site.baseurl}}/api/endpoints/user_data#user-track-endpoint) 전화번호를 가져와서 사용자를 생성할 수 있습니다.
+[CSV 업로드]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) 또는 [API를 통해]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 전화번호를 가져와서 사용자를 생성할 수 있습니다.
 
 ### 형식 {#formatting}
 
@@ -31,7 +31,7 @@ channel:
 
 ![형식 관련 스크린샷.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
 
-그러나 국가 코드나 지역 코드가 다른 여러 지역으로 발송하는 경우 정확성을 보장하기 위해, 미국 기반 전화번호에도 `E.164` 형식을 사용하는 것이 권장됩니다.
+그러나 국가 코드나 지역 코드가 다른 여러 지역으로 발송하는 경우 정확성을 보장하기 위해, 미국 기반 전화번호에도 `E.164` 형식을 사용하는 것을 권장합니다.
 
 다음 표에서 현지 번호 형식과 범용 `E.164` 형식의 차이를 확인할 수 있습니다:
 
@@ -47,6 +47,6 @@ channel:
 고객이 WhatsApp 메시지를 수신하려면 유효한 전화번호가 있어야 하며 구독 그룹에 옵트인되어 있어야 합니다. 자세한 내용은 [WhatsApp 구독 그룹]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)을 참조하세요.
 
 
-### 동일한 전화번호를 가진 다중 사용자 {#multiple-users-with-the-same-phone-number}
+### 동일한 전화번호를 가진 여러 사용자 {#multiple-users-with-the-same-phone-number}
 
 단일 Campaign 또는 캔버스 단계의 Segment 내에서 여러 사용자가 동일한 전화번호를 가지고 있는 경우, Braze는 발송을 중복 제거하여 해당 전화번호로 하나의 메시지만 발송합니다.

@@ -30,7 +30,7 @@ description: "이 문서에서는 푸시 자격 증명 업데이트 Braze 엔드
 
 ## 전제 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `apps.push_credential` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `apps.push_credential` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 요청 본문 {#request-body}
 

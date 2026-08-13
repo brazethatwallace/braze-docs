@@ -24,7 +24,7 @@ Archivierte Canvases werden nicht in die API-Antwort aufgenommen, es sei denn, d
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `canvas.list`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `canvas.list`.
 
 ## Rate-Limit
 
@@ -60,7 +60,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/list?page
   	},
     ... (more Canvases)
   ],
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

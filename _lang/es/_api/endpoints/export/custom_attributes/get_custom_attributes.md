@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar atributos personalizados de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar atributos personalizados de Braze."
 
 ---
 {% api %}
@@ -14,11 +14,11 @@ description: "En este artículo se describen los detalles del punto de conexión
 /custom_attributes
 {% endapimethod %}
 
-> Utiliza este punto de conexión para exportar una lista de atributos personalizados registrados para tu aplicación. Los atributos se devuelven en grupos de 50, ordenados alfabéticamente.
+> Utiliza este endpoint para exportar una lista de atributos personalizados registrados para tu aplicación. Los atributos se devuelven en grupos de 50, ordenados alfabéticamente.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `custom_attributes.get`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `custom_attributes.get`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -26,7 +26,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de consulta {#query-parameters}
 
-Ten en cuenta que cada llamada a este punto de conexión devolverá 50 atributos. Para más de 50 atributos, utiliza el encabezado `Link` para recuperar los datos en la página siguiente, como se muestra en el siguiente ejemplo de respuesta.
+Ten en cuenta que cada llamada a este endpoint devolverá 50 atributos. Para más de 50 atributos, utiliza el encabezado `Link` para recuperar los datos en la página siguiente, como se muestra en el siguiente ejemplo de respuesta.
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
@@ -55,7 +55,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?c
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "attributes" : [
         {
             "array_length": 100, (number) the maximum array length, or null if not applicable,

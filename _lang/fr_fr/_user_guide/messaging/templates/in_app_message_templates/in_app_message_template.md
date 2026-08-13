@@ -35,7 +35,7 @@ Les profils de couleurs et les modèles CSS s'appliquent à l'éditeur tradition
 
 ## Étape 3 : Gérer vos modèles {#step-3-manage-your-templates}
 
-Dans **Contenu** > **In-App Message**, filtrez, recherchez ou ouvrez un modèle pour le modifier. Vous pouvez [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicate-templates) et [archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archive-templates) des modèles comme pour les autres types de modèles. Pour un aperçu des flux de travail liés aux modèles et aux médias, consultez [Modèles]({{site.baseurl}}/user_guide/messaging/templates).
+Dans **Contenu** > **In-App Message**, filtrez, recherchez ou ouvrez un modèle pour le modifier. Vous pouvez [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicating-templates) et [archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archiving-templates) des modèles comme pour les autres types de modèles. Pour un aperçu des flux de travail liés aux modèles et aux médias, consultez [Modèles]({{site.baseurl}}/user_guide/messaging/templates).
 
 Pour accéder aux modèles de messages in-app, vous devez disposer des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) permettant de consulter ou de modifier les modèles de messages in-app.
 

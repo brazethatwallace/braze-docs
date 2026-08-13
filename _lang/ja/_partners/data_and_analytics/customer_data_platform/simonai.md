@@ -82,8 +82,8 @@ Simon AIでBrazeアカウントを認証した後、[フロー][4]と[ジャー�
 ![Simon AIでの同期トレイトの選択。][10]
 
 [1]: https://www.simon.ai/
-[2]: {{site.baseurl}}/api/basics/#creating-and-managing-rest-api-keys
-[3]: {{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints
+[2]: {{site.baseurl}}/api/basics#creating-rest-api-keys
+[3]: {{site.baseurl}}/user_guide/administer/personal/sdk_endpoints
 [4]: https://docs.simondata.com/docs/campaigns-flows
 [5]: https://docs.simondata.com/docs/campaigns-journeys-two
 [6]: https://docs.simondata.com

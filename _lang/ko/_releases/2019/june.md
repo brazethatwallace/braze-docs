@@ -6,9 +6,9 @@ page_type: update
 description: "이 문서에는 2019년 6월의 릴리스 노트가 포함되어 있습니다."
 ---
 
-# 2019년 6월
+# 2019년 6월 {#june-2019}
 
-## Snowflake 파트너십
+## Snowflake 파트너십 {#snowflake-partnership}
 
 Braze가 Snowflake와의 파트너십을 발표하게 되어 자랑스럽게 생각합니다!
 
@@ -16,4 +16,4 @@ Snowflake는 모든 데이터와 모든 사용자를 위해 특별히 제작된 
 
 Braze는 Snowflake의 데이터 교환을 활용하여 입지를 구축하고, 신규 고객을 찾고, 지속적으로 성장하는 Snowflake 고객층을 통해 도달 범위를 확장합니다.
 
-이 파트너십에 대한 자세한 내용은 [여기](https://www.braze.com/perspectives/article/snowflake-partner-announcement) 또는 [문서에서]({{site.baseurl}}/partners/snowflake/) 확인하세요.
+[Snowflake 파트너십 발표](https://www.braze.com/perspectives/article/snowflake-partner-announcement) 또는 [Snowflake 설명서]({{site.baseurl}}/partners/snowflake)에서 자세히 알아보세요.

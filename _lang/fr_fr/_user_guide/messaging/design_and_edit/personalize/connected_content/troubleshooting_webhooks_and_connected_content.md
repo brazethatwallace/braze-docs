@@ -83,6 +83,7 @@ table td {
         <ul>
           <li>Vérifiez si la clé API ou le jeton dispose des autorisations requises.</li>
           <li>Confirmez que vous disposez des autorisations utilisateur nécessaires pour accéder à l'endpoint.</li>
+          <li>Si les requêtes renvoient systématiquement <code>403</code> et que l'authentification semble correcte, votre serveur, passerelle API ou WAF bloque peut-être les adresses IP sortantes de Braze. Ajoutez les adresses IP de votre cluster Braze à la liste d'autorisation. Pour les webhooks, consultez <a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">Liste d'autorisation IP</a>. Pour le contenu connecté, consultez <a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">Liste d'autorisation IP du contenu connecté</a>.</li>
         </ul>
       </td>
     </tr>

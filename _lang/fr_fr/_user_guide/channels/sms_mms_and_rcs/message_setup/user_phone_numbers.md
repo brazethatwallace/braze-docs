@@ -37,7 +37,7 @@ Voici quelques exemples illustrant les différences entre le formatage local et 
 
 Lors de l'importation de numéros de téléphone, il est important de suivre le [format recommandé](#recommended-format). Pour importer des numéros de téléphone, utilisez l'une des méthodes suivantes :
 
-- [Charger un fichier CSV vers Braze]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)
+- [Charger un fichier CSV vers Braze]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)
 - [Utiliser l'endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 
 {% alert important %}
@@ -76,7 +76,7 @@ Les rejets SMS sont décomptés de votre allocation SMS.
 Pour exclure de vos segments les utilisateurs dont les envois SMS ont été rejetés, utilisez les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) en procédant comme suit :
 
 1. Accédez à **Audience** > **Extensions de segments**.
-2. Sélectionnez **Créer** > **Actualisation complète** ou **Actualisation incrémentale**.
+2. Sélectionnez **Créer une nouvelle extension** > **Actualisation complète** ou **Actualisation incrémentale**.
 3. Rédigez une requête SQL qui identifie les utilisateurs ayant des rejets SMS. Par exemple, vous pouvez interroger l'événement `USERS_MESSAGES_SMS_REJECTION_SHARED` pour trouver les utilisateurs ayant reçu des rejets SMS.
 4. Enregistrez votre extension de segment.
 5. Lors de la création de votre segment SMS, ajoutez un filtre pour exclure les utilisateurs de cette extension de segment.

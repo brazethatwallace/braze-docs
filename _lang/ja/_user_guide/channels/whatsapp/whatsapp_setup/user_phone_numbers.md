@@ -2,7 +2,7 @@
 nav_title: "ユーザーの電話番号"
 article_title: WhatsAppユーザーの電話番号
 page_order: 3
-description: "このリファレンス記事では、WhatsAppの電話番号のフォーマット、電話番号のインポート方法、およびWhatsAppサブスクリプショングループへのユーザーの追加方法について説明します。"
+description: "このリファレンス記事では、WhatsAppの電話番号のフォーマット、電話番号のインポート方法、およびWhatsApp購読グループへのユーザーの追加方法について説明します。"
 page_type: reference
 channel:
   - WhatsApp
@@ -17,7 +17,7 @@ channel:
 
 ## 電話番号のインポート {#importing-phone-numbers}
 
-電話番号は、[CSVをアップロード]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)するか、[API経由]({{site.baseurl}}/api/endpoints/user_data#user-track-endpoint)でユーザーを作成することでインポートできます。
+電話番号は、[CSVをアップロード]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)するか、[API経由]({{site.baseurl}}/api/endpoints/user_data/post_user_track)でユーザーを作成することでインポートできます。
 
 ### フォーマット {#formatting}
 
@@ -42,9 +42,9 @@ channel:
 | ブラジル | `1155256325` | 55 | `+551155256325` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="フォーマット" }
 
-### WhatsAppサブスクリプショングループへのユーザーの追加 {#adding-users-to-whatsapp-a-subscription-group}
+### WhatsApp購読グループへのユーザーの追加 {#adding-users-to-whatsapp-a-subscription-group}
 
-顧客がWhatsAppメッセージを受信するには、有効な電話番号を持ち、サブスクリプショングループにオプトインしている必要があります。詳細については、[WhatsAppサブスクリプショングループ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)を参照してください。
+顧客がWhatsAppメッセージを受信するには、有効な電話番号を持ち、購読グループにオプトインしている必要があります。詳細については、[WhatsApp購読グループ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)を参照してください。
 
 
 ### 同じ電話番号を持つ複数のユーザー {#multiple-users-with-the-same-phone-number}

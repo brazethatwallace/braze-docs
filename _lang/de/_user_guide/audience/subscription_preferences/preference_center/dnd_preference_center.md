@@ -85,6 +85,10 @@ Jeder Block hat seine eigenen Einstellungen, wie z. B. eine granulare Steuerung 
 
 Wenn Sie den Custom-Code-Block in Ihrem Präferenzzentrum verwenden, werden Inline-Frames möglicherweise nicht im benutzerdefinierten Code generiert, wenn er an Ihre Nutzer:innen zugestellt wird.
 
+{% alert note %}
+Content Blocks mit Links können nicht im Drag-and-Drop-Präferenzzentrum verwendet werden. Links innerhalb von Content Blocks sind nicht klickbar.
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
@@ -96,9 +100,11 @@ Passen Sie als Nächstes die Bestätigungsseite an, indem Sie **Bestätigungssei
 
 ## Schritt 6: Vorschau anzeigen und Präferenzzentrum starten {#step-6-preview-and-launch-your-preference-center}
 
-Sie können eine Vorschau Ihres Präferenzzentrums anzeigen, indem Sie den Tab **Vorschau** im Editor auswählen. Die Testfunktionalität ist jedoch deaktiviert. Darüber hinaus generieren Testversendungen von Campaigns oder Canvas-Schritten, die den Liquid-Tag des Präferenzzentrums enthalten, keinen gültigen Link. Um die vollständige Funktionalität Ihres Präferenzzentrums zu testen, senden Sie eine Live-Campaign oder ein Canvas. Nachdem Sie Ihr Präferenzzentrum bearbeitet haben, können Sie den Editor schließen, indem Sie **Fertig** auswählen.
+Sie können eine Vorschau Ihres Präferenzzentrums anzeigen, indem Sie den Tab **Vorschau** im Editor auswählen. Die Vorschau zeigt sowohl das Präferenzzentrum als auch die Bestätigungsseite.
 
-Die Vorschau zeigt sowohl das Präferenzzentrum als auch die Bestätigungsseite. Wählen Sie **Als Entwurf speichern**, um später zu diesem Präferenzzentrum zurückzukehren, oder wählen Sie **Präferenzzentrum starten**, wenn Sie zufrieden sind.
+Die Testfunktionalität ist jedoch deaktiviert. Darüber hinaus generieren Testversendungen von Campaigns oder Canvas-Schritten, die den Liquid-Tag des Präferenzzentrums enthalten, keinen gültigen Link. Diese Vorschau ermöglicht es Ihnen nicht, Abo-Änderungen zu speichern – sie zeigt nur, wie die Seite aussieht. Um das Speichern von Präferenzen zu testen, lesen Sie [Präferenzzentren testen](#testing-preference-centers). Nachdem Sie Ihr Präferenzzentrum bearbeitet haben, können Sie den Editor schließen, indem Sie die Schaltfläche **Fertig** auswählen.
+
+Wählen Sie **Als Entwurf speichern**, um später zu diesem Präferenzzentrum zurückzukehren, oder wählen Sie **Präferenzzentrum starten**, wenn Sie zufrieden sind.
 
 Beim Starten des Präferenzzentrums werden Sie aufgefordert, den Namen zu bestätigen, da er nach dem Start nicht mehr bearbeitet werden kann. Nachdem Sie den Namen bestätigt haben, wird das Präferenzzentrum gestartet und ist einsatzbereit.
 
@@ -111,6 +117,14 @@ Um einen Link zum Präferenzzentrum in Ihren E-Mails zu platzieren, kopieren Sie
 ![Die Option „Liquid kopieren“ in der Zeile eines Präferenzzentrums.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
 
 Fügen Sie den Liquid-Tag an der gewünschten Stelle in Ihrer E-Mail ein, ähnlich wie [Abmelde-URLs]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link) eingefügt werden.
+
+{% multi_lang_include preference_center/testing.md %}
+
+## Häufig gestellte Fragen {#frequently-asked-questions}
+
+### Warum funktioniert mein Präferenzzentrum nicht bei einer Testversendung? {#why-doesnt-my-preference-center-work-in-a-test-send}
+
+Links zum Präferenzzentrum erfordern einen Live-Versandkontext. Testversendungen generieren keine gültigen Präferenzzentrum-URLs, und die Schaltfläche **Präferenzen speichern** ist deaktiviert, wenn die Seite geladen wird. Dies ist das erwartete Verhalten. Um End-to-End zu testen, starten Sie eine Campaign oder einen Canvas-Schritt an eine:n Testnutzer:in oder ein kleines internes Segment. Weitere Details finden Sie unter [Präferenzzentren testen](#testing-preference-centers).
 
 ## Fehlerbehandlung {#handle-errors}
 

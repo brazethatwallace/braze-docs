@@ -23,24 +23,24 @@ Se um item de catálogo não existir, esse endpoint criará o item no seu catál
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `catalogs.replace_items`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.replace_items`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog item' %}
 
 ## Parâmetros de jornada {#path-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `catalog_name` | Obrigatória | String | Nome do catálogo. |
+| `catalog_name` | Obrigatório | String | Nome do catálogo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de jornada" }
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `items` | Obrigatória | Vetor | Um vetor que contém objetos de item. Cada objeto deve ter um ID. Os objetos de item devem conter campos existentes no catálogo. Até 50 objetos de item são permitidos por solicitação. |
+| `items` | Obrigatório | Vetor | Um vetor que contém objetos de item. Cada objeto deve ter um ID. Os objetos de item devem conter campos existentes no catálogo. Até 50 objetos de item são permitidos por solicitação. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
@@ -88,7 +88,7 @@ O campo `Location` usa o tipo de dados `geo`, que espera um vetor formatado como
 Há três respostas de código de status para esse endpoint: `202`, `400` e `404`.
 
 {% alert note %}
-O sistema também pode retornar uma resposta `400` se a sua empresa tiver atingido o limite de armazenamento do catálogo. A versão gratuita dos catálogos tem um limite de 100&nbsp;MB. Para saber mais sobre os níveis de armazenamento e como fazer upgrade, consulte [Limitações de armazenamento de dados]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
+O sistema também pode retornar uma resposta `400` se a sua empresa tiver atingido o limite de armazenamento do catálogo. A versão gratuita dos catálogos tem um limite de 500&nbsp;MB. Para saber mais sobre os níveis de armazenamento e como fazer upgrade, consulte [Limitações de armazenamento de dados]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
 {% endalert %}
 
 ### Exemplo de resposta bem-sucedida {#example-success-response}

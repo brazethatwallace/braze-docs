@@ -94,7 +94,7 @@ braze.openSession();
 ```
 
 {% alert important %}
-**인앱 메시지 표시**: 트리거될 때 인앱 메시지를 자동으로 표시하려면 `braze.automaticallyShowInAppMessages()`를 호출해야 합니다. 이 호출이 없으면 인앱 메시지가 자동으로 표시되지 않습니다. 메시지 표시를 수동으로 관리하려면 이 호출을 제거하고 대신 `braze.subscribeToInAppMessage()`를 사용하세요. 자세한 내용은 [인앱 메시지 전달]({{site.baseurl}}/developer_guide/in_app_messages/delivery)을 참조하세요.
+**인앱 메시지 표시**: 트리거될 때 인앱 메시지를 자동으로 표시하려면 `braze.automaticallyShowInAppMessages()`를 호출해야 합니다. 이 호출이 없으면 인앱 메시지가 자동으로 표시되지 않습니다. 메시지 표시를 수동으로 관리하려면 이 호출을 제거하고 대신 `braze.subscribeToInAppMessage()`를 사용하세요. 자세한 내용은 [자동 트리거 비활성화]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#disabling-automatic-triggers)를 참조하세요.
 {% endalert %}
 
 #### 익명 사용자의 세션 누락 문제 해결 {#troubleshooting-missing-sessions-for-anonymous-users}

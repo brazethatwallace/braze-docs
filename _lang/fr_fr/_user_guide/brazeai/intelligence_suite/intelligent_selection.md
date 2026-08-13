@@ -20,7 +20,7 @@ Avant d'ajouter la sélection intelligente à votre campagne, assurez-vous d'avo
 - Votre campagne est envoyée selon une planification récurrente. Les campagnes à envoi unique ne sont pas prises en charge.
 - Vous avez ajouté au moins deux variantes de message.
 - Vous avez défini un événement de conversion pour mesurer les performances des variantes.
-- La fenêtre de rééligibilité est fixée à 24 heures ou plus. Les fenêtres plus courtes ne sont pas prises en charge, car elles affecteraient l'intégrité de la variante de contrôle. Pour en savoir plus, consultez [cette FAQ]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
+- La fenêtre de rééligibilité est fixée à 24 heures ou plus. Les fenêtres plus courtes ne sont pas prises en charge, car elles affecteraient l'intégrité de la variante de contrôle. Pour en savoir plus, consultez la [FAQ sur la sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
 {% endtab %}
 
 {% tab Canvas %}
@@ -49,7 +49,7 @@ Vous pouvez ajouter la sélection intelligente à vos campagnes et à vos Canvas
 
 {% tabs %}
 {% tab Campaign %}
-La sélection intelligente peut être ajoutée à n'importe quelle campagne multi-envoi dans l'étape **Audiences cibles** du compositeur de campagne de Braze. Les campagnes qui n'envoient qu'une seule fois ne peuvent pas bénéficier de cette fonctionnalité.
+La sélection intelligente peut être ajoutée à n'importe quelle campagne multi-envoi dans l'étape **Audiences cibles** du compositeur de campagne de Braze. Les campagnes qui n'envoient qu'une seule fois ne peuvent pas tirer parti de cette fonctionnalité.
 
 {% alert note %}
 La sélection intelligente ne peut pas être utilisée dans les campagnes dont la période de rééligibilité est inférieure à 24 heures, car elle affecterait l'intégrité de la variante de contrôle. Pour en savoir plus, consultez la [FAQ sur l'intelligence]({{site.baseurl}}/user_guide/brazeai/intelligence/faqs#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).

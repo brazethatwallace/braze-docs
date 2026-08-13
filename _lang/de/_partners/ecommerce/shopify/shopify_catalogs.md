@@ -26,18 +26,18 @@ Sie können Ihre Produkte mit einem Braze-Katalog über den Shopify-Installation
 
 ### Schritt 2: Produktbezeichner auswählen {#step-2-select-your-product-identifier}
 
-Wählen Sie den Produktbezeichner aus, der als Katalog-ID verwendet werden soll:
-- Shopify Variant ID
-- SKU
+Wählen Sie den primären Produktbezeichner aus, der als Braze-Katalog-ID verwendet werden soll:
 
-Die ID- und Header-Werte für den von Ihnen gewählten Produktbezeichner dürfen nur Buchstaben, Zahlen, Bindestriche und Unterstriche enthalten. Wenn der Produktbezeichner nicht diesem Format entspricht, filtert Braze ihn aus Ihrer Katalogsynchronisierung heraus.
+- **Shopify Variant ID** ist ein guter Standard, wenn Ihre SKUs fehlen, über Varianten hinweg dupliziert sind oder Zeichen wie Schrägstriche, Punkte, Leerzeichen oder kaufmännische Und-Zeichen enthalten können. Varianten-IDs sind numerisch und erfüllen diese Anforderungen immer.
+- **SKU** eignet sich gut, wenn jede Variante eine eindeutige SKU hat, die denselben Zeichenregeln wie die Shopify Variant ID folgt, und Sie Messaging oder Analytics mit Einzelhandels-SKUs als Katalogschlüssel verwenden möchten.
+  - Sie können Freitext-SKUs, die unzulässige Zeichen enthalten, verwenden, indem Sie statt SKU die Shopify Variant ID nutzen.
 
-Dies ist der primäre Bezeichner, mit dem Sie die Kataloginformationen von Braze referenzieren.
+Der von Ihnen gewählte Wert wird zur Katalog-`item_id` und darf nur Buchstaben, Zahlen, Bindestriche und Unterstriche enthalten.
 
 {% alert note %}
-Wenn Sie SKU als Katalog-ID auswählen, stellen Sie sicher, dass alle Produkte und Varianten in Ihrem Shop eine SKU haben und diese eindeutig sind.<br><br>
+Wenn Sie SKU als Katalog-ID verwenden, stellen Sie sicher, dass alle Ihre Produkte und Varianten in Ihrem Shop eine SKU haben und diese eindeutig sind.<br><br>
 - Wenn ein Artikel keine SKU hat, kann Braze dieses Produkt nicht mit dem Katalog synchronisieren.
-- Wenn Sie mehr als ein Produkt mit der gleichen SKU haben, kann dies zu unerwartetem Verhalten führen oder dazu, dass die Produktinformationen unbeabsichtigt durch die doppelte SKU überschrieben werden.
+- Wenn Sie mehr als ein Produkt mit der gleichen SKU haben, kann dies zu unerwartetem Verhalten führen oder Produktinformationen unbeabsichtigt überschreiben.
 {% endalert %}
 
 ### Schritt 3: Zusätzliche Produktdaten konfigurieren (optional) {#step-3}
@@ -190,7 +190,7 @@ Das Ändern Ihrer synchronisierten Auswahlen kann sich auf aktive Campaigns, Can
 | `sku` | String | „12345“, „SKU-001-RED-L“ |
 | `product_tags` | Array | `["Summer", "Sale", "New"]`<br><br>Erfordert die Synchronisierung von Produkt-Tags. |
 | `collection_ids` | Array | `[123456789012, 987654321098]` (Shopify-Kollektions-IDs)<br><br>Erfordert die Synchronisierung von Shopify-Kollektionen. |
-| `Metafeld-Spalten` | Variiert je nach Typ | Jedes synchronisierte Metafeld erscheint als separate Spalte, benannt nach seinem Schlüssel. Informationen finden Sie unter [Unterstützte Metafelder](#step-3) im Tab „Produkt-Metafelder“ von Schritt 3. |
+| Metafeld-Spalten | Variiert je nach Typ | Jedes synchronisierte Metafeld erscheint als separate Spalte, benannt nach seinem Schlüssel. Informationen finden Sie unter [Unterstützte Metafelder](#step-3) im Tab „Produkt-Metafelder“ von Schritt 3. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Unterstützte Shopify-Katalogdaten" }
 
 {% alert warning %}
@@ -711,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-Sie können auch [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) und [Wieder-auf-Lager-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) einrichten!<br><br> Beachten Sie, dass Sie für jeden Anwendungsfall ein angepasstes Event erstellen müssen, das den Abo-Status einer Nutzerin oder eines Nutzers in Ihrem Katalog erfasst. Für das angepasste Event benötigen Sie eine Event-Eigenschaft, die entweder der [SKU oder der Shopify-Varianten-ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs#step-2-select-your-product-identifier) zugeordnet ist, die Sie im Rahmen Ihrer Shopify-Produktsynchronisierung ausgewählt haben.
+Sie können auch [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) und [Wieder-auf-Lager-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) einrichten!<br><br> Beachten Sie, dass Sie für jeden Anwendungsfall ein angepasstes Event erstellen müssen, das den Abo-Status einer Nutzerin oder eines Nutzers in Ihrem Katalog erfasst. Für das angepasste Event benötigen Sie eine Event-Eigenschaft, die entweder der <a href="/docs/partners/ecommerce/shopify/shopify_catalogs#step-2-select-your-product-identifier">SKU oder der Shopify-Varianten-ID</a> zugeordnet ist, die Sie im Rahmen Ihrer Shopify-Produktsynchronisierung ausgewählt haben.
 {% endalert %}
 
 ## Produktsynchronisierung deaktivieren {#deactivate}
@@ -725,6 +725,8 @@ Wenn bei der Shopify-Produktsynchronisierung ein Fehler auftritt, kann dies auf 
 | Fehler | Grund | Lösung |
 | --- | --- | --- |
 | Server-Fehler | Dies tritt auf, wenn ein Server-Fehler auf Seiten von Shopify auftritt, wenn wir versuchen, Ihre Produkte zu synchronisieren. | [Deaktivieren Sie die Synchronisierung](#deactivate) und synchronisieren Sie Ihren gesamten Bestand an Produkten erneut. |
-| Doppelte SKU | Dies tritt auf, wenn Sie eine SKU als ID für Ihren Katalogartikel verwenden und Produkte mit der gleichen SKU haben. Da die ID des Katalogartikels eindeutig sein muss, müssen alle Ihre Produkte eindeutige SKUs haben. | Prüfen Sie Ihre vollständige Liste der Produkte und Varianten in Shopify, um sicherzustellen, dass es keine doppelten SKUs gibt. Wenn es doppelte SKUs gibt, aktualisieren Sie diese so, dass sie nur in Ihrem Shopify-Konto eindeutige SKUs sind. Nachdem das Problem behoben ist, [deaktivieren Sie die Synchronisierung](#deactivate) und synchronisieren Sie Ihren gesamten Bestand an Produkten erneut. |
+| Doppelte SKU | Dies tritt auf, wenn Sie SKU als Katalogartikel-ID verwenden und mehrere Varianten dieselbe SKU haben. Jede Katalog-`item_id` muss eindeutig sein, sodass betroffene Artikel möglicherweise nicht synchronisiert werden, Fehlerdatensätze ansammeln oder Produktinformationen unbeabsichtigt überschrieben werden. | Prüfen Sie Ihre vollständige Liste der Produkte und Varianten in Shopify, um sicherzustellen, dass es keine doppelten SKUs gibt. Wenn es doppelte SKUs gibt, aktualisieren Sie diese so, dass sie nur in Ihrem Shopify-Shop-Konto eindeutige SKUs sind. Nachdem das Problem behoben ist, [deaktivieren Sie die Synchronisierung](#deactivate) und synchronisieren Sie Ihren gesamten Bestand an Produkten erneut. |
 | Katalog-Limit überschritten | Dies geschieht, wenn Sie Ihr Katalog-Limit überschreiten. Braze ist nicht in der Lage, die Synchronisierung zu beenden oder aktiv zu halten, da kein Speicherplatz mehr verfügbar ist. | Es gibt zwei Lösungen für dieses Problem:<br><br>1. Wenden Sie sich an Ihren Account Manager, um Ihre Stufe zu upgraden und Ihr Katalog-Limit zu erhöhen.<br><br>2. Geben Sie Speicherplatz frei, indem Sie Folgendes löschen:<br>- Katalogartikel aus anderen Katalogen<br>- Andere Kataloge<br>- Erstellte Auswahlen<br><br> Nachdem Sie eine der beiden Lösungen verwendet haben, müssen Sie die Synchronisierung deaktivieren und dann erneut synchronisieren. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehlerbehebung" }
+
+Einzelheiten zur Validierung von Katalogartikeln finden Sie unter [Fehlerbehebung]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/post_create_catalog_items_bulk#troubleshooting) in der Katalog-API-Dokumentation.

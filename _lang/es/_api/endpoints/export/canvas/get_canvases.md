@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar lista de Canvas de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar lista de Canvas de Braze."
 
 ---
 {% api %}
@@ -14,7 +14,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 /canvas/list
 {% endapimethod %}
 
-> Utiliza este punto de conexión para exportar una lista de Canvas, incluyendo el nombre, el identificador de API de Canvas y las etiquetas asociadas.
+> Utiliza este endpoint para exportar una lista de Canvas, incluyendo el nombre, el identificador de API de Canvas y las etiquetas asociadas.
 
 Los Canvas se devuelven en grupos de 100 ordenados por fecha de creación (de más antiguo a más reciente de forma predeterminada).
 
@@ -24,7 +24,7 @@ Los Canvas archivados no se incluirán en la respuesta de la API a menos que se 
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `canvas.list`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `canvas.list`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -60,7 +60,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/list?page
   	},
     ... (more Canvases)
   ],
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

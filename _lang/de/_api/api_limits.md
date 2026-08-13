@@ -25,7 +25,7 @@ Im Folgenden finden Sie die Standard-API-Rate-Limits für verschiedene Anfragety
 
 | Anfragetyp | Standard-API-Rate-Limit |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) | **Anfragen:** 3.000 Anfragen pro drei Sekunden.<br><br>**Batching:** Bis zu 75 Objekte insgesamt, kombiniert aus `attributes`, `events` und `purchases` pro API-Anfrage. Kund:innen mit älteren Rate-Limits können bis zu 75 Objekte pro Array unabhängig voneinander einschließen. Weitere Informationen finden Sie unter [Batching von User-Track-Anfragen](#batch-user-track).<br><br>**Limits für monatlich aktive Nutzer:innen CY 24-25, Universal MAU, Web MAU und Mobile MAU:** Bitte beachten Sie [die Hinweise zu den Limits hier]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25). |
+| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) | **Anfragen:** Rate-Limits variieren je nach Vertrag. Für Kund:innen, deren Preismodell Datenpunkte enthält, wendet Braze ein Burst-Limit von 3.000 Anfragen pro drei Sekunden an. Für alle anderen Kund:innen werden die Limits gemäß den Vertragsbedingungen konfiguriert. Kontaktieren Sie den Braze-Support oder Ihren Customer-Success-Manager bei Fragen zu Ihren Limits.<br><br>**Batching:** Bis zu 75 Objekte insgesamt, kombiniert aus `attributes`, `events` und `purchases` pro API-Anfrage. Kund:innen mit älteren Rate-Limits können bis zu 75 Objekte pro Array unabhängig voneinander einschließen. Weitere Informationen finden Sie unter [Batching von User-Track-Anfragen](#batch-user-track).<br><br>**Limits für monatlich aktive Nutzer:innen CY 24-25, Universal MAU, Web MAU und Mobile MAU:** Siehe [Limits für monatlich aktive Nutzer:innen CY 24-25]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau). |
 | [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) | **Wenn Sie am oder nach dem 22. August 2024 das Onboarding durchlaufen haben:** 250 Anfragen pro Minute. <br><br> **Wenn Sie vor dem 22. August 2024 das Onboarding durchlaufen haben:** 2.500 Anfragen pro Minute. |
 | [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)<br>[`/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias)<br>[`/users/alias/update`]({{site.baseurl}}/api/endpoints/user_data/post_users_alias_update)<br>[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)<br>[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) | 20.000 Anfragen pro Minute, aufgeteilt auf die Endpunkte. |
 | [`/users/external_id/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename) | 1.000 Anfragen pro Minute. |
@@ -118,8 +118,8 @@ Dies gilt für die folgenden Endpunkte: [`/messages/send`]({{site.baseurl}}/api/
 Bei diesen Endpunkten wird davon ausgegangen, dass Broadcast-Anfragen dieselbe eindeutige Zielgruppe ansprechen, wenn alle folgenden Kriterien übereinstimmen:
 
 - Die Campaign oder das Canvas, die/das getriggert wird (die `campaign_id` oder `canvas_id` in Ihrer API-Anfrage, falls angegeben)
-- Die angesprochene Zielgruppe (die Segmente oder Filter oder, bei API-Kampagnen, die `segment_id` in Ihrer API-Anfrage)
-- Die verbundenen Zielgruppen-Filter (das `audience`-Objekt in Ihrer API-Anfrage, falls angegeben)
+- Die angesprochene Zielgruppe (die Segmente oder Filter oder, bei API-Campaigns, die `segment_id` in Ihrer API-Anfrage)
+- Die verbundenen Zielgruppenfilter (das `audience`-Objekt in Ihrer API-Anfrage, falls angegeben)
 
 Jede eindeutige Kombination dieser Attribute wird als eigenständige Zielgruppe betrachtet, sodass das zusätzliche Rate-Limit für jede eindeutige Zielgruppe unabhängig für jede Kombination gilt.
 
@@ -131,7 +131,7 @@ Braze APIs unterstützen Batching. Mit Batching kann Braze so viele Daten wie m�
 Erhöhungen der REST API Rate-Limits werden bedarfsabhängig für Kund:innen in Betracht gezogen, die die API-Batching-Funktionen nutzen.
 {% endalert %}
 
-### Batching von Anfragen für den Endpunkt „Nutzer:innen tracken“ {#batch-user-track}
+### Batching von Anfragen für den Endpunkt „Nutzer:innen erstellen und aktualisieren“ {#batch-user-track}
 
 Jede `/users/track`-Anfrage kann bis zu 75 Objekte insgesamt enthalten, kombiniert aus `attributes`, `events` und `purchases`. Jedes Objekt kann eine:n Nutzer:in aktualisieren. Ein einzelnes Nutzerprofil kann durch mehrere Objekte aktualisiert werden.
 
@@ -153,7 +153,7 @@ Eine einzelne Anfrage an die [Messaging-Endpunkte]({{site.baseurl}}/api/endpoint
 
 - Bis zu 50 spezifische `external_ids`, jeweils mit individuellen Nachrichtenparametern
 - Ein im Braze-Dashboard erstelltes Segment beliebiger Größe, angegeben durch seine `segment_id`
-- Nutzer:innen, die zusätzlichen Zielgruppen-Filtern beliebiger Größe entsprechen, die in der Anfrage als [verbundenes Zielgruppen-Objekt]({{site.baseurl}}/api/objects_filters/connected_audience) definiert sind
+- Nutzer:innen, die zusätzlichen Zielgruppenfiltern beliebiger Größe entsprechen, die in der Anfrage als [verbundenes Zielgruppen-Objekt]({{site.baseurl}}/api/objects_filters/connected_audience) definiert sind
 
 ### Beispiel einer Batch-Anfrage {#example-batch-request}
 

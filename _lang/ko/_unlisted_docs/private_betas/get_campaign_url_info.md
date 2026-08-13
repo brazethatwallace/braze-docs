@@ -28,8 +28,8 @@ description: "이 문서에서는 링크 별칭 목록 Braze 엔드포인트에 
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `campaign_id` | 필수 | 문자열 | [Campaign API 식별자]({{site.baseurl}}/api/identifier_types/#campaign-api-identifier)를 참조하세요. |
-| `message_variation_id` | 필수 | 문자열 | 메시지 배리언트 API 식별자입니다. Campaign 세부 정보 페이지의 **API 식별자** 섹션에서 확인할 수 있습니다. |
+| `campaign_id` | 필수 | 문자열 | [Campaign API 식별자]({{site.baseurl}}/api/identifier_types#campaign-identifier)를 참조하세요. |
+| `message_variation_id ` | 필수 | 문자열 | 메시지 배리언트 API 식별자입니다. Campaign 세부 정보 페이지의 **API Identifier** 섹션에서 확인할 수 있습니다. |
 | `includes_link_id` | 선택 사항 | 문자열 | 특정 링크 식별자(Braze에서 할당) 또는 `null`입니다. 특정 `link_id`로 결과를 필터링하는 데 사용됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
@@ -65,8 +65,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | 오류 | 문제 해결 |
 | --- | --- |
-| `Missing/Invalid Campaign ID` | Campaign API ID는 API 식별자여야 합니다. [Campaign 목록 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns/)를 사용하거나 대시보드에 로그인하여 확인할 수 있습니다. |
-| `Missing/Invalid Message Variant ID` | 메시지 배리언트 API ID는 API 식별자여야 합니다. [Campaign 세부 정보 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/)를 사용하거나 대시보드에 로그인하여 확인할 수 있습니다. |
+| `Missing/Invalid Campaign ID` | Campaign API ID는 API 식별자여야 합니다. [Campaign 목록 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns)를 사용하거나 대시보드에 로그인하여 확인할 수 있습니다. |
+| `Missing/Invalid Message Variant ID` | 메시지 배리언트 API ID는 API 식별자여야 합니다. [Campaign 세부 정보 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details)를 사용하거나 대시보드에 로그인하여 확인할 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 

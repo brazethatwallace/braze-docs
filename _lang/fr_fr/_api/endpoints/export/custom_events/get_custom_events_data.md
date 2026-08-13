@@ -18,7 +18,7 @@ description: "Cet article présente les détails de l'endpoint Braze Exporter de
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `events.get`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `events.get`.
 
 ## Limite de débit {#rate-limit}
 
@@ -55,7 +55,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/events?cursor=c2tpc
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "events" : [
         {
             "name": "The event name", (string) the event name,

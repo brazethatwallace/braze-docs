@@ -115,6 +115,8 @@ When a user profile has a valid foreground push token associated with an app, Br
 
 {% alert note %}
 The `Foreground Push Enabled for App` filter only considers the presence of a valid foreground and background push token for the given app. However, the more generic [`Foreground Push Enabled`](#foreground-push-enabled) filter segments users who have explicitly activated push notifications for any apps in your workspace. This count includes only foreground push and doesn't include users who have unsubscribed. You can learn more about these and other filters in [Segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
+
+For a small percentage of users, processing delays can cause a short-lived mismatch: a user may have a valid foreground push token on their profile but still not match the `Foreground Push Enabled` filter. Their profile may briefly show that foreground push isn't enabled even though a token is present. This usually clears once processing catches up.
 {% endalert %}
 
 ### Multiple users on one device

@@ -57,7 +57,7 @@ npm install --save @braze/web-sdk@6.8.0
 ```
 
 {% alert important %}
-Braze Web SDK 버전은 5.4.0 이상이어야 합니다.
+지원되는 최소 Braze Web SDK 버전은 5.4.0입니다. Shopify 커스텀 통합(헤드리스 스토어프론트 포함)의 경우 새 SDK 버전이 출시되면 알림을 받지만, 스토어프론트 코드와 통합 설정의 SDK 버전을 모두 업데이트하여 업그레이드를 직접 관리해야 합니다.
 {% endalert %}
 
 그런 다음 `vite.config.js` 파일에 최상위 키로 [이 설정을 포함]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)합니다:
@@ -665,10 +665,7 @@ Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커�
 
 #### 6.1단계: `braze.external_id` 메타필드 생성 {#step-61-create-the-brazeexternal_id-metafield}
 
-1. Shopify 관리자 패널에서 **설정** > **메타필드**로 이동합니다.
-2. **고객** > **정의 추가**를 선택합니다.
-3. **네임스페이스 및 키**에 `braze.external_id`를 입력합니다.
-4. **유형**에서 **ID 유형**을 선택합니다.
+{% multi_lang_include partners/shopify/customer_metafield_definition_steps.md %}
 
 메타필드가 생성되면 고객을 위해 메타필드를 채웁니다. 다음과 같은 방법을 권장합니다:
 
@@ -714,9 +711,7 @@ Braze는 외부 ID JSON을 반환하는 `200` 상태 코드를 기대합니다:
 ##### 실패 동작 및 병합 {#failure-behavior-and-merging}
 `200` 이외의 상태 코드는 모두 실패로 간주됩니다.
 
-- **병합 영향:** 엔드포인트가 실패하면(`200`이 아닌 값을 반환하거나 시간 초과), Braze는 외부 ID를 검색할 수 없습니다. 따라서 Shopify 사용자와 Braze 고객 프로필 간의 병합은 해당 시점에 이루어지지 않습니다.
-- **재시도 로직:** Braze는 표준 즉시 네트워크 재시도를 시도할 수 있지만, 실패가 지속되면 다음 적격 이벤트(예: 사용자가 프로필을 업데이트하거나 결제를 완료할 때)까지 병합이 연기됩니다.
-- **지원 가능성:** 적시에 사용자 병합을 지원하려면 엔드포인트의 가용성이 높고 선택적 `email_address` 필드를 원활하게 처리하는지 확인하세요.
+{% multi_lang_include partners/shopify/external_id_merge_implications.md %}
 
 #### 6.3단계: 외부 ID 입력 {#step-63-input-your-external-id}
 
@@ -724,9 +719,7 @@ Braze는 외부 ID JSON을 반환하는 `200` 상태 코드를 기대합니다:
 
 ##### 고려 사항 {#considerations}
 
-- Braze가 엔드포인트에 요청을 보낼 때 외부 ID가 생성되지 않은 경우 통합은 `changeUser` 함수가 호출될 때 기본적으로 Shopify 고객 ID를 사용합니다. 이 단계는 익명 사용자 프로필을 식별된 고객 프로필과 병합하는 데 매우 중요합니다. 따라서 일시적으로 워크스페이스 내에 여러 유형의 외부 ID가 존재할 수 있습니다.
-- `braze.external_id` 메타필드에서 외부 ID를 사용할 수 있으면 통합에서 이 외부 ID에 우선순위를 지정하여 할당합니다.
-    - 이전에 Shopify 고객 ID가 Braze 외부 ID로 설정된 경우 `braze.external_id` 메타필드 값으로 대체됩니다.
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 #### 6.4단계: Shopify에서 이메일 또는 SMS 옵트인 수집(선택 사항) {#step-64-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
@@ -736,11 +729,7 @@ Shopify에서 이메일 또는 SMS 마케팅 옵트인을 수집할 수 있는 �
 
 ![이메일 또는 SMS 마케팅 옵트인 수집 옵션이 있는 "구독자 수집" 섹션.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
-{% alert note %}
-[Shopify 개요]({{site.baseurl}}/shopify_overview)에서 언급한 바와 같이, 서드파티 캡처 폼을 사용하려면 개발자가 Braze SDK 코드를 통합해야 합니다. 이를 통해 폼 제출에서 이메일 주소와 글로벌 이메일 구독 상태를 캡처할 수 있습니다. 구체적으로 `theme.liquid` 파일에 다음 메서드를 구현하고 테스트해야 합니다:<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): 고객 프로필에 이메일 주소를 설정합니다
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): 글로벌 이메일 구독 상태를 업데이트합니다
-{% endalert %}
+{% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
 ### 7단계: 제품 동기화(선택 사항) {#step-7-sync-products-optional}
 
@@ -752,7 +741,7 @@ Shopify 스토어의 모든 제품을 Braze 카탈로그에 동기화하여 더 
 
 Shopify 직접 통합을 사용하여 인앱 메시지, Content Cards 및 피처 플래그를 활성화하려면 SDK에 각 채널을 추가합니다. 아래에서 각 채널에 대해 제공된 설명서 링크를 따르세요:
 
-- **인앱 메시지:** 리드 캡처 폼 사용 사례를 위한 인앱 메시지 활성화에 대해서는 [인앱 메시지]({{site.baseurl}}/developer_guide/in_app_messages)를 참조하세요.
+- **인앱 메시지:** 리드 캡처 폼 사용 사례를 위한 인앱 메시지 활성화에 대해서는 [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages)를 참조하세요.
 - **Content Cards:** 받은편지함 또는 웹사이트 배너 사용 사례를 위한 Content Cards 활성화에 대해서는 [Content Cards]({{site.baseurl}}/developer_guide/content_cards)를 참조하세요.
 - **피처 플래그:** 사이트 실험 사용 사례를 위한 피처 플래그 활성화에 대해서는 [피처 플래그]({{site.baseurl}}/developer_guide/feature_flags)를 참조하세요.
 

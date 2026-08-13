@@ -78,14 +78,14 @@ In Canvas sehen Sie die Performance von In-App-Nachrichten, die dem von Ihnen er
 
 #### Estimated Audience und Current Audience {#estimated-audience-and-current-audience}
 
-Je nach Größe Ihres Workspace kann das Panel **Campaign Details** die Zielgruppenstatistiken als **Estimated Audience** oder **Current Audience** bezeichnen.
+Je nach Gesamtzahl der Nutzer:innen in Ihrem Workspace kann das Panel **Campaign Details** die Zielgruppenstatistiken als **Current Audience** oder **Estimated Audience** bezeichnen.
 
 Die folgende Tabelle erklärt, was die jeweilige Bezeichnung bedeutet.
 
 | Bezeichnung in der Fußzeile | Wann sie verwendet wird |
 | --- | --- |
-| **Estimated Audience** | Braze führt standardmäßig keine vollständige Datenbankzählung durch. Die Zielgruppengröße wird anhand einer Stichprobe geschätzt und hochgerechnet, ähnlich wie der Bereich **Erreichbare Nutzer:innen** im Segment Builder. Abweichungen sind zu erwarten, insbesondere bei großen Workspaces oder kleinen Segmenten im Verhältnis zum Workspace. |
-| **Current Audience** | Braze kann die Standardstatistik mit einem vollständigen Scan der Workspace-Profile berechnen, sodass die angezeigte Zielgruppengröße ein aktueller, nicht auf Stichproben basierender Wert ist (der dennoch von Kanal-Erreichbarkeit, Abo-Regeln und anderen Targeting-Optionen abhängt). |
+| **Current Audience** | Der Workspace hat 50.000 Nutzer:innen oder weniger. Braze führt einen vollständigen Scan der Workspace-Profile für die Standardstatistik durch, sodass die angezeigte Zielgruppengröße ein aktueller, nicht auf Stichproben basierender Wert ist (der dennoch von Kanal-Erreichbarkeit, Abo-Regeln und anderen Targeting-Optionen abhängt). |
+| **Estimated Audience** | Der Workspace hat mehr als 50.000 Nutzer:innen. Braze führt standardmäßig keine vollständige Datenbankzählung durch. Die Zielgruppengröße wird anhand einer Stichprobe geschätzt und hochgerechnet, ähnlich wie der Bereich **Erreichbare Nutzer:innen** im Segment Builder. Abweichungen sind zu erwarten, insbesondere bei kleinen Segmenten im Verhältnis zum Workspace. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience und Current Audience" }
 
 Weitere Informationen zum Stichprobenverhalten, zu **Calculate exact statistics** und zur Segmentierung **erreichbarer Nutzer:innen** finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
@@ -186,6 +186,13 @@ Das Panel **WhatsApp Performance** zeigt Ihnen, wie gut Ihre Nachricht in versch
 
 ![WhatsApp-Performance-Panel mit einer Tabelle mit Metriken für Variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Credits versus Sendezähler {#credits-versus-send-counts}
+
+Die WhatsApp-Sendezähler in den Kampagnen-Analytics spiegeln Zustellversuche wider. Die verbrauchten Credits können abweichen, wenn Meta nach Nachrichtenkategorie (Marketing, Utility, Authentifizierung, Service) abrechnet.
+
+- Antwortnachrichten, die in Braze erstellt werden, verbrauchen keine Braze-WhatsApp-Credits.
+- Verwenden Sie **Analytics** > **Daily Stats** für eine Orientierung zum Sendevolumen. Credit-Aufschlüsselungen pro Kampagne oder Canvas sind nicht verfügbar.
+
 {% endif %}
 
 Wenn Sie Ihre Ansicht vereinfachen möchten, klicken Sie auf <i class="fas fa-plus"></i> **Add/Remove Columns** und deaktivieren Sie die gewünschten Metriken. Standardmäßig werden alle Metriken angezeigt.
@@ -203,10 +210,18 @@ Kampagnen-Analytics zeigen Klickdaten für bis zu 100 eindeutige URLs pro Varian
 In dieser Ansicht können Sie mit dem Schalter **Show Heatmap** eine visuelle Darstellung Ihrer E-Mail aufrufen, die die Gesamthäufigkeit und den Ort der Klicks innerhalb der Laufzeit der Kampagne anzeigt. Im Panel **Link Table by Total Clicks** können Sie alle Links in Ihrer E-Mail-Kampagne anzeigen und nach Gesamtklicks sortieren. Dies kann zusätzliche Insights darüber liefern, wohin Ihre Nutzer:innen navigieren. Um eine Kopie der Heatmap als Referenz zu speichern, klicken Sie auf den Download-Button.
 
 {% alert note %}
-Wenn Links Liquid für dynamische URLs verwenden, stimmen die angeklickten URLs möglicherweise nicht genau genug mit dem gerenderten Link in der Nachricht überein, sodass die Heatmap die Klicks nicht mit diesem Link verknüpfen kann – diese Links werden dann möglicherweise nicht auf der Heatmap angezeigt. Verwenden Sie die Klickdaten im Panel **Link Table by Total Clicks** für ein vollständiges Bild.
+Wenn Links Liquid für dynamische URLs verwenden, stimmen die angeklickten URLs möglicherweise nicht genau genug mit dem gerenderten Link in der Nachricht überein, sodass die Heatmap die Klicks nicht mit diesem Link verknüpfen kann – diese Links werden dann möglicherweise nicht auf der Heatmap angezeigt. Um Klickdaten auf der Heatmap mit Template-Links zu verknüpfen, verwenden Sie [Link Aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing). Für ein vollständiges Bild verwenden Sie die Klickdaten im Panel **Link Table by Total Clicks**.
 {% endalert %}
 
 ![Beispiel für die Seite „Preview & Heatmap“ mit einer E-Mail-Kampagne und einem Panel mit Beispielen für Link-Aliase und deren Gesamtklicks.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+
+##### Nur-Mobil-Links in der Heatmap {#mobile-only-links-in-the-heatmap}
+
+Die Heatmap zeigt nur Wärmesignaturen für Links an, die bei der ausgewählten Vorschaugröße sichtbar sind.
+
+Links, die nur im mobilen Layout erscheinen, sind in der **Desktop**-Ansicht ausgeblendet (und können je nach Vorschaubreite auch in **Overall** ausgeblendet sein), sodass diese Klicks nicht als Wärmesignaturen angezeigt werden. Diese Links erscheinen dennoch im Panel **Link Table by Total Clicks** mit ihren Gesamtklicks und Prozentsätzen.
+
+Um Wärmesignaturen für Nur-Mobil-Links anzuzeigen, wählen Sie **Mobile**. Die mobile Vorschau entspricht dem mobilen Breakpoint des Drag-and-Drop-Editors (620&nbsp;px). Wenn die E-Mail erst bei einer schmaleren Breite das Layout wechselt, bleiben diese Links auch in der **Mobile**-Vorschaugröße ausgeblendet.
 
 #### Bilder {#images}
 
@@ -364,6 +379,12 @@ Nehmen wir als weiteres Beispiel an, Sie sehen fünf _Unique Impressions_ in ein
 3. Das SDK hat eine Impression aufgezeichnet und an den Server gesendet
 
 _Unique Daily Impressions_ bezieht sich auf die Banner, die tatsächlich angesehen wurden.
+
+#### Abweichungen zwischen Kontrollgruppen und Varianten {#discrepancies-between-control-groups-and-variants}
+
+Wenn eine Banner-Kampagne eine Kontrollgruppe verwendet, können die Impressionen der Kontrollgruppe höher sein als die der Variante, selbst wenn die Zielgruppenaufteilung zwischen den Gruppen gleichmäßig ist. Diese Abweichung wird durch einen Unterschied in der Art und Weise verursacht, wie Impressionen für Kontroll- und Varianten-Banner protokolliert werden.
+
+Sowohl Kontroll- als auch Varianten-Impressionen erfordern, dass die Banner-Platzierung in den sichtbaren Bereich gelangt. Varianten-Impressionen werden erst protokolliert, wenn das vollständige Banner auf dem Bildschirm sichtbar ist. Kontroll-Impressionen können bereits protokolliert werden, sobald die Platzierung in den sichtbaren Bereich gelangt – bevor das vollständige Banner für eine Variante sichtbar wäre.
 
 {% elsif include.channel == "email" %}
 
@@ -593,7 +614,7 @@ Die Berichterstattung für _Button 1 Clicks_ und _Button 2 Clicks_ funktioniert 
     </tbody>
 </table>
 
-#### Abweichungen zwischen Kontrollgruppen und Varianten {#discrepancies-between-control-groups-and-variants}
+#### Abweichungen zwischen Kontrollgruppen und Varianten
 
 Wenn eine In-App-Nachrichten-Kampagne eine 50/50-Variantenaufteilung hat, kann die Kontrollgruppe manchmal einen etwas höheren Prozentsatz aufweisen als die Variante (z. B. 51 % für die Kontrollgruppe und 49 % für die Variante). Diese Abweichung wird durch einen Unterschied in der Rendering-Zeit verursacht – zum Beispiel wenn Varianten-Nachrichten große Bilder oder templated Connected-Content verwenden und Nutzer:innen die Seite verlassen, bevor das Rendering abgeschlossen ist, während die Kontrollgruppe Impressionen protokolliert, ohne eine Nachricht anzuzeigen.
 
@@ -866,6 +887,8 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
         </tr>
     </tbody>
 </table>
+
+Wenn die Fehlerrate erhöht ist, lesen Sie [WhatsApp-Sendefehler untersuchen]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
 
 #### Metriken zu Sperrung und Meldung durch Endnutzer:innen {#end-user-blocking-and-reporting-metrics}
 

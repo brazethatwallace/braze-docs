@@ -14,7 +14,7 @@ description: "이 참조 문서에서는 Braze 데이터 변환을 사용하여 
 
 | 요구 사항 | 설명 |
 | --- | --- |
-| 2단계 인증 또는 SSO | 계정에 [2단계 인증]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication)(2FA) 또는 [SSO]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication)(SSO)을 활성화해야 합니다. |
+| 2단계 인증 또는 SSO | 계정에 [2단계 인증]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication-2fa)(2FA) 또는 [SSO]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication)(SSO)을 활성화해야 합니다. |
 | 올바른 권한 | 계정 관리자 또는 워크스페이스 관리자이거나 "변환 관리" 사용자 권한이 있어야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
@@ -200,13 +200,7 @@ return brazecall;
 
 이 단계에서는 소스 플랫폼의 웹훅 페이로드를 JavaScript 오브젝트 반환 값으로 변환합니다. 이 반환 값은 `/users/track` 엔드포인트 요청 본문 형식을 따라야 합니다:
 
-- 변환 코드는 JavaScript 프로그래밍 언어로 작성됩니다. if/else 로직과 같은 모든 표준 JavaScript 제어 흐름이 지원됩니다.
-- 변환 코드는 `payload` 변수를 통해 웹훅 요청 본문에 액세스합니다. 이 변수는 요청 본문 JSON을 파싱하여 채워지는 오브젝트입니다.
-- `/users/track` 엔드포인트에서 지원되는 모든 기능이 지원되며, 다음을 포함합니다:
-  - 사용자 속성 오브젝트, 이벤트 오브젝트 및 구매 오브젝트
-  - 중첩 속성 및 중첩 커스텀 이벤트 속성정보
-  - 구독 그룹 업데이트
-  - 식별자로서의 이메일 주소
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 **Validate**를 선택하여 코드 출력의 미리보기를 반환하고 허용되는 `/users/track` 요청인지 확인합니다.
 
@@ -232,4 +226,4 @@ return brazecall;
 
 전달이 없는 경우 변환 코드에 구문 오류가 있는지 확인하고 코드가 컴파일되는지 확인합니다. 그런 다음 출력이 유효한 대상 요청인지 확인합니다.
 
-수신 요청 수보다 적은 전달은 적어도 일부 웹훅이 성공적으로 전달되었음을 의미합니다. 변환 로그에서 오류 예시를 참조하고 변환 출력이 예상대로인지 확인하세요. 변환 코드가 수신된 웹훅의 모든 변형을 처리하지 못할 수 있습니다.
+수신 요청 수보다 전달이 적다면 적어도 일부 웹훅은 성공적으로 전달되었음을 의미합니다. 변환 로그에서 오류 예시를 참조하고 변환 출력이 예상대로인지 확인하세요. 변환 코드가 수신된 웹훅의 모든 변형을 처리하지 못할 수 있습니다.

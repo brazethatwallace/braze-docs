@@ -187,7 +187,7 @@ page_order: 2
 | **サードパーティエンジンの使用** | [Alloyパートナー]({{site.baseurl}}/partners/message_personalization)などのサードパーティレコメンデーションエンジンを使用します。[Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize)、[Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona)、[Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield)などが含まれます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="例" }
 
-次に、メッセージ内でLiquidを使用してエンドポイントを呼び出し、カスタム属性値をユーザーのプロファイルと照合して、対応するレコメンデーションを取得します。
+次に、メッセージ内でLiquidを使用してエンドポイントを呼び出し、カスタム属性値をユーザーのプロフィールと照合して、対応するレコメンデーションを取得します。
 
 {% raw %}
 ```liquid
@@ -264,9 +264,9 @@ Connected Contentの呼び出しは次のようになります。
 
 1. `assign`を使用して、「Excellent」、「Very Good」、「Good」の評価カテゴリー用の空の配列を作成します。
 2. リスト内の各レストランの評価を調べる`for`ループを追加します。
-- 評価が「Excellent」の場合、レストラン名を`excellent_restaurants`文字列に追加し、各レストラン名を区切るために末尾に*文字を追加します。
-- 評価が「Very Good」の場合、レストラン名を`very_good_restaurants`文字列に追加し、末尾に*文字を追加します。
-- 評価が「Good」の場合、レストラン名を`good_restaurants`文字列に追加し、末尾に*文字を追加します。
+- 評価が「Excellent」の場合、レストラン名を`excellent_restaurants`文字列に追加し、各レストラン名を区切るために末尾に * 文字を追加します。
+- 評価が「Very Good」の場合、レストラン名を`very_good_restaurants`文字列に追加し、末尾に * 文字を追加します。
+- 評価が「Good」の場合、レストラン名を`good_restaurants`文字列に追加し、末尾に * 文字を追加します。
 3. 返されるおすすめレストランの数を各カテゴリーで4件に制限します。
 
 最終的な呼び出しは次のようになります。

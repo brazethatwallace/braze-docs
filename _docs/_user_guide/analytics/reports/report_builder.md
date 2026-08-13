@@ -67,7 +67,8 @@ Try out different configurations of drilldown options to explore the [many ways 
 8. Then, depending on your selections in step 3, choose to manually or automatically add campaigns, Canvases, or both to your report.
     - **Add manually:** Choose each campaign or Canvas to include in the report by using the filters for **Last Sent** dates and tags or channels, or searching the campaign or Canvas name.<br><br>![The "Manually add campaigns and canvases" section with a list of campaigns to select.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
     - **Add automatically:** Set rules for which campaigns or Canvases to include in the report. You're only required to select one field on this page.
-        - Note that as additional campaigns or Canvases satisfy the conditions you set on this screen, they will automatically be added to future runs of your report.<br><br>![The "Automatically add campaigns and canvases" section with fields to set rules for which campaigns and Canvases should be added to the report.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
+        - Note that as additional campaigns or Canvases satisfy the conditions you set on this screen, they are automatically added to future runs of your report.
+        - Banners isn't an option in the **Channel** dropdown, so you can't use channel rules to automatically add Banner campaigns or Canvases. You can still include Banner KPIs in your report metrics.<br><br>![The "Automatically add campaigns and canvases" section with fields to set rules for which campaigns and Canvases should be added to the report.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
 9. Run the report by selecting **Save & Run**.
 
 {% alert note %}
@@ -129,10 +130,11 @@ To download an image of the report chart, select the dotted icon then choose a d
 
 You can share a dashboard link to the report by selecting **Share** and one of these options:
 - **Share a link:** Copy and share the link.
-
-!["Share a link" dropdown with a link to the report.]({% image_buster /assets/img/report_builder_2/share_this_report.png %}){: style="max-width:70%;"}
-
 - **Send or schedule an email:** Send an email immediately or at a designated time that contains a download link that expires after one hour. You can select recipients from the company users listed in the **Email Recipients** dropdown or enter any other email address.
+
+{% alert note %}
+The **Email Recipients** dropdown lists Braze company users only, and saves their email addresses across report schedules. External email addresses must be manually entered each time you create a new report schedule. If you frequently send reports to external recipients, such as a partner contact, consider adding them as a company user with appropriate permissions so their address appears in the dropdown.
+{% endalert %}
 
 !["Schedule an email" window with fields to choose how the report is formatted, who should receive it, and when it should send.]({% image_buster /assets/img/report_builder_2/schedule_an_email.png %}){: style="max-width:70%;"}
 

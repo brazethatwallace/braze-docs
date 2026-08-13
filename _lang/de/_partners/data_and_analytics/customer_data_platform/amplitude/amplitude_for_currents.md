@@ -13,22 +13,22 @@ search_tag: Partner
 
 > [Amplitude](https://amplitude.com/) ist eine Plattform für Produkt-Analytics und Business-Intelligence.
 
-Die bidirektionale Integration von Braze und Amplitude ermöglicht es Ihnen, Ihre [Amplitude-Kohorten]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences/), Nutzermerkmale und Events mit Braze zu synchronisieren und Braze-Currents zu nutzen, um [Ihre Braze-Events nach Amplitude zu exportieren](#data-export-integration) und so tiefere Analysen Ihrer Produkt- und Marketingdaten durchzuführen.
+Die bidirektionale Integration von Braze und Amplitude ermöglicht es Ihnen, Ihre [Amplitude-Kohorten]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences), Nutzermerkmale und Events mit Braze zu synchronisieren und Braze-Currents zu nutzen, um [Ihre Braze-Events nach Amplitude zu exportieren](#data-export-integration) und so tiefere Analysen Ihrer Produkt- und Marketingdaten durchzuführen.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 |---|---|
-| Amplitude-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Amplitude-Konto](https://amplitude.com/). |
-| Currents | Um Daten zurück nach Amplitude zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto eingerichtet haben. |
+| Amplitude-Konto | Ein [Amplitude-Konto](https://amplitude.com/) ist erforderlich, um diese Partnerschaft zu nutzen. |
+| Currents | Um Daten zurück nach Amplitude zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) für Ihr Konto eingerichtet haben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Datenexport-Integration {#data-export-integration}
 
-Eine vollständige Liste der Events und Event-Eigenschaften, die von Braze nach Amplitude exportiert werden können, finden Sie in den folgenden Abschnitten. Alle Events, die an Amplitude gesendet werden, enthalten die `external_user_id` der Nutzer:innen als Amplitude-Nutzer-ID. Braze-spezifische Event-Eigenschaften werden in den an Amplitude gesendeten Daten unter dem Schlüssel `event_properties` übermittelt.
+Eine vollständige Liste der Events und Event-Eigenschaften, die von Braze an Amplitude exportiert werden können, finden Sie in den folgenden Abschnitten. Alle an Amplitude gesendeten Events enthalten die `external_user_id` der Nutzer:innen als Amplitude-Nutzer-ID. Braze-spezifische Event-Eigenschaften werden unter dem Schlüssel `event_properties` in den an Amplitude gesendeten Daten übermittelt.
 
 {% alert important %}
-Um dieses Feature zu nutzen, muss Ihre Amplitude-Nutzer-ID mit der externen ID von Braze übereinstimmen.
+Um dieses Feature zu nutzen, muss Ihre Amplitude-Nutzer-ID mit der externen Braze-ID übereinstimmen.
 {% endalert %}
 
 Braze sendet nur Event-Daten für Nutzer:innen, deren `external_user_id` gesetzt ist, oder für anonyme Nutzer:innen, deren `device_id` gesetzt ist. Für anonyme Nutzer:innen müssen Sie Ihre Amplitude-Geräte-ID mit der Braze-Geräte-ID im SDK synchronisieren. Zum Beispiel:
@@ -37,45 +37,49 @@ Braze sendet nur Event-Daten für Nutzer:innen, deren `external_user_id` gesetzt
 amplitude.setDeviceId(Appboy.getInstance(context).getDeviceId();)
 ```
 
-Sie können zwei Arten von Events nach Amplitude exportieren: [Message-Engagement-Events](#supported-currents-events), bestehend aus den Braze-Events, die direkt mit dem Nachrichtenversand zusammenhängen, und [Kundenverhalten-Events](#supported-currents-events), einschließlich anderer App- oder Website-Aktivitäten wie Sitzungen, angepasste Events und Käufe, die über die Plattform getrackt werden. Allen regulären Events ist das Präfix `[Appboy]` vorangestellt, allen angepassten Events das Präfix `[Appboy] [Custom Event]`. Angepassten Event- und Kauf-Event-Eigenschaften wird das Präfix `[Custom event property]` bzw. `[Purchase property]` vorangestellt.
+Sie können zwei Arten von Events an Amplitude exportieren: [Nachrichten-Engagement-Events](#supported-currents-events), die aus den direkt mit dem Nachrichtenversand verbundenen Braze-Events bestehen, und [Kundenverhalten-Events](#supported-currents-events), einschließlich anderer App- oder Website-Aktivitäten wie Sitzungen, angepasste Events und über die Plattform erfasste Käufe. Alle regulären Events erhalten das Präfix `[Appboy]`, und alle angepassten Events erhalten das Präfix `[Appboy] [Custom Event]`. Angepasste Event- und Kauf-Event-Eigenschaften erhalten die Präfixe `[Custom event property]` bzw. `[Purchase property]`.
 
-Alle Kohorten, die benannt und in Braze importiert werden, erhalten das Präfix `[Amplitude]` und das Suffix `cohort_id`. Das bedeutet, dass eine Kohorte mit dem Namen „TEST_COHORT“ und der `cohort_id` „abcd1234“ in den Braze-Filtern als `[Amplitude] TEST_COHORT: abcd1234` angezeigt wird.
+Alle benannten und in Braze importierten Kohorten erhalten das Präfix `[Amplitude]` und das Suffix ihrer `cohort_id`. Das bedeutet, dass eine Kohorte mit dem Namen „TEST_COHORT“ und der `cohort_id` „abcd1234“ in Braze-Filtern als `[Amplitude] TEST_COHORT: abcd1234` angezeigt wird.
 
-Wenden Sie sich an Ihren Account Manager oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen.
+Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen.
 
-### 1. Schritt: Amplitude-Integration in Braze konfigurieren {#step-1-configure-amplitude-integration-in-braze}
+### Schritt 1: Amplitude-Integration in Braze konfigurieren {#step-1-configure-amplitude-integration-in-braze}
 
-Suchen Sie in Amplitude nach Ihrem Amplitude-Export-API-Schlüssel.
+Suchen Sie in Amplitude Ihren Amplitude-Export-API-Schlüssel.
 
 {% alert warning %}
-Halten Sie Ihren Amplitude-API-Schlüssel auf dem neuesten Stand. Wenn die Zugangsdaten Ihres Konnektors ablaufen, wird der Konnektor keine Events mehr senden. Wenn dieser Zustand länger als **48 Stunden** anhält, werden die Events des Konnektors gelöscht und die Daten gehen dauerhaft verloren.
+Halten Sie Ihren Amplitude-API-Schlüssel aktuell. Wenn die Zugangsdaten Ihres Konnektors ablaufen, stellt der Konnektor den Versand von Events ein. Wenn dies länger als **48 Stunden** andauert, werden die Events des Konnektors verworfen und Daten gehen dauerhaft verloren.
 {% endalert %}
 
-### 2. Schritt: Braze-Current erstellen {#step-2-create-braze-current}
+### Schritt 2: Braze-Current erstellen {#step-2-create-braze-current}
 
-Navigieren Sie in Braze zu **Currents > + Create Current > Create Amplitude Export**. Geben Sie den Integrationsnamen, eine Kontakt-E-Mail, den Amplitude-Export-API-Schlüssel und die Amplitude-Region in die aufgeführten Felder ein. Wählen Sie anschließend die Events aus, die Sie tracken möchten; eine Liste der verfügbaren Events wird angezeigt. Klicken Sie abschließend auf **Launch Current**.
+Navigieren Sie in Braze zu **Currents > + Current erstellen > Amplitude-Export erstellen**. Geben Sie einen Integrationsnamen, eine Kontakt-E-Mail, den Amplitude-Export-API-Schlüssel und die Amplitude-Region in die aufgeführten Felder ein. Wählen Sie anschließend die Events aus, die Sie verfolgen möchten; eine Liste der verfügbaren Events wird bereitgestellt. Klicken Sie abschließend auf **Current starten**.
 
 {% alert note %}
-Events, die von Braze-Currents an Amplitude gesendet werden, werden auf Ihr Amplitude-Event-Volumen-Kontingent angerechnet.
+Events, die von Braze-Currents an Amplitude gesendet werden, werden auf Ihr Amplitude-Event-Volumenkontingent angerechnet.
 {% endalert %}
 
-![Die Braze-Amplitude-Currents-Seite. Diese Seite enthält Felder für den Integrationsnamen, die Kontakt-E-Mail, den API-Schlüssel und die US-Region. In der unteren Hälfte der Currents-Seite finden Sie eine Liste der verfügbaren Currents-Events, die Sie senden können.]({% image_buster /assets/img/amplitude4.png %})
+![Die Braze-Amplitude-Currents-Seite. Diese Seite enthält Felder für Integrationsname, Kontakt-E-Mail, API-Schlüssel und US-Region. Die untere Hälfte der Currents-Seite listet die verfügbaren Currents-Events auf, die Sie senden können.]({% image_buster /assets/img/amplitude4.png %})
+
+{% alert tip %}
+Wenn Sie beim Einfügen Ihres Amplitude-API-Schlüssels den Fehler „Ungültiger API-Schlüssel“ erhalten, versuchen Sie, den Schlüssel manuell einzugeben. Einige Browser können beim Kopieren und Einfügen versteckte Zeichen hinzufügen, die Validierungsfehler verursachen können.
+{% endalert %}
 
 {% tab note %}
-Lesen Sie die [Integrationsdokumentation](https://amplitude.zendesk.com/hc/en-us/articles/115000217351-Appboy-Amplitude-Integration#how-to-set-up-and-use-the-integration) von Amplitude, um mehr zu erfahren.
+Weitere Informationen finden Sie in der Amplitude-Dokumentation zur [Appboy-Amplitude-Integration](https://amplitude.zendesk.com/hc/en-us/articles/115000217351-Appboy-Amplitude-Integration#how-to-set-up-and-use-the-integration).
 {% endtab %}
 
 ## Rate-Limits
 
-Currents verbindet sich mit der HTTP-API von Amplitude, die ein [Rate-Limit](https://developers.amplitude.com/docs/http-api-v2#upload-limit) von 30 Events/Sekunde pro Gerät und ein undokumentiertes Limit von 500K Events/Tag pro Gerät hat. Wenn diese Schwellenwerte überschritten werden, drosselt Amplitude die über Currents protokollierten Events. Wenn ein Gerät in Ihrer Integration dieses Rate-Limit überschreitet, kann es zu einer Verzögerung kommen, bis Events von allen Geräten in Amplitude erscheinen.
+Currents stellt eine Verbindung zur HTTP-API von Amplitude her, die ein [Rate-Limit](https://developers.amplitude.com/docs/http-api-v2#upload-limit) von 30 Events/Sekunde pro Gerät und ein undokumentiertes Limit von 500.000 Events/Tag pro Gerät hat. Wenn diese Schwellenwerte überschritten werden, drosselt Amplitude die über Currents protokollierten Events. Wenn ein Gerät in Ihrer Integration dieses Rate-Limit überschreitet, kann es zu einer Verzögerung kommen, bis Events von allen Geräten in Amplitude angezeigt werden.
 
-Geräte sollten unter normalen Umständen nicht mehr als 30 Events/Sekunde oder 500K Events/Tag melden, und dieses Event-Muster sollte nur aufgrund einer falsch konfigurierten Integration auftreten. Um diese Art von Verzögerung zu vermeiden, stellen Sie sicher, dass Ihre SDK-Integration Events in einem normalen Rhythmus meldet, wie in unseren SDK-Integrationsanweisungen angegeben, und verzichten Sie auf die Durchführung automatisierter Tests, die viele Events für ein einzelnes Gerät erzeugen.
+Geräte sollten unter normalen Umständen nicht mehr als 30 Events/Sekunde oder 500.000 Events/Tag melden, und dieses Event-Muster sollte nur aufgrund einer fehlerhaft konfigurierten Integration auftreten. Um diese Art von Verzögerung zu vermeiden, stellen Sie sicher, dass Ihre SDK-Integration Events mit einer normalen Rate meldet, wie in unseren Anweisungen zur SDK-Integration angegeben, und verzichten Sie darauf, automatisierte Tests auszuführen, die viele Events für ein einzelnes Gerät erzeugen.
 
-## Unterstützte Currents-Events {#supported-currents-events}
+## Unterstützte Currents-Ereignisse {#supported-currents-events}
 
-Braze unterstützt den Export der folgenden Events nach Amplitude:
+Braze unterstützt den Export der folgenden Ereignisse an Amplitude:
 
-- [Message-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
-- [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
+- [Nachrichteninteraktions-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [Kundenverhalten-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-Die Payload-Struktur der einzelnen Events finden Sie auf dem Tab **Amplitude** im [Glossar der Message-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) und im [Glossar der Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+Für die Payload-Struktur jedes Ereignisses wählen Sie den Tab **Amplitude** im [Glossar der Nachrichteninteraktions-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) und im [Glossar der Kundenverhalten-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) aus.

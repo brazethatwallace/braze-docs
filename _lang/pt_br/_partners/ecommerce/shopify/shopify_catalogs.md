@@ -26,18 +26,18 @@ Você pode sincronizar seus produtos com um catálogo da Braze por meio do fluxo
 
 ### Etapa 2: Selecione o identificador do seu produto {#step-2-select-your-product-identifier}
 
-Selecione o identificador de produto a ser usado como ID do catálogo:
-- Shopify Variant ID
-- SKU
+Selecione o identificador de produto principal a ser usado como ID do catálogo da Braze:
 
-Os valores de ID e de cabeçalho para o identificador de produto que você escolher só podem incluir letras, números, hífens e sublinhados. Se o identificador do produto não seguir esse formato, a Braze o removerá da sincronização do catálogo.
+- **Shopify Variant ID** é uma boa opção padrão quando seus SKUs estão ausentes, duplicados entre variantes ou podem conter caracteres como barras, pontos, espaços ou "e" comercial. Os Variant IDs são numéricos e sempre atendem a esses requisitos.
+- **SKU** funciona bem quando cada variante tem um SKU exclusivo que segue as mesmas regras de caracteres do Shopify Variant ID, e você deseja que o envio de mensagens ou a análise de dados use SKUs de varejo como chave do catálogo.
+  - Você pode usar SKUs de texto livre que contenham caracteres não permitidos usando o Shopify Variant ID em vez do SKU.
 
-Esse será o identificador principal que você usará para fazer referência às informações do catálogo da Braze.
+O valor selecionado se torna o `item_id` do catálogo e pode conter apenas letras, números, hífens e sublinhados.
 
 {% alert note %}
-Se estiver selecionando SKU como ID do catálogo, certifique-se de que todos os seus produtos e variantes na sua loja tenham um SKU definido e que sejam exclusivos.<br><br>
+Se estiver usando SKU como ID do catálogo, certifique-se de que todos os seus produtos e variantes na sua loja tenham um SKU definido e que sejam exclusivos.<br><br>
 - Se um item não tiver um SKU, a Braze não poderá sincronizar esse produto no catálogo.
-- Se você tiver mais de um produto com o mesmo SKU, isso pode causar um comportamento inesperado ou fazer com que as informações do produto sejam substituídas involuntariamente pelo SKU duplicado.
+- Se você tiver mais de um produto com o mesmo SKU, isso pode causar um comportamento inesperado ou substituir involuntariamente as informações do produto.
 {% endalert %}
 
 ### Etapa 3: Configure dados adicionais de produtos (opcional) {#step-3}
@@ -168,28 +168,28 @@ Alterar suas seleções sincronizadas pode afetar Campaigns, Canvas ou seleçõe
 
 | Campo | Tipo de dado | Exemplos |
 |----------------------|----------------|-----------------------------------------------------------------------------------|
-| `id` | string | `45264808411274` quando o identificador de produto do catálogo é **Shopify Variant ID**<br><br>`12345` quando o identificador de produto do catálogo é **SKU** (corresponde ao valor que você selecionou na [Etapa 2](#step-2-select-your-product-identifier)) |
-| `store_name` | string | "your-store" (subdomínio da loja Shopify, sem `.myshopify.com`) |
-| `shopify_product_id` | number | `7939032613002` (armazenado como número no seu catálogo da Braze; as APIs da Shopify podem retornar esse ID como string) |
-| `shopify_variant_id` | number | `45264808411274` (armazenado como número no seu catálogo da Braze; as APIs da Shopify podem retornar esse ID como string) |
-| `product_title` | string | "Classic leather jacket" |
-| `variant_title` | string | "Large / Red", "Medium" ou "Default Title" para produtos com variante única |
-| `status` | string | "active", "draft", "archived" |
-| `product_image_url` | string | "https://cdn.shopify.com/s/files/1/0641/0970/7402/files/t_shir.jpg?v=1736538760" |
-| `variant_image_url` | string | Mesma URL no estilo CDN da imagem do produto quando não existe imagem de variante; caso contrário, uma URL de imagem específica da variante |
-| `vendor` | string | "Flash and Thread", "PantsLabyrinth" |
-| `product_type` | string | "Outerwear", "T-Shirts" (do campo **Product type** do produto na Shopify) |
-| `product_url` | string | "https://your-store.myshopify.com/products/classic-leather-jacket" |
-| `product_handle` | string | "classic-leather-jacket" |
-| `published_scope` | string | "web", "global" |
-| `price` | number | `10.00`, `24.99`<br><br>A Shopify frequentemente retorna preços como strings (por exemplo, `"199.00"` na REST Admin API). A Braze os converte em números para este campo do catálogo. |
-| `compare_at_price` | number | `15.00` quando **Compare at price** está definido na Shopify<br><br>`0` quando a Shopify não possui um preço de comparação. As APIs da Shopify normalmente retornam `null` para um preço de comparação não definido; a Braze armazena `0` no catálogo para que o campo seja sempre numérico (esse é um padrão da Braze, não um valor que a Shopify envia como `0`). |
-| `inventory_quantity` | number | `20`, `0` ou um valor negativo quando a sobrevenda é permitida (por exemplo, `-18`) |
-| `options` | string | "Size,Color"<br><br>A Shopify permite até três tipos de opção por produto (por exemplo, Size, Color, Material). O valor de `options` é uma lista separada por vírgulas desses nomes. |
-| `option_values` | string | "Medium,Red", "Large,Red"<br><br>Cada valor corresponde à mesma ordem de `options` (até três valores). |
-| `sku` | string | "12345", "SKU-001-RED-L" |
-| `product_tags` | array | `["Summer", "Sale", "New"]`<br><br>Requer a sincronização de tags de produtos. |
-| `collection_ids` | array | `[123456789012, 987654321098]` (IDs de coleção da Shopify)<br><br>Requer a sincronização de coleções da Shopify. |
+| `id` | String | `45264808411274` quando o identificador de produto do catálogo é **Shopify Variant ID**<br><br>`12345` quando o identificador de produto do catálogo é **SKU** (corresponde ao valor que você selecionou na [Etapa 2](#step-2-select-your-product-identifier)) |
+| `store_name` | String | "your-store" (subdomínio da loja Shopify, sem `.myshopify.com`) |
+| `shopify_product_id` | Número | `7939032613002` (armazenado como número no seu catálogo da Braze; as APIs da Shopify podem retornar esse ID como string) |
+| `shopify_variant_id` | Número | `45264808411274` (armazenado como número no seu catálogo da Braze; as APIs da Shopify podem retornar esse ID como string) |
+| `product_title` | String | "Classic leather jacket" |
+| `variant_title` | String | "Large / Red", "Medium" ou "Default Title" para produtos com variante única |
+| `status` | String | "active", "draft", "archived" |
+| `product_image_url` | String | "https://cdn.shopify.com/s/files/1/0641/0970/7402/files/t_shir.jpg?v=1736538760" |
+| `variant_image_url` | String | Mesma URL no estilo CDN da imagem do produto quando não existe imagem de variante; caso contrário, uma URL de imagem específica da variante |
+| `vendor` | String | "Flash and Thread", "PantsLabyrinth" |
+| `product_type` | String | "Outerwear", "T-Shirts" (do campo **Product type** do produto na Shopify) |
+| `product_url` | String | "https://your-store.myshopify.com/products/classic-leather-jacket" |
+| `product_handle` | String | "classic-leather-jacket" |
+| `published_scope` | String | "web", "global" |
+| `price` | Número | `10.00`, `24.99`<br><br>A Shopify frequentemente retorna preços como strings (por exemplo, `"199.00"` na REST Admin API). A Braze os converte em números para este campo do catálogo. |
+| `compare_at_price` | Número | `15.00` quando **Compare at price** está definido na Shopify<br><br>`0` quando a Shopify não possui um preço de comparação. As APIs da Shopify normalmente retornam `null` para um preço de comparação não definido; a Braze armazena `0` no catálogo para que o campo seja sempre numérico (esse é um padrão da Braze, não um valor que a Shopify envia como `0`). |
+| `inventory_quantity` | Número | `20`, `0` ou um valor negativo quando a sobrevenda é permitida (por exemplo, `-18`) |
+| `options` | String | "Size,Color"<br><br>A Shopify permite até três tipos de opção por produto (por exemplo, Size, Color, Material). O valor de `options` é uma lista separada por vírgulas desses nomes. |
+| `option_values` | String | "Medium,Red", "Large,Red"<br><br>Cada valor corresponde à mesma ordem de `options` (até três valores). |
+| `sku` | String | "12345", "SKU-001-RED-L" |
+| `product_tags` | Array | `["Summer", "Sale", "New"]`<br><br>Requer a sincronização de tags de produtos. |
+| `collection_ids` | Array | `[123456789012, 987654321098]` (IDs de coleção da Shopify)<br><br>Requer a sincronização de coleções da Shopify. |
 | `Metafield columns` | Varia por tipo | Cada metacampo sincronizado aparece como uma coluna separada nomeada pela sua chave. Consulte [Metacampos compatíveis](#step-3) na guia "Metacampos de produtos" da etapa 3 para mais informações. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dados de catálogo compatíveis com a Shopify" }
 
@@ -711,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-Você também pode configurar [notificações de queda de preço]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) e [notificações de reposição de estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)!<br><br> Note que, para cada caso de uso, você deve criar um evento personalizado que capture o status de inscrição de um usuário no seu catálogo. O evento personalizado requer uma propriedade de evento que mapeie o [SKU ou Shopify Variant ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs#step-2-select-your-product-identifier) que você selecionou como parte da sincronização de produtos da Shopify.
+Você também pode configurar [notificações de queda de preço]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) e [notificações de reposição de estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)!<br><br> Note que, para cada caso de uso, você deve criar um evento personalizado que capture o status de inscrição de um usuário no seu catálogo. O evento personalizado requer uma propriedade de evento que mapeie o <a href="/docs/partners/ecommerce/shopify/shopify_catalogs#step-2-select-your-product-identifier">SKU ou Shopify variant ID</a> que você selecionou como parte da sincronização de produtos da Shopify.
 {% endalert %}
 
 ## Desativar a sincronização de produtos {#deactivate}
@@ -725,6 +725,8 @@ Se a sincronização de produtos da Shopify apresentar um erro, ele pode ser res
 | Erro | Motivo | Solução |
 | --- | --- | --- |
 | Erro do servidor | Isso ocorre se houver um erro de servidor no lado da Shopify quando tentamos sincronizar seus produtos. | [Desative a sincronização](#deactivate) e sincronize novamente todo o seu inventário de produtos. |
-| SKU duplicado | Isso ocorre se você usar um SKU como ID do item do catálogo e tiver produtos com o mesmo SKU. Como o ID do item do catálogo deve ser exclusivo, todos os seus produtos devem ter SKUs exclusivos. | Faça uma auditoria na sua lista completa de produtos e variantes na Shopify para garantir que não haja SKUs duplicados. Se houver SKUs duplicados, atualize-os para que sejam SKUs exclusivos somente na sua conta da loja Shopify. Depois que isso for corrigido, [desative a sincronização](#deactivate) e sincronize novamente todo o seu inventário de produtos. |
+| SKU duplicado | Isso ocorre se você usar SKU como ID do item do catálogo e múltiplas variantes compartilharem o mesmo SKU. Cada `item_id` do catálogo deve ser exclusivo, então os itens afetados podem falhar na sincronização, acumular registros de erro ou ter informações de produto substituídas involuntariamente. | Faça uma auditoria na sua lista completa de produtos e variantes na Shopify para garantir que não haja SKUs duplicados. Se houver SKUs duplicados, atualize-os para que sejam SKUs exclusivos somente na sua conta da loja Shopify. Depois que isso for corrigido, [desative a sincronização](#deactivate) e sincronize novamente todo o seu inventário de produtos. |
 | Limite de catálogo excedido | Isso ocorre se você exceder o limite do catálogo. A Braze não poderá concluir a sincronização ou manter a sincronização ativa devido à falta de espaço de armazenamento disponível. | Há duas soluções para esse problema:<br><br>1. Entre em contato com o gerente da sua conta para fazer upgrade do seu nível e aumentar o limite do seu catálogo.<br><br>2. Libere espaço de armazenamento excluindo qualquer um dos seguintes itens:<br>- Itens de catálogo de outros catálogos<br>- Outros catálogos<br>- Seleções criadas<br><br> Depois de usar qualquer uma das soluções, a sincronização deve ser desativada e reativada em seguida. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Solução de problemas" }
+
+Para detalhes sobre a validação de itens de catálogo, consulte [Solução de problemas]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/post_create_catalog_items_bulk#troubleshooting) na documentação da API de catálogos.

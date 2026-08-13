@@ -130,7 +130,7 @@ RevenueCat이 전송할 이벤트 이름을 입력하거나 **Use Default Event 
 | 비구독 구매 | 자동 갱신 구독이 아닌 제품의 구매입니다. |
 | 만료 | 구독이 만료될 때입니다. |
 | 결제 문제 | 사용자에게 요금을 청구하는 데 문제가 발생했을 때입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 이벤트 이름 구성 #configure-event-names" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 이벤트 이름 구성" }
 
 매출이 포함된 이벤트의 경우, RevenueCat은 체험 전환 및 갱신과 같은 이벤트와 함께 이 금액을 Braze에 자동으로 기록합니다.
 
@@ -142,4 +142,4 @@ RevenueCat에서 Braze 설정을 구성한 후, 별도의 조치 없이 RevenueC
 
 ### 테스트용 샌드박스 API 키 추가 {#add-a-sandbox-api-key-for-testing}
 
-RevenueCat에 Braze REST API 키를 하나만 제공하면 프로덕션 이벤트만 전송됩니다. 샌드박스 테스트 이벤트도 전송하려면 [다른 Braze REST API 키를 생성]({{site.baseurl}}/api/basics#app-group-rest-api-keys)하고 RevenueCat의 Braze 설정에 추가합니다.
+RevenueCat에 Braze REST API 키를 하나만 제공하면 프로덕션 이벤트만 전송됩니다. 샌드박스 테스트 이벤트도 전송하려면 [다른 Braze REST API 키를 생성]({{site.baseurl}}/api/basics#creating-rest-api-keys)하고 RevenueCat의 Braze 설정에 추가합니다.

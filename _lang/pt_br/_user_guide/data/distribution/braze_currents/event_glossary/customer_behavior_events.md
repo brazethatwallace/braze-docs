@@ -248,7 +248,7 @@ Esse evento ocorre quando um evento personalizado específico é disparado. Use 
 
 ### Detalhes da propriedade {#property-details}
 
-- Para eventos personalizados, a carga útil também será preenchida com quaisquer [propriedades de evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties) associadas ao evento.
+- Para eventos personalizados, a carga útil também será preenchida com quaisquer [propriedades de evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) associadas ao evento.
 - Para `ad_id`, `ad_id_type` e `ad_tracking_enabled`, você precisa coletar explicitamente o IDFA do iOS e o ID de anúncio do Google Android por meio dos SDKs nativos. Saiba mais aqui: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Se você estiver usando Kafka para ingerir dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), entre em contato com seu gerente de sucesso do cliente ou gerente de conta para ativar o feature flipper para enviar `ad_id`.
 
@@ -1643,7 +1643,10 @@ Os pares de add e remove se enquadram em duas categorias:
 - O endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) ou a limpeza de usuários duplicados move os tokens do usuário órfão para o usuário sobrevivente.
 
 {% alert note %}
-A identificação no mesmo perfil por meio do endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) ou do SDK `changeUser` atribuindo um ID externo ao perfil anônimo não altera o `user_id` e não emite pares de eventos add e remove. Em vez disso, a Braze emite um evento "update" para cada token por push existente e define `external_user_id` como o ID externo do usuário identificado. Quando `changeUser` move tokens de um perfil de usuário para outro, a Braze ainda emite os pares de eventos add e remove descritos na lista anterior.
+A identificação no mesmo perfil por meio do endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) ou do SDK [`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) pode atribuir um ID externo a um perfil anônimo sem alterar o `user_id`.
+Nesse caso, a Braze não emite [pares de eventos add e remove](#add-and-remove-pairs).
+Em vez disso, a Braze emite um evento "update" para cada token por push existente e define `external_user_id` como o ID externo do usuário identificado.
+Quando `changeUser` move tokens de um perfil de usuário para outro, a Braze ainda emite os [pares de eventos add e remove](#add-and-remove-pairs) descritos na seção [Pares de add e remove](#add-and-remove-pairs).
 {% endalert %}
 
 #### Consultando o estado mais recente do token ativo {#querying-for-the-latest-active-token-state}

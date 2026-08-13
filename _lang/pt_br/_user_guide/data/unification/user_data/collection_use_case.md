@@ -31,29 +31,29 @@ Essas ações poderiam então ser marcadas como os seguintes eventos personaliza
 - Chamadas de táxi bem-sucedidas
 - Chamadas de táxi malsucedidas
 
-Após implementar os eventos, o StyleRyde pode executar Campaigns incluindo o seguinte:
+Após implementar os eventos, o StyleRyde pode executar campanhas incluindo o seguinte:
 
-1. Enviar mensagens aos usuários que iniciaram o registro, mas não o concluíram dentro de um determinado período de tempo.
+1. Enviar mensagens aos usuários que iniciaram o registro, mas não o concluíram dentro de um determinado período.
 2. Enviar mensagens de parabéns aos usuários que concluíram o registro.
-3. Enviar desculpas e crédito promocional aos usuários que tiveram chamadas de táxi malsucedidas, que não foram seguidas por uma chamada de táxi bem-sucedida dentro de um determinado período de tempo.
+3. Enviar desculpas e crédito promocional aos usuários que tiveram chamadas de táxi malsucedidas, que não foram seguidas por uma chamada de táxi bem-sucedida dentro de um determinado período.
 4. Enviar promoções aos usuários avançados com muitas chamadas de táxi bem-sucedidas para agradecê-los pela fidelidade.
 
 ## Pergunta 3: Que outras informações do usuário poderíamos coletar e usar para orientar nosso envio de mensagens? {#case-question-3-what-other-user-information-could-we-collect-and-use-to-inform-our-messaging}
 
 - Os usuários têm algum crédito promocional?
 - A avaliação média que os usuários dão aos seus motoristas?
-- Códigos promocionais exclusivos para usuários?
+- Códigos de promoção exclusivos para usuários?
 
 Essas características poderiam então ser marcadas como os seguintes atributos personalizados:
 
 - Saldo de crédito promocional (tipo decimal)
 - Classificação média do motorista (tipo inteiro)
-- Código promocional exclusivo (tipo string)
+- Código de promoção exclusivo (tipo string)
 
-Esses atributos permitem que você envie Campaigns para usuários, como:
+Esses atributos permitem que você envie campanhas para usuários, como:
 
 1. Lembrar os usuários que não usaram o app nos últimos sete dias e têm crédito promocional em sua conta para retornar ao app e usar o crédito.
-2. Usar nossos modelos de mensagens e [recursos de personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview/#personalized-messaging) para arrastar o atributo de código promocional exclusivo para o envio de mensagens direcionadas aos usuários.
+2. Usar nossos modelos de mensagens e [recursos de personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) para arrastar o atributo de código de promoção exclusivo para o envio de mensagens direcionadas aos usuários.
 
 {% alert important %}
 A Braze vai banir ou bloquear usuários ("usuários fictícios") com mais de 5.000.000 de sessões e não vai mais ingerir seus eventos de SDK, porque geralmente são resultado de uma integração incorreta. Se você descobrir que isso aconteceu com um usuário legítimo, fale com seu gerente de conta da Braze.

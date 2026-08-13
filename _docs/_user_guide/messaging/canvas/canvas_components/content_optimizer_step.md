@@ -1,16 +1,16 @@
 ---
 nav_title: Content Optimizer
-article_title: Content Optimizer agent step 
+article_title: Content Optimizer step 
 alias: "/content_optimizer_step/"
 page_order: 5
-description: "The Content Optimizer agent step lets you configure and test multiple versions of content components within a single step. It helps you experiment with content variations and automatically optimizes toward the best-performing combinations over time."
+description: "The Content Optimizer step lets you configure and test multiple versions of content components within a single step. It helps you experiment with content variations and automatically optimizes toward the best-performing combinations over time."
 page_type: reference
 
 ---
 
-# Content Optimizer agent step
+# Content Optimizer step
 
-> The Content Optimizer agent step lets you configure and test multiple versions of content components within a single step. It helps you experiment with content variations and automatically optimizes toward the best-performing combinations over time. For an introduction, see [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
+> The Content Optimizer step lets you configure and test multiple versions of content components within a single step. It helps you experiment with content variations and automatically optimizes toward the best-performing combinations over time. For an introduction, see [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
 
 {% alert important %}
 Content Optimizer is currently in beta. For help getting started, contact your customer success manager.
@@ -18,7 +18,7 @@ Content Optimizer is currently in beta. For help getting started, contact your c
 
 ## Create a Content Optimizer step
 
-For best results, use the Content Optimizer agent in Canvases where users enter the step gradually over time. If all users enter the step at once, the agent won’t have time to learn from early results. 
+For best results, use Content Optimizer in Canvases where users enter the step gradually over time. If all users enter the step at once, Content Optimizer won’t have time to learn from early results. 
 
 ### Step 1: Add a step
 
@@ -37,7 +37,7 @@ During the beta period, the supported channels are email, push notifications, an
 
 From the **Messaging Channels** tab, select **Email** and create your base email message. Refer to our dedicated [Email]({{site.baseurl}}/user_guide/channels/email) section for help. 
 
-The Content Optimizer agent uses the send settings (such as the email domain and reply-to address) specified in this variant to send all messages. You can either start with a new design or select an existing template for this message. At this step, consider which components of the message you want to optimize for. You define these in [step 4](#step-4).
+Content Optimizer uses the send settings (such as the email domain and reply-to address) specified in this variant to send all messages. You can either start with a new design or select an existing template for this message. At this step, consider which components of the message you want to optimize for. You define these in [step 4](#step-4).
 
 Supported components to optimize include:
 
@@ -51,7 +51,7 @@ Supported components to optimize include:
 
 From the **Messaging Channels** tab, select **Push notifications** and create your base push notification. Refer to our dedicated [Push]({{site.baseurl}}/user_guide/channels/push) section for help. 
 
-The Content Optimizer agent uses the selected push platforms specified in this variant to send all messages. You can either start with a new design or select an existing template for this message. At this step, consider which components of the message you want to optimize for. You define these in [step 4](#step-4).
+Content Optimizer uses the selected push platforms specified in this variant to send all messages. You can either start with a new design or select an existing template for this message. At this step, consider which components of the message you want to optimize for. You define these in [step 4](#step-4).
 
 Supported components to optimize include:
 
@@ -63,7 +63,7 @@ Supported components to optimize include:
 
 From the **Messaging Channels** tab, select **SMS/MMS/RCS** and create your base message. Refer to our dedicated [SMS/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) section for help. 
 
-The Content Optimizer agent uses the **Content** and **Message** details specified in this variant to send all messages. You can either start with a new design or select an existing template for this message. At this step, consider which components of the message you want to optimize for. You define these in [step 4](#step-4).
+Content Optimizer uses the **Content** and **Message** details specified in this variant to send all messages. You can either start with a new design or select an existing template for this message. At this step, consider which components of the message you want to optimize for. You define these in [step 4](#step-4).
 
 Supported components to optimize include:
 
@@ -153,7 +153,7 @@ After defining at least two variants for each component, copy the associated Liq
 
 If you don’t add a Liquid tag for a selected content component, you’ll see a warning on the **Content Optimizer Settings** tab and an error on the **Messaging Channels** tab. The Canvas can’t be launched until all selected components are properly added to your base message.
 
-As the Canvas runs, the agent mixes and matches variants across components to generate different content combinations. Over time, higher-performing combinations are prioritized for delivery, helping you improve performance without manual intervention.
+As the Canvas runs, Content Optimizer mixes and matches variants across components to generate different content combinations. Over time, higher-performing combinations are prioritized for delivery, helping you improve performance without manual intervention.
 
 #### Liquid references
 
@@ -172,14 +172,14 @@ As the Canvas runs, the agent mixes and matches variants across components to ge
 
 ### Step 5: Select optimization event
 
-The optimization event determines how the Content Optimizer agent evaluates performance and allocates traffic to content combinations over time.
+The optimization event determines how Content Optimizer evaluates performance and allocates traffic to content combinations over time.
 
 Your selected optimization event applies to all content components in this step.
 
 {% tabs local %}
 {% tab Email %}
 
-For email, you can optimize for one of the following events. The agent uses opens and clicks that are registered within 7 days of sending a message to shift delivery toward higher-performing content combinations.
+For email, you can optimize for one of the following events. Content Optimizer uses opens and clicks that are registered within 7 days of sending a message to shift delivery toward higher-performing content combinations.
 
 | Event | Description | Use cases |
 | --- | --- | --- |
@@ -213,17 +213,17 @@ As a Content Optimizer step runs, Braze evaluates content variant performance an
 
 | State | What it means |
 | --- | --- |
-| Learning | The agent is still collecting performance data across your content variants and hasn't found a consistent, reliable winner yet. |
-| Optimizing | The agent has found variants that consistently outperform others and is shifting delivery toward the winning combinations. |
-| Action Recommended | The step has run for a while without a clear winner emerging. Review your step setup to help the agent find one. |
+| Learning | Content Optimizer is still collecting performance data across your content variants and hasn't found a consistent, reliable winner yet. |
+| Optimizing | Content Optimizer has found variants that consistently outperform others and is shifting delivery toward the winning combinations. |
+| Action Recommended | The step has run for a while without a clear winner emerging. Review your step setup to help Content Optimizer find one. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Optimizer step states" }
 
 ### Actions to consider
 
 If your step enters the Action Recommended state, consider the following:
 
-- Increase how many users enter the Canvas, if possible. More sends give the agent more data to learn from.
-- In general, test more combinations rather than fewer (see [Best practices](#best-practices)). This gives the agent a clearer signal on what's winning. If your audience volume is low (averaging under approximately 3,000 sends per day), consider reducing the number of variants slightly instead, since too many combinations relative to your volume can slow learning.
+- Increase how many users enter the Canvas, if possible. More sends give Content Optimizer more data to learn from.
+- In general, test more combinations rather than fewer (see [Best practices](#best-practices)). This gives Content Optimizer a clearer signal on what's winning. If your audience volume is low (averaging under approximately 3,000 sends per day), consider reducing the number of variants slightly instead, since too many combinations relative to your volume can slow learning.
 - Make your content variants more clearly distinct from each other in tone, structure, or content.
 - If you can't increase your audience and your variant count and content diversity already look right, your step may simply need more time to find winners.
 
@@ -231,9 +231,7 @@ If your step enters the Action Recommended state, consider the following:
 
 After your Canvas is launched, you can update a running Content Optimizer step by opening it in the Canvas editor. You can:
 
-- Add new variants to any existing component, either manually or using AI-generated suggestions, up to the five-variant limit per component.
-- Deactivate variants to stop sending them to users.
-- Re-activate previously deactivated variants, as long as doing so keeps the component at or below the five-variant limit.
+{% multi_lang_include messaging/canvas/content_optimizer_launched_step_actions.md %}
 
 When you publish changes, the optimizer resets and begins reallocating traffic from scratch across all active variants and combinations. Avoid updating variants while the step is in the Learning state. Historical data from before the edit is retained and viewable in the **Content Analytics** tab.
 

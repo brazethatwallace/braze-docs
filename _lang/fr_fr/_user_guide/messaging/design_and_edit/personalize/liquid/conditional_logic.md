@@ -232,7 +232,7 @@ Les chaînes de caractères et les tableaux nécessitent des apostrophes droites
 
 ### Valeur booléenne {#boolean}
 
-Les [valeurs booléennes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans) sont des valeurs binaires et peuvent être définies sur `true` ou `false`, comme `registration_complete: true`. Les valeurs booléennes n'ont pas d'apostrophes autour d'elles.
+Les [valeurs booléennes]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#booleans) sont des valeurs binaires et peuvent être définies sur `true` ou `false`, comme `registration_complete: true`. Les valeurs booléennes n'ont pas d'apostrophes autour d'elles.
 
 {% raw %}
 
@@ -244,7 +244,7 @@ Les [valeurs booléennes]({{site.baseurl}}/user_guide/data/activation/attributes
 
 ### Nombre {#number}
 
-Les [nombres]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers) sont des valeurs numériques, qui peuvent être des entiers ou des floats. Par exemple, un utilisateur peut avoir `shoe_size: 10` ou `levels_completed: 287`. Les valeurs numériques n'ont pas d'apostrophes autour d'elles.
+Les [nombres]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) sont des valeurs numériques, qui peuvent être des entiers ou des floats. Par exemple, un utilisateur peut avoir `shoe_size: 10` ou `levels_completed: 287`. Les valeurs numériques n'ont pas d'apostrophes autour d'elles.
 
 {% raw %}
 
@@ -266,7 +266,7 @@ Vous pouvez également utiliser d'autres [opérateurs de base](https://shopify.d
 
 ### Chaîne de caractères {#string}
 
-Une [chaîne de caractères]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings) est composée de caractères alphanumériques et stocke une donnée concernant votre utilisateur. Par exemple, vous pouvez avoir `favorite_color: red` ou `phone_number: 3025981329`. Les valeurs de chaîne de caractères doivent avoir des apostrophes autour d'elles.
+Une [chaîne de caractères]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) est composée de caractères alphanumériques et stocke une donnée concernant votre utilisateur. Par exemple, vous pouvez avoir `favorite_color: red` ou `phone_number: 3025981329`. Les valeurs de chaîne de caractères doivent avoir des apostrophes autour d'elles.
 
 {% raw %}
 
@@ -280,7 +280,7 @@ Pour les chaînes de caractères, vous pouvez utiliser à la fois « == » ou «
 
 ### Tableau {#array}
 
-Un [tableau]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays) est une liste d'informations concernant votre utilisateur. Par exemple, un utilisateur peut avoir `last_viewed_shows: stranger things, planet earth, westworld`. Les valeurs de tableau doivent avoir des apostrophes autour d'elles.
+Un [tableau]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) est une liste d'informations concernant votre utilisateur. Par exemple, un utilisateur peut avoir `last_viewed_shows: stranger things, planet earth, westworld`. Les valeurs de tableau doivent avoir des apostrophes autour d'elles.
 
 {% raw %}
 
@@ -330,7 +330,7 @@ Comme `join` combine les éléments du tableau en une seule chaîne de caractèr
 
 ### Horodatage {#time}
 
-Un horodatage indiquant quand un événement a eu lieu. Les valeurs de type [horodatage]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time) doivent avoir un [filtre mathématique]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) appliqué pour être utilisées dans la logique conditionnelle.
+Un horodatage indiquant quand un événement a eu lieu. Les valeurs de type [horodatage]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) doivent avoir un [filtre mathématique]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) appliqué pour être utilisées dans la logique conditionnelle.
 
 {% raw %}
 

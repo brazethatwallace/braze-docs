@@ -16,18 +16,7 @@ This document is for informational purposes only. It is not intended to provide,
 
 ## Subscription states {#subscription-states}
 
-Braze has three global subscription states for email users. These states gate your messages from users. For example, users in the `unsubscribed` state don't receive messages targeted at `subscribed` or `opted-in`.
-
-| State | Definition |
-| ----- | ---------- |
-| Opted-in | A user has explicitly confirmed they want to receive email. We recommend an explicit opt-in process to get consent from users to send emails. |
-| Subscribed | A user has neither unsubscribed nor explicitly opted-in to receive emails. This is the default subscription state when a user profile is created. |
-| Unsubscribed | A user has explicitly unsubscribed from your emails. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription states #subscription-states" }
-
-{% alert note %}
-Braze does not count subscription state changes against your data points, globally, and around subscription groups.
-{% endalert %}
+Braze uses global subscription states to control which users receive email. For definitions of `opted-in`, `subscribed`, and `unsubscribed`, how global status differs from subscription groups, and how subscription status works on other channels, see [Subscription status]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#email).
 
 ### Unsubscribed email addresses
 
@@ -55,7 +44,7 @@ Use the Braze SDK to update a user's subscription state.
 
 #### REST API
 
-Use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to update the [`email_subscribe` attribute]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) for a user. For example, to set a user's email subscription state to unsubscribed when they use a custom unsubscribe link, include `email_subscribe: "unsubscribed"` in the user attributes in your request.
+Use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to update the [`email_subscribe` attribute]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) for a user. For example, to set a user's email subscription state to unsubscribed when they use a custom unsubscribe link, include `email_subscribe: "unsubscribed"` in the user attributes in your request.
 
 #### User profile
 
@@ -139,7 +128,11 @@ You can reference the **Subscription Group Timeseries** graph in the **Subscript
 
 ![An example "Subscription Group Timeseries" graph dated from December 2nd through 11th. The graph shows a ~10 million increase in the number of users from the 6th to the 7th.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
 
-If the timeseries count diverges sharply from a segment using **Email Subscription Status is Unsubscribed**, remember the graph counts membership in that **subscription group**, while that filter reflects **global** email subscription state—for example, users can be globally subscribed but unsubscribed from a specific group.
+#### Why subscription group counts can differ from segment counts
+
+Subscription group sizes align with segments that use only the **Subscription Group** filter. They can diverge from a segment that uses **Email Subscription Status**, which reflects [global email subscription state](#subscription-states), not membership in a specific group, or that combines multiple filters. For example, a user can be globally subscribed to email but unsubscribed from a specific subscription group.
+
+To compare a user's global subscription state with their subscription group memberships, go to their profile and select the **Engagement** tab. For filtering by global state, see [Segmenting by user subscriptions](#segmenting-by-user-subscriptions).
 
 #### Viewing subscription groups in campaign analytics
 
@@ -159,11 +152,16 @@ You can see counts of users who changed their subscription state (subscribed or 
 
 The email preference center lets you manage which users receive subscription group newsletters. Find it in the dashboard under **Subscription Groups**. Each subscription group you create is added to the preference center list. 
 
-To learn more about how to add or customize a preference center, refer to [Preference center]({{site.baseurl}}/user_guide/channels/email/subscriptions).
+To learn more about how to add or customize a preference center, refer to [Preference center]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
+
 
 ## Changing email subscriptions {#changing-email-subscriptions}
 
 In most cases, users manage their email subscription through links included in the emails they receive. Insert a legally compliant footer with an unsubscribe link at the bottom of every email. When users select the unsubscribe URL, Braze unsubscribes them and shows a landing page confirming the change. Include this Liquid tag: {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%}.
+
+{% alert note %}
+You can use the {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%} Liquid tag only in email campaigns and Canvases. You cannot use this tag in other messaging channels.
+{% endalert %}
 
 When a user selects "Unsubscribe from all of the listed types of emails" in the preference center, Braze sets their global email subscription status to `unsubscribed` and unsubscribes them from all groups.
 
@@ -186,7 +184,7 @@ To use a custom landing page instead:
 1. Go to **Email Preferences** > **Subscription Pages and Footers**.
 2. Add the HTML for your custom page.
 
-Include a resubscribe link (for example {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}) so users can undo an accidental unsubscribe.
+Include a resubscribe link (for example {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}) so users can undo an accidental unsubscribe. Like {% raw %}`${set_user_to_unsubscribed_url}`{% endraw %}, you can use this tag in only email campaigns and Canvases.
 
 You can also send users to your site and update status with the Braze REST API (for example link with {% raw %}`?user_id={{${user_id}}}`{% endraw %} and then call [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status).
 
@@ -204,7 +202,7 @@ Use a custom opt-in page to let users acknowledge and control notification prefe
 2. Select **Subscription Pages and Footers**.
 3. Customize the styling in the **Custom opt-in page** section to see how that indicates to your users that they've been subscribed.
 
-Users reach this page through the {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} tag.
+Users reach this page through the {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} tag. Like other email subscription Liquid tags, you can use this tag in only email campaigns and Canvases.
 
 {% alert tip %}
 Use a double opt-in process to improve outreach. Braze sends an additional confirmation email where a user confirms notification preferences via a link. After confirmation, the user is opted in.

@@ -76,16 +76,16 @@ In Canvas, you'll see in-app message performance mapped onto the Canvas you've c
 
 {% endif %}
 
-#### Estimated Audience and Current Audience
+#### Estimated Audience and Current Audience {#estimated-audience-and-current-audience}
 
-Depending on how large your workspace is, the **Campaign Details** panel may label audience statistics **Estimated Audience** or **Current Audience**.
+Depending on the total number of users in your workspace, the **Campaign Details** panel labels audience statistics **Current Audience** or **Estimated Audience**.
 
 The following table summarizes what each label means.
 
 | Footer label | When it is used |
 | --- | --- |
-| **Estimated Audience** | Braze does not run a full-database count by default. Audience size is estimated from a sample and extrapolated, similar to the **Reachable users** range in the segment builder. Margins of error are expected, especially for large workspaces or small segments as a share of the workspace. |
-| **Current Audience** | Braze can compute the default statistic with a full scan of workspace profiles, so the displayed audience size is a current, unsampled count (still subject to channel reachability, subscription rules, and other targeting options). |
+| **Current Audience** | The workspace has 50,000 users or fewer. Braze runs a full scan of workspace profiles for the default statistic, so the displayed audience size is a current, unsampled count (still subject to channel reachability, subscription rules, and other targeting options). |
+| **Estimated Audience** | The workspace has more than 50,000 users. Braze doesn't run a full-database count by default. Audience size is estimated from a sample and extrapolated, similar to the **Reachable users** range in the segment builder. Margins of error are expected, especially for small segments as a share of the workspace. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience and Current Audience" }
 
 For details on sampling behavior, **Calculate exact statistics**, and segmenting **Reachable users**, see [Measure segment size]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
@@ -186,6 +186,13 @@ The **WhatsApp Performance** panel outlines how well your message has performed 
 
 ![WhatsApp performance panel that includes a table of metrics for Variant 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Credits versus send counts
+
+WhatsApp send counts in campaign analytics reflect delivery attempts. Credits consumed may differ when Meta bills by message category (marketing, utility, authentication, service).
+
+- Response messages composed in Braze don't consume Braze WhatsApp credits.
+- Use **Analytics** > **Daily Stats** for directional send volume. Credit breakdowns per campaign or Canvas aren't available.
+
 {% endif %}
 
 If you want to simplify your view, click <i class="fas fa-plus"></i> **Add/Remove Columns** and clear any metrics as desired. By default, all metrics are displayed.
@@ -203,10 +210,18 @@ Campaign analytics display click data for up to 100 unique URLs per variant, sor
 In this view, you can use the **Show Heatmap** toggle to bring up a visual view of your email that shows the overall frequency and location of clicks within the lifespan of the campaign. In the **Link Table by Total Clicks** panel, you can view all of the links in your email campaign and sort by total clicks. This can provide additional insight on where your users navigate. To save a copy of the heatmap for reference, select the download button.
 
 {% alert note %}
-If links use Liquid for dynamic URLs, clicked URLs may not match the rendered link in the message closely enough for the heatmap to associate clicks with that link, so those links might not appear on the heatmap. Use click data in the **Link Table by Total Clicks** panel for a full picture.
+If links use Liquid for dynamic URLs, clicked URLs may not match the rendered link in the message closely enough for the heatmap to associate clicks with that link, so those links might not appear on the heatmap. To attribute click data to templated links on the heatmap, use [link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing). For a full picture, use click data in the **Link Table by Total Clicks** panel.
 {% endalert %}
 
 ![Example of the Preview and Heatmap page that includes an email campaign, and a panel with link alias examples with their total clicks.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+
+##### Mobile-only links in the heatmap
+
+The heatmap only shows heat signatures for links visible at the selected preview size.
+
+Links that only appear in the mobile layout are hidden in **Desktop** (and may be hidden in **Overall**, depending on preview width), so those clicks do not show as heat signatures. Those links still appear in the **Link Table by Total Clicks** panel with their total clicks and percentages.
+
+To view heat signatures for mobile-only links, select **Mobile**. The mobile preview matches the drag-and-drop editor's mobile breakpoint (620&nbsp;px). If the email switches layouts only at a narrower width, those links stay hidden even in the **Mobile** preview size.
 
 #### Images
 
@@ -872,6 +887,8 @@ Here are some key WhatsApp metrics you may see in your analytics. To see the ful
         </tr>
     </tbody>
 </table>
+
+If failures are elevated, see [Investigate WhatsApp send failures]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
 
 #### End-user blocking and reporting metrics
 

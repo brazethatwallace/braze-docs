@@ -17,7 +17,7 @@ _Essa integração é mantida pela Branch._
 
 ## Sobre a integração {#about-the-integration}
 
-A integração entre a Braze e a Branch ajuda a entender exatamente quando e onde aconteceu a aquisição de um usuário e a personalizar a jornada de cada um por meio de atribuição robusta e [deep linking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/).
+A integração entre a Braze e a Branch ajuda a entender exatamente quando e onde aconteceu a aquisição de um usuário e a personalizar a jornada de cada um por meio de atribuição robusta e [deep linking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking).
 
 ## Pré-requisitos {#prerequisites}
 
@@ -26,7 +26,7 @@ A integração entre a Braze e a Branch ajuda a entender exatamente quando e ond
 | Conta da Branch | É necessário ter uma conta Branch para usar essa parceria. |
 | App iOS ou Android | Essa integração é compatível com apps para iOS e Android. Dependendo da sua plataforma, trechos de código podem ser necessários no seu aplicativo. Consulte os detalhes sobre esses requisitos na etapa 1 do processo de integração. |
 | SDK da Branch | Além do SDK da Braze obrigatório, você deve instalar o [SDK da Branch](https://help.branch.io/developers-hub/docs/native-sdks-overview). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -99,19 +99,31 @@ Depois que a Braze receber dados de atribuição da Branch, o indicador de statu
 
 Esse status é alterado somente depois que a Braze recebe dados sobre uma atribuição de instalação. A Braze ignora as instalações orgânicas (as exclui do postback da Branch) e não as conta ao determinar se a conexão foi bem-sucedida.
 
+## Mapeamento de campos {#field-mapping}
+
+Os campos de atribuição da Branch são mapeados para a Braze da seguinte forma:
+
+| Campo da Branch | Campo da Braze |
+| --- | --- |
+| Campaign | `campaign` |
+| Channel | `source` |
+| Ad Set Name | `adgroup` |
+| Ad Name | `ad` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mapeamento de campos da Branch" }
+
 ## Dados de atribuição do Facebook e do X (antigo Twitter) {#facebook-and-x-formerly-twitter-attribution-data}
 
 Os dados de atribuição para campanhas do Facebook e do X (antigo Twitter) não estão disponíveis por meio de nossos parceiros. Essas fontes de mídia não permitem que seus parceiros compartilhem dados de atribuição com terceiros e, portanto, nossos parceiros não podem enviar esses dados para a Braze.
 
 ## URLs de rastreamento de cliques da Branch na Braze (opcional) {#branch-click-tracking-urls-in-braze-optional}
 
-Usar links de rastreamento de cliques nas suas campanhas da Braze permitirá que você veja facilmente quais campanhas estão gerando instalações de apps e reengajamento. Como resultado, você poderá medir seus esforços de marketing de forma mais eficaz e tomar decisões baseadas em dados sobre onde investir mais recursos para obter o máximo ROI.
+Usar links de rastreamento de cliques nas suas campanhas da Braze permitirá que você veja facilmente quais campanhas estão gerando instalações de apps e reengajamento. Como resultado, você poderá medir seus esforços de marketing de forma mais eficaz e tomar decisões orientadas por dados sobre onde investir mais recursos para obter o máximo ROI.
 
 Para começar a usar os links de rastreamento de cliques da Branch, consulte a [documentação](https://help.branch.io/using-branch/docs/ad-links) da Branch. Você pode inserir os links de rastreamento de cliques da Branch diretamente nas suas campanhas da Braze. A Branch usará então suas [metodologias de atribuição probabilística](https://help.branch.io/using-branch/docs/branch-attribution-logic-settings) para atribuir o usuário que clicou no link. Recomendamos anexar seus links de rastreamento da Branch com um identificador de dispositivo para melhorar a precisão das atribuições das suas campanhas da Braze. Isso atribuirá de forma determinística o usuário que clicou no link.
 
 {% tabs local %}
 {% tab Android %}
-Para Android, a Braze permite que os clientes façam a aceitação da [coleta do Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id). O GAID também é coletado nativamente pela integração do SDK da Branch. Você pode incluir o GAID nos seus links de rastreamento de cliques da Branch utilizando a seguinte lógica Liquid:
+Para Android, a Braze permite que os clientes façam a aceitação da [coleta do Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id). O GAID também é coletado nativamente pela integração do SDK da Branch. Você pode incluir o GAID nos seus links de rastreamento de cliques da Branch utilizando a seguinte lógica Liquid:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}

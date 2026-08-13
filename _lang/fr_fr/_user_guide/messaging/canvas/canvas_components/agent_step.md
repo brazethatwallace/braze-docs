@@ -45,7 +45,7 @@ Dans la liste des agents, chaque agent est accompagné de sa [limite d'invocatio
 
 ### Étape 3 : Définir la sortie de votre agent {#define-the-output-variable}
 
-Les sorties de l'agent sont appelées « variables de sortie » et sont stockées dans une [variable de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-types) pour un accès facile. Pour définir la variable de sortie, donnez un nom à la variable.
+Les sorties de l'agent sont appelées « variables de sortie » et sont stockées dans une [variable de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-filters) pour un accès facile. Pour définir la variable de sortie, donnez un nom à la variable.
 
 Notez que le type de données de la variable de sortie est défini depuis la [Console des agents]({{site.baseurl}}/user_guide/brazeai/agents). Les sorties de l'agent peuvent être enregistrées sous forme de chaînes de caractères, de nombres, de valeurs booléennes ou d'objets. Cela les rend flexibles aussi bien pour la personnalisation de texte que pour la logique conditionnelle dans votre Canvas. Voici quelques utilisations courantes pour chaque type :
 
@@ -54,10 +54,10 @@ Notez que le type de données de la variable de sortie est défini depuis la [Co
 | Chaîne de caractères | Personnalisation des messages (lignes d'objet, texte, réponses) |
 | Nombre | Scoring, seuils, routage dans les [parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) |
 | Valeur booléenne | Branchement Oui/Non dans les [arbres décisionnels]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) |
-| Objet | Exploitez un ou plusieurs des types de données mentionnés ci-dessus avec un seul appel LLM dans une structure de données prévisible |
+| Objet | Exploitez un ou plusieurs des types de données mentionnés plus haut dans cette section avec un seul appel LLM dans une structure de données prévisible |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Définir la sortie de votre agent" }
 
-Vous pouvez utiliser une variable de sortie dans l'ensemble du Canvas en utilisant la même syntaxe de template que pour une variable de contexte. Utilisez soit le filtre de Segment **Context Variable**, soit intégrez directement les réponses de l'agent avec Liquid : {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
+Vous pouvez utiliser une variable de sortie dans l'ensemble du Canvas en utilisant la même syntaxe de template que pour une variable de contexte. Utilisez soit le filtre de segment **Context Variable**, soit intégrez directement les réponses de l'agent avec Liquid : {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
 
 Pour utiliser une propriété spécifique d'une variable de sortie de type objet, utilisez la notation par points pour accéder à cette propriété avec Liquid : {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
 

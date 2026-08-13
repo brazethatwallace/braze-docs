@@ -23,6 +23,8 @@ description: "この記事では、既存のダッシュボードユーザーア
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f9a1642-988e-4011-8fb8-db4340ea1ac7 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## 前提条件 {#prerequisites}
 
 このエンドポイントを使用するには、SCIMトークンが必要です。`X-Request-Origin`ヘッダーとしてサービスOriginを使用します。詳細については、[自動ユーザープロビジョニング]({{site.baseurl}}/scim/automated_user_provisioning)を参照してください。
@@ -136,7 +138,7 @@ curl --location --request PUT 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
 }
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],

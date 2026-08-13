@@ -59,7 +59,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Close Message" %}
-<i>メッセージを閉じる</i>は、メッセージの [閉じる] ボタンをクリックした合計回数です。これは、従来のエディターではなく、ドラッグ＆ドロップエディターで作成されたアプリ内メッセージにのみ存在します。
+<i>メッセージを閉じる</i>は、メッセージの閉じるボタンをクリックした合計回数です。これは、従来のエディターではなく、ドラッグ＆ドロップエディターで作成されたアプリ内メッセージにのみ存在します。
 {% endif %}
 
 {% if include.metric == "Confirmed Deliveries" %}
@@ -75,7 +75,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Confirmation Page Dismissals" %}
-<i>確認ページ却下数</i>は、<a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>簡単な調査</a> の確認ページにある [閉じる] (x) ボタンのクリック数の合計です。
+<i>確認ページ却下数</i>は、<a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>簡単な調査</a> の確認ページにある閉じる（x）ボタンのクリック数の合計です。
 {% endif %}
 
 {% if include.metric == "Conversion Rate" %}
@@ -87,7 +87,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Conversions (B, C, D)" %}
-<i>コンバージョン (B, C, D)</i>は、1次コンバージョンイベントの後に追加されるコンバージョンイベントです。これは、Braze キャンペーンから受信したメッセージと対話または閲覧した後に、定義されたイベントが発生した回数です。
+<i>コンバージョン（B、C、D）</i>は、1次コンバージョンイベントの後に追加されるコンバージョンイベントです。これは、Brazeキャンペーンから受信したメッセージと対話または閲覧した後に、定義されたイベントが発生した回数です。
 {% endif %}
 
 {% if include.metric == "Total Conversions" %}
@@ -155,11 +155,29 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Machine Opens" %}
-<i>機械開封</i>には、iOS 15のAppleのメールプライバシー保護（MPP）の影響を受ける「開封」の割合が含まれます。例えば、ユーザーがAppleデバイスのメールアプリを使用してメールを開封した場合、これは<i>機械開封</i>としてログに記録されます。
+<i>機械開封</i>には、Apple Mail Privacy Protection（MPP）が有効なユーザーによる開封を示す、非人間および人間の開封の両方が含まれます。つまり、1人のユーザーが複数の<i>機械開封</i>を記録する可能性があります。デバイスがWi-Fiに接続されていない場合、<i>機械開封</i>は自動的に生成されないため、Appleが画像をプリフェッチする前にユーザーがApple Mailアプリでメールを開封する可能性があり、その場合でも<i>機械開封</i>として記録されます。
+<br><br>
+MPPが有効なユーザーの場合：
+<ul>
+  <li>1回以上の<i>機械開封</i>：Appleがメッセージをプリフェッチしたか、ユーザーがiOSデバイスでメールを自発的に開封しました</li>
+  <li>2回以上の<i>機械開封</i>：Brazeは人間による開封と非人間による開封を区別できないため、複数の人間による開封（1台のAppleデバイスまたは複数台）、または人間による開封とAppleがメッセージをプリフェッチしたことに関連する1回の開封の組み合わせである可能性があります</li>
+</ul>
 {% endif %}
 
 {% if include.metric == "Other Opens" %}
-<i>その他の開封</i>には、<i>機械開封</i>として識別されないメールが含まれます。例えば、ユーザーが別のプラットフォーム（携帯電話のGmailアプリ、デスクトップブラウザーのGmailなど）でメールを開封すると、これは<i>その他の開封</i>としてログに記録されます。
+<i>その他の開封</i>には、MPPの影響を受けない人間の開封が含まれます（例えば、ユーザーがGmailアプリやGmailデスクトップでメールを開封した場合、トラッキングピクセルが発火し、通常の開封として記録されます）。<i>その他の開封</i>は通常、人間による開封ですが、機械がメールを開封するシナリオ（ボットやGmail、Yahooなどの受信トレイサービスプロバイダー）もあり得ます。また、ユーザーが非iOSデバイスでメールを開封し、<i>機械開封</i>が記録される前に<i>その他の開封</i>が記録される可能性もあります。
+<br><br>
+<i>機械開封</i>はユーザー主導の場合もあるため、<i>機械開封</i>と<i>その他の開封</i>の関係は人間対非人間ではなく、MPPの影響を受けるか受けないかです。<i>その他の開封</i>は人間による開封の一部を測定するために依然として信頼できますが、<i>機械開封</i>のうち人間主導の割合を判断することは現在のところ不可能であるため、正確な「真の」開封率を算出することは現在のところできません。
+<br><br>
+MPPが有効なユーザーの場合：
+<ul>
+  <li>+1 <i>その他の開封</i>：ユーザーが非iOSデバイスでメールを自発的に開封しました</li>
+  <li>+1 <i>機械開封</i>および+1 <i>その他の開封</i>：Appleがメッセージをプリフェッチしたか、ユーザーがiOSデバイスでメールを自発的に開封し、さらに非iOSデバイスでもメールを自発的に開封しました</li>
+</ul>
+MPPが無効なユーザーの場合：
+<ul>
+  <li>+1 <i>その他の開封</i>：ユーザーが任意のデバイスでメールを自発的に開封しました</li>
+</ul>
 {% endif %}
 
 {% if include.metric == "Opens" %}
@@ -175,11 +193,11 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}
-<i>1次コンバージョン (A)</i>または<i>1次コンバージョンイベント</i>は、Braze キャンペーンから受信したメッセージの操作後または表示後に、定義されたイベントが発生した回数です。この定義されたイベントは、キャンペーンを作成するときに決定します。
+<i>1次コンバージョン（A）</i>または<i>1次コンバージョンイベント</i>は、Brazeキャンペーンから受信したメッセージの操作後または表示後に、定義されたイベントが発生した回数です。この定義されたイベントは、キャンペーンを作成するときに決定します。
 {% endif %}
 
 {% if include.metric == "Reads" %}
-<i>既読</i>は、ユーザーがメッセージを読んだ場合です。Brazeが既読数を追跡するには、ユーザーの既読レシートが「オン」になっている必要があります。
+<i>既読</i>は、ユーザーがメッセージを読んだ場合です。Brazeが既読数をトラッキングするには、ユーザーの既読レシートが「オン」になっている必要があります。
 {% endif %}
 
 {% if include.metric == "Read Rate" %}
@@ -223,7 +241,7 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
-<i>調査ページ却下数</i>は、<a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>簡単な調査</a> の質問ページにある [閉じる] (x) ボタンのクリック数の合計です。
+<i>調査ページ却下数</i>は、<a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>簡単な調査</a> の質問ページにある閉じる（x）ボタンのクリック数の合計です。
 {% endif %}
 
 {% if include.metric == "Survey Submissions" %}
@@ -285,5 +303,5 @@ Push Stories通知は、通知がクリックされると<i>ボディクリッ�
 {% endif %}
 
 {% if include.metric == "Variation" %}
-<i>バリエーション数</i>は、キャンペーンのバリエーションの数で、作成者の定義によって異なります。
+<i>バリアント数</i>は、キャンペーンのバリアントの数で、作成者の定義によって異なります。
 {% endif %}

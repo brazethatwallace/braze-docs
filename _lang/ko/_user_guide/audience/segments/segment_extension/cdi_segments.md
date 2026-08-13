@@ -15,7 +15,7 @@ description: "이 문서에서는 클라우드 데이터 수집을 사용하는 
 > Braze [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)(CDI)을 사용하면 데이터 웨어하우스 또는 파일 스토리지 시스템에서 Braze로의 직접 연결을 설정하여 관련 사용자 또는 카탈로그 데이터를 정기적으로 동기화할 수 있습니다.
 
 {% alert warning %}
-CDI 세그먼트 확장은 데이터 웨어하우스를 직접 쿼리하므로, 데이터 웨어하우스에서 이러한 쿼리를 실행하는 데 관련된 모든 비용이 발생합니다. CDI 세그먼트 확장은 [SQL 세그먼트 크레딧]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#monitoring-your-sql-segments-usage)을 소비하지 않으며, 세그먼트 확장 한도에 포함되지 않고, 데이터 포인트를 기록하지 않습니다.
+CDI 세그먼트 확장은 데이터 웨어하우스를 직접 쿼리하므로, 데이터 웨어하우스에서 이러한 쿼리를 실행하는 데 관련된 모든 비용이 발생합니다. CDI 세그먼트 확장은 [SQL 세그먼트 크레딧]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#credits)을 소비하지 않으며, 세그먼트 확장 한도에 포함되지 않고, 데이터 포인트를 기록하지 않습니다.
 {% endalert %}
 
 ## 필수 조건 {#prerequisites}
@@ -40,11 +40,11 @@ Braze 워크스페이스 내에서 세분화를 위해 데이터 웨어하우스
 
 CDI 설정의 일부로, CDI 세그먼트 확장에서 사용할 다양한 연결을 선택할 수 있습니다. 각 연결에는 특정 데이터 테이블 세트가 있습니다. 개발팀이 CDI 설정 중에 연결 및 데이터 테이블을 구성할 수 있습니다.
 
-스키마 및 사용 가능한 설명을 포함하여 사용 가능한 데이터 테이블을 보려면 **참조**를 선택합니다. 준비가 되면 연결을 선택합니다.
+스키마 및 사용 가능한 설명을 포함하여 사용 가능한 데이터 테이블을 보려면 **Reference**를 선택합니다. 준비가 되면 연결을 선택합니다.
 
-![스키마 및 사용 가능한 설명을 포함하여 사용 가능한 데이터 테이블을 보려면 참조를 선택합니다. 준비가 되면 연결을 선택합니다.]({% image_buster /assets/img/segment/connection_schema_with_descriptions.png %}){: style="max-width:100%;"}
+![스키마 및 사용 가능한 설명을 포함하여 사용 가능한 데이터 테이블을 보려면 Reference를 선택합니다. 준비가 되면 연결을 선택합니다.]({% image_buster /assets/img/segment/connection_schema_with_descriptions.png %}){: style="max-width:100%;"}
 
-다음으로, [Braze SQL 구문]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#writing-sql)을 사용하여 세그먼트에 대한 SQL을 작성합니다.
+다음으로, [Braze SQL 구문]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#step-2-write-your-sql)을 사용하여 세그먼트에 대한 SQL을 작성합니다.
 
 모든 CDI 세그먼트 확장은 선택된 열로 `external_user_id`를 사용해야 하며, `external_user_id`는 Braze에서 사용자에 대해 설정된 것과 일치해야 합니다.
 
@@ -58,7 +58,7 @@ CDI 설정의 일부로, CDI 세그먼트 확장에서 사용할 다양한 연�
 세그먼트 확장을 미리보기하고, 세그먼트 확장을 관리하며, 자동 멤버십 새로고침을 실행하는 방법을 알아보려면 [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)을 참조하세요.
 {% endalert %}
 
-마지막으로, Braze Segment 내에서 [이 세그먼트 확장을 사용]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-5-use-your-extension-in-a-segment)하여 이 오디언스에 Campaign 또는 Canvas를 보낼 수 있습니다.
+마지막으로, Braze Segment 내에서 [이 세그먼트 확장을 사용]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment)하여 이 오디언스에 Campaign 또는 Canvas를 보낼 수 있습니다.
 
 ## 고려 사항 {#considerations}
 

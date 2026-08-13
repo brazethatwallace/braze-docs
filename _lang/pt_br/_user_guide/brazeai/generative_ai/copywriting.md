@@ -14,6 +14,7 @@ description: "Este artigo de referência aborda como gerar textos de marketing p
 
 ## Como acessar {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_copy.md %}
+Em qualquer criador de mensagem, abra o Operator para redigir e refinar textos de marketing. Descreva seu produto ou campanha, e o Operator retorna um texto que você pode revisar e inserir.
+
 
 Para saber mais, incluindo tons disponíveis, exemplos de prompts e integração com diretrizes da marca, consulte [Gerar texto nas capacidades do Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy).

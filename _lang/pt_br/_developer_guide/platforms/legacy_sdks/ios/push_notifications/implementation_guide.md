@@ -13,7 +13,7 @@ noindex: true
 
 <br>
 {% alert important %}
-Está procurando o guia básico de integração de desenvolvedores de notificações por push? Encontre [aqui]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration).
+Está procurando o guia básico de integração de desenvolvedores de notificações por push? Consulte [Integração de notificações por push para iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration).
 {% endalert %}
 
 # Guia de implementação de notificações por push {#push-notification-implementation-guide}

@@ -103,7 +103,7 @@ Se você tem um identificador comum entre a Braze e o Zendesk, é recomendável 
 - Digite um nome e uma descrição para o webhook.
 - Insira a URL do endpoint da Braze que seu webhook usará. {% raw %}Nosso exemplo usará `https://{{instance_url}}/users/track`.{% endraw %}
 - Selecione POST como o método de solicitação do webhook e defina o formato da solicitação para JSON.
-- Selecione o método de autenticação por bearer token para o webhook e forneça sua [chave de API da Braze]({{site.baseurl}}/api/basics#creating-and-managing-rest-api-keys).
+- Selecione o método de autenticação por bearer token para o webhook e forneça sua [chave de API da Braze]({{site.baseurl}}/api/basics#creating-rest-api-keys).
   - Certifique-se de que a chave de API que você está usando tem as [permissões corretas]({{site.baseurl}}/api/basics#rest-api-key-permissions) para o endpoint da Braze que seu webhook está usando.<br><br>
 5. (Recomendado) Teste o webhook para verificar se está funcionando corretamente.<br><br>
 6. Para webhooks de gatilho e automação, você deve conectar o webhook a um gatilho ou automação antes de finalizar a configuração. Consulte a etapa seguinte para ver nosso exemplo de criação de um gatilho para o webhook. Depois que o gatilho for criado, você pode voltar a esta página e selecionar **Finish setup**.

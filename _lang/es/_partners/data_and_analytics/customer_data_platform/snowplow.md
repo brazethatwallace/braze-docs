@@ -32,17 +32,17 @@ Aprovecha los ricos datos de comportamiento de Snowplow para impulsar potentes i
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Pipeline de Snowplow | Necesitas un pipeline de Snowplow en funcionamiento. |
 | Acceso a la consola de Snowplow | Debes tener acceso a la consola de Snowplow para configurar los reenviadores de eventos. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con los siguientes permisos: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` y `users.alias.update`. <br><br> Puedes crearla en el dashboard de Braze desde **Configuración** > **Claves de API**. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con los siguientes permisos: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` y `users.alias.update`. <br><br> Puedes crearla en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint depende de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 ### Entrega personalizada basada en acciones {#personalized-action-based-delivery}
-Utiliza cualquiera de los numerosos eventos enriquecidos que Snowplow recopila por defecto, o define tus propios eventos personalizados para dar forma a recorridos del cliente aún más granulares que tengan sentido para tu negocio. Aprovecha los ricos datos de comportamiento de Snowplow para diseñar embudos de clientes y desbloquear valor para tus equipos de marketing y producto, ayudándoles a maximizar la conversión y el uso del producto a través de Braze.
+Utiliza cualquiera de los numerosos eventos enriquecidos que Snowplow recopila de forma predeterminada, o define tus propios eventos personalizados para dar forma a recorridos del cliente aún más granulares que tengan sentido para tu negocio. Aprovecha los ricos datos de comportamiento de Snowplow para diseñar embudos de clientes y desbloquear valor para tus equipos de marketing y producto, ayudándoles a maximizar la conversión y el uso del producto a través de Braze.
 
 ### Segmentación dinámica {#dynamic-segmentation}
-Crea audiencias dinámicas en Braze basadas en los datos de comportamiento de alta calidad de Snowplow: a medida que los usuarios realizan acciones en tu producto, aplicación o sitio web, puedes aprovechar los datos de comportamiento en tiempo real que Snowplow recopila para añadir o eliminar automáticamente usuarios de los Segments relevantes en Braze.
+Crea audiencias dinámicas en Braze basadas en los datos de comportamiento de alta calidad de Snowplow: a medida que los usuarios realizan acciones en tu producto, aplicación o sitio web, puedes aprovechar los datos de comportamiento en tiempo real que Snowplow recopila para añadir o eliminar automáticamente usuarios de los segmentos relevantes en Braze.
 
 ## Integración {#integration}
 
@@ -52,16 +52,16 @@ Para crear el reenviador de eventos:
 
 1. En la consola de Snowplow, navega hasta **Destinations** y selecciona **Create new destination**.
 2. Al configurar la conexión, selecciona **Braze** como tipo de conexión.
-3. Introduce tu clave de API de Braze y el punto de conexión de la REST API.
+3. Introduce tu clave de API de Braze y el endpoint de la REST API.
 4. Guarda la conexión.
 
 ### Paso 2: Configura el reenviador de eventos {#step-2-configure-the-event-forwarder}
 
 Al configurar el reenviador, puedes elegir qué eventos de Snowplow reenviar y mapearlos a tipos de objetos de Braze:
 
-1. **[Atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)**: Actualiza los datos del perfil de usuario y las propiedades personalizadas de usuario.
-2. **[Eventos personalizados]({{site.baseurl}}/api/objects_filters/event_object/)**: Envía acciones y comportamientos de los usuarios.
-3. **[Compras]({{site.baseurl}}/api/objects_filters/purchase_object/)**: Envía los datos de la transacción con los detalles del producto.
+1. **[Atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object)**: Actualiza los datos del perfil de usuario y las propiedades personalizadas de usuario.
+2. **[Eventos personalizados]({{site.baseurl}}/api/objects_filters/event_object)**: Envía acciones y comportamientos de los usuarios.
+3. **[Compras]({{site.baseurl}}/api/objects_filters/purchase_object)**: Envía los datos de la transacción con los detalles del producto.
 
 Para cada tipo de objeto, puedes configurar mapeados de campos para especificar cómo se mapean los datos de eventos de Snowplow a los campos de Braze. Consulta la [documentación de creación de reenviadores](https://docs.snowplow.io/docs/destinations/forwarding-events/creating-forwarders/) de Snowplow para obtener instrucciones detalladas de configuración y mapeado de campos.
 
@@ -82,7 +82,7 @@ Puedes enviar propiedades personalizadas más allá de los campos estándar. La 
 
 Para los nombres de propiedades que contengan espacios, utiliza la notación de corchetes (por ejemplo, `["account type"]` o `properties["campaign source"]`).
 
-Consulta la [documentación del objeto de evento]({{site.baseurl}}/api/objects_filters/event_object/) para obtener información detallada sobre los tipos de datos admitidos, los requisitos de nomenclatura de las propiedades y los límites de tamaño de la carga útil.
+Consulta la [documentación del objeto de evento]({{site.baseurl}}/api/objects_filters/event_object) para obtener información detallada sobre los tipos de datos admitidos, los requisitos de nomenclatura de las propiedades y los límites de tamaño de la carga útil.
 
 ## Limitaciones {#limitations}
 

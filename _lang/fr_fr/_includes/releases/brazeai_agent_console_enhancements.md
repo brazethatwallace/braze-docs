@@ -1,0 +1,6 @@
+- Configurez des cas d'usage prédéfinis avec Operator via le menu déroulant du bouton **Créer un agent**.
+- Dupliquez des agents existants depuis la liste des agents.
+- Enregistrez des agents en tant que brouillons pendant la création et complétez les configurations ultérieurement.
+- Définissez des valeurs de sortie de secours pour les agents Canvas afin d'empêcher les variables de sortie de prendre la valeur null en cas d'erreur de l'agent.
+- Définissez des champs d'entrée obligatoires pour un champ agentique de catalogue, afin que l'agent ne s'exécute pas si la valeur d'un champ d'entrée obligatoire est vide ou manquante.
+- Relancez un agent pour toutes les cellules vides d'une colonne agentique afin de remplir les valeurs manquantes sans relancer l'ensemble de la colonne.

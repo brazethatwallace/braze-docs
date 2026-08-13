@@ -1,0 +1,3 @@
+- **Usuario A** está suscrito al correo electrónico y tiene push habilitado. Este usuario no recibe el correo electrónico, pero sí recibirá el push.
+- **Usuario B** ha aceptado recibir correo electrónico, pero no tiene push habilitado. Este usuario recibirá el correo electrónico, pero no recibirá el push.
+- **Usuario C** ha aceptado recibir correo electrónico y tiene push habilitado. Este usuario recibirá tanto el correo electrónico como el push.

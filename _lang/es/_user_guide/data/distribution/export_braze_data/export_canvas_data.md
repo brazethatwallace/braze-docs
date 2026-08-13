@@ -34,7 +34,7 @@ Para analizar cuándo los usuarios entraron o volvieron a entrar en un Canvas, u
 
 - **Entrada más reciente por usuario:** Exporta un segmento con el campo [`canvases_received`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) usando el endpoint [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment). Para cada Canvas, la exportación incluye las marcas de tiempo `last_entered` y `last_exited` de ese usuario. El campo `canvases_received` contiene datos de los últimos 90 días.
 - **Cada entrada, incluidas las reentradas:** Usa los [eventos de entrada en Canvas]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#canvas-entry-events) en Braze Currents o Snowflake Data Sharing. Cada evento `users.canvas.Entry` representa una entrada en Canvas e incluye una marca de tiempo `time`. Cuenta los eventos por usuario para determinar cuántas veces entraron.
-- **Crear una lista de usuarios en el panel:** Crea un segmento con un filtro **Entered Canvas Variation** y luego exporta el segmento a CSV. Consulta [Solución de problemas de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/troubleshooting#user-didnt-enter-a-canvas).
+- **Crear una lista de usuarios en el panel:** Crea un segmento con un filtro **Entered Canvas Variation** y luego exporta el segmento a CSV. Consulta [Solución de problemas de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/troubleshooting#user-didnt-enter-the-canvas).
 
 {% alert note %}
 Si no tienes Currents integrado y necesitas cada marca de tiempo de entrada histórica, contacta con tu administrador de éxito de cliente de Braze.

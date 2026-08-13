@@ -13,16 +13,16 @@ noindex: true
 # Manuelle Integration {#manual-integration}
 
 {% alert tip %}
-Wir empfehlen Ihnen dringend, das SDK über einen Paketmanager wie [Swift-Paketmanager](../swift_package_manager/), [CocoaPods](../cocoapods/) oder [Carthage](../carthage_integration/) zu implementieren. Damit sparen Sie viel Zeit und können einen Großteil des Prozesses automatisieren. Wenn Sie dazu jedoch nicht in der Lage sind, können Sie die Integration auch manuell vornehmen, indem Sie die Anweisungen befolgen.
+Wir empfehlen Ihnen dringend, das SDK über einen Paketmanager wie den [Swift-Paketmanager]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods) oder [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration) zu implementieren. Damit sparen Sie viel Zeit und können einen Großteil des Prozesses automatisieren. Wenn Sie dazu jedoch nicht in der Lage sind, können Sie die Integration auch manuell vornehmen, indem Sie die folgenden Anweisungen befolgen.
 {% endalert %}
 
-## 1. Schritt: Herunterladen des Braze SDK {#step-1-downloading-the-braze-sdk}
+## Schritt 1: Herunterladen des Braze SDK {#step-1-downloading-the-braze-sdk}
 
 ### Option 1: Dynamisches XCFramework {#option-1-dynamic-xcframework}
 
 1. Laden Sie `Appboy_iOS_SDK.xcframework.zip` von der [Release-Seite](https://github.com/appboy/appboy-ios-sdk/releases) herunter und extrahieren Sie die Datei.
 2. Ziehen Sie dieses `.xcframework` in Xcode per Drag-and-Drop in Ihr Projekt.
-3. Wählen Sie auf dem Tab **Allgemein** des Projekts **Embed & Sign** für `Appboy_iOS_SDK.xcframework` aus.
+3. Wählen Sie auf dem Tab **General** des Projekts **Embed & Sign** für `Appboy_iOS_SDK.xcframework` aus.
 
 ### Option 2: Statisches XCFramework für statische Integration {#option-2-static-xcframework-for-static-integration}
 
@@ -40,7 +40,7 @@ Wir empfehlen Ihnen dringend, das SDK über einen Paketmanager wie [Swift-Paketm
 Wenn Sie versuchen, die Kernversion des SDK ohne Braze-UI-Features zu verwenden, werden In-App-Nachrichten nicht angezeigt. Der Versuch, die Braze Content-Cards-UI mit der Kernversion anzuzeigen, führt zu unvorhersehbarem Verhalten.
 {% endalert %}
 
-## 2. Schritt: Hinzufügen der erforderlichen iOS-Bibliotheken {#step-2-adding-required-ios-libraries}
+## Schritt 2: Hinzufügen der erforderlichen iOS-Bibliotheken {#step-2-adding-required-ios-libraries}
 
 1. Klicken Sie auf das Target für Ihr Projekt (über die Navigation auf der linken Seite) und wählen Sie den Tab **Build Phases**.<br><br>
 2. Klicken Sie auf den Button <i class="fas fa-plus" aria-label="Hinzufügen"></i> unter **Link Binary With Libraries**.<br><br>
@@ -66,7 +66,7 @@ Um `SDWebImage` zu installieren, folgen Sie den [Anweisungen](https://github.com
 1. Fügen Sie das `CoreLocation.framework` hinzu, um das Standort-Tracking zu aktivieren.
 2. Sie müssen den Standort für Ihre Nutzer:innen über `CLLocationManager` in Ihrer App autorisieren.
 
-## 3. Schritt: Objective-C-Bridging-Header {#step-3-objective-c-bridging-header}
+## Schritt 3: Objective-C-Bridging-Header {#step-3-objective-c-bridging-header}
 
 {% alert note %}
 Wenn Ihr Projekt nur Objective-C verwendet, überspringen Sie diesen Schritt.

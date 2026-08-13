@@ -36,24 +36,24 @@ Depuis cette page, vous pouvez afficher, gérer, créer ou mettre en liste de bl
 
 Les attributs personnalisés peuvent être mis en liste de blocage individuellement via le menu d'actions, ou jusqu'à 100 attributs peuvent être sélectionnés et mis en liste de blocage en masse. Si vous bloquez un attribut personnalisé, aucune donnée ne sera collectée concernant cet attribut, les données existantes seront indisponibles sauf si elles sont réactivées, et les attributs bloqués n'apparaîtront pas dans les filtres ou les graphiques. De plus, si l'attribut est actuellement référencé par des filtres ou des déclencheurs dans d'autres zones du tableau de bord de Braze, une fenêtre modale d'avertissement apparaîtra pour expliquer que toutes les instances des filtres ou déclencheurs qui le référencent seront supprimées et archivées.
 
-### Marquer comme information personnellement identifiable (PII) {#marking-as-personally-identifiable-information-pii}
+### Marquer comme donnée d'identification personnelle (PII) {#marking-as-personally-identifiable-information-pii}
 
 Les administrateurs peuvent également créer des attributs personnalisés et les marquer comme PII depuis cette page. Ces attributs ne seront visibles que par les administrateurs et les utilisateurs du tableau de bord disposant de l'autorisation « Afficher les attributs personnalisés marqués comme PII ».
 
 ### Ajouter des descriptions {#adding-descriptions}
 
-Vous pouvez ajouter une description à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases`. Modifiez l'attribut personnalisé et saisissez ce que vous souhaitez, comme une note pour votre équipe.
+Vous pouvez ajouter une description à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) `Manage Events, Attributes, Purchases`. Modifiez l'attribut personnalisé et saisissez ce que vous souhaitez, comme une note pour votre équipe.
 
-### Ajouter des étiquettes {#adding-tags}
+### Ajouter des tags {#adding-tags}
 
-Vous pouvez ajouter des étiquettes à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) « Manage Events, Attributes, Purchases ». Les étiquettes peuvent ensuite être utilisées pour filtrer la liste des attributs.
+Vous pouvez ajouter des tags à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) « Manage Events, Attributes, Purchases ». Les tags peuvent ensuite être utilisés pour filtrer la liste des attributs.
 
 ### Supprimer des attributs personnalisés {#removing-custom-attributes}
 
 Il existe deux façons de supprimer des attributs personnalisés des profils utilisateur :
 
-* Sélectionnez le nom de l'attribut personnalisé à supprimer dans une [étape Mise à jour utilisateur]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes).
-* Définissez la valeur `null` dans votre requête API vers l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track).
+* Sélectionnez le nom de l'attribut personnalisé à supprimer dans une [étape Mise à jour utilisateur]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes).
+* Définissez la valeur `null` dans votre requête API vers l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 ### Afficher les rapports d'utilisation {#viewing-usage-reports}
 
@@ -74,16 +74,16 @@ La liste suivante présente les méthodes utilisées sur différentes plateforme
 - [Android et FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
 - [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
-- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
+- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
 
 ## Stockage des attributs personnalisés {#custom-attribute-storage}
 
-Toutes les données stockées dans le **profil utilisateur**, y compris les données d'attributs personnalisés, sont conservées indéfiniment tant que chaque profil est [actif]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
+Toutes les données stockées dans le **profil utilisateur**, y compris les données d'attributs personnalisés, sont conservées indéfiniment tant que chaque profil est [actif]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#active-users).
 
 ## Types de données des attributs personnalisés {#custom-attribute-data-types}
 
@@ -96,8 +96,8 @@ Les types de données suivants peuvent être stockés en tant qu'attributs perso
 - [Chaînes de caractères](#strings)
 - [Tableaux](#arrays)
 - [Horodatage](#time)
-- [Objets]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [Tableaux d'objets]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [Objets]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
+- [Tableaux d'objets]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
 
 ### Booléens (vrai/faux) {#booleans}
 
@@ -158,7 +158,7 @@ Notez que si vous saisissez des valeurs avec des espaces entre, avant ou après 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert note %}
-Une chaîne de date telle que « 12-1-2021 » ou « 12/1/2021 » sera convertie en objet datetime et traitée comme un [attribut de type horodatage]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
+Une chaîne de date telle que « 12-1-2021 » ou « 12/1/2021 » sera convertie en objet datetime et traitée comme un [attribut de type horodatage]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#time).
 {% endalert %}
 
 {% alert important %}
@@ -171,7 +171,7 @@ Les attributs de type tableau sont adaptés pour stocker des listes d'informatio
 
 Par défaut, la longueur maximale d'un tableau pour un attribut est fixée à 25 et peut être augmentée jusqu'à 100 pour un tableau individuel. Par exemple, si vous envoyez un attribut tel que « Films regardés » et qu'il est défini à 100, lorsqu'un utilisateur regarde un 101e film, le premier film sera supprimé du tableau et le film le plus récent sera ajouté.
 
-Si vous souhaitez augmenter ce maximum, contactez votre gestionnaire de la satisfaction client. Votre administrateur de tableau de bord peut ensuite augmenter la longueur maximale des tableaux individuels au-delà de 100 depuis l'onglet **Attributs personnalisés** de la page **Gérer les paramètres**.
+Si vous souhaitez augmenter ce maximum, contactez votre gestionnaire du succès des clients. Votre administrateur de tableau de bord peut ensuite augmenter la longueur maximale des tableaux individuels au-delà de 100 depuis l'onglet **Attributs personnalisés** de la page **Gérer les paramètres**.
 
 Notez que si vous saisissez des valeurs avec des espaces entre, avant ou après les mots, Braze vérifiera également ces mêmes espaces.
 
@@ -197,7 +197,7 @@ L'option d'augmenter la longueur maximale ne sera pas disponible si l'attribut e
 {% alert tip %}
 Pour en savoir plus sur l'utilisation des expressions régulières (regex), consultez ces ressources :
 - [Expressions régulières compatibles Perl (PCRE)](https://www.regextester.com/pregsyntax.html)
-- [Regex avec Braze]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/)
+- [Regex avec Braze]({{site.baseurl}}/user_guide/engagement_tools/segments/regex)
 - [Débogueur et testeur de regex](https://www.regex101.com/)
 - [Tutoriel regex](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -208,7 +208,7 @@ Les attributs de type horodatage sont utiles pour stocker la dernière fois qu'u
 
 Les filtres temporels utilisant des dates relatives (par exemple, il y a plus d'un jour, il y a moins de 2 jours) mesurent 1 jour comme 24 heures. Toute Campaign que vous exécutez avec ces filtres inclura tous les utilisateurs par tranches de 24 heures. Par exemple, `last used app more than 1 day ago` capturera tous les utilisateurs qui « ont utilisé l'application pour la dernière fois il y a plus de 24 heures » à partir du moment exact où la Campaign est exécutée. Il en sera de même pour les Campaigns définies avec des plages de dates plus longues — cinq jours à partir de l'activation signifieront les 120 heures précédentes.
 
-Par exemple, pour créer un Segment qui cible les utilisateurs avec un attribut de type horodatage entre 24 et 48 heures dans le futur, appliquez les filtres `in more than 1 day in the future` et `in less than 2 days in the future`.
+Par exemple, pour créer un segment qui cible les utilisateurs avec un attribut de type horodatage entre 24 et 48 heures dans le futur, appliquez les filtres `in more than 1 day in the future` et `in less than 2 days in the future`.
 
 {% alert warning %}
 La dernière date à laquelle un événement personnalisé ou un événement d'achat s'est produit est automatiquement enregistrée et ne doit pas être enregistrée à nouveau via un attribut personnalisé de type horodatage.
@@ -228,19 +228,15 @@ La dernière date à laquelle un événement personnalisé ou un événement d'a
 
 #### Détails des attributs de type horodatage {#time-attribute-details}
 
-- Jour d'événement récurrent
-  - Lorsque vous utilisez le filtre « Jour d'événement récurrent » et que vous êtes invité à sélectionner le « Jour calendaire de l'événement récurrent », si vous sélectionnez `IS LESS THAN` ou `IS MORE THAN`, la date actuelle sera comptée pour ce filtre de segmentation.
-  - Par exemple, si le 10 mars 2020, vous avez sélectionné la date de l'attribut comme `LESS THAN ... March 10, 2020`, les attributs seront pris en compte pour les jours jusqu'au 10 mars 2020 inclus.
-- Il y a moins de X jours : le filtre « Il y a moins de X jours » inclut les dates entre il y a X jours et la date/heure actuelle.
-- Dans moins de X jours dans le futur : inclut les dates entre la date/heure actuelle et X jours dans le futur.
+{% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 ### Objets {#objects}
 
-Vous pouvez utiliser des attributs personnalisés imbriqués pour envoyer des objets comme type de données pour les attributs personnalisés. Pour plus d'informations, consultez [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
+Vous pouvez utiliser des attributs personnalisés imbriqués pour envoyer des objets comme type de données pour les attributs personnalisés. Pour plus d'informations, consultez [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support).
 
 ### Tableaux d'objets {#arrays-of-objects}
 
-Utilisez un tableau d'objets pour regrouper des attributs liés. Pour plus de détails, consultez notre article sur les [tableaux d'objets]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/).
+Utilisez un tableau d'objets pour regrouper des attributs liés. Pour plus de détails, consultez notre article sur les [tableaux d'objets]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects).
 
 ### Opérateurs consolidés {#consolidated-operators}
 
@@ -266,14 +262,14 @@ L'utilisation de nos méthodes d'achat pour enregistrer les achats in-app établ
 | Vérifier si le dernier achat a eu lieu **après la date X** | **AFTER** | **TIME** | Si ce filtre spécifie `2024/31/1` et que le dernier achat d'un utilisateur a eu lieu après `2024/31/1`, l'utilisateur correspondra à ce filtre.|
 | Vérifier si le dernier achat a eu lieu **avant la date X** | **BEFORE** | **TIME** | Si ce filtre spécifie `2024/31/1` et que le dernier achat d'un utilisateur a eu lieu avant `2024/31/1`, l'utilisateur correspondra à ce filtre.|
 | Vérifier si le dernier achat a eu lieu **il y a plus de X jours** | **MORE THAN** | **TIME** | Si ce filtre spécifie `7` et que le dernier achat d'un utilisateur a eu lieu il y a plus de sept jours, l'utilisateur correspondra à ce filtre.|
-| Vérifier si le dernier achat a eu lieu **il y a moins de X jours** | **LESS THAN** | **TIME** | Si ce filtre spécifie `7` et que le dernier achat d'un utilisateur a eu lieu il y a moins de sept jours, l'utilisateur correspondra à ce filtre.|
-| Vérifier si l'achat a eu lieu **plus de X (max = 50) fois** | **MORE THAN** | au cours des **Y derniers jours (Y = 1,3,7,14,21,30)** | Si ce filtre spécifie `7` fois et `21` jours, et qu'un utilisateur a effectué plus de sept achats au cours des 21 derniers jours, l'utilisateur correspondra à ce filtre.|
+| Vérifier si le dernier achat a eu lieu **il y a moins de X jours** | **LESS THAN** | **TIME** |  Si ce filtre spécifie `7` et que le dernier achat d'un utilisateur a eu lieu il y a moins de sept jours, l'utilisateur correspondra à ce filtre.|
+| Vérifier si l'achat a eu lieu **plus de X (max = 50) fois** | **MORE THAN** | au cours des **Y derniers jours (Y = 1,3,7,14,21,30)** |  Si ce filtre spécifie `7` fois et `21` jours, et qu'un utilisateur a effectué plus de sept achats au cours des 21 derniers jours, l'utilisateur correspondra à ce filtre.|
 | Vérifier si l'achat a eu lieu **moins de X (max = 50) fois** | **LESS THAN** | au cours des **Y derniers jours (Y = 1,3,7,14,21,30)** | Si ce filtre spécifie `7` fois et `21` jours, et qu'un utilisateur a effectué moins de sept achats au cours des 21 derniers jours, l'utilisateur correspondra à ce filtre.|
 | Vérifier si l'achat a eu lieu **exactement X (max = 50) fois** | **EXACTLY** | au cours des **Y derniers jours (Y = 1,3,7,14,21,30)** | Si ce filtre spécifie `7` fois et `21` jours, et qu'un utilisateur a effectué sept achats au cours des 21 derniers jours, l'utilisateur correspondra à ce filtre.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert tip %}
-Si vous souhaitez segmenter sur le nombre de fois qu'un achat spécifique a eu lieu, vous devez également enregistrer cet achat individuellement en tant qu'[attribut personnalisé incrémental]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/#incrementingdecrementing-custom-attributes).
+Si vous souhaitez segmenter sur le nombre de fois qu'un achat spécifique a eu lieu, vous devez également enregistrer cet achat individuellement en tant qu'[attribut personnalisé incrémental]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes#incrementingdecrementing-custom-attributes).
 {% endalert %}
 
-Vous pouvez modifier le type de données de votre attribut personnalisé, mais vous devez être conscient des impacts du [changement de type de données]({{site.baseurl}}/help/help_articles/data/change_custom_data_type/).
+Vous pouvez modifier le type de données de votre attribut personnalisé, mais vous devez être conscient des impacts du [changement de type de données]({{site.baseurl}}/help/help_articles/data/change_custom_data_type).

@@ -1,0 +1,3 @@
+- Das in Ihren Entry-Kriterien vordefinierte Ereignis `ecommerce.checkout_started`
+- Vordefinierte Exit-Kriterien, um Kund:innen zu entfernen, die in ihrer Purchasing-Journey weitergegangen sind
+- Einen neuen Warenkorb-Liquid-Tag zur Unterstützung der Produkt-Personalisierung

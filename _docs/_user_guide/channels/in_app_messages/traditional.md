@@ -36,12 +36,7 @@ If all of the messages in your campaign are going to be similar or have the same
 {% endtab %}
 {% tab Canvas %}
 
-1. [Create your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) using the Canvas composer.
-2. After you've set up your Canvas, add a step in the Canvas builder. Name your step something clear and meaningful.
-3. Choose a [step schedule]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) and specify a delay as needed. Note that steps containing in-app messages cannot be action-based.
-4. Filter your Audience for this step, as necessary. You can further refine the recipients of this step by specifying segments and adding additional filters. Audience options will be checked after the delay, at the time messages are sent.
-5. Choose your [advancement behavior]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
-6. Choose any other messaging channels which you would like to pair with your message.
+{% multi_lang_include messaging/canvas_message_step_setup.md in_app_message=true %}
 
 {% alert important %}
 You can't have multiple in-app message variants in a single step.
@@ -147,14 +142,14 @@ These in-app messages are customizable to your needs.
 </thead>
 <tbody>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html#custom-html-messages'>Custom HTML Message</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html'>Custom HTML Message</a></td>
     <td>Custom messages that perform as defined in your custom code (HTML, CSS, and/or JavaScript).</td>
     <td>N/A</td>
     <td>Must set <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> initialization option to <code>true</code> for your in-app message to work.</td>
     <td>This is a good option if you want all the advantages of IAMs but need additional functionality or for the appearance to stay "on brand". You can alter every little detail of the message—font, color, shape, size, buttons, etc. <br><br>Example use cases include asking users for app feedback, email capture forms, or paginated messages</td>
   </tr>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form#email-capture-form'>Email Capture Form</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form'>Email Capture Form</a></td>
     <td>Typically used to capture the viewer's email.</td>
     <td>N/A</td>
     <td>Must set <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> initialization option to <code>true</code> for your in-app message to work.</td>
@@ -260,13 +255,15 @@ Choose between the following options:
 - **Dismiss Automatically:** Select how many seconds the message will remain on the screen.
 - **Wait for User Swipe or Touch:** Requires a dismissal or close option.
 
+Dismissing a message logs an impression but not a click. For how clicks are tracked by user action, see [Click tracking]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/#click-tracking).
+
 ### Slide up position
 
 This setting only applies to the Slideup message type. Choose between having your slideup appear **From Bottom of App Screen** or **From Top of App Screen**.
 
 ### HTML and assets
 
-This setting only applies to the Custom code message type. Copy and paste HTML into the available space and upload your assets using a ZIP file.
+This setting only applies to the custom code message type. Copy and paste HTML into the available space and upload your assets using a [ZIP file]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#zip-file-uploads).
 
 ### Email capture input placeholder
 

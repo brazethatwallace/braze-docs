@@ -17,9 +17,9 @@ description: "Este artigo de referência descreve como personalizar URLs de aç�
 
 ### O que é deep linking? {#what-is-deep-linking}
 
-Deep linking é uma forma de abrir um app nativo e fornecer informações adicionais que instruem o app a executar uma ação específica ou exibir um conteúdo específico.
+Deep linking é uma forma de abrir um app nativo e fornecer informações adicionais que indicam a ele para executar uma ação específica ou exibir um conteúdo específico.
 
-Existem três partes nesse processo:
+Existem três partes envolvidas:
 
 1. Identificar qual app abrir.
 2. Instruir o app sobre qual ação executar.
@@ -27,11 +27,24 @@ Existem três partes nesse processo:
 
 Deep links são URIs personalizados que direcionam para uma parte específica do app e contêm todas essas três partes. O ponto-chave é definir um esquema personalizado. `http:` é o esquema com o qual quase todos estão familiarizados, mas os esquemas podem começar com qualquer palavra. Um esquema deve começar com uma letra, mas pode conter letras, números, sinais de mais, sinais de menos ou pontos. Na prática, não existe um registro central para evitar conflitos, então é uma boa prática incluir o nome do seu domínio no esquema. Por exemplo, `twitter://` é o URI do iOS para abrir o app móvel do X, antigo Twitter.
 
-Tudo após os dois pontos em um deep link é texto livre. Cabe a você definir sua estrutura e interpretação. No entanto, uma convenção comum é modelá-lo com base em URLs `http:`, incluindo `//` no início e parâmetros de consulta (por exemplo, `?foo=1&bar=2`). No exemplo anterior, `twitter://user?screen_name=[id]` seria usado para abrir um perfil específico no app.
+Tudo após os dois-pontos em um deep link é texto livre. Cabe a você definir sua estrutura e interpretação; no entanto, uma convenção comum é modelá-lo com base em URLs `http:`, incluindo `//` no início e parâmetros de consulta (por exemplo, `?foo=1&bar=2`). No exemplo anterior, `twitter://user?screen_name=[id]` seria usado para abrir um perfil específico no app.
 
 {% alert important %}
 Para apps criados com frameworks wrapper (por exemplo, Flutter ou Cordova), a Braze não oferece suporte a deep linking específico para wrappers. Você deve configurar deep links nas camadas nativas do iOS e Android. Para Cordova, consulte [Deep linking em notificações por push]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=cordova).
 {% endalert %}
+
+### Esquemas de URI do sistema {#system-uri-schemes}
+
+Esquemas de URI padrão tratados nativamente pelo iOS e Android (como `tel:`, `mailto:` e `sms:`) podem ser inseridos diretamente no campo de URL de deep link sem a necessidade de uma integração personalizada de deep link no seu app.
+
+| Esquema | Exemplo | Ação |
+| ------ | ------- | ------ |
+| `tel:` | `tel:+18005555555` | Abre o discador do telefone |
+| `mailto:` | `mailto:support@example.com` | Abre a composição de e-mail |
+| `sms:` | `sms:+18005555555` | Abre a composição de SMS |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Esquemas de URI do sistema"}
+
+Esses esquemas funcionam para comportamentos ao clicar em notificações por push e ações de botões de mensagens no app. Nenhuma configuração adicional do SDK ou alteração no código do app é necessária.
 
 ### Tags UTM e atribuição de campanha {#utm-tags-and-campaign-attribution}
 
@@ -49,15 +62,15 @@ As tags UTM podem ser incorporadas tanto em links HTTP regulares (web) quanto em
 
 ##### Cálculos de tags UTM {#utm-tag-calculations}
 
-A Braze reporta o _Total de Cliques_ para todos os links em uma Campaign ou etapa do Canvas, o que pode incluir links que não possuem tags UTM. Isso significa que você pode ver um resultado diferente (geralmente menor) nos links de rastreamento de campanha do Google Analytics em comparação com o _Total de Cliques_ exibido no desempenho da sua campanha ou no Criador de relatórios.
+A Braze reporta o _Total de cliques_ para todos os links em uma Campaign ou etapa do Canvas, o que pode incluir links que não possuem tags UTM. Isso significa que você pode ver um resultado diferente (geralmente menor) nos links de rastreamento de campanha do Google Analytics em comparação com o _Total de cliques_ exibido no desempenho da sua campanha ou no Report Builder.
 
 #### Usando tags UTM com a Braze {#using-utm-tags-with-braze}
 
-Se você deseja usar tags UTM com links HTTP regulares (web) (por exemplo, para fazer atribuição de campanha para suas campanhas de e-mail) e sua organização já usa o Google Analytics, você pode usar o [construtor de URLs do Google](https://ga-dev-tools.google/ga4/campaign-url-builder/) para gerar links UTM. Esses links podem ser facilmente incorporados ao texto da Campaign na Braze, assim como qualquer outro link.
+Se você deseja usar tags UTM com links HTTP regulares (web) (por exemplo, para fazer atribuição de campanha para suas campanhas de e-mail) e sua organização já usa o Google Analytics, você pode usar o [construtor de URLs do Google](https://ga-dev-tools.google/ga4/campaign-url-builder/) para gerar links UTM. Esses links podem ser facilmente incorporados ao texto de Campaigns da Braze, assim como qualquer outro link.
 
 Para usar tags UTM em deep links para o seu app, o app deve ter o [SDK do Google Analytics](https://developers.google.com/analytics/devguides/collection/) relevante integrado e configurado corretamente para lidar com deep links. Consulte seus desenvolvedores se não tiver certeza sobre isso.
 
-Após o SDK do Analytics estar integrado e configurado, as tags UTM podem ser usadas com deep links em Campaigns da Braze. Para configurar tags UTM para sua Campaign, inclua as tags UTM necessárias na URL de destino ou nos deep links. Os exemplos a seguir mostram como usar tags UTM em notificações por push e mensagens no app.
+Após o SDK do Analytics estar integrado e configurado, as tags UTM podem ser usadas com deep links em Campaigns da Braze. Para configurar tags UTM para sua campanha, inclua as tags UTM necessárias na URL de destino ou nos deep links. Os exemplos a seguir mostram como usar tags UTM em notificações por push e mensagens no app.
 
 ##### Atribuir aberturas de push e cliques em mensagens no app com tags UTM {#attribute-push-opens-and-in-app-message-clicks-with-utm-tags}
 
@@ -86,13 +99,13 @@ myapp://products/20-gift-card?utm_source=my_app&utm_medium=iam&utm_campaign=spri
 {% endtab %}
 {% endtabs %}
 
-## Use personalização Liquid em URLs {#use-liquid-personalization-in-urls}
+## Usar personalização Liquid em URLs {#use-liquid-personalization-in-urls}
 
 Você pode construir dinamicamente sua URL diretamente no criador da Braze, permitindo adicionar parâmetros UTM dinâmicos às suas URLs ou enviar links exclusivos aos usuários (como direcionar usuários ao carrinho abandonado ou a um produto específico que voltou ao estoque).
 
-### Crie uma URL com tags de personalização Liquid compatíveis {#create-a-url-with-supported-liquid-personalization-tags}
+### Criar uma URL com tags de personalização Liquid compatíveis {#create-a-url-with-supported-liquid-personalization-tags}
 
-URLs podem ser geradas dinamicamente por meio do uso de quaisquer [tags de personalização Liquid compatíveis]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
+As URLs podem ser geradas dinamicamente por meio do uso de qualquer [tag de personalização Liquid compatível]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 {% raw %}
 ```liquid
@@ -100,9 +113,9 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-Também oferecemos suporte ao encurtamento de variáveis Liquid personalizadas. Vários exemplos são mostrados na seção a seguir:
+Também oferecemos suporte ao encurtamento de variáveis Liquid definidas pelo usuário, como nos exemplos a seguir:
 
-### Crie uma URL usando variáveis Liquid {#create-a-url-using-liquid-variables}
+### Criar uma URL usando variáveis Liquid {#create-a-url-using-liquid-variables}
 
 {% raw %}
 ```liquid
@@ -111,17 +124,17 @@ https://example.com/{{url_var}}
 ```
 {% endraw %}
 
-### Encurte URLs renderizadas por variáveis Liquid {#shorten-urls-rendered-by-liquid-variables}
+### Encurtar URLs renderizadas por variáveis Liquid {#shorten-urls-rendered-by-liquid-variables}
 
 **Canais compatíveis:** KakaoTalk, LINE, SMS, RCS, WhatsApp
 
-Encurtamos URLs que são renderizadas por Liquid, incluindo aquelas presentes em propriedades de gatilho de API. Por exemplo, se {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representar uma URL válida, encurtamos e rastreamos essa URL antes de enviar a mensagem.
+Encurtamos URLs renderizadas por Liquid, incluindo aquelas presentes em propriedades de disparo por API. Por exemplo, se {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representar uma URL válida, encurtamos e rastreamos essa URL antes de enviar a mensagem.
 
-### Encurte URLs no endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
+### Encurtar URLs no endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
 
-O encurtamento de links também está ativado para mensagens somente via API por meio do [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Para uma lista completa de parâmetros de solicitação, consulte [parâmetros de solicitação]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
+O encurtamento de links também está ativado para mensagens somente por API por meio do [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Para uma lista completa dos parâmetros de solicitação, consulte [parâmetros de solicitação]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
 
-| Parâmetro | Obrigatório | Tipo de dados | Descrição |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
 | `link_shortening_enabled` | Sim | Booleano | Defina `link_shortening_enabled` como `true` para ativar o encurtamento de links. Para usar o rastreamento, um `campaign_id` e um `message_variation_id` devem estar presentes. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Encurtar URLs no endpoint /messages/send" }

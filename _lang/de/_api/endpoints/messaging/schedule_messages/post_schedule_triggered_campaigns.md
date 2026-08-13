@@ -1,15 +1,15 @@
 ---
-nav_title: "POST: Zeitplan für API-getriggerte Kampagnen"
-article_title: "POST: Zeitplan für API-getriggerte Kampagnen"
+nav_title: "POST: Zeitplan für API-getriggerte Campaigns"
+article_title: "POST: Zeitplan für API-getriggerte Campaigns"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Zeitplan für API-getriggerte Kampagnen“."
+description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Zeitplan für API-getriggerte Campaigns“."
 
 ---
 {% api %}
-# Zeitplan für API-getriggerte Kampagnen {#schedule-api-triggered-campaigns}
+# Zeitplan für API-getriggerte Campaigns {#schedule-api-triggered-campaigns}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/schedule/create
 {% endapimethod %}
@@ -24,7 +24,7 @@ Beachten Sie, dass Sie zum Versenden von Nachrichten mit diesem Endpunkt eine [C
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `campaigns.trigger.schedule.create`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `campaigns.trigger.schedule.create`.
 
 ## Rate-Limit
 

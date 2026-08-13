@@ -30,7 +30,7 @@ Uma maneira conveniente de organizar seus usuários de teste é criando um [grup
 Para ver as etapas de envio de mensagens de teste, consulte a seção a seguir para o respectivo canal.
 
 {% tabs local %}
-{% tab Banners %}
+{% tab Banner %}
 
 {% alert important %}
 Antes de testar mensagens de Banner na Braze, você precisará criar uma campanha de Banner na Braze. Além disso, verifique se o posicionamento que deseja testar já está [inserido no seu app ou site]({{site.baseurl}}/developer_guide/banners/placements).
@@ -91,7 +91,7 @@ Na guia **Preview** do criador, a visualização da sua mensagem pode não ser i
 
 - Seu usuário de teste está inscrito para push com um token de push válido?
 - As imagens e mídias aparecem e funcionam conforme o esperado?
-- O Liquid funciona conforme o esperado? Você considerou um [valor de atributo padrão]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) caso o Liquid não retorne nenhuma informação?
+- O Liquid funciona conforme o esperado? Você considerou um [valor de atributo padrão]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) caso o Liquid não retorne nenhuma informação?
 - Seu texto está claro, conciso e correto?
 - Seus links direcionam o usuário para onde deveriam?
 - Seu usuário de teste está inscrito para push com um token de push válido?
@@ -147,7 +147,7 @@ Um caso de uso comum é tentar depurar por que um usuário não consegue ver um 
 A partir daí, você pode revisar as configurações e o conteúdo da mensagem para investigar e determinar por que um usuário não consegue ver um Content Card específico.
 
 {% endtab %}
-{% tab Email %}
+{% tab E-mail %}
 
 1. Rascunhe sua mensagem de e-mail.
 2. Selecione **Preview and Test**.
@@ -155,6 +155,8 @@ A partir daí, você pode revisar as configurações e o conteúdo da mensagem p
 4. Selecione **Send Test** para enviar o e-mail rascunhado para sua caixa de entrada.
 
 ![Testar e-mail]({% image_buster /assets/img_archive/testemail.png %}){: style="max-width:40%;" }
+
+Se sua campanha de e-mail contém um link da [Central de Preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center), os envios de teste não geram um link funcional nem permitem salvar preferências. Para testar a Central de Preferências, lance a mensagem para um usuário de teste ou um pequeno segmento interno. Para mais detalhes, consulte [Testando centrais de preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
 
 Se sua campanha de e-mail contém uma imagem grande e não está sendo exibida conforme o esperado no Outlook, considere reduzir as dimensões reais do arquivo da imagem com uma ferramenta de edição ou redimensionamento de imagem, em vez de apenas redimensioná-la com CSS ou HTML.
 
@@ -197,7 +199,7 @@ Na **Preview**, a visualização da sua mensagem pode não ser idêntica à rend
 ### Lista de verificação do teste
 
 - As imagens e mídias aparecem e funcionam conforme o esperado?
-- O Liquid funciona conforme o esperado? Você considerou um [valor de atributo padrão]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) caso o Liquid não retorne nenhuma informação?
+- O Liquid funciona conforme o esperado? Você considerou um [valor de atributo padrão]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) caso o Liquid não retorne nenhuma informação?
 - Seu texto está claro, conciso e correto?
 - Seus botões direcionam o usuário para onde deveriam?
 
@@ -382,13 +384,13 @@ Você pode testar propriedades de eventos personalizados inserindo valores manua
 
 ## Limitações {#limitations}
 
-Existem algumas situações em que as mensagens de teste não se comportam da mesma forma que campanhas ou Canvas enviados para usuários reais. Nesses casos, considere lançar a campanha ou Canvas para um conjunto limitado de usuários de teste para validar esse comportamento.
+Existem algumas situações em que as mensagens de teste não se comportam da mesma forma que Campaigns ou Canvas enviados para usuários reais. Nesses casos, considere lançar a Campaign ou o Canvas para um conjunto limitado de usuários de teste para validar esse comportamento.
 
-- Visualizar a Central de Preferências da Braze a partir de mensagens de teste fará com que o botão **Save Preferences** fique esmaecido.
+- Visualizar a [Central de Preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) da Braze a partir de mensagens de teste faz com que o botão **Save Preferences** fique desativado. As Liquid tags da Central de Preferências também podem não resolver para links válidos. Esse é o comportamento esperado. Para testar de ponta a ponta, consulte [Testando centrais de preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
 - Para testar mensagens no app e Content Cards, o usuário alvo deve ter um token de push para o dispositivo alvo.
 - Para testar links de cancelamento de inscrição em e-mails, certifique-se de que o endereço de e-mail do seu usuário de teste esteja no respectivo espaço de trabalho.
 - O cabeçalho `List-Unsubscribe` não é incluído em e-mails enviados pela funcionalidade de mensagem de teste.
-- E-mails enviados para usuários do grupo de teste não atualizam a lista de campanhas recebidas no perfil do usuário nem incrementam os envios na análise de dados do dashboard.
+- E-mails enviados para usuários do grupo de teste não atualizam a lista de Campaigns recebidas no perfil do usuário nem incrementam os envios na análise de dados do dashboard.
 
 ## Solução de problemas {#troubleshooting}
 

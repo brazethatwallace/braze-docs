@@ -32,9 +32,9 @@ Braze는 첫 번째 SDK 세션 시작 시 IP 주소에서 지리적으로 위치
 
 #### 자동 위치 수집 {#automatic-location-collection}
 
-활성화된 경우, SDK의 자동 위치 수집은 IP 기반 국가 동작과 별개입니다. 이는 사용자가 권한을 부여한 경우 GPS와 같은 기기 위치 신호와 관련되며, `Most Recent Location`과 같은 필터를 지원합니다. IP만으로 도시와 같은 세분화된 필드를 자동으로 채우지는 않습니다.
+활성화된 경우, SDK의 자동 위치 수집은 IP 기반 국가 동작과 별개입니다. 이는 사용자가 권한을 부여한 경우 GPS와 같은 기기 위치 신호와 관련되며, `Most Recent Location`과 같은 필터를 지원합니다. IP만으로 구/군/시와 같은 세분화된 필드를 자동으로 채우지는 않습니다.
 
-도시 또는 우편번호 수준의 타겟팅을 위해서는 [`setLastKnownLocation()`]({{site.baseurl}}/developer_guide/analytics/tracking_location)(해당 플랫폼의 SDK 문서 참조), 커스텀 속성을 작성하는 자체 IP 지리 위치 서비스, 또는 수집한 데이터를 사용한 [위치 타겟팅]({{site.baseurl}}/user_guide/audience/segments/location_targeting)을 사용하세요.
+구/군/시 또는 우편번호 수준의 타겟팅을 위해서는 [`setLastKnownLocation()`]({{site.baseurl}}/developer_guide/analytics/tracking_location)(해당 플랫폼의 SDK 문서 참조), 커스텀 속성을 작성하는 자체 IP 지리 위치 서비스, 또는 수집한 데이터를 사용한 [위치 타겟팅]({{site.baseurl}}/user_guide/audience/segments/location_targeting)을 사용하세요.
 
 ## 위치 타겟팅 {#location-targeting}
 
@@ -44,7 +44,7 @@ Braze는 첫 번째 SDK 세션 시작 시 IP 주소에서 지리적으로 위치
 
 ## 기본 위치 속성 하드 설정 {#hard-setting-the-default-location-attribute}
 
-API의 [`users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) 표준 속성을 업데이트할 수도 있습니다. 예시는 다음과 같습니다:
+API의 [`users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) 표준 속성을 업데이트할 수도 있습니다. 예시는 다음과 같습니다:
 
 ```
 https://[your_braze_rest_endpoint]/users/track
@@ -110,7 +110,7 @@ Braze는 기본적으로 SDK를 통해 사용자의 가장 최근 위치를 캡�
 
 사용자 위치 데이터가 Braze로 전송되고 있는지 확인하려면 **Location Available** 필터를 사용하세요. 이 필터를 사용하면 "가장 최근 위치"가 있는 사용자의 비율을 확인할 수 있습니다.
 
-!["Location Available" 필터를 사용하는 "Test Location" Segment.]({% image_buster /assets/img_archive/trouble7.png %})
+!["Location Available" 필터를 사용하는 "Test Location" 세그먼트.]({% image_buster /assets/img_archive/trouble7.png %})
 
 #### 데이터 전송 {#data-transfer}
 

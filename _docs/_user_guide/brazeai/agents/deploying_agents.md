@@ -30,6 +30,18 @@ For Canvas Step Agents, start with users who have strong signals—such as recen
 
 To test ROI at small scale before you roll out an agent broadly, use an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) step so only part of your audience enters the branch that contains your Agent step.
 
+### Scale after a successful test
+
+After a small-scale test (for example, an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) branch) shows acceptable quality and ROI, plan to roll the agent out to your full target audience (not only the test group) so every eligible user benefits.
+
+Before you scale, consider the following:
+
+- Raise the agent's daily invocation limit in Agent Console so it can handle your full audience volume. The default is 250,000; you can increase it up to 1,000,000 (or higher with your customer success manager). See [Daily invocation and credit limits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
+- Review the **Daily action credit cost limit** estimate and confirm your workspace has enough credits for full-scale sends.
+- Remove or reconfigure the experiment so that all of the target audience enters the Agent step (or promote the winning variant to the main path).
+
+Scaling to the full audience increases credit consumption proportionally. Monitor usage in **Settings** > **Billing** > **Credits Usage** > **Agent Console** after launch.
+
 ## Use Canvas Step Agents
 
 After you create a Canvas Step Agent, add it to a Canvas as an Agent step to personalize messages or guide decisioning in real time.
@@ -84,6 +96,8 @@ The following applies to Canvas Step Agents in an [Agent step]({{site.baseurl}}/
 
 When fallback values are configured, Braze applies them for non-retryable errors and for daily-limit failures. Braze renders the fallback with Liquid per user and stores the result in the Agent step output variable. Without fallback values, those failures set the output variable to `null`. If you prefer to configure step-specific defaults in Message steps instead of Agent Console fallbacks, you can still use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) downstream. To do that, leave the fallbacks blank in the **Output** section of Agent setup so Liquid defaults can apply when the agent returns null.
 
+Rate limit errors, model unavailability, and daily invocation limit failures do not consume Braze credits. Timeouts do consume credits. See [When credits are consumed]({{site.baseurl}}/user_guide/brazeai/agents/reference#when-credits-are-consumed).
+
 - Responses are cached for identical inputs and may be reused for repeated identical invocations within a few minutes. Cached responses still count toward total and daily invocations.
 - Agent steps may take time to process a large batch of users. Braze queues invocations according to [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls), so users may remain pending during high-volume sends.
 
@@ -97,7 +111,7 @@ After you create a Catalog Agent, apply it to a catalog field to automatically g
 
 After launching, the agent runs and evaluates each row, taking the selected columns into its context to produce an output. Agents run on all new rows added after you deploy the agent. If you selected **Recalculate when catalog rows update**, all values for this field update if existing source fields change.
 
-When you configure input columns for a Catalog Agent, enable the in-product control that marks which selected columns are **required to run** before the agent invokes (labels may vary slightly by workspace). With that control enabled, choose the subset of columns that must contain values—selected columns start as required by default, but you can remove columns that are allowed to be empty without blocking the agent. The agent skips a row only when a column you left as required is blank or missing—for example, a `gender` field that has not been filled in. Running without the required context wastes tokens and can produce low-quality output.
+When you configure input columns for a Catalog Agent, enable the in-product control that marks which selected columns are required to run before the agent invokes (labels may vary slightly by workspace). With that control enabled, choose the subset of columns that must contain values—selected columns start as required by default, but you can remove columns that are allowed to be empty without blocking the agent. The agent skips a row only when a column you left as required is blank or missing—for example, a `gender` field that has not been filled in. Running without the required context wastes tokens and can produce low-quality output.
 
 Catalog Agents also respect dependencies between columns. If column D is generated from columns B and C, the agent does not run on column D for a row until B and C contain values for that row.
 

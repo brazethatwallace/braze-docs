@@ -17,8 +17,8 @@ tool: Reporting
 Vous pouvez vous abonner à ce rapport depuis la page **Préférences de notification**.
 
 1. Accédez à **Paramètres** > **Paramètres d'administration** > **Préférences de notification**.
-2. Sélectionnez le **Weekly Analytics Report** et ajoutez-vous à la liste des destinataires.
+2. Sélectionnez le **Weekly Analytics Report** et ajoutez-vous ou ajoutez d'autres utilisateurs du tableau de bord de Braze à la liste des destinataires. Les adresses e-mail externes ne peuvent pas être ajoutées.
 
-## Ajouter des événements personnalisés aux rapports {#adding-custom-events-to-reports}
+## Ajout d'événements personnalisés aux rapports {#adding-custom-events-to-reports}
 
-Si vous utilisez des événements personnalisés, vous pouvez sélectionner jusqu'à cinq événements clés depuis la page **Événements personnalisés** pour les inclure dans votre rapport hebdomadaire. Accédez à **Paramètres des données** > **Événements personnalisés** pour mettre à jour ces événements à tout moment.
+De plus, si vous utilisez des événements personnalisés, vous pouvez sélectionner jusqu'à cinq événements clés depuis la page **Custom Events** pour les inclure dans votre rapport hebdomadaire. Accédez à **Data Settings** > **Custom Events** pour mettre à jour ces événements à tout moment.

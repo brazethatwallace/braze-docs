@@ -32,7 +32,7 @@ Wenn Sie Beispiele sehen oder diesen Endpunkt für **WhatsApp-Gruppen** testen m
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `subscription.status.get`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `subscription.status.get`.
 
 ## Rate-Limit
 

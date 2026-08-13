@@ -32,7 +32,7 @@ description: "이 문서에서는 Segment별 사용자 내보내기 Braze 엔드
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.export.segment` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.export.segment` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -49,7 +49,7 @@ Braze에 [S3][1], [Azure][2] 또는 [Google Cloud Storage][3] 자격 증명을 �
 **ZIP 예시:**
 `braze.docs.bucket/segment-export/abc56c0c-rd4a-pb0a-870pdf4db07q/2019-04-25/d9696570-dfb7-45ae-baa2-25e302r2da27-1556044807/114f0226319130e1a4770f2602b5639a.zip`
 
-| 속성 | 세부 정보 | 예제에서는 다음과 같이 표시됩니다. |
+| 속성 | 세부 정보 | 예제에서는 다음과 같이 표시됩니다 |
 | ------------------------------- | ------------------------------------------------------------------------------------ | --- |
 | `bucket-name` | 버킷 이름에 따라 고정됩니다. | `braze.docs.bucket` |
 | `segment-export` | 고정됩니다. | `segment-export` |
@@ -147,7 +147,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | `created_from` | 문자열 | 고객 프로필을 생성하는 데 사용된 방법입니다(예: SDK, REST API 또는 CSV 가져오기). |
 | `custom_attributes` | 오브젝트 | 이 사용자에 대한 커스텀 속성 키-값 페어입니다. |
 | `custom_events` | 배열 | 지난 90일 동안 이 사용자에게 귀속된 커스텀 이벤트입니다. |
-| `devices` | 배열 | 플랫폼에 따라 다음을 포함할 수 있는 사용자 기기에 대한 정보입니다:<br><br>- `model`: 기기 모델명<br>- `os`: 기기의 운영체제<br>- `carrier`: 기기의 서비스 통신사(가능한 경우)<br>- `idfv`: (iOS) Braze 기기 식별자, Apple Identifier for Vendor(있는 경우)<br>- `idfa`: (iOS) 광고용 식별자(있는 경우)<br>- `device_id`: (Android) Braze 기기 식별자<br>- `google_ad_id`: (Android) Google Play 광고 식별자(있는 경우)<br>- `roku_ad_id`: (Roku) Roku 광고 식별자<br>- `ad_tracking_enabled`: 기기에서 광고 추적이 활성화된 경우 true 또는 false일 수 있습니다. |
+| `devices` | 배열 | 플랫폼에 따라 다음을 포함할 수 있는 사용자 기기에 대한 정보입니다:<br><br>- `model`: 기기 모델명<br>- `os`: 기기의 운영 체제<br>- `carrier`: 기기의 서비스 통신사(가능한 경우)<br>- `idfv`: (iOS) Braze 기기 식별자, Apple Identifier for Vendor(있는 경우)<br>- `idfa`: (iOS) 광고용 식별자(있는 경우)<br>- `device_id`: (Android) Braze 기기 식별자<br>- `google_ad_id`: (Android) Google Play 광고 식별자(있는 경우)<br>- `roku_ad_id`: (Roku) Roku 광고 식별자<br>- `ad_tracking_enabled`: 기기에서 광고 추적이 활성화된 경우 true 또는 false일 수 있습니다 |
 | `dob` | 문자열 | 사용자의 생년월일(`YYYY-MM-DD` 형식)입니다. |
 | `email` | 문자열 | 사용자의 이메일 주소입니다. |
 | `external_id` | 문자열 | 식별된 사용자를 위한 고유 사용자 식별자입니다. |
@@ -164,7 +164,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | `time_zone` | 문자열 | IANA 시간대 데이터베이스와 동일한 형식의 사용자 시간대입니다. |
 | `total_revenue` | 플로트 | 이 사용자에게 귀속된 총 매출입니다. 총 매출은 사용자가 받은 Campaigns 및 Canvases의 전환 기간 동안 구매한 금액을 기준으로 계산됩니다. |
 | `uninstalled_at` | 타임스탬프 | 사용자가 앱을 삭제한 날짜와 시간입니다. 앱이 삭제되지 않은 경우 생략됩니다. |
-| `user_aliases` | 오브젝트 | `alias_name` 및 `alias_label`을 포함하는 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification)(있는 경우)입니다. |
+| `user_aliases` | 오브젝트 | `alias_name` 및 `alias_label`을 포함하는 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object)(있는 경우)입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="내보낼 필드" }
 
 ## 중요한 알림 {#important-reminders}
@@ -180,7 +180,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "object_prefix": (required, string) the filename prefix that is used for the JSON file produced by this export, for example, 'bb8e2a91-c4aa-478b-b3f2-a4ee91731ad1-1464728599',
     "url" : (optional, string) the URL where the segment export data can be downloaded if you do not have your own S3 credentials
 }

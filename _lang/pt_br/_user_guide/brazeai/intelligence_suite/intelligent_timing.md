@@ -3,7 +3,7 @@ nav_title: Intelligent Timing
 article_title: Intelligent Timing
 page_order: 1.3
 description: "Este artigo fornece uma visão geral do Intelligent Timing (anteriormente Entrega Inteligente) e como você pode aproveitar esse recurso em suas campanhas e Canvas."
-
+toc_headers: h2
 ---
 
 # [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligent Timing {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
@@ -12,11 +12,11 @@ description: "Este artigo fornece uma visão geral do Intelligent Timing (anteri
 
 ## Sobre o Intelligent Timing {#about-intelligent-timing}
 
-A Braze calcula o momento ideal para o envio com base em uma análise estatística das interações anteriores dos usuários com seu app e suas interações com cada canal de envio de mensagens. São usados os seguintes dados de interação:
+A Braze calcula o horário ideal de envio com base em uma análise estatística das interações anteriores dos usuários com seu app e suas interações com cada canal de envio de mensagens. Os seguintes dados de interação são usados:
 
 - Horários das sessões
-- Aberturas diretas de push
-- Aberturas por influência de push
+- Aberturas Diretas de push
+- Aberturas por Influência de push
 - Cliques em e-mail
 - Aberturas de e-mail (excluindo [aberturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens))
 - Cliques em SMS (somente se [o encurtamento de links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) e o rastreamento avançado estiverem ativados)
@@ -25,7 +25,7 @@ Por exemplo, Sam pode abrir seus e-mails pela manhã regularmente, mas ela abre 
 
 Se um usuário não tiver dados de engajamento relevantes para que a Braze calcule o horário ideal de envio, você pode especificar um horário de fallback.
 
-## Casos de uso {#use-cases}
+## Exemplos {#examples}
 
 - Enviar campanhas recorrentes que não são sensíveis ao tempo
 - Automatizar campanhas com usuários de vários fusos horários
@@ -46,7 +46,7 @@ Esta seção descreve como configurar o Intelligent Timing para suas campanhas e
 5. Opcionalmente, configure o [horário de silêncio](#quiet-hours).
 6. Especifique um [horário de fallback](#campaign-fallback). É quando a mensagem é enviada se o perfil do usuário não tiver nenhum evento relevante para calcular o horário ideal.
 
-![Tela de programação da campanha mostrando o Intelligent Timing com configurações de tempo de fallback e horário de silêncio]({% image_buster /assets/img/intelligent_timing/campaign_scheduling.png %})
+![Tela de programação da campanha mostrando o Intelligent Timing com configurações de horário de fallback e horário de silêncio]({% image_buster /assets/img/intelligent_timing/campaign_scheduling.png %})
 
 #### Horário de silêncio {#quiet-hours}
 
@@ -59,7 +59,7 @@ O horário de silêncio substituiu a configuração **Only send within specific 
 1. Selecione **Enable Quiet Hours**.
 2. Selecione o horário de início e término em que **não** deseja enviar mensagens.
 
-![A opção Horário de silêncio está ativada, com o horário de início e término definidos para bloquear o envio de mensagens durante a noite]({% image_buster /assets/img/intelligent_timing/quiet_hours.png %})
+![Opção de horário de silêncio ativada, com horário de início e término definidos para bloquear o envio de mensagens durante a noite]({% image_buster /assets/img/intelligent_timing/quiet_hours.png %})
 
 Quando o horário de silêncio está ativado, a Braze não enviará mensagens durante o período de silêncio, mesmo que esse horário corresponda ao horário ideal de envio do usuário. Se o horário ideal do usuário estiver dentro da janela de silêncio, a mensagem será enviada no limite mais próximo da janela.
 
@@ -101,11 +101,11 @@ Para saber mais, consulte as [Perguntas frequentes: Intelligent Timing](#when-do
 
 #### Agende variantes vencedoras 2 dias após os testes A/B {#schedule-winning-variants-2-days-after-ab-test}
 
-Se você estiver utilizando [testes A/B com uma otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations), como o envio automático da **Variante Vencedora** ou o uso de uma **Variante Personalizada**, o Intelligent Timing poderá afetar a duração e o timing da sua campanha.
+Se você estiver utilizando [testes A/B com uma otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations), como o envio automático da **variante vencedora** ou o uso de uma **variante personalizada**, o Intelligent Timing poderá afetar a duração e o timing da sua campanha.
 
-Ao usar o Intelligent Timing, recomendamos programar o envio da Variante Vencedora pelo menos **dois dias após** o início dos testes A/B. Por exemplo, se o seu teste A/B começar em 16 de abril às 16h, programe a Variante Vencedora para ser enviada não antes de 18 de abril às 16h. Isso dá à Braze tempo suficiente para avaliar o comportamento do usuário e enviar mensagens no momento ideal.
+Ao usar o Intelligent Timing, recomendamos programar o envio da variante vencedora pelo menos **dois dias após** o início dos testes A/B. Por exemplo, se o seu teste A/B começar em 16 de abril às 16h, programe a variante vencedora para ser enviada não antes de 18 de abril às 16h. Isso dá à Braze tempo suficiente para avaliar o comportamento do usuário e enviar mensagens no momento ideal.
 
-![Seções de testes A/B mostrando o teste A/B com a Variante Vencedora selecionada, com os critérios vencedores, a data de envio e a hora local de envio selecionados]({% image_buster /assets/img/intelligent_timing/ab_testing_intelligent_timing.png %})
+![Seções de testes A/B mostrando o teste A/B com a variante vencedora selecionada, com os critérios vencedores, a data de envio e a hora local de envio selecionados]({% image_buster /assets/img/intelligent_timing/ab_testing_intelligent_timing.png %})
 
 ### Etapa 3: Configurar o horário de silêncio (opcional) {#step-3-configure-quiet-hours-optional}
 
@@ -149,7 +149,7 @@ O gráfico mostra em azul os usuários que tiveram eventos relevantes para calcu
 
 No seu Canvas, adicione uma [etapa de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), acesse as **Delivery Settings** e selecione **Using Intelligent Timing**.
 
-As mensagens serão enviadas aos usuários que entraram na etapa naquele dia, no horário local ideal. No entanto, se o horário ideal já tiver passado nesse dia, a entrega será feita nesse horário no dia seguinte. Etapas de mensagem que direcionam vários canais podem enviar ou tentar enviar mensagens em horários diferentes para canais diferentes. Quando a primeira mensagem em uma etapa de Mensagem tenta ser enviada, todos os usuários são avançados automaticamente.
+As mensagens serão enviadas aos usuários que entraram na etapa naquele dia, no horário local ideal. No entanto, se o horário ideal já tiver passado nesse dia, a entrega será feita no horário ideal do dia seguinte. Etapas de mensagem que direcionam vários canais podem enviar ou tentar enviar mensagens em horários diferentes para canais diferentes. Quando a primeira mensagem em uma etapa de Mensagem tenta ser enviada, todos os usuários são avançados automaticamente.
 
 ### Etapa 2: Escolher um horário de fallback {#step-2-choose-a-fallback-time}
 
@@ -186,7 +186,7 @@ No entanto, o Intelligent Timing está programado para entregar às 14h, horári
 - Mensagens no app e webhooks são entregues imediatamente e não recebem horários ideais.
 - O Intelligent Timing não está disponível para campanhas baseadas em ações ou disparadas por API.
 - O Intelligent Timing não deve ser usado nos seguintes cenários:
-    - **Limite de taxa:** Se tanto o limite de taxa quanto o Intelligent Timing forem usados, não há garantia sobre quando a mensagem será entregue. Campanhas recorrentes diárias com Intelligent Timing não suportam com precisão um limite total de envio de mensagens.
+    - **Limite de frequência:** Se tanto o limite de frequência quanto o Intelligent Timing forem usados, não há garantia sobre quando a mensagem será entregue. Campanhas recorrentes diárias com Intelligent Timing não suportam com precisão um limite total de envio de mensagens.
     - **Campanhas de aquecimento de IP:** Alguns comportamentos do Intelligent Timing podem causar dificuldades em atingir os volumes diários necessários quando você está começando a aquecer seu IP. Isso ocorre porque o Intelligent Timing avalia os segmentos duas vezes — uma vez quando a campanha ou o Canvas é criado pela primeira vez, e novamente antes de enviar aos usuários para verificar se eles ainda devem estar nesse segmento. Isso pode fazer com que os segmentos mudem, muitas vezes levando alguns usuários a saírem do segmento na segunda avaliação. Esses usuários não são substituídos, impactando o quão próximo do limite máximo de usuários você consegue alcançar.
 
 ## Solução de problemas {#troubleshooting}
@@ -197,15 +197,17 @@ Se não houver eventos relevantes para um usuário (por exemplo, novos usuários
 
 ### Impacto do fuso horário na entrega do Intelligent Timing {#impact-of-time-zone-on-intelligent-timing-delivery}
 
-O Intelligent Timing depende do fuso horário local especificado de cada usuário, portanto a data e a hora de entrega programadas podem variar entre os usuários.
+O Intelligent Timing usa o fuso horário local de cada usuário e dias corridos para determinar a entrega ideal. Por isso, usuários em fusos horários à frente ou atrás do fuso horário de referência da sua campanha podem receber mensagens em um dia diferente do esperado.
+
+Por exemplo, se uma campanha estiver programada para 15 de março e o horário ideal de um usuário for calculado para essa data, um usuário em um fuso horário à frente do ponto de referência da campanha pode receber a mensagem no final do dia 14 de março no fuso de referência, enquanto um usuário em um fuso horário atrás do ponto de referência pode recebê-la em 16 de março.
 
 Se os usuários não receberem as mensagens como esperado, verifique se o campo de fuso horário nos perfis deles está preenchido corretamente. Se o campo de fuso horário estiver vazio, o usuário poderá receber mensagens alinhadas ao fuso horário da empresa, em vez do seu fuso local.
 
 ### Envio além da data agendada {#sending-past-the-scheduled-date}
 
-Sua campanha com Intelligent Timing pode estar sendo enviada após a data programada se você estiver utilizando [testes A/B com uma otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations). Campanhas usando otimizações de testes A/B podem enviar automaticamente a Variante Vencedora após o teste inicial, aumentando a duração da campanha. Por padrão, campanhas com uma otimização enviarão a Variante Vencedora para os usuários restantes no dia seguinte ao teste inicial, mas você pode alterar essa data de envio.
+Sua campanha com Intelligent Timing pode estar sendo enviada após a data programada se você estiver utilizando [testes A/B com uma otimização]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations). Campanhas usando otimizações de testes A/B podem enviar automaticamente a variante vencedora após o teste inicial, aumentando a duração da campanha. Por padrão, campanhas com uma otimização enviarão a variante vencedora para os usuários restantes no dia seguinte ao teste inicial, mas você pode alterar essa data de envio.
 
-Se você usar o Intelligent Timing, recomendamos deixar mais tempo para o teste A/B terminar e agendar a Variante Vencedora para ser enviada 2 dias após o teste inicial, em vez de 1 dia.
+Se você usar o Intelligent Timing, recomendamos deixar mais tempo para o teste A/B terminar e agendar a variante vencedora para ser enviada 2 dias após o teste inicial, em vez de 1 dia.
 
 ## Perguntas frequentes (FAQ) {#faq}
 
@@ -257,9 +259,9 @@ Se não houver eventos de engajamento relevantes para um usuário (por exemplo, 
 
 #### Por que minha campanha com Intelligent Timing está sendo enviada após a data programada? {#why-is-my-intelligent-timing-campaign-sending-past-the-scheduled-date}
 
-Sua campanha com Intelligent Timing pode estar sendo enviada após a data programada porque você está usando testes A/B. Campanhas que usam testes A/B podem enviar automaticamente a Variante Vencedora após o término do teste A/B, aumentando a duração do envio da campanha. Por padrão, as campanhas com Intelligent Timing serão programadas para enviar a Variante Vencedora para os usuários restantes no dia seguinte, mas você pode alterar essa data de envio.
+Sua campanha com Intelligent Timing pode estar sendo enviada após a data programada porque você está usando testes A/B. Campanhas que usam testes A/B podem enviar automaticamente a variante vencedora após o término do teste A/B, aumentando a duração do envio da campanha. Por padrão, as campanhas com Intelligent Timing serão programadas para enviar a variante vencedora para os usuários restantes no dia seguinte, mas você pode alterar essa data de envio.
 
-Recomendamos que, se você tiver campanhas com Intelligent Timing, deixe mais tempo para o teste A/B terminar e programe a Variante Vencedora para ser enviada em dois dias, em vez de um.
+Recomendamos que, se você tiver campanhas com Intelligent Timing, deixe mais tempo para o teste A/B terminar e programe a variante vencedora para ser enviada em dois dias, em vez de um.
 
 ### Funcionalidade {#functionality}
 
@@ -280,11 +282,11 @@ O horário de silêncio pode ser usado em uma campanha que utiliza o Intelligent
 
 Se o horário ideal determinado cair dentro do horário de silêncio, a Braze encontra o limite mais próximo do horário de silêncio e programa a mensagem para o próximo horário permitido antes ou depois do período de silêncio. A mensagem é enfileirada para envio no limite mais próximo do horário de silêncio em relação ao horário ideal.
 
-#### Posso usar o Intelligent Timing com limite de taxa? {#can-i-use-intelligent-timing-and-rate-limiting}
+#### Posso usar o Intelligent Timing com limite de frequência? {#can-i-use-intelligent-timing-and-rate-limiting}
 
-O limite de taxa pode ser usado em uma campanha que utiliza o Intelligent Timing. No entanto, a natureza do limite de taxa significa que alguns usuários podem receber suas mensagens em um momento menos ideal, especialmente se um grande número de usuários em relação ao tamanho do limite de taxa estiver programado para o horário de fallback por não terem eventos relevantes.
+O limite de frequência pode ser usado em uma campanha que utiliza o Intelligent Timing. No entanto, a natureza do limite de frequência significa que alguns usuários podem receber suas mensagens em um momento menos ideal, especialmente se um grande número de usuários em relação ao tamanho do limite de frequência estiver programado para o horário de fallback por não terem eventos relevantes.
 
-Recomendamos usar o limite de taxa em uma campanha com Intelligent Timing apenas quando houver requisitos técnicos que precisem ser atendidos com o limite de taxa.
+Recomendamos usar o limite de frequência em uma campanha com Intelligent Timing apenas quando houver requisitos técnicos que precisem ser atendidos com o limite de frequência.
 
 #### Posso usar o Intelligent Timing durante o aquecimento de IP? {#can-i-use-intelligent-timing-while-ip-warming}
 

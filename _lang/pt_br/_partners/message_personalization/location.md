@@ -1,29 +1,36 @@
 ---
-nav_title: Localização contextual
-article_title: Localização contextual
-page_type: landing
+nav_title: "Localização contextual"
+article_title: "Localização contextual"
 page_order: 4
-description: "Esta página lista os parceiros da Braze (Alloys) que fornecem serviços de localização contextual."
-layout: partner_page
+page_type: landing
+description: "Navegue pelas integrações de parceiros de tecnologia para localização contextual."
+layout: dev_guide
 search_tag: Partner
 
-partner_top_header: "Parceiros de localização contextual"
+guide_top_header: "Localização contextual"
+guide_top_text: "Navegue pelas integrações de parceiros de tecnologia para localização contextual. Para uma lista completa e filtrável de todos os parceiros de tecnologia da Braze, acesse o <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
 
-valid_partner_list:
-- name: Accuweather
-  url: /docs/partners/message_personalization/location/accuweather/
-- name: Bluedot
-  url: /docs/partners/message_personalization/location/bluedot/
-- name: Flybuy
-  url: /docs/partners/message_personalization/location/flybuy/
-- name: Foursquare
-  url: /docs/partners/message_personalization/location/foursquare/
-- name: Infillion
-  url: /docs/partners/message_personalization/location/infillion/
-- name: loplat
-  url: /docs/partners/message_personalization/location/loplat/
-- name: Radar
-  url: /docs/partners/message_personalization/location/radar/
-- name: Tangerine
-  url: /docs/partners/message_personalization/location/tangerine/
+guide_featured_title: "Parceiros"
+guide_featured_list:
+  - name: "AccuWeather"
+    link: /docs/partners/message_personalization/location/accuweather
+    image: /assets/img/braze_icons/zap.svg
+  - name: "Bluedot"
+    link: /docs/partners/message_personalization/location/bluedot
+    image: /assets/img/braze_icons/layers-three-01.svg
+  - name: "Flybuy"
+    link: /docs/partners/message_personalization/location/flybuy
+    image: /assets/img/braze_icons/bar-chart-01.svg
+  - name: "Foursquare"
+    link: /docs/partners/message_personalization/location/foursquare
+    image: /assets/img/braze_icons/dataflow-01.svg
+  - name: "Infillion"
+    link: /docs/partners/message_personalization/location/infillion
+    image: /assets/img/braze_icons/users-01.svg
+  - name: "loplat"
+    link: /docs/partners/message_personalization/location/loplat
+    image: /assets/img/braze_icons/target-05.svg
+  - name: "Radar"
+    link: /docs/partners/message_personalization/location/radar
+    image: /assets/img/braze_icons/globe-02.svg
 ---

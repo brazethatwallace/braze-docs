@@ -12,7 +12,7 @@ alias: /whatsapp_quick_replies/
 
 # Mensagens de usuários {#user-messages}
 
-> O WhatsApp é um canal de comunicação bidirecional. Sua marca não apenas pode enviar mensagens aos usuários, mas eles também podem participar de conversas usando Campaigns e Canvas com modelos. Existem várias maneiras de fazer isso, incluindo respostas rápidas do WhatsApp, mensagens de lista e palavras-gatilho. As chamadas para ação (CTAs) de respostas rápidas e mensagens de lista são uma ótima maneira de incentivar o engajamento dos usuários com suas mensagens do WhatsApp.
+> O WhatsApp é um canal de comunicação de mão dupla. Sua marca não apenas pode enviar mensagens aos usuários, mas eles também podem participar de conversas usando Campaigns e Canvas com modelos. Existem várias maneiras de fazer isso, incluindo respostas rápidas do WhatsApp, mensagens de lista e palavras-gatilho. As chamadas para ação (CTAs) de respostas rápidas e mensagens de lista são uma ótima maneira de incentivar o engajamento dos usuários com suas mensagens do WhatsApp.
 
 ## Gatilhos baseados em ação {#action-based-triggers}
 
@@ -40,7 +40,7 @@ Certifique-se de que sua palavra-gatilho corresponda ao que você espera dos usu
 ## Respostas não reconhecidas {#unrecognized-responses}
 
 Recomendamos que você inclua uma opção para respostas não reconhecidas em Canvas interativos. Isso orienta os usuários a entender quais são os comandos disponíveis e define expectativas para o canal. O gerenciamento de expectativas pode ser especialmente útil se você tiver canais do WhatsApp com chat de agente ao vivo.
-- Na etapa de ação, após criar os grupos de ação para as frases de filtro personalizadas, adicione um grupo de ação adicional para "Enviar mensagem do WhatsApp", mas **não marque Onde o corpo da mensagem**. Isso capturará todas as respostas não reconhecidas dos usuários, semelhante a uma cláusula "else".
+- Na etapa de ação, após criar os grupos de ação para as frases de filtro personalizadas, adicione um grupo de ação adicional para "Enviar mensagem do WhatsApp", mas **não marque Where the message body**. Isso capturará todas as respostas não reconhecidas dos usuários, semelhante a uma cláusula "else".
 - Recomendamos enviar uma mensagem do WhatsApp informando ao usuário que este canal não é monitorado e direcionando-o a um canal de suporte, se necessário.
 
 ## Respostas rápidas {#quick-replies}
@@ -143,6 +143,8 @@ Se você tiver descrições de linhas, deve usar **Matches regex** para especifi
 
 As mensagens de resposta precisam ser enviadas dentro de 24 horas após o recebimento da mensagem do usuário. Para ajudar a criar experiências bem-sucedidas, a Braze verifica a lógica da mensagem para confirmar que há uma mensagem de entrada do usuário anterior que desbloqueia a mensagem de resposta.
 
+Para respostas em menos de um minuto em fluxos de Canvas de mão dupla, minimize as etapas entre o gatilho de entrada e o envio da mensagem de resposta. A arquitetura do Canvas, as idas e vindas de webhooks e o processamento em lote de atualizações de usuário podem adicionar latência. Consulte [Minimizar a latência de resposta para fluxos de mão dupla]({{site.baseurl}}/user_guide/channels/whatsapp/best_practices#minimize-response-latency-for-two-way-flows).
+
 Os seguintes eventos desbloqueiam mensagens de resposta:
 
 - Mensagem de entrada
@@ -155,6 +157,31 @@ Os seguintes eventos desbloqueiam mensagens de resposta:
   - Evento [`ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events?tab=ecommerce.cart_updated)
 
 ![Uma jornada de ação com o gatilho de um evento personalizado realizado `ecommerce.cart_updated`.]({% image_buster /assets/img/whatsapp/ecommerce_cart_updated.png %})
+
+### Respostas rápidas e mensagens de entrada fora da janela de 24 horas {#quick-replies-and-inbound-messages-outside-the-24-hour-window}
+
+Quando um usuário interage com sua empresa no WhatsApp — incluindo ao tocar em um botão de resposta rápida em um modelo de mensagem mais antigo — essa ação conta como uma mensagem de entrada. Essa mensagem de entrada abre uma nova janela de atendimento ao cliente de 24 horas, mesmo que o modelo original tenha sido enviado há mais de 24 horas.
+
+Em um Canvas com botões de resposta rápida, os usuários podem tocar em um botão dias após receber o modelo de boas-vindas e ainda entrar na jornada de ação correta. A Braze avalia a jornada de ação quando a mensagem de entrada chega; você não precisa estender a duração da jornada de ação além do padrão para capturar respostas tardias.
+
+O diagrama a seguir mostra um fluxo comum de resposta rápida:
+
+```mermaid
+sequenceDiagram
+    participant Brand
+    participant User
+    Brand->>User: Template message (quick reply buttons)
+    Note over User: More than 24 hours pass
+    User->>Brand: Taps quick reply (inbound message)
+    Note over Brand,User: New 24-hour customer service window opens
+    Brand->>User: Response message (within Action Path)
+```
+
+#### Informações importantes {#things-to-know}
+
+- A etapa de mensagem de resposta ainda deve ocorrer dentro de 24 horas após a mensagem de entrada do usuário. Na maioria dos fluxos de Canvas, a resposta é enviada imediatamente após a avaliação da jornada de ação, então isso não é um problema.
+- Não confunda a janela de atendimento ao cliente de 24 horas com os [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) do Canvas, que podem usar uma janela de até 30 dias. As janelas de conversão controlam a atribuição; elas não afetam se uma mensagem de resposta pode ser enviada.
+- Para informações sobre cobrança, consulte [As mensagens de resposta do WhatsApp são gratuitas?]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free).
 
 ### Filtrando por um atributo de tempo personalizado {#filtering-by-a-custom-time-attribute}
 
@@ -169,3 +196,7 @@ No entanto, o campo Liquid `inbound_media_urls`, que referencia a URL dessa míd
 {% alert note %}
 Se você salvar um valor de `inbound_media_urls` em um atributo personalizado do usuário para uso posterior, esteja ciente dessa expiração de sete dias. Tentar acessar a URL após a expiração resultará em um link quebrado.
 {% endalert %}
+
+### Nome do perfil de entrada {#inbound-profile-name}
+
+Quando a Meta inclui um nome de exibição em uma mensagem de entrada do WhatsApp, a Braze o expõe como o atributo Liquid {% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %} nesse evento de entrada. Esse valor reflete o nome que o usuário definiu no WhatsApp e pode não corresponder aos dados do perfil no CRM. Valide os dados antes de usá-los em textos voltados ao usuário, ou use uma etapa de atualização de usuário no Canvas para salvá-lo em um campo de perfil para uso posterior. Para uma lista completa dos atributos Liquid do WhatsApp, consulte [Tags de personalização compatíveis]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).

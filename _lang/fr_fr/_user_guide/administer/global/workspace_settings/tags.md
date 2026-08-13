@@ -62,9 +62,9 @@ table td {
 </tbody>
 </table>
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
-Voici des cas d'utilisation courants pour gérer le cycle de vie de vos messages à l'aide de balises.
+Voici des cas d'usage courants pour gérer le cycle de vie de vos messages à l'aide de balises.
 
 {% tabs %}
 {% tab Limitation de fréquence %}
@@ -82,7 +82,7 @@ Limitez la fréquence à laquelle vos clients reçoivent des campagnes d'un cert
 
 ### Rapports {#reporting}
 
-Configurez un rapport d'engagement pour surveiller le volume de toutes les campagnes associées à une certaine balise. Par exemple, si vous souhaitez suivre toutes vos campagnes push, vous pouvez ajouter une balise comme `Push Reporting` à ces campagnes, puis configurer un [rapport d'engagement]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases) pour recevoir chaque jour un rapport sur ces campagnes balisées.
+Configurez un rapport d'engagement pour surveiller le volume de toutes les campagnes associées à une certaine balise. Par exemple, si vous souhaitez suivre toutes vos campagnes de notifications push, vous pouvez ajouter une balise comme `Push Reporting` à ces campagnes, puis configurer un [rapport d'engagement]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases) pour recevoir chaque jour un rapport sur ces campagnes balisées.
 
 {% endtab %}
 {% endtabs %}

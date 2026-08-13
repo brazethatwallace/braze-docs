@@ -20,7 +20,7 @@ description: "この記事では、「ユーザー設定センターの詳細を
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`preference_center.get` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`preference_center.get` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -44,7 +44,7 @@ curl --location -g --request GET https://rest.iad-01.braze.com/preference_center
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 ```json
 {
   "name": "My Preference Center",

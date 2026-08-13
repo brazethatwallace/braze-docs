@@ -6,7 +6,7 @@ page_order: 1
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Actualizar traducción en un Canvas."
+description: "En este artículo se describen los detalles del endpoint Actualizar traducción en un Canvas."
 ---
 
 {% api %}
@@ -15,13 +15,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /canvas/translations
 {% endapimethod %}
 
-> Usa este punto de conexión para actualizar múltiples traducciones de un Canvas. Consulta [Configuraciones regionales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de localización.
+> Usa este endpoint para actualizar múltiples traducciones de un Canvas. Consulta [Configuraciones regionales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de localización.
 
 Si deseas actualizar las traducciones después de haber lanzado un Canvas, primero deberás [guardar tu mensaje como borrador]({{site.baseurl}}/post-launch_edits).
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `canvas.translations.update`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `canvas.translations.update`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -29,7 +29,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de ruta {#path-parameters}
 
-No hay parámetros de ruta para este punto de conexión.
+No hay parámetros de ruta para este endpoint.
 
 ## Parámetros de la solicitud {#request-parameters}
 
@@ -43,7 +43,7 @@ No hay parámetros de ruta para este punto de conexión.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 {% alert note %}
-Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.
+Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del endpoint GET.
 {% endalert %}
 
 ## Ejemplo de solicitud {#example-request}
@@ -62,7 +62,7 @@ Todos los ID de traducción se consideran identificadores únicos universales (U
 
 ## Respuesta {#response}
 
-Hay cuatro respuestas de código de estado para este punto de conexión: `200`, `400`, `404` y `429`.
+Hay cuatro respuestas de código de estado para este endpoint: `200`, `400`, `404` y `429`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 

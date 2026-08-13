@@ -21,7 +21,7 @@ description: "Cet article présente en détail l'endpoint Braze Supprimer un cat
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `catalogs.delete`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `catalogs.delete`.
 
 ## Limite de débit {#rate-limit}
 

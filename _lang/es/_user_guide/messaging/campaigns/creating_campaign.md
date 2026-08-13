@@ -13,69 +13,70 @@ tool: Campaigns
 
 ## Requisitos previos {#prerequisites}
 
-Para crear y lanzar una campaña, necesitas los permisos "Editar campañas" y "Lanzar campañas". Para ver una lista completa de los permisos del espacio de trabajo y cómo aparecen en el dashboard, consulta [Permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Para crear y lanzar una campaña, necesitas los permisos "Editar Campaigns" y "Lanzar Campaigns". Para obtener una lista completa de los permisos del espacio de trabajo y cómo aparecen en el panel, consulta [Permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ### Antes de empezar {#before-you-begin}
 
 - Crea o elige los [segmentos]({{site.baseurl}}/user_guide/audience/segments) que definen quién debe recibir tus mensajes.
-- Revisa los [conceptos básicos de campañas]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics) para que los canales de mensajería, los tipos de entrega y los objetivos de conversión se alineen con tu caso de uso.
-- Para un recorrido guiado sobre entrega, segmentación y conversiones, realiza el curso de Braze Learning [Configuración de campañas](https://learning.braze.com/campaign-setup-delivery-targeting-conversions).
+- Revisa los [Conceptos básicos de Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics) para que los canales de mensajería, los tipos de entrega y los objetivos de conversión se alineen con tu caso de uso.
+- Para un recorrido guiado sobre entrega, segmentación y conversiones, realiza el [curso de Braze Learning sobre configuración de Campaign](https://learning.braze.com/campaign-setup-delivery-targeting-conversions).
+- Pide a Operator que te ayude a redactar tu campaña a partir de un brief, o a refinar las opciones de segmentación y entrega. Para más detalles, consulta [Qué puedes hacer con Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
-## Compositor de campañas {#campaign-composer}
+## Creador de Campaign {#campaign-composer}
 
-El compositor de campañas es donde defines la entrega, las audiencias, las conversiones y la configuración de lanzamiento. Decide si vas a crear una campaña de un solo canal o multicanal antes de continuar.
+El creador de Campaign es donde defines la entrega, las audiencias, las conversiones y la configuración de lanzamiento. Decide si vas a crear una Campaign de un solo canal o multicanal antes de continuar.
 
 {% tabs %}
 {% tab Un solo canal %}
 
-Una campaña de un solo canal llega a los usuarios a través de un canal de mensajería por lanzamiento.
+Una Campaign de un solo canal llega a los usuarios a través de un canal de mensajería por lanzamiento.
 
 ### Qué es diferente {#whats-different}
 
 #### Conversiones e informes {#single-channel-conversions}
 
-Para campañas de un solo canal, Braze realiza el seguimiento de los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) que asignas a la campaña en relación con los envíos de ese canal. Para las ventanas de atribución y las reglas de conteo, consulta [Reglas de seguimiento de conversiones]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules).
+Para las Campaigns de un solo canal, Braze realiza el seguimiento de los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) que asignas a la Campaign en relación con los envíos de ese canal. Para las ventanas de atribución y las reglas de conteo, consulta [Reglas de seguimiento de conversiones]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules).
 
 La [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) del espacio de trabajo y los límites de envío siguen aplicándose.
 
-### Crear una campaña de un solo canal {#create-a-single-channel-campaign}
+### Crear una Campaign de un solo canal {#create-a-single-channel-campaign}
 
-Para crear una campaña:
+Para crear una Campaign:
 
 1. Ve a **Mensajería** > **Campaigns**.
-2. Selecciona **Crear campaña**.
+2. Selecciona **Crear Campaign**.
 3. Selecciona el [canal]({{site.baseurl}}/user_guide/channels) que se ajuste a tu caso de uso.
 4. En el [paso Redactar](#step-1-compose-messages), escribe y previsualiza el contenido para ese canal.
 
-Cada campaña utiliza un tipo de canal a la vez. Añade variantes cuando quieras comparar divisiones creativas o ejecutar [pruebas A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+Cada Campaign utiliza un tipo de canal a la vez. Añade variantes cuando quieras comparar divisiones creativas o ejecutar [pruebas A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% endtab %}
 {% tab Multicanal %}
 
-Una campaña multicanal llega a los usuarios a través de más de un canal de mensajería en un solo lanzamiento. Por ejemplo, enviar un correo electrónico y una notificación push juntos.
+Una Campaign multicanal llega a los usuarios a través de más de un canal de mensajería en un solo lanzamiento. Por ejemplo, enviar un correo electrónico y una notificación push juntos.
 
 {% alert note %}
-Los [mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages) no están disponibles en campañas multicanal. Crea una campaña de un solo canal o un Canvas en su lugar.
+Los [In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages) no están disponibles en las Campaigns multicanal. Crea una Campaign de un solo canal o un Canvas en su lugar.
 {% endalert %}
 
 ### Qué es diferente
 
 #### Grupos de control {#multichannel-control-groups}
 
-Los grupos de control de campañas comparan variantes dentro de un canal (por ejemplo, correo electrónico A frente a correo electrónico B). No se utilizan para comparar canales completos dentro de una campaña multicanal. Para probar canales, creatividades o tiempos juntos a lo largo de un recorrido, utiliza [Canvas]({{site.baseurl}}/user_guide/messaging/canvas).
+Los grupos de control de Campaign comparan variantes dentro de un canal (por ejemplo, correo electrónico A frente a correo electrónico B). No se utilizan para comparar canales completos dentro de una Campaign multicanal. Para probar canales, creatividades o tiempos a lo largo de un recorrido, utiliza [Canvas]({{site.baseurl}}/user_guide/messaging/canvas).
 
 #### Conversiones e informes {#multichannel-conversions}
 
-Para campañas multicanal, Braze realiza el seguimiento de los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) por canal. Cuando un usuario convierte después de recibir mensajes en más de un canal, Braze puede atribuir esa conversión a esos canales. Los recuentos de conversiones pueden superar a los *usuarios únicos*, y las tasas pueden superar el 100 %. Para las reglas completas, consulta [Reglas de seguimiento de conversiones]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules).
+Para las Campaigns multicanal, Braze realiza el seguimiento de los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) por canal. Cuando un usuario convierte después de recibir mensajes en más de un canal, Braze puede atribuir esa conversión a esos canales. Los conteos de conversiones pueden superar a los *usuarios únicos*, y las tasas pueden superar el 100 %. Para las reglas completas, consulta [Reglas de seguimiento de conversiones]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules).
 
-Los límites de velocidad para envíos que abarcan canales se describen en [Campañas multicanal y Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases). Para las reglas a nivel de espacio de trabajo (incluyendo cómo los envíos multicanal cuentan para los límites), consulta [Limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
+Los límites de velocidad para envíos que abarcan varios canales se describen en [Campaigns multicanal y Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases). Para las reglas a nivel de espacio de trabajo (incluido cómo los envíos multicanal cuentan para los límites), consulta [Limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
 
-### Crear una campaña multicanal {#create-a-multichannel-campaign}
+### Crear una Campaign multicanal {#create-a-multichannel-campaign}
 
 1. Ve a **Mensajería** > **Campaigns**.
-2. Selecciona **Crear campaña**.
+2. Selecciona **Crear Campaign**.
 3. Selecciona **Multicanal**.
-4. En el [paso Redactar](#step-1-compose-messages), selecciona **Añadir canal** y elige cada canal que necesites. Selecciona los iconos de canal para alternar entre compositores mientras redactas el contenido de cada canal.
+4. En el [paso Redactar](#step-1-compose-messages), selecciona **Añadir canal** y elige cada canal que necesites. Selecciona los iconos de canal para alternar entre creadores mientras redactas el contenido de cada canal.
 
 {% endtab %}
 {% endtabs %}
@@ -91,8 +92,8 @@ Utiliza los siguientes campos para registrar metadatos que ayuden a tu equipo a 
 | Nombre | Usa un nombre claro que refleje el objetivo de la campaña. |
 | Descripción | Opcional. Explica la intención o incluye enlaces a briefs para los colaboradores. |
 | Equipo | Opcional. Asigna [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) para que los grupos adecuados puedan editar o generar informes sobre este envío. |
-| Etiquetas | Opcional. Añade [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) para filtrar en listas y herramientas como el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder). |
-| ID de campaña | Donde se muestre en el compositor o resumen, copia este identificador para llamadas a la API, informes e integraciones que hagan referencia a una campaña específica. |
+| Etiquetas | Opcional. Añade [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) para filtrar en listas y herramientas como el [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder). |
+| ID de campaña | Donde se muestre en el creador o resumen, copia este identificador para llamadas a la API, informes e integraciones que hagan referencia a una campaña específica. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Detalles de la campaña" }
 
 ### Canales y editores {#channels-and-editors}
@@ -126,7 +127,7 @@ Dependiendo del tipo de entrega, puedes ajustar la [reelegibilidad]({{site.baseu
 
 ## Paso 3: Segmentar audiencias {#step-3-target-audiences}
 
-En **Público objetivo**, define quién es elegible para recibir la campaña. Para todas las opciones de segmentación, recorridos de la interfaz y capturas de pantalla, consulta [Segmentar usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users).
+En **Públicos objetivo**, define quién es elegible para recibir la campaña. Para todas las opciones de segmentación, recorridos de la interfaz y capturas de pantalla, consulta [Segmentar usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users).
 
 ### Opciones de segmentación {#targeting-options}
 
@@ -137,6 +138,10 @@ Las [listas de supresión]({{site.baseurl}}/user_guide/audience/suppression_list
 ### Resumen de audiencia {#audience-summary}
 
 Después de añadir segmentos o filtros, el **Resumen de audiencia** ofrece una vista previa de cómo se ve la población de ese segmento, incluyendo cuántos usuarios dentro de ese segmento son alcanzables a través de los canales seleccionados. Los recuentos de alcance reflejan los datos de tu espacio de trabajo, la configuración del canal y los filtros. Ten en cuenta que la membresía exacta del segmento siempre se calcula antes de que se envíe el mensaje. Para audiencias muy grandes, Braze puede mostrar estimaciones hasta que calcules las estadísticas exactas.
+
+{% alert note %}
+Si tienes configurado un [grupo de control global]({{site.baseurl}}/user_guide/audience/global_control_group), el recuento de usuarios alcanzables que se muestra en el público objetivo de tu campaña es menor que el recuento de usuarios alcanzables que se muestra para el mismo segmento. Esto se debe a que la campaña excluye a los usuarios del grupo de control global, mientras que el recuento del segmento no lo hace.
+{% endalert %}
 
 ### Búsqueda de usuarios {#user-lookup}
 
@@ -160,13 +165,13 @@ Si anticipas que campañas grandes generarán un pico en la actividad de los usu
 
 Puedes crear una [prueba multivariante o A/B]({{site.baseurl}}/user_guide/messaging/ab_testing) para cualquier campaña que se dirija a un solo canal, incluso si ese canal incluye múltiples dispositivos. Por ejemplo, si quieres usar pruebas multivariantes o A/B para una campaña push, puedes dirigirte solo a dispositivos iOS o solo a dispositivos Android, pero no a ambos tipos de dispositivo en la misma campaña.
 
-Para campañas push, de correo electrónico y de webhook planificadas para enviarse una sola vez, también puedes usar una [optimización]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations). Una optimización reserva una parte de tu audiencia objetivo de la prueba A/B y la retiene para un segundo envío optimizado basado en los resultados de la primera prueba.
+Para campañas push, de correo electrónico y de webhook planificadas para enviarse una sola vez, también puedes usar una [optimización]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations). Una optimización reserva una parte de tu público objetivo de la prueba A/B y la retiene para un segundo envío optimizado basado en los resultados de la primera prueba.
 
 ## Paso 4: Asignar eventos de conversión {#step-4-assign-conversion-events}
 
 Los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) miden los resultados después de que un usuario recibe tu campaña (o entra en el grupo de control). Braze establece por defecto **Inicia sesión** dentro de una ventana corta (tres días). Puedes definir eventos de conversión que coincidan con tus KPI, hasta cuatro eventos por campaña.
 
-Después del lanzamiento, usa el [dashboard de conversiones]({{site.baseurl}}/user_guide/analytics/dashboards/conversions) para analizar tendencias de conversión en múltiples campañas o Canvas, comparar canales y ajustar rangos de fechas, métodos de atribución y desgloses en un solo lugar.
+Después del lanzamiento, usa el [panel de conversiones]({{site.baseurl}}/user_guide/analytics/dashboards/conversions) para analizar tendencias de conversión en múltiples campañas o Canvas, comparar canales y ajustar rangos de fechas, métodos de atribución y desgloses en un solo lugar.
 
 {% alert important %}
 No puedes añadir ni eliminar eventos de conversión después de que la campaña se lance. Confirma los eventos antes de lanzar.
@@ -190,4 +195,4 @@ Si tu espacio de trabajo utiliza aprobaciones, un compañero de equipo con permi
 - [Diseñar y editar]({{site.baseurl}}/user_guide/messaging/design_and_edit)
 - [Pruebas A/B]({{site.baseurl}}/user_guide/messaging/ab_testing)
 - [Lo que debes saber antes de enviar]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send)
-- [Análisis de campañas]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics)
+- [Análisis de Campaign]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics)

@@ -22,13 +22,11 @@ description: "이 참조 문서에서는 슬라이드업 인앱 메시지의 메
 
 슬라이드업 메시지는 줄임표로 잘리기 전까지 최대 세 줄의 텍스트를 포함할 수 있습니다. 슬라이드업의 이미지는 절대 잘리거나 클리핑되지 않으며, 항상 50 x 50 픽셀 이미지 컨테이너에 맞게 축소됩니다.
 
-- 모든 이미지는 5&nbsp;MB 미만이어야 합니다.
-- PNG, JPEG, GIF 파일 형식만 지원됩니다.
-- 이미지 크기는 500&nbsp;KB를 권장합니다.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
-{% alert tip %} 자신 있게 자산을 만드세요! 인앱 메시지 이미지 템플릿과 세이프 존 오버레이는 모든 크기의 기기에서 잘 작동하도록 설계되었습니다. [디자인 템플릿 ZIP 다운로드]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
+{% alert tip %} 자신 있게 에셋을 만드세요! 인앱 메시지 이미지 템플릿과 세이프 존 오버레이는 모든 크기의 기기에서 잘 작동하도록 설계되었습니다. [디자인 템플릿 ZIP 다운로드]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 
-| 레이아웃 | 자산 크기 | 참고 |
+| 레이아웃 | 에셋 크기 | 참고 |
 |--- | --- | --- |
 | 이미지 + 텍스트 | 1:1 종횡비<br>고해상도 150 x 150&nbsp;px<br> 최소 50 x 50&nbsp;px | 다양한 종횡비의 이미지가 잘리지 않고 정사각형 이미지 컨테이너에 맞게 조정됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="이미지 및 텍스트 동작" }
@@ -37,7 +35,7 @@ description: "이 참조 문서에서는 슬라이드업 인앱 메시지의 메
 
 ## 하이퍼링크 및 앵커 텍스트 {#hyperlinks-and-anchor-text}
 
-슬라이드업에 링크를 추가하려면 **본문** 필드에 메시지 텍스트를 입력하고 **클릭 시 동작**에서 대상을 설정합니다(예: **URL로 리디렉션**). **클릭 시 동작**이 구성되면 닫기 제어를 제외한 메시지의 아무 곳이나 탭하면 해당 동작이 트리거됩니다.
+슬라이드업에 링크를 추가하려면 **본문** 필드에 메시지 텍스트를 입력하고 **클릭 시 동작**에서 대상을 설정합니다(예: **URL로 리디렉션**). **클릭 시 동작**이 구성되면 닫기 컨트롤을 제외한 메시지의 아무 곳이나 탭하면 해당 동작이 트리거됩니다.
 
 커스텀 HTML 인앱 메시지의 경우 HTML 링크를 직접 사용할 수 있습니다. [커스텀 HTML 인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html)를 참조하세요.
 

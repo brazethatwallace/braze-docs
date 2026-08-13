@@ -10,7 +10,7 @@ page_order: 1.2
 > Une fois votre recommandation entraînée, vous pouvez utiliser Liquid pour récupérer et afficher les éléments recommandés dans vos messages en travaillant directement avec l'objet Liquid `product_recommendation`.
 
 {% alert tip %}
-Pour une présentation étape par étape, consultez notre cours d'apprentissage Braze : [Créer des expériences personnalisées grâce à l'intelligence artificielle](https://learning.braze.com/ai-item-recommendations-use-case/1996254).
+Pour une présentation étape par étape, consultez notre cours d'apprentissage Braze : [Créer des expériences personnalisées grâce à l'IA](https://learning.braze.com/ai-item-recommendations-use-case/1996254).
 {% endalert %}
 
 ## Conditions préalables {#prerequisites}
@@ -58,7 +58,7 @@ Remplacez les éléments suivants :
 
 | Marque substitutive | Description |
 |-----------|-----------|
-| `recommendation_name` | Le nom de la recommandation d'intelligence artificielle que vous avez créée dans Braze. |
+| `recommendation_name` | Le nom de la recommandation d'IA que vous avez créée dans Braze. |
 | `items` | La variable contenant le tableau des éléments recommandés. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1 : Ajouter le code Liquid" }
 
@@ -82,7 +82,7 @@ Pour inclure plusieurs éléments, faites référence à chaque élément indivi
 ```
 {% endraw %}
 
-Les recommandations d'intelligence artificielle renvoient plusieurs produits sous la forme d'un tableau, où `items[0]` est le premier article, `items[1]` le deuxième, et ainsi de suite. Si une recommandation ne renvoie qu'un seul élément, toute tentative de référence à `items[1]` aboutira à un champ vide.
+Les recommandations d'IA renvoient plusieurs produits sous la forme d'un tableau, où `items[0]` est le premier article, `items[1]` le deuxième, et ainsi de suite. Si une recommandation ne renvoie qu'un seul élément, toute tentative de référence à `items[1]` aboutira à un champ vide.
 {% endtab %}
 {% endtabs %}
 

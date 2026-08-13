@@ -9,7 +9,7 @@ tool: Canvas
 
 # Clonar Canvas para o Canvas Flow {#clone-canvases-to-canvas-flow}
 
-> Se você tem um Canvas existente do editor original, é possível cloná-lo para criar uma cópia no Canvas Flow. Ao mudar para o fluxo de trabalho atual do Canvas, você ganha acesso a [componentes do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components) leves, [propriedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#canvas-entry-properties) e [edição pós-lançamento]({{site.baseurl}}/post-launch_edits). Seu Canvas original não será alterado nem excluído.
+> Se você tem um Canvas existente do editor original, é possível cloná-lo para criar uma cópia no Canvas Flow. Ao mudar para o fluxo de trabalho atual do Canvas, você ganha acesso a [componentes do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components) leves, [propriedades de entrada persistentes]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) e [edição pós-lançamento]({{site.baseurl}}/post-launch_edits). Seu Canvas original não será alterado nem excluído.
 
 {% alert important %}
 Não é mais possível criar ou duplicar Canvas usando a experiência original do Canvas. A Braze recomenda que os clientes que usam a experiência original do Canvas migrem para o Canvas Flow, a experiência atual do Canvas.
@@ -50,4 +50,4 @@ Se a reelegibilidade estiver desativada, adicione o filtro "Entered Canvas Varia
 
 Para Canvas disparados por API, coordene com sua equipe de engenharia para garantir que esses Canvas estejam usando o novo ID do Canvas quando os novos Canvas estiverem prontos para lançamento.
 
-Para saber mais sobre as diferenças entre o editor original do Canvas e a experiência do Canvas Flow, confira as [Perguntas frequentes sobre o Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-are-the-main-differences-between-canvas-flow-and-the-original-canvas-editor).
+Para saber mais sobre as diferenças entre o editor original do Canvas e a experiência do Canvas Flow, confira as [Perguntas frequentes sobre o Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-are-the-main-differences-between-the-current-and-original-canvas-editors).

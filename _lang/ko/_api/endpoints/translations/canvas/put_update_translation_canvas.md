@@ -21,7 +21,7 @@ Canvas를 시작한 후 번역을 업데이트하려면 먼저 [메시지를 초
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `canvas.translations.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `canvas.translations.update` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -46,7 +46,7 @@ Canvas를 시작한 후 번역을 업데이트하려면 먼저 [메시지를 초
 모든 번역 ID는 범용 고유 식별자(UUID)로 간주되며, GET 엔드포인트의 응답에서 확인할 수 있습니다.
 {% endalert %}
 
-## 예시 요청 {#example-request}
+## 요청 예시 {#example-request}
 
 ```json
 {

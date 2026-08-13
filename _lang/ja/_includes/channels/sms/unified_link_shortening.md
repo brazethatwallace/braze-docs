@@ -2,6 +2,8 @@
 
 リンク短縮は、キャンペーンとキャンバスの両方で[メッセージバリアントレベル]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign)で有効にできます。リンク短縮が有効になると、クリックによりCurrentsを通じて送信される[SMSクリックイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)が生成されます。
 
+{% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
+
 リンクは共有ショートドメイン（`brz.ai`）またはカスタムリンク短縮ドメインを使用して短縮され、作成日から9週間有効です。URLの例は `https://brz.ai/8jshX2dj` のようになります。
 
 ## リンク短縮の使用 {#using-link-shortening}

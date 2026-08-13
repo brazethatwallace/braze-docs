@@ -37,7 +37,7 @@ Die meisten Datenschutzgesetze unterscheiden drei Hauptakteure, die an der Verar
 In Bezug auf die Braze-Dienste:
 
 - Bei den betroffenen Personen handelt es sich beispielsweise um die Endnutzer:innen Ihrer Kundenanwendung (z. B. Ihre Kund:innen) oder um Ihre Mitarbeiter:innen, die Unternehmensnutzer:innen in Ihrer Instanz der Braze-Dienste sind.
-- Sie, als Braze-Kunde, sind der Verantwortliche, der entscheidet, wie und warum die personenbezogenen Daten der betroffenen Personen innerhalb der Braze-Dienste erhoben und verarbeitet werden.
+- Sie, als Braze-Kund:in, sind der Verantwortliche, der entscheidet, wie und warum die personenbezogenen Daten der betroffenen Personen innerhalb der Braze-Dienste erhoben und verarbeitet werden.
 - Braze ist ein Auftragsverarbeiter, der personenbezogene Daten in den Braze-Diensten in Ihrem Auftrag und gemäß den Anweisungen verarbeitet, die wir von Ihnen erhalten.
 
 Bei den oben genannten Begriffen handelt es sich um DSGVO-Begriffe. Vergleichbare Begriffe unter dem CCPA lauten beispielsweise:
@@ -66,7 +66,7 @@ Gemäß den Datenschutzgesetzen haben betroffene Personen möglicherweise das Re
 
 ### Braze-Empfehlung
 
-Um personenbezogene Daten von Braze in einem maschinenlesbaren Format als Antwort auf die Auskunftsanfrage einer betroffenen Person bereitzustellen, können Sie deren Endnutzerprofil exportieren, indem Sie einen API-Aufruf an die [REST-APIs]({{site.baseurl}}/api/endpoints/export/#user-export) von Braze mit entweder der Nutzerkennung (von Ihnen definiert als die `external_id`, die Braze bereitgestellt wurde) und/oder der Gerätekennung tätigen.
+Um personenbezogene Daten von Braze in einem maschinenlesbaren Format als Antwort auf die Auskunftsanfrage einer betroffenen Person bereitzustellen, können Sie deren Endnutzerprofil exportieren, indem Sie einen API-Aufruf an die [REST-APIs]({{site.baseurl}}/api/endpoints/export) von Braze mit entweder der Nutzerkennung (von Ihnen definiert als die `external_id`, die Braze bereitgestellt wurde) und/oder der Gerätekennung tätigen.
 
 #### BrazeAI Decisioning Studio™
 
@@ -78,7 +78,7 @@ Einzelpersonen haben das Recht, personenbezogene Daten berichtigen zu lassen, we
 
 ### Braze-Empfehlung
 
-Für den Fall, dass eine betroffene Person Sie auffordert, Ungenauigkeiten in den von Ihnen oder von Braze in Ihrem Auftrag verarbeiteten personenbezogenen Daten zu berichtigen, können Sie die Braze SDKs oder die Braze [REST-APIs]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) verwenden, um diese personenbezogenen Daten zu korrigieren.
+Für den Fall, dass eine betroffene Person Sie auffordert, Ungenauigkeiten in den von Ihnen oder von Braze in Ihrem Auftrag verarbeiteten personenbezogenen Daten zu berichtigen, können Sie die Braze SDKs oder die Braze [REST-APIs]({{site.baseurl}}/api/endpoints/user_data/post_user_track) verwenden, um diese personenbezogenen Daten zu korrigieren.
 
 ## Das Recht auf Löschung {#the-right-to-erasure}
 
@@ -88,7 +88,7 @@ Das Recht auf Löschung ist auch als „Recht auf Vergessenwerden“ bekannt.
 
 #### Standardlöschung {#standard-deletion}
 
-Sobald Sie die Datenerfassung gestoppt haben, können Sie den [REST-API-Endpunkt User Deletion von Braze]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) verwenden, um eine:n Endnutzer:in zu löschen. Dadurch werden alle Datensätze dieser:dieses Endnutzer:in aus den Braze-Diensten entfernt:
+Sobald Sie die Datenerfassung gestoppt haben, können Sie den [REST-API-Endpunkt User Deletion von Braze]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) verwenden, um eine:n Endnutzer:in zu löschen. Dadurch werden alle Datensätze dieser:dieses Endnutzer:in aus den Braze-Diensten entfernt:
 
 - Für Endnutzer:innen, die eine external_id innerhalb der Braze-Dienste haben, können Sie diese ID verwenden, um die Daten dieser:dieses Endnutzer:in zu löschen.
 - Bei anonymen Endnutzer:innen, die keine external_id innerhalb der Braze-Dienste haben, können Sie die Gerätekennung dieser:dieses Endnutzer:in mit dem Braze SDK abrufen und die Gerätekennung verwenden, um das mit diesem Gerät verbundene Endnutzerprofil zu finden. Anschließend können Sie die User Deletion API verwenden, um das mit dieser:diesem Endnutzer:in verknüpfte Profil zu löschen.
@@ -116,7 +116,7 @@ Um einer Löschanfrage in Bezug auf personenbezogene Daten in BrazeAI Decisionin
 <tbody>
   <tr>
     <td>
-        <p>Kund:innen können benutzerdefinierte Felder für Event-Eigenschaften und Nachrichtenextras erstellen. Diese Felder sind nicht für personenbezogene Daten vorgesehen, weshalb sie nicht in den oben beschriebenen Standard-Löschvorgang einbezogen werden. Wenn Sie jedoch Braze verwenden, um personenbezogene Daten über Event-Eigenschaften und Nachrichtenextras einzugeben oder zu erfassen, können Sie den durch den REST-API-Endpunkt User Deletion ausgelösten Löschvorgang so einrichten, dass auch diese Felder einbezogen werden, sodass die darin enthaltenen Daten ebenfalls gelöscht werden.</p>
+        <p>Kund:innen können angepasste Felder für Event-Eigenschaften und Nachrichtenextras erstellen. Diese Felder sind nicht für personenbezogene Daten vorgesehen, weshalb sie nicht in den oben beschriebenen Standard-Löschvorgang einbezogen werden. Wenn Sie jedoch Braze verwenden, um personenbezogene Daten über Event-Eigenschaften und Nachrichtenextras einzugeben oder zu erfassen, können Sie den durch den REST-API-Endpunkt User Deletion ausgelösten Löschvorgang so einrichten, dass auch diese Felder einbezogen werden, sodass die darin enthaltenen Daten ebenfalls gelöscht werden.</p>
         <p>Die Standardeinstellungen werden auf Unternehmensebene angewendet. Sie können jedoch die folgenden Felder löschen lassen, wenn der Löschvorgang auf der Ebene der App-Gruppe/des Workspace ausgeführt wird:</p>
     <ul>
         <li>PROPERTIES für USERS_BEHAVIORS_CUSTOMEVENT</li>
@@ -133,8 +133,8 @@ Um einer Löschanfrage in Bezug auf personenbezogene Daten in BrazeAI Decisionin
             </ul>
         </li>
     </ul>
-    <p>Auf diese Einstellungen können Sie über <b>Unternehmenseinstellungen</b> > <b>Admin-Einstellungen</b> > <b>Sicherheitseinstellungen</b> zugreifen. Die Einstellungen zur Datenlöschung werden je Event-Typ oder Kategorie festgelegt. Nur Nutzer:innen mit Administratorberechtigungen können Änderungen an diesen Einstellungen vornehmen. Alternativ kann ein:e Administrator:in diese Berechtigungen an eine:n andere:n Nutzer:in delegieren.</p>
-    <p>Wenn ein Event-Typ oder ein Nachrichtenextra so eingestellt ist, dass es in den Löschvorgang einbezogen wird, werden die Daten in diesem Feld künftig für Nutzer:innen gelöscht, für die Sie den REST-API-Endpunkt User Deletion ausführen. Wenn Sie diese Löschpräferenz auswählen, werden darüber hinaus beim nächsten geplanten Löschauftrag die Daten aus diesen Feldern aus allen bestehenden anonymisierten Datensätzen gelöscht, die diese Felder enthalten. Eine Wiederherstellung der gelöschten Datenfelder ist nicht möglich.</p>
+    <p>Auf diese Einstellungen können Sie über <b>Company Settings</b> > <b>Admin Settings</b> > <b>Security Settings</b> zugreifen. Die Einstellungen zur Datenlöschung werden je Ereignistyp oder Kategorie festgelegt. Nur Nutzer:innen mit Administratorberechtigungen können Änderungen an diesen Einstellungen vornehmen. Alternativ kann ein:e Administrator:in diese Berechtigungen an eine:n andere:n Nutzer:in delegieren.</p>
+    <p>Wenn ein Ereignistyp oder ein Nachrichtenextra so eingestellt ist, dass es in den Löschvorgang einbezogen wird, werden die Daten in diesem Feld künftig für Nutzer:innen gelöscht, für die Sie den REST-API-Endpunkt User Deletion ausführen. Wenn Sie diese Löschpräferenz auswählen, werden darüber hinaus beim nächsten geplanten Löschauftrag die Daten aus diesen Feldern aus allen bestehenden anonymisierten Datensätzen gelöscht, die diese Felder enthalten. Eine Wiederherstellung der gelöschten Datenfelder ist nicht möglich.</p>
     </td>
   </tr>
 </tbody>
@@ -156,7 +156,7 @@ Betroffene Personen haben unter bestimmten Umständen möglicherweise das Recht,
 
 ### Braze-Empfehlung
 
-Die Braze-Dienste unterstützen keine Einschränkung der Verarbeitung einzelner Kategorien personenbezogener Daten. Wenn Sie von einer betroffenen Person gebeten wurden, die Verarbeitung bestimmter Teilmengen der personenbezogenen Daten dieser Person einzuschränken, sollten Sie die [Braze-APIs]({{site.baseurl}}/api/home/) verwenden, um das gesamte Profil bzw. die gesamten Profile dieser:dieses Endnutzer:in zu exportieren und es dann aus Braze [zu löschen]({{site.baseurl}}/api/endpoints/user_data/#user-delete-endpoint). Die Braze-APIs können verwendet werden, um diese Daten erneut zu importieren, falls die:der Endnutzer:in Ihnen anschließend erlaubt, diese bestimmten Teilmengen ihrer:seiner personenbezogenen Daten zu verarbeiten. Darüber hinaus sollten Sie Ihren Endnutzer:innen empfehlen, alle Anwendungen, die das Braze SDK verwenden, zu deinstallieren oder sich davon abzumelden, um die Erfassung weiterer Daten über die betroffene Person zu unterbinden.
+Die Braze-Dienste unterstützen keine Einschränkung der Verarbeitung einzelner Kategorien personenbezogener Daten. Wenn Sie von einer betroffenen Person gebeten wurden, die Verarbeitung bestimmter Teilmengen der personenbezogenen Daten dieser Person einzuschränken, sollten Sie die [Braze-APIs]({{site.baseurl}}/api/home) verwenden, um das gesamte Profil bzw. die gesamten Profile dieser:dieses Endnutzer:in zu exportieren und es dann aus Braze [zu löschen]({{site.baseurl}}/api/endpoints/user_data/post_user_delete). Die Braze-APIs können verwendet werden, um diese Daten erneut zu importieren, falls die:der Endnutzer:in Ihnen anschließend erlaubt, diese bestimmten Teilmengen ihrer:seiner personenbezogenen Daten zu verarbeiten. Darüber hinaus sollten Sie Ihren Endnutzer:innen empfehlen, alle Anwendungen, die das Braze SDK verwenden, zu deinstallieren oder sich davon abzumelden, um die Erfassung weiterer Daten über die betroffene Person zu unterbinden.
 
 Für Kund:innen, die ausschließlich BrazeAI Decisioning Studio™ nutzen, sollten Sie keine Daten mehr an Decisioning Studio senden.
 
@@ -166,7 +166,7 @@ Das Recht auf Datenübertragbarkeit ermöglicht es betroffenen Personen, ihre pe
 
 ### Braze-Empfehlung
 
-Ähnlich wie beim Recht auf Auskunft können Sie die Braze [REST-API]({{site.baseurl}}/api/endpoints/export/#user-export) verwenden, um die personenbezogenen Daten einer:eines Endnutzer:in zu exportieren und sie der betroffenen Person auf deren Anfrage hin zur Verfügung zu stellen. Wenden Sie sich darüber hinaus mit den relevanten customer_id(s) und/oder E-Mail(s) an Ihre:n Account Manager:in, um eine Kopie aller in BrazeAI Decisioning Studio gespeicherten personenbezogenen Daten anzufordern.
+Ähnlich wie beim Recht auf Auskunft können Sie die Braze [REST-API]({{site.baseurl}}/api/endpoints/export) verwenden, um die personenbezogenen Daten einer:eines Endnutzer:in zu exportieren und sie der betroffenen Person auf deren Anfrage hin zur Verfügung zu stellen. Wenden Sie sich darüber hinaus mit den relevanten customer_id(s) und/oder E-Mail(s) an Ihre:n Account Manager:in, um eine Kopie aller in BrazeAI Decisioning Studio™ gespeicherten personenbezogenen Daten anzufordern.
 
 ## Das Widerspruchsrecht {#the-right-to-object}
 
@@ -178,10 +178,9 @@ Einzelpersonen haben möglicherweise das Recht, Widerspruch einzulegen gegen:
 
 ### Braze-Empfehlung
 
-Braze bietet die Möglichkeit, ein Nutzerprofil als von SMS, E-Mails oder Push-Benachrichtigungen abgemeldet zu markieren, sowohl über unsere [REST-APIs]({{site.baseurl}}/api/home/) als auch über die [iOS-]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/analytics/setting_custom_attributes/), [Android-]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/) und [Web-SDKs]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes/). Wenn Sie von betroffenen Personen Einwände gegen den Erhalt solcher Nachrichten erhalten, können Sie die Braze-APIs verwenden, um diese Endnutzer:innen abzumelden.
+Braze bietet die Möglichkeit, ein Nutzerprofil als von SMS, E-Mails oder Push-Benachrichtigungen abgemeldet zu markieren, sowohl über unsere [REST-APIs]({{site.baseurl}}/api/home) als auch über die [iOS-]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/analytics/setting_custom_attributes), [Android-]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes) und [Web-SDKs]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes). Wenn Sie von betroffenen Personen Einwände gegen den Erhalt solcher Nachrichten erhalten, können Sie die Braze-APIs verwenden, um diese Endnutzer:innen abzumelden.
 
 Wenn dies nicht ausreicht, um die Verarbeitung personenbezogener Daten von Endnutzer:innen durch Braze zu verhindern, sollte das Nutzerprofil auf die gleiche Weise wie unter dem „Recht auf Löschung“ beschrieben gelöscht werden.
-
 
 ## Rechte in Bezug auf automatisierte Entscheidungsfindung und Profiling {#rights-related-to-automated-decision-making-and-profiling}
 
@@ -199,7 +198,7 @@ Nach den Datenschutzgesetzen einiger US-Bundesstaaten können betroffene Persone
 
 Bei der Erstellung von Zielgruppen für die gezielte Werbung an Ihre betroffenen Personen sollten Sie sicherstellen, dass Sie alle betroffenen Personen ausgeschlossen haben, die gezielter Werbung widersprochen haben, beispielsweise kalifornische Verbraucher:innen, die ihr Recht auf „Nicht verkaufen oder weitergeben“ gemäß dem CCPA ausgeübt haben.
 
-Weitere Informationen zur Erstellung von Zielgruppen, die mit Drittanbieter-Plattformen synchronisiert werden können, finden Sie unter [Zielgruppensynchronisierung]({{site.baseurl}}/partners/canvas_steps/).
+Weitere Informationen zur Erstellung von Zielgruppen, die mit Drittanbieter-Plattformen synchronisiert werden können, finden Sie unter [Zielgruppensynchronisierung]({{site.baseurl}}/partners/canvas_steps).
 
 ## Das Recht auf Nichtdiskriminierung {#the-right-to-non-discrimination}
 

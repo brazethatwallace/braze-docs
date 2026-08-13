@@ -67,8 +67,10 @@ const SAMPLE_PER_COLLECTION = {
 // ---------------------------------------------------------------------------
 
 function keyToUrl(key) {
-  // '_user_guide/foo/bar.md' → 'https://www.braze.com/docs/user_guide/foo/bar/'
-  return BASE_URL + '/' + key.replace(/^_/, '').replace(/\.md$/, '') + '/';
+  // '_user_guide/foo/bar.md' → 'https://www.braze.com/docs/user_guide/foo/bar'
+  // Production uses vercel.json trailingSlash: false — do not append a trailing slash
+  // or Lighthouse will record an extra 308 redirect (~300ms) before the page loads.
+  return BASE_URL + '/' + key.replace(/^_/, '').replace(/\.md$/, '');
 }
 
 function collectionOf(key) {
@@ -126,6 +128,13 @@ for (const [coll, count] of Object.entries(SAMPLE_PER_COLLECTION)) {
 }
 
 const urls = shuffle([...selectedKeys].map(keyToUrl));
+
+const trailingSlashUrls = urls.filter((url) => url.endsWith('/'));
+if (trailingSlashUrls.length > 0) {
+  console.error('ERROR: generated URLs must not end with a trailing slash (vercel.json trailingSlash: false):');
+  trailingSlashUrls.forEach((url) => console.error(`  - ${url}`));
+  process.exit(1);
+}
 
 fs.writeFileSync(outputFile, urls.join('\n') + '\n', 'utf8');
 

@@ -18,7 +18,7 @@ BrazeはSnowflakeとの2つの統合を提供しています。これらを組�
 
 ### データ共有（BrazeからSnowflake） {#data-sharing-braze-to-snowflake}
 
-Snowflakeの[セキュアデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/)により、BrazeのエンゲージメントおよびキャンペーンデータにSnowflakeインスタンスから直接、安全かつリアルタイムにアクセスできます。アカウント間でデータのコピーや転送は行われません。すべての共有はSnowflake独自のサービスレイヤーとメタデータストアを介して行われます。
+Snowflakeの[セキュアデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing)により、BrazeのエンゲージメントおよびキャンペーンデータにSnowflakeインスタンスから直接、安全かつリアルタイムにアクセスできます。アカウント間でデータのコピーや転送は行われません。すべての共有はSnowflake独自のサービスレイヤーとメタデータストアを介して行われます。
 
 **データ共有は次のような場合に使用します。**
 - Snowflake SQLを使用してBrazeのイベントおよびキャンペーンデータをクエリする
@@ -26,11 +26,11 @@ Snowflakeの[セキュアデータ共有]({{site.baseurl}}/partners/data_and_ana
 - BrazeデータをSnowflakeウェアハウス内の他のデータと結合する
 - チャネル、業界、デバイスプラットフォーム全体でエンゲージメントデータをベンチマークする
 
-設定手順については、[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/)を参照してください。
+設定手順については、[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing)を参照してください。
 
 ### クラウドデータ取り込み（SnowflakeからBraze） {#cloud-data-ingestion-snowflake-to-braze}
 
-[クラウドデータ取り込み（CDI）]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)を使用すると、SnowflakeインスタンスからBrazeにデータを直接同期できます。これにより、Brazeのユーザー属性、イベント、購入を、信頼できる唯一の情報源であるデータウェアハウスと常に最新の状態に保つことができます。
+[クラウドデータ取り込み（CDI）]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)を使用すると、SnowflakeインスタンスからBrazeにデータを直接同期できます。これにより、Brazeのユーザー属性、イベント、購入を、信頼できる唯一の情報源であるデータウェアハウスと常に最新の状態に保つことができます。
 
 **クラウドデータ取り込みは次のような場合に使用します。**
 - SnowflakeからBrazeのユーザープロファイルにユーザー属性を同期する
@@ -56,10 +56,7 @@ Snowflakeでは、データ共有は[データプロバイダー](https://docs.s
 
 ### ステップ1:Brazeからデータシェアを送信する {#step-1-send-the-datashare-from-braze}
 
-1. Brazeで、**パートナー連携** > **データ共有**に移動します。
-2. Snowflakeアカウントの詳細とロケーターを入力します。アカウントロケーターを取得するには、送信先アカウントで`SELECT CURRENT_ACCOUNT()`を実行します。
-3. CRR共有をご利用の場合は、クラウドプロバイダーとリージョンを指定してください。
-4. 完了したら、**データ共有を作成**を選択します。これでデータシェアがSnowflakeアカウントに送信されます。
+{% multi_lang_include partners/snowflake/data_sharing_account_steps.md %}
 
 ### ステップ2:Snowflakeでデータベースを作成する {#step-2-create-the-database-in-snowflake}
 
@@ -72,7 +69,7 @@ Snowflakeでは、データ共有は[データプロバイダー](https://docs.s
 
 {% alert warning %}
 Brazeダッシュボードで共有を削除して再作成する場合は、以前に作成したデータベースを削除し、`CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>`を使用して再作成し、インバウンド共有にクエリを実行する必要があります。
-複数のワークスペースが同じSnowflakeアカウントにデータを共有している場合は、マルチワークスペース設定の管理に関するガイダンスについて[Snowflakeデータ共有のFAQ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs/)を参照してください。
+複数のワークスペースが同じSnowflakeアカウントにデータを共有している場合は、マルチワークスペース設定の管理に関するガイダンスについて[Snowflakeデータ共有のFAQ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs)を参照してください。
 {% endalert %}
 
 ## 使用と視覚化 {#usage-and-visualization}
@@ -81,13 +78,9 @@ Brazeダッシュボードで共有を削除して再作成する場合は、以
 
 Currentsと同様に、Snowflakeセキュアデータ共有を使用して次のことができます。
 
-- 複雑なレポートを作成する
-- アトリビューションモデリングを実行する
-- 自社内での安全な共有
-- 生のイベントまたはユーザーデータをCRM（Salesforceなど）にマッピングする
-- その他多数
+{% multi_lang_include partners/data_sharing_use_cases.md %}
 
-利用可能なテーブルと列の完全なリストについては、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)を参照してください。Snowflakeデータ共有には、そのリファレンスのすべてのテーブルに加え、スナップショット、キャンペーンおよびキャンバスの変更ログ、エージェントコンソールイベント、メッセージリトライイベント用のSnowflake専用テーブルが含まれます。
+利用可能なテーブルと列の完全なリストについては、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。Snowflakeデータ共有には、そのリファレンスのすべてのテーブルに加え、スナップショット、キャンペーンおよびキャンバスの変更ログ、エージェントコンソールイベント、メッセージリトライイベント用のSnowflake専用テーブルが含まれます。
 
 [未加工のテーブルスキーマをダウンロード](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)してテキストファイルとして確認することもできます。
 
@@ -107,9 +100,7 @@ BrazeとSnowflakeでのユーザーIDの命名規則の違いに注意してく�
 
 #### 非破壊的な変更 {#non-breaking-changes}
 
-非破壊的な変更はいつでも発生する可能性があり、一般的に追加の機能を提供します。非破壊的な変更の例には次のものがあります。
-- 新しいテーブルまたはビューを追加する
-- 既存のテーブルやビューにカラムを追加する
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 新しい列の追加は非破壊的な変更と見なされるため、Brazeでは`SELECT *`クエリを使用する代わりに、各クエリで関心のある列を明示的に列挙することを強くお勧めします。あるいは、列を明示的に名前付けするビューを作成し、テーブルを直接クエリする代わりにそれらのビューをクエリすることを検討してください。
@@ -117,10 +108,7 @@ BrazeとSnowflakeでのユーザーIDの命名規則の違いに注意してく�
 
 #### 破壊的な変更 {#breaking-changes}
 
-可能な場合には、破壊的な変更の前に通知を行い、移行期間を設けます。破壊的な変更の例には次のものがあります。
-- テーブルまたはビューを削除する
-- 既存のテーブルやビューからカラムを削除する
-- 既存の列の型またはnull許容性を変更する
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ### Snowflakeのリージョン {#snowflake-regions}
 
@@ -156,6 +144,6 @@ Snowflakeの履歴イベントデータのアーカイブは2019年4月まで遡
 
 データに対して実行されるクエリの速度、パフォーマンス、およびコストは、データのクエリに使用するウェアハウスのサイズによって決まります。場合によっては、分析のためにアクセスしているデータ量に応じて、クエリを成功させるためにより大きなウェアハウスサイズを使用する必要があるかもしれません。Snowflakeには、[ウェアハウスの概要](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html)や[ウェアハウスの考慮事項](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html)など、どのサイズを使用するかを最適に判断する方法に関する優れたリソースが用意されています。
 
-> Snowflakeの設定時に参照できるサンプルクエリセットについては、[サンプルクエリ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries/)および[ETLイベントパイプライン設定]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup/)の例をご確認ください。
+> Snowflakeの設定時に参照できるサンプルクエリセットについては、[サンプルクエリ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries)および[ETLイベントパイプライン設定]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup)の例をご確認ください。
 
-設定手順については、[クラウドデータ取り込み: データウェアハウス統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)を参照してください。
+設定手順については、[クラウドデータ取り込み: データウェアハウス統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)を参照してください。

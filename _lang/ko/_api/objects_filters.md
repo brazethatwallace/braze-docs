@@ -17,10 +17,10 @@ description: "이 랜딩 페이지에는 Braze API 호출에 사용되는 Braze 
 - [이벤트 객체]({{site.baseurl}}/api/objects_filters/event_object)
 - [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object)
 - [수신자 오브젝트]({{site.baseurl}}/api/objects_filters/recipient_object)
-- [개체 식별을 위한 별칭]({{site.baseurl}}/api/objects_filters/aliases_to_identify)
-- [트리거 등록정보 오브젝트]({{site.baseurl}}/api/objects_filters/trigger_properties_object)
+- [오브젝트 식별을 위한 별칭]({{site.baseurl}}/api/objects_filters/aliases_to_identify)
+- [트리거 속성 오브젝트]({{site.baseurl}}/api/objects_filters/trigger_properties_object)
 - [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object)
-- [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)
+- [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 - [스케줄 오브젝트]({{site.baseurl}}/api/objects_filters/schedule_object)
 - [카탈로그 선택 오브젝트]({{site.baseurl}}/api/objects_filters/catalog_selection_object)
 

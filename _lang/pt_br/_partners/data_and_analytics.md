@@ -2,175 +2,53 @@
 nav_title: "Dados e análise de dados"
 article_title: Parceiros de dados e análise de dados
 page_order: 5
-
 page_type: landing
-description: "Esta página lista os parceiros da Braze (Alloys) que permitem que você envie, armazene e coordene seus dados em diferentes ferramentas e provedores."
-layout: partner_page
+description: "Explore as parceiras de tecnologia da Braze para enviar, armazenar e coordenar dados entre plataformas de dados do cliente, data warehouses, ferramentas de análise de dados, privacidade e automação de fluxos de trabalho."
+layout: dev_guide
 search_tag: Partner
 
-partner_top_header: "Dados e análise de dados"
+guide_top_header: "Dados e análise de dados"
+guide_top_text: "Esses parceiros ajudam você a enviar, armazenar e coordenar dados em toda a sua stack. Navegue por uma categoria para encontrar guias de integração. Para uma lista completa, pesquisável e filtrável de todos os parceiros de tecnologia da Braze, visite o <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
 
-valid_partner_list:
-- name: Optimizely
-  url: /docs/partners/optimizely/
-- name: VWO
-  url: /docs/partners/vwo/
-- name: Adjust
-  url: /docs/partners/adjust/
-- name: Airbridge
-  url: /docs/partners/airbridge/
-- name: AppsFlyer
-  url: /docs/partners/appsflyer/
-- name: Branch
-  url: /docs/partners/branch_for_deeplinking/
-- name: Apteligent
-  url: /docs/partners/apteligent/
-- name: Amplitude
-  url: /docs/partners/amplitude/
-- name: Mixpanel
-  url: /docs/partners/mixpanel/
-- name: Looker
-  url: /docs/partners/looker/
-- name: Kubit
-  url: /docs/partners/kubit/
-- name: NPAW
-  url: /docs/partners/npaw/
-- name: Clarisights
-  url: /docs/partners/clarisights/
-- name: Heap
-  url: /docs/partners/heap/
-- name: Datadog
-  url: /docs/partners/datadog/
-- name: ThoughtSpot
-  url: /docs/partners/thoughtspot//
-- name: Tellius
-  url: /docs/partners/tellius/
-- name: Contentsquare
-  url: /docs/partners/contentsquare/
-- name: Sisu
-  url: /docs/partners/sisu_data/
-- name: Mozart Data
-  url: /docs/partners/mozart_data/
-- name: SalesWings
-  url: /docs/partners/saleswings/
-- name: Inbox Monster
-  url: /docs/partners/inbox_monster/
-- name: Kickbox
-  url: /docs/partners/kickbox/
-- name: Amazon S3
-  url: /docs/partners/amazon_s3/
-- name: Google Cloud Storage
-  url: /docs/partners/google_cloud_storage_for_currents/
-- name: Microsoft Azure Blob Storage
-  url: /docs/partners/microsoft_azure_blob_storage_for_currents/
-- name: Tiny Clues
-  url: /docs/partners/tinyclues/
-- name: Treasure Data
-  url: /docs/partners/treasure_data/
-- name: Adobe
-  url: /docs/partners/adobe/
-- name: ActionIQ
-  url: /docs/partners/actioniq/
-- name: Amperity
-  url: /docs/partners/amperity/
-- name: Blueconic
-  url: /docs/partners/blueconic/
-- name: Celebrus
-  url: /docs/partners/celebrus/
-- name: Chord
-  url: /docs/partners/chord/
-- name: Dynamics 365 Customer Insights
-  url: /docs/partners/dynamics_365_customer_insights
-- name: GrowthLoop
-  url: /docs/partners/growthloop/
-- name: Hightouch
-  url: /docs/partners/hightouch/
-- name: Lexer
-  url: /docs/partners/lexer/
-- name: Lytics
-  url: /docs/partners/lytics/
-- name: Merkury
-  url: /docs/partners/merkury/
-- name: mParticle
-  url: /docs/partners/mparticle_overview/
-- name: Octolis
-  url: /docs/partners/octolis/
-- name: Redpoint
-  url: /docs/partners/redpoint/
-- name: Rudderstack
-  url: /docs/partners/rudderstack/
-- name: Segment
-  url: /docs/partners/segment/
-- name: Simon Data
-  url: /docs/partners/simon_data/
-- name: Snowplow
-  url: /docs/partners/snowplow/
-- name: Tealium
-  url: /docs/partners/tealium/
-- name: Toovio
-  url: /docs/partners/toovio/
-- name: Zeotap
-  url: /docs/partners/zeotap/
-- name: actionable.me
-  url: /docs/partners/actionableme/
-- name: DataGrail
-  url: /docs/partners/datagrail/
-- name: Ketch
-  url: /docs/partners/ketch/
-- name: OneTrust
-  url: /docs/partners/onetrust/
-- name: Snowflake
-  url: /docs/partners/snowflake/
-- name: Facebook Lead Ads via Zapier
-  url: /docs/partners/facebook_via_zapier/
-- name: Zapier
-  url: /docs/partners/zapier/
-- name: Jebbit
-  url: /docs/partners/jebbit/
-- name: Justuno
-  url: /docs/partners/justuno/
-- name: Outgrow
-  url: /docs/partners/outgrow/
-- name: Quikly
-  url: /docs/partners/quikly/
-- name: ViralSweep
-  url: /docs/partners/viralsweep/
-- name: Wunderkind
-  url: /docs/partners/wunderkind/
-- name: Wyng
-  url: /docs/partners/wyng/
-- name: Antavo
-  url: /docs/partners/antavo/
-- name: Talon.One
-  url: /docs/partners/talonone/
-- name: FriendBuy
-  url: /docs/partners/friendbuy/
-- name: GRAVTY®
-  url: /docs/partners/lji/
-- name: Kognitiv Inspire
-  url: /docs/partners/kognitiv/
-- name: Punchh
-  url: /docs/partners/punchh/
-- name: SessionM
-  url: /docs/partners/sessionm/
-- name: Voucherify
-  url: /docs/partners/voucherify/
-- name: Census
-  url: /docs/partners/census/
-- name: DinMo
-  url: /docs/partners/dinmo/
-- name: Airbyte
-  url: /docs/partners/airbyte/
-- name: Fivetran
-  url: /docs/partners/fivetran/
-- name: MetaRouter
-  url: /docs/partners/metarouter/
-- name: Nexla
-  url: /docs/partners/nexla/
-- name: Eagle Eye
-  url: /docs/partners/eagle_eye/
-- name: Eppo
-  url: /docs/partners/eppo/
-- name: Lemnisk
-  url: /docs/partners/lemnisk/
+guide_featured_title: "Categorias"
+guide_featured_list:
+  - name: "Testes A/B"
+    link: /docs/partners/data_and_analytics/ab_testing
+    image: /assets/img/braze_icons/zap.svg
+  - name: "Análise de dados"
+    link: /docs/partners/data_and_analytics/analytics
+    image: /assets/img/braze_icons/layers-three-01.svg
+  - name: "Business Intelligence"
+    link: /docs/partners/data_and_analytics/business_intelligence
+    image: /assets/img/braze_icons/bar-chart-01.svg
+  - name: "Armazenamento em nuvem"
+    link: /docs/partners/data_and_analytics/cloud_storage
+    image: /assets/img/braze_icons/dataflow-01.svg
+  - name: "Importação de coorte"
+    link: /docs/partners/data_and_analytics/cohort_import
+    image: /assets/img/braze_icons/users-01.svg
+  - name: "Plataforma de dados do cliente"
+    link: /docs/partners/data_and_analytics/customer_data_platform
+    image: /assets/img/braze_icons/target-05.svg
+  - name: "Gestão de relacionamento com o cliente"
+    link: /docs/partners/data_and_analytics/customer_relationship_management
+    image: /assets/img/braze_icons/globe-02.svg
+  - name: "Privacidade de dados e conformidade"
+    link: /docs/partners/data_and_analytics/data_privacy
+    image: /assets/img/braze_icons/puzzle-piece-01.svg
+  - name: "Data warehouse"
+    link: /docs/partners/data_and_analytics/data_warehouses
+    image: /assets/img/braze_icons/shopping-cart-03.svg
+  - name: "Captura de leads"
+    link: /docs/partners/data_and_analytics/leads_capture
+    image: /assets/img/braze_icons/message-chat-circle.svg
+  - name: "Fidelidade"
+    link: /docs/partners/data_and_analytics/loyalty
+    image: /assets/img/braze_icons/stars-01.svg
+  - name: "ETL reverso"
+    link: /docs/partners/data_and_analytics/reverse_etl
+    image: /assets/img/braze_icons/magic-wand-02.svg
+  - name: "Automação de fluxos de trabalho"
+    link: /docs/partners/data_and_analytics/workflow_automation
+    image: /assets/img/braze_icons/send-01.svg
 ---

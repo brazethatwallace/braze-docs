@@ -23,9 +23,9 @@ channel:
 - **키:** 식별자 (예: `utm_source`)
 - **값:** 연결된 데이터 (예: `newsletter`)
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
-다음은 키-값 페어로 메타데이터를 추가하는 활용 사례 예시입니다:
+다음은 키-값 페어로 메타데이터를 추가하는 사용 사례 예시입니다:
 
 1. **추적 파라미터:** 분석 목적으로 UTM 파라미터 첨부
    - 키: `utm_campaign`
@@ -115,7 +115,7 @@ Braze가 APNs에 푸시 알림을 전송하면 페이로드는 JSON으로 포맷
 
 ![커스텀 키-값 페어 관련 스크린샷]({% image_buster /assets/img_archive/keyvalue_enterpairs.png %})
 
-커스텀 키-값 페어의 활용 사례에는 내부 측정기준 관리 및 사용자 인터페이스의 컨텍스트 설정이 포함되지만 이에 국한되지 않습니다. Braze에서는 [extras 키]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/customization/advanced_settings#extracting-data-from-push-key-value-pairs)를 통해 애플리케이션 내에서 사용할 수 있도록 푸시 알림과 함께 추가 키-값 페어를 전송할 수 있습니다. 다른 키를 사용하려면 앱이 해당 커스텀 키를 처리할 수 있는지 확인하세요.
+커스텀 키-값 페어의 사용 사례에는 내부 측정기준 관리 및 사용자 인터페이스의 컨텍스트 설정이 포함되지만 이에 국한되지 않습니다. Braze에서는 [extras 키]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/customization/advanced_settings#extracting-data-from-push-key-value-pairs)를 통해 애플리케이션 내에서 사용할 수 있도록 푸시 알림과 함께 추가 키-값 페어를 전송할 수 있습니다. 다른 키를 사용하려면 앱이 해당 커스텀 키를 처리할 수 있는지 확인하세요.
 
 {% alert warning %}
 애플리케이션에서 ab라는 최상위 키 또는 사전을 처리하지 않도록 해야 합니다.
@@ -139,7 +139,7 @@ Braze에서는 키-값 페어를 사용하여 푸시 알림에 추가 데이터 
 
 iOS 푸시와 마찬가지로 사용자 기기에 커스텀 키-값 페어를 전송할 수 있습니다.
 
-커스텀 키-값 페어의 일부 활용 사례에는 내부 측정기준 관리 및 사용자 인터페이스의 컨텍스트 설정이 포함되지만, 원하는 목적에 맞게 사용할 수 있습니다.
+커스텀 키-값 페어의 일부 사용 사례에는 내부 측정기준 관리 및 사용자 인터페이스의 컨텍스트 설정이 포함되지만, 원하는 목적에 맞게 사용할 수 있습니다.
 
 {% alert important %}
 데이터 페이로드가 제대로 작동하려면 앱의 백엔드에서 커스텀 키-값 페어를 처리할 수 있어야 합니다.
@@ -202,3 +202,7 @@ SparkPost와 SendGrid 모두 이메일에서 키-값 페어를 지원합니다. 
 Content Cards에 키-값 페어를 추가하려면 Braze 메시지 작성기의 **설정** 탭으로 이동하여 **새 페어 추가**를 선택합니다.
 
 ![Content Cards에 키-값 페어 추가]({% image_buster /assets/img_archive/kvp_content_cards.png %}){: style="max-width:70%;"}
+
+{% alert note %}
+대조군 배리언트는 키-값 페어를 지원하지 않습니다. A/B 테스트에서 대조군에 대한 분석을 캡처해야 하는 경우, `control=true`와 같은 키-값 페어가 포함된 메시지 배리언트를 생성하고 노출 횟수를 기록하면서 앱 코드에서 숨기세요.
+{% endalert %}

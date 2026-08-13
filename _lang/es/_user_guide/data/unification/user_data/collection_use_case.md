@@ -31,7 +31,7 @@ Estas acciones podrían entonces etiquetarse como los siguientes eventos persona
 - Llamadas de taxi con éxito
 - Llamadas de taxi fallidas
 
-Una vez implementados los eventos, StyleRyde puede ejecutar Campaigns como las siguientes:
+Una vez implementados los eventos, StyleRyde puede ejecutar campañas como las siguientes:
 
 1. Enviar mensajes a los usuarios que iniciaron el registro pero no lo han completado en un plazo determinado.
 2. Enviar mensajes de felicitación a los usuarios que hayan completado el registro.
@@ -53,7 +53,7 @@ Estas características podrían etiquetarse como los siguientes atributos person
 Estos atributos te permiten enviar campañas a usuarios como:
 
 1. Recordar a los usuarios que no han utilizado la aplicación en siete días y tienen crédito promocional en su cuenta que vuelvan a la aplicación y utilicen el crédito.
-2. Utilizar nuestras plantillas de mensajes y [funciones de personalización]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview/#personalized-messaging) para arrastrar el atributo de código promocional único a los mensajes dirigidos a los usuarios.
+2. Utilizar nuestras plantillas de mensajes y [funciones de personalización]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) para arrastrar el atributo de código promocional único a los mensajes dirigidos a los usuarios.
 
 {% alert important %}
 Braze prohibirá o bloqueará a los usuarios ("usuarios ficticios") con más de 5.000.000 de sesiones y dejará de ingerir sus eventos de SDK porque suelen ser el resultado de una mala integración. Si descubres que esto le ha ocurrido a un usuario legítimo, ponte en contacto con tu director de cuentas de Braze.

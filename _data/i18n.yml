@@ -24,6 +24,12 @@ en:
   nav_flyout_esc_hint_before: "Press "
   nav_flyout_esc_hint_after: " to close the menu"
   nav_flyout_shortcut_hint: Press Arrow down to open the documentation menu without expanding the sidebar.
+  site_search_input_aria: Search everything
+  site_search_input_placeholder_hint: Search…
+  onboarding_faq_search_aria: Search FAQ
+  onboarding_faq_search_placeholder: Search
+  broken_page_search_aria: Search Braze Documentation
+  broken_page_search_placeholder: Search Braze Documentation
   report_metrics_intro: "These are terms you'll find in your reports in your Braze account. Search for the metrics you need or filter by channel. This glossary does not necessarily include metrics you might see in Currents or other downloaded reports outside of your Braze account."
   report_metrics_search_placeholder: Search
   report_metrics_search_aria: Search glossary
@@ -263,6 +269,12 @@ fr:
   nav_flyout_esc_hint_before: "Appuyez sur "
   nav_flyout_esc_hint_after: " pour fermer le menu"
   nav_flyout_shortcut_hint: Appuyez sur la flèche vers le bas pour ouvrir le menu de documentation sans développer la barre latérale.
+  site_search_input_aria: Rechercher tout
+  site_search_input_placeholder_hint: Rechercher…
+  onboarding_faq_search_aria: Rechercher dans la FAQ
+  onboarding_faq_search_placeholder: Rechercher
+  broken_page_search_aria: Rechercher dans la documentation Braze
+  broken_page_search_placeholder: Rechercher dans la documentation Braze
   report_metrics_intro: "Ces termes désignent les indicateurs que vous trouvez dans vos rapports au sein de votre compte Braze. Recherchez les indicateurs dont vous avez besoin ou filtrez par canal. Ce glossaire ne couvre pas nécessairement tous les indicateurs que vous pourriez voir dans Currents ou dans d'autres rapports téléchargés en dehors de votre compte Braze."
   report_metrics_search_placeholder: Rechercher
   report_metrics_search_aria: Rechercher dans le glossaire
@@ -350,6 +362,12 @@ ja:
   nav_flyout_esc_hint_before: "メニューを閉じるには "
   nav_flyout_esc_hint_after: " を押してください"
   nav_flyout_shortcut_hint: サイドバーを広げずにドキュメントメニューを開くには、下矢印キーを押します。
+  site_search_input_aria: すべて検索
+  site_search_input_placeholder_hint: 検索…
+  onboarding_faq_search_aria: FAQを検索
+  onboarding_faq_search_placeholder: 検索
+  broken_page_search_aria: Brazeドキュメントを検索
+  broken_page_search_placeholder: Brazeドキュメントを検索
   report_metrics_intro: "Brazeアカウントのレポートに表示される用語をまとめています。検索で目的の指標を探すか、チャネルで絞り込みできます。Currentsや、Brazeアカウント外でダウンロードしたレポートにのみ出る指標は、この用語集に含まれない場合があります。"
   report_metrics_search_placeholder: 検索
   report_metrics_search_aria: 用語集を検索
@@ -563,6 +581,12 @@ ko:
   nav_flyout_esc_hint_before: "메뉴를 닫으려면 "
   nav_flyout_esc_hint_after: " 키를 누르세요"
   nav_flyout_shortcut_hint: 사이드바를 넓히지 않고 문서 메뉴를 열려면 아래쪽 화살표 키를 누르세요.
+  site_search_input_aria: 전체 검색
+  site_search_input_placeholder_hint: 검색…
+  onboarding_faq_search_aria: FAQ 검색
+  onboarding_faq_search_placeholder: 검색
+  broken_page_search_aria: Braze 문서 검색
+  broken_page_search_placeholder: Braze 문서 검색
   report_metrics_intro: "이 목록은 Braze 계정의 보고서에서 확인할 수 있는 용어를 설명합니다. 필요한 측정기준을 검색하거나 채널별로 필터링하세요. Currents나 Braze 계정 밖에서 다운로드한 보고서에만 표시되는 측정기준은 여기에 없을 수 있습니다."
   report_metrics_search_placeholder: 검색
   report_metrics_search_aria: 용어집 검색
@@ -771,6 +795,12 @@ pt-br:
   nav_flyout_esc_hint_before: "Pressione "
   nav_flyout_esc_hint_after: " para fechar o menu"
   nav_flyout_shortcut_hint: Pressione a seta para baixo para abrir o menu de documentação sem expandir a barra lateral.
+  site_search_input_aria: Buscar tudo
+  site_search_input_placeholder_hint: Buscar…
+  onboarding_faq_search_aria: Pesquisar FAQ
+  onboarding_faq_search_placeholder: Pesquisar
+  broken_page_search_aria: Pesquisar na documentação da Braze
+  broken_page_search_placeholder: Pesquisar na documentação da Braze
   report_metrics_intro: "Estes são termos que você encontra nos relatórios da sua conta Braze. Pesquise a métrica de que precisa ou filtre por canal. Este glossário não inclui necessariamente todas as métricas que você pode ver no Currents ou em outros relatórios baixados fora da sua conta Braze."
   report_metrics_search_placeholder: Pesquisar
   report_metrics_search_aria: Pesquisar no glossário
@@ -858,6 +888,12 @@ es:
   nav_flyout_esc_hint_before: "Pulse "
   nav_flyout_esc_hint_after: " para cerrar el menú"
   nav_flyout_shortcut_hint: Pulse la flecha hacia abajo para abrir el menú de documentación sin expandir la barra lateral.
+  site_search_input_aria: Buscar todo
+  site_search_input_placeholder_hint: Buscar…
+  onboarding_faq_search_aria: Buscar en las preguntas frecuentes
+  onboarding_faq_search_placeholder: Buscar
+  broken_page_search_aria: Buscar en la documentación de Braze
+  broken_page_search_placeholder: Buscar en la documentación de Braze
   report_metrics_intro: "Estos son términos que encontrará en los informes de su cuenta de Braze. Busque la métrica que necesite o filtre por canal. Este glosario no incluye necesariamente todas las métricas que pueda ver en Currents u otros informes descargados fuera de su cuenta de Braze."
   report_metrics_search_placeholder: Buscar
   report_metrics_search_aria: Buscar en el glosario
@@ -945,6 +981,12 @@ de:
   nav_flyout_esc_hint_before: "Drücken Sie "
   nav_flyout_esc_hint_after: ", um das Menü zu schließen"
   nav_flyout_shortcut_hint: Drücken Sie die Abwärtspfeiltaste, um das Dokumentationsmenü zu öffnen, ohne die Seitenleiste zu erweitern.
+  site_search_input_aria: Alles durchsuchen
+  site_search_input_placeholder_hint: Suchen…
+  onboarding_faq_search_aria: FAQ durchsuchen
+  onboarding_faq_search_placeholder: Suchen
+  broken_page_search_aria: Braze-Dokumentation durchsuchen
+  broken_page_search_placeholder: Braze-Dokumentation durchsuchen
   report_metrics_intro: "Hier finden Sie Begriffe und Kennzahlen aus den Berichten in Ihrem Braze-Konto. Suchen Sie nach der passenden Kennzahl oder filtern Sie nach Kanal. Dieses Glossar umfasst nicht zwingend alle Kennzahlen, die Sie in Currents oder anderen heruntergeladenen Berichten außerhalb Ihres Braze-Kontos sehen."
   report_metrics_search_placeholder: Suchen
   report_metrics_search_aria: Glossar durchsuchen

@@ -71,7 +71,7 @@ await openSession();
 
 Antes de integrar o Braze JavaScript SDK, você precisará de:
 
-- **Conta na Braze**: Uma conta na Braze com acesso à API
+- **Conta Braze**: Uma conta Braze com acesso à API
 - **Chave de API**: A chave de API do seu app no dashboard da Braze
 - **Endpoint do SDK**: A URL do endpoint do SDK da Braze (por exemplo, `sdk.iad-01.braze.com`)
 

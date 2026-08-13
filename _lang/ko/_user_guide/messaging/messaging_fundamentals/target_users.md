@@ -90,9 +90,9 @@ Segment 멤버십 필터를 통해 **추가 필터** 섹션에 Segment를 추가
 
 #### 오디언스 통계 {#audience-statistics}
 
-Braze는 하단에 타겟팅된 채널의 상세한 오디언스 통계를 제공합니다. 사용자 기반이 클수록 **도달 가능 사용자** 수는 대략적인 추정치일 가능성이 높습니다. [전역 제어 그룹]({{site.baseurl}}/user_guide/audience/global_control_group)을 사용하거나 메시지 자격 조건을 설정하면 도달 가능 사용자 수가 줄어들 수 있습니다.
+Braze는 하단에 타겟팅된 채널의 상세한 오디언스 통계를 제공합니다. 사용자 기반이 클수록 **도달 가능 사용자** 수는 대략적인 추정치일 가능성이 높습니다. [글로벌 컨트롤 그룹]({{site.baseurl}}/user_guide/audience/global_control_group)을 사용하거나 메시지 자격 조건을 설정하면 도달 가능 사용자 수가 줄어들 수 있습니다.
 
-- 도달 가능 사용자의 정확한 수를 확인하려면 [정확한 통계 계산]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics)을 선택하세요. 이 기능은 사용자 기반의 모든 사용자를 검색합니다.
+- 도달 가능 사용자의 정확한 수를 확인하려면 [정확한 통계 계산]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics)을 선택하세요. 이 기능은 사용자 기반의 모든 사용자를 검색합니다.
 - 사용자 기반 중 타겟팅되는 비율이나 이 Segment의 생애주기 가치(LTV)를 확인하려면 **추가 통계 보기**를 선택하세요.
 
 ##### 타겟 오디언스 수와 도달 가능 사용자 수가 다를 수 있는 이유 {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
@@ -113,7 +113,7 @@ Braze에서 Campaign 또는 Canvas를 구축할 때 타겟팅은 두 부분으�
 1. **타겟 오디언스:** 누가 자격이 있는지
 2. **진입 기준:** 무엇이 전달을 트리거하는지
 
-순서가 중요합니다: Braze는 진입 기준을 평가하기 전에 해당 사용자가 타겟 오디언스에 속하는지 먼저 확인합니다. 사용자가 해당 시점에 오디언스 자격을 갖추지 못하면, 나중에 진입 이벤트를 트리거하더라도 Campaign 또는 Canvas에 진입하지 않습니다. 타겟 오디언스를 대기실이라고 생각하세요: 트리거가 발생할 때 이미 안에 있는 사용자만 앞으로 진행할 수 있습니다.
+순서가 중요합니다. Braze는 진입 기준을 평가하기 전에 해당 사용자가 타겟 오디언스에 속하는지 먼저 확인합니다. 사용자가 해당 시점에 오디언스 자격을 갖추지 못하면, 나중에 진입 이벤트를 트리거하더라도 Campaign 또는 Canvas에 진입하지 않습니다. 타겟 오디언스를 대기실이라고 생각하세요. 트리거가 발생할 때 이미 안에 있는 사용자만 앞으로 진행할 수 있습니다.
 
 ### 예시 1 {#example-1}
 

@@ -18,7 +18,7 @@ platform:
 
 In-App-Nachrichten werden ausgelöst, wenn das SDK einen der folgenden angepassten Event-Typen protokolliert: `Session Start`, `Push Click`, `Any Purchase`, `Specific Purchase` und `Custom Event` (die letzten beiden enthalten robuste Filter für Eigenschaften).
 
-Zu Beginn der Sitzung einer Nutzerin oder eines Nutzers stellt Braze alle in Frage kommenden In-App-Nachrichten auf deren Gerät zu, während gleichzeitig Assets vorab abgerufen werden, um die Anzeige-Latenz zu minimieren. Wenn das triggernde Ereignis mehr als eine in Frage kommende In-App-Nachricht hat, wird nur die Nachricht mit der höchsten Priorität zugestellt. Weitere Informationen finden Sie unter [Session Lifecycle]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#about-the-session-lifecycle).
+Zu Beginn der Sitzung einer Nutzerin oder eines Nutzers stellt Braze alle in Frage kommenden In-App-Nachrichten auf deren Gerät zu, während gleichzeitig Assets vorab abgerufen werden, um die Anzeige-Latenz zu minimieren. Wenn das triggernde Ereignis mehr als eine in Frage kommende In-App-Nachricht hat, wird nur die Nachricht mit der höchsten Priorität zugestellt. Weitere Informationen finden Sie unter [Session Lifecycle]({{site.baseurl}}/developer_guide/analytics/tracking_sessions).
 
 {% alert note %}
 In-App-Nachrichten können nicht über die API oder durch API-Ereignisse ausgelöst werden&#8212;nur durch angepasste Events, die vom SDK protokolliert werden. Wenn Sie mehr über die Protokollierung erfahren möchten, lesen Sie den Abschnitt [Protokollierung angepasster Events]({{site.baseurl}}/developer_guide/analytics/logging_events).
@@ -36,7 +36,21 @@ Eine `inapp`- (oder „[Standard]({{site.baseurl}}/user_guide/message_building_b
 
 Eine `templated_iam`- (oder „Templated“-) In-App-Nachricht ist noch nicht mit den erforderlichen Informationen vorausgefüllt. Braze muss eine weitere Anfrage stellen, um die Informationen abzurufen, bevor die Nachricht angezeigt werden kann.
 
-{% multi_lang_include in-app_messages/templated_iams.md %}
+In-App-Nachrichten werden als Templated-In-App-Nachrichten zugestellt, wenn **Kampagnenberechtigung vor der Anzeige erneut prüfen** ausgewählt ist oder wenn einer der folgenden Liquid-Tags in der Nachricht vorhanden ist:
+
+- `canvas_entry_properties`
+- `connected_content`
+- SMS-Variablen wie {% raw %}`{sms.${*}}`{% endraw %}
+- `catalog_items`
+- `catalog_selection_items`
+- `event_properties`
+
+Das bedeutet, dass das Gerät beim Sitzungsstart den Trigger dieser In-App-Nachricht anstelle der gesamten Nachricht erhält. Wenn die Nutzerin oder der Nutzer die In-App-Nachricht triggert, stellt das Gerät eine Netzwerkanfrage, um die eigentliche Nachricht abzurufen.
+
+{% alert note %}
+Die Nachricht wird nicht zugestellt, wenn das Gerät keinen Internetzugang hat. Die Nachricht wird möglicherweise nicht zugestellt, wenn die Liquid-Logik zu lange für die Auflösung benötigt.
+{% endalert %}
+
 
 ## Schlüssel-Wert-Paare {#key-value-pairs}
 
@@ -259,7 +273,7 @@ Derzeit unterstützt das Web Braze SDK das manuelle Triggern von Nachrichten üb
 {% tab android %}
 Um eine In-App-Nachricht über ein vom Server gesendetes Ereignis auszulösen, senden Sie eine stille Push-Benachrichtigung an das Gerät, die einen angepassten Push-Callback zur Protokollierung eines SDK-basierten Ereignisses ermöglicht. Dieses Ereignis triggert dann die In-App-Nachricht für die Nutzer:innen.
 
-#### 1. Schritt: Erstellen Sie einen Push-Callback, um den stillen Push zu empfangen {#step-1-create-a-push-callback-to-receive-the-silent-push}
+#### Schritt 1: Erstellen Sie einen Push-Callback, um den stillen Push zu empfangen {#step-1-create-a-push-callback-to-receive-the-silent-push}
 
 Registrieren Sie Ihren angepassten Push-Callback, um auf eine bestimmte stille Push-Benachrichtigung zu warten. Weitere Informationen finden Sie unter [Push-Benachrichtigungen einrichten]({{site.baseurl}}/developer_guide/push_notifications#android_setting-up-push-notifications).
 
@@ -302,33 +316,33 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 {% endsubtab %}
 {% endsubtabs %}
 
-#### 2. Schritt: Erstellen Sie eine Push-Kampagne {#step-2-create-a-push-campaign}
+#### Schritt 2: Erstellen Sie eine Push-Campaign {#step-2-create-a-push-campaign}
 
-Erstellen Sie eine [stille Push-Kampagne]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android), die über das vom Server gesendete Event getriggert wird.
+Erstellen Sie eine [stille Push-Campaign]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android), die über das vom Server gesendete Event getriggert wird.
 
-![Zustellungsschritt einer stillen Push-Kampagne, die für aktionsbasierte Zustellung mit einem angepassten Event-Trigger „server_event“ konfiguriert ist.]({% image_buster /assets/img_archive/serverSentPush.png %})
+![Zustellungsschritt einer stillen Push-Campaign, die für aktionsbasierte Zustellung mit einem angepassten Event-Trigger „server_event“ konfiguriert ist.]({% image_buster /assets/img_archive/serverSentPush.png %})
 
-Die Push-Kampagne muss Schlüssel-Wert-Paare enthalten, die angeben, dass diese Push-Kampagne gesendet wird, um ein angepasstes SDK-Event zu protokollieren. Dieses Event wird verwendet, um die In-App-Nachricht zu triggern.
+Die Push-Campaign muss Schlüssel-Wert-Paare enthalten, die angeben, dass diese Push-Campaign gesendet wird, um ein angepasstes SDK-Event zu protokollieren. Dieses Event wird verwendet, um die In-App-Nachricht zu triggern.
 
-![Zwei Sätze von Schlüssel-Wert-Paaren: IS_SERVER_EVENT auf „true“ gesetzt und CAMPAIGN_NAME auf „Beispielname der Kampagne“ gesetzt.]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
+![Zwei Sätze von Schlüssel-Wert-Paaren: IS_SERVER_EVENT auf „true“ gesetzt und CAMPAIGN_NAME auf „Beispielname der Campaign“ gesetzt.]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
 
 Der frühere Code für den Push-Callback erkennt die Schlüssel-Wert-Paare und protokolliert das entsprechende angepasste SDK-Event.
 
 Wenn Sie Ihrem „In-App-Nachricht triggern“-Event Event-Eigenschaften hinzufügen möchten, können Sie diese in den Schlüssel-Wert-Paaren des Push-Payloads übergeben. In diesem Beispiel wurde der Campaign-Name der nachfolgenden In-App-Nachricht eingefügt. Ihr angepasster Push-Callback kann dann bei der Protokollierung des angepassten Events den Wert als Parameter der Event-Eigenschaft übergeben.
 
-#### 3. Schritt: In-App-Kampagne erstellen {#step-3-create-an-in-app-message-campaign}
+#### Schritt 3: In-App-Nachrichten-Campaign erstellen {#step-3-create-an-in-app-message-campaign}
 
-Erstellen Sie Ihre für Nutzer:innen sichtbare In-App-Nachrichten-Kampagne im Braze-Dashboard. Diese Kampagne sollte eine aktionsbasierte Zustellung haben und durch das angepasste Event ausgelöst werden, das in Ihrem angepassten Push-Callback protokolliert wird.
+Erstellen Sie Ihre für Nutzer:innen sichtbare In-App-Nachrichten-Campaign im Braze-Dashboard. Diese Campaign sollte eine aktionsbasierte Zustellung haben und durch das angepasste Event ausgelöst werden, das in Ihrem angepassten Push-Callback protokolliert wird.
 
 Im folgenden Beispiel wurde die zu triggernde In-App-Nachricht konfiguriert, indem die Event-Eigenschaft im Rahmen des ursprünglichen stillen Push gesendet wurde.
 
-![Eine aktionsbasierte Zustellung, bei der eine In-App-Nachricht ausgelöst wird, wenn „campaign_name“ gleich „IAM-Kampagnenname Beispiel“ ist.]({% image_buster /assets/img_archive/iam_event_trigger.png %})
+![Eine aktionsbasierte Zustellung, bei der eine In-App-Nachricht ausgelöst wird, wenn „campaign_name“ gleich „IAM-Campaign-Name Beispiel“ ist.]({% image_buster /assets/img_archive/iam_event_trigger.png %})
 
 Wenn ein vom Server gesendetes Event protokolliert wird, während sich die App nicht im Vordergrund befindet, wird das Event protokolliert, aber die In-App-Nachricht wird nicht angezeigt. Wenn Sie möchten, dass das Event verzögert wird, bis die Anwendung im Vordergrund ist, müssen Sie in Ihrem angepassten Push-Empfänger eine Prüfung einbauen, um das Event zu verwerfen oder zu verzögern, bis die App in den Vordergrund getreten ist.
 {% endtab %}
 
 {% tab swift %}
-#### 1. Schritt: Stille Push-Benachrichtigungen und Schlüssel-Wert-Paare verarbeiten {#step-1-handle-silent-push-and-key-value-pairs}
+#### Schritt 1: Stille Push-Benachrichtigungen und Schlüssel-Wert-Paare verarbeiten {#step-1-handle-silent-push-and-key-value-pairs}
 
 Implementieren Sie die folgende Funktion und rufen Sie sie in der [`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`-Methode](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application/) auf:
 
@@ -365,13 +379,13 @@ Beim Empfang einer stillen Push-Benachrichtigung wird ein vom SDK aufgezeichnete
 Da eine Push-Nachricht verwendet wird, um ein vom SDK protokolliertes angepasstes Event aufzuzeichnen, muss Braze ein Push-Token für jede Nutzerin und jeden Nutzer speichern, um diese Lösung zu aktivieren. Für iOS-Nutzer:innen speichert Braze ein Token erst ab dem Zeitpunkt, an dem Nutzer:innen den Push-Prompt des Betriebssystems erhalten haben. Davor sind die Nutzer:innen nicht per Push erreichbar und die obige Lösung ist nicht möglich.
 {% endalert %}
 
-#### 2. Schritt: Erstellen Sie eine stille Push-Kampagne {#step-2-create-a-silent-push-campaign}
+#### Schritt 2: Erstellen Sie eine stille Push-Campaign {#step-2-create-a-silent-push-campaign}
 
-Erstellen Sie eine [stille Push-Kampagne]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift), die über das vom Server gesendete Event ausgelöst wird.
+Erstellen Sie eine [stille Push-Campaign]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift), die über das vom Server gesendete Event ausgelöst wird.
 
 ![Eine aktionsbasierte Zustellung von In-App-Nachrichten, die an Nutzer:innen zugestellt wird, deren Nutzerprofile das angepasste Event „server_event“ enthalten.]({% image_buster /assets/img_archive/iosServerSentPush.png %})
 
-Die Push-Kampagne muss zusätzliche Schlüssel-Wert-Paare (Extras) enthalten, die angeben, dass diese Push-Kampagne gesendet wird, um ein angepasstes SDK-Event zu protokollieren. Dieses Event wird verwendet, um die In-App-Nachricht zu triggern.
+Die Push-Campaign muss zusätzliche Schlüssel-Wert-Paare (Extras) enthalten, die angeben, dass diese Push-Campaign gesendet wird, um ein angepasstes SDK-Event zu protokollieren. Dieses Event wird verwendet, um die In-App-Nachricht zu triggern.
 
 ![Eine aktionsbasierte Zustellung von In-App-Nachrichten mit zwei Schlüssel-Wert-Paaren. „CAMPAIGN_NAME“ auf „Beispiel für den Namen der In-App-Nachricht“ gesetzt und „IS_SERVER_EVENT“ auf „true“ gesetzt.]({% image_buster /assets/img_archive/iOSServerPush.png %})
 
@@ -379,13 +393,13 @@ Der Code in der Methode `application(_:didReceiveRemoteNotification:fetchComplet
 
 Sie können entweder den Event-Namen oder die Event-Eigenschaften ändern, indem Sie den gewünschten Wert in den zusätzlichen Schlüssel-Wert-Paaren (Extras) der Push-Nutzlast senden. Bei der Protokollierung des angepassten Events können diese Extras entweder als Parameter des Event-Namens oder der Event-Eigenschaft verwendet werden.
 
-#### 3. Schritt: In-App-Kampagne erstellen
+#### Schritt 3: In-App-Nachrichten-Campaign erstellen
 
-Erstellen Sie im Braze-Dashboard eine für Ihre Nutzer:innen sichtbare In-App-Nachrichten-Kampagne. Diese Kampagne sollte eine aktionsbasierte Zustellung haben und durch das angepasste Event ausgelöst werden, das in der Methode `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` protokolliert wird.
+Erstellen Sie im Braze-Dashboard eine für Ihre Nutzer:innen sichtbare In-App-Nachrichten-Campaign. Diese Campaign sollte eine aktionsbasierte Zustellung haben und durch das angepasste Event ausgelöst werden, das in der Methode `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` protokolliert wird.
 
 Im folgenden Beispiel wurde die zu triggernde In-App-Nachricht konfiguriert, indem die Event-Eigenschaft im Rahmen des ursprünglichen stillen Push gesendet wurde.
 
-![Eine aktionsbasierte Zustellung von In-App-Nachrichten, die an Nutzer:innen zugestellt wird, die das angepasste Event „In-App-Nachrichtenauslöser“ ausführen, wobei „campaign_name“ gleich „IAM-Kampagnenname Beispiel“ ist.]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
+![Eine aktionsbasierte Zustellung von In-App-Nachrichten, die an Nutzer:innen zugestellt wird, die das angepasste Event „In-App-Nachrichten-Trigger“ ausführen, wobei „campaign_name“ gleich „IAM-Campaign-Name Beispiel“ ist.]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
 
 {% alert note %}
 Beachten Sie, dass diese In-App-Nachrichten nur ausgelöst werden, wenn sich die Anwendung beim Empfang der stillen Push-Benachrichtigung im Vordergrund befindet.
@@ -518,9 +532,9 @@ Appboy.AppboyBinding.DisplayNextInAppMessage();
 
 ## Ursachen für Verzögerungen bei In-App-Nachrichten {#causes-of-in-app-message-delays}
 
-Wenn Sie eine In-App-Nachrichten-Kampagne einige Sekunden nach dem Sitzungsstart erhalten, kann die Verzögerung folgende Ursachen haben:
+Wenn Sie eine In-App-Nachrichten-Campaign einige Sekunden nach dem Sitzungsstart erhalten, kann die Verzögerung folgende Ursachen haben:
 
-- Eine Verzögerung beim Kampagnen-Trigger
+- Eine Verzögerung beim Campaign-Trigger
 - Anpassungen
 - Das triggernde Ereignis wurde später als erwartet aufgezeichnet (z. B. bei einer `templated_iam`)
 

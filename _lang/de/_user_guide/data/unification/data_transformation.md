@@ -29,7 +29,7 @@ Viele moderne Plattformen verfügen über „Webhooks“ oder Realtime-API-Benac
 
 Das Endergebnis ist eine Webhook-Integration, die eine Quellplattform Ihrer Wahl anbindet, indem sie deren Webhooks in Braze-Updates umwandelt.
 
-{% details More on webhooks %}
+{% details Mehr über Webhooks %}
 Webhooks sind Realtime-Benachrichtigungen, die über eine HTTP-POST-Anfrage an ein bestimmtes Ziel gesendet werden. Webhooks werden häufig verwendet, um Daten von einem Punkt zu einem anderen zu senden, wobei der Webhook Daten über eine stattgefundene Aktion und die an dieser Aktion beteiligten Personen übermitteln kann.
 
 Eine Umfrageplattform kann zum Beispiel einen Webhook an ein Ziel Ihrer Wahl senden, sobald eine Umfrageantwort auf ein Online-Formular eingeht. Oder eine Kundendienstplattform kann einen Webhook an ein Ziel ihrer Wahl senden, wenn ein Kundendienst-Ticket erstellt wird.
@@ -65,7 +65,7 @@ Wir würden uns freuen, wenn auch Entwickler:innen dieses Feature nutzen würden
 
 ### Kann ich Braze Datentransformation auch dann verwenden, wenn meine externe Plattform als Bezeichner nur eine E-Mail-Adresse oder Telefonnummer angibt? {#can-i-still-use-braze-data-transformation-if-my-external-platform-only-gives-an-email-address-or-phone-number-as-an-identifier}
 
-Ja. Sie können Ihre Transformationen zum Update des Endpunkts `/users/track` mit der [E-Mail-Adresse oder Telefonnummer als Bezeichner]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-email-address) verwenden.
+Ja. Sie können Ihre Transformationen zum Update des Endpunkts `/users/track` mit der [E-Mail-Adresse oder Telefonnummer als Bezeichner]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-email-address) verwenden.
 
 Dies funktioniert, indem Sie `email` oder `phone` als Bezeichner-Eigenschaft im Transformationscode anstelle von `external_id` oder `braze_id` verwenden. Der [Beispiel-Transformationscode]({{site.baseurl}}/user_guide/data/unification/data_transformation/use_cases#example-transformation-code) verwendet diese Funktionalität.
 

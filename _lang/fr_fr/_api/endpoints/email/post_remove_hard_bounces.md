@@ -20,7 +20,7 @@ description: "Cet article présente en détail l'endpoint Braze Supprimer les ad
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `email.bounce.remove`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `email.bounce.remove`.
 
 ## Limite de débit {#rate-limit}
 
@@ -41,9 +41,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Paramètres de requête {#request-parameters}
 
-| Paramètre | Requis | Type de données | Description |
+| Paramètre | Obligatoire | Type de données | Description |
 | ----------|-----------| ---------|------ |
-| `email` | Requis | Chaîne de caractères ou tableau | Adresse e-mail sous forme de chaîne de caractères à modifier, ou tableau contenant jusqu'à 50 adresses e-mail à modifier. |
+| `email` | Obligatoire | Chaîne de caractères ou tableau | Adresse e-mail sous forme de chaîne de caractères à modifier, ou tableau contenant jusqu'à 50 adresses e-mail à modifier. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}

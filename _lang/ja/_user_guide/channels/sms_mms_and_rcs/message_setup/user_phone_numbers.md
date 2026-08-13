@@ -2,7 +2,7 @@
 nav_title: "ユーザーの電話番号"
 article_title: SMSユーザーの電話番号
 page_order: 3
-description: "このリファレンス記事では、SMS電話番号のフォーマット、電話番号のインポート方法、およびSMSサブスクリプショングループへのユーザー追加方法について説明します。"
+description: "このリファレンス記事では、SMS電話番号のフォーマット、電話番号のインポート方法、およびSMS購読グループへのユーザー追加方法について説明します。"
 page_type: reference
 alias: /user_phone_numbers/
 channel:
@@ -37,7 +37,7 @@ channel:
 
 電話番号をインポートする際は、[推奨フォーマット](#recommended-format)に従うことが重要です。電話番号をインポートするには、以下のいずれかの方法を使用してください。
 
-- [BrazeにCSVをアップロードする]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)
+- [BrazeにCSVをアップロードする]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)
 - [`/users/track`エンドポイントを使用する]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 
 {% alert important %}
@@ -46,7 +46,7 @@ channel:
 
 ## 電話番号のバリデーション {#phone-number-validation}
 
-Brazeは電話番号のバリデーションにGoogleの[libphonenumber](https://github.com/google/libphonenumber)ライブラリーを使用しています。新しいモバイル番号プレフィックスが導入された場合、上流のライブラリーが更新されるとサポートが追加されます。Brazeは有効なプレフィックスの個別リストを管理していません。
+Brazeは電話番号のバリデーションにGoogleの[libphonenumber](https://github.com/google/libphonenumber)ライブラリを使用しています。新しいモバイル番号プレフィックスが導入された場合、上流のライブラリが更新されるとサポートが追加されます。Brazeは有効なプレフィックスの個別リストを管理していません。
 
 ### 無効な電話番号の処理 {#handling-invalid-phone-numbers}
 
@@ -79,11 +79,11 @@ SMSの拒否はSMS割り当てに対して課金されます。
 2. **新規エクステンションを作成** > **フルリフレッシュ**または**インクリメンタルリフレッシュ**を選択します。
 3. SMSの拒否を持つユーザーを特定するSQLクエリを記述します。例えば、`USERS_MESSAGES_SMS_REJECTION_SHARED`イベントをクエリして、SMSの拒否を受けたユーザーを見つけることができます。
 4. セグメントエクステンションを保存します。
-5. SMSのセグメントを作成する際に、このセグメントエクステンションに含まれるユーザーを除外するフィルターを追加します。
+5. SMSセグメントを作成する際に、このセグメントエクステンションに含まれるユーザーを除外するフィルターを追加します。
 
-## SMSおよびRCSサブスクリプショングループへのユーザー追加 {#add-users-to-sms-and-rcs-subscription-groups}
+## SMSおよびRCS購読グループへのユーザー追加 {#add-users-to-sms-and-rcs-subscription-groups}
 
-ユーザーがSMSまたはRCSメッセージを受信するには、有効な電話番号を持ち、サブスクリプショングループにオプトインしている必要があります。サブスクリプショングループは、実行しているSMSまたはRCSプログラムに紐づいています（[SMS、MMS、およびRCSの法的要件]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)に従い、各顧客の同意を記録していることを確認してください）。詳細については、[SMSおよびRCSサブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups)を参照してください。
+ユーザーがSMSまたはRCSメッセージを受信するには、有効な電話番号を持ち、購読グループにオプトインしている必要があります。購読グループは、実行しているSMSまたはRCSプログラムに紐づいています（[SMS、MMS、およびRCSの法的要件]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)に従い、各顧客の同意を記録していることを確認してください）。詳細については、[SMSおよびRCS購読グループ]({{site.baseurl}}/sms_rcs_subscription_groups)を参照してください。
 
 ## サードパーティのソーシングと検証 {#third-party-sourcing-and-verification}
 

@@ -30,7 +30,7 @@ description: "이 문서에서는 Segment 목록 필터링, Segment 생성, Segm
 - **예상 크기:** Segment에 포함된 사용자 수의 대략적인 범위
 - **태그:** Segment에 연결된 태그
 - **Teams:** Segment에 연결된 Teams
-- **고급 추적 Segment만:** [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking)이 활성화된 Segment만 표시합니다.
+- **고급 추적 Segment만:** [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)이 활성화된 Segment만 표시합니다.
 
 ### 열 {#columns}
 
@@ -72,7 +72,7 @@ Segment가 서로 참조하는 루프를 방지하기 위해, **Segment Membersh
 워크스페이스에 있는 기존 Segment의 머신 판독 가능한 내보내기가 필요한 경우(현재 테이블 보기뿐만 아니라), [Segment 목록 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/segments/get_segment)를 사용하고 결과를 페이지네이션하세요. 아카이브된 Segment를 감사하려면 상태 필터를 사용하여 **Segments** 대시보드에서 별도로 검토하세요.
 {% endalert %}
 
-![여러 Segment가 선택되어 있고 태그 지정 드롭다운 필드에서 CRM이 선택된 모습.]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}
+!["CRM"이 "Tag As" 드롭다운 필드에서 선택된 상태로 여러 Segment가 선택되어 있는 모습.]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}
 
 ### 마지막 조회 이후 변경 사항 {#changes-since-last-viewed}
 

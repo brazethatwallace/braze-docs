@@ -8,32 +8,32 @@ description: "Aprenda como registrar compras através do SDK da Braze."
 
 # Registrar compras {#log-purchases}
 
-> Aprenda como registrar compras no app através do SDK da Braze, para que você possa determinar sua receita ao longo do tempo e entre diferentes fontes. Isso permitirá que você segmente usuários [com base no lifetime value deles]({{site.baseurl}}/developer_guide/analytics#purchase-events--revenue-tracking) usando eventos personalizados, atributos personalizados e eventos de compra.
+> Aprenda como registrar compras no app através do SDK da Braze, para que você possa determinar sua receita ao longo do tempo e entre diferentes fontes. Isso permite que você segmente usuários [com base no valor do tempo de vida deles]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) usando eventos personalizados, atributos personalizados e eventos de compra.
 
 {% alert note %}
 Para wrapper SDKs não listados, use o método nativo relevante do Android ou Swift.
 {% endalert %}
 
-Qualquer moeda diferente de USD reportada será exibida na Braze em USD com base na taxa de câmbio na data em que foi reportada. Para evitar a conversão de moeda, defina a moeda como USD.
+Qualquer moeda diferente de USD reportada será exibida na Braze em USD com base na taxa de câmbio na data em que foi reportada. Para saber mais sobre conversão no dashboard, cache e atualização da taxa de câmbio, consulte [Conversão de moeda]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#currency-conversion). Para evitar a conversão, registre as compras com `USD` como código de moeda.
 
-## Registrando compras e receita {#logging-purchases-and-revenue}
+## Registrar compras e receitas {#logging-purchases-and-revenue}
 
-Para registrar compras e receita, chame `logPurchase()` após uma compra bem-sucedida em seu app. Se o identificador do produto estiver vazio, a compra não será registrada na Braze.
+Para registrar compras e receitas, chame `logPurchase()` após uma compra bem-sucedida em seu app. Se o identificador do produto estiver vazio, a compra não será registrada na Braze.
 
 {% tabs %}
 {% tab web %}
-Para uma implementação padrão do SDK Web, você pode usar o seguinte método:
+Para uma implementação padrão do Web SDK, você pode usar o seguinte método:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity);
 ```
 
-Se você preferir usar o Google Tag Manager, pode usar o tipo de tag **Compra** para chamar o [método `logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase). Use essa tag para rastrear compras na Braze, incluindo opcionalmente propriedades de compra. Para fazer isso:
+Se preferir usar o Google Tag Manager, você pode usar o tipo de tag **Purchase** para chamar o [método `logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase). Use essa tag para rastrear compras na Braze, incluindo opcionalmente propriedades de compra. Para isso:
 
-1. Os campos **ID do produto** e **Preço** são obrigatórios.
-2. Use o botão **Adicionar linha** para adicionar propriedades de compra.
+1. Os campos **Product ID** e **Price** são obrigatórios.
+2. Use o botão **Add Row** para adicionar propriedades de compra.
 
-![Uma caixa de diálogo mostrando as definições de configuração da tag de ação da Braze. As configurações incluídas são "tipo de tag", "ID externo", "preço", "código da moeda", "quantidade" e "propriedades de compra".]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
+![Uma caixa de diálogo mostrando as configurações da Braze Action Tag. As configurações incluem "tag type", "external ID", "price", "currency code", "quantity" e "purchase properties".]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
 {% endtab %}
 
 {% tab android %}
@@ -133,23 +133,23 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 `productID` pode ter no máximo 255 caracteres. Além disso, se o identificador do produto estiver vazio, a compra não será registrada na Braze.
 {% endalert %}
 
-### Adição de propriedades {#adding-properties}
+### Adicionar propriedades {#adding-properties}
 
 Você pode adicionar metadados sobre compras passando um dicionário preenchido com valores `Int`, `Double`, `String`, `Bool` ou `Date`.
 
 {% tabs %}
 {% tab web %}
-Para uma implementação padrão do SDK Web, você pode usar o seguinte método:
+Para uma implementação padrão do Web SDK, você pode usar o seguinte método:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
-Se seu site registra compras usando o item de camada de dados padrão de [evento de e-commerce](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) para o Google Tag Manager, então você pode usar o tipo de tag **Compra de e-commerce**. Esse tipo de ação registrará uma "compra" separada na Braze para cada item enviado na lista de `items`.
+Se o seu site registra compras usando o item de camada de dados do [evento de eCommerce](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) padrão para o Google Tag Manager, você pode usar o tipo de tag **E-commerce Purchase**. Esse tipo de ação registrará uma "compra" separada na Braze para cada item enviado na lista de `items`.
 
-Você também pode especificar nomes de propriedades adicionais que deseja incluir como propriedades de compra, especificando suas chaves na lista de propriedades de compra. Note que a Braze procurará dentro do `item` individual que está sendo registrado todas as propriedades de compra que você adicionar à lista.
+Você também pode especificar nomes de propriedades adicionais que deseja incluir como propriedades de compra, informando suas chaves na lista de propriedades de compra. A Braze procurará dentro do `item` individual que está sendo registrado por quaisquer propriedades de compra que você adicionar à lista.
 
-Por exemplo, dada a seguinte carga útil de e-commerce:
+Por exemplo, dado o seguinte payload de eCommerce:
 
 ```
 items: [{
@@ -258,17 +258,17 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal), purchase
 {% endtab %}
 {% endtabs %}
 
-### Adição de quantidade {#adding-quantity}
+### Adicionar quantidade {#adding-quantity}
 
 Por padrão, `quantity` é definido como `1`. No entanto, você pode adicionar uma quantidade às suas compras se os clientes fizerem a mesma compra várias vezes em um único checkout. Para adicionar uma quantidade, passe um valor `Int` para `quantity`.
 
-### Usando a REST API {#using-the-rest-api}
+### Usar a REST API {#using-the-rest-api}
 
-Também é possível usar nossa REST API para registrar compras. Para saber mais, consulte [Endpoints de dados de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+Você também pode usar nossa REST API para registrar compras. Para saber mais, consulte [Endpoints de dados de usuários]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
-## Registro de pedidos {#logging-orders}
+## Registrar pedidos {#logging-orders}
 
-Se quiser registrar compras no nível do pedido em vez de no nível do produto, você pode usar o nome do pedido ou a categoria do pedido como `product_id`. Consulte nossa [especificação de objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions) para saber mais.
+Se você quiser registrar compras no nível do pedido em vez do nível do produto, pode usar o nome do pedido ou a categoria do pedido como `product_id`. Consulte nossa [especificação do objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions) para saber mais.
 
 ## Chaves reservadas {#reserved-keys}
 
@@ -281,9 +281,9 @@ As seguintes chaves são reservadas e não podem ser usadas como propriedades de
 - `price`
 - `currency`
 
-## Moedas suportadas {#supported-currencies}
+## Moedas compatíveis {#supported-currencies}
 
-A Braze suporta os seguintes símbolos de moeda. Qualquer outro símbolo de moeda que você fornecer registra um aviso e a compra não é registrada na Braze.
+A Braze oferece suporte aos seguintes símbolos de moeda. Qualquer outro símbolo de moeda fornecido registra um aviso, e a compra não é registrada na Braze.
 
 - `AED`, `AFN`, `ALL`, `AMD`, `ANG`, `AOA`, `ARS`, `AUD`, `AWG`, `AZN`
 - `BAM`, `BBD`, `BDT`, `BGN`, `BHD`, `BIF`, `BMD`, `BND`, `BOB`, `BRL`

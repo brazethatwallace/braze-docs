@@ -25,12 +25,12 @@ L'intégration de Braze et PassKit vous permet d'augmenter et de mesurer l'engag
 | Compte PassKit | Vous devez disposer d'un compte PassKit et d'un gestionnaire de compte PassKit. |
 | `userDefinedID` | Pour mettre à jour de manière appropriée les événements personnalisés et les attributs personnalisés de vos utilisateurs entre PassKit et Braze, vous devez définir l'ID externe de Braze comme `userDefinedID`. Ce `userDefinedID` est utilisé lors des appels d'API aux endpoints PassKit. |
 | Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
-| Endpoint REST Braze  | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/api/basics/#endpoints). |
+| Endpoint REST Braze  | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
-Pour enrichir davantage les expériences de portefeuille mobile de vos clients, depuis votre tableau de bord PassKit, vous pouvez choisir de transmettre des données à Braze par le biais de l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) de Braze.
+Pour enrichir davantage les expériences de portefeuille mobile de vos clients, depuis votre tableau de bord PassKit, vous pouvez choisir de transmettre des données à Braze par le biais de l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de Braze.
 
 Voici des exemples de données à partager depuis PassKit :
 - **Pass créé** : lorsqu'un client clique sur le lien d'un pass et qu'un pass lui est présenté pour la première fois.
@@ -50,7 +50,7 @@ Pour transmettre des données depuis PassKit, assurez-vous d'avoir défini votre
 
 ## Créer un pass à l'aide d'un lien SmartPass {#create-pass-using-a-smartpass-link}
 
-Dans Braze, vous pouvez configurer un lien SmartPass pour générer une URL unique permettant à vos clients d'installer leur pass sur Android ou iOS. Pour ce faire, vous devez définir un payload de données SmartPass chiffré qui peut être appelé depuis un bloc de contenu Braze. Ce [bloc de contenu]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/#content-blocks) peut ensuite être réutilisé pour les futurs pass et coupons. Les éléments suivants sont utilisés lors de votre intégration :
+Dans Braze, vous pouvez configurer un lien SmartPass pour générer une URL unique permettant à vos clients d'installer leur pass sur Android ou iOS. Pour ce faire, vous devez définir un payload de données SmartPass chiffré qui peut être appelé depuis un bloc de contenu Braze. Ce [bloc de contenu]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks#content-blocks) peut ensuite être réutilisé pour les futurs pass et coupons. Les éléments suivants sont utilisés lors de votre intégration :
 
 - **URL PassKit** : l'URL de votre PassKit est une URL unique pour votre programme PassKit.<br>Chaque programme possède une URL unique, que vous trouverez dans l'onglet **Distribution** de votre programme ou projet PassKit. (par exemple, https://pub1.pskt.io/c/ww0jir)<br><br>
 - **Secret PassKit** : en plus de l'URL, vous devez avoir à portée de main la clé PassKit pour ce programme.<br>Elle est disponible sur la même page que l'URL de PassKit.<br><br>
@@ -66,8 +66,8 @@ Vous pouvez inclure de nombreux composants dans votre payload, mais voici deux �
 
 | Composant | Requis | Type | Description |
 | --------- | -------- | ---- | ----------- |
-|`person.externalId` | Requis | Chaîne de caractères | Défini comme l'ID externe de Braze, il est crucial pour que les rappels de PassKit vers Braze fonctionnent, car il permet aux utilisateurs de l'entreprise d'obtenir des coupons pour plusieurs offres au cours d'une seule Campaign. Non imposé comme unique. |
-| `members.member.externalId` | Facultatif | Chaîne de caractères | Défini comme l'ID externe de Braze, vous pouvez utiliser votre ID externe pour mettre à jour le pass de membre. La définition de ce champ impose l'unicité de l'utilisateur au sein du programme d'adhésion.|
+| `person.externalId` | Requis | Chaîne de caractères | Défini comme l'ID externe de Braze, il est crucial pour que les rappels de PassKit vers Braze fonctionnent, car il permet aux utilisateurs de l'entreprise d'obtenir des coupons pour plusieurs offres au cours d'une seule Campaign. Non imposé comme unique. |
+| `members.member.externalId` | Facultatif | Chaîne de caractères | Défini comme l'ID externe de Braze, vous pouvez utiliser votre ID externe pour mettre à jour le pass de membre. La définition de ce champ impose l'unicité de l'utilisateur au sein du programme d'adhésion. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Étape 1 : Définir le payload des données de votre pass" }
 
 Pour une liste complète des champs disponibles, de leurs types et des descriptions utiles, consultez la [documentation GitHub de PassKit](https://github.com/PassKit/smart-pass-link-from-csv-generator).
@@ -243,7 +243,7 @@ PassKit requiert un `HTTP Header` pour l'autorisation qui inclut votre clé API 
 
 #### Corps de la requête {#request-body}
 
-Pour configurer le webhook, renseignez les nouveaux détails de l'événement dans le corps de la requête, y compris les paramètres de payload nécessaires à votre cas d'utilisation :
+Pour configurer le webhook, renseignez les nouveaux détails de l'événement dans le corps de la requête, y compris les paramètres de payload nécessaires à votre cas d'usage :
 
 ```json
 {% raw %}{
@@ -260,12 +260,12 @@ Votre texte brut sera automatiquement mis en évidence s'il s'agit d'une balise 
 Prévisualisez votre requête dans le panneau **Prévisualisation** ou accédez à l'onglet **Test**, où vous pouvez sélectionner un utilisateur aléatoire, un utilisateur existant ou personnaliser le vôtre pour tester votre webhook.
 
 {% alert important %}
-N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Modèles de webhook enregistrés** lors de la création d'une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Modèles de webhook enregistrés** lors de la création d'une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook).
 {% endalert %}
 
 ## Récupérer les détails du pass via le contenu connecté {#retrieve-pass-details-via-connected-content}
 
-Outre la création et la mise à jour des pass, vous pouvez également récupérer les métadonnées des pass de vos utilisateurs via le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) de Braze afin d'incorporer les détails personnalisés des pass dans vos campagnes de communication.
+Outre la création et la mise à jour des pass, vous pouvez également récupérer les métadonnées des pass de vos utilisateurs via le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) de Braze afin d'incorporer les détails personnalisés des pass dans vos campagnes de communication.
 
 **Appel de contenu connecté PassKit**
 

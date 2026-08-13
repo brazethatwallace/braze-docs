@@ -17,32 +17,32 @@ alias: /line/create/
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie eine LINE-Nachricht erstellen, gehen Sie wie folgt vor:
+Bevor Sie eine LINE-Nachricht erstellen, führen Sie die folgenden Schritte aus:
 
 1. Lesen Sie die LINE-Übersicht.
-2. Machen Sie sich mit den Richtlinien, Limits und Inhaltsregeln vertraut.
+2. Machen Sie sich mit den Richtlinien, Limits und Content-Regeln vertraut.
 3. [Richten Sie Ihre LINE-Verbindung ein]({{site.baseurl}}/user_guide/channels/line/line_setup).
 
-Das Senden von LINE-Nachrichten über Braze wird von den Message oder Action Credits Ihres Kontos abgezogen.
+Der Versand von LINE-Nachrichten über Braze wird von den Message- oder Action-Credits Ihres Kontos abgezogen.
 
-## 1. Schritt: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
+## Schritt 1: Wählen Sie, wo Sie Ihre Nachricht erstellen {#step-1-choose-where-to-build-your-message}
 
-Sind Sie unsicher, ob Ihre Nachricht als Campaign oder Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
+Sie sind sich nicht sicher, ob Ihre Nachricht über eine Campaign oder ein Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
 
 {% tabs %}
 {% tab Campaign %}
 
 **Schritte:**
 
-1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Kampagne erstellen**.
+1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Campaign erstellen**.
 2. Wählen Sie **LINE** oder, für Campaigns, die auf mehrere Kanäle abzielen, **Multichannel Campaign**.
 3. Geben Sie Ihrer Campaign einen klaren und aussagekräftigen Namen.
 4. Fügen Sie nach Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu.
    * Tags erleichtern das Auffinden Ihrer Campaigns und das Erstellen von Berichten.
-5. Fügen Sie so viele Varianten hinzu und benennen Sie sie, wie Sie für Ihre Campaign benötigen. Sie können für jede hinzugefügte Variante unterschiedliche Plattformen, Nachrichtentypen und Layouts wählen. Weitere Informationen zu diesem Thema finden Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing).
+5. Fügen Sie so viele Varianten hinzu, wie Sie für Ihre Campaign benötigen, und benennen Sie sie. Sie können für jede hinzugefügte Variante unterschiedliche Plattformen, Nachrichtentypen und Layouts auswählen. Weitere Informationen zu diesem Thema finden Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Wenn alle Nachrichten in Ihrer Campaign ähnlich sein oder denselben Inhalt haben werden, verfassen Sie Ihre Nachricht, bevor Sie zusätzliche Varianten hinzufügen. Anschließend können Sie im Dropdown **Variante hinzufügen** die Option **Von Variante kopieren** wählen.
+Wenn alle Nachrichten in Ihrer Campaign ähnlich sein oder denselben Inhalt haben werden, verfassen Sie Ihre Nachricht, bevor Sie weitere Varianten hinzufügen. Sie können dann im Dropdown **Variante hinzufügen** die Option **Von Variante kopieren** auswählen.
 {% endalert %}
 
 {% endtab %}
@@ -50,19 +50,14 @@ Wenn alle Nachrichten in Ihrer Campaign ähnlich sein oder denselben Inhalt habe
 
 **Schritte:**
 
-1. [Erstellen Sie Ihren Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) mit dem Canvas-Composer.
-2. Nachdem Sie Ihren Canvas eingerichtet haben, fügen Sie im Canvas-Builder einen Schritt hinzu. Geben Sie Ihrem Schritt einen klaren und aussagekräftigen Namen.
-3. Wählen Sie einen [Schritt-Zeitplan]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) und legen Sie bei Bedarf eine Verzögerung fest.
-4. Filtern Sie die Zielgruppe für diesen Schritt nach Bedarf. Sie können die Empfänger:innen dieses Schritts weiter eingrenzen, indem Sie Segmente angeben und zusätzliche Filter hinzufügen. Die Zielgruppenoptionen werden nach der Verzögerung zum Zeitpunkt des Nachrichtenversands überprüft.
-5. Wählen Sie Ihr [Fortschrittsverhalten]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
-6. Wählen Sie alle weiteren Messaging-Kanäle, die Sie mit Ihrer Nachricht kombinieren möchten.
+{% multi_lang_include messaging/canvas_message_step_setup.md %}
 
 {% endtab %}
 {% endtabs %}
 
-## 2. Schritt: Verfassen Sie Ihre LINE-Nachricht {#step-2-compose-your-line-message}
+## Schritt 2: Ihre LINE-Nachricht verfassen {#step-2-compose-your-line-message}
 
-Schreiben Sie Ihre Nachricht und verwenden Sie bei Bedarf Personalisierung (wie Liquid oder Connected-Content). LINE erlaubt bis zu fünf Nachrichtenblasen pro Nachricht, die jeweils eines der verfügbaren Nachrichtenlayouts verwenden können: Text, Bild, Rich oder kartenbasiert.
+Verfassen Sie Ihre Nachricht und verwenden Sie bei Bedarf Personalisierung (z. B. Liquid oder Connected-Content). LINE erlaubt bis zu fünf Nachrichtenblasen pro Nachricht, die in jedem der verfügbaren Nachrichtenlayouts gestaltet werden können: Text, Bild, Rich-Nachricht oder kartenbasierte Nachricht.
 
 ![LINE-Composer mit einer Nachricht in der Vorschau.]({% image_buster /assets/img/line/line_composer.png %})
 
@@ -76,56 +71,56 @@ Wenn Sie Liquid verwenden möchten, stellen Sie sicher, dass Sie einen Standardw
 
 #### Rechts-nach-links-Nachrichten erstellen {#creating-right-to-left-messages}
 
-Das endgültige Erscheinungsbild von Rechts-nach-links-Nachrichten hängt weitgehend davon ab, wie Dienstanbieter sie darstellen. Best Practices für die Erstellung von Rechts-nach-links-Nachrichten, die möglichst genau angezeigt werden, finden Sie unter [Rechts-nach-links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+Das endgültige Erscheinungsbild von Rechts-nach-links-Nachrichten hängt weitgehend davon ab, wie Dienstanbieter sie darstellen. Best Practices für die Erstellung von Rechts-nach-links-Nachrichten, die so genau wie möglich angezeigt werden, finden Sie unter [Rechts-nach-links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
-## 3. Schritt: Vorschau und Test Ihrer Nachricht {#step-3-preview-and-test-your-message}
+## Schritt 3: Vorschau anzeigen und Nachricht testen {#step-3-preview-and-test-your-message}
 
-Wechseln Sie zum Tab **Test**, um eine Test-LINE-Nachricht an Inhaltstestgruppen oder einzelne Nutzer:innen zu senden, oder zeigen Sie die Nachricht direkt in Braze als Nutzer:in in der Vorschau an.
+Wechseln Sie zum Tab **Test**, um eine Test-LINE-Nachricht an Content-Testgruppen oder einzelne Nutzer:innen zu senden, oder zeigen Sie eine Vorschau der Nachricht als Nutzer:in direkt in Braze an.
 
 ![Der Tab „Tests“ mit einer Vorschau einer Testnachricht.]({% image_buster /assets/img/line/test_preview.png %})
 
 Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=line).
 
-## 4. Schritt: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+## Schritt 4: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-Erstellen Sie den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie weitere Details zur optimalen Nutzung unserer Tools für die Erstellung von LINE-Nachrichten.
+Erstellen Sie den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie weitere Details zur optimalen Nutzung unserer Tools zum Erstellen von LINE-Nachrichten.
 
 ### Zustellungszeitplan oder Trigger wählen {#choose-delivery-schedule-or-trigger}
 
 LINE-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen zu Zeitplan- und Trigger-Optionen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Sie können Zustellungskontrollen festlegen, z. B. Nutzer:innen die [erneute Berechtigung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) für den Empfang der Campaign ermöglichen oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)-Regeln aktivieren. Bei aktionsbasierter Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen.
+Sie können Zustellungskontrollen festlegen, z. B. Nutzer:innen erlauben, [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) für den Empfang der Campaign zu werden, oder [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)-Regeln aktivieren. Bei aktionsbasierter Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen.
 
 ### Zielgruppe zusammenstellen {#choose-users-to-target}
 
-[Stellen Sie Ihre Zielgruppe zusammen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie sollten bereits die Abo-Gruppe ausgewählt haben, die Nutzer:innen nach der Ebene oder Kategorie der Kommunikation eingrenzt, die sie mit Ihnen wünschen.
+[Stellen Sie Ihre Zielgruppe zusammen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segments oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie sollten bereits die Abo-Gruppe ausgewählt haben, die Nutzer:innen nach der Ebene oder Kategorie der Kommunikation eingrenzt, die sie mit Ihnen wünschen.
 
-Wählen Sie die größere Zielgruppe aus Ihren Segmenten aus und grenzen Sie dieses Segment optional mit unseren [Filtern]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) weiter ein. Sie erhalten automatisch eine Momentaufnahme der ungefähren Segmentgröße. Beachten Sie, dass die genaue Segmentzugehörigkeit immer unmittelbar vor dem Versand der Nachricht berechnet wird.
+Wählen Sie die größere Zielgruppe aus Ihren Segments aus und grenzen Sie dieses Segment optional mit unseren [Filtern]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) weiter ein. Sie erhalten automatisch eine Momentaufnahme der ungefähren Segment-Population. Beachten Sie, dass die genaue Segment-Zugehörigkeit immer vor dem Versand der Nachricht berechnet wird.
 
 ### Konversions-Events wählen {#choose-conversion-events}
 
-Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen ausführen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nachdem sie eine Campaign erhalten haben. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Conversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
+Braze ermöglicht es Ihnen, nachzuverfolgen, wie oft Nutzer:innen bestimmte Aktionen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach dem Empfang einer Campaign ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Konversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
 
 Konversions-Events helfen Ihnen, den Erfolg Ihrer Campaign zu messen. Zum Beispiel:
 
-- Wenn Sie Geotargeting verwenden, um eine LINE-Nachricht auszulösen, deren Endziel ein Kauf ist, setzen Sie das Konversions-Event auf `Purchase`.
-- Wenn Sie versuchen, Nutzer:innen in Ihre App zu bringen, setzen Sie das Konversions-Event auf `Starts Session`.
+- Wenn Sie Geotargeting verwenden, um eine LINE-Nachricht zu triggern, deren Endziel ein Kauf durch die Nutzer:innen ist, setzen Sie das Konversions-Event auf `Purchase`.
+- Wenn Sie versuchen, die Nutzer:innen in Ihre App zu bringen, setzen Sie das Konversions-Event auf `Starts Session`.
 
-Sie können auch benutzerdefinierte Konversions-Events basierend auf Ihrem spezifischen Anwendungsfall festlegen. Seien Sie kreativ und überlegen Sie, wie Sie den Erfolg dieser Campaign messen möchten.
+Sie können auch benutzerdefinierte Konversions-Events basierend auf Ihrem spezifischen Anwendungsfall festlegen. Werden Sie kreativ und überlegen Sie, wie Sie den Erfolg dieser Campaign messen möchten.
 
 {% endtab %}
 {% tab Canvas %}
 
-Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihres Canvas. Weitere Details zum Aufbau des restlichen Canvas, zur Nutzung von multivariaten Tests und Intelligenter Auswahl und mehr finden Sie unter [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
+Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihres Canvas. Weitere Details zum Erstellen des restlichen Canvas, zur Nutzung multivariater Tests und der intelligenten Auswahl und mehr finden Sie unter [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
 
 {% endtab %}
 {% endtabs %}
 
-## 5. Schritt: Überprüfen und bereitstellen {#step-5-review-and-deploy}
+## Schritt 5: Überprüfen und bereitstellen {#step-5-review-and-deploy}
 
 Nachdem Sie den letzten Teil Ihrer Campaign oder Ihres Canvas fertiggestellt haben, überprüfen Sie die Details, testen Sie alles und senden Sie es ab!
 
-Sehen Sie sich als Nächstes das [LINE-Reporting]({{site.baseurl}}/line/reporting) an, um zu erfahren, wie Sie auf die Ergebnisse Ihrer LINE-Campaigns zugreifen können.
+Lesen Sie als Nächstes den Artikel [LINE-Reporting]({{site.baseurl}}/line/reporting), um zu erfahren, wie Sie auf die Ergebnisse Ihrer LINE-Campaigns zugreifen können.

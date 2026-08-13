@@ -68,13 +68,7 @@ Au cours de cette étape, vous transformerez le payload du webhook envoyé depui
 
 Cette valeur de retour doit respecter le format du corps de la requête `/users/track` de Braze :
 
-- Le code de transformation est accepté dans le langage de programmation JavaScript. Tout flux de contrôle JavaScript standard, tel que la logique if/else, est pris en charge.
-- Le code de transformation accède au corps de la requête du webhook via la variable payload. Cette variable est un objet rempli en analysant le JSON du corps de la requête.
-- Toutes les fonctionnalités prises en charge par notre endpoint `/users/track` sont prises en charge, y compris :
-    - Objets d'attributs utilisateur, objets d'événements et objets d'achat
-    - Attributs et propriétés d'événements personnalisés imbriqués
-    - Mises à jour des groupes d'abonnement
-    - L'adresse e-mail comme identifiant
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Exemples de Transformations de données pour les webhooks Olo {#example-data-transformations-for-olo-webhooks}
 
@@ -145,7 +139,7 @@ return brazecall;
 
 Olo envoie le type d'événement dans l'en-tête `X-Olo-Event-Type` de chaque webhook. Pour prendre en charge plusieurs événements webhook Olo au sein d'une même transformation, utilisez une logique conditionnelle pour transformer le payload du webhook en fonction de la valeur de ce type d'en-tête.
 
-Dans l'exemple de transformation ci-dessous, le script JavaScript crée un payload particulier pour les événements `UserSignedUp` et `OrderPlaced`. En outre, une condition `else` gère un payload pour tous les événements Olo envoyés à Braze sans l'en-tête X-Olo-Event-Type `UserSignedUp` ou `OrderPlaced`.
+Dans l'exemple de transformation ci-dessous, le script JavaScript crée un payload particulier pour les événements `UserSignedUp` et `OrderPlaced`. En outre, une condition `else` gère un payload pour tous les événements Olo envoyés à Braze dont l'en-tête X-Olo-Event-Type n'est ni `UserSignedUp` ni `OrderPlaced`.
 
 ```javascript
 // captures the value within the X-Olo-Event-Type header for use in the conditional logic

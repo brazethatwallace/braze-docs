@@ -40,7 +40,7 @@ tool: Canvas
 
 #### Intelligent Timing {#intelligent-timing}
 
-사용자 프로필에 최적의 시간을 계산할 데이터가 충분하지 않을 때 대체 옵션과 함께 [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)을 활성화할 수 있습니다. 사용자가 메시지 단계에 진입하는 시점과 실제 메시지 발송 사이의 지연에 대한 추가 확인으로 Intelligent Timing과 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-frequency-capping)을 활성화하는 것을 권장합니다.
+사용자 프로필에 최적의 시간을 계산할 데이터가 충분하지 않을 때 대체 옵션과 함께 [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)을 활성화할 수 있습니다. 사용자가 메시지 단계에 진입하는 시점과 실제 메시지 발송 사이의 지연에 대한 추가 확인으로 Intelligent Timing과 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)을 활성화하는 것을 권장합니다.
 
 **전달 설정** 탭에서 **Intelligent Timing 사용**을 선택합니다. 여기에서 가장 인기 있는 시간 또는 특정 대체 시간을 선택할 수 있습니다. 방해금지 시간이 활성화된 경우, 메시지 단계에서 이 설정을 재정의할 수도 있습니다.
 
@@ -72,43 +72,43 @@ tool: Canvas
 - 사용자가 **전달 유효성 검사**의 기준을 충족하지 않음
 
 {% raw %}
-실행 기반 Canvas가 인바운드 SMS 메시지에 의해 트리거되는 경우, 첫 번째 단계(메시지 단계) 또는 행동 경로 단계 아래에 중첩된 메시지 단계에서 SMS 등록정보를 참조할 수 있습니다. 예를 들어, 메시지 단계에서 `{{sms.${inbound_message_body}}}` 또는 `{{sms.${inbound_media_urls}}}`를 사용할 수 있습니다.
+실행 기반 Canvas가 인바운드 SMS 메시지에 의해 트리거되는 경우, 첫 번째 단계(메시지 단계) 또는 작업 경로 단계 아래에 중첩된 메시지 단계에서 SMS 속성정보를 참조할 수 있습니다. 예를 들어, 메시지 단계에서 `{{sms.${inbound_message_body}}}` 또는 `{{sms.${inbound_media_urls}}}`를 사용할 수 있습니다.
 {% endraw %}
 
-## 컨텍스트 등록정보 참조 {#reference-context-properties}
+## 컨텍스트 속성정보 참조 {#reference-context-properties}
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-진입 등록정보는 Canvas 생성의 **진입 스케줄** 단계에서 구성되며, 사용자를 Canvas에 진입시키는 트리거를 나타냅니다. 이러한 등록정보는 API 트리거 Canvases에서 진입 페이로드의 등록정보에도 접근할 수 있습니다. `context` 오브젝트의 최대 크기 제한은 50 KB입니다.
+진입 속성정보는 Canvas 생성의 **진입 스케줄** 단계에서 구성되며, 사용자를 Canvas에 진입시키는 트리거를 나타냅니다. 이러한 속성정보는 API 트리거 Canvases에서 진입 페이로드의 속성정보에도 접근할 수 있습니다. `context` 오브젝트의 최대 크기 제한은 50 KB입니다.
 
-진입 등록정보는 모든 메시지 단계에서 Liquid로 사용할 수 있습니다. 이러한 진입 등록정보를 참조할 때 다음 Liquid를 사용합니다: {% raw %}``{context.${property_name}}``{% endraw %}. 이벤트는 이 방식으로 사용하려면 커스텀 이벤트 또는 구매 이벤트여야 합니다.
+진입 속성정보는 모든 메시지 단계에서 Liquid로 사용할 수 있습니다. 이러한 진입 속성정보를 참조할 때 다음 Liquid를 사용합니다: {% raw %}``{context.${property_name}}``{% endraw %}. 이벤트는 이 방식으로 사용하려면 커스텀 이벤트 또는 구매 이벤트여야 합니다.
 
 {% alert note %}
 인앱 메시지 채널의 경우, `context`는 Canvas에서만 참조할 수 있습니다.
 {% endalert %}
 
-이러한 진입 등록정보를 참조할 때 다음 Liquid를 사용합니다: {% raw %}``context.${property_name}``{% endraw %}. 이벤트는 이 방식으로 사용하려면 커스텀 이벤트 또는 구매 이벤트여야 합니다.
+이러한 진입 속성정보를 참조할 때 다음 Liquid를 사용합니다: {% raw %}``context.${property_name}``{% endraw %}. 이벤트는 이 방식으로 사용하려면 커스텀 이벤트 또는 구매 이벤트여야 합니다.
 
 {% raw %}
 예를 들어, 다음 요청을 생각해 보겠습니다: `"context" : {"product_name" : "shoes", "product_price" : 79.99}`. Liquid `{{context.${product_name}}}`를 사용하여 메시지에 "shoes"라는 단어를 추가할 수 있습니다.
 {% endraw %}
 
-또한 Canvas 워크플로 전체에서 개인화된 단계를 통해 사용자를 안내하기 위해 모든 메시지 단계에서 [영구 진입 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)를 활용할 수 있습니다.
+또한 Canvas 워크플로 전체에서 개인화된 단계를 통해 사용자를 안내하기 위해 모든 메시지 단계에서 [영구 진입 속성정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)를 활용할 수 있습니다.
 
-### 이벤트 등록정보 {#event-properties}
+### 이벤트 속성정보 {#event-properties}
 
-이벤트 등록정보는 커스텀 이벤트 및 구매 이벤트에 대해 설정한 등록정보를 말합니다. 이러한 이벤트 등록정보는 실행 기반 전달이 있는 Campaigns과 Canvases에서 사용할 수 있습니다.
+이벤트 속성정보는 커스텀 이벤트 및 구매 이벤트에 대해 설정한 속성정보를 말합니다. 이러한 이벤트 속성정보는 실행 기반 전달이 있는 Campaigns과 Canvases에서 사용할 수 있습니다.
 
-Canvas에서 커스텀 이벤트 및 구매 이벤트 등록정보는 [행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) 단계 다음에 오는 모든 메시지 단계에서 Liquid로 사용할 수 있습니다. 예를 들어, `event_properties`를 참조할 때 다음 Liquid 스니펫을 사용합니다: {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
+Canvas에서 커스텀 이벤트 및 구매 이벤트 속성정보는 [작업 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) 단계 다음에 오는 모든 메시지 단계에서 Liquid로 사용할 수 있습니다. 예를 들어, `event_properties`를 참조할 때 다음 Liquid 스니펫을 사용합니다: {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
 
 {% alert important %}
-`event_properties`는 행동 경로 단계 없이 독립적으로 사용할 수 없습니다.
+`event_properties`는 작업 경로 단계 없이 독립적으로 사용할 수 없습니다.
 {% endalert %}
 
-행동 경로 다음의 첫 번째 메시지 단계에서 해당 행동 경로에서 참조된 이벤트와 관련된 `event_properties`를 사용할 수 있습니다. 이 행동 경로 단계와 메시지 단계 사이에 다른 단계(다른 행동 경로 또는 메시지 단계가 아닌)가 있을 수 있습니다. 메시지 단계가 행동 경로 단계의 다른 모든 사용자 경로가 아닌 경로로 추적될 수 있는 경우에만 `event_properties`에 접근할 수 있습니다.
+작업 경로 다음의 첫 번째 메시지 단계에서 해당 작업 경로에서 참조된 이벤트와 관련된 `event_properties`를 사용할 수 있습니다. 이 작업 경로 단계와 메시지 단계 사이에 다른 단계(다른 작업 경로 또는 메시지 단계가 아닌)가 있을 수 있습니다. 메시지 단계가 작업 경로 단계의 다른 모든 사용자 경로가 아닌 경로로 추적될 수 있는 경우에만 `event_properties`에 접근할 수 있습니다.
 
 {% alert important %}
-리드 메시지 단계에서는 `event_properties`를 사용할 수 없습니다. 대신 `context`를 사용하거나, `event_properties`를 포함하는 메시지 단계 앞에 해당 이벤트가 있는 행동 경로 단계를 추가해야 합니다.
+리드 메시지 단계에서는 `event_properties`를 사용할 수 없습니다. 대신 `context`를 사용하거나, `event_properties`를 포함하는 메시지 단계 앞에 해당 이벤트가 있는 작업 경로 단계를 추가해야 합니다.
 {% endalert %}
 
 {% details 원본 Canvas 편집기에 대해 펼치기 %}
@@ -117,7 +117,7 @@ Canvas에서 커스텀 이벤트 및 구매 이벤트 등록정보는 [행동 �
 
 - `event_properties`는 예약된 전체 단계에서 사용할 수 없습니다. 그러나 실행 기반 Canvas의 첫 번째 전체 단계에서는 전체 단계가 예약된 경우에도 `event_properties`를 사용할 수 있습니다.
 - `context`는 Canvas의 첫 번째 전체 단계에서만 참조할 수 있습니다.
-- 인앱 메시지 채널의 경우, 이전 얼리 액세스의 일부로 영구 진입 등록정보가 활성화된 경우 원본 Canvas 편집기에서 `context`를 참조할 수 있습니다.
+- 인앱 메시지 채널의 경우, 이전 얼리 액세스의 일부로 영구 진입 속성정보가 활성화된 경우 원본 Canvas 편집기에서 `context`를 참조할 수 있습니다.
 
 {% enddetails %}
 

@@ -23,7 +23,7 @@ Vous pouvez l'utiliser pour revalider des numéros de téléphone après qu'ils 
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `sms.invalid_phone_numbers.remove`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `sms.invalid_phone_numbers.remove`.
 
 ## Limite de débit {#rate-limit}
 

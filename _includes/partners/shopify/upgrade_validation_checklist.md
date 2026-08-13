@@ -1,0 +1,4 @@
+- **Active Canvases, campaigns, and segments:** Confirm that they are functioning properly.
+- **Identity management processes:** Confirm that these processes are working as expected.
+- **SDK customizations (optional):** If you made any customizations to your Braze and Shopify integration (such as logging custom events or attributes), verify that they are working correctly after the upgrade.
+- **Email or SMS subscriber collection (optional):** If you previously enabled email or SMS subscriber collection, new default subscription groups will be created to reflect the latest status of your subscribers during the upgrade. The default subscription groups will be the name of your Shopify storefront. These new default subscription groups will be available approximately 5 hours after the upgrade, and you'll need to add them to your active messages.

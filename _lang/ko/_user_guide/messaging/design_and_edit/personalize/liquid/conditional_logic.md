@@ -42,7 +42,7 @@ Buy now! Would 5% off convince you?
 
 ## 조건 로직 {#conditional-logic}
 
-메시지에 조건문과 같은 다양한 유형의 [지능형 로직](http://docs.shopify.com/themes/liquid-documentation/basics)을 포함할 수 있습니다. 다음 예제에서는 [조건문](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags)을 사용하여 캠페인을 국제화합니다:
+메시지에 조건문과 같은 다양한 유형의 [지능형 로직](http://docs.shopify.com/themes/liquid-documentation/basics)을 포함할 수 있습니다. 다음 예제에서는 [조건문](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags)을 사용하여 Campaign을 국제화합니다:
 {% raw %}
 
 ```liquid
@@ -232,7 +232,7 @@ blank 값은 고객 프로필의 속성이 설정되지 않았거나, 공백 문
 
 ### 부울 {#boolean}
 
-[부울]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans)은 이진 값으로, `registration_complete: true`와 같이 `true` 또는 `false`로 설정할 수 있습니다. 부울 값에는 작은따옴표를 사용하지 않습니다.
+[부울]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#booleans)은 이진 값으로, `registration_complete: true`와 같이 `true` 또는 `false`로 설정할 수 있습니다. 부울 값에는 작은따옴표를 사용하지 않습니다.
 
 {% raw %}
 
@@ -244,7 +244,7 @@ blank 값은 고객 프로필의 속성이 설정되지 않았거나, 공백 문
 
 ### 숫자 {#number}
 
-[숫자]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers)는 정수 또는 플로트가 될 수 있는 숫자 값입니다. 예를 들어, 사용자는 `shoe_size: 10` 또는 `levels_completed: 287`을 가질 수 있습니다. 숫자 값에는 작은따옴표를 사용하지 않습니다.
+[숫자]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)는 정수 또는 플로트가 될 수 있는 숫자 값입니다. 예를 들어, 사용자는 `shoe_size: 10` 또는 `levels_completed: 287`을 가질 수 있습니다. 숫자 값에는 작은따옴표를 사용하지 않습니다.
 
 {% raw %}
 
@@ -266,7 +266,7 @@ blank 값은 고객 프로필의 속성이 설정되지 않았거나, 공백 문
 
 ### 문자열 {#string}
 
-[문자열]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings)은 영숫자 문자로 구성되며 사용자에 대한 데이터를 저장합니다. 예를 들어, `favorite_color: red` 또는 `phone_number: 3025981329`가 있을 수 있습니다. 문자열 값에는 작은따옴표를 사용해야 합니다.
+[문자열]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)은 영숫자 문자로 구성되며 사용자에 대한 데이터를 저장합니다. 예를 들어, `favorite_color: red` 또는 `phone_number: 3025981329`가 있을 수 있습니다. 문자열 값에는 작은따옴표를 사용해야 합니다.
 
 {% raw %}
 
@@ -280,7 +280,7 @@ blank 값은 고객 프로필의 속성이 설정되지 않았거나, 공백 문
 
 ### 배열 {#array}
 
-[배열]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays)은 사용자에 대한 정보 목록입니다. 예를 들어, 사용자는 `last_viewed_shows: stranger things, planet earth, westworld`를 가질 수 있습니다. 배열 값에는 작은따옴표를 사용해야 합니다.
+[배열]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)은 사용자에 대한 정보 목록입니다. 예를 들어, 사용자는 `last_viewed_shows: stranger things, planet earth, westworld`를 가질 수 있습니다. 배열 값에는 작은따옴표를 사용해야 합니다.
 
 {% raw %}
 
@@ -330,7 +330,7 @@ Braze는 조건 {% raw %}`{% if %}`{% endraw %} 블록 내에서 인라인 필�
 
 ### 시간 {#time}
 
-이벤트가 발생한 시점의 타임스탬프입니다. [시간]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time) 값은 조건 로직에서 사용하려면 [수학 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters)를 적용해야 합니다.
+이벤트가 발생한 시점의 타임스탬프입니다. [시간]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) 값은 조건 로직에서 사용하려면 [수학 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters)를 적용해야 합니다.
 
 {% raw %}
 

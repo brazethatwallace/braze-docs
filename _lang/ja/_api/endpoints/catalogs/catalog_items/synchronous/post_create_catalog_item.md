@@ -21,7 +21,7 @@ description: "この記事では、「カタログアイテムを作成」Braze�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.create_item` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`catalogs.create_item` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -33,14 +33,14 @@ description: "この記事では、「カタログアイテムを作成」Braze�
 |---|---|---|---|
 | `catalog_name` | 必須 | 文字列 | カタログの名前。 |
 | `item_id` | 必須 | 文字列 | カタログアイテムのID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
 ## リクエストパラメーター {#request-parameters}
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
 | `items` | 必須 | 配列 | アイテムオブジェクトを含む配列。アイテムオブジェクトには、`id` フィールドを除くカタログのすべてのフィールドを含める必要があります。1つのリクエストにつき、1つのアイテムオブジェクトのみが許可されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 
@@ -75,13 +75,13 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 `Location` フィールドは `geo` データタイプを使用しており、`[経度, 緯度]` の形式の配列を期待します。
 {% endalert %}
 
-## 応答 {#response}
+## レスポンス {#response}
 
-このエンドポイントには、`201`、`400`、`404` の3つのステータスコード応答があります。
+このエンドポイントには、`201`、`400`、`404` の3つのステータスコードレスポンスがあります。
 
-### 成功応答の例 {#example-success-response}
+### 成功レスポンスの例 {#example-success-response}
 
-ステータスコード `201` は、次の応答本文を返す可能性があります。
+ステータスコード `201` は、次のレスポンスボディを返す可能性があります。
 
 ```json
 {
@@ -89,9 +89,9 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 }
 ```
 
-### エラー応答の例 {#example-error-response}
+### エラーレスポンスの例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
+ステータスコード `400` は、次のレスポンスボディを返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
 ```json
 {
@@ -120,7 +120,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `arbitrary-error` | 任意のエラーが発生しました。もう一度試すか、[サポート]({{site.baseurl}}/support_contact)に連絡してください。 |
 | `catalog-not-found` | カタログ名が有効であることを確認してください。 |
 | `filtered-set-field-too-long` | フィールド値が、アイテムの文字数制限を超えるフィルターセットで使用されています。 |
-| `id-in-body` | リクエスト本文のアイテムIDを削除してください。 |
+| `id-in-body` | リクエストボディのアイテムIDを削除してください。 |
 | `ids-too-large` | 各アイテムIDの文字数制限は250文字です。 |
 | `invalid-ids` | アイテムID名に使用できる文字は、アルファベット、数字、ハイフン、アンダースコアです。 |
 | `invalid-fields` | APIリクエストで送信するすべてのフィールドが、すでにカタログに存在していることを確認してください。これは、エラーに記載されているIDフィールドとは関係ありません。 |
@@ -131,6 +131,6 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `request-includes-too-many-items` | 1つのリクエストにつき1つのカタログアイテムしか作成できません。 |
 | `too-deep-nesting-in-value-object` | アイテムオブジェクトは50レベルを超えるネストを持つことはできません。 |
 | `unable-to-coerce-value` | アイテムタイプは変換できません。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

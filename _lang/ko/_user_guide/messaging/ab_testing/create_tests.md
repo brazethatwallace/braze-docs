@@ -89,7 +89,7 @@ Campaign에 전환 이벤트를 설정하면 해당 Campaign을 수신한 수신
 | ---------------------| --------------- | ------------- |
 | 푸시 | 문구 <br> 이미지 및 이모지 사용 <br> 딥링크  <br> 숫자 표현 (예: "3배" vs "200% 증가")  <br> 시간 표현 (예: "자정에 종료" vs "6시간 후 종료") | 열람  <br> 전환율 |
 | 이메일 | 제목 <br> 표시 이름 <br> 인사말 <br> 본문 <br> 이미지 및 이모지 사용 <br> 숫자 표현 (예: "3배" vs "200% 증가") <br> 시간 표현 (예: "자정에 종료" vs "6시간 후 종료") | 열람  <br> 전환율 |
-| 인앱 메시지 | "푸시"에 나열된 요소 <br> [인앱 메시지 이미지 사양]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#in-app-messages) | 클릭 <br> 전환율 |
+| 인앱 메시지 | "푸시"에 나열된 요소 <br> [인앱 메시지 이미지 사양]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#image-specifications) | 클릭 <br> 전환율 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="채널별 팁" }
 
 {% alert tip %}

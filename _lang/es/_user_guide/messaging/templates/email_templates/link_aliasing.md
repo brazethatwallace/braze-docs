@@ -184,7 +184,7 @@ Para ver todos los enlaces en tu Campaign de correo electrónico y sus respectiv
 
 ### Evento de clics de correo electrónico {#email-clicks-event}
 
-Si exportas tus datos de participación con Currents, un evento de clic de correo electrónico será ligeramente diferente si tienes el aliasing de enlaces habilitado. Tendrá dos campos adicionales para el [evento de clics de correo electrónico]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-clicks-events) cuando el aliasing de enlaces está activado: `link_id` y `link_alias`.
+Si exportas tus datos de participación con Currents, un evento de clic de correo electrónico será ligeramente diferente si tienes el aliasing de enlaces habilitado. Tendrá dos campos adicionales para el [evento de clics de correo electrónico]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-click-events) cuando el aliasing de enlaces está activado: `link_id` y `link_alias`.
 
 ```json
 // Email Click: users.messages.email.Click

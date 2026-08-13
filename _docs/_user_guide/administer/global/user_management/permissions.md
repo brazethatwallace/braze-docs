@@ -222,7 +222,7 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | User Data | Edit User Data | Create and update user data |
 | User Data | Export User Data | Download users from the dashboard |
 | Duplicate Users | View User Merge Records | View a list of user merge records |
-| Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner. Users with this permission can't save or launch campaigns that reference custom attributes marked as PII unless they also have the "View Custom Attributes Marked as PII" permission. |
+| Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner. Users with this permission can't save or launch campaigns that reference custom attributes marked as PII unless they also have the "View Custom Attributes Marked as PII" permission.<br><br>The "View User Profiles (PII Redacted)" permission must be enabled before use. Contact your customer success manager to enable it for your workspace. |
 | Users | View User Event Properties | View event properties in the **Event History** tab on user profiles |
 | Duplicate Users | Merge Duplicate Users | Combine duplicate users into one user. Duplicates are removed after merging |
 | Delete Users | View User Deletion Records | View a list of user deletion records |

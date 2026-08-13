@@ -100,7 +100,7 @@ All Canvas steps have a `next_paths` field, which is an array of `{name, next_st
     },
     ... (more steps)
   ],
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

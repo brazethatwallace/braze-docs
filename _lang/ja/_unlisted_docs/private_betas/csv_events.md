@@ -10,7 +10,14 @@ page_type: reference
 
 > Brazeは、プラットフォームにユーザーデータをインポートするためのさまざまな方法を提供しています。SDK、API、クラウドデータ取り込み、テクノロジーパートナー連携、CSVファイルなどです。この記事では、[CSVファイルによるカスタムイベントのインポート（早期アクセス）](#importing-custom-events)を含む、ユーザーデータのインポートに関する詳細な手順を説明します。
 
-{% multi_lang_include channels/sms/email_via_sms_warning.md %}
+{% alert important %}
+法的に義務付けられたトランザクションメールをSMSゲートウェイに送信しないでください。これらのメールが配信されない可能性が高いためです。
+
+電話番号とプロバイダーのメール-to-SMSゲートウェイドメイン（MM3）を使用して送信したメールは、SMS（テキスト）メッセージとして受信される場合がありますが、一部のメールプロバイダーはこの動作をサポートしていません。例えば、T-Mobileの電話番号（「9999999999@tmomail.net」など）にメールを送信した場合、SMSメッセージはT-Mobileネットワーク上でその電話番号を所有している人に送信されます。
+
+これらのメールがSMSゲートウェイに配信されない場合でも、メールの課金対象としてカウントされます。サポートされていないゲートウェイへのメール送信を避けるには、[サポートされていないゲートウェイドメイン名のリスト](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads)を確認してください。
+{% endalert %}
+
 
 先に進む前に、Brazeはインポート時にHTMLデータのサニタイズ（検証や適切なフォーマット）を行わないことに注意してください。つまり、Webパーソナライゼーション用のすべてのインポートデータからスクリプトタグを除去する必要があります。
 
@@ -34,7 +41,7 @@ CSVファイルを使用したユーザーデータのインポートでは、�
 
 ### external IDを使用したインポート {#importing-with-external-id}
 
-顧客データをインポートする際には、各顧客のユニーク識別子（`external_id`とも呼ばれます）を指定する必要があります。CSVインポートを開始する前に、Brazeでユーザーがどのように識別されるかをエンジニアリングチームに確認することが重要です。通常、これは内部データベースIDです。これは、モバイルおよびWebでBraze SDKによってユーザーが識別される方法と一致する必要があり、各顧客がデバイス間でBraze内に単一のユーザープロファイルを持つように設計されています。Brazeの[ユーザープロファイルライフサイクル]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle)の詳細をご覧ください。
+顧客データをインポートする際には、各顧客のユニーク識別子（`external_id`とも呼ばれます）を指定する必要があります。CSVインポートを開始する前に、Brazeでユーザーがどのように識別されるかを開発チームに確認することが重要です。通常、これは内部データベースIDです。これは、モバイルおよびWebでBraze SDKによってユーザーが識別される方法と一致する必要があり、各顧客がデバイス間でBraze内に単一のユーザープロファイルを持つように設計されています。Brazeの[ユーザープロファイルライフサイクル]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle)の詳細をご覧ください。
 
 インポートで`external_id`を指定すると、Brazeは同じ`external_id`を持つ既存のユーザーを更新するか、見つからない場合はその`external_id`が設定された新しい識別済みユーザーを作成します。
 
@@ -109,8 +116,8 @@ BrazeダッシュボードからのCSVエクスポートでは、`braze_id`の�
 | `push_subscribe` | 文字列 | 使用可能な値は`opted_in`（プッシュメッセージの受信を明示的に登録）、`unsubscribed`（プッシュメッセージを明示的にオプトアウト）、`subscribed`（オプトインもオプトアウトもしていない）です。 | いいえ |
 | `time_zone` | 文字列 | タイムゾーンはIANAタイムゾーンデータベースと同じ形式でBrazeに渡す必要があります（例：`America/New_York`または`Eastern Time (US & Canada)`）。 | いいえ |
 | `date_of_first_session` <br><br> `date_of_last_session`| 文字列 | 以下のISO-8601形式のいずれかで渡すことができます：{::nomarkdown} <ul> <li> "YYYY-MM-DD" </li> <li> "YYYY-MM-DDTHH:MM:SS+00:00" </li> <li> "YYYY-MM-DDTHH:MM:SSZ" </li> <li> "YYYY-MM-DDTHH:MM:SS"（例：2019-11-20T18:38:57） </li> </ul> {:/} | いいえ |
-| `subscription_group_id` | 文字列 | サブスクリプショングループの`id`。この識別子はダッシュボードのサブスクリプショングループページで確認できます。 | いいえ |
-| `subscription_state` | 文字列 | `subscription_group_id`で指定されたサブスクリプショングループのサブスクリプション状態。許可される値は`unsubscribed`（サブスクリプショングループに含まれない）または`subscribed`（サブスクリプショングループに含まれる）です。 | いいえ、ただし`subscription_group_id`を使用する場合は強く推奨されます。 |
+| `subscription_group_id` | 文字列 | 購読グループの`id`。この識別子はダッシュボードの購読グループページで確認できます。 | いいえ |
+| `subscription_state` | 文字列 | `subscription_group_id`で指定された購読グループの購読状態。許可される値は`unsubscribed`（購読グループに含まれない）または`subscribed`（購読グループに含まれる）です。 | いいえ、ただし`subscription_group_id`を使用する場合は強く推奨されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 ##### external IDについて {#about-external-ids}
@@ -139,21 +146,21 @@ BrazeダッシュボードからのCSVエクスポートでは、`braze_id`の�
 配列とプッシュトークンはユーザーインポートではサポートされていません。特に配列の場合、CSVファイル内のカンマは列区切りとして解釈されるため、値内のカンマはファイルの解析エラーを引き起こします。<br>この種の値をアップロードするには、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)または[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion)を使用してください。
 {% endalert %}
 
-### サブスクリプショングループのステータスの更新 {#updating-subscription-group-status}
+### 購読グループのステータスの更新 {#updating-subscription-group-status}
 
-ユーザーインポートを通じて、メールまたはSMSのサブスクリプショングループにユーザーを追加できます。これはSMSの場合に特に便利です。ユーザーがSMSチャネルでメッセージを受信するには、SMSサブスクリプショングループに登録されている必要があるためです。詳細については、[SMSサブスクリプショングループ]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_subscription_group#subscription-group-mms-enablement)を参照してください。
+ユーザーインポートを通じて、メールまたはSMSの購読グループにユーザーを追加できます。これはSMSの場合に特に便利です。ユーザーがSMSチャネルでメッセージを受信するには、SMS購読グループに登録されている必要があるためです。詳細については、[SMS購読グループ]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_subscription_group#subscription-group-mms-enablement)を参照してください。
 
-サブスクリプショングループのステータスを更新する場合は、CSVに次の2つの列が必要です：
+購読グループのステータスを更新する場合は、CSVに次の2つの列が必要です：
 
-- `subscription_group_id`：[サブスクリプショングループ]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-groups)の`id`。
-- `subscription_state`：使用可能な値は`unsubscribed`（サブスクリプショングループに含まれない）または`subscribed`（サブスクリプショングループに含まれる）です。
+- `subscription_group_id`：[購読グループ]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-groups)の`id`。
+- `subscription_state`：使用可能な値は`unsubscribed`（購読グループに含まれない）または`subscribed`（購読グループに含まれる）です。
 
 <style type="text/css">
 .tg td{word-break:normal;}
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg" aria-label="サブスクリプショングループのステータスの更新">
+<table class="tg" aria-label="購読グループのステータスの更新">
 <thead>
   <tr>
     <th class="tg-0pky">external_id</th>
@@ -179,7 +186,7 @@ BrazeダッシュボードからのCSVエクスポートでは、`braze_id`の�
 </table>
 
 {% alert important %}
-ユーザーインポートでは、1行につき1つの`subscription_group_id`のみ設定できます。異なる行には異なる`subscription_group_id`の値を設定できます。ただし、同じユーザーを複数のサブスクリプショングループに登録する必要がある場合は、複数回のインポートを行う必要があります。
+ユーザーインポートでは、1行につき1つの`subscription_group_id`のみ設定できます。異なる行には異なる`subscription_group_id`の値を設定できます。ただし、同じユーザーを複数の購読グループに登録する必要がある場合は、複数回のインポートを行う必要があります。
 {% endalert %}
 
 ### カスタムイベントのインポート（早期アクセス） {#importing-custom-events}

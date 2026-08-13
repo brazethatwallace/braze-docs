@@ -1,0 +1,6 @@
+- Configure pre-set use cases with Operator through the **Create agent** button dropdown.
+- Duplicate existing agents from the agent list.
+- Save agents as drafts during creation and complete configurations later.
+- Set fallback output values for Canvas agents to prevent output variables from setting to null if the agent errors out.
+- Set required input fields for a Catalog agentic field, so that the agent doesn't run if a required input field value is empty or missing.
+- Re-run an agent for all empty cells of an agentic column to fill any missing values without re-running the entire column.

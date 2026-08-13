@@ -20,7 +20,7 @@ description: "Dieser Artikel beschreibt die Details zum Braze-Endpunkt „Segmen
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `segments.details`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `segments.details`.
 
 ## Rate-Limit
 
@@ -28,9 +28,9 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 ## Anfrageparameter {#request-parameters}
 
-| Parameter    | Erforderlich | Datentyp | Beschreibung            |
+| Parameter | Erforderlich | Datentyp | Beschreibung |
 | ------------ | -------- | --------- | ---------------------- |
-| `segment_id` | Erforderlich | String | Siehe [Segment-API-Bezeichner]({{site.baseurl}}/api/identifier_types).<br><br> Die `segment_id` für ein bestimmtes Segment finden Sie auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) in Ihrem Braze-Konto, oder Sie können den [Endpunkt „Segmentliste exportieren“]({{site.baseurl}}/api/endpoints/export/segments/get_segment) verwenden.  |
+| `segment_id` | Erforderlich | String | Siehe [Segment-API-Bezeichner]({{site.baseurl}}/api/identifier_types).<br><br> Die `segment_id` für ein bestimmtes Segment finden Sie auf der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) in Ihrem Braze-Konto, oder Sie können den [Endpunkt „Segmentliste exportieren“]({{site.baseurl}}/api/endpoints/export/segments/get_segment) verwenden. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
@@ -45,7 +45,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/details
 
 ```json
 {
-      "message": (required, string) the status of the export, returns 'success' when completed without errors,
+      "message": (string) returns 'success' when the request completes without errors,
       "created_at" : (string) the date created as ISO 8601 date,
       "updated_at" : (string) the date last updated as ISO 8601 date,
       "name" : (string) the segment name,

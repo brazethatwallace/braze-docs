@@ -56,13 +56,15 @@ These fire for `_docs/**/*.md`, `_includes/**/*.md`, and `_includes/**/*.html` c
 - GFM markdown tables (`|col1|col2|…`) missing an `aria-label` in an IAL attribute block immediately after the last row
 - Existing IAL blocks on tables that are missing `aria-label=`
 - HTML `<table>` elements in includes without a `<caption>` or `aria-label` attribute
+- Icon-only status cells (emoji with no adjacent visible text): flag if the emoji lacks `aria-hidden="true"`, lacks a `.sr-only` companion span with descriptive text, or if the table has no visible legend explaining the symbols. See the writing-style guidance on [Tables](../../braze-docs/references/writing-style.md#tables) for the underlying rule (default to text; emoji-only cells require `aria-hidden` + `sr-only` + a legend).
 
-**Check mechanism:** `scripts/check_table_accessibility.py`
+**Check mechanism:** `scripts/check_table_accessibility.py` for accessible-name checks. The icon-only cell sub-check above is **LLM judgment, not yet covered by the script** — apply it when manually reviewing any table in scope (see the "HTML tables" low-confidence path in [markdown-audit.md](../workflows/markdown-audit.md)).
 
 **Auto-fixable:**
 - Missing IAL with a clear heading nearby: `Yes (high confidence)` — script derives `aria-label` from nearest heading
 - Missing or generic IAL: `Ask (medium confidence)` — author confirms or provides label
 - HTML tables, files with 4+ violations: `Ask (low confidence)`
+- Icon-only cells missing `aria-hidden`/`sr-only`/legend: `No` — always ask; requires author judgment on wording and legend placement
 
 **Historical context:** BD-6188 table accessibility was the primary motivation for the original `check-accessibility` skill. The `check_table_accessibility.py` script and `check-table-accessibility.yml` CI workflow were added during BD-6188 remediation.
 

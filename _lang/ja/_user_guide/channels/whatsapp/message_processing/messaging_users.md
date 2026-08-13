@@ -1,6 +1,6 @@
 ---
 nav_title: "ユーザーメッセージ"
-article_title: "WhatsApp ユーザーメッセージ"
+article_title: "WhatsAppユーザーメッセージ"
 description: "このリファレンス記事では、Brazeがユーザーメッセージをどのように処理するかについて説明します。"
 page_type: reference
 channel:
@@ -53,7 +53,7 @@ alias: /whatsapp_quick_replies/
 
 ### キャンバスでクイック返信エクスペリエンスを設定する {#configure-the-quick-reply-experience-in-canvas}
 
-#### ステップ 1: CTAを構築する {#step-1-build-out-ctas}
+#### ステップ1: CTAを構築する {#step-1-build-out-ctas}
 
 まず、メッセージテンプレート内の[WhatsAppメッセージテンプレートマネージャー](https://business.facebook.com/wa/manage/message-templates/)でクイック返信CTAを構築します。
 
@@ -65,7 +65,7 @@ alias: /whatsapp_quick_replies/
 メッセージテンプレートの承認を受ける前にキャンバスを構築できます。
 {% endalert %}
 
-#### ステップ 2: キャンバスを構築する {#step-2-build-your-canvas}
+#### ステップ2: キャンバスを構築する {#step-2-build-your-canvas}
 
 次に、作成したテンプレートを含むメッセージステップを持つキャンバスを構築します。
 
@@ -89,7 +89,7 @@ alias: /whatsapp_quick_replies/
 
 ![各コールトゥアクションボタンの応答を示す構築済みのキャンバス。]({% image_buster /assets/img/whatsapp/whatsapp18.png %})
 
-応答としてのメッセージ、ユーザープロファイルの更新、Braze間のwebhookなど、Braze キャンバスが提供する後続のアクションを使用できることに注意してください。
+応答としてのメッセージ、ユーザープロファイルの更新、Braze間のwebhookなど、Brazeキャンバスが提供する後続のアクションを使用できることに注意してください。
 
 ## リストメッセージ {#list-messages}
 
@@ -99,11 +99,11 @@ alias: /whatsapp_quick_replies/
 
 ### キャンバスでリストメッセージエクスペリエンスを設定する {#configure-the-list-message-experience-in-canvas}
 
-#### ステップ 1: アクションベースのキャンバスを作成または編集する {#step-1-create-or-edit-an-existing-action-based-canvases}
+#### ステップ1: アクションベースのキャンバスを作成または編集する {#step-1-create-or-edit-an-existing-action-based-canvases}
 
 WhatsAppリストメッセージは、ユーザーメッセージへの応答として送信する必要があるため、アクションベースのキャンバスにのみ追加できます。
 
-#### ステップ 2: WhatsAppメッセージステップを作成する {#step-2-create-a-whatsapp-message-step}
+#### ステップ2: WhatsAppメッセージステップを作成する {#step-2-create-a-whatsapp-message-step}
 
 WhatsApp[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を追加し、応答メッセージレイアウトとして**リストメッセージ**を選択します。
 
@@ -123,7 +123,7 @@ WhatsApp[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canv
 
 キャンバスコンポーザーに戻り、メッセージステップの後に各リスト応答のグループを持つ[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)を追加します。各グループで以下を行います。
 
-1. **受信WhatsAppサブスクリプショングループを送信**のトリガーを追加し、該当するWhatsAppサブスクリプショングループを選択します。
+1. **受信WhatsApp購読グループを送信**のトリガーを追加し、該当するWhatsApp購読グループを選択します。
 2. **メッセージ本文の条件**チェックボックスをオンにします。
 3. 1つの行（リストアイテム）のコンテンツを指定します。
 
@@ -143,6 +143,8 @@ WhatsApp[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canv
 
 応答メッセージは、ユーザーのメッセージを受信してから24時間以内に送信する必要があります。成功するエクスペリエンスの構築を支援するために、Brazeはメッセージロジックをチェックして、応答メッセージのブロックを解除する上流の受信ユーザーメッセージがあることを確認します。
 
+サブ分単位の返信が必要な双方向キャンバスフローでは、受信トリガーと応答メッセージ送信の間のステップを最小限に抑えてください。キャンバスのアーキテクチャ、webhookのラウンドトリップ、ユーザー更新のバッチ処理によりレイテンシーが増加する可能性があります。[双方向フローの応答レイテンシーを最小化する]({{site.baseurl}}/user_guide/channels/whatsapp/best_practices#minimize-response-latency-for-two-way-flows)を参照してください。
+
 以下のイベントが応答メッセージのブロックを解除します。
 
 - 受信メッセージ
@@ -156,9 +158,34 @@ WhatsApp[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canv
 
 ![実行されたカスタムイベント`ecommerce.cart_updated`のトリガーを持つアクションパス。]({% image_buster /assets/img/whatsapp/ecommerce_cart_updated.png %})
 
+### クイック返信と24時間ウィンドウ外の受信メッセージ {#quick-replies-and-inbound-messages-outside-the-24-hour-window}
+
+ユーザーがWhatsApp上でビジネスとやり取りする場合（古いテンプレートメッセージのクイック返信ボタンをタップする場合を含む）、そのアクションは受信メッセージとしてカウントされます。この受信メッセージにより、元のテンプレートが24時間以上前に送信されたものであっても、新しい24時間のカスタマーサービスウィンドウが開きます。
+
+クイック返信ボタンを持つキャンバスでは、ユーザーはウェルカムテンプレートを受信してから数日後にボタンをタップしても、正しいアクションパスに入ることができます。Brazeは受信メッセージが到着した時点でアクションパスを評価するため、遅延した返信をキャプチャするためにアクションパスの期間をデフォルトを超えて延長する必要はありません。
+
+以下の図は、一般的なクイック返信フローを示しています。
+
+```mermaid
+sequenceDiagram
+    participant Brand
+    participant User
+    Brand->>User: Template message (quick reply buttons)
+    Note over User: More than 24 hours pass
+    User->>Brand: Taps quick reply (inbound message)
+    Note over Brand,User: New 24-hour customer service window opens
+    Brand->>User: Response message (within Action Path)
+```
+
+#### 注意事項 {#things-to-know}
+
+- 応答メッセージステップは、ユーザーの受信メッセージから24時間以内に送信される必要があります。ほとんどのキャンバスフローでは、アクションパスの評価直後に応答が送信されるため、これは問題になりません。
+- 24時間のカスタマーサービスウィンドウはキャンバスの[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)とは異なります。コンバージョンイベントは最大30日間のウィンドウを使用できます。コンバージョンウィンドウはアトリビューションを制御するものであり、応答メッセージの送信可否には影響しません。
+- 課金については、[WhatsApp応答メッセージは無料ですか？]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free)を参照してください。
+
 ### カスタム時間属性によるフィルタリング {#filtering-by-a-custom-time-attribute}
 
-アクションベースのWhatsApp キャンペーンまたはキャンバスのオーディエンスがカスタム時間属性の相対的な時間枠内（たとえば、現在から次の24時間の間）に依存している場合は、[時間]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time)で説明されているように2つのフィルターを組み合わせてください。
+アクションベースのWhatsAppキャンペーンまたはキャンバスのオーディエンスがカスタム時間属性の相対的な時間枠内（たとえば、現在から次の24時間の間）に依存している場合は、[時間]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time)で説明されているように2つのフィルターを組み合わせてください。
 
 ### 受信メディアの保存とURLの有効期限 {#inbound-media-storage-and-url-expiration}
 
@@ -169,3 +196,7 @@ WhatsApp[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canv
 {% alert note %}
 `inbound_media_urls`の値を後で使用するためにユーザーカスタム属性に保存する場合は、この7日間の有効期限に注意してください。有効期限が切れた後にURLにアクセスしようとすると、リンク切れになります。
 {% endalert %}
+
+### 受信プロファイル名 {#inbound-profile-name}
+
+Metaが受信WhatsAppメッセージに表示名を含めた場合、Brazeはその受信イベントで{% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %} Liquid属性として公開します。この値はユーザーがWhatsAppで設定した名前を反映しており、CRMプロファイルデータと一致しない場合があります。ユーザー向けのコピーで使用する前にデータを検証するか、キャンバスのユーザー更新ステップを使用してプロファイルフィールドに保存し、後で使用してください。WhatsApp Liquid属性の完全なリストについては、[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)を参照してください。

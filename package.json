@@ -2,15 +2,23 @@
   "scripts": {
     "spellcheck": "cspell lint --no-progress",
     "fblinks": "ts-node ./scripts/find_broken_links.ts",
-    "generate-bulk-redirects": "python3 scripts/generate_bulk_redirects.py"
+    "generate-bulk-redirects": "python3 scripts/generate_bulk_redirects.py",
+    "build-fontawesome": "node scripts/build_fontawesome_subset.js"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.2.1",
     "@lhci/cli": "^0.15.1",
     "@types/node": "^22.13.9",
     "cspell": "^8.17.5",
+    "fontawesome-subset": "^4.6.0",
     "ts-node": "^10.9.2"
   },
   "overrides": {
+    "uuid": "^11.1.1",
+    "js-yaml": "^3.15.0",
+    "tmp": "^0.2.7"
+  },
+  "resolutions": {
     "uuid": "^11.1.1",
     "js-yaml": "^3.15.0",
     "tmp": "^0.2.7"

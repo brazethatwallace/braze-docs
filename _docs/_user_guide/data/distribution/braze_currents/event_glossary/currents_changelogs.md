@@ -7,6 +7,46 @@ tool: Currents
 
 # Currents changelog
 
+## Changes in Version 11 (release date 2026-08-05)
+
+### Changes for Storage:
+
+* Added new event type `contentoptimizer.ComponentStore`.
+
+* Added new event type `users.canvas.costep.Conversion`.
+
+* Added new event type `users.messages.landingpage.Click`.
+
+* Added new event type `users.messages.landingpage.FormSubmission`.
+
+* Added new event type `users.messages.landingpage.Impression`.
+
+* Added new event type `users.messages.survey.Response`.
+
+* Field changes to event type `agentconsole.AgentExecuted`:
+    * Added new `string` field `thinking_level`: the thinking oir reasoning level used for the request
+
+* Field changes to event type `users.messages.banner.Click`:
+    * Added new `boolean` field `is_unique`: Whether this was the user's first click on the message variation, counting toward unique click stats
+
+* Field changes to event type `users.messages.banner.Dismiss`:
+    * Added new `boolean` field `is_unique`: Whether this was the user's first dismissal of the message variation, counting toward unique dismiss stats
+
+* Field changes to event type `users.messages.banner.Impression`:
+    * Added new `boolean` field `is_unique`: Whether this was the user's first impression of the message variation, counting toward unique impression stats
+
+* Field changes to event type `users.messages.contentcard.Click`:
+    * Added new `boolean` field `is_unique`: Whether this was the user's first click on the message variation, counting toward unique click stats
+
+* Field changes to event type `users.messages.contentcard.Dismiss`:
+    * Added new `boolean` field `is_unique`: Whether this was the user's first dismissal of the message variation, counting toward unique dismiss stats
+
+* Field changes to event type `users.messages.contentcard.Impression`:
+    * Added new `boolean` field `is_unique`: Whether this was the user's first impression of the message variation, counting toward unique impression stats
+
+* Field changes to event type `users.messages.featureflag.Impression`:
+    * Added new `boolean` field `is_unique`: Whether this was the user's first impression for this feature flag, counting toward unique impression stats
+
 ## Changes in Version 10 (release date 2026-07-01)
 
 ### Changes for Storage:

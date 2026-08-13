@@ -53,12 +53,7 @@ If all of the messages in your campaign are similar or have the same content, co
 
 **Steps:**
 
-1. [Create your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) using the Canvas composer.
-2. After you've set up your Canvas, add a step in the Canvas builder. Name your step something clear and meaningful.
-3. Choose a [step schedule]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) and specify a delay as needed.
-4. Filter your audience for this step as necessary. You can further refine the recipients of this step by specifying segments and adding additional filters. Audience options will be checked after the delay at the time messages are sent.
-5. Choose your [advancement behavior]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
-6. Choose any other messaging channels you want to pair with your message.
+{% multi_lang_include messaging/canvas_message_step_setup.md %}
 
 {% alert tip %}
 If an action-based Canvas is triggered by an inbound WhatsApp message, you can reference WhatsApp properties in any Canvas step until the next action path.
@@ -108,6 +103,8 @@ If you plan to use Liquid, be sure to include a default value for your chosen pe
 Call-to-action URLs may contain variables, though Meta requires them to be at the end of the URL, such as `{% raw %}https://example.com/{{variable}}{% endraw %}`, where the variable can then be replaced in Braze with Liquid. Links can also be included as the body text as part of the template. Both of these links can be shortened and tracked using [click tracking]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking).
 
 ### Dynamic images
+
+You can add images from the media library or by URL. When you use a URL, you can personalize the image with [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) or [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), including full Liquid logic anywhere in the URL. Dynamic images are supported for template messages and response messages (media messages and quick reply layouts).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 

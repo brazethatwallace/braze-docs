@@ -57,9 +57,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 Para cada componente de solicitação listado na tabela a seguir, você deve incluir um dos seguintes: `external_id`, `user_alias`, `braze_id`, `email` ou `phone`.
 {% endalert %}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Opcional | Vetor de objetos de atributos | Consulte o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `attributes` | Opcional | Vetor de objetos de atributos | Consulte o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | Opcional | Vetor de objetos de eventos | Consulte o [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | Opcional | Vetor de objetos de compra | Consulte o [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
@@ -367,8 +367,8 @@ Por exemplo, se você enviar várias solicitações de atualização para o mesm
 Para evitar condições de corrida ao atualizar dados de usuários:
 
 - **Agrupe atualizações em uma única solicitação:** inclua todas as atualizações de atributos de um usuário em uma única chamada de API, em vez de fazer chamadas consecutivas separadas.
-- **Adicione atrasos entre solicitações:** se você precisar fazer chamadas separadas para o mesmo usuário, adicione um atraso (alguns segundos) entre as solicitações para permitir que a primeira seja processada antes de enviar a próxima.
-- **Evite atualizações sobrepostas para o mesmo campo:** se duas solicitações atualizam o mesmo atributo com valores diferentes, envie essas atualizações em uma única solicitação ou separe-as com um atraso para reduzir a chance de resultados fora de ordem.
+- **Adicione intervalos entre solicitações:** se você precisar fazer chamadas separadas para o mesmo usuário, adicione um intervalo (alguns segundos) entre as solicitações para permitir que a primeira seja processada antes de enviar a próxima.
+- **Evite atualizações sobrepostas para o mesmo campo:** se duas solicitações atualizam o mesmo atributo com valores diferentes, envie essas atualizações em uma única solicitação ou separe-as com um intervalo para reduzir a chance de resultados fora de ordem.
 
 Para saber mais sobre condições de corrida e práticas recomendadas, consulte [Condições de corrida]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions).
 

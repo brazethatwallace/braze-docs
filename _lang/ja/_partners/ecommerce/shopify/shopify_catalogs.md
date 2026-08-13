@@ -20,24 +20,24 @@ Shopifyストアがすでにインストールされている場合でも、こ�
 
 ### ステップ1: 同期をオンにする {#step-1-turn-on-the-sync}
 
-Shopifyのインストールフローまたはshopifyパートナーページで、商品をBrazeカタログに同期できます。
+ShopifyのインストールフローまたはShopifyパートナーページで、商品をBrazeカタログに同期できます。
 
 ![設定プロセスのステップ3。「カタログの商品識別子」に「Shopify Variant ID」が設定されている。]({% image_buster /assets/img/shopify/sync_products_step1.png %})
 
 ### ステップ2: 商品識別子を選択する {#step-2-select-your-product-identifier}
 
-カタログIDとして使用する商品識別子を選択します。
-- ShopifyバリアントID
-- SKU
+BrazeカタログIDとして使用するプライマリ商品識別子を選択します。
 
-選択する商品識別子のIDとヘッダーの値には、文字、数字、ハイフン、アンダースコアのみを使用できます。商品識別子がこの形式に従っていない場合、Brazeはカタログの同期からその識別子を除外します。
+- **Shopify Variant ID**は、SKUが欠落している場合、バリアント間で重複している場合、またはスラッシュ、ピリオド、スペース、アンパサンドなどの文字を含む可能性がある場合に適したデフォルトです。バリアントIDは数値であり、常にこれらの要件を満たします。
+- **SKU**は、すべてのバリアントにShopify Variant IDと同じ文字ルールに従う一意のSKUがあり、メッセージングや分析で小売SKUをカタログキーとして使用したい場合に適しています。
+  - 許可されていない文字を含むフリーテキストSKUは、SKUの代わりにShopify Variant IDを使用することで対応できます。
 
-これは、Brazeカタログ情報を参照するときに使用する主要な識別子です。
+選択した値はカタログの`item_id`となり、文字、数字、ハイフン、アンダースコアのみを含めることができます。
 
 {% alert note %}
-カタログIDとしてSKUを選択する場合は、ストア内のすべての商品とバリアントにSKUが設定されており、それらが一意であることを確認してください。<br><br>
+カタログIDとしてSKUを使用する場合は、ストア内のすべての商品とバリアントにSKUが設定されており、それらが一意であることを確認してください。<br><br>
 - アイテムにSKUが設定されていない場合、Brazeはその商品をカタログに同期できません。
-- 同じSKUを持つ複数の商品がある場合、予期しない動作が発生したり、重複したSKUによって意図せず商品情報が上書きされる可能性があります。
+- 同じSKUを持つ複数の商品がある場合、予期しない動作が発生したり、意図せず商品情報が上書きされる可能性があります。
 {% endalert %}
 
 ### ステップ3: 追加の商品データを設定する（オプション） {#step-3}
@@ -95,7 +95,7 @@ Brazeは以下のメタフィールドオブジェクトとそれぞれのタイ
 | `url`, `list.url`                                | 文字列（URL）、文字列の配列（URL）                      |
 | `metaobject_reference`, `list.metaobject_reference` | 文字列、文字列の配列                                |
 | `mixed_reference`, `list.mixed_reference`        | 文字列、文字列の配列                                    |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ3: 追加の商品データを設定する（オプション） #step-3" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ3: 追加の商品データを設定する（オプション）" }
 
 {% endsubtab %}
 {% subtab サポートされていないメタフィールド %}
@@ -168,7 +168,7 @@ Shopifyパートナーページから、商品タグ、コレクション、商�
 
 | フィールド | データタイプ | 例 |
 |----------------------|----------------|-----------------------------------------------------------------------------------|
-| `id`                 | 文字列         | カタログの商品識別子が**ShopifyバリアントID**の場合は`45264808411274`<br><br>カタログの商品識別子が**SKU**の場合は`12345`（[ステップ2](#step-2-select-your-product-identifier)で選択した値と一致します） |
+| `id`                 | 文字列         | カタログの商品識別子が**Shopify Variant ID**の場合は`45264808411274`<br><br>カタログの商品識別子が**SKU**の場合は`12345`（[ステップ2](#step-2-select-your-product-identifier)で選択した値と一致します） |
 | `store_name`         | 文字列         | "your-store"（Shopifyストアのサブドメイン、`.myshopify.com`なし）                |
 | `shopify_product_id` | 数値           | `7939032613002`（Brazeカタログでは数値として保存されます。Shopify APIはこのIDを文字列として返す場合があります） |
 | `shopify_variant_id` | 数値           | `45264808411274`（Brazeカタログでは数値として保存されます。Shopify APIはこのIDを文字列として返す場合があります） |
@@ -711,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-[値下げ通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications)や[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)も設定できます！<br><br>各ユースケースでは、ユーザーの購読ステータスをカタログにキャプチャするカスタムイベントを作成する必要があります。カスタムイベントには、Shopify商品同期の一部として選択した[SKUまたはShopifyバリアントID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs#step-2-select-your-product-identifier)のいずれかにマップされるイベントプロパティが必要です。
+[値下げ通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications)や[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)も設定できます！<br><br>各ユースケースでは、ユーザーの購読ステータスをカタログにキャプチャするカスタムイベントを作成する必要があります。カスタムイベントには、Shopify商品同期の一部として選択した<a href="/docs/partners/ecommerce/shopify/shopify_catalogs#step-2-select-your-product-identifier">SKUまたはShopify Variant ID</a> のいずれかにマップされるイベントプロパティが必要です。
 {% endalert %}
 
 ## 商品同期を非アクティブにする {#deactivate}
@@ -725,6 +725,8 @@ Shopify商品同期でエラーが発生した場合は、次のいずれかの�
 | エラー | 理由 | ソリューション |
 | --- | --- | --- |
 | サーバーエラー | 商品を同期しようとしたときに、Shopify側でサーバーエラーが発生した場合に起こります。 | [同期を非アクティブにし](#deactivate)、商品の在庫全体を再同期します。 |
-| 重複するSKU | カタログアイテムIDとしてSKUを使用している場合に、複数の商品に同じSKUが設定されていると発生します。カタログアイテムIDは一意である必要があるため、すべての商品に一意のSKUが必要です。 | Shopifyで商品とバリアントの一覧をすべて監査して、重複するSKUがないことを確認します。SKUが重複している場合は、Shopifyストアアカウントで一意のSKUに更新します。修正後、[同期を非アクティブにし](#deactivate)、商品の在庫全体を再同期します。 |
-| カタログ制限の超過 | カタログ制限を超えた場合に発生します。Brazeは、利用可能なストレージがないため、同期を完了することや、同期をアクティブな状態で維持することができなくなります。 | この問題には2つのソリューションがあります。<br><br>1. アカウントマネージャーに連絡してティアをアップグレードし、カタログ制限を増やします。<br><br>2. 次のいずれかを削除して、ストレージ領域を解放します。<br>- 他のカタログからのカタログアイテム<br>- 他のカタログ<br>- 作成されたセレクション<br><br> いずれのソリューションを取った場合でも、同期を非アクティブにしてから再同期を実行する必要があります。 |
+| 重複するSKU | カタログアイテムIDとしてSKUを使用している場合に、複数のバリアントが同じSKUを共有していると発生します。各カタログの`item_id`は一意である必要があるため、影響を受けるアイテムは同期に失敗したり、エラーレコードが蓄積されたり、商品情報が意図せず上書きされる可能性があります。 | Shopifyで商品とバリアントの一覧をすべて監査して、重複するSKUがないことを確認します。重複するSKUがある場合は、Shopifyストアアカウントで一意のSKUに更新します。修正後、[同期を非アクティブにし](#deactivate)、商品の在庫全体を再同期します。 |
+| カタログ制限の超過 | カタログ制限を超えた場合に発生します。Brazeは、利用可能なストレージがないため、同期を完了することや、同期をアクティブな状態で維持することができなくなります。 | この問題には2つのソリューションがあります。<br><br>1. アカウントマネージャーに連絡してティアをアップグレードし、カタログ制限を増やします。<br><br>2. 次のいずれかを削除して、ストレージ領域を解放します。<br>- 他のカタログからのカタログアイテム<br>- 他のカタログ<br>- 作成されたセレクション<br><br>いずれのソリューションを取った場合でも、同期を非アクティブにしてから再同期を実行する必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="トラブルシューティング" }
+
+カタログアイテムのバリデーションの詳細については、カタログAPIドキュメントの[トラブルシューティング]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/post_create_catalog_items_bulk#troubleshooting)を参照してください。

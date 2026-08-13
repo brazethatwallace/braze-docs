@@ -18,7 +18,7 @@ description: "Dieser Artikel enthält Einzelheiten zum Braze-Endpunkt „Angepas
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `events.get`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `events.get`.
 
 ## Rate-Limit
 
@@ -55,7 +55,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/events?cursor=c2tpc
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "events" : [
         {
             "name": "The event name", (string) the event name,

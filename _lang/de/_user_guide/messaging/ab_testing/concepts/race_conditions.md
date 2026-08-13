@@ -22,7 +22,7 @@ Die häufigsten Arten von Race-Conditions können auftreten, wenn Sie Folgendes 
 
 - Targeting von neuen Nutzer:innen
 - Mehrere API-Endpunkte verwenden
-- Passende aktionsbasierte Trigger und Zielgruppen-Filter
+- Passende aktionsbasierte Trigger und Zielgruppenfilter
 - Den „Interact with Step“-Trigger verwenden
 
 Ziehen Sie die folgenden Szenarien in Betracht und wenden Sie Best Practices an, um diese Race-Conditions zu vermeiden.
@@ -89,15 +89,15 @@ Verwenden Sie den [`/users/track/sync/`-Endpunkt]({{site.baseurl}}/api/endpoints
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
-## Szenario 3: Passende aktionsbasierte Trigger und Zielgruppen-Filter {#scenario-3-matching-action-based-triggers-and-audience-filters}
+## Szenario 3: Passende aktionsbasierte Trigger und Zielgruppenfilter {#scenario-3-matching-action-based-triggers-and-audience-filters}
 
-Eine weitere häufige Race-Condition kann auftreten, wenn Sie eine aktionsbasierte Campaign oder einen Canvas mit demselben Trigger wie dem Zielgruppen-Filter konfigurieren (z. B. ein geändertes Attribut oder ein ausgeführtes angepasstes Event). Die Nutzer:in befindet sich möglicherweise nicht in der Zielgruppe zu dem Zeitpunkt, an dem sie das Trigger-Event ausführt, was bedeutet, dass sie die Campaign nicht erhält oder den Canvas nicht betritt.
+Eine weitere häufige Race-Condition kann auftreten, wenn Sie eine aktionsbasierte Campaign oder einen Canvas mit demselben Trigger wie dem Zielgruppenfilter konfigurieren (z. B. ein geändertes Attribut oder ein ausgeführtes angepasstes Event). Die Nutzer:in befindet sich möglicherweise nicht in der Zielgruppe zu dem Zeitpunkt, an dem sie das Trigger-Event ausführt, was bedeutet, dass sie die Campaign nicht erhält oder den Canvas nicht betritt.
 
 ### Best Practices
 
 #### Zielgruppe nach einer Verzögerung prüfen {#check-your-audience-after-a-delay}
 
-Um die Verwendung von Zielgruppen-Filtern zu vermeiden, die die Trigger-Kriterien enthalten, empfehlen wir, Ihre Zielgruppe vor der Zustellung zu prüfen. Sie können beispielsweise [Zustellungsvalidierungen verwenden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#edit-delivery-settings) in Canvas-Nachrichtenschritten als zusätzliche Prüfung, um zu bestätigen, dass Ihre Zielgruppe die Zustellungskriterien beim Nachrichtenversand erfüllt. Sie können auch Exit-Kriterien für Canvas nutzen, um Nutzer:innen an jedem Punkt während der User Journey auszuschließen, wenn sie Ihre Kriterien erfüllen.
+Um die Verwendung von Zielgruppenfiltern zu vermeiden, die die Trigger-Kriterien enthalten, empfehlen wir, Ihre Zielgruppe vor der Zustellung zu prüfen. Sie können beispielsweise [Zustellungsvalidierungen verwenden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings) in Canvas-Nachrichtenschritten als zusätzliche Prüfung, um zu bestätigen, dass Ihre Zielgruppe die Zustellungskriterien beim Nachrichtenversand erfüllt. Sie können auch Exit-Kriterien für Canvas nutzen, um Nutzer:innen an jedem Punkt während der User Journey auszuschließen, wenn sie Ihre Kriterien erfüllen.
 
 Für Campaigns können Sie Exit-Events verwenden, um Campaigns mit einem Trigger-Event zu ermöglichen, Nachrichten an Nutzer:innen abzubrechen, die das Exit-Event während der Verzögerung ausführen.
 
@@ -105,15 +105,15 @@ Für Campaigns können Sie Exit-Events verwenden, um Campaigns mit einem Trigger
 
 Beim Konfigurieren Ihrer Filter möchten Sie möglicherweise einen redundanten Filter „zur Sicherheit“ hinzufügen. Diese Redundanz kann jedoch zu mehr Problemen führen. Vermeiden Sie stattdessen nach Möglichkeit die Verwendung eines Filters, der den Trigger enthält. Dies ist der sicherste Weg, um eine Race-Condition zu vermeiden.
 
-Wenn beispielsweise Ihr Campaign-Trigger „Hat einen Kauf getätigt“ ist und Ihr Zielgruppen-Filter „Hat irgendeinen Kauf getätigt“ lautet, kann diese Redundanz eine Race-Condition verursachen.
+Wenn beispielsweise Ihr Campaign-Trigger „Hat einen Kauf getätigt“ ist und Ihr Zielgruppenfilter „Hat irgendeinen Kauf getätigt“ lautet, kann diese Redundanz eine Race-Condition verursachen.
 
-#### Zielgruppen-Filter vermeiden, die davon ausgehen, dass das Trigger-Event aktualisiert wurde {#avoid-audience-filters-that-assume-the-trigger-event-has-been-updated}
+#### Zielgruppenfilter vermeiden, die davon ausgehen, dass das Trigger-Event aktualisiert wurde {#avoid-audience-filters-that-assume-the-trigger-event-has-been-updated}
 
 Diese Best Practice ähnelt der Vermeidung redundanter Filter mit dem Trigger-Event. Normalerweise schlägt ein Filter fehl, der davon ausgeht, dass das Trigger-Event im Nutzerprofil aktualisiert wurde.
 
 #### Liquid-Abbrüche verwenden (nur Attribute) {#use-liquid-aborts-attributes-only}
 
-In Campaigns und Canvas-Schritten können Sie Liquid-Abbrüche verwenden, um die Verwendung von Zielgruppen-Filtern zu vermeiden, die die Trigger-Attribute im Entry-Zeitplan enthalten. Nehmen wir beispielsweise an, Sie haben ein Array-Attribut „Lieblingsfarben“ und möchten jede Nutzer:in ansprechen, die das Attribut-Array mit einem beliebigen Wert aktualisiert und nach Abschluss des Updates auch die Farbe „Blau“ im Array hat. Wenn Sie in diesem Beispiel die Zielgruppen-Filter verwenden, stoßen Sie auf eine Race-Condition und verpassen Nutzer:innen, die „Blau“ zum ersten Mal zum Array hinzufügen.
+In Campaigns und Canvas-Schritten können Sie Liquid-Abbrüche verwenden, um die Verwendung von Zielgruppenfiltern zu vermeiden, die die Trigger-Attribute im Entry-Zeitplan enthalten. Nehmen wir beispielsweise an, Sie haben ein Array-Attribut „Lieblingsfarben“ und möchten jede Nutzer:in ansprechen, die das Attribut-Array mit einem beliebigen Wert aktualisiert und nach Abschluss des Updates auch die Farbe „Blau“ im Array hat. Wenn Sie in diesem Beispiel die Zielgruppenfilter verwenden, stoßen Sie auf eine Race-Condition und verpassen Nutzer:innen, die „Blau“ zum ersten Mal zum Array hinzufügen.
 
 In diesem Fall können Sie eine Trigger-Verzögerung in einer Campaign implementieren oder einen Verzögerungsschritt in Canvas verwenden, um dem Nutzerprofil Zeit zur Aktualisierung zu geben, und dann die folgende Liquid-Abbruchlogik verwenden:
 
@@ -136,11 +136,11 @@ Wir empfehlen zu bestätigen, wie Nutzerdaten verwaltet und aktualisiert werden 
 
 ## Szenario 4: Den „Interact with Step“-Trigger verwenden {#scenario-4-using-the-interact-with-step-trigger}
 
-Wenn in einem Canvas auf einen Nachrichtenschritt direkt ein Aktions-Pfad-Schritt folgt, der den „Interact With Step“-Trigger verwendet, kann eine Race-Condition auftreten. Da Nutzer:innen mit einer Nachricht interagieren können, sobald sie zugestellt wird, ist es möglich, dass eine Nutzer:in die getrackte Aktion abschließt, bevor sie offiziell den Aktions-Pfad-Schritt betritt.
+Wenn in einem Canvas auf einen Nachrichtenschritt direkt ein Aktionspfad-Schritt folgt, der den „Interact With Step“-Trigger verwendet, kann eine Race-Condition auftreten. Da Nutzer:innen mit einer Nachricht interagieren können, sobald sie zugestellt wird, ist es möglich, dass eine Nutzer:in die getrackte Aktion abschließt, bevor sie offiziell den Aktionspfad-Schritt betritt.
 
-In diesem Fall registriert der Aktions-Pfad-Schritt die Interaktion nicht, da er nur Events auswertet, die nach dem Eintritt in den Schritt auftreten. Das bedeutet, dass die Nutzer:in möglicherweise einen unbeabsichtigten Pfad durchläuft.
+In diesem Fall registriert der Aktionspfad-Schritt die Interaktion nicht, da er nur Events auswertet, die nach dem Eintritt in den Schritt auftreten. Das bedeutet, dass die Nutzer:in möglicherweise einen unbeabsichtigten Pfad durchläuft.
 
-Ein Canvas sendet eine Push-Benachrichtigung in einem Nachrichtenschritt, gefolgt von einem Aktions-Pfad-Schritt, der prüft, ob die Nutzer:in diese Push-Benachrichtigung öffnet. Wenn eine Nutzer:in die Push-Benachrichtigung sofort nach dem Empfang öffnet (bevor sie den Aktions-Pfad-Schritt betritt), wird das Öffnungs-Event möglicherweise nicht erfasst. Die Nutzer:in könnte dann fälschlicherweise den „Nicht geöffnet“-Pfad durchlaufen, obwohl sie mit der Nachricht interagiert hat.
+Ein Canvas sendet eine Push-Benachrichtigung in einem Nachrichtenschritt, gefolgt von einem Aktionspfad-Schritt, der prüft, ob die Nutzer:in diese Push-Benachrichtigung öffnet. Wenn eine Nutzer:in die Push-Benachrichtigung sofort nach dem Empfang öffnet (bevor sie den Aktionspfad-Schritt betritt), wird das Öffnungs-Event möglicherweise nicht erfasst. Die Nutzer:in könnte dann fälschlicherweise den „Nicht geöffnet“-Pfad durchlaufen, obwohl sie mit der Nachricht interagiert hat.
 
 ### Best Practices
 

@@ -17,7 +17,7 @@ tool: Reporting
 You can subscribe to this report on from the **Notification Preferences** page. 
 
 1. Go to **Settings** > **Admin Settings** > **Notification Preferences**. 
-2. Select the **Weekly Analytics Report** and add yourself to the list recipients.
+2. Select the **Weekly Analytics Report** and add yourself or other Braze dashboard users to the list recipients. External email addresses can't be added.
 
 ## Adding custom events to reports
 

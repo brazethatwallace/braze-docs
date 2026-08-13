@@ -13,7 +13,7 @@ noindex: true
 
 <br>
 {% alert important %}
-¿Buscas la guía básica de integración para desarrolladores de notificaciones push? Encuéntrala [aquí]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration).
+¿Buscas la guía básica de integración del desarrollador de notificaciones push? Encuéntrala en [Integración de notificaciones push para iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration).
 {% endalert %}
 
 # Guía de implementación de notificaciones push {#push-notification-implementation-guide}
@@ -22,7 +22,7 @@ noindex: true
 
 ## Extensiones de la aplicación de contenido de notificación {#notification-content-app-extensions}
 
-![Dos mensajes push mostrados uno al lado del otro. El mensaje de la derecha muestra el aspecto de un push con la interfaz predeterminada. El mensaje de la derecha muestra un push de una tarjeta perforada de café realizado mediante la implementación de una interfaz de usuario push personalizada.]({% image_buster /assets/img/push_implementation_guide/push1.png %}){: style="max-width:65%;border:0;margin-top:10px"}
+![Dos mensajes push mostrados uno al lado del otro. El mensaje de la izquierda muestra el aspecto de un push con la interfaz predeterminada. El mensaje de la derecha muestra un push de una tarjeta perforada de café realizado mediante la implementación de una interfaz de usuario push personalizada.]({% image_buster /assets/img/push_implementation_guide/push1.png %}){: style="max-width:65%;border:0;margin-top:10px"}
 
 Las notificaciones push, aunque parecen estándar en diferentes plataformas, ofrecen inmensas opciones de personalización más allá de lo que normalmente se implementa en la interfaz de usuario predeterminada. Cuando se amplía una notificación push, las extensiones de notificación de contenido habilitan una vista personalizada de la notificación push ampliada.
 

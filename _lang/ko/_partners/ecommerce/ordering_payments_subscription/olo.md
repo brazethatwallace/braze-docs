@@ -68,13 +68,7 @@ Olo 웹훅 구성 프로세스를 완료하려면 테스트 이벤트 웹훅에�
 
 이 반환 값은 Braze의 `/users/track` 요청 본문 형식을 준수해야 합니다.
 
-- 변환 코드는 JavaScript 프로그래밍 언어로 작성됩니다. if/else 로직과 같은 모든 표준 JavaScript 제어 흐름이 지원됩니다.
-- 변환 코드는 payload 변수를 통해 웹훅 요청 본문에 접근합니다. 이 변수는 요청 본문 JSON을 파싱하여 채워진 오브젝트입니다.
-- `/users/track` 엔드포인트에서 지원되는 모든 기능이 지원되며, 다음을 포함합니다.
-    - 사용자 속성 오브젝트, 이벤트 오브젝트, 구매 오브젝트
-    - 중첩 속성 및 중첩 커스텀 이벤트 속성정보
-    - 구독 그룹 업데이트
-    - 식별자로서의 이메일 주소
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Olo 웹훅을 위한 데이터 변환 예시 {#example-data-transformations-for-olo-webhooks}
 

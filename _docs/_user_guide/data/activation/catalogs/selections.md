@@ -89,6 +89,10 @@ After creating your selection, personalize your messages with Liquid to insert t
 
 ![The Add Personalization modal with the following selections: "Catalog Items" for "Personalization Type", "Games" for "Catalog Name", "Selections" for "Selection Type", "game_selection" for "Selection", and "title" and "description_en" for "Information to Display".]({% image_buster /assets/img_archive/catalog_selections6.png %}){: style="max-width:70%;"}
 
+{% alert note %}
+The personalization preview in the Liquid composition panel displays up to three catalog selections regardless of the results limit you set. This is expected behavior—the actual message sent to users respects your configured results limit.
+{% endalert %}
+
 ## Use case
 
 Let's say you own a meal delivery service and want to send a personalized message to your users who have specific meal preferences based on their most recently viewed food category. 

@@ -156,6 +156,8 @@ From there, you can review your message settings and content to drill down and d
 
 ![Test Email]({% image_buster /assets/img_archive/testemail.png %}){: style="max-width:40%;" }
 
+If your email includes a [preference center]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) link, test sends do not generate a working link or let you save preferences. To test the preference center, launch the message to a test user or small internal segment instead. For details, see [Testing preference centers]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
+
 If your email campaign includes a large image and isn't displaying as expected in Outlook, consider reducing the actual file dimensions of the image with an image editing or resizing tool instead of only scaling it with CSS or HTML.
 
 {% endtab %}
@@ -384,7 +386,7 @@ You can test custom event properties by manually inputting values with Liquid.
 
 There are a few situations where test messages don't behave the same way as campaigns or Canvases sent to real users. In these instances, consider launching the campaign or Canvas to a limited set of test users to validate this behavior.
 
-- Viewing the Braze preference center from test messages will cause the **Save Preferences** button to be grayed out.
+- Viewing the Braze [preference center]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) from test messages causes the **Save Preferences** button to be disabled. Preference center Liquid tags may also not resolve to valid links. This is expected behavior. To test end-to-end, see [Testing preference centers]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
 - For testing in-app messages and Content Cards, the target user must have a push token for the target device.
 - For testing unsubscribe links in emails, make sure your test user's email address is in the respective workspace.
 - The `List-Unsubscribe` header is not included in emails sent by the test message functionality.

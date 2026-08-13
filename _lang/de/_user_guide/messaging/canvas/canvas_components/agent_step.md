@@ -45,7 +45,7 @@ In der Agent-Liste ist jeder Agent mit seinem [täglichen Aufruf-Limit]({{site.b
 
 ### Schritt 3: Ausgabe des Agents festlegen {#define-the-output-variable}
 
-Agent-Ausgaben werden als „Ausgabevariablen“ bezeichnet und in einer [Kontextvariable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-types) für einfachen Zugriff gespeichert. Um die Ausgabevariable zu definieren, geben Sie der Variable einen Namen.
+Agent-Ausgaben werden als „Ausgabevariablen“ bezeichnet und in einer [Kontextvariable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-filters) für einfachen Zugriff gespeichert. Um die Ausgabevariable zu definieren, geben Sie der Variable einen Namen.
 
 Beachten Sie, dass der Datentyp der Ausgabevariable in der [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents) festgelegt wird. Agent-Ausgaben können als Strings, Zahlen, boolesche Werte oder Objekte gespeichert werden. Das macht sie flexibel sowohl für Text-Personalisierung als auch für bedingte Logik in Ihrem Canvas. Hier sind einige gängige Verwendungszwecke für jeden Typ:
 
@@ -122,7 +122,7 @@ Das folgende Muster verwendet drei Agents für ein Reisebeispiel: Jemand hat kü
 - Agent 2 gibt einen Routing-Wert zurück, auf dem Ihr Canvas verzweigen kann. Verwenden Sie eine Zahl, einen booleschen Wert oder ein strukturiertes Objekt, damit die Ausgabe zu Ihrer Verzweigungslogik passt. Ordnen Sie diesen Wert einem [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)- oder [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)-Schritt zu. Erwägen Sie beispielsweise separate Pfade für Treue-basiertes Messaging im Vergleich zu Angebots-basiertem Messaging.
 - Agent 3 verfasst generierten Nachrichtentext nur in Branches, in denen Sie dies wünschen. Übergeben Sie die Zusammenfassung von Agent 1 (und jeden Branch-spezifischen Kontext), damit sich dieser Agent auf Tonalität und Kanallimits konzentriert, anstatt im selben Prompt Eingaben zu normalisieren und eine Strategie zu wählen.
 
-### Den Experimentpfad-Schritt verwenden, um agentische Journeys im kleinen Maßstab zu testen {#use-the-experiment-paths-step-to-test-agentic-journeys-at-small-scale}
+### Den Experimentpfade-Schritt verwenden, um agentische Journeys im kleinen Maßstab zu testen {#use-the-experiment-paths-step-to-test-agentic-journeys-at-small-scale}
 
 Um die Performance und den Credit-Verbrauch Ihres Agents im Vergleich zu Ihren bestehenden Journeys zu testen, fügen Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt hinzu, sodass nur ein Teil Ihrer Zielgruppe den Branch betritt, der Ihren Agent-Schritt enthält.
 

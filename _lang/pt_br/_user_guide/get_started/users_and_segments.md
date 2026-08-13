@@ -23,7 +23,7 @@ Ao entender os perfis de usuário, você pode obter insights sobre seu público 
 - [Atributos](#attributes)**:** São informações específicas sobre o usuário, como nome, idade, local ou qualquer outra informação demográfica. Você pode usar esses atributos para segmentar seu público e personalizar seu envio de mensagens.
 - [Eventos](#events)**:** São ações que o usuário realiza, como fazer uma compra, clicar em um link ou abrir um app. A Braze rastreia esses eventos para ajudar você a entender o comportamento e o engajamento do usuário. Assim como os atributos, você também pode usar eventos para segmentar e personalizar.
 - **Compras:** Esta seção registra o histórico de compras do usuário. É crucial para entender os hábitos e preferências de compra do usuário.
-- **Dispositivos:** Esta seção lista os dispositivos que o usuário usou para interagir com sua marca. Pode incluir dispositivos móveis, navegadores web e dispositivos conectados (como wearables e smart TVs).
+- **Dispositivos:** Esta seção lista os dispositivos que o usuário usou para interagir com sua marca. Pode incluir dispositivos móveis, navegadores web e dispositivos conectados (como wearables e Smart TVs).
 - **Engajamento:** Esta seção contém informações sobre as interações do usuário com as mensagens que você envia, a quais segmentos ele pertence, status de inscrição e mais.
 - **Histórico de mensagens:** Este é um registro de todas as mensagens que foram enviadas ao usuário pelo respectivo canal de envio de mensagens (como e-mail ou push).
 
@@ -37,7 +37,7 @@ Atributos são características ou propriedades específicas associadas a um usu
 
 #### Atributos padrão {#standard-attributes}
 
-Os atributos padrão são atributos predefinidos que você pode rastrear com a Braze após integrar o SDK ao seu app. São informações comuns de usuário que a maioria dos apps consideraria úteis, como dados demográficos e de dispositivo. Exemplos incluem:
+Os atributos padrão são atributos predefinidos que você pode rastrear com a Braze após integrar o SDK ao seu app. São informações comuns de usuário que a maioria dos apps consideraria úteis, como dados demográficos e dados do dispositivo. Exemplos incluem:
 
 - Nome
 - Sobrenome
@@ -78,7 +78,7 @@ Eventos representam ações ou comportamentos específicos realizados pelos usu�
 
 #### Eventos padrão {#standard-events}
 
-[Eventos padrão]({{site.baseurl}}/user_guide/data/activation/events#standard-events) são eventos predefinidos que a Braze rastreia automaticamente após a integração do SDK no seu app ou site. Alguns exemplos de eventos padrão incluem:
+[Eventos padrão]({{site.baseurl}}/user_guide/data/activation/events) são eventos predefinidos que a Braze rastreia automaticamente após a integração do SDK no seu app ou site. Alguns exemplos de eventos padrão incluem:
 
 - **Início da sessão:** Este evento é acionado quando um usuário abre o app.
 - **Fim da sessão:** Este evento é acionado quando um usuário fecha o app.
@@ -105,7 +105,7 @@ Eventos personalizados oferecem a flexibilidade para rastrear as ações que sã
 
 A Braze usa pontos de dados para ajudar você a definir as informações mais impactantes para o seu negócio. Os pontos de dados são uma parte crucial de como a Braze opera e são usados para faturamento, precificação e, mais importante, personalização e otimização de suas campanhas de marketing.
 
-Os pontos de dados são consumidos quando os dados do perfil de um usuário são atualizados ou quando ele realiza ações específicas. Essas ações podem incluir iniciar uma sessão, encerrar uma sessão, registrar um evento personalizado ou fazer uma compra. É importante notar que nem todos os dados coletados pela Braze contam como pontos de dados. Por exemplo, dados e eventos coletados por padrão pelos serviços da Braze, como tokens de push, informações do dispositivo e todos os eventos de rastreamento de engajamento de campanhas, como aberturas de e-mail e cliques em notificação por push, não são contados como pontos de dados.
+Os pontos de dados são consumidos quando os dados do perfil de um usuário são atualizados ou quando ele realiza ações específicas. Essas ações podem incluir iniciar uma sessão, encerrar uma sessão, registrar um evento personalizado ou fazer uma compra. É importante notar que nem todos os dados coletados pela Braze contam como pontos de dados. Por exemplo, dados e eventos coletados por padrão pelos serviços da Braze, como tokens de push, informações do dispositivo e todos os eventos de rastreamento de engajamento de Campaigns, como aberturas de e-mail e cliques em notificação por push, não são contados como pontos de dados.
 
 Ao considerar cuidadosamente quais informações rastrear como pontos de dados, você está direcionando os dados de maior impacto para a experiência de seus usuários. Seu gerente de conta da Braze ajudará a recomendar as melhores práticas de dados para atender às suas necessidades.
 
@@ -118,7 +118,7 @@ A [segmentação]({{site.baseurl}}/user_guide/audience/segments) permite que voc
 Dicas para trabalhar com segmentos:
 
 - Os segmentos na Braze são dinâmicos: os usuários estão sempre entrando e saindo dos segmentos, pois nem sempre se encaixam nos critérios. Os usuários que se enquadram nos critérios de um segmento no momento do envio serão os destinatários dessa Campaign ou Canvas.
-    - Se você quiser que seu segmento seja estático, você pode usar extensões de segmento. Extensões de segmento (com [regeneração desativada]({{site.baseurl}}/user_guide/audience/segments/segment_extension#extension-regeneration)) representam seu público como uma única captura no tempo.
+    - Se você quiser que seu segmento seja estático, você pode usar extensões de segmento. Extensões de segmento (com [regeneração desativada]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-4-designate-refresh-settings-optional)) representam seu público como uma única captura no tempo.
 - Você não está limitado a usar apenas um filtro por vez. Crie segmentos granulares e bem ajustados, sobrepondo vários filtros uns sobre os outros.
 - Você pode usar as ações ou inações de seus usuários para entender como alcançá-los onde eles desejam interagir com você. Essas ações podem ser eventos personalizados, engajamento com uma Campaign ou Canvas existente, ou até mesmo uma mensagem específica dentro de um Canvas.
 

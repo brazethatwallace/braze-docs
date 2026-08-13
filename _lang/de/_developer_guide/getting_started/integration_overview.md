@@ -22,7 +22,7 @@ platform:
 ![Ein Venn-Diagramm mit vier Kreisen – Identifizierung, Integration, Qualitätssicherung und Wartung – mit dem Schwerpunkt „Time to Value“.]({% image_buster /assets/img/getting-started/getting-started-integrate-flower.png %}){: style="max-width:50%;float:right;margin-left:15px;border:none;"}
 
 Als technische Ressource stärken Sie Ihr Team durch die Integration von Braze in Ihren Tech-Stack. Das Onboarding gliedert sich im Wesentlichen in vier Schritte:
-* [Identifizierung und Planung](#discovery): Arbeiten Sie mit Ihrem Team zusammen, um den Projektumfang abzustimmen, eine Struktur für Daten und Kampagnen zu planen und eine geeignete Workspace-Struktur zu erstellen.
+* [Identifizierung und Planung](#discovery): Arbeiten Sie mit Ihrem Team zusammen, um den Projektumfang abzustimmen, eine Struktur für Daten und Campaigns zu planen und eine geeignete Workspace-Struktur zu erstellen.
 * [Integration](#integration): Führen Sie Ihren Plan aus, indem Sie das SDK und die API integrieren, Messaging-Kanäle aktivieren und den Import und Export von Daten einrichten.
 * [Qualitätssicherung](#qa): Bestätigen Sie, dass der Daten- und Nachrichtenaustausch zwischen der Braze-Plattform und Ihrer App oder Website wie erwartet funktioniert.
 * [Wartung](#maintenance): Nachdem Sie Braze an Ihr Marketingteam übergeben haben, sorgen Sie weiterhin dafür, dass alles reibungslos läuft.
@@ -63,7 +63,7 @@ Mit der Integration kann erst begonnen werden, wenn der Schritt der Kampagnenpla
 
 ### Erstellen von Datenanforderungen {#creating-data-requirements}
 
-Ihr CRM-Team sollte dann festlegen, welche Daten benötigt werden, um die geplanten Kampagnen einzuführen, indem es Datenanforderungen erstellt.
+Ihr CRM-Team sollte dann festlegen, welche Daten benötigt werden, um die geplanten Campaigns einzuführen, indem es Datenanforderungen erstellt.
 
 Viele gängige Arten von Nutzerattributen, wie Name, E-Mail-Adresse, Geburtsdatum, Land und Ähnliches, werden nach der Integration des Braze SDK automatisch getrackt. Andere Arten von Daten müssen als angepasste Daten definiert werden.
 
@@ -89,7 +89,9 @@ Ihr Teamadministrator sollte Sie (und alle anderen Teammitglieder, die Zugriff a
 
 Ihr Teamadministrator wird auch verschiedene [Workspaces]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces) erstellen. Workspaces fassen Ihre Daten – Nutzer:innen, Segmente, API-Schlüssel – an einem Ort zusammen. Es empfiehlt sich, lediglich verschiedene Versionen derselben App oder sehr ähnlicher Apps in einem Workspace zusammenzufassen.
 
-Ein wichtiger Aspekt ist, dass Workspaces API-Schlüssel für mehrere Plattformen (z. B. iOS und Android) bereitstellen. Sie verwenden die korrelierten API-Schlüssel, um SDK-Daten mit einem bestimmten Workspace zu verknüpfen. Navigieren Sie zu Ihren Workspaces, um auf den API-Schlüssel für Ihre einzelnen Apps zuzugreifen. Vergewissern Sie sich, dass jeder API-Schlüssel über die erforderlichen Berechtigungen verfügt, um die von Ihnen vorgesehenen Aufgaben auszuführen. Weitere Informationen finden Sie im [Artikel über die API-Bereitstellung]({{site.baseurl}}/api/basics#rest-api-key).
+Ein wichtiger Aspekt ist, dass Workspaces API-Schlüssel für mehrere Plattformen (z. B. iOS und Android) bereitstellen. Sie verwenden die korrelierten API-Schlüssel, um SDK-Daten mit einem bestimmten Workspace zu verknüpfen. Navigieren Sie zu Ihren Workspaces, um auf den API-Schlüssel für Ihre einzelnen Apps zuzugreifen. Vergewissern Sie sich, dass jeder API-Schlüssel über die erforderlichen Berechtigungen verfügt, um die von Ihnen vorgesehenen Aufgaben auszuführen. Weitere Informationen finden Sie im [Artikel über die API-Bereitstellung]({{site.baseurl}}/api/basics#rest-api-key-permissions).
+
+Für Web-Implementierungen, die mehrere Root-Domains umfassen, lesen Sie den Artikel [Multi-Domain-Integration für das Braze Web SDK]({{site.baseurl}}/developer_guide/platforms/web/multi_domain_integration), um zu entscheiden, ob Sie eine App oder separate Apps und API-Schlüssel verwenden sollten.
 
 {% alert important %}
 Wichtig ist, dass Sie unterschiedliche Umgebungen für die Entwicklung und die Produktion einrichten. Die Einrichtung einer Testumgebung verhindert, dass Sie während des Onboardings und der QA echtes Geld ausgeben. Um eine Testumgebung zu erstellen, richten Sie einen Test-Workspace ein und stellen Sie sicher, dass Sie dessen API-Schlüssel verwenden, damit nicht der Produktions-Workspace mit Testdaten gefüllt wird.
@@ -99,7 +101,7 @@ Wichtig ist, dass Sie unterschiedliche Umgebungen für die Entwicklung und die P
 
 ![Abstrakte Pyramidengrafik, die den Informationsfluss von einer Datenquelle zu einem Gerät darstellt.]({% image_buster /assets/img/getting-started/data-graphic.png %}){: style="max-width:45%;float:right;margin-left:15px;"}
 
-Braze unterstützt iOS-Apps, Android-Apps, Web-Apps und mehr. Sie können sich auch für ein plattformübergreifendes Wrapper-SDK entscheiden, wie z. B. React Native oder Unity. In der Regel dauert eine Integration bei unseren Kunden zwischen 1 und 6 Wochen. Viele Kunden haben für die Braze-Integration nur eine:n einzige:n Entwickler:in benötigt – abhängig von der Breite der technischen Fähigkeiten und der verfügbaren Kapazität. Letztlich kommt es darauf an, welchen Umfang Ihre spezifische Integration hat und wie viel Zeit Ihr Team dem Braze-Projekt widmet.
+Braze unterstützt iOS-Apps, Android-Apps, Web-Apps und mehr. Sie können sich auch für ein plattformübergreifendes Wrapper-SDK entscheiden, wie z. B. React Native oder Unity. In der Regel dauert eine Integration bei unseren Kund:innen zwischen 1 und 6 Wochen. Viele Kund:innen haben für die Braze-Integration nur eine:n einzige:n Entwickler:in benötigt – abhängig von der Breite der technischen Fähigkeiten und der verfügbaren Kapazität. Letztlich kommt es darauf an, welchen Umfang Ihre spezifische Integration hat und wie viel Zeit Ihr Team dem Braze-Projekt widmet.
 
 Sie brauchen Entwickler:innen, die sich mit Folgendem auskennen:
 * Arbeiten in der nativen Schicht Ihrer App oder Website
@@ -111,7 +113,7 @@ Sie brauchen Entwickler:innen, die sich mit Folgendem auskennen:
 
 ### CDP-Integrationspartner {#cdp-integration-partners}
 
-Viele Kunden sehen im Onboarding von Braze eine Gelegenheit, auch eine Customer Data Platform (CDP) als Integrationspartner einzubinden. Braze bietet Daten-Tracking und Analytics, während eine CDP zusätzlich Daten-Routing und Orchestrierung bieten kann. Braze unterstützt die nahtlose Integration mit vielen CDPs, darunter u. a. [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) und [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
+Viele Kund:innen sehen im Onboarding von Braze eine Gelegenheit, auch eine Customer Data Platform (CDP) als Integrationspartner einzubinden. Braze bietet Daten-Tracking und Analytics, während eine CDP zusätzlich Daten-Routing und Orchestrierung bieten kann. Braze unterstützt die nahtlose Integration mit vielen CDPs, darunter u. a. [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) und [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment).
 
 Wenn Sie eine Side-by-Side-Integration mit einer CDP durchführen, werden die Aufrufe aus dem SDK der CDP dem Braze SDK zugeordnet. Im Wesentlichen ist Folgendes zu beachten:
 * Identifizierungsaufrufe auf `changeUser` ([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/), [Web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)) zuordnen und Attribute festlegen.
@@ -230,36 +232,36 @@ Aktualisierungen an der Braze-Plattform können Sie über das Braze [GitHub](htt
 
 ## SDK-Rate-Limits {#sdk-rate-limits}
 
-### Monatlich aktive Nutzer:innen CY 24-25, Universal MAU, Web MAU und Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
+### Monthly Active Users CY 24-25, Universal MAU, Web MAU und Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
-Für Kund:innen, die Monthly Active Users CY 24-25, Universal MAU, Web MAU und Mobile MAU erworben haben, setzt Braze serverseitige Rate-Limits für API-Anfragen durch, die von unseren SDKs zur Aktualisierung von Sitzungen, Nutzerattributen, Events und anderen Nutzerprofildaten verwendet werden. Dies dient der Stabilität der Plattform und der Aufrechterhaltung eines schnellen, zuverlässigen Dienstes.
+Für Kund:innen, die Monthly Active Users CY 24-25, Universal MAU, Web MAU und Mobile MAU erworben haben, erzwingt Braze serverseitige Rate-Limits für API-Anfragen, die von unseren SDKs zur Aktualisierung von Sitzungen, Nutzerattributen, Events und anderen Nutzerprofildaten verwendet werden. Dies dient der Plattformstabilität und der Aufrechterhaltung eines schnellen, zuverlässigen Dienstes.
 
-* Die stündlichen Rate-Limits richten sich nach dem erwarteten SDK-Traffic auf Ihrem Konto, der der Anzahl der monatlich aktiven Nutzer:innen (MAU), die Sie erworben haben, der Branche, der Saisonalität oder anderen Faktoren entsprechen kann. Wenn das stündliche Rate-Limit erreicht ist, drosselt Braze die Anfragen bis zur nächsten Stunde.
-* Alle Rate-Limit-Anfragen werden vom SDK automatisch erneut versucht.
-* SDK-Anfragen korrelieren mit der Menge der angepassten Daten, die in Ihrer Implementierung gesammelt werden. Wenn Sie ständig nahe an Ihrem stündlichen Rate-Limit liegen oder es erreichen, sollten Sie Folgendes in Betracht ziehen:
+* Stündliche Rate-Limits werden entsprechend dem erwarteten SDK-Datenverkehr auf Ihrem Konto festgelegt, der mit der Anzahl der von Ihnen erworbenen monatlich aktiven Nutzer:innen (MAU), der Branche, der Saisonalität oder anderen Faktoren zusammenhängen kann. Wenn das stündliche Rate-Limit erreicht ist, drosselt Braze die Anfragen bis zur nächsten Stunde.
+* Alle durch Rate-Limits eingeschränkten Anfragen werden automatisch vom SDK wiederholt.
+* SDK-Anfragen korrelieren mit der Menge der in Ihrer Implementierung erfassten angepassten Daten. Wenn Sie regelmäßig nahe an Ihrem stündlichen Rate-Limit sind oder es erreichen, sollten Sie Folgendes in Betracht ziehen:
     * Überprüfen Sie Ihre SDK-Integration, um eine übermäßige Datenerfassung zu reduzieren.
-    * Blockieren Sie angepasste Daten, die für Ihre Marketing-Anwendungsfälle nicht unbedingt erforderlich sind.
-* Burst-Rate-Limits sind kurzlebige Rate-Limits, die angewendet werden, wenn in einem sehr kurzen Zeitraum (d. h. innerhalb von Sekunden) eine große Anzahl von Anfragen eintrifft. Sie müssen nicht eingreifen, wenn Burst-Limits auftreten – das SDK wird es kurz darauf erneut versuchen.
-* Konstante Rate-Limits kontrollieren das anhaltende Anfragevolumen über einen rollierenden Zeitraum, der länger ist als das Burst-Fenster (z. B. mehrere Minuten), und tragen dazu bei, den laufenden Datenverkehr zwischen Burst-Limits und Ihrem stündlichen Rate-Limit auszugleichen.
+    * Setzen Sie angepasste Daten auf die Blockliste, die für Ihre Marketing-Anwendungsfälle nicht wesentlich sind.
+* Burst-Rate-Limits sind kurzlebige Rate-Limits, die gelten, wenn ein hohes Anfragevolumen in einem sehr kurzen Zeitraum eintrifft (d. h. innerhalb von Sekunden). Sie müssen keine Maßnahmen ergreifen, wenn Burst-Limits auftreten, und das SDK wird kurz darauf erneut versuchen.
+* Steady-Rate-Limits steuern das anhaltende Anfragevolumen über ein rollendes Zeitfenster, das länger als das Burst-Fenster ist (z. B. mehrere Minuten), und helfen dabei, den laufenden Datenverkehr zwischen Burst-Limits und Ihrem stündlichen Rate-Limit zu glätten.
 
 ### Ihre Rate-Limits finden {#finding-your-rate-limits}
 
-Um die aktuellen Limits auf der Grundlage des erwarteten SDK-Durchsatzes zu finden, gehen Sie zu **Einstellungen** > **APIs und Bezeichner** > **API- und SDK-Limits**.
+Um aktuelle Limits basierend auf dem erwarteten SDK-Durchsatz zu finden, gehen Sie zu **Einstellungen** > **APIs und Bezeichner** > **API- und SDK-Limits**.
 
-Die historische Nutzung finden Sie unter **Einstellungen** > **APIs und Bezeichner** > **API- und SDK-Dashboard**.
+Für die historische Nutzung gehen Sie zu **Einstellungen** > **APIs und Bezeichner** > **API- und SDK-Dashboard**.
 
 ### Höhere Rate-Limits anfordern {#requesting-higher-rate-limits}
 
-Sollten Sie ein höheres Braze-Rate-Limit benötigen, wenden Sie sich bitte an den Braze-Support oder Ihren Customer-Success-Manager und geben Sie dabei die folgenden Details an:
+Wenn Sie ein höheres Braze-Rate-Limit benötigen, wenden Sie sich an den Braze-Support oder Ihren Customer-Success-Manager und geben Sie die folgenden Details an:
 
 * Ob Sie eine vorübergehende oder dauerhafte Erhöhung benötigen.
 * Warum Sie die Erhöhung benötigen.
 * Welche Endpunkte und Umgebungen betroffen sind.
-* Ihr voraussichtliches Traffic-Volumen und Ihren Zeitplan, einschließlich Startdatum, Dauer und Spitzenzeiten.
-* Ob Sie Aufrufe bündeln oder den Datenverkehr über einen längeren Zeitraum verteilen können.
+* Ihr ungefähres Datenverkehrsvolumen und Ihren Zeitplan, einschließlich Startdatum, Dauer und Spitzenzeiten.
+* Ob Sie Aufrufe bündeln oder den Datenverkehr über die Zeit verteilen können.
 
 Nachdem Sie Ihre Anfrage eingereicht haben, prüft Braze diese und informiert Sie über das Ergebnis.
 
 ### Änderungen und Support {#changes-and-support}
 
-Braze kann Rate-Limits ändern, um die Systemstabilität zu schützen oder einen höheren Datendurchsatz auf Ihrem Konto zu ermöglichen. Wenden Sie sich an den Braze-Support oder Ihren Customer-Success-Manager, wenn Sie Fragen zu Rate-Limits haben und wissen möchten, wie sich diese auf Ihr Unternehmen auswirken.
+Braze kann Rate-Limits ändern, um die Systemstabilität zu schützen oder einen erhöhten Datendurchsatz auf Ihrem Konto zu ermöglichen. Wenden Sie sich bei Fragen oder Bedenken bezüglich Rate-Limits und deren Auswirkungen auf Ihr Geschäft an den Braze-Support oder Ihren Customer-Success-Manager.

@@ -22,6 +22,10 @@ You can pass in `context` that will be templated into the messages sent by the f
 
 Note that to send messages with this endpoint, you must have a [Canvas ID]({{site.baseurl}}/api/identifier_types#canvas-identifier), created when you build a Canvas.
 
+{% alert note %}
+Canvas entries are recorded at the scheduled message time, not when this API request is made. Users triggered for a future-dated schedule won't appear as entries until that scheduled time arrives.
+{% endalert %}
+
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
 ## Prerequisites

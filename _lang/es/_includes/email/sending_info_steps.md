@@ -1,0 +1,4 @@
+1. En **Sending Info**, selecciona un correo electrónico como **From Display Name + Address**. También puedes personalizarlo seleccionando **Customize From Display Name + Address**.
+2. Selecciona un correo electrónico como **Reply-To Address**. También puedes personalizarlo seleccionando **Customize Reply-To Address**.
+3. A continuación, selecciona un correo electrónico como **BCC Address** para hacer visible tu correo electrónico en esta dirección.
+4. Añade una línea del asunto a tu correo electrónico. Opcionalmente, también puedes añadir un preencabezado. Para añadir un espacio en blanco después del preencabezado, selecciona la casilla **Add whitespace after preheader**.

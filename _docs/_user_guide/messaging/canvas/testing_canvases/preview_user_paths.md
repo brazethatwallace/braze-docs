@@ -57,7 +57,7 @@ To view more details for the entrance criteria, select **See more**. Steps with 
 
 ### Liquid
 
-Braze processes Liquid logic during a test run, even if you're not sending an actual test message. This means the [abort message logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) and other Liquid logic are reflected and could impact the Canvas user journey.
+Braze processes Liquid logic during a test run, even if you're not sending an actual test message. This means the [abort message logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) and other Liquid logic are reflected and could impact the Canvas user journey.
 
 If your preview sends the last step of your user journey instead of aborting, the preview may be using the current time as the time being tested for Liquid evaluation, not the actual time the user would be in the step based on the Canvas entry time.
 
@@ -116,6 +116,12 @@ Webhooks execute when test messages are sent, but not during the test run. Simil
 ## Context variables and Seed Groups
 
 For a Message step with email as the messaging channel, Seed Groups send seed copies of emails when a user reaches this step in the Canvas. These seed copies are not sent as part of the Seed Group recipients' own Canvas journeys, so Braze does not execute [Context steps]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) or evaluate context variables for those recipients. If your email content references context variables, Seed Group recipients receive a seed copy without that data populated. To test messages that rely on context variable data, use the **Test Canvas** preview with test sends instead of Seed Groups.
+
+## View messages sent to users
+
+Preview user paths simulates a journey; it does not replace checking actual sends on a user profile. To review messages Braze sent to a specific user, open their profile from **Audience** > **Search Users**, then use the **Messaging History** and **Engagement** tabs.
+
+For search fields, tab details, and the 30-day Messaging History window, see [User profiles]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
 ## Use case
 

@@ -2,7 +2,7 @@
 nav_title: Outils du tableau de bord
 article_title: Outils du tableau de bord pour la personnalisation
 page_order: 0
-description: "Cet article de référence décrit l'expérience Ajouter une personnalisation dans les éditeurs de messages et de pages d'accueil de Braze, y compris le Liquid pré-formaté, les valeurs par défaut et les améliorations de l'éditeur Liquid telles que les étiquettes de couleur et les suggestions prédictives."
+description: "Cet article de référence décrit l'expérience Ajouter une personnalisation dans les éditeurs de messages et de pages de destination de Braze, y compris le Liquid pré-formaté, les valeurs par défaut et les améliorations de l'éditeur Liquid telles que les étiquettes de couleur et les suggestions prédictives."
 ---
 
 # Outils du tableau de bord pour la personnalisation {#dashboard-tools-for-personalization}
@@ -15,10 +15,10 @@ Pour les règles de syntaxe Liquid, les balises prises en charge et les modèles
 
 L'outil **Ajouter une personnalisation** apparaît à côté des champs de texte modélisés dans l'ensemble du tableau de bord, notamment :
 
-- **Les étapes de Campaign et de Canvas** pour les canaux qui prennent en charge Liquid dans le corps ou les en-têtes (par exemple, e-mail, push, SMS, messages in-app, Content Cards et webhooks).
-- **Les éditeurs par glisser-déposer**, où le contrôle se trouve souvent dans la barre d'outils du bloc ou de l'éditeur. Par exemple, dans les messages in-app par glisser-déposer, vous pouvez sélectionner **Ajouter une personnalisation**, choisir un type de personnalisation, puis placer l'extrait de code généré dans votre contenu avant de prévisualiser sous **Prévisualisation et test**. Pour plus de notes spécifiques à chaque canal, consultez l'article sur le glisser-déposer ou l'éditeur de votre canal (comme [Paramètres de style des messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#adding-liquid) ou [Créer un e-mail par glisser-déposer]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)).
+- **Les étapes de Campaign et de Canvas** pour les canaux qui prennent en charge Liquid dans le corps ou les en-têtes (par exemple, e-mail, notification push, SMS, messages in-app, Content Cards et webhooks).
+- **Les éditeurs par glisser-déposer**, où le contrôle se trouve souvent dans la barre d'outils du bloc ou de l'éditeur. Par exemple, dans les messages in-app par glisser-déposer, vous pouvez sélectionner **Ajouter une personnalisation**, choisir un type de personnalisation, puis placer l'extrait de code généré dans votre contenu avant de prévisualiser sous **Prévisualisation et test**. Pour plus de notes spécifiques à chaque canal, consultez l'article sur le glisser-déposer ou l'éditeur de votre canal (comme [Paramètres de style des messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#add-liquid) ou [Créer un e-mail par glisser-déposer]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)).
 - **Les éditeurs spécialisés** qui exposent un sélecteur de personnalisation — par exemple, les [recommandations d'articles]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations) utilisent des options de **Type de personnalisation** comme **Recommandation d'articles** dans le même type de fenêtre.
-- **Les pages d'accueil**, où vous pouvez ajouter de la personnalisation Liquid dans l'éditeur par glisser-déposer ou dans les paramètres de page et de bloc. Pour plus de détails, consultez [Personnaliser les pages d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages).
+- **Les pages de destination**, où vous pouvez ajouter de la personnalisation Liquid dans l'éditeur par glisser-déposer ou dans les paramètres de page et de bloc. Pour plus de détails, consultez [Personnaliser les pages de destination]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages).
 
 ## Insérer des variables pré-formatées et des valeurs par défaut {#insert-pre-formatted-variables-and-defaults}
 

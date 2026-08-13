@@ -19,7 +19,7 @@ description: "Cet article présente les détails de l'endpoint `PUT /media_libra
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec la permission `media_library.replace`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec la permission `media_library.replace`.
 
 ## Limite de débit {#rate-limit}
 
@@ -131,7 +131,7 @@ Ce tableau répertorie les erreurs de traitement possibles.
 | `UNSUPPORTED_ASSET_TYPE_FOR_REPLACE` | 400 | Le remplacement de fichier n'est pas pris en charge pour ce type de ressource (par exemple, vidéo). L'objet `meta` inclut `asset_type`. |
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | Le fichier dépasse la taille maximale autorisée. L'objet `meta` inclut `size_limit_bytes` et `file_size_bytes`. |
 | `CORRUPT_FILE` | 400 | Le fichier image est corrompu ou illisible. L'objet `meta` inclut `file_name`. |
-| `GENERIC_ERROR` | 500 | Une erreur inattendue s'est produite lors du remplacement du fichier. L'objet `meta` inclut `original_error` pour le débogage. Réessayez ou contactez l'[Assistance]({{site.baseurl}}/support_contact). |
+| `GENERIC_ERROR` | 500 | Une erreur inattendue s'est produite lors du remplacement du fichier. L'objet `meta` inclut `original_error` pour le débogage. Réessayez ou contactez l'[assistance]({{site.baseurl}}/support_contact). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erreurs de traitement" }
 
 ## Réponse {#response}

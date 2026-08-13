@@ -22,7 +22,7 @@ Chaque URL de centre de préférences est unique pour chaque utilisateur.
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `preference_center.user.get`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `preference_center.user.get`.
 
 ## Limite de débit {#rate-limit}
 

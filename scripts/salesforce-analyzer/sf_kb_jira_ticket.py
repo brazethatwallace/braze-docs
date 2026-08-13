@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """
-BD Task under Epic BD-6308 for a Salesforce KB PR.
+BD Task under Epic BD-7051 for a Salesforce KB PR.
 
 Env: `JIRA_USER_EMAIL`, `JIRA_API_TOKEN` (same as `.github/workflows/jira-pr-comment.yml`).
-Optional: `JIRA_BASE_URL` (default `https://jira.atl.braze.com`), `JIRA_ASSIGNEE_ACCOUNT_ID`.
+Local: copy `.jira.env.example` → `.jira.env` at repo root (gitignored), or `source scripts/jira_env.sh`.
+Optional: `JIRA_BASE_URL` (default `https://jira.atl.braze.com`), `JIRA_ASSIGNEE_ACCOUNT_ID`
+(fallback when `.github/github_to_jira_assignees.json` has no entry for the doc-path writer).
 
 Usage:
   python3 scripts/salesforce-analyzer/sf_kb_jira_ticket.py \\
@@ -31,7 +33,23 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 CSV_PATH = REPO_ROOT / "_data" / "kb_articles.csv"
 
-EPIC_KEY = "BD-6308"
+
+def load_jira_dotenv(path: Path | None = None) -> None:
+    """Load ``KEY=value`` pairs from ``.jira.env`` when present."""
+    env_path = path or (REPO_ROOT / ".jira.env")
+    if not env_path.is_file():
+        return
+    for line in env_path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        os.environ.setdefault(key.strip(), value.strip())
+
+
+load_jira_dotenv()
+
+EPIC_KEY = "BD-7051"
 PROJECT_KEY = "BD"
 ISSUE_TYPE = "Task"
 EPIC_LINK_FIELD = "customfield_10014"
@@ -49,6 +67,9 @@ try:
 except ImportError:  # pragma: no cover
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     from generate_kb_phase1_outputs import product_vertical_hint
+
+from sf_kb_article_ids import article_id_from_row  # noqa: E402
+from sf_kb_assignees import assignees_for_doc_path, product_vertical_for_doc_path  # noqa: E402
 
 
 class JiraTicketError(RuntimeError):
@@ -88,7 +109,7 @@ def strip_legacy_sf_kb_title_prefixes(title: str) -> str:
 
 def format_sf_kb_pr_title(issue_key: str, ticket_name: str) -> str:
     """
-    GitHub PR title for Jira–GitHub integration under Epic BD-6308.
+    GitHub PR title for Jira–GitHub integration under Epic BD-7051.
 
     Format: ``[BD-####](SF) TICKET_NAME``
     """
@@ -141,7 +162,7 @@ def brief_from_suggested_change(suggested: str, *, max_len: int = 220) -> str:
 
 
 def summary_bullet_from_row(row: dict[str, str]) -> str:
-    title = (row.get("title") or row.get("article_id") or "Untitled").strip()
+    title = (row.get("title") or article_id_from_row(row) or "Untitled").strip()
     brief = brief_from_suggested_change(row.get("suggested_change") or "")
     if brief:
         return f"**{title}** — {brief}"
@@ -187,24 +208,159 @@ def build_pr_summary_section_lines(
     return lines
 
 
+PLATFORM_PATH_RE = re.compile(r"platform/[^\s,;\"']+")
+
+
+def platform_paths_from_text(text: str) -> list[str]:
+    seen: set[str] = set()
+    paths: list[str] = []
+    for match in PLATFORM_PATH_RE.finditer(text or ""):
+        path = match.group(0).rstrip(".)`")
+        if path not in seen:
+            seen.add(path)
+            paths.append(path)
+    return paths
+
+
+def row_needs_reference_verify(row: dict[str, str]) -> bool:
+    target = (row.get("target") or "").strip().lower()
+    conflict = (row.get("conflict") or "").strip().lower()
+    cr = (row.get("conflict_resolution") or "").lower()
+    return (
+        target == "inconclusive"
+        or conflict == "inconclusive"
+        or "inconclusive" in cr
+    )
+
+
+def _verification_haystack(verification_lines: list[str]) -> str:
+    return " ".join(verification_lines).lower()
+
+
+def _verified_platform_paths(verification_lines: list[str]) -> set[str]:
+    """Platform paths cited in explicit --verification / --verification-file bullets."""
+    paths: set[str] = set()
+    for line in verification_lines:
+        paths.update(platform_paths_from_text(line))
+    return paths
+
+
+def _row_has_verification_proof(
+    row: dict[str, str],
+    *,
+    verification_lines: list[str],
+) -> bool:
+    aid = (article_id_from_row(row) or "").strip()
+    title = (row.get("title") or "").strip()
+    hay = _verification_haystack(verification_lines)
+    if aid and aid.lower() in hay:
+        return True
+    if title and title.lower()[:48] in hay:
+        return True
+    verified_paths = _verified_platform_paths(verification_lines)
+    if not verified_paths:
+        return False
+    evidence_paths = platform_paths_from_text(row.get("codebase_evidence") or "")
+    return any(path in verified_paths for path in evidence_paths)
+
+
+def pending_verification_titles(
+    backlog_rows: list[dict[str, str]],
+    *,
+    verification_lines: list[str] | None = None,
+) -> list[str]:
+    """Article titles that still need reference-repo proof in the PR body."""
+    explicit = [ln.strip() for ln in (verification_lines or []) if ln.strip()]
+    pending: list[str] = []
+    for row in backlog_rows:
+        if not row_needs_reference_verify(row):
+            continue
+        if _row_has_verification_proof(row, verification_lines=explicit):
+            continue
+        title = (row.get("title") or article_id_from_row(row) or "Untitled").strip()
+        pending.append(title)
+    return pending
+
+
+def batch_has_reference_verify_rows(backlog_rows: list[dict[str, str]]) -> bool:
+    """True when any backlog row must be verified in reference repos before drafting."""
+    return any(row_needs_reference_verify(row) for row in backlog_rows)
+
+
+def format_verification_required_message(
+    doc_path: str,
+    pending_titles: list[str],
+    *,
+    slug: str,
+) -> str:
+    """Human-readable instructions when reference-repo proof is missing."""
+    articles = "; ".join(pending_titles)
+    return (
+        f"{doc_path} is missing reference-repo verification proof for: {articles}\n"
+        f"  1. Verify behavior in reference repos (braze-docs:reference-repos).\n"
+        f"  2. Record one bullet per article in `.sf-kb-verification-{slug}.md` "
+        f"(or `.sf-kb-verification.md`), for example:\n"
+        f"     - Verified <behavior> in `platform/.../file.rb`\n"
+        f"  3. Re-run with --verification-file '.sf-kb-verification-{slug}.md'"
+    )
+
+
+def build_verification_section_lines(
+    backlog_rows: list[dict[str, str]],
+    *,
+    verification_lines: list[str] | None = None,
+) -> list[str]:
+    """Markdown lines for ``## Verification`` (heading excluded)."""
+    explicit = [ln.strip().lstrip("- ").strip() for ln in (verification_lines or []) if ln.strip()]
+    auto_paths: list[str] = []
+    seen_paths: set[str] = set()
+    for row in backlog_rows:
+        for path in platform_paths_from_text(row.get("codebase_evidence") or ""):
+            if path not in seen_paths:
+                seen_paths.add(path)
+                auto_paths.append(path)
+
+    lines = [
+        "Reference-repo and behavior checks for this batch:",
+        "",
+    ]
+    if explicit:
+        for item in explicit:
+            lines.append(f"- {item}")
+    for path in auto_paths:
+        lines.append(f"- Verified `{path}` (CSV `codebase_evidence`)")
+
+    pending = pending_verification_titles(backlog_rows, verification_lines=explicit)
+    if pending:
+        lines.extend(["", "**Incomplete — add proof before marking PR ready:**", ""])
+        for title in pending:
+            lines.append(
+                f"- [ ] **{title}** — verified in reference repos (repo, file, or behavior checked)"
+            )
+    elif not explicit and not auto_paths:
+        lines.extend(
+            [
+                "- [ ] Verified product behavior in reference repos "
+                "(see braze-docs:reference-repos skill)",
+                "- [ ] Each `inconclusive` article: note repo + file or behavior confirmed",
+            ]
+        )
+
+    lines.extend(
+        [
+            "",
+            "**Preview (manual):**",
+            "- [ ] Vercel preview: open changed page(s) and new section anchors",
+            "- [ ] Spot-check cross-links and style guide prose",
+        ]
+    )
+    return lines
+
+
 def build_change_detail_lines(doc_path: str, backlog_rows: list[dict[str, str]]) -> list[str]:
     """Markdown bullets for the ``## Changes`` section."""
     count = len(backlog_rows)
-    lines = [f"* `{doc_path}` — Salesforce Knowledge batch ({count} article(s))"]
-    evidence_paths: list[str] = []
-    seen: set[str] = set()
-    for row in backlog_rows:
-        evidence = (row.get("codebase_evidence") or "").strip()
-        for match in re.finditer(r"platform/[^\s,;\"']+", evidence):
-            path = match.group(0).rstrip(".)")
-            if path not in seen:
-                seen.add(path)
-                evidence_paths.append(path)
-    for path in evidence_paths[:5]:
-        lines.append(f"  * Verified against `{path}`")
-    if len(evidence_paths) > 5:
-        lines.append(f"  * …and {len(evidence_paths) - 5} more platform path(s) in CSV evidence")
-    return lines
+    return [f"* `{doc_path}` — Salesforce Knowledge batch ({count} article(s))"]
 
 
 def build_sf_kb_github_pr_body(
@@ -215,12 +371,13 @@ def build_sf_kb_github_pr_body(
     backlog_rows: list[dict[str, str]] | None = None,
     summary_bullets: list[str] | None = None,
     skipped: list[tuple[str, str, str]] | None = None,
+    verification_lines: list[str] | None = None,
 ) -> str:
     """
     Standard Salesforce KB Phase 2 GitHub PR body.
 
-    Section order: Product vertical → Summary → Changes → Salesforce Knowledge sources
-    → optional Skipped → Test plan.
+    Section order: Product vertical → Summary → Changes → Verification → Salesforce
+    Knowledge sources → optional Skipped → Contributor checklist.
     """
     rows = backlog_rows if backlog_rows is not None else []
     if not rows and articles:
@@ -243,6 +400,10 @@ def build_sf_kb_github_pr_body(
         "",
         *build_change_detail_lines(doc_path, rows),
         "",
+        "## Verification",
+        "",
+        *build_verification_section_lines(rows, verification_lines=verification_lines),
+        "",
         "## Salesforce Knowledge sources",
         "",
     ]
@@ -260,10 +421,14 @@ def build_sf_kb_github_pr_body(
     body_lines.extend(
         [
             "",
-            "## Test plan",
+            "### Contributor checklist",
             "",
-            "- [ ] Preview changed page on a local docs build",
-            "- [ ] Confirm prose against Braze Docs style guide",
+            "- [ ] I confirm that my PR meets the following:",
+            "    - My style and voice follow the "
+            "[in-repo Braze Docs style guide]"
+            "(https://github.com/braze-inc/braze-docs/blob/develop/docs/contributing/style_guide.md).",
+            "    - Verification bullets above document reference-repo proof for this batch.",
+            "    - All links are working correctly.",
             "",
             "Made with [Cursor](https://cursor.com)",
         ]
@@ -384,7 +549,7 @@ def load_kb_article_titles() -> dict[str, str]:
     titles: dict[str, str] = {}
     with CSV_PATH.open(encoding="utf-8", newline="") as f:
         for row in csv.DictReader(f):
-            aid = (row.get("article_id") or "").strip()
+            aid = article_id_from_row(row)
             title = (row.get("title") or "").strip()
             if aid and title:
                 titles[aid] = title
@@ -425,7 +590,11 @@ def infer_product_vertical(*, doc_path: str | None, override: str | None) -> str
     if override and override.strip():
         return override.strip()
     if doc_path and doc_path.strip():
-        return product_vertical_hint(doc_path.replace("\\", "/").strip())
+        normalized = doc_path.replace("\\", "/").strip()
+        team = product_vertical_for_doc_path(normalized)
+        if team:
+            return team
+        return product_vertical_hint(normalized)
     return "Documentation"
 
 
@@ -457,6 +626,22 @@ def _jira_request(
         raise JiraTicketError(f"Jira API request failed: {exc}") from exc
 
 
+def _resolve_jira_assignee_account_id(
+    *,
+    doc_path: str | None,
+    assignee_account_id: str | None,
+) -> str | None:
+    explicit = (assignee_account_id or "").strip()
+    if explicit:
+        return explicit
+    if doc_path and doc_path.strip():
+        doc_assignees = assignees_for_doc_path(doc_path.strip())
+        if doc_assignees.jira_account_id:
+            return doc_assignees.jira_account_id
+    fallback = os.environ.get("JIRA_ASSIGNEE_ACCOUNT_ID", "").strip()
+    return fallback or None
+
+
 def _create_bd6308_issue_fields(
     *,
     ticket_name: str,
@@ -465,6 +650,7 @@ def _create_bd6308_issue_fields(
     product_vertical: str | None,
     pr_title: str | None,
     pr_url: str | None,
+    assignee_account_id: str | None = None,
 ) -> dict:
     if not articles:
         raise JiraTicketError("At least one article_id is required")
@@ -489,7 +675,10 @@ def _create_bd6308_issue_fields(
         EPIC_LINK_FIELD: EPIC_KEY,
         "priority": {"name": "P4"},
     }
-    assignee = os.environ.get("JIRA_ASSIGNEE_ACCOUNT_ID", "").strip()
+    assignee = _resolve_jira_assignee_account_id(
+        doc_path=doc_path,
+        assignee_account_id=assignee_account_id,
+    )
     if assignee:
         fields["assignee"] = {"accountId": assignee}
     return fields
@@ -501,10 +690,11 @@ def create_bd6308_task_prep(
     articles: list[tuple[str, str]],
     doc_path: str | None = None,
     product_vertical: str | None = None,
+    assignee_account_id: str | None = None,
     dry_run: bool = False,
 ) -> str:
     """
-    Create a BD-6308 Task before the GitHub PR exists (description omits PR link).
+    Create a BD-7051 Task before the GitHub PR exists (description omits PR link).
     Returns the new issue key (for example BD-6402).
     """
     fields = _create_bd6308_issue_fields(
@@ -514,6 +704,7 @@ def create_bd6308_task_prep(
         product_vertical=product_vertical,
         pr_title=None,
         pr_url=None,
+        assignee_account_id=assignee_account_id,
     )
     if dry_run:
         print(json.dumps({"fields": fields}, indent=2))
@@ -533,9 +724,10 @@ def update_bd6308_task_pr_link(
     articles: list[tuple[str, str]],
     doc_path: str | None = None,
     product_vertical: str | None = None,
+    assignee_account_id: str | None = None,
     dry_run: bool = False,
 ) -> None:
-    """Attach GitHub PR link and formatted PR title to an existing BD-6308 task."""
+    """Attach GitHub PR link and formatted PR title to an existing BD-7051 task."""
     fields = _create_bd6308_issue_fields(
         ticket_name=strip_legacy_sf_kb_title_prefixes(pr_title),
         articles=articles,
@@ -543,6 +735,7 @@ def update_bd6308_task_pr_link(
         product_vertical=product_vertical,
         pr_title=pr_title.strip(),
         pr_url=pr_url.strip(),
+        assignee_account_id=assignee_account_id,
     )
     payload = {"fields": {"description": fields["description"]}}
     if dry_run:
@@ -558,10 +751,11 @@ def create_bd6308_task(
     articles: list[tuple[str, str]],
     doc_path: str | None = None,
     product_vertical: str | None = None,
+    assignee_account_id: str | None = None,
     dry_run: bool = False,
 ) -> str:
     """
-    Create a Task linked to Epic BD-6308 with PR link in the description.
+    Create a Task linked to Epic BD-7051 with PR link in the description.
     Returns the new issue key (for example BD-6402).
     """
     if not pr_url.strip():
@@ -575,6 +769,7 @@ def create_bd6308_task(
         product_vertical=product_vertical,
         pr_title=pr_title.strip(),
         pr_url=pr_url.strip(),
+        assignee_account_id=assignee_account_id,
     )
     if dry_run:
         print(json.dumps({"fields": fields}, indent=2))
@@ -627,6 +822,7 @@ def maybe_create_bd6308_task(
     articles: list[tuple[str, str]],
     doc_path: str | None = None,
     product_vertical: str | None = None,
+    assignee_account_id: str | None = None,
     skip_jira: bool = False,
     dry_run: bool = False,
     rename_pr: bool = True,
@@ -644,6 +840,7 @@ def maybe_create_bd6308_task(
             articles=articles,
             doc_path=doc_path,
             product_vertical=product_vertical,
+            assignee_account_id=assignee_account_id,
             dry_run=dry_run,
         )
         if dry_run or key == "DRY-RUN":
@@ -660,6 +857,7 @@ def maybe_create_bd6308_task(
             articles=articles,
             doc_path=doc_path,
             product_vertical=product_vertical,
+            assignee_account_id=assignee_account_id,
             dry_run=dry_run,
         )
     except JiraTicketError as exc:
@@ -709,12 +907,17 @@ def main() -> None:
     if not articles:
         parser.error("Provide --article-id, --article, or --articles-from-summary")
 
+    assignee_account_id: str | None = None
+    if args.doc_path:
+        assignee_account_id = assignees_for_doc_path(args.doc_path).jira_account_id
+
     key = create_bd6308_task(
         pr_url=args.pr_url,
         pr_title=args.pr_title,
         articles=articles,
         doc_path=args.doc_path,
         product_vertical=args.product_vertical,
+        assignee_account_id=assignee_account_id,
         dry_run=args.dry_run,
     )
     if not args.dry_run:

@@ -77,9 +77,9 @@ Ces instructions supposent que les informations suivantes sont disponibles :
 - Attribut personnalisé pour le statut de fidélité de l'utilisateur
 - Variable de contexte pour la ville recherchée en dernier par l'utilisateur
 - Variable de contexte pour la dernière réponse de l'utilisateur à une enquête
-- Un [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) nommé « Logged multiple searches in the past 30D » qui suit les utilisateurs ayant effectué plusieurs recherches au cours des 30 derniers jours
+- Un [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) nommé « Logged multiple searches in the past 30D » qui suit les utilisateurs ayant effectué plusieurs recherches au cours des 30 derniers jours
 - **Contexte d'agent** depuis les [instructions de la console Agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources) :
-    - **Appartenance au Segment :** « Logged multiple searches in the past 30D » afin que l'agent puisse vérifier si l'utilisateur appartient à ce Segment, comme décrit dans les instructions
+    - **Appartenance au segment :** « Logged multiple searches in the past 30D » afin que l'agent puisse vérifier si l'utilisateur appartient à ce segment, comme décrit dans les instructions
     - **Tout le contexte Canvas :** Transmet toute variable de contexte supplémentaire à l'agent que vous n'avez pas déjà définie dans vos instructions d'agent, au cas où elles seraient utiles ou pertinentes
     - **Directives de marque :** `<Brand guidelines name>` est requis pour que l'agent puisse appliquer les règles de voix, de ton et de mise en forme référencées dans ces instructions.
 
@@ -302,7 +302,7 @@ Cet exemple décrit comment un agent Canvas peut déduire la motivation actuelle
 Ces instructions supposent que les informations suivantes sont disponibles :
 
 - Attributs utilisateur tels que le prénom, le pays, le métier, le rôle, la spécialité et les produits récemment consultés
-- Historique d'engagement, y compris les ouvertures, clics et conversions récents de Campaign ainsi que les messages qui les ont provoqués (pas la fréquence d'engagement ni les horodatages de récence)
+- Historique d'engagement, y compris les ouvertures, clics et conversions récents de campagnes ainsi que les messages qui les ont provoqués (pas la fréquence d'engagement ni les horodatages de récence)
 - Variables de contexte pour les clés de routage éligibles, les favoris récents, les termes de recherche récents et les propriétés d'événement spécifiques au déclencheur
 - **Contexte d'agent** depuis les [instructions de la console Agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources) :
     - **Tout le contexte Canvas :** Transmet toute variable de contexte supplémentaire à l'agent que vous n'avez pas déjà définie dans vos instructions d'agent, au cas où elles seraient utiles ou pertinentes
@@ -375,7 +375,7 @@ Ces instructions supposent que les informations suivantes sont disponibles :
 
 - Attributs utilisateur tels que le pays, la langue, l'étape du cycle de vie, le niveau de fidélité, les catégories favorites, les articles récemment consultés, les termes de recherche récents, les articles dans le panier et la catégorie du dernier achat
 - Contexte à forte intention, y compris les actions et articles à forte intention, la dernière catégorie consultée, les signaux de session en cours et les listes éligibles pour les catégories, les expériences et les identifiants d'articles
-- Historique d'engagement à partir des données d'interaction récentes de Campaign et de Canvas, y compris les messages qui ont provoqué les ouvertures, clics et conversions (pas la fréquence d'engagement ni les horodatages de récence)
+- Historique d'engagement à partir des données d'interaction récentes de campagnes et de Canvas, y compris les messages qui ont provoqué les ouvertures, clics et conversions (pas la fréquence d'engagement ni les horodatages de récence)
 - **Contexte d'agent** depuis les [instructions de la console Agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources) :
     - **Tout le contexte Canvas :** Transmet toute variable de contexte supplémentaire à l'agent que vous n'avez pas déjà définie dans vos instructions d'agent, au cas où elles seraient utiles ou pertinentes
 
@@ -650,7 +650,7 @@ Final Output Specification:
 You must return an object with exactly two keys: "short_description" and "explanation".
 - short_description: Plain text for the catalog cell, maximum 150 characters. No markdown.
 - explanation: String. Brief note on how you combined Destination Name, Country, Primary Vibe, and Price Tier per the brand rules.
-Configure your agent's **Output** with **Fields** that match these key names (catalog agents do not use JSON Schema output in the Agent Console, but your instructions can still ask the model for this key-value shape).
+Configure your agent's **Output** with **Fields** that match these key names (Catalog Agents do not use JSON Schema output in the Agent Console, but your instructions can still ask the model for this key-value shape).
 
 Input & Output Example:
 <input_example>
@@ -869,7 +869,7 @@ You must return an object containing exactly three keys: "standardized_destinati
 
 Input & Output Example:
 <input_example>
-{{${first_name}}}: Sarah
+{{${first_name}}}: Jane
 {{context.${user_entered_destination}}}: Parisss
 Catalog search for destinations similar to "Parisss" returns: {"destination_name": "Paris"}
 </input_example>

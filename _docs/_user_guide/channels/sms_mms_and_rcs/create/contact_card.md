@@ -18,7 +18,7 @@ channel:
 Sending a contact card is charged as an MMS. Review your expected MMS volume and Message or Action Credits usage when you create contact cards, and confirm costs in your Braze [Billing page]({{site.baseurl}}/user_guide/administer/global/billing).
 {% endalert %}
 
-Contact cards can be created [programmatically](https://www.twilio.com/blog/send-vcard-twilio-sms) and uploaded to the Braze [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library) or created through our built-in contact card generator. These cards can be assigned common properties such as your company's name, phone number, address, email, and a small photo. To start making contact cards, first make sure you're set up to use MMS in Braze.
+Contact cards can be created [programmatically](https://www.twilio.com/blog/send-vcard-twilio-sms) and uploaded to the Braze [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) or created through our built-in contact card generator. These cards can be assigned common properties such as your company's name, phone number, address, email, and a small photo. To start making contact cards, first make sure you're set up to use MMS in Braze.
 
 ## Contact card generator
 
@@ -58,7 +58,7 @@ The **Full Name** field determines the initials that appear in the message chat 
 
 After inputting all the necessary fields, select **Generate Contact Card**, and it automatically attaches to your campaign or Canvas. From here, you can add a message, test your contact card, and launch your campaign or Canvas.
 
-The contact card will also be saved in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library) to easily reuse in future campaigns and Canvases.
+The contact card will also be saved in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) to easily reuse in future campaigns and Canvases.
 
 ## Adding an existing contact card
 

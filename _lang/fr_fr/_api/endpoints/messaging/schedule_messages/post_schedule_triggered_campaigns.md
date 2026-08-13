@@ -24,7 +24,7 @@ Notez que pour envoyer des messages avec cet endpoint, vous devez disposer d'un 
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `campaigns.trigger.schedule.create`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `campaigns.trigger.schedule.create`.
 
 ## Limite de débit {#rate-limit}
 
@@ -65,8 +65,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `send_id` | Facultatif | Chaîne de caractères | Voir [identifiant d'envoi]({{site.baseurl}}/api/identifier_types). |
 | `recipients` | Facultatif | Tableau d'objets destinataires | Voir [objet destinataire]({{site.baseurl}}/api/objects_filters/recipient_object). |
 | `audience` | Facultatif | Objet audience connectée | Voir [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience). |
-| `broadcast` | Facultatif | Valeur booléenne | Vous devez définir `broadcast` sur `true` lorsque vous envoyez un message à un segment entier ciblé par une campagne ou un Canvas. Ce paramètre est défini sur false par défaut (depuis le 31 août 2017). <br><br> Si `broadcast` est défini sur `true`, une liste `recipients` ne peut pas être incluse. Cependant, faites attention lors de la configuration de `broadcast: true`, car en configurant involontairement cet indicateur, vous pourriez envoyer votre message à une audience plus importante que prévue. |
-| `trigger_properties` | Facultatif | Objet | Paires clé-valeur de personnalisation pour tous les utilisateurs de cet envoi. Voir les [propriétés du déclencheur]({{site.baseurl}}/api/objects_filters/trigger_properties_object). |
+| `broadcast` | Facultatif | Booléen | Vous devez définir `broadcast` sur `true` lorsque vous envoyez un message à un segment entier ciblé par une campagne ou un Canvas. Ce paramètre est défini sur false par défaut (depuis le 31 août 2017). <br><br> Si `broadcast` est défini sur `true`, une liste `recipients` ne peut pas être incluse. Cependant, faites attention lors de la configuration de `broadcast: true`, car en configurant involontairement cet indicateur, vous pourriez envoyer votre message à une audience plus importante que prévue. |
+| `trigger_properties` | Facultatif | Objet | Paires clé-valeur de personnalisation pour tous les utilisateurs de cet envoi. Voir [propriétés du déclencheur]({{site.baseurl}}/api/objects_filters/trigger_properties_object). |
 | `schedule` | Requis | Objet planification | Voir [objet de planification]({{site.baseurl}}/api/objects_filters/schedule_object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de la requête" }
 

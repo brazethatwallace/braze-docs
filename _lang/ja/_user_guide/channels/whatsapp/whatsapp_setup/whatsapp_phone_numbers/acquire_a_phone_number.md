@@ -45,7 +45,7 @@ Brazeでは、ご自身のビジネスが所有し、継続的にフルアクセ
 メール経由で認証コードを受信できるようにTwilio電話番号を設定します。**Twilioコンソールで電話番号をWhatsAppにリンクしないでください。**
 
 {% alert warning %}
-Twilioコンソールで電話番号をWhatsAppにリンクしないでください。リンクすると、その番号がTwilioのWhatsApp Business Accountに登録されるため、埋め込みサインアップワークフローを通じてBrazeに接続できなくなります。
+Twilioコンソールで電話番号をWhatsAppにリンクしないでください。リンクすると、その番号がTwilioのWhatsApp Businessアカウントに登録されるため、埋め込みサインアップワークフローを通じてBrazeに接続できなくなります。
 {% endalert %}
 
 1. Twilioコンソールで、[Active Numbersページ](https://www.twilio.com/console/phone-numbers/incoming)に移動し、購入した電話番号を選択します。

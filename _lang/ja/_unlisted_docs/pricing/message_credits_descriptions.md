@@ -16,23 +16,22 @@ hide_toc: true
 
 ## 目次 {#table-of-contents}
 
-- [Braze アクションクレジットの説明](#braze-action-credits-descriptions)
-  - [メールチャネルの詳細](#email-channel-details)
-  - [SMS、MMS、RCSチャネルの詳細](#sms-mms-and-rcs-channel-details)
-    - [SMSセグメント](#sms-segments)
-    - [MMSメッセージ](#mms-messages)
-    - [RCSタイプ](#rcs-types)
-  - [WhatsAppチャネルの詳細](#whatsapp-channel-details)
-    - [課金リージョンの内訳](#billing-region-breakdown)
-  - [エージェントコンソールの詳細](#agent-console-details)
-  - [その他のチャネルの詳細](#additional-channel-details)
-    - [LINE](#line)
-    - [KakaoTalk](#kakaotalk)
-    - [Content Cards](#content-cards)
-    - [バナー](#banners)
-    - [Audience Sync](#audience-sync)
-    - [メッセージのアーカイブ](#message-archiving)
-    - [Webhook](#webhooks)
+- [メールチャネルの詳細](#email-channel-details)
+- [SMS、MMS、RCSチャネルの詳細](#sms-mms-and-rcs-channel-details)
+  - [SMSセグメント](#sms-segments)
+  - [MMSメッセージ](#mms-messages)
+  - [RCSタイプ](#rcs-types)
+- [WhatsAppチャネルの詳細](#whatsapp-channel-details)
+  - [課金リージョンの内訳](#billing-region-breakdown)
+- [エージェントコンソールの詳細](#agent-console-details)
+- [その他のチャネルの詳細](#additional-channel-details)
+  - [LINE](#line)
+  - [KakaoTalk](#kakaotalk)
+  - [Content Cards](#content-cards)
+  - [バナー](#banners)
+  - [Audience Sync](#audience-sync)
+  - [メッセージのアーカイブ](#message-archiving)
+  - [Webhook](#webhooks)
 
 ## メールチャネルの詳細 {#email-channel-details}
 
@@ -62,11 +61,7 @@ MMSの場合、メッセージの上限は5 MBです（マルチメディアア�
 
 RCSはSMSおよびMMSの次世代版です。SMSのようなダイレクトで高エンゲージメントなチャネルのメリットを備えつつ、リッチコンテンツ（画像、動画、文書）、認証済みおよびブランド付き送信、候補返信やアクションなどのインタラクティブ機能など、現代の消費者が期待するより豊富な機能を提供します。
 
-- RCSの課金は、2つの異なるメッセージタイプに基づいています（米国向けの区分あり）：
-    - **Basic RCS：** テキストのみ、最大160文字
-    - **Single RCS：** リッチコンテンツを含むメッセージ、または160文字を超えるテキストのみのメッセージ
-    - **Rich RCS（米国のみ）：** テキストのみ、限定的なサジェスチョン/ボタン（quickReply、dialPhone、webviewなしのopenURL）を含む場合あり、160 UTF-8バイト単位でセグメント化
-    - **Rich Media RCS（米国のみ）：** メディアを含むメッセージ、またはよりリッチなサジェスチョン/ボタン（webview、ロケーション、カレンダーなど）を含むテキスト、1メッセージとしてカウント
+{% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 {% alert note %}
 SMSファミリーの提供内容の詳細については、[SMSおよびMMSドキュメント]({{site.baseurl}}/user_guide/message_building_by_channel/sms)を参照してください。
@@ -162,7 +157,7 @@ Brazeバナーの詳細については、[バナードキュメント]({{site.ba
 Audience Syncのクレジット比率は、合計ユーザー同期1,000回単位で計算されます。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに500万回のユーザー同期が含まれています。追加のユーザー同期は、注文書に従って課金されます。
 
 {% alert note %}
-キャンバスAudience Syncと利用可能なパートナーの詳細については、[キャンバスドキュメント]({{site.baseurl}}/partners/canvas_steps)を参照してください。
+キャンバスのAudience Syncと利用可能なパートナーの詳細については、[キャンバスドキュメント]({{site.baseurl}}/partners/canvas_steps)を参照してください。
 {% endalert %}
 
 ### メッセージのアーカイブ {#message-archiving}

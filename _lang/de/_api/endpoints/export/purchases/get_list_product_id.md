@@ -20,7 +20,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Produ
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `purchases.product_list`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `purchases.product_list`.
 
 ## Rate-Limit
 
@@ -48,7 +48,7 @@ https://rest.iad-01.braze.com/purchases/product_list?page=1
   "products": [
     "product_name" (string), the name of the product
   ],
-  "message": "success"
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

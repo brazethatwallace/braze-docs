@@ -19,7 +19,7 @@ Imaginons que vous faites partie de l'équipe marketing d'une application de str
 
 ## Filtrer par attributs personnalisés imbriqués {#filter-by-nested-custom-attributes}
 
-Créons un segment basé sur un attribut personnalisé imbriqué pour cibler vos utilisateurs qui ont écouté leur chanson la plus jouée plus de 300 fois.
+Créons un segment basé sur un attribut personnalisé imbriqué pour cibler les utilisateurs qui ont écouté leur chanson la plus jouée plus de 300 fois.
 
 ### Étape 1 : Ajouter le filtre {#step-1-add-the-filter}
 
@@ -31,25 +31,29 @@ Sélectionnez la **propriété** au sein de l'attribut personnalisé imbriqué p
 
 ### Étape 3 : Sélectionner une comparaison et une valeur d'attribut personnalisé imbriqué {#step-3-select-a-comparison-and-nested-custom-attribute-value}
 
-Lors du filtrage par attributs personnalisés imbriqués, le type de données de votre propriété détermine les comparateurs disponibles pour le filtrage. Par exemple, comme `play_analytics.count` est un nombre, vous pouvez sélectionner un comparateur dans la catégorie **Number**.
+Lorsque vous filtrez par attributs personnalisés imbriqués, le type de données de votre propriété détermine les comparateurs disponibles pour le filtrage. Par exemple, comme `play_analytics.count` est un nombre, vous pouvez sélectionner un comparateur dans la catégorie **Number**.
 
 Pour filtrer les utilisateurs qui ont écouté leur chanson la plus jouée au moins 300 fois, sélectionnez la comparaison **More than**, puis saisissez « 300 » comme valeur.
 
-![Un utilisateur choisissant un opérateur en fonction du type de données pour l'attribut personnalisé imbriqué]({% image_buster /assets/img_archive/nca_comparator.png %})
+![Un utilisateur choisissant un opérateur en fonction du type de données de l'attribut personnalisé imbriqué]({% image_buster /assets/img_archive/nca_comparator.png %})
 
-## Filtrer par types de données temporelles {#filter-for-time-data-types}
+## Filtrer les types de données temporelles {#filter-for-time-data-types}
 
-Lors du filtrage d'un attribut personnalisé imbriqué de type temporel, vous pouvez choisir de filtrer avec des opérateurs dans les catégories **Day of Year** ou **Time** lors de la comparaison de la valeur de date.
+Lorsque vous filtrez un attribut personnalisé imbriqué de type temporel, vous pouvez choisir de filtrer avec des opérateurs sous les catégories **Jour de l'année** ou **Heure** lors de la comparaison de la valeur de date.
 
-Si vous sélectionnez un opérateur dans la catégorie **Day of Year**, seuls le mois et le jour sont vérifiés pour la comparaison au lieu de l'horodatage complet de la valeur de l'attribut personnalisé imbriqué. La sélection d'un opérateur dans la catégorie **Time** compare l'horodatage complet, y compris l'année.
+Si vous sélectionnez un opérateur sous la catégorie **Jour de l'année**, seuls le mois et le jour sont vérifiés pour la comparaison, au lieu de l'horodatage complet de la valeur de l'attribut personnalisé imbriqué. La sélection d'un opérateur sous la catégorie **Heure** compare l'horodatage complet, y compris l'année.
+
+{% alert note %}
+Lorsque vous utilisez des opérateurs **Heure** qui prennent en charge les unités de jours et de semaines (tels que **est supérieur à**, **est inférieur à**, **exactement** et **après**), Braze convertit automatiquement la valeur en semaines lorsque vous enregistrez le Segment. Par exemple, 91 jours sont convertis en 13 semaines. Les unités de jours et de semaines sont toutes deux prises en charge pour ces filtres.
+{% endalert %}
 
 ## Utiliser la segmentation multicritère {#use-multi-criteria-segmentation}
 
-Utilisez la **segmentation multicritère** pour créer un segment qui correspond à plusieurs critères au sein d'un même objet. Cela qualifie l'utilisateur dans le segment s'il possède au moins un objet dans le tableau qui répond à tous les critères spécifiés. Par exemple, les utilisateurs ne correspondent à ce segment que si leur clé n'est pas vide et si leur nombre est supérieur à 0.
+Utilisez la **segmentation multicritère** pour créer un segment qui correspond à plusieurs critères au sein d'un même objet. Cela qualifie l'utilisateur dans le segment s'il possède au moins un objet dans le tableau qui correspond à tous les critères spécifiés. Par exemple, les utilisateurs ne correspondent à ce segment que si leur clé n'est pas vide et si leur nombre est supérieur à 0.
 
 ### Copier le Liquid pour le segment {#copy-liquid-for-segment}
 
-Vous pouvez également utiliser la fonctionnalité **Copy Liquid for segment** pour générer du code Liquid pour ce segment et l'utiliser dans un message. Par exemple, imaginons que vous avez un tableau d'objets de compte et un segment qui cible les clients avec des comptes imposables actifs. Pour inciter les clients à contribuer à l'objectif de compte associé à l'un de leurs comptes actifs et imposables, vous souhaiterez créer un message pour les encourager.
+Vous pouvez également utiliser la fonctionnalité **Copy Liquid for segment** pour générer du code Liquid pour ce segment et l'utiliser dans un message. Par exemple, supposons que vous ayez un tableau d'objets de comptes et un segment qui cible les clients possédant des comptes imposables actifs. Pour inciter les clients à contribuer à l'objectif de compte associé à l'un de leurs comptes actifs et imposables, vous souhaiterez créer un message pour les encourager.
 
 ![Un exemple de segment avec la case cochée pour la segmentation multicritère.]({% image_buster /assets/img_archive/nca_multi_criteria.png %})
 
@@ -67,7 +71,7 @@ Lorsque vous sélectionnez **Copy Liquid for segment**, Braze génère automatiq
 {% endfor %}
 ```
 
-À partir de là, vous pouvez utiliser `segmented_nested_objects` et personnaliser votre message. Dans cet exemple, nous voulons récupérer un objectif du premier compte imposable actif et le personnaliser :
+À partir de là, vous pouvez utiliser `segmented_nested_objects` et personnaliser votre message. Dans cet exemple, nous souhaitons récupérer un objectif du premier compte imposable actif et le personnaliser :
 
 ```
 Get to your {{segmented_nested_objects[0].goal}} goal faster, make a deposit using our new fast deposit feature!

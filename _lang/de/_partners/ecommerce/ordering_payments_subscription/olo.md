@@ -20,7 +20,7 @@ Durch die Integration von Olo und Braze können Sie:
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Olo-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Olo-Konto mit Zugriff auf Webhooks. Richten Sie Webhook-Abonnements über das [Self-Service-Webhooks-Tool](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) im Olo-Dashboard ein. |
+| Olo-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Olo-Konto mit Zugriff auf Webhooks. Richten Sie Webhook-Abos über das [Self-Service-Webhooks-Tool](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) im Olo-Dashboard ein. |
 | Braze-Datentransformation | Eine [URL für die Datentransformation]({{site.baseurl}}/data_transformation) ist erforderlich, um Daten von Olo zu empfangen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -58,8 +58,8 @@ Olo benötigt eine erfolgreiche Antwort vom Test-Event-Webhook, bevor Sie die Ko
 
 In diesem Schritt transformieren Sie die Webhook-Nutzlast, die von der Quellplattform gesendet wird, in einen Rückgabewert als JavaScript-Objekt.
 
-1. Senden Sie eine Anfrage an Ihre URL für die Datentransformation mit einer Beispiel-Nutzlast eines Olo-Events, das Sie unterstützen möchten. Siehe [Format des Anfragekörpers](#request-body-format) für Hilfe bei der Formatierung Ihrer Anfrage.
-2. Aktualisieren Sie Ihre Datentransformation und vergewissern Sie sich, dass Sie die Beispiel-Nutzlast des Events in den **Webhook-Details** sehen können.
+1. Senden Sie eine Anfrage an Ihre URL für die Datentransformation mit einer Beispiel-Event-Nutzlast eines Olo-Events, das Sie unterstützen möchten. Siehe [Format des Anfragekörpers](#request-body-format) für Hilfe bei der Formatierung Ihrer Anfrage.
+2. Aktualisieren Sie Ihre Datentransformation und vergewissern Sie sich, dass Sie die Beispiel-Event-Nutzlast in den **Webhook-Details** sehen können.
 3. Aktualisieren Sie Ihren Datentransformationscode, um die von Ihnen gewählten Olo-Events zu unterstützen.
 4. Klicken Sie auf **Validate**, um eine Vorschau der Ausgabe Ihres Codes zu erhalten und zu prüfen, ob es sich um eine akzeptable `/users/track`-Anfrage handelt.
 5. Speichern und aktivieren Sie Ihre Datentransformation.
@@ -68,25 +68,19 @@ In diesem Schritt transformieren Sie die Webhook-Nutzlast, die von der Quellplat
 
 Dieser Rückgabewert muss dem Format des `/users/track`-Anfragekörpers von Braze entsprechen:
 
-- Der Transformationscode wird in der Programmiersprache JavaScript akzeptiert. Jeder Standard-JavaScript-Kontrollfluss, wie z. B. die if/else-Logik, wird unterstützt.
-- Der Transformationscode greift über die Nutzlastvariable auf den Körper der Webhook-Anfrage zu. Diese Variable ist ein Objekt, das durch das Parsen des JSON-Körpers der Anfrage erstellt wird.
-- Alle Features, die in unserem `/users/track`-Endpunkt unterstützt werden, werden unterstützt, einschließlich:
-    - Nutzerattribut-Objekte, Event-Objekte und Kauf-Objekte
-    - Verschachtelte Attribute und verschachtelte Event-Eigenschaften angepasster Events
-    - Updates für Abo-Gruppen
-    - E-Mail-Adresse als Bezeichner
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Beispiel-Datentransformationen für Olo-Webhooks {#example-data-transformations-for-olo-webhooks}
 
 Dieser Abschnitt enthält Beispiel-Templates, die als Ausgangspunkt verwendet werden können. Sie können auch von Grund auf neu beginnen oder bestimmte Komponenten nach Belieben löschen.
 
-In jedem Template definiert der Code eine Variable, `brazecall`, um eine `/users/track`-Anfrage zu erstellen.
+In jedem Template definiert der Code eine Variable `brazecall`, um eine `/users/track`-Anfrage zu erstellen.
 
 Nachdem die `/users/track`-Anfrage `brazecall` zugewiesen wurde, geben Sie explizit `brazecall` zurück, um eine Ausgabe zu erstellen.
 
 ### Transformation eines einzelnen Events {#single-event-transformation}
 
-Wenn Sie nur ein einziges Olo-Event unterstützen möchten, brauchen Sie den `X-Olo-Event-Type`-Header nicht zu verwenden, um die Nutzlast der `/users/track`-Anfrage bedingt zu erstellen. Zum Beispiel das Protokollieren eines Kauf-Events oder eines angepassten Events im Nutzerprofil, wenn ein Olo-Order-Placed-Webhook an Braze gesendet wird.
+Wenn Sie nur ein einziges Olo-Event unterstützen möchten, brauchen Sie den `X-Olo-Event-Type`-Header nicht zu verwenden, um die Nutzlast der `/users/track`-Anfrage bedingt zu erstellen. Zum Beispiel das Protokollieren eines Kauf-Events oder eines angepassten Events im Nutzerprofil, wenn ein Olo-„Order Placed“-Webhook an Braze gesendet wird.
 
 ### Jedes Produkt als Kauf protokollieren {#logging-each-product-as-a-purchase}
 
@@ -242,16 +236,16 @@ return brazecall;
 
 ### Schritt 4: Olo-Webhook veröffentlichen {#step-4-publish-your-olo-webhook}
 
-Nachdem Sie Ihre Datentransformation in Braze aktiviert haben, verwenden Sie das [Self-Service-Webhooks-Tool](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) im Olo-Dashboard, um Ihren Webhook zu veröffentlichen. Wenn der Webhook veröffentlicht wird, beginnt die Datentransformation mit dem Empfang von Olo-Webhook-Event-Nachrichten.
+Nachdem Sie Ihre Datentransformation in Braze aktiviert haben, verwenden Sie das [Self-Service-Webhooks-Tool](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) im Olo-Dashboard, um Ihren Webhook zu veröffentlichen. Sobald der Webhook veröffentlicht ist, beginnt die Datentransformation mit dem Empfang von Olo-Webhook-Event-Nachrichten.
 
 ## Wissenswertes {#things-to-know}
 
 ### Wiederholungsversuche {#retries}
 
-Olo wiederholt Webhook-Aufrufe, die zu einem HTTP-Antwort-Statuscode von `429 - Too Many Requests` oder im Bereich `5xx` führen (z. B. aufgrund eines Gateway-Timeouts oder eines Server-Fehlers), innerhalb von 24 Stunden bis zu 50 Mal, bevor die Anfrage verworfen wird.
+Olo wiederholt Webhook-Aufrufe, die zu einem HTTP-Antwort-Statuscode von `429 - Too Many Requests` oder im Bereich `5xx` führen (z. B. aufgrund eines Gateway-Timeouts oder eines Serverfehlers), innerhalb von 24 Stunden bis zu 50 Mal, bevor die Anfrage verworfen wird.
 
 ### Zustellung mindestens einmal {#at-least-once-delivery}
 
-Wenn ein Webhook-Aufruf zu einem HTTP-Antwort-Statuscode von `429 - Too Many Requests` oder im Bereich `5xx` führt (z. B. aufgrund eines Gateway-Timeouts oder eines Server-Fehlers), versucht Olo die Nachricht innerhalb von 24 Stunden bis zu 50 Mal erneut zu senden, bevor es aufgibt.
+Wenn ein Webhook-Aufruf zu einem HTTP-Antwort-Statuscode von `429 - Too Many Requests` oder im Bereich `5xx` führt (z. B. aufgrund eines Gateway-Timeouts oder eines Serverfehlers), versucht Olo die Nachricht innerhalb von 24 Stunden bis zu 50 Mal erneut zu senden, bevor es aufgibt.
 
 Webhooks können daher mehrfach von Abonnent:innen empfangen werden. Es liegt in der Verantwortung der Abonnent:innen, Duplikate zu ignorieren, indem sie den `X-Olo-Message-Id`-Header überprüfen.

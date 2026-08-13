@@ -457,7 +457,7 @@ hide_toc: true
               <div id="disclosure-warning" class="alert alert-important" role="alert">
                 <div class="alert-msg">
                   <b>Important: </b>
-                  Copilot will author this suggestion, and it will be reviewed by the Docs team. Confirm that <strong>no customer-specific information</strong> or <strong>links</strong> are included.
+                  AI assists in drafting this suggestion, which the Docs team and other internal stakeholders review before publication. Confirm that <strong>no customer-specific information</strong> or <strong>customer links</strong> appear.
                 </div>
               </div>
               </div>

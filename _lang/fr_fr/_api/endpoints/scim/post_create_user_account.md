@@ -20,6 +20,8 @@ description: "Cet article présente en détail l'endpoint Braze Créer un nouvea
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#768a3c9d-ce1d-44fc-a0e4-d556b09f7aa3 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## Conditions préalables {#prerequisites}
 
 Pour utiliser cet endpoint, vous aurez besoin d'un jeton SCIM. Vous utiliserez l'origine de votre service comme en-tête `X-Request-Origin`. Pour plus d'informations, consultez la section [Provisionnement automatisé des utilisateurs]({{site.baseurl}}/scim/automated_user_provisioning).
@@ -79,12 +81,12 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 
 ## Paramètres de requête {#request-parameters}
 
-| Paramètre | Requis | Type de données | Description |
+| Paramètre | Obligatoire | Type de données | Description |
 | --------- | -------- | --------- | ----------- |
-| `schemas` | Requis | Tableau de chaînes de caractères | Nom du schéma SCIM 2.0 attendu pour l'objet utilisateur. |
-| `userName` | Requis | Chaîne de caractères | L'adresse e-mail de l'utilisateur. |
-| `name` | Requis | Objet JSON | Cet objet contient le prénom et le nom de famille de l'utilisateur. |
-| `department` | Requis | Chaîne de caractères | Chaîne de caractères valide du département, tirée de la [documentation sur les chaînes de caractères du département]({{site.baseurl}}/scim_api_appendix#department-strings). |
+| `schemas` | Obligatoire | Tableau de chaînes de caractères | Nom du schéma SCIM 2.0 attendu pour l'objet utilisateur. |
+| `userName` | Obligatoire | Chaîne de caractères | L'adresse e-mail de l'utilisateur. |
+| `name` | Obligatoire | Objet JSON | Cet objet contient le prénom et le nom de famille de l'utilisateur. |
+| `department` | Obligatoire | Chaîne de caractères | Chaîne de caractères valide du département, tirée de la [documentation sur les chaînes de caractères du département]({{site.baseurl}}/scim_api_appendix#department-strings). |
 | `permissions` | Facultatif | Objet JSON | Objet d'autorisations tel que décrit dans la [documentation de l'objet d'autorisations]({{site.baseurl}}/scim_api_appendix#permissions-object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 

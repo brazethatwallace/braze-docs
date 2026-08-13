@@ -4,7 +4,7 @@ permalink: "/custom_attributes_entitlements/"
 hidden: true
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/unlisted_docs/img/logos/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}カスタム属性 {#braze-learning-course-image_buster-assetsunlisted_docsimglogosbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-attributes}
+# [![Braze Learningコース]({% image_buster /assets/unlisted_docs/img/logos/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}カスタム属性 {#braze-learning-course-image_buster-assetsunlisted_docsimglogosbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-attributes}
 
 > このページでは、ユーザー固有の特性を集めたカスタム属性について説明します。カスタム属性は、ユーザーに関する属性や、アプリケーション内の低価値アクションに関する情報を保存するのに最適です。
 
@@ -12,7 +12,7 @@ Brazeに保存されたカスタム属性は、オーディエンスセグメン
 
 ## エンタイトルメント {#entitlements}
 
-エンタイトルメントは、カスタム属性の容量を決定します。これは、定義した異なる属性名の数を追跡します。ワークスペースごとに最大1,000個のカスタム属性を持つことができます。容量を増やす必要がある場合は、Brazeアカウントマネージャーに詳細をお問い合わせください。
+エンタイトルメントは、カスタム属性の容量を決定します。これは、定義した異なる属性名の数をトラッキングします。ワークスペースごとに最大1,000個のカスタム属性を持つことができます。容量を増やす必要がある場合は、Brazeアカウントマネージャーに詳細をお問い合わせください。
 
 ワークスペースがカスタム属性の最大数に近づくと、ダッシュボードとメールで通知が届き、状況を把握できます。
 
@@ -42,18 +42,18 @@ Brazeに保存されたカスタム属性は、オーディエンスセグメン
 
 ### 説明の追加 {#adding-descriptions}
 
-`Manage Events, Attributes, Purchases`の[ユーザー権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)を持っている場合、カスタム属性の作成後に説明を追加できます。カスタム属性を編集し、チームへのメモなど任意の内容を入力してください。
+`Manage Events, Attributes, Purchases`の[ユーザー権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions)を持っている場合、カスタム属性の作成後に説明を追加できます。カスタム属性を編集し、チームへのメモなど任意の内容を入力してください。
 
 ### タグの追加 {#adding-tags}
 
-「Manage Events, Attributes, Purchases」の[ユーザー権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/)を持っている場合、カスタム属性の作成後にタグを追加できます。タグは属性リストのフィルタリングに使用できます。
+「Manage Events, Attributes, Purchases」の[ユーザー権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions)を持っている場合、カスタム属性の作成後にタグを追加できます。タグは属性リストのフィルタリングに使用できます。
 
 ### カスタム属性の削除 {#removing-custom-attributes}
 
 ユーザープロファイルからカスタム属性を削除するには、2つの方法があります。
 
-* [ユーザーの更新ステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes)で削除するカスタム属性名を選択します。
-* APIリクエストで[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track)に`null`値を設定します。
+* [ユーザーの更新ステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes)で削除するカスタム属性名を選択します。
+* APIリクエストで[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)に`null`値を設定します。
 
 ### 使用状況レポートの表示 {#viewing-usage-reports}
 
@@ -74,16 +74,16 @@ Brazeに保存されたカスタム属性は、オーディエンスセグメン
 - [AndroidおよびFireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
 - [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
-- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
+- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
 
 ## カスタム属性のストレージ {#custom-attribute-storage}
 
-**ユーザープロファイル**に保存されたすべてのデータ（カスタム属性データを含む）は、各プロファイルが[アクティブ]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users)である限り、無期限に保持されます。
+**ユーザープロファイル**に保存されたすべてのデータ（カスタム属性データを含む）は、各プロファイルが[アクティブ]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#active-users)である限り、無期限に保持されます。
 
 ## カスタム属性のデータタイプ {#custom-attribute-data-types}
 
@@ -96,12 +96,12 @@ Brazeに保存されたカスタム属性は、オーディエンスセグメン
 - [文字列](#strings)
 - [配列](#arrays)
 - [時間](#time)
-- [オブジェクト]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [オブジェクトの配列]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [オブジェクト]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
+- [オブジェクトの配列]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
 
 ### ブール値（true/false） {#booleans}
 
-ブール属性は、サブスクリプションステータスなど、ユーザーに関するシンプルなバイナリデータを保存するのに便利です。変数が明示的にtrueまたはfalseに設定されているユーザーに加え、その属性のレコードがまだないユーザーも検索できます。
+ブール属性は、購読ステータスなど、ユーザーに関するシンプルなバイナリデータを保存するのに便利です。変数が明示的にtrueまたはfalseに設定されているユーザーに加え、その属性のレコードがまだないユーザーも検索できます。
 
 | セグメンテーションオプション | ドロップダウンフィルター | 入力オプション | 例 |
 | ---------------------| --------------- | ------------- | -------- |
@@ -158,7 +158,7 @@ Brazeに保存されたカスタム属性は、オーディエンスセグメン
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert note %}
-「12-1-2021」や「12/1/2021」のような日付文字列は、datetimeオブジェクトに変換され、[時間属性]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time)として扱われます。
+「12-1-2021」や「12/1/2021」のような日付文字列は、datetimeオブジェクトに変換され、[時間属性]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#time)として扱われます。
 {% endalert %}
 
 {% alert important %}
@@ -197,7 +197,7 @@ Brazeに保存されたカスタム属性は、オーディエンスセグメン
 {% alert tip %}
 正規表現（regex）の使用方法について詳しくは、以下のリソースをご覧ください。
 - [Perl互換正規表現（PCRE）](https://www.regextester.com/pregsyntax.html)
-- [Brazeでの正規表現]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/)
+- [Brazeでの正規表現]({{site.baseurl}}/user_guide/engagement_tools/segments/regex)
 - [正規表現デバッガーとテスター](https://www.regex101.com/)
 - [正規表現チュートリアル](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -228,19 +228,15 @@ Brazeに保存されたカスタム属性は、オーディエンスセグメン
 
 #### 時間属性の詳細 {#time-attribute-details}
 
-- 定期イベントの日
-  - 「定期イベントの日」フィルターを使用し、「定期イベントのカレンダー日」を選択するよう求められた場合、`IS LESS THAN`または`IS MORE THAN`を選択すると、そのセグメンテーションフィルターでは現在の日付がカウントされます。
-  - 例えば、2020年3月10日に属性の日付を`LESS THAN ... March 10, 2020`と選択した場合、2020年3月10日を含むそれまでの日付が属性として考慮されます。
-- X日未満前：「X日未満前」フィルターには、X日前から現在の日時までの日付が含まれます。
-- 将来X日未満先：現在の日時から将来X日までの日付が含まれます。
+{% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 ### オブジェクト {#objects}
 
-階層化カスタム属性を使用して、カスタム属性のデータタイプとしてオブジェクトを送信できます。詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)を参照してください。
+階層化カスタム属性を使用して、カスタム属性のデータタイプとしてオブジェクトを送信できます。詳細については、[階層化カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)を参照してください。
 
 ### オブジェクトの配列 {#arrays-of-objects}
 
-オブジェクトの配列を使用して、関連する属性をグループ化します。詳細については、[オブジェクトの配列]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)に関する記事を参照してください。
+オブジェクトの配列を使用して、関連する属性をグループ化します。詳細については、[オブジェクトの配列]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)に関する記事を参照してください。
 
 ### 統合されたオペレーター {#consolidated-operators}
 
@@ -266,14 +262,14 @@ Brazeに保存されたカスタム属性は、オーディエンスセグメン
 | 最後の購入が**X日以降**に行われたかを確認する | **AFTER** | **TIME** | このフィルターが`2024/31/1`を指定し、ユーザーの最後の購入が`2024/31/1`以降の場合、ユーザーはこのフィルターに一致します。|
 | 最後の購入が**X日以前**に行われたかを確認する | **BEFORE** | **TIME** | このフィルターが`2024/31/1`を指定し、ユーザーの最後の購入が`2024/31/1`以前の場合、ユーザーはこのフィルターに一致します。|
 | 最後の購入が**X日以上前**に行われたかを確認する | **MORE THAN** | **TIME** | このフィルターが`7`を指定し、ユーザーの最後の購入が今日から7日以上前の場合、ユーザーはこのフィルターに一致します。|
-| 最後の購入が**X日未満前**に行われたかを確認する | **LESS THAN** | **TIME** |  このフィルターが`7`を指定し、ユーザーの最後の購入が今日から7日未満前の場合、ユーザーはこのフィルターに一致します。|
-| 購入が**X回（最大50回）以上**行われたかを確認する | **MORE THAN** | 過去**Y日間（Y = 1,3,7,14,21,30）** |  このフィルターが`7`回と`21`日を指定し、ユーザーが過去21日間に7回以上購入した場合、ユーザーはこのフィルターに一致します。|
+| 最後の購入が**X日未満前**に行われたかを確認する | **LESS THAN** | **TIME** | このフィルターが`7`を指定し、ユーザーの最後の購入が今日から7日未満前の場合、ユーザーはこのフィルターに一致します。|
+| 購入が**X回（最大50回）以上**行われたかを確認する | **MORE THAN** | 過去**Y日間（Y = 1,3,7,14,21,30）** | このフィルターが`7`回と`21`日を指定し、ユーザーが過去21日間に7回以上購入した場合、ユーザーはこのフィルターに一致します。|
 | 購入が**X回（最大50回）未満**行われたかを確認する | **LESS THAN** | 過去**Y日間（Y = 1,3,7,14,21,30）** | このフィルターが`7`回と`21`日を指定し、ユーザーが過去21日間に7回未満購入した場合、ユーザーはこのフィルターに一致します。|
 | 購入が**正確にX回（最大50回）**行われたかを確認する | **EXACTLY** | 過去**Y日間（Y = 1,3,7,14,21,30）** | このフィルターが`7`回と`21`日を指定し、ユーザーが過去21日間に正確に7回購入した場合、ユーザーはこのフィルターに一致します。|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert tip %}
-特定の購入が発生した回数でセグメンテーションしたい場合は、その購入を[インクリメント型カスタム属性]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/#incrementingdecrementing-custom-attributes)として個別に記録する必要があります。
+特定の購入が発生した回数でセグメンテーションしたい場合は、その購入を[インクリメント型カスタム属性]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes#incrementingdecrementing-custom-attributes)として個別に記録する必要があります。
 {% endalert %}
 
-カスタム属性のデータタイプは変更できますが、[データタイプの変更]({{site.baseurl}}/help/help_articles/data/change_custom_data_type/)の影響に注意してください。
+カスタム属性のデータタイプは変更できますが、[データタイプの変更]({{site.baseurl}}/help/help_articles/data/change_custom_data_type)の影響に注意してください。

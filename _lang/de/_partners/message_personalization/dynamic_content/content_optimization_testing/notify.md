@@ -2,7 +2,9 @@
 nav_title: Notify
 article_title: Notify
 description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Notify, einer Realtime-Omnichannel-Personalisierungslösung, die Personalisierung über den gesamten Kundenlebenszyklus bietet."
-alias: /partners/notify/
+alias:
+  - /partners/notify/
+  - /partners/message_personalization/dynamic_content/notify/
 page_type: partner
 search_tag: Partner
 ---
@@ -26,18 +28,18 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
 ## Integration
 
-### 1. Schritt: Campaign erstellen {#step-1-create-your-campaign}
+### Schritt 1: Campaign erstellen {#step-1-create-your-campaign}
 
-Erstellen Sie eine [API-getriggerte Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) in Braze. Teilen Sie dann den `api_identifier` der Campaign mit Notify.
+Erstellen Sie eine [API-getriggerte Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) in Braze. Teilen Sie dann den `api_identifier` der Campaign mit Notify.
 
-### 2. Schritt: Segment in Braze erstellen {#step-2-create-your-segment-in-braze}
+### Schritt 2: Segment in Braze erstellen {#step-2-create-your-segment-in-braze}
 
 Erstellen Sie als Nächstes das Segment der Nutzer:innen, die Sie mit der in [Schritt 1](#step-1-create-your-campaign) erstellten Campaign ansprechen möchten. Teilen Sie dann die Segment-ID mit Notify.
 
-### 3. Schritt: Segment abrufen {#step-3-fetch-your-segment}
+### Schritt 3: Segment abrufen {#step-3-fetch-your-segment}
 
 Anschließend exportiert Notify die Nutzer:innen des Segments, das der Campaign zugeordnet ist.
 
-### 4. Schritt: Notify triggert die Campaign {#step-4-notify-triggers-the-campaign}
+### Schritt 4: Notify triggert die Campaign {#step-4-notify-triggers-the-campaign}
 
 Über den Endpunkt `/campaigns/trigger/send` triggert die KI von Notify die in [Schritt 1](#step-1-create-your-campaign) erstellte Braze-Campaign, um sie zu dem Zeitpunkt an die Nutzer:innen zu senden, zu dem diese sich am ehesten engagieren.

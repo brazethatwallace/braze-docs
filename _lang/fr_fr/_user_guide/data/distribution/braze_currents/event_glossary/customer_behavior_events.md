@@ -248,7 +248,7 @@ Cet événement se produit lorsqu'un événement personnalisé spécifique est d
 
 ### Détails des propriétés {#property-details}
 
-- Pour les événements personnalisés, le payload sera également rempli avec toutes les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties) associées à l'événement.
+- Pour les événements personnalisés, le payload sera également rempli avec toutes les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) associées à l'événement.
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. Pour en savoir plus : [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer des données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), contactez votre gestionnaire de la satisfaction client ou votre gestionnaire de compte afin d'activer la fonctionnalité permettant l'envoi de `ad_id`.
 
@@ -1579,7 +1579,7 @@ Cet événement se produit lorsqu'un jeton de notification push est inséré, mi
   - Si l'utilisateur a explicitement autorisé les notifications push sur son appareil, la valeur est `false`, et le jeton peut recevoir des notifications push en avant-plan.
   - Si l'utilisateur a explicitement refusé l'autorisation de notification push sur son appareil, la valeur est `true`, et le jeton ne peut recevoir que des notifications push en arrière-plan.
   - Si l'autorisation push n'a pas encore été déterminée (par exemple, l'utilisateur n'a pas encore répondu à l'invite du système d'exploitation), la valeur est `true`, et le jeton ne peut recevoir que des notifications push en arrière-plan.
-  - Ce champ peut être `null` (ou vide, selon le format de votre destination) pour les enregistrements de jetons SDK plus anciens qui n'ont pas encore signalé l'état de l'autorisation, ainsi que pour les jetons de notification push web. Traitez `null` de la même manière que `false` (compatible avec les notifications push en avant-plan), car Braze tente toujours d'envoyer des notifications push en avant-plan à ces jetons.
+  - Ce champ peut être `null` (ou vide, selon le format de votre destination) pour les enregistrements de jetons SDK plus anciens qui n'ont pas encore signalé l'état de l'autorisation, ainsi que pour les jetons de notification push Web. Traitez `null` de la même manière que `false` (compatible avec les notifications push en avant-plan), car Braze tente toujours d'envoyer des notifications push en avant-plan à ces jetons.
   - Une tentative d'envoi de notification push ne met pas à jour ce champ. Si un envoi réussit, aucun événement `TokenStateChange` n'est émis. Si un envoi rebondit parce que le jeton est invalide, Braze émet un événement « remove » et supprime le jeton.
   - Ce champ ne change que lorsque Braze ingère une mise à jour de l'état du jeton depuis le SDK (par exemple, une synchronisation de session ultérieure qui signale l'état de l'autorisation push).
 - Le champ `push_token_provisionally_opted_in` s'applique uniquement aux jetons de notification push iOS.
@@ -1598,12 +1598,12 @@ Un événement « add » est ingéré lorsqu'un nouveau jeton est enregistré. C
 {% alert note %}
 Pour le SDK Swift iOS 13.3.0 et versions ultérieures, et le SDK Android 40.0.0 et versions ultérieures, l'état de l'autorisation push et le jeton de notification push sont envoyés ensemble. Pour les nouveaux enregistrements provenant de ces SDK, `push_token_foreground_push_disabled` est renseigné dans l'événement « add » (généralement `false` lorsque les notifications sont activées).<br><br>
 
-Les enregistrements de jetons plus anciens peuvent encore avoir ce champ à `null` jusqu'à ce que le SDK signale ultérieurement l'état de l'autorisation push. Les jetons de notification push web peuvent également avoir ce champ à `null` par conception.
+Les enregistrements de jetons plus anciens peuvent encore avoir ce champ à `null` jusqu'à ce que le SDK signale ultérieurement l'état de l'autorisation push. Les jetons de notification push Web peuvent également avoir ce champ à `null` par conception.
 {% endalert %}
 
 ##### Update {#update}
 
-Un événement « update » est ingéré lorsqu'une propriété d'un jeton existant est modifiée sans que la chaîne de caractères du jeton elle-même ne change. Le jeton conserve la même chaîne de caractères, le même utilisateur et la même application, mais un ou plusieurs des champs suivants ont été modifiés : `foreground_push_disabled`, passerelle APNs, clés de notification push web, `provisionally_opted_in` ou `device_id`. Ces mises à jour proviennent d'événements de synchronisation de l'état du jeton (par exemple, lorsque le SDK signale un nouvel état d'autorisation), et non des résultats d'envoi de notifications push. Le champ `time_ms` indique le moment où l'événement « update » s'est produit.
+Un événement « update » est ingéré lorsqu'une propriété d'un jeton existant est modifiée sans que la chaîne de caractères du jeton elle-même ne change. Le jeton conserve la même chaîne de caractères, le même utilisateur et la même application, mais un ou plusieurs des champs suivants ont été modifiés : `foreground_push_disabled`, passerelle APNs, clés de notification push Web, `provisionally_opted_in` ou `device_id`. Ces mises à jour proviennent d'événements de synchronisation de l'état du jeton (par exemple, lorsque le SDK signale un nouvel état d'autorisation), et non des résultats d'envoi de notifications push. Le champ `time_ms` indique le moment où l'événement « update » s'est produit.
 
 Braze émet également un événement « update » avec `push_token_state_change_type` défini sur `"update"` lorsqu'un utilisateur anonyme est identifié sur le même profil et que les jetons de notification push existants restent sur ce profil. Dans ce cas, `user_id` ne change pas et `external_user_id` est défini sur l'ID externe de l'utilisateur identifié. Cela inclut l'identification via l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) et le `changeUser` du SDK lorsqu'il attribue un ID externe au profil anonyme sur l'appareil.
 
@@ -1643,7 +1643,10 @@ Les paires add et remove se répartissent en deux catégories :
 - L'endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) ou le nettoyage des utilisateurs en double transfère les jetons de l'utilisateur orphelin vers l'utilisateur conservé.
 
 {% alert note %}
-L'identification sur le même profil via l'endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) ou le `changeUser` du SDK attribuant un ID externe au profil anonyme ne modifie pas le `user_id` et n'émet pas de paires d'événements add et remove. À la place, Braze émet un événement « update » pour chaque jeton de notification push existant et définit `external_user_id` sur l'ID externe de l'utilisateur identifié. Lorsque `changeUser` transfère des jetons d'un profil utilisateur à un autre, Braze émet toujours les paires d'événements add et remove décrites ci-dessus.
+L'identification sur le même profil via l'endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) ou le [`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) du SDK peut attribuer un ID externe à un profil anonyme sans modifier le `user_id`.
+Dans ce cas, Braze n'émet pas de [paires d'événements add et remove](#add-and-remove-pairs).
+À la place, Braze émet un événement « update » pour chaque jeton de notification push existant et définit `external_user_id` sur l'ID externe de l'utilisateur identifié.
+Lorsque `changeUser` transfère des jetons d'un profil utilisateur à un autre, Braze émet toujours les [paires d'événements add et remove](#add-and-remove-pairs) décrites dans la section [Paires add et remove](#add-and-remove-pairs).
 {% endalert %}
 
 #### Requête sur l'état actuel du jeton actif {#querying-for-the-latest-active-token-state}

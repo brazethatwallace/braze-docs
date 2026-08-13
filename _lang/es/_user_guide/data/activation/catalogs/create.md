@@ -43,7 +43,7 @@ La siguiente tabla enumera los tipos de datos de catálogo compatibles y cómo s
 Para crear un catálogo, ve a **Configuración de datos** > **Catálogos**, selecciona **Crear nuevo catálogo** y elige una de las siguientes opciones:
 
 {% tabs local %}
-{% tab Upload CSV %}
+{% tab Cargar CSV %}
 ### Paso 1: Revisa tu archivo CSV {#step-1-review-your-csv-file}
 
 Antes de cargar tu archivo CSV, asegúrate de que cumple los siguientes requisitos:
@@ -145,6 +145,10 @@ A continuación, daremos a este catálogo el nombre "games_catalog" y selecciona
 Ten en cuenta que no podrás editar este nombre una vez creado el catálogo. Puedes eliminar un catálogo y volver a cargar una versión actualizada utilizando el mismo nombre de catálogo.
 
 Una vez creado el catálogo, puedes empezar a hacer referencia al [catálogo en una campaña]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
+
+{% alert important %}
+Los archivos CSV cargados previamente están disponibles para su descarga en la página **Catálogos** durante 30 días a partir de la fecha de carga. Después de 30 días, el archivo se elimina permanentemente y ya no se puede acceder a él.
+{% endalert %}
 {% endtab %}
 
 {% tab Crear en el navegador %}

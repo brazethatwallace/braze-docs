@@ -74,13 +74,15 @@ The following limitations apply:
 
 Target high-value use cases where agents can drive the biggest return on investment (ROI), and choose audiences who are likely to respond. A smaller, high-opportunity audience often outperforms a large audience with low opportunity—for example, retargeting users who searched recently but did not convert, rather than sending agent-generated copy to your entire user base.
 
-To validate ROI before scaling, use an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) step to send only part of your audience through an Agent step. For more deployment guidance, see [Deploy custom agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents).
+To validate ROI before scaling, use an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) step to send only part of your audience through an Agent step. When a small-scale test looks good, scale the agent to your full target audience and raise the [daily invocation limit]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits) so invocations are not capped mid-send. Confirm you are comfortable with the estimated credit consumption before scaling to your full audience. For more deployment guidance, see [Deploy custom agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents).
 
 ## Error handling
 
 If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) from the LLM provider during a Canvas Step Agent or Catalog Agent invocation, Braze continuously retries the request using exponential backoff. 
 
 For other failures (such as a timeout or invalid API key), the Canvas Step Agent output is set to `null` unless the agent has [fallback values configured]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in Agent Console (Canvas Step Agents only). Catalog agents do not retry non-rate-limit failures. If an agent reaches its daily invocation limit, Braze applies configured fallback values when present; otherwise the output is set to `null`.
+
+Rate limit errors, model unavailability, and daily invocation limit failures do not consume Braze credits. Timeouts do consume credits. See [When credits are consumed]({{site.baseurl}}/user_guide/brazeai/agents/reference#when-credits-are-consumed).
 
 When many users enter an Agent step at once, processing may take longer because of [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls). Configure fallback values in Agent Console for Canvas Step Agents so users still receive output when an invocation fails, or use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) in downstream Message steps.
 

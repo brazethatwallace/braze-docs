@@ -16,7 +16,7 @@ description: "多変量テストとABテストを作成する際に、勝者バ�
 
 ## メール、Webhook、SMS、WhatsApp {#email-webhook-sms-and-whatsapp}
 
-メール、Webhook、SMS、WhatsApp キャンペーンで1回送信するようにスケジュールされた[ABテストを作成する]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests)場合、2つの最適化オプションから選択できます。**勝者バリアント**と**パーソナライズ済みバリアント**です。
+メール、Webhook、SMS、WhatsAppキャンペーンで1回送信するようにスケジュールされた[ABテストを作成する]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests)場合、2つの最適化オプションから選択できます。**勝者バリアント**と**パーソナライズ済みバリアント**です。
 
 ![ターゲットオーディエンスを選択する際のABテストセクションに表示される最適化オプション。次の3つのオプションが表示されます：最適化なし、勝者バリアント、およびパーソナライズ済みバリアント。パーソナライズ済みバリアントが選択されています。]({% image_buster /assets/img_archive/ab_personalized_variant.png %})
 

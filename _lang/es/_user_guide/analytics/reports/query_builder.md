@@ -15,7 +15,7 @@ Dado que el Generador de consultas permite el acceso directo a algunos datos de 
 
 ## Tablas de datos disponibles {#available-data-tables}
 
-El Generador de consultas utiliza las mismas tablas SQL de Snowflake que las [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y el [Uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para obtener una lista completa de las tablas disponibles y sus columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+El Generador de consultas utiliza las mismas tablas SQL de Snowflake que las [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y el [uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para obtener una lista completa de las tablas disponibles y sus columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 
 ## Ejecución de informes en el Generador de consultas {#running-reports-in-the-query-builder}
 
@@ -41,7 +41,7 @@ Consulta [Plantillas de consultas]({{site.baseurl}}/user_guide/analytics/reports
 
 ### Periodo de tiempo de los datos {#data-timeframe}
 
-Las consultas devuelven datos de los últimos 60 días. Si utilizas Currents o el [Uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), es posible que puedas consultar hasta dos años de datos, que es el tiempo que se retienen tus datos en Snowflake. Para más detalles sobre la retención extendida de datos, ponte en contacto con tu administrador del éxito del cliente.
+Las consultas devuelven datos de los últimos 60 días. Si utilizas Currents o el [uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), es posible que puedas consultar hasta dos años de datos, que es el tiempo que se retienen tus datos en Snowflake. Para más detalles sobre la retención extendida de datos, ponte en contacto con tu administrador de éxito de cliente.
 
 ### Zona horaria del Generador de consultas {#query-builder-time-zone}
 
@@ -166,9 +166,7 @@ Utiliza variables para usar tipos de variables predefinidos en SQL para hacer re
 
 Después de crear una variable, aparecerá en la pestaña **Variables** de tu informe del Generador de consultas. Los beneficios de usar variables SQL incluyen:
 
-- Ahorrar tiempo creando una variable de Campaign para seleccionar de una lista al crear tu informe, en lugar de pegar los ID de Campaign.
-- Intercambiar valores añadiendo variables que te permitan reutilizar el informe para casos de uso ligeramente diferentes en el futuro (como un evento personalizado diferente).
-- Reducir errores del usuario al editar tu SQL, disminuyendo la cantidad de edición necesaria para cada informe. Los compañeros de equipo que se sientan más cómodos con SQL pueden crear informes que luego pueden usar compañeros menos técnicos.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ### Directrices {#guidelines}
 

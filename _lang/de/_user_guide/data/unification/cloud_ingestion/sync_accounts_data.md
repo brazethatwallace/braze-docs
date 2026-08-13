@@ -11,30 +11,24 @@ description: "Erfahren Sie, wie Sie die Daten Ihres Braze-Kontos mithilfe von CD
 
 > Erfahren Sie, wie Sie die Daten Ihres Braze-Kontos mithilfe von CDI synchronisieren können.
 
-{% alert important %}
-[Kontoobjekte](https://braze.com/unlisted_docs/account_opportunity_object/) befinden sich in der Beta-Phase und sind für die Nutzung dieses Features erforderlich. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an der Teilnahme an der Beta interessiert sind.
-{% endalert %}
-
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie Ihre Kontodaten mit CDI synchronisieren können, müssen Sie [Ihr Kontoschema konfigurieren](https://braze.com/unlisted_docs/account_opportunity_object/).
-
 {% alert note %}
-Nehmen Sie Änderungen an Ihrem Kontoschema nur vor, wenn die Synchronisierung pausiert ist oder kein Zeitplan besteht, um Konflikte zwischen Ihren Data-Warehouse-Daten und dem Schema in Braze zu vermeiden.
+Nehmen Sie Änderungen an Ihrem Kontoschema nur vor, wenn die Synchronisierung pausiert oder nicht geplant ist, um Konflikte zwischen Ihren Data-Warehouse-Daten und dem Schema in Braze zu vermeiden.
 {% endalert %}
 
-## Wie die Synchronisierung funktioniert {#how-syncing-works}
+## So funktioniert die Synchronisierung {#how-syncing-works}
 
-- Bei jeder Synchronisierung werden Zeilen importiert, deren `UPDATED_AT`-Zeitstempel nach dem zuletzt synchronisierten Zeitstempel liegt. Zeilen an der exakten Grenze des Zeitstempels können erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel aufweisen. Weitere Informationen finden Sie unter [Erneutes Synchronisieren von Zeilen mit doppelten Zeitstempeln vermeiden]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
-- Die Daten aus der Integration erstellen oder aktualisieren Konten auf Grundlage der bereitgestellten `id`.
-- Wenn `DELETED` den Wert `true` hat, wird das Konto gelöscht.
-- Bei der Synchronisierung werden keine Datenpunkte protokolliert, jedoch werden alle synchronisierten Daten auf Ihre gesamte Kontonutzung angerechnet, gemessen an der Gesamtmenge der gespeicherten Daten – es ist nicht erforderlich, sich nur auf geänderte Daten zu beschränken.
+- Jede Synchronisierung importiert Zeilen, bei denen `UPDATED_AT` nach dem zuletzt synchronisierten Zeitstempel liegt. Zeilen am exakten Grenz-Zeitstempel können erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel aufweisen. Weitere Informationen finden Sie unter [Erneutes Synchronisieren von Zeilen mit doppelten Zeitstempeln vermeiden]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
+- Daten aus der Integration erstellen oder aktualisieren Konten basierend auf der bereitgestellten `id`.
+- Wenn `DELETED` auf `true` gesetzt ist, wird das Konto gelöscht.
+- Die Synchronisierung protokolliert keine Datenpunkte, aber alle synchronisierten Daten zählen zu Ihrer gesamten Kontonutzung, gemessen am insgesamt gespeicherten Datenvolumen – es ist nicht nötig, sich auf geänderte Daten zu beschränken.
 - Felder, die nicht in Ihrem Kontoschema enthalten sind, werden verworfen. Aktualisieren Sie das Schema, bevor Sie neue Felder synchronisieren.
-- Sie können eine Synchronisierung aktualisieren, fortsetzen oder pausieren, indem Sie mit der Maus über den Namen der Synchronisierung fahren und die entsprechende Aktion auswählen.
+- Sie können eine Synchronisierung aktualisieren, fortsetzen oder pausieren, indem Sie mit dem Mauszeiger über den Synchronisierungsnamen fahren und die entsprechende Aktion auswählen.
 
-## Ihre Kontodaten synchronisieren {#sync-your-account-data}
+## Kontodaten synchronisieren {#sync-your-account-data}
 
-Sie können Ihre Kontodaten mithilfe von CDI über ein Data Warehouse oder einen Dateispeicher synchronisieren.
+Sie können Ihre Kontodaten über CDI mithilfe eines Data Warehouse oder eines Dateispeichers synchronisieren.
 
 {% tabs local %}
 {% tab Data Warehouse %}
@@ -43,7 +37,7 @@ So integrieren Sie Ihre Datenquelle mit Ihrem Data Warehouse:
 {% subtabs %}
 {% subtab Snowflake %}
 
-1. Erstellen Sie eine Quelltabelle in Snowflake. Verwenden Sie die Namen aus dem Beispiel oder wählen Sie Ihre eigenen Datenbank-, Schema- und Tabellennamen. Sie können anstelle einer Tabelle auch eine View oder eine materialisierte View verwenden.
+1. Erstellen Sie eine Quelltabelle in Snowflake. Verwenden Sie die Namen aus dem Beispiel oder wählen Sie eigene Datenbank-, Schema- und Tabellennamen. Sie können auch eine View oder Materialized View anstelle einer Tabelle verwenden.
   ```sql
     CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
     CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
@@ -59,7 +53,7 @@ So integrieren Sie Ihre Datenquelle mit Ihrem Data Warehouse:
          DELETED BOOLEAN
     );
     ```
-2. Erstellen Sie eine Rolle, ein Warehouse und einen Benutzer und vergeben Sie Berechtigungen. Wenn Sie bereits Zugangsdaten von einer anderen Synchronisierung haben, können Sie diese wiederverwenden – stellen Sie sicher, dass sie Zugriff auf die Kontotabelle haben.
+2. Erstellen Sie eine Rolle, ein Warehouse und eine:n Nutzer:in und vergeben Sie Berechtigungen. Wenn Sie bereits Zugangsdaten von einer anderen Synchronisierung haben, können Sie diese wiederverwenden – stellen Sie sicher, dass sie Zugriff auf die Kontotabelle haben.
     ```sql
     CREATE ROLE BRAZE_INGESTION_ROLE;
 
@@ -74,18 +68,18 @@ So integrieren Sie Ihre Datenquelle mit Ihrem Data Warehouse:
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
 3. Wenn Sie Netzwerkrichtlinien verwenden, setzen Sie die Braze-IPs auf die Allowlist, damit der CDI-Dienst eine Verbindung herstellen kann. Die Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
-4. Gehen Sie im Braze-Dashboard zu **Dateneinstellungen** > **Cloud-Datenaufnahme** und erstellen Sie eine neue Synchronisierung.
+4. Gehen Sie im Braze-Dashboard zu **Data Settings** > **Cloud Data Ingestion** und erstellen Sie eine neue Synchronisierung.
 5. Geben Sie die Verbindungsdetails ein (oder verwenden Sie vorhandene) und fügen Sie dann die Quelltabelle hinzu.
 6. Wählen Sie den Synchronisierungstyp **Accounts** aus und geben Sie dann den Integrationsnamen und den Zeitplan ein.
-7. Wählen Sie die Synchronisierungshäufigkeit.
-8. Fügen Sie den Public Key aus dem Dashboard dem von Ihnen erstellten Benutzer hinzu. Dies erfordert einen Benutzer mit `SECURITYADMIN`-Zugriff oder höher in Snowflake.
+7. Wählen Sie die Synchronisierungsfrequenz.
+8. Fügen Sie den Public Key aus dem Dashboard dem von Ihnen erstellten Nutzer hinzu. Dazu ist ein Nutzer mit `SECURITYADMIN`-Zugriff oder höher in Snowflake erforderlich.
 9. Wählen Sie **Test Connection**, um die Einrichtung zu bestätigen.
 10. Wenn Sie fertig sind, speichern Sie die Synchronisierung.
 
 {% endsubtab %}
 {% subtab Redshift %}
 
-1. Erstellen Sie eine Quelltabelle in Redshift. Verwenden Sie die Namen aus dem Beispiel oder wählen Sie Ihre eigenen Datenbank-, Schema- und Tabellennamen. Sie können anstelle einer Tabelle auch eine View oder eine materialisierte View verwenden.
+1. Erstellen Sie eine Quelltabelle in Redshift. Verwenden Sie die Namen aus dem Beispiel oder wählen Sie eigene Datenbank-, Schema- und Tabellennamen. Sie können auch eine View oder Materialized View anstelle einer Tabelle verwenden.
     ```sql
     CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
     CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
@@ -101,7 +95,7 @@ So integrieren Sie Ihre Datenquelle mit Ihrem Data Warehouse:
        deleted boolean
     )
     ```
-2. Erstellen Sie einen Benutzer und vergeben Sie Berechtigungen. Wenn Sie bereits Zugangsdaten von einer anderen Synchronisierung haben, können Sie diese wiederverwenden – stellen Sie sicher, dass sie Zugriff auf die Kontotabelle haben.
+2. Erstellen Sie eine:n Nutzer:in und vergeben Sie Berechtigungen. Wenn Sie bereits Zugangsdaten von einer anderen Synchronisierung haben, können Sie diese wiederverwenden – stellen Sie sicher, dass sie Zugriff auf die Kontotabelle haben.
     {% raw %}
     ```sql
     CREATE USER braze_user PASSWORD '{password}';
@@ -135,25 +129,25 @@ So integrieren Sie Ihre Datenquelle mit Ihrem Data Warehouse:
 
     | Feldname | Typ | Erforderlich? |
     | ---------- | ---- | --------- |
-    | `UPDATED_AT` | Zeitstempel | Ja |
+    | `UPDATED_AT` | Timestamp | Ja |
     | `PAYLOAD` | JSON | Ja |
     | `ID` | String | Ja |
     | `NAME` | String | Ja |
-    | `DELETED` | Boolescher Wert | Optional |
+    | `DELETED` | Boolean | Optional |
     {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Kontodaten synchronisieren" }
 
 {:start="3"}
-3. Erstellen Sie einen Benutzer und vergeben Sie Berechtigungen. Wenn Sie bereits Zugangsdaten von einer anderen Synchronisierung haben, können Sie diese wiederverwenden, solange sie Zugriff auf die Kontotabelle haben.
+3. Erstellen Sie eine:n Nutzer:in und vergeben Sie Berechtigungen. Wenn Sie bereits Zugangsdaten von einer anderen Synchronisierung haben, können Sie diese wiederverwenden, solange sie Zugriff auf die Kontotabelle haben.
 
     | Berechtigung | Zweck |
     |------------|---------|
     | BigQuery Connection User | Ermöglicht Braze die Verbindung. |
-    | BigQuery User | Ermöglicht Braze das Ausführen von Abfragen, Lesen von Metadaten und Auflisten von Tabellen. |
+    | BigQuery User | Ermöglicht Braze das Ausführen von Abfragen, das Lesen von Metadaten und das Auflisten von Tabellen. |
     | BigQuery Data Viewer | Ermöglicht Braze das Anzeigen von Datensätzen und Inhalten. |
     | BigQuery Job User | Ermöglicht Braze das Ausführen von Jobs. |
     {: .reset-td-br-1 .reset-td-br-2 aria-label="Kontodaten synchronisieren" }
 
-    Generieren Sie nach der Vergabe der Berechtigungen einen JSON-Schlüssel. Anweisungen finden Sie unter [Schlüssel erstellen und löschen](https://cloud.google.com/iam/docs/keys-create-delete). Sie laden ihn später im Braze-Dashboard hoch.
+    Generieren Sie nach dem Vergeben der Berechtigungen einen JSON-Schlüssel. Anweisungen finden Sie unter [Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete). Sie laden ihn später im Braze-Dashboard hoch.
 
 {:start="4"}
 4. Wenn Sie Netzwerkrichtlinien verwenden, erlauben Sie Braze-IPs den Zugriff auf Ihre BigQuery-Instanz. Die Liste der IPs finden Sie unter [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
@@ -182,16 +176,16 @@ So integrieren Sie Ihre Datenquelle mit Ihrem Data Warehouse:
 
     | Feldname | Typ | Erforderlich? |
     | ---------- | ---- | --------- |
-    | `UPDATED_AT` | Zeitstempel | Ja |
+    | `UPDATED_AT` | Timestamp | Ja |
     | `PAYLOAD` | String, Struct oder Map | Ja |
     | `ID` | String | Ja |
     | `NAME` | String | Ja |
-    | `DELETED` | Boolescher Wert | Optional |
+    | `DELETED` | Boolean | Optional |
     {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Kontodaten synchronisieren" }
 
 {:start="3"}
 3. Erstellen Sie ein persönliches Zugriffstoken in Databricks:
-    1. Wählen Sie Ihren Benutzernamen und dann **User Settings** aus.
+    1. Wählen Sie Ihren Nutzernamen und dann **User Settings** aus.
     2. Wählen Sie auf dem Tab **Access tokens** die Option **Generate new token** aus.
     3. Fügen Sie einen Kommentar zur Identifizierung des Tokens hinzu, z. B. „Braze CDI“.
     4. Lassen Sie **Lifetime (days)** leer, damit das Token nicht abläuft, und wählen Sie dann **Generate** aus.
@@ -234,12 +228,12 @@ Um Kontodaten aus einem Dateispeicher zu synchronisieren, erstellen Sie eine Que
 | `ID` | Ja | ID des Kontos, das aktualisiert oder erstellt werden soll |
 | `NAME` | Ja | Name des Kontos |
 | `PAYLOAD` | Ja | JSON-String der Felder, die mit dem Konto in Braze synchronisiert werden sollen |
-| `DELETED` | Optional | Boolescher Wert, der angibt, dass das Konto aus Braze gelöscht werden soll |
-| `UPDATED_AT` | _*Nicht unterstützt_ | Dateispeicher unterstützen keine `UPDATED_AT`-Spalten |
+| `DELETED` | Optional | Boolescher Wert, der angibt, ob das Konto aus Braze gelöscht werden soll |
+| `UPDATED_AT` | _*Nicht unterstützt_ | Dateispeicher unterstützt keine `UPDATED_AT`-Spalten |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Kontodaten synchronisieren" }
 
 {% alert note %}
-Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Hängen Sie Zeitstempel an, um die Eindeutigkeit sicherzustellen. Weitere Informationen zur Amazon S3-Synchronisierung finden Sie unter [Dateispeicher-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Fügen Sie Zeitstempel hinzu, um die Eindeutigkeit sicherzustellen. Weitere Informationen zur Amazon S3-Synchronisierung finden Sie unter [Dateispeicher-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 {% endalert %}
 
 Die folgenden Beispiele zeigen gültige JSON- und CSV-Formate für die Synchronisierung von Kontodaten aus einem Dateispeicher.
@@ -275,11 +269,11 @@ ID,NAME,PAYLOAD
 {% endtab %}
 {% endtabs %}
 
-## Synchronisierungsansicht erstellen {#create-a-sync-view}
+## Sync-View erstellen {#create-a-sync-view}
 
-Durch das Erstellen einer Synchronisierungsansicht in Ihrem Data Warehouse kann die Quelle automatisch aktualisiert werden, ohne dass zusätzliche Abfragen neu geschrieben werden müssen.
+Durch das Erstellen einer Sync-View in Ihrem Data Warehouse kann die Quelle automatisch aktualisiert werden, ohne dass zusätzliche Abfragen neu geschrieben werden müssen.
 
-Wenn Sie beispielsweise eine Tabelle mit Kontodaten namens `account_details_1` mit `account_id`, `account_name` und drei zusätzlichen Attributen haben, könnten Sie eine Synchronisierungsansicht wie die folgende erstellen:
+Wenn Sie beispielsweise eine Tabelle mit Kontodaten namens `account_details_1` mit `account_id`, `account_name` und drei weiteren Attributen haben, könnten Sie eine Sync-View wie die folgende erstellen:
 
 {% tabs %}
 {% tab Snowflake %}

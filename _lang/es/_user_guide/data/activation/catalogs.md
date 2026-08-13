@@ -40,13 +40,13 @@ guide_menu_list:
 
 ## Casos de uso de catálogos {#catalog-use-cases}
 
-Puedes incorporar cualquier tipo de datos en un catálogo. Normalmente, los datos son metadatos sobre ofertas, como productos, descuentos, promociones, eventos y similares. Consulta los casos de uso en la siguiente sección para ver algunos ejemplos de cómo puedes utilizar estos datos para dirigirte a los usuarios con mensajería altamente relevante.
+Puedes incorporar cualquier tipo de datos en un catálogo. Normalmente, los datos son metadatos sobre ofertas, como productos, descuentos, promociones, eventos y similares. Consulta los siguientes casos de uso para ver algunos ejemplos de cómo puedes utilizar estos datos para dirigirte a los usuarios con mensajería altamente relevante.
 
 ### Comercio minorista y comercio electrónico {#retail-and-ecommerce}
 
 - **Promociones de temporada:** importa colecciones de productos de temporada y personaliza los mensajes para reflejar las tendencias actuales.
 - **Mensajes localizados:** importa las direcciones, horarios y servicios de tus ubicaciones físicas y, a continuación, personaliza las notificaciones en función de la ubicación de los usuarios.
-- **Notificaciones de reposición de existencias:** importa información de productos que incluya la cantidad de inventario y, a continuación, utiliza las [notificaciones de reposición de existencias]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) y los eventos personalizados de Braze para desencadenar una campaña o Canvas que envíe a los usuarios una notificación de que un producto ya está disponible.
+- **Notificaciones de reposición de existencias:** importa información de productos que incluya la cantidad de inventario y, a continuación, utiliza las [notificaciones de reposición de existencias]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) y los eventos personalizados de Braze para desencadenar una Campaign o un Canvas que envíe a los usuarios una notificación de que un producto ya está disponible.
 - **Notificaciones de bajada de precio:** importa información de productos que incluya los precios y, a continuación, utiliza las [notificaciones de bajada de precio]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) y los eventos personalizados de Braze para desencadenar un Canvas que envíe a los usuarios una notificación de que el precio de un producto ha bajado.
 
 ### Entretenimiento {#entertainment}
@@ -66,14 +66,14 @@ Puedes incorporar cualquier tipo de datos en un catálogo. Normalmente, los dato
 
 Los catálogos son una característica de almacenamiento de datos. Contienen grandes conjuntos de datos a los que puedes hacer referencia en tus mensajes para personalización. Para hacer referencia a los datos, utilizarás [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) como lenguaje de plantillas. En otras palabras, los catálogos son el almacenamiento donde se guardan los datos, y Liquid es el lenguaje que extrae los datos relevantes del almacenamiento.
 
-Para ver ejemplos de cómo puedes usar Liquid para extraer información de catálogos, consulta los casos de uso adicionales en [Crear un catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases).
+Para ver ejemplos de cómo puedes usar Liquid para extraer información de catálogos, consulta los casos de uso adicionales en [Crear un catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create#use-cases).
 
 ## Limitaciones de almacenamiento de datos {#data-storage-limitations}
 
 El almacenamiento de datos para catálogos está limitado en función del tamaño de los elementos del catálogo, que puede ser diferente de los tamaños de los archivos CSV cargados.
 
-Para la versión gratuita de catálogos, la cantidad de almacenamiento permitida es de hasta 100&nbsp;MB. Puedes tener elementos ilimitados siempre que el espacio de almacenamiento no supere los 100&nbsp;MB.
+Para la versión gratuita de catálogos, la cantidad de almacenamiento permitida es de hasta 500&nbsp;MB. Puedes tener elementos ilimitados siempre que el espacio de almacenamiento no supere los 500&nbsp;MB.
 
-Para Catalogs Pro, las opciones de tamaño de almacenamiento son: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB o 50&nbsp;GB. Ten en cuenta que el almacenamiento de la versión gratuita (100&nbsp;MB) está incluido en cada uno de estos planes.
+Para Catalogs Pro, las opciones de tamaño de almacenamiento son: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB o 50&nbsp;GB. Ten en cuenta que el almacenamiento de la versión gratuita (500&nbsp;MB) está incluido en cada uno de estos planes.
 
 Si necesitas ampliar el almacenamiento de tu catálogo, ponte en contacto con tu director de cuentas de Braze. Para obtener detalles del plan y notas sobre derechos, consulta [Almacenamiento de catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/create#tiers).

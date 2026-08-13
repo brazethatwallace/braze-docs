@@ -89,7 +89,7 @@ Dependiendo del canal que selecciones, puedes probar diferentes componentes de t
 | ---------------------| --------------- | ------------- |
 | Push | Texto <br> Uso de imágenes y emojis <br> Vínculos profundos <br> Presentación de números (por ejemplo, "triple" versus "aumento del 200 %") <br> Presentación del tiempo (por ejemplo, "termina a medianoche" versus "termina en 6 horas") | Aperturas <br> Tasa de conversión |
 | Correo electrónico | Asunto <br> Nombre para mostrar <br> Saludo <br> Cuerpo del texto <br> Uso de imágenes y emojis <br> Presentación de números (por ejemplo, "triple" versus "aumento del 200 %") <br> Presentación del tiempo (por ejemplo, "termina a medianoche" versus "termina en 6 horas") | Aperturas <br> Tasa de conversión |
-| Mensaje dentro de la aplicación | Aspectos listados para "push" <br> [Especificaciones de imagen para mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#in-app-messages) | Clic <br> Tasa de conversión |
+| Mensaje dentro de la aplicación | Aspectos listados para "push" <br> [Especificaciones de imagen para In-App Messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#image-specifications) | Clic <br> Tasa de conversión |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Consejos para diferentes canales" }
 
 {% alert tip %}

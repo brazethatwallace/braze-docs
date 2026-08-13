@@ -21,7 +21,7 @@ description: "このリファレンス記事では、Brazeダッシュボード�
 
 ### 親タグが使用中だが **Nest Tag Under** に表示されない場合 {#parent-tag-is-in-use-but-missing-from-nest-tag-under}
 
-親タグがダッシュボードで適用されているにもかかわらず、新しいタグの作成時に **Nest Tag Under** ドロップダウンに表示されない場合は、その親タグをスタンドアロンタグとして再作成して、リストで検索可能にしてください。この動作は、親タグがワークスペース内の別の場所でネストされた依存関係としてのみ存在する場合に想定される動作です。
+親タグがダッシュボードで適用されているにもかかわらず、新しいタグの作成時に**Nest Tag Under**ドロップダウンに表示されない場合は、その親タグをスタンドアロンタグとして再作成して、リストで検索可能にしてください。この動作は、親タグがワークスペース内の別の場所でネストされた依存関係としてのみ存在する場合に想定される動作です。
 
 ![「Nest Tag Under」オプションが選択された新しいタグダイアログ。]({% image_buster /assets/img_archive/tag_nested.png %}){: style="max-width:70%;" }
 
@@ -38,7 +38,7 @@ table td {
 </style>
 
 
-<table aria-label="ベストプラクティス #tags-best-practices">
+<table aria-label="ベストプラクティス">
   <caption>ベストプラクティス</caption>
 <thead>
   <tr>

@@ -41,6 +41,10 @@ Shopifyオンラインストアでは、標準設定を選択すると、Braze W
     - 識別されたユーザーのみを追跡します
     - サイト訪問者がアカウントの登録やアカウントへのログインを行ったときにデータの追跡を開始します
 
+{% alert note %}
+新規のお客様には、セットアップ時に最新のBraze Web SDKおよびJavaScript SDKバージョンがプロビジョニングされます。既存のお客様は、統合設定で現在のSDKバージョンを確認し、新しいバージョンが利用可能になったときに通知を受け取り、統合設定からセルフサービスでアップグレードできます。
+{% endalert %}
+
 ## ステップ3:Shopifyデータの設定 {#step-3-configure-your-shopify-data}
 
 ### 標準データ設定 {#standard-data-setup}
@@ -206,9 +210,7 @@ Brazeは、external IDのJSONを返す`200`ステータスコードを期待し�
 #### 障害時の動作とマージ {#failure-behavior-and-merging}
 `200`以外のステータスコードは失敗と見なされます。
 
-- **マージへの影響:** エンドポイントが失敗した場合（`200`以外を返す、またはタイムアウトした場合）、Brazeはexternal IDを取得できません。そのため、ShopifyユーザーとBrazeユーザープロファイルの間のマージは、その時点では行われません。
-- **再試行ロジック:** Brazeは標準の即時ネットワーク再試行を試みますが、障害が継続する場合、マージは次の該当するイベントまで延期されます（たとえば、次回ユーザーがプロファイルを更新するか、チェックアウトを完了したとき）。
-- **サポート性:** タイムリーなユーザーマージに対応するには、エンドポイントの高可用性を確保し、オプションの`email_address`フィールドを適切に処理できるようにしてください。
+{% multi_lang_include partners/shopify/external_id_merge_implications.md %}
 
 ### ステップ4.3:external IDを入力する {#step-43-input-your-external-id}
 
@@ -216,9 +218,7 @@ Brazeは、external IDのJSONを返す`200`ステータスコードを期待し�
 
 #### 考慮事項 {#considerations}
 
-- Brazeがエンドポイントにリクエストを送信したときにexternal IDが生成されていない場合、`changeUser`関数が呼び出されると、統合はデフォルトでShopify顧客IDを使用します。このステップは、匿名ユーザープロファイルと識別されたユーザープロファイルをマージするために重要です。そのため、一時的にワークスペース内にさまざまなタイプのexternal IDが存在する場合があります。
-- external IDが`braze.external_id`メタフィールドで使用可能な場合、統合はこのexternal IDを優先して割り当てます。
-    - 以前にShopify顧客IDがBrazeのexternal IDとして設定されていた場合は、`braze.external_id`メタフィールドの値に置き換えられます。
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 ### ステップ4.4:ShopifyからメールやSMSのオプトインを収集する（オプション） {#step-44-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
@@ -228,11 +228,7 @@ ShopifyからメールまたはSMSマーケティングのオプトインを収�
 
 ![メールまたはSMSマーケティングのオプトインを収集するオプションが表示された「Collect subscribers」セクション。]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
-{% alert note %}
-[Shopifyの概要]({{site.baseurl}}/shopify_overview)で説明されているように、サードパーティ製のキャプチャフォームを使用する場合は、開発者がBraze SDKコードを統合する必要があります。これにより、フォーム送信からメールアドレスとグローバルメール購読ステータスをキャプチャできます。具体的には、`theme.liquid`ファイルに以下のメソッドを実装してテストする必要があります。<br><br>
-- [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): ユーザープロファイルにメールアドレスを設定します
-- [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): グローバルメール購読ステータスを更新します
-{% endalert %}
+{% multi_lang_include partners/shopify/third_party_capture_form_note.md %}
 
 ## ステップ5:商品を同期する（オプション） {#step-5-sync-products-optional}
 

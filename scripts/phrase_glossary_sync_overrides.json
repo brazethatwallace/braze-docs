@@ -1,5 +1,7 @@
 {
   "de": {
+    "business customer": "geschäftskunden",
+    "customer": "Kund:in",
     "exception event": "Ausnahme-Event",
     "experiment paths": "Experimentpfade",
     "local time": "Ortszeit"
@@ -8,5 +10,8 @@
     "button": "botón",
     "endpoint": "endpoint",
     "SDK endpoint": "Punto final de SDK"
+  },
+  "ja": {
+    "WhatsApp Business Account": "WhatsApp Businessアカウント"
   }
 }

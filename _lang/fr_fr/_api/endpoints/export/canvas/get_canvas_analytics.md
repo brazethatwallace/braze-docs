@@ -22,7 +22,7 @@ description: "Cet article présente en détail l'endpoint Braze Exporter l'analy
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `canvas.data_series`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `canvas.data_series`.
 
 ## Limite de débit {#rate-limit}
 
@@ -36,9 +36,9 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `ending_at` | Requis | Datetime <br>(chaîne [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Date à laquelle l'exportation de données doit se terminer. Par défaut, l'heure de la requête. |
 | `starting_at` | Facultatif* | Datetime <br>(chaîne [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Date à laquelle l'exportation de données doit commencer. <br><br>* `length` ou `starting_at` est requis. |
 | `length` | Facultatif* | Chaîne de caractères | Nombre maximum de jours avant `ending_at` à inclure dans la série renvoyée. Doit être compris entre 1 et 14 (inclus). <br><br>* `length` ou `starting_at` est requis. |
-| `include_variant_breakdown` | Facultatif | Valeur booléenne | Indique s'il faut inclure ou non les statistiques de variante (par défaut `false`).  |
-| `include_step_breakdown` | Facultatif | Valeur booléenne | Indique s'il faut inclure ou non les statistiques d'étape (par défaut `false`). |
-| `include_deleted_step_data` | Facultatif | Valeur booléenne | Indique s'il faut inclure ou non les statistiques d'étape pour les étapes supprimées (par défaut `false`). |
+| `include_variant_breakdown` | Facultatif | Booléen | Indique s'il faut inclure ou non les statistiques de variante (par défaut `false`).  |
+| `include_step_breakdown` | Facultatif | Booléen | Indique s'il faut inclure ou non les statistiques d'étape (par défaut `false`). |
+| `include_deleted_step_data` | Facultatif | Booléen | Indique s'il faut inclure ou non les statistiques d'étape pour les étapes supprimées (par défaut `false`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}
@@ -112,7 +112,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_seri
       ... (more stats by time)
     ]
   },
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

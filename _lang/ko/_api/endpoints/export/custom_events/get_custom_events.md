@@ -1,15 +1,15 @@
 ---
-nav_title: "GET: 사용자 지정 이벤트 목록 내보내기"
-article_title: "GET: 사용자 지정 이벤트 목록 내보내기"
+nav_title: "GET: 커스텀 이벤트 목록 내보내기"
+article_title: "GET: 커스텀 이벤트 목록 내보내기"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "이 문서에서는 사용자 지정 이벤트 목록 내보내기 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
+description: "이 문서에서는 커스텀 이벤트 목록 내보내기 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
 
 ---
 {% api %}
-# 사용자 지정 이벤트 목록 내보내기 {#export-custom-events-list}
+# 커스텀 이벤트 목록 내보내기 {#export-custom-events-list}
 {% apimethod get %}
 /events/list
 {% endapimethod %}
@@ -18,9 +18,9 @@ description: "이 문서에서는 사용자 지정 이벤트 목록 내보내기
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#93ecd8a5-305d-4b72-ae33-2d74983255c1 {% endapiref %}
 
-## 필수 조건 {#prerequisites}
+## 전제 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `events.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `events.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -43,7 +43,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/events/list?page=3'
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "events" : [
         "Event A", (string) the event name,
         "Event B", (string) the event name,

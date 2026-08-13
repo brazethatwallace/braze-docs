@@ -88,7 +88,7 @@ Para superar essa limitação, durante o [processo de configuração]({{site.bas
 
 Planeja fazer envios em alto volume? Temos algumas melhores práticas para garantir que tudo funcione sem problemas.
 
-- Ajuste o limite de taxa de velocidade de entrega da sua Campaign ou Canvas conforme necessário, com base no tamanho do público-alvo. Isso garante que você alcance o volume de envio necessário e que a Braze envie as mensagens na taxa que a Twilio espera e pode processar.
+- Ajuste o limite de frequência de velocidade de entrega da sua Campaign ou Canvas conforme necessário, com base no tamanho do público-alvo. Isso garante que você alcance o volume de envio necessário e que a Braze envie as mensagens na taxa que a Twilio espera e pode processar.
 - Certifique-se de respeitar o limite de 160 caracteres e esteja ciente de que caracteres especiais contam em dobro (por exemplo, barras invertidas `\`, acentos circunflexos `^` e tis `~`).
 
 ## Recomendações de horário de silêncio {#quiet-hours-recommendations}
@@ -121,6 +121,6 @@ Inclua o trecho a seguir no topo do corpo da sua mensagem SMS. Este exemplo canc
 
 #### Considerações
 
-- {% raw %}`time_zone: ${time_zone}`{% endraw %} permite que a janela seja avaliada com base no horário local de cada usuário, e não em um horário global fixo, conforme explicado [neste FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer).
+- {% raw %}`time_zone: ${time_zone}`{% endraw %} permite que a janela seja avaliada com base no horário local de cada usuário, e não em um horário global fixo, conforme explicado no [FAQ de Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer).
 - Mensagens suprimidas por {% raw %}`abort_message()`{% endraw %} não são reagendadas para o dia seguinte; elas são canceladas.
-- {% raw %} Por padrão, mensagens canceladas não são visíveis nos relatórios padrão de Campaign. No entanto, quando o Liquid cancela um envio com `{% abort_message %}`, a Braze registra isso no Registro de atividades de envio de mensagem como um erro de mensagem (por padrão, exibe `{% abort_message %}` chamado). Se você passar uma string, esse motivo é o que aparece no registro, como `{% abort_message('language was nil') %}`{% endraw %}. Para ter visibilidade dessas supressões no dashboard, entre em contato com seu gerente de sucesso do cliente para obter acesso ao [Dashboard de diagnóstico de envio de mensagens]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard).
+- {% raw %} Por padrão, mensagens canceladas não são visíveis nos relatórios padrão de Campaign. No entanto, quando o Liquid cancela um envio com `{% abort_message %}`, a Braze registra isso no registro de atividades de mensagem como um erro de mensagem (por padrão, exibe `{% abort_message %}` chamado). Se você passar uma string, esse motivo é o que aparece no registro, como `{% abort_message('language was nil') %}`{% endraw %}. Para ter visibilidade dessas supressões no dashboard, entre em contato com seu gerente de sucesso do cliente para obter acesso ao [Dashboard de diagnóstico de envio de mensagens]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard).
