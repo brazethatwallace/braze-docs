@@ -33,7 +33,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | `end_date` | Optional <br>(see note) | String in YYYY-MM-DD format | End date of the range to retrieve invalid phone numbers. This is treated as midnight in UTC time by the API. Results include invalid numbers detected through the end of this calendar day in UTC (inclusive). |
 | `limit` | Optional | Integer | Optional field to limit the number of results returned. Defaults to 100, maximum is 500. |
 | `offset` | Optional | Integer | Optional beginning point in the list to retrieve from. |
-| `phone_numbers` | Optional <br>(see note) | Array of Strings in e.164 format | If provided, we will return the phone number if it has been found to be invalid. |
+| `phone_numbers` | Optional <br>(see note) | Array of Strings in e.164 format | If provided, Braze returns the phone number if it has been found to be invalid. |
 | `reason` | Optional <br>(see note) | String | Available values are `provider_error` (the provider indicates the phone cannot receive SMS), `deactivated` (the phone number has been deactivated), or `invalid_format` (the number failed formatting validation, such as a non-E.164 value). If omitted, all reasons are returned. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 

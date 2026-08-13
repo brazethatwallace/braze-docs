@@ -33,10 +33,10 @@ When setting up SMS and MMS in Braze to manage opt-ins and opt-outs, refer to th
 
 Where SMS and MMS have been set up across multiple instances, and due to misconfiguration, a campaign or Canvas opt-outs are sent to the wrong workspace.
 
-* Braze has monitoring in place to identify such instances. If this behavior is flagged, Braze repoints opt-outs to the correct instance and backfills any opt-outs that occurred during the period.
+* Braze has monitoring in place to identify such instances. If this behavior is flagged, Braze redirects opt-outs to the correct instance and backfills any opt-outs that occurred during the period.
 * We strongly recommend customers test opt-outs for each subscription group they have in Braze. Identifying this issue before launching a message is better than mitigating after an issue has been identified.
 
-Braze manages SMS/MMS subscriptions at both the user profile (`user_id`) level and the phone number (`channel_id`) level. When a phone number is opted-in or out, the update applies to all profiles which share that number. In the case where an end user opted-in with a certain phone number, but then changes phone number, the new phone number will inherit the subscription group status of the user. Accordingly, if an end user has opted-out, but then re-enters the app or website with a new phone number, they will not receive unwanted messages.
+Braze manages SMS/MMS subscriptions at both the user profile (`user_id`) level and the phone number (`channel_id`) level. When a phone number is opted-in or out, the update applies to all profiles which share that number. In the case where an end user opted-in with a certain phone number, but then changes phone number, the new phone number inherits the subscription group status of the user. Accordingly, if an end user has opted-out, but then re-enters the app or website with a new phone number, they do not receive unwanted messages.
 
 ## Phone number list hygiene recommendations
 
@@ -72,7 +72,7 @@ Customers are responsible for monitoring the traffic that they are sending and w
 
 Some brands may wish to send to a group of users that have phone numbers from different countries. In order to send an SMS message to a phone number in a particular country, it is best practice to use a long code or short code that is from the same country. In fact, short codes can only send SMS to phone numbers from the same country the short code was created in. 
 
-To overcome this limitation, during the subscription groups [setup process]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups), groups can be set up to hold long and short codes from multiple different countries. When completed, sending phone numbers with the same country code as the target user's phone number will automatically be used when launching a campaign. You will not have to create separate campaigns for users with phone numbers with different country codes, allowing you to launch one campaign or use one Canvas component to target relevant users.
+To overcome this limitation, during the subscription groups [setup process]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups), groups can be set up to hold long and short codes from multiple different countries. When completed, sending phone numbers with the same country code as the target user's phone number will automatically be used when launching a campaign. You don't need to create separate campaigns for users with phone numbers with different country codes, allowing you to launch one campaign or use one Canvas component to target relevant users.
 
 ![SMS payloads are sent using the same country code as the target user's phone number.]({% image_buster /assets/img/sms/multi_country_subgroups.png %})
 
