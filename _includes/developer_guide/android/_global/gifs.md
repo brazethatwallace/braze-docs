@@ -238,6 +238,12 @@ class GlideIntegrationApplication : Application() {
 {% endtab %}
 {% endtabs %}
 
+### Troubleshooting Content Card images with Glide
+
+If Content Card images stop loading after you set a custom [`IBrazeImageLoader`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/index.html) (for example with Glide), check whether a global OkHttp interceptor adds authentication headers to every request.
+
+Braze serves Content Card images from public CDN URLs. Those requests must not receive your API auth headers. Scope interceptors to your own API hosts, or exclude Braze image hosts from the interceptor.
+
 ## Custom Image Loading with Jetpack Compose
 
 To override image loading with Jetpack Compose, you can pass in a value to [`imageComposable`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html#-808910455%2FProperties%2F-1725759721). This function will take a `Card` and render the image and the modifiers needed. Alternatively, you can use `customCardComposer` of `ContentCardsList` to render the entire card.
