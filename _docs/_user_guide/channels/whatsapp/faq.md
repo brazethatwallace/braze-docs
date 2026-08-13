@@ -94,7 +94,7 @@ Subscription management of the WhatsApp Channel functions similarly to how it fu
 You can update their subscription status via [user import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#updating-subscription-group-status-optional). 
 
 #### What methods should I use to collect opt-ins? 
-Braze recommends referring to [Meta's guidelines for opt-in methods](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) to maintain compliance. Refer to the following resource for Braze [channel and opt-in ideas and suggestions](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit).
+Braze recommends referring to [Meta's guidelines for opt-in methods](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) to maintain compliance. See [Opt-in and opt-out]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) for Canvas and campaign setup methods.
 
 #### Is double opt-in required for WhatsApp? 
 No, double opt-in is not required. 
