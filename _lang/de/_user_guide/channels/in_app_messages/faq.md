@@ -17,11 +17,11 @@ In-Browser-Nachrichten sind In-App-Nachrichten, die an Webbrowser gesendet werde
 
 ## Wird eine In-App-Nachricht angezeigt, wenn ein Gerät offline ist? {#does-an-in-app-message-display-if-a-device-is-offline}
 
-Das kommt darauf an. Da In-App-Nachrichten beim Sitzungsstart zugestellt werden, kann das Gerät die Payload vor dem Wechsel in den Offline-Modus herunterladen. In diesem Fall kann die In-App-Nachricht auch offline angezeigt werden. Wenn die Payload nicht heruntergeladen wurde, wird die In-App-Nachricht nicht angezeigt.
+Das kommt darauf an. Da In-App-Nachrichten zu Beginn der Sitzung zugestellt werden, kann das Gerät die Payload herunterladen, bevor es offline geht. In diesem Fall kann die In-App-Nachricht auch offline angezeigt werden. Wenn die Payload nicht heruntergeladen wurde, wird die In-App-Nachricht nicht angezeigt.
 
-## Wenn ein:e Nutzer:in bereits eine In-App-Nachrichten-Payload auf dem Gerät hat und das Ablaufdatum der Nachricht geändert wird, wird das Ablaufdatum auf dem Gerät aktualisiert? {#if-a-user-already-has-an-in-app-message-payload-on-their-device-and-the-message-expiration-is-changed-does-the-expiration-update-on-their-device}
+## Wenn Nutzer:innen bereits eine In-App-Nachrichten-Payload auf ihrem Gerät haben und das Ablaufdatum der Nachricht geändert wird, wird das Ablaufdatum auf ihrem Gerät aktualisiert? {#if-a-user-already-has-an-in-app-message-payload-on-their-device-and-the-message-expiration-is-changed-does-the-expiration-update-on-their-device}
 
-Wenn ein:e Nutzer:in eine Sitzung startet, prüft Braze, ob Änderungen an In-App-Nachrichten vorgenommen wurden, für die die Person berechtigt ist, und aktualisiert diese entsprechend. Wenn sich also das Ablaufdatum geändert hat und eine Sitzung protokolliert wird, wird die In-App-Nachricht mit den aktualisierten Informationen an das Gerät gesendet.
+Wenn Nutzer:innen eine Sitzung starten, prüft Braze, ob Änderungen an In-App-Nachrichten vorgenommen wurden, für die sie berechtigt sind, und aktualisiert diese entsprechend. Wenn sich also das Ablaufdatum geändert hat und sie eine Sitzung protokollieren, wird die In-App-Nachricht mit den aktualisierten Informationen an das Gerät gesendet.
 
 ## Wie richte ich Ruhezeiten für eine In-App-Nachricht-Campaign ein? {#how-do-i-set-up-quiet-hours-for-an-in-app-message-campaign}
 
@@ -49,7 +49,7 @@ Wenn die erneute Berechtigung deaktiviert ist, erhalten Nutzer:innen dieselbe Ca
 
 ### Canvases {#canvases}
 
-Bei In-App-Nachrichten, die aus einem Canvas gesendet werden, hängt es von den Canvas-Eintrittskontrollen (z. B. ob Nutzer:innen den Canvas erneut betreten dürfen) und Ihrer Schritt-Konfiguration ab, ob Nutzer:innen die Nachricht erneut sehen können – nicht nur von den Zustellungskontrollen der Campaign.
+Bei In-App-Nachrichten, die über einen Canvas gesendet werden, hängt es von den Canvas-Eintrittskontrollen (z. B. ob Nutzer:innen den Canvas erneut betreten dürfen) und Ihrer Schritt-Konfiguration ab, ob Nutzer:innen die Nachricht erneut sehen können – nicht nur von den Zustellungskontrollen der Campaign.
 
 ## Wann wird die Berechtigung für eine In-App-Nachricht berechnet? {#when-is-eligibility-for-an-in-app-message-calculated}
 
@@ -57,23 +57,27 @@ Die Berechtigung für eine In-App-Nachricht wird zum Zeitpunkt der Zustellung be
 
 Wenn die In-App-Nachricht angezeigt wird, hängt die Berechtigung davon ab, wann die In-App-Nachricht heruntergeladen und getriggert wurde.
 
-## Warum liefert meine archivierte In-App-Nachrichten-Campaign weiterhin In-App-Nachrichten-Impressionen? {#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions}
+## Warum liefert meine archivierte In-App-Nachricht-Campaign weiterhin In-App-Nachricht-Impressionen? {#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions}
 
-Dies kann bei Nutzer:innen auftreten, die die Segmentkriterien erfüllt haben, als die In-App-Nachrichten-Campaign noch aktiv war.
+Dies kann bei Nutzer:innen auftreten, die die Segmentkriterien erfüllt haben, als die In-App-Nachricht-Campaign noch aktiv war.
 
-Um dies zu verhindern, wählen Sie während der Campaign-Einrichtung **Kampagnenberechtigung vor der Anzeige erneut prüfen** aus.
+Um dies zu verhindern, wählen Sie während der Campaign-Einrichtung **Re-evaluate campaign eligibility before displaying** aus.
 
 ## Warum sehe ich keine Öffnungen für In-App-Nachrichten? {#why-dont-i-see-opens-for-in-app-messages}
 
-In-App-Nachrichten verwenden keine Metrik für *Öffnungen*. Braze protokolliert *Impressionen*, wenn die Nachricht auf dem Bildschirm sichtbar wird, und *Klicks*, wenn Nutzer:innen mit dem Nachrichtentext oder den Buttons interagieren. Wenn ein kanalübergreifender Export oder Bericht Zeilen mit In-App-Nachrichten enthält, vergleichen Sie *Impressionen* und *Klicks* anstelle von E-Mail-typischen Öffnungen. Definitionen finden Sie unter [In-App-Nachrichten-Reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting).
+In-App-Nachrichten verwenden keine Metrik für *Öffnungen*. Braze protokolliert *Impressionen*, wenn die Nachricht auf dem Bildschirm sichtbar wird, und *Klicks*, wenn Nutzer:innen mit dem Nachrichtentext oder den Buttons interagieren. Wenn ein kanalübergreifender Export oder Bericht Zeilen für In-App-Nachrichten enthält, vergleichen Sie *Impressionen* und *Klicks* anstelle von E-Mail-typischen Öffnungen. Definitionen finden Sie unter [In-App-Nachricht-Reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting).
 
 ## Können mehrere In-App-Nachrichten in derselben Sitzung angezeigt werden? {#can-multiple-in-app-messages-display-in-the-same-session}
 
-Ja, aber pro Auftreten eines [Trigger-Events]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger) kann nur eine In-App-Nachricht angezeigt werden. Wenn mehrere In-App-Nachrichten-Campaigns denselben Trigger teilen (zum Beispiel Sitzungsstart), wird jedes Mal, wenn dieser Trigger ausgelöst wird, nur die Nachricht mit der höchsten Priorität angezeigt. Bei Sitzungsstart-Triggern bedeutet dies, dass pro Sitzung nur eine Nachricht angezeigt werden kann und die nächste Gelegenheit, eine weitere berechtigte Nachricht anzuzeigen, die nächste Sitzung ist.
+Ja, aber pro Auftreten eines [Trigger-Events]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger) kann nur eine In-App-Nachricht angezeigt werden. Wenn mehrere In-App-Nachricht-Campaigns denselben Trigger teilen (zum Beispiel Sitzungsstart), wird jedes Mal, wenn dieser Trigger ausgelöst wird, nur die Nachricht mit der höchsten Priorität angezeigt. Bei Sitzungsstart-Triggern bedeutet dies, dass pro Sitzung nur eine Nachricht angezeigt werden kann und die nächste Gelegenheit, eine weitere berechtigte Nachricht anzuzeigen, die nächste Sitzung ist.
 
 Wenn mehrere Nachrichten dieselbe Prioritätsstufe haben, wird die zuletzt erstellte Nachricht zuerst angezeigt. Bei Sitzungsstart-Triggern wird die nächstaktuellste Nachricht in einer nachfolgenden Sitzung angezeigt; bei anderen Trigger-Typen wird die nächstaktuellste Nachricht beim nächsten Auftreten dieses Trigger-Events angezeigt, was innerhalb derselben Sitzung oder in einer späteren Sitzung sein kann.
 
-Um die Anzeigereihenfolge innerhalb einer Prioritätsstufe zu steuern, gehen Sie zu den Zustellungseinstellungen einer der Campaigns und wählen Sie **Set exact priority** aus. Anschließend können Sie die Campaigns per Drag-and-Drop in die gewünschte Reihenfolge bringen. Weitere Informationen finden Sie unter [Priorität auswählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority).
+Um die Anzeigereihenfolge innerhalb einer Prioritätsstufe zu steuern, gehen Sie zu den Zustellungseinstellungen einer der Campaigns und wählen Sie **Set exact priority** aus. Ziehen Sie die Campaigns dann per Drag-and-Drop in die gewünschte Reihenfolge. Weitere Informationen finden Sie unter [Priorität auswählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority).
+
+## Wie werden Impressionen und Klicks von In-App-Nachrichten protokolliert? {#how-are-in-app-message-impressions-and-clicks-logged}
+
+Unter [In-App-Nachrichten-Reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) erfahren Sie, wie Impressionen und Klicks nach Nutzer:innen-Aktion protokolliert werden. Beispiele speziell für Vollbild-Nachrichten, die mit dem traditionellen Editor erstellt wurden, finden Sie unter [Vollbild-Nachrichten-Metriken nach Nutzer:innen-Aktion]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting#fullscreen-metrics-by-user-action).
 
 ## Wie berechnet Braze den Ablauf einer In-App-Nachricht, die auf „nach 1 Tag(en)“ eingestellt ist? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -90,7 +94,7 @@ In-App-Nachrichten werden als Template-basierte In-App-Nachrichten zugestellt, w
 - `catalog_selection_items`
 - `event_properties`
 
-Das bedeutet, dass das Gerät beim Sitzungsstart den Trigger dieser In-App-Nachricht erhält, anstatt die gesamte Nachricht. Wenn die Nutzer:innen die In-App-Nachricht triggern, stellt ihr Gerät eine Netzwerkanfrage, um die eigentliche Nachricht abzurufen.
+Das bedeutet, dass das Gerät beim Sitzungsstart den Trigger dieser In-App-Nachricht anstelle der gesamten Nachricht erhält. Wenn die Nutzer:innen die In-App-Nachricht triggern, stellt das Gerät eine Netzwerkanfrage, um die eigentliche Nachricht abzurufen.
 
 {% alert note %}
 Die Nachricht wird nicht zugestellt, wenn das Gerät keinen Internetzugang hat. Die Nachricht wird möglicherweise nicht zugestellt, wenn die Liquid-Logik zu lange für die Auflösung benötigt.
@@ -112,13 +116,13 @@ Da In-App-Nachrichten jedoch ein Pull-Kanal sind, funktionieren Abbrüche bei ih
 
 In-App-Nachrichten werden beim Sitzungsstart vom Gerät abgerufen und auf dem Gerät zwischengespeichert, sodass die Nachricht unabhängig von der Internetverbindungsqualität sofort an die Nutzer:innen zugestellt werden kann. Wenn Nutzer:innen beispielsweise fünf In-App-Nachrichten innerhalb ihrer Sitzung erhalten, werden alle fünf beim Sitzungsstart abgerufen. Die Nachrichten werden lokal zwischengespeichert und erscheinen, wenn ihre definierten Trigger-Events eintreten (Sitzungsstart, Nutzer:innen klicken auf einen Button, der ein angepasstes Event protokolliert, oder andere).
 
-Anders ausgedrückt: Die Logik, die bestimmt, ob eine In-App-Nachricht abgebrochen werden soll, wird ausgeführt, **bevor** der Trigger eingetreten ist. Um dies zu veranschaulichen, nehmen wir an, dass Sam aus dem E-Mail-Beispiel Push-Benachrichtigungen abonniert hat.
+Mit anderen Worten: Die Logik, die bestimmt, ob eine In-App-Nachricht abgebrochen werden soll, wird ausgeführt, **bevor** der Trigger eingetreten ist. Um dies zu veranschaulichen, nehmen wir an, dass Sam aus dem E-Mail-Beispiel Push-Benachrichtigungen abonniert hat.
 
 1. Sam startet eine Sitzung, indem er eine Braze-gestützte App auf seinem Telefon öffnet.
 2. Basierend auf den Zielgruppenkriterien der aktiven Campaigns im Workspace könnte Sam für fünf verschiedene Campaigns berechtigt sein. Alle fünf werden auf sein Telefon geladen und zwischengespeichert.
 3. Sam **hat keine** Aktionen ausgeführt, die diese Nachrichten triggern würden, könnte sie aber während der Sitzung erhalten.
 4. Die Liquid-Logik in zwei der In-App-Nachrichten enthält Regeln, die Sam vom Empfang der Nachricht ausschließen (z. B. weil sein angepasstes Attribut „Score“ nicht hoch genug ist).
-5. Sam erhält die beiden In-App-Nachrichten, die ihn ausschließen, nicht, aber er erhält die anderen drei Nachrichten.
+5. Sam erhält die beiden In-App-Nachrichten, die ihn ausschließen, nicht, bekommt aber die anderen drei Nachrichten.
 6. Es werden keine Abbruch-Events protokolliert.
 
 Braze protokolliert in Sams Fall keine Abbruch-Events, da dies nicht der Definition eines Abbruchs entspricht: Sam **hat keine** Aktionen ausgeführt, die die Nachrichten triggern würden. Bei In-App-Nachrichten führen Nutzer:innen den Trigger nie tatsächlich aus, bevor Braze entscheidet, dass sie die Nachricht nicht sehen sollen.
@@ -153,14 +157,14 @@ Wenn Ihr HTML auf REST-Daten verweist, die von Connected Content zurückgegeben 
 
 Standard-In-App-Nachrichten werden angezeigt, sobald der zwischengespeicherte Inhalt nach dem Trigger-Event bereit ist. Auf Android und iOS können große Bilder oder andere CDN-gehostete Assets, auf die in der Nachricht verwiesen wird, eine kurze Verzögerung verursachen, während diese Ressourcen heruntergeladen werden, bevor die In-App-Nachricht erscheint.
 
-[Vorlagenbasierte In-App-Nachrichten](#what-are-templated-in-app-messages) und Campaigns mit aktivierter Option **Kampagnenberechtigung vor der Anzeige erneut prüfen** erfordern nach dem Trigger eine zusätzliche Netzwerkanfrage, bevor die Nachricht erscheint. Dies kann eine kurze Verzögerung verursachen (typischerweise unter 100 ms bei einer stabilen Verbindung). Weitere Informationen finden Sie unter [Zielnutzer:innen auswählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target).
+[Vorlagenbasierte In-App-Nachrichten](#what-are-templated-in-app-messages) und Campaigns mit aktivierter Option **Campaign-Berechtigung vor der Anzeige erneut prüfen** erfordern nach dem Trigger eine zusätzliche Netzwerkanfrage, bevor die Nachricht erscheint. Dies kann eine kurze Verzögerung verursachen (typischerweise unter 100 ms bei einer stabilen Verbindung). Weitere Informationen finden Sie unter [Zielnutzer:innen auswählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target).
 
 ### Warum sieht meine In-App-Nachricht anders aus als die Dashboard-Vorschau? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
 
 Zugestellte In-App-Nachrichten können von der Dashboard-Vorschau abweichen, wenn:
 
 - Ihre Integration angepasste Stile anwendet oder die Standard-UI für In-App-Nachrichten auf bestimmten Plattformen überschreibt
-- Die Vorschau ein Testnutzerprofil mit anderen Attributen als die Empfänger:innen verwendet
+- Die Vorschau ein Testnutzer:innen-Profil mit anderen Attributen als die Empfänger:innen verwendet
 - Vorlagenbasierte Inhalte zum Sendezeitpunkt anders aufgelöst werden als im Vorschaumodus
 
 Verwenden Sie [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) mit Testnutzer:innen, deren Profil Ihrer Zielgruppe entspricht, um das Erscheinungsbild zu überprüfen.
@@ -171,7 +175,7 @@ Wenn **Hintergrundbild** auf einer Seite einer mehrseitigen In-App-Nachricht akt
 
 ### Wie teste ich Web-In-App-Nachrichten? {#how-do-i-test-web-in-app-messages}
 
-Testversendungen von Web-In-App-Nachrichten erfordern, dass Push auf dem Testgerät aktiviert ist, da der Testablauf eine Push-Benachrichtigung sendet, die die App oder Website öffnet, in der die In-App-Nachricht angezeigt wird. Derselbe Push-basierte Testpfad gilt auf jeder Plattform, auf der Push nicht mit Braze konfiguriert ist, obwohl fehlendes Push am häufigsten im Web auftritt, da viele mobile Integrationen Push bereits aktiviert haben. Verwenden Sie stattdessen eine Live-Campaign an ein internes Testsegment. Weitere Schritte finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
+Testversendungen von Web-In-App-Nachrichten erfordern, dass Push auf dem Testgerät aktiviert ist, da der Testablauf eine Push-Benachrichtigung sendet, die die App oder Website öffnet, in der die In-App-Nachricht angezeigt wird. Derselbe Push-basierte Testpfad gilt auf jeder Plattform, auf der Push nicht mit Braze konfiguriert ist, obwohl fehlendes Push am häufigsten im Web auftritt, da viele mobile Integrationen Push bereits aktiviert haben. Verwenden Sie stattdessen eine Live-Campaign an ein internes Testsegment. Schritte finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
 
 ### Benötigen In-App-Nachrichten eine Push-Integration? {#do-in-app-messages-require-push-integration}
 
@@ -179,7 +183,7 @@ In-App-Nachrichten benötigen keine Push-Benachrichtigungen, um in der Produktio
 
 Testversendungen für In-App-Nachrichten erfordern jedoch, dass Push auf Ihren Testgeräten aktiviert ist. Dies liegt daran, dass Test-In-App-Nachrichten über eine Push-Benachrichtigung zugestellt werden, die die Anzeige der In-App-Nachricht triggert. Die Testnutzer:innen müssen Push aktiviert haben und auf die Test-Push-Benachrichtigung tippen, um die In-App-Nachricht anzuzeigen.
 
-Bei Produktions-Campaigns sehen Nutzer:innen In-App-Nachrichten basierend auf Ihren Campaign-Triggern (wie Sitzungsstart oder angepasste Events), ohne dass Push involviert ist.
+Bei Produktions-Campaigns sehen Nutzer:innen In-App-Nachrichten basierend auf Ihren Campaign-Triggern (wie Sitzungsstart oder angepasste Events), ohne dass Push beteiligt ist.
 
 ### Warum erscheinen zusätzliche oder nicht gerenderte Zeichen in meiner In-App-Nachricht? {#why-do-extra-or-unrendered-characters-appear-in-my-in-app-message}
 
@@ -213,6 +217,6 @@ Weitere Hinweise zum Editor finden Sie im [Vorbereitungsleitfaden für In-App-Na
 
 ## Was bedeutet „Event was published, but no subscribers were found“ in den Android-SDK-Logs? {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
 
-Diese Log-Zeile ist in der Regel kein Fehler. Sie erscheint häufig, wenn Braze ein internes Event (z. B. `NoMatchingTriggerEvent`) veröffentlicht und zu diesem Zeitpunkt kein In-App-Nachricht- oder Content-Card-Listener registriert ist.
+Diese Log-Zeile ist in der Regel kein Fehler. Sie erscheint häufig, wenn Braze ein internes Event (z. B. `NoMatchingTriggerEvent`) veröffentlicht und zu diesem Zeitpunkt kein In-App-Nachrichten- oder Content-Card-Listener registriert ist.
 
 Wenn diese Meldung erscheint, obwohl Sie erwarten, dass ein angepasstes Event eine In-App-Nachricht auslöst, überprüfen Sie, ob das Event protokolliert wurde, ob die Nutzer:innen zur Zielgruppe der Campaign oder des Canvas gehören und ob Content Cards synchronisiert sind, wenn die Nachricht davon abhängt.

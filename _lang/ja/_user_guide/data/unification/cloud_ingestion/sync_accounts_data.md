@@ -11,39 +11,33 @@ description: "CDIを使ってBrazeアカウントデータを同期する方法�
 
 > CDIを使ってBrazeアカウントデータを同期する方法を学習します。
 
-{% alert important %}
-[アカウントオブジェクト](https://braze.com/unlisted_docs/account_opportunity_object/)はベータ版であり、この機能を利用するには必須です。ベータ版への参加に興味がある場合は、Brazeのアカウントマネージャーにお問い合わせください。
-{% endalert %}
-
 ## 前提条件 {#prerequisites}
 
-CDIを使ってアカウントデータを同期する前に、[アカウントスキーマを設定](https://braze.com/unlisted_docs/account_opportunity_object/)する必要があります。
-
 {% alert note %}
-アカウントスキーマの更新は、同期が一時停止中かスケジュールされていないときのみ行ってください。データウェアハウスのデータとBraze内のスキーマとの間で競合が発生するのを防ぐことができます。
+データウェアハウスのデータとBrazeのスキーマ間の競合を避けるため、アカウントスキーマの更新は同期が一時停止中またはスケジュールされていないときにのみ行ってください。
 {% endalert %}
 
 ## 同期の仕組み {#how-syncing-works}
 
-- 各同期では、最終同期タイムスタンプより`UPDATED_AT`が後の行がインポートされます。境界タイムスタンプと完全に一致する行は、同じタイムスタンプを持つ新しい行がある場合に再同期されることがあります。詳しくは、[重複タイムスタンプを持つ行の再同期を避ける]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps)を参照してください。
+- 各同期では、`UPDATED_AT`が最後に同期されたタイムスタンプより後の行がインポートされます。境界のタイムスタンプと同じタイムスタンプを持つ新しい行がある場合、そのタイムスタンプの行が再同期されることがあります。詳細については、[重複するタイムスタンプを持つ行の再同期を避ける]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps)を参照してください。
 - 統合からのデータは、提供された`id`に基づいてアカウントを作成または更新します。
 - `DELETED`が`true`の場合、アカウントは削除されます。
-- 同期処理ではデータポイントは記録されませんが、同期されたすべてのデータはアカウントの総使用量（保存データ総量で測定）に算入されます。変更データのみに制限する必要はありません。
+- 同期ではデータポイントは記録されませんが、同期されたすべてのデータは合計アカウント使用量にカウントされ、保存データの合計で測定されます。変更されたデータのみに制限する必要はありません。
 - アカウントスキーマにないフィールドは破棄されます。新しいフィールドを同期する前にスキーマを更新してください。
 - 同期名にカーソルを合わせて該当するアクションを選択することで、同期の更新、再開、または一時停止ができます。
 
 ## アカウントデータを同期する {#sync-your-account-data}
 
-CDIを使って、データウェアハウスやファイルストレージを介してアカウントデータを同期できます。
+CDI を使用して、データウェアハウスまたはファイルストレージ経由でアカウントデータを同期できます。
 
 {% tabs local %}
-{% tab Data Warehouse %}
-データソースをデータウェアハウスと統合するには：
+{% tab データウェアハウス %}
+データソースをデータウェアハウスと統合するには:
 
 {% subtabs %}
 {% subtab Snowflake %}
 
-1. Snowflakeにソーステーブルを作成します。例にある名前を使うか、独自のデータベース、スキーマ、テーブル名を選択してください。テーブルの代わりにビューやマテリアライズドビューを使うこともできます。
+1. Snowflake でソーステーブルを作成します。例の名前を使用するか、独自のデータベース名、スキーマ名、テーブル名を選択してください。テーブルの代わりにビューまたはマテリアライズドビューを使用することもできます。
   ```sql
     CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
     CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
@@ -59,7 +53,7 @@ CDIを使って、データウェアハウスやファイルストレージを�
          DELETED BOOLEAN
     );
     ```
-2. ロール、ウェアハウス、ユーザーを作成し、権限を付与します。別の同期の認証情報がすでにある場合は再利用できますが、アカウントテーブルへのアクセス権があることを確認してください。
+2. ロール、ウェアハウス、ユーザーを作成し、権限を付与します。別の同期の認証情報がすでにある場合は再利用できます。アカウントテーブルへのアクセス権があることを確認してください。
     ```sql
     CREATE ROLE BRAZE_INGESTION_ROLE;
 
@@ -73,19 +67,19 @@ CDIを使って、データウェアハウスやファイルストレージを�
     CREATE USER BRAZE_INGESTION_USER;
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
-3. ネットワークポリシーを使用している場合は、CDIサービスが接続できるようにBrazeのIPを許可リストに追加してください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
-4. Brazeダッシュボードで、**データ設定** > **クラウドデータ取り込み**に移動し、新しい同期を作成します。
+3. ネットワークポリシーを使用している場合は、CDI サービスが接続できるように Braze の IP をホワイトリストに追加してください。IP の一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
+4. Braze ダッシュボードで、**データ設定** > **クラウドデータ取り込み**に移動し、新しい同期を作成します。
 5. 接続の詳細を入力（または既存のものを再利用）し、ソーステーブルを追加します。
-6. **Accounts**同期タイプを選択し、統合名とスケジュールを入力します。
+6. 同期タイプとして**Accounts**を選択し、統合名とスケジュールを入力します。
 7. 同期頻度を選択します。
-8. ダッシュボードから公開キーを、作成したユーザーに追加します。これにはSnowflakeで`SECURITYADMIN`以上のアクセス権を持つユーザーが必要です。
-9. **Test Connection**を選択してセットアップを確認します。
+8. ダッシュボードの公開キーを、作成したユーザーに追加します。これには Snowflake で `SECURITYADMIN` 以上のアクセス権を持つユーザーが必要です。
+9. **接続テスト**を選択して設定を確認します。
 10. 完了したら、同期を保存します。
 
 {% endsubtab %}
 {% subtab Redshift %}
 
-1. Redshiftにソーステーブルを作成します。例にある名前を使うか、独自のデータベース、スキーマ、テーブル名を選択してください。テーブルの代わりにビューやマテリアライズドビューを使うこともできます。
+1. Redshift でソーステーブルを作成します。例の名前を使用するか、独自のデータベース名、スキーマ名、テーブル名を選択してください。テーブルの代わりにビューまたはマテリアライズドビューを使用することもできます。
     ```sql
     CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
     CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
@@ -101,7 +95,7 @@ CDIを使って、データウェアハウスやファイルストレージを�
        deleted boolean
     )
     ```
-2. ユーザーを作成し、権限を付与します。別の同期の認証情報がすでにある場合は再利用できますが、アカウントテーブルへのアクセス権があることを確認してください。
+2. ユーザーを作成し、権限を付与します。別の同期の認証情報がすでにある場合は再利用できます。アカウントテーブルへのアクセス権があることを確認してください。
     {% raw %}
     ```sql
     CREATE USER braze_user PASSWORD '{password}';
@@ -109,7 +103,7 @@ CDIを使って、データウェアハウスやファイルストレージを�
     GRANT SELECT ON TABLE ACCOUNTS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. ファイアウォールやネットワークポリシーがある場合は、BrazeがRedshiftインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
+3. ファイアウォールまたはネットワークポリシーがある場合は、Braze が Redshift インスタンスにアクセスできるようにしてください。IP の一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
 
 {% endsubtab %}
 {% subtab BigQuery %}
@@ -119,7 +113,7 @@ CDIを使って、データウェアハウスやファイルストレージを�
     CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
     ```
 
-2. CDI統合用のソーステーブルを作成します：
+2. CDI 統合用のソーステーブルを作成します。
     ```sql
     CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.ACCOUNTS_SYNC`
     (
@@ -131,15 +125,15 @@ CDIを使って、データウェアハウスやファイルストレージを�
     );
     ```
 
-    ソーステーブルを作成する際は、以下を参照してください：
+    ソーステーブルを作成する際は、以下を参照してください。
 
-    | フィールド名 | 型 | 必須？ |
+    | フィールド名 | 型 | 必須 |
     | ---------- | ---- | --------- |
-    | `UPDATED_AT` | タイムスタンプ | はい |
+    | `UPDATED_AT` | Timestamp | はい |
     | `PAYLOAD` | JSON | はい |
-    | `ID` | 文字列 | はい |
-    | `NAME` | 文字列 | はい |
-    | `DELETED` | ブール値 | オプション |
+    | `ID` | String | はい |
+    | `NAME` | String | はい |
+    | `DELETED` | Boolean | オプション |
     {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="アカウントデータを同期する" }
 
 {:start="3"}
@@ -149,24 +143,24 @@ CDIを使って、データウェアハウスやファイルストレージを�
     |------------|---------|
     | BigQuery Connection User | Brazeが接続できるようにします。 |
     | BigQuery User | Brazeがクエリの実行、メタデータの読み取り、テーブルの一覧表示を行えるようにします。 |
-    | BigQuery Data Viewer | Brazeがデータセットとコンテンツを表示できるようにします。 |
+    | BigQuery Data Viewer | Brazeがデータセットとその内容を表示できるようにします。 |
     | BigQuery Job User | Brazeがジョブを実行できるようにします。 |
     {: .reset-td-br-1 .reset-td-br-2 aria-label="アカウントデータを同期する" }
 
-    権限を付与した後、JSONキーを生成します。手順については、[Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete)を参照してください。後でBrazeダッシュボードにアップロードします。
+    権限を付与した後、JSON キーを生成します。手順については、[Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete) を参照してください。後で Braze ダッシュボードにアップロードします。
 
 {:start="4"}
-4. ネットワークポリシーを使用している場合は、BrazeのIPがBigQueryインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
+4. ネットワークポリシーを使用している場合は、Braze の IP が BigQuery インスタンスにアクセスできるようにしてください。IP の一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
 
 {% endsubtab %}
 {% subtab Databricks %}
 
-1. ソーステーブル用にカタログまたはスキーマを作成します。
+1. ソーステーブル用のカタログまたはスキーマを作成します。
     ```sql
     CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
     ```
 
-2. CDI統合用のソーステーブルを作成します：
+2. CDI 統合用のソーステーブルを作成します。
     ```sql
     CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.ACCOUNTS_SYNC`
     (
@@ -178,32 +172,32 @@ CDIを使って、データウェアハウスやファイルストレージを�
     );
     ```
 
-    ソーステーブルを作成する際は、以下を参照してください：
+    ソーステーブルを作成する際は、以下を参照してください。
 
-    | フィールド名 | 型 | 必須？ |
+    | フィールド名 | 型 | 必須 |
     | ---------- | ---- | --------- |
-    | `UPDATED_AT` | タイムスタンプ | はい |
-    | `PAYLOAD` | 文字列、Struct、またはMap | はい |
-    | `ID` | 文字列 | はい |
-    | `NAME` | 文字列 | はい |
-    | `DELETED` | ブール値 | オプション |
+    | `UPDATED_AT` | Timestamp | はい |
+    | `PAYLOAD` | String、Struct、または Map | はい |
+    | `ID` | String | はい |
+    | `NAME` | String | はい |
+    | `DELETED` | Boolean | オプション |
     {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="アカウントデータを同期する" }
 
 {:start="3"}
-3. Databricksでパーソナルアクセストークンを作成します：
-    1. ユーザー名を選択し、**User Settings**を選択します。
-    2. **Access tokens**タブで、**Generate new token**を選択します。
-    3. トークンを識別するためのコメント（例：「Braze CDI」）を追加します。
-    4. 有効期限を設定しない場合は**Lifetime (days)**を空白のままにし、**Generate**を選択します。
-    5. トークンをコピーし、Brazeダッシュボードで使用するために安全に保存します。
+3. Databricks で個人アクセストークンを作成します。
+    1. ユーザー名を選択し、**User Settings** を選択します。
+    2. **Access tokens** タブで、**Generate new token** を選択します。
+    3. トークンを識別するためのコメントを追加します（例：「Braze CDI」）。
+    4. 有効期限を設定しない場合は **Lifetime (days)** を空白のままにし、**Generate** を選択します。
+    5. トークンをコピーし、Braze ダッシュボードで使用するために安全に保存します。
 
 {:start="4"}
-4. ネットワークポリシーを使用している場合は、BrazeのIPがDatabricksインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
+4. ネットワークポリシーを使用している場合は、Braze の IP が Databricks インスタンスにアクセスできるようにしてください。IP の一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
 
 {% endsubtab %}
 {% subtab Microsoft Fabric %}
 
-1. CDI統合用に、以下のフィールドを持つテーブルを1つ以上作成します：
+1. CDI 統合用に以下のフィールドを持つテーブルを1つ以上作成します。
     ```sql
     CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name]
     (
@@ -217,32 +211,32 @@ CDIを使って、データウェアハウスやファイルストレージを�
     ```
 
 {:start="2"}
-2. サービスプリンシパルを作成し、権限を付与します。別の同期の認証情報がすでにある場合は再利用できますが、アカウントテーブルへのアクセス権があることを確認してください。
+2. サービスプリンシパルを作成し、権限を付与します。別の同期の認証情報がすでにある場合は再利用できます。アカウントテーブルへのアクセス権があることを確認してください。
 
 {:start="3"}
-3. ネットワークポリシーを使用している場合は、BrazeのIPがMicrosoft Fabricインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
+3. ネットワークポリシーを使用している場合は、Braze の IP が Microsoft Fabric インスタンスにアクセスできるようにしてください。IP の一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
 
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 
-{% tab File Storage %}
-ファイルストレージからアカウントデータを同期するには、以下のフィールドを持つソースファイルを作成します。
+{% tab ファイルストレージ %}
+ファイルストレージからアカウントデータを同期するには、以下のフィールドを含むソースファイルを作成します。
 
-| フィールド | 必須？ | 説明 |
+| フィールド | 必須 | 説明 |
 | --- | --- | --- |
-| `ID` | はい | 更新または作成するアカウントのID |
+| `ID` | はい | 更新または作成するアカウントの ID |
 | `NAME` | はい | アカウントの名前 |
-| `PAYLOAD` | はい | Brazeのアカウントに同期するフィールドのJSON文字列 |
+| `PAYLOAD` | はい | Brazeのアカウントに同期するフィールドの JSON 文字列 |
 | `DELETED` | オプション | Brazeからアカウントを削除することを示すブール値 |
-| `UPDATED_AT` | _*非対応_ | ファイルストレージでは`UPDATED_AT`列はサポートされていません |
+| `UPDATED_AT` | *未サポート* | ファイルストレージでは `UPDATED_AT` 列はサポートされていません |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="アカウントデータを同期する" }
 
 {% alert note %}
-ファイル名はAWSのルールに従い、一意である必要があります。一意性を確保するためにタイムスタンプを付加してください。Amazon S3同期の詳細については、[ファイルストレージ統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)を参照してください。
+ファイル名は AWS のルールに従い、一意である必要があります。一意性を確保するためにタイムスタンプを付加してください。Amazon S3 同期の詳細については、[ファイルストレージ統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)を参照してください。
 {% endalert %}
 
-以下の例は、ファイルストレージからアカウントデータを同期するための有効なJSONおよびCSV形式を示しています。
+以下の例は、ファイルストレージからアカウントデータを同期するための有効な JSON および CSV 形式を示しています。
 
 {% subtabs %}
 {% subtab JSON Accounts %}
@@ -254,7 +248,7 @@ CDIを使って、データウェアハウスやファイルストレージを�
 ```
 
 {% alert important %}
-ソースファイルの各行には有効なJSONが含まれている必要があります。含まれていない場合、そのファイルはスキップされます。
+ソースファイルの各行には有効な JSON が含まれている必要があります。そうでない場合、ファイルはスキップされます。
 {% endalert %}
 {% endsubtab %}
 {% subtab CSV Accounts with Delete %}
@@ -275,11 +269,11 @@ ID,NAME,PAYLOAD
 {% endtab %}
 {% endtabs %}
 
-## 同期ビューを作成する {#create-a-sync-view}
+## 同期ビューの作成 {#create-a-sync-view}
 
-データウェアハウスに同期ビューを作成すると、追加のクエリを書き直す必要なく、ソースが自動的に更新されます。
+データウェアハウスに同期ビューを作成すると、追加のクエリを書き直すことなくソースを自動的に更新できます。
 
-例えば、`account_id`、`account_name`、および3つの追加属性を持つ`account_details_1`というアカウントデータテーブルがある場合、次のような同期ビューを作成できます：
+たとえば、`account_id`、`account_name`、および3つの追加属性を持つ `account_details_1` というアカウントデータのテーブルがある場合、次のような同期ビューを作成できます。
 
 {% tabs %}
 {% tab Snowflake %}

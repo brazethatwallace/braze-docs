@@ -16,9 +16,11 @@ search_tag: Partner
 
 ## Sobre a integração {#about-the-integration}
 
-A integração entre a Braze e o Amazon Bedrock permite conectar suas credenciais do Amazon Bedrock à Braze para que você possa usar modelos hospedados no Bedrock ao criar agentes de IA personalizados. Com essa integração, seus agentes podem gerar textos personalizados, tomar decisões em tempo real ou atualizar campos de catálogo usando modelos disponíveis no Amazon Bedrock.
+A integração entre a Braze e o Amazon Bedrock permite conectar suas credenciais do Amazon Bedrock à Braze para que você possa usar modelos hospedados no Bedrock ao criar agentes de IA personalizados. Com essa integração, seus agentes podem gerar textos personalizados, tomar decisões em tempo real ou atualizar campos de catálogo usando modelos disponíveis por meio do Amazon Bedrock.
 
 Quando você conecta o Amazon Bedrock, a Braze exibe um conjunto curado de modelos do Bedrock para agentes personalizados. Os modelos disponíveis na Braze podem ser diferentes do catálogo completo da sua conta AWS.
+
+A Braze usa o endpoint `bedrock-mantle` do Amazon Bedrock para essa integração. O Amazon Bedrock também documenta um endpoint `bedrock-runtime` separado, com suporte a modelos e recursos diferentes. Portanto, ao consultar a documentação da AWS sobre disponibilidade ou comportamento, siga as orientações para [`bedrock-mantle`](https://docs.aws.amazon.com/bedrock/latest/userguide/endpoints.html).
 
 {% multi_lang_include alerts/important_alerts.md alert='Braze Agents' %}
 
@@ -26,39 +28,39 @@ Quando você conecta o Amazon Bedrock, a Braze exibe um conjunto curado de model
 
 | Requisitos | Descrição |
 |---|---|
-| Uma conta AWS com acesso ao Amazon Bedrock | Uma conta AWS com acesso ao Amazon Bedrock na região da AWS onde seus modelos estão hospedados. Para obter ajuda, entre em contato com seu administrador ou com o [Suporte da AWS](https://aws.amazon.com/support). |
-| Acesso a modelos do Amazon Bedrock | Acesso na sua conta AWS aos modelos do Bedrock que você pretende usar. Alguns modelos, como os da Anthropic, exigem que o acesso seja concedido na sua conta AWS. Nem todos os modelos estão disponíveis em todas as regiões da AWS. |
+| Uma conta AWS com acesso ao Amazon Bedrock | Uma conta AWS com acesso ao Amazon Bedrock na região da AWS onde seus modelos estão hospedados. Para obter ajuda, entre em contato com seu administrador ou com o [AWS Support](https://aws.amazon.com/support). |
+| Acesso ao modelo do Amazon Bedrock | Acesso na sua conta AWS aos modelos do Bedrock que você planeja usar. Alguns modelos, como os da Anthropic, exigem que o acesso seja concedido na sua conta AWS. Nem todos os modelos estão disponíveis em todas as regiões da AWS — verifique a disponibilidade regional de cada modelo no console do Amazon Bedrock ou em [Disponibilidade regional por modelos](https://docs.aws.amazon.com/bedrock/latest/userguide/models-region-compatibility.html) antes de conectar. |
 | Credenciais de autenticação | Uma [chave de API do Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys.html) de longo prazo ou, quando a autenticação por função IAM estiver ativada para o seu espaço de trabalho, uma função IAM que a Braze possa assumir. |
-| Instância da Braze | Você pode encontrar sua instância da Braze na [página de visão geral da API]({{site.baseurl}}/api/basics#endpoints) ou com seu gerente de integração da Braze. |
+| Instância da Braze | Você pode encontrar sua instância da Braze na [página de visão geral da API]({{site.baseurl}}/api/basics#endpoints) ou com seu gestor de integração da Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
 Para conectar o Amazon Bedrock à Braze:
 
-1. Acesse **Integrações de Parceiros** > **Parceiros de Tecnologia** no dashboard da Braze, depois pesquise e selecione **Amazon Bedrock**.
-2. Em **Método de autenticação**, escolha **Chave de API** ou **Função IAM da AWS** (quando disponível).
-3. Conclua a configuração para o método escolhido:
-   - **Chave de API:** insira sua **chave de API do Amazon Bedrock** de longo prazo. Selecione a **região da AWS** onde seus modelos do Bedrock estão hospedados. Selecione **Salvar**.
-   - **Função IAM da AWS:** use os valores exibidos pela Braze para configurar a política de confiança da sua função IAM e, em seguida, insira os detalhes da função na Braze:
-     1. Copie o **ID da conta AWS da Braze** e confie nessa conta na política de confiança da sua função IAM.
-     2. Copie o **ID externo da Braze** e exija-o na política de confiança da sua função com uma condição `sts:ExternalId`. Selecione **Gerar novo ID externo** se precisar de um novo valor.
-     3. Insira o **ARN da função AWS** para a função IAM que possui permissões do Amazon Bedrock. O ARN deve corresponder a `arn:aws:iam::<account-id>:role/<role-name>`.
-     4. Selecione a **região da AWS** onde seus modelos do Bedrock estão hospedados.
-     5. Selecione **Salvar**.
+1. Acesse **Partner Integrations** > **Technology Partners** no dashboard da Braze, depois pesquise e selecione **Amazon Bedrock**.
+2. Em **Authentication method**, escolha **API key** ou **AWS IAM role** (quando disponível).
+3. Conclua a configuração do método escolhido:
+   - **API key:** Insira sua **Amazon Bedrock API key** de longo prazo. Selecione a **AWS region** onde seus modelos do Bedrock estão hospedados. Selecione **Save**.
+   - **AWS IAM role:** Use os valores exibidos pela Braze para configurar a política de confiança da sua IAM role e, em seguida, insira os detalhes da role na Braze:
+     1. Copie o **Braze AWS account ID** e confie nessa conta na política de confiança da sua IAM role.
+     2. Copie o **Braze external ID** e exija-o na política de confiança da sua role com uma condição `sts:ExternalId`. Selecione **Generate new external ID** se precisar de um novo valor.
+     3. Insira o **AWS role ARN** da IAM role que possui permissões do Amazon Bedrock. O ARN deve corresponder a `arn:aws:iam::<account-id>:role/<role-name>`.
+     4. Selecione a **AWS region** onde seus modelos do Bedrock estão hospedados.
+     5. Selecione **Save**.
 
 {% alert note %}
-**Função IAM da AWS** aparece apenas para espaços de trabalho onde essa opção de autenticação está ativada. Com a autenticação por função IAM, a Braze assume sua função para gerar credenciais de curta duração do Amazon Bedrock e não armazena uma chave de API de longo prazo.
+**AWS IAM role** aparece apenas para espaços de trabalho em que essa opção de autenticação está ativada. Com a autenticação por IAM role, a Braze assume sua role para gerar credenciais temporárias do Amazon Bedrock e não armazena uma chave de API de longo prazo.
 {% endalert %}
 
-Após salvar, a Braze exibe um status de conexão com a data e hora da conexão. Você pode selecionar modelos do Amazon Bedrock ao [criar um agente personalizado]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) no Console de Agentes.
+Após salvar, a Braze exibe um status de conexão com a data e hora da conexão. Você pode selecionar modelos do Amazon Bedrock ao [criar um agente personalizado]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) no Agent Console.
 
-{% alert note %}
-Nem todos os modelos do Amazon Bedrock estão disponíveis em todas as regiões da AWS. Escolha uma região que suporte os modelos que você pretende usar. Modelos que não estão disponíveis na sua região conectada retornam erros durante a invocação do agente.
+{% alert important %}
+Nem todos os modelos do Amazon Bedrock estão disponíveis em todas as regiões da AWS. Antes de selecionar uma **AWS region** na Braze, abra os detalhes do modelo no Amazon Bedrock e confirme que o modelo lista essa região. Modelos que não estão disponíveis na sua região conectada retornam erros durante a invocação do agente (por exemplo, que o modelo não existe ou não está mais disponível). Consulte [Models at a glance](https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html) para mais detalhes.
 {% endalert %}
 
-Para confirmar que a integração está funcionando, acesse o Console de Agentes e crie um agente de teste usando um dos seus modelos do Bedrock. Insira uma instrução como "Me conte uma piada" e execute uma invocação de teste para verificar se o modelo responde conforme esperado.
+Para confirmar que a integração está funcionando, acesse o Agent Console e crie um agente de teste usando um dos seus modelos do Bedrock. Insira uma instrução como "Conte uma piada" e execute uma invocação de teste para verificar se o modelo responde conforme esperado.
 
-Para remover a integração, selecione **Desconectar** na página de **integração do Amazon Bedrock**.
+Para remover a integração, selecione **Disconnect** na página de **Amazon Bedrock integration**.
 
-Para problemas com sua conta ou credenciais do Amazon Bedrock, entre em contato com o [Suporte da AWS](https://aws.amazon.com/support).
+Para problemas com sua conta ou credenciais do Amazon Bedrock, entre em contato com o [AWS Support](https://aws.amazon.com/support).

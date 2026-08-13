@@ -24,7 +24,7 @@ Non, les ressources importées dans la bibliothèque multimédia sont conservée
 
 ### Puis-je importer des ressources vidéo ? {#can-i-upload-video-assets}
 
-Non, la bibliothèque multimédia ne prend pas en charge les fichiers vidéo. Nous vous recommandons de les héberger en externe, ou sur une plateforme telle que YouTube.
+Non, la bibliothèque multimédia ne prend pas en charge les fichiers vidéo. Nous vous recommandons de les héberger en externe ou sur une plateforme telle que YouTube.
 
 ### Puis-je recadrer tous les types d'images ? {#can-i-crop-all-image-types}
 
@@ -50,7 +50,7 @@ Vous serez ensuite redirigé vers un compositeur de recadrage où vous pourrez s
 
 ### Mon image expire à chaque tentative d'importation. Que puis-je faire ? {#my-image-keeps-timing-out-when-i-try-to-upload-it-what-can-i-do-about-this}
 
-Cela peut se produire pour diverses raisons, mais une solution courante consiste à s'assurer que votre image est optimisée avant de tenter de l'importer. Cela signifie passer votre image dans un optimiseur d'images tel qu'[ImageOptim](https://imageoptim.com/mac).
+Cela peut se produire pour diverses raisons, mais une solution courante consiste à optimiser votre image avant de tenter de l'importer. Cela signifie passer votre image dans un optimiseur d'images tel que [ImageOptim](https://imageoptim.com/mac).
 
 De plus, si votre image a été créée dans Photoshop (ou un logiciel similaire) et comporte de nombreux calques, fusionner et réduire le nombre de calques peut également aider.
 
@@ -65,13 +65,17 @@ Cela peut se produire pour deux raisons principales :
 
 C'est parce que la plupart des compositeurs imposent des restrictions sur le ratio d'image autorisé.
 
-### Générer une image à l'aide de l'IA {#generate-an-image-using-ai}
+### Générer une image avec l'IA {#generate-an-image-using-ai}
 
-Vous pouvez générer des images depuis **Contenu** > **Bibliothèque multimédia** en sélectionnant **Générateur d'images IA**. Vous avez besoin de la permission **Modifier les ressources de la bibliothèque multimédia**. Si vous ne voyez pas cette option, contactez votre équipe client Braze. Pour les étapes et les détails de la politique, consultez [Générer des images avec BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) et [Générer des images avec BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai).
+Vous pouvez générer des images depuis **Contenu** > **Bibliothèque multimédia** en sélectionnant **Générateur d'images IA**. Vous avez besoin de la permission **Modifier les ressources de la bibliothèque multimédia**. Si vous ne voyez pas cette option, contactez votre équipe Braze. Pour les étapes et les détails de la politique, consultez [Générer des images avec BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) et [Génération d'images avec BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai).
+
+### Que se passe-t-il lorsque je supprime une image de la bibliothèque multimédia ? {#what-happens-when-i-delete-an-image-from-the-media-library}
+
+La suppression d'une ressource la retire de l'interface de la bibliothèque multimédia, mais Braze continue d'héberger le fichier à son URL existante, de sorte que les Campaigns et Canvas actifs qui référencent cette URL continuent de charger l'image. Pour supprimer définitivement une ressource de l'hébergement Braze, contactez le support Braze. Pour mettre à jour ce que les destinataires voient sans modifier les URL dans chaque message, utilisez plutôt [Remplacer un fichier]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
 
 ### Puis-je créer des URL personnalisées pour les ressources d'images de la bibliothèque multimédia ? {#can-i-create-vanity-urls-for-media-library-image-assets}
 
-Les URL personnalisées pour les ressources de la bibliothèque multimédia ne sont pas prises en charge, car les URL personnalisées interrompraient la distribution via le CDN. Vous pouvez remplacer une image à son URL existante lorsque des Campaigns font déjà référence à cette URL. Pour plus d'informations, consultez [Remplacer un fichier]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
+Les URL personnalisées pour les ressources de la bibliothèque multimédia ne sont pas prises en charge, car des URL personnalisées casseraient la distribution via le CDN. Vous pouvez remplacer une image à son URL existante lorsque des Campaigns référencent déjà cette URL. Pour en savoir plus, consultez [Remplacer un fichier]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
 
 ### Pourquoi Chrome enregistre-t-il les images JPEG ou PNG au format WebP ? {#why-does-chrome-save-jpeg-or-png-images-as-webp-files}
 

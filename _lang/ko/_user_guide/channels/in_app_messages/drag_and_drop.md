@@ -38,7 +38,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 드래그 앤 드롭 편집기에서 사용 가능한 모든 기능을 활용하려면 SDK를 권장 SDK 버전으로 업데이트하세요. 이를 통해 다음과 같은 추가 기능을 활용할 수 있습니다:
 
 - 메시지를 닫지 않는 텍스트 링크
-- 푸시 프라이머 요청 버튼 동작
+- 푸시 프라이머 요청 버튼 액션
 
 다음은 이러한 기능에 대한 개별 최소 SDK 요구 사항입니다:
 
@@ -60,19 +60,19 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 새 인앱 메시지 또는 캔버스 단계를 만든 다음, 편집 환경으로 **드래그 앤 드롭 편집기**를 선택합니다.
 
-## 2단계: 템플릿 선택하기 {#step-2-select-your-template}
+## 2단계: 템플릿 선택 {#step-2-select-your-template}
 
-드래그 앤 드롭 편집기를 편집 환경으로 선택한 후 다음 중 하나를 선택할 수 있습니다:
+편집 환경으로 드래그 앤 드롭 편집기를 선택한 후 다음 중 하나를 선택할 수 있습니다:
 
-- 빈 Modal 템플릿으로 시작하기
-- Braze 드래그 앤 드롭 인앱 메시지 템플릿 사용하기
-- 저장된 드래그 앤 드롭 인앱 메시지 템플릿 선택하기
+- 빈 Modal 템플릿으로 시작
+- Braze 드래그 앤 드롭 인앱 메시지 템플릿 사용
+- 저장된 드래그 앤 드롭 인앱 메시지 템플릿 선택
 
-**메시지 작성**을 선택하여 드래그 앤 드롭 편집기에서 인앱 메시지 디자인을 시작하세요.
+**Build message**를 선택하여 드래그 앤 드롭 편집기에서 인앱 메시지 디자인을 시작합니다.
 
 ![기본, 배경 이미지, 전화번호 수집 또는 빈 템플릿을 선택할 수 있는 Braze 템플릿 섹션]({% image_buster /assets/img_archive/dnd_iam_select_template.png %})
 
-대시보드의 **템플릿** 섹션에서도 모든 템플릿에 접근할 수 있습니다.
+대시보드의 **Templates** 섹션에서도 모든 템플릿에 액세스할 수 있습니다.
 
 ## 3단계: 추가 페이지 추가(선택 사항) {#multi-page}
 
@@ -142,7 +142,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 **미리보기 및 테스트** 섹션에서는 다양한 기기에서 인앱 메시지를 미리 보고 기기로 테스트 메시지를 보낼 수 있습니다. 여기에서 드래그 앤 드롭 인앱 메시지 Campaign의 모든 플랫폼에서 세부 사항이 올바르게 정렬되어 있는지 확인할 수 있습니다.
 
-Campaign을 발송하기 전에 항상 인앱 메시지를 테스트하여 사용자 관점에서 최종 메시지가 어떻게 보이는지 시각적으로 확인하는 것이 중요합니다.
+Campaign을 발송하기 전에 항상 인앱 메시지를 테스트하여 최종 메시지가 사용자 관점에서 어떻게 보이는지 시각적으로 확인하는 것이 중요합니다.
 
 ### 사용자로서 메시지 미리보기 {#preview-message-as-a-user}
 
@@ -154,7 +154,7 @@ Campaign을 발송하기 전에 항상 인앱 메시지를 테스트하여 사�
 
 - **랜덤 사용자:** Braze가 데이터베이스에서 사용자를 무작위로 선택하고 해당 사용자의 속성 또는 이벤트 정보를 기반으로 인앱 메시지를 미리 봅니다.
 - **사용자 선택:** 이메일 주소 또는 `external_id`를 기반으로 특정 사용자를 선택할 수 있습니다. 해당 사용자의 속성 및 이벤트 정보를 기반으로 인앱 메시지가 미리 표시됩니다.
-- **커스텀 사용자:** 사용자를 커스텀할 수 있습니다. Braze가 사용 가능한 모든 속성 및 이벤트에 대한 입력 항목을 제공합니다. 미리보기 이메일에서 확인하고 싶은 정보를 입력하세요.
+- **커스텀 사용자:** 사용자를 커스텀할 수 있습니다. Braze가 사용 가능한 모든 속성 및 이벤트에 대한 입력 필드를 제공합니다. 미리보기 이메일에서 확인하고 싶은 정보를 입력하세요.
 
 ### 테스트 체크리스트 {#test-checklist}
 
@@ -170,15 +170,15 @@ Campaign을 발송하기 전에 항상 인앱 메시지를 테스트하여 사�
 
 ### 분석 페이지에 본문 클릭이 표시되지 않는 이유는 무엇인가요? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
-드래그 앤 드롭 편집기로 만든 인앱 메시지에서는 본문 클릭이 자동으로 수집되지 않습니다. 자세한 내용은 [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) 및 [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100)용 SDK 체인지로그를 참조하세요.
+드래그 앤 드롭 편집기로 생성한 인앱 메시지에서는 본문 클릭이 자동으로 수집되지 않습니다. 자세한 내용은 [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) 및 [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100)의 SDK 체인지로그를 참조하세요.
 
 ### 버튼 클릭을 기반으로 세분화할 수 있나요? {#can-i-segment-based-on-button-clicks}
 
-네, 메시지에서 최대 두 개의 버튼에 대한 클릭을 기반으로 세분화할 수 있습니다. 이를 위해 버튼의 **리포팅용 식별자**를 "0"과 "1"로 설정하면, 각각 "인앱 메시지 버튼 1 클릭" 및 "인앱 메시지 버튼 2 클릭" 세분화 필터에 대응됩니다.
+네, 메시지에서 최대 두 개의 버튼에 대해 버튼 클릭을 기반으로 세분화할 수 있습니다. 이를 위해 버튼의 **리포팅용 식별자**를 "0"과 "1"로 설정하면, 각각 "인앱 메시지 버튼 1 클릭" 및 "인앱 메시지 버튼 2 클릭" 세분화 필터에 대응합니다.
 
 ![값이 "0"으로 설정된 "리포팅용 식별자" 필드]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-### 커스텀 HTML이나 JavaScript를 사용하여 인앱 메시지를 커스터마이즈하거나, 기존 HTML 메시지를 편집기로 가져올 수 있나요? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
+### 커스텀 HTML이나 JavaScript를 사용하여 인앱 메시지를 커스터마이즈하거나 기존 HTML 메시지를 편집기로 가져올 수 있나요? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
 기존 HTML 메시지를 편집기로 직접 가져올 수는 없지만, **커스텀 코드** 블록에 원시 HTML, CSS, JavaScript를 삽입할 수 있습니다. **커스텀 코드** 블록을 사용하여 서드파티 비디오와 연결된 콘텐츠 또는 조건문과 같은 고급 Liquid를 임베드할 수 있습니다. `brazeBridge` JavaScript 메서드 및 클릭 추적 예시는 [커스텀 HTML 인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html)를 참조하세요.
 
@@ -186,10 +186,19 @@ Campaign을 발송하기 전에 항상 인앱 메시지를 테스트하여 사�
 
 현재 편집기는 Modal 및 전체 화면 메시지만 지원합니다. **메시지 스타일** 패널의 **메시지 컨테이너** 섹션에서 표시 유형을 전환할 수 있습니다.
 
-### Campaign 또는 Canvas에서 인앱 메시지를 만든 후 템플릿으로 저장할 수 있나요? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### Campaign이나 Canvas에서 인앱 메시지를 만든 후 템플릿으로 저장할 수 있나요? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-네. 향후 Campaign 또는 캔버스 단계에서 재사용하려는 인앱 메시지는 편집기를 종료한 후 **템플릿으로 저장** 버튼을 사용하여 커스텀 템플릿으로 저장할 수 있습니다. 템플릿으로 저장하려면 먼저 Campaign을 시작하거나 초안으로 저장해야 합니다.
+네. 향후 Campaign이나 캔버스 단계에서 재사용하려는 인앱 메시지는 편집기를 종료한 후 사용할 수 있는 **템플릿으로 저장** 버튼을 사용하여 커스텀 템플릿으로 저장할 수 있습니다. 템플릿으로 저장하려면 먼저 Campaign을 시작하거나 초안으로 저장해야 합니다.
 
 ![제품 투어용 인앱 메시지 미리보기]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-**콘텐츠** > **인앱 메시지**로 이동하여 인앱 메시지 템플릿을 만들고 저장할 수도 있습니다.
+**콘텐츠** > **인앱 메시지**로 이동하여 인앱 메시지 템플릿을 생성하고 저장할 수도 있습니다.
+
+### 페이지네이션된 인앱 메시지에서 Liquid 구문이 일반 텍스트로 표시되는 이유는 무엇인가요? {#why-is-my-liquid-syntax-appearing-as-plain-text-in-my-paginated-in-app-message}
+
+페이지네이션된 인앱 메시지를 테스트할 때 개인화된 콘텐츠 대신 Liquid 구문이 일반 텍스트로 표시되는 경우, 페이지 중 하나에 Liquid 구문 오류가 있을 수 있습니다. 한 페이지에 구문 오류가 있으면 메시지의 모든 페이지에서 Liquid 렌더링에 영향을 미칩니다. 각 페이지는 독립적이지 않습니다.
+
+문제를 해결하려면:
+
+1. 메시지의 모든 페이지에서 Liquid 구문 오류를 확인하세요. 한 페이지에서 미리보기가 깨져 보인다고 해서 해당 페이지에 오류가 있는 것은 아닙니다. 페이지가 독립적이지 않으므로 구문 오류는 메시지 어디에나 있을 수 있습니다.
+2. 모든 Liquid 태그가 올바르게 닫혀 있고 형식이 맞는지 확인하세요.

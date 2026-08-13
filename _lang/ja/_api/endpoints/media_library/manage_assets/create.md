@@ -1,6 +1,6 @@
 ---
-nav_title: "POST: メディアライブラリにアセットをアップロードする"
-article_title: "POST: メディアライブラリにアセットをアップロードする"
+nav_title: "POST: メディアライブラリーにアセットをアップロードする"
+article_title: "POST: メディアライブラリーにアセットをアップロードする"
 search_tag: Endpoint
 page_order: 1
 
@@ -10,22 +10,28 @@ description: "この記事では、`POST /media_library/create` エンドポイ�
 ---
 
 {% api %}
-# メディアライブラリにアセットをアップロードする {#upload-an-asset-to-the-media-library}
+# メディアライブラリーにアセットをアップロードする {#upload-an-asset-to-the-media-library}
 {% apimethod post %}
 /media_library/create
 {% endapimethod %}
 
-> このエンドポイントを使用すると、外部でホストされているURL（`asset_url`）またはリクエスト本文で送信されたバイナリファイルデータ（`asset_file`）のいずれかを使用して、[Brazeメディアライブラリー]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)にアセットを追加できます。
+> このエンドポイントを使用すると、外部でホストされているURL（`asset_url`）またはリクエスト本文で送信されたバイナリファイルデータ（`asset_file`）のいずれかを使用して、[Brazeメディアライブラリー]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)にアセットを追加できます。このエンドポイントは、画像、ドキュメント、およびそれらを含むZIPファイルをサポートしています。サポートされているファイル形式の完全なリストについては、[サポートされているファイル形式](#supported-file-types)を参照してください。
 
 ## サポートされているファイル形式 {#supported-file-types}
 
-このエンドポイントは以下のファイル形式をサポートしています。
+このエンドポイントは、`asset_url`または`asset_file`のいずれでアップロードする場合でも、以下のファイル形式を受け付けます。
 
-| ファイル形式 | フォーマット | 最大サイズ | 備考 |
-|-----------|---------|--------------|-------|
-| 画像 | PNG、JPEG、GIF、SVG、WebP | 5 MB | |
-| ZIPファイル | .zip | 合計50 MB、ZIP内の各ファイルは5 MB | 画像またはSVGのみを含む必要があります。すべてのファイルはZIPのルートに配置する必要があります（サブディレクトリ不可） |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="サポートされているファイル形式" }
+| アセットタイプ | サポートされているファイル形式 | 最大サイズ |
+| --- | --- | --- |
+| 画像 | GIF、ICO、JPEG、JPG、PNG、WebP | 5&nbsp;MB |
+| ベクター画像 | SVG | 5&nbsp;MB |
+| ドキュメント | DOC、DOCX、PDF、PPT、PPTX、XLS、XLSX | 5&nbsp;MB |
+| アーカイブ | ZIP | 合計50&nbsp;MB、ZIP内の各ファイルは5&nbsp;MB |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 style="table-layout: fixed; width: 100%;" aria-label="サポートされているファイル形式" }
+
+ここに記載されていないファイル形式をアップロードすると、エンドポイントは`UNSUPPORTED_FILE_TYPE`エラーを返します。
+
+ZIPファイルの場合、アーカイブ内の各ファイルもここに記載されているサポートされているファイル形式のいずれかである必要があり、すべてのファイルはZIPファイルのルートに配置する必要があります（サブディレクトリ不可）。サポートされていないファイルはスキップされ、レスポンスの`errors`配列に返されます。アーカイブの残りの部分は引き続きアップロードされます。
 
 {% alert note %}
 Virtual Contact Files（.vcf）と動画ファイルはメディアライブラリーにアップロードできますが、ダッシュボードUI（**コンテンツ** > **メディアライブラリー**）からのみ可能であり、このAPIエンドポイントからはアップロードできません。
@@ -37,7 +43,7 @@ Virtual Contact Files（.vcf）と動画ファイルはメディアライブラ�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`media_library.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
+このエンドポイントを使用するには、`media_library.create`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -159,13 +165,13 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 
 | エラーコード | HTTPステータス | 説明 |
 | --- | --- | --- |
-| `UNSUPPORTED_FILE_TYPE` | 400 | アップロードされたファイル形式はサポートされていません。`meta`オブジェクトには、拒否された`file_type`が含まれています。 |
-| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | ファイルが最大許容サイズを超えています。画像には5 MBの制限があります。 |
+| `UNSUPPORTED_FILE_TYPE` | 400 | アップロードされたファイル形式はサポートされていません。[サポートされているファイル形式](#supported-file-types)を参照してください。`meta`オブジェクトには、拒否された`file_type`が含まれています。 |
+| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | ファイルが最大許容サイズの5&nbsp;MBを超えています。 |
 | `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | ワークスペースがアセットの最大数に達しました（無料トライアル企業ではデフォルトで200、それ以外は無制限）。`meta`オブジェクトには現在の`limit`が含まれています。 |
 | `ASSET_UPLOAD_FAILED` | 400 | 処理の問題により、アセットのアップロードに失敗しました。 |
 | `INVALID_ASSET_URL` | 400 | `asset_url`の値が有効なURIではありません。`meta`オブジェクトには`asset_url`が含まれています。 |
 | `ZIP_UPLOAD_ERROR` | 400 | ZIPファイルが破損しているか、開くことができません。`meta`オブジェクトには`original_error`メッセージが含まれています。 |
-| `ZIP_FILE_TOO_LARGE` | 400 | ZIPファイルの非圧縮時の合計サイズが5 MBの制限を超えています。`meta`オブジェクトには`zip_file_name`と`zip_file_size`が含まれています。 |
+| `ZIP_FILE_TOO_LARGE` | 400 | ZIPファイルの非圧縮時の合計サイズが50&nbsp;MBの制限を超えています。`meta`オブジェクトには`zip_file_name`と`zip_file_size`が含まれています。 |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | ZIP内のファイルエントリに名前がありません。ZIPファイルが破損していないことを確認し、名前のないファイルエントリに名前を追加してください。 |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | ZIPファイルにネストされたディレクトリが含まれていますが、これはサポートされていません。すべてのファイルはZIPのルートレベルに配置する必要があります。 |
 | `GENERIC_ERROR` | 500 | アップロード中に予期しないエラーが発生しました。`meta`オブジェクトにはデバッグ用の`original_error`メッセージが含まれています。再試行するか、[サポート]({{site.baseurl}}/support_contact)にお問い合わせください。 |

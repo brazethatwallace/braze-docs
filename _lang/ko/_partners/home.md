@@ -27,6 +27,7 @@ Braze Alloys 기술 파트너 설명서에 오신 것을 환영합니다. 파트
 - [Airbyte]({{site.baseurl}}/partners/data_and_analytics/workflow_automation/airbyte)
 - [Algolia]({{site.baseurl}}/partners/ecommerce/product_search_recommendations/algolia)
 - [Alpaco]({{site.baseurl}}/partners/message_orchestration/templates/alpaco)
+- [Amazon Bedrock]({{site.baseurl}}/partners/ai_model_providers/amazon_bedrock)
 - [Amazon Personalize]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/amazon_personalize)
 - [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)
 - [Amperity]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amperity)

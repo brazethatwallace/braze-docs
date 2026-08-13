@@ -56,7 +56,7 @@ A continuación se describen los requisitos mínimos individuales del SDK para e
 - Para el SDK Web, la opción de inicialización [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) debe establecerse en `true`. La opción `enableHtmlInAppMessages` también permite que estos mensajes funcionen, pero está obsoleta y debe actualizarse a `allowUserSuppliedJavascript`.
 - Si utilizas Google Tag Manager, debes habilitar "Allow HTML In-App Messages" en la configuración de GTM.
 
-## Paso 1: Crear un mensaje dentro de la aplicación {#step-1-create-an-in-app-message}
+## Paso 1: Crea un mensaje dentro de la aplicación {#step-1-create-an-in-app-message}
 
 Crea un nuevo mensaje dentro de la aplicación o paso en Canvas, luego selecciona **Editor de arrastrar y soltar** como tu experiencia de edición.
 
@@ -190,6 +190,15 @@ Actualmente, el editor está limitado únicamente a mensajes modales y de pantal
 
 Sí. Para cualquier mensaje dentro de la aplicación que quieras reutilizar en una futura Campaign o paso en Canvas, puedes guardarlo como plantilla personalizada usando el botón **Save as template**, disponible después de salir del editor. Antes de poder guardarlo como plantilla, primero debes lanzar la Campaign O guardarlo como borrador.
 
-![Vista previa de un mensaje dentro de la aplicación para un recorrido de producto.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
+![Una vista previa de un mensaje dentro de la aplicación para un recorrido de producto.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
 También puedes crear y guardar plantillas de mensajes dentro de la aplicación navegando a **Content** > **In-App Message**.
+
+### ¿Por qué mi sintaxis de Liquid aparece como texto sin formato en mi mensaje dentro de la aplicación paginado? {#why-is-my-liquid-syntax-appearing-as-plain-text-in-my-paginated-in-app-message}
+
+Si ves que la sintaxis de Liquid aparece como texto sin formato al probar un mensaje dentro de la aplicación paginado (en lugar del contenido personalizado), puede haber un error de sintaxis de Liquid en una de las páginas. Si hay un error de sintaxis en una página, afecta la representación de Liquid en todas las páginas del mensaje: las páginas no son independientes.
+
+Para solucionar problemas:
+
+1. Revisa cada página de tu mensaje en busca de errores de sintaxis de Liquid. Una vista previa rota en una página no significa que el error esté en esa página; como las páginas no son independientes, el error de sintaxis puede estar en cualquier parte del mensaje.
+2. Verifica que todas las etiquetas de Liquid estén correctamente cerradas y formateadas.
