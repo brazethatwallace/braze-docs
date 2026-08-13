@@ -193,3 +193,12 @@ Yes. For any in-app message you want to reuse in a future campaign or Canvas ste
 ![A preview of an in-app message for a product tour.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
 You can also create and save in-app message templates by navigating to **Content** > **In-App Message**.
+
+### Why is my Liquid syntax appearing as plain text in my paginated in-app message?
+
+If you're seeing Liquid syntax appear as plain text when testing a paginated in-app message (instead of the personalized content), there may be a Liquid syntax error on one of the pages. If there's a syntax error on one page, it affects the rendering of Liquid on all pages in the message—the pages are not independent.
+
+To troubleshoot:
+
+1. Check every page in your message for Liquid syntax errors. A broken preview on one page doesn't mean the error is on that page—because pages aren't independent, the syntax error can be anywhere in the message.
+2. Verify that all Liquid tags are properly closed and formatted correctly.

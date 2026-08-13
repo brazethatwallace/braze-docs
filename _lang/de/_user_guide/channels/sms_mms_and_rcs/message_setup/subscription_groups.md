@@ -12,6 +12,7 @@ channel:
 
 
 
+
 ---
 
 # SMS-, MMS- und RCS-Abo-Gruppen {#sms-mms-and-rcs-subscription-groups}
@@ -22,7 +23,7 @@ channel:
 
 ## Abo-Gruppenstatus {#subscription-group-states}
 
-Es gibt zwei Abo-Status für SMS- und RCS-Nutzer:innen: `subscribed` und `unsubscribed`. Der Abo-Status einer Nutzer:in wird auf Ebene der Abo-Gruppe gespeichert und nicht über Abo-Gruppen hinweg geteilt. Das bedeutet, dass eine Nutzer:in bei einer transaktionalen Abo-Gruppe `subscribed` sein kann, aber bei einer werblichen Abo-Gruppe `unsubscribed`. Für Marken stellt diese Trennung der Status sicher, dass sie weiterhin relevante SMS- und RCS-Nachrichten an ihre Nutzer:innen senden können.
+Es gibt zwei Abo-Status für SMS- und RCS-Nutzer:innen: `subscribed` und `unsubscribed`. Der Abo-Status einer Nutzer:in befindet sich auf Ebene der Abo-Gruppe und wird nicht über Abo-Gruppen hinweg geteilt. Das bedeutet, dass eine Nutzer:in bei einer transaktionalen Abo-Gruppe `subscribed` sein kann, aber bei einer werblichen Abo-Gruppe `unsubscribed`. Für Marken stellt diese Trennung der Status sicher, dass sie weiterhin relevante SMS- und RCS-Nachrichten an ihre Nutzer:innen senden können.
 
 | Status | Definition |
 | --------- | ---------- |
@@ -34,16 +35,16 @@ Es gibt zwei Abo-Status für SMS- und RCS-Nutzer:innen: `subscribed` und `unsubs
 
 Wenn eine Telefonnummer in einem Nutzerprofil aktualisiert wird, erbt die neue Telefonnummer den Abo-Gruppenstatus der Nutzer:in. Wenn die Telefonnummer auf eine Nummer aktualisiert wird, die bereits in Braze existiert, wird der Abo-Status dieser bestehenden Telefonnummer übernommen.
 
-Wenn beispielsweise Nutzer:in A eine Telefonnummer hat, die bei mehreren Abo-Gruppen abonniert ist, und diese Telefonnummer dann zu Nutzer:in B hinzugefügt wird, wird Nutzer:in B bei denselben Abo-Gruppen abonniert. Um zu verhindern, dass eine Nutzer:in die bestehenden Abos erbt, können Sie die Abo-Gruppen der alten Nummer über die Braze REST API zurücksetzen, wenn eine Nutzer:in ihre Nummer ändert. Wenn mehrere Nutzer:innen diese Telefonnummer teilen, werden alle abgemeldet.
+Wenn beispielsweise Nutzer:in A eine Telefonnummer hat, die bei mehreren Abo-Gruppen abonniert ist, und diese Telefonnummer dann zu Nutzer:in B hinzugefügt wird, ist Nutzer:in B bei denselben Abo-Gruppen abonniert. Um zu verhindern, dass eine Nutzer:in die bestehenden Abos erbt, können Sie die Abo-Gruppen der alten Nummer über die Braze REST API zurücksetzen, wenn eine Nutzer:in ihre Nummer ändert. Wenn mehrere Nutzer:innen diese Telefonnummer teilen, werden alle abgemeldet.
 
 Um den Abo-Gruppenstatus einer Nutzer:in festzulegen, verwenden Sie eine der folgenden Methoden:
 
 - **REST API:** Nutzerprofile können programmatisch über den [`/subscription/status/set`-Endpunkt]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) mithilfe der Braze REST API festgelegt werden.
 - **SDK-Integration:** Nutzer:innen können einer E-Mail- oder SMS- und RCS-Abo-Gruppe mit der Methode `addToSubscriptionGroup` für [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) oder [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup) hinzugefügt werden.
-- **Telefonnummern-Erfassungsformular für In-App-Nachrichten:** Nutzertelefonnummern können über das Telefonnummern-Erfassungs-Template im Drag-and-Drop-Editor für In-App-Nachrichten erfasst werden.
-- **Automatisch bei Nutzer-Opt-in/Opt-out verarbeitet:** Wenn Nutzer:innen ein Standard-Opt-in- oder Opt-out-[Schlüsselwort]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) senden, setzt und aktualisiert Braze den Abo-Status der Nutzer:innen automatisch.
+- **Telefonnummern-Erfassung über IAM-Formular:** Nutzertelefonnummern können über das Telefonnummern-Erfassungs-Template im Drag-and-Drop-Editor für In-App-Nachrichten erfasst werden.
+- **Automatische Verarbeitung bei Opt-in/Opt-out:** Wenn Nutzer:innen ein Standard-Opt-in- oder Opt-out-[Schlüsselwort]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) senden, setzt und aktualisiert Braze den Abo-Status der Nutzer:innen automatisch.
 - **Nutzerimport:** Nutzer:innen können über **Import Users** in E-Mail- oder SMS- und RCS-Abo-Gruppen hinzugefügt werden. Beim Aktualisieren des Abo-Gruppenstatus müssen diese zwei Spalten in Ihrer CSV vorhanden sein: `subscription_group_id` und `subscription_state`. Weitere Informationen finden Sie unter [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv).
-- **Braze-Dashboard:** Öffnen Sie unter [Nutzersuche]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) das Profil einer Nutzer:in und aktualisieren Sie SMS- oder RCS-Abo-Gruppen unter **Contact Settings** im Tab **Engagement**.
+- **Braze-Dashboard:** Wählen Sie **Nutzersuche** in der Seitenleiste, öffnen Sie das Profil einer Nutzer:in und aktualisieren Sie SMS- oder RCS-Abo-Gruppen unter **Contact Settings** auf dem Tab **Engagement**.
 - **Cloud Data Ingestion (CDI):** Fügen Sie `subscription_group_id` und `subscription_state` in synchronisierten Zeilen ein. Siehe [Cloud Data Ingestion – Tabelleneinrichtung]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
 - **User-Update-Schritt:** Aktualisieren Sie den Abo-Status in einem Canvas mit einem [User-Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt. Siehe [Status einer Nutzer:in in einem Canvas aktualisieren](#update-a-users-state-in-a-canvas) für Hinweise zum Timing.
 
@@ -53,26 +54,26 @@ Wenn Sie den Abo-Gruppenstatus einer Nutzer:in als Teil eines Canvas-Flows aktua
 
 Wenn Sie einen Webhook zum Aktualisieren von Abo-Gruppen verwenden, wird die Nutzer:in weitergeleitet, sobald der Webhook gesendet wurde – nicht wenn die Abo-Änderung fertig verarbeitet ist. Dies kann eine Race-Condition verursachen, bei der ein nachfolgender SMS-Schritt ausgeführt wird, bevor die Nutzer:in abonniert ist, was dazu führt, dass die Nachricht bei einem Teil der Nutzer:innen fehlschlägt. Wenn Sie einen Webhook verwenden müssen, fügen Sie einen Verzögerungsschritt von mindestens 1 Minute vor dem nächsten Messaging-Schritt hinzu.
 
-#{% multi_lang_include api/orphaned_subscription_states.md %}
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ### Gruppe einer Nutzer:in prüfen {#check-a-users-group}
 
 Um die Abo-Gruppe einer Nutzer:in zu prüfen, verwenden Sie eine der folgenden Methoden:
 
-- **Nutzerprofil:** Auf einzelne Nutzerprofile kann über das Braze-Dashboard zugegriffen werden, indem Sie **Nutzersuche** in der Seitenleiste auswählen. Hier können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Innerhalb eines Nutzerprofils können Sie unter dem Tab „Engagement“ die SMS- und RCS-Abo-Gruppen einer Nutzer:in einsehen.
+- **Nutzerprofil:** Auf einzelne Nutzerprofile kann über das Braze-Dashboard zugegriffen werden, indem Sie **Nutzersuche** in der Seitenleiste auswählen. Hier können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Innerhalb eines Nutzerprofils können Sie auf dem Tab „Engagement“ die SMS- und RCS-Abo-Gruppen einer Nutzer:in einsehen.
 - **REST API:** Die Abo-Gruppe einzelner Nutzerprofile kann über den [Endpunkt „Abo-Gruppen von Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) oder den [Endpunkt „Abo-Gruppenstatus von Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) mithilfe der Braze REST API eingesehen werden.
 
 ## Nachrichten mit einer Abo-Gruppe senden {#send-messages-with-a-subscription-group}
 
 Um eine SMS- oder RCS-Campaign über Braze zu starten, wählen Sie eine Abo-Gruppe aus dem Dropdown **SMS/MMS/RCS Variants** aus. Nach der Auswahl wird automatisch ein Zielgruppenfilter zu Ihrer Campaign oder Ihrem Canvas hinzugefügt, sodass nur Nutzer:innen, die bei der ausgewählten Abo-Gruppe `subscribed` sind, in der Zielgruppe enthalten sind.
 
-Bevor Nutzer:innen Nachrichten von einer Campaign oder einem Canvas erhalten können, müssen sie bei der ausgewählten Abo-Gruppe abonniert sein. Falls Sendungen für ansonsten gültige Nutzer:innen fehlschlagen, bestätigen Sie deren Abo-Status mit einer der Methoden unter [Status von Nutzer:innen festlegen](#set-a-users-state). Informationen zu Double-Opt-in-Anforderungen finden Sie unter [Abo-Gruppenstatus](#subscription-group-states).
+Bevor Nutzer:innen Nachrichten von einer Campaign oder einem Canvas erhalten können, müssen sie bei der ausgewählten Abo-Gruppe abonniert sein. Wenn Sendungen für ansonsten gültige Nutzer:innen fehlschlagen, bestätigen Sie deren Abo-Status mit einer der Methoden unter [Status von Nutzer:innen festlegen](#set-a-users-state). Informationen zu Double-Opt-in-Anforderungen finden Sie unter [Abo-Gruppenstatus](#subscription-group-states).
 
 {% alert important %}
 In Übereinstimmung mit internationalen [Telekommunikationsvorschriften und -richtlinien]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) sendet Braze niemals SMS oder RCS an Nutzer:innen, die nicht bei der ausgewählten Abo-Gruppe abonniert sind.
 {% endalert %}
 
-![SMS-Composer mit geöffnetem Dropdown für Abo-Gruppen und hervorgehobenem „Messaging Service A for SMS“.]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
+![SMS-Composer mit geöffnetem Dropdown für die Abo-Gruppe und hervorgehobenem Eintrag „Messaging Service A for SMS“.]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
 
 ## Best Practices für SMS-Abo-Gruppen {#sms-subscription-group-best-practices}
 
@@ -84,7 +85,7 @@ Um Abo-Gruppen für SMS, MMS oder RCS zu aktivieren, beachten Sie Folgendes:
 
 {% tabs local %}
 {% tab SMS %}
-Während Ihres SMS-Onboarding-Prozesses richtet ein Braze-Onboarding-Manager:in Abo-Gruppen für Ihr Dashboard-Konto ein. Sie arbeiten mit Ihnen zusammen, um festzulegen, wie viele Abo-Gruppen Sie benötigen, und fügen die entsprechenden Sende-Telefonnummern zu Ihren Abo-Gruppen hinzu. Die Zeitrahmen für die Einrichtung einer Abo-Gruppe hängen von der Art der Telefonnummern ab, die Sie hinzufügen. Beispielsweise können Shortcode-Anträge zwischen 8 und 12 Wochen dauern, während Langcodes innerhalb eines Tages eingerichtet werden können. Wenn Sie Fragen zur Einrichtung Ihres Braze-Dashboards haben, wenden Sie sich an Ihre Braze-Vertretung.
+Während Ihres SMS-Onboarding-Prozesses richtet ein Braze-Onboarding-Manager Abo-Gruppen für Ihr Dashboard-Konto ein. Er arbeitet mit Ihnen zusammen, um festzulegen, wie viele Abo-Gruppen Sie benötigen, und fügt die entsprechenden Sende-Telefonnummern zu Ihren Abo-Gruppen hinzu. Die Zeitrahmen für die Einrichtung einer Abo-Gruppe hängen von der Art der Telefonnummern ab, die Sie hinzufügen. Beispielsweise können Shortcode-Anträge zwischen 8 und 12 Wochen dauern, während Langcodes innerhalb eines Tages eingerichtet werden können. Wenn Sie Fragen zur Einrichtung Ihres Braze-Dashboards haben, wenden Sie sich an Ihre Braze-Vertretung.
 {% endtab %}
 
 {% tab MMS %}
@@ -101,13 +102,13 @@ Es gibt zwei Möglichkeiten, einen RCS-verifizierten Sender hinzuzufügen:
 - Eine neue RCS-Abo-Gruppe erstellen
 Die Wahl hängt weitgehend von den RCS-Anwendungsfällen ab, die Sie interessieren.
 
-Abhängig von Ihrer Integration kann Braze RCS-verifizierte Sender zu Ihren bestehenden SMS-Abo-Gruppen hinzufügen oder neue Abo-Gruppen für Sie einrichten. In beiden Fällen begleitet Sie Ihr Customer-Success-Manager durch ein nahtloses und effizientes SMS-Traffic-Upgrade.
+Abhängig von Ihrer Integration kann Braze RCS-verifizierte Sender zu Ihren bestehenden SMS-Abo-Gruppen hinzufügen oder neue Abo-Gruppen für Sie einrichten. In beiden Fällen begleitet Sie Ihr Customer-Success-Manager durch ein reibungsloses und effizientes SMS-Traffic-Upgrade.
 {% endtab %}
 {% endtabs %}
 
-## Opt-out-Anfragen in natürlicher Sprache in der Agent Console verarbeiten {#handle-natural-language-opt-outs-in-the-agent-console}
+## Natürlichsprachliche Opt-outs in der Agent Console verarbeiten {#handle-natural-language-opt-outs-in-the-agent-console}
 
-Für ein umfassendes Abo-Management können Sie Opt-out-Absichten erfassen, die außerhalb von Standard- oder angepassten Keywords liegen (z. B. „Bitte schreib mir nicht mehr“). Durch die Erstellung eines KI-Agenten können Sie Sentimentanalyse nutzen, um diese Anfragen automatisch zu erkennen und darauf zu reagieren.
+Für ein umfassendes Abo-Management können Sie Abmeldeabsichten erfassen, die außerhalb von Standard- oder angepassten Keywords liegen (z. B. „Bitte schreib mir nicht mehr“). Durch die Erstellung eines KI-Agenten können Sie Sentimentanalyse nutzen, um diese Anfragen automatisch zu erkennen und darauf zu reagieren.
 
 ### Einrichtung {#setup}
 
@@ -119,21 +120,21 @@ Verwenden Sie [Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_age
 
 {: start="2"}
 2. Erstellen Sie ein aktionsbasiertes Canvas, das durch **Send an SMS inbound message** innerhalb der Keyword-Kategorie **Other** getriggert wird.
-3. Fügen Sie den [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) zum Canvas hinzu, um die Opt-out-Absicht zu erkennen.
+3. Fügen Sie den [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) zum Canvas hinzu, um die Abmeldeabsicht zu erkennen.
 4. Fügen Sie einen nachfolgenden SMS-[Nachrichtenschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) hinzu, um die Anfrage zu bestätigen: „Es sieht so aus, als möchten Sie sich von SMS abmelden, daher werden wir Sie abmelden. Falls dies ein Fehler war, senden Sie START, um sich wieder anzumelden.“
 5. Fügen Sie einen [Nutzer:innen-Update-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) hinzu, um den Status der Nutzer:in in der jeweiligen SMS-Abo-Gruppe auf „Unsubscribed“ zu ändern.
 
 {% alert note %}
-Die Nutzung der Agent Console verbraucht Nachrichten- oder Aktions-Credits.
+Die Nutzung der Agent Console verbraucht Message- oder Action-Credits.
 {% endalert %}
 
 ## SMS-Datenverkehr zu RCS migrieren {#migrate-sms-traffic-to-rcs}
 
 Wenn Sie separate SMS- und RCS-Abo-Gruppen haben, können Sie Nutzer:innen mithilfe eines einstufigen Canvas von SMS zu RCS migrieren.
 
-Braze empfiehlt, zunächst RCS-Nachrichten an kleinere Nutzergruppen zu testen und im Laufe der Zeit mehr Nutzer:innen in die RCS-Abo-Gruppe zu migrieren. Wenn Sie beispielsweise 1.000.000 Nutzer:innen haben, die eine SMS-Abo-Gruppe abonniert haben, könnte dies so aussehen, dass Sie zunächst alle Nutzer:innen in die neue Abo-Gruppe migrieren und dann ein kleineres Segment von 50.000 bis 100.000 (5–10 %) auswählen, um die RCS-Nachrichten zu testen.
+Braze empfiehlt, RCS zunächst an kleinere Nutzergruppen zu senden und im Laufe der Zeit mehr Nutzer:innen in die RCS-Abo-Gruppe zu migrieren. Wenn Sie beispielsweise 1.000.000 Nutzer:innen haben, die eine SMS-Abo-Gruppe abonniert haben, könnte dies so aussehen, dass Sie zunächst alle Nutzer:innen in die neue Abo-Gruppe migrieren und dann ein kleineres Segment von 50.000 bis 100.000 (5–10 %) auswählen, um die RCS-Nachrichten zu testen.
 
-### Schritt 1: Canvas erstellen und den Eintrittsplan ausfüllen {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
+### Schritt 1: Canvas erstellen und den Eintrittszeitplan ausfüllen {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
 Erstellen Sie ein Canvas und geben Sie ihm einen leicht identifizierbaren Namen (z. B. „SMS-RCS Abo-Gruppen-Nutzertransfer“). Planen Sie dann die Campaign zu einem für Sie passenden Zeitpunkt.
 

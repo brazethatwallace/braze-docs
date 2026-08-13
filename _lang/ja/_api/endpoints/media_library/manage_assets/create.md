@@ -15,10 +15,24 @@ description: "この記事では、`POST /media_library/create` エンドポイ�
 /media_library/create
 {% endapimethod %}
 
-> このエンドポイントを使用すると、外部でホストされているURL（`asset_url`）またはリクエスト本文で送信されたバイナリファイルデータ（`asset_file`）のいずれかを使用して、[Brazeメディアライブラリ]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library)にアセットを追加できます。このエンドポイントは画像と、画像を含むZIPファイルをサポートしています。
+> このエンドポイントを使用すると、外部でホストされているURL（`asset_url`）またはリクエスト本文で送信されたバイナリファイルデータ（`asset_file`）のいずれかを使用して、[Brazeメディアライブラリー]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)にアセットを追加できます。
+
+## サポートされているファイル形式 {#supported-file-types}
+
+このエンドポイントは以下のファイル形式をサポートしています。
+
+| ファイル形式 | フォーマット | 最大サイズ | 備考 |
+|-----------|---------|--------------|-------|
+| 画像 | PNG、JPEG、GIF、SVG、WebP | 5 MB | |
+| ZIPファイル | .zip | 合計50 MB、ZIP内の各ファイルは5 MB | 画像またはSVGのみを含む必要があります。すべてのファイルはZIPのルートに配置する必要があります（サブディレクトリ不可） |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="サポートされているファイル形式" }
+
+{% alert note %}
+Virtual Contact Files（.vcf）と動画ファイルはメディアライブラリーにアップロードできますが、ダッシュボードUI（**コンテンツ** > **メディアライブラリー**）からのみ可能であり、このAPIエンドポイントからはアップロードできません。
+{% endalert %}
 
 {% alert tip %}
-このエンドポイントは、[Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server)から[`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library)関数を使用して呼び出すこともできます。これにより、ClaudeやCursorなどのAIツールが自然言語プロンプトを通じてメディアライブラリにアセットをアップロードできます。
+このエンドポイントは、[Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server)から[`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library)関数を使用して呼び出すこともできます。これにより、ClaudeやCursorなどのAIツールが自然言語プロンプトを通じてメディアライブラリーにアセットをアップロードできます。
 {% endalert %}
 
 ## 前提条件 {#prerequisites}
@@ -57,7 +71,7 @@ description: "この記事では、`POST /media_library/create` エンドポイ�
 | --------- | -------- | --------- | ----------- |
 | `asset_url` | オプション | 文字列 | Brazeにアップロードするアセットの、一般にアクセス可能なURL。 |
 | `asset_file` | オプション | バイナリ | バイナリファイルデータ。 |
-| `name` | オプション | 文字列 | このアセットのメディアライブラリに表示される名前。 |
+| `name` | オプション | 文字列 | このアセットのメディアライブラリーに表示される名前。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="リクエスト本文" }
 
 {% alert important %}
@@ -72,7 +86,7 @@ description: "この記事では、`POST /media_library/create` エンドポイ�
 
 | シナリオ | 結果 |
 | --- | --- |
-| `name`を指定した場合 | `name`の値がメディアライブラリのアセット名として使用されます。 |
+| `name`を指定した場合 | `name`の値がメディアライブラリーのアセット名として使用されます。 |
 | `name`を省略した場合 | URLまたはアップロードされたファイルの元のファイル名が使用されます。 |
 {: .reset-td-br-1 .reset-td-br-2 style="table-layout: fixed; width: 100%;" aria-label="単一ファイルのアップロード" }
 
@@ -88,7 +102,7 @@ description: "この記事では、`POST /media_library/create` エンドポイ�
 
 このセクションには2つの`curl`リクエスト例が含まれています。1つはURLを使用してアセットを追加する例、もう1つはバイナリファイルデータを使用する例です。
 
-このリクエストは、`asset_url`を使用してメディアライブラリにアセットを追加する例を示しています。
+このリクエストは、`asset_url`を使用してメディアライブラリーにアセットを追加する例を示しています。
 
 ```
 curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
@@ -97,7 +111,7 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 --data '{"asset_url": "https://cdn.example.com/assets/cat.jpg", "name": "Cat Graphic"}'
 ```
 
-このリクエストは、`asset_file`を使用してメディアライブラリにアセットを追加する例を示しています。
+このリクエストは、`asset_file`を使用してメディアライブラリーにアセットを追加する例を示しています。
 
 ```
 curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
@@ -126,7 +140,7 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 | --- | --- | --- |
 | 400 | "Either asset_url or asset_file must be provided." | リクエストにアセットパラメーターが指定されていません。 |
 | 400 | "Both asset_url and asset_file cannot be provided. Please provide only one." | 両方のアセットパラメーターが指定されましたが、許可されているのは1つだけです。 |
-| 403 | "Media Library Public APIs are not enabled for this company." | このワークスペースではメディアライブラリ機能が有効になっていません。 |
+| 403 | "Media Library Public APIs are not enabled for this company." | このワークスペースではメディアライブラリー機能が有効になっていません。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="バリデーションエラー" }
 
 #### 処理エラー {#processing-errors}

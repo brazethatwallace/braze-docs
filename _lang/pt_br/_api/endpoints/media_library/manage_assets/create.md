@@ -15,7 +15,21 @@ description: "Este artigo descreve detalhes sobre o endpoint `POST /media_librar
 /media_library/create
 {% endapimethod %}
 
-> Use este endpoint para adicionar um ativo à [biblioteca de mídia da Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) usando uma URL hospedada externamente (`asset_url`) ou dados de arquivo binário enviados no corpo da solicitação (`asset_file`). Este endpoint suporta imagens e arquivos ZIP que contêm imagens.
+> Use este endpoint para adicionar um ativo à [biblioteca de mídia da Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) usando uma URL hospedada externamente (`asset_url`) ou dados de arquivo binário enviados no corpo da solicitação (`asset_file`).
+
+## Tipos de arquivo suportados {#supported-file-types}
+
+Este endpoint suporta os seguintes tipos de arquivo:
+
+| Tipo de arquivo | Formatos | Tamanho máximo | Observações |
+|-----------------|----------|----------------|-------------|
+| Imagens | PNG, JPEG, GIF, SVG, WebP | 5 MB | |
+| Arquivos ZIP | .zip | 50 MB no total; 5 MB por arquivo dentro do ZIP | Deve conter apenas imagens ou SVGs; todos os arquivos devem estar na raiz do ZIP (sem subdiretórios) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tipos de arquivo suportados" }
+
+{% alert note %}
+Arquivos de contato virtual (.vcf) e arquivos de vídeo podem ser enviados para a biblioteca de mídia, mas apenas pela interface do dashboard (**Conteúdo** > **Biblioteca de mídia**), não por este endpoint de API.
+{% endalert %}
 
 {% alert tip %}
 Você também pode chamar este endpoint por meio do [servidor MCP da Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) usando a função [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library). Isso permite que ferramentas de IA como Claude e Cursor façam upload de ativos para sua biblioteca de mídia por meio de prompts em linguagem natural.
@@ -54,7 +68,7 @@ Exemplo de corpo da solicitação para `asset_file`:
 O corpo da solicitação inclui os seguintes parâmetros:
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
-| --------- | -------- | --------- | ----------- |
+| --------- | ----------- | ------------- | --------- |
 | `asset_url` | Opcional | String | Uma URL acessível publicamente para o ativo a ser enviado para a Braze. |
 | `asset_file` | Opcional | Binário | Dados de arquivo binário. |
 | `name` | Opcional | String | Um nome a ser exibido na biblioteca de mídia para este ativo. |

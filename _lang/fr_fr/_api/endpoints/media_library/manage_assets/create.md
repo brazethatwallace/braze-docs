@@ -15,7 +15,21 @@ description: "Cet article fournit des informations détaillées sur l'endpoint `
 /media_library/create
 {% endapimethod %}
 
-> Utilisez cet endpoint pour ajouter une ressource à la [bibliothèque multimédia de Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) à l'aide d'une URL hébergée en externe (`asset_url`) ou de données de fichier binaire envoyées dans le corps de la requête (`asset_file`). Cet endpoint prend en charge les images et les fichiers ZIP contenant des images.
+> Utilisez cet endpoint pour ajouter une ressource à la [bibliothèque multimédia de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) à l'aide d'une URL hébergée en externe (`asset_url`) ou de données de fichier binaire envoyées dans le corps de la requête (`asset_file`).
+
+## Types de fichiers pris en charge {#supported-file-types}
+
+Cet endpoint prend en charge les types de fichiers suivants :
+
+| Type de fichier | Formats | Taille maximale | Remarques |
+|-----------|---------|--------------|-------|
+| Images | PNG, JPEG, GIF, SVG, WebP | 5 Mo | |
+| Fichiers ZIP | .zip | 50 Mo au total ; 5 Mo par fichier dans le ZIP | Ne doit contenir que des images ou des SVG ; tous les fichiers doivent se trouver à la racine du ZIP (pas de sous-répertoires) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Types de fichiers pris en charge" }
+
+{% alert note %}
+Les fichiers de contact virtuels (.vcf) et les fichiers vidéo peuvent être téléchargés dans la bibliothèque multimédia, mais uniquement via l'interface du tableau de bord (**Content** > **Media Library**), et non via cet endpoint API.
+{% endalert %}
 
 {% alert tip %}
 Vous pouvez également appeler cet endpoint via le [serveur MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) en utilisant la fonction [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library). Cela permet à des outils d'IA comme Claude et Cursor de télécharger des ressources dans votre bibliothèque multimédia via des instructions en langage naturel.

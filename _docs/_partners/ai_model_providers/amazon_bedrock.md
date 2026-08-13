@@ -20,6 +20,8 @@ The Braze and Amazon Bedrock integration lets you connect your Amazon Bedrock cr
 
 When you connect Amazon Bedrock, Braze shows a curated set of Bedrock models for custom agents. The models available in Braze may differ from the full catalog in your AWS account.
 
+Braze uses Amazon Bedrock's `bedrock-mantle` endpoint for this integration. Amazon Bedrock also documents a separate `bedrock-runtime` endpoint with different model and feature support, so when you review AWS documentation for availability or behavior, follow the guidance for [`bedrock-mantle`](https://docs.aws.amazon.com/bedrock/latest/userguide/endpoints.html).
+
 {% multi_lang_include alerts/important_alerts.md alert='Braze Agents' %}
 
 ## Prerequisites
@@ -27,7 +29,7 @@ When you connect Amazon Bedrock, Braze shows a curated set of Bedrock models for
 | Requirements | Description |
 |---|---|
 | An AWS account with Amazon Bedrock access | An AWS account with access to Amazon Bedrock in the AWS region where your models are hosted. For help, contact your admin or [AWS Support](https://aws.amazon.com/support). |
-| Amazon Bedrock model access | Access in your AWS account to the Bedrock models you plan to use. Some models, like those from Anthropic, require access to be granted on your AWS account. Not all models are available in every AWS region. |
+| Amazon Bedrock model access | Access in your AWS account to the Bedrock models you plan to use. Some models, like those from Anthropic, require access to be granted on your AWS account. Not all models are available in every AWS region—check each model's regional availability in the Amazon Bedrock console or in [Regional availability by models](https://docs.aws.amazon.com/bedrock/latest/userguide/models-region-compatibility.html) before you connect. |
 | Authentication credentials | Either a long-term [Amazon Bedrock API key](https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys.html), or—when IAM role authentication is enabled for your workspace—an IAM role that Braze can assume. |
 | Braze instance | You can find your Braze instance on the [API overview page]({{site.baseurl}}/api/basics/#endpoints) or from your Braze onboarding manager. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
@@ -53,8 +55,8 @@ To connect Amazon Bedrock to Braze:
 
 After you save, Braze displays a connected status with the date and time of the connection. You can select Amazon Bedrock models when [creating a custom agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) in the Agent Console.
 
-{% alert note %}
-Not all Amazon Bedrock models are available in every AWS region. Choose a region that supports the models you plan to use. Models that aren't available in your connected region return errors during agent invocation.
+{% alert important %}
+Not all Amazon Bedrock models are available in every AWS region. Before you select an **AWS region** in Braze, open the model details in Amazon Bedrock and confirm the model lists that region. Models that aren't available in your connected region return errors during agent invocation (for example, that the model does not exist or is no longer available). See [Models at a glance](https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html) for more details.
 {% endalert %}
 
 To confirm the integration is working, go to the Agent Console and create a test agent using one of your Bedrock models. Enter an instruction such as "Tell me a joke," and run a test invocation to verify the model responds as expected.
