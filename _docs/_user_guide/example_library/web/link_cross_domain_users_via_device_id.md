@@ -1,12 +1,12 @@
 ---
 nav_title: Link cross-domain Web SDK users
-article_title: Link cross-domain Web SDK users via device ID
+article_title: Link cross-domain Web SDK users through device ID
 page_order: 1
 page_type: reference
 description: "Pass the Braze Web SDK device ID from Kitchenerie's marketing site to a separate shop domain so anonymous activity shares one user profile."
 ---
 
-# Link cross-domain Web SDK users via device ID
+# Link cross-domain Web SDK users through device ID
 
 > Pass the Braze Web SDK device ID through the destination URL when two domains cannot share cookies, so anonymous sessions on both sites map to the same Braze user profile.
 
@@ -18,7 +18,7 @@ This pattern:
 
 1. Reads the device ID on the source domain with `getDeviceId` after SDK initialization
 2. Appends it to outbound links as a query parameter (for example `brazeDeviceId`)
-3. On the destination domain, reads that parameter and passes it to `braze.initialize` via the `deviceId` option
+3. On the destination domain, reads that parameter and passes it to `braze.initialize` through the `deviceId` option
 
 The handoff matters most for anonymous users. After the user logs in on the shop, `changeUser` with an `external_id` becomes the durable identifier across devices. See [Set user IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/).
 
@@ -26,11 +26,11 @@ Both domains should use the same Braze workspace API key and SDK endpoint so eve
 
 ## Considerations
 
-- **Same browser only:** The device ID is per browser. This pattern does not link activity across different browsers, devices, or profiles. Use `external_id` via `changeUser` for authenticated, cross-device identity.
-- **Call timing:** Retrieve the device ID only **after** the Web SDK is initialized on the source domain. Calling `getDeviceId` before `initialize` does not return a value.
-- **Initialization-only `deviceId`:** The Web SDK reads `deviceId` once at `initialize`. There is no post-initialization `setDeviceId` that changes the active device ID. Read the URL parameter on the destination domain **before** calling `initialize`.
+- **Same browser only:** The device ID is per browser. This pattern does not link activity across different browsers, devices, or profiles. Use `external_id` through `changeUser` for authenticated, cross-device identity.
+- **Call timing:** Retrieve the device ID only after the Web SDK is initialized on the source domain. Calling `getDeviceId` before `initialize` does not return a value.
+- **Initialization-only `deviceId`:** The Web SDK reads `deviceId` once at `initialize`. There is no post-initialization `setDeviceId` that changes the active device ID. Read the URL parameter on the destination domain before calling `initialize`.
 - **Missing parameter:** Direct visits, bookmarks, or third-party referrals to the shop without `brazeDeviceId` should fall back to default device ID assignment—expected when there is no source-domain ID to inherit.
-- **Privacy and URL exposure:** Query parameters appear in browser history, server logs, and may leak via referrer headers. The device ID is not PII by itself, but strip the parameter after consumption if your privacy team requires it (see Step 2).
+- **Privacy and URL exposure:** Query parameters appear in browser history, server logs, and may leak through referrer headers. The device ID is not PII by itself, but strip the parameter after consumption if your privacy team requires it (see Step 2).
 - **Test end-to-end:** Confirm Domain 2 events use the expected device ID with network inspection.
 - **Illustrative code:** Adapt hostnames, link selectors, and error handling to your site. Test in your development environment before production.
 
@@ -120,6 +120,7 @@ When the user logs in, call `changeUser` with their `external_id` so future acti
 ## Related articles
 
 - [Web SDK repository guide]({{site.baseurl}}/developer_guide/sdk_repository_guides/web/)
+- [Multi-domain integration for the Braze Web SDK]({{site.baseurl}}/developer_guide/platforms/web/multi_domain_integration)
 - [Set user IDs through the Braze SDK]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/)
 - [Anonymous users]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/)
 - [User profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)
