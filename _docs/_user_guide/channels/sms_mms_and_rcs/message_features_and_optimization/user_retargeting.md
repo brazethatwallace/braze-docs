@@ -48,7 +48,7 @@ Filters users who have received a message from a specific campaign. With this fi
 
 ### Trigger messages as users receive SMS, MMS, or RCS {#trigger-messages}
 
-To trigger messages as users receive SMS, MMS, or RCS messages from a specific campaign, select **Interact with Campaign** as the trigger action for an action-based campaign. Next, select **Receive SMS** (the UI label for SMS, MMS, and RCS delivery events) and the campaign you want to use.
+To trigger messages as users receive SMS, MMS, or RCS messages from a specific campaign, select **Interact with Campaign** as the trigger action for an action-based campaign. Next, select **Receive SMS** and the campaign you want to use.
 
 ![To trigger messages as users receive SMS, MMS, or RCS messages from a specific campaign, select Interact with Campaign as the trigger action for an action-based campaign. Next, select Receive SMS and the SMS, MMS, or RCS campaign you would like to use.]({% image_buster /assets/img/sms/trigger.png %})
 
@@ -87,9 +87,13 @@ Filter for the recency of a user responding to your SMS, MMS, or RCS program. Th
 
 Filter for users who have replied to a specific SMS, MMS, or RCS campaign or Canvas component, keyword category, or tag.
 
+{% alert note %}
+These filters use [messaging interaction data]({{site.baseurl}}/messaging_interaction_data). For stopped campaigns and Canvases, that data expires after three months unless it's used in an active retargeting filter. Expired data can be restored. Your workspace retention window may differ from the default.
+{% endalert %}
+
 #### Filter by replied to a specific campaign with keyword category
 
-![Campaign with the filter "Has replied to SMS" for campaign "SMS-283" "Promotion". Under the filter the feature mentions that this filter expires after a configured data retention period (default 25 months) following the last message sent from "Promotion" if it is not being used in an active campaign. Workspace retargeting retention may be shorter (for example, 13, 6, or 3 months) depending on your company's data retention policy.]({% image_buster /assets/img/sms/clicked_opened_campaign.png %})
+![Campaign with the filter "Has replied to SMS" for campaign "SMS-283" "Promotion".]({% image_buster /assets/img/sms/clicked_opened_campaign.png %})
 
 #### Filter by replied to a campaign or Canvas with a specific tag
 
