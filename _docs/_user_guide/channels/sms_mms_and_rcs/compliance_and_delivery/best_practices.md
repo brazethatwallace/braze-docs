@@ -31,7 +31,7 @@ When setting up SMS and MMS in Braze to manage opt-ins and opt-outs, refer to th
 
 ### Considerations
 
-Where SMS and MMS have been set up across multiple instances, and due to misconfiguration, a campaign or Canvas opt-outs are sent to the wrong workspace.
+When SMS and MMS are set up across multiple instances, misconfiguration can cause campaign or Canvas opt-outs to be sent to the wrong workspace.
 
 * Braze has monitoring in place to identify such instances. If this behavior is flagged, Braze redirects opt-outs to the correct instance and backfills any opt-outs that occurred during the period.
 * We strongly recommend customers test opt-outs for each subscription group they have in Braze. Identifying this issue before launching a message is better than mitigating after an issue has been identified.
@@ -66,13 +66,13 @@ Traffic pumping is a form of fraud that occurs when a bad actor uses an online f
 
 ### Impact of traffic pumping
 
-Customers are responsible for monitoring the traffic that they are sending and will be invoiced for all SMS sent through their account. Between Braze and Customer, Customer is the party in the better position to detect and prevent traffic pumping.
+Customers are responsible for monitoring the traffic that they are sending and are invoiced for all SMS sent through their account. Between Braze and Customer, Customer is the party in the better position to detect and prevent traffic pumping.
 
 ## Multi-country SMS sending
 
 Some brands may wish to send to a group of users that have phone numbers from different countries. In order to send an SMS message to a phone number in a particular country, it is best practice to use a long code or short code that is from the same country. In fact, short codes can only send SMS to phone numbers from the same country the short code was created in. 
 
-To overcome this limitation, during the subscription groups [setup process]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups), groups can be set up to hold long and short codes from multiple different countries. When completed, sending phone numbers with the same country code as the target user's phone number will automatically be used when launching a campaign. You don't need to create separate campaigns for users with phone numbers with different country codes, allowing you to launch one campaign or use one Canvas component to target relevant users.
+To overcome this limitation, during the subscription groups [setup process]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups), groups can be set up to hold long and short codes from multiple different countries. When completed, phone numbers with the same country code as the target user's phone number are automatically used when launching a campaign. You don't need to create separate campaigns for users with phone numbers with different country codes, allowing you to launch one campaign or use one Canvas component to target relevant users.
 
 ![SMS payloads are sent using the same country code as the target user's phone number.]({% image_buster /assets/img/sms/multi_country_subgroups.png %})
 
