@@ -25,14 +25,14 @@ There are two subscription states for SMS and RCS users: `subscribed` and `unsub
 | State | Definition |
 | --------- | ---------- |
 | Subscribed | User is subscribed to receive SMS and RCS from a specific subscription group. A user can be subscribed either by having their subscription state updated through the Braze subscription API or by texting an opt-in keyword response. A user must be subscribed to an SMS or RCS subscription group to receive SMS, RCS, or both. When [double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) is enabled, users must confirm their opt-in intent before their subscription status updates to `Subscribed`. |
-| Unsubscribed | User has explicitly opted out of messaging from your SMS and RCS subscription group and the sending phone numbers inside the subscription group. They can unsubscribe by texting an opt-out keyword response or you can unsubscribe users through the [Braze subscription API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Users unsubscribed from an SMS and RCS subscription group will no longer receive any SMS or RCS from sending phone numbers that belong to the subscription group.|
+| Unsubscribed | User has explicitly opted out of messaging from your SMS and RCS subscription group and the sending phone numbers inside the subscription group. They can unsubscribe by texting an opt-out keyword response or you can unsubscribe users through the [Braze subscription API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Users unsubscribed from an SMS and RCS subscription group no longer receive any SMS or RCS from sending phone numbers that belong to the subscription group.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription group states" }
 
 ### Set a user's state
 
 When a phone number is updated on a user profile, the new phone number inherits the subscription group status of the user. If the phone number is updated to a number that already exists in Braze, the subscription status of that existing phone number is inherited.
 
-For example, if User A has a phone number that is subscribed to several subscription groups and that phone number then gets added to User B, User B will be subscribed to the same subscription groups. To prevent a user from inheriting the existing subscriptions, you can reset the subscription groups of the old number through the Braze REST API whenever a user changes their number. If multiple users share this phone number, they will all be unsubscribed.
+For example, if User A has a phone number that is subscribed to several subscription groups and that phone number then gets added to User B, User B is subscribed to the same subscription groups. To prevent a user from inheriting the existing subscriptions, you can reset the subscription groups of the old number through the Braze REST API whenever a user changes their number. If multiple users share this phone number, they are all unsubscribed.
 
 To set a user's subscription group state, use one of the following methods:
 
@@ -41,7 +41,7 @@ To set a user's subscription group state, use one of the following methods:
 - **Phone Number Capture IAM Form:** User phone numbers can be collected through the phone number capture template in the in-app message drag-and-drop editor.
 - **Automatically handled upon user opt-in/opt-out:** By users texting a default opt-in or opt-out [keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout), Braze automatically sets and updates users' subscription state.
 - **User import**: Users can be added into email or SMS and RCS subscription groups through **Import Users**. When updating subscription group status, you must have these two columns in your CSV: `subscription_group_id` and `subscription_state`. Refer to [User import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) for more information.
-- **Braze dashboard:** On [Search Users]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles), open a user's profile and update SMS or RCS subscription groups under **Contact Settings** on the **Engagement** tab.
+- **Braze dashboard:** Select **User Search** from the sidebar, open a user's profile, and update SMS or RCS subscription groups under **Contact Settings** on the **Engagement** tab.
 - **Cloud Data Ingestion (CDI):** Include `subscription_group_id` and `subscription_state` in synced rows. See [Cloud Data Ingestion table setup]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
 - **User Update step:** Update subscription status in a Canvas with a [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) step. See [Update a user's state in a Canvas](#update-a-users-state-in-a-canvas) for timing considerations.
 
@@ -51,7 +51,7 @@ When updating a user's subscription group status as part of a Canvas flow, use a
 
 If you use a webhook to update subscription groups, the user advances as soon as the webhook is sent—not when the subscription change finishes processing. This can create a race condition where a follow-up SMS step executes before the user is subscribed, causing the message to fail for a portion of users. If you must use a webhook, add a Delay step of at least 1 minute before the next messaging step.
 
-#{% multi_lang_include api/orphaned_subscription_states.md %}
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ### Check a user's group
 
@@ -62,7 +62,7 @@ To check a user's subscription group, use one of the following methods:
 
 ## Send messages with a subscription group
 
-To launch an SMS or RCS campaign through Braze, select a subscription group from the **SMS/MMS/RCS Variants** dropdown. After it's selected, an audience filter will be added to your campaign or Canvas automatically, ensuring that only users `subscribed` to the selected subscription group are in the target audience.
+To launch an SMS or RCS campaign through Braze, select a subscription group from the **SMS/MMS/RCS Variants** dropdown. After it's selected, an audience filter is added to your campaign or Canvas automatically, ensuring that only users `subscribed` to the selected subscription group are in the target audience.
 
 Before users can receive messages from a campaign or Canvas, they must be subscribed to the selected subscription group. If sends fail for otherwise valid users, confirm they are subscribed using one of the methods in [Set a user's state](#set-a-users-state). For double opt-in requirements, see [Subscription group states](#subscription-group-states).
 
@@ -82,7 +82,7 @@ To enable subscription groups for SMS, MMS, or RCS, refer to the following:
 
 {% tabs local %}
 {% tab SMS %}
-During your SMS onboarding process, a Braze onboarding manager will set up subscription groups for your dashboard account. They will work with you to determine how many subscription groups you need and add the appropriate sending phone numbers to your subscription groups. Timelines for setting up a subscription group will depend on the type of phone numbers you're adding. For example, short code applications can take anywhere between 8-12 weeks, while long codes can be set up within a day. If you have questions about your Braze dashboard setup, contact your Braze representative for support.  
+During your SMS onboarding process, a Braze onboarding manager sets up subscription groups for your dashboard account. They work with you to determine how many subscription groups you need and add the appropriate sending phone numbers to your subscription groups. Timelines for setting up a subscription group depend on the type of phone numbers you're adding. For example, short code applications can take anywhere between 8-12 weeks, while long codes can be set up within a day. If you have questions about your Braze dashboard setup, contact your Braze representative for support.  
 {% endtab %}
 
 {% tab MMS %}
@@ -99,7 +99,7 @@ There are two ways to add an RCS-verified sender:
 - Create a new RCS subscription group
 The choice largely depends on the RCS use cases you are interested in. 
 
-Depending on your integration, Braze can add RCS-verified senders to your existing SMS subscription groups or set up new subscription groups for you. In either case, your customer success manager will guide you through a seamless and efficient SMS traffic upgrade.
+Depending on your integration, Braze can add RCS-verified senders to your existing SMS subscription groups or set up new subscription groups for you. In either case, your customer success manager guides you through a seamless and efficient SMS traffic upgrade.
 {% endtab %}
 {% endtabs %}
 
@@ -168,6 +168,10 @@ Add a User Update Step to your Canvas. In the step, open the **Advanced JSON Edi
 }
 ```
 {% endraw %}
+
+{% alert important %}
+When using `use_double_opt_in_logic`, a user profile must already exist for the subscription state to be updated. If no user profile is associated with the provided identifier, the subscription state isn't updated.
+{% endalert %}
 
 !["User Update Object" that contains the previously stated JSON code.]({% image_buster /assets/img/sms/user_update_object.png %})
 

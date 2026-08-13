@@ -22,7 +22,7 @@ Eine vollständige Anleitung finden Sie im [Tutorial zu Datenschutz-Tracking-Dat
 
 ### Voraussetzungen {#prerequisites}
 
-Die folgende Braze SDK-Version ist erforderlich, um dieses Feature zu implementieren:
+Die folgende Braze-SDK-Version ist erforderlich, um dieses Feature zu implementieren:
 
 {% sdk_min_versions swift:9.0.0 %}
 
@@ -93,7 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endtab %}
 
 {% tab Dynamisches Beispiel %}
-Im folgenden Beispiel wird die Tracking-Liste automatisch aktualisiert, nachdem die Endnutzer:innen die [App Tracking Transparency (ATT)-Aufforderung](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:)) akzeptiert haben. Die Autorisierungsanfrage bei App-Aktivierung ist ein szenenspezifisches Ereignis, daher gehört dieser Code in die `sceneDidBecomeActive(_:)`-Methode Ihrer `SceneDelegate.swift`-Datei und nicht in `applicationDidBecomeActive(_:)` von `AppDelegate.swift` (erforderlich für Apps, die den [`UIScene`-Lebenszyklus](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) übernommen haben). Ihre Braze-Instanz bleibt über die statische Eigenschaft `AppDelegate.braze`, die in Schritt 1 konfiguriert wurde, aus `SceneDelegate` erreichbar.
+Im folgenden Beispiel wird die Tracking-Liste automatisch aktualisiert, nachdem die Endnutzer:innen die [App Tracking Transparency (ATT)-Aufforderung](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:)) akzeptiert haben. Die Autorisierungsanfrage bei App-Aktivierung ist ein szenenspezifisches Ereignis, daher gehört dieser Code in die Methode `sceneDidBecomeActive(_:)` Ihrer `SceneDelegate.swift`-Datei und nicht in `applicationDidBecomeActive(_:)` von `AppDelegate.swift` (erforderlich für Apps, die den [`UIScene`-Lebenszyklus](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle) übernommen haben). Ihre Braze-Instanz bleibt über die statische Eigenschaft `AppDelegate.braze`, die in Schritt 1 konfiguriert wurde, aus `SceneDelegate` erreichbar.
 
 ```swift
 func sceneDidBecomeActive(_ scene: UIScene) {
@@ -116,7 +116,7 @@ func sceneDidBecomeActive(_ scene: UIScene) {
 
 ### Schritt 5: Endlose Wiederholungsschleifen verhindern {#step-5-prevent-infinite-retry-loops}
 
-Um zu verhindern, dass das SDK in eine endlose Wiederholungsschleife gerät, verwenden Sie die Methode `set(adTrackingEnabled: enableAdTracking)` zur Handhabung von ATT-Berechtigungen. Die Eigenschaft `adTrackingEnabled` in Ihrer `SceneDelegate.swift`-Methode sollte ähnlich wie folgt behandelt werden:
+Um zu verhindern, dass das SDK in eine endlose Wiederholungsschleife gerät, verwenden Sie die Methode `set(adTrackingEnabled: enableAdTracking)`, um ATT-Berechtigungen zu verarbeiten. Die Eigenschaft `adTrackingEnabled` in Ihrer `SceneDelegate.swift`-Methode sollte ähnlich wie folgt behandelt werden:
 
 ```swift
 func sceneDidBecomeActive(_ scene: UIScene) {
@@ -129,9 +129,9 @@ func sceneDidBecomeActive(_ scene: UIScene) {
 }
 ```
 
-## Deaktivieren des Trackings von Daten {#disabling-data-tracking}
+## Deaktivieren des Daten-Trackings {#disabling-data-tracking}
 
-Um das Tracking von Daten im Swift SDK zu deaktivieren, setzen Sie die Eigenschaft [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled) auf Ihrer Braze-Instanz auf `false`. Wenn `enabled` auf `false` gesetzt ist, ignoriert das Braze SDK alle Aufrufe der öffentlichen API. Das SDK bricht außerdem alle laufenden Aktionen ab, wie z. B. Netzwerkanfragen, Ereignisverarbeitung usw.
+Um die Daten-Tracking-Aktivität im Swift SDK zu deaktivieren, setzen Sie die Eigenschaft [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled) auf `false` in Ihrer Braze-Instanz. Wenn `enabled` auf `false` gesetzt ist, ignoriert das Braze SDK alle Aufrufe der öffentlichen API. Das SDK bricht außerdem alle laufenden Aktionen ab, wie z. B. Netzwerkanfragen, Ereignisverarbeitung usw.
 
 ## Zuvor gespeicherte Daten löschen {#wiping-previously-stored-data}
 
@@ -141,9 +141,9 @@ Ab Braze Swift Version 7.0.0 generieren das SDK und die Methode `wipeData()` ein
 
 Wenn Sie die manuelle Push-Integration verwenden und Ihre App `wipeData()` aufruft und das SDK anschließend im selben App-Durchlauf wieder aktiviert, rufen Sie erneut `registerForRemoteNotifications()` auf, damit Braze ein aktualisiertes Geräte-Token erhalten kann. Weitere Informationen finden Sie unter [Push-Benachrichtigungen einrichten]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift).
 
-## Wiederaufnahme des Trackings von Daten {#resuming-data-tracking}
+## Datenerfassung fortsetzen {#resuming-data-tracking}
 
-Um die Datenerfassung wieder aufzunehmen, setzen Sie [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/) auf `true`. Beachten Sie, dass dadurch keine zuvor gelöschten Daten wiederhergestellt werden.
+Um die Datenerfassung fortzusetzen, setzen Sie [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/) auf `true`. Beachten Sie, dass dadurch keine zuvor gelöschten Daten wiederhergestellt werden.
 
 ## Abmelden und Push-Registrierung aufheben {#logout-and-unregister-push}
 
@@ -155,12 +155,12 @@ Wenn sich Nutzer:innen aus einer Anwendung abmelden, rufen Sie die `logout`-Meth
 
 - Hebt die Registrierung des Push-Tokens des Geräts und aller Push-to-Start-Tokens für Live Activities von den aktuellen Nutzer:innen auf dem Braze-Server auf.
 - Wenn der Aufruf zur Aufhebung der Registrierung erfolgreich ist, löscht das SDK lokal gespeicherte SDK-Daten und deaktiviert das SDK.
-- Bei einem Fehler wird ein Fehler und ein `isRetriable`-Flag ausgelöst, damit die Integration entsprechende Maßnahmen ergreifen kann.
+- Bei einem Fehler wird ein Fehler und ein `isRetriable`-Flag ausgelöst, damit die Integration entsprechend reagieren kann.
 
 {% subtabs local %}
 {% subtab Swift %}
 
-Das folgende Completion-Handler-Beispiel zeigt die Behandlung von `logout` bei Erfolg und Fehler. Verwenden Sie es für Callback-basierte Abläufe und ersetzen Sie das Logging durch die Wiederholungs- oder Re-Authentifizierungslogik Ihrer App.
+Das folgende Completion-Handler-Beispiel zeigt die Behandlung von Erfolg und Fehler bei `logout`. Verwenden Sie es für Callback-basierte Abläufe und ersetzen Sie das Logging durch Ihre eigene Wiederholungs- oder Re-Authentifizierungslogik.
 
 ```swift
 // Completion handler
@@ -203,6 +203,10 @@ Dieses Objective-C-Beispiel zeigt die Completion-basierte `logout`-Behandlung. V
 {% endsubtab %}
 {% endsubtabs local %}
 
+{% alert note %}
+`logout` beendet keine aktuell laufenden Live Activities. Beenden Sie im Erfolgs-Callback manuell alle laufenden Live Activities mit der [`end(_:dismissalPolicy:)`](https://developer.apple.com/documentation/activitykit/activity/end(_:dismissalpolicy:))-Methode von ActivityKit.
+{% endalert %}
+
 #### Tracking und Push nach `logout` wieder aktivieren {#re-enable-tracking-and-push-after-logout}
 
 Nach einem erfolgreichen `logout` setzen Sie [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/) wieder auf `true` und registrieren sich dann erneut für Benachrichtigungen bei Ihrem Betriebssystem oder Push-Anbieter, indem Sie der [Swift-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) folgen.
@@ -218,7 +222,7 @@ Um den Push-Versand an ein Gerät ohne zusätzliche automatische Bereinigung zu 
 {% subtabs local %}
 {% subtab Swift %}
 
-Das folgende Completion-Handler-Beispiel zeigt die Behandlung von `unregisterPush` bei Erfolg und Fehler. Verwenden Sie es für Callback-basierte Abläufe und ersetzen Sie das Logging durch Ihre eigene Wiederholungslogik.
+Das folgende Completion-Handler-Beispiel zeigt die Behandlung von Erfolg und Fehler bei `unregisterPush`. Verwenden Sie es für Callback-basierte Abläufe und ersetzen Sie das Logging durch Ihre eigene Wiederholungslogik.
 
 ```swift
 // Completion handler
@@ -271,11 +275,15 @@ Nach dem Aufruf von `unregisterPush` registrieren Sie sich erneut für Benachric
 
 Vermeiden Sie es, `logout` oder `unregisterPush` direkt nach der Registrierung für Push-Benachrichtigungen beim Betriebssystem oder Push-Anbieter aufzurufen. Aufgrund der asynchronen Serververarbeitung kann dies in seltenen Fällen dazu führen, dass das Push-Token erneut den Braze-Nutzer:innen hinzugefügt wird.
 
-### Push-to-Start-Tokens für Live Activities aufheben {#unregister-push-to-start}
+### Push-to-Start-Tokens für Live Activities abmelden {#unregister-push-to-start}
 
 Live Activities können remote über Push-to-Start-Tokens gestartet werden. Um zu verhindern, dass Braze Live Activities auf einem Gerät remote startet, rufen Sie die `unregisterPushToStart`-Methode auf, um alle aktuell registrierten Typen (Standard) oder eine bestimmte Liste von Activity-Typen abzumelden.
 
 Beachten Sie, dass aktuell laufende Live Activities weiterhin Updates erhalten und dass diese Methode nur die Möglichkeit entfernt, neue Activities remote zu starten. Weitere Informationen zu Live Activities finden Sie unter [Live Activities]({{site.baseurl}}/developer_guide/live_notifications/live_activities).
+
+#### Laufende Live Activities beenden {#end-any-running-live-activities}
+
+`unregisterPushToStart` beendet keine aktuell laufenden Live Activities. Beenden Sie im Erfolgs-Callback manuell alle laufenden Live Activities mit der [`end(_:dismissalPolicy:)`](https://developer.apple.com/documentation/activitykit/activity/end(_:dismissalpolicy:))-Methode von ActivityKit.
 
 {% alert note %}
 Vermeiden Sie es, `logout` oder `unregisterPushToStart` direkt nach dem Aufruf von `registerPushToStart` für eine Live Activity aufzurufen. Aufgrund der asynchronen Natur der Serververarbeitung kann dies in seltenen Fällen dazu führen, dass das Push-to-Start-Token erneut den Braze-Nutzer:innen hinzugefügt wird.
@@ -319,19 +327,19 @@ AppDelegate.braze?.liveActivities.unregisterPushToStart(types: ["ActivityType1",
 ```
 
 {% alert note %}
-`unregisterPushToStart` verfügt nicht über eine Objective-C-API, da Live Activities auf Swift-exklusive Typen angewiesen sind.
+`unregisterPushToStart` verfügt über keine Objective-C-API, da Live Activities auf Swift-exklusive Typen angewiesen sind.
 {% endalert %}
 
 ## IDFV-Erfassung {#idfv-collection}
 
-In früheren Versionen des Braze iOS SDK wurde das IDFV-Feld (Identifier for Vendors) automatisch als Geräte-ID der Nutzer:innen erfasst. Ab Swift SDK `v5.7.0` konnte das IDFV-Feld optional deaktiviert werden, und Braze setzte stattdessen eine zufällige UUID als Geräte-ID. Ab Swift SDK `v7.0.0` wird das IDFV-Feld standardmäßig nicht mehr erfasst, und stattdessen wird eine UUID als Geräte-ID gesetzt.
+In früheren Versionen des Braze iOS SDK wurde das IDFV-Feld (Identifier for Vendors) automatisch als Geräte-ID der Nutzer:innen erfasst. Ab Swift SDK `v5.7.0` konnte das IDFV-Feld optional deaktiviert werden, und Braze setzte stattdessen eine zufällige UUID als Geräte-ID. Ab Swift SDK `v7.0.0` wird das IDFV-Feld standardmäßig nicht mehr erfasst, und stattdessen wird eine UUID als Geräte-ID festgelegt.
 
-Das Feature `useUUIDAsDeviceId` konfiguriert das [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) so, dass die Geräte-ID als UUID gesetzt wird. Traditionell hat das iOS SDK die Geräte-ID auf den von Apple generierten IDFV-Wert gesetzt. Wenn dieses Feature in Ihrer iOS-App standardmäßig aktiviert ist, wird allen neuen Nutzer:innen, die über das SDK erstellt werden, eine UUID als Geräte-ID zugewiesen.
+Das Feature `useUUIDAsDeviceId` konfiguriert das [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) so, dass die Geräte-ID als UUID festgelegt wird. Traditionell hat das iOS SDK die Geräte-ID auf den von Apple generierten IDFV-Wert gesetzt. Wenn dieses Feature in Ihrer iOS-App standardmäßig aktiviert ist, wird allen neuen Nutzer:innen, die über das SDK erstellt werden, eine UUID als Geräte-ID zugewiesen.
 
 Wenn Sie den IDFV weiterhin separat erfassen möchten, können Sie [`set(identifierforvendor:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforvendor:)) verwenden.
 
 {% alert note %}
-Das Lesen von `braze.deviceId` blockiert den aufrufenden Thread, bis das SDK seine Operationen nach der Initialisierung abgeschlossen hat. Verwenden Sie für den Haupt-Thread oder latenzempfindliche Kontexte stattdessen die nicht-blockierenden Alternativen.
+Das Lesen von `braze.deviceId` blockiert den aufrufenden Thread, bis das SDK seine Operationen nach der Initialisierung abgeschlossen hat. Verwenden Sie für Main-Thread- oder latenzempfindliche Kontexte stattdessen die nicht-blockierenden Alternativen.
 
 {% subtabs local %}
 {% subtab Swift %}
@@ -360,7 +368,7 @@ let deviceId = await AppDelegate.braze?.getDeviceId()
 
 #### SDK-Version
 
-Wenn in Swift SDK `v7.0.0+` `useUUIDAsDeviceId` aktiviert ist (Standard), wird allen neuen Nutzer:innen eine zufällige Geräte-ID zugewiesen. Alle bereits vorhandenen Nutzer:innen behalten ihren bisherigen Geräte-ID-Wert bei, der möglicherweise der IDFV war.
+Ab Swift SDK `v7.0.0+` wird allen neuen Nutzer:innen eine zufällige Geräte-ID zugewiesen, wenn `useUUIDAsDeviceId` aktiviert ist (Standard). Alle bereits vorhandenen Nutzer:innen behalten ihren bisherigen Geräte-ID-Wert bei, der möglicherweise der IDFV war.
 
 Wenn dieses Feature nicht aktiviert ist, wird Geräten bei der Erstellung weiterhin der IDFV zugewiesen.
 

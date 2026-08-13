@@ -40,14 +40,11 @@ rake ja
 rake ko
 rake pt_br
 
-# Partner hub: Sanity fetch runs by default when `partner_api: true` in `_config.yml`.
-# Skip with: PARTNER_API=false rake
-
 # to render content in '{% markdown_embed %}' tags (e.g. Developer Guide changelogs):
 MARKDOWN_API=true rake
 ```
 > [!NOTE]
-> Prepending `MARKDOWN_API=true` to your rake command lets you preview content within a `{% markdown_embed %}` tag, such as the content on the [Developer Guide: Changelogs](https://www.braze.com/docs/developer_guide/changelogs/) page. Technology [Partners](https://www.braze.com/docs/partners/home/) hub tiles load from Sanity when `partner_api` is enabled in `_config.yml` (the default). Use `PARTNER_API=false` to skip that request.
+> Prepending `MARKDOWN_API=true` to your rake command lets you preview content within a `{% markdown_embed %}` tag, such as the content on the [Developer Guide: Changelogs](https://www.braze.com/docs/developer_guide/changelogs/) page.
 
 
 

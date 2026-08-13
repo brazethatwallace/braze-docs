@@ -1,18 +1,23 @@
 #!/usr/bin/env python3
 """
-Phase 2: open PRs by `doc_path` (`gh`, optional Jira).
+Phase 2: prepare Salesforce KB batches, then open PRs after polish (`gh`, optional Jira).
 
 Reads `kb_articles.csv` (read-only). Skips batches that fail the overlap scan (open/draft/merged
-PRs, ``article_id`` claims, ``develop`` content, remote ``sf-cursor-*`` branches). Appends full
-``suggested_change`` (strong draft, not shorthand) between HTML markers; commits `_docs/` /
-`_includes/` only.
+PRs, ``article_id`` claims, ``develop`` content, remote ``sf-cursor-*`` branches).
+
+**Default (`--prepare`):** requires reference-repo verification proof for `inconclusive`
+articles **before** bulk-inserting CSV draft text (use `--verify-only` to check first).
+
+**`--open-pr`:** validate polished docs (no phase-2 markers), push branch, open **draft** PR.
 
 Needs `gh`. Optional: `JIRA_USER_EMAIL`, `JIRA_API_TOKEN`.
 
 Usage:
-  python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py --dry-run
-  python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py --limit 5
-  python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py --doc-path '_docs/.../faq.md'
+  python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py --verify-only --doc-path '_docs/.../faq.md'
+  python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py --prepare --doc-path '_docs/.../faq.md' \\
+    --verification-file '.sf-kb-verification-faqs.md'
+  python3 scripts/salesforce-analyzer/sf_kb_phase2_run_batches.py --open-pr --doc-path '_docs/.../faq.md' \\
+    --verification-file '.sf-kb-verification-faqs.md'
   python3 scripts/salesforce-analyzer/sf_kb_overlap_scan.py
 """
 
@@ -29,34 +34,178 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 CSV_PATH = REPO_ROOT / "_data" / "kb_articles.csv"
-ASSIGNEES_PATH = REPO_ROOT / ".github" / "support_analyzer_doc_assignees.csv"
 REPO = "braze-inc/braze-docs"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from generate_kb_phase1_outputs import doc_path_branch_slug, product_vertical_hint  # noqa: E402
+from generate_kb_phase1_outputs import doc_path_branch_slug, infer_product_vertical_label  # noqa: E402
+from sf_kb_article_ids import article_id_column, article_id_from_row  # noqa: E402
+from sf_kb_assignees import assignees_for_doc_path  # noqa: E402
 from sf_kb_jira_ticket import (  # noqa: E402
     SUGGESTED_CHANGE_PREFIX_RE,
+    batch_has_reference_verify_rows,
     build_sf_kb_github_pr_body,
     create_bd6308_task_prep,
     format_sf_kb_pr_title,
+    format_verification_required_message,
+    pending_verification_titles,
     update_bd6308_task_pr_link,
 )
 from sf_kb_overlap_scan import OverlapScanner, format_scan_summary  # noqa: E402
+from sf_kb_reference_verify import (  # noqa: E402
+    format_reference_verify_report,
+    merge_verification_lines,
+    pull_reference_repo,
+    verify_batch_references,
+)
+from sf_kb_suggested_change import (  # noqa: E402
+    PHASE2_BATCH_END_MARKER,
+    PHASE2_BATCH_MARKER,
+    is_vague_suggested_change,
+    validate_ship_ready_markdown,
+)
 
 INTERNAL_TITLE_RE = re.compile(r"\*INTERNAL\*", re.I)
-MARKER = "<!-- sf-kb-phase2-batch -->"
-END_MARKER = "<!-- /sf-kb-phase2-batch -->"
+MARKER = PHASE2_BATCH_MARKER
+END_MARKER = PHASE2_BATCH_END_MARKER
 # Safety cap per backlog row (very large CSV cells are truncated at a paragraph boundary).
 MAX_SUGGESTED_CHARS_PER_ROW = 25_000
-VAGUE_STARTERS = (
-    "might ",
-    "may ",
-    "consider reviewing",
-    "review ",
-    "tbd",
-    "unclear",
-    "needs investigation",
+POLISH_INSTRUCTIONS = (
+    "Next: replace the marker block with ship-ready prose (headings, links, style guide), "
+    "then run --open-pr with the same --verification-file."
 )
+
+
+def read_verification_file(path: Path) -> list[str]:
+    lines: list[str] = []
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        stripped = raw.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        lines.append(stripped.lstrip("- ").strip())
+    return lines
+
+
+def default_verification_file_candidates(doc_path: str) -> list[Path]:
+    slug = doc_path_branch_slug(doc_path)
+    return [
+        REPO_ROOT / f".sf-kb-verification-{slug}.md",
+        REPO_ROOT / ".sf-kb-verification.md",
+    ]
+
+
+def load_verification_lines(
+    *,
+    inline: list[str],
+    verification_file: str | None,
+    doc_path: str | None = None,
+) -> list[str]:
+    lines = [item.strip() for item in inline if item.strip()]
+    if verification_file:
+        path = Path(verification_file)
+        if not path.is_file():
+            raise RuntimeError(f"Verification file not found: {verification_file}")
+        lines.extend(read_verification_file(path))
+        return lines
+    if doc_path:
+        for candidate in default_verification_file_candidates(doc_path):
+            if candidate.is_file():
+                lines.extend(read_verification_file(candidate))
+                break
+    return lines
+
+
+def write_verification_file(path: Path, lines: list[str]) -> None:
+    body = "\n".join(
+        [
+            "# Salesforce KB reference-repo verification (auto-generated)",
+            "",
+            *(f"- {line.lstrip('- ').strip()}" for line in lines if line.strip()),
+        ]
+    )
+    path.write_text(body + "\n", encoding="utf-8")
+
+
+def run_reference_verification(
+    doc_path: str,
+    actionable: list[dict[str, str]],
+    verification_lines: list[str],
+    *,
+    require_verification: bool,
+    pull_repos: bool,
+    write_verification: bool,
+    dry_run: bool,
+) -> tuple[list[str], bool]:
+    """
+    Resolve CSV ``codebase_evidence`` against sibling repos; merge auto bullets.
+
+    Returns ``(merged_verification_lines, ok_to_proceed)``.
+    """
+    if pull_repos and not dry_run:
+        pull_err = pull_reference_repo("platform")
+        if pull_err:
+            print(f"WARN {pull_err}", file=sys.stderr)
+
+    ref = verify_batch_references(
+        actionable,
+        require_inconclusive=require_verification,
+        verification_lines=verification_lines,
+    )
+    for line in format_reference_verify_report(ref):
+        if line.startswith("BLOCK"):
+            print(line, file=sys.stderr)
+        else:
+            print(line)
+
+    merged = merge_verification_lines(verification_lines, ref.auto_bullets)
+
+    if write_verification and merged and not dry_run:
+        out_path = default_verification_file_candidates(doc_path)[0]
+        if not out_path.is_file():
+            write_verification_file(out_path, merged)
+            print(f"Wrote {out_path.relative_to(REPO_ROOT)}")
+
+    if require_verification:
+        if ref.blocking_errors:
+            print(
+                f"SKIP {doc_path}: fix reference-repo verification before drafting content.",
+                file=sys.stderr,
+            )
+            return merged, False
+        if batch_has_reference_verify_rows(actionable):
+            pending = pending_verification_titles(actionable, verification_lines=merged)
+            if pending:
+                slug = doc_path_branch_slug(doc_path)
+                print(format_verification_required_message(doc_path, pending, slug=slug), file=sys.stderr)
+                print(
+                    f"SKIP {doc_path}: fix reference-repo verification before drafting content.",
+                    file=sys.stderr,
+                )
+                return merged, False
+    return merged, True
+
+
+def check_batch_verification(
+    doc_path: str,
+    actionable: list[dict[str, str]],
+    *,
+    verification_lines: list[str],
+    require_verification: bool,
+) -> bool:
+    """
+    Return True when the batch may proceed; print guidance and return False when blocked.
+    """
+    if not batch_has_reference_verify_rows(actionable):
+        return True
+    pending = pending_verification_titles(actionable, verification_lines=verification_lines)
+    if not pending:
+        return True
+    slug = doc_path_branch_slug(doc_path)
+    message = format_verification_required_message(doc_path, pending, slug=slug)
+    if require_verification:
+        print(f"SKIP {message}", file=sys.stderr)
+        return False
+    print(f"WARN {message}", file=sys.stderr)
+    return True
 
 
 def run(cmd: list[str], *, check: bool = True) -> subprocess.CompletedProcess[str]:
@@ -66,6 +215,11 @@ def run(cmd: list[str], *, check: bool = True) -> subprocess.CompletedProcess[st
             f"Command failed ({proc.returncode}): {' '.join(cmd)}\n{proc.stderr or proc.stdout}"
         )
     return proc
+
+
+def current_branch() -> str:
+    proc = run(["git", "branch", "--show-current"])
+    return (proc.stdout or "").strip()
 
 
 def assert_commit_docs_only() -> None:
@@ -79,26 +233,11 @@ def assert_commit_docs_only() -> None:
         )
 
 
-def load_csv_rows() -> list[dict[str, str]]:
+def load_csv_rows() -> tuple[list[dict[str, str]], str | None]:
     with CSV_PATH.open(encoding="utf-8", newline="") as f:
-        return list(csv.DictReader(f))
-
-
-def lookup_assignee(doc_path: str) -> str | None:
-    if not ASSIGNEES_PATH.is_file():
-        return None
-    best_len = -1
-    best_user: str | None = None
-    with ASSIGNEES_PATH.open(encoding="utf-8", newline="") as f:
-        for row in csv.DictReader(f):
-            page = (row.get("Page Path") or row.get("page path") or "").strip()
-            user = (row.get("GitHub Username") or row.get("github username") or "").strip()
-            if not page or not user or user.startswith("@"):
-                continue
-            if doc_path.startswith(page) and len(page) > best_len:
-                best_len = len(page)
-                best_user = user
-    return best_user
+        reader = csv.DictReader(f)
+        id_column = article_id_column(reader.fieldnames)
+        return list(reader), id_column
 
 
 def batch_theme(doc_path: str, rows: list[dict[str, str]]) -> str:
@@ -133,8 +272,7 @@ def is_actionable_row(row: dict[str, str]) -> bool:
     suggested = (row.get("suggested_change") or "").strip()
     if not suggested:
         return False
-    first = suggested.split("\n", 1)[0].strip().lower()
-    if any(first.startswith(v) for v in VAGUE_STARTERS):
+    if is_vague_suggested_change(suggested):
         return False
     cr = (row.get("conflict_resolution") or "").lower()
     if "human review" in cr or "no source" in cr:
@@ -201,11 +339,11 @@ def apply_doc_edit(doc_path: str, rows: list[dict[str, str]]) -> bool:
     return True
 
 
-def process_batch(
+def batch_context(
     doc_path: str,
     rows: list[dict[str, str]],
     *,
-    dry_run: bool,
+    id_column: str | None,
     scanner: OverlapScanner,
     ignore_warnings: bool,
 ) -> dict | None:
@@ -215,7 +353,8 @@ def process_batch(
         print(f"SKIP {doc_path}: no actionable rows ({len(skipped_internal)} skipped)", file=sys.stderr)
         return None
 
-    article_ids = [r["article_id"].strip() for r in actionable]
+    article_ids = [article_id_from_row(r, id_column=id_column) for r in actionable]
+    article_ids = [aid for aid in article_ids if aid]
     overlap = scanner.check_batch(doc_path, article_ids)
     if should_skip_for_overlap(overlap, ignore_warnings=ignore_warnings):
         print_overlap_skip(doc_path, overlap)
@@ -228,21 +367,97 @@ def process_batch(
     theme = batch_theme(doc_path, actionable)
     ymd = datetime.now(timezone.utc).strftime("%Y%m%d")
     branch = f"sf-cursor-{doc_path_branch_slug(doc_path)}-{ymd}"
-    assignee = lookup_assignee(doc_path)
+    doc_assignees = assignees_for_doc_path(doc_path)
 
     articles = [
-        (r["article_id"].strip(), (r.get("title") or "").strip())
+        (article_id_from_row(r, id_column=id_column), (r.get("title") or "").strip())
         for r in actionable
+        if article_id_from_row(r, id_column=id_column)
     ]
 
+    skipped = [
+        (
+            article_id_from_row(r, id_column=id_column),
+            r.get("title", "").strip(),
+            "INTERNAL or non-actionable",
+        )
+        for r in skipped_internal
+        if article_id_from_row(r, id_column=id_column)
+    ]
+
+    return {
+        "doc_path": doc_path,
+        "actionable": actionable,
+        "articles": articles,
+        "branch": branch,
+        "theme": theme,
+        "assignees": doc_assignees,
+        "skipped": skipped,
+    }
+
+
+def prepare_batch(
+    doc_path: str,
+    rows: list[dict[str, str]],
+    *,
+    id_column: str | None,
+    dry_run: bool,
+    scanner: OverlapScanner,
+    ignore_warnings: bool,
+    verification_lines: list[str],
+    require_verification: bool,
+    pull_repos: bool,
+    write_verification: bool,
+) -> dict | None:
+    ctx = batch_context(
+        doc_path,
+        rows,
+        id_column=id_column,
+        scanner=scanner,
+        ignore_warnings=ignore_warnings,
+    )
+    if not ctx:
+        return None
+
+    verification_lines, ref_ok = run_reference_verification(
+        doc_path,
+        ctx["actionable"],
+        verification_lines,
+        require_verification=require_verification,
+        pull_repos=pull_repos,
+        write_verification=write_verification,
+        dry_run=dry_run,
+    )
+    if not ref_ok:
+        return None
+
+    if not check_batch_verification(
+        doc_path,
+        ctx["actionable"],
+        verification_lines=verification_lines,
+        require_verification=require_verification,
+    ):
+        return None
+
     if dry_run:
-        print(f"DRY-RUN {doc_path}: {len(actionable)} articles → branch {branch}")
-        return {"doc_path": doc_path, "mode": "dry_run", "branch": branch, "articles": articles}
+        pending = pending_verification_titles(
+            ctx["actionable"], verification_lines=verification_lines
+        )
+        verify_note = (
+            f", {len(pending)} article(s) still need verification proof"
+            if pending
+            else ", verification proof OK"
+        )
+        print(
+            f"DRY-RUN {doc_path}: {len(ctx['actionable'])} articles → branch {ctx['branch']} "
+            f"(prepare{verify_note})"
+        )
+        return {"doc_path": doc_path, "mode": "dry_run", "branch": ctx["branch"], "articles": ctx["articles"]}
 
     run(["git", "fetch", "origin", "develop"])
-    run(["git", "checkout", "origin/develop", "-B", branch])
+    run(["git", "checkout", "origin/develop", "-B", ctx["branch"]])
 
-    if not apply_doc_edit(doc_path, actionable):
+    if not apply_doc_edit(doc_path, ctx["actionable"]):
         print(f"SKIP {doc_path}: no edit applied", file=sys.stderr)
         run(["git", "checkout", "develop"], check=False)
         return None
@@ -253,45 +468,147 @@ def process_batch(
             "git",
             "commit",
             "-m",
-            f"SF KB: {theme}\n\nSalesforce Knowledge batch for `{doc_path}`.",
+            f"SF KB (prepare): {ctx['theme']}\n\n"
+            f"Bulk insert for `{doc_path}`. Polish before opening PR.",
         ]
     )
     assert_commit_docs_only()
+
+    print(f"PREPARED {doc_path} on {ctx['branch']}")
+    print(f"  {POLISH_INSTRUCTIONS}")
+    return {
+        "doc_path": doc_path,
+        "mode": "prepared",
+        "branch": ctx["branch"],
+    }
+
+
+def assert_ship_ready_doc(doc_path: str) -> None:
+    full = REPO_ROOT / doc_path
+    if not full.is_file():
+        raise RuntimeError(f"Missing doc file: {doc_path}")
+    errors = validate_ship_ready_markdown(full.read_text(encoding="utf-8"))
+    if errors:
+        raise RuntimeError(
+            f"{doc_path} is not ship-ready for a public PR: " + "; ".join(errors)
+        )
+
+
+def publish_batch(
+    doc_path: str,
+    rows: list[dict[str, str]],
+    *,
+    id_column: str | None,
+    dry_run: bool,
+    scanner: OverlapScanner,
+    ignore_warnings: bool,
+    verification_lines: list[str],
+    require_verification: bool,
+    pull_repos: bool,
+    write_verification: bool,
+) -> dict | None:
+    ctx = batch_context(
+        doc_path,
+        rows,
+        id_column=id_column,
+        scanner=scanner,
+        ignore_warnings=ignore_warnings,
+    )
+    if not ctx:
+        return None
+
+    verification_lines, ref_ok = run_reference_verification(
+        doc_path,
+        ctx["actionable"],
+        verification_lines,
+        require_verification=require_verification,
+        pull_repos=pull_repos,
+        write_verification=write_verification,
+        dry_run=dry_run,
+    )
+    if not ref_ok:
+        return None
+
+    if not check_batch_verification(
+        doc_path,
+        ctx["actionable"],
+        verification_lines=verification_lines,
+        require_verification=require_verification,
+    ):
+        return None
+
+    branch = current_branch()
+    if not branch.startswith("sf-cursor-"):
+        print(
+            f"SKIP {doc_path}: checkout the prepared sf-cursor-* branch before --open-pr "
+            f"(current: {branch or 'detached'})",
+            file=sys.stderr,
+        )
+        return None
+
+    try:
+        assert_ship_ready_doc(doc_path)
+    except RuntimeError as exc:
+        print(f"SKIP {doc_path}: {exc}", file=sys.stderr)
+        print(f"  {POLISH_INSTRUCTIONS}", file=sys.stderr)
+        return None
+
+    pending = pending_verification_titles(ctx["actionable"], verification_lines=verification_lines)
+    if pending and not require_verification:
+        print(
+            f"WARN {doc_path}: opening PR with incomplete verification for: "
+            + "; ".join(pending),
+            file=sys.stderr,
+        )
+
+    if dry_run:
+        print(f"DRY-RUN {doc_path}: ship-ready on {branch} → would open PR")
+        return {"doc_path": doc_path, "mode": "dry_run", "branch": branch, "articles": ctx["articles"]}
+
+    proc = run(["git", "status", "--porcelain", doc_path], check=True)
+    if proc.stdout.strip():
+        run(["git", "add", doc_path])
+        run(
+            [
+                "git",
+                "commit",
+                "-m",
+                f"SF KB: {ctx['theme']}\n\n"
+                f"Ship-ready Salesforce Knowledge batch for `{doc_path}`.",
+            ]
+        )
+        assert_commit_docs_only()
+
     run(["git", "push", "-u", "origin", branch, "--force-with-lease"])
 
     issue_key: str | None = None
-    pr_title = f"[SF KB] {theme}"
+    pr_title = f"[SF KB] {ctx['theme']}"
     try:
         issue_key = create_bd6308_task_prep(
-            ticket_name=theme,
-            articles=articles,
+            ticket_name=ctx["theme"],
+            articles=ctx["articles"],
             doc_path=doc_path,
-            product_vertical=product_vertical_hint(doc_path),
+            product_vertical=infer_product_vertical_label(doc_path),
+            assignee_account_id=ctx["assignees"].jira_account_id,
         )
-        pr_title = format_sf_kb_pr_title(issue_key, theme)
+        pr_title = format_sf_kb_pr_title(issue_key, ctx["theme"])
     except Exception as exc:  # noqa: BLE001
         print(f"WARN Jira prep failed for {doc_path}: {exc}", file=sys.stderr)
 
-    skipped = [
-        (
-            r["article_id"].strip(),
-            r.get("title", "").strip(),
-            "INTERNAL or non-actionable",
-        )
-        for r in skipped_internal
-    ]
     body = build_sf_kb_github_pr_body(
         doc_path=doc_path,
-        product_vertical=product_vertical_hint(doc_path),
-        articles=articles,
-        backlog_rows=actionable,
-        skipped=skipped or None,
+        product_vertical=infer_product_vertical_label(doc_path),
+        articles=ctx["articles"],
+        backlog_rows=ctx["actionable"],
+        skipped=ctx["skipped"] or None,
+        verification_lines=verification_lines or None,
     )
 
     pr_cmd = [
         "gh",
         "pr",
         "create",
+        "--draft",
         "--repo",
         REPO,
         "--base",
@@ -305,8 +622,8 @@ def process_batch(
         "--label",
         "salesforce migration",
     ]
-    if assignee:
-        pr_cmd.extend(["--assignee", assignee])
+    if ctx["assignees"].github_username:
+        pr_cmd.extend(["--assignee", ctx["assignees"].github_username])
     pr_proc = run(pr_cmd)
     pr_url = (pr_proc.stdout or "").strip().splitlines()[-1]
 
@@ -316,8 +633,9 @@ def process_batch(
                 issue_key,
                 pr_url=pr_url,
                 pr_title=pr_title,
-                articles=articles,
+                articles=ctx["articles"],
                 doc_path=doc_path,
+                assignee_account_id=ctx["assignees"].jira_account_id,
             )
         except Exception as exc:  # noqa: BLE001
             print(f"WARN Jira link update failed: {exc}", file=sys.stderr)
@@ -331,6 +649,61 @@ def process_batch(
     }
 
 
+def verify_batch(
+    doc_path: str,
+    rows: list[dict[str, str]],
+    *,
+    verification_lines: list[str],
+    require_verification: bool,
+    pull_repos: bool,
+    write_verification: bool,
+    dry_run: bool,
+) -> str:
+    """
+    Print reference-repo verification status for a batch.
+
+    Returns ``ok``, ``skip`` (no actionable rows), or ``fail`` (proof incomplete).
+    Does not run overlap scan — verify-only checks proof, not batch eligibility.
+    """
+    actionable = [r for r in rows if is_actionable_row(r)]
+    skipped_count = len(rows) - len(actionable)
+    if not actionable:
+        print(
+            f"SKIP {doc_path}: no actionable rows ({skipped_count} skipped) — "
+            "reference-repo verification not applicable.",
+            file=sys.stderr,
+        )
+        return "skip"
+
+    verification_lines, ref_ok = run_reference_verification(
+        doc_path,
+        actionable,
+        verification_lines,
+        require_verification=require_verification,
+        pull_repos=pull_repos,
+        write_verification=write_verification,
+        dry_run=dry_run,
+    )
+    if not ref_ok:
+        return "fail"
+
+    if not batch_has_reference_verify_rows(actionable):
+        print(f"OK {doc_path}: no `inconclusive` articles — reference-repo proof not required before prepare.")
+        return "ok"
+
+    pending = pending_verification_titles(actionable, verification_lines=verification_lines)
+    slug = doc_path_branch_slug(doc_path)
+    if not pending:
+        print(f"OK {doc_path}: reference-repo verification proof recorded for all inconclusive articles.")
+        return "ok"
+
+    print(format_verification_required_message(doc_path, pending, slug=slug), file=sys.stderr)
+    if require_verification:
+        return "fail"
+    print(f"WARN {doc_path}: proceeding with --allow-incomplete-verification.", file=sys.stderr)
+    return "ok"
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dry-run", action="store_true")
@@ -339,11 +712,58 @@ def main() -> None:
     parser.add_argument(
         "--ignore-warnings",
         action="store_true",
-        help="Open PRs even when overlap scan reports non-blocking warnings",
+        help="Proceed even when overlap scan reports non-blocking warnings",
+    )
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument(
+        "--verify-only",
+        action="store_true",
+        help="Check reference-repo verification proof before prepare (requires --doc-path)",
+    )
+    mode.add_argument(
+        "--prepare",
+        action="store_true",
+        help="Create branch and bulk-insert markers locally (default when other modes omitted)",
+    )
+    mode.add_argument(
+        "--open-pr",
+        action="store_true",
+        help="Push ship-ready branch and open PR (requires polished prose; use with --doc-path)",
+    )
+    parser.add_argument(
+        "--verification",
+        action="append",
+        default=[],
+        metavar="LINE",
+        help="Verification proof bullet (repeatable). Example: "
+        "'Verified delayed-send alerts in `platform/.../rate_limit_mailer.rb`'",
+    )
+    parser.add_argument(
+        "--verification-file",
+        help="Markdown file with one verification bullet per line (lines starting with # ignored)",
+    )
+    parser.add_argument(
+        "--allow-incomplete-verification",
+        action="store_true",
+        help="Allow --prepare/--open-pr when inconclusive articles lack explicit verification proof "
+        "(draft will list incomplete checklist items)",
+    )
+    parser.add_argument(
+        "--pull-reference-repos",
+        action="store_true",
+        help="Run `git pull --ff-only` in ../platform before reference verification",
+    )
+    parser.add_argument(
+        "--write-verification",
+        action="store_true",
+        help="Write `.sf-kb-verification-<slug>.md` when auto-generated bullets are produced",
     )
     args = parser.parse_args()
+    verify_only = args.verify_only
+    open_pr = args.open_pr
+    require_verification = not args.allow_incomplete_verification
 
-    csv_rows = load_csv_rows()
+    csv_rows, id_column = load_csv_rows()
 
     pending: dict[str, list[dict[str, str]]] = defaultdict(list)
     for row in csv_rows:
@@ -362,7 +782,11 @@ def main() -> None:
                 [
                     (
                         doc_path,
-                        [r["article_id"].strip() for r in rows if is_actionable_row(r)],
+                        [
+                            article_id_from_row(r, id_column=id_column)
+                            for r in rows
+                            if is_actionable_row(r) and article_id_from_row(r, id_column=id_column)
+                        ],
                     )
                     for doc_path, rows in pending.items()
                 ]
@@ -371,26 +795,83 @@ def main() -> None:
     else:
         print(f"WARN overlap scan unavailable: {scanner.error}", file=sys.stderr)
 
+    if (verify_only or open_pr) and not args.doc_path:
+        parser.error("--verify-only and --open-pr require at least one --doc-path")
+
     batches = sorted(pending.items(), key=lambda kv: -len(kv[1]))
-    opened = 0
+    completed = 0
+    if verify_only:
+        result_label = "batch(es) verified"
+    elif open_pr:
+        result_label = "draft PR(s) opened"
+    else:
+        result_label = "batch(es) prepared"
+    blocked = 0
 
     for doc_path, rows in batches:
-        if args.limit and opened >= args.limit:
+        if args.limit and completed >= args.limit:
             break
-        result = process_batch(
-            doc_path,
-            rows,
-            dry_run=args.dry_run,
-            scanner=scanner,
-            ignore_warnings=args.ignore_warnings,
-        )
+        try:
+            verification_lines = load_verification_lines(
+                inline=args.verification,
+                verification_file=args.verification_file,
+                doc_path=doc_path,
+            )
+        except RuntimeError as exc:
+            parser.error(str(exc))
+
+        if verify_only:
+            outcome = verify_batch(
+                doc_path,
+                rows,
+                verification_lines=verification_lines,
+                require_verification=require_verification,
+                pull_repos=args.pull_reference_repos,
+                write_verification=args.write_verification,
+                dry_run=args.dry_run,
+            )
+            if outcome == "ok":
+                completed += 1
+            elif outcome == "fail":
+                blocked += 1
+            continue
+        if open_pr:
+            result = publish_batch(
+                doc_path,
+                rows,
+                id_column=id_column,
+                dry_run=args.dry_run,
+                scanner=scanner,
+                ignore_warnings=args.ignore_warnings,
+                verification_lines=verification_lines,
+                require_verification=require_verification,
+                pull_repos=args.pull_reference_repos,
+                write_verification=args.write_verification,
+            )
+        else:
+            result = prepare_batch(
+                doc_path,
+                rows,
+                id_column=id_column,
+                dry_run=args.dry_run,
+                scanner=scanner,
+                ignore_warnings=args.ignore_warnings,
+                verification_lines=verification_lines,
+                require_verification=require_verification,
+                pull_repos=args.pull_reference_repos,
+                write_verification=args.write_verification,
+            )
         if not result:
             continue
-        if result.get("mode") == "opened":
-            opened += 1
-            print(f"OK {doc_path} → {result.get('pr_url')} ({result.get('jira')})")
+        if result.get("mode") in {"opened", "prepared"}:
+            completed += 1
+            if result.get("mode") == "opened":
+                print(f"OK {doc_path} → {result.get('pr_url')} ({result.get('jira')})")
 
-    print(f"Done. {opened} PR(s) opened.")
+    if verify_only and blocked:
+        print(f"Done. {completed} {result_label}; {blocked} blocked (add verification proof first).", file=sys.stderr)
+        sys.exit(1)
+    print(f"Done. {completed} {result_label}.")
 
 
 if __name__ == "__main__":

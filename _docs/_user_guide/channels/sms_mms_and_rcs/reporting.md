@@ -20,6 +20,10 @@ channel:
 
 {% multi_lang_include analytics/campaign_analytics.md channel="SMS" %}
 
+{% alert note %}
+Dashboard click metrics such as **Total Clicks** exclude suspected bot activity. For affected metrics, segmentation, orchestration, and Currents reconciliation fields (`is_suspected_bot_click`, `suspected_bot_click_reason`), see [Bot click filtering for SMS/RCS links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering).
+{% endalert %}
+
 ## Track SMS opt-ins and opt-outs
 
 You can track SMS opt-ins and opt-outs with the following methods:
@@ -72,8 +76,12 @@ This table reflects Braze billing, not your provider's billing. Outcomes that ar
 | Delivery Failed | The SMS payload couldn't be sent to the SMS provider. This can occur due to overflowing queues, suspended accounts, or media errors (in the case of MMS). | No charge |
 | Delivered | The SMS provider received confirmation of message delivery from the upstream carrier (and, where available, from the destination device). | Charge |
 | Rejected | The SMS provider received a rejected receipt indicating that the message wasn't delivered. This can happen for several reasons, including carrier content filtering or availability of the destination device. | Charge |
-| Sent to Carrier | {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %} | Charges may apply based on individual message sending outcomes |
+| **Sends to Carrier** | {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %} Deprecated for new dashboards. Some dashboards may still label this metric as **Sent to Carrier**. | Charges may apply based on individual message sending outcomes |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Charges applied to SMS sending outcomes" }
+
+{% alert note %}
+**Sends to Carrier** is deprecated for new dashboards. Use **Sent**, **Confirmed Delivery**, **Delivery Failed**, and **Rejections** for current reporting. See the [Report Metrics Glossary]({{site.baseurl}}/user_guide/data/report_metrics/) for definitions.
+{% endalert %}
 
 ## Reconcile *Rejections* with Snowflake or Currents
 

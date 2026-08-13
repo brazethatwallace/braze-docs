@@ -24,7 +24,7 @@ Em geral, seu e-mail não funcionará com o Inbox Vision se o conteúdo do e-mai
 
 Você pode resolver isso adicionando valores padrão ou quaisquer valores ao Liquid no seu e-mail antes de executar o Inbox Vision. Quando você terminar os testes no Inbox Vision, a mensagem de e-mail original será exibida. Se nenhum valor for fornecido, o teste pode falhar ao renderizar as prévias.
 
-Sua empresa tem um limite de quantos e-mails você pode visualizar com o Inbox Vision. Você pode monitorar isso na guia **Prévias de e-mail** do Inbox Vision.
+Sua empresa tem um limite de quantos e-mails você pode visualizar com o Inbox Vision. Você pode monitorar isso na guia **Email Previews** do Inbox Vision.
 
 Inclua uma linha de assunto e um domínio de envio válido para visualizar as prévias. Fique atento às diferenças de renderização entre desktop e dispositivos móveis. Use as prévias para confirmar que o e-mail aparece conforme o esperado.
 
@@ -34,19 +34,19 @@ Se a prévia de uma Campaign mostrar um erro de permissão, limpe o cache e os c
 
 Para testar sua mensagem de e-mail no Inbox Vision:
 
-1. Acesse o editor de arrastar e soltar ou o editor de e-mail HTML.
-2. No editor, selecione **Prévia e teste**.
+1. Acesse o editor de arrastar e soltar ou o editor de HTML de e-mail.
+2. No editor, selecione **Preview & Test**.
 3. Selecione **Inbox Vision**.
-4. Selecione **Executar Inbox Vision**. Isso leva até dez minutos.
-5. Em seguida, selecione um bloco para visualizar a prévia em mais detalhes. Essas prévias são agrupadas nestas seções: **Clientes web**, **Clientes de aplicativo** e **Clientes móveis**.
+4. Selecione **Run Inbox Vision**. Isso leva até dez minutos.
+5. Em seguida, selecione um bloco para visualizar a prévia em mais detalhes. Essas prévias são agrupadas nestas seções: **Web Clients**, **Application Clients** e **Mobile Clients**.
 
 ![A opção de selecionar clientes de e-mail para prévia.]({% image_buster /assets/img/select_email_preview_inbox_vision.png %}){: style="max-width:85%;"}
 
 {:start="5"}
-5. Selecione **Executar Inbox Vision**. Isso pode levar de dois a dez minutos para ser concluído.
+5. Selecione **Run Inbox Vision**. Isso pode levar de dois a dez minutos para ser concluído.
 
 {% alert note %}
-O Inbox Vision não oferece suporte a mensagens de e-mail que incluem [lógica de interrupção]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) porque esses e-mails são renderizados como conteúdo estático.
+O Inbox Vision não oferece suporte a mensagens de e-mail que incluam [lógica de interrupção]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages), pois esses e-mails são renderizados como conteúdo estático.
 {% endalert %}
 
 ### Visualizando como um usuário {#previewing-as-a-user}
@@ -59,7 +59,7 @@ A análise de código destaca possíveis problemas de HTML, mostra o número de 
 
 ### Visualizando informações da análise de código {#viewing-code-analysis-information}
 
-Encontre essas informações na guia **Inbox Vision** selecionando <i class="fas fa-list"></i> **List view**. A visualização em lista está disponível apenas para modelos de e-mail HTML. Para modelos de arrastar e soltar, use as prévias para resolver problemas.
+Encontre essas informações na guia **Inbox Vision** selecionando <i class="fas fa-list"></i> **List view**. A visualização em lista está disponível apenas para modelos de e-mail em HTML. Para modelos de arrastar e soltar, use as prévias para resolver problemas.
 
 ![Exemplo de análise de código na prévia do Inbox Vision.]({% image_buster /assets/img_archive/inboxvision2.png %})
 
@@ -77,12 +77,12 @@ O posicionamento na caixa de entrada é determinado principalmente pelo engajame
 
 Para uma leitura mais clara sobre entregabilidade, teste o conteúdo com pequenas coortes ativas — aberturas e cliques consistentes são o sinal mais confiável. Use os testes de SPAM como um dado adicional junto ao monitoramento de engajamento.
 
-### Visualização dos resultados do teste de SPAM {#viewing-spam-test-results}
+### Visualizando os resultados do teste de SPAM {#viewing-spam-test-results}
 
 Para verificar os resultados do teste de SPAM:
 
 1. Selecione a guia **Spam Testing** na seção **Inbox Vision**. A tabela **Spam Test Result** lista o nome do filtro de SPAM, o status e o tipo.
-2. Revise esses resultados e faça os ajustes necessários na sua campanha de e-mail.
+2. Revise esses resultados e faça os ajustes necessários na sua Campaign de e-mail.
 3. Selecione **Re-run Test** para recarregar os resultados do teste de SPAM.
 
 ## Testes de acessibilidade {#accessibility-testing}
@@ -99,7 +99,7 @@ Os Testes de Acessibilidade podem ser usados para apoiar os esforços de conform
 
 ### Visualizando os resultados dos testes de acessibilidade {#viewing-accessibility-testing-results}
 
-Os testes de acessibilidade geram resultados para cada regra como aprovado, reprovado ou necessita de revisão na guia **Accessibility Testing**. A Braze categoriza cada regra usando POUR (Perceivable, Operable, Understandable, Robust), os quatro princípios por trás das WCAG.
+Os testes de acessibilidade geram resultados para cada regra como aprovado, reprovado ou necessita de revisão na guia **Accessibility Testing**. A Braze categoriza cada regra usando POUR (Perceivable, Operable, Understandable, Robust), os quatro princípios por trás do WCAG.
 
 #### Categorias POUR {#pour-categories}
 
@@ -124,18 +124,18 @@ O Inbox Vision classifica os problemas de acessibilidade por gravidade para ajud
 | Moderado | Problemas que podem causar alguma dificuldade para usuários com deficiência, mas são menos propensos a bloquear o acesso completamente. |
 | Menor | Problemas que têm um impacto relativamente baixo na acessibilidade e podem causar apenas pequenos inconvenientes. |
 | Necessita de revisão | Não foi possível detectar se pode haver um problema ou não. Isso pode ocorrer quando não é possível determinar a taxa de contraste porque o texto está posicionado sobre uma imagem de fundo. Você deve revisar manualmente, pois não é possível determinar automaticamente. |
-| Aprovado | Aprovado nas regras WCAG A, AA ou nas melhores práticas de acessibilidade. |
+| Aprovado | Aprovado nas regras WCAG A, AA ou nas boas práticas de acessibilidade. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Níveis de gravidade" }
 
 {% alert important %}
-O editor de arrastar e soltar não oferece suporte à definição de um elemento `<title>` do documento, então o scanner de acessibilidade sempre reprova nessa verificação.<br><br>Essa limitação está sendo acompanhada para melhorias futuras. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="the drag-and-drop editor document title limitation in Inbox Vision" %}
+O editor de arrastar e soltar não oferece suporte à definição de um elemento `<title>` do documento, então o scanner de acessibilidade sempre reprova nessa verificação.<br><br>Essa limitação está registrada para melhorias futuras. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="the drag-and-drop editor document title limitation in Inbox Vision" %}
 {% endalert %}
 
 ### Entendendo os testes automatizados de acessibilidade {#understanding-automated-accessibility-testing}
 
 {% multi_lang_include accessibility/automated_testing.md %}
 
-## Práticas recomendadas {#best-practices}
+## Boas práticas {#best-practices}
 
 ### Revise sua lista de assinantes de e-mail {#review-your-email-subscriber-list}
 
@@ -151,7 +151,7 @@ Ao fazer correções que afetam prévias específicas, selecione apenas as prév
 
 ### Execute o Inbox Vision na versão final do e-mail {#run-inbox-vision-on-the-final-email-version}
 
-Sugerimos executar o Inbox Vision quando a mensagem de e-mail estiver pronta para produção ou próxima disso. Isso permite reduzir o número de prévias geradas, já que o e-mail passa por múltiplas iterações antes de ser finalizado e estar pronto para ser enviado aos usuários.
+Sugerimos executar o Inbox Vision quando a mensagem de e-mail estiver pronta para produção ou próxima disso. Isso permite reduzir o número de prévias geradas, já que o e-mail passa por várias iterações antes de ser finalizado e estar pronto para ser enviado aos usuários.
 
 Executar o Inbox Vision toda vez que você faz uma única edição ou alteração pode consumir prévias rapidamente. Sugerimos fazer todas as alterações necessárias no e-mail primeiro e depois executar o Inbox Vision para visualizar como todas as suas alterações podem afetar a renderização do seu e-mail em diferentes ambientes.
 
@@ -161,4 +161,14 @@ Se você identificar consistentemente um problema com um cliente, abra um [ticke
 
 ### Precisão dos testes versus caixas de entrada reais {#test-accuracy-versus-live-inboxes}
 
-Uma mensagem enviada pode parecer diferente da prévia no editor porque os provedores interpretam o mesmo HTML de maneiras diferentes. Baixe uma cópia do HTML enviado para comparar e use CSS inline nos casos em que os clientes removem blocos `<style>`.
+Uma mensagem enviada pode parecer diferente da prévia do editor porque os provedores interpretam o mesmo HTML de maneiras diferentes. Baixe uma cópia do HTML enviado para comparar e use CSS inline onde os clientes removem blocos `<style>`.
+
+#### Corpos de e-mail em branco {#blank-email-bodies}
+
+Se os destinatários relatarem corpos de e-mail em branco, mas ainda conseguirem ver o nome do remetente ou a linha de assunto:
+
+1. Confirme quais clientes de e-mail são afetados.
+2. Use o Inbox Vision para testar a variante nesses clientes e identificar problemas de compatibilidade de HTML ou CSS.
+3. Se um cliente remover blocos `<style>`, adicione atributos `style` aos elementos HTML afetados. Para mais informações sobre o comportamento de inlining e suas limitações, consulte [CSS inline]({{site.baseurl}}/user_guide/channels/email/html_editor/css_inline). No Gmail, excesso de CSS pode fazer com que todo o bloco `<style>` seja descartado, o que é uma causa comum de corpos de e-mail em branco.
+4. No editor de HTML, você também pode ativar **Enable inline CSS** em **Sending Info** > **Advanced** para aplicar inline nas regras de folha de estilo para toda a mensagem. Essa opção não está disponível para e-mails de arrastar e soltar, que já são inlined pelo editor.
+5. Teste novamente no Inbox Vision antes de enviar futuras campanhas.

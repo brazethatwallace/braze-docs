@@ -215,6 +215,14 @@ Si les liens utilisent Liquid pour des URL dynamiques, les URL cliquées peuvent
 
 ![Exemple de la page Aperçu et carte thermique qui inclut une campagne e-mail et un panneau avec des exemples d'alias de liens et leur nombre total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
+##### Liens visibles uniquement sur mobile dans la carte thermique {#mobile-only-links-in-the-heatmap}
+
+La carte thermique n'affiche les signatures thermiques que pour les liens visibles à la taille d'aperçu sélectionnée.
+
+Les liens qui n'apparaissent que dans la mise en page mobile sont masqués en mode **Desktop** (et peuvent être masqués en mode **Overall**, selon la largeur de l'aperçu), de sorte que ces clics ne s'affichent pas comme signatures thermiques. Ces liens apparaissent néanmoins dans le panneau **Link Table by Total Clicks** avec leur nombre total de clics et leurs pourcentages.
+
+Pour afficher les signatures thermiques des liens visibles uniquement sur mobile, sélectionnez **Mobile**. L'aperçu mobile correspond au point de rupture mobile de l'éditeur par glisser-déposer (620&nbsp;px). Si l'e-mail change de mise en page uniquement à une largeur plus étroite, ces liens restent masqués même dans la taille d'aperçu **Mobile**.
+
 #### Images
 
 Nous vous recommandons d'activer CORS pour vos URL d'images afin d'éviter que les images ne soient cassées dans les aperçus et les exportations de cartes thermiques.

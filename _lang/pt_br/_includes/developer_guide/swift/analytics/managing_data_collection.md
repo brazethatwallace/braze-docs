@@ -14,7 +14,7 @@ Um manifesto de privacidade é um arquivo em seu projeto Xcode que descreve o mo
 
 A partir do iOS 17.2, a Apple bloqueará todos os endpoints de rastreamento declarados em seu app até que o usuário final aceite um [aviso de Transparência de Rastreamento de Anúncios (ATT)](https://support.apple.com/en-us/HT212025). A Braze fornece endpoints de rastreamento para encaminhar seus dados de rastreamento e, ao mesmo tempo, permite que você encaminhe dados primários que não sejam de rastreamento para o endpoint original.
 
-## Declarando dados de rastreamento da Braze {#declaring-braze-tracking-data}
+## Declarar dados de rastreamento da Braze {#declaring-braze-tracking-data}
 
 {% alert tip %}
 Para um passo a passo completo, consulte o [tutorial de dados de rastreamento de privacidade](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/e1-privacy-tracking/).
@@ -22,23 +22,23 @@ Para um passo a passo completo, consulte o [tutorial de dados de rastreamento de
 
 ### Pré-requisitos {#prerequisites}
 
-A seguinte versão do SDK da Braze é necessária para implementar este recurso:
+A seguinte versão do SDK da Braze é necessária para implementar esse recurso:
 
 {% sdk_min_versions swift:9.0.0 %}
 
-### Etapa 1: Revise suas políticas atuais {#step-1-review-your-current-policies}
+### Etapa 1: Revisar suas políticas atuais {#step-1-review-your-current-policies}
 
-Revise as políticas atuais de coleta de dados do SDK da Braze com sua equipe jurídica para determinar se o seu app coleta dados de rastreamento [conforme definido pela Apple](#what-is-tracking-data). Se você não estiver coletando nenhum dado de rastreamento, não é necessário personalizar o manifesto de privacidade para o SDK da Braze neste momento. Para saber mais sobre as políticas de coleta de dados do SDK da Braze, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection).
+Revise as políticas atuais de coleta de dados do SDK da Braze com sua equipe jurídica para determinar se o seu app coleta dados de rastreamento [conforme definido pela Apple](#what-is-tracking-data). Se você não estiver coletando nenhum dado de rastreamento, não será necessário personalizar o manifesto de privacidade do SDK da Braze neste momento. Para saber mais sobre as políticas de coleta de dados do SDK da Braze, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/user_data_collection/sdk_data_collection).
 
 {% alert important %}
 Se algum dos seus SDKs que não são da Braze coletar dados de rastreamento, você precisará revisar essas políticas separadamente.
 {% endalert %}
 
-### Etapa 2: Crie um manifesto de privacidade {#step-2-create-a-privacy-manifest}
+### Etapa 2: Criar um manifesto de privacidade {#step-2-create-a-privacy-manifest}
 
-Primeiro, verifique se você já possui um manifesto de privacidade procurando um arquivo `PrivacyInfo.xcprivacy` no seu projeto Xcode. Se você já tiver esse arquivo, pode continuar para a próxima etapa. Caso contrário, consulte [Apple: Criar um manifesto de privacidade](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files).
+Primeiro, verifique se você já possui um manifesto de privacidade procurando por um arquivo `PrivacyInfo.xcprivacy` no seu projeto Xcode. Se você já tiver esse arquivo, pode prosseguir para a próxima etapa. Caso contrário, consulte [Apple: Criar um manifesto de privacidade](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files).
 
-### Etapa 3: Adicione seu endpoint ao manifesto de privacidade {#step-3-add-your-endpoint-to-the-privacy-manifest}
+### Etapa 3: Adicionar seu endpoint ao manifesto de privacidade {#step-3-add-your-endpoint-to-the-privacy-manifest}
 
 No seu projeto Xcode, abra o arquivo `PrivacyInfo.xcprivacy` do seu app, clique com o botão direito na tabela e marque **Raw Keys and Values**.
 
@@ -56,7 +56,7 @@ Em **App Privacy Configuration**, escolha **NSPrivacyTrackingDomains**. No array
 
 ![O arquivo "PrivacyInfo.xcprivacy" aberto com um endpoint de rastreamento da Braze listado em "NSPrivacyTrackingDomains".]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytrackingdomains.png %})
 
-### Etapa 4: Declare seus dados de rastreamento {#step-4-declare-your-tracking-data}
+### Etapa 4: Declarar seus dados de rastreamento {#step-4-declare-your-tracking-data}
 
 Em seguida, abra o `AppDelegate.swift` e liste cada [propriedade de rastreamento](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/trackingproperty/) que você deseja declarar, criando uma lista de rastreamento estática ou dinâmica. Lembre-se de que a Apple bloqueará essas propriedades até que o usuário final aceite o prompt de ATT, então liste apenas as propriedades que você e sua equipe jurídica consideram como dados de rastreamento. Por exemplo:
 
@@ -114,7 +114,7 @@ func sceneDidBecomeActive(_ scene: UIScene) {
 {% endtab %}
 {% endtabs %}
 
-### Etapa 5: Evite loops infinitos de tentativas {#step-5-prevent-infinite-retry-loops}
+### Etapa 5: Evitar loops infinitos de tentativas {#step-5-prevent-infinite-retry-loops}
 
 Para evitar que o SDK entre em um loop infinito de tentativas, use o método `set(adTrackingEnabled: enableAdTracking)` para lidar com as permissões de ATT. A propriedade `adTrackingEnabled` no método do seu `SceneDelegate.swift` deve ser tratada de forma semelhante ao seguinte:
 
@@ -129,9 +129,9 @@ func sceneDidBecomeActive(_ scene: UIScene) {
 }
 ```
 
-## Desativando o rastreamento de dados {#disabling-data-tracking}
+## Desabilitando o rastreamento de dados {#disabling-data-tracking}
 
-Para desativar a atividade de rastreamento de dados no SDK Swift, defina a propriedade [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled) como `false` na sua instância da Braze. Quando `enabled` é definido como `false`, o SDK da Braze ignora todas as chamadas à API pública. O SDK também cancela todas as ações em andamento, como solicitações de rede, processamento de eventos, etc.
+Para desabilitar a atividade de rastreamento de dados no SDK Swift, defina a propriedade [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled) como `false` na sua instância da Braze. Quando `enabled` é definido como `false`, o SDK da Braze ignora todas as chamadas à API pública. O SDK também cancela todas as ações em andamento, como solicitações de rede, processamento de eventos, etc.
 
 ## Limpando dados armazenados anteriormente {#wiping-previously-stored-data}
 
@@ -143,24 +143,24 @@ Se você usa integração manual de push e seu app chama `wipeData()` e depois r
 
 ## Retomando o rastreamento de dados {#resuming-data-tracking}
 
-Para retomar a coleta de dados, defina [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/) como `true`. Lembre-se de que isso não recuperará nenhum dado previamente apagado.
+Para retomar a coleta de dados, defina [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/) como `true`. Lembre-se de que isso não recuperará nenhum dado que tenha sido apagado anteriormente.
 
 ## Logout e cancelamento de registro de push {#logout-and-unregister-push}
 
-O SDK da Braze fornece métodos para parar de direcionar um dispositivo quando um usuário cancela o registro de notificações por push ou faz logout. Esses métodos removem os dados de registro de push do usuário atual no servidor da Braze e no SDK, de modo que a Braze não envie mais Campaigns de notificação por push futuras para esse usuário.
+O SDK da Braze fornece métodos para parar de direcionar um dispositivo quando um usuário cancela o registro de notificações por push ou faz logout. Esses métodos removem os dados de registro de push do usuário atual no servidor da Braze e no SDK, de modo que a Braze não envie mais Campaigns de notificação por push para esse usuário.
 
 ### Logout {#logout}
 
 Quando um usuário faz logout de um aplicativo, chame o método `logout` do SDK para remover o registro de push do dispositivo do usuário atual e executar automaticamente ações de limpeza no SDK. O método `logout` realiza o seguinte:
 
 - Cancela o registro do token de push do dispositivo e de quaisquer tokens push-to-start de Live Activities do usuário atual no servidor da Braze.
-- Se a chamada de cancelamento de registro for bem-sucedida, o SDK limpa os dados do SDK armazenados localmente e desativa o SDK.
+- Se a chamada de cancelamento de registro for bem-sucedida, o SDK apaga os dados armazenados localmente e desativa o SDK.
 - Em caso de falha, gera um erro e um sinalizador `isRetriable` para permitir que o integrador tome uma ação.
 
 {% subtabs local %}
 {% subtab Swift %}
 
-O exemplo a seguir com completion handler mostra o tratamento de sucesso e falha do `logout`. Use-o para fluxos baseados em callback e substitua o registro de log pela lógica de nova tentativa ou reautenticação do seu app.
+O exemplo a seguir com completion handler mostra o tratamento de sucesso e falha do `logout`. Use-o para fluxos baseados em retorno de chamada e substitua o registro de log pela lógica de nova tentativa ou reautenticação do seu app.
 
 ```swift
 // Completion handler
@@ -203,7 +203,11 @@ Este exemplo em Objective-C mostra o tratamento do `logout` baseado em completio
 {% endsubtab %}
 {% endsubtabs local %}
 
-#### Reativar rastreamento e push após `logout` {#re-enable-tracking-and-push-after-logout}
+{% alert note %}
+O `logout` não encerra Live Activities em execução. No retorno de chamada de sucesso, encerre manualmente quaisquer Live Activities em execução usando o método [`end(_:dismissalPolicy:)`](https://developer.apple.com/documentation/activitykit/activity/end(_:dismissalpolicy:)) do ActivityKit.
+{% endalert %}
+
+#### Reativar o rastreamento e push após o `logout` {#re-enable-tracking-and-push-after-logout}
 
 Após um `logout` bem-sucedido, defina [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/) de volta para `true` e, em seguida, registre-se novamente para notificações com o seu sistema operacional (SO) ou provedor de push seguindo a [configuração de push para Swift]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift).
 
@@ -218,7 +222,7 @@ Para parar de enviar push para um dispositivo sem limpeza automatizada adicional
 {% subtabs local %}
 {% subtab Swift %}
 
-O exemplo a seguir com completion handler mostra o tratamento de sucesso e falha do `unregisterPush`. Use-o para fluxos baseados em callback e substitua o registro de log pela sua própria lógica de nova tentativa.
+O exemplo a seguir com completion handler mostra o tratamento de sucesso e falha do `unregisterPush`. Use-o para fluxos baseados em retorno de chamada e substitua o registro de log pela sua própria lógica de nova tentativa.
 
 ```swift
 // Completion handler
@@ -275,10 +279,14 @@ Evite chamar `logout` ou `unregisterPush` diretamente após registrar-se para no
 
 Live Activities podem ser iniciadas remotamente usando tokens push-to-start. Para impedir que a Braze inicie remotamente Live Activities em um dispositivo, chame o método `unregisterPushToStart` para cancelar o registro de todos os tipos registrados atualmente (padrão) ou de uma lista específica de tipos de Activity.
 
-Observe que Live Activities em execução continuam recebendo atualizações e que este método apenas remove a capacidade de iniciar novas atividades remotamente. Para saber mais sobre Live Activities, consulte [Live Activities]({{site.baseurl}}/developer_guide/live_notifications/live_activities).
+Observe que Live Activities em execução continuam recebendo atualizações e que esse método apenas remove a capacidade de iniciar novas atividades remotamente. Para saber mais sobre Live Activities, consulte [Live Activities]({{site.baseurl}}/developer_guide/live_notifications/live_activities).
+
+#### Encerrar quaisquer Live Activities em execução {#end-any-running-live-activities}
+
+O `unregisterPushToStart` não encerra Live Activities em execução. No retorno de chamada de sucesso, encerre manualmente quaisquer Live Activities em execução usando o método [`end(_:dismissalPolicy:)`](https://developer.apple.com/documentation/activitykit/activity/end(_:dismissalpolicy:)) do ActivityKit.
 
 {% alert note %}
-Evite chamar `logout` ou `unregisterPushToStart` diretamente após chamar `registerPushToStart` para uma Live Activity. Devido à natureza assíncrona do processamento do servidor, em casos raros, isso pode levar à readição do token push-to-start ao usuário da Braze.
+Evite chamar `logout` ou `unregisterPushToStart` diretamente após chamar `registerPushToStart` para uma Live Activity. Devido à natureza assíncrona do processamento do servidor, em casos raros, isso pode fazer com que o token push-to-start seja readicionado ao usuário da Braze.
 {% endalert %}
 
 O exemplo a seguir mostra como cancelar o registro de todos os tipos de atividade push-to-start. Use-o quando um usuário desconectado não deve mais receber novas Live Activities iniciadas remotamente.
@@ -319,12 +327,12 @@ AppDelegate.braze?.liveActivities.unregisterPushToStart(types: ["ActivityType1",
 ```
 
 {% alert note %}
-`unregisterPushToStart` não possui uma API em Objective-C, pois Live Activities dependem de tipos exclusivos do Swift.
+O `unregisterPushToStart` não possui uma API em Objective-C, pois Live Activities dependem de tipos exclusivos do Swift.
 {% endalert %}
 
 ## Coleta de IDFV {#idfv-collection}
 
-Em versões anteriores do SDK da Braze para iOS, o campo IDFV (Identifier for Vendor) era coletado automaticamente como o ID do dispositivo do usuário. A partir do Swift SDK `v5.7.0`, o campo IDFV passou a poder ser desativado opcionalmente, e a Braze passaria a definir um UUID aleatório como o ID do dispositivo. A partir do Swift SDK `v7.0.0`, o campo IDFV não será mais coletado por padrão, e um UUID será definido como o ID do dispositivo.
+Em versões anteriores do SDK da Braze para iOS, o campo IDFV (Identifier for Vendor) era coletado automaticamente como o ID do dispositivo do usuário. A partir do Swift SDK `v5.7.0`, o campo IDFV passou a poder ser desativado opcionalmente, e a Braze passaria a definir um UUID aleatório como o ID do dispositivo. A partir do Swift SDK `v7.0.0`, o campo IDFV não será coletado por padrão, e um UUID será definido como o ID do dispositivo.
 
 O recurso `useUUIDAsDeviceId` configura o [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) para definir o ID do dispositivo como um UUID. Tradicionalmente, o SDK para iOS atribuía ao ID do dispositivo o valor IDFV gerado pela Apple. Com esse recurso ativado por padrão no seu app iOS, todos os novos usuários criados pelo SDK receberão um ID de dispositivo igual a um UUID.
 

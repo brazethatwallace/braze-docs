@@ -18,6 +18,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from sf_kb_article_ids import article_id_from_row  # noqa: E402
+
 REPO = "braze-inc/braze-docs"
 REPO_ROOT = Path(__file__).resolve().parents[2]
 CSV_PATH = REPO_ROOT / "_data" / "kb_articles.csv"
@@ -81,11 +84,11 @@ def main() -> None:
         fieldnames = list(reader.fieldnames or [])
         csv_rows = list(reader)
 
-    csv_ids_before = {r["article_id"].strip() for r in csv_rows if r.get("article_id", "").strip()}
+    csv_ids_before = {article_id_from_row(r) for r in csv_rows if article_id_from_row(r)}
     pr_ids, open_prs, merged_prs = pr_article_ids()
 
     to_remove = csv_ids_before & pr_ids
-    new_csv_rows = [r for r in csv_rows if r.get("article_id", "").strip() not in pr_ids]
+    new_csv_rows = [r for r in csv_rows if article_id_from_row(r) not in pr_ids]
 
     print(
         f"tracker: {len(pr_ids)} id(s) from PRs ({open_prs} open + {merged_prs} merged) | "

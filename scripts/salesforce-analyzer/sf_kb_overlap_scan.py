@@ -22,6 +22,9 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Callable
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from sf_kb_article_ids import article_id_column, article_id_from_row  # noqa: E402
+
 REPO = "braze-inc/braze-docs"
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SF_KB_LABEL = "salesforce migration"
@@ -455,9 +458,11 @@ def main() -> None:
 
     batches: dict[str, list[str]] = {}
     with csv_path.open(encoding="utf-8", newline="") as f:
-        for row in csv.DictReader(f):
+        reader = csv.DictReader(f)
+        id_column = article_id_column(reader.fieldnames)
+        for row in reader:
             doc_path = (row.get("doc_path") or "").strip()
-            article_id = (row.get("article_id") or "").strip()
+            article_id = article_id_from_row(row, id_column=id_column)
             if not doc_path:
                 continue
             if args.doc_path and doc_path not in args.doc_path:

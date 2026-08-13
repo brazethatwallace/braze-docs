@@ -23,7 +23,7 @@ A Braze não oferece suporte a limite de taxa por segundo. A Braze tenta distrib
 
 ### Limite de taxa centrado no usuário {#user-centric-rate-limiting}
 
-À medida que você cria mais segmentos, haverá casos em que a composição desses segmentos se sobrepõe. Se você está enviando campanhas para esses segmentos, é importante garantir que não está enviando mensagens aos seus usuários com muita frequência. Se um usuário recebe muitas mensagens em um curto período, ele se sentirá sobrecarregado e poderá desativar as notificações por push ou desinstalar seu app.
+À medida que você cria mais Segments, haverá casos em que a composição desses Segments se sobrepõe. Se você está enviando campanhas para esses Segments, é importante garantir que não está enviando mensagens para seus usuários com muita frequência. Se um usuário recebe muitas mensagens em um curto período, ele se sentirá sobrecarregado e poderá desativar as notificações por push ou desinstalar seu app.
 
 #### Filtros de segmento relevantes {#relevant-segment-filters}
 
@@ -37,13 +37,13 @@ A Braze fornece os seguintes filtros para ajudar você a limitar a taxa com que 
 
 #### Implementando filtros {#implementing-filters}
 
-Digamos que criamos um segmento chamado "Retargeting Filter Showcase" com o filtro "Last used app more than 7 days ago" para direcionar usuários. Esse seria um segmento padrão de reengajamento.
+Digamos que criamos um Segment chamado "Retargeting Filter Showcase" com o filtro "Last used app more than 7 days ago" para direcionar usuários. Esse seria um Segment padrão de reengajamento.
 
-Se você tem outros segmentos mais direcionados recebendo notificações recentemente, talvez não queira que seus usuários sejam direcionados por campanhas mais genéricas voltadas a esse segmento. Ao adicionar o filtro "Last Received Push" a esse segmento, o usuário garante que, se recebeu outra notificação nas últimas 24 horas, sairá desse segmento pelas próximas 24 horas. Se ele ainda atender aos outros critérios do segmento 24 horas depois e não tiver recebido mais notificações, voltará ao segmento.
+Se você tem outros Segments mais direcionados recebendo notificações recentemente, talvez não queira que seus usuários sejam direcionados por campanhas mais genéricas voltadas para esse Segment. Ao adicionar o filtro "Last Received Push" a esse Segment, o usuário garante que, se recebeu outra notificação nas últimas 24 horas, sairá desse Segment pelas próximas 24 horas. Se ainda atender aos outros critérios do Segment 24 horas depois e não tiver recebido mais notificações, voltará para o Segment.
 
-![Um segmento chamado "Retargeting Filter Showcase" com o grupo de filtros "Last used app more than 7 days ago".]({% image_buster /assets/img_archive/rate_limit_daily.png %}){: style="max-width:80%;"}
+![Um Segment chamado "Retargeting Filter Showcase" com o grupo de filtros "Last used app more than 7 days ago".]({% image_buster /assets/img_archive/rate_limit_daily.png %}){: style="max-width:80%;"}
 
-Adicionar esse filtro a todos os segmentos direcionados por campanhas faria com que seus usuários recebessem no máximo um push a cada 24 horas. Você poderia então priorizar suas mensagens garantindo que as mais importantes sejam entregues antes das menos importantes.
+Adicionar esse filtro a todos os Segments direcionados por campanhas faria com que seus usuários recebessem no máximo um push a cada 24 horas. Você poderia então priorizar suas mensagens garantindo que as mais importantes sejam entregues antes das menos importantes.
 
 #### Definindo um limite máximo de usuários {#setting-a-maximum-user-cap}
 
@@ -59,29 +59,29 @@ O limite máximo de usuários limita o número de usuários despachados, não o 
 
 ##### Limite máximo de usuários para campanhas multicanal {#maximum-user-cap-for-multichannel-campaigns}
 
-Para campanhas multicanal, a Braze primeiro seleciona um público até o limite máximo de usuários configurado. Em seguida, a Braze avalia cada usuário desse público limitado para cada canal da campanha.
+Para campanhas multicanal, a Braze primeiro seleciona um público até o limite máximo de usuários configurado. Em seguida, a Braze avalia cada usuário nesse público limitado para cada canal da campanha.
 
 Como resultado, o tamanho do público limitado permanece o mesmo, mas os envios por canal podem variar com base na elegibilidade do canal. Por exemplo, se você definir um limite máximo de 500.000 usuários e um usuário for elegível apenas para push e Content Cards, esse usuário receberá esses canais, mas não e-mail.
 
-Se você dividir esses canais em campanhas separadas, cada uma direcionada ao mesmo segmento e com seu próprio limite máximo de usuários, cada campanha avalia e limita os usuários de forma independente. A Braze não garante que cada campanha selecione exatamente o mesmo subconjunto de usuários.
+Se você dividir esses canais em campanhas separadas, cada uma direcionada ao mesmo Segment e cada uma com seu próprio limite máximo de usuários, cada campanha avalia e limita os usuários de forma independente. A Braze não garante que cada campanha selecione exatamente o mesmo subconjunto de usuários.
 
-Se você precisa que campanhas de acompanhamento direcionem usuários que receberam uma campanha anterior, crie um segmento usando o filtro **Received Campaign** e use esse segmento para as campanhas de acompanhamento.
+Se você precisa que campanhas de acompanhamento direcionem usuários que receberam uma campanha anterior, crie um Segment usando o filtro **Received Campaign** e use esse Segment para as campanhas de acompanhamento.
 
 ##### Limite máximo de usuários com otimizações {#maximum-user-cap-with-optimizations}
 
-Se você está usando uma otimização como variante vencedora ou variante personalizada, a campanha consistirá em dois envios: o experimento inicial e o envio final.
+Se você está usando uma otimização como variante vencedora ou variante personalizada, a campanha consiste em dois envios: o experimento inicial e o envio final.
 
-Para configurar um limite máximo de usuários nesse cenário, selecione **Limitar o número de pessoas que receberão esta campanha**, depois selecione **No total, esta campanha deve** e insira um limite de público. Seu limite de público será dividido pelas porcentagens mostradas no painel **Testes A/B**.
+Para configurar um limite máximo de usuários nesse cenário, selecione **Limitar volume de envio**, depois selecione **Tempo de vida da campanha** e insira um valor para **Envios máximos**. Seu limite de público é dividido pelas porcentagens mostradas no painel de **Testes A/B**.
 
 Se você selecionar **Toda vez que a campanha for agendada**, essas duas fases serão limitadas separadamente ao número definido. Isso normalmente não é desejável.
 
 #### Definindo um limite máximo de impressões em campanhas {#setting-a-maximum-impression-cap-on-campaigns}
 
-Para mensagens no app, você pode controlar a pressão de marketing definindo um número máximo de impressões que serão exibidas à sua base de usuários, após o qual a Braze não enviará mais mensagens aos seus usuários. No entanto, é importante observar que esse limite não é exato.
+Para In-App Messages, você pode controlar a pressão de marketing definindo um número máximo de impressões que serão exibidas para sua base de usuários, após o qual a Braze não enviará mais mensagens para seus usuários. No entanto, é importante observar que esse limite não é exato.
 
-As regras de mensagens no app são enviadas ao app no início da sessão, o que significa que a Braze pode enviar uma mensagem ao usuário antes que o limite seja atingido, mas quando o usuário dispara a mensagem, o limite já foi atingido. Nessa situação, o dispositivo ainda exibirá a mensagem.
+As regras de mensagens no app são enviadas para o app no início da sessão, o que significa que a Braze pode enviar uma mensagem para o usuário antes que o limite seja atingido, mas quando o usuário dispara a mensagem, o limite já foi atingido. Nessa situação, o dispositivo ainda exibirá a mensagem.
 
-Por exemplo, digamos que você tem um jogo com uma mensagem no app que é disparada quando um usuário passa de fase, e você limita a 100 impressões. Até agora, houve 99 impressões. Alice e Bob abrem o jogo, e a Braze informa aos dispositivos deles que são elegíveis para receber a mensagem quando passarem de fase. Alice passa de fase primeiro e recebe a mensagem. Bob passa de fase em seguida, mas como seu dispositivo não se comunicou com os servidores da Braze desde o início da sessão, seu dispositivo não sabe que a mensagem atingiu o limite, e ele também recebe a mensagem. No entanto, quando o limite de impressões é atingido, na próxima vez que qualquer dispositivo solicitar a lista de mensagens no app elegíveis, o sistema não enviará essa mensagem e a removerá daquele dispositivo.
+Por exemplo, digamos que você tem um jogo com uma mensagem no app que é disparada quando um usuário passa de fase, e você limita a 100 impressões. Até agora, houve 99 impressões. Alice e Bob abrem o jogo, e a Braze informa aos dispositivos deles que são elegíveis para receber a mensagem quando passarem de fase. Alice passa de fase primeiro e recebe a mensagem. Bob passa de fase em seguida, mas como seu dispositivo não se comunicou com os servidores da Braze desde o início da sessão, seu dispositivo não sabe que a mensagem atingiu o limite, e ele também recebe a mensagem. No entanto, quando o limite de impressões é atingido, na próxima vez que qualquer dispositivo solicitar a lista de mensagens no app elegíveis, o sistema não enviará essa mensagem e a removerá desse dispositivo.
 
 ### Limite de taxa e testes A/B {#rate-limiting-and-ab-testing}
 
@@ -89,7 +89,7 @@ Ao usar limite de taxa com um teste A/B, o limite de taxa não é aplicado ao gr
 
 ### Limite de taxa de velocidade de entrega {#delivery-speed-rate-limiting}
 
-Se você prevê que grandes campanhas causarão um pico na atividade dos usuários e sobrecarregarão seus servidores, você pode especificar um limite de taxa por minuto para o envio de mensagens, o que significa que a Braze não envia mais do que a configuração de limite de taxa dentro de um minuto.
+Se você prevê que campanhas grandes causarão um pico na atividade dos usuários e sobrecarregarão seus servidores, pode especificar um limite de taxa por minuto para o envio de mensagens, o que significa que a Braze não envia mais do que a configuração de limite de taxa dentro de um minuto.
 
 Ao direcionar usuários durante a criação da campanha, você pode navegar até **Públicos-alvo** (para campanhas) ou **Configurações de envio** (para Canvas) para selecionar um limite de taxa (em vários incrementos, de 10 até 500.000 mensagens por minuto).
 
@@ -107,10 +107,10 @@ Se você está tentando enviar 75.000 mensagens com um limite de taxa de 10.000 
 
 Observe que mensagens com limite de taxa podem não ser enviadas uniformemente ao longo de cada minuto. Usando o exemplo de um limite de taxa de 10.000 por minuto, isso significa que a Braze garante que não mais de 10.000 mensagens sejam enviadas por minuto. Isso pode significar que uma porcentagem maior das 10.000 mensagens é enviada na primeira metade do minuto em comparação com a segunda metade.
 
-O limite de taxa é aplicado no início da tentativa de envio da mensagem. Quando há flutuações no tempo necessário para concluir o envio, o número de envios concluídos pode exceder ligeiramente o limite de taxa por alguns minutos. Com o tempo, o número de envios por minuto se estabilizará em não mais do que o limite de taxa.
+O limite de taxa é aplicado no início da tentativa de envio da mensagem. Quando há flutuações no tempo necessário para concluir o envio, o número de envios concluídos pode exceder ligeiramente o limite de taxa por alguns minutos. Com o tempo, o número de envios por minuto se estabiliza em não mais do que o limite de taxa.
 
 {% alert important %}
-Tenha cuidado ao atrasar mensagens urgentes com essa forma de limite de taxa em relação ao número total de usuários em um segmento. Por exemplo, se o segmento contém 30 milhões de usuários, mas definimos o limite de taxa para 10.000 por minuto, uma grande parte da sua base de usuários não receberá a mensagem até o dia seguinte.
+Tenha cuidado ao atrasar mensagens sensíveis ao tempo com essa forma de limite de taxa em relação ao número total de usuários em um Segment. Por exemplo, se o Segment contém 30 milhões de usuários, mas definimos o limite de taxa para 10.000 por minuto, uma grande parte da sua base de usuários não receberá a mensagem até o dia seguinte.
 {% endalert %}
 
 #### Campanhas multicanal e Canvas {#multichannel-campaigns-and-canvases}
@@ -131,13 +131,13 @@ Para campanhas ou Canvas com plataformas de push (como Android, iOS, Web Push ou
 
 ![O menu suspenso de canal com opções para plataformas de push e notificações por push.]({% image_buster /assets/img_archive/push_notifications_rate_limit.png %}){: style="max-width:30%;"}
 
-Se você selecionar um limite para notificações por push, não poderá definir limites de taxa individuais por canal de push. Da mesma forma, se você selecionar limites para canais de push individuais, não poderá definir limites compartilhados de notificações por push.
+Se você selecionar um limite para notificações por push, não poderá definir limites de taxa individuais por canal de push. Da mesma forma, se selecionar limites para canais de push individuais, não poderá definir limites compartilhados de notificações por push.
 
 {% alert important %}
 **Atualizações na interface de limite de taxa**<br>
 A Braze atualizou a interface de limite de taxa para fornecer mais transparência e controle sobre como os limites de taxa se aplicam a campanhas multicanal e Canvas.<br><br>
 
-- **Campanhas e Canvas existentes:** Todas as campanhas e Canvas existentes foram migrados para esta interface. O comportamento de entrega permanece o mesmo. O dashboard exibe se a campanha usa lógica compartilhada ou por canal.<br>
+- **Campanhas e Canvas existentes:** Todas as campanhas e Canvas existentes foram migrados para essa interface. O comportamento de entrega permanece o mesmo. O dashboard exibe se a campanha usa lógica compartilhada ou por canal.<br>
 - **Novas campanhas e Canvas:** Para todas as novas campanhas e Canvas, há um botão de alternância manual para escolher a lógica de limite de taxa preferida. Certifique-se de selecionar o comportamento de limite de taxa que se alinha com o comportamento pretendido ao definir ou atualizar um limite de taxa de campanha ou Canvas.
 {% endalert %}
 
@@ -153,13 +153,13 @@ Algumas observações a ter em mente ao configurar limites de taxa e o comportam
 - Limites de velocidade de entrega não são suportados para os seguintes itens:
     - Respostas automáticas de SMS
     - Mensagens com SLA garantido (como [E-mail de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email))
-    - Mensagens no app
+    - In-App Messages
     - Feature Flags
     - Banners
 
 #### Limite de taxa e novas tentativas de Connected Content {#rate-limiting-and-connected-content-retries}
 
-Quando a [nova tentativa de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries) está ativada, a Braze tentará novamente as chamadas com falha respeitando o limite de taxa que você definiu para cada reenvio. Vamos considerar o cenário de envio de 75.000 mensagens com um limite de taxa de 10.000 por minuto. Imagine que no primeiro minuto, a chamada falha ou é lenta e envia apenas 4.000 mensagens.
+Quando a [nova tentativa de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries) está ativada, a Braze tentará novamente as chamadas com falha respeitando o limite de taxa definido para cada reenvio. Vamos considerar o cenário de envio de 75.000 mensagens com um limite de taxa de 10.000 por minuto. Imagine que no primeiro minuto, a chamada falha ou é lenta e envia apenas 4.000 mensagens.
 
 Em vez de tentar compensar o atraso e enviar as 6.000 mensagens restantes no segundo minuto ou adicioná-las às 10.000 já programadas para envio, a Braze moverá essas 6.000 mensagens para o "final da fila" e adicionará um minuto, se necessário, ao total de minutos necessários para enviar sua mensagem.
 
@@ -201,7 +201,7 @@ Se muitos usuários no seu grupo com limite de taxa estiverem com limite de freq
 
 #### Exemplo
 
-Com um limite de taxa de 500 usuários e o limite de frequência ativado, se 200 desses 500 usuários com limite de taxa estiverem com limite de frequência, apenas 300 mensagens serão enviadas — não 500.
+Com um limite de taxa de 500 usuários e o limite de frequência ativado, se 200 desses 500 usuários com limite de taxa estiverem com limite de frequência, apenas 300 mensagens são enviadas — não 500.
 
 #### Recomendações {#recommendations}
 
@@ -209,7 +209,7 @@ Se você precisa alcançar um número específico de usuários ao usar ambos os 
 
 - **Aumente seu limite de taxa:** para compensar os usuários que estão com limite de frequência. Por exemplo, se você deseja alcançar 500 usuários, mas espera que alguns estejam com limite de frequência, defina seu limite de taxa mais alto (como 1.000 usuários).
 - **Use apenas o limite de taxa:** se seu objetivo é controlar o volume de mensagens enviadas por campanha.
-- **Fale com seu gerente de sucesso do cliente:** para obter ajuda no design de uma estratégia de envio de mensagens robusta que equilibre necessidades de negócio e considerações técnicas.
+- **Fale com seu gerente de sucesso do cliente:** para obter ajuda no planejamento de uma estratégia de envio de mensagens robusta que equilibre necessidades de negócio e considerações técnicas.
 
 ### Visão geral do recurso {#freq-cap-feat-over}
 
@@ -246,7 +246,7 @@ Ao enviar [campanhas via API]({{site.baseurl}}/developer_guide/rest_api/messagin
 Por padrão, novas campanhas e Canvas que não obedecem aos limites de frequência também não contam para eles. Isso é configurável para cada campanha e Canvas.
 
 {% alert note %}
-Esse comportamento altera o comportamento padrão quando você desativa o limite de frequência para uma campanha ou Canvas. As alterações são retrocompatíveis e não afetam mensagens que estão ativas no momento.
+Esse comportamento altera o comportamento padrão quando você desativa o limite de frequência para uma campanha ou Canvas. As alterações são compatíveis com versões anteriores e não afetam mensagens que estão ativas no momento.
 {% endalert %}
 
 ![Seção de controles de entrega com o limite de frequência ativado.]({% image_buster /assets/img_archive/frequencycappingupdate.png %}){: style="max-width:90%;"}
@@ -257,7 +257,7 @@ O limite de frequência é aplicado por despacho: cada vez que a Braze envia uma
 
 ##### Envios multicanal {#multichannel-sends}
 
-Quando um único despacho usa vários canais, esse despacho conta no máximo uma vez por regra de limite de frequência aplicável. Por exemplo, se você criar uma campanha multicanal que envia e-mail, push para iOS e push para Android em uma única entrega e seu espaço de trabalho tiver regras para push e e-mail, além de uma regra que se aplica a todos os canais, essa entrega conta uma vez para a regra de push, uma vez para a regra de e-mail e uma vez para a regra de todos os canais — ela não conta uma vez por plataforma de push ou por mensagem dentro do envio. Se os usuários estão limitados a uma campanha de push e uma de e-mail por dia e recebem essa campanha multicanal, eles não são elegíveis para campanhas adicionais de push ou e-mail pelo resto do dia, a menos que uma campanha ignore as regras de limite de frequência.
+Quando um único despacho usa vários canais, esse despacho conta no máximo uma vez por regra de limite de frequência aplicável. Por exemplo, se você criar uma campanha multicanal que envia e-mail, push para iOS e push para Android em uma única entrega, e seu espaço de trabalho tiver regras para push e e-mail, além de uma regra que se aplica a todos os canais, essa entrega conta uma vez para a regra de push, uma vez para a regra de e-mail e uma vez para a regra de todos os canais — ela não conta uma vez por plataforma de push ou por mensagem dentro do envio. Se os usuários estão limitados a um push e um e-mail por dia e recebem essa campanha multicanal, eles não são elegíveis para campanhas adicionais de push ou e-mail pelo resto do dia, a menos que uma campanha ignore as regras de limite de frequência.
 
 In-App Messages e Content Cards não são contados como ou para limites em campanhas ou componentes do Canvas de qualquer tipo.
 
@@ -326,11 +326,11 @@ Quando as regras entram em conflito, a regra de limite de frequência mais restr
 
 ![Seção de limite de frequência com regras conflitantes para limitar quantas campanhas de notificação por push/etapas do Canvas são enviadas a um usuário a cada 1 semana.]({% image_buster /assets/img/global_rules.png %} "global rules")
 
-Neste exemplo, seu usuário não receberá mais de uma campanha de notificação por push ou componente do Canvas com a tag "promotional" em uma determinada semana, porque você especificou que os usuários não devem receber mais de uma campanha de notificação por push ou componente do Canvas de todas as campanhas e componentes do Canvas. Em outras palavras, a regra de frequência mais restritiva aplicável é a regra que será aplicada a um determinado usuário.
+Neste exemplo, seu usuário não receberá mais de uma campanha de notificação por push ou componente do Canvas com a tag "promotional" em uma determinada semana, porque você especificou que os usuários não devem receber mais de uma campanha de notificação por push ou componente do Canvas de todas as campanhas e componentes do Canvas. Em outras palavras, a regra de frequência aplicável mais restritiva é a regra que será aplicada a um determinado usuário.
 
 #### Contagem de tags {#tag-count}
 
-As regras de limite de frequência por tag são calculadas no momento em que uma mensagem é enviada. Isso significa que o limite de frequência por tag conta apenas as tags que estão atualmente nas campanhas ou Canvas que um usuário recebeu no passado. Ele não conta as tags que estavam nas campanhas ou Canvas no momento em que foram enviados, mas que foram removidas desde então. Ele conta se uma tag é adicionada posteriormente a uma mensagem que um usuário recebeu no passado, mas antes que a mensagem mais recente com tag seja enviada.
+As regras de limite de frequência por tag são calculadas no momento em que uma mensagem é enviada. Isso significa que o limite de frequência por tag conta apenas as tags que estão atualmente nas campanhas ou Canvas que um usuário recebeu no passado. Ele não conta as tags que estavam nas campanhas ou Canvas no momento em que foram enviados, mas que foram removidas desde então. Ele conta se uma tag é adicionada posteriormente a uma mensagem que um usuário recebeu no passado, mas antes que a mensagem com tag mais recente seja enviada.
 
 ##### Caso de uso {#use-case}
 
@@ -338,8 +338,8 @@ Considere as seguintes campanhas e regra de limite de frequência por tag:
 
 **Campanhas**:
 
-- **Campaign A** é uma campanha de push com a tag `promotional`. Ela está programada para ser enviada às 9h da segunda-feira.
-- **Campaign B** é uma campanha de push com a tag `promotional`. Ela está programada para ser enviada às 9h da quarta-feira.
+- **Campaign A** é uma campanha de push marcada como `promotional`. Ela está programada para ser enviada às 9h de segunda-feira.
+- **Campaign B** é uma campanha de push marcada como `promotional`. Ela está programada para ser enviada às 9h de quarta-feira.
 
 **Regra de limite de frequência por tag:**
 
@@ -347,7 +347,7 @@ Considere as seguintes campanhas e regra de limite de frequência por tag:
 
 | Ação | Resultado |
 |---|---|
-| A tag `promotional` é removida da **Campaign A** depois que seu usuário recebeu a mensagem, mas antes que a **Campaign B tenha sido enviada.** | Seu usuário recebe a **Campaign B**.|
+| A tag `promotional` é removida da **Campaign A** depois que seu usuário recebeu a mensagem, mas antes que a **Campaign B tenha sido enviada.** | Seu usuário recebe a **Campaign B**. |
 | A tag `promotional` é removida por engano da **Campaign A** depois que seu usuário recebeu a mensagem. <br> A tag é adicionada de volta à **Campaign A** na terça-feira, antes que a **Campaign B** seja enviada. | Seu usuário não recebe a **Campaign B**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Caso de uso" }
 
@@ -389,6 +389,8 @@ Isso geralmente significa que o [limite de taxa de velocidade de entrega](#deliv
 
 **Limit send volume** controla quantos usuários são elegíveis para um envio, não quantas mensagens a Braze envia por minuto. Somente um limite de taxa de velocidade de entrega define a taxa de envio por minuto.
 
+Se você já está no limite máximo de taxa de velocidade de entrega disponível para sua empresa, entre em contato com seu gerente de sucesso do cliente para solicitar um aumento.
+
 ### O que significa "Enviado" para o limite de frequência? {#what-does-sent-mean-for-frequency-capping}
 
 Em análise de dados e limite de frequência, _Enviado_ refere-se ao momento em que a Braze despacha a mensagem (o envio é registrado), e não à entrega final garantida ao dispositivo ou à caixa de entrada. O limite de frequência e as contagens de envio usam esses eventos de envio registrados, que podem diferir das métricas de "entregue" posteriores.
@@ -397,6 +399,6 @@ Em análise de dados e limite de frequência, _Enviado_ refere-se ao momento em 
 
 Mensagens de bounce e adiamento de e-mail usam muitos códigos diferentes e textos específicos de cada provedor. Não trate um código específico como sinal de um problema de limite de taxa, pois a causa depende do seu contexto de envio e do feedback do provedor de caixa de entrada.
 
-Se as mensagens estiverem sendo temporariamente adiadas, enviar menos pode ajudar no curto prazo. Use um [limite de taxa de velocidade de entrega](#delivery-speed-rate-limiting), **Limit send volume**, ou ambos.
+Se as mensagens estiverem sendo temporariamente adiadas, enviar menos pode ajudar a curto prazo. Use um [limite de taxa de velocidade de entrega](#delivery-speed-rate-limiting), **Limit send volume**, ou ambos.
 
 Para uma solução de longo prazo, trabalhe com um especialista em entregabilidade para revisar seus dados de bounce e adiamento.

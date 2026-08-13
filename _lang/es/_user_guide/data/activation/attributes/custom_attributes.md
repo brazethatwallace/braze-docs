@@ -19,16 +19,16 @@ Cuando se almacenan en Braze, los atributos personalizados pueden utilizarse par
 
 ## Ejemplos {#use-cases}
 
-Algunos ejemplos comunes de atributos personalizados incluyen:
+Algunos ejemplos comunes de uso de atributos personalizados incluyen:
 
 - Segmentar y suprimir audiencias segmentando usuarios en función de rasgos como nivel de fidelización, estado de suscripción, idioma preferido o tipo de plan
-- Personalizar mensajes con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) haciendo referencia a atributos como el nombre de un usuario, puntos de recompensas o categoría favorita
-- Seguimiento de etapas del ciclo de vida y estados de usuario, como etapa de incorporación, estado de la cuenta o fecha de fin de prueba
+- Personalizar mensajes con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) haciendo referencia a atributos como el nombre del usuario, puntos de recompensas o categoría favorita
+- Hacer seguimiento de las etapas del ciclo de vida y los estados del usuario, como la etapa de incorporación, el estado de la cuenta o la fecha de fin de prueba
 - Contar acciones de bajo valor con [atributos numéricos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como incrementar un atributo `feature_views_count` cada vez que un usuario visualiza una característica
 - Registrar cuándo ocurrieron por última vez acciones de bajo valor mediante [atributos de tiempo]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como `last_support_ticket_at` o `last_password_reset_at`
-- Almacenar intereses e historial de usuario como [arrays]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como géneros favoritos o contenido visto recientemente, para segmentación basada en intereses
+- Almacenar intereses e historial del usuario como [arrays]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como géneros favoritos o contenido visto recientemente, para segmentación basada en intereses
 - Almacenar datos de perfil más completos como [objetos]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) o [arrays de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects), como preferencias estructuradas o múltiples direcciones guardadas
-- Desencadenar mensajes basados en acciones cuando cambia el valor de un atributo mediante [desencadenadores de atributos]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), como enviar una notificación de subida de nivel cuando el `rewards_tier` de un usuario cambia
+- Desencadenar mensajes basados en acciones cuando cambia el valor de un atributo mediante [desencadenadores de atributos]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), como enviar una notificación de subida de nivel cuando cambia el `rewards_tier` de un usuario
 
 ## Gestión de atributos personalizados {#managing-custom-attributes}
 
@@ -93,7 +93,7 @@ Para exportar la lista de atributos personalizados como un archivo CSV, seleccio
 
 ### Requisitos previos {#prerequisites}
 
-El atributo personalizado no debe estar actualmente en uso en ninguna Campaign, Canvas o Segment activo. Si intentas cambiar el tipo de datos mientras el atributo aún está referenciado, el panel muestra un error y bloquea el cambio.
+El atributo personalizado no debe estar actualmente en uso en ninguna Campaign, Canvas ni Segment activos. Si intentas cambiar el tipo de datos mientras el atributo aún está referenciado, el panel muestra un error y bloquea el cambio.
 
 ### Cambiar el tipo de datos {#changing-the-data-type}
 
@@ -155,8 +155,10 @@ Al borrar o desactivar un atributo personalizado, el comportamiento difiere en f
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cadenas vacías frente a valores nulos" }
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cadenas vacías frente a valores nulos" }
 
+Este comportamiento también afecta a la segmentación. Para los atributos personalizados, el filtro **IS NOT BLANK** comprueba si hay un valor no vacío. Esto significa que una cadena vacía (`""`) no coincide, aunque el atributo siga visible en el perfil. Un valor `null` tampoco coincide, porque el atributo se elimina del perfil.
+
 {% alert important %}
-Para tipos de datos que no son cadenas y cuyo tipo de datos se establece manualmente en el panel de Braze (no se detecta automáticamente), debes usar `null` para desactivar el valor. Pasar `""` solo es válido para atributos de cadena; por ejemplo, establecer un atributo booleano como `""` se trata como una cadena vacía, que es un valor no válido para ese tipo. Para desactivar un booleano, pasa `null`.
+Para tipos de datos que no son cadenas en los que el tipo de datos se establece manualmente en el panel de Braze (no se detecta automáticamente), debes usar `null` para desactivar el valor. Pasar `""` solo es válido para atributos de cadena; por ejemplo, establecer un atributo booleano como `""` se trata como una cadena vacía, que es un valor no válido para ese tipo. Para desactivar un booleano, pasa `null`.
 
 Ten en cuenta que la importación CSV no admite `null`: los valores booleanos en las importaciones CSV deben ser `TRUE` o `FALSE`.
 {% endalert %}

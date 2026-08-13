@@ -133,7 +133,7 @@ Build the remainder of your campaign. Continue to the next sections for addition
 
 Content Cards can be delivered based on a scheduled time, an action, or an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-You can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) and determine the Content Card's expiration. Set a specific expiration date or the days until a Card expires, up to 30 days. All variants have identical expiration dates.
+You can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) and determine the Content Card's expiration. Set a specific expiration date or the days until a Card expires, up to 30 days. All variants must use the same expiration (duration or specific time).
 
 The expiration countdown starts from the card's send time:
 
@@ -371,3 +371,7 @@ If you need to minimize delays for both new and existing users, you can create t
 - **New users with session count equal to 0:** Use an action-triggered campaign. Cards are created after the first session trigger.
 
 This approach ensures existing users see cards instantly while still reaching new users after a brief delay in their first session. For additional strategies to improve latency, refer to [Improve low latency for Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/best_practices/improving_low_latency_requirements).
+
+### "All expiration values for a campaign must match" error
+
+This error appears when a multi-variant Content Card campaign uses different expiration settings across variants. Set the same expiration (duration or specific time) on every variant, or reduce the campaign to a single variant, then save again. For how to set expiration when building a campaign, refer to [Choose a delivery schedule or trigger](#choose-a-delivery-schedule-or-trigger).

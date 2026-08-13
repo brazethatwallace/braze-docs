@@ -157,7 +157,7 @@ You can find this data on the [Revenue Report]({{site.baseurl}}/user_guide/analy
 
 #### Currency conversion
 
-When purchase events are logged in a non-USD currency, Braze converts the amount to USD using exchange rates from [Open Exchange Rates](http://openexchangerates.org). These rates are refreshed once every 24 hours. Because the exchange rates are cached, there may be slight differences from the real-time market rate, particularly for currencies experiencing rapid fluctuation.
+When purchase events are logged in a non-USD currency, Braze converts the amount to USD using exchange rates from [Open Exchange Rates](http://openexchangerates.org). These rates are refreshed once every 24 hours (around 4 am ET). Because the exchange rates are cached, there may be slight differences from the real-time market rate, particularly for currencies experiencing rapid fluctuation.
 
 #### Lifetime revenue calculation
 

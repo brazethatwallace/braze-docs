@@ -8,8 +8,8 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(REPO_ROOT / "scripts" / "salesforce-analyzer"))
+SALESFORCE_ANALYZER_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(SALESFORCE_ANALYZER_DIR))
 
 from sf_kb_overlap_scan import (  # noqa: E402
     PHASE2_MARKER,

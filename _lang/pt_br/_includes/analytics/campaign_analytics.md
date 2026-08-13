@@ -215,9 +215,17 @@ Se os links usarem Liquid para URLs dinâmicas, as URLs clicadas podem não corr
 
 ![Exemplo da página de Preview e Heatmap que inclui uma campanha de e-mail e um painel com exemplos de alias de link com seus cliques totais.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
+##### Links exclusivos para dispositivos móveis no mapa de calor {#mobile-only-links-in-the-heatmap}
+
+O mapa de calor exibe apenas assinaturas de calor para links visíveis no tamanho de prévia selecionado.
+
+Links que aparecem apenas no layout para dispositivos móveis ficam ocultos em **Desktop** (e podem ficar ocultos em **Overall**, dependendo da largura da prévia), então esses cliques não aparecem como assinaturas de calor. Esses links ainda aparecem no painel **Link Table by Total Clicks** com seus cliques totais e porcentagens.
+
+Para ver as assinaturas de calor de links exclusivos para dispositivos móveis, selecione **Mobile**. A prévia para dispositivos móveis corresponde ao breakpoint para dispositivos móveis do editor de arrastar e soltar (620&nbsp;px). Se o e-mail mudar de layout apenas em uma largura mais estreita, esses links permanecerão ocultos mesmo no tamanho de prévia **Mobile**.
+
 #### Imagens {#images}
 
-Recomendamos ativar CORS para suas URLs de imagem para ajudar a evitar que as imagens quebrem nas pré-visualizações e exportações do mapa de calor.
+Recomendamos ativar CORS para suas URLs de imagem para ajudar a evitar que as imagens quebrem nas prévias e exportações do mapa de calor.
 
 Se as imagens estiverem faltando em uma exportação, trabalhe com seus desenvolvedores para que os ativos de imagem permitam acesso cross-origin: o servidor deve retornar o cabeçalho `Access-Control-Allow-Origin` com `*` ou o domínio do seu dashboard da Braze.
 
