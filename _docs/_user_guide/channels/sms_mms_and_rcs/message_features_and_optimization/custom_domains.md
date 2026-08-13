@@ -94,7 +94,11 @@ Yes. Domains can be associated with subscription groups in multiple workspaces, 
 
 ### How many custom domains can I add?
 
-You can add up to 10 custom domains per dashboard.
+You can add up to 10 custom domains per dashboard. Braze may configure a higher limit for your company on request.
+
+Domains in **Pending** or **Error** status count toward this limit. Delete them or resolve the error on the **SMS/RCS and Messaging Apps Domains** page.
+
+You can't delete a domain that is assigned as the **Link Shortening Domain** on a subscription group. Reassign the domain on each subscription group first, then delete the domain.
 
 ### What happens if I don’t update my DNS records within 45 days?
 
