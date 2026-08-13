@@ -16,7 +16,7 @@ channel:
 
 # User retargeting
 
-> In addition to changing the user's subscription state and sending auto-responses based on incoming keywords, Braze will also record interactions to the user profile for filtering and triggering messages.<br><br>These filters and triggers allow you to filter actions based on users who have been sent or have responded to SMS, MMS, and RCS campaigns, or further engage with users who have clicked shorted URLs.
+> In addition to changing the user's subscription state and sending auto-responses based on incoming keywords, Braze will also record interactions to the user profile for filtering and triggering messages.<br><br>These filters and triggers allow you to filter actions based on users who have been sent or have responded to SMS, MMS, and RCS campaigns, or further engage with users who have clicked shortened URLs.
 
 {% alert tip %}
 To read more about custom keywords and how to set up two-way messaging to take advantage of these retargeting options, visit our [custom keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling) article.
@@ -48,7 +48,7 @@ Filters users who have received a message from a specific campaign. With this fi
 
 ### Trigger messages as users receive SMS, MMS, or RCS {#trigger-messages}
 
-To trigger messages as users receive SMS, MMS, or RCS messages from a specific campaign, select **Interact with Campaign** as the trigger action for an action-based campaign. Next, select **Receive SMS** and the SMS, MMS, or RCS campaign you would like to use.
+To trigger messages as users receive SMS, MMS, or RCS messages from a specific campaign, select **Interact with Campaign** as the trigger action for an action-based campaign. Next, select **Receive SMS** (the UI label for SMS, MMS, and RCS delivery events) and the campaign you want to use.
 
 ![To trigger messages as users receive SMS, MMS, or RCS messages from a specific campaign, select Interact with Campaign as the trigger action for an action-based campaign. Next, select Receive SMS and the SMS, MMS, or RCS campaign you would like to use.]({% image_buster /assets/img/sms/trigger.png %})
 
@@ -89,7 +89,7 @@ Filter for users who have replied to a specific SMS, MMS, or RCS campaign or Can
 
 #### Filter by replied to a specific campaign with keyword category
 
-![Campaign with the filter "Has replied to SMS" for campaign "SMS-283" "Promotion". Under the filter the feature mentions "This filter will expire 25 months after the last message is sent from "Promotion" if it is not being used in any active campaign."]({% image_buster /assets/img/sms/clicked_opened_campaign.png %})
+![Campaign with the filter "Has replied to SMS" for campaign "SMS-283" "Promotion". Under the filter the feature mentions that this filter expires after a configured data retention period (default 25 months) following the last message sent from "Promotion" if it is not being used in an active campaign. Workspace retargeting retention may be shorter (for example, 13, 6, or 3 months) depending on your company's data retention policy.]({% image_buster /assets/img/sms/clicked_opened_campaign.png %})
 
 #### Filter by replied to a campaign or Canvas with a specific tag
 
@@ -140,6 +140,3 @@ Want to receive a specific deal? Just text us the category you're interested in.
 ```
 
 {% endraw %}
-
-[16]: {% image_buster /assets/img/keyword_example1.jpg %}
-[16]: {% image_buster /assets/img/sms/retargeting4.png %}

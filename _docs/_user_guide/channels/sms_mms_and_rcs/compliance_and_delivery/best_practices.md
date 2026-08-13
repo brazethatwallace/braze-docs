@@ -31,7 +31,7 @@ When setting up SMS and MMS in Braze to manage opt-ins and opt-outs, refer to th
 
 ### Considerations
 
-Where SMSand MMS have been set up across multiple instances, and due to misconfiguration, a campaign or Canvas opt-outs are sent to the wrong workspace.
+Where SMS and MMS have been set up across multiple instances, and due to misconfiguration, a campaign or Canvas opt-outs are sent to the wrong workspace.
 
 * Braze has monitoring in place to identify such instances. If this behavior is flagged, Braze will repoint opt-outs to the correct instance and backfill any opt-outs that occurred during the period.
 * We strongly recommend customers test opt-outs for each subscription group they have in Braze. Identifying this issue before launching a message is better than mitigating after an issue has been identified.
@@ -47,7 +47,7 @@ For reasons why phone numbers are typically marked invalid, see [Handling invali
 We recommend the following workflow to remove invalid phone numbers:
 
 1. Identify impacted phone numbers through the [`/sms/invalid_phone_numbers` endpoint]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers).
-2. Differentiate between phone numbers that are deactivated and phone numbers that received provider errors.
+2. Differentiate between phone numbers that are deactivated, marked invalid due to provider errors, and marked invalid due to formatting issues (`invalid_format`, such as non-E.164 numbers). Use the `reason` filter on the invalid phone numbers API to query by category. For more information, see [Handling invalid phone numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#handling-invalid-phone-numbers).
 3. For deactivated phone numbers, re-verify the phone number with the user. After the user confirms their phone number, remove the phone number from the invalid list through the [`/sms/invalid_phone_numbers/remove` endpoint]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers).
 
 ## Traffic pumping recommendations
@@ -88,7 +88,7 @@ To overcome this limitation, during the subscription groups [setup process]({{si
 
 Plan on doing some high-volume sending? We have some best practices for you to ensure it runs smoothly.
 
-- Adjust the delivery speed rate limiting for your campaign or Canvases as needed, based on target audience size. This ensures that you reach the send volume that you need and that Braze sends the messages at the rate that Twilio is expecting and can handle.
+- Adjust the delivery speed rate limiting for your campaign or Canvases as needed, based on target audience size. This ensures that you reach the send volume that you need and that Braze sends messages at the rate your SMS or RCS provider expects and can handle.
 - Ensure you stick to the 160-character limit, and be aware of special characters double-counting (for example, forward-slashes `\`, carets `^`, and tildes `~`). 
 
 ## Quiet Hours recommendations
@@ -99,7 +99,7 @@ Plan on doing some high-volume sending? We have some best practices for you to e
 
 ### Braze-native Quiet Hours
 
-We strongly recommend enabling [Quiet Hours]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#quiet-hours) across all SMS campaigns and Canvases to help meet regional regulations and best practices. 
+You can enable [Quiet Hours]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#quiet-hours) across SMS campaigns and Canvases as an additional scheduling control. For compliance-sensitive sends, use the Liquid-based safeguard in the following section as your primary control before messages are handed off to carriers.
 
 ### Additional safeguard through Content Blocks
 
