@@ -157,8 +157,8 @@ WhatsApp allows for variable parameters to be inserted into message templates. M
 #### My template got rejected. Can Braze help me get it approved? 
 The Braze team does not have visibility into template rejections. You should work directly with your WhatsApp Business manager to edit and resubmit the template. Make sure to provide a sample template where necessary. Double-check that your template follows Meta's [business](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw) or [commerce](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ) policies.
 
-#### Can the rich media be targeted or personalized in Braze? 
-Images can be uploaded from the media library but cannot be dynamically targeted. For URLs, the last part of the link can be [dynamically populated using Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#use-liquid-personalization-in-urls). 
+#### Can rich media be targeted or personalized in Braze?
+Yes. You can upload static images from the media library, or add images by URL and personalize them with [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) or [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Image URLs support full Liquid logic anywhere in the URL. This applies to template messages and response messages (media messages and quick reply layouts). For details, see [Dynamic images]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#dynamic-images).
 
 #### What kind of rich media is supported in WhatsApp templates?
 You can add images, calls to action (URL or phone number), and quick reply buttons to WhatsApp templates. You can add these elements when you build templates directly in WhatsApp. 
