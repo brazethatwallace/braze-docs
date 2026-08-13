@@ -33,7 +33,7 @@ A user can be globally subscribed to email while unsubscribed from a specific em
 
 ## Create a subscription group
 
-How you get a subscription group depends on the channel. Email groups are created in the dashboard; SMS, MMS, and RCS groups are provisioned during onboarding; WhatsApp and LINE groups are created during channel integration. See [Channel-specific behavior](#channel-specific-behavior) for other channels.
+How you get a subscription group depends on the channel. Email groups are created in the dashboard; SMS, MMS, and RCS groups are provisioned during onboarding; WhatsApp and LINE groups are created during channel integration. For channel-specific provisioning details, see [Channel-specific behavior](#channel-specific-behavior).
 
 ### Email
 

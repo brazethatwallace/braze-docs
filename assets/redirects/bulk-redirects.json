@@ -20026,7 +20026,7 @@
   },
   {
     "source": "/docs/user_guide/message_building_by_channel/email/email_setup/subscription_groups",
-    "destination": "/docs/user_guide/channels/email/subscriptions",
+    "destination": "/docs/user_guide/audience/subscription_preferences/subscription_groups",
     "permanent": true
   },
   {
@@ -20111,7 +20111,7 @@
   },
   {
     "source": "/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/subscription_groups",
-    "destination": "/docs/user_guide/channels/email/subscriptions",
+    "destination": "/docs/user_guide/audience/subscription_preferences/subscription_groups",
     "permanent": true
   },
   {
@@ -20201,7 +20201,7 @@
   },
   {
     "source": "/docs/user_guide/message_building_by_channel/email/subscription_groups",
-    "destination": "/docs/user_guide/channels/email/subscriptions",
+    "destination": "/docs/user_guide/audience/subscription_preferences/subscription_groups",
     "permanent": true
   },
   {
