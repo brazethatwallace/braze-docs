@@ -97,6 +97,8 @@ Any of these conditions:
 - The file has **4 or more total violations** across both scripts combined
 - The suggestion would result in `aria-label="Table"`
 
+**Icon-only cells (manual check, not scripted):** whenever an HTML table is in scope for review, also check any icon-only status cells (emoji with no adjacent visible text) against the [1.3.1 criterion](../references/wcag-aa-docs-criteria.md#131-info-and-relationships--tables): the emoji must be `aria-hidden="true"`, each cell needs a `.sr-only` companion span with the descriptive text, and the table needs a visible legend defining the symbols. Neither script detects this — flag it yourself and present it the same way as a low-confidence table violation.
+
 #### Content violations
 - `violation_type: heading_skip` — always low confidence; heading level changes affect document structure and require author judgment
 

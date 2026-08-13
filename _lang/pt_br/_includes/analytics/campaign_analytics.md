@@ -14,7 +14,7 @@ Procurando definições para os termos e métricas listados em seu relatório? C
   {% elsif include.channel == "webhook" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics) e filtre por Webhook.{% endif %}
 {% endalert %}
 
-Na guia **Campaign Analytics**, você pode visualizar seus relatórios em uma série de painéis. Você pode ver mais ou menos do que os listados nas seções abaixo, mas cada um tem seu próprio propósito útil.
+Na guia **Campaign Analytics**, você pode visualizar seus relatórios em uma série de painéis. Você pode ver mais ou menos do que os listados nas seções a seguir, mas cada um tem seu próprio propósito útil.
 
 ### Período {#time-range}
 
@@ -78,14 +78,14 @@ No Canvas, você verá o desempenho da mensagem no app mapeado no Canvas que voc
 
 #### Estimated Audience e Current Audience {#estimated-audience-and-current-audience}
 
-Dependendo do tamanho do seu espaço de trabalho, o painel **Campaign Details** pode rotular as estatísticas de público como **Estimated Audience** ou **Current Audience**.
+Dependendo do número total de usuários no seu espaço de trabalho, o painel **Campaign Details** rotula as estatísticas de público como **Current Audience** ou **Estimated Audience**.
 
 A tabela a seguir resume o que cada rótulo significa.
 
 | Rótulo do rodapé | Quando é usado |
 | --- | --- |
-| **Estimated Audience** | A Braze não executa uma contagem completa do banco de dados por padrão. O tamanho do público é estimado a partir de uma amostra e extrapolado, de forma semelhante ao intervalo de **usuários contatáveis** no criador de segmentos. Margens de erro são esperadas, especialmente para espaços de trabalho grandes ou segmentos pequenos em relação ao espaço de trabalho. |
-| **Current Audience** | A Braze pode calcular a estatística padrão com uma varredura completa dos perfis do espaço de trabalho, então o tamanho do público exibido é uma contagem atual e não amostrada (ainda sujeita à acessibilidade do canal, regras de inscrição e outras opções de direcionamento). |
+| **Current Audience** | O espaço de trabalho tem 50.000 usuários ou menos. A Braze executa uma varredura completa dos perfis do espaço de trabalho para a estatística padrão, então o tamanho do público exibido é uma contagem atual e não amostrada (ainda sujeita à acessibilidade do canal, regras de inscrição e outras opções de direcionamento). |
+| **Estimated Audience** | O espaço de trabalho tem mais de 50.000 usuários. A Braze não executa uma contagem completa do banco de dados por padrão. O tamanho do público é estimado a partir de uma amostra e extrapolado, de forma semelhante ao intervalo de **usuários contatáveis** no criador de segmentos. Margens de erro são esperadas, especialmente para segmentos pequenos em relação ao espaço de trabalho. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience e Current Audience" }
 
 Para mais detalhes sobre o comportamento de amostragem, **Calculate exact statistics** e segmentação de **Reachable users**, consulte [Medir o tamanho do segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
@@ -186,6 +186,13 @@ O painel **WhatsApp Performance** descreve o desempenho da sua mensagem em vári
 
 ![Painel de desempenho do WhatsApp que inclui uma tabela de métricas para a Variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Créditos versus contagens de envio {#credits-versus-send-counts}
+
+As contagens de envio do WhatsApp na análise de dados da campanha refletem tentativas de entrega. Os créditos consumidos podem diferir quando o Meta cobra por categoria de mensagem (marketing, utilidade, autenticação, serviço).
+
+- Mensagens de resposta compostas na Braze não consomem créditos de WhatsApp da Braze.
+- Use **Analytics** > **Daily Stats** para volume direcional de envio. Detalhamentos de créditos por campanha ou Canvas não estão disponíveis.
+
 {% endif %}
 
 Se você quiser simplificar sua visualização, clique em <i class="fas fa-plus"></i> **Add/Remove Columns** e desmarque quaisquer métricas conforme desejado. Por padrão, todas as métricas são exibidas.
@@ -203,14 +210,22 @@ A análise de dados da campanha exibe dados de cliques para até 100 URLs única
 Nesta visualização, você pode usar o botão **Show Heatmap** para exibir uma visão visual do seu e-mail que mostra a frequência geral e a localização dos cliques durante a duração da campanha. No painel **Link Table by Total Clicks**, você pode ver todos os links na sua campanha de e-mail e classificar por total de cliques. Isso pode fornecer um insight adicional sobre onde seus usuários navegam. Para salvar uma cópia do mapa de calor para referência, selecione o botão de download.
 
 {% alert note %}
-Se os links usarem Liquid para URLs dinâmicas, as URLs clicadas podem não corresponder ao link renderizado na mensagem de forma suficiente para que o mapa de calor associe os cliques a esse link, então esses links podem não aparecer no mapa de calor. Use os dados de cliques no painel **Link Table by Total Clicks** para ter uma visão completa.
+Se os links usarem Liquid para URLs dinâmicas, as URLs clicadas podem não corresponder ao link renderizado na mensagem de forma suficiente para que o mapa de calor associe os cliques a esse link, então esses links podem não aparecer no mapa de calor. Para atribuir dados de cliques a links com templates no mapa de calor, use [alias de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing). Para uma visão completa, use os dados de cliques no painel **Link Table by Total Clicks**.
 {% endalert %}
 
-![Exemplo da página de Preview & Heatmap que inclui uma campanha de e-mail e um painel com exemplos de alias de link com seus cliques totais.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+![Exemplo da página de Preview e Heatmap que inclui uma campanha de e-mail e um painel com exemplos de alias de link com seus cliques totais.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+
+##### Links exclusivos para dispositivos móveis no mapa de calor {#mobile-only-links-in-the-heatmap}
+
+O mapa de calor exibe apenas assinaturas de calor para links visíveis no tamanho de prévia selecionado.
+
+Links que aparecem apenas no layout para dispositivos móveis ficam ocultos em **Desktop** (e podem ficar ocultos em **Overall**, dependendo da largura da prévia), então esses cliques não aparecem como assinaturas de calor. Esses links ainda aparecem no painel **Link Table by Total Clicks** com seus cliques totais e porcentagens.
+
+Para ver as assinaturas de calor de links exclusivos para dispositivos móveis, selecione **Mobile**. A prévia para dispositivos móveis corresponde ao breakpoint para dispositivos móveis do editor de arrastar e soltar (620&nbsp;px). Se o e-mail mudar de layout apenas em uma largura mais estreita, esses links permanecerão ocultos mesmo no tamanho de prévia **Mobile**.
 
 #### Imagens {#images}
 
-Recomendamos ativar CORS para suas URLs de imagem para ajudar a evitar que as imagens quebrem nas pré-visualizações e exportações do mapa de calor.
+Recomendamos ativar CORS para suas URLs de imagem para ajudar a evitar que as imagens quebrem nas prévias e exportações do mapa de calor.
 
 Se as imagens estiverem faltando em uma exportação, trabalhe com seus desenvolvedores para que os ativos de imagem permitam acesso cross-origin: o servidor deve retornar o cabeçalho `Access-Control-Allow-Origin` com `*` ou o domínio do seu dashboard da Braze.
 
@@ -364,6 +379,12 @@ Como outro exemplo, suponha que você veja cinco _Unique Impressions_ em uma cam
 3. O SDK registrou uma impressão e a enviou ao servidor
 
 _Unique Daily Impressions_ refere-se aos Banners que foram realmente vistos.
+
+#### Discrepâncias entre grupos de controle e variantes {#discrepancies-between-control-groups-and-variants}
+
+Quando uma campanha de Banner usa um grupo de controle, as impressões do grupo de controle podem ser maiores do que as impressões da variante, mesmo quando a divisão de público entre os grupos é equilibrada. Essa discrepância é causada por uma diferença na forma como as impressões são registradas para Banners de controle e de variante.
+
+Tanto as impressões de controle quanto as de variante exigem que o posicionamento do Banner entre na viewport. As impressões de variante são registradas apenas quando o Banner completo está visível na tela. As impressões de controle podem ser registradas assim que o posicionamento entra na viewport, antes que o Banner completo esteja visível para uma variante.
 
 {% elsif include.channel == "email" %}
 
@@ -593,7 +614,7 @@ Os relatórios para _Button 1 Clicks_ e _Button 2 Clicks_ funcionam apenas quand
     </tbody>
 </table>
 
-#### Discrepâncias entre grupos de controle e variantes {#discrepancies-between-control-groups-and-variants}
+#### Discrepâncias entre grupos de controle e variantes
 
 Quando uma campanha de mensagem no app tem uma divisão de variantes 50-50, às vezes o grupo de controle terá uma porcentagem ligeiramente maior do que a variante (como 51% para o grupo de controle e 49% para a variante). Essa discrepância é causada por uma diferença no tempo de renderização — por exemplo, quando mensagens de variante usam imagens grandes ou Connected Content com templates e os usuários saem antes que a renderização seja concluída, enquanto o grupo de controle registra impressões sem exibir uma mensagem.
 
@@ -867,6 +888,8 @@ Aqui estão algumas métricas importantes do WhatsApp que você pode ver na aná
     </tbody>
 </table>
 
+Se as falhas estiverem elevadas, consulte [Investigar falhas de envio do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
+
 #### Métricas de bloqueio e denúncia pelo usuário final {#end-user-blocking-and-reporting-metrics}
 
 Métricas adicionais podem ser acessadas através do [dashboard do WhatsApp Manager](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx), embora a [confirmação do seu acesso](https://www.facebook.com/business/help/218116047387456) seja necessária para acessar todos os insights disponíveis.
@@ -919,7 +942,7 @@ O painel **Conversion Correlation** oferece insight sobre quais atributos e comp
 
 ## Criador de relatórios {#report-builder}
 
-Você também pode usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) para criar relatórios personalizados para suas campanhas KakaoTalk. Ao criar um relatório, você pode filtrar para incluir apenas campanhas KakaoTalk selecionando **KakaoTalk** em **Canais**, ou filtrando por quaisquer tags que você tenha aplicado às suas campanhas KakaoTalk.
+Você também pode usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) para criar relatórios personalizados para suas campanhas KakaoTalk. Ao criar um relatório, você pode filtrar para incluir apenas campanhas KakaoTalk selecionando **KakaoTalk** em **Channels**, ou filtrando por quaisquer tags que você tenha aplicado às suas campanhas KakaoTalk.
 
 {% endif %}
 

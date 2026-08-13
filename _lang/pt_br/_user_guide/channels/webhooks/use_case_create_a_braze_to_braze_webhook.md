@@ -28,7 +28,7 @@ Adicione [Enviar para Destino]({{site.baseurl}}/user_guide/messaging/canvas/canv
 
 Para atualizar perfis de usuário de dentro de um Canvas, incluindo modificar [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), registrar [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) ou registrar [compras]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), use a [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) em vez de um webhook Braze-para-Braze.
 
-A Atualização de usuário agrupa várias alterações e as envia em lotes, tornando-a mais rápida do que webhooks. É mais fácil de configurar do que um webhook e suporta atualizações complexas por meio do [criador avançado de JSON]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer). Por exemplo, para contar quantas vezes um usuário viu uma mensagem, use o [recurso de incremento e decremento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values) da Atualização de usuário em vez de um webhook Braze-para-Braze.
+A Atualização de usuário agrupa várias alterações e as envia em lotes, tornando-a mais rápida do que webhooks. É mais fácil de configurar do que um webhook e suporta atualizações complexas por meio do [criador avançado de JSON]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). Por exemplo, para contar quantas vezes um usuário viu uma mensagem, use o [recurso de incremento e decremento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values) da Atualização de usuário em vez de um webhook Braze-para-Braze.
 
 {% alert tip %}
 Adicione a [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) ao seu Canvas para atualizar atributos, eventos e compras de um usuário usando um criador de JSON.
@@ -36,7 +36,7 @@ Adicione a [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/can
 
 ## Quando usar um webhook Braze-para-Braze {#when-to-use-a-braze-to-braze-webhook}
 
-A Atualização de usuário pode lidar com quase todas as mesmas tarefas que um webhook Braze-para-Braze para atualizar perfis de usuário. Para atualizações complexas além de atributos personalizados simples, você pode usar o [criador avançado de JSON]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer).
+A Atualização de usuário pode lidar com quase todas as mesmas tarefas que um webhook Braze-para-Braze para atualizar perfis de usuário. Para atualizações complexas além de atributos personalizados simples, você pode usar o [criador avançado de JSON]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor).
 
 Enviar para Destino oferece uma maneira mais simples de disparar um segundo Canvas de dentro do Canvas sem precisar de configuração de webhook.
 
@@ -64,6 +64,10 @@ O fluxo de trabalho geral para criar um webhook Braze-para-Braze segue estas eta
 ## Disparar um segundo Canvas a partir de um Canvas inicial {#trigger-a-second-canvas-from-an-initial-canvas}
 
 Neste caso de uso, você cria dois Canvas e usa um webhook Braze-para-Braze para disparar o segundo Canvas a partir do primeiro. Isso funciona como um gatilho de entrada para quando um usuário atinge um determinado ponto em outro Canvas.
+
+{% alert note %}
+O gatilho **Interact with Canvas Step** está disponível apenas para Campaigns, não para entrada baseada em ação do Canvas. Se você precisar disparar um Canvas com base em um usuário atingindo uma etapa específica em outro Canvas, use essa abordagem de webhook Braze-para-Braze ou o componente [Enviar para Destino]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) do Canvas.
+{% endalert %}
 
 1. Comece criando seu segundo Canvas — o Canvas que deve ser disparado pelo seu Canvas inicial.
 2. Para o **Cronograma de entrada** do Canvas, selecione **API-Triggered**.

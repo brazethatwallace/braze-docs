@@ -21,6 +21,8 @@ Dies ist vergleichbar mit dem Löschen von Nutzer:innen im Bereich **Unternehmen
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#9c7c71ea-afd6-414a-99d1-4eb1fe274f16 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## Voraussetzungen {#prerequisites}
 
 Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie die Herkunft Ihres Dienstes als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzerbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
@@ -61,7 +63,7 @@ HTTP/1.1 204 Not Found
 Content-Type: text/html; charset=UTF-8
 ```
 
-Wenn ein:e Entwickler:in mit dieser ID nicht in Braze existiert, antwortet der Endpunkt mit:
+Wenn eine Entwickler:in mit dieser ID nicht in Braze existiert, antwortet der Endpunkt mit:
 ```http
 HTTP/1.1 404 Not Found
 Content-Type: text/html; charset=UTF-8

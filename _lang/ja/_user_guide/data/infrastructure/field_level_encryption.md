@@ -1,6 +1,6 @@
 ---
 nav_title: 識別子フィールドレベルの暗号化
-article_title: 識別子フィールドレベル暗号化
+article_title: 識別子フィールドレベルの暗号化
 page_order: 2
 alias: "/field_level_encryption/"
 description: "このリファレンス記事では、Brazeで共有される個人を特定できる情報（PII）を最小限に抑えるために、メールアドレスを暗号化する方法について説明します。"
@@ -25,7 +25,7 @@ page_type: reference
 
 識別子フィールドレベルの暗号化を使用するには、メールアドレスをBrazeに送信する**前に**、AWS KMSへアクセスしてメールアドレスを[暗号化](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html)および[ハッシュ化](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateMac.html)する必要があります。
 
-次の手順に従って、AWSシークレットキー認証方法を設定します。
+次のステップに従って、AWSシークレットキー認証方法を設定します。
 
 1. アクセスキーIDとシークレットアクセスキーを取得するには、AWS Key Management Serviceの権限ポリシーを使用してAWSで[IAMユーザーと管理者グループを作成します](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-set-up.html#create-an-admin)。IAMユーザーは[kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html)および[kms:GenerateMac](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateMac.html)の権限を持っている必要があります。詳細については、[AWS KMSの権限](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html)を参照してください。
 2. **Show User Security Credentials**を選択して、アクセスキーIDとシークレットアクセスキーを表示します。これらの認証情報をどこかにメモするか、**Download Credentials**ボタンを選択してください。AWS KMSキーに接続する際にこれらを入力する必要があります。
@@ -41,7 +41,7 @@ page_type: reference
 
 ![Symmetric、Generate and Verify MAC、HMAC_256が選択されたキー設定の構成画面。]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
 
-## ステップ 1: AWS KMSキーを接続する {#step-1-connect-your-aws-kms-keys}
+## ステップ1:AWS KMSキーを接続する {#step-1-connect-your-aws-kms-keys}
 
 Brazeダッシュボードで、**データ設定** > **フィールドレベルの暗号化**に移動します。AWS KMS設定には、次の内容を入力してください:
 
@@ -49,7 +49,7 @@ Brazeダッシュボードで、**データ設定** > **フィールドレベル
 - シークレットアクセスキー
 - HMACキーID（保存後に更新することはできません）
 
-## ステップ 2: 暗号化フィールドを選択する {#step-2-select-your-encrypted-fields}
+## ステップ2:暗号化フィールドを選択する {#step-2-select-your-encrypted-fields}
 
 次に、**Email address**を選択してフィールドを暗号化します。
 
@@ -57,7 +57,7 @@ Brazeダッシュボードで、**データ設定** > **フィールドレベル
 
 ![フィールドレベルの暗号化設定。]({% image_buster /assets/img/field_level_encryption.png %})
 
-## ステップ 3: ユーザーをインポートして更新する {#step-3-import-and-update-users}
+## ステップ3:ユーザーをインポートして更新する {#step-3-import-and-update-users}
 
 識別子フィールドレベルの暗号化がオンになっている場合、Brazeに追加する前にメールアドレスをハッシュ化して暗号化する必要があります。ハッシュ化する前にメールアドレスを小文字にしてください。詳細については、[ユーザー属性オブジェクト](#user-attributes-object)を参照してください。
 
@@ -87,7 +87,7 @@ Brazeでメールアドレスを更新する際は、`email`が含まれるす�
 
 ### ユーザー属性オブジェクト {#user-attributes-object}
 
-`/users/track`エンドポイントで識別子フィールドレベルの暗号化を使用する場合、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)のフィールドの詳細に注意してください:
+`/users/track`エンドポイントで識別子フィールドレベルの暗号化を使用する場合、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)のフィールドの詳細に注意してください:
 
 - `email`フィールドはメールのハッシュ値でなければなりません。
 - `email_encrypted`フィールドはメールの暗号化された値でなければなりません。
@@ -96,7 +96,7 @@ Brazeでメールアドレスを更新する際は、`email`が含まれるす�
 
 ### 暗号化とハッシュ化の違いは何ですか？ {#what-is-the-difference-between-encrypting-and-hashing}
 
-暗号化は、データを暗号化および復号化することが可能な双方向機能です。同じプレーンテキストの値が複数回暗号化された場合、AWSの暗号化アルゴリズム（AES-256-GCM）は異なる暗号化値を生成します。ハッシュ化は、プレーンテキストが復号できない方法でスクランブルされる一方向関数です。ハッシュ化は毎回同じ値を生成します。これにより、同じメールアドレスを共有する複数のユーザー間でサブスクリプション状態を維持することができます。
+暗号化は、データを暗号化および復号化することが可能な双方向機能です。同じプレーンテキストの値が複数回暗号化された場合、AWSの暗号化アルゴリズム（AES-256-GCM）は異なる暗号化値を生成します。ハッシュ化は、プレーンテキストが復号できない方法でスクランブルされる一方向関数です。ハッシュ化は毎回同じ値を生成します。これにより、同じメールアドレスを共有する複数のユーザー間で購読状態を維持することができます。
 
 ### テスト送信にどのメールアドレスを使用すればよいですか？ {#what-email-address-should-i-use-in-my-test-send}
 
@@ -110,7 +110,7 @@ Brazeでメールアドレスを更新する際は、`email`が含まれるす�
 
 Brazeはメールを送信する際にプレーンテキストのメールアドレスをレンダリングします。プレビューでは、メールの暗号化されたバージョンが表示されます。カスタムワンクリックURLでユーザーを参照する場合は、ユーザーのexternal IDを使用することをお勧めします。
 
-`{{${email_address}}}`は現在、ユーザー設定センターおよび配信停止ページではサポートされていません。
+`{{${email_address}}}`は現在、ユーザー設定センターおよび購読解除ページではサポートされていません。
 {%endraw%}
 
 ### Currentsではどのメールアドレスが表示されますか？ {#what-email-address-should-i-expect-to-see-in-currents}
@@ -121,9 +121,9 @@ Brazeはメールを送信する際にプレーンテキストのメールアド
 
 プレーンテキストのメールアドレスがメッセージのアーカイブに含まれています。これらは顧客のクラウドストレージプロバイダーに直接送信され、メール本文に他の個人データが含まれている場合があります。
 
-### 識別子フィールドレベルの暗号化を使用したサブスクリプション管理にmail-to list-unsubscribeを使用できますか？ {#can-i-use-mail-to-list-unsubscribe-for-subscription-management-with-identifier-field-level-encryption}
+### 識別子フィールドレベルの暗号化を使用した購読管理にmail-to list-unsubscribeを使用できますか？ {#can-i-use-mail-to-list-unsubscribe-for-subscription-management-with-identifier-field-level-encryption}
 
-いいえ。mail-to list-unsubscribeを使用すると、プレーンテキストの復号化されたメールアドレスがBrazeに送信されます。識別子フィールドレベルの暗号化がオンの場合、ワンクリックを含むURLベースのHTTPメソッドをサポートしています。また、メール本文にワンクリックで配信停止できるリンクを含めることをお勧めします。
+いいえ。mail-to list-unsubscribeを使用すると、プレーンテキストの復号化されたメールアドレスがBrazeに送信されます。識別子フィールドレベルの暗号化がオンの場合、ワンクリックを含むURLベースのHTTPメソッドをサポートしています。また、メール本文にワンクリックで購読解除できるリンクを含めることをお勧めします。
 
 ### 識別子フィールドレベルの暗号化は、電話番号などの他の識別子をサポートしていますか？ {#does-identifier-field-level-encryption-support-other-identifiers-like-phone}
 

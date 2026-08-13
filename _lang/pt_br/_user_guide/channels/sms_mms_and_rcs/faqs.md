@@ -17,15 +17,17 @@ channel:
 
 ## Geral {#general}
 
-### O que é um `app_id` no objeto de API de SMS? {#what-is-an-app_id-in-the-sms-api-object}
+### O que é um `app_id` no objeto da API de SMS? {#what-is-an-app_id-in-the-sms-api-object}
 
-A chave de API do identificador do app, ou `app_id`, é um parâmetro que associa a atividade a um app específico no seu espaço de trabalho. Ele designa com qual app dentro do espaço de trabalho você está interagindo. Por exemplo, você terá um `app_id` para o seu app iOS, um `app_id` para o seu app Android e um `app_id` para a sua integração web.
+A chave de API do identificador do app, ou `app_id`, é um parâmetro que associa a atividade a um app específico no seu espaço de trabalho. Ele designa com qual app dentro do espaço de trabalho você está interagindo. Por exemplo, você tem um `app_id` para o seu app iOS, um `app_id` para o seu app Android e um `app_id` para a sua integração web.
 
-Você pode encontrar seu `app_id` navegando até **Configurações** > **Configurações do app** e localizando a seção **Identification**.
+Para SMS, o parâmetro `app_id` é obrigatório ao enviar mensagens SMS pela API (como o endpoint `/messages/send`). Ele especifica qual app no seu espaço de trabalho está associado à atividade de SMS ou à chamada de API. Você pode usar qualquer `app_id` válido de um app configurado no seu espaço de trabalho para envio de mensagens SMS, independentemente de o usuário ter esse app específico no perfil dele.
+
+Você pode encontrar seu `app_id` acessando **Configurações** > **Configurações do app** e localizando a seção **Identification**.
 
 ### O que acontece se vários usuários tiverem o mesmo número de telefone? {#what-happens-if-multiple-users-have-the-same-phone-number}
 
-Quando vários perfis de usuário que compartilham o mesmo número de telefone (habilitado para SMS) são elegíveis para uma Campaign baseada em ação ou componente do Canvas ao mesmo tempo, disparados pelo evento de um SMS recebido, a Braze fará a deduplicação dos usuários no nível do componente do Canvas. Isso impedirá que os usuários recebam mais de um SMS para um componente do Canvas, mesmo que vários usuários compartilhem o mesmo número de telefone.
+Quando vários perfis de usuário que compartilham o mesmo número de telefone (habilitado para SMS) são elegíveis para uma Campaign baseada em ação ou um componente do Canvas ao mesmo tempo, disparados pelo evento de um SMS recebido, a Braze fará a deduplicação dos usuários no nível do componente do Canvas. Isso evita que os usuários recebam mais de um SMS para um componente do Canvas, mesmo que vários usuários compartilhem o mesmo número de telefone.
 
 {% alert note %}
 A Braze não faz deduplicação por número de telefone para Canvas agendados.
@@ -33,16 +35,24 @@ A Braze não faz deduplicação por número de telefone para Canvas agendados.
 
 A Braze usará o seguinte fluxo para determinar o perfil destinatário:
 - Verificar qual perfil recebeu SMS mais recentemente (até 7 dias atrás); se existir, enviar para esse usuário.
-- Se nenhum tiver recebido SMS nos últimos 7 dias, enviar para o usuário que possui um alias de usuário "phone" correspondente ao número de telefone.
+- Se nenhum tiver recebido SMS nos últimos 7 dias, enviar para o usuário que tem um alias de usuário "phone" correspondente ao número de telefone.
 - Se nenhum existir, enviar para um perfil aleatório entre os disponíveis.
 
-Se você receber uma palavra-chave "START" ou "STOP" do número de telefone compartilhado, todos os perfis de usuário serão inscritos e habilitados para SMS ou terão a inscrição cancelada. Isso também se aplica a alterações de estado via API. Por exemplo, se vários perfis com IDs externos diferentes tiverem os mesmos números de telefone, uma alteração de estado do grupo de inscrições pela API atualizará todos os perfis com esse número de telefone, mesmo que apenas um ID externo seja especificado.
+Se você receber uma palavra-chave "START" ou "STOP" do número de telefone compartilhado, todos os perfis de usuário serão inscritos e habilitados para SMS ou terão a inscrição cancelada. Isso também se aplica a alterações de status via API. Por exemplo, se vários perfis com IDs externos diferentes tiverem os mesmos números de telefone, uma alteração de status do grupo de inscrições pela API atualizará todos os perfis com esse número de telefone, mesmo que apenas um ID externo seja especificado.
 
 {% alert important %}
-Se você escalonar seus usuários em um Canvas e tiver horários de programação diferentes para cada componente do Canvas, é possível enviar mensagens duplicadas para um usuário com o mesmo e-mail ou telefone.
+Se você escalonar seus usuários em um Canvas e tiver horários de agendamento diferentes para cada componente do Canvas, é possível enviar mensagens duplicadas para um usuário com o mesmo e-mail ou telefone.
 {% endalert %}
 
 Para evitar atualizações desnecessariamente grandes, a Braze atualizará no máximo 100 perfis de usuário que compartilham um identificador quando uma atualização de inscrição for feita. Se mais de 100 perfis de usuário compartilharem o mesmo número de telefone, nem todos os perfis serão atualizados.
+
+### Por que vejo um pico nas inscrições de SMS de uma fonte específica? {#why-do-i-see-a-spike-in-sms-subscriptions-from-a-specific-source}
+
+Se você observar um aumento inesperadamente grande nas contagens de inscrição — especialmente ao analisar dados do endpoint [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) pelo Currents — isso pode ser causado por perfis de usuário duplicados.
+
+Quando uma solicitação é feita ao endpoint `/subscription/status/set` apenas com um número de telefone (sem `external_id` fornecido), a Braze atualiza todos os perfis de usuário que compartilham esse número de telefone. Se o seu espaço de trabalho tiver perfis duplicados, a contagem de usuários que atualizaram o status de inscrição será inflada, mesmo que apenas um número de telefone tenha sido alterado.
+
+Para analisar os dados de inscrição com mais precisão ao extrair do Currents, atualize sua consulta para contar números de telefone distintos em vez de contar todos os eventos de alteração de status de inscrição.
 
 ### O que são short codes compartilhados? {#what-are-shared-short-codes}
 
@@ -58,7 +68,7 @@ Algumas desvantagens dessa abordagem incluem:
 
 ### Como serei cobrado pelo SMS? {#how-will-i-be-billed-for-sms}
 
-Além das cobranças por short codes e long codes, a Braze fornece uma cota de mensagens SMS para diferentes países. Ou seja, trabalhamos com você para definir um determinado número de segmentos de mensagem para diferentes países, que você usará para enviar Campaigns de SMS. A cobrança é feita pelo número de segmentos de mensagem enviados por país. Para saber mais sobre como os segmentos de mensagem são calculados, consulte nosso guia de [Segmentos de mensagem e limites de texto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator). Seu gerente de conta entrará em contato para informá-lo caso esteja próximo de atingir seu limite máximo, fornecendo relatórios relevantes para mantê-lo informado. Para mais perguntas sobre excedentes, entre em contato com seu representante da Braze.
+Além das cobranças por códigos curtos e longos, a Braze oferece uma cota de mensagens SMS para diferentes países. Ou seja, trabalhamos com você para definir um determinado número de segmentos de mensagem para diferentes países, que você usará para enviar campanhas de SMS. A cobrança é feita pelo número de segmentos de mensagem enviados por país. Para saber mais sobre como os segmentos de mensagem são calculados, consulte nosso guia de [Segmentos de mensagem e limites de texto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator). Seu gerente de conta entrará em contato para informá-lo caso esteja próximo de atingir seu limite máximo, fornecendo relatórios relevantes para mantê-lo informado. Para mais dúvidas sobre excedentes, entre em contato com seu representante da Braze.
 
 ### Os preços de MMS e SMS são diferentes? {#does-mms-and-sms-pricing-differ}
 
@@ -66,89 +76,89 @@ MMS e SMS têm custos diferentes e são cobrados separadamente com base no volum
 
 ### Como posso evitar excedentes? {#how-can-i-avoid-overages}
 
-Embora não possamos prometer que você nunca terá um excedente, você pode seguir estas precauções para diminuir as chances de ultrapassar seus limites:
+Embora não possamos garantir que você nunca terá um excedente, você pode seguir estas precauções para diminuir as chances de ultrapassar seus limites:
 
-- Preste atenção ao número de caracteres no seu SMS. Enviar involuntariamente mais de um segmento pode causar excedentes. Para mais detalhes, consulte nosso [detalhamento de segmentos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
-- Calcule cuidadosamente os caracteres do seu SMS para considerar Liquid ou Conteúdo conectado. O criador de SMS da Braze no seu dashboard não estima nem considera o uso de nenhum desses recursos.
-- Considere o tipo de codificação que sua mensagem usa — se sua mensagem usa codificação GSM-7, você geralmente pode estimar que consegue enviar uma mensagem com 128 caracteres por segmento de mensagem. Se sua mensagem usa codificação [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set), você geralmente pode estimar que consegue enviar uma mensagem com 67 caracteres por segmento de mensagem.
-- Teste, teste e teste! Sempre teste suas mensagens SMS antes do lançamento, especialmente ao usar Liquid e Conteúdo conectado.
+- Preste atenção ao número de caracteres no seu SMS. Enviar mais de um segmento sem querer pode causar excedentes. Para mais detalhes, consulte nosso [detalhamento de segmentos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
+- Calcule cuidadosamente os caracteres do seu SMS levando em conta Liquid ou Connected Content. O criador de SMS da Braze no seu dashboard não estima nem considera o uso de nenhum desses recursos.
+- Considere o tipo de codificação que sua mensagem usa. Se sua mensagem usa codificação GSM-7, geralmente você pode estimar o envio de uma mensagem com 128 caracteres por segmento de mensagem. Se sua mensagem usa codificação [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set), geralmente você pode estimar o envio de uma mensagem com 67 caracteres por segmento de mensagem.
+- Teste, teste e teste! Sempre teste suas mensagens SMS antes do lançamento, especialmente ao usar Liquid e Connected Content.
 
 ### Se uma mensagem for enviada para um telefone fixo, ela ainda contará no meu total de envios de SMS? {#if-a-message-is-sent-to-a-landline-will-the-message-still-count-toward-my-sms-send-count}
 
 Nos EUA, Canadá e Reino Unido:
-- Se um SMS for enviado para um telefone fixo, ele será marcado como **Undelivered**. A Twilio ainda cobrará pela tentativa de entrega, então mensagens marcadas como **Sent**, **Delivered** ou **Undelivered** nos seus registros de mensagens serão cobradas.
-- No Reino Unido, algumas operadoras converterão o SMS em uma mensagem de voz, entregando a mensagem.
+- Se um SMS for enviado para um telefone fixo, ele será marcado como **Undelivered**. Observe que a Twilio ainda cobrará pela tentativa de entrega, então mensagens marcadas como **Sent**, **Delivered** ou **Undelivered** nos seus registros de mensagens serão cobradas.
+- No Reino Unido, algumas operadoras convertem o SMS em uma mensagem de voz, entregando a mensagem.
 
 Em outros países:
 - A Twilio retornará um erro, e você não será cobrado pela tentativa de envio do SMS.
 
-### Por que o dashboard da Braze está me avisando que posso ser cobrado por segmentos de mensagem adicionais quando minha mensagem tem menos de 160 (GSM-7) ou 70 (UCS-2) caracteres? {#why-is-the-braze-dashboard-warning-me-i-may-be-charged-for-additional-message-segments-when-my-message-is-under-160-gsm-7-or-70-ucs-2-characters}
+### Por que o dashboard da Braze está me alertando que posso ser cobrado por segmentos de mensagem adicionais quando minha mensagem tem menos de 160 (GSM-7) ou 70 (UCS-2) caracteres? {#why-is-the-braze-dashboard-warning-me-i-may-be-charged-for-additional-message-segments-when-my-message-is-under-160-gsm-7-or-70-ucs-2-characters}
 
-Você pode ser cobrado por segmentos de mensagem adicionais se tiver personalização com Liquid incluída na sua mensagem. A renderização de blocos de conteúdo não ocorre até que a mensagem esteja sendo preparada para envio. Quando você está editando um SMS com um bloco de conteúdo, a Braze não sabe o que o bloco de conteúdo conterá, mas fornece uma estimativa aproximada. Recomendamos que os usuários usem o painel de teste para pré-visualizar a mensagem e entender melhor o que esperar.
+Você pode ser cobrado por segmentos de mensagem adicionais se tiver personalização com Liquid incluída na sua mensagem. A renderização do bloco de conteúdo não ocorre até que a mensagem esteja sendo preparada para envio. Quando você está editando um SMS com um bloco de conteúdo, a Braze não sabe o que o bloco de conteúdo conterá, mas fornece uma estimativa aproximada. Recomendamos que os usuários usem o painel de teste para visualizar a mensagem e entender melhor o que esperar.
 
 ## Envio e entregabilidade {#sending-and-deliverability}
 
-### Posso incluir links em um SMS? {#can-you-include-links-in-an-sms}
+### É possível incluir links em um SMS? {#can-you-include-links-in-an-sms}
 
-Você pode incluir qualquer link em qualquer Campaign de SMS que desejar. No entanto, há algumas considerações:
+Você pode incluir qualquer link em qualquer Campaign de SMS que desejar. No entanto, há algumas questões a considerar:
 
 - Links podem ocupar grande parte do limite de 160 caracteres do SMS. Se você incluir um link e texto, isso pode resultar em duas mensagens SMS em vez de apenas uma.
-- Empresas frequentemente usam encurtadores de links para reduzir o impacto de caracteres de um link. No entanto, se enviar um link encurtado por um long code, as operadoras podem bloquear ou rejeitar a mensagem, pois podem suspeitar do redirecionamento do link.
+- Empresas frequentemente usam encurtadores de links para reduzir o impacto na contagem de caracteres. No entanto, ao enviar um link encurtado por um long code, as operadoras podem bloquear ou rejeitar a mensagem, pois podem suspeitar do redirecionamento do link.
 - Usar um [short code]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup) seria o tipo de número mais confiável para incluir links.
 
-A Braze também possui seu próprio recurso de encurtamento de links que encurta links e fornece análise de dados de cliques automaticamente. Consulte [Encurtamento de links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) para mais informações.
+A Braze também possui seu próprio recurso de encurtamento de links, que encurta links e fornece análise de cliques automaticamente. Consulte [Encurtamento de links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) para saber mais.
 
 ### É necessário limitar a taxa de envio de mensagens SMS? {#do-you-need-to-rate-limit-how-fast-you-send-sms-messages}
 
-A taxa de concorrência e throughput padrão permite cerca de 360.000 mensagens por hora por short code. Throughput adicional requer short codes adicionais.
+A taxa de concorrência e throughput padrão permite o envio de aproximadamente 360.000 mensagens por hora por short code. Throughput adicional requer short codes adicionais.
 
-### Como adicionar URLs à lista de permissões para SMS? {#how-do-you-allowlist-urls-for-sms}
+### Como colocar URLs na lista de permissões para SMS? {#how-do-you-allowlist-urls-for-sms}
 
-Antes de enviar mensagens SMS contendo URLs para usuários em determinados países (por exemplo, Suécia ou países nórdicos), você precisa registrar essas URLs junto à operadora. Entre em contato com seu gerente de atendimento ao cliente da Braze para ajudar. Esse processo levará cerca de cinco dias.
+Antes de enviar mensagens SMS contendo URLs para usuários em determinados países (por exemplo, Suécia ou países nórdicos), você precisa registrar essas URLs junto à operadora. Entre em contato com seu gerente de atendimento ao cliente da Braze para obter ajuda. Esse processo leva cerca de cinco dias.
 
-### Quais são as melhores práticas de envio para evitar detecção de spam no SMS? {#what-are-the-best-sending-practices-to-avoid-spam-detection-for-sms}
+### Quais são as melhores práticas de envio para evitar a detecção de SPAM no SMS? {#what-are-the-best-sending-practices-to-avoid-spam-detection-for-sms}
 
-1. Certifique-se de que as instruções de opt-in e descadastramento sejam claras.
+1. Certifique-se de que as instruções de aceitação e cancelamento de inscrição estejam claras.
 2. Garanta que você (a marca) tenha um relacionamento com o cliente.
 3. Certifique-se de que o conteúdo seja relevante para o relacionamento e para o que o usuário optou por receber.
 
-Para mais diretrizes sobre como evitar detecção de spam, visite as [diretrizes de leis e regulamentações de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
+Para mais orientações sobre como evitar a detecção de SPAM, acesse as [diretrizes de leis e regulamentações de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
 
 ### Quantos caracteres um emoji usa? {#how-many-characters-does-an-emoji-use}
 
-Emojis podem ser complicados, pois não há uma contagem de caracteres padrão para todos os emojis. Existe o risco de o emoji exceder o limite de caracteres e dividir o SMS em várias mensagens, apesar de aparecer como uma única mensagem no criador da Braze. Ao testar suas mensagens, você pode verificar melhor se uma mensagem será dividida usando nossa [calculadora de segmentos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#segment-calculator).
+Emojis podem ser complicados, pois não existe uma contagem de caracteres padrão para todos os emojis. Há o risco de o emoji exceder o limite de caracteres e dividir o SMS em várias mensagens, mesmo que apareça como uma única mensagem no criador da Braze. Ao testar suas mensagens, você pode verificar melhor se uma mensagem será dividida usando nossa [calculadora de segmentos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#segment-calculator).
 
-## Grupos de inscrições e opt-in/descadastramento {#subscription-groups-and-opt-inopt-out}
+## Grupos de inscrições e aceitação/cancelamento {#subscription-groups-and-opt-inopt-out}
 
-### Como criar lógica para opt-ins seletivos de SMS para que os usuários fiquem no grupo de inscrições correto? {#how-do-you-create-logic-for-selective-opt-ins-to-sms-so-users-are-in-the-right-subscription-group}
+### Como criar lógica para aceitações seletivas de SMS para que os usuários fiquem no grupo de inscrições correto? {#how-do-you-create-logic-for-selective-opt-ins-to-sms-so-users-are-in-the-right-subscription-group}
 
-Palavras-chave personalizadas seriam registradas como eventos personalizados, então você precisaria criar segmentos com base nas palavras-chave que os clientes podem enviar por mensagem. Por exemplo, se um usuário optar por receber SMS para mensagens VIP, mas não para alertas, você pode criar um segmento VIP e um segmento de alertas, e então atribuir o usuário ao segmento apropriado.
+Palavras-chave personalizadas seriam registradas como eventos personalizados, então você precisaria criar segmentos com base nas palavras-chave que os clientes podem enviar por mensagem de texto. Por exemplo, se um usuário aceita receber SMS para mensagens VIP, mas não para alertas, você pode criar um Segment VIP e um Segment de alertas e, em seguida, atribuir o usuário ao Segment apropriado.
 
-### Se um usuário enviar "Stop" para nosso short code, ele terá a inscrição cancelada do grupo de inscrições? {#if-a-user-texts-stop-to-our-short-code-are-they-unsubscribed-from-the-subscription-group}
+### Se um usuário enviar "Stop" para nosso short code, ele é removido do grupo de inscrições? {#if-a-user-texts-stop-to-our-short-code-are-they-unsubscribed-from-the-subscription-group}
 
-Como isso aparece no perfil do usuário? O grupo de inscrições reverterá para 2 traços (- -), e haverá eventos personalizados para inscrição e cancelamento de inscrição.
+Como isso aparece no perfil de usuário? O grupo de inscrições voltará a exibir 2 traços (- -), e haverá eventos personalizados para inscrição e cancelamento de inscrição.
 
-### Se um usuário tiver o descadastramento ativo e enviar uma palavra-chave para nosso short code e long code, ele receberá a resposta que configuramos para essa palavra-chave na Braze? {#if-a-user-is-opted-out-and-sends-a-keyword-to-our-short-and-long-code-do-they-receive-the-response-we-configured-for-that-keyword-in-braze}
+### Se um usuário cancelou a inscrição e envia uma palavra-chave para nosso short code e long code, ele recebe a resposta que configuramos para essa palavra-chave na Braze? {#if-a-user-is-opted-out-and-sends-a-keyword-to-our-short-and-long-code-do-they-receive-the-response-we-configured-for-that-keyword-in-braze}
 
-Se um usuário tiver o descadastramento ativo e enviar uma palavra-chave de uma das [categorias de palavras-chave padrão]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout), ele receberá a resposta para essa palavra-chave. Se um usuário tiver o descadastramento ativo e enviar uma [palavra-chave personalizada]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling), ele não receberá a resposta para essa palavra-chave.
+Se um usuário cancelou a inscrição e envia uma palavra-chave de uma das [categorias de palavras-chave padrão]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout), ele receberá a resposta para essa palavra-chave. Se um usuário cancelou a inscrição e envia uma [palavra-chave personalizada]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling), ele não receberá a resposta para essa palavra-chave.
 
-### As propriedades de evento de SMS capturam palavras-chave em uma frase? {#will-sms-event-properties-capture-keywords-in-a-sentence}
+### As propriedades de evento de SMS capturam palavras-chave dentro de uma frase? {#will-sms-event-properties-capture-keywords-in-a-sentence}
 
-Para que uma palavra-chave seja reconhecida dentro de uma frase (por exemplo, "por favor, pare de me enviar mensagens"), você precisará usar uma instrução Liquid na mensagem para reconhecer a palavra específica. As propriedades de evento têm um limite de 256 caracteres; fora isso, não há limite de caracteres.
+Para que uma palavra-chave seja reconhecida dentro de uma frase (por exemplo, "please stop texting me"), você precisará usar uma instrução Liquid na mensagem para reconhecer a palavra específica. As propriedades de evento têm um limite de 256 caracteres; fora isso, não há limite de caracteres.
 
 ## Testes {#testing}
 
-### Mensagens de teste contam para os limites? {#do-test-text-messages-count-toward-limits}
+### As mensagens de texto de teste contam para os limites? {#do-test-text-messages-count-toward-limits}
 
-Sim, contam. Tenha isso em mente ao testar mensagens.
+Sim. Leve isso em consideração ao testar mensagens.
 
-### Um usuário precisa fazer parte de um grupo de inscrições de SMS para receber mensagens de teste de SMS? {#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages}
+### Um usuário precisa fazer parte de um grupo de inscrições de SMS para receber mensagens de teste por SMS? {#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages}
 
 Sim. Os usuários devem ter um número de telefone válido, fazer parte do grupo de inscrições de SMS usado para o envio de teste e ter pelo menos um país selecionado em **Geographic Permissions** para SMS.
 
 ### Existe uma maneira de verificar se um alias existe em um perfil de usuário? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 
-Os aliases não são visíveis no perfil do usuário. Você precisaria usar os endpoints de [Exportar dados de usuários]({{site.baseurl}}/api/endpoints/export) para confirmar que os aliases foram definidos.
+Os aliases não são visíveis no perfil de usuário. Você precisaria usar os endpoints de [Exportação de dados de usuários]({{site.baseurl}}/api/endpoints/export) para confirmar se os aliases foram definidos.
 
 ## MMS
 

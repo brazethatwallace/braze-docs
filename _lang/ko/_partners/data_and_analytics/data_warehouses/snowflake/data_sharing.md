@@ -2,7 +2,7 @@
 nav_title: "데이터 공유"
 article_title: Snowflake 데이터 공유
 page_order: 0
-description: "이 참조 문서에서는 Snowflake 보안 데이터 공유 통합에 대해 다루며, 이를 통해 Snowflake 인스턴스에서 직접 Braze 참여 및 Campaign 데이터에 액세스할 수 있습니다."
+description: "이 참조 문서에서는 Snowflake 보안 데이터 공유 통합에 대해 다루며, 이를 통해 Snowflake 인스턴스에서 직접 Braze 인게이지먼트 및 Campaign 데이터에 액세스할 수 있습니다."
 page_type: partner
 search_tag: Partner
 
@@ -10,12 +10,12 @@ search_tag: Partner
 
 # [![Braze 학습 과정]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Snowflake 데이터 공유 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
 
-> Snowflake [보안 데이터 공유](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html)를 사용하면 일반적인 데이터 공급자 관계에서 발생하는 워크플로 마찰이나 지연, 장애 지점, 불필요한 비용에 대한 걱정 없이 Braze가 Snowflake 포털의 데이터에 대한 안전한 액세스를 제공할 수 있습니다. 데이터 공유는 다음 통합을 통해 또는 [Snowflake 리더 계정]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts)을 통해 설정할 수 있습니다.
+> Snowflake [보안 데이터 공유](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html)를 사용하면 일반적인 데이터 공급자 관계에서 발생하는 워크플로 마찰이나 지연, 장애 지점, 불필요한 비용에 대한 걱정 없이 Braze가 Snowflake 포털의 데이터에 대한 안전한 액세스를 제공할 수 있습니다. 데이터 공유는 다음 통합을 통해 또는 [Snowflake 리더 계정]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents#snowflake-reader-accounts)을 통해 설정할 수 있습니다.
 
-Snowflake 데이터 공유는 Braze 데이터 배포의 일부입니다. 데이터 배포 옵션에 대한 전체 개요는 [데이터 배포]({{site.baseurl}}/user_guide/data/distribution/)를 참조하세요.
+Snowflake 데이터 공유는 Braze 데이터 배포의 일부입니다. 데이터 배포 옵션에 대한 전체 개요는 [데이터 배포]({{site.baseurl}}/user_guide/data/distribution)를 참조하세요.
 
 {% alert tip %}
-**Snowflake 계정 없이도 Snowflake 수준의 데이터에 액세스하고 싶으신가요?**<br>[Snowflake 리더 계정]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts)을 확인해 보세요. 리더 계정을 사용하면 Braze가 계정을 생성하고 데이터를 공유하며, 로그인하여 데이터에 액세스할 수 있는 자격 증명을 제공합니다. 이 경우 모든 데이터 공유 및 사용 요금은 전적으로 Braze에서 처리합니다.
+**Snowflake 계정 없이도 Snowflake 수준의 데이터에 액세스하고 싶으신가요?**<br>[Snowflake 리더 계정]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents#snowflake-reader-accounts)을 확인해 보세요. 리더 계정을 사용하면 Braze가 계정을 생성하고 데이터를 공유하며, 로그인하여 데이터에 액세스할 수 있는 자격 증명을 제공합니다. 이 경우 모든 데이터 공유 및 사용 요금은 전적으로 Braze에서 처리합니다.
 {% endalert %}
 
 ## 보안 데이터 공유 소개 {#about-secure-data-sharing}
@@ -30,13 +30,13 @@ Snowflake 데이터 공유는 Braze 데이터 배포의 일부입니다. 데이�
 
 Snowflake의 데이터 공유에 대해 자세히 알아보려면 [보안 데이터 공유 소개](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#how-does-secure-data-sharing-work)를 참조하세요.
 
-## 필수 조건 {#prerequisites}
+## 전제 조건 {#prerequisites}
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Braze 액세스 | 데이터 공유를 설정하려면 Braze 계정 또는 고객 성공 매니저에게 문의하세요. |
 | Snowflake 계정 | `admin` 권한이 있는 Snowflake 계정이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="전제 조건" }
 
 ## 보안 데이터 공유 설정 {#setting-up-secure-data-sharing}
 
@@ -44,10 +44,7 @@ Snowflake에서 데이터 공유는 [데이터 공급자](https://docs.snowflake
 
 ### 1단계: Braze에서 데이터 공유 전송 {#step-1-send-the-datashare-from-braze}
 
-1. Braze에서 **파트너 통합** > **데이터 공유**로 이동합니다.
-2. Snowflake 계정 세부 정보와 로케이터를 입력합니다. 계정 로케이터를 가져오려면 대상 계정에서 `SELECT CURRENT_ACCOUNT()`를 실행하세요.
-3. CRR 공유를 사용하는 경우 클라우드 공급자와 리전을 지정합니다.
-4. 완료되면 **Create Datashare**를 선택합니다. 그러면 Snowflake 계정으로 데이터 공유가 전송됩니다.
+{% multi_lang_include partners/snowflake/data_sharing_account_steps.md %}
 
 ### 2단계: Snowflake에서 데이터베이스 생성 {#step-2-create-the-database-in-snowflake}
 
@@ -62,7 +59,7 @@ Snowflake에서 데이터 공유는 [데이터 공급자](https://docs.snowflake
 
 {% alert warning %}
 Braze 대시보드에서 공유를 삭제하고 다시 생성하는 경우, 이전에 생성한 데이터베이스를 삭제하고 `CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>`을 사용하여 다시 생성해야 인바운드 공유를 쿼리할 수 있습니다.
-동일한 Snowflake 계정에 데이터를 공유하는 여러 워크스페이스가 있는 경우, 다중 워크스페이스 구성 관리에 대한 안내는 [Snowflake 데이터 공유 FAQ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs/)를 참조하세요.
+동일한 Snowflake 계정에 데이터를 공유하는 여러 워크스페이스가 있는 경우, 다중 워크스페이스 구성 관리에 대한 안내는 [Snowflake 데이터 공유 FAQ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs)를 참조하세요.
 {% endalert %}
 
 ## 사용 및 시각화 {#usage-and-visualization}
@@ -71,11 +68,7 @@ Braze 대시보드에서 공유를 삭제하고 다시 생성하는 경우, 이�
 
 Currents와 마찬가지로 Snowflake 보안 데이터 공유를 사용하여 다음을 수행할 수 있습니다:
 
-- 복잡한 보고서 생성
-- 기여도 모델링 수행
-- 회사 내 안전한 공유
-- 원시 이벤트 또는 사용자 데이터를 CRM(예: Salesforce)에 매핑
-- 기타 다양한 활용
+{% multi_lang_include partners/data_sharing_use_cases.md %}
 
 [원시 테이블 스키마를 다운로드하세요.](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)
 
@@ -95,9 +88,7 @@ Currents와 마찬가지로 Snowflake 보안 데이터 공유를 사용하여 �
 
 #### 호환성을 깨지 않는 변경 {#non-breaking-changes}
 
-호환성을 깨지 않는 변경은 언제든지 발생할 수 있으며 일반적으로 추가 기능을 제공합니다. 호환성을 깨지 않는 변경의 예:
-- 새 테이블 또는 뷰 추가
-- 기존 테이블 또는 뷰에 열 추가
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 새 열은 호환성을 깨지 않는 변경으로 간주되므로, Braze는 `SELECT *` 쿼리를 사용하는 대신 각 쿼리에서 관심 있는 열을 명시적으로 나열할 것을 강력히 권장합니다. 또는 열을 명시적으로 지정하는 뷰를 생성한 다음 테이블 대신 해당 뷰를 쿼리할 수도 있습니다.
@@ -105,10 +96,7 @@ Currents와 마찬가지로 Snowflake 보안 데이터 공유를 사용하여 �
 
 #### 호환성을 깨는 변경 {#breaking-changes}
 
-가능한 경우 호환성을 깨는 변경에는 사전 공지와 마이그레이션 기간이 제공됩니다. 호환성을 깨는 변경의 예:
-- 테이블 또는 뷰 제거
-- 기존 테이블 또는 뷰에서 열 제거
-- 기존 열의 유형 또는 null 허용 여부 변경
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ### Snowflake 리전 {#snowflake-regions}
 
@@ -143,5 +131,5 @@ Snowflake의 과거 이벤트 데이터 아카이브는 2019년 4월까지 거�
 데이터에 대해 실행하는 쿼리의 속도, 성능 및 비용은 데이터를 쿼리하는 데 사용하는 웨어하우스 크기에 따라 결정됩니다. 경우에 따라 분석을 위해 액세스하는 데이터 양에 따라 쿼리가 성공하려면 더 큰 웨어하우스 크기를 사용해야 할 수 있습니다. Snowflake는 [웨어하우스 개요](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) 및 [웨어하우스 고려 사항](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html)을 포함하여 적절한 크기를 결정하는 방법에 대한 훌륭한 리소스를 제공합니다.
 
 {% alert tip %}
-Snowflake 설정 시 참조할 수 있는 예제 쿼리 세트는 [샘플 쿼리]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries/) 및 [ETL 이벤트 파이프라인 설정]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup/) 예제를 확인하세요.
+Snowflake 설정 시 참조할 수 있는 예제 쿼리 세트는 [샘플 쿼리]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries) 및 [ETL 이벤트 파이프라인 설정]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup) 예제를 확인하세요.
 {% endalert %}

@@ -235,11 +235,7 @@ API-triggered and server-triggered campaigns are ideal for handling more advance
 
 If you encounter a "Request Timed Out" error while creating or editing a campaign or Canvas and need to contact [Braze Support]({{site.baseurl}}/braze_support), include the following information to help speed up resolution:
 
-- **Screen recording:** A recording of the steps you took before seeing the error, including any page transitions.
-- **Timestamp and time zone:** The exact time the error occurred and your time zone.
-- **Browser and version:** The browser you're using (for example, Chrome 120, Safari 17) and whether you've tried reproducing the error in a different browser.
-- **Steps to reproduce:** A clear description of the actions that trigger the error, including any specific campaign or Canvas settings involved.
-- **Network logs (optional):** Open your browser developer tools (**Network** tab), reproduce the error, and export the network log as a HAR (HTTP Archive) log. This helps the support team identify which API call is timing out.
+{% multi_lang_include messaging/support_ticket_request_timed_out_details.md context='campaign' %}
 
 ### Why don't my send analytics match the maximum recipient limit I set?
 
@@ -262,6 +258,7 @@ Several factors can cause the number of sends to be lower than the estimated aud
 - **Delivery timing and windows:** For local time zone or scheduled campaigns, users must qualify at both entry and send time; users in certain time zones may fall outside the delivery window.
 - **Email deduplication:** Your campaign or Canvas targets multiple users with matching emails, so a random user with that email address is chosen at the time of send. The message only sends once and is deduplicated so that it doesn’t send to the same email multiple times, but your estimated audience size includes all users.
 - **Email deliverability filters:** For email campaigns, Braze excludes users who have hard-bounced, unsubscribed from emails, been marked as spam, have no email address on their profile, or are not subscribed to a required subscription group. These checks run at send time, so a user present in your segment can still be excluded from the actual send count.
+- **CSV import timing:** When segment membership is maintained by [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import), email addresses added after a scheduled campaign sends are not reached by that send. Because Braze does not retain a snapshot of segment membership at send time, the current segment size can exceed the number of users who were actually messaged.
 - **Global frequency capping:** Workspace-level caps can prevent eligible users from receiving another message in the same window, which lowers realized sends.
 - **Newly imported users:** Profiles that just became eligible may not receive until the next evaluation or send pass, so counts catch up on a later run.
 - **Push reachability:** For push campaigns, confirm the audience is push-enabled for the correct app. If you don't filter for push-enabled users, the estimated audience can include profiles that can't receive push. Check **Reachable users** in the **Target Users** step for a closer operational estimate.

@@ -76,7 +76,7 @@ Der Abschnitt **Query history** im Abfrage-Builder zeigt Ihre zuvor ausgeführte
 
 Wenn Sie die Abfragenutzung über längere Zeiträume prüfen oder Aufzeichnungen über sieben Tage hinaus aufbewahren müssen, empfehlen wir, wichtige Abfrageergebnisse zu exportieren oder zu speichern, bevor sie ablaufen.
 
-## SQL mit dem KI-Abfrage-Builder generieren {#ai-query-builder}
+## SQL mit dem KI-Abfrage-Builder generieren {#generating-sql-with-the-ai-query-builder}
 
 Der KI-Abfrage-Builder nutzt [GPT](https://openai.com/gpt-4), betrieben von OpenAI, um SQL für Ihre Abfrage vorzuschlagen.
 
@@ -166,9 +166,7 @@ Verwenden Sie Variablen, um vordefinierte Variablentypen in SQL zu nutzen und We
 
 Nachdem eine Variable erstellt wurde, erscheint sie im Tab **Variables** Ihres Abfrage-Builder-Berichts. Vorteile der Verwendung von SQL-Variablen:
 
-- Sparen Sie Zeit, indem Sie eine Campaign-Variable erstellen, aus der Sie beim Erstellen Ihres Berichts auswählen können, anstatt Campaign-IDs einzufügen.
-- Tauschen Sie Werte aus, indem Sie Variablen hinzufügen, mit denen Sie den Bericht für leicht unterschiedliche Anwendungsfälle in der Zukunft wiederverwenden können (z. B. ein anderes angepasstes Event).
-- Reduzieren Sie Nutzer:innenfehler beim Bearbeiten Ihres SQL, indem Sie den Bearbeitungsaufwand für jeden Bericht verringern. Teammitglieder, die sich mit SQL besser auskennen, können Berichte erstellen, die weniger technisch versierte Teammitglieder dann nutzen können.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ### Richtlinien {#guidelines}
 
@@ -233,7 +231,7 @@ Zur Auswahl eines Canvas. Wenn derselbe Name wie bei einer Campaign verwendet wi
 - **Ersetzungswert:** Canvas-BSON-ID
 - **Verwendungsbeispiel:** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
-##### Canvases
+##### Canvases {#canvases}
 
 Zur Auswahl mehrerer Canvases. Wenn derselbe Name wie bei einer Campaign verwendet wird, erscheint im Tab **Variables** ein Optionsfeld zur Auswahl von entweder Canvas oder Campaign.
 
@@ -247,7 +245,7 @@ Zur Auswahl einer Campaign. Wenn derselbe Name wie bei einem Canvas verwendet wi
 - **Ersetzungswert:** Campaign-BSON-ID
 - **Verwendungsbeispiel:** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
-##### Campaigns
+##### Campaigns {#campaigns}
 
 Zur Mehrfachauswahl von Campaigns. Wenn derselbe Name wie bei einem Canvas verwendet wird, erscheint im Tab **Variables** ein Optionsfeld zur Auswahl von entweder Canvas oder Campaign.
 

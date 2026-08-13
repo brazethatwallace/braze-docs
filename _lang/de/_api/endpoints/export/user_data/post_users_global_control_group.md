@@ -24,7 +24,7 @@ Um den Segment-Bezeichner Ihrer globalen Kontrollgruppe zu ermitteln, lesen Sie 
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `users.export.global_control_group`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `users.export.global_control_group`.
 
 ## Rate-Limit
 
@@ -140,14 +140,14 @@ Im Folgenden finden Sie eine Liste der gültigen `fields_to_export`. Die Verwend
 | `time_zone`            | String          | Die Zeitzone der/des Nutzer:in im gleichen Format wie in der IANA-Zeitzonendatenbank.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `total_revenue`        | Gleitkommazahl  | Gesamtumsatz, der dieser/diesem Nutzer:in zugerechnet wird. Der Gesamtumsatz wird auf der Grundlage der Käufe berechnet, die die Nutzer:innen während der Conversion-Fenster für die Campaigns und Canvases, die sie erhalten haben, getätigt haben.                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `uninstalled_at`       | Zeitstempel     | Datum und Uhrzeit der Deinstallation der App durch die/den Nutzer:in. Entfällt, wenn die App nicht deinstalliert wurde.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `user_aliases`         | Objekt          | [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification), das `alias_name` und `alias_label` enthält, falls vorhanden.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `user_aliases`         | Objekt          | [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object), das `alias_name` und `alias_label` enthält, falls vorhanden.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zu exportierende Felder" }
 
 ## Antwort {#response}
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "object_prefix": (required, string) the filename prefix that is used for the JSON file produced by this export, for example,'bb8e2a91-c4aa-478b-b3f2-a4ee91731ad1-1464728599',
     "url" : (optional, string) the URL where the segment export data can be downloaded if you do not have your own S3 credentials
 }

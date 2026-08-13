@@ -15,9 +15,7 @@ tool: Reports
 
 SQL 변수를 사용하면 다음과 같은 이점이 있습니다:
 
-- 보고서를 생성할 때 Campaign ID를 직접 붙여넣는 대신, Campaign 변수를 만들어 목록에서 선택할 수 있으므로 시간을 절약할 수 있습니다.
-- 변수를 추가하면 향후 약간 다른 사용 사례(예: 다른 커스텀 이벤트)에 대해 보고서를 재사용할 수 있습니다.
-- 각 보고서에 필요한 편집량을 줄여 SQL 편집 시 사용자 오류를 줄일 수 있습니다. SQL에 익숙한 팀원이 보고서를 만들면 기술적 배경이 적은 팀원도 사용할 수 있습니다.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ## 변수 사용하기 {#using-variables}
 
@@ -33,9 +31,9 @@ SQL 변수를 사용하면 다음과 같은 이점이 있습니다:
 
 다음을 교체합니다:
 
-| 입력 안내      | 설명                                                                                                                              |
+| 입력 안내 | 설명 |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `variable_type`   | 사용하려는 사전 정의된 변수 유형(예: `campaign` 또는 `catalog_fields`). 전체 목록은 [지원되는 변수 유형](#variable-types)을 참조하세요. |
+| `variable_type` | 사용하려는 사전 정의된 변수 유형(예: `campaign` 또는 `catalog_fields`). 전체 목록은 [지원되는 변수 유형](#variable-types)을 참조하세요. |
 | `custom_label` | 쿼리 빌더의 **변수** 탭에서 변수를 식별하는 데 사용되는 레이블입니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="1단계: 변수 추가" }
 
@@ -57,7 +55,7 @@ WHERE campaign_id = '{{campaign.${Campaign}}}'
 
 다음 예시에서는 "Summer Feature Launch" Campaign이 값으로 할당되며, 2025년 6월의 첫째 날과 마지막 날도 함께 지정됩니다.
 
-![주어진 예시를 보여주는 쿼리 빌더의 '변수' 탭.]({% image_buster /assets/img/query_builder_example.png %})
+![주어진 예시를 보여주는 쿼리 빌더의 "변수" 탭.]({% image_buster /assets/img/query_builder_example.png %})
 
 ## 일반 변수 유형 {#variable-types}
 
@@ -189,7 +187,7 @@ Liquid는 지정된 날짜 범위 내에서 캘린더를 표시하는 데 사용
 
 ![Braze에서 렌더링된 캘린더 예시.]({% image_buster /assets/img_archive/query_builder_time_range.png %}){: style="max-width:50%;"}
 
-### Campaigns
+### Campaigns {#campaigns}
 
 {% tabs local %}
 {% tab 단일 Campaign %}
@@ -351,7 +349,7 @@ WHERE product_id IN ({{products.${Games with DLC}}});
 
 ### 커스텀 이벤트 {#custom-events}
 
-목록에서 하나 이상의 커스텀 이벤트 또는 커스텀 이벤트 등록정보를 선택합니다.
+목록에서 하나 이상의 커스텀 이벤트 또는 커스텀 이벤트 속성정보를 선택합니다.
 
 {% tabs local %}
 {% tab 이벤트 %}
@@ -378,8 +376,8 @@ WHERE event_name IN ({{custom_events.${Purchased Game}}});
 {% endsubtabs %}
 {% endtab %}
 
-{% tab 등록정보 %}
-`custom_event_properties`는 현재 선택된 커스텀 이벤트에서 하나 이상의 등록정보를 선택하는 데 사용합니다. `custom_events` 변수가 설정되어 있어야 합니다.
+{% tab 속성정보 %}
+`custom_event_properties`는 현재 선택된 커스텀 이벤트에서 하나 이상의 속성정보를 선택하는 데 사용합니다. `custom_events` 변수가 설정되어 있어야 합니다.
 
 {% subtabs %}
 {% subtab 사용법 %}
@@ -441,7 +439,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% endtab %}
 {% endtabs %}
 
-### Segments
+### Segments {#segments}
 
 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)이 활성화된 Segments를 선택하는 데 사용합니다. 이 열이 사용 가능한 테이블의 `user_segment_membership_ids` 열에 저장된 ID에 해당하는 Segment 분석 ID로 설정합니다.
 

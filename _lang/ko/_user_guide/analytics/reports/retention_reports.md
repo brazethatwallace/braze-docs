@@ -138,7 +138,7 @@ description: "이 페이지에서는 특정 Campaign 또는 Canvas에서 선택�
 - **날짜 범위**: Campaign 또는 Canvas **세부 정보** 페이지에서 설정하며, 이 기간 동안 Campaign 또는 Canvas를 수신한 모든 사용자가 포함되고, 그 사용자 중 날짜 범위 내에 리텐션 이벤트를 수행한 사용자의 데이터가 보고서에 표시됩니다. 매일 유지율, 대조군 대비 백분율 변화, 신뢰도가 측정됩니다.
 - **유지율**: 배리언트별 유지율을 보여줍니다. 유지율은 리텐션 이벤트를 수행한 사용자 수를 Campaign 또는 Canvas를 수신한 총 사용자 수로 나눈 값과 같습니다.
 - **대조군 대비 백분율 변화**: 대조군 대비 배리언트별 백분율 변화를 수량화합니다.
-- **신뢰도**: {% multi_lang_include analytics/metrics.md metric='Confidence' %} Braze는 Z 검정이라는 통계적 절차를 사용하여 각 배리언트의 전환율을 대조군의 전환율과 비교하여 [신뢰도]({{site.baseurl}}/user_guide/messaging/ab_testing#understanding-confidence) 백분율을 계산합니다.
+- **신뢰도**: {% multi_lang_include analytics/metrics.md metric='Confidence' %} Braze는 Z 검정이라는 통계적 절차를 사용하여 각 배리언트의 전환율을 대조군의 전환율과 비교하여 [신뢰도]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence) 백분율을 계산합니다.
 - **단위**: 차트 컨트롤에서 사용자 백분율과 사용자 수 사이의 단위를 조정할 수 있으며, 특정 단위가 Campaign 또는 Canvas의 영향을 판단할 때 더 의미 있을 수 있습니다.
 - **배리언트 그래프**: 이 그래프는 선택한 날짜 범위에 대한 배리언트별 결과를 요약합니다.
 

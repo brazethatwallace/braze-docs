@@ -44,7 +44,7 @@ Brazeは、最初のSDKセッション開始時のIPアドレスを使用して�
 
 ## デフォルトの位置属性をハード設定する {#hard-setting-the-default-location-attribute}
 
-APIの[`users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、[`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) 標準属性項目を更新することもできます。例を以下に示します。
+APIの[`users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、[`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) 標準属性項目を更新することもできます。例を以下に示します。
 
 ```
 https://[your_braze_rest_endpoint]/users/track
@@ -83,7 +83,7 @@ Brazeは、アプリケーションがフォアグラウンドで開いている
 - 位置情報が無効になっている場合、`Most Recent Location` フィルターは最後に記録された位置を表示します。
 - ユーザーのプロファイルに位置情報が保存されたことがある場合、その後位置情報の追跡をオプトアウトしていても、`Location Available` フィルターの条件を満たします。
 
-### Most Recent Device Localeフィルターと Most Recent Locationフィルターの違いは何ですか？ {#whats-the-difference-between-the-most-recent-device-locale-and-most-recent-location-filters}
+### Most Recent Device LocaleフィルターとMost Recent Locationフィルターの違いは何ですか？ {#whats-the-difference-between-the-most-recent-device-locale-and-most-recent-location-filters}
 
 `Most Recent Device Locale` はユーザーのデバイス設定から取得されます。たとえば、iPhoneユーザーの場合、デバイスの**設定** > **一般** > **言語と地域**に表示されます。このフィルターは、日付や住所などの言語と地域のフォーマットをキャプチャするために使用され、`Most Recent Location` フィルターとは独立しています。
 

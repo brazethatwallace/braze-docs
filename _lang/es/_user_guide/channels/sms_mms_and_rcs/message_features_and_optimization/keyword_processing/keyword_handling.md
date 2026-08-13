@@ -60,7 +60,7 @@ Puedes administrar tus propias respuestas que se envían a los usuarios después
 
 1. En el panel de Braze, ve a **Audience** > **Subscription Group Management** y selecciona un grupo de suscripción **SMS/MMS/RCS**. <br><br>
 2. En **Global Keywords**, selecciona una categoría de palabras clave para editar una respuesta seleccionando el icono de lápiz. ![Palabras clave de adhesión voluntaria con el icono de lápiz visible.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
-3. En la pestaña que se abre, edita tu respuesta. Ten en cuenta nuestras [seis reglas para cumplir correctamente con la normativa]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-six-rules-to-get-compliance-right) mientras creas tu respuesta, y lee las siguientes reglas que se aplican a las palabras clave y las respuestas de palabras clave.<br><br>
+3. En la pestaña que se abre, edita tu respuesta. Ten en cuenta nuestras [seis reglas para cumplir correctamente con la normativa]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-seven-rules-to-get-compliance-right) mientras creas tu respuesta, y lee las siguientes reglas que se aplican a las palabras clave y las respuestas de palabras clave.<br><br>
 4. Para acortar automáticamente las URL estáticas en tu respuesta, selecciona el conmutador **Link Shortening**. El contador de caracteres se actualizará para mostrar la longitud esperada de la URL acortada. ![Un GIF que muestra cómo se actualiza el contador de caracteres cuando el conmutador "Link Shortening" está activado.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
 #### Consideraciones {#considerations}
@@ -135,8 +135,8 @@ Recomendamos encarecidamente configurar una respuesta automática cuando los usu
 Para enviar una respuesta predeterminada, por ejemplo, "¡Lo sentimos! No reconocimos esa palabra clave.", haz lo siguiente:
 
 1. Crea una [campaña de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
-2. Para **Público objetivo**, elige **Todos los usuarios** (el activador aún limita quién recibe el mensaje).
-3. Para **Planificación**, elige **Entrega basada en acciones**.
+2. Para **público objetivo**, elige **Todos los usuarios** (el activador aún limita quién recibe el mensaje).
+3. Para **planificación**, elige **entrega basada en acciones**.
 4. Configura el activador como **Send inbound SMS** al grupo de suscripción correspondiente **within keyword category OTHER**.
 5. En el paso **Messaging**, introduce el cuerpo de la respuesta que quieres que reciban los usuarios.
 

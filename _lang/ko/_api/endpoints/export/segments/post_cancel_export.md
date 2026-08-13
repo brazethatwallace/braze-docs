@@ -18,7 +18,7 @@ description: "이 문서에서는 Segment별 내보내기 취소 Braze 엔드포
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `segments.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `segments.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

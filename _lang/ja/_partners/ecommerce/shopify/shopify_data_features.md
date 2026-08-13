@@ -410,6 +410,11 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 {% endsubtabs %}
 {% endtab %}
 {% tab Shopifyイベント %}
+
+{% alert note %}
+Brazeは、eコマースイベントに必要なイベントプロパティ（`cart_id`や`cart_token`など）をShopifyから受け取ることに依存しています。まれに、Shopifyの一時的な問題によりこれらのプロパティが欠落し、影響を受けたイベントがドロップされることがあります。
+{% endalert %}
+
 {% subtabs global %}
 {% subtab Product viewed %}
 **イベント**: `ecommerce.product_viewed`<br>

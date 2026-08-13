@@ -18,7 +18,7 @@ For Shopify online stores, we recommend using Braze's standard integration metho
 
 - **Consistent API key between your third-party tool and the Shopify connector:** The API key must be consistent across both Braze and your third-party tool. This prevents the creation of duplicate users and maintains compatibility across SDKs. 
   - **API key location:** After onboarding the standard integration path, the integration will automatically create a Braze web app named “Shopify”. Retrieve the API key within the integration that is used with your third-party tool configuration. 
-- **Consistent SDK versions between your third-party tool and the Shopify connector:** The SDK version must be `5.4` within your third-party tool. Using an incorrect version number can cause incompatibility issues, as some SDK methods may not exist in older versions.
+- **Consistent SDK versions between your third-party tool and the Shopify connector:** New customers are provisioned on the latest SDK version during setup. Your third-party tool must use the same SDK version configured in the Braze integration settings. Existing customers are notified when a newer version is available and can self-serve upgrades from integration settings.
 - **Consistent SDK initialization timing:** Within your Shopify standard integration settings, you can select the SDKs to initialize upon either session start or when an account login occurs. This setting should be consistent between your third-party tool and Braze. Inconsistencies could lead to downstream issues for the user and data syncing. 
 
 {% alert note %}
@@ -30,12 +30,12 @@ We recommend using the standard integration method exclusively rather than using
 Straying from the provided steps may lead to unexpected issues, so be sure to follow them closely.
 
 1. Follow the provided steps in [Shopify standard integration setup]({{site.baseurl}}/shopify_standard_integration/). While [enabling Braze Web SDKs]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-2-enable-braze-web-sdks), check the box indicating that you're using a third-party tool to add the Braze Web SDK to your Shopify site.
-
-!["Braze SDK settings" section with a checkbox to indicate that you'll use a third-party tool to add the Braze Web SDK.]({% image_buster /assets/img/shopify/third_party_enable.png %}){: style="max-width:80%;"}
-
-{: start="2"}
 2. Go to **Settings** > **App Settings**, select the **Shopify** web app, and then copy the **API key for Shopify on Web**.
-3. Paste the API key into your third-party tool's web SDK configuration and set the SDK version to `5.4`.
+3. Paste the API key into your third-party tool's web SDK configuration and set the SDK version to match the Braze Shopify integration.
+
+{% alert note %}
+If you're using Google Tag Manager, keep SDK versions aligned across both GTM and your Braze Shopify integration configuration.
+{% endalert %}
 
 ## Capturing Shopify data and syncing users
 

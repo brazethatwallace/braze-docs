@@ -34,7 +34,7 @@ Os modelos de marketing são o tipo mais comum usado na Braze. Eles consistem em
 |---|---|---|
 | Cabeçalho | Não | Suporta texto, imagem, vídeo, documento ou localização. Consulte [Especificações de mídia](#media-specifications) para requisitos de tipo de arquivo, tamanho e dimensões. |
 | Corpo | Sim | O conteúdo principal da mensagem |
-| Rodapé | Não | Texto complementar exibido abaixo do corpo |
+| Rodapé | Não | Texto complementar exibido após o corpo |
 | Botões | Não | Inclua até 10 botões (todos os tipos de botão são suportados) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modelos de marketing" }
 
@@ -54,7 +54,7 @@ Os modelos de marketing são o tipo mais comum usado na Braze. Eles consistem em
 | Tipo de botão | Comportamento | Notas |
 |---|---|---|
 | Resposta rápida | Envia o texto do rótulo do botão como resposta na conversa | |
-| URL | Abre uma URL no navegador padrão do usuário; suporta 1 variável adicionada ao final da URL (máximo de 2.000 caracteres) | |
+| URL | Abre uma URL no navegador padrão do usuário; suporta 1 variável adicionada ao final da URL (máximo de 2.000 caracteres) | URLs contendo caracteres especiais (como `&`, `%`, `<`, `>`) podem causar falhas no envio da mensagem. Use o filtro Liquid [`url_param_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) ou [`url_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) para codificar corretamente URLs com caracteres especiais. |
 | Número de telefone | Inicia uma chamada para o número de telefone especificado | |
 | Copiar código de cupom | Copia um código de cupom para a área de transferência do usuário | Sempre requer aprovação da Meta |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipos de botão" }

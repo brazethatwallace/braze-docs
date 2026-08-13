@@ -150,13 +150,13 @@ Tealiumのホームページから、サイドバーナビゲーションの**Au
 
 | パラメーター | 説明 |
 | ---------- | ----------- |
-| ユーザーID | このフィールドを使用して、TealiumのユーザーIDフィールドをBrazeの対応するフィールドにマッピングします。1つ以上のユーザーID属性をマップします。複数のIDが指定されている場合、最初の非ブランク値が次の優先順位に基づいて選択されます：External ID、Braze ID、エイリアス名、エイリアスラベル。<br><br>- プッシュトークンをインポートする場合は、External IDとBraze IDを指定しないでください。<br>- ユーザーエイリアスを指定する場合、エイリアス名とエイリアスラベルの両方を設定する必要があります。<br><br>詳細については、Brazeの[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を参照してください。 |
-| ユーザー属性 | 既存のBrazeのユーザープロファイルのフィールド名を使用して、Brazeダッシュボードのユーザープロファイル値を更新するか、独自のカスタム[ユーザー属性]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)データをユーザープロファイルに追加します。<br><br>- デフォルトでは、新規ユーザーが存在しない場合は作成されます。<br>- **Update Existing Only**を`true`に設定すると、既存のユーザーのみが更新され、新しいユーザーは作成されません。<br>- Tealium属性が空の場合、その属性はNULLに変換され、Brazeユーザープロファイルから削除されます。ユーザー属性を削除する目的でBrazeにNULL値を送信すべきでない場合は、エンリッチメントを使用してください。 |
+| ユーザーID | このフィールドを使用して、TealiumのユーザーIDフィールドをBrazeの対応するフィールドにマッピングします。1つ以上のユーザーID属性をマッピングします。複数のIDが指定されている場合、最初の非ブランク値が次の優先順位に基づいて選択されます：External ID、Braze ID、エイリアス名、エイリアスラベル。<br><br>- プッシュトークンをインポートする場合は、External IDとBraze IDを指定しないでください。<br>- ユーザーエイリアスを指定する場合、エイリアス名とエイリアスラベルの両方を設定する必要があります。<br><br>詳細については、Brazeの[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を参照してください。 |
+| ユーザー属性 | 既存のBrazeのユーザープロファイルのフィールド名を使用して、Brazeダッシュボードのユーザープロファイル値を更新するか、独自のカスタム[ユーザー属性]({{site.baseurl}}/api/objects_filters/user_attributes_object)データをユーザープロファイルに追加します。<br><br>- デフォルトでは、新規ユーザーが存在しない場合は作成されます。<br>- **Update Existing Only**を`true`に設定すると、既存のユーザーのみが更新され、新しいユーザーは作成されません。<br>- Tealium属性が空の場合、その属性はNULLに変換され、Brazeユーザープロファイルから削除されます。ユーザー属性を削除する目的でBrazeにNULL値を送信すべきでない場合は、エンリッチメントを使用してください。 |
 | ユーザー属性の変更 | このフィールドを使用して、特定のユーザー属性を増減します。<br><br>- 整数属性は、正の整数または負の整数でインクリメントできます。<br>- 配列属性は、既存の配列に値を追加または削除することで変更できます。 |
-| イベント | イベントは、タイムスタンプの時点で特定のユーザーによりカスタムイベントが1回発生したことを表します。このフィールドは、Brazeの[イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object)の属性と同様にイベント属性を追跡、マッピングする場合に使用します。<br><br>- イベント属性`Name`は、マッピングされたすべてのイベントで必要です。<br>- イベント属性`Time`は、明示的にマッピングされていない限り、自動的に現時点の時刻に設定されます。<br>- デフォルトでは、新しいイベントは存在しない場合に作成されます。`Update Existing Only`を`true`に設定すると、既存のイベントのみが更新され、新規のイベントは作成されません。<br>- 配列型属性をマップして、複数のイベントを追加します。配列型の属性は等しい長さでなければなりません。<br>- 単一値属性を使用でき、各イベントに適用されます。 |
+| イベント | イベントは、タイムスタンプの時点で特定のユーザーによりカスタムイベントが1回発生したことを表します。このフィールドは、Brazeの[イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object)の属性と同様にイベント属性を追跡、マッピングする場合に使用します。<br><br>- イベント属性`Name`は、マッピングされたすべてのイベントで必要です。<br>- イベント属性`Time`は、明示的にマッピングされていない限り、自動的に現時点の時刻に設定されます。<br>- デフォルトでは、新しいイベントは存在しない場合に作成されます。`Update Existing Only`を`true`に設定すると、既存のイベントのみが更新され、新規のイベントは作成されません。<br>- 配列型属性をマッピングして、複数のイベントを追加します。配列型の属性は等しい長さでなければなりません。<br>- 単一値属性を使用でき、各イベントに適用されます。 |
 | イベントテンプレート | ボディデータで参照するイベントテンプレートを指定します。テンプレートを使用してデータを変換してから、Brazeに送信できます。詳細については、Tealiumの[テンプレートガイド](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/)を参照してください。 |
 | イベントテンプレート変数 | イベントテンプレート変数をデータ入力として指定します。詳細については、Tealiumの[テンプレート変数ガイド](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/)を参照してください。 |
-| 購入 | このフィールドは、Brazeの[購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)の属性と同様に購入属性を追跡、マッピングする場合に使用します。<br><br>- 購入属性`Product ID`、`Currency`、`Price`は、マッピングされたすべての購入に必要です。<br>- 購入属性`Time`は、明示的にマッピングされていない限り、自動的に現時点の時刻に設定されます。<br>- デフォルトでは、新規購入が存在しない場合は作成されます。`Update Existing Only`を`true`に設定すると、既存の購入のみが更新され、新規購入は作成されません。<br>- 配列型属性をマップして、複数の購入アイテムを追加します。配列型の属性は等しい長さでなければなりません。<br>- 単一値属性を使用でき、各アイテムに適用されます。|
+| 購入 | このフィールドは、Brazeの[購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object)の属性と同様にユーザーの購入属性を追跡、マッピングする場合に使用します。<br><br>- 購入属性`Product ID`、`Currency`、`Price`は、マッピングされたすべての購入に必要です。<br>- 購入属性`Time`は、明示的にマッピングされていない限り、自動的に現時点の時刻に設定されます。<br>- デフォルトでは、新規購入が存在しない場合は作成されます。`Update Existing Only`を`true`に設定すると、既存の購入のみが更新され、新規購入は作成されません。<br>- 配列型属性をマッピングして、複数の購入アイテムを追加します。配列型の属性は等しい長さでなければなりません。<br>- 単一値属性を使用でき、各アイテムに適用されます。|
 | 購入テンプレート | テンプレートを使用して、Brazeに送信する前にデータを変換できます。<br>- ネストされたオブジェクトサポートが必要な場合は、購入テンプレートを定義します。<br>- 購入テンプレートを定義すると、アクションの購入セクションで設定された構成は無視されます。<br>- 詳細については、Tealiumの[テンプレートガイド](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/)を参照してください。|
 | 購入テンプレート変数 | 商品テンプレート変数をデータ入力として指定します。詳細については、Tealiumの[テンプレート変数ガイド](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="アクション" }
@@ -170,7 +170,7 @@ Tealiumのホームページから、サイドバーナビゲーションの**Au
 
 | パラメーター | 説明 |
 | ---------- | ----------- |
-| ユーザーID | このフィールドを使用して、TealiumユーザーIDフィールドをBrazeの対応するフィールドにマッピングします。<br><br>- 1つ以上のユーザーID属性をマップします。複数のIDが指定されている場合、最初の非ブランク値が次の優先順位に基づいて選択されます：External ID、Braze ID、エイリアス名、エイリアスラベル。<br>- ユーザーエイリアスを指定する場合、エイリアス名とエイリアスラベルの両方を設定する必要があります。<br><br>詳細については、Brazeの[`/users/delete`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)を参照してください。 |
+| ユーザーID | このフィールドを使用して、TealiumユーザーIDフィールドをBrazeの対応するフィールドにマッピングします。<br><br>- 1つ以上のユーザーID属性をマッピングします。複数のIDが指定されている場合、最初の非ブランク値が次の優先順位に基づいて選択されます：External ID、Braze ID、エイリアス名、エイリアスラベル。<br>- ユーザーエイリアスを指定する場合、エイリアス名とエイリアスラベルの両方を設定する必要があります。<br><br>詳細については、Brazeの[`/users/delete`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="アクション" }
 
 ![BrazeユーザーIDマッピングが設定されたTealium Delete Userアクション。]({% image_buster /assets/img/tealium/track_user_delete2.png %}){: style="max-width:90%"}
@@ -183,7 +183,7 @@ Tealiumのホームページから、サイドバーナビゲーションの**Au
 | ---------- | ----------- |
 | グループタイプ | このフィールドを使用して、SMSまたはメールの購読グループかを示します。 |
 | 更新タイプ | このアクションを購読解除または購読イベントにマッピングします。 |
-| 属性 | - Subscription group ID（必須）：前のフィールドでマップされたグループタイプに関連する購読グループのID。<br>- External ID：ユーザーのexternal ID。<br><br>メールグループ固有：<br>- Email：ユーザーのメールアドレス。<br>**external IDが定義されていない場合はメールが必須です。**<br><br>SMSグループ固有：<br>- Phone：E.164形式の電話番号。例：+14155552671。<br>**external IDが定義されていない場合は電話番号が必須です。** |
+| 属性 | - Subscription group ID（必須）：前のフィールドでマッピングされたグループタイプに関連する購読グループのID。<br>- External ID：ユーザーのexternal ID。<br><br>メールグループ固有：<br>- Email：ユーザーのメールアドレス。<br>**external IDが定義されていない場合はメールが必須です。**<br><br>SMSグループ固有：<br>- Phone：E.164形式の電話番号。例：+14155552671。<br>**external IDが定義されていない場合は電話番号が必須です。** |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="アクション" }
 
 ![グループタイプと更新タイプのマッピングを含むTealium購読グループステータス更新アクション。]({% image_buster /assets/img/tealium/update_subscription.png %}){: style="max-width:90%"}
@@ -221,7 +221,7 @@ TealiumのTraceツールの詳しい実装手順については、Tealiumの[Tra
 
 ## データポイント超過料金の可能性 {#potential-data-point-overages}
 
-TealiumからBrazeを統合するときに、誤ってデータ超過料金が生じる主な状況が3つあります。
+TealiumからBrazeを統合するときに、誤ってデータ超過料金が発生する主な状況が3つあります。
 
 ### 重複したデータを送信する - 属性のBrazeデルタのみを送信する {#sending-duplicate-data-only-send-braze-deltas-of-attributes}
 Tealiumはユーザー属性のBrazeデルタを送信しません。たとえば、ユーザーの名、メール、携帯電話番号を追跡するEventStreamアクションがある場合、Tealiumはアクションがトリガーされるたびに、3つの属性すべてをBrazeに送信します。Tealiumは、変更された内容や更新された内容を探してその情報のみを送信することはありません。<br><br>

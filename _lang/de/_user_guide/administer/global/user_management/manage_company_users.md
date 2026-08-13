@@ -19,7 +19,7 @@ So fügen Sie eine:n neue:n Nutzer:in hinzu:
 1. Gehen Sie zu **Einstellungen** > **Nutzer:innenverwaltung** > **Unternehmensnutzer:innen**.
 2. Wählen Sie **+ Add New User**.
 3. Geben Sie die erforderlichen Informationen ein, einschließlich E-Mail-Adresse, Abteilung und [Nutzerrolle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role).
-4. Wählen Sie für Nutzer:innen, die keine Administratoren sind, die [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#editing-a-users-permissions) auf Unternehmens- und Workspace-Ebene aus, die diese:r Nutzer:in haben soll.
+4. Wählen Sie für Nutzer:innen, die keine Administratoren sind, die [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions) auf Unternehmens- und Workspace-Ebene aus, die diese:r Nutzer:in haben soll.
 
 ![Berechtigungen auf Workspace-Ebene mit einem Abschnitt für angepasste Berechtigungsfelder.]({% image_buster /assets/img/add_new_user_3.png %})
 

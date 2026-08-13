@@ -1,7 +1,7 @@
 ---
 nav_title: Figma
 article_title: Figma
-description: "Este artigo de referência descreve a parceria entre a Braze e o Figma, que permite enviar imagens e ativos visuais para a Biblioteca de mídia da Braze."
+description: "Este artigo de referência descreve a parceria entre a Braze e o Figma, que permite enviar imagens e ativos visuais para a biblioteca de mídia da Braze."
 alias: /partners/figma/
 page_type: partner
 search_tag: Partner
@@ -13,7 +13,7 @@ search_tag: Partner
 
 ## Sobre a integração {#about-the-integration}
 
-A integração entre a Braze e o Figma permite enviar imagens e ativos visuais do Figma diretamente para a Biblioteca de mídia da Braze.
+A integração entre a Braze e o Figma permite enviar imagens e ativos visuais do Figma diretamente para a biblioteca de mídia da Braze.
 
 Assista a este vídeo para ter uma visão geral de como a integração funciona.
 
@@ -24,7 +24,7 @@ Assista a este vídeo para ter uma visão geral de como a integração funciona.
 | Requisito | Descrição |
 |---|---|
 | Conta no Figma | É necessário ter uma conta no Figma para aproveitar essa parceria. |
-| Acesso à Biblioteca de mídia da Braze | Você precisa ter a permissão "Manage Media Library Assets" para adicionar, editar e excluir ativos da Biblioteca de mídia na Braze. |
+| Acesso à biblioteca de mídia da Braze | Você precisa ter a permissão "Manage Media Library Assets" para adicionar, editar e excluir ativos da biblioteca de mídia na Braze. |
 | Acesso ao espaço de trabalho da Braze | Você precisa ter acesso aos espaços de trabalho para os quais deseja fazer upload dessas imagens e ativos visuais do Figma na Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -50,4 +50,4 @@ O nome da imagem ou do ativo visual exportado usa o nome do frame selecionado no
 
 ### Etapa 4: Exportar para a Braze {#step-4-export-to-braze}
 
-Selecione **Export to Braze**. Suas imagens e ativos visuais são enviados para a Biblioteca de mídia da Braze. Todas as imagens importadas por meio dessa integração têm sua origem definida como **Figma**.
+Selecione **Export to Braze**. Suas imagens e ativos visuais são enviados para a biblioteca de mídia da Braze. Todas as imagens importadas por meio dessa integração têm sua origem definida como **Figma**.

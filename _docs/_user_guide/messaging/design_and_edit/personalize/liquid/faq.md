@@ -149,6 +149,41 @@ Abort logic allows you to stop a message from being sent if the conditions are m
 
 No. The {% raw %}`{% abort_message %}`{% endraw %} tag accepts a static string in quotes, not Liquid personalization. Use other Liquid logic before the tag if you need conditional abort behavior.
 
+### How do I mask phone numbers with Liquid?
+
+You can mask phone numbers using the `slice` filter to extract specific digits and the `append` filter to combine them with masking characters.
+
+#### Mask all but the last four digits
+
+To display a 10-digit phone number as `******7890`:
+
+{% raw %}
+```liquid
+{% assign phone = {{${phone_number}}} | split: '' %}
+{% assign masked_phone = '' %}
+{% for i in (0..5) %}
+  {% assign masked_phone = masked_phone | append: '*' %}
+{% endfor %}
+{% for i in (6..9) %}
+  {% assign masked_phone = masked_phone | append: phone[i] %}
+{% endfor %}
+{{ masked_phone }}
+```
+{% endraw %}
+
+#### Show the first three and last four digits
+
+To display a 10-digit phone number as `123***7890`:
+
+{% raw %}
+```liquid
+{% assign first_part = {{${phone_number}}} | slice: 0, 3 %}
+{% assign last_part = {{${phone_number}}} | slice: -4, 4 %}
+{% assign masked_phone_number = first_part | append: "***" | append: last_part %}
+{{ masked_phone_number }}
+```
+{% endraw %}
+
 ## Canvas, catalogs, and trigger properties
 
 ### Why is my API-triggered Liquid failing in Braze?
@@ -189,6 +224,37 @@ If you notice extra spacing in sent messages that use Content Blocks with Liquid
 ```
 {% endraw %}
 
+
+### Why does multi-line Liquid create unexpected whitespace in the drag-and-drop editors?
+
+When Liquid code is spread across multiple lines in the in-app message drag-and-drop editor or email drag-and-drop editor, each {% raw %}`{% %}`{% endraw %} block renders as non-visible text. The line breaks are preserved as empty lines before the visible output, causing unexpected whitespace.
+
+#### Solution 1: Use whitespace control tags (recommended)
+
+Add hyphens inside the tag delimiters to strip surrounding whitespace while keeping code readable:
+
+{% raw %}
+```liquid
+{%- assign event_date = {{custom_attribute.${PreferredPickupDate}}} | date: "%s" -%}
+{%- assign today = 'now' | date: "%s" -%}
+{%- assign difference = event_date | minus: today -%}
+{%- assign difference_days = difference | divided_by: 86400 -%}
+Only {{ difference_days }} days until your move!
+```
+{% endraw %}
+
+#### Solution 2: Consolidate Liquid onto a single line
+
+Remove all line breaks so the Liquid is on one continuous line:
+
+{% raw %}
+```liquid
+{% assign event_date = {{custom_attribute.${PreferredPickupDate}}} | date: "%s" %}{% assign today = 'now' | date: "%s" %}{% assign difference = event_date | minus: today %}{% assign difference_days = difference | divided_by: 86400 %}Only {{ difference_days }} days until your move!
+```
+{% endraw %}
+
+Both approaches prevent unwanted empty lines in your rendered message. This applies to the in-app message drag-and-drop editor, the email drag-and-drop editor, and Content Blocks with Liquid. For more information, see [Whitespace control](https://shopify.github.io/liquid/basics/whitespace/).
+
 ### Why is my Content Block missing from **Row** in the drag-and-drop search tool?
 
 Some Content Blocks do not appear under **Row** in the drag-and-drop editor search. Add an HTML block from the **Content** tab (**Advanced**), then insert the Content Block Liquid tag in that HTML block to render the block content.
@@ -213,6 +279,27 @@ Use Liquid in the **Reply-To** field when your workspace supports dynamic Reply-
 
 ## Troubleshooting Liquid errors
 
+### Why is my Liquid code not working when it looks correct?
+
+If your Liquid code appears syntactically correct but isn't working, check for smart quotes (curly quotes like `' '` or `" "`) and smart dashes (em dashes like `—`) instead of straight quotes (`' '` or `" "`) and hyphens (`-`). Liquid only recognizes straight ASCII characters, so smart quotes and dashes will cause parsing errors.
+
+This commonly happens when the macOS keyboard setting **Use smart quotes and dashes** is enabled, which automatically converts characters as you type in the Braze dashboard.
+
+To disable this setting on macOS:
+
+1. Go to **System Settings** > **Keyboard** > **Text Input** > **Edit**.
+2. Uncheck **Use smart quotes and dashes**.
+
+| Example | Curly quotes (does not work) | Straight quotes (works) |
+| --- | --- | --- |
+| Default value | {% raw %}`{{${first_name} | default: ‘Torchie’}}`{% endraw %} | {% raw %}`{{${first_name} | default: 'Torchie'}}`{% endraw %} |
+| Conditional | {% raw %}`{% if ${country} contains ‘US’ %}`{% endraw %} | {% raw %}`{% if ${country} contains 'US' %}`{% endraw %} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Smart quote examples" }
+
+This applies to default values, conditionals, and any other Liquid that uses quotes. Curly and straight quotes can look the same on screen, so compare your code carefully or paste it into a plain-text editor.
+
+For more information on quote usage in Liquid, see [Liquid syntax]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
+
 ### Why am I seeing an "Unexpected end token" Liquid error?
 
 This error usually indicates extra or missing curly braces. Do not nest {% raw %}`{{ }}`{% endraw %} inside another Liquid tag expression. For example, use {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} rather than wrapping the attribute reference in an additional pair of braces.
@@ -221,4 +308,49 @@ This error usually indicates extra or missing curly braces. Do not nest {% raw %
 
 {% raw %}
 The `{% connected_content %}` tag with retry is not supported for all message types, including some in-app message formats. Remove retry parameters or use a supported channel for retried Connected Content calls.
+{% endraw %}
+
+### Why am I seeing "Liquid Error: Comparison of Time with String Failed"?
+
+This error occurs when comparing a time custom attribute or event property directly to a blank value (an empty string). Liquid does not support direct comparisons between different data types, such as a time object and a string.
+
+The following is a common example that causes this error:
+
+{% raw %}
+```liquid
+{% if {{custom_attribute.${expiration_date}}} == blank %}
+  <a>Some words</a>
+{% endif %}
+```
+{% endraw %}
+
+This fails because you cannot compare a custom attribute with a data type of time to a string (`blank`).
+
+To resolve this, convert the time attribute to a string by assigning it to a variable and using the `default` filter when the attribute evaluates to blank at render time:
+
+{% raw %}
+```liquid
+{% assign expiration_date = {{custom_attribute.${expiration_date}}} | default: "" %}
+
+{% if expiration_date == blank %}
+  <a>Example Words</a>
+{% endif %}
+```
+{% endraw %}
+
+
+When comparing a time custom attribute against the current time or future dates, use the same approach:
+
+{% raw %}
+```liquid
+{% assign today = 'now' | date: '%s' %}
+{% assign month = 'now' | date: '%s' | plus: 2592000 %}
+{% assign expiration_date = {{custom_attribute.${expiration_date}}} | default: "" %}
+
+{% if expiration_date == blank %}
+  <a>Example Words</a>
+{% elsif expiration_date >= today and expiration_date >= month %}
+  <a>More Words</a>
+{% endif %}
+```
 {% endraw %}

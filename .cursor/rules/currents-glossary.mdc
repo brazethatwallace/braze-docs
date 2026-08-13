@@ -1,0 +1,11 @@
+---
+description: >
+  Updating the generated Currents event glossary pages or the Currents changelog.
+  Use when editing customer_behavior_events.md, message_engagement_events.md,
+  user_profiles_events.md, currents_changelogs.md, or
+  scripts/resources/currents_events.yml. These pages are generated — an edit to
+  the rendered page alone is reverted at the next Currents release.
+alwaysApply: false
+---
+
+Follow [`.github/skills/currents-glossary/SKILL.md`](.github/skills/currents-glossary/SKILL.md).

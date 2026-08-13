@@ -35,7 +35,7 @@ Braze에서 **파트너 통합** > **Shopify**로 이동한 다음 **Start upgra
 
 ![업그레이드를 시작하는 옵션이 있는 패널.]({% image_buster /assets/unlisted_docs/img/shopify/start_shopify_custom_upgrade.png %}){: style="max-width:35%;"}
 
-Shopify 데이터를 사용하는 영향을 받는 Canvases, Campaigns 및 Segments가 플래그됩니다.
+Shopify 데이터를 사용하는 영향을 받는 Canvases, Campaigns, Segments가 플래그됩니다.
 
 ![호환성 문제 변경 사항의 영향을 검토하는 모달.]({% image_buster /assets/unlisted_docs/img/shopify/review_breaking_changes.png %})
 
@@ -43,21 +43,17 @@ Shopify 데이터를 사용하는 영향을 받는 Canvases, Campaigns 및 Segme
 
 {% tabs local %}
 {% tab 유기한 장바구니 %}
-유기한 장바구니 메시징의 경우, 다음을 포함하는 새로운 유기한 장바구니 캔버스 템플릿을 사용해야 합니다:
+유기한 장바구니 메시징의 경우, 다음을 포함하는 새로운 유기한 장바구니 Canvas 템플릿을 사용해야 합니다:
 
-- "장바구니 업데이트 수행" 동작을 기반으로 한 새로운 트리거
-- 구매 여정에서 진행한 고객을 제거하기 위한 사전 정의된 종료 기준
-- 제품 개인화를 지원하는 새로운 장바구니 Liquid 태그
+{% multi_lang_include partners/shopify/abandoned_cart_template_features.md %}
 {% endtab %}
 
 {% tab 유기한 결제 %}
-유기한 결제 메시징의 경우, 다음을 포함하는 새로운 유기한 결제 캔버스 템플릿을 사용해야 합니다:
+유기한 결제 메시징의 경우, 다음을 포함하는 새로운 유기한 결제 Canvas 템플릿을 사용해야 합니다:
 
-- 진입 기준에 사전 정의된 ecommerce.checkout_started 이벤트
-- 구매 여정에서 진행한 고객을 제거하기 위한 사전 정의된 종료 기준
-- 제품 개인화를 지원하는 새로운 장바구니 Liquid 태그
+{% multi_lang_include partners/shopify/abandoned_checkout_template_features.md %}
 
-통합을 통해 사용할 수 있는 새로운 eCommerce Canvas 템플릿 및 제품 개인화를 위한 사전 정의된 HTML 블록의 전체 목록은 [Canvas 사용자 여정 만들기]({{site.baseurl}}using_shopify_with_braze#create-your-canvas-user-journeys)를 참조하세요.
+통합을 통해 사용할 수 있는 새로운 이커머스 Canvas 템플릿 및 제품 개인화를 위한 사전 정의된 HTML 블록의 전체 목록은 [Canvas 사용자 여정 만들기]({{site.baseurl}}using_shopify_with_braze#create-your-canvas-user-journeys)를 참조하세요.
 
 {% alert important %}
 Shopify 통합에서 중단된 이벤트를 사용하는 활성 메시지를 처리하지 않으면, 영향을 받는 메시지가 더 이상 고객에게 전송되지 않습니다.
@@ -122,7 +118,7 @@ Shopify 사이트에서 안내에 따라 Braze 앱을 재인증합니다. 이를
 
 ### 4단계: 외부 ID 유형 선택 {#step-4-choose-an-external-id-type}
 
-선택한 외부 ID 유형은 Shopify 계정이 생성되거나 주문이 접수될 때 새로운 Shopify 고객 프로필에 할당됩니다. 또한 Shopify 고객 ID 별칭이 있지만 Braze에서 외부 ID가 할당되지 않은 기존 고객 프로필을 업데이트하는 데에도 사용됩니다.
+선택한 외부 ID 유형은 Shopify 계정이 생성되거나 주문이 접수될 때 새로운 Shopify 고객 프로필에 할당됩니다. 또한 Shopify 고객 ID 별칭이 있지만 Braze에서 외부 ID가 할당되지 않은 기존 사용자 프로필을 업데이트하는 데에도 사용됩니다.
 
 외부 ID 유형을 선택하려면 Braze로 돌아가서 **Confirm external ID**를 선택합니다.
 
@@ -133,17 +129,14 @@ Shopify 사이트에서 안내에 따라 Braze 앱을 재인증합니다. 이를
 ![외부 ID를 선택하는 드롭다운이 있는 모달.]({% image_buster /assets/unlisted_docs/img/shopify/external_id_custom.png %}){: style="max-width:50%;"}
 
 {% alert important %}
-기본적으로 Braze는 Shopify의 이메일을 외부 ID로 사용하기 전에 자동으로 소문자로 변환합니다. 이메일 또는 해시된 이메일을 외부 ID로 사용하는 경우, 외부 ID로 할당하기 전이나 다른 데이터 소스에서 해싱하기 전에 이메일 주소도 소문자로 변환되었는지 확인하세요. 이렇게 하면 외부 ID의 불일치를 방지하고 Braze에서 중복 고객 프로필이 생성되는 것을 방지할 수 있습니다.
+기본적으로 Braze는 Shopify의 이메일을 외부 ID로 사용하기 전에 자동으로 소문자로 변환합니다. 이메일 또는 해시된 이메일을 외부 ID로 사용하는 경우, 외부 ID로 할당하기 전이나 다른 데이터 소스에서 해싱하기 전에 이메일 주소도 소문자로 변환되었는지 확인하세요. 이렇게 하면 외부 ID의 불일치를 방지하고 Braze에서 중복 사용자 프로필이 생성되는 것을 방지할 수 있습니다.
 {% endalert %}
 
 커스텀 외부 ID 유형을 선택한 경우 4.1~4.3단계를 진행하세요. 그렇지 않으면 5단계로 계속 진행합니다.
 
 #### 4.1단계: `braze.external_id` 메타필드 생성 {#step-41-create-the-brazeexternal_id-metafield}
 
-1. Shopify 관리자 패널에서 **Settings** > **Metafields**로 이동합니다.
-2. **Customers** > **Add definition**을 선택합니다.
-3. **Namespace and key**에 `braze.external_id`를 입력합니다.
-4. **Type**에서 **ID Type**을 선택합니다.
+{% multi_lang_include partners/shopify/customer_metafield_definition_steps.md %}
 
 메타필드가 생성된 후 고객에 대해 채워야 합니다. 다음 접근 방식을 권장합니다:
 
@@ -192,9 +185,7 @@ Braze는 `200` 상태 코드를 기대합니다. 다른 코드는 실패로 간�
 
 ##### 고려 사항 {#considerations}
 
-- Braze가 엔드포인트에 요청을 보낼 때 외부 ID가 생성되지 않은 경우, `changeUser` 함수가 호출될 때 통합은 기본적으로 Shopify 고객 ID를 사용합니다. 이 단계는 익명 사용자 프로필을 식별된 고객 프로필과 병합하는 데 중요합니다. 결과적으로 워크스페이스 내에 다른 유형의 외부 ID가 일시적으로 존재할 수 있습니다.
-- `braze.external_id` 메타필드에서 외부 ID를 사용할 수 있게 되면, 통합은 이 외부 ID를 우선적으로 할당합니다.
-    - Shopify 고객 ID가 이전에 Braze 외부 ID로 설정된 경우, `braze.external_id` 메타필드 값으로 대체됩니다.
+{% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
 ### 5단계: Braze 앱 임베드 활성화 {#step-5-enable-the-braze-app-embed}
 
@@ -214,9 +205,6 @@ Braze로 돌아가면 Shopify 통합 설치가 완료되었을 때 알림을 받
 
 새로운 Shopify 커넥터가 활성 상태인지 확인하려면 다음을 테스트하세요:
 
-- **활성 Canvases, Campaigns 및 Segments:** 제대로 작동하는지 확인합니다.
-- **ID 관리 프로세스:** 이러한 프로세스가 예상대로 작동하는지 확인합니다.
-- **SDK 커스터마이징(선택 사항):** Braze 및 Shopify 통합에 커스터마이징(예: 커스텀 이벤트 또는 속성 로깅)을 적용한 경우, 업그레이드 후 올바르게 작동하는지 확인합니다.
-- **이메일 또는 SMS 구독자 수집(선택 사항):** 이전에 이메일 또는 SMS 구독자 수집을 활성화한 경우, 업그레이드 중 구독자의 최신 상태를 반영하기 위해 새로운 기본 구독 그룹이 생성됩니다. 기본 구독 그룹은 Shopify 스토어프론트의 이름으로 지정됩니다. 이러한 새로운 기본 구독 그룹은 업그레이드 후 약 5시간 후에 사용할 수 있으며, 활성 메시지에 추가해야 합니다.
+{% multi_lang_include partners/shopify/upgrade_validation_checklist.md %}
 
 질문이 있으시면 [고객지원에 문의]({{site.baseurl}}/user_guide/administrative/access_braze/support)하세요.

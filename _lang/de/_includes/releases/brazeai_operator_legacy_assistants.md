@@ -1,0 +1,6 @@
+- KI-Liquid-Agent
+- KI-Copywriter
+- KI-HTML-E-Mail-Template-Agent
+- KI-Bildgenerator
+- Content-QA mit KI
+- KI-Copilot für Datentransformationen

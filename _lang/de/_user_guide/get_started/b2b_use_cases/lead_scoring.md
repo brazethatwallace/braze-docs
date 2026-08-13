@@ -16,7 +16,7 @@ Die Erstellung eines Lead-Scoring-Workflows in Braze umfasst zwei wesentliche Sc
 - [Einfaches Lead Scoring](#simple-lead-scoring)
 - [Externes Lead Scoring](#external-lead-scoring)
 
-2. Erstellen Sie eine Webhook-Campaign, um qualifizierte Leads an Ihr Vertriebsteam zu senden:
+2. Erstellen Sie eine Webhook-Kampagne, um qualifizierte Leads an Ihr Vertriebsteam zu senden:
 - [Lead-Übergabe: Marketing Qualified Lead (MQL) an den Vertrieb](#lead-handoff)
 
 ## Einfaches Lead Scoring {#simple-lead-scoring}
@@ -25,7 +25,7 @@ Die Erstellung eines Lead-Scoring-Workflows in Braze umfasst zwei wesentliche Sc
 
 1. Gehen Sie zu **Messaging** > **Canvas** und wählen Sie **Canvas erstellen**. Füllen Sie dann die Canvas-Grundlagen aus.
 
-2. Geben Sie Ihrem Canvas einen aussagekräftigen Namen, z. B. „Lead Scoring Canvas“, und versehen Sie es zur besseren Auffindbarkeit mit einem Tag wie „Lead Management“.<br><br>![1. Schritt der Erstellung eines Canvas mit dem Namen „Lead Scoring Canvas“ und dem Tag „Lead Management“.]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
+2. Geben Sie Ihrem Canvas einen aussagekräftigen Namen, z. B. „Lead Scoring Canvas“, und versehen Sie es zur besseren Auffindbarkeit mit einem Tag wie „Lead Management“.<br><br>![Schritt 1 der Erstellung eines Canvas mit dem Namen „Lead Scoring Canvas“ und dem Tag „Lead Management“.]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
 
 ### 2. Schritt: Entry-Kriterien festlegen {#step-2-set-up-your-entry-criteria}
 
@@ -35,7 +35,7 @@ Die Erstellung eines Lead-Scoring-Workflows in Braze umfasst zwei wesentliche Sc
     - **Wert des angepassten Attributs ändern** mit dem Namen Ihres Lead-Scoring-Attributs (z. B. `lead score`). Wenn Sie noch kein Lead-Scoring-Attribut erstellt haben, folgen Sie den Schritten unter [Angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes). Dadurch werden Nutzer:innen in das Canvas aufgenommen, sobald sich ihr Lead Score ändert.
     - **E-Mail-Adresse hinzufügen**
 
-![2. Schritt der Erstellung eines Canvas mit dem Entry-Zeitplan „Aktionsbasiert“ und aktionsbasierten Optionen zum Ändern eines angepassten Attributs „lead score“ und zum Hinzufügen einer E-Mail-Adresse.]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
+![Schritt 2 der Erstellung eines Canvas mit dem Entry-Zeitplan „Aktionsbasiert“ und aktionsbasierten Optionen zum Ändern eines angepassten Attributs „lead score“ und zum Hinzufügen einer E-Mail-Adresse.]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
 
 ### 3. Schritt: Zielgruppe identifizieren {#step-3-identify-your-target-audience}
 
@@ -43,7 +43,7 @@ Die Erstellung eines Lead-Scoring-Workflows in Braze umfasst zwei wesentliche Sc
 
 Alle Nutzer:innen kommen für die Lead-Bewertung in Frage. Sie können also unternehmensspezifische Regeln hinzufügen, indem Sie auswählen, welche [Segmente]({{site.baseurl}}/user_guide/audience/segments) Sie ansprechen möchten, und zusätzliche [Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) anwenden. Sie können zum Beispiel Mitarbeitende, Nutzer:innen, die bereits Kund:innen sind, und ähnliche ausschließen.
 
-![3. Schritt der Erstellung eines Canvas mit Optionen zur Auswahl von Segmenten und Filtern, um die Entry-Zielgruppe einzugrenzen.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
+![Schritt 3 der Erstellung eines Canvas mit Optionen zur Auswahl von Segmenten und Filtern, um die Entry-Zielgruppe einzugrenzen.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
 #### Schritt 3b: Canvas-Wiederzulassung festlegen {#step-3b-set-canvas-re-eligibility}
 
@@ -62,7 +62,7 @@ Angesichts der operativen Natur dieses Canvas und der Tatsache, dass keine Nachr
 
 Wählen Sie unter **Subscription Settings** bei **Send to these users:** die Option **all users including unsubscribed users**.
 
-![4. Schritt der Erstellung eines Canvas zum Einstellen der Optionen für den Nachrichtenversand.]({% image_buster /assets/img/b2b/step_4_simple.png %}){: style="max-width:80%;"}
+![Schritt 4 der Erstellung eines Canvas zum Einstellen der Optionen für den Nachrichtenversand.]({% image_buster /assets/img/b2b/step_4_simple.png %}){: style="max-width:80%;"}
 
 ### 4. Schritt: Canvas erstellen {#step-4-build-your-canvas}
 
@@ -117,7 +117,7 @@ Ob Sie einen unserer [Technologie-Partner]({{site.baseurl}}/partners/home), Ihr 
 
 ### Externe Partner {#external-partners}
 
-Unter [Technologie-Partner]({{site.baseurl}}/partners/home) erfahren Sie mehr über unsere B2B-Partner, die Lead-Scoring-Funktionen anbieten. Ihr Tool ist dort nicht aufgeführt? Sie können die Integration über unseren [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users)-API-Endpunkt durchführen.
+Unter [Technologie-Partner]({{site.baseurl}}/partners/home) erfahren Sie mehr über unsere B2B-Partner, die Lead-Scoring-Funktionen anbieten. Ihr Tool ist dort nicht aufgeführt? Sie können die Integration über unseren [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-API-Endpunkt durchführen.
 
 ### Interne Lead-Scoring-Datenmodelle {#internal-lead-scoring-data-models}
 
@@ -151,13 +151,13 @@ Unser empfohlener Ansatz für Lead-Übergaben besteht darin, allen Nutzer:innen 
 
 Um den Lead-Datensatz in Salesforce mit dem Lead-Status aus Braze zu aktualisieren, empfehlen wir die Verwendung eines getriggerten Webhook-Templates.
 
-### 1. Schritt: Eine Webhook-Campaign erstellen {#step-1-create-a-webhook-campaign}
+### 1. Schritt: Eine Webhook-Kampagne erstellen {#step-1-create-a-webhook-campaign}
 
 ### 2. Schritt: Webhook konfigurieren {#step-2-configure-your-webhook}
 
 #### Schritt 2a: Webhook verfassen {#step-2a-compose-webhook}
 
-1. Geben Sie Ihrer Webhook-Campaign einen Namen, z. B. „Salesforce > Lead auf MQL aktualisieren“.
+1. Geben Sie Ihrer Webhook-Kampagne einen Namen, z. B. „Salesforce > Lead auf MQL aktualisieren“.
 
 2. Geben Sie Ihre Webhook-URL im Format {% raw %}`https://YOUR_SALESFORCE_INSTANCE.my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} ein. Die Braze-Nutzer-ID {% raw %}`{{${user_id}}}`{% endraw %} sollte mit Ihrer Salesforce-Kontakt-ID übereinstimmen. Falls nicht, verwenden Sie einen Alias anstelle von {% raw %}`{{${user_id}}}`{% endraw %}.
 
@@ -190,7 +190,7 @@ Um den Lead-Datensatz in Salesforce mit dem Lead-Status aus Braze zu aktualisier
 
 #### Schritt 2b: Webhook-Versand planen {#step-2b-schedule-webhook-sends}
 
-Die Campaign sollte immer dann getriggert werden, wenn sich der Lead Score von Nutzer:innen ändert. Diese Campaign wird für alle Nutzer:innen ausgelöst, deren Punktestand sich ändert, betrifft aber nur diejenigen, die derzeit kein MQL sind und den von Ihnen im vorherigen Schritt festgelegten Schwellenwert überschritten haben.
+Die Kampagne sollte immer dann getriggert werden, wenn sich der Lead Score von Nutzer:innen ändert. Diese Kampagne wird für alle Nutzer:innen ausgelöst, deren Punktestand sich ändert, betrifft aber nur diejenigen, die derzeit kein MQL sind und den von Ihnen im vorherigen Schritt festgelegten Schwellenwert überschritten haben.
 
 Wählen Sie im Schritt **Schedule Delivery** Folgendes aus:
 - Einen **aktionsbasierten** Zustellungstyp
@@ -202,6 +202,6 @@ Fügen Sie im Schritt **Target Audiences** einen Filter ein, der Nutzer:innen au
 
 ![Webhook-Targeting-Optionen mit dem Filter „lead_status“ ist keiner von „MQL“.]({% image_buster /assets/img/b2b/step_3_webhook.png %}){: style="max-width:80%;"}
 
-### 3. Schritt: Campaign starten {#step-3-launch-campaign}
+### 3. Schritt: Kampagne starten {#step-3-launch-campaign}
 
 Wählen Sie **Starten** und beobachten Sie, wie sich Ihr Lead-Status in Salesforce ändert, wenn Ihre Kund:innen den MQL-Lead-Score-Schwellenwert überschreiten.

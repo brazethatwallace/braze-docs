@@ -1,14 +1,14 @@
 {% multi_lang_include developer_guide/prerequisites/swift.md %}
 
 {% alert tip %}
-커스텀 스킴 딥링크, 유니버설 링크, "앱 내에서 웹 URL 열기" 중에서 선택하는 데 도움이 필요하면 [iOS 딥링킹 가이드]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/)를 참조하세요. 문제 해결은 [딥링킹 문제 해결]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/)을 참조하세요.
+커스텀 스킴 딥링크, 유니버설 링크, "앱 내에서 웹 URL 열기" 중에서 선택하는 데 도움이 필요하면 [iOS 딥링킹 가이드]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide)를 참조하세요. 문제 해결은 [딥링킹 문제 해결]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting)을 참조하세요.
 {% endalert %}
 
 ## 딥링크 처리 {#handling-deep-links}
 
 ### 1단계: 스킴 등록 {#register-a-scheme}
 
-딥링킹을 처리하려면 `Info.plist` 파일에 커스텀 스킴을 명시해야 합니다. 내비게이션 구조는 사전의 배열로 정의됩니다. 이러한 각 사전에는 문자열 배열이 포함되어 있습니다.
+딥링킹을 처리하려면 `Info.plist` 파일에 커스텀 스킴을 명시해야 합니다. 내비게이션 구조는 사전 배열로 정의됩니다. 각 사전에는 문자열 배열이 포함되어 있습니다.
 
 Xcode를 사용하여 `Info.plist` 파일을 편집합니다:
 
@@ -58,10 +58,37 @@ Xcode를 사용하여 `Info.plist` 파일을 편집합니다:
 
 ### 3단계: 핸들러 구현 {#step-3-implement-a-handler}
 
-앱을 활성화한 후 iOS는 [`application:openURL:options:`](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1623112-application?language=objc) 메서드를 호출합니다. 중요한 인수는 [NSURL](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Reference/Foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/c_ref/NSURL) 오브젝트입니다.
+Xcode 27 이상으로 빌드된 앱은 [`UIScene` 생명 주기](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)를 채택해야 하므로, iOS는 커스텀 스킴 URL을 `AppDelegate`가 아닌 `SceneDelegate`의 [`scene:openURLContexts:`](https://developer.apple.com/documentation/uikit/uiscenedelegate/scene(_:openurlcontexts:))를 통해 전달합니다. 중요한 인수는 [NSURL](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Reference/Foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/c_ref/NSURL) 오브젝트입니다.
 
 {% tabs %}
 {% tab swift %}
+
+```swift
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let url = URLContexts.first?.url else { return }
+  let path = url.path
+  let query = url.query
+  // Insert your code here to take some action based upon the path and query.
+}
+```
+
+{% endtab %}
+{% tab OBJECTIVE-C %}
+
+```objc
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
+  NSString *path  = [url path];
+  NSString *query = [url query];
+  // Insert your code here to take some action based upon the path and query.
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+{% alert note %}
+앱이 아직 `UIScene` 생명 주기를 채택하지 않은 경우, iOS는 대신 `AppDelegate`의 [`application:openURL:options:`](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1623112-application?language=objc)를 호출합니다:
 
 ```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -71,21 +98,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
   return true
 }
 ```
-
-{% endtab %}
-{% tab OBJECTIVE-C %}
-
-```objc
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
-  NSString *path  = [url path];
-  NSString *query = [url query];
-  // Insert your code here to take some action based upon the path and query.
-  return YES;
-}
-```
-
-{% endtab %}
-{% endtabs %}
+{% endalert %}
 
 ## 앱 전송 보안(ATS) {#app-transport-security-ats}
 
@@ -162,16 +175,16 @@ ATS를 완전히 끌 수 있습니다. 보안 보호 기능이 손실되고 향�
 
 SDK는 링크를 퍼센트 인코딩하여 유효한 `URL`을 생성합니다. 유니코드 문자와 같이 올바르게 형성된 URL에서 허용되지 않는 모든 링크 문자는 퍼센트 이스케이프 처리됩니다.
 
-인코딩된 링크를 디코딩하려면 `String` 속성 [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding)을 사용합니다. 또한 `BrazeDelegate.braze(_:shouldOpenURL:)`에서 `true`를 반환해야 합니다. 앱에서 URL 처리를 트리거하려면 콜투액션이 필요합니다. 예를 들어:
+인코딩된 링크를 디코딩하려면 `String` 속성정보 [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding)을 사용합니다. 또한 `BrazeDelegate.braze(_:shouldOpenURL:)`에서 `true`를 반환해야 합니다. 앱에서 URL 처리를 트리거하려면 콜투액션이 필요합니다. 예를 들어, 3단계의 [`scene:openURLContexts:`](#step-3-implement-a-handler) 핸들러에서 다음과 같이 처리합니다:
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    guard let url = URLContexts.first?.url else { return }
     let urlString = url.absoluteString.removingPercentEncoding
     // Handle urlString
-    return true
   }
 ```
 
@@ -179,10 +192,10 @@ SDK는 링크를 퍼센트 인코딩하여 유효한 `URL`을 생성합니다. �
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
   NSString *urlString = [url.absoluteString stringByRemovingPercentEncoding];
   // Handle urlString
-  return YES;
 }
 ```
 
@@ -196,18 +209,17 @@ Braze 푸시 알림 및 인앱 메시지에서 사용자를 앱 설정으로 딥
 앱에서 iOS 설정으로 사용자를 이동하려면:
 1. 먼저 애플리케이션이 [스킴 기반 딥링크](#swift_register-a-scheme) 또는 [유니버설 링크](#swift_universal-links)를 사용하도록 설정되어 있는지 확인합니다.
 2. **설정** 페이지로 딥링킹할 URI를 결정합니다(예: `myapp://settings` 또는 `https://www.braze.com/settings`).
-3. 커스텀 스킴 기반 딥링크를 사용하는 경우 `application:openURL:options:` 메서드에 다음 코드를 추가하세요:
+3. 커스텀 스킴 기반 딥링크를 사용하는 경우 `scene:openURLContexts:` 핸들러에 다음 코드를 추가하세요:
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-  let path = url.path
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let path = URLContexts.first?.url.path else { return }
   if (path == "settings") {
     UIApplication.shared.openURL(URL(string:UIApplication.openSettingsURLString)!)
   }
-  return true
 }
 ```
 
@@ -215,15 +227,12 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)app
-            openURL:(NSURL *)url
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-  NSString *path  = [url path];
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSString *path  = [URLContexts.allObjects.firstObject.URL path];
   if ([path isEqualToString:@"settings"]) {
     NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
     [[UIApplication sharedApplication] openURL:settingsURL];
   }
-  return YES;
 }
 ```
 
@@ -248,7 +257,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 
 Braze는 푸시 알림, 인앱 메시지, Content Cards에서 유니버설 링크를 지원합니다. 유니버설 링크 지원을 활성화하려면 [`configuration.forwardUniversalLinks`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks)를 `true`로 설정해야 합니다.
 
-활성화하면 Braze는 [`application:continueUserActivity:restorationHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application) 메서드를 통해 앱의 `AppDelegate`로 유니버설 링크를 전달합니다.
+활성화하면 Braze는 `UIScene` 생명 주기를 채택한 앱(Xcode 27 이상으로 빌드된 앱에 필수)의 경우 [`scene:continue:`](https://developer.apple.com/documentation/uikit/uiscenedelegate/scene(_:continue:)) 메서드를 통해 `SceneDelegate`로 유니버설 링크를 전달하고, 그렇지 않은 경우 [`application:continueUserActivity:restorationHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application)를 통해 `AppDelegate`로 전달합니다.
 
 또한 유니버설 링크를 처리하도록 애플리케이션을 설정해야 합니다. 애플리케이션이 유니버설 링크에 맞게 올바르게 구성되었는지 확인하려면 [Apple 설명서](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app)를 참조하세요.
 

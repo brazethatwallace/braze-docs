@@ -32,13 +32,13 @@ Sehen Sie sich die [Entry-Zeitplan-Typen]({{site.baseurl}}/user_guide/messaging/
 
 ### Entry-Zielgruppen-Filter überprüfen {#review-entry-audience-filters}
 
-Vermeiden Sie es generell, einen aktionsbasierten oder API-getriggerten Canvas mit demselben Trigger wie dem Zielgruppen-Filter zu konfigurieren. Nachdem ein Canvas gestartet wurde, werden Nutzer:innen, die eine bestimmte Aktion ausführen, beispielsweise in die Entry-Zielgruppe aufgenommen, sodass es nicht nötig ist, das Event als Zielgruppen-Filter hinzuzufügen.
+Vermeiden Sie es generell, einen aktionsbasierten oder API-getriggerten Canvas mit demselben Trigger wie dem Zielgruppenfilter zu konfigurieren. Nachdem ein Canvas gestartet wurde, werden Nutzer:innen, die eine bestimmte Aktion ausführen, beispielsweise in die Entry-Zielgruppe aufgenommen, sodass es nicht nötig ist, das Event als Zielgruppenfilter hinzuzufügen.
 
 Weitere Details zu verfügbaren Segmentierungs-Filtern für die Zielgruppenansprache finden Sie unter [Segmentierungs-Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 
 ### Mehrere API-Anfragen bündeln {#batch-multiple-api-requests}
 
-Stellen Sie Ihre Anfragen im selben API-Aufruf statt in mehreren Aufrufen, um sicherzustellen, dass das Nutzerprofil zuerst erstellt oder aktualisiert wird. Weitere Beispiele finden Sie unter [Mehrere Endpunkte verwenden]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#using-multiple-api-endpoints).
+Stellen Sie Ihre Anfragen im selben API-Aufruf statt in mehreren Aufrufen, um sicherzustellen, dass das Nutzerprofil zuerst erstellt oder aktualisiert wird. Weitere Beispiele finden Sie unter [Mehrere Endpunkte verwenden]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-2-using-multiple-api-endpoints).
 
 ### Eine Verzögerung hinzufügen {#add-a-delay}
 

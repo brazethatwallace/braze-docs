@@ -143,6 +143,8 @@ Si vous avez des descriptions de lignes, vous devez utiliser **Matches regex** p
 
 Les messages de réponse doivent être envoyés dans les 24 heures suivant la réception du message d'un utilisateur. Pour aider à créer des expériences réussies, Braze vérifie la logique du message pour confirmer qu'il existe un message entrant de l'utilisateur en amont qui débloque le message de réponse.
 
+Pour les réponses en moins d'une minute dans les flux Canvas bidirectionnels, réduisez au minimum les étapes entre le déclencheur entrant et l'envoi du message de réponse. L'architecture du Canvas, les allers-retours de webhooks et le traitement par lots des mises à jour utilisateur peuvent ajouter de la latence. Consultez [Minimiser la latence de réponse pour les flux bidirectionnels]({{site.baseurl}}/user_guide/channels/whatsapp/best_practices#minimize-response-latency-for-two-way-flows).
+
 Les événements suivants débloquent les messages de réponse :
 
 - Message entrant
@@ -155,6 +157,31 @@ Les événements suivants débloquent les messages de réponse :
   - Événement [`ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events?tab=ecommerce.cart_updated)
 
 ![Un parcours d'action avec le déclencheur d'un événement personnalisé effectué `ecommerce.cart_updated`.]({% image_buster /assets/img/whatsapp/ecommerce_cart_updated.png %})
+
+### Réponses rapides et messages entrants en dehors de la fenêtre de 24 heures {#quick-replies-and-inbound-messages-outside-the-24-hour-window}
+
+Lorsqu'un utilisateur interagit avec votre entreprise sur WhatsApp — y compris en appuyant sur un bouton de réponse rapide d'un ancien modèle de message — son action compte comme un message entrant. Ce message entrant ouvre une nouvelle fenêtre de service client de 24 heures, même si le modèle d'origine a été envoyé il y a plus de 24 heures.
+
+Dans un Canvas avec des boutons de réponse rapide, les utilisateurs peuvent appuyer sur un bouton plusieurs jours après avoir reçu le modèle de bienvenue et entrer quand même dans le bon parcours d'action. Braze évalue le parcours d'action lorsque le message entrant arrive ; vous n'avez pas besoin d'étendre la durée du parcours d'action au-delà de la valeur par défaut pour capturer les réponses tardives.
+
+Le diagramme suivant illustre un flux de réponse rapide courant :
+
+```mermaid
+sequenceDiagram
+    participant Brand
+    participant User
+    Brand->>User: Template message (quick reply buttons)
+    Note over User: More than 24 hours pass
+    User->>Brand: Taps quick reply (inbound message)
+    Note over Brand,User: New 24-hour customer service window opens
+    Brand->>User: Response message (within Action Path)
+```
+
+#### Points importants {#things-to-know}
+
+- L'étape de message de réponse doit toujours se situer dans les 24 heures suivant le message entrant de l'utilisateur. Dans la plupart des flux Canvas, la réponse est envoyée immédiatement après l'évaluation du parcours d'action, ce qui ne pose donc pas de problème.
+- Ne confondez pas la fenêtre de service client de 24 heures avec les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) de Canvas, qui peuvent utiliser une fenêtre allant jusqu'à 30 jours. Les fenêtres de conversion contrôlent l'attribution ; elles n'affectent pas la possibilité d'envoyer un message de réponse.
+- Pour la facturation, consultez [Les messages de réponse WhatsApp sont-ils gratuits ?]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free).
 
 ### Filtrage par un attribut de temps personnalisé {#filtering-by-a-custom-time-attribute}
 
@@ -169,3 +196,7 @@ Cependant, le champ Liquid `inbound_media_urls`, qui référence l'URL de ce mé
 {% alert note %}
 Si vous enregistrez une valeur `inbound_media_urls` dans un attribut personnalisé utilisateur pour une utilisation ultérieure, tenez compte de cette expiration de sept jours. Toute tentative d'accès à l'URL après son expiration entraînera un lien cassé.
 {% endalert %}
+
+### Nom de profil entrant {#inbound-profile-name}
+
+Lorsque Meta inclut un nom d'affichage dans un message WhatsApp entrant, Braze l'expose sous la forme de l'attribut Liquid {% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %} sur cet événement entrant. Cette valeur reflète le nom que l'utilisateur a défini dans WhatsApp et peut ne pas correspondre aux données du profil CRM. Validez les données avant de les utiliser dans vos messages, ou utilisez une étape de mise à jour utilisateur dans un Canvas pour les enregistrer dans un champ de profil en vue d'une utilisation ultérieure. Pour une liste complète des attributs Liquid WhatsApp, consultez [Balises de personnalisation prises en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).

@@ -19,7 +19,7 @@ Não é mais possível criar ou duplicar Canvas usando a experiência original d
 
 Primeiro, acesse **Messaging** > **Canvas** e selecione **Create Canvas**.
 
-O criador de Canvas vai guiar você passo a passo pela configuração do seu Canvas — desde dar um nome até definir eventos de conversão e trazer os usuários certos para sua jornada. Selecione cada uma das abas a seguir para ver quais configurações você pode ajustar em cada etapa do criador.
+O criador de Canvas vai guiar você passo a passo pela configuração do seu Canvas — desde dar um nome até definir eventos de conversão e trazer os usuários certos para sua jornada do cliente. Selecione cada uma das guias a seguir para ver quais configurações você pode ajustar em cada etapa do criador.
 
 {% tabs local %}
   {% tab Dados básicos %}
@@ -68,7 +68,7 @@ O criador de Canvas vai guiar você passo a passo pela configuração do seu Can
 
 ### Etapa 1.1: Comece com os dados básicos do Canvas {#step-11-start-with-your-canvas-basics}
 
-Aqui, você vai dar um nome ao Canvas, atribuir [Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams) e criar ou adicionar [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags). Você também pode atribuir eventos de conversão para o Canvas.
+Aqui, você vai dar um nome ao Canvas, atribuir [Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e criar ou adicionar [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags). Você também pode atribuir eventos de conversão para o Canvas.
 
 {% alert tip %}
 Adicione tags aos seus Canvas para facilitar a busca e a criação de relatórios. Por exemplo, ao usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar por tags específicas.
@@ -109,6 +109,10 @@ Você pode controlar outros aspectos do comportamento do Canvas na janela **Púb
 
 ![Um exemplo de entrega baseada em ação. Os usuários entrarão no Canvas se fizerem uma compra, com uma janela de entrada começando às 13h30 em 10 de junho de 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
+{% alert note %}
+**Interagir com etapa do Canvas** não está disponível como gatilho de entrada baseada em ação para Canvas. Ele só pode ser usado como gatilho para Campaigns. Para disparar um Canvas a partir de outro, use o componente [Enviar para destino]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) do Canvas ou crie um [webhook Braze-para-Braze]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas) que chame o endpoint `/canvas/trigger/send`.
+{% endalert %}
+
 {% alert important %}
 Se o seu Canvas baseado em ação enviar mensagens antes do esperado, verifique se o timestamp do evento personalizado está sendo enviado com o horário atual em vez de um horário retroativo. Por exemplo, se um Canvas baseado em ação tem uma postergação de três horas após o usuário realizar um evento personalizado, a Braze usa o timestamp enviado com o evento personalizado para avaliar essa postergação. Se o timestamp estiver retroativo em mais de três horas, a Braze tratará a postergação como já decorrida e enviará a mensagem imediatamente.
 {% endalert %}
@@ -136,6 +140,14 @@ Se um usuário reentrar no Canvas, alcançar o mesmo componente da entrada anter
 ### Etapa 1.3: Defina seu público-alvo de entrada {#step-13-set-your-target-entry-audience}
 
 Somente os usuários que correspondem aos critérios definidos podem entrar na jornada na etapa **Público-alvo**. Isso significa que a Braze avalia a elegibilidade do público-alvo primeiro, **antes** de os usuários entrarem na jornada do Canvas. Por exemplo, se você quiser direcionar novos usuários, pode selecionar um segmento de usuários que usaram seu app pela primeira vez há menos de uma semana.
+
+{% alert important %}
+Em espaços de trabalho com múltiplos apps, a elegibilidade do público de entrada do Canvas (incluindo segmentos e filtros) é avaliada apenas quando os usuários entram no Canvas, não em etapas de mensagem individuais. Se o seu espaço de trabalho tem múltiplos apps e você precisa garantir que as etapas de mensagem direcionem apenas usuários de um app específico, use uma das seguintes abordagens em cada etapa de mensagem:
+- Ative **Validar público no envio da mensagem** nas [validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) da etapa de mensagem e adicione segmentos ou filtros específicos do app.
+- Use Liquid para verificar o dispositivo ou app direcionado no momento do envio.
+
+Sem essas proteções, usuários que se qualificaram para a jornada em um app podem receber mensagens destinadas a outro app se também usarem outros apps no seu espaço de trabalho.
+{% endalert %}
 
 Em **Controles de entrada**, você pode limitar o número de usuários toda vez que o Canvas for agendado para execução. Para Canvas baseados em disparo por API e baseados em ação, esse limite ocorre a cada hora UTC.
 
@@ -169,7 +181,7 @@ Definir os [critérios de saída]({{site.baseurl}}/user_guide/messaging/canvas/c
 
 #### Calculando o público-alvo {#calculating-target-population}
 
-Na seção **Público-alvo**, você pode ver um resumo do seu público, como os segmentos selecionados e filtros adicionais, além de um detalhamento de quantos usuários são contatáveis por canal de envio de mensagens. Para calcular o número exato de usuários contatáveis no seu público-alvo em vez da estimativa padrão, selecione [Calcular estatísticas exatas]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics).
+Na seção **Público-alvo**, você pode ver um resumo do seu público, como os segmentos selecionados e filtros adicionais, além de um detalhamento de quantos usuários são contatáveis por canal de envio de mensagens. Para calcular o número exato de usuários contatáveis no seu público-alvo em vez da estimativa padrão, selecione [Calcular estatísticas exatas]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics).
 
 Observe que:
 
@@ -187,13 +199,11 @@ Para ver estatísticas adicionais, como a receita média de tempo de vida dos us
 
 ### Etapa 1.4: Selecione suas configurações de envio {#step-14-select-your-send-settings}
 
-Selecione **Configurações de envio** para editar suas configurações de inscrição, ativar o limite de taxa e ativar o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours). Ao ativar o [limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-canvas-components) ou o [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping), você pode aliviar a pressão de marketing sobre seus usuários e garantir que não está enviando mensagens em excesso.
+Selecione **Configurações de envio** para editar suas configurações de inscrição, ativar o limite de taxa e ativar o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours). Ao ativar o [limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting) ou o [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping), você pode aliviar a pressão de marketing sobre seus usuários e garantir que não está enviando mensagens em excesso.
 
 Para Canvas direcionados a canais de e-mail e push, você pode querer limitar seu Canvas para que apenas os usuários que fizeram opt-in explicitamente recebam a mensagem (excluindo usuários inscritos ou que cancelaram a inscrição). Por exemplo, digamos que você tenha três usuários com diferentes status de opt-in:
 
-- **Usuário A** está inscrito em e-mail e tem push ativado. Este usuário não recebe o e-mail, mas receberá o push.
-- **Usuário B** fez opt-in em e-mail, mas não tem push ativado. Este usuário receberá o e-mail, mas não receberá o push.
-- **Usuário C** fez opt-in em e-mail e tem push ativado. Este usuário receberá tanto o e-mail quanto o push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 Para fazer isso, defina as **Configurações de inscrição** para enviar este Canvas para "apenas usuários com opt-in". Essa opção garantirá que apenas usuários com opt-in receberão seu e-mail, e a Braze enviará push apenas para usuários que têm push ativado por padrão.
 
@@ -230,7 +240,7 @@ Por padrão, a atribuição de variante do Canvas é determinada por um hash det
 
 {% details Expandir para ver as etapas %}
 
-1. Crie um atributo personalizado do tipo **Número** para armazenar seu número aleatório. Dê um nome fácil de localizar, como `lottery_number` ou `random_assignment`. No dashboard, acesse **Configurações de dados** > **Atributos personalizados**.<br><br>
+1. Crie um atributo personalizado do tipo **Número** para armazenar seu número aleatório. Dê um nome fácil de localizar, como `lottery_number` ou `random_assignment`. No dashboard, acesse **Data Settings** > **Custom Attributes**.<br><br>
 2. Use uma única variante do Canvas (ou adicione a mesma etapa de Atualização de usuário a cada variante). Adicione uma etapa de [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) no início da jornada. Essa etapa gera e armazena o número aleatório antes que os usuários cheguem à etapa de Jornadas do público.<br><br>
 3. Na etapa de Atualização de usuário, selecione o [Editor JSON avançado]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). Use a tag {% raw %}{% random %}{% endraw %} para gerar o número. Para mais detalhes, consulte [Enviar mensagens com um número aleatório]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#send-messages-with-a-random-number). Por exemplo, {% raw %}`{% random 10 %}`{% endraw %} retorna um inteiro de 0 a 9. Defina o atributo personalizado da etapa 1 usando JSON como este:<br><br>{% raw %}
 ```json
@@ -300,7 +310,7 @@ O componente de mensagem gerencia as mensagens enviadas aos usuários. Você pod
 
 ![A etapa "Configurar mensagens", com "Canais de envio de mensagens" selecionado, exibindo a lista de canais de envio de mensagens disponíveis, como push para Android, Content Cards, e-mail e mais.]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
 
-Selecione **Concluir** após terminar de configurar o componente do Canvas.
+Selecione **Concluído** após terminar de configurar o componente do Canvas.
 
 {% tabs local %}
 {% tab Propriedades de entrada do Canvas %}
@@ -345,15 +355,15 @@ Neste exemplo, temos nosso Canvas dividido em duas variantes. A Variante 1 tem 7
 
 ### Seleção inteligente para Canvas {#intelligent-selection-for-canvas}
 
-Os recursos de Seleção inteligente agora estão disponíveis em Canvas multivariantes. De forma semelhante ao recurso de [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) para Campaigns multivariantes, a Seleção inteligente para Canvas analisa o desempenho de cada variante do Canvas e ajusta a porcentagem de usuários direcionados para cada variante. Essa distribuição é baseada nas métricas de desempenho de cada variante para maximizar o número total esperado de conversões.
+Os recursos de seleção inteligente agora estão disponíveis em Canvas multivariantes. De forma semelhante ao recurso de [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) para Campaigns multivariantes, a seleção inteligente para Canvas analisa o desempenho de cada variante do Canvas e ajusta a porcentagem de usuários direcionados para cada variante. Essa distribuição é baseada nas métricas de desempenho de cada variante para maximizar o número total esperado de conversões.
 
-Lembre-se de que Canvas multivariantes permitem testar não apenas o texto, mas também o timing e os canais. Por meio da Seleção inteligente, você pode testar Canvas de forma mais eficiente e ter confiança de que seus usuários serão enviados na melhor jornada possível do Canvas.
+Lembre-se de que Canvas multivariantes permitem testar não apenas o texto, mas também o timing e os canais. Por meio da seleção inteligente, você pode testar Canvas de forma mais eficiente e ter confiança de que seus usuários serão enviados na melhor jornada possível do Canvas.
 
 ![A opção "Seleção inteligente" está ativada na página "Editar distribuição de variantes". Conforme analisa e otimiza o Canvas, exibe uma barra horizontal na página dividida em várias seções, cada uma variando em cor e tamanho. Esta é apenas uma representação visual e não corresponde a nenhuma análise de dados específica.]({% image_buster /assets/img_archive/canvas_intelligent_selection.png %})
 
-A Seleção inteligente para Canvas otimiza os resultados do Canvas fazendo ajustes graduais em tempo real na distribuição de usuários direcionados para cada variante. Quando o algoritmo estatístico determina um vencedor decisivo entre suas variantes, ele descartará as variantes com desempenho inferior e direcionará todos os futuros destinatários elegíveis do Canvas para as variantes vencedoras.
+A seleção inteligente para Canvas otimiza os resultados do Canvas fazendo ajustes graduais em tempo real na distribuição de usuários direcionados para cada variante. Quando o algoritmo estatístico determina um vencedor decisivo entre suas variantes, ele descartará as variantes com desempenho inferior e direcionará todos os futuros destinatários elegíveis do Canvas para as variantes vencedoras.
 
-Por esse motivo, a Seleção inteligente funciona melhor em Canvas que têm novos usuários entrando com frequência.
+Por esse motivo, a seleção inteligente funciona melhor em Canvas que têm novos usuários entrando com frequência.
 
 ## Etapa 4: Salve e lance {#step-4-save-and-launch}
 

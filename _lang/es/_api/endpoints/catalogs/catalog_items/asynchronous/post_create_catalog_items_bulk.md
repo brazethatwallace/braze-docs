@@ -6,7 +6,7 @@ page_order: 3
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Crear varios elementos del catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Crear varios elementos del catálogo de Braze."
 
 ---
 {% api %}
@@ -15,15 +15,15 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}/items
 {% endapimethod %}
 
-> Utiliza este punto de conexión para crear varios elementos en tu catálogo.
+> Utiliza este endpoint para crear varios elementos en tu catálogo.
 
-Cada solicitud puede admitir hasta 50 elementos. Este punto de conexión es asíncrono.
+Cada solicitud puede admitir hasta 50 elementos. Este endpoint es asíncrono.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#cea18bb3-b83a-4160-81fe-8cd42aa6e7cc {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.add_items`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.add_items`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -115,7 +115,7 @@ El campo `Location` utiliza el tipo de datos `geo`, que espera un array con el f
 
 ## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto de conexión: `202`, `400` y `404`.
+Existen tres respuestas de código de estado para este endpoint: `202`, `400` y `404`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 

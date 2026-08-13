@@ -14,7 +14,7 @@ channel:
 
 | Exemplo Android (expandido) | Exemplo iOS (expandido) |
 | :-----: | :----------: |
-| ![Pré-visualização de Push Stories no Android.]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![Pré-visualização de Push Stories no iOS]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
+| ![Pré-visualização de Push Stories no Android.]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![Pré-visualização de Push Stories no iOS.]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push Stories" }
 
 {% alert note %}
@@ -51,7 +51,7 @@ As pré-visualizações serão refletidas e são interativas.
 ![Criador de Push Stories]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
-Se você estiver carregando imagens com [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content), certifique-se de que a URL da sua imagem comece com `https://`. Usar `http://` causará uma falha no seu app.
+Se você estiver carregando imagens com [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), certifique-se de que a URL da sua imagem comece com `https://`. Usar `http://` causará uma falha no seu app.
 {% endalert %}
 
 ### Especificações de imagem e texto {#image-and-text-specifications}
@@ -85,9 +85,9 @@ Ao criar uma Campaign ou Canvas, você pode filtrar quais usuários deseja segme
 
 ### Análise de dados de Push Stories {#push-stories-analytics}
 
-A análise de dados será muito semelhante à seção de análise de dados atual para notificações por push. Para a análise de dados de Push Stories, você pode abrir a métrica **Aberturas diretas** para visualizar os cliques por página.
+A análise de dados será muito semelhante à seção de análise de dados atual para notificações por push. Para a análise de dados de Push Stories, você pode abrir a métrica **Aberturas Diretas** para visualizar os cliques por página.
 
-![Tabela de desempenho de push no iOS com dados de análise de exemplo e detalhes expandidos para a métrica de aberturas diretas.]({% image_buster /assets/img_archive/pushstories_analytics.png %})
+![Tabela de desempenho de push no iOS com dados de análise de exemplo e detalhes expandidos para a métrica de Aberturas Diretas.]({% image_buster /assets/img_archive/pushstories_analytics.png %})
 
 ## Solução de problemas {#troubleshooting}
 

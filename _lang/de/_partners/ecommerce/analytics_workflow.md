@@ -1,4 +1,32 @@
 ---
-nav_title: E-Commerce Analytics und Workflow
-config_only: true
+nav_title: "E-Commerce Analytics und Workflow"
+article_title: "E-Commerce Analytics und Workflow"
+page_type: landing
+description: "Durchsuchen Sie Technologie-Partnerintegrationen für E-Commerce Analytics und Workflow."
+layout: dev_guide
+search_tag: Partner
+
+guide_top_header: "E-Commerce Analytics und Workflow"
+guide_top_text: "Durchsuchen Sie Technologie-Partnerintegrationen für E-Commerce Analytics und Workflow. Eine vollständige, durchsuch- und filterbare Liste aller Braze-Technologie-Partner finden Sie im <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
+
+guide_featured_title: "Partner"
+guide_featured_list:
+  - name: "Lexer"
+    link: /docs/partners/ecommerce/analytics_workflow/lexer
+    image: /assets/img/braze_icons/zap.svg
+  - name: "Okendo"
+    link: /docs/partners/ecommerce/analytics_workflow/okendo
+    image: /assets/img/braze_icons/layers-three-01.svg
+  - name: "Peak"
+    link: /docs/partners/ecommerce/analytics_workflow/peak
+    image: /assets/img/braze_icons/bar-chart-01.svg
+  - name: "Personalize.AI"
+    link: /docs/partners/ecommerce/analytics_workflow/personalize
+    image: /assets/img/braze_icons/dataflow-01.svg
+  - name: "Tangerine"
+    link: /docs/partners/ecommerce/analytics_workflow/tangerine
+    image: /assets/img/braze_icons/users-01.svg
+  - name: "Wunderkind"
+    link: /docs/partners/ecommerce/analytics_workflow/wunderkind
+    image: /assets/img/braze_icons/target-05.svg
 ---

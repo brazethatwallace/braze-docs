@@ -31,6 +31,19 @@ The catalog set up in the integration doesn't exist in the Braze catalog. A cata
 
 This type of email means that some of your data could not be processed during the sync. To find out the specific error, you can review the logs in Braze by going to **CDI** > **Sync Log**.
 
+## How do I fix "Time must be string in ISO8601 Format" in CDI setup?
+
+This error means the event `time` value in your CDI payload is not in a supported datetime format.
+
+For event and purchase payloads, format `time` as:
+
+- An ISO 8601 string, or
+- `yyyy-MM-dd'T'HH:mm:ss:SSSZ`
+
+If `time` is omitted, Braze uses `UPDATED_AT` as the event time.
+
+For full payload requirements, refer to [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
+
 ## How do I fix errors for Test Connection and support emails?
 
 {% tabs %}

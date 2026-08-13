@@ -27,13 +27,13 @@ description: "이 문서에서는 라이브 활동 시작 엔드포인트에 대
 
 ## 자동 해제 설정 {#arranging-automatic-dismissal}
 
-라이브 활동이 시작된 후 자동 해제를 설정하려면 백엔드에서 업데이트 엔드포인트로 후속 요청을 예약하세요.
+라이브 활동이 시작된 후 자동 해제를 설정하려면 백엔드에서 업데이트 엔드포인트로 후속 요청을 스케줄하세요.
 
 1. 나중에 재사용할 수 있는 `activity_id`와 함께 `/messages/live_activity/start` 요청을 보냅니다.
 2. 해당 `activity_id`와 목표 종료 시간을 백엔드 스케줄러에 저장합니다.
 3. 목표 종료 시간에 `end_activity`를 `true`로 설정하여 `/messages/live_activity/update` 요청을 보냅니다.
 4. 동일한 업데이트 요청에서 해제 동작을 구성합니다. 자세한 내용은 [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) 엔드포인트를 참조하세요.
-5. [메시지 활동 로그]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab)에서 전송 및 결과 이벤트를 확인합니다.
+5. [메시지 활동 로그]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab)에서 전송 및 성과 이벤트를 확인합니다.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 
@@ -72,7 +72,7 @@ description: "이 문서에서는 라이브 활동 시작 엔드포인트에 대
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |-----------|----------|----------|--------------|
-| `app_id` | 필수 | 문자열 | [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) 페이지에서 가져온 앱 [API 식별자]({{site.baseurl}}/api/identifier_types#the-app-identifier)입니다. |
+| `app_id` | 필수 | 문자열 | [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) 페이지에서 가져온 앱 [API 식별자]({{site.baseurl}}/api/identifier_types#app-identifier)입니다. |
 | `activity_id` | 필수 | 문자열 | 커스텀 문자열을 `activity_id`로 정의합니다. 라이브 활동에 업데이트 또는 종료 이벤트를 보내려는 경우 이 ID를 사용합니다. |
 | `activity_attributes_type` | 필수 | 문자열 | 앱의 `liveActivities.registerPushToStart` 내에서 정의하는 활동 속성 유형입니다. |
 | `activity_attributes` | 필수 | 오브젝트 | 활동 유형에 대한 정적 속성 값(예: 변경되지 않는 스포츠 팀 이름)입니다. |
@@ -80,13 +80,13 @@ description: "이 문서에서는 라이브 활동 시작 엔드포인트에 대
 | `stale_date` | 선택 사항 | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 이 매개변수는 라이브 활동 콘텐츠가 사용자 UI에서 오래된 것으로 표시되는 시점을 시스템에 알려줍니다. |
 | `notification` | 필수 | 오브젝트 | [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object) 오브젝트를 포함하여 푸시 알림을 정의합니다. 이 푸시 알림의 동작은 사용자가 활성 상태인지 또는 프록시 기기를 사용 중인지에 따라 다릅니다. {::nomarkdown}<ul><li><code>notification</code>이 포함되어 있고 업데이트가 전달될 때 사용자가 iPhone에서 활성 상태이면, 업데이트된 라이브 활동 UI가 아래로 슬라이드되어 푸시 알림처럼 표시됩니다.</li><li><code>notification</code>이 포함되어 있고 사용자가 iPhone에서 활성 상태가 아니면, 잠금 화면에 업데이트된 라이브 활동 UI가 표시되도록 화면이 켜집니다.</li><li><code>notification alert</code>는 표준 푸시 알림으로 표시되지 않습니다. 또한 사용자에게 Apple Watch와 같은 프록시 기기가 있는 경우에는 <code>alert</code>가 해당 기기에 표시됩니다.</li></ul>{:/} |
 | `external_user_ids` | `segment_id` 또는 `custom_audience` 제공 시 선택 사항 | 문자열 배열 | [외부 사용자 ID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)를 참조하세요. 최대 50개의 외부 사용자 ID. |
-| `segment_id` | `external_user_ids` 또는 `custom_audience` 제공 시 선택 사항 | 문자열 | [Segment 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
+| `segment_id` | `external_user_ids` 또는 `custom_audience` 제공 시 선택 사항 | 문자열 | [세그먼트 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
 | `custom_audience` | `external_user_ids` 또는 `segment_id` 제공 시 선택 사항 | 연결된 오디언스 오브젝트 | [연결된 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience)를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="요청 매개변수" }
 
 이 엔드포인트에서는 `custom_audience`에 연결된 오디언스 필터를 전달합니다.
 
-## 예시 요청 {#example-request}
+## 요청 예시 {#example-request}
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/messages/live_activity/start' \

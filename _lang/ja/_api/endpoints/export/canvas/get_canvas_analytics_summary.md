@@ -20,7 +20,7 @@ description: "この記事では、キャンバスデータサマリー分析の
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`canvas.data_summary` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`canvas.data_summary` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -132,7 +132,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
       ... (more steps)
     }
   },
-  "message": (required, string) the status of the export, returns 'success' on successful completion
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

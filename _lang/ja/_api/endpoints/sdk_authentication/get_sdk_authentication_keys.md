@@ -18,7 +18,7 @@ description: "この記事では、「SDK認証キーの一覧」Brazeエンド�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`sdk_authentication.keys` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`sdk_authentication.keys` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -38,7 +38,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/app_group/sdk_authe
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
 ```json
 {
@@ -59,7 +59,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/app_group/sdk_authe
 }
 ```
 
-## 応答パラメーター {#response-parameters}
+## レスポンスパラメーター {#response-parameters}
 
 | パラメーター | データタイプ | 説明 |
 | --------- | --------- | ----------- |
@@ -68,7 +68,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/app_group/sdk_authe
 | `keys[].rsa_public_key` | 文字列 | RSA公開キーの文字列。 |
 | `keys[].description` | 文字列 | SDK認証キーの説明。 |
 | `keys[].is_primary` | ブール値 | このキーがプライマリSDK認証キーであるかどうか。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="応答パラメーター" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="レスポンスパラメーター" }
 
 ### バリデーションルール {#validation-rules}
 

@@ -15,7 +15,7 @@ description: "Dieser Artikel erklärt, wie CDI-Segmenterweiterungen die Cloud-Da
 > Mit der [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) (CDI) von Braze können Sie eine direkte Verbindung von Ihrem Data Warehouse oder Dateispeichersystem zu Braze einrichten, um relevante Nutzer:innen- oder Katalogdaten regelmäßig zu synchronisieren.
 
 {% alert warning %}
-CDI-Segmenterweiterungen fragen Ihr Data Warehouse direkt ab, sodass Ihnen alle Kosten entstehen, die mit der Ausführung dieser Abfragen in Ihrem Data Warehouse verbunden sind. CDI-Segmenterweiterungen verbrauchen keine [SQL-Segment-Credits]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#monitoring-your-sql-segments-usage), zählen nicht zu Ihrem Segmenterweiterungs-Limit und protokollieren keine Datenpunkte.
+CDI-Segmenterweiterungen fragen Ihr Data Warehouse direkt ab, sodass Ihnen alle Kosten entstehen, die mit der Ausführung dieser Abfragen in Ihrem Data Warehouse verbunden sind. CDI-Segmenterweiterungen verbrauchen keine [SQL-Segment-Credits]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#credits), zählen nicht zu Ihrem Segmenterweiterungs-Limit und protokollieren keine Datenpunkte.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -44,7 +44,7 @@ Um die verfügbaren Datentabellen einschließlich ihres Schemas und etwaiger Bes
 
 ![Um die verfügbaren Datentabellen einschließlich ihres Schemas und etwaiger Beschreibungen anzuzeigen, wählen Sie „Reference“ aus. Wenn Sie bereit sind, wählen Sie eine Verbindung aus.]({% image_buster /assets/img/segment/connection_schema_with_descriptions.png %}){: style="max-width:100%;"}
 
-Schreiben Sie als Nächstes das SQL für Ihr Segment unter Verwendung der [Braze-SQL-Syntax]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#writing-sql).
+Schreiben Sie als Nächstes das SQL für Ihr Segment unter Verwendung der [Braze-SQL-Syntax]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#step-2-write-your-sql).
 
 Beachten Sie, dass alle CDI-Segmenterweiterungen `external_user_id` als ausgewählte Spalte verwenden müssen und Ihre `external_user_id` mit der in Braze für Nutzer:innen festgelegten übereinstimmen sollte.
 
@@ -58,7 +58,7 @@ Wenn Ihre Abfrageergebnisse Nutzer:innen enthalten, die in Braze nicht existiere
 Um zu erfahren, wie Sie Ihre Segmenterweiterungen in der Vorschau anzeigen, verwalten und automatische Mitgliedschaftsaktualisierungen ausführen können, lesen Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
 {% endalert %}
 
-Schließlich können Sie [diese Segmenterweiterung verwenden]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-5-use-your-extension-in-a-segment), um innerhalb eines Braze-Segments eine Kampagne oder ein Canvas an diese Zielgruppe zu senden.
+Schließlich können Sie [diese Segmenterweiterung verwenden]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment), um innerhalb eines Braze-Segments eine Campaign oder ein Canvas an diese Zielgruppe zu senden.
 
 ## Hinweise {#considerations}
 

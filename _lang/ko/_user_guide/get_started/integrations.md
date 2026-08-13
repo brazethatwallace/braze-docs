@@ -27,7 +27,7 @@ Braze SDK(소프트웨어 개발 키트)는 앱 또는 사이트와 정보를 �
 
 * [API 키]({{site.baseurl}}/api/api_key)
 * [SDK 엔드포인트]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)
-  * Braze는 더 이상 커스텀 엔드포인트를 제공하지 않으므로 미리 정의된 SDK 엔드포인트를 사용하세요. 기존에 제공받은 커스텀 엔드포인트가 있는 경우, [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/android_sdk_integration#step-5-optional-custom-endpoint-setup), [iOS]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift), [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#initializing-the-sdk) 통합에 필요한 설정 단계를 확인할 수 있습니다.
+  * Braze는 더 이상 커스텀 엔드포인트를 제공하지 않으므로 미리 정의된 SDK 엔드포인트를 사용하세요. 기존에 제공받은 커스텀 엔드포인트가 있는 경우, [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/android_sdk_integration#step-5-optional-custom-endpoint-setup), [iOS]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift), [웹]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#initializing-the-sdk) 통합에 필요한 설정 단계를 확인할 수 있습니다.
 
 이 정보를 개발자에게 직접 제공하거나, 계정을 생성하여 Braze에 대한 액세스 권한을 부여할 수 있습니다.
 
@@ -80,8 +80,8 @@ API 트리거 실행 및 연결된 콘텐츠와 같은 기능을 원하는 경�
 
 ## 구현 후 {#after-implementation}
 
-구현이 완료되었다고 해서 한 번에 백만 개의 메시지를 보낼 수 있는 것은 아니라는 점을 명심하세요. 모든 고객이 동시에 같은 링크를 클릭하면 백만 건의 푸시를 보내는 것만으로도 앱이 중단될 수 있습니다. **Send** 버튼을 클릭하기 전에 Braze의 요청을 처리할 수 있는 내부 설정의 용량이 어느 정도인지 논의하는 것이 좋습니다. 그런 다음 이를 기준으로 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting)을 설정할 수 있습니다.
+구현이 완료되었다고 해서 한 번에 백만 개의 메시지를 보낼 수 있는 것은 아니라는 점을 명심하세요. 모든 고객이 동시에 같은 링크를 클릭하면 백만 건의 푸시를 보내는 것만으로도 앱이 중단될 수 있습니다. **Send** 버튼을 클릭하기 전에 Braze의 요청을 처리할 수 있는 내부 설정의 용량이 어느 정도인지 논의하는 것이 좋습니다. 그런 다음 이를 기준으로 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting)을 설정할 수 있습니다.
 
 ![Braze Firebrands 커뮤니티 로고]({% image_buster /assets/img/torchie/firebrands.png %}){: style="max-width:15%;float:right;margin-left:15px;border:none;"}
 
-Braze 사용에 익숙해지면 Braze Firebrand가 되는 것을 고려해 보세요! 고객 참여 커뮤니티인 Braze Firebrands를 통해 고객 경험과 마케팅을 현대화하기 위해 Braze를 사용하는 혁신가들의 커뮤니티를 구축하고 있습니다. 자세히 알아보고 싶으신가요? [지금 가입하세요](https://brazefirebrands.splashthat.com/).
+Braze 사용에 익숙해지면 Braze Firebrand가 되는 것을 고려해 보세요! 고객 인게이지먼트 커뮤니티인 Braze Firebrands를 통해 고객 경험과 마케팅을 현대화하기 위해 Braze를 사용하는 혁신가들의 커뮤니티를 구축하고 있습니다. 자세히 알아보고 싶으신가요? [지금 가입하세요](https://brazefirebrands.splashthat.com/).

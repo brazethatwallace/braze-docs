@@ -23,8 +23,8 @@ Die Integration von Braze und Google Cloud Storage erlaubt es Ihnen, Currents-Da
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Google Cloud Storage-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Google Cloud Storage-Konto. |
-| Currents | Um Daten zurück in Google Cloud Storage zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) für Ihr Konto eingerichtet haben. Currents ist nicht erforderlich, wenn Sie nur die Nachrichtenarchivierung einrichten möchten. |
+| Google Cloud Storage-Konto | Ein Google Cloud Storage-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. |
+| Currents | Um Daten zurück in Google Cloud Storage zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) für Ihr Konto eingerichtet haben. Currents ist nicht erforderlich, wenn Sie nur die Nachrichtenarchivierung einrichten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -55,6 +55,10 @@ Geben Sie der Rolle einen Namen, wählen Sie dann **+Add Permissions** und wähl
 Die Berechtigung `storage.objects.delete` ist optional. Sie erlaubt es Braze, unvollständige Dateien zu bereinigen.<br><br>In seltenen Fällen kann es vorkommen, dass Google Cloud die Verbindung vorzeitig beendet, was dazu führt, dass Braze unvollständige Dateien in Google Cloud Storage schreibt. In den meisten Fällen wird Braze einen neuen Versuch unternehmen und eine neue Datei mit den richtigen Daten erstellen, wobei die alte Datei in Google Cloud Storage verbleibt.
 {% endalert %}
 
+{% alert important %}
+Wenn Ihr Bucket einen [hierarchischen Namespace](https://cloud.google.com/storage/docs/hns-overview) verwendet, müssen Sie außerdem die Berechtigung `storage.folders.create` hinzufügen. Bei diesen Buckets sind Ordner verwaltete Ressourcen, sodass Braze diese Berechtigung benötigt, um die Ordnerstruktur für Ihre exportierten Dateien zu erstellen. Ohne diese Berechtigung kann Braze nicht in den Bucket schreiben und die Integration kann keine Daten exportieren.
+{% endalert %}
+
 Wenn Sie fertig sind, wählen Sie **Create**.
 
 ![Editor für angepasste Google Cloud-Rollen mit ausgewählten Speicherberechtigungen.]({% image_buster /assets/img/gcs2.png %})
@@ -80,6 +84,8 @@ Verwenden Sie unten auf der Seite den Button **Create Key**, um einen **JSON** P
 ### 3. Schritt: Currents in Braze einrichten {#step-3-set-up-currents-in-braze}
 
 Navigieren Sie in Braze zu **Currents** > **+ Create Current** > **Google Cloud Storage Data Export** und geben Sie den Namen Ihrer Integration und Ihre Kontakt-E-Mail an.
+
+{% multi_lang_include currents/contact_email_notifications.md %}
 
 Als Nächstes laden Sie Ihren JSON Private Key unter **GCS JSON Credentials** hoch und geben den GCS-Bucket-Namen und das GCS-Präfix (optional) an. Beachten Sie, dass Sie diese Zugangsdaten über Google Cloud Platform generieren müssen, wie in den vorherigen Schritten beschrieben.
 
@@ -119,28 +125,28 @@ Um diese Berechtigungen im Braze-Dashboard zu überprüfen, gehen Sie auf die Se
 
 ## Exportverhalten {#export-behavior}
 
-Nutzer:innen, die eine Cloud-Datenspeicherlösung integriert haben und versuchen, APIs, Dashboard-Berichte oder CSV-Berichte zu exportieren, werden Folgendes feststellen:
+Nutzer:innen, die eine Cloud-Datenspeicherlösung integriert haben und APIs, Dashboard-Berichte oder CSV-Berichte exportieren möchten, erleben Folgendes:
 
-- Alle API-Exporte geben keine Download-URL im Antwortkörper zurück und müssen über den Datenspeicher abgerufen werden.
-- Alle Dashboard-Berichte und CSV-Berichte werden an die E-Mail der Nutzer:innen zum Download gesendet (keine Speicherberechtigung erforderlich) und auf dem Datenspeicher gesichert.
+- Alle API-Exporte geben keine Download-URL im Antworttext zurück und müssen über den Datenspeicher abgerufen werden.
+- Alle Dashboard-Berichte und CSV-Berichte werden zum Download an die E-Mail der Nutzer:innen gesendet (keine Speicherberechtigungen erforderlich) und im Datenspeicher gesichert.
 
 {% alert important %}
-**JSON-Format erforderlich**: Für JSON-Exporte verwendet Braze das JSONL-Format (Newline-delimited JSON), bei dem jede Zeile ein eigenes JSON-Objekt enthält. Dieses Format unterscheidet sich vom Standard-JSON, das ein einzelnes JSON-Array oder -Objekt ist. Jede Zeile in der exportierten Datei ist ein gültiges JSON-Objekt, aber die Datei als Ganzes ist kein einzelnes gültiges JSON-Dokument. Wenn Sie diese Dateien verarbeiten, parsen Sie jede Zeile einzeln als separates JSON-Objekt, anstatt zu versuchen, die gesamte Datei als ein einziges JSON-Dokument zu parsen.
+**JSON-Formatanforderung**: Für JSON-Exporte verwendet Braze das JSONL-Format (Newline-delimited JSON), bei dem jede Zeile ein separates JSON-Objekt enthält. Dieses Format unterscheidet sich von Standard-JSON, das ein einzelnes JSON-Array oder -Objekt ist. Jede Zeile in der exportierten Datei ist ein gültiges JSON-Objekt, aber die Datei als Ganzes ist kein einzelnes gültiges JSON-Dokument. Beim Verarbeiten dieser Dateien sollte jede Zeile einzeln als separates JSON-Objekt geparst werden, anstatt zu versuchen, die gesamte Datei als ein einzelnes JSON-Dokument zu parsen.
 
-Currents-Exporte verwenden das Apache-Avro-Format (`.avro`-Dateien), nicht JSON. Diese Anforderung an das JSON-Format gilt für Dashboard-Datenexporte und API-Exporte, die das JSON-Format verwenden.
+Currents-Exporte verwenden das Apache-Avro-Format (`.avro`-Dateien), nicht JSON. Diese JSON-Formatanforderung gilt für Dashboard-Datenexporte und API-Exporte, die das JSON-Format verwenden.
 {% endalert %}
 
 ## Fehlerbehebung {#troubleshooting}
 
 ### Google Cloud Storage-Zugangsdaten sind ungültig {#google-cloud-storage-credentials-are-invalid}
 
-Wenn Sie beim Versuch, Ihre Zugangsdaten einzugeben, die folgende Fehlermeldung erhalten:
+Wenn Sie beim Eingeben Ihrer Zugangsdaten die folgende Fehlermeldung erhalten:
 
 ```
 Google Cloud Storage Credentials are invalid. Please ensure that your credentials string, bucket name, and prefix are valid. You do not have read permission.
 ```
 
-Stellen Sie sicher, dass Ihr Google Cloud IAM-Dienstkonto über die folgenden Berechtigungen verfügt:
+Stellen Sie sicher, dass Ihr Google Cloud IAM-Dienstkonto die folgenden Berechtigungen hat:
 
 - `storage.objects.create`
 - `storage.objects.delete`

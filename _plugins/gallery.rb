@@ -32,7 +32,7 @@ module Tags
       basesetting = "{slidesPerView: 'auto',spaceBetween: 30,loop: false, pagination: { el: '.swiper-pagination', clickable: true }, navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev'}}"
 
       return "<div class='swiper swiper-container' id='#{ galleryid }'><div class='swiper-wrapper'>\n#{galleryitems.join("\n")}\n</div><div class='swiper-pagination'></div><div class='swiper-button-next'></div><div class='swiper-button-prev'></div></div>\n" +
-        "<script type='text/javascript'>let swiper = new Swiper('##{galleryid}', #{basesetting});</script>"
+        "<script type='text/javascript'>document.addEventListener('DOMContentLoaded',function(){new Swiper('##{galleryid}', #{basesetting});});</script>"
     end
   end
 end

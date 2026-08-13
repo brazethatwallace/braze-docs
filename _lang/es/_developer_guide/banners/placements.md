@@ -597,7 +597,7 @@ Si tu banner utiliza el bloque de editor **Custom Code** en el panel de Braze, d
 </button>
 ```
 
-Para obtener la referencia completa, consulta [Código personalizado y puente JavaScript para banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code). `brazeBridge` proporciona una capa de comunicación entre el HTML interno del banner y el SDK principal de Braze.
+Para obtener la referencia completa, consulta [Código personalizado y puente JavaScript para banners]({{site.baseurl}}/user_guide/channels/banners/custom_code). `brazeBridge` proporciona una capa de comunicación entre el HTML interno del banner y el SDK principal de Braze.
 
 ### Implementaciones de interfaz de usuario personalizadas (headless) {#custom-ui-implementations-headless}
 
@@ -999,9 +999,7 @@ Esto es lo que debes saber sobre las dimensiones y el tamaño de los banners:
 
 Puedes utilizar propiedades personalizadas de tu campaña de banners para recuperar datos clave-valor a través del SDK y modificar el comportamiento o la apariencia de tu aplicación. Por ejemplo, podrías:
 
-- Enviar metadatos para tus análisis o integraciones de terceros.
-- Utilizar metadatos como un `timestamp` o un objeto JSON para desencadenar lógica condicional.
-- Controlar el comportamiento de un banner basándote en metadatos incluidos como `ratio` o `format`.
+{% multi_lang_include banners/metadata_use_cases.md %}
 
 ### Requisitos previos
 

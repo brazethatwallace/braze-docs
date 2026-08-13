@@ -96,13 +96,13 @@ Notez les limites suivantes :
 - Les attributs ne seront envoyés que s'ils **sont inclus en tant que champ dans le Look**.
 - Les types pris en charge sont `Strings`, `Boolean`, `Numbers` et `Dates`.
 - Les noms d'attributs sont sensibles à la casse.
-- Les attributs standard peuvent également être définis à condition qu'ils correspondent exactement aux noms du [profil utilisateur standard]({{site.baseurl}}/api/endpoints/user_data#braze-user-profile-fields).
+- Les attributs standard peuvent également être définis à condition qu'ils correspondent exactement aux noms du [profil utilisateur standard]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields).
 - La balise complète doit être mise en forme entre guillemets. Par exemple, `tags: ["braze[first_name]"]`. D'autres balises peuvent également être attribuées mais seront ignorées.
 - Des informations supplémentaires sont disponibles sur [GitHub](https://github.com/looker/actions/tree/master/src/actions/braze).
 
 #### Étape 4 : Envoyer l'action Looker {#step-4-send-the-looker-action}
 
-1. Dans un Look dont une dimension `braze_id` est sélectionnée, cliquez sur l'icône d'engrenage (<i class="fas fa-cog" aria-label="Ouvrir les paramètres"></i>) dans la barre d'outils, puis sélectionnez **Send...**.
+1. Dans un Look dont une dimension `braze_id` est sélectionnée, cliquez sur l'icône d'engrenage (<i class="fas fa-cog"></i>) dans la barre d'outils, puis sélectionnez **Send...**.
 2. Sélectionnez l'action Braze personnalisée.
 3. Sous **Unique Key**, indiquez la clé de mappage utilisateur principale pour le compte Braze (`external_id` ou `braze_id`).
 4. Donnez un nom à l'exportation. Si aucun nom n'est fourni, `LOOKER_EXPORT` sera utilisé.
@@ -150,6 +150,7 @@ Dans Braze, pour créer un Segment avec ces utilisateurs signalés, naviguez ver
 Une fois enregistré, vous pouvez faire référence à ce Segment lors de la création d'un Canvas ou d'une Campaign à l'étape du ciblage des utilisateurs.
 
 ## Résolution des problèmes {#troubleshooting}
+
 Si vous rencontrez des problèmes avec l'action Looker, ajoutez un utilisateur test aux [groupes internes]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups) et vérifiez les points suivants :
 
 * La clé API possède les autorisations `users.track`.

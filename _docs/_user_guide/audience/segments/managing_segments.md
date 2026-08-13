@@ -30,7 +30,7 @@ Sort through the segments in the list by adjusting the following filters:
 - **Estimated Size:** Approximate range of how many users are in the segments
 - **Tags:** Tags associated with the segments
 - **Teams:** Teams associated with the segments
-- **Advanced Tracking Segments Only:** View only the segments that have [Analytics Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) enabled.
+- **Advanced Tracking Segments Only:** View only the segments that have [Analytics Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) enabled.
 
 ### Columns
 

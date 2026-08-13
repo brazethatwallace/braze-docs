@@ -10,7 +10,7 @@ description: "This article contains release notes for February 2017."
 
 ## Add Canvas steps after launch
 
-You can now [add Canvas steps]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#create-a-canvas) to existing steps even after the Canvas is launched.
+You can now [add Canvas steps]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) to existing steps even after the Canvas is launched.
 
 ## Bulk CSV for Engagement Reports
 

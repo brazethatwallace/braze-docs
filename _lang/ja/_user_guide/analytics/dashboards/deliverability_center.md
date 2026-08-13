@@ -125,6 +125,14 @@ IPレピュテーションの評価を理解するには、以下の表を参照
 | 悪い | スパム苦情率が高い履歴があります。このドメインからのメールは、接続時にほぼ常に拒否されるか、スパムフォルダーにフィルタリングされます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="IPレピュテーション" }
 
+{% alert important %}
+Brazeに表示されるスパム苦情データは、Microsoft、Yahoo、Comcastなど、フィードバックループ（FBL）レポートを共有するメールプロバイダーからのフィードバックに基づいています。これらのプロバイダーのユーザーがメールをスパムとして報告すると、その苦情がBrazeに送り返されます。<br><br>
+ただし、GmailとiCloudは従来のフィードバックループを運用しておらず、スパム苦情をBrazeに報告しません。これは以下のことを意味します。<br>
+- Gmailユーザーからのスパム苦情は、Brazeの指標に含まれず、SnowflakeやCurrentsのデータでも利用できません。<br>
+- Gmailのスパムデータは、[Gmail Postmaster Tools](https://www.gmail.com/postmaster/)で集計パーセンテージとしてのみ表示でき、個別のアドレスとしては表示できません。<br>
+- Gmail Postmaster Toolsで高いスパム率が表示されている場合、Gmailはそのデータを送信者と共有しないため、Brazeのスパム苦情指標とは一致しません。
+{% endalert %}
+
 #### ドメインレピュテーション {#domain-reputation}
 
 以下の表を使用して、ドメインレピュテーションの評価を監視・把握し、スパムフォルダーにフィルタリングされることを防ぎましょう。
@@ -158,7 +166,7 @@ IPレピュテーションの評価を理解するには、以下の表を参照
 | TLS送信 | そのドメインに送信されたすべてのメールに対して、TLS経由で受け入れられた送信メール（Gmailから）の割合を表示します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="暗号化" }
 
-到達性の改善に関するその他のアイデアについては、[到達性の落とし穴とスパムトラップ]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps)をお読みください。メールキャンペーンを送信する前に確認すべき事項については、[メールのベストプラクティス]({{site.baseurl}}/user_guide/channels/email/best_practices)も参照してください。
+到達性の改善に関するその他のアイデアについては、[到達性の落とし穴とスパムトラップ]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps)をお読みください。メールキャンペーンを送信する前に確認すべき事項については、[メールのベストプラクティス]({{site.baseurl}}/user_guide/channels/email/best_practices)も参照してください。
 
 ## Microsoft Smart Network Data Services（SNDS）のセットアップ {#set-up-microsoft-smart-network-data-services-snds}
 
@@ -227,3 +235,14 @@ Amazon SESは**トラップメッセージ期間の開始**または**トラッ�
 {% alert tip %}
 Brazeで検証済みのドメインに関連するレコードを探している場合、到達性センターにはGoogle PostmasterまたはMicrosoft SNDSからのデータが表示されます。つまり、いずれかのプラットフォームにBrazeと共有するデータがない可能性があります。あるいは、一貫したメール配信を維持することで、より高いレピュテーションにつながる可能性があります。
 {% endalert %}
+
+## スパム苦情とフィードバックループ {#spam-complaints-and-feedback-loops}
+
+メールフィードバックループ（FBL）は、受信者がメッセージをスパムとしてマークした際に、メール送信者がレポートを受け取ることを可能にします。ただし、GmailとiCloudは従来のフィードバックループを提供していないため、Braze（SparkPostまたはSendGrid経由）はこれらのプロバイダーからスパム苦情データを受け取りません。
+
+GmailとiCloudからスパム苦情データが利用できないため、これらの主要プロバイダーでのメールの健全性とレピュテーションを監視するには、他のツールを使用することが重要です。
+
+- [Google Postmaster Tools](https://www.gmail.com/postmaster/)を使用して、ドメインとIPのレピュテーション、スパム率、ユーザーエンゲージメントを監視します。[Google Postmasterの統合](#integrating-google-postmaster)で説明されているように、Google PostmasterをBrazeと統合できます。
+- Appleは、Googleに相当するパブリックなPostmasterツールを提供していません。強力なエンゲージメント指標の維持とメールのベストプラクティスの遵守に注力してください。
+
+すべてのプロバイダーで良好な到達性を維持するために、[サンセットポリシー]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies)を実装して、エンゲージメントのないユーザーへの送信を自動的に停止しましょう。これにより、メールがスパムとしてマークされることを防ぎ、送信者レピュテーションを保護できます。

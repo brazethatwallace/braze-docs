@@ -1,6 +1,14 @@
 require 'jekyll_asset_pipeline'
 
 module JekyllAssetPipeline
+  def self.normalize_utf8(content)
+    normalized_content = content.dup.force_encoding(Encoding::UTF_8)
+    return normalized_content if normalized_content.valid_encoding?
+
+    raise Encoding::InvalidByteSequenceError,
+          "Asset content is not valid UTF-8 after normalization"
+  end
+
   class SassConverter < JekyllAssetPipeline::Converter
     require 'sassc'
 
@@ -22,7 +30,13 @@ module JekyllAssetPipeline
     end
 
     def compress
-      return SassC::Engine.new(@content, syntax: :css, load_paths: [@dirname], style: :compressed).render
+      normalized_content = JekyllAssetPipeline.normalize_utf8(@content)
+      return SassC::Engine.new(
+        normalized_content,
+        syntax: :css,
+        load_paths: [@dirname],
+        style: :compressed
+      ).render
     end
 
   end
@@ -36,7 +50,8 @@ module JekyllAssetPipeline
 
     def compress
       # YUI::JavaScriptCompressor.new(:munge => true).compress(@content)
-      Uglifier.new(:harmony => true).compile(@content.encode("UTF-8"))
+      normalized_content = JekyllAssetPipeline.normalize_utf8(@content)
+      Uglifier.new(:harmony => true).compile(normalized_content)
     end
   end
 
@@ -76,5 +91,21 @@ module JekyllAssetPipeline
       end
     end
 
+  end
+
+  # Emit deferred script tags for bundled JavaScript assets.
+  class DeferredJavaScriptTagTemplate < JekyllAssetPipeline::Template
+    def self.filetype
+      '.js'
+    end
+
+    def self.priority
+      1
+    end
+
+    def html
+      "<script src='#{output_path}/#{@filename}' " \
+        "type='text/javascript' defer></script>"
+    end
   end
 end

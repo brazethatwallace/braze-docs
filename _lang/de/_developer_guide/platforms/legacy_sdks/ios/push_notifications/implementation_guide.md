@@ -13,16 +13,16 @@ noindex: true
 
 <br>
 {% alert important %}
-Suchen Sie nach dem grundlegenden Leitfaden zur Integration von Push-Benachrichtigungen für Entwickler:innen? Finden Sie ihn [hier]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration).
+Suchen Sie nach dem grundlegenden Leitfaden zur Integration von Push-Benachrichtigungen für Entwickler:innen? Finden Sie ihn unter [iOS-Push-Benachrichtigungsintegration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration).
 {% endalert %}
 
 # Implementierungsleitfaden für Push-Benachrichtigungen {#push-notification-implementation-guide}
 
-> Dieser Leitfaden für die optionale erweiterte Implementierung beschreibt, wie Sie die App-Erweiterungen für Push-Benachrichtigungsinhalte nutzen können, um den größtmöglichen Erfolg mit Ihren Push-Nachrichten zu erzielen. Er enthält drei von unserem Team erstellte angepasste Anwendungsfälle, begleitende Code-Snippets und eine Anleitung zur Protokollierung von Analytics. Besuchen Sie das [Braze Demo Repository](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Beachten Sie, dass sich dieser Implementierungsleitfaden auf eine Swift-Implementierung konzentriert. Für Interessierte werden jedoch Objective-C-Snippets bereitgestellt.
+> Dieser optionale Leitfaden für die erweiterte Implementierung beschreibt, wie Sie die App-Erweiterungen für Push-Benachrichtigungsinhalte nutzen können, um den größtmöglichen Erfolg mit Ihren Push-Nachrichten zu erzielen. Er enthält drei von unserem Team erstellte angepasste Anwendungsfälle, begleitende Code-Snippets und eine Anleitung zur Protokollierung von Analytics. Besuchen Sie das [Braze Demo Repository](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Beachten Sie, dass sich dieser Implementierungsleitfaden auf eine Swift-Implementierung konzentriert. Für Interessierte werden jedoch Objective-C-Snippets bereitgestellt.
 
 ## App-Erweiterungen für Benachrichtigungsinhalte {#notification-content-app-extensions}
 
-![Zwei nebeneinander angezeigte Push-Nachrichten. Die Nachricht auf der rechten Seite zeigt, wie ein Push mit der Standard-Benutzeroberfläche aussieht. Die Nachricht auf der rechten Seite zeigt einen Kaffee-Stempelkarten-Push, der durch die Implementierung einer angepassten Push-UI erstellt wurde.]({% image_buster /assets/img/push_implementation_guide/push1.png %}){: style="max-width:65%;border:0;margin-top:10px"}
+![Zwei nebeneinander angezeigte Push-Nachrichten. Die Nachricht auf der linken Seite zeigt, wie ein Push mit der Standard-Benutzeroberfläche aussieht. Die Nachricht auf der rechten Seite zeigt einen Kaffee-Stempelkarten-Push, der durch die Implementierung einer angepassten Push-UI erstellt wurde.]({% image_buster /assets/img/push_implementation_guide/push1.png %}){: style="max-width:65%;border:0;margin-top:10px"}
 
 Push-Benachrichtigungen scheinen zwar auf verschiedenen Plattformen Standard zu sein, bieten jedoch immense Anpassungsmöglichkeiten, die über das hinausgehen, was normalerweise in der Standard-Benutzeroberfläche implementiert ist. Wenn eine Push-Benachrichtigung erweitert wird, ermöglichen Inhaltsbenachrichtigungserweiterungen eine angepasste Ansicht der erweiterten Push-Benachrichtigung.
 
@@ -143,7 +143,7 @@ Push-Benachrichtigungen können Nutzerinformationen innerhalb einer Inhaltserwei
 
 1. Nutzer:innen erhalten eine Push-Benachrichtigung.
 2. Der Push wird geöffnet und fordert Nutzer:innen zur Eingabe von Informationen auf.
-3. Die Informationen werden eingegeben und wenn sie gültig sind, wird der Button „Anmelden“ angezeigt.
+3. Die Informationen werden eingegeben und wenn sie gültig sind, wird der Button „Registrieren“ angezeigt.
 3. Die Bestätigungsansicht wird angezeigt und der Push wird geschlossen.
 
 

@@ -41,7 +41,7 @@ page_order: 2
 - 추가 구독 그룹 추가 또는 제거
 - 설명 포함
 - **Subscribe to all** 체크박스 추가 또는 제거 — 이 블록에 표시된 모든 구독 그룹에 사용자를 가입시킵니다
-- **Unsubscribe from all** 체크박스 추가 또는 제거 — 이 블록에 표시된 모든 구독 그룹에서 사용자의 구독을 취소합니다
+- **Unsubscribe from all** 체크박스 추가 또는 제거 — 이 블록에 표시된 모든 구독 그룹에서 사용자의 가입을 취소합니다
 
 템플릿 하단의 **Unsubscribe from all** 버튼은 제거할 수 없으며, 사용자가 이메일 메시지 수신을 [글로벌 탈퇴]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states)하게 됩니다.
 
@@ -85,6 +85,10 @@ page_order: 2
 
 환경설정 센터에서 커스텀 코드 블록을 사용하는 경우, 사용자에게 전달될 때 커스텀 코드에서 인라인 프레임이 생성되지 않을 수 있습니다.
 
+{% alert note %}
+링크가 포함된 Content Blocks는 드래그 앤 드롭 환경설정 센터에서 사용할 수 없습니다. Content Blocks 내의 링크는 클릭할 수 없습니다.
+{% endalert %}
+
 {% endtab %}
 {% endtabs %}
 
@@ -96,9 +100,11 @@ page_order: 2
 
 ## 6단계: 환경설정 센터 미리보기 및 시작 {#step-6-preview-and-launch-your-preference-center}
 
-편집기 내에서 **미리보기** 탭을 선택하여 환경설정 센터를 미리 볼 수 있습니다. 단, 테스트 기능은 비활성화되어 있습니다. 또한 환경설정 센터 Liquid 태그가 포함된 Campaign 또는 캔버스 단계의 테스트 발송은 유효한 링크를 생성하지 않습니다. 환경설정 센터의 전체 기능을 테스트하려면 실시간 Campaign 또는 Canvas를 발송하세요. 환경설정 센터 편집을 마친 후 **Done**을 선택하여 편집기를 닫을 수 있습니다.
+편집기 내에서 **미리보기** 탭을 선택하여 환경설정 센터를 미리 볼 수 있습니다. 미리보기에는 환경설정 센터와 확인 페이지가 모두 표시됩니다.
 
-미리보기에는 환경설정 센터와 확인 페이지가 모두 표시됩니다. **초안으로 저장**을 선택하여 나중에 이 환경설정 센터로 돌아오거나, 만족스러우면 **Launch Preference Center**를 선택합니다.
+단, 테스트 기능은 비활성화되어 있습니다. 또한 환경설정 센터 Liquid 태그가 포함된 Campaign 또는 캔버스 단계의 테스트 발송은 유효한 링크를 생성하지 않습니다. 이 미리보기에서는 가입 변경 사항을 저장할 수 없으며, 페이지가 어떻게 보이는지만 확인할 수 있습니다. 환경설정 저장을 테스트하려면 [환경설정 센터 테스트](#testing-preference-centers)를 참조하세요. 환경설정 센터 편집을 마친 후 **완료** 버튼을 선택하여 편집기를 닫을 수 있습니다.
+
+**초안으로 저장**을 선택하여 나중에 이 환경설정 센터로 돌아오거나, 만족스러우면 **환경설정 센터 시작**을 선택합니다.
 
 환경설정 센터를 시작할 때 이름을 확인하라는 메시지가 표시됩니다. 시작 후에는 이름을 편집할 수 없기 때문입니다. 이름을 확인하면 환경설정 센터가 시작되어 사용할 준비가 됩니다.
 
@@ -106,14 +112,22 @@ page_order: 2
 
 {% multi_lang_include alerts/important_alerts.md alert='Preference Center warning' %}
 
-이메일에 환경설정 센터 링크를 배치하려면 **Copy Liquid** 아이콘을 선택하여 원하는 환경설정 센터의 Liquid 태그를 복사합니다.
+이메일에 환경설정 센터 링크를 배치하려면 **Liquid 복사** 아이콘을 선택하여 원하는 환경설정 센터의 Liquid 태그를 복사합니다.
 
-![환경설정 센터 행의 Copy Liquid 옵션.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
+![환경설정 센터 행의 Liquid 복사 옵션.]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
 
 [탈퇴 URL]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link)을 삽입하는 방법과 유사하게 이메일의 원하는 위치에 Liquid 태그를 추가합니다.
+
+{% multi_lang_include preference_center/testing.md %}
+
+## 자주 묻는 질문 {#frequently-asked-questions}
+
+### 테스트 발송에서 환경설정 센터가 작동하지 않는 이유는 무엇인가요? {#why-doesnt-my-preference-center-work-in-a-test-send}
+
+환경설정 센터 링크는 실시간 발송 컨텍스트가 필요합니다. 테스트 발송은 유효한 환경설정 센터 URL을 생성하지 않으며, 페이지가 로드되면 **Save Preferences** 버튼이 비활성화됩니다. 이는 예상된 동작입니다. 포괄적인 테스트를 수행하려면 테스트 사용자 또는 소규모 내부 Segment에 Campaign 또는 캔버스 단계를 시작하세요. 자세한 내용은 [환경설정 센터 테스트](#testing-preference-centers)를 참조하세요.
 
 ## 오류 처리 {#handle-errors}
 
 사용자가 환경설정 센터에서 **저장**을 선택할 때 오류가 발생하면, 다음과 같은 기본 오류 메시지가 표시되며, 이 메시지는 편집기에서 커스터마이즈하거나 스타일을 지정할 수 없습니다. 단, 이 페이지에서는 오류 메시지의 현지화가 지원됩니다.
 
-![환경설정을 저장하는 중 문제가 발생했다는 오류 메시지. 다시 시도해 주세요.]({% image_buster /assets/img/preference_center/preference_center11.png %}){: style="max-width:55%;"}
+!["환경설정을 저장하는 중 문제가 발생했습니다. 다시 시도해 주세요."라는 오류 메시지.]({% image_buster /assets/img/preference_center/preference_center11.png %}){: style="max-width:55%;"}

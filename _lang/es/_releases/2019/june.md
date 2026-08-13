@@ -6,14 +6,14 @@ page_type: update
 description: "Este artículo contiene notas de la versión de junio de 2019."
 ---
 
-# Junio de 2019
+# Junio de 2019 {#june-2019}
 
-## Asociación Snowflake
+## Asociación con Snowflake {#snowflake-partnership}
 
 ¡Braze se enorgullece de anunciar nuestra asociación con Snowflake!
 
 Snowflake es un almacén de datos SQL en la nube creado específicamente para todos tus datos y todos tus usuarios. Con la arquitectura única y patentada de Snowflake, es fácil acumular todos tus datos, habilitar análisis rápidos y obtener información basada en datos para todos tus usuarios.
 
-Braze aprovecha el Intercambio de Datos de Snowflake para estar presente, encontrar nuevos clientes y ampliar su alcance a través de la base de clientes de Snowflake, en constante crecimiento.
+Braze aprovecha el intercambio de datos de Snowflake para estar presente, encontrar nuevos clientes y ampliar su alcance a través de la base de clientes de Snowflake, en constante crecimiento.
 
-Obtén más información sobre esta asociación [aquí](https://www.braze.com/perspectives/article/snowflake-partner-announcement) o en [nuestra documentación]({{site.baseurl}}/partners/snowflake/).
+Obtén más información sobre el [anuncio de la asociación con Snowflake](https://www.braze.com/perspectives/article/snowflake-partner-announcement) o en [nuestra documentación de Snowflake]({{site.baseurl}}/partners/snowflake).

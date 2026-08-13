@@ -136,7 +136,7 @@ Braze는 이메일 내 링크를 평가하고, 링크 템플릿을 추가하며,
 
 ## 링크 별칭 추적 {#tracking-link-aliases}
 
-작성기 사이드바에서 **Content** > **Link Management**(**Design and Build** 아래)를 선택한 다음 **추적**할 별칭을 선택합니다. 추적된 별칭은 링크 별칭을 참조하는 세분화 필터에서 사용할 수 있습니다([세분화 필터](#segmentation-filters) 참조). 또한 사용자가 이메일에서 링크 별칭을 클릭할 때 행동 기반 메시지를 발송하거나 Canvas를 통해 사용자를 이동시킬 수 있습니다. [행동 기반 필터](#action-based-filters)를 참조하세요. **추적** 설정은 해당 링크의 클릭이 이메일 성과 보고에 집계되는지 여부에는 영향을 미치지 않습니다.
+작성기 사이드바에서 **Content** > **Link Management**(**Design and Build** 아래)를 선택한 다음 **추적**할 별칭을 선택합니다. 추적된 별칭은 링크 별칭을 참조하는 세분화 필터에서 사용할 수 있습니다([세분화 필터](#segmentation-filters) 참조). 또한 사용자가 이메일에서 링크 별칭을 클릭할 때 행동 기반 메시지를 발송하거나 Canvas를 통해 사용자를 이동시킬 수 있습니다—[행동 기반 필터](#action-based-filters)를 참조하세요. **추적** 설정은 해당 링크의 클릭이 이메일 성과 보고에 집계되는지 여부에는 영향을 미치지 않습니다.
 
 {% alert tip %}
 링크 참여 측정기준을 추적하려면 링크가 HTTP 또는 HTTPS로 시작하는지 확인하세요. 특정 링크의 클릭 추적을 해제하려면 [유니버설 링크 및 앱 링크]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)를 참조하세요.
@@ -184,7 +184,7 @@ Braze에서 이메일에 링크 별칭이 있고 사용자가 이를 클릭하�
 
 ### 이메일 클릭 이벤트 {#email-clicks-event}
 
-Currents로 참여 데이터를 내보내는 경우, 링크 별칭 지정이 활성화되어 있으면 이메일 클릭 이벤트가 약간 다릅니다. 링크 별칭 지정이 활성화되면 [이메일 클릭 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-clicks-events)에 `link_id`와 `link_alias`라는 두 개의 추가 필드가 포함됩니다.
+Currents로 참여 데이터를 내보내는 경우, 링크 별칭 지정이 활성화되어 있으면 이메일 클릭 이벤트가 약간 다릅니다. 링크 별칭 지정이 활성화되면 [이메일 클릭 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-click-events)에 `link_id`와 `link_alias`라는 두 개의 추가 필드가 포함됩니다.
 
 ```json
 // Email Click: users.messages.email.Click

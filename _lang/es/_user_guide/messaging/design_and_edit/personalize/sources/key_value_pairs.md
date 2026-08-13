@@ -23,9 +23,9 @@ Cada par consiste en:
 - **Clave:** El identificador (Ejemplo: `utm_source`)
 - **Valor:** Los datos asociados (Ejemplo: `newsletter`)
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
-Aquí tienes algunos ejemplos de casos de uso para agregar metadatos con pares clave-valor:
+Aquí tienes algunos ejemplos de uso para agregar metadatos con pares clave-valor:
 
 1. **Parámetros de seguimiento:** Adjuntar parámetros UTM con fines de análisis
    - Clave: `utm_campaign`
@@ -115,7 +115,7 @@ Además de los valores de carga útil de la biblioteca `aps`, puedes enviar pare
 
 ![Captura de pantalla relacionada con pares clave-valor personalizados.]({% image_buster /assets/img_archive/keyvalue_enterpairs.png %})
 
-Los casos de uso para pares clave-valor personalizados incluyen, entre otros, el mantenimiento de métricas internas y la configuración del contexto para la interfaz de usuario. Braze te permite enviar pares clave-valor adicionales junto con una notificación push para ser utilizados a través de tu aplicación dentro de la [clave extras]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/customization/advanced_settings#extracting-data-from-push-key-value-pairs). Si prefieres usar otra clave, confirma que tu aplicación pueda manejar esta clave personalizada.
+Los ejemplos de uso para pares clave-valor personalizados incluyen, entre otros, el mantenimiento de métricas internas y la configuración del contexto para la interfaz de usuario. Braze te permite enviar pares clave-valor adicionales junto con una notificación push para ser utilizados a través de tu aplicación dentro de la [clave extras]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/customization/advanced_settings#extracting-data-from-push-key-value-pairs). Si prefieres usar otra clave, confirma que tu aplicación pueda manejar esta clave personalizada.
 
 {% alert warning %}
 Debes evitar manejar una clave o diccionario de nivel superior llamado ab en tu aplicación.
@@ -127,9 +127,9 @@ Apple aconseja a los clientes evitar incluir información del cliente o cualquie
 Si estás usando la API del proveedor HTTP/2, cualquier carga útil individual que envíes a APN no puede exceder un tamaño de 4096 bytes. La interfaz binaria heredada, que pronto será descontinuada, solo admite un tamaño de carga útil de 2048 bytes.
 {% endalert %}
 
-###### Campaigns desencadenadas por API {#api-triggered-campaigns}
+###### Campañas desencadenadas por API {#api-triggered-campaigns}
 
-Braze te permite enviar pares clave-valor de cadena definidos de forma personalizada, conocidos como `extras`. Para acceder a tus extras en Campaigns desencadenadas por API y Campaigns planificadas desencadenadas por API, en el dashboard establece una clave como "example_key" y un valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Esto resultará en una salida de la consola para desarrolladores de `"extras": { "test": { "foo": 1, "bar": 1 }`
+Braze te permite enviar pares clave-valor de cadena definidos de forma personalizada, conocidos como `extras`. Para acceder a tus extras en campañas desencadenadas por API y campañas planificadas desencadenadas por API, en el panel establece una clave como "example_key" y un valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Esto resultará en una salida de la consola para desarrolladores de `"extras": { "test": { "foo": 1, "bar": 1 }`
 
 ### Android
 
@@ -139,15 +139,15 @@ Braze te permite enviar cargas útiles de datos adicionales en notificaciones pu
 
 Similar a las notificaciones push de iOS, puedes enviar pares clave-valor personalizados al dispositivo de un usuario.
 
-Algunos casos de uso para pares clave-valor personalizados incluyen el mantenimiento de métricas internas y la configuración del contexto para la interfaz de usuario, pero pueden usarse para cualquier propósito que elijas.
+Algunos ejemplos de uso para pares clave-valor personalizados incluyen el mantenimiento de métricas internas y la configuración del contexto para la interfaz de usuario, pero pueden usarse para cualquier propósito que elijas.
 
 {% alert important %}
 El backend de tu aplicación debe ser capaz de procesar pares clave-valor personalizados para que la carga útil de datos funcione correctamente.
 {% endalert %}
 
-##### Campaigns desencadenadas por API
+##### Campañas desencadenadas por API
 
-Braze te permite enviar pares clave-valor de cadena definidos de forma personalizada, conocidos como `extras`. Para acceder a tus extras en Campaigns desencadenadas por API y Campaigns planificadas desencadenadas por API, en el dashboard establece una clave como "example_key" y un valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Esto resultará en una salida de la consola para desarrolladores de `"extras": { "test": { "foo": 1, "bar": 1 }`.
+Braze te permite enviar pares clave-valor de cadena definidos de forma personalizada, conocidos como `extras`. Para acceder a tus extras en campañas desencadenadas por API y campañas planificadas desencadenadas por API, en el panel establece una clave como "example_key" y un valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Esto resultará en una salida de la consola para desarrolladores de `"extras": { "test": { "foo": 1, "bar": 1 }`.
 
 ##### Opciones de mensajería FCM {#fcm-messaging-options}
 
@@ -183,9 +183,9 @@ Los pares clave-valor no se pueden configurar a través del editor de arrastrar 
 {% endalert %}
 ![Captura de pantalla relacionada con mensajes dentro de la aplicación.]({% image_buster /assets/img_archive/keyvalue_iam.png %})
 
-### Campaigns desencadenadas por API
+### Campañas desencadenadas por API
 
-Braze te permite enviar pares clave-valor de cadena definidos de forma personalizada, conocidos como `extras`. Para acceder a tus extras en Campaigns desencadenadas por API y Campaigns planificadas desencadenadas por API, en el dashboard establece una clave como "example_key" y un valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Esto resultará en una salida de la consola para desarrolladores de `"extras": { "test": { "foo": 1, "bar": 1 }`.
+Braze te permite enviar pares clave-valor de cadena definidos de forma personalizada, conocidos como `extras`. Para acceder a tus extras en campañas desencadenadas por API y campañas planificadas desencadenadas por API, en el panel establece una clave como "example_key" y un valor como {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. Esto resultará en una salida de la consola para desarrolladores de `"extras": { "test": { "foo": 1, "bar": 1 }`.
 
 ## Correos electrónicos {#emails}
 
@@ -202,3 +202,7 @@ Los correos electrónicos rebotados no entregarán pares clave-valor a SparkPost
 Para agregar un par clave-valor a una Content Card, ve a la pestaña **Settings** en el creador de mensajes de Braze y selecciona **Add New Pair**.
 
 ![Agregar par clave-valor a una Content Card]({% image_buster /assets/img_archive/kvp_content_cards.png %}){: style="max-width:70%;"}
+
+{% alert note %}
+Las variantes de control no admiten pares clave-valor. Si necesitas capturar análisis para grupos de control en pruebas A/B, crea una variante de mensaje con un par clave-valor como `control=true` y ocúltala en el código de tu aplicación mientras registras impresiones.
+{% endalert %}

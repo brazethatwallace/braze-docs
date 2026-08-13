@@ -2,14 +2,14 @@
 nav_title: Content Optimizer
 article_title: Content Optimizer
 alias: "/content_optimizer/"
-description: "Content Optimizer is an agent that helps you test and optimize message content at scale, using AI to generate and evaluate high volumes of content variants automatically."
+description: "Content Optimizer helps you test and optimize message content at scale, using AI to generate and evaluate high volumes of content variants automatically."
 page_type: reference
 page_order: 3
 ---
 
 # Content Optimizer
 
-> Content Optimizer is an agent that helps you test and optimize message content at scale, using AI to generate and evaluate high volumes of content variants automatically.
+> Content Optimizer helps you test and optimize message content at scale, using AI to generate and evaluate high volumes of content variants automatically.
 
 {% alert important %}
 Content Optimizer is currently in beta and only available for these channels: email, push notifications, and SMS/MMS/RCS messages. For help getting started, contact your customer success manager.
@@ -17,7 +17,7 @@ Content Optimizer is currently in beta and only available for these channels: em
 
 ## About Content Optimizer
 
-Content Optimizer is an agent that runs in a Canvas step. It helps you define message components to test, generate variants using Generative AI or manual input, and automatically optimize which content combinations are sent to users. This feature helps you to:
+Content Optimizer runs in a Canvas step. It helps you define message components to test, generate variants using Generative AI or manual input, and automatically optimize which content combinations are sent to users. This feature helps you to:
 
 - Optimize subject lines, body header, body content, or primary CTA for emails.
 - Optimize titles and messages for push notifications.
@@ -84,7 +84,7 @@ Each user receives one message per entry into the Content Optimizer step. Re-ent
 
 ## Canvas entry setup
 
-For best results, use Content Optimizer in Canvases where users enter the step gradually and regularly over time, such as in recurring or always-on Canvases with consistent daily volume. If all users enter the step at once, the agent won’t have time to learn from early results. The step will behave more like a static A/B test than a live optimization engine.
+For best results, use Content Optimizer in Canvases where users enter the step gradually and regularly over time, such as in recurring or always-on Canvases with consistent daily volume. If all users enter the step at once, Content Optimizer won’t have time to learn from early results. The step will behave more like a static A/B test than a live optimization engine.
 
 The best fit for Content Optimizer is in daily recurring entry Canvases, as well as event-triggered and API-triggered Canvases with relatively consistent daily user entries. If you do use Content Optimizer in single-send Canvases or "spiky" entry Canvases (like recurring monthly), consider using [Entry controls]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) to smooth out user entries over the course of multiple days.
 
@@ -102,13 +102,13 @@ The best fit for Content Optimizer is in daily recurring entry Canvases, as well
 ## Considerations
 
 - Content Optimizer is currently in beta and only available for these channels: email, push notifications, and SMS/MMS/RCS messages.
-- For email, the agent can generate up to 125 combinations per step:
+- For email, Content Optimizer can generate up to 125 combinations per step:
    - Up to 3 components per step
    - Up to 5 variants for each component
-- For push notifications, the agent can generate up to 25 combinations per step:
+- For push notifications, Content Optimizer can generate up to 25 combinations per step:
    - Up to 2 components per step
    - Up to 5 variants for each component
-- For SMS, MMS, and RCS messages, the agent can generate up to 25 combinations per step:
+- For SMS, MMS, and RCS messages, Content Optimizer can generate up to 25 combinations per step:
    - Up to 2 components per step
    - Up to 5 variants for each component
 - Only one message is sent per user per entry. There is no memory of previous sends for re-entries.

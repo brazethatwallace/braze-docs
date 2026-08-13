@@ -96,7 +96,7 @@ Observe as seguintes limitações:
 - Os atributos só serão enviados se forem **incluídos como campo no look**.
 - Os tipos suportados são `Strings`, `Boolean`, `Numbers` e `Dates`.
 - Os nomes de atributos diferenciam maiúsculas de minúsculas.
-- Os atributos padrão também podem ser definidos, desde que correspondam exatamente aos nomes do [perfil de usuário padrão]({{site.baseurl}}/api/endpoints/user_data#braze-user-profile-fields).
+- Os atributos padrão também podem ser definidos, desde que correspondam exatamente aos nomes do [perfil de usuário padrão]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields).
 - A tag completa deve ser formatada entre aspas. Por exemplo, `tags: ["braze[first_name]"]`. Outras tags também podem ser atribuídas, mas serão ignoradas.
 - Informações adicionais podem ser encontradas no [GitHub](https://github.com/looker/actions/tree/master/src/actions/braze).
 
@@ -108,7 +108,7 @@ Observe as seguintes limitações:
 4. Dê um nome à exportação. Se nenhum for fornecido, `LOOKER_EXPORT` será usado.
 5. Em **Advanced Options**, selecione **Results in Table** ou **All Results** e, em seguida, **Send**.<br><br>![Caixa de diálogo de envio do Looker com a ação da Braze e as opções avançadas selecionadas.]({% image_buster /assets/img/send-looker-action.png %})<br><br>Se a exportação tiver sido enviada corretamente, `LOOKER_EXPORT` deverá aparecer no perfil do usuário como um atributo personalizado com o valor inserido na ação.<br><br>![Perfil de usuário da Braze mostrando o valor do atributo personalizado LOOKER_EXPORT.]({% image_buster /assets/img/custom-attributes-looker.png %})
 
-##### Exemplo de API de saída {#example-outgoing-api}
+##### Exemplo de chamada de API de saída {#example-outgoing-api}
 
 A seguir, um exemplo de uma chamada de API de saída, que será enviada para o [endpoint `/users/track/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
@@ -155,7 +155,7 @@ Se estiver tendo problemas com as Looker Actions, adicione um usuário teste aos
 * A chave de API tem as permissões `users.track`.
 * O endpoint REST correto foi inserido, como `https://rest.iad-01.braze.com`.
 * Uma tag `braze_id` está definida na visualização da dimensão.
-* Sua consulta inclui a dimensão ou o atributo Id como uma coluna.
+* Sua consulta inclui a dimensão ou o atributo de ID como uma coluna.
 * Os resultados do Looker não são pivotados.
 * A chave exclusiva foi selecionada corretamente. Normalmente, o `external_id`.
 * O `braze_id` na dimensão é diferente do `braze_id` na API. O `braze_id` na dimensão é usado para indicar que é o campo `id` para a API da Braze. Para a maioria das finalidades, o `external_id` é a chave primária no ato do envio.

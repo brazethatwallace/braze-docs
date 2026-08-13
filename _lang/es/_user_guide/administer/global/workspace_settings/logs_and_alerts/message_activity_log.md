@@ -45,7 +45,7 @@ Estos mensajes pueden provenir de nuestro propio sistema, de tus aplicaciones o 
 
 Para determinar qué significan tus mensajes, presta atención a la redacción de cada mensaje y a las columnas que le corresponden, ya que esto puede ayudarte a solucionar problemas usando pistas contextuales.
 
-Por ejemplo, las entradas de **Error de mensaje cancelado** pueden ocurrir por muchas razones, no solo por [mensajes de cancelación de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages). Lee la columna **Mensaje** para conocer la razón específica:
+Por ejemplo, las entradas de **Error de mensaje cancelado** pueden ocurrir por muchas razones, no solo por [mensajes de cancelación de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages). Lee la columna **Mensaje** para conocer la razón específica:
 
 - Si el envío fue cancelado por una etiqueta Liquid `abort_message`, la columna **Mensaje** muestra el fragmento exacto de Liquid que se invocó, por ejemplo {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %}.
 - Para otras razones de cancelación, la columna **Mensaje** explica por qué se canceló el envío.

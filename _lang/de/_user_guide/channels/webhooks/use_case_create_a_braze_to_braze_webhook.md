@@ -28,7 +28,7 @@ Fügen Sie [An Ziel senden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_
 
 Um Nutzerprofile innerhalb eines Canvas zu aktualisieren – einschließlich der Änderung [angepasster Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), der Aufzeichnung [angepasster Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) oder der Aufzeichnung von [Käufen]({{site.baseurl}}/user_guide/data/activation/events/purchase_events) – verwenden Sie die [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) anstelle eines Braze-zu-Braze-Webhooks.
 
-Die Nutzeraktualisierung fasst mehrere Änderungen zusammen und sendet sie in Batches, was schneller ist als Webhooks. Sie ist einfacher einzurichten als ein Webhook und unterstützt komplexe Updates über den [erweiterten JSON-Composer]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer). Um beispielsweise zu zählen, wie oft Nutzer:innen eine Nachricht gesehen haben, verwenden Sie die [Inkrementieren-und-Dekrementieren-Funktion]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values) der Nutzeraktualisierung anstelle eines Braze-zu-Braze-Webhooks.
+Die Nutzeraktualisierung fasst mehrere Änderungen zusammen und sendet sie in Batches, was schneller ist als Webhooks. Sie ist einfacher einzurichten als ein Webhook und unterstützt komplexe Updates über den [erweiterten JSON-Composer]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). Um beispielsweise zu zählen, wie oft Nutzer:innen eine Nachricht gesehen haben, verwenden Sie die [Inkrementieren-und-Dekrementieren-Funktion]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values) der Nutzeraktualisierung anstelle eines Braze-zu-Braze-Webhooks.
 
 {% alert tip %}
 Fügen Sie die [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) zu Ihrem Canvas hinzu, um Attribute, Events und Käufe von Nutzer:innen mithilfe eines JSON-Composers zu aktualisieren.
@@ -36,7 +36,7 @@ Fügen Sie die [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canv
 
 ## Wann Sie einen Braze-zu-Braze-Webhook verwenden sollten {#when-to-use-a-braze-to-braze-webhook}
 
-Die Nutzeraktualisierung kann nahezu alle Aufgaben eines Braze-zu-Braze-Webhooks für die Aktualisierung von Nutzerprofilen übernehmen. Für komplexe Updates, die über einfache angepasste Attribute hinausgehen, können Sie den [erweiterten JSON-Composer]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer) verwenden.
+Die Nutzeraktualisierung kann nahezu alle Aufgaben eines Braze-zu-Braze-Webhooks für die Aktualisierung von Nutzerprofilen übernehmen. Für komplexe Updates, die über einfache angepasste Attribute hinausgehen, können Sie den [erweiterten JSON-Composer]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor) verwenden.
 
 „An Ziel senden“ bietet eine einfachere Möglichkeit, einen zweiten Canvas aus einem Canvas heraus zu triggern, ohne eine Webhook-Konfiguration zu benötigen.
 
@@ -64,6 +64,10 @@ Der allgemeine Workflow zum Erstellen eines Braze-zu-Braze-Webhooks umfasst die 
 ## Einen zweiten Canvas aus einem initialen Canvas triggern {#trigger-a-second-canvas-from-an-initial-canvas}
 
 In diesem Anwendungsfall erstellen Sie zwei Canvases und verwenden einen Braze-zu-Braze-Webhook, um den zweiten Canvas aus dem ersten zu triggern. Dies funktioniert wie ein Entry-Trigger, wenn Nutzer:innen einen bestimmten Punkt in einem anderen Canvas erreichen.
+
+{% alert note %}
+Der Trigger **Mit Canvas-Schritt interagieren** ist nur für Campaigns verfügbar, nicht für aktionsbasierte Canvas-Eintritte. Wenn Sie einen Canvas basierend darauf triggern müssen, dass Nutzer:innen einen bestimmten Schritt in einem anderen Canvas erreichen, verwenden Sie diesen Braze-zu-Braze-Webhook-Ansatz oder die Canvas-Komponente [An Ziel senden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination).
+{% endalert %}
 
 1. Beginnen Sie mit der Erstellung Ihres zweiten Canvas – dem Canvas, der von Ihrem initialen Canvas getriggert werden soll.
 2. Wählen Sie als Canvas-**Entry-Zeitplan** die Option **API-Triggered**.

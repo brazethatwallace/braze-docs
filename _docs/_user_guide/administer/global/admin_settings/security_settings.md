@@ -12,7 +12,7 @@ description: "This reference article covers generic cross-company security setti
 
 > As an administrator, security is a high priority on your list of concerns. The **Security Settings** page can help you manage the generic, cross-company security settings, including authentication rules, IP allowlisting, and two-factor authentication.
 
-To access this page, go to **Settings** > **Admin Settings** > **Security Settings**.
+To access this page, go to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings**.
 
 ## Authentication rules
 
@@ -26,7 +26,7 @@ Select **Enforce complex passwords** to require passwords to include at least on
 - Uppercase letter
 - Lowercase letter
 - Number
-- Special character
+- Special character (any character that is not a letter or number, such as `!`, `@`, `#`, or `(`)
 
 ### Password re-usability
 
@@ -77,7 +77,7 @@ Customers with multiple accounts under a dashboard company may experience issues
 
 If you're having issues logging in with two-factor authentication, contact your company administrators to reset your two-factor authentication. Administrators can perform the following steps:
 
-1. Go to **Settings** > **Company Users**.
+1. Go to **Settings** > **Company Settings** > **User Management** > **Company Users**.
 2. Select the user from the provided list.
 3. Select **Reset** under **Two Factor Authentication**.
 
@@ -85,11 +85,11 @@ A reset can solve common authentication issues such as trouble with authenticato
 
 ### Requirements for 2FA at the company level
 
-First, verify whether 2FA is enabled for your dashboard by going to **Company Settings** > **Security Settings** > **Two Factor Authentication**. If the toggle is gray, 2FA hasn't been turned on for your company and isn't mandatory for all company users.
+First, verify whether 2FA is enabled for your dashboard by going to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings** > **Two-Factor Authentication**. If the toggle is gray, 2FA hasn't been turned on for your company and isn't mandatory for all company users.
 
 #### User options when 2FA isn't mandatory
 
-If 2FA isn't enforced at the company level, individual users can set up 2FA for themselves on their Account Settings page. In this case, users won't be locked out of their accounts if they don't set it up. You can identify which users have opted to enable 2FA by checking the Manage Users page.
+If 2FA isn't enforced at the company level, individual users can set up 2FA for themselves on their Account Settings page. In this case, users won't be locked out of their accounts if they don't set it up. You can identify which users have opted to enable 2FA by checking the **Company Users** list.
 
 #### Requirements when 2FA is mandatory
 
@@ -111,7 +111,7 @@ To manually activate two-factor authentication (2FA) on your Braze account, foll
 
 ## Elevated Access
 
-Elevated Access adds an extra layer of security for sensitive actions in your Braze dashboard. When active, users need to re-verify their account before exporting a segment or viewing an API key. To use Elevated Access, go to **Settings** > **Admin Settings** > **Security Settings** and toggle it on. 
+Elevated Access adds an extra layer of security for sensitive actions in your Braze dashboard. When active, users need to re-verify their account before exporting a segment or viewing an API key. To use Elevated Access, go to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings** and toggle it on. 
 
 If a user can’t re-verify, they’ll be redirected to where they left off and won’t be able to continue with the sensitive action. After they successfully re-verify, they won’t need to do so again for the next hour—unless they log out first.
 
@@ -121,8 +121,8 @@ The Security Event report is a CSV report of security events such as account inv
 
 To download this report, do the following:
 
-1. Go to **Settings** > **Admin Settings**.
-2. Select the **Security Settings** tab and go to the **Security Event Download** section.
+1. Go to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings**.
+2. Go to the **Security Event Download** section.
 3. Select **Download report**. 
 
 This manual report download contains only the most recent 10,000 security events for your account. If your exported CSV contains exactly 10,001 rows (including the header row), you reached the 10,000-event report cap and older events may not be included.
@@ -274,7 +274,7 @@ For the existing team permission capabilities, refer to [Setting user permission
 Selecting and defining certain fields as PII fields only affects what users can view on the Braze dashboard and does not impact how the End User data in such PII fields is handled.<br><br>Consult your legal team to align your dashboard's settings with any privacy regulations and policies applicable to your company, including those related to [data retention]({{site.baseurl}}/data_retention).
 {% endalert %}
 
-You can select the fields your company designates as PII in the dashboard. To do this, go to **Company Settings** > **Admin Settings** > **Security Settings**.
+You can select the fields your company designates as PII in the dashboard. To do this, go to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings**.
 
 The following attributes can be designated as PII and hidden from company users who don't have **View PII** permissions.
 

@@ -4,12 +4,12 @@ article_title: Governança
 layout: dev_guide
 page_order: 2
 guide_top_header: "Governança"
-guide_top_text: "Gerencie o ciclo de vida e a organização das suas Campaigns, Canvas e landing pages. Consulte os artigos abaixo para configurar fluxos de aprovação, arquivar ou duplicar itens, copiá-los entre espaços de trabalho e usar status e tags para manter seu espaço de trabalho organizado."
+guide_top_text: "Gerencie o ciclo de vida e a organização das suas Campaigns, Canvas e landing pages. Consulte os artigos abaixo para configurar fluxos de aprovação, arquivar ou duplicar itens, copiá-los entre espaços de trabalho, compartilhar prévias com as partes interessadas e usar status e tags para manter seu espaço de trabalho organizado."
 page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "Aprovações, arquivamento, duplicação, cópia entre espaços de trabalho, status e tags para Campaigns, Canvas e landing pages."
+description: "Aprovações, arquivamento, duplicação, cópia entre espaços de trabalho, prévia compartilhável, status e tags para Campaigns, Canvas e landing pages."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:
@@ -25,6 +25,9 @@ guide_featured_list:
   - name: Duplicar
     link: /docs/user_guide/messaging/governance/duplicating
     image: /assets/img/braze_icons/copy-04.svg
+  - name: Prévia compartilhável
+    link: /docs/user_guide/messaging/governance/shareable_preview
+    image: /assets/img/braze_icons/share-01.svg
   - name: Status
     link: /docs/user_guide/messaging/governance/statuses
     image: /assets/img/braze_icons/book-closed.svg

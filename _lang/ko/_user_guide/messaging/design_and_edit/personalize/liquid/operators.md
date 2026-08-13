@@ -1,6 +1,6 @@
 ---
-nav_title: Operator
-article_title: Liquid Operator
+nav_title: 연산자
+article_title: Liquid 연산자
 page_order: 2
 description: "이 참조 페이지에서는 Liquid가 지원하는 연산자와 관련 예제를 설명합니다."
 
@@ -12,7 +12,7 @@ description: "이 참조 페이지에서는 Liquid가 지원하는 연산자와 
 
 아래 표는 지원되는 연산자를 나열합니다. 괄호는 Liquid에서 유효하지 않은 문자이며 태그가 작동하지 않게 만들 수 있으므로 주의하세요.
 
-| 구문 | 연산자 설명 |
+|   구문| 연산자 설명|
 |---------|-----------|
 | ==  | 같음        |
 | !=  | 같지 않음|
@@ -26,7 +26,7 @@ description: "이 참조 페이지에서는 Liquid가 지원하는 연산자와 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="연산자" }
 
 {% alert note %}
-연산자는 조건문(`if`, `elsif`, `unless`)에서 사용할 수 있지만, `assign` 문, `for` 루프 또는 배열 접근 대괄호에서는 사용할 수 없습니다. `case`와 `when` 태그에서는 각 분기가 임의의 연산자 표현식 대신 동등 비교를 사용하여 `case` 표현식을 `when` 값과 비교합니다. 예제는 [조건부 메시징 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags)을 참조하세요. 전체 분석은 [연산자와 필터를 사용할 수 있는 위치]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters)를 참조하세요.
+연산자는 조건문(`if`, `elsif`, `unless`)에서 사용할 수 있지만, `assign` 문, `for` 루프 또는 배열 접근 대괄호에서는 사용할 수 없습니다. `case`와 `when` 태그에서는 각 분기가 임의의 연산자 표현식 대신 동등 비교를 사용하여 `case` 표현식을 `when` 값과 비교합니다. 예제는 [조건부 메시징 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when)을 참조하세요. 전체 분석은 [연산자와 필터를 사용할 수 있는 위치]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters)를 참조하세요.
 {% endalert %}
 
 ## 괄호 없이 조건 그룹화하기 {#grouping-conditions-without-parentheses}
@@ -251,7 +251,7 @@ Stream now!
 
 [`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)를 사용하고 테스트 발송이 도착하지 않는 경우, 미리보기 사용자에게 Liquid가 기대하는 속성이 누락되어 있을 수 있습니다. 중단 로직은 렌더링 중에 실행되며, 실행되면 Braze는 메시지를 발송하지 않습니다. 필요한 프로필 데이터를 가진 사용자로 미리보기하거나, **사용자로 미리보기**를 사용하여 프로덕션 오디언스와 동일한 값을 제공하는 수신자 필드를 테스트하세요.
 
-### 미리보기에서 등록정보 유형이 잘못 변환될 수 있음 {#preview-may-incorrectly-coerce-property-types}
+### 미리보기에서 속성정보 유형이 잘못 변환될 수 있음 {#preview-may-incorrectly-coerce-property-types}
 
 대시보드에서 메시지를 미리볼 때 대부분의 변수(예: 커스텀 속성)는 올바른 유형으로 변환됩니다. 그러나 일부 변수는 미리보기에서 조회할 수 있는 정의된 유형이 없습니다:
 
@@ -259,9 +259,9 @@ Stream now!
 - `canvas_entry_properties`
 - `context`
 
-이러한 등록정보의 경우 미리보기는 값에서 유형을 추론하려고 시도합니다. 즉, **문자열**로 의도한 값이 **숫자**로 잘못 해석될 수 있습니다. 예를 들어, 등록정보 값이 문자열 `"3"`인 경우 미리보기에서 정수 `3`으로 변환할 수 있으며, 이로 인해 `contains`나 `split`과 같은 문자열 연산에서 예상치 못한 동작이 발생할 수 있습니다.
+이러한 속성정보의 경우 미리보기는 값에서 유형을 추론하려고 시도합니다. 즉, **문자열**로 의도한 값이 **숫자**로 잘못 해석될 수 있습니다. 예를 들어, 속성정보 값이 문자열 `"3"`인 경우 미리보기에서 정수 `3`으로 변환할 수 있으며, 이로 인해 `contains`나 `split`과 같은 문자열 연산에서 예상치 못한 동작이 발생할 수 있습니다.
 
-이러한 등록정보 유형을 사용할 때 예상치 못한 미리보기 결과가 나타나면, 미리보기의 유형 추론이 실제 발송 시점의 동작과 다를 수 있다는 점을 유의하세요. 발송 시점에는 트리거 이벤트 또는 API 호출의 실제 데이터 유형이 유지됩니다.
+이러한 속성정보 유형을 사용할 때 예상치 못한 미리보기 결과가 나타나면, 미리보기의 유형 추론이 실제 발송 시점의 동작과 다를 수 있다는 점을 유의하세요. 발송 시점에는 트리거 이벤트 또는 API 호출의 실제 데이터 유형이 유지됩니다.
 
 미리보기에서 특정 유형을 강제하려면 값을 명시적으로 캐스팅할 수 있습니다:
 

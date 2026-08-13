@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Generar URL del centro de preferencias de Braze."
+description: "En este artículo se describen los detalles del endpoint Generar URL del centro de preferencias de Braze."
 
 ---
 {% api %}
@@ -14,7 +14,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 /preference_center/v1/{preferenceCenterExternalID}/url/{userID}
 {% endapimethod %}
 
-> Usa este punto de conexión para generar una URL para un centro de preferencias.
+> Usa este endpoint para generar una URL para un centro de preferencias.
 
 La URL de cada centro de preferencias es única para cada usuario.
 
@@ -22,7 +22,7 @@ La URL de cada centro de preferencias es única para cada usuario.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `preference_center.user.get`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `preference_center.user.get`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -62,5 +62,5 @@ curl --location --request GET 'https://rest.iad-01.braze.com/preference_center/v
 {% endapi %}
 
 {% alert note %}
-Este punto de conexión solo genera URL para el nuevo centro de preferencias (como los centros de preferencias creados mediante nuestra API o el editor de arrastrar y soltar).
+Este endpoint solo genera URL para el nuevo centro de preferencias (como los centros de preferencias creados mediante nuestra API o el editor de arrastrar y soltar).
 {% endalert %}

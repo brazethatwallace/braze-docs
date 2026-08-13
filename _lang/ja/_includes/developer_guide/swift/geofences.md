@@ -252,9 +252,9 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 
 ## よくある質問（FAQ） {#faq}
 
-### デバイスでジオフェンスが受信されないのはなぜですか {#why-am-i-not-receiving-geofences-on-my-device}
+### デバイスでジオフェンスが受信されないのはなぜですか？ {#why-am-i-not-receiving-geofences-on-my-device}
 
-デバイスでジオフェンスが受信されているかどうかを確認するには、まず[SDKデバッガーツール]({{site.baseurl}}/developer_guide/sdk_integration/debugging#debugging-the-braze-sdk)を使用してSDKのログを確認してください。サーバーからジオフェンスが正常に受信されているか、また顕著なエラーがあるかどうかを確認できます。
+デバイスでジオフェンスが受信されているかどうかを確認するには、まず[SDKデバッガーツール]({{site.baseurl}}/developer_guide/sdk_integration/debugging)を使用してSDKのログを確認してください。サーバーからジオフェンスが正常に受信されているか、また顕著なエラーがあるかどうかを確認できます。
 
 以下は、デバイスでジオフェンスが受信されないその他の考えられる理由です。
 
@@ -268,18 +268,18 @@ iOSオペレーティングシステムでは、特定のアプリに対して�
 
 Brazeは不要なリクエストを避けるため、1セッションあたり1回のジオフェンス更新に制限しています。
 
-### Brazeと非Brazeのジオフェンス機能を両方使っている場合、どのように動作しますか {#how-does-it-work-if-i-am-using-both-braze-and-non-braze-geofence-features}
+### Brazeと非Brazeのジオフェンス機能を両方使っている場合、どのように動作しますか？ {#how-does-it-work-if-i-am-using-both-braze-and-non-braze-geofence-features}
 
 前述の通り、iOSでは単一のアプリが最大20個のジオフェンスを保存できます。このストレージは、Brazeと非Brazeのジオフェンスの両方で共有され、[CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager)によって管理されます。
 
 例えば、アプリに非Brazeのジオフェンスが20個含まれている場合、Brazeのジオフェンスを追跡するストレージは存在しません（逆も同様です）。新しいジオフェンスを受信するには、[Appleの位置情報API](https://developer.apple.com/documentation/corelocation)を使用して、デバイス上の既存のジオフェンスの一部の監視を停止する必要があります。
 
-### ジオフェンス機能は、デバイスがオフラインの状態で使用できますか {#can-the-geofences-feature-be-used-while-a-device-is-offline}
+### ジオフェンス機能は、デバイスがオフラインの状態で使用できますか？ {#can-the-geofences-feature-be-used-while-a-device-is-offline}
 
 デバイスは、更新が行われるときだけインターネットに接続する必要があります。サーバーからジオフェンスを正常に受信した後は、デバイスがオフライン状態であっても、ジオフェンスのエントリや退出を記録することが可能です。これは、デバイスの位置情報がインターネット接続とは別個に動作するためです。
 
 例えば、あるデバイスがセッション開始時にジオフェンスを正常に受信・登録した後、オフライン状態になったとします。その後、登録済みのジオフェンスのいずれかに入ると、Brazeキャンペーンをトリガーできます。
 
-### アプリがバックグラウンド状態になったり終了したりすると、なぜジオフェンスが監視されなくなるのですか {#why-are-geofences-not-monitored-when-my-app-is-backgroundedterminated}
+### アプリがバックグラウンド状態になったり終了したりすると、なぜジオフェンスが監視されなくなるのですか？ {#why-are-geofences-not-monitored-when-my-app-is-backgroundedterminated}
 
 `Always`権限がない場合、Appleはアプリが使用されていない間、位置情報サービスの動作を制限します。これはオペレーティングシステムによって強制されるものであり、Braze SDKのコントロール範囲外です。Brazeはアプリがバックグラウンドにある間もサービスを実行するための個別の設定を提供していますが、ユーザーからの明示的な承認を得ずに終了されたアプリについては、これらの制限を回避する方法はありません。

@@ -45,7 +45,7 @@ toc_headers: h2
 
 ### 3단계: 에이전트 출력 설정 {#define-the-output-variable}
 
-에이전트 출력은 "출력 변수"라고 하며, 쉽게 접근할 수 있도록 [컨텍스트 변수]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-types)에 저장됩니다. 출력 변수를 정의하려면 변수에 이름을 지정하세요.
+에이전트 출력은 "출력 변수"라고 하며, 쉽게 접근할 수 있도록 [컨텍스트 변수]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-filters)에 저장됩니다. 출력 변수를 정의하려면 변수에 이름을 지정하세요.
 
 출력 변수의 데이터 유형은 [에이전트 콘솔]({{site.baseurl}}/user_guide/brazeai/agents)에서 설정됩니다. 에이전트 출력은 문자열, 숫자, 부울 또는 오브젝트로 저장할 수 있습니다. 이를 통해 Canvas에서 텍스트 개인화와 조건 로직 모두에 유연하게 활용할 수 있습니다. 각 유형의 일반적인 사용 사례는 다음과 같습니다:
 
@@ -55,7 +55,7 @@ toc_headers: h2
 | 숫자 | 스코어링, 임계값, [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)에서의 라우팅 |
 | 부울 | [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)에서의 예/아니오 분기 |
 | 오브젝트 | 예측 가능한 데이터 구조에서 단일 LLM 호출로 이 섹션의 앞부분에 나온 데이터 유형 중 하나 이상을 활용 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Set your agent's output #define-the-output-variable" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 에이전트 출력 설정 #define-the-output-variable" }
 
 컨텍스트 변수와 동일한 템플릿 구문을 사용하여 Canvas 전체에서 출력 변수를 사용할 수 있습니다. **Context Variable** Segment 필터를 사용하거나, Liquid를 사용하여 에이전트 응답을 직접 템플릿화할 수 있습니다: {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
 

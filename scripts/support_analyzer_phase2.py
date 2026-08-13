@@ -40,6 +40,46 @@ _GH_LOGIN_RE = re.compile(r"^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$"
 # Rule ids become git ref segments; reject characters that break branch/PR creation.
 _RULE_ID_RE = re.compile(r"^[a-zA-Z0-9](?:[a-zA-Z0-9_-]{0,126}[a-zA-Z0-9])?$")
 
+_DOCS_DIR_PREFIX = "_docs/"
+
+
+def _normalize_repo_relative_path(rel: str) -> str:
+    return rel.strip().replace("\\", "/")
+
+
+def _validate_docs_relative_path(rel: str, *, context: str) -> str:
+    """Ensure edit targets stay under `_docs/` with no traversal."""
+    norm = _normalize_repo_relative_path(rel)
+    if not norm:
+        raise SystemExit(f"{context}: empty file path")
+    if norm.startswith("/") or Path(norm).is_absolute():
+        raise SystemExit(f"{context}: absolute paths are not allowed: {rel!r}")
+    if ".." in Path(norm).parts:
+        raise SystemExit(f"{context}: path traversal is not allowed: {rel!r}")
+    if not norm.startswith(_DOCS_DIR_PREFIX):
+        raise SystemExit(f"{context}: path must be under {_DOCS_DIR_PREFIX!r}: {rel!r}")
+    return norm
+
+
+def _validate_rule_edit_paths(rule: dict[str, Any], rule_id: str) -> None:
+    edits = rule.get("edits") or []
+    for i, edit in enumerate(edits):
+        rel = edit.get("file")
+        if not rel:
+            raise SystemExit(f"rule {rule_id}: edits[{i}] missing file")
+        _validate_docs_relative_path(str(rel), context=f"rule {rule_id} edits[{i}].file")
+        cross_refs = edit.get("skip_if_contains_in_files") or []
+        for j, entry in enumerate(cross_refs):
+            if not isinstance(entry, dict):
+                continue
+            other = entry.get("file")
+            if other:
+                _validate_docs_relative_path(
+                    str(other),
+                    context=f"rule {rule_id} edits[{i}].skip_if_contains_in_files[{j}].file",
+                )
+
+
 # Shown at the top of every Phase 2 draft PR body for tagged reviewers.
 PHASE2_PR_STAKEHOLDER_NOTICE = """## For tagged reviewers and stakeholders
 
@@ -275,9 +315,9 @@ def _edit_already_applied(
     *,
     root: Path | None = None,
 ) -> bool:
-    """True when this edit is already on develop (fingerprint or equivalent prose)."""
+    """True when this edit is already on develop (skip phrases or legacy fingerprint comment)."""
     fp = (edit.get("fingerprint") or "").strip()
-    if fp and (fp in content or f"<!-- {fp} -->" in content):
+    if fp and f"<!-- {fp} -->" in content:
         return True
     for phrase in edit.get("skip_if_contains") or []:
         text = (phrase or "").strip()
@@ -321,18 +361,20 @@ def _open_phase2_pr_for_rule(rule_id: str, *, cwd: Path) -> str | None:
             ],
             cwd=cwd,
         )
-    except subprocess.CalledProcessError:
-        print(
-            f"rule {rule_id}: could not list open PRs; continuing without open-PR dedup",
-            file=sys.stderr,
-        )
-        return None
+    except subprocess.CalledProcessError as exc:
+        detail = (exc.stderr or exc.stdout or "").strip()
+        raise SystemExit(
+            f"rule {rule_id}: could not list open PRs for dedup (fail closed)"
+            + (f": {detail}" if detail else "")
+        ) from exc
     if not raw:
         return None
     try:
         prs = json.loads(raw)
-    except json.JSONDecodeError:
-        return None
+    except json.JSONDecodeError as exc:
+        raise SystemExit(
+            f"rule {rule_id}: could not parse gh pr list output for dedup (fail closed)"
+        ) from exc
     for pr in prs:
         head = (pr.get("headRefName") or "").strip()
         if head.startswith(prefix):
@@ -539,7 +581,7 @@ def _run_rule_verification(
 
 
 def _phase2_run_date_ymd() -> str:
-    """Eastern date stamp for branch names (matches digest PR workflow timezone)."""
+    """Eastern date stamp for branch names (matches workflow timezone)."""
     return datetime.now(_PHASE2_BRANCH_TZ).strftime("%Y-%m-%d")
 
 
@@ -681,6 +723,7 @@ def _phase2_process_rules(
                 f"rule id {rid!r} is invalid for git branch names; use only letters, digits, "
                 "hyphens, and underscores (1–128 chars); must start and end with a letter or digit"
             )
+        _validate_rule_edit_paths(rule, rid)
         _ensure_case_pattern_cache(rule)
         case_cfg = rule.get("case_text") or {}
         fields = case_cfg.get("fields") or []
@@ -730,7 +773,10 @@ def _phase2_process_rules(
             rel = edit.get("file")
             if not rel:
                 continue
-            path = root / rel
+            rel_norm = _validate_docs_relative_path(
+                str(rel), context=f"rule {rid} edits[].file"
+            )
+            path = root / rel_norm
             if not path.is_file():
                 msg = f"rule {rid}: target missing {path}"
                 if args.strict_anchors:

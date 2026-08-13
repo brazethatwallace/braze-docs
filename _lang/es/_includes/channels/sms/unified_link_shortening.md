@@ -1,6 +1,8 @@
-El acortamiento de enlaces te permite acortar automáticamente las URL contenidas en mensajes SMS o RCS y recopilar análisis de tasa de click-through, proporcionando métricas de interacción adicionales para ayudar a comprender cómo los usuarios interactúan con tus campañas.
+El acortamiento de enlaces te permite acortar automáticamente las URL contenidas en mensajes SMS o RCS y recopilar análisis de tasa de click-through, proporcionando métricas de participación adicionales para ayudar a comprender cómo los usuarios interactúan con tus Campaigns.
 
 El acortamiento de enlaces se puede activar a [nivel de variante del mensaje]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) tanto en Campaigns como en Canvas. Cuando el acortamiento de enlaces está activado, los clics generan un [evento de clic de SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) enviado a través de Currents.
+
+{% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
 
 Los enlaces se acortan usando nuestro dominio corto compartido (`brz.ai`) o tu dominio personalizado de acortamiento de enlaces, y son válidos durante 9 semanas a partir de la fecha en que fueron creados. Un ejemplo de URL podría verse como `https://brz.ai/8jshX2dj`.
 
@@ -31,7 +33,7 @@ Braze reconoce solo las URL que comienzan con `http://` o `https://`. Cuando se 
 
 ## Personalización con Liquid en URLs {#liquid-personalization-in-urls}
 
-Para obtener información sobre cómo construir URLs de forma dinámica directamente dentro del compositor de Braze, lo que te permite agregar parámetros UTM dinámicos a tus URLs o enviar a los usuarios enlaces únicos, consulta [Usar personalización con Liquid en URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#use-liquid-personalization-in-urls).
+Para obtener información sobre cómo construir URLs de forma dinámica directamente dentro del creador de Braze, lo que te permite agregar parámetros UTM dinámicos a tus URLs o enviar a los usuarios enlaces únicos, consulta [Usar personalización con Liquid en URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#use-liquid-personalization-in-urls).
 
 ## Pruebas {#testing}
 
@@ -81,7 +83,7 @@ Prueba la experiencia del usuario antes de implementar el acortamiento de enlace
 
 ### ¿Los `send_ids` están asociados con los eventos de clic de SMS? {#are-send_ids-associated-with-sms-click-events}
 
-No. Sin embargo, generalmente puedes atribuir `send_ids` con eventos de clic usando el [Generador de consultas]({{site.baseurl}}/query_builder) para consultar datos de Currents con esta consulta:
+No. Sin embargo, generalmente puedes atribuir `send_ids` con eventos de clic usando el [generador de consultas]({{site.baseurl}}/query_builder) para consultar datos de Currents con esta consulta:
 
 ```sql
 SELECT c.*, s.send_id

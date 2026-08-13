@@ -2,7 +2,7 @@
 nav_title: "Collect user opt-ins"
 article_title: Best practices for collecting user SMS opt-ins
 page_order: 3
-description: "This reference article cover three best practices for collecting user opt-ins."
+description: "This reference article covers three best practices for collecting user opt-ins."
 page_type: reference
 channel:
   - SMS
@@ -31,7 +31,7 @@ When a new user signs up or registers on the website or app, ask for their phone
 
 After the user signs up, do the following:
 
-1. Use the [`/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status#update-users-subscription-group-status) to create the user and save their attributes.
+1. Use the [`/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) to create the user and save their attributes.
 
 {% raw %}
 ```http
@@ -75,11 +75,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 {% endraw %}
 
-{% alert tip %}
-To enter users into the [SMS double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) workflow when subscribing them through the REST API, set the `use_double_opt_in_logic` parameter to `true` in your request. If you omit this parameter, users are subscribed without receiving a double opt-in confirmation.
-
-This parameter is supported by the following endpoints:<br><br>
-- [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)
-- [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2)
-- [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
+{% alert note %}
+To enter users into the [SMS double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) workflow when subscribing through the REST API, set `use_double_opt_in_logic` to `true` in your request. This parameter is supported by [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status), [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2), and [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). A user profile must exist for the subscription state to be updated. If no user profile is associated with the provided phone number, the subscription state isn't updated.
+<br><br>
+Subscription updates through the REST API don't automatically trigger welcome messages. To send a welcome message, create an action-based campaign with the [Update Subscription Group Status]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#update-subscription-group-status) trigger and set the update source to **REST API**.
 {% endalert %}

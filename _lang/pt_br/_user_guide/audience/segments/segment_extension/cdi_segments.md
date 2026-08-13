@@ -6,16 +6,16 @@ page_type: reference
 alias: /cdi_segment_extensions/
 tool:
 - Segments
-description: "Este artigo explica como as extensões de segmento CDI usam a Ingestão de dados na nuvem para consultar seu data warehouse e definir públicos na Braze."
+description: "Este artigo explica como as extensões de segmento CDI usam a ingestão de dados na nuvem para consultar seu data warehouse e definir públicos na Braze."
 
 ---
 
 # Extensões de segmento CDI {#cdi-segment-extensions}
 
-> Com a [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) (CDI) da Braze, você pode configurar uma conexão direta do seu data warehouse ou sistema de armazenamento de arquivos com a Braze para sincronizar dados relevantes de usuários ou catálogos de forma recorrente.
+> Com a [ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) (CDI) da Braze, você pode configurar uma conexão direta do seu data warehouse ou sistema de armazenamento de arquivos com a Braze para sincronizar dados relevantes de usuários ou catálogos de forma recorrente.
 
 {% alert warning %}
-As extensões de segmento CDI consultam seu data warehouse diretamente, então você incorrerá em todos os custos associados à execução dessas consultas no seu data warehouse. As extensões de segmento CDI não consomem [créditos de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#monitoring-your-sql-segments-usage), não contam para o limite de extensões de segmento e não registram pontos de dados.
+As extensões de segmento CDI consultam seu data warehouse diretamente, então você incorrerá em todos os custos associados à execução dessas consultas no seu data warehouse. As extensões de segmento CDI não consomem [créditos de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#credits), não contam para o limite de extensões de segmento e não registram pontos de dados.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
@@ -44,7 +44,7 @@ Para visualizar as tabelas de dados disponíveis, incluindo seus esquemas e quai
 
 ![Para visualizar as tabelas de dados disponíveis, incluindo seus esquemas e quaisquer descrições disponíveis, selecione Reference. Quando estiver pronto, selecione uma conexão.]({% image_buster /assets/img/segment/connection_schema_with_descriptions.png %}){: style="max-width:100%;"}
 
-Em seguida, escreva o SQL para o seu segmento usando [a sintaxe SQL da Braze]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#writing-sql).
+Em seguida, escreva o SQL para o seu segmento usando [a sintaxe SQL da Braze]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#step-2-write-your-sql).
 
 Lembre-se de que todas as extensões de segmento CDI devem usar `external_user_id` como a coluna selecionada, e seu `external_user_id` deve corresponder ao definido na Braze para os usuários.
 
@@ -58,7 +58,7 @@ Se os resultados da sua consulta incluírem usuários que não existem na Braze,
 Para saber como pré-visualizar suas extensões de segmento, gerenciá-las e executar atualizações automáticas de membros, consulte [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
 {% endalert %}
 
-Por fim, você pode [usar essa extensão de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-5-use-your-extension-in-a-segment) dentro de um segmento da Braze para enviar uma Campaign ou Canvas para esse público.
+Por fim, você pode [usar essa extensão de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment) dentro de um segmento da Braze para enviar uma Campaign ou Canvas para esse público.
 
 ## Considerações {#considerations}
 

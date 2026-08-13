@@ -232,7 +232,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 ### ブール値 {#boolean}
 
-[ブール値]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans)はバイナリ値で、`registration_complete: true` のように `true` または `false` に設定できます。ブール値にはアポストロフィは付きません。
+[ブール値]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#booleans)はバイナリ値で、`registration_complete: true` のように `true` または `false` に設定できます。ブール値にはアポストロフィは付きません。
 
 {% raw %}
 
@@ -244,7 +244,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 ### 数値 {#number}
 
-[数値]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers)は整数または浮動小数点数の数値です。たとえば、ユーザーは `shoe_size: 10` や `levels_completed: 287` を持つことがあります。数値にはアポストロフィは付きません。
+[数値]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)は整数または浮動小数点数の数値です。たとえば、ユーザーは `shoe_size: 10` や `levels_completed: 287` を持つことがあります。数値にはアポストロフィは付きません。
 
 {% raw %}
 
@@ -266,7 +266,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 ### 文字列 {#string}
 
-[文字列]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings)は英数字で構成され、ユーザーに関するデータを格納します。たとえば、`favorite_color: red` や `phone_number: 3025981329` などがあります。文字列の値はアポストロフィで囲む必要があります。
+[文字列]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)は英数字で構成され、ユーザーに関するデータを格納します。たとえば、`favorite_color: red` や `phone_number: 3025981329` などがあります。文字列の値はアポストロフィで囲む必要があります。
 
 {% raw %}
 
@@ -280,7 +280,7 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 ### 配列 {#array}
 
-[配列]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays)は、ユーザーに関する情報のリストです。たとえば、ユーザーは `last_viewed_shows: stranger things, planet earth, westworld` を持つことがあります。配列の値はアポストロフィで囲む必要があります。
+[配列]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)は、ユーザーに関する情報のリストです。たとえば、ユーザーは `last_viewed_shows: stranger things, planet earth, westworld` を持つことがあります。配列の値はアポストロフィで囲む必要があります。
 
 {% raw %}
 
@@ -330,7 +330,7 @@ Brazeは条件 {% raw %}`{% if %}`{% endraw %} ブロック内でインライン
 
 ### 時間 {#time}
 
-イベントが発生した時点のタイムスタンプです。[時間]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time)の値を条件ロジックで使用するには、[数学フィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters)を適用する必要があります。
+イベントが発生した時点のタイムスタンプです。[時間]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)の値を条件ロジックで使用するには、[数学フィルター]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters)を適用する必要があります。
 
 {% raw %}
 

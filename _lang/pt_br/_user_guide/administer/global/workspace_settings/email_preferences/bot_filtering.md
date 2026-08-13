@@ -18,12 +18,12 @@ A partir de 9 de julho de 2025, todos os novos espaços de trabalho criados ter�
 
 ## Sobre cliques de bots {#about-bot-clicks}
 
-A Braze tem um sistema de detecção que emprega várias entradas para identificar cliques suspeitos de bots, também chamados de interações não humanas (NHI). Os cliques de bots podem distorcer suas métricas de engajamento de e-mail ao inflar artificialmente as taxas de cliques. Essa abordagem nos permite diferenciar entre interações humanas genuínas e atividades suspeitas de bots para manter a integridade das métricas e insights de engajamento por clique.
+A Braze possui um sistema de detecção que utiliza múltiplas entradas para identificar cliques suspeitos de bots, também conhecidos como interações não humanas (NHI). Os cliques de bots podem distorcer suas métricas de engajamento de e-mail ao inflar artificialmente as taxas de cliques. Essa abordagem nos permite diferenciar entre interações humanas genuínas e atividades suspeitas de bots, mantendo a integridade das métricas e dos insights de engajamento de cliques.
 
 ## Métricas afetadas por cliques de bots {#metrics-affected-by-bot-clicks}
 
 {% alert note %}
-A filtragem de bots bloqueia ativamente cliques automatizados suspeitos para melhorar a precisão de suas métricas de engajamento. No entanto, os scanners e bots evoluem continuamente ao longo do tempo, então a Braze não pode garantir a remoção de todas as interações não humanas.
+A filtragem de bots bloqueia ativamente cliques automatizados suspeitos para melhorar a precisão das suas métricas de engajamento. No entanto, scanners e bots evoluem continuamente ao longo do tempo, então a Braze não pode garantir a remoção de todas as interações não humanas.
 {% endalert %}
 
 As seguintes métricas da Braze podem ser afetadas por cliques de bots:
@@ -31,11 +31,11 @@ As seguintes métricas da Braze podem ser afetadas por cliques de bots:
 - Taxa de cliques total
 - Taxa de cliques únicos
 - Taxa de clique por abertura
-- Taxa de conversão (se "Cliques na campanha" for selecionado como evento de conversão)
+- Taxa de conversão (se "Cliques na Campaign" for selecionado como evento de conversão)
 - Mapa de calor
-- Determinados filtros de segmentação
+- Determinados filtros de Segment
 
-Os [recursos de inteligência da Braze]({{site.baseurl}}/user_guide/brazeai/intelligence_suite) que alavancam dados de cliques em conjunto com nossos sistemas de detecção podem ser impactados. Ativar a configuração tem o potencial de interromper temporariamente nossos sistemas de detecção, o que pode resultar em uma diminuição na métrica ou entrada devido à exclusão de cliques suspeitos de bots:
+Quando a filtragem de bots está ativada, cliques suspeitos de bots são excluídos dos dados de cliques. Os seguintes [recursos de inteligência da Braze]({{site.baseurl}}/user_guide/brazeai/intelligence_suite) podem refletir volumes menores relacionados a cliques como resultado:
 
 - Seleção inteligente
 - Canal inteligente
@@ -46,7 +46,7 @@ Os [recursos de inteligência da Braze]({{site.baseurl}}/user_guide/brazeai/inte
 - Campaign
     - Variante vencedora
     - Variante personalizada
-- Taxa estimada de abertura real
+- Taxa real estimada de abertura
 
 Os cancelamentos de inscrição provenientes de cliques suspeitos de bots não serão afetados. A Braze continuará processando todas as solicitações de cancelamento de inscrição normalmente. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
@@ -64,32 +64,32 @@ Os seguintes [filtros de segmentação]({{site.baseurl}}/user_guide/audience/seg
 
 ## Ativando a filtragem de bots {#turning-on-bot-filtering}
 
-Acesse **Configurações** > **Preferências de e-mail**. Em seguida, selecione **Remove bot clicks**. Essa configuração é aplicada no nível do espaço de trabalho.
+Acesse **Settings** > **Email Preferences**. Em seguida, selecione **Remove bot clicks**. Essa configuração é aplicada no nível do espaço de trabalho.
 
-Quaisquer cliques suspeitos de bots serão removidos somente após a ativação da configuração, e isso não se aplica retroativamente às métricas do seu espaço de trabalho.
+Quaisquer cliques suspeitos de bots só serão removidos após a ativação da configuração, e isso não se aplica retroativamente às métricas do seu espaço de trabalho.
 
-![Configuração de filtragem de bots para e-mail ativada nas Preferências de e-mail.]({% image_buster /assets/img/bot_tracking_email.png %})
+![Configuração de filtragem de bots ativada em Email Preferences.]({% image_buster /assets/img/bot_tracking_email.png %})
 
 {% alert important %}
-Se você ativar essa configuração e depois desativá-la, a Braze não poderá restaurar nenhuma atividade de bot removida anteriormente em sua análise de dados.
+Se você ativar essa configuração e depois desativá-la, a Braze não poderá restaurar nenhuma atividade de bot previamente removida na sua análise de dados.
 {% endalert %}
 
 ## Campos em eventos de clique de e-mail para Currents e Snowflake {#fields-in-email-click-events-for-currents-and-snowflake}
 
 A Braze enviará os campos `is_suspected_bot_click` e `suspected_bot_click_reason` no Currents e no Snowflake para um evento de clique de e-mail.
 
-| Campo | Tipo de dado | Descrição |
-| `is_suspected_bot_click` | Booleano | Indica que este é um clique suspeito de bot. Será enviado como valores nulos até que você ative a configuração **Remove bots clicks** no espaço de trabalho. Essa abordagem permite que você entenda programaticamente quando a filtragem de cliques suspeitos de bots começou no seu espaço de trabalho, para que possa comparar com precisão os dados no Currents e no Snowflake. |
-| `suspected_bot_click_reason` | Array | Indica o motivo pelo qual este é um clique suspeito de bot. Será preenchido com valores, como `user_agent` e `ip_address`, mesmo que a configuração de filtragem de bots do espaço de trabalho esteja desativada. Este campo pode fornecer insights sobre o impacto potencial de ativar essa configuração, comparando o número de cliques provenientes de cliques suspeitos de bots com interações humanas. |
+| Campo | Tipo de dados | Descrição |
+| `is_suspected_bot_click` | Boolean | Indica que este é um clique suspeito de bot. Será enviado como valores nulos até que você ative a configuração de espaço de trabalho **Remover cliques de bots**. Essa abordagem permite que você entenda programaticamente quando a filtragem de cliques suspeitos de bots começou no seu espaço de trabalho, para que possa comparar com precisão os dados no Currents e no Snowflake. |
+| `suspected_bot_click_reason` | Array | Indica o motivo pelo qual este é um clique suspeito de bot. Será preenchido com valores, como `user_agent` e `ip_address`, mesmo que a configuração de espaço de trabalho de filtragem de bots esteja desativada. Este campo pode fornecer insights sobre o impacto potencial de ativar essa configuração, comparando o número de cliques provenientes de cliques suspeitos de bots com interações humanas. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos em eventos de clique de e-mail para Currents e Snowflake" }
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
-### Como a filtragem de bots impactará o desempenho da minha campanha? {#how-will-bot-filtering-impact-my-campaigns-performance}
+### Como a filtragem de bots vai impactar o desempenho da minha campanha? {#how-will-bot-filtering-impact-my-campaigns-performance}
 
-Isso não impactará as métricas de nenhuma Campaign já enviada anteriormente. Quando a filtragem de bots é ativada no seu espaço de trabalho, a Braze começará a filtrar cliques suspeitos de bots de todos os cliques. Você pode notar uma queda nas taxas de cliques, mas a taxa de cliques será uma representação mais precisa do engajamento dos seus usuários com suas mensagens de e-mail.
+Isso não vai impactar as métricas de nenhuma campanha anterior já enviada. Quando a filtragem de bots é ativada no seu espaço de trabalho, a Braze começa a filtrar cliques suspeitos de bots de todos os cliques. Você pode notar uma queda nas taxas de cliques, mas a taxa de cliques será uma representação mais precisa do engajamento dos seus usuários com suas mensagens de e-mail.
 
-### A filtragem de bots impedirá que bots cliquem no link de cancelamento de inscrição da Braze e cancelem a inscrição? {#will-bot-filtering-prevent-bots-clicking-on-the-braze-unsubscribe-link-from-unsubscribing}
+### A filtragem de bots vai impedir que bots que clicam no link de cancelamento de inscrição da Braze cancelem a inscrição? {#will-bot-filtering-prevent-bots-clicking-on-the-braze-unsubscribe-link-from-unsubscribing}
 
 Não. Todas as solicitações de cancelamento de inscrição continuarão sendo processadas.
 

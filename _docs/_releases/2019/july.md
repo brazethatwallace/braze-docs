@@ -9,7 +9,7 @@ description: "This article contains release notes for July 2019."
 # July 2019
 
 {% alert update %}
-Braze had two (you read that right - **two**) product release cycles this month! The latest release is noted at the top, the earlier one [starts further down this page](#earlier-this-month)!
+Braze had two (you read that right - **two**) product release cycles this month! The latest release is noted at the top, the earlier one is covered in the [Earlier this month](#earlier-this-month) section!
 {% endalert %}
 
 ## SAML/SSO

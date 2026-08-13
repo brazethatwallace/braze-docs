@@ -18,7 +18,7 @@ description: "이 문서에서는 커스텀 속성 내보내기 Braze 엔드포�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `custom_attributes.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `custom_attributes.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -55,7 +55,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?c
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "attributes" : [
         {
             "array_length": 100, (number) the maximum array length, or null if not applicable,

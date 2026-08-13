@@ -68,13 +68,7 @@ En este paso, transformarás la carga útil del webhook que se enviará desde la
 
 Este valor de retorno debe ajustarse al formato del cuerpo de la solicitud `/users/track` de Braze:
 
-- El código de transformación se acepta en el lenguaje de programación JavaScript. Se admite cualquier flujo de control estándar de JavaScript, como la lógica if/else.
-- El código de transformación accede al cuerpo de la solicitud del webhook a través de la variable payload. Esta variable es un objeto poblado por el análisis del cuerpo de la solicitud JSON.
-- Se admite cualquier característica de nuestro endpoint `/users/track`, incluidos:
-    - Objetos de atributos de usuario, objetos de evento y objetos de compra
-    - Atributos anidados y propiedades anidadas de eventos personalizados
-    - Actualizaciones de grupos de suscripción
-    - Dirección de correo electrónico como identificador
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Ejemplo de transformaciones de datos para webhooks de Olo {#example-data-transformations-for-olo-webhooks}
 
@@ -145,7 +139,7 @@ return brazecall;
 
 Olo envía el tipo de evento dentro del encabezado `X-Olo-Event-Type` de cada webhook. Para admitir varios eventos de webhook de Olo en una única transformación, utiliza lógica condicional para transformar la carga útil del webhook en función del valor de este tipo de encabezado.
 
-En el siguiente ejemplo de transformación, nuestro JavaScript crea una carga útil particular para los eventos de `UserSignedUp` y `OrderPlaced`. Además, una condición `else` gestiona una carga útil para cualquier evento de Olo enviado a Braze sin el encabezado X-Olo-Event-Type de `UserSignedUp` y `OrderPlaced`.
+En el siguiente ejemplo de transformación, nuestro JavaScript crea una carga útil particular para los eventos `UserSignedUp` y `OrderPlaced`. Además, una condición `else` gestiona una carga útil para cualquier evento de Olo enviado a Braze sin el encabezado X-Olo-Event-Type de `UserSignedUp` y `OrderPlaced`.
 
 ```javascript
 // captures the value within the X-Olo-Event-Type header for use in the conditional logic

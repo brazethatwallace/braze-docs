@@ -241,6 +241,14 @@ non-interactive checklist in
 [workflows/style-qa-changed-files.md](workflows/style-qa-changed-files.md)
 on the changed `_docs/` / root `_includes/` lines before opening the draft.
 
+## Pre-PR include hygiene
+
+When the branch adds, removes, or renames root `_includes/` files or changes
+`{% multi_lang_include %}` references, follow
+[workflows/include-hygiene.md](workflows/include-hygiene.md) before opening the
+draft PR. [create-pr](../create-pr/SKILL.md) Step 0 triggers this automatically
+for matching diffs.
+
 ## Related skills
 
 When chaining another skill, use **REQUIRED SUB-SKILL:** `braze-docs:skill-name` in instructions — do not use `@` or `/` syntax inside skill text. Prefer relative links to sibling `SKILL.md` files for discovery.

@@ -18,11 +18,11 @@ description: "Cet article présente en détail l'endpoint Braze Afficher le stat
 
 Ces groupes seront disponibles sur la page **Groupe d'abonnement**. La réponse de cet endpoint inclura l'ID externe ainsi que le statut abonné, désabonné ou inconnu pour le groupe d'abonnement spécifique demandé dans l'appel d'API. Cela peut être utilisé pour mettre à jour l'état du groupe d'abonnement dans des appels d'API ultérieurs ou pour l'afficher sur une page web hébergée.
 
-Si vous souhaitez voir des exemples ou tester cet endpoint pour les **Groupes d'abonnement e-mail** :
+Si vous souhaitez voir des exemples ou tester cet endpoint pour les **groupes d'abonnement e-mail** :
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#488c8923-fa44-4124-9245-036d13c615f2 {% endapiref %}
 
-Si vous souhaitez voir des exemples ou tester cet endpoint pour les **Groupes d'abonnement SMS** :
+Si vous souhaitez voir des exemples ou tester cet endpoint pour les **groupes d'abonnement SMS** :
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4b8515b8-067f-41fd-b213-8bb2d18b1557 {% endapiref %}
 
@@ -32,7 +32,7 @@ Si vous souhaitez voir des exemples ou tester cet endpoint pour les **groupes Wh
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `subscription.status.get`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `subscription.status.get`.
 
 ## Limite de débit {#rate-limit}
 

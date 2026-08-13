@@ -1,7 +1,7 @@
 ---
 nav_title: Fehlerbehebung bei Deeplinking
 article_title: Fehlerbehebung bei Deeplinking
-description: "Häufige Probleme mit Deeplinking unter iOS und deren Diagnose, einschließlich benutzerdefinierter Schema-Links, Universal Links, E-Mail-Links und Drittanbietern wie Branch."
+description: "Diagnostizieren Sie iOS-Deeplinking-Probleme mithilfe eines Symptomverzeichnisses, eines standardmäßigen Untersuchungspfads und plattformspezifischer Prüfungen."
 page_order: 1.2
 channel:
   - push notifications
@@ -10,26 +10,52 @@ channel:
   - email
 ---
 
-# Fehlerbehebung bei Deeplinking {#deep-linking-troubleshooting}
+# Fehlerbehebung bei Deeplinking {#troubleshoot-deep-linking}
 
-> Diese Seite behandelt häufige Probleme mit Deeplinking unter iOS und deren Diagnose. Hilfe bei der Auswahl des richtigen Linktyps finden Sie im [iOS-Deeplinking-Leitfaden]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide). Für Details zur Implementierung siehe [Deeplinking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=swift).
+> Verwenden Sie diese Seite, um häufige Deeplinking-Probleme unter iOS zu diagnostizieren. Hilfe bei der Auswahl des richtigen Linktyps finden Sie im [iOS-Deeplinking-Leitfaden]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide). Für Details zur Implementierung siehe [Deeplinking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=swift).
 
-## Deeplink mit benutzerdefiniertem Schema öffnet nicht die korrekte Ansicht {#custom-scheme-deep-link-doesnt-open-the-correct-view}
+## Hier starten: Symptom zuordnen {#start-here-match-your-symptom}
 
-Wenn ein Deeplink mit benutzerdefiniertem Schema (z. B. `myapp://products/123`) Ihre App öffnet, aber nicht zum gewünschten Bildschirm navigiert:
+Suchen Sie in der Tabelle das Verhalten, das Sie beobachten, und folgen Sie dann den Schritten des entsprechenden Abschnitts. Wenn Sie nicht sicher sind, welcher Abschnitt zutrifft, verwenden Sie den [Standard-Untersuchungspfad](#standard-investigation-path).
+
+| Symptom | Gehe zu |
+| --- | --- |
+| Deeplink mit benutzerdefiniertem Schema öffnet die App, aber den falschen Bildschirm | [Deeplink mit benutzerdefiniertem Schema öffnet nicht die richtige Ansicht](#custom-scheme-deep-link-does-not-open-the-correct-view) |
+| Universal Link öffnet Safari statt der App | [Universal Link öffnet Safari statt der App](#universal-link-opens-in-safari-instead-of-the-app) |
+| E-Mail-Link öffnet die App nicht | [Deeplink aus E-Mail öffnet die App nicht](#deep-link-from-email-does-not-open-the-app) |
+| Funktioniert über Push, aber nicht über In-App-Nachricht (oder umgekehrt) | [Deeplink funktioniert über Push, aber nicht über In-App-Nachricht](#deep-link-works-from-push-but-not-from-in-app-message) |
+| „Open Web URL Inside App“ zeigt leere WebView | [„Open Web URL Inside App“ zeigt eine leere oder fehlerhafte Seite](#open-web-url-inside-app-shows-a-blank-or-broken-page) |
+| Branch-Link öffnet die App nicht oder leitet nicht korrekt weiter | [Fehlerbehebung für Branch mit Braze](#branch) |
+| Deeplink schlägt ohne erkennbare Ursache fehl | [Allgemeine Debugging-Tipps](#general-debugging-tips) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deeplinking-Symptom" }
+
+## Standardmäßiger Untersuchungspfad {#standard-investigation-path}
+
+Verwenden Sie diesen Workflow für jeden Deeplinking-Vorfall. Beginnen Sie bei Schritt 1.
+
+1. Testen Sie den Link außerhalb von Braze. Für Custom Schemes führen Sie `xcrun simctl openurl booted "<URL>"` im Terminal aus (zum Beispiel `xcrun simctl openurl booted "myapp://products/123"`). Für Universal Links fügen Sie die URL in die Notizen-App auf einem physischen Gerät ein und tippen Sie darauf.
+2. [Aktivieren Sie das ausführliche Logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) und reproduzieren Sie das Problem. Suchen Sie nach `Opening '<URL>':` Einträgen mit `channel`, `useWebView` und `isUniversalLink`.
+3. Validieren Sie bei Universal Links Ihre AASA-Datei und das Associated-Domains-Entitlement.
+4. Bestätigen Sie bei E-Mail-Links, dass die Klick-Tracking-Domain eine gültige AASA-Datei hostet.
+5. Wenn Sie `BrazeDelegate.braze(_:shouldOpenURL:)` implementieren, stellen Sie sicher, dass Links kanalübergreifend konsistent verarbeitet werden.
+6. Wenn das Problem weiterhin besteht, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/braze_support) mit ausführlichen Logs und der Link-URL.
+
+## Deeplink mit benutzerdefiniertem Schema öffnet nicht die richtige Ansicht {#custom-scheme-deep-link-does-not-open-the-correct-view}
+
+**Symptom:** Ein Deeplink mit benutzerdefiniertem Schema (zum Beispiel `myapp://products/123`) öffnet Ihre App, navigiert aber nicht zum gewünschten Bildschirm.
 
 1. **Überprüfen Sie, ob das Schema registriert ist.** Prüfen Sie in Xcode, ob Ihr Schema unter `CFBundleURLTypes` in `Info.plist` aufgeführt ist.
-2. **Überprüfen Sie Ihren Handler.** Setzen Sie einen Haltepunkt in `application(_:open:options:)`, um zu bestätigen, dass die Methode aufgerufen wird, und inspizieren Sie den `url`-Parameter.
+2. **Überprüfen Sie Ihren Handler.** Setzen Sie einen Breakpoint in `application(_:open:options:)`, um zu bestätigen, dass die Methode aufgerufen wird, und inspizieren Sie den `url`-Parameter.
 3. **Testen Sie den Link unabhängig.** Führen Sie den folgenden Befehl im Terminal aus, um den Deeplink außerhalb von Braze zu testen:
    ```bash
    xcrun simctl openurl booted "myapp://products/123"
    ```
-   Wenn der Link hier nicht funktioniert, liegt das Problem in der URL-Verarbeitung Ihrer App – nicht bei Braze.
-4. **Überprüfen Sie das URL-Format.** Stellen Sie sicher, dass die URL in Ihrer Campaign mit den Erwartungen Ihres Handlers übereinstimmt. Häufige Fehler sind fehlende Pfadkomponenten oder falsche Groß-/Kleinschreibung.
+   Wenn der Link hier nicht funktioniert, liegt das Problem in der URL-Verarbeitung Ihrer App – nicht in Braze.
+4. **Überprüfen Sie das URL-Format.** Stellen Sie sicher, dass die URL in Ihrer Campaign mit dem übereinstimmt, was Ihr Handler erwartet. Häufige Fehler sind fehlende Pfadkomponenten oder falsche Groß-/Kleinschreibung.
 
 ## Universal Link öffnet in Safari statt in der App {#universal-link-opens-in-safari-instead-of-the-app}
 
-Wenn ein Universal Link (z. B. `https://myapp.com/products/123`) in Safari statt in Ihrer App geöffnet wird:
+**Symptom:** Ein Universal Link (z. B. `https://myapp.com/products/123`) öffnet in Safari statt in Ihrer App.
 
 ### Überprüfen Sie die Associated-Domains-Berechtigung {#verify-the-associated-domains-entitlement}
 
@@ -90,37 +116,41 @@ Die Weiterleitung von Universal Links erfordert Zugriff auf die Anwendungsberech
 
 Wenn Sie einen Universal Link lange gedrückt halten und **Öffnen** auswählen, kann iOS die Universal-Link-Zuordnung für diese Domain „aufheben“. Dies ist ein bekanntes iOS-Verhalten. Um es zurückzusetzen, drücken Sie erneut lange auf den Link und wählen Sie **In [App-Name] öffnen**.
 
-## Deeplink aus E-Mail öffnet die App nicht {#deep-link-from-email-doesnt-open-the-app}
+## Deeplink aus E-Mail öffnet die App nicht {#deep-link-from-email-does-not-open-the-app}
 
-E-Mail-Links werden durch das Klick-Tracking-System Ihres ESP geleitet, das Links in eine Tracking-Domain einbettet (z. B. `https://click.yourdomain.com/...`). Damit Universal Links aus E-Mails funktionieren, müssen Sie die AASA-Datei auf Ihrer Klick-Tracking-Domain konfigurieren – nicht nur auf Ihrer primären Domain.
+**Symptom:** Ein Link in einer E-Mail öffnet Ihre App nicht über den Universal Link.
 
-### Überprüfen Sie die AASA der Klick-Tracking-Domain {#verify-click-tracking-domain-aasa}
+E-Mail-Links durchlaufen das Klick-Tracking-System Ihres ESP, das Links in eine Tracking-Domain einbettet (zum Beispiel `https://click.yourdomain.com/...`). Damit Universal Links aus E-Mails funktionieren, müssen Sie die AASA-Datei auf Ihrer Klick-Tracking-Domain konfigurieren – nicht nur auf Ihrer primären Domain.
 
-1. Identifizieren Sie Ihre Klick-Tracking-Domain in Ihren ESP-Einstellungen (SendGrid, SparkPost oder Amazon SES).
+### AASA der Klick-Tracking-Domain überprüfen {#verify-click-tracking-domain-aasa}
+
+1. Identifizieren Sie Ihre Klick-Tracking-Domain in den Einstellungen Ihres ESP (SendGrid, SparkPost oder Amazon SES).
 2. Hosten Sie die AASA-Datei unter `https://your-click-tracking-domain/.well-known/apple-app-site-association`.
-3. Stellen Sie sicher, dass die AASA-Datei auf der Klick-Tracking-Domain dieselbe `appID` und gültige Pfadmuster enthält.
+3. Bestätigen Sie, dass die AASA-Datei auf der Klick-Tracking-Domain dieselbe `appID` und gültige Pfadmuster enthält.
 
-Für ESP-spezifische Einrichtungsanweisungen siehe [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
+ESP-spezifische Einrichtungsanweisungen finden Sie unter [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
 
-### Überprüfen Sie die Weiterleitungskette {#check-the-redirect-chain}
+### Weiterleitungskette prüfen {#check-the-redirect-chain}
 
-Einige ESPs führen eine Weiterleitung von der Klick-Tracking-URL zu Ihrer endgültigen URL durch. Universal Links funktionieren nur, wenn iOS die *ursprüngliche* Domain (die Klick-Tracking-Domain) als mit Ihrer App verknüpft erkennt. Wenn die Weiterleitung die AASA-Prüfung umgeht, wird der Link in Safari geöffnet.
+Einige ESPs führen eine Weiterleitung von der Klick-Tracking-URL zu Ihrer endgültigen URL durch. Universal Links funktionieren nur, wenn iOS die *initiale* Domain (die Klick-Tracking-Domain) als mit Ihrer App verknüpft erkennt. Wenn die Weiterleitung die AASA-Prüfung umgeht, wird der Link in Safari geöffnet.
 
-Zum Testen:
+So testen Sie:
 
 1. Senden Sie sich selbst eine Test-E-Mail.
-2. Halten Sie den Link gedrückt und inspizieren Sie die URL – dies ist die Klick-Tracking-URL.
+2. Halten Sie den Link lange gedrückt und prüfen Sie die URL – dies ist die Klick-Tracking-URL.
 3. Überprüfen Sie, ob diese Domain eine gültige AASA-Datei hat.
 
-## Deeplink funktioniert über Push, aber nicht über In-App-Nachrichten (oder umgekehrt) {#deep-link-works-from-push-but-not-from-in-app-messages-or-vice-versa}
+## Deeplink funktioniert über Push, aber nicht über In-App-Nachricht (oder umgekehrt) {#deep-link-works-from-push-but-not-from-in-app-message}
 
-### Überprüfen Sie den BrazeDelegate {#check-the-brazedelegate}
+**Symptom:** Derselbe Deeplink funktioniert über einen Braze-Kanal, aber nicht über einen anderen.
 
-Wenn Sie `BrazeDelegate.braze(_:shouldOpenURL:)` implementieren, stellen Sie sicher, dass Links kanalübergreifend konsistent verarbeitet werden. Der `context`-Parameter enthält den Quellkanal. Prüfen Sie die bedingte Logik, die möglicherweise versehentlich Links aus bestimmten Kanälen herausfiltert.
+### BrazeDelegate überprüfen {#check-the-brazedelegate}
 
-### Aktivieren Sie die ausführliche Protokollierung {#enable-verbose-logging}
+Wenn Sie `BrazeDelegate.braze(_:shouldOpenURL:)` implementieren, stellen Sie sicher, dass Links kanalübergreifend einheitlich behandelt werden. Der Parameter `context` enthält den Quellkanal. Achten Sie auf bedingte Logik, die Links aus bestimmten Kanälen versehentlich herausfiltern könnte.
 
-[Aktivieren Sie die ausführliche Protokollierung]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) und reproduzieren Sie das Problem. Suchen Sie nach dem `Opening`-Protokolleintrag:
+### Ausführliches Logging aktivieren {#enable-verbose-logging}
+
+[Aktivieren Sie ausführliches Logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) und reproduzieren Sie das Problem. Suchen Sie nach dem `Opening`-Logeintrag:
 
 ```
 Opening '<URL>':
@@ -129,15 +159,15 @@ Opening '<URL>':
 - isUniversalLink: <true/false>
 ```
 
-Vergleichen Sie die Protokollausgabe des funktionierenden Kanals mit der des nicht funktionierenden Kanals. Unterschiede bei `useWebView` oder `isUniversalLink` zeigen, wie das SDK den Link unterschiedlich interpretiert.
+Vergleichen Sie die Logausgabe des funktionierenden Kanals mit der des nicht funktionierenden Kanals. Unterschiede bei `useWebView` oder `isUniversalLink` zeigen, wie das SDK den Link unterschiedlich interpretiert.
 
-### Überprüfen Sie angepasste Anzeige-Delegates {#check-for-custom-display-delegates}
+### Angepasste Display-Delegates überprüfen {#check-for-custom-display-delegates}
 
-Wenn Sie einen angepassten In-App-Nachrichten-Anzeige-Delegaten oder einen Content-Card-Klick-Handler verwenden, stellen Sie sicher, dass dieser Link-Ereignisse korrekt an das Braze SDK zur Verarbeitung weiterleitet.
+Wenn Sie einen angepassten In-App-Nachrichten-Display-Delegate oder Content-Card-Klick-Handler verwenden, stellen Sie sicher, dass Link-Ereignisse korrekt an das Braze SDK zur Verarbeitung weitergeleitet werden.
 
 ## „Web-URL in App öffnen“ zeigt eine leere oder fehlerhafte Seite {#open-web-url-inside-app-shows-a-blank-or-broken-page}
 
-Wenn die Auswahl von **Open Web URL Inside App** zu einer leeren oder fehlerhaften WebView führt:
+**Symptom:** Die Auswahl von **Open Web URL Inside App** führt zu einer leeren oder fehlerhaften WebView.
 
 1. **Überprüfen Sie, ob die URL HTTPS verwendet.** Die WebView des SDK erfordert ATS-konforme URLs. HTTP-Links schlagen ohne Fehlermeldung fehl.
 2. **Überprüfen Sie die Content-Security-Policy-Header.** Wenn die Zielwebseite `X-Frame-Options: DENY` oder eine restriktive `Content-Security-Policy` setzt, wird die Darstellung in einer WebView blockiert.
@@ -178,8 +208,6 @@ Stellen Sie sicher, dass die Branch-Domain in Ihrem `BrazeDelegate` mit Ihrer ta
 
 Um festzustellen, wo der Link in der Kette unterbrochen wird:
 
-1. Aktivieren Sie die [ausführliche Protokollierung von Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) – suchen Sie nach `Opening '<URL>':`-Einträgen, um zu überprüfen, ob das SDK den Link erhalten hat.
-2. Aktivieren Sie den [Branch-Testmodus](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking) – überprüfen Sie das Branch-Dashboard auf Link-Klick-Ereignisse.
 1. Aktivieren Sie die [ausführliche Protokollierung von Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Suchen Sie nach `Opening '<URL>':`-Einträgen, um sicherzustellen, dass das SDK den Link erhalten hat.
 2. Aktivieren Sie den [Branch-Testmodus](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking). Überprüfen Sie das Branch-Dashboard auf Link-Klick-Ereignisse.
 3. Wenn Braze den Link protokolliert, Branch jedoch keinen Klick erkennt, liegt das Problem wahrscheinlich an der `BrazeDelegate`-Weiterleitungslogik.
@@ -201,29 +229,29 @@ Testen Sie den Branch-Link außerhalb von Braze, um das Problem einzugrenzen:
 
 ## Allgemeine Tipps zur Fehlerbehebung {#general-debugging-tips}
 
-### Verwenden Sie die ausführliche Protokollierung {#use-verbose-logging}
+### Ausführliches Logging verwenden {#use-verbose-logging}
 
-[Aktivieren Sie die ausführliche Protokollierung]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), um genau zu sehen, wie das SDK Links verarbeitet. Wichtige Einträge, auf die Sie achten sollten:
+[Aktivieren Sie ausführliches Logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), um genau zu sehen, wie das SDK Links verarbeitet. Wichtige Einträge, auf die Sie achten sollten:
 
-| Protokolleintrag | Bedeutung |
+| Log-Eintrag | Bedeutung |
 |---|---|
 | `Opening '<URL>': - channel: notification` | Das SDK verarbeitet einen Link aus einer Push-Benachrichtigung |
 | `Opening '<URL>': - channel: inAppMessage` | Das SDK verarbeitet einen Link aus einer In-App-Nachricht |
-| `Opening '<URL>': - channel: contentCard` | Das SDK verarbeitet einen Link aus einer Content Card |
+| `Opening '<URL>': - channel: contentCard` | Das SDK verarbeitet einen Link aus einer Content-Card |
 | `useWebView: true` | Das SDK öffnet die URL in der In-App-WebView |
 | `isUniversalLink: true` | Das SDK hat die URL als Universal Link identifiziert |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Ausführliche Protokollierung verwenden" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ausführliches Logging verwenden" }
 
-Weitere Informationen zum Lesen dieser Protokolle finden Sie unter [Ausführliche Protokolle lesen]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging).
+Weitere Informationen zum Lesen dieser Logs finden Sie unter [Ausführliche Logs lesen]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging).
 
-### Testen Sie Links isoliert {#test-links-in-isolation}
+### Links isoliert testen {#test-links-in-isolation}
 
 Bevor Sie über Braze testen, überprüfen Sie, ob Ihr Deeplink oder Universal Link eigenständig funktioniert:
 
-- **Benutzerdefiniertes Schema**: Führen Sie `xcrun simctl openurl booted "myapp://path"` im Terminal aus.
-- **Universal Link**: Fügen Sie die URL in die Notizen-App auf einem physischen Gerät ein und tippen Sie darauf. Testen Sie nicht über die Adressleiste von Safari, da iOS eingegebene URLs anders behandelt als angetippte Links.
+- **Custom Scheme**: Führen Sie `xcrun simctl openurl booted "myapp://path"` im Terminal aus.
+- **Universal Link**: Fügen Sie die URL in die Notizen-App auf einem physischen Gerät ein und tippen Sie darauf. Testen Sie nicht über die Safari-Adressleiste, da iOS eingetippte URLs anders behandelt als angetippte Links.
 - **Branch-Link**: Öffnen Sie den Branch-Link über die Notizen-App auf einem Gerät.
 
-### Testen Sie auf einem physischen Gerät {#test-on-a-physical-device}
+### Auf einem physischen Gerät testen {#test-on-a-physical-device}
 
-Universal Links werden im iOS-Simulator nur eingeschränkt unterstützt. Testen Sie stets auf einem physischen Gerät, um genaue Ergebnisse zu erzielen. Falls Sie in einem Simulator testen müssen, fügen Sie die `.entitlements`-Datei zur Build-Phase **Copy Bundle Resources** hinzu.
+Universal Links werden im iOS-Simulator nur eingeschränkt unterstützt. Testen Sie für zuverlässige Ergebnisse immer auf einem physischen Gerät. Falls Sie im Simulator testen müssen, fügen Sie die `.entitlements`-Datei zur Build-Phase **Copy Bundle Resources** hinzu.

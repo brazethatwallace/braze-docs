@@ -569,7 +569,7 @@ There is a shovel here.
 
 ### ヨーロッパの数値表記規則に合わせて通貨をフォーマットする {#european-currency-format}
 
-小数点にカンマ、千の位にピリオドを使用するロケール（ドイツやイタリアなど）では、[`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter)フィルターと[`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters)フィルターを`replace`と組み合わせて区切り文字を入れ替えます。ピリオドとカンマが同じパスで入れ替わらないように、`#`を一時的なプレースホルダーとして使用します。
+小数点にカンマ、千の位にピリオドを使用するロケール（ドイツやイタリアなど）では、[`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filters)フィルターと[`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters)フィルターを`replace`と組み合わせて区切り文字を入れ替えます。ピリオドとカンマが同じパスで入れ替わらないように、`#`を一時的なプレースホルダーとして使用します。
 
 {% raw %}
 ```liquid
@@ -860,7 +860,7 @@ Miscellaneous
 {% endapitags %}
 
 - [マーケティングメールをブロックしている顧客へのメール送信を避ける](#misc-avoid-blocked-emails)
-- [顧客のサブスクリプション状態を使用してメッセージ内のコンテンツをパーソナライズする](#misc-personalize-content)
+- [顧客の購読状態を使用してメッセージ内のコンテンツをパーソナライズする](#misc-personalize-content)
 - [文字列内のすべての単語の最初の文字を大文字にする](#misc-capitalize-words-string)
 - [カスタム属性の値を配列と比較する](#misc-compare-array)
 - [今後のイベントリマインダーを作成する](#misc-event-reminder)
@@ -895,12 +895,12 @@ Your message here!
 **説明:** ここでは、ブロック済みメールのContent Blockを参照して、潜在的な受信者のメールがこのリストに含まれているかどうかを確認します。メールが見つかった場合、メッセージは送信されません。
 
 {% alert note %}
-Content Blockのサイズ制限は5 MBです。
+Content Blocksのサイズ制限は5 MBです。
 {% endalert %}
 
-### 顧客のサブスクリプション状態を使用してメッセージ内のコンテンツをパーソナライズする {#misc-personalize-content}
+### 顧客の購読状態を使用してメッセージ内のコンテンツをパーソナライズする {#misc-personalize-content}
 
-このユースケースでは、顧客のサブスクリプション状態を取得してパーソナライズされたコンテンツを送信します。特定のサブスクリプショングループに購読しているユーザーには、メールサブスクリプショングループ向けの限定メッセージが届きます。
+このユースケースでは、顧客の購読状態を取得してパーソナライズされたコンテンツを送信します。特定の購読グループに購読しているユーザーには、メール購読グループ向けの限定メッセージが届きます。
 
 {% raw %}
 ```liquid
@@ -952,7 +952,7 @@ Today's offer from {{store}}
 
 このユースケースでは、カスタムイベントに基づいて今後のリマインダーを設定できます。このシナリオ例では、26日以上先のポリシー更新日に対してリマインダーを設定し、ポリシー更新日の26日前、13日前、7日前、または2日前にリマインダーを送信します。
 
-このユースケースでは、以下を[Webhookのキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)またはキャンバスステップの本文に配置する必要があります。
+このユースケースでは、以下を[Webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)またはキャンバスステップの本文に配置する必要があります。
 
 {% raw %}
 ```liquid

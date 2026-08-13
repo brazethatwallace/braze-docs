@@ -33,9 +33,7 @@ Duplicates are expected, but all events have a unique identifier, the ID column.
 
 ### Non-breaking changes
 
-Non-breaking changes can happen at any time and generally provide additional functionality. Examples of non-breaking changes:
-- Adding a new table or view
-- Adding a column to an existing table or view
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 Because new columns are considered non-breaking, Braze strongly recommends explicitly listing the columns of interest in each query instead of using `SELECT *` queries. Alternatively, you might want to create views that explicitly name columns and then query those views instead of the tables directly.
@@ -43,10 +41,7 @@ Because new columns are considered non-breaking, Braze strongly recommends expli
 
 ### Breaking changes
 
-When possible, breaking changes will be preceded by an announcement and a migration period. Examples of breaking changes include:
-- Removing a table or view
-- Removing a column from an existing table or view
-- Changing the type or nullability of an existing column
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ## When SNAPSHOTS and CHANGELOGS tables are updated
 

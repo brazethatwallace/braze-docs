@@ -6,7 +6,7 @@ page_order: 4
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Editar elemento del catálogo de Braze."
+description: "En este artículo se describen los detalles del endpoint Editar elemento del catálogo de Braze."
 
 ---
 {% api %}
@@ -15,13 +15,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /catalogs/{catalog_name}/items/{item_id}
 {% endapimethod %}
 
-> Usa este punto de conexión para editar un elemento existente en tu catálogo.
+> Usa este endpoint para editar un elemento existente en tu catálogo.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e35976ae-ff77-42b7-b691-a883c980d8c0 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.update_item`.
+Para usar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `catalogs.update_item`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -75,12 +75,12 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 
 {% alert note %}
 - El campo `Location` utiliza el tipo de datos `geo`, que espera un array con el formato `[longitude, latitude]`.
-- Los operadores `$add` y `$remove` solo son aplicables a campos de tipo array, y solo son compatibles con los puntos de conexión PATCH.
+- Los operadores `$add` y `$remove` solo son aplicables a campos de tipo array, y solo son compatibles con los endpoints PATCH.
 {% endalert %}
 
 ## Respuesta {#response}
 
-Existen tres respuestas de código de estado para este punto de conexión: `200`, `400` y `404`.
+Existen tres respuestas de código de estado para este endpoint: `200`, `400` y `404`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 

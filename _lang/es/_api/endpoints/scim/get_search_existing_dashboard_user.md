@@ -1,21 +1,21 @@
 ---
-nav_title: "GET: Buscar cuenta de usuario existente en el dashboard por correo electrónico"
-article_title: "GET: Buscar cuenta de usuario existente en el dashboard por correo electrónico"
+nav_title: "GET: Buscar cuenta de usuario existente en el panel por correo electrónico"
+article_title: "GET: Buscar cuenta de usuario existente en el panel por correo electrónico"
 alias: /get_search_existing_dashboard_user_email/
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión de Braze para buscar una cuenta de usuario existente en el dashboard por correo electrónico."
+description: "En este artículo se describen los detalles del endpoint de Braze para buscar una cuenta de usuario existente en el panel por correo electrónico."
 ---
 
 {% api %}
-# Buscar cuenta de usuario existente en el dashboard por correo electrónico {#search-existing-dashboard-user-account-by-email}
+# Buscar cuenta de usuario existente en el panel por correo electrónico {#search-existing-dashboard-user-account-by-email}
 {% apimethod get %}
 scim/v2/Users?filter=userName%20eq%20"user%40test.com"
 {% endapimethod %}
 
-> Usa este punto de conexión para buscar una cuenta de usuario del dashboard existente especificando su correo electrónico en el parámetro de consulta del filtro.
+> Usa este endpoint para buscar una cuenta de usuario del panel existente especificando su correo electrónico en el parámetro de consulta del filtro.
 
 Ten en cuenta que cuando el parámetro de consulta está codificado en URL se leerá así:
 
@@ -23,9 +23,11 @@ Ten en cuenta que cuando el parámetro de consulta está codificado en URL se le
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5037d810-b822-4c54-bb51-f30470a42a95 {% endapiref %}
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' %}
+
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás un token SCIM. Utilizarás el origen de tu servicio como encabezado `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning).
+Para usar este endpoint, necesitarás un token SCIM. Utilizarás el Origin de tu servicio como encabezado `X-Request-Origin`. Para más información, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Límite de velocidad {#rate-limit}
 

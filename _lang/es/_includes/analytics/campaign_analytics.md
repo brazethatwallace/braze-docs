@@ -78,14 +78,14 @@ En Canvas, verás el rendimiento de los mensajes dentro de la aplicación mapead
 
 #### Estimated Audience y Current Audience {#estimated-audience-and-current-audience}
 
-Dependiendo del tamaño de tu espacio de trabajo, el panel **Campaign Details** puede etiquetar las estadísticas de audiencia como **Estimated Audience** o **Current Audience**.
+Dependiendo del número total de usuarios en tu espacio de trabajo, el panel **Campaign Details** etiqueta las estadísticas de audiencia como **Current Audience** o **Estimated Audience**.
 
 La siguiente tabla resume lo que significa cada etiqueta.
 
 | Etiqueta del pie | Cuándo se utiliza |
 | --- | --- |
-| **Estimated Audience** | Braze no ejecuta un recuento completo de la base de datos de forma predeterminada. El tamaño de la audiencia se estima a partir de una muestra y se extrapola, de forma similar al rango de **Reachable users** en el generador de segmentos. Se esperan márgenes de error, especialmente para espacios de trabajo grandes o segmentos pequeños como proporción del espacio de trabajo. |
-| **Current Audience** | Braze puede calcular la estadística predeterminada con un escaneo completo de los perfiles del espacio de trabajo, por lo que el tamaño de audiencia mostrado es un recuento actual y sin muestreo (aunque sigue sujeto a la accesibilidad del canal, las reglas de suscripción y otras opciones de segmentación). |
+| **Current Audience** | El espacio de trabajo tiene 50 000 usuarios o menos. Braze ejecuta un escaneo completo de los perfiles del espacio de trabajo para la estadística predeterminada, por lo que el tamaño de audiencia mostrado es un recuento actual y sin muestreo (aunque sigue sujeto a la accesibilidad del canal, las reglas de suscripción y otras opciones de segmentación). |
+| **Estimated Audience** | El espacio de trabajo tiene más de 50 000 usuarios. Braze no ejecuta un recuento completo de la base de datos de forma predeterminada. El tamaño de la audiencia se estima a partir de una muestra y se extrapola, de forma similar al rango de **Reachable users** en el generador de segmentos. Se esperan márgenes de error, especialmente para segmentos pequeños como proporción del espacio de trabajo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience y Current Audience" }
 
 Para más detalles sobre el comportamiento de muestreo, **Calculate exact statistics** y la segmentación de **Reachable users**, consulta [Medir el tamaño del segmento]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
@@ -186,6 +186,13 @@ El panel **WhatsApp Performance** muestra el rendimiento de tu mensaje en varias
 
 ![Panel de rendimiento de WhatsApp que incluye una tabla de métricas para la variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Créditos frente a recuentos de envíos {#credits-versus-send-counts}
+
+Los recuentos de envíos de WhatsApp en los análisis de campaña reflejan los intentos de entrega. Los créditos consumidos pueden diferir cuando Meta factura por categoría de mensaje (marketing, utilidad, autenticación, servicio).
+
+- Los mensajes de respuesta compuestos en Braze no consumen créditos de WhatsApp de Braze.
+- Utiliza **Analytics** > **Daily Stats** para el volumen de envío orientativo. Los desgloses de créditos por Campaign o Canvas no están disponibles.
+
 {% endif %}
 
 Si quieres simplificar la vista, haz clic en <i class="fas fa-plus"></i> **Add/Remove Columns** y desmarca las métricas que desees. De forma predeterminada, se muestran todas las métricas.
@@ -203,10 +210,18 @@ Los análisis de campaña muestran datos de clics para un máximo de 100 URL ún
 En esta vista, puedes usar la opción **Show Heatmap** para obtener una vista visual de tu correo electrónico que muestre la frecuencia general y la ubicación de los clics dentro de la duración de la campaña. En el panel **Link Table by Total Clicks**, puedes ver todos los enlaces de tu campaña de correo electrónico y ordenarlos por clics totales. Esto puede proporcionar información adicional sobre por dónde navegan tus usuarios. Para guardar una copia del mapa de calor como referencia, selecciona el botón de descarga.
 
 {% alert note %}
-Si los enlaces utilizan Liquid para URL dinámicas, las URL en las que se hizo clic pueden no coincidir lo suficiente con el enlace renderizado en el mensaje como para que el mapa de calor asocie los clics con ese enlace, por lo que esos enlaces podrían no aparecer en el mapa de calor. Utiliza los datos de clics del panel **Link Table by Total Clicks** para obtener una imagen completa.
+Si los enlaces utilizan Liquid para URL dinámicas, las URL en las que se hizo clic pueden no coincidir lo suficiente con el enlace renderizado en el mensaje como para que el mapa de calor asocie los clics con ese enlace, por lo que esos enlaces podrían no aparecer en el mapa de calor. Para atribuir los datos de clics a los enlaces con plantillas en el mapa de calor, utiliza el [aliasing de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing). Para obtener una imagen completa, utiliza los datos de clics del panel **Link Table by Total Clicks**.
 {% endalert %}
 
-![Ejemplo de la página Preview & Heatmap, que incluye una campaña por correo electrónico y un panel con ejemplos de alias de enlaces con su total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+![Ejemplo de la página Preview & Heatmap que incluye una campaña de correo electrónico y un panel con ejemplos de alias de enlaces con su total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+
+##### Enlaces solo para móvil en el mapa de calor {#mobile-only-links-in-the-heatmap}
+
+El mapa de calor solo muestra las firmas de calor de los enlaces visibles en el tamaño de vista previa seleccionado.
+
+Los enlaces que solo aparecen en el diseño para móvil están ocultos en **Desktop** (y pueden estar ocultos en **Overall**, dependiendo del ancho de la vista previa), por lo que esos clics no se muestran como firmas de calor. Esos enlaces siguen apareciendo en el panel **Link Table by Total Clicks** con sus clics totales y porcentajes.
+
+Para ver las firmas de calor de los enlaces solo para móvil, selecciona **Mobile**. La vista previa para móvil coincide con el punto de corte para móvil del editor de arrastrar y soltar (620&nbsp;px). Si el correo electrónico cambia de diseño solo a un ancho más estrecho, esos enlaces permanecen ocultos incluso en el tamaño de vista previa **Mobile**.
 
 #### Imágenes {#images}
 
@@ -364,6 +379,12 @@ Como otro ejemplo, supongamos que ves cinco _Unique Impressions_ en una campaña
 3. El SDK registró una impresión y la envió al servidor
 
 _Unique Daily Impressions_ se refiere a los banners que realmente se vieron.
+
+#### Discrepancias entre grupos de control y variantes {#discrepancies-between-control-groups-and-variants}
+
+Cuando una campaña de banners utiliza un grupo de control, las impresiones del grupo de control pueden ser superiores a las impresiones de la variante, incluso cuando la división de audiencia entre los grupos es uniforme. Esta discrepancia se debe a una diferencia en cómo se registran las impresiones para los banners de control y de variante.
+
+Tanto las impresiones de control como las de variante requieren que la ubicación del banner entre en la ventana de visualización. Las impresiones de variante se registran solo cuando el banner completo es visible en la pantalla. Las impresiones de control pueden registrarse tan pronto como la ubicación entra en la ventana de visualización, antes de que el banner completo sea visible para una variante.
 
 {% elsif include.channel == "email" %}
 
@@ -593,7 +614,7 @@ Los informes sobre _Button 1 Clicks_ y _Button 2 Clicks_ solo funcionan cuando e
     </tbody>
 </table>
 
-#### Discrepancias entre grupos de control y variantes {#discrepancies-between-control-groups-and-variants}
+#### Discrepancias entre grupos de control y variantes
 
 Cuando una campaña de mensajes dentro de la aplicación tiene una división de variantes 50-50, a veces el grupo de control tendrá un porcentaje ligeramente superior al de la variante (como 51 % para el grupo de control y 49 % para la variante). Esta discrepancia se debe a una diferencia en el tiempo de renderizado; por ejemplo, cuando los mensajes de variante utilizan imágenes grandes o contenido conectado con plantillas y los usuarios se van antes de que se complete el renderizado, mientras que el grupo de control registra impresiones sin mostrar un mensaje.
 
@@ -867,6 +888,8 @@ Aquí tienes algunas métricas clave de WhatsApp que puedes ver en tus análisis
     </tbody>
 </table>
 
+Si los fallos son elevados, consulta [Investigar fallos de envío de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
+
 #### Métricas de bloqueo e informes de usuarios finales {#end-user-blocking-and-reporting-metrics}
 
 Se puede acceder a métricas adicionales a través del [panel del administrador de WhatsApp](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx), aunque es necesario [confirmar tu acceso](https://www.facebook.com/business/help/218116047387456) para acceder a toda la información disponible.
@@ -899,7 +922,7 @@ El panel **Keyword Responses** te muestra una cronología de las palabras clave 
 
 Aquí también puedes ver la distribución de la respuesta de cada categoría de palabras clave para determinar los próximos pasos para [reorientar]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns) y [crear un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment) cómodamente.
 
-![La tabla situada debajo del gráfico de líneas tiene columnas para categoría de palabras clave, distribución de respuestas y reorientación, donde se te ofrece la opción de crear un segmento con la categoría de palabras clave.]({% image_buster /assets/img/sms/keyword_segments.png %})
+![Una tabla con columnas para categoría de palabras clave, distribución de respuestas y reorientación, donde se te ofrece la opción de crear un segmento con la categoría de palabras clave.]({% image_buster /assets/img/sms/keyword_segments.png %})
 
 {% endif %}
 

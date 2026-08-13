@@ -18,7 +18,7 @@ description: "この記事では、「SDK認証キーを作成」Brazeエンド�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`sdk_authentication.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`sdk_authentication.create` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -62,19 +62,19 @@ curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_auth
 }'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 ```json
 {
   "id": "key id"
 }
 ```
 
-## 応答パラメーター {#response-parameters}
+## レスポンスパラメーター {#response-parameters}
 
 | パラメーター | データタイプ | 説明 |
 | --------- | --------- | ----------- |
 | `id` | 文字列 | 新しく作成されたSDK認証キーのID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="応答パラメーター" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="レスポンスパラメーター" }
 
 ### バリデーションルール {#validation-rules}
 

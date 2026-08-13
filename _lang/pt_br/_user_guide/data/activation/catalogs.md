@@ -40,7 +40,7 @@ guide_menu_list:
 
 ## Casos de uso de catálogos {#catalog-use-cases}
 
-Você pode importar qualquer tipo de dados para um catálogo. Normalmente, os dados são metadados sobre ofertas, como produtos, descontos, promoções, eventos e similares. Veja os casos de uso na seção a seguir para alguns exemplos de como usar esses dados para direcionar os usuários com envio de mensagens altamente relevantes.
+Você pode importar qualquer tipo de dados para um catálogo. Normalmente, os dados são metadados sobre ofertas, como produtos, descontos, promoções, eventos e similares. Veja os casos de uso a seguir para alguns exemplos de como usar esses dados para direcionar os usuários com envio de mensagens altamente relevantes.
 
 ### Varejo e e-commerce {#retail-and-ecommerce}
 
@@ -66,14 +66,14 @@ Você pode importar qualquer tipo de dados para um catálogo. Normalmente, os da
 
 Os catálogos são um recurso de armazenamento de dados. Eles contêm grandes conjuntos de dados que podem ser referenciados nas suas mensagens para personalização. Para referenciar os dados, você usará o [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) como linguagem de template. Em outras palavras, os catálogos são o armazenamento onde os dados ficam guardados, e o Liquid é a linguagem que extrai os dados relevantes desse armazenamento.
 
-Para exemplos de como usar o Liquid para extrair informações do catálogo, consulte os casos de uso adicionais em [Criar um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases).
+Para exemplos de como usar o Liquid para extrair informações do catálogo, consulte os casos de uso adicionais em [Criar um catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create#use-cases).
 
 ## Limitações de armazenamento de dados {#data-storage-limitations}
 
 O armazenamento de dados para catálogos é limitado com base no tamanho dos itens do catálogo, que pode ser diferente do tamanho dos arquivos CSV enviados por upload.
 
-Para a versão gratuita dos catálogos, a quantidade de armazenamento permitida é de até 100&nbsp;MB. Você pode ter itens ilimitados, desde que o espaço de armazenamento não exceda 100&nbsp;MB.
+Para a versão gratuita dos catálogos, a quantidade de armazenamento permitida é de até 500&nbsp;MB. Você pode ter itens ilimitados, desde que o espaço de armazenamento não exceda 500&nbsp;MB.
 
-Para o Catalogs Pro, as opções de tamanho de armazenamento são: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB ou 50&nbsp;GB. Note que o armazenamento da versão gratuita (100&nbsp;MB) está incluído em cada um desses planos.
+Para o Catalogs Pro, as opções de tamanho de armazenamento são: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB ou 50&nbsp;GB. Note que o armazenamento da versão gratuita (500&nbsp;MB) está incluído em cada um desses planos.
 
 Se você precisar fazer upgrade do armazenamento do seu catálogo, entre em contato com o gerente de conta da Braze. Para detalhes do plano e notas sobre direitos, consulte [Armazenamento de catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/create#tiers).

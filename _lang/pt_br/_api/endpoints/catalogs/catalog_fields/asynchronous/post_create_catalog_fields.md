@@ -19,24 +19,24 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Criar c
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `catalogs.create_fields`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.create_fields`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog fields' %}
 
 ## Parâmetros de caminho {#path-parameters}
 
-| Parâmetro      | Obrigatória | Tipo de dados | Descrição          |
+| Parâmetro      | Obrigatório | Tipo de dados | Descrição          |
 | -------------- | -------- | --------- | -------------------- |
-| `catalog_name` | Obrigatória | String    | Nome do catálogo. |
+| `catalog_name` | Obrigatório | String    | Nome do catálogo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição                                                                                                  |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição                                                                                                  |
 | --------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------ |
-| `fields`  | Obrigatória | Vetor     | Um vetor que contém objetos de campo. Os objetos de campos devem conter o nome e o tipo dos novos campos. |
+| `fields`  | Obrigatório | Array     | Um array que contém objetos de campo. Os objetos de campos devem conter o nome e o tipo dos novos campos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
@@ -72,7 +72,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 ```
 
 {% alert note %}
-Você deve fornecer os valores do campo de geolocalização como um vetor `[longitude, latitude]` — por exemplo, `[-73.988103, 40.779109]`. A latitude deve estar entre -90 e 90; a longitude deve estar entre -180 e 180.
+Você deve fornecer os valores do campo de geolocalização como um array `[longitude, latitude]` — por exemplo, `[-73.988103, 40.779109]`. A latitude deve estar entre -90 e 90; a longitude deve estar entre -180 e 180.
 {% endalert %}
 
 ## Resposta {#response}

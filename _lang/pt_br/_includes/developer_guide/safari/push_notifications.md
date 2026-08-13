@@ -1,6 +1,6 @@
 {% multi_lang_include developer_guide/prerequisites/web.md %} Você também precisará [configurar notificações por push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web) para o Web SDK. Observe que você só pode enviar notificações por push para usuários de iOS e iPadOS que estão usando [Safari v16.4](https://developer.apple.com/documentation/safari-release-notes/safari-16_4-release-notes) ou posterior.
 
-## Configurando push do Safari para dispositivos móveis
+## Configurando push do Safari para dispositivos móveis {#setting-up-safari-push-for-mobile}
 
 ### Etapa 1: Criar um arquivo de manifesto {#manifest}
 
@@ -8,7 +8,7 @@ Um [Manifesto de Aplicativo Web](https://developer.mozilla.org/en-US/docs/Web/Ma
 
 Por exemplo, é possível definir a cor do tema de fundo e o ícone que o [App Switcher](https://support.apple.com/en-us/HT202070) usa, se ele é renderizado em tela inteira para se assemelhar a um aplicativo nativo ou se o aplicativo deve ser aberto no modo paisagem ou retrato.
 
-Crie um novo arquivo `manifest.json` no diretório raiz do seu site, com os seguintes campos obrigatórios. 
+Crie um novo arquivo `manifest.json` no diretório raiz do seu site, com os seguintes campos obrigatórios.
 
 ```json
 {
@@ -22,11 +22,11 @@ Crie um novo arquivo `manifest.json` no diretório raiz do seu site, com os segu
 }
 ```
 
-A lista completa de campos suportados pode ser encontrada [aqui](https://developer.mozilla.org/en-US/docs/Web/Manifest).
+A lista completa de campos suportados pode ser encontrada na [documentação de Manifesto de Aplicativo Web do MDN](https://developer.mozilla.org/en-US/docs/Web/Manifest).
 
 ### Etapa 2: Vincular o arquivo de manifesto {#manifest-link}
 
-Adicione a seguinte tag `<link>` ao elemento `<head>` de seu site, apontando para o local onde o arquivo de manifesto está hospedado.
+Adicione a seguinte tag `<link>` ao elemento `<head>` do seu site, apontando para o local onde o arquivo de manifesto está hospedado.
 
 ```html
 <link rel="manifest" href="/manifest.json" />
@@ -34,7 +34,7 @@ Adicione a seguinte tag `<link>` ao elemento `<head>` de seu site, apontando par
 
 ### Etapa 3: Adicionar um service worker {#service-worker}
 
-Seu site precisa ter um arquivo de service worker que importe a biblioteca de service worker da Braze, conforme descrito em nosso [guia de integração de push para web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration/#step-1-configure-your-sites-service-worker).
+Seu site precisa ter um arquivo de service worker que importe a biblioteca de service worker da Braze, conforme descrito em nosso [guia de integração de push para web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration#step-1-configure-your-sites-service-worker).
 
 ### Etapa 4: Adicionar à tela inicial {#add-to-homescreen}
 
@@ -42,14 +42,14 @@ Navegadores populares (como Safari, Chrome, FireFox e Edge) suportam notificaç�
 
 ![Um iPhone mostrando opções para marcar um site como favorito e salvá-lo na tela inicial]({% image_buster /assets/img/push_implementation_guide/add-to-homescreen.png %}){: style="max-width:40%"}
 
-### Etapa 5: Mostrar o prompt push nativo {#push-prompt}
-Depois que o app foi adicionado à sua tela inicial, você pode agora solicitar permissão para push quando o usuário realizar uma ação (como clicar em um botão). Isso pode ser feito usando o método [`requestPushPermission`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestpushpermission) ou com uma [mensagem no app sem código push primer]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).
+### Etapa 5: Mostrar o prompt de push nativo {#push-prompt}
+Depois que o app foi adicionado à sua tela inicial, você pode solicitar permissão para push quando o usuário realizar uma ação (como clicar em um botão). Isso pode ser feito usando o método [`requestPushPermission`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestpushpermission) ou com uma [mensagem no app de push primer sem código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages).
 
 {% alert note %}
-Depois de aceitar ou recusar o aviso, você precisa excluir e reinstalar o site na sua tela inicial para poder mostrar o aviso novamente.
+Depois de aceitar ou recusar o prompt, você precisa excluir e reinstalar o site na sua tela inicial para poder mostrar o prompt novamente.
 {% endalert %}
 
-![Uma notificação por push pedindo para "permitir" ou "não permitir" as notificações]({% image_buster /assets/img/push_implementation_guide/safari-mobile-push-prompt.png %}){: style="max-width:40%"}
+![Um prompt de push pedindo para "permitir" ou "não permitir" as notificações]({% image_buster /assets/img/push_implementation_guide/safari-mobile-push-prompt.png %}){: style="max-width:40%"}
 
 Por exemplo:
 
@@ -65,6 +65,6 @@ button.onclick = function(){
 };
 ```
 
-## Próximas etapas
+## Próximas etapas {#next-steps}
 
-Em seguida, envie a si mesmo uma [mensagem de teste]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/) para validar a integração. Depois que sua integração estiver concluída, você poderá usar nossas [mensagens push primárias sem código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/) para otimizar suas taxas de aceitação push.
+Em seguida, envie a si mesmo uma [mensagem de teste]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) para validar a integração. Depois que sua integração estiver concluída, você poderá usar nossas [mensagens de push primer sem código]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages) para otimizar suas taxas de aceitação de push.

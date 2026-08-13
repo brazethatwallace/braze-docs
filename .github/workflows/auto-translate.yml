@@ -77,6 +77,14 @@ on:
         required: false
         type: string
         default: ""
+      english_base_ref:
+        description: >
+          Optional git ref for the previous English version (incremental H2
+          diff). Use with workflow_dispatch `files` for targeted recovery.
+          `since_commit` sets this automatically to the same SHA.
+        required: false
+        type: string
+        default: ""
       orphan_cleanup_only:
         description: >
           If true, skip translation: run repo-wide orphan deletion +
@@ -115,6 +123,7 @@ jobs:
       count: ${{ steps.changes.outputs.count }}
       languages: ${{ steps.changes.outputs.languages }}
       matrix_include: ${{ steps.changes.outputs.matrix_include }}
+      english_base_ref: ${{ steps.changes.outputs.english_base_ref }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -132,6 +141,7 @@ jobs:
         id: changes
         run: |
           LANGS=""
+          ENGLISH_BASE_REF=""
           if [ "${{ inputs.orphan_cleanup_only }}" = "true" ]; then
             if [ -n "${{ inputs.files }}" ] || [ -n "${{ inputs.since_commit }}" ] || [ -n "${{ inputs.languages }}" ]; then
               echo "::error::orphan_cleanup_only must be used with empty files, since_commit, and languages inputs."
@@ -182,11 +192,16 @@ jobs:
             python3 scripts/auto_translate.py stale-english-sources > changed_files.txt
           elif [ -n "${{ inputs.since_commit }}" ]; then
             echo "Using since_commit=${{ inputs.since_commit }}..${{ github.sha }}"
+            ENGLISH_BASE_REF="${{ inputs.since_commit }}"
             git diff --find-renames --name-only --diff-filter=ACMR \
               "${{ inputs.since_commit }}" "${{ github.sha }}" \
               -- '_docs/' '_includes/' > changed_files.txt
           elif [ -n "${{ inputs.files }}" ]; then
             echo "${{ inputs.files }}" | tr ' ' '\n' > changed_files.txt
+            if [ -n "${{ inputs.english_base_ref }}" ]; then
+              ENGLISH_BASE_REF="${{ inputs.english_base_ref }}"
+              echo "Incremental English base (files dispatch): ${ENGLISH_BASE_REF}"
+            fi
           elif [ "${{ github.event_name }}" = "pull_request" ]; then
             MERGE="${{ github.event.pull_request.merge_commit_sha }}"
             if [ -z "$MERGE" ]; then
@@ -194,6 +209,7 @@ jobs:
               exit 1
             fi
             PARENT="${MERGE}^"
+            ENGLISH_BASE_REF="${PARENT}"
             echo "Merged nightly deploy PR (${{ github.event.pull_request.head.ref }} → main): git diff ${PARENT}..${MERGE} filtered to _docs/_includes/"
             git diff --find-renames --name-only --diff-filter=ACMR \
               "$PARENT" "$MERGE" \
@@ -214,6 +230,7 @@ jobs:
           echo "count=${count}" >> "$GITHUB_OUTPUT"
           echo "languages=${LANGS}" >> "$GITHUB_OUTPUT"
           echo "matrix_include=${matrix_include}" >> "$GITHUB_OUTPUT"
+          echo "english_base_ref=${ENGLISH_BASE_REF}" >> "$GITHUB_OUTPUT"
 
       - name: Note when there is nothing to translate
         if: steps.changes.outputs.count == '0'
@@ -268,7 +285,7 @@ jobs:
           path: .
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
@@ -281,6 +298,8 @@ jobs:
       - name: Translate changed files (this locale only)
         id: translate
         timeout-minutes: 165
+        env:
+          TRANSLATION_ENGLISH_BASE_REF: ${{ needs.prepare.outputs.english_base_ref }}
         run: >-
           python scripts/auto_translate.py translate
           --changed-files changed_files.txt
@@ -345,7 +364,7 @@ jobs:
       # Same toolchain as translate-locale: merge + check-aliases + summary run
       # auto_translate.py (PyYAML + lazy Anthropic import paths).
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
@@ -431,7 +450,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 

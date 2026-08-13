@@ -28,7 +28,7 @@ Añade [Enviar a destino]({{site.baseurl}}/user_guide/messaging/canvas/canvas_co
 
 Para actualizar perfiles de usuario desde dentro de un Canvas, incluyendo la modificación de [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), el registro de [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) o el registro de [compras]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), usa [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) en lugar de un webhook de Braze a Braze.
 
-Actualización de usuario agrupa múltiples cambios y los envía en lotes, lo que lo hace más rápido que los webhooks. Es más fácil de configurar que un webhook y admite actualizaciones complejas a través de su [compositor JSON avanzado]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer). Por ejemplo, para contar cuántas veces un usuario ha visto un mensaje, usa la [función de incremento y decremento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values) de Actualización de usuario en lugar de un webhook de Braze a Braze.
+Actualización de usuario agrupa múltiples cambios y los envía en lotes, lo que lo hace más rápido que los webhooks. Es más fácil de configurar que un webhook y admite actualizaciones complejas a través de su [compositor JSON avanzado]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). Por ejemplo, para contar cuántas veces un usuario ha visto un mensaje, usa la [función de incremento y decremento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values) de Actualización de usuario en lugar de un webhook de Braze a Braze.
 
 {% alert tip %}
 Añade [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) a tu Canvas para actualizar los atributos, eventos y compras de un usuario usando un compositor JSON.
@@ -36,7 +36,7 @@ Añade [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/
 
 ## Cuándo usar un webhook de Braze a Braze {#when-to-use-a-braze-to-braze-webhook}
 
-Actualización de usuario puede manejar casi todas las mismas tareas que un webhook de Braze a Braze para actualizar perfiles de usuario. Para actualizaciones complejas más allá de atributos personalizados simples, puedes usar el [compositor JSON avanzado]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer).
+Actualización de usuario puede manejar casi todas las mismas tareas que un webhook de Braze a Braze para actualizar perfiles de usuario. Para actualizaciones complejas más allá de atributos personalizados simples, puedes usar el [compositor JSON avanzado]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor).
 
 Enviar a destino proporciona una forma más sencilla de desencadenar un segundo Canvas desde dentro de Canvas sin necesidad de configurar webhooks.
 
@@ -64,6 +64,10 @@ El flujo de trabajo general para crear un webhook de Braze a Braze sigue estos p
 ## Desencadenar un segundo Canvas desde un Canvas inicial {#trigger-a-second-canvas-from-an-initial-canvas}
 
 En este caso de uso, creas dos Canvas y usas un webhook de Braze a Braze para desencadenar el segundo Canvas desde el primero. Esto actúa como un desencadenante de entrada para cuando un usuario alcanza un punto determinado en otro Canvas.
+
+{% alert note %}
+El desencadenante **Interactuar con paso en Canvas** solo está disponible para Campaigns, no para la entrada a Canvas basada en acciones. Si necesitas desencadenar un Canvas basado en que un usuario alcance un paso específico en otro Canvas, usa este enfoque de webhook de Braze a Braze o el componente de Canvas [Enviar a destino]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination).
+{% endalert %}
 
 1. Comienza creando tu segundo Canvas, el Canvas que debería ser desencadenado por tu Canvas inicial.
 2. Para el **Horario de entrada** del Canvas, selecciona **Activado por API**.

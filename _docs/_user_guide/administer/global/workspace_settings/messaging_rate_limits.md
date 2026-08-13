@@ -74,6 +74,10 @@ Braze tries to evenly distribute the message dispatches throughout the minute, b
 
 Note that you can still set individual rate limits in your campaigns and Canvases. These are applied independently of workspace messaging rate limits.
 
+### Webhook sending capacity
+
+For webhook campaigns without a delivery speed rate limit, Braze does not apply a default channel rate limit, so sends can proceed at high throughput. Actual volume depends on several factors, including server latency, Connected Content usage, and the send speed of the external system receiving the webhooks. If your webhook campaign does not have a rate limit, prepare your servers for high-volume traffic. Otherwise, apply a rate limit to control the flow of messages.
+
 ### Messages not included in the workspace messaging rate limits
 
 - Messages sent using [Transactional Email campaigns]({{site.baseurl}}/user_guide/channels/transactional_email) are not included in the workspace messaging rate limits. This means they are rate-limited and are not counted toward any set workspace messaging rate limits.

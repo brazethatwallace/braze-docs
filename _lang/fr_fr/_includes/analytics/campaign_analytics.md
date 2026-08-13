@@ -78,17 +78,17 @@ Dans Canvas, les performances des messages in-app sont cartographiées sur le Ca
 
 #### Audience estimée et audience actuelle {#estimated-audience-and-current-audience}
 
-Selon la taille de votre espace de travail, le panneau **Campaign Details** peut afficher les statistiques d'audience sous le libellé **Estimated Audience** ou **Current Audience**.
+Selon le nombre total d'utilisateurs dans votre espace de travail, le panneau **Campaign Details** affiche les statistiques d'audience sous le libellé **Current Audience** ou **Estimated Audience**.
 
 Le tableau suivant résume la signification de chaque libellé.
 
 | Libellé | Quand il est utilisé |
 | --- | --- |
-| **Estimated Audience** | Braze n'effectue pas par défaut un comptage complet de la base de données. La taille de l'audience est estimée à partir d'un échantillon et extrapolée, de manière similaire à la plage **Utilisateurs pouvant être atteints** dans le générateur de segments. Des marges d'erreur sont attendues, en particulier pour les grands espaces de travail ou les petits segments par rapport à l'ensemble de l'espace de travail. |
-| **Current Audience** | Braze peut calculer la statistique par défaut avec un balayage complet des profils de l'espace de travail, de sorte que la taille d'audience affichée est un comptage actuel et non échantillonné (toujours soumis à l'accessibilité du canal, aux règles d'abonnement et aux autres options de ciblage). |
+| **Current Audience** | L'espace de travail compte 50 000 utilisateurs ou moins. Braze effectue un balayage complet des profils de l'espace de travail pour la statistique par défaut, de sorte que la taille d'audience affichée est un comptage actuel et non échantillonné (toujours soumis à l'accessibilité du canal, aux règles d'abonnement et aux autres options de ciblage). |
+| **Estimated Audience** | L'espace de travail compte plus de 50 000 utilisateurs. Braze n'effectue pas par défaut un comptage complet de la base de données. La taille de l'audience est estimée à partir d'un échantillon et extrapolée, de manière similaire à la plage **Reachable users** dans le générateur de segments. Des marges d'erreur sont attendues, en particulier pour les petits segments par rapport à l'ensemble de l'espace de travail. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Audience estimée et audience actuelle" }
 
-Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **utilisateurs pouvant être atteints**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
+Pour en savoir plus sur le comportement d'échantillonnage, le calcul des **statistiques exactes** et la segmentation des **Reachable users**, consultez [Mesurer la taille d'un segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 {% if include.channel == "Content Card" %}
 
@@ -118,7 +118,7 @@ Pour mesurer l'impact d'un message webhook individuel, vous pouvez ajouter un [g
 
 #### Modifications depuis la dernière consultation {#changes-since-last-viewed}
 
-Le nombre de mises à jour de la campagne effectuées par d'autres membres de votre équipe est suivi par l'indicateur *Modifications depuis la dernière consultation* sur la page d'aperçu de la campagne. Sélectionnez **Changes Since Last Viewed** pour afficher un journal des modifications apportées au nom de la campagne, à sa planification, à ses étiquettes, à son message, à son audience, à son statut d'approbation ou à la configuration de l'accès de l'équipe. Pour chaque mise à jour, vous pouvez voir qui a effectué la modification et quand. Ce journal des modifications vous permet d'auditer les changements apportés à votre campagne.
+Le nombre de mises à jour de la campagne effectuées par d'autres membres de votre équipe est suivi par l'indicateur *Changes Since Last Viewed* sur la page d'aperçu de la campagne. Sélectionnez **Changes Since Last Viewed** pour afficher un journal des modifications apportées au nom de la campagne, à sa planification, à ses étiquettes, à son message, à son audience, à son statut d'approbation ou à la configuration de l'accès de l'équipe. Pour chaque mise à jour, vous pouvez voir qui a effectué la modification et quand. Ce journal des modifications vous permet d'auditer les changements apportés à votre campagne.
 
 <!--
 ### Message Performance
@@ -158,7 +158,7 @@ Le panneau **Push Performance** donne un aperçu de la performance de votre mess
 
 Le panneau **SMS/MMS/RCS Performance** présente les performances de votre message selon différentes dimensions. Les indicateurs de ce panneau varient en fonction du canal de communication choisi et selon que vous exécutez ou non un test multivarié. Vous pouvez cliquer sur l'icône <i class="fa fa-eye preview-icon"></i> **Preview** pour visualiser votre message pour chaque variante ou canal.
 
-![Panneau de performances SMS/MMS/RCS comprenant un tableau d'indicateurs pour le groupe de contrôle, la variante 1 et la variante 2.]({% image_buster /assets/img_archive/sms_message_performance.png %})
+![Panneau de performances SMS/MMS/RCS comprenant un tableau d'indicateurs pour un groupe de contrôle, la variante 1 et la variante 2.]({% image_buster /assets/img_archive/sms_message_performance.png %})
 
 {% elsif include.channel == "banner" %}
 ### Performance des bannières {#banner-performance}
@@ -186,6 +186,13 @@ Le panneau **WhatsApp Performance** présente les performances de votre message 
 
 ![Panneau de performances WhatsApp comprenant un tableau d'indicateurs pour la variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Crédits et nombre d'envois {#credits-versus-send-counts}
+
+Les compteurs d'envois WhatsApp dans l'analytique de campagne reflètent les tentatives de distribution. Les crédits consommés peuvent différer lorsque Meta facture par catégorie de message (marketing, utilitaire, authentification, service).
+
+- Les messages de réponse composés dans Braze ne consomment pas de crédits WhatsApp Braze.
+- Utilisez **Analytics** > **Daily Stats** pour le volume d'envoi directionnel. Les ventilations de crédits par campagne ou Canvas ne sont pas disponibles.
+
 {% endif %}
 
 Si vous souhaitez simplifier votre vue, cliquez sur <i class="fas fa-plus"></i> **Add/Remove Columns** et décochez les indicateurs souhaités. Par défaut, tous les indicateurs sont affichés.
@@ -203,10 +210,18 @@ L'analytique de campagne affiche les données de clics pour un maximum de 100 UR
 Dans cette vue, vous pouvez utiliser la bascule **Show Heatmap** pour afficher une vue visuelle de votre e-mail qui montre la fréquence globale et l'emplacement des clics au cours de la durée de vie de la campagne. Dans le panneau **Link Table by Total Clicks**, vous pouvez afficher tous les liens de votre campagne e-mail et les trier par nombre total de clics. Cela peut fournir des informations supplémentaires sur les endroits où vos utilisateurs naviguent. Pour enregistrer une copie de la carte thermique à des fins de référence, sélectionnez le bouton de téléchargement.
 
 {% alert note %}
-Si les liens utilisent Liquid pour des URL dynamiques, les URL cliquées peuvent ne pas correspondre suffisamment au lien rendu dans le message pour que la carte thermique associe les clics à ce lien, de sorte que ces liens peuvent ne pas apparaître sur la carte thermique. Utilisez les données de clics dans le panneau **Link Table by Total Clicks** pour obtenir une vue complète.
+Si les liens utilisent Liquid pour des URL dynamiques, les URL cliquées peuvent ne pas correspondre suffisamment au lien rendu dans le message pour que la carte thermique associe les clics à ce lien, de sorte que ces liens peuvent ne pas apparaître sur la carte thermique. Pour attribuer les données de clics aux liens avec modèle sur la carte thermique, utilisez l'[aliasing de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing). Pour obtenir une vue complète, utilisez les données de clics dans le panneau **Link Table by Total Clicks**.
 {% endalert %}
 
 ![Exemple de la page Aperçu et carte thermique qui inclut une campagne e-mail et un panneau avec des exemples d'alias de liens et leur nombre total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
+
+##### Liens visibles uniquement sur mobile dans la carte thermique {#mobile-only-links-in-the-heatmap}
+
+La carte thermique n'affiche les signatures thermiques que pour les liens visibles à la taille d'aperçu sélectionnée.
+
+Les liens qui n'apparaissent que dans la mise en page mobile sont masqués en mode **Desktop** (et peuvent être masqués en mode **Overall**, selon la largeur de l'aperçu), de sorte que ces clics ne s'affichent pas comme signatures thermiques. Ces liens apparaissent néanmoins dans le panneau **Link Table by Total Clicks** avec leur nombre total de clics et leurs pourcentages.
+
+Pour afficher les signatures thermiques des liens visibles uniquement sur mobile, sélectionnez **Mobile**. L'aperçu mobile correspond au point de rupture mobile de l'éditeur par glisser-déposer (620&nbsp;px). Si l'e-mail change de mise en page uniquement à une largeur plus étroite, ces liens restent masqués même dans la taille d'aperçu **Mobile**.
 
 #### Images
 
@@ -365,6 +380,12 @@ Autre exemple : supposons que vous observiez cinq _impressions uniques_ sur une 
 
 Les _impressions quotidiennes uniques_ désignent les bannières qui ont été effectivement vues.
 
+#### Écarts entre les groupes de contrôle et les variantes {#discrepancies-between-control-groups-and-variants}
+
+Lorsqu'une campagne de bannières utilise un groupe de contrôle, les impressions du groupe de contrôle peuvent être supérieures à celles des variantes, même lorsque la répartition de l'audience entre les groupes est égale. Cet écart est dû à une différence dans la manière dont les impressions sont enregistrées pour les bannières de contrôle et les variantes.
+
+Les impressions de contrôle et de variante nécessitent toutes deux que l'emplacement de la bannière entre dans la zone visible. Les impressions de variante ne sont enregistrées que lorsque la bannière complète est visible à l'écran. Les impressions de contrôle peuvent être enregistrées dès que l'emplacement entre dans la zone visible, avant que la bannière complète ne soit visible pour une variante.
+
 {% elsif include.channel == "email" %}
 
 #### Indicateurs des e-mails {#email-metrics}
@@ -500,7 +521,7 @@ Notez que les _reports_ ne sont actuellement disponibles qu'en utilisant les fon
 
 ##### Taux d'ouverture réel estimé {#estimated-real-open-rate}
 
-Cette statistique utilise un modèle analytique propriétaire créé par Braze pour reconstruire une estimation du taux d'ouverture unique de la campagne comme si les ouvertures automatiques n'existaient pas. Bien que nous recevions des étiquettes *Ouvertures automatiques* pour certains événements d'ouverture provenant d'expéditeurs d'e-mails, ces étiquettes peuvent souvent classer les ouvertures réelles comme des ouvertures automatiques. Autrement dit, les *autres ouvertures* sont probablement une sous-estimation des ouvertures réelles (par des utilisateurs réels). Braze utilise plutôt les données de clics de chaque campagne pour déduire le taux d'ouverture du message par des humains réels. Cela permet de compenser les divers mécanismes d'ouverture automatique, y compris la protection de la confidentialité dans Mail d'Apple.
+Cette statistique utilise un modèle analytique propriétaire créé par Braze pour reconstruire une estimation du taux d'ouverture unique de la campagne comme si les ouvertures automatiques n'existaient pas. Bien que nous recevions des étiquettes *Machine Opens* pour certains événements d'ouverture provenant d'expéditeurs d'e-mails, ces étiquettes peuvent souvent classer les ouvertures réelles comme des ouvertures automatiques. Autrement dit, les *Other Opens* sont probablement une sous-estimation des ouvertures réelles (par des utilisateurs réels). Braze utilise plutôt les données de clics de chaque campagne pour déduire le taux d'ouverture du message par des humains réels. Cela permet de compenser les divers mécanismes d'ouverture automatique, y compris la protection de la confidentialité dans Mail d'Apple.
 
 Le _taux d'ouverture réel estimé_ est calculé 24 heures après le début de l'envoi de l'e-mail et est ensuite recalculé toutes les 72 heures.
 
@@ -593,7 +614,7 @@ Les rapports pour les _clics sur le bouton 1_ et les _clics sur le bouton 2_ ne 
     </tbody>
 </table>
 
-#### Écarts entre les groupes de contrôle et les variantes {#discrepancies-between-control-groups-and-variants}
+#### Écarts entre les groupes de contrôle et les variantes
 
 Lorsqu'une campagne de messages in-app a une répartition 50-50 entre les variantes, il arrive que le groupe de contrôle ait un pourcentage légèrement supérieur à celui de la variante (par exemple 51 % pour le groupe de contrôle et 49 % pour la variante). Cet écart est dû à une différence dans le temps de rendu — par exemple, lorsque les messages de la variante utilisent des images volumineuses ou du contenu connecté avec modèle et que les utilisateurs quittent avant la fin du rendu, tandis que le groupe de contrôle enregistre les impressions sans afficher de message.
 
@@ -867,6 +888,8 @@ Voici quelques indicateurs clés de WhatsApp qui peuvent apparaître dans vos an
     </tbody>
 </table>
 
+Si les échecs sont élevés, consultez [Analyser les échecs d'envoi WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
+
 #### Indicateurs de blocage et de signalement par l'utilisateur final {#end-user-blocking-and-reporting-metrics}
 
 D'autres indicateurs peuvent être consultés via le [tableau de bord du gestionnaire WhatsApp](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx), bien qu'une [confirmation de votre accès](https://www.facebook.com/business/help/218116047387456) soit nécessaire pour accéder à toutes les informations disponibles.
@@ -919,7 +942,7 @@ Le panneau **Conversion Correlation** vous donne des informations sur les attrib
 
 ## Générateur de rapports {#report-builder}
 
-Vous pouvez également utiliser le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) pour créer des rapports personnalisés pour vos campagnes KakaoTalk. Lors de la création d'un rapport, vous pouvez filtrer pour n'inclure que les campagnes KakaoTalk en sélectionnant **KakaoTalk** sous **Canaux**, ou en filtrant par les étiquettes que vous avez appliquées à vos campagnes KakaoTalk.
+Vous pouvez également utiliser le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) pour créer des rapports personnalisés pour vos campagnes KakaoTalk. Lors de la création d'un rapport, vous pouvez filtrer pour n'inclure que les campagnes KakaoTalk en sélectionnant **KakaoTalk** sous **Channels**, ou en filtrant par les étiquettes que vous avez appliquées à vos campagnes KakaoTalk.
 
 {% endif %}
 

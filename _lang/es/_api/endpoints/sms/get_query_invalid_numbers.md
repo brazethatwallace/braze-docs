@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Consultar números de teléfono no válidos de Braze."
+description: "En este artículo se describen los detalles del endpoint de Braze Consultar números de teléfono no válidos."
 ---
 {% api %}
 # Consultar números de teléfono no válidos {#query-invalid-phone-numbers}
@@ -13,13 +13,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> Utiliza este punto de conexión para obtener una lista de números de teléfono que se han marcado como "no válidos" en un periodo de tiempo determinado. Consulta la documentación [Manejo de números de teléfono no válidos]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers) para obtener más información.
+> Utiliza este endpoint para obtener una lista de números de teléfono que se han marcado como "no válidos" en un periodo de tiempo determinado. Consulta la documentación [Manejo de números de teléfono no válidos]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers) para obtener más información.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `sms.invalid_phone_numbers`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `sms.invalid_phone_numbers`.
 
 ## Límite de velocidad {#rate-limit}
 

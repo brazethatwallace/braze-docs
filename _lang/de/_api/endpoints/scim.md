@@ -32,13 +32,15 @@ guide_featured_list:
 ---
 
 
+{% multi_lang_include scim/scim_alerts.md alert='custom_endpoint' subject='endpoints' %}
+
 ## So exportieren Sie eine Liste von Nutzer:innen mit Dashboard-Zugriff {#how-to-export-a-list-of-users-with-dashboard-access}
 
 Verwenden Sie diesen Workflow, um Nutzer:innen zu überprüfen, die Zugriff auf Ihr Braze-Dashboard haben.
 
-1. Laden Sie den Sicherheitsereignis-Bericht unter **Einstellungen** > **Admin-Einstellungen** > **Sicherheitseinstellungen** > **Sicherheitsereignis-Download** herunter.
+1. Laden Sie den Sicherheitsereignisbericht unter **Konfiguration** > **Administratoreinstellungen** > **Sicherheitseinstellungen** > **Sicherheitsereignis-Download** herunter.
 2. Extrahieren Sie die E-Mail-Adressen der Nutzer:innen aus dem Bericht.
-3. Verwenden Sie für jede E-Mail-Adresse [GET: Bestehendes Dashboard-Nutzerkonto per E-Mail durchsuchen]({{site.baseurl}}/api/endpoints/scim/get_search_existing_dashboard_user), um die Details der Nutzer:in abzurufen.
-4. Verwenden Sie bei Bedarf die zurückgegebene Ressourcen-`id` mit [GET: Ein bestehendes Dashboard-Nutzerkonto anhand der Ressourcen-ID suchen]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information), um weitere Details der Nutzer:in abzurufen.
+3. Verwenden Sie für jede E-Mail-Adresse [GET: Bestehendes Dashboard-Nutzerkonto per E-Mail durchsuchen]({{site.baseurl}}/api/endpoints/scim/get_search_existing_dashboard_user), um die Nutzerdetails abzurufen.
+4. Verwenden Sie bei Bedarf die zurückgegebene Ressourcen-`id` mit [GET: Ein bestehendes Dashboard-Nutzerkonto anhand der Ressourcen-ID suchen]({{site.baseurl}}/api/endpoints/scim/get_see_user_account_information), um weitere Nutzerdetails zu erhalten.
 
-Die vollständige Liste der SCIM-Endpunkte finden Sie unter [SCIM-Endpunkte]({{site.baseurl}}/api/endpoints/scim). Weitere Informationen zur Berichtsquelle finden Sie unter [Einen Sicherheitsereignis-Bericht herunterladen]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report).
+Die vollständige Liste der SCIM-Endpunkte finden Sie unter [SCIM-Endpunkte]({{site.baseurl}}/api/endpoints/scim). Weitere Informationen zur Berichtsquelle finden Sie unter [Einen Sicherheitsereignisbericht herunterladen]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report).

@@ -34,9 +34,7 @@ This message type is available in both the [drag-and-drop]({{site.baseurl}}/user
 
 Fullscreen in-app messages will fill the entire height of a device and crop horizontally (left and right sides) as needed. Image and text fullscreen messages will fill 50% of the height of a device. All fullscreen in-app messages will fill the status bar on "notched" devices.
 
-- All images must be less than 5&nbsp;MB.
-- We only accept PNG, JPEG, and [GIF]({{site.baseurl}}/developer_guide/platform_integration_guides/android/in-app_messaging/customization/gifs#gifs) file types.
-- We recommend that your images be 500&nbsp;KB.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
 {% alert tip %} Create assets with confidence! Our in-app message image templates and safe zone overlays are designed to play nicely with devices of all sizes. [Download Design Templates ZIP]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 
@@ -58,7 +56,9 @@ Fullscreen in-app messages will fill the entire height of a device and crop hori
 
 ### Image safe zone
 
-When previewing a fullscreen in-app message in the Braze platform, you can enable the Image Safe Zone to the area of the message that is safe from cropping when displayed across devices. In addition to testing the Image Safe Zone in the preview pane, we recommend you [test your message]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) as always.
+When previewing a fullscreen in-app message in the Braze platform, you can enable the Image Safe Zone to protect a message area from cropping when displayed across devices. The safe zone impacts only the image; the close button is always visible to users, even if it appears outside the safe zone in the preview.
+
+In addition to testing the Image Safe Zone in the preview pane, we always recommend you [test your message]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
 
 ![Previewing an in-app message in Braze with "Show Image Safe Zone" enabled. The image safe zone is an overlay over the image that visualizes what parts of the image will be safe from cropping.]({% image_buster /assets/img/image-safe-zone-full-screen-in-app-message.png %})
 

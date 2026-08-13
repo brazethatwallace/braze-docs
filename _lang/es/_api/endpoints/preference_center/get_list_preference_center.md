@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 2
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Listar centros de preferencias de Braze."
+description: "En este artículo se describen los detalles del endpoint Listar centros de preferencias de Braze."
 
 ---
 {% api %}
@@ -14,13 +14,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /preference_center/v1/list
 {% endapimethod %}
 
-> Utiliza este punto de conexión para listar tus centros de preferencias disponibles.
+> Utiliza este endpoint para listar tus centros de preferencias disponibles.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#dd8f6667-5eba-4e19-a29e-ba74644c0b8e {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `preference_center.list`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `preference_center.list`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -28,7 +28,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de ruta y solicitud {#path-and-request-parameters}
 
-No hay parámetros de ruta o solicitud para este punto de conexión.
+No hay parámetros de ruta o solicitud para este endpoint.
 
 ## Ejemplo de solicitud {#example-request}
 

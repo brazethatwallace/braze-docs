@@ -19,7 +19,7 @@ description: "この記事では、「カタログセレクションの作成」
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.create_selection` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`catalogs.create_selection` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -88,9 +88,9 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 }'
 ```
 
-### フィルター演算子 {#filter-operators}
+### フィルターオペレーター {#filter-operators}
 
-| フィールドタイプ | サポートされている演算子 |
+| フィールドタイプ | サポートされているオペレーター |
 | ---------- | ------------------------------------------------------- |
 | `string` | `equals`, `does not equal` |
 | `number` | `equals`, `does not equal`, `greater than`, `less than` |

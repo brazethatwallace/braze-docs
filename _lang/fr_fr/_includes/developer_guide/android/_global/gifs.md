@@ -172,7 +172,7 @@ Pour éviter cela :
 2. Publiez la mise à jour de l'interface utilisateur sur le thread principal avec `imageView.post { ... }`.
 3. Si le résultat chargé est un drawable GIF, démarrez l'animation après l'avoir appliqué à la vue.
 
-Cela sépare le chargement de l'image du rendu de l'interface utilisateur et maintient la compatibilité de votre chargeur d'images personnalisé avec le SDK Android 36.0.0 et versions ultérieures.
+Cela sépare le chargement de l'image du rendu de l'interface utilisateur et garantit la compatibilité de votre chargeur d'images personnalisé avec le SDK Android 36.0.0 et versions ultérieures.
 
 Cette recommandation s'applique aux chargeurs d'images personnalisés Android. Les messages in-app web prennent en charge les GIF nativement.
 

@@ -254,7 +254,7 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 
 ### ¿Por qué no recibo geovallas en mi dispositivo? {#why-am-i-not-receiving-geofences-on-my-device}
 
-Para confirmar si se están recibiendo geovallas en tu dispositivo, primero utiliza la [herramienta Depurador de SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging#debugging-the-braze-sdk) para comprobar los registros del SDK. A continuación, podrás ver si las geovallas se reciben correctamente desde el servidor y si hay algún error notable.
+Para confirmar si se están recibiendo geovallas en tu dispositivo, primero utiliza la [herramienta Depurador de SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para comprobar los registros del SDK. A continuación, podrás ver si las geovallas se reciben correctamente desde el servidor y si hay algún error notable.
 
 A continuación se indican otras posibles razones por las que es posible que no recibas geovallas en tu dispositivo:
 
@@ -278,7 +278,7 @@ Por ejemplo, si tu aplicación contiene 20 geovallas que no son de Braze, no hab
 
 Un dispositivo solo necesita estar conectado a Internet cuando se produce una actualización. Una vez que hayas recibido correctamente las geovallas del servidor, es posible registrar una entrada o salida de la geovalla incluso si el dispositivo está desconectado. Esto se debe a que la ubicación de un dispositivo funciona de forma independiente de su conexión a Internet.
 
-Por ejemplo, supongamos que un dispositivo ha recibido y registrado las geovallas al inicio de la sesión y se desconecta. Si luego entra en una de esas geovallas registradas, puede desencadenar una campaña de Braze.
+Por ejemplo, supongamos que un dispositivo ha recibido y registrado las geovallas al inicio de la sesión y se desconecta. Si luego entra en una de esas geovallas registradas, puede desencadenar una Campaign de Braze.
 
 ### ¿Por qué no se supervisan las geovallas cuando mi aplicación se ejecuta en segundo plano o se cierra? {#why-are-geofences-not-monitored-when-my-app-is-backgroundedterminated}
 

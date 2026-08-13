@@ -34,7 +34,7 @@ Canvas의 모든 참가자에 대한 사용자 데이터를 CSV 파일로 내보
 
 - **사용자별 가장 최근 진입:** [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) 엔드포인트를 사용하여 [`canvases_received`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) 필드가 포함된 Segment를 내보냅니다. 각 Canvas에 대해 해당 사용자의 `last_entered` 및 `last_exited` 타임스탬프가 포함됩니다. `canvases_received` 필드에는 최근 90일간의 데이터가 포함됩니다.
 - **재진입을 포함한 모든 진입:** Braze 커런츠 또는 Snowflake 데이터 공유에서 [Canvas 진입 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#canvas-entry-events)를 사용합니다. 각 `users.canvas.Entry` 이벤트는 하나의 Canvas 진입을 나타내며 `time` 타임스탬프를 포함합니다. 사용자별 이벤트 수를 집계하여 진입 횟수를 확인할 수 있습니다.
-- **대시보드에서 사용자 목록 작성:** **Entered Canvas Variation** 필터를 사용하여 Segment를 생성한 다음 해당 Segment를 CSV로 내보냅니다. [Canvas 문제 해결]({{site.baseurl}}/user_guide/messaging/canvas/troubleshooting#user-didnt-enter-a-canvas)을 참조하세요.
+- **대시보드에서 사용자 목록 작성:** **Entered Canvas Variation** 필터를 사용하여 Segment를 생성한 다음 해당 Segment를 CSV로 내보냅니다. [Canvas 문제 해결]({{site.baseurl}}/user_guide/messaging/canvas/troubleshooting#user-didnt-enter-the-canvas)을 참조하세요.
 
 {% alert note %}
 Currents가 연동되어 있지 않고 모든 과거 진입 타임스탬프가 필요한 경우, Braze 고객 성공 매니저에게 문의하세요.

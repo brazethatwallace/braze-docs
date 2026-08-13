@@ -83,6 +83,7 @@ table td {
         <ul>
           <li>APIキーまたはトークンに必要な権限があるか確認してください。</li>
           <li>エンドポイントにアクセスするためのユーザー権限があることを確認してください。</li>
+          <li>リクエストが一貫して <code>403</code> を返し、認証が正しいと思われる場合、サーバー、APIゲートウェイ、またはWAFがBrazeの送信元IPアドレスをブロックしている可能性があります。Brazeクラスターに対応するIPを許可リストに追加してください。Webhookについては、<a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">IP許可リスト</a> を参照してください。コネクテッドコンテンツについては、<a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">コネクテッドコンテンツのIP許可リスト</a> を参照してください。</li>
         </ul>
       </td>
     </tr>

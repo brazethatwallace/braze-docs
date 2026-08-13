@@ -1,0 +1,4 @@
+- Ingesta de datos de usuario de primera mano y zero-party recopilados de Komo a Braze en tiempo real
+- Ingesta de datos de investigación de mercado y preferencias de usuario cuando responden cuestionarios, encuestas y preguntas de trivia
+- Construcción progresiva de perfiles de usuario en Braze a lo largo del tiempo a medida que el usuario continúa interactuando y compartiendo más datos sobre sí mismo
+- Estandarización de la apariencia de los correos transaccionales enviados a través de Braze

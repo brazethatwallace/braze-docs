@@ -125,6 +125,14 @@ Die folgende Tabelle hilft Ihnen, die Bewertungen der IP Reputation zu verstehen
 | Schlecht | Hat eine Vorgeschichte mit erhöhten Raten von Spam-Beschwerden. E-Mails von dieser Domain werden fast immer bei der Verbindung abgelehnt oder in den Spam-Ordner gefiltert. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="IP Reputation" }
 
+{% alert important %}
+Die in Braze angezeigten Spam-Beschwerdedaten basieren auf Feedback-Loop-(FBL-)Berichten von E-Mail-Anbietern, die diese teilen, wie Microsoft, Yahoo und Comcast. Wenn Nutzer:innen bei diesen Anbietern E-Mails als Spam melden, werden diese Beschwerden an Braze zurückgesendet.<br><br>
+Gmail und iCloud betreiben jedoch keine herkömmlichen Feedback-Loops und melden Spam-Beschwerden nicht an Braze zurück. Das bedeutet:<br>
+- Spam-Beschwerden von Gmail-Nutzer:innen sind nicht in den Braze-Metriken enthalten und stehen auch nicht in Snowflake- oder Currents-Daten zur Verfügung.<br>
+- Sie können Gmail-Spam-Daten nur als aggregierte Prozentsätze in den [Gmail Postmaster Tools](https://www.gmail.com/postmaster/) einsehen, nicht als einzelne Adressen.<br>
+- Wenn Sie hohe Spam-Raten in den Gmail Postmaster Tools sehen, stimmen diese Zahlen nicht mit Ihren Braze-Spam-Beschwerdemetriken überein, da Gmail diese Daten nicht mit Absendern teilt.
+{% endalert %}
+
 #### Domain Reputation {#domain-reputation}
 
 Verwenden Sie die folgende Tabelle, um Ihre Domain-Reputationsbewertungen zu überwachen und zu verstehen, damit Sie vermeiden, in den Spam-Ordner gefiltert zu werden.
@@ -158,7 +166,7 @@ In dieser Tabelle erfahren Sie, welcher Prozentsatz Ihres eingehenden und ausgeh
 | TLS ausgehend | Zeigt den Prozentsatz der ausgehenden E-Mails (von Gmail), die über TLS akzeptiert wurden, im Verhältnis zu allen an diese Domain gesendeten E-Mails. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Verschlüsselung" }
 
-Weitere Ideen zur Verbesserung der Zustellbarkeit finden Sie unter [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Lesen Sie auch unsere [Best Practices für E-Mails]({{site.baseurl}}/user_guide/channels/email/best_practices), um zu erfahren, was Sie vor dem Versand einer E-Mail-Campaign überprüfen sollten.
+Weitere Ideen zur Verbesserung der Zustellbarkeit finden Sie unter [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps). Lesen Sie auch unsere [Best Practices für E-Mails]({{site.baseurl}}/user_guide/channels/email/best_practices), um zu erfahren, was Sie vor dem Versand einer E-Mail-Kampagne überprüfen sollten.
 
 ## Microsoft Smart Network Data Services (SNDS) einrichten {#set-up-microsoft-smart-network-data-services-snds}
 
@@ -227,3 +235,14 @@ Diese Spalten zeigen an, wann die erste und letzte Nachricht, die an Trap-Konten
 {% alert tip %}
 Wenn Sie nach Einträgen zu einer Ihrer verifizierten Domains in Braze suchen, beachten Sie, dass das Deliverability Center Ihre Daten von Google Postmaster oder Microsoft SNDS auflistet. Das bedeutet, dass eine der beiden Plattformen möglicherweise keine Daten hat, die sie mit Braze teilen kann. Alternativ können Sie versuchen, einen konsistenten E-Mail-Versand aufrechtzuerhalten, da dies zu einer höheren Reputation führen kann.
 {% endalert %}
+
+## Spam-Beschwerden und Feedback-Loops {#spam-complaints-and-feedback-loops}
+
+Ein E-Mail-Feedback-Loop (FBL) ermöglicht es E-Mail-Absendern, Berichte zu erhalten, wenn Empfänger:innen Nachrichten als Spam markieren. Gmail und iCloud bieten jedoch keine herkömmlichen Feedback-Loops an, was bedeutet, dass Braze (über SparkPost oder SendGrid) keine Spam-Beschwerdedaten von diesen Anbietern erhält.
+
+Da Spam-Beschwerdedaten von Gmail und iCloud nicht verfügbar sind, ist es wichtig, andere Tools zur Überwachung Ihres E-Mail-Zustands und Ihrer Reputation bei diesen großen Anbietern zu nutzen:
+
+- Verwenden Sie die [Google Postmaster Tools](https://www.gmail.com/postmaster/), um Domain- und IP-Reputation, Spam-Raten und Nutzer:innen-Engagement zu überwachen. Sie können Google Postmaster wie unter [Google Postmaster integrieren](#integrating-google-postmaster) beschrieben mit Braze verbinden.
+- Apple bietet kein öffentliches Postmaster-Tool an, das dem von Google entspricht. Konzentrieren Sie sich darauf, starke Engagement-Metriken beizubehalten und Best Practices für E-Mails zu befolgen.
+
+Um eine gute Zustellbarkeit bei allen Anbietern aufrechtzuerhalten, implementieren Sie eine [Sunset-Richtlinie]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies), um den Versand an nicht engagierte Nutzer:innen automatisch zu stoppen. Dies hilft zu verhindern, dass Ihre E-Mails als Spam markiert werden, und schützt Ihre Absender-Reputation.

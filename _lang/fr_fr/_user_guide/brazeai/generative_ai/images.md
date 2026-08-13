@@ -14,6 +14,7 @@ description: "Cet article de référence explique comment générer des images p
 
 ## Comment y accéder {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_images.md %}
+Dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library), sélectionnez **Générer avec Operator** dans le panneau de téléchargement de ressources. Décrivez l'image souhaitée, et Operator la génère et l'enregistre directement dans votre bibliothèque multimédia.
+
 
 Pour plus d'informations, y compris des conseils de rédaction de prompts, des exemples de prompts et les limites d'utilisation, consultez [Générer des images dans les fonctionnalités d'Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images).

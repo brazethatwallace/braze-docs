@@ -14,7 +14,7 @@ tool:
 
 > Verwenden Sie Berichtsvorlagen im [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), um Performance-Metriken für Campaigns, Canvas, Varianten und Schritte nach Segmenten aufzuschlüsseln.
 
-[Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) muss für die Segmente aktiviert sein, für die Sie Metriken abrufen möchten.
+[Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) muss für die Segmente aktiviert sein, für die Sie Metriken abrufen möchten.
 
 Gehen Sie wie folgt vor, um diese Berichte auszuführen:
 1. Wählen Sie im **Abfrage-Builder** die Option, einen neuen SQL-Bericht mit einer Vorlage zu erstellen.

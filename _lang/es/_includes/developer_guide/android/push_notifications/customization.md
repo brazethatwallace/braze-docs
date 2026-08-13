@@ -360,6 +360,23 @@ Hay muchas configuraciones avanzadas disponibles para las notificaciones push de
 
 Un **ID de notificación** es un identificador único para una categoría de mensajes de tu elección que informa al servicio de mensajería para que solo respete el mensaje más reciente de ese ID. Establecer un ID de notificación te permite enviar solo el mensaje más reciente y relevante, en lugar de una pila de mensajes desfasados e irrelevantes.
 
+#### Prevención de notificaciones duplicadas que se sobrescriben {#preventing-duplicate-notifications-from-overwriting}
+
+De forma predeterminada, cuando las notificaciones push tienen títulos y cuerpos de texto idénticos, Android genera el mismo ID de notificación para ambos mensajes aplicando un hash a las cadenas de título y cuerpo juntas. Esto hace que la segunda notificación sobrescriba la primera, lo que resulta en que solo aparezca una única notificación en la bandeja de notificaciones.
+
+Para evitar que las notificaciones idénticas se sobrescriban entre sí, puedes especificar valores de ID de notificación únicos en la configuración de tus notificaciones push de Android. Aquí tienes algunas opciones:
+
+- **Usa plantillas Liquid con una marca de tiempo:** genera un valor único basado en la hora actual.
+
+{% raw %}
+```liquid
+{% assign random_number = 'now' | date: '%s' | plus: 1000000 %}
+{{random_number}}
+```
+{% endraw %}
+
+- **Generación del lado del servidor:** para valores verdaderamente aleatorios, genera el ID de notificación en tu servidor y pásalo a través de Liquid. Esto garantiza que cada notificación tenga un identificador distinto, lo que permite que se muestren varias notificaciones simultáneamente.
+
 ### Prioridad de entrega de Firebase Messaging {#fcm-priority}
 
 El campo [Prioridad de entrega de Firebase Messaging](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages) te permite controlar si un push se envía con prioridad "normal" o "alta" a Firebase Cloud Messaging.
@@ -382,7 +399,7 @@ Para las notificaciones push que incluyan imágenes, el texto del mensaje se mos
 
 ### URI personalizadas {#custom-uri}
 
-La característica **URI personalizada** te permite especificar una URL web o un recurso Android al que navegar cuando se haga clic en la notificación. Si no se especifica una URI personalizada, al hacer clic en la notificación los usuarios acceden a tu aplicación. Puedes utilizar la URI personalizada para establecer vínculos profundos dentro de tu aplicación y dirigir a los usuarios a recursos que existen fuera de ella. Esto puede especificarse a través de la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging) o de nuestro panel en **Advanced Settings** en el compositor push, como se muestra en la imagen:
+La característica **URI personalizada** te permite especificar una URL web o un recurso Android al que navegar cuando se haga clic en la notificación. Si no se especifica una URI personalizada, al hacer clic en la notificación los usuarios acceden a tu aplicación. Puedes utilizar la URI personalizada para establecer vínculos profundos dentro de tu aplicación y dirigir a los usuarios a recursos que existen fuera de ella. Esto puede especificarse a través de la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging) o de nuestro panel en **Configuración avanzada** en el compositor push, como se muestra en la imagen:
 
 ![La configuración avanzada de vínculos profundos en el compositor push de Braze.]({% image_buster /assets/img_archive/deep_link.png %})
 
@@ -415,7 +432,7 @@ Para obtener más información, consulta la documentación de Google sobre [noti
 
 En Android O, los sonidos de notificación pasaron a ser una propiedad de los canales de notificación. Tendrás que trabajar con tu desarrollador para definir el sonido de un canal durante su configuración y luego utilizar el panel para seleccionar el canal adecuado al enviar tus notificaciones.
 
-Para los dispositivos que ejecutan versiones de Android anteriores a O, Braze te permite configurar el sonido de un mensaje push individual a través del compositor del panel. Puedes hacerlo especificando un recurso de sonido local en el dispositivo (por ejemplo, `android.resource://com.mycompany.myapp/raw/mysound`). Si especificas "default" en este campo, se reproducirá el sonido de notificación predeterminado en el dispositivo. Esto puede especificarse a través de la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging) o del panel en **Advanced Settings** en el compositor push.
+Para los dispositivos que ejecutan versiones de Android anteriores a O, Braze te permite configurar el sonido de un mensaje push individual a través del compositor del panel. Puedes hacerlo especificando un recurso de sonido local en el dispositivo (por ejemplo, `android.resource://com.mycompany.myapp/raw/mysound`). Si especificas "default" en este campo, se reproducirá el sonido de notificación predeterminado en el dispositivo. Esto puede especificarse a través de la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging) o del panel en **Configuración avanzada** en el compositor push.
 
 ![La configuración avanzada del sonido en el compositor push de Braze.]({% image_buster /assets/img_archive/sound_android.png %})
 

@@ -1,0 +1,3 @@
+- **Usuário A** está inscrito para e-mail e está com push ativado. Esse usuário não recebe o e-mail, mas receberá o push.
+- **Usuário B** fez a adesão (opt-in) ao e-mail, mas não está com push ativado. Esse usuário receberá o e-mail, mas não receberá o push.
+- **Usuário C** fez a adesão (opt-in) ao e-mail e está com push ativado. Esse usuário receberá tanto o e-mail quanto o push.

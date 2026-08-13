@@ -29,7 +29,11 @@ To use retry logic, add the `:retry` tag to the Connected Content call, as shown
 ```
 {% endraw %}
 
-When a `:retry` tag is included in the Connected Content call, Braze will attempt to retry the call up to five times.
+When a `:retry` tag is included in the Connected Content call, Braze attempts to retry the call up to five times.
+
+### Preview behavior
+
+Retry logic applies only to live sends (including test sends), not to previews. If a Connected Content call with `:retry` fails during preview, the preview may display the message "This message would not have been shown because retry functionality was triggered" instead of rendering the content. This is expected behavior and does not indicate an issue within Braze.
 
 ### Retry outcomes
 

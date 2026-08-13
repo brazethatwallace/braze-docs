@@ -24,13 +24,13 @@ Die Integration von Braze und PassKit ermöglicht es Ihnen, das Engagement Ihrer
 | ----------- | ----------- |
 | PassKit-Konto | Sie müssen ein PassKit-Konto und einen PassKit Account Manager haben. |
 | `userDefinedID` | Um angepasste Events und angepasste Attribute für Ihre Nutzer:innen zwischen PassKit und Braze angemessen zu aktualisieren, müssen Sie die externe ID von Braze als `userDefinedID` festlegen. Diese `userDefinedID` wird verwendet, wenn Sie API-Aufrufe zu den PassKit-Endpunkten tätigen. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
-| Braze REST-Endpunkt  | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-Endpunkt  | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
-Um die Erfahrungen Ihrer Kund:innen mit der mobilen Wallet weiter zu verbessern, können Sie von Ihrem PassKit-Dashboard aus Daten über den Braze [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) an Braze weitergeben.
+Um die Erfahrungen Ihrer Kund:innen mit der mobilen Wallet weiter zu verbessern, können Sie von Ihrem PassKit-Dashboard aus Daten über den Braze [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) an Braze weitergeben.
 
 Beispiele für Daten, die Sie von PassKit weitergeben können:
 - **Pass erstellt**: wenn ein:e Kund:in auf einen Pass-Link klickt und zum ersten Mal einen Pass angezeigt bekommt.
@@ -44,13 +44,13 @@ Sobald die Daten an Braze übergeben wurden, können Sie Zielgruppen aufbauen, I
 
 Um Daten von PassKit zu übergeben, stellen Sie sicher, dass Sie Ihre externe ID von Braze als PassKits `externalId` eingestellt haben.
 
-1. Klicken Sie in den **Settings** unter **Integrations** in Ihrem PassKit-Pass-Projekt oder -Programm auf **Connect** unter dem Tab **Braze**.<br>![Die Braze-Integrationskachel in der PassKit-Plattform.]({% image_buster /assets/img/passkit/passkit5.png %}){: style="max-width:80%"}<br><br>
+1. Klicken Sie in den **Einstellungen** unter **Integrationen** in Ihrem PassKit-Pass-Projekt oder -Programm auf **Verbinden** unter dem Tab **Braze**.<br>![Die Braze-Integrationskachel in der PassKit-Plattform.]({% image_buster /assets/img/passkit/passkit5.png %}){: style="max-width:80%"}<br><br>
 2. Geben Sie Ihren Braze-API-Schlüssel und die Endpunkt-URL ein und vergeben Sie einen Namen für Ihren Konnektor.<br><br>
-3. Schalten Sie **Enable Integration** und die gewünschten Events um, die Sie in Braze zum Triggern oder Personalisieren Ihrer Nachrichten verwenden möchten.<br>![Die PassKit-Braze-Integrationskachel wurde erweitert, um den API-Schlüssel, die Endpunkt-URL, den Integrationsnamen, die Aktivierungseinstellungen, die Mitgliedschaftseinstellungen und die Pass-Einstellungen zu akzeptieren.]({% image_buster /assets/img/passkit/passkit4.png %}){: style="max-width:70%"}
+3. Schalten Sie **Integration aktivieren** und die gewünschten Events um, die Sie in Braze zum Triggern oder Personalisieren Ihrer Nachrichten verwenden möchten.<br>![Die PassKit-Braze-Integrationskachel wurde erweitert, um den API-Schlüssel, die Endpunkt-URL, den Integrationsnamen, die Aktivierungseinstellungen, die Mitgliedschaftseinstellungen und die Pass-Einstellungen zu akzeptieren.]({% image_buster /assets/img/passkit/passkit4.png %}){: style="max-width:70%"}
 
 ## Pass über einen SmartPass-Link erstellen {#create-pass-using-a-smartpass-link}
 
-Innerhalb von Braze können Sie einen SmartPass-Link einrichten, um eine eindeutige URL für Ihre Kund:innen zu generieren, damit sie ihren Pass entweder auf Android oder iOS installieren können. Dazu müssen Sie eine verschlüsselte SmartPass-Daten-Nutzlast definieren, die von einem Braze Content-Block aufgerufen werden kann. Dieser [Content-Block]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/#content-blocks) kann dann für zukünftige Pässe und Coupons wiederverwendet werden. Folgendes wird während Ihrer Integration verwendet:
+Innerhalb von Braze können Sie einen SmartPass-Link einrichten, um eine eindeutige URL für Ihre Kund:innen zu generieren, damit sie ihren Pass entweder auf Android oder iOS installieren können. Dazu müssen Sie eine verschlüsselte SmartPass-Daten-Nutzlast definieren, die von einem Braze Content-Block aufgerufen werden kann. Dieser [Content-Block]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks#content-blocks) kann dann für zukünftige Pässe und Coupons wiederverwendet werden. Folgendes wird während Ihrer Integration verwendet:
 
 - **PassKit-URL**: Ihre PassKit-URL ist eine eindeutige URL für Ihr PassKit-Programm.<br>Jedes Programm hat eine eindeutige URL, die Sie auf dem Tab **Distribution** Ihres PassKit-Programms oder -Projekts finden. (zum Beispiel https://pub1.pskt.io/c/ww0jir)<br><br>
 - **PassKit-Geheimnis**: Neben der URL müssen Sie auch den PassKit-Key für dieses Programm bereithalten.<br>Diesen finden Sie auf der gleichen Seite wie Ihre PassKit-URL.<br><br>
@@ -58,7 +58,7 @@ Innerhalb von Braze können Sie einen SmartPass-Link einrichten, um eine eindeut
 
 Weitere Informationen zur Erstellung verschlüsselter SmartPass-Links finden Sie in diesem [PassKit-Artikel](https://help.passkit.com/en/articles/3742778-hashed-smartpass-links).
 
-### 1. Schritt: Definieren Sie die Nutzdaten Ihres Passes {#passkit-integrations}
+### Schritt 1: Definieren Sie die Nutzdaten Ihres Passes {#passkit-integrations}
 
 Zunächst müssen Sie die Nutzlast des Coupons oder Mitglieds definieren.
 
@@ -68,7 +68,7 @@ Es gibt viele verschiedene Komponenten, die Sie in Ihre Nutzlast aufnehmen könn
 | --------- | -------- | ---- | ----------- |
 | `person.externalId` | Erforderlich | String | Als externe ID von Braze festgelegt, ist dies entscheidend dafür, dass die Callbacks von PassKit zurück zu Braze funktionieren. So können Unternehmensnutzer:innen Coupons für mehrere Angebote in einer Kampagne haben. Nicht als eindeutig erzwungen. |
 | `members.member.externalId` | Optional | String | Als externe ID von Braze festgelegt, können Sie Ihre externe ID zum Update des Mitgliedsausweises verwenden. Wenn Sie dieses Feld setzen, wird die Nutzer:in innerhalb des Mitgliedschaftsprogramms als eindeutig eingestuft. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="1. Schritt: Definieren Sie die Nutzdaten Ihres Passes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Schritt 1: Definieren Sie die Nutzdaten Ihres Passes" }
 
 Eine vollständige Liste der verfügbaren Felder, ihrer Typen und hilfreichen Beschreibungen finden Sie in der [PassKit-GitHub-Dokumentation](https://github.com/PassKit/smart-pass-link-from-csv-generator).
 
@@ -86,11 +86,11 @@ Eine vollständige Liste der verfügbaren Felder, ihrer Typen und hilfreichen Be
 ```
 {% endraw %}
 
-### 2. Schritt: Erstellen und kodieren Sie eine undefinierte Nutzlastvariable {#step-2-create-and-encode-an-undefined-payload-variable}
+### Schritt 2: Erstellen und kodieren Sie eine undefinierte Nutzlastvariable {#step-2-create-and-encode-an-undefined-payload-variable}
 
-Erstellen und benennen Sie einen neuen Content-Block, indem Sie im Braze-Dashboard zu **Content** > **Content Block** navigieren.
+Erstellen und benennen Sie einen neuen Content-Block, indem Sie im Braze-Dashboard zu **Inhalt** > **Content-Block** navigieren.
 
-Wählen Sie **Create Content Block**, um loszulegen.
+Wählen Sie **Content-Block erstellen**, um loszulegen.
 
 Als Nächstes müssen Sie Ihren **Content Block Liquid Tag** definieren. Nachdem Sie diesen Content-Block gespeichert haben, können Sie beim Verfassen von Nachrichten auf diesen Liquid-Tag verweisen. In diesem Beispiel haben wir den Liquid-Tag als {% raw %}`{{content_blocks.${passKit_SmartPass_url}}}`{% endraw %} zugewiesen.
 
@@ -101,7 +101,7 @@ Innerhalb dieses Content-Blocks werden wir die Nutzdaten nicht direkt einbinden,
 ```
 {% endraw %}
 
-### 3. Schritt: Erstellen Sie Ihre Verschlüsselungssignatur mit einem SHA1-HMAC-Hash {#step-3-create-your-encryption-signature-using-a-sha1-hmac-hash}
+### Schritt 3: Erstellen Sie Ihre Verschlüsselungssignatur mit einem SHA1-HMAC-Hash {#step-3-create-your-encryption-signature-using-a-sha1-hmac-hash}
 
 Als Nächstes erstellen Sie Ihre Verschlüsselungssignatur unter Verwendung eines [SHA1-HMAC-Hashes](https://en.wikipedia.org/wiki/HMAC) der Projekt-URL und der Nutzdaten.
 
@@ -126,7 +126,7 @@ Schließlich fügen Sie die Signatur mit dem fünften Code-Snippet an die vollst
 ```
 {% endraw %}
 
-### 4. Schritt: Geben Sie Ihre URL aus {#step-4-print-your-url}
+### Schritt 4: Geben Sie Ihre URL aus {#step-4-print-your-url}
 
 Stellen Sie abschließend sicher, dass Sie Ihre endgültige URL aufrufen, damit Ihre SmartPass-URL in Ihrer Nachricht ausgegeben wird.
 {% raw %}
@@ -157,7 +157,7 @@ In diesem Beispiel wurden UTM-Parameter hinzugefügt, um die Quelle dieser Insta
 Denken Sie daran, Ihren Content-Block zu speichern, bevor Sie die Seite verlassen.
 {% endalert %}
 
-### 5. Schritt: Alles zusammenfügen {#step-5-putting-it-all-together}
+### Schritt 5: Alles zusammenfügen {#step-5-putting-it-all-together}
 
 Sobald dieser Content-Block erstellt wurde, kann er in Zukunft wiederverwendet werden.
 
@@ -222,9 +222,9 @@ Bevor Sie beginnen, finden Sie hier die üblichen JSON-Payload-Parameter, die Si
 | `status` | String | Der aktuelle Status eines Coupons, wie `REDEEMED` oder `UNREDEEMED`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parameter der Nutzlast" }
 
-### 1. Schritt: Erstellen Sie Ihr Braze-Webhook-Template {#step-1-create-your-braze-webhook-template}
+### Schritt 1: Erstellen Sie Ihr Braze-Webhook-Template {#step-1-create-your-braze-webhook-template}
 
-Um ein PassKit-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvases verwenden können, navigieren Sie zum Abschnitt **Templates & Media** im Braze-Dashboard. Wenn Sie eine einmalige PassKit-Webhook-Kampagne erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
+Um ein PassKit-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvases verwenden können, navigieren Sie zum Abschnitt **Templates und Medien** im Braze-Dashboard. Wenn Sie eine einmalige PassKit-Webhook-Kampagne erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
 
 Sobald Sie das PassKit-Webhook-Template ausgewählt haben, sollten Sie Folgendes sehen:
 - **Webhook URL**: `https://api-pub1.passkit.io/coupon/singleUse/coupon`
@@ -253,19 +253,19 @@ Um den Webhook einzurichten, füllen Sie die neuen Event-Details im Anfragetext 
 }{% endraw %}
 ```
 
-### 2. Schritt: Vorschau Ihrer Anfrage {#step-2-preview-your-request}
+### Schritt 2: Vorschau Ihrer Anfrage {#step-2-preview-your-request}
 
 Ihr Rohtext wird automatisch hervorgehoben, wenn es sich um einen passenden Braze-Tag handelt.
 
-Eine Vorschau Ihrer Anfrage finden Sie im Panel **Preview** oder auf dem Tab **Test**, wo Sie eine zufällige Nutzer:in, eine bestehende Nutzer:in auswählen oder Ihre eigene anpassen können, um Ihren Webhook zu testen.
+Eine Vorschau Ihrer Anfrage finden Sie im Panel **Vorschau** oder auf dem Tab **Test**, wo Sie eine zufällige Nutzer:in, eine bestehende Nutzer:in auswählen oder Ihre eigene anpassen können, um Ihren Webhook zu testen.
 
 {% alert important %}
-Denken Sie daran, Ihr Template zu speichern, bevor Sie die Seite verlassen! <br>Aktualisierte Webhook-Templates finden Sie in der Liste **Gespeicherte Webhook-Templates**, wenn Sie eine neue [Webhook-Kampagne]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) erstellen.
+Denken Sie daran, Ihr Template zu speichern, bevor Sie die Seite verlassen! <br>Aktualisierte Webhook-Templates finden Sie in der Liste **Gespeicherte Webhook-Templates**, wenn Sie eine neue [Webhook-Kampagne]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) erstellen.
 {% endalert %}
 
-## Pass-Details über Connected-Content abrufen {#retrieve-pass-details-via-connected-content}
+## Pass-Details über Connected Content abrufen {#retrieve-pass-details-via-connected-content}
 
-Sie können nicht nur Pässe erstellen und aktualisieren, sondern auch die Pass-Metadaten Ihrer Nutzer:innen über Braze [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) abrufen, um personalisierte Pass-Details in Ihre Messaging-Kampagnen einzubinden.
+Sie können nicht nur Pässe erstellen und aktualisieren, sondern auch die Pass-Metadaten Ihrer Nutzer:innen über Braze [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) abrufen, um personalisierte Pass-Details in Ihre Messaging-Kampagnen einzubinden.
 
 **PassKit Connected-Content-Aufruf**
 

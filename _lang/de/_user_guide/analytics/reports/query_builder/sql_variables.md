@@ -15,13 +15,11 @@ tool: Reports
 
 Die Vorteile der Verwendung von SQL-Variablen umfassen:
 
-- Zeitersparnis durch das Erstellen einer Campaign-Variable, die Sie beim Erstellen Ihres Berichts aus einer Liste auswählen können, anstatt Campaign-IDs einzufügen.
-- Werte austauschen, indem Sie Variablen hinzufügen, mit denen Sie den Bericht für leicht abweichende Anwendungsfälle in der Zukunft wiederverwenden können (z. B. ein anderes angepasstes Event).
-- Reduzierung von Nutzer:innenfehlern beim Bearbeiten Ihres SQL, indem der Bearbeitungsaufwand für jeden Bericht verringert wird. Teammitglieder, die sich mit SQL besser auskennen, können Berichte erstellen, die weniger technisch versierte Teammitglieder dann verwenden können.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ## Variablen verwenden {#using-variables}
 
-### 1. Schritt: Variable hinzufügen {#step-1-add-a-variable}
+### Schritt 1: Variable hinzufügen {#step-1-add-a-variable}
 
 Um eine Variable zu Ihrer Abfrage hinzuzufügen, verwenden Sie die folgende Syntax:
 
@@ -37,7 +35,7 @@ Ersetzen Sie Folgendes:
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | `variable_type` | Der vordefinierte Variablentyp, den Sie verwenden möchten, z. B. `campaign` oder `catalog_fields`. Die vollständige Liste finden Sie unter [Unterstützte Variablentypen](#variable-types). |
 | `custom_label` | Das Label zur Identifizierung der Variable im Tab **Variablen** Ihres Abfrage-Builders. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="1. Schritt: Variable hinzufügen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1: Variable hinzufügen" }
 
 Im folgenden Beispiel wird die Gesamtzahl der Nutzer:innen zwischen dem ersten und letzten Tag eines Monats für eine Campaign abgefragt. Jeder Variable wird im nächsten Schritt ein Wert zugewiesen.
 
@@ -51,7 +49,7 @@ WHERE campaign_id = '{{campaign.${Campaign}}}'
 ```
 {% endraw %}
 
-### 2. Schritt: Wert zuweisen {#step-2-assign-a-value}
+### Schritt 2: Wert zuweisen {#step-2-assign-a-value}
 
 Standardmäßig wird der Tab **Variablen** im Abfrage-Builder nicht angezeigt. Er erscheint erst, nachdem Sie Ihre erste Variable zur Abfrage hinzugefügt haben. Dort können Sie ihr einen Wert zuweisen. Die spezifischen Werte, die Sie auswählen können, hängen vom [Typ](#variable-types) der jeweiligen Variable ab.
 
@@ -189,7 +187,7 @@ Ihr Liquid wird verwendet, um einen Kalender innerhalb des angegebenen Datumsber
 
 ![Ein Beispiel für einen in Braze gerenderten Kalender.]({% image_buster /assets/img_archive/query_builder_time_range.png %}){: style="max-width:50%;"}
 
-### Campaigns
+### Campaigns {#campaigns}
 
 {% tabs local %}
 {% tab Eine Campaign %}
@@ -441,7 +439,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 {% endtab %}
 {% endtabs %}
 
-### Segments
+### Segments {#segments}
 
 Zur Auswahl von Segmenten, bei denen [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) aktiviert ist. Wird auf die Segment-Analytics-ID gesetzt, die den in der Spalte `user_segment_membership_ids` gespeicherten IDs in den Tabellen entspricht, in denen diese Spalte verfügbar ist.
 

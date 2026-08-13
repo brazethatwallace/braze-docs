@@ -50,7 +50,7 @@ Designated time schedules are best suited for messages scheduled in advance and 
 
 ### Delivery rules
 
-Because a user's optimal time can be any time over the course of 24 hours, all Intelligent Timing campaigns must be scheduled 24 hours in advance. In addition, similar to designated time campaigns, messages with a 1-day window will miss users who fall out of the segment before their optimal time in their time zone is reached. Segments for Intelligent Timing campaigns should incorporate at minimum a 3-day window to account for this.
+Because a user's optimal time can be any time over the course of 24 hours across all global time zones, all Intelligent Timing campaigns must be scheduled 48 hours in advance. Scheduling 48 hours ahead accounts for delivery to all users worldwide, as a single day spans approximately 48 hours across all time zones. In addition, similar to designated time campaigns, messages with a 1-day window miss users who fall out of the segment before their optimal time in their time zone is reached. Segments for Intelligent Timing campaigns should incorporate at minimum a 3-day window to account for this.
 
 If a user's profile does not have enough data to calculate an optimal time, you can choose a backup method to either send during the most popular time to use the app among all users or a set custom fallback time. 
 
@@ -61,6 +61,21 @@ Intelligent Timing campaigns work best for one-off and recurring messages where 
 ## Audience criteria evaluation with delays
 
 For campaigns that use scheduled delivery, audience criteria are always evaluated at the time of the scheduled send, not when the campaign launches. This applies to any delay between scheduling and sending—for example, rate limiting, local time zone, Intelligent Timing, or a trigger schedule.
+
+### Timing of segment changes
+
+If you modify a segment that's used as the audience for a scheduled campaign, changes made close to the scheduled send time are typically included when the audience is evaluated. The exact cutoff varies, but changes are generally included if they finish processing before Braze builds the audience for that send.
+
+For example, if you update a segment at 3:50 pm for a campaign scheduled to send at 4 pm, Braze uses the updated segment criteria when evaluating the audience, assuming the changes finish processing before campaign execution begins.
+
+#### Best practices
+
+To give segment changes time to finish processing before your scheduled campaigns send:
+
+- **Plan ahead:** Make segment changes well before the scheduled send time so they have time to finish processing.
+- **Test first:** When possible, test changes in a smaller campaign before applying them to larger, more critical campaigns.
+
+For more on scheduled delivery options, see [Delivery and entry types]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options).
 
 ## Troubleshooting
 

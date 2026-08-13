@@ -203,5 +203,5 @@ Google SSO 적용이 활성화되면 사용자는 Google 인증으로 로그인�
 
 SAML SSO를 설정한 후 다음을 수행할 수 있습니다:
 
-- 보안 설정에서 [SSO 전용 로그인 적용]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction)을 설정하여 사용자가 비밀번호로 로그인하는 것을 제한합니다.
+- 보안 설정에서 [SSO 전용 로그인 적용]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication)을 설정하여 사용자가 비밀번호로 로그인하는 것을 제한합니다.
 - [SAML 적시 프로비저닝 설정]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning)을 통해 새 사용자가 첫 SSO 로그인 시 자동으로 Braze 계정을 생성하도록 합니다.

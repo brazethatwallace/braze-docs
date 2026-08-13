@@ -18,7 +18,9 @@ toc_headers: h2
 
 To take advantage of this feature, you must upgrade to the following minimum SDK versions:
 
-{% sdk_min_versions swift:5.2.0 android:23.0.0 web:4.2.0 %}
+{% sdk_min_versions swift:5.2.0 objc:4.5.0 android:23.0.0 web:4.2.0 %}
+
+On iOS, the Swift SDK supports this feature starting with version 5.2.0, and the legacy Objective-C SDK supports it starting with version 4.5.0. Swift SDK versions 5.0.0 through 5.1.x don't support it.
 
 After upgrading the SDK, your mobile users must upgrade their app. You can filter your campaign or Canvas audience to only [target users on these minimum app versions]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 

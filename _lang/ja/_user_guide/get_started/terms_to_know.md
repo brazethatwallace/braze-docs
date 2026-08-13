@@ -24,7 +24,7 @@ glossaries:
     description: "<a href=\"/docs/api/api_campaigns\">APIキャンペーン</a> は、Brazeダッシュボードを使用して<code>campaign_id</code>（およびバリエーションID）を生成し、コピー、オーディエンス、スケジュール、アセットは<a href=\"/docs/api/endpoints/messaging\">メッセージングAPI</a> を通じて提供します。これは、ダッシュボードで完全に設定されたキャンペーンをAPI経由でトリガーする<a href=\"/docs/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery\">APIトリガーキャンペーン</a> とは異なります。"
   - name: Application program interface (API)
     display_name: "アプリケーションプログラムインターフェイス（API）"
-    description: "<a href=\"/docs/api/basics#api-overview\">Braze API</a> は、モバイルSDK経由ではなく、HTTP経由で直接ユーザーのアクションを記録できるWebサービスを提供します。これにより、例えば、アプリやWebサイト内では追跡されないユーザーデータをBrazeに渡すことができます。"
+    description: "<a href=\"/docs/api/basics\">Braze API</a> は、モバイルSDK経由ではなく、HTTP経由で直接ユーザーのアクションを記録できるWebサービスを提供します。これにより、例えば、アプリやWebサイト内では追跡されないユーザーデータをBrazeに渡すことができます。"
   - name: App instance
     display_name: "アプリインスタンス"
     description: アプリインスタンスとは、ワークスペースに集められたさまざまなサイトやアプリを指します。

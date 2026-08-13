@@ -58,7 +58,7 @@ Scheduled refreshes are automatically disabled once a Segment Extension is stale
 
 - Not used in any active campaigns or Canvases
 - Not used in any segment that is in an active campaign or Canvas
-- Not used in any segment that has [analytics tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) turned on
+- Not used in any segment that has [analytics tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) turned on
 - Hasn't been modified in over seven days
 - Hasn't been added to a campaign or Canvas (including drafts), or segment in over seven days
 

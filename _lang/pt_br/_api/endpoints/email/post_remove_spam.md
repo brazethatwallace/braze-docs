@@ -1,28 +1,28 @@
 ---
-nav_title: "POST: Remover endereços de e-mail da lista de spam"
-article_title: "POST: Remover endereços de e-mail da lista de spam"
+nav_title: "POST: Remover endereços de e-mail da lista de SPAM"
+article_title: "POST: Remover endereços de e-mail da lista de SPAM"
 search_tag: Endpoint
 page_order: 7
 layout: api_page
 page_type: reference
-description: "Este artigo traz informações sobre o endpoint da Braze \"Remover endereços de e-mail da lista de spam\"."
+description: "Este artigo traz informações sobre o endpoint da Braze \"Remover endereços de e-mail da lista de SPAM\"."
 
 ---
 {% api %}
-# Remover endereços de e-mail da lista de spam {#remove-email-addresses-from-spam-list}
+# Remover endereços de e-mail da lista de SPAM {#remove-email-addresses-from-spam-list}
 {% apimethod post %}
 /email/spam/remove
 {% endapimethod %}
 
-> Use esse endpoint para remover endereços de e-mail da sua lista de spam da Braze e da lista de spam mantida pelo seu provedor de e-mail.
+> Use esse endpoint para remover endereços de e-mail da sua lista de SPAM da Braze e da lista de SPAM mantida pelo seu provedor de e-mail.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#1614a82f-510a-4c37-95a6-8207a125e487 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `email.spam.remove`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.spam.remove`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
@@ -40,9 +40,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | ----------|-----------| --------|------- |
-| `email` | Obrigatória | String ou matriz | Endereço de e-mail em string para modificar ou uma matriz de até 50 endereços de e-mail para modificar. |
+| `email` | Obrigatório | String ou matriz | Endereço de e-mail em string para modificar ou uma matriz de até 50 endereços de e-mail para modificar. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}

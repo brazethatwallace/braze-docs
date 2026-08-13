@@ -2,7 +2,7 @@
 nav_title: Snowflake
 article_title: Snowflake
 alias: /partners/snowflake/
-description: "Este artículo describe la asociación entre Braze y Snowflake, cubriendo tanto el uso compartido de datos (de Braze a Snowflake) como la Ingesta de datos de Cloud (de Snowflake a Braze)."
+description: "Este artículo describe la asociación entre Braze y Snowflake, cubriendo tanto el uso compartido de datos (de Braze a Snowflake) como la ingesta de datos de Cloud (de Snowflake a Braze)."
 page_type: partner
 search_tag: Partner
 
@@ -18,7 +18,7 @@ Braze ofrece dos integraciones con Snowflake. Juntas, proporcionan un pipeline d
 
 ### Uso compartido de datos (de Braze a Snowflake) {#data-sharing-braze-to-snowflake}
 
-[Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) de Snowflake te da acceso seguro y en tiempo real a los datos de interacción y Campaign de Braze directamente en tu instancia de Snowflake. No se copian ni transfieren datos entre cuentas: toda la compartición se realiza a través de la capa de servicios y el almacén de metadatos únicos de Snowflake.
+[Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing) de Snowflake te da acceso seguro y en tiempo real a los datos de interacción y Campaign de Braze directamente en tu instancia de Snowflake. No se copian ni transfieren datos entre cuentas: toda la compartición se realiza a través de la capa de servicios y el almacén de metadatos únicos de Snowflake.
 
 **Usa el uso compartido de datos cuando quieras:**
 - Consultar datos de eventos y Campaign de Braze usando SQL de Snowflake
@@ -26,19 +26,19 @@ Braze ofrece dos integraciones con Snowflake. Juntas, proporcionan un pipeline d
 - Unir datos de Braze con otros datos en tu almacén de Snowflake
 - Comparar tus datos de interacción entre canales, sectores y plataformas de dispositivos
 
-Para instrucciones de configuración, consulta [Uso compartido de datos con Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/).
+Para instrucciones de configuración, consulta [Uso compartido de datos con Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing).
 
 ### Ingesta de datos de Cloud (de Snowflake a Braze) {#cloud-data-ingestion-snowflake-to-braze}
 
-La [Ingesta de datos de Cloud (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) te permite sincronizar datos desde tu instancia de Snowflake directamente en Braze. Esto te permite mantener los atributos de usuario, eventos y compras en Braze actualizados con tu almacén de datos como fuente de la verdad.
+La [ingesta de datos de Cloud (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) te permite sincronizar datos desde tu instancia de Snowflake directamente en Braze. Esto te permite mantener los atributos de usuario, eventos y compras en Braze actualizados con tu almacén de datos como fuente de la verdad.
 
-**Usa la Ingesta de datos de Cloud cuando quieras:**
+**Usa la ingesta de datos de Cloud cuando quieras:**
 - Sincronizar atributos de usuario desde Snowflake a perfiles de usuario de Braze
 - Enviar datos de eventos o compras desde Snowflake a Braze
 - Mantener Braze sincronizado con las transformaciones de datos que ocurren en tu almacén
 - Evitar construir y mantener pipelines ETL personalizados de Snowflake a Braze
 
-Para saber más sobre la compartición de datos de Snowflake, consulta [Introducción a la compartición segura de datos](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#how-does-secure-data-sharing-work).
+Para saber más sobre el uso compartido de datos de Snowflake, consulta [Introducción a Secure Data Sharing](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#how-does-secure-data-sharing-work).
 
 ## Requisitos previos {#prerequisites}
 
@@ -46,20 +46,17 @@ Antes de poder utilizar esta característica, tendrás que completar lo siguient
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Acceso a Braze | Para acceder a esta característica en Braze, tendrás que ponerte en contacto con tu administrador de cuenta o administrador del éxito del cliente de Braze. |
+| Acceso a Braze | Para acceder a esta característica en Braze, tendrás que ponerte en contacto con tu administrador de cuenta o administrador de éxito de cliente de Braze. |
 | Cuenta de Snowflake | Una cuenta de Snowflake con permisos `admin`. Para clientes que no son HIPAA, se admite Snowflake Standard o Enterprise Edition. Para el uso compartido de datos conforme a HIPAA, se requiere Business Critical Edition. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Configuración de la compartición segura de datos {#setting-up-secure-data-sharing}
+## Configuración de Secure Data Sharing {#setting-up-secure-data-sharing}
 
 En Snowflake, los datos se comparten entre un [proveedor de datos](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#providers) y un [consumidor de datos](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#consumers). En este contexto, tu cuenta de Braze es el proveedor de datos porque crea y envía el datashare&#8212;mientras que tu cuenta de Snowflake es el consumidor de datos porque utiliza el datashare para crear una base de datos. Para más detalles, consulta [Snowflake: Consumir datos compartidos](https://docs.snowflake.com/en/user-guide/data-share-consumers).
 
 ### Paso 1: Enviar el datashare desde Braze {#step-1-send-the-datashare-from-braze}
 
-1. En Braze, ve a **Partner Integrations** > **Data Sharing**.
-2. Introduce los datos de tu cuenta de Snowflake y el localizador. Para obtener el localizador de tu cuenta, ejecuta `SELECT CURRENT_ACCOUNT()` en la cuenta de destino.
-3. Si utilizas un recurso compartido CRR, especifica el proveedor de la nube y la región.
-4. Cuando hayas terminado, selecciona **Create Datashare**. Esto enviará el datashare a tu cuenta de Snowflake.
+{% multi_lang_include partners/snowflake/data_sharing_account_steps.md %}
 
 ### Paso 2: Crear la base de datos en Snowflake {#step-2-create-the-database-in-snowflake}
 
@@ -72,7 +69,7 @@ En Snowflake, los datos se comparten entre un [proveedor de datos](https://docs.
 
 {% alert warning %}
 Si eliminas y vuelves a crear un recurso compartido en el panel de Braze, debes eliminar la base de datos creada anteriormente y volver a crearla utilizando `CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>` para consultar el recurso compartido de entrada.
-Si tienes varios espacios de trabajo que comparten datos con la misma cuenta de Snowflake, consulta las [preguntas frecuentes sobre el uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs/) para obtener orientación sobre la gestión de configuraciones con varios espacios de trabajo.
+Si tienes varios espacios de trabajo que comparten datos con la misma cuenta de Snowflake, consulta las [preguntas frecuentes sobre el uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs) para obtener orientación sobre la gestión de configuraciones con varios espacios de trabajo.
 {% endalert %}
 
 ## Uso y visualización {#usage-and-visualization}
@@ -81,13 +78,9 @@ Una vez aprovisionado el recurso compartido de datos, tendrás que crear una bas
 
 De forma similar a Currents, puedes utilizar tu compartición segura de datos de Snowflake para:
 
-- Crear informes complejos
-- Realizar modelos de atribución
-- Compartir de forma segura dentro de tu propia empresa
-- Mapear los datos brutos de eventos o usuarios a un CRM (como Salesforce)
-- Y más
+{% multi_lang_include partners/data_sharing_use_cases.md %}
 
-Para obtener una lista completa de las tablas y columnas disponibles, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). El uso compartido de datos de Snowflake incluye todas las tablas de esa referencia, además de tablas exclusivas de Snowflake para instantáneas, registros de cambios de Campaign y Canvas, eventos de la Consola de Agente y eventos de reintentos de mensajes.
+Para obtener una lista completa de las tablas y columnas disponibles, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). El uso compartido de datos de Snowflake incluye todas las tablas de esa referencia, además de tablas exclusivas de Snowflake para instantáneas, registros de cambios de Campaign y Canvas, eventos de la consola de agentes y eventos de reintentos de mensajes.
 
 También puedes [descargar los esquemas de las tablas sin procesar](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) como archivo de texto.
 
@@ -107,9 +100,7 @@ Ten en cuenta las siguientes diferencias entre las convenciones de nomenclatura 
 
 #### Cambios sin ruptura {#non-breaking-changes}
 
-Los cambios sin ruptura pueden producirse en cualquier momento y generalmente proporcionan funcionalidad adicional. Ejemplos de cambios sin ruptura:
-- Añadir una nueva tabla o vista
-- Añadir una columna a una tabla o vista existente
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 Dado que las columnas nuevas se consideran cambios sin ruptura, Braze recomienda encarecidamente enumerar explícitamente las columnas de interés en cada consulta, en lugar de utilizar consultas `SELECT *`. Otra posibilidad es crear vistas que nombren explícitamente las columnas y luego consultar esas vistas en lugar de las tablas directamente.
@@ -117,10 +108,7 @@ Dado que las columnas nuevas se consideran cambios sin ruptura, Braze recomienda
 
 #### Cambios de ruptura {#breaking-changes}
 
-Siempre que sea posible, los cambios de ruptura irán precedidos de un anuncio y de un periodo de migración. Algunos ejemplos de cambios de ruptura son:
-- Eliminar una tabla o una vista
-- Eliminar una columna de una tabla o vista existente
-- Cambiar el tipo o la nulabilidad de una columna existente
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ### Regiones de Snowflake {#snowflake-regions}
 
@@ -156,6 +144,6 @@ Los datos de eventos en las vistas de uso compartido de datos (por ejemplo, `USE
 
 La velocidad, el rendimiento y el coste de cualquier consulta realizada sobre los datos vienen determinados por el tamaño del almacén que utilices para consultar los datos. En algunos casos, dependiendo de la cantidad de datos a los que accedas para el análisis, puede que necesites utilizar un almacén de mayor tamaño para que la consulta tenga éxito. Snowflake dispone de excelentes recursos sobre la mejor forma de determinar qué tamaño utilizar, entre los que se incluyen [Resumen de los almacenes](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) y [Consideraciones sobre los almacenes](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html).
 
-> Para consultar un conjunto de consultas de ejemplo como referencia para configurar Snowflake, echa un vistazo a nuestros ejemplos de [consultas de ejemplo]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries/) y de [configuración del canal de eventos ETL]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup/).
+> Para consultar un conjunto de consultas de ejemplo como referencia para configurar Snowflake, echa un vistazo a nuestros ejemplos de [consultas de ejemplo]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries) y de [configuración del canal de eventos ETL]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup).
 
-Para instrucciones de configuración, consulta [Ingesta de datos de Cloud: integraciones de almacén de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+Para instrucciones de configuración, consulta [Ingesta de datos de Cloud: integraciones de almacén de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).

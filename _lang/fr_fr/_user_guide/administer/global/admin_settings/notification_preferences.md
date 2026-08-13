@@ -31,17 +31,17 @@ Selon le type de notification, **All Dashboard Users** et **All Admins** peuvent
 |--------------|-------------|-----------------|
 | Alertes d'utilisation de l'API | Sélectionner cette option vous redirige vers le **tableau de bord d'utilisation de l'API**, où vous pouvez ensuite accéder à l'onglet [**Alertes d'utilisation de l'API**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts) et configurer des alertes pour suivre les volumes de requêtes API clés. | E-mail, Webhook |
 | Erreurs d'identifiants AWS | Informe les destinataires lorsque Braze reçoit une erreur en tentant d'utiliser vos identifiants Amazon Web Services pour une exportation de données. Cela inclut les notifications d'erreurs d'identifiants pour Google Cloud Storage et Azure (Microsoft Cloud Services). | E-mail, Webhook |
-| Campaign automatiquement arrêtée | Informe les destinataires lorsque Braze a arrêté une campagne. | E-mail |
+| Campaign automatiquement arrêtée | Informe les destinataires lorsque Braze a arrêté une Campaign. | E-mail |
 | Canvas automatiquement arrêté | Informe les destinataires lorsque Braze a arrêté un Canvas. | E-mail |
-| Expiration des interactions de Campaign | Informe les destinataires de toute campagne dont les données d'interaction arrivent à expiration, ainsi que de tout segment, campagne ou Canvas qui y fait référence dans un filtre de reciblage et qui a été utilisé pour envoyer un message au cours des 30 derniers jours. | E-mail |
-| Campaign/Canvas mis à jour | Informe les destinataires lorsqu'une campagne ou un Canvas actif est mis à jour ou désactivé, ainsi que lorsqu'une campagne ou un Canvas inactif est réactivé ou que des brouillons sont lancés. | E-mail |
-| Limite de volume de Campaign/Canvas atteinte | Informe les destinataires lorsqu'une campagne ou un Canvas atteint sa limite de volume. | E-mail |
-| Expiration des interactions de Canvas | Informe les destinataires de tout Canvas dont les données d'interaction arrivent à expiration, ainsi que de tout segment, campagne ou Canvas qui y fait référence dans un filtre de reciblage et qui a été utilisé pour envoyer un message au cours des 30 derniers jours. | E-mail |
+| Expiration des interactions de Campaign | Informe les destinataires de toute Campaign dont les données d'interaction arrivent à expiration, ainsi que de tout Segment, Campaign ou Canvas qui y fait référence dans un filtre de reciblage et qui a été utilisé pour envoyer un message au cours des 30 derniers jours. | E-mail |
+| Campaign/Canvas mis à jour | Informe les destinataires lorsqu'une Campaign ou un Canvas actif est mis à jour ou désactivé, ainsi que lorsqu'une Campaign ou un Canvas inactif est réactivé ou que des brouillons sont lancés. | E-mail |
+| Limite de volume de Campaign/Canvas atteinte | Informe les destinataires lorsqu'une Campaign ou un Canvas atteint sa limite de volume. | E-mail |
+| Expiration des interactions de Canvas | Informe les destinataires de tout Canvas dont les données d'interaction arrivent à expiration, ainsi que de tout Segment, Campaign ou Canvas qui y fait référence dans un filtre de reciblage et qui a été utilisé pour envoyer un message au cours des 30 derniers jours. | E-mail |
 | Commentaires dans les Canvas | Informe les destinataires lorsqu'un Canvas contient de nouveaux commentaires. | E-mail |
 | Erreurs de contenu connecté | Informe les destinataires lorsqu'un endpoint de contenu connecté rencontre des erreurs. | E-mail |
 | Erreurs push | Informe les destinataires lorsqu'un endpoint push rencontre des erreurs. | E-mail, Webhook |
-| Limite de Campaign planifiée atteinte | Informe les destinataires lorsque la limite d'une campagne planifiée récurrente a été atteinte. | E-mail, Webhook |
-| Campaign planifiée envoyée | Informe les destinataires lorsqu'une campagne planifiée a terminé son envoi. | E-mail, Webhook |
+| Limite de Campaign planifiée atteinte | Informe les destinataires lorsque la limite d'une Campaign planifiée récurrente a été atteinte. | E-mail, Webhook |
+| Campaign planifiée envoyée | Informe les destinataires lorsqu'une Campaign planifiée a terminé son envoi. | E-mail, Webhook |
 | Erreurs de webhook | Informe les destinataires lorsqu'un endpoint webhook rencontre des erreurs. | E-mail |
 | Rapport d'analyse hebdomadaire | Envoie un résumé de l'activité de l'espace de travail de la semaine écoulée aux destinataires chaque lundi. Les destinataires reçoivent un résumé pour chaque espace de travail auquel ils appartiennent. | E-mail |
 | Limites quotidiennes de volume d'entrée Canvas/Campaign | Envoie des notifications chaque fois qu'une limite d'envoi est atteinte. | E-mail |

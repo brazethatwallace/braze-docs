@@ -28,7 +28,7 @@ Braze内のどのユーザーにもまだ関連付けられていないメール
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`email.status`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`email.status`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -58,7 +58,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## SendGridメールブロックのトラブルシューティング {#troubleshooting-sendgrid-email-blocks}
 
-SendGridが受信者をブロックした場合、このエンドポイントで購読ステータスを更新し、セグメントフィルターでエンゲージメントを確認してください。配信到達性のモニタリングには[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)のソフトバウンスイベントを使用し、再送信前に購読状態を確認してください。
+SendGridが受信者をブロックした場合、このエンドポイントで購読ステータスを更新し、セグメントフィルターでエンゲージメントを確認してください。配信到達性の監視には[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)のソフトバウンスイベントを使用し、再送信前に購読状態を確認してください。
 
 ## リクエスト例 {#example-request}
 ```

@@ -1,4 +1,45 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const applyDefaultSearchInputLabel =
+    window.SuSearchA11y?.applyDefaultSearchInputLabel;
+  const syncClearButtonTabindex =
+    window.SuSearchA11y?.syncClearButtonTabindex;
+  const configureSearchSubmitButton =
+    window.SuSearchA11y?.configureSearchSubmitButton;
+  const markSearchReady = window.SuSearchA11y?.markSearchReady;
+  const watchSuggestionsOpenState =
+    window.SuSearchA11y?.watchSuggestionsOpenState;
+
+  function showSearchContainer(container) {
+    if (!container || container.dataset.searchReady) return;
+
+    container.dataset.searchReady = "true";
+    container.classList.add("su-search-ready");
+  }
+
+  function revealSearchContainer(container, input) {
+    if (!container || container.dataset.searchReady) return;
+
+    showSearchContainer(container);
+
+    if (input && document.activeElement === input && !input.dataset.userFocused) {
+      input.blur();
+    }
+  }
+
+  function trackUserFocus(input) {
+    if (!input || input.dataset.userFocusTrackingApplied) return;
+
+    input.dataset.userFocusTrackingApplied = "true";
+    input.addEventListener("pointerdown", () => {
+      input.dataset.userFocused = "true";
+    });
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Tab") {
+        input.dataset.userFocused = "true";
+      }
+    });
+  }
+
   const buttonLabels = {
     en:     { form: "Site search", search: "Search", clear: "Clear search" },
     "pt-br":{ form: "Pesquisa do site", search: "Pesquisar", clear: "Limpar pesquisa" },
@@ -34,6 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (searchButton) {
       searchButton.setAttribute("type", "submit");
       searchButton.setAttribute("aria-label", labels.search);
+      if (configureSearchSubmitButton) {
+        configureSearchSubmitButton(searchButton);
+      }
       searchButton.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -45,7 +89,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (clearButton) {
       clearButton.setAttribute("aria-label", labels.clear);
       clearButton.setAttribute("role", "button");
-      clearButton.setAttribute("tabindex", "0");
+      if (syncClearButtonTabindex) {
+        syncClearButtonTabindex(clearButton, queryInput);
+      }
       clearButton.addEventListener("keydown", function (e) {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -58,12 +104,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if (queryInput) {
           queryInput.value = "";
           queryInput.focus();
+          if (syncClearButtonTabindex) {
+            syncClearButtonTabindex(clearButton, queryInput);
+          }
         }
       });
     }
 
     // Enter key
     if (queryInput) {
+      /*
       queryInput.addEventListener("keypress", function (e) {
         if (e.key === "Enter") {
           e.preventDefault();
@@ -71,20 +121,11 @@ document.addEventListener("DOMContentLoaded", function () {
           handleSearch(queryInput, langSelect);
         }
       });
+      */
 
-      const translations = {
-        en: "Search everything",
-        "pt-br": "Buscar tudo",
-        ko: "전체 검색",
-        fr: "Rechercher tout",
-        es: "Buscar todo",
-        de: "Alles durchsuchen",
-        ja: "すべて検索",
-      };
-
-      const placeholderText = translations[lang] || translations.en;
-      queryInput.setAttribute("placeholder", `${placeholderText}...`);
-      queryInput.setAttribute("aria-label", placeholderText);
+      if (applyDefaultSearchInputLabel) {
+        applyDefaultSearchInputLabel(queryInput);
+      }
 
       // Combobox ARIA — tells assistive technology this input controls a listbox
       queryInput.setAttribute("role", "combobox");
@@ -92,9 +133,12 @@ document.addEventListener("DOMContentLoaded", function () {
       queryInput.setAttribute("aria-expanded", "false");
       queryInput.setAttribute("autocomplete", "off");
 
-      queryInput.addEventListener("focus", () =>
-        queryInput.setAttribute("aria-expanded", "true")
-      );
+      queryInput.addEventListener("focus", () => {
+        queryInput.setAttribute("aria-expanded", "true");
+        if (syncClearButtonTabindex) {
+          syncClearButtonTabindex(clearButton, queryInput);
+        }
+      });
       queryInput.addEventListener("blur", () => {
         // Delay so a click on a suggestion isn't cut off before it fires
         setTimeout(() => queryInput.setAttribute("aria-expanded", "false"), 200);
@@ -104,7 +148,23 @@ document.addEventListener("DOMContentLoaded", function () {
           "aria-expanded",
           queryInput.value.trim() !== "" ? "true" : "false"
         );
+        if (syncClearButtonTabindex) {
+          syncClearButtonTabindex(clearButton, queryInput);
+        }
       });
+    }
+
+    if (queryInput) {
+      if (watchSuggestionsOpenState) {
+        watchSuggestionsOpenState(container, queryInput);
+      } else {
+        trackUserFocus(queryInput);
+      }
+      if (markSearchReady) {
+        markSearchReady(container, queryInput);
+      } else {
+        revealSearchContainer(container, queryInput);
+      }
     }
 
     form.dataset.listenerAdded = "true";
@@ -140,6 +200,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Watch for dynamic content
   const targetNode = document.querySelector("#su_main_search");
   if (targetNode) {
+    setTimeout(() => {
+      showSearchContainer(targetNode);
+    }, 5000);
+
     const observer = new MutationObserver(() => {
       const form = targetNode.querySelector("form");
       const input = targetNode.querySelector("#search-box-autocomplete");

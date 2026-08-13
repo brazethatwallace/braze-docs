@@ -14,6 +14,7 @@ description: "このリファレンス記事では、オペレーターを使用
 
 ## アクセス方法 {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_data_transformation.md %}
+[データ変換]({{site.baseurl}}/user_guide/data/unification/data_transformation)エディターで、**Insert Code**を選択して、受信Webhookペイロードを有効なBraze APIリクエストに変換する変換コードを生成します。
+
 
 プロンプトの例を含む詳細については、[オペレーターの機能でデータ変換コードを生成する]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code)を参照してください。

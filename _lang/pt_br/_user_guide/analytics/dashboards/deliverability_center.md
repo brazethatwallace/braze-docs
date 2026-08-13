@@ -119,22 +119,30 @@ Para entender as classificações de reputação de IP, consulte esta tabela:
 
 | Classificação de reputação | Definição |
 | ----- | ---------- |
-| Alta | Tem um bom histórico de gerar poucas reclamações de spam (como usuários clicando no botão "spam"). |
-| Média/Razoável | Conhecido por gerar engajamento positivo, mas ocasionalmente recebe reclamações de spam. A maioria dos e-mails deste domínio é entregue na caixa de entrada, exceto quando as reclamações de spam aumentam. |
-| Baixa | Conhecido por receber taxas elevadas de reclamações de spam regularmente. E-mails deste remetente provavelmente serão filtrados para a pasta de spam. |
-| Ruim | Tem um histórico de receber taxas elevadas de reclamações de spam. E-mails deste domínio quase sempre são rejeitados no momento da conexão ou filtrados para a pasta de spam. |
+| Alta | Tem um bom histórico de gerar poucas reclamações de SPAM (como usuários clicando no botão "spam"). |
+| Média/Razoável | Conhecido por gerar engajamento positivo, mas ocasionalmente recebe reclamações de SPAM. A maioria dos e-mails deste domínio é entregue na caixa de entrada, exceto quando as reclamações de SPAM aumentam. |
+| Baixa | Conhecido por receber taxas elevadas de reclamações de SPAM regularmente. E-mails deste remetente provavelmente serão filtrados para a pasta de SPAM. |
+| Ruim | Tem um histórico de receber taxas elevadas de reclamações de SPAM. E-mails deste domínio quase sempre são rejeitados no momento da conexão ou filtrados para a pasta de SPAM. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Reputação de IP" }
+
+{% alert important %}
+Os dados de reclamações de SPAM exibidos na Braze são baseados em relatórios de feedback loop (FBL) de provedores de e-mail que os compartilham, como Microsoft, Yahoo e Comcast. Quando os usuários desses provedores reportam um e-mail como SPAM, essas reclamações são enviadas de volta para a Braze.<br><br>
+No entanto, o Gmail e o iCloud não operam feedback loops tradicionais e não reportam reclamações de SPAM de volta para a Braze. Isso significa:<br>
+- Reclamações de SPAM de usuários do Gmail não são incluídas nas métricas da Braze nem estão disponíveis nos dados do Snowflake ou Currents.<br>
+- Você pode visualizar dados de SPAM do Gmail apenas como porcentagens agregadas no [Gmail Postmaster Tools](https://www.gmail.com/postmaster/), não como endereços individuais.<br>
+- Se você observar altas taxas de SPAM no Gmail Postmaster Tools, esses números não correspondem às métricas de reclamação de SPAM da Braze, porque o Gmail não compartilha esses dados com os remetentes.
+{% endalert %}
 
 #### Reputação do domínio {#domain-reputation}
 
-Use a tabela a seguir para monitorar e entender as classificações de reputação do seu domínio e evitar que seus e-mails sejam filtrados para a pasta de spam.
+Use a tabela a seguir para monitorar e entender as classificações de reputação do seu domínio e evitar que seus e-mails sejam filtrados para a pasta de SPAM.
 
 | Classificação de reputação | Definição |
 | ----- | ---------- |
-| Alta | Tem um bom histórico de reclamações de spam muito baixas. Está em conformidade com as diretrizes de remetente do Gmail. E-mails raramente são filtrados para a pasta de spam. Tem um bom histórico de taxa de spam muito baixa. Está em conformidade com as [diretrizes de remetente do Gmail](https://developers.google.com/gmail/markup/registering-with-google). |
-| Média/Razoável | Conhecido por gerar engajamento positivo, mas ocasionalmente recebe um baixo volume de reclamações de spam. A maioria dos e-mails deste domínio chega à caixa de entrada (exceto quando há um aumento notável nos níveis de spam). |
-| Baixa | Conhecido por receber reclamações de spam regularmente. E-mails deste remetente provavelmente serão filtrados para a pasta de spam. |
-| Ruim | Tem um histórico de receber taxas elevadas de reclamações de spam. E-mails deste domínio quase sempre são rejeitados no momento da conexão ou filtrados para a pasta de spam. |
+| Alta | Tem um bom histórico de reclamações de SPAM muito baixas. Está em conformidade com as diretrizes de remetente do Gmail. E-mails raramente são filtrados para a pasta de SPAM. Tem um bom histórico de taxa de SPAM muito baixa. Está em conformidade com as [diretrizes de remetente do Gmail](https://developers.google.com/gmail/markup/registering-with-google). |
+| Média/Razoável | Conhecido por gerar engajamento positivo, mas ocasionalmente recebe um baixo volume de reclamações de SPAM. A maioria dos e-mails deste domínio chega à caixa de entrada (exceto quando há um aumento notável nos níveis de SPAM). |
+| Baixa | Conhecido por receber reclamações de SPAM regularmente. E-mails deste remetente provavelmente serão filtrados para a pasta de SPAM. |
+| Ruim | Tem um histórico de receber taxas elevadas de reclamações de SPAM. E-mails deste domínio quase sempre são rejeitados no momento da conexão ou filtrados para a pasta de SPAM. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Reputação do domínio" }
 
 #### Autenticação {#authentication}
@@ -158,13 +166,13 @@ Consulte esta tabela para entender qual porcentagem do seu tráfego de entrada e
 | TLS de saída | Mostra a porcentagem de e-mails enviados (do Gmail) aceitos via TLS em relação a todos os e-mails enviados para aquele domínio. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Criptografia" }
 
-Para mais ideias sobre como melhorar a entregabilidade, leia [Armadilhas de entregabilidade e spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Consulte também nossas [Práticas recomendadas de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices) para verificar o que deve ser revisado antes de enviar uma campanha de e-mail.
+Para mais ideias sobre como melhorar a entregabilidade, leia [Armadilhas de entregabilidade e spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps). Consulte também nossas [Práticas recomendadas de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices) para verificar o que deve ser revisado antes de enviar uma campanha de e-mail.
 
 ## Configurar o Microsoft Smart Network Data Services (SNDS) {#set-up-microsoft-smart-network-data-services-snds}
 
 Se a Microsoft é o seu principal provedor de caixa de e-mail, você pode visualizar os dados do Microsoft SNDS no Centro de Entregabilidade. Isso inclui IPs de envio dedicados para espaços de trabalho que usam Amazon SES, SendGrid ou SparkPost. Use esses dados para monitorar a integridade dos IPs e entender como os provedores de caixa de entrada da Microsoft estão classificando seus envios.
 
-O Microsoft SNDS fornece dados no nível de IP sobre reclamações de spam, hits de spam trap e volume de envio, conforme reportado por provedores de caixa de entrada da Microsoft, como Outlook, Hotmail e Live.
+O Microsoft SNDS fornece dados no nível de IP sobre reclamações de SPAM, hits de spam trap e volume de envio, conforme reportado por provedores de caixa de entrada da Microsoft, como Outlook, Hotmail e Live.
 
 {% alert important %}
 Se você não vê seus dados no Centro de Entregabilidade, entre em contato com o [Suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) com uma lista dos seus endereços IP.
@@ -198,14 +206,14 @@ Consulte esta tabela para entender os resultados do filtro.
 
 | Resultado | Definição |
 | ----- | ---------- |
-| Verde | Considerado spam pelo filtro de spam da Microsoft em até 10% do período analisado. |
-| Amarelo | Considerado spam pelo filtro de spam da Microsoft entre 10% e 90% do período analisado. |
-| Vermelho | Considerado spam pelo filtro de spam da Microsoft em mais de 90% do período analisado. |
+| Verde | Considerado SPAM pelo filtro de SPAM da Microsoft em até 10% do período analisado. |
+| Amarelo | Considerado SPAM pelo filtro de SPAM da Microsoft entre 10% e 90% do período analisado. |
+| Vermelho | Considerado SPAM pelo filtro de SPAM da Microsoft em mais de 90% do período analisado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Resultados do filtro" }
 
 #### Taxa de reclamação {#complaint-rate}
 
-Esta é a fração de vezes em que uma mensagem recebida do IP é reportada como spam por um usuário do Hotmail ou Windows Live durante o período de atividade. Os usuários têm a opção de reportar praticamente todas as mensagens como lixo eletrônico pela interface web.
+Esta é a fração de vezes em que uma mensagem recebida do IP é reportada como SPAM por um usuário do Hotmail ou Windows Live durante o período de atividade. Os usuários têm a opção de reportar praticamente todas as mensagens como lixo eletrônico pela interface web.
 
 Para calcular a taxa de reclamação, divida o número de reclamações pelo número de destinatários da mensagem.
 
@@ -218,7 +226,7 @@ Para calcular a taxa de reclamação, divida o número de reclamações pelo nú
 
 #### Hits de spam trap {#spam-trap-hits}
 
-Hits de spam trap são o número de mensagens enviadas para "contas armadilha", que são contas mantidas pelo Outlook.com que não solicitam nenhum e-mail. É provável que qualquer mensagem enviada para essas contas armadilha seja considerada spam, por isso é importante monitorar essa métrica e garantir que ela esteja baixa. Hits de spam trap baixos significam que as mensagens não estão sendo enviadas para essas contas e estão sendo entregues para contas reais.
+Hits de spam trap são o número de mensagens enviadas para "contas armadilha", que são contas mantidas pelo Outlook.com que não solicitam nenhum e-mail. É provável que qualquer mensagem enviada para essas contas armadilha seja considerada SPAM, por isso é importante monitorar essa métrica e garantir que ela esteja baixa. Hits de spam trap baixos significam que as mensagens não estão sendo enviadas para essas contas e estão sendo entregues para contas reais.
 
 #### Período de início e fim de mensagens de spam trap {#trap-message-period-start-and-end}
 
@@ -227,3 +235,14 @@ Essas colunas mostram quando as primeiras e últimas mensagens enviadas para con
 {% alert tip %}
 Se você está procurando registros relacionados a um dos seus domínios verificados na Braze, observe que o Centro de Entregabilidade lista seus dados do Google Postmaster ou Microsoft SNDS, o que significa que é possível que nenhuma das plataformas tenha dados para compartilhar com a Braze. Como alternativa, tente manter um envio de e-mail consistente, pois isso pode levar a uma reputação mais alta.
 {% endalert %}
+
+## Reclamações de SPAM e feedback loops {#spam-complaints-and-feedback-loops}
+
+Um feedback loop (FBL) de e-mail permite que remetentes recebam relatórios quando destinatários marcam mensagens como SPAM. No entanto, o Gmail e o iCloud não oferecem feedback loops tradicionais, o que significa que a Braze (por meio do SparkPost ou SendGrid) não recebe dados de reclamações de SPAM desses provedores.
+
+Como os dados de reclamações de SPAM não estão disponíveis do Gmail e do iCloud, é importante usar outras ferramentas para monitorar a integridade e a reputação dos seus e-mails com esses grandes provedores:
+
+- Use o [Google Postmaster Tools](https://www.gmail.com/postmaster/) para monitorar a reputação do domínio e do IP, taxas de SPAM e engajamento dos usuários. Você pode integrar o Google Postmaster com a Braze conforme descrito em [Integrar o Google Postmaster](#integrating-google-postmaster).
+- A Apple não oferece uma ferramenta pública de Postmaster equivalente à do Google. Concentre-se em manter métricas de engajamento sólidas e seguir as práticas recomendadas de e-mail.
+
+Para manter uma boa entregabilidade com todos os provedores, implemente uma [política de sunset]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies) para parar automaticamente de enviar para usuários inativos. Isso ajuda a evitar que seus e-mails sejam marcados como SPAM e protege a reputação do remetente.

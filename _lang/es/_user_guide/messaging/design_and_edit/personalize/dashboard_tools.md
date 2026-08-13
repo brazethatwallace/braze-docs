@@ -1,24 +1,24 @@
 ---
-nav_title: Herramientas del dashboard
-article_title: Herramientas del dashboard para personalización
+nav_title: Herramientas del panel
+article_title: Herramientas del panel para personalización
 page_order: 0
-description: "Este artículo de referencia describe la experiencia de Añadir personalización en los editores de mensajes y páginas de inicio de Braze, incluyendo Liquid preformateado, valores predeterminados y mejoras del editor de Liquid como etiquetas de color y sugerencias predictivas."
+description: "Este artículo de referencia describe la experiencia de Añadir personalización en los editores de mensajes y páginas de destino de Braze, incluyendo Liquid preformateado, valores predeterminados y mejoras del editor de Liquid como etiquetas de color y sugerencias predictivas."
 ---
 
-# Herramientas del dashboard para personalización {#dashboard-tools-for-personalization}
+# Herramientas del panel para personalización {#dashboard-tools-for-personalization}
 
-> Usa las herramientas del dashboard de Braze para insertar personalización con Liquid sin tener que escribir cada etiqueta a mano. El flujo **Añadir personalización** construye la sintaxis correcta por ti, y el editor de Liquid te ayuda a leer y ampliar plantillas rápidamente.
+> Usa las herramientas del panel de Braze para insertar personalización con Liquid sin tener que escribir cada etiqueta a mano. El flujo **Añadir personalización** construye la sintaxis correcta por ti, y el editor de Liquid te ayuda a leer y ampliar plantillas rápidamente.
 
 Para las reglas de sintaxis de Liquid, etiquetas compatibles y patrones avanzados, consulta [Uso de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) y [Etiquetas de personalización compatibles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
-## Añadir personalización en compositores y configuración {#add-personalization-in-composers-and-settings}
+## Añadir personalización en creadores y configuración {#add-personalization-in-composers-and-settings}
 
-La herramienta **Añadir personalización** aparece junto a los campos de texto con plantillas en todo el dashboard, incluyendo:
+La herramienta **Añadir personalización** aparece junto a los campos de texto con plantillas en todo el panel, incluyendo:
 
 - **Pasos de Campaign y Canvas** para canales que admiten Liquid en el cuerpo o los encabezados (por ejemplo, correo electrónico, push, SMS, mensajes dentro de la aplicación, Content Cards y webhooks).
-- **Editores de arrastrar y soltar**, donde el control suele estar en el bloque o la barra de herramientas del editor. Por ejemplo, en los mensajes dentro de la aplicación de arrastrar y soltar puedes seleccionar **Añadir personalización**, elegir un tipo de personalización y luego colocar el fragmento de código generado en tu contenido antes de previsualizar en **Vista previa y prueba**. Para notas específicas de cada canal, consulta el artículo de arrastrar y soltar o del compositor de tu canal (como [Configuración de estilo de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#adding-liquid) o [Crear un correo electrónico con arrastrar y soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)).
-- **Compositores especializados** que exponen un selector de personalización; por ejemplo, las [recomendaciones de artículos]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations) usan opciones de **Tipo de personalización** como **Recomendación de artículos** dentro del mismo estilo de ventana.
-- **Páginas de inicio**, donde puedes añadir personalización con Liquid en el editor de arrastrar y soltar o en la configuración de página y bloque. Para más detalles, consulta [Personalizar páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages).
+- **Editores de arrastrar y soltar**, donde el control suele estar en el bloque o la barra de herramientas del editor. Por ejemplo, en los mensajes dentro de la aplicación de arrastrar y soltar puedes seleccionar **Añadir personalización**, elegir un tipo de personalización y luego colocar el fragmento de código generado en tu contenido antes de previsualizar en **Vista previa y prueba**. Para notas específicas de cada canal, consulta el artículo de arrastrar y soltar o del creador de tu canal (como [Configuración de estilo de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#add-liquid) o [Crear un correo electrónico con arrastrar y soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)).
+- **Creadores especializados** que exponen un selector de personalización; por ejemplo, las [recomendaciones de artículos]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations) usan opciones de **Tipo de personalización** como **Recomendación de artículos** dentro del mismo estilo de ventana.
+- **Páginas de destino**, donde puedes añadir personalización con Liquid en el editor de arrastrar y soltar o en la configuración de página y bloque. Para más detalles, consulta [Personalizar páginas de destino]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages).
 
 ## Insertar variables preformateadas y valores predeterminados {#insert-pre-formatted-variables-and-defaults}
 
@@ -28,9 +28,9 @@ La herramienta **Añadir personalización** te ayuda a insertar Liquid con valor
 
 La herramienta inserta Liquid con el valor predeterminado que especificaste en el punto donde estaba tu cursor. El punto de inserción también se indica en el cuadro de vista previa, que muestra el texto anterior y posterior. Si un bloque de texto está resaltado, el texto resaltado será reemplazado.
 
-![Un GIF del modal Añadir personalización que muestra al usuario insertando "fellow traveler" como valor predeterminado, y el modal reemplazando el texto resaltado "name" en el compositor con el fragmento de código Liquid.]({% image_buster /assets/img_archive/insert_var_shot.gif %})
+![Un GIF del modal Añadir personalización que muestra al usuario insertando "fellow traveler" como valor predeterminado, y el modal reemplazando el texto resaltado "name" en el creador con el fragmento de código Liquid.]({% image_buster /assets/img_archive/insert_var_shot.gif %})
 
-También puedes escribir {% raw %}`{{`{% endraw %} en muchos compositores para usar el autocompletado, o pegar etiquetas de otro lugar; para más detalles, consulta [Insertar etiquetas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#inserting-tags) en **Uso de Liquid**.
+También puedes escribir {% raw %}`{{`{% endraw %} en muchos creadores para usar el autocompletado, o pegar etiquetas de otro lugar; para más detalles, consulta [Insertar etiquetas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#inserting-tags) en **Uso de Liquid**.
 
 ### Asignar variables {#assign-variables}
 
@@ -89,7 +89,7 @@ Siempre que el bloque de contenido esté al inicio de tu mensaje, cada vez que l
 
 ## Mejoras del editor de Liquid {#liquid-editor-enhancements}
 
-Estos comportamientos del dashboard facilitan el trabajo con Liquid mientras redactas mensajes.
+Estos comportamientos del panel facilitan el trabajo con Liquid mientras redactas mensajes.
 
 ### Etiquetas de color {#color-labels}
 

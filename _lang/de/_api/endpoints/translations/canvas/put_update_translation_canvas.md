@@ -21,7 +21,7 @@ Wenn Sie Übersetzungen aktualisieren möchten, nachdem ein Canvas gestartet wur
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `canvas.translations.update`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `canvas.translations.update`.
 
 ## Rate-Limit
 
@@ -74,7 +74,7 @@ Es gibt vier Statuscode-Antworten für diesen Endpunkt: `200`, `400`, `404` und 
 
 ### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Statuscode `400` könnte den folgenden Antworttext zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die auftreten können.
+Der Statuscode `400` könnte den folgenden Antworttext zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu möglichen Fehlern.
 
 ```json
 {

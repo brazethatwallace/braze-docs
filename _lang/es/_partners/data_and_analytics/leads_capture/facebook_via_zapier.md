@@ -60,7 +60,7 @@ Para conocer los pasos necesarios para asignar Zapier como integración de CRM, 
 
 #### Paso 3a: Crea el activador {#step-3a-create-the-trigger}
 
-Una vez que hayas conectado tu cuenta de Facebook, puedes proceder a crear un Zap. Para el **activador**, selecciona **Facebook Lead Ads** o **Facebook Lead Ads (for Business admins)** según lo que hayas elegido en el paso 2.
+Una vez que hayas conectado tu cuenta de Facebook, puedes proceder a crear un Zap. Para el **activador**, selecciona **Facebook Lead Ads** o **Facebook Lead Ads (for Business Admins)** según lo que hayas elegido en el paso 2.
 
 ![Paso del activador en Zapier con Facebook Lead Ads seleccionado.]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap1.png %}){: style="max-width:80%;"}
 
@@ -128,7 +128,7 @@ Para probarlo de extremo a extremo, utiliza la herramienta de prueba de Lead Ads
 
 ## Gestión de la identidad de los usuarios {#user-identity-management}
 
-Esta integración te permite atribuir tus clientes potenciales de Facebook por correo electrónico a través del [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-phone-number).
+Esta integración te permite atribuir tus clientes potenciales de Facebook por correo electrónico a través del [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number).
 
 * Si el correo electrónico coincide con un perfil de usuario existente, Braze actualizará el perfil con los datos de clientes potenciales de Facebook.
 * Si hay varios perfiles de usuario con el mismo correo electrónico, Braze dará prioridad al perfil actualizado más recientemente con un ID externo para las actualizaciones.
@@ -162,7 +162,7 @@ Si no utilizas Zapier ni tienes previsto hacerlo, puedes crear la integración d
 
 Para recuperar clientes potenciales de Facebook, utiliza <a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/retrieving#webhooks" target="_blank">webhooks</a>. Consulta la <a href="https://developers.facebook.com/docs/graph-api/webhooks/getting-started" target="_blank">documentación de webhooks</a> para empezar a utilizar webhooks en Facebook.
 
-Después de establecer la URL de los webhooks en Facebook, trabaja con tu equipo para determinar la mejor ruta para reenviar los datos al [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Al igual que con Zapier, recomendamos realizar una [solicitud por correo electrónico]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-phone-number) a través del endpoint `users/track`.
+Después de establecer la URL de los webhooks en Facebook, trabaja con tu equipo para determinar la mejor ruta para reenviar los datos al [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Al igual que con Zapier, recomendamos realizar una [solicitud por correo electrónico]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number) a través del endpoint `users/track`.
 {% enddetails %}
 
 {% alert tip %}

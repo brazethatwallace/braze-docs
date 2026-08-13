@@ -14,6 +14,7 @@ description: "이 참조 문서에서는 Operator를 사용하여 SMS, 푸시, C
 
 ## 접근 방법 {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_copy.md %}
+메시지 작성기에서 Operator를 열어 마케팅 카피를 작성하고 다듬을 수 있습니다. 제품이나 Campaign을 설명하면 Operator가 검토 후 삽입할 수 있는 카피를 반환합니다.
+
 
 사용 가능한 톤, 예시 프롬프트, 브랜드 가이드라인 통합 등 자세한 내용은 [Operator 기능에서 카피 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)을 참조하세요.

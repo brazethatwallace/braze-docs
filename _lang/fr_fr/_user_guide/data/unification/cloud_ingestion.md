@@ -9,11 +9,11 @@ toc_headers: h2
 
 # Cloud Data Ingestion de Braze {#braze-cloud-data-ingestion}
 
-> Braze Cloud Data Ingestion (CDI) vous permet de configurer une connexion directe depuis votre solution de stockage de données afin de synchroniser les données utilisateur pertinentes et d'autres données non utilisateur vers Braze. Ces données peuvent ensuite être utilisées à des fins de personnalisation ou de segmentation pour optimiser vos cas d'utilisation marketing. L'intégration flexible de Cloud Data Ingestion prend en charge les structures de données complexes, y compris les JSON imbriqués et les tableaux d'objets.
+> Braze Cloud Data Ingestion (CDI) vous permet de configurer une connexion directe depuis votre solution de stockage de données afin de synchroniser les données utilisateur pertinentes et d'autres données non utilisateur vers Braze. Ces données peuvent ensuite être utilisées à des fins de personnalisation ou de segmentation pour optimiser vos cas d'usage marketing. L'intégration flexible de Cloud Data Ingestion prend en charge les structures de données complexes, y compris les JSON imbriqués et les tableaux d'objets.
 
 ## Fonctionnement {#how-it-works}
 
-Avec Braze Cloud Data Ingestion (CDI), vous configurez une intégration entre votre instance d'entrepôt de données et l'espace de travail Braze pour synchroniser les données de manière récurrente. Cette synchronisation se fait selon la planification que vous déterminez et chaque intégration peut disposer d'une planification différente. Les synchronisations peuvent avoir lieu d'une fois toutes les 15 minutes à une fois par mois. Si vous avez besoin que les synchronisations se produisent à une fréquence supérieure à 15 minutes, contactez votre gestionnaire de la satisfaction client ou envisagez d'utiliser les appels REST API pour l'ingestion de données en temps réel.
+Avec Braze Cloud Data Ingestion (CDI), vous configurez une intégration entre votre instance d'entrepôt de données et l'espace de travail Braze pour synchroniser les données de manière récurrente. Cette synchronisation se fait selon la planification que vous déterminez et chaque intégration peut disposer d'une planification différente. Les synchronisations peuvent avoir lieu d'une fois toutes les 15 minutes à une fois par mois. Si vous avez besoin que les synchronisations se produisent à une fréquence supérieure à 15 minutes, contactez votre gestionnaire du succès des clients ou envisagez d'utiliser les appels REST API pour l'ingestion de données en temps réel.
 
 {% alert note %}
 La fréquence de synchronisation dans le tableau de bord contrôle la fréquence à laquelle Braze exécute une synchronisation (par exemple, des options telles que toutes les heures ou des exécutions plus fréquentes au sein d'une heure). Elle ne définit pas un intervalle personnalisé supérieur à une heure entre les exécutions. Pour lancer une synchronisation en dehors de la cadence planifiée — par exemple à la demande après le chargement de votre entrepôt — utilisez l'endpoint [Déclencher une synchronisation]({{site.baseurl}}/api/endpoints/cdi/post_job_sync) avec votre ID d'intégration.
@@ -23,9 +23,9 @@ Lorsqu'une synchronisation s'exécute, Braze se connecte directement à votre in
 
 ### Identifier votre ID d'intégration {#finding-your-integration-id}
 
-Vous pouvez trouver votre ID d'intégration dans l'URL lorsque vous consultez une intégration dans le tableau de bord de Braze. Rendez-vous dans **Paramètres des données** > **Cloud Data Ingestion** et sélectionnez une intégration. L'ID d'intégration apparaît dans l'URL au format `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]`. Par exemple, si votre URL est `https://dashboard-01.braze.com/integrations/cloud_data_ingestion/abc123xyz`, votre ID d'intégration est `abc123xyz`. Vous pouvez utiliser cet ID lorsque vous effectuez des appels API pour déclencher des synchronisations ou vérifier l'état de la synchronisation.
+Vous pouvez trouver votre ID d'intégration dans l'URL lorsque vous consultez une intégration dans le tableau de bord de Braze. Rendez-vous dans **Data Settings** > **Cloud Data Ingestion** et sélectionnez une intégration. L'ID d'intégration apparaît dans l'URL au format `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]`. Par exemple, si votre URL est `https://dashboard-01.braze.com/integrations/cloud_data_ingestion/abc123xyz`, votre ID d'intégration est `abc123xyz`. Vous pouvez utiliser cet ID lorsque vous effectuez des appels API pour déclencher des synchronisations ou vérifier l'état de la synchronisation.
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 Grâce aux fonctionnalités de Cloud Data Ingestion de Braze, vous pouvez :
 
@@ -82,9 +82,9 @@ Pour obtenir des informations détaillées sur la configuration des colonnes de 
 
 Pour des instructions de configuration spécifiques à chaque source et des exemples SQL, consultez les [intégrations d'entrepôts de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
-## Utilisation de points de donnée {#data-point-usage}
+## Utilisation des points de donnée {#data-point-usage}
 
-Pour les clients bénéficiant d'une facturation basée sur les points de donnée, la facturation par point de donnée pour Cloud Data Ingestion est équivalente à la facturation des mises à jour via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track). Pour plus d'informations, reportez-vous à la section [Points de donnée]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
+Pour les clients bénéficiant d'une facturation basée sur les points de donnée, la facturation par point de donnée pour Cloud Data Ingestion est équivalente à la facturation des mises à jour via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Pour plus d'informations, reportez-vous à la section [Points de donnée]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
 
 {% alert important %}
 Braze Cloud Data Ingestion est pris en compte dans la limite de débit disponible. Si vous envoyez des données par une autre méthode, la limite de débit est combinée entre l'API Braze et Cloud Data Ingestion.
@@ -95,7 +95,7 @@ Braze Cloud Data Ingestion est pris en compte dans la limite de débit disponibl
 | Limitation | Description |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Nombre d'intégrations | Le nombre d'intégrations que vous pouvez configurer n'est pas limité. Cependant, vous ne pouvez configurer qu'une seule intégration par table ou vue. |
-| Nombre de lignes | Par défaut, chaque exécution peut synchroniser jusqu'à 500 millions de lignes. Toute synchronisation comportant plus de 500 millions de nouvelles lignes est interrompue. Si vous avez besoin d'une limite plus élevée, contactez votre gestionnaire de la satisfaction client Braze ou l'Assistance Braze. |
+| Nombre de lignes | Par défaut, chaque exécution peut synchroniser jusqu'à 500 millions de lignes. Toute synchronisation comportant plus de 500 millions de nouvelles lignes est interrompue. Si vous avez besoin d'une limite plus élevée, contactez votre gestionnaire du succès des clients Braze ou l'assistance Braze. |
 | Attributs par ligne | Chaque ligne doit contenir un seul ID utilisateur et un objet JSON comportant jusqu'à 250 attributs. Chaque clé de l'objet JSON compte pour un attribut (c'est-à-dire qu'un tableau compte pour un attribut). |
 | Taille du payload | Chaque ligne peut contenir un payload allant jusqu'à 1 Mo. Les payloads supérieurs à 1 Mo sont rejetés et l'erreur « Payload was greater than 1MB » est consignée dans le journal de synchronisation avec l'ID externe associé et le payload tronqué. |
 | Type de données | Vous pouvez synchroniser les attributs utilisateur, les événements et les achats via Cloud Data Ingestion. |

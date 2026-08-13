@@ -94,6 +94,8 @@ Modal 및 전체화면 인앱 메시지의 경우, 메시지 상단에 <i class=
 
 인앱 메시지를 구축하면서 도구 모음에서 모바일, 태블릿 또는 데스크탑 보기를 선택하여 사용자 그룹에게 인앱 메시지가 어떻게 보일지 미리 볼 수 있습니다. 이를 통해 콘텐츠가 응답형인지 확인하고, 진행하면서 필요한 조정을 할 수 있습니다.
 
+{% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='in_app_message' %}
+
 ## 크리에이티브 세부 정보 {#creative-details}
 
 ### 큰 화면에서의 전체화면 {#fullscreen}
@@ -102,7 +104,7 @@ Modal 및 전체화면 인앱 메시지의 경우, 메시지 상단에 <i class=
 
 ![전체화면 인앱 메시지 예시.]({% image_buster /assets/img_archive/dnd_iam_fullscreen_example.png %}){: style="border:none"}
 
-### 배경 이미지 추가 {#adding-a-background-image}
+### 배경 이미지 추가 {#add-a-background-image}
 
 **메시지 스타일** 탭에서 메시지 배경에 이미지를 추가할 수 있습니다.
 
@@ -114,7 +116,32 @@ Modal 및 전체화면 인앱 메시지의 경우, 메시지 상단에 <i class=
 특정 블록을 선택하는 데 어려움이 있는 경우, 블록의 인라인 도구 모음에서 위쪽 화살표를 사용하여 각 상위 블록으로 포커스를 이동할 수 있습니다.
 {% endalert %}
 
-### Liquid 추가 {#adding-liquid}
+#### Liquid로 배경 이미지 동적 교체 {#swap-background-images-with-liquid}
+
+사용자 데이터(커스텀 속성이나 사용자 속성정보 등)를 기반으로 배경 이미지를 동적으로 교체하려면, Liquid {% raw %}`{% capture %}`{% endraw %} 블록을 사용하여 HTML과 CSS가 로드되기 전에 올바른 이미지 URL을 변수에 할당합니다.
+
+메시지 시작 부분에 Liquid 로직을 배치한 다음, 배경 이미지 URL 필드에서 캡처된 변수를 참조합니다. 이렇게 하면 각 사용자의 데이터를 기반으로 올바른 이미지가 선택됩니다.
+
+이미지 URL을 캡처한 후, {% raw %}`{{ image_url | strip }}`{% endraw %}을 사용하여 불필요한 공백이 제거된 URL을 출력합니다. 그런 다음 이 Liquid를 배경 이미지 URL 필드에 붙여넣어 사용자마다 다른 이미지를 동적으로 표시할 수 있습니다.
+
+##### 예시 {#example}
+
+{% raw %}
+```liquid
+{% capture image_url %}
+{% if {{custom_attribute.${membership_tier}}} == 'gold' %}
+https://example.com/images/gold-background.png
+{% elsif {{custom_attribute.${membership_tier}}} == 'silver' %}
+https://example.com/images/silver-background.png
+{% else %}
+https://example.com/images/default-background.png
+{% endif %}
+{% endcapture %}
+{{ image_url | strip }}
+```
+{% endraw %}
+
+### Liquid 추가 {#add-liquid}
 
 ![Liquid 개인화를 추가하는 아이콘.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
@@ -122,7 +149,7 @@ Modal 및 전체화면 인앱 메시지의 경우, 메시지 상단에 <i class=
 
 다음으로, 생성된 Liquid 스니펫을 메시지에 삽입합니다. 인앱 메시지를 디자인하고 구축한 후, **미리보기 및 테스트**로 이동하여 메시지를 미리 봅니다.
 
-### AI 카피라이터 사용 {#using-the-ai-copywriter}
+### AI 카피라이터 사용 {#use-the-ai-copywriter}
 
 인앱 메시지에서 텍스트 블록이 선택된 상태에서, 블록 도구 모음의 <i class="fa-solid fa-wand-magic-sparkles" title="AI 카피라이터"></i> **AI 카피라이터**를 선택하여 [AI 기반 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)를 실행합니다. AI 카피라이팅 어시스턴트는 간략한 제품 이름이나 설명을 OpenAI의 GPT3 카피 생성 도구에 전달하여 메시징에 사용할 사람과 유사한 마케팅 카피를 생성합니다.
 
@@ -132,7 +159,7 @@ Modal 및 전체화면 인앱 메시지의 경우, 메시지 상단에 <i class=
 
 ![AI 카피라이터의 GIF.]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
 
-### 스타일을 기본값으로 재설정 {#resetting-styles-to-default}
+### 스타일을 기본값으로 재설정 {#reset-styles-to-default}
 
 기본 스타일에서 변경한 속성은 주황색 점으로 표시됩니다. 특정 속성을 기본 스타일로 재설정하려면, 해당 필드 위에 마우스를 올리고 **기본값으로 재설정**을 선택합니다.
 
@@ -140,7 +167,7 @@ Modal 및 전체화면 인앱 메시지의 경우, 메시지 상단에 <i class=
 
 속성 패널 이름 옆의 <i class="fas fa-paintbrush" title="스타일 복사 또는 붙여넣기 버튼"></i>을 선택하고 **기본 스타일로 재설정**을 선택하여 선택한 요소의 모든 스타일을 재설정할 수도 있습니다.
 
-### 스타일 복사 및 붙여넣기 {#copying-and-pasting-styles}
+### 스타일 복사 및 붙여넣기 {#copy-and-paste-styles}
 
 요소의 스타일을 변경한 후, 해당 스타일을 다른 요소에 복사하여 붙여넣을 수 있습니다. 스타일을 붙여넣을 때, 해당 요소에 관련된 속성만 적용됩니다.
 

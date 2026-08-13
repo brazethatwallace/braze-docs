@@ -232,7 +232,7 @@ Las cadenas y los arreglos requieren apóstrofos rectos a su alrededor, mientras
 
 ### Booleano {#boolean}
 
-Los [booleanos]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans) son valores binarios y pueden configurarse como `true` o `false`, como `registration_complete: true`. Los valores booleanos no llevan apóstrofos a su alrededor.
+Los [booleanos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#booleans) son valores binarios y pueden configurarse como `true` o `false`, como `registration_complete: true`. Los valores booleanos no llevan apóstrofos a su alrededor.
 
 {% raw %}
 
@@ -244,7 +244,7 @@ Los [booleanos]({{site.baseurl}}/user_guide/data/activation/attributes/custom_at
 
 ### Número {#number}
 
-Los [números]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers) son valores numéricos, que pueden ser enteros o flotantes. Por ejemplo, un usuario puede tener `shoe_size: 10` o `levels_completed: 287`. Los valores numéricos no llevan apóstrofos a su alrededor.
+Los [números]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) son valores numéricos, que pueden ser enteros o flotantes. Por ejemplo, un usuario puede tener `shoe_size: 10` o `levels_completed: 287`. Los valores numéricos no llevan apóstrofos a su alrededor.
 
 {% raw %}
 
@@ -266,7 +266,7 @@ También puedes usar otros [operadores básicos](https://shopify.dev/docs/themes
 
 ### Cadena {#string}
 
-Una [cadena]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings) está compuesta por caracteres alfanuméricos y almacena un dato sobre tu usuario. Por ejemplo, puedes tener `favorite_color: red` o `phone_number: 3025981329`. Los valores de cadena deben llevar apóstrofos a su alrededor.
+Una [cadena]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) está compuesta por caracteres alfanuméricos y almacena un dato sobre tu usuario. Por ejemplo, puedes tener `favorite_color: red` o `phone_number: 3025981329`. Los valores de cadena deben llevar apóstrofos a su alrededor.
 
 {% raw %}
 
@@ -280,7 +280,7 @@ Para cadenas, puedes usar tanto "==" como "contains" en tu Liquid.
 
 ### Arreglo {#array}
 
-Un [arreglo]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays) es una lista de información sobre tu usuario. Por ejemplo, un usuario puede tener `last_viewed_shows: stranger things, planet earth, westworld`. Los valores de arreglo deben llevar apóstrofos a su alrededor.
+Un [arreglo]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) es una lista de información sobre tu usuario. Por ejemplo, un usuario puede tener `last_viewed_shows: stranger things, planet earth, westworld`. Los valores de arreglo deben llevar apóstrofos a su alrededor.
 
 {% raw %}
 
@@ -330,7 +330,7 @@ Dado que `join` combina los elementos del arreglo en una sola cadena (separador 
 
 ### Hora {#time}
 
-Una marca de tiempo de cuándo ocurrió un evento. Los valores de [hora]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time) deben tener un [filtro matemático]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) aplicado para poder usarse en lógica condicional.
+Una marca de tiempo de cuándo ocurrió un evento. Los valores de [hora]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) deben tener un [filtro matemático]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) aplicado para poder usarse en lógica condicional.
 
 {% raw %}
 

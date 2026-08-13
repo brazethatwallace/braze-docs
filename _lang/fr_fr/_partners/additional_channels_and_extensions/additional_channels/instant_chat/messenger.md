@@ -14,7 +14,7 @@ search_tag: Partner
 
 L'intégration Braze et Facebook exploite les webhooks Braze, les fonctionnalités de segmentation, de personnalisation et de déclenchement pour envoyer des messages à vos utilisateurs dans Facebook Messenger via l'API de la plateforme Messenger. Un modèle de webhook Facebook Messenger personnalisé est inclus dans notre plateforme sous **Contenu** > **Webhook**.
 
-La plateforme Facebook Messenger est destinée aux « messages non promotionnels qui facilitent une transaction préexistante, fournissent d'autres actions d'assistance à la clientèle ou livrent un contenu demandé par une personne ». Pour en savoir plus, consultez [les lignes directrices de la plateforme Facebook](https://developers.facebook.com/docs/messenger-platform) et des [exemples de cas d'utilisation acceptables](https://developers.facebook.com/docs/messenger-platform/app-review#examples_acceptable).
+La plateforme Facebook Messenger est destinée aux « messages non promotionnels qui facilitent une transaction préexistante, fournissent d'autres actions d'assistance à la clientèle ou livrent un contenu demandé par une personne ». Pour en savoir plus, consultez [les lignes directrices de la plateforme Facebook](https://developers.facebook.com/docs/messenger-platform) et des [exemples de cas d'usage acceptables](https://developers.facebook.com/docs/messenger-platform/app-review#examples_acceptable).
 
 ## Conditions préalables {#prerequisites}
 
@@ -67,7 +67,7 @@ Chaque fois que vous envoyez un message, le PSID du destinataire sera inclus dan
 
 ### Étape 2 : Envoyer à Braze comme attribut personnalisé {#step-2-send-to-braze-as-a-custom-attribute}
 
-Une fois que vous êtes certain de recevoir des PSID, coordonnez et partagez cela avec vos développeurs pour envoyer les PSID à Braze en tant qu'[attribut personnalisé]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/#custom-attributes). Les PSID sont des chaînes de caractères auxquelles on peut accéder en effectuant un [appel à l'API](https://developers.facebook.com/docs/messenger-platform/reference/send-api).
+Une fois que vous êtes certain de recevoir des PSID, coordonnez et partagez cela avec vos développeurs pour envoyer les PSID à Braze en tant qu'[attribut personnalisé]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes#custom-attributes). Les PSID sont des chaînes de caractères auxquelles on peut accéder en effectuant un [appel à l'API](https://developers.facebook.com/documentation/business-messaging/messenger-platform/send-messages).
 
 ### Étape 3 : Configurez votre modèle de webhook {#step-3-set-up-your-webhook-template}
 
@@ -78,8 +78,8 @@ Pour créer un modèle de webhook Facebook Messenger :
 3. Recherchez et sélectionnez le modèle « Facebook Messenger ».
 4. Sélectionnez **Sélectionner le modèle**.
 
-1. Donnez un nom au modèle et ajoutez des équipes et des étiquettes, si nécessaire.
-2. Saisissez votre message ou choisissez un modèle de message parmi [ceux mis à disposition par Facebook](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages). Vous pouvez également choisir le [type](https://developers.facebook.com/docs/messenger-platform/send-messages#message_types) de message ou l'[étiquette](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags).
+1. Donnez un nom au modèle et ajoutez des équipes et des tags, si nécessaire.
+2. Saisissez votre message ou choisissez un modèle de message parmi [ceux mis à disposition par Facebook](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages). Vous pouvez également choisir le [type](https://developers.facebook.com/docs/messenger-platform/send-messages#message_types) de message ou le [tag](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags).
 3. Incluez le PSID en tant qu'attribut personnalisé. Pour ce faire, utilisez le bouton bleu et blanc **+** dans le coin de la boîte du **corps de la requête**.
 3. Ajoutez votre jeton d'accès à la page dans l'URL du webhook en remplaçant `FACEBOOK_PAGE_ACCESS_TOKEN` par votre jeton.
 
@@ -93,7 +93,7 @@ Si vous recevez le message avec succès, vous pouvez configurer ses paramètres 
 
 ## Utiliser cette intégration {#using-this-integration}
 
-Une fois configurée, utilisez cette intégration pour cibler les utilisateurs de Facebook Messenger. Si vous n'envoyez pas de messages en utilisant les numéros de téléphone des utilisateurs et que vous prévoyez d'envoyer des messages Messenger de manière répétée, vous devriez [créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/#creating-a-segment) pour tous les utilisateurs pour lesquels l'ID Messenger existe en tant qu'attribut personnalisé et activer le [suivi analytique]({{site.baseurl}}/user_guide/audience/segments/segment_data/) pour suivre vos taux d'abonnement Messenger au fil du temps.
+Une fois configurée, utilisez cette intégration pour cibler les utilisateurs de Facebook Messenger. Si vous n'envoyez pas de messages en utilisant les numéros de téléphone des utilisateurs et que vous prévoyez d'envoyer des messages Messenger de manière répétée, vous devriez [créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment#creating-a-segment) pour tous les utilisateurs pour lesquels l'ID Messenger existe en tant qu'attribut personnalisé et activer le [suivi analytique]({{site.baseurl}}/user_guide/audience/segments/segment_data) pour suivre vos taux d'abonnement Messenger au fil du temps.
 
 ![Filtre de segmentation « messenger_id » réglé sur « n'est pas vide ».]({% image_buster /assets/img_archive/fbm-segmentation.png %})
 

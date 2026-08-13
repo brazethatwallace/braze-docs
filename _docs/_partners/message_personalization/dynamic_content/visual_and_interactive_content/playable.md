@@ -16,15 +16,18 @@ _This integration is maintained by Playable._
 
 ## About the integration
 
-The Braze and Playable integration allows you to deliver your best content (high-quality video) to your best audience (email), increasing your click-through and post-click metrics with exciting high-quality content that plays automatically within the inbox.
+The Braze and Playable integration allows you to deliver your best content (high-quality video) to your best audience (email), increasing your click-through and post-click metrics with high-quality video content that plays automatically within the inbox.
+
+{% alert important %}
+Embedded videos are not natively supported by many email clients and can significantly increase email size, which may cause messages to be marked as spam. Playable addresses this by delivering optimized video content that works across email clients. For more details about video in email, see [Can I embed videos in emails?]({{site.baseurl}}/user_guide/channels/email/faq/#can-i-embed-videos-in-emails)
+{% endalert %}
 
 ## Prerequisites
 
 | Requirement | Description | 
 | ----------- | ----------- |
-| Playable Account | A Playable account is required to take advantage of this partnership. If you do not already have a Playable account, sign up [here](https://signup.playable.video).
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
-Video Content | Upload video files to Playable or provide video URLs from websites like Facebook, Instagram, YouTube, X (formerly Twitter), TikTok, and more. |
+| Playable Account | A Playable account is required to take advantage of this partnership. If you do not already have a Playable account, [sign up for a Playable account](https://signup.playable.video). |
+| Video Content | Upload video files to Playable or provide video URLs from websites like Facebook, Instagram, YouTube, X (formerly Twitter), TikTok, and more. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Implementation
@@ -35,7 +38,7 @@ In the Playable platform, upload video files or add videos by providing a URL of
 
 ### Step 2: Copy the embed code from Playable
 
-Once uploaded, Playable will generate a code that, when inserted into your Braze campaign, will embed the video in your email to auto-play when opened. When your email is opened, the Playable servers will deliver the best possible version of your video depending on the email client, device, screen size, and network conditions.
+After you upload a video, Playable generates a code that, when inserted into your Braze campaign, embeds the video in your email to auto-play when opened. When your email is opened, the Playable servers deliver the best possible version of your video depending on the email client, device, screen size, and network conditions.
 
 {% alert tip %}
 Videos will autoplay in over 98% of inboxes, including iPhone Mail, Gmail, Apple Mail, Outlook for iOS, Outlook for Android, Outlook for Mac, and newer versions of Outlook 365 for Windows. Users of legacy Outlook for Windows will see a static image instead.
@@ -43,6 +46,6 @@ Videos will autoplay in over 98% of inboxes, including iPhone Mail, Gmail, Apple
 
 ### Step 3: Paste the embed code into Braze
 
-Lastly, paste the code into your Braze email campaign, and then continue to design, test, and publish your email campaign.
+Paste the code into your Braze email campaign, then continue to design, test, and publish your email campaign.
 
 

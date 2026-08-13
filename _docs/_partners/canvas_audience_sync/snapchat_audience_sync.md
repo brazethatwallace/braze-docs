@@ -16,10 +16,7 @@ Using the Braze Audience Sync to Snapchat, brands can add user data from their B
 
 **Common use cases for audience syncing include:**
 
-- Targeting high-value users via multiple channels to drive purchases or engagement
-- Retargeting users who are less responsive to other marketing channels
-- Creating suppression audiences to prevent users from receiving advertisements when they're already loyal consumers of your brand
-- Creating lookalike audiences to acquire new users more efficiently
+{% multi_lang_include partners/canvas_audience_sync/common_use_cases.md lookalike=true %}
 
 This feature allows users to control what specific first-party data is shared with Snapchat. At Braze, the integrations you can and cannot share your first-party data with are given the utmost consideration. For more information, refer to our [privacy policy](https://www.braze.com/privacy).
 
@@ -105,7 +102,7 @@ Braze also offers the ability to add users to existing Snapchat audiences to ens
 
 ### Step 4: Launch Canvas
 
-Once you have configured your Audience Sync to Snapchat, launch the Canvas! A new audience will be created, and users who flow through the Audience Sync step will be passed into this audience on Snapchat. If your Canvas contains subsequent components, your users will advance to the next step in their user journey.
+After you configure your Audience Sync to Snapchat, launch the Canvas! A new audience is created, and users who flow through the Audience Sync step are passed into this audience on Snapchat. If your Canvas contains subsequent components, your users advance to the next step in their user journey.
 
 You can view the audience in Snapchat by entering your ads manager account and selecting **Audiences** from the Assets section of the navigation. From the **Audiences** page, you can see the size of each audience after it reaches ~1,000.
 

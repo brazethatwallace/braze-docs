@@ -56,7 +56,7 @@ Content Cards를 기존 피드에 원활하게 혼합하여 여러 피드의 데
 
 ### API 트리거 키-값 페어 {#api-triggered-key-value-pairs}
 
-[API 트리거 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)은 카드의 값이 외부 요인에 따라 사용자에게 표시할 콘텐츠를 결정할 때 사용할 수 있는 좋은 전략입니다. 예를 들어 보조 콘텐츠를 표시하려면 Liquid를 사용하여 키-값 페어를 설정합니다. 설정 시 `class_type`을 알아야 합니다.
+[API 트리거 Campaign(캠페인)]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)은 카드의 값이 외부 요인에 따라 사용자에게 표시할 콘텐츠를 결정할 때 사용할 수 있는 좋은 전략입니다. 예를 들어 보조 콘텐츠를 표시하려면 Liquid를 사용하여 키-값 페어를 설정합니다. 설정 시 `class_type`을 알아야 합니다.
 
 ![보조 Content Cards 사용 사례에 대한 키-값 페어입니다. 이 예시에서는 카드의 다양한 측면인 "tile_id", "tile_deeplink", "tile_title"이 Liquid를 사용하여 설정됩니다.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
@@ -122,11 +122,13 @@ Braze.getInstance(context).contentCardUnviewedCount
 
 다음 샘플은 `braze.contentCards`를 사용하여 미열람 Content Card 수를 요청하고 표시합니다. 앱이 닫히고 사용자 세션이 종료된 후 이 코드는 카드 수를 요청하여 `viewed` 속성정보를 기준으로 카드 수를 필터링합니다.
 
+[`UIScene` 생명주기](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)를 채택한 앱([Xcode 27 이상](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)으로 빌드된 앱에 필수)은 `AppDelegate.swift`의 `applicationDidEnterBackground(_:)` 대신 `SceneDelegate.swift`의 `sceneDidEnterBackground(_:)`에서 이를 구현해야 합니다.
+
 {% subtabs %}
 {% subtab Swift %}
 
 ```swift
-func applicationDidEnterBackground(_ application: UIApplication)
+func sceneDidEnterBackground(_ scene: UIScene)
 ```
 
 이 메서드 내에서 주어진 세션 동안 사용자가 카드를 볼 때 배지 수를 적극적으로 업데이트하는 다음 코드를 구현합니다:
@@ -140,7 +142,7 @@ UIApplication.shared.applicationIconBadgeNumber = unreadCards?.count ?? 0
 {% subtab Objective-C %}
 
 ```objc
-(void)applicationDidEnterBackground:(UIApplication *)application
+(void)sceneDidEnterBackground:(UIScene *)scene
 ```
 
 이 메서드 내에서 주어진 세션 동안 사용자가 카드를 볼 때 배지 수를 적극적으로 업데이트하는 다음 코드를 구현합니다:

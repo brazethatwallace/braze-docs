@@ -34,7 +34,7 @@ Marketing templates are the most common type used in Braze. They consist of up t
 |---|---|---|
 | Header | No | Supports text, image, video, document, or location. See [Media Specifications](#media-specifications) for file type, size, and dimension requirements. |
 | Body | Yes | The main message content |
-| Footer | No | Supplementary text displayed under the body |
+| Footer | No | Supplementary text that follows the body |
 | Buttons | No | Include up to 10 buttons (all button types are supported) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Marketing templates" }
 
@@ -54,7 +54,7 @@ Marketing templates are the most common type used in Braze. They consist of up t
 | Button type | Behavior | Notes |
 |---|---|---|
 | Quick reply | Sends the button label text as a reply in the conversation | |
-| URL | Opens a URL in the user's default browser; supports 1 variable appended to the end of the URL (max 2,000 characters) | |
+| URL | Opens a URL in the user's default browser; supports 1 variable appended to the end of the URL (max 2,000 characters) | URLs containing special characters (such as `&`, `%`, `<`, `>`) may cause message send failures. Use the [`url_param_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) or [`url_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) Liquid filter to properly encode URLs with special characters. |
 | Phone number | Initiates a call to the specified phone number | |
 | Copy coupon code | Copies a coupon code to the user's clipboard | Always requires Meta approval |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Button types" }

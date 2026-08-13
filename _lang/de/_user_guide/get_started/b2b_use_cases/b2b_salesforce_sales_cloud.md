@@ -187,7 +187,7 @@ Jetzt aktualisiert Ihr Canvas-Flow Nutzer:innen, die Ihren MQL-Schwellenwert üb
 
 ## Fehlerbehebung {#troubleshooting}
 
-Diese Workflows bieten nur begrenzte Debugging-Möglichkeiten innerhalb von Salesforce. Wir empfehlen daher, das Braze [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#message-activity-log) zu Rate zu ziehen, um herauszufinden, warum ein Webhook fehlgeschlagen ist und ob Fehler aufgetreten sind.
+Diese Workflows bieten nur begrenzte Debugging-Möglichkeiten innerhalb von Salesforce. Wir empfehlen daher, das Braze [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) zu Rate zu ziehen, um herauszufinden, warum ein Webhook fehlgeschlagen ist und ob Fehler aufgetreten sind.
 
 Ein Fehler, der durch eine ungültige URL für den Abruf des OAuth-Tokens verursacht wird, wird beispielsweise als `https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL` angezeigt.
 

@@ -290,81 +290,82 @@ hide_toc: true
     }
   </style>
   <script type="text/javascript">
-    ! function(e, i) {
-      if ("function" == typeof define && define.amd) define(["exports", "jquery"], function(e, r) {
-        return i(e, r)
-      });
-      else if ("undefined" != typeof exports) {
-        var r = require("jquery");
-        i(exports, r)
-      } else i(e, e.jQuery || e.Zepto || e.ender || e.$)
-    }(this, function(e, i) {
-      function r(e, r) {
-        function n(e, i, r) {
-          return e[i] = r, e
-        }
-
-        function a(e, i) {
-          for (var r, a = e.match(t.key); void 0 !== (r = a.pop());)
-            if (t.push.test(r)) {
-              var u = s(e.replace(/\[\]$/, ""));
-              i = n([], u, i)
-            } else t.fixed.test(r) ? i = n([], r, i) : t.named.test(r) && (i = n({}, r, i));
-          return i
-        }
-
-        function s(e) {
-          return void 0 === h[e] && (h[e] = 0), h[e]++
-        }
-
-        function u(e) {
-          switch (i('[name="' + e.name + '"]', r).attr("type")) {
-            case "checkbox":
-              return "on" === e.value ? !0 : e.value;
-            default:
-              return e.value
+    // jQuery is loaded with defer in html_include.html, so wait for DOMContentLoaded
+    // (deferred scripts run before this event) before using $.
+    document.addEventListener('DOMContentLoaded', function() {
+      ! function(e, i) {
+        if ("function" == typeof define && define.amd) define(["exports", "jquery"], function(e, r) {
+          return i(e, r)
+        });
+        else if ("undefined" != typeof exports) {
+          var r = require("jquery");
+          i(exports, r)
+        } else i(e, e.jQuery || e.Zepto || e.ender || e.$)
+      }(window, function(e, i) {
+        function r(e, r) {
+          function n(e, i, r) {
+            return e[i] = r, e
           }
-        }
 
-        function f(i) {
-          if (!t.validate.test(i.name)) return this;
-          var r = a(i.name, u(i));
-          return l = e.extend(!0, l, r), this
-        }
+          function a(e, i) {
+            for (var r, a = e.match(t.key); void 0 !== (r = a.pop());)
+              if (t.push.test(r)) {
+                var u = s(e.replace(/\[\]$/, ""));
+                i = n([], u, i)
+              } else t.fixed.test(r) ? i = n([], r, i) : t.named.test(r) && (i = n({}, r, i));
+            return i
+          }
 
-        function d(i) {
-          if (!e.isArray(i)) throw new Error("formSerializer.addPairs expects an Array");
-          for (var r = 0, t = i.length; t > r; r++) this.addPair(i[r]);
-          return this
-        }
+          function s(e) {
+            return void 0 === h[e] && (h[e] = 0), h[e]++
+          }
 
-        function o() {
-          return l
-        }
+          function u(e) {
+            switch (i('[name="' + e.name + '"]', r).attr("type")) {
+              case "checkbox":
+                return "on" === e.value ? !0 : e.value;
+              default:
+                return e.value
+            }
+          }
 
-        function c() {
-          return JSON.stringify(o())
+          function f(i) {
+            if (!t.validate.test(i.name)) return this;
+            var r = a(i.name, u(i));
+            return l = e.extend(!0, l, r), this
+          }
+
+          function d(i) {
+            if (!e.isArray(i)) throw new Error("formSerializer.addPairs expects an Array");
+            for (var r = 0, t = i.length; t > r; r++) this.addPair(i[r]);
+            return this
+          }
+
+          function o() {
+            return l
+          }
+
+          function c() {
+            return JSON.stringify(o())
+          }
+          var l = {},
+            h = {};
+          this.addPair = f, this.addPairs = d, this.serialize = o, this.serializeJSON = c
         }
-        var l = {},
-          h = {};
-        this.addPair = f, this.addPairs = d, this.serialize = o, this.serializeJSON = c
-      }
-      var t = {
-        validate: /^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,
-        key: /[a-z0-9_]+|(?=\[\])/gi,
-        push: /^$/,
-        fixed: /^\d+$/,
-        named: /^[a-z0-9_]+$/i
-      };
-      return r.patterns = t, r.serializeObject = function() {
-        return new r(i, this).addPairs(this.serializeArray()).serialize()
-      }, r.serializeJSON = function() {
-        return new r(i, this).addPairs(this.serializeArray()).serializeJSON()
-      }, "undefined" != typeof i.fn && (i.fn.serializeObject = r.serializeObject, i.fn.serializeJSON = r.serializeJSON), e.FormSerializer = r, r
-    });
-  </script>
-  <script type="text/javascript">
-    $(document).ready(function() {
+        var t = {
+          validate: /^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,
+          key: /[a-z0-9_]+|(?=\[\])/gi,
+          push: /^$/,
+          fixed: /^\d+$/,
+          named: /^[a-z0-9_]+$/i
+        };
+        return r.patterns = t, r.serializeObject = function() {
+          return new r(i, this).addPairs(this.serializeArray()).serialize()
+        }, r.serializeJSON = function() {
+          return new r(i, this).addPairs(this.serializeArray()).serializeJSON()
+        }, "undefined" != typeof i.fn && (i.fn.serializeObject = r.serializeObject, i.fn.serializeJSON = r.serializeJSON), e.FormSerializer = r, r
+      });
+
       var braze_internal = $('#braze_internal').remove();
       $('#header_nav').after(braze_internal);
 
@@ -398,15 +399,15 @@ hide_toc: true
       });
 
       $('#doc_form').submit(function(e) {
+        e.preventDefault();
         $('#submit_progress').css('display','inline');
         $('#submit_text').html('Enviando');
         $('#ticket_submit_button').prop("disabled",true);
 
-        e.preventDefault();
         var mform = $(this);
         var url = 'https://c9616da7-4322-4bed-9b51-917c1874fb31.trayapp.io/request';
 
-        var jqxhr = $.ajax({
+        $.ajax({
           url: url,
           method: "GET",
           dataType: "json",
@@ -417,10 +418,14 @@ hide_toc: true
           $('#doc_thankyou_msg').fadeTo(800,0,function(){
               $(this).html('<h3>¡Gracias por tu envío!</h3> Alguien de nuestro equipo se pondrá en contacto contigo si tenemos alguna pregunta. Para ver el estado de tu ticket o agregar comentarios, revisa tu correo electrónico en busca de la confirmación de tu ticket.').fadeTo(800,1);
           });
+        }).fail(function() {
+          $('#submit_progress').css('display','none');
+          $('#submit_text').html('Enviar solicitud');
+          $('#ticket_submit_button').prop("disabled",false);
+          alert('Algo salió mal al enviar tu solicitud. Inténtalo de nuevo.');
         });
 
       });
-
     });
   </script>
 
@@ -457,7 +462,7 @@ hide_toc: true
               <div id="disclosure-warning" class="alert alert-important" role="alert">
                 <div class="alert-msg">
                   <b>Importante: </b>
-                  Copilot redactará esta sugerencia y será revisada por el equipo de Docs. Confirma que <strong>no se incluye información específica de clientes</strong> ni <strong>enlaces</strong>.
+                  La IA ayuda a redactar esta sugerencia, que el equipo de Docs y otras partes interesadas internas revisan antes de su publicación. Confirma que <strong>no aparece información específica de clientes</strong> ni <strong>enlaces de clientes</strong>.
                 </div>
               </div>
               </div>

@@ -22,6 +22,8 @@ Pro Anfrage können bis zu 50 Nutzer-Aliase angegeben werden.
 
 **Um neue Nutzer:innen zu erstellen, die nur über einen Alias verfügen**, muss die `external_id` im neuen Nutzer-Alias-Objekt weggelassen werden. Nachdem die Nutzer:innen erstellt wurden, verwenden Sie den Endpunkt `/users/track`, um die Alias-Nutzer:innen mit Attributen, Ereignissen und Käufen zu verknüpfen, und den Endpunkt `/users/identify`, um die Nutzer:innen mit einer `external_id` zu identifizieren.
 
+Sie können API-getriggerte Campaigns über `user_alias` an Nutzer:innen senden, indem Sie den Endpunkt [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) verwenden.
+
 ## Wenn `alias_label` und `alias_name` bereits existieren {#when-alias_label-and-alias_name-already-exist}
 
 Die Kombination aus `alias_label` und `alias_name` muss in Ihrer Nutzerbasis eindeutig sein. Weitere Informationen finden Sie unter [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).
@@ -95,5 +97,32 @@ Wenn ein Alias übersprungen wird, weil dieselbe Kombination aus `alias_label` u
 }
 ```
 
+## Fehlerbehebung {#troubleshooting}
+
+### Warum werden meine Attribute nicht aktualisiert, nachdem ich mit diesem Endpunkt einen Nutzer-Alias erstellt habe? {#why-are-my-attributes-not-updating-after-i-create-a-user-alias-using-this-endpoint}
+
+Dies geschieht in der Regel, wenn auf `/users/alias/new` eine separate `/users/track`-Anfrage folgt, die versucht, Attribute über den Alias zu aktualisieren. Die Track-Anfrage kann verarbeitet werden, bevor Braze das neue Paar aus `alias_label` und `alias_name` konsistent einem Profil zuordnen kann, sodass die Attribute nicht bei den erwarteten Nutzer:innen ankommen.
+
+**Empfohlener Ansatz:** Verwenden Sie einen einzelnen [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Aufruf nur dann, wenn Sie ein reines Alias-Profil erstellen oder ein Profil über einen bereits vorhandenen Alias aktualisieren möchten. Fügen Sie im `attributes`-Array `user_alias` und Ihre Profilfelder in dasselbe [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object) ein, damit Braze die Nutzer:innen auflöst und die Aktualisierung in einem Schritt durchführt.
+
+Setzen Sie `_update_existing_only` auf `false`, wenn Sie aus diesem Objekt möglicherweise ein reines Alias-Profil erstellen müssen. Wenn Sie es weglassen und dabei `user_alias` verwenden, verhält sich Braze standardmäßig so, dass nur aktualisiert und kein reines Alias-Profil erstellt wird. Wenn der Alias bereits bei Nutzer:innen in Ihrem Workspace existiert, aktualisiert dieselbe Anfrage dieses Profil mit Ihren neuen Attributen.
+
+Sie können `/users/track` nicht verwenden, um bestehenden Nutzer:innen, die über eine `external_id` identifiziert werden, einen neuen Alias hinzuzufügen. In einem Nutzerattribut-Objekt schließen sich `external_id` und `user_alias` gegenseitig aus. Um identifizierten Nutzer:innen einen Alias hinzuzufügen, rufen Sie zuerst `/users/alias/new` auf. Nachdem der Alias zugeordnet wurde, können Sie dieses Profil mit `/users/track` über die `external_id` oder den vorhandenen Alias aktualisieren.
+
+Das folgende `/users/track`-Body erstellt beispielsweise ein reines Alias-Profil, wenn der Alias noch nicht existiert, oder aktualisiert das vorhandene Profil, das diesen Alias bereits hat:
+```json
+{
+  "attributes": [
+    {
+      "user_alias": {
+        "alias_name": "example@example.com",
+        "alias_label": "email"
+      },
+      "_update_existing_only": false,
+      "string_attribute": "test_alias_only_update"
+    }
+  ]
+}
+```
 
 {% endapi %}

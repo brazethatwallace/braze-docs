@@ -4,7 +4,7 @@
 
 ## O que é o BrazeAI Decisioning Studio™? {#what-is-brazeai-decisioning-studio}
 
-[O BrazeAI Decisioning Studio™](https://www.braze.com/product/brazeai-decisioning-studio/) substitui os Testes A/B por agentes de decisão que personalizam tudo e maximizam qualquer métrica: gere receitas, não cliques — com o Decisioning Studio, você pode otimizar qualquer métrica de negócios.
+[O BrazeAI Decisioning Studio™](https://www.braze.com/product/brazeai-decisioning-studio/) substitui os Testes A/B por agentes de decisão que personalizam tudo e maximizam qualquer métrica: gere receitas, não cliques&#8212;com o Decisioning Studio, você pode otimizar qualquer métrica de negócios.
 
 Os agentes de decisão BrazeAI<sup>TM</sup> descobrem automaticamente a ação ideal para cada cliente. Usando seus dados primários, o BrazeAI<sup>TM</sup> consegue maximizar qualquer KPI de negócios para uma ampla gama de casos de uso, incluindo venda cruzada, venda adicional, recompra, retenção, renovação, indicação, retorno e muito mais.
 
@@ -20,7 +20,7 @@ Para saber mais ou começar a usar o Decisioning Studio, [agende uma ligação](
 - **Personalize tudo:** Os agentes de decisão de IA encontram a melhor mensagem, produto, incentivo, canal, momento e frequência para cada cliente individual.
 - **Maximize qualquer métrica:** Cliques não são receita. Use o BrazeAI<sup>TM</sup> para escolher as ofertas ou incentivos que maximizam a receita, o lucro, o CLV ou qualquer outro KPI de negócios.
 - **Abra a caixa preta:** Veja como os agentes de decisão de IA personalizam para obter insights profundos sobre os motivadores do comportamento do cliente.
-- **Suporte especializado em todas as etapas:** O Decisioning Studio Pro inclui suporte da nossa equipe de Serviços de Tomada de Decisões por IA, que adaptará seus agentes de decisão às necessidades específicas do seu negócio.
+- **Suporte especializado em todas as etapas:** O Decisioning Studio Pro inclui suporte da nossa equipe de AI Decisioning Services, que adaptará seus agentes de decisão às necessidades específicas do seu negócio.
 
 ## Sobre o Decisioning Studio {#about-decisioning-studio}
 
@@ -34,9 +34,9 @@ Para configurar o Decisioning Studio, você deverá:
 - Projetar seu agente de decisão para definir qual resultado você deseja maximizar e quais ações o agente pode realizar para isso.
 - Iniciar seu agente de decisão e permitir que ele aprenda e otimize continuamente para os resultados do seu negócio.
 
-Enquanto o Decisioning Studio Go é uma plataforma self-service, o Decisioning Studio Pro inclui suporte dos Serviços de Tomada de Decisões por IA da equipe de ciência de dados avançada da Braze, que ajudará você a projetar e configurar seu agente para maximizar os resultados do seu negócio. Veja [Decisioning Studio Go vs. Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro) para mais detalhes.
+Enquanto o Decisioning Studio Go é uma plataforma self-service, o Decisioning Studio Pro inclui suporte de AI Decisioning Services da equipe de ciência de dados avançada da Braze, que ajuda você a projetar e configurar seu agente para maximizar os resultados do seu negócio. Veja [Decisioning Studio Go vs. Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio#decisioning-studio-go-vs-decisioning-studio-pro) para mais detalhes.
 
-Para obter mais detalhes, consulte [Introdução ao Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/).
+Para obter mais detalhes, consulte [Introdução ao Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started).
 
 ### Agentes de decisão vs. Braze Agents {#decisioning-agents-vs-brazeai-agents}
 
@@ -58,7 +58,7 @@ Neste guia, você aprenderá primeiro o que são agentes de decisão e como eles
 
 ## Próximos passos {#next-steps}
 
-1. [Introdução ao Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/)
-2. [Configurando o Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/)
-3. [Introdução ao Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/)
-4. [Visualização de relatórios e insights]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/)
+1. [Introdução ao Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started)
+2. [Configurando o Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go)
+3. [Introdução ao Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started)
+4. [Visualização de relatórios e insights]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting)

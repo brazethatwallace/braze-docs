@@ -203,5 +203,5 @@ Wenn sich einige Nutzer:innen nicht mit Google SSO anmelden können, überprüfe
 
 Nach der Einrichtung von SAML SSO können Sie:
 
-- [Nur-SSO-Anmeldung erzwingen]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction) in Ihren Sicherheitseinstellungen, um Nutzer:innen daran zu hindern, sich mit einem Passwort anzumelden.
+- [Nur-SSO-Anmeldung erzwingen]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) in Ihren Sicherheitseinstellungen, um Nutzer:innen daran zu hindern, sich mit einem Passwort anzumelden.
 - [SAML Just-in-Time-Bereitstellung einrichten]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning), damit neue Nutzer:innen bei ihrer ersten SSO-Anmeldung automatisch Braze-Konten erstellen.

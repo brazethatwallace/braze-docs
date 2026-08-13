@@ -20,9 +20,9 @@ Swift SDK를 사용하여 Braze에서 수신한 원격 알림의 처리를 자�
 
 {% tabs local %}
 {% tab Automatic %}
-#### 3.1단계: 푸시 등록정보에서 자동화 활성화 {#step-31-enable-automation-in-the-push-property}
+#### 3.1단계: 푸시 속성정보에서 자동화 활성화 {#step-31-enable-automation-in-the-push-property}
 
-자동 푸시 통합을 활성화하려면 `push` 구성의 `automation` 등록정보를 `true`로 설정합니다:
+자동 푸시 통합을 활성화하려면 `push` 구성의 `automation` 속성정보를 `true`로 설정합니다:
 
 {% subtabs %}
 {% subtab Swift %}
@@ -53,7 +53,7 @@ SDK에서 수행하는 자동화 단계는 코드베이스의 기존 푸시 알�
 
 {% alert warning %}
 푸시 알림 자동화를 활성화하려면 메인 스레드에서 SDK를 초기화해야 합니다. SDK 초기화는 애플리케이션 실행이 완료되기 전 또는 AppDelegate [`application(_:didFinishLaunchingWithOptions:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application) 구현에서 수행해야 합니다.
-애플리케이션에서 SDK를 초기화하기 전에 추가 설정이 필요한 경우 [지연된 초기화]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift) 설명서 페이지를 참조하세요.
+애플리케이션에서 SDK를 초기화하기 전에 추가 설정이 필요한 경우 [지연된 초기화]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#step-2-set-up-delayed-initialization-optional) 설명서 페이지를 참조하세요.
 {% endalert %}
 
 #### 3.2단계: 개별 구성 재정의(선택 사항) {#step-32-override-individual-configurations-optional}
@@ -98,7 +98,7 @@ Braze는 푸시 실행 버튼 지원을 위한 기본 푸시 카테고리도 제
 앱 델리게이트의 `application:didFinishLaunchingWithOptions:` 메서드에 다음 코드를 추가합니다.
 
 {% alert note %}
-다음 코드 샘플에는 임시 푸시 인증(5번째 줄 및 6번째 줄)을 위한 통합이 포함되어 있습니다. 앱에서 임시 승인을 사용하지 않으려면 `requestAuthorization` 옵션에 `UNAuthorizationOptionProvisional`을 추가하는 코드 줄을 제거할 수 있습니다.<br>푸시 임시 인증에 대한 자세한 내용은 [iOS 알림 옵션]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/)을 참조하세요.
+다음 코드 샘플에는 임시 푸시 인증(5번째 줄 및 6번째 줄)을 위한 통합이 포함되어 있습니다. 앱에서 임시 승인을 사용하지 않으려면 `requestAuthorization` 옵션에 `UNAuthorizationOptionProvisional`을 추가하는 코드 줄을 제거할 수 있습니다.<br>[iOS 알림 옵션]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options)을 방문하여 푸시 임시 인증에 대해 자세히 알아보세요.
 {% endalert %}
 
 {% subtabs %}
@@ -289,14 +289,14 @@ func userNotificationCenter(
 
 ## 알림 테스트 {#push-testing}
 
-명령줄을 통해 인앱 및 푸시 알림을 테스트하려면 터미널에서 CURL 및 [메시징 API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)를 사용하여 단일 알림을 보낼 수 있습니다. 다음 필드를 테스트 사례에 맞는 올바른 값으로 바꿔야 합니다:
+명령줄을 통해 인앱 및 푸시 알림을 테스트하려면 터미널에서 CURL 및 [메시징 API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)를 사용하여 단일 알림을 보낼 수 있습니다. 다음 필드를 테스트 사례에 맞는 올바른 값으로 바꿔야 합니다:
 
 - `YOUR_API_KEY` - **설정** > **API 키**에서 확인할 수 있습니다.
-- `YOUR_EXTERNAL_USER_ID` - **사용자 검색** 페이지에서 확인할 수 있습니다. 자세한 내용은 [사용자 ID 할당하기]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#assigning-a-user-id)를 참조하세요.
+- `YOUR_EXTERNAL_USER_ID` - **사용자 검색** 페이지에서 확인할 수 있습니다. 자세한 내용은 [사용자 ID 할당하기]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids#assigning-a-user-id)를 참조하세요.
 - `YOUR_KEY1` (선택 사항)
 - `YOUR_VALUE1` (선택 사항)
 
-다음 예제에서는 `US-01` 인스턴스를 사용하고 있습니다. 이 인스턴스를 사용하고 있지 않다면 [API 설명서]({{site.baseurl}}/api/basics/)를 참조하여 요청할 엔드포인트를 확인하세요.
+다음 예제에서는 `US-01` 인스턴스를 사용하고 있습니다. 이 인스턴스를 사용하고 있지 않다면 [API 설명서]({{site.baseurl}}/api/basics)를 참조하여 요청할 엔드포인트를 확인하세요.
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR_API_KEY}" -d '{
@@ -398,7 +398,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 ## 푸시 프라이머 {#push-primers}
 
-푸시 프라이머 Campaign은 사용자가 기기에서 앱에 대한 푸시 알림을 활성화하도록 권장합니다. [노코드 푸시 프라이머]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/)를 사용하면 SDK 커스텀 설정 없이도 이 작업을 수행할 수 있습니다.
+푸시 프라이머 Campaign(캠페인)은 사용자가 기기에서 앱에 대한 푸시 알림을 활성화하도록 권장합니다. [노코드 푸시 프라이머]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages)를 사용하면 SDK 커스텀 설정 없이도 이 작업을 수행할 수 있습니다.
 
 ## 동적 APNs 게이트웨이 관리 {#dynamic-apns-gateway-management}
 
@@ -416,7 +416,7 @@ Braze는 다음 SDK 버전 요구 사항으로 iOS 푸시 알림을 위한 동�
 
 {% sdk_min_versions swift:10.0.0 %}
 
-### 작동 방식 {#how-it-works-1}
+### 작동 방식
 
 iOS 앱이 Braze Swift SDK와 통합되면, 가능한 경우 [`aps-environment`](https://developer.apple.com/documentation/bundleresources/entitlements/aps-environment)를 포함한 기기 관련 데이터를 Braze SDK API로 전송합니다. `apns_gateway` 값은 앱이 개발(`dev`) 또는 프로덕션(`prod`) APNs 환경을 사용하고 있는지를 나타냅니다.
 
@@ -439,4 +439,4 @@ Braze가 푸시 알림을 보낼 때:
 
 #### 이 기능을 비활성화할 수 있나요? {#can-i-disable-this-feature}
 
-동적 APNs 게이트웨이 관리는 기본적으로 활성화되어 있으며 신뢰성 향상을 제공합니다. 수동 게이트웨이 선택이 필요한 특정 사용 사례가 있는 경우 [Braze 고객지원]({{site.baseurl}}/user_guide/administrative/access_braze/support/)에 문의하세요.
+동적 APNs 게이트웨이 관리는 기본적으로 활성화되어 있으며 신뢰성 향상을 제공합니다. 수동 게이트웨이 선택이 필요한 특정 사용 사례가 있는 경우 [Braze 고객지원]({{site.baseurl}}/user_guide/administrative/access_braze/support)에 문의하세요.

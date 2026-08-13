@@ -264,7 +264,7 @@ Um perfil de usuário pode ter 0 sessões se o usuário foi criado fora do SDK:
 
 ### Alguns usuários não estão registrando sessões {#some-users-are-not-logging-sessions}
 
-Como as sessões são rastreadas somente após a inicialização do SDK, usuários que não acionam a inicialização do SDK não registram nenhuma sessão. Isso normalmente acontece quando seu app usa lógica condicional antes de inicializar o SDK, como atrasar a inicialização por trás de um fluxo de login, prompt de consentimento ou Feature Flag. Para orientações de implementação, veja [Inicialização atrasada]({{site.baseurl}}/developer_guide/sdk_initalization?sdktab=swift). Nesses casos, qualquer usuário que não satisfaça a condição nunca inicia uma sessão.
+Como as sessões são rastreadas somente após a inicialização do SDK, usuários que não acionam a inicialização do SDK não registram nenhuma sessão. Isso normalmente acontece quando seu app usa lógica condicional antes de inicializar o SDK, como atrasar a inicialização por trás de um fluxo de login, prompt de consentimento ou Feature Flag. Para orientações de implementação, veja [Inicialização atrasada]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#step-2-set-up-delayed-initialization-optional). Nesses casos, qualquer usuário que não satisfaça a condição nunca inicia uma sessão.
 
 Se alguns usuários estão registrando sessões e outros não, verifique o seguinte:
 

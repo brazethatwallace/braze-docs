@@ -128,7 +128,7 @@ Para ver el cuerpo completo de la solicitud (incluidos `trigger_properties`, `se
 
 ## Verifica tu integración {#verify-your-integration}
 
-1. Envía una solicitud utilizando una de las opciones anteriores, con tu propio ID de usuario como destinatario.
+1. Envía una solicitud utilizando una de las opciones disponibles, con tu propio ID de usuario como destinatario.
 2. Confirma que el mensaje se ha entregado.
 3. Si utilizas la opción 2, comprueba la Campaign en el panel de Braze para confirmar que el envío se ha registrado.
 

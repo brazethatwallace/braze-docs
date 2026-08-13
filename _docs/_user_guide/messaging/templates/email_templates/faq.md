@@ -39,9 +39,11 @@ To save this new link, the default Braze unsubscribe tag {%raw%}(``${set_user_to
 - **Tag in comment example:** putting tag in comment example: `<!-- ${set_user_to_unsubscribed_url} -->`
 - **Comment in hidden `<div>` tag example:** {%raw%}`<div style="display:none;max-height:0px;overflow:hidden;">${set_user_to_unsubscribed_url}</div>`{%endraw%}
 
-### What happens if I edit an email template that is currently being used in a campaign?
+### What happens if I edit an email template that is currently being used in a campaign or Canvas?
 
-Edits made to an existing template won't be reflected in campaigns that were created using previous versions of that template. For API campaigns that use a template in the REST API body, Braze will use the latest version of the template at the time of sending.  
+Email templates serve as a starting point when creating an email in a campaign or Canvas. When you select a template, you can edit it within the campaign or Canvas, and those changes are independent of the original template.
+
+Edits made to an existing template won't be reflected in campaigns or Canvases that were created using previous versions of that template. Similarly, changes made to the email within a campaign or Canvas won't sync back to the original template. For API campaigns that include an `email_template_id` in the request body, Braze uses the latest version of the template at the time of send.
 
 ## Link templates
 
@@ -60,6 +62,12 @@ From the preview pane in a new tab, you can also open the links to view the link
 Link templates are expanded and added to each URL prior to any Liquid expansion happening. If part of your URL is generated using a Liquid snippet, we recommend that the URL base and question mark (?) be hardcoded for link templates to be expanded correctly. 
 
 Avoid adding the question mark (?) to your Liquid as this will cause link templates to first add a question mark (?), and then later the Liquid expansion process will add a second question mark (?).
+
+#### Hardcoded URLs versus custom attributes
+
+When you use a hardcoded URL in the HTML editor (for example, `https://braze.com?12345`), Braze detects that a `?` already exists and automatically uses `&` to append your link template parameters. However, when you use a custom attribute that contains a URL with a `?` (for example, {% raw %}`{{custom_attribute.${my_url}}}`{% endraw %} where `my_url` is `https://braze.com?12345`), Braze does not check whether a `?` already exists in the custom attribute's value. In this case, the link template adds another `?` before the parameters, resulting in a URL like `https://braze.com?12345?utm_source=...`.
+
+To avoid this issue when using custom attributes that may contain query parameters, hardcode the `?` or `&` after the custom attribute based on whether the custom attribute value includes query parameters. For example, if your custom attribute always includes a `?`, use {% raw %}`{{custom_attribute.${my_url}}}&`{% endraw %} to ensure the link template appends parameters correctly.
 
 ## Link aliasing
 

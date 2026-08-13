@@ -8,9 +8,16 @@ page_type: reference
 
 # Importation de données utilisateur (accès anticipé aux événements CSV) {#importing-user-data-csv-events-early-access}
 
-> Braze propose plusieurs façons d'importer des données utilisateur dans la plateforme : SDK, API, Ingestion de données cloud, intégrations de partenaires technologiques et fichiers CSV. Cet article fournit des instructions détaillées sur l'importation de données utilisateur, y compris l'[importation d'événements personnalisés via des fichiers CSV (accès anticipé)](#importing-custom-events).
+> Braze propose plusieurs façons d'importer des données utilisateur dans la plateforme : SDK, API, ingestion de données cloud, intégrations de partenaires technologiques et fichiers CSV. Cet article fournit des instructions détaillées sur l'importation de données utilisateur, y compris l'[importation d'événements personnalisés via des fichiers CSV (accès anticipé)](#importing-custom-events).
 
-{% multi_lang_include channels/sms/email_via_sms_warning.md %}
+{% alert important %}
+N'envoyez pas d'e-mails transactionnels légalement requis vers des passerelles SMS, car il est fort probable que ces e-mails ne soient pas délivrés.
+
+Bien que les e-mails que vous envoyez en utilisant un numéro de téléphone et le domaine de passerelle e-mail-vers-SMS du fournisseur (MM3) puissent aboutir à la réception de l'e-mail sous forme de message SMS (texte), certains fournisseurs de messagerie ne prennent pas en charge ce comportement. Par exemple, si vous envoyez un e-mail à un numéro de téléphone T-Mobile (tel que « 9999999999@tmomail.net »), votre message SMS serait envoyé au propriétaire de ce numéro de téléphone sur le réseau T-Mobile.
+
+Même si ces e-mails ne sont pas délivrés à la passerelle SMS, ils sont tout de même comptabilisés dans votre facturation d'e-mails. Pour éviter d'envoyer des e-mails à des passerelles non prises en charge, consultez la [liste des noms de domaine de passerelle non pris en charge](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads).
+{% endalert %}
+
 
 Avant de continuer, notez que Braze ne nettoie pas (ne valide pas et ne formate pas correctement) les données HTML lors de l'importation. Cela signifie que les balises de script doivent être supprimées de toutes les données d'importation destinées à la personnalisation web.
 
@@ -136,7 +143,7 @@ Les types de données suivants sont acceptés lors de l'importation d'utilisateu
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert important %}
-Les tableaux et les jetons de notification push ne sont pas pris en charge dans l'importation d'utilisateurs. En particulier pour les tableaux, les virgules dans votre fichier CSV seront interprétées comme un séparateur de colonne, de sorte que toute virgule dans les valeurs provoquera des erreurs lors de l'analyse du fichier. <br>Pour charger ces types de valeurs, utilisez l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou l'[Ingestion de données cloud]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion).
+Les tableaux et les jetons de notification push ne sont pas pris en charge dans l'importation d'utilisateurs. En particulier pour les tableaux, les virgules dans votre fichier CSV seront interprétées comme un séparateur de colonne, de sorte que toute virgule dans les valeurs provoquera des erreurs lors de l'analyse du fichier. <br>Pour charger ces types de valeurs, utilisez l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion).
 {% endalert %}
 
 ### Mise à jour du statut du groupe d'abonnement {#updating-subscription-group-status}
@@ -201,15 +208,15 @@ Les événements personnalisés sont propres à votre entreprise. Par exemple, u
 
 Les événements personnalisés peuvent avoir des propriétés d'événement. Par exemple, l'événement personnalisé rented_movie peut avoir les propriétés title et genre. Ces propriétés d'événement doivent avoir un en-tête de colonne au format `<event_name>.properties.<property name>`. Un exemple est `rented_movie.properties.title`.
 
-| CHAMP DU PROFIL UTILISATEUR                | TYPE DE DONNÉES | INFORMATIONS                                                                                                                                                                                                             | REQUIS                                                                                        |
+| CHAMP DU PROFIL UTILISATEUR | TYPE DE DONNÉES | INFORMATIONS | REQUIS |
 |-----------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
-| `external_id`                           | Chaîne de caractères    | Un identifiant utilisateur unique pour votre utilisateur.                                                                                                                                                                                 | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est requis. |
-| `braze_id`                              | Chaîne de caractères    | Un identifiant attribué par Braze pour votre utilisateur.                                                                                                                                                                              | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est requis. |
-| `user_alias_name`                       | Chaîne de caractères    | Un identifiant utilisateur unique pour les utilisateurs anonymes. Une alternative à l'external_id.                                                                                                                                        | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est requis. |
-| `user_alias_label`                      | Chaîne de caractères    | Un libellé commun permettant de regrouper les alias d'utilisateur.                                                                                                                                                                          | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est requis. |
-| `name`                                  | Chaîne de caractères    | Un événement personnalisé de vos utilisateurs.                                                                                                                                                                                           | Oui                                                                                             |
-| `time`                                  | Chaîne de caractères    | L'heure de l'événement. Peut être transmis dans l'un des formats ISO-8601 suivants : {::nomarkdown} <ul> <li> "YYYY-MM-DD" </li> <li> "YYYY-MM-DDTHH:MM:SS+00:00" </li> <li> "YYYY-MM-DDTHH:MM:SSZ" </li> <li> "YYYY-MM-DDTHH:MM:SS" (par exemple, 2019-11-20T18:38:57) </li> </ul> {:/} | Oui                                                                                             |
-| `<event name>.properties.<property name>` | Plusieurs  | Une propriété d'événement associée à un événement personnalisé. Un exemple est `rented_movie.properties.title`                                                                                                                        | Non                                                                                              |
+| `external_id` | Chaîne de caractères | Un identifiant utilisateur unique pour votre utilisateur. | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est requis. |
+| `braze_id` | Chaîne de caractères | Un identifiant attribué par Braze pour votre utilisateur. | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est requis. |
+| `user_alias_name` | Chaîne de caractères | Un identifiant utilisateur unique pour les utilisateurs anonymes. Une alternative à l'external_id. | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est requis. |
+| `user_alias_label` | Chaîne de caractères | Un libellé commun permettant de regrouper les alias d'utilisateur. | Oui, l'un des champs `external_id`, `braze_id`, ou `user_alias_name` et `user_alias_label` est requis. |
+| `name` | Chaîne de caractères | Un événement personnalisé de vos utilisateurs. | Oui |
+| `time` | Chaîne de caractères | L'heure de l'événement. Peut être transmis dans l'un des formats ISO-8601 suivants : {::nomarkdown} <ul> <li> "YYYY-MM-DD" </li> <li> "YYYY-MM-DDTHH:MM:SS+00:00" </li> <li> "YYYY-MM-DDTHH:MM:SSZ" </li> <li> "YYYY-MM-DDTHH:MM:SS" (par exemple, 2019-11-20T18:38:57) </li> </ul> {:/} | Oui |
+| `<event name>.properties.<property name>` | Plusieurs | Une propriété d'événement associée à un événement personnalisé. Un exemple est `rented_movie.properties.title` | Non |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
 {% alert note %}

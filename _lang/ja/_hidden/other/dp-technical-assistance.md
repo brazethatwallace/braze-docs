@@ -65,7 +65,7 @@ Brazeサービスに関して：
 
 ### Brazeの推奨事項
 
-データ主体のアクセスリクエストに応じて機械可読形式でBrazeから個人データを提供するために、お客様は、ユーザー識別子（Brazeに提供される`external_id`としてお客様が定義するもの）および/またはデバイス識別子を使用してBrazeの[REST API]({{site.baseurl}}/api/endpoints/export/#user-export)にAPIコールを行うことにより、エンドユーザープロファイルをエクスポートできます。
+データ主体のアクセスリクエストに応じて機械可読形式でBrazeから個人データを提供するために、お客様は、ユーザー識別子（Brazeに提供される`external_id`としてお客様が定義するもの）および/またはデバイス識別子を使用してBrazeの[REST API]({{site.baseurl}}/api/endpoints/export)にAPIコールを行うことにより、エンドユーザープロファイルをエクスポートできます。
 
 #### BrazeAI Decisioning Studio™
 
@@ -77,7 +77,7 @@ BrazeAI Decisioning Studio™の個人データに関するアクセス権リク
 
 ### Brazeの推奨事項
 
-データ主体が、お客様またはお客様の代理としてBrazeにより処理されている個人データ内の不正確な情報を修正するよう要求した場合、お客様は、Braze SDKまたはBraze [REST API]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint)を使用して、かかる個人データを修正することができます。
+データ主体が、お客様またはお客様の代理としてBrazeにより処理されている個人データ内の不正確な情報を修正するよう要求した場合、お客様は、Braze SDKまたはBraze [REST API]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、かかる個人データを修正することができます。
 
 ## 消去権 {#the-right-to-erasure}
 
@@ -87,7 +87,7 @@ BrazeAI Decisioning Studio™の個人データに関するアクセス権リク
 
 #### 標準的な削除 {#standard-deletion}
 
-データ収集を停止したら、[Brazeのユーザー削除REST APIエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/)を使用してエンドユーザーを削除し、Brazeサービスから当該エンドユーザーのすべての記録を削除することができます：
+データ収集を停止したら、[Brazeのユーザー削除REST APIエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)を使用してエンドユーザーを削除し、Brazeサービスから当該エンドユーザーのすべての記録を削除することができます：
 
 - Brazeサービス内でexternal_idを持つエンドユーザーについては、そのIDを使ってエンドユーザーのデータを削除することができます。
 - Brazeサービス内にexternal_idを持たない匿名のエンドユーザーについては、Braze SDKを使用してそのエンドユーザーのデバイス識別子を取得し、デバイス識別子を使用してそのデバイスに関連付けられたエンドユーザープロファイルを見つけることができます。その後、ユーザー削除APIを使用して、そのエンドユーザーに関連付けられているプロファイルを削除できます。
@@ -155,7 +155,7 @@ Brazeサービス内の分析は、Brazeエンドユーザー識別子に関連�
 
 ### Brazeの推奨事項
 
-Brazeサービスは、個人データの個別カテゴリーの処理制限に対応していません。データ主体から、そのデータ主体の個人データの特定のサブセットの処理を制限するよう要請された場合は、[Braze API]({{site.baseurl}}/api/home/)を使用して、そのエンドユーザーのプロファイル全体をエクスポートし、Brazeから[削除]({{site.baseurl}}/api/endpoints/user_data/#user-delete-endpoint)する必要があります。Braze APIは、後でエンドユーザーがその個人データの特定のサブセットの処理を許可した場合に、そのデータを再インポートするために使用することができます。さらに、データ主体に関する追加データの収集を停止するため、エンドユーザーに対しBraze SDKを使用するアプリケーションのすべてをアンインストールするかログアウトするように推奨する必要があります。
+Brazeサービスは、個人データの個別カテゴリーの処理制限に対応していません。データ主体から、そのデータ主体の個人データの特定のサブセットの処理を制限するよう要請された場合は、[Braze API]({{site.baseurl}}/api/home)を使用して、そのエンドユーザーのプロファイル全体をエクスポートし、Brazeから[削除]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)する必要があります。Braze APIは、後でエンドユーザーがその個人データの特定のサブセットの処理を許可した場合に、そのデータを再インポートするために使用することができます。さらに、データ主体に関する追加データの収集を停止するため、エンドユーザーに対しBraze SDKを使用するアプリケーションのすべてをアンインストールするかログアウトするように推奨する必要があります。
 
 BrazeAI Decisioning Studio™のみを使用しているお客様の場合は、Decisioning Studioへのデータ送信を停止する必要があります。
 
@@ -165,7 +165,7 @@ BrazeAI Decisioning Studio™のみを使用しているお客様の場合は、
 
 ### Brazeの推奨事項
 
-アクセス権と同様に、Braze [REST API]({{site.baseurl}}/api/endpoints/export/#user-export)を使用してエンドユーザーの個人データをエクスポートし、データ主体のリクエストに従ってデータ主体に提供することができます。さらに、BrazeAI Decisioning Studioに保持されている個人データのコピーをリクエストするには、関連するcustomer_id（複数可）および/またはメールアドレスを添えてアカウントマネージャーにお問い合わせください。
+アクセス権と同様に、Braze [REST API]({{site.baseurl}}/api/endpoints/export)を使用してエンドユーザーの個人データをエクスポートし、データ主体のリクエストに従ってデータ主体に提供することができます。さらに、BrazeAI Decisioning Studioに保持されている個人データのコピーをリクエストするには、関連するcustomer_id（複数可）および/またはメールアドレスを添えてアカウントマネージャーにお問い合わせください。
 
 ## 異議申し立ての権利 {#the-right-to-object}
 
@@ -177,7 +177,7 @@ BrazeAI Decisioning Studio™のみを使用しているお客様の場合は、
 
 ### Brazeの推奨事項
 
-Brazeは、[REST API]({{site.baseurl}}/api/home/)と[iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/analytics/setting_custom_attributes/)、[Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/)、および[Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes/) SDKの両方を介して、SMS、メール、またはプッシュ通知からユーザープロファイルを配信停止としてマークする機能を提供しています。このようなメッセージの受信についてデータ主体から異議申し立てを受けた場合、Braze APIを使用して、これらのエンドユーザーへの配信を停止することができます。
+Brazeは、[REST API]({{site.baseurl}}/api/home)と[iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/analytics/setting_custom_attributes)、[Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes)、および[Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes) SDKの両方を介して、SMS、メール、またはプッシュ通知からユーザープロファイルを購読解除としてマークする機能を提供しています。このようなメッセージの受信についてデータ主体から異議申し立てを受けた場合、Braze APIを使用して、これらのエンドユーザーの購読を解除することができます。
 
 それでも十分でない場合、Brazeによるエンドユーザーの個人データの処理を回避するため、「消去権」に規定されているのと同じ方法でエンドユーザーのプロファイルを削除する必要があります。
 
@@ -198,7 +198,7 @@ Brazeは、データ主体に法的または同等の影響を及ぼす自動プ
 
 データ主体に広告をターゲティングする目的でオーディエンスを構築する場合、ターゲティング広告に異議を唱えたデータ主体（例えば、CCPAに基づき「販売または共有しない」権利を行使したカリフォルニア州の消費者）が除外されていることを確認する必要があります。
 
-サードパーティプラットフォームと同期するオーディエンスを構築する方法の詳細については、[オーディエンスの同期]({{site.baseurl}}/partners/canvas_steps/)を参照してください。
+サードパーティプラットフォームと同期するオーディエンスを構築する方法の詳細については、[オーディエンスの同期]({{site.baseurl}}/partners/canvas_steps)を参照してください。
 
 ## 無差別の権利 {#the-right-to-non-discrimination}
 

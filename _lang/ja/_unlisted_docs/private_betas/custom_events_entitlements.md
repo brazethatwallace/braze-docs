@@ -8,19 +8,13 @@ hidden: true
 
 > この記事では、カスタムイベントとプロパティ、関連するセグメンテーションフィルター、キャンバスエントリプロパティ、関連する分析などについて説明します。Brazeのイベント全般については、[イベント]({{site.baseurl}}/user_guide/data/custom_data/events)を参照してください。
 
-カスタムイベントは、ユーザーが行ったアクション、またはユーザーに関する更新です。カスタムイベントが記録されると、任意の数やタイプのフォローアップキャンペーンをトリガーできます。その後、[セグメンテーションフィルター](#segmentation-filters)を使用して、カスタムイベントの発生頻度や最終発生日に基づいてユーザーをセグメント化できます。これにより、カスタムイベントはアプリケーション内の価値の高いユーザーインタラクションの追跡に最適です。
+カスタムイベントは、ユーザーが行ったアクション、またはユーザーに関する更新です。カスタムイベントが記録されると、任意の数やタイプのフォローアップキャンペーンをトリガーできます。その後、[セグメンテーションフィルター](#segmentation-filters)を使用して、カスタムイベントの発生頻度や最終発生日に基づいてユーザーをセグメント化できます。これにより、カスタムイベントはアプリケーション内の価値の高いユーザーインタラクションのトラッキングに最適です。
 
 ## ユースケース {#use-cases}
 
 一般的なカスタムイベントのユースケースには、以下のようなものがあります。
 
-- [アクションベースの配信]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery)を使用して、カスタムイベントに基づいてキャンペーンやキャンバスをトリガーする
-- カスタムイベントの実行回数、最終発生日などに基づいてユーザーをセグメント化する
-- ダッシュボードの[カスタムイベント分析]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-event-analytics)を使用して、各イベントの発生回数の集計を表示する
-- [ファネル]({{site.baseurl}}/user_guide/data_and_analytics/reporting/funnel_reports#step-2-select-events-for-funnel-steps)レポートや[リテンション]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports)レポートを使用して追加の分析を行う
-- [永続的なエントリプロパティ]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/canvas_persistent_entry_properties)を活用して、顧客イベントのメタデータをキャンバスステップでのパーソナライゼーションに使用する
-- [Currents]({{site.baseurl}}/user_guide/data/braze_currents)を使用してより高度な分析を生成する
-- [終了条件]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/exit_criteria)を設定して、ユーザーがキャンバスを終了するタイミングを定義する
+{% multi_lang_include data_activation/custom_event_use_cases.md %}
 
 ## エンタイトルメント {#entitlements}
 
@@ -42,9 +36,7 @@ hidden: true
 
 カスタムイベントをブロックすると、以下のようになります。
 
-- そのイベントの今後のデータは収集されません。
-- そのイベントがブロック解除されない限り、既存のデータは利用できません。
-- そのイベントはフィルターやグラフに表示されません。
+{% multi_lang_include data_activation/custom_event_block_effects.md %}
 
 さらに、ブロックされたカスタムイベントがBrazeの他の領域でフィルターやトリガーによって現在参照されている場合、そのフィルターやトリガーのすべてのインスタンスが削除およびアーカイブされることを説明する警告モーダルが表示されます。
 
@@ -124,7 +116,7 @@ Brazeは、カスタムイベントの発生回数と各ユーザーによる最
 
 ## カスタムイベントプロパティ {#custom-event-properties}
 
-カスタムイベントプロパティは、イベントの特定の発生を説明するカスタムイベントのメタデータまたは属性です。これらのプロパティは、トリガー条件のさらなる絞り込み、メッセージングのパーソナライゼーションの向上、コンバージョンの追跡、および生データエクスポートによるより高度な分析の生成に使用できます。
+カスタムイベントプロパティは、イベントの特定の発生を説明するカスタムイベントのメタデータまたは属性です。これらのプロパティは、トリガー条件のさらなる絞り込み、メッセージングのパーソナライゼーションの向上、コンバージョンのトラッキング、および生データエクスポートによるより高度な分析の生成に使用できます。
 
 カスタムイベントプロパティはBrazeプロファイルに保存されないため、データポイントを消費しません（例外については[データポイント](#data-points)を参照してください）。
 
@@ -155,7 +147,7 @@ Brazeは、カスタムイベントの発生回数と各ユーザーによる最
 
 ### カスタムイベントプロパティの使用 {#using-custom-event-properties}
 
-カスタムイベントプロパティは、キャンペーンのトリガーの絞り込み、コンバージョンの追跡、メッセージングのパーソナライゼーションに使用できます。
+カスタムイベントプロパティは、キャンペーンのトリガーの絞り込み、コンバージョンのトラッキング、メッセージングのパーソナライゼーションに使用できます。
 
 #### メッセージのトリガー {#trigger-messages}
 
@@ -215,11 +207,9 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 イベントプロパティセグメンテーションフィルターには以下が含まれます。
 
-- 過去Y日間にプロパティAの値がBであるカスタムイベントをX回実行した。
-- 過去Y日間にプロパティAの値がBである購入をX回行った。
-- 1日から30日の範囲でセグメント化する機能を追加します。
+{% multi_lang_include data_activation/custom_event_property_filters.md %}
 
-![プロパティ「number of items」の値が「2」で「more than」「1」回、過去「30」暦日間に「Abandoned Cart」を実行したフィルターグループ。][3]
+![プロパティ「number of items」の値が「2」で「more than」「1」回、過去「30」暦日間に「Abandoned Cart」を実行したフィルターグループ][3]
 
 データは、カスタマーサクセスマネージャーによって有効化された後にのみ、特定のイベントプロパティに対して記録され、イベントプロパティはその日付以降のみ利用可能です。
 
@@ -232,7 +222,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 
 ### キャンバスエントリプロパティとイベントプロパティ {#canvas-entry-properties-and-event-properties}
 
-キャンバスユーザージャーニーで`canvas_entry_properties`と`event_properties`を使用できます。詳細と例については、[キャンバスエントリプロパティとイベントプロパティ]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties)を参照してください。
+キャンバスのユーザージャーニーで`canvas_entry_properties`と`event_properties`を使用できます。詳細と例については、[キャンバスエントリプロパティとイベントプロパティ]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties)を参照してください。
 
 {% tabs local %}
 {% tab キャンバスエントリプロパティ %}
@@ -309,7 +299,7 @@ RetailAppは、ユーザーが購入イベントをトリガーした後にタ�
 イベントプロパティの値に基づいてセグメント化するには、2つの方法があります。
 
 1. **30日以内：** Brazeサポート担当者は、Brazeのセグメント内で特定のイベントプロパティ値の頻度と最新性に基づいてイベントプロパティセグメンテーションを有効にできます。セグメント内でイベントプロパティを活用したい場合は、Brazeアカウントエグゼクティブまたはカスタマーサクセスマネージャーにお問い合わせください。このオプションはデータ使用量に影響します。<br><br>
-2. **30日以内および30日を超える場合：** 短期および長期のイベントプロパティセグメンテーションの両方をカバーするには、[セグメントエクステンション]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension)を使用できます。この機能は、過去2年間に追跡されたカスタムイベントとイベントプロパティに基づいてユーザーをセグメント化します。このオプションはデータ使用量に影響しません。
+2. **30日以内および30日を超える場合：** 短期および長期のイベントプロパティセグメンテーションの両方をカバーするには、[セグメントエクステンション]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension)を使用できます。この機能は、過去2年間にトラッキングされたカスタムイベントとイベントプロパティに基づいてユーザーをセグメント化します。このオプションはデータ使用量に影響しません。
 
 特定のニーズに応じた最適なアプローチについての推奨事項は、Brazeカスタマーサクセスマネージャーにお問い合わせください。
 

@@ -3,15 +3,15 @@ nav_title: Clés API et identifiants
 article_title: Clés API et identifiants
 page_order: 0
 page_type: reference
-description: "Cet article présente la page Clés API, qui affiche les identifiants API de votre espace de travail."
+description: "Cet article présente la page Clés API et identifiants, qui affiche les identifiants API de votre espace de travail."
 
 ---
 
 # Clés API {#api-keys}
 
-> La page **Clés API** est votre hub centralisé pour gérer toutes vos clés REST API en un seul endroit. Vous pouvez y accéder à l'ensemble des clés API et des identifiants d'application de chaque espace de travail.
+> La page **Clés API et identifiants** est votre hub centralisé pour gérer toutes vos clés REST API en un seul endroit. Vous pouvez y accéder à l'ensemble des clés API et des identifiants d'application de chaque espace de travail.
 
-La page **Clés API** se trouve sous **Paramètres**.
+La page **Clés API et identifiants** se trouve sous **Paramètres**.
 
 ## Clés API
 
@@ -26,7 +26,7 @@ Pour renforcer la sécurité, vous pouvez spécifier une liste d'adresses IP et 
 Si vous ne spécifiez aucune adresse, les requêtes peuvent être envoyées depuis n'importe quelle adresse IP.
 
 {% alert tip %}
-Vous créez un webhook Braze-à-Braze et utilisez la liste d'autorisation ? Consultez notre liste d'[adresses IP à autoriser]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-whitelisting).
+Vous créez un webhook Braze-à-Braze et utilisez la liste d'autorisation ? Consultez notre liste d'[adresses IP à autoriser]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting).
 {% endalert %}
 
 ### Alertes d'utilisation de l'API {#api-usage-alerts}
@@ -46,6 +46,6 @@ Cette section contient une liste d'identifiants utilisés pour référencer des 
 
 ## Autres identifiants {#other-identifiers}
 
-Pour intégrer notre API, vous pouvez rechercher les identifiants liés à n'importe quels Segments, Campaigns, Content Cards et autres éléments auxquels vous souhaitez accéder depuis l'API externe de Braze. Tous les messages doivent respecter l'encodage [UTF-8](https://en.wikipedia.org/wiki/UTF-8). Après avoir sélectionné l'un d'entre eux, l'identifiant s'affiche sous le menu déroulant.
+Pour intégrer notre API, vous pouvez rechercher les identifiants liés à n'importe quels segments, campagnes, Content Cards et autres éléments auxquels vous souhaitez accéder depuis l'API externe de Braze. Tous les messages doivent respecter l'encodage [UTF-8](https://en.wikipedia.org/wiki/UTF-8). Après avoir sélectionné l'un d'entre eux, l'identifiant s'affiche sous le menu déroulant.
 
 Pour en savoir plus, consultez [Types d'identifiants API]({{site.baseurl}}/api/identifier_types).

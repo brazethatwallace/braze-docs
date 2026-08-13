@@ -166,7 +166,7 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 
 #### MQL 임계값을 통과한 사용자를 확인하는 캔버스 단계 추가하기 {#adding-canvas-step-to-check-for-users-who-passed-the-mql-threshold}
 
-1. 두 그룹으로 **오디언스 경로** 단계를 추가합니다: "MQL Threshold"와 "다른 모든 사용자".
+1. 두 그룹으로 **오디언스 경로** 단계를 추가합니다: "MQL Threshold"와 "Everyone Else".
 2. "MQL Threshold" 그룹에서 현재 "MQL" 상태가 아니지만(예: `lead_stage`가 "Lead"와 같음) 리드 점수가 정의한 임계값을 초과하는(예: `lead_score`가 50보다 큰) 사용자를 찾습니다. 해당되면 다음 단계로 이동하고, 그렇지 않으면 종료합니다.
 
 ![`lead_stage`가 "Lead"와 같고 `lead_score`가 "50"보다 큰 필터가 있는 "MQL Threshold" 오디언스 경로 그룹.]({% image_buster /assets/img/b2b/salesforce_check_mql.png %}){: style="max-width:70%;"}
@@ -187,7 +187,7 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 
 ## 문제 해결 {#troubleshooting}
 
-이러한 워크플로는 Salesforce 내에서 디버깅 기능이 제한되어 있으므로 Braze [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#message-activity-log)를 참조하여 웹훅이 실패한 이유와 오류 발생 여부를 확인하는 것이 좋습니다.
+이러한 워크플로는 Salesforce 내에서 디버깅 기능이 제한되어 있으므로 Braze [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)를 참조하여 웹훅이 실패한 이유와 오류 발생 여부를 확인하는 것이 좋습니다.
 
 예를 들어, OAuth 토큰 검색에 사용된 잘못된 URL로 인한 오류는 `https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL`로 표시됩니다.
 

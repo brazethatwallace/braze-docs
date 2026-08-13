@@ -16,7 +16,7 @@ tool: Segments
 
 ## 카탈로그 Segment 생성하기 {#creating-a-catalog-segment}
 
-1. **세그먼트 확장** > **새 확장 만들기** > **템플릿으로 시작**으로 이동하여 템플릿을 선택합니다. <br>![이벤트, 구매 또는 RFM Segments에 대한 카탈로그 Segment를 생성하는 옵션이 있는 모달.]({% image_buster /assets/img/catalog-segments-template.png %}){: style="max-width:80%" }
+1. **세그먼트 확장** > **새 확장 만들기** > **템플릿으로 시작**으로 이동하여 템플릿을 선택합니다. <br>![이벤트, 구매 또는 RFM Segments에 대한 카탈로그 Segment를 생성하는 옵션이 있는 Modal.]({% image_buster /assets/img/catalog-segments-template.png %}){: style="max-width:80%" }
 
 {: start="2"}
 2. SQL 편집기에 템플릿이 자동으로 채워집니다. <br>![미리 생성된 템플릿이 있는 SQL 편집기.]({% image_buster /assets/img/catalog-segments-editor.png %}){: style="max-width:80%" }<br>이 템플릿은 사용자 이벤트 데이터를 카탈로그 데이터와 결합하여 특정 카탈로그 항목에 참여한 사용자를 세그먼트합니다.
@@ -38,7 +38,7 @@ tool: Segments
 - `Catalog field`: 이 카탈로그 내의 특정 필드(열 이름)
 - `Value`: 해당 필드 또는 열 내의 특정 값 <br><br> 건강 앱을 예로 들면, 예약할 수 있는 각 의사에 대한 카탈로그에 `specialty`라는 필드가 있고 `vision` 또는 `dental`과 같은 값이 포함되어 있다고 가정합니다. `dental` 값을 가진 의사를 방문한 사용자를 세그먼트하려면 `specialty`를 `Catalog field`로 선택하고 `dental`을 `Value`로 선택합니다.
 
-5. SQL Segment를 생성한 후 **미리보기 실행**을 클릭하여 쿼리가 사용자를 반환하는지 또는 오류가 있는지 확인하는 것을 권장합니다. [쿼리 결과 미리보기]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#previewing-results), [SQL 세그먼트 확장 관리]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-sql-segment-extensions) 등에 대한 자세한 내용은 [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)을 확인하세요.
+5. SQL Segment를 생성한 후 **미리보기 실행**을 클릭하여 쿼리가 사용자를 반환하는지 또는 오류가 있는지 확인하는 것을 권장합니다. [쿼리 결과 미리보기]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#step-3-preview-the-query), [SQL 세그먼트 확장 관리]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-your-segment-extensions) 등에 대한 자세한 내용은 [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)을 확인하세요.
 
 {% alert note %}
 `CATALOGS_ITEMS_SHARED` 테이블을 사용하는 SQL Segment를 생성하는 경우 카탈로그 ID를 지정해야 합니다. 예를 들어:
@@ -74,7 +74,7 @@ LIMIT 10
 
 {% multi_lang_include audience/segments.md section='Refresh settings' %}
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 {% tabs local %}
 {% tab 건강 %}
@@ -129,7 +129,7 @@ B2B SaaS 플랫폼이 있고 기존 고객의 직원인 사용자를 세그먼�
 
 ### 카탈로그 Segment를 실행하면 SQL 세그먼트 확장 크레딧이 소비되나요? {#does-running-a-catalog-segment-consume-sql-segment-extension-credits}
 
-예, 카탈로그 Segments는 SQL로 구동되며 SQL 세그먼트 확장 크레딧을 소비합니다. 자세한 내용은 [SQL Segments 사용량]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#monitoring-your-sql-segments-usage)을 확인하세요.
+예, 카탈로그 Segments는 SQL로 구동되며 SQL 세그먼트 확장 크레딧을 소비합니다. 자세한 내용은 [SQL Segments 사용량]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#credits)을 확인하세요.
 
 ### 카탈로그 Segment를 생성하면 SQL 세그먼트 확장 할당량이 소비되나요? {#does-creating-a-catalog-segment-consume-sql-segment-extension-allotments}
 

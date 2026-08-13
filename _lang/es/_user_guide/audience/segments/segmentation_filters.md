@@ -4,7 +4,7 @@ nav_title: Filtros de segmentación
 article_title: Filtros de segmentación
 layout: glossary_page
 glossary_top_header: "Filtros de segmentación"
-glossary_top_text: "El SDK de Braze te proporciona un potente arsenal de filtros para segmentar y dirigirte a tus usuarios en función de características y atributos específicos. Puedes buscar o acotar estos filtros por categoría de filtro.<br><br>Para conocer los diferentes tipos de datos de atributos personalizados que puedes utilizar para segmentar usuarios, consulta <a href=\"/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types\">Tipos de datos de atributos personalizados</a>. Ten en cuenta que los filtros de intervalo están limitados a 100 años."
+glossary_top_text: "El SDK de Braze te proporciona un potente arsenal de filtros para segmentar y dirigirte a tus usuarios en función de características y atributos específicos. Puedes buscar o acotar estos filtros por categoría de filtro.<br><br>Para conocer los diferentes tipos de datos de atributos personalizados que puedes utilizar para segmentar usuarios, consulta <a href=\"/docs/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types\">Tipos de datos de atributos personalizados</a>."
 
 page_type: glossary
 tool: Segments
@@ -45,15 +45,15 @@ glossaries:
     tags:
       - Segment or CSV membership
   - name: Updated/Imported from CSV
-    description: Segmenta a tus usuarios en función de si formaron parte de una carga CSV o no.
+    description: Segmenta a tus usuarios en función de si formaron parte de una carga CSV o no. Braze conserva solo las 100 importaciones CSV más recientes por perfil de usuario con fines de segmentación. Si un usuario aparece en más de 100 importaciones CSV que fueron seleccionadas para reorientación, solo las 100 más recientes están disponibles para este filtro. Las importaciones más antiguas ya no coinciden con ese usuario.
     tags:
       - Segment or CSV membership
   - name: Custom Attributes
-    description: Determina si un usuario coincide o no con un valor de atributo personalizado registrado. <br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Determina si un usuario coincide o no con un valor de atributo personalizado registrado. El período máximo de retrospección es de 100 años para comparaciones de fecha e intervalo de tiempo.<br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Custom attribute
   - name: Created At
-    description: Segmenta a los usuarios por la fecha en que se creó su perfil de usuario. Si un usuario fue añadido mediante CSV o API, este filtro refleja la fecha en que fue añadido. Si el usuario no fue añadido mediante CSV o API y su primera sesión fue registrada por el SDK, este filtro refleja la fecha de esa primera sesión.
+    description: Segmenta a los usuarios por la fecha en que se creó su perfil de usuario. Si un usuario fue añadido mediante CSV o API, este filtro refleja la fecha en que fue añadido. Si el usuario no fue añadido mediante CSV o API y su primera sesión fue registrada por el SDK, este filtro refleja la fecha de esa primera sesión. El período máximo de retrospección es de 100 años.
     tags:
       - Other Filters
   - name: Created From
@@ -61,7 +61,7 @@ glossaries:
     tags:
       - Other Filters
   - name: Nested Custom Attributes
-    description: Atributos que son propiedades de atributos personalizados.<br><br>Al filtrar un atributo personalizado anidado de tipo tiempo, puedes elegir filtrar en función de "Día del año" o "Hora". "Día del año" compara solo el mes y el día. "Hora" compara la marca de tiempo completa, incluido el año.
+    description: Atributos que son propiedades de atributos personalizados.<br><br>Al filtrar un atributo personalizado anidado de tipo tiempo, puedes elegir filtrar en función de "Día del año" o "Hora". "Día del año" compara solo el mes y el día. "Hora" compara la marca de tiempo completa, incluido el año. El período máximo de retrospección es de 100 años para comparaciones de intervalo de tiempo. La misma lógica se aplica al filtrar variables de contexto en las rutas de audiencia de Canvas; consulta <a href="/docs/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#day-of-year-and-time-filters-for-date-context-variables">Filtros de día del año y hora para variables de contexto de fecha</a> para más detalles.
     tags:
       - Custom attribute
   - name: Day of Recurring Event
@@ -73,11 +73,11 @@ glossaries:
     tags:
       - Custom events
   - name: First Did Custom Event
-    description: Determina la primera vez que un usuario realizó un evento registrado especialmente. (período de 24 horas) <br><br>Ejemplo:<br> Primer carrito abandonado hace menos de 1 día<br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Determina la primera vez que un usuario realizó un evento registrado especialmente. El período máximo de retrospección es de 100 años. (período de 24 horas) <br><br>Ejemplo:<br> Primer carrito abandonado hace menos de 1 día<br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Custom events
   - name: Last Did Custom Event
-    description: Determina la última vez que un usuario realizó un evento registrado especialmente. Este filtro admite decimales, como 0,25 horas. (período de 24 horas) <br><br>Ejemplo:<br> Último carrito abandonado hace menos de 1 día<br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Determina la última vez que un usuario realizó un evento registrado especialmente. Este filtro admite decimales, como 0,25 horas. El período máximo de retrospección es de 100 años. (período de 24 horas) <br><br>Ejemplo:<br> Último carrito abandonado hace menos de 1 día<br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Custom events
   - name: X Custom Event In Y Days
@@ -113,19 +113,19 @@ glossaries:
     tags:
       - Sessions
   - name: First Used App
-    description: Segmenta a tus usuarios por la primera vez registrada en que abrieron tu aplicación. <em>Esto captura la primera sesión que tuvieron usando una versión de tu aplicación con el SDK de Braze integrado.</em> (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Segmenta a tus usuarios por la primera vez registrada en que abrieron tu aplicación. <em>Esto captura la primera sesión que tuvieron usando una versión de tu aplicación con el SDK de Braze integrado.</em> El período máximo de retrospección es de 100 años. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Sessions
   - name: First Used Specific App
-    description: Segmenta a tus usuarios por la primera vez registrada en que abrieron cualquiera de tus aplicaciones dentro de tu espacio de trabajo. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Segmenta a tus usuarios por la primera vez registrada en que abrieron cualquiera de tus aplicaciones dentro de tu espacio de trabajo. El período máximo de retrospección es de 100 años. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Sessions
   - name: Last Used App
-    description: Segmenta a tus usuarios por la última vez que abrieron tu aplicación. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Segmenta a tus usuarios por la última vez que abrieron tu aplicación. El período máximo de retrospección es de 100 años. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Sessions
   - name: Last Used Specific App
-    description: Segmenta a tus usuarios por la última vez que abrieron una aplicación específica designada. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Segmenta a tus usuarios por la última vez que abrieron una aplicación específica designada. El período máximo de retrospección es de 100 años. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Sessions
   - name: Median Session Duration
@@ -145,19 +145,19 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Message from Specific Canvas Step
-    description: Segmenta a tus usuarios por cuándo recibieron un componente específico de Canvas.<br><br> Dado que los datos se actualizan para todos los perfiles que comparten el mismo identificador de canal (por ejemplo, correo electrónico o teléfono) cuando se produce una entrega, apertura o clic, un usuario que comparte un identificador con alguien que recibió un mensaje puede no coincidir con este filtro aunque nunca se le haya enviado explícitamente el mensaje. Utiliza "Entered Canvas Variation" para aislar perfiles de usuario de duplicados.<br><br> Este filtro no tiene en cuenta cuándo los usuarios recibieron otros componentes de Canvas.
+    description: Segmenta a tus usuarios por cuándo recibieron un componente específico de Canvas. El período máximo de retrospección es de 100 años.<br><br> Dado que los datos se actualizan para todos los perfiles que comparten el mismo identificador de canal (por ejemplo, correo electrónico o teléfono) cuando se produce una entrega, apertura o clic, un usuario que comparte un identificador con alguien que recibió un mensaje puede no coincidir con este filtro aunque nunca se le haya enviado explícitamente el mensaje. Utiliza "Entered Canvas Variation" para aislar perfiles de usuario de duplicados.<br><br> Este filtro no tiene en cuenta cuándo los usuarios recibieron otros componentes de Canvas.
     tags:
       - Retargeting
   - name: Last Received Message from Specific Campaign
-    description: Segmenta a tus usuarios en función de si han recibido una campaña específica.<br><br> Dado que los datos se actualizan para todos los perfiles que comparten el mismo identificador de canal (por ejemplo, correo electrónico o teléfono) cuando se produce una entrega, apertura o clic, un usuario que comparte un identificador con alguien que recibió un mensaje puede no coincidir con este filtro aunque nunca se le haya enviado explícitamente el mensaje.<br><br> Este filtro no tiene en cuenta cuándo los usuarios recibieron otras campañas.
+    description: Segmenta a tus usuarios en función de si han recibido una campaña específica. El período máximo de retrospección es de 100 años.<br><br> Dado que los datos se actualizan para todos los perfiles que comparten el mismo identificador de canal (por ejemplo, correo electrónico o teléfono) cuando se produce una entrega, apertura o clic, un usuario que comparte un identificador con alguien que recibió un mensaje puede no coincidir con este filtro aunque nunca se le haya enviado explícitamente el mensaje.<br><br> Este filtro no tiene en cuenta cuándo los usuarios recibieron otras campañas.
     tags:
       - Retargeting
   - name: Received Message from Campaign or Canvas with Tag
-    description: Segmenta a tus usuarios en función de si han recibido una campaña o Canvas específico con una etiqueta específica.<br><br>Braze evalúa solo las últimas 200 campañas y Canvas enviados que utilizan la etiqueta seleccionada cuando se ejecuta este filtro.<br><br> Para Content Cards, banners (solo Campaigns) y mensajes dentro de la aplicación, esto es cuando un usuario registra una impresión, no cuando se envía la tarjeta o el mensaje dentro de la aplicación.<br><br> Para push y webhooks, esto es cuando el mensaje se envía al usuario.<br><br> Para WhatsApp, esto es cuando se envía la última solicitud de API de mensaje a WhatsApp, no cuando el mensaje se entrega en el dispositivo del usuario.<br><br> Para correos electrónicos, el perfil de usuario objetivo coincide con este filtro cuando se envía una solicitud de correo electrónico al proveedor de servicios de correo electrónico (independientemente de si realmente se entrega).<br><br> Para SMS y RCS, se considera que los usuarios han "recibido" un mensaje en el momento del envío. Incluso si el mensaje no llega al dispositivo del usuario, el usuario sigue coincidiendo con este filtro.<br><br> Cuando un mensaje se entrega, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal (por ejemplo, correo electrónico o número de teléfono), por lo que los usuarios que comparten un identificador con alguien que recibió el mensaje pueden coincidir con este filtro aunque su perfil no haya recibido directamente la campaña.
+    description: Segmenta a tus usuarios en función de si han recibido una campaña o Canvas específico con una etiqueta específica.<br><br>Braze evalúa solo las últimas 200 campañas y Canvas enviados que utilizan la etiqueta seleccionada cuando se ejecuta este filtro.<br><br> Para Content Cards, banners (solo campañas) y mensajes dentro de la aplicación, esto es cuando un usuario registra una impresión, no cuando se envía la tarjeta o el mensaje dentro de la aplicación.<br><br> Para push y webhooks, esto es cuando el mensaje se envía al usuario.<br><br> Para WhatsApp, esto es cuando se envía la última solicitud de API de mensaje a WhatsApp, no cuando el mensaje se entrega en el dispositivo del usuario.<br><br> Para correos electrónicos, el perfil de usuario objetivo coincide con este filtro cuando se envía una solicitud de correo electrónico al proveedor de servicios de correo electrónico (independientemente de si realmente se entrega).<br><br> Para SMS y RCS, se considera que los usuarios han "recibido" un mensaje en el momento del envío. Incluso si el mensaje no llega al dispositivo del usuario, el usuario sigue coincidiendo con este filtro.<br><br> Cuando un mensaje se entrega, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal (por ejemplo, correo electrónico o número de teléfono), por lo que los usuarios que comparten un identificador con alguien que recibió el mensaje pueden coincidir con este filtro aunque su perfil no haya recibido directamente la campaña.
     tags:
       - Retargeting
   - name: Last Received Message from Campaign or Canvas With Tag
-    description: Segmenta a tus usuarios por cuándo recibieron una campaña o Canvas específico con una etiqueta específica. Este filtro no tiene en cuenta cuándo los usuarios recibieron otras campañas o Canvas. (período de 24 horas)
+    description: Segmenta a tus usuarios por cuándo recibieron una campaña o Canvas específico con una etiqueta específica. Este filtro no tiene en cuenta cuándo los usuarios recibieron otras campañas o Canvas. El período máximo de retrospección es de 100 años. (período de 24 horas)
     tags:
       - Retargeting
   - name: Has Never Received a Message from Campaign or Canvas Step
@@ -165,27 +165,27 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Email
-    description: Segmenta a tus usuarios por la última vez que recibieron uno de tus mensajes de correo electrónico. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Segmenta a tus usuarios por la última vez que recibieron uno de tus mensajes de correo electrónico. El período máximo de retrospección es de 100 años. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Retargeting
   - name: Last Received Push
-    description: Segmenta a tus usuarios por la última vez que recibieron una de tus notificaciones push. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Segmenta a tus usuarios por la última vez que recibieron una de tus notificaciones push. El período máximo de retrospección es de 100 años. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Retargeting
   - name: Last In App Message Impression
-    description: Segmenta a tus usuarios por la última vez que vieron un mensaje dentro de la aplicación.
+    description: Segmenta a tus usuarios por la última vez que vieron un mensaje dentro de la aplicación. El período máximo de retrospección es de 100 años.
     tags:
       - Retargeting
   - name: Last Received SMS
-    description: Segmenta a tus usuarios por la hora en que el último mensaje SMS, MMS o RCS fue entregado al proveedor de SMS o RCS. Esto no garantiza que el mensaje haya sido entregado en el dispositivo del usuario. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Segmenta a tus usuarios por el momento en que el último mensaje SMS, MMS o RCS fue entregado al proveedor de SMS o RCS. Esto no garantiza que el mensaje haya sido entregado en el dispositivo del usuario. El período máximo de retrospección es de 100 años. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Retargeting
   - name: Last Received Webhook
-    description: Segmenta a tus usuarios por la última vez que Braze envió un webhook para ese usuario. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Segmenta a tus usuarios por la última vez que Braze envió un webhook para ese usuario. El período máximo de retrospección es de 100 años. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Retargeting
   - name: Last Received WhatsApp
-    description: Segmenta a tus usuarios por la última vez que recibieron un mensaje de WhatsApp. Esto es cuando se envía la última solicitud de API de mensaje a WhatsApp, no cuando el mensaje se entrega en el dispositivo del usuario. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Segmenta a tus usuarios por la última vez que recibieron un mensaje de WhatsApp. Esto es cuando se envía la última solicitud de API de mensaje a WhatsApp, no cuando el mensaje se entrega en el dispositivo del usuario. El período máximo de retrospección es de 100 años. (período de 24 horas)<br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Retargeting
   - name: Live Activities Push to Start Registered for App
@@ -233,7 +233,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Sent Specific SMS Inbound Keyword Category
-    description: Segmenta a tus usuarios por cuándo enviaron por última vez un SMS, MMS o RCS a un grupo de suscripción específico dentro de una categoría de palabra clave específica.
+    description: Segmenta a tus usuarios por cuándo enviaron por última vez un SMS, MMS o RCS a un grupo de suscripción específico dentro de una categoría de palabra clave específica. El período máximo de retrospección es de 100 años.
     tags:
       - Retargeting
   - name: Converted From Campaign
@@ -253,7 +253,7 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Enrolled in Any Control Group
-    description: Segmenta a tus usuarios por la última vez que cayeron en el grupo de control de una campaña. <br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Segmenta a tus usuarios por la última vez que cayeron en el grupo de control de una campaña. El período máximo de retrospección es de 100 años. <br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Retargeting
   - name: Entered Canvas Variation
@@ -261,11 +261,11 @@ glossaries:
     tags:
       - Retargeting
   - name: Last Received Any Message
-    description: Segmenta a tus usuarios determinando el último mensaje que fue recibido. (período de 24 horas)<br><br>Para Content Cards, banners y mensajes dentro de la aplicación, esto es cuando un usuario registró por última vez una impresión, no cuando se envió por última vez la tarjeta o el mensaje dentro de la aplicación.<br><br>Para push y webhooks, esto es cuando cualquier mensaje fue enviado al usuario.<br><br> Para WhatsApp, esto es cuando se envió la última solicitud de API de mensaje a WhatsApp, no cuando el mensaje fue entregado en el dispositivo del usuario.<br><br> Para correos electrónicos, el perfil de usuario objetivo coincide con este filtro cuando se envía una solicitud de correo electrónico al proveedor de servicios de correo electrónico (independientemente de si realmente se entrega).<br><br> Para SMS y RCS, se considera que los usuarios han "recibido" un mensaje en el momento del envío. Incluso si el mensaje no llega al dispositivo del usuario, el usuario sigue coincidiendo con este filtro.<br><br> Cuando un mensaje se entrega, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal (por ejemplo, correo electrónico o número de teléfono), por lo que los usuarios que comparten un identificador con alguien que recibió el mensaje pueden coincidir con este filtro aunque su perfil no haya recibido directamente la campaña.<br><br>Ejemplo:<br>Último mensaje recibido hace menos de 1 día = hace menos de 24 horas<br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Segmenta a tus usuarios determinando el último mensaje que fue recibido. El período máximo de retrospección es de 100 años. (período de 24 horas)<br><br>Para Content Cards, banners y mensajes dentro de la aplicación, esto es cuando un usuario registró por última vez una impresión, no cuando se envió por última vez la tarjeta o el mensaje dentro de la aplicación.<br><br>Para push y webhooks, esto es cuando cualquier mensaje fue enviado al usuario.<br><br> Para WhatsApp, esto es cuando se envió la última solicitud de API de mensaje a WhatsApp, no cuando el mensaje fue entregado en el dispositivo del usuario.<br><br> Para correos electrónicos, el perfil de usuario objetivo coincide con este filtro cuando se envía una solicitud de correo electrónico al proveedor de servicios de correo electrónico (independientemente de si realmente se entrega).<br><br> Para SMS y RCS, se considera que los usuarios han "recibido" un mensaje en el momento del envío. Incluso si el mensaje no llega al dispositivo del usuario, el usuario sigue coincidiendo con este filtro.<br><br> Cuando un mensaje se entrega, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal (por ejemplo, correo electrónico o número de teléfono), por lo que los usuarios que comparten un identificador con alguien que recibió el mensaje pueden coincidir con este filtro aunque su perfil no haya recibido directamente la campaña.<br><br>Ejemplo:<br>Último mensaje recibido hace menos de 1 día = hace menos de 24 horas<br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Retargeting
   - name: Last Engaged With Message
-    description: Segmenta a tus usuarios por la última vez que hicieron clic o abrieron uno de tus canales de mensajería (banners, Content Cards, correo electrónico, dentro de la aplicación, SMS, RCS, push, WhatsApp).<br><br>Para Content Cards, banners y mensajes dentro de la aplicación, esto es cuando un usuario registra una impresión, no cuando se envía la tarjeta o el mensaje dentro de la aplicación.<br><br> Para push y webhooks, esto es cuando el mensaje se envía al usuario.<br><br> Para WhatsApp, esto es cuando se envía la última solicitud de API de mensaje a WhatsApp, no cuando el mensaje se entrega en el dispositivo del usuario.<br><br> Para mensajes de correo electrónico, el evento de apertura incluye tanto aperturas automáticas como aperturas no automáticas. (período de 24 horas)<br><br>Para correos electrónicos, el perfil de usuario objetivo coincide con este filtro cuando se envía una solicitud de correo electrónico al proveedor de servicios de correo electrónico (independientemente de si realmente se entrega). Esto también incluye la opción de filtrar por "abrió cualquier correo electrónico (aperturas automáticas)" y "abrió cualquier correo electrónico (otras aperturas)".<br><br> Para SMS y RCS, esto es cuando el usuario seleccionó por última vez cualquier enlace acortado en un mensaje que tiene activado el seguimiento de clics del usuario.<br><br> Cuando un mensaje se entrega, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal (por ejemplo, correo electrónico o número de teléfono), por lo que los usuarios que comparten un identificador con alguien que recibió el mensaje pueden coincidir con este filtro aunque su perfil no haya recibido directamente la campaña.<br><br>Zona horaria:<br>Zona horaria de la empresa
+    description: Segmenta a tus usuarios por la última vez que hicieron clic o abrieron uno de tus canales de mensajería (banners, Content Cards, correo electrónico, dentro de la aplicación, SMS, RCS, push, WhatsApp).<br><br>Para Content Cards, banners y mensajes dentro de la aplicación, esto es cuando un usuario registra una impresión, no cuando se envía la tarjeta o el mensaje dentro de la aplicación.<br><br> Para push y webhooks, esto es cuando el mensaje se envía al usuario.<br><br> Para WhatsApp, esto es cuando se envía la última solicitud de API de mensaje a WhatsApp, no cuando el mensaje se entrega en el dispositivo del usuario.<br><br> Para mensajes de correo electrónico, el evento de apertura incluye tanto aperturas automáticas como aperturas no automáticas. El período máximo de retrospección es de 100 años. (período de 24 horas)<br><br>Para correos electrónicos, el perfil de usuario objetivo coincide con este filtro cuando se envía una solicitud de correo electrónico al proveedor de servicios de correo electrónico (independientemente de si realmente se entrega). Esto también incluye la opción de filtrar por "abrió cualquier correo electrónico (aperturas automáticas)" y "abrió cualquier correo electrónico (otras aperturas)".<br><br> Para SMS y RCS, esto es cuando el usuario seleccionó por última vez cualquier enlace acortado en un mensaje que tiene activado el seguimiento de clics del usuario.<br><br> Cuando un mensaje se entrega, abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal (por ejemplo, correo electrónico o número de teléfono), por lo que los usuarios que comparten un identificador con alguien que recibió el mensaje pueden coincidir con este filtro aunque su perfil no haya recibido directamente la campaña.<br><br>Zona horaria:<br>Zona horaria de la empresa
     tags:
       - Retargeting
   - name: Clicked card
@@ -285,7 +285,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Email Opt In Date
-    description: Segmenta a tus usuarios por la fecha en que optaron por recibir correo electrónico.
+    description: Segmenta a tus usuarios por la fecha en que optaron por recibir correo electrónico. El período máximo de retrospección es de 100 años.
     tags:
       - Channel subscription behavior
   - name: Email Subscription Status
@@ -293,7 +293,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Email Unsubscribed Date
-    description: Segmenta a tus usuarios por la fecha en que cancelaron su suscripción a futuros correos electrónicos.
+    description: Segmenta a tus usuarios por la fecha en que cancelaron su suscripción a futuros correos electrónicos. El período máximo de retrospección es de 100 años.
     tags:
       - Channel subscription behavior
   - name: Foreground Push Enabled
@@ -309,15 +309,15 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Push Opt In Date
-    description: Segmenta a tus usuarios por la fecha en que optaron por recibir push.
+    description: Segmenta a tus usuarios por la fecha en que optaron por recibir push. El período máximo de retrospección es de 100 años.
     tags:
       - Channel subscription behavior
   - name: Push Subscription Status
-    description: Segmenta a tus usuarios por su <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states#push-subscription-state">estado de suscripción</a> para push.
+    description: Segmenta a tus usuarios por su <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states">estado de suscripción</a> para push.
     tags:
       - Channel subscription behavior
   - name: Push Unsubscribed Date
-    description: Segmenta a tus usuarios por la fecha en que cancelaron su suscripción a futuras notificaciones push.
+    description: Segmenta a tus usuarios por la fecha en que cancelaron su suscripción a futuras notificaciones push. El período máximo de retrospección es de 100 años.
     tags:
       - Channel subscription behavior
   - name: Purchased Product
@@ -341,19 +341,19 @@ glossaries:
     tags:
       - Purchase behavior
   - name: First Made Purchase
-    description: Segmenta a tus usuarios por la primera vez que un usuario realizó una compra en tu aplicación.
+    description: Segmenta a tus usuarios por la primera vez que un usuario realizó una compra en tu aplicación. El período máximo de retrospección es de 100 años.
     tags:
       - Purchase behavior
   - name: First Purchase For App
-    description: Segmenta a tus usuarios por la primera vez que un usuario realizó una compra desde tu aplicación.
+    description: Segmenta a tus usuarios por la primera vez que un usuario realizó una compra desde tu aplicación. El período máximo de retrospección es de 100 años.
     tags:
       - Purchase behavior
   - name: Last Made Purchase
-    description: Filtra a los usuarios por la última vez que realizaron una compra.
+    description: Filtra a los usuarios por la última vez que realizaron una compra. El período máximo de retrospección es de 100 años.
     tags:
       - Purchase behavior
   - name: Last Purchased Product
-    description: Filtra a los usuarios por cuándo compraron por última vez un producto específico.
+    description: Filtra a los usuarios por cuándo compraron por última vez un producto específico. El período máximo de retrospección es de 100 años.
     tags:
       - Purchase behavior
   - name: Money Spent
@@ -377,7 +377,7 @@ glossaries:
     tags:
       - eCommerce
   - name: Total canceled orders count (last 730 days)
-    description: Segmenta a tus usuarios por el recuento total de pedidos que un usuario canceló en los últimos 2 años, basado en el <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">evento recomendado de comercio electrónico</a> para pedido cancelado (los espacios de trabajo que no rastrean eventos de comercio electrónico no tienen datos para este filtro). Los usuarios se evalúan para este filtro una vez al día.<br><br>Este filtro está en beta. Ponte en contacto con tu director de cuentas de Braze si te interesa utilizar este filtro.
+    description: Segmenta a tus usuarios por el recuento total de pedidos que un usuario canceló en los últimos 2 años, basado en el <a href="/docs/user_guide/data/activation/events/recommended_events/ecommerce_events">evento recomendado de comercio electrónico</a> para pedido realizado (los espacios de trabajo que no rastrean eventos de comercio electrónico no tienen datos para este filtro). Los usuarios se evalúan para este filtro una vez al día.<br><br>Este filtro está en beta. Ponte en contacto con tu director de cuentas de Braze si te interesa utilizar este filtro.
     tags:
       - eCommerce
   - name: Customer lifetime value (last 730 days)
@@ -453,7 +453,7 @@ glossaries:
     tags:
       - App
   - name: Uninstalled
-    description: Segmenta a tus usuarios en función de si actualmente están marcados como desinstalados en el backend. Los usuarios que desinstalaron y luego reinstalaron la aplicación no se incluyen. Este filtro refleja el estado actual de desinstalación, no un registro histórico de cada evento de desinstalación.
+    description: Segmenta a tus usuarios en función de si actualmente están marcados como desinstalados en el backend. Los usuarios que desinstalaron y luego reinstalaron la aplicación no se incluyen. Este filtro refleja el estado actual de desinstalación, no un registro histórico de cada evento de desinstalación. El período máximo de retrospección es de 100 años.
     tags:
       - Uninstall
   - name: Device Carrier
@@ -613,7 +613,7 @@ glossaries:
     tags:
       - Social activity
   - name: Phone Number
-    description: Segmenta a tus usuarios por el campo de número de teléfono en formato E.164.<br><br> Cuando se envía un número de teléfono a Braze, Braze intenta convertirlo al <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers">formato E.164</a> que se utiliza para enviar a través de los canales SMS, RCS y WhatsApp. El proceso de conversión puede fallar si el número no tiene el formato adecuado, lo que resulta en que el perfil del usuario tenga un número de teléfono sin formato pero no un número de teléfono de envío. Este filtro de segmento devuelve usuarios por su número de teléfono en formato E.164 (cuando está disponible).<br><br>Ejemplos:<br> - Utiliza este filtro para comprender el tamaño más preciso de la audiencia objetivo al enviar mensajes SMS, RCS o WhatsApp.  <br>- Utiliza expresiones regulares (regex) con este filtro para segmentar por números de teléfono con un código de país específico. <br>- Utiliza este filtro para segmentar usuarios por números de teléfono que fallaron en el proceso de conversión a E.164.
+    description: Segmenta a tus usuarios por el campo de número de teléfono en formato E.164.<br><br> Cuando se envía un número de teléfono a Braze, Braze intenta convertirlo al <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers">formato E.164</a> que se utiliza para enviar a través de los canales SMS, RCS y WhatsApp. El proceso de conversión puede fallar si el número no tiene el formato adecuado, lo que resulta en que el perfil del usuario tenga un número de teléfono sin formato pero no un número de teléfono de envío. Este filtro de segmento devuelve usuarios por su número de teléfono en formato E.164 (cuando está disponible).<br><br>Ejemplos:<br> - Utiliza este filtro para comprender el tamaño más preciso de la audiencia objetivo al enviar mensajes SMS, RCS o WhatsApp.<br>- Utiliza expresiones regulares (regex) con este filtro para segmentar por números de teléfono con un código de país específico. <br>- Utiliza este filtro para segmentar usuarios por números de teléfono que fallaron en el proceso de conversión a E.164.
     tags:
       - Other Filters
 ---

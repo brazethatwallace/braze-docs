@@ -65,11 +65,9 @@ Liquid를 포함하는 HTML 조합을 사용할 수도 있습니다. 예를 들�
 ```
 {%endraw%}
 
-환경설정 센터에는 사용자가 모든 이메일을 탈퇴할 수 있는 체크박스가 있습니다. 테스트 메시지로 발송된 경우에는 이러한 환경설정을 저장할 수 없습니다.
+환경설정 센터에는 사용자가 모든 이메일을 탈퇴할 수 있는 체크박스가 있습니다.
 
-{% alert important %}
-위의 Liquid 태그는 Campaign 또는 Canvas를 시작할 때만 작동합니다. 테스트 이메일을 발송하면 유효한 링크가 생성되지 않습니다. 환경설정 센터 링크를 확인하려면 테스트 프로필만 타겟팅하는 Campaign에서 메시지를 시작하세요.
-{% endalert %}
+{% multi_lang_include preference_center/testing.md section="api" %}
 
 #### 환경설정 센터 편집하기 {#edit-a-preference-center}
 
@@ -115,6 +113,10 @@ My encoded string is: {{my_string}}
 ```
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
+
+### 테스트 발송에서 환경설정 센터가 작동하지 않는 이유는 무엇인가요? {#why-doesnt-my-preference-center-work-in-a-test-send}
+
+환경설정 센터 링크는 실제 발송 컨텍스트가 필요합니다. 테스트 발송에서는 유효한 환경설정 센터 URL이 생성되지 않으며, 페이지가 로드되면 **Save Preferences** 버튼이 비활성화됩니다. 이는 예상되는 동작입니다. 포괄적인 테스트를 수행하려면 테스트 사용자 또는 소규모 내부 Segment에 Campaign 또는 캔버스 단계를 시작하거나, [환경설정 센터 URL 생성 엔드포인트]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center)를 사용하세요. 자세한 내용은 [환경설정 센터 테스트하기](#testing-preference-centers)를 참조하세요.
 
 ### 환경설정 센터를 생성하지 않았는데 대시보드에 "PreferenceCenterBrazeDefault"가 표시되는 이유는 무엇인가요? {#i-havent-created-a-preference-center-why-am-i-seeing-preferencecenterbrazedefault-on-my-dashboard}
 

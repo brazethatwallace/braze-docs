@@ -18,7 +18,7 @@ Braze bietet zwei Integrationen mit Snowflake an. Zusammen ermöglichen sie eine
 
 ### Datenfreigabe (Braze zu Snowflake) {#data-sharing-braze-to-snowflake}
 
-Snowflake [Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) bietet Ihnen sicheren Realtime-Zugriff auf Braze-Engagement- und Kampagnendaten direkt in Ihrer Snowflake-Instanz. Es werden keine Daten zwischen Konten kopiert oder übertragen – die gesamte Freigabe erfolgt über die einzigartige Dienstebene und den Metadaten-Store von Snowflake.
+Snowflake [Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing) bietet Ihnen sicheren Realtime-Zugriff auf Braze-Engagement- und Kampagnendaten direkt in Ihrer Snowflake-Instanz. Es werden keine Daten zwischen Konten kopiert oder übertragen – die gesamte Freigabe erfolgt über die einzigartige Dienstebene und den Metadaten-Store von Snowflake.
 
 **Verwenden Sie Data Sharing, wenn Sie Folgendes möchten:**
 - Braze-Ereignis- und Kampagnendaten mit Snowflake SQL abfragen
@@ -26,11 +26,11 @@ Snowflake [Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/dat
 - Braze-Daten mit anderen Daten in Ihrem Snowflake Data Warehouse verknüpfen
 - Ihre Engagement-Daten über Kanäle, Branchen und Geräteplattformen hinweg vergleichen
 
-Einrichtungsanweisungen finden Sie unter [Snowflake Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/).
+Einrichtungsanweisungen finden Sie unter [Snowflake Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing).
 
 ### Cloud-Datenaufnahme (Snowflake zu Braze) {#cloud-data-ingestion-snowflake-to-braze}
 
-[Cloud-Datenaufnahme (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) ermöglicht es Ihnen, Daten aus Ihrer Snowflake-Instanz direkt mit Braze zu synchronisieren. So können Sie Nutzerattribute, Ereignisse und Käufe in Braze mit Ihrem Data Warehouse als Single Source of Truth auf dem neuesten Stand halten.
+[Cloud-Datenaufnahme (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) ermöglicht es Ihnen, Daten aus Ihrer Snowflake-Instanz direkt mit Braze zu synchronisieren. So können Sie Nutzerattribute, Ereignisse und Käufe in Braze mit Ihrem Data Warehouse als Single Source of Truth auf dem neuesten Stand halten.
 
 **Verwenden Sie die Cloud-Datenaufnahme, wenn Sie Folgendes möchten:**
 - Nutzerattribute von Snowflake mit Braze-Nutzerprofilen synchronisieren
@@ -54,14 +54,11 @@ Bevor Sie dieses Feature nutzen können, müssen Sie Folgendes abschließen:
 
 Bei Snowflake findet Data Sharing zwischen einem [Datenanbieter](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#providers) und einem [Datenverbraucher](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#consumers) statt. In diesem Kontext ist Ihr Braze-Konto der Datenanbieter, da es den Datashare erstellt und versendet&#8212;während Ihr Snowflake-Konto der Datenverbraucher ist, da es den Datashare verwendet, um eine Datenbank zu erstellen. Weitere Einzelheiten finden Sie unter [Snowflake: Gemeinsame Daten nutzen](https://docs.snowflake.com/en/user-guide/data-share-consumers).
 
-### 1. Schritt: Datashare von Braze senden {#step-1-send-the-datashare-from-braze}
+### Schritt 1: Datashare von Braze senden {#step-1-send-the-datashare-from-braze}
 
-1. Gehen Sie in Braze zu **Partnerintegrationen** > **Datenfreigabe**.
-2. Geben Sie Ihre Snowflake-Kontodaten und Ihren Locator ein. Um Ihren Account-Locator zu ermitteln, führen Sie `SELECT CURRENT_ACCOUNT()` im Zielkonto aus.
-3. Wenn Sie einen CRR-Share verwenden, geben Sie den Cloud-Anbieter und die Region an.
-4. Wenn Sie fertig sind, wählen Sie **Datashare erstellen**. Dadurch wird der Datashare an Ihr Snowflake-Konto gesendet.
+{% multi_lang_include partners/snowflake/data_sharing_account_steps.md %}
 
-### 2. Schritt: Datenbank in Snowflake erstellen {#step-2-create-the-database-in-snowflake}
+### Schritt 2: Datenbank in Snowflake erstellen {#step-2-create-the-database-in-snowflake}
 
 1. Nach ein paar Minuten sollten Sie den eingehenden Datashare in Ihrem Snowflake-Konto erhalten.
 2. Erstellen Sie mithilfe des eingehenden Datashare eine Datenbank zum Anzeigen und Abfragen der Tabellen. Zum Beispiel:
@@ -72,7 +69,7 @@ Bei Snowflake findet Data Sharing zwischen einem [Datenanbieter](https://docs.sn
 
 {% alert warning %}
 Wenn Sie einen Share im Braze-Dashboard löschen und neu erstellen, müssen Sie die zuvor erstellte Datenbank löschen und sie mit `CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>` neu erstellen, um den eingehenden Share abzufragen.
-Wenn Sie mehrere Workspaces haben, die Daten für dasselbe Snowflake-Konto freigeben, finden Sie in den [Snowflake Data Sharing FAQs]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs/) Hinweise zur Verwaltung von Konfigurationen mit mehreren Workspaces.
+Wenn Sie mehrere Workspaces haben, die Daten für dasselbe Snowflake-Konto freigeben, finden Sie in den [Snowflake Data Sharing FAQs]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs) Hinweise zur Verwaltung von Konfigurationen mit mehreren Workspaces.
 {% endalert %}
 
 ## Verwendung und Visualisierung {#usage-and-visualization}
@@ -81,13 +78,9 @@ Nachdem der Data Share bereitgestellt wurde, müssen Sie aus dem eingehenden Dat
 
 Ähnlich wie bei Currents können Sie Snowflake Secure Data Sharing verwenden, um:
 
-- Komplexe Berichte zu erstellen
-- Attributionsmodellierung durchzuführen
-- Sicheren Austausch innerhalb Ihres eigenen Unternehmens zu ermöglichen
-- Rohe Ereignis- oder Nutzerdaten in einem CRM (wie Salesforce) abzubilden
-- Und mehr
+{% multi_lang_include partners/data_sharing_use_cases.md %}
 
-Eine vollständige Liste der verfügbaren Tabellen und Spalten finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). Snowflake Data Sharing umfasst alle Tabellen in dieser Referenz sowie zusätzliche Snowflake-exklusive Tabellen für Snapshots, Campaign- und Canvas-Changelogs, Agentenkonsole-Ereignisse und Nachrichtenwiederholungsereignisse.
+Eine vollständige Liste der verfügbaren Tabellen und Spalten finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). Snowflake Data Sharing umfasst alle Tabellen in dieser Referenz sowie zusätzliche Snowflake-exklusive Tabellen für Snapshots, Campaign- und Canvas-Changelogs, Agentenkonsole-Ereignisse und Nachrichtenwiederholungsereignisse.
 
 Sie können auch [die Rohtabellenschemata herunterladen](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) (als Textdatei).
 
@@ -107,9 +100,7 @@ Beachten Sie die folgenden Unterschiede zwischen den Namenskonventionen von Braz
 
 #### Nicht-unterbrechende Änderungen {#non-breaking-changes}
 
-Nicht-unterbrechende Änderungen können jederzeit vorgenommen werden und bieten im Allgemeinen zusätzliche Funktionalität. Beispiele für nicht-unterbrechende Änderungen:
-- Hinzufügen einer neuen Tabelle oder Ansicht
-- Hinzufügen einer Spalte zu einer bestehenden Tabelle oder Ansicht
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 Da neue Spalten als nicht-unterbrechend gelten, empfiehlt Braze dringend, die gewünschten Spalten in jeder Abfrage explizit aufzuführen, anstatt `SELECT *`-Abfragen zu verwenden. Alternativ können Sie Ansichten erstellen, die Spalten explizit benennen, und dann diese Ansichten anstelle der Tabellen direkt abfragen.
@@ -117,10 +108,7 @@ Da neue Spalten als nicht-unterbrechend gelten, empfiehlt Braze dringend, die ge
 
 #### Unterbrechende Änderungen {#breaking-changes}
 
-Wenn möglich, werden unterbrechende Änderungen mit einer Ankündigung und einem Migrationszeitraum eingeleitet. Beispiele für unterbrechende Änderungen:
-- Entfernen einer Tabelle oder Ansicht
-- Entfernen einer Spalte aus einer bestehenden Tabelle oder Ansicht
-- Ändern des Typs oder der Nullbarkeit einer vorhandenen Spalte
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ### Snowflake-Regionen {#snowflake-regions}
 
@@ -156,6 +144,6 @@ Ereignisdaten in den Data-Sharing-Ansichten (z. B. `USERS_BEHAVIORS_CUSTOMEVENT_
 
 Die Geschwindigkeit, Performance und Kosten jeder Abfrage, die auf den Daten ausgeführt wird, hängen von der Warehouse-Größe ab, die Sie zur Abfrage der Daten verwenden. Je nachdem, auf wie viele Daten Sie für Analytics zugreifen, kann es vorkommen, dass Sie eine größere Warehouse-Größe verwenden müssen, damit die Abfrage erfolgreich ist. Snowflake verfügt über ausgezeichnete Ressourcen zur Bestimmung der richtigen Größe, darunter [Übersicht über Warehouses](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) und [Überlegungen zu Warehouses](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html).
 
-> Eine Reihe von Beispielabfragen, auf die Sie bei der Einrichtung von Snowflake zurückgreifen können, finden Sie in unseren [Beispielabfragen]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries/) und Beispielen für die [Einrichtung der ETL-Ereignis-Pipeline]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup/).
+> Eine Reihe von Beispielabfragen, auf die Sie bei der Einrichtung von Snowflake zurückgreifen können, finden Sie in unseren [Beispielabfragen]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries) und Beispielen für die [Einrichtung der ETL-Ereignis-Pipeline]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup).
 
-Einrichtungsanweisungen finden Sie unter [Cloud-Datenaufnahme: Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+Einrichtungsanweisungen finden Sie unter [Cloud-Datenaufnahme: Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).

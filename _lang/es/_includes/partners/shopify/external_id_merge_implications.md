@@ -1,0 +1,3 @@
+- **Implicaciones de la fusión:** Si el endpoint falla (devuelve un código distinto de `200` o se agota el tiempo de espera), Braze no puede recuperar el ID externo. En consecuencia, la fusión entre el usuario de Shopify y el perfil de usuario de Braze no se produce en ese momento.
+- **Lógica de reintentos:** Braze puede intentar reintentos de red inmediatos estándar, pero si el fallo persiste, la fusión se aplaza hasta el siguiente evento que cumpla las condiciones (por ejemplo, la próxima vez que el usuario actualice su perfil o complete un proceso de pago).
+- **Compatibilidad:** Para facilitar la fusión oportuna de usuarios, asegúrate de que tu endpoint tenga alta disponibilidad y gestione correctamente el campo opcional `email_address`.

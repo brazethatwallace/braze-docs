@@ -3,7 +3,7 @@ nav_title: Create a segment
 article_title: Create a Segment
 page_order: 1
 page_type: tutorial
-description: "This how-to article will walk you through how to set up and create a segment using Braze."
+description: "This how-to article walks you through how to set up and create a segment using Braze."
 tool: Segments
 search_rank: 3
 ---
@@ -18,20 +18,29 @@ Go to **Audience** > **Segments**.
 
 ## Step 2: Name your segment
 
-Select **Create Segment** to begin building your segment. Name your segment by describing the type of user you intend to filter for. This will help you identify the segment when you want to target it for your campaigns or Canvases. Vague segment titles can be confusing.
+Select **Create Segment** to begin building your segment. Name your segment by describing the type of user you intend to filter for. This helps you identify the segment when you want to target it for your campaigns or Canvases. Vague segment titles can be confusing.
+
+You can also ask Operator to help build your segment's filter logic from a description of your target audience. For details, see [What you can do with Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences).
 
 Optionally, you can do the following:
 - Add a description to the segment to provide more details about the intention of this audience and leave notes for other team members to refer back to.
 - Add a [team]({{site.baseurl}}/user_guide/administer/global/user_management/teams) to your segment.
 - Add [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) to your segment for further organization.
 
-![Create Segment modal where the segment is named "Lapsed Users" with the Segment Description as "This is our main Lapsed User segment to target non-actives within the past fourteen days." with two buttons: Cancel and Create Segment.]({% image_buster /assets/img_archive/segment_app_selection.png %}){: style="max-width:80%;"}
+Segments are saved as soon as you select **Create Segment**. You don't need to select **Save** on the segment editor first.
+
+{% alert note %}
+If you have the team-level "Edit Segments" permission only (not workspace-level), Braze assigns a team when the segment is created:
+<br><br>
+- **One eligible team:** That team is assigned automatically.
+- **Multiple eligible teams:** Braze assigns the first team in your list of eligible teams. You can change the team on the segment editor before sharing or using the segment.
+{% endalert %}
 
 ## Step 3: Choose your app or platform
 
 Choose which apps or platforms you'd like to target by selecting **Users from all apps** (default), or **Users from specific apps**. **Users from specific apps** targets users with at least one session in the specified apps.
 
-For example, if you'd like to send an in-app message to only iOS devices, select your iOS app. This will ensure that users who might use both an iOS and an Android device will only receive the message on their iOS device. In the list of specific apps, the option **Users from no apps** allows you to include users with no sessions and no app data (typically created through user import or REST API).
+For example, if you'd like to send an in-app message to only iOS devices, select your iOS app. This ensures that users who use both an iOS and an Android device only receive the message on their iOS device. In the list of specific apps, the option **Users from no apps** allows you to include users with no sessions and no app data (typically created through user import or REST API).
 
 ![Segment Details panel with the "Users from all apps" option selected in the Apps Used section.]({% image_buster /assets/img_archive/Segment2.png %}){: style="max-width:80%;"}
 
@@ -90,9 +99,13 @@ Braze doesn't generate profiles for users until they've used the app for the fir
 
 ![Segmenter filter groups with the AND operator.]({% image_buster /assets/img_archive/segmenter_filter_groups.png %})
 
-{% alert important %}
-Segments already using the **Segment Membership** filter cannot be further included or nested into other segments. This prevents a cycle where Segment A includes Segment B, which then tries to include Segment A again. If that happened, the segment would keep referencing itself, making it impossible to calculate who actually belongs in it.
+#### Date and recency filter display
 
+When you set a relative time filter using days (such as an event performed more than 84&nbsp;days and less than 91&nbsp;days ago), Braze converts the value to weeks after you save if the day count divides evenly by seven. For example, 91&nbsp;days displays as 13&nbsp;weeks, but 121&nbsp;days stays in days because it doesn't divide evenly. This is a display change only—the values are still stored and processed as days.
+
+{% alert important %}
+Segments already using the **Segment Membership** filter cannot be further included or nested into other segments. This prevents a cycle where Segment A includes Segment B, which then tries to include Segment A again. If this occurs, the segment keeps referencing itself, making it impossible to calculate who belongs in it.
+<br><br>
 Also, nesting segments like this adds complexity and can slow things down. Instead, recreate the segment you're trying to include using the same filters.
 {% endalert %}
 

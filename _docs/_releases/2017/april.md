@@ -40,7 +40,7 @@ You now have the option of opening web URLs in an external web browser for push 
 
 ## New "Performed Conversion" event Canvas
 
-We've added a new "Performed Conversion" event and an "In Canvas Control" filter for improved retargeting options. Learn more about using [retargeting filters]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#retarget-campaigns).
+We've added a new "Performed Conversion" event and an "In Canvas Control" filter for improved retargeting options. Learn more about using [retargeting filters]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/).
 
 
 

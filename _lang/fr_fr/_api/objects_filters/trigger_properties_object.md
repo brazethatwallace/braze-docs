@@ -22,6 +22,8 @@ L'objet `trigger_properties` et la syntaxe {% raw %}`api_trigger_properties.${pr
 
 ## Corps de l'objet {#object-body}
 
+L'objet `trigger_properties` prend en charge les chaînes de caractères, les nombres, les booléens, les dates, les objets et les tableaux comme types de données.
+
 ```json
 {
   "trigger_properties" : {
@@ -39,4 +41,11 @@ L'objet `trigger_properties` et la syntaxe {% raw %}`api_trigger_properties.${pr
 }
 ```
 
+## Exemples de modèles Liquid {#liquid-templating-examples}
 
+Référencez les propriétés de déclencheur dans vos modèles de message en utilisant l'espace de noms `api_trigger_properties` :
+
+- Chaînes de caractères : {% raw %}`{{api_trigger_properties.${product_name}}}`{% endraw %} renvoie `"shoes"`
+- Nombres : {% raw %}`{{api_trigger_properties.${product_price}}}`{% endraw %} renvoie `79.99`
+- Objets imbriqués : {% raw %}`{{api_trigger_properties.${details}.${color}}}`{% endraw %} renvoie `"red"`
+- Éléments de tableau : {% raw %}`{{api_trigger_properties.${related_skus}[0]}}`{% endraw %} renvoie `"123"`

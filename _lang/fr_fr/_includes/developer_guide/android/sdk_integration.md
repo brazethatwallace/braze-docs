@@ -116,7 +116,7 @@ dependencies {
 
 Créez un fichier `braze.xml` dans le dossier `res/values` de votre projet. Si vous êtes sur un cluster de données spécifique ou disposez d'un endpoint personnalisé préexistant, vous devez également spécifier l'endpoint dans votre fichier `braze.xml`.
 
-Le contenu de ce fichier devrait ressembler à l'extrait de code suivant. Veillez à remplacer `YOUR_APP_IDENTIFIER_API_KEY` par l'identifiant figurant dans la page **Gérer les paramètres** du tableau de bord de Braze. Connectez-vous à [dashboard.braze.com](https://dashboard.braze.com) pour trouver [l'adresse de votre cluster]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/).
+Le contenu de ce fichier devrait ressembler à l'extrait de code suivant. Veillez à remplacer `YOUR_APP_IDENTIFIER_API_KEY` par l'identifiant figurant dans la page **Gérer les paramètres** du tableau de bord de Braze. Connectez-vous à [dashboard.braze.com](https://dashboard.braze.com) pour trouver [l'adresse de votre cluster]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -185,7 +185,7 @@ Braze.enableDelayedInitialization(context)
 {% endtabs %}
 
 {% alert note %}
-Lorsque l'initialisation différée est activée et qu'une notification push contient une action de lien profond, le lien profond ne se résout pas.
+Lorsque l'initialisation différée est activée et qu'une notification push contient une action de deep link, le deep link ne se résout pas.
 {% endalert %}
 
 #### Étape 4.2 : Configurer les analyses push (facultatif) {#step-42-configure-push-analytics-optional}
@@ -264,7 +264,7 @@ Braze.enableDelayedInitialization(context, DelayedInitializationAnalyticsBehavio
 
 #### Étape 4.3 : Initialiser manuellement le SDK {#step-43-manually-initialize-the-sdk}
 
-Une fois le délai que vous avez choisi écoulé, utilisez la méthode [`Braze.disableDelayedInitialization()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-delayed-initialization.html) pour initialiser manuellement le SDK.
+Une fois le délai souhaité écoulé, utilisez la méthode [`Braze.disableDelayedInitialization()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-delayed-initialization.html) pour initialiser manuellement le SDK.
 
 {% tabs local %}
 {% tab JAVA %}
@@ -322,7 +322,7 @@ Pour obtenir la liste des paramètres disponibles, consultez [`BrazeActivityLife
 ## Tester le suivi de session {#testing-session-tracking}
 
 {% alert tip %}
-Vous pouvez également utiliser l'[outil de débogage du SDK]({{site.baseurl}}/developer_guide/debugging/) pour diagnostiquer les problèmes liés au SDK.
+Vous pouvez également utiliser l'[outil de débogage du SDK]({{site.baseurl}}/developer_guide/debugging) pour diagnostiquer les problèmes liés au SDK.
 {% endalert %}
 
 Si vous rencontrez des problèmes lors des tests, activez la [journalisation détaillée](#android_enabling-logs), puis utilisez logcat pour détecter les appels `openSession` et `closeSession` manquants dans vos activités.
@@ -447,7 +447,7 @@ Par défaut, le niveau de journalisation du SDK Android Braze est défini sur `I
 
 #### Activer les journaux {#android_enabling-logs}
 
-Pour faciliter la résolution des problèmes dans votre application ou réduire les délais de traitement avec l'assistance Braze, vous pouvez activer les journaux détaillés pour le SDK. Lorsque vous envoyez des journaux détaillés à l'assistance Braze, assurez-vous qu'ils commencent dès le lancement de votre application et se terminent bien après l'apparition de votre problème. Pour un aperçu centralisé, consultez la [journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/). Pour apprendre à interpréter la sortie des journaux, consultez la [lecture des journaux détaillés]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/).
+Pour faciliter la résolution des problèmes dans votre application ou réduire les délais de traitement avec l'assistance Braze, vous pouvez activer les journaux détaillés pour le SDK. Lorsque vous envoyez des journaux détaillés à l'assistance Braze, assurez-vous qu'ils commencent dès le lancement de votre application et se terminent bien après l'apparition de votre problème. Pour un aperçu centralisé, consultez la [journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Pour apprendre à interpréter la sortie des journaux, consultez la [lecture des journaux détaillés]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
 
 Gardez à l'esprit que les journaux détaillés ne sont destinés qu'à votre environnement de développement et que vous devez les désactiver avant de publier votre application.
 
@@ -557,7 +557,7 @@ BrazeLogger.setLogLevel(BrazeLogger.SUPPRESS)
 
 ### Clés API multiples {#multiple-api-keys}
 
-Le cas d'utilisation le plus courant pour les clés API multiples est la séparation des clés API entre les variantes de compilation de débogage et de production.
+Le cas d'usage le plus courant pour les clés API multiples est la séparation des clés API entre les variantes de compilation de débogage et de production.
 
 Pour basculer facilement entre plusieurs clés API dans vos compilations, nous vous recommandons de créer un fichier `braze.xml` distinct pour chaque [variante de compilation](https://developer.android.com/studio/build/build-variants.html) pertinente. Une variante de compilation est une combinaison du type de compilation et de la variété du produit. Par défaut, les nouveaux projets Android sont configurés avec les [types de compilation `debug` et `release`](https://developer.android.com/reference/tools/gradle-api/8.3/null/com/android/build/api/dsl/BuildType) et aucune variété de produit.
 
@@ -571,7 +571,7 @@ Pour chaque variante de compilation pertinente, créez un nouveau fichier `braze
 ```
 
 {% alert tip %}
-Pour savoir comment configurer la clé API dans votre code, consultez la [configuration à l'exécution]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android).
+Pour savoir comment configurer la clé API dans votre code, consultez la [configuration à l'exécution]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration).
 {% endalert %}
 
 ### TalkBack exclusif pour les messages in-app {#exclusive-in-app-message-talkback}

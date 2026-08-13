@@ -21,7 +21,7 @@ Los límites de velocidad de mensajería del espacio de trabajo se aplican al to
 {% alert note %}
 Ten en cuenta que los mensajes enviados mediante endpoints de mensajería de API como `/messages/send` y `/messages/schedule/create` también se contabilizan y se ven afectados por los límites de velocidad de mensajería del espacio de trabajo.
 {% endalert %}
-El recuento total de mensajes enviados por minuto no excede los límites de velocidad configurados del espacio de trabajo. No hay un orden particular en cuanto a qué campañas se despachan en los primeros minutos en comparación con los minutos posteriores.
+El recuento total de mensajes enviados por minuto no excede los límites de velocidad configurados del espacio de trabajo. No hay un orden particular en cuanto a qué Campaigns se despachan en los primeros minutos en comparación con los minutos posteriores.
 
 Por ejemplo, supongamos que tienes un límite de velocidad de mensajería del espacio de trabajo de 100 000 mensajes por minuto, y los siguientes mensajes se están procesando a las 12 pm:
 
@@ -34,7 +34,7 @@ Por ejemplo, supongamos que tienes un límite de velocidad de mensajería del es
 
 Los mensajes se despachan en un intervalo de 3 minutos.
 
-Los mensajes se procesan en paralelo. Cuando se procesan, los mensajes se planifican respetando el límite de velocidad de mensajería del espacio de trabajo por orden de llegada. Esto significa que, en este ejemplo, los mensajes enviados cada minuto son una mezcla variable de las Campaign 1, 2 y 3 que suman 100 000.
+Los mensajes se procesan en paralelo. Cuando se procesan, los mensajes se planifican respetando el límite de velocidad de mensajería del espacio de trabajo por orden de llegada. Esto significa que, en este ejemplo, los mensajes enviados cada minuto son una mezcla variable de las Campaigns 1, 2 y 3 que suman 100 000.
 
 ![Ejemplo de cómo se despachan los mensajes para las tres Campaigns.]({% image_buster /assets/img/workspace_messaging_rate_limits2.png %})
 
@@ -74,9 +74,13 @@ Braze intenta distribuir uniformemente los despachos de mensajes a lo largo del 
 
 Ten en cuenta que aún puedes establecer límites de velocidad individuales en tus Campaigns y Canvas. Estos se aplican de forma independiente de los límites de velocidad de mensajería del espacio de trabajo.
 
+### Capacidad de envío de webhooks {#webhook-sending-capacity}
+
+Para Campaigns de webhook sin un límite de velocidad de entrega, Braze no aplica un límite de velocidad de canal predeterminado, por lo que los envíos pueden realizarse con alto rendimiento. El volumen real depende de varios factores, como la latencia del servidor, el uso de contenido conectado y la velocidad de envío del sistema externo que recibe los webhooks. Si tu Campaign de webhook no tiene un límite de velocidad, prepara tus servidores para tráfico de alto volumen. De lo contrario, aplica un límite de velocidad para controlar el flujo de mensajes.
+
 ### Mensajes no incluidos en los límites de velocidad de mensajería del espacio de trabajo {#messages-not-included-in-the-workspace-messaging-rate-limits}
 
-- Los mensajes enviados mediante [campañas de correo transaccional]({{site.baseurl}}/user_guide/channels/transactional_email) no se incluyen en los límites de velocidad de mensajería del espacio de trabajo. Esto significa que tienen su propio límite de velocidad y no se contabilizan en ningún límite de velocidad de mensajería del espacio de trabajo establecido.
+- Los mensajes enviados mediante [Campaigns de correo transaccional]({{site.baseurl}}/user_guide/channels/transactional_email) no se incluyen en los límites de velocidad de mensajería del espacio de trabajo. Esto significa que tienen su propio límite de velocidad y no se contabilizan en ningún límite de velocidad de mensajería del espacio de trabajo establecido.
 - Los mensajes a [grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) y [envíos de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) no se incluyen en los límites de velocidad de mensajería del espacio de trabajo. Esto significa que no tienen límite de velocidad y no se contabilizan en ningún límite de velocidad de mensajería del espacio de trabajo establecido.
 - Las respuestas automáticas de SMS no se incluyen en los límites de velocidad de mensajería del espacio de trabajo. Esto significa que no tienen límite de velocidad y no se contabilizan en ningún límite de velocidad de mensajería del espacio de trabajo establecido.
 - Los límites de velocidad de mensajería del espacio de trabajo no son compatibles con mensajes dentro de la aplicación, conmutadores de características ni Banners.

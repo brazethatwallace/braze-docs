@@ -11,30 +11,24 @@ description: "Aprenda como sincronizar os dados da sua conta da Braze usando CDI
 
 > Aprenda como sincronizar os dados da sua conta da Braze usando CDI.
 
-{% alert important %}
-[Objetos de conta](https://braze.com/unlisted_docs/account_opportunity_object/) estão em beta e são necessários para usar este recurso. Entre em contato com o gerente da sua conta da Braze se estiver interessado em participar da versão beta.
-{% endalert %}
-
 ## Pré-requisitos {#prerequisites}
 
-Antes de sincronizar os dados da sua conta usando CDI, você precisará [configurar o esquema das suas contas](https://braze.com/unlisted_docs/account_opportunity_object/).
-
 {% alert note %}
-Faça atualizações no seu esquema de conta apenas quando a sincronização estiver pausada ou não agendada para evitar conflitos entre os dados do seu data warehouse e o esquema na Braze.
+Faça atualizações no esquema da sua conta apenas quando a sincronização estiver pausada ou não estiver agendada, para evitar conflitos entre os dados do seu data warehouse e o esquema na Braze.
 {% endalert %}
 
 ## Como a sincronização funciona {#how-syncing-works}
 
-- Cada sincronização importa linhas onde `UPDATED_AT` é posterior ao último timestamp sincronizado. Linhas no timestamp exato do limite podem ser ressincronizadas se novas linhas compartilharem o mesmo timestamp. Para saber mais, consulte [Evitar ressincronização de linhas com timestamps duplicados]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
+- Cada sincronização importa linhas em que `UPDATED_AT` é posterior ao último timestamp sincronizado. Linhas no timestamp exato do limite podem ser ressincronizadas se novas linhas compartilharem esse mesmo timestamp. Para saber mais, consulte [Evitar ressincronização de linhas com timestamps duplicados]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 - Os dados da integração criam ou atualizam contas com base no `id` fornecido.
 - Se `DELETED` for `true`, a conta é excluída.
-- A sincronização não registra pontos de dados, mas todos os dados sincronizados contam para o uso total das suas contas, medido pelo total de dados armazenados — não há necessidade de limitar apenas aos dados alterados.
-- Campos que não estão no seu esquema de contas são descartados; atualize o esquema antes de sincronizar novos campos.
-- Você pode atualizar, retomar ou pausar uma sincronização passando o mouse sobre o nome da sincronização e selecionando a ação relevante.
+- A sincronização não registra pontos de dados, mas todos os dados sincronizados contam para o uso total de contas, medido pelo total de dados armazenados — não é necessário limitar apenas aos dados alterados.
+- Campos que não estão no esquema de contas são descartados; atualize o esquema antes de sincronizar novos campos.
+- Você pode atualizar, retomar ou pausar uma sincronização passando o cursor sobre o nome da sincronização e selecionando a ação correspondente.
 
 ## Sincronize os dados da sua conta {#sync-your-account-data}
 
-Você pode sincronizar os dados da sua conta usando CDI por meio de um data warehouse ou um armazenamento de arquivos.
+Você pode sincronizar os dados da sua conta usando CDI por meio de um data warehouse ou de um armazenamento de arquivos.
 
 {% tabs local %}
 {% tab Data Warehouse %}
@@ -59,7 +53,7 @@ Para integrar sua fonte de dados com seu data warehouse:
          DELETED BOOLEAN
     );
     ```
-2. Crie uma role, warehouse e usuário, e conceda permissões. Se você já tiver credenciais de outra sincronização, pode reutilizá-las — certifique-se de que elas tenham acesso à tabela de contas.
+2. Crie uma role, um warehouse e um usuário, e conceda permissões. Se você já tiver credenciais de outra sincronização, pode reutilizá-las — certifique-se de que elas tenham acesso à tabela de contas.
     ```sql
     CREATE ROLE BRAZE_INGESTION_ROLE;
 
@@ -73,10 +67,10 @@ Para integrar sua fonte de dados com seu data warehouse:
     CREATE USER BRAZE_INGESTION_USER;
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
-3. Se você usa políticas de rede, adicione os IPs da Braze à lista de permissões para que o serviço CDI possa se conectar. Para a lista de IPs, consulte [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
-4. No dashboard da Braze, acesse **Configurações de dados** > **Cloud Data Ingestion** e crie uma nova sincronização.
-5. Insira os detalhes da conexão (ou reutilize os existentes) e adicione a tabela de origem.
-6. Selecione o tipo de sincronização **Accounts** e insira o nome da integração e o agendamento.
+3. Se você usa políticas de rede, adicione os IPs da Braze à lista de permissões para que o serviço de CDI possa se conectar. Para a lista de IPs, consulte [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+4. No dashboard da Braze, acesse **Data Settings** > **Cloud Data Ingestion** e crie uma nova sincronização.
+5. Insira os detalhes de conexão (ou reutilize os existentes) e adicione a tabela de origem.
+6. Selecione o tipo de sincronização **Accounts** e insira o nome da integração e o cronograma.
 7. Escolha a frequência de sincronização.
 8. Adicione a chave pública do dashboard ao usuário que você criou. Isso requer um usuário com acesso `SECURITYADMIN` ou superior no Snowflake.
 9. Selecione **Test Connection** para confirmar a configuração.
@@ -109,7 +103,7 @@ Para integrar sua fonte de dados com seu data warehouse:
     GRANT SELECT ON TABLE ACCOUNTS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. Se você tem um firewall ou políticas de rede, permita o acesso da Braze à sua instância do Redshift. Para a lista de IPs, consulte [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+3. Se você tem um firewall ou políticas de rede, permita que a Braze acesse sua instância do Redshift. Para a lista de IPs, consulte [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% subtab BigQuery %}
@@ -139,7 +133,7 @@ Para integrar sua fonte de dados com seu data warehouse:
     | `PAYLOAD` | JSON | Sim |
     | `ID` | String | Sim |
     | `NAME` | String | Sim |
-    | `DELETED` | booleano | Opcional |
+    | `DELETED` | Boolean | Opcional |
     {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sincronize os dados da sua conta" }
 
 {:start="3"}
@@ -153,7 +147,7 @@ Para integrar sua fonte de dados com seu data warehouse:
     | BigQuery Job User | Permite que a Braze execute jobs. |
     {: .reset-td-br-1 .reset-td-br-2 aria-label="Sincronize os dados da sua conta" }
 
-    Após conceder as permissões, gere uma chave JSON. Consulte [Criar e excluir chaves](https://cloud.google.com/iam/docs/keys-create-delete) para instruções. Você fará o upload dela no dashboard da Braze posteriormente.
+    Após conceder as permissões, gere uma chave JSON. Consulte [Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete) para instruções. Você fará o upload dela no dashboard da Braze posteriormente.
 
 {:start="4"}
 4. Se você usa políticas de rede, permita que os IPs da Braze acessem sua instância do BigQuery. Para a lista de IPs, consulte [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
@@ -186,7 +180,7 @@ Para integrar sua fonte de dados com seu data warehouse:
     | `PAYLOAD` | String, Struct ou Map | Sim |
     | `ID` | String | Sim |
     | `NAME` | String | Sim |
-    | `DELETED` | booleano | Opcional |
+    | `DELETED` | Boolean | Opcional |
     {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sincronize os dados da sua conta" }
 
 {:start="3"}
@@ -194,8 +188,8 @@ Para integrar sua fonte de dados com seu data warehouse:
     1. Selecione seu nome de usuário e depois selecione **User Settings**.
     2. Na guia **Access tokens**, selecione **Generate new token**.
     3. Adicione um comentário para identificar o token, como "Braze CDI".
-    4. Deixe **Lifetime (days)** em branco para não expirar e selecione **Generate**.
-    5. Copie e salve o token de forma segura para uso no dashboard da Braze.
+    4. Deixe **Lifetime (days)** em branco para não ter expiração e selecione **Generate**.
+    5. Copie e salve o token em local seguro para uso no dashboard da Braze.
 
 {:start="4"}
 4. Se você usa políticas de rede, permita que os IPs da Braze acessem sua instância do Databricks. Para a lista de IPs, consulte [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
@@ -227,22 +221,22 @@ Para integrar sua fonte de dados com seu data warehouse:
 {% endtab %}
 
 {% tab File Storage %}
-Para sincronizar dados de conta a partir de armazenamento de arquivos, crie um arquivo de origem com os seguintes campos.
+Para sincronizar dados de contas a partir de armazenamento de arquivos, crie um arquivo de origem com os campos a seguir.
 
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
 | `ID` | Sim | ID da conta a ser atualizada ou criada |
 | `NAME` | Sim | Nome da conta |
 | `PAYLOAD` | Sim | String JSON dos campos a serem sincronizados com a conta na Braze |
-| `DELETED` | Opcional | Booleano indicando a exclusão da conta na Braze |
+| `DELETED` | Opcional | Booleano indicando se a conta deve ser excluída da Braze |
 | `UPDATED_AT` | _*Não suportado_ | O armazenamento de arquivos não suporta colunas `UPDATED_AT` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sincronize os dados da sua conta" }
 
 {% alert note %}
-Os nomes dos arquivos devem seguir as regras da AWS e ser únicos. Adicione timestamps para ajudar a garantir a unicidade. Para saber mais sobre sincronização com Amazon S3, consulte [Integrações de armazenamento de arquivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+Os nomes de arquivo devem seguir as regras da AWS e ser únicos. Adicione timestamps para ajudar a garantir a unicidade. Para saber mais sobre sincronização com Amazon S3, consulte [Integrações de armazenamento de arquivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 {% endalert %}
 
-Os exemplos a seguir mostram formatos JSON e CSV válidos para sincronizar dados de conta a partir de armazenamento de arquivos.
+Os exemplos a seguir mostram formatos JSON e CSV válidos para sincronizar dados de contas a partir de armazenamento de arquivos.
 
 {% subtabs %}
 {% subtab JSON Accounts %}
@@ -254,7 +248,7 @@ Os exemplos a seguir mostram formatos JSON e CSV válidos para sincronizar dados
 ```
 
 {% alert important %}
-Cada linha no seu arquivo de origem deve conter JSON válido ou o arquivo será ignorado.
+Cada linha do seu arquivo de origem deve conter JSON válido, caso contrário o arquivo será ignorado.
 {% endalert %}
 {% endsubtab %}
 {% subtab CSV Accounts with Delete %}
@@ -275,11 +269,11 @@ ID,NAME,PAYLOAD
 {% endtab %}
 {% endtabs %}
 
-## Crie uma view de sincronização {#create-a-sync-view}
+## Criar uma view de sincronização {#create-a-sync-view}
 
-Criar uma view de sincronização no seu data warehouse permite que a origem seja atualizada automaticamente sem precisar reescrever consultas adicionais.
+Criar uma view de sincronização no seu data warehouse permite que a fonte seja atualizada automaticamente sem a necessidade de reescrever consultas adicionais.
 
-Por exemplo, se você tiver uma tabela de dados de conta chamada `account_details_1` com `account_id`, `account_name` e três atributos adicionais, você poderia criar uma view de sincronização como a seguinte:
+Por exemplo, se você tem uma tabela de dados de conta chamada `account_details_1` com `account_id`, `account_name` e três atributos adicionais, você poderia criar uma view de sincronização como a seguinte:
 
 {% tabs %}
 {% tab Snowflake %}
