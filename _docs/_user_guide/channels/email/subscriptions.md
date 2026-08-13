@@ -139,7 +139,11 @@ You can reference the **Subscription Group Timeseries** graph in the **Subscript
 
 ![An example "Subscription Group Timeseries" graph dated from December 2nd through 11th. The graph shows a ~10 million increase in the number of users from the 6th to the 7th.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
 
-If the timeseries count diverges sharply from a segment using **Email Subscription Status is Unsubscribed**, remember the graph counts membership in that **subscription group**, while that filter reflects **global** email subscription state—for example, users can be globally subscribed but unsubscribed from a specific group.
+#### Why subscription group counts can differ from segment counts
+
+Subscription group sizes align with segments that use only the **Subscription Group** filter. They can diverge from a segment that uses **Email Subscription Status**, which reflects [global email subscription state](#subscription-states), not membership in a specific group, or that combines multiple filters. For example, a user can be globally subscribed to email but unsubscribed from a specific subscription group.
+
+To compare a user's global subscription state with their subscription group memberships, go to their profile and select the **Engagement** tab. For filtering by global state, see [Segmenting by user subscriptions](#segmenting-by-user-subscriptions).
 
 #### Viewing subscription groups in campaign analytics
 
