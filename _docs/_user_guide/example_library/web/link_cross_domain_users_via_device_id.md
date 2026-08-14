@@ -17,7 +17,7 @@ Kitchenerie hosts a marketing site (`kitchenerie.com`) and a shop (`kitchenerie.
 This pattern:
 
 1. Reads the device ID on the source domain with `getDeviceId` after SDK initialization
-2. Appends it to outbound links as a query parameter (for example `brazeDeviceId`)
+2. Appends it to outbound links as a query parameter (for example, `brazeDeviceId`)
 3. On the destination domain, reads that parameter and passes it to `braze.initialize` through the `deviceId` option
 
 The handoff matters most for anonymous users. After the user logs in on the shop, `changeUser` with an `external_id` becomes the durable identifier across devices. See [Set user IDs]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/).
@@ -65,7 +65,7 @@ braze.getDeviceId(function (deviceId) {
       url.searchParams.set("brazeDeviceId", deviceId);
       link.href = url.toString();
     } catch (e) {
-      // Skip malformed hrefs (for example javascript:, mailto:, or unparsable relative paths).
+      // Skip malformed hrefs (for example, javascript:, mailto:, or unparsable relative paths).
     }
   });
 });

@@ -17,6 +17,9 @@ guide_featured_list:
   - name: Compare translation approaches
     link: /docs/user_guide/example_library/localization/compare_translation_approaches
     image: /assets/img/braze_icons/globe-02.svg
+  - name: Link cross-domain Web SDK users
+    link: /docs/user_guide/example_library/web/link_cross_domain_users_via_device_id
+    image: /assets/img/braze_icons/link-04.svg
 ---
 
 ## What you find here
