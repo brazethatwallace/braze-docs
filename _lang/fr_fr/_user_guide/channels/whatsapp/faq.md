@@ -45,19 +45,19 @@ Non. Meta contrôle la devise de votre compte WhatsApp Business, et Braze ne peu
 #### Qu'est-ce que la vérification d'entreprise ? {#what-is-business-verification}
 La vérification d'entreprise est un concept WhatsApp utilisé pour s'assurer que la marque est une entreprise légitime. Elle peut être effectuée dans le WhatsApp Manager. La vérification d'entreprise est également requise pour augmenter les volumes de messagerie. Sans vérification d'entreprise, les clients ne peuvent envoyer des messages qu'à 250 utilisateurs finaux uniques maximum sur une période glissante de 24 heures.
 
-#### Qu'est-ce qu'un compte professionnel officiel ? {#what-is-an-official-business-account}
-L'OBA vous donne la coche verte à côté de votre nom d'affichage et est optionnel. Vous pouvez demander un compte professionnel officiel après avoir terminé la vérification d'entreprise. Notez que la vérification d'entreprise et le compte professionnel officiel sont des concepts WhatsApp différents.
+#### Qu'est-ce qu'un compte Business officiel ? {#what-is-an-official-business-account}
+L'OBA vous donne la coche verte à côté de votre nom d'affichage et est optionnel. Vous pouvez demander un compte Business officiel après avoir terminé la vérification d'entreprise. Notez que la vérification d'entreprise et le compte Business officiel sont des concepts WhatsApp différents.
 
 #### Pourquoi mon nom d'affichage WhatsApp Business pourrait-il être rejeté ? {#why-might-my-whatsapp-business-display-name-be-rejected}
 Les rejets de noms d'affichage WhatsApp Business sont régis par Meta. Si votre nom d'affichage est rejeté, consultez les [directives de nom d'affichage de WhatsApp](https://faq.whatsapp.com/793641088597363) pour connaître leurs recommandations.
 
 Si votre nom d'affichage respecte les directives et est toujours rejeté, Braze ne peut pas voir les raisons spécifiques. Cependant, la raison la plus courante de rejet est que la présence en ligne de l'entreprise est trop faible, ou que l'entreprise commercialise des [produits réglementés ou restreints](https://business.whatsapp.com/policy#further-guidance).
 
-Pour des conseils supplémentaires sur les rejets de noms d'affichage, consultez les [ressources Meta]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources).
+Pour plus d'informations sur les rejets de noms d'affichage, consultez les [ressources Meta]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources).
 
 ### Numéros de téléphone du compte WhatsApp Business {#whatsapp-business-account-phone-numbers}
 #### Ai-je besoin d'un numéro de téléphone pour mon compte WhatsApp Business ? {#do-i-need-a-phone-number-for-my-whatsapp-business-account}
-Oui, vous avez besoin d'un numéro auquel vous avez accès. Il vous sera demandé de vérifier votre numéro de téléphone avec l'authentification à 2 facteurs lorsque vous passerez par le flux d'inscription intégré. Le numéro de téléphone ne peut pas être utilisé pour d'autres comptes WhatsApp (professionnels ou personnels).
+Oui, vous avez besoin d'un numéro auquel vous avez accès. Il vous sera demandé de vérifier votre numéro de téléphone avec l'authentification à deux facteurs lorsque vous passerez par le flux d'inscription intégré. Le numéro de téléphone ne peut pas être utilisé pour d'autres comptes WhatsApp (professionnels ou personnels).
 
 #### Quels types de numéros de téléphone sont pris en charge avec WhatsApp ? {#what-types-of-phone-numbers-are-supported-with-whatsapp}
 Consultez les exigences de Meta concernant les [numéros de téléphone](https://developers.facebook.com/docs/whatsapp/phone-numbers) pour plus d'informations.
@@ -77,10 +77,10 @@ Oui. Vous pouvez [importer les numéros de téléphone des utilisateurs]({{site.
 ### Abonnement et gestion des abonnements {#opt-in-and-subscription-management}
 
 #### Dois-je recueillir le consentement pour envoyer des messages marketing aux utilisateurs finaux sur WhatsApp ? {#do-i-need-to-collect-opt-in-to-send-marketing-messages-to-end-users-on-whatsapp}
-Oui, WhatsApp exige que les entreprises [recueillent le consentement](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) pour envoyer des messages marketing aux utilisateurs finaux.
+Oui, WhatsApp exige que les entreprises [recueillent le consentement d'abonnement](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) pour envoyer des messages marketing aux utilisateurs finaux.
 
 #### Puis-je envoyer proactivement des messages aux utilisateurs finaux sur WhatsApp pour recueillir leur consentement ? {#can-i-proactively-message-end-users-on-whatsapp-to-collect-opt-in-consent}
-Si vous choisissez d'envoyer proactivement des messages aux utilisateurs finaux, votre premier message initié par l'entreprise devrait demander à l'utilisateur s'il souhaite recevoir des messages marketing de votre entreprise et devrait être conforme aux exigences de Meta pour [obtenir le consentement](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/). Gardez à l'esprit que WhatsApp surveillera la réputation de votre entreprise sur le canal, donc la meilleure pratique recommandée est d'être explicite avec les utilisateurs finaux et de n'envoyer que les messages qu'ils ont indiqué vouloir recevoir.
+Si vous choisissez d'envoyer proactivement des messages aux utilisateurs finaux, votre premier message initié par l'entreprise devrait demander à l'utilisateur s'il souhaite recevoir des messages marketing de votre entreprise et devrait être conforme aux exigences de Meta pour [l'obtention du consentement](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/). Gardez à l'esprit que WhatsApp surveillera la réputation de votre entreprise sur le canal, donc la meilleure pratique recommandée est d'être explicite avec les utilisateurs finaux et de n'envoyer que les messages qu'ils ont indiqué vouloir recevoir.
 
 #### Dois-je recueillir le numéro de téléphone de l'utilisateur final lorsque je recueille le consentement ? {#do-i-need-to-collect-the-end-users-phone-number-when-i-collect-opt-in}
 Vous devez avoir le numéro de téléphone de l'utilisateur final sur le profil Braze pour lui envoyer des messages.
@@ -94,7 +94,7 @@ La gestion des abonnements du canal WhatsApp fonctionne de manière similaire au
 Vous pouvez mettre à jour leur statut d'abonnement via l'[importation d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#updating-subscription-group-status-optional).
 
 #### Quelles méthodes dois-je utiliser pour recueillir les consentements ? {#what-methods-should-i-use-to-collect-opt-ins}
-Braze recommande de consulter les [directives de Meta sur les méthodes de consentement](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) pour maintenir la conformité. Consultez la ressource suivante pour des [idées et suggestions de canaux et de consentement](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit) de Braze.
+Braze recommande de consulter les [directives de Meta pour les méthodes de consentement](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) afin de maintenir la conformité. Consultez [Abonnement et désabonnement]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) pour les méthodes de configuration de Canvas et de Campaign.
 
 #### Le double consentement est-il requis pour WhatsApp ? {#is-double-opt-in-required-for-whatsapp}
 Non, le double consentement n'est pas requis.
@@ -157,17 +157,17 @@ WhatsApp permet d'insérer des paramètres variables dans les modèles de messag
 #### Mon modèle a été rejeté. Braze peut-il m'aider à le faire approuver ? {#my-template-got-rejected-can-braze-help-me-get-it-approved}
 L'équipe Braze n'a pas de visibilité sur les rejets de modèles. Vous devez travailler directement avec votre WhatsApp Business Manager pour modifier et resoumettre le modèle. Assurez-vous de fournir un exemple de modèle si nécessaire. Vérifiez que votre modèle respecte les politiques [commerciales](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw) ou de [commerce](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ) de Meta.
 
-#### Les médias enrichis peuvent-ils être ciblés ou personnalisés dans Braze ? {#can-the-rich-media-be-targeted-or-personalized-in-braze}
-Les images peuvent être téléchargées depuis la bibliothèque multimédia mais ne peuvent pas être ciblées dynamiquement. Pour les URL, la dernière partie du lien peut être [remplie dynamiquement à l'aide de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#use-liquid-personalization-in-urls).
+#### Les médias enrichis peuvent-ils être ciblés ou personnalisés dans Braze ? {#can-rich-media-be-targeted-or-personalized-in-braze}
+Oui. Vous pouvez télécharger des images statiques depuis la bibliothèque multimédia, ou ajouter des images par URL et les personnaliser avec [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) ou le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Les URL d'images prennent en charge la logique Liquid complète n'importe où dans l'URL. Cela s'applique aux messages de modèle et aux messages de réponse (messages multimédias et mises en page de réponse rapide). Pour plus de détails, consultez [Images dynamiques]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#dynamic-images).
 
 #### Quels types de médias enrichis sont pris en charge dans les modèles WhatsApp ? {#what-kind-of-rich-media-is-supported-in-whatsapp-templates}
 Vous pouvez ajouter des images, des appels à l'action (URL ou numéro de téléphone) et des boutons de réponse rapide aux modèles WhatsApp. Vous pouvez ajouter ces éléments lorsque vous créez des modèles directement dans WhatsApp.
 
 #### Que faire si mon modèle a été signalé à tort pour violation de la politique commerciale de WhatsApp ? {#what-if-my-template-was-falsely-flagged-for-violating-whatsapps-commerce-policy}
-Si vous pensez que Meta a signalé votre modèle à tort, utilisez le lien de révision dans l'e-mail de WhatsApp pour demander un réexamen. L'équipe WhatsApp Business examine la décision et l'annule si nécessaire.
+Si vous pensez que Meta a signalé votre modèle à tort, utilisez le lien de révision dans l'e-mail de WhatsApp pour demander un réexamen. L'équipe WhatsApp Business examine la décision et l'annule si approprié.
 
-#### Pourquoi mon modèle WhatsApp importé affiche-t-il « Message incomplet » dans le compositeur ? {#why-does-my-imported-whatsapp-template-show-message-incomplete-in-the-composer}
-L'avertissement « Message incomplet » apparaît lorsque les emplacements de variables requis du modèle ne sont pas remplis avec des valeurs valides dans le compositeur.
+#### Pourquoi mon modèle WhatsApp importé affiche-t-il « Message Incomplete » dans le compositeur ? {#why-does-my-imported-whatsapp-template-show-message-incomplete-in-the-composer}
+L'avertissement « Message Incomplete » apparaît lorsque les emplacements de variables requis du modèle ne sont pas remplis avec des valeurs valides dans le compositeur.
 
 Lorsque vous créez des modèles à l'aide du [générateur de modèles WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder), Braze renumérote les variables en marques substitutives séquentielles ({% raw %}`{{1}}`, `{{2}}`, `{{3}}`{% endraw %}, et ainsi de suite). Les modèles créés en externe dans le WhatsApp Manager de Meta peuvent encore inclure des schémas qui rendent le mappage des variables sujet aux erreurs, tels que :
 
@@ -178,7 +178,7 @@ Lorsque vous créez des modèles à l'aide du [générateur de modèles WhatsApp
 Pour résoudre ce problème, modifiez votre modèle dans le WhatsApp Manager de Meta pour utiliser un formatage de marques substitutives séquentiel, puis réimportez-le dans Braze. Dans Braze, confirmez que chaque champ de variable requis est rempli avec une valeur Liquid valide.
 
 #### Pourquoi ma Campaign WhatsApp ne s'envoie-t-elle pas malgré un aperçu correct du modèle ? {#why-is-my-whatsapp-campaign-not-sending-despite-template-previewing}
-Si votre modèle s'affiche correctement en aperçu mais que le registre de traitement indique **Abandon** avec le détail « Param text cannot have new-line/tab characters or more than 4 consecutive spaces », vérifiez les valeurs des paramètres générés par Liquid dans votre message. WhatsApp exige que les valeurs de texte des paramètres ne contiennent pas :
+Si votre modèle s'affiche correctement en aperçu mais que le registre de traitement indique **Abort** avec le détail « Param text cannot have new-line/tab characters or more than 4 consecutive spaces », vérifiez les valeurs de paramètres générées par Liquid dans votre message. WhatsApp exige que les valeurs de texte des paramètres ne contiennent pas :
 
 - De caractères de nouvelle ligne
 - De caractères de tabulation
@@ -203,7 +203,7 @@ Si un utilisateur signale un message, vous pouvez toujours lui envoyer des messa
 #### Comment puis-je exclure les utilisateurs qui signalent mon compte WhatsApp des prochains envois ? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
 Braze ne reçoit pas de notifications de WhatsApp lorsque votre compte est signalé, vous ne pouvez donc pas identifier ou exclure automatiquement ces utilisateurs dans Braze. Les utilisateurs qui signalent votre compte peuvent rester dans votre groupe d'abonnement WhatsApp et continuer à être éligibles pour les futurs messages.
 
-Vous pouvez cependant configurer une Campaign qui se déclenche lorsqu'un utilisateur répond avec un mot-clé de désabonnement, ce qui le désabonne automatiquement à l'aide de l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Pour plus d'informations, consultez [Processus d'abonnement et de désabonnement WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
+Vous pouvez cependant configurer une Campaign qui se déclenche lorsqu'un utilisateur répond avec un mot-clé de désabonnement, ce qui le désabonne automatiquement en utilisant l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Pour plus d'informations, consultez [Processus d'abonnement et de désabonnement WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
 
 #### Braze prend-il en charge le basculement automatique vers SMS lorsque la distribution WhatsApp échoue ? {#does-braze-support-automatic-sms-fallback-when-whatsapp-delivery-fails}
 
@@ -225,7 +225,7 @@ Pour les flux Canvas où les utilisateurs appuient sur des réponses rapides apr
 #### Que se passe-t-il si un utilisateur répond ou appuie sur une réponse rapide après la fermeture de la fenêtre de 24 heures ? {#what-happens-if-a-user-replies-or-taps-a-quick-reply-after-the-24-hour-window-closes}
 Une nouvelle fenêtre de service client de 24 heures s'ouvre. Consultez [Réponses rapides et messages entrants en dehors de la fenêtre de 24 heures]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
 
-#### Dois-je définir la durée de mon parcours d'action Canvas à 31 jours pour les réponses rapides WhatsApp ? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
+#### Dois-je configurer la durée de mon parcours d'action Canvas à 31 jours pour les réponses rapides WhatsApp ? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
 Non. La durée par défaut du parcours d'action est suffisante. Consultez [Réponses rapides et messages entrants en dehors de la fenêtre de 24 heures]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
 
 #### Puis-je voir combien de crédits WhatsApp une Campaign ou un Canvas spécifique a consommés ? {#can-i-see-how-many-whatsapp-credits-a-specific-campaign-or-canvas-consumed}
@@ -239,9 +239,9 @@ Nous ne prenons pas en charge les chatbots ni le chat assisté par un humain au 
 Si vous utilisez déjà WhatsApp comme canal de support client, nous vous recommandons de conserver votre configuration actuelle et de créer un nouveau WABA via Braze pour la messagerie marketing. Ce WABA nécessitera un nouveau numéro de téléphone.
 
 #### Comment puis-je « combler le fossé » entre ma messagerie de support client et ma messagerie marketing via Braze ? {#how-can-i-bridge-the-gap-between-my-customer-support-messaging-and-my-marketing-messaging-via-braze}
-Vous pouvez utiliser les propriétés Liquid de WhatsApp pour transférer le contenu des messages WhatsApp entrants (y compris le corps du message et les URL des médias) de Braze vers d'autres plateformes, y compris tout outil de support client. Pour plus de détails, consultez nos [Tags de personnalisation pris en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
+Vous pouvez utiliser les propriétés Liquid de WhatsApp pour transférer le contenu des messages WhatsApp entrants (y compris le corps du message et les URL des médias) de Braze vers d'autres plateformes, y compris tout outil de support client. Pour plus de détails, consultez nos [tags de personnalisation pris en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
-Pour envoyer des informations dans Braze, par exemple pour indiquer qu'un utilisateur est dans une conversation de support active, vous pouvez enregistrer un attribut personnalisé (comme un booléen « a une conversation de support existante = vrai/faux ») et l'utiliser comme critère de segmentation dans ses Campaigns marketing. Vous pouvez également créer un deep link entre deux fils de discussion pour diriger les utilisateurs vers le fil de support depuis le fil marketing et inversement.
+Pour envoyer des informations dans Braze, par exemple pour indiquer qu'un utilisateur est dans une conversation de support active, vous pouvez enregistrer un attribut personnalisé (comme un booléen « has existing support chat = true/false ») et l'utiliser comme critère de segmentation dans vos Campaigns marketing. Vous pouvez également créer des deep links entre deux fils de discussion pour diriger les utilisateurs vers le fil de support depuis le fil marketing et inversement.
 
 #### Braze stocke-t-il les réponses des utilisateurs ? {#does-braze-store-user-responses}
 Les messages ne sont stockés que le temps nécessaire à leur traitement. Pour accéder aux messages des utilisateurs, utilisez Currents.
@@ -258,4 +258,4 @@ WhatsApp est un canal axé sur la messagerie bidirectionnelle et s'articule donc
 ### Médias et images {#media-and-images}
 
 #### Pourquoi les images ne se chargent-elles pas lorsqu'elles sont envoyées dans un message WhatsApp ? {#why-wont-images-load-when-sent-as-a-whatsapp-message}
-Si les utilisateurs signalent que les images dans les messages WhatsApp ne se téléchargent pas ou que l'icône de téléchargement ne répond pas, cela est probablement dû à un problème connu dans les anciennes versions de l'application WhatsApp. Ce problème peut généralement être résolu en mettant à jour l'appareil vers la version la plus récente de WhatsApp.
+Si des utilisateurs signalent que les images dans les messages WhatsApp ne se téléchargent pas ou que l'icône de téléchargement ne répond pas, cela est probablement dû à un problème connu dans les anciennes versions de l'application WhatsApp. Ce problème peut généralement être résolu en mettant à jour l'appareil vers la version la plus récente de WhatsApp.

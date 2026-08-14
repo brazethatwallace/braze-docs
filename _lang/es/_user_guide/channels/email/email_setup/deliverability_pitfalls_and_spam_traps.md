@@ -27,7 +27,7 @@ La capacidad de entrega de tu correo electrónico puede verse afectada por cualq
 
 Estas trampas se pueden evitar si configuras un proceso de adhesión voluntaria confirmada. Al enviar un correo electrónico inicial de adhesión voluntaria y pedir a los suscriptores que verifiquen que desean recibir tus mensajes, te aseguras de que tus destinatarios quieren saber de ti y de que estás enviando a direcciones reales y válidas. Aquí tienes formas adicionales de evitar las trampas de correo no deseado:
 
-1. Envía un correo electrónico de doble adhesión voluntaria. Este es un correo electrónico que requiere que los usuarios confirmen sus opciones de suscripción haciendo clic en un enlace.
+1. Envía un correo electrónico de doble adhesión voluntaria. Se trata de un correo electrónico que requiere que los usuarios confirmen sus opciones de suscripción haciendo clic en un enlace.
 2. Como práctica recomendada, implementa una [política de desactivación]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies).
 3. **Nunca compres listas de correo electrónico.**
 
@@ -43,15 +43,19 @@ Un ejemplo de mensaje de bloqueo de dominio de correo electrónico gratuito es:
 
 `550 5.7.1 Unfortunately, messages from [xx.xx.xx.xx] weren't sent. Please contact your Internet service provider since part of their network is on our block list (S3150). You can also refer your provider to: http://mail.live.com/mail/troubleshooting.aspx#errors.`
 
-Puedes aumentar el volumen gradualmente de forma similar al [calentamiento de IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming), prestando mucha atención a las métricas. A menudo hay una causa raíz de los problemas de capacidad de entrega que identificar y resolver. En general, se trata de una falta de permisos adecuados, una falta de higiene continua de la lista o una combinación de ambos factores.
+Puedes aumentar el volumen lentamente de forma similar al [calentamiento de IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming), prestando mucha atención a las métricas. A menudo hay una causa raíz de los problemas de capacidad de entrega que es necesario identificar y resolver. En general, se trata de una falta de permisos adecuados, una falta de higiene continua de la lista o una combinación de ambos factores.
 
-## Quitar una dirección de correo electrónico de tu lista de rebotes o correo no deseado {#remove-an-email-address-from-your-bounce-or-spam-list}
+## Eliminar una dirección de correo electrónico de tu lista de rebotes o correo no deseado {#remove-an-email-address-from-your-bounce-or-spam-list}
 
-Puedes quitar los correos electrónicos rebotados y los correos electrónicos de tu lista de correo no deseado de Braze con los siguientes puntos de conexión:
+Puedes eliminar correos electrónicos rebotados y correos electrónicos de tu lista de correo no deseado de Braze con los siguientes endpoints:
 
 - [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces)
 - [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam)
 
-## Mejorar la capacidad de entrega de correo electrónico {#improve-email-deliverability}
+## Mejorar la capacidad de entrega del correo electrónico {#improve-email-deliverability}
 
-Para más información, consulta [Mejorar la capacidad de entrega de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability).
+Para más información, consulta [Mejorar la capacidad de entrega del correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability).
+
+## BIMI
+
+Para BIMI (Brand Indicators for Message Identification), consulta [Autenticación de correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication).

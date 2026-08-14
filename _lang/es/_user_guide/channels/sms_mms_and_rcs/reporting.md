@@ -21,7 +21,7 @@ channel:
 {% multi_lang_include analytics/campaign_analytics.md channel="SMS" %}
 
 {% alert note %}
-Las métricas de clics del panel, como **Total de clics**, excluyen la actividad sospechosa de bots. Para las métricas afectadas, la segmentación, la orquestación y los campos de reconciliación de Currents (`is_suspected_bot_click`, `suspected_bot_click_reason`), consulta [Filtrado de clics de bots para enlaces de SMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering).
+Las métricas de clics del panel, como *Total de clics*, excluyen la actividad sospechosa de bots, pero Currents sigue exportando todos los eventos de clic con `is_suspected_bot_click` y `suspected_bot_click_reason` para la reconciliación en el almacén de datos. Para las métricas afectadas del panel, la segmentación y la orquestación, consulta [Filtrado de clics de bots para enlaces de SMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering).
 {% endalert %}
 
 ## Seguimiento de adhesiones y cancelaciones de SMS {#track-sms-opt-ins-and-opt-outs}
@@ -31,12 +31,12 @@ Puedes hacer un seguimiento de las adhesiones y cancelaciones de SMS con los sig
 | Método | Descripción |
 |--------|-------------|
 | Segmentador | El segmentador muestra el número de usuarios en un [grupo de suscripción]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#subscription-group) específico. No deduplica por número de teléfono: si varios usuarios comparten el mismo número de teléfono, cada instancia se cuenta por separado. |
-| Serie temporal de grupos de suscripción | Proporciona una instantánea diaria de las suscripciones para correos electrónicos y números de teléfono. La serie temporal cuenta suscripciones, cancelaciones de suscripción y resuscripciones. Por ejemplo, si un usuario se suscribe, cancela su suscripción y luego se vuelve a suscribir, se cuenta como un usuario suscrito. |
+| Serie temporal de grupos de suscripción | Proporciona una instantánea diaria de las suscripciones para correo electrónico y números de teléfono. La serie temporal cuenta suscripciones, cancelaciones de suscripción y resuscripciones. Por ejemplo, si un usuario se suscribe, cancela su suscripción y luego se vuelve a suscribir, se cuenta como un usuario suscrito. |
 | Currents | Usa Currents para exportar [eventos de suscripción y participación]({{site.baseurl}}/message_events_glossary) para tus propios informes. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Seguimiento de adhesiones y cancelaciones de SMS" }
 
 {% alert note %}
-Las estadísticas de _adhesión voluntaria_ y _cancelación de suscripción_ en el panel **SMS/MMS/RCS Performance** reflejan a los usuarios que se adhieren o cancelan mediante palabras clave entrantes (por ejemplo, enviar "START" para adherirse o "STOP" para cancelar). Estos números suelen ser más bajos que los que se muestran en el segmentador, ya que cuentan el número de veces que se enviaron estas palabras clave, no el número total de usuarios suscritos a SMS.
+Las estadísticas de _adhesión voluntaria_ y _cancelación de suscripción_ en el panel **SMS/MMS/RCS Performance** reflejan a los usuarios que se adhieren o cancelan mediante palabras clave entrantes (por ejemplo, enviar "START" para adhesión o "STOP" para cancelación). Estos números suelen ser más bajos que los que se muestran en el segmentador, ya que cuentan el número de veces que se enviaron estas palabras clave, no el número total de usuarios suscritos a SMS.
 {% endalert %}
 
 ### Seguimiento de cancelaciones de SMS a nivel de campaña {#track-sms-campaign-opt-outs}
@@ -75,12 +75,20 @@ Esta tabla refleja la facturación de Braze, no la de tu proveedor. Los resultad
 | Enviado | Se ha lanzado o desencadenado una Campaign o un paso en Canvas, y se ha enviado una carga útil del SMS al proveedor de SMS. | Sin cargo |
 | Entrega fallida | La carga útil del SMS no pudo enviarse al proveedor de SMS. Esto puede ocurrir debido a colas desbordadas, cuentas suspendidas o errores de medios (en el caso de MMS). | Sin cargo |
 | Entregado | El proveedor de SMS recibió confirmación de entrega del mensaje por parte del operador ascendente (y, cuando está disponible, del dispositivo de destino). | Cargo |
-| Rechazado | El proveedor de SMS recibió un acuse de rechazo indicando que el mensaje no fue entregado. Esto puede ocurrir por varias razones, como el filtrado de contenido del operador o la disponibilidad del dispositivo de destino. | Cargo |
+| Rechazado | El proveedor de SMS recibió un acuse de rechazo indicando que el mensaje no fue entregado. Esto puede ocurrir por varias razones, incluido el filtrado de contenido del operador o la disponibilidad del dispositivo de destino. | Cargo |
 | **Envíos al operador** | {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %} Obsoleto para paneles nuevos. Algunos paneles pueden seguir etiquetando esta métrica como **Sent to Carrier**. | Pueden aplicarse cargos según los resultados de envío de cada mensaje individual |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Cargos aplicados a los resultados de envío de SMS" }
 
 {% alert note %}
-**Envíos al operador** está obsoleto para paneles nuevos. Utiliza **Sent**, **Confirmed Delivery**, **Delivery Failed** y **Rejections** para los informes actuales. Consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics) para ver las definiciones.
+**Envíos al operador** está obsoleto para paneles nuevos. Usa **Sent**, **Confirmed Delivery**, **Delivery Failed** y **Rejections** para los informes actuales. Consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/data/report_metrics) para ver las definiciones.
+{% endalert %}
+
+## Informes de alternativa de RCS y SMS {#rcs-and-sms-fallback-reporting}
+
+Para el comportamiento de los eventos de alternativa de SMS en RCS (incluido `IS_SMS_FALLBACK=TRUE`), consulta [Cómo funciona la alternativa de SMS con eventos y segmentación]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup#how-sms-fallback-works-with-events-and-segmentation).
+
+{% alert note %}
+Los análisis de Campaigns en el panel y las exportaciones de Snowflake pueden diferir ligeramente en temporización y agregación. Para la conciliación en el almacén de datos, trata los flujos de eventos de Snowflake o Currents como la fuente más granular cuando las métricas no coincidan exactamente con el panel.
 {% endalert %}
 
 ## Conciliar *Rechazos* con Snowflake o Currents {#reconcile-rejections-with-snowflake-or-currents}
