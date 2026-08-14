@@ -13,6 +13,7 @@ channel:
 
 
 
+
 ---
 
 # Groupes d'abonnement SMS, MMS et RCS {#sms-mms-and-rcs-subscription-groups}
@@ -39,9 +40,9 @@ Par exemple, si l'utilisateur A possède un numéro de téléphone abonné à pl
 
 Pour définir l'état du groupe d'abonnement d'un utilisateur, utilisez l'une des méthodes suivantes :
 
-- **REST API :** Les profils utilisateur peuvent être définis de manière programmatique via l'[endpoint `/subscription/status/set`]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) en utilisant la REST API de Braze.
-- **Intégration SDK :** Les utilisateurs peuvent être ajoutés à un groupe d'abonnement e-mail ou SMS et RCS en utilisant la méthode `addToSubscriptionGroup` pour [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) ou [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
-- **Formulaire de capture de numéro de téléphone par message in-app :** Les numéros de téléphone des utilisateurs peuvent être collectés via le modèle de capture de numéro de téléphone dans l'éditeur par glisser-déposer de messages in-app.
+- **REST API :** Utilisez l'[endpoint `/subscription/status/set`]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) pour définir programmatiquement les profils utilisateur avec la REST API de Braze. Chaque requête peut inclure entre 1 et 25 groupes d'abonnement.
+- **Intégration SDK :** Les utilisateurs peuvent être ajoutés ou retirés d'un groupe d'abonnement e-mail ou SMS et RCS en utilisant `addToSubscriptionGroup` et `removeFromSubscriptionGroup` pour [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) ou [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup). Les méthodes SDK ne remplacent pas les flux réglementaires d'abonnement ou de désabonnement gérés par les mots-clés et la REST API.
+- **Formulaire de capture de numéro de téléphone par message in-app :** Les numéros de téléphone des utilisateurs peuvent être collectés via le modèle de capture de numéro de téléphone dans l'éditeur de messages in-app par glisser-déposer.
 - **Gestion automatique lors de l'abonnement/désabonnement de l'utilisateur :** Lorsque les utilisateurs envoient un [mot-clé]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) d'abonnement ou de désabonnement par défaut, Braze définit et met à jour automatiquement l'état d'abonnement des utilisateurs.
 - **Importation d'utilisateurs :** Les utilisateurs peuvent être ajoutés à des groupes d'abonnement e-mail ou SMS et RCS via **Import Users**. Lors de la mise à jour du statut du groupe d'abonnement, vous devez avoir ces deux colonnes dans votre CSV : `subscription_group_id` et `subscription_state`. Consultez [Importation d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) pour plus d'informations.
 - **Tableau de bord de Braze :** Sélectionnez **User Search** dans la barre latérale, ouvrez le profil d'un utilisateur et mettez à jour les groupes d'abonnement SMS ou RCS sous **Contact Settings** dans l'onglet **Engagement**.
@@ -52,7 +53,7 @@ Pour définir l'état du groupe d'abonnement d'un utilisateur, utilisez l'une de
 
 Lorsque vous mettez à jour le statut du groupe d'abonnement d'un utilisateur dans le cadre d'un flux Canvas, utilisez une étape [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) plutôt qu'un webhook. L'étape User Update attend que le traitement soit terminé avant de faire avancer l'utilisateur vers l'étape suivante, de sorte que les étapes de communication suivantes utilisent le statut d'abonnement mis à jour.
 
-Si vous utilisez un webhook pour mettre à jour les groupes d'abonnement, l'utilisateur avance dès que le webhook est envoyé, et non lorsque le changement d'abonnement a fini d'être traité. Cela peut créer une condition de concurrence où une étape SMS de suivi s'exécute avant que l'utilisateur ne soit abonné, ce qui entraîne l'échec du message pour une partie des utilisateurs. Si vous devez utiliser un webhook, ajoutez une étape de délai d'au moins 1 minute avant l'étape de communication suivante.
+Si vous utilisez un webhook pour mettre à jour les groupes d'abonnement, l'utilisateur avance dès que le webhook est envoyé, et non lorsque le changement d'abonnement a fini d'être traité. Cela peut créer une condition de concurrence où une étape SMS ultérieure s'exécute avant que l'utilisateur ne soit abonné, ce qui entraîne l'échec du message pour une partie des utilisateurs. Si vous devez utiliser un webhook, ajoutez une étape de délai d'au moins 1 minute avant l'étape de communication suivante.
 
 {% multi_lang_include api/orphaned_subscription_states.md %}
 
@@ -60,8 +61,8 @@ Si vous utilisez un webhook pour mettre à jour les groupes d'abonnement, l'util
 
 Pour vérifier le groupe d'abonnement d'un utilisateur, utilisez l'une des méthodes suivantes :
 
-- **Profil utilisateur :** Les profils utilisateur individuels sont accessibles via le tableau de bord de Braze en sélectionnant **User Search** dans la barre latérale. Vous pouvez rechercher des profils utilisateur par adresse e-mail, numéro de téléphone ou identifiant utilisateur externe. Dans un profil utilisateur, sous l'onglet Engagement, vous pouvez consulter les groupes d'abonnement SMS et RCS d'un utilisateur.
-- **REST API :** Le groupe d'abonnement d'un profil utilisateur individuel peut être consulté via l'[endpoint Répertorier les groupes d'abonnement d'un utilisateur]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) ou l'[endpoint Répertorier le statut du groupe d'abonnement d'un utilisateur]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) en utilisant la REST API de Braze.
+- **Profil utilisateur :** Les profils utilisateur individuels sont accessibles via le tableau de bord de Braze en sélectionnant **User Search** dans la barre latérale. Vous pouvez rechercher des profils utilisateur par adresse e-mail, numéro de téléphone ou ID utilisateur externe. Dans un profil utilisateur, sous l'onglet Engagement, vous pouvez consulter les groupes d'abonnement SMS et RCS d'un utilisateur.
+- **REST API :** Le groupe d'abonnement d'un profil utilisateur individuel peut être consulté via l'[endpoint de liste des groupes d'abonnement d'un utilisateur]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) ou l'[endpoint de statut du groupe d'abonnement d'un utilisateur]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) en utilisant la REST API de Braze.
 
 ## Envoyer des messages avec un groupe d'abonnement {#send-messages-with-a-subscription-group}
 
@@ -70,7 +71,7 @@ Pour lancer une campagne SMS ou RCS via Braze, sélectionnez un groupe d'abonnem
 Avant que les utilisateurs puissent recevoir des messages d'une campagne ou d'un Canvas, ils doivent être abonnés au groupe d'abonnement sélectionné. Si les envois échouent pour des utilisateurs par ailleurs valides, confirmez qu'ils sont abonnés en utilisant l'une des méthodes décrites dans [Définir l'état d'un utilisateur](#set-a-users-state). Pour les exigences de double abonnement, consultez [États des groupes d'abonnement](#subscription-group-states).
 
 {% alert important %}
-Conformément aux [lois et réglementations internationales en matière de télécommunications]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations), Braze n'envoie jamais de SMS ou de RCS aux utilisateurs qui ne sont pas abonnés au groupe d'abonnement sélectionné.
+Conformément aux [réglementations et directives internationales en matière de télécommunications]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations), Braze n'envoie jamais de SMS ou de RCS aux utilisateurs qui ne sont pas abonnés au groupe d'abonnement sélectionné.
 {% endalert %}
 
 ![Le compositeur SMS avec le menu déroulant du groupe d'abonnement ouvert et « Messaging Service A for SMS » mis en surbrillance par l'utilisateur.]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
@@ -85,7 +86,7 @@ Pour activer les groupes d'abonnement pour les SMS, MMS ou RCS, consultez les in
 
 {% tabs local %}
 {% tab SMS %}
-Lors de votre processus d'onboarding SMS, un gestionnaire d'onboarding Braze configure les groupes d'abonnement pour votre compte de tableau de bord. Il travaille avec vous pour déterminer le nombre de groupes d'abonnement dont vous avez besoin et ajoute les numéros de téléphone d'envoi appropriés à vos groupes d'abonnement. Les délais de configuration d'un groupe d'abonnement dépendent du type de numéros de téléphone que vous ajoutez. Par exemple, les demandes de code court peuvent prendre entre 8 et 12 semaines, tandis que les codes longs peuvent être configurés en une journée. Si vous avez des questions sur la configuration de votre tableau de bord Braze, contactez votre conseiller Braze pour obtenir de l'aide.
+Lors de votre processus d'onboarding SMS, un gestionnaire d'onboarding Braze configure les groupes d'abonnement pour votre compte de tableau de bord. Il travaille avec vous pour déterminer le nombre de groupes d'abonnement dont vous avez besoin et ajoute les numéros de téléphone d'envoi appropriés à vos groupes d'abonnement. Les délais de configuration d'un groupe d'abonnement dépendent du type de numéros de téléphone que vous ajoutez. Par exemple, les demandes de code court peuvent prendre entre 8 et 12 semaines, tandis que les codes longs peuvent être configurés en une journée. Si vous avez des questions concernant la configuration de votre tableau de bord Braze, contactez votre conseiller Braze pour obtenir de l'aide.
 {% endtab %}
 
 {% tab MMS %}
@@ -130,9 +131,9 @@ L'utilisation de la console Agent consomme des crédits de messages ou d'actions
 
 ## Migrer le trafic SMS vers RCS {#migrate-sms-traffic-to-rcs}
 
-Si vous avez des groupes d'abonnement SMS et RCS distincts, vous pouvez migrer les utilisateurs de SMS vers RCS à l'aide d'un Canvas en une seule étape.
+Si vous disposez de groupes d'abonnement SMS et RCS distincts, vous pouvez migrer les utilisateurs de SMS vers RCS à l'aide d'un Canvas en une seule étape.
 
-Braze recommande de tester l'envoi de RCS à des volumes d'utilisateurs plus réduits dans un premier temps, puis de migrer progressivement davantage d'utilisateurs vers le groupe d'abonnement RCS. Par exemple, si vous avez 1 000 000 d'utilisateurs abonnés à un groupe d'abonnement SMS, cela pourrait consister à d'abord migrer tous les utilisateurs vers le nouveau groupe d'abonnement, puis à segmenter sur une audience plus restreinte de 50 000 à 100 000 (5-10 %) pour tester les messages RCS.
+Braze recommande de tester l'envoi de RCS à de plus petits volumes d'utilisateurs dans un premier temps, puis de migrer progressivement davantage d'utilisateurs vers le groupe d'abonnement RCS. Par exemple, si vous avez 1 000 000 d'utilisateurs abonnés à un groupe d'abonnement SMS, vous pourriez d'abord migrer tous les utilisateurs vers le nouveau groupe d'abonnement, puis segmenter sur une audience plus restreinte de 50 000 à 100 000 (5 à 10 %) pour tester les messages RCS.
 
 ### Étape 1 : Créer un Canvas et remplir le calendrier d'entrée {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
@@ -143,10 +144,10 @@ Créez un Canvas et donnez-lui un nom facilement identifiable (par exemple « Tr
 
 Définissez votre audience en utilisant l'une des méthodes suivantes. Ensuite, accédez à l'étape **Paramètres d'envoi** et sélectionnez **Utilisateurs abonnés ou ayant donné leur accord**.
 
-| Méthode | Description |
+| Méthode                          | Description                                                                                                                                                                                                 |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Créer un segment** | Créez un segment qui inclut tous les utilisateurs d'un groupe d'abonnement ou un sous-ensemble à l'aide de filtres de segmentation (par exemple, un échantillon aléatoire de 5-10 %). Les segments se mettent à jour avant chaque envoi pour refléter votre base d'utilisateurs actuelle. |
-| **Appliquer des filtres de campagne ou de Canvas** | Affinez l'audience à l'étape **Audience cible** de votre campagne ou Canvas. Ajustez les options de ciblage sans quitter la page pour plus de flexibilité. |
+| **Créer un segment**         | Créez un segment qui inclut tous les utilisateurs d'un groupe d'abonnement ou un sous-ensemble à l'aide de filtres de segmentation (par exemple, un échantillon aléatoire de 5 à 10 %). Les segments se mettent à jour avant chaque envoi pour refléter votre base d'utilisateurs actuelle.        |
+| **Appliquer des filtres de campagne ou de Canvas** | Affinez l'audience à l'étape **Audience cible** de votre campagne ou Canvas. Ajustez les options de ciblage sans quitter la page pour plus de flexibilité.                                         |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Définir votre audience" }
 
 ### Étape 3 : Configurer une étape de mise à jour utilisateur {#step-3-configure-a-user-update-step}
@@ -186,7 +187,7 @@ Nous vous recommandons vivement de [tester votre Canvas]({{site.baseurl}}/user_g
 
 Après avoir testé votre Canvas avec succès, lancez-le pour votre sous-ensemble d'utilisateurs !
 
-Pour confirmer que vos utilisateurs ont été migrés avec succès, nous vous recommandons de vérifier quelques profils utilisateur individuels qui ont été mis à jour. Dans l'onglet **Engagement**, recherchez **Paramètres de contact** et faites défiler pour voir les groupes d'abonnement auxquels l'utilisateur est abonné. Le bouton du groupe d'abonnement RCS devrait maintenant être activé.
+Pour confirmer que vos utilisateurs ont été migrés avec succès, nous vous recommandons de vérifier quelques profils utilisateur individuels qui ont été mis à jour. Dans l'onglet **Engagement**, recherchez **Paramètres de contact** et faites défiler pour voir les groupes d'abonnement auxquels l'utilisateur est abonné. Le bouton bascule du groupe d'abonnement RCS devrait maintenant être activé.
 
 Pour la configuration de l'expéditeur RCS et du groupe d'abonnement, consultez également [Configurer RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup).
 
@@ -212,7 +213,7 @@ Choisissez des noms de groupes d'abonnement descriptifs et clairs afin que le bo
 
 ### Séparer les groupes par pays {#separate-groups-by-country}
 
-Les réglementations SMS varient selon les pays. Nous vous recommandons de séparer les groupes d'abonnement SMS par pays. Cela vous aide à respecter les normes de conformité dans toutes les régions où vous envoyez des messages.
+Les réglementations SMS varient d'un pays à l'autre. Nous vous recommandons de séparer les groupes d'abonnement SMS par pays. Cela vous aide à respecter les normes de conformité dans toutes les régions où vous envoyez des messages.
 
 Pour chaque groupe d'abonnement, vous pouvez également configurer une liste de pays autorisés sous **Autorisations géographiques** afin que les SMS, MMS et RCS ne soient envoyés que vers des régions approuvées. Pour en savoir plus, consultez [Autorisations géographiques]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions).
 

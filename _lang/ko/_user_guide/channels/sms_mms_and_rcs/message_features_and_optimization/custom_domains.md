@@ -19,7 +19,7 @@ channel:
 
 ## 셀프 서비스 커스텀 도메인의 이점 {#benefits-of-self-serve-custom-domains}
 
-- **간소화된 설정:** **회사 설정** 페이지에서 도메인을 구성하여 설정 시간을 단축할 수 있습니다.
+- **간소화된 설정:** **Company Settings** 페이지에서 도메인을 구성하여 설정 시간을 단축할 수 있습니다.
 - **향상된 투명성:** 대시보드의 배너를 통해 도메인 설정 상태에 대한 실시간 업데이트를 받을 수 있습니다.
 - **사전 알림:** 커스텀 도메인이 연결되거나 구성 오류가 발생하면 즉시 알림을 받을 수 있습니다.
 
@@ -27,7 +27,7 @@ channel:
 
 - 도메인은 사용자가 직접 구매, 소유 및 관리해야 합니다. GoDaddy, Amazon Route 53 또는 Cloudflare와 같은 도메인 등록 기관을 통해 이 작업을 수행할 수 있습니다.
 - 이 기능에 사용되는 도메인은 다음 조건을 충족해야 합니다:
-  - 고유해야 합니다(웹사이트 도메인과 달라야 함)
+  - 고유해야 합니다(웹사이트 도메인과 다른 도메인이어야 함)
   - 웹 콘텐츠를 호스팅하는 데 사용할 수 없습니다
     - 고유한 하위 도메인을 사용할 수도 있습니다. 예를 들어, `braze.com` 도메인에 `sms.braze.com` 또는 `whatsapp.braze.com`과 같은 하위 도메인을 설정할 수 있습니다.
 
@@ -46,7 +46,7 @@ DNS 레코드가 45일 이내에 업데이트되지 않으면 설정 토큰이 �
 
 {: start="2"}
 2. **도메인 추가**를 선택하여 새 커스텀 도메인 설정을 시작합니다.
-3. 구매한 커스텀 도메인을 인앱 입력란에 입력합니다. 기존 유효성 검사 로직을 사용하여 올바른 형식인지 확인한 후 **다음**과 **제출**을 선택합니다.
+3. 구매한 커스텀 도메인을 인앱 입력란에 입력합니다. 기존 유효성 검사 로직을 사용하여 올바른 형식인지 확인한 후 **다음**을 선택하고 **제출**을 선택합니다.
 
 !["SMS/RCS 및 메시징 앱 도메인" 페이지의 "도메인 추가" 버튼.]({% image_buster /assets/img/custom_domain_button.png %}){: style="max-width:70%;"}
 
@@ -59,7 +59,7 @@ Braze는 약 30분마다 DNS 구성을 폴링하여 업데이트를 확인합니
 ![도메인 설정을 완료하기 위한 3단계가 포함된 "DNS 레코드" 섹션.]({% image_buster /assets/img/dns_record.png %})
 
 {% alert note %}
-도메인 진행 상태는 자동으로 저장됩니다. 중간에 나가야 하는 경우, **SMS/RCS 및 메시징 앱 도메인** 페이지에서 대기 중인 도메인 항목을 선택하여 나중에 다시 이어서 진행할 수 있습니다.
+도메인 진행 상황은 자동으로 저장됩니다. 중간에 나가야 하는 경우, **SMS/RCS 및 메시징 앱 도메인** 페이지에서 대기 중인 도메인 항목을 선택하여 나중에 다시 시작할 수 있습니다.
 {% endalert %}
 
 ### 지속적인 관리 및 사용 {#ongoing-management-and-usage}
@@ -68,11 +68,11 @@ Braze는 약 30분마다 DNS 구성을 폴링하여 업데이트를 확인합니
 
 ![커스텀 도메인 및 상태 목록.]({% image_buster /assets/img/custom_domain_statuses.png %}){: style="max-width:60%;"}
 
-실시간 모니터링은 활성 도메인에 문제가 발생하면 Braze 대시보드에서 알림을 보내, 커스텀 링크가 계속 사용 가능하도록 합니다. 문제가 발생하면 인앱 오류 세부 정보를 참조하거나 Braze [지원팀]({{site.baseurl}}/braze_support)에 문의하여 도움을 받으세요.
+실시간 모니터링은 활성 도메인에 문제가 발생하면 Braze 대시보드에서 알림을 보내, 커스텀 링크를 계속 사용할 수 있도록 합니다. 문제가 발생하면 인앱 오류 세부 정보를 참조하거나 Braze [지원팀]({{site.baseurl}}/braze_support)에 문의하여 도움을 받으세요.
 
 ## 구독 그룹에 커스텀 도메인 할당하기 {#assigning-custom-domains-to-subscription-groups}
 
-커스텀 도메인이 구성되면 하나 이상의 SMS, RCS, WhatsApp 구독 그룹에 할당할 수 있습니다.
+커스텀 도메인이 구성되면 하나 이상의 SMS, RCS 및 WhatsApp 구독 그룹에 할당할 수 있습니다.
 
 1. **오디언스** > **구독 그룹 관리**로 이동합니다.
 2. 목록에서 구독 그룹을 찾아 선택합니다.
@@ -80,13 +80,13 @@ Braze는 약 30분마다 DNS 구성을 폴링하여 업데이트를 확인합니
 
 링크 단축이 활성화된 상태로 전송된 Campaigns는 SMS, RCS 또는 WhatsApp 구독 그룹에 연결된 할당 도메인을 사용합니다.
 
-![단축 링크 도메인이 메시지 상자의 도메인과 다른 SMS 메시지 작성기 미리보기.]({% image_buster /assets/img/custom_domain2.png %})
+![메시지 작성기 미리보기에서 단축 링크 도메인이 메시지 상자의 도메인과 다르게 표시된 SMS 화면]({% image_buster /assets/img/custom_domain2.png %})
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
 ### 위임된 도메인을 여러 구독 그룹에서 공유할 수 있나요? {#can-delegated-domains-be-shared-across-multiple-subscription-groups}
 
-네. 하나의 도메인을 여러 구독 그룹에서 사용할 수 있습니다. 이렇게 하려면 연결하려는 각 구독 그룹에 대해 해당 도메인을 선택하세요.
+네. 하나의 도메인을 여러 구독 그룹에서 사용할 수 있습니다. 이렇게 하려면 연결할 각 구독 그룹에 대해 해당 도메인을 선택하세요.
 
 ### 위임된 도메인을 여러 워크스페이스에서 공유할 수 있나요? {#can-delegated-domains-be-shared-across-multiple-workspaces}
 
@@ -94,7 +94,11 @@ Braze는 약 30분마다 DNS 구성을 폴링하여 업데이트를 확인합니
 
 ### 커스텀 도메인은 몇 개까지 추가할 수 있나요? {#how-many-custom-domains-can-i-add}
 
-대시보드당 최대 10개의 커스텀 도메인을 추가할 수 있습니다.
+대시보드당 최대 10개의 커스텀 도메인을 추가할 수 있습니다. 요청 시 Braze에서 회사의 한도를 더 높게 설정할 수 있습니다.
+
+**Pending** 또는 **Error** 상태의 도메인도 이 한도에 포함됩니다. **SMS/RCS and Messaging Apps Domains** 페이지에서 해당 도메인을 삭제하거나 오류를 해결하세요.
+
+구독 그룹에서 **Link Shortening Domain**으로 지정된 도메인은 삭제할 수 없습니다. 먼저 각 구독 그룹에서 도메인을 재지정한 후 도메인을 삭제하세요.
 
 ### 45일 이내에 DNS 레코드를 업데이트하지 않으면 어떻게 되나요? {#what-happens-if-i-dont-update-my-dns-records-within-45-days}
 
@@ -102,12 +106,12 @@ Cloudflare DNS 레코드 세부 정보는 45일 후에 만료되지만, 동일�
 
 ### DNS 업데이트 과정에서 오류가 발생하면 알림을 받을 수 있나요? {#am-i-notified-if-there-is-an-error-during-the-dns-update-process}
 
-네. 오류가 발생하면 Braze 대시보드에 문제 내용과 해결 단계를 안내하는 배너가 표시됩니다.
+네. 오류가 발생하면 Braze 대시보드에 문제에 대한 세부 정보와 해결 단계가 포함된 배너가 표시됩니다.
 
 ### 커스텀 도메인을 여러 채널에서 사용할 수 있나요? {#can-i-use-a-custom-domain-across-multiple-channels}
 
-네. 커스텀 도메인이 인증되면 대시보드 내 모든 워크스페이스의 SMS, RCS, WhatsApp 구독 그룹에서 사용할 수 있습니다.
+네. 커스텀 도메인이 인증되면 대시보드 내 모든 워크스페이스의 SMS, RCS 및 WhatsApp 구독 그룹에서 사용할 수 있습니다.
 
-### 질문이 있거나 추가 지원이 필요하면 어떻게 하나요? {#what-if-i-have-questions-or-need-further-support}
+### 질문이 있거나 추가 지원이 필요한 경우 어떻게 하나요? {#what-if-i-have-questions-or-need-further-support}
 
-커스텀 도메인 설정 및 관리에 대한 자세한 안내(문제 해결 단계 및 기술 요구 사항 포함)는 [지원팀에 문의]({{site.baseurl}}/braze_support)해 주세요.
+커스텀 도메인 설정 및 관리에 대한 자세한 안내(문제 해결 단계 및 기술 요구 사항 포함)는 [지원팀에 문의]({{site.baseurl}}/braze_support)하세요.

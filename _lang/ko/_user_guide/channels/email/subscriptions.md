@@ -16,18 +16,7 @@ channel:
 
 ## 구독 상태 {#subscription-states}
 
-Braze에는 이메일 사용자를 위한 세 가지 글로벌 구독 상태가 있습니다. 이러한 상태는 사용자에게 보내는 메시지를 제어합니다. 예를 들어, `unsubscribed` 상태의 사용자는 `subscribed` 또는 `opted-in`을 대상으로 하는 메시지를 수신하지 않습니다.
-
-| 상태 | 정의 |
-| ----- | ---------- |
-| 옵트인 | 사용자가 이메일 수신을 명시적으로 확인했습니다. 이메일 발송에 대한 사용자 동의를 얻기 위해 명시적 옵트인 프로세스를 권장합니다. |
-| 가입됨 | 사용자가 탈퇴하지도 않았고 이메일 수신에 명시적으로 옵트인하지도 않았습니다. 이것은 고객 프로필이 생성될 때의 기본 구독 상태입니다. |
-| 탈퇴됨 | 사용자가 이메일 수신을 명시적으로 탈퇴했습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="구독 상태" }
-
-{% alert note %}
-Braze는 글로벌 및 구독 그룹 관련 구독 상태 변경을 데이터 포인트에 포함하지 않습니다.
-{% endalert %}
+Braze는 글로벌 구독 상태를 사용하여 이메일을 수신할 사용자를 제어합니다. `opted-in`, `subscribed`, `unsubscribed`의 정의, 글로벌 상태와 구독 그룹의 차이점, 다른 채널에서 구독 상태가 작동하는 방식에 대해서는 [구독 상태]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#email)를 참조하세요.
 
 ### 탈퇴된 이메일 주소 {#unsubscribed-email-addresses}
 
@@ -118,9 +107,9 @@ Braze SDK를 사용하여 사용자의 구독 상태를 업데이트합니다.
 
 ### 구독 그룹으로 세분화하기 {#segmenting-with-a-subscription-group}
 
-Segments를 만들 때 구독 그룹 이름을 필터로 설정하여 해당 그룹에 옵트인한 사용자를 타겟팅합니다. 이 기능은 월간 뉴스레터, 쿠폰, 멤버십 등급 등에 유용합니다.
+Segment를 만들 때 구독 그룹 이름을 필터로 설정하여 해당 그룹에 옵트인한 사용자를 타겟팅합니다. 이 기능은 월간 뉴스레터, 쿠폰, 멤버십 등급 등에 유용합니다.
 
-!["이탈 사용자" Segment에서 "주간 이메일" 구독 그룹에 속한 사용자를 필터로 타겟팅하는 예시.]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
+![사용자가 '주간 이메일' 구독 그룹에 속한 사용자를 필터링하여 '이탈 사용자' Segment를 타겟팅하는 예시.]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
 
 ### 구독 그룹 보관하기 {#archiving-subscription-groups}
 
@@ -129,38 +118,41 @@ Segments를 만들 때 구독 그룹 이름을 필터로 설정하여 해당 그
 **구독 그룹** 페이지에서 그룹을 보관하려면 다음을 수행합니다:
 
 1. 구독 그룹 목록에서 해당 그룹을 찾습니다.
-2. <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;드롭다운 메뉴에서 **보관**을 선택합니다.
+2. <i class="fa-solid fa-ellipsis-vertical" aria-label="더보기 메뉴"></i>&nbsp;드롭다운 메뉴에서 **보관**을 선택합니다.
 
 Braze는 보관된 그룹의 사용자에 대한 상태 변경을 처리하지 않습니다. 예를 들어, Alex가 구독 그룹 1에 구독된 상태에서 해당 그룹을 보관하면, Alex가 탈퇴 링크를 클릭하더라도 "구독됨" 상태로 유지됩니다. 구독 그룹 1이 보관되어 해당 그룹을 사용하여 메시지를 보낼 수 없으므로 이는 문제가 되지 않습니다.
 
 #### 구독 그룹 크기 확인하기 {#viewing-subscription-group-sizes}
 
-**구독 그룹** 페이지의 **구독 그룹 시계열** 그래프를 참조하여 일정 기간 동안의 사용자 수를 기반으로 구독 그룹 크기를 확인할 수 있습니다. 이러한 구독 그룹 크기는 Segment 크기 계산 등 Braze의 다른 영역과도 일관됩니다.
+**구독 그룹** 페이지의 **구독 그룹 시계열** 그래프를 참조하여 일정 기간 동안의 사용자 수를 기반으로 구독 그룹 크기를 확인할 수 있습니다. 이러한 구독 그룹 크기는 Segment 크기 계산 등 Braze의 다른 영역과도 일치합니다.
 
-![12월 2일부터 11일까지의 "구독 그룹 시계열" 그래프 예시. 그래프에서 6일부터 7일 사이에 사용자 수가 약 1,000만 명 증가한 것을 보여줍니다.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
+![12월 2일부터 11일까지의 '구독 그룹 시계열' 그래프 예시. 그래프에서 6일부터 7일 사이에 사용자 수가 약 1,000만 명 증가한 것을 보여줍니다.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
 
-시계열 수치가 **이메일 구독 상태가 탈퇴됨**을 사용하는 Segment와 크게 다른 경우, 그래프는 해당 **구독 그룹**의 멤버십을 집계하는 반면, 해당 필터는 **글로벌** 이메일 구독 상태를 반영한다는 점을 기억하세요. 예를 들어, 사용자가 글로벌로는 구독 상태이지만 특정 그룹에서는 탈퇴한 상태일 수 있습니다.
+#### 구독 그룹 수와 Segment 수가 다를 수 있는 이유 {#why-subscription-group-counts-can-differ-from-segment-counts}
+
+구독 그룹 크기는 **구독 그룹** 필터만 사용하는 Segment와 일치합니다. **이메일 구독 상태**를 사용하는 Segment와는 차이가 날 수 있는데, 이는 특정 그룹의 멤버십이 아닌 [글로벌 이메일 구독 상태](#subscription-states)를 반영하거나 여러 필터를 결합하기 때문입니다. 예를 들어, 사용자가 이메일에 글로벌로 구독되어 있지만 특정 구독 그룹에서는 탈퇴한 상태일 수 있습니다.
+
+사용자의 글로벌 구독 상태와 구독 그룹 멤버십을 비교하려면 해당 사용자의 프로필로 이동하여 **인게이지먼트** 탭을 선택합니다. 글로벌 상태별 필터링에 대해서는 [사용자 구독별 세분화](#segmenting-by-user-subscriptions)를 참조하세요.
 
 #### Campaign 분석에서 구독 그룹 확인하기 {#viewing-subscription-groups-in-campaign-analytics}
 
 특정 이메일 Campaign의 분석 페이지에서 구독 상태를 변경한(구독 또는 탈퇴) 사용자 수를 확인할 수 있습니다.
 
 1. Campaign의 **Campaign 분석** 페이지에서 **이메일 메시지 성능** 섹션까지 스크롤합니다.
-2. **구독 그룹** 아래의 화살표를 선택하여 고객이 제출한 상태 변경의 총 수를 확인합니다.
+2. **구독 그룹** 아래의 화살표를 선택하여 고객이 제출한 상태 변경의 집계 수를 확인합니다.
 
-![고객이 제출한 상태 변경의 총 수를 표시하는 "이메일 메시지 성능" 페이지.]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
+![고객이 제출한 상태 변경의 집계 수를 표시하는 '이메일 메시지 성능' 페이지.]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
 
 ### 사용자의 이메일 구독 그룹 확인하기 {#checking-a-users-email-subscription-group}
 
-- **고객 프로필:** 개별 고객 프로필은 Braze 대시보드의 [사용자 검색]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles) 페이지에서 접근할 수 있습니다. 여기에서 이메일 주소, 전화번호 또는 외부 사용자 ID로 고객 프로필을 조회할 수 있습니다. **인게이지먼트** 탭에서 사용자의 이메일 구독 그룹도 확인할 수 있습니다.
-- **Braze REST API:** [사용자의 구독 그룹 목록 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) 또는 [사용자의 구독 그룹 상태 목록 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)를 사용하여 개별 고객 프로필의 구독 그룹을 확인할 수 있습니다.
+- **사용자 프로필:** 개별 사용자 프로필은 Braze 대시보드의 [사용자 검색]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles) 페이지에서 접근할 수 있습니다. 여기에서 이메일 주소, 전화번호 또는 외부 사용자 ID로 사용자 프로필을 검색할 수 있습니다. **인게이지먼트** 탭에서 사용자의 이메일 구독 그룹도 확인할 수 있습니다.
+- **Braze REST API:** [사용자의 구독 그룹 목록 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) 또는 [사용자의 구독 그룹 상태 목록 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)를 사용하여 개별 사용자 프로필의 구독 그룹을 확인할 수 있습니다.
 
 ## 이메일 환경설정 센터 {#email-preference-center}
 
 이메일 환경설정 센터를 사용하면 구독 그룹 뉴스레터를 수신하는 사용자를 관리할 수 있습니다. 대시보드의 **구독 그룹**에서 확인할 수 있습니다. 생성한 각 구독 그룹은 환경설정 센터 목록에 추가됩니다.
 
 환경설정 센터를 추가하거나 커스터마이즈하는 방법에 대해 자세히 알아보려면 [환경설정 센터]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)를 참조하세요.
-
 
 ## 이메일 구독 변경 {#changing-email-subscriptions}
 

@@ -12,7 +12,106 @@ from unittest.mock import patch
 SALESFORCE_ANALYZER_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(SALESFORCE_ANALYZER_DIR))
 
-from sf_kb_phase2_run_batches import verify_batch  # noqa: E402
+from sf_kb_phase2_run_batches import (  # noqa: E402
+    batch_context,
+    filter_claimed_siblings,
+    verify_batch,
+)
+from sf_kb_overlap_scan import BatchOverlapReport, OverlapHit, OverlapScanner, PrRef  # noqa: E402
+
+
+def _actionable_row(article_id: str, title: str) -> dict[str, str]:
+    return {
+        "article_id": article_id,
+        "title": title,
+        "suggested_change": f"### {title}?\n\nAnswer for {title}.",
+        "conflict_resolution": "codebase confirms knowledge",
+        "target": "docs",
+    }
+
+
+class FilterClaimedSiblingsTests(unittest.TestCase):
+    def test_drops_only_claimed_ids(self) -> None:
+        rows = [
+            _actionable_row("ka-claimed", "Claimed"),
+            _actionable_row("ka-sibling", "Sibling"),
+        ]
+        report = BatchOverlapReport(
+            doc_path="_docs/_user_guide/foo.md",
+            article_ids=("ka-claimed", "ka-sibling"),
+            hits=[
+                OverlapHit(
+                    kind="article_id",
+                    message="`ka-claimed` already claimed in a PR body",
+                    blocking=True,
+                ),
+            ],
+        )
+        remaining, claimed = filter_claimed_siblings(
+            rows, id_column="article_id", overlap=report
+        )
+        self.assertEqual([r["article_id"] for r in remaining], ["ka-sibling"])
+        self.assertEqual([r["article_id"] for r in claimed], ["ka-claimed"])
+
+
+class BatchContextPartialClaimTests(unittest.TestCase):
+    def test_partial_claim_keeps_unclaimed_siblings(self) -> None:
+        rows = [
+            _actionable_row("ka-claimed", "Claimed"),
+            _actionable_row("ka-sibling", "Sibling"),
+        ]
+        scanner = OverlapScanner(fetch_develop=False)
+        scanner._loaded = True  # noqa: SLF001
+        claimed_pr = PrRef(20, "merged", False, "Done", "url", ("salesforce migration",))
+        scanner._path_prs = {}  # noqa: SLF001
+        scanner._article_prs = {"ka-claimed": [claimed_pr]}  # noqa: SLF001
+
+        with patch.object(scanner, "_develop_text_for", return_value="clean"):
+            with patch.object(scanner, "_recent_develop_sf_commits", return_value=[]):
+                with patch.object(scanner, "_remote_sf_branches", return_value=[]):
+                    with patch(
+                        "sf_kb_phase2_run_batches.assignees_for_doc_path",
+                        return_value=[],
+                    ):
+                        ctx = batch_context(
+                            "_docs/_user_guide/foo.md",
+                            rows,
+                            id_column="article_id",
+                            scanner=scanner,
+                            ignore_warnings=True,
+                        )
+
+        self.assertIsNotNone(ctx)
+        assert ctx is not None
+        self.assertEqual([aid for aid, _ in ctx["articles"]], ["ka-sibling"])
+        self.assertEqual(
+            [(aid, reason) for aid, _title, reason in ctx["skipped"]],
+            [("ka-claimed", "already claimed in a PR body")],
+        )
+
+    def test_path_open_pr_still_blocks_whole_batch(self) -> None:
+        rows = [
+            _actionable_row("ka-a", "A"),
+            _actionable_row("ka-b", "B"),
+        ]
+        scanner = OverlapScanner(fetch_develop=False)
+        scanner._loaded = True  # noqa: SLF001
+        open_pr = PrRef(10, "open", False, "Open batch", "url", ())
+        scanner._path_prs = {"_docs/_user_guide/foo.md": [open_pr]}  # noqa: SLF001
+        scanner._article_prs = {}  # noqa: SLF001
+
+        with patch.object(scanner, "_develop_text_for", return_value="clean"):
+            with patch.object(scanner, "_recent_develop_sf_commits", return_value=[]):
+                with patch.object(scanner, "_remote_sf_branches", return_value=[]):
+                    ctx = batch_context(
+                        "_docs/_user_guide/foo.md",
+                        rows,
+                        id_column="article_id",
+                        scanner=scanner,
+                        ignore_warnings=True,
+                    )
+
+        self.assertIsNone(ctx)
 
 
 class VerifyOnlyBatchTests(unittest.TestCase):
