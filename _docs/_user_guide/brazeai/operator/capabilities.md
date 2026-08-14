@@ -4,7 +4,7 @@ article_title: What you can do with Operator
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "This reference article covers what BrazeAI Operator™ can do across the dashboard, including building campaigns, segments, and agents; generating copy, messages, Liquid, and images; transforming data; reviewing content quality; and looking up information."
+description: "This reference article covers what BrazeAI Operator™ can do across the dashboard, including building campaigns, segments, reports, dashboards, and agents; generating copy, messages, Liquid, and images; transforming data; reviewing content quality; and looking up information."
 ---
 
 # What you can do with Operator {#operator-capabilities}
@@ -26,8 +26,12 @@ Beyond generating copy and Liquid, Operator can help you build several other obj
 - Campaigns
 - Content Blocks
 - Custom agents
+- Custom attributes and custom events
+- Dashboards
 - Images
 - Messages and message templates (see [Generate messages](#generate-messages) and [Create message templates](#create-message-templates))
+- Predictions
+- Reports
 - Segments
 - Segment Extensions
 
@@ -46,7 +50,8 @@ To get started, look for the **Create with Operator** option when you create a c
 - **Create and edit campaigns:** When you start a campaign, Operator can help you draft it end-to-end from a single natural-language brief. This includes audience, content, and delivery settings. You can also ask Operator to help you edit an existing campaign, such as adjusting targeting or refreshing the message content.
 - **Go from brief to campaign:** Describe a full campaign brief, and Operator helps you build a draft that includes copy, images, personalization, targeting, and send-time recommendations. Review the draft in the campaign composer and refine it with follow-up prompts before you launch it.
 - **Create and edit segments:** When you start a segment, describe the audience you want and Operator helps you build the filter logic, including attribute conditions, event history, and catalog lookups. Operator can also help you edit an existing segment's filters when your targeting strategy needs changes.
-- **Create Segment Extensions:** Operator can help you build a SQL-defined [Segment Extension]({{site.baseurl}}/user_guide/audience/segments/segment_extension) by writing the query that defines it. Describe the audience logic you want, and Operator drafts the query for you to review before you save it. For more on Operator and SQL, see [Write SQL queries](#write-sql-queries).
+- **Create Segment Extensions:** Operator can help you build a SQL-defined [Segment Extension]({{site.baseurl}}/user_guide/audience/segments/segment_extension) by writing the query that defines it. Describe the audience logic you want, and Operator drafts the query for you to review before you save it. You can also ask Operator for help from the Segment Extensions overview. For more on Operator and SQL, see [Write SQL queries](#write-sql-queries).
+- **Import and manage users:** On supported audience pages, Operator can help you [import users]({{site.baseurl}}/user_guide/audience/manage_audience/import_users), [delete users]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users), and [merge duplicate profiles]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users). Review each proposed action before it's saved.
 
 ## Agents {#agents}
 
@@ -60,7 +65,7 @@ Operator can help you build and refine agents in [Agent Console]({{site.baseurl}
 
 ## Content and creative {#content-and-creative}
 
-Operator can generate and review the content in your messages, including copy, message HTML, Liquid, and images, and applies your brand guidelines automatically wherever they're configured.
+Operator can generate and review the content in your messages, including copy, message HTML, Liquid, and images, and applies your brand guidelines automatically wherever they're configured. You can also ask Operator for help from template library and overview pages. For example, you can create or update [email templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates) or Content Blocks from their list pages, schedule work on the [Content Calendar]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar), create [in-app message color profile templates]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles), or configure [Banner placements]({{site.baseurl}}/developer_guide/banners/placements).
 
 ### Apply brand guidelines {#apply-brand-guidelines}
 
@@ -99,13 +104,13 @@ You get the best results when you use Operator in the composer you're building, 
 
 ### Create Content Blocks {#create-content-blocks}
 
-Operator can help you create [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks), the reusable pieces of content you insert across messages. Describe the block you want, and Operator drafts its content for you to review before you save it. Because Content Blocks are shared, updating one updates every message that references it.
+Operator can help you create [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks), the reusable pieces of content you insert across messages. Describe the block you want, and Operator drafts its content for you to review before you save it. You can start from the Content Blocks overview or from an open block. Because Content Blocks are shared, updating one updates every message that references it.
 
 Operator creates Content Blocks one at a time in the dashboard. To create Content Blocks in bulk, use the [Create Content Block]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) endpoint with an API key that has the `content_blocks.create` permission.
 
 ### Create message templates {#create-message-templates}
 
-Operator can help you create reusable [message templates]({{site.baseurl}}/user_guide/messaging/templates) that you can apply across campaigns. Describe the template you want, and Operator drafts it for you to review before you save it. Generating a template works much like generating a message, so see [Generate messages](#generate-messages) for the supported channels and editors.
+Operator can help you create reusable [message templates]({{site.baseurl}}/user_guide/messaging/templates) that you can apply across campaigns. Describe the template you want, and Operator drafts it for you to review before you save it. You can start from a template overview page, such as [email templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates), or from an open template. Generating a template works much like generating a message, so see [Generate messages](#generate-messages) for the supported channels and editors.
 
 ### Generate Liquid {#generate-liquid}
 
@@ -193,9 +198,23 @@ Operator can reference the following to answer questions or ground the content i
 
 Ask Operator directly if you're not sure whether it can look up a specific piece of information.
 
+Operator can also help you add new [custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) and [custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) when you're on those pages.
+
 ### Analyze performance data {#analyze-performance-data}
 
 Ask Operator plain-language questions about your campaign and Canvas performance, and it returns charts, comparisons, and short insights pulled from your workspace data. Unlike Operator's page-aware features, which need context from the page you're on, Analyze answers from anywhere in the dashboard. For more information, see [Operator Analyze]({{site.baseurl}}/user_guide/brazeai/operator/analyze).
+
+### Build reports and dashboards {#build-reports-and-dashboards}
+
+Operator can help you build [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder) reports and [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) dashboards from a natural-language brief. Describe the metrics, channels, and date range you want, and Operator drafts the report or dashboard for you to review before you save it.
+
+This is different from [Operator Analyze](#analyze-performance-data), which answers performance questions in the chat panel without creating a saved report.
+
+For example, on the Report Builder page, ask: "Build me a report which shows my workspace SMS engagement over the last 30 days."
+
+### Create predictions {#create-predictions}
+
+Operator can help you view and create [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) predictions and [AI Item Recommendations]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai). Describe the outcome you want, and Operator proposes the prediction or recommendation for you to review.
 
 ### Write SQL queries {#write-sql-queries}
 
@@ -213,8 +232,12 @@ Operator can review and update settings across several workspace configuration p
 - [Push settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)
 - [Messaging rate limits]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)
 - [Approval workflows]({{site.baseurl}}/user_guide/messaging/governance/approvals), including [messaging rules]({{site.baseurl}}/user_guide/messaging/governance/approvals/messaging_rules) and always-on approval
-- [APIs and identifiers]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), including [other identifiers]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers) and API limits
+- [APIs and identifiers]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), including [other identifiers]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers), API limits, and [API usage alerts]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
 - [Admin settings contact information]({{site.baseurl}}/user_guide/administer/global/admin_settings/contact_information)
+- [Security settings]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings) and [SCIM provisioning]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning)
+- [Roles]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role) and [permission sets]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#create-a-permission-set)
+- [Exports log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/exports_log)
+- Message prioritization categories
 
 {% alert note %}
 Operator's coverage of settings pages expands regularly. **Ask Operator directly** for the most current answer of what it can configure.

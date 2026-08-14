@@ -24,9 +24,9 @@ If an action fails after approval, Operator notifies you with details about the 
 
 ### Availability
 
-Action cards are supported for message content in the same channels and editors where Operator can generate messages, and on the [Create custom agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) page. For supported channels and editors, see [Generate messages]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages).
+Operator can propose action cards on supported dashboard pages, including message composers, list and overview pages, settings, and other surfaces where it can act. For representative coverage, see [What you can do with Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities). For supported message channels and editors, see [Generate messages]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages).
 
-On other pages, Operator provides a list of steps to follow in the UI instead of taking action itself. Operator functionality is regularly being improved, and expanded coverage for create tools is expected.
+Coverage expands regularly. If Operator can't act on the page you're on, it provides a list of steps to follow in the UI instead.
 
 ## Modify a plan
 
