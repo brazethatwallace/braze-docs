@@ -53,7 +53,7 @@ Voici les exigences minimales individuelles du SDK pour ces fonctionnalités :
 
 ### Prérequis supplémentaires {#additional-prerequisites}
 
-- Pour le SDK web, l'option d'initialisation [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) doit être définie sur `true`. L'option `enableHtmlInAppMessages` permet également à ces messages de fonctionner, mais elle est obsolète et doit être remplacée par `allowUserSuppliedJavascript`.
+- Pour le SDK Web, l'option d'initialisation [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) doit être définie sur `true`. L'option `enableHtmlInAppMessages` permet également à ces messages de fonctionner, mais elle est obsolète et doit être remplacée par `allowUserSuppliedJavascript`.
 - Si vous utilisez Google Tag Manager, vous devez activer « Allow HTML In-App Messages » dans la configuration GTM.
 
 ## Étape 1 : Créer un message in-app {#step-1-create-an-in-app-message}
@@ -132,9 +132,9 @@ Les utilisateurs peuvent sélectionner le bouton de fermeture X pour quitter le 
 
 ## Étape 4 : Créer et concevoir votre message in-app {#step-4-build-and-design-your-in-app-message}
 
-C'est ici que votre message peut défiler sur le podium, habillé du style signature de votre marque. En utilisant une combinaison de blocs éditeur et de paramètres de style, vous pouvez personnaliser et concevoir votre message in-app.
+C'est ici que votre message peut défiler sur le podium, habillé du style signature de votre marque. En combinant les blocs éditeur et les paramètres de style, vous pouvez personnaliser et concevoir votre message in-app.
 
-- Pour une liste des blocs éditeur disponibles et de leurs propriétés, consultez [Blocs éditeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
+- Pour obtenir la liste des blocs éditeur disponibles et de leurs propriétés, consultez [Blocs éditeur]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
 - Pour obtenir de l'aide sur la personnalisation de l'apparence de votre message, consultez [Paramètres de style]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings).
 - Pour les bonnes pratiques de création de messages de droite à gauche, consultez [Créer des messages de droite à gauche]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
@@ -158,11 +158,11 @@ Vous pouvez prévisualiser les messages depuis l'onglet **Aperçu et test**, com
 
 ### Liste de vérification pour les tests {#test-checklist}
 
-Tenez compte des questions suivantes lorsque vous testez votre message in-app :
+Considérez les questions suivantes lorsque vous testez votre message in-app :
 
 - Avez-vous testé le message sur différents appareils ?
 - Les images et les médias s'affichent-ils et fonctionnent-ils comme prévu ?
-- Le Liquid fonctionne-t-il comme prévu ? Avez-vous prévu une valeur d'attribut par défaut dans le cas où le Liquid ne renvoie aucune information ?
+- Le Liquid fonctionne-t-il comme prévu ? Avez-vous prévu une valeur d'attribut par défaut dans le cas où le Liquid ne renverrait aucune information ?
 - Votre texte est-il clair, concis et correct ?
 - Vos boutons dirigent-ils l'utilisateur là où il doit aller ?
 
@@ -178,9 +178,9 @@ Oui, vous pouvez segmenter en fonction des clics sur les boutons pour un maximum
 
 ![Le champ « Identifier for Reporting » avec la valeur « 0 ».]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-### Puis-je personnaliser mon message in-app en utilisant du HTML personnalisé ou du JavaScript, ou transférer des messages HTML existants dans l'éditeur ? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
+### Puis-je personnaliser mon message in-app avec du HTML personnalisé ou du JavaScript, ou transférer des messages HTML existants dans l'éditeur ? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
-Vous ne pouvez pas transférer directement des messages HTML existants dans l'éditeur, mais vous pouvez insérer du HTML brut, du CSS et du JavaScript dans un bloc **Code personnalisé**. Vous pouvez utiliser les blocs **Code personnalisé** pour intégrer des vidéos tierces et du Liquid avancé, comme le contenu connecté ou les instructions conditionnelles. Pour les méthodes JavaScript `brazeBridge` et les exemples de suivi des clics, consultez [Messages in-app en HTML personnalisé]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html).
+Vous ne pouvez pas transférer directement des messages HTML existants dans l'éditeur, mais vous pouvez insérer du HTML brut, du CSS et du JavaScript dans un bloc **Custom code**. Vous pouvez utiliser les blocs **Custom code** pour intégrer des vidéos tierces et du Liquid avancé, comme le contenu connecté ou les instructions conditionnelles. Pour les méthodes JavaScript `brazeBridge` et les exemples de suivi des clics, consultez [Messages in-app en HTML personnalisé]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html).
 
 ### Comment puis-je créer un message in-app contextuel ? {#how-can-i-create-a-slideup-in-app-message}
 
@@ -188,8 +188,17 @@ Actuellement, l'éditeur est limité aux messages modaux et plein écran uniquem
 
 ### Puis-je enregistrer mon message in-app en tant que modèle après l'avoir créé dans ma Campaign ou mon Canvas ? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Oui. Pour tout message in-app que vous souhaitez réutiliser dans une future Campaign ou étape du Canvas, vous pouvez l'enregistrer en tant que modèle personnalisé à l'aide du bouton **Enregistrer en tant que modèle**, disponible après avoir quitté l'éditeur. Avant de pouvoir l'enregistrer en tant que modèle, vous devez d'abord lancer la Campaign OU l'enregistrer en tant que brouillon.
+Oui. Pour tout message in-app que vous souhaitez réutiliser dans une future Campaign ou étape du Canvas, vous pouvez l'enregistrer en tant que modèle personnalisé à l'aide du bouton **Save as template**, disponible après avoir quitté l'éditeur. Avant de pouvoir l'enregistrer en tant que modèle, vous devez d'abord lancer la Campaign OU l'enregistrer en tant que brouillon.
 
 ![Un aperçu d'un message in-app pour une visite guidée du produit.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-Vous pouvez également créer et enregistrer des modèles de messages in-app en accédant à **Contenu** > **In-App Message**.
+Vous pouvez également créer et enregistrer des modèles de messages in-app en accédant à **Content** > **In-App Message**.
+
+### Pourquoi ma syntaxe Liquid apparaît-elle en texte brut dans mon message in-app paginé ? {#why-is-my-liquid-syntax-appearing-as-plain-text-in-my-paginated-in-app-message}
+
+Si vous voyez la syntaxe Liquid apparaître en texte brut lors du test d'un message in-app paginé (au lieu du contenu personnalisé), il peut y avoir une erreur de syntaxe Liquid sur l'une des pages. S'il y a une erreur de syntaxe sur une page, cela affecte le rendu du Liquid sur toutes les pages du message — les pages ne sont pas indépendantes.
+
+Pour résoudre le problème :
+
+1. Vérifiez chaque page de votre message pour détecter les erreurs de syntaxe Liquid. Un aperçu défaillant sur une page ne signifie pas que l'erreur se trouve sur cette page — puisque les pages ne sont pas indépendantes, l'erreur de syntaxe peut se trouver n'importe où dans le message.
+2. Vérifiez que toutes les étiquettes Liquid sont correctement fermées et formatées.

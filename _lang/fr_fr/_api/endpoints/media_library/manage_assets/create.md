@@ -15,17 +15,23 @@ description: "Cet article fournit des informations détaillées sur l'endpoint `
 /media_library/create
 {% endapimethod %}
 
-> Utilisez cet endpoint pour ajouter une ressource à la [bibliothèque multimédia de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) à l'aide d'une URL hébergée en externe (`asset_url`) ou de données de fichier binaire envoyées dans le corps de la requête (`asset_file`).
+> Utilisez cet endpoint pour ajouter une ressource à la [bibliothèque multimédia de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) à l'aide d'une URL hébergée en externe (`asset_url`) ou de données de fichier binaire envoyées dans le corps de la requête (`asset_file`). Cet endpoint prend en charge les images, les documents et les fichiers ZIP qui les contiennent. Pour la liste complète, consultez [Types de fichiers pris en charge](#supported-file-types).
 
 ## Types de fichiers pris en charge {#supported-file-types}
 
-Cet endpoint prend en charge les types de fichiers suivants :
+Cet endpoint accepte les types de fichiers suivants, que vous les téléchargiez via `asset_url` ou `asset_file`.
 
-| Type de fichier | Formats | Taille maximale | Remarques |
-|-----------|---------|--------------|-------|
-| Images | PNG, JPEG, GIF, SVG, WebP | 5 Mo | |
-| Fichiers ZIP | .zip | 50 Mo au total ; 5 Mo par fichier dans le ZIP | Ne doit contenir que des images ou des SVG ; tous les fichiers doivent se trouver à la racine du ZIP (pas de sous-répertoires) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Types de fichiers pris en charge" }
+| Type de ressource | Types de fichiers pris en charge | Taille maximale |
+| --- | --- | --- |
+| Image | GIF, ICO, JPEG, JPG, PNG, WebP | 5&nbsp;Mo |
+| Image vectorielle | SVG | 5&nbsp;Mo |
+| Document | DOC, DOCX, PDF, PPT, PPTX, XLS, XLSX | 5&nbsp;Mo |
+| Archive | ZIP | 50&nbsp;Mo au total, 5&nbsp;Mo par fichier dans le ZIP |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 style="table-layout: fixed; width: 100%;" aria-label="Types de fichiers pris en charge" }
+
+Si vous téléchargez un type de fichier qui n'est pas répertorié ici, l'endpoint renvoie une erreur `UNSUPPORTED_FILE_TYPE`.
+
+Pour les fichiers ZIP, chaque fichier à l'intérieur de l'archive doit également être l'un des types de fichiers pris en charge répertoriés ici, et tous les fichiers doivent se trouver à la racine du fichier ZIP (pas de sous-répertoires). Tout fichier non pris en charge est ignoré et renvoyé dans le tableau `errors` de la réponse, et le reste de l'archive est tout de même téléchargé.
 
 {% alert note %}
 Les fichiers de contact virtuels (.vcf) et les fichiers vidéo peuvent être téléchargés dans la bibliothèque multimédia, mais uniquement via l'interface du tableau de bord (**Content** > **Media Library**), et non via cet endpoint API.
@@ -159,13 +165,13 @@ Ce tableau répertorie les erreurs de traitement possibles.
 
 | Code d'erreur | Statut HTTP | Description |
 | --- | --- | --- |
-| `UNSUPPORTED_FILE_TYPE` | 400 | Le type de fichier téléchargé n'est pas pris en charge. L'objet `meta` contient le `file_type` qui a été rejeté. |
-| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | Le fichier dépasse la taille maximale autorisée. Les images sont limitées à 5 Mo. |
+| `UNSUPPORTED_FILE_TYPE` | 400 | Le type de fichier téléchargé n'est pas pris en charge. Consultez [Types de fichiers pris en charge](#supported-file-types). L'objet `meta` contient le `file_type` qui a été rejeté. |
+| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | Le fichier dépasse la taille maximale autorisée de 5&nbsp;Mo. |
 | `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | L'espace de travail a atteint son nombre maximal de ressources (200 par défaut pour les entreprises en essai gratuit, illimité dans les autres cas). L'objet `meta` inclut la `limit` actuelle. |
 | `ASSET_UPLOAD_FAILED` | 400 | Le téléchargement de la ressource a échoué en raison de problèmes de traitement. |
 | `INVALID_ASSET_URL` | 400 | La valeur `asset_url` n'est pas un URI valide. L'objet `meta` contient `asset_url`. |
 | `ZIP_UPLOAD_ERROR` | 400 | Le fichier ZIP est endommagé ou n'a pas pu être ouvert. L'objet `meta` contient le message `original_error`. |
-| `ZIP_FILE_TOO_LARGE` | 400 | La taille totale non compressée du fichier ZIP dépasse la limite de 5 Mo. L'objet `meta` comprend le `zip_file_name` et le `zip_file_size`. |
+| `ZIP_FILE_TOO_LARGE` | 400 | La taille totale non compressée du fichier ZIP dépasse la limite de 50&nbsp;Mo. L'objet `meta` comprend le `zip_file_name` et le `zip_file_size`. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | Une entrée de fichier à l'intérieur du ZIP n'a pas de nom. Assurez-vous que le fichier ZIP n'est pas endommagé et attribuez un nom à toute entrée de fichier sans nom. |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | Le fichier ZIP contient des répertoires imbriqués, qui ne sont pas pris en charge. Tous les fichiers doivent se trouver à la racine du fichier ZIP. |
 | `GENERIC_ERROR` | 500 | Une erreur imprévue s'est produite lors du téléchargement. L'objet `meta` contient le message `original_error` pour le débogage. Réessayez ou contactez l'[assistance]({{site.baseurl}}/support_contact). |

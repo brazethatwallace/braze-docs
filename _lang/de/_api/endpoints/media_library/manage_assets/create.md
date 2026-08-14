@@ -15,17 +15,23 @@ description: "Dieser Artikel enthält detaillierte Informationen zum Endpunkt `P
 /media_library/create
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um ein Asset zur [Braze-Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) hinzuzufügen, entweder über eine extern gehostete URL (`asset_url`) oder über Binärdaten, die im Anfragetext (`asset_file`) gesendet werden.
+> Verwenden Sie diesen Endpunkt, um ein Asset zur [Braze-Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) hinzuzufügen, entweder über eine extern gehostete URL (`asset_url`) oder über Binärdaten, die im Anfragetext (`asset_file`) gesendet werden. Dieser Endpunkt unterstützt Bilder, Dokumente und ZIP-Dateien, die diese enthalten. Die vollständige Liste finden Sie unter [Unterstützte Dateitypen](#supported-file-types).
 
 ## Unterstützte Dateitypen {#supported-file-types}
 
-Dieser Endpunkt unterstützt die folgenden Dateitypen:
+Dieser Endpunkt akzeptiert die folgenden Dateitypen, unabhängig davon, ob Sie sie über `asset_url` oder `asset_file` hochladen.
 
-| Dateityp | Formate | Maximale Größe | Hinweise |
-|-----------|---------|--------------|-------|
-| Bilder | PNG, JPEG, GIF, SVG, WebP | 5 MB | |
-| ZIP-Dateien | .zip | 50 MB insgesamt; 5 MB pro Datei innerhalb der ZIP | Darf nur Bilder oder SVGs enthalten; alle Dateien müssen sich im Stammverzeichnis der ZIP befinden (keine Unterverzeichnisse) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Unterstützte Dateitypen" }
+| Asset-Typ | Unterstützte Dateitypen | Maximale Größe |
+| --- | --- | --- |
+| Bild | GIF, ICO, JPEG, JPG, PNG, WebP | 5&nbsp;MB |
+| Vektorbild | SVG | 5&nbsp;MB |
+| Dokument | DOC, DOCX, PDF, PPT, PPTX, XLS, XLSX | 5&nbsp;MB |
+| Archiv | ZIP | 50&nbsp;MB insgesamt, 5&nbsp;MB pro Datei innerhalb der ZIP |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 style="table-layout: fixed; width: 100%;" aria-label="Unterstützte Dateitypen" }
+
+Wenn Sie einen Dateityp hochladen, der hier nicht aufgeführt ist, gibt der Endpunkt den Fehler `UNSUPPORTED_FILE_TYPE` zurück.
+
+Bei ZIP-Dateien muss jede Datei innerhalb des Archivs ebenfalls einem der hier aufgeführten unterstützten Dateitypen entsprechen, und alle Dateien müssen sich im Stammverzeichnis der ZIP-Datei befinden (keine Unterverzeichnisse). Nicht unterstützte Dateien werden übersprungen und im `errors`-Array der Antwort zurückgegeben, während der Rest des Archivs weiterhin hochgeladen wird.
 
 {% alert note %}
 Virtual Contact Files (.vcf) und Videodateien können in die Medienbibliothek hochgeladen werden, jedoch nur über die Dashboard-UI (**Inhalt** > **Medienbibliothek**), nicht über diesen API-Endpunkt.
@@ -159,13 +165,13 @@ Diese Tabelle listet mögliche Verarbeitungsfehler auf.
 
 | Fehlercode | HTTP-Status | Beschreibung |
 | --- | --- | --- |
-| `UNSUPPORTED_FILE_TYPE` | 400 | Der hochgeladene Dateityp wird nicht unterstützt. Das `meta`-Objekt enthält den abgelehnten `file_type`. |
-| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | Die Datei überschreitet die maximal zulässige Größe. Bilder dürfen maximal 5 MB groß sein. |
+| `UNSUPPORTED_FILE_TYPE` | 400 | Der hochgeladene Dateityp wird nicht unterstützt. Siehe [Unterstützte Dateitypen](#supported-file-types). Das `meta`-Objekt enthält den abgelehnten `file_type`. |
+| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | Die Datei überschreitet die maximal zulässige Größe von 5&nbsp;MB. |
 | `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | Der Workspace hat die maximale Anzahl an Assets erreicht (Standard: 200 für Unternehmen mit kostenloser Demo, ansonsten unbegrenzt). Das `meta`-Objekt enthält das aktuelle `limit`. |
 | `ASSET_UPLOAD_FAILED` | 400 | Das Asset konnte aufgrund von Verarbeitungsproblemen nicht hochgeladen werden. |
 | `INVALID_ASSET_URL` | 400 | Der `asset_url`-Wert ist kein gültiger URI. Das `meta`-Objekt enthält `asset_url`. |
 | `ZIP_UPLOAD_ERROR` | 400 | Die ZIP-Datei ist beschädigt oder konnte nicht geöffnet werden. Das `meta`-Objekt enthält die `original_error`-Nachricht. |
-| `ZIP_FILE_TOO_LARGE` | 400 | Die unkomprimierte Gesamtgröße der ZIP-Datei überschreitet das Limit von 5 MB. Das `meta`-Objekt enthält `zip_file_name` und `zip_file_size`. |
+| `ZIP_FILE_TOO_LARGE` | 400 | Die unkomprimierte Gesamtgröße der ZIP-Datei überschreitet das Limit von 50&nbsp;MB. Das `meta`-Objekt enthält `zip_file_name` und `zip_file_size`. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | Ein Dateieintrag innerhalb der ZIP-Datei hat keinen Namen. Stellen Sie sicher, dass die ZIP-Datei nicht beschädigt ist, und benennen Sie alle unbenannten Dateieinträge. |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | Die ZIP-Datei enthält verschachtelte Verzeichnisse, die nicht unterstützt werden. Alle Dateien müssen sich im Stammverzeichnis der ZIP-Datei befinden. |
 | `GENERIC_ERROR` | 500 | Beim Hochladen ist ein unerwarteter Fehler aufgetreten. Das `meta`-Objekt enthält die `original_error`-Nachricht zur Fehlerbehebung. Versuchen Sie es erneut oder wenden Sie sich an den [Support]({{site.baseurl}}/support_contact). |

@@ -104,6 +104,8 @@ Call-to-action URLs may contain variables, though Meta requires them to be at th
 
 ### Dynamic images
 
+You can add images from the media library or by URL. When you use a URL, you can personalize the image with [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) or [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), including full Liquid logic anywhere in the URL. Dynamic images are supported for template messages and response messages (media messages and quick reply layouts).
+
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 {% endtab %}

@@ -16,21 +16,21 @@ tool: Media
 
 | Anforderungen | Beschreibung |
 |---|---|
-| Berechtigung „View Media Library Assets“ | Assets der Medienbibliothek anzeigen |
-| Berechtigung „Edit Media Library Assets“ | Assets der Medienbibliothek erstellen und aktualisieren |
-| Berechtigung „Delete Media Library Assets“ | Assets der Medienbibliothek aus der UI entfernen. Gelöschte Assets werden weiterhin von Braze gehostet, um zu verhindern, dass Nachrichten, die auf sie verweisen, fehlerhaft werden. Um ein Asset dauerhaft zu löschen, wenden Sie sich an den Braze-Support. |
-| Berechtigung „Replace Media Library Assets“ | Die Datei eines vorhandenen Assets der Medienbibliothek ersetzen, wobei die URL und die Asset-ID unverändert bleiben |
+| Berechtigung „View Media Library Assets“ | Medienbibliothek-Assets anzeigen |
+| Berechtigung „Edit Media Library Assets“ | Medienbibliothek-Assets erstellen und aktualisieren |
+| Berechtigung „Delete Media Library Assets“ | Medienbibliothek-Assets aus der UI entfernen. Gelöschte Assets werden weiterhin von Braze gehostet, um zu verhindern, dass Nachrichten, die auf sie verweisen, fehlerhaft werden. Um ein Asset dauerhaft zu löschen, wenden Sie sich an den Braze-Support. |
+| Berechtigung „Replace Media Library Assets“ | Die Datei eines vorhandenen Medienbibliothek-Assets ersetzen, wobei die URL und die Asset-ID stabil bleiben |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Berechtigungen für die Medienbibliothek" }
 
 Weitere Informationen finden Sie unter [Nutzer:innenberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ## Medienbibliothek im Vergleich zu CDN {#media-library-versus-cdn}
 
-Die Verwendung der Medienbibliothek anstelle eines Content Delivery Network (CDN) bietet besseres Caching und bessere Performance für In-App-Nachrichten. Alle Medienbibliothek-Assets in einer In-App-Nachricht werden für eine schnellere Anzeige vorab zwischengespeichert und stehen auch offline zur Verfügung. Darüber hinaus ist die Medienbibliothek in die Braze-Editoren integriert, sodass Marketer Bilder auswählen oder taggen können, anstatt Bild-URLs kopieren und einfügen zu müssen.
+Die Verwendung der Medienbibliothek anstelle eines Content Delivery Network (CDN) bietet besseres Caching und bessere Performance für In-App-Nachrichten. Alle in einer In-App-Nachricht enthaltenen Assets aus der Medienbibliothek werden für eine schnellere Anzeige vorab zwischengespeichert und stehen auch offline zur Verfügung. Darüber hinaus ist die Medienbibliothek in die Braze-Editoren integriert, sodass Marketer Bilder auswählen oder taggen können, anstatt Bild-URLs kopieren und einfügen zu müssen.
 
 ## Zugriff auf die Medienbibliothek {#accessing-the-media-library}
 
-In der Medienbibliothek können Sie den Asset-Typ, die Größe, die Abmessungen, die URL, das Datum des Hinzufügens zur Bibliothek und weitere Informationen einsehen. Um auf Ihre Braze-Medienbibliothek zuzugreifen, gehen Sie zu **Inhalt** > **Medienbibliothek**. Hier können Sie:
+In der Medienbibliothek können Sie den Asset-Typ, die Größe, die Abmessungen, die URL, das Datum des Hinzufügens zur Bibliothek und weitere Informationen einsehen. Um auf Ihre Braze-Medienbibliothek zuzugreifen, navigieren Sie zu **Inhalt** > **Medienbibliothek**. Hier können Sie:
 
 * Mehrere Bilder gleichzeitig hochladen
 * Virtual Contact Files (.vcf) hochladen
@@ -66,22 +66,22 @@ Sie können die Datei eines vorhandenen Assets in der Medienbibliothek ersetzen 
 
 Um ein Asset zu ersetzen, benötigen Sie die Berechtigung „Replace Media Library Assets“:
 
-1. Gehen Sie zu **Content** > **Medienbibliothek**.
+1. Navigieren Sie zu **Inhalt** > **Medienbibliothek**.
 2. Wählen Sie das Asset aus, das Sie ersetzen möchten.
-3. Wählen Sie im Modal **Replace file** aus.
+3. Wählen Sie im Modal **Datei ersetzen** aus.
 4. Laden Sie die Ersatzdatei hoch.
 
-![Bearbeitungsmodal der Medienbibliothek mit den Buttons „Replace file“, „Crop image“ und „Delete“ für ein Asset.]({% image_buster /assets/img_archive/media_library_replace_file.png %}){: style="max-width:60%;border:none"}
+![Modal zum Bearbeiten in der Medienbibliothek mit den Buttons „Datei ersetzen“, „Bild zuschneiden“ und „Löschen“ für ein Asset.]({% image_buster /assets/img_archive/media_library_replace_file.png %}){: style="max-width:60%;border:none"}
 
 ### Anforderungen und Einschränkungen {#requirements-and-limitations}
 
-- Die Ersatzdatei muss die gleiche Dateierweiterung wie das Original haben. Beispielsweise können Sie ein `.png`-Asset nicht durch eine `.jpg`-Datei ersetzen.
+- Die Ersatzdatei muss dieselbe Dateierweiterung wie das Original haben. Beispielsweise können Sie ein `.png`-Asset nicht durch eine `.jpg`-Datei ersetzen.
 - Video-Assets können nicht ersetzt werden.
 - Nach dem Ersetzen kann es aufgrund von CDN-Caching einige Zeit dauern, bis die aktualisierte Datei für alle Verbraucher:innen angezeigt wird.
 
 ### Kanäle mit verarbeiteten Bildkopien {#channels-with-processed-image-copies}
 
-Einige Kanäle erstellen beim Einrichten der Nachricht eine optimierte Kopie des Bildes, was zu einer separaten URL führt. Das Ersetzen des ursprünglichen Medienbibliothek-Assets aktualisiert nicht, was Verbraucher:innen für Nachrichten sehen, die über diese Kanäle erstellt wurden, einschließlich In-App-Nachrichten, Content Cards, Push-Benachrichtigungen und Banner.
+Einige Kanäle erstellen beim Einrichten der Nachricht eine optimierte Kopie des Bildes, was zu einer separaten URL führt. Das Ersetzen des ursprünglichen Assets in der Medienbibliothek aktualisiert nicht, was Verbraucher:innen bei Nachrichten sehen, die über diese Kanäle erstellt wurden, einschließlich In-App-Nachrichten, Content Cards, Push-Benachrichtigungen und Banner.
 
 Sie können ein Asset auch programmatisch über den Endpunkt [`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file) ersetzen.
 
