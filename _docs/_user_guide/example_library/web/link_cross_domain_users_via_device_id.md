@@ -26,13 +26,13 @@ Both domains should use the same Braze workspace API key and SDK endpoint so eve
 
 ## Considerations
 
-- **Same browser only:** The device ID is per browser. This pattern does not link activity across different browsers, devices, or profiles. Use `external_id` through `changeUser` for authenticated, cross-device identity.
-- **Call timing:** Retrieve the device ID only after the Web SDK is initialized on the source domain. Calling `getDeviceId` before `initialize` does not return a value.
-- **Initialization-only `deviceId`:** The Web SDK reads `deviceId` once at `initialize`. There is no post-initialization `setDeviceId` that changes the active device ID. Read the URL parameter on the destination domain before calling `initialize`.
-- **Missing parameter:** Direct visits, bookmarks, or third-party referrals to the shop without `brazeDeviceId` should fall back to default device ID assignment—expected when there is no source-domain ID to inherit.
-- **Privacy and URL exposure:** Query parameters appear in browser history, server logs, and may leak through referrer headers. The device ID is not PII by itself, but strip the parameter after consumption if your privacy team requires it (see Step 2).
-- **Test end-to-end:** Confirm Domain 2 events use the expected device ID with network inspection.
-- **Illustrative code:** Adapt hostnames, link selectors, and error handling to your site. Test in your development environment before production.
+- The device ID is per browser. This pattern does not link activity across different browsers, devices, or profiles. Use `external_id` through `changeUser` for authenticated, cross-device identity.
+- Retrieve the device ID only after the Web SDK is initialized on the source domain. Calling `getDeviceId` before `initialize` does not return a value.
+- The Web SDK reads `deviceId` once at `initialize`. There is no post-initialization `setDeviceId` that changes the active device ID. Read the URL parameter on the destination domain before calling `initialize`.
+- Direct visits, bookmarks, or third-party referrals to the shop without `brazeDeviceId` should fall back to default device ID assignment—expected when there is no source-domain ID to inherit.
+- Query parameters appear in browser history, server logs, and may leak through referrer headers. The device ID is not PII on its own, but strip the parameter after consumption if your privacy team requires it (see Step 2).
+- Test end-to-end. Confirm Domain 2 events use the expected device ID with network inspection.
+- Adapt hostnames, link selectors, and error handling to your site. Test in your development environment before production.
 
 ## Setup
 
