@@ -21,22 +21,22 @@ channel:
 {% multi_lang_include analytics/campaign_analytics.md channel="SMS" %}
 
 {% alert note %}
-Dashboard-Klickmetriken wie **Total Clicks** schließen vermutete Bot-Aktivitäten aus. Informationen zu betroffenen Metriken, Segmentierung, Orchestrierung und Currents-Abgleichfeldern (`is_suspected_bot_click`, `suspected_bot_click_reason`) finden Sie unter [Bot-Klickfilterung für SMS-/RCS-Links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering).
+Dashboard-Klickmetriken wie *Total Clicks* schließen vermutete Bot-Aktivitäten aus, aber Currents exportiert weiterhin alle Klick-Ereignisse mit `is_suspected_bot_click` und `suspected_bot_click_reason` für den Data-Warehouse-Abgleich. Informationen zu betroffenen Dashboard-Metriken, Segmentierung und Orchestrierung finden Sie unter [Bot-Klickfilterung für SMS-/RCS-Links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering).
 {% endalert %}
 
-## SMS-Opt-ins und Opt-outs verfolgen {#track-sms-opt-ins-and-opt-outs}
+## SMS-Opt-ins und -Opt-outs verfolgen {#track-sms-opt-ins-and-opt-outs}
 
-Sie können SMS-Opt-ins und Opt-outs mit den folgenden Methoden verfolgen:
+Sie können SMS-Opt-ins und -Opt-outs mit den folgenden Methoden verfolgen:
 
 | Methode | Beschreibung |
 |--------|-------------|
 | Segmenter | Der Segmenter zeigt die Anzahl der Nutzer:innen in einer bestimmten [Abo-Gruppe]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#subscription-group) an. Er dedupliziert nicht nach Telefonnummer – wenn mehrere Nutzer:innen dieselbe Telefonnummer teilen, wird jede Instanz separat gezählt. |
-| Abo-Gruppen-Zeitreihe | Bietet eine tägliche Momentaufnahme der Abos für E-Mail und Telefonnummern. Die Zeitreihe zählt Abos, Abmeldungen und erneute Anmeldungen. Wenn sich beispielsweise ein:e Nutzer:in anmeldet, abmeldet und dann erneut anmeldet, wird diese Person als ein:e abonnierte:r Nutzer:in gezählt. |
+| Abo-Gruppen-Zeitreihe | Bietet eine tägliche Momentaufnahme der Abos für E-Mail und Telefonnummern. Die Zeitreihe zählt Abos, Abmeldungen und erneute Anmeldungen. Wenn sich beispielsweise eine Nutzer:in anmeldet, abmeldet und dann erneut anmeldet, wird sie als eine abonnierte Nutzer:in gezählt. |
 | Currents | Verwenden Sie Currents, um [Abo- und Engagement-Ereignisse]({{site.baseurl}}/message_events_glossary) für Ihr eigenes Reporting zu exportieren. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS-Opt-ins und Opt-outs verfolgen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS-Opt-ins und -Opt-outs verfolgen" }
 
 {% alert note %}
-Die Statistiken _Opt-in_ und _Opt-out_ im Panel **SMS/MMS/RCS Performance** spiegeln Nutzer:innen wider, die sich über eingehende Keywords an- oder abmelden (z. B. „START“ für Opt-in oder „STOP“ für Opt-out). Diese Zahlen sind in der Regel niedriger als im Segmenter angezeigt, da sie die Anzahl der Textnachrichten mit diesen Keywords zählen, nicht die Gesamtzahl der für SMS abonnierten Nutzer:innen.
+Die Statistiken _Opt-In_ und _Opt-Out_ im Panel **SMS/MMS/RCS Performance** spiegeln Nutzer:innen wider, die sich über eingehende Keywords an- oder abmelden (z. B. „START“ für Opt-in oder „STOP“ für Opt-out). Diese Zahlen sind in der Regel niedriger als im Segmenter angezeigt, da sie die Anzahl der Textnachrichten mit diesen Keywords zählen, nicht die Gesamtzahl der für SMS abonnierten Nutzer:innen.
 {% endalert %}
 
 ### SMS-Campaign-Opt-outs verfolgen {#track-sms-campaign-opt-outs}
@@ -54,17 +54,17 @@ AND action = 'Unsubscribed'
 AND (campaign_id IS NOT NULL OR canvas_id IS NOT NULL);
 ```
 
-Diese Abfrage gibt Nutzer:innen zurück, die sich von der SMS-Kommunikation für den angegebenen Workspace und die Abo-Gruppe abgemeldet haben, gefiltert nach denjenigen, die mit Campaigns oder Canvases verknüpft sind.
+Dies gibt Nutzer:innen zurück, die sich von der SMS-Kommunikation für den angegebenen Workspace und die Abo-Gruppe abgemeldet haben, gefiltert auf diejenigen, die mit Campaigns oder Canvases verknüpft sind.
 
 ### Opt-out-Zeitpunkt {#opt-out-timing}
 
-Keyword- und eingehende Nachrichtenereignisse in Currents oder Ihrem Data Warehouse, wie z. B. Zeitstempel bei [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) oder Abo-Gruppen-Statusänderungsereignissen, sind die maßgebliche Quelle dafür, wann Braze das Opt-out erfasst hat.
+Keyword- und eingehende-Nachrichten-Ereignisse in Currents oder Ihrem Data Warehouse, wie z. B. Zeitstempel bei [`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) oder Abo-Gruppen-Statusänderungsereignissen, sind die maßgebliche Quelle dafür, wann Braze das Opt-out erfasst hat.
 
 {% alert note %}
-Ereignis-Zeitstempel geben an, wann Braze die eingehende Nachricht empfangen oder verarbeitet hat, nicht unbedingt, wann die Nutzer:innen die SMS gesendet haben oder wann ein Mobilfunkanbieter oder SMS-Provider sie empfangen hat. Wenn Ihre Analyse Opt-outs als den Zeitpunkt behandelt, an dem Braze den eingehenden Opt-out-Pfad verarbeitet hat, stimmen diese Zeitstempel mit dieser Definition überein.
+Ereignis-Zeitstempel geben an, wann Braze die eingehende Nachricht empfangen oder verarbeitet hat, nicht unbedingt, wann die Nutzer:in die SMS gesendet hat oder wann ein Mobilfunkanbieter oder SMS-Provider sie empfangen hat. Wenn Ihre Analyse Opt-outs als den Zeitpunkt behandelt, an dem Braze den eingehenden Opt-out-Pfad verarbeitet hat, stimmen diese Zeitstempel mit dieser Definition überein.
 {% endalert %}
 
-Das Nutzerprofil zeigt den aktuellen Abo-Status an, enthält aber möglicherweise kein einzelnes Feld „SMS abgemeldet am“, es sei denn, Sie legen ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes) oder Ähnliches bei der Verarbeitung von Opt-outs fest.
+Das Nutzerprofil zeigt den aktuellen Abo-Status an, enthält aber möglicherweise kein einzelnes Feld „SMS abgemeldet am“, es sei denn, Sie setzen ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes) oder Ähnliches bei der Verarbeitung von Opt-outs.
 
 ## Gebühren für SMS-Sendeergebnisse {#charges-applied-to-sms-sending-outcomes}
 
@@ -81,6 +81,14 @@ Diese Tabelle zeigt die Braze-Abrechnung, nicht die Abrechnung Ihres Anbieters. 
 
 {% alert note %}
 **Sends to Carrier** ist für neue Dashboards veraltet. Verwenden Sie **Sent**, **Confirmed Delivery**, **Delivery Failed** und **Rejections** für das aktuelle Reporting. Definitionen finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/data/report_metrics).
+{% endalert %}
+
+## RCS- und SMS-Fallback-Reporting {#rcs-and-sms-fallback-reporting}
+
+Informationen zum Verhalten von RCS-SMS-Fallback-Ereignissen (einschließlich `IS_SMS_FALLBACK=TRUE`) finden Sie unter [Wie SMS-Fallback mit Ereignissen und Segmentierung funktioniert]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup#how-sms-fallback-works-with-events-and-segmentation).
+
+{% alert note %}
+Die Campaign-Analytics im Dashboard und Snowflake-Exporte können sich in Bezug auf Timing und Aggregation geringfügig unterscheiden. Für den Abgleich im Data Warehouse sollten Sie Snowflake- oder Currents-Ereignisströme als die granularere Quelle verwenden, wenn die Metriken nicht exakt mit dem Dashboard übereinstimmen.
 {% endalert %}
 
 ## *Rejections* mit Snowflake oder Currents abgleichen {#reconcile-rejections-with-snowflake-or-currents}

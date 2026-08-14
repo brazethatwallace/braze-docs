@@ -56,19 +56,19 @@ Se seus registros DNS não forem atualizados em até 45 dias, o token de configu
 
 A Braze verifica sua configuração de DNS aproximadamente a cada 30 minutos para checar atualizações.
 
-![Seção "DNS record" com 3 etapas a serem concluídas para finalizar a configuração do seu domínio.]({% image_buster /assets/img/dns_record.png %})
+![Seção "Registro DNS" com 3 etapas a serem concluídas para finalizar a configuração do seu domínio.]({% image_buster /assets/img/dns_record.png %})
 
 {% alert note %}
-O progresso do seu domínio é salvo automaticamente. Se você precisar sair no meio do processo, poderá retomá-lo depois selecionando a entrada de domínio pendente na página **SMS/RCS and Messaging Apps Domains**.
+O progresso do seu domínio é salvo automaticamente. Se você precisar sair no meio do processo, poderá retomar mais tarde selecionando a entrada de domínio pendente na página **SMS/RCS and Messaging Apps Domains**.
 {% endalert %}
 
 ### Gerenciamento e uso contínuos {#ongoing-management-and-usage}
 
-Depois que seu domínio for verificado, seus domínios personalizados aparecerão na tabela da página **SMS/RCS and Messaging Apps Domains** com indicadores de status. Você pode usar imediatamente os domínios conectados em vários grupos de inscrições, espaços de trabalho e nos canais SMS, RCS e WhatsApp.
+Após a verificação do seu domínio, seus domínios personalizados aparecerão na tabela da página **SMS/RCS and Messaging Apps Domains** com indicadores de status. Você pode usar imediatamente os domínios conectados em vários grupos de inscrições, espaços de trabalho e nos canais SMS, RCS e WhatsApp.
 
 ![Lista de domínios personalizados e status.]({% image_buster /assets/img/custom_domain_statuses.png %}){: style="max-width:60%;"}
 
-O monitoramento em tempo real alerta você no dashboard da Braze se algum dos seus domínios ativos tiver um problema, para que seus links personalizados permaneçam utilizáveis. Se você encontrar algum problema, consulte os detalhes do erro no app ou entre em contato com o [Suporte]({{site.baseurl}}/braze_support) da Braze para obter assistência.
+O monitoramento em tempo real alerta você no dashboard da Braze se algum dos seus domínios ativos apresentar um problema, para que seus links personalizados permaneçam utilizáveis. Se você encontrar algum problema, consulte os detalhes do erro no app ou entre em contato com o [Suporte]({{site.baseurl}}/braze_support) da Braze para obter assistência.
 
 ## Atribuindo domínios personalizados a grupos de inscrições {#assigning-custom-domains-to-subscription-groups}
 
@@ -94,7 +94,11 @@ Sim. Os domínios podem ser associados a grupos de inscrições em vários espa�
 
 ### Quantos domínios personalizados posso adicionar? {#how-many-custom-domains-can-i-add}
 
-Você pode adicionar até 10 domínios personalizados por dashboard.
+Você pode adicionar até 10 domínios personalizados por dashboard. A Braze pode configurar um limite maior para a sua empresa mediante solicitação.
+
+Domínios com status **Pending** ou **Error** contam para esse limite. Exclua-os ou resolva o erro na página **SMS/RCS and Messaging Apps Domains**.
+
+Não é possível excluir um domínio que está atribuído como **Link Shortening Domain** em um grupo de inscrições. Primeiro, reatribua o domínio em cada grupo de inscrições e, em seguida, exclua o domínio.
 
 ### O que acontece se eu não atualizar meus registros DNS em 45 dias? {#what-happens-if-i-dont-update-my-dns-records-within-45-days}
 

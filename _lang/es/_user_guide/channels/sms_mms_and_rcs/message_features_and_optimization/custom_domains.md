@@ -45,7 +45,7 @@ Si tus registros de DNS no se actualizan en un plazo de 45 días, el token de co
 ![Página "Dominios de SMS/RCS y aplicaciones de mensajería" con varios dominios listados.]({% image_buster /assets/img/main_page.png %})
 
 {: start="2"}
-2. Selecciona **Añadir dominio** para comenzar la configuración de un nuevo dominio personalizado.
+2. Selecciona **Añadir dominio** para iniciar la configuración de un nuevo dominio personalizado.
 3. Introduce el dominio personalizado que hayas adquirido en el campo de entrada de la aplicación, que utiliza nuestra lógica de validación existente para el formato correcto, y luego selecciona **Siguiente** y **Enviar**.
 
 ![Botón "Añadir dominio" en la página "Dominios de SMS/RCS y aplicaciones de mensajería".]({% image_buster /assets/img/custom_domain_button.png %}){: style="max-width:70%;"}
@@ -64,11 +64,11 @@ El progreso de tu dominio se guarda automáticamente. Si necesitas salir a mitad
 
 ### Gestión y uso continuos {#ongoing-management-and-usage}
 
-Una vez verificado tu dominio, tus dominios personalizados aparecerán en la tabla de la página **Dominios de SMS/RCS y aplicaciones de mensajería** con indicadores de estado. Puedes usar inmediatamente los dominios conectados en múltiples grupos de suscripción, espacios de trabajo y a través de los canales de SMS, RCS y WhatsApp.
+Una vez verificado tu dominio, tus dominios personalizados aparecerán en la tabla de la página **Dominios de SMS/RCS y aplicaciones de mensajería** con indicadores de estado. Puedes usar inmediatamente los dominios conectados en múltiples grupos de suscripción, espacios de trabajo y a través de los canales SMS, RCS y WhatsApp.
 
 ![Lista de dominios personalizados y estados.]({% image_buster /assets/img/custom_domain_statuses.png %}){: style="max-width:60%;"}
 
-La monitorización en vivo te alerta en el panel de Braze si alguno de tus dominios activos tiene un problema, para que tus enlaces personalizados sigan siendo utilizables. Si encuentras algún problema, consulta los detalles del error en la aplicación o contacta con el [soporte]({{site.baseurl}}/braze_support) de Braze para obtener asistencia.
+La monitorización en vivo te alerta en el panel de Braze si alguno de tus dominios activos tiene un problema, para que tus enlaces personalizados sigan siendo utilizables. Si encuentras algún problema, consulta los detalles del error en la aplicación o contacta con el [soporte]({{site.baseurl}}/braze_support) de Braze para obtener ayuda.
 
 ## Asignación de dominios personalizados a grupos de suscripción {#assigning-custom-domains-to-subscription-groups}
 
@@ -94,9 +94,13 @@ Sí. Los dominios se pueden asociar con grupos de suscripción en varios espacio
 
 ### ¿Cuántos dominios personalizados puedo añadir? {#how-many-custom-domains-can-i-add}
 
-Puedes añadir hasta 10 dominios personalizados por panel.
+Puedes añadir hasta 10 dominios personalizados por panel. Braze puede configurar un límite superior para tu empresa previa solicitud.
 
-### ¿Qué ocurre si no actualizo mis registros de DNS en un plazo de 45 días? {#what-happens-if-i-dont-update-my-dns-records-within-45-days}
+Los dominios en estado **Pendiente** o **Error** cuentan para este límite. Elimínalos o resuelve el error en la página **SMS/RCS and Messaging Apps Domains**.
+
+No puedes eliminar un dominio que esté asignado como **Link Shortening Domain** en un grupo de suscripción. Primero reasigna el dominio en cada grupo de suscripción y luego elimina el dominio.
+
+### ¿Qué sucede si no actualizo mis registros de DNS en un plazo de 45 días? {#what-happens-if-i-dont-update-my-dns-records-within-45-days}
 
 Aunque los detalles de tu registro de DNS de Cloudflare caducarán después de 45 días, puedes reiniciar el proceso de configuración con el mismo dominio y Braze generará un nuevo conjunto de registros de DNS para ampliar tu ventana de configuración.
 
@@ -104,10 +108,10 @@ Aunque los detalles de tu registro de DNS de Cloudflare caducarán después de 4
 
 Sí. Si hay un error, recibirás un banner en el panel de Braze con los detalles del problema junto con los pasos para resolverlo.
 
-### ¿Puedo utilizar un dominio personalizado en varios canales? {#can-i-use-a-custom-domain-across-multiple-channels}
+### ¿Puedo usar un dominio personalizado en varios canales? {#can-i-use-a-custom-domain-across-multiple-channels}
 
 Sí. Una vez verificado un dominio personalizado, se puede utilizar en todos los grupos de suscripción de SMS, RCS y WhatsApp en todos los espacios de trabajo dentro de un panel.
 
 ### ¿Qué pasa si tengo preguntas o necesito más ayuda? {#what-if-i-have-questions-or-need-further-support}
 
-Para obtener orientación más detallada sobre la configuración y gestión de dominios personalizados, incluidos los pasos de solución de problemas y los requisitos técnicos, [contacta con Soporte]({{site.baseurl}}/braze_support).
+Para obtener orientación más detallada sobre la configuración y gestión de dominios personalizados, incluidos los pasos de solución de problemas y los requisitos técnicos, [contacta con soporte]({{site.baseurl}}/braze_support).

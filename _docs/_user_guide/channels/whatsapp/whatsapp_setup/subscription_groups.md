@@ -18,13 +18,7 @@ channel:
 
 ## WhatsApp subscription states
 
-There are two subscription states for WhatsApp users: `subscribed` and `unsubscribed`.
-
-| State | Definition |
-| --- | --- |
-| Subscribed | User has explicitly confirmed that they want to receive WhatsApp messages from a specific company. Users can be subscribed by having their subscription state updated through the Braze subscription API or by deploying an opt-in strategy, as per WhatsApp's guidelines. |
-| Unsubscribed | User either hasn’t explicitly given consent for opt-in or their opt-in status has been explicitly removed. <br><br> Users unsubscribed from a WhatsApp subscription group will no longer receive any WhatsApp messages from sending phone numbers that belong to the subscription group. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="WhatsApp subscription states" }
+For WhatsApp subscription state definitions and how they relate to Meta opt-in requirements, see [Subscription status]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#whatsapp).
 
 ### Setting users' WhatsApp subscription groups
 
@@ -51,6 +45,8 @@ To archive a subscription group:
 3. Hover over the status for the subscription group and select <i class="fa-solid fa-box-archive"></i> **Archive**.
 
 ## WhatsApp opt-in and opt-out process
+
+For an overview of WhatsApp subscription status, opt-in requirements, and opt-out behavior, see [Subscription status]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#whatsapp).
 
 Currently, users can subscribe and [opt-in and opt-out]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) to WhatsApp messaging in various ways, including [SMS](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal), through a website, a WhatsApp thread, phone, or in person. Note that opt-ins are required.
 

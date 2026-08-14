@@ -21,7 +21,7 @@ channel:
 {% multi_lang_include analytics/campaign_analytics.md channel="SMS" %}
 
 {% alert note %}
-**合計クリック数**などのダッシュボードのクリック指標には、ボットアクティビティの疑いがあるものは含まれません。影響を受ける指標、セグメンテーション、オーケストレーション、およびCurrentsの照合フィールド（`is_suspected_bot_click`、`suspected_bot_click_reason`）については、[SMS/RCSリンクのボットクリックフィルタリング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering)を参照してください。
+*合計クリック数*などのダッシュボードのクリック指標には、ボットアクティビティの疑いがあるものは含まれませんが、Currentsはデータウェアハウスでの照合のために、`is_suspected_bot_click`および`suspected_bot_click_reason`を含むすべてのクリックイベントをエクスポートします。影響を受けるダッシュボード指標、セグメンテーション、オーケストレーションについては、[SMS/RCSリンクのボットクリックフィルタリング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering)を参照してください。
 {% endalert %}
 
 ## SMSのオプトインとオプトアウトの追跡 {#track-sms-opt-ins-and-opt-outs}
@@ -31,8 +31,8 @@ channel:
 | 方法 | 説明 |
 |--------|-------------|
 | セグメンター | セグメンターは、特定の[購読グループ]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#subscription-group)内のユーザー数を表示します。電話番号による重複排除は行われません。複数のユーザーが同じ電話番号を共有している場合、各インスタンスが個別にカウントされます。 |
-| 購読グループの時系列 | メールと電話番号の購読に関する日次スナップショットを提供します。時系列では、購読、購読解除、再購読がカウントされます。たとえば、あるユーザーが購読し、購読解除し、その後再購読した場合、そのユーザーは1人の購読済みユーザーとしてカウントされます。 |
-| Currents | Currentsを使用して、独自のレポート用に[購読およびエンゲージメントイベント]({{site.baseurl}}/message_events_glossary)をエクスポートします。 |
+| 購読グループの時系列 | メールと電話番号の購読に関する日次スナップショットを提供します。時系列では、購読、購読解除、再購読がカウントされます。たとえば、あるユーザーが購読し、購読解除し、その後再購読した場合、そのユーザーは1人の購読ユーザーとしてカウントされます。 |
+| Currents | Currentsを使用して、[購読およびエンゲージメントイベント]({{site.baseurl}}/message_events_glossary)を独自のレポート用にエクスポートできます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SMSのオプトインとオプトアウトの追跡" }
 
 {% alert note %}
@@ -76,11 +76,19 @@ Currentsまたはデータウェアハウスにおけるキーワードおよび
 | 配信失敗 | SMSペイロードをSMSプロバイダーに送信できませんでした。これは、キューのオーバーフロー、アカウントの停止、またはメディアエラー（MMSの場合）が原因で発生する可能性があります。 | 課金なし |
 | 配信済み | SMSプロバイダーが上流キャリアから（利用可能な場合は宛先デバイスからも）メッセージ配信の確認を受信しました。 | 課金あり |
 | 拒否 | SMSプロバイダーがメッセージが配信されなかったことを示す拒否レシートを受信しました。これは、キャリアのコンテンツフィルタリングや宛先デバイスの利用可否など、いくつかの理由で発生する可能性があります。 | 課金あり |
-| **キャリアへの送信** | {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %} 新しいダッシュボードでは非推奨です。一部のダッシュボードでは、この指標が**Sent to Carrier**と表示される場合があります。 | 個々のメッセージ送信結果に基づいて課金される場合があります |
+| **Sends to Carrier** | {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %} 新しいダッシュボードでは非推奨です。一部のダッシュボードでは、この指標が**Sent to Carrier**と表示される場合があります。 | 個々のメッセージ送信結果に基づいて課金される場合があります |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS送信結果に適用される料金" }
 
 {% alert note %}
-**キャリアへの送信**は新しいダッシュボードでは非推奨です。現在のレポートには**送信済み**、**配信確認済み**、**配信失敗**、および**拒否**を使用してください。定義については、[レポート指標用語集]({{site.baseurl}}/user_guide/data/report_metrics)を参照してください。
+**Sends to Carrier**は新しいダッシュボードでは非推奨です。現在のレポートには**Sent**、**Confirmed Delivery**、**Delivery Failed**、および**Rejections**を使用してください。定義については、[レポート指標用語集]({{site.baseurl}}/user_guide/data/report_metrics)を参照してください。
+{% endalert %}
+
+## RCSとSMSフォールバックのレポート {#rcs-and-sms-fallback-reporting}
+
+RCS SMSフォールバックイベントの動作（`IS_SMS_FALLBACK=TRUE`を含む）については、[SMSフォールバックがイベントとセグメンテーションでどのように機能するか]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup#how-sms-fallback-works-with-events-and-segmentation)を参照してください。
+
+{% alert note %}
+ダッシュボードのキャンペーン分析とSnowflakeエクスポートでは、タイミングや集計にわずかな違いが生じることがあります。データウェアハウスでの照合では、指標がダッシュボードと正確に一致しない場合、SnowflakeまたはCurrentsイベントストリームをより詳細なソースとして扱ってください。
 {% endalert %}
 
 ## *拒否*をSnowflakeまたはCurrentsと照合する {#reconcile-rejections-with-snowflake-or-currents}

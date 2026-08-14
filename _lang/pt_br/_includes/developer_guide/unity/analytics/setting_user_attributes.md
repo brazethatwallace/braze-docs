@@ -117,6 +117,14 @@ AppboyBinding.SetCustomUserAttribute("custom float attribute key", 'float value'
 
 {% endtab %}
 
+{% tab Double %}
+
+```csharp
+AppboyBinding.SetCustomUserAttribute("custom double attribute key", 'double value');
+```
+
+{% endtab %}
+
 {% tab Boolean %}
 
 ```csharp
@@ -192,7 +200,7 @@ AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 
 Você também pode usar nossa REST API para definir ou remover atributos de usuário. Para saber mais, consulte [Endpoints de dados do usuário]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
-## Definindo inscrições de usuários {#setting-user-subscriptions}
+## Definindo inscrições do usuário {#setting-user-subscriptions}
 
 Para configurar uma inscrição de e-mail ou push para seus usuários, chame uma das seguintes funções.
 
@@ -211,17 +219,17 @@ Ambas as funções recebem `Appboy.Models.AppboyNotificationSubscriptionType` co
 | `OPTED_IN` | Inscrito e com aceitação explícita |
 | `SUBSCRIBED` | Inscrito, mas sem aceitação explícita |
 | `UNSUBSCRIBED` | Cancelou a inscrição e/ou recusou explicitamente |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Definindo inscrições de usuários" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definindo inscrições do usuário" }
 
 {% alert note %}
 Não é necessária uma aceitação explícita no Windows para enviar notificações por push aos usuários. Quando um usuário é registrado para push, ele é definido como `SUBSCRIBED` em vez de `OPTED_IN` por padrão. Para saber mais, confira nossa documentação sobre [implementação de inscrições e aceitação explícita]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#managing-user-subscriptions).
 {% endalert %}
 
-| Tipo de inscrição | Descrição |
+| Tipo de inscrição                        | Descrição |
 |------------------------------------------|-------------|
-| `EmailNotificationSubscriptionType` | Os usuários serão definidos como `SUBSCRIBED` automaticamente ao receberem um endereço de e-mail válido. No entanto, recomendamos que você estabeleça um processo de aceitação explícita e defina esse valor como `OPTED_IN` ao receber o consentimento explícito do seu usuário. Acesse nosso documento sobre [Alteração de inscrições de usuários]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) para mais detalhes. |
-| `PushNotificationSubscriptionType` | Os usuários serão definidos como `SUBSCRIBED` automaticamente ao realizarem um registro de push válido. No entanto, recomendamos que você estabeleça um processo de aceitação explícita e defina esse valor como `OPTED_IN` ao receber o consentimento explícito do seu usuário. Acesse nosso documento sobre [Alteração de inscrições de usuários]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) para mais detalhes. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Definindo inscrições de usuários" }
+| `EmailNotificationSubscriptionType`      | Os usuários serão definidos como `SUBSCRIBED` automaticamente ao receberem um endereço de e-mail válido. No entanto, recomendamos que você estabeleça um processo de aceitação explícita e defina esse valor como `OPTED_IN` ao receber o consentimento explícito do seu usuário. Acesse nosso documento [Alterando inscrições de usuários]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) para mais detalhes. |
+| `PushNotificationSubscriptionType`       | Os usuários serão definidos como `SUBSCRIBED` automaticamente ao realizarem um registro de push válido. No entanto, recomendamos que você estabeleça um processo de aceitação explícita e defina esse valor como `OPTED_IN` ao receber o consentimento explícito do seu usuário. Acesse nosso documento [Alterando inscrições de usuários]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) para mais detalhes. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definindo inscrições do usuário" }
 
 {% alert note %}
 Esses tipos estão dentro de `Appboy.Models.AppboyNotificationSubscriptionType`.

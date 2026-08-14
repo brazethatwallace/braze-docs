@@ -12,7 +12,7 @@ description: "Cet article de référence traite des paramètres génériques de 
 
 > En tant qu'administrateur, la sécurité est une priorité absolue. La page **Paramètres de sécurité** vous permet de gérer les paramètres de sécurité génériques et interentreprises, notamment les règles d'authentification, la liste d'adresses IP autorisées et l'authentification à deux facteurs.
 
-Pour accéder à cette page, allez dans **Paramètres** > **Paramètres d'administration** > **Paramètres de sécurité**.
+Pour accéder à cette page, allez dans **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité**.
 
 ## Règles d'authentification
 
@@ -50,14 +50,14 @@ Utilisez le champ affiché pour ajouter à la liste d'autorisation les adresses 
 
 ## Authentification à deux facteurs (2FA)
 
-L'authentification à deux facteurs est requise pour tous les utilisateurs de l'entreprise. Elle ajoute un second niveau de vérification d'identité à la connexion d'un compte, le rendant plus sécurisé qu'un simple nom d'utilisateur et mot de passe. Si votre tableau de bord ne prend pas en charge l'authentification à deux facteurs, contactez votre gestionnaire du succès des clients.
+L'authentification à deux facteurs est requise pour tous les utilisateurs de l'entreprise. Elle ajoute un second niveau de vérification d'identité à la connexion d'un compte, le rendant plus sécurisé qu'un simple nom d'utilisateur et mot de passe. Si votre tableau de bord ne peut pas prendre en charge l'authentification à deux facteurs, contactez votre gestionnaire du succès des clients.
 
 Lorsque l'authentification à deux facteurs est activée :
 
 - En plus de saisir un mot de passe, les utilisateurs doivent entrer un code de vérification lors de la connexion à leur compte Braze. Le code peut être envoyé via une application d'authentification, par e-mail ou par SMS.
 - La case à cocher **Se souvenir de ce compte pendant 30 jours** devient disponible pour les utilisateurs.
 
-Braze verrouille l'accès des utilisateurs qui n'ont pas configuré leur authentification à deux facteurs sur leur compte Braze. Les utilisateurs de comptes Braze peuvent également configurer l'authentification à deux facteurs par eux-mêmes dans les **Paramètres du compte**, même si cela n'est pas exigé par l'administrateur.
+Braze verrouille l'accès des utilisateurs qui ne configurent pas leur authentification à deux facteurs sur leur compte Braze. Les utilisateurs de comptes Braze peuvent également configurer l'authentification à deux facteurs par eux-mêmes dans les **Paramètres du compte**, même si cela n'est pas exigé par l'administrateur.
 
 N'oubliez pas d'enregistrer vos modifications avant de quitter la page !
 
@@ -75,7 +75,7 @@ Les clients disposant de plusieurs comptes au sein d'une entreprise sur le table
 
 Si vous rencontrez des difficultés pour vous connecter avec l'authentification à deux facteurs, contactez les administrateurs de votre entreprise pour réinitialiser votre authentification à deux facteurs. Les administrateurs peuvent effectuer les étapes suivantes :
 
-1. Accédez à **Paramètres** > **Utilisateurs de l'entreprise**.
+1. Accédez à **Paramètres** > **Paramètres de l'entreprise** > **Gestion des utilisateurs** > **Utilisateurs de l'entreprise**.
 2. Sélectionnez l'utilisateur dans la liste fournie.
 3. Sélectionnez **Réinitialiser** sous **Authentification à deux facteurs**.
 
@@ -83,11 +83,11 @@ Une réinitialisation peut résoudre des problèmes d'authentification courants 
 
 ### Exigences pour la 2FA au niveau de l'entreprise
 
-Tout d'abord, vérifiez si la 2FA est activée pour votre tableau de bord en accédant à **Paramètres de l'entreprise** > **Paramètres de sécurité** > **Authentification à deux facteurs**. Si le bouton est grisé, la 2FA n'a pas été activée pour votre entreprise et n'est pas obligatoire pour tous les utilisateurs de l'entreprise.
+Tout d'abord, vérifiez si la 2FA est activée pour votre tableau de bord en accédant à **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité** > **Authentification à deux facteurs**. Si le bouton est grisé, la 2FA n'a pas été activée pour votre entreprise et n'est pas obligatoire pour tous les utilisateurs de l'entreprise.
 
 #### Options utilisateur lorsque la 2FA n'est pas obligatoire
 
-Si la 2FA n'est pas imposée au niveau de l'entreprise, les utilisateurs individuels peuvent configurer la 2FA par eux-mêmes sur leur page Paramètres du compte. Dans ce cas, les utilisateurs ne seront pas verrouillés hors de leurs comptes s'ils ne la configurent pas. Vous pouvez identifier quels utilisateurs ont choisi d'activer la 2FA en consultant la page Gérer les utilisateurs.
+Si la 2FA n'est pas imposée au niveau de l'entreprise, les utilisateurs individuels peuvent configurer la 2FA par eux-mêmes sur leur page Paramètres du compte. Dans ce cas, les utilisateurs ne seront pas verrouillés hors de leurs comptes s'ils ne la configurent pas. Vous pouvez identifier quels utilisateurs ont choisi d'activer la 2FA en consultant la liste des **Utilisateurs de l'entreprise**.
 
 #### Exigences lorsque la 2FA est obligatoire
 
@@ -101,7 +101,7 @@ La 2FA est requise pour tous les utilisateurs de l'entreprise uniquement si l'au
 
 Pour activer manuellement l'authentification à deux facteurs (2FA) sur votre compte Braze, suivez ces étapes :
 
-1. Dans Braze, sélectionnez l'icône de votre profil dans l'en-tête global, puis sélectionnez **Manage your account**. Faites défiler jusqu'à la section **Two-Factor Authentication**, puis sélectionnez **Start Setup**.
+1. Dans Braze, sélectionnez l'icône de votre profil dans l'en-tête global, puis sélectionnez **Gérer votre compte**. Faites défiler jusqu'à la section **Two-Factor Authentication**, puis sélectionnez **Start Setup**.
 2. Saisissez votre mot de passe dans la fenêtre modale de connexion, puis sélectionnez **Check Password**.
 3. Dans la fenêtre modale **Two-Factor Authentication Setup**, saisissez votre numéro de téléphone, puis sélectionnez **Enable**.
 4. Copiez le code à sept chiffres généré depuis votre e-mail ou SMS, puis retournez dans Braze et collez-le dans la fenêtre modale **Two-Factor Authentication Setup**. Sélectionnez **Verify**.
@@ -109,9 +109,9 @@ Pour activer manuellement l'authentification à deux facteurs (2FA) sur votre co
 
 ## Accès élevé
 
-L'accès élevé ajoute une couche de sécurité supplémentaire pour les actions sensibles dans votre tableau de bord de Braze. Lorsqu'il est activé, les utilisateurs doivent vérifier à nouveau leur compte avant d'exporter un Segment ou de consulter une clé API. Pour utiliser l'accès élevé, accédez à **Paramètres** > **Paramètres d'administration** > **Paramètres de sécurité** et activez-le.
+L'accès élevé ajoute une couche de sécurité supplémentaire pour les actions sensibles dans votre tableau de bord de Braze. Lorsqu'il est activé, les utilisateurs doivent vérifier à nouveau leur compte avant d'exporter un Segment ou de consulter une clé API. Pour utiliser l'accès élevé, accédez à **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité** et activez l'option.
 
-Si un utilisateur ne parvient pas à se vérifier à nouveau, il sera redirigé vers l'endroit où il se trouvait et ne pourra pas poursuivre l'action sensible. Une fois la vérification effectuée avec succès, il n'aura pas besoin de la refaire pendant l'heure qui suit, sauf s'il se déconnecte entre-temps.
+Si un utilisateur ne parvient pas à se vérifier à nouveau, il sera redirigé vers l'endroit où il se trouvait et ne pourra pas poursuivre l'action sensible. Une fois la vérification réussie, il n'aura pas besoin de la refaire pendant l'heure qui suit, sauf s'il se déconnecte entre-temps.
 
 ## Téléchargement d'un rapport d'événements de sécurité {#security-event-report}
 
@@ -119,8 +119,8 @@ Le rapport d'événements de sécurité est un rapport CSV des événements de s
 
 Pour télécharger ce rapport, procédez comme suit :
 
-1. Allez dans **Paramètres** > **Paramètres d'administration**.
-2. Sélectionnez l'onglet **Paramètres de sécurité** et accédez à la section **Téléchargement des événements de sécurité**.
+1. Allez dans **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité**.
+2. Accédez à la section **Téléchargement des événements de sécurité**.
 3. Sélectionnez **Télécharger le rapport**.
 
 Ce téléchargement manuel de rapport contient uniquement les 10 000 événements de sécurité les plus récents pour votre compte. Si votre fichier CSV exporté contient exactement 10 001 lignes (y compris la ligne d'en-tête), vous avez atteint la limite de 10 000 événements du rapport et les événements plus anciens peuvent ne pas être inclus.
@@ -144,7 +144,7 @@ Le rapport CSV des événements de sécurité contient les colonnes suivantes :
 Les [exportations S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3) incluent ces colonnes ainsi que `Version`, la version du schéma pour le format d'exportation (actuellement `1`).
 
 {% details Événements de sécurité signalés %}
-### Connexion et compte {#login-and-account}
+### Connexion et compte
 - Signed In
 - Failed Login
 - Two-Factor Auth Setup Completed
@@ -184,16 +184,16 @@ Canvas
 - Segment Users Deleted
 - Cleared Cohort
 
-### Clé REST API {#rest-api-key}
+### Clé REST API
 - Added REST API key
 - Removed REST API key
 
-### Identifiant d'authentification basique {#basic-authentication-credential}
+### Identifiant d'authentification basique
 - Added Basic Auth credential
 - Updated Basic Auth credential
 - Removed Basic Auth credential
 
-### Autorisation {#permission}
+### Autorisation
 - Cleared Developer 2FA
 - Updated Account Permission
 - Added Team
@@ -207,7 +207,7 @@ Canvas
 - Updated Custom Role
 - Deleted Custom Role
 
-### Paramètres de l'entreprise {#company-settings}
+### Paramètres de l'entreprise
 - Added App Group
 - Added App
 - Company Settings Changed
@@ -222,19 +222,19 @@ Canvas
 - Updated Global Control Exclusions
 - Updated Subscription Group SMS Allow List
 
-### Modèle d'e-mail {#email-template}
+### Modèle d'e-mail
 - Added Email Template
 - Updated Email Template
 
-### Identifiant push {#push-credential}
+### Identifiant push
 - Updated Push Credential
 - Removed Push Credential
 
-### Outil de débogage du SDK {#sdk-debugger}
+### Outil de débogage du SDK
 - Started SDK Debugger Session
 - Exported SDK Debugger Log
 
-### Utilisateurs {#users}
+### Utilisateurs
 - Users Deleted
 - Users Viewed
 - User Import Started
@@ -243,7 +243,7 @@ Canvas
 - Single User Deletion Cancelled
 - Bulk User Deletion Cancelled
 
-### Catalogues {#catalogs}
+### Catalogues
 - Catalog Created
 - Catalog Deleted
 
@@ -272,7 +272,7 @@ Pour les capacités existantes d'autorisations d'équipe, consultez [Définir le
 La sélection et la définition de certains champs comme champs PII n'affectent que ce que les utilisateurs peuvent voir sur le tableau de bord de Braze et n'ont aucun impact sur la manière dont les données des utilisateurs finaux dans ces champs PII sont traitées.<br><br>Consultez votre équipe juridique pour aligner les paramètres de votre tableau de bord avec les réglementations et politiques de confidentialité applicables à votre entreprise, y compris celles relatives à la [conservation des données]({{site.baseurl}}/data_retention).
 {% endalert %}
 
-Vous pouvez sélectionner les champs que votre entreprise désigne comme PII dans le tableau de bord. Pour ce faire, allez dans **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité**.
+Vous pouvez sélectionner les champs que votre entreprise désigne comme PII dans le tableau de bord. Pour ce faire, allez dans **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité**.
 
 Les attributs suivants peuvent être désignés comme PII et masqués aux utilisateurs de l'entreprise qui ne disposent pas de l'autorisation **Voir les PII**.
 
@@ -302,11 +302,11 @@ Lors de la prévisualisation d'un message, l'autorisation **Voir les PII** n'est
 
 ## Préférences de suppression des données
 
-Vous pouvez utiliser ce paramètre pour définir des préférences indiquant si Braze doit supprimer certains champs lors du processus de suppression d'un utilisateur pour les événements. Ces préférences n'impactent que les données des utilisateurs que Braze a supprimés.
+Vous pouvez utiliser ce paramètre pour définir des préférences indiquant si Braze doit supprimer certains champs lors du processus de suppression d'un utilisateur pour les événements. Ces préférences n'ont d'impact que sur les données des utilisateurs que Braze a supprimés.
 
 Lorsqu'un utilisateur est supprimé, Braze retire toutes les données d'identification des données d'événements, mais conserve les données anonymisées à des fins d'analyse. Certains champs définis par l'utilisateur peuvent contenir des données d'identification si vous envoyez des informations sur l'utilisateur final à Braze. Si ces champs contiennent des données d'identification, vous pouvez choisir de supprimer les données lorsque Braze anonymise les données d'événements pour les utilisateurs supprimés ; si les champs ne contiennent pas de données d'identification, vous pouvez les conserver à des fins d'analyse.
 
-Il vous incombe de déterminer les préférences appropriées pour votre espace de travail. La meilleure façon de déterminer les paramètres adéquats est de consulter les équipes internes qui envoient des données d'événements à Braze et les équipes qui utilisent les extras de message dans Braze pour confirmer si les champs peuvent contenir des données d'identification.
+Il vous incombe de déterminer les préférences appropriées pour votre espace de travail. La meilleure façon de déterminer les paramètres appropriés est de consulter les équipes internes qui envoient des données d'événements à Braze et les équipes qui utilisent les extras de message dans Braze pour confirmer si les champs peuvent contenir des données d'identification.
 
 ### Champs concernés
 
@@ -327,17 +327,17 @@ Définissez les préférences par défaut en cochant les cases correspondant aux
 
 Pour personnaliser les préférences par espace de travail, vous pouvez ajouter des groupes de préférences avec des paramètres différents de ceux par défaut. Les paramètres par défaut sont appliqués à tous les espaces de travail qui ne sont pas ajoutés à un groupe de préférences supplémentaire, y compris les espaces de travail créés à l'avenir.
 
-![Section Préférences de suppression des données avec le bouton activé pour personnaliser les préférences de suppression des données par espace de travail.]({% image_buster /assets/img/deletion_preferences_1.png %})
+![Section Préférences de suppression des données avec le bouton bascule activé pour personnaliser les préférences de suppression des données par espace de travail.]({% image_buster /assets/img/deletion_preferences_1.png %})
 
 ## Résolution des problèmes
 
 ### Problèmes de boucle lors de la configuration de l'authentification à deux facteurs (2FA)
 
-Si vous vous retrouvez dans une boucle après avoir saisi votre numéro de téléphone pour la 2FA et que vous êtes redirigé vers la page de connexion, cela est probablement dû à un échec de vérification lors de la première tentative. Pour résoudre ce problème, suivez ces étapes :
+Si vous vous retrouvez dans une boucle après avoir saisi votre numéro de téléphone pour la 2FA et que vous êtes redirigé(e) vers la page de connexion, cela est probablement dû à un échec de vérification lors de la première tentative. Pour résoudre ce problème, suivez ces étapes :
 
-1. Désactivez tous les bloqueurs de publicités.
+1. Désactivez tout bloqueur de publicités.
 2. Activez les cookies dans les paramètres de votre navigateur.
-3. Redémarrez votre PC ou votre ordinateur portable.
+3. Redémarrez votre PC ou ordinateur portable.
 4. Essayez de configurer la 2FA à nouveau.
 
 Si le problème persiste après ces étapes, contactez le [Support]({{site.baseurl}}/braze_support) pour obtenir de l'aide.
@@ -346,7 +346,7 @@ Si le problème persiste après ces étapes, contactez le [Support]({{site.baseu
 
 Si la 2FA est activée mais que rien ne se passe lorsque vous sélectionnez le bouton **Activer**, cela peut être dû au fait que votre navigateur bloque la redirection nécessaire pour envoyer le code de vérification par SMS. Voici les étapes pour résoudre ce problème :
 
-1. Suspendez temporairement tous les bloqueurs de publicités activés dans votre navigateur.
+1. Suspendez temporairement tout bloqueur de publicités activé dans votre navigateur.
 2. Vérifiez que vous avez activé les cookies tiers dans les paramètres de votre navigateur.
 3. Essayez de configurer la 2FA.
 
@@ -358,7 +358,7 @@ Si vous rencontrez des problèmes lors de la saisie de votre numéro de téléph
 2. Saisissez votre numéro de téléphone et vérifiez l'application Authy pour tout changement ou notification SMS.
 3. Si vous ne recevez toujours pas le SMS, essayez d'utiliser une connexion réseau différente, comme votre réseau domestique ou un Wi-Fi non professionnel. Les réseaux d'entreprise peuvent avoir des politiques de sécurité qui interfèrent avec la réception des SMS.
 
-Si les problèmes persistent, supprimez l'ancien profil dans l'application Authy et scannez à nouveau le code QR pour configurer la 2FA. Assurez-vous d'avoir désactivé tous les bloqueurs de publicités, activé les cookies tiers ou utilisé un navigateur différent avant de tenter à nouveau la configuration.
+Si les problèmes persistent, supprimez l'ancien profil dans l'application Authy et scannez à nouveau le code QR pour configurer la 2FA. Assurez-vous d'avoir désactivé tout bloqueur de publicités, activé les cookies tiers ou utilisé un navigateur différent avant de tenter à nouveau la configuration.
 
 ## Étapes suivantes
 

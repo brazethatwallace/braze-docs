@@ -4,13 +4,16 @@ article_title: Subscription preferences
 page_order: 5
 layout: dev_guide
 guide_top_header: "Subscription preferences"
-guide_top_text: "Manage how users opt in and out of your messaging channels. Use <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>subscription groups</a> for category-level preferences and preference centers to give users control over email communication."
+guide_top_text: "Manage how users opt in and out of your messaging channels. Review <a href='/docs/user_guide/audience/subscription_preferences/subscription_status'>subscription status</a> across channels, use <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>subscription groups</a> for category-level preferences, and preference centers to give users control over email communication."
 
 page_type: landing
-description: "This section covers subscription preferences in Braze, including subscription groups, preference centers, and subscription management."
+description: "This section covers subscription preferences in Braze, including subscription status, subscription groups, preference centers, and subscription management."
 
 guide_featured_title: "Section articles"
 guide_featured_list:
+  - name: Subscription status
+    link: /docs/user_guide/audience/subscription_preferences/subscription_status
+    image: /assets/img/braze_icons/check-verified-02.svg
   - name: Subscription groups
     link: /docs/user_guide/audience/subscription_preferences/subscription_groups
     image: /assets/img/braze_icons/users-01.svg

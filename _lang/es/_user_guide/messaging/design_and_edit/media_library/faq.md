@@ -34,9 +34,9 @@ No, la biblioteca de medios no admite el recorte de imágenes GIF.
 
 Para copiar la URL de una imagen subida a la biblioteca de medios, ve a **Contenido** > **Biblioteca de medios**. Pasa el cursor sobre la imagen que deseas referenciar y selecciona el icono **Copiar URL de imagen** para copiar la URL de la imagen a tu portapapeles.
 
-### ¿Puedo usar imágenes SVG en correo electrónico? {#can-i-use-svg-images-in-email}
+### ¿Puedo usar imágenes SVG en correos electrónicos? {#can-i-use-svg-images-in-email}
 
-No se recomiendan las imágenes SVG para correo electrónico debido a la compatibilidad limitada entre los clientes de correo electrónico. Gmail y varios otros proveedores de correo electrónico importantes no renderizan imágenes SVG, lo que puede resultar en imágenes rotas o faltantes para los destinatarios. Para una renderización confiable del correo electrónico, usa los formatos PNG, JPEG o GIF en su lugar.
+No se recomiendan las imágenes SVG para correos electrónicos debido a la compatibilidad limitada entre los clientes de correo electrónico. Gmail y varios otros proveedores de correo electrónico importantes no renderizan imágenes SVG, lo que puede resultar en imágenes rotas o faltantes para los destinatarios. Para una renderización confiable del correo electrónico, usa los formatos PNG, JPEG o GIF en su lugar.
 
 ### ¿Cómo recorto una imagen existente? {#how-do-i-crop-an-existing-image}
 
@@ -48,7 +48,7 @@ Luego serás redirigido a un creador de recorte donde puedes seleccionar el tipo
 
 ![Ventana para recortar y guardar una imagen de la biblioteca de medios.]({% image_buster /assets/img_archive/media_library_crop2.png %}){: height="75%" width="75%"}
 
-### Mi imagen se agota el tiempo de espera cuando intento subirla. ¿Qué puedo hacer? {#my-image-keeps-timing-out-when-i-try-to-upload-it-what-can-i-do-about-this}
+### Mi imagen sigue agotando el tiempo de espera cuando intento subirla. ¿Qué puedo hacer al respecto? {#my-image-keeps-timing-out-when-i-try-to-upload-it-what-can-i-do-about-this}
 
 Esto puede ocurrir por diversas razones, pero una solución común es asegurarte de que tu imagen esté optimizada antes de intentar subirla. Esto significa pasar tu imagen por un optimizador de imágenes como [ImageOptim](https://imageoptim.com/mac).
 
@@ -58,7 +58,7 @@ Además, si tu imagen fue creada en Photoshop (o un software similar) y tiene mu
 
 Esto puede suceder por dos razones principales:
 
-1. **Metadatos no válidos en el archivo:** El software que Braze usa para procesar imágenes puede rechazar archivos con metadatos no válidos o incompatibles. En algunos casos, el archivo también puede procesarse de una manera que supere el límite de 5 MB. Intenta usar una imagen diferente (por ejemplo, vuelve a exportar o guardar la imagen desde tu editor de imágenes) o una imagen de otra fuente.
+1. **Metadatos no válidos en el archivo:** El software que Braze utiliza para procesar imágenes puede rechazar archivos con metadatos no válidos o incompatibles. En algunos casos, el archivo también puede procesarse de una manera que supere el límite de 5 MB. Intenta usar una imagen diferente (por ejemplo, vuelve a exportar o guardar la imagen desde tu editor de imágenes) o una imagen de otra fuente.
 2. **Caracteres especiales en el nombre del archivo:** Los nombres de archivo que contienen caracteres especiales (como `&` o `%`) pueden provocar que la subida falle. Renombra el archivo para usar solo letras, números, guiones o guiones bajos, y luego intenta subirlo de nuevo.
 
 ### ¿Por qué no puedo subir cualquier imagen que quiera en los creadores de push? {#why-cant-i-upload-any-image-i-want-into-the-push-composers}
@@ -71,7 +71,11 @@ Puedes generar imágenes desde **Contenido** > **Biblioteca de medios** seleccio
 
 ### ¿Qué sucede cuando elimino una imagen de la biblioteca de medios? {#what-happens-when-i-delete-an-image-from-the-media-library}
 
-Eliminar un activo lo quita de la interfaz de la biblioteca de medios, pero Braze mantiene el archivo alojado en su URL existente, por lo que las Campaigns activas y los Canvas que hacen referencia a esa URL continúan cargando la imagen. Para eliminar permanentemente un activo del alojamiento de Braze, contacta a soporte de Braze. Para actualizar lo que ven los destinatarios sin cambiar las URL en cada mensaje, usa [Reemplazar un archivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) en su lugar.
+Eliminar un activo lo retira de la interfaz de la biblioteca de medios, pero Braze mantiene el archivo alojado en su URL existente, por lo que las Campaigns activas y los Canvas que hacen referencia a esa URL continúan cargando la imagen. Para eliminar permanentemente un activo del alojamiento de Braze, contacta a soporte de Braze. Para actualizar lo que ven los destinatarios sin cambiar las URL en cada mensaje, usa [Reemplazar un archivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) en su lugar.
+
+### ¿Puedo cambiar los activos de imagen en correos electrónicos que ya se han enviado? {#can-i-change-image-assets-in-emails-that-have-already-been-sent}
+
+Puedes actualizar la imagen en un correo electrónico ya enviado [reemplazando el archivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) en su URL existente. La URL y el ID del activo permanecen iguales, por lo que cualquier mensaje que lo referencie, incluidos los correos electrónicos ya enviados, refleja el nuevo archivo. Algunos destinatarios pueden seguir viendo la imagen anterior si ya estaba almacenada en caché en su dispositivo antes de que realizaras el cambio, por lo que esto no garantiza que todos los destinatarios vean la actualización de inmediato.
 
 ### ¿Puedo crear URL personalizadas para los activos de imagen de la biblioteca de medios? {#can-i-create-vanity-urls-for-media-library-image-assets}
 
@@ -79,4 +83,4 @@ Las URL personalizadas para los activos de la biblioteca de medios no son compat
 
 ### ¿Por qué Chrome guarda las imágenes JPEG o PNG como archivos WebP? {#why-does-chrome-save-jpeg-or-png-images-as-webp-files}
 
-Cuando usas Chrome para guardar imágenes de la biblioteca de medios, el navegador puede convertir automáticamente los archivos JPEG o PNG al formato WebP. Este es el comportamiento predeterminado de Chrome para la descarga de imágenes y no es específico de Braze. Si necesitas guardar las imágenes en su formato original, intenta usar un navegador diferente como Safari o Firefox.
+Cuando usas Chrome para guardar imágenes de la biblioteca de medios, el navegador puede convertir automáticamente los archivos JPEG o PNG al formato WebP. Este es el comportamiento predeterminado de Chrome para las descargas de imágenes y no es específico de Braze. Si necesitas guardar las imágenes en su formato original, intenta usar un navegador diferente como Safari o Firefox.
