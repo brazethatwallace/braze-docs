@@ -14,9 +14,12 @@ guide_featured_list:
   - name: Test messages with mock JSON
     link: /docs/user_guide/example_library/personalize/test_messages_with_mock_json
     image: /assets/img/braze_icons/code-02.svg
+  - name: Compare translation approaches
+    link: /docs/user_guide/example_library/localization/compare_translation_approaches
+    image: /assets/img/braze_icons/globe-02.svg
 ---
 
-## What you will find here
+## What you find here
 
 Each example walks through a practical pattern: the goal it solves, what to consider before you build, and how to set it up in Braze. Examples are organized by topic, so you can find patterns that match the outcome you're working toward.
 
