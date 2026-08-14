@@ -36,7 +36,7 @@ It may take up to a few minutes for time zone updates to take effect.
 1. Locate the desired workspace in the list.
 2. Select the **Edit** icon next to the workspace name.
 
-!["Edit" button next to a workspace name.]({% image_buster /assets/img/workspaces/time_zones/single_edit_icon.png %})
+!["Workspace Time Zones" page with the "Edit" icon next to a workspace name.]({% image_buster /assets/img/workspaces/time_zones/single_edit_icon.png %})
 
 {: start="3"}
 3. In the dropdown menu, select the desired time zone for that workspace.
@@ -51,7 +51,7 @@ You can apply a specific time zone to multiple workspaces at one time by doing t
 2. Select **Edit time zone**.
 3. From the dropdown menu, select a time zone to apply to all the selected workspaces.
 
-!["Workspace time zones" page with multiple workspaces selected and an "Edit time zone" button.]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
+!["Workspace Time Zones" page with multiple workspaces selected and the "Edit time zone" dropdown open.]({% image_buster /assets/img/workspaces/time_zones/bulk_edit_workspace_time_zone.png %})
 
 {: start="4"}
 4. Select **Save**. 
