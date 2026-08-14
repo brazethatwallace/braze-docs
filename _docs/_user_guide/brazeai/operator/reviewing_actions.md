@@ -38,8 +38,8 @@ Approved actions can't be undone through Operator. Describe the new change to Op
 
 The **Auto-approve actions** toggle is located in the Operator chat panel.
 
-- **On:** Operator's suggested actions execute immediately without requiring manual approval. Some actions still require explicit approval for safety, such as generating images or making modifications to workspace-level settings.
-- **Off (default):** All proposed actions follow the manual review process described.
+- **On:** Operator's suggested actions execute immediately without requiring manual approval, including [navigating to a different page]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#navigate-the-dashboard) to complete your request. Some actions still require explicit approval for safety, such as generating images or making modifications to workspace-level settings.
+- **Off (default):** All proposed actions follow the manual review process described, including page navigation—Operator proposes the move and waits for your approval before taking you there.
 
 ![The auto-approve toggle and confirmation modal in the Operator chat panel.]({% image_buster /assets/img/operator/auto-approval_toggle.png %}){: style="max-width:50%;"}
 
