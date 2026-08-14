@@ -17,7 +17,7 @@ Workspace time zones for message sending are rolling out gradually. You may not 
 
 By default, a new workspace inherits the time zone set for your company. Admins can override this default for one or more workspaces with workspace time zones. When a workspace time zone is set, scheduled campaigns and Canvases within that workspace reference that new time zone for their send times.
 
-For example, if a workspace time zone is set to PST, and a campaign within that workspace is scheduled to send at 3 pm PST, it delivers at 3 pm PST. This holds true even if your company's overall time zone is different (such as EST, where 3 pm PST would be 6 pm EST).
+For example, if a workspace time zone is set to PST, and a campaign within that workspace is scheduled to send at 3 pm PST, it delivers at 3 pm PST. This holds true even if your company's overall time zone is different (such as EST, where 3 pm PST is 6 pm EST).
 
 ## Manage workspace time zones
 
