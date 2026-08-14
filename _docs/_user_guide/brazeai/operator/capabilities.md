@@ -104,13 +104,13 @@ You get the best results when you use Operator in the composer you're building, 
 
 ### Create Content Blocks {#create-content-blocks}
 
-Operator can help you create [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks), the reusable pieces of content you insert across messages. Describe the block you want, and Operator drafts its content for you to review before you save it. You can start from the Content Blocks overview or from an open block. Because Content Blocks are shared, updating one updates every message that references it.
+Operator can help you create [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks), the reusable pieces of content you insert across messages. Describe the block you want, and Operator drafts its content for you to review before you save it. Because Content Blocks are shared, updating one updates every message that references it.
 
 Operator creates Content Blocks one at a time in the dashboard. To create Content Blocks in bulk, use the [Create Content Block]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) endpoint with an API key that has the `content_blocks.create` permission.
 
 ### Create message templates {#create-message-templates}
 
-Operator can help you create reusable [message templates]({{site.baseurl}}/user_guide/messaging/templates) that you can apply across campaigns. Describe the template you want, and Operator drafts it for you to review before you save it. You can start from a template overview page, such as [email templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates), or from an open template. Generating a template works much like generating a message, so see [Generate messages](#generate-messages) for the supported channels and editors.
+Operator can help you create reusable [message templates]({{site.baseurl}}/user_guide/messaging/templates) that you can apply across campaigns. Describe the template you want, and Operator drafts it for you to review before you save it. You can start from anywhere in Braze. Generating a template works much like generating a message, so see [Generate messages](#generate-messages) for the supported channels and editors.
 
 ### Generate Liquid {#generate-liquid}
 
@@ -198,7 +198,6 @@ Operator can reference the following to answer questions or ground the content i
 
 Ask Operator directly if you're not sure whether it can look up a specific piece of information.
 
-Operator can also help you add new [custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) and [custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) when you're on those pages.
 
 ### Analyze performance data {#analyze-performance-data}
 
@@ -208,9 +207,7 @@ Ask Operator plain-language questions about your campaign and Canvas performance
 
 Operator can help you build [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder) reports and [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) dashboards from a natural-language brief. Describe the metrics, channels, and date range you want, and Operator drafts the report or dashboard for you to review before you save it.
 
-This is different from [Operator Analyze](#analyze-performance-data), which answers performance questions in the chat panel without creating a saved report.
-
-For example, on the Report Builder page, ask: "Build me a report which shows my workspace SMS engagement over the last 30 days."
+For example, ask: "Build me a report that shows my workspace SMS engagement over the last 30 days."
 
 ### Create predictions {#create-predictions}
 
