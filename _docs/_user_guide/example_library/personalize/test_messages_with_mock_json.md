@@ -12,7 +12,7 @@ description: "Use Liquid capture and json_parse to mock Connected Content or ent
 
 ## About this example
 
-Flash & Thread, a clothing retail brand, builds messages that depend on Connected Content responses, Canvas context variables, or array of objects profile data. Triggering real API calls or launching campaigns for every iteration slows development.
+Flash & Thread, a fictional clothing retail brand, builds messages that depend on Connected Content responses, Canvas context variables, or array of objects profile data. Triggering real API calls or launching campaigns for every iteration slows development.
 
 This pattern embeds a mock JSON payload in the message body, stores it with `capture`, then parses it with `json_parse` so Liquid can reference structured fields in the **Preview** section—without a live Connected Content call, API-triggered Canvas entry, or test send.
 

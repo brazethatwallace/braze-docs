@@ -12,7 +12,7 @@ description: "Pass the Braze Web SDK device ID from Kitchenerie's marketing site
 
 ## About this example
 
-Kitchenerie hosts a marketing site (`kitchenerie.com`) and a shop (`kitchenerie.shop`). Each domain has its own Braze Web SDK integration. Browser cookies do not cross domains, so Braze assigns separate device IDs—and separate anonymous profiles—when the same user moves from the marketing site to the shop.
+Kitchenerie, a fictional kitchenware retailer, hosts a marketing site (`kitchenerie.com`) and a shop (`kitchenerie.shop`). Each domain has its own Braze Web SDK integration. Browser cookies do not cross domains, so Braze assigns separate device IDs—and separate anonymous profiles—when the same user moves from the marketing site to the shop.
 
 This pattern:
 
