@@ -17,9 +17,12 @@ guide_featured_list:
   - name: Match catalog items to an attribute array
     link: /docs/user_guide/example_library/catalogs/match_catalog_items_to_attribute_array
     image: /assets/img/braze_icons/list.svg
+  - name: Compare translation approaches
+    link: /docs/user_guide/example_library/localization/compare_translation_approaches
+    image: /assets/img/braze_icons/globe-02.svg
 ---
 
-## What you will find here
+## What you find here
 
 Each example walks through a practical pattern: the goal it solves, what to consider before you build, and how to set it up in Braze. Examples are organized by topic, so you can find patterns that match the outcome you're working toward.
 
