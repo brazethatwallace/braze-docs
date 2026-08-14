@@ -10,13 +10,13 @@ description: "Diese Seite behandelt die Verwaltung Ihrer Unternehmensnutzer:inne
 
 > Erfahren Sie, wie Sie Nutzer:innen in Ihrem Unternehmenskonto verwalten, einschließlich Hinzufügen, Sperren und Löschen von Nutzer:innen.
 
-## Firmennutzer:innen hinzufügen {#adding-company-users}
+## Unternehmensnutzer:innen hinzufügen {#adding-company-users}
 
 Sie müssen über Administratorberechtigungen verfügen, um Nutzer:innen zu Ihrem Braze-Konto hinzuzufügen.
 
 So fügen Sie eine:n neue:n Nutzer:in hinzu:
 
-1. Gehen Sie zu **Einstellungen** > **Firmeneinstellungen** > **Nutzer:innenverwaltung** > **Firmennutzer:innen**.
+1. Gehen Sie zu **Einstellungen** > **Unternehmenseinstellungen** > **Nutzer:innenverwaltung** > **Unternehmensnutzer:innen**.
 2. Wählen Sie **+ Neue:n Nutzer:in hinzufügen** aus.
 3. Geben Sie die erforderlichen Informationen ein, einschließlich E-Mail, Abteilung und [Nutzer:innenrolle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role).
 4. Wählen Sie für Nutzer:innen, die keine Administratoren sind, die [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions) auf Firmen- und Workspace-Ebene aus, die diese:r Nutzer:in haben soll.
@@ -51,11 +51,11 @@ Administrator:innen können Nutzer:innen auch sperren, indem sie den Namen in de
 
 ![Nutzer:in sperren beim Bearbeiten der Nutzerdetails.]({% image_buster /assets/img_archive/suspend_user2.png %}){: style="max-width:70%;"}
 
-## Firmennutzer:innen löschen {#deleting-company-users}
+## Unternehmensnutzer:innen löschen {#deleting-company-users}
 
-Um eine:n Nutzer:in zu löschen, gehen Sie zu **Einstellungen** > **Firmeneinstellungen** > **Nutzer:innenverwaltung** > **Firmennutzer:innen**, suchen Sie den Namen der/des Nutzer:in und wählen Sie <i class="fa fa-trash-can"></i> **Nutzer:in löschen** aus.
+Um eine:n Nutzer:in zu löschen, gehen Sie zu **Einstellungen** > **Unternehmenseinstellungen** > **Nutzer:innenverwaltung** > **Unternehmensnutzer:innen**, suchen Sie den Namen der/des Nutzer:in und wählen Sie <i class="fa fa-trash-can"></i> **Nutzer:in löschen** aus.
 
-Nur Administrator:innen können Firmennutzer:innen löschen, und Firmennutzer:innen können ihre eigenen Konten nicht löschen. Eine:r Administrator:in kann das eigene Dashboard-Konto nicht löschen; eine:r andere:r Administrator:in muss dies übernehmen.
+Nur Administrator:innen können Unternehmensnutzer:innen löschen, und Unternehmensnutzer:innen können ihre eigenen Konten nicht löschen. Eine:r Administrator:in kann das eigene Dashboard-Konto nicht löschen; eine:r andere:r Administrator:in muss dies übernehmen.
 
 ![Eine:n Nutzer:in löschen.]({% image_buster /assets/img_archive/delete_user_new.png %})
 

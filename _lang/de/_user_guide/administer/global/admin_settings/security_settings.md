@@ -107,7 +107,7 @@ Um die Zwei-Faktor-Authentifizierung (2FA) für Ihr Braze-Konto manuell zu aktiv
 2. Geben Sie Ihr Passwort in das Anmeldefenster ein und wählen Sie dann **Check Password** aus.
 3. Geben Sie im Fenster **Two-Factor Authentication Setup** Ihre Telefonnummer ein und wählen Sie dann **Enable** aus.
 4. Kopieren Sie den generierten siebenstelligen Code aus Ihrer E-Mail oder SMS-Nachricht, kehren Sie dann zu Braze zurück und fügen Sie ihn in das Fenster **Two-Factor Authentication Setup** ein. Wählen Sie **Verify** aus.
-5. (Optional) Um die 2FA-Eingabe für die nächsten 30 Tage zu überspringen, aktivieren Sie die Option **Remember this account for 30 days**.
+5. (Optional) Um die 2FA-Eingabe für die nächsten 30 Tage zu überspringen, aktivieren Sie die Option **Dieses Konto 30 Tage merken**.
 
 ## Elevated Access
 
