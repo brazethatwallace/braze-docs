@@ -84,7 +84,28 @@ If you use Single Sign-On (SSO), be aware that having multiple different email a
 
 To reset your password, select the **Forgot your password?** link on the dashboard login page. You'll be prompted to input your email to receive a link to reset your password.
 
-![Dashboard login with "Forgot your password?" prompt.]({% image_buster /assets/img_archive/enable_reset.png %}){: style="max-width:60%"}
+
+#### Password reset email not received
+
+If you requested a password reset but haven't received the email, try the following troubleshooting steps:
+
+{% alert note %}
+If your company enforces [single sign-on (SSO)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), the login page may not offer **Forgot your password?** or send password reset emails because password login is disabled. Sign in through your organization's identity provider instead, or contact your Braze administrator.
+{% endalert %}
+
+1. **Verify your email address:** Have an admin check that the email on your account matches in **Settings** > **Company Users**. The reset link is sent to the email registered in the system.
+2. **Check spam and junk folders:** Look for emails from `@alerts.braze.com` in your spam or junk folder.
+3. **Verify IT email filters:** Confirm with your IT team that emails from `@alerts.braze.com` aren't being blocked or filtered.
+4. **Confirm the correct dashboard instance:** Make sure you're requesting the reset from the correct [Braze dashboard instance]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Check with your account administrator or Braze account manager if you're unsure.
+5. **Try a different browser:** Some browser extensions or settings may interfere with the password reset process. Try using a different browser or an incognito window.
+
+Password reset links expire two hours after the email is sent. If your link has expired, request a new reset from the login page.
+
+If none of these steps work, an admin can delete and recreate your user account as a workaround. For more information, see [Manage company users]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users).
+
+{% alert note %}
+Deleting and recreating a user account resets their permissions and may affect asset attribution for campaigns, Canvases, and other content previously owned by that user.
+{% endalert %}
 
 ### Clearing your browser cache and cookies
 
