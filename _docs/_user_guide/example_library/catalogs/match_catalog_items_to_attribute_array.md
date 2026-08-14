@@ -23,14 +23,20 @@ This pattern:
 3. Loops over `items` and uses `contains` to match each catalog field (for example `name` or `id`) against the array.
 
 {% alert important %}
-This pattern works only when the selection's result set (up to 50 catalog rows) can plausibly contain each user's saved items. It fits small catalogs, or catalogs where filters narrow the selection tightly enough to cover a typical list. If a user's saved items fall outside the 50 rows returned, the loop finds no matches and the message renders nothing for those items—no filter resolves this in the general case, because the selection can't match against the user's profile array.
+This pattern works only when the selection's result set (up to 50 catalog rows) can plausibly contain each user's saved items. It fits:
+
+- Small catalogs
+- Catalogs where filters narrow the selection tightly enough to cover a typical list
+
+If a user's saved items fall outside the 50 rows returned, the loop finds no matches and the message renders nothing for those items—no filter resolves this in the general case, because the selection can't match against the user's profile array.
 {% endalert %}
 
 ## Considerations
 
 - Test Liquid and catalog data in a staging workspace before you send to customers.
 - Because a selection returns at most 50 catalog rows, add filters (for example, in stock, active category, or price band) that keep each user's likely saved items within that result set.
-- This example uses a string array on the user profile. For an array of objects, match on a property inside each object (for example `product_id`) and adjust the `contains` check or use a `for` loop over objects—see [Array of objects]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/).
+- This example uses a string array on the user profile.
+- For an array of objects, match on a property inside each object (for example `product_id`) and adjust the `contains` check or use a `for` loop over objects. See [Array of objects]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/).
 - `contains` behavior depends on attribute type; for arrays, use `contains` rather than `==`. See [Conditional logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/).
 - Match on stable identifiers (for example catalog `id`) when product names can change or duplicate.
 - The Liquid snippets in this article are examples. Validate rendering in your channels (email HTML, push, and so on).
@@ -75,7 +81,7 @@ Image: {{ item.image_url }}
 
 Replace `item.name` with `item.id` (or another column) if your array stores IDs instead of display names. Add spacing or HTML between fields for your channel. In {% raw %}`${{ item.price }}`{% endraw %}, the `$` is a literal currency symbol that prints before the Liquid output—it isn't part of Braze's {% raw %}`${}`{% endraw %} personalization syntax.
 
-You can also generate this Liquid from the **Add Personalization** modal (**Catalog Items** > **Use a selection**). See [Using catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
+To generate this Liquid automatically, open the **Add Personalization** modal (**Catalog Items** > **Use a selection**). See [Using catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
 
 ### Step 3: Preview and test
 
