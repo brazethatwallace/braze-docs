@@ -29,7 +29,7 @@ You can either log in from the [Braze.com](https://www.braze.com) home site, or 
 * [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta)
 * [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)
 
-After you log into Braze with SSO, you can no longer use your password to log into the dashboard. Both email addresses will direct emails to the same inbox, but Braze will recognize them as separate accounts when you log in. Clearing cookies will log you out, so unsaved work will be lost.
+After you log into Braze with SSO, you can no longer use your password to log into the dashboard. Both email addresses direct emails to the same inbox, but Braze recognizes them as separate accounts when you log in. Clearing cookies logs you out, so unsaved work is lost.
 
 ## Supported browsers
 
@@ -155,7 +155,7 @@ If you're experiencing issues logging into Braze Learning and find yourself stuc
 
 1. If you have multiple Braze accounts, logging in with the wrong account twice sends you to the Braze dashboard. Confirm you're logging into the correct account.
 2. If you have an ad blocker, confirm it is turned off. It may block cookies necessary for single sign-on functionality.
-3. Go to **Company Settings** > **Security Settings** and verify that single sign-on (SSO) is turned on.
+3. Go to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings** and verify that single sign-on (SSO) is turned on.
 4. Confirm that your dashboard user profile includes both a first and last name. Not having a last name can disrupt the login process.
 5. Access Braze Learning from your dashboard by going to **Support** > **Braze Learning**.
 6. If you continue to experience issues, consider re-creating your account. Users who accessed Braze Learning during the free trial phase may have difficulties accessing it now.
@@ -166,9 +166,9 @@ If a user is experiencing issues with Two-Factor Authentication (2FA) and can't 
 
 An admin should reset the 2FA for the affected user by doing the following:
 
-1. Go to **Manage Users**.
-2. Select **Edit User** for the user experiencing 2FA issues.
-3. Choose the option to Reset 2FA.
+1. Go to **Settings** > **User Management**.
+2. Select the user experiencing 2FA issues.
+3. Under **Two Factor Authentication**, select **Reset**.
 4. Confirm the 2FA reset when prompted.
 5. If the reset doesn't immediately resolve the issue, clear your cookies and cache.
 
@@ -244,7 +244,7 @@ If you've solved the prior issues and your dashboard still won't load or work as
 
 ### The user belongs to no workspace
 
-Admins can resolve this by going to **Settings** > **Company Users**, checking the user's workspace-level permissions, and adding the necessary workspaces to **Workspaces**.
+Admins can resolve this by going to **Settings** > **User Management**, checking the user's workspace-level permissions, and adding the necessary workspaces to **Workspaces**.
 
 ### Troubleshooting as a new user
 
