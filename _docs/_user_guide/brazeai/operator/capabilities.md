@@ -19,6 +19,14 @@ You can keep the conversation going with follow-ups. Operator remembers earlier 
 
 Operator has the same permissions you do, so certain actions require the relevant permission for that surface. For example, generating an image requires *Edit Media Library Assets*. If you don't see an entry point, check your permissions with your admin. For more information, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
+## Navigate the dashboard {#navigate-the-dashboard}
+
+Operator isn't limited to acting only on the page you're currently viewing. When a prompt needs a different part of the dashboard, Operator identifies the destination, proposes the navigation, and takes you there before continuing its work.
+
+This means Operator can chain multi-step work together from a single prompt. For example, if you ask Operator from the home page to help set up your drag-and-drop editor settings to match your brand guidelines, it navigates you to the relevant email settings and continues helping you from there. Describe the outcome you want in plain language, and Operator can take you to the relevant settings or feature to begin work.
+
+By default, Operator asks you to approve a proposed navigation before it moves you to a new page, the same as it does for other proposed actions. To let Operator navigate without waiting for your approval each time, turn on [Auto-approve actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions#auto-approve-actions).
+
 ## What Operator can create {#what-operator-can-create}
 
 Beyond generating copy and Liquid, Operator can help you build several other objects across the dashboard, including but not limited to:

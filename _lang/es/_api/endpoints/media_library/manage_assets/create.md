@@ -15,17 +15,23 @@ description: "Este artículo describe los detalles sobre el endpoint `POST /medi
 /media_library/create
 {% endapimethod %}
 
-> Utiliza este endpoint para añadir un activo a la [biblioteca de medios de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) utilizando una URL alojada externamente (`asset_url`) o datos de archivo binario enviados en el cuerpo de la solicitud (`asset_file`).
+> Utiliza este endpoint para añadir un activo a la [biblioteca de medios de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) utilizando una URL alojada externamente (`asset_url`) o datos de archivo binario enviados en el cuerpo de la solicitud (`asset_file`). Este endpoint admite imágenes, documentos y archivos ZIP que los contengan. Para ver la lista completa, consulta [Tipos de archivo compatibles](#supported-file-types).
 
 ## Tipos de archivo compatibles {#supported-file-types}
 
-Este endpoint admite los siguientes tipos de archivo:
+Este endpoint admite los siguientes tipos de archivo, tanto si los cargas a través de `asset_url` como de `asset_file`.
 
-| Tipo de archivo | Formatos | Tamaño máximo | Notas |
-|-----------|---------|--------------|-------|
-| Imágenes | PNG, JPEG, GIF, SVG, WebP | 5 MB | |
-| Archivos ZIP | .zip | 50 MB en total; 5 MB por archivo dentro del ZIP | Solo debe contener imágenes o SVG; todos los archivos deben estar en la raíz del ZIP (sin subdirectorios) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tipos de archivo compatibles" }
+| Tipo de activo | Tipos de archivo compatibles | Tamaño máximo |
+| --- | --- | --- |
+| Imagen | GIF, ICO, JPEG, JPG, PNG, WebP | 5&nbsp;MB |
+| Imagen vectorial | SVG | 5&nbsp;MB |
+| Documento | DOC, DOCX, PDF, PPT, PPTX, XLS, XLSX | 5&nbsp;MB |
+| Archivo comprimido | ZIP | 50&nbsp;MB en total, 5&nbsp;MB por archivo dentro del ZIP |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 style="table-layout: fixed; width: 100%;" aria-label="Tipos de archivo compatibles" }
+
+Si cargas un tipo de archivo que no aparece aquí, el endpoint devuelve un error `UNSUPPORTED_FILE_TYPE`.
+
+Para archivos ZIP, cada archivo dentro del archivo comprimido también debe ser uno de los tipos de archivo compatibles enumerados aquí, y todos los archivos deben estar en la raíz del archivo ZIP (sin subdirectorios). Cualquier archivo no compatible se omite y se devuelve en el array `errors` de la respuesta, y el resto del archivo comprimido se carga igualmente.
 
 {% alert note %}
 Los archivos de contacto virtual (.vcf) y los archivos de video se pueden cargar en la biblioteca de medios, pero solo a través de la interfaz del panel (**Contenido** > **Biblioteca de medios**), no a través de este endpoint de API.
@@ -159,13 +165,13 @@ Esta tabla enumera los posibles errores de procesamiento.
 
 | Código de error | Estado HTTP | Descripción |
 | --- | --- | --- |
-| `UNSUPPORTED_FILE_TYPE` | 400 | El tipo de archivo cargado no es compatible. El objeto `meta` incluye el `file_type` que fue rechazado. |
-| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | El archivo supera el tamaño máximo permitido. Las imágenes tienen un límite de 5 MB. |
+| `UNSUPPORTED_FILE_TYPE` | 400 | El tipo de archivo cargado no es compatible. Consulta [Tipos de archivo compatibles](#supported-file-types). El objeto `meta` incluye el `file_type` que fue rechazado. |
+| `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | El archivo supera el tamaño máximo permitido de 5&nbsp;MB. |
 | `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | El espacio de trabajo ha alcanzado su número máximo de activos (200 de forma predeterminada para las empresas con versión de prueba gratuita, ilimitado en los demás casos). El objeto `meta` incluye el `limit` actual. |
 | `ASSET_UPLOAD_FAILED` | 400 | El activo no se pudo cargar debido a problemas de procesamiento. |
 | `INVALID_ASSET_URL` | 400 | El valor de `asset_url` no es un URI válido. El objeto `meta` incluye `asset_url`. |
 | `ZIP_UPLOAD_ERROR` | 400 | El archivo ZIP está dañado o no se puede abrir. El objeto `meta` incluye el mensaje `original_error`. |
-| `ZIP_FILE_TOO_LARGE` | 400 | El tamaño total sin comprimir del archivo ZIP supera el límite de 5 MB. El objeto `meta` incluye el `zip_file_name` y el `zip_file_size`. |
+| `ZIP_FILE_TOO_LARGE` | 400 | El tamaño total sin comprimir del archivo ZIP supera el límite de 50&nbsp;MB. El objeto `meta` incluye el `zip_file_name` y el `zip_file_size`. |
 | `ZIPPED_ENTITY_HAS_NO_NAME` | 400 | Una entrada de archivo dentro del ZIP no tiene nombre. Asegúrate de que el archivo ZIP no esté dañado y añade un nombre a cualquier entrada de archivo sin nombre. |
 | `ZIPPED_ENTITY_CANNOT_HAVE_NESTED_DIRECTORY` | 400 | El archivo ZIP contiene directorios anidados, que no son compatibles. Todos los archivos deben estar en el nivel raíz del ZIP. |
 | `GENERIC_ERROR` | 500 | Se produjo un error inesperado durante la carga. El objeto `meta` incluye el mensaje `original_error` para la depuración. Vuelve a intentarlo o ponte en contacto con [Soporte]({{site.baseurl}}/support_contact). |

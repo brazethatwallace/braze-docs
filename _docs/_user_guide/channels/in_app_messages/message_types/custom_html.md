@@ -182,6 +182,19 @@ If a button in your custom HTML in-app message does not load when clicked, verif
 
 Calling `brazeBridge.closeMessage()` closes the message but does not log analytics on its own. To log a body click when the user closes the message, call `brazeBridge.logClick()` before `brazeBridge.closeMessage()` so click logging stays consistent across platforms.
 
+#### Custom HTML not rendering on Android (Windows zip files)
+
+If your custom HTML in-app message renders in preview but fails to display on Android devices, check how your HTML and asset files were packaged. Some Windows zip utilities add directory entries (folder paths) inside the archive instead of placing files at the root level.
+
+Android may fail to load assets referenced with relative paths when the zip includes nested directory entries. To fix this:
+
+1. Extract your HTML, CSS, JavaScript, and image files to a single folder.
+2. Select all files (not the parent folder) when creating the zip archive.
+3. Confirm paths in your HTML reference files at the zip root (for example, `style.css`, not `assets/style.css`), or adjust paths to match the flattened structure.
+4. Re-upload the zip and send a test message to an Android device.
+
+Alternatively, upload assets through the [media library](#asset-files) instead of bundling them in a zip file.
+
 ### Backward incompatible changes {#backward-incompatible-changes}
 
 1. The `braze://close` deeplink, which was previously supported on mobile apps, has been removed in favor of the JavaScript `brazeBridge.closeMessage()`. This allows for cross-platform HTML messages, since the web does not support deeplinks.
@@ -194,4 +207,3 @@ Calling `brazeBridge.closeMessage()` closes the message but does not log analyti
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Backward incompatible changes #backward-incompatible-changes" }
-

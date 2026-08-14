@@ -43,7 +43,7 @@ MESSAGE HERE
 
 ### Campaigns {#campaigns}
 
-Para Campaigns de mensajes dentro de la aplicación, puedes permitir que los usuarios vuelvan a ser elegibles para recibir la campaña activando la reelegibilidad en **Controles de entrega** (**Permitir que los usuarios vuelvan a ser elegibles para recibir la campaña**). La rapidez con la que pueden recibirla de nuevo depende de la ventana de reelegibilidad que establezcas y de cómo Braze registró el envío anterior. Consulta [Reelegibilidad para Campaigns y Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) para conocer el comportamiento de las campañas, incluida la relación entre la reelegibilidad y la recepción de mensajes.
+Para Campaigns de mensajes dentro de la aplicación, puedes permitir que los usuarios vuelvan a ser elegibles para recibir la campaña activando la reelegibilidad en **Controles de entrega** (**Permitir que los usuarios vuelvan a ser elegibles para recibir la campaña**). La rapidez con la que pueden recibirla de nuevo depende de la ventana de reelegibilidad que configures y de cómo Braze registró el envío anterior. Consulta [Reelegibilidad para Campaigns y Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) para conocer el comportamiento de las campañas, incluida la relación entre la reelegibilidad y la recepción de mensajes.
 
 Si la reelegibilidad está desactivada, los usuarios generalmente no recibirán esa misma campaña de nuevo basándose únicamente en los criterios de calificación después de haberla recibido.
 
@@ -61,7 +61,7 @@ Cuando aparece el mensaje dentro de la aplicación, la elegibilidad depende de c
 
 Esto puede ocurrir con usuarios que cumplieron los criterios del segmento cuando la campaña de mensajes dentro de la aplicación estaba activa.
 
-Para evitar esto, durante la configuración de tu campaña, selecciona **Re-evaluate campaign eligibility before displaying**.
+Para evitarlo, durante la configuración de tu campaña, selecciona **Re-evaluate campaign eligibility before displaying**.
 
 ## ¿Por qué no veo aperturas en los mensajes dentro de la aplicación? {#why-dont-i-see-opens-for-in-app-messages}
 
@@ -74,6 +74,10 @@ Sí, pero solo puede mostrarse un mensaje dentro de la aplicación por cada ocur
 Cuando varios mensajes comparten el mismo nivel de prioridad, se muestra primero el mensaje creado más recientemente. Para los desencadenantes de inicio de sesión, el siguiente mensaje más reciente se muestra en una sesión posterior; para otros tipos de desencadenantes, el siguiente mensaje más reciente se muestra la próxima vez que se produce ese evento desencadenante, lo que puede ocurrir dentro de la misma sesión o en una sesión posterior.
 
 Para controlar el orden de visualización dentro de un grupo de prioridad, ve a la configuración de entrega de cualquiera de las Campaigns y selecciona **Set exact priority**; luego arrastra y suelta las Campaigns en el orden deseado. Para más detalles, consulta [Elegir una prioridad]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority).
+
+## ¿Cómo se registran las impresiones y los clics de los mensajes dentro de la aplicación? {#how-are-in-app-message-impressions-and-clicks-logged}
+
+Consulta [Informes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) para saber cómo se registran las impresiones y los clics según la acción del usuario. Para ver ejemplos específicos de mensajes de pantalla completa creados con el editor tradicional, consulta [Métricas de mensajes de pantalla completa por acción del usuario]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting#fullscreen-metrics-by-user-action).
 
 ## ¿Cómo calcula Braze la expiración de un mensaje dentro de la aplicación configurada como "después de 1 día(s)"? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -90,7 +94,7 @@ Los mensajes dentro de la aplicación se entregan como mensajes dentro de la apl
 - `catalog_selection_items`
 - `event_properties`
 
-Esto significa que durante el inicio de la sesión, el dispositivo recibe el desencadenante de ese mensaje dentro de la aplicación en lugar del mensaje completo. Cuando el usuario desencadena el mensaje dentro de la aplicación, el dispositivo del usuario realiza una solicitud de red para obtener el mensaje real.
+Esto significa que durante el inicio de sesión, el dispositivo recibe el desencadenante de ese mensaje dentro de la aplicación en lugar del mensaje completo. Cuando el usuario desencadena el mensaje dentro de la aplicación, el dispositivo del usuario realiza una solicitud de red para obtener el mensaje real.
 
 {% alert note %}
 El mensaje no se entrega si el dispositivo no tiene acceso a Internet. Es posible que el mensaje no se entregue si la lógica de Liquid tarda demasiado en resolverse.
@@ -171,7 +175,7 @@ Cuando se habilita **Imagen de fondo** en una página de un mensaje dentro de la
 
 ### ¿Cómo pruebo los mensajes dentro de la aplicación en la web? {#how-do-i-test-web-in-app-messages}
 
-Los envíos de prueba de mensajes dentro de la aplicación en la web requieren que push esté habilitado en el dispositivo de prueba porque el flujo de prueba entrega una notificación push que abre la aplicación o el sitio donde se muestra el mensaje dentro de la aplicación. La misma ruta de prueba basada en push se aplica en cualquier plataforma donde push no esté configurado con Braze, aunque la falta de push se encuentra con mayor frecuencia en la web porque muchas integraciones móviles ya tienen push habilitado. Usa una Campaign en vivo dirigida a un segmento de prueba interno en su lugar. Para los pasos, consulta [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
+Los envíos de prueba de mensajes dentro de la aplicación en la web requieren que push esté habilitado en el dispositivo de prueba porque el flujo de prueba entrega una notificación push que abre la aplicación o el sitio donde se muestra el mensaje dentro de la aplicación. La misma ruta de prueba basada en push se aplica en cualquier plataforma donde push no esté configurado con Braze, aunque la falta de push se encuentra con mayor frecuencia en la web porque muchas integraciones móviles ya tienen push habilitado. Usa una campaña en vivo dirigida a un segmento de prueba interno en su lugar. Para los pasos, consulta [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
 
 ### ¿Los mensajes dentro de la aplicación requieren integración de push? {#do-in-app-messages-require-push-integration}
 
@@ -179,7 +183,7 @@ Los mensajes dentro de la aplicación no requieren notificaciones push para func
 
 Sin embargo, los envíos de prueba de mensajes dentro de la aplicación sí requieren que push esté habilitado en tus dispositivos de prueba. Esto se debe a que los mensajes dentro de la aplicación de prueba se entregan a través de una notificación push que desencadena la visualización del mensaje dentro de la aplicación. El usuario de prueba debe tener push habilitado y debe tocar la notificación push de prueba para ver el mensaje dentro de la aplicación.
 
-Para Campaigns en producción, los usuarios ven los mensajes dentro de la aplicación según los desencadenantes de tu Campaign (como inicio de sesión o eventos personalizados) sin que push esté involucrado.
+Para Campaigns en producción, los usuarios ven los mensajes dentro de la aplicación según los desencadenantes de tu campaña (como inicio de sesión o eventos personalizados) sin que push esté involucrado.
 
 ### ¿Por qué aparecen caracteres adicionales o no renderizados en mi mensaje dentro de la aplicación? {#why-do-extra-or-unrendered-characters-appear-in-my-in-app-message}
 
@@ -195,7 +199,7 @@ La versión 37.0.0 y posteriores del SDK de Braze para Android aplican márgenes
 
 En versiones anteriores del SDK, los desarrolladores podían habilitar `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` antes de que este comportamiento se convirtiera en el predeterminado.
 
-## ¿Qué debo saber al personalizar mensajes dentro de la aplicación con arrastrar y soltar? {#what-should-i-know-when-customizing-drag-and-drop-in-app-messages}
+## ¿Qué debo saber al personalizar mensajes dentro de la aplicación de arrastrar y soltar? {#what-should-i-know-when-customizing-drag-and-drop-in-app-messages}
 
 El [editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) admite los tipos de visualización modal y de pantalla completa. Construyes el contenido dentro de esos contenedores con bloques de editor.
 
@@ -213,6 +217,6 @@ Para más consideraciones sobre el editor, consulta la [Guía de preparación de
 
 ## ¿Qué significa "Event was published, but no subscribers were found" en los registros del SDK de Android? {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
 
-Esta línea de registro normalmente no es un error. Suele aparecer cuando Braze publica un evento interno (como `NoMatchingTriggerEvent`) y no hay ningún receptor de mensajes dentro de la aplicación ni de Content Cards suscrito en ese momento.
+Esta línea de registro normalmente no es un error. Suele aparecer cuando Braze publica un evento interno (como `NoMatchingTriggerEvent`) y no hay ningún listener de mensajes dentro de la aplicación ni de Content Cards suscrito en ese momento.
 
 Si ves este registro cuando esperas que un evento personalizado desencadene un mensaje dentro de la aplicación, confirma que el evento se ha registrado, que el usuario está en la audiencia de la Campaign o del Canvas, y que las Content Cards están sincronizadas cuando el mensaje depende de ellas.

@@ -130,7 +130,7 @@ To download the time series data, select <i class="fas fa-bars" title="Chart con
 | Touch | A physical interaction or touchpoint with a message.<br><br>Touches can include:<br>{::nomarkdown}<ul><li>Email Click</li><li>Push Open</li><li>Content Card Click</li><li>In-App Message Click</li><li>SMS Click</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Terms to know" }
 
-## Troubleshooting
+## Troubleshooting {#troubleshooting}
 
 ### Why do I have low campaign or Canvas conversions?
 
@@ -146,4 +146,12 @@ When a campaign triggers a session start or custom event, you want to ensure tha
 
 For each conversion event that you select per campaign, you set the [deadline]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#creating-a-campaign-with-conversion-tracking). This means you are setting a time limit within which a conversion must happen in order for it to count toward each respective campaign.
 
-Check that you've reviewed information on [conversion tracking rules]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules) to understand your campaign metrics. For user conversions in Canvas, refer to [Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs#how-are-user-conversions-tracked-in-a-canvas). 
+Review information on [conversion tracking rules]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules) to understand your campaign metrics. For user conversions in Canvas, refer to [Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs#how-are-user-conversions-tracked-in-a-canvas).
+
+### Why don't email open totals match Campaign Analytics?
+
+**Campaign Analytics** and Report Builder count [machine opens]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) in *Unique Opens*. See [Does the *Unique Opens* metric include *Machine Opens*?]({{site.baseurl}}/user_guide/channels/email/faq#does-the-unique-opens-metric-include-machine-opens) in the email FAQ for details.
+
+On the **Conversion Dashboard**, **Upon Email Open** attribution counts only human opens. [Machine opens]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) are not included in the open count used for that attribution method.
+
+Because of that difference, open totals in Campaign Analytics can be higher than open counts used in Conversion Dashboard attribution for the same campaigns. Compare metrics within the same surface, or use *Other Opens* in Campaign Analytics when you want human engagement without machine opens.

@@ -22,7 +22,7 @@ Antes de poder crear mensajes de WhatsApp, debes revisar y completar lo siguient
   - Configurar tu conexión de WhatsApp
   - Crear plantillas iniciales en Meta para usar en tus mensajes
 
-## Crear un mensaje {#creating-a-message}
+## Creación de un mensaje {#creating-a-message}
 
 ### Paso 1: Elige dónde crear tu mensaje {#step-1-choose-where-to-build-your-message}
 
@@ -82,11 +82,11 @@ Cada plantilla tiene un idioma asignado, por lo que necesitas crear una Campaign
 
 ![Lista de plantillas que incluye vistas previas de sus mensajes, sus idiomas asignados y su estado de aprobación.]({% image_buster /assets/img/whatsapp/whatsapp_templates.png %}){: style="max-width:80%;"}
 
-Si estás añadiendo texto en un idioma que se escribe de derecha a izquierda, ten en cuenta que la apariencia final de los mensajes de derecha a izquierda depende en gran medida de cómo los proveedores de servicios los rendericen. Para conocer las mejores prácticas sobre cómo crear mensajes de derecha a izquierda que se muestren con la mayor precisión posible, consulta [Crear mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+Si estás añadiendo texto en un idioma que se escribe de derecha a izquierda, ten en cuenta que la apariencia final de los mensajes de derecha a izquierda depende en gran medida de cómo los proveedores de servicios los rendericen. Para conocer las mejores prácticas sobre cómo crear mensajes de derecha a izquierda que se muestren con la mayor precisión posible, consulta [Creación de mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 #### Variables {#variables}
 
-Si añadiste variables al crear la plantilla de WhatsApp en el Meta Business Manager, esas variables aparecerán como espacios en blanco en el creador de mensajes. Reemplaza estos espacios en blanco con Liquid o texto sin formato. Para usar texto sin formato, utiliza el formato "texto aquí" encerrado entre llaves dobles. Si optaste por incluir imágenes al crear tu plantilla, puedes subir o añadir imágenes desde la biblioteca de medios o haciendo referencia a una URL de imagen. Cuando sea posible, recomendamos subir las imágenes directamente a tu biblioteca de medios para garantizar la consistencia y la fiabilidad.
+Si añadiste variables al crear la plantilla de WhatsApp en el Meta Business Manager, esas variables aparecerán como espacios en blanco en el creador de mensajes. Reemplaza estos espacios en blanco con Liquid o texto plano. Para usar texto plano, utiliza el formato "texto aquí" encerrado entre llaves dobles. Si optaste por incluir imágenes al crear tu plantilla, puedes subir o añadir imágenes desde la biblioteca de medios o haciendo referencia a una URL de imagen. Cuando sea posible, recomendamos subir las imágenes directamente a tu biblioteca de medios para garantizar la consistencia y fiabilidad.
 
 Ten en cuenta que los campos de texto deshabilitados (resaltados en gris) no se pueden editar, ya que forman parte de la plantilla de WhatsApp aprobada. Si deseas actualizar el texto deshabilitado, debes editar tu plantilla y obtener una nueva aprobación.
 
@@ -100,9 +100,11 @@ Si planeas usar Liquid, asegúrate de incluir un valor predeterminado para la pe
 
 ### Enlaces dinámicos {#dynamic-links}
 
-Las URL de llamada a la acción pueden contener variables, aunque Meta requiere que estén al final de la URL, como `{% raw %}https://example.com/{{variable}}{% endraw %}`, donde la variable puede reemplazarse en Braze con Liquid. Los enlaces también pueden incluirse como texto del cuerpo como parte de la plantilla. Ambos tipos de enlaces pueden acortarse y rastrearse mediante el [seguimiento de clics]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking).
+Las URL de llamada a la acción pueden contener variables, aunque Meta requiere que estén al final de la URL, como `{% raw %}https://example.com/{{variable}}{% endraw %}`, donde la variable puede reemplazarse en Braze con Liquid. Los enlaces también pueden incluirse como texto del cuerpo como parte de la plantilla. Ambos tipos de enlaces pueden acortarse y rastrearse usando el [seguimiento de clics]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking).
 
 ### Imágenes dinámicas {#dynamic-images}
+
+Puedes añadir imágenes desde la biblioteca de medios o por URL. Cuando usas una URL, puedes personalizar la imagen con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) o [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), incluyendo lógica completa de Liquid en cualquier parte de la URL. Las imágenes dinámicas son compatibles con mensajes de plantilla y mensajes de respuesta (mensajes multimedia y diseños de respuesta rápida).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -125,7 +127,7 @@ Hay cinco diseños de mensajes de respuesta que puedes usar:
 
 ### Paso 3: Previsualiza y prueba tu mensaje {#step-3-preview-and-test-your-message}
 
-Braze siempre recomienda previsualizar y probar tu mensaje antes de enviarlo. Cambia a la pestaña **Prueba** para enviar un mensaje de prueba de WhatsApp a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) o a usuarios individuales, o previsualiza el mensaje como un usuario directamente en Braze.
+Braze siempre recomienda previsualizar y probar tu mensaje antes de enviarlo. Cambia a la pestaña **Prueba** para enviar un mensaje de prueba de WhatsApp a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) o usuarios individuales, o previsualiza el mensaje como un usuario directamente en Braze.
 
 ![Un mensaje de vista previa para un usuario personalizado llamado Max.]({% image_buster /assets/img/whatsapp/whatsapp8.png %}){: style="max-width:80%;"}
 
@@ -165,7 +167,7 @@ Cuando se determina el resultado final (entrega exitosa, reintentos agotados o u
 Dado que los reintentos pueden continuar durante un máximo de 24 horas, es posible que no veas un resultado final inmediatamente después de un envío fallido.
 {% endalert %}
 
-#### Solucionar fallos {#troubleshoot-failures}
+#### Solución de problemas de fallos {#troubleshoot-failures}
 
 Si una etapa muestra un fallo, el panel muestra el error y los pasos sugeridos a seguir. Las razones comunes por las que un envío de prueba puede fallar incluyen:
 
@@ -192,7 +194,7 @@ En este paso también puedes especificar controles de entrega, como permitir que
 
 #### Elige los usuarios a los que dirigirte {#choose-users-to-target}
 
-A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo Segments o filtros para reducir tu audiencia. Ya deberías haber elegido el grupo de suscripción, que filtra a los usuarios por el nivel o categoría de comunicación que desean tener contigo. En este paso, seleccionas la audiencia más amplia de tus Segments y la reduces aún más con nuestros filtros. Recibirás automáticamente una instantánea de cómo se ve aproximadamente la población de ese Segment. Recuerda que la pertenencia exacta al Segment siempre se calcula antes de que se envíe el mensaje.
+A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo Segments o filtros para reducir tu audiencia. Ya deberías haber elegido el grupo de suscripción, que filtra a los usuarios por el nivel o categoría de comunicación que desean tener contigo. En este paso, seleccionas la audiencia más amplia de tus Segments y la reduces aún más con nuestros filtros. Recibirás automáticamente una instantánea de cómo se ve aproximadamente la población de ese Segment. Recuerda que la membresía exacta del Segment siempre se calcula antes de que se envíe el mensaje.
 
 {% multi_lang_include audience/target_audiences.md %}
 
@@ -233,7 +235,7 @@ Las siguientes características son compatibles con los mensajes salientes de Wh
 | Enlaces CTA | Se admiten varios tipos de llamada a la acción (CTA). Para más detalles, consulta [Tipos de llamada a la acción](#ctas). | — | — |
 | Imágenes | Las imágenes pueden incrustarse dentro del texto del cuerpo. Deben ser de 8 bits y usar un modelo de color RGB o RGBA. | < 5 MB | `.png`, `.jpg`, `.jpeg` |
 | Documentos | Los documentos pueden incrustarse dentro del texto del cuerpo. Los archivos deben estar alojados a través de URL. | < 100 MB | `.txt`, `.xls`, `.xlsx`, `.doc`, `.docx`, `.ppt`, `.pttx`, `.pdf` |
-| Videos | Los videos pueden incrustarse dentro del texto del cuerpo. Los archivos deben estar alojados a través de URL o en la [biblioteca de medios de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). | < 16 MB | `.3gp`, `.mp4` |
+| Videos | Los videos pueden incrustarse dentro del texto del cuerpo. Los archivos deben estar alojados a través de URL o en la [biblioteca multimedia de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). | < 16 MB | `.3gp`, `.mp4` |
 | Audio | El audio solo es compatible a través de mensajes de respuesta. Los archivos deben estar alojados a través de URL. | < 16 MB | `.aac`, `.amr`, `.mp3`, `.mp4`, `.ogg` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Mensajes salientes" }
 

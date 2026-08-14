@@ -339,6 +339,34 @@ def apply_doc_edit(doc_path: str, rows: list[dict[str, str]]) -> bool:
     return True
 
 
+def filter_claimed_siblings(
+    actionable: list[dict[str, str]],
+    *,
+    id_column: str | None,
+    overlap,
+) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+    """
+    Align Phase 2 prepare/open-pr with the Phase 1 needs-PR queue.
+
+    When only some ``article_id``s are claimed, drop those rows and return the
+    remaining siblings so a partial claim does not block prepare. Path-level
+    open/draft coverage is handled by the caller before invoking this helper.
+    """
+    claimed = overlap.claimed_article_ids() if overlap else set()
+    if not claimed:
+        return actionable, []
+
+    remaining: list[dict[str, str]] = []
+    claimed_rows: list[dict[str, str]] = []
+    for row in actionable:
+        aid = article_id_from_row(row, id_column=id_column) or ""
+        if aid and aid in claimed:
+            claimed_rows.append(row)
+        else:
+            remaining.append(row)
+    return remaining, claimed_rows
+
+
 def batch_context(
     doc_path: str,
     rows: list[dict[str, str]],
@@ -356,6 +384,45 @@ def batch_context(
     article_ids = [article_id_from_row(r, id_column=id_column) for r in actionable]
     article_ids = [aid for aid in article_ids if aid]
     overlap = scanner.check_batch(doc_path, article_ids)
+
+    # Path-level open/draft coverage still blocks the whole batch. Partial
+    # article_id claims only drop the claimed rows (same as Phase 1 queue).
+    if overlap.path_covered_by_pr:
+        print_overlap_skip(doc_path, overlap)
+        return None
+
+    actionable, claimed_rows = filter_claimed_siblings(
+        actionable,
+        id_column=id_column,
+        overlap=overlap,
+    )
+    if claimed_rows:
+        claimed_ids = [
+            article_id_from_row(r, id_column=id_column)
+            for r in claimed_rows
+            if article_id_from_row(r, id_column=id_column)
+        ]
+        print(
+            f"INFO {doc_path}: dropping {len(claimed_rows)} claimed article(s) "
+            f"({', '.join(f'`{aid}`' for aid in claimed_ids)}); "
+            f"{len(actionable)} unclaimed sibling(s) remain",
+            file=sys.stderr,
+        )
+    if not actionable:
+        print(
+            f"SKIP {doc_path}: all actionable articles already claimed in a PR body",
+            file=sys.stderr,
+        )
+        return None
+
+    if claimed_rows:
+        article_ids = [
+            article_id_from_row(r, id_column=id_column)
+            for r in actionable
+            if article_id_from_row(r, id_column=id_column)
+        ]
+        overlap = scanner.check_batch(doc_path, article_ids)
+
     if should_skip_for_overlap(overlap, ignore_warnings=ignore_warnings):
         print_overlap_skip(doc_path, overlap)
         return None
@@ -384,6 +451,15 @@ def batch_context(
         for r in skipped_internal
         if article_id_from_row(r, id_column=id_column)
     ]
+    skipped.extend(
+        (
+            article_id_from_row(r, id_column=id_column),
+            r.get("title", "").strip(),
+            "already claimed in a PR body",
+        )
+        for r in claimed_rows
+        if article_id_from_row(r, id_column=id_column)
+    )
 
     return {
         "doc_path": doc_path,

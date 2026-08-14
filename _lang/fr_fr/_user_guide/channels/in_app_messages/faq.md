@@ -43,9 +43,9 @@ MESSAGE HERE
 
 ### Campaigns {#campaigns}
 
-Pour les Campaigns de messages in-app, vous pouvez permettre aux utilisateurs de redevenir éligibles à la réception de la Campaign en activant la rééligibilité dans les **Contrôles de réception** (**Autoriser les utilisateurs à redevenir éligibles à la réception de la Campaign**). Le délai avant qu'ils puissent la recevoir à nouveau dépend de la fenêtre de rééligibilité que vous définissez et de la manière dont Braze a enregistré l'envoi précédent. Consultez [Rééligibilité pour les Campaigns et Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) pour le comportement des Campaigns, y compris la relation entre la rééligibilité et la réception du message.
+Pour les Campaigns de messages in-app, vous pouvez permettre aux utilisateurs de redevenir éligibles à la réception de la Campaign en activant la rééligibilité dans les **Contrôles de réception** (**Autoriser les utilisateurs à redevenir éligibles à la réception de la Campaign**). Le délai avant qu'ils puissent la recevoir à nouveau dépend de la fenêtre de rééligibilité que vous définissez et de la manière dont Braze a enregistré l'envoi précédent. Consultez [Rééligibilité pour les Campaigns et Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) pour le comportement des Campaigns, y compris la relation entre la rééligibilité et la réception des messages.
 
-Si la rééligibilité est désactivée, les utilisateurs ne recevront généralement pas cette même Campaign à nouveau sur la seule base des critères de qualification après l'avoir reçue.
+Si la rééligibilité est désactivée, les utilisateurs ne recevront généralement plus cette même Campaign après l'avoir reçue, sur la seule base des critères de qualification.
 
 ### Canvas {#canvases}
 
@@ -53,13 +53,13 @@ Pour les messages in-app envoyés depuis un Canvas, la possibilité pour un util
 
 ## Quand l'éligibilité à un message in-app est-elle calculée ? {#when-is-eligibility-for-an-in-app-message-calculated}
 
-L'éligibilité à un message in-app est calculée au moment de la distribution. Si un message in-app est planifié pour un envoi à 7 h, l'éligibilité est vérifiée pour ce message in-app à 7 h.
+L'éligibilité à un message in-app est calculée au moment de la distribution. Si un message in-app est planifié pour être envoyé à 7 h, l'éligibilité est vérifiée pour ce message in-app à 7 h.
 
 Lorsque le message in-app s'affiche, l'éligibilité dépend du moment où le message in-app est téléchargé et déclenché.
 
 ## Pourquoi ma Campaign de messages in-app archivée continue-t-elle à générer des impressions de messages in-app ? {#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions}
 
-Cela peut se produire pour les utilisateurs qui remplissaient les critères du Segment lorsque la Campaign de messages in-app était active.
+Cela peut se produire pour les utilisateurs qui remplissaient les critères du segment lorsque la Campaign de messages in-app était active.
 
 Pour éviter cela, lors de la configuration de votre Campaign, sélectionnez **Réévaluer l'éligibilité à la campagne avant l'affichage**.
 
@@ -69,11 +69,15 @@ Les messages in-app n'utilisent pas d'indicateur *Ouvertures*. Braze enregistre 
 
 ## Plusieurs messages in-app peuvent-ils s'afficher au cours de la même session ? {#can-multiple-in-app-messages-display-in-the-same-session}
 
-Oui, mais un seul message in-app peut s'afficher par occurrence d'un [événement déclencheur]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger). Si plusieurs Campaigns de messages in-app partagent le même déclencheur (par exemple, le démarrage de session), seul le message ayant la priorité la plus élevée s'affiche à chaque occurrence de ce déclencheur. Pour les déclencheurs de démarrage de session, cela signifie qu'un seul message peut s'afficher par session, et la prochaine occasion d'afficher un autre message éligible sera la session suivante.
+Oui, mais un seul message in-app peut s'afficher par occurrence d'un [événement déclencheur]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger). Si plusieurs Campaigns de messages in-app partagent le même déclencheur (par exemple, le démarrage de session), seul le message ayant la priorité la plus élevée s'affiche à chaque occurrence de ce déclencheur. Pour les déclencheurs de démarrage de session, cela signifie qu'un seul message peut s'afficher par session, et la prochaine occasion de montrer un autre message éligible sera la session suivante.
 
 Lorsque plusieurs messages partagent le même niveau de priorité, le message créé le plus récemment s'affiche en premier. Pour les déclencheurs de démarrage de session, le message suivant le plus récent s'affiche lors d'une session ultérieure ; pour les autres types de déclencheurs, le message suivant le plus récent s'affiche la prochaine fois que cet événement déclencheur se produit, ce qui peut être au cours de la même session ou d'une session ultérieure.
 
 Pour contrôler l'ordre d'affichage au sein d'un groupe de priorité, accédez aux paramètres de réception de l'une des Campaigns et sélectionnez **Set exact priority**, puis glissez-déposez les Campaigns dans l'ordre souhaité. Pour plus de détails, consultez [Choisir une priorité]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority).
+
+## Comment les impressions et les clics des messages in-app sont-ils enregistrés ? {#how-are-in-app-message-impressions-and-clicks-logged}
+
+Consultez la section [Rapports sur les messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) pour savoir comment les impressions et les clics sont enregistrés en fonction des actions de l'utilisateur. Pour des exemples spécifiques aux messages plein écran créés avec l'éditeur traditionnel, reportez-vous à la section [Indicateurs des messages plein écran par action de l'utilisateur]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting#fullscreen-metrics-by-user-action).
 
 ## Comment Braze calcule-t-il l'expiration d'un message in-app définie sur « après 1 jour(s) » ? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -85,7 +89,7 @@ Les messages in-app sont distribués en tant que messages in-app modélisés lor
 
 - `canvas_entry_properties`
 - `connected_content`
-- Variables SMS telles que {% raw %}`{sms.${*}}`{% endraw %}
+- Les variables SMS telles que {% raw %}`{sms.${*}}`{% endraw %}
 - `catalog_items`
 - `catalog_selection_items`
 - `event_properties`
@@ -98,7 +102,7 @@ Le message n'est pas distribué si l'appareil n'a pas accès à Internet. Le mes
 
 ## Comment fonctionne le comportement d'abandon pour les messages in-app ? {#how-does-abort-behavior-work-for-in-app-messages}
 
-Chez Braze, un abandon se produit lorsqu'un utilisateur effectue une action qui le rend éligible à la réception d'un message, mais qu'il ne reçoit pas le message car sa logique Liquid le marque comme inéligible. Par exemple :
+Chez Braze, un abandon se produit lorsqu'un utilisateur effectue une action qui le rend éligible à la réception d'un message, mais qu'il ne reçoit pas le message car la logique Liquid le marque comme inéligible. Par exemple :
 
 1. Sam effectue une action qui devrait déclencher une Campaign par e-mail.
 2. Le corps de l'e-mail contient une logique Liquid qui indique que si un attribut personnalisé de score est inférieur à 50, l'e-mail ne doit pas être envoyé.
@@ -110,9 +114,9 @@ Cependant, comme les messages in-app sont un canal de type « pull », les aband
 
 ### Comportement d'abandon standard des messages in-app {#standard-in-app-message-abort-behavior}
 
-Les messages in-app sont récupérés par l'appareil au début de la session et mis en cache sur l'appareil, de sorte que, quelle que soit la qualité de la connexion Internet, le message peut être délivré instantanément à l'utilisateur. Par exemple, si un utilisateur reçoit cinq messages in-app au cours de sa session, il les reçoit tous les cinq au début de la session. Les messages sont mis en cache localement et apparaissent lorsque leurs événements déclencheurs définis se produisent (début de session, clic de l'utilisateur sur un bouton qui enregistre un événement personnalisé, ou autre).
+Les messages in-app sont récupérés par l'appareil au démarrage de la session et mis en cache sur l'appareil, de sorte que, quelle que soit la qualité de la connexion Internet, le message peut être délivré instantanément à l'utilisateur. Par exemple, si un utilisateur reçoit cinq messages in-app au cours de sa session, il les reçoit tous les cinq au démarrage de la session. Les messages sont mis en cache localement et apparaissent lorsque leurs événements déclencheurs définis se produisent (démarrage de session, clic de l'utilisateur sur un bouton qui enregistre un événement personnalisé, ou autre).
 
-En d'autres termes, la logique qui détermine si un message in-app doit être abandonné se produit **avant** que le déclencheur ne se soit produit. Pour illustrer cela, supposons que Sam, de l'exemple de l'e-mail, est abonné aux notifications push.
+En d'autres termes, la logique qui détermine si un message in-app doit être abandonné intervient **avant** que le déclencheur ne se soit produit. Pour illustrer cela, supposons que Sam, de l'exemple de l'e-mail, est abonné aux notifications push.
 
 1. Sam démarre une session en lançant une application propulsée par Braze sur son téléphone.
 2. En fonction des critères d'audience des Campaigns actives dans l'espace de travail, Sam pourrait être éligible à cinq Campaigns différentes. Les cinq sont récupérées sur son téléphone et mises en cache.
@@ -123,13 +127,13 @@ En d'autres termes, la logique qui détermine si un message in-app doit être ab
 
 Braze n'enregistre aucun événement d'abandon dans le cas de Sam car cela ne correspond pas à la définition d'un abandon ; Sam **n'a pas** effectué d'actions qui déclencheraient les messages. Pour les messages in-app, les utilisateurs n'effectuent jamais réellement le déclencheur avant que Braze ne détermine qu'ils ne devraient pas voir le message.
 
-### Comportement d'abandon des messages in-app avec modèle {#templated-in-app-message-abort-behavior}
+### Comportement d'abandon des messages in-app modélisés {#templated-in-app-message-abort-behavior}
 
-Les [messages in-app avec modèle](#what-are-templated-in-app-messages) forcent le SDK à réévaluer si un message doit s'afficher lorsque l'événement déclencheur se produit. Cela entraîne un comportement d'abandon différent. Pour illustrer, considérez cet exemple :
+Les [messages in-app modélisés](#what-are-templated-in-app-messages) forcent le SDK à réévaluer si un message doit s'afficher lorsque l'événement déclencheur se produit. Cela entraîne un comportement d'abandon différent. Pour illustrer, considérez cet exemple :
 
 1. Sam démarre une session Braze en lançant une application propulsée par Braze sur son téléphone.
-2. Les critères d'audience des Campaigns actives indiquent que Sam pourrait être éligible à un message in-app avec modèle, donc les informations de déclenchement sont envoyées à son appareil sans le contenu du message.
-3. Sam sélectionne un bouton qui enregistre un événement personnalisé, déclenchant le message in-app avec modèle.
+2. Les critères d'audience des Campaigns actives indiquent que Sam pourrait être éligible à un message in-app modélisé, de sorte que les informations de déclenchement sont envoyées à son appareil sans le contenu du message.
+3. Sam sélectionne un bouton qui enregistre un événement personnalisé, déclenchant le message in-app modélisé.
 4. L'appareil de Sam effectue une requête réseau pour récupérer le message in-app.
 5. La logique Liquid du message conduit à un abandon, donc Braze enregistre cela comme un abandon ; Sam a effectué l'action de déclenchement avant cette évaluation.
 
@@ -139,21 +143,21 @@ Ce tableau compare les flux de messages in-app que Sam a expérimentés :
 
 | Message in-app | Comportement d'abandon |
 | --- | --- |
-| Standard | Aucun événement d'abandon n'a été enregistré car Sam n'a effectué aucune action qui déclencherait un message.<br><br>Les messages in-app standard n'enregistrent pas d'abandons car la définition d'un abandon est « n'a pas vu le message malgré l'exécution de l'action de déclenchement ». Comme les messages in-app sont délivrés à l'appareil avant que les actions de déclenchement ne se produisent, il n'est pas logique de considérer les messages in-app omis en raison de la logique Liquid. |
-| Avec modèle | Un événement d'abandon a été enregistré car Sam a effectué l'action de déclenchement pour déclencher le message in-app avec modèle, mais a reçu un abandon lors du traitement du modèle Liquid.<br><br>Les messages in-app avec modèle enregistrent les abandons car l'évaluation Liquid se produit après que l'action de déclenchement a été effectuée. |
+| Standard | Aucun événement d'abandon n'a été enregistré car Sam n'a effectué aucune action qui déclencherait un message.<br><br>Les messages in-app standard n'enregistrent pas d'abandons car la définition d'un abandon est « n'a pas vu le message malgré l'exécution de l'action de déclenchement ». Comme les messages in-app sont délivrés à l'appareil avant que les actions de déclenchement ne se produisent, il n'est pas pertinent de considérer les messages in-app omis en raison de la logique Liquid. |
+| Modélisé | Un événement d'abandon a été enregistré car Sam a effectué l'action de déclenchement pour déclencher le message in-app modélisé, mais a reçu un abandon lors du traitement Liquid.<br><br>Les messages in-app modélisés enregistrent les abandons car l'évaluation Liquid se produit après que l'action de déclenchement a été effectuée. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comparaison du comportement d'abandon des messages in-app" }
 
 ### Quand le contenu connecté s'exécute-t-il pour les messages in-app ? {#when-does-connected-content-run-for-in-app-messages}
 
-Pour les [messages in-app avec modèle](#what-are-templated-in-app-messages), le contenu connecté et les autres étiquettes Liquid sont résolus lorsque l'événement déclencheur se produit et que l'appareil demande le contenu du message, et non lorsque l'utilisateur clique sur un bouton à l'intérieur du message. Chaque récupération de modèle peut inclure des appels de contenu connecté pour cet affichage.
+Pour les [messages in-app modélisés](#what-are-templated-in-app-messages), le contenu connecté et les autres étiquettes Liquid sont résolus lorsque l'événement déclencheur se produit et que l'appareil demande le contenu du message, et non lorsque l'utilisateur clique sur un bouton à l'intérieur du message. Chaque récupération modélisée peut inclure des appels de contenu connecté pour cet affichage.
 
-Si votre HTML fait référence à des données REST renvoyées par le contenu connecté, ces données sont disponibles pour la session au cours de laquelle le message a été traité comme modèle. Plusieurs boutons peuvent faire référence à la même réponse de contenu connecté sans déclencher d'appels supplémentaires au clic.
+Si votre HTML fait référence à des données REST renvoyées par le contenu connecté, ces données sont disponibles pour la session au cours de laquelle le message a été modélisé. Plusieurs boutons peuvent faire référence à la même réponse de contenu connecté sans déclencher d'appels supplémentaires au clic.
 
 ### Pourquoi y a-t-il un délai avant l'affichage de mon message in-app ? {#why-is-there-a-delay-before-my-in-app-message-displays}
 
-Les messages in-app standard s'affichent dès que le contenu mis en cache est prêt après l'événement déclencheur. Sur Android et iOS, les images volumineuses ou d'autres ressources hébergées sur un CDN référencées dans le message peuvent ajouter un court délai pendant que ces ressources finissent de se télécharger avant que le message in-app n'apparaisse.
+Les messages in-app standard s'affichent dès que le contenu mis en cache est prêt après l'événement déclencheur. Sur Android et iOS, les images volumineuses ou d'autres ressources hébergées sur un CDN référencées dans le message peuvent ajouter un court délai pendant le téléchargement de ces ressources avant l'apparition du message in-app.
 
-Les [messages in-app avec modèle](#what-are-templated-in-app-messages) et les Campaigns avec l'option **Réévaluer l'éligibilité de la campagne avant l'affichage** sélectionnée nécessitent une requête réseau supplémentaire après le déclencheur avant que le message n'apparaisse. Cela peut ajouter un court délai (généralement inférieur à 100 ms sur une connexion stable). Pour plus d'informations, consultez [Choisir les utilisateurs à cibler]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target).
+Les [messages in-app modélisés](#what-are-templated-in-app-messages) et les Campaigns avec l'option **Réévaluer l'éligibilité de la campagne avant l'affichage** sélectionnée nécessitent une requête réseau supplémentaire après le déclencheur avant l'apparition du message. Cela peut ajouter un court délai (généralement inférieur à 100 ms sur une connexion stable). Pour plus d'informations, consultez [Choisir les utilisateurs à cibler]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target).
 
 ### Pourquoi mon message in-app est-il différent de l'aperçu du tableau de bord ? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
 
@@ -161,7 +165,7 @@ Les messages in-app délivrés peuvent différer de l'aperçu du tableau de bord
 
 - Votre intégration applique un style personnalisé ou remplace l'interface utilisateur par défaut des messages in-app sur certaines plateformes
 - L'aperçu utilise un profil utilisateur test avec des attributs différents de ceux du destinataire
-- Le contenu avec modèle se résout différemment au moment de l'envoi par rapport au mode aperçu
+- Le contenu modélisé se résout différemment au moment de l'envoi par rapport au mode aperçu
 
 Utilisez [Envoyer des messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) avec un utilisateur test dont le profil correspond à votre audience cible lors de la validation de l'apparence.
 
@@ -175,11 +179,11 @@ Les envois de test de messages in-app web nécessitent que les notifications pus
 
 ### Les messages in-app nécessitent-ils une intégration push ? {#do-in-app-messages-require-push-integration}
 
-Les messages in-app ne nécessitent pas de notifications push pour fonctionner en production. Les messages in-app sont délivrés via le SDK Braze et apparaissent pendant une session d'application active sans avoir besoin d'une intégration push.
+Les messages in-app ne nécessitent pas de notifications push pour fonctionner en production. Les messages in-app sont délivrés via le SDK Braze et apparaissent pendant une session active de l'application sans avoir besoin d'une intégration push.
 
 Cependant, les envois de test pour les messages in-app nécessitent que les notifications push soient activées sur vos appareils de test. En effet, les messages in-app de test sont délivrés via une notification push qui déclenche l'affichage du message in-app. L'utilisateur test doit avoir les notifications push activées et doit appuyer sur la notification push de test pour voir le message in-app.
 
-Pour les Campaigns en production, les utilisateurs voient les messages in-app en fonction de vos déclencheurs de Campaign (tels que le début de session ou les événements personnalisés) sans que les notifications push ne soient impliquées.
+Pour les Campaigns en production, les utilisateurs voient les messages in-app en fonction de vos déclencheurs de Campaign (tels que le démarrage de session ou les événements personnalisés) sans que les notifications push soient impliquées.
 
 ### Pourquoi des caractères supplémentaires ou non rendus apparaissent-ils dans mon message in-app ? {#why-do-extra-or-unrendered-characters-appear-in-my-in-app-message}
 
@@ -191,17 +195,17 @@ Pour corriger les caractères parasites ou non rendus, retapez le texte concern�
 
 Sur les appareils dotés d'écrans bord à bord (y compris Android 15+), les messages in-app HTML plein écran peuvent s'afficher derrière la barre d'état du système et masquer un contrôle de fermeture en haut de la mise en page.
 
-Le SDK Braze pour Android version 37.0.0 et ultérieures appliquent les marges intérieures de fenêtre (window insets) aux messages in-app HTML par défaut, afin que les contrôles restent dans la zone sûre. Si les utilisateurs constatent toujours un chevauchement, effectuez la mise à jour vers la dernière version du SDK Braze pour Android.
+Le SDK Android de Braze version 37.0.0 et ultérieures appliquent les marges intérieures de fenêtre (window insets) aux messages in-app HTML par défaut, afin que les contrôles restent dans la zone sûre. Si les utilisateurs constatent toujours un chevauchement, effectuez la mise à jour vers la dernière version du SDK Android de Braze.
 
 Sur les versions antérieures du SDK, les développeurs pouvaient activer `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` avant que ce comportement ne devienne le comportement par défaut.
 
-## Que faut-il savoir lors de la personnalisation des messages in-app par glisser-déposer ? {#what-should-i-know-when-customizing-drag-and-drop-in-app-messages}
+## Que dois-je savoir lors de la personnalisation des messages in-app par glisser-déposer ? {#what-should-i-know-when-customizing-drag-and-drop-in-app-messages}
 
-L'[éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) prend en charge les types d'affichage modal et plein écran. Vous construisez le contenu à l'intérieur de ces conteneurs à l'aide de blocs éditeur.
+L'[éditeur par glisser-déposer]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) prend en charge les types d'affichage en fenêtre modale et en plein écran. Vous construisez le contenu à l'intérieur de ces conteneurs à l'aide de blocs éditeur.
 
 Points à retenir :
 
-- **Liens et deep links :** Chaque action au clic dispose par défaut d'un seul champ URL. Utilisez Liquid dans l'URL pour varier les liens en fonction de l'appareil, du type d'application ou des attributs utilisateur. Dans le **conteneur de message**, vous pouvez également activer le comportement au clic spécifique à la plateforme pour définir des liens différents par plateforme.
+- **Liens et deep links :** Chaque action au clic dispose d'un champ URL par défaut. Utilisez Liquid dans l'URL pour varier les liens en fonction de l'appareil, du type d'application ou des attributs utilisateur. Sur le **conteneur de message**, vous pouvez également activer le comportement au clic spécifique à la plateforme pour définir des liens différents par plateforme.
 - **Opacité et arrière-plans :** L'opacité du conteneur de message affecte l'ensemble de l'arrière-plan du message. Les blocs individuels peuvent définir leurs propres couleurs d'arrière-plan. Pour un contrôle plus précis, ajoutez du CSS personnalisé dans un bloc de code personnalisé.
 - **Largeur du message :** La largeur maximale du **conteneur de message** ne peut pas être définie en dessous de 325 px dans l'éditeur, ce qui garantit la lisibilité du contenu sur les écrans plus petits. Utilisez du CSS personnalisé si vous avez besoin d'une mise en page plus étroite.
 - **Arrière-plans spécifiques à la plateforme :** Un même message utilise la même image d'arrière-plan et les mêmes couleurs sur le web et le mobile. Vous ne pouvez pas définir des arrière-plans différents par plateforme dans l'éditeur.

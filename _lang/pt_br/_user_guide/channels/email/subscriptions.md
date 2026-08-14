@@ -16,18 +16,7 @@ Este documento é apenas para fins informativos. Ele não se destina a fornecer,
 
 ## Estados de inscrição {#subscription-states}
 
-A Braze possui três estados globais de inscrição para usuários de e-mail. Esses estados controlam o envio de mensagens aos usuários. Por exemplo, usuários no estado `unsubscribed` não recebem mensagens direcionadas a `subscribed` ou `opted-in`.
-
-| Estado | Definição |
-| ----- | ---------- |
-| Opted-in | O usuário confirmou explicitamente que deseja receber e-mails. Recomendamos um processo de opt-in explícito para obter o consentimento dos usuários para o envio de e-mails. |
-| Subscribed | O usuário não cancelou a inscrição nem optou explicitamente por receber e-mails. Este é o estado de inscrição padrão quando um perfil de usuário é criado. |
-| Unsubscribed | O usuário cancelou explicitamente a inscrição dos seus e-mails. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de inscrição" }
-
-{% alert note %}
-A Braze não contabiliza alterações no estado de inscrição como pontos de dados, tanto globalmente quanto em relação a grupos de inscrições.
-{% endalert %}
+A Braze usa estados globais de inscrição para controlar quais usuários recebem e-mail. Para ver as definições de `opted-in`, `subscribed` e `unsubscribed`, como o status global difere dos grupos de inscrições e como o status de inscrição funciona em outros canais, consulte [Status de inscrição]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#email).
 
 ### Endereços de e-mail com inscrição cancelada {#unsubscribed-email-addresses}
 
@@ -97,11 +86,11 @@ Quando o estado global de inscrição de e-mail de um usuário muda, a Braze pro
 
 ## Grupos de inscrições {#subscription-groups}
 
-Os grupos de inscrições são filtros de segmento que podem restringir ainda mais seu público a partir dos [estados de inscrição globais](#subscription-states). Esses grupos permitem apresentar opções de inscrição mais granulares aos usuários finais.
+Grupos de inscrições são filtros de segmento que podem refinar ainda mais seu público a partir dos [estados de inscrição globais](#subscription-states). Esses grupos permitem apresentar opções de inscrição mais granulares aos usuários finais.
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
-Por exemplo, suponha que você envie várias categorias de Campaigns de e-mail (promocionais, newsletters ou atualizações de produto). Nesse caso, você pode usar grupos de inscrições para permitir que seus clientes escolham de quais categorias de e-mail desejam se inscrever ou cancelar a inscrição em massa a partir de uma única página, usando uma [Central de Preferências de e-mail](#email-preference-center). Como alternativa, você pode usar grupos de inscrições para permitir que seus clientes escolham com que frequência desejam receber e-mails, criando grupos de inscrições para e-mails diários, semanais ou mensais.
+Por exemplo, suponha que você envie várias categorias de Campaigns de e-mail (promocionais, newsletters ou atualizações de produto). Nesse caso, você pode usar grupos de inscrições para permitir que seus clientes escolham de quais categorias de e-mail desejam se inscrever ou cancelar a inscrição em massa, a partir de uma única página, usando uma [central de preferências de e-mail](#email-preference-center). Como alternativa, você pode usar grupos de inscrições para permitir que seus clientes escolham com que frequência desejam receber e-mails, criando grupos de inscrições para e-mails diários, semanais ou mensais.
 
 Use os [endpoints de grupo de inscrições]({{site.baseurl}}/api/endpoints/subscription_groups) para gerenciar programaticamente os grupos de inscrições que você armazenou no dashboard da Braze na página **Grupo de inscrições**.
 
@@ -112,7 +101,7 @@ Use os [endpoints de grupo de inscrições]({{site.baseurl}}/api/endpoints/subsc
 3. Dê um nome e uma descrição ao seu grupo de inscrições.
 4. Selecione **Salvar**.
 
-Todos os grupos de inscrições são adicionados automaticamente à sua Central de Preferências.
+Todos os grupos de inscrições são adicionados automaticamente à sua central de preferências.
 
 ![Campos para criar um grupo de inscrições.]({% image_buster /assets/img/sub_group_create.png %}){: style="max-width:75%"}
 
@@ -124,43 +113,46 @@ Ao criar seus segmentos, defina o nome do grupo de inscrições como filtro para
 
 ### Arquivando grupos de inscrições {#archiving-subscription-groups}
 
-Grupos de inscrições arquivados não podem ser editados e não aparecem mais nos filtros de segmento nem na sua Central de Preferências. Se você tentar arquivar um grupo que está sendo usado como filtro de segmento em qualquer e-mail, Campaign ou Canvas, receberá uma mensagem de erro que impedirá o arquivamento do grupo até que você remova todos os usos dele.
+Grupos de inscrições arquivados não podem ser editados e não aparecem mais nos filtros de segmento nem na sua central de preferências. Se você tentar arquivar um grupo que está sendo usado como filtro de segmento em qualquer e-mail, Campaign ou Canvas, receberá uma mensagem de erro que impedirá o arquivamento do grupo até que você remova todos os usos dele.
 
 Para arquivar seu grupo na página **Grupos de inscrições**, faça o seguinte:
 
 1. Encontre seu grupo na lista de grupos de inscrições.
-2. Selecione **Arquivar** no menu suspenso <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;.
+2. Selecione **Arquivar** no menu suspenso <i class="fa-solid fa-ellipsis-vertical" aria-label="Mais opções"></i>&nbsp;.
 
-A Braze não processa mudanças de estado para usuários em grupos arquivados. Por exemplo, se você arquivar o Grupo de inscrições 1 enquanto Alex estiver inscrito nele, Alex permanecerá "inscrito" mesmo que clique em um link de cancelamento de inscrição. Isso não importa porque o Grupo de inscrições 1 está arquivado e você não pode enviar mensagens usando ele.
+A Braze não processa mudanças de estado para usuários em grupos arquivados. Por exemplo, se você arquivar o Grupo de inscrições 1 enquanto Alex estiver inscrito nele, Alex permanecerá como "inscrito" mesmo que clique em um link de cancelamento de inscrição. Isso não importa porque o Grupo de inscrições 1 está arquivado e você não pode enviar mensagens usando-o.
 
 #### Visualizando tamanhos de grupos de inscrições {#viewing-subscription-group-sizes}
 
-Você pode consultar o gráfico **Série temporal do grupo de inscrições** na página **Grupos de inscrições** para visualizar o tamanho do grupo de inscrições com base no número de usuários ao longo de um período de tempo. Esses tamanhos de grupos de inscrições também são consistentes com outras áreas da Braze, como o cálculo de tamanho de segmento.
+Você pode consultar o gráfico **Série temporal do grupo de inscrições** na página **Grupos de inscrições** para visualizar o tamanho do grupo de inscrições com base no número de usuários ao longo de um período. Esses tamanhos de grupos de inscrições também são consistentes com outras áreas da Braze, como o cálculo de tamanho de segmento.
 
 ![Um exemplo de gráfico "Série temporal do grupo de inscrições" datado de 2 a 11 de dezembro. O gráfico mostra um aumento de aproximadamente 10 milhões no número de usuários do dia 6 para o dia 7.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
 
-Se a contagem da série temporal divergir significativamente de um segmento usando **Status de inscrição de e-mail é Cancelado**, lembre-se de que o gráfico conta a participação naquele **grupo de inscrições**, enquanto esse filtro reflete o estado de inscrição de e-mail **global** — por exemplo, os usuários podem estar globalmente inscritos, mas com inscrição cancelada em um grupo específico.
+#### Por que as contagens de grupos de inscrições podem diferir das contagens de segmentos {#why-subscription-group-counts-can-differ-from-segment-counts}
+
+Os tamanhos dos grupos de inscrições estão alinhados com segmentos que usam apenas o filtro **Grupo de inscrições**. Eles podem divergir de um segmento que usa **Status de inscrição de e-mail**, que reflete o [estado global de inscrição de e-mail](#subscription-states), e não a participação em um grupo específico, ou que combina vários filtros. Por exemplo, um usuário pode estar globalmente inscrito para e-mail, mas ter cancelado a inscrição de um grupo de inscrições específico.
+
+Para comparar o estado de inscrição global de um usuário com suas participações em grupos de inscrições, acesse o perfil dele e selecione a guia **Engajamento**. Para filtrar por estado global, consulte [Segmentando por inscrições de usuários](#segmenting-by-user-subscriptions).
 
 #### Visualizando grupos de inscrições na análise de dados de Campaigns {#viewing-subscription-groups-in-campaign-analytics}
 
-Você pode ver a contagem de usuários que alteraram seu estado de inscrição (inscrito ou cancelado) a partir de uma Campaign de e-mail específica na página de análise de dados dessa Campaign.
+Você pode ver as contagens de usuários que alteraram seu estado de inscrição (inscreveram-se ou cancelaram a inscrição) a partir de uma Campaign de e-mail específica na página de análise de dados dessa Campaign.
 
-1. Na página **Analytics** da sua Campaign, role para baixo até a seção **Desempenho de mensagem de e-mail**.
+1. Na página **Análise de dados da Campaign** da sua Campaign, role para baixo até a seção **Desempenho de mensagens de e-mail**.
 2. Selecione a seta em **Grupos de inscrições** para ver a contagem agregada de mudanças de estado, conforme enviadas pelos seus clientes.
 
-![A página "Desempenho de mensagem de e-mail" exibindo a contagem agregada de mudanças de estado enviadas pelos clientes.]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
+![A página "Desempenho de mensagens de e-mail" exibindo a contagem agregada de mudanças de estado enviadas pelos clientes.]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
 
 ### Verificando o grupo de inscrições de e-mail de um usuário {#checking-a-users-email-subscription-group}
 
-- **Perfil de usuário:** Perfis de usuários individuais podem ser acessados pelo dashboard da Braze na página [Pesquisar usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Lá, você pode pesquisar perfis de usuários por endereço de e-mail, número de telefone ou ID de usuário externo. Você também pode visualizar os grupos de inscrições de e-mail de um usuário na guia **Engagement**.
-- **REST API da Braze:** Use o [endpoint Listar grupos de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) ou o [endpoint Listar status do grupo de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) para visualizar os grupos de inscrições de perfis de usuários individuais.
+- **Perfil de usuário:** Perfis de usuários individuais podem ser acessados pelo dashboard da Braze na página [Pesquisar usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Lá, você pode pesquisar perfis de usuários por endereço de e-mail, número de telefone ou ID de usuário externo. Você também pode visualizar os grupos de inscrições de e-mail de um usuário na guia **Engajamento**.
+- **REST API da Braze:** Use o [endpoint Listar grupos de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) ou o [endpoint Listar status do grupo de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) para visualizar os grupos de inscrições do perfil de um usuário individual.
 
 ## Central de Preferências de e-mail {#email-preference-center}
 
 A Central de Preferências de e-mail permite gerenciar quais usuários recebem newsletters de grupos de inscrições. Encontre-a no dashboard em **Subscription Groups**. Cada grupo de inscrições que você criar será adicionado à lista da Central de Preferências.
 
 Para saber mais sobre como adicionar ou personalizar uma Central de Preferências, consulte [Central de Preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
-
 
 ## Alterando inscrições de e-mail {#changing-email-subscriptions}
 

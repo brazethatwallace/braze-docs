@@ -63,7 +63,7 @@ description: "이 참조 문서에서는 사용자 속성 오브젝트의 다양
 
 ### 식별자 확인 {#identifier-resolution}
 
-[익명 푸시 토큰 가져오기](#push-token-import)를 수행하는 경우가 아니라면, 각 사용자 속성 오브젝트에는 `external_id`, `user_alias`, `braze_id`, `email` 또는 `phone` 중 하나 이상의 식별자가 포함되어야 합니다. 가능하면 어떤 고객 프로필이 업데이트되거나 생성되는지에 대한 모호성을 피하기 위해 오브젝트당 하나의 식별자만 포함하세요.
+[익명 푸시 토큰 가져오기](#push-token-import)를 수행하는 경우가 아니라면, 각 사용자 속성 오브젝트에는 `external_id`, `user_alias`, `braze_id`, `email` 또는 `phone` 중 하나 이상의 식별자가 포함되어야 합니다. 가능하면 오브젝트당 하나의 식별자만 포함하여 어떤 고객 프로필이 업데이트되거나 생성되는지에 대한 모호성을 피하세요.
 
 식별자를 사용할 때 다음 사항을 유의하세요:
 
@@ -71,7 +71,7 @@ description: "이 참조 문서에서는 사용자 속성 오브젝트의 다양
 - **`email`이 `phone`보다 우선합니다.** 동일한 오브젝트에 `email`과 `phone`이 모두 포함된 경우, Braze는 `email`을 식별자로 사용합니다. 즉, 전화번호가 다른 프로필에 속하더라도 해당 이메일 주소와 연결된 고객 프로필에 속성이 적용됩니다.
 
 {% alert important %}
-예기치 않은 동작을 방지하려면 사용자 속성 오브젝트당 단일 식별자를 사용하세요. 서로 다른 고객 프로필을 참조하는 여러 식별자를 제공하면 속성이 잘못된 프로필에 적용될 수 있습니다.
+예기치 않은 동작을 방지하려면 사용자 속성 오브젝트당 하나의 식별자를 사용하세요. 서로 다른 고객 프로필을 참조하는 여러 식별자를 제공하면 속성이 잘못된 프로필에 적용될 수 있습니다.
 {% endalert %}
 
 #### 기존 프로필만 업데이트 {#update-existing-profiles-only}
@@ -84,7 +84,7 @@ Braze에서 기존 고객 프로필만 업데이트하려면 요청 본문에 `_
 
 #### 푸시 토큰 가져오기 {#push-token-import}
 
-Braze로 푸시 토큰을 가져오기 전에 필요한지 다시 한번 확인하세요. Braze SDK가 설치되면 API를 통해 업로드할 필요 없이 푸시 토큰을 자동으로 처리합니다.
+Braze로 푸시 토큰을 가져오기 전에 실제로 필요한지 다시 확인하세요. Braze SDK가 적용되면 API를 통해 업로드할 필요 없이 푸시 토큰을 자동으로 처리합니다.
 
 API를 통해 업로드해야 하는 경우, 식별된 사용자 또는 익명 사용자에 대해 업로드할 수 있습니다. 즉, `external_id`가 있어야 하거나 익명 사용자의 경우 `push_token_import` 플래그를 `true`로 설정해야 합니다.
 
@@ -100,7 +100,7 @@ API를 통해 업로드해야 하는 경우, 식별된 사용자 또는 익명 �
 
 가져오기 후 각 사용자가 Braze 지원 버전의 앱을 실행하면, Braze가 가져온 푸시 토큰을 해당 Braze 고객 프로필로 자동 이동하고 임시 프로필을 정리합니다.
 
-Braze는 매월 한 번 `push_token_import` 플래그가 있지만 푸시 토큰이 없는 익명 프로필을 확인합니다. 익명 프로필에 더 이상 푸시 토큰이 없으면 Braze가 해당 프로필을 삭제합니다. 그러나 익명 프로필에 여전히 푸시 토큰이 있어 실제 사용자가 해당 푸시 토큰이 있는 기기에 아직 로그인하지 않았음을 시사하는 경우, Braze는 아무 작업도 수행하지 않습니다.
+Braze는 매월 한 번 `push_token_import` 플래그가 있지만 푸시 토큰이 없는 익명 프로필을 확인합니다. 익명 프로필에 더 이상 푸시 토큰이 없으면 Braze가 해당 프로필을 삭제합니다. 그러나 익명 프로필에 여전히 푸시 토큰이 있어 실제 사용자가 아직 해당 푸시 토큰이 있는 기기에 로그인하지 않았음을 나타내는 경우, Braze는 아무 작업도 수행하지 않습니다.
 
 자세한 내용은 [푸시 토큰 마이그레이션](#migrate-push-tokens)을 참조하세요.
 
@@ -110,13 +110,13 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있지만 푸시 토큰
 
 | 데이터 유형 | 참고 |
 | --- | --- |
-| 배열 | 커스텀 속성 배열이 지원됩니다. 요소를 추가하면 배열 끝에 추가됩니다. 요소가 이미 존재하는 경우 현재 위치에서 끝으로 이동됩니다.<br><br>고유한 값만 저장됩니다. 예를 들어, `['hotdog','hotdog','hotdog','pizza']`를 가져오면 `['hotdog', 'pizza']`가 됩니다.<br><br>배열을 직접 설정하거나(예: `"my_array_custom_attribute":[ "Value1", "Value2" ]`), 기존 배열에 `"my_array_custom_attribute" : { "add" : ["Value3"] }`로 추가하거나, `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`로 값을 제거할 수 있습니다.<br><br>배열의 기본값 및 최대 요소 개수는 500개입니다. Braze 대시보드의 **데이터 설정** > **커스텀 속성**에서 배열의 최대 개수를 업데이트할 수 있습니다. 자세한 내용은 [배열]({{site.baseurl}}/developer_guide/analytics#arrays)을 참조하세요. |
-| 오브젝트 배열 | 오브젝트 배열을 사용하여 각 오브젝트에 속성 집합이 포함된 오브젝트 목록을 정의합니다. 이 유형을 사용하여 호텔 숙박, 구매 내역 또는 선호도와 같은 사용자의 여러 관련 데이터 세트를 저장합니다. <br><br>예를 들어, 고객 프로필에 `hotel_stays`라는 커스텀 속성을 배열로 정의하고, 각 오브젝트가 `hotel_name`, `check_in_date`, `nights_stayed`와 같은 속성을 가진 별도의 숙박을 나타내도록 합니다.<br><br>오브젝트 배열은 항목 수에 제한이 없지만 최대 크기는 100&nbsp;KB입니다. 업데이트로 인해 배열이 이 제한을 초과하면 Braze가 업데이트를 삭제하고 속성은 변경되지 않습니다.<br><br>`/users/track` 및 SDK 페이로드의 경우, 오브젝트 배열 작업에는 `$add`, `$remove`, `$update`를 사용합니다. 스칼라 값을 포함하는 일반 배열 커스텀 속성에는 `add`와 `remove`(`$` 없이)를 사용합니다. 자세한 내용은 [오브젝트 배열 API 예시]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#api-example), [오브젝트 배열 SDK 예시]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#sdk-example) 및 [오브젝트 배열 예시](#array-of-objects-example)를 참조하세요. |
+| 배열 | 커스텀 속성 배열이 지원됩니다. 요소를 추가하면 배열 끝에 추가됩니다. 요소가 이미 존재하는 경우 현재 위치에서 끝으로 이동됩니다.<br><br>고유한 값만 저장됩니다. 예를 들어, `['hotdog','hotdog','hotdog','pizza']`를 가져오면 `['hotdog', 'pizza']`가 됩니다.<br><br>배열을 직접 설정하거나(예: `"my_array_custom_attribute":[ "Value1", "Value2" ]`), `"my_array_custom_attribute" : { "add" : ["Value3"] }`로 기존 배열에 추가하거나, `"my_array_custom_attribute" : { "remove" : [ "Value1" ]}`로 값을 제거할 수 있습니다.<br><br>배열의 기본값 및 최대 요소 개수는 500개입니다. Braze 대시보드의 **데이터 설정** > **커스텀 속성**에서 배열의 최대 개수를 업데이트할 수 있습니다. 자세한 내용은 [배열]({{site.baseurl}}/developer_guide/analytics#arrays)을 참조하세요. |
+| 오브젝트 배열 | 오브젝트 배열을 사용하여 각 오브젝트에 속성 세트가 포함된 오브젝트 목록을 정의합니다. 이 유형을 사용하여 호텔 숙박, 구매 내역 또는 선호도와 같은 사용자의 여러 관련 데이터 세트를 저장합니다. <br><br>예를 들어, 고객 프로필에 `hotel_stays`라는 커스텀 속성을 배열로 정의하고, 각 오브젝트가 `hotel_name`, `check_in_date`, `nights_stayed`와 같은 속성을 가진 별도의 숙박을 나타내도록 합니다.<br><br>오브젝트 배열은 항목 수에 제한이 없지만 최대 크기는 100&nbsp;KB입니다. 업데이트로 인해 배열이 이 제한을 초과하면 Braze가 업데이트를 삭제하고 속성은 변경되지 않습니다.<br><br>`/users/track` 및 SDK 페이로드의 경우, 오브젝트 배열 작업에는 `$add`, `$remove`, `$update`를 사용합니다. 스칼라 값을 포함하는 일반 배열 커스텀 속성에는 `add`와 `remove`(`$` 없이)를 사용합니다. 자세한 내용은 [오브젝트 배열 API 예시]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#api-example), [오브젝트 배열 SDK 예시]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects#sdk-example) 및 [오브젝트 배열 예시](#array-of-objects-example)를 참조하세요. |
 | 불리언 | `true` 또는 `false` |
-| 날짜 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식(권장) 또는 다음 형식 중 하나로 날짜를 저장합니다: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>"T"는 시간 지정자이며 자리 표시자가 아니므로 변경하거나 제거하면 안 됩니다. <br><br>나열된 형식과 일치하지 않는 날짜 값은 Time 데이터 유형이 아닌 문자열로 고객 프로필에 저장됩니다. 이는 시간 기반 세분화 필터(예: "이전", "이후" 또는 "최근 X일")가 해당 속성에 대해 작동하지 않음을 의미합니다. 예를 들어, `Mar 26 2026 06:12 PM +00:00`은 지원되는 형식과 일치하지 않으므로 문자열로 저장됩니다. 이를 방지하려면 ISO 8601 형식(예: `2026-03-26T18:12:00Z`)을 사용하세요. <br><br>시간대가 없는 시간 속성은 기본적으로 자정 UTC로 설정됩니다(대시보드에서는 회사 시간대의 자정 UTC에 해당하는 시간으로 표시됩니다). 시간대를 지정하려면 타임스탬프에 UTC 오프셋을 추가합니다(예: EST의 경우 `2024-11-10T18:00:00-05:00`). 시간대 오프셋이 누락되었거나 형식이 잘못된 경우 값은 기본적으로 UTC로 설정됩니다. <br><br>시간은 대시보드에서 회사의 시간대로 표시됩니다. 예를 들어, `2024-11-10T18:00:00-05:00`(오후 6:00 EST)은 회사에서 구성한 시간대의 해당 시간으로 표시됩니다. <br><br>미래 타임스탬프가 있는 이벤트는 기본적으로 현재 시간으로 설정됩니다. <br><br>일반 커스텀 속성의 경우, 연도가 0 미만이거나 3000보다 크면 Braze가 해당 값을 고객 프로필에 문자열로 저장합니다. |
+| 날짜 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식(권장) 또는 다음 형식 중 하나로 날짜를 저장합니다: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>"T"는 시간 지정자이며 자리 표시자가 아니므로 변경하거나 제거하면 안 됩니다. <br><br>나열된 형식과 일치하지 않는 날짜 값은 Time 데이터 유형이 아닌 문자열로 고객 프로필에 저장됩니다. 이는 시간 기반 세분화 필터(예: "이전", "이후" 또는 "지난 X일 이내")가 해당 속성에 대해 작동하지 않음을 의미합니다. 예를 들어, `Mar 26 2026 06:12 PM +00:00`은 지원되는 형식과 일치하지 않으므로 문자열로 저장됩니다. 이를 방지하려면 ISO 8601 형식(예: `2026-03-26T18:12:00Z`)을 사용하세요. <br><br>시간대가 없는 시간 속성은 기본적으로 자정 UTC로 설정됩니다(대시보드에서는 회사 시간대의 자정 UTC에 해당하는 시간으로 표시됩니다). 시간대를 지정하려면 타임스탬프에 UTC 오프셋을 추가합니다(예: EST의 경우 `2024-11-10T18:00:00-05:00`). 시간대 오프셋이 누락되었거나 형식이 잘못된 경우 값은 기본적으로 UTC로 설정됩니다. <br><br>시간은 대시보드에서 회사의 시간대로 표시됩니다. 예를 들어, `2024-11-10T18:00:00-05:00`(오후 6:00 EST)은 회사에서 설정한 시간대의 해당 시간으로 표시됩니다. <br><br>미래 타임스탬프가 있는 이벤트는 기본적으로 현재 시간으로 설정됩니다. <br><br>일반 커스텀 속성의 경우, 연도가 0 미만이거나 3000보다 크면 Braze가 해당 값을 고객 프로필에 문자열로 저장합니다. |
 | 플로트 | 플로트 커스텀 속성은 소수점이 있는 양수 또는 음수입니다. 예를 들어, 플로트를 사용하여 계좌 잔액이나 제품 또는 서비스에 대한 사용자 평점을 저장할 수 있습니다. |
 | 정수 | "inc" 필드와 추가할 양이 포함된 오브젝트를 할당하여 정수 커스텀 속성을 증가시킬 수 있습니다. <br><br>예시: `"my_custom_attribute_2" : {"inc" : int_value},`|
-| 중첩 커스텀 속성 | 중첩 커스텀 속성은 다른 속성의 속성정보로 속성 집합을 정의합니다. 커스텀 속성 오브젝트를 정의할 때 해당 오브젝트에 속성 집합을 추가합니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)을 참조하세요. |
+| 중첩 커스텀 속성 | 중첩 커스텀 속성은 다른 속성의 속성정보로 속성 세트를 정의합니다. 커스텀 속성 오브젝트를 정의할 때 해당 오브젝트에 속성 세트를 추가합니다. 자세한 내용은 [중첩 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)을 참조하세요. |
 | 문자열 | 문자열 커스텀 속성은 텍스트 데이터를 저장하는 데 사용되는 문자 시퀀스입니다. 예를 들어, 문자열을 사용하여 이름과 성, 이메일 주소 또는 선호도를 저장할 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="커스텀 속성 데이터 유형" }
 
@@ -224,13 +224,13 @@ Braze를 통합하기 전에 직접 또는 다른 공급자를 통해 푸시 알
 
 [Braze SDK를 통합]({{site.baseurl}}/developer_guide/sdk_integration)한 후, 옵트인한 사용자의 푸시 토큰은 다음에 앱을 열 때 자동으로 마이그레이션됩니다. 그때까지는 Braze를 통해 해당 사용자에게 푸시 알림을 보낼 수 없습니다.
 
-또는 [푸시 토큰을 수동으로 마이그레이션](#manual-migration-through-api)하여 사용자에게 더 신속하게 다시 참여할 수 있습니다.
+또는 [푸시 토큰을 수동으로 마이그레이션](#manual-migration-through-api)하여 사용자에게 더 빠르게 다시 참여할 수 있습니다.
 
 #### 웹 토큰 고려 사항 {#web-token-considerations}
 
 웹 푸시 토큰의 특성상, 웹 푸시를 구현할 때 다음 사항을 반드시 고려해야 합니다.
 
-| 고려 사항 | 세부 정보 |
+|고려 사항|세부 정보|
 |----------------------|------------|
 | **서비스 워커**  | 기본적으로 웹 SDK는 `manageServiceWorkerExternally` 또는 `serviceWorkerLocation`과 같은 다른 옵션이 지정되지 않는 한 `./service-worker`에서 서비스 워커를 찾습니다. 서비스 워커가 올바르게 설정되지 않으면 사용자의 푸시 토큰이 만료될 수 있습니다. |
 | **만료된 토큰**   | 사용자가 60일 이내에 웹 세션을 시작하지 않으면 푸시 토큰이 만료됩니다. Braze는 만료된 푸시 토큰을 마이그레이션할 수 없으므로, 사용자에게 다시 참여하려면 [푸시 프라이머]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)를 보내야 합니다. |
@@ -247,7 +247,7 @@ Braze를 통합하기 전에 직접 또는 다른 공급자를 통해 푸시 알
 {% alert important %}
 API를 통해 웹 푸시 토큰을 마이그레이션하는 것은 불가능합니다. 웹 푸시 토큰은 다른 플랫폼과 동일한 스키마를 따르지 않기 때문입니다.
 
-<br>웹 푸시 토큰을 프로그래밍 방식으로 마이그레이션하려고 하면 다음과 같은 오류가 발생할 수 있습니다: `Received '400: Invalid subscription auth' sending to 'https://fcm.googleapis.com/fcm/send`
+<br>웹 푸시 토큰을 프로그래밍 방식으로 마이그레이션하려고 하면 다음과 같은 오류가 표시될 수 있습니다: `Received '400: Invalid subscription auth' sending to 'https://fcm.googleapis.com/fcm/send`
 
 <br>
 API 마이그레이션의 대안으로, SDK를 통합하고 토큰 기반이 자연스럽게 다시 채워지도록 하는 것을 권장합니다.
@@ -281,7 +281,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 {% endtab %}
 
 {% tab 외부 ID 없음 %}
-다른 시스템에서 푸시 토큰을 가져올 때 `external_id`를 항상 사용할 수 있는 것은 아닙니다. 이 경우 `push_token_import` 플래그를 `true`로 설정하고 `app_id`와 `token` 값을 지정합니다. Braze는 각 토큰에 대해 임시 익명 사용자 프로필을 생성하여 해당 개인에게 계속 메시지를 보낼 수 있도록 합니다. 토큰이 이미 Braze에 존재하는 경우 요청은 무시됩니다.
+다른 시스템에서 푸시 토큰을 가져올 때 `external_id`를 항상 사용할 수 있는 것은 아닙니다. 이 경우 `push_token_import` 플래그를 `true`로 설정하고 `app_id` 및 `token` 값을 지정합니다. Braze는 각 토큰에 대해 임시 익명 사용자 프로필을 생성하여 해당 개인에게 계속 메시지를 보낼 수 있도록 합니다. 토큰이 이미 Braze에 존재하는 경우 요청은 무시됩니다.
 
 예시:
 
@@ -317,7 +317,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 }'
 ```
 
-가져오기 후, 익명 사용자가 Braze가 활성화된 앱 버전을 실행하면 Braze는 가져온 푸시 토큰을 해당 Braze 사용자 프로필로 자동으로 이동하고 임시 프로필을 정리합니다.
+가져오기 후 익명 사용자가 Braze가 활성화된 앱 버전을 실행하면, Braze는 가져온 푸시 토큰을 해당 Braze 사용자 프로필로 자동으로 이동하고 임시 프로필을 정리합니다.
 
 Braze는 매월 한 번 `push_token_import` 플래그가 있지만 푸시 토큰이 없는 익명 프로필을 확인합니다. 익명 프로필에 더 이상 푸시 토큰이 없으면 Braze는 해당 프로필을 삭제합니다. 그러나 익명 프로필에 여전히 푸시 토큰이 있는 경우(실제 사용자가 해당 푸시 토큰이 있는 기기에 아직 로그인하지 않았음을 의미), Braze는 아무 작업도 수행하지 않습니다.
 {% endtab %}
@@ -325,15 +325,15 @@ Braze는 매월 한 번 `push_token_import` 플래그가 있지만 푸시 토큰
 
 ### iOS 푸시 토큰 가져오기 {#import-ios-push-tokens}
 
-`/users/track`로 iOS 푸시 토큰을 마이그레이션할 때, 푸시 토큰에 `gateway` 필드가 설정되지 않습니다. Braze는 API를 통해 가져온 토큰이 유효한 포그라운드 푸시 토큰이라고 가정하지만, 해당 토큰이 어떤 APNs 환경에 속하는지는 판별할 수 없습니다.
+`/users/track`로 iOS 푸시 토큰을 마이그레이션할 때, 푸시 토큰에 `gateway` 필드가 설정되지 않습니다. Braze는 API를 통해 가져온 토큰이 유효한 포그라운드 푸시 토큰이라고 가정하지만, 해당 토큰이 어떤 APNs 환경에 속하는지는 판단할 수 없습니다.
 
 게이트웨이 필드가 없으면 Braze는 푸시 알림을 보낼 때 앱에 구성된 대체 환경 설정을 사용합니다. 토큰의 실제 환경이 구성된 대체 환경과 다른 경우 `BadDeviceToken` 오류가 발생할 수 있습니다. 예를 들어, 프로덕션 게이트웨이를 통해 전송된 개발 토큰은 실패합니다.
 
 전달 문제를 방지하려면:
 
 - Braze 대시보드의 앱 환경 설정이 가져오는 토큰과 일치하는지 확인합니다.
-- 프로덕션 앱의 경우, 프로덕션 토큰만 가져옵니다.
-- 테스트 환경의 경우, 앱 구성과 가져온 토큰 모두 개발 환경을 사용하는지 확인합니다.
+- 프로덕션 앱의 경우 프로덕션 토큰만 가져옵니다.
+- 테스트 환경의 경우 앱 구성과 가져온 토큰 모두 개발 환경을 사용하는지 확인합니다.
 
 {% alert note %}
 Braze SDK를 통해 등록된 토큰은 SDK가 앱의 자격 증명에서 환경을 감지하므로 게이트웨이 필드가 자동으로 포함됩니다.
@@ -342,7 +342,7 @@ Braze SDK를 통해 등록된 토큰은 SDK가 앱의 자격 증명에서 환경
 ### Android 푸시 토큰 가져오기 {#import-android-push-tokens}
 
 {% alert important %}
-다음 고려 사항은 Android 앱에만 적용됩니다. iOS 앱은 푸시를 표시하는 프레임워크가 하나뿐이며, Braze에 필요한 푸시 토큰과 인증서가 있으면 푸시 알림이 즉시 렌더링되므로 이러한 단계가 필요하지 않습니다.
+다음 고려 사항은 Android 앱에만 적용됩니다. iOS 앱은 푸시를 표시하는 프레임워크가 하나뿐이고, Braze에 필요한 푸시 토큰과 인증서가 있으면 푸시 알림이 즉시 렌더링되므로 이러한 단계가 필요하지 않습니다.
 {% endalert %}
 
 Braze SDK 통합이 완료되기 전에 사용자에게 Android 푸시 알림을 보내야 하는 경우, 키-값 페어를 사용하여 푸시 알림을 검증합니다.
@@ -357,4 +357,4 @@ Braze SDK 통합이 완료되기 전에 사용자에게 Android 푸시 알림을
 
 ### 스팸으로 처리되거나 메시징이 차단된 사용자를 어떻게 찾나요? {#how-do-i-find-users-treated-as-spam-or-blocked-from-messaging}
 
-Braze는 대시보드에서 전용 스팸 목록을 제공하지 않습니다. Braze는 500만 건 이상의 세션을 가진 개별 사용자("더미 사용자")를 차단하며, 해당 사용자의 SDK 이벤트를 더 이상 수집하지 않습니다. 식별자가 차단된 경우 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)에서 `"provided external_id is blacklisted and disallowed"` 오류를 반환할 수 있습니다. 이 문구는 API 응답에서 그대로 가져온 것입니다. 영향을 받는 프로필을 찾으려면 **Session Count** 필터를 **more than 5,000,000**으로 설정한 [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)를 생성하고, 해당 Segment를 CSV로 내보낸 다음, **Engagement** > **Search users** 또는 [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) 엔드포인트에서 프로필 필드를 교차 확인합니다.
+Braze는 대시보드에 전용 스팸 목록을 제공하지 않습니다. Braze는 세션이 500만 건을 초과하거나, 고유 커스텀 이벤트 이름이 20,000개를 초과하거나, 구매 시 고유 제품 이름이 20,000개를 초과하는 개별 사용자 프로필("더미 사용자")을 차단하며, 해당 프로필에 대해 SDK와 REST API 모두에서 모든 인바운드 데이터 수집을 중단합니다. 식별자가 차단된 경우 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)에서 `"provided external_id is blacklisted and disallowed"` 오류를 반환할 수 있습니다. 이 문구는 API 응답에서 그대로 가져온 것입니다. 과도한 세션으로 차단된 프로필을 찾으려면 **세션 수** 필터를 **5,000,000 초과**로 설정하여 [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)를 생성하고, 해당 Segment를 CSV로 내보낸 다음, **인게이지먼트** > **사용자 검색**에서 프로필 필드를 교차 확인하거나 [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) 엔드포인트를 사용하여 확인합니다. 고유 커스텀 이벤트 이름이나 제품 이름에 대한 동등한 필터는 없으므로, 해당 사유로 차단된 프로필을 확인하려면 Braze 계정 매니저에게 문의하세요. 자세한 내용은 [스팸 차단]({{site.baseurl}}/user_archival)을 참조하세요.
