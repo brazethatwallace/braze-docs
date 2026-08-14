@@ -1,65 +1,42 @@
 ---
-nav_title: E-commerce
-article_title: Partenaires e-commerce
+nav_title: "eCommerce"
+article_title: Partenaires eCommerce
 page_order: 10
-
 page_type: landing
-description: "Cette page d'accueil répertorie les partenaires de Braze (Alloys) qui vous permettent de vous intégrer à leur plateforme e-commerce."
-
-layout: partner_page
+description: "Découvrez les partenaires technologiques de Braze qui connectent les plateformes de commerce, les catalogues, la fidélité, les paiements et les workflows retail associés à Braze."
+layout: dev_guide
 search_tag: Partner
 
-partner_top_header: "eCommerce"
+guide_top_header: "eCommerce"
+guide_top_text: "Ces partenaires vous aident à connecter les plateformes de commerce et les workflows retail à Braze. Parcourez une catégorie pour trouver des guides d'intégration. Pour une liste complète et filtrable de tous les partenaires technologiques de Braze, consultez le <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
 
-valid_partner_list:
-- name: Lexer
-  url: /docs/partners/lexer/
-- name: Peak
-  url: /docs/partners/peak/
-- name: Personalize
-  url: /docs/partners/personalize/
-- name: Tangerine
-  url: /docs/partners/tangerine/
-- name: Wunderkind
-  url: /docs/partners/wunderkind/
-- name: Talon.One
-  url: /docs/partners/talonone/
-- name: ViralSweep
-  url: /docs/partners/viralsweep/
-- name: Voucherify
-  url: /docs/partners/voucherify/
-- name: Antavo
-  url: /docs/partners/antavo/
-- name: Kognitiv Inspire
-  url: /docs/partners/kognitiv/
-- name: Yotpo
-  url: /docs/partners/yotpo/
-- name: Narvar
-  url: /docs/partners/narvar/
-- name: Olo
-  url: /docs/partners/olo/
-- name: Recurly
-  url: /docs/partners/recurly/
-- name: RevenueCat
-  url: /docs/partners/revenuecat
-- name: Transcend
-  url: /docs/partners/transcend/
-- name: Constructor
-  url: /docs/partners/constructor/
-- name: Stylitics
-  url: /docs/partners/stylitics/
-- name: Shopify
-  url: /docs/partners/shopify/
-- name: Stripe
-  url: /docs/partners/stripe/
-- name: Okendo
-  url: /docs/partners/okendo/
-- name: Swym
-  url: /docs/partners/swym/
-- name: Algolia
-  url: /docs/partners/algolia/
-- name: Tapcart
-  url: /docs/partners/tapcart/
-- name: Poq
-  url: /docs/partners/poq/
+guide_featured_title: "Catégories"
+guide_featured_list:
+  - name: "Analytique et workflows e-commerce"
+    link: /docs/partners/ecommerce/analytics_workflow
+    image: /assets/img/braze_icons/zap.svg
+  - name: "Prix et promotions dynamiques"
+    link: /docs/partners/ecommerce/dynamic_pricing_promotions
+    image: /assets/img/braze_icons/layers-three-01.svg
+  - name: "Loyauté"
+    link: /docs/partners/ecommerce/loyalty
+    image: /assets/img/braze_icons/bar-chart-01.svg
+  - name: "Plateforme d'application mobile"
+    link: /docs/partners/ecommerce/mobile_app_platform
+    image: /assets/img/braze_icons/dataflow-01.svg
+  - name: "Gestion des commandes, des paiements et des abonnements"
+    link: /docs/partners/ecommerce/ordering_payments_subscription
+    image: /assets/img/braze_icons/users-01.svg
+  - name: "Paiements"
+    link: /docs/partners/ecommerce/payments
+    image: /assets/img/braze_icons/target-05.svg
+  - name: "Recherche de produits et recommandations"
+    link: /docs/partners/ecommerce/product_search_recommendations
+    image: /assets/img/braze_icons/globe-02.svg
+  - name: "Shopify"
+    link: /docs/partners/ecommerce/shopify
+    image: /assets/img/braze_icons/puzzle-piece-01.svg
+  - name: "Tapcart"
+    link: /docs/partners/ecommerce/tapcart
+    image: /assets/img/braze_icons/shopping-cart-03.svg
 ---

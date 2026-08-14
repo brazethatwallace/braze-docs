@@ -360,6 +360,23 @@ Für Android-Push-Benachrichtigungen, die über das Braze-Dashboard versendet we
 
 Eine **Benachrichtigungs-ID** ist ein eindeutiger Bezeichner für eine von Ihnen gewählte Nachrichtenkategorie, der dem Messaging-Dienst mitteilt, dass er nur die jüngste Nachricht mit dieser ID berücksichtigen soll. Wenn Sie eine Benachrichtigungs-ID festlegen, können Sie nur die aktuellste und relevanteste Nachricht versenden, anstatt einen Stapel veralteter, irrelevanter Nachrichten.
 
+#### Verhindern, dass identische Benachrichtigungen sich gegenseitig überschreiben {#preventing-duplicate-notifications-from-overwriting}
+
+Standardmäßig generiert Android bei Push-Benachrichtigungen mit identischem Titel und Textkörper dieselbe Benachrichtigungs-ID für beide Nachrichten, indem Titel und Text zusammen gehasht werden. Dadurch überschreibt die zweite Benachrichtigung die erste, sodass nur eine einzige Benachrichtigung in der Benachrichtigungsleiste erscheint.
+
+Um zu verhindern, dass identische Benachrichtigungen sich gegenseitig überschreiben, können Sie in Ihren Android-Push-Benachrichtigungseinstellungen eindeutige Benachrichtigungs-ID-Werte angeben. Hier sind einige Optionen:
+
+- **Liquid-Templating mit Zeitstempel verwenden:** Generieren Sie einen eindeutigen Wert basierend auf der aktuellen Uhrzeit.
+
+{% raw %}
+```liquid
+{% assign random_number = 'now' | date: '%s' | plus: 1000000 %}
+{{random_number}}
+```
+{% endraw %}
+
+- **Serverseitige Generierung:** Für wirklich zufällige Werte generieren Sie die Benachrichtigungs-ID auf Ihrem Server und übergeben sie über Liquid. Dadurch wird sichergestellt, dass jede Benachrichtigung einen eindeutigen Bezeichner hat, sodass mehrere Benachrichtigungen gleichzeitig angezeigt werden können.
+
 ### Priorität der Firebase-Nachrichtenzustellung {#fcm-priority}
 
 Mit dem Feld [Firebase Messaging Delivery Priority](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages) können Sie festlegen, ob ein Push mit „normaler“ oder „hoher“ Priorität an Firebase Cloud Messaging gesendet wird.

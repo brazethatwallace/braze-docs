@@ -29,7 +29,7 @@ You can either log in from the [Braze.com](https://www.braze.com) home site, or 
 * [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta)
 * [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)
 
-After you log into Braze with SSO, you can no longer use your password to log into the dashboard.Both email addresses will direct emails to the same inbox, but Braze will recognize them as separate accounts when you log in. Clearing cookies will log you out, so unsaved work will be lost.
+After you log into Braze with SSO, you can no longer use your password to log into the dashboard. Both email addresses direct emails to the same inbox, but Braze recognizes them as separate accounts when you log in. Clearing cookies logs you out, so unsaved work is lost.
 
 ## Supported browsers
 
@@ -84,7 +84,28 @@ If you use Single Sign-On (SSO), be aware that having multiple different email a
 
 To reset your password, select the **Forgot your password?** link on the dashboard login page. You'll be prompted to input your email to receive a link to reset your password.
 
-![Dashboard login with "Forgot your password?" prompt.]({% image_buster /assets/img_archive/enable_reset.png %}){: style="max-width:60%"}
+
+#### Password reset email not received
+
+If you requested a password reset but haven't received the email, try the following troubleshooting steps:
+
+{% alert note %}
+If your company enforces [single sign-on (SSO)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), the login page may not offer **Forgot your password?** or send password reset emails because password login is disabled. Sign in through your organization's identity provider instead, or contact your Braze administrator.
+{% endalert %}
+
+1. **Verify your email address:** Have an admin check that the email on your account matches in **Settings** > **Company Users**. The reset link is sent to the email registered in the system.
+2. **Check spam and junk folders:** Look for emails from `@alerts.braze.com` in your spam or junk folder.
+3. **Verify IT email filters:** Confirm with your IT team that emails from `@alerts.braze.com` aren't being blocked or filtered.
+4. **Confirm the correct dashboard instance:** Make sure you're requesting the reset from the correct [Braze dashboard instance]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Check with your account administrator or Braze account manager if you're unsure.
+5. **Try a different browser:** Some browser extensions or settings may interfere with the password reset process. Try using a different browser or an incognito window.
+
+Password reset links expire two hours after the email is sent. If your link has expired, request a new reset from the login page.
+
+If none of these steps work, an admin can delete and recreate your user account as a workaround. For more information, see [Manage company users]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users).
+
+{% alert note %}
+Deleting and recreating a user account resets their permissions and may affect asset attribution for campaigns, Canvases, and other content previously owned by that user.
+{% endalert %}
 
 ### Clearing your browser cache and cookies
 
@@ -134,7 +155,7 @@ If you're experiencing issues logging into Braze Learning and find yourself stuc
 
 1. If you have multiple Braze accounts, logging in with the wrong account twice sends you to the Braze dashboard. Confirm you're logging into the correct account.
 2. If you have an ad blocker, confirm it is turned off. It may block cookies necessary for single sign-on functionality.
-3. Go to **Company Settings** > **Security Settings** and verify that single sign-on (SSO) is turned on.
+3. Go to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings** and verify that single sign-on (SSO) is turned on.
 4. Confirm that your dashboard user profile includes both a first and last name. Not having a last name can disrupt the login process.
 5. Access Braze Learning from your dashboard by going to **Support** > **Braze Learning**.
 6. If you continue to experience issues, consider re-creating your account. Users who accessed Braze Learning during the free trial phase may have difficulties accessing it now.
@@ -145,9 +166,9 @@ If a user is experiencing issues with Two-Factor Authentication (2FA) and can't 
 
 An admin should reset the 2FA for the affected user by doing the following:
 
-1. Go to **Manage Users**.
-2. Select **Edit User** for the user experiencing 2FA issues.
-3. Choose the option to Reset 2FA.
+1. Go to **Settings** > **User Management**.
+2. Select the user experiencing 2FA issues.
+3. Under **Two Factor Authentication**, select **Reset**.
 4. Confirm the 2FA reset when prompted.
 5. If the reset doesn't immediately resolve the issue, clear your cookies and cache.
 
@@ -191,7 +212,16 @@ If you are using the same machine you usually do to log in, Braze should automat
 
 #### Account suspension
 
-This doesn't happen very often, but Braze takes account suspension and deletions very seriously. If you encounter this error, reach out to your company's Braze administrator, Braze account manager, or [Support][support].
+This doesn't happen very often, but Braze takes account suspension and deletions very seriously. If you encounter an "Account has been banned" error when trying to sign in, your dashboard account is temporarily suspended. This can happen for several reasons.
+
+| Reason | Description |
+| --- | --- |
+| Payment issues | Your company's Braze account may have unresolved billing or payment issues. |
+| Policy violations | The account may have violated Braze terms of service or acceptable use policies. |
+| Security concerns | Suspicious activity may have triggered an automatic suspension for security reasons. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Reason for account suspension" }
+
+To resolve this issue, contact your company's Braze administrator, Braze account manager, or [Support]({{site.baseurl}}/support_contact).
 
 ### Braze dashboard won't load or work as expected
 
@@ -214,7 +244,7 @@ If you've solved the prior issues and your dashboard still won't load or work as
 
 ### The user belongs to no workspace
 
-Verify this by going to **Settings** > **Company Users** and checking the user's workspace-level permissions. Add the necessary workspaces to **Workspaces**.
+Admins can resolve this by going to **Settings** > **User Management**, checking the user's workspace-level permissions, and adding the necessary workspaces to **Workspaces**.
 
 ### Troubleshooting as a new user
 
@@ -228,7 +258,17 @@ If you're a new Braze user having trouble logging in or accessing your account f
 
 #### I received the email, but I'm stuck setting up two-factor authentication (2FA)
 
-- Reset 2FA: If you're having trouble setting up 2FA, your admin can reset 2FA for your user account in the settings.
+If you select **Start setup** during 2FA setup but never receive a verification code (for SMS or email) or cannot complete authenticator app setup, browser extensions, cookie settings, or network restrictions may be interfering. Try the following:
+
+- Disable ad-blockers and enable third-party cookies: Ad-blockers or privacy extensions may block the 2FA verification flow. Temporarily disable them and confirm third-party cookies are enabled in your browser settings.
+- Try a different browser: Switch to a different browser to rule out browser-specific issues.
+- Switch networks: If you're on a corporate network, firewall policies may interfere with 2FA setup. Try switching to a personal connection or mobile hotspot.
+- Install an authenticator app before browser setup: Download and install an authenticator app (such as Authy, Google Authenticator, or LastPass Authenticator) on your mobile device before selecting **Authenticator app** during setup.
+- Delete stale authenticator profiles: If you previously started authenticator app setup but it didn't complete, delete any stale profiles in your app and re-scan the QR code.
+
+If you continue to have trouble after trying these steps:
+
+- Reset 2FA: Your admin can reset 2FA for your user account in the settings.
 - Re-add user: If issues persist, the admin can delete your user account from the dashboard and re-add you. This allows for the creation of the user with the same details.
 
 If problems continue after these steps, contact [Support]({{site.baseurl}}/braze_support) for further assistance.

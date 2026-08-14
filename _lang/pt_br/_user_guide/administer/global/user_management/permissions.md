@@ -222,7 +222,7 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Dados de usuários | Edit User Data | Criar e atualizar dados de usuários |
 | Dados de usuários | Export User Data | Baixar usuários do dashboard |
 | Usuários duplicados | View User Merge Records | Visualizar uma lista de registros de mesclagem de usuários |
-| Usuários | View User Profiles (PII Redacted) | Visualizar perfis de usuário de maneira compatível com IPI. Usuários com essa permissão não podem salvar ou lançar Campaigns que referenciam atributos personalizados marcados como IPI, a menos que também tenham a permissão "View Custom Attributes Marked as PII". |
+| Usuários | View User Profiles (PII Redacted) | Visualizar perfis de usuário de maneira compatível com IPI. Usuários com essa permissão não podem salvar ou lançar Campaigns que referenciam atributos personalizados marcados como IPI, a menos que também tenham a permissão "View Custom Attributes Marked as PII".<br><br>A permissão "View User Profiles (PII Redacted)" deve ser ativada antes do uso. Entre em contato com seu gerente de sucesso do cliente para ativá-la no seu espaço de trabalho. |
 | Usuários | View User Event Properties | Visualizar propriedades de eventos na guia **Histórico de eventos** nos perfis de usuário |
 | Usuários duplicados | Merge Duplicate Users | Combinar usuários duplicados em um único usuário. Os duplicados são removidos após a mesclagem |
 | Exclusão de usuários | View User Deletion Records | Visualizar uma lista de registros de exclusão de usuários |

@@ -28,7 +28,7 @@ description: "このリファレンス記事では、ユーザーの更新とBra
 
 キャンバス内からユーザープロファイルを更新する場合（[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)の変更、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)の記録、[購入]({{site.baseurl}}/user_guide/data/activation/events/purchase_events)の記録など）は、Braze間Webhookではなく[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)を使用してください。
 
-ユーザーの更新は複数の変更をグループ化してバッチで送信するため、Webhookよりも高速です。Webhookよりもセットアップが簡単で、[高度なJSONコンポーザー]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer)を使用した複雑な更新もサポートしています。たとえば、ユーザーがメッセージを閲覧した回数をカウントするには、Braze間Webhookではなくユーザーの更新の[値の増減機能]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values)を使用してください。
+ユーザーの更新は複数の変更をグループ化してバッチで送信するため、Webhookよりも高速です。Webhookよりもセットアップが簡単で、[高度なJSONコンポーザー]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor)を使用した複雑な更新もサポートしています。たとえば、ユーザーがメッセージを閲覧した回数をカウントするには、Braze間Webhookではなくユーザーの更新の[値の増減機能]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values)を使用してください。
 
 {% alert tip %}
 キャンバスに[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)を追加して、JSONコンポーザーを使用してユーザーの属性、イベント、購入を更新できます。
@@ -36,7 +36,7 @@ description: "このリファレンス記事では、ユーザーの更新とBra
 
 ## Braze間Webhookを使用するタイミング {#when-to-use-a-braze-to-braze-webhook}
 
-ユーザーの更新は、ユーザープロファイルの更新に関して、Braze間Webhookとほぼ同じタスクを処理できます。単純なカスタム属性を超える複雑な更新には、[高度なJSONコンポーザー]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer)を使用できます。
+ユーザーの更新は、ユーザープロファイルの更新に関して、Braze間Webhookとほぼ同じタスクを処理できます。単純なカスタム属性を超える複雑な更新には、[高度なJSONコンポーザー]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor)を使用できます。
 
 送信先は、Webhookの設定なしにキャンバス内から2番目のキャンバスをトリガーするためのよりシンプルな方法を提供します。
 
@@ -56,7 +56,7 @@ Braze間Webhookを作成するには、到達したいエンドポイントの�
 Braze間Webhookを作成する一般的なワークフローは以下のステップに従います。
 
 1. キャンペーンまたはキャンバスコンポーネントとして[Webhookを作成]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)します。
-2. **Blank Template**を選択します。
+2. **空白テンプレート**を選択します。
 3. **作成**タブで、APIユースケースに合わせて**Webhook URL**と**リクエストボディ**を指定します。
 4. **設定**タブで、エンドポイントの要件に応じて**HTTPメソッド**と**リクエストヘッダー**を指定します。
 5. 追加の配信設定（たとえば、カスタムイベントからのトリガー）を構成し、キャンペーンまたはキャンバスの残りの部分を構築します。
@@ -64,6 +64,10 @@ Braze間Webhookを作成する一般的なワークフローは以下のステ�
 ## 最初のキャンバスから2番目のキャンバスをトリガーする {#trigger-a-second-canvas-from-an-initial-canvas}
 
 このユースケースでは、2つのキャンバスを作成し、Braze間Webhookを使用して最初のキャンバスから2番目のキャンバスをトリガーします。これは、ユーザーが別のキャンバス内の特定のポイントに到達したときのエントリトリガーとして機能します。
+
+{% alert note %}
+**キャンバスステップとのインタラクション**トリガーはキャンペーンでのみ使用可能で、アクションベースのキャンバスエントリには使用できません。別のキャンバスの特定のステップにユーザーが到達したことに基づいてキャンバスをトリガーする必要がある場合は、このBraze間Webhookアプローチまたは[送信先]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination)キャンバスコンポーネントを使用してください。
+{% endalert %}
 
 1. まず、2番目のキャンバス（最初のキャンバスによってトリガーされるキャンバス）を作成します。
 2. キャンバスの**エントリスケジュール**で、**APIトリガー**を選択します。

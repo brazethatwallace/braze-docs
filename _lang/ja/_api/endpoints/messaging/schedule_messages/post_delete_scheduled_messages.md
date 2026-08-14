@@ -20,7 +20,7 @@ description: "この記事では、スケジュールされたメッセージを
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`messages.schedule.delete` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`messages.schedule.delete` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -43,7 +43,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `schedule_id` | 必須 | 文字列 | 削除する `schedule_id`（スケジュール作成の応答から取得）。 |
+| `schedule_id` | 必須 | 文字列 | 削除する `schedule_id`（スケジュール作成のレスポンスから取得）。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}

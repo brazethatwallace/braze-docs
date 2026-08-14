@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "この記事では、プッシュ認証情報の更新 Braze エンドポイントについて詳しく説明します。"
+description: "この記事では、プッシュ認証情報の更新Brazeエンドポイントについて詳しく説明します。"
 ---
 
 {% api %}
@@ -16,7 +16,7 @@ description: "この記事では、プッシュ認証情報の更新 Braze エ�
 
 > このエンドポイントを使用して、単一アプリのプッシュ認証情報をプログラムで更新できます。これにより、ダッシュボードUIを使用せずに認証情報を管理できます。
 
-各リクエストは、1つのアプリと1つのプッシュプラットフォームのプッシュ認証情報を更新します。iOS認証キーやFirebaseサービスアカウントなどの認証情報ファイルは、JSONリクエストボディ内で [Base64](https://en.wikipedia.org/wiki/Base64) エンコードされた文字列として渡されます。
+各リクエストは、1つのアプリと1つのプッシュプラットフォームのプッシュ認証情報を更新します。iOS認証キーやFirebaseサービスアカウントなどの認証情報ファイルは、JSONリクエストボディ内で[Base64](https://en.wikipedia.org/wiki/Base64)エンコードされた文字列として渡されます。
 
 このエンドポイントは以下のプッシュプラットフォームをサポートしています。
 
@@ -30,7 +30,7 @@ description: "この記事では、プッシュ認証情報の更新 Braze エ�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`apps.push_credential` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`apps.push_credential` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## リクエストボディ {#request-body}
 
@@ -39,7 +39,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
 ```
 
-リクエストごとに1つのプラットフォームオブジェクト（`apple`、`firebase`、`huawei`、または `kindle`）を含めてください。
+リクエストごとに1つのプラットフォームオブジェクト（`apple`、`firebase`、`huawei`、または`kindle`）を含めてください。
 
 {% tabs %}
 {% tab iOS (APNs) %}

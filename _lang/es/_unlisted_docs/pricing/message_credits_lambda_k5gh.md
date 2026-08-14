@@ -8,20 +8,9 @@ hide_toc: true
 
 # Message Credits - Lambda (confidencial) {#message-credits-lambda-confidential}
 
-> Message Credits es la estructura de empaquetado multiproducto de Braze para nuestras ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp y LINE. Message Credits proporciona una experiencia flexible y transparente al aprovechar los canales de mensajería de Braze y ciertas características de IA. Los créditos te dan acceso a cualquiera de los canales presentados en la tabla de esta página.
+> Message Credits es la estructura de empaquetado multiproducto de Braze para nuestras ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp y LINE. Message Credits proporcionan una experiencia flexible y transparente al aprovechar los canales de mensajería de Braze y ciertas características de IA. Los créditos te dan acceso a cualquiera de los canales presentados en la tabla de esta página.
 
-{% alert note %}
-Los diferentes productos tendrán distintas unidades de medida en los informes.<br><br>
-<b>Agent Console:</b> Invocaciones<br>
-<b>SMS:</b> Segments<br>
-<b>MMS:</b> Envíos<br>
-<b>WhatsApp:</b> Mensajes entregados<br>
-<b>RCS:</b> Segments entregados, envíos entregados<br>
-<b>LINE:</b> Envíos<br>
-<b>KakaoTalk:</b> Envíos<br>
-
-Por último, las tarifas de operador relacionadas con SMS, MMS y RCS se facturan por separado (a mes vencido) y no se consideran parte de este SKU de Message Credits.
-{% endalert %}
+{% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
 ## Definiciones {#definitions}
 
@@ -1920,12 +1909,12 @@ Las definiciones de las columnas son las siguientes:
         <td>0.08</td>
     </tr>
     <tr>
-        <td>BYO SMS Connector</td>
+        <td>Conector BYO SMS</td>
         <td>Infobip - Todas las regiones</td>
         <td>0.30</td>
     </tr>
     <tr>
-        <td>BYO SMS Connector</td>
+        <td>Conector BYO SMS</td>
         <td>Twilio - Todas las regiones</td>
         <td>0.30</td>
     </tr>
@@ -2058,7 +2047,7 @@ Braze cobrará Message Credits por las invocaciones de Agent Console enviadas de
 
 ### Segmentos de SMS {#sms-segments}
 
-Los segmentos del mensaje SMS son la forma en que la industria de SMS cuenta los mensajes. Un segmento del mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se envía en un único despacho de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, verás que se enviaron dos (2) segmentos del mensaje. Enviar múltiples segmentos del mensaje generará cargos adicionales.
+Los segmentos del mensaje SMS son la forma en que la industria de SMS cuenta los mensajes. Un segmento del mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se enviará en un único despacho de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, verás que se enviaron dos (2) segmentos del mensaje. Enviar múltiples segmentos del mensaje generará cargos adicionales.
 
 ### Segmentos de MMS {#mms-segments}
 
@@ -2068,25 +2057,21 @@ Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y
 
 RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta participación como SMS, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
 
-- La facturación de RCS se centra en dos tipos de mensajes diferentes (con distinciones para EE. UU.):
-    - **Basic RCS:** Solo texto, hasta 160 caracteres
-    - **Single RCS:** Mensajes que contienen contenido enriquecido, o mensajes de solo texto de más de 160 caracteres
-    - **Rich RCS (solo EE. UU.):** Solo texto, puede incluir sugerencias/botones limitados (quickReply, dialPhone, openURL sin webview), segmentado por cada 160 bytes UTF-8
-    - **Rich Media RCS (solo EE. UU.):** Cualquier contenido multimedia O texto con sugerencias/botones más ricos (webview, ubicación, calendario, etc.), contado como un mensaje
+{% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 ## Detalles del canal WhatsApp {#whatsapp-channel-details}
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-## Detalles de canales adicionales {#additional-channel-details}
+## Detalles adicionales de canales {#additional-channel-details}
 
 ### Webhooks
 
 Los webhooks pasaron a formar parte de Message Credits el 9 de diciembre de 2024. Braze cobrará Message Credits por cualquier webhook enviado desde la plataforma Braze. De forma predeterminada, tu contrato incluye cien mil webhooks por cada período de tu plazo de suscripción. Los webhooks adicionales se cobrarán según tu formulario de pedido.
 
-### Conectores SMS propios (BYO) {#bring-your-own-byo-sms-connectors}
+### Conectores BYO (Bring your own) SMS {#bring-your-own-byo-sms-connectors}
 
-Braze permite a los clientes integrarse con proveedores externos para enviar mensajes SMS a través del modelo de "conector SMS BYO". Braze cobrará Message Credits por cada mensaje enviado desde la plataforma Braze a través de conectores SMS BYO.
+Braze permite a los clientes integrarse con proveedores externos para enviar mensajes SMS a través del modelo de "conector BYO SMS". Braze cobrará Message Credits por cada mensaje enviado desde la plataforma Braze a través de conectores BYO SMS.
 
 ### LINE
 

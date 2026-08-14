@@ -70,6 +70,18 @@ DISMISS_INSTRUCTION_FOOTER = (
     "— the bot won't suggest this again on this PR."
 )
 BOT_LOGINS = frozenset({"github-actions[bot]", "cursor[bot]"})
+SUMMARY_OBSERVATION_HINTS = (
+    "good improvement",
+    "no banned",
+    "no issues found",
+    "no terminology issues",
+    "looks correct",
+    "well-written",
+    "well written",
+    "technically clear",
+    "generally well-written",
+    "are correct editorially",
+)
 
 SYSTEM_PROMPT = """\
 You are a senior technical editor reviewing Braze documentation pull requests.
@@ -111,10 +123,36 @@ Respond with ONLY valid JSON (no markdown fences). Schema:
       "suggested_line": "Full replacement text for this single line on the NEW file side."
     }
   ],
-  "summary": [
-    "PR-level notes that are not tied to a single line (optional)."
-  ]
+  "summary": {
+    "actionable": [
+      "One specific editorial fix or issue per item (full sentence). Do not combine multiple points in one string."
+    ],
+    "observations": [
+      "Optional positives or non-actionable context only (for example clear writing, helpful placeholders, no banned terms in changed lines). One item per string."
+    ],
+    "promotable": [
+      {
+        "path": "repo-relative/path.md",
+        "line": 42,
+        "message": "Short explanation for the author.",
+        "suggested_line": "Full single-line replacement on the NEW file side."
+      }
+    ]
+  }
 }
+
+Summary rules:
+- **Inline first:** Any single-line fix on a changed line in the PR diff MUST go in `inline`
+  (with path, line, message, and suggested_line) so the author can use **Commit suggestion**.
+  Do not put commit-able single-line fixes only in `summary.actionable`.
+- Use `summary.actionable` ONLY for non-inline guidance: multi-line edits, moving blocks, adding
+  sections or alerts, lines outside the diff, or subjective structure the author must apply manually.
+- Use `summary.promotable` only as a fallback when you also need the full inline object alongside
+  a narrative actionable note (same shape as `inline` items). Prefer `inline` alone when possible.
+- Put praise, confirmations, and general non-actionable context in `observations`.
+- Never use inline numbering like (1) or 1. inside a string—use separate array elements instead.
+- If the PR is compliant with nothing to note, use empty arrays for actionable, observations,
+  and promotable.
 
 - "message" must describe ONLY the specific edit you are making—the difference between
   the current line in the numbered excerpt and suggested_line. Name the exact word(s) or
@@ -882,7 +920,9 @@ def build_user_prompt(
             f"#### New file (numbered)\n```\n{numbered_excerpt(path)}\n```\n"
         )
     sections.append(
-        "\nReview only the files above. Return JSON per the schema."
+        "\nReview only the files above. Return JSON per the schema. "
+        "Put every commit-able single-line diff fix in `inline`; reserve `summary.actionable` "
+        "for manual or structural items only."
     )
     return "\n".join(sections)
 
@@ -916,8 +956,135 @@ def call_claude(user_prompt: str) -> dict:
         print("ERROR: expected JSON object", file=sys.stderr)
         sys.exit(1)
     data.setdefault("inline", [])
-    data.setdefault("summary", [])
+    data.setdefault("summary", {"actionable": [], "observations": []})
     return data
+
+
+def _looks_like_observation(item: str) -> bool:
+    lower = item.lower()
+    return any(hint in lower for hint in SUMMARY_OBSERVATION_HINTS)
+
+
+def _split_numbered_summary_blob(text: str) -> tuple[str | None, list[str]]:
+    text = text.strip()
+    if not text:
+        return None, []
+    parts = re.split(r"\s*\((\d+)\)\s+", text)
+    if len(parts) < 3:
+        return None, [text]
+    intro = parts[0].strip().rstrip(":").strip() or None
+    items = [part.strip() for part in parts[2::2] if part.strip()]
+    return intro, items
+
+
+def _normalize_legacy_summary_entry(text: str) -> tuple[list[str], list[str]]:
+    actionable: list[str] = []
+    observations: list[str] = []
+    text = text.strip()
+    if not text:
+        return actionable, observations
+    intro, items = _split_numbered_summary_blob(text)
+    if intro:
+        observations.append(intro)
+    if items:
+        for item in items:
+            if _looks_like_observation(item):
+                observations.append(item)
+            else:
+                actionable.append(item)
+    elif _looks_like_observation(text):
+        observations.append(text)
+    else:
+        actionable.append(text)
+    return actionable, observations
+
+
+def _coerce_summary_text_list(raw: object) -> list[str]:
+    if raw is None:
+        return []
+    if isinstance(raw, list):
+        texts: list[str] = []
+        for item in raw:
+            if isinstance(item, dict):
+                continue
+            text = str(item).strip()
+            if text:
+                texts.append(text)
+        return texts
+    if isinstance(raw, str):
+        text = raw.strip()
+        return [text] if text else []
+    return []
+
+
+def collect_promotable_inline_candidates(raw_summary: object) -> list[dict]:
+    """Inline-shaped items from summary.promotable or dict entries in summary.actionable."""
+    candidates: list[dict] = []
+    if not isinstance(raw_summary, dict):
+        return candidates
+
+    for key in ("promotable", "actionable"):
+        raw = raw_summary.get(key)
+        if not isinstance(raw, list):
+            continue
+        for item in raw:
+            if isinstance(item, dict):
+                candidates.append(item)
+
+    return candidates
+
+
+def filter_promoted_actionable_summary(
+    actionable: list[str],
+    promoted: list[dict],
+) -> list[str]:
+    """Drop actionable bullets that duplicate successfully promoted inline suggestions."""
+    if not actionable or not promoted:
+        return actionable
+
+    promoted_keys = {(item["path"], item["line"]) for item in promoted}
+    kept: list[str] = []
+    for note in actionable:
+        drop = False
+        for path, line in promoted_keys:
+            if f"`{path}`" not in note:
+                continue
+            if re.search(rf"\bline\s+{line}\b", note, re.IGNORECASE) or f":{line}" in note:
+                drop = True
+                break
+        if not drop:
+            kept.append(note)
+    return kept
+
+
+def parse_model_summary(raw_summary: object) -> tuple[list[str], list[str]]:
+    """Normalize model summary output into actionable items and observations."""
+    actionable: list[str] = []
+    observations: list[str] = []
+
+    if isinstance(raw_summary, dict):
+        actionable.extend(_coerce_summary_text_list(raw_summary.get("actionable")))
+        observations.extend(_coerce_summary_text_list(raw_summary.get("observations")))
+        return actionable, observations
+
+    if isinstance(raw_summary, list):
+        for note in raw_summary:
+            text = str(note).strip()
+            if not text:
+                continue
+            act, obs = _normalize_legacy_summary_entry(text)
+            actionable.extend(act)
+            observations.extend(obs)
+        return actionable, observations
+
+    if isinstance(raw_summary, str):
+        text = raw_summary.strip()
+        if text:
+            act, obs = _normalize_legacy_summary_entry(text)
+            actionable.extend(act)
+            observations.extend(obs)
+
+    return actionable, observations
 
 
 def _block_exists_in_file(suggested: str, file_lines: list[str]) -> bool:
@@ -1592,9 +1759,9 @@ def post_pull_request_review(inline: list[dict]) -> tuple[int, list[dict]]:
 def _has_style_findings(
     posted: int,
     fallback: list[dict],
-    summary_notes: list[str],
+    summary_actionable: list[str],
 ) -> bool:
-    return posted > 0 or bool(fallback) or bool(summary_notes)
+    return posted > 0 or bool(fallback) or bool(summary_actionable)
 
 
 def _latest_pr_comment(comments: list[dict]) -> dict | None:
@@ -1669,7 +1836,8 @@ def _delete_style_review_summary_comments(*, keep_comment_id: int | None = None)
 def sync_summary_comment(
     posted: int,
     fallback: list[dict],
-    summary_notes: list[str],
+    summary_actionable: list[str],
+    summary_observations: list[str],
     files_reviewed: list[str],
     *,
     skip_reason: str | None = None,
@@ -1684,7 +1852,7 @@ def sync_summary_comment(
         "",
     ]
 
-    if not _has_style_findings(posted, fallback, summary_notes):
+    if not _has_style_findings(posted, fallback, summary_actionable):
         lines.extend(
             [
                 "**No issues or errors found.** This PR is OK to merge from the "
@@ -1758,10 +1926,16 @@ def sync_summary_comment(
         for c in fallback:
             lines.append(f"- `{c['path']}:{c['line']}` — {c['body'].split(chr(10))[0]}")
         lines.append("")
-    if summary_notes:
-        lines.append("### PR-level notes")
+    if summary_actionable:
+        lines.append("### Items to address")
         lines.append("")
-        for note in summary_notes:
+        for note in summary_actionable:
+            lines.append(f"- {note}")
+        lines.append("")
+    if summary_observations:
+        lines.append("### Observations")
+        lines.append("")
+        for note in summary_observations:
             lines.append(f"- {note}")
         lines.append("")
 
@@ -1894,6 +2068,7 @@ def main() -> None:
             [],
             [],
             [],
+            [],
             skip_reason=skip_reason,
             dismissed_suggested=dismissed_suggested,
             dismissed_message=dismissed_message,
@@ -1925,6 +2100,12 @@ def main() -> None:
     inline_raw = data.get("inline") or []
     if not isinstance(inline_raw, list):
         inline_raw = []
+    promotable_raw = collect_promotable_inline_candidates(data.get("summary"))
+    if promotable_raw:
+        print(
+            f"Found {len(promotable_raw)} summary promotable inline candidate(s) to merge."
+        )
+    inline_raw = [*inline_raw, *promotable_raw]
     validated: list[dict] = []
     for item in inline_raw:
         if not isinstance(item, dict):
@@ -1945,13 +2126,11 @@ def main() -> None:
         validated = filter_conflicting_prior_suggestions(validated, prior_suggestions)
     postable, outside_diff = filter_to_diff_lines(validated)
 
-    summary_notes = data.get("summary") or []
-    if not isinstance(summary_notes, list):
-        summary_notes = []
-    summary_notes = [str(s).strip() for s in summary_notes if str(s).strip()]
+    summary_actionable, summary_observations = parse_model_summary(data.get("summary"))
+    summary_actionable = filter_promoted_actionable_summary(summary_actionable, postable)
 
     print(f"Model returned {len(validated)} valid inline suggestion(s)")
-    has_findings = bool(validated) or bool(summary_notes)
+    has_findings = bool(validated) or bool(summary_actionable) or bool(summary_observations)
     outside_fallback = [_inline_to_review_comment(item) for item in outside_diff]
     posted = 0
     fallback: list[dict] = []
@@ -1967,7 +2146,8 @@ def main() -> None:
             sync_summary_comment(
                 posted,
                 fallback,
-                summary_notes,
+                summary_actionable,
+                summary_observations,
                 files,
                 dismissed_suggested=dismissed_suggested,
                 dismissed_message=dismissed_message,
@@ -1985,7 +2165,8 @@ def main() -> None:
     sync_summary_comment(
         posted,
         fallback,
-        summary_notes,
+        summary_actionable,
+        summary_observations,
         files,
         dismissed_suggested=dismissed_suggested,
         dismissed_message=dismissed_message,

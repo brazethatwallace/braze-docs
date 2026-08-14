@@ -19,7 +19,7 @@ description: "この記事では、「カタログフィールドの作成」Bra
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.create_fields` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`catalogs.create_fields` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 

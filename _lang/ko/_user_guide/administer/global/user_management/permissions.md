@@ -222,7 +222,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 사용자 데이터 | Edit User Data | 사용자 데이터 생성 및 업데이트 |
 | 사용자 데이터 | Export User Data | 대시보드에서 사용자 다운로드 |
 | 중복 사용자 | View User Merge Records | 사용자 병합 기록 목록 보기 |
-| 사용자 | View User Profiles (PII Redacted) | PII 준수 방식으로 고객 프로필 보기. "View Custom Attributes Marked as PII" 권한이 없는 경우, PII로 표시된 커스텀 속성을 참조하는 Campaign을 저장하거나 실행할 수 없습니다. |
+| 사용자 | View User Profiles (PII Redacted) | PII 준수 방식으로 고객 프로필 보기. 이 권한이 있는 사용자는 "View Custom Attributes Marked as PII" 권한도 가지고 있지 않으면 PII로 표시된 커스텀 속성을 참조하는 Campaign을 저장하거나 실행할 수 없습니다.<br><br>"View User Profiles (PII Redacted)" 권한은 사용하기 전에 활성화해야 합니다. 워크스페이스에서 이 권한을 활성화하려면 고객 성공 매니저에게 문의하세요. |
 | 사용자 | View User Event Properties | 고객 프로필의 **이벤트 기록** 탭에서 이벤트 속성정보 보기 |
 | 중복 사용자 | Merge Duplicate Users | 중복 사용자를 하나의 사용자로 결합. 병합 후 중복 항목은 제거됩니다 |
 | 사용자 삭제 | View User Deletion Records | 사용자 삭제 기록 목록 보기 |

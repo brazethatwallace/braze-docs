@@ -41,3 +41,7 @@ When you [initialize the Braze SDK]({{site.baseurl}}/developer_guide/sdk_integra
 {% alert note %}
 The Roku SDK doesn't generate any server-side delete request when you clear the registry. If you also need to remove the user from Braze, send a request to [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) using the user's `external_id` or `braze_id`.
 {% endalert %}
+
+## Logout and Unregister Push
+
+This feature is not yet supported on the Roku SDK.

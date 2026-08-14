@@ -26,14 +26,14 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 ### SDKの要件 {#sdk-requirements}
 
-| 最小SDKバージョン | 推奨SDKバージョン |
+| 最小SDKバージョン                                                          | 推奨SDKバージョン                                                       |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SDKの要件" }
 
 {% details 最小SDKの詳細情報 %}
 
-ドラッグ＆ドロップエディターで作成されたメッセージは、最小SDKバージョン（前のセクションの表を参照）のユーザーにのみ送信できます。ユーザーがアプリケーションを更新していない場合（つまり、古いSDKバージョンを使用している場合）、アプリ内メッセージは受信されません。
+ドラッグ＆ドロップエディターを使用して作成されたメッセージは、最小SDKバージョン（前のセクションの表を参照）のユーザーにのみ送信できます。ユーザーがアプリケーションを更新していない場合（つまり、古いSDKバージョンを使用している場合）、アプリ内メッセージは受信されません。
 
 ドラッグ＆ドロップエディターで利用可能なすべての機能を活用するには、SDKを推奨SDKバージョンに更新してください。これにより、以下の追加機能を利用できます。
 
@@ -42,29 +42,29 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 以下は、これらの機能の個別の最小SDK要件です。
 
-| テキストリンク* | プッシュプライマーのリクエスト |
+| テキストリンク*                                                         | プッシュプライマーのリクエスト                                                           |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SDKの要件" }
 
-*アプリ内メッセージにURLにリダイレクトするリンクを含め、エンドユーザーが指定された最小SDKバージョンを使用していない場合、リンクを選択するとメッセージが閉じられ、ユーザーはフォームを送信するためにメッセージに戻ることができません。
+*アプリ内メッセージにURLにリダイレクトするリンクを含めた場合、エンドユーザーが指定された最小SDKバージョンを使用していないと、リンクを選択するとメッセージが閉じられ、ユーザーはフォームを送信するためにメッセージに戻ることができません。
 
 {% enddetails %}
 
 ### その他の前提条件 {#additional-prerequisites}
 
-- Web SDKの場合、初期化オプション[`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions)を`true`に設定する必要があります。`enableHtmlInAppMessages`オプションもこれらのメッセージを機能させますが、非推奨であり、`allowUserSuppliedJavascript`に更新する必要があります。
+- Web SDKの場合、初期化オプション[`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions)を`true`に設定する必要があります。`enableHtmlInAppMessages`オプションでもこれらのメッセージは機能しますが、非推奨であるため`allowUserSuppliedJavascript`に更新してください。
 - Google Tag Managerを使用している場合は、GTM設定で「Allow HTML In-App Messages」を有効にする必要があります。
 
-## ステップ1:アプリ内メッセージを作成する {#step-1-create-an-in-app-message}
+## ステップ1：アプリ内メッセージを作成する {#step-1-create-an-in-app-message}
 
-新しいアプリ内メッセージまたはキャンバスステップを作成し、編集体験として**ドラッグ＆ドロップエディター**を選択します。
+新しいアプリ内メッセージまたはキャンバスステップを作成し、編集エクスペリエンスとして**ドラッグ＆ドロップエディター**を選択します。
 
-## ステップ2:テンプレートを選択する {#step-2-select-your-template}
+## ステップ2：テンプレートを選択する {#step-2-select-your-template}
 
-ドラッグ＆ドロップエディターを編集体験として選択した後、以下を選択できます。
+編集エクスペリエンスとしてドラッグ＆ドロップエディターを選択した後、以下のオプションから選択できます。
 
-- 空白のモーダルテンプレートから開始する
+- 空白のモーダルテンプレートから始める
 - Brazeのドラッグ＆ドロップアプリ内メッセージテンプレートを使用する
 - 保存済みのドラッグ＆ドロップアプリ内メッセージテンプレートを選択する
 
@@ -130,41 +130,41 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 ユーザーはいつでも閉じるXボタンを選択してメッセージを終了できます。このボタンは削除できません。
 {% endalert %}
 
-## ステップ4:アプリ内メッセージを構築・デザインする {#step-4-build-and-design-your-in-app-message}
+## ステップ4：アプリ内メッセージを構築・デザインする {#step-4-build-and-design-your-in-app-message}
 
-ここでは、ブランド独自のスタイルでメッセージを仕上げます。エディターブロックとスタイル設定を組み合わせて、アプリ内メッセージをカスタマイズおよびデザインできます。
+ここでは、ブランド独自のスタイルを身にまとったメッセージがランウェイを歩くように仕上げていきます。エディターブロックとスタイル設定を組み合わせて、アプリ内メッセージをカスタマイズおよびデザインできます。
 
 - 利用可能なエディターブロックとそのプロパティの一覧については、[エディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages)を参照してください。
-- メッセージの外観と操作感のカスタマイズについては、[スタイル設定]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings)をご確認ください。
-- 右から左へのメッセージ作成のベストプラクティスについては、[右から左へのメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)を参照してください。
+- メッセージのルック＆フィールのカスタマイズについては、[スタイル設定]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings)をご確認ください。
+- 右から左に読むメッセージの作成に関するベストプラクティスについては、[右から左に読むメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)を参照してください。
 
-## ステップ5:アプリ内メッセージをテストする {#step-5-test-your-in-app-message}
+## ステップ5：アプリ内メッセージをテストする {#step-5-test-your-in-app-message}
 
-**プレビューとテスト**セクションでは、さまざまなデバイスでアプリ内メッセージをプレビューし、デバイスにテストメッセージを送信できます。ここで、ドラッグ＆ドロップのアプリ内メッセージキャンペーンのすべてのプラットフォームで詳細が揃っていることを確認できます。
+**プレビューとテスト**セクションでは、さまざまなデバイスでアプリ内メッセージをプレビューし、デバイスにテストメッセージを送信できます。ここでは、ドラッグ＆ドロップのアプリ内メッセージキャンペーンのすべてのプラットフォームで詳細が整合していることを確認できます。
 
-キャンペーンを送信する前に、アプリ内メッセージを必ずテストすることが重要です。これにより、ユーザーの視点から最終的なメッセージがどのように見えるかを確認できます。
+キャンペーンを送信する前に、必ずアプリ内メッセージをテストすることが重要です。これにより、ユーザーの視点から最終的なメッセージがどのように表示されるかを確認できます。
 
 ### ユーザーとしてメッセージをプレビューする {#preview-message-as-a-user}
 
 {% alert warning %}
-コンテンツテストグループまたは個別のユーザーにテストを送信するには、送信前にテストデバイスでプッシュが有効になっている必要があります。
+コンテンツテストグループまたは個々のユーザーにテストを送信するには、送信前にテストデバイスでプッシュを有効にする必要があります。
 {% endalert %}
 
 **プレビューとテスト**タブから、ユーザーとしてメッセージをプレビューできます。特定のユーザー、ランダムなユーザーを選択するか、カスタムユーザーを作成できます。
 
-- **ランダムユーザー：** Brazeがデータベースからランダムにユーザーを選択し、そのユーザーの属性やイベント情報に基づいてアプリ内メッセージをプレビューします。
+- **ランダムなユーザー：** Brazeはデータベースからランダムにユーザーを選択し、そのユーザーの属性やイベント情報に基づいてアプリ内メッセージをプレビューします。
 - **ユーザーを選択：** メールアドレスまたは`external_id`に基づいて特定のユーザーを選択できます。アプリ内メッセージは、そのユーザーの属性とイベント情報に基づいてプレビューされます。
-- **カスタムユーザー：** ユーザーをカスタマイズできます。Brazeは利用可能なすべての属性とイベントの入力欄を提供します。プレビューメールで確認したい情報を入力してください。
+- **カスタムユーザー：** ユーザーをカスタマイズできます。Brazeは利用可能なすべての属性とイベントの入力フィールドを提供します。プレビューメールに表示したい情報を入力してください。
 
 ### テストチェックリスト {#test-checklist}
 
-アプリ内メッセージをテストする際に、以下の質問を検討してください。
+アプリ内メッセージをテストする際に、以下の点を確認してください。
 
 - さまざまなデバイスでメッセージをテストしましたか？
-- 画像やメディアは期待どおりに表示され、動作していますか？
-- Liquidは期待どおりに機能していますか？Liquidが情報を返さない場合のデフォルト属性値を考慮しましたか？
+- 画像やメディアは期待どおりに表示され、動作しますか？
+- Liquidは期待どおりに機能しますか？Liquidが情報を返さない場合に備えて、デフォルトの属性値を設定しましたか？
 - コピーは明確で、簡潔で、正確ですか？
-- ボタンはユーザーを正しい場所に誘導していますか？
+- ボタンはユーザーを適切な場所に誘導しますか？
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -172,24 +172,33 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 ドラッグ＆ドロップエディターで作成されたアプリ内メッセージでは、ボディクリックは自動的に収集されません。詳細については、[iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310)および[Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100)のSDK変更ログを参照してください。
 
-### ボタンクリックに基づいてセグメンテーションできますか？ {#can-i-segment-based-on-button-clicks}
+### ボタンクリックに基づいてセグメントできますか？ {#can-i-segment-based-on-button-clicks}
 
-はい、メッセージ内の最大2つのボタンのボタンクリックに基づいてセグメンテーションできます。これを行うには、ボタンの**Identifier for Reporting**を「0」と「1」に設定します。これはそれぞれ、セグメンテーションフィルター「Clicked in-app message button 1」と「Clicked in-app message button 2」に対応します。
+はい、メッセージ内の最大2つのボタンについて、ボタンクリックに基づいてセグメントできます。これを行うには、ボタンの**レポート用識別子**を「0」と「1」に設定します。これにより、セグメンテーションフィルター「アプリ内メッセージボタン1をクリック」と「アプリ内メッセージボタン2をクリック」にそれぞれ対応します。
 
-![値が「0」の「Identifier for Reporting」フィールド。]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
+![「レポート用識別子」フィールドに値「0」が設定されている画面。]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
 ### カスタムHTMLやJavaScriptを使用してアプリ内メッセージをカスタマイズしたり、既存のHTMLメッセージをエディターに移行したりできますか？ {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
-既存のHTMLメッセージをエディターに直接移行することはできませんが、カスタムコードブロックに生のHTML、CSS、JavaScriptを挿入できます。カスタムコードブロックを使用して、サードパーティの動画やConnected Contentや条件文などの高度なLiquidを埋め込むことができます。
+既存のHTMLメッセージをエディターに直接移行することはできませんが、**カスタムコード**ブロックに生のHTML、CSS、JavaScriptを挿入できます。**カスタムコード**ブロックを使用して、サードパーティの動画や、Connected Contentや条件文などの高度なLiquidを埋め込むことができます。`brazeBridge` JavaScriptメソッドとクリックトラッキングの例については、[カスタムHTMLアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html)を参照してください。
 
-### スライドアップのアプリ内メッセージを作成するにはどうすればよいですか？ {#how-can-i-create-a-slideup-in-app-message}
+### スライドアップアプリ内メッセージを作成するにはどうすればよいですか？ {#how-can-i-create-a-slideup-in-app-message}
 
 現在、エディターはモーダルとフルスクリーンメッセージのみに対応しています。**メッセージスタイル**パネルの**メッセージコンテナ**セクションで表示タイプを切り替えることができます。
 
-### キャンペーンまたはキャンバス内で作成したアプリ内メッセージをテンプレートとして保存できますか？ {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### キャンペーンまたはキャンバス内でアプリ内メッセージを作成した後、テンプレートとして保存できますか？ {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-はい。今後のキャンペーンまたはキャンバスステップで再利用したいアプリ内メッセージは、エディターを終了した後に表示される**テンプレートとして保存**ボタンを使用して、カスタムテンプレートとして保存できます。テンプレートとして保存する前に、まずキャンペーンを起動するか、下書きとして保存する必要があります。
+はい。今後のキャンペーンやキャンバスステップで再利用したいアプリ内メッセージは、エディターを終了した後に表示される**テンプレートとして保存**ボタンを使用して、カスタムテンプレートとして保存できます。テンプレートとして保存するには、まずキャンペーンを開始するか、下書きとして保存する必要があります。
 
-![製品ツアーのアプリ内メッセージのプレビュー。]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
+![製品ツアー用のアプリ内メッセージのプレビュー。]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-**コンテンツ** > **アプリ内メッセージ**に移動して、アプリ内メッセージテンプレートを作成および保存することもできます。
+また、**コンテンツ** > **アプリ内メッセージ**に移動して、アプリ内メッセージテンプレートを作成・保存することもできます。
+
+### ページ分割されたアプリ内メッセージでLiquid構文がプレーンテキストとして表示されるのはなぜですか？ {#why-is-my-liquid-syntax-appearing-as-plain-text-in-my-paginated-in-app-message}
+
+ページ分割されたアプリ内メッセージをテストする際に、パーソナライズされたコンテンツの代わりにLiquid構文がプレーンテキストとして表示される場合、いずれかのページにLiquid構文エラーがある可能性があります。1つのページに構文エラーがあると、メッセージ内のすべてのページのLiquidレンダリングに影響します。各ページは独立していません。
+
+トラブルシューティングの手順：
+
+1. メッセージ内のすべてのページでLiquid構文エラーがないか確認してください。1つのページでプレビューが壊れていても、そのページにエラーがあるとは限りません。ページは独立していないため、構文エラーはメッセージ内のどこにでも存在する可能性があります。
+2. すべてのLiquidタグが正しく閉じられ、正しい形式になっていることを確認してください。

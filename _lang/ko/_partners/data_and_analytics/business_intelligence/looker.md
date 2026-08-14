@@ -12,7 +12,7 @@ search_tag: Partner
 
 > 비즈니스 인텔리전스 및 빅데이터 분석 플랫폼인 [Looker](https://looker.com/)를 사용하면 실시간 비즈니스 분석을 원활하게 탐색, 분석 및 공유할 수 있습니다.
 
-Braze와 Looker 통합을 통해 회사 사용자는 REST API를 통한 퍼스트파티 [Looker Blocks](#looker-blocks) 및 [Looker 작업](#looker-actions) 사용자 플래깅을 활용할 수 있습니다. 플래그가 지정된 사용자를 Segments에 추가하여 향후 Braze Campaigns 또는 Canvases를 [타겟팅](#segment-users)할 수 있습니다. Braze와 함께 Looker를 사용하려면 [Braze 커런츠를 사용하여 데이터 웨어하우스]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)로 Braze 데이터를 전송한 다음, Braze Looker Blocks를 사용하여 Looker에서 Braze 데이터를 빠르게 모델링하고 시각화하는 것을 권장합니다.
+Braze와 Looker 통합을 통해 회사 사용자는 REST API를 통한 퍼스트파티 [Looker Blocks](#looker-blocks) 및 [Looker 작업](#looker-actions) 사용자 플래깅을 활용할 수 있습니다. 플래그가 지정된 사용자를 세그먼트에 추가하여 향후 Braze Campaigns 또는 Canvases를 [타겟팅](#segment-users)할 수 있습니다. Braze와 함께 Looker를 사용하려면 [Braze 커런츠를 사용하여 데이터 웨어하우스]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)로 Braze 데이터를 전송한 다음, Braze Looker Blocks를 사용하여 Looker에서 Braze 데이터를 빠르게 모델링하고 시각화하는 것을 권장합니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -96,13 +96,13 @@ dimension: external_id {
 - 속성은 **Look 내에 필드로 포함된** 경우에만 전송됩니다.
 - 지원되는 유형은 `Strings`, `Boolean`, `Numbers`, `Dates`입니다.
 - 속성 이름은 대소문자를 구분합니다.
-- [표준 고객 프로필]({{site.baseurl}}/api/endpoints/user_data#braze-user-profile-fields) 이름과 정확히 일치하는 한 표준 속성도 설정할 수 있습니다.
+- [표준 고객 프로필]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) 이름과 정확히 일치하는 한 표준 속성도 설정할 수 있습니다.
 - 전체 태그는 따옴표 안에 형식화되어야 합니다. 예: `tags: ["braze[first_name]"]`. 다른 태그도 할당할 수 있지만 무시됩니다.
 - 추가 정보는 [GitHub](https://github.com/looker/actions/tree/master/src/actions/braze)에서 확인할 수 있습니다.
 
 #### 4단계: Looker 작업 전송 {#step-4-send-the-looker-action}
 
-1. `braze_id` 차원이 선택된 Look 내에서 도구 모음의 설정 기어(<i class="fas fa-cog"></i>)를 클릭하고 **Send...**를 선택합니다.
+1. `braze_id` 차원이 선택된 Look 내에서 도구 모음의 설정 기어(<i class="fas fa-cog" aria-label="설정"></i>)를 클릭하고 **Send...**를 선택합니다.
 2. 커스텀 Braze 작업을 선택합니다.
 3. **Unique Key** 아래에서 Braze 계정의 기본 사용자 매핑 키(`external_id` 또는 `braze_id`)를 제공합니다.
 4. 내보내기에 이름을 지정합니다. 이름을 지정하지 않으면 `LOOKER_EXPORT`가 사용됩니다.
@@ -143,11 +143,11 @@ Authorization: Bearer [API_KEY]
 
 ### Braze에서 사용자 세그먼팅 {#segment-users}
 
-Braze에서 플래그가 지정된 사용자의 Segment를 생성하려면 **인게이지먼트** 아래의 **Segments**로 이동하여 Segment 이름을 지정하고 필터로 **Looker_Export**를 선택합니다. 그런 다음 "includes value" 옵션을 사용하고 Looker에서 할당한 커스텀 속성 플래그를 제공합니다.
+Braze에서 플래그가 지정된 사용자의 세그먼트를 생성하려면 **인게이지먼트** 아래의 **Segments**로 이동하여 세그먼트 이름을 지정하고 필터로 **Looker_Export**를 선택합니다. 그런 다음 "includes value" 옵션을 사용하고 Looker에서 할당한 커스텀 속성 플래그를 제공합니다.
 
-![Braze Segment 빌더에서 "looker_export" 필터가 "includes_value" 및 "Looker"로 설정되어 있습니다.]({% image_buster /assets/img/braze_segments.png %})
+![Braze 세그먼트 빌더에서 "looker_export" 필터가 "includes_value" 및 "Looker"로 설정되어 있습니다.]({% image_buster /assets/img/braze_segments.png %})
 
-저장한 후 타겟팅 사용자 단계에서 Canvas 또는 Campaign 생성 시 이 Segment를 참조할 수 있습니다.
+저장한 후 타겟팅 사용자 단계에서 Canvas 또는 Campaign 생성 시 이 세그먼트를 참조할 수 있습니다.
 
 ## 문제 해결 {#troubleshooting}
 Looker 작업에 문제가 있는 경우 [내부 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups)에 테스트 사용자를 추가하고 다음 사항을 확인하세요:

@@ -33,9 +33,7 @@ Brazeは現在、すべてのユーザーレベルのデータをSnowflake AWS U
 
 ### 非破壊的な変更 {#non-breaking-changes}
 
-非破壊的な変更はいつでも発生する可能性があり、一般的に追加の機能を提供します。非破壊的な変更の例には次のものがあります。
-- 新しいテーブルまたはビューを追加する
-- 既存のテーブルやビューに列を追加する
+{% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
 新しい列の追加は非破壊的な変更と見なされるため、Brazeでは`SELECT *`クエリを使用する代わりに、各クエリで関心のある列を明示的に列挙することを強くお勧めします。または、列に明示的に名前を付けるビューを作成してから、テーブルではなくそれらのビューを直接クエリすることもできます。
@@ -43,10 +41,7 @@ Brazeは現在、すべてのユーザーレベルのデータをSnowflake AWS U
 
 ### 破壊的な変更 {#breaking-changes}
 
-可能な場合には、破壊的な変更の前に通知を行い、移行期間を設けます。破壊的な変更の例には次のものがあります。
-- テーブルまたはビューを削除する
-- 既存のテーブルやビューから列を削除する
-- 既存の列のタイプまたはNULL許容性を変更する
+{% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ## SNAPSHOTSテーブルとCHANGELOGSテーブルが更新されるタイミング {#when-snapshots-and-changelogs-tables-are-updated}
 

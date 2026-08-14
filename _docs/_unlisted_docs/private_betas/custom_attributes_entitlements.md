@@ -228,11 +228,7 @@ The last date a custom event or purchase event occurred is automatically recorde
 
 #### Time attribute details
 
-- Day of Recurring Event
-  - When using the "Day of Recurring Event" filter, and are then prompted to select the "Calendar Day of Recurring Event", if you select `IS LESS THAN` or `IS MORE THAN`, the current date will be counted for that segmentation filter.
-  - For example, if on March 10, 2020, you selected the date of the attribute to be `LESS THAN ... March 10, 2020`, attributes will be considered for the days up to, and including March 10, 2020. 
-- Less than X Days Ago: The "Less than X Days Ago" filter includes dates between X days ago and the current date/time.
-- Less than X Days in the Future: Includes dates between the current date/time and X days in the future.
+{% multi_lang_include data_activation/day_of_recurring_event_filter.md %}
 
 ### Objects
 

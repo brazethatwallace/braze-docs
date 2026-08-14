@@ -72,7 +72,7 @@ AppDelegate.braze.inAppMessagePresenter = inAppMessageUI;
 | -------------------------- | -------- |
 | `.url(URL, useWebView: Bool)` | 외부 브라우저에서 지정된 URL을 엽니다. `useWebView`를 `true`로 설정하면 웹 뷰에서 열립니다. |
 | `.none` | 클릭하면 메시지가 닫힙니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Click action types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="클릭 동작 유형" }
 
 {% alert important %}
 버튼이 포함된 인앱 메시지의 경우, 버튼 텍스트를 추가하기 전에 클릭 동작이 추가되면 메시지 `clickAction`도 최종 페이로드에 포함됩니다.
@@ -211,7 +211,7 @@ func inAppMessage(
 이 스와이프 동작은 기본 `BrazeInAppMessageUI` [`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview)에 내장되어 있으며 슬라이드업 인앱 메시지에만 적용됩니다. Modal 및 전체 인앱 메시지는 스와이프하여 닫기를 지원하지 않습니다. 스와이프 동작을 포함하여 슬라이드업 뷰를 추가로 사용자 지정하려면 [`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct)를 수정하거나 서브클래싱을 통해 커스텀 뷰를 제공할 수 있습니다.
 
 {% alert note %}
-슬라이드업 메시지 외부를 탭해도 메시지가 닫히지 않습니다. Modal 또는 전체 인앱 메시지의 경우 아래에 설명된 `dismissOnBackgroundTap` 속성을 사용하여 외부 탭 닫기를 활성화할 수 있습니다.
+슬라이드업 메시지 외부를 탭해도 메시지가 닫히지 않습니다. Modal 또는 전체 인앱 메시지의 경우 다음 섹션에 설명된 `dismissOnBackgroundTap` 속성을 사용하여 외부 탭 닫기를 활성화할 수 있습니다.
 {% endalert %}
 
 ## Modal 닫기 사용자 지정 {#customizing-modal-dismissals}
@@ -241,7 +241,7 @@ BrazeInAppMessageUI.ModalImageView.Attributes.defaults.dismissOnBackgroundTap = 
 |----------|-------------|
 | `true`         | Modal 인앱 메시지는 외부를 탭하면 닫힙니다.     |
 | `false`        | 기본값으로, Modal 인앱 메시지는 외부를 탭해도 닫히지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing modal dismissals" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Modal 닫기 사용자 지정" }
 
 인앱 메시지 사용자 지정에 대한 자세한 내용은 이 [문서](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/in-app-message-customization)를 참조하세요.
 
@@ -358,7 +358,7 @@ func inAppMessage(
 | `.reenqueue`                        | 메시지가 표시되지 않고 스택의 맨 위로 다시 배치됩니다.                                       |
 | `.later`                            | 메시지가 표시되지 않고 스택의 맨 위로 다시 배치됩니다. (더 이상 사용되지 않으며, `.reenqueue`를 사용하세요) |
 | `.discard`                          | 메시지가 폐기되며 표시되지 않습니다.                                                                    |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Customizing display timing" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="표시 타이밍 사용자 지정" }
 
 {% alert tip %}
 `InAppMessageUI`의 샘플을 확인하려면 [Swift Braze SDK 리포지토리](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI)와 [Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI)를 참조하세요.
@@ -373,7 +373,7 @@ func inAppMessage(
 | `.auto`                             | 메시지 뷰가 상태 표시줄 숨김 상태를 결정합니다.                                 |
 | `.hidden`                           | 항상 상태 표시줄을 숨깁니다.                                                           |
 | `.visible`                          | 항상 상태 표시줄을 표시합니다.                                                        |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Hiding the status bar" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="상태 표시줄 숨기기" }
 
 ## 다크 모드 비활성화 {#disabling-dark-mode}
 
@@ -533,17 +533,18 @@ func inAppMessage(_ ui: BrazeInAppMessageUI, displayChoiceForMessage message: Br
 
 ### 3단계: 딥링크 생성 {#step-3-create-a-deep-link}
 
-딥링크 처리 코드에서 `{YOUR-APP-SCHEME}:app-store-review` 딥링크를 처리하기 위해 다음 코드를 추가합니다. `SKStoreReviewController`를 사용하려면 `StoreKit`을 가져와야 합니다:
+[`scene:openURLContexts:`]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#swift_step-3-implement-a-handler) 핸들러에서 `{YOUR-APP-SCHEME}:app-store-review` 딥링크를 처리하기 위해 다음 코드를 추가합니다. `SKStoreReviewController`를 사용하려면 `StoreKit`을 가져와야 합니다:
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let url = URLContexts.first?.url else { return }
   let urlString = url.absoluteString.removingPercentEncoding
   if (urlString == "{YOUR-APP-SCHEME}:app-store-review") {
     SKStoreReviewController.requestReview()
-    return true;
+    return;
   }
   // Other deep link handling code…
 }
@@ -553,11 +554,12 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
   NSString *urlString = url.absoluteString.stringByRemovingPercentEncoding;
   if ([urlString isEqualToString:@"{YOUR-APP-SCHEME}:app-store-review"]) {
     [SKStoreReviewController requestReview];
-    return YES;
+    return;
   }
   // Other deep link handling code…
 }

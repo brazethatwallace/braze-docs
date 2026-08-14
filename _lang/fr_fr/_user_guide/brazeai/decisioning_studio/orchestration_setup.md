@@ -17,96 +17,96 @@ L'orchestration est la connexion entre Decisioning Studio et votre plateforme d'
 
 Voyez les choses ainsi :
 
-- **Decisioning Studio** décide *quoi* envoyer et *quand* l'envoyer
-- **Votre CEP** gère *comment* l'envoyer
+- **Decisioning Studio** décide quoi envoyer et quand l'envoyer
+- **Votre CEP** gère la manière de l'envoyer
 
 ## Choisir votre CEP {#choose-your-cep}
 
-La première étape consiste à choisir quelle CEP utiliser avec Decisioning Studio. Votre choix affecte la complexité de la configuration et les fonctionnalités disponibles.
+La première étape consiste à choisir quel CEP utiliser avec Decisioning Studio. Votre choix affecte la complexité de la configuration et les fonctionnalités disponibles.
 
-### CEP prises en charge {#supported-ceps}
+### CEP pris en charge {#supported-ceps}
 
-| CEP | Type d'intégration | Complexité de configuration |
+| CEP | Type d'intégration | Complexité de la configuration |
 |-----|-----------------|------------------|
-| **Braze** | Intégration native via API (recommandée) | Faible |
+| **Braze** | Intégration API native (recommandée) | Faible |
 | **Salesforce Marketing Cloud** | Événements API + Journey Builder | Moyenne |
 | **Autres CEP** | Personnalisée (fichier de recommandation) | Élevée |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CEP prises en charge" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CEP pris en charge" }
 
 {% alert tip %}
 Si vous utilisez déjà Braze comme CEP, nous vous recommandons d'utiliser l'intégration native Braze pour une expérience de configuration optimale.
 {% endalert %}
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
-Avant de configurer l'orchestration, rassemblez les éléments suivants en fonction de la CEP choisie.
+Avant de configurer l'orchestration, rassemblez les éléments suivants en fonction de la plateforme d'engagement client (CEP) que vous avez choisie.
 
 {% tabs %}
 {% tab Braze %}
 
-| Élément requis | Description |
+| Exigence | Description |
 |------|-------------|
-| **Clé REST API** | Une nouvelle clé API avec des autorisations pour les données utilisateur, les messages, les Campaigns, les Canvas, les Segments et les modèles. |
+| **Clé API REST** | Une nouvelle clé API avec des permissions pour les données utilisateur, les messages, les Campaigns, Canvas, les Segments et les modèles. |
 | **URL du tableau de bord de Braze** | L'URL de votre instance Braze (par exemple, `https://dashboard-01.braze.com`). |
-| **ID de l'application** | La clé API associée à l'application que vous souhaitez suivre (disponible dans **Paramètres** > **Paramètres des applications**). |
-| **Nom d'affichage et adresse de l'expéditeur** | Les informations d'expéditeur à utiliser pour vos Campaigns (disponibles dans **Paramètres** > **Préférences des e-mails**). |
-| **Modèles de base** | Les modèles de messages que votre agent utilisera pour l'orchestration. Vous créerez des Campaigns déclenchées par API pour chaque modèle. |
-| **ID utilisateur test** | Un ID utilisateur pour tester l'intégration avant le lancement. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
+| **ID de l'application** | La clé API associée à l'application que vous souhaitez suivre (disponible dans **Paramètres** > **Paramètres de l'application**). |
+| **Nom d'affichage et adresse e-mail** | Les informations d'expéditeur à utiliser pour vos Campaigns (disponibles dans **Paramètres** > **Préférences e-mail**). |
+| **Modèles de base** | Les modèles de messages que votre agent utilise pour l'orchestration. Vous créez des Campaigns déclenchées par API pour chaque modèle. |
+| **ID d'utilisateur test** | Un ID utilisateur pour tester l'intégration avant le lancement. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}
 
-| Élément requis | Description |
+| Exigence | Description |
 |------|-------------|
 | **Identifiants du package d'application** | Client ID, Client Secret, Authentication Base URI, REST Base URI et SOAP Base URI provenant d'un package installé avec une intégration API serveur à serveur. |
-| **Autorisations API** | Portées pour les canaux, les ressources, les automatisations, les parcours, les contacts, les extensions de données et les événements de suivi. |
-| **Extensions de données** | Vous aurez besoin d'extensions de données pour les données d'abonnés, les données d'engagement et les recommandations. |
+| **Permissions API** | Portées pour les canaux, les ressources, les automatisations, les parcours, les contacts, les extensions de données et les événements de suivi. |
+| **Extensions de données** | Vous avez besoin d'extensions de données pour les données d'abonnés, les données d'engagement et les recommandations. |
 | **Modèles d'e-mail** | Les modèles que vous souhaitez que Decisioning Studio utilise, avec les ID de modèle pour chacun. |
 | **Accès à Journey Builder** | Accès pour créer et activer des parcours multi-étapes avec des sources d'entrée par événement API. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 
 {% endtab %}
 {% tab Autres CEP %}
 
-Si vous utilisez une CEP autre que Braze ou Salesforce Marketing Cloud, Decisioning Studio peut s'intégrer via une approche par fichier de recommandation :
+Si vous utilisez une CEP autre que Braze ou Salesforce Marketing Cloud, Decisioning Studio peut s'intégrer via une approche par fichier de recommandations :
 
 | Élément | Description |
 |------|-------------|
-| **Capacité d'ingestion de données** | Votre CEP doit être capable d'ingérer des fichiers de recommandation (généralement CSV ou JSON) contenant des décisions personnalisées pour chaque client. |
-| **Prise en charge du contenu dynamique** | Vos Campaigns doivent prendre en charge le remplissage dynamique des champs à partir des données de recommandation. |
-| **Ressources d'ingénierie personnalisées** | Votre équipe devra créer l'intégration pour lire les fichiers de recommandation et déclencher les communications. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
+| **Capacité d'ingestion de données** | Votre CEP doit être capable d'ingérer des fichiers de recommandations (généralement CSV ou JSON) contenant des décisions personnalisées pour chaque client. |
+| **Prise en charge du contenu dynamique** | Vos Campaigns doivent prendre en charge le remplissage dynamique des champs en fonction des données de recommandation. |
+| **Ressources d'ingénierie personnalisées** | Votre équipe doit construire l'intégration pour lire les fichiers de recommandations et déclencher les communications. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 
 {% endtab %}
 {% endtabs %}
 
-## Planifier vos Campaigns {#plan-your-campaigns}
+## Planifiez vos campagnes {#plan-your-campaigns}
 
-Avant de configurer l'orchestration, prenez en compte les éléments suivants :
+Avant de configurer l'orchestration, tenez compte des détails suivants :
 
 ### Modèles de base {#base-templates}
 
-Un modèle de base est tout modèle de message que votre agent de décision pourrait utiliser. Considérez :
+Un modèle de base est tout modèle de message que votre agent de décision pourrait utiliser. Considérez les points suivants :
 
 - **Combien de modèles ?** Votre agent peut fonctionner avec un seul modèle ou plusieurs. S'il y en a plusieurs, l'agent peut personnaliser le modèle que chaque client reçoit.
 - **Quels canaux ?** E-mail, notification push, SMS ou une combinaison. Chaque canal peut nécessiter des modèles et des Campaigns distincts.
-- **Quels éléments dynamiques ?** Identifiez les parties de votre message que l'agent personnalisera (lignes d'objet, CTA, offres, timing, etc.). Ceux-ci deviendront des propriétés de déclenchement API ou des marques substitutives dynamiques.
+- **Quels éléments dynamiques ?** Identifiez les parties de votre message que l'agent personnalise (comme les lignes d'objet, les CTA, les offres, le timing). Ceux-ci deviennent des propriétés de déclenchement API ou des marques substitutives dynamiques.
 
 ### Paramètres de rééligibilité {#re-eligibility-settings}
 
 Vos Campaigns doivent permettre aux utilisateurs de recevoir des messages plusieurs fois :
 
-- Pour les tests, vous voudrez envoyer la même Campaign au même utilisateur de manière répétée
+- Pour les tests, vous envoyez la même Campaign au même utilisateur de manière répétée
 - En production, l'agent peut déterminer que la même Campaign est optimale pour un utilisateur sur des jours consécutifs
 
 {% alert note %}
-Bien que la rééligibilité soit configurée pour les tests, les agents Decisioning Studio sont conçus pour respecter les limites de fréquence et n'enverront pas la même Campaign à un utilisateur plus d'une fois par jour en production.
+Lors de la configuration de la rééligibilité pour les tests, les agents Decisioning Studio sont conçus pour respecter les limites de fréquence et n'envoient pas la même Campaign à un utilisateur plus d'une fois par jour en production.
 {% endalert %}
 
 ### Propriétés de déclenchement API {#api-trigger-properties}
 
-Pour les intégrations Braze, planifiez les dimensions que votre agent optimisera. Celles-ci deviennent des propriétés de déclenchement API qui transmettent des valeurs dynamiques dans vos Campaigns :
+Pour les intégrations Braze, planifiez les dimensions que votre agent optimise. Celles-ci deviennent des propriétés de déclenchement API qui transmettent des valeurs dynamiques dans vos Campaigns :
 
 | Exemple de dimension | Propriété de déclenchement API |
 |-------------------|---------------------|
@@ -118,35 +118,35 @@ Pour les intégrations Braze, planifiez les dimensions que votre agent optimiser
 
 ## Configuration de l'intégration {#integration-setup}
 
-Sélectionnez votre CEP dans cette liste pour commencer la configuration de l'intégration.
+Sélectionnez votre plateforme d'engagement client dans cette liste pour commencer la configuration de l'intégration.
 
 {% tabs %}
 {% tab Braze %}
 
 ## Configurer l'intégration Braze {#set-up-braze-integration}
 
-Suivez ces étapes pour intégrer un agent Decisioning Studio avec les capacités d'orchestration de Braze (l'équipe de services Braze sera disponible pour vous aider) :
+Suivez ces étapes pour intégrer un agent Decisioning Studio avec les capacités d'orchestration de Braze (l'équipe de services Braze est disponible pour vous aider) :
 
 ### Étape 1 : Créer une clé API {#step-1-create-an-api-key}
 
-Accédez à **Paramètres** > **Clés API**, puis créez une nouvelle clé avec les autorisations suivantes :
+Accédez à **Paramètres** > **Clés API**, puis créez une nouvelle clé avec les permissions suivantes :
 
 {% multi_lang_include decisioning_studio/api_key_permissions.md %}
 
-### Étape 2 : Configurer les Campaigns déclenchées par API {#step-2-set-up-api-triggered-campaigns}
+### Étape 2 : Configurer des campaigns déclenchées par API {#step-2-set-up-api-triggered-campaigns}
 
 Configurez une Campaign déclenchée par API pour chaque modèle de base avec des propriétés de déclenchement API pour toutes les dimensions optimisées.
 
-Un modèle de base est tout modèle que l'agent de décision pourrait utiliser pour orchestrer les messages. Un agent de décision peut avoir un modèle de base ou plusieurs, auquel cas le choix du bon modèle de base pour chaque client sera l'une des décisions que l'agent personnalise.
+Un modèle de base est tout modèle que l'agent Decisioning peut utiliser pour orchestrer les messages. Un agent Decisioning peut avoir 1 modèle de base ou plusieurs, auquel cas le choix du bon modèle de base pour chaque client est l'une des décisions que l'agent personnalise.
 
 ### Étape 3 : Configurer la rééligibilité {#step-3-configure-re-eligibility}
 
 Assurez-vous que toutes les Campaigns déclenchées par API permettent aux utilisateurs de redevenir éligibles dans un délai de 15 minutes.
 
-![Diagramme de limite de fréquence Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_frequency_cap.png %})
+![Diagramme de limitation de fréquence Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_frequency_cap.png %})
 
 {% alert note %}
-Bien que l'agent Decisioning Studio n'envoie jamais la même Campaign plus d'une fois par jour, vous voudrez avoir la possibilité d'envoyer les mêmes Campaigns plusieurs fois par jour à des fins de test.
+Bien que l'agent Decisioning Studio n'envoie jamais la même Campaign plus d'une fois par jour, vous souhaitez pouvoir envoyer les mêmes Campaigns plusieurs fois par jour à des fins de test.
 {% endalert %}
 
 ### Étape 4 : Ajouter des marques substitutives dynamiques {#step-4-add-dynamic-placeholders}
@@ -161,31 +161,31 @@ Supposons que l'agent Decisioning Studio optimise une Campaign e-mail. La config
 
 En supposant que l'agent optimise le choix des modèles et le message d'appel à l'action (CTA), une Campaign déclenchée par API devrait être créée pour chaque modèle, et la section CTA d'un modèle pourrait ressembler à :
 
-![Exemple de section CTA e-mail Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_braze_email_example_2.png %})
+![Exemple de section CTA d'une Campaign e-mail Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_braze_email_example_2.png %})
 
-#### Exemple 2 : Campaign push {#example-2-push-campaign}
+#### Exemple 2 : Campaign de notification push {#example-2-push-campaign}
 
-Supposons qu'un agent Decisioning Studio optimise le message d'une Campaign push. La configuration pourrait ressembler à ceci :
+Supposons qu'un agent Decisioning Studio optimise le message d'une Campaign de notification push. La configuration pourrait ressembler à ceci :
 
-![Exemple de Campaign push Decisioning Studio – configuration]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_1.png %})
+![Exemple de Campaign de notification push Decisioning Studio - configuration]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_1.png %})
 
-![Exemple de Campaign push Decisioning Studio – propriétés]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_2.png %})
+![Exemple de Campaign de notification push Decisioning Studio - propriétés]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_2.png %})
 
 Ce qui donne le message suivant :
 
-![Exemple de Campaign push Decisioning Studio – résultat]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_3.png %})
+![Exemple de Campaign de notification push Decisioning Studio - résultat]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_3.png %})
 
 #### Exemple 3 : Campaign SMS {#example-3-sms-campaign}
 
 Supposons que l'agent Decisioning Studio optimise les champs d'une Campaign SMS. La configuration pourrait ressembler à ceci :
 
-![Exemple de Campaign SMS Decisioning Studio – configuration]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_1.png %})
+![Exemple de Campaign SMS Decisioning Studio - configuration]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_1.png %})
 
-![Exemple de Campaign SMS Decisioning Studio – propriétés]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_2.png %})
+![Exemple de Campaign SMS Decisioning Studio - propriétés]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_2.png %})
 
 Ce qui donne le message suivant :
 
-![Exemple de Campaign SMS Decisioning Studio – résultat]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_3.png %})
+![Exemple de Campaign SMS Decisioning Studio - résultat]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_3.png %})
 
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}
@@ -194,20 +194,22 @@ Ce qui donne le message suivant :
 
 Decisioning Studio prend en charge l'intégration native avec Salesforce Marketing Cloud. Decisioning Studio déclenche des événements API dans un parcours avec les données nécessaires pour remplir les éléments dynamiques.
 
-Pour les étapes détaillées de configuration de l'intégration SFMC, suivez les [instructions SFMC]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration) dans la documentation Decisioning Studio Go.
+{% alert important %}
+Pour votre configuration, les ID API doivent être saisis en majuscules. Cela inclut les ID de parcours, les ID de Campaign et tout autre identifiant. Si les ID API sont saisis en minuscules alors que vos données SFMC contiennent des UUID en majuscules, les filtres d'événements ne correspondent pas et les indicateurs de reporting ne se remplissent pas correctement.
+{% endalert %}
 
 {% endtab %}
-{% tab Autres CEP %}
+{% tab Other CEPs %}
 
-## Configurer les intégrations avec d'autres CEP {#set-up-other-cep-integrations}
+## Configurer d'autres intégrations de plateformes d'engagement client {#set-up-other-cep-integrations}
 
-Decisioning Studio peut s'intégrer avec n'importe quelle plateforme d'engagement client. Cependant, cela peut nécessiter un travail d'ingénierie personnalisé de la part de votre équipe, car Decisioning Studio ne peut pas déclencher directement les communications.
+Decisioning Studio peut s'intégrer à n'importe quelle plateforme d'engagement client. Cependant, cela peut nécessiter un travail d'ingénierie personnalisé de la part de votre équipe, car Decisioning Studio ne peut pas déclencher de communications directement.
 
-Dans ce scénario, l'agent fournira un « fichier de recommandation ». Ce fichier contient des lignes pour chaque client, avec des colonnes indiquant toutes les décisions personnalisées pour ce client.
+Dans ce scénario, l'agent fournit un « fichier de recommandations ». Ce fichier contient des lignes pour chaque client, avec des colonnes indiquant toutes les décisions personnalisées pour ce client.
 
-Par exemple, le fichier de recommandation suivant :
+Par exemple, le fichier de recommandations suivant :
 
-![Exemple de fichier de recommandation Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_custom_example_2.png %})
+![Exemple de fichier de recommandations Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_custom_example_2.png %})
 
 Pourrait être utilisé pour optimiser une Campaign e-mail qui ressemble à ceci :
 
@@ -218,13 +220,13 @@ Pourrait être utilisé pour optimiser une Campaign e-mail qui ressemble à ceci
 
 ## Bonnes pratiques {#best-practices}
 
-Gardez ces bonnes pratiques à l'esprit lors de la préparation de l'orchestration :
+Gardez ces bonnes pratiques à l'esprit lorsque vous préparez l'orchestration :
 
-1. **Commencez avec un périmètre restreint.** Utilisez un seul canal et un ou deux modèles au départ. Vous pourrez élargir par la suite en fonction de ce qui fonctionne.
-2. **Testez minutieusement.** Avant le lancement, testez votre intégration avec un petit ensemble d'utilisateurs pour vérifier que le contenu dynamique se remplit correctement.
-3. **Documentez votre configuration.** Gardez une trace des ID de Campaign, des ID de modèle, des clés API et des autres identifiants. Vous devrez les référencer dans le portail Decisioning Studio.
-4. **Coordonnez-vous avec votre équipe.** La configuration de l'orchestration peut impliquer les équipes marketing, ingénierie et données. Assurez-vous que chacun comprend son rôle dans le processus.
-5. **Prévoyez les données de retour.** L'orchestration inclut l'envoi de messages et la collecte des données d'engagement et de conversion qui aident votre agent à apprendre. Consultez [Préparer vos données]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data) pour plus de détails.
+1. **Commencez avec un périmètre restreint :** Utilisez un seul canal et un ou deux modèles au départ. Vous pourrez élargir par la suite en fonction de ce qui fonctionne.
+2. **Testez minutieusement :** Avant le lancement, testez votre intégration avec un petit groupe d'utilisateurs pour vérifier que le contenu dynamique s'affiche correctement.
+3. **Documentez votre configuration :** Gardez une trace des identifiants de Campaign, des identifiants de modèles, des clés API et des autres identifiants. Vous en aurez besoin pour les référencer dans le portail Decisioning Studio.
+4. **Coordonnez-vous avec votre équipe :** La mise en place de l'orchestration peut impliquer les équipes marketing, techniques et data. Assurez-vous que chacun comprend son rôle dans le processus.
+5. **Anticipez les données de retour :** L'orchestration envoie des messages et collecte les données d'engagement et de conversion qui aident votre agent à apprendre. Consultez [Préparer vos données]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data) pour plus de détails.
 
 ## Étapes suivantes {#next-steps}
 

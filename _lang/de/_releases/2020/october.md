@@ -6,35 +6,34 @@ page_type: update
 description: "Dieser Artikel enthält Versionshinweise für Oktober 2020."
 ---
 
-# Oktober 2020
+# Oktober 2020 {#october-2020}
 
-## Berichts-Builder
+## Berichts-Builder {#report-builder}
 
-![Kampagne Vergleich Beispiel]({% image_buster /assets/img/campaign_comparison/campaign_main.png %}){: style="max-width:80%;"}
+![Beispiel für einen Campaign-Vergleich]({% image_buster /assets/img/campaign_comparison/campaign_main.png %}){: style="max-width:80%;"}
 
-Der [Report-Builder]({{site.baseurl}}/report_builder) erlaubt es Ihnen, die Ergebnisse mehrerer Kampagnen in einer einzigen Ansicht zu vergleichen, so dass Sie leicht feststellen können, welche Engagement-Strategien Ihre wichtigsten Metriken am meisten beeinflusst haben.
+Der [Berichts-Builder]({{site.baseurl}}/report_builder) ermöglicht es Ihnen, die Ergebnisse mehrerer Campaigns in einer einzigen Ansicht zu vergleichen, sodass Sie leicht feststellen können, welche Engagement-Strategien Ihre wichtigsten Metriken am meisten beeinflusst haben.
 
-## iOS 14 upgraden Anleitung
+## iOS 14 Upgrade-Anleitung {#ios-14-upgrade-guide}
 
-Die Upgrade-Anleitung für iOS 14 beschreibt die Braze-bezogenen Änderungen, die mit iOS 14 eingeführt wurden, sowie die erforderlichen Upgrade-Schritte für Ihre Braze iOS SDK-Integration. Einige Änderungen, die Sie beachten sollten, sind die zukünftigen IDFA-Berechtigungsanforderungen, Geofence-Unterstützung und notwendige Xcode-Upgrades. Lesen Sie unseren [Upgrade-Leitfaden]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview/), um mehr zu erfahren. 
+Die Upgrade-Anleitung für iOS 14 beschreibt die Braze-bezogenen Änderungen, die mit iOS 14 eingeführt wurden, sowie die erforderlichen Upgrade-Schritte für Ihre Braze iOS SDK-Integration. Einige Änderungen, die Sie beachten sollten, sind die zukünftigen IDFA-Berechtigungsanforderungen, Geofence-Unterstützung und notwendige Xcode-Upgrades. Lesen Sie unsere [Upgrade-Anleitung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview), um mehr zu erfahren.
 
-## Android 11 Upgrade-Anleitung
+## Android 11 Upgrade-Anleitung {#android-11-upgrade-guide}
 
-Der Android 11-Leitfaden beschreibt die relevanten Änderungen, die mit Android 11 eingeführt wurden, sowie die erforderlichen Upgrade-Schritte für Ihre Braze Android SDK-Integration. Einige Änderungen beziehen sich auf Deeplinks, In-App-Nachrichten im HTML-Format und Standort-Berechtigungen. Lesen Sie unseren [Upgrade-Leitfaden]({{site.baseurl}}/developer_guide/platforms/android/android_13/), um mehr zu erfahren.
+Die Android 11-Anleitung beschreibt die relevanten Änderungen, die mit dem Android 11-Release eingeführt wurden, sowie die erforderlichen Upgrade-Schritte für Ihre Braze Android SDK-Integration. Einige Änderungen beziehen sich auf Deeplinks, In-App-Nachrichten im HTML-Format und Standort-Berechtigungen. Lesen Sie unsere [Upgrade-Anleitung]({{site.baseurl}}/developer_guide/platforms/android/android_13), um mehr zu erfahren.
 
-## Attribution Partner - Leitfaden für das Tracking von Klicks
+## Attribution-Partner – Leitfaden für Klick-Tracking {#attribution-partners-click-tracking-guide}
 
-Auf jeder Partnerseite zur Attribution wurde eine optionale Dokumentation zum Klick Tracking hinzugefügt. Sie enthält Best Practices und Implementierungsrichtlinien, damit das Klick Tracking für Ihre Kampagnen funktioniert. Besuchen Sie Ihre [Attribution Partnerseite]({{site.baseurl}}/partners/advertising_technologies/attribution/), um mehr zu erfahren. 
+Auf jeder Partnerseite zur Attribution wurde eine optionale Dokumentation zum Klick-Tracking hinzugefügt. Sie enthält Best Practices und Implementierungsrichtlinien, damit das Klick-Tracking für Ihre Campaigns funktioniert. Besuchen Sie Ihre [Attribution-Partnerseite]({{site.baseurl}}/partners/advertising_technologies/attribution), um mehr zu erfahren.
 
-## Neues Beschreibungsfeld
+## Neues Beschreibungsfeld {#new-description-field}
 
-Nutzer:innen können jetzt Beschreibungen zu Kampagnen und Canvase hinzufügen! Dieses neue Feld finden Sie unter dem Feld Kampagnen- oder Canvas-Name, wenn Sie eine bestehende Kampagne oder ein Canvas erstellen oder bearbeiten. 
+Nutzer:innen können jetzt Beschreibungen zu Campaigns und Canvases hinzufügen! Dieses neue Feld finden Sie unter dem Feld für den Campaign- oder Canvas-Namen, wenn Sie eine bestehende Campaign oder ein bestehendes Canvas erstellen oder bearbeiten.
 
-## Canvas-Ausnahmeereignisse
+## Canvas-Ausnahme-Events {#canvas-exception-events}
 
-Es wurde eine neue Dokumentation hinzugefügt, die das erwartete Verhalten von [Ausnahme-Events]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/exit_criteria/#exception-events) in Canvase beschreibt. 
+Es wurde eine neue Dokumentation hinzugefügt, die das erwartete Verhalten von [Ausnahme-Events]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/exit_criteria#exception-events) in Canvases beschreibt.
 
-## Nutzer:innen löschen Updates
+## Updates zum Löschen von Nutzer:innen {#user-delete-updates}
 
-Braze hat seine APIs so verbessert, dass Kunden nicht nur die Endnutzerprofile der betroffenen Personen, die die Löschung ihrer Daten beantragen, sondern auch alle Abo-Status, die mit der Telefonnummer oder der E-Mail-Adresse der betroffenen Person verbunden sind, gleichzeitig und ohne zusätzliche Kundenaktionen löschen können. Die aktualisierte Dokumentation finden Sie [hier]({{site.baseurl}}/help/dp-technical-assistance/#braze-recommendation-2)
-
+Braze hat seine APIs so verbessert, dass Kund:innen nicht nur die Endnutzer:innen-Profile der betroffenen Personen, die die Löschung ihrer Daten beantragen, sondern auch alle Abo-Status, die mit der Telefonnummer oder der E-Mail-Adresse der betroffenen Person verbunden sind, gleichzeitig und ohne zusätzliche Aktionen löschen können. Die [aktualisierte Dokumentation zu dieser Änderung]({{site.baseurl}}/help/dp-technical-assistance#braze-recommendation-2) ist verfügbar.

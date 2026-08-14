@@ -63,7 +63,7 @@ AppDelegate.braze?.notifications.handleUserNotification(response: response, with
 {% endtab %}
 {% endtabs %}
 
-`UNNotification`フレームワークを使用し、Brazeの[通知メソッド]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-5-enable-push-handling)を実装した場合、このメソッドはすでに統合されているはずです。
+`UNNotification`フレームワークを使用し、Brazeの[通知メソッド]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-5-enable-push-handling)を実装している場合、このメソッドはすでに統合されているはずです。
 
 ## プッシュカテゴリのカスタマイズ {#customizing-push-categories}
 
@@ -140,7 +140,7 @@ UNNotificationCategory *likeCategory = [UNNotificationCategory categoryWithIdent
 
 ### 例:カスタムプッシュカテゴリ {#example-custom-push-category}
 
-2つのアクションボタンを持つプッシュ通知を作成したいとします。アプリにディープリンクする**Manage**と、単に通知を閉じるだけの**Keep**です。
+2つのアクションボタンを持つプッシュ通知を作成したいとします。アプリにディープリンクする**Manage**と、通知を閉じるだけの**Keep**です。
 
 次の例では、`MANAGE_IDENTIFIER`アクションに`.foreground`オプションが含まれており、タップするとアプリが開きます。これは、アプリの特定の部分にディープリンクするために必要です。`KEEP_IDENTIFIER`アクションは空のオプション配列を使用しており、アプリを開かずに通知を閉じます。
 
@@ -171,7 +171,7 @@ UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications
 
 Brazeは、アプリがフォアグラウンドにあるときにBraze通知を受信すると、バッジカウントを自動的にクリアします。バッジ番号を手動で0に設定すると、通知センターの通知もクリアされます。
 
-通常のアプリ操作の一部として、またはバッジをクリアするプッシュを送信してバッジをクリアする計画がない場合は、次のコードをアプリの`applicationDidBecomeActive:`デリゲートメソッドに追加して、アプリがアクティブになったときにバッジをクリアする必要があります。
+通常のアプリ操作の一部として、またはバッジをクリアするプッシュを送信してバッジをクリアする計画がない場合は、`SceneDelegate.swift`ファイルの`sceneDidBecomeActive(_:)`メソッド（またはアプリがまだ[`UIScene`ライフサイクル](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)を採用していない場合は、アプリの`applicationDidBecomeActive:`デリゲートメソッド）に次のコードを追加して、アプリがアクティブになったときにバッジをクリアする必要があります。
 
 {% tabs %}
 {% tab swift %}
@@ -241,7 +241,7 @@ QuickTime Playerでサウンドを開き、**ムービー**メニューから**�
 
 アプリ内のサウンドファイルの場所を指すプロトコルURLを指定する必要があります。これには2つの方法があります。
 
-* [Appleプッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-object)の`sound`パラメータを使用して、URLをBrazeに渡します。
+* [Appleプッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/apple_object)の`sound`パラメータを使用して、URLをBrazeに渡します。
 * ダッシュボードでURLを指定します。[プッシュコンポーザー]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android)で**設定**を選択し、**サウンド**フィールドにプロトコルURLを入力します。
 
 ![Brazeダッシュボードのプッシュコンポーザー]({% image_buster /assets/img_archive/sound_push_ios.png %})

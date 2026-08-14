@@ -20,7 +20,7 @@ description: "이 문서에서는 Canvas 데이터 요약 분석 내보내기 Br
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `canvas.data_summary` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `canvas.data_summary` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -132,7 +132,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
       ... (more steps)
     }
   },
-  "message": (required, string) the status of the export, returns 'success' on successful completion
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

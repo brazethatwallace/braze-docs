@@ -16,7 +16,7 @@ tool:
 
 ## Accéder aux données de vos segments et à l'appartenance {#accessing-data-about-your-segments-and-membership}
 
-La page **Segments** de votre tableau de bord de Braze contient un résumé de tous vos segments et vous permet d'examiner les données détaillées de chacun d'entre eux. Sur cette page, recherchez et sélectionnez le nom d'un segment pour le modifier et consulter ses données. Pour savoir comment créer un segment, consultez [Créer un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#creating-a-segment).
+La page **Segments** de votre tableau de bord de Braze contient un résumé de tous vos segments et vous permet d'examiner les données détaillées de chacun d'entre eux. Sur cette page, recherchez et sélectionnez le nom d'un segment pour le modifier et consulter ses données. Pour savoir comment créer un segment, consultez [Créer un segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 ![Page Segments]({% image_buster /assets/img_archive/segments.png %})
 
@@ -93,11 +93,11 @@ Notez que dans les cas où votre segment est très petit par rapport à la taill
 
 ## Consulter les données de performance par segment {#viewing-performance-data-by-segment}
 
-Utilisez les [modèles de rapports du Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/data_by_segments) pour ventiler les indicateurs de performance des Campaigns, Canvas, variantes et étapes par segments.
+Utilisez les [modèles de rapports du générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/data_by_segments) pour ventiler les indicateurs de performance des Campaigns, Canvas, variantes et étapes par segments.
 
-## Créer un rapport de ventilation par segment avec le Générateur de requêtes {#creating-a-segment-breakdown-report-using-query-builder}
+## Créer un rapport de ventilation par segment avec le générateur de requêtes {#creating-a-segment-breakdown-report-using-query-builder}
 
-Pour créer un rapport à partir d'un modèle du [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder), accédez au **Générateur de requêtes** et procédez comme suit :
+Pour créer un rapport à partir d'un modèle du [générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder), accédez au **générateur de requêtes** et procédez comme suit :
 
 1. Sélectionnez **Create SQL Query** > **Query Template**.
 2. Filtrez les modèles pour ceux dont les indicateurs incluent « segment breakdowns ».
@@ -108,18 +108,18 @@ Pour créer un rapport à partir d'un modèle du [Générateur de requêtes]({{s
 
 ## Variables {#variables}
 
-Avant de générer votre rapport, accédez à l'onglet **Variables** pour fournir les informations nécessaires au modèle du Générateur de rapports, y compris les variables requises qui varieront en fonction du rapport.
+Avant de générer votre rapport, accédez à l'onglet **Variables** pour fournir les informations nécessaires au modèle du générateur de rapports, y compris les variables requises qui varieront en fonction du rapport.
 
 Les variables incluent :
 
-- **Campaign ou Canvas :** vous pouvez inclure une ou plusieurs campagnes ou Canvas (il n'y a pas de maximum pour le nombre de campagnes ou Canvas que vous pouvez spécifier). Si vous ne spécifiez aucune campagne ni aucun Canvas, le rapport inclura toutes les campagnes ou tous les Canvas de la période choisie.
-- **Variante :** si vous utilisez un modèle offrant une ventilation au niveau des variantes, après avoir sélectionné une campagne ou un Canvas, vous pouvez sélectionner des variantes au sein de cette campagne ou de ce Canvas. Si vous sélectionnez plusieurs variantes, vos résultats seront regroupés par variante.
+- **Campaign ou Canvas :** vous pouvez inclure une ou plusieurs Campaigns ou Canvas (il n'y a pas de maximum pour le nombre de Campaigns ou Canvas que vous pouvez spécifier). Si vous ne spécifiez aucune Campaign ni aucun Canvas, le rapport inclura toutes les Campaigns ou tous les Canvas de la période choisie.
+- **Variante :** si vous utilisez un modèle offrant une ventilation au niveau des variantes, après avoir sélectionné une Campaign ou un Canvas, vous pouvez sélectionner des variantes au sein de cette Campaign ou de ce Canvas. Si vous sélectionnez plusieurs variantes, vos résultats seront regroupés par variante.
 - **Étape :** si vous sélectionnez une variante de Canvas, vous pouvez sélectionner une étape du Canvas. Vous ne pouvez pas sélectionner une étape sans avoir d'abord sélectionné une variante de Canvas.
 - **Plage de dates :** identifiez la période pour laquelle vous souhaitez extraire les données. Si aucune plage de dates n'est spécifiée, la période par défaut sera les 30 derniers jours.
 - **Nom du produit :** si vous exécutez un rapport sur les données d'achat, vous pouvez identifier un produit spécifique pour lequel extraire les données.
 - **Fenêtre de conversion :** toujours requise pour les rapports contenant des données de chiffre d'affaires et d'achat. Le nombre de jours après la réception ou le clic sur un e-mail pendant lesquels Braze doit attribuer les achats ou le chiffre d'affaires.
 - **Segments :** identifiez les segments par lesquels ventiler les données. Si aucun n'est spécifié, le rapport sera exécuté pour tous les segments dont le suivi analytique est activé.
-- **Étiquettes :** spécifiez des étiquettes dans **Variables** pour exécuter votre rapport pour toutes les campagnes ou Canvas ayant certaines étiquettes. Vous pouvez inclure plusieurs étiquettes. Si vous ajoutez à la fois des étiquettes et des campagnes ou Canvas spécifiques à un rapport, votre rapport inclura les données de vos étiquettes et des campagnes ou Canvas spécifiés.
+- **Étiquettes :** spécifiez des étiquettes dans **Variables** pour exécuter votre rapport pour toutes les Campaigns ou Canvas ayant certaines étiquettes. Vous pouvez inclure plusieurs étiquettes. Si vous ajoutez à la fois des étiquettes et des Campaigns ou Canvas spécifiques à un rapport, votre rapport inclura les données de vos étiquettes et des Campaigns ou Canvas spécifiés.
 
 ## Disponibilité des données {#data-availability}
 
@@ -128,6 +128,6 @@ Les données sont disponibles pour les périodes où ces deux conditions sont re
 1. Le [suivi analytique des segments]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) est activé pour les segments dont vous souhaitez consulter les données.
 2. La fonctionnalité de données de performance par segment est activée.
 
-Vous ne pouvez pas accéder aux données des périodes antérieures à l'activation de cette fonctionnalité pour votre entreprise. Par exemple, si le suivi analytique est activé pour le Segment A le 1er octobre et que cette fonctionnalité est activée pour votre entreprise le 2 octobre, vous ne pourrez consulter les données du Segment A que pour les campagnes et Canvas ayant enregistré des indicateurs après le 2 octobre.
+Vous ne pouvez pas accéder aux données des périodes antérieures à l'activation de cette fonctionnalité pour votre entreprise. Par exemple, si le suivi analytique est activé pour le Segment A le 1er octobre et que cette fonctionnalité est activée pour votre entreprise le 2 octobre, vous ne pourrez consulter les données du Segment A que pour les Campaigns et Canvas ayant enregistré des indicateurs après le 2 octobre.
 
-Si votre entreprise a activé cette fonctionnalité le 2 octobre et a activé le suivi analytique pour le Segment B le 3 octobre, vous ne pourrez consulter les données du Segment B que pour les campagnes et Canvas ayant enregistré des indicateurs après le 3 octobre.
+Si votre entreprise a activé cette fonctionnalité le 2 octobre et a activé le suivi analytique pour le Segment B le 3 octobre, vous ne pourrez consulter les données du Segment B que pour les Campaigns et Canvas ayant enregistré des indicateurs après le 3 octobre.

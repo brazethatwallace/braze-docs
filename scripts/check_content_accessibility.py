@@ -34,6 +34,7 @@ Decorative image heuristic
 Skips
   - Content inside fenced code blocks (``` / ~~~)
   - Content inside {% raw %} … {% endraw %} Liquid blocks
+  - Content inside <style> … </style> blocks (CSS is not reader-facing prose)
 
 Usage
 -----
@@ -70,6 +71,9 @@ HEADING_RE = re.compile(r'^(#{1,6})\s+')
 
 IFRAME_RE = re.compile(r'<iframe(?:\s[^>]*|)>', re.IGNORECASE)
 IFRAME_TITLE_RE = re.compile(r'\btitle\s*=\s*(?:"[^"]*"|\'[^\']*\')', re.IGNORECASE)
+
+STYLE_OPEN_RE = re.compile(r'<style\b', re.IGNORECASE)
+STYLE_CLOSE_RE = re.compile(r'</style\s*>', re.IGNORECASE)
 
 # Filename segments that indicate a decorative image
 DECORATIVE_RE = re.compile(
@@ -196,6 +200,15 @@ _SPATIAL_ALLOWLIST_RES: tuple = (
         r'sub-?group(?:ing)?\s+(?:above|below)\s+\w+',
         re.IGNORECASE,
     ),
+    # Numeric version/threshold comparisons where the number sits right after
+    # "above"/"below" (e.g. "API versions below 25", "score above 90").
+    # Distinct from the version/sdk/ios/android keyword-window pattern above,
+    # which requires the keyword within 40 chars; this covers cases where the
+    # keyword (or its plural, e.g. "versions") sits further away in the sentence.
+    re.compile(
+        r'\b(?:above|below)\s+\d+(?:\.\d+)*\b',
+        re.IGNORECASE,
+    ),
     # Programming/string operations (not layout instructions).
     re.compile(
         r'(?:left|right)\s+side\s+of\s+(?:a|the)?\s*string\b',
@@ -249,39 +262,64 @@ def make_violation(
 # ---------------------------------------------------------------------------
 
 def build_skip_mask(lines: list) -> list:
-    """Return a bool list; True = skip this line (code fence or Liquid raw block)."""
+    """Return a bool list; True = skip this line (code fence, Liquid raw block, or <style> block)."""
     skip = [False] * len(lines)
     in_fence = False
     fence_marker = ''
     in_raw = False
+    in_style = False
 
     for i, line in enumerate(lines):
         stripped = line.strip()
 
-        # Liquid {% raw %} blocks
-        if not in_raw and '{% raw %}' in line:
-            if '{% endraw %}' not in line:
-                in_raw = True
-                skip[i] = True
-                continue
-        elif in_raw:
+        # Continue whichever block is already open first. A fence or raw
+        # block takes precedence over anything that merely looks like a
+        # <style> tag inside it (for example, Android XML `<style name="...">`
+        # inside a fenced ```xml example) so that a fenced sample can never
+        # hand line-skip state to the wrong block type — or leave in_style
+        # stuck True past the fence close if the sample has an unmatched
+        # `<style>` with no `</style>` in the same fence.
+        if in_fence:
+            skip[i] = True
+            if re.match(r'^' + re.escape(fence_marker) + r'`*\s*$', stripped):
+                in_fence = False
+            continue
+
+        if in_raw:
             skip[i] = True
             if '{% endraw %}' in line:
                 in_raw = False
             continue
 
-        # Fenced code blocks
-        if not in_fence:
-            m = re.match(r'^(`{3,}|~{3,})', stripped)
-            if m:
-                in_fence = True
-                fence_marker = m.group(1)[0] * len(m.group(1))
-                skip[i] = True
-                continue
-        else:
+        if in_style:
             skip[i] = True
-            if re.match(r'^' + re.escape(fence_marker) + r'`*\s*$', stripped):
-                in_fence = False
+            if STYLE_CLOSE_RE.search(line):
+                in_style = False
+            continue
+
+        # No block is currently open — check whether this line opens one.
+
+        # Fenced code blocks
+        m = re.match(r'^(`{3,}|~{3,})', stripped)
+        if m:
+            in_fence = True
+            fence_marker = m.group(1)[0] * len(m.group(1))
+            skip[i] = True
+            continue
+
+        # Liquid {% raw %} blocks
+        if '{% raw %}' in line and '{% endraw %}' not in line:
+            in_raw = True
+            skip[i] = True
+            continue
+
+        # <style> blocks — CSS positioning keywords and comments are not
+        # reader-facing prose and should never trip the content checks.
+        if STYLE_OPEN_RE.search(line):
+            in_style = True
+            skip[i] = True
+            if STYLE_CLOSE_RE.search(line):
+                in_style = False
             continue
 
     return skip

@@ -80,7 +80,7 @@ Wir haben sogar spezielle Anweisungen zum [Testen Ihrer Android- oder FireOS-Int
 
 ## Nach der Implementierung {#after-implementation}
 
-Denken Sie daran, dass eine abgeschlossene Implementierung nicht automatisch bedeutet, dass Sie Millionen von Nachrichten auf einmal versenden können. Das Versenden von einer Million Push-Nachrichten könnte Ihre App zum Absturz bringen, wenn alle Nutzer:innen gleichzeitig auf denselben Link klicken. Wir empfehlen Ihnen, die Kapazität Ihrer internen Infrastruktur für die Bearbeitung von Anfragen von Braze zu besprechen, bevor Sie auf die Schaltfläche **Senden** klicken. Auf dieser Grundlage können Sie dann Ihre [Rate-Limits]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting) festlegen.
+Denken Sie daran, dass eine abgeschlossene Implementierung nicht automatisch bedeutet, dass Sie Millionen von Nachrichten auf einmal versenden können. Das Versenden von einer Million Push-Nachrichten könnte Ihre App zum Absturz bringen, wenn alle Nutzer:innen gleichzeitig auf denselben Link klicken. Wir empfehlen Ihnen, die Kapazität Ihrer internen Infrastruktur für die Bearbeitung von Anfragen von Braze zu besprechen, bevor Sie auf die Schaltfläche **Senden** klicken. Auf dieser Grundlage können Sie dann Ihre [Rate-Limits]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting) festlegen.
 
 ![Logo der Braze-Firebrands-Community]({% image_buster /assets/img/torchie/firebrands.png %}){: style="max-width:15%;float:right;margin-left:15px;border:none;"}
 

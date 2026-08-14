@@ -62,6 +62,10 @@ You can also select **Enable recurring audience update** to refresh the filter o
 
 Choose a purchase, eCommerce, custom, or message interaction event criterion for targeting. After you select an event type, choose the specific event, how many times the user must have completed it (more than, less than, or equal to), and the time period.
 
+{% alert note %}
+The **more than** and **less than** filters are exclusive—they don't include the number you specify. For example, a filter for **more than 4 times and less than 16 times** includes users who have had 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, or 15 times.
+{% endalert %}
+
 When choosing your time period, you can specify a relative date range (the past X days), a start date, an end date, or an exact date range.
 
 ![Calculated filter criteria for users who performed a custom event more than zero times in the date range of June 21, 2026 through June 27, 2026.]({% image_buster /assets/img/segment/calculated_filter_example.png %})

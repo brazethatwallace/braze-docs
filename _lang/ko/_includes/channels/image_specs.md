@@ -30,6 +30,10 @@ Modal 인앱 메시지는 선택한 이미지 또는 문구의 크기와 비율�
 
 모든 인앱 메시지의 권장 이미지 크기는 500KB, 최대 이미지 크기는 5MB이며 PNG, JPEG, GIF 파일 유형을 지원합니다. WebP 이미지는 모든 기기나 브라우저에서 지원되지 않으므로, 인앱 메시지에 추가하기 전에 WebP 이미지를 PNG 또는 JPEG로 변환하는 것이 좋습니다.
 
+{% alert note %}
+SVG 이미지는 모든 플랫폼에서 안정적으로 렌더링되지 않으므로 인앱 메시지에 지원되지 않습니다. 대신 PNG, JPEG 또는 GIF를 사용하세요.
+{% endalert %}
+
 {% tabs %}
 {% tab Portrait %}
 
@@ -67,6 +71,10 @@ Modal 인앱 메시지는 선택한 이미지 또는 문구의 크기와 비율�
 
 {% endtab %}
 {% endtabs %}
+
+{% alert tip %}
+웹 SDK에서의 인앱 메시지 렌더링은 브라우저의 커스텀 텍스트 크기 설정에 영향을 받을 수 있습니다. 커스텀 텍스트 크기 조정을 사용하는 사용자는 Modal 이미지 가장자리를 따라 1px 간격이 생기는 등 사소한 렌더링 문제를 경험할 수 있습니다. 인앱 메시지를 미리 보고 테스트할 때는 가장 정확한 표현을 위해 기본 브라우저 텍스트 크기 설정을 사용하는 것이 좋습니다.
+{% endalert %}
 
 {% endif %}
 
@@ -177,11 +185,25 @@ table td {
 
 {% endif %}
 
+{% if include.variable_name == "sms and mms" %}
+
+MMS 메시지는 메시지당 하나의 이미지를 지원합니다. MMS가 활성화된 구독 그룹만 이미지를 전송할 수 있습니다.
+
+| 속성 | 권장 사항 |
+| --- | --- |
+| 크기 | 안정적인 통신사 전달을 위해 600&nbsp;KB 이하를 권장합니다. 작성기에서는 1&nbsp;MB보다 큰 업로드를 차단합니다. |
+| 파일 유형 | PNG, JPEG, GIF |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS 및 MMS" }
+
+통신사 파일 크기 제한 및 처리량에 대한 자세한 내용은 [MMS 메시지 제한 및 처리량]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup#mms-message-limits-and-throughput)을 참조하세요.
+
+{% endif %}
+
 {% if include.variable_name == "WhatsApp images" %}
 
 이 사양은 템플릿 헤더, 응답 미디어 메시지 및 이미지 메시지에 적용됩니다.
 
-| 속성정보 | 사양 | 참고 |
+| 속성 | 사양 | 참고 |
 |---|---|---|
 | 지원 형식 | JPEG, PNG | Meta는 이미지 메시지에 대해 JPEG와 PNG만 공식적으로 지원합니다. WebP는 스티커에만 지원되며 일반 이미지 메시지에는 지원되지 않습니다. |
 | 최대 파일 크기 | 5 MB | |
@@ -197,7 +219,7 @@ table td {
 
 다음 사양은 템플릿 헤더, 응답 미디어 메시지, 비디오 메시지 및 캐러셀 카드 헤더에 적용됩니다.
 
-| 속성정보 | 사양 |
+| 속성 | 사양 |
 |---|---|
 | 지원 형식 | MP4, 3GPP |
 | 파일 크기 | 최대 16 MB |

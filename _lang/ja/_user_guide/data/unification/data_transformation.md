@@ -65,7 +65,7 @@ Brazeデータ変換のレート制限は、ワークスペースあたり毎分
 
 ### 外部プラットフォームが識別子としてメールアドレスまたは電話番号のみを提供する場合でも、Brazeデータ変換を使用できますか? {#can-i-still-use-braze-data-transformation-if-my-external-platform-only-gives-an-email-address-or-phone-number-as-an-identifier}
 
-はい。[メールアドレスまたは電話番号を識別子として]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-email-address)使用して、変換により`/users/track`エンドポイントを更新できます。
+はい。[メールアドレスまたは電話番号を識別子として]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-email-address)使用して、変換により`/users/track`エンドポイントを更新できます。
 
 これは、変換コード内の識別子プロパティとして、`external_id`または`braze_id`の代わりに`email`または`phone`を使用することで機能します。[変換コード]({{site.baseurl}}/user_guide/data/unification/data_transformation/use_cases#example-transformation-code)の例では、この機能を使用しています。
 

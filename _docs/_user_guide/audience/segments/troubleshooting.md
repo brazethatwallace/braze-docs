@@ -23,6 +23,7 @@ description: "This reference article covers troubleshooting for segment errors, 
 | Segment is larger than expected | [Segment is much larger than expected](#segment-is-much-larger-than-expected) |
 | Segment count doesn't match campaign analytics | [*Message Sent* or *Unique Recipients* mismatch](#message-sent-or-unique-recipients-in-campaign-analytics-doesnt-match-segment-count) |
 | Filter options changed | [Filter options changed](#filter-options-changed) |
+| Nested custom attribute not available as filter | [Nested custom attribute not available as a filter option](#nested-custom-attribute-not-available-as-a-filter-option) |
 | User on wrong app | [Info displays for users of other apps](#info-displays-for-users-of-other-apps-when-i-filter-for-a-specific-app) |
 | Was a user in this segment at a past time? | [Retroactive segment membership](#retroactive-segment-membership) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Start here: Match your symptom" }
@@ -118,6 +119,10 @@ If your filter options have changed, this is an indication that your data is bei
 Keep in mind that changing the data type of a custom attribute in the dashboard rejects data that is sent to Braze in a different format. You can't change a custom attribute's data type while that attribute is referenced in active campaigns, Canvases, or segments; the dashboard displays an error and blocks the change.
 
 The **Values** tab on a custom attribute shows results from a sample of approximately 250,000 users. Don't use the **Values** tab to confirm whether a specific attribute value exists for troubleshooting. For more information, see [Values tab]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#values-tab).
+
+### Nested custom attribute not available as a filter option
+
+If your nested custom attribute isn't showing up as a filter option when building a segment, generate its schema first. Go to **Data Settings** > **Custom Attributes**, find the attribute, and select **Generate Schema**. Once generated, the attribute becomes available in the segment filter dropdown. For more information, see [Generate a schema using the nested object explorer]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#generate-schema).
 
 ### Segment is much larger than expected
 

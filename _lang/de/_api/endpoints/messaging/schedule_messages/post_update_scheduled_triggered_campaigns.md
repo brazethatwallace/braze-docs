@@ -21,13 +21,13 @@ Beachten Sie, dass Sie zum Versenden von Nachrichten mit diesem Endpunkt eine Ca
 
 Jeder Zeitplan überschreibt vollständig den Zeitplan, den Sie in der Anfrage zum Erstellen des Zeitplans oder in früheren Anfragen zum Aktualisieren des Zeitplans angegeben haben. Wenn Sie den Zeitplan beispielsweise ursprünglich auf `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` eingestellt haben und ihn später auf `"schedule" : {"time" : "2015-02-20T14:14:47"}` aktualisieren, sendet Braze die Nachricht zur angegebenen Zeit in UTC, nicht in der Ortszeit der Nutzer:innen.
 
-Geplante Trigger, die kurz vor oder während der geplanten Sendezeit aktualisiert werden, werden nach bestem Bemühen aktualisiert, sodass Braze Änderungen in letzter Sekunde auf alle, einige oder keine Ihrer Zielgruppen-Nutzer:innen anwenden kann. Updates werden nicht übernommen, wenn der ursprüngliche Zeitplan die Ortszeit verwendete und die ursprüngliche Zeit in einer beliebigen Zeitzone bereits vergangen ist.
+Geplante Trigger, die kurz vor oder während der geplanten Sendezeit aktualisiert werden, werden nach bestem Bemühen aktualisiert, sodass Braze Änderungen in letzter Sekunde auf alle, einige oder keine Ihrer Zielgruppen-Nutzer:innen anwenden kann. Aktualisierungen werden nicht übernommen, wenn der ursprüngliche Zeitplan die Ortszeit verwendete und die ursprüngliche Zeit in einer beliebigen Zeitzone bereits vergangen ist.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d2a6e66-9d6f-4ae1-965a-79fa52b86b1d {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `campaigns.trigger.schedule.update`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `campaigns.trigger.schedule.update`.
 
 ## Rate-Limit
 

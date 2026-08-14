@@ -54,7 +54,7 @@ WhatsAppテンプレートメッセージは、ビジネス主導のアウトリ
 | ボタンタイプ | 動作 | 備考 |
 |---|---|---|
 | クイック返信 | ボタンラベルのテキストを会話内の返信として送信します | |
-| URL | ユーザーのデフォルトブラウザでURLを開きます。URLの末尾に1つの変数を追加できます（最大2,000文字） | |
+| URL | ユーザーのデフォルトブラウザでURLを開きます。URLの末尾に1つの変数を追加できます（最大2,000文字） | 特殊文字（`&`、`%`、`<`、`>`など）を含むURLはメッセージ送信の失敗を引き起こす可能性があります。特殊文字を含むURLを適切にエンコードするには、[`url_param_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters)または[`url_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) Liquidフィルターを使用してください。 |
 | 電話番号 | 指定された電話番号への通話を開始します | |
 | クーポンコードのコピー | クーポンコードをユーザーのクリップボードにコピーします | 常にMetaの承認が必要です |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ボタンタイプ" }

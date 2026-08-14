@@ -59,7 +59,7 @@ After you finish composing your template, you can test it before sending it out.
 
 From the bottom of the overview screen, select **Preview and Test**. Here, you can preview how your email will appear in a customer's inbox. With **Preview as User** selected, you can preview your email as a random user, select a specific user, or create a custom user. This allows you to test that your Connected Content and personalization calls are working as they should.
 
-Then, you can **Copy preview link** to generate and copy a shareable preview link that shows what the email looks like for a random user. The link lasts for seven days before it needs to be regenerated.
+Then, you can **Copy preview link** to generate and copy a shareable preview link that shows what the email looks like for a random user. For more information, see [Shareable preview]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
 You can also switch between desktop, mobile, and plaintext views to get a sense of how your message appears in different contexts.
 

@@ -38,13 +38,13 @@ Das E-Mail-Erfassungsformular setzt die E-Mail-Adresse im aktuell aktiven Nutzer
 
 Wenn eine anonyme Nutzer:in ihre E-Mail-Adresse in das Formular eingibt und absendet, fügt Braze die E-Mail-Adresse ihrem Profil hinzu. Wenn `changeUser` später in der Web-Journey aufgerufen wird und eine neue `external_id` zugewiesen wird (z. B. wenn sich eine neue Nutzer:in beim Dienst registriert), werden alle anonymen Nutzerprofildaten einschließlich der E-Mail-Adresse zusammengeführt.
 
-Wenn `changeUser` mit einer bestehenden `external_id` aufgerufen wird, wird das anonyme Nutzerprofil verwaist und [bestimmte Nutzerprofil-Datenfelder]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior), die noch nicht im identifizierten Profil vorhanden sind, werden zusammengeführt. Felder, die bereits vorhanden sind, gehen jedoch verloren – einschließlich der E-Mail-Adresse.
+Wenn `changeUser` mit einer bestehenden `external_id` aufgerufen wird, wird das anonyme Nutzerprofil verwaist und [bestimmte Nutzerprofil-Datenfelder]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior), die noch nicht im identifizierten Profil vorhanden sind, werden zusammengeführt. Felder, die bereits vorhanden sind, gehen jedoch verloren – einschließlich der E-Mail-Adresse.
 
 Weitere Informationen finden Sie unter [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 
 {% enddetails %}
 
-## 1. Schritt: Eine In-App-Nachrichten-Campaign erstellen {#step-1-create-an-in-app-message-campaign}
+## Schritt 1: Eine In-App-Nachrichten-Campaign erstellen {#step-1-create-an-in-app-message-campaign}
 
 Um zu dieser Option zu navigieren, müssen Sie eine In-App-Nachrichten-Campaign erstellen. Stellen Sie dort je nach Anwendungsfall **Send To** auf **Web Browsers**, **Mobile Apps** oder **Both Mobile Apps & Web Browsers** ein und wählen Sie dann **Email Capture Form** als Ihren **Message Type** aus.
 
@@ -52,7 +52,7 @@ Um zu dieser Option zu navigieren, müssen Sie eine In-App-Nachrichten-Campaign 
 **Targeting von Web-Nutzer:innen?** <br>Um HTML-In-App-Nachrichten über das Web SDK zu aktivieren, müssen Sie die Initialisierungsoption `allowUserSuppliedJavascript` an Braze übergeben, z. B. `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies dient Sicherheitszwecken, da HTML-In-App-Nachrichten JavaScript ausführen können, weshalb eine Website-Verwaltung diese aktivieren muss.
 {% endalert %}
 
-## 2. Schritt: Das Formular anpassen {#customizable-features}
+## Schritt 2: Das Formular anpassen {#customizable-features}
 
 Passen Sie als Nächstes Ihr Formular nach Bedarf an. Sie können die folgenden Features Ihres E-Mail-Erfassungsformulars anpassen:
 
@@ -69,7 +69,7 @@ Passen Sie als Nächstes Ihr Formular nach Bedarf an. Sie können die folgenden 
 
 Wenn Sie weitere Anpassungen vornehmen möchten, wählen Sie **Custom Code** als Ihren **Message Type**. Verwenden Sie dieses [E-Mail-Erfassungs-Modal-Template](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/5-email-capture-modal) aus dem [Braze Templates](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates) GitHub-Repository als Ausgangscode.
 
-## 3. Schritt: Ihre Entry-Zielgruppe festlegen {#step-3-set-your-entry-audience}
+## Schritt 3: Ihre Entry-Zielgruppe festlegen {#step-3-set-your-entry-audience}
 
 Wenn Sie eine In-App-Nachricht zur Erfassung von E-Mail-Adressen verwenden, möchten Sie die Zielgruppe möglicherweise auf Nutzer:innen beschränken, die diese Information noch nicht angegeben haben.
 
@@ -78,7 +78,7 @@ Wenn Sie eine In-App-Nachricht zur Erfassung von E-Mail-Adressen verwenden, möc
 
 Sie können die beiden Filter bei Bedarf auch mit `AND`-Logik kombinieren. Dadurch wird das Formular nur Nutzer:innen angezeigt, denen sowohl eine E-Mail-Adresse als auch eine externe Nutzer-ID fehlt – ideal für die Erfassung neuer Leads oder die Aufforderung zur Kontoerstellung.
 
-## 4. Schritt: Nutzer:innen ansprechen, die das Formular ausgefüllt haben (optional) {#step-4-target-users-who-filled-out-the-form-optional}
+## Schritt 4: Nutzer:innen ansprechen, die das Formular ausgefüllt haben (optional) {#step-4-target-users-who-filled-out-the-form-optional}
 
 Nachdem Sie das E-Mail-Erfassungsformular gestartet und E-Mail-Adressen Ihrer Nutzer:innen gesammelt haben, können Sie Nutzer:innen ansprechen, die das Formular ausgefüllt haben.
 

@@ -38,7 +38,7 @@ UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications
 {% endtabs %}
 
 {% alert note %}
-Cliquer sur les boutons d'action push avec le mode d'activation en arrière-plan ne fera que rejeter la notification et n'ouvrira pas l'application. Lorsque l'utilisateur ouvrira à nouveau l'application, l'analyse des clics de bouton pour ces actions sera transmise au serveur.
+Cliquer sur les boutons d'action push avec le mode d'activation en arrière-plan ne fera que rejeter la notification sans ouvrir l'application. Lorsque l'utilisateur ouvrira à nouveau l'application, l'analyse des clics de bouton pour ces actions sera transmise au serveur.
 {% endalert %}
 
 #### Étape 2 : Activer la gestion interactive des notifications push {#enable-push-handling}
@@ -120,7 +120,7 @@ UNNotificationCategory *likeCategory = [UNNotificationCategory categoryWithIdent
 {% endtabs %}
 
 {% alert note %}
-Lorsque vous créez une `UNNotificationAction`, vous pouvez spécifier une liste d'options d'action. Par exemple, `.foreground` permet à vos utilisateurs d'ouvrir votre application après avoir appuyé sur le bouton d'action. Ceci est nécessaire pour les comportements de navigation au clic, tels que « Ouvrir l'application » et « Lien profond dans l'application ». Si vous souhaitez un bouton d'action qui supprime simplement la notification sans ouvrir l'application, n'incluez pas `.foreground` dans le tableau `options` de l'action. Pour plus d'informations, consultez [`UNNotificationActionOptions`](https://developer.apple.com/documentation/usernotifications/unnotificationactionoptions).
+Lorsque vous créez une `UNNotificationAction`, vous pouvez spécifier une liste d'options d'action. Par exemple, `.foreground` permet à vos utilisateurs d'ouvrir votre application après avoir appuyé sur le bouton d'action. Ceci est nécessaire pour les comportements de navigation au clic, tels que « Ouvrir l'application » et « Deep link dans l'application ». Si vous souhaitez un bouton d'action qui supprime simplement la notification sans ouvrir l'application, n'incluez pas `.foreground` dans le tableau `options` de l'action. Pour plus d'informations, consultez [`UNNotificationActionOptions`](https://developer.apple.com/documentation/usernotifications/unnotificationactionoptions).
 {% endalert %}
 
 ### Étape 2 : Sélectionnez vos catégories {#step-2-select-your-categories}
@@ -128,21 +128,21 @@ Lorsque vous créez une `UNNotificationAction`, vous pouvez spécifier une liste
 Après avoir enregistré une catégorie, utilisez le tableau de bord de Braze pour envoyer des notifications de ce type aux utilisateurs.
 
 {% alert tip %}
-Il est nécessaire de définir des boutons d'action sur le tableau de bord de Braze uniquement pour les comportements qui ne peuvent pas être créés localement dans votre code Swift, tels que la création de liens profonds vers votre application ou les redirections vers une URL web. Ces actions doivent être configurées sur le tableau de bord afin de pouvoir définir l'URL ou le lien profond à ouvrir. Pour les boutons d'action qui suppriment simplement la notification sans ouvrir l'application, il n'est pas nécessaire de les configurer sur le tableau de bord : la suppression est gérée automatiquement par iOS. Enregistrez simplement votre catégorie personnalisée et ses actions dans le code de votre application, puis saisissez le nom de catégorie correspondant dans le tableau de bord.
+Il est nécessaire de définir des boutons d'action sur le tableau de bord de Braze uniquement pour les comportements qui ne peuvent pas être créés localement dans votre code Swift, tels que la création de deep links vers votre application ou les redirections vers une URL web. Ces actions doivent être configurées sur le tableau de bord afin de pouvoir définir l'URL ou le deep link à ouvrir. Pour les boutons d'action qui suppriment simplement la notification sans ouvrir l'application, il n'est pas nécessaire de les configurer sur le tableau de bord : la suppression est gérée automatiquement par iOS. Enregistrez simplement votre catégorie personnalisée et ses actions dans le code de votre application, puis saisissez le nom de catégorie correspondant dans le tableau de bord.
 {% endalert %}
 
-1. Dans le tableau de bord de Braze, sélectionnez **Messagerie** > **Notifications Push**, puis choisissez votre [Campaign push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message) iOS.
-2. Sous **Composer une notification push**, activez les **Boutons d'action**.
-3. Dans le menu déroulant **Catégorie de notification iOS**, sélectionnez **Entrez la catégorie iOS personnalisée préenregistrée**.
+1. Dans le tableau de bord de Braze, sélectionnez **Messaging** > **Push Notifications**, puis choisissez votre [Campaign push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message) iOS.
+2. Sous **Compose push notification**, activez les **Action Buttons**.
+3. Dans le menu déroulant **iOS Notification Category**, sélectionnez **Enter pre-registered custom iOS Category**.
 4. Enfin, entrez l'une des catégories que vous avez créées plus tôt. L'exemple suivant utilise la catégorie personnalisée : `LIKE_CATEGORY`.
 
-![Le tableau de bord de la Campaign de notifications push avec la configuration des catégories personnalisées.]({% image_buster /assets/img_archive/ios-notification-category.png %})
+![Le tableau de bord de la Campaign push avec la configuration des catégories personnalisées.]({% image_buster /assets/img_archive/ios-notification-category.png %})
 
 ### Exemple : catégorie de notification push personnalisée {#example-custom-push-category}
 
-Supposons que vous souhaitiez créer une notification push avec deux boutons d'action : **Gérer**, qui crée un lien profond vers votre application, et **Conserver**, qui supprime simplement la notification.
+Supposons que vous souhaitiez créer une notification push avec deux boutons d'action : **Manage**, qui crée un deep link vers votre application, et **Keep**, qui supprime simplement la notification.
 
-Dans l'exemple suivant, l'action `MANAGE_IDENTIFIER` inclut l'option `.foreground`, qui ouvre l'application lorsqu'on appuie dessus. Cela est nécessaire, car elle crée un lien profond vers une partie spécifique de l'application. L'action `KEEP_IDENTIFIER` utilise un tableau d'options vide, ce qui signifie qu'elle supprimera la notification sans ouvrir l'application.
+Dans l'exemple suivant, l'action `MANAGE_IDENTIFIER` inclut l'option `.foreground`, qui ouvre l'application lorsqu'on appuie dessus. Cela est nécessaire, car elle crée un deep link vers une partie spécifique de l'application. L'action `KEEP_IDENTIFIER` utilise un tableau d'options vide, ce qui signifie qu'elle supprimera la notification sans ouvrir l'application.
 
 {% tabs %}
 {% tab swift %}
@@ -163,15 +163,15 @@ UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications
 {% endtab %}
 {% endtabs %}
 
-Étant donné que `MANAGE_IDENTIFIER` crée un lien profond vers l'application, il est recommandé de configurer ce bouton d'action sur le tableau de bord de Braze avec l'URL du lien profond associé. Cependant, il n'est pas nécessaire de définir un bouton sur le tableau de bord pour `KEEP_IDENTIFIER`, car il ne fait que fermer la notification. Sur le tableau de bord, il vous suffit de saisir le nom de la catégorie (par exemple, `YOUR_CATEGORY`) correspondant à celui que vous avez enregistré dans le code de votre application.
+Étant donné que `MANAGE_IDENTIFIER` crée un deep link vers l'application, il est recommandé de configurer ce bouton d'action sur le tableau de bord de Braze avec l'URL du deep link associé. Cependant, il n'est pas nécessaire de définir un bouton sur le tableau de bord pour `KEEP_IDENTIFIER`, car il ne fait que fermer la notification. Sur le tableau de bord, il vous suffit de saisir le nom de la catégorie (par exemple, `YOUR_CATEGORY`) correspondant à celui que vous avez enregistré dans le code de votre application.
 
 ## Personnalisation des badges {#customizing-badges}
 
-Les badges sont de petites icônes idéales pour attirer l'attention d'un utilisateur. Vous pouvez définir un nombre de badges dans l'onglet [**Paramètres**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) lorsque vous rédigez une notification push à l'aide du tableau de bord de Braze. Vous pouvez également mettre à jour le nombre de badges manuellement par l'intermédiaire de la propriété [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber) de votre application ou par le biais du [payload de notification à distance](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
+Les badges sont de petites icônes idéales pour attirer l'attention d'un utilisateur. Vous pouvez définir un nombre de badges dans l'onglet [**Settings**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) lorsque vous rédigez une notification push à l'aide du tableau de bord de Braze. Vous pouvez également mettre à jour le nombre de badges manuellement par l'intermédiaire de la propriété [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber) de votre application ou par le biais du [payload de notification à distance](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
 
 Braze efface automatiquement le décompte des badges lorsqu'une notification Braze est reçue alors que l'application est au premier plan. Le fait de régler manuellement le numéro de badge sur 0 permet également d'effacer les notifications dans le centre de notification.
 
-Si vous n'avez pas planifié de stratégie pour effacer les badges dans le cadre du fonctionnement normal de l'application ou en envoyant des notifications push qui effacent le badge, vous devez effacer le badge lorsque l'application devient active en ajoutant le code suivant à la méthode de délégation `applicationDidBecomeActive:` de votre application :
+Si vous n'avez pas planifié de stratégie pour effacer les badges dans le cadre du fonctionnement normal de l'application ou en envoyant des notifications push qui effacent le badge, vous devez effacer le badge lorsque l'application devient active en ajoutant le code suivant à la méthode `sceneDidBecomeActive(_:)` du fichier `SceneDelegate.swift` de votre application (ou à la méthode de délégation `applicationDidBecomeActive:` de votre application, si celle-ci n'a pas encore adopté le [cycle de vie `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)) :
 
 {% tabs %}
 {% tab swift %}
@@ -241,7 +241,7 @@ Vous pouvez inspecter un son pour déterminer son format de données en l'ouvran
 
 Vous devez spécifier une URL de protocole qui pointe vers l'emplacement du fichier son dans votre application. Il existe deux méthodes pour ce faire :
 
-* Utilisez le paramètre `sound` de l'[objet Apple push]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-object) pour transmettre l'URL à Braze.
+* Utilisez le paramètre `sound` de l'[objet Apple push]({{site.baseurl}}/api/objects_filters/messaging/apple_object) pour transmettre l'URL à Braze.
 * Spécifiez l'URL dans le tableau de bord. Dans le [compositeur push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android), sélectionnez **Settings** et saisissez l'URL du protocole dans le champ **Sound**.
 
 ![Le compositeur de notifications push dans le tableau de bord de Braze]({% image_buster /assets/img_archive/sound_push_ios.png %})

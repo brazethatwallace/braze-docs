@@ -5,11 +5,18 @@ platform: Android
 permalink: /baidu_integration/
 description: "This article shows how to set up a Baidu Android integration."
 hidden: true
+excerpt_separator: ""
 ---
 # Baidu integration
-{% multi_lang_include archive/baidu_deprecation.md %}
+{% alert warning %}
+The Braze Baidu Push Integration is deprecated as of March 24, 2022.
 
-Braze can send push notifications to Android devices using [Baidu Cloud Push]({% image_buster /assets/img_archive/baidu_app_console.png %}). Note that using Baidu Cloud Push **does not** require you to distribute your apps via the Baidu App Store.
+* **March 24, 2022:** No new Baidu apps can be created in the Braze dashboard.
+* **September 15, 2022:** No new Baidu push messages can be created. Existing messages and data collection are unaffected.
+* **January 15, 2023:** Braze no longer serves messages or collects data from Baidu apps.
+{% endalert %}
+
+Braze can send push notifications to Android devices using [Baidu Cloud Push]({% image_buster /assets/img_archive/baidu_app_console.png %}). Note that using Baidu Cloud Push does not require you to distribute your apps via the Baidu App Store.
 
 ## Step 1: Create a Baidu account
 

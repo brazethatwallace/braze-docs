@@ -57,7 +57,7 @@ Segment 빌더에서 **`Foreground Push Enabled`**, **`Foreground Push Enabled f
 
 <sup>* 앱이 임시 푸시를 사용하지 않는 경우, 사용자가 푸시 알림을 허용할 때까지 `Foreground Push Enabled`는 `false`입니다. 앱이 임시 푸시를 사용하는 경우, 첫 번째 세션 시작 시 `Foreground Push Enabled`는 `true`입니다. 자세한 내용은 [임시 승인 및 조용한 푸시](#provisional-push)를 참조하세요.</sup>
 
-<sup>** [Braze Swift SDK 버전 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0)부터 `optInWhenPushAuthorized` 구성 속성이 푸시 권한이 승인될 때 푸시 구독 상태를 자동으로 `Opted-In`으로 설정할지 여부를 제어합니다. 자세한 내용은 [푸시 구독 상태 업데이트](#update-push-subscription-state)를 참조하세요.</sup>
+<sup>** [Braze Swift SDK 버전 7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0)부터 `optInWhenPushAuthorized` 구성 속성이 푸시 권한이 승인될 때 푸시 구독 상태를 자동으로 `Opted-In`으로 설정할지 여부를 제어합니다. 자세한 내용은 [푸시 토큰](#push-tokens)을 참조하세요.</sup>
 
 ## 푸시 권한 {#push-permission}
 
@@ -92,7 +92,7 @@ Android 13 이전에는 푸시 알림을 보내는 데 권한이 필요하지 �
 
 iOS 12(2018년 출시) 이전에는 모든 사용자가 푸시 알림을 받으려면 명시적으로 옵트인해야 했습니다.
 
-iOS 12에서 Apple은 [임시 승인](https://www.braze.com/resources/articles/mastering-provisional-push)을 도입하여, 브랜드가 사용자가 명시적으로 옵트인하기 전에 사용자의 알림 센터에 조용한 푸시 알림을 보낼 수 있게 했으며, 이를 통해 메시지의 가치를 일찍 보여줄 수 있는 기회를 제공합니다. 자세한 내용은 [임시 승인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications)을 참조하세요.
+iOS 12에서 Apple은 [임시 승인](https://www.braze.com/resources/articles/mastering-provisional-push)을 도입하여, 브랜드가 사용자가 명시적으로 옵트인하기 전에 사용자의 알림 센터에 조용한 푸시 알림을 보낼 수 있게 했으며, 이를 통해 메시지의 가치를 일찍 보여줄 수 있는 기회를 제공합니다. 자세한 내용은 [임시 승인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push)을 참조하세요.
 
 ### 웹 {#web}
 
@@ -115,6 +115,8 @@ iOS 12에서 Apple은 [임시 승인](https://www.braze.com/resources/articles/m
 
 {% alert note %}
 `Foreground Push Enabled for App` 필터는 해당 앱에 대한 유효한 포그라운드 및 백그라운드 푸시 토큰의 존재만 고려합니다. 그러나 보다 일반적인 [`Foreground Push Enabled`](#foreground-push-enabled) 필터는 워크스페이스 내 모든 앱에 대해 푸시 알림을 명시적으로 활성화한 사용자를 세분화합니다. 이 수에는 포그라운드 푸시만 포함되며 구독을 취소한 사용자는 포함되지 않습니다. 이러한 필터 및 기타 필터에 대한 자세한 내용은 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)를 참조하세요.
+
+소수의 사용자에 대해 처리 지연으로 인해 일시적인 불일치가 발생할 수 있습니다. 사용자가 프로필에 유효한 포그라운드 푸시 토큰을 가지고 있지만 `Foreground Push Enabled` 필터와 일치하지 않을 수 있습니다. 토큰이 존재하더라도 프로필에 포그라운드 푸시가 활성화되지 않은 것으로 잠시 표시될 수 있습니다. 이는 일반적으로 처리가 완료되면 해결됩니다.
 {% endalert %}
 
 ### 하나의 기기에 여러 사용자 {#multiple-users-on-one-device}
@@ -180,7 +182,7 @@ Campaign 분석은 이 섹션의 앞부분에서 설명한 세부 사항에 맞�
 
 사용자가 브라우저에서 알림을 비활성화하면, 해당 사용자에게 보내는 다음 푸시 알림이 반송되며, Braze는 사용자의 푸시 토큰을 그에 맞게 업데이트합니다. 이는 푸시 활성화 필터(`Background or Foreground Push Enabled`, `Foreground Push Enabled` 및 `Foreground Push Enabled for App`)의 적격성을 관리하는 데 사용됩니다. 사용자 프로필에 설정된 구독 상태는 사용자 수준 설정이며 푸시가 반송될 때 변경되지 않습니다.
 
-### 410 웹 푸시 토큰 오류 {#410-web-push-token-errors} {#410-web-push-token-errors}
+### 410 웹 푸시 토큰 오류 {#410-web-push-token-errors}
 
 `410: Gone` 오류가 발생하면, 사용자가 OS 설정의 브라우저에서 웹 푸시 알림을 비활성화했거나, 동일한 기기에서 다른 사용자로 로그인하고 있거나, 사용자가 한동안 웹사이트를 방문하지 않은 경우에 발생할 수 있습니다.
 

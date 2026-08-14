@@ -155,11 +155,29 @@ The <i>Failed Delivery Rate</i> is the percentage of sends that failed because t
 {% endif %}
 
 {% if include.metric == "Machine Opens" %}
-<i>Machine Opens</i> includes the proportion of "opens" that are affected by Apple's Mail Privacy Protection (MPP) for iOS 15. For example, if a user opens an email using the Mail app on an Apple device, this will be logged as a <i>Machine Opens</i>.
+<i>Machine Opens</i> includes both non-human and human opens that indicate an open by an Apple Mail Privacy Protection (MPP)-enabled user. This means that a user can log multiple <i>Machine Opens</i>. <i>Machine Opens</i> are not automatically generated if the device isn't connected to Wi-Fi, so a user can potentially open an email in the Apple Mail app before Apple pre-fetches images, which still results in a <i>Machine Opens</i>.
+<br><br>
+For MPP-enabled users:
+<ul>
+  <li>1+ <i>Machine Open</i>: Apple pre-fetched the message or the user proactively opened an email on an iOS device</li>
+  <li>2+ <i>Machine Opens</i>: Braze does not have visibility into human versus non-human opens, so this may be made up of multiple human opens (across one Apple device or multiple) or a combination of human opens and 1 open associated with Apple pre-fetching the message</li>
+</ul>
 {% endif %}
 
 {% if include.metric == "Other Opens" %}
-<i>Other Opens</i> includes emails that haven't been identified as <i>Machine Opens</i>. For example, when a user opens an email on another platform (such as Gmail app on a phone, Gmail on desktop browser), this will be logged as an <i>Other Opens</i>.
+<i>Other Opens</i> includes human opens that are not impacted by MPP (such as a user opening an email in the Gmail app or on Gmail desktop, which subsequently fires a tracking pixel and logs a regular open). <i>Other Opens</i> are typically human opens, but there could also be scenarios where a machine opens the mail (a bot or an inbox service provider like Gmail or Yahoo). It is also possible for a user to open an email on a non-iOS device and log the <i>Other Open</i> before a <i>Machine Open</i> is logged.
+<br><br>
+Because <i>Machine Opens</i> can be user-driven, the relationship between <i>Machine Opens</i> and <i>Other Opens</i> is not human versus non-human, but rather, MPP-impacted versus not MPP-impacted. While <i>Other Opens</i> can still be relied on to measure some portion of human opens, it's not currently possible to determine the percentage of <i>Machine Opens</i> that are human-driven, so determining a precise "true" open rate is not currently possible.
+<br><br>
+For MPP-enabled users:
+<ul>
+  <li>+1 <i>Other Open(s)</i>: The user proactively opened an email on a non-iOS device</li>
+  <li>+1 <i>Machine Open(s)</i> and +1 <i>Other Opens</i>: Apple pre-fetched the message or the user proactively opened an email on an iOS device and proactively opened an email on a non-iOS device</li>
+</ul>
+For non-MPP-enabled users:
+<ul>
+  <li>+1 <i>Other Open(s)</i>: The user proactively opened an email on any device</li>
+</ul>
 {% endif %}
 
 {% if include.metric == "Opens" %}

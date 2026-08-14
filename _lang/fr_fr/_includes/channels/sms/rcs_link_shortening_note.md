@@ -1,0 +1,3 @@
+{% alert note %}
+Pour les messages RCS, le raccourcissement de liens et le suivi des clics au niveau de l'URL sont pris en charge pour les URL dans le corps du message, mais pas pour les URL dans les actions suggérées. Les clics sur les URL des actions suggérées sont enregistrés comme événements de clic RCS, mais les champs `URL` et `SHORT_URL` seront nuls dans Currents et Snowflake.
+{% endalert %}

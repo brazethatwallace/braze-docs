@@ -187,7 +187,7 @@ Agora seu Canvas Flow atualizará os usuários que ultrapassaram seu limite de M
 
 ## Solução de problemas {#troubleshooting}
 
-Esses fluxos de trabalho têm capacidade limitada de depuração no Salesforce, portanto, recomendamos consultar o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#message-activity-log) da Braze para descobrir por que um webhook falhou e se ocorreu algum erro.
+Esses fluxos de trabalho têm capacidade limitada de depuração no Salesforce, portanto, recomendamos consultar o [Registro de atividades de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) da Braze para descobrir por que um webhook falhou e se ocorreu algum erro.
 
 Por exemplo, um erro causado por uma URL inválida usada para recuperação de token OAuth seria exibido como `https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL`.
 

@@ -6,7 +6,7 @@ description: "Découvrez comment gérer la collecte des données pour le SDK Bra
 
 ---
 
-# Gestion de la collecte de données {#manage-data-collection}
+# Gérer la collecte de données {#manage-data-collection}
 
 > Découvrez comment gérer la collecte des données pour le SDK Braze, afin de vous conformer à toute réglementation en matière de confidentialité des données, le cas échéant.
 

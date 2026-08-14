@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar la lista de segmentos de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar la lista de segmentos de Braze."
 
 ---
 {% api %}
@@ -14,7 +14,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 /segments/list
 {% endapimethod %}
 
-> Utiliza este punto de conexión para exportar una lista de segmentos, cada uno de los cuales incluirá su nombre, identificador de API del segmento y si tiene habilitado el seguimiento de análisis.
+> Utiliza este endpoint para exportar una lista de segmentos, cada uno de los cuales incluirá su nombre, identificador de API de Segment y si tiene habilitado el seguimiento de análisis.
 
 Los segmentos se devuelven en grupos de 100 ordenados por hora de creación (de más antiguo a más reciente de forma predeterminada). No se incluyen los segmentos archivados.
 
@@ -22,7 +22,7 @@ Los segmentos se devuelven en grupos de 100 ordenados por hora de creación (de 
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `segments.list`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `segments.list`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -46,7 +46,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "segments" : [
         {
             "id" : (string) the Segment API identifier,

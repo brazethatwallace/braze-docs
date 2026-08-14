@@ -70,7 +70,7 @@ For further assistance with Canvas and campaign troubleshooting, be sure to cont
 
 ### Things to check
 - **Customer consent**: Before sending out your initial emails, it's important to get permission from your customers first. Refer to [Consent and address collection]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection) and our [Braze Acceptable Use Policy](https://www.braze.com/company/legal/aup) for more information.
-- **Anticipated volume**: 2 million emails per day for a single IP is the general recommendation as long as that volume has been [properly warmed]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming#ip-warming). 
+- **Anticipated volume**: 2 million emails per day for a single IP is the general recommendation as long as that volume has been [properly warmed]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming). 
   - If you plan on consistently sending a higher volume than this, to avoid providers throttling receipt of emails resulting in a high amount of soft bounces, lowered deliverability rate, and a decreased IP reputation, consider using multiple IP addresses bundled into an IP pool. 
   - If you are looking to send in a shorter time frame only, we recommend looking into how quickly different providers accept mail to gauge the appropriate number of IPs to send from. 
 
@@ -95,7 +95,7 @@ For further assistance with Canvas and campaign troubleshooting, be sure to cont
 - [**Opted-in/subscribed and push enabled**]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states): For users to receive a push message from Braze, they need their subscription statuses to be either opted-in (iOS) or subscribed (Android) and `Push Enabled = True`. Note that Android 13 introduces a major change in how users manage apps that send push notifications. The Braze [Android 13 SDK upgrade guide]({{site.baseurl}}/developer_guide/platforms/android/android_13) will continue to update as new Android 13 beta versions are released.
 
 ### Things to know
-- **Web push**: If you have Braze [Web SDK setup]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web), consider utilizing Web push to engage users. Web push works the same way app push notifications operate on your phone. For more information on composing a web push, check out [Creating a push notification]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message).
+- **Web push**: If you have Braze [Web SDK setup]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web), consider utilizing Web push to engage users. Web push works the same way app push notifications operate on your phone. For more information on composing a web push, check out [Creating a push notification]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 - **Targeting a singular app**: Review the [differences in segmentation]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#targeting-a-singular-app) to target a singular app and its users.
 
 ## SMS

@@ -16,12 +16,16 @@ search_rank: 8
 Currents are included with certain Braze packages. Contact your Braze representative if you have any questions or want to gain access.
 {% endalert %}
 
-If you see "You do not have any remaining Currents integrations" when adding a new integration, common causes are:
+## Troubleshooting
+
+### Cannot add a new Currents integration
+
+If you see "You do not have any remaining Currents integrations" when adding a new integration, or if the button to add a new Currents connector is greyed out, common causes are:
 
 - No Currents entitlement has been purchased for this workspace.
 - The Currents entitlement is available in a different workspace in your company.
 
-Contact your Braze account manager to request an entitlement or adjust your configuration.
+To resolve this, check other workspaces within your company. A different workspace may show an available Currents entitlement. If you need to request an entitlement or adjust your configuration, contact your Braze account manager.
 
 ## Requirements
 
@@ -62,6 +66,8 @@ To get started, go to **Partner Integrations** > **Currents**. You'll be taken t
 Add a partner, sometimes called a "Currents connector," by selecting the dropdown at the top of the screen.
 
 Each partner requires a different set of configuration steps. To enable each integration, refer to our list of [available partners]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) and follow the instructions on their respective pages.
+
+{% multi_lang_include currents/contact_email_notifications.md %}
 
 ### Step 4: Configure your events
 

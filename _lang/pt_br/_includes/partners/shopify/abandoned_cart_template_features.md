@@ -1,0 +1,3 @@
+- Um novo gatilho baseado na ação "Performed cart updated"
+- Critérios de saída pré-definidos para remover clientes que avançaram em sua jornada de compra
+- Uma nova Liquid tag de carrinho de compras para permitir a personalização de produtos

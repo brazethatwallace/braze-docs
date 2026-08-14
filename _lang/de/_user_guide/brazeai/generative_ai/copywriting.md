@@ -14,6 +14,7 @@ description: "Dieser Referenzartikel beschreibt, wie Sie mit dem Operator Market
 
 ## Zugriff {#how-to-access}
 
-{% multi_lang_include brazeai/generative_ai/access_copy.md %}
+Öffnen Sie in einem beliebigen Nachrichten-Editor den Operator, um Marketing-Texte zu entwerfen und zu verfeinern. Beschreiben Sie Ihr Produkt oder Ihre Campaign, und der Operator liefert Texte, die Sie überprüfen und einfügen können.
+
 
 Weitere Informationen, einschließlich verfügbarer Töne, Beispiel-Prompts und Integration von Markenrichtlinien, finden Sie unter [Texte generieren in den Operator-Funktionen]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy).

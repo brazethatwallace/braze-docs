@@ -58,8 +58,8 @@ Mantenha as configurações padrão para o público de entrada, que direciona us
 Mantenha a maioria das configurações padrão de inscrição:
 
 - Enviar apenas para usuários que se inscreveram ou optaram por receber mensagens ou notificações.
-- Aplicar suas [regras de limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) para não sobrecarregar seu público com a quantidade de mensagens que recebem. Neste caso, defina seu limite de frequência para limitar o número de Campaigns ou etapas do Canvas com a tag "Lapsing/Retention" que um usuário pode receber a duas por semana.
-- Não enviar mensagens durante o horário de silêncio no horário local do usuário (0h às 8h).
+- Aplicar suas [regras de limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) para não sobrecarregar seu público com a quantidade de mensagens que recebem. Neste caso, defina seu limite de frequência para limitar o número de Campaigns ou etapas do Canvas com a tag "Lapsing/Retention" que um usuário pode receber a duas por semana.
+- Não enviar mensagens durante o horário de silêncio no fuso local do usuário (0h às 8h).
 
 A única configuração a alterar é o que acontece quando uma mensagem é disparada durante o horário de silêncio. Em vez de cancelar a mensagem, selecione **Send at next available time** para que seus usuários não percam nenhuma promoção.
 
@@ -76,7 +76,7 @@ Agora, construa seu Canvas personalizando as etapas do modelo:
 3. Mantenha o padrão para a etapa de divisão de decisão chamada "Sessions?", que define o grupo ">1 Session" como usuários que usaram seu app mais de uma vez no último dia do calendário.
 4. Personalize a etapa de mensagem para usuários que se enquadram no grupo ">1 Session". Neste caso de uso, agradeça os usuários por visitarem seu app e destaque as vantagens que eles desbloquearam.
 5. Certifique-se de que seu Google Audience Sync está configurado na etapa de atualização de público de anúncios, para que você atualize e sincronize os dados dos usuários que tiveram múltiplas sessões após receberem o primeiro e-mail.
-6. Mantenha o padrão para o componente de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths) chamado "A/B Test". Isso enviará aleatoriamente uma de duas promoções (que você personaliza na próxima etapa) para usuários que tiveram menos de duas sessões.
+6. Mantenha o padrão para o componente de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) chamado "A/B Test". Isso enviará aleatoriamente uma de duas promoções (que você personaliza na próxima etapa) para usuários que tiveram menos de duas sessões.
 7. Personalize as duas promoções que serão enviadas aos usuários como parte da jornada experimental. Neste caso de uso, faça uma promoção de 20% para uma assinatura de três meses e outra de 10% para uma assinatura de um mês.
 
 ![Etapas do Canvas com jornadas ramificadas com base em quantas sessões um usuário teve.]({% image_buster /assets/img/canvas_templates/lapsing_user_8.png %}){: style="max-width:70%;"}

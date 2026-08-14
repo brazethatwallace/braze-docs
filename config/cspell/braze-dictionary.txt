@@ -65,6 +65,7 @@ Amplitude
 anonymised
 Antavo
 Antavo’s
+antispam
 Aphex
 apitest
 APNs
@@ -81,11 +82,13 @@ Apteligent's
 Aptelligent
 Aribau
 ARPU
+arrivée
 ASIC
 Authy
 autofilllist
 Automations
 autoplay
+autoplays
 autoresizing
 autoresponses
 Azure
@@ -100,9 +103,11 @@ Bandsintown
 Barchart
 BASA
 bdocs
+Beefree
 behaviour
 BENA
 BIMI
+Bienvenue
 Birthdates
 Bitcode
 Blastr
@@ -113,6 +118,7 @@ Blinkist
 blocklist
 Blocklisted
 Blocklisting
+blocklists
 Bluebeam
 Blueconic
 Bluedot
@@ -229,6 +235,7 @@ Discogs
 Dixa
 Diátaxis
 DMARC
+domainkey
 drawables
 Dreamhost
 drilldown
@@ -247,7 +254,9 @@ ecommerce
 edume
 EKUGUSII
 Emailable
+Emailify
 emailnotification
+Emarsys
 EMEA
 emea
 endalert
@@ -259,9 +268,11 @@ Eppo’s
 Erdelyi
 Eshop
 ESP
+ESPs
 Espa
 Eswatini
 Eventbrite
+Everest
 EWONDO
 exfiltration
 EXPERIMENTSTEP
@@ -327,6 +338,8 @@ GLOBALCONTROLGROUP
 GLOBALSTATECHANGE
 granularization
 granularized
+granularscimapi
+legacyscimapi
 GRAVTY
 Grindr
 Grotesk
@@ -349,6 +362,7 @@ HMAC
 homehub
 Homescreen
 Hostnames
+hotspot
 HSTS
 HTML
 HTTP
@@ -388,6 +402,7 @@ iOS
 IOSFOREGROUND
 iPad
 iPhone
+Ironport
 Jampp
 Jebbit
 JHGFJHHYX
@@ -558,6 +573,7 @@ Octolis
 Octolis's
 Odicci
 Odicci’s
+offre
 Okendo
 Okendo's
 Omnichannel
@@ -685,6 +701,7 @@ résumé
 safelist
 Sageflo
 Sailec
+Sailthru
 saleswings
 salesy
 SAMBURU
@@ -694,6 +711,7 @@ SANGU
 Saucey
 scannability
 scaries
+scph
 Schellman
 SCIM
 screencap
@@ -766,6 +784,7 @@ sortby
 Spamhaus
 spamminess
 spammy
+spamtrap
 Sparkpost
 Speedrunning
 Splio
@@ -835,6 +854,7 @@ Thoughtspot
 throughs
 Tinyclues
 TISAX
+Tiscali
 Tizen
 tmenu
 TOKENSTATECHANGE
@@ -854,6 +874,7 @@ truncatewords
 Trustpilot
 Trustpilot's
 Trustpilot’s
+Tuist
 tvos
 Twilio
 Typeform
@@ -898,6 +919,8 @@ USERDELETEREQUEST
 useridentifier
 USERORPHAN
 validreg
+Validity
+Validity's
 VARCHAR
 videosmart
 viewports
@@ -907,6 +930,7 @@ visitedtitle
 Visitory
 Vizbee
 Vizbee's
+Votre
 Voucherify
 vous
 VUNJO
@@ -927,6 +951,7 @@ Whitelabeled
 whitelabeling
 WiFi
 Winback
+winbacks
 wishlisted
 Wistia
 wordmap
@@ -939,6 +964,7 @@ Xamarin
 Xample
 xcframework
 xcprivacy
+Xfinity
 Xsell
 Ymxha
 Yachtr

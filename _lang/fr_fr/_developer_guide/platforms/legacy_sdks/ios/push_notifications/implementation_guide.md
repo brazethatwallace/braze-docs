@@ -3,7 +3,7 @@ nav_title: Mise en œuvre avancée (facultative)
 article_title: Implémentation avancée des notifications push pour iOS (facultatif)
 platform: iOS
 page_order: 28
-description: "Ce guide d'implémentation avancée explique comment exploiter les extensions d'application de contenu de notification push iOS pour tirer le meilleur parti de vos messages push. Il contient également trois cas d'usage créés par notre équipe, les extraits de code l'accompagnant et des directives concernant l'enregistrement des analyses."
+description: "Ce guide d'implémentation avancée explique comment tirer parti des extensions d'application de contenu de notification push iOS pour exploiter au mieux vos messages push. Il contient également trois cas d'usage créés par notre équipe, les extraits de code l'accompagnant et des directives concernant l'enregistrement des analyses."
 channel:
   - push
 noindex: true
@@ -18,7 +18,7 @@ Vous recherchez le guide d'intégration de base du développeur de notifications
 
 # Guide d'implémentation des notifications push {#push-notification-implementation-guide}
 
-> Ce guide d'implémentation avancé et facultatif explique comment exploiter les extensions d'application de contenu de notification push pour tirer le meilleur parti de vos messages push. Il contient trois cas d'usage personnalisés créés par notre équipe, les extraits de code l'accompagnant et des directives concernant l'enregistrement des analyses. Visitez le [dépôt de démonstrations Braze](https://github.com/braze-inc/braze-growth-shares-ios-demo-app) ! Notez que ce guide d'implémentation est centré autour d'une implémentation Swift, mais les extraits de code Objective-C sont fournis aux personnes intéressées.
+> Ce guide d'implémentation avancé et facultatif explique comment tirer parti des extensions d'application de contenu de notification push pour exploiter au mieux vos messages push. Il contient trois cas d'usage personnalisés créés par notre équipe, les extraits de code l'accompagnant et des directives concernant l'enregistrement des analyses. Visitez le [dépôt de démonstrations Braze](https://github.com/braze-inc/braze-growth-shares-ios-demo-app) ! Notez que ce guide d'implémentation est centré autour d'une implémentation Swift, mais les extraits de code Objective-C sont fournis aux personnes intéressées.
 
 ## Extensions d'application de contenu de notification {#notification-content-app-extensions}
 

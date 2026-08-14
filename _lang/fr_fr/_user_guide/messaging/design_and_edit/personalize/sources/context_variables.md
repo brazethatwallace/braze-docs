@@ -104,14 +104,14 @@ Ensuite, nous créerons une étape Message pour cibler les utilisateurs où {% r
 Vous pouvez ajouter des [options de délai personnalisé]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays) avec les informations de l'étape de contexte, ce qui signifie que vous pouvez sélectionner la variable qui retarde les utilisateurs.
 {% endalert %}
 
-### Pour les Parcours d'actions et les critères de sortie {#for-action-paths-and-exit-criteria}
+### Pour les parcours d'action et les critères de sortie {#for-action-paths-and-exit-criteria}
 
-Vous pouvez exploiter les filtres de comparaison de propriétés avec des variables de contexte ou des attributs personnalisés dans ces actions de déclenchement : **Perform Custom Event** et **Make Purchase**. Ces déclencheurs d'action prennent également en charge les filtres de propriétés pour les propriétés de base et imbriquées.
+Vous pouvez tirer parti des filtres de comparaison de propriétés avec des variables de contexte ou des attributs personnalisés dans ces actions de déclenchement : **Perform Custom Event** et **Make Purchase**. Ces déclencheurs d'action prennent également en charge les filtres de propriétés pour les propriétés de base et imbriquées.
 
 - Lors de la comparaison avec des propriétés de base, les comparaisons disponibles correspondront au type de la propriété définie par l'événement personnalisé. Par exemple, les propriétés de type chaîne de caractères auront des comparaisons d'égalité exacte et de correspondance d'expression régulière. Les propriétés booléennes seront vrai ou faux.
 - Lors de la comparaison avec des propriétés imbriquées, les types ne sont pas prédéfinis, vous pouvez donc sélectionner des comparaisons sur plusieurs types de données pour les booléens, les nombres, les chaînes de caractères, l'heure et le jour de l'année, de manière similaire aux comparaisons pour les attributs personnalisés imbriqués. Si vous sélectionnez un type de données qui ne correspond pas au type de données réel de la propriété imbriquée au moment de la comparaison, l'utilisateur ne correspondra pas au parcours d'action ou aux critères de sortie.
 
-#### Exemples de Parcours d'actions {#action-path-examples}
+#### Exemples de parcours d'action {#action-path-examples}
 
 {% alert important %}
 Pour les comparaisons d'attributs personnalisés, la valeur de l'attribut personnalisé utilisée est celle au moment où l'action est effectuée. Cela signifie qu'un utilisateur ne correspondra pas au groupe du parcours d'action si cet attribut personnalisé n'est pas renseigné au moment de la comparaison, ou si la valeur de l'attribut personnalisé ne correspond pas aux comparaisons de propriétés définies. C'est le cas même si l'utilisateur aurait correspondu au moment de son entrée dans l'étape du parcours d'action.
@@ -165,9 +165,9 @@ Pour les [bannières]({{site.baseurl}}/user_guide/channels/banners) et les [mess
 
 **Personalize duration** s'applique à cette option d'expiration basée sur la durée. Si vous choisissez plutôt **On a specific date and time**, définissez l'expiration à l'aide des contrôles de date et d'heure.
 
-### Délais des Parcours d'actions {#action-path-delays}
+### Délais des parcours d'action {#action-path-delays}
 
-Dans une étape [Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths), sous **Evaluation Window**, activez **Personalize delay** pour définir la durée pendant laquelle les utilisateurs sont retenus dans l'étape à partir d'une variable de contexte. Utilisez cette option lorsque la période d'attente doit varier par utilisateur en fonction de détails tels que le niveau ou la région.
+Dans une étape [Parcours d'action]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths), sous **Evaluation Window**, activez **Personalize delay** pour définir la durée pendant laquelle les utilisateurs sont retenus dans l'étape à partir d'une variable de contexte. Utilisez cette option lorsque la période d'attente doit varier par utilisateur en fonction de détails tels que le niveau ou la région.
 
 ### Filtres de variables de contexte {#context-variable-filters}
 
@@ -181,17 +181,28 @@ Les variables de contexte sont déclarées et accessibles uniquement dans le pé
 
 ![Exemple d'étape Arbre décisionnel avec l'option de créer un filtre avec une variable de contexte.]({% image_buster /assets/img/context_decision_split.png %}){: style="max-width:90%;"}
 
-De la même manière que les variables de contexte Canvas ont des types prédéfinis, les comparaisons entre variables de contexte et valeurs statiques doivent avoir des [types de données correspondants]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#supported-data-types). Le filtre de variable de contexte permet des comparaisons sur plusieurs types de données pour les booléens, les nombres, les chaînes de caractères, l'heure et le jour de l'année, de manière similaire aux comparaisons pour les [attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+De la même manière que les variables de contexte Canvas ont des types prédéfinis, les comparaisons entre variables de contexte et valeurs statiques doivent avoir des [types de données correspondants]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support). Le filtre de variable de contexte permet des comparaisons sur plusieurs types de données pour les booléens, les nombres, les chaînes de caractères, l'heure et le jour de l'année, de manière similaire aux comparaisons pour les [attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+
+Voici un exemple de filtre de variable de contexte comparant la variable de contexte `product_name` à l'expression régulière `/braze/`.
+
+![Configuration d'un filtre pour la variable de contexte « product_name » correspondant à l'expression régulière « /braze/ ».]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
+
+#### Filtres Jour de l'année et Heure pour les variables de contexte de type date {#day-of-year-and-time-filters-for-date-context-variables}
+
+Pour utiliser les filtres de comparaison **Jour de l'année** ou **Heure** avec une variable de contexte :
+
+1. Ajoutez une [étape de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) qui définit une variable de contexte sur une date du calendrier (par exemple, le 23 octobre 2025).
+2. Ajoutez une étape [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) après l'étape de contexte.
+3. Dans l'étape Parcours d'audience, ajoutez un filtre qui répartit les utilisateurs en fonction de cette variable de contexte.
+4. Choisissez une comparaison dans la catégorie **Jour de l'année** ou **Heure**.
+
+Si une variable de contexte n'a pas de type déclaré, Braze affiche tous les types de comparaison disponibles dans le menu déroulant, y compris **Jour de l'année** et **Heure**. Si la variable est déclarée comme type **heure** dans l'étape de contexte, seules les comparaisons **Jour de l'année** et **Heure** sont affichées. Pour les autres types de données avec un type connu (par exemple, un attribut personnalisé imbriqué avec un type heure), seules les comparaisons applicables à ce type sont affichées.
 
 {% alert note %}
 Utilisez le même type de données pour votre variable de contexte et votre comparaison. Par exemple, si votre variable de contexte est de type heure, utilisez des comparaisons temporelles (telles que « avant » ou « après »). L'utilisation de types de données incompatibles (comme des comparaisons de chaînes de caractères avec une variable de contexte de type heure) peut entraîner un comportement inattendu.
 {% endalert %}
 
 {% multi_lang_include alerts/important_alerts.md alert='time filter types' %}
-
-Voici un exemple de filtre de variable de contexte comparant la variable de contexte `product_name` à l'expression régulière `/braze/`.
-
-![Configuration d'un filtre pour la variable de contexte « product_name » correspondant à l'expression régulière « /braze/ ».]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
 
 #### Comparaison avec des variables de contexte ou des attributs personnalisés {#comparing-to-context-variables-or-custom-attributes}
 

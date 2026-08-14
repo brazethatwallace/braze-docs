@@ -20,7 +20,7 @@ description: "Esta página de inicio enumera los objetos y filtros de la API de 
 - [Alias para identificar objetos]({{site.baseurl}}/api/objects_filters/aliases_to_identify)
 - [Objeto de propiedades de desencadenamiento]({{site.baseurl}}/api/objects_filters/trigger_properties_object)
 - [Objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object)
-- [Objeto de atributo de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)
+- [Objeto de atributo de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 - [Objeto de planificación]({{site.baseurl}}/api/objects_filters/schedule_object)
 - [Objeto de selección del catálogo]({{site.baseurl}}/api/objects_filters/catalog_selection_object)
 

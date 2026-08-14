@@ -22,7 +22,7 @@ description: "이 문서에서는 식별자별 사용자 내보내기 Braze 엔�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.export.ids` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.export.ids` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -98,14 +98,14 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 | `attributed_source` | 문자열 | [기여도 통합]({{site.baseurl}}/partners/message_orchestration)의 데이터(설정된 경우). 광고가 게재된 플랫폼의 식별자입니다. |
 | `attributed_adgroup` | 문자열 | [기여도 통합]({{site.baseurl}}/partners/message_orchestration)의 데이터(설정된 경우). 캠페인 아래의 선택적 하위 그룹에 대한 식별자입니다. |
 | `attributed_ad` | 문자열 | [기여도 통합]({{site.baseurl}}/partners/message_orchestration)의 데이터(설정된 경우). 캠페인 및 광고 그룹 아래의 선택적 하위 그룹에 대한 식별자입니다. |
-| `push_subscribe` | 문자열 | 사용자의 푸시 구독 상태입니다. |
-| `email_subscribe` | 문자열 | 사용자의 이메일 구독 상태입니다. |
+| `push_subscribe` | 문자열 | 사용자의 푸시 가입 상태입니다. |
+| `email_subscribe` | 문자열 | 사용자의 이메일 가입 상태입니다. |
 | `braze_id` | 문자열 | 이 사용자에 대해 Braze가 설정한 기기별 고유 사용자 식별자입니다. |
 | `country` | 문자열 | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) 표준을 사용하는 사용자의 국가입니다. |
 | `created_at` | 문자열 | 사용자 프로필이 생성된 날짜와 시간(ISO 8601 형식)입니다. |
 | `custom_attributes` | 오브젝트 | 이 사용자의 커스텀 속성 키-값 페어입니다. |
 | `custom_events` | 배열 | 지난 90일 동안 이 사용자에게 귀속된 커스텀 이벤트입니다. |
-| `devices` | 배열 | 플랫폼에 따라 다음을 포함할 수 있는 사용자 기기에 대한 정보입니다:<br><br>- `model`: 기기 모델명<br>- `os`: 기기의 운영체제<br>- `carrier`: 기기의 서비스 통신사(가능한 경우)<br>- `idfv`: (iOS) Braze 기기 식별자, Apple Identifier for Vendor(있는 경우)<br>- `idfa`: (iOS) 광고용 식별자(있는 경우)<br>- `device_id`: (Android) Braze 기기 식별자<br>- `google_ad_id`: (Android) Google Play 광고 식별자(있는 경우)<br>- `roku_ad_id`: (Roku) Roku 광고 식별자<br>- `ad_tracking_enabled`: 기기에서 광고 추적이 활성화된 경우 true 또는 false일 수 있습니다 |
+| `devices` | 배열 | 플랫폼에 따라 다음을 포함할 수 있는 사용자 기기에 대한 정보입니다:<br><br>- `model`: 기기 모델명<br>- `os`: 기기의 운영 체제<br>- `carrier`: 기기의 서비스 통신사(가능한 경우)<br>- `idfv`: (iOS) Braze 기기 식별자, Apple Identifier for Vendor(있는 경우)<br>- `idfa`: (iOS) 광고용 식별자(있는 경우)<br>- `device_id`: (Android) Braze 기기 식별자<br>- `google_ad_id`: (Android) Google Play 광고 식별자(있는 경우)<br>- `roku_ad_id`: (Roku) Roku 광고 식별자<br>- `ad_tracking_enabled`: 기기에서 광고 추적이 활성화된 경우 true 또는 false일 수 있습니다 |
 | `dob` | 문자열 | `YYYY-MM-DD` 형식의 사용자 생년월일입니다. |
 | `email` | 문자열 | 사용자의 이메일 주소입니다. |
 | `external_id` | 문자열 | 식별된 사용자를 위한 고유 사용자 식별자입니다. |
@@ -122,7 +122,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 | `time_zone` | 문자열 | IANA 시간대 데이터베이스와 동일한 형식의 사용자 시간대입니다. |
 | `total_revenue` | 플로트 | 이 사용자에게 귀속된 총 매출입니다. 총 매출은 사용자가 수신한 Campaigns 및 Canvases의 전환 기간 동안 수행한 구매를 기반으로 계산됩니다. |
 | `uninstalled_at` | 타임스탬프 | 사용자가 앱을 삭제한 날짜와 시간입니다. 앱이 삭제되지 않은 경우 생략됩니다. |
-| `user_aliases` | 오브젝트 | `alias_name` 및 `alias_label`을 포함하는 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification)(있는 경우)입니다. |
+| `user_aliases` | 오브젝트 | `alias_name` 및 `alias_label`을 포함하는 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object)(있는 경우)입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="내보낼 필드" }
 
 `/users/export/ids` 엔드포인트는 수신한 모든 Campaigns 및 Canvases, 수행한 모든 커스텀 이벤트, 모든 구매, 모든 커스텀 속성 등의 데이터를 포함하여 이 사용자의 전체 사용자 프로필을 가져온다는 점에 유의하세요. 결과적으로 이 엔드포인트는 다른 REST API 엔드포인트보다 속도가 느립니다.
@@ -133,7 +133,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "users" : (array of object) the data for each of the exported users, may be empty if no users are found,
     "invalid_user_ids" : (optional, array of string) each of the identifiers provided in the request that did not correspond to a known user
 }

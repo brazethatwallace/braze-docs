@@ -38,7 +38,7 @@ O formulário de captura de e-mail define o endereço de e-mail no perfil de usu
 
 Se um usuário anônimo inserir seu e-mail no formulário e enviá-lo, a Braze adicionará o endereço de e-mail ao perfil dele. Se `changeUser` for chamado posteriormente na jornada web e um novo `external_id` for atribuído (como quando um novo usuário se registra no serviço), todos os dados do perfil de usuário anônimo serão mesclados, incluindo o endereço de e-mail.
 
-Se `changeUser` for chamado com um `external_id` existente, o perfil de usuário anônimo será órfão e [campos específicos de dados do perfil de usuário]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior) que ainda não existem no usuário identificado serão mesclados, mas os campos que já existem serão perdidos, incluindo o endereço de e-mail.
+Se `changeUser` for chamado com um `external_id` existente, o perfil de usuário anônimo será órfão e [campos específicos de dados do perfil de usuário]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior) que ainda não existem no usuário identificado serão mesclados, mas os campos que já existem serão perdidos, incluindo o endereço de e-mail.
 
 Para saber mais, consulte o [Ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 

@@ -4,12 +4,12 @@ article_title: ガバナンス
 layout: dev_guide
 page_order: 2
 guide_top_header: "ガバナンス"
-guide_top_text: "キャンペーンやキャンバス、ランディングページのライフサイクルと整理を管理します。以下の記事を参照して、承認ワークフローの設定、アイテムのアーカイブや複製、ワークスペース間でのコピー、ステータスやタグを使用したワークスペースの整理について確認してください。"
+guide_top_text: "キャンペーンやキャンバス、ランディングページのライフサイクルと整理を管理します。以下の記事を参照して、承認ワークフローの設定、アイテムのアーカイブや複製、ワークスペース間でのコピー、関係者とのプレビュー共有、ステータスやタグを使用したワークスペースの整理について確認してください。"
 page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "キャンペーンやキャンバス、ランディングページの承認、アーカイブ、複製、ワークスペース間でのコピー、ステータス、タグについて説明します。"
+description: "キャンペーンやキャンバス、ランディングページの承認、アーカイブ、複製、ワークスペース間でのコピー、共有可能なプレビュー、ステータス、タグについて説明します。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
@@ -25,6 +25,9 @@ guide_featured_list:
   - name: 複製
     link: /docs/user_guide/messaging/governance/duplicating
     image: /assets/img/braze_icons/copy-04.svg
+  - name: 共有可能なプレビュー
+    link: /docs/user_guide/messaging/governance/shareable_preview
+    image: /assets/img/braze_icons/share-01.svg
   - name: ステータス
     link: /docs/user_guide/messaging/governance/statuses
     image: /assets/img/braze_icons/book-closed.svg

@@ -23,7 +23,7 @@ BrazeとWSC Sportsの統合により、Brazeのプッシュ通知にリッチで
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | WSCアカウント | このパートナーシップを利用するには、WSCアカウントが必要です。 |
-| Braze REST APIキー | **メッセージ**、**セグメント**、**キャンペーン**、**キャンバス**の権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze REST APIキー | **メッセージング**、**セグメント**、**キャンペーン**、**キャンバス**の権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 {: .reset-td-br-1 .reset-td-br_2 aria-label="前提条件" }
 
 ## 統合 {#integration}
@@ -39,8 +39,8 @@ WSC Sportsアプリケーションは、動画の選択からエンドユーザ�
 #### APIコール {#api-call}
 
 送信されると、WSC Sportsは選択されたオプションに基づいて、以下のBrazeエンドポイントを使用して、選択されたユーザーセグメントにプッシュ通知を配信します:
-- [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages#create-scheduled-messages)
-- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#sending-messages-immediately-via-api-only)
+- [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)
+- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
 
 メッセージの本文は次のとおりです:
 ```

@@ -3,7 +3,7 @@ nav_title: Timing intelligent
 article_title: Timing intelligent
 page_order: 1.3
 description: "Cet article propose un aperçu du timing intelligent (appelé auparavant Livraison intelligente) et explique comment tirer parti de cette fonctionnalité dans vos campagnes et vos Canvas."
-
+toc_headers: h2
 ---
 
 # [![Cours d'apprentissage Braze]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/intelligent-timing){: style="float:right;width:120px;border:0;" class="noimgborder"} Timing intelligent {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomintelligent-timing-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-timing}
@@ -25,7 +25,7 @@ Par exemple, Sam peut ouvrir régulièrement vos e-mails le matin, mais elle pr�
 
 Si un utilisateur ne dispose d'aucune donnée d'engagement pertinente permettant à Braze de calculer l'heure d'envoi optimale, vous pouvez définir une heure de secours.
 
-## Cas d'utilisation {#use-cases}
+## Exemples {#examples}
 
 - Envoyer des campagnes récurrentes qui ne sont pas sensibles au facteur temps
 - Automatiser des campagnes avec des utilisateurs dans plusieurs fuseaux horaires
@@ -186,8 +186,8 @@ Cependant, le timing intelligent est défini pour livrer à 14 h, heure qui est 
 - Les messages in-app et les webhooks sont transmis immédiatement et ne bénéficient pas de moments optimaux.
 - Le timing intelligent n'est pas disponible pour les campagnes par événement ou déclenchées par API.
 - Le timing intelligent ne devrait pas être utilisé dans les scénarios suivants :
-    - **Limite de débit :** Si une limite de débit et le timing intelligent sont utilisés conjointement, il n'y a aucune garantie quant au moment où le message sera livré. Les campagnes récurrentes quotidiennes avec le timing intelligent ne prennent pas en charge de manière fiable un plafond total d'envoi de messages.
-    - **Campagnes de réchauffement d'adresses IP :** Certains comportements du timing intelligent peuvent causer des difficultés pour atteindre les volumes journaliers nécessaires lorsque vous réchauffez vos adresses IP pour la première fois. Cela est dû au fait que le timing intelligent évalue les segments deux fois : une première fois lors de la création de la campagne ou du Canvas, et une seconde fois avant l'envoi aux utilisateurs pour vérifier qu'ils font toujours partie du segment. Cela peut entraîner des modifications de segments, provoquant souvent la sortie de certains utilisateurs du segment lors de la deuxième évaluation. Ces utilisateurs ne sont pas remplacés, ce qui a un impact sur votre capacité à atteindre le plafond utilisateur maximal.
+    - **Limitation du débit :** Si une limitation du débit et le timing intelligent sont utilisés conjointement, il n'y a aucune garantie quant au moment où le message sera livré. Les campagnes récurrentes quotidiennes avec le timing intelligent ne prennent pas en charge de manière fiable un plafond total d'envoi de messages.
+    - **Campagnes d'IP warming :** Certains comportements du timing intelligent peuvent causer des difficultés pour atteindre les volumes journaliers nécessaires lorsque vous réchauffez vos adresses IP pour la première fois. Cela est dû au fait que le timing intelligent évalue les segments deux fois : une première fois lors de la création de la campagne ou du Canvas, et une seconde fois avant l'envoi aux utilisateurs pour vérifier qu'ils font toujours partie du segment. Cela peut entraîner des modifications de segments, provoquant souvent la sortie de certains utilisateurs du segment lors de la deuxième évaluation. Ces utilisateurs ne sont pas remplacés, ce qui a un impact sur votre capacité à atteindre le plafond utilisateur maximal.
 
 ## Résolution des problèmes {#troubleshooting}
 
@@ -197,7 +197,9 @@ Si aucun événement pertinent n'est disponible pour un utilisateur (par exemple
 
 ### Impact du fuseau horaire sur la réception/distribution du timing intelligent {#impact-of-time-zone-on-intelligent-timing-delivery}
 
-Le timing intelligent s'appuie sur le fuseau horaire local spécifié de chaque utilisateur. Par conséquent, la date et l'heure de réception/distribution prévues peuvent varier d'un utilisateur à l'autre.
+Le timing intelligent s'appuie sur le fuseau horaire local de chaque utilisateur et les jours calendaires pour déterminer la réception/distribution optimale. Par conséquent, les utilisateurs situés dans des fuseaux horaires en avance ou en retard par rapport au fuseau horaire de référence de votre campagne peuvent recevoir des messages un jour calendaire différent de celui que vous attendiez.
+
+Par exemple, si une campagne est planifiée pour le 15 mars et que l'heure optimale d'un utilisateur est calculée pour cette date, un utilisateur situé dans un fuseau horaire en avance par rapport au point de référence de la campagne peut recevoir le message tard le 14 mars dans le fuseau horaire de référence, tandis qu'un utilisateur situé dans un fuseau horaire en retard peut le recevoir le 16 mars.
 
 Si les utilisateurs ne reçoivent pas les messages comme prévu, vérifiez que le champ du fuseau horaire dans leur profil est correctement renseigné. Si le champ du fuseau horaire est vide, l'utilisateur peut recevoir des messages correspondant au fuseau horaire de l'entreprise plutôt qu'à son heure locale.
 
@@ -274,19 +276,19 @@ Soyez prudent lorsque vous filtrez sur la base d'autres envois de campagne afin 
 
 #### Puis-je utiliser les heures calmes dans ma campagne de timing intelligent ? {#can-i-use-quiet-hours-in-my-intelligent-timing-campaign}
 
-Les heures calmes peuvent être utilisées dans le cadre d'une campagne utilisant le timing intelligent. L'algorithme de timing intelligent évitera les heures calmes afin d'envoyer le message à tous les utilisateurs éligibles. Cela dit, nous vous recommandons de désactiver les heures calmes, à moins qu'il n'y ait des implications en termes de politique, de conformité ou d'autres implications légales quant au moment où les messages peuvent ou ne peuvent pas être envoyés.
+Les heures calmes peuvent être utilisées dans le cadre d'une campagne utilisant le timing intelligent. L'algorithme de timing intelligent évitera les heures calmes afin d'envoyer le message à tous les utilisateurs éligibles. Cela dit, nous vous recommandons de désactiver les heures calmes, à moins qu'il n'y ait des implications en termes de politique, de conformité ou d'autres implications juridiques quant au moment où les messages peuvent ou ne peuvent pas être envoyés.
 
 #### Que se passe-t-il si le moment optimal pour un utilisateur se situe pendant les heures calmes ? {#what-happens-if-the-optimal-time-for-a-user-is-within-the-quiet-hours}
 
 Si l'heure optimale déterminée tombe pendant les heures calmes, Braze trouve le bord le plus proche des heures calmes et planifie le message pour la prochaine heure autorisée avant ou après les heures calmes. Le message est mis en file d'attente pour être envoyé à la limite la plus proche des heures calmes par rapport à l'heure optimale.
 
-#### Puis-je utiliser le timing intelligent et la limite de débit ? {#can-i-use-intelligent-timing-and-rate-limiting}
+#### Puis-je utiliser le timing intelligent et la limitation du débit ? {#can-i-use-intelligent-timing-and-rate-limiting}
 
-La limite de débit peut être utilisée dans le cadre d'une campagne utilisant le timing intelligent. Cependant, la nature même de la limite de débit implique que certains utilisateurs peuvent recevoir leur message à un moment moins qu'optimal, en particulier si un nombre important d'utilisateurs par rapport à la taille de la limite de débit sont planifiés à l'heure de secours parce qu'ils n'ont pas d'événements pertinents.
+La limitation du débit peut être utilisée dans le cadre d'une campagne utilisant le timing intelligent. Cependant, la nature même de la limitation du débit implique que certains utilisateurs peuvent recevoir leur message à un moment moins qu'optimal, en particulier si un nombre important d'utilisateurs par rapport à la taille de la limite de débit sont planifiés à l'heure de secours parce qu'ils n'ont pas d'événements pertinents.
 
-Nous vous recommandons de n'utiliser la limite de débit sur une campagne de timing intelligent que lorsque des exigences techniques doivent être respectées.
+Nous vous recommandons de n'utiliser la limitation du débit sur une campagne de timing intelligent que lorsque des exigences techniques doivent être respectées.
 
-#### Puis-je utiliser le timing intelligent pendant le réchauffement d'adresses IP ? {#can-i-use-intelligent-timing-while-ip-warming}
+#### Puis-je utiliser le timing intelligent pendant l'IP warming ? {#can-i-use-intelligent-timing-while-ip-warming}
 
 Braze ne recommande pas l'utilisation du timing intelligent lors du premier réchauffement d'adresses IP, car certains de ses comportements peuvent entraîner des difficultés à atteindre les volumes quotidiens. Cela est dû au fait que le timing intelligent évalue les segments de campagne deux fois : une première fois lors de la création de la campagne, et une seconde fois avant l'envoi aux utilisateurs pour vérifier qu'ils font toujours partie du segment.
 

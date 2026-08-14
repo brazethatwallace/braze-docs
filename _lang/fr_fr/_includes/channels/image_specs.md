@@ -30,6 +30,10 @@ Bien qu'il n'y ait pas de limite au nombre de caractères que vous pouvez inclur
 
 Tous les messages in-app ont une taille d'image recommandée de 500 Ko, une taille d'image maximale de 5 Mo, et prennent en charge les types de fichiers PNG, JPEG et GIF. Les images WebP ne sont pas prises en charge par tous les appareils ou navigateurs ; nous vous recommandons de convertir les images WebP au format PNG ou JPEG avant de les ajouter à vos messages in-app.
 
+{% alert note %}
+Les images SVG ne sont pas prises en charge pour les messages in-app, car elles ne s'affichent pas de manière fiable sur toutes les plateformes. Utilisez plutôt les formats PNG, JPEG ou GIF.
+{% endalert %}
+
 {% tabs %}
 {% tab Portrait %}
 
@@ -67,6 +71,10 @@ Tous les messages in-app ont une taille d'image recommandée de 500 Ko, une tail
 
 {% endtab %}
 {% endtabs %}
+
+{% alert tip %}
+Le rendu des messages in-app sur le SDK Web peut être affecté par les paramètres personnalisés de taille de texte du navigateur. Les utilisateurs ayant une mise à l'échelle personnalisée de la taille du texte peuvent rencontrer des problèmes de rendu mineurs, comme un espace de 1 px le long du bord d'une image modale. Lors de la prévisualisation et du test des messages in-app, nous recommandons d'utiliser les paramètres de taille de texte par défaut du navigateur pour obtenir la représentation la plus fidèle.
+{% endalert %}
 
 {% endif %}
 
@@ -174,6 +182,20 @@ table td {
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tableau" }
 
 Pour plus d'informations, reportez-vous aux [détails créatifs des Content Cards]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details).
+
+{% endif %}
+
+{% if include.variable_name == "sms and mms" %}
+
+Les messages MMS prennent en charge une seule image par message. Seuls les groupes d'abonnement compatibles MMS peuvent envoyer des images.
+
+| Propriété | Recommandation |
+| --- | --- |
+| Taille | 600&nbsp;Ko ou moins pour une distribution fiable par l'opérateur. Le compositeur bloque les téléchargements supérieurs à 1&nbsp;Mo. |
+| Types de fichier | PNG, JPEG, GIF |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS et MMS" }
+
+Pour connaître les limites de taille de fichier et le débit des opérateurs, consultez [Limites et débit des messages MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup#mms-message-limits-and-throughput).
 
 {% endif %}
 

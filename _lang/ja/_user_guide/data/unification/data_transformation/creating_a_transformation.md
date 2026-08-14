@@ -14,7 +14,7 @@ description: "このリファレンス記事では、Brazeデータ変換を使�
 
 | 必要条件 | 説明 |
 | --- | --- |
-| 2要素認証またはSSO | アカウントで[2要素認証]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication)（2FA）または[シングルサインオン]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication)（SSO）を有効にする必要があります。 |
+| 2要素認証またはSSO | アカウントで[2要素認証]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication-2fa)（2FA）または[シングルサインオン]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication)（SSO）を有効にする必要があります。 |
 | 正しい権限 | アカウント管理者またはワークスペース管理者であるか、「変換の管理」ユーザー権限を持っている必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
@@ -66,7 +66,7 @@ AIで変換コードを生成するには、変換コードエディターで**�
 
 ここでは、さまざまなWebhook値をBrazeユーザープロファイルにマッピングする方法を定義する変換コードを記述します。
 
-1. 新しい変換には、**Transformation Code**セクションに次のデフォルトテンプレートがあります。
+1. 新しい変換には、**Transformation Code** セクションに次のデフォルトテンプレートがあります。
 
 ```java
 // Here, we will define a variable, "brazecall", to build up a `/users/track` request
@@ -117,7 +117,7 @@ return brazecall;
 3. 属性、イベント、および購入の各オブジェクトには、`external_id`、`user_alias`、`braze_id`、`email`、または`phone`のいずれかのユーザー識別子が必要です。受信Webhookのペイロード内でユーザー識別子を見つけ、ペイロード行を介して変換コード内のその値をテンプレート化します。ペイロードオブジェクトのプロパティにアクセスするには、ドット表記を使用します。<br><br>
 4. 属性、イベント、または購入として表現するWebhookの値を見つけて、ペイロード行を介して変換コード内のそれらの値をテンプレート化します。ペイロードオブジェクトのプロパティにアクセスするには、ドット表記を使用します。<br><br>
 5. 属性、イベント、および購入の各オブジェクトについて、`_update_existing_only`の値を調べます。存在しない可能性のある新規ユーザーを変換で作成する場合は、この値を`false`に設定します。既存のプロファイルのみを更新する場合は、`true`のままにします。<br><br>
-6. **Validate**をクリックして、コードの出力のプレビューを返し、受け入れられる`/users/track`リクエストであるかどうかを確認します。<br><br>
+6. **Validate** をクリックして、コードの出力のプレビューを返し、受け入れられる`/users/track`リクエストであるかどうかを確認します。<br><br>
 7. 変換をアクティブにします。アクティブにする前のコードに関するその他のサポートについては、Brazeアカウントマネージャーにお問い合わせください。<br><br>
 7. ソースプラットフォームからWebhookの送信を開始します。Webhookが着信するたびに変換コードが実行され、ユーザープロファイルの更新が開始されます。
 
@@ -128,7 +128,7 @@ return brazecall;
 
 ここでは、さまざまなWebhookの値をBrazeカタログ項目の更新にどのようにマッピングするかを定義する変換コードを記述できます。
 
-1. 新規の変換では、**Transformation Code**セクションに次のデフォルトテンプレートがあります。
+1. 新規の変換では、**Transformation Code** セクションに次のデフォルトテンプレートがあります。
 
 ```java
 // This is a default template that you can use as a starting point
@@ -189,7 +189,7 @@ return brazecall;
 {:start="2"}
 2. `/catalogs`送信先の変換には、更新する特定のカタログを定義する`catalog_name`が必要です。このフィールドをハードコードするか、ペイロード行を介してWebhookフィールドでテンプレート化することができます。ペイロードオブジェクトのプロパティにアクセスするには、ドット表記を使用します。<br><br>
 3. カタログのどの項目を更新するかを、items配列の`id`フィールドで定義します。これらのフィールドはハードコードするか、ペイロード行を介してWebhookフィールドでテンプレート化することもできます。<br><br>`catalog_column`はプレースホルダーの値であることに留意してください。項目オブジェクトには、カタログに存在するフィールドのみを含めるようにしてください。<br><br>
-4. **Validate**を選択して、コード出力のプレビューを返し、[「複数のカタログ項目の更新」エンドポイント]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items)で受け入れ可能なリクエストであるかどうかを確認します。<br><br>
+4. **Validate** を選択して、コード出力のプレビューを返し、[「複数のカタログ項目の更新」エンドポイント]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/put_update_catalog_items)で受け入れ可能なリクエストであるかどうかを確認します。<br><br>
 5. 変換をアクティブにします。アクティブにする前のコードに関するその他のサポートについては、Brazeアカウントマネージャーにお問い合わせください。<br><br>
 6. ソースプラットフォームにWebhookの送信を開始する設定があるかどうかを確認してください。Webhookが着信するたびに変換コードが実行され、カタログ項目の更新が開始されます。
 
@@ -200,15 +200,9 @@ return brazecall;
 
 このステップでは、ソースプラットフォームからのWebhookペイロードをJavaScriptオブジェクトの戻り値に変換します。この戻り値は、`/users/track`エンドポイントのリクエスト本文の形式に準拠している必要があります。
 
-- 変換コードはJavaScriptプログラミング言語で記述します。if/elseロジックなど、標準的なJavaScript制御フローがすべてサポートされています。
-- 変換コードは、`payload`変数を介してWebhookリクエスト本文にアクセスします。この変数は、リクエスト本文のJSONを解析して読み込まれたオブジェクトです。
-- `/users/track`エンドポイントでサポートされるすべての機能がサポートされています。以下が含まれます。
-  - ユーザー属性オブジェクト、イベントオブジェクト、購入オブジェクト
-  - ネストされた属性とネストされたカスタムイベントプロパティ
-  - 購読グループの更新
-  - 識別子としてのメールアドレス
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
-**Validate**を選択すると、コードの出力のプレビューが返され、`/users/track`リクエストとして受け入れられるかどうかがチェックされます。
+**Validate** を選択すると、コードの出力のプレビューが返され、`/users/track`リクエストとして受け入れられるかどうかがチェックされます。
 
 {% alert note %}
 外部ネットワークリクエスト、サードパーティライブラリー、およびJSON以外のWebhookは現在サポートされていません。
@@ -228,7 +222,7 @@ return brazecall;
 
 ### トラブルシューティング {#troubleshooting}
 
-詳細な監視とトラブルシューティングについては、**Logs**ページで特定のログを参照してください。このページには、すべてのワークスペースのすべての変換に対する最新1,000件の受信リクエストが記録されます。各ログを選択すると、受信リクエストの本文、変換出力、および変換の送信先からの応答本文を表示できます。
+詳細な監視とトラブルシューティングについては、**Logs** ページで特定のログを参照してください。このページには、すべてのワークスペースのすべての変換に対する最新1,000件の受信リクエストが記録されます。各ログを選択すると、受信リクエストの本文、変換出力、および変換の送信先からの応答本文を表示できます。
 
 配信がない場合は、変換コードに構文エラーがないかチェックし、コードがコンパイルされることを確認します。次に、出力が有効な送信先リクエストであるかどうかを確認します。
 

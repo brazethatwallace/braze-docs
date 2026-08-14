@@ -1,7 +1,7 @@
 {% multi_lang_include developer_guide/prerequisites/swift.md %}
 
 {% alert tip %}
-Para obtener ayuda a la hora de elegir entre vínculos profundos de esquema personalizado, vínculos universales y "Abrir URL web dentro de la aplicación", consulta la [guía de vinculación en profundidad de iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/). Para la solución de problemas, consulta [Solución de problemas de vinculación en profundidad]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).
+Para obtener ayuda a la hora de elegir entre vínculos profundos de esquema personalizado, vínculos universales y "Abrir URL web dentro de la aplicación", consulta la [guía de vinculación en profundidad de iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide). Para la solución de problemas, consulta [Solución de problemas de vinculación en profundidad]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
 {% endalert %}
 
 ## Manejo de vínculos profundos {#handling-deep-links}
@@ -58,10 +58,37 @@ Para más información, consulta la [documentación de Apple](https://developer.
 
 ### Paso 3: Implementar un controlador {#step-3-implement-a-handler}
 
-Tras activar tu aplicación, iOS llamará al método [`application:openURL:options:`](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1623112-application?language=objc). El argumento importante es el objeto [NSURL](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Reference/Foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/c_ref/NSURL).
+Las aplicaciones compiladas con Xcode 27 y versiones posteriores deben adoptar el [ciclo de vida `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle), por lo que iOS entrega las URL de esquema personalizado a tu `SceneDelegate` a través de [`scene:openURLContexts:`](https://developer.apple.com/documentation/uikit/uiscenedelegate/scene(_:openurlcontexts:)) en lugar de a tu `AppDelegate`. El argumento importante es el objeto [NSURL](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Reference/Foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/c_ref/NSURL).
 
 {% tabs %}
 {% tab swift %}
+
+```swift
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let url = URLContexts.first?.url else { return }
+  let path = url.path
+  let query = url.query
+  // Insert your code here to take some action based upon the path and query.
+}
+```
+
+{% endtab %}
+{% tab OBJECTIVE-C %}
+
+```objc
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
+  NSString *path  = [url path];
+  NSString *query = [url query];
+  // Insert your code here to take some action based upon the path and query.
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+{% alert note %}
+Si tu aplicación aún no ha adoptado el ciclo de vida `UIScene`, iOS llamará en su lugar a [`application:openURL:options:`](https://developer.apple.com/reference/uikit/uiapplicationdelegate/1623112-application?language=objc) en tu `AppDelegate`:
 
 ```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -71,21 +98,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
   return true
 }
 ```
-
-{% endtab %}
-{% tab OBJECTIVE-C %}
-
-```objc
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
-  NSString *path  = [url path];
-  NSString *query = [url query];
-  // Insert your code here to take some action based upon the path and query.
-  return YES;
-}
-```
-
-{% endtab %}
-{% endtabs %}
+{% endalert %}
 
 ## Seguridad del transporte de aplicaciones (ATS) {#app-transport-security-ats}
 
@@ -162,16 +175,16 @@ Puedes desactivar ATS por completo. Ten en cuenta que no es una práctica recome
 
 El SDK codifica porcentualmente los enlaces para crear `URL` válidas. Todos los caracteres de enlace que no estén permitidos en una URL correctamente formada, como los caracteres Unicode, se escaparán porcentualmente.
 
-Para decodificar un enlace codificado, utiliza la propiedad `String` [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding). También debes devolver `true` en `BrazeDelegate.braze(_:shouldOpenURL:)`. Se necesita una llamada a la acción para desencadenar el manejo de la URL por parte de tu aplicación. Por ejemplo:
+Para decodificar un enlace codificado, utiliza la propiedad `String` [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding). También debes devolver `true` en `BrazeDelegate.braze(_:shouldOpenURL:)`. Se necesita una llamada a la acción para desencadenar el manejo de la URL por parte de tu aplicación. Por ejemplo, en tu controlador [`scene:openURLContexts:`](#step-3-implement-a-handler) del paso 3:
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    guard let url = URLContexts.first?.url else { return }
     let urlString = url.absoluteString.removingPercentEncoding
     // Handle urlString
-    return true
   }
 ```
 
@@ -179,10 +192,10 @@ Para decodificar un enlace codificado, utiliza la propiedad `String` [`removingP
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSURL *url = URLContexts.allObjects.firstObject.URL;
   NSString *urlString = [url.absoluteString stringByRemovingPercentEncoding];
   // Handle urlString
-  return YES;
 }
 ```
 
@@ -196,18 +209,17 @@ Puedes aprovechar `UIApplicationOpenSettingsURLString` para dirigir a los usuari
 Para llevar a los usuarios de tu aplicación a la configuración de iOS:
 1. En primer lugar, asegúrate de que tu aplicación está configurada para [vínculos profundos basados en esquemas](#swift_register-a-scheme) o [vínculos universales](#swift_universal-links).
 2. Decide un URI para la vinculación en profundidad a la página de **Configuración** (por ejemplo, `myapp://settings` o `https://www.braze.com/settings`).
-3. Si utilizas vínculos profundos personalizados basados en esquemas, añade el siguiente código a tu método `application:openURL:options:`:
+3. Si utilizas vínculos profundos personalizados basados en esquemas, añade el siguiente código a tu controlador `scene:openURLContexts:`:
 
 {% tabs %}
 {% tab swift %}
 
 ```swift
-func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-  let path = url.path
+func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+  guard let path = URLContexts.first?.url.path else { return }
   if (path == "settings") {
     UIApplication.shared.openURL(URL(string:UIApplication.openSettingsURLString)!)
   }
-  return true
 }
 ```
 
@@ -215,15 +227,12 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 {% tab OBJECTIVE-C %}
 
 ```objc
-- (BOOL)application:(UIApplication *)app
-            openURL:(NSURL *)url
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-  NSString *path  = [url path];
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+  NSString *path  = [URLContexts.allObjects.firstObject.URL path];
   if ([path isEqualToString:@"settings"]) {
     NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
     [[UIApplication sharedApplication] openURL:settingsURL];
   }
-  return YES;
 }
 ```
 
@@ -242,19 +251,19 @@ Puedes personalizar `Braze.WebViewController` mediante el método delegado [`Bra
 
 El protocolo `BrazeDelegate` puede utilizarse para personalizar el tratamiento de las URL, como los vínculos profundos, las URL web y los vínculos universales. Para configurar el delegado durante la inicialización de Braze, establece un objeto delegado en la instancia de `Braze`. A continuación, Braze llamará a la implementación de `shouldOpenURL` de tu delegado antes de gestionar cualquier URI.
 
-Cuando una notificación push o un mensaje dentro de la aplicación utiliza **Abrir URL web dentro de la aplicación móvil**, Braze pasa `context.useWebView == true` en [`Braze.URLContext`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/urlcontext). Cuando el mensaje abre la URL en el navegador del sistema, `useWebView` es `false`. Inspecciona `context.useWebView` en `braze(_:shouldOpenURL:)` para ramificar tu manejo personalizado; por ejemplo, para abrir un `WebViewController` dentro de la aplicación solo cuando la Campaign solicitó la visualización dentro de la aplicación.
+Cuando una notificación push o un mensaje dentro de la aplicación utiliza **Abrir URL web dentro de la aplicación móvil**, Braze pasa `context.useWebView == true` en [`Braze.URLContext`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/urlcontext). Cuando el mensaje abre la URL en el navegador del sistema, `useWebView` es `false`. Inspecciona `context.useWebView` en `braze(_:shouldOpenURL:)` para ramificar tu manejo personalizado; por ejemplo, para abrir un `WebViewController` dentro de la aplicación solo cuando la campaña solicitó la visualización dentro de la aplicación.
 
 #### Vínculos universales {#universal-links}
 
 Braze admite vínculos universales en notificaciones push, mensajes dentro de la aplicación y Content Cards. Para habilitar la compatibilidad con vínculos universales, [`configuration.forwardUniversalLinks`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks) debe estar configurado en `true`.
 
-Cuando esté habilitado, Braze reenviará los vínculos universales al `AppDelegate` de tu aplicación mediante el método [`application:continueUserActivity:restorationHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application).
+Cuando esté habilitado, Braze reenviará los vínculos universales a tu `SceneDelegate` mediante el método [`scene:continue:`](https://developer.apple.com/documentation/uikit/uiscenedelegate/scene(_:continue:)) para las aplicaciones que hayan adoptado el ciclo de vida `UIScene` (obligatorio para aplicaciones compiladas con Xcode 27 y versiones posteriores), o a tu `AppDelegate` mediante [`application:continueUserActivity:restorationHandler:`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623072-application) en caso contrario.
 
 Tu aplicación también debe estar configurada para gestionar vínculos universales. Consulta la [documentación de Apple](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app) para asegurarte de que tu aplicación está configurada correctamente para los vínculos universales.
 
 {% alert warning %}
 El reenvío de vínculos universales requiere acceso a los derechos de la aplicación. Al ejecutar la aplicación en un simulador, estos derechos no están disponibles directamente y los vínculos universales no se reenvían a los controladores del sistema.
-Para añadir soporte a las compilaciones del simulador, puedes añadir el archivo `.entitlements` de la aplicación a la fase de compilación _Copiar recursos del paquete_. Consulta la documentación de [`forwardUniversalLinks`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks) para más detalles.
+Para añadir soporte a las compilaciones del simulador, puedes añadir el archivo `.entitlements` de la aplicación a la fase de compilación _Copy Bundle Resources_. Consulta la documentación de [`forwardUniversalLinks`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks) para más detalles.
 {% endalert %}
 
 {% alert note %}

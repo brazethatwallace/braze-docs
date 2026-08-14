@@ -32,7 +32,7 @@ Dependendo do seu provedor de domínio, a conexão pode levar até 48 horas. Qua
 
 ### Configuração do certificado SSL {#ssl-certificate-setup}
 
-A Braze usa o Cloudflare para provisionar automaticamente certificados SSL para o seu domínio personalizado por meio de um [desafio ACME DNS-01](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge). Esse método de validação contínua é ativado por um dos registros CNAME que você forneceu durante a configuração, e permite que a autoridade certificadora (LetsEncrypt) verifique a propriedade do seu domínio por meio de registros DNS sem que a Braze precise ser proprietária do seu domínio.
+A Braze usa o Cloudflare para provisionar automaticamente certificados SSL para o seu domínio personalizado por meio de um [desafio ACME DNS-01](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge). Esse método de validação contínua é ativado por um dos registros CNAME que você forneceu durante a configuração e permite que a autoridade certificadora (LetsEncrypt) verifique a propriedade do seu domínio por meio de registros DNS sem que a Braze precise ser proprietária do seu domínio.
 
 ## Remover seu domínio {#remove-your-domain}
 

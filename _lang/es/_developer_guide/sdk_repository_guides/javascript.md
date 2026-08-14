@@ -10,7 +10,7 @@ description: "Referencia del README del JavaScript SDK de Braze reflejada desde 
 
 ## Acerca del JavaScript SDK de Braze {#about-the-braze-javascript-sdk}
 
-El JavaScript SDK de Braze te ayuda a integrar las funcionalidades de mensajería, análisis e interacción con usuarios de Braze en tu aplicación.
+El JavaScript SDK de Braze te ayuda a integrar las funcionalidades de mensajería, análisis y participación de usuarios de Braze en tu aplicación.
 
 Para empezar, consulta los siguientes recursos:
 

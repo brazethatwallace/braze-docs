@@ -32,17 +32,15 @@ Esse tipo de mensagem está disponível tanto no [editor de arrastar e soltar]({
 
 ## Imagens {#images}
 
-As mensagens no app em tela inteira preenchem toda a altura do dispositivo e cortam horizontalmente (lados esquerdo e direito) conforme necessário. Mensagens em tela inteira com imagem e texto preenchem 50% da altura do dispositivo. Todas as mensagens no app em tela inteira preenchem a barra de status em dispositivos com "notch".
+Mensagens no app em tela inteira preencherão toda a altura do dispositivo e serão cortadas horizontalmente (lados esquerdo e direito) conforme necessário. Mensagens de tela inteira com imagem e texto preencherão 50% da altura do dispositivo. Todas as mensagens no app em tela inteira preencherão a barra de status em dispositivos com "notch".
 
-- Todas as imagens devem ter menos de 5&nbsp;MB.
-- Aceitamos apenas os formatos PNG, JPEG e [GIF]({{site.baseurl}}/developer_guide/platform_integration_guides/android/in-app_messaging/customization/gifs#gifs).
-- Recomendamos que suas imagens tenham 500&nbsp;KB.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
 {% alert tip %} Crie ativos com confiança! Nossos modelos de imagem para mensagens no app e sobreposições de zona segura foram projetados para funcionar bem em dispositivos de todos os tamanhos. [Baixar ZIP de modelos de design]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 
 ### Retrato {#portrait}
 
-| Disposição | Tamanho do ativo | Notas |
+| Layout | Tamanho do ativo | Notas |
 |--- | --- | --- |
 | Imagem e texto | Proporção 6:5<br> Alta resolução 1200 x 1000&nbsp;px<br> Mínimo 600 x 500&nbsp;px | O corte pode ocorrer em todos os lados, mas a imagem sempre preencherá os 50% superiores da viewport |
 | Somente imagem | Proporção 3:5<br> Alta resolução 1200 x 2000&nbsp;px<br> Mínimo 600 x 1000&nbsp;px | O corte pode ocorrer nas bordas principal e direita em dispositivos mais altos |
@@ -50,7 +48,7 @@ As mensagens no app em tela inteira preenchem toda a altura do dispositivo e cor
 
 ### Paisagem {#landscape}
 
-| Disposição | Tamanho do ativo | Notas |
+| Layout | Tamanho do ativo | Notas |
 |--- | --- | --- |
 | Imagem e texto | Proporção 10:3<br> Alta resolução 2000 x 600px<br> Mínimo 1000 x 300&nbsp;px | O corte pode ocorrer em todos os lados, mas a imagem sempre preencherá os 50% superiores da viewport |
 | Somente imagem | Proporção 5:3<br> Alta resolução 2000 x 1200px<br> Mínimo 1000 x 600&nbsp;px | O corte pode ocorrer nas bordas principal e direita em dispositivos mais altos |
@@ -58,23 +56,25 @@ As mensagens no app em tela inteira preenchem toda a altura do dispositivo e cor
 
 ### Zona segura da imagem {#image-safe-zone}
 
-Ao pré-visualizar uma mensagem no app em tela inteira na plataforma da Braze, você pode ativar a zona segura da imagem para a área da mensagem que está protegida contra cortes quando exibida em diferentes dispositivos. Além de testar a zona segura da imagem no painel de pré-visualização, recomendamos que você sempre [teste sua mensagem]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
+Ao visualizar a prévia de uma mensagem no app em tela inteira na plataforma da Braze, você pode ativar a zona segura da imagem para proteger uma área da mensagem contra cortes quando exibida em diferentes dispositivos. A zona segura afeta apenas a imagem; o botão de fechar é sempre visível para os usuários, mesmo que apareça fora da zona segura na prévia.
 
-![Pré-visualização de uma mensagem no app na Braze com "Mostrar zona segura da imagem" ativado. A zona segura da imagem é uma sobreposição sobre a imagem que mostra quais partes da imagem estarão protegidas contra cortes.]({% image_buster /assets/img/image-safe-zone-full-screen-in-app-message.png %})
+Além de testar a zona segura da imagem no painel de prévia, sempre recomendamos que você [teste sua mensagem]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
+
+![Prévia de uma mensagem no app na Braze com "Mostrar zona segura da imagem" ativado. A zona segura da imagem é uma sobreposição sobre a imagem que mostra quais partes da imagem estarão protegidas contra corte.]({% image_buster /assets/img/image-safe-zone-full-screen-in-app-message.png %})
 
 ## Telas maiores {#larger-screens}
 
-Em um tablet ou navegador de desktop, uma mensagem no app em tela inteira ficará centralizada na tela do app, conforme mostrado na captura de tela a seguir.
+Em um tablet ou navegador de desktop, uma mensagem no app em tela inteira ficará no centro da tela do app, conforme mostrado na captura de tela a seguir.
 
 {% tabs %}
 {% tab Retrato %}
 
-![Mensagem no app em tela inteira como apareceria em uma tela grande na orientação retrato. A mensagem aparece como um modal grande centralizado na tela.]({% image_buster /assets/img/full-screen-large-viewport.png %}){: style="border:none;display:block;margin-left:auto;margin-right:auto"}
+![Mensagem no app em tela inteira como apareceria em uma tela grande na orientação retrato. A mensagem aparece como um grande modal centralizado na tela.]({% image_buster /assets/img/full-screen-large-viewport.png %}){: style="border:none;display:block;margin-left:auto;margin-right:auto"}
 
 {% endtab %}
 {% tab Paisagem %}
 
-![Mensagem no app em tela inteira como apareceria em uma tela grande na orientação paisagem. A mensagem aparece como um modal grande centralizado na tela.]({% image_buster /assets/img/full-screen-large-viewport-landscape.png %}){: style="max-width:80%;border:none;display:block;margin-left:auto;margin-right:auto"}
+![Mensagem no app em tela inteira como apareceria em uma tela grande na orientação paisagem. A mensagem aparece como um grande modal centralizado na tela.]({% image_buster /assets/img/full-screen-large-viewport-landscape.png %}){: style="max-width:80%;border:none;display:block;margin-left:auto;margin-right:auto"}
 
 {% endtab %}
 {% endtabs %}

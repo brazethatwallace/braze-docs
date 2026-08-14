@@ -8,7 +8,7 @@ Banners are refreshed with their latest data whenever you call the refresh metho
 
 ## How many placements can I request in a session?
 
-In a single refresh request, you can request a maximum of 10 placements. For each one you request, Braze will return the highest-priority Banner a user is eligible for. Additional requests will return an error.
+In a single refresh request, you can request a maximum of 10 placements. For each one you request, Braze returns the highest-priority Banner a user is eligible for. Additional requests return an error.
 
 For more information, see [Placement requests]({% if include.section == "user" %}{{site.baseurl}}/user_guide/message_building_by_channel/banners#requests{% elsif include.section == "developer" %}{{site.baseurl}}/developer_guide/banners#requests{% endif %}).
 
@@ -18,11 +18,25 @@ Each workspace can support up to 200 active Banner campaigns. If this limit is r
 
 ## For campaigns sharing a placement, which Banner is displayed first?
 
-If a user qualifies for multiple Banner campaigns that share the same placement, the Banner with the highest priority will be displayed. For more information, see [Banner priority]({% if include.section == "user" %}{{site.baseurl}}/user_guide/message_building_by_channel/banners/#priority{% elsif include.section == "developer" %}{{site.baseurl}}/developer_guide/banners#priority{% endif %}).
+If a user qualifies for multiple Banner campaigns that share the same placement, the Banner with the highest priority is displayed. For more information, see [Banner priority]({% if include.section == "user" %}{{site.baseurl}}/user_guide/message_building_by_channel/banners/#priority{% elsif include.section == "developer" %}{{site.baseurl}}/developer_guide/banners#priority{% endif %}).
 
 ## Can I use Banners in my existing Content Card feed?
 
 Banners are different from Content Cards, meaning you can’t use Banners and Content Cards in the same feed. To replace existing Content Card feeds with Banners, you’ll need to [create placements in your app or website]({{site.baseurl}}/developer_guide/banners/placements/).
+
+## How are Banners different from in-app messages?
+
+Banners and [in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/) both reach users inside your app or website, but they use different delivery models. If you're comparing Banners to an existing in-app message setup, expect differences in triggers, refresh timing, and testing, not a one-to-one swap.
+
+| Topic | Banners | In-app messages |
+| --- | --- | --- |
+| Where messages appear | Inline at [placements]({{site.baseurl}}/developer_guide/banners/placements/) you define in your app or site | Full-screen, modal, or slide-up overlays managed by the SDK |
+| When content updates | When your app or site calls a Banner refresh (for example at session start or mid-session) | Templated messages evaluate Liquid when the in-app message is triggered (for example on a custom event or session start), after the payload is cached on the device |
+| Action-based triggers | No [action-based delivery]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery); use segments, priority, and refresh timing instead | Supports action-based and API-triggered delivery |
+| Testing | Preview a user, then confirm the placement refresh in your app or site shows the expected Banner | Use **Test Send** or in-app preview flows for trigger-based display |
+| Reporting | Banner views and clicks follow Banner analytics | In-app impressions and clicks follow in-app message analytics |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How are Banners different from in-app messages?" }
+
 
 ## Can Banners include video?
 
@@ -36,7 +50,7 @@ For example, to show a special Banner only to users who have completed a `purcha
 1. **Targeting:** In your campaign, target a segment of users who have performed the custom event `purchase` at least once.
 2. **Priority:** If you have a general Banner for all users and this specific Banner for purchasers targeting the same placement, set the specific Banner's priority to **High** and the general Banner to **Medium** or **Low**.
 
-When the user starts a new session or refreshes Banners after performing the action, Braze evaluates their eligibility. If they match the "Purchase" segment, the high-priority Banner will be displayed.
+When the user starts a new session or refreshes Banners after performing the action, Braze evaluates their eligibility. If they match the "Purchase" segment, the high-priority Banner is displayed.
 
 
 ## Can users dismiss a Banner?
@@ -59,7 +73,14 @@ Users are segmented at the beginning of the session. If a campaign's targeted se
 
 ## How can I compose Banners to ensure the lowest latency?
 
-The simpler the messaging in your Banner, the faster it will render. It’s best to test your Banner campaign against the expected latency for your use case. For example, be sure to test Liquid attributes like `catalog_items`.
+The simpler the messaging in your Banner, the faster it renders. It’s best to test your Banner campaign against the expected latency for your use case. For example, be sure to test Liquid attributes like `catalog_items`.
+
+If you use [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) (in early access), be aware that each call counts against a shared rendering budget of approximately two seconds across all placements in a single refresh. If the budget is exceeded or a call times out, the Connected Content result is treated as null, and Banners don't retry. To minimize latency:
+
+- Keep your endpoints fast and [cache responses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/) whenever possible.
+- Limit the number of unique Connected Content URLs across placements that render together.
+- Avoid chaining calls where one Connected Content response determines the URL for the next.
+- Use Liquid guard statements or the [`default` filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) to handle null results and avoid blank Banners.
 
 ## Are all Liquid tags supported?
 

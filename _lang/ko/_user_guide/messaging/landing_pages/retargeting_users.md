@@ -15,7 +15,7 @@ page_order: 3
 
 ## 사용자 리타겟팅 {#retargeting-users}
 
-Braze는 사용자가 랜딩 페이지 양식을 제출하면 자동으로 추적합니다. [랜딩 페이지 분석]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#viewing-analytics)에서 양식의 총 제출 수를 확인할 수 있습니다. 그러나 사용자별 리타겟팅을 위해서는 다음 방법 중 하나를 사용하여 랜딩 페이지 양식을 통해 사용자를 리타겟해야 합니다.
+Braze는 사용자가 랜딩 페이지 양식을 제출하면 자동으로 추적합니다. [랜딩 페이지 분석]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#view-analytics)에서 양식의 총 제출 수를 확인할 수 있습니다. 그러나 사용자별 리타겟팅을 위해서는 다음 방법 중 하나를 사용하여 랜딩 페이지 양식을 통해 사용자를 리타겟해야 합니다.
 
 - **Segment 사용:** 랜딩 페이지 양식을 제출했거나 제출하지 않은 사용자를 자동으로 식별하는 새 Segment를 생성할 수 있습니다.
 - **메시지 트리거 사용:** 사용자가 양식을 제출한 후 자동으로 메시지를 보내거나 Canvas에 진입시키는 메시지 트리거를 설정할 수 있습니다.

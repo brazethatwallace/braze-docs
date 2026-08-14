@@ -16,7 +16,7 @@ channel:
 
 | Requirement | Description |
 | --- | --- |
-| Account with a supported KakaoTalk partner | An account with a supported KakaoTalk partner, [CJ OliveNetworks](https://www.braze.com/partners/solutions-partners/cjolivenetworks/) or Infobip, is required to use the KakaoTalk messaging channel. |
+| Account with a supported KakaoTalk partner | An account with a supported KakaoTalk partner, [CJ OliveNetworks](https://www.braze.com/partners/solutions-partners/cjolivenetworks/) or [Infobip](https://marketplace.braze.com/partners/infobip), is required to use the KakaoTalk messaging channel. |
 | KakaoTalk Business channel | Your KakaoTalk account must be a KakaoTalk Business channel to send KakaoTalk messages through Braze. When you create an account, its default status is basic. To make your account a Business channel, you'll need to verify your business and provide relevant documentation. |
 | KakaoTalk Sender Key | A valid KakaoTalk Sender Key. |
 | Contact phone number | A contact phone number for your KakaoTalk channel's administrator. |
@@ -64,7 +64,7 @@ After gathering your documentation, follow these steps:
 
 ## Integrate KakaoTalk
 
-### Step 1: Connect the KakaoTalk channel to Braze
+### Connect the KakaoTalk channel to Braze
 
 1. Go to **Partner Integrations** > **Technology Partners** and select your KakaoTalk provider.
 2. Gather the required credentials for your provider (See the following section), then enter them into the **Technology Partners** page and save.
@@ -120,16 +120,45 @@ Only the channels mapped to a single common ID can be registered.
 
 #### Infobip
 
-Go to your Infobip dashboard and gather the following information.
+Go to your Infobip dashboard and the [KakaoTalk Channel Admin Center](https://center-pf.kakao.com/) to gather the following information.
 
 | Field | Location |
 | --- | --- |
-| **API Base URL** | Select **Developer Tools** > **API Keys**. |
-| **API Key** | Select **Developer Tools** > **API Keys**. |
-| **Sender name / Sender key** | Select **Channels and Numbers** > **Channels**, then select the **Senders** tab. |
-| **Sender profile UUID** | Provided directly by Infobip. Contact Infobip if you don't have this information. |
-| **Channel name** | Provided directly by Infobip. Contact Infobip if you don't have this information. |
+| **API Base URL** | In the Infobip portal, go to **Developer Tools** > **API Keys**. |
+| **API Key** | In the Infobip portal, go to **Developer Tools** > **API Keys**. |
+| **Sender name / Sender key** | In the Infobip portal, go to **Channels and Numbers** > **Channels**, then select the **Senders** tab. |
+| **Sender profile UUID** | In the KakaoTalk Channel Admin Center, go to **Channels** and find the **Search ID** in the channel information window. |
+| **Channel name** | In the KakaoTalk Channel Admin Center, find the **channel name** in the same channel information window. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Infobip" }
+
+##### API key and base URL
+
+1. In the Infobip portal, select **Developer Tools** > **API Keys**.
+2. On the **API keys** page, copy the **API base URL**.
+
+![Infobip API Keys page showing the API base URL.]({% image_buster /assets/img/kakaotalk/infobip_api_keys_page.png %})
+
+{: start="3"}
+3. Select **CREATE API KEY**.
+4. Enter the **Name**, select the **Expiration date**, then select the API scopes required for KakaoTalk. These scopes control which Infobip API actions your key can perform.
+
+![Infobip Create API Key page showing the name, expiration date, and API scopes fields.]({% image_buster /assets/img/kakaotalk/infobip_api_key_scopes.png %})
+
+{: start="5"}
+5. Select **CREATE** to generate the key.
+6. Copy the generated key. You can return to this page to update the name, expiration date, or API scopes.
+
+##### Sender profile UUID and channel name
+
+1. In the [KakaoTalk Channel Admin Center](https://center-pf.kakao.com/), select **Channels**.
+2. In the **Channel Information** window, find the **Channel name** and **Search id** (sender UUID).
+3. Enter the **Customer center contact information**. This is required when sending ad messages.
+
+![KakaoTalk channel information window showing the Customer Center contact information fields.]({% image_buster /assets/img/kakaotalk/kakao_customer_center_contact.png %})
+
+{: start="4"}
+4. To view a different channel, select the channel icon at the top of the menu.
+5. In the **My channel** list, select the channel you want to view, then repeat the previous steps.
 
 ## Set user profiles
 

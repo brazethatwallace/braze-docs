@@ -14,29 +14,29 @@ Después de crear un [catálogo]({{site.baseurl}}/user_guide/data/activation/cat
 
 ![La sección Selecciones en un catálogo de ejemplo.]({% image_buster /assets/img_archive/catalog_selections1.png %})
 
-## Lo que debes saber {#things-to-know}
+## Cosas que debes saber {#things-to-know}
 
 - Puedes crear hasta 30 selecciones por catálogo.
 - Puedes añadir hasta 10 filtros por selección.
-- Las selecciones son ideales para refinar las recomendaciones a partir de los datos de catálogo de Braze. Si buscas inspiración, consulta [Acerca de las recomendaciones de artículos]({{site.baseurl}}/user_guide/brazeai/recommendations) para ver ejemplos de casos de uso.
+- Las selecciones son ideales para refinar las recomendaciones a partir de los datos del catálogo de Braze. Si buscas inspiración, consulta [Acerca de las recomendaciones de artículos]({{site.baseurl}}/user_guide/brazeai/recommendations) para ver ejemplos de uso.
 
 ## Filtros de geolocalización {#geolocation-filters}
 
-Si tu catálogo incluye un [tipo de campo de geolocalización]({{site.baseurl}}/user_guide/data/activation/catalogs/create#supported-data-types), puedes usar filtros basados en geolocalización en tus selecciones para mostrar artículos del catálogo según su proximidad a un punto geográfico.
+Si tu catálogo incluye un [tipo de campo de geolocalización]({{site.baseurl}}/user_guide/data/activation/catalogs/create#supported-data-types), puedes usar filtros basados en geolocalización en tus selecciones para mostrar elementos del catálogo según su proximidad a un punto geográfico.
 
 Hay dos operadores de geolocalización disponibles:
 
 | Operador | Descripción |
 | -------- | ----------- |
-| `geo within` | Devuelve artículos cuyo campo de geolocalización se encuentra dentro de un radio especificado de un punto central. |
-| `geo outside` | Devuelve artículos cuyo campo de geolocalización se encuentra fuera de un radio especificado de un punto central. |
+| `geo within` | Devuelve elementos cuyo campo de geolocalización se encuentra dentro de un radio especificado de un punto central. |
+| `geo outside` | Devuelve elementos cuyo campo de geolocalización se encuentra fuera de un radio especificado de un punto central. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Cuando se aplica un filtro de geolocalización, los resultados se ordenan por distancia, con el artículo más cercano primero.
+Cuando se aplica un filtro de geolocalización, los resultados se ordenan por distancia, con el elemento más cercano en primer lugar.
 
 ### Configurar el punto central con Liquid {#setting-the-center-point-with-liquid}
 
-Puedes configurar el punto central de forma dinámica usando Liquid. Por ejemplo, para filtrar artículos en relación con la ubicación más reciente de cada usuario, usa el atributo {% raw %}`{{${most_recent_location}}}`{% endraw %} como valor del filtro:
+Puedes configurar el punto central de forma dinámica usando Liquid. Por ejemplo, para filtrar elementos en relación con la ubicación más reciente de cada usuario, usa el atributo {% raw %}`{{${most_recent_location}}}`{% endraw %} como valor del filtro:
 
 {% raw %}
 ```
@@ -44,9 +44,9 @@ Puedes configurar el punto central de forma dinámica usando Liquid. Por ejemplo
 ```
 {% endraw %}
 
-### Caso de uso: mostrar las ubicaciones de tiendas más cercanas {#use-case-show-the-nearest-store-locations}
+### Ejemplo: mostrar las ubicaciones de tiendas más cercanas {#use-case-show-the-nearest-store-locations}
 
-Supongamos que tu catálogo contiene un campo `store_location` de tipo geolocalización. Puedes crear una selección que use el operador `geo within` para devolver ubicaciones de tiendas dentro de un radio determinado de la ubicación más reciente de cada usuario. Configura el valor del filtro como {% raw %}`{{${most_recent_location}}}`{% endraw %} para que el punto central se actualice por usuario. Dado que los resultados se ordenan por distancia, el primer artículo devuelto siempre será la tienda más cercana.
+Supongamos que tu catálogo contiene un campo `store_location` de tipo Geolocation. Puedes crear una selección que use el operador `geo within` para devolver ubicaciones de tiendas dentro de un radio determinado de la ubicación más reciente de cada usuario. Configura el valor del filtro como {% raw %}`{{${most_recent_location}}}`{% endraw %} para que el punto central se actualice por usuario. Como los resultados se ordenan por distancia, el primer elemento devuelto siempre será la tienda más cercana.
 
 ## Crear una selección {#creating-a-selection}
 
@@ -54,57 +54,61 @@ Para crear una selección, haz lo siguiente.
 
 1. Ve a **Catálogos** y selecciona tu catálogo de la lista.
 2. Selecciona la pestaña **Selección** y haz clic en **Crear selección**.
-3. Dale a tu selección un nombre y una descripción opcional.
-4. En **Filter Field**, selecciona la columna del catálogo por la que deseas filtrar. Los campos de cadena con más de 1000 caracteres no se pueden seleccionar para filtros.
-5. Termina de definir los criterios de filtrado seleccionando el operador correspondiente (por ejemplo, "equals" o "does not equal") y el atributo.
-6. En la sección **Sort type**, determina cómo se ordenan los resultados. De forma predeterminada, los resultados se devuelven sin un orden particular. Para especificar la ordenación por un campo concreto, desactiva **Randomize Sort Order** y especifica el **Sort Field** y el **Sort Order** (ascendente o descendente).
-7. En la sección **Results limit**, introduce el límite de resultados (hasta 50).
+3. Dale un nombre a tu selección y una descripción opcional.
+4. En **Campo de filtro**, selecciona la columna del catálogo por la que quieres filtrar. Los campos de cadena con más de 1000 caracteres no se pueden seleccionar para filtros.
+5. Termina de definir tus criterios de filtro seleccionando el operador relevante (por ejemplo, "es igual a" o "no es igual a") y el atributo.
+6. En la sección **Tipo de ordenación**, determina cómo se ordenan los resultados. De forma predeterminada, los resultados se devuelven sin un orden particular. Para especificar la ordenación por un campo específico, desactiva **Aleatorizar orden de clasificación** y especifica el **Campo de ordenación** y el **Orden de clasificación** (ascendente o descendente).
+7. En la sección **Límite de resultados**, introduce los resultados (hasta 50).
 8. Selecciona **Crear selección**.
 
 ### Probar y previsualizar {#test-and-preview}
 
-Después de crear una selección, puedes usar la sección **Preview for user** para ver lo que devolvería una selección para un usuario aleatorio o un usuario específico. Para las selecciones que usan personalización, solo puedes ver la vista previa después de seleccionar un usuario.
+Después de crear una selección, puedes usar la sección **Vista previa para usuario** para ver lo que devolvería una selección para un usuario aleatorio o un usuario específico. Para selecciones que usan personalización, solo puedes ver la vista previa después de seleccionar un usuario.
 
-### Liquid en los resultados de la selección {#liquid-in-selection-results}
+### Liquid en los resultados de selección {#liquid-in-selection-results}
 
-El uso de cualquier Liquid en los catálogos, como atributos personalizados y eventos personalizados, puede hacer que se devuelvan resultados diferentes para cada usuario en tu selección.
+Usar cualquier Liquid en catálogos, como atributos personalizados y eventos personalizados, puede dar lugar a resultados diferentes devueltos para cada usuario en tu selección.
 
 {% alert note %}
-El Liquid de Contenido conectado no es compatible con esta configuración de filtros.
+El Liquid de contenido conectado no es compatible con esta configuración de filtros.
 {% endalert %}
 
-![Configuración de filtros para la selección de catálogo donde el atributo se establece como un atributo personalizado de Liquid.]({% image_buster /assets/img_archive/catalog_selections7.png %})
+![Configuración de filtros para la selección de catálogo donde el atributo está establecido como un atributo personalizado de Liquid.]({% image_buster /assets/img_archive/catalog_selections7.png %})
 
-## Usar selecciones en la mensajería {#using-selections-in-messaging}
+## Uso de selecciones en la mensajería {#using-selections-in-messaging}
 
-Después de crear tu selección, personaliza tus mensajes con Liquid para insertar los artículos filtrados de ese catálogo. Puedes hacer que Braze genere el Liquid por ti desde la ventana de personalización que se encuentra en los creadores de mensajes:
+Después de crear tu selección, personaliza tus mensajes con Liquid para insertar los elementos filtrados de ese catálogo. Puedes hacer que Braze genere el Liquid por ti desde la ventana de personalización que se encuentra en los creadores de mensajes:
 
 1. En cualquier creador de mensajes que admita personalización, selecciona <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Añadir personalización"></i> **Añadir personalización** para abrir la ventana de personalización.
-2. En **Personalization Type**, selecciona **Catalog Items**.
+2. En **Tipo de personalización**, selecciona **Elementos del catálogo**.
 3. Selecciona el nombre de tu catálogo.
-4. En **Item selection method**, selecciona **Use a selection**.
+4. En **Método de selección de elementos**, selecciona **Usar una selección**.
 4. Selecciona tu selección de la lista.
-5. En **Information to Display**, selecciona qué campos del catálogo deben incluirse para cada artículo.
-6. Selecciona el icono **Copy** y pega el Liquid donde sea necesario en tu mensaje.
+5. En **Información a mostrar**, selecciona qué campos del catálogo deben incluirse para cada elemento.
+6. Selecciona el icono **Copiar** y pega el Liquid donde sea necesario en tu mensaje.
 
-![El modal Añadir personalización con las siguientes selecciones: "Catalog Items" para "Personalization Type", "Games" para "Catalog Name", "Selections" para "Selection Type", "game_selection" para "Selection", y "title" y "description_en" para "Information to Display".]({% image_buster /assets/img_archive/catalog_selections6.png %}){: style="max-width:70%;"}
+![El modal Añadir personalización con las siguientes selecciones: "Elementos del catálogo" para "Tipo de personalización", "Games" para "Nombre del catálogo", "Selecciones" para "Tipo de selección", "game_selection" para "Selección", y "title" y "description_en" para "Información a mostrar".]({% image_buster /assets/img_archive/catalog_selections6.png %}){: style="max-width:70%;"}
 
-## Caso de uso {#use-case}
+{% alert note %}
+La vista previa de personalización en el panel de composición de Liquid muestra hasta tres selecciones de catálogo independientemente del límite de resultados que hayas configurado. Este es el comportamiento esperado: el mensaje real enviado a los usuarios respeta el límite de resultados que hayas configurado.
+{% endalert %}
 
-Supongamos que tienes un servicio de reparto de comida a domicilio y quieres enviar un mensaje personalizado a tus usuarios que tienen preferencias específicas de comida basadas en la categoría de alimentos que consultaron más recientemente.
+## Ejemplo {#use-case}
 
-Usando un catálogo con la información de tu servicio de reparto de comidas para el nombre de la comida, el precio, la imagen y la categoría de la comida, puedes crear una selección para recomendar tres comidas basadas en la categoría que el usuario consultó más recientemente.
+Supongamos que tienes un servicio de entrega de comidas y quieres enviar un mensaje personalizado a tus usuarios que tienen preferencias de comida específicas basadas en su categoría de alimentos vista más recientemente.
 
-![Un ejemplo de selección para un servicio de reparto de comidas con dos filtros: uno que identifica un tipo de producto como comida, y otro que identifica la categoría como la consultada más recientemente. La selección está configurada para aleatorizar el orden en que se devuelven los tres resultados.]({% image_buster /assets/img_archive/catalog_selections2.png %}){: style="max-width:90%;"}
+Usando un catálogo con la información de tu servicio de entrega de comidas para el nombre de la comida, el precio, la imagen y la categoría de la comida, puedes crear una selección para recomendar tres comidas basadas en la categoría vista más recientemente por un usuario.
 
-Para usar este catálogo y esta selección en una campaña, utiliza el modal **Add Personalization** en la sección de composición de mensajes al crear una campaña. En este ejemplo, hemos seleccionado el catálogo con la información de tu servicio de reparto de comidas, y la selección para recomendaciones de comidas basadas en la categoría consultada más recientemente. Esto nos permite mostrar el nombre de la comida y el precio. Para enriquecer aún más tu mensaje, puedes usar la selección para añadir también una imagen de la primera comida recomendada.
+![Un ejemplo de una selección para un servicio de entrega de comidas con dos filtros: uno que identifica un tipo de producto como comida, y otro que identifica la categoría como la vista más recientemente. La selección está configurada para aleatorizar el orden en que se devuelven los tres resultados.]({% image_buster /assets/img_archive/catalog_selections2.png %}){: style="max-width:90%;"}
 
-![Una tarjeta de contenido con el encabezado "¡Te ENCANTARÁN estas comidas tan valoradas!" con la selección "recommendations_be_recent_category" en la sección de composición del mensaje.]({% image_buster /assets/img_archive/catalog_selections3.png %}){: style="max-width:90%;"}
+Para usar este catálogo y esta selección en una Campaign, usa el modal **Añadir personalización** en la sección de composición de mensajes al crear una Campaign. En este ejemplo, hemos seleccionado el catálogo con la información de tu servicio de entrega de comidas, y la selección para recomendaciones de comidas basadas en la categoría vista más recientemente. Esto nos permite mostrar el nombre de la comida y el precio. Para seguir construyendo tu mensaje, puedes usar la selección para añadir también una imagen de la primera comida recomendada.
 
-Por ejemplo, supongamos que tienes un usuario cuya categoría consultada más recientemente es "Pollo". Usando la personalización configurada y una campaña de tarjeta de contenido, puedes enviar tres recomendaciones de comidas que incluyan pollo para este usuario.
+![Una tarjeta de contenido con el encabezado "¡Te ENCANTARÁN estas comidas altamente valoradas!" con la selección "recommendations_be_recent_category" en la sección de composición de mensajes.]({% image_buster /assets/img_archive/catalog_selections3.png %}){: style="max-width:90%;"}
 
-![Una tarjeta de contenido con una imagen de pollo al limón a la parrilla, y una lista de tres recomendaciones de comidas que incluyen pollo basadas en la categoría que el usuario consultó más recientemente.]({% image_buster /assets/img_archive/catalog_selections4.png %}){: style="max-width:90%;"}
+Por ejemplo, supongamos que tienes un usuario cuya categoría vista más recientemente es "Pollo". Usando la personalización configurada y una campaña de tarjeta de contenido, puedes enviar tres recomendaciones de comidas que incluyan pollo para este usuario.
 
-Usando la misma personalización, también puedes enviar tres recomendaciones de comidas para un usuario cuya categoría consultada más recientemente sea "Carne de vacuno".
+![Una tarjeta de contenido con una imagen de pollo al limón a la parrilla, y una lista de tres recomendaciones de comidas que incluyen pollo basadas en la categoría vista más recientemente por el usuario.]({% image_buster /assets/img_archive/catalog_selections4.png %}){: style="max-width:90%;"}
 
-![Una tarjeta de contenido con una imagen de stroganoff de ternera, y una lista de dos recomendaciones de comidas que incluyen ternera basadas en la categoría que el usuario consultó más recientemente.]({% image_buster /assets/img_archive/catalog_selections5.png %}){: style="max-width:90%;"}
+Usando la misma personalización, también puedes enviar tres recomendaciones de comidas para un usuario cuya categoría vista más recientemente es "Res".
+
+![Una tarjeta de contenido con una imagen de estroganoff de res, y una lista de dos recomendaciones de comidas que incluyen res basadas en la categoría vista más recientemente por el usuario.]({% image_buster /assets/img_archive/catalog_selections5.png %}){: style="max-width:90%;"}

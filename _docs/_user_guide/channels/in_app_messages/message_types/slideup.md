@@ -22,9 +22,7 @@ This message type is available in the [traditional editor]({{site.baseurl}}/user
 
 Slideup messages can contain up to three lines of copy before truncation with ellipses. Images in slideups will never be cropped or clipped—they will always scale down to fit within the 50 x 50 pixel image container.
 
-- All images must be less than 5&nbsp;MB.
-- We only accept PNG, JPEG, and GIF file types.
-- We recommend that your images be 500&nbsp;KB.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
 {% alert tip %} Create assets with confidence! Our in-app message image templates and safe zone overlays are designed to play nicely with devices of all sizes. [Download Design Templates ZIP]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 

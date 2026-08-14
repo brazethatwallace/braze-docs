@@ -203,5 +203,5 @@ Google SSOの強制が有効になると、ユーザーはGoogle認証でサイ�
 
 SAML SSOを設定した後、以下のことができます:
 
-- セキュリティ設定で[SSOのみのログインを強制]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction)し、ユーザーがパスワードでログインすることを制限します。
+- セキュリティ設定で[SSOのみのログインを強制]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication)し、ユーザーがパスワードでログインすることを制限します。
 - [SAMLジャストインタイムプロビジョニングを設定]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning)して、新しいユーザーが初回のSSOサインイン時に自動的にBrazeアカウントを作成できるようにします。

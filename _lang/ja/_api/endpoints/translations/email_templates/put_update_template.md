@@ -19,7 +19,7 @@ description: "この記事では、「メールテンプレートの翻訳を更
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`templates.translations.update` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`templates.translations.update` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -39,7 +39,7 @@ description: "この記事では、「メールテンプレートの翻訳を更
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 {% alert note %}
-すべての翻訳IDはユニバーサル一意識別子（UUID）と見なされ、GETエンドポイントの応答で確認できます。
+すべての翻訳IDはユニバーサル一意識別子（UUID）と見なされ、GETエンドポイントのレスポンスで確認できます。
 {% endalert %}
 
 ## リクエスト例 {#example-request}
@@ -56,11 +56,11 @@ description: "この記事では、「メールテンプレートの翻訳を更
 }
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
-このエンドポイントには、`200`、`400`、`404`、`429` の4つのステータスコード応答があります。
+このエンドポイントには、`200`、`400`、`404`、`429` の4つのステータスコードレスポンスがあります。
 
-### 成功応答の例 {#example-success-response}
+### 成功レスポンスの例 {#example-success-response}
 
 ```json
 {
@@ -68,9 +68,9 @@ description: "この記事では、「メールテンプレートの翻訳を更
 }
 ```
 
-### エラー応答の例 {#example-error-response}
+### エラーレスポンスの例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
+ステータスコード `400` は、次のレスポンスボディを返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
 ```json
 {

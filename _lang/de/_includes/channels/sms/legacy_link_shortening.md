@@ -2,6 +2,8 @@ Linkverkürzung und Click-Tracking ermöglichen es Ihnen, URLs in SMS- oder RCS-
 
 Linkverkürzung und Click-Tracking können auf der [Nachrichtenvarianten-Ebene]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) sowohl in Campaigns als auch in Canvases aktiviert werden.
 
+{% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
+
 Die Länge der URL wird durch die Art des aktivierten Trackings bestimmt:
 - **Basis-Tracking** ermöglicht Click-Tracking auf Campaign-Ebene. Statische URLs haben eine Länge von 20 Zeichen, und personalisierte URLs haben eine Länge von 25 Zeichen.
 - **Erweitertes Tracking** ermöglicht Click-Tracking auf Campaign- und Nutzer:innen-Ebene und erlaubt die Nutzung von Segmentierungs- und Retargeting-Funktionen, die auf Klicks basieren. Klicks erzeugen außerdem ein [SMS-Klick-Ereignis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), das über Currents gesendet wird. Statische URLs mit erweitertem Tracking haben eine Länge von 27–28 Zeichen, sodass Sie Segmente von Nutzer:innen erstellen können, die auf URLs geklickt haben. Personalisierte URLs haben eine Länge von 32–33 Zeichen.

@@ -15,13 +15,13 @@ description: "Este artigo descreve detalhes sobre o endpoint `PUT /media_library
 /media_library/replace_file
 {% endapimethod %}
 
-> Use este endpoint para substituir o arquivo de um ativo existente na [Biblioteca de mídia da Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library), preservando o ID e a URL do ativo. Você pode fornecer o arquivo de substituição usando uma URL hospedada externamente (`asset_url`) ou dados binários de arquivo enviados no corpo da solicitação (`asset_file`).
+> Use este endpoint para substituir o arquivo de um ativo existente na [biblioteca de mídia da Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library), preservando o ID e a URL do ativo. Você pode fornecer o arquivo de substituição usando uma URL hospedada externamente (`asset_url`) ou dados binários de arquivo enviados no corpo da solicitação (`asset_file`).
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `media_library.replace`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `media_library.replace`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='media_library' %}
 
@@ -49,9 +49,9 @@ Exemplo de corpo da solicitação para `asset_file`:
 
 O corpo da solicitação inclui os seguintes parâmetros:
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `asset_id` | Obrigatória | String | O ID do ativo a ser substituído. |
+| `asset_id` | Obrigatório | String | O ID do ativo a ser substituído. |
 | `asset_url` | Opcional | String | Uma URL publicamente acessível para o arquivo de substituição. |
 | `asset_file` | Opcional | Binário | Dados binários do arquivo de substituição. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Corpo da solicitação" }
@@ -69,7 +69,7 @@ O corpo da solicitação inclui os seguintes parâmetros:
 
 Esta seção inclui dois exemplos de solicitações `curl`, um para substituir um ativo usando uma URL e outro usando dados binários de arquivo.
 
-Esta solicitação mostra um exemplo de substituição de um ativo na Biblioteca de mídia usando um `asset_url`.
+Esta solicitação mostra um exemplo de substituição de um ativo na biblioteca de mídia usando um `asset_url`.
 
 ```
 curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file' \
@@ -78,7 +78,7 @@ curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file
 --data '{"asset_id": "your-asset-id", "asset_url": "https://cdn.example.com/assets/cat.jpg"}'
 ```
 
-Esta solicitação mostra um exemplo de substituição de um ativo na Biblioteca de mídia usando um `asset_file`.
+Esta solicitação mostra um exemplo de substituição de um ativo na biblioteca de mídia usando um `asset_file`.
 
 ```
 curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file' \

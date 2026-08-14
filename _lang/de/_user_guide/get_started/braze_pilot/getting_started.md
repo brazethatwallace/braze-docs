@@ -77,7 +77,7 @@ Abschließend empfehlen wir, der App die Berechtigung zum Senden von Push-Benach
 {% endtab %}
 {% tab Push-Primer-Nachricht starten %}
 
-Sie können eine Braze-In-App-Nachricht verwenden, um Push-Berechtigungen für die App anzufordern – genau wie Sie es für Ihre eigenen Verbraucher:innen tun würden. Informationen zum Erstellen dieser Art von Nachricht in Braze finden Sie unter [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages#push-primer-in-app-messages).
+Sie können eine Braze-In-App-Nachricht verwenden, um Push-Berechtigungen für die App anzufordern – genau wie Sie es für Ihre eigenen Verbraucher:innen tun würden. Informationen zum Erstellen dieser Art von Nachricht in Braze finden Sie unter [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 
 <div class="imgDiv">
 <img src="{% image_buster /assets/img/braze_pilot/push_primer1.png %}" style="max-width:40%">

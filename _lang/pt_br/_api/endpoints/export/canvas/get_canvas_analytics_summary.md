@@ -20,7 +20,7 @@ description: "Este artigo descreve o endpoint da Braze para exportar análise de
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `canvas.data_summary`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.data_summary`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -34,7 +34,7 @@ Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `ending_at` | Obrigatório | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data final para a exportação de dados. O padrão é o momento da solicitação. |
 | `starting_at` | Opcional* | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data de início para a exportação de dados. <br><br>* É necessário informar `length` ou `starting_at`. |
 | `length` | Opcional* | String | Número máximo de dias antes de `ending_at` incluídos na série retornada. Deve estar entre 1 e 14 (inclusive). <br><br>* É necessário informar `length` ou `starting_at`. |
-| `include_variant_breakdown` | Opcional | Booleano | Se deve incluir estatísticas de variantes (o padrão é `false`).  |
+| `include_variant_breakdown` | Opcional | Booleano | Se deve incluir estatísticas de variantes (o padrão é `false`). |
 | `include_step_breakdown` | Opcional | Booleano | Se deve incluir estatísticas de etapas (o padrão é `false`). |
 | `include_deleted_step_data` | Opcional | Booleano | Se deve incluir estatísticas de etapas excluídas (o padrão é `false`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
@@ -132,7 +132,7 @@ Em `total_stats`, `variant_stats` e `step_stats`, `conversions` é a contagem do
       ... (more steps)
     }
   },
-  "message": (required, string) the status of the export, returns 'success' on successful completion
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

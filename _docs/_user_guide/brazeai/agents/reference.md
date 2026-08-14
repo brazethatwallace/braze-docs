@@ -53,7 +53,7 @@ Some LLM providers may allow you to adjust a selected model's thinking level. Th
 | **High** | Complex reasoning, edge cases, or when you need the model to work through steps before answering. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Thinking levels" }
 
-We recommend starting with **Minimal** and testing your agent’s responses. Then, you can adjust the thinking level to **Low** or **Medium** if you find the agent is struggling to provide accurate answers. In rare cases, a **High** thinking level may be needed, although using this level can result in high token costs and longer response times or higher risk of timeout errors. If your agent is struggling to balance multi-step reasoning with reasonable response times, consider breaking your use case apart into more than one agent that can work together in a Canvas or catalog.
+We recommend starting with **Minimal** and testing your agent’s responses. Then, you can adjust the thinking level to **Low** or **Medium** if you find the agent is struggling to provide accurate answers. In rare cases, a **High** thinking level may be needed, although using this level can result in high token costs and longer response times or higher risk of [timeout errors]({{site.baseurl}}/user_guide/brazeai/agents/faq#what-might-cause-a-custom-agent-to-frequently-time-out). If your agent is struggling to balance multi-step reasoning with reasonable response times, consider breaking your use case apart into more than one agent that can work together in a Canvas or catalog.
 
 Braze uses the same IP ranges for outbound LLM calls as for Connected Content. The ranges are listed in the [Connected Content IP allowlist]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). If your provider supports IP allowlisting, you can restrict the key to those ranges so only Braze can use it.
 
@@ -82,9 +82,19 @@ When many users enter an Agent step at once, Braze queues invocations according 
 
 ### Daily invocation and credit limits
 
-Each agent has a daily invocation limit (default 250,000; maximum 1,000,000 unless your contract allows higher). Every invocation—including Agent Console previews and Test Canvas runs that use **Simulate response**—counts toward this limit.
+Each agent has a daily invocation limit (default 250,000; maximum 1,000,000 unless your contract allows higher). Every invocation (including Agent Console previews and Test Canvas runs that use **Simulate response**) counts toward this limit.
 
-In Agent Console, the **Daily action credit cost limit** estimates the maximum credits an agent can consume per day. Braze multiplies your workspace's per-invocation **credit ratio** for the selected model by the daily invocation limit. 
+In Agent Console, the **Daily action credit cost limit** estimates the maximum credits an agent can consume per day. Braze multiplies your workspace's per-invocation credit ratio for the selected model by the daily invocation limit.
+
+### When credits are consumed {#when-credits-are-consumed}
+
+Braze charges credits only for invocations that complete processing. Credits are not consumed when an invocation fails because of:
+
+- A [rate limit error](#rate-limit-errors) from the LLM provider (including retries that eventually fail)
+- The selected model being unavailable
+- The agent reaching its daily invocation limit
+
+Credits are consumed when an invocation times out, even though the agent does not return a usable output.
 
 ### Monitor credit usage
 
@@ -92,13 +102,15 @@ Go to **Settings** > **Billing** > **Credits Usage** > **Agent Console** to see 
 
 Credit ratios come from your contract and appear on the [Credits Usage]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage) dashboard (**Credit Ratios** tab and **Agent Console** tab). The estimate updates when you change the model or invocation limit.
 
-To manage spend, lower the daily invocation limit. For [bring-your-own (BYO)](#option-2-bring-your-own-api-key) models, you can also choose a lower-cost model or reduce the [thinking level](#thinking-levels) to lower provider token costs. **Braze Auto** does not support adjusting the thinking level. 
+To manage spend, lower the daily invocation limit. For [bring-your-own (BYO)](#option-2-bring-your-own-api-key) models, you can also choose a lower-cost model or reduce the [thinking level](#thinking-levels) to lower provider token costs. Braze Auto does not support adjusting the thinking level. 
 
 ### Rate limit errors
 
 If the LLM provider returns a rate limit error during a Canvas Step Agent or Catalog Agent invocation, Braze continuously retries the request using exponential backoff until the call succeeds or Braze determines it cannot be completed.
 
 When Canvas or catalog retries are exhausted, the **Logs** details panel shows **Error** and the provider message (such as `Rate limit exceeded`) in **Output**. Retries are visible in logs, including the very first invocation regardless of its eventual success or failure. For a given user, if it takes four retries to finally get a success, you can search the user ID and see all five (original plus four retries) in the **Logs**, and the original plus the first three retries will show **Error** with `Rate limit exceeded`.
+
+Rate limit errors do not consume Braze credits, including failed retries shown in **Logs**.
 
 ![Agent Console log details showing a rate limit exceeded error in the Output field.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
@@ -286,6 +298,8 @@ Agent Console records a new version each time you save agent changes. The **Vers
 3. Select a version to review its configuration.
 
 To inspect what changed in a version, select **View**. Braze displays a code-style inline diff that highlights additions and deletions. Deleted content appears with red strikethrough styling.
+
+![Agent Console version history with the Differences from previous version panel open, showing inline additions in green and deletions in red for agent instructions.]({% image_buster /assets/img/ai_agent/instruction_differences.png %}){: style="max-width:75%;"}
 
 If you need to restore instructions from a previous version, open **View** for that version, copy the instruction text, and paste it into your current **Instructions** field.
 

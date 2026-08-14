@@ -9,7 +9,7 @@ description: "이 문서에는 2020년 7월의 릴리스 노트가 포함되어 
 
 ## 프로모션 코드 {#promotion-codes}
 
-Liquid을 사용하면 업로드한 [프로모션 코드]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes#promotion-codes) 목록에서 메시지를 가져올 수 있습니다. 이 기능은 최대 6개월의 만료 날짜를 제공하며 목록당 최대 2,000만 개의 개별 코드를 지원합니다.
+Liquid을 사용하면 업로드한 [프로모션 코드]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) 목록에서 메시지를 가져올 수 있습니다. 이 기능은 최대 6개월의 만료 날짜를 제공하며 목록당 최대 2,000만 개의 개별 코드를 지원합니다.
 
 ## 배리언트 유지 보고서 {#variant-retention-report}
 

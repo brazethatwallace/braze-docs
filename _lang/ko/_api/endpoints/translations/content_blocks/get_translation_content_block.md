@@ -15,11 +15,11 @@ description: "이 문서에서는 콘텐츠 블록에 대한 모든 번역 보�
 /content_blocks/translations
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 [콘텐츠 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)에 대한 모든 번역을 볼 수 있습니다. 번역 기능에 대한 자세한 내용은 [메시지의 로케일]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)을 참조하세요.
+> 이 엔드포인트를 사용하여 [콘텐츠 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)에 대한 모든 번역을 볼 수 있습니다. 번역 기능에 대한 자세한 내용은 [메시지 내 로케일]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)을 참조하세요.
 
-## 필수 조건 {#prerequisites}
+## 전제 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `content_blocks.translations.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `content_blocks.translations.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

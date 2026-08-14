@@ -1,0 +1,3 @@
+- Has done a custom event with property A with value B, X times in the last Y days.
+- Has made any purchases with property A with value B, X times in the last Y days.
+- Adds the ability to segment within 1 to 30 days.

@@ -17,4 +17,4 @@ channel:
 
 {% multi_lang_include analytics/campaign_analytics.md channel="whatsapp" %}
 
-
+If the failures or delivery rate look incorrect, see [Investigate WhatsApp send failures]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).

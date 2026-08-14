@@ -37,8 +37,8 @@ Aquí tienes algunos ejemplos que muestran las diferencias entre el formato loca
 
 Al importar números de teléfono, es importante que sigas el [formato recomendado](#recommended-format). Para importar números de teléfono, utiliza uno de los siguientes métodos:
 
-- [Cargar un CSV a Braze]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)
-- [Usar el punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
+- [Cargar un CSV a Braze]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)
+- [Usar el endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 
 {% alert important %}
 Los números de teléfono de los usuarios aparecen en Braze como una cadena de dígitos. Si importas un número que contiene caracteres que no son dígitos (como `,`, `-` o `(`) distintos del {% raw %}`+`{% endraw %} inicial, los caracteres no numéricos se eliminan cuando se muestran en Braze. Por ejemplo, importar `+1 (724) 123-4567` aparece como `+17241234567`.
@@ -59,7 +59,7 @@ Un número de teléfono se considera no válido por las siguientes razones:
 - **Error del proveedor**: se recibió un error permanente del proveedor de SMS y RCS. Esto indica que el número de teléfono proporcionado tiene un formato incorrecto o no puede recibir mensajes SMS o RCS de forma permanente.
 - **Desactivado**: el número de teléfono ha sido desactivado porque un suscriptor móvil canceló su servicio y liberó su número de su operador (y eventualmente puede ser reciclado y asignado a un nuevo usuario). Un número de teléfono desactivado puede marcarse como no válido incluso si no has enviado ningún mensaje SMS o RCS a ese número de teléfono.
 
-Estos números de teléfono no válidos se pueden gestionar utilizando [puntos de conexión de SMS y RCS]({{site.baseurl}}/api/endpoints/sms).
+Estos números de teléfono no válidos se pueden gestionar utilizando [endpoints de SMS y RCS]({{site.baseurl}}/api/endpoints/sms).
 
 {% alert note %}
 Si varios perfiles de usuario tienen el mismo número de teléfono y ese número se marca como no válido, todos los perfiles de usuario existentes con ese número se mostrarán como no válidos. Los perfiles de usuario recién creados nunca se marcarán inicialmente como no válidos.
@@ -73,7 +73,7 @@ También puedes incluir o excluir cualquier usuario con números de teléfono no
 Los rechazos de SMS se cobran de tu asignación de SMS.
 {% endalert %}
 
-Para excluir de tus segmentos a los usuarios con envíos de SMS rechazados, utiliza [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y haz lo siguiente:
+Para excluir de tus segmentos a los usuarios con envíos de SMS rechazados, utiliza [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y haz lo siguiente:
 
 1. Ve a **Audiencia** > **Extensiones de segmento**.
 2. Selecciona **Crear nueva extensión** > **Actualización completa** o **Actualización incremental**.

@@ -8,9 +8,9 @@ description: "Esta página abrange o registro de exportações, que permite visu
 
 # Registro de exportações {#exports-log}
 
-> Use a página **Registro de exportações** para visualizar o status dos trabalhos de exportação e cancelar as exportações em andamento diretamente da plataforma Braze. <br><br> Atualmente, o registro de exportações suporta apenas exportações de Segments. Para obter informações sobre a ferramenta de exportação de Segments, consulte [Exportação de dados de Segments para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv).
+> Use a página **Registro de exportações** para visualizar o status dos trabalhos de exportação e cancelar as exportações em andamento diretamente da plataforma Braze. <br><br> Atualmente, o registro de exportações suporta apenas exportações de segmentos. Para obter informações sobre a ferramenta de exportação de segmentos, consulte [Exportação de dados de segmentos para CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv).
 
-É possível encontrar o registro de exportações em **Configurações** > **Registro de exportações**. Aqui, você pode visualizar as exportações anteriores, o nome dos Segments exportados, o status de cada exportação, a origem de cada exportação e quando cada exportação foi iniciada e concluída.
+É possível encontrar o registro de exportações em **Configurações** > **Registro de exportações**. Aqui, você pode visualizar as exportações anteriores, o nome dos segmentos exportados, o status de cada exportação, a origem de cada exportação e quando cada exportação foi iniciada e concluída.
 
 ## Cancelamento de uma exportação pendente {#cancelling-a-pending-export}
 

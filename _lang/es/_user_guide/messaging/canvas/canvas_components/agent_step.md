@@ -45,7 +45,7 @@ En la lista de agentes, cada agente está etiquetado con su [límite diario de i
 
 ### Paso 3: Configurar la salida de tu agente {#define-the-output-variable}
 
-Las salidas del agente se llaman "variables de salida" y se almacenan en una [variable de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-types) para un acceso fácil. Para definir la variable de salida, dale un nombre a la variable.
+Las salidas del agente se llaman "variables de salida" y se almacenan en una [variable de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-filters) para un acceso fácil. Para definir la variable de salida, dale un nombre a la variable.
 
 Ten en cuenta que el tipo de datos de la variable de salida se configura desde la [Consola de agente]({{site.baseurl}}/user_guide/brazeai/agents). Las salidas del agente se pueden guardar como cadenas, números, booleanos u objetos. Esto las hace flexibles tanto para la personalización de texto como para la lógica condicional en tu Canvas. Estos son algunos usos comunes para cada tipo:
 

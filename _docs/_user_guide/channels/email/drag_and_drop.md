@@ -116,7 +116,7 @@ The drag-and-drop editing experience is divided into three sections: **Sending S
 
 When you're ready, use the drag-and-drop content blocks to build your email.
 
-1. Select the **Rows** panel. Drag and drop the row configurations into the main editor. This will map the layout of your email content.
+1. Select the **Rows** panel. Drag and drop the row configurations into the main editor. This maps the layout of your email content.
 - Note that new configurations must be dragged to the top or bottom of an existing section.
 - When you select a row configuration, the **Row Properties** settings appear for further customization of row background colors, images, and custom column sizes.
 2. Select the **Content** panel. Drag and drop your desired content tiles to the row components.
@@ -137,10 +137,7 @@ Need help creating awesome copy? Try using the [AI copywriting assistant]({{site
 
 Once you've finished designing and building your email message, it's time to add your sending information in the **Sending Settings** section.
 
-1. Under **Sending Info**, select an email as the **From Display Name + Address**. You can also customize this by selecting **Customize From Display Name + Address**.
-2. Select an email as the **Reply-To Address**. You can also customize this by selecting **Customize Reply-To Address**.
-3. Next, select an email as the **BCC Address** to make your email visible to this address.
-4. Add a subject line to your email. Optionally, you can also add a preheader and a whitespace after the preheader.
+{% multi_lang_include email/sending_info_steps.md %}
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
@@ -150,9 +147,7 @@ A preview in the right-hand panel will populate with the sending information you
 
 In **Sending Settings** > **Advanced**, you can add email attachments by the following methods:
 
-- **Upload a file:** Drag and drop or browse to upload a file directly from your computer to the email. Braze validates the file type and size (up to 2&nbsp;MB by default) before uploading, then these files are uploaded to the media library. Files that are larger than 2&nbsp;MB limit cannot be uploaded.
-- **Use the media library:** Browse and select from assets already stored in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). PDFs, Word documents, Excel files, and PowerPoint presentations are all supported. 
-- **Add from URL:** Enter a URL pointing to the file and provide a display filename. Because Braze cannot probe arbitrary URLs for size during email composition, the file size is enforced at send time. Note that Liquid is not supported in this field.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 Refer to [Email guidelines]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) for specific best practices to consider.
 
@@ -192,9 +187,7 @@ Under the **Preview as a User** tab, you can select the following user types to 
 The random user may or may not be part of your segmentation criteria. Segmentation is selected afterward, so Braze is unaware of your target audience at this point.
 {% endalert %}
 
-You can also select **Copy preview link** to generate and copy a shareable preview link that shows what the email will look like for a random user. The link will last for seven days before it needs to be regenerated. 
-
-Note that any edits made to an email template won't reflect in a previously generated link. You'll need to generate a new link preview to see any edits.
+You can also select **Copy preview link** to generate and copy a shareable preview link that shows what the email will look like for a random user. For more information, see [Shareable preview]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
 ![Email preview with a button to "Copy preview link" and copy the generated link.]({% image_buster /assets/img/dnd_email_link_preview.png %})
 
@@ -294,10 +287,14 @@ The final appearance of right-to-left messages depends largely on how service pr
 
 When using links, buttons, images, and videos in the drag-and-drop editor, select **Add new attribute** under **Attributes** in the **Content** section to append additional information to HTML tags in emails. This can be especially useful for message personalization, segmentation, and styling.
 
-A common use case is to insert an attribute into your anchor tag to disable click tracking when sending through Braze.
+A common use case is to disable click tracking for specific links when sending through Braze. You can do this in two ways:
 
-* **SendGrid:** `clicktracking = "off"`
-* **SparkPost:** `data-msys-clicktrack = "0"`
+- **Use link module attributes:** Select a link element (such as a button or link module), then use **Add new attribute** under **Attributes** to add:
+  - For SendGrid, use `clicktracking` as the name and `off` as the value.
+  - For SparkPost, use `data-msys-clicktrack` as the name and `0` as the value.
+- **Use HTML block:** Insert an HTML block and include the click tracking attribute directly in your anchor tag code:
+  - For SendGrid, use `<a href="your-url" clicktracking="off">Link text</a>`.
+  - For SparkPost, use `<a href="your-url" data-msys-clicktrack="0">Link text</a>`.
 
 Another common use case is to flag specific links as universal links. Universal links are links that redirect to your app, giving your users an integrated experience.
 
@@ -308,7 +305,7 @@ To set up universal links, refer to [Universal links and App Links]({{site.baseu
 
 Alternatively, you can integrate with one of our attribution partners, such as [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) or [AppsFlyer]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/appsflyer#email-deep-linking-and-click-tracking), to manage universal links.
 
-Lastly, predefined attributes are available to help make your message accessible. Learn more at our dedicated [Building accessible messages in Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) article.
+Lastly, predefined attributes are available to help make your message accessible. Learn more at our dedicated [Building accessible messages in Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) article, including [how email clients display alt text]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text).
 
 #### Custom head tags
 

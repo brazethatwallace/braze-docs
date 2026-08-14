@@ -20,7 +20,7 @@ Brazeのセグメントは、ユーザーのダイナミックなグループを
 たとえば、Brazeのデフォルトのセグメンテーションでは、最近製品を購入したユーザーなど、定義した特定の条件に合致するユーザーを見つけることができます。セグメントエクステンションではさらに深く掘り下げることができ、たとえば18〜24か月前に特定の製品の特定の色を少なくとも2回購入したユーザーを特定できます。セグメントエクステンションは機能の強化であり、必須ではありません。より高度なフィルターやより長いルックバック期間が必要な場合に、データ使用量を最適化しながら活用できる優れたツールです。
 
 {% alert note %}
-ワークスペースごとに、特定の時点でアクティブなセグメントエクステンションのデフォルト割り当ては25件です。この上限を引き上げる必要がある場合は、Brazeカスタマーサクセスマネージャーにユースケースについてご相談ください。
+ワークスペースごとに、特定の時点でアクティブなセグメントエクステンションのデフォルト割り当ては50件です。この上限を引き上げる必要がある場合は、Brazeカスタマーサクセスマネージャーにユースケースについてご相談ください。
 {% endalert %}
 
 ## セグメントエクステンションの作成 {#creating-a-segment-extension}
@@ -87,7 +87,7 @@ eコマース推奨イベントを使用してイベントプロパティを追�
 
 ![利用可能なプロパティのドロップダウンを含むセグメントエクステンションの詳細。]({% image_buster /assets/img/segment/ecommerce_recommended_event_properties.png %})
 
-[ネストされたイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)に基づくセグメンテーションもサポートしています。比較ドロップダウンで、ネストされたプロパティのデータタイプに一致する比較を選択します。ネストされたプロパティを含むeコマース推奨イベントに対しても、同じネストされたイベントプロパティの構文を使用してネストされたプロパティを追加できます。利用可能なさまざまなネストされたプロパティについては、[eコマース推奨イベントのタイプ]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events)を参照してください。セグメントエクステンションのプロパティ名に必要なスキーマを生成するには、[カスタムイベントのネストされたオブジェクト]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)のステップに従ってください。
+[ネストされたイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)に基づくセグメンテーションもサポートしています。比較ドロップダウンで、ネストされたプロパティのデータタイプに一致する比較を選択します。ネストされたプロパティを含むeコマース推奨イベントに対しても、同じネストされたイベントプロパティの構文を使用してネストされたプロパティを追加できます。利用可能なさまざまなネストされたプロパティについては、[eコマース推奨イベントのタイプ]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)を参照してください。セグメントエクステンションのプロパティ名に必要なスキーマを生成するには、[カスタムイベントのネストされたオブジェクト]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)のステップに従ってください。
 
 ![ネストされたイベントプロパティに基づくセグメンテーション。]({% image_buster /assets/img/segment/nested_segment_extensions.png %})
 

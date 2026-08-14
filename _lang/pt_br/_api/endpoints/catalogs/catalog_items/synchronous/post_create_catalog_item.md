@@ -21,25 +21,25 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Criar it
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `catalogs.create_item`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.create_item`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog item' %}
 
 ## Parâmetros de caminho {#path-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `catalog_name` | Obrigatória | String | Nome do catálogo. |
-| `item_id` | Obrigatória | String | O ID do item do catálogo. |
+| `catalog_name` | Obrigatório | String | Nome do catálogo. |
+| `item_id` | Obrigatório | String | O ID do item do catálogo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `items` | Obrigatória | Vetor | Um vetor que contém objetos de item. Os objetos de item devem conter todos os campos do catálogo, exceto o campo `id`. Somente um objeto de item é permitido por solicitação. |
+| `items` | Obrigatório | Vetor | Um vetor que contém objetos de item. Os objetos de item devem conter todos os campos do catálogo, exceto o campo `id`. Somente um objeto de item é permitido por solicitação. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
@@ -91,7 +91,7 @@ O código de status `201` poderia retornar o seguinte corpo de resposta.
 
 ### Exemplo de resposta de erro {#example-error-response}
 
-O código de status `400` poderia retornar o seguinte corpo de resposta. Consulte [Solução de problemas](#troubleshooting) para obter mais informações sobre os erros que você pode encontrar.
+O código de status `400` poderia retornar o seguinte corpo de resposta. Consulte [Solução de problemas](#troubleshooting) para saber mais sobre os erros que você pode encontrar.
 
 ```json
 {

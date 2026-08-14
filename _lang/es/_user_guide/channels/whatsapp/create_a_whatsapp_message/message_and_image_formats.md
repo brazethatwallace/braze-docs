@@ -54,7 +54,7 @@ Las plantillas de marketing son el tipo más común utilizado en Braze. Constan 
 | Tipo de botón | Comportamiento | Notas |
 |---|---|---|
 | Respuesta rápida | Envía el texto de la etiqueta del botón como respuesta en la conversación | |
-| URL | Abre una URL en el navegador predeterminado del usuario; admite 1 variable añadida al final de la URL (máximo 2000 caracteres) | |
+| URL | Abre una URL en el navegador predeterminado del usuario; admite 1 variable añadida al final de la URL (máximo 2000 caracteres) | Las URL que contienen caracteres especiales (como `&`, `%`, `<`, `>`) pueden provocar fallos en el envío del mensaje. Usa el filtro Liquid [`url_param_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) o [`url_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) para codificar correctamente las URL con caracteres especiales. |
 | Número de teléfono | Inicia una llamada al número de teléfono especificado | |
 | Copiar código de cupón | Copia un código de cupón al portapapeles del usuario | Siempre requiere aprobación de Meta |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipos de botones" }

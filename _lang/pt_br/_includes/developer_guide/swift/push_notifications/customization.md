@@ -2,7 +2,7 @@
 
 ## Personalizando botões de ação {#push-action-buttons-integration}
 
-O Braze Swift SDK fornece suporte ao manuseio de URL para botões de ação por push. Há quatro conjuntos de botões de ação por push padrão para as categorias de push padrão da Braze: `Accept/Decline`, `Yes/No`, `Confirm/Cancel` e `More`.
+O Braze Swift SDK fornece suporte ao tratamento de URL para botões de ação por push. Há quatro conjuntos de botões de ação por push padrão para as categorias de push padrão da Braze: `Accept/Decline`, `Yes/No`, `Confirm/Cancel` e `More`.
 
 ![Um GIF de uma mensagem push sendo puxada para baixo para exibir dois botões de ação personalizáveis.]({% image_buster /assets/img_archive/iOS8Action.gif %}){: style="max-width:60%"}
 
@@ -12,7 +12,7 @@ O Braze Swift SDK fornece suporte ao manuseio de URL para botões de ação por 
 Registrar botões de ação por push manualmente não é recomendado.
 {% endalert %}
 
-Se você [configurar notificações por push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) usando a opção de configuração `configuration.push.automation`, a Braze registra automaticamente os botões de ação para as categorias de push padrão e gerencia a análise de cliques dos botões de ação por push e o roteamento de URL.
+Se você [configurar notificações por push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) usando a opção de configuração `configuration.push.automation`, a Braze registra automaticamente os botões de ação para as categorias de push padrão e gerencia a análise de dados de cliques dos botões de ação por push e o roteamento de URL.
 
 No entanto, você pode optar por registrar botões de ação por push manualmente.
 
@@ -41,9 +41,9 @@ UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications
 Clicar nos botões de ação por push com o modo de ativação em segundo plano apenas descartará a notificação e não abrirá o app. Na próxima vez que o usuário abrir o app, a análise de dados do clique do botão para essas ações será enviada para o servidor.
 {% endalert %}
 
-#### Etapa 2: Ativar o manuseio interativo de push {#enable-push-handling}
+#### Etapa 2: Ativar o tratamento interativo de push {#enable-push-handling}
 
-Para ativar o manuseio dos botões de ação por push, incluindo análise de dados de cliques e roteamento de URL, adicione o seguinte código ao método delegado `didReceive(_:completionHandler:)` do seu app:
+Para ativar o tratamento dos botões de ação por push, incluindo análise de dados de cliques e roteamento de URL, adicione o seguinte código ao método delegado `didReceive(_:completionHandler:)` do seu app:
 
 {% tabs %}
 {% tab swift %}
@@ -63,7 +63,7 @@ AppDelegate.braze?.notifications.handleUserNotification(response: response, with
 {% endtab %}
 {% endtabs %}
 
-Se você usar a estrutura `UNNotification` e tiver implementado os [métodos de notificação]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-5-enable-push-handling) da Braze, já deverá ter esse método integrado.
+Se você usar o framework `UNNotification` e tiver implementado os [métodos de notificação]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-5-enable-push-handling) da Braze, já deverá ter esse método integrado.
 
 ## Personalizando categorias de push {#customizing-push-categories}
 
@@ -131,8 +131,8 @@ Depois de registrar uma categoria, use o dashboard da Braze para enviar notifica
 Você só precisa definir botões de ação no dashboard da Braze para comportamentos que não podem ser criados localmente no seu código Swift, como deep linking no seu app ou redirecionamento para uma URL da web. Essas ações precisam ser configuradas no dashboard para que possam definir qual URL ou deep link abrir. Para botões de ação que simplesmente descartam a notificação sem abrir o app, você não precisa configurá-los no dashboard — o comportamento de descarte é tratado automaticamente pelo iOS. Basta registrar sua categoria personalizada e suas ações no código do seu app e depois inserir o nome da categoria correspondente no dashboard.
 {% endalert %}
 
-1. No dashboard da Braze, selecione **Envio de mensagens** > **Notificações por push** e, em seguida, escolha sua [Campaign de push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message) para iOS.
-2. Em **Compose push notification**, ative os **botões de ação**.
+1. No dashboard da Braze, selecione **Messaging** > **Push Notifications** e, em seguida, escolha sua [Campaign de push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message) para iOS.
+2. Em **Compose push notification**, ative os **Action Buttons**.
 3. No menu suspenso **iOS Notification Category**, selecione **Enter pre-registered custom iOS Category**.
 4. Por fim, insira uma das categorias que você criou anteriormente. O exemplo a seguir usa a categoria personalizada: `LIKE_CATEGORY`.
 
@@ -167,11 +167,11 @@ Como `MANAGE_IDENTIFIER` faz deep link no app, você deve configurar esse botão
 
 ## Personalizando emblemas {#customizing-badges}
 
-Os emblemas são ícones pequenos, ideais para chamar a atenção do usuário. Você pode especificar uma contagem de emblemas na guia [**Configurações**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) quando compuser uma notificação por push usando o dashboard da Braze. Você também pode atualizar a contagem de emblemas manualmente por meio da propriedade [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber) do aplicativo ou da [carga útil da notificação remota](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
+Os emblemas são ícones pequenos, ideais para chamar a atenção do usuário. Você pode especificar uma contagem de emblemas na guia [**Settings**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) quando compuser uma notificação por push usando o dashboard da Braze. Você também pode atualizar a contagem de emblemas manualmente por meio da propriedade [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber) do aplicativo ou da [carga útil da notificação remota](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
 
 A Braze limpará automaticamente a contagem de emblemas quando uma notificação da Braze for recebida enquanto o app estiver em primeiro plano. A configuração manual do número do emblema como 0 também limpará as notificações na central de notificações.
 
-Se você não tiver um plano para limpar os emblemas como parte da operação normal do aplicativo ou enviando pushes que limpem o emblema, deverá limpar o emblema quando o aplicativo se tornar ativo, adicionando o seguinte código ao método delegado `applicationDidBecomeActive:` do seu aplicativo:
+Se você não tiver um plano para limpar os emblemas como parte da operação normal do aplicativo ou enviando pushes que limpem o emblema, deverá limpar o emblema quando o aplicativo se tornar ativo, adicionando o seguinte código ao método `sceneDidBecomeActive(_:)` do arquivo `SceneDelegate.swift` (ou ao método delegado `applicationDidBecomeActive:` do seu app, caso ele ainda não tenha adotado o [ciclo de vida `UIScene`](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)):
 
 {% tabs %}
 {% tab swift %}
@@ -241,7 +241,7 @@ Você pode inspecionar um som para determinar seu formato de dados abrindo-o no 
 
 Você deve especificar uma URL de protocolo que direcione para o local do arquivo de som no seu app. Há dois métodos para fazer isso:
 
-* Use o parâmetro `sound` do [objeto Apple push]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-object) para passar a URL para a Braze.
+* Use o parâmetro `sound` do [objeto Apple push]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para passar a URL para a Braze.
 * Especifique a URL no dashboard. No [criador do push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android), selecione **Settings** e insira a URL do protocolo no campo **Sound**.
 
 ![O criador do push no dashboard da Braze]({% image_buster /assets/img_archive/sound_push_ios.png %})

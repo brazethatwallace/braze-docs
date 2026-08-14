@@ -33,7 +33,7 @@ Pour planifier la suppression automatique après le démarrage d'une activité e
 2. Stockez cet `activity_id` et l'heure de fin souhaitée dans le planificateur de votre backend.
 3. À l'heure de fin prévue, envoyez une requête `/messages/live_activity/update` avec `end_activity` défini sur `true`.
 4. Configurez le comportement de suppression dans la même requête de mise à jour. Pour plus de détails, consultez l'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update).
-5. Vérifiez les événements d'envoi et de résultat dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab).
+5. Vérifiez les événements d'envoi et de résultat dans le [journal d'activité des messages]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 
@@ -72,7 +72,7 @@ Pour utiliser cet endpoint, vous devrez effectuer les opérations suivantes :
 
 | Paramètre | Requis | Type de données | Description |
 |-----------|----------|----------|--------------|
-| `app_id` | Requis | Chaîne de caractères | [Identifiant API]({{site.baseurl}}/api/identifier_types#the-app-identifier) de l'application, récupéré depuis la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). |
+| `app_id` | Requis | Chaîne de caractères | [Identifiant API]({{site.baseurl}}/api/identifier_types#app-identifier) de l'application, récupéré depuis la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). |
 | `activity_id` | Requis | Chaîne de caractères | Définissez une chaîne de caractères personnalisée comme `activity_id`. Vous utiliserez cet ID lorsque vous souhaiterez envoyer des événements de mise à jour ou de fin à votre activité en direct. |
 | `activity_attributes_type` | Requis | Chaîne de caractères | Le type d'attributs d'activité que vous définissez dans `liveActivities.registerPushToStart` dans votre application. |
 | `activity_attributes` | Requis | Objet | Les valeurs d'attributs statiques pour le type d'activité (comme les noms des équipes sportives, qui ne changent pas). |

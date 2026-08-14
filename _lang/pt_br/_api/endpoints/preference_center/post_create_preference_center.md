@@ -20,9 +20,9 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Criar C
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `preference_center.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `preference_center.update`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='post or put preference center' %}
 
@@ -57,12 +57,12 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Parâmetros da solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `name` | Obrigatória | String | O nome da Central de Preferências que atende aos seguintes requisitos: <br>- Contém apenas letras, números, hífens e sublinhados <br>- Não possui espaços |
+| `name` | Obrigatório | String | O nome da Central de Preferências que atende aos seguintes requisitos: <br>- Contém apenas letras, números, hífens e sublinhados <br>- Não possui espaços |
 | `preference_center_title` | Opcional | String | O título da Central de Preferências e das páginas de confirmação. Se um título não for especificado, o título das páginas terá como padrão "Preference Center". |
-| `preference_center_page_html` | Obrigatória | String | O HTML da página da Central de Preferências. |
-| `confirmation_page_html` | Obrigatória | String | O HTML da página de confirmação. |
+| `preference_center_page_html` | Obrigatório | String | O HTML da página da Central de Preferências. |
+| `confirmation_page_html` | Obrigatório | String | O HTML da página de confirmação. |
 | `state` | Opcional | String | Escolha `active` ou `draft`. O padrão é `active` se não for especificado. |
 | `options` | Opcional | Objeto | Atributos: <br>`meta-viewport-content`: Quando presente, uma meta tag `viewport` será adicionada à página com `content= <value of attribute>`.<br><br> `link-tags`: Defina um favicon para a página. Quando definido, uma tag `<link>` com um atributo rel é adicionada à página. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros da solicitação" }

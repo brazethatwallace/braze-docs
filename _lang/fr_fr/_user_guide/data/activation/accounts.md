@@ -1,0 +1,164 @@
+---
+nav_title: Comptes
+article_title: Objets de compte
+page_order: 7
+page_type: reference
+description: "Utilisez les objets de compte pour segmenter les utilisateurs, personnaliser les messages avec des données de compte et gérer les enregistrements de compte."
+---
+
+# Objets de compte {#account-objects}
+
+> Utilisez les objets de compte pour segmenter et personnaliser les communications avec des données de compte.
+
+{% alert important %}
+La fonctionnalité Comptes est en accès anticipé. Ces instructions peuvent évoluer au fur et à mesure du développement de la fonctionnalité.
+{% endalert %}
+
+Avec les objets de compte, vous pouvez :
+
+- Créer des segments avec des critères de compte
+- Personnaliser les messages avec des attributs de compte via Liquid
+- Gérer les enregistrements de compte en un seul endroit
+
+Les objets de compte sont des modèles de données au niveau de l'espace de travail, connectés aux profils utilisateur. Un enregistrement de compte correspond à un compte spécifique et aux données de champs qui lui sont associées.
+Utilisez les objets de compte lorsque le contexte du compte, comme les attributs d'entreprise, vous aide à cibler et personnaliser vos communications.
+Vous pouvez également modéliser des hiérarchies de comptes (comme des comptes parents et enfants) et associer un profil utilisateur à plusieurs comptes.
+
+## Pourquoi utiliser les objets de compte ? {#why-use-account-objects}
+
+Certains cas d'usage nécessitent un contexte au niveau du compte, même lorsque vos Campaigns et Canvas sont envoyés à des utilisateurs individuels.
+
+Les objets de compte vous permettent de stocker les données de compte une seule fois et de les réutiliser pour la segmentation et la personnalisation dans Braze.
+
+Cela vous permet de :
+
+- Segmenter par attributs de compte
+- Personnaliser les messages avec un contexte de compte partagé (comme le nom de l'entreprise ou le secteur d'activité)
+- Modéliser les relations entre les comptes et connecter un profil utilisateur à plusieurs comptes
+
+Cette approche remplace la duplication des mêmes attributs de compte sur de nombreux profils utilisateur.
+
+## Prérequis {#prerequisites}
+
+Avant de commencer :
+
+- Votre espace de travail doit être activé pour l'accès anticipé aux Comptes. Contactez votre équipe de compte Braze.
+- Vous devez déjà avoir des utilisateurs dans Braze.
+- Une fois les Comptes activés, ils apparaissent dans **Paramètres des données** > **Comptes**. Si c'est la première fois que vous utilisez les Comptes, suivez les instructions d'initialisation à l'écran.
+
+## Modèle de données de compte {#account-data-model}
+
+Chaque compte nécessite un ID externe (`id`) et un nom (`name`).
+
+Les champs de compte de cette section définissent le schéma de l'objet de compte. Ces champs s'appliquent à chaque enregistrement de compte individuel que vous stockez dans Braze.
+
+Braze inclut par défaut des objets de compte avec des champs standard. Vous pouvez ajouter et supprimer des champs personnalisés en fonction de votre cas d'usage.
+
+| Nom du champ | Type de champ | Obligatoire | Description |
+| --- | --- | --- | --- |
+| `id` | string | Oui | L'ID système de votre compte (par exemple, ID CRM). Doit être unique dans votre espace de travail. |
+| `name` | string | Oui | Nom du compte. |
+| `type` | string | Non | Type de compte, comme client, partenaire ou revendeur. |
+| `annual_revenue` | number | Non | Chiffre d'affaires annuel du compte. |
+| `industry` | string | Non | Secteur d'activité du compte. |
+| `number_of_employees` | number | Non | Nombre d'employés. |
+| `address` | string | Non | Adresse postale. |
+| `city` | string | Non | Ville. |
+| `state` | string | Non | État ou province. |
+| `postal_code` | string | Non | Code postal. |
+| `country` | string | Non | Pays. |
+| `notes` | string | Non | Notes supplémentaires. |
+| `website` | string | Non | URL du site web. |
+| `main_phone` | string | Non | Numéro de téléphone principal. |
+| `created_date` | time | Non | Horodatage de création du compte. |
+| `sic_code` | string | Non | Code de classification industrielle standard. |
+| Champs personnalisés | custom | Non | Champs que vous définissez et gérez. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Champs du modèle de données de compte" }
+
+## Options d'intégration de données {#data-integration-options}
+
+Vous pouvez gérer les enregistrements de compte via :
+
+- Les endpoints de la REST API pour les enregistrements de compte
+- L'édition dans le navigateur dans **Paramètres des données** > **Comptes** pour les enregistrements individuels
+
+## Premiers pas {#get-started}
+
+### Étape 1 : Activer les Comptes {#step-1-enable-accounts}
+
+Les Comptes sont activés au niveau de l'entreprise. Pendant l'accès anticipé, votre équipe de compte Braze gère l'activation unique.
+
+Lorsque les Comptes sont activés, accédez à **Paramètres des données** > **Comptes** et complétez le flux d'initialisation unique si vous y êtes invité.
+
+### Étape 2 : Ajouter des enregistrements de compte {#step-2-add-account-records}
+
+Ajoutez ou mettez à jour des enregistrements de compte via la REST API ou l'édition dans le navigateur.
+
+### Étape 3 : Créer un filtre calculé pour les critères de compte {#step-3-create-a-calculated-filter-for-account-criteria}
+
+Avant de segmenter sur les données de compte, créez un filtre calculé qui définit vos critères de compte. Pour plus de détails, consultez [Fonctionnement des filtres calculés]({{site.baseurl}}/user_guide/audience/segments/calculated_filters#how-it-works).
+
+### Étape 4 : Utiliser le filtre calculé dans le générateur de segments {#step-4-use-the-calculated-filter-in-segment-builder}
+
+Dans le générateur de segments, sélectionnez le filtre calculé que vous avez créé, puis ajoutez tout filtre d'attribut utilisateur supplémentaire qui prend en charge le ciblage de votre Campaign ou Canvas.
+
+## Créer des segments basés sur les comptes {#build-account-based-segments}
+
+Une fois vos enregistrements de compte et votre filtre calculé prêts :
+
+1. Accédez au [générateur de segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
+2. Ajoutez votre filtre calculé préconfiguré pour les critères de compte.
+3. Ajoutez tout filtre d'attribut utilisateur supplémentaire.
+4. Enregistrez votre segment.
+
+Par exemple :
+
+- **Filtre calculé :** le champ `industry` du compte est exactement `healthcare`
+- **Filtre d'attribut utilisateur :** `days_since_last_login` est inférieur à `30`
+
+## Personnaliser avec Liquid {#personalize-with-liquid}
+
+Utilisez l'étiquette Liquid `{% raw %}{% data_object account %}{% endraw %}` pour charger les données de compte de l'utilisateur dans le tableau `data_objects`.
+
+{% alert note %}
+Lorsque vous utilisez **Aperçu et test**, utilisez un segment qui inclut des données de compte afin que la personnalisation puisse se résoudre correctement.
+{% endalert %}
+
+{% raw %}
+```liquid
+{% data_object account %}
+Hi {{${first_name}}},
+We'd love to invite you and your peers at {{ data_objects[0].name }}.
+```
+{% endraw %}
+
+Pour itérer sur tous les comptes correspondants :
+
+{% raw %}
+```liquid
+{% data_object account %}
+{% for acct in data_objects %}
+- {{ acct.name }}
+{% endfor %}
+```
+{% endraw %}
+
+## Principes de base de l'API {#api-basics}
+
+Vous pouvez utiliser la REST API pour gérer les enregistrements de compte pendant l'accès anticipé.
+
+{% alert note %}
+Les détails des endpoints pour les Comptes sont fournis lors de l'onboarding de l'accès anticipé. Si vous avez besoin d'un accès ou de détails sur l'onboarding, contactez votre équipe de compte Braze.
+{% endalert %}
+
+Pour l'authentification et les principes de base des endpoints REST, consultez l'[aperçu de l'API Braze]({{site.baseurl}}/api/basics).
+
+## Questions fréquentes {#frequently-asked-questions}
+
+### Puis-je ajouter des champs personnalisés aux comptes ? {#can-i-add-custom-fields-to-accounts}
+
+Oui. Vous pouvez définir et gérer des champs de compte personnalisés dans votre espace de travail. Pour les exigences relatives aux champs, consultez [Modèle de données de compte](#account-data-model).
+
+### Les Comptes sont-ils un module complémentaire payant ? {#is-accounts-a-paid-add-on}
+
+Non. Les Comptes ne sont pas un module complémentaire payant et sont disponibles sur tous les plans. Pendant l'accès anticipé, votre équipe de compte Braze doit les activer pour votre espace de travail.

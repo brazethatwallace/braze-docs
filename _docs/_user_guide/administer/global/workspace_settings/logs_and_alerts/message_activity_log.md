@@ -13,7 +13,7 @@ description: "This reference article describes the Message Activity Log shows yo
 
 You can see API campaign transactions, troubleshoot details on failed messages, and gather insight on how to improve notification delivery or solve existing technical issues.
 
-To access the log, go to **Settings** > **Message Activity Log**.
+To access the log, go to **Settings** > **Setup and Testing** > **Message Activity Log**.
 
 ![Message Activity Log]({% image_buster /assets/img_archive/message_activity_log.png %})
 
@@ -45,7 +45,7 @@ These messages can come from our own system, your apps or platforms, or our thir
 
 To determine what your messages mean, pay attention to the wording of each message and the columns that correspond with it, as it can help you troubleshoot using context clues.
 
-For example, **Aborted Message Error** entries can occur for many reasons, not only [Liquid abort messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages). Read the **Message** column for the specific reason:
+For example, **Aborted Message Error** entries can occur for many reasons, not only [Liquid abort messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages). Read the **Message** column for the specific reason:
 
 - If the send was aborted by a Liquid `abort_message` tag, the **Message** column shows the exact Liquid snippet that was called, for example {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %}.
 - For other abort reasons, the **Message** column explains why the send was aborted.

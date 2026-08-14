@@ -145,6 +145,10 @@ CSVファイルをアップロードしてカタログを作成します。`id`�
 カタログが作成された後は、この名前を編集することはできません。カタログを削除してから、同じカタログ名を使用して更新後のバージョンを再びアップロードできます。
 
 カタログを作成したら、[キャンペーンでのカタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs)の参照を開始できます。
+
+{% alert important %}
+以前にアップロードしたCSVファイルは、アップロード日から30日間、**カタログ**ページからダウンロードできます。30日後、ファイルは完全に削除され、アクセスできなくなります。
+{% endalert %}
 {% endtab %}
 
 {% tab ブラウザで作成 %}
@@ -177,9 +181,9 @@ CSVファイルをアップロードしてカタログを作成します。`id`�
 
 ![「rating」と「name」という2つのフィールドの例。]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
 
-**カタログを更新** > **アイテムを追加**を選択し、以前に追加したフィールドに基づいて情報を入力して、カタログに項目を追加します。次に、**アイテムを保存**または**保存して別のアイテムを追加**を選択して、項目の追加を続けます。
+**カタログを更新** > **アイテムを追加**を選択し、以前に追加したフィールドに基づいて情報を入力して、カタログにアイテムを追加します。次に、**アイテムを保存**または**保存して別のアイテムを追加**を選択して、アイテムの追加を続けます。
 
-![カタログ項目を追加する。]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
+![カタログアイテムを追加する。]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
 {% alert note %}
 Brazeは、ダッシュボードのタイムスタンプに基づいて時間値を処理します。例えば、列の値が「03/13/2024」で、タイムゾーンが太平洋タイムゾーンの場合、この時刻は「Mar 12, 2024, 5:00 PM」としてBrazeにインポートされます。
@@ -231,11 +235,11 @@ REST APIは、JSONオブジェクトや文字列配列を含む、すべての[�
 
 カタログは[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)を通じて維持できます。具体的には、データウェアハウス（Snowflake、Redshift、BigQuery、Databricks、Microsoft Fabric、S3など）からカタログデータを直接同期し、スケジュールに基づいて更新します。
 
-## カタログ項目の管理 {#managing-catalog-items}
+## カタログアイテムの管理 {#managing-catalog-items}
 
-カタログの管理に加えて、非同期および同期エンドポイントを使用してカタログ項目を管理することもできます。これには、カタログ項目の編集と削除、およびカタログ項目の詳細の一覧表示が含まれます。
+カタログの管理に加えて、非同期および同期エンドポイントを使用してカタログアイテムを管理することもできます。これには、カタログアイテムの編集と削除、およびカタログアイテムの詳細の一覧表示が含まれます。
 
-例えば、個々のカタログ項目を編集する場合は、[`/catalogs/catalog_name/items/item_id` エンドポイント]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item)を使用できます。
+例えば、個々のカタログアイテムを編集する場合は、[`/catalogs/catalog_name/items/item_id` エンドポイント]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item)を使用できます。
 
 ## カタログストレージ {#tiers}
 
@@ -259,11 +263,11 @@ Brazeダッシュボードに表示されるパッケージのエンタイトル
 
 | 項目 | 仕様 |
 |------|-----------|
-| 項目値の文字数 | 単一の値に最大5,000文字です。例えば、`description` というラベルのフィールドがある場合、そのフィールド内の最大文字数は5,000文字です。 |
-| 項目列名の文字数 | 最大250文字 |
+| アイテム値の文字数 | 単一の値に最大5,000文字です。例えば、`description` というラベルのフィールドがある場合、そのフィールド内の最大文字数は5,000文字です。 |
+| アイテム列名の文字数 | 最大250文字 |
 | カタログあたりのセレクション数 | カタログあたり最大30セレクション |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert important %}
-カタログのLiquidタグは再帰的に使用できません。つまり、同じLiquid評価内で、あるカタログ項目を参照し、そこからさらに別のカタログ項目を呼び出すことはできません。
+カタログのLiquidタグは再帰的に使用できません。つまり、同じLiquid評価内で、あるカタログアイテムを参照し、そこからさらに別のカタログアイテムを呼び出すことはできません。
 {% endalert %}

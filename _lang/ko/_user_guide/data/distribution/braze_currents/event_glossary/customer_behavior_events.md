@@ -248,7 +248,7 @@ Custom Events
 
 ### 속성정보 세부 정보 {#property-details}
 
-- 커스텀 이벤트의 경우, 페이로드에는 해당 이벤트와 연결된 모든 [커스텀 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties)도 포함됩니다.
+- 커스텀 이벤트의 경우, 페이로드에는 해당 이벤트와 연결된 모든 [커스텀 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties)도 포함됩니다.
 - `ad_id`, `ad_id_type`, `ad_tracking_enabled`의 경우, 네이티브 SDK를 통해 iOS IDFA 및 Android Google 광고 ID를 명시적으로 수집해야 합니다. 자세한 내용은 여기에서 확인하세요: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Kafka를 사용하여 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) 데이터를 수집하는 경우, 고객 성공 매니저 또는 계정 매니저에게 연락하여 `ad_id` 전송을 위한 기능 플리퍼를 활성화하세요.
 
@@ -1643,7 +1643,10 @@ Braze가 토큰을 제거할 때 독립적인 "remove" 이벤트가 수집됩니
 - [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) 엔드포인트 또는 중복 사용자 정리가 고아 사용자의 토큰을 생존 사용자에게 이동시킵니다.
 
 {% alert note %}
-REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) 또는 SDK `changeUser`를 통해 익명 프로필에 외부 ID를 할당하는 동일 프로필 식별은 `user_id`를 변경하지 않으며 추가 및 제거 쌍 이벤트를 발생시키지 않습니다. 대신 Braze는 기존 각 푸시 토큰에 대해 "update" 이벤트를 발생시키고 `external_user_id`를 식별된 사용자의 외부 ID로 설정합니다. `changeUser`가 토큰을 한 사용자 프로필에서 다른 프로필로 이동시키는 경우, Braze는 위에서 설명한 추가 및 제거 쌍 이벤트를 여전히 발생시킵니다.
+REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) 또는 SDK [`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles)를 통한 동일 프로필 식별은 `user_id`를 변경하지 않고 익명 프로필에 외부 ID를 할당할 수 있습니다.
+이 경우 Braze는 [추가 및 제거 쌍 이벤트](#add-and-remove-pairs)를 발생시키지 않습니다.
+대신 Braze는 기존 각 푸시 토큰에 대해 "update" 이벤트를 발생시키고 `external_user_id`를 식별된 사용자의 외부 ID로 설정합니다.
+`changeUser`가 토큰을 한 사용자 프로필에서 다른 프로필로 이동시키는 경우, Braze는 [추가 및 제거 쌍](#add-and-remove-pairs) 섹션에서 설명한 [추가 및 제거 쌍 이벤트](#add-and-remove-pairs)를 여전히 발생시킵니다.
 {% endalert %}
 
 #### 최신 활성 토큰 상태 쿼리 {#querying-for-the-latest-active-token-state}

@@ -51,6 +51,20 @@ The agent also respects column dependencies. If an output column depends on othe
 
 For more details, see [Catalog Agent best practices]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
 
+### Do failed agent invocations consume credits?
+
+It depends on the failure type:
+
+| Failure | Consumes credits? |
+| --- | --- |
+| Rate limit error | No |
+| Model unavailable | No |
+| Daily invocation limit reached | No |
+| Timeout | Yes |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Do failed agent invocations consume credits?" }
+
+See [When credits are consumed]({{site.baseurl}}/user_guide/brazeai/agents/reference#when-credits-are-consumed) for details.
+
 ### My agent is struggling with a complex task. How might I improve its performance? {#subagent-approach}
 
 If you find that the agent is struggling with the tasks you're asking it to do, consider a sub-agent approach. For example, you could use three agents to do the following:
@@ -59,7 +73,7 @@ If you find that the agent is struggling with the tasks you're asking it to do, 
 - Agent 2 references a catalog of item details and identifies which items might be relevant.
 - Agent 3 references a different catalog that has a variety of possible descriptions for each item and identifies the item description most relevant to the user to place in an email.
 
-### What might cause a custom agent to frequently time out?
+### What might cause a custom agent to frequently time out? {#what-might-cause-a-custom-agent-to-frequently-time-out}
 
 A custom agent may time out if:
 
@@ -67,6 +81,19 @@ A custom agent may time out if:
 - The agent instructions do not cover off on all scenarios or include a fallback condition (such as "If all inputs are blank, output 'Could not personalize'")
 - The agent instructions ask the agent to output a different output format than the one specified in the **Output** tab (for example, if the agent instructions ask for a string, but in **Output** tab the output is defined as a number)
 - The agent's task is too complex and would benefit from a [sub-agent approach](#subagent-approach) instead
+
+#### How to reduce timeouts
+
+If your agent times out often, try the following before contacting your account manager about a higher timeout limit:
+
+- **Choose a simpler or lower-cost model:** Faster models usually complete within the default timeout window. See [Determine which model to use]({{site.baseurl}}/user_guide/brazeai/agents/reference#determine-which-model-to-use).
+- **Lower the thinking level (BYO models only):** Start at **Minimal** and increase only if output quality suffers. See [Thinking levels]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels).
+- **Simplify the prompt:** Remove redundant instructions, shorten examples, and narrow the output schema. Use [Operator]({{site.baseurl}}/user_guide/brazeai/operator) to review and tighten your instructions.
+- **Split complex workflows into multiple agents:** If the use case has several sub-steps (for example, classify intent, then generate copy), use separate agents in sequence in Canvas or catalog instead of one agent that does everything. See [sub-agent approach](#subagent-approach).
+
+{% alert note %}
+Timeouts consume Braze credits even when the agent returns no usable output. See [When credits are consumed]({{site.baseurl}}/user_guide/brazeai/agents/reference#when-credits-are-consumed).
+{% endalert %}
 
 For Canvas Step Agents, configure [fallback values]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in Agent Console so users still receive output when an invocation fails.
 

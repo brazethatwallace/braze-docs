@@ -19,7 +19,7 @@ description: "이 문서에서는 유효하지 않은 전화번호를 조회하�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `sms.invalid_phone_numbers` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `sms.invalid_phone_numbers` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

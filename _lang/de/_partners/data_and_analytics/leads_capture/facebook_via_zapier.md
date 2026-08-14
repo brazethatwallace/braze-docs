@@ -50,7 +50,7 @@ Weitere Informationen zu diesen beiden Methoden, um Ihr Facebook-Konto mit Zapie
 
 #### Schritt 2b: Zapier zum Leads-Zugang im Facebook Business Manager hinzufügen {#step-2b-add-zapier-to-leads-access-in-facebook-business-manager}
 
-Gehen Sie in Ihrem Facebook Business Manager im Navigationsmenü auf **Integrations** > **Leads Access**. Wählen Sie Ihre Facebook-Seite aus und klicken Sie dann auf **CRMs**. Auf dem Tab „CRM“ wählen Sie **Assign CRMs** und fügen **Zapier** hinzu.
+Gehen Sie in Ihrem Facebook Business Manager im Navigationsmenü auf **Integrations** > **Leads Access**. Wählen Sie Ihre Facebook-Seite aus und klicken Sie dann auf **CRMs**. Auf dem CRM-Tab wählen Sie **Assign CRMs** und fügen **Zapier** hinzu.
 
 ![Facebook Business Manager Leads-Access-Seite mit Zapier als zugewiesener CRM-Integration.]({% image_buster /assets/img/fb_lead_ads_zapier/integration2.png %}){: style="max-width:80%;"}
 
@@ -128,7 +128,7 @@ Um dies End-to-End zu testen, verwenden Sie das Lead-Ads-Testing-Tool von Facebo
 
 ## Verwaltung der Nutzer:innen-Identität {#user-identity-management}
 
-Diese Integration ermöglicht es Ihnen, Ihre Facebook-Leads per E-Mail über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-phone-number) zu attributieren.
+Diese Integration ermöglicht es Ihnen, Ihre Facebook-Leads per E-Mail über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number) zu attributieren.
 
 * Wenn die E-Mail mit einem bestehenden Nutzerprofil übereinstimmt, aktualisiert Braze das Profil mit den Facebook-Lead-Daten.
 * Wenn es mehrere Nutzerprofile mit derselben E-Mail gibt, gibt Braze dem zuletzt aktualisierten Profil mit einer externen ID bei Updates den Vorrang.
@@ -162,7 +162,7 @@ Wenn Sie Zapier nicht verwenden und auch nicht vorhaben, Zapier zu verwenden, k�
 
 Um Leads von Facebook abzurufen, verwenden Sie <a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/retrieving#webhooks" target="_blank">Webhooks</a>. Lesen Sie die <a href="https://developers.facebook.com/docs/graph-api/webhooks/getting-started" target="_blank">Webhooks-Dokumentation</a>, um mit Webhooks in Facebook zu beginnen.
 
-Nachdem Sie die Webhook-URL in Facebook eingerichtet haben, arbeiten Sie mit Ihrem Team zusammen, um den besten Weg zur Weiterleitung der Daten an den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) zu finden. Ähnlich wie beim Zapier-Ansatz empfehlen wir, eine [Anfrage per E-Mail]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-phone-number) über den `users/track`-Endpunkt zu stellen.
+Nachdem Sie die Webhook-URL in Facebook eingerichtet haben, arbeiten Sie mit Ihrem Team zusammen, um den besten Weg zur Weiterleitung der Daten an den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) zu finden. Ähnlich wie beim Zapier-Ansatz empfehlen wir, eine [Anfrage per E-Mail]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number) über den `users/track`-Endpunkt zu stellen.
 {% enddetails %}
 
 {% alert tip %}

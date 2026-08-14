@@ -26,7 +26,7 @@ Diese Tabelle listet die unterstützten Operatoren auf. Beachten Sie, dass Klamm
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Operatoren" }
 
 {% alert note %}
-Operatoren können in bedingten Anweisungen (`if`, `elsif`, `unless`) verwendet werden, jedoch nicht in `assign`-Anweisungen, `for`-Schleifen oder Array-Zugriffsklammern. In `case`- und `when`-Tags vergleicht jeder Branch den `case`-Ausdruck mit einem `when`-Wert mittels Gleichheit anstelle beliebiger Operator-Ausdrücke. Beispiele finden Sie unter [Bedingte Messaging-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags). Eine vollständige Aufschlüsselung finden Sie unter [Wo Operatoren und Filter verwendet werden können]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
+Operatoren können in bedingten Anweisungen (`if`, `elsif`, `unless`) verwendet werden, jedoch nicht in `assign`-Anweisungen, `for`-Schleifen oder Array-Zugriffsklammern. In `case`- und `when`-Tags vergleicht jeder Branch den `case`-Ausdruck mit einem `when`-Wert mittels Gleichheit anstelle beliebiger Operator-Ausdrücke. Beispiele finden Sie unter [Bedingte Messaging-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when). Eine vollständige Aufschlüsselung finden Sie unter [Wo Operatoren und Filter verwendet werden können]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
 ## Bedingungen ohne Klammern gruppieren {#grouping-conditions-without-parentheses}

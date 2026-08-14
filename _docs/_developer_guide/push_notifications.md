@@ -27,7 +27,44 @@ If **Redirect to web URL** with **Open web URL inside app** isn't selected, but 
 {% endsdktab %}
 
 {% sdktab android tv %}
-{% multi_lang_include developer_guide/android_tv/push_notifications.md %}
+## About push notifications for Android TV
+
+![Android TV device illustration used for the Android TV push notifications guide.]({% image_buster /assets/img/Television.png %}){: style="float:right;max-width:25%;margin-left:15px; border: 0"}
+
+While not a native feature, Android TV push integration is made possible by leveraging the Braze Android SDK and Firebase Cloud Messaging to register a push token for Android TV. However, you must build a UI to display the notification payload after it is received.
+
+## Prerequisites
+
+To use this feature, you must complete the following:
+
+- [Integrate the Braze Android SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)
+- [Set up push notifications for the Braze Android SDK]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)
+
+## Setting up push notifications
+
+To set up push notifications for Android TV:
+
+1. Create a custom view in your app to display your notifications.
+2. Create a [custom notification factory]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_customization-display). This overrides the default SDK behavior and allows you to manually display the notifications. By returning `null`, this prevents the SDK from processing and requires custom code to display the notification. After completing these steps, you can start sending push to Android TV.<br><br>
+3. (Optional) To track click analytics effectively, set up click analytics tracking. This can be achieved by creating a [push callback]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_push-callback) to listen for Braze push opened and received intents.
+
+{% alert note %}
+These notifications do not persist and are only visible to the user when the device displays them. This is due to Android TV's notification center not supporting historical notifications.
+{% endalert %} 
+
+## Testing Android TV push notifications
+
+To test if your push implementation is successful, send a notification from the Braze dashboard as you would normally for an Android device.
+
+- **If the application is closed**: The push message displays a toast notification on the screen.
+- **If the application is open**: You have the opportunity to display the message in your own hosted UI. Follow the UI styling of the Android Mobile SDK in-app messages.
+
+## Best practices
+
+For marketers using Braze, launching a campaign to Android TV is identical to launching a push to Android mobile apps. To target these devices exclusively, select the Android TV App in segmentation.
+
+The delivered and clicked response returned by FCM follows the same convention as a mobile Android device; therefore, any errors are visible in the message activity log.
+
 {% endsdktab %}
 
 {% sdktab cordova %}

@@ -66,7 +66,7 @@ Jedes Beispiel fordert das Modell auf, neben der Ausgabe ein `explanation`-Feld 
 Content generation, canvas step agent
 {% endapitags %}
 
-Verwenden Sie diesen Canvas-Agent, um koordinierte E-Mail-Betreffzeilen, Preheader sowie Push-Benachrichtigungstitel und -Texte für Nutzer:innen zu generieren, die in der App gesucht, aber nicht gebucht haben. Das Ziel ist, sie in einer Canvas Journey mit lokalisiertem, markenkonformem Messaging erneut anzusprechen, das zum Checkout führt und dabei die Zeichenlimits jedes Kanals einhält.
+Verwenden Sie diesen Canvas-Schritt-Agent, um koordinierte E-Mail-Betreffzeilen, Preheader sowie Push-Benachrichtigungstitel und -Texte für Nutzer:innen zu generieren, die in der App gesucht, aber nicht gebucht haben. Das Ziel ist, sie in einer Canvas Journey mit lokalisiertem, markenkonformem Messaging erneut anzusprechen, das zum Checkout führt und dabei die Zeichenlimits jedes Kanals einhält.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
@@ -147,7 +147,7 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 Data standardization, canvas step agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Agent Nutzerfeedback aus Umfragen nach der Reise analysieren und Sentiment sowie Themen kategorisieren kann. Das Ziel dieses Agents ist es, die nächsten Schritte für eine separate CRM-Plattform zu bestimmen.
+Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent Nutzerfeedback aus Umfragen nach der Reise analysieren und Sentiment sowie Themen kategorisieren kann. Das Ziel dieses Agents ist es, die nächsten Schritte für eine separate CRM-Plattform zu bestimmen.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
@@ -215,7 +215,7 @@ Input & Output Example:
 Affinity agent, canvas step agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Agent Nutzer:innen anhand vorhandener angepasster Attribute und Verhaltenssignale mit hoher Kaufabsicht in spezifische Interessen-Buckets einordnen und dann das beste nächste Erlebnis oder den besten Artikel empfehlen kann. Das Ziel ist, Nutzer:innen zu präzise zugeschnittenen Erlebnissen weiterzuleiten – wie Warenkorb-Recovery oder kategoriespezifische Empfehlungen – ausschließlich basierend auf verifizierten Daten, ohne Attribute zu halluzinieren, die nicht vorhanden sind.
+Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent Nutzer:innen anhand vorhandener angepasster Attribute und Verhaltenssignale mit hoher Kaufabsicht in spezifische Interessen-Buckets einordnen und dann das beste nächste Erlebnis oder den besten Artikel empfehlen kann. Das Ziel ist, Nutzer:innen zu präzise zugeschnittenen Erlebnissen weiterzuleiten – wie Warenkorb-Recovery oder kategoriespezifische Empfehlungen – ausschließlich basierend auf verifizierten Daten, ohne Attribute zu halluzinieren, die nicht vorhanden sind.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
@@ -294,7 +294,7 @@ Recent Search: "cordless drill"
 Affinity agent, canvas step agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Agent die aktuelle Motivation von Nutzer:innen aus dem jüngsten Verhalten und Kontext ableiten kann – wie kürzlich favorisierte Artikel oder Suchverlauf – und den besten Route-Schlüssel für den nächsten Schritt zurückgibt. Das Ziel ist, jede:n Nutzer:in ohne manuelle Segmentierung auf den relevantesten Canvas-Pfad zu leiten.
+Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent die aktuelle Motivation von Nutzer:innen aus dem jüngsten Verhalten und Kontext ableiten kann – wie kürzlich favorisierte Artikel oder Suchverlauf – und den besten Route-Schlüssel für den nächsten Schritt zurückgibt. Das Ziel ist, jede:n Nutzer:in ohne manuelle Segmentierung auf den relevantesten Canvas-Pfad zu leiten.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
@@ -366,7 +366,7 @@ Recently Engaged Products: Drill bits
 Affinity agent, canvas step agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Agent Nutzer:innen basierend auf aktuellen Aktionen mit hoher Kaufabsicht und Verhaltenskontext (über Canvas-Kontext übergeben) ein bis drei Interessenkategorien zuweisen und dann das beste nächste Erlebnis oder den besten Artikel empfehlen kann. Das Ziel ist, den nächsten Schritt einer Customer Journey in Echtzeit mithilfe verifizierter Verhaltenssignale statt Annahmen zu personalisieren.
+Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent Nutzer:innen basierend auf aktuellen Aktionen mit hoher Kaufabsicht und Verhaltenskontext (über Canvas-Kontext übergeben) ein bis drei Interessenkategorien zuweisen und dann das beste nächste Erlebnis oder den besten Artikel empfehlen kann. Das Ziel ist, den nächsten Schritt einer Customer Journey in Echtzeit mithilfe verifizierter Verhaltenssignale statt Annahmen zu personalisieren.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
@@ -448,7 +448,7 @@ Recent Search: "18v cordless drill"
 Classification and routing, canvas step agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Agent jeweils eine eingehende Kundennachricht auswerten und zurückgeben kann, ob sie als Anfrage zum Opt-out aus zukünftigem Messaging behandelt werden soll (z. B. STOP, Abmeldung oder Widerruf der Einwilligung). Das Ziel ist die Ausgabe eines strikten booleschen Werts, damit Sie Journeys konservativ verzweigen können – um das Risiko zu reduzieren, nach einem Widerruf weiter Nachrichten zu senden, und gleichzeitig Fehlalarme zu vermeiden, wenn Nutzer:innen offensichtlich eine Frage stellen oder weiterhin interagieren.
+Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent jeweils eine eingehende Kundennachricht auswerten und zurückgeben kann, ob sie als Anfrage zum Opt-out aus zukünftigem Messaging behandelt werden soll (z. B. STOP, Abmeldung oder Widerruf der Einwilligung). Das Ziel ist die Ausgabe eines strikten booleschen Werts, damit Sie Journeys konservativ verzweigen können – um das Risiko zu reduzieren, nach einem Widerruf weiter Nachrichten zu senden, und gleichzeitig Fehlalarme zu vermeiden, wenn Nutzer:innen offensichtlich eine Frage stellen oder weiterhin interagieren.
 
 {% alert important %}
 Opt-out- und Einwilligungsverarbeitung unterliegt rechtlichen Verpflichtungen, die je nach Region und Kanal variieren. Betrachten Sie dieses Beispiel als Ausgangspunkt und überprüfen Sie Ihre endgültige Logik anhand Ihrer eigenen Compliance-Anforderungen (wie TCPA und DSGVO), bevor Sie sich im Produktivbetrieb darauf verlassen.
@@ -530,7 +530,7 @@ Input: “This sucks—what’s the promo code?” → false
 Data standardization, canvas step agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Agent unstrukturierte, unordentliche eingehende SMS- oder Chat-Antworten in ein konsistentes, strukturiertes Format normalisieren kann – durch Klassifizierung der Absicht, Extraktion von Entitäten und Kennzeichnung von Compliance-Signalen wie Opt-outs und PII. Das Ziel ist, nachgelagerter Automatisierung und internen Benachrichtigungen saubere, maschinenlesbare Daten für zuverlässiges Routing bereitzustellen.
+Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent unstrukturierte, unordentliche eingehende SMS- oder Chat-Antworten in ein konsistentes, strukturiertes Format normalisieren kann – durch Klassifizierung der Absicht, Extraktion von Entitäten und Kennzeichnung von Compliance-Signalen wie Opt-outs und PII. Das Ziel ist, nachgelagerter Automatisierung und internen Benachrichtigungen saubere, maschinenlesbare Daten für zuverlässiges Routing bereitzustellen.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
@@ -650,7 +650,7 @@ Final Output Specification:
 You must return an object with exactly two keys: "short_description" and "explanation".
 - short_description: Plain text for the catalog cell, maximum 150 characters. No markdown.
 - explanation: String. Brief note on how you combined Destination Name, Country, Primary Vibe, and Price Tier per the brand rules.
-Configure your agent's **Output** with **Fields** that match these key names (catalog agents do not use JSON Schema output in the Agent Console, but your instructions can still ask the model for this key-value shape).
+Configure your agent's **Output** with **Fields** that match these key names (Catalog Agents do not use JSON Schema output in the Agent Console, but your instructions can still ask the model for this key-value shape).
 
 Input & Output Example:
 <input_example>
@@ -821,7 +821,7 @@ existing_category: "hydration"
 Data standardization, canvas step agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Agent unstrukturierte Nutzereingaben – wie manuell eingegebenen Text mit Tippfehlern oder Variationen – verarbeiten und mithilfe von LLM-gestütztem Abgleich gegen Katalogsuchergebnisse anhand bekannter Katalogartikel standardisieren kann. Das Ziel ist, aus der ungenauen Eingabe zu erkennen, was die Nutzer:innen tatsächlich gemeint haben – besonders nützlich, wenn Liquid-Lookups keine ungefähren Übereinstimmungen verarbeiten können.
+Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent unstrukturierte Nutzereingaben – wie manuell eingegebenen Text mit Tippfehlern oder Variationen – verarbeiten und mithilfe von LLM-gestütztem Abgleich gegen Katalogsuchergebnisse anhand bekannter Katalogartikel standardisieren kann. Das Ziel ist, aus der ungenauen Eingabe zu erkennen, was die Nutzer:innen tatsächlich gemeint haben – besonders nützlich, wenn Liquid-Lookups keine ungefähren Übereinstimmungen verarbeiten können.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
@@ -869,7 +869,7 @@ You must return an object containing exactly three keys: "standardized_destinati
 
 Input & Output Example:
 <input_example>
-{{${first_name}}}: Sarah
+{{${first_name}}}: Jane
 {{context.${user_entered_destination}}}: Parisss
 Catalog search for destinations similar to "Parisss" returns: {"destination_name": "Paris"}
 </input_example>

@@ -20,7 +20,7 @@ description: "Cet article présente en détail l'endpoint Braze Exporter le nomb
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `purchases.quantity_series`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `purchases.quantity_series`.
 
 ## Limite de débit {#rate-limit}
 
@@ -48,7 +48,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/purchases/quantity_
 
 ```json
 {
-  "message": (required, string) the status of the export, returns 'success' when completed without errors,
+  "message": (string) returns 'success' when the request completes without errors,
   "data" : [
     {
       "time" : (string) the date as ISO 8601 date,

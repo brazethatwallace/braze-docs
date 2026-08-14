@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Copy Pastd
 
-> [Copy Pastd](https://copypastd.com/) Building Blocks is a drag-and-drop email builder that pushes Liquid-powered Content Blocks and full templates directly into your Braze workspace. Design once, sync to Braze, and reuse the same components across campaigns, Canvases, and triggered flows without rebuilding HTML each time.
+> [Copy Pastd](https://copypastd.com/) offers Building Blocks, a drag-and-drop email builder that pushes Liquid-powered Content Blocks and full templates directly into your Braze workspace. Design once, sync to Braze, and reuse the same components across campaigns, Canvases, and triggered flows without rebuilding HTML each time.
 
 _This integration is maintained by Copy Pastd._
 
@@ -36,7 +36,7 @@ The following are required to use this integration:
 
 * **Brand-consistent authoring at scale.** Apply a Building Blocks stylesheet to every template, and colors, fonts, button styles, and padding scale render identically across hundreds of emails. When the brand changes, update the stylesheet once and resync to roll out the update across all your emails at once.
 * **Connected Content and Catalog-bound product templates.** Bind email block fields directly to your [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) endpoints and [Braze Catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs/) from inside the builder. Reuse the same template for new product drops, seasonal collections, or content refreshes without touching Liquid.
-* **Self-serve email production for non-technical marketers.** Compose a full email from approved blocks, including Liquid personalization and logic, and push it to Braze for review without developer support to write HTML or Liquid or perform quality assurance on either.
+* **Self-serve email production for non-technical marketers.** Compose a full email from approved blocks, including Liquid personalization and logic, and push it to Braze for review without developer support to write HTML or Liquid or review either.
 * **Central headers and footers, updated in one click.** Build a header or footer once in the Building Blocks builder and push it to Braze. Every template that references it stays in sync, so a logo swap, a legal copy change, or a new social link takes only one update inside Building Blocks to land across every email already in Braze.
 * **Centralized content across all emails.** Build a hero, footer, or promo card once as a Building Blocks smart block. Update it, sync, and every email already in Braze that references it picks up the change on the next send. Welcome flows, weekly newsletters, and triggered journeys stay fresh without editing each campaign.
 * **Locked templates for contributors to self-serve.** Build templates, lock selected fields, then invite other teams to build their own emails from a contributor interface without granting them access to user-facing tools.

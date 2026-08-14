@@ -29,16 +29,16 @@ description: "이 문서에서는 API 및 CSV 내보내기에 대해 자주 묻�
 
 ## 고객 프로필을 S3로 내보낼 때 여러 개의 파일을 받는 이유는 무엇인가요? {#why-did-i-receive-multiple-files-when-exporting-user-profiles-to-s3}
 
-이는 사용자가 많은 워크스페이스에서 예상되는 동작입니다. Braze는 워크스페이스의 사용자 수에 따라 내보내기를 여러 파일로 분할합니다. 일반적으로 사용자 5,000명당 1개의 파일이 출력됩니다. 큰 워크스페이스 내에서 작은 세그먼트를 내보내는 경우에도 여러 개의 파일을 받을 수 있다는 점에 유의하세요.
+이는 사용자가 많은 워크스페이스에서 예상되는 동작입니다. Braze는 워크스페이스의 사용자 수에 따라 내보내기를 여러 파일로 분할합니다. 일반적으로 사용자 5,000명당 1개의 파일이 출력됩니다. 큰 워크스페이스 내에서 작은 Segment를 내보내는 경우에도 여러 개의 파일을 받을 수 있다는 점에 유의하세요.
 
-## REST API를 통해 세그먼트별로 사용자를 내보낼 때 중복된 사용자가 표시되는 이유는 무엇인가요? {#why-do-i-see-duplicates-when-i-export-users-by-segment-through-rest-api}
+## REST API를 통해 Segment별로 사용자를 내보낼 때 중복된 사용자가 표시되는 이유는 무엇인가요? {#why-do-i-see-duplicates-when-i-export-users-by-segment-through-rest-api}
 
 이는 데이터베이스 제공업체의 기본 아키텍처로 인해 발생하는 매우 드문 현상입니다. 중복 항목은 매주 정리되지만, 대부분의 경우 정리할 중복 항목이 없습니다.
 
 ## Excel에서 CSV 보고서를 열려면 어떻게 하나요? {#how-do-i-open-csv-reports-in-excel}
 
-CSV 파일은 일반적으로 기본값으로 Excel에서 자동으로 열리지만, 항상 그런 것은 아닙니다. Excel을 기본 프로그램으로 설정하는 방법은 [Windows](https://support.microsoft.com/en-us/windows/change-which-programs-windows-7-uses-by-default-62fd162f-8c82-0436-806f-c60d69dcf495) 및 [Apple](https://support.apple.com/guide/mac-help/choose-an-app-to-open-a-file-on-mac-mh35597/mac) 문제 해결 문서를 참조하세요.
+CSV 파일은 일반적으로 기본적으로 Excel에서 자동으로 열리지만, 항상 그런 것은 아닙니다. Excel을 기본 프로그램으로 설정하는 방법은 [Windows](https://support.microsoft.com/en-us/windows/change-which-programs-windows-7-uses-by-default-62fd162f-8c82-0436-806f-c60d69dcf495) 및 [Apple](https://support.apple.com/guide/mac-help/choose-an-app-to-open-a-file-on-mac-mh35597/mac) 문제 해결 문서를 참조하세요.
 
-CSV를 XLSX 또는 XLS로 변환하거나 데이터 값 사이의 쉼표를 제거하려면 Excel로 CSV를 가져오는 방법에 대한 [이 가이드](https://www.ablebits.com/office-addins-blog/convert-csv-excel/#import-csv-wizard)를 참조하세요.
+CSV를 XLSX 또는 XLS로 변환하거나 데이터 값 사이의 쉼표를 제거하려면 [Excel로 CSV를 가져오는 방법에 대한 가이드](https://www.ablebits.com/office-addins-blog/convert-csv-excel/#import-csv-wizard)를 참조하세요.
 
 CSV 내보내기에서 사용자 ID의 앞자리 0이 제거되는 경우, 이는 Excel이 CSV의 숫자를 텍스트가 아닌 데이터로 처리하기 때문입니다. 이 문제를 해결하려면 [Excel 텍스트 가져오기 마법사](https://www.ablebits.com/office-addins-blog/converting-csv-excel-issues/#leading-zeros)를 실행하세요.

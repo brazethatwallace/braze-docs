@@ -106,14 +106,14 @@ Authorization: Bearer YOUR_REST_API_KEY
 Um dos seguintes é obrigatório por solicitação: `aliases_to_identify`, `emails_to_identify` ou `phone_numbers_to_identify`. Por exemplo, você pode usar este endpoint para identificar usuários por e-mail usando `emails_to_identify` na sua solicitação.
 {% endalert %}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |-----------------------------|----------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `aliases_to_identify` | Obrigatória | Vetor de aliases para identificar o objeto | Consulte [alias para identificar o objeto]({{site.baseurl}}/api/objects_filters/aliases_to_identify) e [o objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object). |
-| `emails_to_identify` | Obrigatória | Vetor de aliases para identificar o objeto | Obrigatório se `email` for especificado como o identificador. Endereços de e-mail para identificar usuários. Consulte [Identificação de usuários por e-mail](#identifying-users-by-email). |
-| `phone_numbers_to_identify` | Obrigatória | Vetor de aliases para identificar o objeto | Números de telefone para identificar usuários. |
+| `aliases_to_identify` | Obrigatório | Vetor de aliases para identificar o objeto | Consulte [alias para identificar o objeto]({{site.baseurl}}/api/objects_filters/aliases_to_identify) e [o objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object). |
+| `emails_to_identify` | Obrigatório | Vetor de aliases para identificar o objeto | Obrigatório se `email` for especificado como o identificador. Endereços de e-mail para identificar usuários. Consulte [Identificação de usuários por e-mail](#identifying-users-by-email-addresses-and-phone-numbers). |
+| `phone_numbers_to_identify` | Obrigatório | Vetor de aliases para identificar o objeto | Números de telefone para identificar usuários. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
-### Identificando usuários por endereços de e-mail e números de telefone {#identifying-users-by-email-addresses-and-phone-numbers}
+### Identificação de usuários por endereços de e-mail e números de telefone {#identifying-users-by-email-addresses-and-phone-numbers}
 
 Se um endereço de e-mail ou número de telefone for especificado como identificador, você também deve incluir `prioritization` no identificador.
 
@@ -171,7 +171,7 @@ Para saber mais sobre `alias_name` e `alias_label`, consulte nossa documentaçã
 
 ### Por que minha solicitação de identificação retorna sucesso, mas o perfil não foi mesclado? {#why-does-my-identify-request-return-success-but-the-profile-did-not-merge}
 
-`201 Created` com `message: success` significa que aceitamos a solicitação. Isso não garante que cada alias ou e-mail na carga útil correspondeu a um perfil existente — diferenças de maiúsculas e minúsculas em `alias_name`, perfis duplicados ou nossas regras de priorização podem resultar em nenhuma mesclagem visível, mesmo que a chamada tenha sido bem-sucedida. Verifique se a capitalização de `alias_name` corresponde exatamente aos valores armazenados, confira se há perfis duplicados com [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) e revise a [`prioritization`](#identifying-users-by-email) ao usar `emails_to_identify`.
+`201 Created` com `message: success` significa que a Braze aceitou a solicitação. Isso não garante que cada alias ou e-mail na carga útil correspondeu a um perfil existente — diferenças de maiúsculas e minúsculas em `alias_name`, perfis duplicados ou regras de priorização da Braze podem resultar em nenhuma mesclagem visível, mesmo que a chamada tenha sido bem-sucedida. Verifique se a capitalização de `alias_name` corresponde exatamente aos valores armazenados, confira se há perfis duplicados com [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) e revise a [`prioritization`](#identifying-users-by-email-addresses-and-phone-numbers) ao usar `emails_to_identify`.
 
 ## Resposta {#response}
 

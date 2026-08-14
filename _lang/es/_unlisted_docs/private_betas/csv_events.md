@@ -8,15 +8,22 @@ page_type: reference
 
 # Importar datos de usuario (acceso anticipado a eventos CSV) {#importing-user-data-csv-events-early-access}
 
-> Braze ofrece diversas formas de importar datos de usuario a la plataforma: SDK, API, Ingesta de datos de Cloud, integraciones de socios tecnológicos y archivos CSV. Este artículo proporciona instrucciones detalladas sobre cómo importar datos de usuario, incluyendo cómo [importar eventos personalizados a través de archivos CSV (acceso anticipado)](#importing-custom-events).
+> Braze ofrece diversas formas de importar datos de usuario a la plataforma: SDK, API, ingesta de datos en la nube, integraciones de partners tecnológicos y archivos CSV. Este artículo proporciona instrucciones detalladas sobre cómo importar datos de usuario, incluyendo cómo [importar eventos personalizados a través de archivos CSV (acceso anticipado)](#importing-custom-events).
 
-{% multi_lang_include channels/sms/email_via_sms_warning.md %}
+{% alert important %}
+No envíes correos transaccionales legalmente obligatorios a pasarelas SMS, ya que existe una alta probabilidad de que esos correos electrónicos no se entreguen.
+
+Aunque los correos electrónicos que envías usando un número de teléfono y el dominio de pasarela de correo electrónico a SMS del proveedor (MM3) pueden resultar en que el correo electrónico se reciba como un mensaje SMS (texto), algunos proveedores de correo electrónico no admiten este comportamiento. Por ejemplo, si envías un correo electrónico a un número de teléfono de T-Mobile (como "9999999999@tmomail.net"), tu mensaje SMS se enviaría a quien sea propietario de ese número de teléfono en la red de T-Mobile.
+
+Aunque estos correos electrónicos no se entreguen a la pasarela SMS, siguen contando para tu facturación de correo electrónico. Para evitar enviar correos electrónicos a pasarelas no compatibles, revisa la [lista de nombres de dominio de pasarelas no compatibles](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads).
+{% endalert %}
+
 
 Antes de continuar, ten en cuenta que Braze no sanea (valida ni formatea correctamente) los datos HTML durante la importación. Esto significa que las etiquetas de script deben eliminarse de todos los datos de importación destinados a la personalización web.
 
 ## REST API
 
-Puedes usar el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para registrar eventos personalizados, atributos de usuario y compras para los usuarios.
+Puedes usar el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para registrar eventos personalizados, atributos de usuario y compras para los usuarios.
 
 ## Importación CSV {#csv-import}
 
@@ -59,7 +66,7 @@ Si estás cargando o actualizando perfiles de usuario que son solo alias, debes 
 Cuando proporcionas tanto un `user_alias_name` como un `user_alias_label` en tu importación, Braze actualizará cualquier usuario existente con el mismo `user_alias_name` y `user_alias_label`. Si no se encuentra un usuario, Braze creará un usuario recién identificado con ese `user_alias_name` establecido.
 
 {% alert important %}
-No puedes usar una importación CSV para actualizar un usuario existente con un `user_alias_name` si ya tiene un `external_id`. En su lugar, esto creará un nuevo perfil de usuario con el `user_alias_name` asociado. Para asociar un usuario de solo alias con un `external_id`, usa el [punto de conexión Identificar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
+No puedes usar una importación CSV para actualizar un usuario existente con un `user_alias_name` si ya tiene un `external_id`. En su lugar, esto creará un nuevo perfil de usuario con el `user_alias_name` asociado. Para asociar un usuario de solo alias con un `external_id`, usa el [endpoint Identificar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
 {% endalert %}
 
 - **Descargar:** [Plantilla de importación de atributos de alias CSV][template_alias_attributes]
@@ -109,7 +116,7 @@ Al importar datos de clientes como atributos, los encabezados de columna que use
 | `push_subscribe` | Cadena | Los valores disponibles son `opted_in` (registrado explícitamente para recibir mensajes push), `unsubscribed` (optó explícitamente por no recibir mensajes push) y `subscribed` (ni optó por recibir ni por no recibir). | No |
 | `time_zone` | Cadena | La zona horaria debe pasarse a Braze en el mismo formato que la base de datos de zonas horarias de IANA (por ejemplo, `America/New_York` o `Eastern Time (US & Canada)`). | No |
 | `date_of_first_session` <br><br> `date_of_last_session`| Cadena | Puede pasarse en uno de los siguientes formatos ISO-8601: {::nomarkdown} <ul> <li> "YYYY-MM-DD" </li> <li> "YYYY-MM-DDTHH:MM:SS+00:00" </li> <li> "YYYY-MM-DDTHH:MM:SSZ" </li> <li> "YYYY-MM-DDTHH:MM:SS" (por ejemplo, 2019-11-20T18:38:57) </li> </ul> {:/} | No |
-| `subscription_group_id` | Cadena | El `id` de tu grupo de suscripción. Este identificador se puede encontrar en la página del grupo de suscripción de tu dashboard. | No |
+| `subscription_group_id` | Cadena | El `id` de tu grupo de suscripción. Este identificador se puede encontrar en la página del grupo de suscripción de tu panel. | No |
 | `subscription_state` | Cadena | El estado de suscripción para el grupo de suscripción especificado por `subscription_group_id`. Los valores permitidos son `unsubscribed` (no está en el grupo de suscripción) o `subscribed` (está en el grupo de suscripción). | No, pero se recomienda encarecidamente si se usa `subscription_group_id`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
 
@@ -136,7 +143,7 @@ Los siguientes tipos de datos se aceptan en la importación de usuarios:
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert important %}
-Los arrays y los tokens de notificaciones push no son compatibles con la importación de usuarios. Especialmente para los arrays, las comas en tu archivo CSV se interpretarán como un separador de columna, por lo que cualquier coma en los valores causará errores al analizar el archivo. <br>Para cargar este tipo de valores, usa el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion).
+Los arrays y los tokens de notificaciones push no son compatibles con la importación de usuarios. Especialmente para los arrays, las comas en tu archivo CSV se interpretarán como un separador de columna, por lo que cualquier coma en los valores causará errores al analizar el archivo. <br>Para cargar este tipo de valores, usa el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data_and_analytics/cloud_ingestion).
 {% endalert %}
 
 ### Actualizar el estado del grupo de suscripción {#updating-subscription-group-status}

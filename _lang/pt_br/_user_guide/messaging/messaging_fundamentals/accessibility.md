@@ -20,7 +20,7 @@ Este conteúdo é destinado a orientações gerais e não garante conformidade c
 
 ## Acessibilidade na Braze {#accessibility-at-braze}
 
-Apoiar a comunicação acessível significa manter-se aberto, curioso e disposto a aprender. Na Braze, nos importamos em ajudar as pessoas a se conectarem — e sabemos que abrir espaço para todos faz parte disso. Acessibilidade não é algo que consideramos "concluído", e agradecemos a oportunidade de continuar aprendendo.
+Apoiar a comunicação acessível significa manter-se aberto, curioso e disposto a aprender. Na Braze, nos importamos em ajudar as pessoas a se conectarem — e sabemos que abrir espaço para todos faz parte de fazer isso bem. Acessibilidade não é algo que consideramos "concluído", e recebemos com satisfação a oportunidade de continuar aprendendo.
 
 {% multi_lang_include accessibility/feedback.md %}
 
@@ -31,32 +31,32 @@ Apoiar a comunicação acessível significa manter-se aberto, curioso e disposto
 {% tabs local %}
 {% tab Visual %}
 
-Deficiências visuais podem variar de perda leve ou moderada de visão em um ou ambos os olhos, até perda substancial ou completa de visão em ambos os olhos. Algumas pessoas têm sensibilidade reduzida ou ausente a certas cores, ou sensibilidade aumentada a cores brilhantes.
+As deficiências visuais podem variar de perda de visão leve ou moderada em um ou ambos os olhos até perda substancial ou completa da visão em ambos os olhos. Algumas pessoas têm sensibilidade reduzida ou inexistente a certas cores, ou sensibilidade aumentada a cores brilhantes.
 
-Para interagir com seu conteúdo, esses usuários precisam da capacidade de:
+Para interagir com o seu conteúdo, esses usuários precisam da capacidade de:
 
 - Aumentar ou reduzir o tamanho do texto e das imagens
 - Personalizar configurações de fontes, cores e espaçamento
-- Ouvir a síntese de texto para fala do conteúdo (ou seja, usar um leitor de tela)
-- Ouvir audiodescrições de vídeos
+- Ouvir a síntese de texto em fala do conteúdo (ou seja, usar um leitor de tela)
+- Ouvir audiodescrições de vídeo
 - Ler texto usando Braille atualizável
 
 {% alert note %}
 - Globalmente, pelo menos 2,2 bilhões de pessoas têm deficiência visual de perto ou de longe (veja [OMS](https://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment))
-- Cerca de 1 em cada 12 homens e 1 em cada 200 mulheres têm algum grau de deficiência na visão de cores, estimando-se 300 milhões de pessoas no mundo (veja [NHS](https://www.nhs.uk/conditions/colour-vision-deficiency/))
+- Cerca de 1 em cada 12 homens e 1 em cada 200 mulheres têm algum grau de deficiência na visão de cores, totalizando aproximadamente 300 milhões de pessoas no mundo (veja [NHS](https://www.nhs.uk/conditions/colour-vision-deficiency/))
 {% endalert %}
 
 {% endtab %}
 {% tab Auditiva %}
 
-Deficiências auditivas podem incluir perda auditiva leve a moderada em um ou ambos os ouvidos. Mesmo a perda parcial de audição pode ser problemática em relação a conteúdo de áudio.
+As deficiências auditivas podem incluir perda auditiva leve a moderada em um ou ambos os ouvidos. Mesmo a perda parcial da audição pode ser problemática em relação a conteúdo de áudio.
 
-Para entender seu conteúdo, esses usuários dependem de:
+Para entender o seu conteúdo, esses usuários dependem de:
 
 - Transcrições e legendas de conteúdo de áudio
 - Players de mídia que exibem legendas e oferecem opções para ajustar o tamanho e as cores do texto das legendas
-- Opções para parar, pausar e ajustar o volume do conteúdo de áudio (independente do volume do sistema)
-- Áudio em primeiro plano de alta qualidade que seja claramente distinguível de qualquer ruído de fundo
+- Opções para parar, pausar e ajustar o volume do conteúdo de áudio (independentemente do volume do sistema)
+- Áudio em primeiro plano de alta qualidade, claramente distinguível de qualquer ruído de fundo
 
 {% alert note %}
 - Uma em cada oito pessoas nos Estados Unidos (13%, ou 30 milhões) com 12 anos ou mais tem perda auditiva em ambos os ouvidos, com base em exames auditivos padrão
@@ -66,9 +66,9 @@ Para entender seu conteúdo, esses usuários dependem de:
 {% endtab %}
 {% tab Física %}
 
-Deficiências físicas podem incluir fraqueza e limitações de controle muscular ou sensação, distúrbios articulares, dor que impede o movimento e membros ausentes.
+As deficiências físicas podem incluir fraqueza e limitações no controle muscular ou na sensibilidade, distúrbios articulares, dor que impede o movimento e membros amputados.
 
-Esses usuários dependem do suporte a teclado para ativar funcionalidades (mesmo que não estejam usando um teclado padrão). Para interagir com seu conteúdo, esses usuários precisam de:
+Esses usuários dependem do suporte a teclado para ativar funcionalidades (mesmo que não estejam usando um teclado padrão). Para interagir com o seu conteúdo, esses usuários precisam de:
 
 - Áreas clicáveis grandes
 - Tempo suficiente para concluir tarefas
@@ -82,16 +82,16 @@ Quase 2 milhões de pessoas nos EUA vivem com perda de membros (veja [Amputee Co
 {% endtab %}
 {% tab Cognitiva %}
 
-Deficiências cognitivas, de aprendizagem e neurológicas envolvem neurodiversidade e distúrbios neurológicos, bem como distúrbios comportamentais e de saúde mental que não são necessariamente neurológicos. Elas podem afetar qualquer parte do sistema nervoso e impactar a capacidade das pessoas de ouvir, se mover, ver, falar e entender informações.
+As deficiências cognitivas, de aprendizagem e neurológicas envolvem neurodiversidade e distúrbios neurológicos, bem como distúrbios comportamentais e de saúde mental que não são necessariamente neurológicos. Elas podem afetar qualquer parte do sistema nervoso e impactar a capacidade das pessoas de ouvir, se mover, ver, falar e compreender informações.
 
 Dependendo das necessidades individuais, esses usuários dependem de:
 
 - Conteúdo claramente estruturado
 - Rotulagem consistente de formulários, botões e outros conteúdos
-- Destinos de links previsíveis e interação geral
+- Destinos de links previsíveis e interação geral previsível
 - Diferentes formas de navegação, como menus e barras de pesquisa
 - Configurações para desativar conteúdo piscante, intermitente ou que cause distração
-- Texto mais simples apoiado por imagens
+- Texto mais simples, apoiado por imagens
 
 
 {% alert note %}
@@ -111,17 +111,17 @@ Criar conteúdo acessível não precisa ser algo complicado. Pequenas escolhas c
 
 #### Estrutura e fluxo {#structure-and-flow}
 
-Vamos começar pela base. Quando seu conteúdo tem uma estrutura clara, é mais fácil para todos acompanharem — especialmente pessoas que dependem de leitores de tela ou navegação por teclado.
+Vamos começar pela base. Quando seu conteúdo tem uma estrutura clara, fica mais fácil para todos acompanharem — especialmente pessoas que dependem de leitores de tela ou navegação por teclado.
 
-- **Divida seu conteúdo em seções:** Usar títulos, marcadores e listas ajuda as pessoas a entender e escanear rapidamente seu conteúdo — mesmo quando estão com pressa.
-- **Não pule níveis de título:** Os títulos dão estrutura ao seu conteúdo, ajudando os leitores a entender rapidamente como as seções se relacionam entre si. Quando você pula níveis de título (por exemplo, indo direto de um H2 para um H4), você quebra essa estrutura lógica. Isso dificulta a navegação e compreensão da sua mensagem para os usuários, especialmente aqueles que usam leitores de tela. Sempre siga uma hierarquia lógica e sequencial de títulos (H1 para H2 para H3, e assim por diante) para garantir que seu conteúdo permaneça organizado, acessível e fácil de acompanhar para todos.
+- **Divida seu conteúdo em seções:** Usar títulos, marcadores e listas ajuda as pessoas a entender e escanear seu conteúdo rapidamente — mesmo quando estão com pressa.
+- **Não pule níveis de título:** Os títulos dão estrutura ao seu conteúdo, ajudando os leitores a entender rapidamente como as seções se relacionam entre si. Quando você pula níveis de título (por exemplo, indo direto de um H2 para um H4), você quebra essa estrutura lógica. Isso dificulta a navegação e a compreensão da sua mensagem para os usuários, especialmente aqueles que usam leitores de tela. Sempre siga uma hierarquia lógica e sequencial de títulos (H1 para H2 para H3, e assim por diante) para garantir que seu conteúdo permaneça organizado, acessível e fácil de acompanhar para todos.
 
 #### Legibilidade {#readability}
 
 Com a estrutura definida, o próximo passo é garantir que suas palavras sejam realmente fáceis de ler. Isso significa manter as coisas simples, escaneáveis e confortáveis de ler em diferentes dispositivos e necessidades dos usuários.
 
-- **Escreva frases curtas e claras:** Frases curtas são fáceis de entender para todos, especialmente pessoas que usam leitores de tela ou que têm dificuldade em processar informações complexas. Escreva para um nível de leitura equivalente ao sétimo ano nos Estados Unidos. Você pode usar recursos como o [Hemingway App](https://hemingwayapp.com/) para verificar o nível de leitura do seu texto.
-- **Escolha tamanhos de fonte e espaçamento legíveis:** Texto muito pequeno pode ser difícil de ler — especialmente em dispositivos móveis. Use pelo menos 14px para o texto do corpo. Faça os títulos maiores para que os usuários possam ver claramente a diferença. Espaçamento extra entre linhas (cerca de 1,5 de altura de linha) e parágrafos melhora a legibilidade, especialmente para pessoas com necessidades visuais ou cognitivas.
+- **Escreva frases curtas e claras:** Frases curtas são fáceis de entender para todos, especialmente pessoas que usam leitores de tela ou que têm dificuldade em processar informações complexas. Escreva em um nível de leitura equivalente ao sétimo ano nos Estados Unidos. Você pode usar recursos como o [Hemingway App](https://hemingwayapp.com/) para verificar o nível de leitura do seu texto.
+- **Escolha tamanhos de fonte e espaçamento legíveis:** Texto muito pequeno pode ser difícil de ler — especialmente em dispositivos móveis. Use pelo menos 14px para o texto do corpo. Faça os títulos maiores para que os usuários possam ver claramente a diferença. Espaçamento extra entre linhas (cerca de 1.5 de altura de linha) e parágrafos melhora a legibilidade, especialmente para pessoas com necessidades visuais ou cognitivas.
 - **Evite texto justificado:** Texto justificado cria espaçamento irregular entre palavras, dificultando a leitura para pessoas com dislexia ou deficiências cognitivas. Considere alinhar à esquerda o conteúdo que ocupa mais de duas linhas para idiomas da esquerda para a direita, ou alinhar à direita para [idiomas da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 - **Use negrito, itálico e texto em maiúsculas com moderação:** Enfatizar muito texto dificulta a leitura — especialmente para pessoas com dislexia ou deficiências visuais. Mantenha a simplicidade.
 
@@ -129,13 +129,13 @@ Com a estrutura definida, o próximo passo é garantir que suas palavras sejam r
 
 Por fim, vamos falar sobre os detalhes mais finos — as coisas que ajudam os usuários não apenas a ver seu conteúdo, mas a entendê-lo e interagir com ele.
 
-- **Rotule links e botões claramente:** Certifique-se de que o texto dos seus [links](#links) e [botões](#buttons) explique claramente o que acontece em seguida. Isso ajuda pessoas que usam leitores de tela ou navegam com teclado a saber o que esperar.
+- **Rotule links e botões de forma clara:** Certifique-se de que o texto dos seus [links](#links) e [botões](#buttons) explique claramente o que acontecerá em seguida. Isso ajuda pessoas que usam leitores de tela ou navegam com teclado a saber o que esperar.
 - **Pegue leve com símbolos e emojis:** Caracteres especiais e emojis podem tornar seu conteúdo divertido, mas podem ser confusos quando lidos por leitores de tela. Use-os com moderação e certifique-se de que não substituam texto claro e descritivo.
-- **Teste se há truncamento:** Sempre teste seu texto [enviando uma mensagem de teste]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) para um dispositivo para garantir que seu texto não seja truncado. Se sua mensagem estiver sendo cortada, isso prejudica tanto você quanto seu público, pois impede que seu conteúdo chegue até eles.
+- **Teste a truncagem:** Sempre teste seu texto [enviando uma mensagem de teste]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages) para um dispositivo para garantir que seu texto não seja truncado. Se sua mensagem estiver sendo cortada, isso prejudica tanto você quanto seu público, pois impede que seu conteúdo chegue até eles.
 
 ### Idioma de acessibilidade {#accessibility-language}
 
-O **idioma de acessibilidade** informa aos leitores de tela e outras ferramentas assistivas em qual idioma seu conteúdo está. Para canais que enviam uma página HTML completa ou e-mail, a Braze pode adicionar uma tag de idioma (`lang`) quando você a define no editor ou via Liquid. Isso atende ao [Critério de Sucesso 3.1.1 do WCAG 2.1 — Idioma da Página (Nível A)](https://www.w3.org/WAI/WCAG21/Understanding/language-of-page.html).
+O **idioma de acessibilidade** informa aos leitores de tela e outras ferramentas assistivas em qual idioma seu conteúdo está. Para canais que enviam uma página HTML completa ou e-mail, a Braze pode adicionar uma tag de idioma (`lang`) quando você a define no editor ou via Liquid. Isso atende ao [Critério de Sucesso 3.1.1 da WCAG 2.1 — Idioma da Página (Nível A)](https://www.w3.org/WAI/WCAG21/Understanding/language-of-page.html).
 
 Se você deixar o idioma de acessibilidade em branco e não houver um padrão seguro disponível, a Braze omite a tag de idioma. Se nenhum idioma for definido, as ferramentas assistivas geralmente recorrem ao idioma do telefone ou computador da pessoa. Se esse idioma for diferente do idioma da mensagem, a pronúncia pode soar incorreta.
 
@@ -151,27 +151,27 @@ Em **Configurações de localização**, defina um idioma de acessibilidade para
 
 #### Suporte por canal e editor {#channel-and-editor-support}
 
-Use esta tabela para comparar os canais. Os padrões podem variar, então verifique o que seu público realmente recebe.
+Use esta tabela para comparar canais. Os padrões podem variar, então verifique o que seu público realmente recebe.
 
 | Canal | O que saber |
 | --- | --- |
-| E-mail (arrastar e soltar, modelo completo) | Defina o idioma no editor. Com mensagens multilíngues, um modelo de e-mail completo pode corresponder ao idioma de cada localidade automaticamente. Se você usa apenas Content Blocks (linha única), esses atalhos não funcionam da mesma forma — escolha o idioma você mesmo onde o editor permitir. |
+| E-mail (arrastar e soltar, modelo completo) | Defina o idioma no editor. Com mensagens multilíngues, um modelo de e-mail completo pode corresponder ao idioma de cada localidade automaticamente. Se você usar apenas Content Blocks (linha única), esses atalhos não funcionam da mesma forma — escolha o idioma você mesmo onde o editor permitir. |
 | E-mail (código HTML) | A Braze não adiciona uma tag de idioma para você. Adicione-a no seu HTML se precisar. |
-| Mensagens no app (arrastar e soltar) | Quando você escolhe um idioma em **Acessibilidade**, a Braze adiciona esse idioma ao HTML externo da mensagem para que os leitores de tela tratem toda a mensagem nesse idioma. Com mensagens multilíngues ativadas, novas mensagens podem usar como padrão os idiomas das suas localidades. A **pré-visualização** pode não mostrar nenhum idioma até que você escolha um em **Configurações**. |
+| In-App Messages (arrastar e soltar) | Quando você escolhe um idioma em **Acessibilidade**, a Braze adiciona esse idioma ao HTML externo da mensagem para que os leitores de tela tratem toda a mensagem nesse idioma. Com mensagens multilíngues ativadas, novas mensagens podem usar como padrão os idiomas das suas localidades. A **prévia** pode não mostrar nenhum idioma até que você escolha um em **Configurações**. |
 | Banners | Mesmo comportamento das mensagens no app. |
 | Landing pages | Você pode definir o idioma na página publicada. Escolha um idioma ou use Liquid se sua conta permitir Liquid em landing pages. Os padrões também diferem das mensagens no app e Banners — verifique a página publicada. |
 | Content Cards | Os cartões usam um campo **Idioma** para apps em vez de um idioma de acessibilidade explícito. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Suporte por canal e editor" }
 
-Quando você escreve HTML por conta própria, ainda pode adicionar uma tag de idioma em parte da mensagem (por exemplo, uma frase em outro idioma). Para mais padrões, veja [HTML personalizado](#custom-html).
+Quando você escreve HTML por conta própria, ainda pode adicionar uma tag de idioma em parte da mensagem (por exemplo, uma frase em outro idioma). Para mais padrões, consulte [HTML personalizado](#custom-html).
 
 #### Referência de padrões {#standards-reference}
 
-Quando a Braze adiciona uma tag de idioma no nível raiz ao HTML, ela segue a regra do atributo HTML [`lang`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang). Ferramentas de teste geralmente procuram por [`html-has-lang`](https://dequeuniversity.com/rules/axe/4.2/html-has-lang). Content Cards usam o campo **idioma** em vez desse padrão HTML.
+Quando a Braze adiciona uma tag de idioma no nível raiz ao HTML, ela segue a regra HTML [`lang`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang). Ferramentas de teste geralmente procuram por [`html-has-lang`](https://dequeuniversity.com/rules/axe/4.2/html-has-lang). Content Cards usam seu campo de **idioma** em vez desse padrão HTML.
 
 ### Botões {#buttons}
 
-Use **botões** para indicar uma ação, como enviar um formulário ou reproduzir um carrossel. Se você está navegando para uma nova URL, considere usar um [link](#links).
+Use **botões** para indicar uma ação, como enviar um formulário ou reproduzir um carrossel. Se você está navegando para uma nova URL, considere usar um [link](#links) em vez disso.
 
 #### Escreva texto claro e orientado à ação {#write-clear-action-oriented-text}
 
@@ -206,22 +206,22 @@ Assim como o texto de links, os rótulos dos botões devem descrever claramente 
       <td>"Saiba mais"</td>
     </tr>
     <tr>
-      <td>"Assinar para receber atualizações"</td>
-      <td>"Assinar"</td>
+      <td>"Inscrever-se para atualizações"</td>
+      <td>"Inscrever-se"</td>
     </tr>
   </tbody>
 </table>
 
-Mantenha o texto do botão conciso para evitar truncamento. Se o texto de um botão for muito longo, ele pode ser cortado com reticências em vez de quebrar a linha.
+Mantenha o texto do botão conciso para evitar truncagem. Se o texto de um botão for muito longo, ele pode ser cortado com reticências em vez de quebrar linha.
 
 #### Use contraste de cores suficiente {#use-sufficient-color-contrast}
 
-O texto do botão deve ser fácil de ler contra a cor de fundo do botão. Verifique se o texto do seu botão atende aos [mínimos de contraste](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) WCAG 2.2 AA:
+O texto do botão deve ser fácil de ler contra a cor de fundo do botão. Verifique se o texto do seu botão atende aos [mínimos de contraste](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) da WCAG 2.2 AA:
 
 - Proporção de contraste de 4.5:1 para texto de tamanho normal (a maioria dos botões)
-- Proporção de contraste de 3:1 para texto grande (geralmente acima de 18pt)
+- Proporção de contraste de 3:1 para texto grande (tipicamente 18pt ou maior)
 
-Alto contraste ajuda os botões a permanecerem legíveis e clicáveis para todos, incluindo usuários com deficiências visuais ou aqueles que visualizam sua mensagem em ambientes desafiadores. Para mais orientações, veja a seção [Contraste de cores](#color-contrast).
+Alto contraste ajuda os botões a permanecerem legíveis e clicáveis para todos, incluindo usuários com deficiências visuais ou aqueles que visualizam sua mensagem em ambientes desafiadores. Para mais orientações, consulte a seção [Contraste de cores](#color-contrast).
 
 #### Facilite o toque nos botões {#make-buttons-easy-to-tap}
 
@@ -229,7 +229,7 @@ Certifique-se de que seus botões (e links) sejam grandes o suficiente e espaça
 
 ### Links {#links}
 
-Use links para navegação, como direcionar usuários para uma página externa.
+Use links para navegação, como direcionar usuários a uma página externa.
 
 #### Escreva texto de link descritivo {#write-descriptive-link-text}
 
@@ -242,16 +242,16 @@ Por exemplo, considere como você escreveria um link para ver um relatório mete
 | Clique aqui | Clique aqui para acessar o clima de hoje | Clima de hoje |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Escreva texto de link descritivo" }
 
-Como em todo conteúdo, mantenha a objetividade com o mínimo de palavras extras possível.
+Como em todo conteúdo, mantenha a simplicidade com o mínimo de palavras extras possível.
 
 #### Evite estilizar links como botões {#avoid-styling-links-like-buttons}
 
-Os editores de arrastar e soltar da Braze geram HTML semântico por padrão, então os links não são estilizados como botões neles. No entanto, se você estiver trabalhando com [HTML personalizado](#custom-html) ou fazendo alterações no nível do código, tenha isso em mente:
+Os editores de arrastar e soltar da Braze geram HTML semântico por padrão, então os links não são estilizados como botões nesses editores. No entanto, se você estiver trabalhando com [HTML personalizado](#custom-html) ou fazendo alterações no nível do código, tenha isso em mente:
 
 - **Links (`<a>`)** respondem à tecla <kbd>Enter</kbd>.
-- **Botões (`<button>`)** respondem às teclas <kbd>Enter</kbd> e <kbd>Space</kbd>.
+- **Botões (`<button>`)** respondem às teclas <kbd>Enter</kbd> e <kbd>Espaço</kbd>.
 
-Estilizar um link para parecer um botão pode confundir pessoas que navegam com teclado — elas podem tentar pressionar <kbd>Space</kbd> e esperar que funcione.
+Estilizar um link para parecer um botão pode confundir pessoas que navegam com teclado — elas podem tentar pressionar <kbd>Espaço</kbd> e esperar que funcione.
 
 Use o elemento correto para a ação:
 
@@ -277,9 +277,9 @@ Alvos de toque são qualquer parte da sua mensagem que os usuários tocam para r
 Quando os alvos de toque são muito pequenos ou muito próximos, pode ser frustrante ou impossível para usuários com desafios de mobilidade ou destreza interagir com sua mensagem. Melhorar isso pode ajudar a reduzir erros e criar uma experiência mais fluida para todos.
 
 Veja o que ter em mente:
-- **Use tamanho adequado para alvos de toque.** Mire em um tamanho mínimo de alvo de toque de 44 x 44 pixels. Isso está alinhado com as diretrizes WCAG 2.2 para [alvos de toque](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html) e padrões comuns de usabilidade móvel.
+- **Use tamanho adequado para alvos de toque.** Mire em um tamanho mínimo de alvo de toque de 44 x 44 pixels. Isso está alinhado com as diretrizes da WCAG 2.2 para [alvos de toque](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html) e padrões comuns de usabilidade móvel.
 - **Dê espaço para cada alvo.** Se os alvos de toque estiverem muito próximos — como links empilhados ou botões agrupados — pode ser fácil errar ou tocar no errado. Adicione espaçamento ou preenchimento entre os elementos para evitar isso.
-- **Não dependa apenas de elementos visuais.** Mesmo ícones pequenos podem se tornar mais usáveis com preenchimento extra, permitindo que atendam aos requisitos mínimos de tamanho sem alterar o layout.
+- **Não dependa apenas de elementos visuais.** Mesmo ícones pequenos podem se tornar mais utilizáveis com preenchimento extra, permitindo que atendam aos requisitos mínimos de tamanho sem alterar o layout.
 - **Visualize no celular.** Teste sua mensagem em diferentes tamanhos de tela e certifique-se de que os elementos interativos sejam fáceis de usar.
 
 Melhorar os alvos de toque é uma das formas mais eficazes de tornar sua mensagem mais acessível em dispositivos móveis — e é uma boa experiência de usuário para todos.
@@ -288,7 +288,7 @@ Melhorar os alvos de toque é uma das formas mais eficazes de tornar sua mensage
 
 #### Forneça texto alternativo {#provide-alt-text}
 
-Texto alternativo (alt text) é uma descrição curta do conteúdo ou função de uma imagem que leitores de tela e outras tecnologias assistivas fornecem aos usuários. Para cada imagem significativa, escreva texto alternativo descritivo para que os usuários que não podem ver os elementos visuais ainda entendam sua mensagem ou chamada para ação.
+Texto alternativo (alt text) é uma descrição curta do conteúdo ou função de uma imagem que leitores de tela e outras tecnologias assistivas fornecem aos usuários. Para cada imagem significativa, escreva texto alternativo descritivo para que usuários que não podem ver os elementos visuais ainda entendam sua mensagem ou chamada para ação.
 
 #### Evite imagens de texto {#avoid-images-of-text}
 
@@ -326,11 +326,11 @@ Usuários de leitores de tela dependem do texto alternativo para entender o cont
   </thead>
   <tbody>
     <tr>
-      <td>"Mulher sorridente usando jaqueta jeans azul, segurando uma sacola de compras."</td>
-      <td>"Hora de se presentear!" (Sem menção ao que realmente está na imagem)</td>
+      <td>"Mulher sorridente usando uma jaqueta jeans azul, segurando uma sacola de compras."</td>
+      <td>"Hora de se presentear!" (Sem menção do que realmente está na imagem)</td>
     </tr>
     <tr>
-      <td>"Homem usando camiseta preta, apoiado em uma bicicleta em uma rua da cidade."</td>
+      <td>"Homem usando uma camiseta preta, apoiado em uma bicicleta em uma rua da cidade."</td>
       <td>"Abrace sua melhor vida agora!" (Ignora a bicicleta e o cenário urbano)</td>
     </tr>
     <tr>
@@ -353,11 +353,11 @@ Texto alternativo conciso facilita o processamento pelos usuários. Inclua detal
   </thead>
   <tbody>
     <tr>
-      <td>"Tênis de corrida vermelhos em fundo branco"</td>
-      <td>"Tênis de corrida extremamente confortáveis e perfeitos para seu estilo de vida ativo em um vibrante tom de vermelho." (Muito longo e cheio de linguagem promocional)</td>
+      <td>"Tênis de corrida vermelhos em um fundo branco"</td>
+      <td>"Tênis de corrida extremamente confortáveis e perfeitos para seu estilo de vida ativo em um tom vibrante de vermelho." (Muito longo e cheio de linguagem promocional)</td>
     </tr>
     <tr>
-      <td>"Quatro laptops em um suporte de exposição"</td>
+      <td>"Quatro laptops em um suporte de exibição"</td>
       <td>"Descubra o impulsionador de produtividade definitivo que redefine como você trabalha todos os dias, de todas as formas imagináveis." (Não descreve o que é realmente mostrado)</td>
     </tr>
     <tr>
@@ -369,7 +369,7 @@ Texto alternativo conciso facilita o processamento pelos usuários. Inclua detal
 
 ##### Evite "imagem de" ou "foto de" {#tip-3}
 
-Leitores de tela já anunciam que é uma imagem. Vá direto à descrição do assunto.
+Leitores de tela já anunciam que é uma imagem. Vá direto para a descrição do assunto.
 
 <table role="presentation" class="reset-td-br-1 reset-td-br-2">
   <thead>
@@ -388,8 +388,8 @@ Leitores de tela já anunciam que é uma imagem. Vá direto à descrição do as
       <td>"Imagem de uma mesa posta para brunch"</td>
     </tr>
     <tr>
-      <td>"Outdoor na beira da estrada com texto em negrito 'Grande Inauguração'"</td>
-      <td>"Foto de um outdoor na beira da estrada"</td>
+      <td>"Outdoor à beira da estrada com texto em negrito 'Grande Inauguração'"</td>
+      <td>"Foto de um outdoor à beira da estrada"</td>
     </tr>
     <tr>
       <td>"Paisagem de montanha nevada ao pôr do sol"</td>
@@ -458,7 +458,7 @@ Não preencha o texto alternativo com termos de SEO ou chamadas para ação que 
 
 ##### Considere o propósito da imagem {#tip-6}
 
-Se uma imagem funciona como um link ou chamada para ação, descreva a ação pretendida ("Comprar", "Link para", "Cadastrar"), não apenas o rótulo ou produto mostrado.
+Se uma imagem funciona como um link ou chamada para ação, descreva a ação pretendida ("Comprar", "Link para", "Inscrever-se"), não apenas o rótulo ou produto mostrado.
 
 <table role="presentation" class="reset-td-br-1 reset-td-br-2">
   <thead>
@@ -477,34 +477,43 @@ Se uma imagem funciona como um link ou chamada para ação, descreva a ação pr
       <td>"E-book gratuito" (Não deixa claro que é um link)</td>
     </tr>
     <tr>
-      <td>"Cadastrar na lista de e-mails"</td>
+      <td>"Inscrever-se na lista de e-mails"</td>
       <td>"Lista de e-mails" (Não descreve o que o usuário pode fazer)</td>
     </tr>
   </tbody>
 </table>
 
-Se a imagem não tem um propósito, deixe isso claro também. Imagens decorativas, como logos, devem ter uma tag alt vazia (`alt=""`) para que os leitores de tela saibam que devem ignorá-la. Sem isso, geralmente o nome do arquivo da imagem é lido.
+Se a imagem não tem um propósito, deixe isso claro também. Imagens decorativas, como logos, devem ter uma tag alt vazia (`alt=""`) para que os leitores de tela saibam que devem pular o anúncio. Sem isso, geralmente o nome do arquivo da imagem é lido.
+
+#### Como os clientes de e-mail exibem texto alternativo {#how-email-clients-display-alt-text}
+
+A exibição e renderização do texto alternativo em mensagens de e-mail é controlada pelo cliente de e-mail do destinatário (como Gmail, Outlook ou Apple Mail), não pela Braze. Se você notar diferenças em como o texto alternativo aparece em diferentes clientes de e-mail ou plataformas — por exemplo, texto alternativo sendo exibido de forma diferente no Gmail no desktop versus no app móvel do Gmail — isso se deve à forma como cada cliente escolhe renderizar o mesmo HTML.
+
+Embora você possa incluir texto alternativo de qualquer tamanho no HTML do seu e-mail, alguns clientes de e-mail podem truncar ou ocultar texto alternativo que seja muito longo para caber nas dimensões da imagem. Se você tiver dúvidas sobre o comportamento do texto alternativo em um cliente de e-mail específico, entre em contato com o [Suporte]({{site.baseurl}}/support_contact).
 
 ### Vídeos {#videos}
 
 Vídeos são envolventes, mas se não forem acessíveis, você corre o risco de excluir parte do seu público. Use as dicas a seguir para tornar seu conteúdo de vídeo mais inclusivo:
 
-- [Forneça legendas ocultas](#closed-captions)
+- [Forneça legendas](#closed-captions)
 - [Forneça controles de reprodução](#playback-controls)
 - [Evite reprodução automática](#no-auto-play)
 - [Evite conteúdo com flashes ou efeitos estroboscópicos](#no-seizures)
 
-#### Forneça legendas ocultas {#closed-captions}
+#### Forneça legendas {#closed-captions}
 
-Inclua legendas ocultas nos seus vídeos para que os usuários possam acompanhar os diálogos, efeitos sonoros e outros conteúdos de áudio. As legendas ajudam:
+Inclua legendas nos seus vídeos para que os usuários possam acompanhar os diálogos, efeitos sonoros e outros conteúdos de áudio. As legendas ajudam:
 
-- Pessoas surdas ou com dificuldade auditiva
-- Espectadores assistindo sem som
+- Pessoas surdas ou com deficiência auditiva
+- Espectadores assistindo em um ambiente sem som
 - Falantes não nativos que preferem ler junto
 
-Legendas ocultas podem ser ativadas ou desativadas, permitindo que os usuários escolham o que funciona melhor para eles.
+As legendas podem ser ativadas ou desativadas, permitindo que os usuários escolham o que funciona melhor para eles.
 
-{% multi_lang_include accessibility/video.md %}
+{% alert note %}
+A Braze não gera automaticamente legendas para seus vídeos. É sua responsabilidade adicionar legendas precisas aos seus arquivos de vídeo antes de incluí-los em sua mensagem.
+{% endalert %}
+
 
 #### Forneça controles de reprodução {#playback-controls}
 
@@ -515,32 +524,35 @@ Certifique-se de que seu vídeo incorporado inclua controles de reprodução ace
 Sempre que possível, evite configurar vídeos para reprodução automática. A reprodução automática pode ser perturbadora ou desorientadora para:
 
 - Usuários que dependem de leitores de tela ou navegação por teclado
-- Pessoas com sensibilidade a movimento
+- Pessoas com sensibilidade a movimentos
 - Qualquer pessoa em um ambiente silencioso (como um local de trabalho ou à noite)
 
 Deixe os usuários escolherem quando reproduzir um vídeo incluindo controles claros.
 
 #### Evite conteúdo com flashes ou efeitos estroboscópicos {#no-seizures}
 
-Não inclua vídeos com efeitos de flash ou estroboscópicos, especialmente em alta frequência. Eles podem provocar convulsões em usuários com epilepsia fotossensível e causar desconforto em outros.
+Não inclua vídeos com efeitos de flash ou estroboscópicos, especialmente em alta frequência. Esses efeitos podem provocar convulsões em usuários com epilepsia fotossensível e causar desconforto em outras pessoas.
 
 ### Contraste de cores {#color-contrast}
 
-Contraste de cores suficiente ajuda a garantir que suas mensagens sejam fáceis de ler para todos, incluindo pessoas com baixa visão ou aquelas que visualizam seu conteúdo em condições de iluminação brilhante ou desafiadoras. Mire em proporções de contraste que estejam em conformidade com os [requisitos de nível AA do WCAG 2.2](https://www.w3.org/TR/WCAG/#contrast-minimum):
+Contraste de cores suficiente ajuda a garantir que suas mensagens sejam fáceis de ler para todos, incluindo pessoas com baixa visão ou aquelas que visualizam seu conteúdo em condições de iluminação intensa ou desafiadoras. Mire em proporções de contraste que estejam em conformidade com os [requisitos de nível AA da WCAG 2.2](https://www.w3.org/TR/WCAG/#contrast-minimum):
 
-- Proporção de contraste de 4.5:1 para texto normal (pense em texto do corpo, botões e links)
-- Proporção de contraste de 3:1 para texto grande (pense em títulos e rótulos maiores)
+- Proporção de contraste de 4.5:1 para texto normal (como texto do corpo, botões e links)
+- Proporção de contraste de 3:1 para texto grande (como títulos e rótulos maiores)
 
 Você pode testar suas escolhas de cores usando a [Ferramenta de Verificação de Contraste do WebAim](https://webaim.org/resources/contrastchecker/).
 
-{% multi_lang_include accessibility/color.md %}
+{% alert note %}
+Os editores da Braze permitem que você selecione combinações de cores personalizadas. Lembre-se de que determinadas opções de cores podem afetar negativamente a acessibilidade. Escolha suas cores com cuidado para garantir que seu conteúdo seja legível e esteja em conformidade com os padrões de acessibilidade.
+{% endalert %}
+
 
 ### HTML personalizado {#custom-html}
 
-Se você usa qualquer HTML personalizado nas suas mensagens:
+Se você usa qualquer HTML personalizado no seu envio de mensagens:
 
-- Use [HTML semântico](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML). Isso significa usar os elementos HTML corretos para o propósito pretendido, em vez de estilizar um elemento para parecer outro. A maioria dos elementos HTML tem seu próprio suporte de acessibilidade integrado.
-- Para o idioma no nível do documento, onde a Braze pode adicionar metadados HTML na exportação, consulte [Idioma de acessibilidade](#accessibility-language); o comportamento varia por canal. Quando você marca o conteúdo por conta própria, defina o [atributo `lang`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang) no seu HTML para identificar o idioma do seu conteúdo. Leitores de tela usam diferentes bibliotecas de som para cada idioma com base na pronúncia e características desse idioma. Se isso não for especificado, o leitor de tela assume que o conteúdo está escrito no idioma padrão que o usuário escolheu ao configurar o leitor de tela. Se a mensagem não estiver realmente no idioma padrão, o leitor de tela pode não pronunciar a mensagem corretamente.
+- Use [HTML semântico](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML). Isso significa usar os elementos HTML corretos para o propósito pretendido em vez de estilizar um elemento para parecer outro. A maioria dos elementos HTML tem seu próprio suporte de acessibilidade integrado.
+- Para idioma no nível do documento onde a Braze pode adicionar metadados HTML na exportação, consulte [Idioma de acessibilidade](#accessibility-language); o comportamento varia por canal. Quando você marca o conteúdo por conta própria, defina o [atributo `lang`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang) no seu HTML para identificar o idioma do seu conteúdo. Leitores de tela usam bibliotecas de som diferentes para cada idioma com base na pronúncia e características desse idioma. Se isso não for especificado, um leitor de tela assume que o conteúdo está escrito no idioma padrão que o usuário escolheu ao configurar o leitor de tela. Se a mensagem não estiver realmente no idioma padrão, o leitor de tela pode não pronunciar a mensagem corretamente.
 
 {% raw %}
 ```html
@@ -549,14 +561,14 @@ Se você usa qualquer HTML personalizado nas suas mensagens:
 {% endraw %}
 
 {% alert note %}
-Ao usar o editor de arrastar e soltar de e-mail, defina o idioma na guia **Configurações** quando esse controle estiver disponível. E-mails com modelo completo e apenas com Content Blocks podem usar padrões diferentes para o idioma de acessibilidade — veja [Idioma de acessibilidade](#accessibility-language). Outros canais também são abordados nessa seção.
+Ao usar o editor de e-mail de arrastar e soltar, defina o idioma na guia **Configurações** quando esse controle estiver disponível. E-mails de modelo completo e somente com bloco de conteúdo podem usar padrões diferentes para o idioma de acessibilidade — consulte [Idioma de acessibilidade](#accessibility-language). Outros canais também são abordados nessa seção.
 {% endalert %}
 
-- Use [atributos ARIA](#aria-attributes) para fornecer contexto extra. Esses atributos fornecem informações adicionais para tecnologias assistivas, ajudando a esclarecer o papel, estado ou propriedades de elementos de interface que podem não ser claros de outra forma.
+- Use [atributos ARIA](#aria-attributes) para fornecer contexto extra. Esses atributos fornecem informações adicionais às tecnologias assistivas, ajudando a esclarecer o papel, estado ou propriedades de elementos da interface que, de outra forma, poderiam ser pouco claros.
 
 ### Atributos ARIA {#aria-attributes}
 
-Quando você está usando código personalizado nos editores da Braze, pode usar Accessible Rich Internet Applications ([ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)) para fornecer suporte extra de acessibilidade para usuários que dependem de tecnologia assistiva. Papéis e atributos ARIA ajudam leitores de tela a interpretar seu conteúdo com mais clareza, especialmente quando você está usando elementos que não transmitem significado por si só (como `<div>` ou `<span>`).
+Quando você usa código personalizado nos editores da Braze, pode usar Accessible Rich Internet Applications ([ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)) para fornecer suporte extra de acessibilidade para usuários que dependem de tecnologia assistiva. Papéis e atributos ARIA ajudam leitores de tela a interpretar seu conteúdo com mais clareza, especialmente quando você usa elementos que não transmitem significado por si só (como `<div>` ou `<span>`).
 
 {% alert important %}
 Embora o ARIA seja projetado para tornar o conteúdo web mais acessível, se usado incorretamente, pode causar mais mal do que bem. O ARIA não substitui o HTML semântico, ele o complementa — então use ARIA apenas quando elementos HTML nativos não atenderem às suas necessidades.
@@ -595,7 +607,7 @@ Aqui estão alguns exemplos especialmente úteis em contextos de envio de mensag
 
 #### aria-hidden="true" {#aria-hiddentrue}
 
-`aria-hidden="true"` oculta elementos dos leitores de tela. É útil para texto ou elementos visuais que não transmitem significado importante — como um brilho, marca de verificação ou emoji usado puramente para estilo.
+`aria-hidden="true"` oculta elementos dos leitores de tela. É útil para textos ou elementos visuais que não transmitem significado importante — como um brilho, marca de verificação ou emoji usado puramente para estilo.
 
 Isso mantém a experiência mais limpa para usuários de leitores de tela, que de outra forma poderiam ouvir conteúdo redundante ou confuso. Também é útil para ocultar coisas como conteúdo de acordeão fora da tela que ainda não foi expandido.
 
@@ -609,7 +621,7 @@ Em geral, é melhor usar `alt=""` para [imagens decorativas](#images) e ícones 
 
 #### role="presentation" {#rolepresentation}
 
-`role="presentation"` diz à tecnologia assistiva para ignorar elementos que servem apenas para layout, como tabelas de design. Por exemplo, e-mails frequentemente usam tabelas apenas para alinhar elementos. Sem esse papel, leitores de tela podem assumir que seu layout é uma tabela de dados e começar a ler números de linhas e colunas.
+`role="presentation"` diz à tecnologia assistiva para ignorar elementos que são apenas de layout, como tabelas de design. Por exemplo, e-mails frequentemente usam tabelas apenas para alinhar elementos. Sem esse papel, leitores de tela podem assumir que seu layout é uma tabela de dados e começar a ler números de linhas e colunas.
 
 {% raw %}
 ```html
@@ -617,7 +629,7 @@ Em geral, é melhor usar `alt=""` para [imagens decorativas](#images) e ícones 
 ```
 {% endraw %}
 
-E-mails criados no editor de arrastar e soltar de e-mail têm elementos de apresentação automaticamente marcados com o atributo ARIA `role="presentation"`.
+E-mails criados no editor de e-mail de arrastar e soltar têm elementos de apresentação automaticamente marcados com o atributo ARIA `role="presentation"`.
 
 #### aria-live="polite" {#aria-livepolite}
 
@@ -631,40 +643,40 @@ E-mails criados no editor de arrastar e soltar de e-mail têm elementos de apres
 
 ## Testes automatizados de acessibilidade {#automated-accessibility-testing}
 
-Para ajudar você a identificar e corrigir problemas de acessibilidade cedo, a Braze oferece testes automatizados de acessibilidade nas seguintes áreas:
+Para ajudar você a identificar e corrigir problemas de acessibilidade desde cedo, a Braze oferece testes automatizados de acessibilidade nas seguintes áreas:
 
 - [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing) para e-mails
-- [Scanner de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner) para mensagens criadas usando nosso editor de HTML (por exemplo, mensagens no app em HTML, Content Blocks em HTML, [rodapés de e-mail personalizados]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [páginas de opt-in de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-opt-in-page) e [páginas de cancelamento de inscrição de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-unsubscribe-page)).
+- [Scanner de acessibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner) para mensagens criadas com nosso editor de HTML (por exemplo, mensagens no app em HTML, Content Blocks em HTML, [rodapés de e-mail personalizados]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [páginas de aceitação de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-opt-in-page) e [páginas de cancelamento de inscrição de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-unsubscribe-page)).
 
-Esses testes verificam sua mensagem em relação ao padrão Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) — um conjunto de padrões técnicos internacionalmente reconhecidos para conteúdo acessível. Quaisquer problemas que possam ser detectados automaticamente são sinalizados e categorizados por gravidade para ajudar você a priorizar.
+Esses testes verificam sua mensagem em relação ao padrão das Diretrizes de Acessibilidade para Conteúdo da Web ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) — um conjunto de padrões técnicos internacionalmente reconhecidos para conteúdo acessível. Quaisquer problemas que possam ser detectados automaticamente são sinalizados e categorizados por gravidade para ajudar você a priorizar.
 
 {% alert note %}
-O Inbox Vision funciona tanto para e-mails em HTML quanto para e-mails de arrastar e soltar. O scanner funciona apenas em conteúdo criado com o editor de HTML.
+O Inbox Vision funciona tanto para e-mails em HTML quanto para e-mails de arrastar e soltar. O scanner só é executado em conteúdo criado com o editor de HTML.
 {% endalert %}
 
 ### O que os testes automatizados podem e não podem detectar {#what-automated-testing-can-and-cant-catch}
 
-Testes automatizados de acessibilidade são um ótimo ponto de partida — mas não conseguem detectar tudo. Alguns problemas precisam de um olhar humano para serem avaliados adequadamente, especialmente quando o contexto ou o design visual desempenha um papel na forma como os usuários experimentam seu e-mail.
+Os testes automatizados de acessibilidade são um ótimo ponto de partida, mas não conseguem detectar tudo. Alguns problemas precisam de um olhar humano para serem avaliados corretamente, especialmente quando o contexto ou o design visual influencia a experiência do usuário com seu e-mail.
 
-Você pode ver alguns problemas marcados como **Precisa de revisão**. Esses são casos em que o verificador não consegue determinar com certeza se algo é um problema de acessibilidade. Quando isso acontecer, recomendamos revisá-lo manualmente.
+Você pode ver alguns problemas marcados como **Precisa de revisão**. Esses são casos em que o verificador não consegue determinar com certeza se algo é um problema de acessibilidade. Quando isso acontecer, recomendamos revisar manualmente.
 
-Alguns exemplos do que ferramentas automatizadas não conseguem detectar de forma confiável incluem:
+Alguns exemplos do que as ferramentas automatizadas não conseguem detectar de forma confiável incluem:
 
-- Se a ordem de foco dos elementos interativos segue uma sequência lógica
-- Se o conteúdo é totalmente operável com teclado, sem necessidade de mouse
-- Se o texto alternativo descreve significativamente uma imagem
-- Se os títulos são usados adequadamente para organizar o conteúdo
-- Se links e botões estão claramente rotulados e são fáceis de entender
+- Se a ordem do foco dos elementos interativos segue uma sequência lógica
+- Se o conteúdo é totalmente operável com um teclado, sem exigir o uso de mouse
+- Se o texto alternativo descreve a imagem de forma significativa
+- Se os títulos são usados corretamente para organizar o conteúdo
+- Se os links e botões estão claramente identificados e são fáceis de entender
 - Se os alvos de toque são grandes o suficiente e espaçados adequadamente
 - Se o texto sobre imagens de fundo atende aos requisitos de contraste de cores
 - Se as instruções ou rótulos são claros e úteis para todos os usuários
 
-Essas limitações não são exclusivas da Braze — são comuns a todas as ferramentas automatizadas de acessibilidade. Verificações automatizadas não conseguem simular cada tecnologia assistiva, leitor de tela ou necessidade do usuário. É por isso que acessibilidade não é uma verificação única — é uma prática contínua.
+Essas limitações não são exclusivas da Braze&#8212;são comuns a todas as ferramentas automatizadas de acessibilidade. Verificações automatizadas não conseguem simular todas as tecnologias assistivas, leitores de tela ou necessidades dos usuários. Por isso, acessibilidade não é uma verificação única&#8212;é uma prática contínua.
 
 Mesmo que sua mensagem passe em todas as verificações automatizadas, ainda é importante:
 
-- Revisar cuidadosamente os problemas sinalizados, especialmente aqueles rotulados como **Precisa de revisão**.
-- Testar manualmente quando possível, especialmente para padrões de layout e interação.
+- Revisar os problemas sinalizados com atenção, especialmente aqueles marcados como **Precisa de revisão**.
+- Testar manualmente sempre que possível, especialmente para padrões de layout e interação.
 - Usar ferramentas como leitores de tela, navegação apenas por teclado e zoom do navegador para simular diferentes necessidades de acesso.
 
-Ao combinar testes automatizados com uma revisão manual cuidadosa, você detectará mais problemas potenciais e criará campanhas mais inclusivas e utilizáveis para cada destinatário.
+Ao combinar testes automatizados com uma revisão manual cuidadosa, você detectará mais problemas potenciais e criará Campaigns mais inclusivas e utilizáveis para cada destinatário.

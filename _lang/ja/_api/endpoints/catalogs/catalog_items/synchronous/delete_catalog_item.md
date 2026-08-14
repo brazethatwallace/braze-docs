@@ -21,7 +21,7 @@ description: "この記事では、「カタログ項目を削除」Brazeエン�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.delete_item` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`catalogs.delete_item` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -47,13 +47,13 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
-このエンドポイントには、`202`、`400`、`404` の3つのステータスコード応答があります。
+このエンドポイントには、`202`、`400`、`404` の3つのステータスコードレスポンスがあります。
 
-### 成功応答の例 {#example-success-response}
+### 成功レスポンスの例 {#example-success-response}
 
-ステータスコード `202` は、次の応答本文を返す可能性があります。
+ステータスコード `202` は、次のレスポンスボディを返す可能性があります。
 
 ```json
 {
@@ -61,9 +61,9 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 }
 ```
 
-### エラー応答の例 {#example-error-response}
+### エラーレスポンスの例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
+ステータスコード `400` は、次のレスポンスボディを返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
 ```json
 {

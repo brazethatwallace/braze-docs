@@ -614,9 +614,9 @@ validurls['/docs/es/user_guide/data/activation/report_metrics'] = '/docs/es/user
 validurls['/docs/es/user_guide/data/activation/custom_data/recommended_events/ecommerce_events'] = '/docs/es/user_guide/data/activation/events/recommended_events/ecommerce_events';
 validurls['/docs/ko/user_guide/data/activation/custom_data/recommended_events/ecommerce_events'] = '/docs/ko/user_guide/data/activation/events/recommended_events/ecommerce_events';
 validurls['/docs/fr/user_guide/data/activation/custom_data/recommended_events/ecommerce_events'] = '/docs/fr/user_guide/data/activation/events/recommended_events/ecommerce_events';
-validurls['/docs/es/user_guide/brazeai/decisioning_studio/building_agents'] = '/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent';
-validurls['/docs/fr/user_guide/brazeai/decisioning_studio/integration'] = '/docs/fr/user_guide/brazeai/decisioning_studio/get_started';
-validurls['/docs/es/user_guide/brazeai/decisioning_studio/go/configuring_braze'] = '/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources';
+validurls['/docs/es/user_guide/brazeai/decisioning_studio/building_agents'] = '/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/fr/user_guide/brazeai/decisioning_studio/integration'] = '/docs/fr/user_guide/brazeai/decisioning_studio/';
+validurls['/docs/es/user_guide/brazeai/decisioning_studio/go/configuring_braze'] = '/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
 validurls['/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_pro/connect_data_sources'] = '/docs/es/user_guide/brazeai/decisioning_studio/prepare_data/connect_data_sources';
 validurls['/docs/ja/user_guide/brazeai/decisioning_studio/decisioning_studio_pro'] = '/docs/ja/user_guide/brazeai/decisioning_studio/get_started';
 validurls['/docs/es/user_guide/brazeai/decisioning_studio/decisioning_studio_pro/set_up_orchestration'] = '/docs/es/user_guide/brazeai/decisioning_studio/orchestration_setup';
@@ -1117,8 +1117,8 @@ validurls['/docs/user_guide/data_and_analytics/custom_data/custom_events#nested-
 validurls['/docs/user_guide/data_and_analytics/custom_data/custom_events#custom-event-properties'] = '/docs/user_guide/data/activation/events/custom_events/custom_event_properties';
 validurls['/docs/user_guide/data_and_analytics/custom_data/custom_events#custom-event-property-storage'] = '/docs/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-property-storage';
 validurls['/docs/user_guide/data_and_analytics/custom_data/custom_events#expected-format'] = '/docs/user_guide/data/activation/events/custom_events/custom_event_properties#expected-format';
-validurls['/docs/services_handbook_21'] = 'https://www.braze.com/unlisted_docs/handbooks';
-validurls['/docs/services_handbook_22'] = 'https://www.braze.com/unlisted_docs/handbooks';
+validurls['/docs/services_handbook_21'] = '/docs/handbooks/';
+validurls['/docs/services_handbook_22'] = '/docs/handbooks/';
 validurls['/docs/hidden/private_betas/view_pii'] = '/docs/user_guide/administer/global/admin_settings/security_settings#view-pii';
 validurls['/docs/hidden/private_betas/partners/adobe'] = '/docs/partners/data_and_analytics/customer_data_platform/adobe';
 validurls['/docs/hidden/private_betas/link_aliasing'] = '/docs/user_guide/messaging/templates/email_templates/link_aliasing';
@@ -1137,7 +1137,7 @@ validurls['/docs/user_guide/message_building_by_channel/in-app_messages/preview#
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/preview#upload-assets'] = '/docs/user_guide/channels/in_app_messages/message_types/custom_html#asset-files';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/traditional/customize/modal_with_css'] = '/docs/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#web-modal-css';
 
-validurls['/docs/services_handbook'] = 'https://www.braze.com/unlisted_docs/handbooks';
+validurls['/docs/services_handbook'] = '/docs/handbooks/';
 
 validurls['/docs/help/webinars'] = '/docs/user_guide/home';
 validurls['/docs/help/webinars/ab_and_multivariate_testing'] = '/docs/user_guide/home';
@@ -1901,6 +1901,8 @@ validurls['/docs/api/home/en'] = '/docs/api/home';
 validurls['/docs/partners/braze_currents/how_it_works'] = '/docs/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents';
 validurls['/docs/react_native'] = '/docs/developer_guide/sdk_integration?sdktab=react%20native';
 validurls['/docs/developer_guide/platform_integration_guides/swift/changelog/examples/podfile'] = '/docs/developer_guide/changelogs?sdktab=swift';
+validurls['/docs/developer_guide/platforms/legacy_sdks/ios/changelog/support/examples/swift/sources/banners-custom-ui'] = 'https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/Banners-Custom-UI';
+validurls['/docs/developer_guide/platforms/legacy_sdks/ios/changelog/support/examples/objc/sources/banners-custom-ui'] = 'https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/Banners-Custom-UI';
 validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/shopfiy/shopify_backfill'] = '/docs/partners/ecommerce/shopify/shopify_data_features#historical-backfill';
 validurls['/docs/help/best_practices/user_onboarding'] = '/docs/user_guide/home';
 validurls['/docs/user_guide/engagement_tools/testing/random_bucket_numbers/undefined/user_guide/introduction'] = '/docs/user_guide/messaging/ab_testing/concepts/random_bucket_numbers';
@@ -3575,12 +3577,11 @@ validurls['/docs/user_guide/message_building_by_channel/sms_mms_rcs/sms/about_mm
 validurls['/docs/user_guide/message_building_by_channel/sms_mms_rcs/mms/about_rcs'] = '/docs/user_guide/channels/sms_mms_and_rcs';
 validurls['/docs/user_guide/message_building_by_channel/webhooks/understanding_webhooks'] = '/docs/user_guide/channels/webhooks';
 
-validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_21.pdf'] = 'https://www.braze.com/unlisted_docs/handbooks';
-validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_22.pdf'] = 'https://www.braze.com/unlisted_docs/handbooks';
-validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_23v17.pdf'] = 'https://www.braze.com/unlisted_docs/handbooks';
-validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_24_2.pdf'] = 'https://www.braze.com/unlisted_docs/handbooks';
-validurls['/docs/assets/download_file/braze_entitlements_handbook_25.pdf'] = 'https://www.braze.com/unlisted_docs/handbooks';
-validurls['/docs/handbooks'] = 'https://braze.com/unlisted_docs/handbooks';
+validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_21.pdf'] = '/docs/handbooks/';
+validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_22.pdf'] = '/docs/handbooks/';
+validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_23v17.pdf'] = '/docs/handbooks/';
+validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_24_2.pdf'] = '/docs/handbooks/';
+validurls['/docs/assets/download_file/braze_entitlements_handbook_25.pdf'] = '/docs/handbooks/';
 
 validurls['/docs/user_guide/data/unification/user_data_collection'] = '/docs/user_guide/data/unification/user_data';
 validurls['/docs/user_guide/data/unification/user_data_collection/best_practices'] = '/docs/user_guide/data/unification/user_data/best_practices';
@@ -3898,9 +3899,9 @@ validurls['/docs/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/com
 validurls['/docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push#ignoring-braze-internal-push-notifications'] = '/docs/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/ignoring_internal_push#ignore-braze-internal-push-notifications';
 
 // User Guide - BrazeAI
-validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_braze#configuring-with-braze'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources#braze-data-requirements';
-validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_sfmc#configuring-with-salesforce'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources#sfmc-data-requirements';
-validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_klaviyo#configuring-with-klaviyo'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources';
+validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_braze#configuring-with-braze'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_sfmc#configuring-with-salesforce'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_klaviyo#configuring-with-klaviyo'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
 validurls['/docs/user_guide/brazeai/recommendations/using_recommendations#using-item-recommendations'] = '/docs/user_guide/brazeai/item_recommendations/using_recommendations#use-item-recommendations';
 validurls['/docs/user_guide/brazeai/recommendations/creating_recommendations/rules_based#creating-rules-based-item-recommendations'] = '/docs/user_guide/brazeai/item_recommendations/creating_recommendations/rules_based#create-rules-based-item-recommendations';
 validurls['/docs/user_guide/brazeai/recommendations/creating_recommendations/ai#creating-ai-item-recommendations'] = '/docs/user_guide/brazeai/item_recommendations/creating_recommendations/ai#create-ai-item-recommendations';
@@ -4046,11 +4047,14 @@ validurls['/docs/user_guide/brazeai/predictive_events/prediction_analytics#purch
 validurls['/docs/user_guide/administrative/access_braze/navigation'] = '/docs/user_guide/administer/personal/the_braze_dashboard';
 validurls['/docs/user_guide/administrative/access_braze/global_search'] = '/docs/user_guide/administer/personal/the_braze_dashboard';
 
-validurls['/docs/user_guide/brazeai/decisioning_studio/building_agents'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent';
+validurls['/docs/user_guide/brazeai/decisioning_studio/building_agents'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
 validurls['/docs/user_guide/brazeai/decisioning_studio/go'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go';
-validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_braze'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources';
-validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_klaviyo'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources';
-validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_sfmc'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources';
+validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_braze'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_klaviyo'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/user_guide/brazeai/decisioning_studio/go/configuring_sfmc'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/use_cases'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples';
 validurls['/docs/user_guide/brazeai/decisioning_studio/go/report_bau_campaign'] = '/docs/user_guide/brazeai/decisioning_studio/reporting';
 validurls['/docs/user_guide/brazeai/decisioning_studio/integration'] = '/docs/user_guide/brazeai/decisioning_studio/get_started';
 validurls['/docs/user_guide/brazeai/decisioning_studio/getting_started/overview'] = '/docs/user_guide/brazeai/decisioning_studio/get_started';
@@ -4138,7 +4142,7 @@ validurls['/docs/user_guide/brazeai/recommendations'] = '/docs/user_guide/brazea
 
 // BrazeAI > Intelligence Suite children
 validurls['/docs/user_guide/brazeai/intelligence/intelligent_channel'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_channel';
-validurls['/docs/user_guide/brazeai/intelligence/tutorial'] = '/docs/user_guide/brazeai/intelligence_suite/tutorial';
+validurls['/docs/user_guide/brazeai/intelligence/tutorial'] = '/docs/user_guide/brazeai/intelligence_suite/use_case';
 
 // BrazeAI > Item recommendations children
 validurls['/docs/user_guide/brazeai/recommendations/viewing_analytics'] = '/docs/user_guide/brazeai/item_recommendations/viewing_analytics';
@@ -5086,16 +5090,11 @@ validurls['/docs/cloud_ingestion'] = '/docs/user_guide/data/unification/cloud_in
 validurls['/docs/cloud_ingestion#product-setup'] = '/docs/user_guide/data/unification/cloud_ingestion#product-setup';
 validurls['/docs/data_transformation'] = '/docs/user_guide/data/unification/data_transformation';
 validurls['/docs/line'] = '/docs/user_guide/channels/line';
-validurls['/docs/messaging_interaction_data'] = 'https://braze.com/unlisted_docs/messaging_interaction_data';
 validurls['/docs/multi_language_support'] = '/docs/user_guide/administer/global/workspace_settings/multi_language_settings';
 validurls['/docs/persistent_entry'] = '/docs/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties';
 validurls['/docs/post_user_track_synchronous'] = '/docs/api/endpoints/user_data/post_user_track_synchronous';
 validurls['/docs/scim_api_appendix'] = '/docs/api/objects_filters/scim_api_appendix';
 validurls['/docs/scim_api_appendix#permissions-object'] = '/docs/api/objects_filters/scim_api_appendix#permissions-object';
-validurls['/docs/target_approvals'] = '/docs/docs_pages/redirects/target_approvals';
-validurls['/docs/shopify_multiple_store'] = '/docs/docs_pages/redirects/multiple_stores';
-validurls['/docs/shopify_collections_sync'] = '/docs/docs_pages/redirects/shopify_collections_sync';
-validurls['/docs/shopify_user_reconciliation'] = '/docs/docs_pages/redirects/shopify_user_reconciliation';
 validurls['/docs/sms_traffic_pumping_fraud'] = '/docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/sms_traffic_pumping_fraud';
 
 // API paths
@@ -5533,5 +5532,161 @@ validurls['/docs/partners/partners'] = '/docs/partners/home';
 validurls['/docs/partners/alpaco'] = '/docs/partners/message_orchestration/templates/alpaco';
 
 validurls['/docs/knowledge_sources/'] = '/docs/user_guide/brazeai/agents/knowledge_sources/';
+
+validurls['/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+validurls['/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources'] = '/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup';
+
+// GSC 2026-07-28: locale mirrors for legacy IA paths (failed validation export)
+validurls['/docs/de/developer_guide/platform_integration_guides/android/push_notifications/android/silent_push_notifications'] = '/docs/de/developer_guide/push_notifications/silent?sdktab=android';
+validurls['/docs/de/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids'] = '/docs/de/developer_guide/analytics/setting_user_ids?tab=swift';
+validurls['/docs/de/developer_guide/platform_wide/feature_flags/create'] = '/docs/de/developer_guide/feature_flags/create';
+validurls['/docs/de/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment'] = '/docs/de/partners/data_and_analytics/customer_data_platform/segment/segment';
+validurls['/docs/de/user_guide/administrative/app_settings/push_settings'] = '/docs/de/user_guide/administer/global/workspace_settings/push_settings';
+validurls['/docs/de/user_guide/administrative/manage_your_users/managing_user_subscriptions'] = '/docs/de/user_guide/administer/global/user_management/permissions';
+validurls['/docs/de/user_guide/analytics/reporting/report_builder'] = '/docs/de/user_guide/analytics/reports/report_builder';
+validurls['/docs/de/user_guide/data/activation/custom_data/recommended_events/ecommerce_events'] = '/docs/de/user_guide/data/activation/events/recommended_events/ecommerce_events';
+validurls['/docs/de/user_guide/data/unification/user_data/import_users'] = '/docs/de/user_guide/audience/manage_audience/import_users';
+validurls['/docs/de/user_guide/data_and_analytics/braze_currents'] = '/docs/de/user_guide/data/distribution/braze_currents';
+validurls['/docs/de/user_guide/engagement_tools/landing_pages/creating_pages'] = '/docs/de/user_guide/messaging/landing_pages/create_landing_pages';
+validurls['/docs/de/user_guide/engagement_tools/segments/user_profiles'] = '/docs/de/user_guide/audience/manage_audience/user_profiles';
+validurls['/docs/de/user_guide/message_building_by_channel/email/managing_user_subscriptions'] = '/docs/de/user_guide/channels/email/subscriptions';
+validurls['/docs/de/user_guide/message_building_by_channel/push/best_practices/push_primer_messages'] = '/docs/de/user_guide/channels/push/best_practices/push_primer_messages';
+validurls['/docs/de/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/optimized_delivery'] = '/docs/de/user_guide/channels/whatsapp/message_features_and_optimization/optimized_delivery';
+validurls['/docs/de/user_guide/personalization_and_dynamic_content/liquid/advanced_filters/message_extras'] = '/docs/de/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras';
+validurls['/docs/de/user_guide/personalization_and_dynamic_content/liquid/operators'] = '/docs/de/user_guide/messaging/design_and_edit/personalize/liquid/operators';
+validurls['/docs/de/user_guide/personalization_and_dynamic_content/liquid/supported_personalization_tags'] = '/docs/de/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags';
+validurls['/docs/de/user_guide/personalization_and_dynamic_content/liquid/using_liquid'] = '/docs/de/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid';
+validurls['/docs/es/developer_guide/authentication'] = '/docs/es/developer_guide/sdk_integration/authentication';
+validurls['/docs/es/developer_guide/debugging'] = '/docs/es/developer_guide/sdk_integration/debugging';
+validurls['/docs/es/developer_guide/platform_integration_guides/android/content_cards/customization/custom_styling'] = '/docs/es/developer_guide/content_cards/customizing_cards/style';
+validurls['/docs/es/developer_guide/platform_integration_guides/android/in-app_messaging/customization/gifs'] = '/docs/es/developer_guide/in_app_messages/gifs?sdktab=android';
+validurls['/docs/es/developer_guide/platform_integration_guides/android/initial_sdk_setup/android_sdk_integration'] = '/docs/es/developer_guide/sdk_integration?sdktab=android';
+validurls['/docs/es/developer_guide/platform_integration_guides/android/initial_sdk_setup/test_your_basic_integration'] = '/docs/es/developer_guide/sdk_integration?sdktab=android#step-5-test-session-tracking-optional';
+validurls['/docs/es/developer_guide/platform_integration_guides/ios/initial_sdk_setup/other_sdk_customizations'] = '/docs/es/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations';
+validurls['/docs/es/developer_guide/platform_integration_guides/web/content_cards/integration'] = '/docs/es/developer_guide/content_cards?sdktab=web';
+validurls['/docs/es/developer_guide/platform_integration_guides/web/push_notifications/integration'] = '/docs/es/developer_guide/push_notifications?sdktab=web';
+validurls['/docs/es/message_usage_dashboard'] = '/docs/es/credits_usage_dashboard';
+validurls['/docs/es/partners/data_and_infrastructure_agility/customer_data_platform/tealium'] = '/docs/es/partners/data_and_analytics/customer_data_platform/tealium';
+validurls['/docs/es/partners/data_and_infrastructure_agility/data_warehouses/snowflake/data_retention'] = '/docs/es/partners/data_and_analytics/data_warehouses/snowflake/data_retention';
+validurls['/docs/es/partners/message_orchestration/attribution/appsflyer/appsflyer'] = '/docs/es/partners/message_orchestration/deeplinking/appsflyer/appsflyer';
+validurls['/docs/es/user_guide/data/activation/custom_data/custom_events'] = '/docs/es/user_guide/data/activation/events/custom_events/custom_event_properties';
+validurls['/docs/es/user_guide/data_and_analytics/user_data_collection/user_import'] = '/docs/es/user_guide/audience/manage_audience/import_users';
+validurls['/docs/es/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/api_triggered_delivery'] = '/docs/es/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery';
+validurls['/docs/fr/developer_guide/platform_integration_guides/android/initial_sdk_setup/test_your_basic_integration'] = '/docs/fr/developer_guide/sdk_integration?sdktab=android#step-5-test-session-tracking-optional';
+validurls['/docs/fr/developer_guide/platform_integration_guides/swift/visionos'] = '/docs/fr/developer_guide/platforms/swift/visionos';
+validurls['/docs/fr/developer_guide/rest_api/messaging'] = '/docs/fr/api/endpoints/messaging';
+validurls['/docs/fr/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents'] = '/docs/fr/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_for_currents';
+validurls['/docs/fr/partners/data_and_infrastructure_agility/cohort_import/heap'] = '/docs/fr/partners/data_and_analytics/analytics/heap/heap_cohort_import';
+validurls['/docs/fr/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment'] = '/docs/fr/partners/data_and_analytics/customer_data_platform/segment/segment';
+validurls['/docs/fr/partners/data_and_infrastructure_agility/customer_data_platform/tealium'] = '/docs/fr/partners/data_and_analytics/customer_data_platform/tealium';
+validurls['/docs/fr/partners/message_orchestration/additional_channels/retargeting/facebook'] = '/docs/fr/partners/message_orchestration/retargeting/facebook';
+validurls['/docs/fr/partners/message_orchestration/attribution/appsflyer/appsflyer'] = '/docs/fr/partners/message_orchestration/deeplinking/appsflyer/appsflyer';
+validurls['/docs/fr/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data'] = '/docs/fr/user_guide/analytics/reports/revenue_report';
+validurls['/docs/fr/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data'] = '/docs/fr/user_guide/analytics/dashboards/home';
+validurls['/docs/fr/user_guide/data_and_analytics/user_data_collection'] = '/docs/fr/user_guide/data/unification/user_data';
+validurls['/docs/fr/user_guide/engagement_tools/landing_pages/creating_pages'] = '/docs/fr/user_guide/messaging/landing_pages/create_landing_pages';
+validurls['/docs/fr/user_guide/engagement_tools/segments/suppression_lists'] = '/docs/fr/user_guide/audience/suppression_lists';
+validurls['/docs/fr/user_guide/message_building_by_channel/content_cards/testing'] = '/docs/fr/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=content%20card';
+validurls['/docs/fr/user_guide/message_building_by_channel/sms_mms_rcs/mms/contact_card'] = '/docs/fr/user_guide/channels/sms_mms_and_rcs/create/contact_card';
+validurls['/docs/fr/user_guide/message_building_by_channel/webhooks/testing'] = '/docs/fr/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=webhook';
+validurls['/docs/fr/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call'] = '/docs/fr/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call';
+validurls['/docs/fr/user_guide/personalization_and_dynamic_content/liquid/advanced_filters/message_extras'] = '/docs/fr/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras';
+validurls['/docs/ja/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection'] = '/docs/ja/developer_guide/sdk_integration?sdktab=android#google-advertising-id';
+validurls['/docs/ja/developer_guide/platform_integration_guides/android/push_notifications/android/silent_push_notifications'] = '/docs/ja/developer_guide/push_notifications/silent?sdktab=android';
+validurls['/docs/ja/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control'] = '/docs/ja/developer_guide/network?sdktab=swift';
+validurls['/docs/ja/developer_guide/platform_integration_guides/swift/advanced_use_cases/linking'] = '/docs/ja/developer_guide/push_notifications/deep_linking?sdktab=swift';
+validurls['/docs/ja/developer_guide/platforms/android/push_notifications/troubleshooting'] = '/docs/ja/developer_guide/push_notifications/troubleshooting?sdktab=android';
+validurls['/docs/ja/partners/data_and_infrastructure_agility/data_warehouses/snowflake/data_retention'] = '/docs/ja/partners/data_and_analytics/data_warehouses/snowflake/data_retention';
+validurls['/docs/ja/user_guide/brazeai/agents/use_cases'] = '/docs/ja/user_guide/brazeai/agents/examples';
+validurls['/docs/ja/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions'] = '/docs/ja/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions';
+validurls['/docs/ko/developer_guide/platform_integration_guides/android/advanced_use_cases/localization'] = '/docs/ko/developer_guide/localization?tab=android';
+validurls['/docs/ko/developer_guide/platform_integration_guides/android/analytics/setting_user_ids'] = '/docs/ko/developer_guide/analytics/setting_user_ids?tab=android';
+validurls['/docs/ko/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration'] = '/docs/ko/developer_guide/push_notifications?sdktab=android';
+validurls['/docs/ko/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids'] = '/docs/ko/developer_guide/analytics/setting_user_ids?tab=swift';
+validurls['/docs/ko/developer_guide/platform_integration_guides/swift/initial_sdk_setup/completing_integration'] = '/docs/ko/developer_guide/sdk_integration?sdktab=swift#step-2-update-your-app-delegate';
+validurls['/docs/ko/developer_guide/platform_integration_guides/swift/push_notifications/customization/advanced_settings'] = '/docs/ko/developer_guide/push_notifications/customization?sdktab=swift#swift_settings';
+validurls['/docs/ko/developer_guide/platform_integration_guides/web/content_cards/integration'] = '/docs/ko/developer_guide/content_cards?sdktab=web';
+validurls['/docs/ko/developer_guide/platform_integration_guides/web/push_notifications/integration'] = '/docs/ko/developer_guide/push_notifications?sdktab=web';
+validurls['/docs/ko/developer_guide/platform_integration_guides/xamarin/analytics'] = '/docs/ko/developer_guide/analytics?sdktab=xamarin';
+validurls['/docs/ko/developer_guide/platforms/swift/content_cards'] = '/docs/ko/developer_guide/content_cards?sdktab=swift';
+validurls['/docs/ko/developer_guide/rest_api/api_campaigns'] = '/docs/ko/api/api_campaigns';
+validurls['/docs/ko/help/faqs'] = '/docs/ko/user_guide/home';
+validurls['/docs/ko/partners/data_and_infrastructure_agility/cohort_import/heap'] = '/docs/ko/partners/data_and_analytics/analytics/heap/heap_cohort_import';
+validurls['/docs/ko/partners/data_and_infrastructure_agility/customer_data_platform/segment_for_currents'] = '/docs/ko/partners/data_and_analytics/customer_data_platform/segment/segment_for_currents';
+validurls['/docs/ko/partners/message_orchestration/additional_channels/retargeting/facebook'] = '/docs/ko/partners/message_orchestration/retargeting/facebook';
+validurls['/docs/ko/user_guide/channels/in_app_messages/customize/color_profiles_and_css_templates'] = '/docs/ko/user_guide/messaging/templates/in_app_message_templates/in_app_message_template';
+validurls['/docs/ko/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data'] = '/docs/ko/user_guide/analytics/dashboards/home';
+validurls['/docs/pt-br/developer_guide/platform_integration_guides/android/initial_sdk_setup/test_your_basic_integration'] = '/docs/pt-br/developer_guide/sdk_integration?sdktab=android#step-5-test-session-tracking-optional';
+validurls['/docs/pt-br/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration'] = '/docs/pt-br/developer_guide/push_notifications?sdktab=android';
+validurls['/docs/pt-br/developer_guide/platform_integration_guides/ios/analytics/setting_custom_attributes'] = '/docs/pt-br/developer_guide/platforms/legacy_sdks/ios/analytics/setting_custom_attributes';
+validurls['/docs/pt-br/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control'] = '/docs/pt-br/developer_guide/network?sdktab=swift';
+validurls['/docs/pt-br/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations'] = '/docs/pt-br/developer_guide/sdk_integration?sdktab=swift#optional-configurations';
+validurls['/docs/pt-br/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes'] = '/docs/pt-br/developer_guide/analytics/setting_user_attributes?sdktab=web';
+validurls['/docs/pt-br/developer_guide/platform_integration_guides/web/push_notifications/integration'] = '/docs/pt-br/developer_guide/push_notifications?sdktab=web';
+validurls['/docs/pt-br/help/help_articles/api/attribute_name_id_across_sources'] = '/docs/pt-br/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources';
+validurls['/docs/pt-br/partners/canvas_steps'] = '/docs/pt-br/partners/canvas_audience_sync';
+validurls['/docs/pt-br/partners/data_and_infrastructure_agility/customer_data_platform/tealium'] = '/docs/pt-br/partners/data_and_analytics/customer_data_platform/tealium';
+validurls['/docs/pt-br/partners/message_orchestration/channel_extensions/loyalty/punchh'] = '/docs/pt-br/partners/data_and_analytics/loyalty/punchh';
+validurls['/docs/pt-br/user_guide/administrative/app_settings/api_settings_tab'] = '/docs/pt-br/user_guide/administer/global/workspace_settings/apis_and_identifiers';
+validurls['/docs/pt-br/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/geographic_permissions'] = '/docs/pt-br/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions';
+validurls['/docs/pt-br/user_guide/data_and_analytics/creating_a_formula'] = '/docs/pt-br/user_guide/data/unification/creating_a_formula';
+validurls['/docs/pt-br/user_guide/data_and_analytics/custom_data/custom_attributes/nested_custom_attribute_support'] = '/docs/pt-br/user_guide/data/activation/attributes/nested_custom_attribute_support';
+validurls['/docs/pt-br/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data'] = '/docs/pt-br/user_guide/analytics/reports/revenue_report';
+validurls['/docs/pt-br/user_guide/data_and_analytics/reporting/understanding_your_app_usage_data'] = '/docs/pt-br/user_guide/analytics/dashboards/home';
+validurls['/docs/pt-br/user_guide/data_and_analytics/user_data_collection'] = '/docs/pt-br/user_guide/data/unification/user_data';
+validurls['/docs/pt-br/user_guide/engagement_tools/canvas/create_a_canvas/exit_criteria'] = '/docs/pt-br/user_guide/messaging/canvas/create_a_canvas/exit_criteria';
+validurls['/docs/pt-br/user_guide/message_building_by_channel/push/ios/notification_options'] = '/docs/pt-br/user_guide/channels/push/platform_specific_resources/ios/notification_options';
+validurls['/docs/pt-br/user_guide/onboarding_with_braze/data_points'] = '/docs/pt-br/user_guide/data/infrastructure/data_points';
+
+// GSC 2026-07-28: EN stragglers and remaining locale 404s from failed validation export
+validurls['/docs/user_guide/personalization_and_dynamic_content/recommendations'] = '/docs/user_guide/brazeai/item_recommendations';
+validurls['/docs/partners/data_and_analytics/data_warehouses/databricks'] = '/docs/databricks';
+validurls['/docs/help/help_articles/api/attribute_name_id_across_sources/index.md'] = '/docs/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources';
+validurls['/docs/developer_guide/in_app_messages/delivery'] = '/docs/developer_guide/in_app_messages/triggering_messages';
+validurls['/docs/user_guide/brazeai/intelligence/faqs'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_timing#faq';
+validurls['/docs/user_guide/onboarding_faq'] = '/docs/onboarding_faq';
+validurls['/docs/x-in-y-behavior/index.md'] = '/docs/x-in-y-behavior';
+validurls['/docs/de/partners/data_and_analytics/data_warehouses/databricks'] = '/docs/de/databricks';
+validurls['/docs/es/help/help_articles/api/attribute_name_id_across_sources/index.md'] = '/docs/es/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources';
+validurls['/docs/es/partners/data_and_analytics/data_warehouses/databricks'] = '/docs/es/databricks';
+validurls['/docs/fr/developer_guide/in_app_messages/delivery'] = '/docs/fr/developer_guide/in_app_messages/triggering_messages';
+validurls['/docs/ja/user_guide/brazeai/intelligence/faqs'] = '/docs/ja/user_guide/brazeai/intelligence_suite/intelligent_timing#faq';
+validurls['/docs/ko/developer_guide/in_app_messages/delivery'] = '/docs/ko/developer_guide/in_app_messages/triggering_messages';
+validurls['/docs/ko/partners/data_and_analytics/data_warehouses/databricks'] = '/docs/ko/databricks';
+validurls['/docs/ko/user_guide/brazeai/intelligence/faqs'] = '/docs/ko/user_guide/brazeai/intelligence_suite/intelligent_timing#faq';
+validurls['/docs/ko/user_guide/onboarding_faq'] = '/docs/ko/onboarding_faq';
+validurls['/docs/ko/x-in-y-behavior/index.md'] = '/docs/ko/x-in-y-behavior';
+validurls['/docs/pt-br/developer_guide/in_app_messages/delivery'] = '/docs/pt-br/developer_guide/in_app_messages/triggering_messages';
+validurls['/docs/pt-br/user_guide/onboarding_faq'] = '/docs/pt-br/onboarding_faq';
+
+// GSC 2026-07-28: liquid-leak URLs where {{site.baseurl}} was crawled as a relative path segment
+validurls['/docs/de/user_guide/get_started/{{site.baseurl}}/api/endpoints'] = '/docs/de/api/endpoints';
+validurls['/docs/de/user_guide/get_started/{{site.baseurl}}/api/endpoints/messaging'] = '/docs/de/api/endpoints/messaging';
+validurls['/docs/de/user_guide/get_started/{{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift'] = '/docs/de/developer_guide/sdk_integration?sdktab=swift';
+validurls['/docs/de/user_guide/get_started/{{site.baseurl}}/user_guide/channels/push/best_practices'] = '/docs/de/user_guide/channels/push/best_practices';
+validurls['/docs/de/user_guide/get_started/{{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users'] = '/docs/de/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users';
+validurls['/docs/de/user_guide/get_started/{{site.baseurl}}/user_guide/messaging/ab_testing'] = '/docs/de/user_guide/messaging/ab_testing';
+validurls['/docs/de/user_guide/get_started/{{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery'] = '/docs/de/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery';
+validurls['/docs/de/user_guide/get_started/{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize'] = '/docs/de/user_guide/messaging/design_and_edit/personalize';
+validurls['/docs/es/user_guide/get_started/{{site.baseurl}}/user_guide/get_started/workspaces'] = '/docs/es/user_guide/get_started/workspaces';
+validurls['/docs/fr/user_guide/get_started/{{site.baseurl}}/user_guide/channels/push/best_practices'] = '/docs/fr/user_guide/channels/push/best_practices';
+validurls['/docs/ja/user_guide/get_started/{{site.baseurl}}/developer_guide/getting_started/sdk_overview'] = '/docs/ja/developer_guide/getting_started/sdk_overview';
+validurls['/docs/ja/user_guide/get_started/{{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events'] = '/docs/ja/user_guide/messaging/messaging_fundamentals/conversion_events';
+validurls['/docs/ja/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations'] = '/docs/ja/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations';
+validurls['/docs/ja/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values'] = '/docs/ja/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values';
+validurls['/docs/ko/user_guide/get_started/{{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift'] = '/docs/ko/developer_guide/analytics/setting_user_attributes?sdktab=swift';
+validurls['/docs/ko/user_guide/get_started/{{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift'] = '/docs/ko/developer_guide/sdk_integration?sdktab=swift';
+validurls['/docs/ko/user_guide/get_started/{{site.baseurl}}/user_guide/channels'] = '/docs/ko/user_guide/channels';
+validurls['/docs/ko/user_guide/get_started/{{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming'] = '/docs/ko/user_guide/channels/email/email_setup/ip_warming';
+validurls['/docs/ko/user_guide/get_started/{{site.baseurl}}/user_guide/channels/email/subscriptions'] = '/docs/ko/user_guide/channels/email/subscriptions';
+validurls['/docs/ko/user_guide/get_started/{{site.baseurl}}/user_guide/data/activation/events/custom_events'] = '/docs/ko/user_guide/data/activation/events/custom_events';
+validurls['/docs/ko/user_guide/get_started/{{site.baseurl}}/user_guide/get_started/workspaces'] = '/docs/ko/user_guide/get_started/workspaces';
+validurls['/docs/ko/user_guide/messaging/design_and_edit/personalize/liquid/{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid'] = '/docs/ko/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid';
+validurls['/docs/user_guide/brazeai/{{site.baseurl}}/user_guide/brazeai/operator'] = '/docs/user_guide/brazeai/operator';
+validurls['/docs/user_guide/get_started/{{site.baseurl}}/api/endpoints/messaging'] = '/docs/api/endpoints/messaging';
+
+// GSC 2026-07-28: truncated crawl URLs (link text cut off mid-path)
+validurls['/docs/user_guide/data_and_analytics/user_data_collecti'] = '/docs/user_guide/data/unification/user_data';
+validurls['/docs/user_guide/data_and_analytics/custom_data/cust'] = '/docs/user_guide/data/activation/attributes/custom_attributes';
 
 // validurls['OLD'] = 'NEW';

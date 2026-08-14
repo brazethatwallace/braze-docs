@@ -33,6 +33,7 @@ hide_binary_feedback: false
 {%- unless hide_feedback -%}
 {%- assign hide_feedback = layout.hide_feedback -%}
 {%- endunless -%}
+{%- assign glossary_loc = site.data.i18n[site.language] -%}
 
 {% unless hide_nav %}
 <!-- button id="sidebar_toggle" class="btn btn-info d-print-none" data-toggle="collapse" aria-expanded="true" href="#nav_bar" >
@@ -245,7 +246,8 @@ $(document).ready(function() {
     {% multi_lang_include layouts/onboarding_faq_intro.html %}
 
     <div id="api_filter">
-        <input id="api_search" type="search" placeholder="Search" aria-label="Search" />
+        <label for="api_search" id="onboarding-faq-search-label" class="sr-only">{{ glossary_loc.onboarding_faq_search_aria }}</label>
+        <input id="api_search" type="search" placeholder="{{ glossary_loc.onboarding_faq_search_placeholder }}" aria-labelledby="onboarding-faq-search-label" />
         <div id="api_filter_list"></div>
     </div>
 

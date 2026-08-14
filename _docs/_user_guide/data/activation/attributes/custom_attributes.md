@@ -38,9 +38,17 @@ To create and manage custom attributes in the dashboard, go to **Data Settings**
 
 The **Last updated** column lists the last time the custom attribute was edited, such as when it was last set to blocklist or active.
 
+{% alert note %}
+If an array custom attribute appears on a user profile without values, verify that the attribute's **Max Length** is greater than `0`. For step-by-step troubleshooting, see [Data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays).
+{% endalert %}
+
 {% alert important %}
 For proper message targeting, be sure that your custom attribute data type matches the actual custom attribute. <br><br>For example, if `newsletter_subscribed` is defined as a string, your Liquid syntax should look like {% raw %}```{% if {{custom_attribute.${newsletter_subscribed}}} == 'true' %}```{% endraw %}. If `newsletter_subscribed` is defined as a Boolean, the Liquid syntax shouldn't have single-quotation marks: {% raw %}```{% if {{custom_attribute.${newsletter_subscribed}}} == true %}```{% endraw %}.
 {% endalert %}
+
+### Troubleshooting duplicate custom attributes or events
+
+{% multi_lang_include data_activation/troubleshooting_duplicate_custom_data_entries.md %}
 
 From this page, you can view, manage, create, or blocklist existing custom attributes. Select the menu next to a custom attribute for the following actions:
 
@@ -146,6 +154,8 @@ When clearing or unsetting a custom attribute, the behavior differs depending on
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Blank strings versus null values" }
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Blank strings versus null values" }
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Blank strings versus null values" }
+
+This behavior also affects segmentation. For custom attributes, the **IS NOT BLANK** filter checks for a non-empty value. This means a blank string (`""`) doesn't match, even though the attribute remains visible on the profile. A `null` value also doesn't match, because the attribute is removed from the profile.
 
 {% alert important %}
 For non-string data types where the data type is manually set in the Braze dashboard (not auto-detected), you must use `null` to unset the value. Passing `""` is valid for only string attributes — for example, setting a Boolean attribute to `""` is treated as an empty string, which is an invalid value for that type. To unset a Boolean, pass `null`.

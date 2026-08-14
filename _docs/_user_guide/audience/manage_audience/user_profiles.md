@@ -121,6 +121,10 @@ The **Event History** tab shows the custom events and purchases a user has logge
 
 In general, Braze lists a campaign under **Campaigns received** after it attempts to send the message. A delivery to the user's device or inbox is not required for a send to be logged. **Canvas messages received** follows the same channel-specific rules for each Canvas message type.
 
+{% alert tip %}
+When timestamps are displayed in relative format (such as "6 days ago"), hover over them to see the exact date and time.
+{% endalert %}
+
 - **Email:** Braze logs a send when the message is handed off to your email service provider (ESP). After that handoff, the message is not aborted because of Liquid logic, rate limiting, or the user being marked as unreachable. The next events are often a delivery or a bounce.
 - **Push:** Braze logs a send when the message is handed off to the push provider (for example, Apple Push Notification service (APNs) or Firebase Cloud Messaging (FCM)). The provider usually tries to deliver immediately; if the device is unavailable (for example, offline), the provider may retry until the message expires.
 - **In-app messages:** Braze logs a send when the campaign is launched.
@@ -166,7 +170,7 @@ The following message engagement events are available for email, SMS, push, in-a
 
 ##### Message abort events
 
-Message abort events occur when a message sent to a user was aborted due to conditional logic in [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) or [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-connected-content), or from Liquid rendering timeouts.
+Message abort events occur when a message sent to a user was aborted due to conditional logic in [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) or [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content), or from Liquid rendering timeouts.
 
 Abort events are available for the following channels:
 
@@ -202,6 +206,18 @@ Some fields may be absent in a user's **Message History** tab in the following s
    - If a particular message is missing entirely from the messaging history but appears in the **Campaigns Received** log, it's likely the user received the campaign before being identified as the current user. If an existing profile is orphaned, the **Campaigns Received** log is transferred, but the messaging history is not. 
 - When data is missing for **Campaign/Canvas**, a manual test may have been sent. Manual tests are logged in the **Messaging History** tab, but the campaign or Canvas that was sent won't be logged.
 - When a user is in a seed group or other internal test audience, **Messaging History** may show limited campaign or Canvas metadata compared to production sends.
+
+## Data size constraints
+
+Braze doesn't enforce an overall capacity on the total size of a user profile. However, specific data types associated with users have defined size capacities.
+
+### Custom attribute arrays
+
+Custom attribute arrays (including arrays of objects) have a capacity of 100 KB. When you send an array that exceeds this capacity, the custom attribute isn't processed. The API returns a success response (201), but the array doesn't appear in the user profile and existing data for that attribute isn't updated.
+
+If your arrays approach this capacity, consider limiting the number of objects you populate to keep the total size within 100 KB.
+
+For more information on custom attributes, see [Custom attribute data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types).
 
 ## Related articles
 

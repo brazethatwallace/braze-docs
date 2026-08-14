@@ -93,13 +93,13 @@ Sie haben nur eine Chance, Nutzer:innen um die Push-Berechtigung zu bitten, und 
 
 ### Push-Abo-Steuerungen hinzufügen {#add-push-subscription-controls}
 
-Um zu vermeiden, dass Nutzer:innen Benachrichtigungen auf Geräteebene deaktivieren, was ihr Vordergrund-Push-Token vollständig entfernt, lassen Sie Nutzer:innen ihr Push-Abo direkt in Ihrer App steuern. Weitere Details finden Sie unter [Push-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#update-push-subscription-state).
+Um zu vermeiden, dass Nutzer:innen Benachrichtigungen auf Geräteebene deaktivieren, was ihr Vordergrund-Push-Token vollständig entfernt, lassen Sie Nutzer:innen ihr Push-Abo direkt in Ihrer App steuern. Weitere Details finden Sie unter [Push-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
 ### Erweiterte Zeitplanung verwenden oder Verzögerungen hinzufügen {#use-advanced-scheduling-or-add-delays}
 
 Abhängig von der Größe Ihrer Zielgruppe und davon, wie weit im Voraus Ihre Push-Nachricht geplant ist, kann es zu Verzögerungen bei der Push-Zustellung kommen. Wie lange das Senden von Push-Benachrichtigungen dauert, hängt von der zugewiesenen Rechenleistung ab. Wenn Ihre Push-Nachricht beispielsweise mehrere Connected-Content-Aufrufe verwendet, kann dies die Komplexität des Templating der Push-Nachricht erhöhen und zu Geschwindigkeiten führen, die davon begrenzt werden, wie schnell Ihre Drittanbieter-APIs Daten zurückgeben.
 
-Eine kleinere Push-Payload und eine höhere Benachrichtigungspriorität können dazu beitragen, Verzögerungen zu reduzieren und Ihre Nachrichten zu skalieren. Sie können `Push Enabled = true` in Ihrem Zielgruppen-Filter hinzufügen, um die Zielgruppengröße zu reduzieren, sodass nur Push-aktivierte Nutzer:innen für den Campaign-Versand verarbeitet werden.
+Eine kleinere Push-Payload und eine höhere Benachrichtigungspriorität können dazu beitragen, Verzögerungen zu reduzieren und Ihre Nachrichten zu skalieren. Sie können `Push Enabled = true` in Ihrem Zielgruppenfilter hinzufügen, um die Zielgruppengröße zu reduzieren, sodass nur Push-aktivierte Nutzer:innen für den Campaign-Versand verarbeitet werden.
 
 Wir empfehlen außerdem, die Anzahl der API-Aufrufe zu minimieren, indem Sie die benötigten Daten optimieren. Wenn möglich, versuchen Sie, alle benötigten Daten in einem einzigen API-Aufruf abzurufen, anstatt mehrere Aufrufe zu tätigen.
 

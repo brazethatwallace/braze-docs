@@ -16,13 +16,13 @@ alias: /whatsapp_quick_replies/
 
 ## Desencadenantes basados en acciones {#action-based-triggers}
 
-Tanto las campañas como los Canvas pueden iniciarse, ramificarse y tener cambios a mitad del recorrido a partir de un mensaje entrante de WhatsApp (un usuario que envía un mensaje a tu WhatsApp), como una palabra desencadenante.
+Tanto las Campaigns como los Canvas pueden iniciarse, ramificarse y tener cambios a mitad del recorrido a partir de un mensaje entrante de WhatsApp (un usuario que envía un mensaje a tu WhatsApp), como una palabra desencadenante.
 
 Asegúrate de que tu palabra desencadenante coincida con lo que esperas de los usuarios.
 
 **Cosas que debes saber:**
-- Cada letra de tu palabra desencadenante debe estar en mayúsculas cuando se configura. Braze no requiere que las palabras desencadenantes entrantes enviadas por los usuarios estén en mayúsculas. Por ejemplo, enviar "jOin2023" seguirá desencadenando el Canvas o la campaña.
-- Si no se especifica ninguna palabra desencadenante en el desencadenante basado en acciones del horario de entrada, la campaña o el Canvas se ejecutará para TODOS los mensajes entrantes de WhatsApp. Esto incluye mensajes que coincidan con frases en campañas y Canvas activos, en cuyo caso el usuario recibirá dos mensajes de WhatsApp.
+- Cada letra de tu palabra desencadenante debe estar en mayúsculas cuando se configura. Braze no requiere que las palabras desencadenantes entrantes enviadas por los usuarios estén en mayúsculas. Por ejemplo, enviar "jOin2023" seguirá desencadenando el Canvas o la Campaign.
+- Si no se especifica ninguna palabra desencadenante en el desencadenante basado en acciones del horario de entrada, la Campaign o el Canvas se ejecutará para TODOS los mensajes entrantes de WhatsApp. Esto incluye mensajes que coincidan con frases en Campaigns y Canvas activos, en cuyo caso el usuario recibirá dos mensajes de WhatsApp.
 
 {% tabs %}
 {% tab Campaign %}
@@ -111,9 +111,9 @@ Agrega un [paso de mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_
 
 Agrega un nombre de **List button** que los usuarios seleccionarán para mostrar tu lista. Luego, usa los campos en **List content** para crear tu lista:
 
-- **Section:** Agrega hasta 10 secciones para agrupar y organizar los elementos de tu lista. Por ejemplo, un minorista de ropa podría usar secciones para organizar por estilos de temporada (como primavera, verano, otoño e invierno) o artículos de ropa (como tops, pantalones y zapatos).
-- **Row:** Agrega hasta 10 filas, o elementos de lista, en todas las secciones.
-- **Row description (optional):** Agrega una descripción opcional a todas las filas (elementos de lista).
+- **Section:** agrega hasta 10 secciones para agrupar y organizar los elementos de tu lista. Por ejemplo, un minorista de ropa podría usar secciones para organizar por estilos de temporada (como primavera, verano, otoño e invierno) o artículos de ropa (como tops, pantalones y zapatos).
+- **Row:** agrega hasta 10 filas, o elementos de lista, en todas las secciones.
+- **Row description (optional):** agrega una descripción opcional a todas las filas (elementos de lista).
 
 ![La sección "List content" completada con dos secciones, y varias filas y descripciones de filas.]({% image_buster /assets/img/whatsapp/list_content.png %}){: style="max-width:60%;"}
 
@@ -143,6 +143,8 @@ Si tienes descripciones de filas, debes usar **Matches regex** para especificar 
 
 Los mensajes de respuesta deben enviarse dentro de las 24 horas posteriores a la recepción del mensaje de un usuario. Para ayudar a crear experiencias exitosas, Braze verifica la lógica del mensaje para confirmar que hay un mensaje entrante del usuario anterior que desbloquea el mensaje de respuesta.
 
+Para respuestas en menos de un minuto en flujos bidireccionales de Canvas, minimiza los pasos entre el desencadenante entrante y el envío del mensaje de respuesta. La arquitectura de Canvas, los viajes de ida y vuelta de webhooks y el procesamiento por lotes de actualizaciones de usuario pueden agregar latencia. Consulta [Minimizar la latencia de respuesta para flujos bidireccionales]({{site.baseurl}}/user_guide/channels/whatsapp/best_practices#minimize-response-latency-for-two-way-flows).
+
 Los siguientes eventos desbloquean los mensajes de respuesta:
 
 - Mensaje entrante
@@ -156,9 +158,34 @@ Los siguientes eventos desbloquean los mensajes de respuesta:
 
 ![Una ruta de acción con el desencadenante de un evento personalizado realizado `ecommerce.cart_updated`.]({% image_buster /assets/img/whatsapp/ecommerce_cart_updated.png %})
 
+### Respuestas rápidas y mensajes entrantes fuera de la ventana de 24 horas {#quick-replies-and-inbound-messages-outside-the-24-hour-window}
+
+Cuando un usuario interactúa con tu negocio en WhatsApp —incluyendo al tocar un botón de respuesta rápida en un mensaje de plantilla anterior— su acción cuenta como un mensaje entrante. Ese mensaje entrante abre una nueva ventana de servicio al cliente de 24 horas, incluso si la plantilla original fue enviada hace más de 24 horas.
+
+En un Canvas con botones de respuesta rápida, los usuarios pueden tocar un botón días después de recibir la plantilla de bienvenida y aún así ingresar a la ruta de acción correcta. Braze evalúa la ruta de acción cuando llega el mensaje entrante; no necesitas extender la duración de la ruta de acción más allá del valor predeterminado para capturar respuestas tardías.
+
+El siguiente diagrama muestra un flujo común de respuesta rápida:
+
+```mermaid
+sequenceDiagram
+    participant Brand
+    participant User
+    Brand->>User: Template message (quick reply buttons)
+    Note over User: More than 24 hours pass
+    User->>Brand: Taps quick reply (inbound message)
+    Note over Brand,User: New 24-hour customer service window opens
+    Brand->>User: Response message (within Action Path)
+```
+
+#### Cosas que debes saber {#things-to-know}
+
+- El paso del mensaje de respuesta aún debe estar dentro de las 24 horas del mensaje entrante del usuario. En la mayoría de los flujos de Canvas, la respuesta se envía inmediatamente después de que se evalúa la ruta de acción, por lo que esto no suele ser un problema.
+- La ventana de servicio al cliente de 24 horas es diferente de los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) de Canvas, que pueden usar una ventana de hasta 30 días. Las ventanas de conversión controlan la atribución; no afectan si un mensaje de respuesta puede enviarse.
+- Para facturación, consulta [¿Los mensajes de respuesta de WhatsApp son gratuitos?]({{site.baseurl}}/user_guide/channels/whatsapp/faq#are-whatsapp-response-messages-free).
+
 ### Filtrar por un atributo de tiempo personalizado {#filtering-by-a-custom-time-attribute}
 
-Si la audiencia de tu campaña o Canvas de WhatsApp basado en acciones depende de un atributo de tiempo personalizado que cae dentro de una ventana relativa (por ejemplo, entre ahora y las próximas 24 horas), combina dos filtros como se describe en [Tiempo]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time).
+Si la audiencia de tu Campaign o Canvas de WhatsApp basado en acciones depende de un atributo de tiempo personalizado que cae dentro de una ventana relativa (por ejemplo, entre ahora y las próximas 24 horas), combina dos filtros como se describe en [Tiempo]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time).
 
 ### Almacenamiento de medios entrantes y expiración de URL {#inbound-media-storage-and-url-expiration}
 
@@ -169,3 +196,7 @@ Sin embargo, el campo Liquid `inbound_media_urls`, que hace referencia a la URL 
 {% alert note %}
 Si guardas un valor de `inbound_media_urls` en un atributo personalizado de usuario para usarlo más adelante, ten en cuenta esta expiración de siete días. Intentar acceder a la URL después de que haya expirado resultará en un enlace roto.
 {% endalert %}
+
+### Nombre de perfil entrante {#inbound-profile-name}
+
+Cuando Meta incluye un nombre para mostrar en un mensaje entrante de WhatsApp, Braze lo expone como el atributo Liquid {% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %} en ese evento entrante. Este valor refleja el nombre que el usuario configuró en WhatsApp y puede no coincidir con los datos del perfil del CRM. Valida los datos antes de usarlos en el texto dirigido al usuario, o usa un paso de actualización de usuario en Canvas para guardarlo en un campo de perfil para usarlo más adelante. Para obtener una lista completa de los atributos Liquid de WhatsApp, consulta [Etiquetas de personalización compatibles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).

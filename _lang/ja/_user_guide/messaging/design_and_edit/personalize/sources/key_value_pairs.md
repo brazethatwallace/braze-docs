@@ -202,3 +202,7 @@ SparkPostとSendGridの両方がメールでのキーと値のペアをサポー
 Content Cardsにキーと値のペアを追加するには、Brazeのメッセージ作成画面の**Settings**タブに移動し、**Add New Pair**を選択します。
 
 ![Content Cardsにキーと値のペアを追加]({% image_buster /assets/img_archive/kvp_content_cards.png %}){: style="max-width:70%;"}
+
+{% alert note %}
+コントロールバリアントはキーと値のペアをサポートしていません。A/Bテストでコントロールグループの分析をキャプチャする必要がある場合は、`control=true`などのキーと値のペアを持つメッセージバリアントを作成し、インプレッションをログに記録しながらアプリコード内で非表示にしてください。
+{% endalert %}

@@ -46,9 +46,9 @@ Para conocer las razones por las que los números de teléfono suelen marcarse c
 
 Recomendamos el siguiente flujo de trabajo para eliminar números de teléfono no válidos:
 
-1. Identifica los números de teléfono afectados a través del [punto de conexión `/sms/invalid_phone_numbers`]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers).
+1. Identifica los números de teléfono afectados a través del [endpoint `/sms/invalid_phone_numbers`]({{site.baseurl}}/api/endpoints/sms/get_query_invalid_numbers).
 2. Diferencia entre los números de teléfono que están desactivados y los números de teléfono que recibieron errores del proveedor.
-3. Para los números de teléfono desactivados, vuelve a verificar el número de teléfono con el usuario. Después de que el usuario confirme su número de teléfono, elimina el número de teléfono de la lista de no válidos a través del [punto de conexión `/sms/invalid_phone_numbers/remove`]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers).
+3. Para los números de teléfono desactivados, vuelve a verificar el número de teléfono con el usuario. Después de que el usuario confirme su número de teléfono, elimina el número de teléfono de la lista de no válidos a través del [endpoint `/sms/invalid_phone_numbers/remove`]({{site.baseurl}}/api/endpoints/sms/post_remove_invalid_numbers).
 
 ## Recomendaciones sobre el bombeo de tráfico {#traffic-pumping-recommendations}
 
@@ -88,7 +88,7 @@ Para superar esta limitación, durante el [proceso de configuración]({{site.bas
 
 ¿Planeas realizar envíos de alto volumen? Tenemos algunas buenas prácticas para que todo funcione sin problemas.
 
-- Ajusta el límite de velocidad de entrega para tu Campaign o Canvas según sea necesario, en función del tamaño de la audiencia objetivo. Esto garantiza que alcances el volumen de envío que necesitas y que Braze envíe los mensajes a la tasa que Twilio espera y puede manejar.
+- Ajusta el límite de velocidad de entrega para tu Campaign o Canvas según sea necesario, en función del tamaño del público objetivo. Esto garantiza que alcances el volumen de envío que necesitas y que Braze envíe los mensajes a la tasa que Twilio espera y puede manejar.
 - Asegúrate de respetar el límite de 160 caracteres y ten en cuenta que los caracteres especiales cuentan doble (por ejemplo, barras invertidas `\`, acentos circunflejos `^` y tildes `~`).
 
 ## Recomendaciones sobre horas tranquilas {#quiet-hours-recommendations}
@@ -121,6 +121,6 @@ Incluye el siguiente fragmento de código en la parte superior del cuerpo de tu 
 
 #### Consideraciones
 
-- {% raw %}`time_zone: ${time_zone}`{% endraw %} permite que la ventana se evalúe en función de la hora local de cada usuario, no de una hora global fija, como se explica en [estas preguntas frecuentes]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer).
+- {% raw %}`time_zone: ${time_zone}`{% endraw %} permite que la ventana se evalúe en función de la hora local de cada usuario, no de una hora global fija, como se explica en las [preguntas frecuentes de Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer).
 - Los mensajes suprimidos por {% raw %}`abort_message()`{% endraw %} no se reprograman para el día siguiente; se cancelan.
-- {% raw %} De forma predeterminada, los mensajes cancelados no son visibles en los informes estándar de la Campaign. Sin embargo, cuando Liquid cancela un envío con `{% abort_message %}`, Braze lo registra en el Registro de actividad de mensajes como un error de mensaje (de forma predeterminada muestra `{% abort_message %}` llamado). Si pasas una cadena, esa razón es lo que aparece en el registro, como `{% abort_message('language was nil') %}`{% endraw %}. Para tener visibilidad de estas supresiones en el dashboard, ponte en contacto con tu administrador del éxito del cliente para acceder al [panel de diagnóstico de mensajería]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard).
+- {% raw %} De forma predeterminada, los mensajes cancelados no son visibles en los informes estándar de la Campaign. Sin embargo, cuando Liquid cancela un envío con `{% abort_message %}`, Braze lo registra en el Registro de actividad de mensajes como un error de mensaje (de forma predeterminada muestra `{% abort_message %}` llamado). Si pasas una cadena, esa razón es lo que aparece en el registro, como `{% abort_message('language was nil') %}`{% endraw %}. Para tener visibilidad de estas supresiones en el panel, ponte en contacto con tu administrador de éxito de cliente para acceder al [panel de diagnóstico de mensajería]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard).

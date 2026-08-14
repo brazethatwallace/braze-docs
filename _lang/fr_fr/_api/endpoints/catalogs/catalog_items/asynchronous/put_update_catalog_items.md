@@ -23,7 +23,7 @@ Si un élément du catalogue n'existe pas, cet endpoint créera l'élément dans
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `catalogs.replace_items`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `catalogs.replace_items`.
 
 ## Limite de débit {#rate-limit}
 
@@ -88,7 +88,7 @@ Le champ `Location` utilise le type de données `geo`, qui attend un tableau au 
 Trois codes de statut de réponse existent pour cet endpoint : `202`, `400` et `404`.
 
 {% alert note %}
-Le système peut également renvoyer une réponse `400` si votre entreprise a atteint sa limite de stockage de catalogue. La version gratuite des catalogues est plafonnée à 100&nbsp;Mo. Pour plus d'informations sur les niveaux de stockage et comment effectuer une mise à niveau, consultez [Limitations du stockage de données]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
+Le système peut également renvoyer une réponse `400` si votre entreprise a atteint sa limite de stockage de catalogue. La version gratuite des catalogues est plafonnée à 500&nbsp;Mo. Pour plus d'informations sur les niveaux de stockage et comment effectuer une mise à niveau, consultez [Limitations du stockage de données]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
 {% endalert %}
 
 ### Exemple de réponse réussie {#example-success-response}

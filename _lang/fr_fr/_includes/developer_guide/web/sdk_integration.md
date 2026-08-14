@@ -1,6 +1,6 @@
 ## À propos du SDK Web Braze {#about-the-web-braze-sdk}
 
-Le SDK Web Braze vous permet de collecter des données analytiques et d'afficher des messages in-app enrichis, des notifications push et des messages Content Cards à vos utilisateurs Web. Pour plus d'informations, consultez la [documentation de référence JavaScript de Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
+Le SDK Web Braze vous permet de collecter des données analytiques et d'afficher des messages in-app enrichis, des notifications push et des messages Content Cards à vos utilisateurs web. Pour plus d'informations, consultez la [documentation de référence JavaScript de Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
 
 {% multi_lang_include archive/web-v4-rename.md %}
 
@@ -94,7 +94,7 @@ braze.openSession();
 ```
 
 {% alert important %}
-**Affichage des messages in-app** : Pour afficher automatiquement les messages in-app lorsqu'ils sont déclenchés, vous devez appeler `braze.automaticallyShowInAppMessages()`. Sans cet appel, les messages in-app ne s'affichent pas automatiquement. Si vous souhaitez gérer manuellement l'affichage des messages, supprimez cet appel et utilisez `braze.subscribeToInAppMessage()` à la place. Pour plus d'informations, consultez la section [Réception/distribution de messages in-app]({{site.baseurl}}/developer_guide/in_app_messages/delivery).
+**Affichage des messages in-app** : Pour afficher automatiquement les messages in-app lorsqu'ils sont déclenchés, vous devez appeler `braze.automaticallyShowInAppMessages()`. Sans cet appel, les messages in-app ne s'affichent pas automatiquement. Si vous souhaitez gérer manuellement l'affichage des messages, supprimez cet appel et utilisez `braze.subscribeToInAppMessage()` à la place. Pour plus d'informations, consultez la section [Désactiver les déclencheurs automatiques]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#disabling-automatic-triggers).
 {% endalert %}
 
 #### Résolution des problèmes de sessions manquantes pour les utilisateurs anonymes {#troubleshooting-missing-sessions-for-anonymous-users}

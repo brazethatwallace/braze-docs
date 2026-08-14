@@ -9,7 +9,7 @@ description: "Dieser Artikel enthält Versionshinweise für Juli 2020."
 
 ## Aktionscodes {#promotion-codes}
 
-Mit Liquid können Sie Ihre Nachrichten aus einer Liste von [Aktionscodes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes#promotion-codes) ziehen, die Sie hochgeladen haben. Dieses Feature bietet Ablaufdaten von bis zu sechs Monaten und unterstützt bis zu 20 MM individuelle Codes pro Liste.
+Mit Liquid können Sie Ihre Nachrichten aus einer Liste von [Aktionscodes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) ziehen, die Sie hochgeladen haben. Dieses Feature bietet Ablaufdaten von bis zu sechs Monaten und unterstützt bis zu 20 MM individuelle Codes pro Liste.
 
 ## Bericht über die Bindung von Varianten {#variant-retention-report}
 

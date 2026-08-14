@@ -20,7 +20,7 @@ description: "Cet article présente en détail l'endpoint Braze Exporter les dé
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `canvas.details`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `canvas.details`.
 
 ## Limite de débit {#rate-limit}
 
@@ -100,13 +100,13 @@ Toutes les étapes du Canvas possèdent un champ `next_paths`, qui est un tablea
     },
     ... (more steps)
   ],
-  "message": (required, string) the status of the export, returns 'success' when completed without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 
 ### Messages par canal {#messages-by-channel}
 
-Voici un exemple de réponse qui inclut des messages Canvas envoyés par différents canaux (e-mail, push, SMS et messages in-app) :
+Voici un exemple de réponse qui inclut des messages Canvas envoyés par différents canaux (e-mail, notification push, SMS et messages in-app) :
 
 ```json
 {

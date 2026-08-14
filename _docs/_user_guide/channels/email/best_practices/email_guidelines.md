@@ -22,12 +22,19 @@ Here are some quick tips to keep in mind while building your content:
 - Don't set heights and widths for images as this can cause unnecessary white space in a degraded email.
 - `div` tags should not be used as most email clients do not support their use. Instead, use nested tables.
 - Avoid using JavaScript because it does not work with any ESP.
+- Avoid CSS `position: absolute` and `position: relative` in email templates. Most email clients do not support CSS positioning, causing layout discrepancies between the Braze preview and delivered emails. Use table-based layouts to achieve layered or overlapping effects.
 - Braze improves load times by using a global CDN to host all email images.
 - On mobile, image columns are narrow (~100px each), so multi-image rows still fit (for example, four images ≈ four usable columns).
 
 ## Alternative text
 
 Since spam filters watch for both an HTML and a plain text version of a message, utilizing plain text alternatives is a great way to lower your spam score. In addition, alternative text `(alt="")` can serve to complement and in some cases stand in lieu of images included in your email body that may have been filtered out by a user's email provider. Screen readers announce alt text to explain images, so this is an opportunity to use plain language to provide key information about an image.
+
+The recipient's email client, not Braze, controls how alt text displays. For details on this behavior across clients like Gmail, Outlook, and Apple Mail, refer to [How email clients display alt text]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text).
+
+{% alert note %}
+If your alt text contains quotation marks, use single quotes (`'`) instead of double quotes (`"`). Double quotes can cause HTML to prematurely close the attribute, cutting off the text. For example, `alt="Product 'Premium' Edition"` works correctly, but `alt="Product "Premium" Edition"` is truncated.
+{% endalert %}
 
 ## Email validation
 
@@ -246,5 +253,22 @@ Check out the following lists for HTML tags and attributes that aren't allowed i
 - `<transitionend>`
 {% enddetails %}
 
+## Troubleshooting duplicate emails
 
+If users report receiving duplicate emails, the following scenarios can help you identify the cause:
+
+### Configuration error at campaign or Canvas creation
+
+Users may not receive the same email twice, but may receive two separate emails with the same subject line. When a campaign or Canvas is duplicated, it's easy to miss basic email configuration details such as images or the subject line. 
+
+To investigate:
+
+1. Check the user profile and review each Canvas and campaign the user received.
+2. Review the change logs to see if the campaign or Canvas was modified after launch. It's possible the campaign or Canvas had the same subject line as the original when the user received it.
+
+### Campaign sent multiple times
+
+If the number of messages sent is significantly larger than the number of users in the audience, this may indicate the campaign was launched multiple times.
+
+For more information on how Braze handles duplicate email addresses and deduplication, see the [Email FAQ]({{site.baseurl}}/user_guide/channels/email/faq#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address).
 

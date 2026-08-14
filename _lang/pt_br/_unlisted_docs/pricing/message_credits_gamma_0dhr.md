@@ -10,18 +10,7 @@ hide_toc: true
 
 > Créditos de mensagem é a estrutura de empacotamento multiproduto da Braze para nossas ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp e LINE. Os créditos de mensagem proporcionam uma experiência flexível e transparente ao aproveitar os canais de envio de mensagens da Braze e determinados recursos de IA. Os créditos dão acesso a qualquer um dos canais apresentados na tabela desta página.
 
-{% alert note %}
-Produtos diferentes terão unidades de medida diferentes nos relatórios.<br><br>
-<b>Agent Console:</b> Invocações<br>
-<b>SMS:</b> Segmentos<br>
-<b>MMS:</b> Envios<br>
-<b>WhatsApp:</b> Mensagens entregues<br>
-<b>RCS:</b> Segmentos entregues, Envios entregues<br>
-<b>LINE:</b> Envios<br>
-<b>KakaoTalk:</b> Envios<br>
-
-Por fim, as taxas de operadora relacionadas a SMS, MMS e RCS são cobradas separadamente (após o uso) e não são consideradas parte deste SKU de créditos de mensagem.
-{% endalert %}
+{% multi_lang_include pricing/message_credits_units_of_measure.md %}
 
 ## Definições {#definitions}
 
@@ -2281,8 +2270,8 @@ As definições das colunas são as seguintes:
 
 ------
 
-## Detalhes do Console de Agentes {#agent-console-details}
-A Braze cobrará Créditos de Mensagem por Invocações do Console de Agentes enviadas a partir da plataforma Braze. Uma Invocação é registrada quando um Agente inicia uma chamada a um LLM. Por padrão, seu contrato inclui dez mil Invocações por cada Período do seu Prazo de Inscrição.
+## Detalhes do Agent Console {#agent-console-details}
+A Braze cobrará créditos de mensagem por invocações do Agent Console enviadas pela plataforma Braze. Uma invocação é registrada quando um agente inicia uma chamada a um LLM. Por padrão, seu contrato inclui dez mil invocações por cada período do seu prazo de inscrição.
 
 ## Detalhes do canal SMS/MMS {#smsmms-channel-details}
 
@@ -2292,23 +2281,19 @@ Segmentos de mensagem SMS são a forma como o setor de SMS contabiliza as mensag
 
 ### Segmentos de MMS {#mms-segments}
 
-Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não exceder 600 KB para seu ativo multimídia, incluindo também um corpo de mensagem.
+Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não exceder 600 KB para o seu ativo multimídia, incluindo também o corpo da mensagem.
 
 ### Tipos de RCS {#rcs-types}
 
 O RCS é a próxima geração do SMS e MMS. Ele oferece os benefícios de um canal direto e de alto engajamento como o SMS, com recursos mais avançados que os consumidores modernos esperam, como conteúdo rico (imagens, vídeos, documentos), envio verificado e com marca, recursos interativos como respostas e ações sugeridas, e muito mais.
 
-- A cobrança do RCS é baseada em dois tipos diferentes de mensagem (com distinções para os EUA):
-    - **RCS Básico:** Somente texto, até 160 caracteres
-    - **RCS Único:** Mensagens contendo conteúdo rico, ou mensagens somente texto com mais de 160 caracteres
-    - **RCS Rico (somente EUA):** Somente texto, pode incluir sugestões/botões limitados (quickReply, dialPhone, openURL sem webview), segmentado a cada 160 bytes UTF-8
-    - **RCS Rich Media (somente EUA):** Qualquer mídia OU texto com sugestões/botões mais avançados (webview, localização, calendário, etc.), contabilizado como uma mensagem
+{% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 ## Detalhes do canal WhatsApp {#whatsapp-channel-details}
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-## Detalhes adicionais de canais {#additional-channel-details}
+## Detalhes adicionais do canal {#additional-channel-details}
 
 ### Webhooks
 
@@ -2331,7 +2316,7 @@ Estados Unidos, Canadá
 ### Restante da África {#rest-of-africa}
 
 Argélia, Angola, Benin, Botsuana, Burkina Faso, Burundi, Camarões, Chade, Congo, Eritreia, Etiópia, Gabão, Gâmbia, Gana, Guiné-Bissau, Costa do Marfim, Quênia, Lesoto, Libéria, Líbia,
-Madagascar, Malawi, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Essuatíni, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
+Madagascar, Malauí, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Essuatíni, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
 
 ### Restante da Ásia-Pacífico {#rest-of-asia-pacific}
 
@@ -2340,7 +2325,7 @@ Turcomenistão, Uzbequistão, Vietnã
 
 ### Restante da Europa Central e Oriental {#rest-of-central-eastern-europe}
 
-Albânia, Armênia, Azerbaijão, Belarus, Bulgária, Croácia, República Tcheca, Geórgia, Grécia, Letônia, Lituânia, Macedônia, Moldávia, Sérvia, Eslováquia, Eslovênia, Ucrânia
+Albânia, Armênia, Azerbaijão, Bielorrússia, Bulgária, Croácia, República Tcheca, Geórgia, Grécia, Letônia, Lituânia, Macedônia, Moldávia, Sérvia, Eslováquia, Eslovênia, Ucrânia
 
 ### Restante da América Latina {#rest-of-latin-america}
 

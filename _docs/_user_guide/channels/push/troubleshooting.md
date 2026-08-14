@@ -1,17 +1,45 @@
 ---
 nav_title: Troubleshooting
-article_title: Troubleshooting Push
+article_title: Troubleshoot push
 page_order: 5
 page_type: reference
-description: "Troubleshooting steps for issues with the Push messaging channel."
+description: "Diagnose push delivery, click behavior, and credential issues using a symptom index and standard investigation path."
 channel: push
 ---
 
 # Troubleshoot push
 
-> Use this page to troubleshoot issues with the Push messaging channel.
+> Use this page to troubleshoot push delivery, click behavior, and credential issues. For SDK-specific setup, see [Troubleshoot push notifications for the Braze SDK]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting). For error codes, see [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
 
-## Missing push notifications
+## Start here: Match your symptom
+
+| Symptom | Go to |
+| --- | --- |
+| User didn't receive a push notification | [Missing push notifications](#missing-push-notifications) |
+| Push notifications arrive late | [Delayed push notifications](#delayed-push-notifications) |
+| Push sends slower than expected | [Push notifications are sending slower than expected](#push-notifications-are-sending-slower-than-expected) |
+| `MismatchSenderID` error (Android) | [Error: MismatchSenderID](#error-mismatch-sender-id) |
+| Tapping a push doesn't open the app | [Clicking a push notification doesn't open the app](#clicking-a-push-notification-does-not-open-the-app) |
+| Push links open in the app instead of the browser | [Push clicks unexpectedly open in app](#push-clicks-unexpectedly-open-in-app) |
+| Web push permissions or delivery issues | [Web push notifications aren't behaving as expected](#web-push-notifications-are-not-behaving-as-expected) |
+| Need to migrate from `.p12` to `.p8` (iOS) | [Migrate to a .p8 authentication key](#migrate-to-a-p8-authentication-key) |
+| Specific push error code in logs | [Push error messages](#push-error-messages) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push symptom" }
+
+## Standard investigation path
+
+Use this workflow when a user or test device didn't receive a push. Start at step 1.
+
+1. Confirm the user is push subscribed or opted in and has a valid push token in the **Engagement** tab of their profile.
+2. Confirm the user is in the campaign or Canvas target audience at send time (segments update in real time).
+3. Check global frequency caps, rate limits, and control group assignment for the campaign or Canvas.
+4. Confirm you're using the correct push type for the device (for example, Android, iOS, or Kindle).
+5. For internal testing, confirm the tester is logged into the correct app on the device.
+6. If delivery still fails, review [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes) or contact [Braze Support]({{site.baseurl}}/braze_support) with the campaign or Canvas ID, user ID, and timestamp with timezone.
+
+## Missing push notifications {#missing-push-notifications}
+
+**Symptom:** A user didn't receive an expected push notification.
 
 If push notifications are not arriving as expected, work through the following checks:
 
@@ -49,7 +77,9 @@ You can also confirm that the user is part of the segment by using **User Lookup
 
 ### Push notification caps
 
-If your workspace uses global frequency capping, you might have already reached your cap for the period and not receive the push. In the dashboard, see [global frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over) and your limits. If the campaign follows frequency capping rules, the campaign details show how many users were affected.
+Check the global frequency caps. It's possible you did not receive the push notification because your workspace has global frequency capping in place and you've already hit your push notification cap for the specified time frame.
+
+On the campaign **Analytics** page, check for a frequency capping banner showing approximately how many users didn't receive the campaign in the last 30 days. To investigate individual sends, use the [Messaging Diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) and filter by **Frequency capped**. To review or change rules, see [global frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over).
 
 ![Campaign Details]({% image_buster /assets/img_archive/trouble3.png %})
 
@@ -87,7 +117,9 @@ When you test push with internal users, confirm that the intended recipient is s
 If you're sending push messages with images on Android, FCM can sometimes discard the image and only display the text in the push message. This issue is usually caused by server connectivity issues.
 {% endalert %}
 
-## Error: MismatchSenderID
+## Error: MismatchSenderID {#error-mismatch-sender-id}
+
+**Symptom:** Android push fails with a `MismatchSenderID` error.
 
 MismatchSenderID indicates an authentication failure with Firebase Cloud Messaging (FCM). Confirm your Firebase sender ID and FCM API key are correct.
 
@@ -95,10 +127,10 @@ To find the proper Firebase Server Key and replace it:
 
 1. Go to the Firebase console for your app.
 2. Under **Project Overview**, select **Project Settings**.
-3. In the **Cloud Messaging** tab, check that the Sender ID in the API keys matches the one in Braze (in **Settings** > **App Settings** > **Cloud Messaging API Key**).
+3. In the **Cloud Messaging** tab, check that the Sender ID listed with the API keys matches the one in Braze (in **Settings** > **App Settings** > **Cloud Messaging API Key**).
 
 {% alert warning %}
-Do not change your Sender ID in your Braze dashboard. Doing so will cause existing push registrations to be invalidated. If the Sender ID does not match, you must find your Firebase project with the matching Sender ID.
+Do not change your Sender ID in your Braze dashboard. Doing so causes existing push registrations to be invalidated. If the Sender ID does not match, you must find your Firebase project with the matching Sender ID.
 {% endalert %}
 
 4. Copy the **Server Key** under **Project credentials**.
@@ -108,7 +140,9 @@ Do not change your Sender ID in your Braze dashboard. Doing so will cause existi
 
 ## Troubleshooting scenarios
 
-### Delayed push notifications
+### Delayed push notifications {#delayed-push-notifications}
+
+**Symptom:** Push notifications arrive later than expected.
 
 Your push notifications can be delayed for these reasons:
 
@@ -118,7 +152,9 @@ Your push notifications can be delayed for these reasons:
 - Message priority of the push when created in the campaign or Canvas
 - Traffic delays or issues with the push service providers (FCM and APNs)
 
-### Push notifications are sending slower than expected
+### Push notifications are sending slower than expected {#push-notifications-are-sending-slower-than-expected}
+
+**Symptom:** Campaign or Canvas push sends take longer than expected to complete.
 
 Confirm that your push notification setup follows these best practices:
 
@@ -126,7 +162,9 @@ Confirm that your push notification setup follows these best practices:
 - If possible, try to schedule your campaigns ahead of time rather than immediately.
 - If you're targeting a larger number of users with push notifications in a Canvas, you can anticipate that subsequent message steps in the Canvas will require different processing times than a campaign that sends to users immediately. In this case, campaigns would typically finish sending before a Canvas, as the first "step" of a Canvas is to check whether users qualify for the specific user journey.
 
-## Clicking a push notification doesn't open the app
+## Clicking a push notification doesn't open the app {#clicking-a-push-notification-does-not-open-the-app}
+
+**Symptom:** Tapping a push notification doesn't open the app or navigate as configured.
 
 If clicking a push notification doesn't open your app, check the following based on your platform.
 
@@ -144,7 +182,9 @@ If clicking a push notification doesn't open your app, check the following based
 2. **Check push integration:** Deep linking from a push into the app is automatically handled by the Braze [standard push integration]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift). Confirm that the integration is implemented correctly, including any custom delegate handling.
 3. **Collect verbose logs:** [Enable verbose logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduce the issue, and provide the logs to Braze Support.
 
-## Push clicks unexpectedly open in app
+## Push clicks unexpectedly open in app {#push-clicks-unexpectedly-open-in-app}
+
+**Symptom:** Links in push notifications open inside the app instead of the device's web browser.
 
 If you're experiencing issues with links in push notifications unexpectedly opening in your app instead of your web browser, there may be an issue with your campaign configuration or SDK implementation. Use the following steps for help.
 
@@ -152,9 +192,7 @@ If you're experiencing issues with links in push notifications unexpectedly open
 
 In your campaign or Canvas step, double-check that **Open web URL inside mobile app** is not selected. If it is, clear the selection and relaunch.
 
-!["On-click behavior" field of configuring a push set to "Open web URL" with "Open web URL inside mobile app" unchecked.]({% image_buster /assets/img/push_on_click.png %})
-
-The default interaction for the on-click behavior "Open web URL" differs by SDK version. For SDK versions iOS 2.29.0 and Android 2.0.0 and higher, this option is selected by default and web URLs will open in a web view within the app. Prior to these versions, this option is cleared by default and web URLs open in the device's default web browser.
+The default interaction for the on-click behavior "Open web URL" differs by SDK version. For SDK versions iOS 2.29.0 and Android 2.0.0 and higher, this option is selected by default and web URLs open in a web view within the app. Prior to these versions, this option is cleared by default and web URLs open in the device's default web browser.
 
 If this is not the issue, there may be a problem with your push implementation.
 
@@ -171,7 +209,9 @@ If links in your push notifications are opening in the app unexpectedly, it migh
 
 If deep links work when the app is not running or when the link is used directly, but not when the application is already running in the background, the issue may be related to how the app handles the link. Check whether you're using any third-party libraries that use method swizzling. We recommend turning swizzling off, as it can cause issues with deep link implementations.
 
-## Migrate to a .p8 authentication key
+## Migrate to a .p8 authentication key {#migrate-to-a-p8-authentication-key}
+
+**Symptom:** You need to migrate iOS push credentials from a legacy certificate to a `.p8` key, or push delivery failed after a credential change.
 
 Apple `.p8` authentication keys are the required approach for APNs push in Braze. Unlike legacy certificate file types, `.p8` keys don't expire and support all of your apps under a single key, eliminating the need for annual certificate renewals and reducing the risk of push delivery failures.
 
@@ -193,7 +233,9 @@ In **Settings** > **App Settings** > **Push Notification Settings**, confirm tha
 
 Apps on [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) or later can use [Dynamic APNs gateway management]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#dynamic-apns-gateway-management), which routes tokens to the correct APNs environment automatically.
 
-## Web push notifications aren't behaving as expected
+## Web push notifications aren't behaving as expected {#web-push-notifications-are-not-behaving-as-expected}
+
+**Symptom:** Browser push notifications don't display, or site permissions appear stuck.
 
 If you're experiencing issues with push notifications in your browser, you may need to reset your site's notification permissions and clear your site's storage. Use the following steps for help.
 
@@ -289,10 +331,10 @@ Braze logs a Direct Open when a user taps the notification and your app starts a
 
 If a user opens your app after receiving a push without tapping the notification, Braze may log an Influenced Open instead. For definitions and reporting, see [Influenced opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/).
 
-## Push error messages
+## Push error messages {#push-error-messages}
+
+**Symptom:** You see a specific push error code (for example, `DEVICE_UNREGISTERED`, `Unregistered`, or `NotRegistered`).
 
 For definitions of common push error codes (including `DEVICE_UNREGISTERED`, `NotRegistered`, and `Unregistered`), see [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes/).
 
 When FCM returns errors such as `DEVICE_UNREGISTERED` or `NotRegistered`, Braze typically removes the affected push token from the user profile. That removal often indicates the app was uninstalled or the token is no longer valid. Uninstall tracking campaigns use the same token-removal logic at scale.
-
-Still need help? Open a [support ticket]({{site.baseurl}}/braze_support).

@@ -19,7 +19,9 @@ channel:
 
 ### What is an `app_id` in the SMS API object?
 
-The app identifier API key or `app_id` is a parameter associating activity with a specific app in your workspace. It designates which app within the workspace you are interacting with. For example, you will find that you will have an `app_id` for your iOS app, an `app_id` for your android app, and an `app_id` for your web integration.
+The app identifier API key or `app_id` is a parameter associating activity with a specific app in your workspace. It designates which app within the workspace you are interacting with. For example, you have an `app_id` for your iOS app, an `app_id` for your Android app, and an `app_id` for your web integration.
+
+For SMS, the `app_id` parameter is required when sending SMS messages through the API (such as the `/messages/send` endpoint). It specifies which app in your workspace is associated with the SMS activity or API call. You can use any valid `app_id` from an app configured in your workspace for SMS messaging, regardless of whether the user has that specific app on their profile.
 
 You can find your `app_id` by navigating to **Settings** > **App Settings** and locating the **Identification** section.
 
@@ -43,6 +45,14 @@ If you stagger your users into a Canvas and have different schedule times for ea
 {% endalert %}
 
 To prevent unnecessarily large updates, Braze will update a maximum of 100 user profiles that share an identifier when a subscription update is made. If more than 100 user profiles share the same phone number, not all profiles will be updated.
+
+### Why do I see a spike in SMS subscriptions from a specific source?
+
+If you observe an unexpectedly large increase in subscription counts—particularly when reviewing data from the [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) endpoint through Currents—this may be caused by duplicate user profiles.
+
+When a request is made to the `/subscription/status/set` endpoint with only a phone number (no `external_id` provided), Braze updates all user profiles that share that phone number. If your workspace has duplicate profiles, the count of users who updated their subscription state is inflated, even though only one phone number changed.
+
+To analyze subscription data more accurately when pulling from Currents, update your query to count distinct phone numbers rather than counting all subscription state change events.
 
 ### What are shared short codes?
 
@@ -70,19 +80,19 @@ While we can't promise that you won't occasionally have an overage, you could fo
 
 - Pay attention to the number of characters in your SMS. Unintentionally sending more than one segment could cause overages. For more details, refer to our [segment breakdown]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Carefully calculate your SMS characters to account for Liquid or Connected Content. The Braze SMS composer in your dashboard does not estimate or factor in the usage of either of these features.
-- Consider the type of encoding your message uses - if your message uses GSM-7 encoding, you can usually estimate that you can send a message with 128 characters per message segment. If your message uses [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set) encoding, you can usually estimate that you can send a message with 67 characters per message segment.
+- Consider the type of encoding your message uses. If your message uses GSM-7 encoding, you can usually estimate 160 characters per message segment (fewer if you use characters from the GSM-7 extension table). If your message uses [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set) encoding, you can usually estimate 67 characters per message segment.
 - Test, test, and test! Always test your SMS messages before launch, especially when using Liquid and Connected Content.
 
 ### If a message is sent to a landline, will the message still count toward my SMS send count?
 
 In the US, Canada, and UK:
-- If an SMS is sent to a landline, it will be marked as **Undelivered**. Note that Twilio will still charge for attempted delivery, so messages marked as **Sent**, **Delivered**, or **Undelivered** in your message logs will be billed.
-- In the UK, some carriers will convert the SMS into a voicemail, delivering the message.
+- If an SMS is sent to a landline, it is marked as **Undelivered**. Billing behavior depends on your SMS service provider. With Twilio, attempted delivery is still charged, so messages marked as **Sent**, **Delivered**, or **Undelivered** in your message logs are billed.
+- In the UK, some carriers convert the SMS into a voicemail, delivering the message.
 
 In other countries:
-- Twilio will throw an error, and you will not be billed for the attempted SMS message.
+- With Twilio, an error is thrown and you are not billed for the attempted SMS message.
 
-### Why is the Braze dashboard warning me I may be charged for additional message segments when my message is under 160 (GSM-7) or 70 (UCS-2) characters?
+### Why is the Braze dashboard warning me I may be charged for additional message segments when my message is under 160 (GSM-7) or 67 (UCS-2) characters?
 
 You might be charged additional message segments if you have Liquid personalization included in your message. Content Block templating does not occur until the message is preparing to be sent. When you are editing an SMS with a Content Block, Braze does not know what the Content Block will contain but provides a rough estimate. We recommend that users use the test pane to preview the message to better understand what to expect.
 
@@ -126,7 +136,7 @@ Custom keywords would be written as custom events, so you would want to create s
 
 ### If a user texts "Stop" to our short code, are they unsubscribed from the subscription group?
 
-What does that look like on the user profile? The subscription group will revert to 2 dashes (- -), and there will be custom events for subscribe and unsubscribe.
+What does that look like on the user profile? The subscription group shows as unsubscribed under **Contact Settings**, and there are custom events for subscribe and unsubscribe.
 
 ### If a user is opted out and sends a keyword to our short and long code, do they receive the response we configured for that keyword in Braze?
 

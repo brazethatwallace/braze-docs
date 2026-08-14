@@ -16,7 +16,7 @@ search_tag: Partner
 Die Integration von Braze und Tealium nutzt die AudienceStream-Besucherprofile. Gemeinsame Verhaltensweisen segmentieren diese Profile, um Gruppen von Besuchern mit gemeinsamen Merkmalen zu erstellen, die als Zielgruppen bezeichnet werden. Diese Zielgruppen können Ihren Marketingtechnologie-Stack in Realtime über Konnektoren unterstützen.
 
 {% alert important %}
-Tealium AudienceStreams und EventStreams bieten sowohl Batch- als auch Non-Batch-Konnektor-Aktionen. Der Non-Batch-Konnektor sollte verwendet werden, wenn Realtime-Anfragen für den Anwendungsfall wichtig sind und keine Bedenken bestehen, die Spezifikationen für die Rate-Limits der Braze API zu überschreiten. Kontaktieren Sie den Braze-[Support]({{site.baseurl}}/braze_support) oder Ihren Customer-Success-Manager, wenn Sie Fragen haben.
+Tealium AudienceStreams und EventStreams bieten sowohl Batch- als auch Non-Batch-Konnektor-Aktionen. Der Non-Batch-Konnektor sollte verwendet werden, wenn Realtime-Anfragen für den Anwendungsfall wichtig sind und keine Bedenken bestehen, die Spezifikationen für die Rate-Limits der Braze-API zu überschreiten. Kontaktieren Sie den Braze-[Support]({{site.baseurl}}/braze_support) oder Ihren Customer-Success-Manager, wenn Sie Fragen haben.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -30,7 +30,7 @@ Tealium AudienceStreams und EventStreams bieten sowohl Batch- als auch Non-Batch
 
 ## Integration
 
-### 1. Schritt: Attribute und Badges einrichten {#step-1-set-up-attributes-and-badges}
+### Schritt 1: Attribute und Badges einrichten {#step-1-set-up-attributes-and-badges}
 
 #### Attribute verstehen {#understanding-attributes}
 
@@ -101,7 +101,7 @@ Sie können Badges erstellen, die Ihnen helfen, Ihre Nutzer:innen anhand bestimm
 {% endtab %}
 {% endtabs %}
 
-### 2. Schritt: Eine Zielgruppe erstellen {#step-2-create-an-audience}
+### Schritt 2: Eine Zielgruppe erstellen {#step-2-create-an-audience}
 
 Wählen Sie auf der Tealium-Startseite unter **AudienceStream** in der Seitenleiste **Audiences** aus. Hier können Sie eine Zielgruppe von Nutzer:innen mit gemeinsamen Attributen erstellen. Der Eintritt oder Austritt von Nutzer:innen aus dieser Zielgruppe ist der Auslöser für die im nächsten Schritt eingerichtete Konnektor-Aktion, die diese Informationen an das Nutzerprofil in Braze weitergibt.
 
@@ -109,7 +109,7 @@ Benennen Sie zunächst Ihre Zielgruppe und überlegen Sie dann, welche Attribute
 
 Vergewissern Sie sich, dass Sie Ihre Zielgruppe **speichern/veröffentlichen**, wenn Sie fertig sind.
 
-### 3. Schritt: Einen Event-Konnektor erstellen {#step-3-create-an-event-connector}
+### Schritt 3: Einen Event-Konnektor erstellen {#step-3-create-an-event-connector}
 
 Ein Konnektor ist eine Integration zwischen Tealium und einem anderen Anbieter, die zur Übertragung von Daten verwendet wird. Diese Konnektoren enthalten Aktionen, die die unterstützten APIs des Partners repräsentieren.
 
@@ -151,7 +151,7 @@ Mit dieser Aktion können Sie Nutzer:innen-, Event- und Kauf-Attribute in einer 
 | Parameter | Beschreibung |
 | ---------- | ----------- |
 | Nutzer-ID | Verwenden Sie dieses Feld, um das Tealium-Nutzer-ID-Feld auf das entsprechende Braze-Feld abzubilden. Bilden Sie ein oder mehrere Nutzer-ID-Attribute ab. Wenn mehrere IDs angegeben werden, wird der erste nicht-leere Wert in der folgenden Prioritätsreihenfolge ausgewählt: Externe ID, Braze ID, Alias-Name und Alias-Label.<br><br>- Externe ID und Braze ID sollten beim Import von Push-Tokens nicht angegeben werden.<br>- Wenn Sie einen Nutzer-Alias angeben, sollten Alias-Name und Alias-Label festgelegt werden. <br><br>Weitere Informationen finden Sie unter dem Braze-[Endpunkt `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). |
-| Nutzerattribute | Verwenden Sie die vorhandenen Feldnamen der Braze-Nutzerprofile, um die Werte der Nutzerprofile im Braze-Dashboard zu aktualisieren, oder fügen Sie den Nutzerprofilen Ihre eigenen angepassten [Nutzerattribut]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)-Daten hinzu.<br><br>- Standardmäßig werden neue Nutzer:innen angelegt, wenn noch keine vorhanden sind.<br>- Wenn Sie **Update Existing Only** auf `true` setzen, werden nur vorhandene Nutzer:innen aktualisiert und keine neuen Nutzer:innen angelegt.<br>- Wenn ein Tealium-Attribut leer ist, wird es in Null umgewandelt und aus dem Braze-Nutzerprofil entfernt. Anreicherungen sollten verwendet werden, wenn keine Nullwerte an Braze gesendet werden sollen, um ein Nutzerattribut zu entfernen. |
+| Nutzerattribute | Verwenden Sie die vorhandenen Feldnamen der Braze-Nutzerprofile, um die Werte der Nutzerprofile im Braze-Dashboard zu aktualisieren, oder fügen Sie den Nutzerprofilen Ihre eigenen angepassten [Nutzerattribut]({{site.baseurl}}/api/objects_filters/user_attributes_object)-Daten hinzu.<br><br>- Standardmäßig werden neue Nutzer:innen angelegt, wenn noch keine vorhanden sind.<br>- Wenn Sie **Update Existing Only** auf `true` setzen, werden nur vorhandene Nutzer:innen aktualisiert und keine neuen Nutzer:innen angelegt.<br>- Wenn ein Tealium-Attribut leer ist, wird es in Null umgewandelt und aus dem Braze-Nutzerprofil entfernt. Anreicherungen sollten verwendet werden, wenn keine Nullwerte an Braze gesendet werden sollen, um ein Nutzerattribut zu entfernen. |
 | Nutzerattribute ändern | Verwenden Sie dieses Feld, um bestimmte Nutzerattribute zu erhöhen oder zu verringern.<br><br>- Integer-Attribute können um positive oder negative ganze Zahlen inkrementiert werden.<br>- Array-Attribute können durch Hinzufügen oder Entfernen von Werten in bestehenden Arrays geändert werden. |
 | Event | Ein Event stellt ein einzelnes Vorkommen eines angepassten Events durch bestimmte Nutzer:innen zu einem bestimmten Zeitstempel dar. Verwenden Sie dieses Feld zum Tracking und zur Abbildung von Event-Attributen, wie sie im Braze-[Event-Objekt]({{site.baseurl}}/api/objects_filters/event_object) enthalten sind. <br><br>- Das Event-Attribut `Name` ist für jedes zugeordnete Event erforderlich.<br>- Das Event-Attribut `Time` wird automatisch auf „jetzt“ gesetzt, wenn es nicht explizit abgebildet wird. <br>- Standardmäßig werden neue Events erstellt, wenn noch keines vorhanden ist. Wenn Sie `Update Existing Only` auf `true` setzen, werden nur bestehende Events aktualisiert und es wird kein neues Event erstellt.<br>- Bilden Sie Array-Typ-Attribute ab, um mehrere Events hinzuzufügen. Array-Typ-Attribute müssen gleich lang sein.<br>- Einzelwert-Attribute können verwendet und auf jedes Event angewendet werden. |
 | Event-Template | Stellen Sie Event-Templates zur Verfügung, auf die in den Body-Daten referenziert werden kann. Templates können verwendet werden, um Daten zu transformieren, bevor sie an Braze gesendet werden. Weitere Informationen finden Sie in der [Template-Anleitung](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) von Tealium. |
@@ -176,7 +176,7 @@ Diese Aktion erlaubt es Ihnen, Nutzer:innen aus dem Braze-Dashboard zu löschen.
 ![Tealium-Delete-User-Aktion mit konfigurierten Braze-Nutzer-ID-Abbildungen.]({% image_buster /assets/img/tealium/track_user_delete2.png %}){: style="max-width:90%"}
 
 {% endtab %}
-{% tab Update User Subscription Group Status – Non-Batch %}
+{% tab Abo-Gruppenstatus aktualisieren – Non-Batch %}
 Mit dieser Aktion können Sie Nutzer:innen zu Braze-SMS- oder E-Mail-Abo-Gruppen hinzufügen oder daraus entfernen.
 
 | Parameter | Beschreibung |
@@ -201,7 +201,7 @@ Ihr Konnektor wird nun in der Liste der Konnektoren auf Ihrer Tealium-Startseite
 
 Stellen Sie sicher, dass Sie Ihren Konnektor speichern oder veröffentlichen, wenn Sie fertig sind. Die von Ihnen konfigurierten Aktionen werden nun ausgelöst, wenn die Trigger-Verbindungen erfüllt sind.
 
-### 4. Schritt: Ihren Tealium-Konnektor testen {#step-4-test-your-tealium-connector}
+### Schritt 4: Ihren Tealium-Konnektor testen {#step-4-test-your-tealium-connector}
 
 Nachdem Ihr Konnektor betriebsbereit ist, sollten Sie ihn testen, um sicherzustellen, dass er ordnungsgemäß funktioniert. Der einfachste Weg, dies zu testen, ist die Verwendung des Tealium **Trace Tools**. Um Trace nutzen zu können, müssen Sie die Tealium-Tools-Browsererweiterung hinzugefügt haben.
 

@@ -39,6 +39,100 @@ class TestRetryableTranslationErrors:
         )
 
 
+class TestMaxTokensChunkedFallback:
+    def test_max_tokens_truncation_error_is_detected(self):
+        exc = at.MaxTokensTruncatedError(
+            "Output truncated (hit 128000 token limit). "
+            "Increase TRANSLATION_MAX_TOKENS or use chunked translation."
+        )
+        assert at._is_max_tokens_truncation_error(exc)
+
+    def test_translate_one_falls_back_to_chunked_on_max_tokens(self, monkeypatch):
+        calls = {"chunked": 0, "translate_file": 0}
+
+        def fake_translate_file(*_args, **_kwargs):
+            calls["translate_file"] += 1
+            raise at.MaxTokensTruncatedError(
+                "Output truncated (hit 128000 token limit). "
+                "Increase TRANSLATION_MAX_TOKENS or use chunked translation."
+            )
+
+        def fake_translate_one_chunked(*_args, **_kwargs):
+            calls["chunked"] += 1
+            return {
+                "ok": True,
+                "source": "_docs/_developer_guide/content_cards.md",
+                "target": "_lang/ja/_developer_guide/content_cards.md",
+                "lang": "ja",
+                "chunked": True,
+                "chunks": 2,
+            }
+
+        monkeypatch.setattr(at, "translate_file", fake_translate_file)
+        monkeypatch.setattr(at, "translate_one_chunked", fake_translate_one_chunked)
+
+        result = at.translate_one(
+            client=None,
+            prompt="prompt",
+            fpath="_docs/_developer_guide/content_cards.md",
+            relative="_developer_guide/content_cards.md",
+            english_content="## Hello\n\nBody.",
+            lang_key="ja",
+            lang_info={"name": "Japanese", "dir": "ja"},
+            glossary={},
+            styleguide="",
+        )
+
+        assert result["ok"] is True
+        assert result.get("chunked") is True
+        assert calls["translate_file"] == 1
+        assert calls["chunked"] == 1
+
+    def test_translate_one_review_max_tokens_falls_back_to_chunked(self, monkeypatch):
+        calls = {"review_file": 0, "chunked": 0}
+
+        def fake_translate_file(*_args, **_kwargs):
+            return "## Hola\n\nCuerpo."
+
+        def fake_review_file(*_args, **_kwargs):
+            calls["review_file"] += 1
+            raise at.MaxTokensTruncatedError(
+                "Output truncated (hit 128000 token limit). "
+                "Increase TRANSLATION_MAX_TOKENS or use chunked translation."
+            )
+
+        def fake_translate_one_chunked(*_args, **_kwargs):
+            calls["chunked"] += 1
+            return {
+                "ok": True,
+                "source": "_docs/_user_guide/foo.md",
+                "target": "_lang/es/_user_guide/foo.md",
+                "lang": "es",
+                "chunked": True,
+                "chunks": 1,
+            }
+
+        monkeypatch.setattr(at, "translate_file", fake_translate_file)
+        monkeypatch.setattr(at, "review_file", fake_review_file)
+        monkeypatch.setattr(at, "translate_one_chunked", fake_translate_one_chunked)
+
+        result = at.translate_one(
+            client=None,
+            prompt="prompt",
+            fpath="_docs/_user_guide/foo.md",
+            relative="_user_guide/foo.md",
+            english_content="## Hello\n\nBody.",
+            lang_key="es",
+            lang_info={"name": "Spanish", "dir": "es"},
+            glossary={},
+            styleguide="",
+        )
+
+        assert result["ok"] is True
+        assert calls["review_file"] == 1
+        assert calls["chunked"] == 1
+
+
 class TestExtractErrorFiles:
     def test_matches_lang_prefixed_path(self):
         output = "Liquid error in _lang/fr_fr/_user_guide/foo/bar.md: unclosed tag"
@@ -63,6 +157,355 @@ class TestChunkedTranslationRouting:
 
     def test_oversized_file_always_chunked(self):
         assert at._uses_chunked_translation("_docs/_user_guide/foo.md", 200)
+
+
+class TestIncrementalH2Translation:
+    def test_split_into_h2_chunks_at_headings(self):
+        content = (
+            "---\nlayout: page\n---\n\n"
+            "Intro.\n\n"
+            "## Section one {#one}\n\nBody one.\n\n"
+            "## Section two {#two}\n\nBody two.\n"
+        )
+        chunks = at.split_into_h2_chunks(content)
+        assert len(chunks) == 3
+        assert chunks[0].startswith("---")
+        assert "## Section one {#one}" in chunks[1]
+        assert "## Section two {#two}" in chunks[2]
+
+    def test_split_into_h2_chunks_skips_headings_inside_liquid(self):
+        content = (
+            "## Outer {#outer}\n\n"
+            "{% details More %}\n\n"
+            "## Inner heading\n\n"
+            "Details body.\n\n"
+            "{% enddetails %}\n"
+        )
+        chunks = at.split_into_h2_chunks(content)
+        assert len(chunks) == 1
+        assert "## Inner heading" in chunks[0]
+
+    def test_chunks_requiring_translation_detects_changes(self):
+        prev = at.split_into_h2_chunks(
+            "Intro\n\n## One {#one}\n\nAlpha.\n\n## Two {#two}\n\nBeta.\n"
+        )
+        curr = at.split_into_h2_chunks(
+            "Intro\n\n## One {#one}\n\nAlpha changed.\n\n## Two {#two}\n\nBeta.\n"
+        )
+        needs = at.chunks_requiring_translation(curr, prev)
+        assert needs == [False, True, False]
+
+    def test_chunks_requiring_translation_marks_new_sections(self):
+        prev = at.split_into_h2_chunks("## One {#one}\n\nAlpha.\n")
+        curr = at.split_into_h2_chunks(
+            "## One {#one}\n\nAlpha.\n\n## Two {#two}\n\nBeta.\n"
+        )
+        needs = at.chunks_requiring_translation(curr, prev)
+        assert needs == [False, True]
+
+    def test_incremental_skips_unchanged_chunks(self, monkeypatch):
+        english = (
+            "Intro\n\n## One {#one}\n\nAlpha.\n\n## Two {#two}\n\nBeta.\n"
+        )
+        previous = english
+        existing = (
+            "Intro FR\n\n## Un {#one}\n\nAlpha FR.\n\n## Deux {#two}\n\nBeta FR.\n"
+        )
+        calls = []
+
+        def fake_translate_file(*args, **kwargs):
+            calls.append(kwargs.get("english") or args[2])
+            return "## Deux {#two}\n\nBeta FR mis à jour.\n"
+
+        monkeypatch.setattr(at, "translate_file", fake_translate_file)
+        monkeypatch.setattr(at, "review_file", lambda *a, **k: a[2])
+
+        target = at.REPO_ROOT / "_lang/fr_fr/_user_guide/test_incremental.md"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(existing)
+
+        result = at.translate_one_incremental(
+            client=None,
+            prompt="",
+            fpath="_docs/_user_guide/test_incremental.md",
+            relative="_user_guide/test_incremental.md",
+            english_content=english.replace("Beta.", "Beta updated."),
+            previous_english_content=previous,
+            lang_key="fr",
+            lang_info=at.LANGUAGES["fr"],
+            glossary={},
+            styleguide="",
+        )
+
+        assert result["ok"]
+        assert result["chunks_skipped"] == 2
+        assert result["chunks_translated"] == 1
+        assert len(calls) == 1
+        assert "Beta updated." in calls[0]
+        written = target.read_text()
+        assert "Alpha FR." in written
+        assert "Beta FR mis à jour." in written
+        target.unlink()
+        if target.parent.exists() and not any(target.parent.iterdir()):
+            target.parent.rmdir()
+
+    def test_incremental_all_unchanged_skips_api(self, monkeypatch):
+        english = "Intro\n\n## One {#one}\n\nAlpha.\n"
+        calls = []
+
+        def fake_translate_file(*args, **kwargs):
+            calls.append(1)
+            return "should not run"
+
+        monkeypatch.setattr(at, "translate_file", fake_translate_file)
+
+        target = at.REPO_ROOT / "_lang/fr_fr/_user_guide/test_skip.md"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text("Intro FR\n\n## Un {#one}\n\nAlpha FR.\n")
+
+        result = at.translate_one_incremental(
+            client=None,
+            prompt="",
+            fpath="_docs/_user_guide/test_skip.md",
+            relative="_user_guide/test_skip.md",
+            english_content=english,
+            previous_english_content=english,
+            lang_key="fr",
+            lang_info=at.LANGUAGES["fr"],
+            glossary={},
+            styleguide="",
+        )
+
+        assert result["ok"]
+        assert result["chunks_translated"] == 0
+        assert calls == []
+        target.unlink()
+        if target.parent.exists() and not any(target.parent.iterdir()):
+            target.parent.rmdir()
+
+    def test_new_file_falls_back_to_full_translate_with_review(self, monkeypatch):
+        english = (
+            "Intro\n\n## One {#one}\n\nAlpha.\n\n## Two {#two}\n\nBeta.\n"
+        )
+        review_calls = []
+
+        monkeypatch.setattr(at, "load_english_at_git_ref", lambda fpath, ref: None)
+        monkeypatch.setattr(
+            at,
+            "translate_file",
+            lambda *a, **k: "## Un {#one}\n\nAlpha FR.\n\n## Deux {#two}\n\nBeta FR.\n",
+        )
+        monkeypatch.setattr(
+            at,
+            "review_file",
+            lambda *a, **k: review_calls.append(1) or a[2],
+        )
+
+        target = at.REPO_ROOT / "_lang/fr_fr/_user_guide/test_new_file.md"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if target.exists():
+            target.unlink()
+
+        result = at.translate_one(
+            client=None,
+            prompt="",
+            fpath="_docs/_user_guide/test_new_file.md",
+            relative="_user_guide/test_new_file.md",
+            english_content=english,
+            lang_key="fr",
+            lang_info=at.LANGUAGES["fr"],
+            glossary={},
+            styleguide="",
+            english_base_ref="abc123",
+        )
+
+        assert result["ok"]
+        assert review_calls == [1]
+        assert "incremental" not in result
+        if target.exists():
+            target.unlink()
+        if target.parent.exists() and not any(target.parent.iterdir()):
+            target.parent.rmdir()
+
+    def test_split_into_h2_chunks_skips_headings_inside_sdktabs(self):
+        content = (
+            "Intro.\n\n"
+            "{% sdktabs %}\n"
+            "{% sdktab web %}\n"
+            "## Inner {#inner}\n\n"
+            "Tab body.\n"
+            "{% endsdktab %}\n"
+            "{% endsdktabs %}\n\n"
+            "## After tabs {#after}\n\n"
+            "Tail.\n"
+        )
+        chunks = at.split_into_h2_chunks(content)
+        assert len(chunks) == 2
+        assert "## Inner {#inner}" in chunks[0]
+        assert "## After tabs {#after}" in chunks[1]
+
+    def test_incremental_h2_requires_full_file_when_sdktabs_topology_changes(self):
+        previous = (
+            "Intro.\n\n"
+            "{% sdktabs %}\n"
+            "{% sdktab web %}\n"
+            "{% multi_lang_include example.md %}\n"
+            "{% endsdktab %}\n"
+            "{% endsdktabs %}\n\n"
+            "## After {#after}\n\n"
+            "Tail.\n"
+        )
+        current = (
+            "Intro.\n\n"
+            "{% sdktabs %}\n"
+            "{% sdktab web %}\n"
+            "## Inner {#inner}\n\n"
+            "Tab body.\n"
+            "{% endsdktab %}\n"
+            "{% endsdktabs %}\n\n"
+            "## After {#after}\n\n"
+            "Tail.\n"
+        )
+        assert at.incremental_h2_requires_full_file(current, previous)
+
+    def test_incremental_h2_allows_sdktabs_when_topology_unchanged(self):
+        english = (
+            "Intro.\n\n"
+            "{% sdktabs %}\n"
+            "{% sdktab web %}\n"
+            "## Inner {#inner}\n\n"
+            "Tab body.\n"
+            "{% endsdktab %}\n"
+            "{% endsdktabs %}\n\n"
+            "## After {#after}\n\n"
+            "Tail.\n"
+        )
+        assert not at.incremental_h2_requires_full_file(english, english)
+
+    def test_sdktabs_topology_change_falls_back_to_full_translate(self, monkeypatch):
+        previous = (
+            "Intro.\n\n"
+            "{% sdktabs %}\n"
+            "{% sdktab web %}\n"
+            "{% multi_lang_include example.md %}\n"
+            "{% endsdktab %}\n"
+            "{% endsdktabs %}\n\n"
+            "## After {#after}\n\n"
+            "Tail.\n"
+        )
+        current = previous.replace(
+            "{% multi_lang_include example.md %}",
+            "## Inner {#inner}\n\nTab body.\n",
+        )
+        incremental_calls = []
+        full_calls = []
+
+        monkeypatch.setattr(
+            at,
+            "load_english_at_git_ref",
+            lambda fpath, ref: previous,
+        )
+        monkeypatch.setattr(
+            at,
+            "translate_one_incremental",
+            lambda *a, **k: incremental_calls.append(1) or {"ok": True},
+        )
+        monkeypatch.setattr(
+            at,
+            "translate_file",
+            lambda *a, **k: full_calls.append(1) or "FULL",
+        )
+        monkeypatch.setattr(at, "review_file", lambda *a, **k: a[2])
+
+        target = at.REPO_ROOT / "_lang/fr_fr/_developer_guide/test_sdktabs.md"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text("existing")
+
+        result = at.translate_one(
+            client=None,
+            prompt="",
+            fpath="_docs/_developer_guide/test_sdktabs.md",
+            relative="_developer_guide/test_sdktabs.md",
+            english_content=current,
+            lang_key="fr",
+            lang_info=at.LANGUAGES["fr"],
+            glossary={},
+            styleguide="",
+            english_base_ref="abc123",
+        )
+
+        assert result["ok"]
+        assert incremental_calls == []
+        assert full_calls == [1]
+        assert target.read_text() == "FULL"
+        target.unlink()
+        if target.parent.exists() and not any(target.parent.iterdir()):
+            target.parent.rmdir()
+
+    def test_push_notifications_troubleshooting_keeps_sdktabs_in_one_chunk(self):
+        from pathlib import Path
+
+        path = Path("_docs/_developer_guide/push_notifications/troubleshooting.md")
+        if not path.exists():
+            return
+        chunks = at.split_into_h2_chunks(path.read_text())
+        sdktabs_chunks = [i for i, chunk in enumerate(chunks) if "{% sdktabs" in chunk]
+        assert len(sdktabs_chunks) == 1
+        assert "{% endsdktabs" in chunks[sdktabs_chunks[0]]
+        at.validate_liquid_paired_tags(chunks[sdktabs_chunks[0]], label="sdktabs chunk")
+
+
+class TestLiquidRawBlockQc:
+    def test_raw_blocks_exclude_liquid_tags_from_counts(self):
+        content = (
+            "{% alert important %}\n"
+            "Example: {% raw %}{% if x %}{% endraw %}\n"
+            "{% endalert %}\n"
+        )
+        assert at._count_liquid_tag(content, "if") == 0
+        at.validate_liquid_paired_tags(content, label="raw example")
+
+    def test_custom_attributes_h2_chunk_three_is_liquid_balanced(self):
+        from pathlib import Path
+
+        path = Path(
+            "_docs/_user_guide/data/activation/attributes/custom_attributes.md"
+        )
+        if not path.exists():
+            return
+        chunks = at.split_into_h2_chunks(path.read_text())
+        assert len(chunks) >= 3
+        at.validate_liquid_paired_tags(chunks[2], label="custom_attributes chunk 3")
+
+    def test_remove_tag_line_skips_matches_inside_raw_blocks(self):
+        content = (
+            "{% endif %}\n"
+            "{% raw %}\n"
+            "{% endif %}\n"
+            "{% endraw %}\n"
+        )
+        updated = at._remove_one_liquid_tag_line(content, "endif", prefer_last=True)
+        assert "{% raw %}\n{% endif %}\n{% endraw %}" in updated
+        assert updated.count("{% endif %}") == 1
+
+    def test_repair_does_not_strip_close_tags_inside_raw_blocks(self):
+        english = (
+            "{% alert important %}\n"
+            "Example: {% raw %}{% if x %}{% endraw %}\n"
+            "{% endalert %}\n"
+        )
+        translated = (
+            "{% alert important %}\n"
+            "Example: {% raw %}{% if x %}{% endraw %}\n"
+            "{% endalert %}\n"
+            "{% endif %}\n"
+        )
+        repaired = at.repair_liquid_paired_tags_from_english(
+            english, translated, label="raw close repair"
+        )
+        assert "{% if x %}" in repaired
+        assert repaired.count("{% endif %}") == 0
+        at.validate_liquid_paired_tags(repaired, label="raw close repair")
 
 
 class TestLiquidSafeChunkSplits:

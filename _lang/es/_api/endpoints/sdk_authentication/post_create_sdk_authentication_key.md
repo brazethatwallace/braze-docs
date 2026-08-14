@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 0
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles sobre el punto de conexión de Braze para crear una clave de autenticación SDK."
+description: "Este artículo describe los detalles sobre el endpoint de Braze para crear una clave de autenticación SDK."
 ---
 
 {% api %}
@@ -14,11 +14,11 @@ description: "Este artículo describe los detalles sobre el punto de conexión d
 /app_group/sdk_authentication/create
 {% endapimethod %}
 
-> Utiliza este punto de conexión para crear una nueva clave de autenticación SDK para tu aplicación.
+> Utiliza este endpoint para crear una nueva clave de autenticación SDK para tu aplicación.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `sdk_authentication.create`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `sdk_authentication.create`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -78,7 +78,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_auth
 
 ### Reglas de validación {#validation-rules}
 
-Este punto de conexión tiene las siguientes reglas de validación:
+Este endpoint tiene las siguientes reglas de validación:
 
 - Puedes tener hasta 3 claves de autenticación SDK por aplicación.
 - La cadena de clave pública RSA debe ser una clave pública RSA válida con el formato adecuado.

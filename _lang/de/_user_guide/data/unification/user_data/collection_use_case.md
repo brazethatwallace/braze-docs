@@ -13,48 +13,48 @@ description: "Dieser Referenzartikel behandelt einen Anwendungsfall zur Datenerf
 
 Nehmen wir an, eine Taxi- oder Mitfahr-App namens StyleRyde möchte entscheiden, welche Nutzerdaten sie sammeln soll. Die folgenden Fragen und der Brainstorming-Prozess sind ein hervorragendes Modell für ihre Marketing- und Entwicklungsteams. Am Ende dieser Übung sollten beide Teams ein solides Verständnis dafür haben, welche angepassten Events und Attribute sinnvollerweise erfasst werden sollten, um ihr Ziel zu erreichen.
 
-## Fallfrage 1: Was ist das Ziel? {#case-question-1-what-is-the-goal}
+## Fallbeispiel 1: Was ist das Ziel? {#case-question-1-what-is-the-goal}
 
-Das Ziel von StyleRyde ist ganz einfach: Die Nutzer:innen sollen über die App Taxifahrten anfordern können.
+Das Ziel von StyleRyde ist einfach: Sie möchten, dass Nutzer:innen über ihre App Taxifahrten buchen.
 
-## Fallfrage 2: Was sind die Schritte, um dieses Ziel nach der Installation der App zu erreichen? {#case-question-2-what-are-the-steps-to-reach-that-goal-after-app-installation}
+## Fallbeispiel 2: Welche Schritte sind nötig, um dieses Ziel nach der App-Installation zu erreichen? {#case-question-2-what-are-the-steps-to-reach-that-goal-after-app-installation}
 
-1. StyleRyde benötigt, dass Nutzer:innen den Registrierungsprozess beginnen und ihre persönlichen Daten eingeben.
-2. StyleRyde benötigt, dass Nutzer:innen den Registrierungsprozess abschließen und überprüfen, indem sie einen per SMS erhaltenen Code in die App eingeben.
+1. StyleRyde benötigt, dass Nutzer:innen den Registrierungsprozess starten und ihre persönlichen Daten eingeben.
+2. StyleRyde benötigt, dass Nutzer:innen die Registrierung abschließen und überprüfen, indem sie einen per SMS erhaltenen Code in die App eingeben.
 3. StyleRyde benötigt, dass Nutzer:innen versuchen, ein Taxi zu rufen.
 4. StyleRyde muss verfügbar sein, wenn Nutzer:innen ein Taxi rufen.
 
-Diese Aktionen könnten dann als die folgenden angepassten Events getaggt werden:
+Diese Aktionen könnten dann als folgende angepasste Events getaggt werden:
 
-- Registrierung begonnen
-- Registrierung abgeschlossen
-- Erfolgreiche Taxirufe
-- Erfolglose Taxirufe
+- Began Registration
+- Completed Registration
+- Successful Taxi Hails
+- Unsuccessful Taxi Hails
 
-Nach der Implementierung der Events kann StyleRyde Campaigns wie die folgenden durchführen:
+Nach der Implementierung der Events kann StyleRyde Campaigns durchführen, darunter:
 
-1. Nachrichten an Nutzer:innen senden, die die Registrierung begonnen, aber nicht innerhalb eines bestimmten Zeitraums abgeschlossen haben.
-2. Glückwunschnachrichten an Nutzer:innen senden, die die Registrierung abgeschlossen haben.
-3. Entschuldigungen und Aktionsguthaben an Nutzer:innen senden, die erfolglose Taxirufe hatten, auf die nicht innerhalb einer bestimmten Zeitspanne ein erfolgreicher Taxiruf folgte.
-4. Aktionen an besonders aktive Nutzer:innen mit vielen erfolgreichen Taxirufen senden, um ihnen für ihre Treue zu danken.
+1. Nutzer:innen kontaktieren, die „Began Registration“ ausgelöst, aber „Completed Registration“ nicht innerhalb eines bestimmten Zeitraums abgeschlossen haben.
+2. Glückwunschnachrichten an Nutzer:innen senden, die „Completed Registration“ abgeschlossen haben.
+3. Entschuldigungen und Aktionsguthaben an Nutzer:innen senden, die „Unsuccessful Taxi Hails“ hatten, auf die nicht innerhalb eines bestimmten Zeitraums ein „Successful Taxi Hail“ folgte.
+4. Aktionen an Power-Nutzer:innen mit vielen „Successful Taxi Hails“ senden, um ihnen für ihre Treue zu danken.
 
-## Fallfrage 3: Welche anderen Nutzerinformationen könnten wir sammeln und für unser Messaging verwenden? {#case-question-3-what-other-user-information-could-we-collect-and-use-to-inform-our-messaging}
+## Fallbeispiel 3: Welche weiteren Nutzerinfos könnten wir erfassen und für unser Messaging nutzen? {#case-question-3-what-other-user-information-could-we-collect-and-use-to-inform-our-messaging}
 
-- Haben die Nutzer:innen ein Aktionsguthaben?
-- Welche durchschnittliche Bewertung geben Nutzer:innen ihren Fahrer:innen?
+- Ob Nutzer:innen Aktionsguthaben haben?
+- Die durchschnittliche Bewertung, die Nutzer:innen ihren Fahrer:innen geben?
 - Eindeutige Aktionscodes für Nutzer:innen?
 
-Diese Merkmale könnten dann als die folgenden angepassten Attribute getaggt werden:
+Diese Merkmale könnten dann als folgende angepasste Attribute getaggt werden:
 
 - Aktionsguthaben (Dezimaltyp)
-- Durchschnittliche Fahrerbewertung (Integer-Typ)
+- Durchschnittliche Fahrerbewertung (Ganzzahltyp)
 - Eindeutiger Aktionscode (String-Typ)
 
 Diese Attribute ermöglichen es Ihnen, Campaigns an Nutzer:innen zu senden, wie zum Beispiel:
 
-1. Nutzer:innen, die die App sieben Tage lang nicht benutzt haben und über ein Aktionsguthaben verfügen, daran erinnern, zur App zurückzukehren und das Guthaben einzulösen.
-2. Unsere Nachrichten-Templates und [Personalisierungs-Features]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview/#personalized-messaging) nutzen, um das eindeutige Aktionscode-Attribut in Nachrichten an Nutzer:innen einzufügen.
+1. Nutzer:innen, die die App seit sieben Tagen nicht genutzt haben und Aktionsguthaben auf ihrem Konto haben, daran erinnern, zur App zurückzukehren und das Guthaben einzulösen.
+2. Unsere Nachrichten-Templates und [Personalisierungs-Features]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) nutzen, um das Attribut für den eindeutigen Aktionscode in Nachrichten einzufügen, die an Nutzer:innen gerichtet sind.
 
 {% alert important %}
-Braze sperrt Nutzer:innen („Dummy-Nutzer:innen“) mit mehr als 5.000.000 Sitzungen und nimmt ihre SDK-Events nicht mehr auf, da sie in der Regel das Ergebnis einer Fehlintegration sind. Wenn Sie feststellen, dass dies bei einer oder einem rechtmäßigen Nutzer:in passiert ist, wenden Sie sich an Ihren Braze Account Manager.
+Braze blockiert Nutzerprofile („Dummy-Nutzer:innen“) mit mehr als 5.000.000 Sitzungen, mehr als 20.000 verschiedenen angepassten Event-Namen oder mehr als 20.000 verschiedenen Produktnamen in Käufen, da diese in der Regel das Ergebnis einer fehlerhaften Integration sind. Nachdem ein Profil blockiert wurde, stoppt Braze die Aufnahme aller eingehenden Daten für dieses Profil – sowohl von den SDKs als auch von der REST API. Wenn Sie feststellen, dass dies bei einem/einer legitimen Nutzer:in passiert ist, wenden Sie sich an Ihren Braze Account Manager.
 {% endalert %}

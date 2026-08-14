@@ -14,7 +14,7 @@ description: "이 문서에서는 발송 분석 내보내기 Braze 엔드포인�
 /sends/data_series
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 API 캠페인의 추적된 `send_id`에 대한 다양한 통계의 일별 시리즈를 조회할 수 있습니다.
+> 이 엔드포인트를 사용하여 API Campaign의 추적된 `send_id`에 대한 다양한 통계의 일별 시리즈를 조회할 수 있습니다.
 
 Braze는 발송 후 14일 동안 발송 분석을 저장합니다. Campaign 전환은 해당 사용자가 Campaign에서 가장 최근에 수신한 `send_id`에 기여 분석됩니다.
 
@@ -24,7 +24,7 @@ Braze는 발송 후 14일 동안 발송 분석을 저장합니다. Campaign 전�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트는 API 캠페인 전용입니다. 이 엔드포인트를 사용하려면 `sends.data_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트는 API Campaign 전용입니다. 이 엔드포인트를 사용하려면 `sends.data_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -53,7 +53,6 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "data" : [
         {
             "time": (string) the date as ISO 8601 date,
@@ -94,7 +93,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
         "revenue": (optional, float)
       }
     ],
-  "message": "success"
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

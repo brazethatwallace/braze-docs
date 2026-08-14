@@ -22,7 +22,7 @@ guide_featured_list:
 - name: 연결된 콘텐츠 중단
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content
   image: /assets/img/braze_icons/stop-circle.svg
-- name: 사용자 프로필 데이터 가져오기
+- name: 고객 프로필 데이터 가져오기
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/user_profile_fields_connected_content
   image: /assets/img/braze_icons/users-01.svg
 - name: 연결된 콘텐츠 재시도

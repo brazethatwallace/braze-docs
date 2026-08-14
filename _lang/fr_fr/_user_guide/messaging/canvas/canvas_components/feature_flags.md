@@ -11,7 +11,7 @@ local_redirect:
 
 # Indicateur de fonctionnalité {#feature-flag}
 
-> Les indicateurs de fonctionnalité vous permettent d'expérimenter et de confirmer vos hypothèses autour de nouvelles fonctionnalités. Les marketeurs peuvent utiliser les indicateurs de fonctionnalité pour segmenter leur audience dans [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) et suivre l'impact du déploiement d'une fonctionnalité sur les conversions. De plus, les [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths) vous permettent d'optimiser ces conversions en testant différents messages ou chemins les uns par rapport aux autres afin de déterminer lequel est le plus efficace. Utilisez le chemin gagnant à mesure que vous déployez progressivement votre fonctionnalité auprès d'une audience plus large.
+> Les indicateurs de fonctionnalité vous permettent d'expérimenter et de confirmer vos hypothèses autour de nouvelles fonctionnalités. Les marketeurs peuvent utiliser les indicateurs de fonctionnalité pour segmenter leur audience dans [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) et suivre l'impact du déploiement d'une fonctionnalité sur les conversions. De plus, les [chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) vous permettent d'optimiser ces conversions en testant différents messages ou chemins les uns par rapport aux autres afin de déterminer lequel est le plus efficace. Utilisez le chemin gagnant à mesure que vous déployez progressivement votre fonctionnalité auprès d'une audience plus large.
 
 Vous souhaitez en savoir plus sur les indicateurs de fonctionnalité et leur utilisation dans Braze ? Consultez nos articles dédiés aux [indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags).
 
@@ -43,7 +43,7 @@ Les propriétés d'une étape du Canvas peuvent être modifiées après le lance
 
 Lorsque vous créez un indicateur de fonctionnalité, vous spécifiez des propriétés par défaut. Lors de la configuration d'une étape Indicateur de fonctionnalité dans Canvas, vous pouvez soit conserver les valeurs par défaut, soit écraser les valeurs pour les utilisateurs qui entrent dans cette étape.
 
-![Un indicateur de fonctionnalité « Preference Center » avec « String » comme propriété, « url » comme clé de propriété, et une valeur.]({% image_buster /assets/img/feature_flags/feature_flags_canvas_details.png %}){: style="max-width:90%"}
+![Un indicateur de fonctionnalité « Preference Center » avec « String » comme propriété, « url » comme clé de propriété et une valeur.]({% image_buster /assets/img/feature_flags/feature_flags_canvas_details.png %}){: style="max-width:90%"}
 
 Accédez à **Messagerie** > **Indicateurs de fonctionnalité** pour modifier, ajouter ou supprimer des propriétés supplémentaires.
 

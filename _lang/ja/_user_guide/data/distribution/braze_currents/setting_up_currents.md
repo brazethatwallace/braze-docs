@@ -16,96 +16,102 @@ search_rank: 8
 Currentsは特定のBrazeパッケージに含まれています。ご質問がある場合、またはアクセスを希望する場合は、Brazeの担当者にお問い合わせください。
 {% endalert %}
 
-新しい連携を追加する際に「残りのCurrents連携がありません」と表示される場合、一般的な原因は次のとおりです。
+## トラブルシューティング {#troubleshooting}
 
-- このワークスペースに対してCurrentsのエンタイトルメントが購入されていない。
-- Currentsのエンタイトルメントが、お客様の会社の別のワークスペースで利用可能になっている。
+### 新しいCurrents連携を追加できない {#cannot-add-a-new-currents-integration}
 
-エンタイトルメントのリクエストや設定の調整については、Brazeのアカウントマネージャーにお問い合わせください。
+新しい連携を追加する際に「You do not have any remaining Currents integrations」と表示される場合、または新しいCurrentsコネクターを追加するボタンがグレーアウトしている場合、一般的な原因は以下のとおりです。
+
+- このワークスペースにCurrentsのエンタイトルメントが購入されていません。
+- Currentsのエンタイトルメントが、同じ会社内の別のワークスペースで利用可能になっています。
+
+これを解決するには、会社内の他のワークスペースを確認してください。別のワークスペースで利用可能なCurrentsのエンタイトルメントが表示される場合があります。エンタイトルメントのリクエストや設定の調整が必要な場合は、Brazeのアカウントマネージャーにお問い合わせください。
 
 ## 要件 {#requirements}
 
-弊社のパートナーと連携してCurrentsを使用するには、同じ基本パラメーターと接続方法が必要です。
+Currentsをいずれかのパートナーと使用するには、同じ基本パラメーターと接続方法が必要です。
 
-各パートナーは、Brazeがデータファイルを書き込んでパートナーに送信する権限を有することを要求し、Brazeはそれらのファイルを書き込む場所、具体的にはバケット名またはキーを尋ねます。
+各パートナーは、Brazeがデータファイルを書き込んで送信する権限を持つことを要求し、Brazeはそれらのファイルを書き込む場所（具体的にはバケット名やキー）を確認します。
 
-以下の要件は、ほとんどのパートナーと連携するための基本的な最小要件です。パートナーによっては追加のパラメーターが必要になります。それらのパラメーターは、これらの基本要件に関する注意事項とともに、それぞれの[パートナーのドキュメント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)に記載されています。
+以下の要件は、ほとんどのパートナーと連携するための基本的な最低要件です。一部のパートナーでは追加のパラメーターが必要な場合があり、それらは各[パートナードキュメント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)に、これらの基本要件に関連する注意事項とともに記載されています。
 
 | 要件 | Origin | アクセス | 説明
 |---|---|---|---|
-| パートナーのアカウント | そのパートナーとアカウントを設定するか、提案が必要な場合はBrazeのアカウントマネージャーに連絡します。 | そのパートナーのサイトを確認するか、そのパートナーに連絡して登録します。 | お客様の会社のアカウントを通じてそのデータにアクセスできない場合、Brazeはパートナーにデータを送信しません。
-| パートナーAPIキーまたはトークン | 通常はパートナーのダッシュボードにあります。 | 指定されたBrazeのフィールドにコピーして貼り付けます。 | Brazeには、パートナーの連携ページに、このための指定フィールドがあります。データの送信先を特定するために、これが必要です。**パートナーキーやトークンは常に最新の状態に保ってください。無効な認証情報はコネクターを無効化し、イベントを消失させる可能性があります。**
-| 認証コード/キー、秘密キー、認証ファイル | そのパートナーのアカウント担当者に連絡します。パートナーのダッシュボードに記載されている可能性もあります。 | キーをコピーして指定のBrazeフィールドに貼り付けます。`.json`または他の認証ファイルを生成して、Brazeの適切な場所にアップロードします。 | Brazeには、パートナーの連携ページに、このための指定フィールドがあります。これによりBrazeに認証情報が付与され、パートナーでのお客様のアカウントにBrazeがファイルを書き込むことができます。**認証の詳細を最新の状態に維持することが重要です。認証情報が無効の場合、コネクターが無効になり、イベントがドロップする可能性があります。**
-| バケット、フォルダパス | 一部のパートナーは、バケットごとにデータを整理し、分類しています。これはパートナーのダッシュボードにあります。 | これが必要な場合は、バケット名またはファイルパスをBrazeの指定されたスペースに正確にコピーします。 | これはパートナーによっては必要なことですが、必要なときに正しく行うことが重要です。 |
+| パートナーのアカウント | パートナーとアカウントを手配するか、Brazeアカウントマネージャーに相談してください。 | パートナーのサイトを確認するか、パートナーに連絡してサインアップしてください。 | 自社のアカウントを通じてデータにアクセスできない場合、Brazeはパートナーにデータを送信しません。
+| パートナーAPIキーまたはトークン | 通常はパートナーのダッシュボードにあります。 | コピーして、Brazeの指定フィールドに貼り付けてください。 | Brazeには、そのパートナーの連携ページに専用のフィールドがあります。これは、データの送信先をマッピングするために必要です。**パートナーキーまたはトークンを常に最新の状態に保ってください。認証情報が無効になると、コネクターが無効化され、イベントがドロップされる可能性があります。**
+| 認証コード/キー、シークレットキー、証明書ファイル | パートナーのアカウント担当者に連絡してください。パートナーのダッシュボードにも存在する場合があります。 | キーをコピーしてBrazeの指定フィールドに貼り付けてください。`.json`やその他の証明書ファイルを生成し、Brazeの適切な場所にアップロードしてください。 | Brazeには、そのパートナーの連携ページに専用のフィールドがあります。これにより、Brazeに認証情報が付与され、パートナーアカウントにファイルを書き込む権限が与えられます。**認証情報を常に最新の状態に保つことが重要です。認証情報が無効になると、コネクターが無効化され、イベントがドロップされる可能性があります。**
+| バケット、フォルダーパス | 一部のパートナーはバケットごとにデータを整理・分類します。これはパートナーのダッシュボードで確認できます。 | これが必要な場合は、バケット名またはファイルパスをBrazeの指定スペースに正確にコピーしてください。 | これは一部のパートナーでのみ必要ですが、必要な場合は正確に入力することが重要です。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="要件" }
 
 {% alert important %}
-パートナーキー、パートナートークン、および認証の詳細を最新の状態に保つことが重要です。コネクターの認証情報の有効期限が切れると、コネクターはイベントの送信を停止します。これが**5日**以上続くと、コネクターのイベントは破棄され、データは永久に失われます。
+パートナーキー、パートナートークン、および認証情報を常に最新の状態に保つことが重要です。コネクターの認証情報が期限切れになると、コネクターはイベントの送信を停止します。この状態が**5日間**以上続くと、コネクターのイベントはドロップされ、データは永久に失われます。
 {% endalert %}
 
 ## Currentsの設定 {#setting-up-currents}
 
-### ステップ1:パートナーの選択 {#step-1-choose-your-partner}
+### ステップ1：パートナーを選択する {#step-1-choose-your-partner}
 
-Braze Currentsを使用すると、フラットファイルを使用したデータストレージ経由での連携、またはバッチ化されたJSONペイロードを指定されたエンドポイントに送信して、行動分析や顧客データのパートナーとの連携ができます。
+Braze Currentsでは、フラットファイルを使用したデータストレージとの連携、または指定されたエンドポイントへのバッチ処理されたJSONペイロードを使用した行動分析および顧客データパートナーとの連携が可能です。
 
-連携を開始する前に、目的に最適な連携を決定することをお勧めします。例えば、すでにmParticleとセグメントを利用していて、そこにBrazeデータをストリーミングしたい場合は、バッチ化されたJSONペイロードを使用するのが最適です。データを独自に操作したい場合、またはより複雑なデータ分析システムがある場合は、データストレージを使用するのが最適です（[Brazeではこの方法を採用]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents)しています）。
+連携を開始する前に、目的に最適な連携方法を決定することをお勧めします。たとえば、すでにmParticleやセグメントを使用しており、Brazeのデータをそこにストリーミングしたい場合は、バッチ処理されたJSONペイロードを使用するのが最適です。データを独自に操作したい場合や、より複雑なデータ分析システムをお持ちの場合は、データストレージを使用するのが最適かもしれません（[Brazeもこの方法を使用しています]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents)！）。
 
-### ステップ2:Currentsを開く {#step-2-open-currents}
+### ステップ2：Currentsを開く {#step-2-open-currents}
 
-始めるには、**パートナー連携** > **Currents**に移動します。Currentsの連携管理ページが表示されます。
+開始するには、**パートナー連携** > **Currents**に移動します。Currents連携管理ページが表示されます。
 
-![Brazeダッシュボードの Currentsページ]({% image_buster /assets/img_archive/currents-main-page.png %})
+![Brazeダッシュボードの Currents ページ]({% image_buster /assets/img_archive/currents-main-page.png %})
 
-### ステップ3:パートナーを追加する {#step-3-add-your-partner}
+### ステップ3：パートナーを追加する {#step-3-add-your-partner}
 
-画面上部のドロップダウンを選択し、パートナー（「Currentsコネクター」と呼ばれることもあります）を追加します。
+画面上部のドロップダウンを選択して、パートナー（「Currentsコネクター」とも呼ばれます）を追加します。
 
-パートナーごとに異なる設定ステップが必要です。各連携を有効にするには、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)のリストを参照し、それぞれのページの指示に従ってください。
+各パートナーには異なる設定ステップが必要です。各連携を有効にするには、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)のリストを参照し、それぞれのページの手順に従ってください。
 
-### ステップ4:イベントを設定する {#step-4-configure-your-events}
+{% multi_lang_include currents/contact_email_notifications.md %}
 
-利用可能なオプションから、パートナーに渡すイベントのチェックボックスをオンにします。これらのイベントのリストは、[顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)ライブラリと[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)ライブラリにあります。
+### ステップ4：イベントを設定する {#step-4-configure-your-events}
 
-![エクスポート対象のパートナーイベントが選択されたCurrents設定ページ]({% image_buster /assets/img/current4.png %})
+利用可能なオプションからチェックを入れて、そのパートナーに渡したいイベントを選択します。これらのイベントの一覧は、[顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)および[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)ライブラリで確認できます。
 
-必要に応じて、イベントの詳細について[イベント配信のセマンティクス]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics)の記事を参照してください。
+![エクスポート用のパートナーイベントが選択されたCurrents設定ページ]({% image_buster /assets/img/current4.png %})
 
-### ステップ5:フィールド変換の設定 {#step-5-set-up-field-transformations}
+必要に応じて、[イベント配信のセマンティクス]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics)の記事でイベントの詳細を確認できます。
 
-Currentsフィールド変換を使用して、文字列フィールドを削除またはハッシュできます。
+### ステップ5：フィールド変換を設定する {#step-5-set-up-field-transformations}
 
-- **削除:** 文字列フィールドを`[REDACTED]`に置き換えます。これは、パートナーが欠落フィールドまたは空のフィールドを持つイベントを拒否する場合に役立ちます。
-- **ハッシュ:** SHA-256ハッシュアルゴリズムを文字列フィールドに適用します。
+Currentsのフィールド変換を使用して、文字列フィールドを削除またはハッシュ化できます。
 
-これらのいずれかの変換を行う対象のフィールドを選択すると、そのフィールドが含まれるすべてのイベントにその変換が適用されます。例えば、ハッシュ化の対象として`email_address`を選択すると、メール送信、メール開封、メールバウンス、購読グループの状態変更イベントの`email_address`フィールドがハッシュ化されます。
+- **削除：**文字列フィールドを`[REDACTED]`に置き換えます。これは、パートナーが欠落または空のフィールドを含むイベントを拒否する場合に便利です。
+- **ハッシュ化：**文字列フィールドにSHA-256ハッシュアルゴリズムを適用します。
+
+これらの変換のいずれかにフィールドを選択すると、そのフィールドが含まれるすべてのイベントにその変換が適用されます。たとえば、`email_address`をハッシュ化対象として選択すると、メール送信、メール開封、メールバウンス、および購読グループの状態変更イベントの`email_address`フィールドがハッシュ化されます。
 
 ![フィールド変換の追加]({% image_buster /assets/img/current3.png %})
 
-### ステップ6:連携のテスト {#step-6-test-your-integration}
+### ステップ6：連携をテストする {#step-6-test-your-integration}
 
 {% alert important %}
-Currentsは、900&nbsp;KBを超える過度に大きなペイロードを持つイベントをドロップします。
+Currentsは、900&nbsp;KB を超える過度に大きなペイロードを持つイベントをドロップします。
 {% endalert %}
 
-テストする前に、[GitHubのサンプルCurrentsデータ](https://github.com/Appboy/currents-examples)をご確認ください。テストの準備ができたら、以下のセクションからオプションを選択します。
+テストを行う前に、[GitHubのCurrentsサンプルデータ](https://github.com/Appboy/currents-examples)を確認することをお勧めします。テストの準備ができたら、以下のセクションからオプションを選択してください。
 
-#### テストイベントの送信 {#sending-test-events}
+#### テストイベントを送信する {#sending-test-events}
 
-連携をテストするには、**Send Test Events**を選択して、選択した各イベントタイプからこのCurrentに1つのイベントを送信します。各イベントタイプの詳細については、[顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)ライブラリと[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)ライブラリを参照してください。
+連携をテストするには、**Send Test Events**を選択して、選択した各イベントタイプから1つのイベントをこのCurrentに送信できます。各イベントタイプの詳細については、[顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)および[メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)ライブラリを参照してください。
 
-![Brazeダッシュボードの「Currentsテスト」ページ]({% image_buster /assets/img/currents/current_test_events.png %}){: style="max-width:70%;"}
+![Brazeダッシュボードの「Currents テスト」ページ]({% image_buster /assets/img/currents/current_test_events.png %}){: style="max-width:70%;"}
 
 #### Currentsコネクターのテスト {#testing-currents-connectors}
 
-Currentsのテストコネクターは、弊社の既存のコネクターの無料版であり、さまざまな送信先のテストと試行に使用できます。Currentsのテストには以下の特徴があります。
+テスト用Currentsコネクターは、既存のコネクターの無料バージョンで、テストやさまざまな送信先の試用に使用できます。テスト用Currentsには以下の特徴があります。
 
-- ワークスペースあたり最大10個のテストCurrentsコネクター。
-- 固定の24時間期間ごとに、合計最大1,500件のイベント。これはUTCの深夜0時にリセットされます。このイベントの合計はダッシュボードで1時間ごとに更新されます。
+- ワークスペースごとに最大10個のテスト用Currentsコネクター。
+- 固定の24時間あたり合計最大1,500イベント（UTC午前0時にリセット）。このイベント合計はダッシュボード上で1時間ごとに更新されます。
 
-テストCurrentsコネクターが送信上限に達すると、そのコネクターは翌日の午前0時（UTC）までイベントを送信しません。
+テスト用Currentsコネクターが送信上限に達すると、翌日（UTC午前0時）までコネクターはイベントを送信しません。
 
-Currentsのテストコネクターをアップグレードするには、ダッシュボードで連携を編集し、**Upgrade Test Integration**を選択します。
+テスト用Currentsコネクターをアップグレードするには、ダッシュボードで連携を編集し、**Upgrade Test Integration**を選択してください。
 
 ## Currentsの更新 {#updating-currents}
 
@@ -113,6 +119,6 @@ Currentsのテストコネクターをアップグレードするには、ダッ
 
 ## IP許可リスト {#ip-allowlisting}
 
-Brazeは、リストされたIPからCurrentsデータを送信します。
+Brazeは、以下のIPアドレスからCurrentsデータを送信します。
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}

@@ -14,7 +14,7 @@ Brazeの「プッシュサブスクリプションの状態」は、プッシュ
 |---|---|
 | `Subscribed` | Brazeでユーザープロファイルが作成されたときのデフォルトのプッシュサブスクリプション状態。 |
 | `Opted-In` | ユーザーがプッシュ通知を受け取ることを明示的に希望しました。ユーザーがOSレベルのプッシュプロンプトを承認した場合、Brazeは自動的にそのユーザーのオプトイン状態を`Opted-In`に変更します。<br><br>Android 12またはそれ以前のユーザーには適用されません。|
-| `Unsubscribed` | ユーザーがアプリケーションやブランドが提供するその他の方法で、プッシュ配信を明示的に解除しました。デフォルトでは、Brazeのプッシュキャンペーンは、プッシュ通知に対して`Subscribed`または`Opted-in`のユーザーのみを対象とします。|
+| `Unsubscribed` | ユーザーがアプリケーションやブランドが提供するその他の方法で、プッシュ配信を明示的に購読解除しました。デフォルトでは、Brazeのプッシュキャンペーンは、プッシュ通知に対して`Subscribed`または`Opted-in`のユーザーのみを対象とします。|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="プッシュサブスクリプションの状態 #push-sub-states" }
 
 {% alert important %}
@@ -78,17 +78,17 @@ AppDelegate.braze = braze
 
 自動オプトインが有効（デフォルト）の場合、ユーザーがアプリのプッシュ通知を承認するか、システム設定でプッシュ権限を再度有効にすると（例えば、iOS、Android 13以降、およびサポートされているWebブラウザ）、Brazeはユーザーのプッシュサブスクリプション状態を`Opted-In`に更新します。それ以外の場合、SDKメソッドまたはREST API呼び出しを使用して明示的に変更するまで、ユーザーのプッシュサブスクリプション状態は`Subscribed`のままです。
 
-Brazeは、ユーザーがOS、ブラウザ、またはアプリレベルで通知をオプトアウトした場合でも、ユーザーのプッシュサブスクリプション状態を自動的に`Unsubscribed`に変更することはありません。ユーザーのプッシュサブスクリプション状態を更新するには、Brazeで更新する必要があります。例えば、ユーザーがアプリ内のユーザー設定センターからプッシュを無効にした場合、Brazeでプッシュサブスクリプション状態を`Unsubscribed`に更新してください。Brazeはユーザー設定センターに基づいてユーザープロファイルを自動的に更新しません。サブスクリプション状態をユーザーのアプリ内設定と一致させるには、[SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#sdk-integration)（iOSまたはAndroid）または[REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#rest-api)を使用して適切なメソッドを呼び出してください。
+Brazeは、ユーザーがOS、ブラウザ、またはアプリレベルで通知をオプトアウトした場合でも、ユーザーのプッシュサブスクリプション状態を自動的に`Unsubscribed`に変更することはありません。ユーザーのプッシュサブスクリプション状態を更新するには、Brazeで更新する必要があります。例えば、ユーザーがアプリ内のユーザー設定センターからプッシュを無効にした場合、Brazeでプッシュサブスクリプション状態を`Unsubscribed`に更新してください。Brazeはユーザー設定センターに基づいてユーザープロファイルを自動的に更新しません。サブスクリプション状態をユーザーのアプリ内設定と一致させるには、SDK（iOSまたはAndroid）またはREST APIを使用して適切なメソッドを呼び出してください。詳細については、[プッシュサブスクリプションの状態の更新]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#update-push-subscription-state)を参照してください。
 
 ### インポートされたプッシュトークン（iOS） {#imported-push-tokens-ios}
 
-[iOSプッシュトークンをインポート]({{site.baseurl}}/api/endpoints/user_data/post_user_track#push-token-import)する際に`push_token_import`を使用すると、ユーザーのプッシュサブスクリプション状態は通常 **`Subscribed`** となり、Braze統合アプリでセッションを記録するまでその状態が維持されます。最初のセッション後、[自動オプトイン](#automatic-opt-in-default)が適用される場合（例えば、ユーザーがiOSでプッシュを承認し、`optInWhenPushAuthorized`が有効な場合）、Brazeは状態を **`Opted-In`** に更新することがあります。
+[iOSプッシュトークンをインポート]({{site.baseurl}}/api/objects_filters/user_attributes_object#push-token-import)する際に`push_token_import`を使用すると、ユーザーのプッシュサブスクリプション状態は通常 **`Subscribed`** となり、Braze統合アプリでセッションを記録するまでその状態が維持されます。最初のセッション後、[自動オプトイン](#automatic-opt-in-default)が適用される場合（例えば、ユーザーがiOSでプッシュを承認し、`optInWhenPushAuthorized`が有効な場合）、Brazeは状態を **`Opted-In`** に更新することがあります。
 
 インポート後、およびユーザーの最初のアプリ内セッション後に、ユーザープロファイルの**連絡先設定**を確認して、期待される状態になっていることを確認してください。
 
 ### プッシュサブスクリプションの状態の確認 {#checking-push-subscription-state}
 
-![John Doeのユーザープロファイルで、プッシュサブスクリプションの状態が「購読中」に設定されている。]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![John Doeのユーザープロファイルで、プッシュサブスクリプションの状態が「Subscribed」に設定されている。]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
 Brazeでは、以下のいずれかの方法でユーザーのプッシュサブスクリプション状態を確認できます。
 

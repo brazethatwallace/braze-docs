@@ -1,0 +1,3 @@
+- Future data won't be collected for that event.
+- Existing data won't be available unless that event is unblocked.
+- That event won't show up in filters or graphs.

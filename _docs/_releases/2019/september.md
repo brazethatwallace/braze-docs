@@ -28,7 +28,7 @@ With [Passkit]({{site.baseurl}}/partners/additional_channels_and_extensions/addi
 A message's `dispatch_id` will be included in the following messaging endpoint responses:
 - [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging)
 - [`/campaigns/trigger/schedule`]({{site.baseurl}}/api/endpoints/messaging)
-- [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#send-messages-immediately-using-the-api-only)
+- [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
 - [`/messages/schedule`]({{site.baseurl}}/api/endpoints/messaging)
 - [`/canvases/trigger/send`]({{site.baseurl}}/api/endpoints/messaging)
 - [`/canvases/trigger/schedule`]({{site.baseurl}}/api/endpoints/messaging)

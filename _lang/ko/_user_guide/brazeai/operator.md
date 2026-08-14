@@ -9,17 +9,13 @@ description: "Braze 대시보드에 내장된 AI 기반 어시스턴트인 Braze
 
 # BrazeAI Operator
 
-> BrazeAI Operator<sup>TM</sup>는 대시보드에 내장된 AI 기반 어시스턴트입니다. Operator는 질문에 답변하고, 설정을 안내하며, 문제를 해결하고, 아이디어를 함께 고민하는 등 다양한 업무를 도와줍니다.
+> BrazeAI Operator<sup>TM</sup>는 대시보드에 내장된 AI 기반 어시스턴트입니다. Operator는 Campaign, Segment, 콘텐츠 초안 작성 등 구축 작업을 도와주며, 질문에 답변하고 문제를 해결하고 아이디어를 브레인스토밍하는 등 막히는 부분을 해결하는 데 도움을 줍니다.
 
 ## Operator 접근하기 {#access-operator}
 
 Braze 대시보드의 모든 페이지에서 Operator를 열 수 있습니다.
 
-1. 고객 프로필 옆에 있는 **BrazeAI Operator<sup>TM</sup>**를 선택하세요.
-
-![고객 프로필 옆의 BrazeAI Operator 아이콘.]({% image_buster /assets/img/operator/operator_icon.png %})
-
-{:start="2"}
+1. 사용자 프로필 옆에 있는 **BrazeAI Operator<sup>TM</sup>**를 선택합니다.
 2. Operator 채팅 패널이 사이드 패널에 열립니다.
 
 ![Operator 채팅 패널.]({% image_buster /assets/img/operator/operator_chat_panel.png %})
@@ -28,25 +24,27 @@ Braze 대시보드의 모든 페이지에서 Operator를 열 수 있습니다.
 패널을 최대화하여 읽기 편하게 확장하거나, 작업 중에도 Operator를 사용할 수 있도록 최소화하세요.
 {% endalert %}
 
+## Operator 사용하기 {#use-operator}
+
+자연어로 달성하려는 목표를 설명하세요. 명확하고 구체적인 프롬프트가 더 유용한 응답을 이끌어냅니다. 프롬프트는 간단한 질문부터 전체 구축 요청까지 다양할 수 있습니다:
+
+- **질문하기:** 왜 내 Liquid가 렌더링되지 않나요?
+- **구축 요청하기:** 최근 7일 이내에 장바구니를 이탈한 사용자의 Segment 초안을 작성해 주세요.
+
+Operator는 단계별 지침, Braze 설명서 링크, 쉬운 설명, 그리고 Campaign, Segment, 콘텐츠 초안을 제공하여 검토 후 작업에 바로 삽입할 수 있습니다. Operator가 변경 사항을 제안하고 적용하는 방법에 대해서는 [Operator와 함께 동작 실행하기](#take-action-with-operator)를 참조하세요.
+
+Operator는 복잡한 다단계 작업에 적합한 [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra)를 사용합니다. Operator가 구축을 도울 수 있는 전체 범위에 대해서는 [Operator로 할 수 있는 것]({{site.baseurl}}/user_guide/brazeai/operator/capabilities)을 참조하세요. 바로 사용할 수 있는 예시는 [프롬프트 라이브러리]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library)를 참조하세요.
+
 아래 동영상에서 Operator가 할 수 있는 작업의 한 가지 예시를 확인하세요.
 
 {% multi_lang_include video.html id="lnv9t8hn11" source="wistia" %}
-
-## Operator 사용하기 {#use-operator}
-
-자연어로 달성하려는 목표를 설명하세요. 프롬프트는 간단한 질문부터 복잡한 요청까지 다양할 수 있습니다:
-
-- **간단한 질문:** 왜 내 Liquid가 렌더링되지 않나요?
-- **복잡한 요청:** 내 메시지의 `abort_message` 태그에 중단을 유발한 사용자 속성을 포함시키려면 어떻게 해야 하나요?
-
-Operator는 단계별 지침, Braze 설명서 링크 및 쉬운 설명을 제공할 수 있습니다. 명확하고 구체적인 질문은 더 유용한 답변을 이끌어냅니다. Operator는 강력한 추론 능력을 제공하며 복잡한 다단계 작업에 적합한 [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2)를 사용합니다. 바로 사용할 수 있는 예시는 [프롬프트 라이브러리]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library)를 참조하세요.
 
 ## 모범 사례 {#best-practices}
 
 Operator를 검색 엔진이 아닌 대화 상대처럼 대하세요. 짧고 자연스러운 프롬프트가 가장 효과적입니다.
 
-- **구체적으로 질문하세요:** "Canvas에 대해 알려주세요" 대신 "Canvas에서 작업 경로를 어떻게 사용하나요?"라고 물어보세요.
-- **추가 질문을 하세요:** 첫 번째 답변이 필요한 내용을 충족하지 못할 경우, 명확한 설명이나 추가 세부 정보를 요청하세요.
+- **구체적으로 질문하세요:** "Canvas에 대해 알려주세요" 대신 "Canvas에서 행동 경로를 어떻게 사용하나요?"라고 물어보세요.
+- **추가 질문을 하세요:** 첫 번째 답변이 필요한 내용을 충족하지 못할 경우, 명확한 설명이나 추가 세부 정보를 요청하세요. Operator는 채팅 기록을 지울 때까지 대화의 이전 메시지를 기억합니다.
 - **페이지 인식 컨텍스트를 활용하세요:** Operator는 Braze 내에서 사용자의 위치를 파악합니다. 가장 정확한 결과를 얻으려면 관련 페이지를 보면서 Operator를 열어주세요.
 
 ## 경험 커스터마이즈하기 {#customize-your-experience}
@@ -55,7 +53,7 @@ Operator를 검색 엔진이 아닌 대화 상대처럼 대하세요. 짧고 자
 
 Operator 쿼리에 브랜드 가이드라인을 컨텍스트로 추가하여 응답이 브랜드의 목소리, 어조 및 개성을 반영하도록 하세요. Operator는 워크스페이스에 구성된 브랜드 가이드라인을 사용하므로, 문구를 제안하거나 기능을 설명할 때 일관된 메시징을 보장하는 데 도움이 됩니다.
 
-브랜드 가이드라인을 설정하려면 **설정** > **브랜드 가이드라인**으로 이동하세요. 자세한 내용은 [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)을 참조하세요.
+브랜드 가이드라인을 설정하려면 **콘텐츠** > **브랜드 가이드라인**으로 이동하세요. 자세한 내용은 [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)을 참조하세요.
 
 ![Operator 채팅 패널에서 브랜드 가이드라인 선택하기.]({% image_buster /assets/img/operator/operator_brand_guidelines.png %})
 
@@ -79,7 +77,7 @@ Operator는 **Reasoned**라고 표시된 접을 수 있는 섹션에 추론 단�
 
 ### Operator와 함께 동작 실행하기 {#take-action-with-operator}
 
-Operator는 Braze 대시보드에서 직접 변경 사항을 제안하고 실행할 수 있습니다. 예를 들어, 양식 필드 입력, 설정 업데이트 또는 콘텐츠 생성이 가능합니다. 제안된 각 변경 사항은 액션 카드로 제시되며, 적용되기 전에 검토하고 승인해야 합니다. 이 기능의 작동 방식에 대한 자세한 내용은 [동작 검토]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)를 참조하세요.
+Operator는 양식 필드 입력, 설정 업데이트 또는 콘텐츠 생성 등 Braze 대시보드에서 직접 변경 사항을 제안하고 실행할 수 있습니다. 제안된 각 변경 사항은 액션 카드로 제시되며, 적용되기 전에 검토하고 승인해야 합니다. 이 기능의 작동 방식에 대한 자세한 내용은 [동작 검토]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)를 참조하세요.
 
 ### 다른 도구로 응답 복사하기 {#copy-responses-to-other-tools}
 
@@ -136,6 +134,7 @@ BrazeAI Operator<sup>TM</sup>는 OpenAI와 통합되며, OpenAI는 귀하와 Bra
 
 ## 다음 단계 {#next-steps}
 
+- [Operator로 할 수 있는 것]({{site.baseurl}}/user_guide/brazeai/operator/capabilities): 대시보드 전반에서 Operator의 기능을 살펴보세요
 - [프롬프트 라이브러리]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): 대시보드 페이지별로 정리된 예시 프롬프트를 찾아보세요
 - [동작 검토]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Operator가 제안한 변경 사항을 검토하고 승인하는 방법을 알아보세요
 - [고객지원 티켓 제출]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets): Operator에서 직접 고객지원 티켓을 제출하세요

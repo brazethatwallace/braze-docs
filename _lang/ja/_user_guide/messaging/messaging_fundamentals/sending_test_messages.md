@@ -91,7 +91,7 @@ Content Cardsを作成した後、テストContent Cardsをアプリに送信し
 
 - テストユーザーは有効なプッシュトークンでプッシュにオプトインしていますか？
 - 画像やメディアは期待通りに表示・動作しますか？
-- Liquidは期待通りに機能しますか？Liquidが情報を返さない場合の[デフォルト属性値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values)を設定していますか？
+- Liquidは期待通りに機能しますか？Liquidが情報を返さない場合の[デフォルト属性値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values)を設定していますか？
 - コピーは明確で、簡潔で、正確ですか？
 - リンクはユーザーを正しい場所に誘導しますか？
 - テストユーザーは有効なプッシュトークンでプッシュにオプトインしていますか？
@@ -156,6 +156,8 @@ Content Cardsが送信された後、開発者コンソールの[イベントユ
 
 ![テストメール]({% image_buster /assets/img_archive/testemail.png %}){: style="max-width:40%;" }
 
+メールキャンペーンに[ユーザー設定センター]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)のリンクが含まれている場合、テスト送信では有効なリンクが生成されず、設定を保存することもできません。ユーザー設定センターをテストするには、テストユーザーまたは小規模な内部セグメントにメッセージを送信してください。詳細については、[ユーザー設定センターのテスト]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers)を参照してください。
+
 メールキャンペーンに大きな画像が含まれており、Outlookで期待通りに表示されない場合は、CSSやHTMLでスケーリングするだけでなく、画像編集ツールやリサイズツールを使用して画像の実際のファイルサイズを縮小することを検討してください。
 
 {% endtab %}
@@ -197,7 +199,7 @@ Brazeには3世代のアプリ内メッセージがあります。サポート�
 ### テストチェックリスト
 
 - 画像やメディアは期待通りに表示・動作しますか？
-- Liquidは期待通りに機能しますか？Liquidが情報を返さない場合の[デフォルト属性値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values)を設定していますか？
+- Liquidは期待通りに機能しますか？Liquidが情報を返さない場合の[デフォルト属性値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values)を設定していますか？
 - コピーは明確で、簡潔で、正確ですか？
 - ボタンはユーザーを正しい場所に誘導しますか？
 
@@ -259,7 +261,7 @@ Brazeダッシュボードからのプッシュメッセージをすでに許可
 選択したユーザーにWebプッシュに一致するプッシュトークンがないというエラーが表示された場合は、テストユーザーが選択したプラットフォームに有効なプッシュトークンを登録していることを確認してください。プッシュトークンを受信するには、ユーザーがデバイス上のアプリでプッシュ通知を受信するように設定されている必要があります。詳細については、[プッシュの有効化とプッシュ購読]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states)を参照してください。
 
 {% endtab %}
-{% tab SMS/MMSおよびRCS %}
+{% tab SMS/MMSとRCS %}
 
 SMS、MMS、またはRCSメッセージを作成した後、テストメッセージを携帯電話に送信して、リアルタイムでどのように表示されるかを確認できます。
 
@@ -313,7 +315,7 @@ Webhookを作成した後、テスト送信を行ってWebhookのレスポンス
 
 #### 既存のユーザーをカスタマイズする {#customizing-an-existing-user}
 
-ランダムまたは既存のユーザーから個別のフィールドを編集して、メッセージ内のダイナミックコンテンツをテストできます。**編集**を選択すると、選択したユーザーが変更可能なカスタムユーザーに変換されます。
+ランダムまたは既存のユーザーから個別のフィールドを編集して、メッセージ内のダイナミックなコンテンツをテストできます。**編集**を選択すると、選択したユーザーが変更可能なカスタムユーザーに変換されます。
 
 ![「ユーザーとしてプレビュー」タブと「編集」ボタン。]({% image_buster /assets/img_archive/edit_user_preview.png %}){: style="max-width:50%;"}
 
@@ -384,7 +386,7 @@ Liquidを使用して値を手動で入力することで、カスタムイベ�
 
 テストメッセージが実際のユーザーに送信されるキャンペーンやキャンバスと同じように動作しない場合がいくつかあります。これらの場合は、この動作を検証するために、限定されたテストユーザーのセットにキャンペーンまたはキャンバスを起動することを検討してください。
 
-- テストメッセージからBrazeのユーザー設定センターを表示すると、**設定を保存**ボタンがグレーアウトされます。
+- テストメッセージからBrazeの[ユーザー設定センター]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)を表示すると、**設定を保存**ボタンが無効になります。ユーザー設定センターのLiquidタグも有効なリンクに解決されない場合があります。これは想定される動作です。エンドツーエンドのテストについては、[ユーザー設定センターのテスト]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers)を参照してください。
 - アプリ内メッセージとContent Cardsのテストでは、ターゲットユーザーがターゲットデバイスのプッシュトークンを持っている必要があります。
 - メール内の購読解除リンクをテストする場合は、テストユーザーのメールアドレスが該当するワークスペースに含まれていることを確認してください。
 - テストメッセージ機能で送信されたメールには`List-Unsubscribe`ヘッダーは含まれません。

@@ -1,13 +1,13 @@
 ---
-nav_title: Branch (アトリビューション)
-article_title: Branch (アトリビューション)
+nav_title: Branch（アトリビューション）
+article_title: Branch（アトリビューション）
 alias: /partners/branch_for_attribution/
 description: "この参考記事では、あらゆるデバイス、チャネル、プラットフォームでの獲得、エンゲージメント、測定を支援するモバイルリンクプラットフォームであるBrazeとBranchのパートナーシップについて概説しています。"
 page_type: partner
 search_tag: Partner
 ---
 
-# Branch (アトリビューション) {#branch}
+# Branch（アトリビューション） {#branch}
 
 {% multi_lang_include video.html id="PwGKqfwV-Ss" align="right" %}
 
@@ -17,7 +17,7 @@ _この統合はBranchによって管理されています。_
 
 ## 統合について {#about-the-integration}
 
-BrazeとBranchの統合により、堅牢なアトリビューションと[ディープリンク]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/)を通じて、ユーザーがいつ、どこで獲得されたかを正確に把握し、ユーザーのジャーニーをパーソナライズできるようになります。
+BrazeとBranchの統合により、堅牢なアトリビューションと[ディープリンク]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)を通じて、ユーザーがいつ、どこで獲得されたかを正確に把握し、ユーザーのジャーニーをパーソナライズできるようになります。
 
 ## 前提条件 {#prerequisites}
 
@@ -26,7 +26,7 @@ BrazeとBranchの統合により、堅牢なアトリビューションと[デ�
 | Branchアカウント | このパートナーシップを活用するには、Branchアカウントが必要です。 |
 | iOSまたはAndroidアプリ | この統合では、iOSアプリとAndroidアプリがサポートされています。ご使用のプラットフォームによっては、アプリケーションでコードスニペットが必要な場合があります。これらの要件の詳細については、統合プロセスのステップ1を参照してください。 |
 | Branch SDK | 必要なBraze SDKに加えて、[Branch SDK](https://help.branch.io/developers-hub/docs/native-sdks-overview)をインストールする必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
@@ -43,7 +43,7 @@ Branch.getInstance().setRequestMetadata("$braze_install_id", Braze.getInstance(c
 ```
 {% endtab %}
 {% tab Kotlin %}
-`````````kotlin
+```kotlin
 Branch.getInstance().setRequestMetadata("$braze_install_id", Braze.getInstance(context).deviceId)
 ```
 {% endtab %}
@@ -52,7 +52,7 @@ Branch.getInstance().setRequestMetadata("$braze_install_id", Braze.getInstance(c
 #### iOS
 
 {% alert important %}
-2023年2月以前は、Branchアトリビューション統合ではiOSアトリビューションデータのマッチングにおいて、IDFV（Identifier for Vendor）を主要な識別子として使用していました。Objective-Cを使用するBrazeのお客様は、Brazeの`device_id`を取得してインストール時にBranchに送信する必要はありません。サービスの中断が発生しないためです。
+2023年2月以前は、Branchアトリビューション統合ではiOSアトリビューションデータのマッチングにおいて、IDFV（Identifier for Vendor）を主要な識別子として使用していました。Objective-Cを使用するBrazeの顧客は、Brazeの`device_id`を取得してインストール時にBranchに送信する必要はありません。サービスの中断が発生しないためです。
 {% endalert%}
 
 Swift SDK v5.7.0以降を使用しているお客様で、相互識別子としてIDFVを引き続き使用する場合は、`useUUIDAsDeviceId`フィールドが`false`に設定されていることを確認する必要があります。これにより、統合が中断されることがなくなります。
@@ -61,7 +61,7 @@ Swift SDK v5.7.0以降を使用しているお客様で、相互識別子とし�
 
 {% tabs local %}
 {% tab Objective-C %}
-`````````objc
+```objc
 [braze deviceIdOnQueue:dispatch_get_main_queue() completion:^(NSString * _Nonnull deviceId) {
   [[Branch getInstance] setRequestMetadataKey:@"$braze_install_id" value:deviceId];
   // Branch init
@@ -70,7 +70,7 @@ Swift SDK v5.7.0以降を使用しているお客様で、相互識別子とし�
 {% endtab %}
 {% tab Swift %}
 
-`````````swift
+```swift
 braze.deviceId { deviceId in
   Branch.getInstance.setRequestMetadata("$braze_install_id", deviceId)
   // Branch init
@@ -99,6 +99,18 @@ BrazeがBranchからアトリビューションデータを受信すると、Bra
 
 このステータスは、Brazeがアトリビュートされたインストールに関するデータを受信した後にのみ変更されます。Brazeはオーガニックインストールを無視し（Branchのポストバックから除外）、接続が成功したかどうかを判断する際にそれらをカウントしません。
 
+## フィールドマッピング {#field-mapping}
+
+Branchのアトリビューションフィールドは、以下のようにBrazeにマッピングされます。
+
+| Branchフィールド | Brazeフィールド |
+| --- | --- |
+| キャンペーン | `campaign` |
+| Channel | `source` |
+| Ad Set Name | `adgroup` |
+| Ad Name | `ad` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Branchフィールドマッピング" }
+
 ## FacebookとX（旧Twitter）のアトリビューションデータ {#facebook-and-x-formerly-twitter-attribution-data}
 
 FacebookおよびX（旧Twitter）のキャンペーンのアトリビューションデータは、当社のパートナーを通じて利用できません。これらのメディアソースは、パートナーがアトリビューションデータを第三者と共有することを許可していないため、当社のパートナーがそのデータをBrazeに送信することはできません。
@@ -111,7 +123,7 @@ Branchのクリックトラッキングリンクを使い始めるには、Branc
 
 {% tabs local %}
 {% tab Android %}
-Androidの場合、Brazeではお客様が[Google広告IDコレクション（GAID）]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id)にオプトインできます。GAIDはまた、Branch SDKの統合によってネイティブに収集されます。以下のLiquidロジックを利用して、BranchのクリックトラッキングリンクにGAIDを組み込むことができます。
+Androidの場合、Brazeではお客様が[Google広告IDコレクション（GAID）]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id)にオプトインできます。GAIDはまた、Branch SDKの統合によってネイティブに収集されます。以下のLiquidロジックを利用して、BranchのクリックトラッキングリンクにGAIDを組み込むことができます。
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}

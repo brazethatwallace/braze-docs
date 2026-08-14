@@ -42,12 +42,7 @@ If all of the messages in your campaign are going to be similar or have the same
 {% endtab %}
 {% tab Canvas %}
 
-1. [Create your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) using the Canvas composer.
-2. After you've set up your Canvas, add a step in the Canvas builder. Name your step something clear and meaningful.
-3. Choose a [step schedule]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) and specify a delay as needed.
-4. Filter your Audience for this step, as necessary. You can further refine the recipients of this step by specifying segments and adding additional filters. Audience options will be checked after the delay, at the time messages are sent.
-5. Choose your [advancement behavior]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
-6. Choose any other messaging channels that you would like to pair with your message.
+{% multi_lang_include messaging/canvas_message_step_setup.md %}
 {% endtab %}
 {% endtabs %}
 
@@ -121,10 +116,7 @@ For more information about gradient syntax, see [CSS gradients on W3Schools](htt
 
 After you finish designing and building your email message, add your sending information in **Sending Settings**.
 
-1. Under **Sending Info**, select an email as the **From Display Name + Address**. You can also customize this by selecting **Customize From Display Name + Address**.
-2. Select an email as the **Reply-To Address**. You can also customize this by selecting **Customize Reply-To Address**.
-3. Next, select an email as the **BCC Address** to make your email visible to this address.
-4. Add a subject line to your email. Optionally, you can also add a preheader. To add whitespace after the preheader, select the **Add whitespace after preheader** checkbox.
+{% multi_lang_include email/sending_info_steps.md %}
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
@@ -140,9 +132,7 @@ You can also add personalization for email headers and email extras to send addi
 
 You can also add email attachments by the following methods:
 
-- **Upload a file:** Drag and drop or browse to upload a file directly from your computer to the email. Braze validates the file type and size (up to 2&nbsp;MB by default) before uploading, then these files are uploaded to the media library. Files that are larger than 2&nbsp;MB limit cannot be uploaded.
-- **Use the media library:** Browse and select from assets already stored in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). PDFs, Word documents, Excel files, and PowerPoint presentations are all supported.
-- **Add from URL:** Enter a URL pointing to the file and provide a display filename. Because Braze cannot probe arbitrary URLs for size during email composition, the file size is enforced at send time. Note that Liquid is not supported in this field.
+{% multi_lang_include email/attachment_upload_options.md %}
 
 Refer to [Email guidelines]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) for specific best practices to consider.
 
@@ -217,7 +207,7 @@ After you finish composing your email, test it before sending. From the bottom o
 
 Here, you can preview how your email will appear in a customer's inbox. With **Preview as User** selected, you can preview your email as a random user, select a specific user, or create a custom user. This allows you to test that your Connected Content and personalization calls are working as they should. 
 
-Then, you can **Copy preview link** to generate and copy a shareable preview link that shows what the email will look like for a random user. The link will last for seven days before it needs to be regenerated.
+Then, you can **Copy preview link** to generate and copy a shareable preview link that shows what the email will look like for a random user. For more information, see [Shareable preview]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
 You can also switch between desktop, mobile, and plaintext views to get a sense of how your message will appear in different contexts.
 
@@ -295,9 +285,7 @@ When creating a new email campaign, the Control Group defaults to 20% and can be
 
 For multichannel campaigns targeting both email and push channels, you may want to limit your campaign so that only the users who are explicitly opted in will receive the message (excluding subscribed or unsubscribed users). For example, say you have three users of different opt-in statuses:
 
-- **User A** is subscribed to email and is push enabled. This user doesn't receive the email but will receive the push.
-- **User B** is opted-in to email but is not push enabled. This user will receive the email but doesn't receive the push.
-- **User C** is opted-in to email and is push enabled. This user will receive both the email and the push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 To do so, under **Audience Summary**, select to send this campaign to "opted-in users only". This option will check that only opted-in users will receive your email, and Braze will only send your push to users who are push enabled by default.
 

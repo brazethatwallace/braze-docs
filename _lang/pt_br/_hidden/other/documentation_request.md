@@ -290,81 +290,82 @@ hide_toc: true
     }
   </style>
   <script type="text/javascript">
-    ! function(e, i) {
-      if ("function" == typeof define && define.amd) define(["exports", "jquery"], function(e, r) {
-        return i(e, r)
-      });
-      else if ("undefined" != typeof exports) {
-        var r = require("jquery");
-        i(exports, r)
-      } else i(e, e.jQuery || e.Zepto || e.ender || e.$)
-    }(this, function(e, i) {
-      function r(e, r) {
-        function n(e, i, r) {
-          return e[i] = r, e
-        }
-
-        function a(e, i) {
-          for (var r, a = e.match(t.key); void 0 !== (r = a.pop());)
-            if (t.push.test(r)) {
-              var u = s(e.replace(/\[\]$/, ""));
-              i = n([], u, i)
-            } else t.fixed.test(r) ? i = n([], r, i) : t.named.test(r) && (i = n({}, r, i));
-          return i
-        }
-
-        function s(e) {
-          return void 0 === h[e] && (h[e] = 0), h[e]++
-        }
-
-        function u(e) {
-          switch (i('[name="' + e.name + '"]', r).attr("type")) {
-            case "checkbox":
-              return "on" === e.value ? !0 : e.value;
-            default:
-              return e.value
+    // jQuery is loaded with defer in html_include.html, so wait for DOMContentLoaded
+    // (deferred scripts run before this event) before using $.
+    document.addEventListener('DOMContentLoaded', function() {
+      ! function(e, i) {
+        if ("function" == typeof define && define.amd) define(["exports", "jquery"], function(e, r) {
+          return i(e, r)
+        });
+        else if ("undefined" != typeof exports) {
+          var r = require("jquery");
+          i(exports, r)
+        } else i(e, e.jQuery || e.Zepto || e.ender || e.$)
+      }(window, function(e, i) {
+        function r(e, r) {
+          function n(e, i, r) {
+            return e[i] = r, e
           }
-        }
 
-        function f(i) {
-          if (!t.validate.test(i.name)) return this;
-          var r = a(i.name, u(i));
-          return l = e.extend(!0, l, r), this
-        }
+          function a(e, i) {
+            for (var r, a = e.match(t.key); void 0 !== (r = a.pop());)
+              if (t.push.test(r)) {
+                var u = s(e.replace(/\[\]$/, ""));
+                i = n([], u, i)
+              } else t.fixed.test(r) ? i = n([], r, i) : t.named.test(r) && (i = n({}, r, i));
+            return i
+          }
 
-        function d(i) {
-          if (!e.isArray(i)) throw new Error("formSerializer.addPairs expects an Array");
-          for (var r = 0, t = i.length; t > r; r++) this.addPair(i[r]);
-          return this
-        }
+          function s(e) {
+            return void 0 === h[e] && (h[e] = 0), h[e]++
+          }
 
-        function o() {
-          return l
-        }
+          function u(e) {
+            switch (i('[name="' + e.name + '"]', r).attr("type")) {
+              case "checkbox":
+                return "on" === e.value ? !0 : e.value;
+              default:
+                return e.value
+            }
+          }
 
-        function c() {
-          return JSON.stringify(o())
+          function f(i) {
+            if (!t.validate.test(i.name)) return this;
+            var r = a(i.name, u(i));
+            return l = e.extend(!0, l, r), this
+          }
+
+          function d(i) {
+            if (!e.isArray(i)) throw new Error("formSerializer.addPairs expects an Array");
+            for (var r = 0, t = i.length; t > r; r++) this.addPair(i[r]);
+            return this
+          }
+
+          function o() {
+            return l
+          }
+
+          function c() {
+            return JSON.stringify(o())
+          }
+          var l = {},
+            h = {};
+          this.addPair = f, this.addPairs = d, this.serialize = o, this.serializeJSON = c
         }
-        var l = {},
-          h = {};
-        this.addPair = f, this.addPairs = d, this.serialize = o, this.serializeJSON = c
-      }
-      var t = {
-        validate: /^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,
-        key: /[a-z0-9_]+|(?=\[\])/gi,
-        push: /^$/,
-        fixed: /^\d+$/,
-        named: /^[a-z0-9_]+$/i
-      };
-      return r.patterns = t, r.serializeObject = function() {
-        return new r(i, this).addPairs(this.serializeArray()).serialize()
-      }, r.serializeJSON = function() {
-        return new r(i, this).addPairs(this.serializeArray()).serializeJSON()
-      }, "undefined" != typeof i.fn && (i.fn.serializeObject = r.serializeObject, i.fn.serializeJSON = r.serializeJSON), e.FormSerializer = r, r
-    });
-  </script>
-  <script type="text/javascript">
-    $(document).ready(function() {
+        var t = {
+          validate: /^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,
+          key: /[a-z0-9_]+|(?=\[\])/gi,
+          push: /^$/,
+          fixed: /^\d+$/,
+          named: /^[a-z0-9_]+$/i
+        };
+        return r.patterns = t, r.serializeObject = function() {
+          return new r(i, this).addPairs(this.serializeArray()).serialize()
+        }, r.serializeJSON = function() {
+          return new r(i, this).addPairs(this.serializeArray()).serializeJSON()
+        }, "undefined" != typeof i.fn && (i.fn.serializeObject = r.serializeObject, i.fn.serializeJSON = r.serializeJSON), e.FormSerializer = r, r
+      });
+
       var braze_internal = $('#braze_internal').remove();
       $('#header_nav').after(braze_internal);
 
@@ -398,15 +399,15 @@ hide_toc: true
       });
 
       $('#doc_form').submit(function(e) {
+        e.preventDefault();
         $('#submit_progress').css('display','inline');
         $('#submit_text').html('Enviando');
         $('#ticket_submit_button').prop("disabled",true);
 
-        e.preventDefault();
         var mform = $(this);
         var url = 'https://c9616da7-4322-4bed-9b51-917c1874fb31.trayapp.io/request';
 
-        var jqxhr = $.ajax({
+        $.ajax({
           url: url,
           method: "GET",
           dataType: "json",
@@ -417,14 +418,18 @@ hide_toc: true
           $('#doc_thankyou_msg').fadeTo(800,0,function(){
               $(this).html('<h3>Obrigado pelo envio!</h3> Alguém da nossa equipe entrará em contato caso tenhamos alguma dúvida. Para acompanhar o status do seu ticket ou adicionar comentários, verifique seu e-mail para a confirmação do ticket.').fadeTo(800,1);
           });
+        }).fail(function() {
+          $('#submit_progress').css('display','none');
+          $('#submit_text').html('Enviar solicitação');
+          $('#ticket_submit_button').prop("disabled",false);
+          alert('Ocorreu um erro ao enviar sua solicitação. Tente novamente.');
         });
 
       });
-
     });
   </script>
 
-<div id="braze_internal" ><i class="fa-solid fa-lock"></i> Somente interno. Não compartilhe com os clientes.</div>
+<div id="braze_internal" ><i class="fa-solid fa-lock"></i> Somente interno. Não compartilhe com clientes.</div>
 <div class="container-fluid" id="main-container">
 
       <div id="doc_div">
@@ -446,7 +451,7 @@ hide_toc: true
                 </label>
               <select id="doc_urgent" name="Request_Type" class="drop-down-sel">
               <option value="urgent">Urgente: estou reportando um problema no Braze Docs ou tenho uma atualização de alta prioridade</option>
-              <option value="feature">Funcionalidade: tenho uma nova funcionalidade ou um novo comportamento para uma funcionalidade existente</option>
+              <option value="feature">Recurso: tenho um novo recurso ou um novo comportamento para um recurso existente</option>
               <option value="suggestion" selected="selected">Sugestão: tenho uma melhoria proposta ou preciso de esclarecimento sobre um artigo</option>
               </select>
 
@@ -457,14 +462,14 @@ hide_toc: true
               <div id="disclosure-warning" class="alert alert-important" role="alert">
                 <div class="alert-msg">
                   <b>Importante: </b>
-                  O Copilot redigirá esta sugestão, e ela será revisada pela equipe de Docs. Confirme que <strong>nenhuma informação específica de cliente</strong> ou <strong>links</strong> estão incluídos.
+                  A IA auxilia na redação desta sugestão, que é revisada pela equipe de Docs e por outras partes interessadas internas antes da publicação. Confirme que <strong>nenhuma informação específica de cliente</strong> ou <strong>links de clientes</strong> estão incluídos.
                 </div>
               </div>
               </div>
 
               <div class="form-group">
                 <label for="doc_due_date" id="doc_due_date_label">Data de entrega (opcional)</label>
-                <div class="sublabel">Se esta solicitação é urgente ou está relacionada ao lançamento de uma funcionalidade, insira uma data de entrega.</div>
+                <div class="sublabel">Se esta solicitação é urgente ou está relacionada ao lançamento de um recurso, insira uma data de entrega.</div>
                 <div class="input-group">
                   <input type="date" class="form-control" id="doc_due_date" maxlength="80" name="Due_Date" value="" />
                 </div>
@@ -498,7 +503,7 @@ hide_toc: true
 
               <div class="form-group" id="resource_urls">
                 <label for="resource_urls" id="resource_urls_label">URLs de recursos</label>
-                 <div class="sublabel" style="margin-bottom:6px;">Inclua URLs do Confluence, Productboard, Google Docs, Jira ou quaisquer outros recursos sobre esta funcionalidade.</div>
+                 <div class="sublabel" style="margin-bottom:6px;">Inclua URLs do Confluence, Productboard, Google Docs, Jira ou de quaisquer outros recursos sobre esse recurso.</div>
                 <textarea name="Resource_Urls" class="form-control" id="resource_urls" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="2" ></textarea>
 
@@ -506,7 +511,7 @@ hide_toc: true
 
               <div class="form-group">
 
-                <label for="doc_snippet" id="doc_snippet_label" style="margin-bottom:6px;line-height:1.2;">Trechos de código (opcional)</label>
+                <label for="doc_snippet" id="doc_snippet_label" style="margin-bottom:6px;line-height:1.2;">Snippets de código (opcional)</label>
                 <div class="sublabel" style="margin-bottom:6px;">Isso é útil se você é desenvolvedor(a). Inclua contexto e certifique-se de que a linguagem de código utilizada esteja clara.</div>
                 <textarea name="Snippet" class="form-control" id="doc_snippet" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="7"></textarea>

@@ -37,8 +37,7 @@ sequenceDiagram
 
 ```
 
-
-### Schritt 1: Konfigurieren Ihres Google Cloud API-Schlüssels {#step-1-configuring-your-google-cloud-api-key}
+### Schritt 1: Konfigurieren Ihres Google Cloud API-Schlüssels {#step-1-configure-your-google-cloud-api-key}
 
 Bei der Entwicklung Ihrer App müssen Sie dem Braze Android SDK Ihre Firebase-Sender-ID mitteilen. Außerdem müssen Sie dem Braze-Dashboard einen API-Schlüssel für Serveranwendungen zur Verfügung stellen. Braze verwendet diesen API-Schlüssel, um Nachrichten an Ihre Geräte zu senden. Darüber hinaus müssen Sie überprüfen, dass der FCM-Dienst in der Google-Entwicklerkonsole aktiviert ist.
 
@@ -50,23 +49,23 @@ Ein häufiger Fehler bei diesem Schritt ist die Verwendung des API-Schlüssels d
 
 Bei typischen Integrationen übernimmt das Braze Android SDK die Registrierung von Geräten für die FCM-Funktionalität. Dies geschieht in der Regel sofort, wenn die App zum ersten Mal geöffnet wird. Nach der Registrierung erhält Braze eine FCM-Registrierungs-ID, die verwendet wird, um Nachrichten speziell an dieses Gerät zu senden. Wir speichern die Registrierungs-ID für diese:n Nutzer:in, und diese:r Nutzer:in wird als „Push-registriert“ markiert, wenn zuvor kein Push-Token für eine Ihrer Apps vorhanden war.
 
-### Schritt 3: Starten einer Braze-Push-Campaign {#step-3-launching-a-braze-push-campaign}
+### Schritt 3: Starten einer Braze-Push-Campaign {#step-3-launch-a-braze-push-campaign}
 
 Wenn eine Push-Campaign gestartet wird, stellt Braze Anfragen an FCM, um Ihre Nachricht zu übermitteln. Braze verwendet den im Dashboard kopierten API-Schlüssel, um sich zu authentifizieren und zu überprüfen, ob Push-Benachrichtigungen an die angegebenen Push-Token gesendet werden können.
 
-### Schritt 4: Entfernen ungültiger Token {#step-4-removing-invalid-tokens}
+### Schritt 4: Entfernen ungültiger Token {#step-4-remove-invalid-tokens}
 
 Wenn FCM uns mitteilt, dass eines der Push-Token, an die wir eine Nachricht senden wollten, ungültig ist, entfernen wir diese Token aus den Nutzerprofilen, mit denen sie verknüpft waren. Wenn Nutzer:innen keine weiteren Push-Token haben, werden sie auf der Seite **Segments** nicht mehr als „Push-registriert“ angezeigt.
 
 Weitere Informationen über FCM finden Sie unter [Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/).
 
-## Verwendung der Push-Fehlerprotokolle {#utilizing-the-push-error-logs}
+## Verwendung der Push-Fehlerprotokolle {#use-the-push-error-logs}
 
 Braze stellt Fehler bei Push-Benachrichtigungen im Nachrichten-Aktivitätsprotokoll bereit. Dieses Fehlerprotokoll enthält eine Reihe von Warnungen, die sehr hilfreich sein können, um festzustellen, warum Ihre Campaigns nicht wie erwartet funktionieren. Wenn Sie auf eine Fehlermeldung klicken, werden Sie zur entsprechenden Dokumentation weitergeleitet, die Sie bei der Fehlerbehebung unterstützt.
 
 ![Braze-Nachrichten-Aktivitätsprotokoll mit Fehlereinträgen für Push-Benachrichtigungen.]({% image_buster /assets/img_archive/message_activity_log.png %})
 
-## Fehlerbehebungsszenarien {#troubleshooting-scenarios}
+## Fehlerbehebung {#troubleshooting}
 
 ### Push wird nicht gesendet {#push-isnt-sending}
 
@@ -76,7 +75,7 @@ Ihre Push-Nachrichten werden möglicherweise aus folgenden Gründen nicht gesend
 - Ihre Zugangsdaten haben den falschen Berechtigungsumfang.
 - Sie haben falsche Zugangsdaten in den falschen Braze-Workspace hochgeladen (falsche Sender-ID).
 
-Weitere Probleme, die das Senden einer Push-Nachricht verhindern können, finden Sie unter [Fehlerbehebung für Push-Benachrichtigungen]({{site.baseurl}}/user_guide/message_building_by_channel/push/troubleshooting).
+Weitere Probleme, die das Senden einer Push-Nachricht verhindern können, finden Sie unter [Fehlerbehebung für Push]({{site.baseurl}}/user_guide/message_building_by_channel/push/troubleshooting).
 
 ### Keine „Push-registrierten“ Nutzer:innen im Braze-Dashboard angezeigt (vor dem Senden von Nachrichten) {#no-push-registered-users-showing-in-the-braze-dashboard-prior-to-sending-messages}
 
@@ -99,7 +98,9 @@ Wir empfehlen, einen Haltepunkt zu setzen oder anhand eines Protokolls zu bestä
 
 Um FCM-Push nutzen zu können, müssen die Google Play Services auf dem Gerät installiert sein. Wenn die Google Play Services nicht auf einem Gerät installiert sind, erfolgt keine Push-Registrierung.
 
-**Hinweis:** Google Play Services wird auf Android-Emulatoren ohne installierte Google APIs nicht installiert.
+{% alert note %}
+Google Play Services wird auf Android-Emulatoren ohne installierte Google APIs nicht installiert.
+{% endalert %}
 
 #### Gerät nicht mit dem Internet verbunden {#device-not-connected-to-the-internet}
 
@@ -126,8 +127,6 @@ Wenn eine Push-Benachrichtigung nicht zugestellt wurde, überprüfen Sie in der 
 1. Stellen Sie sicher, dass Sie ein gültiges Push-Token von [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/android/client#retrieve-the-current-registration-token) an Braze übergeben.
 
 #### Fehler: NotRegistered {#error-notregistered}
-
-1. `NotRegistered` tritt normalerweise auf, wenn eine App von einem Gerät gelöscht wurde. Braze verwendet `NotRegistered` intern, um darauf hinzuweisen, dass eine App von einem Gerät deinstalliert wurde.
 
 2. `NotRegistered` kann auch auftreten, wenn es mehrere Registrierungen gibt und das erste Token durch eine zweite Registrierung ungültig gemacht wird.
 
@@ -174,11 +173,13 @@ Der im Braze-Dashboard angegebene Firebase Cloud Messaging-Serverschlüssel ist 
 
 ![Die Firebase-Plattform unter „Einstellungen“ und dann „Cloud Messaging“ zeigt Ihre Server-ID und Ihren Serverschlüssel an.]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
 
-### Push-Klicks nicht protokolliert {#push-clicks-not-logged}
+### Push-Klicks werden nicht protokolliert {#push-clicks-not-logged}
 
-Braze protokolliert Push-Klicks automatisch, sodass dieses Szenario vergleichsweise selten vorkommen sollte.
+Wenn Push-Klicks nicht protokolliert werden, ist es möglich, dass die Push-Klickdaten noch nicht auf unsere Server übertragen wurden. Das Braze Android SDK kann die Häufigkeit der Übertragungen drosseln.
 
-Wenn Push-Klicks nicht protokolliert werden, ist es möglich, dass die Push-Klickdaten noch nicht auf unsere Server übertragen wurden. Braze drosselt die Häufigkeit der Übertragungen je nach Stärke der Netzwerkverbindung. Bei einer guten Netzwerkverbindung sollten Push-Klickdaten in der Regel innerhalb einer Minute auf dem Server eintreffen.
+Wenn Sie einen angepassten Push-Handler implementiert haben, stellen Sie sicher, dass Sie die [nativen Push-Analytics korrekt beibehalten]({{site.baseurl}}/developer_guide/push_notifications/logging_message_data/?tab=android#preserving-native-push-analytics-with-custom-push-handling).
+
+Das Protokollieren von Push-Klicks ist ein Netzwerkvorgang und unterliegt Netzwerkbeschränkungen. Obwohl das Braze Android SDK Netzwerkfehler berücksichtigt und fehlgeschlagene Anfragen erneut versucht, ist ein gewisser Datenverlust zu erwarten.
 
 ### Deeplinks funktionieren nicht {#deep-links-not-working}
 

@@ -30,6 +30,10 @@ While there are no limits to how many text characters you can include in an in-a
 
 All in-app messages have a recommended image size of 500 KB, maximum image size of 5 MB, and support PNG, JPEG, and GIF file types. WebP images aren't supported across all devices or browsers; we suggest converting WebP images to PNG or JPEG before adding them to in-app messages.
 
+{% alert note %}
+SVG images are not supported for in-app messages because they do not render reliably across all platforms. Use PNG, JPEG, or GIF instead.
+{% endalert %}
+
 {% tabs %}
 {% tab Portrait %}
 
@@ -67,6 +71,10 @@ All in-app messages have a recommended image size of 500 KB, maximum image size 
 
 {% endtab %}
 {% endtabs %}
+
+{% alert tip %}
+In-app message rendering on Web SDK may be affected by custom browser text-size settings. Users with custom text-size scaling may experience minor rendering issues, such as a 1px gap along the edge of a modal image. When previewing and testing in-app messages, we recommend using default browser text-size settings for the most accurate representation.
+{% endalert %}
 
 {% endif %}
 
@@ -174,6 +182,20 @@ table td {
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 
 For more information, refer to [Content Card creative details]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
+
+{% endif %}
+
+{% if include.variable_name == "sms and mms" %}
+
+MMS messages support a single image per message. Only MMS-enabled subscription groups can send images.
+
+| Property | Recommendation |
+| --- | --- |
+| Size | 600&nbsp;KB or smaller for reliable carrier delivery. The composer blocks uploads larger than 1&nbsp;MB. |
+| File types | PNG, JPEG, GIF |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS and MMS" }
+
+For carrier file size limits and throughput, refer to [MMS message limits and throughput]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup#mms-message-limits-and-throughput).
 
 {% endif %}
 

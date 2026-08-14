@@ -38,21 +38,21 @@ channel:
 
 匿名ユーザーがフォームにメールを入力して送信すると、Brazeはそのメールアドレスをプロファイルに追加します。その後のWebジャーニーで`changeUser`が呼び出され、新しい`external_id`が割り当てられた場合（新規ユーザーがサービスに登録した場合など）、メールアドレスを含むすべての匿名ユーザープロファイルデータがマージされます。
 
-既存の`external_id`で`changeUser`が呼び出された場合、匿名ユーザープロファイルは孤立し、識別済みユーザーにまだ存在しない[特定のユーザープロファイルデータフィールド]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior)はマージされますが、すでに存在するフィールド（メールアドレスを含む）は失われます。
+既存の`external_id`で`changeUser`が呼び出された場合、匿名ユーザープロファイルは孤立し、識別済みユーザーにまだ存在しない[特定のユーザープロファイルデータフィールド]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior)はマージされますが、すでに存在するフィールド（メールアドレスを含む）は失われます。
 
 詳細については、[ユーザープロファイルのライフサイクル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)を参照してください。
 
 {% enddetails %}
 
-## ステップ 1: アプリ内メッセージキャンペーンを作成する {#step-1-create-an-in-app-message-campaign}
+## ステップ1: アプリ内メッセージキャンペーンを作成する {#step-1-create-an-in-app-message-campaign}
 
-このオプションに移動するには、アプリ内メッセージングキャンペーンを作成する必要があります。そこから、ユースケースに応じて、**Send To**を**Web Browsers**、**Mobile Apps**、または**Both Mobile Apps & Web Browsers**に設定し、**Message Type**として**Email Capture Form**を選択します。
+このオプションに移動するには、アプリ内メッセージングキャンペーンを作成する必要があります。そこから、ユースケースに応じて、**送信先**を**Webブラウザー**、**モバイルアプリ**、または**モバイルアプリとWebブラウザーの両方**に設定し、**メッセージタイプ**として**メールキャプチャフォーム**を選択します。
 
 {% alert note %}
-**Webユーザーをターゲットにしますか？**<br>Web SDKを通じてHTMLアプリ内メッセージを有効にするには、Brazeに`allowUserSuppliedJavascript`初期化オプションを指定する必要があります（例：`braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`）。これはセキュリティ上の理由によるもので、HTMLアプリ内メッセージはJavaScriptを実行できるため、サイト管理者が有効にする必要があります。
+**Webユーザーをターゲットにしますか？**<br>Web SDKを通じてHTMLアプリ内メッセージを有効にするには、Brazeに`allowUserSuppliedJavascript`初期化オプションを指定する必要があります（例: `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`）。これはセキュリティ上の理由によるもので、HTMLアプリ内メッセージはJavaScriptを実行できるため、サイト管理者が有効にする必要があります。
 {% endalert %}
 
-## ステップ 2: フォームをカスタマイズする {#customizable-features}
+## ステップ2: フォームをカスタマイズする {#customizable-features}
 
 次に、必要に応じてフォームをカスタマイズします。メールキャプチャフォームでは、以下の機能をカスタマイズできます。
 
@@ -67,21 +67,21 @@ channel:
 
 ![メールキャプチャフォームのコンポーザー。]({% image_buster /assets/img/email_capture.png %})
 
-さらにカスタマイズが必要な場合は、**Message Type**として**Custom Code**を選択してください。GitHubリポジトリの[Braze Templates](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates)にある[メールキャプチャモーダルテンプレート](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/5-email-capture-modal)をスターターコードとして使用できます。
+さらにカスタマイズが必要な場合は、**メッセージタイプ**として**カスタムコード**を選択してください。GitHubリポジトリの[Braze Templates](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates)にある[メールキャプチャモーダルテンプレート](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/5-email-capture-modal)をスターターコードとして使用できます。
 
-## ステップ 3: エントリオーディエンスを設定する {#step-3-set-your-entry-audience}
+## ステップ3: エントリオーディエンスを設定する {#step-3-set-your-entry-audience}
 
 アプリ内メッセージを使用してユーザーのメールをキャプチャする場合、まだこの情報を提供していないユーザーにオーディエンスを限定することをお勧めします。
 
-- **メールアドレスを持っていないユーザーをターゲットにする場合：** フィルター`Email Available`が`false`を使用します。これにより、メールが登録されていないユーザーにのみフォームが表示され、既知のユーザーへの冗長なプロンプトを回避できます。
-- **external IDを持たない匿名ユーザーをターゲットにする場合：** フィルター`External User ID`が`is blank`を使用します。これは、まだ認証または登録されていないユーザーを特定したい場合に便利です。
+- **メールアドレスを持っていないユーザーをターゲットにする場合:** フィルター`Email Available`が`false`を使用します。これにより、メールが登録されていないユーザーにのみフォームが表示され、既知のユーザーへの冗長なプロンプトを回避できます。
+- **external IDを持たない匿名ユーザーをターゲットにする場合:** フィルター`External User ID`が`is blank`を使用します。これは、まだ認証または登録されていないユーザーを特定したい場合に便利です。
 
 必要に応じて、`AND`ロジックを使用して2つのフィルターを組み合わせることもできます。これにより、メールアドレスとexternal IDの両方が欠けているユーザーにのみフォームが表示されます。新規リードの獲得やアカウント作成の促進に最適です。
 
-## ステップ 4: フォームに入力したユーザーをターゲットにする（オプション） {#step-4-target-users-who-filled-out-the-form-optional}
+## ステップ4: フォームに入力したユーザーをターゲットにする（オプション） {#step-4-target-users-who-filled-out-the-form-optional}
 
 メールキャプチャフォームを起動し、ユーザーからメールアドレスを収集した後、フォームに入力したユーザーをターゲットにすることができます。
 
-1. Brazeの任意のセグメントフィルターで、フィルター`Clicked/Opened Campaign`を選択します。
+1. Brazeの任意のセグメントフィルターで、フィルター`Clicked/Opened キャンペーン`を選択します。
 2. ドロップダウンから`clicked in-app message button 1`を選択します。
 3. メールキャプチャフォームのキャンペーンを選択します。

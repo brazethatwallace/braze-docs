@@ -1,7 +1,7 @@
 ---
 nav_title: Tags
 article_title: Tags
-page_order: 6
+page_order: 10
 page_type: reference
 description: "This reference article covers tags for campaigns, Canvases, segments, and custom data in the Braze dashboard."
 tool:
@@ -53,4 +53,4 @@ Tags may also be added to custom data when managing [custom attributes]({{site.b
 This feature is currently in early access. Contact your customer success manager if you're interested in participating in this early access.
 {% endalert %}
 
-For information on renaming, removing, or nesting tags across your dashboard, see [Managing tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags).
+For information on renaming, removing, or nesting tags across your dashboard, see [Managing tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags).

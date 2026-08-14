@@ -13,7 +13,7 @@ search_tag: Partner
 
 Ao integrar a Braze e a Typeform, você pode:
 
-- Atualizar os perfis de usuários na Braze com os dados coletados da resposta do Typeform
+- Atualizar os perfis de usuários na Braze com os dados coletados das respostas do Typeform
 - Disparar o envio de mensagens na Braze com base no engajamento de um usuário com um typeform
 - Personalizar o envio de mensagens da Braze com base nas respostas do usuário no Typeform
 
@@ -58,13 +58,7 @@ Nesta etapa, você transforma a carga útil do webhook enviada pelo Typeform em 
 
 Este valor de retorno deve seguir o formato do corpo da solicitação `/users/track` da Braze:
 
-- O código de transformação é aceito na linguagem de programação JavaScript. Qualquer fluxo de controle JavaScript padrão, como a lógica if/else, é suportado.
-- O código de transformação acessa o corpo da solicitação do webhook por meio da variável payload. Essa variável é um objeto preenchido pela análise do JSON do corpo da solicitação.
-- Qualquer recurso aceito no nosso endpoint `/users/track` é suportado, incluindo:
-    - Objetos de atributos de usuário, objetos de eventos e objetos de compra
-    - Atributos aninhados e propriedades de evento personalizado aninhadas
-    - Atualizações do grupo de inscrições
-    - Endereço de e-mail como identificador
+{% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
 ## Exemplo de carga útil do webhook do Typeform {#example-typeform-webhook-payload}
 
@@ -614,7 +608,7 @@ return brazecall;
 
 Depois de escrever sua Transformação de dados, clique em **Validate** para verificar se o código está formatado corretamente e funcionará conforme o esperado. Em seguida, salve e ative sua Transformação de dados.
 
-Quando ativada, os dados do evento personalizado são registrados no perfil de um usuário quando ele completa seu formulário.
+Quando ativada, os dados do evento personalizado são registrados no perfil do usuário quando ele completa o formulário.
 
 ![Perfil de usuário mostrando um evento personalizado registrado após o envio do Typeform.]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
 

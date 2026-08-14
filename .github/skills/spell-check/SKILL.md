@@ -34,15 +34,29 @@ Load and follow [workflows/spell-check-changed-files.md](workflows/spell-check-c
 | [`cspell.json`](../../../cspell.json) | Ignore paths, regex skips (Liquid, URLs, code fences), dictionary wiring |
 | [`config/cspell/braze-dictionary.txt`](../../../config/cspell/braze-dictionary.txt) | **Add accepted Braze/product terms here** (see file header) |
 | [`.github/workflows/cspell.yml`](../../../.github/workflows/cspell.yml) | CI gate on PRs (changed Markdown only) |
+| [`.github/hooks/pre-commit`](../../../.github/hooks/pre-commit) | Local gate on staged Markdown (install via `scripts/install_hooks.sh`) |
 
 Editorial glossary source of truth: [`docs/contributing/style_guide/writing_style_guide.md`](../../../docs/contributing/style_guide/writing_style_guide.md) (#glossary).
 
 ## Enforcement
 
-| Layer | Behavior |
-|-------|----------|
-| **This skill** | Proactive local/agent check before PR; very high-confidence typo fixes only |
-| **CI** (`cspell.yml`) | **Blocking** on PRs that change `_docs/` or `_includes/` markdown; posts or updates a PR comment on failure |
+| Layer | Behavior | Install |
+|-------|----------|---------|
+| **This skill** | Proactive local/agent check before PR; very high-confidence typo fixes only | `/spell-check` |
+| **Pre-commit hook** (local) | Runs `cspell lint` on staged `_docs/` and `_includes/` markdown (same config as CI). Skips if `node_modules/.bin/cspell` is missing. | `bash scripts/install_hooks.sh` then `npm ci --ignore-scripts` |
+| **CI** (`cspell.yml`) | **Blocking** on PRs that change `_docs/` or `_includes/` markdown; posts or updates a PR comment on failure | Enabled by default |
+
+**Skip the local hook in an emergency:** `SKIP_SPELL=1 git commit`
+
+### Local enforcement decision (BD-6700)
+
+| Option | Editor UX | Maintainer cost | Parity with CI | Outcome |
+|--------|-----------|-----------------|----------------|---------|
+| **Pre-commit** (`cspell lint` in existing hook) | Catches issues at commit for everyone who installs hooks; no new toolchain | Low — extend `.github/hooks/pre-commit` | Exact same CLI + `cspell.json` / `braze-dictionary.txt` | **Adopted** |
+| ESLint `@cspell/eslint-plugin` | Inline squiggles in the editor | High — braze-docs has no ESLint today | Different runner; easy to drift from CI flags | Not adopted |
+| MegaLinter cspell descriptor | Unified multi-linter dashboard | High — heavy for a single check | Possible, but overkill unless bundling more linters | Not adopted |
+
+CI remains the required PR gate. The pre-commit hook and this skill complement it; they do not replace it.
 
 ## Examples
 

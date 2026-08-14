@@ -33,7 +33,7 @@ Use este fluxo de trabalho quando uma solicitação de webhook ou Conteúdo cone
 4. Para Conteúdo conectado, pré-visualize a mensagem para um usuário teste e confirme que o Liquid não resolve para valores em branco ou que quebram o JSON.
 5. Se a detecção de host não íntegro pode estar envolvida, revise [Detecção de host não íntegro](#unhealthy-host-detection) antes de entrar em contato com o [suporte da Braze]({{site.baseurl}}/support_contact).
 
-## Erros 4XX {#4xx-errors}
+## Erros 4XX {#4xx-errors} {#4xx-errors}
 
 Erros `4XX` indicam que há um problema com a solicitação enviada ao endpoint. Esses erros geralmente são causados por solicitações incorretas, incluindo parâmetros malformados, cabeçalhos de autenticação ausentes ou URLs incorretas. Esses erros também se aplicam ao [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
@@ -83,6 +83,7 @@ table td {
         <ul>
           <li>Verifique se a chave de API ou o token tem as permissões necessárias.</li>
           <li>Confirme que você tem as permissões de usuário para acessar o endpoint.</li>
+          <li>Se as solicitações retornarem consistentemente <code>403</code> e a autenticação parecer correta, seu servidor, gateway de API ou WAF pode estar bloqueando os endereços IP de saída da Braze. Adicione os IPs do seu cluster Braze à lista de permissões. Para webhooks, consulte <a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">Lista de permissões de IP</a>. Para Conteúdo conectado, consulte <a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">Lista de permissões de IP do Conteúdo conectado</a>.</li>
         </ul>
       </td>
     </tr>
@@ -138,7 +139,7 @@ table td {
   </tbody>
 </table>
 
-## Erros 5XX {#5xx-errors}
+## Erros 5XX {#5xx-errors} {#5xx-errors}
 
 Erros `5XX` indicam que há um problema com o endpoint. Esses erros geralmente são causados por problemas no lado do servidor.
 

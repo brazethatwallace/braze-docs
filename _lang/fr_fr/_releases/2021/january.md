@@ -9,24 +9,24 @@ description: "Cet article contient les notes de version de janvier 2021."
 
 ## Générateur de rapports Canvas {#canvas-report-builder}
 
-Le générateur de rapports vous permet de comparer les résultats de plusieurs Campaigns ou Canvas dans une vue unique pour déterminer rapidement quelles stratégies d'engagement ont le plus impacté vos indicateurs clés. En savoir plus sur le [générateur de rapports Canvas]({{site.baseurl}}/user_guide/analytics/reports/report_builder/).
+Le générateur de rapports vous permet de comparer les résultats de plusieurs Campaigns ou Canvas dans une vue unique pour déterminer rapidement quelles stratégies d'engagement ont le plus impacté vos indicateurs clés. En savoir plus sur le [générateur de rapports Canvas]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
-## Guide d'implémentation des messages in-app sur iOS {#in-app-message-ios-implementation-guide}
+## Guide de déploiement des messages in-app sur iOS {#in-app-message-ios-implementation-guide}
 
-Ce guide détaillé explique comment tirer parti du subclassing pour créer des messages in-app contextuels personnalisés, des messages in-app modaux personnalisés et des messages in-app plein écran personnalisés, et les ajouter dans vos Campaigns et Canvas Braze. Il contient les considérations de code requises, des cas d'utilisation détaillés développés par notre équipe et des extraits de code. Consultez notre documentation [ici]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/) pour en savoir plus.
+Ce guide détaillé explique comment tirer parti du subclassing pour créer des messages in-app contextuels personnalisés, des messages in-app modaux personnalisés et des messages in-app plein écran personnalisés, et les ajouter dans vos Campaigns et Canvas Braze. Il contient les considérations de code requises, des cas d'usage détaillés développés par notre équipe et des extraits de code. Consultez notre [guide de déploiement des messages in-app sur iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide) pour en savoir plus.
 
 ## Catégories de mots-clés et options de reciblage personnalisées pour le SMS {#sms-custom-keyword-categories-and-retargeting-options}
 
-Braze a étendu ses capacités SMS natives pour inclure la possibilité d'ajouter des mots-clés personnalisés pour les communications bidirectionnelles, des catégories personnalisées pour les mots-clés, la prise en charge multilingue, et des options de reciblage et de filtrage par mots-clés. Pour en savoir plus sur le traitement des mots-clés par SMS, consultez notre [documentation sur les SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/).
+Braze a étendu ses capacités SMS natives pour inclure la possibilité d'ajouter des mots-clés personnalisés pour les communications bidirectionnelles, des catégories personnalisées pour les mots-clés, la prise en charge multilingue, et des options de reciblage et de filtrage par mots-clés. Pour en savoir plus sur le traitement des mots-clés SMS, consultez notre [documentation sur les SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling).
 
-## Notre partenariat avec Playable est opérationnel {#playable-partnership-is-live}
+## Le partenariat avec Playable est opérationnel {#playable-partnership-is-live}
 
-Développez les capacités de Braze en matière d'e-mail pour diffuser votre meilleur contenu (vidéo de haute qualité) à votre meilleure audience (e-mail) grâce à [Playable]({{site.baseurl}}/partners/playable/). Les e-mails vidéo Playable vous permettent d'augmenter vos indicateurs de clics et de post-clics avec un contenu vidéo de haute qualité captivant qui se lance automatiquement dans la boîte de réception.
+Développez les capacités de Braze en matière d'e-mail pour diffuser votre meilleur contenu (vidéo de haute qualité) à votre meilleure audience (e-mail) grâce à [Playable]({{site.baseurl}}/partners/playable). Les e-mails vidéo Playable vous permettent d'augmenter vos indicateurs de clics et de post-clics avec un contenu vidéo de haute qualité captivant qui se lance automatiquement dans la boîte de réception.
 
-## Notre partenariat avec Zendesk est opérationnel {#zendesk-partnership-is-live}
+## Le partenariat avec Zendesk est opérationnel {#zendesk-partnership-is-live}
 
-[Zendesk Support Suite (ZSS)]({{site.baseurl}}/partners/zendesk/) offre aux entreprises la possibilité d'avoir des conversations naturelles avec leurs clients grâce à un support omnicanal utilisant l'e-mail, le webchat, la voix ou les applications de messagerie sociale. ZSS valorise l'assistance client en traçant et en priorisant les interactions, offrant ainsi aux entreprises une vue historique unifiée de leurs clients. Des outils puissants, tels qu'un système de tickets rationalisé, permettent aux entreprises de contacter directement les clients avec une approche personnalisée. Braze offre une intégration serveur à serveur avec Zendesk, vous permettant d'utiliser les webhooks Braze qui peuvent synchroniser les données de tickets d'assistance entre Braze et Zendesk.
+[Zendesk Support Suite (ZSS)]({{site.baseurl}}/partners/zendesk) offre aux entreprises la possibilité d'avoir des conversations naturelles avec leurs clients grâce à un support omnicanal utilisant l'e-mail, le webchat, la voix ou les applications de messagerie. ZSS valorise l'assistance client en traçant et en priorisant les interactions, offrant ainsi aux entreprises une vue historique unifiée de leurs clients. Des outils puissants, tels qu'un système de tickets rationalisé, permettent aux entreprises de contacter directement les clients avec une approche personnalisée. Braze offre une intégration serveur à serveur avec Zendesk, vous permettant d'utiliser les webhooks Braze qui peuvent synchroniser les données de tickets d'assistance entre Braze et Zendesk.
 
-## Notre partenariat avec Crowdin est opérationnel {#crowdin-partnership-is-live}
+## Le partenariat avec Crowdin est opérationnel {#crowdin-partnership-is-live}
 
-[Crowdin]({{site.baseurl}}/partners/crowdin/) est un logiciel basé sur le cloud pour la gestion de la localisation. L'intégration de Braze avec Crowdin vous permet de traduire les modèles d'e-mail et les Content Blocks. Vous pouvez synchroniser le contenu de votre compte Braze avec votre projet Crowdin et ajouter des traductions dans Braze.
+[Crowdin]({{site.baseurl}}/partners/crowdin) est un logiciel basé sur le cloud pour la gestion de la localisation. L'intégration de Braze avec Crowdin vous permet de traduire les modèles d'e-mail et les Content Blocks. Vous pouvez synchroniser le contenu de votre compte Braze avec votre projet Crowdin et ajouter des traductions dans Braze.

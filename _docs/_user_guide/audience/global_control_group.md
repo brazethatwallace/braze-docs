@@ -66,6 +66,8 @@ For percentage guidelines, refer to [Testing best practices](#percentage-guideli
 
 Use tags to add exclusion settings to your Global Control Group. Any campaigns or Canvases that use the tags included in the exclusion settings don't use your Global Control Group. These campaigns and Canvases continue to be sent to every user in the target audience, including those in your Global Control Group.
 
+Note that the tag dropdown only displays tags that are currently applied to at least one active campaign or Canvas. If you create a new tag and want to use it in exclusion settings, apply it to a campaign or Canvas first.
+
 {% alert tip %}
 You may want to add exclusion settings if you have transactional messages that should be sent to every user.
 {% endalert %}

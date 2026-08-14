@@ -1,0 +1,8 @@
+{
+  "reason": "OAuth consent screenshot uses the example@email.com placeholder account label and the Claude Desktop product name in the consent prompt; neither is customer PII.",
+  "dismiss_all": false,
+  "dismiss_ids": [
+    "f4a9b0b0",
+    "683c8e37"
+  ]
+}

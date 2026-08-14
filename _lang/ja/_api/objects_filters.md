@@ -20,14 +20,14 @@ description: "このランディングページには、Braze APIコールで使
 - [オブジェクトを識別するためのエイリアス]({{site.baseurl}}/api/objects_filters/aliases_to_identify)
 - [トリガープロパティオブジェクト]({{site.baseurl}}/api/objects_filters/trigger_properties_object)
 - [ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)
-- [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)
+- [ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 - [スケジュールオブジェクト]({{site.baseurl}}/api/objects_filters/schedule_object)
 - [カタログセレクションオブジェクト]({{site.baseurl}}/api/objects_filters/catalog_selection_object)
 
 ### メッセージングオブジェクト {#messaging-objects}
   - [Androidオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/android_object)
   - [Appleオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/apple_object)
-  - [コンテンツカードオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/content_cards_object)
+  - [Content Cardsオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/content_cards_object)
   - [メールオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/email_object)
   - [KindleおよびFireOSプッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/kindle_and_fireos_object)
   - [SMSオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/sms_object)

@@ -11,7 +11,7 @@ page_type: reference
 
 > A infraestrutura da API da Braze foi projetada para lidar com grandes volumes de dados de nossa base de clientes. Para isso, aplicamos limites de taxa de API por espaço de trabalho.
 
-Um limite de taxa é o número de solicitações que a API pode receber em um determinado período de tempo. Muitos incidentes de negação de serviço baseados em carga em grandes sistemas não são intencionais — causados por erros no software ou nas configurações — e não por ataques mal-intencionados. Os limites de taxa verificam se esses erros não privam nossos clientes dos recursos da API da Braze. Se muitas solicitações forem enviadas em um determinado período de tempo, você poderá ver respostas de erro com um código de status `429`, o que indica que o limite de taxa foi atingido.
+Um limite de taxa é o número de solicitações que a API pode receber em um determinado período. Muitos incidentes de negação de serviço baseados em carga em grandes sistemas não são intencionais — causados por erros no software ou nas configurações — e não por ataques mal-intencionados. Os limites de taxa garantem que esses erros não privem nossos clientes dos recursos da API da Braze. Se muitas solicitações forem enviadas em um determinado período, você poderá ver respostas de erro com um código de status `429`, o que indica que o limite de taxa foi atingido.
 
 {% alert warning %}
 Os limites de taxa da API estão sujeitos a alterações, dependendo do uso adequado de nosso sistema. Incentivamos limites sensatos ao fazer uma chamada à API para evitar danos ou uso indevido.
@@ -25,7 +25,7 @@ Consulte a seguir os limites de taxa padrão da API para diferentes tipos de sol
 
 | Tipo de solicitação | Limite de taxa padrão da API |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) | **Solicitações:** 3.000 solicitações a cada três segundos.<br><br>**Lotes:** Até 75 objetos no total combinados entre `attributes`, `events` e `purchases` por solicitação de API. Clientes com limites de taxa legados podem incluir até 75 objetos por array de forma independente. Para saber mais, consulte [Agrupamento de solicitações de rastreamento de usuários](#batch-user-track).<br><br>**Limites para Usuários Ativos Mensais CY 24-25, MAU Universal, MAU Web e MAU Celular:** veja [orientações sobre limites aqui]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25). |
+| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) | **Solicitações:** Os limites de taxa variam dependendo do seu contrato. Para clientes com pontos de dados em seus preços, a Braze aplica um limite de burst de 3.000 solicitações a cada três segundos. Para todos os outros clientes, os limites são configurados de acordo com os termos do seu contrato. Entre em contato com o suporte da Braze ou seu gerente de sucesso do cliente para dúvidas sobre seus limites.<br><br>**Lotes:** Até 75 objetos no total combinados entre `attributes`, `events` e `purchases` por solicitação de API. Clientes com limites de taxa legados podem incluir até 75 objetos por array de forma independente. Para saber mais, consulte [Agrupamento de solicitações de rastreamento de usuários](#batch-user-track).<br><br>**Limites para Usuários Ativos Mensais CY 24-25, MAU Universal, MAU Web e MAU Celular:** Consulte [Limites de Usuários Ativos Mensais CY 24-25]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau). |
 | [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) | **Se você fez a integração em 22 de agosto de 2024 ou após essa data:** 250 solicitações por minuto. <br><br> **Se você fez a integração antes de 22 de agosto de 2024:** 2.500 solicitações por minuto. |
 | [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)<br>[`/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias)<br>[`/users/alias/update`]({{site.baseurl}}/api/endpoints/user_data/post_users_alias_update)<br>[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)<br>[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) | 20.000 solicitações por minuto, compartilhadas entre os endpoints. |
 | [`/users/external_id/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename) | 1.000 solicitações por minuto. |
@@ -131,7 +131,7 @@ As APIs da Braze foram criadas para oferecer suporte a lotes. Com os lotes, a Br
 Os aumentos do limite de taxa da REST API são considerados com base na necessidade dos clientes que estão usando os recursos de lote da API.
 {% endalert %}
 
-### Agrupando solicitações para o endpoint de rastreamento de usuários {#batch-user-track}
+### Agrupando solicitações para o endpoint de criação e atualização de usuários {#batch-user-track}
 
 Cada solicitação `/users/track` pode conter até 75 objetos no total combinados entre `attributes`, `events` e `purchases`. Cada objeto pode atualizar um usuário. Um único perfil de usuário pode ser atualizado por vários objetos.
 
@@ -141,7 +141,7 @@ Para clientes com limites de taxa legados, cada array (`attributes`, `events` e 
 
 Para saber mais sobre os limites de taxa do `/users/track`, consulte [POST: Criar e atualizar usuários]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
-As solicitações feitas a esse endpoint geralmente começarão a ser processadas nesta ordem:
+As solicitações feitas a esse endpoint geralmente começam a ser processadas nesta ordem:
 
 1. Atributos
 2. Eventos
@@ -196,7 +196,7 @@ Essas informações são incluídas intencionalmente no cabeçalho da resposta �
 Os cabeçalhos HTTP serão retornados com todos os caracteres em minúsculas. Esse comportamento está alinhado com o protocolo HTTP/2, que exige que todos os nomes de campos de cabeçalho sejam minúsculos. Isso difere do HTTP/1.X, em que os nomes de cabeçalho não diferenciavam maiúsculas de minúsculas, mas eram comumente escritos em várias capitalizações.
 {% endalert %}
 
-Se tiver dúvidas sobre os limites da API, entre em contato com o gerente de sucesso do cliente ou abra um [tíquete de suporte]({{site.baseurl}}/braze_support).
+Se tiver dúvidas sobre os limites da API, entre em contato com o gerente de sucesso do cliente ou abra um [ticket de suporte]({{site.baseurl}}/braze_support).
 
 {% alert tip %}
 Você pode usar o [dashboard de uso da API]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage) para visualizar e comparar o tráfego de entrada em relação aos seus limites de taxa.
