@@ -24,7 +24,7 @@ Nein, Assets, die in die Medienbibliothek hochgeladen werden, bleiben für die g
 
 ### Kann ich Video-Assets hochladen? {#can-i-upload-video-assets}
 
-Nein, die Medienbibliothek unterstützt keine Videodateien. Wir empfehlen, diese extern oder auf einer Plattform wie YouTube zu hosten.
+Nein, die Medienbibliothek unterstützt keine Videodateien. Wir empfehlen, diese extern zu hosten, zum Beispiel auf einer Plattform wie YouTube.
 
 ### Kann ich alle Bildtypen zuschneiden? {#can-i-crop-all-image-types}
 
@@ -40,13 +40,13 @@ SVG-Bilder werden für E-Mails nicht empfohlen, da die Unterstützung bei E-Mail
 
 ### Wie schneide ich ein vorhandenes Bild zu? {#how-do-i-crop-an-existing-image}
 
-Sie können ein vorhandenes Bild zuschneiden, indem Sie das Bild in der Medienbibliothek auswählen und auf **Zuschneiden und als neues Bild speichern** klicken.
+Sie können ein vorhandenes Bild zuschneiden, indem Sie das Bild in der Medienbibliothek auswählen und auf **Zuschneiden & als neues Bild speichern** klicken.
 
-![Vorschau eines Medienbibliothek-Bildes.]({% image_buster /assets/img_archive/media_library_crop1.png %}){: height="75%" width="75%"}
+![Vorschau eines Bildes in der Medienbibliothek.]({% image_buster /assets/img_archive/media_library_crop1.png %}){: height="75%" width="75%"}
 
-Sie werden dann zu einem Zuschneide-Editor weitergeleitet, in dem Sie Ihr Seitenverhältnis auswählen und den Namen des neuen Bildes bearbeiten können. Wenn Sie **Speichern** auswählen, kann Ihr neues Bild verwendet werden.
+Sie werden dann zu einem Zuschneideeditor weitergeleitet, in dem Sie Ihr Seitenverhältnis auswählen und den Namen des neuen Bildes bearbeiten können. Wenn Sie **Speichern** auswählen, kann Ihr neues Bild verwendet werden.
 
-![Fenster zum Zuschneiden und Speichern eines Medienbibliothek-Bildes.]({% image_buster /assets/img_archive/media_library_crop2.png %}){: height="75%" width="75%"}
+![Fenster zum Zuschneiden und Speichern eines Bildes in der Medienbibliothek.]({% image_buster /assets/img_archive/media_library_crop2.png %}){: height="75%" width="75%"}
 
 ### Mein Bild läuft beim Hochladen immer in ein Timeout. Was kann ich dagegen tun? {#my-image-keeps-timing-out-when-i-try-to-upload-it-what-can-i-do-about-this}
 
@@ -63,7 +63,7 @@ Dies kann zwei Hauptursachen haben:
 
 ### Warum kann ich nicht jedes beliebige Bild in die Push-Editoren hochladen? {#why-cant-i-upload-any-image-i-want-into-the-push-composers}
 
-Das liegt daran, dass die meisten Editoren Einschränkungen hinsichtlich des zulässigen Bildseitenverhältnisses haben.
+Das liegt daran, dass die meisten Editoren Einschränkungen für das zulässige Bildseitenverhältnis haben.
 
 ### Ein Bild mit KI generieren {#generate-an-image-using-ai}
 
@@ -73,10 +73,14 @@ Sie können Bilder unter **Inhalt** > **Medienbibliothek** generieren, indem Sie
 
 Durch das Löschen eines Assets wird es aus der Medienbibliothek-Oberfläche entfernt, aber Braze behält die Datei unter ihrer bestehenden URL gehostet, sodass aktive Campaigns und Canvases, die auf diese URL verweisen, das Bild weiterhin laden. Um ein Asset dauerhaft vom Braze-Hosting zu entfernen, wenden Sie sich an den Braze-Support. Um zu ändern, was Empfänger:innen sehen, ohne die URLs in jeder Nachricht zu ändern, verwenden Sie stattdessen [Eine Datei ersetzen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
 
-### Kann ich Vanity-URLs für Medienbibliothek-Bild-Assets erstellen? {#can-i-create-vanity-urls-for-media-library-image-assets}
+### Kann ich Bild-Assets in bereits gesendeten E-Mails ändern? {#can-i-change-image-assets-in-emails-that-have-already-been-sent}
+
+Sie können das Bild in einer bereits gesendeten E-Mail aktualisieren, indem Sie [die Datei ersetzen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) unter ihrer bestehenden URL. Die URL und ID des Assets bleiben gleich, sodass jede Nachricht, die darauf verweist, einschließlich bereits gesendeter E-Mails, die neue Datei widerspiegelt. Einige Empfänger:innen sehen möglicherweise weiterhin das vorherige Bild, wenn es bereits auf ihrem Gerät zwischengespeichert war, bevor Sie die Änderung vorgenommen haben. Dies garantiert also nicht, dass alle Empfänger:innen die Aktualisierung sofort sehen.
+
+### Kann ich Vanity-URLs für Bild-Assets in der Medienbibliothek erstellen? {#can-i-create-vanity-urls-for-media-library-image-assets}
 
 Vanity-URLs für Medienbibliothek-Assets werden nicht unterstützt, da benutzerdefinierte URLs die CDN-Zustellung beeinträchtigen würden. Sie können ein Bild unter seiner bestehenden URL ersetzen, wenn Campaigns bereits auf diese URL verweisen. Weitere Informationen finden Sie unter [Eine Datei ersetzen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
 
 ### Warum speichert Chrome JPEG- oder PNG-Bilder als WebP-Dateien? {#why-does-chrome-save-jpeg-or-png-images-as-webp-files}
 
-Wenn Sie Chrome verwenden, um Bilder aus der Medienbibliothek zu speichern, konvertiert der Browser JPEG- oder PNG-Dateien möglicherweise automatisch in das WebP-Format. Dies ist das Standardverhalten von Chrome für Bild-Downloads und nicht spezifisch für Braze. Wenn Sie Bilder in ihrem Originalformat speichern müssen, versuchen Sie es mit einem anderen Browser wie Safari oder Firefox.
+Wenn Sie Chrome verwenden, um Bilder aus der Medienbibliothek zu speichern, konvertiert der Browser JPEG- oder PNG-Dateien möglicherweise automatisch in das WebP-Format. Dies ist das Standardverhalten von Chrome für Bild-Downloads und nicht spezifisch für Braze. Wenn Sie Bilder in ihrem Originalformat speichern müssen, verwenden Sie einen anderen Browser wie Safari oder Firefox.

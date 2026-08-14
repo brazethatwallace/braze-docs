@@ -20,7 +20,7 @@ alias: /scim/automated_user_provisioning/
 Die Verfügbarkeit der SCIM-Bereitstellung hängt von Ihrer Plattform-Edition ab. Wenn dieses Feature nicht in Ihrem Workspace verfügbar ist, wenden Sie sich an Ihren Customer-Success-Manager für weitere Informationen.
 {% endalert %}
 
-1. Gehen Sie im Braze-Dashboard zu **Einstellungen** > **Administratoreinstellungen** > **SCIM-Bereitstellung** und wählen Sie dann **SCIM-Integration konfigurieren** aus.
+1. Gehen Sie im Braze-Dashboard zu **Einstellungen** > **Unternehmenseinstellungen** > **Administratoreinstellungen** > **SCIM-Bereitstellung** und wählen Sie dann **SCIM-Integration konfigurieren** aus.
 2. Wählen Sie im Schritt **Braze-Konfiguration** eine Bereitstellungsmethode aus und geben Sie die Zugriffseinstellungen an.
 
 ![Eine Seite zum Einrichten der SCIM-Integration mit Abschnitten zur Auswahl einer Bereitstellungsmethode und zur Angabe von Zugriffseinstellungen.]({% image_buster /assets/img_archive/scim_braze_config.png %}){: style="max-width:70%;"}
@@ -29,11 +29,11 @@ Die Verfügbarkeit der SCIM-Bereitstellung hängt von Ihrer Plattform-Edition ab
 3. Folgen Sie im Schritt **IdP-Konfiguration** den Schritten innerhalb der Plattform für Ihre ausgewählte Bereitstellungsmethode.
 
 {% tabs %}
-{% tab Okta - Braze-App %}
+{% tab Okta – Braze-App %}
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Verwenden Sie die Option **Okta - Braze-App**, wenn Sie die Braze-App für SAML SSO in Okta eingerichtet haben. Wenn Sie eine benutzerdefinierte App für SSO eingerichtet haben, folgen Sie den Anweisungen im Tab [Okta - Benutzerdefinierte App-Integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
+Verwenden Sie die Option **Okta – Braze-App**, wenn Sie die Braze-App für SAML SSO in Okta eingerichtet haben. Wenn Sie eine benutzerdefinierte App für SSO eingerichtet haben, folgen Sie den Anweisungen im Tab [Okta – Benutzerdefinierte App-Integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
 
 {% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Okta' %}
 
@@ -82,11 +82,11 @@ Wählen Sie **Test API Credentials** aus. Bei erfolgreicher Integration erschein
 4. Wählen Sie **Done** aus, wenn Sie die Zuweisung abgeschlossen haben.
 
 {% endtab %}
-{% tab Okta - Benutzerdefinierte App-Integration %}
+{% tab Okta – Benutzerdefinierte App-Integration %}
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Verwenden Sie die Option **Okta - Benutzerdefinierte App-Integration**, wenn Sie eine benutzerdefinierte App für SSO eingerichtet haben. Wenn Sie die Braze-App für SAML SSO in Okta eingerichtet haben, folgen Sie den Anweisungen im Tab [Okta - Braze-App]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze-app#step-1-set-up-scim-provisioning).
+Verwenden Sie die Option **Okta – Benutzerdefinierte App-Integration**, wenn Sie eine benutzerdefinierte App für SSO eingerichtet haben. Wenn Sie die Braze-App für SAML SSO in Okta eingerichtet haben, folgen Sie den Anweisungen im Tab [Okta – Braze-App]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
 
 {% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Okta' %}
 

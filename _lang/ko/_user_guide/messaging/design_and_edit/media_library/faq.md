@@ -30,15 +30,15 @@ description: "이 문서에서는 Braze의 미디어 라이브러리에 대해 �
 
 아니요, 미디어 라이브러리는 GIF 이미지 자르기를 지원하지 않습니다.
 
-### 미디어 라이브러리에 업로드된 이미지의 URL을 어떻게 복사하나요? {#how-do-i-copy-the-url-of-an-image-uploaded-to-the-media-library}
+### 미디어 라이브러리에 업로드된 이미지의 URL을 복사하려면 어떻게 하나요? {#how-do-i-copy-the-url-of-an-image-uploaded-to-the-media-library}
 
 미디어 라이브러리에 업로드된 이미지의 URL을 복사하려면 **콘텐츠** > **미디어 라이브러리**로 이동합니다. 참조하려는 이미지 위에 마우스를 올린 다음 **이미지 URL 복사** 아이콘을 선택하여 이미지 URL을 클립보드에 복사합니다.
 
 ### 이메일에서 SVG 이미지를 사용할 수 있나요? {#can-i-use-svg-images-in-email}
 
-SVG 이미지는 이메일 클라이언트 간 지원이 제한적이므로 이메일에는 권장되지 않습니다. Gmail 및 기타 주요 이메일 제공업체에서는 SVG 이미지를 렌더링하지 않으므로 수신자에게 이미지가 깨지거나 누락될 수 있습니다. 안정적인 이메일 렌더링을 위해 PNG, JPEG 또는 GIF 형식을 사용하세요.
+SVG 이미지는 이메일 클라이언트 간 지원이 제한적이므로 이메일에 권장되지 않습니다. Gmail 및 기타 주요 이메일 제공업체에서는 SVG 이미지를 렌더링하지 않으므로 수신자에게 이미지가 깨지거나 누락될 수 있습니다. 안정적인 이메일 렌더링을 위해 PNG, JPEG 또는 GIF 형식을 사용하세요.
 
-### 기존 이미지를 어떻게 자르나요? {#how-do-i-crop-an-existing-image}
+### 기존 이미지를 자르려면 어떻게 하나요? {#how-do-i-crop-an-existing-image}
 
 미디어 라이브러리에서 이미지를 선택하고 **이미지 자르기 및 새로 저장**을 클릭하여 기존 이미지를 자를 수 있습니다.
 
@@ -50,7 +50,7 @@ SVG 이미지는 이메일 클라이언트 간 지원이 제한적이므로 이�
 
 ### 이미지를 업로드하려고 할 때 계속 시간 초과가 발생합니다. 어떻게 해야 하나요? {#my-image-keeps-timing-out-when-i-try-to-upload-it-what-can-i-do-about-this}
 
-다양한 이유로 발생할 수 있지만, 일반적인 해결 방법은 업로드를 시도하기 전에 이미지를 최적화하는 것입니다. [ImageOptim](https://imageoptim.com/mac)과 같은 이미지 최적화 도구를 통해 이미지를 처리하면 됩니다.
+다양한 이유로 발생할 수 있지만, 일반적인 해결 방법은 업로드를 시도하기 전에 이미지를 최적화하는 것입니다. [ImageOptim](https://imageoptim.com/mac)과 같은 이미지 최적화 도구를 사용하여 이미지를 처리하세요.
 
 또한, Photoshop(또는 유사한 소프트웨어)에서 이미지를 만들었고 레이어가 많은 경우, 레이어를 병합하고 수를 줄이는 것도 도움이 될 수 있습니다.
 
@@ -73,9 +73,13 @@ SVG 이미지는 이메일 클라이언트 간 지원이 제한적이므로 이�
 
 에셋을 삭제하면 미디어 라이브러리 UI에서 제거되지만, Braze는 기존 URL에서 파일을 계속 호스팅하므로 해당 URL을 참조하는 활성 Campaigns 및 Canvases는 이미지를 계속 로드합니다. Braze 호스팅에서 에셋을 영구적으로 제거하려면 Braze 지원팀에 문의하세요. 모든 메시지에서 URL을 변경하지 않고 수신자에게 표시되는 내용을 업데이트하려면 [파일 교체]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file)를 사용하세요.
 
+### 이미 발송된 이메일의 이미지 에셋을 변경할 수 있나요? {#can-i-change-image-assets-in-emails-that-have-already-been-sent}
+
+기존 URL에서 [파일을 교체]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file)하여 이미 발송된 이메일의 이미지를 업데이트할 수 있습니다. 에셋의 URL과 ID는 동일하게 유지되므로, 이미 발송된 이메일을 포함하여 해당 에셋을 참조하는 모든 메시지에 새 파일이 반영됩니다. 변경하기 전에 이미 기기에 캐시된 경우 일부 수신자에게는 이전 이미지가 계속 표시될 수 있으므로, 모든 수신자가 즉시 업데이트를 확인하는 것은 보장되지 않습니다.
+
 ### 미디어 라이브러리 이미지 에셋에 대한 커스텀 URL을 만들 수 있나요? {#can-i-create-vanity-urls-for-media-library-image-assets}
 
-미디어 라이브러리 에셋에 대한 커스텀 URL은 지원되지 않습니다. 커스텀 URL은 CDN 전달을 중단시킬 수 있기 때문입니다. Campaigns에서 이미 해당 URL을 참조하고 있는 경우 기존 URL의 이미지를 교체할 수 있습니다. 자세한 내용은 [파일 교체]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file)를 참조하세요.
+미디어 라이브러리 에셋에 대한 커스텀 URL은 지원되지 않습니다. 커스텀 URL은 CDN 전달을 중단시킬 수 있기 때문입니다. Campaigns에서 이미 해당 URL을 참조하고 있는 경우 기존 URL에서 이미지를 교체할 수 있습니다. 자세한 내용은 [파일 교체]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file)를 참조하세요.
 
 ### Chrome에서 JPEG 또는 PNG 이미지를 WebP 파일로 저장하는 이유는 무엇인가요? {#why-does-chrome-save-jpeg-or-png-images-as-webp-files}
 

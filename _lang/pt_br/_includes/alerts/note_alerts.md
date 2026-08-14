@@ -1,7 +1,7 @@
 {% if include.alert == 'Content Cards frequency capping' %}
 
 {% alert note %}
-A limitação de frequência não se aplica aos Content Cards.
+O limite de frequência não se aplica aos Content Cards.
 {% endalert %}
 
 {% endif %}
@@ -9,7 +9,7 @@ A limitação de frequência não se aplica aos Content Cards.
 {% if include.alert == 'Custom Attributes time attribute' %}
 
 {% alert note %}
-Uma string de data como "12-1-2021" ou "12/1/2021" será convertida em um objeto datetime e tratada como um [atributo de tempo]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
+Uma string de data como "12-1-2021" ou "12/1/2021" será convertida em um objeto datetime e tratada como um [atributo de tempo]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#time).
 {% endalert %}
 
 {% endif %}
@@ -41,7 +41,7 @@ Todos os atributos são originados da REST API da Braze.
 {% if include.alert == 'subscription group limit' %}
 
 {% alert note %}
-Você pode adicionar até 350 grupos de inscrições por espaço de trabalho.
+Você pode adicionar até 450 grupos de inscrições por espaço de trabalho.
 {% endalert %}
 
 {% endif %}
