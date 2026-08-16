@@ -73,7 +73,7 @@ Vérifiez les éléments suivants :
 - Le fichier est servi via HTTPS avec un certificat valide.
 - Le `Content-Type` est `application/json`.
 - La taille du fichier est inférieure à 128 Ko.
-- L'`appID` correspond à votre Team ID et Bundle ID (par exemple, `ABCDE12345.com.example.myapp`).
+- L'`appID` correspond à votre équipe ID et Bundle ID (par exemple, `ABCDE12345.com.example.myapp`).
 - Le tableau `paths` ou `components` inclut les modèles d'URL attendus.
 
 Vous pouvez valider votre AASA à l'aide de [l'outil de validation de recherche d'Apple](https://search.developer.apple.com/appsearch-validation-tool/) ou en exécutant :
@@ -216,7 +216,7 @@ Pour diagnostiquer où le lien se rompt dans la chaîne :
 
 Dans le tableau de bord Branch, vérifiez :
 
-- Le **Bundle ID** et le **Team ID** de votre application correspondent à votre projet Xcode.
+- Le **Bundle ID** et le **équipe ID** de votre application correspondent à votre projet Xcode.
 - Vos **Associated Domains** incluent le domaine du lien Branch.
 - Votre fichier AASA Branch est valide (Branch l'héberge automatiquement sur les domaines `app.link`).
 

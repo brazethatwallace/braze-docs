@@ -196,10 +196,10 @@ Canvas
 ### Autorisation
 - Cleared Developer 2FA
 - Updated Account Permission
-- Added Team
-- Edited Team
-- Archived Team
-- Unarchived Team
+- Added équipe
+- Edited équipe
+- Archived équipe
+- Unarchived équipe
 - Created App Group Permission Set
 - Edited App Group Permission Set
 - Removed App Group Permission Set

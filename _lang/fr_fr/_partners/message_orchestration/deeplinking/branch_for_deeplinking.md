@@ -126,7 +126,7 @@ Ouvrez le lien Branch depuis l'application Notes sur un appareil iOS physique. S
 
 - Le problème se situe dans votre configuration Branch ou AASA, pas dans Braze.
 - Validez votre fichier AASA Branch à l'adresse `https://yourapp.app.link/.well-known/apple-app-site-association`.
-- Vérifiez que votre Bundle ID et votre Team ID correspondent dans le tableau de bord Branch.
+- Vérifiez que votre Bundle ID et votre équipe ID correspondent dans le tableau de bord Branch.
 
 ### Activer la double journalisation {#enable-dual-logging}
 

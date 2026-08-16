@@ -78,7 +78,7 @@ Pour résoudre cette incohérence :
 1. Confirmez que le **bundle ID** de l'application correspond au **App Bundle ID** dans Braze (**Paramètres** > **Paramètres des applications** > **Paramètres des notifications push**).
 2. Vérifiez que le profil de provisionnement utilisé pour créer l'application inclut la capacité push pour ce bundle ID.
 3. Confirmez que les identifiants push téléchargés sur Braze correspondent à l'environnement de l'application (développement par rapport à la production).
-4. Pour les clés `.p8`, vérifiez que le **Team ID** et le **Key ID** dans Braze correspondent à votre compte Apple Developer.
+4. Pour les clés `.p8`, vérifiez que le **équipe ID** et le **Key ID** dans Braze correspondent à votre compte Apple Developer.
 5. Téléchargez à nouveau une clé `.p8` ou un certificat `.p12` valide si les identifiants ont été renouvelés ou révoqués.
 
 Préférez les clés d'authentification `.p8` lorsque c'est possible. Pour les types d'identifiants et les indicateurs de statut du tableau de bord, consultez [Migrer vers une clé d'authentification .p8]({{site.baseurl}}/user_guide/channels/push/troubleshooting#migrate-to-a-p8-authentication-key).

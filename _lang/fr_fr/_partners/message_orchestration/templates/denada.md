@@ -39,7 +39,7 @@ Denada est conçu pour les marketeurs et les experts métier qui souhaitent cré
 
 ### Étape 1 : Configurer votre intégration {#step-1-configure-your-integration}
 
-Dans Denada, sélectionnez le nom de votre société dans le menu de profil, puis sélectionnez **Team settings** > **Add integration**.
+Dans Denada, sélectionnez le nom de votre société dans le menu de profil, puis sélectionnez **équipe settings** > **Add integration**.
 
 Sélectionnez **Braze** comme intégration, puis saisissez votre **clé API** Braze et sélectionnez votre **endpoint REST API** dans la liste des régions disponibles.
 

@@ -147,7 +147,7 @@ Le fichier AASA contient un objet JSON avec une liste d'applications et les chem
 }
 ```
 
-- `appID` : construit en combinant le **Team ID** de votre application (rendez-vous sur `https://developer.apple.com/account/#/membership/` pour obtenir le Team ID) et le **Bundle Identifier**. Dans l'exemple ci-dessus, « JHGFJHHYX » est le Team ID et « com.facebook.ios » est le Bundle ID.
+- `appID` : construit en combinant le **équipe ID** de votre application (rendez-vous sur `https://developer.apple.com/account/#/membership/` pour obtenir le équipe ID) et le **Bundle Identifier**. Dans l'exemple ci-dessus, « JHGFJHHYX » est le équipe ID et « com.facebook.ios » est le Bundle ID.
 - `paths` : tableau de chaînes de caractères qui spécifie quels chemins sont inclus ou exclus de l'association. Vous pouvez utiliser `NOT` avant le chemin pour désactiver des chemins. Dans cet exemple, tous les liens de ce chemin iront vers le web au lieu d'ouvrir l'application. Vous pouvez utiliser `*` comme caractère générique pour activer tous les chemins d'un répertoire et `?` pour correspondre à un seul caractère (par exemple /archives/201?/ pour correspondre à tous les nombres de 2010 à 2019).
 
 {% alert note %}
