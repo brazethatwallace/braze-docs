@@ -54,13 +54,13 @@ In Braze, to create a segment of these users, navigate to **Segments** under **E
 
 After saving, you can reference this segment during Canvas or campaign creation in the targeting users step.
 
-## User Matching
+## User matching
 
 Identified users can be matched by either their `external_id` or `alias`. Anonymous users can be matched by their `device_id`. Identified users who were originally created as anonymous users can't be identified by their `device_id`, and must be identified by their `external_id` or `alias`.
 
 ## FAQ
 
-### Is it possible to pull a list of Amplitude cohorts?
+### Can I pull a list of Amplitude cohorts?
 
 Braze doesn't provide an API to export a catalog of every Amplitude cohort definition. You can view and use cohorts in these places:
 
