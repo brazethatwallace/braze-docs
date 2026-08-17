@@ -11,13 +11,7 @@ description: "Learn how to sync your Braze account data using CDI."
 
 > Learn how to sync your Braze account data using CDI.
 
-{% alert important %}
-[Account objects](https://braze.com/unlisted_docs/account_opportunity_object/) are in beta and are required to use this feature. Contact your Braze account manager if you’re interested in participating in the beta.
-{% endalert %}
-
 ## Prerequisites
-
-Before you can sync your account data using CDI, you'll need to [configure your accounts schema](https://braze.com/unlisted_docs/account_opportunity_object/).
 
 {% alert note %}
 Only make updates to your account schema when the sync is paused or not scheduled to avoid conflicts between your data warehouse data and the schema in Braze.

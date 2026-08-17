@@ -4,8 +4,6 @@ article_title: Industry-Benchmarks-Dashboard
 alias: "/industry_benchmarks_dashboard/"
 page_order: 3
 description: "Dieser Artikel bietet eine Übersicht über das Industry-Benchmarks-Dashboard."
-hidden: true
-noidex: true
 ---
 
 # Industry-Benchmarks-Dashboard {#industry-benchmarks-dashboard}
@@ -16,31 +14,27 @@ Verwenden Sie das **Industry-Benchmarks**-Dashboard, um Ihre E-Mail-, Push-, Con
 
 Um das **Industry-Benchmarks**-Dashboard aufzurufen, gehen Sie zu **Analytics** > **Dashboard Builder** und wählen Sie **Industry Benchmarks** aus. Wenn das Dashboard keine Daten enthält, wählen Sie **Run Dashboard** aus, um die neuesten Ergebnisse zu generieren. Verwenden Sie die Filter oben im Dashboard, um die Ergebnisse nach Branchenvertikale oder Zeitraum einzugrenzen.
 
-{% alert note %}
-Das **Industry-Benchmarks**-Dashboard befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie an der Teilnahme am Early Access interessiert sind.
-{% endalert %}
-
 ## Über das Dashboard {#about-the-dashboard}
 
-Das Dashboard ist in vier Kanalabschnitte unterteilt: **E-Mail**, **Push-Benachrichtigung**, **Content Card** und **SMS**:
+Das Dashboard ist in vier Kanalbereiche unterteilt: **E-Mail**, **Push-Benachrichtigung**, **Content-Card** und **SMS**:
 
-| Abschnitt | Beschreibung |
+| Bereich              | Beschreibung                                                                                                                                             |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| KPI-Karten | Zeigen die Rate Ihres Workspace für jede Schlüsselmetrik zusammen mit dem Delta im Vergleich zur Branchenrate an. Ein grüner Aufwärtspfeil zeigt an, dass Ihr Workspace über der Branchenrate liegt; ein roter Abwärtspfeil zeigt an, dass er darunter liegt. |
-| Monatliches Trend-Chart | Stellt die Rate Ihres Workspace im Zeitverlauf der Branchenrate gegenüber, sodass Sie Saisonalität und längerfristige Trends erkennen können. |
-| Regionale Aufschlüsselung | Schlüsselt die Rate Ihres Workspace im Vergleich zur Branchenrate nach Regionen auf, sodass Sie erkennen können, wo die regionale Performance von der Branche abweicht. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Abschnitt" }
+| KPI-Karten            | Zeigen die Rate Ihres Workspace für jede Schlüsselmetrik sowie die Abweichung im Vergleich zur Branchenrate an. Ein grüner Aufwärtspfeil zeigt an, dass Ihr Workspace über der Branchenrate liegt; ein roter Abwärtspfeil zeigt an, dass er darunter liegt. |
+| Monatliches Trend-Chart  | Stellt die Rate Ihres Workspace im Zeitverlauf der Branchenrate gegenüber, sodass Sie Saisonalität und längerfristige Trends erkennen können.                                   |
+| Regionale Aufschlüsselung   | Schlüsselt die Rate Ihres Workspace im Vergleich zur Branchenrate nach Regionen auf, sodass Sie erkennen können, wo die regionale Performance von der Branche abweicht.         |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bereich" }
 
-In jedem Chart stellt die hellere Datenreihe den Branchen-Benchmark dar, und die dunklere Reihe (mit dem Präfix **Workspace**) repräsentiert Ihre eigene Performance.
+In jedem Chart stellt die hellere Datenreihe den Branchenbenchmark dar, und die dunklere Reihe (mit dem Präfix **Workspace**) repräsentiert Ihre eigene Performance.
 
 ## Verfügbare Metriken {#available-metrics}
 
 Jede kanalbasierte Metrik ist in zwei Typen verfügbar:
 
-| Metriktyp | Beschreibung | Beispiel |
+| Metriktyp     | Beschreibung                           | Beispiel                                              |
 |----------|---------------------------------------|------------------------------------------------------|
-| _Total_ | Zählt jedes Engagement-Ereignis. | Wenn Nutzer:innen dreimal klicken, wird das als drei Klicks gezählt. |
-| _Distinct_ | Zählt eindeutige Nutzer:innen. | Wenn Nutzer:innen dreimal klicken, wird das als ein Klick gezählt. |
+| _Gesamt_  | Zählt jedes Engagement-Ereignis.        | Wenn ein:e Nutzer:in dreimal klickt, wird das als drei Klicks gezählt. |
+| _Eindeutig_ | Zählt eindeutige Nutzer:innen.                  | Wenn ein:e Nutzer:in dreimal klickt, wird das als ein Klick gezählt.   |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Metriktyp" }
 
 Metriken werden nach den folgenden Kombinationen aus Branche, Region, Unterbranche und Datum gruppiert:
@@ -67,7 +61,7 @@ Wählen Sie einen Tab aus, um die Metriken für jeden Kanal anzuzeigen.
 </tbody></table>
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="E-Mail-Metriken" }
 
-![E-Mail-Industry-Benchmarks-Metriken dargestellt in Linien- und Balkendiagrammen.]({% image_buster /assets/img/dashboards/email_industry.png %})
+![E-Mail-Branchen-Benchmarks-Metriken dargestellt in Linien- und Balkendiagrammen.]({% image_buster /assets/img/dashboards/email_industry.png %})
 
 {% endtab %}
 {% tab Push %}
@@ -77,11 +71,11 @@ Push-Metriken sind für iOS, Android, Internet und plattformübergreifend verfü
 <table aria-label="Push-Metriken"><thead><tr><th>Metrik</th><th>Beschreibung</th><th>Formel</th></tr></thead><tbody>
 <tr><td class="no-split"><i>Direkte Öffnungsrate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Direct Opens' %}</td><td class="no-split"><i>Direct Opens</i> / <i>Unique Sends</i></td></tr>
 <tr><td class="no-split"><i>Beeinflusste Öffnungsrate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Influenced Opens' %}</td><td class="no-split"><i>Influenced Opens</i> / <i>Unique Sends</i></td></tr>
-<tr><td class="no-split"><i>Gesamtöffnungsrate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Opens' %}</td><td class="no-split">(<i>Direct Opens</i> + <i>Influenced Opens</i>) / <i>Unique Sends</i></td></tr>
+<tr><td class="no-split"><i>Gesamte Öffnungsrate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Opens' %}</td><td class="no-split">(<i>Direct Opens</i> + <i>Influenced Opens</i>) / <i>Unique Sends</i></td></tr>
 </tbody></table>
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push-Metriken" }
 
-![Push-Industry-Benchmarks-Metriken dargestellt in Linien- und Balkendiagrammen.]({% image_buster /assets/img/dashboards/push_industry.png %})
+![Push-Branchen-Benchmarks-Metriken dargestellt in Linien- und Balkendiagrammen.]({% image_buster /assets/img/dashboards/push_industry.png %})
 
 {% endtab %}
 {% tab SMS %}
@@ -92,7 +86,7 @@ Push-Metriken sind für iOS, Android, Internet und plattformübergreifend verfü
 </tbody></table>
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS-Metriken" }
 
-![SMS-Industry-Benchmarks-Metriken dargestellt in Linien- und Balkendiagrammen.]({% image_buster /assets/img/dashboards/sms_industry.png %})
+![SMS-Branchen-Benchmarks-Metriken dargestellt in Linien- und Balkendiagrammen.]({% image_buster /assets/img/dashboards/sms_industry.png %})
 
 {% endtab %}
 {% tab Content Cards %}
@@ -102,28 +96,28 @@ Push-Metriken sind für iOS, Android, Internet und plattformübergreifend verfü
 </tbody></table>
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Content-Cards-Metriken" }
 
-![Content-Cards-Industry-Benchmarks-Metriken dargestellt in Linien- und Balkendiagrammen.]({% image_buster /assets/img/dashboards/content_card_industry.png %})
+![Content-Cards-Branchen-Benchmarks-Metriken dargestellt in Linien- und Balkendiagrammen.]({% image_buster /assets/img/dashboards/content_card_industry.png %})
 
 {% endtab %}
 {% endtabs %}
 
 ## Methodik {#methodology}
 
-Braze-Benchmarks werden in einem dreistufigen Verfahren berechnet, das darauf ausgelegt ist, stabile und repräsentative Werte zu liefern.
+Braze-Benchmarks werden in einem dreistufigen Verfahren berechnet, das stabile, repräsentative Kennzahlen liefert.
 
-### Schritt 1: Dynamisches Sampling {#step-1-dynamic-sampling}
+### Schritt 1: Dynamische Stichprobenziehung {#step-1-dynamic-sampling}
 
-Anstatt jeden Datenpunkt zu analysieren, wählt Braze eine repräsentative Stichprobe aus. Die Sampling-Methode überrepräsentiert kleinere Nutzergruppen für eine angemessene Darstellung und berücksichtigt die Unternehmensgröße, sodass eine kleine Anzahl sehr großer Unternehmen die Ergebnisse für eine gesamte Branche nicht verzerrt.
+Anstatt jeden Datenpunkt zu analysieren, wählt Braze eine repräsentative Stichprobe aus. Die Stichprobenmethode überrepräsentiert kleinere Nutzer:innengruppen, um eine angemessene Abbildung sicherzustellen, und berücksichtigt die Unternehmensgröße, damit eine kleine Anzahl sehr großer Unternehmen die Ergebnisse für eine gesamte Branche nicht verzerrt.
 
-### Schritt 2: Ausreißer-Entfernung {#step-2-outlier-removal}
+### Schritt 2: Ausreißerbereinigung {#step-2-outlier-removal}
 
-Braze identifiziert und entfernt statistische Ausreißer. Dies reduziert die Volatilität in den Daten erheblich, bei minimaler Auswirkung auf die durchschnittlichen Performance-Raten – Anomalien werden also entfernt, ohne die zugrunde liegenden Trends zu verändern.
+Braze identifiziert und entfernt statistische Ausreißer. Dadurch wird die Volatilität in den Daten erheblich reduziert, bei minimaler Auswirkung auf die durchschnittlichen Performance-Raten – Anomalien werden also entfernt, ohne die zugrunde liegenden Trends zu verändern.
 
-### Schritt 3: Post-Stratifikations-Gewichtung {#step-3-post-stratification-weighting}
+### Schritt 3: Poststratifikationsgewichtung {#step-3-post-stratification-weighting}
 
-Die Stichprobe wird gewichtet, um die reale Population abzubilden. Gewichtungen werden auf Untergruppen angewendet, um verbleibende Ungleichgewichte aus dem Sampling zu korrigieren, sodass die endgültigen Benchmarks repräsentativ und unverzerrt sind.
+Die Stichprobe wird gewichtet, um die reale Grundgesamtheit abzubilden. Gewichtungen werden auf Untergruppen angewendet, um verbleibende Ungleichgewichte aus der Stichprobenziehung zu korrigieren. Das Ergebnis sind finale Benchmarks, die repräsentativ und unverzerrt sind.
 
 ## Data Governance {#data-governance}
 
-- **Aktualisierungszyklus:** Die Daten werden monatlich am 5. jedes Monats aktualisiert und sind bis zum letzten abgeschlossenen Monat aktuell.
-- **Datenschutz:** Alle Benchmarks sind aggregiert und anonymisiert, um Nutzerinformationen zu schützen.
+- **Aktualisierungszyklus:** Die Daten werden monatlich am 5. eines jeden Monats aktualisiert und sind bis zum letzten abgeschlossenen Monat aktuell.
+- **Datenschutz:** Alle Benchmarks werden aggregiert und anonymisiert, um Nutzerinformationen zu schützen.

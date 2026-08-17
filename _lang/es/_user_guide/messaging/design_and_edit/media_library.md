@@ -18,7 +18,7 @@ tool: Media
 |---|---|
 | Permiso "View Media Library Assets" | Ver activos de la biblioteca de medios |
 | Permiso "Edit Media Library Assets" | Crear y actualizar activos de la biblioteca de medios |
-| Permiso "Delete Media Library Assets" | Eliminar activos de la biblioteca de medios de la interfaz de usuario. Los activos eliminados siguen alojados en Braze para evitar que se rompan los mensajes que los referencian. Para eliminar permanentemente un activo, contacta con soporte de Braze. |
+| Permiso "Delete Media Library Assets" | Eliminar activos de la biblioteca de medios de la interfaz. Los activos eliminados siguen alojados en Braze para evitar que se rompan los mensajes que los referencian. Para eliminar permanentemente un activo, contacta con soporte de Braze. |
 | Permiso "Replace Media Library Assets" | Reemplazar el archivo de un activo existente de la biblioteca de medios manteniendo estables su URL e ID de activo |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Permisos de la biblioteca de medios" }
 
@@ -28,7 +28,7 @@ Para más información, consulta [Permisos de usuario]({{site.baseurl}}/user_gui
 
 Usar la biblioteca de medios en lugar de una red de entrega de contenido (CDN) proporciona un mejor almacenamiento en caché y rendimiento para los mensajes dentro de la aplicación. Todos los activos de la biblioteca de medios que se encuentren en un mensaje dentro de la aplicación se almacenarán previamente en caché para una visualización más rápida y estarán disponibles para su visualización sin conexión. Además, la biblioteca de medios está integrada con los creadores de Braze, lo que permite a los especialistas en marketing seleccionar o etiquetar imágenes en lugar de copiar y pegar las URL de las imágenes.
 
-## Acceder a la biblioteca de medios {#accessing-the-media-library}
+## Acceso a la biblioteca de medios {#accessing-the-media-library}
 
 Dentro de la biblioteca de medios, puedes ver el tipo de activo, el tamaño, las dimensiones, la URL, la fecha en que se añadió a la biblioteca y otra información. Para acceder a tu biblioteca de medios de Braze, ve a **Contenido** > **Biblioteca de medios**. Aquí puedes:
 
@@ -68,10 +68,10 @@ Para reemplazar un activo, debes tener el permiso "Replace Media Library Assets"
 
 1. Ve a **Contenido** > **Biblioteca de medios**.
 2. Selecciona el activo que deseas reemplazar.
-3. En el modal, selecciona **Replace file**.
+3. En el modal, selecciona **Reemplazar archivo**.
 4. Carga el archivo de reemplazo.
 
-![Modal de edición de la biblioteca de medios que muestra los botones Replace file, Crop image y Delete para un activo.]({% image_buster /assets/img_archive/media_library_replace_file.png %}){: style="max-width:60%;border:none"}
+![Modal de edición de la biblioteca de medios que muestra los botones Reemplazar archivo, Recortar imagen y Eliminar para un activo.]({% image_buster /assets/img_archive/media_library_replace_file.png %}){: style="max-width:60%;border:none"}
 
 ### Requisitos y limitaciones {#requirements-and-limitations}
 
@@ -81,7 +81,7 @@ Para reemplazar un activo, debes tener el permiso "Replace Media Library Assets"
 
 ### Canales con copias de imagen procesadas {#channels-with-processed-image-copies}
 
-Algunos canales crean una copia optimizada de la imagen cuando se configura el mensaje, lo que genera una URL independiente. Reemplazar el activo original de la biblioteca de medios no actualiza lo que ven los consumidores en los mensajes creados con esos canales, incluidos los mensajes dentro de la aplicación, Content Cards, notificaciones push y banners.
+Algunos canales crean una copia optimizada de la imagen cuando se configura el mensaje, lo que genera una URL independiente. Reemplazar el activo original de la biblioteca de medios no actualiza lo que los consumidores ven en los mensajes creados con esos canales, incluidos los mensajes dentro de la aplicación, Content Cards, notificaciones push y banners.
 
 También puedes reemplazar un activo de forma programática utilizando el endpoint [`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file).
 

@@ -27,7 +27,7 @@ WhatsAppメッセージを作成する前に、[WhatsApp概要]({{site.baseurl}}
 ### ステップ1：メッセージの作成場所を選択する {#step-1-choose-where-to-build-your-message}
 
 {% alert note %}
-WhatsAppは言語ごとに異なる[メッセージテンプレート](#template-messages)を作成します。各言語に対してセグメンテーションを使用したキャンペーンを作成し、適切なテンプレートをユーザーに配信するか、キャンバスを使用してください。
+WhatsAppは言語ごとに異なる[メッセージテンプレート](#template-messages)を作成します。セグメンテーションを使用して適切なテンプレートをユーザーに配信する言語ごとのキャンペーンを作成するか、キャンバスを使用してください。
 {% endalert %}
 
 メッセージをキャンペーンとキャンバスのどちらで送信すべきかわからない場合、キャンペーンは単一のターゲットメッセージングに適しており、キャンバスは複数ステップのユーザージャーニーに適しています。
@@ -42,7 +42,7 @@ WhatsAppは言語ごとに異なる[メッセージテンプレート](#template
 3. キャンペーンにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を追加します。
    * タグを使用すると、キャンペーンの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を使用する際に、特定のタグでフィルタリングできます。
-5. キャンペーンに必要な数のバリアントを追加し、名前を付けます。追加した各バリアントに対して、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
+5. キャンペーンに必要な数のバリアントを追加して名前を付けます。追加したバリアントごとに、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
 
 {% alert tip %}
 キャンペーン内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
@@ -66,23 +66,23 @@ WhatsAppは言語ごとに異なる[メッセージテンプレート](#template
 
 ユースケースに応じて、WhatsApp[テンプレートメッセージ](#template-messages)または応答メッセージのどちらを作成するかを選択します。ビジネス主導の会話はすべて承認済みテンプレートから開始する必要がありますが、応答メッセージは24時間の会話時間枠内でユーザーからの受信メッセージへの返信に使用できます。
 
-![メッセージバリアントセクションでは、購読グループとWhatsAppテンプレートメッセージと応答メッセージの2つのメッセージタイプのいずれかを選択できます。]({% image_buster /assets/img/whatsapp/whatsapp_message_variants.png %}){: style="max-width:80%;"}
+![メッセージバリアントセクションでは、購読グループとWhatsAppテンプレートメッセージおよび応答メッセージの2つのメッセージタイプのいずれかを選択できます。]({% image_buster /assets/img/whatsapp/whatsapp_message_variants.png %}){: style="max-width:80%;"}
 
 {% tabs %}
 {% tab テンプレートメッセージ %}
 
 [承認済みWhatsAppテンプレートメッセージ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates
-)を使用して、WhatsApp上でユーザーとの会話を開始できます。これらのメッセージは事前にWhatsAppにコンテンツ承認のために送信され、承認には最大24時間かかる場合があります。コピーに加えた編集は、WhatsAppで編集して再送信する必要があります。
+)を使用して、WhatsAppでユーザーとの会話を開始できます。これらのメッセージは事前にWhatsAppにコンテンツ承認のために送信され、承認には最大24時間かかる場合があります。コピーに加えた編集は、WhatsAppで編集して再送信する必要があります。
 
 無効なテキストフィールド（グレーでハイライト表示）は、承認済みWhatsAppテンプレートの一部であるため編集できません。無効なテキストを更新するには、テンプレートを編集して再承認を受ける必要があります。
 
 #### 言語 {#languages}
 
-各テンプレートには割り当てられた言語があるため、ユーザーマッチングを正しく設定するには、各言語に対してキャンペーンまたはキャンバスステップを作成する必要があります。たとえば、インドネシア語と英語が割り当てられたテンプレートを使用するキャンバスを構築する場合、インドネシア語テンプレート用のキャンバスステップと英語テンプレート用のキャンバスステップを作成する必要があります。
+各テンプレートには割り当てられた言語があるため、ユーザーマッチングを正しく設定するには、言語ごとにキャンペーンまたはキャンバスステップを作成する必要があります。たとえば、インドネシア語と英語が割り当てられたテンプレートを使用するキャンバスを構築する場合、インドネシア語テンプレート用のキャンバスステップと英語テンプレート用のキャンバスステップを作成する必要があります。
 
-![テンプレートのリスト。メッセージのプレビュー、割り当てられた言語、承認ステータスが表示されています。]({% image_buster /assets/img/whatsapp/whatsapp_templates.png %}){: style="max-width:80%;"}
+![テンプレートの一覧。メッセージのプレビュー、割り当てられた言語、承認ステータスが表示されています。]({% image_buster /assets/img/whatsapp/whatsapp_templates.png %}){: style="max-width:80%;"}
 
-右から左に書く言語でコピーを追加する場合、右から左のメッセージの最終的な表示はサービスプロバイダーのレンダリング方法に大きく依存します。右から左のメッセージをできるだけ正確に表示するためのベストプラクティスについては、[右から左のメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)を参照してください。
+右から左に書く言語でコピーを追加する場合、右から左のメッセージの最終的な表示はサービスプロバイダーのレンダリング方法に大きく依存することに注意してください。右から左のメッセージをできるだけ正確に表示するためのベストプラクティスについては、[右から左のメッセージの作成]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)を参照してください。
 
 #### 変数 {#variables}
 
@@ -104,15 +104,17 @@ Liquidを使用する予定がある場合は、選択したパーソナライ�
 
 ### ダイナミック画像 {#dynamic-images}
 
+メディアライブラリまたはURLから画像を追加できます。URLを使用する場合、URLの任意の場所で完全なLiquidロジックを含む[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)または[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)を使用して画像をパーソナライズできます。ダイナミック画像は、テンプレートメッセージと応答メッセージ（メディアメッセージおよびクイックリプライレイアウト）でサポートされています。
+
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 {% endtab %}
 {% tab 応答メッセージ %}
 
-応答メッセージを使用して、ユーザーからの受信メッセージに返信できます。これらのメッセージはBraze内のアプリで作成体験中に構築され、いつでも編集できます。Liquidを使用して、応答メッセージの言語を適切なユーザーに合わせることができます。
+応答メッセージを使用して、ユーザーからの受信メッセージに返信できます。これらのメッセージは、作成時にBrazeのアプリ内で構築され、いつでも編集できます。Liquidを使用して、応答メッセージの言語を適切なユーザーに合わせることができます。
 
-使用できる応答メッセージのレイアウトは5種類あります：
-- クイック返信
+使用できる応答メッセージレイアウトは5種類あります：
+- クイックリプライ
 - テキストメッセージ
 - メディアメッセージ
 - コールトゥアクションボタン
@@ -125,15 +127,15 @@ Liquidを使用する予定がある場合は、選択したパーソナライ�
 
 ### ステップ3：メッセージをプレビューしてテストする {#step-3-preview-and-test-your-message}
 
-Brazeでは、メッセージを送信する前に必ずプレビューとテストを行うことをお勧めします。**テスト**タブに切り替えて、[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups)または個々のユーザーにテストWhatsAppメッセージを送信するか、Braze内でユーザーとしてメッセージを直接プレビューします。
+Brazeでは、メッセージを送信する前に必ずプレビューとテストを行うことをお勧めします。**テスト**タブに切り替えて、[コンテンツテストグループ]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups)または個々のユーザーにテストWhatsAppメッセージを送信するか、Brazeで直接ユーザーとしてメッセージをプレビューします。
 
-![Maxというカスタムユーザーのプレビューメッセージ。]({% image_buster /assets/img/whatsapp/whatsapp8.png %}){: style="max-width:80%;"}
+![カスタムユーザーMaxのプレビューメッセージ。]({% image_buster /assets/img/whatsapp/whatsapp8.png %}){: style="max-width:80%;"}
 
 {% alert note %}
-応答メッセージ（テストメッセージを含む）を送信するには、会話ウィンドウが必要です。会話ウィンドウを開始するには、このメッセージに使用している購読グループに関連付けられた電話番号にWhatsAppメッセージを送信してください。関連付けられた電話番号は、**テスト**タブのアラートに記載されています。
+応答メッセージ（テストメッセージを含む）を送信するには、会話ウィンドウが必要です。会話ウィンドウを開始するには、このメッセージに使用している購読グループに関連付けられた電話番号にWhatsAppメッセージを送信してください。関連付けられた電話番号は、**テスト**タブのアラートに表示されています。
 {% endalert %}
 
-![WhatsAppメッセージを送信してメッセージウィンドウを開き、テストユーザーにメッセージを送信するよう指示するアラート。]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
+![メッセージウィンドウを開くためにWhatsAppメッセージを送信し、その後テストユーザーにメッセージを送信するよう指示するアラート。]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
 
 詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp)を参照してください。
 
@@ -150,16 +152,16 @@ Brazeでは、メッセージを送信する前に必ずプレビューとテス
 
 各段階には現在のステータスが表示されます。段階が失敗した場合、パネルには発生したエラーと解決方法のガイダンスが表示されます。結果は、同じキャンペーンまたはキャンバスを閉じて再度開いても保持されます。
 
-![テスト結果パネル。2件の成功したテスト送信と1件の失敗したテスト送信が表示されています。]({% image_buster /assets/img/whatsapp/whatsapp_test_results.png %}){: style="max-width:80%;"}
+![2件の成功したテスト送信と1件の失敗したテスト送信を示すテスト結果パネル。]({% image_buster /assets/img/whatsapp/whatsapp_test_results.png %}){: style="max-width:80%;"}
 
 #### リトライと過去の試行 {#retries-and-past-attempts}
 
 テスト送信が失敗した場合、Brazeは最大24時間自動的に配信をリトライします。結果パネルには2つのタブが表示されます：
 
-- **最新：** 最新の配信試行。リトライが発生するとリアルタイムで更新されます
+- **最新：** リトライが発生するとリアルタイムで更新される、最新の配信試行
 - **過去の試行：** 以前のリトライ実行の履歴。各段階のステータスと発生したエラーが表示されます
 
-最終結果が確定すると（配信成功、リトライ回数の上限到達、またはリトライでは解決できない失敗）、タブはそれぞれ**結果**と**リトライ履歴**に名前が変更されます。
+最終結果が確定すると（配信成功、リトライ回数の上限到達、またはリトライでは解決できない失敗）、タブはそれぞれ**結果**と**リトライ履歴**に名前が変わります。
 
 {% alert note %}
 リトライは最大24時間続く可能性があるため、送信失敗直後に最終結果が表示されない場合があります。
@@ -184,7 +186,7 @@ Brazeでは、メッセージを送信する前に必ずプレビューとテス
 
 #### 配信スケジュールまたはトリガーを選択する {#choose-a-delivery-schedule-or-trigger}
 
-WhatsAppメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[キャンペーンのスケジュール]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)を参照してください。
+WhatsAppメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[キャンペーンのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)を参照してください。
 
 アクションベースの配信では、キャンペーンの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)を設定することもできます。
 
@@ -213,45 +215,45 @@ Brazeでは、キャンペーンを受信した後にユーザーが特定のア
 {% endtab %}
 {% endtabs %}
 
-### ステップ5：確認してデプロイする {#step-5-review-and-deploy}
+### ステップ5：レビューとデプロイ {#step-5-review-and-deploy}
 
-キャンペーンまたはキャンバスの最後の構築が完了したら、詳細を確認し、テストしてから送信してください。
+キャンペーンまたはキャンバスの最後の部分の構築が完了したら、詳細を確認し、テストしてから送信してください。
 
 次に、[WhatsAppレポート]({{site.baseurl}}/user_guide/channels/whatsapp/reporting)を確認して、WhatsAppキャンペーンの結果にアクセスする方法を学びましょう。
 
 ## サポートされているWhatsApp機能 {#supported-whatsapp-features}
 
-### 送信メッセージ {#outbound-messages}
+### アウトバウンドメッセージ {#outbound-messages}
 
-Brazeを通じて送信するWhatsAppメッセージでは、以下の機能がサポートされています。
+Brazeを通じて送信するアウトバウンドWhatsAppメッセージでは、以下の機能がサポートされています。
 
 | 機能 | 詳細 | 最大サイズ | サポートされるフォーマット |
 | ------- | ------- | ------------- | ---------------------- |
-| ヘッダーテキスト | 文字列と変数パラメーターがサポートされています。 | — | —
+| ヘッダーテキスト | 文字列と変数パラメーターがサポートされています。 | — | — |
 | 本文テキスト | 文字列と変数パラメーターがサポートされています。 | — | — |
 | フッターテキスト | 文字列と変数パラメーターがサポートされています。 | — | — |
 | CTAリンク | さまざまなコールトゥアクション（CTA）タイプがサポートされています。詳細については、[コールトゥアクションタイプ](#ctas)を参照してください。 | — | — |
-| 画像 | 本文テキスト内に画像を埋め込むことができます。8ビットで、RGBまたはRGBAカラーモデルを使用する必要があります。 | 5 MB未満 | `.png`、`.jpg`、`.jpeg` |
+| 画像 | 本文テキスト内に画像を埋め込むことができます。画像は8ビットで、RGBまたはRGBAカラーモデルを使用する必要があります。 | 5 MB未満 | `.png`、`.jpg`、`.jpeg` |
 | ドキュメント | 本文テキスト内にドキュメントを埋め込むことができます。ファイルはURL経由でホストされている必要があります。 | 100 MB未満 | `.txt`、`.xls`、`.xlsx`、`.doc`、`.docx`、`.ppt`、`.pttx`、`.pdf` |
 | 動画 | 本文テキスト内に動画を埋め込むことができます。ファイルはURL経由または[Brazeメディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)でホストされている必要があります。 | 16 MB未満 | `.3gp`、`.mp4` |
 | オーディオ | オーディオは応答メッセージングでのみサポートされています。ファイルはURL経由でホストされている必要があります。 | 16 MB未満 | `.aac`、`.amr`、`.mp3`、`.mp4`、`.ogg` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="送信メッセージ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="アウトバウンドメッセージ" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
 
-### 受信メッセージ {#inbound-messages}
+### インバウンドメッセージ {#inbound-messages}
 
-Brazeを通じて受信するWhatsAppメッセージでは、以下の機能がサポートされています。
+Brazeを通じて受信するインバウンドWhatsAppメッセージでは、以下の機能がサポートされています。
 
 | 機能 | 詳細 | サポートされるフォーマット |
 | ------- | ------- | ------------------ |
 | 本文テキスト | 標準の文字列のみがサポートされています。 | — |
-| 画像 | 8ビットで、RGBまたはRGBAカラーモデルを使用する必要があります。ファイルは5 MB未満である必要があります。 | `.jpg`、`.png` |
-| オーディオ | Opusコーデックでエンコードされたoggファイルのみがサポートされています。その他のoggフォーマットはサポートされていません。 | `.aac`、`.mp4`、`.mpeg`、`.amr`、`.ogg (Opusのみ)` |
+| 画像 | 画像は8ビットで、RGBまたはRGBAカラーモデルを使用する必要があります。ファイルは5 MB未満である必要があります。 | `.jpg`、`.png` |
+| オーディオ | Opusコーデックでエンコードされたoggファイルのみがサポートされています。その他のoggフォーマットはサポートされていません。 | `.aac`、`.mp4`、`.mpeg`、`.amr`、`.ogg (Opus only)` |
 | ドキュメント | メッセージの添付ファイルを通じてドキュメントがサポートされています。 | `.txt`、`.pdf`、`.ppt`、`.doc`、`.xls`、`.docx`、`.pptx`、`.xlsx` |
 | 動画 | H.264ビデオコーデックとAACオーディオコーデックのみがサポートされています。動画には単一のオーディオストリームが含まれるか、オーディオストリームが含まれない必要があります。 | `.mp4`、`.3gp` |
 | CTAリンク | さまざまなコールトゥアクション（CTA）タイプがサポートされています。詳細については、[コールトゥアクションタイプ](#ctas)を参照してください。 | — |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="受信メッセージ" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="インバウンドメッセージ" }
 
 ### コールトゥアクションタイプ {#ctas}
 

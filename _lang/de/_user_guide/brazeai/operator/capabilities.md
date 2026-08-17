@@ -4,7 +4,7 @@ article_title: Was Sie mit Operator tun können
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "Dieser Referenzartikel behandelt, was BrazeAI Operator™ im gesamten Dashboard leisten kann – einschließlich der Erstellung von Campaigns, Segmenten und Agents, der Generierung von Texten, Nachrichten, Liquid und Bildern, der Datentransformation, der Überprüfung der Inhaltsqualität und der Informationssuche."
+description: "Dieser Referenzartikel behandelt, was BrazeAI Operator™ im gesamten Dashboard leisten kann – einschließlich der Erstellung von Campaigns, Segmenten, Berichten, Dashboards und Agents, der Generierung von Texten, Nachrichten, Liquid und Bildern, der Datentransformation, der Überprüfung der Inhaltsqualität und der Informationssuche."
 ---
 
 # Was Sie mit Operator tun können {#operator-capabilities}
@@ -19,6 +19,14 @@ Sie können das Gespräch mit Folgefragen fortsetzen. Operator merkt sich frühe
 
 Der Operator verfügt über dieselben Berechtigungen wie Sie, sodass bestimmte Aktionen die entsprechende Berechtigung für die jeweilige Oberfläche erfordern. Zum Beispiel erfordert das Generieren eines Bildes die Berechtigung *Medienbibliothek-Assets bearbeiten*. Wenn Sie keinen Einstiegspunkt sehen, überprüfen Sie Ihre Berechtigungen bei Ihrem Admin. Weitere Informationen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
+## Im Dashboard navigieren {#navigate-the-dashboard}
+
+Operator ist nicht darauf beschränkt, nur auf der Seite zu agieren, die Sie gerade betrachten. Wenn ein Prompt einen anderen Bereich des Dashboards erfordert, identifiziert Operator das Ziel, schlägt die Navigation vor und bringt Sie dorthin, bevor die Arbeit fortgesetzt wird.
+
+Das bedeutet, dass Operator mehrstufige Aufgaben aus einem einzigen Prompt heraus verketten kann. Wenn Sie Operator beispielsweise von der Startseite aus bitten, Ihre Drag-and-Drop-Editor-Einstellungen an Ihre Markenrichtlinien anzupassen, navigiert Operator Sie zu den relevanten E-Mail-Einstellungen und hilft Ihnen von dort aus weiter. Beschreiben Sie das gewünschte Ergebnis in einfacher Sprache, und Operator kann Sie zu den relevanten Einstellungen oder dem entsprechenden Feature führen, um mit der Arbeit zu beginnen.
+
+Standardmäßig bittet Operator Sie, eine vorgeschlagene Navigation zu genehmigen, bevor Sie auf eine neue Seite weitergeleitet werden – genauso wie bei anderen vorgeschlagenen Aktionen. Um Operator ohne Ihre Genehmigung navigieren zu lassen, aktivieren Sie [Aktionen automatisch genehmigen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions#auto-approve-actions).
+
 ## Was Operator erstellen kann {#what-operator-can-create}
 
 Über die Generierung von Texten und Liquid hinaus kann Operator Ihnen beim Erstellen verschiedener anderer Objekte im gesamten Dashboard helfen, einschließlich, aber nicht beschränkt auf:
@@ -26,8 +34,12 @@ Der Operator verfügt über dieselben Berechtigungen wie Sie, sodass bestimmte A
 - Campaigns
 - Content Blocks
 - Angepasste Agents
+- Angepasste Attribute und angepasste Events
+- Dashboards
 - Bilder
 - Nachrichten und Nachrichten-Templates (siehe [Nachrichten generieren](#generate-messages) und [Nachrichten-Templates erstellen](#create-message-templates))
+- Prognosen
+- Berichte
 - Segmente
 - Segmenterweiterungen
 
@@ -46,7 +58,8 @@ Um zu beginnen, suchen Sie nach der Option **Mit Operator erstellen**, wenn Sie 
 - **Campaigns erstellen und bearbeiten:** Wenn Sie eine Campaign starten, kann Operator Ihnen helfen, sie End-to-End aus einem einzigen Briefing in natürlicher Sprache zu entwerfen. Dies umfasst Zielgruppe, Inhalt und Zustellungseinstellungen. Sie können Operator auch bitten, Ihnen beim Bearbeiten einer bestehenden Campaign zu helfen, z. B. beim Anpassen des Targetings oder beim Aktualisieren des Nachrichteninhalts.
 - **Vom Briefing zur Campaign:** Beschreiben Sie ein vollständiges Campaign-Briefing, und Operator hilft Ihnen, einen Entwurf zu erstellen, der Text, Bilder, Personalisierung, Targeting und Empfehlungen für den Sendezeitpunkt enthält. Überprüfen Sie den Entwurf im Campaign-Editor und verfeinern Sie ihn mit Folgeprompts, bevor Sie ihn starten.
 - **Segmente erstellen und bearbeiten:** Wenn Sie ein Segment starten, beschreiben Sie die gewünschte Zielgruppe, und Operator hilft Ihnen, die Filterlogik aufzubauen – einschließlich Attributbedingungen, Event-Verlauf und Katalogabfragen. Operator kann Ihnen auch helfen, die Filter eines bestehenden Segments zu bearbeiten, wenn sich Ihre Targeting-Strategie ändert.
-- **Segmenterweiterungen erstellen:** Operator kann Ihnen helfen, eine SQL-definierte [Segmenterweiterung]({{site.baseurl}}/user_guide/audience/segments/segment_extension) zu erstellen, indem es die Abfrage schreibt, die sie definiert. Beschreiben Sie die gewünschte Zielgruppenlogik, und Operator entwirft die Abfrage, die Sie überprüfen, bevor Sie sie speichern. Weitere Informationen zu Operator und SQL finden Sie unter [SQL-Abfragen schreiben](#write-sql-queries).
+- **Segmenterweiterungen erstellen:** Operator kann Ihnen helfen, eine SQL-definierte [Segmenterweiterung]({{site.baseurl}}/user_guide/audience/segments/segment_extension) zu erstellen, indem es die Abfrage schreibt, die sie definiert. Beschreiben Sie die gewünschte Zielgruppenlogik, und Operator entwirft die Abfrage, die Sie überprüfen, bevor Sie sie speichern. Sie können Operator auch über die Übersicht der Segmenterweiterungen um Hilfe bitten. Weitere Informationen zu Operator und SQL finden Sie unter [SQL-Abfragen schreiben](#write-sql-queries).
+- **Nutzer:innen importieren und verwalten:** Auf unterstützten Zielgruppenseiten kann Operator Ihnen helfen, [Nutzer:innen zu importieren]({{site.baseurl}}/user_guide/audience/manage_audience/import_users), [Nutzer:innen zu löschen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users) und [doppelte Profile zusammenzuführen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users). Überprüfen Sie jede vorgeschlagene Aktion, bevor sie gespeichert wird.
 
 ## Agents {#agents}
 
@@ -60,7 +73,7 @@ Operator kann Ihnen helfen, Agents in der [Agent Console]({{site.baseurl}}/user_
 
 ## Inhalt und Kreatives {#content-and-creative}
 
-Operator kann den Inhalt Ihrer Nachrichten generieren und überprüfen – einschließlich Text, Nachrichten-HTML, Liquid und Bilder – und wendet Ihre Markenrichtlinien automatisch an, wo immer sie konfiguriert sind.
+Operator kann den Inhalt Ihrer Nachrichten generieren und überprüfen – einschließlich Text, Nachrichten-HTML, Liquid und Bilder – und wendet Ihre Markenrichtlinien automatisch an, wo immer sie konfiguriert sind. Sie können Operator auch über die Template-Bibliothek und Übersichtsseiten um Hilfe bitten. So können Sie beispielsweise [E-Mail-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates) oder Content Blocks über deren Listenseiten erstellen oder aktualisieren, Arbeit im [Content-Kalender]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar) planen, [Farbprofil-Templates für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles) erstellen oder [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements) konfigurieren.
 
 ### Markenrichtlinien anwenden {#apply-brand-guidelines}
 
@@ -105,7 +118,7 @@ Operator erstellt Content Blocks einzeln im Dashboard. Um Content Blocks in gro�
 
 ### Nachrichten-Templates erstellen {#create-message-templates}
 
-Operator kann Ihnen helfen, wiederverwendbare [Nachrichten-Templates]({{site.baseurl}}/user_guide/messaging/templates) zu erstellen, die Sie in Campaigns verwenden können. Beschreiben Sie das gewünschte Template, und Operator entwirft es, damit Sie es überprüfen, bevor Sie es speichern. Die Generierung eines Templates funktioniert ähnlich wie die Generierung einer Nachricht – siehe [Nachrichten generieren](#generate-messages) für die unterstützten Kanäle und Editoren.
+Operator kann Ihnen helfen, wiederverwendbare [Nachrichten-Templates]({{site.baseurl}}/user_guide/messaging/templates) zu erstellen, die Sie in Campaigns verwenden können. Beschreiben Sie das gewünschte Template, und Operator entwirft es, damit Sie es überprüfen, bevor Sie es speichern. Sie können von überall in Braze starten. Die Generierung eines Templates funktioniert ähnlich wie die Generierung einer Nachricht – siehe [Nachrichten generieren](#generate-messages) für die unterstützten Kanäle und Editoren.
 
 ### Liquid generieren {#generate-liquid}
 
@@ -193,9 +206,20 @@ Operator kann Folgendes referenzieren, um Fragen zu beantworten oder die generie
 
 Fragen Sie Operator direkt, wenn Sie nicht sicher sind, ob es eine bestimmte Information nachschlagen kann.
 
+
 ### Performance-Daten analysieren {#analyze-performance-data}
 
 Stellen Sie Operator Fragen in natürlicher Sprache zur Performance Ihrer Campaigns und Canvases, und es liefert Charts, Vergleiche und kurze Insights auf Basis Ihrer Workspace-Daten. Im Gegensatz zu den seitenabhängigen Features von Operator, die Kontext von der aktuellen Seite benötigen, beantwortet „Analyze“ Fragen von überall im Dashboard. Weitere Informationen finden Sie unter [Operator Analyze]({{site.baseurl}}/user_guide/brazeai/operator/analyze).
+
+### Berichte und Dashboards erstellen {#build-reports-and-dashboards}
+
+Operator kann Ihnen helfen, [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder)-Berichte und [Dashboard-Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder)-Dashboards auf Basis einer Beschreibung in natürlicher Sprache zu erstellen. Beschreiben Sie die gewünschten Metriken, Kanäle und den Zeitraum, und Operator entwirft den Bericht oder das Dashboard, das Sie überprüfen, bevor Sie es speichern.
+
+Fragen Sie zum Beispiel: „Erstelle mir einen Bericht, der das SMS-Engagement meines Workspace der letzten 30 Tage zeigt.“
+
+### Prognosen erstellen {#create-predictions}
+
+Operator kann Ihnen helfen, [Predictive-Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)-Prognosen und [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) anzuzeigen und zu erstellen. Beschreiben Sie das gewünschte Ergebnis, und Operator schlägt die Prognose oder Empfehlung vor, die Sie überprüfen können.
 
 ### SQL-Anfragen schreiben {#write-sql-queries}
 
@@ -213,8 +237,12 @@ Operator kann Einstellungen auf mehreren Workspace-Konfigurationsseiten überpr�
 - [Push-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)
 - [Messaging-Rate-Limits]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)
 - [Genehmigungsworkflows]({{site.baseurl}}/user_guide/messaging/governance/approvals), einschließlich [Messaging-Regeln]({{site.baseurl}}/user_guide/messaging/governance/approvals/messaging_rules) und Always-on-Genehmigung
-- [APIs und Bezeichner]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), einschließlich [andere Bezeichner]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers) und API-Limits
+- [APIs und Bezeichner]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), einschließlich [andere Bezeichner]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers), API-Limits und [API-Nutzungsbenachrichtigungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
 - [Kontaktinformationen in den Admin-Einstellungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/contact_information)
+- [Sicherheitseinstellungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings) und [SCIM-Bereitstellung]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning)
+- [Rollen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role) und [Berechtigungssets]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#create-a-permission-set)
+- [Export-Protokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/exports_log)
+- Nachrichtenpriorisierungskategorien
 
 {% alert note %}
 Die Abdeckung von Einstellungsseiten durch Operator wird regelmäßig erweitert. **Fragen Sie Operator direkt**, um die aktuellste Auskunft darüber zu erhalten, was konfiguriert werden kann.

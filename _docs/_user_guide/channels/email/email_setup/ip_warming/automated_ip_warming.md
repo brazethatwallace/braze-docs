@@ -9,11 +9,11 @@ channel: email
 
 # Automated IP warming
 
-> Use automated IP warming to gradually ramp email volume from new dedicated IPs to build sender reputation with inbox providers.
+> Use automated IP warming to gradually ramp email volume from new dedicated IPs to build sender reputation with inbox providers. For common questions, see the [Automated IP warming FAQ]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/faq).
 
 ## How it works
 
-You can use automated IP warming to gradually increase your daily send volume, allowing inbox providers to learn and trust your sending patterns. When you add a domain to your workspace, you can select the **Automated IP Warming** tile in the **Pick up where you left off** section of your home dashboard. This tile remains for 60 days while your workspace is in the new-sender onboarding window.
+You can use automated IP warming to gradually increase your daily send volume, allowing inbox providers to learn and trust your sending patterns. When you add a domain to your workspace, you can select the **Automated IP Warming** tile in the **Pick up where you left off** section of your home dashboard. This tile remains for 60 days while your workspace is in the new-sender onboarding window. If your workspace supports multiple plans, the tile is also hidden after you complete at least one plan.
 
 Each automated IP warming plan is tied to one from address. That from address maps to a sending subdomain and an IP pool. If the pool contains multiple dedicated IPs, Braze warms them together in a single plan.
 
@@ -30,13 +30,19 @@ If you see only a single-plan experience in your dashboard, your workspace may n
 To perform automated IP warming, you must have the following:
 
 - Verified subdomain and active IP addresses
-- Permissions to view and launch an IP warmup
-    - "View Usage Data" to view the IP warming section
-    - "View Email Templates" to view and select the email templates for IP warming
-    - "Manage Email Settings" to launch the IP warmup
-- "Access Campaigns" 
-- "Approve and Deny Campaigns" if the approval workflow for campaigns is turned on 
-    - Braze automatically approves the campaigns created from automated IP warming on your behalf.
+- Permissions to view and set up a plan:
+    - "View Email Settings" to view IP warming plans and the home dashboard widget
+    - "View Email Templates" to select email templates
+    - "View Segments" to select segments
+- Permissions to launch a plan:
+    - "Edit Email Settings"
+    - "Edit Campaigns"
+    - "Launch Campaigns"
+    - "Approve Campaigns"
+
+{% alert note %}
+If the campaign approval workflow is turned on, Braze automatically approves campaigns created by automated IP warming on your behalf.
+{% endalert %}
 
 {% alert important %}
 This feature may not be supported depending on your email infrastructure.
@@ -50,7 +56,7 @@ This feature may not be supported depending on your email infrastructure.
 2. In the **Sending information** section, select the **From address** to warm IP addresses for. Braze displays the associated **IP pool** and the number of **IP addresses in pool** for that from address.
 3. Enter the **Current daily send volume** and **Target send volume**. Braze suggests a target send volume of up to 2 million sends per IP in the selected pool. If your current daily send volume is 0, the first day of your schedule starts at up to 50 sends per IP, capped at 500 total.
 4. Select the start date for automated IP warming. This date must be at least one day after the plan is launched.
-5. Enter the send time. This sends the messages in the company's time zone.
+5. Enter the send time. This sends the messages in the workspace time zone (or company time zone if the workspace has no override).
 6. Select **Next: Segments** to continue the setup.
 
 ![Example schedule details.]({% image_buster /assets/img/automated_ip_warming_schedule.png %})
@@ -127,32 +133,30 @@ Avoid sending large non-warming campaigns from the same from address or IP pool 
 
 ## During active IP warming
 
-IP warming campaigns are created 1 to 2 days in advance, unless you are launching an IP warmup the next day. These campaigns are automatically named with the following format: `IP Warming Day [X] - [Date] - [Template Name]`.
+IP warming campaigns are created at midnight in the effective time zone for the current day and the next day (0 to 1 days before send). Launching a plan also creates upcoming campaigns immediately. These campaigns are automatically named with the following format: `IP Warming Day [X] - [Date] - [Template Name]`.
 
 When the targeted daily send goal is reached, the system stops sending for that day to protect your reputation. 
 
-The system monitors your health based on the following industry benchmarks: 
+Braze evaluates deliverability for campaigns that sent between 12 and 20 hours ago. If any of the following thresholds are crossed, Braze holds volume for the next send day instead of increasing it:
 
-- Delivery rate drops less than or equal to 90%
-- Open rate less than 10%
-- Bounces greater than 5%
-- Spam complaint rates greater than 0.04%
+- Delivered rate below 90%
+- Open rate below 10%
+- Bounce rate above 5%
+- Spam complaint rate above 0.04%
 
-If stats are under our benchmarks, the system holds volume the next day rather than increasing the volume to mitigate risk to your sender reputation.
+For what happens when volume is held, see [What happens when volume is held?]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/faq#what-happens-when-volume-is-held).
 
 ## Stop an IP warmup plan
 
-Braze allows you to stop the IP warming and the creation of future campaigns, but if a campaign is already active or scheduled for the next 24 to 48 hours, you may need to stop the specific campaign manually. Stopping an IP warming plan also stops all associated campaigns.
-
-However, when stopped, the IP warmup cannot be resumed. Instead, you must set up a new plan to pick up from where you left off by:
+You can stop an IP warming plan to prevent creation of future campaigns. Stopping a plan also disables all associated campaigns. After you stop a plan, you can't resume it. Set up a new plan to pick up from where you left off by:
 
 - Downloading the existing data for your stopped plan to keep for your record
 - Updating the **Current daily send volume** to the most recent volume
 - Adding a filter to a segment if you plan to use the same segment from the last IP warmup by excluding users that have already received previous campaigns
 
-## When an IP warmup completes
+## When an IP warming completes
 
-IP warming is marked as completed when the last day of IP warming ends at midnight in your company’s time zone. For example, if the last campaign sent in the IP warming plan sends at 8 pm, then the plan is marked as done after four hours.
+IP warming is marked as completed when the last day of IP warming ends at midnight in your workspace time zone (or company time zone if the workspace has no override). For example, if the last campaign in the plan sends at 8 pm, the plan is marked complete at midnight four hours later.
 
 Completed plans remain available from **Settings** > **Email Preferences** > **Automated IP warming**. If your workspace uses the single-plan experience, the tracker also stays on the home dashboard for 90 days after the plan ends. After 90 days, the home dashboard tracker is removed.
 

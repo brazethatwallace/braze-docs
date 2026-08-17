@@ -247,6 +247,8 @@ To work around this:
 
 Yes. *Unique Opens* include *Machine Opens*. You can view both metrics in the **Campaign Analytics** view and **Report Builder**.
 
+For how this affects **Conversion Dashboard** attribution, see [Why don't email open totals match Campaign Analytics?]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#why-dont-email-open-totals-match-campaign-analytics) in [Troubleshooting]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#troubleshooting) on the Conversions Dashboard page.
+
 ### Why does my email delivery volume not match my send volume?
 
 After an email is sent, the recipient's inbox decides when it is delivered. Messages can be deferred for hours or days because of a full mailbox, ESP throttling from a given IP, and similar reasons.
@@ -308,6 +310,14 @@ Use the following tables to narrow down the cause.
 | The email went to the spam folder | The MBP identified the message as spam and routed it to the user's spam or junk folder. Ask the user to check their spam folder. |
 | The recipient has custom mail filtering | The user or their IT administrator may have configured mailbox rules that filter, redirect, or delete incoming messages. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cause for email not in inbox" }
+
+### How can I remove an email address from the bounce list?
+
+If a valid email address shows as invalid in Braze (typically after a hard bounce from your email service provider), use the [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces) endpoint. This removes the address from your Braze bounce list and the bounce list maintained by your email provider. Braze then resumes sending to that address.
+
+If the address was marked as spam rather than hard bounced, use the [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam) endpoint instead.
+
+For more information, see [Bounces and invalid emails]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails) and [Remove an email address from your bounce or spam list]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#remove-an-email-address-from-your-bounce-or-spam-list).
 
 ### How do I troubleshoot email deliverability issues?
 
