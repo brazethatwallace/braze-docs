@@ -67,4 +67,4 @@ Braze doesn't provide an API to export a catalog of every Amplitude cohort defin
 1. **In Amplitude:** View and manage cohorts in the Amplitude dashboard before you sync them to Braze.
 2. **In Braze:** After a cohort syncs, target users with the **Amplitude Cohorts** segment filter. The filter lists synced cohorts by the name Amplitude sent.
 
-For cohort sync errors, confirm user ID alignment and API keys in Amplitude first. See [Amplitude troubleshooting]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences/#we-do-not-have-enough-data-yet-for-this-filter-when-syncing-a-cohort).
+For cohort sync errors, confirm user ID alignment and API keys in Amplitude first. See ["We do not have enough data yet for this filter" when syncing a cohort]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences/#we-do-not-have-enough-data-yet-for-this-filter-when-syncing-a-cohort).
