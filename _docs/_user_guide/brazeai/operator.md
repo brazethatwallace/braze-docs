@@ -29,7 +29,7 @@ Maximize to expand the panel for easier reading, or minimize to keep Operator av
 Describe what you're trying to accomplish using natural language. Clear and specific prompts lead to more helpful responses. Prompts can range from a single question to a full build request:
 
 - **Ask a question:** Why isn't my Liquid rendering?
-- **Build something:** Create a Canvas that waits one hour after cart abandonment, sends an email reminder, then a push after 24 hours if the user still hasn't purchased.
+- **Build something:** Draft a segment of users who abandoned their card in the last 7 days.
 
 Operator can provide step-by-step instructions, links to Braze documentation, plain-language explanations, and drafts of campaigns, Canvases, segments, and content that you can review and insert directly into your work. For how Operator proposes and applies changes, see [Take action with Operator](#take-action-with-operator). 
 

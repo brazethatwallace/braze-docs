@@ -8,7 +8,7 @@ description: "Browse example prompts for BrazeAI Operator, organized by what you
 
 # Prompt library for BrazeAI Operator
 
-> Browse a curated collection of example Operator prompts, compiled by Braze experts. Select a goal to find relevant prompts. You can start a prompt from any page; if Operator needs a different part of the dashboard, it [navigates there]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#navigate-the-dashboard). Prompts labeled **Works best in:** are written for the page you're on. For more information, see [Leverage page-aware context]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context).
+> Browse a curated collection of example Operator prompts, compiled by Braze experts. Select a goal to find relevant prompts. You can start from anywhere in Braze. If Operator needs a different part of the dashboard, it [navigates there]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#navigate-the-dashboard). For more information, see [Leverage page-aware context]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context).
 
 
 <div class="prompt-library-tabs">
