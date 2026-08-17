@@ -53,11 +53,18 @@ These events and tags can be monitored on the Datadog **Metrics Explorer** page.
 
 ### Why are `braze.messaging.sent` metrics missing in Datadog?
 
-If you connected Braze to Datadog but don't see `braze.messaging.sent` in the Metrics Explorer, confirm the **Datadog site** selected in Braze matches your Datadog organization's site URL. Available sites are `datadoghq.com` (default), `us3.datadoghq.com`, `us5.datadoghq.com`, `datadoghq.eu`, `ddog-gov.com`, and `ap1.datadoghq.com`.
+If you connected Braze to Datadog but don't see `braze.messaging.sent` in the Metrics Explorer, confirm the **Datadog site** selected in Braze matches your Datadog organization's site URL. Available sites are:
+
+- `datadoghq.com` (default)
+- `us3.datadoghq.com`
+- `us5.datadoghq.com`
+- `datadoghq.eu`
+- `ddog-gov.com`
+- `ap1.datadoghq.com`
 
 A site mismatch can prevent metrics from appearing in the workspace where you search. In the Braze dashboard, go to **Partner Integrations** > **Technology Partners** > **Datadog** and check that the site matches the subdomain in your Datadog account URL.
 
 The **Datadog site** field is locked after you connect. To change it, disconnect the integration, then reconnect with the correct site.
 
-After you correct the site, wait for new send activity before metrics appear. Historical data gaps aren't filled retroactively.
+After you correct the site, wait for new send activity before metrics appear. Historical data isn't backfilled.
 
