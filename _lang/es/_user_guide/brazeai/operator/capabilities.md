@@ -4,7 +4,7 @@ article_title: Qué puedes hacer con Operator
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "Este artículo de referencia cubre lo que BrazeAI Operator™ puede hacer en todo el panel, incluyendo la creación de Campaigns, Segments y agentes; la generación de textos, mensajes, Liquid e imágenes; la transformación de datos; la revisión de la calidad del contenido; y la búsqueda de información."
+description: "Este artículo de referencia cubre lo que BrazeAI Operator™ puede hacer en todo el panel, incluyendo la creación de Campaigns, Segments, informes, paneles y agentes; la generación de textos, mensajes, Liquid e imágenes; la transformación de datos; la revisión de la calidad del contenido; y la búsqueda de información."
 ---
 
 # Qué puedes hacer con Operator {#operator-capabilities}
@@ -17,7 +17,15 @@ Puedes continuar la conversación con seguimientos. Operator recuerda los mensaj
 
 ## Requisitos previos {#prerequisites}
 
-Operator tiene los mismos permisos que tú, por lo que ciertas acciones requieren el permiso correspondiente para esa superficie. Por ejemplo, generar una imagen requiere *Editar activos de la biblioteca multimedia*. Si no ves un punto de entrada, comprueba tus permisos con tu administrador. Para más información, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+Operator tiene los mismos permisos que tú, por lo que ciertas acciones requieren el permiso correspondiente para esa superficie. Por ejemplo, generar una imagen requiere *Editar activos de la biblioteca multimedia*. Si no ves un punto de entrada, consulta tus permisos con tu administrador. Para más información, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+
+## Navegar por el panel {#navigate-the-dashboard}
+
+Operator no se limita a actuar solo en la página que estás viendo en ese momento. Cuando un prompt necesita una parte diferente del panel, Operator identifica el destino, propone la navegación y te lleva allí antes de continuar con su trabajo.
+
+Esto significa que Operator puede encadenar trabajo de varios pasos a partir de un solo prompt. Por ejemplo, si le pides a Operator desde la página de inicio que te ayude a configurar los ajustes de tu editor de arrastrar y soltar para que coincidan con las directrices de tu marca, te lleva a la configuración de correo electrónico correspondiente y continúa ayudándote desde allí. Describe el resultado que deseas en lenguaje sencillo, y Operator puede llevarte a la configuración o característica relevante para comenzar a trabajar.
+
+De forma predeterminada, Operator te pide que apruebes una navegación propuesta antes de llevarte a una nueva página, de la misma manera que lo hace con otras acciones propuestas. Para permitir que Operator navegue sin esperar tu aprobación cada vez, activa [Aprobación automática de acciones]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions#auto-approve-actions).
 
 ## Qué puede crear Operator {#what-operator-can-create}
 
@@ -26,8 +34,12 @@ Además de generar textos y Liquid, Operator puede ayudarte a crear varios otros
 - Campaigns
 - Content Blocks
 - Agentes personalizados
+- Atributos personalizados y eventos personalizados
+- Paneles
 - Imágenes
 - Mensajes y plantillas de mensajes (consulta [Generar mensajes](#generate-messages) y [Crear plantillas de mensajes](#create-message-templates))
+- Predicciones
+- Informes
 - Segments
 - Extensiones de segmento
 
@@ -43,10 +55,11 @@ Para empezar, busca la opción **Create with Operator** cuando crees una Campaig
 
 ![Los menús Crear Campaign y Crear Segment, cada uno mostrando la opción Create with Operator.]({% image_buster /assets/img/operator/operator_create_with_operator.png %}){:style="max-width:90%"}
 
-- **Crear y editar Campaigns:** Cuando inicias una Campaign, Operator puede ayudarte a redactarla de principio a fin a partir de un solo resumen en lenguaje natural. Esto incluye audiencia, contenido y configuración de entrega. También puedes pedirle a Operator que te ayude a editar una Campaign existente, como ajustar la segmentación o actualizar el contenido del mensaje.
-- **De resumen a Campaign:** Describe un resumen completo de Campaign, y Operator te ayuda a crear un borrador que incluye texto, imágenes, personalización, segmentación y recomendaciones de hora de envío. Revisa el borrador en el creador de Campaign y refínalo con prompts de seguimiento antes de lanzarlo.
+- **Crear y editar Campaigns:** Cuando inicias una Campaign, Operator puede ayudarte a redactarla de extremo a extremo a partir de un solo resumen en lenguaje natural. Esto incluye audiencia, contenido y configuración de entrega. También puedes pedirle a Operator que te ayude a editar una Campaign existente, como ajustar la segmentación o actualizar el contenido del mensaje.
+- **De resumen a Campaign:** Describe un resumen completo de Campaign, y Operator te ayuda a crear un borrador que incluye texto, imágenes, personalización, segmentación y recomendaciones de hora de envío. Revisa el borrador en el creador de Campaign y refínalo con indicaciones de seguimiento antes de lanzarlo.
 - **Crear y editar Segments:** Cuando inicias un Segment, describe la audiencia que deseas y Operator te ayuda a construir la lógica de filtros, incluyendo condiciones de atributos, historial de eventos y búsquedas en catálogos. Operator también puede ayudarte a editar los filtros de un Segment existente cuando tu estrategia de segmentación necesita cambios.
-- **Crear extensiones de segmento:** Operator puede ayudarte a crear una [extensión de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) definida por SQL escribiendo la consulta que la define. Describe la lógica de audiencia que deseas, y Operator redacta la consulta para que la revises antes de guardarla. Para más información sobre Operator y SQL, consulta [Escribir consultas SQL](#write-sql-queries).
+- **Crear extensiones de segmento:** Operator puede ayudarte a crear una [extensión de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) definida por SQL escribiendo la consulta que la define. Describe la lógica de audiencia que deseas, y Operator redacta la consulta para que la revises antes de guardarla. También puedes pedirle ayuda a Operator desde el resumen de extensiones de segmento. Para más información sobre Operator y SQL, consulta [Escribir consultas SQL](#write-sql-queries).
+- **Importar y gestionar usuarios:** En las páginas de audiencia compatibles, Operator puede ayudarte a [importar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users), [eliminar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users) y [fusionar perfiles duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users). Revisa cada acción propuesta antes de que se guarde.
 
 ## Agentes {#agents}
 
@@ -60,7 +73,7 @@ Operator puede ayudarte a crear y refinar agentes en [Agent Console]({{site.base
 
 ## Contenido y creatividad {#content-and-creative}
 
-Operator puede generar y revisar el contenido de tus mensajes, incluyendo textos, HTML de mensajes, Liquid e imágenes, y aplica tus directrices de marca automáticamente donde estén configuradas.
+Operator puede generar y revisar el contenido de tus mensajes, incluyendo textos, HTML de mensajes, Liquid e imágenes, y aplica tus directrices de marca automáticamente donde estén configuradas. También puedes pedirle ayuda a Operator desde la biblioteca de plantillas y las páginas de resumen. Por ejemplo, puedes crear o actualizar [plantillas de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates) o Content Blocks desde sus páginas de lista, programar trabajo en el [calendario de contenido]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar), crear [plantillas de perfil de color para mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles) o configurar [ubicaciones de Banner]({{site.baseurl}}/developer_guide/banners/placements).
 
 ### Aplicar directrices de marca {#apply-brand-guidelines}
 
@@ -105,7 +118,7 @@ Operator crea Content Blocks de uno en uno en el panel. Para crear Content Block
 
 ### Crear plantillas de mensajes {#create-message-templates}
 
-Operator puede ayudarte a crear [plantillas de mensajes]({{site.baseurl}}/user_guide/messaging/templates) reutilizables que puedes aplicar en todas las Campaigns. Describe la plantilla que deseas, y Operator la redacta para que la revises antes de guardarla. Generar una plantilla funciona de manera muy similar a generar un mensaje, así que consulta [Generar mensajes](#generate-messages) para los canales y editores compatibles.
+Operator puede ayudarte a crear [plantillas de mensajes]({{site.baseurl}}/user_guide/messaging/templates) reutilizables que puedes aplicar en todas las Campaigns. Describe la plantilla que deseas, y Operator la redacta para que la revises antes de guardarla. Puedes empezar desde cualquier lugar en Braze. Generar una plantilla funciona de manera muy similar a generar un mensaje, así que consulta [Generar mensajes](#generate-messages) para los canales y editores compatibles.
 
 ### Generar Liquid {#generate-liquid}
 
@@ -193,9 +206,20 @@ Operator puede consultar lo siguiente para responder preguntas o fundamentar el 
 
 Pregunta directamente a Operator si no estás seguro de si puede buscar una información específica.
 
+
 ### Analizar datos de rendimiento {#analyze-performance-data}
 
 Haz preguntas a Operator en lenguaje natural sobre el rendimiento de tus Campaigns y Canvas, y te devolverá gráficos, comparaciones e información breve extraída de los datos de tu espacio de trabajo. A diferencia de las funciones de Operator que dependen del contexto de la página en la que te encuentras, Analyze responde desde cualquier lugar del panel. Para más información, consulta [Operator Analyze]({{site.baseurl}}/user_guide/brazeai/operator/analyze).
+
+### Crear informes y paneles {#build-reports-and-dashboards}
+
+Operator puede ayudarte a crear informes del [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder) y paneles del [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) a partir de una descripción en lenguaje natural. Describe las métricas, los canales y el rango de fechas que deseas, y Operator redactará el informe o panel para que lo revises antes de guardarlo.
+
+Por ejemplo, pregunta: "Crea un informe que muestre la participación de SMS de mi espacio de trabajo en los últimos 30 días."
+
+### Crear predicciones {#create-predictions}
+
+Operator puede ayudarte a ver y crear predicciones de [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) y [recomendaciones de artículos con IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai). Describe el resultado que deseas, y Operator propondrá la predicción o recomendación para que la revises.
 
 ### Escribir consultas SQL {#write-sql-queries}
 
@@ -213,8 +237,12 @@ Operator puede revisar y actualizar la configuración en varias páginas de conf
 - [Configuración de push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)
 - [Límites de velocidad de mensajería]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)
 - [Flujos de trabajo de aprobación]({{site.baseurl}}/user_guide/messaging/governance/approvals), incluyendo [reglas de mensajería]({{site.baseurl}}/user_guide/messaging/governance/approvals/messaging_rules) y aprobación permanente
-- [API e identificadores]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), incluyendo [otros identificadores]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers) y límites de API
+- [API e identificadores]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), incluyendo [otros identificadores]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers), límites de API y [alertas de uso de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
 - [Información de contacto de configuración de administrador]({{site.baseurl}}/user_guide/administer/global/admin_settings/contact_information)
+- [Configuración de seguridad]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings) y [aprovisionamiento SCIM]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning)
+- [Roles]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role) y [conjuntos de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#create-a-permission-set)
+- [Registro de exportaciones]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/exports_log)
+- Categorías de priorización de mensajes
 
 {% alert note %}
 La cobertura de Operator sobre las páginas de configuración se amplía regularmente. **Pregunta directamente a Operator** para obtener la respuesta más actualizada sobre lo que puede configurar.

@@ -19,7 +19,7 @@ channel:
 
 ### ¿Qué es un `app_id` en el objeto de la API de SMS? {#what-is-an-app_id-in-the-sms-api-object}
 
-La clave de API del identificador de la aplicación o `app_id` es un parámetro que asocia la actividad con una aplicación específica en tu espacio de trabajo. Designa con qué aplicación dentro del espacio de trabajo estás interactuando. Por ejemplo, tienes un `app_id` para tu aplicación iOS, un `app_id` para tu aplicación Android y un `app_id` para tu integración web.
+La clave de API del identificador de aplicación o `app_id` es un parámetro que asocia la actividad con una aplicación específica en tu espacio de trabajo. Designa con qué aplicación dentro del espacio de trabajo estás interactuando. Por ejemplo, tienes un `app_id` para tu aplicación iOS, un `app_id` para tu aplicación Android y un `app_id` para tu integración web.
 
 Para SMS, el parámetro `app_id` es obligatorio al enviar mensajes SMS a través de la API (como el endpoint `/messages/send`). Especifica qué aplicación de tu espacio de trabajo está asociada con la actividad de SMS o la llamada a la API. Puedes usar cualquier `app_id` válido de una aplicación configurada en tu espacio de trabajo para la mensajería SMS, independientemente de si el usuario tiene esa aplicación específica en su perfil.
 
@@ -46,7 +46,7 @@ Si escalas a tus usuarios en un Canvas y tienes diferentes horarios de programac
 
 Para evitar actualizaciones innecesariamente grandes, Braze actualizará un máximo de 100 perfiles de usuario que comparten un identificador cuando se realiza una actualización de suscripción. Si más de 100 perfiles de usuario comparten el mismo número de teléfono, no todos los perfiles se actualizarán.
 
-### ¿Por qué veo un pico en las suscripciones de SMS de una fuente específica? {#why-do-i-see-a-spike-in-sms-subscriptions-from-a-specific-source}
+### ¿Por qué veo un pico en las suscripciones de SMS desde una fuente específica? {#why-do-i-see-a-spike-in-sms-subscriptions-from-a-specific-source}
 
 Si observas un aumento inesperadamente grande en los recuentos de suscripciones, especialmente al revisar datos del endpoint [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) a través de Currents, esto puede deberse a perfiles de usuario duplicados.
 
@@ -68,7 +68,7 @@ Algunas desventajas de este enfoque incluyen:
 
 ### ¿Cómo se me facturará por SMS? {#how-will-i-be-billed-for-sms}
 
-Además de los cargos por códigos abreviados y códigos largos, Braze proporciona una asignación de mensajes SMS para diferentes países. Es decir, trabajamos contigo para establecer un número determinado de segmentos del mensaje para diferentes países, que utilizarás para enviar campañas SMS. La facturación se realiza por el número de segmentos del mensaje enviados por país. Para obtener más información sobre cómo se calculan los segmentos del mensaje, consulta nuestra guía de [Segmentos del mensaje y límites de texto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator). Tu director de cuentas se pondrá en contacto contigo para informarte si estás cerca de alcanzar tu máximo, proporcionándote informes relevantes para mantenerte al tanto. Si tienes más preguntas sobre los excedentes, contacta a tu representante de Braze.
+Además de los cargos por códigos abreviados y códigos largos, Braze proporciona una asignación de mensajes SMS para diferentes países. Es decir, trabajamos contigo para establecer un número determinado de segmentos del mensaje para diferentes países, que utilizarás para enviar campañas SMS. La facturación se realiza por el número de segmentos del mensaje enviados por país. Para obtener más información sobre cómo se calculan los segmentos del mensaje, consulta nuestra guía de [Segmentos del mensaje y límites de texto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator). Tu director de cuentas se pondrá en contacto contigo para informarte si estás cerca de alcanzar tu máximo, proporcionándote informes relevantes para mantenerte al tanto. Para más preguntas sobre excedentes, contacta a tu representante de Braze.
 
 ### ¿Los precios de MMS y SMS son diferentes? {#does-mms-and-sms-pricing-differ}
 
@@ -80,21 +80,21 @@ Aunque no podemos prometer que no tendrás un excedente ocasionalmente, puedes s
 
 - Presta atención al número de caracteres en tu SMS. Enviar involuntariamente más de un segmento podría causar excedentes. Para más detalles, consulta nuestro [desglose de segmentos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Calcula cuidadosamente los caracteres de tu SMS para tener en cuenta Liquid o contenido conectado. El creador de SMS de Braze en tu panel no estima ni tiene en cuenta el uso de ninguna de estas características.
-- Considera el tipo de codificación que utiliza tu mensaje: si tu mensaje usa codificación GSM-7, generalmente puedes estimar que puedes enviar un mensaje con 128 caracteres por segmento del mensaje. Si tu mensaje usa codificación [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set), generalmente puedes estimar que puedes enviar un mensaje con 67 caracteres por segmento del mensaje.
-- ¡Prueba, prueba y prueba! Siempre prueba tus mensajes SMS antes del lanzamiento, especialmente cuando uses Liquid y contenido conectado.
+- Considera el tipo de codificación que utiliza tu mensaje. Si tu mensaje usa codificación GSM-7, generalmente puedes estimar 160 caracteres por segmento del mensaje (menos si usas caracteres de la tabla de extensión GSM-7). Si tu mensaje usa codificación [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set), generalmente puedes estimar 67 caracteres por segmento del mensaje.
+- ¡Prueba, prueba y prueba! Siempre prueba tus mensajes SMS antes de lanzarlos, especialmente cuando uses Liquid y contenido conectado.
 
 ### Si se envía un mensaje a un teléfono fijo, ¿el mensaje seguirá contando en mi recuento de envíos de SMS? {#if-a-message-is-sent-to-a-landline-will-the-message-still-count-toward-my-sms-send-count}
 
 En EE. UU., Canadá y el Reino Unido:
-- Si se envía un SMS a un teléfono fijo, se marcará como **No entregado**. Ten en cuenta que Twilio seguirá cobrando por el intento de entrega, por lo que los mensajes marcados como **Enviado**, **Entregado** o **No entregado** en tus registros de mensajes serán facturados.
-- En el Reino Unido, algunos operadores convertirán el SMS en un mensaje de voz, entregando el mensaje.
+- Si se envía un SMS a un teléfono fijo, se marca como **No entregado**. El comportamiento de facturación depende de tu proveedor de servicios SMS. Con Twilio, el intento de entrega se cobra igualmente, por lo que los mensajes marcados como **Enviado**, **Entregado** o **No entregado** en tus registros de mensajes se facturan.
+- En el Reino Unido, algunos operadores convierten el SMS en un mensaje de voz, entregando el mensaje.
 
 En otros países:
-- Twilio generará un error y no se te facturará por el intento de envío del mensaje SMS.
+- Con Twilio, se genera un error y no se te factura por el intento de envío del mensaje SMS.
 
-### ¿Por qué el panel de Braze me advierte que se me pueden cobrar segmentos del mensaje adicionales cuando mi mensaje tiene menos de 160 (GSM-7) o 70 (UCS-2) caracteres? {#why-is-the-braze-dashboard-warning-me-i-may-be-charged-for-additional-message-segments-when-my-message-is-under-160-gsm-7-or-70-ucs-2-characters}
+### ¿Por qué el panel de Braze me advierte que se me pueden cobrar segmentos del mensaje adicionales cuando mi mensaje tiene menos de 160 (GSM-7) o 67 (UCS-2) caracteres? {#why-is-the-braze-dashboard-warning-me-i-may-be-charged-for-additional-message-segments-when-my-message-is-under-160-gsm-7-or-67-ucs-2-characters}
 
-Es posible que se te cobren segmentos del mensaje adicionales si tienes personalización con Liquid incluida en tu mensaje. La plantilla del bloque de contenido no se procesa hasta que el mensaje se está preparando para ser enviado. Cuando editas un SMS con un bloque de contenido, Braze no sabe qué contendrá el bloque de contenido, pero proporciona una estimación aproximada. Recomendamos que los usuarios utilicen el panel de prueba para previsualizar el mensaje y comprender mejor qué esperar.
+Es posible que se te cobren segmentos del mensaje adicionales si tienes personalización con Liquid incluida en tu mensaje. La plantilla de bloques de contenido no se procesa hasta que el mensaje se está preparando para ser enviado. Cuando editas un SMS con un bloque de contenido, Braze no sabe qué contendrá el bloque de contenido, pero proporciona una estimación aproximada. Recomendamos que los usuarios utilicen el panel de prueba para previsualizar el mensaje y comprender mejor qué esperar.
 
 ## Envío y capacidad de entrega {#sending-and-deliverability}
 
@@ -112,9 +112,9 @@ Braze también tiene su propia función de acortamiento de enlaces que acortará
 
 La tasa de concurrencia y el rendimiento predeterminados permiten aproximadamente 360 000 mensajes por hora por código abreviado. Un rendimiento adicional requiere códigos abreviados adicionales.
 
-### ¿Cómo se incluyen URL en la lista de permitidos para SMS? {#how-do-you-allowlist-urls-for-sms}
+### ¿Cómo se incluyen URLs en la lista de permitidos para SMS? {#how-do-you-allowlist-urls-for-sms}
 
-Antes de enviar mensajes SMS que contengan URL a usuarios en ciertos países (por ejemplo, Suecia o los países nórdicos), debes registrar estas URL con el operador. Contacta a tu director de cuentas de servicio al cliente de Braze para obtener ayuda. Este proceso tardará aproximadamente cinco días.
+Antes de enviar mensajes SMS que contengan URLs a usuarios en ciertos países (por ejemplo, Suecia o los países nórdicos), debes registrar estas URLs con el operador. Contacta a tu director de cuentas de Braze para obtener ayuda. Este proceso tardará aproximadamente cinco días.
 
 ### ¿Cuáles son las mejores prácticas de envío para evitar la detección de correo no deseado en SMS? {#what-are-the-best-sending-practices-to-avoid-spam-detection-for-sms}
 
@@ -132,11 +132,11 @@ Los emojis pueden ser complicados, ya que no existe un recuento de caracteres es
 
 ### ¿Cómo se crea la lógica para adhesiones voluntarias selectivas a SMS de modo que los usuarios estén en el grupo de suscripción correcto? {#how-do-you-create-logic-for-selective-opt-ins-to-sms-so-users-are-in-the-right-subscription-group}
 
-Las palabras clave personalizadas se registrarían como eventos personalizados, por lo que deberías crear segmentos basados en las palabras clave que los clientes pueden enviar por mensaje de texto. Por ejemplo, si un usuario se suscribe a SMS para mensajes VIP pero no para alertas, puedes crear un segmento VIP y un segmento de alertas, y luego asignar al usuario al segmento correspondiente.
+Las palabras clave personalizadas se registrarían como eventos personalizados, por lo que deberías crear segmentos basados en las palabras clave que los clientes pueden enviar por mensaje de texto. Por ejemplo, si un usuario se suscribe a SMS para mensajes VIP pero no para alertas, puedes crear un Segment VIP y un Segment de alertas, y luego asignar al usuario al Segment correspondiente.
 
 ### Si un usuario envía "Stop" a nuestro código abreviado, ¿se cancela su suscripción del grupo de suscripción? {#if-a-user-texts-stop-to-our-short-code-are-they-unsubscribed-from-the-subscription-group}
 
-¿Cómo se ve eso en el perfil de usuario? El grupo de suscripción volverá a mostrar 2 guiones (- -), y habrá eventos personalizados para suscripción y cancelación de suscripción.
+¿Cómo se ve eso en el perfil de usuario? El grupo de suscripción aparece como cancelado en **Configuración de contacto**, y hay eventos personalizados para suscripción y cancelación de suscripción.
 
 ### Si un usuario ha cancelado su suscripción y envía una palabra clave a nuestro código abreviado o código largo, ¿recibe la respuesta que configuramos para esa palabra clave en Braze? {#if-a-user-is-opted-out-and-sends-a-keyword-to-our-short-and-long-code-do-they-receive-the-response-we-configured-for-that-keyword-in-braze}
 
@@ -152,13 +152,13 @@ Para que una palabra clave sea reconocida dentro de una oración (por ejemplo, "
 
 Sí. Ten esto en cuenta al probar mensajes.
 
-### ¿Un usuario necesita formar parte de un grupo de suscripción de SMS para recibir mensajes de prueba por SMS? {#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages}
+### ¿Un usuario necesita formar parte de un grupo de suscripción de SMS para recibir mensajes de prueba de SMS? {#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages}
 
 Sí. Los usuarios deben tener un número de teléfono válido, formar parte del grupo de suscripción de SMS utilizado para el envío de prueba y tener al menos un país seleccionado en **Geographic Permissions** para SMS.
 
 ### ¿Hay alguna forma de ver si existe un alias en un perfil de usuario? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 
-Los alias no son visibles en el perfil de usuario. Tendrías que usar los endpoints de [exportación de datos de usuario]({{site.baseurl}}/api/endpoints/export) para confirmar que los alias se hayan configurado.
+Los alias no son visibles en el perfil de usuario. Tendrías que usar los endpoints de [Exportar datos de usuario]({{site.baseurl}}/api/endpoints/export) para confirmar que los alias se hayan configurado.
 
 ## MMS
 
