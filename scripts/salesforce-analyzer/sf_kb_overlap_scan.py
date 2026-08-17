@@ -72,6 +72,11 @@ class OverlapHit:
         return self.message
 
 
+# Path-level coverage: an open/draft PR already edits the target file — omit the
+# whole batch from the needs-PR queue (cannot open a second PR on the same path).
+PATH_COVERED_BY_PR_KINDS = frozenset({"open_pr", "draft_pr"})
+
+
 @dataclass
 class BatchOverlapReport:
     doc_path: str
@@ -85,6 +90,25 @@ class BatchOverlapReport:
     @property
     def warnings(self) -> list[OverlapHit]:
         return [h for h in self.hits if not h.blocking]
+
+    @property
+    def path_covered_by_pr(self) -> bool:
+        """True when an open/draft PR already edits this doc path."""
+        return any(
+            h.blocking and h.kind in PATH_COVERED_BY_PR_KINDS for h in self.hits
+        )
+
+    def claimed_article_ids(self) -> set[str]:
+        """Article IDs already claimed in an open or merged PR body."""
+        claimed: set[str] = set()
+        for hit in self.hits:
+            if not (hit.blocking and hit.kind == "article_id"):
+                continue
+            # Message format: "`ka0…` already claimed in a PR body"
+            text = hit.message or ""
+            if text.startswith("`") and "`" in text[1:]:
+                claimed.add(text[1 : text.index("`", 1)])
+        return claimed
 
     def status_label(self) -> str:
         if self.blocked:

@@ -247,6 +247,8 @@ To work around this:
 
 Yes. *Unique Opens* include *Machine Opens*. You can view both metrics in the **Campaign Analytics** view and **Report Builder**.
 
+For how this affects **Conversion Dashboard** attribution, see [Why don't email open totals match Campaign Analytics?]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#why-dont-email-open-totals-match-campaign-analytics) in [Troubleshooting]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#troubleshooting) on the Conversions Dashboard page.
+
 ### Why does my email delivery volume not match my send volume?
 
 After an email is sent, the recipient's inbox decides when it is delivered. Messages can be deferred for hours or days because of a full mailbox, ESP throttling from a given IP, and similar reasons.

@@ -14,7 +14,7 @@ Braze fournit des méthodes prédéfinies pour définir les attributs utilisateu
 - Pays de l'utilisateur
 - Ville d'origine de l'utilisateur
 - Abonnement e-mail de l'utilisateur
-- Abonnement push de l'utilisateur
+- Abonnement aux notifications push de l'utilisateur
 - Numéro de téléphone de l'utilisateur
 
 ### Définition des attributs par défaut {#setting-default-attributes}
@@ -84,11 +84,11 @@ BrazeBinding.SetUserFirstName(null);
 
 ## Attributs utilisateur personnalisés {#custom-user-attributes}
 
-En plus des attributs par défaut, Braze vous permet également de définir des attributs personnalisés à l'aide de plusieurs types de données. Pour plus d'informations sur les options de segmentation de chaque attribut, consultez [Collecte de données utilisateur]({{site.baseurl}}/developer_guide/analytics).
+En plus des attributs par défaut, Braze vous permet également de définir des attributs personnalisés à l'aide de plusieurs types de données. Pour plus d'informations sur les options de segmentation de chaque attribut, consultez la section [Collecte de données utilisateur]({{site.baseurl}}/developer_guide/analytics).
 
 ### Définition des attributs personnalisés {#setting-custom-attributes}
 
-Pour définir un attribut personnalisé, utilisez la méthode correspondante au type d'attribut :
+Pour définir un attribut personnalisé, utilisez la méthode correspondant au type d'attribut :
 
 {% tabs %}
 {% tab String %}
@@ -113,6 +113,14 @@ AppboyBinding.IncrementCustomUserAttribute("key", increment(int))
 
 ```csharp
 AppboyBinding.SetCustomUserAttribute("custom float attribute key", 'float value');
+```
+
+{% endtab %}
+
+{% tab Double %}
+
+```csharp
+AppboyBinding.SetCustomUserAttribute("custom double attribute key", 'double value');
 ```
 
 {% endtab %}
@@ -154,14 +162,14 @@ AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
 
 {% tab Objets imbriqués %}
 
-Vous pouvez définir des attributs personnalisés contenant des objets imbriqués (disponibles dans le SDK Unity 5.1.0 et versions ultérieures). Pour plus d'informations, consultez [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+Vous pouvez définir des attributs personnalisés contenant des objets imbriqués (disponible dans le SDK Unity 5.1.0 et versions ultérieures). Pour plus d'informations, consultez la section [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 Les exemples suivants montrent comment définir un attribut d'objet imbriqué, fusionner des mises à jour dans un objet existant et définir un tableau d'objets imbriqués.
 
 ```csharp
 AppboyBinding.SetCustomUserAttribute("custom object attribute key", dictionary(Dictionary<string, object>));
 ```
 
-Pour mettre à jour un objet imbriqué existant, utilisez le paramètre merge :
+Pour mettre à jour un objet imbriqué existant, utilisez le paramètre de fusion :
 
 ```csharp
 AppboyBinding.SetCustomUserAttribute("custom object attribute key", dictionary(Dictionary<string, object>), merge(bool));
@@ -190,9 +198,9 @@ AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 
 ### Utilisation de la REST API {#using-the-rest-api}
 
-Vous pouvez également utiliser notre REST API pour définir ou supprimer des attributs utilisateur. Pour plus d'informations, consultez [Endpoints de données utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+Vous pouvez également utiliser notre REST API pour définir ou supprimer des attributs utilisateur. Pour plus d'informations, consultez la section [Endpoints de données utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
-## Définir les abonnements utilisateur {#setting-user-subscriptions}
+## Définir les abonnements des utilisateurs {#setting-user-subscriptions}
 
 Pour configurer un abonnement e-mail ou notification push pour vos utilisateurs, appelez l'une des fonctions suivantes.
 
@@ -211,7 +219,7 @@ Les deux fonctions prennent `Appboy.Models.AppboyNotificationSubscriptionType` c
 | `OPTED_IN` | Abonné et explicitement inscrit |
 | `SUBSCRIBED` | Abonné, mais pas explicitement inscrit |
 | `UNSUBSCRIBED` | Désabonné et/ou explicitement désinscrit |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Définir les abonnements utilisateur" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Définir les abonnements des utilisateurs" }
 
 {% alert note %}
 Aucun abonnement explicite n'est requis par Windows pour envoyer des notifications push aux utilisateurs. Lorsqu'un utilisateur est enregistré pour les notifications push, il est défini sur `SUBSCRIBED` plutôt que sur `OPTED_IN` par défaut. Pour en savoir plus, consultez notre documentation sur [la mise en œuvre des abonnements et des inscriptions explicites]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#managing-user-subscriptions).
@@ -219,9 +227,9 @@ Aucun abonnement explicite n'est requis par Windows pour envoyer des notificatio
 
 | Type d'abonnement                        | Description |
 |------------------------------------------|-------------|
-| `EmailNotificationSubscriptionType`      | Les utilisateurs seront automatiquement définis sur `SUBSCRIBED` à la réception d'une adresse e-mail valide. Cependant, nous vous recommandons de mettre en place un processus d'inscription explicite et de définir cette valeur sur `OPTED_IN` après avoir reçu le consentement explicite de votre utilisateur. Consultez notre documentation sur la [modification des abonnements utilisateur]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) pour plus de détails. |
-| `PushNotificationSubscriptionType`       | Les utilisateurs seront automatiquement définis sur `SUBSCRIBED` après un enregistrement push valide. Cependant, nous vous recommandons de mettre en place un processus d'inscription explicite et de définir cette valeur sur `OPTED_IN` après avoir reçu le consentement explicite de votre utilisateur. Consultez notre documentation sur la [modification des abonnements utilisateur]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) pour plus de détails. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Définir les abonnements utilisateur" }
+| `EmailNotificationSubscriptionType`      | Les utilisateurs seront automatiquement définis sur `SUBSCRIBED` à la réception d'une adresse e-mail valide. Cependant, nous vous recommandons de mettre en place un processus d'inscription explicite et de définir cette valeur sur `OPTED_IN` dès réception du consentement explicite de votre utilisateur. Consultez notre documentation sur la [modification des abonnements des utilisateurs]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) pour plus de détails. |
+| `PushNotificationSubscriptionType`       | Les utilisateurs seront automatiquement définis sur `SUBSCRIBED` lors d'un enregistrement push valide. Cependant, nous vous recommandons de mettre en place un processus d'inscription explicite et de définir cette valeur sur `OPTED_IN` dès réception du consentement explicite de votre utilisateur. Consultez notre documentation sur la [modification des abonnements des utilisateurs]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) pour plus de détails. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Définir les abonnements des utilisateurs" }
 
 {% alert note %}
 Ces types relèvent de `Appboy.Models.AppboyNotificationSubscriptionType`.
