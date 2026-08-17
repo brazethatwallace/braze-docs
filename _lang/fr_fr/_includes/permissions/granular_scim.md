@@ -253,7 +253,7 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | Lancer des campagnes | `launch_campaigns` |
 | Lancer des Canvas | `launch_canvases` |
 | Modifier les utilisateurs du tableau de bord | `edit_dashboard_users` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes de caractères d'autorisations d'équipe #équipe" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes de caractères d'autorisations d'équipe #team" }
 
 ### Chaînes de caractères de département {#department-strings}
 

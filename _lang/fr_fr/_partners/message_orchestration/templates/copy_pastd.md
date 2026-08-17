@@ -50,7 +50,7 @@ La connexion de Building Blocks à Braze est une configuration unique. Une fois 
 {% endalert %}
 
 1. Connectez-vous à Building Blocks sur [blocks.copypastd.com](https://blocks.copypastd.com), ou sélectionnez **Login** sur [copypastd.com](https://copypastd.com).
-2. Depuis le tableau de bord, sélectionnez **Set up your Braze connection**. (Cette pastille apparaît pour les administrateurs lors de la première connexion et jusqu'à ce que la configuration soit terminée. Vous pouvez également accéder à la page depuis **équipe Settings** > **Connect** > **Braze API Keys**.)
+2. Depuis le tableau de bord, sélectionnez **Set up your Braze connection**. (Cette pastille apparaît pour les administrateurs lors de la première connexion et jusqu'à ce que la configuration soit terminée. Vous pouvez également accéder à la page depuis **Team Settings** > **Connect** > **Braze API Keys**.)
 3. Sélectionnez votre cluster Braze dans le menu déroulant. L'endpoint REST correspondant est automatiquement renseigné.
 4. Collez votre clé API Templates, votre clé API Content Blocks et (facultativement) votre clé API Catalogs dans les champs correspondants.
 5. Sélectionnez **Validate and save**. Building Blocks appelle Braze pour confirmer que les clés fonctionnent et que les périmètres d'autorisation sont corrects. Si quelque chose manque, une erreur en ligne vous indique quel périmètre est incorrect.
@@ -86,7 +86,7 @@ La connexion de Building Blocks à Braze est une configuration unique. Une fois 
 
 Building Blocks est fourni avec les attributs utilisateur Braze par défaut (`first_name`, `email`, `country`, etc.). Pour lier des blocs à vos propres attributs personnalisés, importez-les une seule fois dans Building Blocks et ils restent disponibles dans chaque menu déroulant **Personalize**.
 
-1. Dans Building Blocks, accédez à **équipe Settings** > **Connect** > **Custom Attributes**.
+1. Dans Building Blocks, accédez à **Team Settings** > **Connect** > **Custom Attributes**.
 2. Importez vos attributs personnalisés en utilisant l'une des méthodes suivantes :
 * **Import en masse (recommandé).** Dans Braze, accédez à **Data Settings** > **Custom Attributes** et sélectionnez **Export**. Chargez le fichier CSV dans Building Blocks.
 * **Ajouter les attributs un par un.** Saisissez le nom de l'attribut (par exemple, `loyalty_tier`) et sélectionnez **Add**. Cette méthode est utile si vous n'ajoutez que quelques attributs ou si vous souhaitez ajouter un nouvel attribut entre deux exports Braze.

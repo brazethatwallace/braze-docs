@@ -128,7 +128,7 @@ Un objet de rôle valide est un objet JSON avec les paires clé-valeur suivantes
 | Afficher le profil utilisateur | `view_user_profile` |
 | Gérer les utilisateurs du tableau de bord | `manage_dashboard_users` |
 | Gérer les ressources de la bibliothèque multimédia | `manage_media_library` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes de caractères d'autorisations d'équipe #équipe" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Chaînes de caractères d'autorisations d'équipe #team" }
 
 ### Chaînes de caractères du service {#department-strings}
 

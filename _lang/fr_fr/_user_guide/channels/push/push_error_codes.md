@@ -118,9 +118,9 @@ Cette erreur ne signifie pas que l'utilisateur a désactivé les notifications p
 
 ### InvalidProviderToken
 
-L'erreur `InvalidProviderToken` signifie qu'APNs a rejeté la requête car le jeton d'authentification (provenant d'une clé `.p8`) ou le certificat push (`.p12`) ne correspond pas à l'ID de bundle ou au équipe ID de l'application. Pour résoudre ce problème :
+L'erreur `InvalidProviderToken` signifie qu'APNs a rejeté la requête car le jeton d'authentification (provenant d'une clé `.p8`) ou le certificat push (`.p12`) ne correspond pas à l'ID de bundle ou au Team ID de l'application. Pour résoudre ce problème :
 
-1. **Vérifiez votre équipe ID et Key ID :** si vous utilisez une clé d'authentification `.p8`, confirmez que le **équipe ID** et le **Key ID** configurés dans le tableau de bord de Braze (**Paramètres** > **Paramètres des applications** > sélectionnez votre application iOS) correspondent aux valeurs de votre compte Apple Developer.
+1. **Vérifiez votre Team ID et Key ID :** si vous utilisez une clé d'authentification `.p8`, confirmez que le **Team ID** et le **Key ID** configurés dans le tableau de bord de Braze (**Paramètres** > **Paramètres des applications** > sélectionnez votre application iOS) correspondent aux valeurs de votre compte Apple Developer.
 2. **Vérifiez l'ID de bundle :** assurez-vous que l'ID de bundle enregistré dans Braze correspond à l'ID de bundle de votre application. Une discordance, comme une différence de casse ou un suffixe `.debug`, provoque cette erreur.
 3. **Rechargez la clé ou le certificat :** si la clé `.p8` ou le certificat `.p12` a été récemment régénéré ou révoqué, chargez la nouvelle clé dans Braze et supprimez l'ancienne.
 4. **Confirmez l'environnement APNs :** si vous utilisez un certificat `.p12`, vérifiez que vous avez sélectionné le bon environnement (développement versus production) lors du chargement. Pour les clés `.p8`, cela est géré automatiquement.
