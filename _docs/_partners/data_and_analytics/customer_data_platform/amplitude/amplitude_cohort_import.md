@@ -65,6 +65,6 @@ Identified users can be matched by either their `external_id` or `alias`. Anonym
 Braze doesn't provide an API to export a catalog of every Amplitude cohort definition. You can view and use cohorts in these places:
 
 1. **In Amplitude:** View and manage cohorts in the Amplitude dashboard before you sync them to Braze.
-2. **In Braze:** After a cohort syncs, target users with the **Amplitude Cohorts** segment filter. Synced cohort names are prefixed with `[Amplitude]` and include the cohort ID.
+2. **In Braze:** After a cohort syncs, target users with the **Amplitude Cohorts** segment filter. The filter lists synced cohorts by the name Amplitude sent.
 
 For cohort sync errors, confirm user ID alignment and API keys in Amplitude first. See [Amplitude troubleshooting]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences/#we-do-not-have-enough-data-yet-for-this-filter-when-syncing-a-cohort).
