@@ -211,6 +211,10 @@ While you can set the `target` attribute (such as `target="_blank"` or `target="
 
 Because email client behavior varies, the `target` attribute should not be relied on to control how links open. For details on which email clients support the `target` attribute, refer to [caniemail.com](https://www.caniemail.com/features/html-target/).
 
+### Why does a plus sign `+` in my email link turn into a space?
+
+Some query parsers treat an unencoded plus sign `+` as a space. If your destination URL needs a plus sign in a query parameter, percent-encode it as `%2B` before you add the link to your email.
+
 ### Why are my users being auto-unsubscribed by email security software?
 
 Some corporate email security tools (such as Barracuda, Proofpoint, and similar services) pre-fetch or scan all URLs in incoming emails, including unsubscribe links. This can cause unintended unsubscribes when the security tool follows the one-click list-unsubscribe link.
