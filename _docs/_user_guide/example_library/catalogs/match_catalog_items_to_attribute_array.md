@@ -1,7 +1,7 @@
 ---
 nav_title: Match catalog items to an attribute array
 article_title: Match catalog items to a custom attribute array
-page_order: 1
+page_order: 2
 page_type: reference
 description: "Use a catalog selection and Liquid to show catalog rows whose names or IDs appear in a custom attribute array, such as a wishlist."
 ---

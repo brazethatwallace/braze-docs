@@ -9,33 +9,33 @@ description: "Este artículo de referencia describe cómo personalizar URL de ac
 
 > Personaliza los destinos de los enlaces y el contenido para cada usuario que recibe tu mensaje añadiendo variables Liquid a las URL de botones, enlaces, imágenes y videos.
 
-## Vínculo profundo al contenido dentro de la aplicación {#deep-link-to-in-app-content}
+## Vínculo profundo a contenido dentro de la aplicación {#deep-link-to-in-app-content}
 
 {% alert tip %}
-**Para desarrolladores:** Para una guía sobre cómo elegir entre esquemas personalizados, enlaces universales y otras opciones, incluyendo cuándo necesitas un archivo AASA, qué métodos de delegado de la aplicación implementar y cómo depurar problemas, consulta la [Guía de vinculación en profundidad para iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide) y [Solución de problemas de vinculación en profundidad]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
+**Para desarrolladores:** Para instrucciones de integración, consulta [Vinculación en profundidad en Android]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=android) o [Vinculación en profundidad en Swift]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=swift). Para ayuda al elegir un tipo de enlace en iOS, consulta la [guía de vinculación en profundidad en iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide). Para diagnosticar problemas, consulta [Solución de problemas de vinculación en profundidad]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
 {% endalert %}
 
 ### ¿Qué es la vinculación en profundidad? {#what-is-deep-linking}
 
 La vinculación en profundidad es una forma de lanzar una aplicación nativa y proporcionar información adicional que le indica realizar una acción específica o mostrar contenido específico.
 
-Esto consta de tres partes:
+Esto tiene tres partes:
 
 1. Identificar qué aplicación lanzar.
 2. Indicar a la aplicación qué acción realizar.
 3. Proporcionar a la acción cualquier dato adicional que necesite.
 
-Los vínculos profundos son URI personalizados que enlazan a una parte específica de la aplicación y contienen estas tres partes. La clave es definir un esquema personalizado. `http:` es el esquema con el que casi todos están familiarizados, pero los esquemas pueden comenzar con cualquier palabra. Un esquema debe empezar con una letra, pero luego puede contener letras, números, signos de suma, signos de resta o puntos. En la práctica, no existe un registro central para prevenir conflictos, por lo que es una buena práctica incluir tu nombre de dominio en el esquema. Por ejemplo, `twitter://` es el URI de iOS para lanzar la aplicación móvil de X, anteriormente Twitter.
+Los vínculos profundos son URI personalizados que enlazan a una parte específica de la aplicación y contienen estas tres partes. La clave es definir un esquema personalizado. `http:` es el esquema con el que casi todos están familiarizados, pero los esquemas pueden comenzar con cualquier palabra. Un esquema debe empezar con una letra, pero luego puede contener letras, números, signos de más, signos de menos o puntos. En la práctica, no existe un registro central para prevenir conflictos, por lo que es una buena práctica incluir tu nombre de dominio en el esquema. Por ejemplo, `twitter://` es la URI de iOS para lanzar la aplicación móvil de X, anteriormente Twitter.
 
 Todo lo que aparece después de los dos puntos dentro de un vínculo profundo es texto de formato libre. Tú defines su estructura e interpretación; sin embargo, una convención común es modelarlo como las URL `http:`, incluyendo un `//` inicial y parámetros de consulta (por ejemplo, `?foo=1&bar=2`). Para el ejemplo anterior, `twitter://user?screen_name=[id]` se usaría para lanzar un perfil específico en la aplicación.
 
 {% alert important %}
-Para aplicaciones creadas con frameworks de envoltorio (por ejemplo, Flutter o Cordova), Braze no proporciona soporte de vinculación en profundidad específico para envoltorios. Debes configurar los vínculos profundos en las capas nativas de iOS y Android. Para Cordova, consulta [Vinculación en profundidad en notificaciones push]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=cordova).
+Para aplicaciones creadas con frameworks de envoltorio (por ejemplo, Flutter o Cordova), Braze no proporciona soporte de vinculación en profundidad específico para el envoltorio. Debes configurar los vínculos profundos en las capas nativas de iOS y Android. Para Cordova, consulta [Vinculación en profundidad en notificaciones push]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=cordova).
 {% endalert %}
 
 ### Esquemas de URI del sistema {#system-uri-schemes}
 
-Los esquemas de URI estándar gestionados de forma nativa por iOS y Android (como `tel:`, `mailto:` y `sms:`) se pueden introducir directamente en el campo de URL de vínculo profundo sin necesidad de una integración de vínculo profundo personalizada en tu aplicación.
+Los esquemas de URI estándar gestionados de forma nativa por iOS y Android (como `tel:`, `mailto:` y `sms:`) se pueden introducir directamente en el campo de URL del vínculo profundo sin necesidad de una integración de vínculo profundo personalizada en tu aplicación.
 
 | Esquema | Ejemplo | Acción |
 | ------ | ------- | ------ |
@@ -44,9 +44,24 @@ Los esquemas de URI estándar gestionados de forma nativa por iOS y Android (com
 | `sms:` | `sms:+18005555555` | Abre la composición de SMS |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Esquemas de URI del sistema"}
 
-Estos funcionan para los comportamientos de clic en notificaciones push y las acciones de botones de mensajes dentro de la aplicación. No se necesitan configuraciones adicionales del SDK ni cambios en el código de la aplicación.
+Estos funcionan para los comportamientos al hacer clic en notificaciones push y las acciones de botones de mensajes dentro de la aplicación. No se necesitan configuraciones adicionales del SDK ni cambios en el código de la aplicación.
 
-### Etiquetas UTM y atribución de campañas {#utm-tags-and-campaign-attribution}
+### Vínculo profundo a la aplicación {#deep-link-into-application}
+
+Al componer notificaciones push, mensajes dentro de la aplicación, Banners o Content Cards, selecciona **Vínculo profundo a la aplicación** para abrir una pantalla o acción específica en tu aplicación. En algunos creadores, esta opción aparece como **Deep Link Into App**.
+
+Antes de usar esta opción, trabaja con tus desarrolladores para definir el formato de URI y configurar tu aplicación para abrirlo. Los esquemas personalizados, como `myapp://`, abren la aplicación instalada directamente. Los enlaces universales (iOS) y los App Links (Android) usan URL `https://` que pueden abrir la aplicación cuando está instalada y recurrir a una página web cuando la aplicación no está instalada.
+
+Para configurar este comportamiento al hacer clic:
+
+1. En el creador de tu Campaign o Canvas, localiza **Comportamiento al hacer clic**:
+   - Para notificaciones push y Content Cards, ve a la pestaña **Redactar**.
+   - Para mensajes dentro de la aplicación, ve a la pestaña **Redactar**. En el editor de arrastrar y soltar, selecciona un bloque de botón o imagen y abre su panel de propiedades.
+2. Selecciona **Vínculo profundo a la aplicación** o **Deep Link Into App**.
+3. Introduce el enlace en el campo de URL, por ejemplo, `myapp://products/12345` para un esquema personalizado o `https://example.com/products/12345` para un enlace universal o App Link.
+4. Envía un mensaje de prueba a un dispositivo físico. Una prueba exitosa abre la aplicación y navega a la pantalla o acción prevista. Para un enlace universal o App Link, también prueba en un dispositivo sin la aplicación instalada para confirmar la alternativa web esperada.
+
+### Etiquetas UTM y atribución de Campaign {#utm-tags-and-campaign-attribution}
 
 #### ¿Qué es una etiqueta UTM? {#what-is-a-utm-tag}
 
@@ -58,15 +73,15 @@ Las [etiquetas UTM (Urchin Traffic Manager)](https://support.google.com/analytic
 - `utm_term`: Identificador de un término de búsqueda de pago que llevó al usuario a tu aplicación o sitio web (por ejemplo, `pizza`)
 - `utm_content`: Un identificador del enlace o contenido específico en el que el usuario hizo clic (por ejemplo, `toplink` o `android_iam_button2`)
 
-Las etiquetas UTM se pueden incrustar tanto en enlaces HTTP (web) regulares como en vínculos profundos, y rastrearse mediante Google Analytics.
+Las etiquetas UTM se pueden incrustar tanto en enlaces HTTP regulares (web) como en vínculos profundos y rastrearse mediante Google Analytics.
 
 ##### Cálculos de etiquetas UTM {#utm-tag-calculations}
 
-Braze reporta _Total de clics_ para todos los enlaces en una Campaign o paso en Canvas, lo que puede incluir enlaces que no tienen etiquetas UTM. Esto significa que puedes ver un resultado diferente (a menudo menor) en los enlaces de seguimiento de Campaign de Google Analytics en comparación con el _Total de clics_ mostrado en el rendimiento de tu Campaign o en el generador de informes.
+Braze reporta _Clics totales_ para todos los enlaces en una Campaign o paso en Canvas, lo que puede incluir enlaces que no tienen etiquetas UTM. Esto significa que puedes ver un resultado diferente (a menudo menor) en los enlaces de seguimiento de Campaign de Google Analytics en comparación con los _Clics totales_ mostrados en el rendimiento de tu Campaign o en el generador de informes.
 
 #### Uso de etiquetas UTM con Braze {#using-utm-tags-with-braze}
 
-Si deseas usar etiquetas UTM con enlaces HTTP (web) regulares (por ejemplo, para hacer atribución de Campaign para tus campañas de correo electrónico) y tu organización ya usa Google Analytics, puedes utilizar el [constructor de URL de Google](https://ga-dev-tools.google/ga4/campaign-url-builder/) para generar enlaces UTM. Estos enlaces se pueden incrustar fácilmente en el texto de Campaigns de Braze como cualquier otro enlace.
+Si deseas usar etiquetas UTM con enlaces HTTP regulares (web) (por ejemplo, para hacer atribución de Campaign para tus campañas de correo electrónico) y tu organización ya usa Google Analytics, puedes utilizar el [constructor de URL de Google](https://ga-dev-tools.google/ga4/campaign-url-builder/) para generar enlaces UTM. Estos enlaces se pueden incrustar fácilmente en el texto de tu Campaign de Braze como cualquier otro enlace.
 
 Para usar etiquetas UTM en vínculos profundos a tu aplicación, tu aplicación debe tener el [SDK de Google Analytics](https://developers.google.com/analytics/devguides/collection/) relevante integrado y correctamente configurado para gestionar vínculos profundos. Consulta con tus desarrolladores si no estás seguro de esto.
 
@@ -77,7 +92,7 @@ Una vez que el SDK de Analytics esté integrado y configurado, las etiquetas UTM
 {% tabs %}
 {% tab Aperturas push %}
 
-Para incluir etiquetas UTM en tus vínculos profundos para notificaciones push, establece el comportamiento de clic del mensaje push como un vínculo profundo, luego escribe la dirección del vínculo profundo e incluye las etiquetas UTM deseadas de la siguiente manera:
+Para incluir etiquetas UTM en tus vínculos profundos para notificaciones push, configura el comportamiento al hacer clic del mensaje push como un vínculo profundo, luego escribe la dirección del vínculo profundo e incluye las etiquetas UTM deseadas de la siguiente manera:
 
 ```
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=push&utm_campaign=spring2016giftcards&utm_content=ios_deeplink
@@ -128,7 +143,7 @@ https://example.com/{{url_var}}
 
 **Canales compatibles:** KakaoTalk, LINE, SMS, RCS, WhatsApp
 
-Acortamos las URL que son generadas por Liquid, incluso aquellas incluidas en propiedades de desencadenamiento por API. Por ejemplo, si {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representa una URL válida, acortamos y hacemos seguimiento de esa URL antes de enviar el mensaje.
+Acortamos las URL que son generadas por Liquid, incluso aquellas incluidas en propiedades de desencadenamiento por API. Por ejemplo, si {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representa una URL válida, acortamos y rastreamos esa URL antes de enviar el mensaje.
 
 ### Acortar URL en el endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
 

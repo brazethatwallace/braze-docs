@@ -90,7 +90,7 @@ Les groupes d'abonnement sont des filtres de segment qui peuvent affiner davanta
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
-Par exemple, supposons que vous envoyez plusieurs catégories de Campaigns par e-mail (promotionnelles, newsletters ou mises à jour de produits). Dans ce cas, vous pouvez utiliser des groupes d'abonnement pour permettre à vos clients de choisir les catégories d'e-mails auxquelles ils souhaitent s'abonner ou se désabonner en masse depuis une seule page, en utilisant un [centre de préférences e-mail](#email-preference-center). Vous pouvez également utiliser des groupes d'abonnement pour permettre à vos clients de choisir la fréquence à laquelle ils souhaitent recevoir des e-mails de votre part, en créant des groupes d'abonnement pour des e-mails quotidiens, hebdomadaires ou mensuels.
+Par exemple, supposons que vous envoyez plusieurs catégories de Campaigns par e-mail (promotionnelles, newsletters ou mises à jour de produits). Dans ce cas, vous pouvez utiliser les groupes d'abonnement pour permettre à vos clients de choisir les catégories d'e-mails auxquelles ils souhaitent s'abonner ou se désabonner en masse depuis une seule page, en utilisant un [centre de préférences e-mail](#email-preference-center). Vous pouvez également utiliser les groupes d'abonnement pour permettre à vos clients de choisir la fréquence à laquelle ils souhaitent recevoir des e-mails de votre part, en créant des groupes d'abonnement pour des e-mails quotidiens, hebdomadaires ou mensuels.
 
 Utilisez les [endpoints des groupes d'abonnement]({{site.baseurl}}/api/endpoints/subscription_groups) pour gérer de manière programmatique les groupes d'abonnement que vous avez enregistrés dans le tableau de bord de Braze sur la page **Groupe d'abonnement**.
 
@@ -98,7 +98,7 @@ Utilisez les [endpoints des groupes d'abonnement]({{site.baseurl}}/api/endpoints
 
 1. Accédez à **Audience** > **Gestion des groupes d'abonnement**.
 2. Sélectionnez **Créer un groupe d'abonnement e-mail**.
-3. Donnez un nom et une description à votre groupe d'abonnement.
+3. Donnez un nom et une description à votre groupe d'abonnement. Chaque groupe d'abonnement de votre espace de travail doit avoir un nom unique. Si vous choisissez un nom qui existe déjà, le tableau de bord affiche une erreur et n'enregistre pas la modification.
 4. Sélectionnez **Enregistrer**.
 
 Tous les groupes d'abonnement sont automatiquement ajoutés à votre centre de préférences.
@@ -124,28 +124,32 @@ Braze ne traite pas les changements d'état pour les utilisateurs dans les group
 
 #### Consulter la taille des groupes d'abonnement {#viewing-subscription-group-sizes}
 
-Vous pouvez consulter le graphique **Série temporelle du groupe d'abonnement** sur la page **Groupes d'abonnement** pour visualiser la taille du groupe d'abonnement en fonction du nombre d'utilisateurs sur une période donnée. Ces tailles de groupes d'abonnement sont également cohérentes avec d'autres zones de Braze, comme le calcul de la taille des Segments.
+Vous pouvez consulter le graphique **Série temporelle du groupe d'abonnement** sur la page **Groupes d'abonnement** pour visualiser la taille du groupe d'abonnement en fonction du nombre d'utilisateurs sur une période donnée. Ces tailles de groupes d'abonnement sont également cohérentes avec d'autres zones de Braze, comme le calcul de la taille des Segments. Pour les très grands espaces de travail, Braze peut afficher des comptages estimés au lieu de comptages exacts.
 
 ![Un exemple de graphique « Série temporelle du groupe d'abonnement » daté du 2 au 11 décembre. Le graphique montre une augmentation d'environ 10 millions du nombre d'utilisateurs entre le 6 et le 7.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
 
-#### Pourquoi les comptages de groupes d'abonnement peuvent différer des comptages de Segments {#why-subscription-group-counts-can-differ-from-segment-counts}
+La taille du groupe d'abonnement du jour n'est pas calculée par défaut. Si votre plage de dates inclut aujourd'hui, sélectionnez **Calculer les statistiques du jour** pour ajouter la valeur du jour à la série temporelle.
 
-Les tailles des groupes d'abonnement correspondent aux Segments qui utilisent uniquement le filtre **Groupe d'abonnement**. Elles peuvent diverger d'un Segment qui utilise **Statut d'abonnement e-mail**, lequel reflète l'[état d'abonnement global aux e-mails](#subscription-states), et non l'appartenance à un groupe spécifique, ou qui combine plusieurs filtres. Par exemple, un utilisateur peut être globalement abonné aux e-mails mais désabonné d'un groupe d'abonnement spécifique.
+Si le comptage de la série temporelle diverge fortement d'un Segment utilisant **Le statut d'abonnement e-mail est Désabonné**, n'oubliez pas que le graphique compte l'appartenance à ce groupe d'abonnement, tandis que ce filtre reflète l'état d'abonnement global aux e-mails (par exemple, les utilisateurs peuvent être globalement abonnés mais désabonnés d'un groupe spécifique).
+
+#### Pourquoi les comptages des groupes d'abonnement peuvent différer des comptages de Segments {#why-subscription-group-counts-can-differ-from-segment-counts}
+
+Les tailles des groupes d'abonnement correspondent aux Segments qui utilisent uniquement le filtre **Groupe d'abonnement**. Elles peuvent diverger d'un Segment qui utilise **Statut d'abonnement e-mail**, qui reflète l'[état d'abonnement global aux e-mails](#subscription-states), et non l'appartenance à un groupe spécifique, ou qui combine plusieurs filtres. Par exemple, un utilisateur peut être globalement abonné aux e-mails mais désabonné d'un groupe d'abonnement spécifique.
 
 Pour comparer l'état d'abonnement global d'un utilisateur avec ses appartenances aux groupes d'abonnement, accédez à son profil et sélectionnez l'onglet **Engagement**. Pour filtrer par état global, consultez [Segmenter par abonnements des utilisateurs](#segmenting-by-user-subscriptions).
 
 #### Consulter les groupes d'abonnement dans l'analyse de Campaign {#viewing-subscription-groups-in-campaign-analytics}
 
-Vous pouvez voir le nombre d'utilisateurs qui ont modifié leur état d'abonnement (abonnés ou désabonnés) à partir d'une Campaign par e-mail spécifique sur la page d'analyse de cette Campaign.
+Vous pouvez voir le nombre d'utilisateurs qui ont modifié leur état d'abonnement (abonné ou désabonné) à partir d'une Campaign par e-mail spécifique sur la page d'analyse de cette Campaign.
 
 1. Depuis la page **Analyse de Campaign** de votre Campaign, faites défiler jusqu'à la section **Performance des messages e-mail**.
-2. Sélectionnez la flèche sous **Groupes d'abonnement** pour voir le nombre agrégé de changements d'état, tels que soumis par vos clients.
+2. Sélectionnez la flèche sous **Groupes d'abonnement** pour voir le comptage agrégé des changements d'état, tels que soumis par vos clients.
 
-![La page « Performance des messages e-mail » affichant le nombre agrégé de changements d'état soumis par les clients.]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
+![La page « Performance des messages e-mail » affichant le comptage agrégé des changements d'état soumis par les clients.]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
 
 ### Vérifier le groupe d'abonnement e-mail d'un utilisateur {#checking-a-users-email-subscription-group}
 
-- **Profil utilisateur :** Les profils utilisateur individuels sont accessibles via le tableau de bord de Braze depuis la page [Rechercher des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Vous pouvez y rechercher des profils utilisateur par adresse e-mail, numéro de téléphone ou identifiant utilisateur externe. Vous pouvez également consulter les groupes d'abonnement e-mail d'un utilisateur dans l'onglet **Engagement**.
+- **Profil utilisateur :** Les profils utilisateurs individuels sont accessibles via le tableau de bord de Braze depuis la page [Rechercher des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Vous pouvez y rechercher des profils utilisateurs par adresse e-mail, numéro de téléphone ou identifiant utilisateur externe. Vous pouvez également consulter les groupes d'abonnement e-mail d'un utilisateur dans l'onglet **Engagement**.
 - **REST API de Braze :** Utilisez l'[endpoint Lister les groupes d'abonnement d'un utilisateur]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) ou l'[endpoint Lister le statut du groupe d'abonnement d'un utilisateur]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) pour consulter les groupes d'abonnement du profil d'un utilisateur individuel.
 
 ## Centre de préférences e-mail {#email-preference-center}

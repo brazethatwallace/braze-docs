@@ -20,7 +20,7 @@ Die Einrichtung von RCS ist genauso unkompliziert wie die Einrichtung von SMS. L
 Um mit Braze RCS-Nachrichten senden zu können, muss Ihr Unternehmen vorab drei Kriterien erfüllen:
 
 1. Ihr aktueller Braze-Vertrag muss Message oder Action Credits beinhalten.
-2. Sie müssen Ihre RCS-Nachrichten in eines der folgenden von Braze unterstützten Länder senden:
+2. Sie müssen Ihre RCS-Nachrichten an eines der folgenden von Braze unterstützten Länder senden:
 - Vereinigte Staaten
 - Vereinigtes Königreich
 - Deutschland
@@ -32,21 +32,21 @@ Um mit Braze RCS-Nachrichten senden zu können, muss Ihr Unternehmen vorab drei 
 - Frankreich
 - Italien
 - Kolumbien
-3. Sie müssen eine oder mehrere RCS-SKUs in Ihrem Vertrag erwerben.
+3. Sie müssen eine oder mehrere RCS-SKU(s) in Ihrem Vertrag erwerben.
 
 ## Schritt 2: Einen RCS-verifizierten Sender registrieren {#step-2-register-an-rcs-verified-sender}
 
-Bevor Sie RCS-Nachrichten senden können, müssen Sie einen RCS-verifizierten Sender registrieren. Dies ist die Darstellung Ihrer Marke, die Nutzer:innen auf ihren Mobilgeräten sehen – einschließlich des Namens Ihrer Marke, Ihres Logos, eines Verifizierungs-Badges und eines optionalen Slogans. Der RCS-verifizierte Sender stärkt das Vertrauen der Kund:innen und bestätigt, dass Ihre Nachrichten von einer authentifizierten Quelle stammen.
+Bevor Sie RCS-Nachrichten senden können, müssen Sie einen RCS-verifizierten Sender registrieren. Dies ist die Darstellung Ihrer Marke, die Nutzer:innen auf ihren Mobilgeräten sehen, einschließlich des Namens Ihrer Marke, Ihres Logos, eines Verifizierungs-Badges und eines optionalen Slogans. Der RCS-verifizierte Sender stärkt das Vertrauen der Kund:innen und bestätigt, dass Ihre Nachrichten von einer authentifizierten Quelle stammen.
 
 ![Ein Beispiel für einen RCS-verifizierten Sender in einer RCS-Nachricht namens „Cat Failz Cafe“.]({% image_buster /assets/img/rcs/rcs_sender.png %}){: style="max-width:60%;"}
 
 Nachdem Sie die RCS-SKU(s) zu Ihrem Bestellformular hinzugefügt haben, wird Braze benachrichtigt und kontaktiert Sie mit den Informationen zur RCS-Sender-Registrierung. Das Format dieser Informationen hängt von den Ländern ab, in die Sie RCS-Nachrichten senden möchten.
 
-Wenn Sie Ihre ausgefüllten Formulare an Braze übermittelt haben, schließen wir den Registrierungsprozess in Ihrem Namen ab.
+Wenn Sie Ihre ausgefüllten Formulare an Braze übermittelt haben, schließt Braze den Registrierungsprozess in Ihrem Namen ab.
 
 ### Schritt 2.1: SMS-Fallbacks für RCS-Abo-Gruppen einrichten {#step-21-set-up-sms-fallbacks-for-rcs-subscription-groups}
 
-Da die aktuelle Carrier-Abdeckung je nach Land variiert und die Hardware- und Softwareunterstützung der Nutzer:innen individuell unterschiedlich ist, ist SMS-Fallback heute ein wesentlicher Bestandteil eines erfolgreichen RCS-Programms. Wir empfehlen, SMS-Fallback einzurichten. Wenn ein Carrier RCS nicht unterstützt oder das Gerät einer Nutzerin bzw. eines Nutzers keine RCS-Nachrichten empfangen kann, wird Ihre Nachricht trotzdem per SMS-Fallback zugestellt, sodass Sie keinen wichtigen Moment mit Ihren Nutzer:innen verpassen.
+Da die aktuelle Carrier-Abdeckung je nach Land variiert und die Hardware- und Software-Unterstützung der Nutzer:innen individuell unterschiedlich ist, ist SMS-Fallback heute eine Schlüsselkomponente für ein erfolgreiches RCS-Programm. Wir empfehlen, SMS-Fallback einzurichten. Wenn ein Carrier RCS nicht unterstützt oder das Gerät einer Nutzerin oder eines Nutzers keine RCS-Nachrichten empfangen kann, sendet SMS-Fallback Ihre Nachricht trotzdem, sodass Sie keinen wichtigen Moment mit Ihren Nutzer:innen verpassen.
 
 Wir empfehlen dringend, Ihre aktuelle SMS-Opt-in-Erfahrung, Abo-Gruppen und Zielgruppen-Segmentierung zu überprüfen, bevor Sie Ihre erste RCS-Campaign bereitstellen. Bei Bedarf steht Ihnen Ihr Customer-Success-Manager jederzeit zur Verfügung, um Sie zu beraten und durch den Einrichtungsprozess zu begleiten.
 
@@ -63,76 +63,21 @@ Wenn Sie SMS-Fallback mit RCS verwenden, hängt das Event-Verhalten davon ab, ob
 {% endtab %}
 {% tab Segmentierungsverhalten %}
 
-Für SMS und RCS werten [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) für empfangene Nachrichten (wie [Nachricht von Campaign erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign) und [Nachricht von Canvas-Schritt erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step)) den Zeitpunkt des Versands aus, nicht den Zeitpunkt, zu dem die Nachricht das Gerät der Nutzerin bzw. des Nutzers erreicht. Bei aktiviertem SMS-Fallback können Nutzer:innen diese Filter weiterhin erfüllen, wenn eine RCS-Nachricht abgelehnt wird und auf SMS zurückfällt, oder wenn die Fallback-SMS nicht an das Gerät der Nutzerin bzw. des Nutzers zugestellt wird.
+Für SMS und RCS werten [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) für empfangene Nachrichten (wie [Nachricht von Campaign erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign) und [Nachricht von Canvas-Schritt erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step)) aus, wann eine Nachricht gesendet wird, nicht wann sie das Gerät der Nutzerin oder des Nutzers erreicht. Bei aktiviertem SMS-Fallback können Nutzer:innen diese Filter weiterhin erfüllen, wenn eine RCS-Nachricht abgelehnt wird und auf SMS zurückfällt, oder wenn die Fallback-SMS nicht an das Gerät der Nutzerin oder des Nutzers zugestellt wird.
 
 {% endtab %}
 {% endtabs %}
 
 ### Zeitrahmen für die Carrier-Genehmigung {#timeline-for-carrier-approval}
 
-Der Zeitrahmen für die Carrier-Genehmigung variiert je nach Land und kann auch innerhalb eines Landes unterschiedlich sein. Beachten Sie, dass sich der RCS-Markt noch in einem frühen Stadium befindet und sich die Prozesse bei Carriern und Aggregatoren schnell weiterentwickeln. In den Vereinigten Staaten schätzt Braze, dass die Bearbeitungszeit für die Carrier-Genehmigung eines RCS-verifizierten Senders in der Regel im Bereich von 4–6 Wochen liegt, wobei ein Test-Sender in der Regel innerhalb einer Woche genehmigt wird.
+Der Zeitrahmen für die Carrier-Genehmigung variiert je nach Land und kann auch innerhalb eines Landes unterschiedlich sein. Beachten Sie, dass sich der RCS-Markt noch in einem frühen Stadium befindet, sodass sich die Prozesse bei Carriern und Aggregatoren schnell weiterentwickeln. In den Vereinigten Staaten schätzt Braze, dass die Bearbeitungszeit für die Carrier-Genehmigung eines RCS-verifizierten Senders in der Regel im Bereich von 4–6 Wochen liegt, wobei ein Test-Sender in der Regel innerhalb einer Woche genehmigt wird.
 
-Wenn Ihr RCS-verifizierter Sender genehmigt ist, aktualisiert unser Operations-Team Ihre Abo-Gruppen nach Bedarf, um zu bestätigen, dass der RCS-Sender darin enthalten ist.
+Wenn Ihr RCS-verifizierter Sender genehmigt ist, aktualisiert unser Operations-Team Ihre Abo-Gruppen nach Bedarf, um zu bestätigen, dass der RCS-Sender in ihnen enthalten ist.
 
 ## Schritt 3: Abo-Gruppen einrichten {#step-3-set-up-subscription-groups}
 
 Je nach Integration kann Braze RCS-verifizierte Absender zu Ihren bestehenden SMS-Abo-Gruppen hinzufügen oder neue einrichten. Detaillierte Einrichtungsanweisungen finden Sie unter [SMS- und RCS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups).
 
-## SMS-Traffic zu RCS migrieren {#migrating-sms-traffic-to-rcs}
+## SMS-Datenverkehr zu RCS migrieren {#migrating-sms-traffic-to-rcs}
 
-Wenn Sie separate SMS- und RCS-Abo-Gruppen haben, können Sie Nutzer:innen mithilfe eines einstufigen Canvas von SMS zu RCS migrieren.
-
-Braze empfiehlt, RCS zunächst an kleinere Nutzervolumen zu senden und im Laufe der Zeit mehr Nutzer:innen in die RCS-Abo-Gruppe zu migrieren. Wenn Sie beispielsweise 1.000.000 Nutzer:innen haben, die eine SMS-Abo-Gruppe abonniert haben, könnte dies so aussehen, dass Sie zunächst alle Nutzer:innen in die neue Abo-Gruppe migrieren und dann ein kleineres Segment von 50.000 bis 100.000 (5–10 %) auswählen, um die RCS-Nachrichten zu testen.
-
-### Schritt 1: Canvas erstellen und den Entry-Zeitplan ausfüllen {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
-
-Erstellen Sie ein Canvas und geben Sie ihm einen leicht identifizierbaren Namen (z. B. „SMS-RCS-Abo-Gruppen-Nutzertransfer“). Planen Sie die Campaign dann zu einem für Sie passenden Zeitpunkt.
-
-### Schritt 2: Zielgruppe definieren {#step-2-define-your-audience}
-
-Definieren Sie Ihre Zielgruppe mit einer der folgenden Methoden. Gehen Sie anschließend zum Schritt **Sendeeinstellungen** und wählen Sie **Nutzer:innen, die abonniert oder angemeldet sind** aus.
-
-| Methode                          | Beschreibung                                                                                                                                                                                                 |
-|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Segment erstellen**         | Erstellen Sie ein Segment, das alle Nutzer:innen in einer Abo-Gruppe oder eine Teilmenge mithilfe von Segmentierungsfiltern enthält (z. B. zufällige 5–10 %). Segments werden vor jedem Versand aktualisiert, um Ihre aktuelle Nutzerbasis widerzuspiegeln.        |
-| **Campaign- oder Canvas-Filter anwenden** | Verfeinern Sie die Zielgruppe im Schritt **Zielgruppe** Ihrer Campaign oder Ihres Canvas. Passen Sie die Targeting-Optionen an, ohne die Seite zu verlassen, für zusätzliche Flexibilität.                                         |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Zielgruppe definieren" }
-
-### Schritt 3: Einen Nutzeraktualisierungsschritt konfigurieren {#step-3-configure-a-user-update-step}
-
-Fügen Sie Ihrem Canvas einen Nutzeraktualisierungsschritt hinzu. Öffnen Sie im Schritt den **Erweiterten JSON-Editor** und geben Sie Folgendes ein (für das Feld des eindeutigen Nutzerbezeichners empfehlen wir die Verwendung des Feldes `braze_id`):
-
-{% raw %}
-```json
-{
-  "attributes": [
-    {
-      "braze_id": "{{${braze_id}}}",
-      "subscription_groups": [
-        {
-          "subscription_group_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-          "subscription_state": "subscribed",
-          "use_double_opt_in_logic": true
-        }
-      ]
-    }
-  ]
-}
-```
-{% endraw %}
-
-{% alert important %}
-Bei Verwendung von `use_double_opt_in_logic` muss bereits ein Nutzerprofil vorhanden sein, damit der Abo-Status aktualisiert werden kann. Wenn kein Nutzerprofil mit dem angegebenen Bezeichner verknüpft ist, wird der Abo-Status nicht aktualisiert.
-{% endalert %}
-
-![„Nutzeraktualisierungsobjekt“, das den zuvor genannten JSON-Code enthält.]({% image_buster /assets/img/sms/user_update_object.png %})
-
-### Schritt 4: Canvas testen {#step-4-test-the-canvas}
-
-Wir empfehlen dringend, [Ihr Canvas zu testen]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases), um zu bestätigen, dass es wie erwartet funktioniert, bevor Sie es an Ihre breitere Zielgruppe senden.
-
-### Schritt 5: Canvas starten {#step-5-launch-your-canvas}
-
-Nachdem Sie Ihr Canvas erfolgreich getestet haben, starten Sie es für Ihre Teilmenge von Nutzer:innen!
-
-Um zu bestätigen, dass Ihre Nutzer:innen erfolgreich migriert wurden, empfehlen wir, einige einzelne Nutzerprofile zu überprüfen, die aktualisiert wurden. Suchen Sie im Tab **Engagement** nach **Kontakteinstellungen** und scrollen Sie, um die Abo-Gruppen anzuzeigen, die die Nutzer:innen abonniert haben. Der Schalter für die RCS-Abo-Gruppe sollte jetzt aktiviert sein.
+Wenn Sie separate SMS- und RCS-Abo-Gruppen haben, können Sie Nutzer:innen mithilfe eines einstufigen Canvas von SMS zu RCS migrieren. Eine Schritt-für-Schritt-Anleitung finden Sie unter [SMS-Datenverkehr zu RCS migrieren]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#migrate-sms-traffic-to-rcs).

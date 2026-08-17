@@ -90,7 +90,7 @@ Abo-Gruppen sind Segment-Filter, mit denen Sie Ihre Zielgruppe über die [global
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
-Angenommen, Sie versenden mehrere Kategorien von E-Mail-Campaigns (Werbe-E-Mails, Newsletter oder Produktupdates). In diesem Fall können Sie Abo-Gruppen verwenden, damit Ihre Kund:innen auf einer einzigen Seite über ein [E-Mail-Einstellungscenter](#email-preference-center) auswählen können, welche E-Mail-Kategorien sie abonnieren oder abbestellen möchten. Alternativ könnten Sie Abo-Gruppen nutzen, um Ihren Kund:innen die Wahl zu lassen, wie häufig sie E-Mails von Ihnen erhalten möchten, indem Sie Abo-Gruppen für tägliche, wöchentliche oder monatliche E-Mails erstellen.
+Angenommen, Sie versenden mehrere Kategorien von E-Mail-Campaigns (Werbeaktionen, Newsletter oder Produktupdates). In diesem Fall können Sie Abo-Gruppen verwenden, damit Ihre Kund:innen auf einer einzigen Seite über ein [E-Mail-Präferenzcenter](#email-preference-center) auswählen können, welche E-Mail-Kategorien sie abonnieren oder abbestellen möchten. Alternativ könnten Sie Abo-Gruppen nutzen, um Ihren Kund:innen die Wahl zu lassen, wie häufig sie E-Mails von Ihnen erhalten möchten, indem Sie Abo-Gruppen für tägliche, wöchentliche oder monatliche E-Mails erstellen.
 
 Verwenden Sie die [Abo-Gruppen-Endpunkte]({{site.baseurl}}/api/endpoints/subscription_groups), um die Abo-Gruppen, die Sie im Braze-Dashboard auf der Seite **Abo-Gruppe** gespeichert haben, programmatisch zu verwalten.
 
@@ -98,10 +98,10 @@ Verwenden Sie die [Abo-Gruppen-Endpunkte]({{site.baseurl}}/api/endpoints/subscri
 
 1. Gehen Sie zu **Zielgruppe** > **Abo-Gruppenverwaltung**.
 2. Wählen Sie **E-Mail-Abo-Gruppe erstellen** aus.
-3. Geben Sie Ihrer Abo-Gruppe einen Namen und eine Beschreibung.
+3. Geben Sie Ihrer Abo-Gruppe einen Namen und eine Beschreibung. Jede Abo-Gruppe in Ihrem Workspace muss einen eindeutigen Namen haben. Wenn Sie einen bereits vorhandenen Namen wählen, zeigt das Dashboard einen Fehler an und speichert die Änderung nicht.
 4. Wählen Sie **Speichern** aus.
 
-Alle Abo-Gruppen werden automatisch zu Ihrem Einstellungscenter hinzugefügt.
+Alle Abo-Gruppen werden automatisch zu Ihrem Präferenzcenter hinzugefügt.
 
 ![Felder zum Erstellen einer Abo-Gruppe.]({% image_buster /assets/img/sub_group_create.png %}){: style="max-width:75%"}
 
@@ -109,32 +109,36 @@ Alle Abo-Gruppen werden automatisch zu Ihrem Einstellungscenter hinzugefügt.
 
 Legen Sie beim Erstellen Ihrer Segmente den Namen der Abo-Gruppe als Filter fest, um Nutzer:innen anzusprechen, die sich für Ihre Gruppe angemeldet haben. Dies ist nützlich für monatliche Newsletter, Gutscheine, Mitgliedschaftsstufen und mehr.
 
-![Beispiel für das Targeting von Nutzer:innen im Segment „Inaktive Nutzer:innen“ mit dem Filter für Nutzer:innen in der Abo-Gruppe „Wöchentliche E-Mails“.]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
+![Beispiel für das Targeting von Nutzer:innen im Segment „Lapsed Users“ mit dem Filter für Nutzer:innen in der Abo-Gruppe „Weekly Emails“.]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
 
 ### Abo-Gruppen archivieren {#archiving-subscription-groups}
 
-Archivierte Abo-Gruppen können nicht bearbeitet werden und erscheinen nicht mehr in Segment-Filtern oder in Ihrem Einstellungscenter. Wenn Sie versuchen, eine Gruppe zu archivieren, die als Segment-Filter in einer E-Mail, Campaign oder einem Canvas verwendet wird, erhalten Sie eine Fehlermeldung, die Sie daran hindert, die Gruppe zu archivieren, bis Sie alle Verwendungen entfernt haben.
+Archivierte Abo-Gruppen können nicht bearbeitet werden und erscheinen nicht mehr in Segment-Filtern oder in Ihrem Präferenzcenter. Wenn Sie versuchen, eine Gruppe zu archivieren, die als Segment-Filter in einer E-Mail, Campaign oder einem Canvas verwendet wird, erhalten Sie eine Fehlermeldung, die Sie daran hindert, die Gruppe zu archivieren, bis Sie alle Verwendungen entfernt haben.
 
 Um Ihre Gruppe auf der Seite **Abo-Gruppen** zu archivieren, gehen Sie wie folgt vor:
 
 1. Suchen Sie Ihre Gruppe in der Liste der Abo-Gruppen.
-2. Wählen Sie **Archivieren** aus dem <i class="fa-solid fa-ellipsis-vertical" aria-label="Weitere Optionen"></i>&nbsp;Dropdown-Menü aus.
+2. Wählen Sie **Archivieren** aus dem <i class="fa-solid fa-ellipsis-vertical" aria-label="Mehr Optionen"></i>&nbsp;Dropdown-Menü aus.
 
-Braze verarbeitet keine Statusänderungen für Nutzer:innen in archivierten Gruppen. Wenn Sie beispielsweise Abo-Gruppe 1 archivieren, während Alex diese abonniert hat, bleibt Alex „abonniert“, auch wenn Alex auf einen Abmeldelink klickt. Das spielt keine Rolle, da Abo-Gruppe 1 archiviert ist und Sie keine Nachrichten darüber versenden können.
+Braze verarbeitet keine Statusänderungen für Nutzer:innen in archivierten Gruppen. Wenn Sie beispielsweise Abo-Gruppe 1 archivieren, während Alex diese abonniert hat, bleibt Alex „abonniert“, auch wenn Alex auf einen Abmeldelink klickt. Das spielt keine Rolle, da Abo-Gruppe 1 archiviert ist und Sie keine Nachrichten darüber senden können.
 
 #### Größen von Abo-Gruppen anzeigen {#viewing-subscription-group-sizes}
 
-Sie können das Diagramm **Abo-Gruppen-Zeitreihe** auf der Seite **Abo-Gruppen** verwenden, um die Größe der Abo-Gruppe basierend auf der Anzahl der Nutzer:innen über einen Zeitraum hinweg anzuzeigen. Diese Abo-Gruppengrößen stimmen auch mit anderen Bereichen von Braze überein, wie z. B. der Berechnung der Segmentgröße.
+Sie können das Diagramm **Abo-Gruppen-Zeitreihe** auf der Seite **Abo-Gruppen** verwenden, um die Größe der Abo-Gruppe basierend auf der Anzahl der Nutzer:innen über einen Zeitraum hinweg anzuzeigen. Diese Abo-Gruppengrößen stimmen auch mit anderen Bereichen von Braze überein, wie z. B. der Berechnung der Segmentgröße. Bei sehr großen Workspaces zeigt Braze möglicherweise geschätzte statt exakter Zahlen an.
 
-![Ein Beispiel für ein Diagramm „Abo-Gruppen-Zeitreihe“ vom 2. bis 11. Dezember. Das Diagramm zeigt einen Anstieg von ca. 10 Millionen Nutzer:innen vom 6. zum 7.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
+![Ein Beispieldiagramm „Abo-Gruppen-Zeitreihe“ vom 2. bis 11. Dezember. Das Diagramm zeigt einen Anstieg von ca. 10 Millionen Nutzer:innen vom 6. zum 7.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
 
-#### Warum sich Abo-Gruppenanzahlen von Segmentanzahlen unterscheiden können {#why-subscription-group-counts-can-differ-from-segment-counts}
+Die heutige Abo-Gruppengröße wird standardmäßig nicht berechnet. Wenn Ihr Datumsbereich den heutigen Tag umfasst, wählen Sie **Heutige Statistiken berechnen** aus, um den heutigen Wert zur Zeitreihe hinzuzufügen.
 
-Abo-Gruppengrößen stimmen mit Segmenten überein, die nur den Filter **Abo-Gruppe** verwenden. Sie können von einem Segment abweichen, das **E-Mail-Abo-Status** verwendet, da dieser den [globalen E-Mail-Abo-Status](#subscription-states) widerspiegelt und nicht die Mitgliedschaft in einer bestimmten Gruppe, oder das mehrere Filter kombiniert. Beispielsweise kann eine Nutzer:in global für E-Mails abonniert sein, aber von einer bestimmten Abo-Gruppe abgemeldet.
+Wenn die Zeitreihenzählung stark von einem Segment abweicht, das **E-Mail-Abo-Status ist Abgemeldet** verwendet, bedenken Sie, dass das Diagramm die Mitgliedschaft in dieser Abo-Gruppe zählt, während dieser Filter den globalen E-Mail-Abo-Status widerspiegelt (z. B. können Nutzer:innen global abonniert, aber von einer bestimmten Gruppe abgemeldet sein).
+
+#### Warum Abo-Gruppenzahlen von Segmentzahlen abweichen können {#why-subscription-group-counts-can-differ-from-segment-counts}
+
+Abo-Gruppengrößen stimmen mit Segmenten überein, die nur den Filter **Abo-Gruppe** verwenden. Sie können von einem Segment abweichen, das **E-Mail-Abo-Status** verwendet, welcher den [globalen E-Mail-Abo-Status](#subscription-states) widerspiegelt und nicht die Mitgliedschaft in einer bestimmten Gruppe, oder das mehrere Filter kombiniert. Beispielsweise kann eine Nutzer:in global für E-Mails abonniert, aber von einer bestimmten Abo-Gruppe abgemeldet sein.
 
 Um den globalen Abo-Status einer Nutzer:in mit ihren Abo-Gruppenmitgliedschaften zu vergleichen, gehen Sie zu ihrem Profil und wählen Sie den Tab **Engagement** aus. Informationen zur Filterung nach globalem Status finden Sie unter [Segmentierung nach Nutzer:innen-Abos](#segmenting-by-user-subscriptions).
 
-#### Abo-Gruppen in der Campaign-Analyse anzeigen {#viewing-subscription-groups-in-campaign-analytics}
+#### Abo-Gruppen in Campaign-Analytics anzeigen {#viewing-subscription-groups-in-campaign-analytics}
 
 Sie können die Anzahl der Nutzer:innen sehen, die ihren Abo-Status (abonniert oder abgemeldet) über eine bestimmte E-Mail-Campaign geändert haben, auf der Analytics-Seite dieser Campaign.
 
@@ -146,11 +150,11 @@ Sie können die Anzahl der Nutzer:innen sehen, die ihren Abo-Status (abonniert o
 ### E-Mail-Abo-Gruppe einer Nutzer:in überprüfen {#checking-a-users-email-subscription-group}
 
 - **Nutzerprofil:** Auf einzelne Nutzerprofile kann über das Braze-Dashboard auf der Seite [Nutzer:innen suchen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles) zugegriffen werden. Dort können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Sie können die E-Mail-Abo-Gruppen einer Nutzer:in auch im Tab **Engagement** einsehen.
-- **Braze REST API:** Verwenden Sie den [Endpunkt „Abo-Gruppen einer Nutzer:in auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) oder den [Endpunkt „Abo-Gruppenstatus einer Nutzer:in auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status), um die Abo-Gruppen einzelner Nutzerprofile anzuzeigen.
+- **Braze REST API:** Verwenden Sie den Endpunkt [Abo-Gruppen einer Nutzer:in auflisten]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) oder den Endpunkt [Abo-Gruppenstatus einer Nutzer:in auflisten]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status), um die Abo-Gruppen einzelner Nutzerprofile anzuzeigen.
 
 ## E-Mail-Einstellungscenter {#email-preference-center}
 
-Das E-Mail-Einstellungscenter ermöglicht es Ihnen zu verwalten, welche Nutzer:innen Newsletter von Abo-Gruppen erhalten. Sie finden es im Dashboard unter **Abo-Gruppen**. Jede von Ihnen erstellte Abo-Gruppe wird der Liste im Einstellungscenter hinzugefügt.
+Das E-Mail-Einstellungscenter ermöglicht es Ihnen zu verwalten, welche Nutzer:innen Newsletter von Abo-Gruppen erhalten. Sie finden es im Dashboard unter **Subscription Groups**. Jede von Ihnen erstellte Abo-Gruppe wird der Liste im Einstellungscenter hinzugefügt.
 
 Weitere Informationen zum Hinzufügen oder Anpassen eines Einstellungscenters finden Sie unter [Einstellungscenter]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
 
