@@ -12,6 +12,9 @@ guide_top_text: "AIモデルプロバイダーのテクノロジーパートナ�
 
 guide_featured_title: "利用可能なプロバイダー"
 guide_featured_list:
+  - name: "Amazon Bedrock"
+    link: /docs/partners/ai_model_providers/amazon_bedrock
+    image: /assets/img/braze_icons/cloud-01.svg
   - name: "Anthropic"
     link: /docs/partners/ai_model_providers/anthropic
     image: /assets/img/braze_icons/zap.svg

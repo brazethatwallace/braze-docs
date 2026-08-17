@@ -21,14 +21,14 @@ HTML-In-App-Nachrichten ermöglichen eine größere Kontrolle über das Erschein
 - Angepasste Schriftarten und Stile
 - Videos
 - Mehrere Bilder
-- Klickverhalten
+- On-Click-Verhalten
 - Interaktive Komponenten
 - Angepasste Animationen
 
-Angepasste HTML-Nachrichten können die Methoden der [JavaScript Bridge](#javascript-bridge) verwenden, um Ereignisse zu protokollieren, angepasste Attribute festzulegen, die Nachricht zu schließen und vieles mehr! Sehen Sie sich unser [GitHub-Repository](https://github.com/braze-inc/in-app-message-templates) an, das detaillierte Anleitungen zur Verwendung und Anpassung von HTML-In-App-Nachrichten für Ihre Anforderungen enthält, sowie eine Reihe von HTML5-In-App-Nachrichten-Templates, die Ihnen den Einstieg erleichtern.
+Angepasste HTML-Nachrichten können die Methoden der [JavaScript Bridge](#javascript-bridge) verwenden, um Ereignisse zu protokollieren, angepasste Attribute festzulegen, die Nachricht zu schließen und vieles mehr! Schauen Sie sich unser [GitHub-Repository](https://github.com/braze-inc/in-app-message-templates) an, das detaillierte Anleitungen zur Verwendung und Anpassung von HTML-In-App-Nachrichten für Ihre Anforderungen enthält, sowie eine Reihe von HTML5-In-App-Nachrichten-Templates, die Ihnen den Einstieg erleichtern.
 
 {% alert note %}
-Um HTML-In-App-Nachrichten über das Web-SDK zu aktivieren, müssen Sie die Initialisierungsoption `allowUserSuppliedJavascript` an Braze übergeben: zum Beispiel `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies geschieht aus Sicherheitsgründen, da HTML-In-App-Nachrichten JavaScript ausführen können, weshalb ein:e Website-Betreiber:in sie aktivieren muss.
+Um HTML-In-App-Nachrichten über das Web-SDK zu aktivieren, müssen Sie die Initialisierungsoption `allowUserSuppliedJavascript` an Braze übergeben: zum Beispiel `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies geschieht aus Sicherheitsgründen, da HTML-In-App-Nachrichten JavaScript ausführen können, weshalb ein:e Website-Administrator:in sie aktivieren muss.
 {% endalert %}
 
 ### Rendering-Umgebungen {#rendering-environments}
@@ -103,14 +103,14 @@ Zum Beispiel schließt `<a onclick="brazeBridge.closeMessage()" href="#">Schlie�
 
 ## HTML-Upload mit Vorschau {#html-upload-with-preview}
 
-Beim Erstellen angepasster HTML-In-App-Nachrichten können Sie Ihre interaktiven Inhalte direkt in Braze in der Vorschau anzeigen.
+Beim Erstellen von angepassten HTML-In-App-Nachrichten können Sie Ihre interaktiven Inhalte direkt in Braze in der Vorschau anzeigen.
 
-Das Nachrichtenvorschau-Panel des Editors zeigt eine realistische Vorschau, die das in Ihrer Nachricht enthaltene JavaScript rendert. Sie können Ihre angepassten Nachrichten im Vorschau-Panel in der Vorschau anzeigen und mit ihnen interagieren, indem Sie durch Seiten blättern, Formulare oder Umfragen absenden, JavaScript-Animationen ansehen und vieles mehr!
+Das Nachrichtenvorschau-Panel des Editors zeigt eine realistische Vorschau, die das in Ihrer Nachricht enthaltene JavaScript rendert. Sie können Ihre angepassten Nachrichten im Vorschau-Panel in der Vorschau anzeigen und mit ihnen interagieren, indem Sie durch Seiten blättern, Formulare oder Umfragen absenden, JavaScript-Animationen ansehen und mehr!
 
 ![Interaktion mit der HTML-Vorschau durch Wischen zwischen Seiten.]({% image_buster /assets/img/iam-beta-javascript-preview.gif %})
 
 {% alert tip %}
-Alle `brazeBridge`-JavaScript-Methoden, die Sie in Ihrem HTML verwenden, aktualisieren keine Nutzerprofile, während Sie die Vorschau im Dashboard anzeigen.
+Alle `brazeBridge`-JavaScript-Methoden, die Sie in Ihrem HTML verwenden, aktualisieren keine Nutzerprofile, während Sie im Dashboard eine Vorschau anzeigen.
 {% endalert %}
 
 ### Campaign erstellen {#instructions}
@@ -121,7 +121,7 @@ Beim Erstellen von In-App-Nachrichten mit angepasstem Code und HTML-Upload könn
 
 Die folgenden Dateitypen werden für den Upload unterstützt:
 
-| Dateityp           | Dateiendung                       |
+| Dateityp           | Dateierweiterung                  |
 | :----------------- | :-------------------------------- |
 | Schriftdateien     | `.ttf`, `.woff`, `.otf`, `.woff2` |
 | SVG-Bilder         | `.svg`                            |
@@ -138,25 +138,25 @@ Braze empfiehlt das Hochladen von Assets in die Medienbibliothek aus zwei Gründ
 
 Sie können neue oder vorhandene Assets zu Ihrer Campaign hinzufügen.
 
-Um neue Assets zu Ihrer Campaign hinzuzufügen, verwenden Sie den Drag-and-Drop-Bereich zum Hochladen einer Datei. Assets, die in diesem Bereich hinzugefügt werden, werden auch automatisch zur Medienbibliothek hinzugefügt. Um Assets hinzuzufügen, die Sie bereits in die Medienbibliothek hochgeladen haben, wählen Sie **Add from Media Library**.
+Um neue Assets zu Ihrer Campaign hinzuzufügen, verwenden Sie den Drag-and-Drop-Bereich zum Hochladen einer Datei. Assets, die in diesem Bereich hinzugefügt werden, werden auch automatisch zur Medienbibliothek hinzugefügt. Um Assets hinzuzufügen, die Sie bereits in die Medienbibliothek hochgeladen haben, wählen Sie **Aus Medienbibliothek hinzufügen**.
 
-Nachdem Ihre Assets hinzugefügt wurden, erscheinen sie im Bereich **Assets for this campaign**.
+Nachdem Ihre Assets hinzugefügt wurden, erscheinen sie im Bereich **Assets für diese Campaign**.
 
 Wenn der Dateiname eines Assets mit dem eines lokalen HTML-Assets übereinstimmt, wird es automatisch ersetzt (zum Beispiel wird `cat.png` hochgeladen und `<img src="cat.png" />` existiert).
 
-Andernfalls fahren Sie mit der Maus über ein Asset in der Liste und wählen Sie <i class="fas fa-copy" aria-label="Kopieren"></i> **Copy**, um die URL der Datei in Ihre Zwischenablage zu kopieren. Fügen Sie dann die kopierte Asset-URL in Ihr HTML ein, wie Sie es normalerweise bei der Referenzierung eines Remote-Assets tun würden.
+Andernfalls fahren Sie mit der Maus über ein Asset in der Liste und wählen Sie <i class="fas fa-copy"></i> **Kopieren**, um die URL der Datei in Ihre Zwischenablage zu kopieren. Fügen Sie dann die kopierte Asset-URL in Ihr HTML ein, wie Sie es normalerweise beim Referenzieren eines Remote-Assets tun würden.
 
 ### HTML-Editor {#html-editor}
 
-Änderungen, die Sie im HTML vornehmen, werden automatisch im Vorschau-Panel gerendert, während Sie tippen. Alle [`brazeBridge`-JavaScript](#bridge)-Methoden, die Sie in Ihrem HTML verwenden, aktualisieren keine Nutzerprofile, während Sie die Vorschau im Dashboard anzeigen.
+Änderungen, die Sie im HTML vornehmen, werden automatisch im Vorschau-Panel gerendert, während Sie tippen. Alle [`brazeBridge`-JavaScript](#bridge)-Methoden, die Sie in Ihrem HTML verwenden, aktualisieren keine Nutzerprofile, während Sie im Dashboard eine Vorschau anzeigen.
 
 {% alert tip %}
-Sie können <i class="fa-solid fa-magnifying-glass" aria-label="Suchen"></i> **Search** im HTML-Editor auswählen, um in Ihrem Code zu suchen!
+Sie können <i class="fa-solid fa-magnifying-glass" aria-label="Suchen"></i> **Suchen** im HTML-Editor auswählen, um in Ihrem Code zu suchen!
 {% endalert %}
 
 ### Button-Tracking {#button-tracking-improvements}
 
-Sie können die Performance innerhalb Ihrer In-App-Nachricht mit angepasstem Code mithilfe der JavaScript-Methode [`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types) verfolgen. Damit können Sie programmatisch „Button 1“, „Button 2“ und „Body-Klicks“ mit `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` bzw. `brazeBridge.logClick()` tracken.
+Sie können die Performance innerhalb Ihrer In-App-Nachricht mit angepasstem Code mithilfe der JavaScript-Methode [`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types) verfolgen. Damit können Sie „Button 1“, „Button 2“ und „Body-Klicks“ programmatisch mit `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` bzw. `brazeBridge.logClick()` tracken.
 
 | Klicks     | Methode                      |
 | ---------- | ---------------------------- |
@@ -176,16 +176,29 @@ Verwenden Sie [`brazeBridge.logClick(button_id)`](#button-tracking-improvements)
 
 #### Button-Klicks öffnen den Link nicht {#button-clicks-do-not-open-the-link}
 
-Wenn ein Button in Ihrer angepassten HTML-In-App-Nachricht beim Klicken nicht lädt, überprüfen Sie, ob der Link eine gültige URL oder ein unterstütztes Deeplink-Schema verwendet. Fehlerhafte URLs oder nicht unterstützte angepasste Schemata können verhindern, dass die Klick-Aktion abgeschlossen wird.
+Wenn ein Button in Ihrer angepassten HTML-In-App-Nachricht beim Klicken nicht lädt, überprüfen Sie, ob der Link eine gültige URL oder ein unterstütztes Deeplink-Schema verwendet. Fehlerhafte URLs oder nicht unterstützte angepasste Schemata können verhindern, dass die Klickaktion abgeschlossen wird.
 
 #### Body-Klicks beim Schließen der Nachricht {#body-clicks-when-closing-the-message}
 
 Der Aufruf von `brazeBridge.closeMessage()` schließt die Nachricht, protokolliert aber allein keine Analytics. Um einen Body-Klick zu protokollieren, wenn Nutzer:innen die Nachricht schließen, rufen Sie `brazeBridge.logClick()` vor `brazeBridge.closeMessage()` auf, damit das Klick-Logging plattformübergreifend konsistent bleibt.
 
+#### Angepasstes HTML wird auf Android nicht gerendert (Windows-ZIP-Dateien) {#custom-html-not-rendering-on-android-windows-zip-files}
+
+Wenn Ihre angepasste HTML-In-App-Nachricht in der Vorschau gerendert wird, aber auf Android-Geräten nicht angezeigt wird, überprüfen Sie, wie Ihre HTML- und Asset-Dateien gepackt wurden. Einige Windows-ZIP-Dienstprogramme fügen Verzeichniseinträge (Ordnerpfade) innerhalb des Archivs hinzu, anstatt Dateien auf der Stammebene zu platzieren.
+
+Android kann möglicherweise keine Assets laden, die mit relativen Pfaden referenziert werden, wenn die ZIP-Datei verschachtelte Verzeichniseinträge enthält. Um dies zu beheben:
+
+1. Extrahieren Sie Ihre HTML-, CSS-, JavaScript- und Bilddateien in einen einzelnen Ordner.
+2. Wählen Sie beim Erstellen des ZIP-Archivs alle Dateien aus (nicht den übergeordneten Ordner).
+3. Bestätigen Sie, dass die Pfade in Ihrem HTML auf Dateien im ZIP-Stammverzeichnis verweisen (zum Beispiel `style.css`, nicht `assets/style.css`), oder passen Sie die Pfade an die flache Struktur an.
+4. Laden Sie die ZIP-Datei erneut hoch und senden Sie eine Testnachricht an ein Android-Gerät.
+
+Alternativ können Sie Assets über die [Medienbibliothek](#asset-files) hochladen, anstatt sie in einer ZIP-Datei zu bündeln.
+
 ### Nicht abwärtskompatible Änderungen {#backward-incompatible-changes}
 
-1. Der `braze://close`-Deeplink, der zuvor in mobilen Apps unterstützt wurde, wurde zugunsten der JavaScript-Methode `brazeBridge.closeMessage()` entfernt. Dies ermöglicht plattformübergreifende HTML-Nachrichten, da das Internet keine Deeplinks unterstützt.
-2. Automatisches Klick-Tracking, das `?abButtonId=0` für Button-IDs verwendete, und „Body-Klick“-Tracking bei Schließen-Buttons wurden entfernt. Die folgenden Codebeispiele zeigen, wie Sie Ihr HTML ändern, um unsere neuen Klick-Tracking-JavaScript-Methoden zu verwenden:
+1. Der Deeplink `braze://close`, der zuvor in mobilen Apps unterstützt wurde, wurde zugunsten der JavaScript-Methode `brazeBridge.closeMessage()` entfernt. Dies ermöglicht plattformübergreifende HTML-Nachrichten, da das Internet keine Deeplinks unterstützt.
+2. Automatisches Klick-Tracking, das `?abButtonId=0` für Button-IDs verwendete, und „Body-Klick“-Tracking auf Schließen-Buttons wurden entfernt. Die folgenden Codebeispiele zeigen, wie Sie Ihr HTML ändern, um unsere neuen Klick-Tracking-JavaScript-Methoden zu verwenden:
 
    | Vorher | Nachher |
    |:-------- |:------------|

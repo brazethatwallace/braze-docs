@@ -9,13 +9,13 @@ page_order: 2
 
 > 랜딩 페이지 Liquid 태그를 메시지에 추가하여 랜딩 페이지를 통해 폼을 제출하는 사용자를 추적하는 방법을 알아보세요. 이 Liquid 태그는 이메일, SMS, 인앱 메시지 등 모든 Braze 메시징 채널에서 지원됩니다. 추적 데이터에 대해 자세히 알아보려면 [랜딩 페이지 추적 데이터 정보]({{site.baseurl}}/user_guide/messaging/landing_pages/about_tracking_data)를 참조하세요.
 
-## 필수 조건 {#prerequisites}
+## 사전 요구 사항 {#prerequisites}
 
-시작하기 전에 [랜딩 페이지]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)와 [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)을 생성해야 합니다.
+시작하기 전에 [랜딩 페이지]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)와 [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)을 만들어야 합니다.
 
 ## 작동 방식 {#how-it-works}
 
-Braze에서 단일 또는 멀티채널 메시지에 {% raw %}`{% landing_page_url %}`{% endraw %} Liquid 태그를 추가할 수 있습니다. 사용자가 해당 랜딩 페이지를 방문하여 폼을 제출하면, Braze는 해당 사용자에 대해 새 프로필을 생성하는 대신 자동으로 해당 데이터를 기존 프로필에 연결합니다. 다음 예시에서는 랜딩 페이지 Liquid 태그를 사용하여 고객을 설문조사에 연결합니다:
+Braze의 단일 또는 멀티채널 메시지에 {% raw %}`{% landing_page_url %}`{% endraw %} Liquid 태그를 추가할 수 있습니다. 사용자가 해당 랜딩 페이지를 방문하여 양식을 제출하면, Braze는 새 프로필을 생성하는 대신 해당 데이터를 기존 프로필에 자동으로 연결합니다. 다음 예시에서는 랜딩 페이지 Liquid 태그를 사용하여 고객을 설문조사로 연결합니다:
 
 {% raw %}
 ```html
@@ -24,7 +24,7 @@ Braze에서 단일 또는 멀티채널 메시지에 {% raw %}`{% landing_page_ur
 {% endraw %}
 
 {% alert tip %}
-외부 채널에 페이지 URL을 삽입하여 리드 생성에 랜딩 페이지를 활용할 수도 있습니다. 랜딩 페이지를 생성한 후 **랜딩 페이지 세부 정보**로 이동하여 랜딩 페이지의 고유 URL을 확인하세요.
+외부 채널에 페이지 URL을 삽입하여 랜딩 페이지를 리드 생성에 활용할 수도 있습니다. 랜딩 페이지를 생성한 후 **Landing Page Details**로 이동하여 랜딩 페이지의 고유 URL을 확인하세요.
 {% endalert %}
 
 ## 랜딩 페이지 Liquid 태그 사용하기 {#using-landing-page-liquid-tags}
@@ -74,3 +74,7 @@ Liquid 스니펫을 메시지에 삽입한 다음 나머지 메시지를 완성�
 {% endraw %}
 
 준비가 되면 메시지를 발송하여 랜딩 페이지를 통해 사용자 추적을 시작할 수 있습니다.
+
+### Content Cards에서 랜딩 페이지 URL 사용하기 {#use-landing-page-urls-in-content-cards}
+
+Content Cards에는 Liquid가 렌더링된 후 전체 카드에 적용되는 [2&nbsp;KB 페이로드 제한]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#size-limitations-for-content-cards)이 있습니다. {% raw %}`{% landing_page_url %}`{% endraw %} Liquid 태그를 포함하면, Braze는 랜딩 페이지 추적 토큰을 토큰의 전체 길이가 아닌 고정 32&nbsp;바이트로 해당 제한에 포함시킵니다. 나머지 URL과 카드의 제목, 본문 및 기타 필드는 평소와 같이 제한에 포함됩니다.

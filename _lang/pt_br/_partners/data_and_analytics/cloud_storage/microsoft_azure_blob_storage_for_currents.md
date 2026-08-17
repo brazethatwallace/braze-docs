@@ -42,7 +42,7 @@ No Microsoft Azure, navegue até **Storage Accounts** na barra lateral e clique 
 
 Mesmo que você já tenha uma conta de armazenamento, recomendamos criar uma nova especificamente para os dados da Braze.
 
-![A página de criação de conta de armazenamento do Microsoft Azure na guia Basics, com o campo de nome da conta de armazenamento em destaque.]({% image_buster /assets/img/azure-currents-step-1.png %})
+![A página de criação de conta de armazenamento do Microsoft Azure na guia Basics, com o campo de nome da conta de armazenamento destacado.]({% image_buster /assets/img/azure-currents-step-1.png %})
 
 ### Etapa 2: Obter a string de conexão {#step-2-get-the-connection-string}
 
@@ -51,10 +51,10 @@ Depois que a conta de armazenamento for implantada, navegue até o menu **Access
 A Microsoft fornece duas chaves de acesso para manter conexões usando uma chave enquanto regenera a outra. Você só precisa da string de conexão de uma delas.
 
 {% alert note %}
-A Braze usa a string de conexão desse menu, não a chave.
+A Braze usa a string de conexão deste menu, não a chave.
 {% endalert %}
 
-![A página Access keys de uma conta de armazenamento do Azure, com o campo de string de conexão em key1 em destaque.]({% image_buster /assets/img/azure-currents-step-2.png %})
+![A página Access keys de uma conta de armazenamento do Azure, com o campo de string de conexão em key1 destacado.]({% image_buster /assets/img/azure-currents-step-2.png %})
 
 ### Etapa 3: Criar um contêiner de serviço de blob {#step-3-create-a-blob-service-container}
 
@@ -68,9 +68,11 @@ Forneça um nome para o contêiner de serviço de blob. As outras configuraçõe
 
 Na Braze, navegue até **Currents > + Create Current > Azure Blob Data Export** e forneça o nome da integração e o e-mail de contato.
 
-Em seguida, forneça sua string de conexão, o nome do contêiner e o prefixo de BlobStorage (opcional).
+{% multi_lang_include currents/contact_email_notifications.md %}
 
-![A página de Currents do Microsoft Azure Blob Storage na Braze. Nesta página, existem campos para nome da integração, e-mail de contato, string de conexão, nome do contêiner e prefixo.]({% image_buster /assets/img/maz.png %})
+Em seguida, forneça sua string de conexão, o nome do contêiner e o prefixo do BlobStorage (opcional).
+
+![A página do Currents para armazenamento de blob do Microsoft Azure na Braze. Nesta página, existem campos para nome da integração, e-mail de contato, string de conexão, nome do contêiner e prefixo.]({% image_buster /assets/img/maz.png %})
 
 Por fim, role até o final da página e selecione quais eventos de engajamento com mensagem ou eventos de comportamento do cliente você deseja exportar. Quando concluído, inicie seu Current.
 
@@ -78,12 +80,12 @@ Por fim, role até o final da página e selecione quais eventos de engajamento c
 
 A seguir, são configuradas as credenciais usadas para:
 1. Exportações de Segment pela API
-2. Exportações CSV (exportação de dados de usuários de Campaign, Segment e Canvas pelo dashboard)
+2. Exportações em CSV (exportação de dados de usuários de Campaign, Segment e Canvas pelo dashboard)
 3. Relatórios de engajamento
 
 Na Braze, navegue até **Partner Integrations** > **Technology Partners** > **Microsoft Azure** e forneça sua string de conexão, o nome do contêiner de armazenamento do Azure e o prefixo de armazenamento do Azure.
 
-Em seguida, verifique se a caixa **Make this the default data export destination** está marcada para garantir que seus dados exportados sejam enviados para o Azure. Quando concluído, salve sua integração.
+Em seguida, certifique-se de que a caixa **Make this the default data export destination** esteja marcada. Isso garantirá que seus dados exportados sejam enviados para o Azure. Quando concluído, salve sua integração.
 
 ![A página de exportação de dados do Microsoft Azure na Braze. Nesta página, existem campos para string de conexão, nome do contêiner e prefixo.]({% image_buster /assets/img/azure_data_export.png %})
 
@@ -130,7 +132,7 @@ Isso cria dois arquivos:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Arquivos de certificado" }
 
 {% alert important %}
-A chave privada deve estar sem criptografia — ela não pode ser protegida por uma senha. Faça upload apenas do certificado público no Azure; nunca faça upload da sua chave privada.
+A chave privada deve estar sem criptografia — ela não pode ser protegida por uma frase secreta. Faça upload apenas do certificado público no Azure; nunca faça upload da sua chave privada.
 {% endalert %}
 
 **Já tem um certificado?** Se você já possui um certificado como arquivo `.pfx` — por exemplo, do Azure Key Vault, da sua autoridade certificadora ou do [método PowerShell da Microsoft](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-self-signed-certificate) — converta-o para o formato que a Braze exige em vez de gerar um novo:
@@ -193,7 +195,11 @@ cat cert.pem key.pem > braze-currents.pem
 
 Se você converteu um `.pfx` existente na [Etapa 2](#cert-sp-2), você já tem esse arquivo `braze-currents.pem`.
 
-Na Braze, acesse **Currents** > **+ Create Current** > **Azure Blob Data Export** e forneça o nome da sua integração e o e-mail de contato. Em **Credentials**, selecione **Certificate Service Principal** e forneça o seguinte:
+Na Braze, acesse **Currents** > **+ Create Current** > **Azure Blob Data Export** e forneça o nome da sua integração e o e-mail de contato.
+
+{% multi_lang_include currents/contact_email_notifications.md %}
+
+Em **Credentials**, selecione **Certificate Service Principal** e forneça o seguinte:
 
 | Campo | Valor |
 | ----- | ----- |
@@ -238,4 +244,4 @@ Usuários que integraram uma solução de armazenamento de dados em nuvem e est�
 
 A Braze não publica uma lista fixa de IPs permitidos para Currents ou exportações do dashboard para o armazenamento Azure Blob. A Braze grava no seu contêiner usando as credenciais e o nome do contêiner que você fornece, e o Azure controla o acesso à rede por meio das configurações da sua conta de armazenamento (por exemplo, regras de firewall na conta de armazenamento ou endpoints privados).
 
-Se sua equipe de segurança exigir restrições baseadas em IP, use os recursos de rede do Azure na sua conta de armazenamento em vez de uma lista de IPs da Braze. Para as etapas de configuração, consulte a [documentação da Microsoft sobre como proteger o Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security).
+Se sua equipe de segurança exige restrições baseadas em IP, use os recursos de rede do Azure na sua conta de armazenamento em vez de uma lista de IPs da Braze. Para ver as etapas de configuração, consulte a [documentação da Microsoft sobre como proteger o Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security).

@@ -9,7 +9,7 @@ Frequency-Capping gilt nicht für Content Cards.
 {% if include.alert == 'Custom Attributes time attribute' %}
 
 {% alert note %}
-Ein Datums-String wie „12-1-2021“ oder „12/1/2021“ wird in ein Datetime-Objekt umgewandelt und als [Zeitattribut]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time) behandelt.
+Ein Datums-String wie „12-1-2021“ oder „12/1/2021“ wird in ein Datetime-Objekt umgewandelt und als [Zeitattribut]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#time) behandelt.
 {% endalert %}
 
 {% endif %}
@@ -41,7 +41,7 @@ Alle Attribute stammen aus der Braze REST API.
 {% if include.alert == 'subscription group limit' %}
 
 {% alert note %}
-Sie können bis zu 350 Abo-Gruppen pro Workspace hinzufügen.
+Sie können bis zu 450 Abo-Gruppen pro Workspace hinzufügen.
 {% endalert %}
 
 {% endif %}

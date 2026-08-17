@@ -9,7 +9,7 @@
 {% if include.alert == 'Custom Attributes time attribute' %}
 
 {% alert note %}
-「12-1-2021」や「12/1/2021」などの日付文字列は、日時オブジェクトに変換され、[時間属性]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time)として扱われます。
+「12-1-2021」や「12/1/2021」などの日付文字列は、日時オブジェクトに変換され、[時間属性]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#time)として扱われます。
 {% endalert %}
 
 {% endif %}
@@ -41,7 +41,7 @@ Brazeは、ユーザーが初めてアプリを使用するまでプロファイ
 {% if include.alert == 'subscription group limit' %}
 
 {% alert note %}
-1つのワークスペースにつき、最大350のサブスクリプショングループを追加できます。
+1つのワークスペースにつき、最大450の購読グループを追加できます。
 {% endalert %}
 
 {% endif %}
@@ -51,9 +51,9 @@ Brazeは、ユーザーが初めてアプリを使用するまでプロファイ
 {% alert note %}
 GIFはAndroidプッシュ通知ではサポートされていません。これはAndroidプラットフォームの制限であり、Brazeの制限ではありません。
 <br><br>
-- Androidのアプリ内メッセージおよびContent Cardsでは、[Glide](https://bumptech.github.io/glide/)や[Fresco](https://frescolib.org/)などのサードパーティ画像ライブラリーを統合することでGIFをサポートできます。
+- Androidのアプリ内メッセージおよびContent Cardsでは、[Glide](https://bumptech.github.io/glide/)や[Fresco](https://frescolib.org/)などのサードパーティ画像ライブラリを統合することでGIFをサポートできます。
 <br>
-- iOSでは、プッシュ通知がGIFをサポートしています。アプリ内メッセージおよびContent Cardsにはカスタムの GIF 画像プロバイダーが必要です。
+- iOSでは、プッシュ通知がGIFをサポートしています。アプリ内メッセージおよびContent CardsにはカスタムのGIF画像プロバイダーが必要です。
 {% endalert %}
 
 {% endif %}

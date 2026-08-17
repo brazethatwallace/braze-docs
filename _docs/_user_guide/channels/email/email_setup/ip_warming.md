@@ -11,7 +11,7 @@ local_redirect:
 
 # IP warming
 
-> IP warming is the practice of getting email inbox providers used to receiving messaging from your dedicated IP addresses. It's an extremely important part of email sending with any email service provider (ESP) and standard practice at Braze to confirm your messages reach their destination inboxes at a consistently high rate.
+> IP warming is the practice of getting email inbox providers used to receiving messaging from your dedicated IP addresses. It's an extremely important part of email sending with any email service provider (ESP) and standard practice at Braze to confirm your messages reach their destination inboxes at a consistently high rate. If you use [automated IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming), see the [Automated IP warming FAQ]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/faq).
 
 IP warming is designed to help you establish a positive reputation with internet service providers (ISPs). Every time a new IP address is used to send an email, ISPs programmatically monitor those emails to verify that it isn't being used to send spam to users. Think of your IP and domain reputation like a credit score—ISPs use this reputation to determine whether your mail lands in the inbox or the spam folder. Much like a credit score, it takes time to build a positive reputation and even longer to rebuild a poor one.
 
@@ -35,7 +35,7 @@ Before you start IP warming:
 
 ISPs throttle email delivery when suspicion of spam arises so that they can protect their users. For example, if you send to 100,000 users, the ISP might deliver the email only to 5,000 of those users over the first hour. Then, the ISP monitors measures of engagement such as open rates, click rates, unsubscribes, and spam reports. So, if a significant number of spam reports occur, they might choose to relegate the remainder of that send to the spam folder rather than delivering it to the user's inbox. 
 
-If engagement is moderate, they may continue to throttle your email to collect more engagement data to determine whether or not the email is spam with more certainty. If the email has very high engagement metrics, they may cease to throttle this email entirely. They use that data to create an email reputation that will eventually determine whether or not your emails are filtered to spam automatically.
+If engagement is moderate, they may continue to throttle your email to collect more engagement data to determine whether or not the email is spam with more certainty. If the email has very high engagement metrics, they may cease to throttle this email entirely. They use that data to create an email reputation that determines whether your emails are filtered to spam automatically.
 
 If your domain or IP is blocked by an ISP, the message logs in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) will contain information about what websites to visit to appeal to these ISPs and to get off those lists.
 

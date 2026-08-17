@@ -27,6 +27,8 @@ description: "BrazeAI Operatorのプロンプト例を、達成したい目的�
 
 {% include copy_block.html content="Summarize this キャンペーン Digest in 5 bullets: biggest wins, biggest issues, and what changed versus the prior period." available="キャンペーン" %}
 
+{% include copy_block.html content="Build me a report which shows my workspace SMS engagement over the last 30 days." available="Report Builder" %}
+
 {% endsdktab %}
 {% sdktab Strategy and optimization %}
 
