@@ -34,11 +34,11 @@ In the Braze dashboard, navigate to **Partner Integrations** > **Technology Part
 
 ## Braze events
 
-After the connection is integrated, Braze will send the following events to Datadog:
+After the connection is integrated, Braze sends the following events to Datadog:
 
 - `braze.messaging.sent` - The count of sends
 
-Each of these events will have metadata in the form of Datadog tags to give you information such as:
+Each of these events has metadata in the form of Datadog tags to give you information such as:
 
 - `app_group_id`
 - `app_group_name`
@@ -64,7 +64,7 @@ If you connected Braze to Datadog but don't see `braze.messaging.sent` in the Me
 
 A site mismatch can prevent metrics from appearing in the workspace where you search. In the Braze dashboard, go to **Partner Integrations** > **Technology Partners** > **Datadog** and check that the site matches the subdomain in your Datadog account URL.
 
-The **Datadog site** field is locked after you connect. To change it, disconnect the integration, then reconnect with the correct site.
+The **Datadog site** field is locked after you connect. To change it, disconnect the integration and reconnect with the correct site.
 
 After you correct the site, wait for new send activity before metrics appear. Historical data isn't backfilled.
 
