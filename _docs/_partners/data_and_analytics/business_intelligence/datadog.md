@@ -59,5 +59,5 @@ A site mismatch can prevent metrics from appearing in the workspace where you se
 
 The **Datadog site** field is locked after you connect. To change it, disconnect the integration, then reconnect with the correct site.
 
-After you correct the site, allow time for new send activity before you expect metrics to display. Historical gaps don't backfill.
+After you correct the site, wait for new send activity before metrics appear. Historical data gaps aren't filled retroactively.
 
