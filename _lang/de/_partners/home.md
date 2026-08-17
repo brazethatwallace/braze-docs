@@ -27,6 +27,7 @@ Willkommen bei der Dokumentation der Braze-Technologie-Partner (Alloys). Durchsu
 - [Airbyte]({{site.baseurl}}/partners/data_and_analytics/workflow_automation/airbyte)
 - [Algolia]({{site.baseurl}}/partners/ecommerce/product_search_recommendations/algolia)
 - [Alpaco]({{site.baseurl}}/partners/message_orchestration/templates/alpaco)
+- [Amazon Bedrock]({{site.baseurl}}/partners/ai_model_providers/amazon_bedrock)
 - [Amazon Personalize]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/amazon_personalize)
 - [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)
 - [Amperity]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amperity)
@@ -405,6 +406,6 @@ Wenn die Integration eine Einrichtung auf Braze-Seite erfordert, melden Sie sich
 Vollständig vom Partner verwaltete Integrationen sind hier möglicherweise nicht aufgeführt. Lesen Sie die partnerspezifische Dokumentation, um die Zuständigkeit für die Integration und die Konfigurationsschritte zu überprüfen.
 {% endalert %}
 
-Wenn Sie in Braze **Ungültige Zugangsdaten** für einen Partner sehen, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Technologie-Partnerseite und verbinden Sie sie erneut. Bestätigen Sie API-Schlüssel, OAuth-Token und Berechtigungen auf der Partnerseite.
+Wenn in Braze **Ungültige Zugangsdaten** für einen Partner angezeigt werden, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Technologie-Partnerseite und verbinden Sie sie erneut. Bestätigen Sie API-Schlüssel, OAuth-Token und Berechtigungen auf der Partnerseite.
 
-Einige externe Dashboards (z. B. Tools für Zustellbarkeit oder Posteingangs-Monitoring) können einen anderen Verbindungs- oder Verifizierungsstatus anzeigen als die Braze-Technologie-Partnerseite. Verwenden Sie die Partner-Kachel in Braze für den Verbindungsstatus, auf den sich Braze für Synchronisierung und Versand stützt.
+Einige externe Dashboards (z. B. Tools zur Zustellbarkeits- oder Posteingangsüberwachung) können einen anderen Verbindungs- oder Verifizierungsstatus anzeigen als die Braze-Technologie-Partnerseite. Verwenden Sie die Partner-Kachel in Braze für den Verbindungsstatus, auf den sich Braze für Synchronisierung und Versand stützt.

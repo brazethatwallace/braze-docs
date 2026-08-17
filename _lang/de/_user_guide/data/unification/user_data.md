@@ -40,7 +40,7 @@ guide_featured_list:
 <br>
 
 {% alert important %}
-Braze sperrt Nutzer:innen („Dummy-Nutzer:innen“) mit mehr als 5 Millionen Sitzungen und nimmt deren SDK-Events nicht mehr auf, da diese in der Regel das Ergebnis einer fehlerhaften Integration sind. Wenn Sie feststellen, dass dies bei einer legitimen Nutzer:in passiert ist, kontaktieren Sie Ihren Braze Account Manager.
+Braze sperrt Nutzerprofile („Dummy-Nutzer:innen“) mit mehr als 5.000.000 Sitzungen, mehr als 20.000 verschiedenen angepassten Event-Namen oder mehr als 20.000 verschiedenen Produktnamen bei Käufen, da diese in der Regel das Ergebnis einer fehlerhaften Integration sind. Nachdem ein Profil gesperrt wurde, nimmt Braze keine eingehenden Daten mehr für dieses Profil auf – weder über die SDKs noch über die REST API. Wenn Sie feststellen, dass dies bei einer legitimen Nutzer:in passiert ist, kontaktieren Sie Ihren Braze Account Manager.
 {% endalert %}
 
 <br>

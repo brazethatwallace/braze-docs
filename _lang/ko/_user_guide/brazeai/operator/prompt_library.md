@@ -27,6 +27,8 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 
 {% include copy_block.html content="Summarize this Campaign Digest in 5 bullets: biggest wins, biggest issues, and what changed versus the prior period." available="Campaigns" %}
 
+{% include copy_block.html content="Build me a report which shows my workspace SMS engagement over the last 30 days." available="Report Builder" %}
+
 {% endsdktab %}
 {% sdktab 전략 및 최적화 %}
 
@@ -42,9 +44,9 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 
 {% include copy_block.html content="How can we use the [your segment name] segment to build a re-engagement journey and reduce churn?" available="Segments" %}
 
-{% include copy_block.html content="How should we structure frequency-capping extensions (email/SMS/48h) to reduce over-messaging without hurting conversions?" available="세그먼트 확장" %}
+{% include copy_block.html content="How should we structure frequency-capping extensions (email/SMS/48h) to reduce over-messaging without hurting conversions?" available="Segment Extensions" %}
 
-{% include copy_block.html content="What are 3 high-impact reports we should create here to monitor weekly campaign and Canvas health and catch issues early?" available="보고서 빌더" %}
+{% include copy_block.html content="What are 3 high-impact reports we should create here to monitor weekly campaign and Canvas health and catch issues early?" available="Report Builder" %}
 
 {% endsdktab %}
 {% sdktab 메시징 성과 %}
@@ -59,7 +61,7 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 
 {% include copy_block.html content="What channels performed best for campaigns targeting 'C&L Newsletter Clickers' versus 'Openers but not Clickers' in the last 30 days?" available="Segments" %}
 
-{% include copy_block.html content="How much Attributed Revenue and Conversions did campaigns generate for users excluded by our caps in the last 30 days (7-day window)?" available="세그먼트 확장" %}
+{% include copy_block.html content="How much Attributed Revenue and Conversions did campaigns generate for users excluded by our caps in the last 30 days (7-day window)?" available="Segment Extensions" %}
 
 {% include copy_block.html content="Compare our email Open Rate and Click-Through Rate versus industry benchmarks for the last 30 days." available="Email Performance" %}
 
@@ -149,11 +151,11 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 
 {% include copy_block.html content="Show me the 5 idle active campaigns and recommend which to pause, refresh, or archive." available="Campaigns" %}
 
-{% include copy_block.html content="Which Segment Extensions are active but haven't been processed recently, and are they safe to archive for free slots?" available="세그먼트 확장" %}
+{% include copy_block.html content="Which Segment Extensions are active but haven't been processed recently, and are they safe to archive for free slots?" available="Segment Extensions" %}
 
-{% include copy_block.html content="How can we reduce Query Builder credit usage without losing reporting coverage? Suggest 3 tactics." available="쿼리 빌더" %}
+{% include copy_block.html content="How can we reduce Query Builder credit usage without losing reporting coverage? Suggest 3 tactics." available="Query Builder" %}
 
-{% include copy_block.html content="Which saved queries haven't been run in 90 days—can you help me identify candidates to archive?" available="쿼리 빌더" %}
+{% include copy_block.html content="Which saved queries haven't been run in 90 days—can you help me identify candidates to archive?" available="Query Builder" %}
 
 {% endsdktab %}
 {% endsdktabs %}

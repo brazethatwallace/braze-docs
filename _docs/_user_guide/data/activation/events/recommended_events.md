@@ -1208,7 +1208,7 @@ The event is processed as an eCommerce recommended event with all associated pos
 After sending an event, you can confirm it was accepted and processed correctly using any of the following:
 
 - [Event User Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log): Open the user's profile in the dashboard and review their activity. Recommended events appear with their full property payload, so you can confirm the event landed and the values match what you sent.  
-- [Custom events report]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report): Go to **Analytics** > **Custom Events** to see aggregate counts of each recommended event over time. This is useful for confirming production traffic is flowing as expected when your integration is live.  
+- [Custom events report]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report): Go to **Analytics** > **Custom Events Report** to see aggregate counts of each recommended event over time. This is useful for confirming production traffic is flowing as expected when your integration is live.
 - [Test users]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups?utm_source=operator_user&utm_medium=dashboard#adding-test-users): Mark a user in your development workspace as a test user, then trigger events from your integration against that user. Test users are flagged in the dashboard, making it easy to isolate and inspect end-to-end behavior.
 
 ### When validation fails

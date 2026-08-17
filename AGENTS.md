@@ -41,6 +41,10 @@ Inside `SKILL.md` files and agent rules, cross-reference other skills with `braz
 
 Do not include customer names, company names, email addresses, or other PII from support tickets or Slack in public output.
 
+## Local credentials (never commit)
+
+`.jira.env` and `.phrase-tms.env` are **local-only** (listed in [`.gitignore`](.gitignore)). Copy [`.jira.env.example`](.jira.env.example) to `.jira.env` for SF KB / Jira scripts (`source scripts/jira_env.sh`). Never stage, commit, or push these files on any branch. The pre-commit hook blocks them if installed (`bash scripts/install_hooks.sh`).
+
 ## Support analyzer (CI)
 
 Twice-weekly GitHub Actions exports Looker cases, publishes a digest, and may open Phase 2 draft PRs via [`.github/support_analyzer_phase2_rules.yml`](.github/support_analyzer_phase2_rules.yml). CSV on branch `support-analyzer-data`: `_data/support_cases_latest.csv`. Manual triage uses the **support-analyzer** skill; CI does not run skills directly.

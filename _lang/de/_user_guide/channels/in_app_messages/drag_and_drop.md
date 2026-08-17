@@ -26,7 +26,7 @@ Sie sind sich nicht sicher, ob Ihre In-App-Nachricht über eine Campaign oder ei
 
 ### SDK-Anforderungen {#sdk-requirements}
 
-| Mindest-SDK-Version                                                          | Empfohlene SDK-Version                                                        |
+| Mindest-SDK-Version                                                          | Empfohlene SDK-Version                                                       |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SDK-Anforderungen" }
@@ -56,7 +56,7 @@ Im Folgenden sind die einzelnen Mindest-SDK-Anforderungen für diese Features au
 - Für das Web-SDK muss die Initialisierungsoption [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) auf `true` gesetzt sein. Die Option `enableHtmlInAppMessages` ermöglicht ebenfalls die Funktion dieser Nachrichten, ist jedoch veraltet und sollte auf `allowUserSuppliedJavascript` aktualisiert werden.
 - Wenn Sie Google Tag Manager verwenden, müssen Sie in der GTM-Konfiguration „Allow HTML In-App Messages“ aktivieren.
 
-## Schritt 1: In-App-Nachricht erstellen {#step-1-create-an-in-app-message}
+## Schritt 1: Eine In-App-Nachricht erstellen {#step-1-create-an-in-app-message}
 
 Erstellen Sie eine neue In-App-Nachricht oder einen Canvas-Schritt und wählen Sie dann **Drag-and-Drop-Editor** als Bearbeitungsoberfläche aus.
 
@@ -70,7 +70,7 @@ Nachdem Sie den Drag-and-Drop-Editor als Bearbeitungsmethode ausgewählt haben, 
 
 Wählen Sie **Nachricht erstellen**, um mit der Gestaltung Ihrer In-App-Nachricht im Drag-and-Drop-Editor zu beginnen.
 
-![Der Bereich „Braze Templates“, in dem Sie ein einfaches Template, ein Hintergrundbild-Template, ein Telefonnummern-Erfassungs-Template oder ein leeres Template auswählen können.]({% image_buster /assets/img_archive/dnd_iam_select_template.png %})
+![Der Bereich „Braze Templates“, in dem Sie ein Basis-, Hintergrundbild-, Telefonnummernerfassungs- oder leeres Template auswählen können.]({% image_buster /assets/img_archive/dnd_iam_select_template.png %})
 
 Sie können auch über den Bereich **Templates** im Dashboard auf alle Templates zugreifen.
 
@@ -150,11 +150,11 @@ Es ist wichtig, Ihre In-App-Nachrichten immer zu testen, bevor Sie Ihre Campaign
 Um einen Test an Content-Test-Gruppen oder einzelne Nutzer:innen zu senden, muss Push auf Ihren Testgeräten aktiviert sein, bevor Sie den Test senden.
 {% endalert %}
 
-Sie können Nachrichten im Tab **Vorschau und Test** in der Vorschau anzeigen, als wären Sie eine Nutzer:in. Sie können eine:n bestimmte:n Nutzer:in, eine:n zufällige:n Nutzer:in auswählen oder eine:n benutzerdefinierte:n Nutzer:in erstellen:
+Sie können Nachrichten im Tab **Vorschau und Test** in der Vorschau anzeigen, als wären Sie selbst eine Nutzer:in. Sie können eine:n bestimmte:n Nutzer:in, eine:n zufällige:n Nutzer:in auswählen oder eine:n angepasste:n Nutzer:in erstellen:
 
 - **Zufällige:r Nutzer:in:** Braze wählt zufällig eine:n Nutzer:in aus der Datenbank aus und zeigt die In-App-Nachricht basierend auf deren Attributen oder Ereignisinformationen in der Vorschau an.
 - **Nutzer:in auswählen:** Sie können eine:n bestimmte:n Nutzer:in anhand der E-Mail-Adresse oder `external_id` auswählen. Die In-App-Nachricht wird basierend auf den Attributen und Ereignisinformationen dieser Nutzer:in in der Vorschau angezeigt.
-- **Benutzerdefinierte:r Nutzer:in:** Sie können eine:n Nutzer:in anpassen. Braze bietet Eingabefelder für alle verfügbaren Attribute und Ereignisse. Geben Sie alle Informationen ein, die Sie in der Vorschau-E-Mail sehen möchten.
+- **Angepasste:r Nutzer:in:** Sie können eine:n Nutzer:in anpassen. Braze bietet Eingabefelder für alle verfügbaren Attribute und Ereignisse. Geben Sie alle Informationen ein, die Sie in der Vorschau-E-Mail sehen möchten.
 
 ### Test-Checkliste {#test-checklist}
 
@@ -182,14 +182,35 @@ Ja, Sie können basierend auf Button-Klicks für bis zu zwei Buttons in Ihrer Na
 
 Sie können bestehende HTML-Nachrichten nicht direkt in den Editor übertragen, aber Sie können rohes HTML, CSS und JavaScript in einen **Custom code**-Block einfügen. Sie können **Custom code**-Blöcke verwenden, um Videos von Drittanbietern und erweitertes Liquid einzubetten, z. B. Connected-Content oder bedingte Anweisungen. Für `brazeBridge`-JavaScript-Methoden und Beispiele zum Klick-Tracking siehe [Benutzerdefinierte HTML-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html).
 
+### Warum kann die Composer-Ansicht des Drag-and-Drop-Editors anders aussehen als die endgültige Nachricht? {#why-might-the-drag-and-drop-editors-composer-view-look-different-from-the-final-message}
+
+Der Drag-and-Drop-Editor rendert Ihre Nachricht innerhalb eines Composers und wendet Vorschau-spezifische Stile und Standardwerte an, damit Sie das Layout erstellen und überprüfen können. Diese Darstellungen helfen Ihnen, Struktur und Platzhalterinhalte während der Bearbeitung zu sehen; sie sind nicht in der Nachricht enthalten, die Ihre Nutzer:innen erhalten.
+
+Häufige Beispiele für Editor-spezifisches Verhalten:
+
+- Der Editor umschließt **Custom code**-Blöcke mit einem `bz-html-code-block`-Container mit einer Standard-`min-height` von `40px`, damit leere oder kurze Blöcke während der Bearbeitung sichtbar bleiben
+- Bilder, die leer sind oder Liquid enthalten, zeigen im Editor einen Platzhalter an
+- Checkbox-Gruppen und Radio-Buttons, bei denen die erste Option vorausgewählt ist, damit Sie den aktiven Zustand in der Vorschau sehen können
+
+Wenn etwas nur im Editor anders aussieht, handelt es sich in der Regel um Vorschau-Verhalten. Überprüfen Sie bei der Fehlerbehebung der zugestellten Nachricht die Stile und das Markup in Ihren Nachrichtenblöcken – nicht den Editor-spezifischen Rahmen oder die Vorschau-Standardwerte.
+
 ### Wie kann ich eine Slideup-In-App-Nachricht erstellen? {#how-can-i-create-a-slideup-in-app-message}
 
-Derzeit ist der Editor auf modale und Vollbild-Nachrichten beschränkt. Sie können im Abschnitt **Message container** des Panels **Message styles** zwischen den Anzeigetypen wechseln.
+Derzeit ist der Editor auf modale und Vollbild-Nachrichten beschränkt. Sie können zwischen den Anzeigetypen im Abschnitt **Message container** des Panels **Message styles** wechseln.
 
 ### Kann ich meine In-App-Nachricht als Template speichern, nachdem ich sie in meiner Campaign oder meinem Canvas erstellt habe? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Ja. Für jede In-App-Nachricht, die Sie in einer zukünftigen Campaign oder einem Canvas-Schritt wiederverwenden möchten, können Sie sie als benutzerdefiniertes Template speichern, indem Sie den Button **Save as template** verwenden, der nach dem Verlassen des Editors verfügbar ist. Bevor Sie sie als Template speichern können, müssen Sie die Campaign zuerst starten ODER als Entwurf speichern.
+Ja. Für jede In-App-Nachricht, die Sie in einer zukünftigen Campaign oder einem Canvas-Schritt wiederverwenden möchten, können Sie sie als benutzerdefiniertes Template über den Button **Save as template** speichern, der nach dem Verlassen des Editors verfügbar ist. Bevor Sie sie als Template speichern können, müssen Sie die Campaign zuerst starten ODER als Entwurf speichern.
 
 ![Eine Vorschau einer In-App-Nachricht für eine Produkttour.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
 Sie können In-App-Nachrichten-Templates auch erstellen und speichern, indem Sie zu **Content** > **In-App Message** navigieren.
+
+### Warum wird meine Liquid-Syntax als Klartext in meiner paginierten In-App-Nachricht angezeigt? {#why-is-my-liquid-syntax-appearing-as-plain-text-in-my-paginated-in-app-message}
+
+Wenn Sie sehen, dass Liquid-Syntax beim Testen einer paginierten In-App-Nachricht als Klartext angezeigt wird (anstelle des personalisierten Inhalts), liegt möglicherweise ein Liquid-Syntaxfehler auf einer der Seiten vor. Wenn auf einer Seite ein Syntaxfehler vorliegt, wirkt sich dies auf das Rendering von Liquid auf allen Seiten der Nachricht aus – die Seiten sind nicht unabhängig voneinander.
+
+Zur Fehlerbehebung:
+
+1. Überprüfen Sie jede Seite Ihrer Nachricht auf Liquid-Syntaxfehler. Eine fehlerhafte Vorschau auf einer Seite bedeutet nicht, dass der Fehler auf dieser Seite liegt – da die Seiten nicht unabhängig sind, kann der Syntaxfehler an beliebiger Stelle in der Nachricht auftreten.
+2. Stellen Sie sicher, dass alle Liquid-Tags ordnungsgemäß geschlossen und korrekt formatiert sind.

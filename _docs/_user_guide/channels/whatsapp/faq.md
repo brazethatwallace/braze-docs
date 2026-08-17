@@ -94,7 +94,7 @@ Subscription management of the WhatsApp Channel functions similarly to how it fu
 You can update their subscription status via [user import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#updating-subscription-group-status-optional). 
 
 #### What methods should I use to collect opt-ins? 
-Braze recommends referring to [Meta's guidelines for opt-in methods](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) to maintain compliance. Refer to the following resource for Braze [channel and opt-in ideas and suggestions](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit).
+Braze recommends referring to [Meta's guidelines for opt-in methods](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) to maintain compliance. See [Opt-in and opt-out]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) for Canvas and campaign setup methods.
 
 #### Is double opt-in required for WhatsApp? 
 No, double opt-in is not required. 
@@ -103,6 +103,9 @@ No, double opt-in is not required.
 Your users can opt out in two ways:
 1. Set up an inbound WhatsApp message with a specific opt-out word and use a webhook to update the user subscription status.
 2. Add an opt-out quick reply within the WhatsApp template, with a corresponding webhook to update. 
+
+#### Can I use a Braze WhatsApp subscription group if I send WhatsApp messages through a third party?
+No. Braze WhatsApp subscription groups apply to messages sent through the Braze WhatsApp channel. If you send WhatsApp messages through a third-party provider or custom integrations outside Braze WhatsApp campaigns and Canvases, you can store opt-in consent in a custom attribute (or your own subscription model) and use that attribute for segmentation and eligibility. For related patterns when Braze owns the WhatsApp number, see [How do I connect WhatsApp support and marketing in Braze?](#how-do-i-connect-whatsapp-support-and-marketing-in-braze).
 
 ### Messaging limits and quality rating
 
@@ -143,7 +146,7 @@ Meta has their own throughput limit separate from the WABA messaging limit. The 
 WhatsApp requires that all business-initiated messages start using an approved template. The template includes the copy of the message, along with optional rich media like images, calls-to-action, and quick reply buttons. After WhatsApp approves templates, they can be used to compose a WhatsApp message in Braze. 
 
 #### Where do I create, edit, and manage my WhatsApp templates? 
-You will create, edit, manage, and submit templates for approval directly in the WhatsApp Manager. After your WABA is connected to Braze, you will see all your templates in the dashboard with a status indicator. If a template is rejected, you will resubmit directly through the WhatsApp manager. **Templates cannot be created or edited directly in Braze.**
+You can create and submit templates in Braze using the [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder), or in Meta's WhatsApp Manager. Templates created in either location appear in the Braze dashboard with a status indicator. After submission, locked fields require Meta re-approval; see [editing limitations in the Template Builder FAQ]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder#can-i-edit-a-template-after-its-been-approved) for details.
 
 #### How long does it take WhatsApp to review a template submission? 
 The approval process can take up to 24 hours, but often templates get processed in a matter of hours or minutes. 
@@ -157,8 +160,8 @@ WhatsApp allows for variable parameters to be inserted into message templates. M
 #### My template got rejected. Can Braze help me get it approved? 
 The Braze team does not have visibility into template rejections. You should work directly with your WhatsApp Business manager to edit and resubmit the template. Make sure to provide a sample template where necessary. Double-check that your template follows Meta's [business](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw) or [commerce](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ) policies.
 
-#### Can the rich media be targeted or personalized in Braze? 
-Images can be uploaded from the media library but cannot be dynamically targeted. For URLs, the last part of the link can be [dynamically populated using Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#use-liquid-personalization-in-urls). 
+#### Can rich media be targeted or personalized in Braze?
+Yes. You can upload static images from the media library, or add images by URL and personalize them with [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) or [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Image URLs support full Liquid logic anywhere in the URL. This applies to template messages and response messages (media messages and quick reply layouts). For details, see [Dynamic images]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#dynamic-images).
 
 #### What kind of rich media is supported in WhatsApp templates?
 You can add images, calls to action (URL or phone number), and quick reply buttons to WhatsApp templates. You can add these elements when you build templates directly in WhatsApp. 
@@ -233,12 +236,16 @@ Not in the Braze dashboard today. Campaign and Canvas analytics show sends, deli
 
 ### Integrations, data, and reporting
 
+#### Why isn't WhatsApp listed under Technology Partners?
+WhatsApp appears on the **Technology Partners** page when WhatsApp is enabled for your company. If you don't see WhatsApp on that page, contact your Braze account team to confirm WhatsApp is provisioned for your dashboard.
+
 #### Does Braze support customer support use cases like chatbots and human-assisted chat for WhatsApp? 
 We do not support chatbots or human-assisted chat within Braze or through direct integrations. 
 
 If you already use WhatsApp as a customer support channel, we recommend you keep your current setup and create a new WABA via Braze for marketing messaging. This WABA will require a new phone number. 
 
-#### How can I “bridge the gap” between my customer support messaging and my marketing messaging via Braze? 
+#### How do I connect WhatsApp support and marketing in Braze? {#how-do-i-connect-whatsapp-support-and-marketing-in-braze}
+
 You can use WhatsApp Liquid properties to forward inbound WhatsApp message content (including message body and media URLs) from Braze to other platforms, including any customer support tool. For details, see our [Supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags). 
 
 To send information into Braze, for example, to indicate that a user is in an active support conversation, you can log a custom attribute (such as a boolean "has existing support chat = true/false") and use that as segmentation criteria in their marketing campaigns. You can also deep link between two chat threads to direct users to the support thread from the marketing thread and the reverse. 

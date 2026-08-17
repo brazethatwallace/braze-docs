@@ -461,3 +461,8 @@ You can see this outcome even when the campaign shows **Send immediately** if an
 - Another campaign or Canvas message step with higher priority consumed the send slot when triggers overlap.
 
 If a user should have received the message but did not, check earlier outcomes for the same trigger (for example, email bounce or not enabled for the channel). Another message in the same workflow may have prevented this send.
+
+### How does Braze calculate unique clicks for email?
+
+Braze counts *Unique Clicks* over a seven-day window per recipient per [`dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id). For the full definition, formulas, unsubscribe-link behavior, and Currents alignment, see [Unique Clicks](#unique-clicks).
+

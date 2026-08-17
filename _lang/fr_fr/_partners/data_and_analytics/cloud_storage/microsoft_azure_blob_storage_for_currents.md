@@ -29,7 +29,7 @@ L'intégration de Braze et Microsoft Azure Blob Storage vous permet de réexport
 
 ## Intégration {#integration}
 
-Pour intégrer Microsoft Azure Blob Storage, vous devez disposer d'un compte de stockage et d'un conteneur afin de permettre à Braze d'exporter des données vers Azure ou de diffuser des données Currents en continu. Braze prend en charge deux méthodes d'authentification :
+Pour intégrer Microsoft Azure Blob Storage, vous devez disposer d'un compte de stockage et d'un conteneur afin de permettre à Braze d'exporter des données vers Azure ou de diffuser des données Currents. Braze prend en charge deux méthodes d'authentification :
 
 - [Méthode par chaîne de connexion](#connection-string-auth-method)
 - [Méthode par principal de service avec certificat](#certificate-service-principal-auth-method) (Currents uniquement)
@@ -68,6 +68,8 @@ Indiquez un nom pour votre conteneur de service blob. Les autres paramètres par
 
 Dans Braze, accédez à **Currents > + Create Current > Azure Blob Data Export** et indiquez le nom de votre intégration ainsi qu'un e-mail de contact.
 
+{% multi_lang_include currents/contact_email_notifications.md %}
+
 Ensuite, fournissez votre chaîne de connexion, le nom du conteneur et le préfixe BlobStorage (facultatif).
 
 ![La page Currents de stockage Microsoft Azure Blob dans Braze. Cette page contient des champs pour le nom de l'intégration, l'e-mail de contact, la chaîne de connexion, le nom du conteneur et le préfixe.]({% image_buster /assets/img/maz.png %})
@@ -88,7 +90,7 @@ Ensuite, assurez-vous que la case **Make this the default data export destinatio
 ![La page d'exportation de données Microsoft Azure dans Braze. Cette page contient des champs pour la chaîne de connexion, le nom du conteneur et le préfixe.]({% image_buster /assets/img/azure_data_export.png %})
 
 {% alert important %}
-Il est important de maintenir votre chaîne de connexion à jour ; si les identifiants de votre connecteur expirent, le connecteur cesse d'envoyer des événements. Si cette situation persiste pendant plus de 48 heures, les événements du connecteur sont supprimés et les données sont définitivement perdues.
+Il est important de maintenir votre chaîne de connexion à jour. Si les identifiants de votre connecteur expirent, le connecteur cessera d'envoyer des événements. Si cette situation persiste pendant plus de 48 heures, les événements du connecteur seront supprimés et les données seront définitivement perdues.
 {% endalert %}
 
 ## Méthode d'authentification par principal de service avec certificat {#certificate-service-principal-auth-method}
@@ -96,16 +98,16 @@ Il est important de maintenir votre chaîne de connexion à jour ; si les identi
 Cette méthode s'authentifie auprès de Microsoft Entra ID à l'aide d'un certificat, puis écrit dans votre conteneur en utilisant le contrôle d'accès basé sur les rôles Azure (RBAC) sans clé de compte partagée. Elle est disponible uniquement pour Braze Currents.
 
 {% alert note %}
-Vous ne téléchargez que le certificat public vers Microsoft Entra ID — votre clé privée n'est jamais envoyée à Azure. Braze stocke votre certificat et votre clé privée chiffrés au repos, accorde l'accès uniquement via le rôle [Storage Blob Data Contributor](#cert-sp-4) que vous attribuez, et vous pouvez révoquer cet accès à tout moment en supprimant le certificat de l'enregistrement de votre application dans Azure.
+Vous ne téléchargez que le certificat public vers Microsoft Entra ID — votre clé privée n'est jamais envoyée à Azure. Braze stocke votre certificat et votre clé privée chiffrés au repos, n'accorde l'accès que via le rôle [Storage Blob Data Contributor](#cert-sp-4) que vous attribuez, et vous pouvez révoquer cet accès à tout moment en supprimant le certificat de l'inscription de votre application dans Azure.
 {% endalert %}
 
 Avant de commencer, [créez un compte de stockage](#step-1-create-a-storage-account) et un [conteneur de service blob](#step-3-create-a-blob-service-container) comme décrit dans la [méthode par chaîne de connexion](#connection-string-auth-method).
 
-### Étape 1 : Enregistrer une application {#cert-sp-1}
+### Étape 1 : Inscrire une application {#cert-sp-1}
 
 Dans Microsoft Azure, accédez à **Microsoft Entra ID** > **App registrations** > **+ New registration**. Fournissez un nom (par exemple, `braze-currents`), puis sélectionnez **Register**. Pour des étapes détaillées, consultez la documentation Microsoft [Register an application with the Microsoft identity platform](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
 
-Sur la page **Overview** de l'enregistrement de votre nouvelle application, notez les valeurs suivantes. Vous les fournirez toutes les deux à Braze à l'[étape 6](#cert-sp-6).
+Sur la page **Overview** de l'inscription de votre nouvelle application, notez les valeurs suivantes. Vous les fournirez toutes les deux à Braze à l'[étape 6](#cert-sp-6).
 
 - **Application (client) ID**
 - **Directory (tenant) ID**
@@ -124,13 +126,13 @@ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem \
 Cela crée deux fichiers :
 
 | Fichier | Objectif |
-| ---- | ------- |
+| ------- | -------- |
 | `cert.pem` | Votre certificat public. Téléchargez-le vers Azure à l'étape suivante. |
 | `key.pem` | Votre clé privée. Ne téléchargez jamais ce fichier vers Azure. Vous le fournirez à Braze à l'[étape 6](#cert-sp-6). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fichiers de certificat" }
 
 {% alert important %}
-La clé privée doit être non chiffrée — elle ne peut pas être protégée par une phrase de passe. Téléchargez uniquement le certificat public vers Azure ; ne téléchargez jamais votre clé privée.
+La clé privée doit être non chiffrée — elle ne peut pas être protégée par une phrase de passe. Ne téléchargez que le certificat public vers Azure ; ne téléchargez jamais votre clé privée.
 {% endalert %}
 
 **Vous avez déjà un certificat ?** Si vous disposez d'un certificat existant sous forme de fichier `.pfx` — par exemple, provenant d'Azure Key Vault, de votre autorité de certification ou de la [méthode PowerShell de Microsoft](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-self-signed-certificate) — convertissez-le au format requis par Braze au lieu d'en générer un nouveau :
@@ -147,23 +149,23 @@ Saisissez le mot de passe de votre fichier `.pfx` lorsque vous y êtes invité. 
 
 ### Étape 3 : Télécharger le certificat {#cert-sp-3}
 
-Dans l'enregistrement de votre application, accédez à **Certificates & secrets** > **Certificates** > **Upload certificate**, puis téléchargez le fichier `cert.pem` que vous avez créé à l'étape précédente. Ajoutez une description et sélectionnez **Add**. Pour des étapes détaillées, consultez la documentation Microsoft [Add and manage app credentials in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-credentials).
+Dans l'inscription de votre application, accédez à **Certificates & secrets** > **Certificates** > **Upload certificate**, puis téléchargez le fichier `cert.pem` que vous avez créé à l'étape précédente. Ajoutez une description et sélectionnez **Add**. Pour des étapes détaillées, consultez la documentation Microsoft [Add and manage app credentials in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-credentials).
 
 Notez la date d'expiration de votre certificat. Consultez [Mise à jour des identifiants Azure pour Currents](#updating-currents-credentials).
 
 ### Étape 4 : Accorder l'accès à votre compte de stockage {#cert-sp-4}
 
-Ensuite, accordez à l'enregistrement de votre application la permission d'écrire dans votre conteneur.
+Ensuite, accordez à l'inscription de votre application la permission d'écrire dans votre conteneur.
 
 Accédez à votre compte de stockage et sélectionnez **Access Control (IAM)** > **+ Add** > **Add role assignment**. Puis :
 
 1. Dans l'onglet **Role**, sélectionnez **[Storage Blob Data Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor)**.
-2. Dans l'onglet **Members**, sélectionnez **User, group, or service principal**, sélectionnez **+ Select members**, puis recherchez le nom de l'enregistrement d'application que vous avez créé à l'[étape 1](#cert-sp-1).
+2. Dans l'onglet **Members**, sélectionnez **User, group, or service principal**, sélectionnez **+ Select members**, puis recherchez le nom de l'inscription d'application que vous avez créée à l'[étape 1](#cert-sp-1).
 3. Sélectionnez **Review + assign**.
 
 Pour des étapes détaillées, consultez la documentation Microsoft [Assign an Azure role for access to blob data](https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access).
 
-![L'onglet des attributions de rôles Access Control (IAM) d'un compte de stockage, montrant un principal de service et un groupe auxquels le rôle Storage Blob Data Contributor est attribué.]({% image_buster /assets/img/azure-currents-cert-sp-1.png %})
+![L'onglet des attributions de rôles du contrôle d'accès (IAM) pour un compte de stockage, montrant un principal de service et un groupe auxquels le rôle Storage Blob Data Contributor est attribué.]({% image_buster /assets/img/azure-currents-cert-sp-1.png %})
 
 {% alert note %}
 Attribuez le rôle au niveau du **compte de stockage** plutôt que sur un conteneur individuel.
@@ -177,10 +179,10 @@ Sans cette attribution de rôle, Braze peut s'authentifier auprès de Microsoft 
 
 Depuis votre compte de stockage, accédez à **Settings** > **Endpoints** et notez l'endpoint **Blob service**. Il ressemble à `https://<your-storage-account>.blob.core.windows.net`.
 
-![La page Endpoints du compte de stockage avec l'endpoint Blob service mis en évidence.]({% image_buster /assets/img/azure-currents-cert-sp-2.png %})
+![La page des endpoints du compte de stockage avec l'endpoint Blob service mis en évidence.]({% image_buster /assets/img/azure-currents-cert-sp-2.png %})
 
 {% alert note %}
-L'authentification par principal de service avec certificat prend en charge uniquement le cloud public Azure. Votre endpoint blob doit se terminer par `.blob.core.windows.net`.
+L'authentification par principal de service avec certificat ne prend en charge que le cloud public Azure. Votre endpoint blob doit se terminer par `.blob.core.windows.net`.
 {% endalert %}
 
 ### Étape 6 : Configurer Currents {#cert-sp-6}
@@ -193,10 +195,14 @@ cat cert.pem key.pem > braze-currents.pem
 
 Si vous avez converti un fichier `.pfx` existant à l'[étape 2](#cert-sp-2), vous disposez déjà de ce fichier `braze-currents.pem`.
 
-Dans Braze, accédez à **Currents** > **+ Create Current** > **Azure Blob Data Export**, puis fournissez le nom de votre intégration et votre e-mail de contact. Pour **Credentials**, sélectionnez **Certificate Service Principal** et fournissez les informations suivantes :
+Dans Braze, accédez à **Currents** > **+ Create Current** > **Azure Blob Data Export**, puis fournissez le nom de votre intégration et une adresse e-mail de contact.
+
+{% multi_lang_include currents/contact_email_notifications.md %}
+
+Pour **Credentials**, sélectionnez **Certificate Service Principal** et fournissez les informations suivantes :
 
 | Champ | Valeur |
-| ----- | ----- |
+| ----- | ------ |
 | Tenant ID | Le **Directory (tenant) ID** de l'[étape 1](#cert-sp-1). |
 | Client ID | L'**Application (client) ID** de l'[étape 1](#cert-sp-1). |
 | Account Endpoint | L'endpoint **Blob service** de l'[étape 5](#cert-sp-5). |
@@ -229,7 +235,7 @@ Les utilisateurs qui ont intégré une solution de stockage de données dans le 
 - Tous les rapports de tableau de bord et les rapports CSV seront envoyés par e-mail à l'utilisateur pour téléchargement (aucune autorisation de stockage requise) et sauvegardés dans le stockage de données.
 
 {% alert important %}
-**Exigence de format JSON** : Pour les exportations JSON, Braze utilise le format [JSONL](https://jsonlines.org/) (JSON délimité par des retours à la ligne), où chaque ligne contient un objet JSON distinct. Ce format diffère du JSON standard, qui est un tableau ou un objet JSON unique. Chaque ligne du fichier exporté est un objet JSON valide, mais le fichier dans son ensemble n'est pas un document JSON unique valide. Lors du traitement de ces fichiers, analysez chaque ligne individuellement en tant qu'objet JSON distinct plutôt que de tenter d'analyser l'ensemble du fichier comme un seul document JSON. <br><br> Les exportations Currents utilisent le format [Apache Avro](https://avro.apache.org/) (fichiers `.avro`), et non JSON. Cette exigence de format JSON s'applique aux exportations de données du tableau de bord et aux exportations d'API qui utilisent le format JSON.
+**Exigence de format JSON** : Pour les exportations JSON, Braze utilise le format [JSONL](https://jsonlines.org/) (JSON délimité par des retours à la ligne), où chaque ligne contient un objet JSON distinct. Ce format diffère du JSON standard, qui est un tableau ou un objet JSON unique. Chaque ligne du fichier exporté est un objet JSON valide, mais le fichier dans son ensemble n'est pas un document JSON unique valide. Lors du traitement de ces fichiers, analysez chaque ligne individuellement comme un objet JSON distinct plutôt que de tenter d'analyser l'ensemble du fichier comme un seul document JSON. <br><br> Les exportations Currents utilisent le format [Apache Avro](https://avro.apache.org/) (fichiers `.avro`), et non JSON. Cette exigence de format JSON s'applique aux exportations de données du tableau de bord et aux exportations d'API qui utilisent le format JSON.
 {% endalert %}
 
 ## FAQ
