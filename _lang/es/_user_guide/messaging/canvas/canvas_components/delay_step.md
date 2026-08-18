@@ -17,17 +17,17 @@ Las demoras pueden hacer que tu Canvas se vea más limpio. También puedes usar 
 
 ## Crear un retraso {#create-a-delay}
 
-Para crear un retraso, añade un paso a tu Canvas. Arrastra y suelta el componente de retraso desde la barra lateral, o selecciona el botón de signo más <i class="fas fa-plus-circle"></i> en la parte inferior de un paso y luego elige **Retraso**.
+Para crear un retraso, añade un paso a tu Canvas. Arrastra y suelta el componente de retraso desde la barra lateral, o selecciona el botón de signo más <i class="fas fa-plus-circle"></i> en la parte inferior de un paso y luego elige **Delay**.
 
 ### Retrasos extendidos {#extended-delays}
 
 Puedes extender los pasos de retraso hasta dos años (730 días). Por ejemplo, si estás incorporando nuevos usuarios para tu aplicación, puedes añadir un retraso extendido de dos meses antes de enviar un paso de mensaje para animar a los usuarios que no han iniciado una sesión.
 
-## Tipos de retraso temporal {#time-delay-types}
+## Tipos de retraso {#time-delay-types}
 
 Puedes elegir el tipo de retraso antes del siguiente mensaje en tu Canvas. Puedes establecer un retraso para que tus usuarios esperen durante un periodo de tiempo determinado, o retrasar a tus usuarios hasta una fecha y hora específicas.
 
-Si hay un retraso temporal, es de esperar que algunos usuarios avancen al siguiente paso del Canvas solo después del retraso. Los usuarios que se encuentren en el retraso no se añadirán a la métrica _Proceeded to Next Step_. Para más información, consulta [Análisis de retrasos](#delay-analytics).
+Si hay un retraso, es de esperar que algunos usuarios avancen al siguiente paso del Canvas solo después del retraso. Los usuarios que se encuentren en el retraso no se añadirán a la métrica _Proceeded to Next Step_. Para más información, consulta [Análisis de retrasos](#delay-analytics).
 
 {% tabs %}
 {% tab Duración %}
@@ -36,7 +36,7 @@ Seleccionar **Duración** te permite retrasar a los usuarios durante un número 
 
 Ten en cuenta la diferencia entre cómo se calculan los "días" y los "días naturales".
 
-- Un "día" equivale a 24 horas y se calcula a partir del momento en que el usuario entra en el paso de retraso.
+- Un "día" son 24 horas y se calcula a partir del momento en que el usuario entra en el paso de retraso.
 - Un "día natural" define el tiempo de espera hasta la siguiente hora especificada, que podría ser inferior a 24 horas. Puedes elegir retrasar en la hora de la empresa o en la hora local del usuario. Si no se especifica una hora, el usuario se retrasa hasta la medianoche del día siguiente en la hora de la empresa.
 
 ### Comportamiento del retraso: "días naturales" a una hora específica frente a "días" {#delay-behavior-calendar-days-at-a-specific-time-versus-days}
@@ -47,7 +47,7 @@ Por el contrario, cuando seleccionas **días** como unidad sin **A una hora espe
 
 También puedes seleccionar **A una hora específica** para especificar cuándo avanzan los usuarios en el Canvas. Esta opción tiene en cuenta la hora en que el usuario entró en el paso de retraso. Si esta hora es posterior a la hora configurada en los ajustes, Braze añade más horas al retraso.
 
-Como ejemplo, supongamos que hoy es 11 de diciembre y nuestro paso de retraso está configurado como **Duración** de una semana a las 8 AM UTC. Si un usuario entra en el paso de retraso el 4 de diciembre, sale del paso de retraso para continuar su recorrido hoy si originalmente entró en el paso de retraso antes de las 8 AM UTC. Si entró en el paso de retraso después de esa hora, el usuario se retrasa hasta el día siguiente (la siguiente ocurrencia de esa hora).
+Como ejemplo, supongamos que hoy es 11 de diciembre y nuestro paso de retraso está configurado con una **Duración** de una semana a las 8 am UTC. Si un usuario entra en el paso de retraso el 4 de diciembre, sale del paso de retraso para continuar su recorrido hoy si originalmente entró en el paso de retraso antes de las 8 am UTC. Si entró en el paso de retraso después de esa hora, el usuario se retrasa hasta el día siguiente (la siguiente ocurrencia de esa hora).
 
 {% endtab %}
 {% tab Fecha del calendario %}
@@ -66,18 +66,18 @@ Si participas en el [acceso anticipado a Canvas Context]({{site.baseurl}}/user_g
 
 Por ejemplo, los usuarios no recibirán pasos ni mensajes en estos escenarios:
 
-- Un mensaje está programado para enviarse el 3 de mayo a las 9 PM, pero el paso de retraso expira el 3 de mayo a las 9 AM.
+- Un mensaje está programado para enviarse el 3 de mayo a las 9 pm, pero el paso de retraso expira el 3 de mayo a las 9 am.
 - Un paso de Canvas se retrasa hasta una hora específica en la zona horaria local del usuario, pero los usuarios no tienen una zona horaria configurada en su perfil de usuario. El retraso entonces se establece de forma predeterminada en la zona horaria de la empresa para estos usuarios, que ya ha pasado la hora especificada.
 
 #### Los usuarios salen si un paso de retraso posterior está dentro del periodo de un paso de retraso anterior {#users-exit-if-a-subsequent-delay-step-is-within-a-prior-delay-steps-timeline}
 
-Si el Canvas tiene dos pasos de retraso pero el primer paso de retraso es más largo que el segundo, los usuarios también salen del Canvas.
+Si el Canvas tiene dos pasos de retraso pero el primer paso de retraso es más largo que el segundo paso de retraso, los usuarios también salen del Canvas.
 
 Por ejemplo, supongamos que un Canvas tiene estos pasos:
 - Paso 1: Paso de mensaje
-- Paso 2: Paso de retraso hasta el 13 de diciembre a las 10 PM
+- Paso 2: Paso de retraso hasta el 13 de diciembre a las 10 pm
 - Paso 3: Paso de mensaje
-- Paso 4: Paso de retraso hasta el 13 de diciembre a las 7 PM
+- Paso 4: Paso de retraso hasta el 13 de diciembre a las 7 pm
 - Paso 5: Paso de mensaje
 
 Los usuarios que entran en el paso 4 salen del Canvas antes de recibir el paso 5 porque el retraso del paso 4 forma parte del periodo del paso 2.
@@ -85,23 +85,23 @@ Los usuarios que entran en el paso 4 salen del Canvas antes de recibir el paso 5
 {% endtab %}
 {% tab Día de la semana %}
 
-Seleccionar **Día de la semana** te permite retener a los usuarios en el paso hasta un día específico de la semana, a una hora específica. Por ejemplo, puedes retrasar a los usuarios hasta la próxima vez que llegue el jueves a las 4 PM en la zona horaria de la empresa.
+Seleccionar **Día de la semana** te permite retener a los usuarios en el paso hasta un día específico de la semana, a una hora específica. Por ejemplo, puedes retrasar a los usuarios hasta la próxima vez que llegue el jueves a las 4 pm en la zona horaria de la empresa.
 
-Para configurar esto correctamente, también debes seleccionar qué sucede si el usuario entra en el Canvas en el día de la semana seleccionado (por ejemplo, jueves), pero después de la hora especificada. Puedes elegir avanzar al usuario el mismo día o retenerlo hasta la semana siguiente.
+Para configurar esto correctamente, también debes seleccionar qué sucede si el usuario entra en el Canvas el día de la semana seleccionado (por ejemplo, jueves), pero después de la hora especificada. Puedes elegir avanzar al usuario el mismo día o retenerlo hasta la semana siguiente.
 {% endtab %}
 {% endtabs %}
 
 ### Actualizaciones de perfil durante los retrasos {#profile-updates-during-delays}
 
-Si un usuario entra en un Canvas y añade una dirección de correo electrónico válida durante el paso de retraso antes de que este finalice, recibe el correo electrónico en el siguiente paso. Esto se aplica también a otras actualizaciones de perfil. Cualquier cambio en los atributos del usuario o en la información de contacto durante el retraso se refleja cuando el usuario avanza a los pasos posteriores.
+Si un usuario entra en un Canvas y añade una dirección de correo electrónico válida durante el paso de retraso antes de que este termine, recibe el correo electrónico en el siguiente paso. Esto también se aplica a otras actualizaciones de perfil. Cualquier cambio en los atributos del usuario o en la información de contacto durante el retraso se refleja cuando el usuario avanza a los pasos posteriores.
 
 ## Uso de los pasos de demora {#using-delay-steps}
 
 Supongamos que estamos a 10 de junio. El 11 de junio, te gustaría que los usuarios entraran en el Canvas y recibieran un mensaje sobre una próxima promoción. Luego, quieres retener a los usuarios en el Canvas hasta el 17 de junio a las 3 pm en hora local. A las 3 pm en hora local del 17 de junio, quieres enviar a los usuarios un mensaje recordatorio sobre la promoción.
 
-La secuencia de pasos en Canvas podría tener el siguiente aspecto:
+La secuencia de pasos en Canvas podría verse de la siguiente manera:
 
-1. Empieza añadiendo un paso de mensaje que se envíe inmediatamente después de que los usuarios entren en el Canvas el 11 de junio.
+1. Comienza añadiendo un paso de mensaje que se envíe inmediatamente después de que los usuarios entren en el Canvas el 11 de junio.
 2. Crea un paso de demora que retenga a los usuarios hasta la 1 pm en hora local del 17 de junio.
 3. Vincula el paso de demora a otro paso de mensaje que envíe su mensaje inmediatamente.
 
@@ -113,15 +113,17 @@ Si añades un componente de demora a tu Canvas y no hay pasos posteriores, cualq
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
 
-Selecciona el conmutador **Personalizar demora** para configurar una demora personalizada para tus usuarios. Puedes usar esto con un [paso de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) para seleccionar la variable de contexto por la que demorar. Esto anula la hora del día establecida en el atributo o propiedad seleccionados. Es útil cuando aplicas un desfase en días o semanas y quieres que los usuarios avancen a una hora específica. La zona horaria proviene del atributo o la propiedad, o usa la alternativa si no hay ninguna disponible.
+Selecciona el conmutador **Personalizar demora** para configurar una demora personalizada para tus usuarios. Puedes usar esto con un [paso de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) para seleccionar la variable de contexto por la cual demorar. Esto anula la hora del día establecida en el atributo o propiedad seleccionados. Es útil cuando aplicas un desfase en días o semanas y quieres que los usuarios avancen a una hora específica. La zona horaria proviene del atributo o propiedad, o usa la alternativa si no hay ninguna disponible.
 
-#### Comportamiento de la zona horaria para "a una hora específica" {#time-zone-behavior-for-at-specific-time}
+#### Comportamiento de la zona horaria para "A una hora específica" {#time-zone-behavior-for-at-a-specific-time}
 
-Al configurar demoras personalizadas con la opción **a una hora específica**, el comportamiento de la zona horaria depende del tipo de datos de tu atributo o variable de contexto:
+Cuando seleccionas la casilla **A una hora específica**, la hora de entrega que configuras usa la misma zona horaria que Braze utiliza para la fecha de calendario personalizada. Braze no aplica una zona horaria separada a la fecha y la hora. Ambas usan la zona horaria de tu atributo o variable de contexto, o la zona horaria alternativa cuando la variable es una cadena sin información de zona horaria.
 
-- **Tipo de datos cadena con zona horaria:** si el atributo o la variable de contexto es un tipo de datos cadena que incluye información de zona horaria, se ajusta a la zona horaria especificada en la cadena. Por ejemplo, `2025-06-10T10:00:00-08:00` usa UTC-8.
-- **Tipo de datos cadena sin zona horaria:** si el atributo o la variable de contexto es un tipo de datos cadena sin información de zona horaria, se ajusta a la zona horaria alternativa. Por ejemplo, `2025-06-10` usa la zona horaria alternativa.
-- **Tipo de datos hora:** si el atributo o la variable de contexto es un tipo de datos hora, se ajusta a UTC. Esto se debe a que el tipo de datos hora siempre se convierte a UTC cuando se guarda en la base de datos, por lo que "a una hora específica" siempre hace referencia a UTC cuando la variable está configurada como tipo de datos hora. Por ejemplo, `2025-06-10T10:00:00-08:00` usa UTC+0.
+La zona horaria que se aplica depende del tipo de datos de tu atributo o variable de contexto:
+
+- **Tipo de datos cadena con zona horaria:** Si el atributo o la variable de contexto es un tipo de datos cadena que incluye información de zona horaria, se ajusta a la zona horaria especificada en la cadena. Por ejemplo, `2025-06-10T10:00:00-08:00` usa UTC-8.
+- **Tipo de datos cadena sin zona horaria:** Si el atributo o la variable de contexto es un tipo de datos cadena sin información de zona horaria, se ajusta a la zona horaria alternativa. Por ejemplo, `2025-06-10` usa la zona horaria alternativa.
+- **Tipo de datos hora:** Si el atributo o la variable de contexto es un tipo de datos hora, se ajusta a UTC. Esto se debe a que el tipo de datos hora siempre se convierte a UTC cuando se guarda en la base de datos, por lo que "a una hora específica" siempre hace referencia a UTC cuando la variable está configurada como tipo de datos hora. Por ejemplo, `2025-06-10T10:00:00-08:00` usa UTC+0.
 
 {% alert note %}
 Es posible que un atributo personalizado o una variable de contexto no tenga ni una hora específica ni una zona horaria si es un tipo de datos cadena. Si es un tipo de datos hora, necesitarás especificar la hora y la zona horaria. Sin embargo, si el atributo personalizado o la variable de contexto es una cadena "irrelevante" (como "product_name"), el usuario sale del Canvas.
@@ -129,7 +131,7 @@ Es posible que un atributo personalizado o una variable de contexto no tenga ni 
 
 #### Caso de uso {#use-case}
 
-Supongamos que quieres recordar a tus clientes que compren pasta de dientes dentro de 30 días. Usando una combinación de un paso de contexto y un paso de demora, puedes seleccionar esta variable de contexto por la que demorar. En este caso, tu paso de contexto tendría los siguientes campos:
+Supongamos que quieres recordar a tus clientes que compren pasta de dientes dentro de 30 días. Usando una combinación de un paso de contexto y un paso de demora, puedes seleccionar esta variable de contexto por la cual demorar. En este caso, tu paso de contexto tendría los siguientes campos:
 
 - **Nombre de la variable de contexto:** product_reminder_interval
 - **Tipo de datos:** Hora
@@ -148,7 +150,7 @@ Los componentes de retraso tienen las siguientes métricas disponibles en la vis
 | _Ingresados_ | Refleja el número de veces que se ha ingresado al paso. Si tu Canvas tiene reelegibilidad y un usuario ingresa a un paso de retraso dos veces, se registran dos entradas. |
 | _Procedieron al siguiente paso_ | Refleja el número de entradas que procedieron al siguiente paso en el Canvas. |
 | _Salieron del Canvas_ | Refleja el número de entradas que salieron del Canvas y no procedieron al siguiente paso. |
-| _Falló la personalización_ | Refleja el número de veces que un mensaje personalizado o contenido destinado a un usuario no pudo entregarse debido a lo siguiente:<br> {::nomarkdown}<ul><li>El valor del retraso está en el pasado</li><li>El valor del retraso es superior a 2 años en el futuro</li><li>El valor de <b>Después de una duración</b> no es un número</li><li>El valor de <b>Hasta un día específico</b> no es una fecha ni una cadena con formato de fecha</li></ul>{:/} <br>Consulta [Errores de personalización fallida](#personaliztion-failed-errors) para más detalles. |
+| _Falló la personalización_ | Refleja el número de veces que un mensaje personalizado o contenido destinado a un usuario no pudo entregarse debido a lo siguiente:<br> {::nomarkdown}<ul><li>El valor de retraso está en el pasado</li><li>El valor de retraso es superior a 2 años en el futuro</li><li>El valor de <b>Después de una duración</b> no es un número</li><li>El valor de <b>Hasta un día específico</b> no es una fecha ni una cadena con formato de fecha</li></ul>{:/} <br>Consulta [Errores de personalización fallida](#personaliztion-failed-errors) para más detalles. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Análisis de retrasos" }
 
 Las series temporales de estos análisis están disponibles en la vista expandida del componente.
@@ -157,7 +159,7 @@ Las series temporales de estos análisis están disponibles en la vista expandid
 
 ### Errores de personalización fallida {#personalization-failed-errors}
 
-Si los usuarios no están activando un retraso personalizado, podría deberse a que el paso de contexto que configuraste para calificarlos para el paso de retraso no está funcionando como esperabas. Cuando una [variable de contexto no es válida]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting), el usuario continúa a través de tu Canvas sin que el paso de contexto establezca su contexto. Esto puede provocar que no califiquen para pasos posteriores en tu Canvas, como los retrasos personalizados.
+Si los usuarios no están activando un retraso personalizado, podría deberse a que el paso de Contexto que configuraste para calificarlos para el paso de Retraso no está funcionando como esperabas. Cuando una [variable de contexto no es válida]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting), un usuario continúa a través de tu Canvas sin que el paso de Contexto establezca su contexto. Esto puede provocar que no califiquen para pasos posteriores en tu Canvas, como los retrasos personalizados.
 
 ## Solución de problemas
 

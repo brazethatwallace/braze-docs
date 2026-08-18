@@ -14,23 +14,23 @@ channel:
 
 ## Paso 1: Elige dónde crear tu mensaje {#step-1-choose-where-to-build-your-message}
 
-KakaoTalk es compatible tanto con Campaigns como con Canvas. Las Campaigns son más adecuadas para campañas de mensajería únicas, mientras que los Canvas te permiten orquestar recorridos de usuario multicanal y de varios pasos.
+KakaoTalk es compatible tanto con Campaigns como con Canvas. Las Campaigns son más adecuadas para campañas de mensajería únicas, mientras que Canvas te permite orquestar recorridos de usuario multicanal y de varios pasos.
 
 {% tabs local %}
 {% tab Campaign %}
 
-1. Ve a **Mensajería** > **Campaigns** y selecciona **Crear campaña**.
-2. Selecciona **KakaoTalk** para una campaña de un solo canal, o **Campaña multicanal** para una campaña de múltiples canales.
+1. Ve a **Mensajería** > **Campaigns** y selecciona **Crear Campaign**.
+2. Selecciona **KakaoTalk** para una Campaign de un solo canal, o **Campaign multicanal** para una Campaign de varios canales.
 
 ![Panel con opciones para seleccionar el canal de mensajería.]({% image_buster /assets/img/kakaotalk/kakaotalk_campaign.png %}){: style="max-width:30%" }
 
-3. Puedes añadir variantes adicionales a tu campaña, lo que te permite elegir diferentes tipos de mensajes y diseños. Para más información, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+3. Puedes añadir variantes adicionales a tu Campaign, lo que te permite elegir diferentes tipos de mensajes y diseños. Para más información, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% endtab %}
 {% tab Canvas %}
 
 1. [Crea tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
-2. Añade un paso de mensaje en el constructor de Canvas y selecciona **KakaoTalk**.
+2. Añade un paso de mensaje en el creador de Canvas y selecciona **KakaoTalk**.
 
 ![Selecciones de canal de mensajería en Canvas.]({% image_buster /assets/img/kakaotalk/kakaotalk_canvas.png %})
 
@@ -39,15 +39,14 @@ KakaoTalk es compatible tanto con Campaigns como con Canvas. Las Campaigns son m
 
 ## Paso 2: Redacta tu mensaje de KakaoTalk {#step-2-compose-your-kakaotalk-message}
 
-1. Selecciona el desplegable **KakaoTalk channel**, que muestra una lista de canales de KakaoTalk que has configurado a través de la página de socios tecnológicos, y selecciona el canal de KakaoTalk que deseas usar para enviar el mensaje.
+1. Selecciona el desplegable **Canal de KakaoTalk**, que muestra una lista de los canales de KakaoTalk que has configurado a través de la página de partners tecnológicos, y selecciona el canal de KakaoTalk que deseas usar para enviar el mensaje.
 2. Selecciona el tipo de mensaje a enviar:
-- Texto
-- Imagen
-- Elemento de lista
-    - Estrecho
-    - Ancho
-
-![Sección de variantes de KakaoTalk con tres tipos de mensajes para seleccionar.]({% image_buster /assets/img/kakaotalk/kakaotalk_variants.png %})
+   - Texto
+   - Imagen
+       - Estrecha
+       - Ancha
+   - Elemento de lista
+   - Carrusel
 
 {% tabs local %}
 {% tab Texto %}
@@ -63,7 +62,7 @@ Un mensaje de texto de KakaoTalk es la forma más sencilla de comunicación: un 
 | Botones | Hasta 5 botones opcionales. Actualmente, solo se pueden usar para abrir una URL al hacer clic. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Especificaciones" }
 
-![Un mensaje de texto de KakaoTalk en el compositor.]({% image_buster /assets/img/kakaotalk/kakaotalk_text.png %})
+![Un mensaje de texto de KakaoTalk en el creador.]({% image_buster /assets/img/kakaotalk/kakaotalk_text.png %})
 
 {% endtab %}
 {% tab Imagen %}
@@ -78,7 +77,7 @@ Una imagen es un mensaje que combina un elemento visual con texto de apoyo. Braz
 | Formatos de archivo aceptados | JPEG o PNG |
 | Ancho recomendado | 500px |
 | Tamaño de archivo | Hasta 500kb |
-| Relación de aspecto | Debe estar entre 2:1 (ancho) y 3:4 (alto) |
+| Relación de aspecto | Debe estar entre 2:1 (ancha) y 3:4 (alta) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Especificaciones generales" }
 
 Los mensajes de imagen estrecha y ancha tienen diferentes consideraciones de recuento de caracteres y botones.
@@ -97,7 +96,7 @@ Un mensaje de imagen estrecha presenta una imagen ligeramente más alta y estrec
 | Contenido | Una imagen y texto de apoyo |
 | Capacidad de texto | Hasta 500 caracteres |
 | Botones | Hasta 5 botones opcionales |
-| Fuente de imagen | Las imágenes se pueden añadir usando la biblioteca de medios de Braze o una URL directa |
+| Origen de la imagen | Las imágenes se pueden añadir usando la biblioteca de medios de Braze o una URL directa |
 | Personalización | Puedes especificar el comportamiento al hacer clic en la imagen |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Especificaciones" }
 
@@ -117,7 +116,7 @@ Un mensaje de imagen ancha presenta una imagen ancha prominente, adecuada para c
 | Contenido | Una imagen y texto de apoyo |
 | Capacidad de texto | Hasta 76 caracteres |
 | Botones | Hasta 2 botones opcionales |
-| Fuente de imagen | Las imágenes se pueden añadir usando la biblioteca de medios de Braze o una URL directa |
+| Origen de la imagen | Las imágenes se pueden añadir usando la biblioteca de medios de Braze o una URL directa |
 | Personalización | Puedes especificar el comportamiento al hacer clic en la imagen |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Especificaciones" }
 
@@ -130,9 +129,9 @@ Un mensaje de imagen ancha presenta una imagen ancha prominente, adecuada para c
 
 Puedes añadir imágenes a través de la biblioteca de medios de Braze o pegando una URL que aloje un archivo JPEG o PNG. También puedes especificar el comportamiento al hacer clic en la imagen para redirigir a los usuarios que hagan clic a una URL específica.
 
-Braze gestiona automáticamente todos los requisitos de carga de imágenes de KakaoTalk, lo que significa que **no necesitas** cargar imágenes a los proveedores de KakaoTalk antes de enviar mensajes. ¡Solo carga las imágenes y envía el mensaje directamente desde Braze!
+Braze gestiona automáticamente todos los requisitos de carga de imágenes de KakaoTalk, lo que significa que no necesitas cargar imágenes a los proveedores de KakaoTalk antes de enviar mensajes. ¡Solo carga las imágenes y envía el mensaje directamente desde Braze!
 
-![Sección con iconos seleccionados para añadir imagen estrecha.]({% image_buster /assets/img/kakaotalk/add_image.png %})
+![Sección con iconos seleccionados para añadir una imagen estrecha.]({% image_buster /assets/img/kakaotalk/add_image.png %})
 
 {% endtab %}
 {% tab Elemento de lista %}
@@ -140,55 +139,93 @@ Braze gestiona automáticamente todos los requisitos de carga de imágenes de Ka
 
 Un mensaje de lista de elementos de KakaoTalk está diseñado para presentar una lista de elementos de contenido en un formato vertical claro.
 
-Los mensajes de elementos de lista consisten en un encabezado, una sección de lista de elementos y un área de botones opcional.
+Los mensajes de elementos de lista constan de un encabezado, una sección de lista de elementos y un área de botones opcional.
 
 #### Especificaciones
 
 | Área | Especificaciones |
 | --- | --- |
 | Cantidad de elementos | Requiere al menos 2 o 3 elementos |
-| Botones | Hasta 5 botones opcionales |
 | Encabezado | Hasta 250 caracteres |
 | Título del elemento | Hasta 25 caracteres |
-| URL del sitio web (por elemento) | Hasta 250 caracteres |
+| URL del sitio web (por elemento, al tocar la fila) | Obligatorio. Hasta 250 caracteres. Se abre cuando un usuario toca la imagen o el título de ese elemento. |
+| Botones (a nivel de mensaje) | Hasta 5 botones opcionales con sus propias URL o acciones |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Especificaciones" }
 
-![Un mensaje de lista de elementos de KakaoTalk.]({% image_buster /assets/img/kakaotalk/item_list.png %})
+![Un mensaje de elemento de lista de KakaoTalk.]({% image_buster /assets/img/kakaotalk/item_list.png %})
+
+{% endtab %}
+{% tab Carrusel %}
+
+Un mensaje de carrusel de KakaoTalk incluye hasta seis tarjetas desplazables. Cada tarjeta tiene una imagen, un encabezado, un mensaje, una **URL del sitio web** opcional y al menos un botón.
+
+Tanto la tarjeta como sus botones usan un campo etiquetado como **URL del sitio web** en el creador, pero se aplican a diferentes objetivos de toque:
+
+- **URL del sitio web de la tarjeta:** (Opcional) Se abre cuando un usuario toca la imagen de la tarjeta. Si dejas este campo en blanco, la imagen no será interactiva.
+- **URL del sitio web del botón:** Se abre cuando un usuario toca ese botón. Cada botón web requiere su propia URL y puede apuntar a un destino diferente al de la imagen de la tarjeta.
+
+Las URL de tarjetas y botones se acortan y rastrean de forma independiente cuando el seguimiento de clics está activado.
+
+Braze carga automáticamente las imágenes de las tarjetas a los servidores de KakaoTalk cuando envías el mensaje, de forma similar a los mensajes de imagen.
+
+{% alert note %}
+Es posible que el tipo de mensaje **Carrusel** no aparezca en tu espacio de trabajo hasta que se habilite para tu cuenta.
+{% endalert %}
+
+### Especificaciones
+
+| Área | Especificaciones |
+| --- | --- |
+| Tarjetas | 2–6 tarjetas desplazables |
+| Encabezado (por tarjeta) | Hasta 20 caracteres |
+| Mensaje (por tarjeta) | Hasta 180 caracteres |
+| Imagen (por tarjeta) | Obligatorio |
+| Formatos de archivo aceptados | JPG o PNG |
+| Ancho mínimo | 500px |
+| Relación de aspecto | 2:1, 16:10, 3:2, 4:3, 1:1 o 3:4 |
+| URL del sitio web (por tarjeta, al tocar la imagen) | (Opcional) Hasta 250 caracteres. Se abre cuando un usuario toca la imagen de la tarjeta. |
+| Botones (por tarjeta) | Al menos 1, hasta 2 |
+| Texto del botón (por tarjeta) | Hasta 8 caracteres |
+| Tipos de botón | Abrir URL web, enlace de aplicación o respuesta de texto |
+| URL del sitio web del botón (por botón de **Abrir URL web**) | Obligatorio. Hasta 500 caracteres. Se abre cuando un usuario toca ese botón. |
+| Personalización | Liquid compatible en los campos de tarjeta y URL |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Especificaciones" }
+
+![Un mensaje de carrusel de KakaoTalk.]({% image_buster /assets/img/kakaotalk/carousel_message.png %})
 
 {% endtab %}
 {% endtabs %}
 
+## Paso 3: Configurar el seguimiento de clics {#step-3-set-up-click-tracking}
 
-## Paso 3: Configura el seguimiento de clics {#step-3-set-up-click-tracking}
+Cuando el seguimiento de clics de KakaoTalk está activado, Braze acorta automáticamente tus URL, añade mecanismos de seguimiento y registra los clics en tiempo real. Estos datos te permiten crear estrategias de segmentación y reorientación más específicas, como segmentar usuarios en función del comportamiento de clics y desencadenar mensajes en respuesta a clics específicos.
 
-Cuando el seguimiento de clics de KakaoTalk está activado, Braze acorta automáticamente tus URL, añade mecanismos de seguimiento y registra los clics en tiempo real. Estos datos te permiten crear estrategias de segmentación y reorientación más específicas, como segmentar usuarios según su comportamiento de clics y desencadenar mensajes en respuesta a clics específicos.
+El seguimiento de clics es compatible con mensajes de texto, imagen, elementos de lista y carrusel. Admite enlaces dentro de botones y acciones de clic en imágenes. También puedes personalizar las URL usando Liquid y dominios personalizados.
 
-El seguimiento de clics es compatible con mensajes de texto, imagen y elementos de lista. Admite enlaces dentro de botones y acciones al hacer clic en imágenes. También puedes personalizar las URL usando Liquid y dominios personalizados.
-
-Para habilitar el seguimiento de clics, marca **Click Tracking** en la sección **Link options** del compositor. Las URL se acortarán usando el dominio predeterminado de Braze (`https://brz.ai`) o el dominio personalizado especificado para el grupo de suscripción, y se personalizarán para el usuario.
+Para habilitar el seguimiento de clics, marca **Click Tracking** en la sección **Link options** del creador. Las URL se acortan usando el dominio predeterminado de Braze (`https://brz.ai`) o el dominio personalizado especificado para el grupo de suscripción, y se personalizan para el usuario.
 
 Para obtener todos los detalles sobre el seguimiento de clics, dominios personalizados, personalización con Liquid en URL, informes y reorientación, consulta [Seguimiento de clics de KakaoTalk]({{site.baseurl}}/kakaotalk_click_tracking).
 
 ### Reorientar usuarios {#retargeting-users}
 
-Puedes reorientar a los usuarios que han hecho clic en una URL en un mensaje de KakaoTalk usando los siguientes filtros de segmentación y desencadenadores:
+Puedes reorientar a los usuarios que han hecho clic en una URL en un mensaje de KakaoTalk utilizando los siguientes filtros de segmentación y desencadenadores:
 
 - Desencadenadores basados en acciones
-    - Interact with Campaign
-    - Interact with Step
+    - Interactuar con Campaign
+    - Interactuar con paso
 
 - Filtros de segmentación
-    - Clicked/Opened Campaign
-    - Clicked/Opened Campaign or Canvas with Tag
-    - Clicked/Opened Step
+    - Hizo clic en/Abrió Campaign
+    - Hizo clic en/Abrió Campaign o Canvas con etiqueta
+    - Hizo clic en/Abrió paso
 
 ## Paso 4: Previsualiza y prueba tu mensaje de KakaoTalk {#step-4-preview-and-test-your-kakaotalk-message}
 
-La vista previa del mensaje se actualiza automáticamente a medida que redactas tu mensaje de KakaoTalk. Cuando estés listo para probar, ve a la pestaña **Test** para enviar un mensaje de prueba a grupos de prueba de contenido o a usuarios individuales, o para previsualizar el mensaje como un usuario existente o personalizado directamente en Braze.
+La vista previa del mensaje se actualiza automáticamente a medida que redactas tu mensaje de KakaoTalk. Cuando estés listo para probar, ve a la pestaña **Prueba** para enviar un mensaje de prueba a grupos de prueba de contenido o a usuarios individuales, o para previsualizar el mensaje como un usuario existente o personalizado directamente en Braze.
 
-Después de seleccionar tus usuarios de prueba, selecciona **Send Test**. Una notificación indicará los resultados de tu envío de prueba. Para CJ OliveNetworks, recibirás una respuesta "C100". Si ves un error diferente, consulta la [documentación de usuario de CJ KakaoTalk](https://developers.kakao.com/docs/latest/en/index).
+Después de seleccionar tus usuarios de prueba, selecciona **Enviar prueba**. Una notificación indicará los resultados de tu envío de prueba. Para CJ OliveNetworks, recibirás una respuesta "C100". Si ves un error diferente, consulta la [documentación de usuario de CJ KakaoTalk](https://developers.kakao.com/docs/latest/en/index).
 
-![Ventana de vista previa para un mensaje de KakaoTalk.]({% image_buster /assets/img/kakaotalk/preview_message.png %})
+![Ventana de vista previa de un mensaje de KakaoTalk.]({% image_buster /assets/img/kakaotalk/preview_message.png %})
 
 {% alert note %}
 Para previsualizar y enviar un mensaje de prueba a un usuario existente, debes tener permisos de "Ver PII". Puedes previsualizar y enviar un mensaje de prueba a un usuario personalizado sin esos permisos.
@@ -198,26 +235,30 @@ Para revisar los resultados de un envío o solucionar problemas, ve a **Configur
 
 ## Paso 5: Construye el resto de tu campaña o Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
-Consulta las siguientes secciones para obtener detalles sobre cómo usar mejor nuestras herramientas para crear mensajes de KakaoTalk.
+Consulta las siguientes secciones para obtener detalles sobre cómo utilizar mejor nuestras herramientas para crear mensajes de KakaoTalk.
 
-### Elige la planificación de entrega o el desencadenador {#choose-delivery-schedule-or-trigger}
+### Elige el calendario de entrega o desencadenante {#choose-delivery-schedule-or-trigger}
 
-Los mensajes de KakaoTalk se pueden entregar según un horario planificado, una acción o un desencadenador de API. Para más información sobre las opciones de planificación y desencadenadores, consulta [Planifica tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) o [Tipos de horario de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types) (para tu Canvas).
+Los mensajes de KakaoTalk se pueden entregar en función de un horario programado, una acción o un desencadenante de API. Para obtener más información sobre las opciones de programación y desencadenantes, consulta [Programa tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) o [Tipos de calendario de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types) (para tu Canvas).
 
 Puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser elegibles para recibir la campaña, o activar reglas de limitación de frecuencia. Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-### Elige los usuarios objetivo {#choose-users-to-target}
+{% alert important %}
+KakaoTalk aplica horas tranquilas aproximadamente de 20:50 a 08:00, hora estándar de Corea (KST). Los mensajes programados durante esta ventana no se envían hasta que finalicen las horas tranquilas. Esta restricción es aplicada por los proveedores de entrega de KakaoTalk (CJ OliveNetworks e Infobip) y se aplica a todos los tipos de mensajes de KakaoTalk, independiente de la configuración opcional de horas tranquilas de Braze.
+{% endalert %}
 
-Segmenta a los usuarios seleccionando Segments o filtros para reducir tu audiencia. Por ahora, KakaoTalk solo puede enviar mensajes a amigos del canal. Recomendamos establecer un atributo personalizado para indicar los amigos del canal, de modo que puedas segmentar correctamente a tus usuarios y evitar enviar mensajes de KakaoTalk a usuarios que no pueden recibirlos.
+### Elige los usuarios a los que dirigirte {#choose-users-to-target}
+
+Segmenta a los usuarios seleccionando Segments o filtros para reducir tu audiencia. Por ahora, KakaoTalk solo puede enviar mensajes a los amigos del canal. Recomendamos establecer un atributo personalizado para indicar los amigos del canal, de modo que puedas segmentar correctamente a tus usuarios y evitar enviar mensajes de KakaoTalk a usuarios que no pueden recibirlos.
 
 ### Elige eventos de conversión {#choose-conversion-events}
 
-Braze te permite rastrear con qué frecuencia los usuarios realizan acciones específicas (eventos de conversión) después de recibir una campaña. Tienes la opción de permitir una ventana de hasta 30 días durante la cual se cuenta una conversión si el usuario realiza la acción especificada.
+Braze te permite hacer seguimiento de la frecuencia con la que los usuarios realizan acciones específicas, eventos de conversión, después de recibir una campaña. Tienes la opción de permitir una ventana de hasta 30 días durante la cual se cuenta una conversión si el usuario realiza la acción especificada.
 
-Los eventos de conversión te ayudan a medir el éxito de tu campaña. Por ejemplo, si intentas impulsar a los usuarios a usar tu aplicación, establece el evento de conversión en **Starts Session**.
+Los eventos de conversión te ayudan a medir el éxito de tu campaña. Por ejemplo, si estás intentando impulsar a los usuarios a usar tu aplicación, establece el evento de conversión en **Starts Session**.
 
-También puedes establecer eventos de conversión personalizados según tu caso de uso específico. Sé creativo y piensa en cómo quieres medir el éxito de tu campaña.
+También puedes establecer eventos de conversión personalizados en función de tu caso de uso específico. Sé creativo y piensa en cómo quieres medir el éxito de tu campaña.
 
-## Paso 6: Revisa y despliega {#step-6-review-and-deploy}
+## Paso 6: Revisar e implementar {#step-6-review-and-deploy}
 
-Después de terminar de construir la última parte de tu campaña o Canvas, revisa sus detalles, pruébala y ¡envíala!
+Cuando hayas terminado de crear la última de tus Campaign o Canvas, revisa los detalles, pruébala y envíala.

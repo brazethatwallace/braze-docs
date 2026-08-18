@@ -24,7 +24,7 @@ CSV 가져오기를 사용하여 다음 사용자 속성 및 커스텀 이벤트
 
 ### 1단계: CSV 템플릿 다운로드 {#step-1-download-a-csv-template}
 
-CSV 가져오기를 열려면 **오디언스** > **사용자 가져오기**로 이동합니다. 여기에서 업로드 날짜, 업로더 이름, 파일 이름, 타겟팅 가용성, 가져온 행 수, 가져오기 상태 등 가장 최근 가져오기에 대한 세부 정보를 나열하는 테이블을 확인할 수 있습니다.
+CSV 가져오기를 열려면 **오디언스** > **사용자 가져오기**로 이동합니다. 여기에서 업로드 날짜, 업로더 이름, 파일 이름, 타겟팅 가용성, 가져온 행 수, 가져오기 상태 등 가장 최근 가져오기에 대한 세부 정보가 나열된 테이블을 확인할 수 있습니다.
 
 시작하려면 **속성** 또는 **이벤트**를 선택한 다음 적절한 템플릿을 다운로드하여 업로드할 CSV 파일을 작성하는 데 활용합니다.
 
@@ -32,12 +32,12 @@ CSV 가져오기를 열려면 **오디언스** > **사용자 가져오기**로 �
 
 ### 2단계: 식별자 선택 {#choose-an-identifier}
 
-가져오는 CSV 파일에는 전용 식별자가 필요합니다. 가져오기에 사용할 다음 식별자 유형 중 하나를 선택합니다.
+가져올 CSV 파일에는 전용 식별자가 필요합니다. 가져오기에 사용할 다음 식별자 유형 중 하나를 선택합니다.
 
 {% tabs local %}
 <!-- TAB -->
 {% tab 외부 ID %}
-고객 데이터를 가져올 때 `external_id`를 각 고객의 고유 식별자로 사용할 수 있습니다. 가져오기에서 `external_id`를 제공하면 Braze는 동일한 `external_id`를 가진 기존 사용자를 업데이트하거나, 해당 `external_id`가 발견되지 않으면 해당 `external_id`가 설정된 새로 식별된 사용자를 생성합니다.
+고객 데이터를 가져올 때 `external_id`를 각 고객의 고유 식별자로 사용할 수 있습니다. 가져오기에서 `external_id`를 제공하면 Braze는 동일한 `external_id`를 가진 기존 사용자를 업데이트하거나, 해당 `external_id`가 없는 경우 해당 `external_id`가 설정된 새로 식별된 사용자를 생성합니다.
 
 - 다운로드: [CSV 속성 가져오기 템플릿: 외부 ID]({{site.baseurl}}/assets/download_file/braze-user-import-template-csv.xlsx?3aafd0c03634ac03f248b3055fbc3126)
 - 다운로드: [CSV 이벤트 가져오기 템플릿: 외부 ID](https://braze.com/unlisted_docs/assets/download_file/braze-csv-events-import-template.csv?3b64ea284baa9a21cfe0a7ab4b46fce4)
@@ -51,7 +51,7 @@ CSV 가져오기를 열려면 **오디언스** > **사용자 가져오기**로 �
 {% tab 사용자 별칭 %}
 `external_id`가 없는 사용자를 타겟팅하려면 사용자 별칭이 포함된 사용자 목록을 가져올 수 있습니다. 별칭은 대체 고유 사용자 식별자 역할을 하며, 가입하지 않았거나 앱에서 계정을 만들지 않은 익명 사용자에게 마케팅하려는 경우 유용할 수 있습니다.
 
-별칭 전용 고객 프로필을 업로드하거나 업데이트하는 경우 CSV에 다음 두 열이 있어야 합니다:
+별칭 전용 사용자 프로필을 업로드하거나 업데이트하는 경우 CSV에 다음 두 열이 있어야 합니다:
 
 - `user_alias_name`: 고유 사용자 식별자로, `external_id`의 대안입니다.
 - `user_alias_label`: 사용자 별칭을 그룹화하기 위한 공통 레이블입니다.
@@ -62,10 +62,10 @@ CSV 가져오기를 열려면 **오디언스** > **사용자 가져오기**로 �
 | 182736486 | my_alt_identifier | Nguyen | nguyen@example.com | FALSE |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="2단계: 식별자 선택 #choose-an-identifier" }
 
-가져오기에서 `user_alias_name`과 `user_alias_label`을 모두 제공하면 Braze는 동일한 `user_alias_name`과 `user_alias_label`을 가진 기존 사용자를 업데이트합니다. 사용자를 찾을 수 없으면 Braze는 해당 `user_alias_name`이 설정된 새로 식별된 사용자를 생성합니다.
+가져오기에서 `user_alias_name`과 `user_alias_label`을 모두 제공하면 Braze는 동일한 `user_alias_name` 및 `user_alias_label`을 가진 기존 사용자를 업데이트합니다. 사용자를 찾을 수 없는 경우 Braze는 해당 `user_alias_name`이 설정된 새로 식별된 사용자를 생성합니다.
 
 {% alert important %}
-이미 `external_id`가 있는 기존 사용자를 `user_alias_name`으로 업데이트하기 위해 CSV 가져오기를 사용할 수 없습니다. 대신 연결된 `user_alias_name`으로 새 고객 프로필이 생성됩니다. 별칭 전용 사용자를 `external_id`와 연결하려면 [사용자 식별 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)를 사용합니다.
+이미 `external_id`가 있는 기존 사용자를 `user_alias_name`으로 업데이트하는 데 CSV 가져오기를 사용할 수 없습니다. 대신 연결된 `user_alias_name`으로 새 사용자 프로필이 생성됩니다. 별칭 전용 사용자를 `external_id`와 연결하려면 [사용자 식별 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)를 사용합니다.
 {% endalert %}
 
 다운로드: [CSV 속성 가져오기 템플릿: 사용자 별칭]({{site.baseurl}}/assets/download_file/braze-user-import-alias-template-csv.xlsx?c0ce6c0aa1e901395161d87c5ba17747)
@@ -73,12 +73,12 @@ CSV 가져오기를 열려면 **오디언스** > **사용자 가져오기**로 �
 
 <!-- TAB -->
 {% tab Braze ID %}
-`external_id` 또는 `user_alias_name`과 `user_alias_label` 값 대신 내부 Braze ID 값을 사용하여 Braze에서 기존 고객 프로필을 업데이트하려면 `braze_id`를 열 헤더로 지정합니다.
+`external_id` 또는 `user_alias_name`과 `user_alias_label` 값 대신 내부 Braze ID 값을 사용하여 Braze에서 기존 사용자 프로필을 업데이트하려면 `braze_id`를 열 헤더로 지정합니다.
 
-세분화 내 CSV 내보내기 옵션을 통해 Braze에서 사용자 데이터를 내보낸 후 해당 기존 사용자에게 새 커스텀 속성을 추가하려는 경우 유용할 수 있습니다.
+이 방법은 세분화 내 CSV 내보내기 옵션을 통해 Braze에서 사용자 데이터를 내보낸 후 해당 기존 사용자에게 새 커스텀 속성을 추가하려는 경우 유용할 수 있습니다.
 
 {% alert important %}
-`braze_id`를 사용하여 CSV 가져오기로 새 사용자를 생성할 수 없습니다. 이 방법은 Braze 플랫폼 내에서 기존 사용자를 업데이트하는 데만 사용할 수 있습니다.
+`braze_id`를 사용하여 CSV 가져오기로 새 사용자를 생성할 수 없습니다. 이 방법은 Braze 플랫폼 내의 기존 사용자를 업데이트하는 데만 사용할 수 있습니다.
 {% endalert %}
 
 {% alert tip %}
@@ -99,7 +99,7 @@ CSV 파일에 이메일 주소와 전화번호를 모두 포함하는 경우 프
 
 해당 이메일 주소 또는 전화번호를 가진 기존 프로필이 있으면 해당 프로필이 업데이트되며, Braze는 새 프로필을 생성하지 않습니다. 동일한 이메일 주소를 가진 프로필이 여러 개 있는 경우 Braze는 [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)와 동일한 로직을 사용하여 가장 최근에 업데이트된 프로필을 업데이트합니다.
 
-해당 이메일 주소 또는 전화번호를 가진 프로필이 존재하지 않으면 Braze는 해당 식별자로 새 프로필을 생성합니다. [`/users/identify` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)를 사용하여 나중에 이 프로필을 식별할 수 있습니다. 고객 프로필을 삭제하려면 [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) 엔드포인트를 사용할 수도 있습니다.
+해당 이메일 주소 또는 전화번호를 가진 프로필이 존재하지 않으면 Braze는 해당 식별자로 새 프로필을 생성합니다. [`/users/identify` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)를 사용하여 나중에 이 프로필을 식별할 수 있습니다. 사용자 프로필을 삭제하려면 [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) 엔드포인트를 사용할 수도 있습니다.
 {% endtab %}
 {% endtabs %}
 
@@ -168,8 +168,8 @@ Braze가 인식하는 표준 속성의 전체 목록(SDK, API, CSV 및 Cloud Dat
 | `home_city` | 문자열 | 사용자가 표시한 거주 도시입니다(예: `London`). | 아니요 |
 | `language` | 문자열 | 언어는 ISO-639-1 표준으로 Braze에 전달해야 합니다(예: `en`). [허용되는 언어 목록]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes)을 참조합니다. | 아니요 |
 | `phone` | 문자열 | 사용자가 표시한 전화번호로, `E.164` 형식입니다(예: `+442071838750`). 포맷 지침은 [사용자 전화번호]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers)를 참조합니다. | 아니요 |
-| `email_open_tracking_disabled` | 부울 | true 또는 false를 허용합니다. true로 설정하면 이 사용자에게 전송되는 모든 향후 이메일에 열람 추적 픽셀이 추가되지 않습니다. SparkPost 및 SendGrid에서만 사용할 수 있습니다. | 아니요 |
-| `email_click_tracking_disabled` | 부울 | true 또는 false를 허용합니다. true로 설정하면 이 사용자에게 전송되는 향후 이메일 내 모든 링크에 대한 클릭 추적이 비활성화됩니다. SparkPost 및 SendGrid에서만 사용할 수 있습니다. | 아니요 |
+| `email_open_tracking_disabled` | 부울 | true 또는 false를 허용합니다. true로 설정하면 이 사용자에게 전송되는 모든 향후 이메일에 열람 추적 픽셀이 추가되지 않습니다. | 아니요 |
+| `email_click_tracking_disabled` | 부울 | true 또는 false를 허용합니다. true로 설정하면 이 사용자에게 전송되는 향후 이메일 내 모든 링크에 대한 클릭 추적이 비활성화됩니다. | 아니요 |
 | `email_subscribe` | 문자열 | 사용 가능한 값은 `opted_in`(이메일 메시지 수신에 명시적으로 등록), `unsubscribed`(이메일 메시지 수신을 명시적으로 거부), `subscribed`(수신 동의도 거부도 하지 않음)입니다. | 아니요 |
 | `push_subscribe` | 문자열 | 사용 가능한 값은 `opted_in`(푸시 메시지 수신에 명시적으로 등록), `unsubscribed`(푸시 메시지 수신을 명시적으로 거부), `subscribed`(수신 동의도 거부도 하지 않음)입니다. | 아니요 |
 | `time_zone` | 문자열 | 시간대는 IANA 시간대 데이터베이스와 동일한 형식으로 Braze에 전달해야 합니다(예: `America/New_York` 또는 `Eastern Time (US & Canada)`). | 아니요 |
@@ -194,7 +194,7 @@ Braze가 인식하는 표준 속성의 전체 목록(SDK, API, CSV 및 Cloud Dat
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="구독 그룹 상태 업데이트(선택 사항)" }
 
 {% alert note %}
-사용자 가져오기에서 행당 하나의 `subscription_group_id`만 설정할 수 있습니다. 서로 다른 행에는 서로 다른 `subscription_group_id` 값을 가질 수 있습니다. 그러나 동일한 사용자를 여러 구독 그룹에 등록해야 하는 경우 여러 번 가져오기를 수행해야 합니다.
+사용자 가져오기에서 행당 하나의 `subscription_group_id`만 설정할 수 있습니다. 행마다 다른 `subscription_group_id` 값을 가질 수 있습니다. 그러나 동일한 사용자를 여러 구독 그룹에 등록해야 하는 경우 여러 번 가져오기를 수행해야 합니다.
 {% endalert %}
 {% endtab %}
 
@@ -212,22 +212,22 @@ Braze가 인식하는 표준 속성의 전체 목록(SDK, API, CSV 및 Cloud Dat
 
 #### 커스텀 이벤트 필드 {#custom-event-fields}
 
-다음 테이블에 나열된 표준 필드 외에도 CSV에는 이벤트 속성정보에 대한 추가 열 헤더가 포함될 수 있습니다. 이러한 속성정보의 열 헤더는 `<event_name>.properties.<property name>` 또는 `<property name>` 형식이어야 합니다.
+다음 테이블에 나열된 표준 필드 외에도 CSV에 이벤트 속성정보에 대한 추가 열 헤더가 포함될 수 있습니다. 이러한 속성정보의 열 헤더는 `<event_name>.properties.<property name>` 또는 `<property name>` 형식이어야 합니다.
 
-예를 들어 커스텀 이벤트 `trip_booked`에 `destination`과 `duration` 속성정보가 있을 수 있습니다. 열 헤더 `trip_booked.properties.destination`과 `trip_booked.properties.duration`을 사용하여 이를 가져올 수 있습니다. 헤더에서 `<property name>`으로 속성정보를 나타낼 수도 있습니다. Braze는 해당 CSV 셀에 값이 있는지 여부에 따라 각 이벤트에 대한 관련 속성정보를 감지합니다.
+예를 들어 커스텀 이벤트 `trip_booked`에 `destination` 및 `duration` 속성정보가 있을 수 있습니다. 열 헤더 `trip_booked.properties.destination` 및 `trip_booked.properties.duration`을 사용하여 이를 가져올 수 있습니다. 헤더에서 `<property name>`으로 속성정보를 나타낼 수도 있습니다. Braze는 해당 CSV 셀에 값이 있는지 여부에 따라 각 이벤트에 대한 관련 속성정보를 감지합니다.
 
 | 고객 프로필 필드 | 데이터 유형 | 정보 | 필수 여부 |
 | :---- | :---- | :---- | :---- |
 | `external_id` | 문자열 | 사용자의 고유 사용자 식별자입니다. | 조건부. [필수 식별자](#required-identifiers-custom-events)를 참조합니다. |
-| `braze_id` | 문자열 | 사용자에게 Braze가 할당한 식별자입니다. | 조건부. [필수 식별자](#required-identifiers-custom-events)를 참조합니다. |
+| `braze_id` | 문자열 | Braze가 사용자에게 할당한 식별자입니다. | 조건부. [필수 식별자](#required-identifiers-custom-events)를 참조합니다. |
 | `user_alias_name` | 문자열 | `external_id`의 대안인 익명 사용자의 고유 사용자 식별자입니다. `user_alias_label`과 함께 사용해야 합니다. | 조건부. [필수 식별자](#required-identifiers-custom-events)를 참조합니다. |
 | `user_alias_label` | 문자열 | 사용자 별칭을 그룹화하기 위한 공통 레이블입니다. `user_alias_name`과 함께 사용해야 합니다. | 조건부. [필수 식별자](#required-identifiers-custom-events)를 참조합니다. |
 | `email` | 문자열 | 사용자가 표시한 이메일입니다(예: `jane.doe@example.com`). | 아니요, 다른 식별자가 없는 경우에만 사용할 수 있습니다. 다음 참고 사항을 참조합니다. |
 | `phone` | 문자열 | 사용자가 표시한 전화번호로, `E.164` 형식입니다(예: `+442071838750`). 포맷 지침은 [사용자 전화번호]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers)를 참조합니다. | 아니요, 다른 식별자가 없는 경우에만 사용할 수 있습니다. 다음 참고 사항을 참조합니다. |
 | `name` | 문자열 | 사용자의 커스텀 이벤트입니다. | 예 |
 | `time` | 문자열 | 이벤트 시간입니다. 다음 ISO-8601 형식 중 하나로 전달할 수 있습니다: "YYYY-MM-DD" "YYYY-MM-DDTHH:MM:SS+00:00" "YYYY-MM-DDTHH:MM:SSZ" "YYYY-MM-DDTHH:MM:SS"(예: 2019-11-20T18:38:57) | 예 |
-| `<event name>.properties.<property name>` | 다양함 | 커스텀 이벤트와 연결된 이벤트 속성정보입니다. 예: `trip_booked.properties.destination` | 아니요 |
-| `<property name>` | 다양함 | 여러 이벤트 유형에서 사용할 수 있는 이벤트 속성정보입니다. 예: `destination`. 이 속성정보는 해당 CSV 셀에 null이 아닌 값이 있을 때 이벤트와 연결됩니다. | 아니요 |
+| `<event name>.properties.<property name>` | 다중 | 커스텀 이벤트와 연결된 이벤트 속성정보입니다. 예: `trip_booked.properties.destination` | 아니요 |
+| `<property name>` | 다중 | 여러 이벤트 유형에서 사용할 수 있는 이벤트 속성정보입니다. 예: `destination`. 이 속성정보는 해당 CSV 셀에 null이 아닌 값이 있을 때 이벤트와 연결됩니다. | 아니요 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="커스텀 이벤트 필드" }
 
 #### 커스텀 이벤트 형식 요구 사항 {#format-requirements-for-custom-events}
@@ -252,14 +252,14 @@ CSV를 사용하여 커스텀 이벤트를 가져올 때 성공적인 데이터 
 
 **예시:**
 
-`rented_movie`라는 커스텀 이벤트에 `movie_name`과 `genre` 속성정보가 있는 경우 CSV 열 헤더는 다음과 같습니다:
+`rented_movie`라는 커스텀 이벤트에 `movie_name` 및 `genre` 속성정보가 있는 경우 CSV 열 헤더는 다음과 같습니다:
 
 - `rented_movie.properties.movie_name`
 - `rented_movie.properties.genre`
 
-이 표기법은 Braze에 `rented_movie`라는 커스텀 이벤트를 생성하고 해당 특정 이벤트 인스턴스에 `movie_name`과 `genre` 속성정보를 첨부하도록 지시합니다.
+이 표기법은 Braze에 `rented_movie`라는 커스텀 이벤트를 생성하고 해당 특정 이벤트 인스턴스에 `movie_name` 및 `genre` 속성정보를 첨부하도록 지시합니다.
 
-속성정보 가져오기에 점 표기법과 비점 표기법을 혼합하여 사용하면 Braze가 중복 헤더를 감지하여 CSV 업로드가 실패할 수 있습니다. 이는 동일한 파일 내에 `rented_movie.properties.movie_name`과 `movie_name` 헤더가 있을 때 발생합니다. 이를 방지하려면 헤더에 하나의 속성정보 형식만 사용합니다.
+점 표기법과 비점 표기법을 조합하여 속성정보를 가져오면 Braze가 중복 헤더를 감지하여 CSV 업로드가 실패할 수 있습니다. 이는 동일한 파일 내에 `rented_movie.properties.movie_name`과 `movie_name` 헤더가 있는 경우 발생합니다. 이를 방지하려면 헤더에 하나의 속성정보 형식만 사용합니다.
 
 ##### 행당 하나의 이벤트 {#one-event-per-row}
 
@@ -281,8 +281,8 @@ CSV의 각 행은 단일 사용자에 대한 단일 커스텀 이벤트를 나�
 
 이 예시에서:
 
-- 사용자 `123`은 `movie_name`(Ghostbusters)과 `genre`(Action) 속성정보가 있는 `rented_movie` 이벤트를 트리거했습니다
-- 사용자 `456`은 `movie_name`(Ghostbusters)과 `genre`(Action) 속성정보가 있는 `bought_movie` 이벤트를 트리거했습니다
+- 사용자 `123`은 `movie_name`(Ghostbusters) 및 `genre`(Action) 속성정보와 함께 `rented_movie` 이벤트를 트리거했습니다
+- 사용자 `456`은 `movie_name`(Ghostbusters) 및 `genre`(Action) 속성정보와 함께 `bought_movie` 이벤트를 트리거했습니다
 - 각 이벤트는 관련 속성정보 열만 채우고 다른 이벤트 속성정보 열은 비워 둡니다
 
 {% endtab %}
@@ -323,7 +323,7 @@ CSV 사용자 가져오기는 업로드 후 14일 동안 대시보드에서 다�
 | **데이터 유형 불일치** | CSV 열의 감지된 데이터 유형이 기존 속성, 이벤트 또는 식별자의 데이터 유형과 일치하지 않습니다. Braze는 가져오기 시 기존 속성에 맞게 데이터 유형을 변환하려고 시도합니다. 변환이 불가능한 경우 Braze는 해당 값을 삭제합니다. |
 | **차단 목록 속성** 또는 **차단 목록 이벤트** | CSV 필드가 차단 목록에 있는 속성 또는 이벤트의 이름과 일치합니다. 매핑할 다른 속성 또는 이벤트를 선택하지 않으면 가져오지 않습니다. |
 | **중복 속성** | CSV 파일에 동일한 이름의 필드가 하나 이상 있습니다. 동일한 이름의 열을 다른 속성에 매핑하지 않으면 첫 번째 열만 가져옵니다. |
-| **예약된 이벤트 키** | 이벤트 속성정보의 이름이 Braze의 예약된 이벤트 키(예: `time` 또는 `event_name`)와 일치합니다. 다른 이름을 입력하거나 매핑할 다른 속성정보를 선택하지 않으면 삭제됩니다. |
+| **예약된 이벤트 키** | 이벤트 속성정보의 이름이 `time` 또는 `event_name`과 같은 Braze의 예약된 이벤트 키와 일치합니다. 다른 이름을 입력하거나 매핑할 다른 속성정보를 선택하지 않으면 삭제됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="매핑 상태" }
 
 
@@ -335,7 +335,7 @@ CSV 사용자 가져오기는 업로드 후 14일 동안 대시보드에서 다�
 
 
 {% alert note %}
-식별자가 매핑될 때까지 매핑 단계를 넘어갈 수 없습니다. Braze는 가능한 경우 식별자를 자동으로 매핑합니다. 커스텀 이벤트의 경우 `name`과 `time` 열도 매핑해야 합니다. 자세한 내용은 **필수 필드** 섹션을 참조합니다.
+식별자가 매핑될 때까지 매핑 단계를 넘어갈 수 없습니다. Braze는 가능한 경우 식별자를 자동으로 매핑합니다. 커스텀 이벤트의 경우 `name` 및 `time` 열도 매핑해야 합니다. 자세한 내용은 **필수 필드** 섹션을 참조합니다.
 {% endalert %}
 
 ### 6단계: 타겟팅 기본 설정 선택 {#targeting-preferences}
@@ -344,8 +344,8 @@ CSV 사용자 가져오기는 업로드 후 14일 동안 대시보드에서 다�
 
 | 옵션 | 설명 |
 |---|---|
-| 타겟팅 필터 | CSV 파일을 사용자 Segment 구축 시 리타겟팅 옵션으로 변환하려면 **CSV에서 업데이트/가져옴** 드롭다운에서 파일을 선택한 다음 **타겟팅 필터 생성**을 선택합니다. |
-| 새 Segment | 새 타겟팅 필터에서 새 Segment도 생성하려면 **타겟팅 필터 생성 및 새 Segment에 추가**를 선택합니다. |
+| 타겟팅 필터 | CSV 파일을 사용자 Segments를 구축할 때 리타겟팅 옵션으로 변환하려면 **CSV에서 업데이트/가져옴** 드롭다운에서 파일을 선택한 다음 **타겟팅 필터 생성**을 선택합니다. |
+| 새 Segments | 새 타겟팅 필터에서 새 Segment도 생성하려면 **타겟팅 필터 생성 및 새 Segment에 추가**를 선택합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="6단계: 타겟팅 기본 설정 선택 #targeting-preferences" }
 
 !["Halloween season fun"이라는 CSV 파일이 포함된 "CSV에서 업데이트/가져옴" 필터가 있는 필터 그룹.]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
@@ -354,7 +354,7 @@ CSV 사용자 가져오기는 업로드 후 14일 동안 대시보드에서 다�
 
 가져오기를 시작하기 전에 파일 유효성 검사를 실행하여 모든 행에서 오류와 경고를 확인할 수 있습니다. 파일의 유효성을 검사하려면 가져오기 설정 페이지에서 **가져오기 전 파일 유효성 검사**를 선택한 다음 **다음**을 선택합니다.
 
-유효성 검사는 최대 허용 크기의 파일에 대해 최대 2분이 소요될 수 있습니다. 유효성 검사가 실행되는 동안 **유효성 검사 건너뛰기**를 선택하여 건너뛰고 즉시 진행할 수 있습니다.
+유효성 검사는 최대 허용 크기의 파일에 대해 최대 2분이 소요될 수 있습니다. 유효성 검사가 실행되는 동안 **유효성 검사 건너뛰기**를 선택하여 이를 우회하고 즉시 진행할 수 있습니다.
 
 #### 유효성 검사 결과 {#validation-results}
 
@@ -386,11 +386,11 @@ CSV 사용자 가져오기는 업로드 후 14일 동안 대시보드에서 다�
 
 ### 8단계: CSV 가져오기 시작 {#step-8-start-your-csv-import}
 
-준비가 되면 **가져오기 시작**을 선택합니다. **사용자 가져오기** 페이지에서 현재 진행 상황을 추적할 수 있으며, 5초마다 자동으로 새로고침됩니다.
+준비가 되면 **가져오기 시작**을 선택합니다. **사용자 가져오기** 페이지에서 현재 진행 상황을 추적할 수 있으며, 이 페이지는 5초마다 자동으로 새로고침됩니다.
 처리는 CSV 크기에 따라 몇 분에서 몇 시간까지 걸릴 수 있습니다. 이 시간 동안 대시보드가 응답하지 않거나 느리게 응답할 수 있지만 가져오기는 계속 실행 중입니다.
 
 {% alert note %}
-동시에 둘 이상의 CSV를 가져올 수 있습니다. CSV 가져오기는 동시에 실행되므로 업데이트 순서가 순차적으로 보장되지 않습니다. CSV 가져오기를 순차적으로 실행해야 하는 경우 두 번째 CSV를 업로드하기 전에 첫 번째 CSV 가져오기가 완료될 때까지 기다립니다.
+동시에 둘 이상의 CSV를 가져올 수 있습니다. CSV 가져오기는 동시에 실행되므로 업데이트 순서가 순차적으로 보장되지 않습니다. CSV 가져오기를 순차적으로 실행해야 하는 경우 두 번째 CSV를 업로드하기 전에 CSV 가져오기가 완료될 때까지 기다립니다.
 {% endalert %}
 
 #### 가져오기 상태 {#import-statuses}
@@ -404,9 +404,9 @@ CSV 사용자 가져오기는 업로드 후 14일 동안 대시보드에서 다�
 | **진행 중** | 가져오기가 현재 실행 중입니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="가져오기 상태" }
 
-![오류 보고서 다운로드 및 업로드된 CSV 다운로드 옵션이 표시된 컨텍스트 메뉴가 열린 부분 성공 상태의 사용자 가져오기 페이지.]({% image_buster /assets/img/csv_import/partial_success_menu.png %})
+![오류 보고서 다운로드 및 업로드된 CSV 다운로드 옵션이 있는 컨텍스트 메뉴가 열린 부분 성공 상태를 보여주는 사용자 가져오기 페이지.]({% image_buster /assets/img/csv_import/partial_success_menu.png %})
 
-가져오기 후 오류 보고서에는 유효성 검사에서 다루지 않는 이유로 실패한 행이 포함됩니다. 예를 들어 Braze에 사용자가 존재하지 않는 경우가 있습니다.
+가져오기 후 오류 보고서에는 유효성 검사에서 다루지 않는 이유로 실패한 행이 포함됩니다. 예를 들어 Braze에 사용자가 존재하지 않는 경우입니다.
 
 {% alert important %}
 이전에 업로드된 CSV 파일은 업로드 날짜로부터 14일 동안 **사용자 가져오기** 페이지에서 다운로드할 수 있습니다. 14일이 지나면 파일이 영구적으로 삭제되어 더 이상 접근할 수 없습니다.
@@ -437,7 +437,7 @@ CSV 가져오기 문제 해결을 위해 다음 섹션에서 일반적인 문제
 
 **Import Users**에서 `Calculating`은 Braze가 아직 파일을 처리하기 위해 준비 중임을 의미합니다. 이 단계에서 준비가 완료될 때까지 행 수가 `0 / Calculating`으로 표시될 수 있습니다.
 
-가져오기가 Calculating에서 멈춘 것으로 보이는 경우:
+가져오기가 Calculating에서 멈춘 것처럼 보이는 경우:
 
 - 가져오기를 계속 진행하세요. Braze 지원팀에서 권고하지 않는 한 취소하고 다시 업로드하지 마세요.
 - [CSV 구성하기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#import-options)에서 파일이 지원되는 제한 범위 내에 있는지 확인하세요.
@@ -517,13 +517,13 @@ CSV 파일에 빈 행이 있고 CSV 파일의 총 줄 수보다 적은 행이 �
 
 #### 커스텀 속성의 데이터 유형 변경 {#change-a-custom-attributes-data-type}
 
-기존 커스텀 속성의 데이터 유형을 변경해야 하는 경우(예: 문자열에서 부울로), CSV를 가져오기 전에 대시보드의 [**커스텀 속성**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) 페이지에서 데이터 유형을 업데이트하세요. CSV의 데이터 유형이 속성의 현재 정의된 데이터 유형과 일치하지 않으면 가져오기가 오류와 함께 실패합니다.
+기존 커스텀 속성의 데이터 유형을 변경해야 하는 경우(예: 문자열에서 불리언으로), CSV를 가져오기 전에 대시보드의 [**커스텀 속성**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) 페이지에서 데이터 유형을 업데이트하세요. CSV의 데이터 유형이 속성의 현재 정의된 데이터 유형과 일치하지 않으면 가져오기가 오류와 함께 실패합니다.
 
 #### 여러 데이터 유형 {#multiple-data-types}
 
 Braze는 열의 각 값이 동일한 데이터 유형일 것으로 예상합니다. 속성의 데이터 유형과 일치하지 않는 값은 세분화 시 오류를 유발합니다.
 
-또한 숫자 속성을 0으로 시작하면 문제가 발생합니다. 0으로 시작하는 숫자는 문자열로 간주되기 때문입니다. Braze가 해당 문자열을 변환할 때 8진수 값(0에서 7까지의 숫자를 사용)으로 처리될 수 있으며, 이는 해당하는 10진수 값으로 변환됩니다. 예를 들어, CSV 파일의 값이 0130이면 Braze 프로필에는 88이 표시됩니다. 이 문제를 방지하려면 문자열 데이터 유형의 속성을 사용하세요. 그러나 이 데이터 유형은 세분화 숫자 비교에서 사용할 수 없습니다.
+또한 숫자 속성을 0으로 시작하면 문제가 발생합니다. 0으로 시작하는 숫자는 문자열로 간주되기 때문입니다. Braze가 해당 문자열을 변환할 때 8진수 값(0에서 7까지의 숫자를 사용)으로 처리될 수 있으며, 이는 해당하는 10진수 값으로 변환됩니다. 예를 들어, CSV 파일의 값이 0130이면 Braze 프로필에는 88로 표시됩니다. 이 문제를 방지하려면 문자열 데이터 유형의 속성을 사용하세요. 그러나 이 데이터 유형은 세분화 숫자 비교에서 사용할 수 없습니다.
 
 #### 기본 속성 유형 {#default-attribute-types}
 

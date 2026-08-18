@@ -69,6 +69,14 @@ This is because most composers have restrictions on the image ratio size that is
 
 You can generate images from **Content** > **Media Library** by selecting **AI Image Generator**. You need **Edit Media Library Assets** permission. If you don't see the option, contact your Braze customer team. For steps and policy details, see [Generate images with BrazeAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images) and [Generating images with BrazeAI]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai).
 
+### What happens when I delete an image from the media library?
+
+Deleting an asset removes it from the media library UI, but Braze keeps the file hosted at its existing URL, so active campaigns and Canvases that reference that URL continue to load the image. To permanently remove an asset from Braze hosting, contact Braze Support. To update what recipients see without changing URLs in every message, use [Replace a file]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) instead.
+
+### Can I change image assets in emails that have already been sent?
+
+You can update the image in an already-sent email by [replacing the file]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file) at its existing URL. The asset's URL and ID stay the same, so any message that references it, including already-sent emails, reflects the new file. Some recipients may still see the previous image if it was already cached on their device before you made the change, so this doesn't guarantee every recipient sees the update immediately.
+
 ### Can I create vanity URLs for media library image assets?
 
 Vanity URLs for Media Library assets aren't supported because custom URLs would break CDN delivery. You can replace an image at its existing URL when campaigns already reference that URL. For more information, see [Replace a file]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file).
@@ -76,4 +84,3 @@ Vanity URLs for Media Library assets aren't supported because custom URLs would 
 ### Why does Chrome save JPEG or PNG images as WebP files?
 
 When using Chrome to save images from the media library, the browser may automatically convert JPEG or PNG files to WebP format. This is Chrome's default behavior for image downloads and is not specific to Braze. If you need to save images in their original format, try using a different browser such as Safari or Firefox.
-

@@ -16,16 +16,16 @@ Este tipo de mensaje está disponible en el [editor tradicional]({{site.baseurl}
 
 ## Cómo funciona {#how-it-works}
 
-Los mensajes HTML dentro de la aplicación permiten un mayor control sobre el aspecto y la apariencia de un mensaje, incluyendo lo siguiente:
+Los mensajes HTML dentro de la aplicación permiten un mayor control sobre la apariencia de un mensaje, incluyendo lo siguiente:
 
 - Fuentes y estilos personalizados
 - Videos
 - Múltiples imágenes
-- Comportamientos de clic
+- Comportamientos al hacer clic
 - Componentes interactivos
 - Animaciones personalizadas
 
-Los mensajes HTML personalizados pueden utilizar los métodos del [puente JavaScript](#javascript-bridge) para registrar eventos, establecer atributos personalizados, cerrar el mensaje y mucho más. Consulta nuestro [repositorio de GitHub](https://github.com/braze-inc/in-app-message-templates) que contiene instrucciones detalladas sobre cómo usar y personalizar los mensajes HTML dentro de la aplicación según tus necesidades, así como un conjunto de plantillas de mensajes dentro de la aplicación HTML5 para ayudarte a empezar.
+Los mensajes HTML personalizados pueden utilizar los métodos del [puente JavaScript](#javascript-bridge) para registrar eventos, establecer atributos personalizados, cerrar el mensaje y más. Consulta nuestro [repositorio de GitHub](https://github.com/braze-inc/in-app-message-templates) que contiene instrucciones detalladas sobre cómo usar y personalizar los mensajes HTML dentro de la aplicación según tus necesidades, y un conjunto de plantillas de mensajes dentro de la aplicación HTML5 para ayudarte a empezar.
 
 {% alert note %}
 Para habilitar los mensajes HTML dentro de la aplicación a través del SDK Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze: por ejemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad, ya que los mensajes HTML dentro de la aplicación pueden ejecutar JavaScript, por lo que requerimos que un administrador del sitio los habilite.
@@ -142,9 +142,9 @@ Para añadir nuevos activos a tu Campaign, utiliza la sección de arrastrar y so
 
 Una vez añadidos tus activos, aparecerán en la sección **Activos para esta Campaign**.
 
-Si el nombre de un activo coincide con el de un activo HTML local, se reemplaza automáticamente (por ejemplo, se sube `cat.png` y existe `<img src="cat.png" />`).
+Si el nombre de un archivo de activo coincide con el de un activo HTML local, se reemplaza automáticamente (por ejemplo, se sube `cat.png` y existe `<img src="cat.png" />`).
 
-De lo contrario, pasa el cursor sobre un activo de la lista y selecciona <i class="fas fa-copy"></i> **Copiar** para copiar la URL del archivo a tu portapapeles. Luego pega la URL del activo copiado en tu HTML como lo harías normalmente al referenciar un activo remoto.
+De lo contrario, pasa el cursor sobre un activo de la lista y selecciona <i class="fas fa-copy"></i> **Copiar** para copiar la URL del archivo a tu portapapeles. Luego pega la URL del activo copiada en tu HTML como lo harías normalmente al referenciar un activo remoto.
 
 ### Editor HTML {#html-editor}
 
@@ -170,17 +170,30 @@ Puedes hacer seguimiento del rendimiento dentro de tu mensaje dentro de la aplic
 Este método de seguimiento de botones reemplaza los métodos anteriores de seguimiento automático de clics (como `?abButtonId=0`), que han sido eliminados.
 {% endalert %}
 
-Utiliza [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) para mensajes HTML con vista previa cuando necesites más de dos botones con seguimiento. El Botón 1 y el Botón 2 se asignan a `'0'` y `'1'`; los botones adicionales usan ID personalizados (hasta 100 ID únicos por Campaign). Para restricciones de caracteres en los ID de botones, consulta [Seguimiento de botones](#button-tracking-improvements).
+Utiliza [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) para mensajes HTML con vista previa cuando necesites más de dos botones con seguimiento. El botón 1 y el botón 2 se asignan a `'0'` y `'1'`; los botones adicionales usan ID personalizados (hasta 100 ID únicos por Campaign). Para restricciones de caracteres en los ID de botones, consulta [Seguimiento de botones](#button-tracking-improvements).
 
-### Solución de problemas con enlaces HTML personalizados y comportamiento de cierre {#troubleshoot-custom-html-links-and-close-behavior}
+### Solucionar problemas con enlaces HTML personalizados y comportamiento de cierre {#troubleshoot-custom-html-links-and-close-behavior}
 
-#### Los clics en el botón no abren el enlace {#button-clicks-do-not-open-the-link}
+#### Los clics en los botones no abren el enlace {#button-clicks-do-not-open-the-link}
 
 Si un botón en tu mensaje dentro de la aplicación con HTML personalizado no carga al hacer clic, verifica que el enlace utilice una URL válida o un esquema de vínculo profundo compatible. Las URL mal formadas o los esquemas personalizados no compatibles pueden impedir que la acción de clic se complete.
 
 #### Clics en el cuerpo al cerrar el mensaje {#body-clicks-when-closing-the-message}
 
-Llamar a `brazeBridge.closeMessage()` cierra el mensaje pero no registra análisis por sí solo. Para registrar un clic en el cuerpo cuando el usuario cierra el mensaje, llama a `brazeBridge.logClick()` antes de `brazeBridge.closeMessage()` para que el registro de clics se mantenga consistente en todas las plataformas.
+Llamar a `brazeBridge.closeMessage()` cierra el mensaje pero no registra análisis por sí solo. Para registrar un clic en el cuerpo cuando el usuario cierra el mensaje, llama a `brazeBridge.logClick()` antes de `brazeBridge.closeMessage()` para que el registro de clics sea consistente en todas las plataformas.
+
+#### El HTML personalizado no se renderiza en Android (archivos zip de Windows) {#custom-html-not-rendering-on-android-windows-zip-files}
+
+Si tu mensaje dentro de la aplicación con HTML personalizado se renderiza en la vista previa pero no se muestra en dispositivos Android, verifica cómo se empaquetaron tus archivos HTML y de activos. Algunas utilidades de zip de Windows añaden entradas de directorio (rutas de carpetas) dentro del archivo en lugar de colocar los archivos en el nivel raíz.
+
+Android puede fallar al cargar activos referenciados con rutas relativas cuando el zip incluye entradas de directorio anidadas. Para solucionar esto:
+
+1. Extrae tus archivos HTML, CSS, JavaScript y de imagen en una sola carpeta.
+2. Selecciona todos los archivos (no la carpeta principal) al crear el archivo zip.
+3. Confirma que las rutas en tu HTML referencien archivos en la raíz del zip (por ejemplo, `style.css`, no `assets/style.css`), o ajusta las rutas para que coincidan con la estructura aplanada.
+4. Vuelve a subir el zip y envía un mensaje de prueba a un dispositivo Android.
+
+Alternativamente, sube los activos a través de la [biblioteca de medios](#asset-files) en lugar de empaquetarlos en un archivo zip.
 
 ### Cambios incompatibles con versiones anteriores {#backward-incompatible-changes}
 

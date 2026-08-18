@@ -34,11 +34,11 @@ In the Braze dashboard, navigate to **Partner Integrations** > **Technology Part
 
 ## Braze events
 
-After the connection is integrated, Braze will send the following events to Datadog:
+After the connection is integrated, Braze sends the following events to Datadog:
 
 - `braze.messaging.sent` - The count of sends
 
-Each of these events will have metadata in the form of Datadog tags to give you information such as:
+Each of these events has metadata in the form of Datadog tags to give you information such as:
 
 - `app_group_id`
 - `app_group_name`
@@ -48,4 +48,23 @@ Each of these events will have metadata in the form of Datadog tags to give you 
 These events and tags can be monitored on the Datadog **Metrics Explorer** page. These metrics are logged as [distributions](https://docs.datadoghq.com/metrics/distributions/) to DataDog. Given the nature of metrics and the imprecision of DataDog's aggregations and rollups, Braze does not retry intermittent network errors or other DataDog API errors that may be encountered during transmission. This means that these metric counts may differ slightly from counts seen in the Braze dashboard and/or through Currents.
 
 ![Datadog Metrics Explorer showing Braze event metrics and tags.]({% image_buster /assets/img/datadog.png %})
+
+## Troubleshooting
+
+### Why are `braze.messaging.sent` metrics missing in Datadog?
+
+If you connected Braze to Datadog but don't see `braze.messaging.sent` in the Metrics Explorer, confirm the **Datadog site** selected in Braze matches your Datadog organization's site URL. Available sites are:
+
+- `datadoghq.com` (default)
+- `us3.datadoghq.com`
+- `us5.datadoghq.com`
+- `datadoghq.eu`
+- `ddog-gov.com`
+- `ap1.datadoghq.com`
+
+A site mismatch can prevent metrics from appearing in the workspace where you search. In the Braze dashboard, go to **Partner Integrations** > **Technology Partners** > **Datadog** and check that the site matches the subdomain in your Datadog account URL.
+
+The **Datadog site** field is locked after you connect. To change it, disconnect the integration and reconnect with the correct site.
+
+After you correct the site, wait for new send activity before metrics appear. Historical data isn't backfilled.
 

@@ -244,6 +244,10 @@ KakaoTalk messages can be delivered based on a scheduled time, an action, or an 
 
 You can specify delivery controls, such as allowing users to become re-eligible to receive the campaign, or turn on frequency capping rules. For action-based delivery, you can also set the campaign’s duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
+{% alert important %}
+KakaoTalk enforces quiet hours from approximately 20:50 to 08:00 Korea Standard Time (KST). Messages scheduled during this window are not sent until quiet hours end. This restriction is enforced by KakaoTalk delivery providers (CJ OliveNetworks and Infobip) and applies to all KakaoTalk message types, independent of Braze's optional Quiet Hours setting.
+{% endalert %}
+
 ### Choose users to target
 
 Target users by selecting segments or filters to narrow down your audience. For now, KakaoTalk can only message friends of the channel. We recommend setting a custom attribute to indicate channel friends, so you can properly segment your users and avoid sending KakaoTalk messages to users who can't receive them. 

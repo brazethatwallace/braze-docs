@@ -125,7 +125,7 @@ A personalização Liquid e as URLs encurtadas são modeladas na guia **Teste** 
 
 ## Rastreamento de cliques {#click-tracking}
 
-Quando o encurtamento de links está ativado, a tabela **Desempenho de SMS/MMS/RCS** inclui uma coluna intitulada **Total de cliques** que mostra uma contagem de eventos de clique por variante e uma taxa de cliques associada. Para saber mais sobre métricas, consulte [Desempenho da mensagem]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
+Quando o encurtamento de links está ativado, a tabela **Desempenho de SMS/MMS/RCS** inclui uma coluna intitulada **Total de cliques** que mostra uma contagem de eventos de clique por variante e uma taxa de cliques associada. **Total de cliques** exclui cliques suspeitos de bots das contagens do dashboard. Para saber mais sobre métricas, consulte [Desempenho da mensagem]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting) e [Filtragem de cliques de bots]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering).
 
 ![Tabela de métricas de desempenho de SMS e MMS.]({% image_buster /assets/img/link_shortening/shortening4.png %})
 

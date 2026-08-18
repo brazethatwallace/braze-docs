@@ -26,7 +26,7 @@ An SMS message body accepts up to 1,600 characters, including emojis, Liquid, an
 
 ### Understand message segments and character limits
 
-SMS message segments are how the SMS industry counts messages. A message segment is a grouping of up to a defined number of characters (160 for GSM-7 encoding; 67 for UCS-2 encoding) that will be sent in a single SMS dispatch. If you dispatch an SMS with 161 characters using GSM-7 encoding, you will see that there are two (2) message segments that were sent. Sending multiple message segments may result in additional charges.<br><br>
+SMS message segments are how the SMS industry counts messages. A message segment is a grouping of up to a defined number of characters (160 for GSM-7 encoding; 67 for UCS-2 encoding) sent in a single SMS dispatch. If your message uses characters from the GSM-7 extension table (such as `{`, `}`, or `~`), each segment may hold fewer characters. If you dispatch an SMS with 161 characters using GSM-7 encoding, two message segments are sent. Sending multiple message segments may result in additional charges.<br><br>
 
 ### Keyword customization (optional)
 

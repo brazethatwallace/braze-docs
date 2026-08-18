@@ -46,7 +46,7 @@ Auch wenn Sie bereits über ein Speicherkonto verfügen, empfehlen wir, ein neue
 
 ### Schritt 2: Verbindungszeichenfolge abrufen {#step-2-get-the-connection-string}
 
-Sobald das Speicherkonto bereitgestellt ist, navigieren Sie zum Menü **Access Keys** im Speicherkonto und notieren Sie sich die Verbindungszeichenfolge.
+Sobald das Speicherkonto bereitgestellt ist, navigieren Sie zum Menü **Access Keys** des Speicherkontos und notieren Sie sich die Verbindungszeichenfolge.
 
 Microsoft stellt zwei Zugriffsschlüssel bereit, um Verbindungen mit einem Schlüssel aufrechtzuerhalten, während der andere neu generiert wird. Sie benötigen nur die Verbindungszeichenfolge von einem der beiden.
 
@@ -68,17 +68,19 @@ Geben Sie einen Namen für Ihren Blob-Service-Container an. Andere Standardeinst
 
 Navigieren Sie in Braze zu **Currents > + Create Current > Azure Blob Data Export** und geben Sie Ihren Integrationsnamen und Ihre Kontakt-E-Mail-Adresse an.
 
+{% multi_lang_include currents/contact_email_notifications.md %}
+
 Geben Sie anschließend Ihre Verbindungszeichenfolge, den Containernamen und das BlobStorage-Präfix (optional) an.
 
 ![Die Seite „Microsoft Azure Blob Storage Currents“ in Braze. Auf dieser Seite befinden sich Felder für Integrationsname, Kontakt-E-Mail, Verbindungszeichenfolge, Containername und Präfix.]({% image_buster /assets/img/maz.png %})
 
-Scrollen Sie abschließend zum Ende der Seite und wählen Sie aus, welche Engagement-Events oder Kundenverhalten-Events Sie exportieren möchten. Wenn Sie fertig sind, starten Sie Ihren Current.
+Scrollen Sie abschließend zum Ende der Seite und wählen Sie aus, welche Nachrichten-Engagement-Events oder Kundenverhalten-Events Sie exportieren möchten. Wenn Sie fertig sind, starten Sie Ihren Current.
 
 ### Schritt 5: Azure-Datenexport einrichten {#step-5-set-up-azure-data-export}
 
-Im Folgenden werden die Zugangsdaten konfiguriert, die für Folgendes verwendet werden:
+Im Folgenden werden die Zugangsdaten konfiguriert, die verwendet werden für:
 1. Segment-Exporte über die API
-2. CSV-Exporte (Campaign-, Segment-, Canvas-Nutzerdaten-Export über das Dashboard)
+2. CSV-Exporte (Campaign-, Segment-, Canvas-Nutzerdatenexport über das Dashboard)
 3. Engagement-Berichte
 
 Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** > **Microsoft Azure** und geben Sie Ihre Verbindungszeichenfolge, den Azure-Speichercontainernamen und das Azure-Speicherpräfix an.
@@ -88,7 +90,7 @@ Stellen Sie als Nächstes sicher, dass das Kontrollkästchen **Make this the def
 ![Die Seite „Microsoft Azure-Datenexport“ in Braze. Auf dieser Seite befinden sich Felder für Verbindungszeichenfolge, Containername und Präfix.]({% image_buster /assets/img/azure_data_export.png %})
 
 {% alert important %}
-Es ist wichtig, Ihre Verbindungszeichenfolge aktuell zu halten. Wenn die Zugangsdaten Ihres Konnektors ablaufen, stellt der Konnektor das Senden von Events ein. Wenn dies länger als 48 Stunden andauert, werden die Events des Konnektors verworfen und Daten gehen dauerhaft verloren.
+Es ist wichtig, Ihre Verbindungszeichenfolge aktuell zu halten. Wenn die Zugangsdaten Ihres Konnektors ablaufen, sendet der Konnektor keine Events mehr. Wenn dies länger als 48 Stunden andauert, werden die Events des Konnektors verworfen und Daten gehen dauerhaft verloren.
 {% endalert %}
 
 ## Authentifizierungsmethode „Zertifikat-Dienstprinzipal“ {#certificate-service-principal-auth-method}
@@ -103,12 +105,12 @@ Bevor Sie beginnen, [erstellen Sie ein Speicherkonto](#step-1-create-a-storage-a
 
 ### Schritt 1: Anwendung registrieren {#cert-sp-1}
 
-Navigieren Sie in Microsoft Azure zu **Microsoft Entra ID** > **App-Registrierungen** > **+ Neue Registrierung**. Geben Sie einen Namen ein (zum Beispiel `braze-currents`) und wählen Sie **Registrieren**. Ausführliche Schritte finden Sie in Microsofts Dokumentation [Registrieren einer Anwendung bei der Microsoft Identity Platform](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
+Navigieren Sie in Microsoft Azure zu **Microsoft Entra ID** > **App-Registrierungen** > **+ Neue Registrierung**. Geben Sie einen Namen ein (zum Beispiel `braze-currents`) und wählen Sie **Registrieren**. Ausführliche Schritte finden Sie in Microsofts Dokumentation [Register an application with the Microsoft identity platform](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
 
-Notieren Sie sich auf der **Übersicht**-Seite Ihrer neuen App-Registrierung die folgenden Werte. Sie geben beide in [Schritt 6](#cert-sp-6) in Braze ein.
+Notieren Sie sich auf der **Übersicht**-Seite Ihrer neuen App-Registrierung die folgenden Werte. Sie geben beide in [Schritt 6](#cert-sp-6) in Braze an.
 
-- **Anwendungs-ID (Client-ID)**
-- **Verzeichnis-ID (Mandanten-ID)**
+- **Application (client) ID**
+- **Directory (tenant) ID**
 
 ### Schritt 2: Zertifikat erstellen {#cert-sp-2}
 
@@ -126,7 +128,7 @@ Dadurch werden zwei Dateien erstellt:
 | Datei | Zweck |
 | ---- | ------- |
 | `cert.pem` | Ihr öffentliches Zertifikat. Laden Sie diese Datei im nächsten Schritt zu Azure hoch. |
-| `key.pem` | Ihr Private Key. Laden Sie diesen niemals zu Azure hoch. Sie übergeben ihn in [Schritt 6](#cert-sp-6) an Braze. |
+| `key.pem` | Ihr Private Key. Laden Sie diesen niemals zu Azure hoch. Sie übergeben ihn Braze in [Schritt 6](#cert-sp-6). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Zertifikatsdateien" }
 
 {% alert important %}
@@ -147,7 +149,7 @@ Geben Sie Ihr `.pfx`-Passwort ein, wenn Sie dazu aufgefordert werden. Das Flag `
 
 ### Schritt 3: Zertifikat hochladen {#cert-sp-3}
 
-Navigieren Sie in Ihrer App-Registrierung zu **Zertifikate & Geheimnisse** > **Zertifikate** > **Zertifikat hochladen** und laden Sie die im vorherigen Schritt erstellte Datei `cert.pem` hoch. Fügen Sie eine Beschreibung hinzu und wählen Sie **Hinzufügen**. Ausführliche Schritte finden Sie in Microsofts Dokumentation [Hinzufügen und Verwalten von App-Anmeldeinformationen in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-credentials).
+Navigieren Sie in Ihrer App-Registrierung zu **Zertifikate & Geheimnisse** > **Zertifikate** > **Zertifikat hochladen** und laden Sie die im vorherigen Schritt erstellte Datei `cert.pem` hoch. Fügen Sie eine Beschreibung hinzu und wählen Sie **Hinzufügen**. Ausführliche Schritte finden Sie in Microsofts Dokumentation [Add and manage app credentials in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-credentials).
 
 Notieren Sie sich das Ablaufdatum Ihres Zertifikats. Siehe [Azure-Zugangsdaten für Currents aktualisieren](#updating-currents-credentials).
 
@@ -161,7 +163,7 @@ Navigieren Sie zu Ihrem Speicherkonto und wählen Sie **Zugriffssteuerung (IAM)*
 2. Wählen Sie auf dem Tab **Mitglieder** die Option **Benutzer, Gruppe oder Dienstprinzipal**, wählen Sie **+ Mitglieder auswählen** und suchen Sie nach dem Namen der App-Registrierung, die Sie in [Schritt 1](#cert-sp-1) erstellt haben.
 3. Wählen Sie **Überprüfen + zuweisen**.
 
-Ausführliche Schritte finden Sie in Microsofts Dokumentation [Zuweisen einer Azure-Rolle für den Zugriff auf Blobdaten](https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access).
+Ausführliche Schritte finden Sie in Microsofts Dokumentation [Assign an Azure role for access to blob data](https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access).
 
 ![Der Tab „Rollenzuweisungen“ unter „Zugriffssteuerung (IAM)“ für ein Speicherkonto, der einen Dienstprinzipal und eine Gruppe mit der Rolle „Storage Blob Data Contributor“ zeigt.]({% image_buster /assets/img/azure-currents-cert-sp-1.png %})
 
@@ -175,7 +177,7 @@ Ohne diese Rollenzuweisung kann sich Braze zwar bei Microsoft Entra ID authentif
 
 ### Schritt 5: Konto-Endpunkt abrufen {#cert-sp-5}
 
-Navigieren Sie in Ihrem Speicherkonto zu **Einstellungen** > **Endpunkte** und notieren Sie sich den **Blob-Dienst**-Endpunkt. Er sieht in etwa so aus: `https://<your-storage-account>.blob.core.windows.net`.
+Navigieren Sie in Ihrem Speicherkonto zu **Einstellungen** > **Endpunkte** und notieren Sie sich den **Blob-Dienst**-Endpunkt. Er sieht wie folgt aus: `https://<your-storage-account>.blob.core.windows.net`.
 
 ![Die Endpunkte-Seite des Speicherkontos mit hervorgehobenem Blob-Dienst-Endpunkt.]({% image_buster /assets/img/azure-currents-cert-sp-2.png %})
 
@@ -191,25 +193,29 @@ Braze benötigt eine einzelne PEM-Datei, die Ihr Zertifikat und seinen unverschl
 cat cert.pem key.pem > braze-currents.pem
 ```
 
-Wenn Sie in [Schritt 2](#cert-sp-2) eine vorhandene `.pfx`-Datei konvertiert haben, besitzen Sie diese `braze-currents.pem`-Datei bereits.
+Wenn Sie in [Schritt 2](#cert-sp-2) eine vorhandene `.pfx`-Datei konvertiert haben, verfügen Sie bereits über diese `braze-currents.pem`-Datei.
 
-Navigieren Sie in Braze zu **Currents** > **+ Current erstellen** > **Azure Blob Data Export** und geben Sie Ihren Integrationsnamen sowie Ihre Kontakt-E-Mail-Adresse ein. Wählen Sie unter **Zugangsdaten** die Option **Certificate Service Principal** und geben Sie Folgendes an:
+Navigieren Sie in Braze zu **Currents** > **+ Current erstellen** > **Azure Blob Data Export** und geben Sie Ihren Integrationsnamen sowie Ihre Kontakt-E-Mail-Adresse an.
+
+{% multi_lang_include currents/contact_email_notifications.md %}
+
+Wählen Sie unter **Zugangsdaten** die Option **Certificate Service Principal** und geben Sie Folgendes an:
 
 | Feld | Wert |
 | ----- | ----- |
-| Tenant ID | Die **Verzeichnis-ID (Mandanten-ID)** aus [Schritt 1](#cert-sp-1). |
-| Client ID | Die **Anwendungs-ID (Client-ID)** aus [Schritt 1](#cert-sp-1). |
+| Tenant ID | Die **Directory (tenant) ID** aus [Schritt 1](#cert-sp-1). |
+| Client ID | Die **Application (client) ID** aus [Schritt 1](#cert-sp-1). |
 | Account Endpoint | Der **Blob-Dienst**-Endpunkt aus [Schritt 5](#cert-sp-5). |
 | Certificate | Die Datei `braze-currents.pem`, die Ihr Zertifikat und seinen unverschlüsselten Private Key enthält. |
 | Container Name | Der Name Ihres Blob-Containers. |
 | Prefix | Optional. Ein Pfadpräfix für Ihre exportierten Daten innerhalb des Containers. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Felder für Zertifikat-Dienstprinzipal" }
 
-![Die Azure Blob Data Export-Seite in Braze mit ausgewähltem „Certificate Service Principal“, die die Felder „Tenant ID“, „Client ID“, „Account Endpoint“, „Certificate“, „Container Name“ und „Prefix“ zeigt.]({% image_buster /assets/img/azure-currents-cert-sp-3.png %})
+![Die Seite „Azure Blob Data Export“ in Braze mit ausgewähltem „Certificate Service Principal“, die die Felder „Tenant ID“, „Client ID“, „Account Endpoint“, „Certificate“, „Container Name“ und „Prefix“ zeigt.]({% image_buster /assets/img/azure-currents-cert-sp-3.png %})
 
 Beim Speichern validiert Braze die von Ihnen eingegebenen Zugangsdaten.
 
-Scrollen Sie abschließend zum Ende der Seite und wählen Sie aus, welche Nachricht-Engagement-Events oder Kundenverhalten-Events Sie exportieren möchten. Starten Sie anschließend Ihren Current.
+Scrollen Sie abschließend zum Ende der Seite und wählen Sie aus, welche Engagement-Events oder Kundenverhalten-Events Sie exportieren möchten. Wenn Sie fertig sind, starten Sie Ihren Current.
 
 ## Aktualisieren der Azure-Zugangsdaten für Currents {#updating-currents-credentials}
 
@@ -223,7 +229,7 @@ Es ist wichtig, Ihr Zertifikat stets aktuell zu halten. Wenn Ihr Zertifikat abl�
 
 ## Exportverhalten {#export-behavior}
 
-Nutzer:innen, die eine Cloud-Datenspeicherlösung integriert haben und versuchen, APIs, Dashboard-Berichte oder CSV-Berichte zu exportieren, werden Folgendes feststellen:
+Nutzer:innen, die eine Cloud-Datenspeicherlösung integriert haben und APIs, Dashboard-Berichte oder CSV-Berichte exportieren möchten, erleben Folgendes:
 
 - Alle API-Exporte geben keine Download-URL im Antworttext zurück und müssen über den Datenspeicher abgerufen werden.
 - Alle Dashboard-Berichte und CSV-Berichte werden zum Download an die E-Mail der Nutzer:innen gesendet (keine Speicherberechtigungen erforderlich) und im Datenspeicher gesichert.
