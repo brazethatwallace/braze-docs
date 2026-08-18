@@ -87,6 +87,14 @@ The **Query history** section in Query Builder displays your previously run quer
 
 If you need to audit query usage for longer periods or maintain records beyond seven days, we recommend exporting or saving important query results before they expire.
 
+### Comparing Query Builder with other reporting sources
+
+Query Builder results may differ from other reporting tools because they use different data sources and processing methods.
+
+For example, soft bounce counts in Query Builder may be higher than in SendGrid Deliverability reports. Query Builder counts all occurrences of soft bounces without deduplication. If a user soft bounces multiple times before eventual delivery (or after extended retries), each soft bounce attempt is counted. SendGrid Deliverability uses its own data and logic, which Braze doesn't have visibility into, so counts between the two reports may not match.
+
+For more information about how soft bounces are tracked across different reporting sources, refer to [Soft bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce) in the Email analytics glossary.
+
 ## Generating SQL with the AI Query Builder
 
 The AI Query Builder leverages [GPT](https://openai.com/gpt-4), powered by OpenAI, to recommend SQL for your query.
