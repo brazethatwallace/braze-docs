@@ -30,6 +30,9 @@ _data/kb_articles.csv
 _data/kb_articles_actioned.md
 _data/kb_articles_skipped.md
 
+# Salesforce KB Phase 2 local verification notes (never commit)
+.sf-kb-verification*.md
+
 # TAM solutions Drive export (sensitive; local triage only)
 _data/tam_solutions/*.json
 scripts/tam-solutions/.oauth_token.json

@@ -17,14 +17,14 @@ channel:
 
 ## Formato recomendado {#recommended-format}
 
-Recomendamos importar números de telefone no formato [`E.164`](https://en.wikipedia.org/wiki/e.164) para garantir a precisão caso você esteja enviando para várias regiões com diferentes códigos de país ou área&#8212;mesmo para números de telefone dos EUA.
+Recomendamos importar números de telefone no formato [`E.164`](https://en.wikipedia.org/wiki/e.164) para garantir a precisão caso você esteja enviando para várias regiões com diferentes códigos de país ou de área&#8212;mesmo para números de telefone dos EUA.
 
-- **Números dos EUA:** Todos os números dos EUA devem ser números de telefone válidos de 10 dígitos com um código de área válido. Se algum número de 10 dígitos estiver sem o `+` e o código do país, a Braze o mapeará como número dos EUA. Números de telefone de Porto Rico ainda exigem o `+` e o código do país, mesmo usando formatação de 10 dígitos com códigos de área no estilo dos EUA.
+- **Números dos EUA:** Todos os números dos EUA devem ser números de telefone válidos de 10 dígitos com um código de área válido. Se algum número de 10 dígitos estiver sem o `+` e o código do país, a Braze o mapeará como número dos EUA. Números de telefone de Porto Rico ainda exigem o `+` e o código do país, mesmo usando o formato de 10 dígitos com códigos de área no estilo dos EUA.
 - **Números internacionais:** Todos os números internacionais devem começar com `+`, seguido do código do país e do número de telefone. Por exemplo, `+442071838750`.
 
 ![Exemplo de um número de telefone internacional válido no formato E.164.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
 
-Veja alguns exemplos mostrando as diferenças entre a formatação local e o formato `E.164`:
+Veja alguns exemplos mostrando as diferenças entre o formato local e o formato `E.164`:
 
 | País | Local | Código do país | `E.164` |
 |---|---|---|---|
@@ -33,7 +33,7 @@ Veja alguns exemplos mostrando as diferenças entre a formatação local e o for
 | Brasil | `1155256325` | 55 | `+551155256325` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Formato recomendado" }
 
-## Importando números de telefone {#import-phone-numbers}
+## Importar números de telefone {#import-phone-numbers}
 
 Ao importar números de telefone, é importante seguir o [formato recomendado](#recommended-format). Para importar números de telefone, use um dos seguintes métodos:
 
@@ -41,16 +41,16 @@ Ao importar números de telefone, é importante seguir o [formato recomendado](#
 - [Usar o endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 
 {% alert important %}
-Os números de telefone dos usuários aparecem na Braze como uma string de dígitos. Se você importar um número que contenha caracteres não numéricos (como `,`, `-` ou `(`) além do {% raw %}`+`{% endraw %} inicial, os caracteres não numéricos serão removidos ao serem exibidos na Braze. Por exemplo, importar `+1 (724) 123-4567` aparece como `+17241234567`.
+Os números de telefone dos usuários aparecem na Braze como uma string de dígitos. Se você importar um número que contenha caracteres não numéricos (como `,`, `-` ou `(`) além do {% raw %}`+`{% endraw %} inicial, os caracteres não numéricos serão removidos quando renderizados na Braze. Por exemplo, importar `+1 (724) 123-4567` aparecerá como `+17241234567`.
 {% endalert %}
 
-## Validação de números de telefone {#phone-number-validation}
+## Validação de número de telefone {#phone-number-validation}
 
-A Braze usa a biblioteca [libphonenumber](https://github.com/google/libphonenumber) do Google para validar números de telefone. Quando novos prefixos de números móveis são introduzidos, o suporte é adicionado conforme a biblioteca upstream é atualizada. A Braze não mantém uma lista separada de prefixos válidos.
+A Braze usa a biblioteca [libphonenumber](https://github.com/google/libphonenumber) do Google para validar números de telefone. Quando novos prefixos de números de celular são introduzidos, o suporte é adicionado conforme a biblioteca upstream é atualizada. A Braze não mantém uma lista separada de prefixos válidos.
 
 ### Tratamento de números de telefone inválidos {#handling-invalid-phone-numbers}
 
-Quando um número de telefone é considerado inválido, a Braze marca o número de telefone do usuário como inválido e não tenta enviar mais comunicações para esse número. Um número de telefone inválido é marcado na **guia Engajamento** do perfil do usuário.
+Quando um número de telefone é considerado inválido, a Braze marca o número de telefone do usuário como inválido e não tenta enviar mais comunicações para esse número. Um número de telefone inválido é marcado na **guia Engajamento** do perfil de usuário.
 
 ![Exemplo de mensagem de erro para números de telefone inválidos na Braze.]({% image_buster /assets/img/sms/invalid_banner.png %}){: style="max-width:50%;border: 0;"}
 
@@ -70,24 +70,24 @@ Você também pode incluir ou excluir usuários com números de telefone inváli
 ## Excluir envios de SMS rejeitados da segmentação {#exclude-rejected-sms-sends-from-segmentation}
 
 {% alert important %}
-As rejeições de SMS são cobradas da sua cota de SMS.
+As rejeições de SMS podem contar para a sua cota de SMS, dependendo do seu contrato com a Braze e do provedor de SMS. Para informações sobre faturamento, consulte [Relatórios]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
 {% endalert %}
 
-Para excluir usuários com envios de SMS rejeitados dos seus segmentos, use [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e faça o seguinte:
+Para excluir usuários com envios de SMS rejeitados dos seus Segments, use [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e faça o seguinte:
 
-1. Acesse **Público** > **Extensões de segmento**.
-2. Selecione **Criar nova extensão** > **Atualização completa** ou **Atualização incremental**.
+1. Acesse **Público** > **Extensões de Segmento**.
+2. Selecione **Create New Extension** > **Full refresh** ou **Incremental refresh**.
 3. Escreva uma consulta SQL que identifique usuários com rejeições de SMS. Por exemplo, você pode consultar o evento `USERS_MESSAGES_SMS_REJECTION_SHARED` para encontrar usuários que receberam rejeições de SMS.
 4. Salve sua extensão de segmento.
-5. Ao criar seu segmento de SMS, adicione um filtro para excluir os usuários dessa extensão de segmento.
+5. Ao criar seu Segment de SMS, adicione um filtro para excluir os usuários dessa extensão de segmento.
 
-## Adicionando usuários a grupos de inscrições de SMS e RCS {#add-users-to-sms-and-rcs-subscription-groups}
+## Adicionar usuários a grupos de inscrições de SMS e RCS {#add-users-to-sms-and-rcs-subscription-groups}
 
-Para que um usuário receba uma mensagem SMS ou RCS, ele deve ter um número de telefone válido e estar inscrito em um grupo de inscrições. Os grupos de inscrições estão vinculados ao programa de SMS ou RCS que você está executando (certifique-se de seguir os [requisitos legais para SMS, MMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) e de ter registrado o consentimento de cada cliente). Para saber mais, consulte [Grupos de inscrições de SMS e RCS]({{site.baseurl}}/sms_rcs_subscription_groups).
+Para que um usuário receba uma mensagem SMS ou RCS, ele precisa ter um número de telefone válido e ter feito a aceitação em um grupo de inscrições. Os grupos de inscrições estão vinculados ao programa de SMS ou RCS que você está executando (certifique-se de seguir os [requisitos legais para SMS, MMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) e de ter registrado o consentimento de cada cliente). Para saber mais, consulte [Grupos de inscrições de SMS e RCS]({{site.baseurl}}/sms_rcs_subscription_groups).
 
 ## Fornecimento e verificação por terceiros {#third-party-sourcing-and-verification}
 
-A Braze depende de ferramentas de terceiros para identificar números inválidos. A Braze não é responsável por quaisquer interrupções ou informações incorretas desses serviços. Portanto, essa ferramenta não deve ser utilizada como seu único método de conformidade para verificar números inválidos.
+A Braze utiliza ferramentas de terceiros para identificar números inválidos. A Braze não é responsável por interrupções ou informações incorretas desses serviços. Portanto, essa ferramenta não deve ser utilizada como seu único método de conformidade para verificar números inválidos.
 
 ## Captura de número de telefone {#phone-number-capture}
 

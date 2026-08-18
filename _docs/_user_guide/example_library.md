@@ -14,6 +14,9 @@ guide_featured_list:
   - name: Test messages with mock JSON
     link: /docs/user_guide/example_library/personalize/test_messages_with_mock_json
     image: /assets/img/braze_icons/code-02.svg
+  - name: Filter catalog items by date range
+    link: /docs/user_guide/example_library/catalogs/filter_catalog_items_by_date_range
+    image: /assets/img/braze_icons/calendar-date.svg
   - name: Compare translation approaches
     link: /docs/user_guide/example_library/localization/compare_translation_approaches
     image: /assets/img/braze_icons/globe-02.svg

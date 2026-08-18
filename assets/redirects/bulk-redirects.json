@@ -16000,6 +16000,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/user_guide/channels/email/reporting/deliverability_glossary",
+    "destination": "/docs/user_guide/channels/email/reporting/analytics_glossary",
+    "permanent": true
+  },
+  {
     "source": "/docs/user_guide/channels/email/seed_groups",
     "destination": "/docs/user_guide/messaging/messaging_fundamentals/sending_test_messages",
     "permanent": true
@@ -22142,6 +22147,11 @@
   {
     "source": "/docs/user_guide/messaging/design_and_edit/personalize/message_extras",
     "destination": "/docs/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/messaging/governance/shareable_preview",
+    "destination": "/docs/user_guide/channels/email/html_editor",
     "permanent": true
   },
   {

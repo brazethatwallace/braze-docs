@@ -20,13 +20,13 @@ search_rank: 1
 
 ## 1단계: 메시지를 작성할 위치 선택 {#step-1-choose-where-to-build-your-message}
 
-메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaign은 단일 타겟팅 메시징에 적합하고, Canvas는 다단계 사용자 여정에 더 적합합니다.
+메시지를 Campaign으로 보낼지 Canvas로 보낼지 확실하지 않으신가요? Campaign은 단일 타겟팅 메시징에 적합하고, Canvases는 다단계 사용자 여정에 더 적합합니다.
 
 {% tabs %}
 {% tab Campaign %}
 
-1. **Messaging** > **Campaigns**로 이동하여 **Create Campaign**을 선택합니다.
-2. **SMS/MMS/RCS**를 선택하거나, 여러 채널을 타겟팅하는 Campaign의 경우 **Multichannel**을 선택합니다.
+1. **메시징** > **Campaigns**로 이동하여 **Campaign 생성**을 선택합니다.
+2. **SMS/MMS/RCS**를 선택하거나, 여러 채널을 타겟팅하는 Campaign의 경우 **멀티채널**을 선택합니다.
 3. Campaign에 명확하고 의미 있는 이름을 지정합니다.
 4. 필요에 따라 [팀]({{site.baseurl}}/user_guide/administer/global/user_management/teams)과 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)를 추가합니다.
    * 태그를 사용하면 Campaign을 더 쉽게 찾고 보고서를 작성할 수 있습니다. 예를 들어, [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder)를 사용할 때 특정 태그로 필터링할 수 있습니다.
@@ -34,7 +34,7 @@ search_rank: 1
    * Braze에서는 단일 Campaign 내에 SMS와 RCS 배리언트를 모두 포함할 수 있으므로 각각의 성능을 비교할 수 있습니다.
 
 {% alert tip %}
-Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 포함하는 경우, 추가 배리언트를 추가하기 전에 먼저 메시지를 작성하세요. 그런 다음 **Add Variant** 드롭다운에서 **Copy from Variant**를 선택할 수 있습니다.
+Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 포함하는 경우, 추가 배리언트를 추가하기 전에 먼저 메시지를 작성하세요. 그런 다음 **배리언트 추가** 드롭다운에서 **배리언트에서 복사**를 선택할 수 있습니다.
 {% endalert %}
 
 {% endtab %}
@@ -53,7 +53,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 포함하
 
 ## 2단계: 구독 그룹 선택 {#step-2-select-a-subscription-group}
 
-적절한 사용자에게 메시지를 보내려면 [구독 그룹]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups)을 선택하세요. 구독 그룹을 선택하면 Braze가 자동으로 세그먼트 필터를 추가하여 구독한 사용자만 Campaign을 수신하도록 합니다.
+적절한 사용자에게 메시지를 보내기 위해 [구독 그룹]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups)을 선택합니다. 구독 그룹을 선택하면 Braze가 자동으로 세그먼트 필터를 추가하여 구독한 사용자만 Campaign을 수신하도록 합니다.
 
 선택한 구독 그룹에 따라 작성기에서 사용할 수 있는 메시지 유형이 결정됩니다:
 
@@ -79,17 +79,17 @@ Braze는 RCS 발신자가 포함된 모든 구독 그룹에 대체용 SMS 코드
 {% tabs local %}
 {% tab SMS %}
 
-언어와 개인화(Liquid, 연결된 콘텐츠, 이모지)를 필요에 따라 사용하여 메시지를 작성하세요. 초과량 요금이 발생할 가능성을 줄이기 위해 메시지 문구 제한을 준수하세요.
+언어와 개인화(Liquid, 연결된 콘텐츠, 이모지)를 필요에 따라 사용하여 메시지를 작성하세요. 초과량 요금이 발생할 가능성을 줄이려면 메시지 작성 제한을 준수하세요.
 
 {% alert important %}
-진행하기 전에 [SMS 메시지 세그먼트 및 문구 제한]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) 가이드라인을 읽어보세요. SMS 메시지 세그먼트는 이동통신사가 문자 메시지를 측정하는 데 사용하는 문자 단위입니다. 메시지는 메시지 세그먼트당 요금이 부과되므로, 메시지가 어떻게 분할되는지 이해하는 것이 좋습니다.
+진행하기 전에 [SMS 메시지 세그먼트 및 작성 제한]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) 가이드라인을 읽어보세요. SMS 메시지 세그먼트는 이동통신사가 문자 메시지를 측정하는 데 사용하는 문자 단위입니다. 메시지는 메시지 세그먼트당 요금이 부과되므로, 메시지가 어떻게 분할되는지 이해하는 것이 좋습니다.
 {% endalert %}
 
 ![Braze의 SMS 작성기에 "Hi first_name, we appreciate your support! Why not stop by one of our stores and show them this SMS for an exclusive discount? Reply STOP to stop receiving messages from us."라는 메시지가 표시된 화면.]({% image_buster /assets/img/sms_campaign_compose.png %})
 
 ### 연락처 카드 추가 {#adding-a-contact-card}
 
-SMS 메시지에 연락처 카드를 추가하여 고객이 비즈니스 및 연락처 정보를 기기 연락처에 저장할 수 있도록 할 수 있습니다. 회사 이름, 전화번호, 주소, 이메일, 작은 사진 등의 속성을 할당할 수 있습니다. 자세한 내용은 [연락처 카드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card)를 참조하세요.
+SMS 메시지에 연락처 카드를 추가하면 고객이 비즈니스 및 연락처 정보를 기기 연락처에 저장할 수 있습니다. 회사 이름, 전화번호, 주소, 이메일, 작은 사진 등의 속성을 할당할 수 있습니다. 자세한 내용은 [연락처 카드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card)를 참조하세요.
 
 {% endtab %}
 {% tab MMS %}
@@ -125,7 +125,7 @@ Google Voice 번호로 MMS를 보내지 마세요. Google Voice는 MMS 지원이
 {% endtab %}
 {% tab RCS %}
 
-RCS 텍스트 또는 미디어 메시지를 만드는 방법을 이 간단한 안내 영상에서 확인하세요.
+RCS 텍스트 또는 미디어 메시지를 만드는 방법을 이 빠른 안내 영상에서 확인하세요.
 
 {% multi_lang_include video.html id="3y0iiqqygw" source="wistia" %}
 
@@ -136,11 +136,11 @@ RCS 텍스트 또는 미디어 메시지를 만드는 방법을 이 간단한 �
 {% subtabs %}
 {% subtab 텍스트 %}
 
-RCS 텍스트 메시지는 텍스트를 매체로 활용합니다. 메시지가 리치 요소 없이 160자 이하인 경우 기본 RCS 메시지로 요금이 부과됩니다. 160자를 초과하거나 리치 요소를 사용하면 최대 3,072자의 리치(단일) RCS 메시지로 요금이 부과됩니다.
+RCS 텍스트 메시지는 텍스트를 매체로 활용합니다. 메시지가 리치 요소 없이 160자 이하인 경우 기본 RCS 메시지로 요금이 부과됩니다. 160자를 초과하거나 리치 요소를 사용하면 문자 제한이 3,072자인 리치(단일) RCS 메시지로 요금이 부과됩니다.
 
 **기능:**
 
-- 모든 SMS 기능이 포함되며, URL 클릭 추적을 위한 고급 추적 기능을 사용할 수 있습니다.
+- 모든 SMS 기능이 포함되며, URL 클릭 추적을 위한 고급 추적 기술이 제공됩니다.
 - **추천 답장**: 사용자가 선택하면 텍스트 입력란에 미리 채워지는 추천 응답이 포함된 버튼입니다.
 - **추천 작업**: 사용자의 기기에서 작업을 시작하는 버튼입니다. Braze는 현재 사용자를 웹페이지 또는 기타 URL로 리디렉션하는 OpenURL 추천 작업을 지원합니다.
 
@@ -156,7 +156,7 @@ RCS 텍스트 메시지는 텍스트를 매체로 활용합니다. 메시지가 
 {% endsubtab %}
 {% subtab 미디어 %}
 
-RCS 미디어 메시지를 사용하면 SMS로는 불가능한 이미지, 비디오, 문서 파일 등 매력적인 미디어 형식을 활용할 수 있습니다.
+RCS 미디어 메시지를 사용하면 SMS에서는 불가능한 이미지, 비디오, 문서 파일 등 매력적인 미디어 형식을 활용할 수 있습니다.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -166,6 +166,7 @@ RCS 미디어 메시지를 사용하면 SMS로는 불가능한 이미지, 비디
 - [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)에서 업로드한 이미지 파일(JPEG, PNG).
 - 메시지 작성기에서 URL로 추가한 비디오 파일(MP4, MPEG, MV4).
 - 메시지 작성기에서 URL로 추가한 문서 파일(PDF).
+- 메시지 작성기에서 URL로 추가한 오디오 파일(예: 사전 녹음된 음성 메시지).
 
 ![미디어 파일을 업로드하는 옵션이 있는 RCS 작성기.]({% image_buster /assets/img/rcs/rcs_media_type.png %})
 
@@ -177,6 +178,7 @@ RCS 미디어 메시지를 사용하면 SMS로는 불가능한 이미지, 비디
 | 이미지 | 지원 형식: JPG, JPEG, GIF |
 | 비디오 | 지원 형식: H263, M4V, MP4, MPEG-4, MPEG, WEBM |
 | 문서 | 지원 형식: PDF |
+| 오디오 | 지원 형식: AAC, MP3, MPEG, MP4, 3GPP, OGG (SMS 서비스 공급자에 따라 다름) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="인바운드 MMS 및 개인화" }
 
 **고려 사항:**
@@ -186,7 +188,7 @@ RCS 메시지 수신 경험은 이동통신사 커버리지, 모바일 기기 �
 {% endsubtab %}
 {% endsubtabs %}
 
-언어와 개인화([Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), 이모지)를 필요에 따라 사용하여 메시지를 작성하세요. 초과량 요금이 발생할 가능성을 줄이기 위해 메시지 문구 제한을 준수하세요.
+언어와 개인화([Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), 이모지)를 필요에 따라 사용하여 메시지를 작성하세요. 초과량 요금이 발생할 가능성을 줄이려면 메시지 작성 제한을 준수하세요.
 
 {% alert important %}
 진행하기 전에 이 섹션 앞부분의 [RCS 메시지 유형 가이드라인](#step-3-compose-your-message)을 읽어보세요. RCS 메시지는 [메시지당 요금이 부과]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator)되므로, 각 유형에 포함할 수 있는 내용을 이해하는 것이 좋습니다.
@@ -203,28 +205,28 @@ RCS 메시지 수신 경험은 이동통신사 커버리지, 모바일 기기 �
 Liquid를 사용할 계획이라면, 선택한 개인화에 기본값을 포함하세요. 사용자의 프로필이 불완전한 경우 이름 대신 빈 입력 안내 `Hi, !`가 표시되거나 문장이 어색해지는 것을 방지할 수 있습니다.
 {% endraw %}
 
-#### AI 문구 생성 {#generating-ai-copy}
+#### AI 카피 생성 {#generating-ai-copy}
 
-[AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)를 사용해 보세요. 제품 이름이나 설명을 입력하면, AI가 메시징에 사용할 수 있는 자연스러운 마케팅 문구를 생성합니다.
+[AI 카피라이팅 어시스턴트]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy)를 사용해 보세요. 제품 이름이나 설명을 입력하면, AI가 메시징에 사용할 수 있는 사람이 작성한 것 같은 마케팅 카피를 생성합니다.
 
 ![SMS 작성기의 메시지 필드에 있는 AI 카피라이터 실행 버튼.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_sms.png %}){: style="max-width:60%"}
 
 #### 오른쪽에서 왼쪽으로 쓰는 메시지 작성 {#creating-right-to-left-messages}
 
-오른쪽에서 왼쪽으로 쓰는 메시지의 최종 모습은 서비스 제공업체가 렌더링하는 방식에 크게 좌우됩니다. 가능한 한 정확하게 표시되는 오른쪽에서 왼쪽으로 쓰는 메시지를 작성하기 위한 모범 사례는 [오른쪽에서 왼쪽으로 쓰는 메시지 작성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)을 참조하세요.
+오른쪽에서 왼쪽으로 쓰는 메시지의 최종 모습은 서비스 공급자가 렌더링하는 방식에 크게 좌우됩니다. 가능한 한 정확하게 표시되는 오른쪽에서 왼쪽으로 쓰는 메시지를 작성하는 모범 사례는 [오른쪽에서 왼쪽으로 쓰는 메시지 작성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages)을 참조하세요.
 
-#### 대화형 메시지 워크플로 만들기(RCS) {#create-conversational-message-workflows-rcs}
+#### 대화형 메시지 워크플로 만들기 (RCS) {#create-conversational-message-workflows-rcs}
 
 대화형 메시지 워크플로를 사용하면 사용자에게 동적으로 응답하여 양방향 메시징 경험을 만들 수 있습니다. 워크플로를 구축하려면 Canvas를 만든 다음 추천 답장과 [작업 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)를 결합하여 사용자가 선택한 답장에 따라 워크플로를 안내하세요.
 
 1. Canvas 빌더에서 여러 추천 답장이 포함된 RCS 메시지 단계를 만드세요.
 
-![추천 답장이 있는 RCS 메시지 작성기.]({% image_buster /assets/img/rcs/suggested_replies.png %})
+![추천 답장이 포함된 RCS 메시지 작성기.]({% image_buster /assets/img/rcs/suggested_replies.png %})
 
 {: start="2"}
 2. 해당 메시지를 각 추천 답장에 대한 작업 그룹이 있는 작업 경로에 연결하세요.
 3. 각 작업 그룹에 대해:
-   - 트리거로 **SMS 인바운드 메시지 전송**을 선택하세요.
+   - 트리거로 **SMS 인바운드 메시지 보내기**를 선택하세요.
    - 메시지 본문을 해당 추천 답장과 동일하게 설정하세요.
 
 ![각 추천 답장에 대해 하나씩, 세 개의 작업 그룹으로 구성된 작업 경로 단계.]({% image_buster /assets/img/rcs/quick_reply.png %})
@@ -256,20 +258,20 @@ RCS 렌더링은 사용자의 운영 체제, 기기 제조사, 통신사 및 메
 
 자세한 내용은 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=sms%2Fmms%20and%20rcs)를 참조하세요.
 
-## 5단계: Campaign 또는 Canvas의 나머지 부분 구성 {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+## 5단계: Campaign 또는 Canvas의 나머지 부분 구성하기 {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-다음으로, Campaign의 나머지 부분을 구성합니다. 메시지를 작성하기 위해 도구를 가장 효과적으로 사용하는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
+다음으로, Campaign의 나머지 부분을 구성합니다. 메시지를 작성하는 데 도구를 가장 잘 활용하는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
 
 ### 전달 스케줄 또는 트리거 선택 {#choose-delivery-schedule-or-trigger}
 
-메시지는 예약된 시간, 실행 기반 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [Campaign 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)을 참조하세요.
+메시지는 예약된 시간, 실행 기반 또는 API 트리거를 기반으로 전달할 수 있습니다. 자세한 내용은 [Campaign 스케줄링]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)을 참조하세요.
 
 실행 기반 전달의 경우, Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)도 설정할 수 있습니다.
 
-이 단계에서는 사용자가 Campaign을 다시 [수신할 수 있도록]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
+이 단계에서는 사용자가 Campaign을 다시 받을 수 있도록 [재자격]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility)을 허용하거나, [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
 
 ### 타겟 사용자 선택 {#choose-users-to-target}
 
@@ -297,7 +299,7 @@ Braze에서는 Campaign을 수신한 후 사용자가 특정 행동인 [전환 �
 {% endtab %}
 {% tab Canvas %}
 
-아직 완료하지 않았다면, Canvas 구성 요소의 나머지 섹션을 완성하세요. Canvas의 나머지 부분을 구성하고, 다변량 테스트 및 지능형 선택을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) 단계를 참조하세요.
+아직 완료하지 않았다면, Canvas 구성 요소의 나머지 섹션을 완성하세요. Canvas의 나머지 부분을 구성하고, 다변량 테스트 및 지능형 선택을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구성하기]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) 단계를 참조하세요.
 
 {% endtab %}
 {% endtabs %}
@@ -310,6 +312,6 @@ Campaign 또는 Canvas의 마지막 구성을 완료한 후, 세부 사항을 �
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
-### RCS로 사전 녹음된 음성 메시지를 보낼 수 있나요? {#can-i-send-pre-recorded-voicemails-with-rcs}
+### RCS로 미리 녹음된 음성 메시지를 보낼 수 있나요? {#can-i-send-pre-recorded-voicemails-with-rcs}
 
 네, 미디어 메시지를 사용하여 오디오 파일을 지원할 수 있습니다.

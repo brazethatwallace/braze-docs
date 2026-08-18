@@ -4,7 +4,7 @@ article_title: Operatorでできること
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "このリファレンス記事では、BrazeAI Operator™がダッシュボード全体でできることについて説明します。キャンペーン、セグメント、エージェントの構築、コピー・メッセージ・Liquid・画像の生成、データ変換、コンテンツ品質のレビュー、情報の検索などが含まれます。"
+description: "このリファレンス記事では、BrazeAI Operator™がダッシュボード全体でできることについて説明します。キャンペーン、セグメント、レポート、ダッシュボード、エージェントの構築、コピー・メッセージ・Liquid・画像の生成、データ変換、コンテンツ品質のレビュー、情報の検索などが含まれます。"
 ---
 
 # Operatorでできること {#operator-capabilities}
@@ -17,7 +17,15 @@ Operatorはワークスペース（ブランドガイドライン、カスタム
 
 ## 前提条件 {#prerequisites}
 
-オペレーターはあなたと同じ権限を持っているため、特定のアクションにはそのサーフェスに関連する権限が必要です。たとえば、画像を生成するには*メディアライブラリアセットの編集*権限が必要です。エントリポイントが表示されない場合は、管理者に権限を確認してください。詳細については、[権限のリスト]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)を参照してください。
+オペレーターはあなたと同じ権限を持っているため、特定のアクションにはそのサーフェスに関連する権限が必要です。たとえば、画像を生成するには*メディアライブラリアセットの編集*権限が必要です。エントリポイントが表示されない場合は、管理者に権限を確認してください。詳細については、[権限の一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)を参照してください。
+
+## ダッシュボードのナビゲーション {#navigate-the-dashboard}
+
+オペレーターは、現在表示しているページでのみ動作するわけではありません。プロンプトでダッシュボードの別の部分が必要な場合、オペレーターは移動先を特定し、ナビゲーションを提案して、作業を続行する前にそのページへ移動します。
+
+つまり、オペレーターは1つのプロンプトから複数のステップにわたる作業を連続して実行できます。たとえば、ホームページからオペレーターにドラッグ＆ドロップエディターの設定をブランド・ガイドラインに合わせるよう依頼すると、関連するメール設定に移動し、そこから引き続きサポートを行います。求める結果を平易な言葉で説明すれば、オペレーターが関連する設定や機能に移動して作業を開始できます。
+
+デフォルトでは、オペレーターは新しいページに移動する前に、提案されたナビゲーションの承認を求めます。これは他の提案されたアクションと同様です。毎回承認を待たずにオペレーターがナビゲーションを行えるようにするには、[アクションの自動承認]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions#auto-approve-actions)をオンにしてください。
 
 ## Operatorが作成できるもの {#what-operator-can-create}
 
@@ -26,8 +34,12 @@ Operatorはワークスペース（ブランドガイドライン、カスタム
 - キャンペーン
 - Content Blocks
 - カスタムエージェント
+- カスタム属性とカスタムイベント
+- ダッシュボード
 - 画像
 - メッセージとメッセージテンプレート（[メッセージの生成](#generate-messages)と[メッセージテンプレートの作成](#create-message-templates)を参照）
+- 予測
+- レポート
 - セグメント
 - セグメントエクステンション
 
@@ -37,16 +49,17 @@ Operatorのダッシュボード全体での機能は定期的に拡張されて
 
 ## キャンペーンとオーディエンス {#campaigns-and-audiences}
 
-Operatorは、アイデアからキャンペーンやオーディエンスの下書きを作成し、作成後にそれらを改善するのを支援できます。Operatorがキャンペーンやセグメントに提案する変更は、保存前に確認するアクションカードとして表示されます。
+オペレーターは、アイデアからキャンペーンやオーディエンスの下書きを作成し、作成後にそれらを改善するのを支援できます。オペレーターがキャンペーンやセグメントに提案する変更は、保存前に確認するアクションカードとして表示されます。
 
-開始するには、キャンペーンやセグメントを作成する際に**Operatorで作成**オプションを探してください。
+開始するには、キャンペーンやセグメントを作成する際に**オペレーターで作成**オプションを探してください。
 
-![キャンペーン作成メニューとセグメント作成メニュー。それぞれにOperatorで作成オプションが表示されています。]({% image_buster /assets/img/operator/operator_create_with_operator.png %}){:style="max-width:90%"}
+![キャンペーン作成メニューとセグメント作成メニュー。それぞれにオペレーターで作成オプションが表示されています。]({% image_buster /assets/img/operator/operator_create_with_operator.png %}){:style="max-width:90%"}
 
-- **キャンペーンの作成と編集：** キャンペーンを開始する際、Operatorは単一の自然言語ブリーフからエンドツーエンドで下書きを作成できます。これにはオーディエンス、コンテンツ、配信設定が含まれます。また、ターゲティングの調整やメッセージコンテンツの更新など、既存のキャンペーンの編集もOperatorに依頼できます。
-- **ブリーフからキャンペーンへ：** キャンペーンブリーフ全体を説明すると、Operatorがコピー、画像、パーソナライゼーション、ターゲティング、送信時間の推奨を含む下書きの作成を支援します。キャンペーンコンポーザーで下書きを確認し、起動前にフォローアッププロンプトで改善します。
-- **セグメントの作成と編集：** セグメントを開始する際、希望するオーディエンスを説明すると、Operatorが属性条件、イベント履歴、カタログルックアップを含むフィルターロジックの構築を支援します。ターゲティング戦略の変更が必要な場合、Operatorは既存のセグメントのフィルター編集も支援できます。
-- **セグメントエクステンションの作成：** Operatorは、定義するクエリを記述することで、SQLで定義された[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)の構築を支援できます。希望するオーディエンスロジックを説明すると、Operatorが保存前に確認するクエリの下書きを作成します。OperatorとSQLの詳細については、[SQLクエリの記述](#write-sql-queries)を参照してください。
+- **キャンペーンの作成と編集：** キャンペーンを開始する際、オペレーターは単一の自然言語ブリーフからエンドツーエンドで下書きを作成できます。これにはオーディエンス、コンテンツ、配信設定が含まれます。また、ターゲティングの調整やメッセージコンテンツの更新など、既存のキャンペーンの編集もオペレーターに依頼できます。
+- **ブリーフからキャンペーンへ：** キャンペーンブリーフ全体を説明すると、オペレーターがコピー、画像、パーソナライゼーション、ターゲティング、送信時間の推奨を含む下書きの作成を支援します。キャンペーンコンポーザーで下書きを確認し、起動前にフォローアッププロンプトで改善します。
+- **セグメントの作成と編集：** セグメントを開始する際、希望するオーディエンスを説明すると、オペレーターが属性条件、イベント履歴、カタログルックアップを含むフィルターロジックの構築を支援します。ターゲティング戦略の変更が必要な場合、オペレーターは既存のセグメントのフィルター編集も支援できます。
+- **セグメントエクステンションの作成：** オペレーターは、定義するクエリを記述することで、SQLで定義された[セグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension)の構築を支援できます。希望するオーディエンスロジックを説明すると、オペレーターが保存前に確認するクエリの下書きを作成します。セグメントエクステンションの概要からもオペレーターにヘルプを依頼できます。オペレーターとSQLの詳細については、[SQLクエリの記述](#write-sql-queries)を参照してください。
+- **ユーザーのインポートと管理：** サポートされているオーディエンスページでは、オペレーターが[ユーザーのインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users)、[ユーザーの削除]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users)、[重複プロファイルの統合]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)を支援できます。提案された各アクションは、保存前に確認してください。
 
 ## エージェント {#agents}
 
@@ -60,7 +73,7 @@ Operatorは、[エージェントコンソール]({{site.baseurl}}/user_guide/br
 
 ## コンテンツとクリエイティブ {#content-and-creative}
 
-オペレーターは、コピー、メッセージHTML、Liquid、画像を含むメッセージのコンテンツを生成・レビューでき、ブランドガイドラインが設定されている場所では自動的に適用します。
+オペレーターは、コピー、メッセージHTML、Liquid、画像を含むメッセージのコンテンツを生成・レビューでき、ブランドガイドラインが設定されている場所では自動的に適用します。テンプレートライブラリや概要ページからオペレーターにヘルプを依頼することもできます。たとえば、[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates)やContent Blocksをそれぞれのリストページから作成・更新したり、[コンテンツカレンダー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar)で作業をスケジュールしたり、[アプリ内メッセージのカラープロファイルテンプレート]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles)を作成したり、[バナーのプレースメント]({{site.baseurl}}/developer_guide/banners/placements)を設定したりできます。
 
 ### ブランドガイドラインの適用 {#apply-brand-guidelines}
 
@@ -93,7 +106,7 @@ Operatorは、[エージェントコンソール]({{site.baseurl}}/user_guide/br
 - プッシュ
 - Webhook
 
-ドラッグ＆ドロップエディターは直接的なデザイン生成をサポートしていませんが、オペレーターは手動で追加するコピーやその他のコンテンツの支援は可能です。自然言語でメッセージを説明し、出力をレビューしてコンポーザーに挿入します。会話を続けて結果を改善できます。たとえば、HTMLをエディターに挿入する前に、異なるレイアウト、短いコピー、更新されたボタンスタイリングを依頼できます。
+ドラッグ＆ドロップエディターは直接的なデザイン生成をサポートしていませんが、オペレーターは手動で追加するコピーやその他のコンテンツの支援は可能です。自然言語で希望するメッセージを説明し、出力をレビューしてコンポーザーに挿入します。会話を続けて結果を改善できます。たとえば、HTMLをエディターに挿入する前に、異なるレイアウト、短いコピー、更新されたボタンスタイリングを依頼できます。
 
 作成中のコンポーザー内でオペレーターを使用すると、チャネルとメッセージタイプの[ページ対応コンテキスト]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)を持つため、最良の結果が得られます。ブランドガイドラインが設定されている場合、オペレーターはそれを自動的に適用します。
 
@@ -105,7 +118,7 @@ Operatorは、[エージェントコンソール]({{site.baseurl}}/user_guide/br
 
 ### メッセージテンプレートの作成 {#create-message-templates}
 
-オペレーターは、キャンペーン全体で適用できる再利用可能な[メッセージテンプレート]({{site.baseurl}}/user_guide/messaging/templates)の作成を支援できます。希望するテンプレートを説明すると、オペレーターが保存前に確認する下書きを作成します。テンプレートの生成はメッセージの生成と同様に機能するため、対応するチャネルとエディターについては[メッセージの生成](#generate-messages)を参照してください。
+オペレーターは、キャンペーン全体で適用できる再利用可能な[メッセージテンプレート]({{site.baseurl}}/user_guide/messaging/templates)の作成を支援できます。希望するテンプレートを説明すると、オペレーターが保存前に確認する下書きを作成します。Braze内のどこからでも開始できます。テンプレートの生成はメッセージの生成と同様に機能するため、対応するチャネルとエディターについては[メッセージの生成](#generate-messages)を参照してください。
 
 ### Liquidの生成 {#generate-liquid}
 
@@ -193,13 +206,24 @@ SMS、Androidプッシュ通知、iOSプッシュ通知、従来のアプリ内�
 
 特定の情報を検索できるかどうかわからない場合は、オペレーターに直接聞いてください。
 
+
 ### パフォーマンスデータの分析 {#analyze-performance-data}
 
 キャンペーンやキャンバスのパフォーマンスについて、オペレーターに自然言語で質問すると、ワークスペースデータからチャート、比較、簡潔なインサイトを返します。表示中のページのコンテキストを必要とするオペレーターのページ対応機能とは異なり、分析機能はダッシュボードのどこからでも回答できます。詳しくは、[オペレーター分析]({{site.baseurl}}/user_guide/brazeai/operator/analyze)を参照してください。
 
+### レポートとダッシュボードの作成 {#build-reports-and-dashboards}
+
+オペレーターは、自然言語の説明から[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)レポートや[ダッシュボードビルダー]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder)ダッシュボードの作成を支援できます。必要な指標、チャネル、日付範囲を説明すると、オペレーターが保存前に確認できるレポートまたはダッシュボードの下書きを作成します。
+
+たとえば、「過去30日間のワークスペースのSMSエンゲージメントを表示するレポートを作成して」と聞いてみてください。
+
+### 予測の作成 {#create-predictions}
+
+オペレーターは、[解約予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)の予測や[AIアイテムレコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)の表示と作成を支援できます。求める結果を説明すると、オペレーターが確認用の予測またはレコメンデーションを提案します。
+
 ### SQLクエリの記述 {#write-sql-queries}
 
-オペレーターは、[セグメントエクステンション](#campaigns-and-audiences)やクエリビルダーの[クエリテンプレート]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates)用のSQLの記述を支援できます。希望するクエリを自然言語で説明すると、オペレーターが実行前に確認するSQLを生成します。
+オペレーターは、[セグメントエクステンション](#campaigns-and-audiences)やクエリビルダーの[クエリテンプレート]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates)用のSQLの記述を支援できます。希望するクエリを自然言語で説明すると、オペレーターが実行前に確認できるSQLを生成します。
 
 ### データ変換コードの生成 {#generate-data-transformation-code}
 
@@ -213,8 +237,12 @@ SMS、Androidプッシュ通知、iOSプッシュ通知、従来のアプリ内�
 - [プッシュ設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)
 - [メッセージングレート制限]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)
 - [承認ワークフロー]({{site.baseurl}}/user_guide/messaging/governance/approvals)（[メッセージングルール]({{site.baseurl}}/user_guide/messaging/governance/approvals/messaging_rules)および常時承認を含む）
-- [APIと識別子]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)（[その他の識別子]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers)およびAPI制限を含む）
+- [APIと識別子]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)（[その他の識別子]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers)、API制限、および[API使用状況アラート]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)を含む）
 - [管理者設定の連絡先情報]({{site.baseurl}}/user_guide/administer/global/admin_settings/contact_information)
+- [セキュリティ設定]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings)および[SCIMプロビジョニング]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning)
+- [ロール]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role)および[権限セット]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#create-a-permission-set)
+- [エクスポートログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/exports_log)
+- メッセージ優先度カテゴリ
 
 {% alert note %}
 オペレーターがカバーする設定ページは定期的に拡大しています。設定可能な内容の最新情報については、**オペレーターに直接お問い合わせください**。
