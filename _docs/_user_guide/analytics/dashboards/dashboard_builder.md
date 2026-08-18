@@ -32,7 +32,7 @@ Now, follow the respective steps for your data source:
 4. Select **+ Add Tile** and then choose one of the reports you created in [Report Builder (New)]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 {% alert important %}
-After a Report Builder report is added to a Dashboard Builder tile, the tile is not connected to the original report. If you edit the original report in Report Builder, you must delete the existing dashboard tile and create a new one using the updated report as the data source.
+After a Report Builder report is added to a dashboard builder tile, the tile is not connected to the original report. If you edit the original report in Report Builder, you must delete the existing dashboard tile and create a new one using the updated report as the data source.
 {% endalert %}
 
 {: start="5"}
@@ -90,7 +90,7 @@ Adjust the tile size by dragging the resize handle, and adjust the tile position
 
 Braze provides pre-built dashboards for frequent use cases. Use the following table as the single reference for currently documented dashboards and where to access each one.
 
-| Dashboard | Access path | Documentation |
+| dashboard | Access path | Documentation |
 | --- | --- | --- |
 | Revenue - Last Touch Attribution | **Analytics** > **Dashboard Builder** | [Revenue - Last Touch Attribution](#revenue---last-touch-attribution) |
 | Devices and carriers | **Analytics** > **Dashboard Builder** | [Devices and carriers](#devices-and-carriers) |
