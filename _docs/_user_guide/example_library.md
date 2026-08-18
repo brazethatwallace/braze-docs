@@ -23,6 +23,9 @@ guide_featured_list:
   - name: Link cross-domain Web SDK users
     link: /docs/user_guide/example_library/web/link_cross_domain_users_via_device_id
     image: /assets/img/braze_icons/link-04.svg
+  - name: Order Placed SQL dashboards
+    link: /docs/user_guide/example_library/analytics/ecommerce_order_placed_sql_dashboards
+    image: /assets/img/braze_icons/bar-chart-01.svg
 ---
 
 ## What you find here
