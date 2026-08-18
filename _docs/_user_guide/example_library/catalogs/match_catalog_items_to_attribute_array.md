@@ -23,12 +23,7 @@ This pattern:
 3. Loops over `items` and uses `contains` to match each catalog field (for example `name` or `id`) against the array.
 
 {% alert important %}
-This pattern works only when the selection's result set (up to 50 catalog rows) can plausibly contain each user's saved items. It fits:
-
-- Small catalogs
-- Catalogs where filters narrow the selection tightly enough to cover a typical list
-
-If a user's saved items fall outside the 50 rows returned, the loop finds no matches and the message renders nothing for those items—no filter resolves this in the general case, because the selection can't match against the user's profile array.
+This pattern works only when the selection's result set (up to 50 catalog rows) can plausibly contain each user's saved items—for example, small catalogs, or catalogs where filters narrow the selection tightly enough to cover a typical list. If a user's saved items fall outside the 50 rows returned, the loop finds no matches and the message renders nothing for those items—no filter resolves this in the general case, because the selection can't match against the user's profile array.
 {% endalert %}
 
 ## Considerations
