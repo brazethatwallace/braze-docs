@@ -92,10 +92,10 @@ Braze provides pre-built dashboards for frequent use cases. Use the following ta
 
 | Dashboard | Access path | Documentation |
 | --- | --- | --- |
-| Revenue - Last Touch Attribution | **Analytics** > **Dashboard Builder** | This page |
-| Devices and carriers | **Analytics** > **Dashboard Builder** | This page |
-| Segment Insights - Email | **Analytics** > **Dashboard Builder** | This page |
-| Session Analytics | **Analytics** > **Dashboard Builder** | This page |
+| Revenue - Last Touch Attribution | **Analytics** > **Dashboard Builder** | [Revenue - Last Touch Attribution](#revenue---last-touch-attribution) |
+| Devices and carriers | **Analytics** > **Dashboard Builder** | [Devices and carriers](#devices-and-carriers) |
+| Segment Insights - Email | **Analytics** > **Dashboard Builder** | [Segment Insights - Email](#segment-insights---email) |
+| Session Analytics | **Analytics** > **Dashboard Builder** | [Session Analytics](#session-analytics) |
 | eCommerce Revenue - Last Touch Attribution | **Analytics** > **Dashboard Builder** | [eCommerce revenue dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/ecommerce_revenue_dashboard) |
 | Messaging Diagnostics | **Analytics** > **Dashboard Builder** | [Messaging diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) |
 | Industry Benchmarks | **Analytics** > **Dashboard Builder** | [Industry Benchmarks dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/industry_benchmarks_dashboard) |
@@ -104,7 +104,9 @@ Braze provides pre-built dashboards for frequent use cases. Use the following ta
 | Push performance | **Analytics** > **Dashboard Builder** > **Push Channel Dashboard** | [Channel performance dashboards]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#push-performance-dashboard) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available dashboards" }
 
-Note that the ability to edit Braze-created dashboards isn't yet available. Contact your customer success manager if you'd like to request additional dashboards.
+{% alert note %}
+The ability to edit Braze-created dashboards isn't yet available. Contact your customer success manager if you'd like to request additional dashboards.
+{% endalert %}
 
 #### Revenue - Last Touch Attribution
 
