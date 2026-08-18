@@ -17,6 +17,9 @@ guide_featured_list:
   - name: Filter catalog items by date range
     link: /docs/user_guide/example_library/catalogs/filter_catalog_items_by_date_range
     image: /assets/img/braze_icons/calendar-date.svg
+  - name: Match catalog items to an attribute array
+    link: /docs/user_guide/example_library/catalogs/match_catalog_items_to_attribute_array
+    image: /assets/img/braze_icons/list.svg
   - name: Compare translation approaches
     link: /docs/user_guide/example_library/localization/compare_translation_approaches
     image: /assets/img/braze_icons/globe-02.svg
