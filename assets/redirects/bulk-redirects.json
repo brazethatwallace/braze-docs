@@ -55,6 +55,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/api/api_campaigns/transactional_api_campaign",
+    "destination": "/docs/user_guide/channels/transactional_email/create_a_transactional_email",
+    "permanent": true
+  },
+  {
     "source": "/docs/api/api_key",
     "destination": "/docs/api/basics",
     "permanent": true
@@ -8310,6 +8315,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/help/help_articles/overview",
+    "destination": "/docs/help/help_articles",
+    "permanent": true
+  },
+  {
     "source": "/docs/help/help_articles/push",
     "destination": "/docs/user_guide/channels/push",
     "permanent": true
@@ -11276,7 +11286,7 @@
   },
   {
     "source": "/docs/message_building_and_personalization/personalization",
-    "destination": "/docs/user_guide/messaging/design_and_edit/personalize/overview",
+    "destination": "/docs/user_guide/messaging/design_and_edit/personalize",
     "permanent": true
   },
   {
@@ -11740,6 +11750,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/data_and_analytics/business_intelligence/heap",
+    "destination": "/docs/partners/data_and_analytics/analytics/heap",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/data_and_analytics/business_intelligence/scuba",
     "destination": "/docs/partners/data_and_analytics",
     "permanent": true
@@ -11757,6 +11772,11 @@
   {
     "source": "/docs/partners/data_and_analytics/cohort_import/tinyclues",
     "destination": "/docs/partners/data_and_analytics/cohort_import/splio",
+    "permanent": true
+  },
+  {
+    "source": "/docs/partners/data_and_analytics/customer_data_platform/hightouch",
+    "destination": "/docs/partners/data_and_analytics/reverse_etl/hightouch",
     "permanent": true
   },
   {
@@ -15987,6 +16007,11 @@
   {
     "source": "/docs/user_guide/channels/email/best_practices/email_services",
     "destination": "/docs/user_guide/channels/email#email-services",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/channels/email/drag_and_drop/overview",
+    "destination": "/docs/user_guide/channels/email/drag_and_drop",
     "permanent": true
   },
   {
@@ -21981,7 +22006,7 @@
   },
   {
     "source": "/docs/user_guide/messaging/content/personalize/overview",
-    "destination": "/docs/user_guide/messaging/design_and_edit/personalize/overview",
+    "destination": "/docs/user_guide/messaging/design_and_edit/personalize",
     "permanent": true
   },
   {
@@ -22147,6 +22172,11 @@
   {
     "source": "/docs/user_guide/messaging/design_and_edit/personalize/message_extras",
     "destination": "/docs/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/messaging/design_and_edit/personalize/overview",
+    "destination": "/docs/user_guide/messaging/design_and_edit/personalize",
     "permanent": true
   },
   {
@@ -22336,7 +22366,7 @@
   },
   {
     "source": "/docs/user_guide/messaging/personalize/overview",
-    "destination": "/docs/user_guide/messaging/design_and_edit/personalize/overview",
+    "destination": "/docs/user_guide/messaging/design_and_edit/personalize",
     "permanent": true
   },
   {
