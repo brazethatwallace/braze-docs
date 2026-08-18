@@ -36,7 +36,7 @@ The following video provides an overview of how to create and customize reports 
     - Channels
     - Tags
 
-    Note that your **Rows** selection will impact [the metrics that you can view](#metrics-availability). For example, you can view multivariate metrics only if you report on **Canvases**, or **Campaigns** with a **Variant** drilldown. You cannot view those metrics when reporting on **Campaigns and Canvases**, even if those campaigns and Canvases have multivariate tests. 
+    Note that your **Rows** selection impacts [the metrics that you can view](#metrics-availability). For example, you can view multivariate metrics only if you report on **Canvases**, or **Campaigns** with a **Variant** drilldown. You can't view those metrics when reporting on **Campaigns and Canvases**, even if those campaigns and Canvases have multivariate tests. 
 
 ![The "Rows and columns" section with fields to select the rows and groupings for your report.]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
 
@@ -80,7 +80,7 @@ The report may take up to a few minutes to run, depending on the date range and 
 Your selection for **Rows** affects the metrics you can select.
 
 {% alert tip %}
-If you want to report on Canvas variants or steps, select **Canvases** for rows and either leave the field empty or select **Date** as the drilldown. This creates a **Canvas View** dropdown to view metrics for the Canvas only, or group metrics by variant, step, or message.<br><br> When you group by step, the preview table while configuring your report shows a maximum of 50 rows. Run the report or export it as a CSV to view all rows.
+If you want to report on Canvas variants or steps, select **Canvases** for rows and either leave the field empty or select **Date** as the drilldown. After running the report, a **Canvas View** dropdown appears on the results page to view metrics for the Canvas only, or group metrics by variant, step, or message.<br><br> When editing your report, the preview table shows a maximum of 50 rows. Run the report to view all rows on the results page with pagination (100 rows per page) or export the full dataset as a CSV.
 
 ![The opened "Canvas View" dropdown.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}
@@ -106,7 +106,7 @@ In the same report, _Unique Recipients_ can be higher than _Unique Impressions_ 
 
 ## Viewing a report
 
-After running your report, you can view your results in table format on the report page.
+After running your report, you can view your results in table format on the report results page.
 
 ![A table of the report data for each campaign's metrics.]({% image_buster /assets/img/report_builder_2/report_table.png %}){: style="width:90%;"}
 
@@ -117,7 +117,7 @@ At the bottom of the page you can create a chart of your data by selecting a **C
 ![A chart of the report data with options to configure the chart's x-axis, y-axis, chart type, and more.]({% image_buster /assets/img/report_builder_2/visualize_table.png %}){: style="max-width:90%;"}
 
 {% alert note %}
-To create a line chart, select **Date** as a drilldown option when configuring the report. This will display trends over time.
+To create a line chart, select **Date** as a drilldown option when configuring the report. This displays trends over time.
 {% endalert %}
 
 #### Downloading a report chart
