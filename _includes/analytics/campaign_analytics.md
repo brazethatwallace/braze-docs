@@ -215,6 +215,15 @@ If links use Liquid for dynamic URLs, clicked URLs may not match the rendered li
 
 ![Example of the Preview and Heatmap page that includes an email campaign, and a panel with link alias examples with their total clicks.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
+##### Heatmap unsubscribe clicks versus campaign analytics
+
+Clicks on unsubscribe links in the heatmap may differ from the *Unsubscribers* metric in campaign analytics:
+
+- When you use a custom unsubscribe URL in your message body, Braze treats that link as a standard tracked link for heatmap purposes—it appears in the **Link Table by Total Clicks** like any other link. When Braze processes an unsubscription from the Braze-provided unsubscribe link, the *Unsubscribers* metric increments. Custom unsubscribe URLs do not increment that metric unless you update users through the API.
+- When a user unsubscribes using the [list-unsubscribe header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) (a one-click unsubscribe option shown by some inbox providers), that action increments *Unsubscribers* in campaign analytics but doesn't appear as a click in the heatmap. If the message uses **Unsubscribe from specific subscription group**, Braze unsubscribes the user from only the configured subscription group instead of globally. Availability of this option varies by recipient because inbox providers differ in whether they render or support the list-unsubscribe header.
+
+For a complete view of unsubscribe behavior, review both the heatmap link breakdown and the *Unsubscribers* metric. For more details, see [Why *Unsubscribes* and unsubscribe-link clicks can differ]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#why-unsubscribes-and-unsubscribe-link-clicks-can-differ).
+
 ##### Mobile-only links in the heatmap
 
 The heatmap only shows heat signatures for links visible at the selected preview size.
