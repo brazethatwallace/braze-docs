@@ -2069,6 +2069,8 @@ RCS is the next generation of SMS and MMS. It offers the benefits of a direct, h
 
 Webhooks were made part of Message Credits on Dec, 9, 2024. Braze will charge Message Credits for any webhooks sent from the Braze platform. By default, your contract includes one hundred thousand webhooks per each Period of your Subscription Term. Additional webhooks will be charged as per your Order Form.
 
+{% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Message Credits' %}
+
 ### Bring your own (BYO) SMS connectors
 
 Braze allows customers to integrate with third-party providers to send SMS messages through the "BYO SMS connector" model. Braze will charge Message Credits for each message sent from the Braze platform through BYO SMS connectors.
