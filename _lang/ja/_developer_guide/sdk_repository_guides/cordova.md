@@ -27,7 +27,7 @@ Braze Cordova SDKは、Brazeのメッセージング、分析、ユーザーエ�
 
 このSDKは、基盤となるBrazeネイティブSDKの要件も継承します。以下のリストにも準拠してください：
 * [Android SDKの要件](https://github.com/braze-inc/braze-android-sdk?tab=readme-ov-file#version-information)
-* [Swift SDKの要件](https://github.com/braze-inc/braze-swift-sdk?tab=readme-ov-file#version-information)
+* [SWIFT SDKの要件](https://github.com/braze-inc/braze-swift-sdk?tab=readme-ov-file#version-information)
 
 ## SDKのインストール {#installing-the-sdk}
 {% alert warning %}

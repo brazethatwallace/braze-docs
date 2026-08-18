@@ -14,6 +14,9 @@ guide_featured_list:
   - name: Testar mensagens com JSON simulado
     link: /docs/user_guide/example_library/personalize/test_messages_with_mock_json
     image: /assets/img/braze_icons/code-02.svg
+  - name: Filtrar itens do catálogo por intervalo de datas
+    link: /docs/user_guide/example_library/catalogs/filter_catalog_items_by_date_range
+    image: /assets/img/braze_icons/calendar-date.svg
   - name: Comparar abordagens de tradução
     link: /docs/user_guide/example_library/localization/compare_translation_approaches
     image: /assets/img/braze_icons/globe-02.svg
@@ -21,13 +24,13 @@ guide_featured_list:
 
 ## O que você encontra aqui {#what-you-find-here}
 
-Cada exemplo apresenta um padrão prático: o objetivo que ele resolve, o que considerar antes de construir e como configurá-lo na Braze. Os exemplos são organizados por tópico, para que você encontre padrões que correspondam ao resultado que deseja alcançar.
+Cada exemplo apresenta um padrão prático: o objetivo que ele resolve, o que considerar antes de construir e como configurá-lo na Braze. Os exemplos são organizados por tópico, para que você encontre padrões que correspondam ao resultado que está buscando.
 
-Esses artigos complementam os artigos de referência de recursos. Quando você precisar de detalhes completos sobre um canal, componente de Canvas ou ferramenta de dados usada em um exemplo, siga os links de artigos relacionados naquela página.
+Esses artigos complementam os artigos de referência de recursos. Quando você precisar dos detalhes completos de um canal, componente do Canvas ou ferramenta de dados usada em um exemplo, siga os links de artigos relacionados naquela página.
 
 ## Como usar esses exemplos {#how-to-use-these-examples}
 
 1. **Comece pelo seu objetivo:** identifique o resultado que você deseja (por exemplo, validar Liquid personalizado na prévia ou orquestrar uma jornada com várias etapas).
-2. **Adapte o padrão:** trate cada exemplo como um ponto de partida. Substitua pelos seus eventos, atributos, segmentos e criativos.
+2. **Adapte o padrão:** trate cada exemplo como um ponto de partida. Substitua pelos seus eventos, atributos, Segments e criativos.
 3. **Verifique no seu espaço de trabalho:** confirme os pré-requisitos, como disponibilidade de dados, configuração de canal e permissões, antes de lançar.
-4. **Aprofunde-se com os recursos em destaque:** use os artigos relacionados em cada página de exemplo quando precisar de orientação de referência mais completa sobre um recurso da Braze.
+4. **Aprofunde-se com os recursos em destaque:** use os artigos relacionados na página de cada exemplo quando precisar de orientação de referência mais completa sobre um recurso da Braze.

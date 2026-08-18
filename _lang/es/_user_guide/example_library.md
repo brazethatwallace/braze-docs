@@ -14,6 +14,9 @@ guide_featured_list:
   - name: Probar mensajes con JSON simulado
     link: /docs/user_guide/example_library/personalize/test_messages_with_mock_json
     image: /assets/img/braze_icons/code-02.svg
+  - name: Filtrar elementos de catálogo por rango de fechas
+    link: /docs/user_guide/example_library/catalogs/filter_catalog_items_by_date_range
+    image: /assets/img/braze_icons/calendar-date.svg
   - name: Comparar enfoques de traducción
     link: /docs/user_guide/example_library/localization/compare_translation_approaches
     image: /assets/img/braze_icons/globe-02.svg
@@ -23,11 +26,11 @@ guide_featured_list:
 
 Cada ejemplo recorre un patrón práctico: el objetivo que resuelve, qué considerar antes de construirlo y cómo configurarlo en Braze. Los ejemplos están organizados por tema, para que puedas encontrar patrones que coincidan con el resultado que buscas.
 
-Estos artículos complementan los artículos de referencia de características. Cuando necesites los detalles completos del producto para un canal, componente de Canvas o herramienta de datos utilizada en un ejemplo, sigue los enlaces de artículos relacionados en esa página.
+Estos artículos complementan los artículos de referencia de características. Cuando necesites los detalles completos del producto para un canal, un componente de Canvas o una herramienta de datos utilizada en un ejemplo, sigue los enlaces a artículos relacionados en esa página.
 
 ## Cómo usar estos ejemplos {#how-to-use-these-examples}
 
-1. **Comienza con tu objetivo:** identifica el resultado que deseas (por ejemplo, validar Liquid personalizado en la vista previa u orquestar un recorrido de varios pasos).
-2. **Adapta el patrón:** trata cada ejemplo como un punto de partida. Sustituye con tus eventos, atributos, segmentos y creatividades.
-3. **Verifica en tu espacio de trabajo:** confirma los requisitos previos, como la disponibilidad de datos, la configuración de canales y los permisos, antes de lanzar.
-4. **Profundiza con los recursos destacados:** usa los artículos relacionados en cada página de ejemplo cuando necesites una guía de referencia más completa sobre una funcionalidad de Braze.
+1. **Comienza con tu objetivo:** Identifica el resultado que deseas (por ejemplo, validar Liquid personalizado en la vista previa u orquestar un recorrido de varios pasos).
+2. **Adapta el patrón:** Trata cada ejemplo como un punto de partida. Sustituye tus eventos, atributos, Segments y creatividades.
+3. **Verifica en tu espacio de trabajo:** Confirma los requisitos previos, como la disponibilidad de datos, la configuración del canal y los permisos, antes de lanzar.
+4. **Profundiza con los recursos destacados:** Usa los artículos relacionados en la página de cada ejemplo cuando necesites una guía de referencia más completa sobre una funcionalidad de Braze.
