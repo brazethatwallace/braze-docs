@@ -164,7 +164,7 @@ In the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/med
 
 - Describe the subject, style, mood, and colors specifically. The more detail you include, the better the result. Uploading a reference image is not supported.
 - When you apply [brand guidelines](#apply-brand-guidelines) as context in your Operator prompt, Operator applies them directly to the generated image, so the result reflects your brand's visual style.
-- Image generations count toward your daily Operator usage limit. For more information, see [Limitations](#limitations).
+- Image generations count toward the company-wide daily Operator usage limit, along with other Operator actions. For more information, see [Limitations](#limitations).
 
 ### Review content quality {#review-content-quality}
 
@@ -260,7 +260,7 @@ Operator's dashboard support is broad, but it has boundaries.
 - **Campaign duplication:** Operator can't duplicate an existing campaign from the campaigns list view. To create a similar campaign, ask Operator to build a new one from scratch, or duplicate the campaign manually from the list view's **More Actions** menu.
 - **Drag-and-drop editors:** Operator can't generate or insert a message design directly in a drag-and-drop editor, such as the ones for [email]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner), and [in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Switch to the corresponding HTML editor to use Operator, or ask Operator to generate content, such as copy, that you can paste in manually. See [Generate messages](#generate-messages) for supported channels and editors.
 - **Screen visibility:** Operator uses page-aware context to understand what you're looking at, including content inside supported previews and editors. When part of a page falls outside what Operator can read, it tells you instead of guessing, so you know to describe that content yourself.
-- **Usage limits:** Operator has a company-wide daily usage limit that resets every 24 hours. Image generations count toward this limit. If the limit is reached, a "Daily usage limit exceeded" message appears and no further requests can be made until it resets. For troubleshooting steps, see [Troubleshooting]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting).
+- **Usage limits:** Operator has a company-wide daily usage limit that resets every 24 hours. All Operator actions count toward this limit, and usage scales with how much Operator has to read and produce. Asking questions, looking up information, and [filing a support ticket]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets) are lighter usage. Creating or editing objects such as campaigns and segments is heavier usage. [Image generations](#generate-images) also count toward this limit. If the limit is reached, a "Daily limit reached" message appears and Operator doesn't process further requests until the limit resets. For troubleshooting steps, see [Troubleshooting]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting).
 
 ## Legacy assistants {#legacy-assistants}
 
@@ -278,3 +278,4 @@ Operator integrates with OpenAI to generate output. For more information about w
 - [Prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): Browse ready-to-use example prompts
 - [Review actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Review and approve Operator's proposed changes
 - [Troubleshooting]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): Reference common issues and solutions
+
