@@ -37,7 +37,7 @@ search_rank: 2
 
 {% multi_lang_include data_activation/custom_event_block_effects.md %}
 
-또한, 차단된 커스텀 이벤트가 현재 Braze의 다른 영역에서 필터 또는 트리거에 의해 참조되고 있는 경우, 해당 이벤트를 참조하는 모든 필터 또는 트리거 인스턴스가 제거되고 보관된다는 경고 모달이 표시됩니다.
+또한, 차단된 커스텀 이벤트가 현재 Braze의 다른 영역에서 필터 또는 트리거에 의해 참조되고 있는 경우, 해당 이벤트를 참조하는 모든 필터 또는 트리거 인스턴스가 제거되고 보관될 것임을 설명하는 경고 모달이 나타납니다.
 
 커스텀 데이터 차단 및 삭제에 대한 자세한 내용은 [커스텀 데이터 차단 목록]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data)을 참조하세요.
 
@@ -81,7 +81,7 @@ search_rank: 2
 
 ## 커스텀 이벤트 저장 {#custom-event-storage}
 
-**고객 프로필**에 저장된 모든 데이터(커스텀 이벤트 메타데이터(첫 번째 또는 마지막 발생, 총 횟수, 30일 동안의 X in Y) 포함)는 각 프로필이 <a href="/docs/user_archival#active-users">활성</a> 상태인 한 무기한 보존됩니다.
+**고객 프로필**에 저장된 모든 데이터(커스텀 이벤트 메타데이터(최초 또는 최근 발생, 총 횟수, 30일 동안의 X in Y) 포함)는 각 프로필이 <a href="/docs/user_archival#active-users">활성</a> 상태인 한 무기한 보존됩니다.
 
 ## 사용자의 이벤트 기록 보기 {#view-a-users-event-history}
 
@@ -96,7 +96,7 @@ search_rank: 2
 1. **오디언스** > **사용자 검색**으로 이동한 다음 사용자를 선택하여 프로필을 엽니다.
 2. **이벤트 기록** 탭을 선택합니다.
 
-이 탭에는 최근 30일 동안의 사용자 커스텀 이벤트 및 구매가 최대 100개까지 최신순으로 표시됩니다.
+이 탭에는 최근 30일간의 커스텀 이벤트 및 구매가 최대 100개까지 최신순으로 표시됩니다.
 
 각 이벤트에는 다음 정보가 포함됩니다:
 
@@ -112,7 +112,7 @@ search_rank: 2
 - 데이터 내보내기를 설정하지 않고도 특정 사용자에 대한 지원 문제를 조사합니다.
 
 {% alert note %}
-**이벤트 기록** 탭을 보려면 이벤트 속성정보에 개인 데이터가 포함될 수 있으므로 **사용자 검색**, **PII 보기**, **사용자 이벤트 속성정보 보기** 사용자 권한이 필요합니다. 자세한 내용은 [회사 사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 참조하세요.
+**이벤트 기록** 탭을 보려면 이벤트 속성정보에 개인 데이터가 포함될 수 있으므로 **사용자 검색**, **PII 보기** 및 **사용자 이벤트 속성정보 보기** 사용자 권한이 필요합니다. 자세한 내용은 [회사 사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 참조하세요.
 {% endalert %}
 
 ## 세분화 필터 {#segmentation-filters}
@@ -126,32 +126,32 @@ search_rank: 2
 | 커스텀 이벤트가 **정확히 X회** 발생했는지 확인 | **EXACTLY** | **NUMBER** |
 | 커스텀 이벤트가 마지막으로 **X 날짜 이후에** 발생했는지 확인 | **AFTER** | **TIME** |
 | 커스텀 이벤트가 마지막으로 **X 날짜 이전에** 발생했는지 확인 | **BEFORE** | **TIME** |
-| 커스텀 이벤트가 마지막으로 **X일 이상 전에** 발생했는지 확인 | **MORE THAN** | **NUMBER OF DAYS AGO** (양수) |
+| 커스텀 이벤트가 마지막으로 **X일 초과 전에** 발생했는지 확인 | **MORE THAN** | **NUMBER OF DAYS AGO** (양수) |
 | 커스텀 이벤트가 마지막으로 **X일 미만 전에** 발생했는지 확인 | **LESS THAN** | **NUMBER OF DAYS AGO** (양수) |
-| 커스텀 이벤트가 **X회(최대 = 50) 초과** 발생했는지 확인 | **MORE THAN** | 지난 **Y일 (Y = 1,3,7,14,21,30)** 동안 |
-| 커스텀 이벤트가 **X회(최대 = 50) 미만** 발생했는지 확인 | **LESS THAN** | 지난 **Y일 (Y = 1,3,7,14,21,30)** 동안 |
-| 커스텀 이벤트가 **정확히 X회(최대 = 50)** 발생했는지 확인 | **EXACTLY** | 지난 **Y일 (Y = 1,3,7,14,21,30)** 동안 |
+| 커스텀 이벤트가 **X회(최대 = 50) 초과** 발생했는지 확인 | **MORE THAN** | 지난 **Y일(Y = 1,3,7,14,21,30)** 동안 |
+| 커스텀 이벤트가 **X회(최대 = 50) 미만** 발생했는지 확인 | **LESS THAN** | 지난 **Y일(Y = 1,3,7,14,21,30)** 동안 |
+| 커스텀 이벤트가 **정확히 X회(최대 = 50)** 발생했는지 확인 | **EXACTLY** | 지난 **Y일(Y = 1,3,7,14,21,30)** 동안 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="세분화 필터" }
 
 ## 분석 {#analytics}
 
-Braze는 커스텀 이벤트가 발생한 횟수와 각 사용자가 마지막으로 수행한 시간을 기록하여 세분화에 활용합니다. **Analytics** > **커스텀 이벤트 보고서**로 이동하여 이러한 분석을 확인할 수 있습니다.
+Braze는 커스텀 이벤트가 발생한 횟수와 각 사용자가 마지막으로 수행한 시점을 기록하여 세분화에 활용합니다. 보고서 설정, 필터 및 내보내기 옵션에 대해서는 [커스텀 이벤트 보고서]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report)를 참조하세요.
 
-대시보드의 **커스텀 이벤트 보고서** 페이지에서 각 커스텀 이벤트가 발생한 빈도를 집계하여 확인할 수 있습니다. 시계열 위에 겹쳐진 회색 선은 마지막으로 Campaign이 전송된 시점을 나타내며, Campaign이 커스텀 이벤트 활동에 어떤 영향을 미쳤는지 확인하는 데 유용합니다.
+**커스텀 이벤트 보고서** 페이지에서 각 커스텀 이벤트가 발생한 빈도를 집계하여 확인할 수 있습니다. 시계열 위에 표시되는 회색 선은 Campaign이 마지막으로 전송된 시점을 나타내며, Campaign이 커스텀 이벤트 활동에 어떤 영향을 미쳤는지 확인하는 데 유용합니다.
 
 ![대시보드의 커스텀 이벤트 페이지에서 커스텀 이벤트의 추세를 보여주는 커스텀 이벤트 횟수 그래프]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-**필터**를 사용하여 시간별, 월간 활성 사용자(MAU), Segments 또는 핵심 성과 지표(KPI) 공식별로 커스텀 이벤트를 세분화할 수도 있습니다.
+**필터**를 사용하여 커스텀 이벤트를 시간별, 월간 활성 사용자(MAU), Segments 또는 핵심 성과 지표(KPI) 수식별로 세분화할 수도 있습니다.
 
 ![커스텀 이벤트 그래프 필터]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[커스텀 속성 증분]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)을 사용하여 커스텀 이벤트와 유사한 사용자 행동에 대한 카운터를 유지할 수 있습니다. 그러나 커스텀 속성 데이터는 시계열로 확인할 수 없습니다. 시계열로 분석할 필요가 없는 사용자 행동은 이 방법을 사용하여 기록해야 합니다.
+[증분 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)을 사용하면 커스텀 이벤트와 유사한 사용자 행동에 대한 카운터를 유지할 수 있습니다. 그러나 커스텀 속성 데이터는 시계열로 확인할 수 없습니다. 시계열로 분석할 필요가 없는 사용자 행동은 이 방법을 사용하여 기록해야 합니다.
 {% endalert %}
 
 ### 커스텀 이벤트 분석이 표시되지 않는 이유 {#why-custom-events-analytics-arent-showing}
 
-커스텀 이벤트 데이터로 생성된 Segments는 생성되기 이전의 과거 기록 데이터를 표시할 수 없습니다.
+커스텀 이벤트 데이터로 생성된 Segments는 생성 이전의 과거 기록 데이터를 표시할 수 없습니다.
 
 ## 커스텀 이벤트 속성정보 {#custom-event-properties}
 

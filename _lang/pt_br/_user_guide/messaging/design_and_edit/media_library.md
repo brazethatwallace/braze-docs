@@ -18,8 +18,8 @@ tool: Media
 |---|---|
 | Permissão "View Media Library Assets" | Visualizar ativos da biblioteca de mídia |
 | Permissão "Edit Media Library Assets" | Criar e atualizar ativos da biblioteca de mídia |
-| Permissão "Delete Media Library Assets" | Remover ativos da biblioteca de mídia da interface. Os ativos excluídos continuam hospedados pela Braze para evitar a quebra de mensagens que os referenciam. Para excluir permanentemente um ativo, entre em contato com o suporte da Braze. |
-| Permissão "Replace Media Library Assets" | Substituir o arquivo de um ativo existente da biblioteca de mídia, mantendo sua URL e ID de ativo estáveis |
+| Permissão "Delete Media Library Assets" | Remover ativos da biblioteca de mídia pela interface. Os ativos excluídos continuam hospedados pela Braze para evitar a quebra de mensagens que os referenciam. Para excluir permanentemente um ativo, entre em contato com o suporte da Braze. |
+| Permissão "Replace Media Library Assets" | Substituir o arquivo de um ativo existente na biblioteca de mídia, mantendo a URL e o ID do ativo estáveis |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Permissões da biblioteca de mídia" }
 
 Para saber mais, consulte [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
@@ -28,29 +28,29 @@ Para saber mais, consulte [Permissões de usuário]({{site.baseurl}}/user_guide/
 
 Usar a biblioteca de mídia em vez de uma rede de distribuição de conteúdo (CDN) oferece melhor cache e performance para mensagens no app. Todos os ativos da biblioteca de mídia encontrados em uma mensagem no app serão pré-armazenados em cache para exibição mais rápida e estarão disponíveis para exibição offline. Além disso, a biblioteca de mídia é integrada aos criadores da Braze, permitindo que profissionais de marketing selecionem ou adicionem tags às imagens em vez de copiar e colar URLs de imagens.
 
-## Acessando a Biblioteca de mídia {#accessing-the-media-library}
+## Acessando a biblioteca de mídia {#accessing-the-media-library}
 
-Na Biblioteca de mídia, você pode ver o tipo de ativo, tamanho, dimensões, URL, a data em que foi adicionado à biblioteca e outras informações. Para acessar a Biblioteca de mídia da Braze, acesse **Conteúdo** > **Biblioteca de mídia**. Aqui, você pode:
+Na biblioteca de mídia, você pode ver o tipo de ativo, tamanho, dimensões, URL, a data em que foi adicionado à biblioteca e outras informações. Para acessar a biblioteca de mídia da Braze, acesse **Conteúdo** > **Biblioteca de mídia**. Aqui, você pode:
 
 * Fazer upload de várias imagens de uma vez
 * Fazer upload de arquivos de contato virtual (.vcf)
 * Fazer upload de arquivos de vídeo para uso em mensagens do WhatsApp
 * Fazer upload de uma pasta com suas imagens (até 50 imagens)
-* [Gerar uma imagem usando IA](#generate-ai) e armazená-la na Biblioteca de mídia
-* Recortar uma imagem existente para criar a proporção ideal para suas mensagens
+* [Gerar uma imagem usando IA](#generate-ai) e armazená-la na biblioteca de mídia
+* Recortar uma imagem existente para criar a proporção certa para suas mensagens
 * Substituir o arquivo de um ativo existente mantendo sua URL estável
-* Adicionar tags ou equipes para ajudar a organizar melhor suas imagens
-* Pesquisar por tags ou equipes na grade da Biblioteca de mídia
+* Adicionar tags ou equipes para ajudar a organizar ainda mais suas imagens
+* Pesquisar por tags ou equipes na grade da biblioteca de mídia
 * Arrastar e soltar imagens ou pastas para upload
 * Excluir imagens
 
-![Página da Biblioteca de mídia que inclui uma seção "Upload To Library" para arrastar e soltar ou fazer upload de arquivos. Também há uma lista de conteúdo enviado na Biblioteca de mídia.]({% image_buster /assets/img_archive/media_library_main.png %})
+![Página da Biblioteca de mídia que inclui uma seção "Fazer upload para a biblioteca" para arrastar e soltar ou fazer upload de arquivos. Também há uma lista de conteúdo enviado na biblioteca de mídia.]({% image_buster /assets/img_archive/media_library_main.png %})
 
-Depois, ao redigir uma mensagem na Braze, você pode importar suas imagens da Biblioteca de mídia.
+Depois, ao redigir uma mensagem na Braze, você pode importar suas imagens da biblioteca de mídia.
 
-![Duas formas comuns de acessar a Biblioteca de mídia dependendo do criador de mensagem. Uma mostra o editor de arrastar e soltar de e-mail com o título "Images and GIFs" e um botão "Add from Media Library". A outra mostra os editores padrão, como push e mensagens no app, com o título "Media" e um botão "Add Image".]({% image_buster /assets/img_archive/media_library_composers.png %}){: style="border:none"}
+![Duas formas comuns de acessar a biblioteca de mídia dependendo do criador de mensagem. Uma mostra o editor de arrastar e soltar de e-mail com o título "Imagens e GIFs" e um botão para "Adicionar da Biblioteca de mídia". A outra mostra os editores padrão, como push e mensagens no app, com o título "Mídia" e um botão para "Adicionar imagem".]({% image_buster /assets/img_archive/media_library_composers.png %}){: style="border:none"}
 
-{% alert tip %} Para saber mais sobre a Biblioteca de mídia, confira nosso [FAQ da Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/faq). {% endalert %}
+{% alert tip %} Para mais ajuda com a biblioteca de mídia, confira nosso [FAQ da Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/faq). {% endalert %}
 
 ## Uploads de arquivos ZIP {#zip-file-uploads}
 
@@ -69,7 +69,7 @@ Para substituir um ativo, você precisa ter a permissão "Replace Media Library 
 1. Acesse **Conteúdo** > **Biblioteca de mídia**.
 2. Selecione o ativo que deseja substituir.
 3. No modal, selecione **Replace file**.
-4. Faça upload do arquivo de substituição.
+4. Faça o upload do arquivo de substituição.
 
 ![Modal de edição da biblioteca de mídia mostrando os botões Replace file, Crop image e Delete para um ativo.]({% image_buster /assets/img_archive/media_library_replace_file.png %}){: style="max-width:60%;border:none"}
 
@@ -77,7 +77,7 @@ Para substituir um ativo, você precisa ter a permissão "Replace Media Library 
 
 - O arquivo de substituição deve ter a mesma extensão de arquivo que o original. Por exemplo, não é possível substituir um ativo `.png` por um arquivo `.jpg`.
 - Ativos de vídeo não podem ser substituídos.
-- Após a substituição, o arquivo atualizado pode levar algum tempo para ser exibido para todos os consumidores devido ao cache da rede de distribuição de conteúdo (CDN).
+- Após a substituição, o arquivo atualizado pode levar algum tempo para ser exibido para todos os consumidores devido ao cache da CDN.
 
 ### Canais com cópias de imagem processadas {#channels-with-processed-image-copies}
 
@@ -87,7 +87,7 @@ Você também pode substituir um ativo programaticamente usando o endpoint [`PUT
 
 ## Especificações de imagem {#image-specifications}
 
-Todas as imagens enviadas para a biblioteca de mídia devem ter menos de 5&nbsp;MB. Os tipos de arquivo compatíveis são PNG, JPEG, GIF, SVG e WebP. Para tamanhos e especificações de imagem recomendados por canal de envio de mensagens, consulte [Especificações de imagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications).
+Todas as imagens enviadas para a biblioteca de mídia devem ter menos de 5&nbsp;MB. Os tipos de arquivo suportados são PNG, JPEG, GIF, SVG e WebP. Para tamanhos e especificações de imagem recomendados por canal de envio de mensagens, consulte [Especificações de imagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications).
 
 {% alert important %}
 GIFs com formatos muito alongados (por exemplo, 3000 x 2 pixels) ou com 300 ou mais quadros podem falhar no upload, mesmo que o tamanho total do arquivo seja pequeno.

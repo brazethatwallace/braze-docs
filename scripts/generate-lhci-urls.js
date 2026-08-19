@@ -39,11 +39,11 @@ const PINNED_KEYS = [
   '_user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events.md',
   // High-traffic user guide pages (paths reflect the 2026 IA revamp)
   '_user_guide/get_started/sdk_overview.md',
-  '_user_guide/channels/email/drag_and_drop/overview.md',
+  '_user_guide/channels/email/drag_and_drop.md',
   '_user_guide/messaging/canvas/create_a_canvas.md',
   '_user_guide/audience/segments/creating_a_segment.md',
-  // API reference (api_page layout)
-  '_api/api_campaigns/transactional_api_campaign.md',
+  // API reference (api_page layout) — canonical user guide page, not redirect stub
+  '_user_guide/channels/transactional_email/create_a_transactional_email.md',
   // Developer guide
   '_developer_guide/sdk_integration.md',
   // Partner page
@@ -89,6 +89,19 @@ function sample(arr, n) {
   return shuffle([...arr]).slice(0, n);
 }
 
+/**
+ * Returns true when the English source page uses layout: redirect (client-side
+ * redirect stub). Lighthouse should measure canonical destinations, not stubs.
+ */
+function isRedirectStub(key) {
+  const docPath = path.join(__dirname, '..', '_docs', key);
+  if (!fs.existsSync(docPath)) return false;
+  const content = fs.readFileSync(docPath, 'utf8');
+  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!match) return false;
+  return /^layout:\s*redirect\s*$/m.test(match[1]);
+}
+
 // ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
@@ -119,11 +132,16 @@ if (missingPinned.length > 0) {
   console.warn(`WARNING: ${missingPinned.length} pinned key(s) not found in sitemap and will be skipped:`);
   missingPinned.forEach(k => console.warn(`  - ${k}`));
 }
-const selectedKeys = new Set(PINNED_KEYS.filter(k => sitemap[k] !== undefined));
+const redirectPinned = PINNED_KEYS.filter(k => sitemap[k] !== undefined && isRedirectStub(k));
+if (redirectPinned.length > 0) {
+  console.warn(`WARNING: ${redirectPinned.length} pinned key(s) are redirect stubs — use canonical pages instead:`);
+  redirectPinned.forEach(k => console.warn(`  - ${k}`));
+}
+const selectedKeys = new Set(PINNED_KEYS.filter(k => sitemap[k] !== undefined && !isRedirectStub(k)));
 
 for (const [coll, count] of Object.entries(SAMPLE_PER_COLLECTION)) {
   if (!count) continue;
-  const pool = (byCollection[coll] || []).filter(k => !selectedKeys.has(k));
+  const pool = (byCollection[coll] || []).filter(k => !selectedKeys.has(k) && !isRedirectStub(k));
   for (const k of sample(pool, count)) selectedKeys.add(k);
 }
 

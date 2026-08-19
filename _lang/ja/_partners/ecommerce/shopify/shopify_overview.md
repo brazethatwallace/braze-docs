@@ -18,129 +18,129 @@ ShopifyとのBraze統合は、カスタマーエンゲージメントを高め�
 
 | 要件 | 説明 |
 | --- | --- |
-| Shopifyストア | アクティブなShopifyストアがあること。 |
-| Shopifyストアオーナーまたはスタッフメンバーの権限 | {::nomarkdown}<ul><li>すべての一般設定とオンラインストア設定にアクセスできること。</li><li> 追加の管理者権限:<ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></li></ul>{:/} |
+| Shopify ストア | アクティブな Shopify ストアがあること。 |
+| Shopify ストアオーナーまたはスタッフメンバーの権限 | {::nomarkdown}<ul><li>すべての一般設定およびオンラインストア設定へのアクセス。</li><li> 追加の管理者権限:<ul><li>注文:表示</li><li>顧客:読み取り/書き込み</li><li>顧客イベントの表示 (Web Pixels)</li><li>設定の管理</li><li>スタッフ/コラボレーターが開発したアプリの表示</li><li>アプリとチャネルの管理/インストール</li><li>カスタムピクセルの管理/追加</li></ul></li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="要件" }
 
 ## 統合方法 {#how-to-integrate}
 
-Brazeは、Shopify加盟店向けに、eコマースビジネスの多様なニーズを満たすように設計された2つの統合オプションである**標準統合**と**カスタム統合**を提供しています。
+Brazeは、eコマースビジネスの多様なニーズに対応するために設計された、Shopifyマーチャント向けの2つの統合オプションを提供しています：**標準統合**と**カスタム統合**です。
 
 {% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
-## 統合の仕組み {#how-the-integration-works}
+## 連携の仕組み {#how-the-integration-works}
 
-設定で[履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill)をすでに設定してオンにしている場合は、最初のデータ同期がすぐに開始されます。
+設定で[履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill)をすでにセットアップして有効にしている場合、初期データ同期がすぐに開始されます。
 
 {% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
-最初のデータ同期後、BrazeはShopifyとBraze SDKから直接、新しいデータと更新を継続的に追跡します。
+初期データ同期の後、Brazeは Shopify と Braze SDKから直接、新しいデータと更新を継続的にトラッキングします。
 
 {% alert note %}
-既存のBrazeユーザーで、アクティブなキャンペーンやキャンバスをご利用の場合は、[Shopifyの履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill)で重要な情報を確認してください。具体的にどのような顧客データがバックフィルされているかについては、[Shopifyの機能]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features)を参照してください。
+アクティブなキャンペーンやキャンバスを運用中の既存のBraze顧客の場合は、重要な情報について[Shopify 履歴バックフィル]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill)を確認してください。バックフィルされる具体的な顧客データについては、[Shopify の機能]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features)を参照してください。
 {% endalert %}
 
 ### ユーザーとデータの同期 {#user-and-data-syncing}
 
-統合が開始された後、BrazeはShopify統合を通じて、2つの主要なソースからユーザーデータを収集します。
-- **Shopify Web Pixel APIとアプリ埋め込み:** これにより、Braze Web SDKとJavascript SDKの機能が強化され、オンサイトトラッキング、ID管理、eコマース行動データ、アプリ内メッセージなどのメッセージングチャネルがサポートされます。
-- **Shopify webhook:** eコマースの行動データ、商品同期、サブスクライバー収集
+連携が稼働すると、BrazeはShopify連携を通じて2つの主要なソースからユーザーデータを収集します。
+- **Shopify Web Pixel API とアプリ埋め込み:** Braze Web SDKとJavascript SDKを活用し、オンサイトトラッキング、ID管理、eコマース行動データ、およびアプリ内メッセージなどのメッセージングチャネルをサポートします。
+- **Shopify Webhook:** eコマース行動データ、商品同期、購読者収集
 
-統合のオンボーディングの際に、Braze SDKが初期化され、Shopifyサイトを読み込むタイミングを選択する必要があります。
-- サイト訪問時（セッション開始時など）
-    - **実行内容:** ゲスト買い物客などの匿名ユーザーを追跡し、より詳細なパーソナライゼーションのためのデータにアクセスします。
+連携のオンボーディング中に、Braze SDKがShopifyサイトを初期化して読み込むタイミングを選択する必要があります。
+- サイト訪問時（セッション開始など）
+    - **動作:** ゲストショッパーなどの匿名ユーザーをトラッキングし、より深いパーソナライゼーションのためのデータにアクセスします
 - アカウント登録時（アカウントログインなど）
-    - **実行内容:** より保守的なプライバシー指向のアプローチで匿名ユーザーの追跡を防止します。そのため、ユーザーのアクティビティはアカウントにサインインした*後に*追跡されます。
+    - **動作:** 匿名ユーザーのトラッキングを防止し、よりプライバシー重視の保守的なアプローチを取ります。ユーザーのアクティビティは、ユーザーがアカウントにサインインした*後*にトラッキングされます
 
 {% alert note %}
-- Webサイトへの訪問（セッション）は、月間アクティブユーザー数（MAU）の割り当てにカウントされます。
-- Braze Web SDKとJavaScript SDKのバージョンは自動的にv6.8.0に設定されます。統合設定からいつでもSDKバージョンをアップグレードできます。
+- Webサイトの訪問（セッション）は、月間アクティブユーザー（MAU）の割り当てにカウントされます。
+- Braze Web SDKとJavaScript SDKのバージョンは自動的にv6.8.0に設定されます。連携設定からいつでもSDKバージョンをアップグレードできます。
 {% endalert %}
 
-Brazeは、Shopify統合を使用して、ユーザーがゲストとしてショッピングを体験してから識別済みのユーザーになるまでを追跡する複数の識別子をサポートしています。
+Brazeは、Shopify連携を使用して、ゲストショッピング体験から識別済みユーザーになるまでのユーザーをトラッキングする複数の識別子をサポートしています。
 
 | Braze識別子 | 説明 |
 | --- | --- |
-| Braze `device_id` | Braze SDKを通じて匿名ユーザーのアクティビティを追跡するために、ブラウザーに保存されるランダムに生成されるIDです。 |
-| カートトークンユーザーエイリアス | Brazeがカート更新イベントを追跡するために作成するエイリアスです。このトークンは、Shopifyカートトークンを使用して作成されます。 |
-| チェックアウトトークンユーザーエイリアス | ユーザーがチェックアウトプロセスを開始する際にBrazeが作成するエイリアスです。このトークンは、Shopifyのチェックアウトトークンを使用して作成されます。<br><br>顧客がShop Payを高速チェックアウトオプションとして使用した場合、Shopifyは特定の標準チェックアウトイベントをバイパスし、Brazeがチェックアウトトークンエイリアスを追加するために必要なデータを受信できなくなる場合があります。 |
+| Braze `device_id` | ブラウザに保存されるランダム生成IDで、Braze SDKを通じて匿名ユーザーのアクティビティをトラッキングします。 |
+| カートトークンユーザーエイリアス | Brazeがカート更新イベントをトラッキングするために作成するエイリアスです。このトークンはShopifyカートトークンを使用して作成されます。 |
+| チェックアウトトークンユーザーエイリアス | ユーザーがチェックアウトプロセスを開始したときにBrazeが作成するエイリアスです。このトークンはShopifyチェックアウトトークンを使用して作成されます。<br><br>顧客がShop Payを高速チェックアウトオプションとして使用した場合、Shopifyは特定の標準チェックアウトイベントをバイパスし、Brazeがチェックアウトトークンエイリアスを追加するために必要なデータを受信できなくなる場合があります。 |
 | Shopify顧客IDエイリアス | Shopify顧客IDは、アカウントログイン時または注文時にexternal IDが割り当てられる際にエイリアスとして割り当てられます。 |
-| Braze `external_id` | デバイスやプラットフォームを横断して顧客を追跡するための一意の識別子です。ユーザーがデバイスを切り替えたり、アプリを再インストールしたりしても、複数のプロファイルが作成されることを防ぎ、一貫したユーザーエクスペリエンスを維持し、分析を向上させます。<br><br>Shopify統合では、以下の`external_id`タイプがサポートされます。<br><br>{::nomarkdown}<ul><li>Shopify顧客ID（デフォルト）</li><li>カスタムexternal ID</li><li>ハッシュされたメール（SHA-256）</li><li>ハッシュされたメール（SHA-1）</li><li>ハッシュされたメール（MD5）</li><li>メール</li></ul>{:/}Brazeは以下のタイミングでSDK内のchangeUserメソッドを呼び出すことで、ユーザーに`external_id`を割り当てます。<br><br>{::nomarkdown}<ul><li>ユーザーがログインするか、アカウントを作成する</li><li>注文が行われる</li></ul>{:/}<br>匿名プロファイルに`external_id`を割り当てた場合の詳細については、[ユーザープロファイルのライフサイクル]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users)を参照してください。<br><br>Brazeはまた、`external_id`を活用して、Shopify webhookからの下流のeコマース行動データを紐付けます。|
+| Braze `external_id` | デバイスやプラットフォーム間で顧客をトラッキングするための一意の識別子です。ユーザーがデバイスを切り替えたりアプリを再インストールしたりした際に複数のプロファイルが作成されるのを防ぎ、一貫したユーザー体験を維持し、分析を改善します。<br><br>Shopify連携は以下の`external_id`タイプをサポートしています。<br><br>{::nomarkdown}<ul><li>Shopify顧客ID（デフォルト）</li><li>カスタムexternal ID</li><li>ハッシュ化メール（SHA-256）</li><li>ハッシュ化メール（SHA-1）</li><li>ハッシュ化メール（MD5）</li><li>メール</li></ul>{:/}Brazeは、以下の場合にSDK内のchangeUserメソッドを呼び出すことで、ユーザーに`external_id`を割り当てます。<br><br>{::nomarkdown}<ul><li>ユーザーがログインまたはアカウントを作成した場合</li><li>注文が行われた場合</li></ul>{:/}<br>匿名プロファイルに`external_id`を割り当てた場合の動作の詳細については、[ユーザープロファイルのライフサイクル]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users)を参照してください。<br><br>Brazeは、Shopify Webhookからの下流のeコマース行動データを帰属させるためにも`external_id`を活用します。|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーとデータの同期" }
 
-この統合では、Braze SDKとShopifyサービスが連携して、Shopifyデータをほぼリアルタイムで適切に追跡し、適切なユーザーに紐付ける必要があります。統合によって追跡されるデータの詳細については、[Shopifyデータ]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features)を参照してください。
+この連携では、Braze SDKとShopifyサービスが連携して、Shopifyデータをほぼリアルタイムで適切なユーザーにトラッキングおよび帰属させる必要があります。連携を通じてトラッキングされるデータの詳細については、[Shopifyデータ]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features)を参照してください。
 
 {% alert note %}
-- 統合をテストしている場合は、シークレットモードを使用するか、Cookieをクリアしてブラウザのデバイスを模倣し、Braze `device_id`をリセットして匿名ユーザーの行動を模倣することをお勧めします。
-- Shopifyの顧客IDは、Shopifyのニュースレターフッターにメールが入力されたときや、注文前のチェックアウトプロセス中に生成されますが、その顧客IDにはShopify Web Pixelsからアクセスできません。このため、Brazeはこの2つの状況では`changeUser`メソッドを使用できません。
+- 連携をテストする場合は、シークレットモードを使用するか、CookieをクリアしてBraze `device_id`をリセットし、匿名ユーザーの動作を模倣することをお勧めします。
+- Shopifyニュースレターフッターでメールが入力された場合や、注文が行われる前のチェックアウトプロセス中にShopify顧客IDが生成されますが、その顧客IDはShopify Web Pixelsを通じてアクセスできません。このため、Brazeはこれら2つの状況で`changeUser`メソッドを使用できません。
 {% endalert %}
 
-### ShopifyのメールおよびSMSマーケティングオプトインの同期 {#syncing-shopify-email-and-sms-marketing-opt-ins}
+### Shopifyメールおよび SMS マーケティングオプトインの同期 {#syncing-shopify-email-and-sms-marketing-opt-ins}
 
-設定でサブスクライバー収集を有効にした場合は、Brazeに接続する各ストアに購読グループを割り当てる必要があります。これにより、顧客はストアの購読グループで「購読中」または「配信停止」のいずれかに分類されます。
+設定で購読者収集を有効にした場合、Brazeに接続する各ストアに購読グループを割り当てる必要があります。これにより、顧客はストアの購読グループに対して「購読済み」または「購読解除」のいずれかに分類されます。
 
-メールとSMSマーケティングのShopifyマーケティングオプトインステータスは、以下の方法で更新できます。
-- **手動更新:** ユーザーのメールやSMSマーケティングのオプトインステータスは、Shopify管理画面で手動で変更できます。
-- **Shopifyニュースレターフッター:** ユーザーがShopifyデフォルトのニュースレターフッターにメールを入力すると、オプトインステータスが更新されます。
-- **チェックアウトプロセス:** ユーザーがチェックアウト中にオプトインステータスを更新した場合。
+メールおよび SMS マーケティングのShopifyマーケティングオプトインステータスは、以下の方法で更新できます。
+- **手動更新:** Shopify管理画面でユーザーのメールまたは SMS マーケティングオプトインステータスを手動で変更できます。
+- **Shopifyニュースレターフッター:** ユーザーがShopifyのデフォルトニュースレターフッターにメールを入力すると、オプトインステータスが更新されます。
+- **チェックアウト:** ユーザーがマーケティングチェックボックスを選択し、1ページチェックアウトで**Pay now**を選択するか、3ページチェックアウトで**Continue to shipping**を選択してチェックアウトを進めると、ユーザーの同意がチェックアウト時にキャプチャされます。
 
 {% alert note %}
-Shopifyからのメールマーケティングオプトインステータスによって、Brazeのユーザーの[グローバルメール購読ステータス]({{site.baseurl}}/user_guide/channels/email/subscriptions)が変更されることはありません。ユーザープロファイルが作成されたときのデフォルトの購読ステータスは「購読中」です。キャンペーンまたはキャンバスのエントリ基準の一部として、購読グループを必ず使用してください。
+Shopifyからのメールマーケティングオプトインステータスは、Brazeのユーザーの[グローバルメール購読状態]({{site.baseurl}}/user_guide/channels/email/subscriptions)を変更しません。ユーザープロファイルが作成された際のデフォルトの購読状態は「subscribed」です。キャンペーンやキャンバスのエントリ条件の一部として購読グループを使用することを忘れないでください。
 {% endalert %}
 
-この表は、Shopifyマーケティングのオプトインステータスと、Braze購読グループ内のステータスとの対応関係を示しています。
+この表は、Shopifyマーケティングオプトイン状態がBraze購読グループ内のステータスとどのように対応するかを示しています。
 
-| Shopifyマーケティングのオプトインステータス | Braze購読グループのステータス |
+| Shopifyマーケティングオプトイン状態 | Braze購読グループの状態 |
 | --- | --- |
 | メール購読済み | Subscribed |
-| メール配信停止 | Unsubscribed |
+| メール購読解除 | Unsubscribed |
 | メール確認待ち | Unsubscribed |
-| メールが無効 | Unsubscribed |
-| SMS購読済み | Subscribed |
-| SMS配信停止済み | Unsubscribed |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ShopifyのメールおよびSMSマーケティングオプトインの同期" }
+| メール無効 | Unsubscribed |
+| SMS 購読済み | Subscribed |
+| SMS 購読解除 | Unsubscribed |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Shopifyメールおよび SMS マーケティングオプトインの同期" }
 
-### 登録フォーム {#sign-up-forms}
+### サインアップフォーム {#sign-up-forms}
 
 #### Shopifyニュースレターフッター {#shopify-newsletter-footer}
 
-Shopifyのニュースレターフッターにメールアドレスを入力したユーザーには、次のいずれかのワークフローが適用されます。
+Shopifyニュースレターフッターにメールアドレスを入力したユーザーは、以下のいずれかのワークフローを経験します。
 
 ##### アカウントにログインしていないユーザー {#users-who-havent-logged-into-their-account}
 
-1. 顧客が作成または更新されるたびに、BrazeはShopifyのインバウンドwebhookを受信します。
+1. Brazeは、顧客が作成または更新されるたびに、受信Shopify Webhookを受け取ります。
 2. Brazeは、そのユーザーに関連付けられたメールアドレスとShopify顧客IDエイリアスを含むユーザープロファイルを作成します。
-3. Braze SDKは、メールアドレスで匿名プロファイルを更新します。
+3. Braze SDKは、匿名プロファイルをメールアドレスで更新します。
 
 {% alert note %}
-その結果、ユーザーがアカウントの作成、アカウントへのログイン、または注文を行うことで自身を識別するまで、プロファイルの重複が生じる場合があります。Brazeは、重複プロファイルの照合を自動化するための一括マージツールを提供しています。詳細は[重複ユーザー]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)を参照してください。
+これにより、ユーザーがアカウントを作成するか、アカウントにログインするか、注文を行うことで自身を識別するまで、重複プロファイルが発生する可能性があります。Brazeは、重複プロファイルの照合を自動化するための一括マージツールを提供しています。詳細については、[重複ユーザー]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)を参照してください。
 {% endalert %}
 
-##### アカウントにログイン済みのユーザー {#users-who-have-already-logged-into-their-account}
+##### すでにアカウントにログインしているユーザー {#users-who-have-already-logged-into-their-account}
 
 Brazeは、そのユーザーに関連付けられたメールアドレスとShopify顧客IDエイリアスを含むユーザープロファイルを作成します。Shopifyがすでにこの情報を提供していると想定されるため、Brazeはログイン済みユーザーのメールアドレスを更新しません。
 
-#### Braze登録フォーム {#braze-sign-up-forms}
+#### Brazeサインアップフォーム {#braze-sign-up-forms}
 
-Brazeは2種類の登録フォームテンプレートを提供しています。
-- **[メール登録フォーム]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/email_capture):** ドラッグ＆ドロップエディターを使用して作成します。
-- **[従来のエディターのメールキャプチャフォーム]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/email_capture_form):** メールアドレスを取得するための、よりシンプルなフォームです。
+Brazeは2種類のサインアップフォームテンプレートを提供しています。
+- **[メールサインアップフォーム]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/email_capture):** ドラッグ＆ドロップエディターを使用して作成します。
+- **[従来のエディターのメールキャプチャフォーム]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/email_capture_form):** メールアドレスをキャプチャするためのよりシンプルなフォームです。
 
-これらの登録フォームテンプレートを使用すると、Brazeは自動的にユーザープロファイルのグローバルメール購読ステータスを更新します。グローバルメール購読ステータスの処理方法についての詳細（メールの検証に関する情報を含む）については、各フォームテンプレートタイプのドキュメントを参照してください。
+これらのサインアップフォームテンプレートを使用すると、Brazeはユーザープロファイルのグローバルメール購読ステータスを自動的に更新します。グローバルメール購読状態の処理方法（メールバリデーションに関する情報を含む）の詳細については、各フォームテンプレートタイプのドキュメントを参照してください。
 
 {% alert note %}
-- キャンペーンまたはキャンバスに、グローバルメール購読ステータスと、Shopifyストアに接続されている購読グループの両方を含むエントリ基準を必ず含めてください。これにより、適切なオーディエンスをターゲットにしていることを確認できます。
-- Brazeは、ブラウザー内メッセージを通じて、メールアドレスや電話番号などの訪問者情報を収集します。この情報はShopify Visitor APIに送信されますが、Shopifyでは顧客プロファイルは作成されません。詳細については、[Visitor API](https://shopify.dev/docs/api/web-pixels-api/emitting-data#visitor-api)を参照してください。
+- キャンペーンやキャンバスに、グローバルメール購読ステータスとShopifyストアに接続された購読グループの両方を含むエントリ条件を必ず含めてください。これにより、適切なオーディエンスをターゲティングできます。
+- Brazeは、ブラウザ内メッセージを通じてメールアドレスや電話番号などの訪問者情報を収集します。この情報はShopify Visitor APIに送信されますが、Shopifyに顧客プロファイルは作成されません。詳細については、[Visitor API](https://shopify.dev/docs/api/web-pixels-api/emitting-data#visitor-api)を参照してください。
 {% endalert %}
 
-#### サードパーティの登録フォーム {#third-party-sign-up-forms}
+#### サードパーティのサインアップフォーム {#third-party-sign-up-forms}
 
-サードパーティのプラットフォームやShopifyプラグインを登録フォームに使用している場合は、フォーム送信からメールアドレスとグローバルメール購読ステータスを取得するために、開発者と協力してBraze SDKコードを統合する必要があります。詳細については、[Shopify標準統合セットアップ]({{site.baseurl}}/shopify_standard_integration)と[Shopifyカスタム統合セットアップ]({{site.baseurl}}/shopify_custom_integration)を確認してください。
+サインアップフォームにサードパーティのプラットフォームやShopifyプラグインを使用している場合は、フォーム送信からメールアドレスとグローバルメール購読ステータスをキャプチャするために、開発者と協力してBraze SDKコードを統合する必要があります。詳細については、[Shopify標準連携セットアップ]({{site.baseurl}}/shopify_standard_integration)および[Shopifyカスタム連携セットアップ]({{site.baseurl}}/shopify_custom_integration)を確認してください。
 
-### 商品の同期 {#product-syncing}
+### 商品同期 {#product-syncing}
 
-Brazeは、Shopifyストアの商品をBrazeカタログに同期する機能をサポートしています。詳細は、[Shopify商品同期]({{site.baseurl}}/shopify_catalogs)を参照してください。
+Brazeは、Shopifyストアの商品をBrazeカタログに同期する機能をサポートしています。詳細については、[Shopify商品同期]({{site.baseurl}}/shopify_catalogs)を参照してください。
 
-## データ主体リクエスト {#data-subject-requests}
+## データ主体のリクエスト {#data-subject-requests}
 
-BrazeプラットフォームのShopify統合の一環として、Brazeは自動的に[Shopifyのコンプライアンスwebhook](https://shopify.dev/docs/apps/build/privacy-law-compliance/)を受信します。ただし、顧客はそのエンドユーザーデータのデータ管理者であるため、Brazeのエンドユーザーデータ（Shopify統合を通じて受信したエンドユーザーデータを含む）に関して受領したデータ主体リクエストへの対応に必要なアクションを実行する必要があります。詳細は、[データ保護技術支援]({{site.baseurl}}/dp-technical-assistance)ドキュメントを参照してください。
+Braze プラットフォームの Shopify 統合の一環として、Braze は [Shopify のコンプライアンス Webhook](https://shopify.dev/docs/apps/build/privacy-law-compliance/) を自動的に受信します。ただし、顧客はエンドユーザーのデータのデータ管理者であるため、Braze 内のエンドユーザーデータ（Shopify 統合を通じて受信したエンドユーザーデータを含む）に関して受け取ったデータ主体のリクエストに対応するために必要なアクションは、顧客自身が実行する必要があります。詳細については、[データ保護に関する技術支援]({{site.baseurl}}/dp-technical-assistance)のドキュメントを参照してください。

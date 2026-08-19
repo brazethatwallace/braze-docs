@@ -117,6 +117,14 @@ AppboyBinding.SetCustomUserAttribute("custom float attribute key", 'float value'
 
 {% endtab %}
 
+{% tab Double %}
+
+```csharp
+AppboyBinding.SetCustomUserAttribute("custom double attribute key", 'double value');
+```
+
+{% endtab %}
+
 {% tab Boolean %}
 
 ```csharp

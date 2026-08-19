@@ -82,6 +82,7 @@ Apteligent's
 Aptelligent
 Aribau
 ARPU
+arrivée
 ASIC
 Authy
 autofilllist
@@ -106,6 +107,7 @@ Beefree
 behaviour
 BENA
 BIMI
+Bienvenue
 Birthdates
 Bitcode
 Blastr
@@ -132,6 +134,8 @@ brazeai
 brazecall
 Brazei
 Burkina
+Bynder
+Bynder's
 brazexml
 BRZURL
 BSUIDs
@@ -571,6 +575,7 @@ Octolis
 Octolis's
 Odicci
 Odicci’s
+offre
 Okendo
 Okendo's
 Omnichannel
@@ -927,6 +932,7 @@ visitedtitle
 Visitory
 Vizbee
 Vizbee's
+Votre
 Voucherify
 vous
 VUNJO

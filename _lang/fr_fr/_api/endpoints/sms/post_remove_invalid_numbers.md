@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Paramètre | Requis | Type de données | Description |
 | ----------|-----------| ---------|------ |
-| `phone_number` | Requis | Tableau de chaînes de caractères au format e.164 | Un tableau pouvant contenir jusqu'à 50 numéros de téléphone à modifier. |
+| `phone_numbers` | Requis | Tableau de chaînes de caractères au format e.164 | Un tableau pouvant contenir jusqu'à 50 numéros de téléphone à modifier. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Exemple de requête {#example-request}

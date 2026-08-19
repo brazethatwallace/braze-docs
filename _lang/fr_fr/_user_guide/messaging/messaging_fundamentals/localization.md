@@ -14,10 +14,10 @@ tool:
 
 ## Fonctionnement {#how-it-works}
 
-Les informations de localisation sont stockées dans le profil d'un utilisateur en fonction des données que vous collectez à l'aide d'un [SDK Braze]({{site.baseurl}}/developer_guide/sdk_integration) (automatiquement) ou de la [REST API]({{ site.baseurl }}/api/endpoints/user_data/post_user_track). La localisation contient la langue et un identifiant de région. Ces informations sont disponibles dans l'outil de segmentation de Braze sous **Pays** et **Langue**.
+Les informations de locale sont stockées dans le profil d'un utilisateur en fonction des données que vous collectez à l'aide d'un [SDK Braze]({{site.baseurl}}/developer_guide/sdk_integration) (automatiquement), ou de la [REST API]({{ site.baseurl }}/api/endpoints/user_data/post_user_track). La locale contient la langue et un identifiant de région. Ces informations sont disponibles dans l'outil de segmentation de Braze sous **Pays** et **Langue**.
 
 {% alert tip %}
-Pour des détails techniques sur la façon dont la localisation est collectée par nos SDK, consultez la documentation officielle [iOS](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html), [Android](http://developer.android.com/reference/java/util/Locale.html) et [Web](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language).
+Pour obtenir des détails techniques sur la façon dont la locale est collectée par nos SDK, consultez la documentation officielle [iOS](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html), [Android](http://developer.android.com/reference/java/util/Locale.html) et [Web](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language).
 {% endalert %}
 
 ## Gestion des traductions {#translation-management}
@@ -25,41 +25,41 @@ Pour des détails techniques sur la façon dont la localisation est collectée p
 Considérez les approches suivantes pour gérer vos traductions.
 
 {% tabs local %}
-{% tab Campaign %}
-### Un modèle pour tous {#one-template-for-all}
+{% tab campaign %}
+### Un seul modèle pour tous {#one-template-for-all}
 
-Dans cette approche, la localisation est appliquée à un seul modèle dans Braze à l'aide de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid). Après l'envoi, le tableau de bord fournit des analyses agrégées de la Campaign. L'engagement au niveau de l'utilisateur peut être mesuré à l'aide d'entonnoirs de Segments personnalisés, par exemple en combinant les filtres **Pays** et **Campaign reçue**.
+Dans cette approche, la localisation est appliquée à un seul modèle dans Braze à l'aide de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid). Après l'envoi, le tableau de bord fournit des analyses agrégées de la campagne. L'engagement au niveau de l'utilisateur peut être mesuré à l'aide d'entonnoirs de segments personnalisés, par exemple en combinant les filtres **Pays** et **Campaign reçue**.
 
 | Avantages | Considérations |
 | --- | --- |
-| - Approche centralisée<br>- Temps de création d'e-mail réduit, pas besoin de créer un e-mail plusieurs fois | - Création manuelle des rapports<br>- Le rapport de Campaign affiche des indicateurs agrégés plutôt que des indicateurs par pays<br>- Nécessité de tester minutieusement le Liquid pour s'assurer qu'il s'affiche comme prévu<br>- Selon la façon dont vous récupérez la valeur du pays ou le nombre de pays que vous avez configurés, il peut être difficile de tester chaque pays<br>- Plus difficile de planifier des envois à des heures spécifiques selon les fuseaux horaires<br>- Plus difficile à utiliser si vous souhaitez envoyer un contenu distinct par pays. |
+| - Approche centralisée<br>- Temps de création d'e-mail réduit, pas besoin de créer un e-mail plusieurs fois | - Création manuelle des rapports<br>- Le rapport de Campaign affiche des indicateurs agrégés plutôt que des indicateurs par pays<br>- Nécessité de tester minutieusement le Liquid pour s'assurer qu'il s'affiche comme prévu<br>- Selon la manière dont vous récupérez la valeur du pays ou le nombre de pays configurés, il peut être difficile de tester chaque pays<br>- Plus difficile de planifier des envois à des heures précises selon les fuseaux horaires<br>- Plus difficile à utiliser si vous souhaitez envoyer un contenu distinct par pays. |
 | --- | --- | --- |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Un modèle pour tous" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Un seul modèle pour tous" }
 
 ### Un modèle par pays {#one-template-per-country}
 
-Cette approche sépare les modèles en différentes localisations d'envoi. Après l'envoi, le tableau de bord affiche les analyses d'envoi pour chaque pays séparément, et tous les événements [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) en aval au niveau de l'utilisateur seront également liés à une Campaign spécifique.
+Cette approche sépare les modèles en différentes locales d'envoi. Après l'envoi, le tableau de bord affiche les analyses d'envoi pour chaque pays séparément, et tous les événements [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) en aval au niveau de l'utilisateur seront également liés à une Campaign spécifique.
 
-- Les modèles bénéficient de l'implémentation d'[étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) à des fins de maintenance et de suivi.
+- Les modèles bénéficient de l'implémentation de [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) à des fins de maintenance et de suivi.
 - Les Campaigns peuvent hériter des configurations du même [modèle Braze]({{site.baseurl}}/user_guide/messaging/templates) et des [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) (tels que les [modèles d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates) contenant du Liquid).
 - Les Campaigns et modèles préexistants peuvent être [dupliqués]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating) pour accélérer la mise en œuvre.
 
 | Avantages | Considérations |
 | --- | --- |
-| - Évolutif pour plusieurs emplacements<br>- Rapports sur le chiffre d'affaires par pays dans Braze (par exemple par Campaign)<br>- Flexibilité si le contenu diffère considérablement d'un pays à l'autre | - Nécessite une structuration stratégique<br>- Effort de création plus important (par exemple des Campaigns distinctes pour chaque pays) |
+| - Évolutif pour de multiples emplacements<br>- Rapports sur le chiffre d'affaires par pays dans Braze (par exemple par Campaign)<br>- Flexibilité en cas de contenu radicalement différent par pays | - Nécessite une structuration stratégique<br>- Effort de création plus important (par exemple des Campaigns distinctes pour chaque pays) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Un modèle par pays" }
 {% endtab %}
 
-{% tab Canvas %}
+{% tab canvas %}
 ### Un parcours pour tous {#one-journey-for-all}
 
-Dans cette approche, la localisation est gérée au sein des [bases de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_basics#building-the-customer-journey) et du Liquid pour définir les messages pour chaque utilisateur.
+Dans cette approche, la localisation est gérée au sein des [bases de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_basics#building-the-customer-journey) et du Liquid pour définir les messages de chaque utilisateur.
 
-Après l'envoi d'un Canvas, le tableau de bord fournit des [analyses Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) agrégées, tandis que l'engagement au niveau de l'utilisateur peut être mesuré via des [entonnoirs de Segments]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size) personnalisés, par exemple en combinant les filtres [**Pays**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country) et [**Étape Canvas reçue**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step).
+Après l'envoi d'un Canvas, le tableau de bord fournit des [analyses Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) agrégées, tandis que l'engagement au niveau de l'utilisateur peut être mesuré via des [entonnoirs de segments]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size) personnalisés, par exemple en combinant les filtres [**Pays**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country) et [**Étape Canvas reçue**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step).
 
 | Avantages | Considérations |
 | --- | --- |
-| - Approche centralisée<br>- Temps de création d'e-mail réduit — pas besoin de créer un e-mail plusieurs fois. | - Création manuelle des rapports<br>- Le rapport Canvas affiche des indicateurs agrégés plutôt que des indicateurs par pays<br>- Nécessité de tester minutieusement le Liquid pour s'assurer qu'il s'affiche comme prévu<br>- Selon la façon dont vous récupérez la valeur du pays ou le nombre de pays que vous avez configurés, il peut être difficile de tester chaque pays<br>- Plus difficile de planifier des envois à des heures spécifiques selon les fuseaux horaires<br>- Plus difficile à utiliser si vous souhaitez envoyer un contenu distinct par pays. |
+| - Approche centralisée<br>- Temps de création d'e-mail réduit — pas besoin de créer un e-mail plusieurs fois. | - Création manuelle des rapports<br>- Le rapport Canvas affiche des indicateurs agrégés plutôt que des indicateurs par pays<br>- Nécessité de tester minutieusement le Liquid pour s'assurer qu'il s'affiche comme prévu<br>- Selon la manière dont vous récupérez la valeur du pays ou le nombre de pays configurés, il peut être difficile de tester chaque pays<br>- Plus difficile de planifier des envois à des heures précises selon les fuseaux horaires<br>- Plus difficile à utiliser si vous souhaitez envoyer un contenu distinct par pays. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Un parcours pour tous" }
 
 ### Un parcours par pays {#one-journey-per-country}
@@ -69,26 +69,26 @@ Dans cette approche, le générateur de parcours [Canvas]({{site.baseurl}}/user_
 La localisation peut être réalisée avec les méthodes suivantes :
 
 - Des Canvas distincts par pays, ce qui garantit que les parcours utilisateur complexes sont définis en haut de l'entonnoir à l'aide de filtres d'audience
-- Des parcours utilisateur personnalisés par pays, grâce à l'implémentation de [parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) pour segmenter intuitivement les utilisateurs à grande échelle pour chaque parcours en créant des fils de messages distincts pour chaque pays dans un seul Canvas
+- Des parcours utilisateur sur mesure par pays, grâce à l'implémentation de [parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) pour segmenter intuitivement les utilisateurs à grande échelle pour chaque parcours, en créant des fils de messages distincts pour chaque pays au sein d'un seul Canvas
 
-Une fois envoyé, le tableau de bord fournit des analyses dynamiques par pays et au sein des événements [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) au niveau de l'utilisateur en fonction de la localisation actuelle du client.
+Une fois envoyé, le tableau de bord fournit des analyses dynamiques par pays et au sein des événements [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) au niveau de l'utilisateur, en fonction de la localisation actuelle du client.
 
 | Avantages | Considérations |
 | --- | --- |
-| - Rapports sur le chiffre d'affaires par pays dans Braze (par exemple par Canvas, variante ou étape)<br>- Flexibilité si le contenu diffère considérablement d'un pays à l'autre<br>- Possibilité d'ajouter d'autres canaux dans le parcours à l'avenir | - Nécessite une structuration stratégique<br>- Effort de création plus important (par exemple des étapes de message distinctes pour chaque pays)<br>- Le Canvas peut devenir volumineux et difficile à lire si vous avez des parcours personnalisés et complexes pour chaque pays dans un seul Canvas. |
+| - Rapports sur le chiffre d'affaires par pays dans Braze (par exemple par Canvas, variante ou étape)<br>- Flexibilité en cas de contenu radicalement différent par pays<br>- Possibilité d'ajouter d'autres canaux au parcours à l'avenir | - Nécessite une structuration stratégique<br>- Effort de création plus important (par exemple des étapes de message distinctes pour chaque pays)<br>- Le Canvas peut devenir volumineux et difficile à lire si vous avez des parcours personnalisés et complexes pour chaque pays au sein d'un seul Canvas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Un parcours par pays" }
 {% endtab %}
 {% endtabs %}
 
-## Envoi de messages traduits {#sending-translated-messages}
+## Envoyer des messages traduits {#sending-translated-messages}
 
-Pour envoyer des messages personnalisés en fonction de la langue, de la localisation ou des attributs personnalisés d'un utilisateur, utilisez l'une des méthodes suivantes.
+Pour envoyer des messages personnalisés en fonction de la langue, des paramètres régionaux ou des attributs personnalisés d'un utilisateur, utilisez l'une des méthodes suivantes.
 
-### Étiquettes Liquid de traduction (recommandé) {#translation-liquid-tag}
+### Balises Liquid de traduction (recommandé) {#translation-liquid-tag}
 
-Braze prend en charge une étiquette Liquid {% raw %}`{% translation salutation %}Hello!{% endtranslation %}`{% endraw %} pour cibler les utilisateurs dans différentes langues avec un seul message.
+Braze prend en charge une balise Liquid {% raw %}`{% translation salutation %}Hello!{% endtranslation %}`{% endraw %} pour cibler des utilisateurs dans différentes langues avec un seul message.
 
-Pour un guide complet, consultez le [guide sur l'utilisation des étiquettes de traduction]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
+Pour un guide complet, consultez le [guide d'utilisation des balises de traduction]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
 
 ### Approches alternatives {#alternative-approaches}
 
@@ -96,8 +96,8 @@ Pour un guide complet, consultez le [guide sur l'utilisation des étiquettes de 
 {% tab Liquid personnalisé %}
 Vous pouvez coller manuellement votre contenu dans le corps de votre message et utiliser [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) pour afficher [conditionnellement]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) la bonne langue au destinataire. Pour ce faire :
 
-1. Rédigez votre message, puis sélectionnez **Langue** pour générer la logique conditionnelle Liquid pour chacune de vos langues sélectionnées.
-2. Vous pouvez utiliser le modèle Liquid suivant pour construire votre message. Pour chaque champ avec un modèle, vous devez saisir les variantes après le segment de modèle entre crochets. La variante doit correspondre au code de langue référencé entre crochets avant elle.
+1. Composez votre message, puis sélectionnez **Langue** pour générer la logique conditionnelle Liquid pour chacune de vos langues sélectionnées.
+2. Vous pouvez utiliser le modèle Liquid suivant pour construire votre message. Pour chaque champ avec du templating, vous devez saisir les variantes après le segment entre crochets du templating. La variante doit correspondre au code de langue référencé entre crochets avant elle.
     {% raw %}
     ```liquid
     {% if ${language} == 'en' %}
@@ -111,7 +111,7 @@ Vous pouvez coller manuellement votre contenu dans le corps de votre message et 
     {% endif %}
     ```
     {% endraw %}
-3. Testez votre message avant de l'envoyer en saisissant l'ID ou l'e-mail d'un utilisateur pour vérifier comment un message apparaîtrait à un individu en fonction de sa langue.
+3. Testez votre message avant de l'envoyer en saisissant l'ID ou l'e-mail d'un utilisateur pour vérifier comment un message apparaîtrait à une personne en fonction de sa langue.
 
 {% alert tip %}
 Nous recommandons toujours d'inclure une instruction {% raw %}`{% else %}`{% endraw %} dans vos messages. Bien que la plupart des utilisateurs verront le message dans leur langue spécifique, le texte sera visible pour ceux qui :
@@ -124,12 +124,12 @@ Nous recommandons toujours d'inclure une instruction {% raw %}`{% else %}`{% end
 {% tab Content Blocks %}
 Les [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) de Braze sont des blocs de contenu réutilisables. Lorsqu'un bloc est modifié, toutes les références à ce bloc sont mises à jour. Par exemple, les mises à jour d'un en-tête ou d'un pied de page d'e-mail seront reflétées dans tous les e-mails, ou pour héberger des traductions. Ces blocs peuvent également être [créés]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) et [mis à jour]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) via la REST API, et les utilisateurs peuvent télécharger des traductions de manière programmatique.
 
-Lors de la création d'une Campaign dans le tableau de bord, les Content Blocks peuvent être référencés à l'aide de l'étiquette {% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %}. Ces blocs peuvent contenir toutes les traductions hébergées dans une logique conditionnelle pour chaque langue, comme indiqué dans l'option 1, ou un bloc distinct pour chaque langue peut être utilisé.
+Lors de la création d'une Campaign dans le tableau de bord, les Content Blocks peuvent être référencés à l'aide de la balise {% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %}. Ces blocs peuvent contenir toutes les traductions hébergées dans une logique conditionnelle pour chaque langue, comme indiqué dans l'option 1, ou un bloc séparé pour chaque langue peut être utilisé.
 
-Les Content Blocks peuvent également être utilisés comme processus de gestion des traductions où le contenu nécessitant une traduction est hébergé dans un Content Block, récupéré, traduit, puis mis à jour :
+Les Content Blocks peuvent également être utilisés comme processus de gestion des traductions, où le contenu nécessitant une traduction est hébergé dans un Content Block, récupéré, traduit, puis mis à jour :
 1. Créez manuellement un Content Block dans le tableau de bord avec l'étiquette « Needs Translation ».
 2. Votre service effectue une récupération nocturne de tous les Content Blocks à l'aide de l'[endpoint `/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks).
-3. Votre service récupère les détails de chaque Content Block via l'[endpoint `/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information) pour voir quels blocs sont étiquetés pour la traduction.
+3. Votre service récupère les détails de chaque Content Block via l'[endpoint `/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information) pour voir quels blocs sont étiquetés pour traduction.
 4. Votre service de traduction traduit le corps de tous les Content Blocks « Needs Translation ».
 5. Votre service appelle l'[endpoint `/content_block/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) pour mettre à jour le contenu traduit et modifier l'étiquette en « Translation Complete ».
 {% endtab %}
@@ -244,7 +244,7 @@ Ces éléments de catalogue peuvent ensuite être référencés à l'aide de la 
 {% tab Partenaires Braze %}
 De nombreux partenaires Braze proposent des solutions de localisation, notamment [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-the-integration) et [Crowdin](https://crowdin.com/). En général, les utilisateurs utilisent la plateforme en complément d'une équipe interne et d'une agence de traduction. Ces traductions sont ensuite téléchargées et deviennent accessibles via la REST API. Ces services exploitent également souvent le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), permettant aux utilisateurs de récupérer les traductions via API.
 
-Par exemple, les appels de contenu connecté suivants appellent Transifex et Crowdin pour récupérer une traduction, en utilisant {% raw %}`{{${language}}}`{% endraw %} pour identifier la traduction correcte pour un utilisateur donné. Cette traduction est ensuite enregistrée dans le bloc JSON « strings » et référencée.
+Par exemple, les appels de contenu connecté suivants appellent Transifex et Crowdin pour récupérer une traduction, en exploitant {% raw %}`{{${language}}}`{% endraw %} pour identifier la traduction correcte pour un utilisateur donné. Cette traduction est ensuite enregistrée dans le bloc JSON « strings » et référencée.
 
 {% subtabs local %}
 {% subtab Exemple Transifex %}
@@ -271,7 +271,7 @@ Hébergez les traductions dans un tableur, puis utilisez l'une des méthodes sui
 
 {% subtabs local %}
 {% subtab Contenu connecté %}
-Vous pouvez travailler avec une agence de traduction pour stocker les traductions dans un tableur Google Sheets, puis interroger ce contenu à l'aide du [contenu connecté de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Lorsque vous envoyez un message, la traduction correspondante pour chaque utilisateur sera intégrée dans le corps de votre Campaign en fonction de la langue sélectionnée.
+Vous pouvez travailler avec une agence de traduction pour stocker les traductions dans un tableur Google Sheets, puis interroger ce contenu à l'aide du [contenu connecté Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Lorsque vous envoyez un message, la traduction correspondante pour chaque utilisateur sera intégrée dans le corps de votre Campaign en fonction de sa langue sélectionnée.
 
 {% alert note %}
 L'API Google Sheets a une limite de 500 requêtes par 100 secondes par projet. Les appels de contenu connecté peuvent être mis en cache, mais cette solution n'est pas adaptée à une Campaign à fort trafic.
@@ -279,11 +279,11 @@ L'API Google Sheets a une limite de 500 requêtes par 100 secondes par projet. L
 {% endsubtab %}
 
 {% subtab API JSON via SheetDB %}
-Cette option fournit une méthode alternative pour transformer des Google Sheets en objets JSON interrogés via le contenu connecté. En transformant un tableur en API JSON via SheetDB, vous pouvez choisir parmi [plusieurs niveaux d'abonnement](https://sheetdb.io/pricing) en fonction de la fréquence des appels API.
+Cette option fournit une méthode alternative pour transformer des Google Sheets en objets JSON interrogeables via le contenu connecté. En transformant un tableur en API JSON via SheetDB, vous pouvez choisir parmi [plusieurs niveaux d'abonnement](https://sheetdb.io/pricing) en fonction de la cadence des appels API.
 
 La structure du tableur suit les étapes de l'option 4, mais SheetDB fournit également des [filtres supplémentaires](https://docs.sheetdb.io/#sheetdb-api) pour interroger les objets.
 
-Certains utilisateurs peuvent préférer implémenter SheetDB avec moins de dépendances Liquid et de blocs connectés en utilisant la [méthode de recherche](https://docs.sheetdb.io/#get-search-in-document) de SheetDB dans les appels de requête GET pour filtrer les objets JSON en fonction de l'étiquette Liquid {% raw %}`{{${language}}}`{% endraw %} afin de retourner automatiquement les résultats pour une seule langue plutôt que de construire de grands blocs conditionnels.
+Certains utilisateurs peuvent préférer implémenter SheetDB avec moins de dépendances Liquid et de blocs connectés en utilisant la [méthode de recherche](https://docs.sheetdb.io/#get-search-in-document) de SheetDB dans les appels de requête GET pour filtrer les objets JSON en fonction de la balise Liquid {% raw %}`{{${language}}}`{% endraw %} afin de retourner automatiquement les résultats pour une seule langue plutôt que de construire de grands blocs conditionnels.
 
 #### Étape 1 : Formater le tableur Google {#step-1-format-the-google-sheet}
 
@@ -296,9 +296,9 @@ Tout d'abord, construisez le tableur Google de sorte que les langues soient des 
 | de | Hallo | 4 | Hallo2 | 8 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Étape 1 : Formater le tableur Google" }
 
-#### Étape 2 : Utiliser l'étiquette Liquid de langue dans un appel de contenu connecté {#step-2-use-the-language-liquid-tag-in-a-connected-content-call}
+#### Étape 2 : Utiliser la balise Liquid de langue dans un appel de contenu connecté {#step-2-use-the-language-liquid-tag-in-a-connected-content-call}
 
-Ensuite, implémentez l'étiquette Liquid {% raw %}`{{${language}}}`{% endraw %} dans un appel de contenu connecté. Notez que SheetDB générera automatiquement le `sheet_id` lors de la création du tableur.
+Ensuite, implémentez la balise Liquid {% raw %}`{{${language}}}`{% endraw %} dans un appel de contenu connecté. Notez que SheetDB générera automatiquement le `sheet_id` lors de la création du tableur.
 
 {% raw %}
 ```liquid
@@ -306,9 +306,9 @@ Ensuite, implémentez l'étiquette Liquid {% raw %}`{{${language}}}`{% endraw %}
 ```
 {% endraw %}
 
-#### Étape 3 : Modéliser vos messages {#step-3-template-your-messages}
+#### Étape 3 : Créer le modèle de vos messages {#step-3-template-your-messages}
 
-Enfin, utilisez Liquid pour modéliser vos messages :
+Enfin, utilisez Liquid pour créer le modèle de vos messages :
 
 {% raw %}
 ```liquid
@@ -319,10 +319,69 @@ Enfin, utilisez Liquid pour modéliser vos messages :
 
 ##### Considérations {#considerations}
 
-- Le champ {% raw %}`{{${language}}}`{% endraw %} doit être défini pour tous les utilisateurs ; sinon, un bloc conditionnel Liquid doit être prévu comme gestionnaire de secours pour les utilisateurs sans langue définie.
+- Le champ {% raw %}`{{${language}}}`{% endraw %} doit être défini pour tous les utilisateurs ; sinon, un bloc conditionnel Liquid doit être inclus comme gestionnaire de secours pour les utilisateurs sans langue définie.
 - La modélisation des données dans Google Sheets doit suivre une structure verticale orientée par langue, par opposition à des objets de message.
 - SheetDB propose un compte gratuit limité et plusieurs options payantes qui doivent être évaluées en fonction de votre stratégie de Campaign.
-- Les appels de contenu connecté peuvent être mis en cache. Nous recommandons de mesurer la fréquence projetée des appels API et d'envisager une approche alternative consistant à appeler l'endpoint principal de SheetDB au lieu d'utiliser la méthode de recherche.
+- Les appels de contenu connecté peuvent être mis en cache. Nous recommandons de mesurer la cadence projetée des appels API et d'envisager une approche alternative consistant à appeler l'endpoint principal de SheetDB au lieu d'utiliser la méthode de recherche.
+{% endsubtab %}
+{% subtab API JSON via Sheetlabs %}
+
+Cette option transforme un tableur Google en API JSON que vous pouvez interroger avec le contenu connecté. Sheetlabs prend en charge de grands volumes de requêtes et propose des niveaux gratuits et payants.
+
+#### Étape 1 : Préparer votre feuille de traductions dans Google Sheets {#step-1-prepare-your-translations-sheet-in-google-sheets}
+
+Construisez le tableur Google de sorte que chaque ligne corresponde à une langue. Par exemple :
+
+| language | greeting | title1 | legal1 |
+| ---- | ---- | ---- | ---- |
+| en | Welcome! | Your exclusive offer is here | ... |
+| fr | Bienvenue! | Votre offre exclusive est arrivée | ... |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Étape 1 : Préparer votre feuille de traductions dans Google Sheets" }
+
+#### Étape 2 : Utiliser Sheetlabs pour importer la feuille et créer une API {#step-2-use-sheetlabs-to-import-the-sheet-and-create-an-api}
+
+1. Inscrivez-vous sur [Sheetlabs](https://sheetlabs.com).
+2. Suivez les instructions de Sheetlabs pour importer des données depuis Google Sheets.
+3. Sélectionnez le tableur que vous avez créé à l'étape 1.
+4. Sélectionnez **Create a matching API**.
+
+#### Étape 3 : Ajouter votre jeton d'authentification Sheetlabs à Braze (facultatif) {#step-3-add-your-sheetlabs-authentication-token-to-braze-optional}
+
+Si votre API Sheetlabs est publique, ignorez cette étape. Si elle nécessite une authentification :
+
+1. Accédez à la page **My Account** dans Sheetlabs et copiez votre jeton API.
+2. Suivez les étapes de la section [Authentification Braze avec Basic Auth]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#using-basic-authentication) pour créer un identifiant d'authentification basique dans Braze. Utilisez votre nom d'utilisateur Sheetlabs (adresse e-mail) et le jeton API que vous avez copié.
+3. Enregistrez l'identifiant avec un nom tel que `sheetlabs_creds`.
+
+#### Étape 4 : Appeler l'API Sheetlabs depuis le contenu connecté {#step-4-call-the-sheetlabs-api-from-connected-content}
+
+Ajoutez un appel de contenu connecté à Sheetlabs. Remplacez `/XXX/yourapi` par le chemin vers l'API que vous avez créée à l'étape 2.
+
+{% raw %}
+```liquid
+{% connected_content https://sheetlabs.com/XXX/yourapi?language={{${language}}} :save translations :basic_auth sheetlabs_creds %}
+
+```
+{% endraw %}
+
+#### Étape 5 : Créer le modèle de vos messages {#step-5-template-your-messages}
+
+Utilisez Liquid pour référencer les champs retournés. Par exemple :
+
+{% raw %}
+```liquid
+{{translations[0].greeting}} {{${first_name}}},
+{{translations[0].body1}}
+```
+{% endraw %}
+
+#### Considérations
+
+- Définissez le champ {% raw %}`{{${language}}}`{% endraw %} pour chaque utilisateur que vous souhaitez cibler. Si un utilisateur n'a pas de langue définie, incluez un mécanisme de secours Liquid.
+- Les appels de contenu connecté peuvent être mis en cache. Mesurez la cadence projetée de vos appels API lors du choix d'un plan Sheetlabs.
+
+Pour plus d'informations, consultez [Utiliser Sheetlabs avec Braze](https://app.sheetlabs.com/docs/producers/braze/).
+
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}

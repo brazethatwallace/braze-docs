@@ -63,6 +63,10 @@ To copy a landing page to a different workspace:
 {% endtab %}
 {% endtabs %}
 
+{% alert note %}
+You can copy a campaign or Canvas to another workspace at any point in its lifecycle, including after it's launched. Braze copies the active version.<br><br>If you have [saved draft changes]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch#campaign-drafts) for a campaign or [saved a Canvas draft]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/canvas_drafts) that you haven't launched yet, Braze doesn't include those pending edits. Launch the draft in the original workspace first, then copy.
+{% endalert %}
+
 ## What's copied across workspaces
 
 Note that the following tables cover campaign and Canvas fields, and are not a comprehensive list of what is copied across workspaces and what is omitted. As a best practice, check the campaign, Canvas, and landing page details and test to confirm your message works as expected. 

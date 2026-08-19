@@ -11,16 +11,16 @@ description: "Cet article de référence explique comment mettre en œuvre le pi
 
 > Le [suivi par pixel d'ouverture]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement) et le suivi des clics peuvent être activés ou désactivés pour chaque profil utilisateur. Cette flexibilité vous permet de respecter les lois régionales sur la confidentialité, lorsqu'un profil utilisateur individuel indique qu'il ne souhaite plus être suivi.
 
-## Activer le pixel d'ouverture ou le suivi des clics {#turning-on-open-pixel-or-click-tracking}
+## Activation du suivi des ouvertures par pixel ou du suivi des clics {#turning-on-open-pixel-or-click-tracking}
 
 Lors de l'importation ou de la mise à jour d'un profil utilisateur via l'[API]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields), un [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou l'[ingestion de données cloud (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), deux champs sont disponibles pour modification :
 
-- `email_open_tracking_disabled` : accepte `true` ou `false`. Définissez la valeur sur `false` pour ajouter le pixel de suivi d'ouverture à tous les futurs e-mails envoyés à cet utilisateur. Disponible pour SparkPost et SendGrid uniquement.
-- `email_click_tracking_disabled` : accepte `true` ou `false`. Définissez la valeur sur `false` pour ajouter le suivi des clics à tous les liens contenus dans les futurs e-mails envoyés à cet utilisateur. Disponible pour SparkPost et SendGrid uniquement.
+- `email_open_tracking_disabled` : accepte `true` ou `false`. Définissez sur `false` pour ajouter le pixel de suivi des ouvertures à tous les futurs e-mails envoyés à cet utilisateur.
+- `email_click_tracking_disabled` : accepte `true` ou `false`. Définissez sur `false` pour ajouter le suivi des clics à tous les liens contenus dans les futurs e-mails envoyés à cet utilisateur.
 
-Pour référence, ces informations sont visibles sur le profil utilisateur dans les **Paramètres de contact** de l'e-mail, situés dans l'onglet **Engagement**.
+À titre de référence, ces informations sont visibles sur le profil utilisateur dans les **Paramètres de contact** de la section e-mail, situés dans l'onglet **Engagement**.
 
-![Champs du pixel de suivi d'ouverture et de suivi des clics dans l'onglet Engagement du profil d'un utilisateur]({% image_buster /assets/img_archive/open_click_user_profile.png %}){: style="max-width:60%;"}
+![Champs de suivi des ouvertures et des clics par pixel dans l'onglet Engagement du profil d'un utilisateur]({% image_buster /assets/img_archive/open_click_user_profile.png %}){: style="max-width:60%;"}
 
 ## Exigences relatives aux liens de suivi des clics {#click-tracking-link-requirements}
 

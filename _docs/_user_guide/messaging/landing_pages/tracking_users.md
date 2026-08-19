@@ -27,7 +27,7 @@ You can add a {% raw %}`{% landing_page_url %}`{% endraw %} Liquid tag to any of
 You can also use landing pages for lead generation by embedding the page URL into your external channels. After you create a landing page, go to **Landing Page Details** to get the unique URL for your landing page.
 {% endalert %}
 
-## Using landing page Liquid tags
+## Use landing page Liquid tags {#using-landing-page-liquid-tags}
 
 ### Step 1: Verify the page URL {#page-url}
 
@@ -74,3 +74,7 @@ Embed the Liquid snippet into your message, then finalize the rest of your messa
 {% endraw %}
 
 When you're ready, you can send the message to start tracking users through your landing page.
+
+### Use landing page URLs in Content Cards
+
+Content Cards have a [2&nbsp;KB payload limit]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#size-limitations-for-content-cards) that applies to the entire card after Liquid is rendered. When you include a {% raw %}`{% landing_page_url %}`{% endraw %} Liquid tag, Braze counts the landing page tracking token as a fixed 32&nbsp;bytes toward that limit—not the full length of the token. The rest of the URL and the card's title, body, and other fields still count toward the limit as usual.

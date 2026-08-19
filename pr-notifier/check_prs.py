@@ -412,14 +412,10 @@ def main():
                 else:
                     approver_mentions.append(f"@{appr['user']['login']}")
 
-            assignees = pr.get("assignees", [])
-            assignee_is_docs = any(a["login"].lower() in docs_team for a in assignees)
-
             pr_data = {"pr_number": pr_number, "title": pr_title, "url": pr_url,
                        "author_mention": author_mention, "open_days": open_days,
                        "stale_days": days_since(updated_at),
-                       "approver_mentions": approver_mentions,
-                       "assignee_is_docs": assignee_is_docs}
+                       "approver_mentions": approver_mentions}
 
             if pr_num_str not in scenario2_notified:
                 new_s2.append(pr_data)
@@ -700,13 +696,17 @@ def main():
 
     # ── Post Scenario 1 ──────────────────────────────────────────────────────────
     for pr in new_s1:
+        target_is_known = pr["author_mention"].startswith("<@U") and pr["author_mention"] != oncall_docs_mention
+        oncall_tag = "" if target_is_known else f"\n{oncall_docs_mention} please follow up on this PR."
         text = (
             f"🔴 *Action needed: PR missing reviewer*\n"
             f"<{pr['url']}|#{pr['pr_number']}: {pr['title']}>\n"
             f"Owner: {pr['author_mention']}  |  Open {pr['open_days']} days  |  {pr['reason']}"
+            f"{oncall_tag}"
             f"{warning_footer}"
         )
-        ch = mention_to_dm_or_channel(pr["author_mention"], oncall_docs_mention, docs_request_channel)
+        ch = mention_to_dm_or_channel(pr["author_mention"], oncall_docs_mention, docs_request_channel) if target_is_known \
+             else docs_request_channel
         post_and_record(text, pr["pr_number"],
                         channel=ch,
                         notified_set=new_s1_set,
@@ -714,13 +714,17 @@ def main():
                         scenario_key="s1")
 
     for pr in remind_s1:
+        target_is_known = pr["author_mention"].startswith("<@U") and pr["author_mention"] != oncall_docs_mention
+        oncall_tag = "" if target_is_known else f"\n{oncall_docs_mention} please follow up on this PR."
         text = (
             f"🔴 *Reminder: PR still missing reviewer*\n"
             f"<{pr['url']}|#{pr['pr_number']}: {pr['title']}>\n"
             f"Owner: {pr['author_mention']}  |  Open {pr['open_days']} days  |  {pr['reason']}"
+            f"{oncall_tag}"
             f"{warning_footer}"
         )
-        ch = mention_to_dm_or_channel(pr["author_mention"], oncall_docs_mention, docs_request_channel)
+        ch = mention_to_dm_or_channel(pr["author_mention"], oncall_docs_mention, docs_request_channel) if target_is_known \
+             else docs_request_channel
         post_and_record(text, pr["pr_number"],
                         channel=ch,
                         last_reminded_dict=scenario1_last_reminded,
@@ -730,7 +734,8 @@ def main():
     # ── Post Scenario 2 ──────────────────────────────────────────────────────────
     for pr in new_s2:
         approvers  = ", ".join(pr["approver_mentions"]) if pr["approver_mentions"] else "unknown"
-        oncall_tag = f"\n{oncall_docs_mention} please follow up on this PR." if not pr["assignee_is_docs"] else ""
+        target_is_known = pr["author_mention"].startswith("<@U") and pr["author_mention"] != oncall_docs_mention
+        oncall_tag = "" if target_is_known else f"\n{oncall_docs_mention} please follow up on this PR."
         text = (
             f"⏰ *Action needed: Approved PR has gone stale*\n"
             f"<{pr['url']}|#{pr['pr_number']}: {pr['title']}>\n"
@@ -738,8 +743,8 @@ def main():
             f"{oncall_tag}"
             f"{warning_footer}"
         )
-        ch = docs_request_channel if (not pr["assignee_is_docs"] or pr["author_mention"] == oncall_docs_mention) \
-             else mention_to_dm_or_channel(pr["author_mention"], oncall_docs_mention, docs_request_channel)
+        ch = mention_to_dm_or_channel(pr["author_mention"], oncall_docs_mention, docs_request_channel) if target_is_known \
+             else docs_request_channel
         post_and_record(text, pr["pr_number"],
                         channel=ch,
                         notified_dict=new_s2_dict,
@@ -748,7 +753,8 @@ def main():
 
     for pr in remind_s2:
         approvers  = ", ".join(pr["approver_mentions"]) if pr["approver_mentions"] else "unknown"
-        oncall_tag = f"\n{oncall_docs_mention} please follow up on this PR." if not pr["assignee_is_docs"] else ""
+        target_is_known = pr["author_mention"].startswith("<@U") and pr["author_mention"] != oncall_docs_mention
+        oncall_tag = "" if target_is_known else f"\n{oncall_docs_mention} please follow up on this PR."
         text = (
             f"⏰ *Reminder: Approved PR still waiting*\n"
             f"<{pr['url']}|#{pr['pr_number']}: {pr['title']}>\n"
@@ -756,8 +762,8 @@ def main():
             f"{oncall_tag}"
             f"{warning_footer}"
         )
-        ch = docs_request_channel if (not pr["assignee_is_docs"] or pr["author_mention"] == oncall_docs_mention) \
-             else mention_to_dm_or_channel(pr["author_mention"], oncall_docs_mention, docs_request_channel)
+        ch = mention_to_dm_or_channel(pr["author_mention"], oncall_docs_mention, docs_request_channel) if target_is_known \
+             else docs_request_channel
         post_and_record(text, pr["pr_number"],
                         channel=ch,
                         last_reminded_dict=scenario2_last_reminded,
@@ -824,14 +830,18 @@ def main():
 
     # ── Post Scenario 5 ──────────────────────────────────────────────────────────
     for pr in new_s5:
+        target_is_known = pr["author_mention"].startswith("<@U") and pr["author_mention"] != oncall_docs_mention
+        oncall_tag = "" if target_is_known else f"\n{oncall_docs_mention} please follow up on this PR."
         text = (
             f"😬 *Wowza, this PR hasn't been touched in {pr['stale_days']} days*\n"
             f"<{pr['url']}|#{pr['pr_number']}: {pr['title']}>\n"
             f"Owner: {pr['author_mention']}  |  Open {pr['open_days']} days\n"
             f"Is this still relevant? Time to merge, close, or give it some love."
+            f"{oncall_tag}"
             f"{warning_footer}"
         )
-        ch = mention_to_dm_or_channel(pr["author_mention"], oncall_docs_mention, docs_request_channel)
+        ch = mention_to_dm_or_channel(pr["author_mention"], oncall_docs_mention, docs_request_channel) if target_is_known \
+             else docs_request_channel
         post_and_record(text, pr["pr_number"],
                         channel=ch,
                         notified_set=new_s5_set,

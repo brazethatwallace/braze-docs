@@ -16,17 +16,17 @@ tool:
 
 Siempre debes [previsualizar y probar tus mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) en una variedad de dispositivos para confirmar que las áreas más importantes de tu imagen y mensaje se muestren como se espera.
 
-## Comportamiento de las imágenes {#image-behavior}
+## Comportamiento de la imagen {#image-behavior}
 
 {% multi_lang_include channels/image_specs.md variable_name='image behavior' %}
 
 ## Video {#video}
 
-Los videos cargados en la biblioteca de medios solo se pueden usar en mensajes de WhatsApp. Para más información, consulta [Crear un mensaje de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#outbound-messages).
+Los videos subidos a la biblioteca de medios solo se pueden usar en mensajes de WhatsApp. Para más información, consulta [Crear un mensaje de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#outbound-messages).
 
 ## GIF {#gifs}
 
-Los GIF son compatibles con push de iOS, mensajes dentro de la aplicación, correo electrónico, Content Cards y mensajes MMS o RCS. Los GIF con formas muy alargadas (por ejemplo, 3000 x 2 píxeles) o con 300 o más fotogramas pueden fallar al cargarse, incluso si el tamaño total del archivo es pequeño.
+Los GIF son compatibles con push en iOS, mensajes dentro de la aplicación, correo electrónico, Content Cards y mensajes MMS o RCS. Los GIF con formas muy alargadas (por ejemplo, 3000 x 2 píxeles) o con 300 o más fotogramas pueden no cargarse, incluso si el tamaño total del archivo es pequeño.
 
 {% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
@@ -50,7 +50,7 @@ Para más información, consulta [Detalles creativos de mensajes dentro de la ap
 
 #### Font Awesome
 
-Braze admite el uso de [Font Awesome v4.3.0](https://fontawesome.com/v4.7.0/cheatsheet/) para los iconos de mensajes modales dentro de la aplicación.
+Braze admite el uso de [Font Awesome v4.3.0](https://fontawesome.com/v4.7.0/cheatsheet/) para iconos de mensajes modales dentro de la aplicación.
 
 ### Notificaciones push {#push-notifications}
 
@@ -66,7 +66,7 @@ Para obtener los mejores resultados, consulta las siguientes directrices de long
 | --- | --- | --- |
 | Pantalla de bloqueo de iOS | 160 caracteres | 130 caracteres |
 | Centro de notificaciones de iOS | 160 caracteres | 130 caracteres |
-| Banner de alerta de iOS | 80 caracteres | 65 caracteres |
+| Alerta de banner de iOS | 80 caracteres | 65 caracteres |
 | Pantalla de bloqueo de Android | 49 caracteres | N/A |
 | Panel de notificaciones de Android | 597 caracteres | N/A |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Longitudes de mensaje recomendadas" }
@@ -80,10 +80,10 @@ Para más información sobre el conteo de caracteres en iOS, consulta las [direc
 
 | Navegador | Tamaño de icono recomendado |
 | --- | --- |
-| Chrome | 192 x 192 px o más |
-| Firefox | 192 x 192 px o más |
-| Safari | 192 x 192 px o más (configurable por campaña con Safari 16 en macOS 13+) |
-| Opera | 192 x 192 px o más |
+| Chrome | 192 x 192 px o mayor |
+| Firefox | 192 x 192 px o mayor |
+| Safari | 192 x 192 px o mayor (configurable por Campaign con Safari 16 en macOS 13+) |
+| Opera | 192 x 192 px o mayor |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Notificación push web" }
 
 | Navegador | Plataforma | Tamaño de imagen grande |
@@ -126,7 +126,7 @@ Para más información sobre el conteo de caracteres en iOS, consulta las [direc
 {% tab iOS %}
 
 ![Notificación push de iOS con texto que dice: "Hi! This is an iOS Push with an image" con un emoji. Hay una imagen pequeña junto al texto.]({% image_buster /assets/img_archive/braze_richpush1.png %}){: style="max-width:50%;"}
-![Notificación push de iOS expandida con el mismo texto del mensaje anterior y una imagen ampliada que precede al texto.]({% image_buster /assets/img_archive/braze_richpush2.png %}){: style="max-width:50%;"}
+![Notificación push de iOS en un push expandido con el mismo texto que el mensaje anterior y una imagen ampliada antes del texto.]({% image_buster /assets/img_archive/braze_richpush2.png %}){: style="max-width:50%;"}
 
 {% endtab %}
 {% tab Android %}
@@ -134,10 +134,16 @@ Para más información sobre el conteo de caracteres en iOS, consulta las [direc
 ![Notificación push de Android con una imagen grande debajo del texto del mensaje.]({% image_buster /assets/img_archive/android_push_img2.png %})
 
 {% alert note %}
-Las notificaciones con imágenes grandes se muestran mejor cuando se usa una imagen de al menos 600 x 300 píxeles.
+Las notificaciones con imágenes grandes se muestran mejor cuando se utiliza una imagen de al menos 600 x 300 píxeles.
 {% endalert %}
 
 {% endtab %}
 {% endtabs %}
 
 Para recursos adicionales, consulta [Especificaciones de imagen y texto para push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).
+
+### SMS y MMS {#sms-and-mms}
+
+{% multi_lang_include channels/image_specs.md variable_name='sms and mms' %}
+
+Para redactar mensajes MMS, consulta [Crear un mensaje SMS, MMS o RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).

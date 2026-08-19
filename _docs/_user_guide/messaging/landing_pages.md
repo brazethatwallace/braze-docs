@@ -78,7 +78,7 @@ No, there aren't any technical requirements.
 
 ### Is there an HTML editor for landing pages?
 
-Yes. Use the **Custom Code** block in the drag-and-drop editor to add or edit HTML.
+Yes. Use the **Custom Code** block in the drag-and-drop editor to add or edit HTML. To interface with the Braze SDK from your custom code, see [JavaScript bridge for landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge). To connect a fully custom UI to a landing page form, see [Create custom form blocks]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
 
 ### Can I use iframes on landing pages?
 

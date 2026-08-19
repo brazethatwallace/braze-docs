@@ -4,7 +4,7 @@ article_title: Operator로 할 수 있는 것
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "이 참조 문서에서는 BrazeAI Operator™가 대시보드 전반에서 수행할 수 있는 기능을 다룹니다. Campaigns, Segments, 에이전트 구축, 카피·메시지·Liquid·이미지 생성, 데이터 변환, 콘텐츠 품질 검토, 정보 조회 등이 포함됩니다."
+description: "이 참조 문서에서는 BrazeAI Operator™가 대시보드 전반에서 수행할 수 있는 기능을 다룹니다. Campaigns, Segments, 보고서, 대시보드, 에이전트 구축, 카피·메시지·Liquid·이미지 생성, 데이터 변환, 콘텐츠 품질 검토, 정보 조회 등이 포함됩니다."
 ---
 
 # Operator로 할 수 있는 것 {#operator-capabilities}
@@ -17,17 +17,29 @@ Operator는 워크스페이스(브랜드 가이드라인, 커스텀 속성, 연�
 
 ## 사전 요구 사항 {#prerequisites}
 
-Operator는 사용자와 동일한 권한을 가지므로, 특정 작업에는 해당 영역에 대한 관련 권한이 필요합니다. 예를 들어, 이미지를 생성하려면 *미디어 라이브러리 자산 편집* 권한이 필요합니다. 진입점이 보이지 않는 경우 관리자에게 권한을 확인하세요. 자세한 내용은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)을 참조하세요.
+Operator는 사용자와 동일한 권한을 가지므로, 특정 작업에는 해당 화면에 대한 관련 권한이 필요합니다. 예를 들어, 이미지를 생성하려면 *미디어 라이브러리 자산 편집* 권한이 필요합니다. 진입점이 보이지 않는 경우 관리자에게 권한을 확인하세요. 자세한 내용은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)을 참조하세요.
+
+## 대시보드 탐색 {#navigate-the-dashboard}
+
+Operator는 현재 보고 있는 페이지에서만 작동하는 것이 아닙니다. 프롬프트에 대시보드의 다른 부분이 필요한 경우, Operator는 목적지를 식별하고 탐색을 제안한 후 해당 위치로 이동하여 작업을 계속합니다.
+
+이는 Operator가 단일 프롬프트에서 여러 단계의 작업을 연결할 수 있다는 것을 의미합니다. 예를 들어, 홈 페이지에서 Operator에게 브랜드 가이드라인에 맞게 드래그 앤 드롭 편집기 설정을 구성해 달라고 요청하면, Operator가 관련 이메일 설정으로 이동한 후 해당 위치에서 계속 도움을 줍니다. 원하는 결과를 일상적인 언어로 설명하면, Operator가 관련 설정이나 기능으로 이동하여 작업을 시작할 수 있습니다.
+
+기본적으로 Operator는 다른 제안된 작업과 마찬가지로 새 페이지로 이동하기 전에 제안된 탐색을 승인하도록 요청합니다. Operator가 매번 승인을 기다리지 않고 탐색하도록 하려면 [작업 자동 승인]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions#auto-approve-actions)을 켜세요.
 
 ## Operator가 만들 수 있는 것 {#what-operator-can-create}
 
-카피와 Liquid 생성 외에도, Operator는 대시보드 전반에서 다음을 포함한 다양한 객체를 구축하는 데 도움을 줄 수 있습니다:
+카피와 Liquid 생성 외에도, Operator는 대시보드 전반에서 다음을 포함한(이에 국한되지 않는) 다양한 객체를 구축하는 데 도움을 줄 수 있습니다:
 
 - Campaigns
 - Content Blocks
 - 커스텀 에이전트
+- 커스텀 속성 및 커스텀 이벤트
+- 대시보드
 - 이미지
 - 메시지 및 메시지 템플릿([메시지 생성](#generate-messages) 및 [메시지 템플릿 만들기](#create-message-templates) 참조)
+- 예측
+- 보고서
 - Segments
 - 세그먼트 확장
 
@@ -46,7 +58,8 @@ Operator는 아이디어에서 Campaign 또는 오디언스 초안까지 진행�
 - **Campaigns 만들기 및 편집:** Campaign을 시작할 때, Operator는 하나의 자연어 브리프에서 포괄적인 초안을 작성하는 데 도움을 줄 수 있습니다. 여기에는 오디언스, 콘텐츠, 전달 설정이 포함됩니다. 기존 Campaign을 편집하는 데에도 Operator에게 도움을 요청할 수 있습니다. 예를 들어, 타겟팅을 조정하거나 메시지 콘텐츠를 새로 고칠 수 있습니다.
 - **브리프에서 Campaign으로:** 전체 Campaign 브리프를 설명하면, Operator가 카피, 이미지, 개인화, 타겟팅, 발송 시간 추천을 포함한 초안을 작성하는 데 도움을 줍니다. Campaign 작성기에서 초안을 검토하고 후속 프롬프트로 다듬은 후 발송하세요.
 - **Segments 만들기 및 편집:** Segment를 시작할 때, 원하는 오디언스를 설명하면 Operator가 속성 조건, 이벤트 기록, 카탈로그 조회를 포함한 필터 로직을 구축하는 데 도움을 줍니다. 타겟팅 전략을 변경해야 할 때 기존 Segment의 필터를 편집하는 데에도 Operator가 도움을 줄 수 있습니다.
-- **세그먼트 확장 만들기:** Operator는 SQL로 정의된 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 구축하는 데 도움을 줄 수 있습니다. 원하는 오디언스 로직을 설명하면 Operator가 저장하기 전에 검토할 수 있는 쿼리를 작성합니다. Operator와 SQL에 대한 자세한 내용은 [SQL 쿼리 작성](#write-sql-queries)을 참조하세요.
+- **세그먼트 확장 만들기:** Operator는 SQL로 정의된 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 구축하는 데 도움을 줄 수 있으며, 이를 정의하는 쿼리를 작성해 줍니다. 원하는 오디언스 로직을 설명하면 Operator가 저장하기 전에 검토할 수 있는 쿼리를 작성합니다. 세그먼트 확장 개요에서도 Operator에게 도움을 요청할 수 있습니다. Operator와 SQL에 대한 자세한 내용은 [SQL 쿼리 작성](#write-sql-queries)을 참조하세요.
+- **사용자 가져오기 및 관리:** 지원되는 오디언스 페이지에서 Operator는 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users), [사용자 삭제]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users), [중복 프로필 병합]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)을 도와줄 수 있습니다. 제안된 각 작업은 저장되기 전에 검토하세요.
 
 ## 에이전트 {#agents}
 
@@ -60,7 +73,7 @@ Operator는 [에이전트 콘솔]({{site.baseurl}}/user_guide/brazeai/agents)에
 
 ## 콘텐츠 및 크리에이티브 {#content-and-creative}
 
-Operator는 카피, 메시지 HTML, Liquid, 이미지를 포함하여 메시지의 콘텐츠를 생성하고 검토할 수 있으며, 브랜드 가이드라인이 구성된 곳에서는 자동으로 적용합니다.
+Operator는 카피, 메시지 HTML, Liquid, 이미지를 포함하여 메시지의 콘텐츠를 생성하고 검토할 수 있으며, 브랜드 가이드라인이 구성된 곳에서는 자동으로 적용합니다. 또한 템플릿 라이브러리와 개요 페이지에서 Operator에게 도움을 요청할 수도 있습니다. 예를 들어, [이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates)이나 Content Blocks를 목록 페이지에서 만들거나 업데이트하고, [콘텐츠 캘린더]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar)에서 작업을 예약하고, [인앱 메시지 색상 프로필 템플릿]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles)을 만들거나, [배너 배치]({{site.baseurl}}/developer_guide/banners/placements)를 구성할 수 있습니다.
 
 ### 브랜드 가이드라인 적용 {#apply-brand-guidelines}
 
@@ -105,7 +118,7 @@ Operator는 대시보드에서 Content Blocks를 한 번에 하나씩 만듭니�
 
 ### 메시지 템플릿 만들기 {#create-message-templates}
 
-Operator는 Campaigns 전반에 적용할 수 있는 재사용 가능한 [메시지 템플릿]({{site.baseurl}}/user_guide/messaging/templates)을 만드는 데 도움을 줄 수 있습니다. 원하는 템플릿을 설명하면 Operator가 저장하기 전에 검토할 수 있는 초안을 작성합니다. 템플릿 생성은 메시지 생성과 유사하게 작동하므로, 지원되는 채널과 편집기에 대해서는 [메시지 생성](#generate-messages)을 참조하세요.
+Operator는 Campaigns 전반에 적용할 수 있는 재사용 가능한 [메시지 템플릿]({{site.baseurl}}/user_guide/messaging/templates)을 만드는 데 도움을 줄 수 있습니다. 원하는 템플릿을 설명하면 Operator가 저장하기 전에 검토할 수 있는 초안을 작성합니다. Braze 어디서든 시작할 수 있습니다. 템플릿 생성은 메시지 생성과 유사하게 작동하므로, 지원되는 채널과 편집기에 대해서는 [메시지 생성](#generate-messages)을 참조하세요.
 
 ### Liquid 생성 {#generate-liquid}
 
@@ -151,7 +164,7 @@ Operator는 OpenAI의 인공지능 시스템이자 Braze 서드파티 제공업�
 
 - 주제, 스타일, 분위기, 색상을 구체적으로 설명하세요. 세부 정보를 많이 포함할수록 더 좋은 결과를 얻을 수 있습니다. 참조 이미지 업로드는 지원되지 않습니다.
 - Operator 프롬프트에서 [브랜드 가이드라인](#apply-brand-guidelines)을 컨텍스트로 적용하면, Operator가 생성된 이미지에 직접 적용하여 결과물이 브랜드의 시각적 스타일을 반영합니다.
-- 이미지 생성은 일일 Operator 사용 한도에 포함됩니다. 자세한 내용은 [제한 사항](#limitations)을 참조하세요.
+- 이미지 생성은 다른 Operator 작업과 함께 회사 전체 일일 Operator 사용 한도에 포함됩니다. 자세한 내용은 [제한 사항](#limitations)을 참조하세요.
 
 ### 콘텐츠 품질 검토 {#review-content-quality}
 
@@ -193,9 +206,20 @@ Operator는 질문에 답하거나 생성하는 콘텐츠의 근거로 다음을
 
 특정 정보를 조회할 수 있는지 확실하지 않은 경우 Operator에게 직접 물어보세요.
 
+
 ### 성능 데이터 분석 {#analyze-performance-data}
 
 Campaign 및 Canvas 성능에 대해 Operator에게 자연어로 질문하면, 워크스페이스 데이터에서 차트, 비교, 간단한 인사이트를 가져와 제공합니다. 현재 페이지의 컨텍스트가 필요한 Operator의 페이지 인식 기능과 달리, 분석 기능은 대시보드 어디에서든 응답할 수 있습니다. 자세한 내용은 [Operator 분석]({{site.baseurl}}/user_guide/brazeai/operator/analyze)을 참조하세요.
+
+### 보고서 및 대시보드 작성 {#build-reports-and-dashboards}
+
+Operator는 자연어 설명을 기반으로 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder) 보고서와 [대시보드 빌더]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) 대시보드를 작성하는 데 도움을 줄 수 있습니다. 원하는 측정기준, 채널, 날짜 범위를 설명하면 Operator가 저장하기 전에 검토할 수 있는 보고서 또는 대시보드 초안을 작성합니다.
+
+예를 들어 다음과 같이 요청할 수 있습니다: "지난 30일간 워크스페이스 SMS 인게이지먼트를 보여주는 보고서를 만들어 주세요."
+
+### 예측 생성 {#create-predictions}
+
+Operator는 [예측 이탈]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) 예측과 [AI 아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai)을 조회하고 생성하는 데 도움을 줄 수 있습니다. 원하는 성과를 설명하면 Operator가 검토할 수 있는 예측 또는 추천을 제안합니다.
 
 ### SQL 쿼리 작성 {#write-sql-queries}
 
@@ -213,8 +237,12 @@ Operator는 여러 워크스페이스 구성 페이지에서 설정을 검토하
 - [푸시 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)
 - [메시징 사용량 제한]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)
 - [승인 워크플로]({{site.baseurl}}/user_guide/messaging/governance/approvals), [메시징 규칙]({{site.baseurl}}/user_guide/messaging/governance/approvals/messaging_rules) 및 상시 승인 포함
-- [API 및 식별자]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), [기타 식별자]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers) 및 API 제한 포함
+- [API 및 식별자]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), [기타 식별자]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers), API 제한 및 [API 사용량 알림]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts) 포함
 - [관리자 설정 연락처 정보]({{site.baseurl}}/user_guide/administer/global/admin_settings/contact_information)
+- [보안 설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings) 및 [SCIM 프로비저닝]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning)
+- [역할]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role) 및 [권한 세트]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#create-a-permission-set)
+- [내보내기 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/exports_log)
+- 메시지 우선순위 카테고리
 
 {% alert note %}
 Operator의 설정 페이지 지원 범위는 정기적으로 확장됩니다. 현재 구성할 수 있는 항목에 대한 최신 답변을 얻으려면 **Operator에 직접 문의하세요**.
@@ -232,7 +260,7 @@ Operator의 대시보드 지원 범위는 넓지만 한계가 있습니다.
 - **Campaign 복제:** Operator는 Campaigns 목록 보기에서 기존 Campaign을 복제할 수 없습니다. 유사한 Campaign을 만들려면 Operator에게 처음부터 새로 만들도록 요청하거나, 목록 보기의 **More Actions** 메뉴에서 수동으로 Campaign을 복제하세요.
 - **드래그 앤 드롭 편집기:** Operator는 [이메일]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [배너]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner), [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)용 드래그 앤 드롭 편집기에서 메시지 디자인을 직접 생성하거나 삽입할 수 없습니다. 해당 HTML 편집기로 전환하여 Operator를 사용하거나, Operator에게 카피 등의 콘텐츠를 생성하도록 요청한 후 수동으로 붙여넣으세요. 지원되는 채널과 편집기에 대해서는 [메시지 생성](#generate-messages)을 참조하세요.
 - **화면 가시성:** Operator는 페이지 인식 컨텍스트를 사용하여 사용자가 보고 있는 내용을 이해하며, 지원되는 미리보기와 편집기 내의 콘텐츠도 포함됩니다. 페이지의 일부가 Operator가 읽을 수 있는 범위 밖에 있으면, 추측하는 대신 알려주므로 해당 콘텐츠를 직접 설명할 수 있습니다.
-- **사용 한도:** Operator에는 24시간마다 초기화되는 회사 전체 일일 사용 한도가 있습니다. 이미지 생성도 이 한도에 포함됩니다. 한도에 도달하면 "일일 사용 한도 초과" 메시지가 표시되며 초기화될 때까지 추가 요청을 할 수 없습니다. 문제 해결 단계는 [문제 해결]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting)을 참조하세요.
+- **사용 한도:** Operator에는 24시간마다 초기화되는 회사 전체 일일 사용 한도가 있습니다. 모든 Operator 작업이 이 한도에 포함되며, 사용량은 Operator가 읽고 생성해야 하는 양에 따라 달라집니다. 질문하기, 정보 조회, [지원 티켓 제출]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets)은 비교적 가벼운 사용에 해당합니다. Campaign이나 Segment 같은 오브젝트를 만들거나 편집하는 것은 더 많은 사용량을 소모합니다. [이미지 생성](#generate-images)도 이 한도에 포함됩니다. 한도에 도달하면 "Daily limit reached" 메시지가 표시되며, 한도가 초기화될 때까지 Operator는 추가 요청을 처리하지 않습니다. 문제 해결 단계는 [문제 해결]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting)을 참조하세요.
 
 ## 레거시 어시스턴트 {#legacy-assistants}
 
