@@ -360,9 +360,9 @@ Imported iOS push tokens usually appear as **Subscribed** until the user logs a 
 
 ### Can I migrate data between workspaces?
 
-Braze does not offer a one-click migration between workspaces. You can move new data into a destination workspace by updating your app or site to use that workspace's API key, then sending user updates through the [Users Track]({{site.baseurl}}/api/endpoints/user_data/post_user_track) endpoint or importing profiles with [User Export]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_user_data) and related import tools.
+Braze does not offer a one-click migration between workspaces. Point your app or site at the destination workspace's API key, then recreate users there with the [Users Track]({{site.baseurl}}/api/endpoints/user_data/post_user_track) endpoint or [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). Export source profiles first with [Export users by identifier]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) or [Export users by segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).
 
-You can often migrate user profile fields, custom attributes, events, and push tokens when you plan the export and import carefully. The following generally cannot be migrated between workspaces: dashboard users and permissions, campaigns, Canvases, segments (as saved objects), and workspace settings. Work with your Braze account team when planning a large workspace move.
+For what you can copy, what you must rebuild, and push-token limits, see [Migrate data between workspaces]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/migrate_workspace_data). Work with your Braze account team when planning a large workspace move.
 
 ## Session and attribution {#session-and-attribution}
 
