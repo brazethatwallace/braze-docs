@@ -3796,6 +3796,7 @@ validurls['/docs/user_guide/administrative/app_settings/manage_your_braze_users/
 validurls['/docs/partners/message_personalization/dynamic_content/cloudinary'] = '/docs/partners/message_personalization/dynamic_content/visual_and_interactive_content/cloudinary';
 
 validurls['/docs/user_guide/data/unification/cloud_ingestion/overview'] = '/docs/user_guide/data/unification/cloud_ingestion';
+validurls['/docs/user_guide/data/unification/cloud_ingestion/decisioning_studio/'] = '/docs/user_guide/brazeai/decisioning_studio/prepare_data/connect_data_sources';
 validurls['/docs/contributing/content_management/language_translations'] = '/docs';
 
 validurls['/docs/developer_guide/sdk_integration?sdktab=xamarin'] = '/docs/developer_guide/sdk_integration?sdktab=.net%20maui';
