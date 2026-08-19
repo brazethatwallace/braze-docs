@@ -1,14 +1,14 @@
 ---
 name: log-ux-debt
 description: >
-  Use when reference-repos or docs-discrepancies surfaces a copy inconsistency
-  in Braze platform source that is deterministically verifiable: name/value
-  mismatches (permission identifier vs. display name, renamed features), avoid-list
-  violations ("successfully", "e.g.", "Please"), case violations (title case where
-  sentence case is required), spatial language ("above", "below"), i18n key/value
-  mismatches, inconsistent terminology across components, or button antipatterns
-  ("OK", "Submit"). Handles CODEOWNERS lookup, duplicate detection, and ticket
-  creation with acceptance criteria.
+  Use when reference-repos, find-ux-debt, or docs-discrepancies surfaces a
+  factual copy inconsistency in Braze platform source: name/value mismatches
+  (permission identifier vs. display name), deprecated product terms, or i18n
+  key/value mismatches. These are Tier 1 issues with a verifiable right answer
+  from source code alone — no UX judgment required. Handles CODEOWNERS lookup,
+  duplicate detection, and ticket creation with acceptance criteria. For style
+  and judgment issues (avoid-list, case violations, spatial language, button
+  antipatterns), use /find-ux-debt — those route to UXW, not UX Debt.
 disable-model-invocation: true
 argument-hint: "[platform/path/to/file.tsx]"
 ---
@@ -29,21 +29,35 @@ judgment. File a UX Debt ticket with the owning team.
 
 ## Detectable copy problem types
 
-All eight categories below are verifiable from source code alone. If the problem
-requires design context, user research, or subjective tone judgment, it is out of
-scope for a UX Debt ticket — file a UXW story instead: project `UXW`, parent
-epic [UXW-341](https://jira.atl.braze.com/browse/UXW-341), assigned to Bre
-Fitzgerald. Use `braze-atlassian:creating-jira-tickets` for that as well.
+Copy problems fall into two tiers. This skill files **Tier 1 — Factual** issues
+directly as UX Debt. Tier 2 issues require UX writing judgment and should be
+routed through `/find-ux-debt`, which files them as a consolidated UXW story
+([UXW-341](https://jira.atl.braze.com/browse/UXW-341)).
+
+### Tier 1 — Factual (file as UX Debt with this skill)
+
+Verifiable right answer from source code alone. No UX judgment required.
 
 | Type | What to look for in source | Example |
 |---|---|---|
 | **name-mismatch** | Code identifier (permission key, prop name) differs from the displayed string | `editMediaLibraryAssets` → tooltip says "Manage Media Library Assets" |
 | **deprecated-term** | UI string uses an old product or feature name after a rename | Button says "AI Image Generator" — product is now "Generate with Operator" |
-| **avoid-list** | UI string contains a term on the Braze avoid list (`braze-ux-writing:ux-writing` → `reference/avoid_list.md`) | "successfully saved", "e.g.", "Please confirm", "OK", "Click here" |
-| **case-violation** | UI string uses title case where Braze standard requires sentence case | Button reads "Create New Campaign" — should be "Create new campaign" |
-| **spatial-language** | UI string uses "above", "below", "left", or "right" as a positional reference | "See the table above" — breaks in RTL and responsive layouts |
 | **i18n-mismatch** | i18n key name or its default string doesn't match the displayed copy | Key `manage_media_assets` — default value "Edit Media Assets" — displayed string "Manage Media Library Assets" |
-| **inconsistent-terminology** | Same action or concept named differently across two or more components | "Remove" in one modal, "Delete" in another for the same operation |
+
+### Tier 2 — Style/judgment (route to UXW via `/find-ux-debt`)
+
+These require Braze writing standards knowledge or broader context. If you encounter
+one of these directly, file a UXW story instead: project `UXW`, parent epic
+[UXW-341](https://jira.atl.braze.com/browse/UXW-341), assigned to Bre Fitzgerald.
+Use `braze-atlassian:creating-jira-tickets` for that. Or run `/find-ux-debt` —
+it handles the routing and consolidation automatically.
+
+| Type | What to look for in source | Example |
+|---|---|---|
+| **avoid-list** | UI string contains a term on the Braze avoid list (`braze-ux-writing:writing-ux-copy` → `reference/avoid_list.md`) | "successfully saved", "e.g.", "Please confirm" |
+| **case-violation** | UI string uses title case where Braze standard requires sentence case | Button reads "Create New Campaign" — should be "Create new campaign" |
+| **spatial-language** | UI string uses positional phrases ("above", "below", "to the left of") | "See the table above" — breaks in RTL and responsive layouts |
+| **inconsistent-terminology** | Same action named differently across two or more components | "Remove" in one modal, "Delete" in another for the same operation |
 | **button-antipattern** | CTA label is vague or imperative-less | Button reads "Submit" or "OK" instead of `[Verb] [object]` |
 
 ---
@@ -132,9 +146,15 @@ Delegate to `braze-atlassian:searching-jira` with this JQL:
 project = <KEY> AND issuetype = "UX Debt" AND summary ~ "<key term from discrepancy>" ORDER BY created DESC
 ```
 
-Present all results to the user (URL + summary for each). Ask:
-- **Potential duplicate found:** Is one of these the same issue? Proceed with a new ticket, or stop?
-- **No results:** Continue to Step 4.
+Present all results (URL + summary for each).
+
+If AskUserQuestion is available:
+- "Proceed — none of these are the same issue"
+- "Stop — this is a duplicate"
+
+Otherwise ask: "Is one of these a duplicate? Enter 'stop' to cancel or 'proceed' to continue."
+
+- **No results:** Continue to Step 4 without asking.
 
 ---
 

@@ -52,6 +52,8 @@ The platform repo uses a domain-driven architecture — most feature logic lives
 
 **Feature naming conventions:** Braze product names map predictably to code names — Canvas → `canvas`, Campaigns → `campaign`, Content Cards → `content_card`, In-App Messages → `in_app_message`, Segments → `segment`.
 
+> **UI copy coherence:** When verification surfaces a UI component file under `dashboard/app/javascript/src/`, run `/find-ux-debt` on it to check for copy inconsistencies before updating docs or filing issues.
+
 ### Localized UI terms (translations)
 
 Use these paths when you need to reference how Braze translates UI terms (e.g. for docs, glossaries, or consistency):
