@@ -9,7 +9,7 @@ description: "Learn how to access and use BrazeAI Operator<sup>TM</sup>, an AI-p
 
 # BrazeAI Operator
 
-> BrazeAI Operator<sup>TM</sup> is an AI-powered assistant built into the dashboard. Operator helps you build—drafting campaigns, segments, and content—and helps you get unstuck, from answering questions and troubleshooting issues to brainstorming ideas.
+> BrazeAI Operator<sup>TM</sup> is an AI-powered assistant built into the dashboard. Operator helps you build—drafting campaigns, Canvases, segments, and content—and helps you get unstuck, from answering questions and troubleshooting issues to brainstorming ideas.
 
 ## Access Operator
 
@@ -29,9 +29,9 @@ Maximize to expand the panel for easier reading, or minimize to keep Operator av
 Describe what you're trying to accomplish using natural language. Clear and specific prompts lead to more helpful responses. Prompts can range from a single question to a full build request:
 
 - **Ask a question:** Why isn't my Liquid rendering?
-- **Build something:** Draft a segment of users who abandoned their cart in the last 7 days.
+- **Build something:** Draft a segment of users who abandoned their card in the last 7 days.
 
-Operator can provide step-by-step instructions, links to Braze documentation, plain-language explanations, and drafts of campaigns, segments, and content that you can review and insert directly into your work. For how Operator proposes and applies changes, see [Take action with Operator](#take-action-with-operator). 
+Operator can provide step-by-step instructions, links to Braze documentation, plain-language explanations, and drafts of campaigns, Canvases, segments, and content that you can review and insert directly into your work. For how Operator proposes and applies changes, see [Take action with Operator](#take-action-with-operator). 
 
 Operator uses [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra), which is suited for complex, multi-step tasks. For the full range of what Operator can help you build, see [What you can do with Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities). For ready-to-use examples, see the [prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 

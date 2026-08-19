@@ -12,24 +12,24 @@ description: "Utilisez les balises Liquid capture et json_parse pour simuler du 
 
 ## À propos de cet exemple {#about-this-example}
 
-Flash & Thread, une marque de vêtements, crée des messages qui dépendent de réponses de contenu connecté, de variables de contexte Canvas ou de données de profil sous forme de tableaux d'objets. Déclencher de vrais appels API ou lancer des Campaigns à chaque itération ralentit le développement.
+Flash & Thread, une marque fictive de vêtements, crée des messages qui dépendent de réponses de contenu connecté, de variables de contexte Canvas ou de données de profil sous forme de tableaux d'objets. Déclencher de vrais appels API ou lancer des Campaigns à chaque itération ralentit le développement.
 
-Ce modèle intègre un payload JSON simulé dans le corps du message, le stocke avec `capture`, puis l'analyse avec `json_parse` afin que Liquid puisse référencer des champs structurés dans la section **Aperçu** — sans appel de contenu connecté en direct, sans entrée Canvas déclenchée par API, ni envoi de test.
+Ce modèle intègre un payload JSON simulé dans le corps du message, le stocke avec `capture`, puis l'analyse avec `json_parse` afin que Liquid puisse référencer des champs structurés dans la section **Preview**, sans appel de contenu connecté en direct, sans entrée Canvas déclenchée par API, ni envoi de test.
 
-Utilisez cette approche pendant le développement de vos messages. Elle ne remplace pas les tests de bout en bout avec de vrais déclencheurs, des envois de test ou la [prévisualisation des parcours utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) dans Canvas.
+Utilisez ce modèle pendant le développement de vos messages. Il ne remplace pas les tests de bout en bout avec de vrais déclencheurs, des envois de test ou la [prévisualisation des parcours utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) dans Canvas.
 
-## Points à considérer {#considerations}
+## Considérations {#considerations}
 
 - Cette approche prend en charge l'aperçu du compositeur pendant le développement. Effectuez des envois de test et des vérifications en conditions réelles avant de lancer auprès de vos clients.
-- Un bloc `capture` seul stocke le JSON sous forme de chaîne de caractères. Référencez les champs uniquement après avoir appliqué **`json_parse`** — sinon l'aperçu peut rester vide.
-- Le JSON simulé doit être valide. Un JSON invalide provoque l'échec de `json_parse` ou renvoie des structures inattendues.
-- Supprimez ou retirez les blocs simulés avant le lancement, ou protégez votre Liquid de production afin que les données simulées ne soient utilisées que dans l'aperçu (par exemple avec un indicateur de commentaire que vous supprimez avant la mise en production).
-- Les extraits de code Liquid de cet article sont des exemples. Testez-les dans vos canaux et avec les structures de payload réelles.
-- Pour le contenu connecté en production, supprimez le bloc simulé et utilisez votre balise d'URL en direct. Consultez [Effectuer un appel API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
+- Un bloc `capture` seul stocke le JSON sous forme de chaîne de caractères. Ne référencez les champs qu'après avoir appliqué **`json_parse`** — sinon l'aperçu peut rester vide.
+- Le JSON fictif doit être valide. Un JSON invalide provoque l'échec de `json_parse` ou renvoie des structures inattendues.
+- Supprimez ou retirez les blocs fictifs avant le lancement, ou protégez votre Liquid de production afin que les données fictives ne soient utilisées que dans l'aperçu (par exemple avec un indicateur de commentaire que vous supprimez avant la mise en production).
+- Les extraits de code Liquid de cet article sont des exemples. Testez-les dans vos canaux et avec vos propres structures de payload.
+- Pour le contenu connecté en production, supprimez le bloc fictif et utilisez votre tag d'URL en direct. Consultez [Effectuer un appel API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
 
 ## Configuration {#setup}
 
-Cet exemple simule une réponse de type contenu connecté contenant une liste de produits pour un e-mail qui boucle sur `listings`.
+Cet exemple simule une réponse de type contenu connecté pour une liste de produits, destinée à un e-mail qui boucle sur `listings`.
 
 ### Étape 1 : Capturer le JSON simulé dans le message {#step-1-capture-mock-json-in-the-message}
 
@@ -74,11 +74,11 @@ Assignez la structure analysée à une variable que vous référencerez dans le 
 ```
 {% endraw %}
 
-Sans `json_parse`, la notation par points sur la chaîne capturée (par exemple {% raw %}`{{ mock_response.listings }}`{% endraw %}) s'affiche généralement vide dans l'aperçu.
+Sans `json_parse`, la notation par points sur la chaîne capturée (par exemple {% raw %}`{{ mock_response.listings }}`{% endraw %}) affiche généralement un résultat vide dans l'aperçu.
 
-### Étape 3 : Référencer les champs analysés dans Liquid {#step-3-reference-parsed-fields-in-liquid}
+### Étape 3 : Référencer les champs analysés en Liquid {#step-3-reference-parsed-fields-in-liquid}
 
-Bouclez sur le tableau analysé et affichez les champs comme vous le feriez pour une réponse API en direct.
+Parcourez le tableau analysé et affichez les champs comme vous le feriez pour une réponse d'API en direct.
 
 {% raw %}
 ```liquid
@@ -90,7 +90,7 @@ Bouclez sur le tableau analysé et affichez les champs comme vous le feriez pour
 
 Accédez à la section **Aperçu** dans le compositeur de messages et vérifiez que les champs s'affichent correctement.
 
-### Étape 4 : Appliquer le même modèle à d'autres structures JSON {#step-4-apply-the-same-pattern-to-other-json-shapes}
+### Étape 4 : Appliquer le même schéma à d'autres structures JSON {#step-4-apply-the-same-pattern-to-other-json-shapes}
 
 Utilisez le même flux `capture` + `json_parse` pour simuler :
 
@@ -98,10 +98,10 @@ Utilisez le même flux `capture` + `json_parse` pour simuler :
 | --- | --- |
 | Variables de contexte Canvas | Objet avec les clés de propriétés attendues par votre message |
 | Tableau d'objets sur un profil | Tableau JSON d'objets avec les mêmes clés que votre attribut personnalisé |
-| Réponse de contenu connecté | Exemple de JSON API enregistré à partir d'un appel réussi précédent |
+| Réponse de contenu connecté | Exemple de JSON d'API enregistré à partir d'un appel précédent réussi |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Données à tester et structure JSON" }
 
-Remplacez les variables simulées par du Liquid de production (variables de contexte Canvas, attributs personnalisés ou balises de contenu connecté) avant le lancement.
+Remplacez les variables simulées par du Liquid de production (variables de contexte Canvas, attributs personnalisés ou balises de contenu connecté) avant de lancer votre envoi.
 
 ## Articles connexes {#related-articles}
 

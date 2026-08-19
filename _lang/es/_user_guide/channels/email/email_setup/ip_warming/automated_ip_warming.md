@@ -13,17 +13,13 @@ channel: email
 
 ## Cómo funciona {#how-it-works}
 
-Puedes usar el calentamiento de IP automatizado para aumentar gradualmente tu volumen de envío diario, lo que permite a los proveedores de buzón de entrada aprender y confiar en tus patrones de envío. Cuando agregas un dominio a tu espacio de trabajo, puedes seleccionar el mosaico **Automated IP Warming** en la sección **Pick up where you left off** de tu panel de inicio. Este mosaico permanece durante 60 días mientras tu espacio de trabajo se encuentra en la ventana de incorporación de nuevo remitente. Si tu espacio de trabajo admite múltiples planes, el mosaico también se oculta después de que completes al menos un plan.
+Puedes usar el calentamiento de IP automatizado para aumentar gradualmente tu volumen de envío diario, lo que permite a los proveedores de buzón de entrada aprender y confiar en tus patrones de envío. Cuando agregas un dominio a tu espacio de trabajo, puedes seleccionar el mosaico **Automated IP Warming** en la sección **Pick up where you left off** de tu panel de inicio. Este mosaico permanece durante 60 días mientras tu espacio de trabajo se encuentra en la ventana de incorporación de nuevo remitente, y se oculta después de que completes al menos un plan.
 
 Cada plan de calentamiento de IP automatizado está vinculado a una dirección de remitente. Esa dirección de remitente se asocia a un subdominio de envío y a un grupo de IP. Si el grupo contiene múltiples IP dedicadas, Braze las calienta juntas en un solo plan.
 
 Braze envía primero a tus suscriptores con mayor participación, lo que permite que el volumen diario crezca a un ritmo que se ajusta a las mejores prácticas. Luego, Braze rastrea las señales de participación y capacidad de entrega. Si Braze detecta algún problema, el sistema ajusta tu programación automáticamente.
 
 Después de completar al menos un plan, puedes ver los planes completados en **Settings** > **Email Preferences** > **Automated IP warming**.
-
-{% alert note %}
-Si solo ves una experiencia de plan único en tu panel, es posible que tu espacio de trabajo aún no tenga acceso a múltiples planes de calentamiento de IP. Contacta a tu equipo de cuenta de Braze para consultar la disponibilidad.
-{% endalert %}
 
 ## Requisitos previos {#prerequisites}
 
@@ -44,22 +40,18 @@ Para realizar el calentamiento de IP automatizado, debes contar con lo siguiente
 Si el flujo de trabajo de aprobación de campañas está activado, Braze aprueba automáticamente las campañas creadas por el calentamiento de IP automatizado en tu nombre.
 {% endalert %}
 
-{% alert important %}
-Es posible que esta característica no sea compatible según tu infraestructura de correo electrónico.
-{% endalert %}
-
 ## Configura un plan automatizado de calentamiento de IP {#set-up-an-automated-ip-warming-plan}
 
-### Paso 1: Establece un calendario {#step-1-set-a-schedule}
+### Paso 1: Establece un horario {#step-1-set-a-schedule}
 
-1. Si tu espacio de trabajo admite varios planes de calentamiento de IP, introduce un **Nombre del plan** único. Los nombres de plan solo pueden contener letras, números, guiones y guiones bajos, y deben ser únicos en tu espacio de trabajo. Se requiere un nombre de plan antes de poder lanzar.
+1. Introduce un **Nombre del plan** único. Los nombres de plan solo pueden contener letras, números, guiones y guiones bajos, y deben ser únicos en tu espacio de trabajo. Se requiere un nombre de plan antes de poder lanzarlo.
 2. En la sección **Información de envío**, selecciona la **Dirección de remitente** para la que deseas calentar las direcciones IP. Braze muestra el **Grupo de IP** asociado y el número de **Direcciones IP en el grupo** para esa dirección de remitente.
-3. Introduce el **Volumen de envío diario actual** y el **Volumen de envío objetivo**. Braze sugiere un volumen de envío objetivo de hasta 2 millones de envíos por IP en el grupo seleccionado. Si tu volumen de envío diario actual es 0, el primer día de tu calendario comienza con hasta 50 envíos por IP, con un máximo de 500 en total.
-4. Selecciona la fecha de inicio del calentamiento de IP automatizado. Esta fecha debe ser al menos un día después de que se lance el plan.
+3. Introduce el **Volumen de envío diario actual** y el **Volumen de envío objetivo**. Braze sugiere un volumen de envío objetivo de hasta 2 millones de envíos por IP en el grupo seleccionado. Si tu volumen de envío diario actual es 0, el primer día de tu horario comienza con hasta 50 envíos por IP, con un máximo de 500 en total.
+4. Selecciona la fecha de inicio para el calentamiento de IP automatizado. Esta fecha debe ser al menos un día después de que se lance el plan.
 5. Introduce la hora de envío. Esto envía los mensajes en la zona horaria del espacio de trabajo (o la zona horaria de la empresa si el espacio de trabajo no tiene una configuración personalizada).
 6. Selecciona **Siguiente: Segments** para continuar con la configuración.
 
-![Ejemplo de detalles del calendario.]({% image_buster /assets/img/automated_ip_warming_schedule.png %})
+![Ejemplo de detalles del horario.]({% image_buster /assets/img/automated_ip_warming_schedule.png %})
 
 ### Paso 2: Selecciona y clasifica los segmentos {#step-2-select-and-rank-segments}
 
@@ -73,7 +65,7 @@ Es posible que esta característica no sea compatible según tu infraestructura 
 
 1. Selecciona **Seleccionar plantillas de correo electrónico**.
 2. Elige las plantillas de correo electrónico para los mensajes a enviar. El contenido que envíes durante el calentamiento de IP debe fomentar las aperturas y los clics. Recomendamos elegir contenido que haya tenido buena recepción en el pasado. Por ejemplo, puedes usar ofertas promocionales para fomentar la participación inmediata y las compras.
-3. Selecciona **Seleccionar plantillas**. Braze calcula el número de plantillas necesarias antes de que puedas lanzar. Recomendamos proporcionar más plantillas que el mínimo requerido para permitir que el sistema se ajuste ante problemas de capacidad de entrega sin detenerse.
+3. Selecciona **Seleccionar plantillas**. Braze calcula el número de plantillas requeridas antes de que puedas lanzar. Recomendamos proporcionar más plantillas que el mínimo requerido para permitir que el sistema se ajuste ante problemas de capacidad de entrega sin detenerse.
 4. Después de agregar el número requerido de plantillas, selecciona **Siguiente: Resumen**.
 
 {% alert important %}
@@ -91,9 +83,9 @@ Puedes definir hasta cuatro de los siguientes eventos de conversión para hacer 
 - Abre un correo electrónico
 - Hace clic en un correo electrónico
 
-A continuación, selecciona el plazo de conversión, que es el tiempo máximo que puede transcurrir entre que un usuario entra en una Campaign y el evento de conversión.
+A continuación, selecciona la fecha límite de conversión, que es el tiempo máximo que puede transcurrir entre que un usuario entra en una Campaign y el evento de conversión.
 
-![Configuración de conversión que muestra la selección de eventos de conversión y el plazo de conversión.]({% image_buster /assets/img/automated_ip_warming_conversions.png %})
+![Configuración de conversión que muestra la selección de eventos de conversión y la fecha límite de conversión.]({% image_buster /assets/img/automated_ip_warming_conversions.png %})
 
 ### Paso 5: Revisa y lanza {#step-5-review-and-launch}
 
@@ -101,7 +93,7 @@ Revisa los detalles de tu plan de calentamiento de IP. Luego, selecciona **Lanza
 
 ## Calentamiento de múltiples IP {#multiple-ip-warming}
 
-Usa múltiples planes automatizados de calentamiento de IP cuando necesites calentar más de una dirección de remitente o grupo de IP.
+Usa múltiples planes de calentamiento de IP automatizado cuando necesites calentar más de una dirección de remitente o grupo de IP.
 
 | Escenario | Recomendación |
 | --- | --- |
@@ -111,7 +103,7 @@ Usa múltiples planes automatizados de calentamiento de IP cuando necesites cale
 
 ### Calentar múltiples IP en un grupo {#warm-multiple-ips-in-one-pool}
 
-Cuando seleccionas una dirección de remitente en el [Paso 1: Establecer un calendario](#step-1-set-a-schedule), Braze muestra el grupo de IP asociado y las direcciones IP en el grupo. Braze usa el recuento de IP cuando construye tu calendario de incremento y sugiere tu volumen de envío objetivo.
+Cuando seleccionas una dirección de remitente en el [Paso 1: Establecer un horario](#step-1-set-a-schedule), Braze muestra el grupo de IP asociado y las direcciones IP en el grupo. Braze usa la cantidad de IP cuando construye tu programa de incremento y sugiere tu volumen de envío objetivo.
 
 Si tu **Volumen de envío diario actual** es 0, el primer día programado comienza con hasta 50 envíos por IP en el grupo, con un máximo de 500 en total. Braze sugiere un **Volumen de envío objetivo** de hasta 2 millones de envíos por IP en el grupo.
 
@@ -125,10 +117,10 @@ Para calentar más de una dirección de remitente o grupo de IP:
 4. Completa la configuración para esa dirección de remitente.
 5. Repite para cada dirección de remitente o grupo de IP adicional que necesites calentar.
 
-Haz seguimiento de cada plan desde la tabla de **Calentamiento de IP automatizado**. Cada plan tiene su propio calendario, Segments, plantillas, Campaigns y rastreador. Los planes pueden estar en estado **Borrador**, **En progreso**, **Completado** o **Detenido**.
+Haz seguimiento de cada plan desde la tabla de **Calentamiento de IP automatizado**. Cada plan tiene su propio horario, Segments, plantillas, Campaigns y rastreador. Los planes pueden estar en estado **Borrador**, **En progreso**, **Completado** o **Detenido**.
 
 {% alert important %}
-Evita enviar Campaigns grandes que no sean de calentamiento desde la misma dirección de remitente o grupo de IP mientras un plan automatizado de calentamiento de IP esté activo. Los envíos adicionales durante el calentamiento pueden afectar las señales de capacidad de entrega y dificultar el aislamiento de problemas.
+Evita enviar Campaigns grandes que no sean de calentamiento desde la misma dirección de remitente o grupo de IP mientras un plan de calentamiento de IP automatizado esté activo. Los envíos adicionales durante el calentamiento pueden afectar las señales de capacidad de entrega y dificultar el aislamiento de problemas.
 {% endalert %}
 
 ## Durante el calentamiento de IP activo {#during-active-ip-warming}
@@ -156,9 +148,9 @@ Puedes detener un plan de calentamiento de IP para evitar la creación de futura
 
 ## Cuando se completa un calentamiento de IP {#when-an-ip-warming-completes}
 
-El calentamiento de IP se marca como completado cuando el último día del calentamiento de IP finaliza a medianoche en la zona horaria de tu espacio de trabajo (o la zona horaria de la empresa si el espacio de trabajo no tiene una configuración personalizada). Por ejemplo, si la última Campaign del plan se envía a las 8 pm, el plan se marca como completado a medianoche, cuatro horas después.
+El calentamiento de IP se marca como completado cuando el último día del calentamiento de IP finaliza a medianoche en la zona horaria de tu espacio de trabajo (o la zona horaria de la empresa si el espacio de trabajo no tiene una configuración personalizada). Por ejemplo, si la última Campaign del plan se envía a las 8 p. m., el plan se marca como completado a medianoche, cuatro horas después.
 
-Los planes completados permanecen disponibles en **Configuración** > **Preferencias de correo electrónico** > **Calentamiento de IP automatizado**. Si tu espacio de trabajo utiliza la experiencia de plan único, el rastreador también permanece en el panel de inicio durante 90 días después de que finalice el plan. Después de 90 días, el rastreador del panel de inicio se elimina.
+Los planes completados permanecen disponibles en **Configuración** > **Preferencias de correo electrónico** > **Calentamiento de IP automatizado**. El rastreador también permanece en el panel de inicio durante 90 días después de que finalice el plan. Después de 90 días, el rastreador del panel de inicio se elimina.
 
 La descarga de datos incluye estas métricas estándar de correo electrónico:
 
@@ -171,6 +163,6 @@ La descarga de datos incluye estas métricas estándar de correo electrónico:
 - _Clics_
 - _Cancelaciones de suscripción_
 
-Si un día incluye múltiples Campaigns utilizadas para cumplir con los requisitos de volumen, estas se agregan en la vista diaria.
+Si un día incluye varias Campaigns utilizadas para cumplir con los requisitos de volumen, estas se agregan en la vista diaria.
 
 ![Rastreador de calentamiento de IP con volumen de envío para la semana del 16 de enero.]({% image_buster /assets/img/automated_ip_warming_example.png %})

@@ -20,10 +20,10 @@ Das folgende Video bietet einen Überblick darüber, wie Sie Berichte im Bericht
 ## Verwenden eines Berichts-Templates {#using-a-report-template}
 
 1. Gehen Sie zu **Analytics** > **Berichts-Builder (Neu)**.
-2. Wählen Sie den Pfeil **Mehr Optionen** neben dem Button **Neuen Bericht erstellen** und dann **Berichts-Template verwenden** aus.<br><br>![Dropdown des Buttons „Neuen Bericht erstellen“ mit Optionen zum Erstellen eines angepassten Berichts oder zum Verwenden eines Templates.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
+2. Wählen Sie den Pfeil **Weitere Optionen** neben dem Button **Neuen Bericht erstellen** und dann **Berichts-Template verwenden** aus.<br><br>![Dropdown des Buttons „Neuen Bericht erstellen“ mit Optionen zum Erstellen eines angepassten Berichts oder zum Verwenden eines Templates.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
 3. Wählen Sie eines der Berichts-Templates aus der Braze-Template-Bibliothek aus.
     - Verwenden Sie die Dropdown-Menüs **Zeilenelemente** und **Tags**, um relevante Berichte für Ihre Anwendungsfälle zu finden.<br><br>![Fenster „Braze-Berichts-Templates“ mit einer Liste von Braze-Templates zur Auswahl.]({% image_buster /assets/img/report_builder_2/report_templates.png %}){: style="max-width:90%;"}<br><br>
-4. Folgen Sie Schritt 3 und den weiteren Schritten unter [Bericht erstellen](#creating-a-report), um den Bericht weiter an Ihren Anwendungsfall anzupassen.
+4. Folgen Sie Schritt 3 und den weiteren Schritten unter [Einen Bericht erstellen](#creating-a-report), um den Bericht weiter an Ihren Anwendungsfall anzupassen.
 
 ## Erstellen eines Berichts {#creating-a-report}
 
@@ -36,7 +36,7 @@ Das folgende Video bietet einen Überblick darüber, wie Sie Berichte im Bericht
     - Kanäle
     - Tags
 
-    Beachten Sie, dass Ihre Auswahl bei **Zeilen** beeinflusst, [welche Metriken Sie anzeigen können](#metrics-availability). Zum Beispiel können Sie multivariate Metriken nur anzeigen, wenn Sie über **Canvases** oder **Campaigns** mit einer **Varianten**-Aufschlüsselung berichten. Sie können diese Metriken nicht anzeigen, wenn Sie über **Campaigns und Canvases** berichten, selbst wenn diese Campaigns und Canvases multivariate Tests enthalten.
+    Beachten Sie, dass Ihre Auswahl unter **Zeilen** beeinflusst, [welche Metriken Sie anzeigen können](#metrics-availability). Zum Beispiel können Sie multivariate Metriken nur anzeigen, wenn Sie über **Canvases** oder **Campaigns** mit einer **Varianten**-Aufschlüsselung berichten. Sie können diese Metriken nicht anzeigen, wenn Sie über **Campaigns und Canvases** berichten, selbst wenn diese Campaigns und Canvases multivariate Tests enthalten.
 
 ![Der Abschnitt „Zeilen und Spalten“ mit Feldern zur Auswahl der Zeilen und Gruppierungen für Ihren Bericht.]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
 
@@ -63,7 +63,7 @@ Probieren Sie verschiedene Konfigurationen der Aufschlüsselungsoptionen aus, um
 {: start="6"}
 6. Durchsuchen Sie Metriken nach Kategorie und aktivieren Sie das entsprechende Kontrollkästchen, um eine Metrik zu Ihrem Bericht hinzuzufügen.
     - Ordnen Sie die Metriken und Spalten neu an, indem Sie das gepunktete Symbol nach oben oder unten ziehen.
-7. Konfigurieren Sie unter **Berichtsinhalt** den Zeitraum, für den Sie Daten in Ihren Bericht aufnehmen möchten.
+7. Konfigurieren Sie unter **Berichtsinhalt** den Datumsbereich, für den Sie Daten in Ihren Bericht aufnehmen möchten.
 8. Wählen Sie dann, abhängig von Ihrer Auswahl in Schritt 3, ob Sie Campaigns, Canvases oder beides manuell oder automatisch zu Ihrem Bericht hinzufügen möchten.
     - **Manuell hinzufügen:** Wählen Sie jede Campaign oder jedes Canvas aus, das in den Bericht aufgenommen werden soll, indem Sie die Filter für **Zuletzt gesendet**-Daten und Tags oder Kanäle verwenden oder nach dem Campaign- oder Canvas-Namen suchen.<br><br>![Der Abschnitt „Campaigns und Canvases manuell hinzufügen“ mit einer Liste von Campaigns zur Auswahl.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
     - **Automatisch hinzufügen:** Legen Sie Regeln fest, welche Campaigns oder Canvases in den Bericht aufgenommen werden sollen. Sie müssen auf dieser Seite nur ein Feld auswählen.
@@ -72,7 +72,7 @@ Probieren Sie verschiedene Konfigurationen der Aufschlüsselungsoptionen aus, um
 9. Führen Sie den Bericht aus, indem Sie **Speichern und ausführen** wählen.
 
 {% alert note %}
-Die Erstellung des Berichts kann je nach Zeitraum und Anzahl der Campaigns oder Canvases, die Sie in der Konfigurationsphase ausgewählt haben, einige Minuten dauern.
+Die Erstellung des Berichts kann je nach Datumsbereich und Anzahl der Campaigns oder Canvases, die Sie in der Konfigurationsphase ausgewählt haben, einige Minuten dauern.
 {% endalert %}
 
 ## Verfügbarkeit von Metriken {#metrics-availability}
@@ -80,7 +80,7 @@ Die Erstellung des Berichts kann je nach Zeitraum und Anzahl der Campaigns oder 
 Ihre Auswahl für **Zeilen** beeinflusst, welche Metriken Sie auswählen können.
 
 {% alert tip %}
-Wenn Sie über Canvas-Varianten oder -Schritte berichten möchten, wählen Sie **Canvases** für Zeilen und lassen Sie das Feld entweder leer oder wählen Sie **Datum** als Drilldown. Dadurch wird ein **Canvas-Ansicht**-Dropdown erstellt, mit dem Sie Metriken nur für das Canvas anzeigen oder Metriken nach Variante, Schritt oder Nachricht gruppieren können.<br><br> Wenn Sie nach Schritt gruppieren, zeigt die Vorschautabelle während der Konfiguration Ihres Berichts maximal 50 Zeilen an. Führen Sie den Bericht aus oder exportieren Sie ihn als CSV, um alle Zeilen anzuzeigen.
+Wenn Sie über Canvas-Varianten oder -Schritte berichten möchten, wählen Sie **Canvases** für Zeilen und lassen Sie das Feld entweder leer oder wählen Sie **Datum** als Drilldown. Nach dem Ausführen des Berichts erscheint auf der Ergebnisseite ein **Canvas-Ansicht**-Dropdown, um Metriken nur für das Canvas anzuzeigen oder Metriken nach Variante, Schritt oder Nachricht zu gruppieren.<br><br> Beim Bearbeiten Ihres Berichts zeigt die Vorschautabelle maximal 50 Zeilen an. Führen Sie den Bericht aus, um alle Zeilen auf der Ergebnisseite mit Paginierung (100 Zeilen pro Seite) anzuzeigen, oder exportieren Sie den vollständigen Datensatz als CSV.
 
 ![Das geöffnete „Canvas-Ansicht“-Dropdown.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}
@@ -89,7 +89,7 @@ Wenn Sie über Canvas-Varianten oder -Schritte berichten möchten, wählen Sie *
 | --- | --- |
 | Konversionsmetriken | Verfügbar für Campaigns, Canvases, Campaigns und Canvases. |
 | Eintritte | Verfügbar für Campaigns, Canvases, Campaigns und Canvases, Tags. |
-| Letztes Sendedatum | Verfügbar für Campaigns, Canvases, Campaigns und Canvases. Wird nur für geplante Campaigns angezeigt – wird bei aktionsbasierten oder API-getriggerten Campaigns nicht befüllt. |
+| Letztes Sendedatum | Verfügbar für Campaigns, Canvases, Campaigns und Canvases. Wird nur für geplante Campaigns angezeigt – wird für aktionsbasierte oder API-getriggerte Campaigns nicht befüllt. |
 | Sends | Verfügbar für jeden relevanten Kanal. |
 | Gesendete Nachrichten | Verfügbar für Campaigns, Canvases, Campaigns und Canvases, Tags. |
 | Betreffzeile | Verfügbar für E-Mail-Campaigns mit **Varianten**-Drilldown, Canvases und Canvases mit **Varianten**-Drilldown. |
@@ -104,9 +104,9 @@ Statistiken für gelöschte Nachrichtenvarianten werden nicht angezeigt, wenn Si
 
 Im selben Bericht können _Eindeutige Empfänger:innen_ höher sein als _Eindeutige Impressionen_, wenn eine Nachrichtenvariante nach dem Senden gelöscht wurde. _Eindeutige Empfänger:innen_ auf Campaign-Ebene können weiterhin Nutzer:innen enthalten, die die gelöschte Variante erhalten haben, während _Eindeutige Impressionen_ Statistiken von gelöschten Varianten in Aggregationen auf Nachrichtenebene auslassen.
 
-## Bericht anzeigen {#viewing-a-report}
+## Einen Bericht anzeigen {#viewing-a-report}
 
-Nachdem Sie Ihren Bericht ausgeführt haben, können Sie Ihre Ergebnisse im Tabellenformat auf der Berichtsseite anzeigen.
+Nachdem Sie Ihren Bericht ausgeführt haben, können Sie Ihre Ergebnisse im Tabellenformat auf der Berichtsergebnisseite anzeigen.
 
 ![Eine Tabelle der Berichtsdaten für die Metriken jeder Campaign.]({% image_buster /assets/img/report_builder_2/report_table.png %}){: style="width:90%;"}
 
@@ -130,10 +130,10 @@ Um ein Bild des Berichts-Charts herunterzuladen, wählen Sie das gepunktete Symb
 
 Sie können einen Dashboard-Link zum Bericht teilen, indem Sie **Teilen** auswählen und eine der folgenden Optionen wählen:
 - **Link teilen:** Kopieren und teilen Sie den Link.
-- **E-Mail senden oder planen:** Senden Sie sofort oder zu einem festgelegten Zeitpunkt eine E-Mail mit einem Download-Link, der nach einer Stunde abläuft. Sie können Empfänger:innen aus den im Dropdown **Email Recipients** aufgeführten Unternehmensnutzer:innen auswählen oder eine beliebige andere E-Mail-Adresse eingeben.
+- **E-Mail senden oder planen:** Senden Sie sofort oder zu einem festgelegten Zeitpunkt eine E-Mail mit einem Download-Link, der nach einer Stunde abläuft. Sie können Empfänger:innen aus den im Dropdown **E-Mail-Empfänger:innen** aufgeführten Unternehmensnutzer:innen auswählen oder eine beliebige andere E-Mail-Adresse eingeben.
 
 {% alert note %}
-Das Dropdown **Email Recipients** listet nur Braze-Unternehmensnutzer:innen auf und speichert deren E-Mail-Adressen über Berichtszeitpläne hinweg. Externe E-Mail-Adressen müssen jedes Mal manuell eingegeben werden, wenn Sie einen neuen Berichtszeitplan erstellen. Wenn Sie regelmäßig Berichte an externe Empfänger:innen senden, z. B. an einen Partnerkontakt, sollten Sie diese als Unternehmensnutzer:in mit entsprechenden Berechtigungen hinzufügen, damit deren Adresse im Dropdown angezeigt wird.
+Das Dropdown **E-Mail-Empfänger:innen** listet nur Braze-Unternehmensnutzer:innen auf und speichert deren E-Mail-Adressen über Berichtszeitpläne hinweg. Externe E-Mail-Adressen müssen jedes Mal manuell eingegeben werden, wenn Sie einen neuen Berichtszeitplan erstellen. Wenn Sie regelmäßig Berichte an externe Empfänger:innen senden, z. B. an einen Partnerkontakt, sollten Sie diese als Unternehmensnutzer:in mit entsprechenden Berechtigungen hinzufügen, damit deren Adresse im Dropdown angezeigt wird.
 {% endalert %}
 
 ![Fenster „E-Mail planen“ mit Feldern zur Auswahl des Berichtsformats, der Empfänger:innen und des Sendezeitpunkts.]({% image_buster /assets/img/report_builder_2/schedule_an_email.png %}){: style="max-width:70%;"}
@@ -159,4 +159,4 @@ Angenommen, **Zuletzt gesendet** ist der 1. Januar 2025 bis 14. April 2025, soda
 
 Download-Links für Berichte laufen nach einer Stunde ab. Wenn Ihr Link abgelaufen ist, erstellen Sie einen neuen Bericht und laden Sie ihn innerhalb der Stunde herunter. Es gibt keine Möglichkeit, die Ablaufzeit zu verlängern.
 
-Wenn Sie einen [Amazon S3-Bucket]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3) in **Partnerintegrationen** verbunden haben, können Sie möglicherweise Daten aus älteren Berichten abrufen, indem Sie Ihren S3-Bucket direkt durchsuchen.
+Wenn Sie einen [Amazon S3-Bucket]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3) unter **Partnerintegrationen** verbunden haben, können Sie möglicherweise Daten aus älteren Berichten abrufen, indem Sie Ihren S3-Bucket direkt durchsuchen.

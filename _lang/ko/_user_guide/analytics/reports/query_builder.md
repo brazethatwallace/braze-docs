@@ -19,14 +19,14 @@ alias: /query_builder/
 
 ### 사용자 프로필 속성 뷰 {#user-profile-attribute-views}
 
-쿼리 빌더와 SQL 세그먼트 확장에는 주기적 스냅샷 및 기본 속성 기록과 같은 대부분의 [사용자 프로필 속성 뷰]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views)가 포함되어 있습니다.
+쿼리 빌더와 SQL 세그먼트 확장에는 주기적 스냅샷 및 기본 속성 기록 등 대부분의 [사용자 프로필 속성 뷰]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views)가 포함되어 있습니다.
 
 두 가지 커스텀 속성 뷰는 [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes)를 통해서만 사용할 수 있습니다:
 
 - `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
 - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
 
-Braze는 이러한 뷰가 워크스페이스 규모에서 쿼리 속도가 느리고 자주 시간 초과가 발생하기 때문에 쿼리 빌더 및 SQL 세그먼트 확장에서 제외합니다. 쿼리 빌더에서 커스텀 속성 스냅샷을 조회하려면 `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`를 사용하세요. 과거 또는 거의 실시간에 가까운 커스텀 속성 데이터가 필요한 경우, Snowflake 데이터 공유를 통해 제외된 뷰를 쿼리하세요.
+Braze는 이러한 뷰가 워크스페이스 규모에서 쿼리 속도가 느리고 시간 초과가 자주 발생하기 때문에 쿼리 빌더 및 SQL 세그먼트 확장에서 제외합니다. 쿼리 빌더에서 커스텀 속성 스냅샷을 조회하려면 `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED`를 사용하세요. 과거 또는 거의 실시간에 가까운 커스텀 속성 데이터가 필요한 경우, Snowflake 데이터 공유를 통해 제외된 뷰를 쿼리하세요.
 
 ## 쿼리 빌더에서 보고서 실행하기 {#running-reports-in-the-query-builder}
 
@@ -87,6 +87,14 @@ send_date_sydney;
 
 더 긴 기간 동안 쿼리 사용을 감사하거나 7일 이후에도 기록을 유지해야 하는 경우, 만료되기 전에 중요한 쿼리 결과를 내보내거나 저장하는 것을 권장합니다.
 
+### 쿼리 빌더와 다른 보고 소스 비교 {#comparing-query-builder-with-other-reporting-sources}
+
+쿼리 빌더 결과는 서로 다른 데이터 소스와 처리 방법을 사용하기 때문에 다른 보고 도구와 다를 수 있습니다.
+
+예를 들어, 쿼리 빌더의 소프트바운스 수는 SendGrid 전달 가능성 보고서보다 높을 수 있습니다. 쿼리 빌더는 중복 제거 없이 소프트바운스의 모든 발생을 카운트합니다. 사용자가 최종 전달 전(또는 연장된 재시도 후)에 여러 번 소프트바운스되면 각 소프트바운스 시도가 카운트됩니다. SendGrid 전달 가능성은 자체 데이터와 로직을 사용하며, Braze는 이에 대한 가시성이 없으므로 두 보고서 간의 수치가 일치하지 않을 수 있습니다.
+
+다양한 보고 소스에서 소프트바운스가 추적되는 방법에 대한 자세한 내용은 이메일 분석 용어집의 [소프트바운스]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce)를 참조하세요.
+
 ## AI 쿼리 빌더로 SQL 생성하기 {#generating-sql-with-the-ai-query-builder}
 
 AI 쿼리 빌더는 OpenAI가 제공하는 [GPT](https://openai.com/gpt-4)를 활용하여 쿼리에 적합한 SQL을 추천합니다.
@@ -97,7 +105,7 @@ AI 쿼리 빌더로 SQL을 생성하려면 다음을 수행합니다:
 
 1. 쿼리 빌더에서 보고서를 생성한 후 **AI 쿼리 빌더** 탭을 선택합니다.
 2. 프롬프트를 입력하거나 샘플 프롬프트를 선택한 다음 **생성**을 선택하여 프롬프트를 SQL로 변환합니다.
-3. 생성된 SQL이 올바른지 검토한 후 **에디터에 삽입**을 선택합니다.
+3. 생성된 SQL이 올바른지 검토한 후 **편집기에 삽입**을 선택합니다.
 
 ### 팁 {#tips}
 
@@ -173,7 +181,7 @@ LIMIT 100
 
 ## 변수 사용하기 {#using-variables}
 
-SQL에서 사전 정의된 변수 유형을 사용하면 값을 수동으로 복사하지 않고도 참조할 수 있습니다. 예를 들어, Campaign ID를 SQL 편집기에 수동으로 복사하는 대신 {% raw %}`{{campaign.${My campaign}}}`{% endraw %}를 사용하여 **변수** 탭의 드롭다운에서 직접 Campaign을 선택할 수 있습니다.
+SQL에서 사전 정의된 변수 유형을 사용하면 값을 수동으로 복사하지 않고도 참조할 수 있습니다. 예를 들어, Campaign의 ID를 SQL 편집기에 수동으로 복사하는 대신 {% raw %}`{{campaign.${My campaign}}}`{% endraw %}를 사용하여 **변수** 탭의 드롭다운에서 직접 Campaign을 선택할 수 있습니다.
 
 변수가 생성되면 쿼리 빌더 보고서의 **변수** 탭에 표시됩니다. SQL 변수를 사용하면 다음과 같은 이점이 있습니다:
 

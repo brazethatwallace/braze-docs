@@ -108,6 +108,18 @@ To see descriptions of what each user permission includes and how to use them, c
 
 You can assign a Team to Canvases, campaigns, Content Cards, segments, email templates, webhook templates, Content Blocks, and media library assets with the **Add Team** filter.
 
+### Automatic Team assignment
+
+For users with Team-level permissions only (and no workspace-level edit permission), Braze can assign Teams automatically during object creation:
+
+| User's Team membership | Behavior |
+| --- | --- |
+| Exactly one Team | Braze auto-assigns that Team when the user creates a new campaign, Canvas, Content Block, or email template. |
+| More than one Team | The user must choose a Team before saving. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Automatic Team Assignment behavior" }
+
+When a Team is assigned to a campaign or Canvas, that Team's required segmentation filters appear in the audience builder as a read-only **Team filter** group.
+
 For Canvases, Braze only checks whether users match the team filter criteria when they enter the Canvas. After a user enters a Canvas, they continue to receive messages from all Canvas steps even if their attributes change and they no longer match the team filter criteria. Team filters don't behave like [delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations), which re-evaluate users at each Message step send.
 
 ![Adding a Team tag to a campaign.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}

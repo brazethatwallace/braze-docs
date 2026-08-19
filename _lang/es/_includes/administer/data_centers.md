@@ -1,12 +1,12 @@
 {% if include.datacenters == "AU" %}
-| URL del dashboard | Punto de conexión REST | Punto final de SDK |
+| URL del panel | Endpoint REST | Punto final de SDK |
 | --- | --- | --- |
 | `https://dashboard.au-01.braze.com` | `https://rest.au-01.braze.com` | `sdk.au-01.braze.com` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tabla" }
 {% endif %}
 
 {% if include.datacenters == "EU" %}
-| URL del dashboard | Punto de conexión REST | Punto final de SDK |
+| URL del panel | Endpoint REST | Punto final de SDK |
 | --- | --- | --- |
 | `https://dashboard-01.braze.eu` | `https://rest.fra-01.braze.eu` | `sdk.fra-01.braze.eu` |
 | `https://dashboard-02.braze.eu` | `https://rest.fra-02.braze.eu` | `sdk.fra-02.braze.eu` |
@@ -14,28 +14,28 @@
 {% endif %}
 
 {% if include.datacenters == "ID" %}
-| URL del dashboard | Punto de conexión REST | Punto final de SDK |
+| URL del panel | Endpoint REST | Punto final de SDK |
 | --- | --- | --- |
 | `https://dashboard.id-01.braze.com` | `https://rest.id-01.braze.com` | `sdk.id-01.braze.com` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tabla" }
 {% endif %}
 
 {% if include.datacenters == "JP" %}
-| URL del dashboard | Punto de conexión REST | Punto final de SDK |
+| URL del panel | Endpoint REST | Punto final de SDK |
 | --- | --- | --- |
 | `https://dashboard.jp-01.braze.com` | `https://rest.jp-01.braze.com` | `sdk.jp-01.braze.com` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tabla" }
 {% endif %}
 
 {% if include.datacenters == "KR" %}
-| URL del dashboard | Punto de conexión REST | Punto final de SDK |
+| URL del panel | Endpoint REST | Punto final de SDK |
 | --- | --- | --- |
 | `https://dashboard.kr-01.braze.com` | `https://rest.kr-01.braze.com` | `sdk.kr-01.braze.com` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tabla" }
 {% endif %}
 
 {% if include.datacenters == "US" %}
-| URL del dashboard | Punto de conexión REST | Punto final de SDK |
+| URL del panel | Endpoint REST | Punto final de SDK |
 | --- | --- | --- |
 | `https://dashboard-01.braze.com` | `https://rest.iad-01.braze.com` | `sdk.iad-01.braze.com` |
 | `https://dashboard-02.braze.com` | `https://rest.iad-02.braze.com` | `sdk.iad-02.braze.com` |
@@ -50,7 +50,7 @@
 {% endif %}
 
 {% if include.datacenters == "instances" %}
-| Instancia | URL | Punto de conexión REST | Punto final de SDK |
+| Instancia | URL | Endpoint REST | Punto final de SDK |
 |---|---|---|---|
 | US-01 | `https://dashboard-01.braze.com` | `https://rest.iad-01.braze.com` | `sdk.iad-01.braze.com` |
 | US-02 | `https://dashboard-02.braze.com` | `https://rest.iad-02.braze.com` | `sdk.iad-02.braze.com` |

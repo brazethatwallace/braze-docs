@@ -17,15 +17,14 @@ hide_toc: true
 열 정의는 다음과 같습니다.
 
 |---------|-------------------------------------------------|
-| **목적지** | Braze 플랫폼을 통해 전송되는 특정 최종 지역, 국가 또는 액션 유형 |
-| **1회 전송당 크레딧** | 1회 전송을 수행하는 데 필요한 정확한 메시지 크레딧 수<br> (전송당 크레딧 = 크레딧 비율 × 목적지 배수) |
+| **목적지** | Braze 플랫폼을 통해 전송되는 특정 최종 지역, 국가 또는 작업 유형 |
+| **1회 전송당 크레딧** | 1회 전송을 수행하는 데 필요한 정확한 메시지 크레딧 수<br> (전송당 크레딧 = 크레딧 비율 x 목적지 배수) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
+## 메시지 크레딧 크레딧 비율 표 - Gamma {#credit-ratio-table-for-message-credits-gamma}
 
-## 메시지 크레딧 - Gamma 크레딧 비율 표 {#credit-ratio-table-for-message-credits-gamma}
-
-{% details 클릭하여 펼치기 %}
-<table class="credits-table" aria-label="메시지 크레딧 - Gamma 크레딧 비율 표">
+{% details 펼치려면 클릭하세요 %}
+<table class="credits-table" aria-label="메시지 크레딧 크레딧 비율 표 - Gamma">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -34,7 +33,7 @@ hide_toc: true
     <tr>
         <th><b>채널</b></th>
         <th><b>목적지</b></th>
-        <th class="credits-column"><b>1회 전송당 크레딧</b></th>
+        <th class="credits-column"><b>1회 발송당 크레딧</b></th>
     </tr>
     </thead>
     <tbody>
@@ -50,2217 +49,2217 @@ hide_toc: true
     </tr>
     <tr>
         <td>SMS - US / CA</td>
-        <td>Canada</td>
+        <td>캐나다</td>
         <td>0.40</td>
     </tr>
     <tr>
         <td>SMS - US / CA</td>
-        <td>Canada Toll Free</td>
+        <td>캐나다 수신자 부담</td>
         <td>0.52</td>
     </tr>
     <tr>
         <td>SMS - US / CA</td>
-        <td>United States</td>
+        <td>미국</td>
         <td>0.40</td>
     </tr>
     <tr>
         <td>SMS - US / CA</td>
-        <td>United States Toll Free</td>
+        <td>미국 수신자 부담</td>
         <td>0.60</td>
     </tr>
     <tr>
         <td>MMS - US / CA</td>
-        <td>Canada Long Code</td>
+        <td>캐나다 긴 코드</td>
         <td>1.80</td>
     </tr>
     <tr>
         <td>MMS - US / CA</td>
-        <td>Canada Short Code</td>
+        <td>캐나다 짧은 코드</td>
         <td>4.80</td>
     </tr>
     <tr>
         <td>MMS - US / CA</td>
-        <td>Canada Toll Free</td>
+        <td>캐나다 수신자 부담</td>
         <td>1.56</td>
     </tr>
     <tr>
         <td>MMS - US / CA</td>
-        <td>United States</td>
+        <td>미국</td>
         <td>1.20</td>
     </tr>
     <tr>
         <td>MMS - US / CA</td>
-        <td>United States Toll Free</td>
+        <td>미국 수신자 부담</td>
         <td>2.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Abkhazia</td>
+        <td>압하지야</td>
         <td>6.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Afghanistan</td>
+        <td>아프가니스탄</td>
         <td>94.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Albania</td>
+        <td>알바니아</td>
         <td>22.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Algeria</td>
+        <td>알제리</td>
         <td>52.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>American Samoa</td>
+        <td>아메리칸사모아</td>
         <td>47.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Andorra</td>
+        <td>안도라</td>
         <td>33.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Angola</td>
+        <td>앙골라</td>
         <td>22.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Anguilla</td>
+        <td>앵귈라</td>
         <td>33.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Antigua and Barbuda</td>
+        <td>앤티가 바부다</td>
         <td>24.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Argentina</td>
+        <td>아르헨티나</td>
         <td>10.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Armenia</td>
+        <td>아르메니아</td>
         <td>34.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Aruba</td>
+        <td>아루바</td>
         <td>26.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Australia MMS</td>
+        <td>호주 MMS</td>
         <td>31.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Australia SMS</td>
+        <td>호주 SMS</td>
         <td>3.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Austria</td>
+        <td>오스트리아</td>
         <td>17.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Azerbaijan</td>
+        <td>아제르바이잔</td>
         <td>97.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bahamas</td>
+        <td>바하마</td>
         <td>12.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bahrain</td>
+        <td>바레인</td>
         <td>9.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bangladesh</td>
+        <td>방글라데시</td>
         <td>58.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Barbados</td>
+        <td>바베이도스</td>
         <td>30.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Belarus</td>
+        <td>벨라루스</td>
         <td>63.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Belgium</td>
+        <td>벨기에</td>
         <td>24.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Belize</td>
+        <td>벨리즈</td>
         <td>69.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Benin</td>
+        <td>베냉</td>
         <td>36.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bermuda</td>
+        <td>버뮤다</td>
         <td>29.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bhutan</td>
+        <td>부탄</td>
         <td>101.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bolivia</td>
+        <td>볼리비아</td>
         <td>36.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bosnia and Herzegovina</td>
+        <td>보스니아 헤르체고비나</td>
         <td>21.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Botswana</td>
+        <td>보츠와나</td>
         <td>25.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Brazil</td>
+        <td>브라질</td>
         <td>2.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Brunei</td>
+        <td>브루나이</td>
         <td>5.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bulgaria</td>
+        <td>불가리아</td>
         <td>27.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Burkina Faso</td>
+        <td>부르키나파소</td>
         <td>33.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Burundi</td>
+        <td>부룬디</td>
         <td>94.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Cambodia</td>
+        <td>캄보디아</td>
         <td>43.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Cameroon</td>
+        <td>카메룬</td>
         <td>34.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Cape Verde</td>
+        <td>카보베르데</td>
         <td>36.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Caribbean Netherlands</td>
+        <td>카리브 네덜란드</td>
         <td>21.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Cayman Islands</td>
+        <td>케이맨 제도</td>
         <td>33.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Central African Republic</td>
+        <td>중앙아프리카공화국</td>
         <td>30.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Chad</td>
+        <td>차드</td>
         <td>73.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Chile</td>
+        <td>칠레</td>
         <td>16.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>China</td>
+        <td>중국</td>
         <td>6.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Colombia</td>
+        <td>콜롬비아</td>
         <td>0.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Comoros</td>
+        <td>코모로</td>
         <td>61.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Congo</td>
+        <td>콩고</td>
         <td>50.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Cook Islands</td>
+        <td>쿡 제도</td>
         <td>35.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Costa Rica</td>
+        <td>코스타리카</td>
         <td>10.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Croatia</td>
+        <td>크로아티아</td>
         <td>23.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Cuba</td>
+        <td>쿠바</td>
         <td>21.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Curacao</td>
+        <td>퀴라소</td>
         <td>9.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Cyprus</td>
+        <td>키프로스</td>
         <td>21.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Czech Republic</td>
+        <td>체코</td>
         <td>10.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Denmark</td>
+        <td>덴마크</td>
         <td>10.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Djibouti</td>
+        <td>지부티</td>
         <td>40.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Dominica</td>
+        <td>도미니카</td>
         <td>37.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Dominican Republic</td>
+        <td>도미니카 공화국</td>
         <td>12.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>DR Congo</td>
+        <td>콩고민주공화국</td>
         <td>57.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Ecuador</td>
+        <td>에콰도르</td>
         <td>27.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Egypt</td>
+        <td>이집트</td>
         <td>24.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>El Salvador</td>
+        <td>엘살바도르</td>
         <td>24.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Equatorial Guinea</td>
+        <td>적도 기니</td>
         <td>43.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Eritrea</td>
+        <td>에리트레아</td>
         <td>24.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Estonia</td>
+        <td>에스토니아</td>
         <td>24.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Eswatini</td>
+        <td>에스와티니</td>
         <td>5.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Ethiopia</td>
+        <td>에티오피아</td>
         <td>86.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Falkland Islands</td>
+        <td>포클랜드 제도</td>
         <td>34.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Faroe Islands</td>
+        <td>페로 제도</td>
         <td>17.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Fiji</td>
+        <td>피지</td>
         <td>41.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Finland</td>
+        <td>핀란드</td>
         <td>14.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>France</td>
+        <td>프랑스</td>
         <td>9.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>French Guiana</td>
+        <td>프랑스령 기아나</td>
         <td>46.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>French Polynesia</td>
+        <td>프랑스령 폴리네시아</td>
         <td>45.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Gabon</td>
+        <td>가봉</td>
         <td>66.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Gambia</td>
+        <td>감비아</td>
         <td>41.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Georgia</td>
+        <td>조지아</td>
         <td>26.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Germany</td>
+        <td>독일</td>
         <td>18.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Ghana</td>
+        <td>가나</td>
         <td>22.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Gibraltar</td>
+        <td>지브롤터</td>
         <td>27.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Greece</td>
+        <td>그리스</td>
         <td>9.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Greenland</td>
+        <td>그린란드</td>
         <td>10.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Grenada</td>
+        <td>그레나다</td>
         <td>40.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Guadeloupe</td>
+        <td>과들루프</td>
         <td>34.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Guam</td>
+        <td>괌</td>
         <td>17.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Guatemala</td>
+        <td>과테말라</td>
         <td>32.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Guernsey</td>
+        <td>건지</td>
         <td>8.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Guinea</td>
+        <td>기니</td>
         <td>38.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Guinea-Bissau</td>
+        <td>기니비사우</td>
         <td>39.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Guyana</td>
+        <td>가이아나</td>
         <td>45.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Haiti</td>
+        <td>아이티</td>
         <td>59.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Honduras</td>
+        <td>온두라스</td>
         <td>21.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Hong Kong</td>
+        <td>홍콩</td>
         <td>13.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Hungary</td>
+        <td>헝가리</td>
         <td>19.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Iceland</td>
+        <td>아이슬란드</td>
         <td>17.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>India</td>
+        <td>인도</td>
         <td>10.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Indonesia</td>
+        <td>인도네시아</td>
         <td>66.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Iran</td>
+        <td>이란</td>
         <td>62.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Iraq</td>
+        <td>이라크</td>
         <td>47.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Ireland</td>
+        <td>아일랜드</td>
         <td>13.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Isle of Man</td>
+        <td>맨섬</td>
         <td>8.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Israel</td>
+        <td>이스라엘</td>
         <td>37.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Italy</td>
+        <td>이탈리아</td>
         <td>7.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Ivory Coast</td>
+        <td>코트디부아르</td>
         <td>24.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Jamaica</td>
+        <td>자메이카</td>
         <td>30.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Japan</td>
+        <td>일본</td>
         <td>10.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Jersey</td>
+        <td>저지</td>
         <td>7.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Jordan</td>
+        <td>요르단</td>
         <td>55.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Kazakhstan</td>
+        <td>카자흐스탄</td>
         <td>55.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Kenya</td>
+        <td>케냐</td>
         <td>26.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Kiribati</td>
+        <td>키리바시</td>
         <td>36.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Korea Republic of</td>
+        <td>대한민국</td>
         <td>6.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Kosovo</td>
+        <td>코소보</td>
         <td>9.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Kuwait</td>
+        <td>쿠웨이트</td>
         <td>33.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Kyrgyzstan</td>
+        <td>키르기스스탄</td>
         <td>61.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Laos PDR</td>
+        <td>라오스</td>
         <td>15.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Latvia</td>
+        <td>라트비아</td>
         <td>18.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Lebanon</td>
+        <td>레바논</td>
         <td>30.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Lesotho</td>
+        <td>레소토</td>
         <td>51.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Liberia</td>
+        <td>라이베리아</td>
         <td>34.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Libya</td>
+        <td>리비아</td>
         <td>81.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Liechtenstein</td>
+        <td>리히텐슈타인</td>
         <td>8.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Lithuania</td>
+        <td>리투아니아</td>
         <td>13.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Luxembourg</td>
+        <td>룩셈부르크</td>
         <td>18.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Macao</td>
+        <td>마카오</td>
         <td>14.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Macedonia</td>
+        <td>마케도니아</td>
         <td>18.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Madagascar</td>
+        <td>마다가스카르</td>
         <td>94.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Malawi</td>
+        <td>말라위</td>
         <td>57.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Malaysia</td>
+        <td>말레이시아</td>
         <td>14.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Maldives</td>
+        <td>몰디브</td>
         <td>18.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Mali</td>
+        <td>말리</td>
         <td>39.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Malta</td>
+        <td>몰타</td>
         <td>16.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Marshall Islands</td>
+        <td>마셜 제도</td>
         <td>40.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Martinique</td>
+        <td>마르티니크</td>
         <td>33.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Mauritania</td>
+        <td>모리타니</td>
         <td>65.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Mauritius</td>
+        <td>모리셔스</td>
         <td>40.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Mayotte</td>
+        <td>마요트</td>
         <td>23.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Mexico</td>
+        <td>멕시코</td>
         <td>2.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Micronesia</td>
+        <td>미크로네시아</td>
         <td>18.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Moldova</td>
+        <td>몰도바</td>
         <td>15.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Monaco</td>
+        <td>모나코</td>
         <td>46.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Mongolia</td>
+        <td>몽골</td>
         <td>70.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Montenegro</td>
+        <td>몬테네그로</td>
         <td>28.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Montserrat</td>
+        <td>몬트세랫</td>
         <td>27.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Morocco</td>
+        <td>모로코</td>
         <td>26.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Mozambique</td>
+        <td>모잠비크</td>
         <td>27.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Myanmar</td>
+        <td>미얀마</td>
         <td>58.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Namibia</td>
+        <td>나미비아</td>
         <td>15.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Nauru</td>
+        <td>나우루</td>
         <td>11.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Nepal</td>
+        <td>네팔</td>
         <td>38.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Netherlands</td>
+        <td>네덜란드</td>
         <td>16.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>New Caledonia</td>
+        <td>뉴칼레도니아</td>
         <td>44.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>New Zealand</td>
+        <td>뉴질랜드</td>
         <td>19.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Nicaragua</td>
+        <td>니카라과</td>
         <td>19.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Niger</td>
+        <td>니제르</td>
         <td>74.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Nigeria</td>
+        <td>나이지리아</td>
         <td>50.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Niue</td>
+        <td>니우에</td>
         <td>48.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Norfolk Island</td>
+        <td>노퍽섬</td>
         <td>7.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>North Macedonia</td>
+        <td>북마케도니아</td>
         <td>3.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Northern Cyprus</td>
+        <td>북키프로스</td>
         <td>2.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Norway</td>
+        <td>노르웨이</td>
         <td>10.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Oman</td>
+        <td>오만</td>
         <td>36.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Pakistan</td>
+        <td>파키스탄</td>
         <td>74.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Palau</td>
+        <td>팔라우</td>
         <td>25.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Palestinian Territory</td>
+        <td>팔레스타인 자치구</td>
         <td>76.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Panama</td>
+        <td>파나마</td>
         <td>22.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Papua New Guinea</td>
+        <td>파푸아뉴기니</td>
         <td>190.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Paraguay</td>
+        <td>파라과이</td>
         <td>18.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Peru</td>
+        <td>페루</td>
         <td>8.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Philippines</td>
+        <td>필리핀</td>
         <td>2.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Poland</td>
+        <td>폴란드</td>
         <td>5.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Portugal</td>
+        <td>포르투갈</td>
         <td>6.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Puerto Rico</td>
+        <td>푸에르토리코</td>
         <td>10.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Qatar</td>
+        <td>카타르</td>
         <td>5.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Reunion/Mayotte</td>
+        <td>레위니옹/마요트</td>
         <td>48.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Romania</td>
+        <td>루마니아</td>
         <td>10.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Russia</td>
+        <td>러시아</td>
         <td>95.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Rwanda</td>
+        <td>르완다</td>
         <td>46.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Saint Kitts and Nevis</td>
+        <td>세인트키츠 네비스</td>
         <td>9.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Saint Lucia</td>
+        <td>세인트루시아</td>
         <td>10.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Saint Pierre and Miquelon</td>
+        <td>생피에르 미클롱</td>
         <td>23.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Saint Vincent and The Grenadines</td>
+        <td>세인트빈센트 그레나딘</td>
         <td>10.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Samoa</td>
+        <td>사모아</td>
         <td>46.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>San Marino</td>
+        <td>산마리노</td>
         <td>27.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Sao Tome and Principe</td>
+        <td>상투메 프린시페</td>
         <td>32.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Saudi Arabia</td>
+        <td>사우디아라비아</td>
         <td>19.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Senegal</td>
+        <td>세네갈</td>
         <td>51.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Serbia</td>
+        <td>세르비아</td>
         <td>60.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Seychelles</td>
+        <td>세이셸</td>
         <td>9.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Sierra Leone</td>
+        <td>시에라리온</td>
         <td>47.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Singapore</td>
+        <td>싱가포르</td>
         <td>7.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Sint Maarten</td>
+        <td>신트마르턴</td>
         <td>1.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Slovakia</td>
+        <td>슬로바키아</td>
         <td>22.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Slovenia</td>
+        <td>슬로베니아</td>
         <td>37.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Solomon Islands</td>
+        <td>솔로몬 제도</td>
         <td>20.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Somalia</td>
+        <td>소말리아</td>
         <td>47.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>South Africa</td>
+        <td>남아프리카공화국</td>
         <td>3.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>South Ossetia</td>
+        <td>남오세티야</td>
         <td>20.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>South Sudan</td>
+        <td>남수단</td>
         <td>8.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Spain</td>
+        <td>스페인</td>
         <td>8.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Sri Lanka</td>
+        <td>스리랑카</td>
         <td>56.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Sudan</td>
+        <td>수단</td>
         <td>41.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Suriname</td>
+        <td>수리남</td>
         <td>32.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Swaziland</td>
+        <td>스와질란드</td>
         <td>23.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Sweden</td>
+        <td>스웨덴</td>
         <td>8.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Switzerland</td>
+        <td>스위스</td>
         <td>6.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Syria</td>
+        <td>시리아</td>
         <td>78.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Taiwan</td>
+        <td>대만</td>
         <td>8.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Tajikistan</td>
+        <td>타지키스탄</td>
         <td>113.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Tanzania</td>
+        <td>탄자니아</td>
         <td>53.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Thailand</td>
+        <td>태국</td>
         <td>3.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Timor-Leste</td>
+        <td>동티모르</td>
         <td>28.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Togo</td>
+        <td>토고</td>
         <td>38.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Tonga</td>
+        <td>통가</td>
         <td>31.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Trinidad and Tobago</td>
+        <td>트리니다드 토바고</td>
         <td>30.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Tunisia</td>
+        <td>튀니지</td>
         <td>70.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Turkey</td>
+        <td>튀르키예</td>
         <td>7.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Turkmenistan</td>
+        <td>투르크메니스탄</td>
         <td>50.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Turks and Caicos Islands</td>
+        <td>터크스 케이커스 제도</td>
         <td>33.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Tuvalu</td>
+        <td>투발루</td>
         <td>33.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Uganda</td>
+        <td>우간다</td>
         <td>40.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Ukraine</td>
+        <td>우크라이나</td>
         <td>28.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>United Arab Emirates</td>
+        <td>아랍에미리트</td>
         <td>12.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>United Kingdom</td>
+        <td>영국</td>
         <td>6.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Unknown</td>
+        <td>알 수 없음</td>
         <td>39.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Uruguay</td>
+        <td>우루과이</td>
         <td>21.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Uzbekistan</td>
+        <td>우즈베키스탄</td>
         <td>68.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Vanuatu</td>
+        <td>바누아투</td>
         <td>41.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Venezuela</td>
+        <td>베네수엘라</td>
         <td>21.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Vietnam</td>
+        <td>베트남</td>
         <td>30.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Virgin Islands, British</td>
+        <td>영국령 버진아일랜드</td>
         <td>47.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Virgin Islands, U.S.</td>
+        <td>미국령 버진아일랜드</td>
         <td>5.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Wallis and Futuna</td>
+        <td>왈리스 푸투나</td>
         <td>27.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Yemen</td>
+        <td>예멘</td>
         <td>60.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Zambia</td>
+        <td>잠비아</td>
         <td>67.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Zimbabwe</td>
+        <td>짐바브웨</td>
         <td>35.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Authentication</td>
+        <td>아르헨티나 인증</td>
         <td>6.90</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Marketing</td>
+        <td>아르헨티나 마케팅</td>
         <td>16.39</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Marketing - BYO</td>
+        <td>아르헨티나 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.62</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Marketing - Optimized Delivery</td>
+        <td>아르헨티나 마케팅 - 최적화 전송</td>
         <td>16.39</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Utility</td>
+        <td>아르헨티나 유틸리티</td>
         <td>6.90</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brazil Authentication</td>
+        <td>브라질 인증</td>
         <td>1.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brazil Marketing</td>
+        <td>브라질 마케팅</td>
         <td>16.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brazil Marketing - BYO</td>
+        <td>브라질 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.63</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brazil Marketing - Optimized Delivery</td>
+        <td>브라질 마케팅 - 최적화 전송</td>
         <td>16.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brazil Utility</td>
+        <td>브라질 유틸리티</td>
         <td>1.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Chile Authentication</td>
+        <td>칠레 인증</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Chile Marketing</td>
+        <td>칠레 마케팅</td>
         <td>23.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Chile Marketing - BYO</td>
+        <td>칠레 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.89</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Chile Marketing - Optimized Delivery</td>
+        <td>칠레 마케팅 - 최적화 전송</td>
         <td>23.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Chile Utility</td>
+        <td>칠레 유틸리티</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Authentication</td>
+        <td>콜롬비아 인증</td>
         <td>0.05</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Marketing</td>
+        <td>콜롬비아 마케팅</td>
         <td>3.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Marketing - BYO</td>
+        <td>콜롬비아 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.13</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Marketing - Optimized Delivery</td>
+        <td>콜롬비아 마케팅 - 최적화 전송</td>
         <td>3.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Utility</td>
+        <td>콜롬비아 유틸리티</td>
         <td>0.05</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Authentication</td>
+        <td>이집트 인증</td>
         <td>0.96</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Authentication International</td>
+        <td>이집트 인증 국제</td>
         <td>17.24</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Marketing</td>
+        <td>이집트 마케팅</td>
         <td>28.47</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Marketing - BYO</td>
+        <td>이집트 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.64</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Marketing - Optimized Delivery</td>
+        <td>이집트 마케팅 - 최적화 전송</td>
         <td>28.47</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Utility</td>
+        <td>이집트 유틸리티</td>
         <td>1.38</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>France Authentication</td>
+        <td>프랑스 인증</td>
         <td>7.96</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>France Marketing</td>
+        <td>프랑스 마케팅</td>
         <td>37.99</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>France Marketing - BYO</td>
+        <td>프랑스 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>France Marketing - Optimized Delivery</td>
+        <td>프랑스 마케팅 - 최적화 전송</td>
         <td>37.99</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>France Utility</td>
+        <td>프랑스 유틸리티</td>
         <td>7.96</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Germany Authentication</td>
+        <td>독일 인증</td>
         <td>14.59</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Germany Marketing</td>
+        <td>독일 마케팅</td>
         <td>36.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Germany Marketing - BYO</td>
+        <td>독일 마케팅 - BYO 또는 Meta Direct</td>
         <td>1.37</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Germany Marketing - Optimized Delivery</td>
+        <td>독일 마케팅 - 최적화 전송</td>
         <td>36.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Germany Utility</td>
+        <td>독일 유틸리티</td>
         <td>14.59</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Authentication</td>
+        <td>인도 인증</td>
         <td>0.37</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Authentication International</td>
+        <td>인도 인증 국제</td>
         <td>7.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Marketing</td>
+        <td>인도 마케팅</td>
         <td>2.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Marketing - BYO</td>
+        <td>인도 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.12</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Marketing - Optimized Delivery</td>
+        <td>인도 마케팅 - 최적화 전송</td>
         <td>2.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Utility</td>
+        <td>인도 유틸리티</td>
         <td>0.37</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Authentication</td>
+        <td>인도네시아 인증</td>
         <td>6.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Authentication International</td>
+        <td>인도네시아 인증 국제</td>
         <td>36.08</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Marketing</td>
+        <td>인도네시아 마케팅</td>
         <td>10.90</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Marketing - BYO</td>
+        <td>인도네시아 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.41</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Marketing - Optimized Delivery</td>
+        <td>인도네시아 마케팅 - 최적화 전송</td>
         <td>10.90</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Utility</td>
+        <td>인도네시아 유틸리티</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Israel Authentication</td>
+        <td>이스라엘 인증</td>
         <td>1.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Israel Marketing</td>
+        <td>이스라엘 마케팅</td>
         <td>9.36</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Israel Marketing - BYO</td>
+        <td>이스라엘 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.35</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Israel Marketing - Optimized Delivery</td>
+        <td>이스라엘 마케팅 - 최적화 전송</td>
         <td>9.36</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Israel Utility</td>
+        <td>이스라엘 유틸리티</td>
         <td>1.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italy Authentication</td>
+        <td>이탈리아 인증</td>
         <td>7.96</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italy Marketing</td>
+        <td>이탈리아 마케팅</td>
         <td>18.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italy Marketing - BYO</td>
+        <td>이탈리아 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.69</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italy Marketing - Optimized Delivery</td>
+        <td>이탈리아 마케팅 - 최적화 전송</td>
         <td>18.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italy Utility</td>
+        <td>이탈리아 유틸리티</td>
         <td>7.96</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malaysia Authentication</td>
+        <td>말레이시아 인증</td>
         <td>3.70</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malaysia Authentication International</td>
+        <td>말레이시아 인증 국제</td>
         <td>11.09</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malaysia Marketing</td>
+        <td>말레이시아 마케팅</td>
         <td>22.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malaysia Marketing - BYO</td>
+        <td>말레이시아 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malaysia Marketing - Optimized Delivery</td>
+        <td>말레이시아 마케팅 - 최적화 전송</td>
         <td>22.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malaysia Utility</td>
+        <td>말레이시아 유틸리티</td>
         <td>3.70</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Mexico Authentication</td>
+        <td>멕시코 인증</td>
         <td>2.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Mexico Marketing</td>
+        <td>멕시코 마케팅</td>
         <td>8.10</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Mexico Marketing - BYO</td>
+        <td>멕시코 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.31</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Mexico Marketing - Optimized Delivery</td>
+        <td>멕시코 마케팅 - 최적화 전송</td>
         <td>8.10</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Mexico Utility</td>
+        <td>멕시코 유틸리티</td>
         <td>2.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Netherlands Authentication</td>
+        <td>네덜란드 인증</td>
         <td>13.26</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Netherlands Marketing</td>
+        <td>네덜란드 마케팅</td>
         <td>42.37</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Netherlands Marketing - BYO</td>
+        <td>네덜란드 마케팅 - BYO 또는 Meta Direct</td>
         <td>1.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Netherlands Marketing - Optimized Delivery</td>
+        <td>네덜란드 마케팅 - 최적화 전송</td>
         <td>42.37</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Netherlands Utility</td>
+        <td>네덜란드 유틸리티</td>
         <td>13.26</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Authentication</td>
+        <td>나이지리아 인증</td>
         <td>1.78</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Authentication International</td>
+        <td>나이지리아 인증 국제</td>
         <td>19.90</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Marketing</td>
+        <td>나이지리아 마케팅</td>
         <td>13.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Marketing - BYO</td>
+        <td>나이지리아 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.52</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Marketing - Optimized Delivery</td>
+        <td>나이지리아 마케팅 - 최적화 전송</td>
         <td>13.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Utility</td>
+        <td>나이지리아 유틸리티</td>
         <td>1.78</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>North America Authentication</td>
+        <td>북미 인증</td>
         <td>1.06</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>North America Marketing</td>
+        <td>북미 마케팅</td>
         <td>6.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>North America Marketing - BYO</td>
+        <td>북미 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>North America Marketing - Optimized Delivery</td>
+        <td>북미 마케팅 - 최적화 전송</td>
         <td>6.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>North America Utility</td>
+        <td>북미 유틸리티</td>
         <td>1.06</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Other Authentication</td>
+        <td>기타 인증</td>
         <td>2.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Other Marketing</td>
+        <td>기타 마케팅</td>
         <td>16.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Other Marketing - BYO</td>
+        <td>기타 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Other Marketing - Optimized Delivery</td>
+        <td>기타 마케팅 - 최적화 전송</td>
         <td>16.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Other Utility</td>
+        <td>기타 유틸리티</td>
         <td>2.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistan Authentication</td>
+        <td>파키스탄 인증</td>
         <td>1.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistan Authentication International</td>
+        <td>파키스탄 인증 국제</td>
         <td>19.90</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistan Marketing</td>
+        <td>파키스탄 마케팅</td>
         <td>12.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistan Marketing - BYO</td>
+        <td>파키스탄 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.47</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistan Marketing - Optimized Delivery</td>
+        <td>파키스탄 마케팅 - 최적화 전송</td>
         <td>12.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistan Utility</td>
+        <td>파키스탄 유틸리티</td>
         <td>1.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Peru Authentication</td>
+        <td>페루 인증</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Peru Marketing</td>
+        <td>페루 마케팅</td>
         <td>18.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Peru Marketing - BYO</td>
+        <td>페루 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.70</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Peru Marketing - Optimized Delivery</td>
+        <td>페루 마케팅 - 최적화 전송</td>
         <td>18.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Peru Utility</td>
+        <td>페루 유틸리티</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Africa Authentication</td>
+        <td>기타 아프리카 인증</td>
         <td>1.06</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Africa Marketing</td>
+        <td>기타 아프리카 마케팅</td>
         <td>5.97</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Africa Marketing - BYO</td>
+        <td>기타 아프리카 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.23</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Africa Marketing - Optimized Delivery</td>
+        <td>기타 아프리카 마케팅 - 최적화 전송</td>
         <td>5.97</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Africa Utility</td>
+        <td>기타 아프리카 유틸리티</td>
         <td>1.06</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Asia Pacific Authentication</td>
+        <td>기타 아시아 태평양 인증</td>
         <td>3.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Asia Pacific Marketing</td>
+        <td>기타 아시아 태평양 마케팅</td>
         <td>19.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Asia Pacific Marketing - BYO</td>
+        <td>기타 아시아 태평양 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.73</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Asia Pacific Marketing - Optimized Delivery</td>
+        <td>기타 아시아 태평양 마케팅 - 최적화 전송</td>
         <td>19.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Asia Pacific Utility</td>
+        <td>기타 아시아 태평양 유틸리티</td>
         <td>3.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Central & Eastern Europe Authentication</td>
+        <td>기타 중앙 및 동유럽 인증</td>
         <td>5.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Central & Eastern Europe Marketing</td>
+        <td>기타 중앙 및 동유럽 마케팅</td>
         <td>22.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Central & Eastern Europe Marketing - BYO</td>
+        <td>기타 중앙 및 동유럽 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Central & Eastern Europe Marketing - Optimized Delivery</td>
+        <td>기타 중앙 및 동유럽 마케팅 - 최적화 전송</td>
         <td>22.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Central & Eastern Europe Utility</td>
+        <td>기타 중앙 및 동유럽 유틸리티</td>
         <td>5.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Latin America Authentication</td>
+        <td>기타 라틴 아메리카 인증</td>
         <td>3.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Latin America Marketing</td>
+        <td>기타 라틴 아메리카 마케팅</td>
         <td>19.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Latin America Marketing - BYO</td>
+        <td>기타 라틴 아메리카 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.74</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Latin America Marketing - Optimized Delivery</td>
+        <td>기타 라틴 아메리카 마케팅 - 최적화 전송</td>
         <td>19.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Latin America Utility</td>
+        <td>기타 라틴 아메리카 유틸리티</td>
         <td>3.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Message Types - BYO</td>
+        <td>기타 메시지 유형 - BYO 또는 Meta Direct</td>
         <td>0.10</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Middle East Authentication</td>
+        <td>기타 중동 인증</td>
         <td>2.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Middle East Marketing</td>
+        <td>기타 중동 마케팅</td>
         <td>9.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Middle East Marketing - BYO</td>
+        <td>기타 중동 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.34</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Middle East Marketing - Optimized Delivery</td>
+        <td>기타 중동 마케팅 - 최적화 전송</td>
         <td>9.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Middle East Utility</td>
+        <td>기타 중동 유틸리티</td>
         <td>2.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Western Europe Authentication</td>
+        <td>기타 서유럽 인증</td>
         <td>4.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Western Europe Marketing</td>
+        <td>기타 서유럽 마케팅</td>
         <td>15.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Western Europe Marketing - BYO</td>
+        <td>기타 서유럽 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.59</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Western Europe Marketing - Optimized Delivery</td>
+        <td>기타 서유럽 마케팅 - 최적화 전송</td>
         <td>15.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Western Europe Utility</td>
+        <td>기타 서유럽 유틸리티</td>
         <td>4.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Russia Authentication</td>
+        <td>러시아 인증</td>
         <td>10.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Russia Marketing</td>
+        <td>러시아 마케팅</td>
         <td>21.28</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Russia Marketing - BYO</td>
+        <td>러시아 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Russia Marketing - Optimized Delivery</td>
+        <td>러시아 마케팅 - 최적화 전송</td>
         <td>21.28</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Russia Utility</td>
+        <td>러시아 유틸리티</td>
         <td>10.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Authentication</td>
+        <td>사우디아라비아 인증</td>
         <td>3.05</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Authentication International</td>
+        <td>사우디아라비아 인증 국제</td>
         <td>15.86</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Marketing</td>
+        <td>사우디아라비아 마케팅</td>
         <td>11.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Marketing - BYO</td>
+        <td>사우디아라비아 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.46</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Marketing - Optimized Delivery</td>
+        <td>사우디아라비아 마케팅 - 최적화 전송</td>
         <td>11.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Utility</td>
+        <td>사우디아라비아 유틸리티</td>
         <td>3.05</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Authentication</td>
+        <td>남아프리카공화국 인증</td>
         <td>2.84</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Authentication International</td>
+        <td>남아프리카공화국 인증 국제</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Marketing</td>
+        <td>남아프리카공화국 마케팅</td>
         <td>10.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Marketing - BYO</td>
+        <td>남아프리카공화국 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.38</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Marketing - Optimized Delivery</td>
+        <td>남아프리카공화국 마케팅 - 최적화 전송</td>
         <td>10.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Utility</td>
+        <td>남아프리카공화국 유틸리티</td>
         <td>2.84</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Spain Authentication</td>
+        <td>스페인 인증</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Spain Marketing</td>
+        <td>스페인 마케팅</td>
         <td>16.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Spain Marketing - BYO</td>
+        <td>스페인 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.62</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Spain Marketing - Optimized Delivery</td>
+        <td>스페인 마케팅 - 최적화 전송</td>
         <td>16.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Spain Utility</td>
+        <td>스페인 유틸리티</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turkey Authentication</td>
+        <td>튀르키예 인증</td>
         <td>1.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turkey Marketing</td>
+        <td>튀르키예 마케팅</td>
         <td>2.89</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turkey Marketing - BYO</td>
+        <td>튀르키예 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.11</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turkey Marketing - Optimized Delivery</td>
+        <td>튀르키예 마케팅 - 최적화 전송</td>
         <td>2.89</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turkey Utility</td>
+        <td>튀르키예 유틸리티</td>
         <td>1.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Authentication</td>
+        <td>아랍에미리트 인증</td>
         <td>4.17</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Authentication International</td>
+        <td>아랍에미리트 인증 국제</td>
         <td>13.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Marketing</td>
+        <td>아랍에미리트 마케팅</td>
         <td>9.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Marketing - BYO</td>
+        <td>아랍에미리트 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Marketing - Optimized Delivery</td>
+        <td>아랍에미리트 마케팅 - 최적화 전송</td>
         <td>9.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Utility</td>
+        <td>아랍에미리트 유틸리티</td>
         <td>4.17</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Kingdom Authentication</td>
+        <td>영국 인증</td>
         <td>5.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Kingdom Marketing</td>
+        <td>영국 마케팅</td>
         <td>14.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Kingdom Marketing - BYO</td>
+        <td>영국 마케팅 - BYO 또는 Meta Direct</td>
         <td>0.53</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Kingdom Marketing - Optimized Delivery</td>
+        <td>영국 마케팅 - 최적화 전송</td>
         <td>14.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Kingdom Utility</td>
+        <td>영국 유틸리티</td>
         <td>5.80</td>
     </tr>
     <tr>
         <td>Line</td>
-        <td>All Regions</td>
+        <td>모든 지역</td>
         <td>0.15</td>
     </tr>
     <tr>
         <td>KakaoTalk</td>
-        <td>All Regions</td>
+        <td>모든 지역</td>
         <td>0.20</td>
     </tr>
     <tr>
-        <td>Webhooks</td>
-        <td>Standard</td>
+        <td>웹훅</td>
+        <td>스탠다드</td>
         <td>0.08</td>
     </tr>
     <tr>
-        <td>BYO SMS Connector</td>
-        <td>Infobip - All Regions</td>
+        <td>BYO SMS 커넥터</td>
+        <td>Infobip - 모든 지역</td>
         <td>0.30</td>
     </tr>
     <tr>
-        <td>BYO SMS Connector</td>
-        <td>Twilio - All Regions</td>
+        <td>BYO SMS 커넥터</td>
+        <td>Twilio - 모든 지역</td>
         <td>0.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Brazil - Basic</td>
+        <td>브라질 - Basic</td>
         <td>2.50</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Brazil - Single</td>
+        <td>브라질 - Single</td>
         <td>3.50</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Colombia - Basic</td>
+        <td>콜롬비아 - Basic</td>
         <td>1.90</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Colombia - Single</td>
+        <td>콜롬비아 - Single</td>
         <td>2.40</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>France - Basic</td>
+        <td>프랑스 - Basic</td>
         <td>12.60</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>France - Single</td>
+        <td>프랑스 - Single</td>
         <td>12.60</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Germany - Basic</td>
+        <td>독일 - Basic</td>
         <td>12.50</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Germany - Single</td>
+        <td>독일 - Single</td>
         <td>12.80</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Italy - Basic</td>
+        <td>이탈리아 - Basic</td>
         <td>4.70</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Italy - Single</td>
+        <td>이탈리아 - Single</td>
         <td>6.70</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Mexico - Basic</td>
+        <td>멕시코 - Basic</td>
         <td>6.10</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Mexico - Single</td>
+        <td>멕시코 - Single</td>
         <td>6.90</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Singapore - Basic</td>
+        <td>싱가포르 - Basic</td>
         <td>4.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Singapore - Single</td>
+        <td>싱가포르 - Single</td>
         <td>8.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Spain - Basic</td>
+        <td>스페인 - Basic</td>
         <td>6.20</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Spain - Single</td>
+        <td>스페인 - Single</td>
         <td>13.90</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Sweden - Basic</td>
+        <td>스웨덴 - Basic</td>
         <td>7.20</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Sweden - Single</td>
+        <td>스웨덴 - Single</td>
         <td>10.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>United Kingdom - Basic</td>
+        <td>영국 - Basic</td>
         <td>7.80</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>United Kingdom - Single</td>
+        <td>영국 - Single</td>
         <td>14.10</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>United States - Basic - Deprecated</td>
+        <td>미국 - Basic - 지원 중단</td>
         <td>1.00</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>United States - Rich</td>
+        <td>미국 - Rich</td>
         <td>1.00</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>United States - Rich Media</td>
+        <td>미국 - Rich Media</td>
         <td>1.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>United States - Single - Deprecated</td>
+        <td>미국 - Single - 지원 중단</td>
         <td>1.30</td>
     </tr>
     </tbody>
@@ -2270,22 +2269,22 @@ hide_toc: true
 
 ------
 
-## Agent Console 세부 정보 {#agent-console-details}
-Braze는 Braze 플랫폼에서 전송된 Agent Console 호출(Invocation)에 대해 메시지 크레딧을 청구합니다. 호출은 에이전트가 LLM에 대한 호출을 시작할 때 기록됩니다. 기본적으로 계약에는 가입 기간의 각 기간당 만 건의 호출이 포함되어 있습니다.
+## Agent Console 세부 사항 {#agent-console-details}
+Braze는 Braze 플랫폼에서 전송된 Agent Console 호출에 대해 메시지 크레딧을 청구합니다. 호출은 에이전트가 LLM에 대한 호출을 시작할 때 기록됩니다. 기본적으로, 계약에는 구독 기간의 각 기간당 만 건의 호출이 포함되어 있습니다.
 
 ## SMS/MMS 채널 세부 정보 {#smsmms-channel-details}
 
-### SMS 세그먼트 {#sms-segments}
+### SMS 메시지 세그먼트 {#sms-segments}
 
-SMS 메시지 세그먼트는 SMS 업계에서 메시지를 계산하는 방식입니다. 메시지 세그먼트는 정해진 문자 수(GSM-7 인코딩의 경우 160자, UCS-2 인코딩의 경우 67자)까지의 그룹으로, 단일 SMS 발송으로 전송됩니다. GSM-7 인코딩을 사용하여 161자의 SMS를 발송하면 두(2)개의 메시지 세그먼트가 전송된 것을 확인할 수 있습니다. 여러 메시지 세그먼트를 전송하면 추가 요금이 발생합니다.
+SMS 메시지 세그먼트는 SMS 업계에서 메시지를 집계하는 방식입니다. 메시지 세그먼트는 정해진 문자 수(GSM-7 인코딩의 경우 160자, UCS-2 인코딩의 경우 67자)까지의 문자 그룹으로, 단일 SMS 발송으로 전송됩니다. GSM-7 인코딩을 사용하여 161자의 SMS를 발송하면 두(2)개의 메시지 세그먼트가 전송된 것을 확인할 수 있습니다. 여러 메시지 세그먼트를 전송하면 추가 요금이 발생합니다.
 
-### MMS 세그먼트 {#mms-segments}
+### MMS 메시지 세그먼트 {#mms-segments}
 
 MMS의 경우 메시지 제한은 5MB입니다(멀티미디어 자산과 메시지 본문 크기 포함). 안전을 위해 Braze는 메시지 본문을 포함하면서 멀티미디어 자산을 600KB 이하로 유지할 것을 권장합니다.
 
 ### RCS 유형 {#rcs-types}
 
-RCS는 SMS와 MMS의 차세대 버전입니다. SMS와 같은 직접적이고 높은 인게이지먼트 채널의 장점을 제공하면서, 리치 콘텐츠(이미지, 비디오, 문서), 인증 및 브랜드 발신, 추천 답장 및 액션과 같은 인터랙티브 기능 등 현대 소비자가 기대하는 더 풍부한 기능을 갖추고 있습니다.
+RCS는 SMS와 MMS의 차세대 버전입니다. SMS와 같은 직접적이고 높은 인게이지먼트 채널의 장점을 제공하면서, 현대 소비자가 기대하는 리치 콘텐츠(이미지, 비디오, 문서), 인증 및 브랜드 발신, 추천 답장 및 액션과 같은 인터랙티브 기능 등 더욱 풍부한 기능을 갖추고 있습니다.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
@@ -2297,15 +2296,17 @@ RCS는 SMS와 MMS의 차세대 버전입니다. SMS와 같은 직접적이고 �
 
 ### 웹훅 {#webhooks}
 
-웹훅은 2024년 12월 9일부터 메시지 크레딧의 일부가 되었습니다. Braze는 Braze 플랫폼에서 전송되는 모든 웹훅에 대해 메시지 크레딧을 청구합니다. 기본적으로 계약에는 구독 기간의 각 기간당 십만 건의 웹훅이 포함되어 있습니다. 추가 웹훅은 주문서에 따라 청구됩니다.
+웹훅은 2024년 12월 9일부터 메시지 크레딧의 일부가 되었습니다. Braze는 Braze 플랫폼에서 전송되는 모든 웹훅에 대해 메시지 크레딧을 부과합니다. 기본적으로, 계약에는 구독 기간의 각 기간당 십만 건의 웹훅이 포함되어 있습니다. 추가 웹훅은 주문서에 따라 부과됩니다.
+
+{% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Message Credits' %}
 
 ### 자체 SMS 커넥터(BYO) {#bring-your-own-byo-sms-connectors}
 
-Braze는 고객이 "BYO SMS 커넥터" 모델을 통해 서드파티 공급자와 통합하여 SMS 메시지를 전송할 수 있도록 합니다. Braze는 BYO SMS 커넥터를 통해 Braze 플랫폼에서 전송되는 각 메시지에 대해 메시지 크레딧을 청구합니다.
+Braze는 고객이 "BYO SMS 커넥터" 모델을 통해 서드파티 공급자와 통합하여 SMS 메시지를 전송할 수 있도록 지원합니다. Braze는 BYO SMS 커넥터를 통해 Braze 플랫폼에서 전송되는 각 메시지에 대해 메시지 크레딧을 부과합니다.
 
 ### LINE
 
-Braze는 Braze 플랫폼에서 전송되는 모든 LINE 메시지에 대해 메시지 크레딧을 청구합니다.
+Braze는 Braze 플랫폼에서 전송되는 모든 LINE 메시지에 대해 메시지 크레딧을 부과합니다.
 
 ## 청구 지역 분류 {#billing-region-breakdown}
 

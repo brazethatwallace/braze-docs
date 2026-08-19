@@ -164,7 +164,7 @@ Operator는 OpenAI의 인공지능 시스템이자 Braze 서드파티 제공업�
 
 - 주제, 스타일, 분위기, 색상을 구체적으로 설명하세요. 세부 정보를 많이 포함할수록 더 좋은 결과를 얻을 수 있습니다. 참조 이미지 업로드는 지원되지 않습니다.
 - Operator 프롬프트에서 [브랜드 가이드라인](#apply-brand-guidelines)을 컨텍스트로 적용하면, Operator가 생성된 이미지에 직접 적용하여 결과물이 브랜드의 시각적 스타일을 반영합니다.
-- 이미지 생성은 일일 Operator 사용 한도에 포함됩니다. 자세한 내용은 [제한 사항](#limitations)을 참조하세요.
+- 이미지 생성은 다른 Operator 작업과 함께 회사 전체 일일 Operator 사용 한도에 포함됩니다. 자세한 내용은 [제한 사항](#limitations)을 참조하세요.
 
 ### 콘텐츠 품질 검토 {#review-content-quality}
 
@@ -260,7 +260,7 @@ Operator의 대시보드 지원 범위는 넓지만 한계가 있습니다.
 - **Campaign 복제:** Operator는 Campaigns 목록 보기에서 기존 Campaign을 복제할 수 없습니다. 유사한 Campaign을 만들려면 Operator에게 처음부터 새로 만들도록 요청하거나, 목록 보기의 **More Actions** 메뉴에서 수동으로 Campaign을 복제하세요.
 - **드래그 앤 드롭 편집기:** Operator는 [이메일]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [배너]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner), [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)용 드래그 앤 드롭 편집기에서 메시지 디자인을 직접 생성하거나 삽입할 수 없습니다. 해당 HTML 편집기로 전환하여 Operator를 사용하거나, Operator에게 카피 등의 콘텐츠를 생성하도록 요청한 후 수동으로 붙여넣으세요. 지원되는 채널과 편집기에 대해서는 [메시지 생성](#generate-messages)을 참조하세요.
 - **화면 가시성:** Operator는 페이지 인식 컨텍스트를 사용하여 사용자가 보고 있는 내용을 이해하며, 지원되는 미리보기와 편집기 내의 콘텐츠도 포함됩니다. 페이지의 일부가 Operator가 읽을 수 있는 범위 밖에 있으면, 추측하는 대신 알려주므로 해당 콘텐츠를 직접 설명할 수 있습니다.
-- **사용 한도:** Operator에는 24시간마다 초기화되는 회사 전체 일일 사용 한도가 있습니다. 이미지 생성도 이 한도에 포함됩니다. 한도에 도달하면 "일일 사용 한도 초과" 메시지가 표시되며 초기화될 때까지 추가 요청을 할 수 없습니다. 문제 해결 단계는 [문제 해결]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting)을 참조하세요.
+- **사용 한도:** Operator에는 24시간마다 초기화되는 회사 전체 일일 사용 한도가 있습니다. 모든 Operator 작업이 이 한도에 포함되며, 사용량은 Operator가 읽고 생성해야 하는 양에 따라 달라집니다. 질문하기, 정보 조회, [지원 티켓 제출]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets)은 비교적 가벼운 사용에 해당합니다. Campaign이나 Segment 같은 오브젝트를 만들거나 편집하는 것은 더 많은 사용량을 소모합니다. [이미지 생성](#generate-images)도 이 한도에 포함됩니다. 한도에 도달하면 "Daily limit reached" 메시지가 표시되며, 한도가 초기화될 때까지 Operator는 추가 요청을 처리하지 않습니다. 문제 해결 단계는 [문제 해결]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting)을 참조하세요.
 
 ## 레거시 어시스턴트 {#legacy-assistants}
 

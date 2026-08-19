@@ -32,21 +32,21 @@ Braze exclut ces vues du Générateur de requêtes et des extensions de segments
 
 Pour exécuter un rapport dans le Générateur de requêtes :
 
-1. Allez dans **Analytics** > **Générateur de requêtes**.
+1. Accédez à **Analytics** > **Générateur de requêtes**.
 2. Sélectionnez **Create SQL Query**. Si vous avez besoin d'inspiration ou d'aide pour rédiger votre requête, sélectionnez **Query Template** et choisissez un modèle dans la liste. Sinon, sélectionnez **SQL Editor** pour accéder directement à l'éditeur.
 3. Votre rapport reçoit automatiquement un nom basé sur la date et l'heure actuelles. Survolez le nom et sélectionnez <i class="fas fa-pencil" alt="Modifier"></i> pour donner un nom significatif à votre requête SQL.
-4. Rédigez votre requête SQL dans l'éditeur ou [obtenez l'aide de l'IA](#ai-query-builder) depuis l'onglet **AI Query Builder**. Si vous rédigez votre propre requête SQL, consultez [Rédiger des requêtes SQL personnalisées](#custom-sql) pour les exigences et les ressources.
+4. Rédigez votre requête SQL dans l'éditeur ou [obtenez l'aide de l'IA](#ai-query-builder) depuis l'onglet **AI Query Builder**. Si vous rédigez votre propre requête SQL, consultez [Rédiger des requêtes SQL personnalisées](#custom-sql) pour connaître les exigences et les ressources disponibles.
 5. Sélectionnez **Run Query**.
 6. Enregistrez votre requête.
 7. Pour télécharger un CSV de votre rapport, sélectionnez **Export**.
 
 ![Le Générateur de requêtes affichant les résultats de la requête modèle « Channel engagement and revenue for the last 30 days ».]({% image_buster /assets/img_archive/query_builder.png %})
 
-Les résultats de chaque rapport peuvent être générés une fois par jour. Si vous exécutez le même rapport plus d'une fois au cours d'une même journée calendaire, vous verrez les mêmes résultats dans les deux rapports.
+Les résultats de chaque rapport peuvent être générés une fois par jour. Si vous exécutez le même rapport plus d'une fois au cours d'une même journée calendaire, vous obtiendrez les mêmes résultats dans les deux rapports.
 
 ### Modèles de requêtes {#query-templates}
 
-Accédez aux modèles de requêtes en sélectionnant **Create SQL Query** > **Query Template** lors de la création initiale d'un rapport.
+Accédez aux modèles de requêtes en sélectionnant **Create SQL Query** > **Query Template** lors de la création d'un rapport.
 
 Consultez [Modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) pour obtenir la liste des modèles disponibles.
 
@@ -83,9 +83,17 @@ send_date_sydney;
 
 ### Historique des requêtes {#query-history}
 
-La section **Historique des requêtes** du Générateur de requêtes affiche vos requêtes précédemment exécutées pour vous aider à suivre et réutiliser votre travail. L'historique des requêtes est conservé pendant sept jours, ce qui signifie que les requêtes datant de plus de sept jours sont automatiquement supprimées.
+La section **Query history** du Générateur de requêtes affiche vos requêtes précédemment exécutées pour vous aider à suivre et réutiliser votre travail. L'historique des requêtes est conservé pendant sept jours, ce qui signifie que les requêtes datant de plus de sept jours sont automatiquement supprimées.
 
 Si vous devez auditer l'utilisation des requêtes sur des périodes plus longues ou conserver des enregistrements au-delà de sept jours, nous vous recommandons d'exporter ou d'enregistrer les résultats de requêtes importants avant leur expiration.
+
+### Comparaison du Générateur de requêtes avec d'autres sources de rapports {#comparing-query-builder-with-other-reporting-sources}
+
+Les résultats du Générateur de requêtes peuvent différer de ceux d'autres outils de reporting, car ils utilisent des sources de données et des méthodes de traitement différentes.
+
+Par exemple, le nombre d'échecs provisoires d'envoi dans le Générateur de requêtes peut être plus élevé que dans les rapports de livrabilité SendGrid. Le Générateur de requêtes comptabilise toutes les occurrences d'échecs provisoires d'envoi sans déduplication. Si un utilisateur subit plusieurs échecs provisoires d'envoi avant une livraison réussie (ou après des tentatives prolongées), chaque tentative d'échec provisoire est comptabilisée. SendGrid Deliverability utilise ses propres données et sa propre logique, auxquelles Braze n'a pas accès, de sorte que les chiffres entre les deux rapports peuvent ne pas correspondre.
+
+Pour plus d'informations sur le suivi des échecs provisoires d'envoi dans les différentes sources de rapports, consultez [Échec provisoire d'envoi]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce) dans le glossaire d'analyse des e-mails.
 
 ## Générer du SQL avec le Générateur de requêtes IA {#generating-sql-with-the-ai-query-builder}
 
@@ -102,7 +110,7 @@ Pour générer du SQL avec le Générateur de requêtes IA :
 ### Conseils {#tips}
 
 - Familiarisez-vous avec les tables et colonnes disponibles dans la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). Demander des données qui n'existent pas dans ces tables peut amener ChatGPT à inventer une table fictive.
-- Familiarisez-vous avec les [règles d'écriture SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) propres à cette fonctionnalité. Ne pas respecter ces règles entraînera une erreur.
+- Familiarisez-vous avec les [règles d'écriture SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) propres à cette fonctionnalité. Le non-respect de ces règles entraînera une erreur.
 - Vous pouvez envoyer jusqu'à 20 prompts par minute avec le Générateur de requêtes IA.
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
@@ -205,7 +213,7 @@ Les types de variables suivants sont acceptés :
 
 #### Nombre {#number}
 
-- **Valeur de remplacement :** La valeur fournie, telle que `5.5`
+- **Valeur de remplacement :** La valeur fournie, par exemple `5.5`
 - **Exemple d'utilisation :** {% raw %}`some_number_column < {{number.${some name}}}`{% endraw %}
 
 #### Plage de dates {#date-range}
@@ -214,7 +222,7 @@ Si vous utilisez à la fois `start_date` et `end_date`, ils doivent avoir le mê
 
 ##### Exemples de valeurs {#example-values}
 
-Le type de plage de dates peut être relatif, date de début, date de fin ou plage de dates.
+Le type plage de dates peut être relatif, date de début, date de fin ou plage de dates.
 
 Les quatre types sont affichés si `start_date` et `end_date` sont utilisés avec le même nom. Si un seul est utilisé, seuls les types pertinents seront affichés.
 
@@ -226,7 +234,7 @@ Les quatre types sont affichés si `start_date` et `end_date` sont utilisés ave
 | Plage de dates | Spécifie à la fois une date de début et une date de fin | Nécessite à la fois `start_date` et `end_date` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Exemples de valeurs" }
 
-- **Valeur de remplacement :** Remplace `start_date` et `end_date` par un horodatage Unix en secondes pour une date spécifiée en UTC, tel que `1696517353`.
+- **Valeur de remplacement :** Remplace `start_date` et `end_date` par un horodatage Unix en secondes pour une date spécifiée en UTC, par exemple `1696517353`.
 - **Exemple d'utilisation :** Pour toutes les variables relatives, de date de début, de date de fin et de plage de dates :
     - {% raw %}`time > {{start_date.${some name}}} AND time < {{end_date.${some name}}}` {% endraw %}
         - Vous pouvez utiliser soit `start_date`, soit `end_date` si vous ne souhaitez pas de plage de dates.
@@ -237,56 +245,56 @@ Toutes les variables de communication doivent partager le même identifiant lors
 
 ##### Canvas {#canvas}
 
-Pour sélectionner un Canvas. Partager le même nom avec une campagne entraînera l'affichage d'un bouton radio dans l'onglet **Variables** permettant de choisir entre Canvas ou campagne.
+Pour sélectionner un Canvas. Partager le même nom avec une Campaign entraînera l'affichage d'un bouton radio dans l'onglet **Variables** permettant de choisir entre Canvas ou Campaign.
 
 - **Valeur de remplacement :** ID BSON du Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
 ##### Canvas (multiples) {#canvases}
 
-Pour sélectionner plusieurs Canvas. Partager le même nom avec une campagne entraînera l'affichage d'un bouton radio dans l'onglet **Variables** permettant de choisir entre Canvas ou campagne.
+Pour sélectionner plusieurs Canvas. Partager le même nom avec une Campaign entraînera l'affichage d'un bouton radio dans l'onglet **Variables** permettant de choisir entre Canvas ou Campaign.
 
 - **Valeur de remplacement :** ID BSON des Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_id IN ({{canvases.${some name}}})`{% endraw %}
 
 ##### Campaign {#campaign}
 
-Pour sélectionner une campagne. Partager le même nom avec un Canvas entraînera l'affichage d'un bouton radio dans l'onglet **Variables** permettant de choisir entre Canvas ou campagne.
+Pour sélectionner une Campaign. Partager le même nom avec un Canvas entraînera l'affichage d'un bouton radio dans l'onglet **Variables** permettant de choisir entre Canvas ou Campaign.
 
 - **Valeur de remplacement :** ID BSON de la Campaign
 - **Exemple d'utilisation :** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
 ##### Campaigns {#campaigns}
 
-Pour sélectionner plusieurs campagnes. Partager le même nom avec un Canvas entraînera l'affichage d'un bouton radio dans l'onglet **Variables** permettant de choisir entre Canvas ou campagne.
+Pour sélectionner plusieurs Campaigns. Partager le même nom avec un Canvas entraînera l'affichage d'un bouton radio dans l'onglet **Variables** permettant de choisir entre Canvas ou Campaign.
 
 - **Valeur de remplacement :** ID BSON des Campaigns
 - **Exemple d'utilisation :** {% raw %}`campaign_id IN ({{campaigns.${some name}}})`{% endraw %}
 
 ##### Variantes de campagne {#campaign-variants}
 
-Pour sélectionner les variantes de campagne appartenant à la campagne sélectionnée. Doit être utilisé conjointement avec une variable de type campaign ou campaigns.
+Pour sélectionner les variantes de campagne appartenant à la Campaign sélectionnée. Cette variable doit être utilisée conjointement avec une variable Campaign ou Campaigns.
 
-- **Valeur de remplacement :** ID API des variantes de campagne, chaînes de caractères délimitées par des virgules telles que `api-id1, api-id2`.
+- **Valeur de remplacement :** ID API des variantes de campagne, chaînes de caractères délimitées par des virgules, par exemple `api-id1, api-id2`.
 - **Exemple d'utilisation :** {% raw %}`message_variation_api_id IN ({{campaign_variants.${some name}}})`{% endraw %}
 
 ##### Variantes de Canvas {#canvas-variants}
 
-Pour sélectionner les variantes de Canvas appartenant à un Canvas choisi. Doit être utilisé avec une variable de type Canvas ou Canvas (multiples).
+Pour sélectionner les variantes de Canvas appartenant à un Canvas choisi. Cette variable doit être utilisée avec une variable Canvas ou Canvas (multiples).
 
-- **Valeur de remplacement :** ID API des variantes de Canvas, chaînes de caractères délimitées par des virgules telles que `api-id1, api-id2`.
+- **Valeur de remplacement :** ID API des variantes de Canvas, chaînes de caractères délimitées par des virgules, par exemple `api-id1, api-id2`.
 - **Exemple d'utilisation :** {% raw %}`canvas_variation_api_id IN ({{canvas_variants.${some name}}})`{% endraw %}
 
 ##### Étape du Canvas {#canvas-step}
 
-Pour sélectionner une étape du Canvas appartenant à un Canvas choisi. Doit être utilisé avec une variable de type Canvas.
+Pour sélectionner une étape du Canvas appartenant à un Canvas choisi. Cette variable doit être utilisée avec une variable Canvas.
 
 - **Valeur de remplacement :** ID API de l'étape du Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_step_api_id = '{{canvas_step.${some name}}}'`{% endraw %}
 
 ##### Étapes du Canvas {#canvas-steps}
 
-Pour sélectionner les étapes du Canvas appartenant aux Canvas choisis. Doit être utilisé avec une variable de type Canvas ou Canvas (multiples).
+Pour sélectionner les étapes du Canvas appartenant aux Canvas choisis. Cette variable doit être utilisée avec une variable Canvas ou Canvas (multiples).
 
 - **Valeur de remplacement :** ID API des étapes du Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_step_api_id IN ({{canvas_steps.${some name}}})`{% endraw %}

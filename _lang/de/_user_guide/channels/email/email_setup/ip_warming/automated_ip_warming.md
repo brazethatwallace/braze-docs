@@ -13,17 +13,13 @@ channel: email
 
 ## So funktioniert es {#how-it-works}
 
-Sie können automatisiertes IP-Warming verwenden, um Ihr tägliches Sendevolumen schrittweise zu erhöhen, sodass Posteingangs-Anbieter Ihre Sendemuster kennenlernen und ihnen vertrauen können. Wenn Sie eine Domain zu Ihrem Workspace hinzufügen, können Sie die Kachel **Automated IP Warming** im Abschnitt **Pick up where you left off** Ihres Home-Dashboards auswählen. Diese Kachel bleibt 60 Tage lang sichtbar, während sich Ihr Workspace im Onboarding-Fenster für neue Sender befindet. Wenn Ihr Workspace mehrere Pläne unterstützt, wird die Kachel auch ausgeblendet, nachdem Sie mindestens einen Plan abgeschlossen haben.
+Sie können automatisiertes IP-Warming verwenden, um Ihr tägliches Sendevolumen schrittweise zu erhöhen, sodass Posteingangs-Anbieter Ihre Sendemuster kennenlernen und ihnen vertrauen können. Wenn Sie eine Domain zu Ihrem Workspace hinzufügen, können Sie die Kachel **Automated IP Warming** im Abschnitt **Pick up where you left off** Ihres Home-Dashboards auswählen. Diese Kachel bleibt 60 Tage lang sichtbar, während sich Ihr Workspace im Onboarding-Fenster für neue Sender befindet, und wird ausgeblendet, nachdem Sie mindestens einen Plan abgeschlossen haben.
 
 Jeder automatisierte IP-Warming-Plan ist an eine Absenderadresse gebunden. Diese Absenderadresse ist einer Sende-Subdomain und einem IP-Pool zugeordnet. Wenn der Pool mehrere dedizierte IPs enthält, wärmt Braze diese gemeinsam in einem einzigen Plan auf.
 
-Braze sendet zuerst an Ihre am stärksten engagierten Abonnent:innen, sodass das tägliche Volumen in einem Tempo wachsen kann, das den Best Practices entspricht. Anschließend verfolgt Braze Engagement- und Zustellbarkeitssignale. Wenn Braze Probleme erkennt, passt das System Ihren Zeitplan automatisch an.
+Braze sendet zuerst an Ihre am stärksten engagierten Abonnent:innen, sodass das tägliche Volumen in einem Tempo wachsen kann, das den Best Practices entspricht. Anschließend verfolgt Braze Engagement- und Zustellbarkeits-Signale. Wenn Braze Probleme erkennt, passt das System Ihren Zeitplan automatisch an.
 
 Nachdem Sie mindestens einen Plan abgeschlossen haben, können Sie abgeschlossene Pläne unter **Einstellungen** > **E-Mail-Einstellungen** > **Automated IP Warming** einsehen.
-
-{% alert note %}
-Wenn in Ihrem Dashboard nur eine Einzelplan-Ansicht angezeigt wird, hat Ihr Workspace möglicherweise noch keinen Zugriff auf mehrere IP-Warming-Pläne. Wenden Sie sich an Ihr Braze-Kontoteam, um die Verfügbarkeit zu erfahren.
-{% endalert %}
 
 ## Voraussetzungen {#prerequisites}
 
@@ -33,7 +29,7 @@ Um automatisiertes IP-Warming durchzuführen, benötigen Sie Folgendes:
 - Berechtigungen zum Anzeigen und Einrichten eines Plans:
     - „View Email Settings“ zum Anzeigen von IP-Warming-Plänen und dem Home-Dashboard-Widget
     - „View Email Templates“ zum Auswählen von E-Mail-Templates
-    - „View Segments“ zum Auswählen von Segments
+    - „View Segments“ zum Auswählen von Segmenten
 - Berechtigungen zum Starten eines Plans:
     - „Edit Email Settings“
     - „Edit Campaigns“
@@ -44,40 +40,36 @@ Um automatisiertes IP-Warming durchzuführen, benötigen Sie Folgendes:
 Wenn der Workflow zur Campaign-Genehmigung aktiviert ist, genehmigt Braze automatisch Campaigns, die durch automatisiertes IP-Warming in Ihrem Namen erstellt werden.
 {% endalert %}
 
-{% alert important %}
-Dieses Feature wird je nach Ihrer E-Mail-Infrastruktur möglicherweise nicht unterstützt.
-{% endalert %}
-
 ## Einen automatisierten IP-Warming-Plan einrichten {#set-up-an-automated-ip-warming-plan}
 
 ### Schritt 1: Zeitplan festlegen {#step-1-set-a-schedule}
 
-1. Wenn Ihr Workspace mehrere IP-Warming-Pläne unterstützt, geben Sie einen eindeutigen **Plannamen** ein. Plannamen dürfen nur Buchstaben, Zahlen, Bindestriche und Unterstriche enthalten und müssen innerhalb Ihres Workspace eindeutig sein. Ein Planname ist erforderlich, bevor Sie den Plan starten können.
-2. Wählen Sie im Abschnitt **Sendeinformationen** die **Absenderadresse** aus, für die IP-Adressen aufgewärmt werden sollen. Braze zeigt den zugehörigen **IP-Pool** und die Anzahl der **IP-Adressen im Pool** für diese Absenderadresse an.
-3. Geben Sie das **aktuelle tägliche Sendevolumen** und das **Ziel-Sendevolumen** ein. Braze empfiehlt ein Ziel-Sendevolumen von bis zu 2 Millionen Sends pro IP im ausgewählten Pool. Wenn Ihr aktuelles tägliches Sendevolumen 0 beträgt, beginnt der erste Tag Ihres Zeitplans mit bis zu 50 Sends pro IP, begrenzt auf insgesamt 500.
+1. Geben Sie einen eindeutigen **Plannamen** ein. Plannamen dürfen nur Buchstaben, Zahlen, Bindestriche und Unterstriche enthalten und müssen in Ihrem Workspace eindeutig sein. Ein Planname ist erforderlich, bevor Sie starten können.
+2. Wählen Sie im Abschnitt **Sending information** die **From address** aus, für die IP-Adressen aufgewärmt werden sollen. Braze zeigt den zugehörigen **IP pool** und die Anzahl der **IP addresses in pool** für diese Absenderadresse an.
+3. Geben Sie das **Current daily send volume** und das **Target send volume** ein. Braze empfiehlt ein Zielversandvolumen von bis zu 2 Millionen Sendungen pro IP im ausgewählten Pool. Wenn Ihr aktuelles tägliches Versandvolumen 0 beträgt, beginnt der erste Tag Ihres Zeitplans mit bis zu 50 Sendungen pro IP, begrenzt auf insgesamt 500.
 4. Wählen Sie das Startdatum für das automatisierte IP-Warming aus. Dieses Datum muss mindestens einen Tag nach dem Start des Plans liegen.
-5. Geben Sie die Sendezeit ein. Die Nachrichten werden in der Workspace-Zeitzone (oder der Unternehmens-Zeitzone, falls der Workspace keine Überschreibung hat) gesendet.
-6. Wählen Sie **Weiter: Segmente**, um die Einrichtung fortzusetzen.
+5. Geben Sie die Sendezeit ein. Die Nachrichten werden in der Zeitzone des Workspace (oder der Unternehmenszeitzone, falls der Workspace keine Überschreibung hat) gesendet.
+6. Wählen Sie **Next: Segments**, um die Einrichtung fortzusetzen.
 
 ![Beispiel für Zeitplandetails.]({% image_buster /assets/img/automated_ip_warming_schedule.png %})
 
-### Schritt 2: Segmente auswählen und priorisieren {#step-2-select-and-rank-segments}
+### Schritt 2: Segments auswählen und priorisieren {#step-2-select-and-rank-segments}
 
-1. Wählen Sie als Nächstes die Segmente aus, die angesprochen werden sollen. Während des IP-Warmings beginnt Braze mit dem Versand an Ihre am stärksten engagierten Nutzer:innen und erhöht das Sendevolumen schrittweise über die Zeit, wobei nach und nach Segmente mit geringerem Engagement hinzugefügt werden.
-2. Ziehen Sie die Segmente per Drag-and-Drop, um sie von hohem zu niedrigem Engagement zu ordnen. Hohes Engagement umfasst Empfänger:innen, die Ihre E-Mails regelmäßig öffnen und anklicken. Niedriges Engagement umfasst Empfänger:innen, die unregelmäßig mit Ihren E-Mails interagieren oder seit sehr langer Zeit nicht mehr mit Ihren E-Mails interagiert haben.
-3. Wählen Sie **Weiter: Nachrichten**, um die Einrichtung fortzusetzen.
+1. Wählen Sie als Nächstes die Segments aus, die angesprochen werden sollen. Während des IP-Warmings beginnt Braze mit dem Versand an Ihre am stärksten engagierten Nutzer:innen und erhöht das Versandvolumen schrittweise über die Zeit, wobei nach und nach Segments mit geringerem Engagement hinzugefügt werden.
+2. Ziehen Sie die Segments per Drag-and-Drop, um sie von hohem zu niedrigem Engagement zu ordnen. Hohes Engagement umfasst Empfänger:innen, die Ihre E-Mails regelmäßig öffnen und anklicken. Niedriges Engagement umfasst Empfänger:innen, die unregelmäßig mit Ihren E-Mails interagieren oder seit sehr langer Zeit nicht mehr mit Ihren E-Mails interagiert haben.
+3. Wählen Sie **Next: Messages**, um die Einrichtung fortzusetzen.
 
-![Zwei ausgewählte Segmente für das automatisierte IP-Warming.]({% image_buster /assets/img/automated_ip_warming_segment.png %})
+![Zwei ausgewählte Segments für das automatisierte IP-Warming.]({% image_buster /assets/img/automated_ip_warming_segment.png %})
 
 ### Schritt 3: Zu sendende Nachrichten auswählen {#step-3-select-the-messages-to-send}
 
-1. Wählen Sie **E-Mail-Templates auswählen**.
+1. Wählen Sie **Select email templates**.
 2. Wählen Sie die E-Mail-Templates für die zu sendenden Nachrichten aus. Die Inhalte, die Sie während des IP-Warmings versenden, sollten Öffnungen und Klicks fördern. Wir empfehlen, Inhalte zu wählen, die in der Vergangenheit gut angekommen sind. Sie können beispielsweise Aktionsangebote nutzen, um sofortiges Engagement und Käufe zu fördern.
-3. Wählen Sie **Templates auswählen**. Braze berechnet die Anzahl der erforderlichen Templates, bevor Sie starten können. Wir empfehlen, mehr Templates als die Mindestanzahl bereitzustellen, damit das System bei Zustellbarkeitsproblemen Anpassungen vornehmen kann, ohne den Prozess zu stoppen.
-4. Nachdem Sie die erforderliche Anzahl an Templates hinzugefügt haben, wählen Sie **Weiter: Zusammenfassung**.
+3. Wählen Sie **Select templates**. Braze berechnet die Anzahl der erforderlichen Templates, bevor Sie starten können. Wir empfehlen, mehr Templates als die Mindestanzahl bereitzustellen, damit das System bei Zustellbarkeitsproblemen Anpassungen vornehmen kann, ohne den Prozess zu stoppen.
+4. Nachdem Sie die erforderliche Anzahl an Templates hinzugefügt haben, wählen Sie **Next: Summary**.
 
 {% alert important %}
-Änderungen an den Campaigns, die über das IP-Warming-Tool erstellt wurden (z. B. Änderungen am geplanten Datum, Segment oder Volumen), werden nicht auf der Seite **Zusammenfassung** des IP-Warmings widergespiegelt.
+Änderungen an den Campaigns, die über das IP-Warming-Tool erstellt wurden (z. B. Änderungen am geplanten Datum, Segment, Volumen), werden auf der IP-Warming-Seite **Summary** nicht widergespiegelt.
 {% endalert %}
 
 ### Schritt 4: Konversions-Events auswählen {#step-4-select-conversion-events}
@@ -91,13 +83,13 @@ Sie können bis zu vier der folgenden Konversions-Events zur Nachverfolgung defi
 - E-Mail öffnen
 - E-Mail anklicken
 
-Wählen Sie als Nächstes die Konversionsfrist aus. Dies ist die maximale Zeitspanne, die zwischen dem Eintritt einer Nutzer:in in eine Campaign und dem Konversions-Event vergehen darf.
+Wählen Sie als Nächstes die Konversionsfrist aus. Dies ist die maximale Zeitspanne, die zwischen dem Eintritt einer Nutzerin oder eines Nutzers in eine Campaign und dem Konversions-Event vergehen darf.
 
 ![Konversionseinstellungen mit Auswahl des Konversions-Events und der Konversionsfrist.]({% image_buster /assets/img/automated_ip_warming_conversions.png %})
 
 ### Schritt 5: Überprüfen und starten {#step-5-review-and-launch}
 
-Überprüfen Sie die Details Ihres IP-Warming-Plans. Wählen Sie dann **Starten**.
+Überprüfen Sie die Details Ihres IP-Warming-Plans. Wählen Sie dann **Launch**.
 
 ## Mehrere IPs gleichzeitig aufwärmen {#multiple-ip-warming}
 
@@ -123,7 +115,7 @@ So wärmen Sie mehr als eine Absenderadresse oder einen IP-Pool auf:
 2. Wählen Sie **Neuer IP-Warming-Plan** aus.
 3. Geben Sie einen eindeutigen **Plannamen** ein.
 4. Schließen Sie die Einrichtung für diese Absenderadresse ab.
-5. Wiederholen Sie den Vorgang für jede weitere Absenderadresse oder jeden weiteren IP-Pool, den Sie aufwärmen müssen.
+5. Wiederholen Sie den Vorgang für jede weitere Absenderadresse oder jeden weiteren IP-Pool, den Sie aufwärmen möchten.
 
 Verfolgen Sie jeden Plan über die Tabelle **Automatisiertes IP-Warming**. Jeder Plan hat seinen eigenen Zeitplan, eigene Segmente, Templates, Campaigns und einen eigenen Tracker. Pläne können den Status **Entwurf**, **In Bearbeitung**, **Abgeschlossen** oder **Gestoppt** haben.
 
@@ -133,7 +125,7 @@ Vermeiden Sie es, große Nicht-Warming-Campaigns von derselben Absenderadresse o
 
 ## Während des aktiven IP-Warmings {#during-active-ip-warming}
 
-IP-Warming-Campaigns werden um Mitternacht in der gültigen Zeitzone für den aktuellen Tag und den nächsten Tag erstellt (0 bis 1 Tage vor dem Versand). Beim Starten eines Plans werden auch bevorstehende Campaigns sofort erstellt. Diese Campaigns werden automatisch im folgenden Format benannt: `IP Warming Day [X] - [Date] - [Template Name]`.
+IP-Warming-Campaigns werden um Mitternacht in der geltenden Zeitzone für den aktuellen und den nächsten Tag erstellt (0 bis 1 Tage vor dem Versand). Beim Starten eines Plans werden auch bevorstehende Campaigns sofort erstellt. Diese Campaigns werden automatisch im folgenden Format benannt: `IP Warming Day [X] - [Date] - [Template Name]`.
 
 Wenn das angestrebte tägliche Versandziel erreicht ist, stoppt das System den Versand für diesen Tag, um Ihre Reputation zu schützen.
 
@@ -148,7 +140,7 @@ Informationen dazu, was passiert, wenn das Volumen gehalten wird, finden Sie unt
 
 ## IP-Warming-Plan stoppen {#stop-an-ip-warmup-plan}
 
-Sie können einen IP-Warming-Plan stoppen, um die Erstellung zukünftiger Campaigns zu verhindern. Das Stoppen eines Plans deaktiviert auch alle zugehörigen Campaigns. Nachdem Sie einen Plan gestoppt haben, können Sie ihn nicht wieder fortsetzen. Richten Sie einen neuen Plan ein, um dort weiterzumachen, wo Sie aufgehört haben, indem Sie:
+Sie können einen IP-Warming-Plan stoppen, um die Erstellung zukünftiger Campaigns zu verhindern. Durch das Stoppen eines Plans werden auch alle zugehörigen Campaigns deaktiviert. Nachdem Sie einen Plan gestoppt haben, können Sie ihn nicht wieder fortsetzen. Richten Sie einen neuen Plan ein, um dort weiterzumachen, wo Sie aufgehört haben, indem Sie:
 
 - Die vorhandenen Daten Ihres gestoppten Plans herunterladen, um sie für Ihre Unterlagen aufzubewahren
 - Das **Aktuelle tägliche Sendevolumen** auf das zuletzt verwendete Volumen aktualisieren
@@ -156,9 +148,9 @@ Sie können einen IP-Warming-Plan stoppen, um die Erstellung zukünftiger Campai
 
 ## Wenn ein IP-Warming abgeschlossen ist {#when-an-ip-warming-completes}
 
-IP-Warming wird als abgeschlossen markiert, wenn der letzte Tag des IP-Warmings um Mitternacht in der Zeitzone Ihres Workspace (oder der Unternehmens-Zeitzone, falls der Workspace keine eigene Einstellung hat) endet. Wenn beispielsweise die letzte Campaign im Plan um 20 Uhr gesendet wird, wird der Plan vier Stunden später um Mitternacht als abgeschlossen markiert.
+IP-Warming wird als abgeschlossen markiert, wenn der letzte Tag des IP-Warmings um Mitternacht in der Zeitzone Ihres Workspace (oder der Unternehmens-Zeitzone, falls der Workspace keine eigene Einstellung hat) endet. Wenn beispielsweise die letzte Campaign im Plan um 20 Uhr versendet wird, wird der Plan vier Stunden später um Mitternacht als abgeschlossen markiert.
 
-Abgeschlossene Pläne bleiben unter **Einstellungen** > **E-Mail-Einstellungen** > **Automatisiertes IP-Warming** verfügbar. Wenn Ihr Workspace die Einzelplan-Ansicht verwendet, bleibt der Tracker auch 90 Tage nach Ende des Plans auf dem Start-Dashboard sichtbar. Nach 90 Tagen wird der Tracker vom Start-Dashboard entfernt.
+Abgeschlossene Pläne bleiben unter **Einstellungen** > **E-Mail-Einstellungen** > **Automatisiertes IP-Warming** verfügbar. Der Tracker bleibt außerdem 90 Tage nach Ende des Plans auf dem Start-Dashboard sichtbar. Nach 90 Tagen wird der Tracker vom Start-Dashboard entfernt.
 
 Der Datendownload enthält diese Standard-E-Mail-Metriken:
 
@@ -171,6 +163,6 @@ Der Datendownload enthält diese Standard-E-Mail-Metriken:
 - _Geklickt_
 - _Abgemeldet_
 
-Wenn ein Tag mehrere Campaigns umfasst, die zur Erfüllung der Volumenanforderungen verwendet wurden, werden diese in der Tagesansicht aggregiert.
+Wenn an einem Tag mehrere Campaigns verwendet werden, um die Volumenanforderungen zu erfüllen, werden diese in der Tagesansicht aggregiert.
 
 ![IP-Warming-Tracker mit Sendevolumen für die Woche vom 16. Januar.]({% image_buster /assets/img/automated_ip_warming_example.png %})

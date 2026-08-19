@@ -17,9 +17,9 @@ Da der Abfrage-Builder direkten Zugriff auf bestimmte Kundendaten ermöglicht, k
 
 Der Abfrage-Builder verwendet dieselben Snowflake-SQL-Tabellen wie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Eine vollständige Liste der verfügbaren Tabellen und ihrer Spalten finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 
-### Views für Nutzerprofilattribute {#user-profile-attribute-views}
+### Nutzerprofil-Attribut-Views {#user-profile-attribute-views}
 
-Der Abfrage-Builder und SQL-Segmenterweiterungen enthalten die meisten [Views für Nutzerprofilattribute]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views), wie z. B. periodische Snapshots und den Verlauf von Standardattributen.
+Der Abfrage-Builder und SQL-Segmenterweiterungen enthalten die meisten [Nutzerprofil-Attribut-Views]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views), wie z. B. periodische Snapshots und den Verlauf der Standardattribute.
 
 Zwei Views für angepasste Attribute sind nur über [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes) verfügbar:
 
@@ -33,12 +33,12 @@ Braze schließt diese Views aus dem Abfrage-Builder und den SQL-Segmenterweiteru
 So führen Sie einen Bericht im Abfrage-Builder aus:
 
 1. Gehen Sie zu **Analytics** > **Abfrage-Builder**.
-2. Wählen Sie **Create SQL Query** aus. Wenn Sie Inspiration oder Hilfe beim Erstellen Ihrer Abfrage benötigen, wählen Sie **Query Template** und dann ein Template aus der Liste. Andernfalls wählen Sie **SQL Editor**, um direkt zum Editor zu gelangen.
+2. Wählen Sie **SQL-Abfrage erstellen** aus. Wenn Sie Inspiration oder Hilfe beim Erstellen Ihrer Abfrage benötigen, wählen Sie **Query Template** und dann ein Template aus der Liste aus. Andernfalls wählen Sie **SQL Editor**, um direkt zum Editor zu gelangen.
 3. Ihr Bericht erhält automatisch einen Namen mit dem aktuellen Datum und der Uhrzeit. Bewegen Sie den Mauszeiger über den Namen und wählen Sie <i class="fas fa-pencil" alt="Bearbeiten"></i>, um Ihrer SQL-Abfrage einen aussagekräftigen Namen zu geben.
-4. Schreiben Sie Ihre SQL-Abfrage im Editor oder [lassen Sie sich von KI unterstützen](#ai-query-builder) über den Tab **AI Query Builder**. Wenn Sie Ihre eigene SQL-Abfrage schreiben, finden Sie unter [Angepasste SQL-Abfragen schreiben](#custom-sql) Anforderungen und Ressourcen.
-5. Wählen Sie **Run Query** aus.
+4. Schreiben Sie Ihre SQL-Abfrage im Editor oder [lassen Sie sich von KI unterstützen](#ai-query-builder) über den Tab **KI-Abfrage-Builder**. Wenn Sie Ihre eigene SQL-Abfrage schreiben, finden Sie unter [Angepasste SQL-Abfragen schreiben](#custom-sql) Anforderungen und Ressourcen.
+5. Wählen Sie **Abfrage ausführen** aus.
 6. Speichern Sie Ihre Abfrage.
-7. Um eine CSV-Datei Ihres Berichts herunterzuladen, wählen Sie **Export** aus.
+7. Um eine CSV-Datei Ihres Berichts herunterzuladen, wählen Sie **Exportieren** aus.
 
 ![Abfrage-Builder mit den Ergebnissen für die Template-Abfrage „Kanal-Engagement und Umsatz der letzten 30 Tage“.]({% image_buster /assets/img_archive/query_builder.png %})
 
@@ -46,7 +46,7 @@ Ergebnisse für jeden Bericht können einmal pro Tag generiert werden. Wenn Sie 
 
 ### Abfrage-Templates {#query-templates}
 
-Greifen Sie auf Abfrage-Templates zu, indem Sie beim Erstellen eines Berichts **Create SQL Query** > **Query Template** auswählen.
+Greifen Sie auf Abfrage-Templates zu, indem Sie beim Erstellen eines Berichts **SQL-Abfrage erstellen** > **Query Template** auswählen.
 
 Eine Liste der verfügbaren Templates finden Sie unter [Abfrage-Builder-Templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates).
 
@@ -56,7 +56,7 @@ Abfragen liefern Daten aus den letzten 60 Tagen. Wenn Sie Currents oder [Snowfla
 
 ### Zeitzone im Abfrage-Builder {#query-builder-time-zone}
 
-Die Standardzeitzone für Abfragen in unserer Snowflake-Datenbank ist UTC. Daher kann es zu Datenabweichungen zwischen Ihrer Seite **Email Channel Engagement** (die der Zeitzone Ihres Unternehmens folgt) und Ihren Abfrage-Builder-Ergebnissen kommen.
+Die Standardzeitzone für Abfragen in unserer Snowflake-Datenbank ist UTC. Daher kann es zu Datenabweichungen zwischen Ihrer Seite **E-Mail-Kanal-Engagement** (die der Zeitzone Ihres Unternehmens folgt) und Ihren Abfrage-Builder-Ergebnissen kommen.
 
 Um die Zeitzone in Ihren Abfrageergebnissen umzurechnen, fügen Sie Ihrer Abfrage das folgende SQL hinzu und passen Sie es an die Zeitzone Ihres Unternehmens an:
 
@@ -87,11 +87,19 @@ Der Bereich **Abfrageverlauf** im Abfrage-Builder zeigt Ihre zuvor ausgeführten
 
 Wenn Sie die Abfragenutzung über längere Zeiträume prüfen oder Aufzeichnungen über sieben Tage hinaus aufbewahren müssen, empfehlen wir, wichtige Abfrageergebnisse zu exportieren oder zu speichern, bevor sie ablaufen.
 
+### Vergleich des Abfrage-Builders mit anderen Berichtsquellen {#comparing-query-builder-with-other-reporting-sources}
+
+Die Ergebnisse des Abfrage-Builders können von anderen Berichtstools abweichen, da sie unterschiedliche Datenquellen und Verarbeitungsmethoden verwenden.
+
+Beispielsweise können die Soft-Bounce-Zahlen im Abfrage-Builder höher sein als in SendGrid-Zustellbarkeitsberichten. Der Abfrage-Builder zählt alle Vorkommen von Soft-Bounces ohne Deduplizierung. Wenn bei einer Nutzerin oder einem Nutzer mehrere Soft-Bounces auftreten, bevor die Zustellung schließlich erfolgt (oder nach längeren Wiederholungsversuchen), wird jeder Soft-Bounce-Versuch einzeln gezählt. SendGrid Deliverability verwendet eigene Daten und Logik, in die Braze keinen Einblick hat, sodass die Zahlen zwischen den beiden Berichten möglicherweise nicht übereinstimmen.
+
+Weitere Informationen darüber, wie Soft-Bounces in verschiedenen Berichtsquellen erfasst werden, finden Sie unter [Soft-Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce) im E-Mail-Analytics-Glossar.
+
 ## SQL mit dem KI-Abfrage-Builder generieren {#generating-sql-with-the-ai-query-builder}
 
 Der KI-Abfrage-Builder nutzt [GPT](https://openai.com/gpt-4), unterstützt von OpenAI, um SQL für Ihre Abfrage vorzuschlagen.
 
-![Der SQL-KI-Abfrage-Builder.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
+![Der KI-Abfrage-Builder für SQL.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
 
 So generieren Sie SQL mit dem KI-Abfrage-Builder:
 
@@ -173,7 +181,7 @@ Ihre Abfrage kann aus folgenden Gründen fehlschlagen:
 
 ## Variablen verwenden {#using-variables}
 
-Verwenden Sie Variablen, um vordefinierte Variablentypen in SQL zu nutzen und Werte zu referenzieren, ohne sie manuell kopieren zu müssen. Anstatt beispielsweise die ID einer Campaign manuell in den SQL-Editor zu kopieren, können Sie {% raw %}`{{campaign.${My campaign}}}`{% endraw %} verwenden, um eine Campaign direkt über ein Dropdown im Tab **Variablen** auszuwählen.
+Verwenden Sie Variablen, um vordefinierte Variablentypen in SQL zu nutzen und Werte zu referenzieren, ohne sie manuell kopieren zu müssen. Anstatt beispielsweise die ID einer Campaign manuell in den SQL-Editor zu kopieren, können Sie {% raw %}`{{campaign.${My campaign}}}`{% endraw %} verwenden, um eine Campaign direkt aus einem Dropdown im Tab **Variablen** auszuwählen.
 
 Nachdem eine Variable erstellt wurde, erscheint sie im Tab **Variablen** Ihres Abfrage-Builder-Berichts. Die Vorteile der Verwendung von SQL-Variablen umfassen:
 
@@ -181,7 +189,7 @@ Nachdem eine Variable erstellt wurde, erscheint sie im Tab **Variablen** Ihres A
 
 ### Richtlinien {#guidelines}
 
-Variablen müssen der folgenden Liquid-Syntax entsprechen: {% raw %}`{{ type.${name}}}`{% endraw %}, wobei `type` einer der akzeptierten Typen sein muss und `name` frei gewählt werden kann. Die Labels für diese Variablen entsprechen standardmäßig dem Variablennamen.
+Variablen müssen der folgenden Liquid-Syntax entsprechen: {% raw %}`{{ type.${name}}}`{% endraw %}, wobei `type` einer der akzeptierten Typen sein muss und `name` frei wählbar ist. Die Labels für diese Variablen entsprechen standardmäßig dem Variablennamen.
 
 Standardmäßig sind alle Variablen Pflichtfelder (und Ihr Bericht wird nicht ausgeführt, wenn keine Variablenwerte ausgewählt sind), mit Ausnahme des Datumsbereichs, der standardmäßig die letzten 30 Tage umfasst, wenn kein Wert angegeben wird.
 
@@ -210,7 +218,7 @@ Die folgenden Variablentypen werden akzeptiert:
 
 #### Datumsbereich {#date-range}
 
-Wenn sowohl `start_date` als auch `end_date` verwendet werden, müssen sie denselben Namen haben, damit sie als Datumsbereich genutzt werden können.
+Wenn sowohl `start_date` als auch `end_date` verwendet werden, müssen sie denselben Namen haben, damit sie als Datumsbereich verwendet werden können.
 
 ##### Beispielwerte {#example-values}
 
@@ -227,7 +235,7 @@ Alle vier Typen werden angezeigt, wenn sowohl `start_date` als auch `end_date` m
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Beispielwerte" }
 
 - **Ersetzungswert:** Ersetzt `start_date` und `end_date` durch einen Unix-Zeitstempel in Sekunden für ein angegebenes Datum in UTC, z. B. `1696517353`.
-- **Verwendungsbeispiel:** Für alle Variablen – relativ, Startdatum, Enddatum und Datumsbereich:
+- **Verwendungsbeispiel:** Für alle Variablentypen – relativ, Startdatum, Enddatum und Datumsbereich:
     - {% raw %}`time > {{start_date.${some name}}} AND time < {{end_date.${some name}}}` {% endraw %}
         - Sie können entweder `start_date` oder `end_date` verwenden, wenn Sie keinen Datumsbereich benötigen.
 
