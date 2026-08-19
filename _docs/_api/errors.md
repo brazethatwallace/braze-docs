@@ -78,7 +78,7 @@ All of the following error codes indicate that no messages are sent.
 | Error Code | Description |
 |---|---|
 | `5XX Internal Server Error` | Retry your request with exponential backoff.|
-| `400 Bad Request` | Bad syntax.|
+| `400 Bad Request` | Bad syntax. The response may include `Error while parsing request body. Please check your syntax.` See [Error while parsing request body](#error-while-parsing-request-body).|
 | `400 No Recipients` | There are no external IDs or segment IDs, or no push tokens in the request.|
 | `400 Invalid Campaign ID` | No messaging API campaign was found for your provided campaign ID.|
 | `400 Message Variant Unspecified` | You provide a campaign ID but no message variation ID.|
@@ -101,3 +101,17 @@ All of the following error codes indicate that no messages are sent.
 | `415 Unsupported Media Type` | The `Content-Type` request header is missing or incorrect. In the **Settings** page, add `Content-Type` with a value of `application/json`. |
 | `429 Rate Limited` | Over rate limit. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fatal errors" }
+
+### Error while parsing request body {#error-while-parsing-request-body}
+
+Braze returns `Error while parsing request body. Please check your syntax.` when the request body is not valid JSON. This applies to REST endpoints that accept a JSON body, such as POST, PUT, and PATCH.
+
+Common causes include trailing commas, comments inside JSON, single-quoted strings, an extra opening `{` before the payload, or sending a concatenated string instead of a JSON-encoded object.
+
+Before you retry:
+
+1. Validate the payload with a JSON linter.
+2. Set `Content-Type: application/json` and send UTF-8 encoded JSON.
+3. Confirm your HTTP client JSON-encodes the object rather than concatenating raw strings.
+
+For `/users/track` payload size and per-request object limits, see [Why do I get `400 Bad Request` with a bad syntax or parse error?]({{site.baseurl}}/api/endpoints/user_data/post_user_track#why-do-i-get-400-bad-request-with-a-bad-syntax-or-parse-error).
