@@ -165,7 +165,7 @@ O painel **SMS/MMS/RCS Performance** descreve o desempenho da sua mensagem em v�
 
 O painel **Banner Performance** descreve o desempenho da sua mensagem em várias dimensões. Essas métricas variam dependendo do seu canal de envio de mensagens e se você está ou não realizando um teste multivariante.
 
-![Painel de desempenho de Banner que inclui uma tabela de métricas para um grupo de controle, Variante 1 e Variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
+![Painel de desempenho de SMS/MMS que inclui uma tabela de métricas para um grupo de controle, Variante 1 e Variante 2.]({% image_buster /assets/img/banners/banner_performance.png %})
 
 {% elsif include.channel == "KakaoTalk" %}
 ### Desempenho do KakaoTalk {#kakaotalk-performance}
@@ -215,9 +215,26 @@ Se os links usarem Liquid para URLs dinâmicas, as URLs clicadas podem não corr
 
 ![Exemplo da página de Preview e Heatmap que inclui uma campanha de e-mail e um painel com exemplos de alias de link com seus cliques totais.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
+##### Cliques de cancelamento de inscrição no mapa de calor versus análise de dados da campanha {#heatmap-unsubscribe-clicks-versus-campaign-analytics}
+
+Os cliques em links de cancelamento de inscrição no mapa de calor podem diferir da métrica *Unsubscribers* na análise de dados da campanha:
+
+- Quando você usa uma URL de cancelamento de inscrição personalizada no corpo da mensagem, a Braze trata esse link como um link rastreado padrão para fins do mapa de calor — ele aparece na **Link Table by Total Clicks** como qualquer outro link. Quando a Braze processa um cancelamento de inscrição a partir do link de cancelamento de inscrição fornecido pela Braze, a métrica *Unsubscribers* é incrementada. URLs de cancelamento de inscrição personalizadas não incrementam essa métrica, a menos que você atualize os usuários através da API.
+- Quando um usuário cancela a inscrição usando o [cabeçalho list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) (uma opção de cancelamento de inscrição com um clique exibida por alguns provedores de caixa de entrada), essa ação incrementa *Unsubscribers* na análise de dados da campanha, mas não aparece como um clique no mapa de calor. Se a mensagem usar **Unsubscribe from specific subscription group**, a Braze cancela a inscrição do usuário apenas do grupo de inscrições configurado, em vez de globalmente. A disponibilidade dessa opção varia por destinatário, pois os provedores de caixa de entrada diferem em relação a renderizar ou suportar o cabeçalho list-unsubscribe.
+
+Para uma visão completa do comportamento de cancelamento de inscrição, revise tanto a análise de links do mapa de calor quanto a métrica *Unsubscribers*. Para mais detalhes, consulte [Por que *Unsubscribes* e cliques no link de cancelamento de inscrição podem diferir]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#why-unsubscribes-and-unsubscribe-link-clicks-can-differ).
+
+##### Links exclusivos para dispositivos móveis no mapa de calor {#mobile-only-links-in-the-heatmap}
+
+O mapa de calor exibe apenas assinaturas de calor para links visíveis no tamanho de prévia selecionado.
+
+Links que aparecem apenas no layout para dispositivos móveis ficam ocultos em **Desktop** (e podem ficar ocultos em **Overall**, dependendo da largura da prévia), então esses cliques não aparecem como assinaturas de calor. Esses links ainda aparecem no painel **Link Table by Total Clicks** com seus cliques totais e porcentagens.
+
+Para ver as assinaturas de calor de links exclusivos para dispositivos móveis, selecione **Mobile**. A prévia para dispositivos móveis corresponde ao breakpoint para dispositivos móveis do editor de arrastar e soltar (620&nbsp;px). Se o e-mail mudar de layout apenas em uma largura mais estreita, esses links permanecerão ocultos mesmo no tamanho de prévia **Mobile**.
+
 #### Imagens {#images}
 
-Recomendamos ativar CORS para suas URLs de imagem para ajudar a evitar que as imagens quebrem nas pré-visualizações e exportações do mapa de calor.
+Recomendamos ativar CORS para suas URLs de imagem para ajudar a evitar que as imagens quebrem nas prévias e exportações do mapa de calor.
 
 Se as imagens estiverem faltando em uma exportação, trabalhe com seus desenvolvedores para que os ativos de imagem permitam acesso cross-origin: o servidor deve retornar o cabeçalho `Access-Control-Allow-Origin` com `*` ou o domínio do seu dashboard da Braze.
 

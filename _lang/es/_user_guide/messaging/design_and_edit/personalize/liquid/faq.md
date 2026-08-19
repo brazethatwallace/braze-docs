@@ -30,7 +30,7 @@ El contenido conectado de Braze es un ejemplo de una etiqueta de Liquid. Tambié
 
 ### ¿Qué es la plantilla de Liquid? {#what-is-liquid-templating}
 
-Esta es la forma más común de usar Liquid en Braze. La plantilla de Liquid consiste en extraer datos del perfil de un usuario e insertarlos en un mensaje. Estos datos pueden ir desde el nombre de un usuario hasta eventos personalizados de un mensaje desencadenado por un evento.
+Esta es la forma más común de usar Liquid en Braze. La plantilla de Liquid implica extraer datos del perfil de un usuario e insertarlos en un mensaje. Estos datos pueden ir desde el nombre de un usuario hasta eventos personalizados de un mensaje desencadenado por un evento.
 
 Consulta [Etiquetas de personalización compatibles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) para obtener una lista completa de las etiquetas de Liquid compatibles.
 
@@ -62,7 +62,7 @@ Para el uso en URL y cadenas de consulta (por ejemplo, cuando un nombre contiene
 
 ### ¿Cómo uso Liquid con objetos anidados? {#how-do-i-use-liquid-with-nested-objects}
 
-Braze tiene una característica integrada que genera código Liquid para Segments que se pueden usar en un mensaje. Específicamente, puedes crear un Segment que coincida con múltiples criterios en un objeto.
+Braze tiene una característica integrada que genera código Liquid para segmentos que se pueden usar en un mensaje. Específicamente, puedes crear un segmento que coincida con múltiples criterios en un objeto.
 
 Para más información, consulta [Segmentación multicriterio]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects).
 
@@ -72,15 +72,15 @@ Para más información, consulta [Segmentación multicriterio]({{site.baseurl}}/
 Puedes acceder a las propiedades de eventos desencadenados por API con la etiqueta `api_triggered_property`: `{{api_trigger_properties.${attribute_key}}}`.
 {% endraw %}
 
-### ¿Braze admite un array de arrays en Liquid? {#does-braze-support-an-array-of-arrays-in-liquid}
+### ¿Braze admite un arreglo de arreglos en Liquid? {#does-braze-support-an-array-of-arrays-in-liquid}
 
-Liquid no admite de forma nativa arrays de arrays. Almacena los valores como un array de cadenas separadas por comas y usa el filtro `split` para analizarlos cuando sea necesario.
+Liquid no admite de forma nativa arreglos de arreglos. Almacena los valores como un arreglo de cadenas separadas por comas y usa el filtro `split` para analizarlos cuando sea necesario.
 
 ## Variables y sintaxis {#variables-and-syntax}
 
 ### ¿Cómo asigno variables con Liquid? {#how-do-i-assign-variables-with-liquid}
 
-Puedes crear y asignar variables utilizando la etiqueta `assign`. Esto crea una variable en el creador de mensajes que también puede referenciarse a lo largo de tu mensaje.
+Puedes crear y asignar variables usando la etiqueta `assign`. Esto crea una variable en el creador de mensajes que también se puede referenciar a lo largo de tu mensaje.
 
 ### ¿Cuándo debo usar `assign` en lugar de `capture`? {#when-should-i-use-assign-versus-capture}
 
@@ -89,7 +89,7 @@ Tanto `assign` como `capture` crean variables de Liquid, pero tienen propósitos
 - `assign` es para variables simples que almacenan un único valor, como un booleano, un número o una cadena simple. También puedes aplicar un único filtro en la misma línea.
 - `capture` es para almacenar un bloque de texto que puede incluir múltiples variables, cadenas o expresiones complejas.
 
-Usa `capture` cuando el valor sea demasiado complejo para una sola sentencia `assign`, como URLs que utilizan otras variables de Liquid o atributos personalizados como parámetros. `capture` también es preferible al implementar variables de Liquid en el cuerpo de llamadas de contenido conectado.
+Usa `capture` cuando el valor sea demasiado complejo para una sola sentencia `assign`, como URLs que usan otras variables de Liquid o atributos personalizados como parámetros. `capture` también es preferible al implementar variables de Liquid en el cuerpo de llamadas de contenido conectado.
 
 #### Ejemplos {#examples}
 
@@ -118,7 +118,7 @@ Join our VIP program to unlock free shipping.
 ```
 {% endraw %}
 
-### ¿Las variables de Liquid se comparten entre la línea del asunto y el cuerpo? {#do-liquid-variables-carry-between-subject-line-and-body}
+### ¿Las variables de Liquid se transfieren entre la línea del asunto y el cuerpo? {#do-liquid-variables-carry-between-subject-line-and-body}
 
 No. Braze renderiza cada componente del mensaje por separado (como la línea del asunto, el cuerpo HTML, el preencabezado y el título push). Las asignaciones o capturas que hagas en un campo no están disponibles en otro. Repite la llamada de Liquid o contenido conectado en cada campo que necesite el valor.
 
@@ -212,9 +212,9 @@ Si un fragmento de código de Liquid del catálogo se cancela durante el envío,
 
 ## Content Blocks y el creador de mensajes {#content-blocks-and-the-message-composer}
 
-### ¿Por qué hay espaciado extra en los mensajes que usan Content Blocks? {#why-is-there-extra-spacing-in-messages-that-use-content-blocks}
+### ¿Por qué hay espaciado adicional en los mensajes que usan Content Blocks? {#why-is-there-extra-spacing-in-messages-that-use-content-blocks}
 
-Si notas un espaciado extra en los mensajes enviados que usan Content Blocks con Liquid, es posible que tengas saltos de párrafo o de línea innecesarios dentro de tus sentencias condicionales. Escribe tus sentencias condicionales en una sola línea en lugar de distribuirlas en varias líneas.
+Si notas un espaciado adicional en los mensajes enviados que usan Content Blocks con Liquid, es posible que tengas saltos de párrafo o de línea innecesarios dentro de tus sentencias condicionales. Escribe tus sentencias condicionales en una sola línea en lugar de distribuirlas en varias líneas.
 
 #### Ejemplo {#example}
 
@@ -229,9 +229,9 @@ Si notas un espaciado extra en los mensajes enviados que usan Content Blocks con
 
 Cuando el código Liquid se distribuye en varias líneas en el editor de arrastrar y soltar de mensajes dentro de la aplicación o en el editor de arrastrar y soltar de correo electrónico, cada bloque {% raw %}`{% %}`{% endraw %} se renderiza como texto no visible. Los saltos de línea se conservan como líneas vacías antes de la salida visible, lo que provoca espacios en blanco inesperados.
 
-#### Solución 1: Usar etiquetas de control de espacios en blanco (recomendado) {#solution-1-use-whitespace-control-tags-recommended}
+#### Solución 1: Usa etiquetas de control de espacios en blanco (recomendado) {#solution-1-use-whitespace-control-tags-recommended}
 
-Añade guiones dentro de los delimitadores de etiqueta para eliminar los espacios en blanco circundantes y mantener el código legible:
+Agrega guiones dentro de los delimitadores de etiqueta para eliminar los espacios en blanco circundantes y mantener el código legible:
 
 {% raw %}
 ```liquid
@@ -243,9 +243,9 @@ Only {{ difference_days }} days until your move!
 ```
 {% endraw %}
 
-#### Solución 2: Consolidar el Liquid en una sola línea {#solution-2-consolidate-liquid-onto-a-single-line}
+#### Solución 2: Consolida el Liquid en una sola línea {#solution-2-consolidate-liquid-onto-a-single-line}
 
-Elimina todos los saltos de línea para que el Liquid quede en una línea continua:
+Elimina todos los saltos de línea para que el Liquid quede en una sola línea continua:
 
 {% raw %}
 ```liquid
@@ -257,11 +257,11 @@ Ambos enfoques evitan líneas vacías no deseadas en tu mensaje renderizado. Est
 
 ### ¿Por qué mi Content Block no aparece en **Row** en la herramienta de búsqueda de arrastrar y soltar? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
 
-Algunos Content Blocks no aparecen en **Row** en la búsqueda del editor de arrastrar y soltar. Añade un bloque HTML desde la pestaña **Content** (**Advanced**) y luego inserta la etiqueta de Liquid del Content Block en ese bloque HTML para renderizar el contenido del bloque.
+Algunos Content Blocks no aparecen en **Row** en la búsqueda del editor de arrastrar y soltar. Agrega un bloque HTML desde la pestaña **Content** (**Advanced**) y luego inserta la etiqueta de Liquid del Content Block en ese bloque HTML para renderizar el contenido del bloque.
 
 ### ¿Por qué la vista previa de mi Content Block de arrastrar y soltar difiere de la vista de composición? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
 
-Cuando creas una plantilla de un Content Block con Liquid, las media queries para móviles en el bloque pueden no aplicarse en la vista previa de la misma forma que cuando arrastras el bloque directamente a un mensaje. Arrastrar el bloque conserva el diseño, pero lo desvincula del bloque de origen, por lo que las ediciones futuras del bloque ya no actualizan el mensaje automáticamente.
+Cuando creas una plantilla de un Content Block con Liquid, las media queries para dispositivos móviles en el bloque pueden no aplicarse en la vista previa de la misma manera que cuando arrastras el bloque directamente a un mensaje. Arrastrar el bloque conserva el diseño, pero lo desvincula del bloque de origen, por lo que las ediciones futuras al bloque ya no actualizan el mensaje automáticamente.
 
 ### ¿Cómo puedo previsualizar los valores de propiedades de eventos en el creador de mensajes? {#how-do-i-preview-event-property-values-in-message-composer}
 
@@ -275,7 +275,7 @@ Esta cancelación ocurre cuando el Liquid en la dirección **De** produce una si
 
 ### ¿Cómo creo una dirección de respuesta dinámica? {#how-do-i-create-a-dynamic-reply-to-address}
 
-Usa Liquid en el campo **Responder a** cuando tu espacio de trabajo admita la configuración dinámica de respuesta. Combínalo con la configuración de tu nombre para mostrar en **De** según sea necesario. Consulta [Configuración de correo electrónico]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) para ver las opciones específicas del espacio de trabajo.
+Usa Liquid en el campo **Responder a** cuando tu espacio de trabajo admita la configuración dinámica de respuesta. Combínalo con la configuración de tu nombre para mostrar en **De** según sea necesario. Consulta [Configuración de correo electrónico]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) para conocer las opciones específicas del espacio de trabajo.
 
 ## Solución de problemas de errores de Liquid {#troubleshooting-liquid-errors}
 
@@ -283,7 +283,7 @@ Usa Liquid en el campo **Responder a** cuando tu espacio de trabajo admita la co
 
 Si tu código Liquid parece sintácticamente correcto pero no funciona, comprueba si hay comillas tipográficas (comillas curvas como `' '` o `" "`) y guiones tipográficos (guiones largos como `—`) en lugar de comillas rectas (`' '` o `" "`) y guiones cortos (`-`). Liquid solo reconoce caracteres ASCII rectos, por lo que las comillas y guiones tipográficos provocarán errores de análisis.
 
-Esto ocurre comúnmente cuando la configuración del teclado de macOS **Usar comillas y guiones tipográficos** está habilitada, lo que convierte automáticamente los caracteres a medida que escribes en el panel de Braze.
+Esto ocurre comúnmente cuando la configuración del teclado de macOS **Usar comillas y guiones tipográficos** está habilitada, lo que convierte automáticamente los caracteres mientras escribes en el panel de Braze.
 
 Para desactivar esta configuración en macOS:
 
@@ -296,7 +296,7 @@ Para desactivar esta configuración en macOS:
 | Condicional | {% raw %}`{% if ${country} contains 'US' %}`{% endraw %} | {% raw %}`{% if ${country} contains 'US' %}`{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Ejemplos de comillas tipográficas" }
 
-Esto se aplica a valores predeterminados, condicionales y cualquier otro código Liquid que use comillas. Las comillas curvas y rectas pueden verse iguales en pantalla, así que compara tu código con cuidado o pégalo en un editor de texto sin formato.
+Esto se aplica a valores predeterminados, condicionales y cualquier otro código Liquid que use comillas. Las comillas curvas y rectas pueden verse iguales en pantalla, así que compara tu código con cuidado o pégalo en un editor de texto plano.
 
 Para más información sobre el uso de comillas en Liquid, consulta [Sintaxis de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
 
@@ -308,4 +308,49 @@ Este error generalmente indica llaves adicionales o faltantes. No anides {% raw 
 
 {% raw %}
 La etiqueta `{% connected_content %}` con reintento no es compatible con todos los tipos de mensajes, incluidos algunos formatos de mensajes dentro de la aplicación. Elimina los parámetros de reintento o usa un canal compatible para las llamadas de contenido conectado con reintento.
+{% endraw %}
+
+### ¿Por qué veo "Liquid Error: Comparison of Time with String Failed"? {#why-am-i-seeing-liquid-error-comparison-of-time-with-string-failed}
+
+Este error ocurre al comparar un atributo personalizado de tipo tiempo o una propiedad de evento directamente con un valor en blanco (una cadena vacía). Liquid no admite comparaciones directas entre tipos de datos diferentes, como un objeto de tiempo y una cadena.
+
+El siguiente es un ejemplo común que causa este error:
+
+{% raw %}
+```liquid
+{% if {{custom_attribute.${expiration_date}}} == blank %}
+  <a>Some words</a>
+{% endif %}
+```
+{% endraw %}
+
+Esto falla porque no puedes comparar un atributo personalizado con un tipo de datos de tiempo con una cadena (`blank`).
+
+Para resolverlo, convierte el atributo de tiempo a una cadena asignándolo a una variable y usando el filtro `default` cuando el atributo se evalúa como vacío en el momento del renderizado:
+
+{% raw %}
+```liquid
+{% assign expiration_date = {{custom_attribute.${expiration_date}}} | default: "" %}
+
+{% if expiration_date == blank %}
+  <a>Example Words</a>
+{% endif %}
+```
+{% endraw %}
+
+
+Al comparar un atributo personalizado de tipo tiempo con la hora actual o fechas futuras, usa el mismo enfoque:
+
+{% raw %}
+```liquid
+{% assign today = 'now' | date: '%s' %}
+{% assign month = 'now' | date: '%s' | plus: 2592000 %}
+{% assign expiration_date = {{custom_attribute.${expiration_date}}} | default: "" %}
+
+{% if expiration_date == blank %}
+  <a>Example Words</a>
+{% elsif expiration_date >= today and expiration_date >= month %}
+  <a>More Words</a>
+{% endif %}
+```
 {% endraw %}

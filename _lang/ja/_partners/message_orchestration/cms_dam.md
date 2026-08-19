@@ -11,6 +11,9 @@ guide_top_text: "CMSとDAMのテクノロジーパートナー連携を参照で
 
 guide_featured_title: "パートナー"
 guide_featured_list:
+  - name: "Bynder"
+    link: /docs/partners/message_orchestration/cms_dam/bynder
+    image: /assets/img/braze_icons/zap.svg
   - name: "Contentful"
     link: /docs/partners/message_orchestration/cms_dam/contentful
     image: /assets/img/braze_icons/zap.svg

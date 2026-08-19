@@ -38,31 +38,34 @@ guide_featured_list:
 - name: "Píxel de apertura y seguimiento de clics"
   link: /docs/user_guide/channels/email/email_setup/open_pixel_and_click_tracking
   image: /assets/img/braze_icons/cursor-click-02.svg
+- name: "Estado de suscripción"
+  link: /docs/user_guide/audience/subscription_preferences/subscription_status
+  image: /assets/img/braze_icons/check-verified-02.svg
 ---
 
 ## Requisitos {#requirements}
 
-Antes de empezar a enviar correos electrónicos, hay algunas cosas que necesitas. Consulta el siguiente cuadro para saber más sobre estos requisitos.
+Antes de empezar a enviar correos electrónicos, hay algunas cosas que necesitas. Consulta la siguiente tabla para obtener más información sobre estos requisitos.
 
 | Requisito | Descripción | Fuente |
 |---|---|---|
-| Una IP (protocolo de Internet) dedicada | Una IP dedicada es una dirección de Internet única proporcionada exclusivamente a una sola cuenta de alojamiento. | Braze te proporciona IP dedicadas para garantizar el control de la reputación del remitente de tu correo electrónico. La incorporación a Braze lo configurará por ti.|
-| Dominios con etiqueta sin marca | Consisten en un dominio y un subdominio. Al usar la etiqueta sin marca, puedes pasar las comprobaciones de autenticación de correo electrónico para DKIM y SPF. | El equipo de incorporación de Braze generará estos dominios por ti, pero tú debes elegir sus nombres. |
-| Subdominios | Se trata de una subdivisión de un dominio (como "@news.company.com") dentro de tu dirección de correo electrónico. Tener un subdominio evitará cualquier error que pueda dañar la reputación oficial del correo electrónico de tu empresa. | El equipo de incorporación lo generará por ti, pero tú debes decidir el nombre del subdominio. No puedes usar subdominios que actualmente se estén utilizando fuera de Braze. |
-| Grupos de IP | Se trata de una configuración opcional que se utiliza para separar la reputación de los distintos tipos de correo electrónico (como "promocional" y "transaccional") para evitar que la reputación de uno afecte al otro y favorecer una mayor capacidad de entrega. | El equipo de incorporación configurará los grupos por ti. Luego, al redactar tu correo electrónico, puedes ver el grupo de IP de tu correo electrónico en el paso **Público objetivo**.|
+| Una IP dedicada (Protocolo de Internet) | Una IP dedicada es una dirección de internet única proporcionada exclusivamente a una sola cuenta de alojamiento. | Braze te proporciona IPs dedicadas para garantizar el control de tu reputación como remitente de correo electrónico. El equipo de incorporación de Braze lo configurará por ti. |
+| Dominios con etiqueta sin marca | Consisten en un dominio y un subdominio. Al usar la etiqueta sin marca, puedes pasar las verificaciones de autenticación de correo electrónico para DKIM y SPF. | El equipo de incorporación de Braze generará estos dominios por ti, pero tú debes elegir sus nombres. |
+| Subdominios | Es una subdivisión de un dominio (como "@news.company.com") dentro de tu dirección de correo electrónico. Tener un subdominio evitará cualquier error que pueda dañar la reputación oficial de correo electrónico de tu empresa. | El equipo de incorporación lo generará por ti, pero tú debes decidir el nombre del subdominio. No puedes usar subdominios que actualmente se estén utilizando fuera de Braze. |
+| Grupos de IP | Son una configuración opcional que se utiliza para separar la reputación de diferentes tipos de correo electrónico (como "promocional" y "transaccional") para evitar que la reputación de uno afecte al otro y favorecer una mayor capacidad de entrega. | El equipo de incorporación configurará los grupos por ti. Luego, al redactar tu correo electrónico, puedes ver el grupo de IP de tu correo en el paso **Target Audiences**. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Requisitos" }
 
 ## Calentamiento de IP {#ip-warming}
 
 {% alert important %}
-El calentamiento de IP es el **paso más importante** en el proceso de configuración de correo electrónico. Aunque no es tu primer paso (en realidad es el último), lo mencionamos aquí para que sepas que debes calentar tu dirección IP, de lo contrario, cualquier correo electrónico que envíes se enviará a correo no deseado o estará sujeto a otras barreras de envío.
+El calentamiento de IP es el **paso más importante** en el proceso de configuración del correo electrónico. Aunque no es tu primer paso (en realidad es el último), lo destacamos aquí para que sepas que debes calentar tu dirección IP, o de lo contrario cualquier correo electrónico que envíes se enviará a correo no deseado o estará sujeto a otras barreras de envío.
 {% endalert %}
 
-El [calentamiento de IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) consiste en enviar un número relativamente pequeño de correos electrónicos en tu primer lote y luego, con el tiempo, aumentar ligeramente el volumen en los lotes siguientes hasta alcanzar tu volumen diario habitual. Esto se hace al final del proceso de configuración de correo electrónico.
+El [calentamiento de IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) es cuando envías un número relativamente pequeño de correos electrónicos en tu primer lote y luego, con el tiempo, aumentas ligeramente el volumen en los lotes siguientes hasta alcanzar tu volumen diario habitual. Esto se hace al final del proceso de configuración del correo electrónico.
 
 Al comenzar con volúmenes más pequeños de correo electrónico, estás estableciendo un nivel de confianza con tu proveedor de correo electrónico, demostrando que solo envías correos electrónicos a usuarios relevantes. Enviar tu primer lote de correos electrónicos a tus usuarios más comprometidos puede ayudarte a ganar confianza más rápido con tu proveedor.
 
-Después de terminar el calentamiento de tu IP, puedes [empezar a crear y enviar correos electrónicos]({{site.baseurl}}/user_guide/channels/email/html_editor)!
+Una vez que hayas terminado de calentar tu IP, ¡puedes [empezar a crear y enviar correos electrónicos]({{site.baseurl}}/user_guide/channels/email/html_editor)!
 
 ## Correos electrónicos transaccionales legalmente obligatorios {#legally-required-transactional-emails}
 

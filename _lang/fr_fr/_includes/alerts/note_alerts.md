@@ -9,7 +9,7 @@ La limite de fréquence ne s'applique pas aux Content Cards.
 {% if include.alert == 'Custom Attributes time attribute' %}
 
 {% alert note %}
-Une chaîne de caractères de date telle que « 12-1-2021 » ou « 12/1/2021 » sera convertie en objet datetime et traitée comme un [attribut time]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
+Une chaîne de caractères de date telle que « 12-1-2021 » ou « 12/1/2021 » sera convertie en objet datetime et traitée comme un [attribut time]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#time).
 {% endalert %}
 
 {% endif %}
@@ -41,7 +41,7 @@ Tous les attributs proviennent de la REST API de Braze.
 {% if include.alert == 'subscription group limit' %}
 
 {% alert note %}
-Vous pouvez ajouter jusqu'à 350 groupes d'abonnement par espace de travail.
+Vous pouvez ajouter jusqu'à 450 groupes d'abonnement par espace de travail.
 {% endalert %}
 
 {% endif %}

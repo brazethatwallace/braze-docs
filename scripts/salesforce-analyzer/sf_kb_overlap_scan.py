@@ -22,6 +22,9 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Callable
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from sf_kb_article_ids import article_id_column, article_id_from_row  # noqa: E402
+
 REPO = "braze-inc/braze-docs"
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SF_KB_LABEL = "salesforce migration"
@@ -69,6 +72,11 @@ class OverlapHit:
         return self.message
 
 
+# Path-level coverage: an open/draft PR already edits the target file — omit the
+# whole batch from the needs-PR queue (cannot open a second PR on the same path).
+PATH_COVERED_BY_PR_KINDS = frozenset({"open_pr", "draft_pr"})
+
+
 @dataclass
 class BatchOverlapReport:
     doc_path: str
@@ -82,6 +90,25 @@ class BatchOverlapReport:
     @property
     def warnings(self) -> list[OverlapHit]:
         return [h for h in self.hits if not h.blocking]
+
+    @property
+    def path_covered_by_pr(self) -> bool:
+        """True when an open/draft PR already edits this doc path."""
+        return any(
+            h.blocking and h.kind in PATH_COVERED_BY_PR_KINDS for h in self.hits
+        )
+
+    def claimed_article_ids(self) -> set[str]:
+        """Article IDs already claimed in an open or merged PR body."""
+        claimed: set[str] = set()
+        for hit in self.hits:
+            if not (hit.blocking and hit.kind == "article_id"):
+                continue
+            # Message format: "`ka0…` already claimed in a PR body"
+            text = hit.message or ""
+            if text.startswith("`") and "`" in text[1:]:
+                claimed.add(text[1 : text.index("`", 1)])
+        return claimed
 
     def status_label(self) -> str:
         if self.blocked:
@@ -455,9 +482,11 @@ def main() -> None:
 
     batches: dict[str, list[str]] = {}
     with csv_path.open(encoding="utf-8", newline="") as f:
-        for row in csv.DictReader(f):
+        reader = csv.DictReader(f)
+        id_column = article_id_column(reader.fieldnames)
+        for row in reader:
             doc_path = (row.get("doc_path") or "").strip()
-            article_id = (row.get("article_id") or "").strip()
+            article_id = article_id_from_row(row, id_column=id_column)
             if not doc_path:
                 continue
             if args.doc_path and doc_path not in args.doc_path:

@@ -62,7 +62,7 @@ Limited users have specific permissions that allow them to manage certain aspect
 | Scope | Description |
 | --- | --- |
 | Permissions | Limited users can edit the permissions of other limited users if they have the "Edit Dashboard Users" permission. They can also create new limited users and modify their permission sets. However, they can't create or manage company admin accounts. |
-| Role limitations | If a limited user has all permissions except "Workspace Admin", they will still have access to all other permissions typically granted to a workspace admin. |
+| Role limitations | If a limited user has all permissions except "Workspace Admin", they still have access to all other permissions typically granted to a workspace admin. |
 | Visibility of permissions | If a limited user has the "Edit Dashboard Users" permission for one workspace (such as Dev) but not for another (such as Prod), they won't see the Prod workspace permissions in their dashboard users detail page. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Permissions for limited users" }
 
@@ -115,7 +115,7 @@ Admins have access to all features and the ability to modify any company setting
 To grant or remove admin privileges, select **This user is an admin**, then select **Update user**.
 
 {% alert warning %}
-If you remove admin privileges from a user, they won't be able to access Braze until you assign them at least one [company-level or workspace-level permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
+If you remove admin privileges from a user, they won't be able to access Braze until you assign them at least one [company-level or workspace-level permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 {% endalert %}
 
 {% endtab %}
@@ -136,7 +136,7 @@ To manage the following company-level permissions for a user, check or uncheck t
 
 ### Workspace
 
-You can give a user different permissions for each workspace they belong to in Braze. To manage their workspace-level permissions, select **Select workspaces and permissions**, then choose their permissions manually or assign a [permission set or role]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) you previously created. If you need to give a user different permissions for different workspaces, repeat this process as many times as needed. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
+You can give a user different permissions for each workspace they belong to in Braze. To manage their workspace-level permissions, select **Select workspaces and permissions**, then choose their permissions manually or assign a [permission set or role]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#create-a-permission-set) you previously created. If you need to give a user different permissions for different workspaces, repeat this process as many times as needed. For a description of each permission, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 {% subtabs %}
 {% subtab Select manually %}
@@ -371,10 +371,10 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | Operator | Use BrazeAI Operator<sup>TM</sup> | Access and use Braze Operator to answer questions, navigate setup, troubleshoot issues, and brainstorm ideas |
 | Placements | View Placements | View Banner placement |
 | Placements | Archive Placements | Move Banner placements to archive |
-| Placements | Edit Placements | View Banner placements without making changes |
-| Promotion Codes | View Promotion Codes | View promo codes |
-| Promotion Codes | Export Promotion Codes | Download a list of promo codes from the dashboard |
-| Promotion Codes | Edit Promotion Codes | Create and update promo codes |
+| Placements | Edit Placements | Create and update Banner placements |
+| Promotion Codes | View Promotion Codes | View promotion codes |
+| Promotion Codes | Export Promotion Codes | Download a list of promotion codes from the dashboard |
+| Promotion Codes | Edit Promotion Codes | Create and update promotion codes |
 | Subscription Groups | Edit Subscriptions | Create and update subscription groups |
 | Transformations | Edit Data Transformation | Create and update data transformations |
 | Transformations | View Data Transformation | View data transformations |

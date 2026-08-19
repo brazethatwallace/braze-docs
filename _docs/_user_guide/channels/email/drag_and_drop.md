@@ -116,7 +116,7 @@ The drag-and-drop editing experience is divided into three sections: **Sending S
 
 When you're ready, use the drag-and-drop content blocks to build your email.
 
-1. Select the **Rows** panel. Drag and drop the row configurations into the main editor. This will map the layout of your email content.
+1. Select the **Rows** panel. Drag and drop the row configurations into the main editor. This maps the layout of your email content.
 - Note that new configurations must be dragged to the top or bottom of an existing section.
 - When you select a row configuration, the **Row Properties** settings appear for further customization of row background colors, images, and custom column sizes.
 2. Select the **Content** panel. Drag and drop your desired content tiles to the row components.
@@ -287,10 +287,14 @@ The final appearance of right-to-left messages depends largely on how service pr
 
 When using links, buttons, images, and videos in the drag-and-drop editor, select **Add new attribute** under **Attributes** in the **Content** section to append additional information to HTML tags in emails. This can be especially useful for message personalization, segmentation, and styling.
 
-A common use case is to insert an attribute into your anchor tag to disable click tracking when sending through Braze.
+A common use case is to disable click tracking for specific links when sending through Braze. You can do this in two ways:
 
-* **SendGrid:** `clicktracking = "off"`
-* **SparkPost:** `data-msys-clicktrack = "0"`
+- **Use link module attributes:** Select a link element (such as a button or link module), then use **Add new attribute** under **Attributes** to add:
+  - For SendGrid, use `clicktracking` as the name and `off` as the value.
+  - For SparkPost, use `data-msys-clicktrack` as the name and `0` as the value.
+- **Use HTML block:** Insert an HTML block and include the click tracking attribute directly in your anchor tag code:
+  - For SendGrid, use `<a href="your-url" clicktracking="off">Link text</a>`.
+  - For SparkPost, use `<a href="your-url" data-msys-clicktrack="0">Link text</a>`.
 
 Another common use case is to flag specific links as universal links. Universal links are links that redirect to your app, giving your users an integrated experience.
 

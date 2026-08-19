@@ -215,6 +215,23 @@ Wenn Links Liquid für dynamische URLs verwenden, stimmen die angeklickten URLs 
 
 ![Beispiel für die Seite „Preview & Heatmap“ mit einer E-Mail-Kampagne und einem Panel mit Beispielen für Link-Aliase und deren Gesamtklicks.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
+##### Heatmap-Abmeldeklicks versus Kampagnen-Analytics {#heatmap-unsubscribe-clicks-versus-campaign-analytics}
+
+Klicks auf Abmeldelinks in der Heatmap können von der Metrik *Unsubscribers* in den Kampagnen-Analytics abweichen:
+
+- Wenn Sie eine benutzerdefinierte Abmelde-URL im Nachrichtentext verwenden, behandelt Braze diesen Link für Heatmap-Zwecke als einen standardmäßig getrackten Link – er erscheint in der **Link Table by Total Clicks** wie jeder andere Link. Wenn Braze eine Abmeldung über den von Braze bereitgestellten Abmeldelink verarbeitet, wird die Metrik *Unsubscribers* erhöht. Benutzerdefinierte Abmelde-URLs erhöhen diese Metrik nicht, es sei denn, Sie aktualisieren Nutzer:innen über die API.
+- Wenn sich eine Nutzer:in über den [List-Unsubscribe-Header]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) abmeldet (eine Ein-Klick-Abmeldeoption, die von einigen Posteingangs-Anbietern angezeigt wird), wird *Unsubscribers* in den Kampagnen-Analytics erhöht, aber dies erscheint nicht als Klick in der Heatmap. Wenn die Nachricht **Unsubscribe from specific subscription group** verwendet, meldet Braze die Nutzer:in nur von der konfigurierten Abo-Gruppe ab, nicht global. Die Verfügbarkeit dieser Option variiert je nach Empfänger:in, da sich die Posteingangs-Anbieter darin unterscheiden, ob sie den List-Unsubscribe-Header rendern oder unterstützen.
+
+Für eine vollständige Übersicht über das Abmeldeverhalten überprüfen Sie sowohl die Heatmap-Link-Aufschlüsselung als auch die Metrik *Unsubscribers*. Weitere Details finden Sie unter [Warum sich *Unsubscribes* und Abmeldelink-Klicks unterscheiden können]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#why-unsubscribes-and-unsubscribe-link-clicks-can-differ).
+
+##### Nur-Mobil-Links in der Heatmap {#mobile-only-links-in-the-heatmap}
+
+Die Heatmap zeigt nur Wärmesignaturen für Links an, die bei der ausgewählten Vorschaugröße sichtbar sind.
+
+Links, die nur im mobilen Layout erscheinen, sind in der **Desktop**-Ansicht ausgeblendet (und können je nach Vorschaubreite auch in **Overall** ausgeblendet sein), sodass diese Klicks nicht als Wärmesignaturen angezeigt werden. Diese Links erscheinen dennoch im Panel **Link Table by Total Clicks** mit ihren Gesamtklicks und Prozentsätzen.
+
+Um Wärmesignaturen für Nur-Mobil-Links anzuzeigen, wählen Sie **Mobile**. Die mobile Vorschau entspricht dem mobilen Breakpoint des Drag-and-Drop-Editors (620&nbsp;px). Wenn die E-Mail erst bei einer schmaleren Breite das Layout wechselt, bleiben diese Links auch in der **Mobile**-Vorschaugröße ausgeblendet.
+
 #### Bilder {#images}
 
 Wir empfehlen, CORS für Ihre Bild-URLs zu aktivieren, damit Bilder in Heatmap-Vorschauen und -Exporten nicht fehlen.
@@ -523,7 +540,7 @@ Normalerweise sind etwa 10.000 zugestellte E-Mails erforderlich, damit die Stati
 
 ###### Einschränkungen {#considerations}
 
-Die Estimated Real Open Rate ist nur in Campaigns verfügbar und wird nicht in Currents-Events gemeldet. Diese Metrik wird nur für aktive Campaigns, die vor dem 14. November 2023 gestartet wurden, rückwirkend berechnet.
+Die Estimated Real Open Rate ist nur in Campaigns verfügbar und wird nicht in Currents-Events gemeldet. Diese Metrik wird nur für aktive Kampagnen, die vor dem 14. November 2023 gestartet wurden, rückwirkend berechnet.
 
 ##### Umgang mit steigenden Klickraten {#handling-increases-in-click-rates}
 

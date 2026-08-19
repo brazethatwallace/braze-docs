@@ -58,19 +58,21 @@ Braze utiliza la cadena de conexión de este menú, no la clave.
 
 ### Paso 3: Crear un contenedor de servicio de blobs {#step-3-create-a-blob-service-container}
 
-Navega al menú **Blobs** en la sección **Blob Service** de tu cuenta de almacenamiento. Crea un contenedor de Blob Service dentro de la cuenta de almacenamiento que creaste anteriormente.
+Navega al menú **Blobs** en la sección **Blob Service** de tu cuenta de almacenamiento. Crea un contenedor de servicio de blobs dentro de la cuenta de almacenamiento que creaste anteriormente.
 
-Proporciona un nombre para tu contenedor de Blob Service. No será necesario actualizar otras configuraciones predeterminadas.
+Proporciona un nombre para tu contenedor de servicio de blobs. No será necesario actualizar otras configuraciones predeterminadas.
 
-![La página de Blobs de una cuenta de almacenamiento de Azure en Blob Service, con la opción de añadir un contenedor.]({% image_buster /assets/img/azure-currents-step-3.png %})
+![La página de blobs de una cuenta de almacenamiento de Azure en Blob Service, con la opción de añadir un contenedor.]({% image_buster /assets/img/azure-currents-step-3.png %})
 
 ### Paso 4: Configurar Currents {#step-4-set-up-currents}
 
 En Braze, navega a **Currents > + Create Current > Azure Blob Data Export** y proporciona el nombre de tu integración y el correo electrónico de contacto.
 
+{% multi_lang_include currents/contact_email_notifications.md %}
+
 A continuación, proporciona tu cadena de conexión, nombre del contenedor y prefijo de BlobStorage (opcional).
 
-![La página de Currents de almacenamiento de Microsoft Azure Blob en Braze. En esta página existen campos para nombre de integración, correo electrónico de contacto, cadena de conexión, nombre del contenedor y prefijo.]({% image_buster /assets/img/maz.png %})
+![La página de Currents de almacenamiento de blobs de Microsoft Azure en Braze. En esta página existen campos para nombre de integración, correo electrónico de contacto, cadena de conexión, nombre del contenedor y prefijo.]({% image_buster /assets/img/maz.png %})
 
 Por último, desplázate hasta la parte inferior de la página y selecciona qué eventos de participación de mensajes o eventos de comportamiento del cliente deseas exportar. Cuando hayas terminado, lanza tu Current.
 
@@ -88,7 +90,7 @@ A continuación, asegúrate de que la casilla **Make this the default data expor
 ![La página de exportación de datos de Microsoft Azure en Braze. En esta página existen campos para cadena de conexión, nombre del contenedor y prefijo.]({% image_buster /assets/img/azure_data_export.png %})
 
 {% alert important %}
-Es importante mantener tu cadena de conexión actualizada; si las credenciales de tu conector expiran, el conector dejará de enviar eventos. Si esto persiste durante más de 48 horas, los eventos del conector se descartarán y los datos se perderán permanentemente.
+Es importante mantener tu cadena de conexión actualizada; si las credenciales de tu conector caducan, el conector dejará de enviar eventos. Si esto persiste durante más de 48 horas, los eventos del conector se descartarán y los datos se perderán permanentemente.
 {% endalert %}
 
 ## Método de autenticación con entidad de servicio de certificado {#certificate-service-principal-auth-method}
@@ -99,7 +101,7 @@ Este método se autentica en Microsoft Entra ID mediante un certificado y luego 
 Solo subes el certificado público a Microsoft Entra ID; tu clave privada nunca se envía a Azure. Braze almacena tu certificado y clave privada cifrados en reposo, concede acceso únicamente a través del rol [Storage Blob Data Contributor](#cert-sp-4) que asignas, y puedes revocar ese acceso en cualquier momento eliminando el certificado del registro de tu aplicación en Azure.
 {% endalert %}
 
-Antes de comenzar, [crea una cuenta de almacenamiento](#step-1-create-a-storage-account) y un [contenedor de blob service](#step-3-create-a-blob-service-container) como se describe en el [Método de cadena de conexión](#connection-string-auth-method).
+Antes de comenzar, [crea una cuenta de almacenamiento](#step-1-create-a-storage-account) y un [contenedor de servicio de blobs](#step-3-create-a-blob-service-container) como se describe en el [Método de cadena de conexión](#connection-string-auth-method).
 
 ### Paso 1: Registrar una aplicación {#cert-sp-1}
 
@@ -177,10 +179,10 @@ Sin esta asignación de rol, Braze puede autenticarse en Microsoft Entra ID pero
 
 Desde tu cuenta de almacenamiento, navega a **Settings** > **Endpoints** y toma nota del endpoint de **Blob service**. Se ve como `https://<your-storage-account>.blob.core.windows.net`.
 
-![La página de Endpoints de la cuenta de almacenamiento con el endpoint de Blob service resaltado.]({% image_buster /assets/img/azure-currents-cert-sp-2.png %})
+![La página de endpoints de la cuenta de almacenamiento con el endpoint de Blob service resaltado.]({% image_buster /assets/img/azure-currents-cert-sp-2.png %})
 
 {% alert note %}
-La autenticación con entidad de servicio de certificado solo es compatible con el cloud público de Azure. Tu endpoint de blob debe terminar en `.blob.core.windows.net`.
+La autenticación con entidad de servicio de certificado solo es compatible con la nube pública de Azure. Tu endpoint de blobs debe terminar en `.blob.core.windows.net`.
 {% endalert %}
 
 ### Paso 6: Configurar Currents {#cert-sp-6}
@@ -191,9 +193,13 @@ Braze necesita un único archivo PEM que contenga tu certificado y su clave priv
 cat cert.pem key.pem > braze-currents.pem
 ```
 
-Si convertiste un `.pfx` existente en el [Paso 2](#cert-sp-2), ya tienes este archivo `braze-currents.pem`.
+Si convertiste un archivo `.pfx` existente en el [Paso 2](#cert-sp-2), ya tienes este archivo `braze-currents.pem`.
 
-En Braze, navega a **Currents** > **+ Create Current** > **Azure Blob Data Export** y proporciona el nombre de tu integración y correo electrónico de contacto. En **Credentials**, selecciona **Certificate Service Principal** y proporciona lo siguiente:
+En Braze, navega a **Currents** > **+ Create Current** > **Azure Blob Data Export** y proporciona el nombre de tu integración y el correo electrónico de contacto.
+
+{% multi_lang_include currents/contact_email_notifications.md %}
+
+En **Credentials**, selecciona **Certificate Service Principal** y proporciona lo siguiente:
 
 | Campo | Valor |
 | ----- | ----- |
@@ -209,7 +215,7 @@ En Braze, navega a **Currents** > **+ Create Current** > **Azure Blob Data Expor
 
 Cuando guardes, Braze validará las credenciales que ingresaste.
 
-Finalmente, desplázate hasta la parte inferior de la página y selecciona qué eventos de participación de mensajes o eventos de comportamiento del cliente deseas exportar. Cuando termines, lanza tu Current.
+Finalmente, desplázate hasta la parte inferior de la página y selecciona qué eventos de participación de mensajes o eventos de comportamiento del cliente deseas exportar. Cuando hayas terminado, lanza tu Current.
 
 ## Actualización de credenciales de Azure para Currents {#updating-currents-credentials}
 

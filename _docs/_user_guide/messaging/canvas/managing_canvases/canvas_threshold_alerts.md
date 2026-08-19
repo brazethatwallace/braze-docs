@@ -42,7 +42,7 @@ Alert rules define the threshold that triggers a notification. You can build rul
 - **User entries:** Number of users who entered the Canvas
 - **Messages sent:** Number of messages sent from the Canvas
 
-For each rule, choose a comparison (less than or more than) and a volume threshold. For example, a rule for "User entries less than 3,000" flags a Canvas that's normally reaching thousands of users but has suddenly stalled—a sign of an upstream audience or entry issue worth investigating.
+For each rule, choose a comparison (less than, greater than, less than or equal to, greater than or equal to, or equal to) and a volume threshold. For example, a rule for "User entries less than 3,000" flags a Canvas that's normally reaching thousands of users but has suddenly stalled—a sign of an upstream audience or entry issue worth investigating.
 
 You can group multiple rules together and combine rule groups with AND or OR logic to build more specific alert conditions.
 
@@ -61,7 +61,38 @@ You can enable one or both notification methods for a single alert.
 
 ![The Notifications section of the Configure Alert panel, showing Email and Webhook toggles, an email recipients field, a webhook URL field, a note about payload contents, and optional request header fields.]({% image_buster /assets/img/canvas_threshold_alerts/notifications.png %})
 
-Webhook alerts are useful for routing notifications to external platforms, such as a Slack channel—for more, see Slack's documentation for [sending messages using incoming webhooks](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/). Each webhook notification includes a payload with the Canvas name, the alert's metric, the threshold direction, the value that triggered the alert, and a direct link to the Canvas.
+Webhook alerts are useful for routing notifications to external platforms, such as a Slack channel—for more, see Slack's documentation for [sending messages using incoming webhooks](https://docs.slack.dev/messaging/sending-messages-using-incoming-webhooks/). Each webhook notification sends a JSON payload with the alert name, evaluation window, and the conditions that triggered the alert.
+
+### Example webhook payload
+
+The following is an example of the JSON payload sent in a POST request to your webhook endpoint when an alert is triggered:
+
+```json
+{
+  "alert": {
+    "name": "Canvas Alert - August 6, 2026",
+    "target_type": "CANVAS"
+  },
+  "evaluation_window_start": "2026-08-06T10:28:01Z",
+  "evaluation_window_end": "2026-08-06T13:28:01Z",
+  "conditions": [
+    {
+      "subject": "user_entries",
+      "operator": "lt",
+      "threshold_value": 500,
+      "metric_value": 0.0,
+      "group_index": 0
+    },
+    {
+      "subject": "messages_sent",
+      "operator": "lt",
+      "threshold_value": 500,
+      "metric_value": 0.0,
+      "group_index": 0
+    }
+  ]
+}
+```
 
 ## Step 6: Save your alert
 

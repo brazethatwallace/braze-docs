@@ -17,15 +17,14 @@ hide_toc: true
 各列の定義は以下のとおりです。
 
 |---------|-------------------------------------------------|
-| **送信先** | Brazeプラットフォームを通じて送信される最終的な地域、国、またはアクションの種類 |
+| **送信先** | Brazeプラットフォームを通じて送信される特定の最終地域、国、またはアクションの種類 |
 | **1送信あたりのクレジット** | 1回の送信に必要なメッセージクレジットの正確な数<br>（1送信あたりのクレジット = クレジット比率 × 送信先乗数） |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-
-## メッセージクレジット - Delta のクレジット比率表 {#credit-ratio-table-for-message-credits-delta}
+## メッセージクレジットのクレジット比率表 - Delta {#credit-ratio-table-for-message-credits-delta}
 
 {% details クリックして展開 %}
-<table class="credits-table" aria-label="メッセージクレジット - Delta のクレジット比率表">
+<table class="credits-table" aria-label="メッセージクレジットのクレジット比率表 - Delta">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -39,12 +38,12 @@ hide_toc: true
     </thead>
     <tbody>
 <tr>
-        <td>Agent Console</td>
+        <td>エージェントコンソール</td>
         <td>Braze Auto</td>
         <td>1.60</td>
     </tr>
     <tr>
-        <td>Agent Console</td>
+        <td>エージェントコンソール</td>
         <td>BYO LLM API Key</td>
         <td>0.16</td>
     </tr>
@@ -1280,7 +1279,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Marketing - BYO</td>
+        <td>Argentina Marketing - BYO or Meta Direct</td>
         <td>0.62</td>
     </tr>
     <tr>
@@ -1305,7 +1304,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brazil Marketing - BYO</td>
+        <td>Brazil Marketing - BYO or Meta Direct</td>
         <td>0.63</td>
     </tr>
     <tr>
@@ -1330,7 +1329,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Chile Marketing - BYO</td>
+        <td>Chile Marketing - BYO or Meta Direct</td>
         <td>0.89</td>
     </tr>
     <tr>
@@ -1355,7 +1354,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Marketing - BYO</td>
+        <td>Colombia Marketing - BYO or Meta Direct</td>
         <td>0.13</td>
     </tr>
     <tr>
@@ -1385,7 +1384,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Marketing - BYO</td>
+        <td>Egypt Marketing - BYO or Meta Direct</td>
         <td>0.64</td>
     </tr>
     <tr>
@@ -1410,7 +1409,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>France Marketing - BYO</td>
+        <td>France Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1435,7 +1434,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Germany Marketing - BYO</td>
+        <td>Germany Marketing - BYO or Meta Direct</td>
         <td>1.37</td>
     </tr>
     <tr>
@@ -1465,7 +1464,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Marketing - BYO</td>
+        <td>India Marketing - BYO or Meta Direct</td>
         <td>0.12</td>
     </tr>
     <tr>
@@ -1495,7 +1494,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Marketing - BYO</td>
+        <td>Indonesia Marketing - BYO or Meta Direct</td>
         <td>0.41</td>
     </tr>
     <tr>
@@ -1520,7 +1519,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Israel Marketing - BYO</td>
+        <td>Israel Marketing - BYO or Meta Direct</td>
         <td>0.35</td>
     </tr>
     <tr>
@@ -1545,7 +1544,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italy Marketing - BYO</td>
+        <td>Italy Marketing - BYO or Meta Direct</td>
         <td>0.69</td>
     </tr>
     <tr>
@@ -1575,7 +1574,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malaysia Marketing - BYO</td>
+        <td>Malaysia Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1600,7 +1599,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Mexico Marketing - BYO</td>
+        <td>Mexico Marketing - BYO or Meta Direct</td>
         <td>0.31</td>
     </tr>
     <tr>
@@ -1625,7 +1624,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Netherlands Marketing - BYO</td>
+        <td>Netherlands Marketing - BYO or Meta Direct</td>
         <td>1.60</td>
     </tr>
     <tr>
@@ -1655,7 +1654,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Marketing - BYO</td>
+        <td>Nigeria Marketing - BYO or Meta Direct</td>
         <td>0.52</td>
     </tr>
     <tr>
@@ -1680,7 +1679,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>North America Marketing - BYO</td>
+        <td>North America Marketing - BYO or Meta Direct</td>
         <td>0.25</td>
     </tr>
     <tr>
@@ -1705,7 +1704,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Other Marketing - BYO</td>
+        <td>Other Marketing - BYO or Meta Direct</td>
         <td>0.60</td>
     </tr>
     <tr>
@@ -1735,7 +1734,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistan Marketing - BYO</td>
+        <td>Pakistan Marketing - BYO or Meta Direct</td>
         <td>0.47</td>
     </tr>
     <tr>
@@ -1760,7 +1759,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Peru Marketing - BYO</td>
+        <td>Peru Marketing - BYO or Meta Direct</td>
         <td>0.70</td>
     </tr>
     <tr>
@@ -1785,7 +1784,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Africa Marketing - BYO</td>
+        <td>Rest of Africa Marketing - BYO or Meta Direct</td>
         <td>0.23</td>
     </tr>
     <tr>
@@ -1810,7 +1809,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Asia Pacific Marketing - BYO</td>
+        <td>Rest of Asia Pacific Marketing - BYO or Meta Direct</td>
         <td>0.73</td>
     </tr>
     <tr>
@@ -1835,7 +1834,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Central & Eastern Europe Marketing - BYO</td>
+        <td>Rest of Central & Eastern Europe Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1860,7 +1859,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Latin America Marketing - BYO</td>
+        <td>Rest of Latin America Marketing - BYO or Meta Direct</td>
         <td>0.74</td>
     </tr>
     <tr>
@@ -1875,7 +1874,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Message Types - BYO</td>
+        <td>Rest of Message Types - BYO or Meta Direct</td>
         <td>0.10</td>
     </tr>
     <tr>
@@ -1890,7 +1889,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Middle East Marketing - BYO</td>
+        <td>Rest of Middle East Marketing - BYO or Meta Direct</td>
         <td>0.34</td>
     </tr>
     <tr>
@@ -1915,7 +1914,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Western Europe Marketing - BYO</td>
+        <td>Rest of Western Europe Marketing - BYO or Meta Direct</td>
         <td>0.59</td>
     </tr>
     <tr>
@@ -1940,7 +1939,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Russia Marketing - BYO</td>
+        <td>Russia Marketing - BYO or Meta Direct</td>
         <td>0.80</td>
     </tr>
     <tr>
@@ -1970,7 +1969,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Marketing - BYO</td>
+        <td>Saudi Arabia Marketing - BYO or Meta Direct</td>
         <td>0.46</td>
     </tr>
     <tr>
@@ -2000,7 +1999,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Marketing - BYO</td>
+        <td>South Africa Marketing - BYO or Meta Direct</td>
         <td>0.38</td>
     </tr>
     <tr>
@@ -2025,7 +2024,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Spain Marketing - BYO</td>
+        <td>Spain Marketing - BYO or Meta Direct</td>
         <td>0.62</td>
     </tr>
     <tr>
@@ -2050,7 +2049,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turkey Marketing - BYO</td>
+        <td>Turkey Marketing - BYO or Meta Direct</td>
         <td>0.11</td>
     </tr>
     <tr>
@@ -2080,7 +2079,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Marketing - BYO</td>
+        <td>United Arab Emirates Marketing - BYO or Meta Direct</td>
         <td>0.50</td>
     </tr>
     <tr>
@@ -2105,7 +2104,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Kingdom Marketing - BYO</td>
+        <td>United Kingdom Marketing - BYO or Meta Direct</td>
         <td>0.53</td>
     </tr>
     <tr>
@@ -2129,7 +2128,7 @@ hide_toc: true
         <td>0.20</td>
     </tr>
     <tr>
-        <td>Webhooks</td>
+        <td>Webhook</td>
         <td>Standard</td>
         <td>0.08</td>
     </tr>
@@ -2274,15 +2273,15 @@ hide_toc: true
 
 ### SMSセグメント {#sms-segments}
 
-SMSメッセージセグメントは、SMS業界でメッセージをカウントする方法です。メッセージセグメントとは、定義された最大文字数（GSM-7エンコーディングの場合は160文字、UCS-2エンコーディングの場合は67文字）までの文字グループであり、1回のSMS配信で送信されます。GSM-7エンコーディングで161文字のSMSを配信した場合、2つのメッセージセグメントが送信されたことになります。複数のメッセージセグメントを送信すると、追加料金が発生します。
+SMSメッセージセグメントは、SMS業界でメッセージをカウントする方法です。メッセージセグメントとは、定義された文字数（GSM-7エンコーディングでは160文字、UCS-2エンコーディングでは67文字）までのグループであり、1回のSMS配信で送信されます。GSM-7エンコーディングを使用して161文字のSMSを配信した場合、2つのメッセージセグメントが送信されたことがわかります。複数のメッセージセグメントを送信すると、追加料金が発生します。
 
 ### MMSセグメント {#mms-segments}
 
-MMSの場合、メッセージの上限は5 MB（マルチメディアアセットとメッセージ本文のサイズを含む）です。安全のため、Brazeではマルチメディアアセットを600 KB以下に抑え、メッセージ本文も含めることを推奨しています。
+MMSの場合、メッセージの上限は5 MBです（これにはマルチメディアアセットとメッセージ本文のサイズが含まれます）。安全のため、Brazeではマルチメディアアセットを600 KB以下に抑え、メッセージ本文も含めることを推奨しています。
 
-### RCSの種類 {#rcs-types}
+### RCSタイプ {#rcs-types}
 
-RCSはSMSおよびMMSの次世代版です。SMSのようなダイレクトで高エンゲージメントなチャネルのメリットを備えつつ、現代の消費者が期待するリッチコンテンツ（画像、動画、ドキュメント）、認証済みおよびブランド付き送信、おすすめの返信やアクションなどのインタラクティブ機能など、より豊富な機能を提供します。
+RCSは、SMSとMMSの次世代版です。SMSのような直接的で高エンゲージメントなチャネルの利点を備えつつ、リッチコンテンツ（画像、動画、ドキュメント）、認証済みおよびブランド付き送信、提案された返信やアクションなどのインタラクティブ機能など、現代の消費者が期待するようになったよりリッチな機能を提供します。
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
@@ -2294,7 +2293,9 @@ RCSはSMSおよびMMSの次世代版です。SMSのようなダイレクトで�
 
 ### Webhook {#webhooks}
 
-Webhookは2024年12月9日にメッセージクレジットの対象となりました。Brazeは、Brazeプラットフォームから送信されるすべてのwebhookに対してメッセージクレジットを課金します。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに10万件のwebhookが含まれています。追加のwebhookについては、注文書に従って課金されます。
+Webhookは2024年12月9日にメッセージクレジットの対象となりました。Brazeは、Brazeプラットフォームから送信されるすべてのwebhookに対してメッセージクレジットを課金します。デフォルトでは、契約にはサブスクリプション期間の各期間につき10万件のwebhookが含まれています。追加のwebhookについては、注文書に従って課金されます。
+
+{% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Message Credits' %}
 
 ### 自社SMS接続（BYO SMSコネクター） {#bring-your-own-byo-sms-connectors}
 
@@ -2304,7 +2305,7 @@ Brazeでは、「BYO SMSコネクター」モデルを通じて、サードパ�
 
 Brazeは、Brazeプラットフォームから送信されるすべてのLINEメッセージに対してメッセージクレジットを課金します。
 
-## 課金リージョンの内訳 {#billing-region-breakdown}
+## 請求リージョンの内訳 {#billing-region-breakdown}
 
 ### 北米 {#north-america}
 
@@ -2312,11 +2313,13 @@ Brazeは、Brazeプラットフォームから送信されるすべてのLINEメ
 
 ### その他のアフリカ {#rest-of-africa}
 
-アルジェリア、アンゴラ、ベナン、ボツワナ、ブルキナファソ、ブルンジ、カメルーン、チャド、コンゴ、エリトリア、エチオピア、ガボン、ガンビア、ガーナ、ギニアビサウ、コートジボワール、ケニア、レソト、リベリア、リビア、マダガスカル、マラウイ、マリ、モーリタニア、モロッコ、モザンビーク、ナミビア、ニジェール、ルワンダ、セネガル、シエラレオネ、ソマリア、南スーダン、スーダン、エスワティニ、タンザニア、トーゴ、チュニジア、ウガンダ、ザンビア
+アルジェリア、アンゴラ、ベナン、ボツワナ、ブルキナファソ、ブルンジ、カメルーン、チャド、コンゴ、エリトリア、エチオピア、ガボン、ガンビア、ガーナ、ギニアビサウ、コートジボワール、ケニア、レソト、リベリア、リビア、
+マダガスカル、マラウイ、マリ、モーリタニア、モロッコ、モザンビーク、ナミビア、ニジェール、ルワンダ、セネガル、シエラレオネ、ソマリア、南スーダン、スーダン、エスワティニ、タンザニア、トーゴ、チュニジア、ウガンダ、ザンビア
 
 ### その他のアジア太平洋 {#rest-of-asia-pacific}
 
-アフガニスタン、オーストラリア、バングラデシュ、カンボジア、中国、日本、ラオス、モンゴル、ネパール、ニュージーランド、パプアニューギニア、フィリピン、スリランカ、台湾、タジキスタン、タイ、トルクメニスタン、ウズベキスタン、ベトナム
+アフガニスタン、オーストラリア、バングラデシュ、カンボジア、中国、日本、ラオス、モンゴル、ネパール、ニュージーランド、パプアニューギニア、フィリピン、スリランカ、台湾、タジキスタン、タイ、
+トルクメニスタン、ウズベキスタン、ベトナム
 
 ### その他の中央・東ヨーロッパ {#rest-of-central-eastern-europe}
 
@@ -2324,7 +2327,8 @@ Brazeは、Brazeプラットフォームから送信されるすべてのLINEメ
 
 ### その他のラテンアメリカ {#rest-of-latin-america}
 
-ボリビア、コスタリカ、ドミニカ共和国、エクアドル、エルサルバドル、グアテマラ、ハイチ、ホンジュラス、ジャマイカ、ニカラグア、パナマ、パラグアイ、プエルトリコ、ウルグアイ、ベネズエラ
+ボリビア、コスタリカ、ドミニカ共和国、エクアドル、エルサルバドル、
+グアテマラ、ハイチ、ホンジュラス、ジャマイカ、ニカラグア、パナマ、パラグアイ、プエルトリコ、ウルグアイ、ベネズエラ
 
 ### その他の中東 {#rest-of-middle-east}
 

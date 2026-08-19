@@ -88,7 +88,9 @@ Regardless of the encoding type, each SMS message sent out by Braze has a limit 
     - Emojis have no standard character count across all emojis, so make sure to test that your messages are segmenting and displaying correctly.
     - Links may make use of many characters, resulting in more message segments than intended. Though the use of link shorteners is possible, they are best used with short codes. Visit our [SMS FAQ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs) for more information.<br><br>
 - **Testing**
-    - Always test your SMS messages before launch, especially when using Liquid and Connected Content as going over message or copy limits may result in additional charges. Note that test messages will count toward your message limits.
+    - Always test your SMS messages before launch, especially when using Liquid and Connected Content as going over message or copy limits may result in additional charges. Note that test messages will count toward your message limits.<br><br>
+- **Auto-response messages**
+    - Auto-response messages sent by Braze, such as double opt-in confirmations and responses to HELP keywords, are SMS sends that count toward billable segments. The number of billable segments depends on the copy's length and character encoding.
 
 ### SMS segment calculator {#segment-calculator}
 ---

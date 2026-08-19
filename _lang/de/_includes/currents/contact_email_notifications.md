@@ -1,0 +1,1 @@
+Geben Sie eine Kontakt-E-Mail-Adresse für Benachrichtigungen bei Integrationsfehlern an. Braze sendet Benachrichtigungen an diese Adresse, wenn bei der Integration Fehler auftreten, z. B. Probleme mit Anmeldedaten oder der Konnektivität. Um sicherzustellen, dass die richtigen Personen Benachrichtigungen erhalten, verwenden Sie einen Verteiler oder eine Gruppen-E-Mail-Adresse.

@@ -54,10 +54,10 @@ Você pode adicionar tags a um evento personalizado após sua criação se tiver
 Para exportar a lista de eventos personalizados como um arquivo CSV, selecione **Export all** no topo da página. O arquivo CSV é gerado e um link para download é enviado para o seu e-mail.
 
 {% alert note %}
-Não há um limite fixo no dashboard para a quantidade de **eventos personalizados** ou **atributos personalizados** distintos que você pode definir ou armazenar em um perfil. Os limites práticos dependem do formato dos dados, do volume de ingestão e do desempenho do espaço de trabalho. Se você planeja rastrear um catálogo muito grande de eventos ou atributos, trabalhe com a equipe de conta da Braze para modelagem e higienização (por exemplo, [bloqueio]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data) de dados não utilizados).
+Não há um limite fixo no dashboard para a quantidade de **eventos personalizados** ou **atributos personalizados** que você pode definir ou armazenar em um perfil. Os limites práticos dependem do formato dos dados, do volume de ingestão e do desempenho do espaço de trabalho. Se você planeja rastrear um catálogo muito grande de eventos ou atributos, trabalhe com a equipe de conta da Braze para modelagem e higienização dos dados (por exemplo, [bloqueio]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data) de dados não utilizados).
 {% endalert %}
 
-## Visualização de relatórios de uso
+## Visualizando relatórios de uso
 
 O relatório de uso lista todos os Canvas, Campaigns e Segments que utilizam um evento personalizado específico. Essa lista não inclui usos de Liquid.
 
@@ -67,7 +67,7 @@ Você pode visualizar até 100 relatórios de uso por vez selecionando as caixas
 
 Eventos personalizados exigem configuração adicional. Consulte a documentação da plataforma a seguir para conhecer os métodos usados para registrar eventos personalizados e como adicionar propriedades e quantidades aos seus eventos personalizados.
 
-{% details Expandir para ver a documentação por plataforma %}
+{% details Expandir para documentação por plataforma %}
 
 - [Android e FireOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
@@ -106,7 +106,7 @@ Cada evento inclui:
 Casos de uso comuns incluem:
 
 - Verificar se a integração do SDK ou da API está enviando eventos conforme esperado durante o desenvolvimento ou após um lançamento.
-- Solucionar problemas sobre por que um usuário entrou ou não em uma Campaign ou Canvas disparados por evento.
+- Solucionar por que um usuário entrou ou não entrou em uma Campaign ou Canvas disparada por evento.
 - Investigar um problema de suporte para um usuário específico sem precisar configurar uma exportação de dados.
 
 {% alert note %}
@@ -133,9 +133,9 @@ A tabela a seguir mostra os filtros disponíveis para segmentar usuários por ev
 
 ## Análise de dados
 
-A Braze registra o número de vezes que eventos personalizados ocorreram e a última vez que foram realizados por cada usuário para segmentação. Visualize essas análises acessando **Analytics** > **Custom Events Report**.
+A Braze registra o número de vezes que eventos personalizados ocorreram e a última vez que foram realizados por cada usuário para segmentação. Para configuração de relatórios, filtros e opções de exportação, consulte [Relatório de eventos personalizados]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report).
 
-Na página **Custom Events Report** no dashboard, você pode visualizar de forma agregada a frequência com que cada evento personalizado ocorre. As linhas cinzas sobrepostas na série temporal indicam a última vez que uma Campaign foi enviada, o que é útil para ver como suas Campaigns afetaram a atividade de eventos personalizados.
+Na página **Custom Events Report**, você pode visualizar de forma agregada a frequência com que cada evento personalizado ocorre. As linhas cinzas sobrepostas na série temporal indicam a última vez que uma Campaign foi enviada, o que é útil para visualizar como suas Campaigns afetaram a atividade de eventos personalizados.
 
 ![Gráfico de contagem de eventos personalizados na página Custom Events no dashboard mostrando tendências para um evento personalizado]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
@@ -144,7 +144,7 @@ Você também pode usar **Filters** para detalhar seus eventos personalizados po
 ![Filtros do gráfico de eventos personalizados]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[Incremente atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) para manter um contador de ações do usuário semelhante a um evento personalizado. No entanto, não é possível visualizar dados de atributos personalizados em uma série temporal. Ações do usuário que não precisam ser analisadas em uma série temporal devem ser registradas usando esse método.
+[Incremente atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) para manter um contador de uma ação do usuário semelhante a um evento personalizado. No entanto, não é possível visualizar dados de atributos personalizados em uma série temporal. Ações do usuário que não precisam ser analisadas em uma série temporal devem ser registradas usando esse método.
 {% endalert %}
 
 ### Por que a análise de dados de eventos personalizados não está aparecendo

@@ -148,6 +148,8 @@ Next, select **Create New Current** then **Amazon S3 Data Export**.
 
 Name your Current. In the **Credentials** section, make sure **AWS Secret Access Key** is selected, then input your S3 access ID, AWS secret access key, and AWS S3 bucket name in the designated fields.
 
+{% multi_lang_include currents/contact_email_notifications.md %}
+
 ![Braze Create New Current form for Amazon S3 with AWS secret key credentials fields.]({{site.baseurl}}/assets/img/currents-s3-example.png)
 
 {% alert warning %}
@@ -303,6 +305,8 @@ In Braze, go to **Partner Integrations** > **Currents**. Next, select **Create N
 ![Braze Currents Amazon S3 setup screen with AWS Role ARN and bucket fields.]({{site.baseurl}}/assets/img/currents-role-arn.png)
 
 Give your Current a name. Then, in the **Credentials** section, make sure **AWS Role ARN** is selected, then provide your role ARN and AWS S3 bucket name in the designated fields.
+
+{% multi_lang_include currents/contact_email_notifications.md %}
 
 You can also add the following customization based on your needs:
 

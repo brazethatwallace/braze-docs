@@ -11,174 +11,187 @@ toc_headers: h2
 
 > Esta página contiene respuestas a algunas preguntas frecuentes sobre la ingesta de datos en la nube.
 
-## ¿Por qué me enviaron un correo electrónico: "Error in CDI Sync"? {#why-was-i-emailed-error-in-cdi-sync}
+## ¿Por qué recibí un correo electrónico con el mensaje "Error in CDI Sync"? {#why-was-i-emailed-error-in-cdi-sync}
 
-Este tipo de correo electrónico suele significar que hay un problema con tu configuración de CDI. Aquí tienes algunos problemas comunes y cómo solucionarlos:
+Este tipo de correo electrónico suele significar que hay un problema con tu configuración de CDI. A continuación se presentan algunos problemas comunes y cómo solucionarlos:
 
-### CDI no puede acceder al almacén de datos o a la tabla utilizando tus credenciales {#cdi-cant-access-the-data-warehouse-or-table-using-your-credentials}
+### CDI no puede acceder al almacén de datos o a la tabla con tus credenciales {#cdi-cant-access-the-data-warehouse-or-table-using-your-credentials}
 
-Esto podría significar que las credenciales en CDI son incorrectas o están mal configuradas en el almacén de datos. Para más información, consulta [Integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
+Esto podría significar que las credenciales en CDI son incorrectas o están mal configuradas en el almacén de datos. Para más información, consulta [Integraciones de almacén de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
-### No se encuentra la tabla {#the-table-cannot-be-found}
+### No se puede encontrar la tabla {#the-table-cannot-be-found}
 
-Intenta actualizar tu integración con la configuración correcta de la base de datos o crea recursos coincidentes en el almacén de datos, como `database/table`.
+Intenta actualizar tu integración con la configuración de base de datos correcta o crea los recursos correspondientes en el almacén de datos, como `database/table`.
 
-### No se encuentra el catálogo {#the-catalog-cannot-be-found}
+### No se puede encontrar el catálogo {#the-catalog-cannot-be-found}
 
-El catálogo configurado en la integración no existe en el catálogo de Braze. Se puede eliminar un catálogo después de configurar la integración. Para resolver el problema, actualiza la integración para utilizar un catálogo diferente o crea un catálogo nuevo que coincida con el nombre del catálogo en la integración.
+El catálogo configurado en la integración no existe en el catálogo de Braze. Un catálogo puede eliminarse después de que se haya configurado la integración. Para resolver el problema, actualiza la integración para usar un catálogo diferente o crea un nuevo catálogo que coincida con el nombre del catálogo en la integración.
 
-## ¿Por qué me enviaron un correo electrónico: "Row errors in your CDI sync"? {#why-was-i-emailed-row-errors-in-your-cdi-sync}
+## ¿Por qué recibí un correo electrónico con el asunto "Row errors in your CDI sync"? {#why-was-i-emailed-row-errors-in-your-cdi-sync}
 
-Este tipo de correo significa que algunos de tus datos no pudieron ser procesados durante la sincronización. Para averiguar el error concreto, puedes revisar los registros en Braze yendo a **CDI** > **Sync Log**.
+Este tipo de correo electrónico significa que algunos de tus datos no pudieron procesarse durante la sincronización. Para conocer el error específico, puedes revisar los registros en Braze yendo a **CDI** > **Sync Log**.
 
-## ¿Cómo corrijo los errores de Test Connection y de los correos electrónicos de asistencia? {#how-do-i-fix-errors-for-test-connection-and-support-emails}
+## ¿Cómo soluciono el error "Time must be string in ISO8601 Format" en la configuración de CDI? {#how-do-i-fix-time-must-be-string-in-iso8601-format-in-cdi-setup}
+
+Este error significa que el valor `time` del evento en tu carga útil de CDI no tiene un formato de fecha y hora compatible.
+
+Para las cargas útiles de eventos y compras, formatea `time` como:
+
+- Una cadena ISO 8601, o
+- `yyyy-MM-dd'T'HH:mm:ss:SSSZ`
+
+Si se omite `time`, Braze utiliza `UPDATED_AT` como la hora del evento.
+
+Para conocer todos los requisitos de la carga útil, consulta [Configuración de tablas para la ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
+
+## ¿Cómo soluciono errores de Test Connection y correos electrónicos de soporte? {#how-do-i-fix-errors-for-test-connection-and-support-emails}
 
 {% tabs %}
 {% tab Snowflake %}
-### La conexión de prueba va lenta {#test-connection-runs-slow}
+### Test Connection se ejecuta lentamente {#test-connection-runs-slow}
 
-Test Connection se ejecuta en tu almacén de datos, por lo que aumentar la capacidad del almacén puede mejorar su velocidad. El uso de una instancia SQL sin servidor minimizará el tiempo de calentamiento y mejorará el rendimiento de las consultas, pero puede dar lugar a costes de integración ligeramente superiores.
+Test Connection se ejecuta en tu almacén de datos, por lo que aumentar la capacidad del almacén puede mejorar su velocidad. Usar una instancia SQL serverless minimizará el tiempo de arranque y mejorará el rendimiento de las consultas, pero puede resultar en costos de integración ligeramente más altos.
 
-### Error al conectar con la instancia de Snowflake: la solicitud entrante con IP no tiene autorización para acceder a Snowflake {#error-connecting-to-snowflake-instance-incoming-request-with-ip-is-not-allowed-to-access-snowflake}
+### Error al conectar con la instancia de Snowflake: Incoming request with IP is not allowed to access Snowflake {#error-connecting-to-snowflake-instance-incoming-request-with-ip-is-not-allowed-to-access-snowflake}
 
-Intenta añadir las IP oficiales de Braze a tu lista de IP permitidas. Para obtener más información, consulta [Integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations) o permite las direcciones IP pertinentes:
+Intenta añadir las IP oficiales de Braze a tu lista de IP permitidas. Para más información, consulta [Integraciones de almacén de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations), o permite las IP relevantes:
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
-### Error al ejecutar SQL debido a la configuración del cliente: 002003 (42S02): error de compilación SQL: no existe o no está autorizado {#error-executing-sql-due-to-customer-config-002003-42s02-sql-compilation-error-does-not-exist-or-not-authorized}
+### Error al ejecutar SQL debido a la configuración del cliente: 002003 (42S02): SQL compilation error: does not exist or not authorized {#error-executing-sql-due-to-customer-config-002003-42s02-sql-compilation-error-does-not-exist-or-not-authorized}
 
-Si la tabla no existe, créala. Si la tabla existe, comprueba que el usuario y el rol tienen permisos para leer la tabla.
+Si la tabla no existe, créala. Si la tabla existe, verifica que el usuario y el rol tengan permisos para leer de la tabla.
 
-### No se ha podido utilizar el esquema {#could-not-use-schema}
+### Could not use schema {#could-not-use-schema}
 
-Si recibes este error, concede acceso a ese esquema para el usuario o rol especificado.
+Si recibes este error, otorga acceso a ese esquema para el usuario o rol especificado.
 
-### No se ha podido utilizar el rol {#could-not-use-role}
+### Could not use role {#could-not-use-role}
 
 Si recibes este error, permite que ese usuario utilice el rol especificado.
 
-### Acceso de usuario desactivado {#user-access-disabled}
+### User access disabled {#user-access-disabled}
 
-Si recibes este error, permite a ese usuario el acceso a tu cuenta de Snowflake.
+Si recibes este error, permite el acceso de ese usuario a tu cuenta de Snowflake.
 
-### Error al conectarse a la instancia de Snowflake con la clave actual y la antigua {#error-connecting-to-snowflake-instance-with-current-and-old-key}
+### Error al conectar con la instancia de Snowflake con la clave actual y la anterior {#error-connecting-to-snowflake-instance-with-current-and-old-key}
 
-Si recibes este error, asegúrate de que el usuario está utilizando la clave pública actual que se muestra en tu panel de Braze.
+Si recibes este error, asegúrate de que el usuario esté utilizando la clave pública actual tal como se muestra en tu panel de Braze.
 {% endtab %}
 
 {% tab Redshift %}
-### La conexión de prueba va lenta
+### Test Connection se ejecuta lentamente
 
-Test Connection se ejecuta en tu almacén de datos, por lo que aumentar la capacidad del almacén puede mejorar su velocidad. El uso de una instancia SQL sin servidor minimizará el tiempo de calentamiento y mejorará el rendimiento de las consultas, pero puede dar lugar a costes de integración ligeramente superiores.
+Test Connection se ejecuta en tu almacén de datos, por lo que aumentar la capacidad del almacén puede mejorar su velocidad. Usar una instancia SQL serverless minimizará el tiempo de arranque y mejorará el rendimiento de las consultas, pero puede resultar en costos de integración ligeramente más altos.
 
-### Permiso denegado para la relación {table_name} {#permission-denied-for-relation-table_name}
-
-Si recibes este error:
-
-  - Concede el permiso `usage` en el esquema para ese usuario.
-  - Concede el permiso `select` en la tabla para ese usuario.
-
-### Error al crear conexión {#create-connection-error}
-
-Si recibes este error, comprueba que el endpoint y el puerto de Redshift son correctos.
-
-### Error al crear túnel SSH {#create-ssh-tunnel-error}
+### Permission denied for relation {table_name} {#permission-denied-for-relation-table_name}
 
 Si recibes este error:
 
-  - Comprueba que la clave pública de tu panel de Braze está en el host ec2 utilizado para el túnel SSH.
-  - Comprueba que tu nombre de usuario es correcto.
-  - Comprueba que el túnel SSH es correcto.
+  - Otorga el permiso `usage` en el esquema para ese usuario.
+  - Otorga el permiso `select` en la tabla para ese usuario.
+
+### Create Connection Error {#create-connection-error}
+
+Si recibes este error, verifica que el endpoint y el puerto de Redshift sean correctos.
+
+### Create SSH Tunnel Error {#create-ssh-tunnel-error}
+
+Si recibes este error:
+
+  - Verifica que la clave pública en tu panel de Braze esté en el host ec2 utilizado para el túnel SSH.
+  - Verifica que tu nombre de usuario sea correcto.
+  - Verifica que el túnel SSH sea correcto.
 {% endtab %}
 
 {% tab BigQuery %}
-### La conexión de prueba va lenta
+### Test Connection se ejecuta lentamente
 
-Test Connection se ejecuta en tu almacén de datos, por lo que aumentar la capacidad del almacén puede mejorar su velocidad. El uso de una instancia SQL sin servidor minimizará el tiempo de calentamiento y mejorará el rendimiento de las consultas, pero puede dar lugar a costes de integración ligeramente superiores.
+Test Connection se ejecuta en tu almacén de datos, por lo que aumentar la capacidad del almacén puede mejorar su velocidad. Usar una instancia SQL serverless minimizará el tiempo de arranque y mejorará el rendimiento de las consultas, pero puede resultar en costos de integración ligeramente más altos.
 
 ### El usuario no tiene permiso para consultar la tabla {#user-does-not-have-permission-to-query-table}
 
 Si recibes este error, añade permisos de usuario para consultar la tabla.
 
-### Tu uso ha superado la cuota personalizada {#your-usage-exceeded-the-custom-quota}
+### Tu uso superó la cuota personalizada {#your-usage-exceeded-the-custom-quota}
 
-Si recibes este error, es necesario actualizar tu cuota para que puedas seguir sincronizando al ritmo actual.
+Si recibes este error, tu cuota necesita ser actualizada para que puedas continuar sincronizando a tu tasa actual.
 
-### No se ha encontrado la tabla en la ubicación {region} {#table-was-not-found-in-location-region-location}
+### La tabla no se encontró en la ubicación {region} {#table-was-not-found-in-location-region-location}
 
-Si recibes este error, comprueba que la tabla se encuentra en el proyecto y el conjunto de datos correctos.
+Si recibes este error, verifica que tu tabla esté en el proyecto y conjunto de datos correctos.
 
-### Firma JWT no válida {#invalid-jwt-signature}
+### Invalid JWT Signature {#invalid-jwt-signature}
 
-Si recibes este error, comprueba que el servicio de API de BigQuery está habilitado para tu cuenta.
+Si recibes este error, comprueba que el servicio de API de BigQuery esté habilitado para tu cuenta.
 {% endtab %}
 
 {% tab Databricks %}
-### La conexión de prueba va lenta
+### Test Connection se ejecuta lentamente
 
-Test Connection se ejecuta en tu almacén de datos, por lo que aumentar la capacidad del almacén puede mejorar su velocidad. En el caso de Databricks, puede haber de dos a cinco minutos de tiempo de calentamiento cuando Braze se conecta a instancias Classic y Pro SQL, lo que provocará retrasos durante la configuración y las pruebas de conexión, así como al inicio de las sincronizaciones programadas. El uso de una instancia SQL sin servidor minimizará el tiempo de calentamiento y mejorará el rendimiento de las consultas, pero puede dar lugar a costes de integración ligeramente superiores.
+Test Connection se ejecuta en tu almacén de datos, por lo que aumentar la capacidad del almacén puede mejorar su velocidad. Para Databricks, puede haber de dos a cinco minutos de tiempo de arranque cuando Braze se conecta a instancias SQL Classic y Pro, lo que provocará retrasos durante la configuración y prueba de la conexión, así como al inicio de las sincronizaciones programadas. Usar una instancia SQL serverless minimizará el tiempo de arranque y mejorará el rendimiento de las consultas, pero puede resultar en costos de integración ligeramente más altos.
 
-### El comando ha fallado porque el almacén estaba detenido {#command-failed-because-warehouse-was-stopped}
+### Command failed because warehouse was stopped {#command-failed-because-warehouse-was-stopped}
 
-Si recibes este error, asegúrate de que el almacén de Databricks está en ejecución.
+Si recibes este error, asegúrate de que el almacén de Databricks esté en ejecución.
 
-### Service: Amazon S3; Status Code: 403; Error Code: 403 Forbidden {#service-amazon-s3-status-code-403-error-code-403-forbidden}
+### Service: Amazon S3; Status Code: 403; Error Code: 403 Forbidden
 
 Si recibes este error, consulta [Databricks: Forbidden error while accessing S3 data](https://kb.databricks.com/security/forbidden-access-to-s3-data).
 {% endtab %}
 {% endtabs %}
 
-## ¿Cómo actualizo mis preferencias de alertas por correo electrónico para las integraciones CDI? {#how-do-i-update-my-email-alert-preferences-for-cdi-integrations}
+## ¿Cómo actualizo mis preferencias de alertas por correo electrónico para las integraciones de CDI? {#how-do-i-update-my-email-alert-preferences-for-cdi-integrations}
 
-Cada integración tiene sus propias preferencias de notificación. Ve a la página CDI y selecciona el nombre de la integración que deseas actualizar. En la sección **Notification preferences** puedes actualizar cómo recibes las alertas relativas a la integración seleccionada.
+Cada integración tiene sus propias preferencias de notificación. Ve a la página de CDI y selecciona el nombre de la integración que deseas actualizar. En la sección **Notification preferences** puedes actualizar cómo recibes alertas sobre la integración seleccionada.
 
-## ¿Qué sucede si un `UPDATED_AT` futuro se sincroniza con una integración? {#what-happens-if-a-future-updated_at-gets-synced-with-an-integration}
+## ¿Qué ocurre si se sincroniza un valor futuro de UPDATED_AT con una integración? {#what-happens-if-a-future-updated_at-gets-synced-with-an-integration}
 
-CDI utiliza `UPDATED_AT` para decidir qué datos son nuevos. Después de sincronizar un `UPDATED_AT` futuro, no se procesarán los datos anteriores a esa fecha y hora futuras. Para solucionarlo:
+CDI utiliza `UPDATED_AT` para determinar qué datos son nuevos. Después de que se sincroniza un valor futuro de `UPDATED_AT`, cualquier dato anterior a esa fecha y hora futura no se procesará. Para solucionarlo:
 
 1. Corrige `UPDATED_AT`.
-2. Elimina los datos antiguos que ya estén sincronizados con Braze.
-3. Crea una nueva integración para procesar de nuevo esa tabla.
+2. Elimina cualquier dato antiguo que ya se haya sincronizado con Braze.
+3. Crea una nueva integración para procesar esa tabla de nuevo.
 
-## ¿Por qué "Rows Synced" no coincide con el número de mi almacén? {#why-doesnt-rows-synced-match-the-number-in-my-warehouse}
+## ¿Por qué "Rows Synced" no coincide con el número en mi almacén de datos? {#why-doesnt-rows-synced-match-the-number-in-my-warehouse}
 
-CDI utiliza `UPDATED_AT` para decidir qué registros recoger durante una sincronización. Mira [esta ilustración]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#how-it-works) para ver cómo funciona. Al inicio de una sincronización, CDI realiza una consulta en tu almacén para obtener todos los registros con `UPDATED_AT` posterior al valor `UPDATED_AT` procesado anteriormente. Los registros que se encuentren exactamente en la marca de tiempo límite también pueden volver a sincronizarse si nuevas filas comparten esa marca de tiempo. Cualquier registro recogido en el momento en que se ejecuta la consulta se sincroniza en Braze. Estos son los casos habituales en los que un registro puede no sincronizarse:
+CDI utiliza `UPDATED_AT` para decidir qué registros recoger durante una sincronización. Consulta [esta ilustración]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#how-it-works) para ver cómo funciona. Al inicio de una ejecución de sincronización, CDI consulta tu almacén de datos para obtener todos los registros con un valor de `UPDATED_AT` posterior al último valor de `UPDATED_AT` procesado. Los registros que se encuentran exactamente en la marca de tiempo límite también pueden volver a sincronizarse si nuevas filas comparten esa marca de tiempo. Cualquier registro recogido en el momento en que se ejecuta la consulta se sincroniza en Braze. Estos son los casos comunes en los que un registro podría no sincronizarse:
 
-- Estás añadiendo registros a la tabla con un valor `UPDATED_AT` que ya ha sido procesado.
-- Estás actualizando los valores de los registros después de que hayan sido procesados por una sincronización, pero dejando `UPDATED_AT` sin cambios.
-- Estás añadiendo o actualizando registros mientras se realiza una sincronización. Dependiendo del momento en que se ejecute la consulta CDI, puede haber condiciones de carrera que provoquen que no se recojan los registros.
+- Estás añadiendo registros a la tabla con un valor de `UPDATED_AT` que ya ha sido procesado.
+- Estás actualizando valores de registros después de que hayan sido procesados por una sincronización, pero dejando `UPDATED_AT` sin cambios.
+- Estás añadiendo o actualizando registros mientras una sincronización está en curso. Dependiendo de cuándo se ejecute la consulta de CDI, podrían producirse condiciones de carrera que provoquen que los registros no se recojan.
 
 {% alert tip %}
-Para evitar estos comportamientos en el futuro, recomendamos utilizar valores `UPDATED_AT` que aumenten monotónicamente y no actualizar la tabla durante la ejecución de la sincronización programada.
+Para evitar estos comportamientos en el futuro, te recomendamos usar valores de `UPDATED_AT` monótonamente crecientes y no actualizar la tabla durante la ejecución de sincronización programada.
 {% endalert %}
 
-## ¿Necesito valores `UPDATED_AT` mayoritariamente distintos para importaciones CDI grandes? {#do-i-need-mostly-distinct-updated_at-values-for-large-cdi-imports}
+## ¿Necesito valores `UPDATED_AT` mayormente distintos para importaciones CDI grandes? {#do-i-need-mostly-distinct-updated_at-values-for-large-cdi-imports}
 
-Sí. Para ejecuciones de gran volumen (por ejemplo, más de aproximadamente 10 millones de filas), asegúrate de que tus datos de origen tengan valores `UPDATED_AT` mayoritariamente distintos. Si demasiadas filas comparten la misma marca de tiempo, es más probable que CDI vuelva a seleccionar filas en las marcas de tiempo límite en ejecuciones posteriores. Esto puede aumentar las sincronizaciones duplicadas y el consumo de puntos de datos.
+Sí. Para ejecuciones de alto volumen (por ejemplo, más de aproximadamente 10 millones de filas), asegúrate de que tus datos de origen tengan valores `UPDATED_AT` mayormente distintos. Si demasiadas filas comparten la misma marca de tiempo, es más probable que CDI vuelva a seleccionar filas en las marcas de tiempo de los límites en ejecuciones posteriores. Esto puede aumentar las sincronizaciones duplicadas y el consumo de puntos de datos.
 
-Para más información sobre el comportamiento de CDI en los límites, consulta [Evitar la resincronización de filas con marcas de tiempo duplicadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
+Para obtener más información sobre el comportamiento de los límites de CDI, consulta [Evitar la resincronización de filas con marcas de tiempo duplicadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 
-### ¿Dónde ejecuto estas comprobaciones SQL? {#where-do-i-run-these-sql-checks}
+### ¿Dónde ejecuto estas verificaciones SQL? {#where-do-i-run-these-sql-checks}
 
-Ejecuta las comprobaciones directamente en el editor SQL de tu almacén de datos, contra la misma tabla o vista utilizada por tu integración CDI:
+Ejecuta las verificaciones directamente en el editor SQL de tu almacén de datos, contra la misma tabla o vista utilizada por tu integración CDI:
 
-- Snowflake: **Projects** > **Worksheets** (para más información, consulta [Snowflake Worksheets](https://docs.snowflake.com/en/user-guide/ui-snowsight-worksheets-gs))
-- Redshift: Query Editor v2 (para más información, consulta [Using Amazon Redshift Query Editor v2](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2.html))
-- BigQuery: BigQuery Studio SQL workspace (para más información, consulta [BigQuery Studio introduction](https://cloud.google.com/bigquery/docs/bigquery-studio-introduction))
-- Databricks: SQL editor (SQL warehouse) (para más información, consulta [Databricks SQL editor](https://docs.databricks.com/en/sql/user/sql-editor/))
+- Snowflake: **Projects** > **Worksheets** (para obtener más información, consulta [Snowflake Worksheets](https://docs.snowflake.com/en/user-guide/ui-snowsight-worksheets-gs))
+- Redshift: Query Editor v2 (para obtener más información, consulta [Using Amazon Redshift Query Editor v2](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2.html))
+- BigQuery: BigQuery Studio SQL workspace (para obtener más información, consulta [BigQuery Studio introduction](https://cloud.google.com/bigquery/docs/bigquery-studio-introduction))
+- Databricks: SQL editor (SQL warehouse) (para obtener más información, consulta [Databricks SQL editor](https://docs.databricks.com/en/sql/user/sql-editor/))
 - Fabric: SQL query editor
 
-Sigue este proceso antes de habilitar o escalar una sincronización grande:
+Usa este proceso antes de habilitar o escalar una sincronización grande:
 
 1. Identifica la tabla o vista de origen CDI exacta y la ventana de sincronización que deseas validar.
-2. Abre el editor SQL de tu almacén y selecciona la misma base de datos y esquema utilizados por CDI, luego usa un rol con acceso de lectura a la tabla o vista de origen.
-3. Ejecuta la consulta de recuento de marcas de tiempo distintas para medir cuántos valores `UPDATED_AT` distintos existen en esa ventana.
-4. Ejecuta la consulta que agrupa por `UPDATED_AT` y cuenta filas para encontrar marcas de tiempo con recuentos de filas inusualmente altos.
-5. Si muchas filas comparten marcas de tiempo idénticas, ajusta tu proceso de ingesta para que los lotes consecutivos utilicen valores `UPDATED_AT` progresivamente más recientes, o aumenta la precisión de las marcas de tiempo para que las filas estén más distribuidas.
+2. Abre el editor SQL de tu almacén de datos y selecciona la misma base de datos y esquema utilizados por CDI, luego usa un rol con acceso de lectura a la tabla o vista de origen.
+3. Ejecuta la consulta de conteo de marcas de tiempo distintas para medir cuántos valores `UPDATED_AT` distintos existen en esa ventana.
+4. Ejecuta la consulta que agrupa por `UPDATED_AT` y cuenta filas para encontrar marcas de tiempo con conteos de filas inusualmente altos.
+5. Si muchas filas comparten marcas de tiempo idénticas, ajusta tu proceso de ingesta para que los lotes consecutivos usen valores `UPDATED_AT` progresivamente más recientes, o aumenta la precisión de las marcas de tiempo para que las filas estén más distribuidas.
 6. Vuelve a ejecutar ambas consultas hasta que la concentración se reduzca, luego lanza o escala tu sincronización.
-7. Después del lanzamiento, monitoriza **CDI** > **Sync Log** para detectar un volumen de resincronización inesperado en las marcas de tiempo límite.
+7. Después del lanzamiento, monitorea **CDI** > **Sync Log** para detectar un volumen de resincronización inesperado en las marcas de tiempo de los límites.
 
-Usa comprobaciones como estas en tu almacén:
+Usa verificaciones como estas en tu almacén de datos:
 
 ```sql
 SELECT
@@ -202,36 +215,36 @@ ORDER BY rows_at_timestamp DESC
 LIMIT 20;
 ```
 
-Si tu almacén no admite `LIMIT` (por ejemplo, Fabric), usa una sintaxis equivalente como `TOP`.
+Si tu almacén de datos no admite `LIMIT` (por ejemplo, Fabric), usa una sintaxis equivalente como `TOP`.
 
-## ¿Por qué una sincronización CDI con un número pequeño de filas puede tardar varios minutos? {#why-can-a-cdi-sync-with-a-small-number-of-rows-still-take-several-minutes}
+## ¿Por qué una sincronización de CDI con un número pequeño de filas puede tardar varios minutos? {#why-can-a-cdi-sync-with-a-small-number-of-rows-still-take-several-minutes}
 
-Una sincronización CDI incluye un periodo de inicio fijo antes de que comience el procesamiento de filas. Dado que este tiempo de inicio es similar independientemente del tamaño de la sincronización, una sincronización pequeña puede tardar varios minutos y parecer más lenta en filas por minuto. El tiempo total de sincronización sigue dependiendo de la complejidad de la consulta de origen, la forma de los datos y la capacidad disponible en tu almacén de datos. Para más información, consulta [Integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
+Una sincronización de CDI incluye un periodo de inicio fijo antes de que comience el procesamiento de filas. Dado que este tiempo de inicio es similar independientemente del tamaño de la sincronización, una sincronización pequeña puede tardar varios minutos y parecer más lenta en filas por minuto. El tiempo total de sincronización sigue dependiendo de la complejidad de la consulta de origen, la forma de los datos y la capacidad disponible en tu almacén de datos. Para más información, consulta [Integraciones de almacén de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
-## Durante una sincronización, ¿se mantiene el orden si varios registros comparten el mismo ID? {#during-a-sync-is-the-order-preserved-if-multiple-records-share-the-same-id}
+## Durante una sincronización, ¿se preserva el orden si varios registros comparten el mismo ID? {#during-a-sync-is-the-order-preserved-if-multiple-records-share-the-same-id}
 
-El orden de procesamiento no es 100 % predecible. Por ejemplo, si hay varias filas con el mismo `EXTERNAL_ID` en la tabla durante una sincronización, no podemos garantizar qué valor acabará en el perfil final. Si actualizas el mismo `EXTERNAL_ID` con diferentes atributos en la columna de carga útil, todos los cambios se reflejarán cuando se complete la sincronización.
+El orden de procesamiento no es 100 % predecible. Por ejemplo, si hay varias filas con el mismo `EXTERNAL_ID` en la tabla durante una sincronización, no podemos garantizar qué valor terminará en el perfil final. Si estás actualizando el mismo `EXTERNAL_ID` con diferentes atributos en la columna de carga útil, todos los cambios se reflejan cuando se completa la sincronización.
 
-## ¿Por qué no se crean nuevos usuarios a partir de mi sincronización CDI? {#why-are-new-users-not-being-created-from-my-cdi-sync}
+## ¿Por qué no se crean nuevos usuarios a partir de mi sincronización de CDI? {#why-are-new-users-not-being-created-from-my-cdi-sync}
 
-Si tu integración CDI tiene habilitada la opción **Update existing users only**, solo se actualizarán los usuarios que ya existen en Braze y no se crearán nuevos usuarios. Esto significa que si una fila de tu tabla de sincronización hace referencia a un `EXTERNAL_ID` que no coincide con ningún usuario existente de Braze, esa fila se omite.
+Si tu integración de CDI tiene habilitada la opción **Update existing users only**, solo se actualizan los usuarios que ya existen en Braze, y no se crean nuevos usuarios. Esto significa que si una fila en tu tabla de sincronización hace referencia a un `EXTERNAL_ID` que no coincide con ningún usuario existente en Braze, esa fila se omite.
 
-Para crear nuevos usuarios a través de CDI, desactiva la opción **Update existing users only** en la configuración de la integración. Ve a **Configuración de datos** > **Cloud Data Ingestion** y selecciona una integración.
+Para crear nuevos usuarios a través de CDI, desactiva el conmutador **Update existing users only** en la configuración de tu integración. Ve a **Data Settings** > **Cloud Data Ingestion** y selecciona una integración.
 
-## ¿Cuáles son las medidas de seguridad de CDI? {#what-are-the-security-measures-for-cdi}
+## ¿Cuáles son las medidas de seguridad para CDI? {#what-are-the-security-measures-for-cdi}
 
 ### Nuestras medidas {#our-measures}
 
-Braze cuenta con las siguientes medidas para CDI:
+Braze tiene las siguientes medidas implementadas para CDI:
 
-- Todas las credenciales están cifradas dentro de nuestra base de datos, y solo determinados empleados tienen acceso autenticado a ellas.
-- Utilizamos conexiones cifradas para obtener los datos de los almacenes de los clientes.
-- Realizamos solicitudes a los endpoints de la API de Braze utilizando las mismas claves de API y conexiones TLS que recomendamos utilizar a nuestros clientes.
-- Actualizamos regularmente nuestras bibliotecas y aplicamos todos los parches de seguridad.
+- Todas las credenciales están cifradas en nuestra base de datos, y solo ciertos empleados tienen acceso autenticado a ellas.
+- Utilizamos conexiones cifradas para enviar datos a los almacenes de datos de los clientes.
+- Realizamos solicitudes a los endpoints de la API de Braze utilizando las mismas claves de API y conexiones TLS que recomendamos a nuestros clientes.
+- Actualizamos regularmente nuestras bibliotecas y aplicamos los parches de seguridad disponibles.
 
 ### Tus medidas {#your-measures}
 
-Te recomendamos que tú y tu equipo establezcan las siguientes medidas de seguridad:
+Te recomendamos que tú y tu equipo configuren las siguientes medidas de seguridad de su lado:
 
-- Restringe el acceso a las credenciales al mínimo necesario para el funcionamiento de CDI. Esto se debe a que necesitamos poder ejecutar select (y count) en las tablas y vistas específicas.
+- Restringe el acceso a las credenciales al mínimo necesario para que CDI funcione. Esto se debe a que necesitamos poder ejecutar select (y count) en las tablas y vistas específicas.
 - Restringe las IP que pueden acceder a las tablas a las [IP de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views) publicadas oficialmente.

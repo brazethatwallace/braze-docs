@@ -215,6 +215,23 @@ Si les liens utilisent Liquid pour des URL dynamiques, les URL cliquées peuvent
 
 ![Exemple de la page Aperçu et carte thermique qui inclut une campagne e-mail et un panneau avec des exemples d'alias de liens et leur nombre total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
+##### Clics de désabonnement dans la carte thermique et analytique de campagne {#heatmap-unsubscribe-clicks-versus-campaign-analytics}
+
+Les clics sur les liens de désabonnement dans la carte thermique peuvent différer de l'indicateur *Unsubscribers* dans l'analytique de campagne :
+
+- Lorsque vous utilisez une URL de désabonnement personnalisée dans le corps de votre message, Braze traite ce lien comme un lien suivi standard pour la carte thermique — il apparaît dans le panneau **Link Table by Total Clicks** comme n'importe quel autre lien. Lorsque Braze traite un désabonnement à partir du lien de désabonnement fourni par Braze, l'indicateur *Unsubscribers* s'incrémente. Les URL de désabonnement personnalisées n'incrémentent pas cet indicateur, sauf si vous mettez à jour les utilisateurs via l'API.
+- Lorsqu'un utilisateur se désabonne en utilisant l'[en-tête list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) (une option de désabonnement en un clic proposée par certains fournisseurs de boîtes de réception), cette action incrémente l'indicateur *Unsubscribers* dans l'analytique de campagne mais n'apparaît pas comme un clic dans la carte thermique. Si le message utilise **Unsubscribe from specific subscription group**, Braze désabonne l'utilisateur uniquement du groupe d'abonnement configuré au lieu de le désabonner globalement. La disponibilité de cette option varie selon le destinataire, car les fournisseurs de boîtes de réception diffèrent dans leur prise en charge de l'en-tête list-unsubscribe.
+
+Pour une vue complète du comportement de désabonnement, examinez à la fois la ventilation des liens de la carte thermique et l'indicateur *Unsubscribers*. Pour plus de détails, consultez [Pourquoi les *désabonnements* et les clics sur les liens de désabonnement peuvent différer]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#why-unsubscribes-and-unsubscribe-link-clicks-can-differ).
+
+##### Liens visibles uniquement sur mobile dans la carte thermique {#mobile-only-links-in-the-heatmap}
+
+La carte thermique n'affiche les signatures thermiques que pour les liens visibles à la taille d'aperçu sélectionnée.
+
+Les liens qui n'apparaissent que dans la mise en page mobile sont masqués en mode **Desktop** (et peuvent être masqués en mode **Overall**, selon la largeur de l'aperçu), de sorte que ces clics ne s'affichent pas comme signatures thermiques. Ces liens apparaissent néanmoins dans le panneau **Link Table by Total Clicks** avec leur nombre total de clics et leurs pourcentages.
+
+Pour afficher les signatures thermiques des liens visibles uniquement sur mobile, sélectionnez **Mobile**. L'aperçu mobile correspond au point de rupture mobile de l'éditeur par glisser-déposer (620&nbsp;px). Si l'e-mail change de mise en page uniquement à une largeur plus étroite, ces liens restent masqués même dans la taille d'aperçu **Mobile**.
+
 #### Images
 
 Nous vous recommandons d'activer CORS pour vos URL d'images afin d'éviter que les images ne soient cassées dans les aperçus et les exportations de cartes thermiques.

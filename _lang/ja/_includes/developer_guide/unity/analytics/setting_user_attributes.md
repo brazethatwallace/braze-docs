@@ -117,6 +117,14 @@ AppboyBinding.SetCustomUserAttribute("custom float attribute key", 'float value'
 
 {% endtab %}
 
+{% tab Double %}
+
+```csharp
+AppboyBinding.SetCustomUserAttribute("custom double attribute key", 'double value');
+```
+
+{% endtab %}
+
 {% tab Boolean %}
 
 ```csharp
@@ -177,7 +185,7 @@ AppboyBinding.SetCustomUserAttribute("custom object array attribute key", list(L
 {% endtabs %}
 
 {% alert important %}
-カスタム属性の値は最大255文字に制限されています。それを超える値は切り捨てられます。
+カスタム属性の値の最大長は255文字です。それを超える値は切り捨てられます。
 {% endalert %}
 
 ### カスタム属性の解除 {#unsetting-custom-attributes}
@@ -192,9 +200,9 @@ AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 
 REST APIを使用してユーザー属性を設定または解除することもできます。詳細については、[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data)を参照してください。
 
-## ユーザーの購読を設定する {#setting-user-subscriptions}
+## ユーザー購読の設定 {#setting-user-subscriptions}
 
-ユーザーのメールまたはプッシュの購読を設定するには、以下のいずれかの関数を呼び出します。
+ユーザーのメールまたはプッシュ購読を設定するには、以下のいずれかの関数を呼び出します。
 
 ```csharp
 // Email notifications
@@ -210,18 +218,18 @@ AppboyBinding.SetPushNotificationSubscriptionType()`
 | ------------------- | ---------- |
 | `OPTED_IN` | 購読済みで、明示的にオプトインしている |
 | `SUBSCRIBED` | 購読済みだが、明示的にはオプトインしていない |
-| `UNSUBSCRIBED` | 購読解除済み、および/または明示的にオプトアウトしている |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーの購読設定" }
+| `UNSUBSCRIBED` | 購読解除済み、または明示的にオプトアウトしている |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザー購読の設定" }
 
 {% alert note %}
-Windowsでは、ユーザーにプッシュ通知を送信するために明示的なオプトインは必要ありません。ユーザーがプッシュに登録されると、デフォルトでは`OPTED_IN`ではなく`SUBSCRIBED`に設定されます。詳しくは、[購読と明示的なオプトインの実装]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#managing-user-subscriptions)に関するドキュメントをご覧ください。
+Windowsでは、ユーザーにプッシュ通知を送信するために明示的なオプトインは必要ありません。ユーザーがプッシュに登録されると、デフォルトでは`OPTED_IN`ではなく`SUBSCRIBED`に設定されます。詳しくは、[購読と明示的オプトインの実装]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#managing-user-subscriptions)に関するドキュメントをご覧ください。
 {% endalert %}
 
 | 購読タイプ | 説明 |
 |------------------------------------------|-------------|
-| `EmailNotificationSubscriptionType` | 有効なメールアドレスを受信すると、ユーザーは自動的に`SUBSCRIBED`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を得た時点でこの値を`OPTED_IN`に設定することをお勧めします。詳しくは、[ユーザーの購読の変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions)のドキュメントをご覧ください。 |
-| `PushNotificationSubscriptionType` | 有効なプッシュ登録が行われると、ユーザーは自動的に`SUBSCRIBED`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を得た時点でこの値を`OPTED_IN`に設定することをお勧めします。詳しくは、[ユーザーの購読の変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions)のドキュメントをご覧ください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーの購読設定" }
+| `EmailNotificationSubscriptionType` | 有効なメールアドレスを受信すると、ユーザーは自動的に`SUBSCRIBED`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を得た時点でこの値を`OPTED_IN`に設定することをお勧めします。詳しくは、[ユーザー購読の変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions)のドキュメントをご覧ください。 |
+| `PushNotificationSubscriptionType` | 有効なプッシュ登録が行われると、ユーザーは自動的に`SUBSCRIBED`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を得た時点でこの値を`OPTED_IN`に設定することをお勧めします。詳しくは、[ユーザー購読の変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions)のドキュメントをご覧ください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザー購読の設定" }
 
 {% alert note %}
 これらのタイプは`Appboy.Models.AppboyNotificationSubscriptionType`に属します。

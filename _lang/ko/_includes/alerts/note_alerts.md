@@ -9,7 +9,7 @@ Content Cards에는 최대 게재빈도 설정이 적용되지 않습니다.
 {% if include.alert == 'Custom Attributes time attribute' %}
 
 {% alert note %}
-"12-1-2021" 또는 "12/1/2021"과 같은 날짜 문자열은 날짜/시간 오브젝트로 변환되어 [시간 속성]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time)으로 처리됩니다.
+"12-1-2021" 또는 "12/1/2021"과 같은 날짜 문자열은 날짜/시간 오브젝트로 변환되어 [시간 속성]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#time)으로 처리됩니다.
 {% endalert %}
 
 {% endif %}
@@ -41,7 +41,7 @@ Braze는 사용자가 앱을 처음 사용할 때까지 프로필을 생성하�
 {% if include.alert == 'subscription group limit' %}
 
 {% alert note %}
-워크스페이스당 최대 350개의 구독 그룹을 추가할 수 있습니다.
+워크스페이스당 최대 450개의 구독 그룹을 추가할 수 있습니다.
 {% endalert %}
 
 {% endif %}

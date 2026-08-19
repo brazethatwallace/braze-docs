@@ -63,7 +63,7 @@ import BrazeUI
 final class BannerViewController: UIViewController {
 
   static let bannerPlacementID = "top-1"
-  var bannerHeightConstraints: NSLayoutConstraint?
+  var bannerHeightConstraint: NSLayoutConstraint?
 
   lazy var contentView: UILabel = {
     let contentView = UILabel()
@@ -120,37 +120,37 @@ final class BannerViewController: UIViewController {
 !!step
 lines-AppDelegate.swift=14
 
-### 1. Fehlerbehebung aktivieren (optional) {#1-enable-debugging-optional}
+### 1. Debugging aktivieren (optional) {#1-enable-debugging-optional} {#1-enable-debugging-optional}
 
-Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das Debugging aktivieren.
+Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie Debugging aktivieren.
 
 !!step
 lines-AppDelegate.swift=20
 
-### 2. Platzierungen aktualisieren {#2-refresh-your-placements}
+### 2. Platzierungen aktualisieren {#2-refresh-your-placements} {#2-refresh-your-placements}
 
-Rufen Sie nach der Initialisierung des Braze SDK `requestBannersRefresh(placementIds: ["PLACEMENT_ID"])` auf, um die Banner-Inhalte zu Beginn jeder Sitzung zu aktualisieren.
+Rufen Sie nach der Initialisierung des Braze SDK `requestBannersRefresh(placementIds: ["PLACEMENT_ID"])` auf, um den Banner-Inhalt zu Beginn jeder Sitzung zu aktualisieren.
 
 !!step
 lines-BannerViewController.swift=19-37
 
-### 3. Banner initialisieren und einen Callback bereitstellen {#3-initialize-the-banner-and-provide-a-callback}
+### 3. Banner initialisieren und Callback bereitstellen {#3-initialize-the-banner-and-provide-a-callback} {#3-initialize-the-banner-and-provide-a-callback}
 
-Erstellen Sie eine `BrazeBannerUI.BannerUIView`-Instanz mit Ihrem Braze-Objekt und Ihrer Platzierungs-ID und stellen Sie einen `processContentUpdates`-Callback bereit, um das Banner einzublenden und seine Höhenbeschränkung auf Grundlage der bereitgestellten Inhaltshöhe zu aktualisieren.
+Erstellen Sie eine `BrazeBannerUI.BannerUIView`-Instanz mit Ihrem Braze-Objekt und der Platzierungs-ID und stellen Sie einen `processContentUpdates`-Callback bereit, um das Banner einzublenden und seine Höhenbeschränkung basierend auf der bereitgestellten Inhaltshöhe zu aktualisieren.
 
 !!step
 lines-BannerViewController.swift=38-40
 
-### 4. Auto-Layout-Beschränkungen aktivieren {#4-enable-auto-layout-constraints}
+### 4. Auto-Layout-Constraints aktivieren {#4-enable-auto-layout-constraints} {#4-enable-auto-layout-constraints}
 
-Blenden Sie die Banner-Ansicht standardmäßig aus und deaktivieren Sie dann die automatische Übersetzung der Größenmaske, um Auto-Layout-Beschränkungen zu aktivieren.
+Blenden Sie die Banner-Ansicht standardmäßig aus und deaktivieren Sie dann die Autoresizing-Mask-Übersetzung, um Auto-Layout-Constraints zu aktivieren.
 
 !!step
 lines-BannerViewController.swift=43-58
 
-### 5. Inhalt verankern und Höhenbeschränkungen festlegen {#5-anchor-content-and-set-height-constraints}
+### 5. Inhalte verankern und Höhenbeschränkungen festlegen {#5-anchor-content-and-set-height-constraints} {#5-anchor-content-and-set-height-constraints}
 
-Verankern Sie Ihren Hauptinhalt mit Auto Layout oben und platzieren Sie die Banner-Ansicht darunter. Heften Sie die führende, hintere und untere Kante des Banners an die Safe Area und setzen Sie eine anfängliche Höhenbeschränkung von `0`, die aktualisiert wird, wenn Inhalte geladen werden.
+Verankern Sie Ihren Hauptinhalt mithilfe von Auto Layout oben und platzieren Sie die Banner-Ansicht danach. Heften Sie die führende, nachfolgende und untere Kante des Banners an den sicheren Bereich und legen Sie eine anfängliche Höhenbeschränkung von `0` fest, die aktualisiert wird, wenn der Inhalt geladen ist.
 
 {% endscrolly %}
 {% endtab %}
@@ -251,51 +251,51 @@ struct BannerSwiftUIView: View {
 !!step
 lines-AppDelegate.swift=13
 
-### 1. Fehlerbehebung aktivieren (optional)
+### 1. Debugging aktivieren (optional) {#1-enable-debugging-optional}
 
-Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das Debugging aktivieren.
+Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie Debugging aktivieren.
 
 !!step
 lines-AppDelegate.swift=19
 
-### 2. Platzierungen aktualisieren
+### 2. Platzierungen aktualisieren {#2-refresh-your-placements}
 
-Rufen Sie nach der Initialisierung des Braze SDK `requestBannersRefresh(placementIds: ["PLACEMENT_ID"])` auf, um die Banner-Inhalte zu Beginn jeder Sitzung zu aktualisieren.
+Rufen Sie nach der Initialisierung des Braze SDK `requestBannersRefresh(placementIds: ["PLACEMENT_ID"])` auf, um den Banner-Inhalt zu Beginn jeder Sitzung zu aktualisieren.
 
 !!step
 lines-BannerSwiftUIView.swift=1-46
 
-### 3. Ansichtskomponente erstellen {#3-create-a-view-component}
+### 3. View-Komponente erstellen {#3-create-a-view-component} {#3-create-a-view-component}
 
-Erstellen Sie eine wiederverwendbare SwiftUI-Ansichtskomponente, die verfügbare Banner anzeigt und bei Bedarf den Hauptinhalt Ihrer App enthält.
+Erstellen Sie eine wiederverwendbare SwiftUI-View-Komponente, die verfügbare Banner anzeigt und bei Bedarf Ihren Hauptinhalt der App enthält.
 
 !!step
 lines-BannerSwiftUIView.swift=36-43
 
-### 4. Nur verfügbare Banner anzeigen {#4-only-display-available-banners}
+### 4. Nur verfügbare Banner anzeigen {#4-only-display-available-banners} {#4-only-display-available-banners}
 
-Versuchen Sie nur dann, `BrazeBannerUI.BannerView` anzuzeigen, wenn das SDK initialisiert ist und Banner-Inhalte für die jeweiligen Nutzer:innen vorhanden sind. Rufen Sie in `.onAppear` die Methode `getBanner(for:placementID)` auf, um den Status von `hasBannerForPlacement` zu setzen.
+Versuchen Sie nur dann, `BrazeBannerUI.BannerView` anzuzeigen, wenn das SDK initialisiert ist und Banner-Inhalt für diese Nutzer:in vorhanden ist. Rufen Sie in `.onAppear` die Methode `getBanner(for:placementID)` auf, um den Status von `hasBannerForPlacement` festzulegen.
 
 !!step
 lines-BannerSwiftUIView.swift=17-32
 
-### 5. `BannerView` erst nach dem Laden anzeigen {#5-only-show-bannerview-after-it-loads}
+### 5. `BannerView` erst nach dem Laden anzeigen {#5-only-show-bannerview-after-it-loads} {#5-only-show-bannerview-after-it-loads}
 
-Um leeren Raum in Ihrem UI zu vermeiden, zeigen Sie `BrazeBannerUI.BannerView` nur an, wenn ein Banner vorhanden und das SDK initialisiert ist.
+Um leeren Platz in Ihrer UI zu vermeiden, zeigen Sie `BrazeBannerUI.BannerView` nur an, wenn ein Banner vorhanden und das SDK initialisiert ist.
 
 !!step
 lines-BannerSwiftUIView.swift=23-32
 
-### 6. Bannerhöhe dynamisch aktualisieren {#6-dynamically-update-banner-height}
+### 6. Banner-Höhe dynamisch aktualisieren {#6-dynamically-update-banner-height} {#6-dynamically-update-banner-height}
 
-Verwenden Sie den `processContentUpdates`-Callback, um die Höhe des Banner-Inhalts abzurufen, sobald er geladen ist. Aktualisieren Sie Ihren SwiftUI-Status (`contentHeight`) und wenden Sie eine `.frame(height:)`-Beschränkung mit der bereitgestellten Höhe an.
+Verwenden Sie den `processContentUpdates`-Callback, um die Inhaltshöhe des Banners abzurufen, sobald es geladen ist. Aktualisieren Sie Ihren SwiftUI-Status (`contentHeight`) und wenden Sie eine `.frame(height:)`-Beschränkung mit der bereitgestellten Höhe an.
 
 !!step
 lines-BannerSwiftUIView.swift=34
 
-### 7. Bannerhöhe begrenzen {#7-limit-the-banner-height}
+### 7. Banner-Höhe begrenzen {#7-limit-the-banner-height} {#7-limit-the-banner-height}
 
-Um sicherzustellen, dass Ihr Banner niemals die maximale Höhe überschreitet, wenden Sie den Modifikator `.frame(height: min(contentHeight, 80))` an. So bleibt Ihr UI unabhängig vom Inhalt des Banners visuell ausgewogen.
+Um sicherzustellen, dass Ihr Banner die maximale Höhe nie überschreitet, wenden Sie den Modifier `.frame(height: min(contentHeight, 80))` an. Dadurch bleibt Ihre UI unabhängig vom Inhalt des Banners visuell ausgewogen.
 
 {% endscrolly %}
 {% endtab %}
