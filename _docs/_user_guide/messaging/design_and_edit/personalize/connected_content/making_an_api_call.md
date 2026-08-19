@@ -380,9 +380,9 @@ grant_type=client_credentials&username=test&password=test
 
 ### Why does Connected Content fail when my endpoint returns a redirect (301 or 302)?
 
-A redirect can cause Connected Content to render blank in preview or send, or log errors such as HTTP status code `302` for an unsaved campaign. Postman and other clients often follow redirects automatically, so a URL can work in Postman but fail in Braze.
+A redirect can cause Connected Content to render blank in preview or send, or log a Message Activity Log error with HTTP status code `301` or `302`. Postman and other clients often follow redirects automatically, so a URL can work in Postman but fail in Braze.
 
-Configure your endpoint to return a `2xx` response (typically `200`) with the response body at the URL Braze calls. If you use services that redirect (for example, some Google Apps Script URLs), use the final destination URL instead of the redirect URL.
+Configure your endpoint to return a `2xx` response (typically `200`) with the response body at the URL Braze calls. If that URL itself returns a redirect, replace it with the final destination URL.
 
 For related checks when content renders blank, see [Connected Content returns no response body]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#connected-content-returns-no-response-body).
 
