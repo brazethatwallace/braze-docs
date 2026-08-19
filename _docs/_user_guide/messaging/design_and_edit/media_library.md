@@ -103,4 +103,4 @@ GIFs with very elongated shapes (for example, 3000 x 2 pixels) or 300 or more fr
 Before using this feature, review [how your data is used and sent to OpenAI]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security).
 {% endalert %}
 
-If you don't see **Generate with Operator** on the **Media Library** page, confirm you have "Edit Media Library Assets" permission. If the option is still missing, contact your Braze customer team to confirm your workspace has access to BrazeAI image generation. If generation fails, review the [OpenAI content policy]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security).
+If you don't see **Generate with Operator** on the **Media Library** page, confirm you have "Edit Media Library Assets" permission. If the option is still missing, contact your Braze account team to confirm your workspace has access to BrazeAI image generation. If generation fails, review the [OpenAI content policy]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security).
