@@ -83,7 +83,7 @@ To replace an asset, you must have the "Replace Media Library Assets" permission
 
 Some channels create an optimized copy of the image when the message is set up, resulting in a separate URL. This applies whether the image was added from the media library or through an external URL (for example, from an S3 bucket). Replacing the original media library asset does not update what consumers see for messages created using those channels, including Content Cards, push notifications, and banners.
 
-Traditional in-app messages (modal, slideup, and fullscreen) also follow this behavior. However, HTML in-app messages and drag-and-drop in-app messages do not — Braze does not cache the image for those types, so changing or removing the original image URL breaks the image in live campaigns.
+Traditional in-app messages (modal, slideup, and fullscreen) also follow this behavior. However, HTML in-app messages and drag-and-drop in-app messages do not. For those types, Braze does not cache the image, so changing or removing the original image URL breaks the image in live campaigns.
 
 You can also replace an asset programmatically using the [`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file) endpoint.
 
