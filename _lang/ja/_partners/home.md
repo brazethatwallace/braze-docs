@@ -27,6 +27,7 @@ Braze Alloysテクノロジーパートナーのドキュメントへようこ�
 - [Airbyte]({{site.baseurl}}/partners/data_and_analytics/workflow_automation/airbyte)
 - [Algolia]({{site.baseurl}}/partners/ecommerce/product_search_recommendations/algolia)
 - [Alpaco]({{site.baseurl}}/partners/message_orchestration/templates/alpaco)
+- [Amazon Bedrock]({{site.baseurl}}/partners/ai_model_providers/amazon_bedrock)
 - [Amazon Personalize]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/amazon_personalize)
 - [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)
 - [Amperity]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amperity)
@@ -49,6 +50,7 @@ Braze Alloysテクノロジーパートナーのドキュメントへようこ�
 - [BlueConic]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/blueconic)
 - [Bluedot]({{site.baseurl}}/partners/message_personalization/location/bluedot)
 - [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)
+- [Bynder]({{site.baseurl}}/partners/message_orchestration/cms_dam/bynder)
 
 </div>
 
@@ -405,6 +407,6 @@ Brazeテクノロジーパートナーの完全な検索・フィルター可能
 パートナーが完全に所有する連携は、ここに表示されない場合があります。連携の所有権と設定手順を確認するには、パートナー固有のドキュメントを参照してください。
 {% endalert %}
 
-Brazeでパートナーに対して**無効な認証情報**と表示されているが、そのパートナーのダッシュボードでは連携が正しく見える場合は、テクノロジーパートナーページで連携を切断して再接続し、パートナー側でAPIキー、OAuthトークン、および権限を確認してください。
+Brazeでパートナーに対して**無効な認証情報**と表示されているが、パートナーのダッシュボードでは連携が正しく設定されているように見える場合は、テクノロジーパートナーページで連携を切断してから再接続し、パートナー側でAPIキー、OAuthトークン、および権限を確認してください。
 
-一部の外部ダッシュボード（例：到達率や受信トレイ監視ツール）では、Brazeのテクノロジーパートナーページとは異なる接続状態や検証ステータスが表示されることがあります。同期や送信にBrazeが依存する接続状態については、Braze内のパートナータイルを使用してください。
+一部の外部ダッシュボード（例えば、配信到達性や受信トレイ監視ツール）では、Brazeのテクノロジーパートナーページとは異なる接続状態や検証ステータスが表示されることがあります。同期や送信にBrazeが依存する接続状態については、Braze内のパートナータイルを使用してください。

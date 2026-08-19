@@ -3,6 +3,7 @@
 BD Task under Epic BD-7051 for a Salesforce KB PR.
 
 Env: `JIRA_USER_EMAIL`, `JIRA_API_TOKEN` (same as `.github/workflows/jira-pr-comment.yml`).
+Local: copy `.jira.env.example` → `.jira.env` at repo root (gitignored), or `source scripts/jira_env.sh`.
 Optional: `JIRA_BASE_URL` (default `https://jira.atl.braze.com`), `JIRA_ASSIGNEE_ACCOUNT_ID`
 (fallback when `.github/github_to_jira_assignees.json` has no entry for the doc-path writer).
 
@@ -31,6 +32,22 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 CSV_PATH = REPO_ROOT / "_data" / "kb_articles.csv"
+
+
+def load_jira_dotenv(path: Path | None = None) -> None:
+    """Load ``KEY=value`` pairs from ``.jira.env`` when present."""
+    env_path = path or (REPO_ROOT / ".jira.env")
+    if not env_path.is_file():
+        return
+    for line in env_path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        os.environ.setdefault(key.strip(), value.strip())
+
+
+load_jira_dotenv()
 
 EPIC_KEY = "BD-7051"
 PROJECT_KEY = "BD"

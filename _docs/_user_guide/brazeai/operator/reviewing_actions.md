@@ -24,9 +24,9 @@ If an action fails after approval, Operator notifies you with details about the 
 
 ### Availability
 
-Action cards are supported for message content in the same channels and editors where Operator can generate messages, and on the [Create custom agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) page. For supported channels and editors, see [Generate messages]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages).
+Operator can propose action cards on supported dashboard pages, including message composers, list and overview pages, settings, and other surfaces where it can act. For representative coverage, see [What you can do with Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities). For supported message channels and editors, see [Generate messages]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages).
 
-On other pages, Operator provides a list of steps to follow in the UI instead of taking action itself. Operator functionality is regularly being improved, and expanded coverage for create tools is expected.
+Coverage expands regularly. If Operator can't act on the page you're on, it provides a list of steps to follow in the UI instead.
 
 ## Modify a plan
 
@@ -38,8 +38,8 @@ Approved actions can't be undone through Operator. Describe the new change to Op
 
 The **Auto-approve actions** toggle is located in the Operator chat panel.
 
-- **On:** Operator's suggested actions execute immediately without requiring manual approval. Some actions still require explicit approval for safety, such as generating images or making modifications to workspace-level settings.
-- **Off (default):** All proposed actions follow the manual review process described.
+- **On:** Operator's suggested actions execute immediately without requiring manual approval, including [navigating to a different page]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#navigate-the-dashboard) to complete your request. Some actions still require explicit approval for safety, such as generating images or making modifications to workspace-level settings.
+- **Off (default):** All proposed actions follow the manual review process described, including page navigation—Operator proposes the move and waits for your approval before taking you there.
 
 ![The auto-approve toggle and confirmation modal in the Operator chat panel.]({% image_buster /assets/img/operator/auto-approval_toggle.png %}){: style="max-width:50%;"}
 

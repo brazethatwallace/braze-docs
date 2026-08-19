@@ -45,7 +45,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | ----------|-----------| ---------|------ |
-| `phone_number` | Erforderlich | String-Array im Format e.164 | Ein Array von bis zu 50 Telefonnummern zum Ändern. |
+| `phone_numbers` | Erforderlich | String-Array im Format e.164 | Ein Array von bis zu 50 Telefonnummern zum Ändern. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}

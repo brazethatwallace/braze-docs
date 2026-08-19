@@ -11,6 +11,9 @@ guide_top_text: "Durchsuchen Sie Technologie-Partnerintegrationen für CMS und D
 
 guide_featured_title: "Partner"
 guide_featured_list:
+  - name: "Bynder"
+    link: /docs/partners/message_orchestration/cms_dam/bynder
+    image: /assets/img/braze_icons/zap.svg
   - name: "Contentful"
     link: /docs/partners/message_orchestration/cms_dam/contentful
     image: /assets/img/braze_icons/zap.svg
