@@ -25,7 +25,7 @@ channel: push
 | Need to migrate from `.p12` to `.p8` (iOS) | [Migrate to a .p8 authentication key](#migrate-to-a-p8-authentication-key) |
 | Specific push error code in logs | [Push error messages](#push-error-messages) |
 | Uninstall counts don't match by platform | [Uninstall metrics](#uninstall-metrics) |
-| Migrating users or push data to another app group | [App Group data migration](#app-group-data-migration) |
+| Migrating users or push data to another workspace | [Workspace data migration](#workspace-data-migration) |
 | Need to know if a session started from a push open | [Session and attribution](#session-and-attribution) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push symptom" }
 
@@ -340,9 +340,11 @@ If a user opens your app after receiving a push without tapping the notification
 
 For definitions of common push error codes (including `DEVICE_UNREGISTERED`, `NotRegistered`, and `Unregistered`), see [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes/).
 
-When FCM returns errors such as `DEVICE_UNREGISTERED`, `NotRegistered`, `BAD_REGISTRATION`, or `SENDER_ID_MISMATCH`, Braze typically removes the affected push token from the user profile. That removal often indicates the app was uninstalled or the token is no longer valid. Uninstall tracking campaigns use the same token-removal logic at scale.
+When a push provider signals that a registration token is no longer valid (for example, `DEVICE_UNREGISTERED` or `NotRegistered` from FCM), Braze removes the affected push token from the user profile and counts the user as uninstalled. Uninstall tracking campaigns use the same token-removal logic at scale.
 
-For Android uninstall tracking, Braze may send uninstall detection pushes as a dry run (validation only) or as a live silent push, depending on your workspace configuration. Dry-run sends are less reliable for uninstall detection because FCM does not return the same bounce signals as a live send. If uninstall counts look low, confirm your Android integration meets [uninstall tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking) prerequisites and review bounce errors in the Message Activity Log.
+Other push errors are recorded as bounces and don't remove the token. For example, an authentication failure such as [`MismatchSenderID`](#error-mismatch-sender-id) means Braze couldn't authenticate with FCM, so fix the credential instead of treating it as an uninstall signal.
+
+For Android uninstall tracking, Braze sends uninstall detection pushes as a dry run (validation only) or as a live silent push, depending on your workspace configuration. Because a dry run validates the request without delivering the message, its results can differ from a live send. If uninstall counts look low, confirm your Android integration meets [uninstall tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking) prerequisites and review bounce errors in the Message Activity Log.
 
 ## Uninstall metrics {#uninstall-metrics}
 
@@ -354,13 +356,13 @@ Workspace **Total Uninstalls** can exceed the sum of platform-specific uninstall
 
 Imported iOS push tokens usually appear as **Subscribed** until the user logs a session in an app that uses the Braze SDK for that workspace. After the SDK registers the token on session start, the profile typically moves to **Opted-In** when push authorization is granted. For subscription states and profile fields, see [Push subscription states]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
-## App Group data migration {#app-group-data-migration}
+## Workspace data migration {#workspace-data-migration}
 
-### Can I migrate data between app groups or Braze workspaces?
+### Can I migrate data between workspaces?
 
-Braze does not offer a one-click migration between app groups. You can move new data into a destination app group by updating your app or site to use that app group's API key, then sending user updates through the [Users Track]({{site.baseurl}}/api/endpoints/user_data/post_user_track) endpoint or importing profiles with [User Export]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_user_data) and related import tools.
+Braze does not offer a one-click migration between workspaces. You can move new data into a destination workspace by updating your app or site to use that workspace's API key, then sending user updates through the [Users Track]({{site.baseurl}}/api/endpoints/user_data/post_user_track) endpoint or importing profiles with [User Export]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_user_data) and related import tools.
 
-You can often migrate user profile fields, custom attributes, events, and push tokens when you plan the export and import carefully. The following generally cannot be migrated between app groups: dashboard users and permissions, campaigns, Canvases, segments (as saved objects), and app group settings. Work with your Braze account team when planning a large workspace move.
+You can often migrate user profile fields, custom attributes, events, and push tokens when you plan the export and import carefully. The following generally cannot be migrated between workspaces: dashboard users and permissions, campaigns, Canvases, segments (as saved objects), and workspace settings. Work with your Braze account team when planning a large workspace move.
 
 ## Session and attribution {#session-and-attribution}
 
