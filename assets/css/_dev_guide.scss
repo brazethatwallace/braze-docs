@@ -82,14 +82,23 @@ $guide_transition_time : 0.25s;
       height: 80px;
       overflow: hidden;
       align-items: center;
-      img {
-       max-height: 80%;
-       vertical-align: middle;
-       display: flex;
-       display: -webkit-flex; /* Safari */
-       margin-right: 20px;
-       margin: auto 15px auto 0;
-       max-width: 40px;
+      .guide_item_icon {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto 15px auto 0;
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+          object-fit: contain;
+          display: block;
+        }
       }
       i {
         vertical-align: top;

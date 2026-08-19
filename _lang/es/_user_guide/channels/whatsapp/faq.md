@@ -48,10 +48,10 @@ La verificación de negocio es un concepto de WhatsApp utilizado para asegurar q
 #### ¿Qué es una cuenta de negocio oficial? {#what-is-an-official-business-account}
 OBA te da la marca de verificación verde junto a tu nombre para mostrar y es opcional. Puedes solicitar una cuenta de negocio oficial después de completar la verificación de negocio. Ten en cuenta que la verificación de negocio y una cuenta de negocio oficial son conceptos diferentes de WhatsApp.
 
-#### ¿Por qué podría rechazarse mi nombre para mostrar de WhatsApp Business? {#why-might-my-whatsapp-business-display-name-be-rejected}
+#### ¿Por qué podría ser rechazado mi nombre para mostrar de WhatsApp Business? {#why-might-my-whatsapp-business-display-name-be-rejected}
 Los rechazos del nombre para mostrar de WhatsApp Business son gestionados por Meta. Si tu nombre para mostrar es rechazado, consulta las [directrices de nombre para mostrar de WhatsApp](https://faq.whatsapp.com/793641088597363) para conocer sus pautas.
 
-Si tu nombre para mostrar cumple con las directrices y sigue siendo rechazado, Braze no puede ver las razones específicas. Sin embargo, la razón más común de rechazo es que la presencia en línea de un negocio es demasiado baja, o que el negocio está comercializando [productos regulados o restringidos](https://business.whatsapp.com/policy#further-guidance).
+Si tu nombre para mostrar cumple con las directrices y sigue siendo rechazado, Braze no puede ver las razones específicas. Sin embargo, la razón más común de rechazo es que la presencia en línea del negocio es demasiado baja, o que el negocio está comercializando [productos regulados o restringidos](https://business.whatsapp.com/policy#further-guidance).
 
 Para más orientación sobre rechazos de nombres para mostrar, consulta [Recursos de Meta]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources).
 
@@ -94,15 +94,18 @@ La gestión de suscripciones del canal de WhatsApp funciona de manera similar a 
 Puedes actualizar su estado de suscripción mediante [importación de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#updating-subscription-group-status-optional).
 
 #### ¿Qué métodos debo usar para recopilar adhesiones voluntarias? {#what-methods-should-i-use-to-collect-opt-ins}
-Braze recomienda consultar las [directrices de Meta para métodos de adhesión voluntaria](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) para mantener el cumplimiento. Consulta [Adhesión voluntaria y cancelación]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) para métodos de configuración de Canvas y Campaigns.
+Braze recomienda consultar las [directrices de Meta para métodos de adhesión voluntaria](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) para mantener el cumplimiento. Consulta [Adhesión voluntaria y cancelación de suscripción]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) para métodos de configuración de Canvas y Campaigns.
 
 #### ¿Se requiere doble adhesión voluntaria para WhatsApp? {#is-double-opt-in-required-for-whatsapp}
 No, la doble adhesión voluntaria no es obligatoria.
 
 #### ¿Cómo cancelan la suscripción mis usuarios a los mensajes de WhatsApp? {#how-do-my-users-opt-out-of-whatsapp-messages}
 Tus usuarios pueden cancelar la suscripción de dos maneras:
-1. Configura un mensaje entrante de WhatsApp con una palabra específica de cancelación y usa un webhook para actualizar el estado de suscripción del usuario.
-2. Añade una respuesta rápida de cancelación dentro de la plantilla de WhatsApp, con un webhook correspondiente para actualizar.
+1. Configura un mensaje entrante de WhatsApp con una palabra específica de cancelación de suscripción y usa un webhook para actualizar el estado de suscripción del usuario.
+2. Añade una respuesta rápida de cancelación de suscripción dentro de la plantilla de WhatsApp, con un webhook correspondiente para actualizar.
+
+#### ¿Puedo usar un grupo de suscripción de WhatsApp de Braze si envío mensajes de WhatsApp a través de un tercero? {#can-i-use-a-braze-whatsapp-subscription-group-if-i-send-whatsapp-messages-through-a-third-party}
+No. Los grupos de suscripción de WhatsApp de Braze se aplican a los mensajes enviados a través del canal de WhatsApp de Braze. Si envías mensajes de WhatsApp a través de un proveedor externo o integraciones personalizadas fuera de las Campaigns y Canvas de WhatsApp de Braze, puedes almacenar el consentimiento de adhesión voluntaria en un atributo personalizado (o tu propio modelo de suscripción) y usar ese atributo para segmentación y elegibilidad. Para patrones relacionados cuando Braze es propietario del número de WhatsApp, consulta [¿Cómo conecto el soporte y el marketing de WhatsApp en Braze?](#how-do-i-connect-whatsapp-support-and-marketing-in-braze).
 
 ### Límites de mensajería y calificación de calidad {#messaging-limits-and-quality-rating}
 
@@ -127,7 +130,7 @@ Puedes verificar tus límites de mensajería actuales en la pestaña **WhatsApp 
 Si intentas enviar una Campaign o Canvas a más usuarios únicos de los que permite tu límite actual, los mensajes no se enviarán. Braze seguirá intentando reenviar los mensajes si/cuando tu límite de mensajería aumente durante un máximo de un día.
 
 #### ¿Puede disminuir mi límite de mensajería? {#can-my-messaging-limit-decrease}
-Sí, si la calificación de calidad de tu número de teléfono baja demasiado, corres el riesgo de que WhatsApp disminuya tu límite de mensajería. Braze recomienda que te suscribas y recibas notificaciones de actualizaciones relacionadas con la calidad de WhatsApp, incluyendo actualizaciones del estado de tu número de teléfono y el nivel del límite de mensajería. Puedes suscribirte a las notificaciones directamente en el panel de WhatsApp Manager.
+Sí, si la calificación de calidad de tu número de teléfono baja demasiado, corres el riesgo de que WhatsApp disminuya tu límite de mensajería. Braze recomienda que te suscribas y recibas notificaciones de actualizaciones relacionadas con la calidad de WhatsApp, incluyendo actualizaciones del estado de tu número de teléfono y el nivel de límite de mensajería. Puedes suscribirte a las notificaciones directamente en el panel de WhatsApp Manager.
 
 #### ¿Qué factores afectan la calificación de calidad del número de teléfono, y qué sucede cuando mi calificación de calidad baja demasiado? {#what-factors-affect-phone-number-quality-rating-and-what-happens-when-my-quality-rating-drops-too-low}
 Los factores que afectan la calificación de calidad del número de teléfono incluyen que un usuario final bloquee un negocio (y las razones que proporciona al bloquearlo) y que un usuario final reporte un negocio.
@@ -155,7 +158,7 @@ Tu límite de plantillas de mensaje depende de tu estado de verificación de neg
 WhatsApp permite insertar parámetros variables en las plantillas de mensaje. Los mensajes no pueden comenzar ni terminar con un parámetro variable. Los parámetros variables se pueden rellenar con lógica Liquid en la plataforma Braze. Consulta [componer un mensaje de WhatsApp en Braze]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message) para aprender más sobre los parámetros variables.
 
 #### Mi plantilla fue rechazada. ¿Puede Braze ayudarme a que sea aprobada? {#my-template-got-rejected-can-braze-help-me-get-it-approved}
-El equipo de Braze no tiene visibilidad sobre los rechazos de plantillas. Debes trabajar directamente con tu WhatsApp Business Manager para editar y reenviar la plantilla. Asegúrate de proporcionar una plantilla de ejemplo cuando sea necesario. Verifica que tu plantilla cumpla con las políticas de [negocio](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw) o [comercio](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ) de Meta.
+El equipo de Braze no tiene visibilidad sobre los rechazos de plantillas. Debes trabajar directamente con tu WhatsApp Business Manager para editar y reenviar la plantilla. Asegúrate de proporcionar una plantilla de ejemplo cuando sea necesario. Verifica que tu plantilla cumple con las políticas de [negocio](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw) o [comercio](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ) de Meta.
 
 #### ¿Se pueden segmentar o personalizar los medios enriquecidos en Braze? {#can-rich-media-be-targeted-or-personalized-in-braze}
 Sí. Puedes subir imágenes estáticas desde la biblioteca de medios, o añadir imágenes por URL y personalizarlas con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) o [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Las URL de imágenes admiten lógica Liquid completa en cualquier parte de la URL. Esto se aplica a mensajes de plantilla y mensajes de respuesta (mensajes de medios y diseños de respuesta rápida). Para más detalles, consulta [Imágenes dinámicas]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#dynamic-images).
@@ -163,8 +166,8 @@ Sí. Puedes subir imágenes estáticas desde la biblioteca de medios, o añadir 
 #### ¿Qué tipo de medios enriquecidos son compatibles en las plantillas de WhatsApp? {#what-kind-of-rich-media-is-supported-in-whatsapp-templates}
 Puedes añadir imágenes, llamadas a la acción (URL o número de teléfono) y botones de respuesta rápida a las plantillas de WhatsApp. Puedes añadir estos elementos cuando construyes plantillas directamente en WhatsApp.
 
-#### ¿Qué pasa si mi plantilla fue marcada falsamente por violar la política de comercio de WhatsApp? {#what-if-my-template-was-falsely-flagged-for-violating-whatsapps-commerce-policy}
-Si crees que Meta marcó falsamente tu plantilla, usa el enlace de revisión en el correo electrónico de WhatsApp para solicitar una re-revisión. El equipo de WhatsApp Business revisa la decisión y la revierte si es apropiado.
+#### ¿Qué pasa si mi plantilla fue marcada erróneamente por violar la política de comercio de WhatsApp? {#what-if-my-template-was-falsely-flagged-for-violating-whatsapps-commerce-policy}
+Si crees que Meta marcó erróneamente tu plantilla, usa el enlace de revisión en el correo electrónico de WhatsApp para solicitar una re-revisión. El equipo de WhatsApp Business revisa la decisión y la revierte si corresponde.
 
 #### ¿Por qué mi plantilla de WhatsApp importada muestra "Message Incomplete" en el creador? {#why-does-my-imported-whatsapp-template-show-message-incomplete-in-the-composer}
 La advertencia "Message Incomplete" aparece cuando los espacios de variables requeridos de la plantilla no están rellenados con valores válidos en el creador.
@@ -203,11 +206,11 @@ Si un usuario reporta un mensaje, aún puedes enviar mensajes posteriores. Sin e
 #### ¿Cómo puedo excluir a los usuarios que reportan mi cuenta de WhatsApp de futuros lanzamientos? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
 Braze no recibe notificaciones de WhatsApp cuando tu cuenta es marcada o reportada, por lo que no puedes identificar ni excluir automáticamente a esos usuarios en Braze. Los usuarios que reportan tu cuenta pueden permanecer en tu grupo de suscripción de WhatsApp y seguir siendo elegibles para futuros mensajes.
 
-Sin embargo, puedes configurar una Campaign que se desencadene cuando un usuario responda con una palabra clave de cancelación, lo que cancela automáticamente su suscripción usando el [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Para más información, consulta [Proceso de adhesión voluntaria y cancelación de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
+Sin embargo, puedes configurar una Campaign que se desencadene cuando un usuario responda con una palabra clave de cancelación de suscripción, lo que automáticamente cancela su suscripción usando el [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Para más información, consulta [Proceso de adhesión voluntaria y cancelación de suscripción de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
 
-#### ¿Braze admite la alternativa automática de SMS cuando falla la entrega de WhatsApp? {#does-braze-support-automatic-sms-fallback-when-whatsapp-delivery-fails}
+#### ¿Braze admite respaldo automático por SMS cuando falla la entrega de WhatsApp? {#does-braze-support-automatic-sms-fallback-when-whatsapp-delivery-fails}
 
-No. Braze no ofrece una ruta nativa de alternativa de WhatsApp a SMS. Para reintentar en otro canal, segmenta a los usuarios con envíos fallidos de WhatsApp (por ejemplo, a través de eventos de fallo de Currents) y dirige una Campaign de SMS o correo electrónico.
+No. Braze no ofrece una ruta nativa de respaldo de WhatsApp a SMS. Para reintentar en otro canal, segmenta a los usuarios con envíos fallidos de WhatsApp (por ejemplo, a través de eventos de fallo de Currents) y dirige una Campaign de SMS o correo electrónico.
 
 #### ¿Son gratuitos los mensajes de respuesta de WhatsApp? {#are-whatsapp-response-messages-free}
 
@@ -225,29 +228,33 @@ Para flujos de Canvas donde los usuarios tocan respuestas rápidas después de l
 #### ¿Qué sucede si un usuario responde o toca una respuesta rápida después de que se cierra la ventana de 24 horas? {#what-happens-if-a-user-replies-or-taps-a-quick-reply-after-the-24-hour-window-closes}
 Se abre una nueva ventana de servicio al cliente de 24 horas. Consulta [Respuestas rápidas y mensajes entrantes fuera de la ventana de 24 horas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
 
-#### ¿Necesito configurar mi ruta de acción de Canvas a 31 días para las respuestas rápidas de WhatsApp? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
-No. La duración predeterminada de la ruta de acción es suficiente. Consulta [Respuestas rápidas y mensajes entrantes fuera de la ventana de 24 horas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+#### ¿Necesito configurar mi Action Path de Canvas a 31 días para las respuestas rápidas de WhatsApp? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
+No. La duración predeterminada del Action Path es suficiente. Consulta [Respuestas rápidas y mensajes entrantes fuera de la ventana de 24 horas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
 
 #### ¿Puedo ver cuántos créditos de WhatsApp consumió una Campaign o Canvas específico? {#can-i-see-how-many-whatsapp-credits-a-specific-campaign-or-canvas-consumed}
 No en el panel de Braze actualmente. Los análisis de Campaign y Canvas muestran envíos, entregas y fallos, pero no el consumo de créditos por mensaje. Los conteos de envíos no se alinean uno a uno con el uso de créditos porque la categoría de la plantilla y el tipo de mensaje afectan la facturación de manera diferente. Para detalles de facturación, consulta [¿Son gratuitos los mensajes de respuesta de WhatsApp?](#are-whatsapp-response-messages-free).
 
 ### Integraciones, datos e informes {#integrations-data-and-reporting}
 
+#### ¿Por qué WhatsApp no aparece en Technology Partners? {#why-isnt-whatsapp-listed-under-technology-partners}
+WhatsApp aparece en la página de **Technology Partners** cuando WhatsApp está habilitado para tu empresa. Si no ves WhatsApp en esa página, contacta a tu equipo de cuenta de Braze para confirmar que WhatsApp está aprovisionado para tu panel.
+
 #### ¿Braze admite casos de uso de soporte al cliente como chatbots y chat asistido por humanos para WhatsApp? {#does-braze-support-customer-support-use-cases-like-chatbots-and-human-assisted-chat-for-whatsapp}
 No admitimos chatbots ni chat asistido por humanos dentro de Braze ni a través de integraciones directas.
 
 Si ya usas WhatsApp como canal de soporte al cliente, te recomendamos mantener tu configuración actual y crear una nueva WABA a través de Braze para mensajería de marketing. Esta WABA requerirá un nuevo número de teléfono.
 
-#### ¿Cómo puedo "cerrar la brecha" entre mi mensajería de soporte al cliente y mi mensajería de marketing a través de Braze? {#how-can-i-bridge-the-gap-between-my-customer-support-messaging-and-my-marketing-messaging-via-braze}
+#### ¿Cómo conecto el soporte y el marketing de WhatsApp en Braze? {#how-do-i-connect-whatsapp-support-and-marketing-in-braze}
+
 Puedes usar las propiedades Liquid de WhatsApp para reenviar el contenido de mensajes entrantes de WhatsApp (incluyendo el cuerpo del mensaje y las URL de medios) desde Braze a otras plataformas, incluyendo cualquier herramienta de soporte al cliente. Para más detalles, consulta nuestras [Etiquetas de personalización compatibles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
-Para enviar información a Braze, por ejemplo, para indicar que un usuario está en una conversación de soporte activa, puedes registrar un atributo personalizado (como un booleano "tiene chat de soporte existente = verdadero/falso") y usarlo como criterio de segmentación en sus Campaigns de marketing. También puedes crear vínculos profundos entre dos hilos de chat para dirigir a los usuarios al hilo de soporte desde el hilo de marketing y viceversa.
+Para enviar información a Braze, por ejemplo, para indicar que un usuario está en una conversación de soporte activa, puedes registrar un atributo personalizado (como un booleano "has existing support chat = true/false") y usarlo como criterio de segmentación en sus Campaigns de marketing. También puedes crear vínculos profundos entre dos hilos de chat para dirigir a los usuarios al hilo de soporte desde el hilo de marketing y viceversa.
 
 #### ¿Braze almacena las respuestas de los usuarios? {#does-braze-store-user-responses}
 Los mensajes solo se almacenan el tiempo suficiente para procesarlos. Para acceder a los mensajes de los usuarios, usa Currents.
 
 #### ¿Qué métricas están disponibles en el panel de Braze? {#what-metrics-are-available-in-the-braze-dashboard}
-Puedes ver destinatarios únicos, envíos, entregas, lecturas y fallos en el panel de Braze. Ten en cuenta que los recibos de lectura del usuario deben estar "activados" para que Braze rastree las lecturas. También puedes configurar eventos de conversión para monitorear el rendimiento de la Campaign, de manera similar a otros canales.
+Puedes ver destinatarios únicos, envíos, entregas, lecturas y fallos en el panel de Braze. Ten en cuenta que los recibos de lectura del usuario deben estar activados para que Braze rastree las lecturas. También puedes configurar eventos de conversión para monitorear el rendimiento de la Campaign, de manera similar a otros canales.
 
 #### ¿Qué es una conversación de WhatsApp? {#what-is-a-whatsapp-conversation}
 WhatsApp es un canal enfocado en la mensajería bidireccional y por lo tanto se basa en conversaciones (en lugar del número de mensajes individuales). Una conversación es un hilo de 24 horas entre un negocio y un usuario final.
@@ -258,4 +265,4 @@ WhatsApp es un canal enfocado en la mensajería bidireccional y por lo tanto se 
 ### Medios e imágenes {#media-and-images}
 
 #### ¿Por qué no se cargan las imágenes cuando se envían como mensaje de WhatsApp? {#why-wont-images-load-when-sent-as-a-whatsapp-message}
-Si los usuarios reportan que las imágenes en los mensajes de WhatsApp no se descargan o el ícono de descarga no responde, esto probablemente se deba a un problema conocido en versiones anteriores de la aplicación de WhatsApp. Este problema generalmente se puede resolver actualizando el dispositivo a la versión más reciente de WhatsApp.
+Si los usuarios reportan que las imágenes en los mensajes de WhatsApp no se descargan o el ícono de descarga no responde, esto probablemente se debe a un problema conocido en versiones anteriores de la aplicación de WhatsApp. Este problema generalmente se puede resolver actualizando el dispositivo a la versión más reciente de WhatsApp.

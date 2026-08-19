@@ -17,9 +17,18 @@ guide_featured_list:
   - name: Filter catalog items by date range
     link: /docs/user_guide/example_library/catalogs/filter_catalog_items_by_date_range
     image: /assets/img/braze_icons/calendar-date.svg
+  - name: Match catalog items to an attribute array
+    link: /docs/user_guide/example_library/catalogs/match_catalog_items_to_attribute_array
+    image: /assets/img/braze_icons/list.svg
   - name: Compare translation approaches
     link: /docs/user_guide/example_library/localization/compare_translation_approaches
     image: /assets/img/braze_icons/globe-02.svg
+  - name: Link cross-domain Web SDK users
+    link: /docs/user_guide/example_library/web/link_cross_domain_users_via_device_id
+    image: /assets/img/braze_icons/link-04.svg
+  - name: Order Placed SQL dashboards
+    link: /docs/user_guide/example_library/analytics/ecommerce_order_placed_sql_dashboards
+    image: /assets/img/braze_icons/bar-chart-01.svg
 ---
 
 ## What you find here

@@ -45,7 +45,7 @@ Sends use the workspace time zone when one is set; otherwise they use the compan
 
 ## How many IP warming plans can run at the same time?
 
-If your workspace supports multiple plans, more than one plan can run concurrently. For details, see [Multiple IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming#multiple-ip-warming).
+More than one plan can run concurrently. For details, see [Multiple IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming#multiple-ip-warming).
 
 ## How does volume scale for IP pools with multiple IPs?
 

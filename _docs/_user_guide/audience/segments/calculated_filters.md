@@ -124,7 +124,7 @@ Each calculated filter displays one of the following statuses. **Processing** an
 Open a calculated filter's row menu to edit, archive, refresh the audience, or view how it is being used in messaging. You cannot edit a calculated filter while it is processing.
 
 {% alert note %}
-Your workspace can have up to 500 activated calculated filters at a time. Contact your Braze account manager if you need to increase this limit.
+Your workspace can have up to 100 activated calculated filters at a time. Contact your Braze account manager if you need to increase this limit.
 {% endalert %}
 
 #### Save versus activate

@@ -19,28 +19,28 @@ channel: email
 
 **Liquid 이전 중복 제거:** Braze가 하나의 디스패치 내에서 이메일 주소별로 중복을 제거하는 발송(예: 동일한 주소를 가진 여러 Segment 멤버가 함께 처리되는 예약된 Campaigns)의 경우, 해당 중복 제거는 해당 주소를 대표하도록 선택된 프로필에 대해 Liquid가 실행되기 전에 발생합니다. 해당 프로필에 대해 Liquid가 중단되면(예: [`abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) 사용 시), 해당 주소는 해당 디스패치에서 메시지를 수신하지 않습니다. 이는 중복 제거로 이미 건너뛴 프로필도 포함됩니다. 트리거 발송은 동일한 디스패치 내 주소 중복 제거를 적용하지 않습니다. 주소를 공유하는 여러 프로필이 하나의 배치에서 모두 자격을 유지할 수 있으므로, 이 중단 동작은 동일한 방식으로 적용되지 않습니다(다음 단락 참조).
 
-여러 프로필이 이메일 주소를 공유하고 하나의 프로필이 구독을 취소하면, Braze는 해당 주소를 가진 다른 프로필(최대 100개)을 동일한 구독 상태로 업데이트합니다. 이는 구독 취소 및 글로벌 구독 상태와 개별 구독 그룹 상태 등의 기타 변경 사항에 적용됩니다.
+여러 프로필이 이메일 주소를 공유하고 하나의 프로필이 구독을 취소하면, Braze는 해당 주소를 가진 다른 프로필(최대 100개)을 동일한 구독 상태로 업데이트합니다. 이는 구독 취소 및 글로벌 구독 상태와 개별 구독 그룹 상태와 같은 기타 변경 사항에 적용됩니다.
 
 **시드 그룹:** [시드 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups)이 있는 Campaigns의 경우, 여러 프로필이 주소를 공유할 때 Braze는 기본 전달을 위해 하나의 프로필을 선택합니다. 해당 기본 수신자는 동일한 주소를 가진 다른 프로필이 시드 그룹에 있더라도 시드 그룹에 포함되지 않을 수 있습니다.
 
 다음 시나리오에서는 사용자가 이메일을 두 번 수신한 것처럼 보일 수 있습니다:
 
-- **시드 목록 또는 테스트 수신자:** 시드 주소와 내부 테스트 수신자는 메인 오디언스 외에 추가로 발송을 수신할 수 있으며, 받은편지함이 프로필과 시드 항목 모두에 일치하는 경우 중복처럼 보일 수 있습니다.
-- **Campaign 또는 Canvas 생성 중 오류 발생:** 사용자가 동일한 발송을 두 번 수신하지 않을 수 있지만, 동일한 제목란을 가진 두 개의 별도 이메일을 수신할 수 있습니다. Campaign 또는 Canvas가 복제된 경우, 이미지나 제목란 등의 이메일 구성 세부 사항을 확인하세요. 또한 체인지로그를 참조하여 Campaign 또는 Canvas가 출시 후 수정되었는지 확인할 수 있습니다. 중복은 사용자가 수신했을 때 원본과 동일한 제목란을 공유할 수 있습니다.
-- **여러 사용자 프로필에 이메일 전달이 설정된 경우:** 사용자가 특정 앱에서 여러 계정을 가지고 있지만 하나의 계정이 메일을 전달하는 경우, 사용자는 받은편지함당 한 번 Campaign을 수신합니다. 메시지가 전달되는 받은편지함에서는 메일이 두 번 나타날 수 있습니다. 일부 공급자만 이메일이 다른 계정에서 전달되었는지 표시합니다.
-- **수신자의 이메일 구성:** 일부 클라이언트는 받은편지함을 병합합니다("통합 받은편지함"). 동일한 Campaign이 하나의 받은편지함을 공유하는 여러 계정을 대상으로 하는 경우, 실제로 두 개의 별개 프로필에 메시지가 전송되었지만 한 사람이 Campaign을 두 번 받은 것처럼 보일 수 있습니다. 수신자는 여러 계정이 하나의 받은편지함에 결합되어 있는지 확인할 수 있습니다.
+- **시드 목록 또는 테스트 수신자:** 시드 주소와 내부 테스트 수신자는 주요 오디언스 외에 발송을 수신할 수 있으며, 받은편지함이 프로필과 시드 항목 모두와 일치할 때 중복처럼 보일 수 있습니다.
+- **Campaign 또는 Canvas 생성 중 오류 발생:** 사용자가 동일한 발송을 두 번 수신하지 않을 수 있지만, 동일한 제목란을 가진 두 개의 별도 이메일을 수신할 수 있습니다. Campaign 또는 Canvas가 복제된 경우, 이미지나 제목란과 같은 이메일 구성 세부 사항을 확인하세요. 또한 체인지로그를 참조하여 Campaign 또는 Canvas가 출시 후 수정되었는지 확인할 수 있습니다. 중복은 사용자가 수신했을 때 원본과 동일한 제목란을 공유할 수 있습니다.
+- **여러 사용자 프로필에 이메일 전달 설정이 있는 경우:** 사용자가 특정 앱에서 여러 계정을 가지고 있지만 하나의 계정이 메일을 전달하는 경우, 사용자는 받은편지함당 한 번 Campaign을 수신합니다. 메일은 메시지가 전달되는 받은편지함에서 두 번 나타날 수 있습니다. 일부 공급자만 이메일이 다른 계정에서 전달되었는지 표시합니다.
+- **수신자 측 이메일 구성:** 일부 클라이언트는 받은편지함을 병합합니다("통합 받은편지함"). 동일한 Campaign이 하나의 받은편지함을 공유하는 여러 계정을 타겟팅하는 경우, 실제로 두 개의 별개 프로필에 메시지가 전송되었지만 한 사람이 Campaign을 두 번 받은 것처럼 보일 수 있습니다. 수신자는 여러 계정이 하나의 받은편지함에 결합되어 있는지 확인할 수 있습니다.
 
-이 중복 제거는 대상 사용자가 동일한 디스패치에 있을 때 적용됩니다. 재자격은 이메일 주소가 아닌 프로필별로 평가됩니다.
+이 중복 제거는 타겟팅된 사용자가 동일한 디스패치에 있을 때 적용됩니다. 재자격은 이메일 주소가 아닌 프로필별로 평가됩니다.
 
-이메일 Campaign 및 Canvas 단계 재자격은 받은편지함이 아닌 각 사용자의 프로필을 사용하므로, 해당 로직이 충족되는 동안 여러 프로필이 별도의 발송에 자격을 얻을 수 있습니다. 트리거와 결합하면, 주소 수준에서 단일 비자격 기간을 준수하려고 해도 동일한 받은편지함에 둘 이상의 메시지가 전달될 수 있습니다. 트리거 Campaigns(API 트리거 Campaigns 제외) 및 Canvases는 일치하는 이메일 주소를 가진 서로 다른 프로필이 서로 다른 시간에 트리거를 충족할 때 하나의 주소로 두 번 발송할 수도 있습니다. 예를 들어 사용자 A와 사용자 B가 `johndoe@example.com`을 공유하지만 서로 다른 시간대에 있고 전달이 현지 시간대를 사용하는 경우입니다.
+이메일 Campaign 및 Canvas 단계 재자격은 받은편지함이 아닌 각 사용자의 프로필을 사용하므로, 해당 로직이 충족되는 동안 여러 프로필이 별도의 발송에 자격을 얻을 수 있습니다. 트리거와 결합하면, 주소 수준에서 단일 비자격 기간을 준수하려고 해도 동일한 받은편지함에 둘 이상의 메시지가 전달될 수 있습니다. 트리거 Campaigns(API 트리거 Campaigns 제외) 및 Canvases는 일치하는 이메일 주소를 가진 서로 다른 프로필이 서로 다른 시간에 트리거를 충족할 때 하나의 주소로 두 번 발송할 수도 있습니다. 예를 들어 사용자 A와 사용자 B가 `johndoe@example.com`을 공유하지만 전달이 현지 시간대를 사용하는 동안 서로 다른 시간대에 있는 경우입니다.
 
-사용자는 Canvas 진입 시 이메일별로 중복 제거되지 않으므로, 사용량 제한조치가 적용된 진입으로 인해 약간 다른 시간에 진행되는 경우 Canvas의 첫 번째 단계 이후에는 중복 제거되지 않을 수 있습니다. 특정 이메일 주소와 연결된 사용자가 이메일을 열거나 클릭하면, 해당 이메일 주소를 공유하는 모든 사용자 프로필이 Campaign을 열거나 클릭한 것으로 표시됩니다.
+사용자는 Canvas 진입 시 이메일별로 중복 제거되지 않으므로, 사용량 제한조치가 적용된 진입으로 인해 약간 다른 시간에 진행하는 경우 Canvas의 첫 번째 단계 이후에는 중복 제거되지 않을 수 있습니다. 특정 이메일 주소와 연결된 사용자가 이메일을 열거나 클릭하면, 해당 이메일 주소를 공유하는 모든 사용자 프로필이 Campaign을 열거나 클릭한 것으로 표시됩니다.
 
 ### 예외: API 트리거 Campaigns {#exception-api-triggered-campaigns}
 
 API 트리거 Campaigns는 오디언스가 정의된 위치에 따라 중복을 제거하거나 중복 발송합니다. 여러 전달을 수신하려면 중복 이메일이 API 호출에서 별도의 `user_ids`를 사용하여 개별적으로 타겟팅되어야 합니다. API 트리거 Campaigns에 대한 세 가지 가능한 시나리오는 다음과 같습니다:
 
-- **시나리오 1: 대상 Segment의 중복 이메일:** 동일한 이메일이 API 트리거 Campaign의 대시보드 오디언스 필터에 그룹화된 여러 사용자 프로필에 나타나는 경우, 프로필 중 하나만 이메일을 수신합니다.
+- **시나리오 1: 타겟 Segment의 중복 이메일:** 동일한 이메일이 API 트리거 Campaign의 대시보드 오디언스 필터에 그룹화된 여러 사용자 프로필에 나타나는 경우, 프로필 중 하나만 이메일을 수신합니다.
 - **시나리오 2: 수신자 객체 내 서로 다른 `user_ids`의 중복 이메일:** 동일한 이메일이 `recipients` 객체에서 참조하는 여러 `external_user_id` 값 내에 나타나는 경우, 이메일이 두 번 발송됩니다.
 - **시나리오 3: 수신자 객체 내 중복 `user_ids`로 인한 중복 이메일:** 동일한 사용자 프로필을 두 번 추가하려고 하면, 프로필 중 하나만 이메일을 수신합니다.
 
@@ -58,17 +58,17 @@ Canvas 여정의 경우, 중복 이메일 주소가 한 번 발송을 수신하�
 
 ### 사용자의 이메일 주소가 다른 사용자가 공유하는 주소로 변경되면 구독 상태는 어떻게 되나요? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
-사용자 A의 이메일 주소를 기존 사용자 B가 공유하는 다른 이메일 주소로 설정하거나 업데이트하면, **사용자가 이메일을 업데이트할 때 재구독** 설정이 켜져 있지 않는 한 사용자 A는 사용자 B에서 이미 존재하는 구독 상태를 상속합니다.
+사용자 A의 이메일 주소를 기존 사용자 B가 공유하는 다른 이메일 주소로 설정하거나 업데이트하면, **이메일 업데이트 시 사용자 재구독** 설정이 켜져 있지 않는 한 사용자 A는 사용자 B에서 이미 존재하는 구독 상태를 상속합니다.
 
-### 발신 이메일 설정에 대한 업데이트가 소급 적용되나요? {#will-updates-to-my-outbound-email-settings-apply-retroactively}
+### 발신 이메일 설정 업데이트가 소급 적용되나요? {#will-updates-to-my-outbound-email-settings-apply-retroactively}
 
 아니요. 발신 이메일 설정에 대한 업데이트는 기존 발송에 소급 적용되지 않습니다. 예를 들어, 이메일 설정에서 기본 표시 이름을 변경해도 활성 Campaigns 또는 Canvases의 기존 기본 표시 이름이 자동으로 대체되지 않습니다.
 
 ### "좋은" 이메일 전달률이란 무엇인가요? {#what-is-a-good-email-delivery-rate}
 
-일반적으로 "마법의 숫자"는 반송률이 3%를 넘지 않으면서 메시지의 약 98%가 전달되는 것입니다. 메시지의 98% 미만이 전달되면 보통 우려할 만한 이유가 있습니다.
+일반적으로 "매직 넘버"는 반송률이 3%를 넘지 않으면서 메시지의 약 98%가 전달되는 것입니다. 메시지의 98% 미만이 전달되면 보통 우려할 만한 원인이 있습니다.
 
-그러나 98% 이상의 전달률에서도 전달 가능성 문제가 있을 수 있습니다. 예를 들어, 모든 반송이 단일 도메인에서 발생하는 경우 해당 공급자와의 평판 문제에 대한 명확한 신호입니다.
+그러나 98% 이상의 전달률에서도 전달 가능성 문제가 있을 수 있습니다. 예를 들어, 모든 반송이 단일 도메인에서 발생하는 경우, 이는 해당 공급자와의 평판 문제에 대한 명확한 신호입니다.
 
 또한 메시지가 전달되지만 스팸 폴더에 들어갈 수 있으며, 이는 잠재적으로 심각한 평판 문제를 나타냅니다. 전달되는 메시지 수뿐만 아니라 열람율과 클릭률도 모니터링하여 사용자가 실제로 받은편지함에서 메시지를 보고 있는지 확인하는 것이 중요합니다. 공급자는 보통 모든 스팸 인스턴스를 보고하지 않으므로, 1%의 스팸률도 우려의 원인이 될 수 있으며 추가 분석이 필요합니다.
 
@@ -76,9 +76,9 @@ Canvas 여정의 경우, 중복 이메일 주소가 한 번 발송을 수신하�
 
 ### 이메일 전달 측정기준이 왜 100%에 맞지 않나요? {#why-are-my-email-delivery-metrics-not-adding-up-to-100}
 
-이메일 전달 측정기준(전달, 반송, 스팸률)은 소프트 바운스 후 최대 72시간의 재시도 기간 후에도 전달되지 않은 이메일로 인해 100%에 맞지 않을 수 있습니다.
+이메일 전달 측정기준(전달, 반송 및 스팸률)은 소프트 반송 후 최대 72시간의 재시도 기간 후에도 전달되지 않은 이메일로 인해 100%에 맞지 않을 수 있습니다.
 
-소프트 바운스는 "사서함 가득 참", "서버 일시적으로 사용 불가" 등과 같은 일시적 또는 과도적 문제로 인해 반송되는 이메일입니다. 소프트 바운스된 이메일이 72시간 후에도 전달되지 않으면, 이 이메일은 Campaign 전달 측정기준에 포함되지 않습니다.
+소프트 반송은 "사서함 가득 참", "서버 일시적으로 사용 불가" 등과 같은 일시적 또는 과도적 문제로 인해 반송되는 이메일입니다. 소프트 반송된 이메일이 72시간 후에도 전달되지 않으면, 이 이메일은 Campaign 전달 측정기준에 포함되지 않습니다.
 
 ### 이메일 피드백 루프란 무엇인가요? {#what-is-an-email-feedback-loop}
 
@@ -120,7 +120,7 @@ Campaign 또는 Canvas가 중지된 후에는 Braze가 추가 요청을 보내�
 
 _총 열람 수_는 사용자가 이메일을 열어본 횟수이고, _총 클릭 수_는 링크 클릭을 포함한 모든 유형의 클릭을 포함하여 사용자가 전달된 이메일 내에서 클릭한 횟수입니다. 다음과 같은 이유로 열람보다 클릭이 더 많을 수 있습니다:
 
-- 사용자가 한 번의 열람 내에서 이메일 본문을 여러 번 클릭합니다.
+- 사용자가 한 번의 열람 내에서 이메일 본문을 여러 번 클릭하고 있습니다.
 - 사용자가 휴대폰의 미리보기 창에서 일부 이메일 링크를 클릭합니다. 이 경우 Braze는 이 이메일을 클릭된 것으로 기록하지만 열린 것으로는 기록하지 않습니다.
 - 사용자가 이전에 미리 본 이메일을 다시 엽니다.
 
@@ -128,7 +128,7 @@ _총 열람 수_는 사용자가 이메일을 열어본 횟수이고, _총 클�
 
 Campaign 분석은 총 클릭 이벤트 수를 보여주고, Segments는 해당 클릭을 수행한 고유 사용자 수를 반환합니다. 각 사용자가 여러 번 클릭할 수 있으므로, 분석의 총 클릭 수는 Segment를 생성할 때 클릭한 사용자 수보다 높은 경우가 많습니다.
 
-예를 들어, 100명의 사용자가 각각 링크를 3번 클릭하면, Campaign 분석은 300개의 총 클릭을 표시하지만, 해당 Campaign에 대해 "이메일 클릭"으로 필터링된 Segment는 100명의 사용자를 반환합니다.
+예를 들어, 100명의 사용자가 각각 링크를 3번 클릭하면, Campaign 분석은 300개의 총 클릭을 보여주지만, 해당 Campaign에 대해 "이메일 클릭"으로 필터링된 Segment는 100명의 사용자를 반환합니다.
 
 ### 이메일 열람 및 클릭이 0으로 표시되는 이유는 무엇인가요? {#why-am-i-seeing-zero-email-opens-and-clicks}
 
@@ -146,7 +146,7 @@ Campaign 분석은 총 클릭 이벤트 수를 보여주고, Segments는 해당 
 
 **식별 방법:** 이메일 하단에 "전체 메시지 보기" 또는 유사한 링크가 표시되는지 확인하세요. [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision)을 사용하여 전체 스크롤 가능한 이메일을 미리 보고 메시지가 클리핑되고 있는지 확인할 수 있습니다.
 
-**해결 방법:** Braze에서 추적 픽셀을 이메일 하단 대신 상단에 배치하도록 구성할 수 있습니다. 추적 픽셀을 이동하면 일부 이메일 클라이언트가 HTML을 렌더링하는 방식에 영향을 줄 수 있으므로, 이 변경 후 Inbox Vision에서 이메일을 테스트하세요. 수신자가 이미지를 비활성화한 경우, 픽셀 배치에 관계없이 열람을 추적할 수 없습니다.
+**해결 방법:** Braze에서 추적 픽셀을 하단 대신 이메일 상단에 배치하도록 구성할 수 있습니다. 추적 픽셀을 이동하면 일부 이메일 클라이언트가 HTML을 렌더링하는 방식에 영향을 줄 수 있으므로, 이 변경 후 Inbox Vision에서 이메일을 테스트하세요. 수신자가 이미지를 비활성화한 경우, 픽셀 배치에 관계없이 열람을 추적할 수 없습니다.
 
 #### 추적 픽셀로 인해 이메일 상단에 흰색 간격이 발생함 {#tracking-pixel-causes-white-gap-at-top-of-email}
 
@@ -167,23 +167,23 @@ Campaign 분석은 총 클릭 이벤트 수를 보여주고, Segments는 해당 
 
 일부 기업 이메일 보안 도구(예: Barracuda, Proofpoint 및 유사 서비스)는 메시지의 모든 링크를 자동으로 클릭하여 안전한지 확인함으로써 수신 이메일을 스캔합니다. 이로 인해 발송 후 몇 초 내에 클릭 이벤트가 나타날 수 있으며, 종종 이메일의 모든 링크가 빠르게 연속으로 클릭됩니다.
 
-이 동작은 기관 이메일 도메인(예: 고등학교, 대학교, 기업 환경)에서 더 일반적이며, 발송 도메인이 추적 도메인과 크게 다를 때 더 가능성이 높습니다. [커스텀 브랜드 추적 도메인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences)을 설정하면 이러한 자동 클릭의 빈도를 줄일 수 있습니다.
+이 동작은 기관 이메일 도메인(예: 고등학교, 대학교 및 기업 환경)에서 더 일반적이며, 발송 도메인이 추적 도메인과 크게 다를 때 더 가능성이 높습니다. [커스텀 브랜드 추적 도메인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences)을 설정하면 이러한 자동 클릭의 빈도를 줄일 수 있습니다.
 
-**식별 방법:** 클릭 이벤트의 IP 주소(Currents 데이터에서 확인 가능)를 검색 엔진에서 조회하세요. IP가 알려진 보안 공급자(예: Barracuda Networks)와 연관되어 있으면, 클릭은 자동화된 것일 가능성이 높습니다. 여러 자동 클릭에서 일관된 User-Agent 헤더를 볼 수도 있습니다.
+**식별 방법:** 클릭 이벤트의 IP 주소(Currents 데이터에서 사용 가능)를 검색 엔진에서 조회하세요. IP가 알려진 보안 공급자(예: Barracuda Networks)와 연결되어 있으면, 클릭은 자동화된 것일 가능성이 높습니다. 여러 자동 클릭에서 일관된 User-Agent 헤더를 볼 수도 있습니다.
 
 보안 스캔이 이메일 측정기준에 미치는 영향에 대한 추가 컨텍스트는 [클릭률 증가 처리]({{site.baseurl}}/user_guide/channels/email/reporting)를 참조하세요.
 
 ### 서버 클릭을 트리거할 수 있는 잠재적 위험은 무엇인가요? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
-지나치게 긴 메시지나 너무 많은 느낌표와 같은 이메일 메시지의 특정 요소는 이메일 보안 응답을 트리거할 수 있습니다. 이러한 응답은 리포팅과 IP 평판에 영향을 미치고 사용자가 구독을 취소하게 만들 수 있습니다.
+지나치게 긴 메시지나 너무 많은 느낌표와 같은 이메일 메시지의 특정 요소는 이메일 보안 응답을 트리거할 수 있습니다. 이러한 응답은 리포팅 및 IP 평판에 영향을 미치고 사용자가 구독을 취소하게 만들 수 있습니다.
 
 이러한 응답을 처리하는 모범 사례는 [클릭률 증가 처리]({{site.baseurl}}/user_guide/channels/email/reporting)를 참조하세요.
 
-### Braze가 "탈퇴" 측정기준에 포함되는 구독 취소 링크를 추적할 수 있나요? {#can-braze-track-unsubscribe-links-counted-toward-the-unsubscribe-metric}
+### Braze가 "구독 취소" 측정기준에 포함되는 구독 취소 링크를 추적할 수 있나요? {#can-braze-track-unsubscribe-links-counted-toward-the-unsubscribe-metric}
 
 Braze는 이메일 내에서 다음 Liquid가 사용되는 경우 구독 취소 링크를 추적합니다: {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%}
 
-### 구독 취소 링크의 클릭 수와 다른 구독 취소 수가 표시되는 이유는 무엇인가요? {#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link}
+### 구독 취소 링크 클릭 수와 구독 취소 수가 다른 이유는 무엇인가요? {#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link}
 
 이메일 본문의 구독 취소 링크를 클릭한 사용자보다 _구독 취소_ 수가 더 많은 경우, [**List-unsubscribe**]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe)가 그 차이를 설명하는 경우가 많습니다. List-unsubscribe는 이메일 헤더에 있는 추가 구독 취소 경로입니다(메시지 본문의 링크가 아님). 사용자가 이 방법으로 구독을 취소하면, _구독 취소_에 포함되지만 본문의 추적된 구독 취소 URL에 대한 클릭으로는 집계되지 않습니다.
 
@@ -195,25 +195,29 @@ Braze는 이메일 내에서 다음 Liquid가 사용되는 경우 구독 취소 
 
 아니요. Braze는 이 기능을 제공하지 않습니다. 이는 이메일의 대다수가 모바일 기기와 최신 이메일 클라이언트에서 열리며, 이미지와 콘텐츠를 문제없이 렌더링하기 때문입니다.
 
-**해결 방법:** 동일한 결과를 얻으려면, 이메일의 콘텐츠를 외부 랜딩 페이지(예: 웹사이트)에 호스팅한 다음, 이메일 본문을 편집할 때 **링크** 도구를 사용하여 구축 중인 이메일 Campaign에서 링크할 수 있습니다.
+**해결 방법:** 동일한 결과를 달성하려면, 이메일 콘텐츠를 외부 랜딩 페이지(예: 웹사이트)에 호스팅한 다음, 이메일 본문을 편집할 때 **링크** 도구를 사용하여 작성 중인 이메일 Campaign에서 링크할 수 있습니다.
 
 ### Braze가 일반 텍스트 URL이나 "www." 텍스트를 자동으로 링크로 변환하나요? {#does-braze-automatically-turn-plain-text-urls-or-www-text-into-links}
 
-아니요. Braze는 메시지를 스캔하여 `www.`로 시작하거나 URL처럼 보이는 일반 텍스트를 하이퍼링크로 변환하지 않습니다. HTML 앵커 태그(`<a href="...">`)로 정의한 링크만 Braze의 일반 렌더링 및 링크 기능을 통해 처리됩니다.
+아니요. Braze는 메시지를 스캔하여 `www.`로 시작하거나 URL처럼 보이는 일반 텍스트를 하이퍼링크로 변환하지 않습니다. HTML 앵커 태그(`<a href="...">`)로 정의한 링크만 Braze에서 정상적인 렌더링 및 링크 기능을 통해 처리됩니다.
 
-수신자가 일반 텍스트가 클릭 가능한 링크로 표시되는 것을 보는 경우, 해당 동작은 보통 이메일 클라이언트(예: Gmail, Outlook 또는 Apple Mail)에서 발생합니다. 많은 클라이언트가 메시지가 전달된 후 URL과 유사한 문자열을 감지하여 수신자의 기기에서 링크로 변환합니다. Braze는 해당 동작을 제어하지 않으며 수신자를 위해 끌 수 없습니다.
+수신자가 일반 텍스트가 클릭 가능한 링크로 표시되는 것을 보는 경우, 해당 동작은 보통 이메일 클라이언트(예: Gmail, Outlook 또는 Apple Mail)에서 발생합니다. 많은 클라이언트는 메시지가 전달된 후 URL과 유사한 문자열을 감지하여 수신자의 기기에서 링크로 변환합니다. Braze는 해당 동작을 제어하지 않으며 수신자를 위해 끌 수 없습니다.
 
 예측 가능한 링크 외관, 추적 및 스타일링을 위해 일반 텍스트 URL 대신 명시적 `<a href>` 태그를 사용하세요.
 
-### 이메일 링크의 `target` 속성을 제어할 수 있나요? {#can-i-control-the-target-attribute-on-email-links}
+### 이메일 링크에서 `target` 속성을 제어할 수 있나요? {#can-i-control-the-target-attribute-on-email-links}
 
-이메일 HTML의 링크에 `target` 속성(예: `target="_blank"` 또는 `target="_top"`)을 설정할 수 있지만, 대부분의 이메일 클라이언트는 이 속성을 무시하거나 재정의합니다. 예를 들어, Gmail은 지정한 것에 관계없이 사실상 `_blank`와 유사한 동작을 강제합니다.
+이메일 HTML의 링크에 `target` 속성(예: `target="_blank"` 또는 `target="_top"`)을 설정할 수 있지만, 대부분의 이메일 클라이언트는 이 속성을 무시하거나 재정의합니다. 예를 들어, Gmail은 지정한 내용에 관계없이 사실상 `_blank`와 유사한 동작을 강제합니다.
 
 이메일 클라이언트 동작이 다양하므로, 링크가 열리는 방식을 제어하기 위해 `target` 속성에 의존해서는 안 됩니다. 어떤 이메일 클라이언트가 `target` 속성을 지원하는지에 대한 자세한 내용은 [caniemail.com](https://www.caniemail.com/features/html-target/)을 참조하세요.
 
+### 이메일 링크에서 더하기 기호 `+`가 공백으로 변환되는 이유는 무엇인가요? {#why-does-a-plus-sign-in-my-email-link-turn-into-a-space}
+
+일부 쿼리 파서는 인코딩되지 않은 더하기 기호 `+`를 공백으로 처리합니다. 대상 URL의 쿼리 매개변수에 더하기 기호가 필요한 경우, 이메일에 링크를 추가하기 전에 `%2B`로 퍼센트 인코딩하세요.
+
 ### 이메일 보안 소프트웨어에 의해 사용자가 자동으로 구독 취소되는 이유는 무엇인가요? {#why-are-my-users-being-auto-unsubscribed-by-email-security-software}
 
-일부 기업 이메일 보안 도구(예: Barracuda, Proofpoint 및 유사 서비스)는 구독 취소 링크를 포함하여 수신 이메일의 모든 URL을 사전 가져오기하거나 스캔합니다. 보안 도구가 원클릭 list-unsubscribe 링크를 따라갈 때 의도하지 않은 구독 취소가 발생할 수 있습니다.
+일부 기업 이메일 보안 도구(예: Barracuda, Proofpoint 및 유사 서비스)는 구독 취소 링크를 포함하여 수신 이메일의 모든 URL을 사전 가져오기하거나 스캔합니다. 보안 도구가 원클릭 list-unsubscribe 링크를 따를 때 의도하지 않은 구독 취소가 발생할 수 있습니다.
 
 이를 완화하려면:
 
@@ -228,14 +232,14 @@ Braze는 이메일 내에서 다음 Liquid가 사용되는 경우 구독 취소 
 [머신 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens)은 Apple Mail Privacy Protection(MPP)과 같은 이메일 보안 기능에 의해 트리거되며, 사용자가 실제로 이메일을 열지 않아도 이메일 콘텐츠(추적 픽셀 포함)를 사전 로드합니다. 머신 열람율은 다음에 따라 변동할 수 있습니다:
 
 - Apple Mail 또는 기타 개인정보 보호 기능이 활성화된 이메일 클라이언트를 사용하는 오디언스 비율의 변화.
-- 이메일 공급자의 개인정보 보호 기능 또는 봇 감지 동작의 업데이트.
+- 이메일 공급자 개인정보 보호 기능 또는 봇 감지 동작의 업데이트.
 - 오디언스 세분화 또는 타겟팅의 변경.
 
-머신 열람 비율은 실제 참여의 신뢰할 수 있는 측정 수단이 아닙니다. 이메일 성능에 대한 보다 정확한 보기를 위해 *기타 열람*(비머신 열람)과 *고유 클릭*에 집중하세요. [이메일 성능 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance)를 사용하여 시간에 따라 이러한 측정기준을 비교할 수도 있습니다.
+머신 열람 비율은 실제 참여의 신뢰할 수 있는 척도가 아닙니다. 이메일 성능에 대한 보다 정확한 보기를 위해 *기타 열람*(비머신 열람)과 *고유 클릭*에 집중하세요. [이메일 성능 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance)를 사용하여 시간에 따른 이러한 측정기준을 비교할 수도 있습니다.
 
 ### Gmail에서 딥링크가 작동하지 않는 이유는 무엇인가요? {#why-are-my-deep-links-not-working-in-gmail}
 
-Gmail은 이메일 메시지에서 모든 비HTTP/HTTPS 링크를 제거합니다. 딥링크가 커스텀 스킴(예: `myapp://path/to/content`)을 사용하는 경우, Gmail이 이를 제거하고 Gmail에서 이메일을 읽는 수신자에게 링크가 작동하지 않습니다. 이는 Braze의 제한이 아닌 Gmail의 제한입니다.
+Gmail은 이메일 메시지에서 모든 비HTTP/HTTPS 링크를 제거합니다. 딥링크가 커스텀 스킴(예: `myapp://path/to/content`)을 사용하는 경우, Gmail이 이를 제거하며 Gmail에서 이메일을 읽는 수신자에게 링크가 작동하지 않습니다. 이는 Braze의 제한이 아닌 Gmail의 제한입니다.
 
 이를 해결하려면:
 
@@ -245,13 +249,13 @@ Gmail은 이메일 메시지에서 모든 비HTTP/HTTPS 링크를 제거합니�
 
 ### *고유 열람* 측정기준에 *머신 열람*이 포함되나요? {#does-the-unique-opens-metric-include-machine-opens}
 
-네. *고유 열람*에는 *머신 열람*이 포함됩니다. **Campaign 분석** 보기와 **보고서 빌더**에서 두 측정기준을 모두 확인할 수 있습니다.
+네. *고유 열람*에는 *머신 열람*이 포함됩니다. **Campaign 분석** 보기와 **보고서 빌더**에서 두 측정기준을 모두 볼 수 있습니다.
 
 이것이 **전환 대시보드** 기여도에 미치는 영향에 대해서는 전환 대시보드 페이지의 [문제 해결]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#troubleshooting)에서 [이메일 열람 합계가 Campaign 분석과 일치하지 않는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#why-dont-email-open-totals-match-campaign-analytics)를 참조하세요.
 
 ### 이메일 전달량이 발송량과 일치하지 않는 이유는 무엇인가요? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
-이메일이 발송된 후, 수신자의 받은편지함이 전달 시점을 결정합니다. 사서함 가득 참, 특정 IP에서의 ESP 스로틀링 등의 이유로 메시지가 몇 시간 또는 며칠 동안 지연될 수 있습니다.
+이메일이 발송된 후, 수신자의 받은편지함이 언제 전달할지 결정합니다. 사서함 가득 참, 특정 IP에서의 ESP 스로틀링 및 유사한 이유로 메시지가 몇 시간 또는 며칠 동안 지연될 수 있습니다.
 
 지연된 메시지가 발송일과 다른 달력 날짜에 전달되면, 동일한 날짜 범위에서 _전달_이 _발송_을 초과할 수 있습니다. 많은 지연이 하루에 집중되면, 해당 범위에서 _발송_이 _전달_을 초과할 수 있습니다.
 
@@ -262,17 +266,17 @@ Gmail은 이메일 메시지에서 모든 비HTTP/HTTPS 링크를 제거합니�
 - HTML 이메일의 경우, **일반 텍스트** 탭으로 이동한 다음 **HTML에서 재생성**을 선택하세요.
 - 복제 후, 배리언트를 복제한 다음 원본 배리언트를 제거하세요. 원본 배리언트를 **선택하지 마세요**. 그렇지 않으면 경고가 이어질 수 있습니다.
 
-### 사용자가 수신하지 말아야 할 이메일을 수신한 이유는 무엇인가요? {#why-did-a-user-receive-an-email-they-shouldnt-have}
+### 사용자가 받지 말아야 할 이메일을 수신한 이유는 무엇인가요? {#why-did-a-user-receive-an-email-they-shouldnt-have}
 
 Braze가 구성된 대로 동작했더라도 전달이 잘못된 것처럼 보일 수 있습니다. 다음을 확인하세요:
 
 - 하나의 받은편지함을 공유하는 **중복 프로필**([이메일이 발송될 때 여러 프로필이 동일한 이메일 주소를 가지고 있으면 어떻게 되나요?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address) 참조).
 - 오디언스에 포함되거나 CC/BCC로 발송에 포함된 **시드 목록, 테스트 수신자 또는 내부 주소**.
-- **Segment 또는 Canvas 타이밍:** Braze가 자격을 평가할 때 사용자가 오디언스 또는 Canvas 단계에 일치했지만, 메시지를 읽기 전에 속성 또는 구독 상태가 변경되었습니다.
+- **Segment 또는 Canvas 타이밍:** Braze가 자격을 평가할 때 사용자가 오디언스 또는 Canvas 단계와 일치했지만, 메시지를 읽기 전에 속성 또는 구독 상태가 변경되었습니다.
 - **구독 그룹:** 글로벌 구독 상태가 달리 제안하더라도 사용자가 메시지가 타겟팅한 그룹에 옵트인 상태를 유지했습니다.
 - 세분화 후 변경 사항이 적용될 것으로 예상하기 전에 사용자를 업데이트한 **API 또는 파일 가져오기**.
 
-[메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), Campaign 또는 Canvas 체인지로그, Segment 정의를 검토하세요. 발송을 여전히 조정할 수 없는 경우, 사용자 식별자, `dispatch_id`(가능한 경우) 및 타임스탬프와 함께 Braze 지원팀에 문의하세요.
+[메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), Campaign 또는 Canvas 체인지로그, Segment 정의를 검토하세요. 발송을 여전히 조정할 수 없는 경우, 사용자 식별자, `dispatch_id`(사용 가능한 경우) 및 타임스탬프와 함께 Braze 지원팀에 문의하세요.
 
 ### 사용자가 이메일 메시지를 수신하지 못한 이유는 무엇인가요? {#why-hasnt-a-user-received-my-email-message}
 
@@ -287,51 +291,51 @@ Braze가 구성된 대로 동작했더라도 전달이 잘못된 것처럼 보�
 Braze의 전달 이벤트는 이메일이 사서함 공급자의 서버에 의해 수락되었음을 의미합니다. 그러나 이것이 메시지가 사용자의 받은편지함에 나타나는 것을 보장하지는 않습니다. 사서함 공급자는 메시지를 스팸으로 라우팅하거나, 드문 경우 메시지 표시를 조용히 방지할 수 있습니다.
 {% endalert %}
 
-다음 표를 사용하여 원인을 좁혀보세요.
+다음 표를 사용하여 원인을 좁히세요.
 
 #### 이메일이 발송되지 않음 {#the-email-wasnt-sent}
 
 | 가능한 원인 | 확인 사항 |
 |---|---|
-| 사용자가 Campaign 또는 Canvas에 대한 자격이 없었습니다 | **Target Audiences**(Campaigns의 경우) 또는 **Target Audience**(Canvas의 경우) [설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)을 확인하여 사용자가 발송 시점에 모든 오디언스 필터, Segment 기준 및 전달 규칙을 충족했는지 확인하세요. |
-| 메시지가 중단되었습니다 | [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에서 Liquid 오류 또는 필수 필드 누락과 같은 중단 이유를 확인하세요. |
-| 사용자의 이메일 주소가 유효하지 않거나 누락되었습니다 | **사용자 검색**에서 사용자의 프로필을 확인하여 발송 시점에 유효한 이메일 주소가 파일에 있었는지 확인하세요. |
-| 사용자의 이메일 주소가 이전에 하드 바운스되었습니다 | 하드 바운스는 이메일 주소를 유효하지 않은 것으로 표시하고 해당 주소로의 향후 발송을 방지합니다. 마찬가지로, 수신자가 이메일을 스팸으로 표시하면, Braze는 표준 Campaigns가 아닌 트랜잭션 이메일만 해당 사용자에게 발송합니다. 사용자 프로필의 **참여** 탭을 확인하세요. 자세한 내용은 [구독 취소된 이메일 주소]({{site.baseurl}}/user_guide/channels/email/subscriptions#unsubscribed-email-addresses) 및 [반송 및 유효하지 않은 이메일]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails)을 참조하세요. |
-| 사용자가 이메일 구독을 취소했습니다 | **참여** 탭의 **연락처 설정**에서 사용자의 구독 상태를 확인하세요. Braze는 구독을 취소한 사용자에게 이메일을 발송하지 않습니다. |
+| 사용자가 Campaign 또는 Canvas에 자격이 없었음 | **Target Audiences**(Campaigns의 경우) 또는 **Target Audience**(Canvas의 경우) [설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)을 확인하여 사용자가 발송 시점에 모든 오디언스 필터, Segment 기준 및 전달 규칙을 충족했는지 확인하세요. |
+| 메시지가 중단됨 | [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에서 Liquid 오류 또는 필수 필드 누락과 같은 중단 이유를 확인하세요. |
+| 사용자의 이메일 주소가 유효하지 않거나 누락됨 | **사용자 검색**에서 사용자의 프로필을 확인하여 발송 시점에 유효한 이메일 주소가 파일에 있었는지 확인하세요. |
+| 사용자의 이메일 주소가 이전에 하드 반송됨 | 하드 반송은 이메일 주소를 유효하지 않은 것으로 표시하고 해당 주소로의 향후 발송을 방지합니다. 마찬가지로, 수신자가 이메일을 스팸으로 표시하면, Braze는 해당 사용자에게 표준 Campaigns가 아닌 트랜잭션 이메일만 발송합니다. 사용자 프로필의 **참여** 탭을 확인하세요. 자세한 내용은 [구독 취소된 이메일 주소]({{site.baseurl}}/user_guide/channels/email/subscriptions#unsubscribed-email-addresses) 및 [반송 및 유효하지 않은 이메일]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails)을 참조하세요. |
+| 사용자가 이메일 구독을 취소함 | **참여** 탭의 **연락처 설정**에서 사용자의 구독 상태를 확인하세요. Braze는 구독을 취소한 사용자에게 이메일을 발송하지 않습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="이메일이 발송되지 않은 원인" }
 
 #### 이메일이 발송되었지만 받은편지함에 도착하지 않음 {#the-email-was-sent-but-didnt-arrive-in-their-inbox}
 
 | 가능한 원인 | 확인 사항 |
 |---|---|
-| 사서함 공급자(MBP)에 연결할 수 없었습니다 | 일시적인 문제로 이메일이 수신자의 MBP에 도달하지 못했습니다. 이는 일반적으로 재시도를 통해 자체적으로 해결됩니다. 이메일 서비스 공급자는 최대 72시간 동안 소프트 바운스를 재시도합니다. |
-| MBP가 이메일을 반송했습니다 | 수신자의 메일 서버가 이메일을 거부했습니다. [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에서 반송 세부 정보를 검토하세요. |
-| MBP가 이메일을 조용히 삭제했습니다 | MBP가 이메일을 수락했지만 사용자에게 표시하지 않았고 반송도 반환하지 않았습니다. 이는 Braze의 통제 범위 밖이며 Braze 로그에서 감지할 수 없습니다. |
-| 이메일이 스팸 폴더로 이동했습니다 | MBP가 메시지를 스팸으로 식별하여 사용자의 스팸 또는 정크 폴더로 라우팅했습니다. 사용자에게 스팸 폴더를 확인하도록 요청하세요. |
-| 수신자에게 커스텀 메일 필터링이 있습니다 | 사용자 또는 IT 관리자가 수신 메시지를 필터링, 리디렉트 또는 삭제하는 사서함 규칙을 구성했을 수 있습니다. |
+| 사서함 공급자(MBP)에 연결할 수 없었음 | 일시적인 문제로 이메일이 수신자의 MBP에 도달하지 못했습니다. 이는 일반적으로 재시도로 자체 해결됩니다. 이메일 서비스 공급자는 최대 72시간 동안 소프트 반송을 재시도합니다. |
+| MBP가 이메일을 반송함 | 수신자의 메일 서버가 이메일을 거부했습니다. 반송 세부 사항은 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)를 검토하세요. |
+| MBP가 이메일을 조용히 삭제함 | MBP가 이메일을 수락했지만 사용자에게 표시하지 않았고 반송도 반환하지 않았습니다. 이는 Braze의 통제 범위 밖이며 Braze 로그에서 감지할 수 없습니다. |
+| 이메일이 스팸 폴더로 이동함 | MBP가 메시지를 스팸으로 식별하여 사용자의 스팸 또는 정크 폴더로 라우팅했습니다. 사용자에게 스팸 폴더를 확인하도록 요청하세요. |
+| 수신자에게 커스텀 메일 필터링이 있음 | 사용자 또는 IT 관리자가 수신 메시지를 필터링, 리디렉트 또는 삭제하는 사서함 규칙을 구성했을 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="이메일이 받은편지함에 없는 원인" }
 
 ### 반송 목록에서 이메일 주소를 제거하려면 어떻게 하나요? {#how-can-i-remove-an-email-address-from-the-bounce-list}
 
-유효한 이메일 주소가 Braze에서 유효하지 않은 것으로 표시되는 경우(일반적으로 이메일 서비스 공급자의 하드 바운스 후), [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces) 엔드포인트를 사용하세요. 이렇게 하면 Braze 반송 목록과 이메일 공급자가 유지하는 반송 목록에서 주소가 제거됩니다. 그러면 Braze가 해당 주소로의 발송을 재개합니다.
+유효한 이메일 주소가 Braze에서 유효하지 않은 것으로 표시되는 경우(일반적으로 이메일 서비스 공급자의 하드 반송 후), [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces) 엔드포인트를 사용하세요. 이렇게 하면 Braze 반송 목록과 이메일 공급자가 유지하는 반송 목록에서 주소가 제거됩니다. 그러면 Braze가 해당 주소로의 발송을 재개합니다.
 
-주소가 하드 바운스가 아닌 스팸으로 표시된 경우, 대신 [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam) 엔드포인트를 사용하세요.
+주소가 하드 반송이 아닌 스팸으로 표시된 경우, 대신 [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam) 엔드포인트를 사용하세요.
 
 자세한 내용은 [반송 및 유효하지 않은 이메일]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails) 및 [반송 또는 스팸 목록에서 이메일 주소 제거]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#remove-an-email-address-from-your-bounce-or-spam-list)를 참조하세요.
 
 ### 이메일 전달 가능성 문제를 해결하려면 어떻게 하나요? {#how-do-i-troubleshoot-email-deliverability-issues}
 
-이메일이 지연, 연기 또는 반송되는 경우, [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에서 반송 및 연기 세부 정보를 검토한 다음, 전달 체인에서 문제가 발생하는 위치를 식별하세요. 일반적인 전달 가능성 문제는 네 가지 범주로 나뉩니다:
+이메일이 지연, 보류 또는 반송되는 경우, [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에서 반송 및 보류 세부 사항을 검토한 다음, 전달 체인에서 문제가 발생하는 위치를 식별하세요. 일반적인 전달 가능성 문제는 네 가지 범주로 나뉩니다:
 
 #### ESP 사용량 제한 응답 읽기 {#reading-esp-rate-limit-responses}
 
-이메일 서비스 공급자(ESP)(예: Amazon SES, SparkPost 또는 SendGrid)는 메시지를 수락하거나 연기할 때 SMTP 응답 코드를 반환합니다. 사용량 제한 응답은 일반적으로 일시적 실패를 나타내는 4xx 코드를 사용합니다:
+이메일 서비스 공급자(ESP)(예: Amazon SES, SparkPost 또는 SendGrid)는 메시지를 수락하거나 보류할 때 SMTP 응답 코드를 반환합니다. 사용량 제한 응답은 일반적으로 일시적 실패를 나타내는 4xx 코드를 사용합니다:
 
 - **421:** 서비스 일시적으로 사용 불가, 높은 볼륨, 연결 제한 또는 서버 리소스 제약으로 인한 경우가 많습니다. 메시지는 대기열에 남아 있으며 ESP가 자동으로 전달을 재시도합니다.
 - **429:** API 사용량 제한 초과. 허용된 시간 창 내에 너무 많은 요청을 보냈습니다.
-- **450 / 451:** 볼륨 또는 연결로 인한 일시적 연기. 수신 서버가 속도를 줄이도록 요청하고 있습니다.
+- **450 / 451:** 볼륨 또는 연결로 인한 일시적 보류. 수신 서버가 속도를 줄이도록 요청하고 있습니다.
 
-[메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) 또는 ESP 대시보드에서 이러한 코드를 볼 때, 영향을 받는 도메인으로의 발송량을 줄이고 점진적으로 더 긴 재시도 간격을 사용하세요. 사용량 제한이 적용된 상태에서 전체 볼륨으로 계속 발송하면 일시적 연기가 영구적 거부로 확대될 수 있습니다.
+[메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) 또는 ESP 대시보드에서 이러한 코드를 볼 때, 영향을 받는 도메인으로의 발송량을 줄이고 점진적으로 더 긴 재시도 간격을 사용하세요. 사용량 제한이 적용되는 동안 전체 볼륨으로 계속 발송하면 일시적 보류가 영구적 거부로 확대될 수 있습니다.
 
 #### 사서함 공급자 사용량 제한 {#mailbox-provider-rate-limits}
 
@@ -354,13 +358,13 @@ Braze의 전달 이벤트는 이메일이 사서함 공급자의 서버에 의�
 
 #### Google 421 4.7.28 사용량 제한 오류 문제 해결 {#troubleshooting-google-421-4728-rate-limit-errors}
 
-Gmail은 IP 주소, 발송 IP 범위, SPF 도메인, DKIM 도메인 또는 URL 도메인에서 비정상적인 비율의 원치 않는 이메일을 감지하면 `421-4.7.28` 오류를 반환합니다. 이는 영구적 차단이 아닌 일시적 스로틀이지만, 발송 볼륨, 속도 또는 평판이 Gmail의 현재 기대치를 충족하지 못한다는 신호입니다.
+Gmail은 IP 주소, 발송 IP 범위, SPF 도메인, DKIM 도메인 또는 URL 도메인에서 비정상적인 비율의 원치 않는 이메일을 감지하면 `421-4.7.28` 오류를 반환합니다. 이는 영구적 차단이 아닌 일시적 스로틀이지만, 발송량, 속도 또는 평판이 Gmail의 현재 기대치를 충족하지 못한다는 신호입니다.
 
 이 오류를 수신하면:
 
-1. 24~48시간 동안 비필수 발송을 즉시 중지하세요. 스로틀이 적용된 상태에서 계속 발송하면 문제가 확대되어 영구적 550 거부로 이어질 수 있습니다.
+1. 24~48시간 동안 비필수 발송을 즉시 중지하세요. 스로틀이 적용되는 동안 계속 발송하면 문제가 확대되어 영구적 550 거부로 이어질 수 있습니다.
 2. SPF, DKIM 및 DMARC가 올바르게 구성되어 있고 From: 헤더가 인증과 일치하는지 확인하세요.
-3. [Google Postmaster Tools](https://postmaster.google.com/)와 Braze [전달 가능성 센터]({{site.baseurl}}/user_guide/analytics/dashboards/deliverability_center)(Google Postmaster 연결 후)에서 도메인의 준수 상태와 스팸 불만율을 확인하세요. 사용자 보고 스팸률은 0.1% 미만이어야 합니다(하드 상한은 0.3%).
+3. [Google Postmaster Tools](https://postmaster.google.com/)와 Braze [전달 가능성 센터]({{site.baseurl}}/user_guide/analytics/dashboards/deliverability_center)(Google Postmaster 연결 후)에서 도메인의 규정 준수 상태와 스팸 불만율을 확인하세요. 사용자 보고 스팸률은 0.1% 미만이어야 합니다(하드 상한은 0.3%).
 4. 중지 후, 가장 참여도가 높은 수신자에게만 이전 볼륨의 10~20%로 발송을 재개하세요. 추가 4xx 오류가 발생하지 않는 경우에만 몇 주에 걸쳐 천천히 볼륨을 늘리세요.
 
 추가 지침은 [Google의 대량 이메일 발신자 가이드라인](https://support.google.com/mail/answer/81126)을 참조하세요.
@@ -391,9 +395,9 @@ max-width: 100%;
 
 ### 이메일 메시지에 SVG 또는 WebP 이미지를 사용할 수 있나요? {#can-i-use-svg-or-webp-images-in-my-email-messages}
 
-SVG 이미지는 이메일 클라이언트 간의 제한된 지원으로 인해 이메일에 권장되지 않습니다. Gmail 및 기타 여러 주요 이메일 공급자는 SVG 이미지를 렌더링하지 않으므로, 수신자에게 깨지거나 누락된 이미지가 표시될 수 있습니다. WebP도 클라이언트 간에 일관되게 지원되지 않습니다.
+SVG 이미지는 이메일 클라이언트 간 지원이 제한적이므로 이메일에 권장되지 않습니다. Gmail 및 기타 주요 이메일 공급자는 SVG 이미지를 렌더링하지 않아 수신자에게 깨지거나 누락된 이미지가 표시될 수 있습니다. WebP도 클라이언트 간에 일관되게 지원되지 않습니다.
 
-대신, 이미지가 안정적으로 렌더링되도록 PNG 또는 JPEG와 같이 널리 지원되는 형식을 사용하세요.
+대신 PNG 또는 JPEG와 같이 널리 지원되는 형식을 사용하여 이미지가 안정적으로 렌더링되도록 하세요.
 
 ### 이메일에 비디오를 삽입할 수 있나요? {#can-i-embed-videos-in-emails}
 
@@ -407,12 +411,11 @@ SVG 이미지는 이메일 클라이언트 간의 제한된 지원으로 인해 
 
 ### 이메일 템플릿이 없습니다. 어디에 있나요? {#my-email-template-is-missing-where-is-it}
 
-먼저, 템플릿을 볼 수 있는 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 있는지 확인하세요. 저장된 이메일 템플릿을 보려면 **콘텐츠** > **이메일**로 이동하세요. 상태 및 유형(HTML 또는 드래그 앤 드롭)별로 템플릿을 필터링할 수 있습니다.
+먼저 템플릿을 볼 수 있는 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 있는지 확인하세요. 저장된 이메일 템플릿을 보려면 **콘텐츠** > **이메일**로 이동하세요. 상태 및 유형(HTML 또는 드래그 앤 드롭)별로 템플릿을 필터링할 수 있습니다.
 
 ### 릴레이 또는 마스킹된 이메일에 대해 도메인을 등록해야 하나요? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 [Apple의 Private Email Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO)는 반송을 방지하기 위해 Apple Developer Portal에 발송 도메인을 등록해야 합니다. Google Shielded Email은 수동 도메인 등록이나 허용 목록 프로세스가 필요하지 않습니다.
-
 
 ### 이메일 제목란이나 프리헤더에 하이퍼링크를 추가할 수 있나요? {#can-i-add-hyperlinks-in-email-subject-lines-or-preheaders}
 
@@ -438,7 +441,7 @@ SVG 이미지는 이메일 클라이언트 간의 제한된 지원으로 인해 
 - 주소가 올바른 경우, 해당 도메인의 사서함 소유자 또는 IT 팀에 문의하세요.
 - DNS 공급자와 함께 메일 서버의 PTR 레코드를 포함한 MX 및 관련 DNS 레코드를 감사하도록 요청하세요.
 
-다른 수신자는 보통 영향을 받지 않습니다. 소프트 바운스가 리포팅에 나타나는 방식에 대해서는 [소프트 바운스]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce)를 참조하세요.
+다른 수신자는 보통 영향을 받지 않습니다. 소프트 반송이 리포팅에 나타나는 방식에 대해서는 [소프트 반송]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce)을 참조하세요.
 
 ### Braze에서 자신에게 이메일을 보낼 때 스팸 알림이 표시되는 이유는 무엇인가요? {#why-do-i-get-a-spam-alert-when-sending-an-email-from-braze-to-myself}
 
