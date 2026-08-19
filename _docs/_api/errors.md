@@ -78,7 +78,7 @@ All of the following error codes indicate that no messages are sent.
 | Error Code | Description |
 |---|---|
 | `5XX Internal Server Error` | Retry your request with exponential backoff.|
-| `400 Bad Request` | Bad syntax. The response may include `Error while parsing request body. Please check your syntax.` See [Error while parsing request body](#error-while-parsing-request-body).|
+| `400 Bad Request` | Bad syntax. Invalid JSON returns HTTP 400. The `error` field may include a message that you must pass valid `application/json` in the request body, or `Error while parsing request body. Please check your syntax.` See [Error while parsing request body](#error-while-parsing-request-body).|
 | `400 No Recipients` | There are no external IDs or segment IDs, or no push tokens in the request.|
 | `400 Invalid Campaign ID` | No messaging API campaign was found for your provided campaign ID.|
 | `400 Message Variant Unspecified` | You provide a campaign ID but no message variation ID.|
@@ -104,7 +104,9 @@ All of the following error codes indicate that no messages are sent.
 
 ### Error while parsing request body {#error-while-parsing-request-body}
 
-Braze returns `Error while parsing request body. Please check your syntax.` when the request body is not valid JSON. This applies to REST endpoints that accept a JSON body, such as POST, PUT, and PATCH.
+Braze returns HTTP 400 when the request body is not valid JSON. This applies to REST endpoints that accept a JSON body, such as POST, PUT, and PATCH.
+
+The `error` field includes a message that you must pass valid `application/json` in the request body. You may also see `Error while parsing request body. Please check your syntax.`
 
 Common causes include trailing commas, comments inside JSON, single-quoted strings, an extra opening `{` before the payload, or sending a concatenated string instead of a JSON-encoded object.
 
