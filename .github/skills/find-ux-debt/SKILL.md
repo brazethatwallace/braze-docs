@@ -120,7 +120,7 @@ The skill cannot parse a full AST, so it targets high-yield patterns.
 
 2. **deprecated-term** — Requires plugin. Load `braze-ux-writing:writing-ux-copy → reference/feature_terms.md`. Check extracted strings against the renamed-terms list. Flag any match.
 
-3. **i18n-mismatch** — Compare the i18n key name to its default string argument. Flag when they describe different concepts (e.g. key `manage_media_assets` with default "Edit Media Assets").
+3. **i18n-mismatch** — Check two things: (a) the i18n key name disagrees with its default string argument (e.g. key `manage_media_assets` with default `"Edit Media Assets"`), or (b) the default string doesn't match the copy displayed in a nearby render call or prop assignment. Flag either mismatch.
 
 ### Tier 2 — Style/judgment (route to UXW)
 
@@ -172,23 +172,25 @@ After printing the report, guide the writer to the right next step.
 
 **If Tier 1 findings exist:**
 
-> `log-ux-debt` uses `disable-model-invocation: true` — it must be invoked
-> manually by the writer, not automatically by this skill. Print the pre-filled
-> details below so the writer can paste them when they run `/log-ux-debt`.
+> `log-ux-debt` uses `disable-model-invocation: true` — the writer must
+> invoke it manually. For each finding below, run `/log-ux-debt` (no arguments)
+> and provide the values when the skill prompts for them.
 
-For each Tier 1 finding, print a ready-to-use block:
+For each Tier 1 finding, print the values to have ready:
 
 ```
-To file this as a UX Debt ticket, run `/log-ux-debt` and provide:
-  file:     <repo-relative platform path>
-  current:  "<current copy>"
-  expected: "<expected copy>"
-  context:  <one-sentence context from the scan>
-  type:     <name-mismatch | deprecated-term | i18n-mismatch>
+Finding: <brief label, e.g. "name-mismatch in GenerateImageWithOperatorButton">
+  Run: /log-ux-debt
+  When prompted, provide:
+    Platform file path: <repo-relative path inside platform/>
+    Current copy:       "<what the file currently says>"
+    Expected copy:      "<what it should say>"
+    Context:            <one sentence — why it's wrong>
+    Copy type:          <name-mismatch | deprecated-term | i18n-mismatch>
 ```
 
-> When you run `/log-ux-debt`, paste the details above and it will handle
-> CODEOWNERS lookup, duplicate detection, and ticket creation.
+> `log-ux-debt` will handle CODEOWNERS lookup, duplicate detection, and ticket
+> creation once you provide these values interactively.
 
 Continue to Tier 2 guidance below (do not stop here even if Tier 1 findings exist).
 

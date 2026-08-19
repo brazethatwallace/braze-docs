@@ -54,8 +54,7 @@ The platform repo uses a domain-driven architecture — most feature logic lives
 
 #### After verification — UI copy check
 
-If verification read or cited any file under `dashboard/app/javascript/src/`,
-**stop before updating docs or filing issues** and ask:
+If verification read or cited any **component file** under `dashboard/app/javascript/src/` — specifically a `.tsx`, `.jsx`, `.ts`, or `.vue` file that renders UI strings (not `shared_constants.json`, test files, or pure utilities) — **stop before updating docs or filing issues** and ask:
 
 If AskUserQuestion is available:
 - "Run /find-ux-debt" — scan the component file(s) for copy inconsistencies: mismatched labels, deprecated terms, i18n mismatches, and style issues. Adds a few minutes but catches issues before you finalize the doc.

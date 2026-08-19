@@ -181,7 +181,7 @@ Compose the following before invoking `braze-atlassian:creating-jira-tickets`.
 ```markdown
 ## Background
 
-A copy inconsistency ([copy type]) was found in [ComponentName] while verifying Braze documentation against platform source code.
+A copy inconsistency ([copy type]) was found in [ComponentName] [origin — e.g., "while verifying Braze documentation against platform source code" or "via a standalone /find-ux-debt scan"].
 
 - File: [GitHub permalink — https://github.com/Appboy/platform/blob/develop/<path>#L<line>]
 - Current copy: "[current copy]"
