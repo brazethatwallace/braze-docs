@@ -64,10 +64,12 @@ it handles the routing and consolidation automatically.
 
 ## Gotchas
 
-- **Don't grep for the full file path in CODEOWNERS** — CODEOWNERS uses glob
-  patterns (`dashboard/app/**`), not literal file paths. Grep for the deepest
-  specific directory segment instead, then manually confirm the pattern covers
-  the full path. A grep that returns no results does not mean no owner exists.
+- **Don't grep for a single path segment in CODEOWNERS** — grepping for
+  `MediaLibrary` finds that segment anywhere in the file, including unrelated
+  patterns, and misses later broad patterns like `dashboard/app/javascript/src/**`
+  that GitHub would apply last and override the specific match. Read the full
+  file and evaluate every pattern against the complete file path; only the
+  last matching line is authoritative.
 - **Don't treat the first JQL result as a definitive duplicate** — `summary ~`
   is fuzzy and returns partial matches. Present all results to the user and ask
   for explicit confirmation before stopping.
@@ -115,17 +117,20 @@ from the other inputs — only ask if genuinely ambiguous.
 
 ## Step 1 — CODEOWNERS lookup
 
-Search `../platform/.github/CODEOWNERS` for lines whose glob pattern matches
-the platform file path. **The last matching pattern in the file wins** — this
-is GitHub's CODEOWNERS rule. Read the file top to bottom; every pattern that
-matches is a candidate, but only the final one applies.
+**The last matching pattern in the file wins** — this is GitHub's CODEOWNERS
+rule. A later broad pattern (e.g. `dashboard/app/javascript/src/**`) overrides
+an earlier specific one. Grepping for a single directory segment is unreliable:
+it can match unrelated lines and will miss overriding patterns that don't contain
+that segment. Read the full file instead.
 
-Grep for the deepest specific directory segment of the file path (for example,
-for `.../MediaLibrary/Foo.tsx`, search for `MediaLibrary`), collect all matching
-lines, then select the one that appears **latest** in the file.
-
-- Extract the `@Appboy/<team-name>` owner from that last-matching line.
-- If no pattern matches, prompt the user to specify the team manually.
+1. Read the entire `../platform/.github/CODEOWNERS` file.
+2. Walk every non-comment, non-empty line top to bottom.
+3. For each pattern, evaluate whether it matches the **full** platform file path
+   using glob semantics (fnmatch-style: `*` matches within a path segment,
+   `**` matches across segments, a leading `/` anchors to repo root).
+4. Track the last line whose pattern matches — that line's `@Appboy/<team>`
+   owner is the one GitHub would apply.
+5. If no pattern matches at all, prompt the user to specify the team manually.
 
 ---
 
