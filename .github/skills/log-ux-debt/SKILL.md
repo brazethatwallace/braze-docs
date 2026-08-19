@@ -79,10 +79,11 @@ it handles the routing and consolidation automatically.
   those as a UXW story instead: project `UXW`, parent epic
   [UXW-341](https://jira.atl.braze.com/browse/UXW-341), assigned to Bre
   Fitzgerald.
-- **Don't confuse inconsistent-terminology with avoid-list** — "successfully" is
-  on the avoid list (file as `avoid-list`); "Remove" vs "Delete" for the same
-  action is inconsistent terminology (file as `inconsistent-terminology`). The
-  distinction matters for acceptance criteria.
+- **Don't file Tier 2 types here** — `avoid-list`, `case-violation`,
+  `spatial-language`, `inconsistent-terminology`, and `button-antipattern` are
+  style/judgment issues that belong in a UXW story, not a UX Debt ticket. Use
+  `/find-ux-debt` — it routes those to UXW automatically. If you encounter one
+  directly, file project `UXW`, epic [UXW-341](https://jira.atl.braze.com/browse/UXW-341), assigned to Bre Fitzgerald.
 
 ---
 
@@ -115,16 +116,16 @@ from the other inputs — only ask if genuinely ambiguous.
 ## Step 1 — CODEOWNERS lookup
 
 Search `../platform/.github/CODEOWNERS` for lines whose glob pattern matches
-the platform file path. Work from most specific to least specific — the last
-matching pattern in the file wins (CODEOWNERS precedence rules).
+the platform file path. **The last matching pattern in the file wins** — this
+is GitHub's CODEOWNERS rule. Read the file top to bottom; every pattern that
+matches is a candidate, but only the final one applies.
 
 Grep for the deepest specific directory segment of the file path (for example,
-for `.../MediaLibrary/Foo.tsx`, search for `MediaLibrary`), then evaluate which
-patterns cover the full path.
+for `.../MediaLibrary/Foo.tsx`, search for `MediaLibrary`), collect all matching
+lines, then select the one that appears **latest** in the file.
 
-- Extract the `@Appboy/<team-name>` owner from the best-matching line.
-- If multiple patterns match, prefer the most specific (longest matching prefix).
-- If no owner is found, prompt the user to specify the team manually.
+- Extract the `@Appboy/<team-name>` owner from that last-matching line.
+- If no pattern matches, prompt the user to specify the team manually.
 
 ---
 
@@ -189,14 +190,11 @@ A copy inconsistency ([copy type]) was found in [ComponentName] while verifying 
 
 [Select the ACs that apply to the copy type — include all that are relevant:]
 
-- [ ] The [element type] in [ComponentName] reads "[expected copy]".        ← all types
+- [ ] The [element type] in [ComponentName] reads "[expected copy]".        ← all Tier 1 types
 - [ ] The updated copy is consistent with the code identifier or permission key (for example, `editMediaLibraryAssets`).   ← name-mismatch, i18n-mismatch
 - [ ] The old term "[deprecated term]" does not appear in any visible string in this component.   ← deprecated-term
-- [ ] The string is sentence case throughout this component.   ← case-violation
-- [ ] No spatial references ("above", "below", "left", "right") remain in this component's strings.   ← spatial-language
 - [ ] The i18n key value and default string match the displayed copy.   ← i18n-mismatch
-- [ ] "[Term A]" and "[Term B]" are unified to "[canonical term]" across [ComponentA] and [ComponentB].   ← inconsistent-terminology
-- [ ] If the string is i18n'd, the translation key is updated to match.   ← all types where i18n applies
+- [ ] If the string is i18n'd, the translation key is updated to match.   ← all Tier 1 types where i18n applies
 ```
 
 ---

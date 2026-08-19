@@ -172,16 +172,25 @@ After printing the report, guide the writer to the right next step.
 
 **If Tier 1 findings exist:**
 
-If AskUserQuestion is available:
-- "Log first finding now" — invoke `/log-ux-debt` with the first Tier 1 finding passed as `$ARGUMENTS` (JSON with `file`, `current`, `expected`, `context` keys)
-- "I'll log them manually" — print the guidance below and stop
+> `log-ux-debt` uses `disable-model-invocation: true` — it must be invoked
+> manually by the writer, not automatically by this skill. Print the pre-filled
+> details below so the writer can paste them when they run `/log-ux-debt`.
 
-Otherwise ask: "Want me to log the first Tier 1 finding now? (y/n)"
+For each Tier 1 finding, print a ready-to-use block:
 
-If no: print the guidance below and stop.
-If yes: invoke `/log-ux-debt` with the first finding as structured `$ARGUMENTS`.
+```
+To file this as a UX Debt ticket, run `/log-ux-debt` and provide:
+  file:     <repo-relative platform path>
+  current:  "<current copy>"
+  expected: "<expected copy>"
+  context:  <one-sentence context from the scan>
+  type:     <name-mismatch | deprecated-term | i18n-mismatch>
+```
 
-> To log the remaining Tier 1 findings, run `/log-ux-debt` for each one and pass the finding details.
+> When you run `/log-ux-debt`, paste the details above and it will handle
+> CODEOWNERS lookup, duplicate detection, and ticket creation.
+
+Continue to Tier 2 guidance below (do not stop here even if Tier 1 findings exist).
 
 **If Tier 2 findings exist:**
 > The Tier 2 findings above are style and judgment calls — they're best reviewed by the UX writer rather than filed directly as UX Debt. I can log a single consolidated UXW ticket in the "UXW support for UX debt" epic ([UXW-341](https://jira.atl.braze.com/browse/UXW-341)) covering all of them. Bre is expecting these types of tickets.
