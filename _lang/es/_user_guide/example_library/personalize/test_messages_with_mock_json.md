@@ -12,28 +12,28 @@ description: "Usa capture y json_parse de Liquid para simular contenido conectad
 
 ## Acerca de este ejemplo {#about-this-example}
 
-Flash & Thread, una marca de comercio minorista de ropa, crea mensajes que dependen de respuestas de contenido conectado, variables de contexto de Canvas o datos de perfil con arreglos de objetos. Desencadenar llamadas reales a la API o lanzar campañas en cada iteración ralentiza el desarrollo.
+Flash & Thread, una marca ficticia de comercio minorista de ropa, crea mensajes que dependen de respuestas de contenido conectado, variables de contexto de Canvas o datos de perfil con arrays de objetos. Desencadenar llamadas reales a la API o lanzar Campaigns para cada iteración ralentiza el desarrollo.
 
-Este patrón incorpora una carga útil JSON simulada en el cuerpo del mensaje, la almacena con `capture` y luego la analiza con `json_parse` para que Liquid pueda hacer referencia a campos estructurados en la sección **Vista previa**, sin una llamada de contenido conectado en vivo, una entrada de Canvas activada por API ni un envío de prueba.
+Este patrón incorpora una carga útil JSON simulada en el cuerpo del mensaje, la almacena con `capture` y luego la analiza con `json_parse` para que Liquid pueda hacer referencia a campos estructurados en la sección de **vista previa**, sin necesidad de una llamada en vivo de contenido conectado, una entrada de Canvas desencadenada por API o un envío de prueba.
 
-Usa esto durante el desarrollo de mensajes. No sustituye las pruebas de extremo a extremo con desencadenadores reales, envíos de prueba o [vista previa de rutas de usuario]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) en Canvas.
+Usa esto durante el desarrollo de mensajes. No sustituye las pruebas de extremo a extremo con desencadenadores reales, envíos de prueba o [rutas de usuario en vista previa]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) en Canvas.
 
 ## Consideraciones {#considerations}
 
-- Este enfoque es compatible con la vista previa del creador durante el desarrollo. Ejecuta envíos de prueba y verificaciones de ruta en vivo antes de lanzar a los clientes.
-- Un bloque `capture` por sí solo almacena JSON como una cadena. Haz referencia a los campos solo después de aplicar **`json_parse`**; de lo contrario, la salida de la vista previa puede quedar en blanco.
-- El JSON simulado debe ser válido. Un JSON no válido hace que `json_parse` falle o devuelva estructuras inesperadas.
-- Elimina o quita los bloques simulados antes del lanzamiento, o protege el Liquid de producción para que los datos simulados se usen solo en la vista previa (por ejemplo, con un indicador de comentario que elimines antes de la puesta en marcha).
-- Los fragmentos de código Liquid en este artículo son ejemplos. Pruébalos en tus canales y con las formas reales de tu carga útil.
-- Para contenido conectado en producción, elimina el bloque simulado y usa tu etiqueta de URL en vivo. Consulta [Realizar una llamada a la API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
+- Este enfoque admite la vista previa del creador durante el desarrollo. Ejecuta envíos de prueba y verificaciones de ruta en vivo antes de lanzar a los clientes.
+- Un bloque `capture` por sí solo almacena JSON como una cadena. Haz referencia a los campos solo después de aplicar **`json_parse`**; de lo contrario, la salida de la vista previa puede estar en blanco.
+- El JSON simulado debe ser válido. Un JSON no válido provoca que `json_parse` falle o devuelva estructuras inesperadas.
+- Elimina o quita los bloques simulados antes del lanzamiento, o protege el Liquid de producción para que los datos simulados se utilicen solo en la vista previa (por ejemplo, con un indicador de comentario que elimines antes de la puesta en marcha).
+- Los fragmentos de código de Liquid en este artículo son ejemplos. Pruébalos en tus canales y con las formas reales de tu carga útil.
+- Para el contenido conectado en producción, elimina el bloque simulado y utiliza tu etiqueta de URL en vivo. Consulta [Realizar una llamada a la API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
 
 ## Configuración {#setup}
 
-Este ejemplo simula una respuesta de listado de productos de tipo contenido conectado para un correo electrónico que itera sobre `listings`.
+Este ejemplo simula una respuesta de listado de productos al estilo de contenido conectado para un correo electrónico que itera sobre `listings`.
 
-### Paso 1: Capturar JSON simulado en el mensaje {#step-1-capture-mock-json-in-the-message}
+### Paso 1: Captura el JSON simulado en el mensaje {#step-1-capture-mock-json-in-the-message}
 
-Usa `capture` para almacenar la cadena JSON. Usa sintaxis JSON válida dentro del bloque (comillas dobles en claves y valores de cadena).
+Usa `capture` para almacenar la cadena JSON. Utiliza sintaxis JSON válida dentro del bloque (comillas dobles en las claves y los valores de cadena).
 
 {% raw %}
 ```liquid
@@ -64,7 +64,7 @@ Usa `capture` para almacenar la cadena JSON. Usa sintaxis JSON válida dentro de
 ```
 {% endraw %}
 
-### Paso 2: Analizar JSON con json_parse {#step-2-parse-json-with-json_parse}
+### Paso 2: Analiza el JSON con json_parse {#step-2-parse-json-with-json_parse}
 
 Asigna la estructura analizada a una variable que puedas referenciar en el resto del mensaje.
 
@@ -76,9 +76,9 @@ Asigna la estructura analizada a una variable que puedas referenciar en el resto
 
 Sin `json_parse`, la notación de punto sobre la cadena capturada (por ejemplo {% raw %}`{{ mock_response.listings }}`{% endraw %}) normalmente se muestra en blanco en la vista previa.
 
-### Paso 3: Hacer referencia a campos analizados en Liquid {#step-3-reference-parsed-fields-in-liquid}
+### Paso 3: Referencia los campos analizados en Liquid {#step-3-reference-parsed-fields-in-liquid}
 
-Itera sobre el arreglo analizado y renderiza los campos como lo harías para una respuesta de API en vivo.
+Itera sobre el arreglo analizado y renderiza los campos como lo harías con una respuesta de API en vivo.
 
 {% raw %}
 ```liquid
@@ -88,20 +88,20 @@ Itera sobre el arreglo analizado y renderiza los campos como lo harías para una
 ```
 {% endraw %}
 
-Ve a la sección **Vista previa** en el creador de mensajes y confirma que los campos se rendericen.
+Ve a la sección **Preview** en el creador de mensajes y confirma que los campos se renderizan.
 
-### Paso 4: Aplicar el mismo patrón a otras formas de JSON {#step-4-apply-the-same-pattern-to-other-json-shapes}
+### Paso 4: Aplica el mismo patrón a otras estructuras JSON {#step-4-apply-the-same-pattern-to-other-json-shapes}
 
 Usa el mismo flujo de `capture` + `json_parse` para simular:
 
-| Datos que quieres probar | Forma del JSON simulado |
+| Datos que quieres probar | Estructura JSON simulada |
 | --- | --- |
 | Variables de contexto de Canvas | Objeto con las claves de propiedad que tu mensaje espera |
 | Arreglo de objetos en un perfil | Arreglo JSON de objetos con las mismas claves que tu atributo personalizado |
 | Respuesta de contenido conectado | JSON de API de ejemplo guardado de una llamada exitosa anterior |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Datos que quieres probar y forma del JSON" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Datos que quieres probar y estructura JSON" }
 
-Sustituye las variables simuladas por Liquid de producción (variables de contexto de Canvas, atributos personalizados o etiquetas de contenido conectado) antes de lanzar.
+Reemplaza las variables simuladas por Liquid de producción (variables de contexto de Canvas, atributos personalizados o etiquetas de contenido conectado) antes de lanzar.
 
 ## Artículos relacionados {#related-articles}
 
@@ -109,5 +109,5 @@ Sustituye las variables simuladas por Liquid de producción (variables de contex
 - [Vista previa de rutas de usuario en Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths)
 - [Filtros avanzados de Liquid (`json_parse`)]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters)
 - [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)
-- [Arreglo de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)
+- [Matriz de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)
 - [Variables de contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)

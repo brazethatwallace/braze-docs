@@ -17,7 +17,7 @@ Puedes continuar la conversación con seguimientos. Operator recuerda los mensaj
 
 ## Requisitos previos {#prerequisites}
 
-Operator tiene los mismos permisos que tú, por lo que ciertas acciones requieren el permiso correspondiente para esa superficie. Por ejemplo, generar una imagen requiere *Editar activos de la biblioteca multimedia*. Si no ves un punto de entrada, consulta tus permisos con tu administrador. Para más información, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+Operator tiene los mismos permisos que tú, por lo que ciertas acciones requieren el permiso correspondiente para esa superficie. Por ejemplo, generar una imagen requiere *Editar activos de la biblioteca multimedia*. Si no ves un punto de entrada, comprueba tus permisos con tu administrador. Para más información, consulta [Lista de permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 ## Navegar por el panel {#navigate-the-dashboard}
 
@@ -164,7 +164,7 @@ En la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_ed
 
 - Describe el tema, estilo, estado de ánimo y colores de forma específica. Cuanto más detalle incluyas, mejor será el resultado. No se admite la carga de una imagen de referencia.
 - Cuando aplicas [directrices de marca](#apply-brand-guidelines) como contexto en tu prompt de Operator, Operator las aplica directamente a la imagen generada, de modo que el resultado refleja el estilo visual de tu marca.
-- Las generaciones de imágenes cuentan para tu límite diario de uso de Operator. Para más información, consulta [Limitaciones](#limitations).
+- Las generaciones de imágenes cuentan para el límite diario de uso de Operator de toda la empresa, junto con otras acciones de Operator. Para más información, consulta [Limitaciones](#limitations).
 
 ### Revisar la calidad del contenido {#review-content-quality}
 
@@ -260,7 +260,7 @@ El soporte de Operator en el panel es amplio, pero tiene límites.
 - **Duplicación de Campaigns:** Operator no puede duplicar una Campaign existente desde la vista de lista de Campaigns. Para crear una Campaign similar, pide a Operator que cree una nueva desde cero, o duplica la Campaign manualmente desde el menú **Más acciones** de la vista de lista.
 - **Editores de arrastrar y soltar:** Operator no puede generar ni insertar un diseño de mensaje directamente en un editor de arrastrar y soltar, como los de [correo electrónico]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner) y [mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Cambia al editor HTML correspondiente para usar Operator, o pide a Operator que genere contenido, como texto, que puedas pegar manualmente. Consulta [Generar mensajes](#generate-messages) para ver los canales y editores compatibles.
 - **Visibilidad de pantalla:** Operator utiliza contexto consciente de la página para comprender lo que estás viendo, incluido el contenido dentro de vistas previas y editores compatibles. Cuando parte de una página queda fuera de lo que Operator puede leer, te lo indica en lugar de adivinar, para que sepas que debes describir ese contenido tú mismo.
-- **Límites de uso:** Operator tiene un límite de uso diario a nivel de empresa que se restablece cada 24 horas. Las generaciones de imágenes cuentan para este límite. Si se alcanza el límite, aparece un mensaje de "Límite de uso diario excedido" y no se pueden realizar más solicitudes hasta que se restablezca. Para pasos de solución de problemas, consulta [Solución de problemas]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting).
+- **Límites de uso:** Operator tiene un límite de uso diario a nivel de empresa que se restablece cada 24 horas. Todas las acciones de Operator cuentan para este límite, y el consumo escala en función de cuánto tiene que leer y producir Operator. Hacer preguntas, buscar información y [crear un ticket de soporte]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets) representan un uso más ligero. Crear o editar objetos como Campaigns y Segments representa un uso más intenso. Las [generaciones de imágenes](#generate-images) también cuentan para este límite. Si se alcanza el límite, aparece un mensaje de "Límite diario alcanzado" y Operator no procesa más solicitudes hasta que el límite se restablezca. Para pasos de solución de problemas, consulta [Solución de problemas]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting).
 
 ## Asistentes anteriores {#legacy-assistants}
 

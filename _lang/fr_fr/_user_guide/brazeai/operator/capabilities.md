@@ -102,7 +102,7 @@ Operator peut générer un design de message complet pour tout canal ou éditeur
 - SMS/MMS/RCS
 - Message in-app
 - Content Card
-- Banner
+- Bannière
 - Notification push
 - Webhook
 
@@ -164,7 +164,7 @@ Dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design
 
 - Décrivez le sujet, le style, l'ambiance et les couleurs de manière précise. Plus vous incluez de détails, meilleur sera le résultat. Le chargement d'une image de référence n'est pas pris en charge.
 - Lorsque vous appliquez les [directives de marque](#apply-brand-guidelines) comme contexte dans votre prompt Operator, celui-ci les applique directement à l'image générée, de sorte que le résultat reflète le style visuel de votre marque.
-- Les générations d'images sont comptabilisées dans votre limite d'utilisation quotidienne d'Operator. Pour en savoir plus, consultez [Limitations](#limitations).
+- Les générations d'images sont comptabilisées dans la limite d'utilisation quotidienne d'Operator à l'échelle de l'entreprise, au même titre que les autres actions Operator. Pour en savoir plus, consultez [Limitations](#limitations).
 
 ### Vérifier la qualité du contenu {#review-content-quality}
 
@@ -257,10 +257,10 @@ La couverture d'Operator évolue fréquemment. Si vous n'êtes pas sûr qu'un é
 La prise en charge d'Operator dans le tableau de bord est large, mais elle a des limites.
 
 - **Canvas :** Operator ne peut pas créer ni modifier de [Canvas]({{site.baseurl}}/user_guide/messaging/canvas), mais il peut consulter la configuration d'un Canvas existant, comme les paramètres de ciblage et de distribution, pour répondre à des questions et enrichir ses résultats.
-- **Duplication de campagne :** Operator ne peut pas dupliquer une campagne existante depuis la vue de liste des Campaigns. Pour créer une campagne similaire, demandez à Operator d'en créer une nouvelle à partir de zéro, ou dupliquez la campagne manuellement depuis le menu **Plus d'actions** de la vue de liste.
+- **Duplication de Campaign :** Operator ne peut pas dupliquer une Campaign existante depuis la vue de liste des Campaigns. Pour créer une campagne similaire, demandez à Operator d'en créer une nouvelle à partir de zéro, ou dupliquez la campagne manuellement depuis le menu **Plus d'actions** de la vue de liste.
 - **Éditeurs par glisser-déposer :** Operator ne peut pas générer ni insérer un design de message directement dans un éditeur par glisser-déposer, comme ceux pour les [e-mails]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), les [Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner) et les [messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Passez à l'éditeur HTML correspondant pour utiliser Operator, ou demandez à Operator de générer du contenu, comme du texte, que vous pouvez coller manuellement. Consultez [Générer des messages](#generate-messages) pour les canaux et éditeurs pris en charge.
 - **Visibilité de l'écran :** Operator utilise le contexte de la page pour comprendre ce que vous regardez, y compris le contenu dans les aperçus et éditeurs pris en charge. Lorsqu'une partie de la page échappe à ce qu'Operator peut lire, il vous le signale au lieu de deviner, afin que vous sachiez décrire ce contenu vous-même.
-- **Limites d'utilisation :** Operator dispose d'une limite d'utilisation quotidienne à l'échelle de l'entreprise qui se réinitialise toutes les 24 heures. Les générations d'images sont comptabilisées dans cette limite. Si la limite est atteinte, un message « Limite d'utilisation quotidienne dépassée » apparaît et aucune autre requête ne peut être effectuée jusqu'à la réinitialisation. Pour les étapes de résolution des problèmes, consultez [Résolution des problèmes]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting).
+- **Limites d'utilisation :** Operator dispose d'une limite d'utilisation quotidienne à l'échelle de l'entreprise qui se réinitialise toutes les 24 heures. Toutes les actions d'Operator sont comptabilisées dans cette limite, et la consommation varie en fonction de la quantité de données qu'Operator doit lire et produire. Poser des questions, rechercher des informations et [créer un ticket d'assistance]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets) consomment moins de ressources. Créer ou modifier des objets tels que des campagnes et des Segments consomme davantage. Les [générations d'images](#generate-images) sont également comptabilisées dans cette limite. Si la limite est atteinte, un message « Limite quotidienne atteinte » apparaît et Operator ne traite plus de requêtes jusqu'à la réinitialisation de la limite. Pour les étapes de résolution des problèmes, consultez [Résolution des problèmes]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting).
 
 ## Anciens assistants {#legacy-assistants}
 

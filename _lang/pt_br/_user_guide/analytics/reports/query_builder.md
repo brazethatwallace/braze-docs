@@ -40,7 +40,7 @@ Para executar um relatório no Criador de consultas:
 6. Salve sua consulta.
 7. Para baixar um CSV do seu relatório, selecione **Export**.
 
-![Criador de consultas mostrando os resultados para a consulta de modelo "Channel engagement and revenue for the last 30 days".]({% image_buster /assets/img_archive/query_builder.png %})
+![Criador de consultas mostrando os resultados para a consulta de modelo "Engajamento e receita por canal nos últimos 30 dias".]({% image_buster /assets/img_archive/query_builder.png %})
 
 Os resultados de cada relatório podem ser gerados uma vez por dia. Se você executar o mesmo relatório mais de uma vez no mesmo dia, verá os mesmos resultados em ambos os relatórios.
 
@@ -52,7 +52,7 @@ Consulte [Modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/que
 
 ### Período dos dados {#data-timeframe}
 
-As consultas retornam dados dos últimos 60 dias. Se você usa Currents ou o [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), é possível consultar até dois anos de dados, que é o tempo de retenção dos seus dados no Snowflake. Para mais detalhes sobre retenção estendida de dados, entre em contato com seu gerente de sucesso do cliente.
+As consultas retornam dados dos últimos 60 dias. Se você usa Currents ou [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), é possível consultar até dois anos de dados, que é o tempo de retenção dos seus dados no Snowflake. Para mais detalhes sobre retenção estendida de dados, entre em contato com seu gerente de sucesso do cliente.
 
 ### Fuso horário do Criador de consultas {#query-builder-time-zone}
 
@@ -86,6 +86,14 @@ send_date_sydney;
 A seção **Query history** no Criador de consultas exibe suas consultas executadas anteriormente para ajudar a rastrear e reutilizar seu trabalho. O histórico de consultas é retido por sete dias, o que significa que consultas com mais de sete dias são removidas automaticamente.
 
 Se você precisar auditar o uso de consultas por períodos mais longos ou manter registros além de sete dias, recomendamos exportar ou salvar os resultados de consultas importantes antes que expirem.
+
+### Comparando o Criador de consultas com outras fontes de relatório {#comparing-query-builder-with-other-reporting-sources}
+
+Os resultados do Criador de consultas podem diferir de outras ferramentas de relatório porque utilizam fontes de dados e métodos de processamento diferentes.
+
+Por exemplo, as contagens de soft bounce no Criador de consultas podem ser maiores do que nos relatórios de entregabilidade do SendGrid. O Criador de consultas conta todas as ocorrências de soft bounces sem deduplicação. Se um usuário sofre soft bounce várias vezes antes da entrega final (ou após tentativas prolongadas), cada tentativa de soft bounce é contada. O SendGrid Deliverability usa seus próprios dados e lógica, nos quais a Braze não tem visibilidade, então as contagens entre os dois relatórios podem não coincidir.
+
+Para saber mais sobre como os soft bounces são rastreados em diferentes fontes de relatório, consulte [Soft bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce) no glossário de análise de dados de e-mail.
 
 ## Gerando SQL com o Criador de consultas com IA {#generating-sql-with-the-ai-query-builder}
 
@@ -173,7 +181,7 @@ Sua consulta pode falhar por qualquer um dos seguintes motivos:
 
 ## Usando variáveis {#using-variables}
 
-Use variáveis para utilizar tipos de variáveis predefinidos em SQL para referenciar valores sem precisar copiar manualmente o valor. Por exemplo, em vez de copiar manualmente o ID de uma campanha para o editor SQL, você pode usar {% raw %}`{{campaign.${My campaign}}}`{% endraw %} para selecionar diretamente uma campanha em um menu suspenso na guia **Variables**.
+Use variáveis para utilizar tipos de variáveis predefinidos em SQL para referenciar valores sem precisar copiar manualmente o valor. Por exemplo, em vez de copiar manualmente o ID de uma Campaign para o editor SQL, você pode usar {% raw %}`{{campaign.${My campaign}}}`{% endraw %} para selecionar diretamente uma Campaign em um menu suspenso na guia **Variables**.
 
 Depois que uma variável é criada, ela aparecerá na guia **Variables** do seu relatório do Criador de consultas. Os benefícios de usar variáveis SQL incluem:
 
@@ -237,42 +245,42 @@ Todas as variáveis de envio de mensagens devem compartilhar o mesmo identificad
 
 ##### Canvas {#canvas}
 
-Para selecionar um Canvas. Compartilhar o mesmo nome com uma campanha resultará em um botão de opção na guia **Variables** para selecionar Canvas ou campanha.
+Para selecionar um Canvas. Compartilhar o mesmo nome com uma Campaign resultará em um botão de opção na guia **Variables** para selecionar Canvas ou Campaign.
 
 - **Valor de substituição:** BSON ID do Canvas
 - **Exemplo de uso:** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
-##### Canvas {#canvases}
+##### Canvas (múltiplos) {#canvases}
 
-Para selecionar múltiplos Canvas. Compartilhar o mesmo nome com uma campanha resultará em um botão de opção na guia **Variables** para selecionar Canvas ou campanha.
+Para selecionar múltiplos Canvas. Compartilhar o mesmo nome com uma Campaign resultará em um botão de opção na guia **Variables** para selecionar Canvas ou Campaign.
 
 - **Valor de substituição:** BSON IDs dos Canvas
 - **Exemplo de uso:** {% raw %}`canvas_id IN ({{canvases.${some name}}})`{% endraw %}
 
 ##### Campaign {#campaign}
 
-Para selecionar uma campanha. Compartilhar o mesmo nome com um Canvas resultará em um botão de opção na guia **Variables** para selecionar Canvas ou campanha.
+Para selecionar uma Campaign. Compartilhar o mesmo nome com um Canvas resultará em um botão de opção na guia **Variables** para selecionar Canvas ou Campaign.
 
 - **Valor de substituição:** BSON ID da Campaign
 - **Exemplo de uso:** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
 ##### Campaigns {#campaigns}
 
-Para selecionar múltiplas campanhas. Compartilhar o mesmo nome com um Canvas resultará em um botão de opção na guia **Variables** para selecionar Canvas ou campanha.
+Para selecionar múltiplas Campaigns. Compartilhar o mesmo nome com um Canvas resultará em um botão de opção na guia **Variables** para selecionar Canvas ou Campaign.
 
 - **Valor de substituição:** BSON IDs das Campaigns
 - **Exemplo de uso:** {% raw %}`campaign_id IN ({{campaigns.${some name}}})`{% endraw %}
 
-##### Variantes de campanha {#campaign-variants}
+##### Variantes de Campaign {#campaign-variants}
 
-Para selecionar variantes de campanha que pertencem à campanha selecionada. Deve ser usada em conjunto com uma variável de campanha ou campanhas.
+Para selecionar variantes de Campaign que pertencem à Campaign selecionada. Deve ser usada em conjunto com uma variável de Campaign ou Campaigns.
 
-- **Valor de substituição:** IDs de API das variantes de campanha, strings delimitadas por vírgulas, como `api-id1, api-id2`.
+- **Valor de substituição:** IDs de API das variantes de Campaign, strings delimitadas por vírgulas, como `api-id1, api-id2`.
 - **Exemplo de uso:** {% raw %}`message_variation_api_id IN ({{campaign_variants.${some name}}})`{% endraw %}
 
 ##### Variantes de Canvas {#canvas-variants}
 
-Para selecionar variantes de Canvas que pertencem a um Canvas escolhido. Deve ser usada com uma variável de Canvas.
+Para selecionar variantes de Canvas que pertencem a um Canvas escolhido. Deve ser usada com uma variável de Canvas ou Canvas (múltiplos).
 
 - **Valor de substituição:** IDs de API das variantes de Canvas, strings delimitadas por vírgulas, como `api-id1, api-id2`.
 - **Exemplo de uso:** {% raw %}`canvas_variation_api_id IN ({{canvas_variants.${some name}}})`{% endraw %}
@@ -286,7 +294,7 @@ Para selecionar uma etapa do Canvas que pertence a um Canvas escolhido. Deve ser
 
 ##### Etapas do Canvas {#canvas-steps}
 
-Para selecionar etapas do Canvas que pertencem a Canvas escolhidos. Deve ser usada com uma variável de Canvas.
+Para selecionar etapas do Canvas que pertencem a Canvas escolhidos. Deve ser usada com uma variável de Canvas ou Canvas (múltiplos).
 
 - **Valor de substituição:** IDs de API das etapas do Canvas
 - **Exemplo de uso:** {% raw %}`canvas_step_api_id IN ({{canvas_steps.${some name}}})`{% endraw %}

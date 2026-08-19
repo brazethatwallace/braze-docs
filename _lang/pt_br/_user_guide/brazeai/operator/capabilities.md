@@ -164,7 +164,7 @@ Na [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/
 
 - Descreva o assunto, estilo, clima e cores de forma específica. Quanto mais detalhes você incluir, melhor o resultado. O upload de uma imagem de referência não é compatível.
 - Quando você aplica [diretrizes da marca](#apply-brand-guidelines) como contexto no seu prompt do Operator, o Operator as aplica diretamente à imagem gerada, para que o resultado reflita o estilo visual da sua marca.
-- As gerações de imagens contam para o seu limite diário de uso do Operator. Para saber mais, consulte [Limitações](#limitations).
+- As gerações de imagens contam para o limite diário de uso do Operator em toda a empresa, junto com outras ações do Operator. Para saber mais, consulte [Limitações](#limitations).
 
 ### Revisar a qualidade do conteúdo {#review-content-quality}
 
@@ -260,7 +260,7 @@ O suporte do Operator no dashboard é amplo, mas tem limites.
 - **Duplicação de Campaign:** o Operator não pode duplicar uma Campaign existente a partir da visualização de lista de Campaigns. Para criar uma Campaign semelhante, peça ao Operator para criar uma nova do zero, ou duplique a Campaign manualmente pelo menu **More Actions** da visualização de lista.
 - **Editores de arrastar e soltar:** o Operator não pode gerar ou inserir um design de mensagem diretamente em um editor de arrastar e soltar, como os de [e-mail]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner) e [mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Mude para o editor de HTML correspondente para usar o Operator, ou peça ao Operator para gerar conteúdo, como texto, que você pode colar manualmente. Consulte [Gerar mensagens](#generate-messages) para os canais e editores compatíveis.
 - **Visibilidade da tela:** o Operator usa contexto da página para entender o que você está vendo, incluindo conteúdo dentro de prévias e editores compatíveis. Quando parte de uma página está fora do que o Operator pode ler, ele avisa em vez de adivinhar, para que você saiba descrever esse conteúdo por conta própria.
-- **Limites de uso:** o Operator tem um limite diário de uso para toda a empresa que é redefinido a cada 24 horas. As gerações de imagens contam para esse limite. Se o limite for atingido, uma mensagem "Daily usage limit exceeded" aparece e nenhuma solicitação adicional pode ser feita até que ele seja redefinido. Para etapas de solução de problemas, consulte [Solução de problemas]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting).
+- **Limites de uso:** o Operator tem um limite diário de uso para toda a empresa que é redefinido a cada 24 horas. Todas as ações do Operator contam para esse limite, e o consumo varia de acordo com o quanto o Operator precisa ler e produzir. Fazer perguntas, buscar informações e [abrir um ticket de suporte]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets) consomem menos. Criar ou editar objetos como Campaigns e Segments consome mais. [Gerações de imagens](#generate-images) também contam para esse limite. Se o limite for atingido, uma mensagem "Daily limit reached" aparece e o Operator não processa mais solicitações até que o limite seja redefinido. Para etapas de solução de problemas, consulte [Solução de problemas]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting).
 
 ## Assistentes legados {#legacy-assistants}
 

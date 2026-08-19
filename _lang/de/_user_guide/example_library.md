@@ -17,20 +17,29 @@ guide_featured_list:
   - name: Katalogartikel nach Datumsbereich filtern
     link: /docs/user_guide/example_library/catalogs/filter_catalog_items_by_date_range
     image: /assets/img/braze_icons/calendar-date.svg
+  - name: Katalogartikel mit einem Attribut-Array abgleichen
+    link: /docs/user_guide/example_library/catalogs/match_catalog_items_to_attribute_array
+    image: /assets/img/braze_icons/list.svg
   - name: Übersetzungsansätze vergleichen
     link: /docs/user_guide/example_library/localization/compare_translation_approaches
     image: /assets/img/braze_icons/globe-02.svg
+  - name: Domainübergreifende Web-SDK-Nutzer:innen verknüpfen
+    link: /docs/user_guide/example_library/web/link_cross_domain_users_via_device_id
+    image: /assets/img/braze_icons/link-04.svg
+  - name: SQL-Dashboards für aufgegebene Bestellungen
+    link: /docs/user_guide/example_library/analytics/ecommerce_order_placed_sql_dashboards
+    image: /assets/img/braze_icons/bar-chart-01.svg
 ---
 
 ## Was Sie hier finden {#what-you-find-here}
 
-Jedes Beispiel führt durch ein praktisches Muster: das Ziel, das es löst, was Sie vor dem Aufbau beachten sollten, und wie Sie es in Braze einrichten. Die Beispiele sind nach Themen geordnet, sodass Sie Muster finden können, die zu dem Ergebnis passen, auf das Sie hinarbeiten.
+Jedes Beispiel führt Sie durch ein praktisches Muster: das Ziel, das es löst, was Sie vor dem Aufbau beachten sollten und wie Sie es in Braze einrichten. Die Beispiele sind nach Themen geordnet, sodass Sie Muster finden können, die zu dem Ergebnis passen, auf das Sie hinarbeiten.
 
-Diese Artikel ergänzen die Feature-Referenzartikel. Wenn Sie die vollständigen Produktdetails für einen Kanal, eine Canvas-Komponente oder ein Daten-Tool benötigen, das in einem Beispiel verwendet wird, folgen Sie den Links zu verwandten Artikeln auf der jeweiligen Seite.
+Diese Artikel ergänzen die Feature-Referenzartikel. Wenn Sie die vollständigen Produktdetails zu einem Kanal, einer Canvas-Komponente oder einem Daten-Tool benötigen, das in einem Beispiel verwendet wird, folgen Sie den Links zu verwandten Artikeln auf der jeweiligen Seite.
 
-## So verwenden Sie diese Beispiele {#how-to-use-these-examples}
+## So nutzen Sie diese Beispiele {#how-to-use-these-examples}
 
-1. **Beginnen Sie mit Ihrem Ziel:** Identifizieren Sie das gewünschte Ergebnis (zum Beispiel personalisiertes Liquid in der Vorschau validieren oder eine mehrstufige Journey orchestrieren).
-2. **Passen Sie das Muster an:** Behandeln Sie jedes Beispiel als Ausgangspunkt. Tauschen Sie Ihre Events, Attribute, Segments und Kreativinhalte ein.
-3. **Überprüfen Sie es in Ihrem Workspace:** Bestätigen Sie Voraussetzungen wie Datenverfügbarkeit, Kanal-Setup und Berechtigungen, bevor Sie starten.
-4. **Vertiefen Sie mit den empfohlenen Ressourcen:** Nutzen Sie die weiterführenden Artikel auf jeder Beispielseite, wenn Sie eine ausführlichere Referenz zu einer Braze-Funktion benötigen.
+1. **Beginnen Sie mit Ihrem Ziel:** Identifizieren Sie das gewünschte Ergebnis (z. B. personalisiertes Liquid in der Vorschau validieren oder eine mehrstufige Journey orchestrieren).
+2. **Passen Sie das Muster an:** Behandeln Sie jedes Beispiel als Ausgangspunkt. Tauschen Sie Ihre Events, Attribute, Segmente und Kreativinhalte ein.
+3. **Überprüfen Sie es in Ihrem Workspace:** Stellen Sie vor dem Start sicher, dass Voraussetzungen wie Datenverfügbarkeit, Kanal-Setup und Berechtigungen erfüllt sind.
+4. **Vertiefen Sie mit den empfohlenen Ressourcen:** Nutzen Sie die verlinkten Artikel auf jeder Beispielseite, wenn Sie eine ausführlichere Referenz zu einem Braze-Feature benötigen.

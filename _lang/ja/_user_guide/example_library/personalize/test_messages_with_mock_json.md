@@ -12,28 +12,28 @@ description: "Liquidのcaptureとjson_parseを使用して、キャンペーン�
 
 ## この例について {#about-this-example}
 
-衣料小売ブランドのFlash & Threadは、Connected Contentのレスポンス、キャンバスコンテキスト変数、またはオブジェクト配列のプロファイルデータに依存するメッセージを作成しています。反復のたびに実際のAPI呼び出しをトリガーしたりキャンペーンを起動したりすると、開発が遅くなります。
+架空の衣料小売ブランド Flash & Thread は、Connected Contentのレスポンス、キャンバスのコンテキスト変数、またはオブジェクト配列のプロファイルデータに依存するメッセージを作成しています。イテレーションのたびに実際のAPI呼び出しをトリガーしたりキャンペーンを起動したりすると、開発が遅くなります。
 
-このパターンでは、モックJSONペイロードをメッセージ本文に埋め込み、`capture` で格納してから `json_parse` で解析します。これにより、ライブのConnected Content呼び出し、APIトリガーのキャンバスエントリ、テスト送信なしに、**プレビュー**セクションでLiquidが構造化フィールドを参照できるようになります。
+このパターンでは、モックJSONペイロードをメッセージ本文に埋め込み、`capture` で保存してから `json_parse` で解析することで、ライブのConnected Content呼び出し、APIトリガーのキャンバスエントリ、またはテスト送信なしに、**プレビュー**セクションでLiquidが構造化フィールドを参照できるようにします。
 
-これはメッセージ開発中に使用してください。実際のトリガー、テスト送信、またはキャンバスの[ユーザーパスのプレビュー]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths)によるエンドツーエンドのテストの代わりにはなりません。
+このパターンはメッセージ開発中に使用してください。実際のトリガー、テスト送信、またはキャンバスでの[ユーザーパスのプレビュー]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths)を使ったエンドツーエンドのテストに代わるものではありません。
 
-## 考慮事項 {#considerations}
+## 注意事項 {#considerations}
 
-- このアプローチは、開発中のメッセージ作成画面プレビューをサポートします。顧客に配信する前に、テスト送信とライブパスチェックを実行してください。
-- `capture` ブロック単体ではJSONを文字列として格納します。**`json_parse`** を適用した後にのみフィールドを参照してください。適用しないと、プレビュー出力が空白になることがあります。
-- モックJSONは有効な形式である必要があります。無効なJSONは `json_parse` の失敗や予期しない構造の返却を引き起こします。
-- 起動前にモックブロックを置き換えるか削除するか、本番環境のLiquidをガードしてモックデータがプレビューでのみ使用されるようにしてください（たとえば、公開前に削除するコメントフラグを使用します）。
-- この記事のLiquidスニペットは例です。ご利用のチャネルと実際のペイロード形式でテストしてください。
-- 本番環境のConnected Contentでは、モックブロックを削除してライブURLタグを使用してください。[API呼び出しの実行]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)を参照してください。
+- このアプローチは、開発中のメッセージ作成画面プレビューをサポートします。顧客に配信する前に、テスト送信とライブパスの確認を実行してください。
+- `capture` ブロック単体では JSON を文字列として保存します。フィールドを参照するのは **`json_parse`** を適用した後にしてください。適用しない場合、プレビュー出力が空白になることがあります。
+- モック JSON は有効な形式である必要があります。無効な JSON は `json_parse` の失敗や予期しない構造の返却を引き起こします。
+- 配信前にモックブロックを置き換えるか削除するか、本番環境の Liquid でモックデータがプレビューでのみ使用されるようにガードしてください（例えば、本番稼働前に削除するコメントフラグを使用するなど）。
+- この記事の Liquid スニペットは例です。ご利用のチャネルと実際のペイロード構造でテストしてください。
+- 本番環境の Connected Content では、モックブロックを削除してライブ URL タグを使用してください。詳しくは [API コールの実行]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)を参照してください。
 
 ## 設定 {#setup}
 
-この例では、`listings` をループするメールのConnected Contentスタイルの商品リストレスポンスをモックします。
+この例では、`listings` をループするメールのために、Connected Content スタイルの商品リスト応答をモックします。
 
-### ステップ1: メッセージ内でモックJSONをキャプチャする {#step-1-capture-mock-json-in-the-message}
+### ステップ1: メッセージ内でモック JSON をキャプチャする {#step-1-capture-mock-json-in-the-message}
 
-`capture` を使用してJSON文字列を保持します。ブロック内では有効なJSON構文（キーと文字列値にダブルクォート）を使用してください。
+`capture` を使用して JSON 文字列を保持します。ブロック内では有効な JSON 構文（キーと文字列値にダブルクォート）を使用してください。
 
 {% raw %}
 ```liquid
@@ -64,9 +64,9 @@ description: "Liquidのcaptureとjson_parseを使用して、キャンペーン�
 ```
 {% endraw %}
 
-### ステップ2: json_parseでJSONを解析する {#step-2-parse-json-with-json_parse}
+### ステップ2: json_parse で JSON を解析する {#step-2-parse-json-with-json_parse}
 
-解析された構造をメッセージの残りの部分で参照する変数に割り当てます。
+解析された構造を変数に割り当て、メッセージの残りの部分で参照します。
 
 {% raw %}
 ```liquid
@@ -74,11 +74,11 @@ description: "Liquidのcaptureとjson_parseを使用して、キャンペーン�
 ```
 {% endraw %}
 
-`json_parse` を使用しないと、キャプチャされた文字列に対するドット記法（たとえば {% raw %}`{{ mock_response.listings }}`{% endraw %}）は、プレビューで通常空白として表示されます。
+`json_parse` を使用しない場合、キャプチャした文字列に対するドット記法（例: {% raw %}`{{ mock_response.listings }}`{% endraw %}）は、プレビューで通常空白として表示されます。
 
-### ステップ3: Liquidで解析済みフィールドを参照する {#step-3-reference-parsed-fields-in-liquid}
+### ステップ3: Liquid で解析済みフィールドを参照する {#step-3-reference-parsed-fields-in-liquid}
 
-解析された配列をループし、ライブAPIレスポンスの場合と同様にフィールドをレンダリングします。
+解析された配列をループし、ライブ API レスポンスの場合と同様にフィールドをレンダリングします。
 
 {% raw %}
 ```liquid
@@ -88,26 +88,26 @@ description: "Liquidのcaptureとjson_parseを使用して、キャンペーン�
 ```
 {% endraw %}
 
-メッセージ作成画面の**プレビュー**セクションに移動し、フィールドがレンダリングされることを確認します。
+メッセージ作成画面の**プレビュー**セクションに移動し、フィールドが正しくレンダリングされることを確認します。
 
-### ステップ4: 他のJSON形式にも同じパターンを適用する {#step-4-apply-the-same-pattern-to-other-json-shapes}
+### ステップ4: 他の JSON 形状にも同じパターンを適用する {#step-4-apply-the-same-pattern-to-other-json-shapes}
 
 同じ `capture` + `json_parse` フローを使用して、以下をモックします。
 
-| テストしたいデータ | モックJSONの形式 |
+| テストしたいデータ | モック JSON の形状 |
 | --- | --- |
 | キャンバスコンテキスト変数 | メッセージが期待するプロパティキーを持つオブジェクト |
-| プロファイル上のオブジェクト配列 | カスタム属性と同じキーを持つオブジェクトのJSON配列 |
-| Connected Contentレスポンス | 以前の成功した呼び出しから保存したサンプルAPI JSON |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="テストしたいデータとJSONの形式" }
+| プロファイル上のオブジェクト配列 | カスタム属性と同じキーを持つオブジェクトの JSON 配列 |
+| Connected Content レスポンス | 以前の成功した呼び出しから保存したサンプル API JSON |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="テストしたいデータと JSON の形状" }
 
-起動前に、モック変数を本番環境のLiquid（キャンバスコンテキスト変数、カスタム属性、またはConnected Contentタグ）に置き換えてください。
+ローンチ前に、モック変数を本番用の Liquid（キャンバスコンテキスト変数、カスタム属性、または Connected Content タグ）に置き換えてください。
 
 ## 関連記事 {#related-articles}
 
-- [テストメッセージを送信する]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)
+- [テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)
 - [キャンバスでユーザーパスをプレビューする]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths)
-- [高度なLiquidフィルター（`json_parse`）]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters)
+- [高度なLiquidフィルター (`json_parse`)]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters)
 - [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)
-- [オブジェクト配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)
+- [オブジェクトの配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)
 - [コンテキスト変数]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)
