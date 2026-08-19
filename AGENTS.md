@@ -19,6 +19,7 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 | [`redirect-management`](.github/skills/redirect-management/SKILL.md) | Adding, updating, and validating redirects in `broken_redirect_list.js` |
 | [`reference-repos`](.github/skills/reference-repos/SKILL.md) | Verifying product, API, or SDK behavior against source repos |
 | [`docs-discrepancies`](.github/skills/docs-discrepancies/SKILL.md) | Page-by-page doc vs platform audits and discrepancy PRs |
+| [`log-ux-debt`](.github/skills/log-ux-debt/SKILL.md) | Filing UX Debt Jira tickets for copy inconsistencies found in platform source (CODEOWNERS lookup, dedup, ticket creation) |
 | [`support-analyzer`](.github/skills/support-analyzer/SKILL.md) | Manual triage of support case CSVs (after CI digest / Phase 2) |
 | [`salesforce-migration`](.github/skills/salesforce-migration/SKILL.md) | Jira SF KB migration tickets and `_data/sf_*.xml` / CSV workflows |
 | [`image-pruner`](.github/skills/image-pruner/SKILL.md) | Finding and removing unreferenced `assets/img/` files (all locales) |
