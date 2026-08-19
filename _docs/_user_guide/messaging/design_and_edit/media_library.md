@@ -26,7 +26,7 @@ For more information, see [User permissions]({{site.baseurl}}/user_guide/adminis
 
 ## Media library versus CDN
 
-Using the media library instead of a Content Delivery Network (CDN) provides better caching and performance for in-app messages. All media library assets found in an in-app message will be pre-cached for faster display and will be available for offline display. Additionally, the media library is integrated with Braze composers, allowing you to select or tag images instead of copying and pasting image URLs.
+Using the media library instead of a Content Delivery Network (CDN) provides better caching and performance for in-app messages. All media library assets found in an in-app message are pre-cached for faster display and are available for offline display. Additionally, the media library is integrated with Braze composers, allowing you to select or tag images instead of copying and pasting image URLs.
 
 ## Accessing the media library
 
