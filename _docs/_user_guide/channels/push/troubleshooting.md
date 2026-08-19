@@ -360,7 +360,7 @@ Imported iOS push tokens usually appear as **Subscribed** until the user logs a 
 
 Braze does not offer a one-click migration between app groups. You can move new data into a destination app group by updating your app or site to use that app group's API key, then sending user updates through the [Users Track]({{site.baseurl}}/api/endpoints/user_data/post_user_track) endpoint or importing profiles with [User Export]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_user_data) and related import tools.
 
-You can often migrate user profile fields, custom attributes, events, and push tokens when you plan the export and import carefully. The following generally **cannot** be migrated between app groups: dashboard users and permissions, campaigns, Canvases, segments (as saved objects), and app group settings. Work with your Braze account team when planning a large workspace move.
+You can often migrate user profile fields, custom attributes, events, and push tokens when you plan the export and import carefully. The following generally cannot be migrated between app groups: dashboard users and permissions, campaigns, Canvases, segments (as saved objects), and app group settings. Work with your Braze account team when planning a large workspace move.
 
 ## Session and attribution {#session-and-attribution}
 
