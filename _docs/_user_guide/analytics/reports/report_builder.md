@@ -147,6 +147,18 @@ The **Email Recipients** dropdown lists Braze company users only, and saves thei
 3. Select whether you want to create a new dashboard or add to an existing dashboard.<br><br>![Window with options to select if you want to add the report to a new or existing dashboard.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
 4. Follow the steps in [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) to learn more about building a dashboard.
 
+## Team permissions {#team-permissions}
+
+Report Builder reports don't support [team assignment]({{site.baseurl}}/user_guide/administer/global/user_management/teams) like campaigns or Canvases. You can't limit a saved report to a specific team when you create it.
+
+Users with team-level ["View Dashboard Reports"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) permission (rather than workspace-level) can still use Report Builder, but report visibility is limited:
+
+- These users only see reports where every selected campaign and Canvas is assigned to their teams.
+- Reports with **Channels** as rows are hidden.
+- Reports that use automatic selection to add campaigns or Canvases are hidden, because Braze can't verify team access for messages that may be added when the report runs.
+
+[Report Builder (legacy)]({{site.baseurl}}/report_builder_legacy/) scopes which campaigns and Canvases you can add to a report by team, but saved reports are not filtered from the list the same way as in Report Builder (New). For permission setup, see [Setting user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) and [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams).
+
 ## Troubleshooting
 
 ### Report shows no sends for a campaign or Canvas
