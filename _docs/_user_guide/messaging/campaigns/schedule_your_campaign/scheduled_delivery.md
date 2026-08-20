@@ -89,5 +89,5 @@ If a campaign sends earlier than the schedule you set in **Company Settings**, e
 
 ### What is the maximum delivery delay for in-app message campaigns?
 
-In-app message campaigns that use a scheduled delivery delay can delay delivery by up to **2 hours** (7,200 seconds). If you need a longer gap between scheduling and display, use a [trigger-based]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) campaign or Canvas step instead.
+In-app message campaigns that use a scheduled delivery delay can delay delivery by up to two hours (7,200 seconds). If you need a longer gap between scheduling and display, use a [trigger-based]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) campaign or Canvas step instead.
 
