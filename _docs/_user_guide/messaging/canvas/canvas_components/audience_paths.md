@@ -42,7 +42,9 @@ Users are evaluated against filters and segment membership **at the moment they 
 Audience Paths evaluate based on a user's current attributes, filters, and segment membership at the time of evaluation. They do not evaluate based on the specific event that triggered Canvas entry. To route users based on an action they perform (such as a custom event), use [Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) instead.
 {% endalert %}
 
-An Audience Path evaluates a user only once, when they reach the step. A later Message step can separately re-check the audience at send time, which is most relevant when delivery is delayed by a Delay step, rate limiting, local time zone delivery, or Intelligent Timing. To have a Message step confirm that users still meet segment and filter criteria before it sends, turn on **Validate audience at message send** in the [Message step delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations).
+Users aren't re-evaluated against their audience group after they move down a path. If the message that follows is delayed by a Delay step, quiet hours, Intelligent Timing, rate limiting, or local time zone delivery, a user's profile can change before that message sends.
+
+To confirm users still meet your criteria at send time, turn on **Validate audience at message send** in the Message step's [delivery validations]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations). Delivery validations check only the segments and filters you add to that Message step, so they don't reuse the criteria from your Audience Path. For in-app messages, delivery validations are checked when a user enters the Message step, not when the message displays.
 
 ### Allowing time for user evaluations
 
