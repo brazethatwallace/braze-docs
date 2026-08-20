@@ -1123,6 +1123,8 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 
 조회자는 매일 고유 수신자가 될 수 있으므로, 이 수치는 <i>고유 노출 횟수</i>보다 높을 수 있습니다. 이 수치는 Braze에서 수신되며 `user_id`를 기반으로 합니다. 고유 수신자 수는 <a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>발송 식별자</a> 수준이 아닌 Campaign 또는 캔버스 단계 수준에서 집계됩니다.
 
+반송된 사용자도 Braze가 해당 발송일에 수신자로 집계하므로 <i>고유 수신자 수</i>에 포함됩니다. <i>고유 수신자 수</i>는 성공적인 전달만이 아니라 Braze가 해당 날짜에 메시지를 타겟팅한 사용자를 기반으로 합니다.
+
 <span class="calculation-line">계산: 횟수</span>
 
 {% endapi %}

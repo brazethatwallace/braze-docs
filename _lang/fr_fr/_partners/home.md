@@ -27,6 +27,7 @@ Bienvenue dans la documentation des partenaires technologiques Braze Alloys. Par
 - [Airbyte]({{site.baseurl}}/partners/data_and_analytics/workflow_automation/airbyte)
 - [Algolia]({{site.baseurl}}/partners/ecommerce/product_search_recommendations/algolia)
 - [Alpaco]({{site.baseurl}}/partners/message_orchestration/templates/alpaco)
+- [Amazon Bedrock]({{site.baseurl}}/partners/ai_model_providers/amazon_bedrock)
 - [Amazon Personalize]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/amazon_personalize)
 - [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)
 - [Amperity]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amperity)
@@ -49,6 +50,7 @@ Bienvenue dans la documentation des partenaires technologiques Braze Alloys. Par
 - [BlueConic]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/blueconic)
 - [Bluedot]({{site.baseurl}}/partners/message_personalization/location/bluedot)
 - [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)
+- [Bynder]({{site.baseurl}}/partners/message_orchestration/cms_dam/bynder)
 
 </div>
 
@@ -407,4 +409,4 @@ Les intégrations entièrement gérées par le partenaire peuvent ne pas être r
 
 Si vous voyez **Identifiants non valides** pour un partenaire dans Braze alors que l'intégration semble correcte dans le tableau de bord de ce partenaire, déconnectez puis reconnectez l'intégration sur la page Partenaires technologiques et confirmez les clés API, les jetons OAuth et les autorisations côté partenaire.
 
-Certains tableaux de bord externes (par exemple, des outils de livrabilité ou de surveillance de la boîte de réception) peuvent afficher un état de connexion ou de vérification différent de celui de la page Partenaires technologiques de Braze. Utilisez la tuile du partenaire dans Braze pour connaître l'état de connexion sur lequel Braze s'appuie pour la synchronisation et l'envoi.
+Certains tableaux de bord externes (par exemple, les outils de livrabilité ou de surveillance de la boîte de réception) peuvent afficher un état de connexion ou de vérification différent de celui de la page Partenaires technologiques de Braze. Utilisez la vignette du partenaire dans Braze pour connaître l'état de connexion sur lequel Braze s'appuie pour la synchronisation et l'envoi.

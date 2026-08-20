@@ -6,9 +6,9 @@
 
 ## Requisitos previos {#prerequisites}
 
-Antes de poder utilizar esta característica, tendrás que [configurar el servidor MCP de Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}.
+Antes de poder usar esta característica, necesitarás [configurar el servidor MCP de Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}.
 
-## Funciones disponibles de la API de Braze {#available-braze-api-functions}
+## Funciones API disponibles en Braze {#available-braze-api-functions}
 
 Tu cliente MCP hace referencia a estas herramientas para interactuar con el servidor MCP de Braze.
 
@@ -24,8 +24,8 @@ Tu cliente MCP hace referencia a estas herramientas para interactuar con el serv
 | Herramienta | Endpoint de API | Acceso | Descripción |
 | --- | --- | --- | --- |
 | `get_campaign_list` | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) | lectura | Exporta una lista de Campaigns con nombre, identificador de API de la campaña, indicador de API-campaign y etiquetas. |
-| `get_campaign_details` | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) | lectura | Recupera información relevante sobre una Campaign específica mediante `campaign_id`. |
-| `get_campaign_dataseries` | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) | lectura | Serie diaria de estadísticas de Campaigns a lo largo del tiempo (envíos, aperturas, clics, conversiones por canal). |
+| `get_campaign_details` | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) | lectura | Recupera información relevante sobre una campaña específica mediante `campaign_id`. |
+| `get_campaign_dataseries` | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) | lectura | Serie diaria de estadísticas de la campaña a lo largo del tiempo (envíos, aperturas, clics, conversiones por canal). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Campaigns" }
 
 ### Canvas {#canvases}
@@ -43,7 +43,7 @@ Tu cliente MCP hace referencia a estas herramientas para interactuar con el serv
 | Herramienta | Endpoint de API | Acceso | Descripción |
 | --- | --- | --- | --- |
 | `get_catalogs` | [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) | lectura | Lista los catálogos en un espacio de trabajo. |
-| `get_catalog_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk) | lectura | Devuelve varios elementos del catálogo y su contenido. |
+| `get_catalog_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk) | lectura | Devuelve múltiples elementos del catálogo y su contenido. |
 | `get_catalog_item` | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details) | lectura | Devuelve un único elemento del catálogo y su contenido. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catálogos" }
 
@@ -59,8 +59,8 @@ Tu cliente MCP hace referencia a estas herramientas para interactuar con el serv
 | Herramienta | Endpoint de API | Acceso | Descripción |
 | --- | --- | --- | --- |
 | `get_events` | [`/events`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data) | lectura | Exporta los eventos personalizados registrados para tu aplicación, en grupos de 50, en orden alfabético (paginación por cursor). |
-| `get_events_list` | [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events) | lectura | Exporta nombres de eventos personalizados, en grupos de 250, en orden alfabético (paginación por página). |
-| `get_events_data_series` | [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics) | lectura | Ocurrencias de un evento personalizado durante un periodo de tiempo designado. |
+| `get_events_list` | [`/events/list`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events) | lectura | Exporta los nombres de eventos personalizados, en grupos de 250, en orden alfabético (paginación por página). |
+| `get_events_data_series` | [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics) | lectura | Ocurrencias de un evento personalizado durante un período de tiempo designado. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Eventos personalizados" }
 
 ### Integraciones CDI {#cdi-integrations}
@@ -81,19 +81,12 @@ Tu cliente MCP hace referencia a estas herramientas para interactuar con el serv
 | `get_uninstalls_data_series` | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date) | lectura | Serie diaria del total de desinstalaciones por fecha. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="KPI" }
 
-### Biblioteca de medios {#media-library}
+### Biblioteca multimedia {#media-library}
 
 | Herramienta | Endpoint de API | Acceso | Descripción |
 | --- | --- | --- | --- |
-| `create_media_library_asset` | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) | creación | Carga un activo a la biblioteca de medios de Braze mediante una URL externa o contenido de archivo en base64. Se debe proporcionar exactamente un modo de carga. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Biblioteca de medios" }
-
-### Mensajes {#messages}
-
-| Herramienta | Endpoint de API | Acceso | Descripción |
-| --- | --- | --- | --- |
-| `get_scheduled_broadcasts` | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled) | lectura | Lista las Campaigns programadas y los Canvas de entrada entre el momento actual y un `end_time` designado. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Mensajes" }
+| `create_media_library_asset` | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) | creación | Sube un activo a la biblioteca multimedia de Braze a través de una URL externa o contenido de archivo en base64. Se debe proporcionar exactamente un modo de carga. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Biblioteca multimedia" }
 
 ### Compras {#purchases}
 
@@ -103,13 +96,6 @@ Tu cliente MCP hace referencia a estas herramientas para interactuar con el serv
 | `get_quantity_series` | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases) | lectura | Número total de compras en tu aplicación durante un rango de tiempo. |
 | `get_revenue_series` | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series) | lectura | Total de dinero gastado en tu aplicación durante un rango de tiempo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Compras" }
-
-### Autenticación SDK {#sdk-authentication}
-
-| Herramienta | Endpoint de API | Acceso | Descripción |
-| --- | --- | --- | --- |
-| `get_sdk_authentication_keys` | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys) | lectura | Recupera todas las claves de autenticación SDK para una aplicación. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Autenticación SDK" }
 
 ### Segments
 
@@ -124,14 +110,14 @@ Tu cliente MCP hace referencia a estas herramientas para interactuar con el serv
 
 | Herramienta | Endpoint de API | Acceso | Descripción |
 | --- | --- | --- | --- |
-| `get_send_data_series` | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) | lectura | Estadísticas diarias para un `send_id` con seguimiento (Campaigns de API). Braze almacena los análisis de envío durante 14 días después del envío. |
+| `get_send_data_series` | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) | lectura | Estadísticas diarias para un `send_id` con seguimiento (API campaigns). Braze almacena los análisis de envío durante 14 días después del envío. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Envíos" }
 
 ### Sesiones {#sessions}
 
 | Herramienta | Endpoint de API | Acceso | Descripción |
 | --- | --- | --- | --- |
-| `get_session_data_series` | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics) | lectura | Número de sesiones de tu aplicación durante un periodo de tiempo designado. |
+| `get_session_data_series` | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics) | lectura | Número de sesiones de tu aplicación durante un período de tiempo designado. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Sesiones" }
 
 ### Grupos de suscripción {#subscription-groups}
@@ -147,7 +133,7 @@ Tu cliente MCP hace referencia a estas herramientas para interactuar con el serv
 | Herramienta | Endpoint de API | Acceso | Descripción |
 | --- | --- | --- | --- |
 | `get_email_templates` | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates) | lectura | Lista las plantillas de correo electrónico disponibles en tu cuenta de Braze. |
-| `get_email_template_info` | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information) | lectura | Obtén información sobre una plantilla de correo electrónico específica. No se aceptan plantillas del editor de arrastrar y soltar. |
+| `get_email_template_info` | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information) | lectura | Obtiene información de una plantilla de correo electrónico específica. No se aceptan plantillas del editor de arrastrar y soltar. |
 | `create_email_template` | [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template) | creación | Crea una plantilla de correo electrónico en el panel de Braze. |
 | `update_email_template` | [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template) | actualización | Actualiza una plantilla de correo electrónico existente. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Plantillas" }
@@ -156,8 +142,8 @@ Tu cliente MCP hace referencia a estas herramientas para interactuar con el serv
 
 | Herramienta | Endpoint de API | Acceso | Descripción |
 | --- | --- | --- | --- |
-| `get_content_blocks` | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks) | lectura | Lista la información de los bloques de contenido existentes. |
-| `get_content_block_info` | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information) | lectura | Obtén información sobre un bloque de contenido existente, opcionalmente con datos de inclusión en Campaigns o Canvas. |
+| `get_content_blocks` | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks) | lectura | Lista información de los bloques de contenido existentes. |
+| `get_content_block_info` | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information) | lectura | Obtiene información de un bloque de contenido existente, opcionalmente con datos de inclusión en Campaigns o Canvas. |
 | `create_content_block` | [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) | creación | Crea un bloque de contenido. |
 | `update_content_block` | [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) | actualización | Actualiza un bloque de contenido. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Content Blocks" }

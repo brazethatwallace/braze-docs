@@ -43,6 +43,10 @@ A purchase object is an object that gets passed through the API when a purchase 
 }
 ```
 
+{% alert note %}
+Purchases with timestamps in the future default to the current time. This ensures that purchase events are recorded with accurate timing.
+{% endalert %}
+
 - [External user ID]({{site.baseurl}}/api/basics#user-ids)
 - [App identifier]({{site.baseurl}}/api/identifier_types)
 - [ISO 4217 Currency Code Wiki](http://en.wikipedia.org/wiki/ISO_4217)

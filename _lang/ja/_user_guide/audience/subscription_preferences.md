@@ -4,13 +4,16 @@ article_title: サブスクリプション設定
 page_order: 5
 layout: dev_guide
 guide_top_header: "サブスクリプション設定"
-guide_top_text: "メッセージングチャネルに対するユーザーのオプトインおよびオプトアウトの方法を管理します。ユーザー設定センターを使用して、メール通信設定をユーザー自身がコントロールできるようにします。"
+guide_top_text: "メッセージングチャネルに対するユーザーのオプトインおよびオプトアウトの方法を管理します。チャネル全体の<a href='/docs/user_guide/audience/subscription_preferences/subscription_status'>購読ステータス</a> を確認し、ユーザー設定センターを使用してメール通信設定をユーザー自身がコントロールできるようにします。"
 
 page_type: landing
 description: "このセクションでは、ユーザー設定センターやサブスクリプション管理など、Brazeのサブスクリプション設定について説明します。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
+  - name: 購読ステータス
+    link: /docs/user_guide/audience/subscription_preferences/subscription_status
+    image: /assets/img/braze_icons/check-verified-02.svg
   - name: ユーザー設定センター
     link: /docs/user_guide/audience/subscription_preferences/preference_center
     image: /assets/img/braze_icons/mail-01.svg

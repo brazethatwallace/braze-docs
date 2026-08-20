@@ -48,7 +48,11 @@ Si ce n'est pas déjà fait, suivez les étapes de [configuration de l'intégrat
 
 ## Synchronisation du profil utilisateur {#user-profile-sync}
 
-En plus des données d'événements, l'intégration Shopify peut synchroniser les mises à jour de profils utilisateur de Braze vers votre boutique Shopify. Lorsque le profil d'un utilisateur est mis à jour dans Braze, Currents crée ou met à jour le client correspondant dans votre boutique.
+En plus des données d'événements, l'intégration Shopify peut synchroniser les mises à jour de profils utilisateurs depuis Braze vers votre boutique Shopify. Lorsqu'un profil utilisateur est mis à jour dans Braze, Currents crée ou met à jour le client correspondant dans votre boutique.
+
+{% alert note %}
+La synchronisation des profils utilisateurs n'est pas prise en charge sur les [connecteurs Currents de test]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#testing-currents-connectors). Les autres exportations d'événements ne sont pas affectées. Pour synchroniser les profils utilisateurs, utilisez un [connecteur Shopify Currents standard](#step-2-create-braze-current).
+{% endalert %}
 
 ### Correspondance des utilisateurs {#user-matching}
 
@@ -59,10 +63,10 @@ Braze fait correspondre les clients Shopify en utilisant le `user_id` de Braze c
 Les champs de profil Braze suivants sont synchronisés vers Shopify :
 
 | Champ Braze | Champ client Shopify | Notes |
-| ----------- | -------------------- | ----- |
+| ----------- | ---------------------- | ----- |
 | `first_name` | `firstName` | Mappé tel quel. Envoyé uniquement lorsqu'il est présent dans la mise à jour du profil. |
 | `last_name` | `lastName` | Mappé tel quel. Envoyé uniquement lorsqu'il est présent dans la mise à jour du profil. |
-| `email_address` | `email` | Les espaces sont supprimés et le texte est converti en minuscules avant l'envoi. |
+| `email_address` | `email` | Nettoyé des espaces et converti en minuscules avant l'envoi. |
 | `phone_number` | `phone` | Envoyé au format [E.164](https://en.wikipedia.org/wiki/E.164). |
 | `language` | `locale` | Converti en une locale prise en charge par Shopify. Le portugais et le chinois se voient attribuer une variante régionale (telle que `pt-BR`) en fonction du pays de l'utilisateur. Si la langue de l'utilisateur n'est pas prise en charge par Shopify, ce champ est omis. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -71,6 +75,6 @@ Seuls les champs présents dans une mise à jour de profil sont envoyés. Les ch
 
 ### Champs non synchronisés {#fields-that-are-not-synced}
 
-L'intégration n'écrit pas actuellement de métachamps Shopify, de sorte que les champs de profil qui nécessiteraient un métachamp ne sont pas synchronisés. En particulier, les attributs personnalisés ne sont pas envoyés à Shopify. Les autres champs non envoyés sont `external_user_id`, `gender`, `dob` (date de naissance), `timezone`, `home_city`, `country` et `archived`.
+L'intégration n'écrit pas actuellement de métachamps Shopify, de sorte que les champs de profil nécessitant un métachamp ne sont pas synchronisés. En particulier, les attributs personnalisés ne sont pas envoyés à Shopify. Les autres champs non envoyés sont `external_user_id`, `gender`, `dob` (date de naissance), `timezone`, `home_city`, `country` et `archived`.
 
 Braze peut créer des définitions de métachamps sous l'espace de noms `braze` dans votre boutique (par exemple, `braze.gender`). Ces définitions sont réservées pour une utilisation future potentielle — Braze n'y écrit actuellement aucune valeur. L'exception est `braze.user_id`, qui stocke l'identifiant utilisé pour faire correspondre vos clients.

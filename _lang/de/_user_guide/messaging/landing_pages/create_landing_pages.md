@@ -66,17 +66,17 @@ Sie können diese Blöcke verwenden, um Inhalte hinzuzufügen und das Layout Ihr
 |-------------|-------------|
 | Titel | Ein Textblock zum Hinzufügen einer Überschrift oder eines Titels zu Ihrem Inhalt. Nützlich für die Strukturierung von Abschnitten und die Verbesserung der Lesbarkeit. |
 | Absatz | Ein Textblock für längere Beschreibungen oder zusätzlichen Kontext. Unterstützt Rich-Text-Formatierung. |
-| Button | Ein klickbares Element, das Nutzer:innen zu einer bestimmten Aktion weiterleitet, z. B. das Öffnen eines Links oder das Absenden eines Formulars. |
+| Button | Ein klickbares Element, das Nutzer:innen zu einer bestimmten Aktion weiterleitet, z. B. zum Öffnen eines Links oder zum Absenden eines Formulars. |
 | Optionsfeld | Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen müssen. Bei der Übermittlung wird das zugehörige angepasste Attribut im Nutzerprofil protokolliert. |
 | Bild | Ein Block zur Anzeige von Bildern. Sie können ein Bild hochladen oder eine URL angeben, um auf eine externe Quelle zu verweisen. |
 | Link | Ein Hyperlink, auf den Nutzer:innen klicken können, um zu einer bestimmten URL zu navigieren. Kann in Text eingebettet oder eigenständig verwendet werden. |
 | Abstandshalter | Ein unsichtbarer Block, der vertikalen Abstand zwischen Elementen hinzufügt, um Layout und Lesbarkeit zu verbessern. |
-| Benutzerdefinierter Code | Ein Block, mit dem Sie benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen einfügen und ausführen können. |
+| Angepasster Code | Ein Block, mit dem Sie angepasstes HTML, CSS oder JavaScript einfügen und ausführen können, um erweiterte Anpassungen vorzunehmen. Um über diesen Block mit dem Braze SDK zu interagieren, siehe [JavaScript-Brücke für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) und [Angepasste Formular-Blöcke erstellen]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3: Seite anpassen" }
 
 #### Span-Text {#span-text}
 
-Um bestimmte Stile auf Textblöcke ohne benutzerdefinierten Code anzuwenden, markieren Sie den Text, den Sie gestalten möchten, und wählen Sie dann **Mit Span für Stil umschließen**.
+Um bestimmte Stile auf Textblöcke ohne angepassten Code anzuwenden, markieren Sie den Text, den Sie gestalten möchten, und wählen Sie dann **Mit Span für Stil umschließen**.
 
 ![Textfeld mit verschiedenen stilisierten Textabschnitten, wie unterschiedlichen Schriftgrößen und Farben, und einem hervorgehobenen Abschnitt, der eine Symbolleiste mit der Option „Mit Span für Stil umschließen“ anzeigt.]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
@@ -94,22 +94,22 @@ Passen Sie die Span-Eigenschaften an, um Ihre Textgestaltung zu aktualisieren, e
 {% endtab %}
 {% tab Formular-Blöcke %}
 
-Sie können diese Blöcke verwenden, um ein Formular zu erstellen, das von Nutzer:innen übermittelte Daten mit ihrem Profil in Braze verknüpft. Beachten Sie, dass Sie bei Verwendung von Formular-Blöcken auch eine zusätzliche Landing-Page für den Bestätigungszustand erstellen müssen.
+Sie können diese Blöcke verwenden, um ein Formular zu erstellen, das von Nutzer:innen übermittelte Daten mit ihrem Profil in Braze verknüpft. Beachten Sie, dass Sie bei Verwendung von Formular-Blöcken auch eine zusätzliche Landing-Page für den Bestätigungsstatus erstellen müssen.
 
 ![Ein Formular-Block, der neue Kund:innen registriert und einen Rabattcode an ihre E-Mail-Adresse sendet.]({% image_buster /assets/img/landing_pages/form.png %}){: style="max-width:70%;"}
 
 | Blocktyp | Beschreibung |
 |---------------|-------------|
 | E-Mail-Erfassung | Ein Formularfeld für E-Mail-Adressen. Bei der Übermittlung wird die E-Mail-Adresse dem Nutzerprofil in Braze hinzugefügt. |
-| Telefon-Erfassung | Ein Formularfeld für Telefonnummern. Bei der Übermittlung wird die Nutzer:in Ihrer SMS- oder WhatsApp-Abo-Gruppe hinzugefügt. |
+| Telefon-Erfassung | Ein Formularfeld für Telefonnummern. Bei der Übermittlung wird die Nutzer:in für Ihre SMS- oder WhatsApp-Abo-Gruppe abonniert. |
 | Eingabefeld | Ein Formularfeld, das Standardattribute (wie Vor- und Nachname) oder einen angepassten Attribut-String Ihrer Wahl unterstützt. |
 | Dropdown | Nutzer:innen können einen Artikel aus einer vordefinierten Liste auswählen. Sie können beliebige angepasste Attribut-Strings zur Liste hinzufügen. |
 | Kontrollkästchen | Wenn Nutzer:innen das Kästchen ankreuzen, wird das Attribut des Blocks auf `true` gesetzt. Wenn es nicht angekreuzt wird, wird das Attribut auf `false` gesetzt. |
 | Kontrollkästchen-Gruppe | Nutzer:innen können aus mehreren angebotenen Optionen auswählen. Werte werden entweder gesetzt oder einem definierten Array-Attribut hinzugefügt. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Span-Text" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Formular-Blöcke" }
 
 {% alert important %}
-Nachdem Sie eine Landing-Page mit einem Formular erstellt haben, betten Sie unbedingt den zugehörigen [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) in Ihre Nachricht ein. Mit diesem Tag kann Braze bestehende Nutzerprofile automatisch identifizieren und aktualisieren, wenn diese das Formular absenden.
+Nachdem Sie eine Landing-Page mit einem Formular erstellt haben, betten Sie unbedingt den zugehörigen [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) in Ihre Nachricht ein. Mit diesem Tag kann Braze bestehende Nutzerprofile automatisch identifizieren und aktualisieren, wenn sie das Formular absenden.
 {% endalert %}
 
 {% endtab %}
@@ -127,7 +127,7 @@ Wir empfehlen, zuerst Stile auf Seitencontainer-Ebene einzurichten, bevor Sie St
 
 Sie können Ihre Landing-Page responsiv für die Bildschirmgröße der Nutzergeräte gestalten, indem Sie Spalten auf kleineren Bildschirmen vertikal stapeln. Um dies zu aktivieren, fügen Sie eine Spalte in die Zeile ein, die Sie responsiv gestalten möchten, und schalten Sie dann **Auf kleineren Bildschirmen vertikal stapeln** im Bereich **Spalten anpassen** ein.
 
-Wenn aktiviert, können Sie auch die Stapelreihenfolge der Spalten umkehren, um die vertikale Reihenfolge von mehrspaltigem Inhalt auf kleineren Bildschirmen zu steuern. Dadurch sehen und fühlen sich Seiten auf Mobilgeräten besser an, ohne benutzerdefinierten Code.
+Wenn aktiviert, können Sie auch die Stapelreihenfolge der Spalten umkehren, um die vertikale Reihenfolge von mehrspaltigem Inhalt auf kleineren Bildschirmen zu steuern. So sehen und fühlen sich Seiten auf Mobilgeräten besser an – ohne angepassten Code.
 
 ![Der Schalter „Auf kleineren Bildschirmen vertikal stapeln“ im Bereich „Spalten anpassen“.]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
@@ -158,7 +158,7 @@ So verknüpfen Sie die Bestätigungsseite:
 Wenn Sie keine Bestätigungsseite einbinden, wissen Nutzer:innen möglicherweise nicht, dass ihr Formular erfolgreich abgesendet wurde. Fügen Sie immer ein Bestätigungserlebnis hinzu, um den Ablauf abzuschließen.
 
 {% alert note %}
-Wenn Ihre Bestätigungsseite in einem neuen Tab geöffnet wird, können Nutzer:innen, die zur ursprünglichen Landing-Page zurückkehren und das Formular mit aktualisierten Informationen erneut absenden, die vorherige Übermittlung überschreiben, was zu inkonsistenten Daten führen kann.
+Wenn Ihre Bestätigungsseite in einem neuen Tab geöffnet wird, kann eine Nutzer:in, die zur ursprünglichen Landing-Page zurückkehrt und das Formular mit aktualisierten Informationen erneut absendet, die vorherige Übermittlung überschreiben, was zu inkonsistenten Daten führen kann.
 {% endalert %}
 
 ### Schritt 5: Seite in der Vorschau anzeigen {#step-5-preview-the-page}
@@ -172,7 +172,7 @@ Sie können Ihre Landing-Page im Tab **Vorschau** des Editors in der Vorschau an
 Im Editor können Sie auch **Vorschau-Link kopieren** auswählen, um die Seite mit Prüfer:innen zu teilen, die keinen Dashboard-Zugang haben.
 
 - Wenn Ihre Landing-Page kein Liquid verwendet, ist dieser Link derselbe wie die direkte URL von **URL kopieren**, geöffnet im Vorschaumodus.
-- Wenn Ihre Landing-Page Liquid verwendet und Sie über die Landing Pages Pro-Berechtigung verfügen, rendert der Link stattdessen die Live-Seite auf Abruf und spiegelt Ihre aktuellen Änderungen wider, anstatt einen Snapshot vom Zeitpunkt der Link-Erstellung. Inhalte werden pro Nutzer:in personalisiert.
+- Wenn Ihre Landing-Page Liquid verwendet und Sie über die Landing Pages Pro-Berechtigung verfügen, rendert der Link stattdessen die Live-Seite auf Abruf und spiegelt Ihre aktuellen Änderungen wider, anstatt einen Snapshot vom Zeitpunkt der Link-Erstellung. Inhalte werden pro Nutzer:in personalisiert. Die Vorschau zeigt das Braze-Favicon an und kann nicht geändert werden.
 
 Für Vorschau-Links auf anderen Kanälen siehe [Teilbare Vorschau]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
@@ -192,7 +192,7 @@ Aggressive Pop-up-Blocker und Werbeblocker auf iOS und in Safari (einschließlic
 
 ## Templates verwenden {#use-templates}
 
-Landing-Page-Templates sind wiederverwendbare Design-Ausgangspunkte, die Ihnen helfen, Landing-Pages schneller zu erstellen. Ein Template hat keine öffentliche URL und kann nicht von Kund:innen besucht werden. Um eine aktive Landing-Page aus einem Template zu erstellen, wählen Sie das Template beim Erstellen einer neuen Landing-Page aus, passen Sie es nach Bedarf an und veröffentlichen Sie es.
+Landing-Page-Templates sind wiederverwendbare Design-Ausgangspunkte, mit denen Sie Landing-Pages schneller erstellen können. Ein Template hat keine öffentliche URL und kann von Kund:innen nicht besucht werden. Um aus einem Template eine aktive Landing-Page zu erstellen, wählen Sie das Template beim Erstellen einer neuen Landing-Page aus, passen Sie es nach Bedarf an und veröffentlichen Sie es.
 
 Templates können sowohl im Landing-Page-Editor als auch auf der Seite **Landing Page Templates** (**Content** > **Landing Page**) aufgerufen und verwaltet werden. Landing-Page-Templates erfordern einen Namen und eine optionale Beschreibung.
 

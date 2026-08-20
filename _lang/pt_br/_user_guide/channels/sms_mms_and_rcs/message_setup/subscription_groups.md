@@ -11,6 +11,9 @@ channel:
   - RCS
 
 
+
+
+
 ---
 
 # Grupos de inscrições de SMS, MMS e RCS {#sms-mms-and-rcs-subscription-groups}
@@ -25,45 +28,45 @@ Existem dois estados de inscrição para usuários de SMS e RCS: `subscribed` e 
 
 | Estado | Definição |
 | --------- | ---------- |
-| Inscrito | O usuário está inscrito para receber SMS e RCS de um grupo de inscrições específico. Um usuário pode ser inscrito tendo seu estado de inscrição atualizado por meio da API de inscrição da Braze ou enviando uma resposta de palavra-chave de opt-in por mensagem de texto. Um usuário deve estar inscrito em um grupo de inscrições de SMS ou RCS para receber SMS, RCS ou ambos. Quando o [double opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) está ativado, os usuários devem confirmar sua intenção de opt-in antes que o status de inscrição seja atualizado para `Subscribed`. |
-| Cancelou inscrição | O usuário optou explicitamente por não receber mensagens do seu grupo de inscrições de SMS e RCS e dos números de telefone de envio dentro do grupo de inscrições. Eles podem cancelar a inscrição enviando uma resposta de palavra-chave de opt-out por mensagem de texto, ou você pode cancelar a inscrição dos usuários por meio da [API de inscrição da Braze]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Usuários que cancelaram a inscrição de um grupo de inscrições de SMS e RCS não receberão mais nenhum SMS ou RCS dos números de telefone de envio que pertencem ao grupo de inscrições. |
+| Inscrito | O usuário está inscrito para receber SMS e RCS de um grupo de inscrições específico. Um usuário pode ser inscrito tendo seu estado de inscrição atualizado por meio da API de inscrição da Braze ou enviando uma resposta de palavra-chave de aceitação por mensagem de texto. Um usuário precisa estar inscrito em um grupo de inscrições de SMS ou RCS para receber SMS, RCS ou ambos. Quando a [aceitação dupla]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) está ativada, os usuários devem confirmar sua intenção de aceitação antes que seu status de inscrição seja atualizado para `Subscribed`. |
+| Cancelou inscrição | O usuário optou explicitamente por não receber mensagens do seu grupo de inscrições de SMS e RCS e dos números de telefone de envio dentro do grupo de inscrições. Eles podem cancelar a inscrição enviando uma resposta de palavra-chave de cancelamento por mensagem de texto, ou você pode cancelar a inscrição dos usuários por meio da [API de inscrição da Braze]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Usuários que cancelaram a inscrição de um grupo de inscrições de SMS e RCS não receberão mais nenhum SMS ou RCS dos números de telefone de envio que pertencem ao grupo de inscrições. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estados dos grupos de inscrições" }
 
 ### Definir o estado de um usuário {#set-a-users-state}
 
-Quando um número de telefone é atualizado em um perfil de usuário, o novo número de telefone herda o status do grupo de inscrições do usuário. Se o número de telefone for atualizado para um número que já existe na Braze, o status de inscrição desse número de telefone existente será herdado.
+Quando um número de telefone é atualizado em um perfil de usuário, o novo número de telefone herda o status do grupo de inscrições do usuário. Se o número de telefone for atualizado para um número que já existe na Braze, o status de inscrição desse número de telefone existente é herdado.
 
-Por exemplo, se o Usuário A tem um número de telefone inscrito em vários grupos de inscrições e esse número de telefone é adicionado ao Usuário B, o Usuário B será inscrito nos mesmos grupos de inscrições. Para evitar que um usuário herde as inscrições existentes, você pode redefinir os grupos de inscrições do número antigo por meio da REST API da Braze sempre que um usuário alterar seu número. Se vários usuários compartilharem esse número de telefone, todos terão a inscrição cancelada.
+Por exemplo, se o Usuário A tem um número de telefone inscrito em vários grupos de inscrições e esse número de telefone é adicionado ao Usuário B, o Usuário B fica inscrito nos mesmos grupos de inscrições. Para evitar que um usuário herde as inscrições existentes, você pode redefinir os grupos de inscrições do número antigo por meio da REST API da Braze sempre que um usuário alterar seu número. Se vários usuários compartilham esse número de telefone, todos terão a inscrição cancelada.
 
 Para definir o estado do grupo de inscrições de um usuário, use um dos seguintes métodos:
 
-- **REST API:** os perfis de usuário podem ser definidos programaticamente pelo [endpoint `/subscription/status/set`]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) usando a REST API da Braze.
-- **Integração SDK:** os usuários podem ser adicionados a um grupo de inscrições de e-mail ou SMS e RCS usando o método `addToSubscriptionGroup` para [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) ou [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
-- **Formulário de captura de número de telefone via mensagem no app:** os números de telefone dos usuários podem ser coletados por meio do modelo de captura de número de telefone no editor de arrastar e soltar de mensagens no app.
-- **Tratamento automático ao opt-in/opt-out do usuário:** quando os usuários enviam uma [palavra-chave]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) padrão de opt-in ou opt-out por mensagem de texto, a Braze define e atualiza automaticamente o estado de inscrição dos usuários.
-- **Importação de usuários:** os usuários podem ser adicionados a grupos de inscrições de e-mail ou SMS e RCS por meio de **Import Users**. Ao atualizar o status do grupo de inscrições, você deve ter estas duas colunas no seu CSV: `subscription_group_id` e `subscription_state`. Consulte [Importação de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) para saber mais.
-- **Dashboard da Braze:** em [Pesquisa de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles), abra o perfil de um usuário e atualize os grupos de inscrições de SMS ou RCS em **Contact Settings** na guia **Engagement**.
-- **Cloud Data Ingestion (CDI):** inclua `subscription_group_id` e `subscription_state` nas linhas sincronizadas. Consulte [Configuração de tabela do Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
-- **Etapa de atualização de usuário:** atualize o status de inscrição em um Canvas com uma etapa de [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update). Consulte [Atualizar o estado de um usuário em um Canvas](#update-a-users-state-in-a-canvas) para considerações sobre tempo.
+- **REST API:** Use o [endpoint `/subscription/status/set`]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) para definir programaticamente perfis de usuário com a REST API da Braze. Cada solicitação pode incluir entre 1 e 25 grupos de inscrições.
+- **Integração SDK:** Os usuários podem ser adicionados ou removidos de um grupo de inscrições de e-mail ou SMS e RCS usando `addToSubscriptionGroup` e `removeFromSubscriptionGroup` para [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) ou [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup). Os métodos do SDK não substituem os fluxos regulatórios de aceitação ou cancelamento gerenciados por palavras-chave e pela REST API.
+- **Formulário de captura de número de telefone via mensagem no app:** Os números de telefone dos usuários podem ser coletados por meio do modelo de captura de número de telefone no editor de arrastar e soltar de mensagens no app.
+- **Gerenciado automaticamente na aceitação/cancelamento do usuário:** Quando os usuários enviam uma [palavra-chave]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) padrão de aceitação ou cancelamento por mensagem de texto, a Braze define e atualiza automaticamente o estado de inscrição dos usuários.
+- **Importação de usuários**: Os usuários podem ser adicionados a grupos de inscrições de e-mail ou SMS e RCS por meio de **Import Users**. Ao atualizar o status do grupo de inscrições, você deve ter estas duas colunas no seu CSV: `subscription_group_id` e `subscription_state`. Consulte [Importação de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) para saber mais.
+- **Dashboard da Braze:** Selecione **User Search** na barra lateral, abra o perfil de um usuário e atualize os grupos de inscrições de SMS ou RCS em **Contact Settings** na guia **Engagement**.
+- **Cloud Data Ingestion (CDI):** Inclua `subscription_group_id` e `subscription_state` nas linhas sincronizadas. Consulte [Configuração de tabela do Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
+- **Etapa de atualização de usuário:** Atualize o status de inscrição em um Canvas com uma etapa de [Atualização de Usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update). Consulte [Atualizar o estado de um usuário em um Canvas](#update-a-users-state-in-a-canvas) para considerações sobre tempo.
 
 #### Atualizar o estado de um usuário em um Canvas {#update-a-users-state-in-a-canvas}
 
-Ao atualizar o status do grupo de inscrições de um usuário como parte de um fluxo Canvas, use uma etapa de [Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) em vez de um webhook. A etapa de Atualização de usuário aguarda a conclusão do processamento antes de avançar o usuário para a próxima etapa, de modo que as etapas de envio de mensagens subsequentes usem o status de inscrição atualizado.
+Ao atualizar o status do grupo de inscrições de um usuário como parte de um fluxo de Canvas, use uma etapa de [Atualização de Usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) em vez de um webhook. A etapa de Atualização de Usuário aguarda a conclusão do processamento antes de avançar o usuário para a próxima etapa, de modo que as etapas de envio de mensagens subsequentes usem o status de inscrição atualizado.
 
-Se você usar um webhook para atualizar grupos de inscrições, o usuário avança assim que o webhook é enviado — e não quando a alteração de inscrição termina de ser processada. Isso pode criar uma condição de corrida em que uma etapa de SMS subsequente é executada antes que o usuário esteja inscrito, fazendo com que a mensagem falhe para uma parte dos usuários. Se você precisar usar um webhook, adicione uma etapa de postergação de pelo menos 1 minuto antes da próxima etapa de envio de mensagens.
+Se você usar um webhook para atualizar grupos de inscrições, o usuário avança assim que o webhook é enviado — não quando a alteração de inscrição termina de ser processada. Isso pode criar uma condição de corrida em que uma etapa de SMS subsequente é executada antes que o usuário esteja inscrito, fazendo com que a mensagem falhe para uma parte dos usuários. Se você precisar usar um webhook, adicione uma etapa de postergação de pelo menos 1 minuto antes da próxima etapa de envio de mensagens.
 
-#{% multi_lang_include api/orphaned_subscription_states.md %}
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ### Verificar o grupo de um usuário {#check-a-users-group}
 
 Para verificar o grupo de inscrições de um usuário, use um dos seguintes métodos:
 
-- **Perfil de usuário:** os perfis de usuário individuais podem ser acessados pelo dashboard da Braze selecionando **User Search** na barra lateral. Nessa página, você pode pesquisar perfis de usuário por endereço de e-mail, número de telefone ou ID de usuário externo. Dentro de um perfil de usuário, na guia Engagement, você pode visualizar os grupos de inscrições de SMS e RCS de um usuário.
-- **REST API:** o grupo de inscrições de perfis de usuário individuais pode ser visualizado pelo [endpoint Listar grupos de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) ou pelo [endpoint Listar status do grupo de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) usando a REST API da Braze.
+- **Perfil de usuário:** Os perfis de usuário individuais podem ser acessados pelo dashboard da Braze selecionando **User Search** na barra lateral. Nessa página, você pode pesquisar perfis de usuário por endereço de e-mail, número de telefone ou ID de usuário externo. Dentro de um perfil de usuário, na guia Engagement, você pode visualizar os grupos de inscrições de SMS e RCS de um usuário.
+- **REST API:** O grupo de inscrições de perfis de usuário individuais pode ser visualizado pelo [endpoint Listar grupos de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) ou pelo [endpoint Listar status do grupo de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) usando a REST API da Braze.
 
 ## Enviar mensagens com um grupo de inscrições {#send-messages-with-a-subscription-group}
 
-Para lançar uma campanha de SMS ou RCS pela Braze, selecione um grupo de inscrições no menu suspenso **SMS/MMS/RCS Variants**. Após a seleção, um filtro de público será adicionado automaticamente à sua campanha ou Canvas, garantindo que apenas os usuários `subscribed` ao grupo de inscrições selecionado estejam no público-alvo.
+Para lançar uma campanha de SMS ou RCS pela Braze, selecione um grupo de inscrições no menu suspenso **SMS/MMS/RCS Variants**. Após a seleção, um filtro de público é adicionado automaticamente à sua campanha ou Canvas, garantindo que apenas os usuários `subscribed` no grupo de inscrições selecionado estejam no público-alvo.
 
 Antes que os usuários possam receber mensagens de uma campanha ou Canvas, eles devem estar inscritos no grupo de inscrições selecionado. Se os envios falharem para usuários que seriam válidos, confirme se eles estão inscritos usando um dos métodos em [Definir o estado de um usuário](#set-a-users-state). Para requisitos de double opt-in, consulte [Estados do grupo de inscrições](#subscription-group-states).
 
@@ -83,30 +86,30 @@ Para ativar grupos de inscrições para SMS, MMS ou RCS, consulte o seguinte:
 
 {% tabs local %}
 {% tab SMS %}
-Durante o processo de integração de SMS, um gerente de integração da Braze configurará os grupos de inscrições para sua conta no dashboard. Ele trabalhará com você para determinar quantos grupos de inscrições são necessários e adicionará os números de telefone de envio apropriados aos seus grupos de inscrições. Os prazos para configurar um grupo de inscrições dependerão do tipo de número de telefone que você está adicionando. Por exemplo, solicitações de código curto podem levar de 8 a 12 semanas, enquanto códigos longos podem ser configurados em um dia. Se você tiver dúvidas sobre a configuração do seu dashboard da Braze, entre em contato com seu representante da Braze para obter suporte.
+Durante o processo de integração de SMS, um gerente de integração da Braze configura os grupos de inscrições para sua conta no dashboard. Ele trabalha com você para determinar quantos grupos de inscrições são necessários e adiciona os números de telefone de envio apropriados aos seus grupos de inscrições. Os prazos para configurar um grupo de inscrições dependem do tipo de números de telefone que você está adicionando. Por exemplo, solicitações de códigos curtos podem levar de 8 a 12 semanas, enquanto códigos longos podem ser configurados em um dia. Se você tiver dúvidas sobre a configuração do seu dashboard da Braze, entre em contato com seu representante da Braze para obter suporte.
 {% endtab %}
 
 {% tab MMS %}
 Para enviar uma mensagem MMS, pelo menos um número dentro do seu grupo de inscrições precisa estar ativado para enviar MMS. Isso é indicado por uma tag localizada ao lado do grupo de inscrições.
 
-![Menu suspenso de grupo de inscrições com "Messaging Service A for SMS" destacado. A entrada é prefixada com a tag "MMS".]({% image_buster /assets/img/sms/mms_sub_group_tag.png %}){: style="max-width:40%"}
+![Menu suspenso de grupo de inscrições com "Messaging Service A for SMS" destacado. A entrada é precedida pela tag "MMS".]({% image_buster /assets/img/sms/mms_sub_group_tag.png %}){: style="max-width:40%"}
 {% endtab %}
 
 {% tab RCS %}
-Um remetente verificado para RCS deve estar presente no seu grupo de inscrições antes que você possa enviar uma mensagem RCS.
+Um remetente verificado para RCS deve estar presente no seu grupo de inscrições antes de você poder enviar uma mensagem RCS.
 
 Existem duas maneiras de adicionar um remetente verificado para RCS:
 - Adicioná-lo a um grupo de inscrições existente
 - Criar um novo grupo de inscrições RCS
 A escolha depende em grande parte dos casos de uso de RCS nos quais você está interessado.
 
-Dependendo da sua integração, a Braze pode adicionar remetentes verificados para RCS aos seus grupos de inscrições de SMS existentes ou configurar novos grupos de inscrições para você. Em ambos os casos, seu gerente de sucesso do cliente orientará você em uma atualização de tráfego de SMS eficiente e sem complicações.
+Dependendo da sua integração, a Braze pode adicionar remetentes verificados para RCS aos seus grupos de inscrições de SMS existentes ou configurar novos grupos de inscrições para você. Em ambos os casos, seu gerente de sucesso do cliente orienta você em uma atualização de tráfego de SMS eficiente e sem complicações.
 {% endtab %}
 {% endtabs %}
 
 ## Lidar com cancelamentos de inscrição em linguagem natural no Agent Console {#handle-natural-language-opt-outs-in-the-agent-console}
 
-Para um gerenciamento abrangente de inscrições, você pode capturar a intenção de cancelamento que não se enquadra em palavras-chave padrão ou personalizadas (como "Por favor, não me mande mensagens"). Ao criar um agente de IA, você pode usar análise de sentimento para ajudar a identificar e agir automaticamente sobre essas solicitações.
+Para um gerenciamento abrangente de inscrições, você pode capturar a intenção de cancelamento que não se enquadra em palavras-chave padrão ou personalizadas (como "Por favor, não me mande mensagens"). Ao criar um agente de IA, você pode usar análise de sentimento para ajudar a identificar e agir sobre essas solicitações automaticamente.
 
 ### Configuração {#setup}
 
@@ -134,22 +137,22 @@ A Braze recomenda que você teste o envio de RCS para volumes menores de usuári
 
 ### Etapa 1: Criar um Canvas e preencher o cronograma de entrada {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-Crie um Canvas e dê a ele um nome facilmente identificável (como "Transferência de Usuários do Grupo de Inscrições SMS-RCS"). Em seguida, agende o envio no momento mais conveniente para você.
+Crie um Canvas e dê a ele um nome facilmente identificável (como "Transferência de Usuários do Grupo de Inscrições SMS-RCS"). Em seguida, agende a Campaign no momento mais conveniente para você.
 
 ### Etapa 2: Definir seu público {#step-2-define-your-audience}
 {: #step-2-define-your-audience}
 
-Defina seu público usando um dos métodos a seguir. Em seguida, acesse a etapa **Send Settings** e selecione **Users who are subscribed or opted-in**.
+Defina seu público usando um dos métodos a seguir. Em seguida, vá para a etapa **Configurações de envio** e selecione **Usuários inscritos ou que aceitaram**.
 
-| Método | Descrição |
+| Método                          | Descrição                                                                                                                                                                                                 |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Criar um Segment** | Crie um Segment que inclua todos os usuários em um grupo de inscrições ou um subconjunto usando filtros de segmentação (como 5-10% aleatórios). Os Segments são atualizados antes de cada envio para refletir sua base de usuários atual. |
-| **Aplicar filtros de Campaign ou Canvas** | Refine o público na etapa **Target Audience** da sua Campaign ou Canvas. Ajuste as opções de direcionamento sem sair da página para maior flexibilidade. |
+| **Criar um Segment**         | Crie um Segment que inclua todos os usuários em um grupo de inscrições ou um subconjunto usando filtros de segmentação (como 5-10% aleatórios). Os Segments são atualizados antes de cada envio para refletir sua base de usuários atual.        |
+| **Aplicar filtros de Campaign ou Canvas** | Refine o público na etapa **Público-alvo** da sua Campaign ou Canvas. Ajuste as opções de direcionamento sem sair da página para maior flexibilidade.                                         |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Definir seu público" }
 
 ### Etapa 3: Configurar uma etapa de atualização de usuário {#step-3-configure-a-user-update-step}
 
-Adicione uma etapa de atualização de usuário ao seu Canvas. Na etapa, abra o **Advanced JSON Editor** e insira o seguinte (para o campo de identificador único do usuário, recomendamos usar o campo `braze_id`):
+Adicione uma etapa de atualização de usuário ao seu Canvas. Na etapa, abra o **Editor JSON avançado** e insira o seguinte (para o campo de identificador único do usuário, recomendamos usar o campo `braze_id`):
 
 {% raw %}
 ```json
@@ -170,7 +173,11 @@ Adicione uma etapa de atualização de usuário ao seu Canvas. Na etapa, abra o 
 ```
 {% endraw %}
 
-![Objeto de atualização de usuário contendo o código JSON mencionado anteriormente.]({% image_buster /assets/img/sms/user_update_object.png %})
+{% alert important %}
+Ao usar `use_double_opt_in_logic`, um perfil de usuário já deve existir para que o estado de inscrição seja atualizado. Se nenhum perfil de usuário estiver associado ao identificador fornecido, o estado de inscrição não será atualizado.
+{% endalert %}
+
+![Objeto de atualização de usuário que contém o código JSON mencionado anteriormente.]({% image_buster /assets/img/sms/user_update_object.png %})
 
 ### Etapa 4: Testar o Canvas {#step-4-test-the-canvas}
 
@@ -178,11 +185,11 @@ Recomendamos fortemente [testar seu Canvas]({{site.baseurl}}/user_guide/messagin
 
 ### Etapa 5: Lançar seu Canvas {#step-5-launch-your-canvas}
 
-Depois de testar seu Canvas com sucesso, lance-o para o seu subconjunto de usuários!
+Depois de testar seu Canvas com sucesso, lance-o para seu subconjunto de usuários!
 
-Para confirmar que seus usuários foram migrados com sucesso, recomendamos verificar alguns perfis de usuário individuais que foram atualizados. Na guia **Engagement**, procure por **Contact Settings** e role para visualizar os grupos de inscrições nos quais o usuário está inscrito. O toggle do grupo de inscrições RCS agora deve estar ativado.
+Para confirmar que seus usuários foram migrados com sucesso, recomendamos verificar alguns perfis de usuário individuais que foram atualizados. Na guia **Engajamento**, procure por **Configurações de contato** e role para visualizar os grupos de inscrições nos quais o usuário está inscrito. O toggle do grupo de inscrições RCS agora deve estar ativado.
 
-Para configuração de remetente e grupo de inscrições RCS, consulte também [Configurar RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup).
+Para a configuração do remetente e do grupo de inscrições RCS, consulte também [Configurar RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup).
 
 ## Boas práticas {#best-practices}
 

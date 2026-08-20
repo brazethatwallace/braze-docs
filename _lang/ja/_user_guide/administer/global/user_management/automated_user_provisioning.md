@@ -20,10 +20,10 @@ alias: /scim/automated_user_provisioning/
 SCIMプロビジョニングの利用可否は、ご利用のプラットフォームエディションによって異なります。この機能がワークスペースにない場合は、カスタマーサクセスマネージャーにお問い合わせください。
 {% endalert %}
 
-1. Brazeダッシュボードで、**設定** > **管理者設定** > **SCIMプロビジョニング**に移動し、**SCIMインテグレーションを設定**を選択します。
+1. Brazeダッシュボードで、**設定** > **会社の設定** > **管理者設定** > **SCIMプロビジョニング**に移動し、**SCIM統合を設定**を選択します。
 2. **Braze設定**ステップで、プロビジョニング方法を選択し、アクセス設定を入力します。
 
-![プロビジョニング方法の選択とアクセス設定の入力セクションがあるSCIMインテグレーション設定ページ。]({% image_buster /assets/img_archive/scim_braze_config.png %}){: style="max-width:70%;"}
+![プロビジョニング方法の選択とアクセス設定の入力セクションが表示されたSCIM統合設定ページ。]({% image_buster /assets/img_archive/scim_braze_config.png %}){: style="max-width:70%;"}
 
 {: start="3"}
 3. **IdP設定**ステップで、選択したプロビジョニング方法に応じたプラットフォーム内の手順に従います。
@@ -33,13 +33,13 @@ SCIMプロビジョニングの利用可否は、ご利用のプラットフォ�
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-SAML SSOのためにOktaでBrazeアプリを設定した場合は、**Okta - Brazeアプリ**オプションを使用します。SSOのためにカスタムアプリを設定した場合は、[Okta - カスタムアプリインテグレーション]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning)タブの手順に従ってください。
+SAML SSOのためにOktaでBrazeアプリを設定した場合は、**Okta - Brazeアプリ**オプションを使用します。SSOのためにカスタムアプリを設定した場合は、[Okta - カスタムアプリ統合]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning)タブの手順に従ってください。
 
 {% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Okta' %}
 
-## ステップ1:SCIMプロビジョニングを設定する {#step-1-set-up-scim-provisioning}
+## ステップ1:SCIMプロビジョニングの設定 {#step-1-set-up-scim-provisioning}
 
-### ステップ1.1:SCIMを有効にする {#step-11-enable-scim}
+### ステップ1.1:SCIMの有効化 {#step-11-enable-scim}
 
 1. Oktaで、**Applications** > **Applications**に移動し、**Create App Integration**を選択します。サインイン方法として**SAML 2.0**を選択します。
 2. 以下の詳細（Brazeの[**IdP設定**ステップ](#accessing-scim-provisioning-settings)にあります）を入力してカスタムアプリを作成します：
@@ -56,23 +56,23 @@ SAML SSOのためにOktaでBrazeアプリを設定した場合は、**Okta - Bra
 1. **Application visibility**フィールドで、**Do not display application icon to user**チェックボックスを選択します。これにより、ユーザーがアプリを通じてSSOにアクセスすることを防ぎます。このアプリはSCIM専用です。
 2. **Save**を選択します。
 
-### ステップ1.3:SCIMインテグレーションを設定する {#step-13-set-up-the-scim-integration}
+### ステップ1.3:SCIM統合の設定 {#step-13-set-up-the-scim-integration}
 
 1. **Provisioning**タブを選択します。
 2. **Settings** > **Integration** > **SCIM Connection**で**Edit**を選択し、**Setup SCIM provisioning**ページのテーブルに表示されるフィールド値を入力します。
 
-### ステップ1.4:API認証情報をテストする {#step-14-test-the-api-credentials}
+### ステップ1.4:API認証情報のテスト {#step-14-test-the-api-credentials}
 
-**Test API Credentials**を選択します。インテグレーションが成功すると確認メッセージが表示され、保存できます。
+**Test API Credentials**を選択します。統合が成功すると確認メッセージが表示され、保存できます。
 
-### ステップ1.5:アプリへのプロビジョニングを有効にする {#step-15-enable-provisioning-to-the-app}
+### ステップ1.5:アプリへのプロビジョニングの有効化 {#step-15-enable-provisioning-to-the-app}
 
 1. **Provisioning** > **Settings** > **To App** > **Provisioning to App**で、**Edit**を選択します。
 2. 以下を有効にします：
     - Create Users
     - Update Users Attributes
     - Deactivate Users
-3. **Attribute Mapping**セクションを確認し、**Setup SCIM provisioning**ページのテーブルに表示されるマッピングで設定します。
+3. **Setup SCIM provisioning**ページのテーブルに表示されるマッピングを使用して、**Attribute Mapping**セクションを確認・設定します。
 
 ## ステップ2:アプリにユーザーを割り当てる {#step-2-assign-users-to-the-app}
 
@@ -82,17 +82,17 @@ SAML SSOのためにOktaでBrazeアプリを設定した場合は、**Okta - Bra
 4. 割り当てが完了したら**Done**を選択します。
 
 {% endtab %}
-{% tab Okta - カスタムアプリインテグレーション %}
+{% tab Okta - カスタムアプリ統合 %}
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-SSOのためにカスタムアプリを設定した場合は、**Okta - カスタムアプリインテグレーション**オプションを使用します。OktaでSAML SSOのためにBrazeアプリを設定した場合は、[Okta - Brazeアプリ]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning)タブの手順に従ってください。
+SSOのためにカスタムアプリを設定した場合は、**Okta - カスタムアプリ統合**オプションを使用します。SAML SSOのためにOktaでBrazeアプリを設定した場合は、[Okta - Brazeアプリ]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning)タブの手順に従ってください。
 
 {% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Okta' %}
 
-## ステップ1:SCIMプロビジョニングを設定する
+## ステップ1:SCIMプロビジョニングの設定
 
-### ステップ1.1:SCIMを有効にする
+### ステップ1.1:SCIMの有効化
 
 1. Oktaで、Brazeアプリに移動します。
 2. **General**タブを選択します。
@@ -100,21 +100,21 @@ SSOのためにカスタムアプリを設定した場合は、**Okta - カス�
 4. **Provisioning**フィールドで、**SCIM**を選択します。
 5. **Save**を選択します。
 
-### ステップ1.2:SCIMインテグレーションを設定する {#step-12-set-up-scim-integration}
+### ステップ1.2:SCIM統合の設定 {#step-12-set-up-scim-integration}
 
 1. **Provisioning**タブを選択します。
 2. **Settings** > **Integration** > **SCIM Connection**で、**Edit**を選択し、**Setup SCIM provisioning**ページのテーブルに表示されるフィールド値を入力します。
 3. **Test API Credentials**を選択してAPI認証情報をテストします。
 4. **Save**を選択します。
 
-### ステップ1.3:アプリへのプロビジョニングを有効にする {#step-13-enable-provisioning-to-the-app}
+### ステップ1.3:アプリへのプロビジョニングの有効化 {#step-13-enable-provisioning-to-the-app}
 
 1. **Provisioning** > **Settings** > **To App** > **Provisioning to App**で、**Edit**を選択します。
 2. 以下を有効にします：
     - Create Users
     - Update Users Attributes
     - Deactivate Users
-3. **Attribute Mapping**セクションを確認し、**Setup SCIM provisioning**ページのテーブルに表示されるマッピングで設定します。
+3. **Setup SCIM provisioning**ページのテーブルに表示されるマッピングを使用して、**Attribute Mapping**セクションを確認・設定します。
 
 ## ステップ2:アプリにユーザーを割り当てる
 
@@ -130,13 +130,13 @@ SSOのためにカスタムアプリを設定した場合は、**Okta - カス�
 
 {% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Entra ID' %}
 
-## ステップ1:SCIMプロビジョニングアプリを設定する {#step-1-set-up-scim-provisioning-app}
+## ステップ1:SCIMプロビジョニングアプリの設定 {#step-1-set-up-scim-provisioning-app}
 
 ### ステップ1.1:Microsoft Entra管理センターにログインする {#step-11-log-into-microsoft-entra-admin-center}
 
 Microsoft Entra管理センターにログインします。
 
-### ステップ1.2:SCIMアプリを作成して設定する {#step-12-create-and-set-up-your-scim-app}
+### ステップ1.2:SCIMアプリの作成と設定 {#step-12-create-and-set-up-your-scim-app}
 
 1. ナビゲーションメニューで、**Entra ID** > **Enterprise apps**に移動します。
 2. **New application**を選択します。
@@ -145,16 +145,16 @@ Microsoft Entra管理センターにログインします。
 5. **What are you looking to do with your application?**セクションで、**Integrate application you don't find in the gallery (Non-gallery)**を選択します。
 6. **Create**を選択します。
 
-### ステップ1.3:SCIMインテグレーションを設定する {#step-13-set-up-scim-integration}
+### ステップ1.3:SCIM統合の設定 {#step-13-set-up-scim-integration}
 
 1. SCIMアプリケーションの**Manage** > **Provisioning**セクションに移動します。
 2. **Connect your application**または**New configuration**を選択し、**Setup SCIM provisioning**ページのテーブルに表示されるフィールド値を入力します。
 
-### ステップ1.4:アプリへのプロビジョニングを有効にする {#step-14-enable-provisioning-to-the-app}
+### ステップ1.4:アプリへのプロビジョニングの有効化 {#step-14-enable-provisioning-to-the-app}
 
 1. SCIMアプリケーションの**Manage** > **Attribute mapping (Preview)**セクションに移動します。
 2. **Provision Microsoft Entra ID Users**を選択します。
-3. **Attribute Mapping**セクションを確認し、**Setup SCIM provisioning**ページのテーブルに表示される属性と一致するように設定します。
+3. **Setup SCIM provisioning**ページのテーブルに表示される属性と一致するように、**Attribute Mapping**セクションを確認・設定します。
 4. **Attribute Mapping**ページを閉じます。
 
 {% alert important %}
@@ -171,17 +171,17 @@ Microsoft Entra管理センターにログインします。
 {% endtab %}
 {% tab カスタム %}
 
-## ステップ1:SCIM設定を構成する {#step-1-configure-your-scim-settings}
+## ステップ1:SCIM設定の構成 {#step-1-configure-your-scim-settings}
 
-- **デフォルトワークスペース：** 新しいユーザーがデフォルトで追加されるワークスペースを選択します。[SCIM APIリクエスト]({{site.baseurl}}/post_create_user_account)でワークスペースを指定しない場合、Brazeはこのワークスペースにユーザーを割り当てます。
-- **サービスOrigin：** SCIMリクエストのOriginドメインを入力します。Brazeはこれを`X-Request-Origin`ヘッダーで使用して、リクエストの送信元を確認します。
-- **IP許可リスト（オプション）：** SCIMリクエストを特定のIPアドレスに制限できます。許可するIPアドレスのカンマ区切りリストまたは範囲を入力します。各リクエストの`X-Request-Origin`ヘッダーを使用して、リクエストIPアドレスが許可リストと照合されます。
+- **デフォルトワークスペース：**新しいユーザーがデフォルトで追加されるワークスペースを選択します。[SCIM APIリクエスト]({{site.baseurl}}/post_create_user_account)でワークスペースを指定しない場合、Brazeはこのワークスペースにユーザーを割り当てます。
+- **サービスOrigin：**SCIMリクエストのOriginドメインを入力します。Brazeはリクエストの送信元を確認するために`X-Request-Origin`ヘッダーでこれを使用します。
+- **IP許可リスト（オプション）：**SCIMリクエストを特定のIPアドレスに制限できます。許可するIPアドレスのカンマ区切りリストまたは範囲を入力します。各リクエストの`X-Request-Origin`ヘッダーを使用して、リクエストIPアドレスが許可リストと照合されます。
 
-## ステップ2:SCIMトークンを生成する {#step-2-generate-a-scim-token}
+## ステップ2:SCIMトークンの生成 {#step-2-generate-a-scim-token}
 
-必須フィールドの入力が完了したら、**SCIMトークンを生成**を押してSCIMトークンを生成し、SCIM APIエンドポイントを確認します。ページを離れる前にSCIMトークンをコピーしてください。**このトークンは一度だけ表示されます。**
+必須フィールドの入力が完了したら、**Generate SCIM token**を押してSCIMトークンを生成し、SCIM APIエンドポイントを確認します。ページを離れる前にSCIMトークンをコピーしてください。**このトークンは一度だけ表示されます。**
 
-![マスクされた値とコピーボタンが表示されたSCIM APIエンドポイントとSCIMトークンフィールド。トークンフィールドの下に「Reset Token」ボタンがあります。]({% image_buster /assets/img/scim.png %})
+![マスクされた値とコピーボタンが表示されたSCIM APIエンドポイントとSCIMトークンフィールド。トークンフィールドの下にはリセットトークンボタンがあります。]({% image_buster /assets/img/scim.png %})
 
 Brazeは、すべてのSCIMリクエストにHTTP `Authorization`ヘッダーを介してSCIM APIベアラートークンが添付されていることを要求します。
 

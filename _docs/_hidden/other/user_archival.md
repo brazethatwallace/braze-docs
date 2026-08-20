@@ -71,13 +71,26 @@ Test users will never be archived, even if they meet the definition of inactive 
 
 ## Spam blocking
 
-Braze blocks individual users with over 5 million sessions ("dummy users"), and no longer ingests their SDK events, because they are usually the result of an incorrect integration. If you find that this has happened for a legitimate user, file a ticket with Braze [support]({{site.baseurl}}/braze_support/).
+Braze blocks individual user profiles that grow abnormally large ("dummy users"), because they are usually the result of an incorrect integration. A profile is blocked when it exceeds any of the following thresholds:
+
+| Threshold | Description |
+| --- | --- |
+| More than 5,000,000 sessions | Typically caused by reusing a single `external_id` across many users. |
+| More than 20,000 distinct custom event names | Typically caused by generating a new event name for every event instead of reusing a fixed set of names. |
+| More than 20,000 distinct product names in purchases | Typically caused by generating a new `product_id` for every purchase instead of reusing a fixed set of product IDs. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dummy user blocking thresholds" }
+
+After a profile is blocked, Braze stops ingesting all inbound data for that profile, from both the SDKs and the REST API. Requests to [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) that reference a blocked identifier return the error `"provided external_id is blacklisted and disallowed"`. This wording is taken verbatim from the API response. Braze also notifies your Braze account manager so they can raise the integration issue with you.
+
+If you find that this has happened for a legitimate user, file a ticket with Braze [support]({{site.baseurl}}/braze_support/).
 
 To find your dashboard's dummy users, perform the following steps:
 
 1. Create a [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/).
 2. Select the filter `Session Count` and set it to `more than 5,000,000`.
 3. Export the segment via CSV.
+
+The **Session Count** filter finds only session-based dummy users. There is no segmentation filter for the number of distinct custom event names or product names on a profile, so contact your Braze account manager to identify profiles blocked for those reasons.
 
 If necessary, you can delete the users via the [`/users/delete` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/).
 

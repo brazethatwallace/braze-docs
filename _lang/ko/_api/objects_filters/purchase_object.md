@@ -15,7 +15,7 @@ description: "이 참조 문서에서는 구매 오브젝트의 다양한 구성
 
 ## 구매 오브젝트란 무엇인가요? {#what-is-a-purchase-object}
 
-구매 오브젝트는 구매가 이루어졌을 때 API를 통해 전달되는 오브젝트입니다. 각 구매 오브젝트는 구매 배열 내에 위치하며, 각 오브젝트는 특정 시간에 특정 사용자가 수행한 단일 구매입니다. 구매 오브젝트에는 Braze 백엔드에서 이 정보를 저장하고 커스터마이징, 데이터 수집 및 개인화에 활용할 수 있도록 하는 다양한 필드가 있습니다.
+구매 오브젝트는 구매가 이루어졌을 때 API를 통해 전달되는 오브젝트입니다. 각 구매 오브젝트는 구매 배열 내에 위치하며, 각 오브젝트는 특정 사용자가 특정 시점에 수행한 단일 구매를 나타냅니다. 구매 오브젝트에는 Braze 백엔드가 커스터마이징, 데이터 수집, 개인화를 위해 이 정보를 저장하고 사용할 수 있도록 하는 다양한 필드가 있습니다.
 
 ### 오브젝트 본문 {#object-body}
 
@@ -43,33 +43,37 @@ description: "이 참조 문서에서는 구매 오브젝트의 다양한 구성
 }
 ```
 
+{% alert note %}
+미래 타임스탬프가 포함된 구매는 기본적으로 현재 시간으로 설정됩니다. 이를 통해 구매 이벤트가 정확한 타이밍으로 기록됩니다.
+{% endalert %}
+
 - [외부 사용자 ID]({{site.baseurl}}/api/basics#user-ids)
 - [앱 식별자]({{site.baseurl}}/api/identifier_types)
 - [ISO 4217 통화 코드 위키](http://en.wikipedia.org/wiki/ISO_4217)
 - [ISO 8601 시간 코드 위키](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-일부 식별자 쌍은 함께 사용할 수 없으며, 두 가지가 모두 제공될 경우 `email`이 `phone`보다 우선합니다. 자세한 내용은 [식별자 확인]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution)을 참조하세요.
+일부 식별자 쌍은 함께 사용할 수 없으며, 두 가지가 모두 제공된 경우 `email`이 `phone`보다 우선합니다. 자세한 내용은 [식별자 확인]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution)을 참조하세요.
 {% endalert %}
 
 ## 구매 제품 ID {#purchase-product-id}
 
-구매 오브젝트 내에서 `product_id`는 구매 식별자(예: `Product Name` 또는 `Product Category`)입니다.
+구매 오브젝트 내에서 `product_id`는 구매에 대한 식별자입니다(예: `Product Name` 또는 `Product Category`).
 
-- Braze는 대시보드에 최대 5,000개의 `product_id`를 저장할 수 있습니다.
-- `product_id`는 최대 255자까지 입력할 수 있습니다.
+- Braze에서는 대시보드에 최대 5,000개의 `product_id`를 저장할 수 있습니다.
+- `product_id`는 최대 255자까지 가능합니다.
 
 ### 명명 규칙 {#naming-conventions}
 
-Braze에서는 구매 오브젝트 `product_id`에 대한 몇 가지 일반적인 명명 규칙을 제공합니다. `product_id`를 선택할 때, Braze는 모든 로깅된 항목을 이 `product_id`로 그룹화할 수 있도록 SKU 대신 제품 이름이나 제품 카테고리와 같은 간단한 이름을 사용할 것을 권장합니다.
+Braze에서는 구매 오브젝트 `product_id`에 대한 몇 가지 일반적인 명명 규칙을 제공합니다. `product_id`를 선택할 때, Braze는 이 `product_id`로 기록된 모든 항목을 그룹화할 수 있도록 SKU 대신 제품 이름이나 제품 카테고리와 같은 간단한 이름을 사용할 것을 권장합니다.
 
-이렇게 하면 세분화 및 트리거링을 위해 제품을 더 쉽게 식별할 수 있습니다.
+이렇게 하면 세분화 및 트리거에 사용할 제품을 더 쉽게 식별할 수 있습니다.
 
-### 주문 수준에서 구매 기록 {#log-purchases-at-the-order-level}
+### 주문 수준에서 구매 기록하기 {#log-purchases-at-the-order-level}
 
-제품 수준이 아닌 주문 수준에서 구매를 기록하려면 주문 이름 또는 주문 카테고리를 `product_id`로 사용할 수 있습니다(예: `Online Order` 또는 `Completed Order`).
+제품 수준이 아닌 주문 수준에서 구매를 기록하려면 주문 이름이나 주문 카테고리를 `product_id`로 사용할 수 있습니다(예: `Online Order` 또는 `Completed Order`).
 
-예를 들어, 웹 SDK에서 주문 수준으로 구매를 기록하려면 다음과 같이 합니다.
+예를 들어, 웹 SDK에서 주문 수준으로 구매를 기록하려면 다음과 같이 합니다:
 
 ```html
 POST https://YOUR_REST_API_URL/users/track

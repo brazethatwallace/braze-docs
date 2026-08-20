@@ -97,7 +97,7 @@ Vous pouvez omettre un ID externe ou un alias d'utilisateur et utiliser soit une
 Si vous incluez à la fois des adresses e-mail et des numéros de téléphone dans votre fichier CSV, l'adresse e-mail est prioritaire par rapport au numéro de téléphone lors de la recherche de profils.
 {% endalert %}
 
-Si un profil existant possède cette adresse e-mail ou ce numéro de téléphone, ce profil est mis à jour et Braze ne crée pas de nouveau profil. S'il existe plusieurs profils avec la même adresse e-mail, Braze utilisera la même logique que l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) où le profil le plus récemment mis à jour sera actualisé.
+Si un profil existant possède cette adresse e-mail ou ce numéro de téléphone, ce profil est mis à jour et Braze ne crée pas de nouveau profil. S'il existe plusieurs profils avec la même adresse e-mail, Braze utilisera la même logique que l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) où le profil le plus récemment mis à jour sera mis à jour.
 
 Si un profil avec cette adresse e-mail ou ce numéro de téléphone n'existe pas, Braze crée un nouveau profil avec cet identifiant. Vous pouvez utiliser l'[endpoint `/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) pour identifier ce profil ultérieurement. Pour supprimer un profil utilisateur, vous pouvez également utiliser l'endpoint [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete).
 {% endtab %}
@@ -105,9 +105,9 @@ Si un profil avec cette adresse e-mail ou ce numéro de téléphone n'existe pas
 
 ### Étape 3 : Construire votre fichier CSV {#step-3-build-your-csv-file}
 
-Vous pouvez téléverser l'un des types de données suivants dans un seul fichier CSV. Pour téléverser plus d'un type de données, téléversez plusieurs fichiers CSV.
+Vous pouvez téléverser l'un des types de données suivants sous forme d'un seul fichier CSV. Pour téléverser plus d'un type de données, téléversez plusieurs fichiers CSV.
 
-- **Attributs utilisateur :** Cela inclut les attributs utilisateur par défaut et personnalisés. Les attributs utilisateur par défaut sont des clés réservées dans Braze (comme `first_name` ou `email`) et les attributs personnalisés sont des attributs utilisateur propres à votre entreprise (comme `last_destination_searched`).
+- **Attributs utilisateur :** Cela inclut les attributs utilisateur par défaut et personnalisés. Les attributs utilisateur par défaut sont des clés réservées dans Braze (telles que `first_name` ou `email`) et les attributs personnalisés sont des attributs utilisateur propres à votre entreprise (tels que `last_destination_searched`).
 - **Événements personnalisés :** Ce sont des événements propres à votre entreprise qui reflètent les actions effectuées par un utilisateur, comme `trip_booked` pour une application de réservation de voyages.
 
 Lorsque vous êtes prêt à commencer à construire votre fichier CSV, consultez les informations suivantes :
@@ -127,7 +127,7 @@ Bien que l'`external_id` ne soit pas obligatoire, votre fichier CSV doit inclure
 
 #### Attributs personnalisés {#custom-attributes}
 
-Les types de données suivants peuvent être utilisés comme attributs personnalisés pour l'importation CSV. Les en-têtes de colonne qui ne correspondent pas exactement à un [attribut par défaut](#default-attributes) sont importés comme attributs personnalisés dans Braze, sauf modification lors de l'étape de mappage.
+Les types de données suivants peuvent être utilisés comme attributs personnalisés pour l'importation CSV. Les en-têtes de colonnes qui ne correspondent pas exactement à un [attribut par défaut](#default-attributes) sont importés comme attributs personnalisés dans Braze, sauf modification lors de l'étape de mappage.
 
 | Type de données | Description |
 |---|---|
@@ -139,13 +139,13 @@ Les types de données suivants peuvent être utilisés comme attributs personnal
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Attributs personnalisés" }
 
 {% alert important %}
-Les tableaux, les jetons de notification push et les types de données d'événements personnalisés ne sont pas pris en charge dans l'importation d'utilisateurs, car les virgules dans votre fichier CSV seront interprétées comme un séparateur de colonne et provoqueront des erreurs lors de l'analyse de votre fichier.<br><br>Pour téléverser ces types de valeurs, utilisez plutôt l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
+Les tableaux, les jetons de notification push et les types de données d'événements personnalisés ne sont pas pris en charge dans l'importation d'utilisateurs, car les virgules dans votre fichier CSV seront interprétées comme un séparateur de colonnes et provoqueront des erreurs lors de l'analyse de votre fichier.<br><br>Pour téléverser ces types de valeurs, utilisez plutôt l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 {% endalert %}
 
 #### Attributs par défaut {#default-attributes}
 
 {% alert important %}
-Lors de l'importation d'attributs par défaut, les en-têtes de colonne que vous utilisez doivent correspondre exactement à l'orthographe et à la casse des attributs utilisateur par défaut. Sinon, Braze les détecte comme des [attributs personnalisés](#custom-attributes).
+Lors de l'importation d'attributs par défaut, les en-têtes de colonnes que vous utilisez doivent correspondre exactement à l'orthographe et à la casse des attributs utilisateur par défaut. Sinon, Braze les détectera comme des [attributs personnalisés](#custom-attributes).
 {% endalert %}
 
 {% alert tip %}
@@ -168,8 +168,8 @@ Les attributs par défaut suivants sont disponibles pour l'importation d'utilisa
 | `home_city` | Chaîne de caractères | La ville de résidence de vos utilisateurs telle qu'ils l'ont indiquée (par exemple, `London`). | Non |
 | `language` | Chaîne de caractères | La langue doit être transmise à Braze selon la norme ISO-639-1 (par exemple, `en`). Consultez notre [liste des langues acceptées]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). | Non |
 | `phone` | Chaîne de caractères | Un numéro de téléphone tel qu'indiqué par vos utilisateurs, au format `E.164` (par exemple, `+442071838750`). Consultez [Numéros de téléphone des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers) pour des conseils de formatage. | Non |
-| `email_open_tracking_disabled` | Boolean | true ou false accepté. Définissez sur true pour désactiver l'ajout du pixel de suivi d'ouverture à tous les futurs e-mails envoyés à cet utilisateur. Disponible uniquement pour SparkPost et SendGrid. | Non |
-| `email_click_tracking_disabled` | Boolean | true ou false accepté. Définissez sur true pour désactiver le suivi des clics pour tous les liens dans un futur e-mail envoyé à cet utilisateur. Disponible uniquement pour SparkPost et SendGrid. | Non |
+| `email_open_tracking_disabled` | Boolean | true ou false accepté. Définissez sur true pour désactiver l'ajout du pixel de suivi d'ouverture à tous les futurs e-mails envoyés à cet utilisateur. | Non |
+| `email_click_tracking_disabled` | Boolean | true ou false accepté. Définissez sur true pour désactiver le suivi des clics pour tous les liens dans un futur e-mail envoyé à cet utilisateur. | Non |
 | `email_subscribe` | Chaîne de caractères | Les valeurs disponibles sont `opted_in` (explicitement inscrit pour recevoir des e-mails), `unsubscribed` (explicitement désabonné des e-mails) et `subscribed` (ni inscrit ni désabonné). | Non |
 | `push_subscribe` | Chaîne de caractères | Les valeurs disponibles sont `opted_in` (explicitement inscrit pour recevoir des notifications push), `unsubscribed` (explicitement désabonné des notifications push) et `subscribed` (ni inscrit ni désabonné). | Non |
 | `time_zone` | Chaîne de caractères | Le fuseau horaire doit être transmis à Braze dans le même format que la base de données des fuseaux horaires IANA (par exemple, `America/New_York` ou `Eastern Time (US & Canada)`). | Non |
@@ -178,7 +178,7 @@ Les attributs par défaut suivants sont disponibles pour l'importation d'utilisa
 | `subscription_state` | Chaîne de caractères | L'état d'abonnement pour le groupe d'abonnement spécifié par `subscription_group_id`. Les valeurs autorisées sont `unsubscribed` (pas dans le groupe d'abonnement) ou `subscribed` (dans le groupe d'abonnement). | Non, mais fortement recommandé si `subscription_group_id` est utilisé |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Attributs par défaut" }
 
-#### Mise à jour du statut des groupes d'abonnement (facultatif) {#updating-subscription-group-status-optional}
+#### Mise à jour du statut du groupe d'abonnement (optionnel) {#updating-subscription-group-status-optional}
 
 De plus, vous pouvez ajouter des utilisateurs à des groupes d'abonnement e-mail ou SMS via l'importation d'utilisateurs. Cela est particulièrement utile pour les SMS, car un utilisateur doit être inscrit dans un groupe d'abonnement SMS pour recevoir des messages via le canal SMS. Pour plus d'informations, consultez [Groupes d'abonnement SMS]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement).
 
@@ -191,7 +191,7 @@ Si vous mettez à jour les statuts des groupes d'abonnement, vous devez avoir le
 | :---- | :---- | :---- | :---- |
 | A8i3mkd99 | Colby | 6ff593d7-cf69-448b-aca9-abf7d7b8c273 | subscribed |
 | k2LNhj8Ks | Tom | aea02307-a91e-4bc0-abad-1c0bee817dfa | subscribed |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Mise à jour du statut des groupes d'abonnement (facultatif)" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Mise à jour du statut du groupe d'abonnement (optionnel)" }
 
 {% alert note %}
 Un seul `subscription_group_id` peut être défini par ligne dans l'importation d'utilisateurs. Différentes lignes peuvent avoir des valeurs `subscription_group_id` différentes. Cependant, si vous devez inscrire les mêmes utilisateurs dans plusieurs groupes d'abonnement, vous devrez effectuer plusieurs importations.
@@ -212,9 +212,9 @@ Bien que l'`external_id` ne soit pas obligatoire, votre fichier CSV doit inclure
 
 #### Champs d'événements personnalisés {#custom-event-fields}
 
-En plus des champs standard listés dans le tableau suivant, votre CSV peut également contenir des en-têtes de colonne supplémentaires pour les propriétés d'événement. Ces propriétés doivent avoir un en-tête de colonne au format `<event_name>.properties.<property name>` ou `<property name>`.
+En plus des champs standard listés dans le tableau suivant, votre CSV peut également contenir des en-têtes de colonnes supplémentaires pour les propriétés d'événement. Ces propriétés doivent avoir un en-tête de colonne au format `<event_name>.properties.<property name>` ou `<property name>`.
 
-Par exemple, l'événement personnalisé `trip_booked` peut avoir les propriétés `destination` et `duration`. Vous pouvez les importer en utilisant les en-têtes de colonne `trip_booked.properties.destination` et `trip_booked.properties.duration`. Vous pouvez également représenter les propriétés dans les en-têtes sous la forme `<property name>`. Braze détecte les propriétés pertinentes pour chaque événement en fonction de la présence d'une valeur dans la cellule CSV correspondante.
+Par exemple, l'événement personnalisé `trip_booked` peut avoir les propriétés `destination` et `duration`. Vous pouvez les importer en utilisant les en-têtes de colonnes `trip_booked.properties.destination` et `trip_booked.properties.duration`. Vous pouvez également représenter les propriétés dans les en-têtes sous la forme `<property name>`. Braze détecte les propriétés pertinentes pour chaque événement en fonction de la présence d'une valeur dans la cellule CSV correspondante.
 
 | Champ du profil utilisateur | Type de données | Informations | Obligatoire ? |
 | :---- | :---- | :---- | :---- |
@@ -240,7 +240,7 @@ Formatez correctement votre CSV d'événements personnalisés en utilisant la no
 
 ##### Utiliser la notation par points pour les propriétés d'événement {#use-dot-notation-for-event-properties}
 
-Utilisez la notation par points pour définir la relation hiérarchique entre un événement personnalisé et ses propriétés. Cette convention de formatage vous permet d'importer des données d'événement structurées qui incluent des attributs spécifiques pour chaque événement.
+Utilisez la notation par points pour définir la relation hiérarchique entre un événement personnalisé et ses propriétés. Cette convention de formatage vous permet d'importer des données d'événements structurées qui incluent des attributs spécifiques pour chaque événement.
 
 Le format de notation par points suit cette structure : `event_name.properties.property_name`
 
@@ -252,7 +252,7 @@ La notation par points fonctionne dans l'ordre suivant :
 
 **Exemple :**
 
-Pour un événement personnalisé appelé `rented_movie` avec les propriétés `movie_name` et `genre`, vos en-têtes de colonne CSV seraient :
+Pour un événement personnalisé appelé `rented_movie` avec les propriétés `movie_name` et `genre`, vos en-têtes de colonnes CSV seraient :
 
 - `rented_movie.properties.movie_name`
 - `rented_movie.properties.genre`
@@ -306,7 +306,7 @@ Les importations d'utilisateurs CSV sont disponibles au téléchargement depuis 
 
 ### Étape 5 : Mapper vos champs {#csv-data-mapping}
 
-Après l'aperçu, vous pouvez mapper vos en-têtes CSV aux attributs, événements ou propriétés d'événement de Braze. Braze mappe automatiquement les champs de votre fichier CSV aux attributs, événements ou propriétés d'événement portant des noms identiques, et crée de nouveaux champs si nécessaire. Vous avez également la possibilité d'ajuster manuellement les suggestions ou de sélectionner des attributs, événements ou propriétés différents.
+Après l'aperçu, vous pouvez mapper vos en-têtes CSV aux attributs, événements ou propriétés d'événement de Braze. Braze mappe automatiquement les champs de votre fichier CSV aux attributs, événements ou propriétés d'événement portant des noms identiques, et crée de nouveaux champs si nécessaire. Vous aurez également la possibilité d'ajuster manuellement les suggestions ou de sélectionner des attributs, événements ou propriétés différents.
 
 Pour les propriétés d'événement, Braze détecte les propriétés et les associe aux événements pertinents en fonction de la présence d'une valeur non nulle dans une cellule CSV, ou à partir d'en-têtes utilisant la notation par points au format `<event name>.properties.<property name>`.
 
@@ -319,17 +319,17 @@ La colonne de statut de mappage indique l'action qui se produit lors de l'import
 | Statut de mappage | Signification |
 |:---|:---|
 | **Mappé** | Champ mappé à un attribut, événement ou identifiant existant. |
-| **Nouvel attribut**, **Nouvel événement** ou **Nouvelle propriété d'événement** | Braze crée un nouvel attribut ou événement lors de l'importation. Vous pouvez le modifier en sélectionnant le bouton **Modifier le nouvel attribut**, **Modifier le nouvel événement** ou **Modifier la nouvelle propriété**. |
+| **Nouvel attribut**, **Nouvel événement** ou **Nouvelle propriété d'événement** | Braze crée un nouvel attribut ou événement lors de l'importation. Vous pouvez le modifier en sélectionnant le bouton **Edit new attribute**, **Edit new event** ou **Edit new property**. |
 | **Incompatibilité de type de données** | Le type de données détecté de la colonne CSV ne correspond pas au type de données de l'attribut, de l'événement ou de l'identifiant existant. Braze tente de convertir le type de données lors de l'importation pour correspondre à l'attribut existant. Braze supprime la valeur si cela n'est pas possible. |
 | **Attribut en liste de blocage** ou **Événement en liste de blocage** | Le champ CSV correspond au nom d'un attribut ou d'un événement en liste de blocage. Sélectionnez un attribut ou un événement différent pour le mappage, sinon il ne sera pas importé. |
 | **Attribut en double** | Il y a un ou plusieurs champs portant le même nom dans votre fichier CSV. Mappez les colonnes portant le même nom à des attributs différents, sinon seule la première colonne sera importée. |
-| **Clé d'événement réservée** | Le nom de votre propriété d'événement correspond à une clé d'événement réservée dans Braze, comme `time` ou `event_name`. Saisissez un nom différent ou sélectionnez une propriété différente pour le mappage, sinon elle sera supprimée. |
+| **Clé d'événement réservée** | Le nom de votre propriété d'événement correspond à une clé d'événement réservée dans Braze, telle que `time` ou `event_name`. Saisissez un nom différent ou sélectionnez une propriété différente pour le mappage, sinon elle sera supprimée. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Statuts de mappage" }
 
 
 #### Modifier les nouveaux attributs, événements et propriétés {#editing-new-attributes-events-and-properties}
 
-Lorsqu'un attribut, événement ou propriété d'événement correspondant n'existe pas dans votre espace de travail, Braze tente de créer un nouvel attribut, événement ou propriété lors de l'importation en utilisant le nom du champ CSV et le type de données détecté. Vous pouvez modifier ce nouveau champ avant l'importation en sélectionnant le bouton **Modifier le nouvel attribut**, **Modifier le nouvel événement** ou **Modifier la nouvelle propriété** à côté du statut de mappage.
+Lorsqu'un attribut, événement ou propriété d'événement correspondant n'existe pas dans votre espace de travail, Braze tente de créer un nouvel attribut, événement ou propriété lors de l'importation en utilisant le nom du champ CSV et le type de données détecté. Vous pouvez modifier ce nouveau champ avant l'importation en sélectionnant le bouton **Edit new attribute**, **Edit new event** ou **Edit new property** à côté du statut de mappage.
 
 ![Le bouton de modification du nouvel attribut sur la page de mappage des colonnes.]({% image_buster /assets/img/csv_import/column_mapping_edit_attribute_button.png %})
 
@@ -350,7 +350,7 @@ Après le mappage, vous pouvez choisir parmi les préférences de ciblage suivan
 
 ![Un groupe de filtres avec le filtre « Updated/Imported from CSV » incluant un fichier CSV intitulé « Halloween season fun ».]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
 
-### Étape 7 : Valider votre fichier (facultatif) {#file-validation}
+### Étape 7 : Valider votre fichier (optionnel) {#file-validation}
 
 Avant de lancer votre importation, vous pouvez exécuter une validation de fichier pour vérifier chaque ligne à la recherche d'erreurs et d'avertissements. Pour valider votre fichier, sélectionnez **Validate file before importing** sur la page des paramètres d'importation, puis sélectionnez **Next**.
 
@@ -368,7 +368,7 @@ Lorsque la validation est terminée, l'un des résultats suivants apparaît.
 | **Validation expirée avec des problèmes** | La validation a manqué de temps et a trouvé des erreurs dans certaines des lignes vérifiées. | Téléchargez le rapport partiel pour examiner ce qui a été trouvé, puis sélectionnez **Import anyway** ou **Cancel**. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Résultats de la validation" }
 
-![La page de résumé montrant la section des problèmes trouvés, avec un décompte des lignes comportant des erreurs et des avertissements, ainsi que des options pour revenir en arrière, télécharger le rapport d'erreurs ou lancer l'importation.]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
+![La page de résumé montrant la section des problèmes trouvés, avec un décompte des lignes comportant des erreurs et des avertissements, et des options pour revenir en arrière, télécharger le rapport d'erreurs ou lancer l'importation.]({% image_buster /assets/img/csv_import/summary_page_validation_results.png %})
 
 #### Comprendre le rapport d'erreurs {#understanding-the-error-report}
 
@@ -387,7 +387,7 @@ Après avoir examiné le rapport, vous pouvez corriger les problèmes dans votre
 ### Étape 8 : Lancer votre importation CSV {#step-8-start-your-csv-import}
 
 Lorsque vous êtes prêt, sélectionnez **Start Import**. Vous pouvez suivre la progression en cours sur la page **Import Users**, qui s'actualise automatiquement toutes les 5 secondes.
-Le traitement peut prendre de quelques minutes à quelques heures selon la taille de votre CSV. Pendant ce temps, le tableau de bord peut sembler non réactif ou répondre lentement, mais l'importation est toujours en cours.
+Le traitement peut prendre de quelques minutes à plusieurs heures selon la taille de votre CSV. Pendant ce temps, le tableau de bord peut sembler non réactif ou répondre lentement, mais l'importation est toujours en cours.
 
 {% alert note %}
 Vous pouvez importer plusieurs CSV en même temps. Les importations CSV s'exécutent simultanément, donc l'ordre des mises à jour n'est pas garanti comme étant séquentiel. Si vous avez besoin que les importations CSV s'exécutent l'une après l'autre, attendez qu'une importation CSV soit terminée avant d'en téléverser une seconde.
@@ -418,7 +418,7 @@ Chaque donnée client importée à partir d'un fichier CSV écrase la valeur exi
 
 | Considération | Détails |
 |---|---|
-| ID externes | Importer un fichier CSV contenant uniquement `external_id` n'enregistre pas de points de donnée. Cela vous permet de segmenter les utilisateurs Braze existants sans impacter les limites de données. Cependant, inclure des champs comme `email` ou `phone` écrase les données utilisateur existantes et enregistre **bel et bien** des points de donnée. <br><br>Les importations CSV utilisées uniquement pour la segmentation n'enregistrent pas de points de donnée, comme celles contenant uniquement `external_id`, `braze_id` ou `user_alias_name`. |
+| ID externes | Le téléchargement d'un fichier CSV contenant uniquement `external_id` n'enregistre pas de points de donnée. Cela vous permet de segmenter les utilisateurs Braze existants sans affecter les limites de données. Cependant, l'inclusion de champs tels que `email` ou `phone` écrase les données utilisateur existantes et enregistre **bel et bien** des points de donnée. <br><br>Les importations CSV utilisées uniquement pour la segmentation n'enregistrent pas de points de donnée, comme celles contenant uniquement `external_id`, `braze_id` ou `user_alias_name`. |
 | Valeurs vides | Les valeurs vides dans votre fichier CSV n'écraseront pas les données existantes du profil utilisateur. Vous n'avez pas besoin d'inclure tous les attributs utilisateur ou événements personnalisés lors de l'importation. |
 | États d'abonnement | La mise à jour de `email_subscribe`, `push_subscribe`, `subscription_group_id` ou `subscription_state` ne compte **pas** dans l'utilisation des points de donnée. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Considérations relatives aux points de donnée" }
@@ -433,7 +433,7 @@ Si vous avez utilisé la [validation de fichier](#file-validation), commencez pa
 
 Pour la résolution des problèmes d'importation CSV, consultez ces problèmes courants dans les sections suivantes.
 
-### Importation CSV bloquée sur Calculating {#csv-import-stuck-on-calculating}
+### L'importation CSV est bloquée sur Calculating {#csv-import-stuck-on-calculating}
 
 Dans **Import Users**, `Calculating` signifie que Braze prépare encore le fichier pour le traitement. Pendant cette étape, le nombre de lignes peut s'afficher comme `0 / Calculating` jusqu'à la fin de la préparation.
 
@@ -441,31 +441,31 @@ Si votre importation semble bloquée sur Calculating :
 
 - Laissez l'importation continuer. N'annulez pas et ne rechargez pas le fichier, sauf si le support Braze vous le conseille.
 - Confirmez que votre fichier respecte les limites prises en charge dans [Construire votre CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#import-options).
-- Consultez l'[étape 4 : Charger votre fichier](#step-4-upload-your-file) et l'[étape 8 : Démarrer votre importation CSV](#step-8-start-your-csv-import) pour le comportement attendu du tableau de bord et les temps de traitement.
-- Contactez le support Braze si `Calculating` dure bien plus longtemps que prévu pour la taille de votre fichier après avoir effectué ces vérifications.
+- Consultez l'[Étape 4 : Charger votre fichier](#step-4-upload-your-file) et l'[Étape 8 : Démarrer votre importation CSV](#step-8-start-your-csv-import) pour le comportement attendu du tableau de bord et les temps de traitement.
+- Contactez le support Braze si `Calculating` dure bien plus longtemps que prévu pour la taille de votre fichier après avoir vérifié ces points.
 
 ### Utiliser l'e-mail comme `external_id` {#use-email-as-external_id}
 
-Braze ne recommande pas d'utiliser une adresse e-mail comme `external_id`. Si vous utilisez l'e-mail comme `external_id`, incluez les colonnes `external_id` et `email` dans votre CSV afin que les utilisateurs restent ciblables sur le canal e-mail. Utilisez une virgule (`,`) comme délimiteur de colonne, et non un deux-points (`:`).
+Braze ne recommande pas d'utiliser une adresse e-mail comme `external_id`. Si vous utilisez l'e-mail comme `external_id`, incluez les colonnes `external_id` et `email` dans votre CSV afin que les utilisateurs restent ciblables sur le canal e-mail. Utilisez une virgule (`,`) comme délimiteur de colonnes, et non un deux-points (`:`).
 
 ### Caractères de guillemets dans les valeurs `external_id` {#quote-characters-in-external_id-values}
 
 Si une cellule `external_id` contient un guillemet double, échappez-le en doublant le caractère (`""`), comme décrit dans [Guillemets doubles non échappés ou déséquilibrés](#missing-row). L'importation CSV n'utilise pas l'échappement par barre oblique inverse.
 
-### L'importation CSV n'est pas disponible comme filtre de segment {#csv-import-isnt-available-as-a-segment-filter}
+### L'importation CSV n'est pas disponible comme filtre de Segment {#csv-import-isnt-available-as-a-segment-filter}
 
-Vous pouvez utiliser une importation CSV comme filtre de segment uniquement si vous avez activé une préférence de ciblage lors du chargement.
+Vous pouvez utiliser une importation CSV comme filtre de Segment uniquement si vous avez activé une préférence de ciblage lors du chargement.
 
 Pour vérifier si la disponibilité du ciblage est activée pour une importation existante :
 
 1. Sur la page **Import Users**, trouvez votre importation CSV.
 2. Vérifiez si **Go to Segment** apparaît pour cette importation.
-3. Si **Go to Segment** apparaît, votre CSV est disponible dans le filtre de segment `Updated/Imported from CSV`.
+3. Si **Go to Segment** apparaît, votre CSV est disponible dans le filtre de Segment `Updated/Imported from CSV`.
 4. Si **Go to Segment** n'apparaît pas, la disponibilité du ciblage n'a pas été activée pour cette importation.
 
-Vous ne pouvez pas activer la disponibilité du ciblage après la fin d'un chargement CSV. Pour utiliser ce CSV comme filtre de segment, rechargez le fichier, et à l'[étape 6 : Choisir les préférences de ciblage](#step-6-choose-targeting-preferences), sélectionnez **Create targeting filter** ou **Create targeting filter and add to new segment**.
+Vous ne pouvez pas activer la disponibilité du ciblage après la fin d'un chargement CSV. Pour utiliser ce CSV comme filtre de Segment, rechargez le fichier, et à l'[Étape 6 : Choisir les préférences de ciblage](#step-6-choose-targeting-preferences), sélectionnez **Create targeting filter** ou **Create targeting filter and add to new segment**.
 
-Si votre objectif est de créer un segment sans mettre à jour les données de profil, chargez un CSV qui inclut uniquement les colonnes d'identifiants (par exemple, `external_id` ou les colonnes d'identifiants d'alias), puis sélectionnez **Create targeting filter and add to new segment**.
+Si votre objectif est de créer un Segment sans mettre à jour les données de profil, chargez un CSV qui inclut uniquement les colonnes d'identifiants (par exemple, `external_id` ou les colonnes d'identifiants d'alias), puis sélectionnez **Create targeting filter and add to new segment**.
 
 ### Problèmes de formatage de fichier {#file-formatting-issues}
 
@@ -477,7 +477,7 @@ Pour importer correctement les données, il doit y avoir une ligne d'en-tête. C
 
 De plus, toutes les données doivent être encodées en UTF-8. Si le fichier est enregistré avec un encodage hérité (par exemple, certains paramètres par défaut d'Excel), les caractères spéciaux et les URL dans les cellules peuvent être corrompus et apparaître sous forme de points d'interrogation (`?`) dans Braze ou dans les messages envoyés.
 
-Si votre fichier CSV contient des lignes vides et importe moins de lignes que le nombre total de lignes dans le fichier CSV, cela peut ne pas indiquer un problème avec l'importation, car les lignes vides n'ont pas besoin d'être importées. Vérifiez le nombre de lignes correctement importées et assurez-vous qu'il correspond au nombre d'utilisateurs que vous essayez d'importer.
+Si votre fichier CSV contient des lignes vides et importe moins de lignes que le nombre total de lignes dans le fichier CSV, cela n'indique pas nécessairement un problème avec l'importation, car les lignes vides n'ont pas besoin d'être importées. Vérifiez le nombre de lignes correctement importées et assurez-vous qu'il correspond au nombre d'utilisateurs que vous tentez d'importer.
 
 #### Ligne manquante {#missing-row}
 
@@ -488,7 +488,7 @@ Il existe plusieurs raisons pour lesquelles le nombre d'utilisateurs importés p
 | ID externes, alias d'utilisateur, ID Braze, adresses e-mail ou numéros de téléphone en double | S'il y a des colonnes d'ID externes en double, cela peut provoquer des lignes malformées ou non importées même si les lignes sont correctement formatées. Dans certains cas, cela peut ne pas signaler d'erreur spécifique. Vérifiez les doublons et supprimez-les avant de recharger. |
 | Caractères accentués | Votre CSV peut inclure des noms ou des attributs avec des accents. Assurez-vous que le fichier est encodé en UTF-8 pour éviter les problèmes d'importation. |
 | L'ID Braze appartient à un utilisateur orphelin | Si un utilisateur a été fusionné avec un autre et que Braze ne peut pas associer l'ID Braze au profil restant, la ligne ne sera pas importée. |
-| Ligne vide | Les lignes vides dans le CSV peuvent provoquer des erreurs de données malformées. Vérifiez à l'aide d'un éditeur de texte brut, pas Excel ou Sheets. |
+| Ligne vide | Les lignes vides dans le CSV peuvent provoquer des erreurs de données malformées. Vérifiez avec un éditeur de texte brut, pas Excel ou Sheets. |
 | Guillemets doubles non échappés ou déséquilibrés (`"`) | Les guillemets doubles encadrent les valeurs de chaîne contenant des virgules. Si une valeur contient elle-même un guillemet double, échappez-le en le doublant (`""`). Les guillemets doubles non échappés ou déséquilibrés provoquent une ligne malformée. |
 | Sauts de ligne incohérents | Des sauts de ligne mixtes (par exemple, `\n` et `\r\n`) peuvent faire en sorte que la première ligne de données soit traitée comme faisant partie de l'en-tête. Utilisez un éditeur hexadécimal ou un éditeur de texte avancé pour inspecter et corriger. |
 | Fichier incorrectement encodé | Même si les accents sont autorisés, le fichier doit être encodé en UTF-8. D'autres encodages peuvent fonctionner partiellement mais ne sont pas entièrement pris en charge. |
@@ -513,23 +513,23 @@ Si votre chargement s'est terminé avec des erreurs, il peut y avoir une ou plus
 
 #### Données importées comme attribut personnalisé {#data-imported-as-custom-attribute}
 
-Si une donnée utilisateur par défaut (comme `email` ou `first_name`) est importée comme attribut personnalisé, vérifiez la casse et l'espacement de votre fichier CSV. Par exemple, `First_name` est importé comme attribut personnalisé, tandis que `first_name` est correctement importé dans le champ « first name » du profil utilisateur.
+Si une donnée utilisateur par défaut (comme `email` ou `first_name`) est importée comme attribut personnalisé, vérifiez la casse et l'espacement de votre fichier CSV. Par exemple, `First_name` est importé comme attribut personnalisé, tandis que `first_name` est correctement importé dans le champ « prénom » du profil utilisateur.
 
 #### Modifier le type de données d'un attribut personnalisé {#change-a-custom-attributes-data-type}
 
-Si vous devez modifier le type de données d'un attribut personnalisé existant (par exemple, de chaîne de caractères à booléen), mettez à jour le type de données sur la page [**Custom Attributes**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) du tableau de bord avant d'importer votre CSV. Si le type de données dans votre CSV ne correspond pas au type de données actuellement défini pour l'attribut, l'importation échoue avec une erreur.
+Si vous devez modifier le type de données d'un attribut personnalisé existant (par exemple, de chaîne de caractères à booléen), mettez à jour le type de données sur la page [**Custom Attributes**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) dans le tableau de bord avant d'importer votre CSV. Si le type de données dans votre CSV ne correspond pas au type de données actuellement défini pour l'attribut, l'importation échoue avec une erreur.
 
 #### Types de données multiples {#multiple-data-types}
 
 Braze s'attend à ce que chaque valeur d'une colonne soit du même type de données. Les valeurs qui ne correspondent pas au type de données de leur attribut provoquent des erreurs de segmentation.
 
-De plus, commencer un attribut numérique par zéro causera des problèmes, car les nombres commençant par zéro sont considérés comme des chaînes de caractères. Lorsque Braze convertit cette chaîne, elle peut être traitée comme une valeur octale (qui utilise les chiffres de zéro à sept), ce qui signifie qu'elle est convertie en sa valeur décimale correspondante. Par exemple, si la valeur dans le fichier CSV est 0130, le profil Braze affiche 88. Pour éviter ce problème, utilisez des attributs avec des types de données chaîne de caractères. Cependant, ce type de données n'est pas disponible dans la comparaison numérique de segmentation.
+De plus, commencer un attribut numérique par zéro causera des problèmes, car les nombres commençant par zéro sont considérés comme des chaînes de caractères. Lorsque Braze convertit cette chaîne, elle peut être traitée comme une valeur octale (qui utilise les chiffres de zéro à sept), ce qui signifie qu'elle est convertie en sa valeur décimale correspondante. Par exemple, si la valeur dans le fichier CSV est 0130, le profil Braze affiche 88. Pour éviter ce problème, utilisez des attributs avec des types de données de chaîne de caractères. Cependant, ce type de données n'est pas disponible dans la comparaison numérique de segmentation.
 
 #### Types d'attributs par défaut {#default-attribute-types}
 
-Certains attributs par défaut peuvent n'accepter que certaines valeurs comme valides pour les mises à jour d'utilisateurs. Pour des conseils, consultez [Construire votre CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
+Certains attributs par défaut n'acceptent que certaines valeurs comme valides pour les mises à jour utilisateur. Pour des conseils, consultez [Construire votre CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
 
-Les espaces de fin et les différences de casse peuvent faire en sorte qu'une valeur soit interprétée comme invalide. Par exemple, dans le fichier CSV suivant, seul l'utilisateur de la première ligne (`brazetest1`) voit ses statuts e-mail et push mis à jour avec succès, car les valeurs acceptées sont `unsubscribed`, `subscribed` et `opted_in`.
+Les espaces en fin de chaîne et les différences de casse peuvent faire en sorte qu'une valeur soit interprétée comme invalide. Par exemple, dans le fichier CSV suivant, seul l'utilisateur de la première ligne (`brazetest1`) voit ses statuts d'e-mail et de notification push mis à jour avec succès, car les valeurs acceptées sont `unsubscribed`, `subscribed` et `opted_in`.
 
 ```plaintext
 external_id,email,email_subscribe,push_subscribe
@@ -543,7 +543,7 @@ Il existe plusieurs raisons pour lesquelles le bouton **Select CSV File** peut n
 
 | Problème | Résolution |
 |---|---|
-| Bloqueur de fenêtres contextuelles | Cela peut empêcher la page de s'afficher. Confirmez que votre navigateur autorise les fenêtres contextuelles sur le site du tableau de bord de Braze. |
+| Bloqueur de pop-ups | Cela peut empêcher la page de s'afficher. Confirmez que votre navigateur autorise les pop-ups sur le site du tableau de bord de Braze. |
 | Navigateur obsolète | Assurez-vous que votre navigateur est à jour ; sinon, mettez-le à jour vers la dernière version. |
 | Processus en arrière-plan | Fermez toutes les instances du navigateur, puis redémarrez votre ordinateur. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="« Select CSV File » ne fonctionne pas" }

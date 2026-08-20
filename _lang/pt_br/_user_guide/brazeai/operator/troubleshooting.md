@@ -14,9 +14,9 @@ description: "Problemas comuns e soluções para o BrazeAI Operator<sup>TM</sup>
 | Problema | Solução de problemas |
 | --- | --- |
 | Sem resposta | Tente atualizar a página e reabrir o painel do Operator. |
-| Respostas fora do tópico | Reformule a pergunta de forma mais específica. Mencione o recurso ou fluxo de trabalho sobre o qual está perguntando. |
-| Mensagens de erro | Se o Operator não conseguir transmitir conteúdo, um prompt de "Tente novamente" pode aparecer. O Operator pode estar temporariamente indisponível ou a conexão foi interrompida. Tente novamente após alguns minutos. |
-| Limite de uso diário excedido | O limite de uso da empresa foi atingido. Aguarde o limite ser redefinido (é redefinido a cada 24 horas). |
+| Respostas fora do contexto | Reformule a pergunta de forma mais específica. Mencione o recurso ou fluxo de trabalho sobre o qual está perguntando. |
+| Mensagens de erro | Se o Operator não conseguir transmitir o conteúdo, um prompt "Try again" pode aparecer. O Operator pode estar temporariamente indisponível ou a conexão foi interrompida. Tente novamente após alguns minutos. |
+| Limite diário atingido | O limite diário de uso da empresa foi atingido. Todas as ações do Operator contam para esse limite. Aguarde o limite ser redefinido (a cada 24 horas). Você ainda pode abrir um ticket de suporte pelo formulário web. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Problemas comuns" }
 
 Para saber o que o Operator pode e não pode fazer no dashboard, consulte [Limitações]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#limitations).

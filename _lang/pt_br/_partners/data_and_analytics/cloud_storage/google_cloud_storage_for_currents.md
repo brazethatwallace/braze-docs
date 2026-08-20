@@ -29,21 +29,21 @@ A integração entre a Braze e o Google Cloud Storage permite enviar dados do Cu
 
 ## Integração {#integration}
 
-Para integrar com o Google Cloud Storage, você deve configurar as credenciais apropriadas que permitam à Braze obter informações sobre os buckets de armazenamento nos quais os dados são gravados (`storage.buckets.get`) e criar objetos dentro desse bucket (`storage.objects.create`).
+Para integrar com o Google Cloud Storage, você deve configurar as credenciais apropriadas que permitam à Braze obter informações sobre os buckets de armazenamento que estão sendo gravados (`storage.buckets.get`) e criar objetos dentro desse bucket (`storage.objects.create`).
 
 {% alert note %}
 O Workload Identity Federation (WIF) não é compatível como método de autenticação para o Currents. Você deve usar uma conta de serviço com uma chave privada JSON.
 {% endalert %}
 
-Isso pode ser feito seguindo as instruções abaixo, que orientam você na criação de uma função e uma conta de serviço que gerará uma chave privada para uso na sua integração com o Currents.
+Isso pode ser feito usando as instruções a seguir, que orientam você na criação de uma função e conta de serviço que gerará uma chave privada para uso na sua integração com o Currents.
 
-### Etapa 1: Criar a função {#step-1-create-role}
+### Etapa 1: Criar função {#step-1-create-role}
 
 Crie uma nova função no console do Google Cloud Platform navegando até **IAM & admin** > **Roles** > **+ Create Role**.
 
 ![Página de funções IAM do Google Cloud com a ação Create Role.]({% image_buster /assets/img/gcs1.png %})
 
-Dê um nome à função, selecione **+Add Permissions** e escolha as seguintes permissões:
+Dê um nome à função, selecione **+Add Permissions** e escolha as seguintes:
 
 - `storage.objects.create`
 - `storage.objects.delete`
@@ -52,7 +52,7 @@ Dê um nome à função, selecione **+Add Permissions** e escolha as seguintes p
 - `storage.buckets.get`
 
 {% alert note %}
-A permissão `storage.objects.delete` é opcional. Ela permite que a Braze limpe arquivos incompletos.<br><br>Em circunstâncias raras, o Google Cloud pode encerrar conexões prematuramente, fazendo com que a Braze grave arquivos incompletos no Google Cloud Storage. Na maioria dos casos, a Braze tentará novamente e criará um novo arquivo com os dados corretos, deixando o arquivo antigo no Google Cloud Storage.
+A permissão `storage.objects.delete` é opcional. Ela permite que a Braze limpe arquivos incompletos.<br><br>Em circunstâncias raras, o Google Cloud pode encerrar conexões antecipadamente, resultando na gravação de arquivos incompletos pela Braze no Google Cloud Storage. Na maioria dos casos, a Braze tentará novamente e criará um novo arquivo com os dados corretos, deixando o arquivo antigo no Google Cloud Storage.
 {% endalert %}
 
 {% alert important %}
@@ -85,13 +85,15 @@ Na parte inferior da página, use o botão **Create Key** para criar uma chave p
 
 Na Braze, navegue até **Currents** > **+ Create Current** > **Google Cloud Storage Data Export** e forneça o nome da integração e o e-mail de contato.
 
+{% multi_lang_include currents/contact_email_notifications.md %}
+
 Em seguida, faça o upload da sua chave privada JSON em **GCS JSON Credentials** e forneça o nome do bucket GCS e o prefixo GCS (opcional). Observe que você deve gerar essas credenciais pelo Google Cloud Platform, conforme descrito nas etapas anteriores.
 
 {% alert important %}
 É importante manter seu arquivo de credenciais atualizado. Se as credenciais do seu conector expirarem, o conector deixará de enviar eventos. Se isso persistir por mais de **5 dias**, os eventos do conector serão descartados e os dados serão permanentemente perdidos.
 {% endalert %}
 
-![Página do Google Cloud Storage Currents na Braze. Nesta página, existem campos para nome da integração, e-mail de contato, credencial JSON do GCS, nome do bucket GCS e prefixo.]({% image_buster /assets/img/gcs6.png %})
+![Página do Google Cloud Storage Currents na Braze. Nesta página existem campos para nome da integração, e-mail de contato, credencial JSON do GCS, nome do bucket GCS e prefixo.]({% image_buster /assets/img/gcs6.png %})
 
 Por fim, role até a parte inferior da página e selecione quais eventos de engajamento com mensagem ou eventos de comportamento do cliente você deseja exportar. Quando concluído, inicie seu Current.
 
@@ -144,7 +146,7 @@ Se você receber o seguinte erro ao tentar inserir suas credenciais:
 Google Cloud Storage Credentials are invalid. Please ensure that your credentials string, bucket name, and prefix are valid. You do not have read permission.
 ```
 
-Verifique se sua conta de serviço IAM do Google Cloud tem as seguintes permissões:
+Verifique se a conta de serviço IAM do Google Cloud tem as seguintes permissões:
 
 - `storage.objects.create`
 - `storage.objects.delete`

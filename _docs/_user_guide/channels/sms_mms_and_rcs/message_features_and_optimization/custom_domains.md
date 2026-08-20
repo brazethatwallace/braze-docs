@@ -15,7 +15,7 @@ channel:
 
 > This page covers how to set up your own custom domains in the Braze dashboard. Custom domains allow you to use a branded shortened link that reflects your brand’s identity instead of a generic shortened link or the Braze domain (`brz.ai`)—improving user trust and campaign engagement with SMS links.
 
-Self-serve custom domains empower you to configure and manage your own custom domains for SMS, RCS, and WhatsApp—directly from your Braze dashboard. You can easily add, monitor, and manage up to 10 custom domains in one place.
+With self-serve custom domains, you can configure and manage your own custom domains for SMS, RCS, and WhatsApp—directly from your Braze dashboard. You can easily add, monitor, and manage up to 10 custom domains in one place.
 
 ## Benefits of self-serve custom domains
 
@@ -25,7 +25,7 @@ Self-serve custom domains empower you to configure and manage your own custom do
 
 ## Domain requirements
 
-- Domains must be procured, owned, and managed by you. This can be done through a domain registrar, such as GoDaddy, Amazon Route 53, or Google Domains.
+- Domains must be procured, owned, and managed by you. This can be done through a domain registrar, such as GoDaddy, Amazon Route 53, or Cloudflare.
 - The domain used for this feature must be:
   - Unique (different from your website domain)
   - Can't be used to host any web content
@@ -34,6 +34,10 @@ Self-serve custom domains empower you to configure and manage your own custom do
 ## Delegating your custom domain
 
 We require you to delegate your custom domain to Braze so that we can facilitate proper routing and infrastructure compatibility with our link shortening and click tracking services. When you delegate your domain to Braze, we automatically handle the certificate renewal to prevent a lapse in service.
+
+{% alert important %}
+If your DNS records aren't updated within 45 days, the setup token expires. Restart domain setup from **SMS/RCS and Messaging Apps Domains** to generate new DNS records.
+{% endalert %}
 
 ## Adding a custom domain
 
@@ -50,7 +54,7 @@ We require you to delegate your custom domain to Braze so that we can facilitate
 4. Have your technical team (such as engineering or IT) update your DNS configuration with the Cloudflare DNS record details that display. Your technical team must update your DNS records with these details within 45 days.
   - If you need additional time to update your DNS records, you can restart the process and generate a new set of DNS records for your domain.
 
-Braze will poll your DNS configuration roughly every 30 minutes to check for updates.
+Braze polls your DNS configuration roughly every 30 minutes to check for updates.
 
 !["DNS record" section with 3 steps to complete to finish setting up your domain.]({% image_buster /assets/img/dns_record.png %})
 
@@ -64,7 +68,7 @@ After your domain is verified, your custom domains will appear in the table on t
 
 ![List of custom domains and statuses.]({% image_buster /assets/img/custom_domain_statuses.png %}){: style="max-width:60%;"}
 
-Live monitoring will alert you in the Braze dashboard if any of your active domains have an issue, so that your custom links remain usable. If you encounter any issues, refer to the in-app error details or contact Braze [Support]({{site.baseurl}}/braze_support) for assistance.
+Live monitoring alerts you in the Braze dashboard if any of your active domains have an issue, so that your custom links remain usable. If you encounter any issues, refer to the in-app error details or contact Braze [Support]({{site.baseurl}}/braze_support) for assistance.
 
 ## Assigning custom domains to subscription groups
 
@@ -74,7 +78,7 @@ After they're configured, custom domains can be assigned to one or multiple SMS,
 2. Find and select your subscription group in the list.
 3. Under **Subscription Group Details**, select your custom domain in the **Link Shortening Domain** dropdown.
 
-Campaigns sent with link shortening turned on will use the assigned domain associated with your SMS, RCS, or WhatsApp subscription group.
+Campaigns sent with link shortening turned on use the assigned domain associated with your SMS, RCS, or WhatsApp subscription group.
 
 ![SMS message composer preview with a shortened link domain that is different from the domain in the "Message" box.]({% image_buster /assets/img/custom_domain2.png %})
 
@@ -90,13 +94,17 @@ Yes. Domains can be associated with subscription groups in multiple workspaces, 
 
 ### How many custom domains can I add?
 
-You can add up to 10 custom domains per dashboard.
+You can add up to 10 custom domains per dashboard. Braze may configure a higher limit for your company on request.
+
+Domains in **Pending** or **Error** status count toward this limit. Delete them or resolve the error on the **SMS/RCS and Messaging Apps Domains** page.
+
+You can't delete a domain that is assigned as the **Link Shortening Domain** on a subscription group. Reassign the domain on each subscription group first, then delete the domain.
 
 ### What happens if I don’t update my DNS records within 45 days?
 
-Though your Cloudflare DNS record details will expire after 45 days, you can restart the setup process with the same domain and Braze will generate a set of new DNS records to extend your setup window.
+Though your Cloudflare DNS record details will expire after 45 days, you can restart the setup process with the same domain and Braze generates a set of new DNS records to extend your setup window.
 
-### Will I be notified if there is an error during the DNS update process?
+### Am I notified if there is an error during the DNS update process?
 
 Yes. If there’s an error, you’ll receive a banner in the Braze dashboard detailing the issue along with steps to resolve it. 
 

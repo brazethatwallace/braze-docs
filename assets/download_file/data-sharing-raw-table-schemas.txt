@@ -30,6 +30,7 @@ AGENTCONSOLE_AGENTEXECUTED_SHARED: Kafka record schema for when an Agent Console
 	OUTPUT (VARCHAR(16777216)): [PII] response from the LLM
 	INVOCATION_SOURCE (VARCHAR(16777216)): which ruby object invoked the LLM request
 	ERROR (VARCHAR(16777216)): Error name
+	THINKING_LEVEL (VARCHAR(16777216)): the thinking/reasoning level used for the request
 	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
 
 AGENTCONSOLE_TOOLINVOCATION_SHARED: Kafka record schema for when a tool is executed
@@ -55,6 +56,18 @@ CHANGELOGS_GLOBALCONTROLGROUP_SHARED: Global Control Group changed
 	RANDOM_BUCKET_NUMBER (NUMBER(38,0)): New random bucket number
 	GLOBAL_CONTROL_GROUP (BOOLEAN): With this change, the bucket number is included as global control group
 	PREVIOUS_GLOBAL_CONTROL_GROUP (BOOLEAN): Before this change the bucket number was included as global control group but it no longer is
+	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
+
+CONTENTOPTIMIZER_COMPONENTSTORE_SHARED: Updates to the component store
+	APP_GROUP_API_ID (VARCHAR(16777216)): API ID of the app group this user belongs to
+	APP_GROUP_ID (VARCHAR(16777216)): BSON ID of the app group this user belongs to
+	EXTERNAL_USER_ID (VARCHAR(16777216)): [PII] External ID of the user
+	ID (VARCHAR(16777216)): Globally unique ID for this event
+	TIME (NUMBER(38,0)): UNIX timestamp at which the event happened
+	CONTENT_OPTIMIZER_STEP_ID (VARCHAR(16777216)): CO step internal ID
+	COMBINATION_TOKEN (VARCHAR(16777216)): Component combination assigned
+	CONTENT (VARCHAR(16777216)): Rendered content payload in JSON format
+	IS_ACTIVE (BOOLEAN): Whether the combination token is actively used for serving
 	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_BEHAVIORS_APP_FIRSTSESSION_SHARED: when a user has their first session
@@ -499,6 +512,19 @@ USERS_CANVAS_CONVERSION_SHARED: when a user converts for a Canvas
 	CONVERSION_BEHAVIOR (VARCHAR(16777216)): JSON-encoded string describing the conversion behavior
 	SF_CREATED_AT (TIMESTAMP_LTZ(9)): when this event was picked up by the Snowpipe
 
+USERS_CANVAS_COSTEP_CONVERSION_SHARED: Conversion events for content optimizer canvas step
+	APP_GROUP_API_ID (VARCHAR(16777216)): API ID of the app group this user belongs to
+	APP_GROUP_ID (VARCHAR(16777216)): BSON ID of the app group this user belongs to
+	EXTERNAL_USER_ID (VARCHAR(16777216)): [PII] External ID of the user
+	ID (VARCHAR(16777216)): Globally unique ID for this event
+	TIME (NUMBER(38,0)): UNIX timestamp at which the event happened
+	USER_ID (VARCHAR(16777216)): [PII] Braze user ID of the user who performed this event
+	DISPATCH_ID (VARCHAR(16777216)): ID of the dispatch this message belongs to
+	CHANNEL (VARCHAR(16777216)): Channel this event belongs to
+	CONVERSION_TYPE (VARCHAR(16777216)): The type of conversion (open or click)
+	COMBINATION_TOKEN (VARCHAR(16777216)): Component combination assigned
+	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
+
 USERS_CANVAS_COSTEP_SEND_SHARED: The canvas sends for content optimization canvas step
 	APP_GROUP_API_ID (VARCHAR(16777216)): API ID of the app group this user belongs to
 	APP_GROUP_ID (VARCHAR(16777216)): BSON ID of the app group this user belongs to
@@ -751,6 +777,7 @@ USERS_MESSAGES_BANNER_CLICK_SHARED: when a user clicks a banner
 	CANVAS_STEP_MESSAGE_VARIATION_API_ID (VARCHAR(16777216)): API ID of the Canvas step message variation this user received
 	CANVAS_VARIATION_API_ID (VARCHAR(16777216)): API ID of the Canvas variation this event belongs to
 	CANVAS_VARIATION_NAME (VARCHAR(16777216)): Name of the Canvas variation this user received
+	IS_UNIQUE (BOOLEAN): Whether this event was considered 7-day unique when processed
 	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_BANNER_DISMISS_SHARED: When a user dismisses a banner.
@@ -791,6 +818,7 @@ USERS_MESSAGES_BANNER_DISMISS_SHARED: When a user dismisses a banner.
 	CANVAS_VARIATION_API_ID (VARCHAR(16777216)): API ID of the Canvas variation this event belongs to
 	CANVAS_VARIATION_NAME (VARCHAR(16777216)): Name of the Canvas variation this user received
 	AD_ID (VARCHAR(16777216)): [PII] Advertising identifier
+	IS_UNIQUE (BOOLEAN): Whether this event was considered 7-day unique when processed
 	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_BANNER_IMPRESSION_SHARED: when a user views a banner
@@ -830,6 +858,7 @@ USERS_MESSAGES_BANNER_IMPRESSION_SHARED: when a user views a banner
 	CANVAS_STEP_MESSAGE_VARIATION_API_ID (VARCHAR(16777216)): API ID of the Canvas step message variation this user received
 	CANVAS_VARIATION_API_ID (VARCHAR(16777216)): API ID of the Canvas variation this event belongs to
 	CANVAS_VARIATION_NAME (VARCHAR(16777216)): Name of the Canvas variation this user received
+	IS_UNIQUE (BOOLEAN): Whether this event was considered 7-day unique when processed
 	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_CONTENTCARD_ABORT_SHARED: An originally scheduled contentcard message was aborted for some reason.
@@ -902,6 +931,7 @@ USERS_MESSAGES_CONTENTCARD_CLICK_SHARED: when a user clicks a content card
 	CANVAS_NAME (VARCHAR(16777216)): Name of the Canvas
 	CANVAS_VARIATION_NAME (VARCHAR(16777216)): Name of the Canvas variation this user received
 	CANVAS_STEP_NAME (VARCHAR(16777216)): Name of the Canvas step
+	IS_UNIQUE (BOOLEAN): Whether this event was considered 7-day unique when processed
 	SF_CREATED_AT (TIMESTAMP_LTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED: when a user dismisses a content card
@@ -943,6 +973,7 @@ USERS_MESSAGES_CONTENTCARD_DISMISS_SHARED: when a user dismisses a content card
 	CANVAS_NAME (VARCHAR(16777216)): Name of the Canvas
 	CANVAS_VARIATION_NAME (VARCHAR(16777216)): Name of the Canvas variation this user received
 	CANVAS_STEP_NAME (VARCHAR(16777216)): Name of the Canvas step
+	IS_UNIQUE (BOOLEAN): Whether this event was considered 7-day unique when processed
 	SF_CREATED_AT (TIMESTAMP_LTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED: when a user views a content card
@@ -984,6 +1015,7 @@ USERS_MESSAGES_CONTENTCARD_IMPRESSION_SHARED: when a user views a content card
 	CANVAS_NAME (VARCHAR(16777216)): Name of the Canvas
 	CANVAS_VARIATION_NAME (VARCHAR(16777216)): Name of the Canvas variation this user received
 	CANVAS_STEP_NAME (VARCHAR(16777216)): Name of the Canvas step
+	IS_UNIQUE (BOOLEAN): Whether this event was considered 7-day unique when processed
 	SF_CREATED_AT (TIMESTAMP_LTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_CONTENTCARD_SEND_SHARED: when we send a content card to a user
@@ -1430,6 +1462,7 @@ USERS_MESSAGES_FEATUREFLAG_IMPRESSION_SHARED: when a user views an feature flag
 	CANVAS_STEP_NAME (VARCHAR(16777216)): Name of the Canvas step
 	CANVAS_VARIATION_NAME (VARCHAR(16777216)): Name of the Canvas variation this user received
 	MESSAGE_VARIATION_NAME (VARCHAR(16777216)): Name of the message variation
+	IS_UNIQUE (BOOLEAN): Whether this event was considered 7-day unique when processed
 	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_INAPPMESSAGE_ABORT_SHARED: An originally scheduled inappmessage message was aborted for some reason.
@@ -1562,6 +1595,42 @@ USERS_MESSAGES_INAPPMESSAGE_IMPRESSION_SHARED: when a user views an in app messa
 	CANVAS_VARIATION_NAME (VARCHAR(16777216)): Name of the Canvas variation this user received
 	CANVAS_STEP_NAME (VARCHAR(16777216)): Name of the Canvas step
 	SF_CREATED_AT (TIMESTAMP_LTZ(9)): when this event was picked up by the Snowpipe
+
+USERS_MESSAGES_LANDINGPAGE_CLICK_SHARED: This event occurs when an end-user clicks on select elements and form fields on a landing page
+	APP_GROUP_API_ID (VARCHAR(16777216)): API ID of the app group this user belongs to
+	APP_GROUP_ID (VARCHAR(16777216)): BSON ID of the app group this user belongs to
+	EXTERNAL_USER_ID (VARCHAR(16777216)): [PII] External ID of the user
+	ID (VARCHAR(16777216)): Globally unique ID for this event
+	TIME (NUMBER(38,0)): UNIX timestamp at which the event happened
+	USER_ID (VARCHAR(16777216)): [PII] Braze user ID of the user who performed this event
+	TARGET (VARCHAR(16777216)): Configured tracking ID for the element that was clicked
+	LANDING_PAGE_API_ID (VARCHAR(16777216)): API ID of the landing page this event belongs to
+	LANDING_PAGE_NAME (VARCHAR(16777216)): Name of the landing page
+	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
+
+USERS_MESSAGES_LANDINGPAGE_FORMSUBMISSION_SHARED: This event occurs when an end-user completes a form on a landing page and clicks on the button to submit the information
+	APP_GROUP_API_ID (VARCHAR(16777216)): API ID of the app group this user belongs to
+	APP_GROUP_ID (VARCHAR(16777216)): BSON ID of the app group this user belongs to
+	EXTERNAL_USER_ID (VARCHAR(16777216)): [PII] External ID of the user
+	ID (VARCHAR(16777216)): Globally unique ID for this event
+	TIME (NUMBER(38,0)): UNIX timestamp at which the event happened
+	USER_ID (VARCHAR(16777216)): [PII] Braze user ID of the user who performed this event
+	LANDING_PAGE_API_ID (VARCHAR(16777216)): API ID of the landing page this event belongs to
+	LANDING_PAGE_NAME (VARCHAR(16777216)): Name of the landing page
+	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
+
+USERS_MESSAGES_LANDINGPAGE_IMPRESSION_SHARED: This event occurs when an end-user's browser loads and displays a landing page
+
+	APP_GROUP_API_ID (VARCHAR(16777216)): API ID of the app group this user belongs to
+	APP_GROUP_ID (VARCHAR(16777216)): BSON ID of the app group this user belongs to
+	EXTERNAL_USER_ID (VARCHAR(16777216)): [PII] External ID of the user
+	ID (VARCHAR(16777216)): Globally unique ID for this event
+	TIME (NUMBER(38,0)): UNIX timestamp at which the event happened
+	USER_ID (VARCHAR(16777216)): [PII] Braze user ID of the user who performed this event
+	LANDING_PAGE_API_ID (VARCHAR(16777216)): API ID of the landing page this event belongs to
+	LIQUID_ENABLED (BOOLEAN): A boolean that indicates whether the landing page contains Liquid and was processed through the Liquid rendering pipeline.
+	LANDING_PAGE_NAME (VARCHAR(16777216)): Name of the landing page
+	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_LINE_ABORT_SHARED: when a scheduled LINE message cannot be delivered, before sending to LINE
 	APP_GROUP_API_ID (VARCHAR(16777216)): API ID of the app group this user belongs to
@@ -2532,6 +2601,55 @@ USERS_MESSAGES_SMS_SHORTLINKCLICK_SHARED: when a user clicks a Braze shortened U
 	CANVAS_VARIATION_NAME (VARCHAR(16777216)): Name of the Canvas variation this user received
 	CANVAS_STEP_NAME (VARCHAR(16777216)): Name of the Canvas step
 	SF_CREATED_AT (TIMESTAMP_LTZ(9)): when this event was picked up by the Snowpipe
+
+USERS_MESSAGES_SURVEY_RESPONSE_SHARED: Survey responses submitted by end users
+	APP_GROUP_API_ID (VARCHAR(16777216)): API ID of the app group this user belongs to
+	APP_GROUP_ID (VARCHAR(16777216)): BSON ID of the app group this user belongs to
+	EXTERNAL_USER_ID (VARCHAR(16777216)): [PII] External ID of the user
+	ID (VARCHAR(16777216)): Globally unique ID for this event
+	TIME (NUMBER(38,0)): UNIX timestamp at which the event happened
+	USER_ID (VARCHAR(16777216)): [PII] Braze user ID of the user who performed this event
+	SURVEY_ID (VARCHAR(16777216)): UUID of the survey to which this response belongs.
+	QUESTION_ID (VARCHAR(16777216)): UUID of the question to which this response belongs.
+	MESSAGE_EXTRAS (VARCHAR(16777216)): [PII] A JSON string of the tagged key-value pairs during liquid rendering
+	GENDER (VARCHAR(16777216)): [PII] Gender of the user
+	COUNTRY (VARCHAR(16777216)): [PII] Country of the user
+	TIMEZONE (VARCHAR(16777216)): Time zone of the user
+	DEVICE_ID (VARCHAR(16777216)): [PII] ID of the device on which the event occurred
+	SDK_VERSION (VARCHAR(16777216)): Version of the Braze SDK in use during the event
+	PLATFORM (VARCHAR(16777216)): Platform of the device
+	OS_VERSION (VARCHAR(16777216)): Version of the operating system of the device
+	DEVICE_MODEL (VARCHAR(16777216)): Model of the device
+	CARRIER (VARCHAR(16777216)): Carrier of the device
+	BROWSER (VARCHAR(16777216)): Device browser - extracted from user_agent - on which the open occurred
+	AD_ID (VARCHAR(16777216)): [PII] Advertising identifier
+	AD_ID_TYPE (VARCHAR(16777216)): One of ['ios_idfa', 'google_ad_id', 'windows_ad_id', 'roku_ad_id']
+	AD_TRACKING_ENABLED (BOOLEAN): Whether advertising tracking is enabled for the device
+	ANSWER_SINGLE_STRING (VARCHAR(16777216)): [PII] The raw response when response_type is single_string
+	ANSWER_SINGLE_BOOLEAN (BOOLEAN): [PII] The raw response when response_type is single_boolean
+	ANSWER_TYPE (VARCHAR(16777216)): Answer type of the event, one of ['single_int', 'single_string', 'single_boolean']
+	ANSWER_LONG_STRING (VARCHAR(16777216)): [PII] The raw response when response_type is free_form_text
+	SURVEY_SESSION_ID (VARCHAR(16777216)): Unique identifier to group all responses from a single survey session
+	LANDING_PAGE_API_ID (VARCHAR(16777216)): API ID of the landing page this event belongs to
+	CAMPAIGN_API_ID (VARCHAR(16777216)): API ID of the campaign this event belongs to
+	MESSAGE_VARIATION_API_ID (VARCHAR(16777216)): API ID of the message variation this user received
+	CANVAS_API_ID (VARCHAR(16777216)): API ID of the Canvas this event belongs to
+	CANVAS_VARIATION_API_ID (VARCHAR(16777216)): API ID of the Canvas variation this event belongs to
+	CANVAS_STEP_API_ID (VARCHAR(16777216)): API ID of the Canvas step this event belongs to
+	CANVAS_STEP_MESSAGE_VARIATION_API_ID (VARCHAR(16777216)): API ID of the Canvas step message variation this user received
+	ANSWER_MULTIPLE_STRINGS (VARCHAR(16777216)): [PII] The raw response when answer_type is multiple_string.
+	SURVEY_COMPLETION_STATUS (VARCHAR(16777216)): One of ['completed', 'incomplete']
+	RESPONSE_ID (VARCHAR(16777216)): Unique identifier represent the response
+	CAMPAIGN_NAME (VARCHAR(16777216)): Name of the campaign
+	CANVAS_NAME (VARCHAR(16777216)): Name of the Canvas
+	CANVAS_STEP_NAME (VARCHAR(16777216)): Name of the Canvas step
+	CANVAS_VARIATION_NAME (VARCHAR(16777216)): Name of the Canvas variation this user received
+	MESSAGE_VARIATION_NAME (VARCHAR(16777216)): Name of the message variation
+	APP_API_ID (VARCHAR(16777216)): API ID of the app on which this event occurred
+	QUESTION_REPORTING_ID (VARCHAR(16777216)): The reporting identifier for the survey question
+	LANDING_PAGE_NAME (VARCHAR(16777216)): Name of the landing page
+	ANSWER_SINGLE_NUMBER (FLOAT): [PII] The raw response when answer_type is single_number
+	SF_CREATED_AT (TIMESTAMP_NTZ(9)): when this event was picked up by the Snowpipe
 
 USERS_MESSAGES_WEBHOOK_ABORT_SHARED: An originally scheduled webhook message was aborted for some reason.
 	ID (VARCHAR(16777216)): Globally unique ID for this event
