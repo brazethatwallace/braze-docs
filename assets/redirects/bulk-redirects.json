@@ -40320,11 +40320,6 @@
     "permanent": true
   },
   {
-    "source": "/docs/user_guide/channels/email/reporting/deliverability_glossary",
-    "destination": "/docs/user_guide/channels/email/reporting/analytics_glossary",
-    "permanent": true
-  },
-  {
     "source": "/docs/user_guide/channels/email/seed_groups",
     "destination": "/docs/user_guide/messaging/messaging_fundamentals/sending_test_messages",
     "permanent": true
@@ -46497,11 +46492,6 @@
   {
     "source": "/docs/user_guide/messaging/design_and_edit/personalize/overview",
     "destination": "/docs/user_guide/messaging/design_and_edit/personalize",
-    "permanent": true
-  },
-  {
-    "source": "/docs/user_guide/messaging/governance/shareable_preview",
-    "destination": "/docs/user_guide/channels/email/html_editor",
     "permanent": true
   },
   {
