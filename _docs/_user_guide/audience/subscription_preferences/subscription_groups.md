@@ -88,7 +88,12 @@ Email-specific details:
 
 #### Viewing subscription group sizes
 
-On **Subscription Group Management**, use the **Subscription Group Timeseries** graph to view group size over time. This count reflects membership in that group, not global email subscription state.
+On **Subscription Group Management**, timeseries charts report:
+
+- **Subscription Group Size:** users subscribed to that group on a given date
+- **Subscription Group Unsubscribed Size:** users unsubscribed from that group on a given date
+
+These counts reflect membership in that group, not global email subscription state. They can differ from a segment that uses **Email Subscription Status is Unsubscribed**, which reflects [global email subscription state]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states).
 
 Today's subscription group size isn't calculated by default. If your date range includes today, select **Calculate today's statistics** to add today's value to the timeseries. For very large workspaces, Braze may display estimated counts instead of exact counts.
 
@@ -118,7 +123,7 @@ SMS, MMS, and RCS subscription groups are the foundation for sending on those ch
 | Unsubscribed | User opted out through a keyword or API update. Unsubscribed users do not receive SMS, MMS, or RCS from senders in that group. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SMS and RCS subscription states" }
 
-When you launch an SMS or RCS message, you select a subscription group in the composer. Braze adds an audience filter so only subscribed users are targeted. Braze does not send SMS or RCS to users who are not subscribed to the selected group.
+When you launch an SMS or RCS message, you select a subscription group in the composer. Braze adds an audience filter so only subscribed users are targeted. Braze does not send SMS or RCS to users who are not subscribed to the selected group. To receive an SMS test message, the recipient must belong to the subscription group you select for the test. For more details, see [SMS FAQs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages).
 
 Subscription groups for SMS are provisioned during onboarding. For MMS tags, RCS sender setup, geographic permissions, RCS migration, and advanced opt-out handling, see [SMS, MMS, and RCS subscription groups]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups).
 

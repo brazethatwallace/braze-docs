@@ -107,6 +107,8 @@ You can use the {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%} Liquid tag on
 
 When a user selects "Unsubscribe from all of the listed types of emails" in the preference center, Braze sets their global email subscription status to `unsubscribed` and unsubscribes them from all groups.
 
+Recipient-side email unsubscribes—unsubscribe links, list-unsubscribe, preference center submissions, and ESP-reported unsubscribes—appear in the Snowflake `USERS_MESSAGES_EMAIL_UNSUBSCRIBE` table. Unsubscribes made through the REST API are not included in that table; those emit [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#subscription-group-state-change-events) or [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#global-subscription-state-change-events) events instead. For the table schema, see [USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED).
+
 ### Creating custom footers {#custom-footer}
 
 If you don't want to use the default footer, create a workspace-wide custom email footer and template it into every email using {% raw %}`{{${email_footer}}}`{% endraw %}.

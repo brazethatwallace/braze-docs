@@ -14,6 +14,8 @@ channel:
 
 This message type is available in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
+If you collect email through a custom form instead of this in-app message type, and then set subscription group membership through the REST API, check whether a profile already exists before creating a user. See [Collection best practices]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices#step-1-check-if-user-exists).
+
 ## How it works
 
 When an end user enters their email address in this form, Braze adds the email address to their user profile.
