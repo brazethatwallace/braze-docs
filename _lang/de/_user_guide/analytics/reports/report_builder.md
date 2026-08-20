@@ -20,10 +20,10 @@ Das folgende Video bietet einen Überblick darüber, wie Sie Berichte im Bericht
 ## Verwenden eines Berichts-Templates {#using-a-report-template}
 
 1. Gehen Sie zu **Analytics** > **Berichts-Builder (Neu)**.
-2. Wählen Sie den Pfeil **Weitere Optionen** neben dem Button **Neuen Bericht erstellen** und dann **Berichts-Template verwenden** aus.<br><br>![Dropdown des Buttons „Neuen Bericht erstellen“ mit Optionen zum Erstellen eines angepassten Berichts oder zum Verwenden eines Templates.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
+2. Wählen Sie den Pfeil **Mehr Optionen** neben dem Button **Neuen Bericht erstellen** und dann **Berichts-Template verwenden** aus.<br><br>![Dropdown des Buttons „Neuen Bericht erstellen“ mit Optionen zum Erstellen eines angepassten Berichts oder zum Verwenden eines Templates.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
 3. Wählen Sie eines der Berichts-Templates aus der Braze-Template-Bibliothek aus.
     - Verwenden Sie die Dropdown-Menüs **Zeilenelemente** und **Tags**, um relevante Berichte für Ihre Anwendungsfälle zu finden.<br><br>![Fenster „Braze-Berichts-Templates“ mit einer Liste von Braze-Templates zur Auswahl.]({% image_buster /assets/img/report_builder_2/report_templates.png %}){: style="max-width:90%;"}<br><br>
-4. Folgen Sie Schritt 3 und den weiteren Schritten unter [Einen Bericht erstellen](#creating-a-report), um den Bericht weiter an Ihren Anwendungsfall anzupassen.
+4. Folgen Sie Schritt 3 und den weiteren Schritten unter [Bericht erstellen](#creating-a-report), um den Bericht weiter an Ihren Anwendungsfall anzupassen.
 
 ## Erstellen eines Berichts {#creating-a-report}
 
@@ -36,7 +36,7 @@ Das folgende Video bietet einen Überblick darüber, wie Sie Berichte im Bericht
     - Kanäle
     - Tags
 
-    Beachten Sie, dass Ihre Auswahl unter **Zeilen** beeinflusst, [welche Metriken Sie anzeigen können](#metrics-availability). Zum Beispiel können Sie multivariate Metriken nur anzeigen, wenn Sie über **Canvases** oder **Campaigns** mit einer **Varianten**-Aufschlüsselung berichten. Sie können diese Metriken nicht anzeigen, wenn Sie über **Campaigns und Canvases** berichten, selbst wenn diese Campaigns und Canvases multivariate Tests enthalten.
+    Beachten Sie, dass Ihre Auswahl unter **Zeilen** beeinflusst, [welche Metriken Sie anzeigen können](#metrics-availability). Beispielsweise können Sie multivariate Metriken nur anzeigen, wenn Sie über **Canvases** oder **Campaigns** mit einer **Varianten**-Aufschlüsselung berichten. Sie können diese Metriken nicht anzeigen, wenn Sie über **Campaigns und Canvases** berichten, selbst wenn diese Campaigns und Canvases multivariate Tests enthalten.
 
 ![Der Abschnitt „Zeilen und Spalten“ mit Feldern zur Auswahl der Zeilen und Gruppierungen für Ihren Bericht.]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
 
@@ -63,16 +63,16 @@ Probieren Sie verschiedene Konfigurationen der Aufschlüsselungsoptionen aus, um
 {: start="6"}
 6. Durchsuchen Sie Metriken nach Kategorie und aktivieren Sie das entsprechende Kontrollkästchen, um eine Metrik zu Ihrem Bericht hinzuzufügen.
     - Ordnen Sie die Metriken und Spalten neu an, indem Sie das gepunktete Symbol nach oben oder unten ziehen.
-7. Konfigurieren Sie unter **Berichtsinhalt** den Datumsbereich, für den Sie Daten in Ihren Bericht aufnehmen möchten.
+7. Konfigurieren Sie unter **Berichtsinhalt** den Zeitraum, für den Sie Daten in Ihren Bericht aufnehmen möchten.
 8. Wählen Sie dann, abhängig von Ihrer Auswahl in Schritt 3, ob Sie Campaigns, Canvases oder beides manuell oder automatisch zu Ihrem Bericht hinzufügen möchten.
     - **Manuell hinzufügen:** Wählen Sie jede Campaign oder jedes Canvas aus, das in den Bericht aufgenommen werden soll, indem Sie die Filter für **Zuletzt gesendet**-Daten und Tags oder Kanäle verwenden oder nach dem Campaign- oder Canvas-Namen suchen.<br><br>![Der Abschnitt „Campaigns und Canvases manuell hinzufügen“ mit einer Liste von Campaigns zur Auswahl.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
     - **Automatisch hinzufügen:** Legen Sie Regeln fest, welche Campaigns oder Canvases in den Bericht aufgenommen werden sollen. Sie müssen auf dieser Seite nur ein Feld auswählen.
         - Beachten Sie, dass zusätzliche Campaigns oder Canvases, die die von Ihnen festgelegten Bedingungen erfüllen, automatisch zu zukünftigen Ausführungen Ihres Berichts hinzugefügt werden.
         - Banner ist keine Option im **Kanal**-Dropdown, sodass Sie keine Kanalregeln verwenden können, um Banner-Campaigns oder -Canvases automatisch hinzuzufügen. Sie können Banner-KPIs dennoch in Ihre Berichtsmetriken aufnehmen.<br><br>![Der Abschnitt „Campaigns und Canvases automatisch hinzufügen“ mit Feldern zum Festlegen von Regeln, welche Campaigns und Canvases dem Bericht hinzugefügt werden sollen.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
-9. Führen Sie den Bericht aus, indem Sie **Speichern und ausführen** wählen.
+9. Führen Sie den Bericht aus, indem Sie **Speichern & Ausführen** wählen.
 
 {% alert note %}
-Die Erstellung des Berichts kann je nach Datumsbereich und Anzahl der Campaigns oder Canvases, die Sie in der Konfigurationsphase ausgewählt haben, einige Minuten dauern.
+Die Erstellung des Berichts kann je nach Zeitraum und Anzahl der Campaigns oder Canvases, die Sie in der Konfigurationsphase ausgewählt haben, einige Minuten dauern.
 {% endalert %}
 
 ## Verfügbarkeit von Metriken {#metrics-availability}
@@ -106,7 +106,7 @@ Im selben Bericht können _Eindeutige Empfänger:innen_ höher sein als _Eindeut
 
 ## Einen Bericht anzeigen {#viewing-a-report}
 
-Nachdem Sie Ihren Bericht ausgeführt haben, können Sie Ihre Ergebnisse im Tabellenformat auf der Berichtsergebnisseite anzeigen.
+Nachdem Sie Ihren Bericht ausgeführt haben, können Sie Ihre Ergebnisse im Tabellenformat auf der Seite mit den Berichtsergebnissen anzeigen.
 
 ![Eine Tabelle der Berichtsdaten für die Metriken jeder Campaign.]({% image_buster /assets/img/report_builder_2/report_table.png %}){: style="width:90%;"}
 
@@ -122,7 +122,7 @@ Um ein Liniendiagramm zu erstellen, wählen Sie **Datum** als Drilldown-Option b
 
 #### Ein Berichts-Chart herunterladen {#downloading-a-report-chart}
 
-Um ein Bild des Berichts-Charts herunterzuladen, wählen Sie das gepunktete Symbol aus und wählen Sie dann eine Download-Option.
+Um ein Bild des Berichts-Charts herunterzuladen, wählen Sie das Punktsymbol aus und wählen Sie dann eine Download-Option.
 
 ![Ein Menü mit Download-Optionen für verschiedene Dateiformate.]({% image_buster /assets/img/report_builder_2/download_options.png %}){: style="max-width:70%;"}
 
@@ -147,6 +147,18 @@ Das Dropdown **E-Mail-Empfänger:innen** listet nur Braze-Unternehmensnutzer:inn
 3. Wählen Sie aus, ob Sie ein neues Dashboard erstellen oder zu einem bestehenden Dashboard hinzufügen möchten.<br><br>![Fenster mit Optionen zur Auswahl, ob Sie den Bericht zu einem neuen oder bestehenden Dashboard hinzufügen möchten.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
 4. Folgen Sie den Schritten im [Dashboard-Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder), um mehr über das Erstellen eines Dashboards zu erfahren.
 
+## Team-Berechtigungen {#team-permissions}
+
+Berichte im Berichts-Builder unterstützen keine [Team-Zuweisung]({{site.baseurl}}/user_guide/administer/global/user_management/teams) wie Campaigns oder Canvases. Sie können einen gespeicherten Bericht beim Erstellen nicht auf ein bestimmtes Team beschränken.
+
+Nutzer:innen mit der [„Dashboard-Berichte anzeigen“]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)-Berechtigung auf Team-Ebene (statt auf Workspace-Ebene) können den Berichts-Builder weiterhin verwenden, die Sichtbarkeit von Berichten ist jedoch eingeschränkt:
+
+- Diese Nutzer:innen sehen nur Berichte, bei denen jede ausgewählte Campaign und jedes ausgewählte Canvas ihren Teams zugewiesen ist.
+- Berichte mit **Kanälen** als Zeilen werden ausgeblendet.
+- Berichte, die eine automatische Auswahl zum Hinzufügen von Campaigns oder Canvases verwenden, werden ausgeblendet, da Braze den Team-Zugriff für Nachrichten, die beim Ausführen des Berichts möglicherweise hinzugefügt werden, nicht überprüfen kann.
+
+Der [Berichts-Builder (Legacy)]({{site.baseurl}}/report_builder_legacy) schränkt ein, welche Campaigns und Canvases Sie nach Team zu einem Bericht hinzufügen können, aber gespeicherte Berichte werden nicht auf die gleiche Weise aus der Liste gefiltert wie im Berichts-Builder (Neu). Informationen zur Einrichtung von Berechtigungen finden Sie unter [Nutzerberechtigungen festlegen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) und [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams).
+
 ## Fehlerbehebung {#troubleshooting}
 
 ### Bericht zeigt keine Sends für eine Campaign oder ein Canvas {#report-shows-no-sends-for-a-campaign-or-canvas}
@@ -159,4 +171,4 @@ Angenommen, **Zuletzt gesendet** ist der 1. Januar 2025 bis 14. April 2025, soda
 
 Download-Links für Berichte laufen nach einer Stunde ab. Wenn Ihr Link abgelaufen ist, erstellen Sie einen neuen Bericht und laden Sie ihn innerhalb der Stunde herunter. Es gibt keine Möglichkeit, die Ablaufzeit zu verlängern.
 
-Wenn Sie einen [Amazon S3-Bucket]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3) unter **Partnerintegrationen** verbunden haben, können Sie möglicherweise Daten aus älteren Berichten abrufen, indem Sie Ihren S3-Bucket direkt durchsuchen.
+Wenn Sie einen [Amazon-S3-Bucket]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3) unter **Partnerintegrationen** verbunden haben, können Sie möglicherweise Daten aus älteren Berichten abrufen, indem Sie direkt in Ihrem S3-Bucket suchen.

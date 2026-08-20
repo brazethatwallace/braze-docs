@@ -8,7 +8,7 @@ description: "Examina ejemplos de prompts para BrazeAI Operator, organizados seg
 
 # Biblioteca de prompts para BrazeAI Operator {#prompt-library-for-brazeai-operator}
 
-> Examina una colección seleccionada de ejemplos de prompts para Operator, compilada por expertos de Braze. Selecciona un objetivo para encontrar prompts relevantes. Para más información, consulta [Aprovechar el contexto de la página]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context).
+> Examina una colección seleccionada de ejemplos de prompts para Operator, compilada por expertos de Braze. Selecciona un objetivo para encontrar prompts relevantes. Puedes empezar desde cualquier lugar en Braze. Si Operator necesita una parte diferente del panel, [navega hasta allí]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#navigate-the-dashboard). Para más información, consulta [Aprovechar el contexto de la página]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context).
 
 
 <div class="prompt-library-tabs">
@@ -26,8 +26,6 @@ description: "Examina ejemplos de prompts para BrazeAI Operator, organizados seg
 {% include copy_block.html content="Which Active Canvases drove the most attributed conversions and revenue in FY26 Q1 (7-day attribution)?" available="Canvas" %}
 
 {% include copy_block.html content="Summarize this Campaign Digest in 5 bullets: biggest wins, biggest issues, and what changed versus the prior period." available="Campaigns" %}
-
-{% include copy_block.html content="Build me a report which shows my workspace SMS engagement over the last 30 days." available="Report Builder" %}
 
 {% endsdktab %}
 {% sdktab Strategy and optimization %}
@@ -47,6 +45,17 @@ description: "Examina ejemplos de prompts para BrazeAI Operator, organizados seg
 {% include copy_block.html content="How should we structure frequency-capping extensions (email/SMS/48h) to reduce over-messaging without hurting conversions?" available="Segment Extensions" %}
 
 {% include copy_block.html content="What are 3 high-impact reports we should create here to monitor weekly campaign and Canvas health and catch issues early?" available="Report Builder" %}
+
+{% endsdktab %}
+{% sdktab Create and edit %}
+
+{% include copy_block.html content="Create a Canvas that waits 1 hour after cart abandonment, sends an email reminder, then a push after 24 hours if the user still hasn't purchased." %}
+
+{% include copy_block.html content="Update my abandoned cart Canvas to add a push message after the email reminder." %}
+
+{% include copy_block.html content="Build a segment of users who made a purchase in the last 30 days but haven't opened the app in the last 7 days." %}
+
+{% include copy_block.html content="Build me a report which shows my workspace SMS engagement over the last 30 days." %}
 
 {% endsdktab %}
 {% sdktab Messaging performance %}
@@ -128,8 +137,6 @@ description: "Examina ejemplos de prompts para BrazeAI Operator, organizados seg
 
 {% endsdktab %}
 {% sdktab Audience management %}
-
-{% include copy_block.html content="Build a segment of users who made a purchase in the last 30 days but haven't opened the app in the last 7 days." available="Segments" %}
 
 {% include copy_block.html content="Which of our active segments were edited most recently, and which ones look like duplicates we should consolidate?" available="Segments" %}
 

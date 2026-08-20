@@ -1,14 +1,14 @@
 ---
-nav_title: プロンプトライブラリー
-article_title: BrazeAI Operatorのプロンプトライブラリー
+nav_title: プロンプトライブラリ
+article_title: BrazeAI Operatorのプロンプトライブラリ
 page_order: 4
 page_type: reference
 description: "BrazeAI Operatorのプロンプト例を、達成したい目的別に整理して紹介します。"
 ---
 
-# BrazeAI Operatorのプロンプトライブラリー {#prompt-library-for-brazeai-operator}
+# BrazeAI Operatorのプロンプトライブラリ {#prompt-library-for-brazeai-operator}
 
-> Brazeのエキスパートが作成したオペレータープロンプトのキュレートされたコレクションを閲覧できます。目的を選択して、関連するプロンプトを見つけてください。詳細については、[ページ対応コンテキストの活用]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)を参照してください。
+> Brazeのエキスパートが作成したオペレータープロンプトのキュレートされたコレクションを閲覧できます。目的を選択して、関連するプロンプトを見つけてください。Brazeのどこからでも始めることができます。オペレーターがダッシュボードの別の部分を必要とする場合は、自動的に[そこへ移動します]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#navigate-the-dashboard)。詳細については、[ページ対応コンテキストの活用]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)を参照してください。
 
 
 <div class="prompt-library-tabs">
@@ -26,8 +26,6 @@ description: "BrazeAI Operatorのプロンプト例を、達成したい目的�
 {% include copy_block.html content="Which Active キャンバス drove the most attributed conversions and revenue in FY26 Q1 (7-day attribution)?" available="キャンバス" %}
 
 {% include copy_block.html content="Summarize this キャンペーン Digest in 5 bullets: biggest wins, biggest issues, and what changed versus the prior period." available="キャンペーン" %}
-
-{% include copy_block.html content="Build me a report which shows my workspace SMS engagement over the last 30 days." available="Report Builder" %}
 
 {% endsdktab %}
 {% sdktab Strategy and optimization %}
@@ -47,6 +45,17 @@ description: "BrazeAI Operatorのプロンプト例を、達成したい目的�
 {% include copy_block.html content="How should we structure frequency-capping extensions (email/SMS/48h) to reduce over-messaging without hurting conversions?" available="セグメントエクステンションs" %}
 
 {% include copy_block.html content="What are 3 high-impact reports we should create here to monitor weekly campaign and キャンバス health and catch issues early?" available="Report Builder" %}
+
+{% endsdktab %}
+{% sdktab Create and edit %}
+
+{% include copy_block.html content="Create a キャンバス that waits 1 hour after cart abandonment, sends an email reminder, then a push after 24 hours if the user still hasn't purchased." %}
+
+{% include copy_block.html content="Update my abandoned cart キャンバス to add a push message after the email reminder." %}
+
+{% include copy_block.html content="Build a segment of users who made a purchase in the last 30 days but haven't opened the app in the last 7 days." %}
+
+{% include copy_block.html content="Build me a report which shows my workspace SMS engagement over the last 30 days." %}
 
 {% endsdktab %}
 {% sdktab Messaging performance %}
@@ -128,8 +137,6 @@ description: "BrazeAI Operatorのプロンプト例を、達成したい目的�
 
 {% endsdktab %}
 {% sdktab Audience management %}
-
-{% include copy_block.html content="Build a segment of users who made a purchase in the last 30 days but haven't opened the app in the last 7 days." available="セグメント" %}
 
 {% include copy_block.html content="Which of our active segments were edited most recently, and which ones look like duplicates we should consolidate?" available="セグメント" %}
 
