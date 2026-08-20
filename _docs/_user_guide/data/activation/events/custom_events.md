@@ -85,10 +85,6 @@ All data stored on the **User Profile**, including custom event metadata (first 
 
 ## View a user's event history
 
-{% alert important %}
-Event History is currently in early access. Contact your Braze account manager if you're interested in participating.
-{% endalert %}
-
 Use the **Event History** tab on a user's profile to view that user's recent custom events and purchases. This helps you confirm your integration is logging events correctly and troubleshoot user-level issues directly in the dashboard.
 
 To view a user's event history:
