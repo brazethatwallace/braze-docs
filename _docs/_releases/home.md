@@ -149,6 +149,18 @@ A [KakaoTalk carousel message]({{site.baseurl}}/user_guide/channels/kakaotalk/cr
 
 Landing pages now support [custom form blocks]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks) and a [JavaScript bridge]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge), so you can capture custom form input and sync client-side events and attributes through your landing page experience.
 
+#### Multi-step landing page forms
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+[Multi-step landing page forms]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms) let you split a long form across multiple steps in a single **Form** row, with a built-in confirmation step after submission. 
+
+#### Manage Subscriptions block for landing pages
+
+{% multi_lang_include release_type.md release="General availability" %}
+
+The [Manage Subscriptions]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions) block lets users view, opt in to, and update email subscription groups on a landing page.
+
 ### Partnerships
 
 #### Audience Sync: Google Data Manager API
