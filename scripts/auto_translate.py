@@ -817,12 +817,12 @@ def call_claude(client, system_prompt, user_message, retries=None):
             with client.messages.stream(
                 model=MODEL,
                 max_tokens=MAX_TOKENS,
-                temperature=0,
                 system=system_blocks,
                 messages=[{"role": "user", "content": user_message}],
             ) as stream:
-                for text in stream.text_stream:
-                    text_chunks.append(text)
+                for event in stream:
+                    if event.type == "text":
+                        text_chunks.append(event.text)
                 stop_reason = stream.get_final_message().stop_reason
             full_text = "".join(text_chunks)
         except Exception as exc:
