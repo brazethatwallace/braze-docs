@@ -4,14 +4,14 @@ article_title: Operator로 할 수 있는 것
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "이 참조 문서에서는 BrazeAI Operator™가 대시보드 전반에서 수행할 수 있는 기능을 다룹니다. Campaigns, Segments, 보고서, 대시보드, 에이전트 구축, 카피·메시지·Liquid·이미지 생성, 데이터 변환, 콘텐츠 품질 검토, 정보 조회 등이 포함됩니다."
+description: "이 참조 문서에서는 BrazeAI Operator™가 대시보드 전반에서 수행할 수 있는 기능을 다룹니다. Campaigns, Canvases, Segments, 보고서, 대시보드, 에이전트 구축, 카피·메시지·Liquid·이미지 생성, 데이터 변환, 콘텐츠 품질 검토, 정보 조회 등이 포함됩니다."
 ---
 
 # Operator로 할 수 있는 것 {#operator-capabilities}
 
 > [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator)는 Braze 대시보드에 내장된 AI 어시스턴트입니다. 질문에 답하고, 메시지를 작성하며, 지원되는 페이지 전반에서 동작을 수행합니다. 원하는 내용을 자연어로 설명하면 Operator가 맥락에 맞게 처리합니다.
 
-Operator는 워크스페이스(브랜드 가이드라인, 커스텀 속성, 연결된 콘텐츠, 현재 작업 중인 페이지)를 이해하므로, 독립형 어시스턴트보다 더 맥락을 인식한 결과물을 생성합니다. Operator가 Campaign, Segment 또는 기타 객체에 대한 변경을 제안하면, 저장되기 전에 사용자가 검토하고 승인할 수 있는 [액션 카드]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)로 변경 사항을 시각적 차이로 표시합니다.
+Operator는 워크스페이스(브랜드 가이드라인, 커스텀 속성, 연결된 콘텐츠, 현재 작업 중인 페이지)를 이해하므로, 독립형 어시스턴트보다 더 맥락을 인식한 결과물을 생성합니다. Operator가 Campaign, Canvas, Segment 또는 기타 객체에 대한 변경을 제안하면, 저장되기 전에 사용자가 검토하고 승인할 수 있는 [액션 카드]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)로 변경 사항을 시각적 차이로 표시합니다.
 
 후속 대화를 이어갈 수 있습니다. Operator는 채팅 기록을 지울 때까지 이전 메시지를 기억합니다.
 
@@ -32,6 +32,7 @@ Operator는 현재 보고 있는 페이지에서만 작동하는 것이 아닙�
 카피와 Liquid 생성 외에도, Operator는 대시보드 전반에서 다음을 포함한(이에 국한되지 않는) 다양한 객체를 구축하는 데 도움을 줄 수 있습니다:
 
 - Campaigns
+- Canvases
 - Content Blocks
 - 커스텀 에이전트
 - 커스텀 속성 및 커스텀 이벤트
@@ -60,6 +61,16 @@ Operator는 아이디어에서 Campaign 또는 오디언스 초안까지 진행�
 - **Segments 만들기 및 편집:** Segment를 시작할 때, 원하는 오디언스를 설명하면 Operator가 속성 조건, 이벤트 기록, 카탈로그 조회를 포함한 필터 로직을 구축하는 데 도움을 줍니다. 타겟팅 전략을 변경해야 할 때 기존 Segment의 필터를 편집하는 데에도 Operator가 도움을 줄 수 있습니다.
 - **세그먼트 확장 만들기:** Operator는 SQL로 정의된 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 구축하는 데 도움을 줄 수 있으며, 이를 정의하는 쿼리를 작성해 줍니다. 원하는 오디언스 로직을 설명하면 Operator가 저장하기 전에 검토할 수 있는 쿼리를 작성합니다. 세그먼트 확장 개요에서도 Operator에게 도움을 요청할 수 있습니다. Operator와 SQL에 대한 자세한 내용은 [SQL 쿼리 작성](#write-sql-queries)을 참조하세요.
 - **사용자 가져오기 및 관리:** 지원되는 오디언스 페이지에서 Operator는 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users), [사용자 삭제]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users), [중복 프로필 병합]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)을 도와줄 수 있습니다. 제안된 각 작업은 저장되기 전에 검토하세요.
+
+## Canvases {#canvases}
+
+Operator는 여정 아이디어를 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) 초안으로 만들고, 기존 Canvas를 개선하는 데 도움을 줄 수 있습니다. Operator가 제안하는 모든 변경 사항은 저장되기 전에 검토할 수 있는 액션 카드로 표시됩니다.
+
+자연어로 여정을 설명하세요. Operator가 진입 기준, 단계, 지연, 메시지를 포함한 초안을 구성합니다. 또한 Operator에게 기존 Canvas를 편집하도록 요청할 수도 있습니다. 예를 들어 단계를 추가하거나 메시지 콘텐츠를 업데이트하는 것이 가능합니다. Canvas 빌더에서 초안을 검토하고 후속 프롬프트로 다듬은 후 실행하세요.
+
+예를 들어, 장바구니 유기 후 1시간 대기한 다음 이메일 리마인더를 보내고, 사용자가 아직 구매하지 않은 경우 24시간 후에 푸시를 보내는 유기한 장바구니 여정을 만들어 달라고 Operator에게 요청할 수 있습니다.
+
+어떤 대시보드 페이지에서든 이 작업을 시작할 수 있습니다. Canvas 화면에 있지 않더라도 Operator가 요청을 완료하기 위해 해당 화면으로 [이동](#navigate-the-dashboard)합니다.
 
 ## 에이전트 {#agents}
 
@@ -256,9 +267,9 @@ Operator의 지원 범위는 자주 변경됩니다. 특정 화면이나 워크�
 
 Operator의 대시보드 지원 범위는 넓지만 한계가 있습니다.
 
-- **Canvases:** Operator는 [Canvases]({{site.baseurl}}/user_guide/messaging/canvas)를 만들거나 편집할 수 없지만, 기존 Canvas의 구성(타겟팅 및 전달 설정 등)을 참조하여 질문에 답하고 출력의 근거로 사용할 수 있습니다.
+- **Canvases:** Operator는 현재 Canvas 편집기에서 [Canvases를 만들고 편집](#canvases)할 수 있습니다. [기존 Canvas 편집기]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), 템플릿 선택 페이지에서 Canvas를 시작하는 것, 또는 Canvases를 빌드하는 동안 **Preview as User**를 사용하는 것은 지원하지 않습니다. Operator는 여전히 기존 Canvas의 구성(타겟팅 및 전달 설정 등)을 참조하여 질문에 답하고 출력의 근거로 사용할 수 있습니다.
 - **Campaign 복제:** Operator는 Campaigns 목록 보기에서 기존 Campaign을 복제할 수 없습니다. 유사한 Campaign을 만들려면 Operator에게 처음부터 새로 만들도록 요청하거나, 목록 보기의 **More Actions** 메뉴에서 수동으로 Campaign을 복제하세요.
-- **드래그 앤 드롭 편집기:** Operator는 [이메일]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [배너]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner), [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)용 드래그 앤 드롭 편집기에서 메시지 디자인을 직접 생성하거나 삽입할 수 없습니다. 해당 HTML 편집기로 전환하여 Operator를 사용하거나, Operator에게 카피 등의 콘텐츠를 생성하도록 요청한 후 수동으로 붙여넣으세요. 지원되는 채널과 편집기에 대해서는 [메시지 생성](#generate-messages)을 참조하세요.
+- **드래그 앤 드롭 편집기:** Operator는 [이메일]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [배너]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner), [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)용 드래그 앤 드롭 편집기에서 메시지 디자인을 직접 생성하거나 삽입할 수 없습니다. Operator를 사용하려면 해당 HTML 편집기로 전환하거나, Operator에게 카피 등의 콘텐츠를 생성하도록 요청한 후 수동으로 붙여넣으세요. 지원되는 채널과 편집기에 대해서는 [메시지 생성](#generate-messages)을 참조하세요.
 - **화면 가시성:** Operator는 페이지 인식 컨텍스트를 사용하여 사용자가 보고 있는 내용을 이해하며, 지원되는 미리보기와 편집기 내의 콘텐츠도 포함됩니다. 페이지의 일부가 Operator가 읽을 수 있는 범위 밖에 있으면, 추측하는 대신 알려주므로 해당 콘텐츠를 직접 설명할 수 있습니다.
 - **사용 한도:** Operator에는 24시간마다 초기화되는 회사 전체 일일 사용 한도가 있습니다. 모든 Operator 작업이 이 한도에 포함되며, 사용량은 Operator가 읽고 생성해야 하는 양에 따라 달라집니다. 질문하기, 정보 조회, [지원 티켓 제출]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets)은 비교적 가벼운 사용에 해당합니다. Campaign이나 Segment 같은 오브젝트를 만들거나 편집하는 것은 더 많은 사용량을 소모합니다. [이미지 생성](#generate-images)도 이 한도에 포함됩니다. 한도에 도달하면 "Daily limit reached" 메시지가 표시되며, 한도가 초기화될 때까지 Operator는 추가 요청을 처리하지 않습니다. 문제 해결 단계는 [문제 해결]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting)을 참조하세요.
 

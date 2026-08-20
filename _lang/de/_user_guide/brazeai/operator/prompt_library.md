@@ -8,7 +8,7 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 
 # Prompt-Bibliothek für BrazeAI Operator {#prompt-library-for-brazeai-operator}
 
-> Durchsuchen Sie eine kuratierte Sammlung von Beispiel-Prompts für den Operator, zusammengestellt von Braze-Expert:innen. Wählen Sie ein Ziel aus, um relevante Prompts zu finden. Weitere Informationen finden Sie unter [Seitenabhängigen Kontext nutzen]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context).
+> Durchsuchen Sie eine kuratierte Sammlung von Beispiel-Prompts für den Operator, zusammengestellt von Braze-Expert:innen. Wählen Sie ein Ziel aus, um relevante Prompts zu finden. Sie können von überall in Braze starten. Wenn der Operator einen anderen Bereich des Dashboards benötigt, [navigiert er dorthin]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#navigate-the-dashboard). Weitere Informationen finden Sie unter [Seitenabhängigen Kontext nutzen]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context).
 
 
 <div class="prompt-library-tabs">
@@ -26,8 +26,6 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 {% include copy_block.html content="Welche aktiven Canvases haben im FY26 Q1 die meisten zugeordneten Conversions und den meisten Umsatz erzielt (7-Tage-Attribution)?" available="Canvas" %}
 
 {% include copy_block.html content="Fassen Sie diesen Campaign-Digest in 5 Punkten zusammen: größte Erfolge, größte Probleme und was sich im Vergleich zum vorherigen Zeitraum geändert hat." available="Campaigns" %}
-
-{% include copy_block.html content="Erstellen Sie mir einen Bericht, der das SMS-Engagement unseres Workspace in den letzten 30 Tagen zeigt." available="Report Builder" %}
 
 {% endsdktab %}
 {% sdktab Strategie und Optimierung %}
@@ -47,6 +45,17 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 {% include copy_block.html content="Wie sollten wir Frequency-Capping-Segmenterweiterungen (E-Mail/SMS/48 h) strukturieren, um Über-Messaging zu reduzieren, ohne Conversions zu beeinträchtigen?" available="Segment Extensions" %}
 
 {% include copy_block.html content="Welche 3 wirkungsvollen Berichte sollten wir hier erstellen, um die wöchentliche Campaign- und Canvas-Performance zu überwachen und Probleme frühzeitig zu erkennen?" available="Report Builder" %}
+
+{% endsdktab %}
+{% sdktab Erstellen und bearbeiten %}
+
+{% include copy_block.html content="Erstellen Sie einen Canvas, der 1 Stunde nach Warenkorb-Abbruch wartet, eine E-Mail-Erinnerung sendet und dann nach 24 Stunden eine Push-Benachrichtigung sendet, wenn die Nutzer:innen noch nicht gekauft haben." %}
+
+{% include copy_block.html content="Aktualisieren Sie meinen Warenkorb-Abbruch-Canvas, um nach der E-Mail-Erinnerung eine Push-Nachricht hinzuzufügen." %}
+
+{% include copy_block.html content="Erstellen Sie ein Segment von Nutzer:innen, die in den letzten 30 Tagen einen Kauf getätigt, aber die App in den letzten 7 Tagen nicht geöffnet haben." %}
+
+{% include copy_block.html content="Erstellen Sie mir einen Bericht, der das SMS-Engagement unseres Workspace in den letzten 30 Tagen zeigt." %}
 
 {% endsdktab %}
 {% sdktab Messaging-Performance %}
@@ -128,8 +137,6 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 
 {% endsdktab %}
 {% sdktab Zielgruppenverwaltung %}
-
-{% include copy_block.html content="Erstellen Sie ein Segment von Nutzer:innen, die in den letzten 30 Tagen einen Kauf getätigt, aber die App in den letzten 7 Tagen nicht geöffnet haben." available="Segments" %}
 
 {% include copy_block.html content="Welche unserer aktiven Segmente wurden zuletzt bearbeitet, und welche sehen nach Duplikaten aus, die wir konsolidieren sollten?" available="Segments" %}
 

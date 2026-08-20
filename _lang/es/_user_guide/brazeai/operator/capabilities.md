@@ -4,14 +4,14 @@ article_title: Qué puedes hacer con Operator
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "Este artículo de referencia cubre lo que BrazeAI Operator™ puede hacer en todo el panel, incluyendo la creación de Campaigns, Segments, informes, paneles y agentes; la generación de textos, mensajes, Liquid e imágenes; la transformación de datos; la revisión de la calidad del contenido; y la búsqueda de información."
+description: "Este artículo de referencia cubre lo que BrazeAI Operator™ puede hacer en todo el panel, incluyendo la creación de Campaigns, Canvas, Segments, informes, paneles y agentes; la generación de textos, mensajes, Liquid e imágenes; la transformación de datos; la revisión de la calidad del contenido; y la búsqueda de información."
 ---
 
 # Qué puedes hacer con Operator {#operator-capabilities}
 
 > [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator) es un asistente de IA integrado en el panel de Braze. Responde preguntas, redacta mensajes y actúa en las páginas compatibles: describe lo que quieres en lenguaje natural y Operator se encarga de ello en contexto.
 
-Dado que Operator comprende tu espacio de trabajo —tus directrices de marca, atributos personalizados, contenido conectado y la página en la que estás trabajando—, su resultado es más consciente del contexto de lo que los asistentes independientes pueden producir. Cuando Operator propone un cambio en una Campaign, un Segment u otro objeto, muestra el cambio como una diferencia visual en una [tarjeta de acción]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) que revisas y apruebas antes de que se guarde nada.
+Dado que Operator comprende tu espacio de trabajo —tus directrices de marca, atributos personalizados, contenido conectado y la página en la que estás trabajando—, su resultado es más consciente del contexto de lo que los asistentes independientes pueden producir. Cuando Operator propone un cambio en una Campaign, un Canvas, un Segment u otro objeto, muestra el cambio como una diferencia visual en una [tarjeta de acción]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) que revisas y apruebas antes de que se guarde nada.
 
 Puedes continuar la conversación con seguimientos. Operator recuerda los mensajes anteriores hasta que borres tu historial de chat.
 
@@ -32,6 +32,7 @@ De forma predeterminada, Operator te pide que apruebes una navegación propuesta
 Además de generar textos y Liquid, Operator puede ayudarte a crear varios otros objetos en todo el panel, incluyendo, entre otros:
 
 - Campaigns
+- Canvas
 - Content Blocks
 - Agentes personalizados
 - Atributos personalizados y eventos personalizados
@@ -60,6 +61,16 @@ Para empezar, busca la opción **Create with Operator** cuando crees una Campaig
 - **Crear y editar Segments:** Cuando inicias un Segment, describe la audiencia que deseas y Operator te ayuda a construir la lógica de filtros, incluyendo condiciones de atributos, historial de eventos y búsquedas en catálogos. Operator también puede ayudarte a editar los filtros de un Segment existente cuando tu estrategia de segmentación necesita cambios.
 - **Crear extensiones de segmento:** Operator puede ayudarte a crear una [extensión de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) definida por SQL escribiendo la consulta que la define. Describe la lógica de audiencia que deseas, y Operator redacta la consulta para que la revises antes de guardarla. También puedes pedirle ayuda a Operator desde el resumen de extensiones de segmento. Para más información sobre Operator y SQL, consulta [Escribir consultas SQL](#write-sql-queries).
 - **Importar y gestionar usuarios:** En las páginas de audiencia compatibles, Operator puede ayudarte a [importar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users), [eliminar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users) y [fusionar perfiles duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users). Revisa cada acción propuesta antes de que se guarde.
+
+## Canvas {#canvases}
+
+Operator puede ayudarte a pasar de una idea de recorrido a un borrador de [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), y a perfeccionar un Canvas existente. Cualquier cambio que Operator proponga aparece como una tarjeta de acción que revisas antes de que se guarde.
+
+Describe el recorrido en lenguaje natural. Operator crea un borrador que puede incluir criterios de entrada, pasos, retrasos y mensajes. También puedes pedirle a Operator que edite un Canvas existente, como agregar un paso o actualizar el contenido de un mensaje. Revisa el borrador en el creador de Canvas y perfecciónalo con indicaciones de seguimiento antes de lanzarlo.
+
+Por ejemplo, pídele a Operator que cree un recorrido de carrito abandonado que espere una hora después del abandono del carrito de compras, envíe un recordatorio por correo electrónico y luego un push después de 24 horas si el usuario aún no ha comprado.
+
+Puedes iniciar esto desde cualquier página del panel. Si aún no estás en Canvas, Operator [navega](#navigate-the-dashboard) allí para completar la solicitud.
 
 ## Agentes {#agents}
 
@@ -256,7 +267,7 @@ La cobertura de Operator cambia con frecuencia. Si no estás seguro de si una pa
 
 El soporte de Operator en el panel es amplio, pero tiene límites.
 
-- **Canvas:** Operator no puede crear ni editar [Canvas]({{site.baseurl}}/user_guide/messaging/canvas), pero puede consultar la configuración de un Canvas existente, como la segmentación y la configuración de entrega, para responder preguntas y fundamentar su resultado.
+- **Canvas:** Operator puede [crear y editar Canvas](#canvases) en el editor de Canvas actual. No es compatible con el [editor de Canvas original]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), iniciar un Canvas desde la página de selección de plantillas ni usar **Vista previa como usuario** mientras se crean Canvas. Operator aún puede consultar la configuración de un Canvas existente, como la segmentación y la configuración de entrega, para responder preguntas y fundamentar su resultado.
 - **Duplicación de Campaigns:** Operator no puede duplicar una Campaign existente desde la vista de lista de Campaigns. Para crear una Campaign similar, pide a Operator que cree una nueva desde cero, o duplica la Campaign manualmente desde el menú **Más acciones** de la vista de lista.
 - **Editores de arrastrar y soltar:** Operator no puede generar ni insertar un diseño de mensaje directamente en un editor de arrastrar y soltar, como los de [correo electrónico]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner) y [mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Cambia al editor HTML correspondiente para usar Operator, o pide a Operator que genere contenido, como texto, que puedas pegar manualmente. Consulta [Generar mensajes](#generate-messages) para ver los canales y editores compatibles.
 - **Visibilidad de pantalla:** Operator utiliza contexto consciente de la página para comprender lo que estás viendo, incluido el contenido dentro de vistas previas y editores compatibles. Cuando parte de una página queda fuera de lo que Operator puede leer, te lo indica en lugar de adivinar, para que sepas que debes describir ese contenido tú mismo.

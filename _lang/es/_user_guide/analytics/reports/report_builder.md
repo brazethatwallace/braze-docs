@@ -25,11 +25,11 @@ El siguiente video ofrece un resumen de cómo crear y personalizar informes en e
     - Usa los desplegables **Elementos de fila** y **Etiquetas** para encontrar informes relevantes para tus ejemplos.<br><br>![Ventana "Plantillas de informe de Braze" con una lista de plantillas de Braze para seleccionar.]({% image_buster /assets/img/report_builder_2/report_templates.png %}){: style="max-width:90%;"}<br><br>
 4. Sigue desde el paso 3 en adelante en [Creación de un informe](#creating-a-report) para personalizar aún más el informe y adaptarlo a tu caso de uso.
 
-## Creación de un informe {#creating-a-report}
+## Crear un informe {#creating-a-report}
 
 1. Ve a **Analytics** > **Generador de informes (nuevo)**.
 2. Selecciona **Crear informe nuevo**.
-3. En el menú desplegable **Filas**, selecciona sobre qué te gustaría generar el informe:
+3. En el desplegable **Filas**, selecciona sobre qué te gustaría generar el informe:
     - Campaigns
     - Canvas
     - Campaigns y Canvas
@@ -52,7 +52,7 @@ El siguiente video ofrece un resumen de cómo crear y personalizar informes en e
     - Campaigns y Canvas
 
 {% alert tip %}
-Prueba diferentes configuraciones de opciones de desglose para explorar las [múltiples formas en que puedes dividir tus datos](#metrics-availability).
+Prueba diferentes configuraciones de opciones de desglose para explorar las [muchas formas en que puedes dividir tus datos](#metrics-availability).
 {% endalert %}
 
 {: start="5"}
@@ -64,11 +64,11 @@ Prueba diferentes configuraciones de opciones de desglose para explorar las [mú
 6. Explora las métricas por categoría y selecciona la casilla correspondiente para añadir una métrica a tu informe.
     - Reordena las métricas y columnas arrastrando el icono de puntos hacia arriba o hacia abajo.
 7. En **Contenido del informe**, configura el intervalo de fechas para el que deseas incluir datos en tu informe.
-8. Luego, dependiendo de tus selecciones en el paso 3, elige añadir manualmente o automáticamente Campaigns, Canvas o ambos a tu informe.
+8. Luego, dependiendo de tus selecciones en el paso 3, elige añadir Campaigns, Canvas o ambos a tu informe de forma manual o automática.
     - **Añadir manualmente:** Elige cada Campaign o Canvas que deseas incluir en el informe usando los filtros de fechas de **Último envío** y etiquetas o canales, o buscando el nombre de la Campaign o Canvas.<br><br>![La sección "Añadir manualmente Campaigns y Canvas" con una lista de Campaigns para seleccionar.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
     - **Añadir automáticamente:** Establece reglas para determinar qué Campaigns o Canvas incluir en el informe. Solo es necesario que selecciones un campo en esta página.
         - Ten en cuenta que a medida que Campaigns o Canvas adicionales cumplan las condiciones que establezcas en esta pantalla, se añadirán automáticamente a futuras ejecuciones de tu informe.
-        - Banners no es una opción en el menú desplegable **Canal**, por lo que no puedes usar reglas de canal para añadir automáticamente Campaigns o Canvas de Banner. Aun así, puedes incluir los KPI de Banner en las métricas de tu informe.<br><br>![La sección "Añadir automáticamente Campaigns y Canvas" con campos para establecer reglas sobre qué Campaigns y Canvas deben añadirse al informe.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
+        - Banners no es una opción en el desplegable **Canal**, por lo que no puedes usar reglas de canal para añadir automáticamente Campaigns o Canvas de Banner. Aun así, puedes incluir KPI de Banner en las métricas de tu informe.<br><br>![La sección "Añadir automáticamente Campaigns y Canvas" con campos para establecer reglas sobre qué Campaigns y Canvas deben añadirse al informe.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
 9. Ejecuta el informe seleccionando **Guardar y ejecutar**.
 
 {% alert note %}
@@ -80,7 +80,7 @@ El informe puede tardar unos minutos en ejecutarse, dependiendo del intervalo de
 Tu selección de **Filas** afecta las métricas que puedes seleccionar.
 
 {% alert tip %}
-Si quieres generar informes sobre variantes o pasos de Canvas, selecciona **Canvas** para las filas y deja el campo vacío o selecciona **Fecha** como desglose. Después de ejecutar el informe, aparece un desplegable **Vista de Canvas** en la página de resultados para ver las métricas solo del Canvas, o agrupar las métricas por variante, paso o mensaje.<br><br> Al editar tu informe, la tabla de vista previa muestra un máximo de 50 filas. Ejecuta el informe para ver todas las filas en la página de resultados con paginación (100 filas por página) o exporta el conjunto de datos completo como CSV.
+Si deseas generar informes sobre variantes o pasos de Canvas, selecciona **Canvas** para las filas y deja el campo vacío o selecciona **Fecha** como desglose. Después de ejecutar el informe, aparece un desplegable **Vista de Canvas** en la página de resultados para ver las métricas solo del Canvas, o agrupar las métricas por variante, paso o mensaje.<br><br> Al editar tu informe, la tabla de vista previa muestra un máximo de 50 filas. Ejecuta el informe para ver todas las filas en la página de resultados con paginación (100 filas por página) o exporta el conjunto de datos completo como CSV.
 
 ![El desplegable "Vista de Canvas" abierto.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}
@@ -100,9 +100,9 @@ Si quieres generar informes sobre variantes o pasos de Canvas, selecciona **Canv
 
 ### Variantes de mensaje eliminadas {#deleted-message-variants}
 
-Las estadísticas de las variantes de mensaje eliminadas no se muestran cuando desglosas tu informe por campañas o Canvas. Sin embargo, los totales a nivel de canal incluyen todas las estadísticas independientemente de si la variante fue eliminada. Por ejemplo, los *Envíos* de correo electrónico incluyen todos los envíos de correo electrónico, pero si desglosas esas estadísticas por campaña, los números pueden ser menores porque los envíos de las variantes de mensaje eliminadas se filtran.
+Las estadísticas de las variantes de mensaje eliminadas no se muestran cuando desglosas tu informe por campañas o Canvas. Sin embargo, los totales a nivel de canal incluyen todas las estadísticas independientemente de si la variante fue eliminada. Por ejemplo, los _Envíos_ de correo electrónico incluyen todos los envíos de correo electrónico, pero si desglosas esas estadísticas por campaña, los números pueden ser menores porque los envíos de las variantes de mensaje eliminadas se filtran.
 
-En el mismo informe, los *Destinatarios únicos* pueden ser mayores que las *Impresiones únicas* cuando una variante de mensaje fue eliminada después del envío. Los *Destinatarios únicos* a nivel de campaña aún pueden incluir usuarios que recibieron la variante eliminada, mientras que las *Impresiones únicas* omiten las estadísticas de las variantes eliminadas en las agregaciones a nivel de mensaje.
+En el mismo informe, los _Destinatarios únicos_ pueden ser mayores que las _Impresiones únicas_ cuando una variante de mensaje fue eliminada después del envío. Los _Destinatarios únicos_ a nivel de campaña aún pueden incluir usuarios que recibieron la variante eliminada, mientras que las _Impresiones únicas_ omiten las estadísticas de las variantes eliminadas en las agregaciones a nivel de mensaje.
 
 ## Visualización de un informe {#viewing-a-report}
 
@@ -130,7 +130,7 @@ Para descargar una imagen del gráfico del informe, selecciona el icono de punto
 
 Puedes compartir un enlace del panel al informe seleccionando **Compartir** y una de estas opciones:
 - **Compartir un enlace:** Copia y comparte el enlace.
-- **Enviar o programar un correo electrónico:** Envía un correo electrónico de inmediato o en un momento designado que contenga un enlace de descarga que caduca después de una hora. Puedes seleccionar destinatarios de los usuarios de la empresa que aparecen en el desplegable **Email Recipients** o introducir cualquier otra dirección de correo electrónico.
+- **Enviar o programar un correo electrónico:** Envía un correo electrónico de inmediato o a una hora designada que contenga un enlace de descarga que caduca después de una hora. Puedes seleccionar destinatarios de los usuarios de la empresa que aparecen en el desplegable **Email Recipients** o introducir cualquier otra dirección de correo electrónico.
 
 {% alert note %}
 El desplegable **Email Recipients** solo muestra usuarios de la empresa en Braze y guarda sus direcciones de correo electrónico en las programaciones de informes. Las direcciones de correo electrónico externas deben introducirse manualmente cada vez que crees una nueva programación de informe. Si envías informes con frecuencia a destinatarios externos, como un contacto de un partner, considera añadirlos como usuario de la empresa con los permisos adecuados para que su dirección aparezca en el desplegable.
@@ -144,8 +144,20 @@ El desplegable **Email Recipients** solo muestra usuarios de la empresa en Braze
 
 1. Selecciona el icono de puntos en la parte superior de la tabla del informe.
 2. Selecciona **Añadir al panel**.
-3. Selecciona si deseas crear un nuevo panel o añadirlo a un panel existente.<br><br>![Ventana con opciones para seleccionar si deseas añadir el informe a un panel nuevo o existente.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
+3. Selecciona si deseas crear un panel nuevo o añadirlo a un panel existente.<br><br>![Ventana con opciones para seleccionar si deseas añadir el informe a un panel nuevo o existente.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
 4. Sigue los pasos en [Generador de paneles]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) para obtener más información sobre cómo crear un panel.
+
+## Permisos de equipo {#team-permissions}
+
+Los informes del generador de informes no admiten la [asignación de equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) como las Campaigns o los Canvas. No puedes limitar un informe guardado a un equipo específico cuando lo creas.
+
+Los usuarios con permiso ["Ver informes del panel"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) a nivel de equipo (en lugar de a nivel de espacio de trabajo) pueden seguir usando el generador de informes, pero la visibilidad de los informes es limitada:
+
+- Estos usuarios solo ven informes en los que cada Campaign y Canvas seleccionado está asignado a sus equipos.
+- Los informes con **Canales** como filas están ocultos.
+- Los informes que usan la selección automática para añadir Campaigns o Canvas están ocultos, porque Braze no puede verificar el acceso del equipo para los mensajes que podrían añadirse cuando se ejecuta el informe.
+
+El [Generador de informes (heredado)]({{site.baseurl}}/report_builder_legacy) limita por equipo qué Campaigns y Canvas puedes añadir a un informe, pero los informes guardados no se filtran de la lista de la misma manera que en el generador de informes (nuevo). Para la configuración de permisos, consulta [Configuración de permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) y [Equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams).
 
 ## Solución de problemas {#troubleshooting}
 

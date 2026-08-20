@@ -15,7 +15,7 @@ Um auf den Landing-Page-Builder zugreifen zu können, benötigen Sie [bestimmte 
 
 ## Landing-Page erstellen {#create-a-landing-page}
 
-Eine Landing-Page ist eine veröffentlichte, live geschaltete Webseite mit einer teilbaren URL, die Ihre Kund:innen besuchen können.
+Eine Landing-Page ist eine veröffentlichte Webseite mit einer teilbaren URL, die Ihre Kund:innen besuchen können.
 
 {% alert note %}
 Landing-Page-Templates sind unveröffentlichte Design-Ausgangspunkte ohne öffentliche URL, die nicht mit Ihren Kund:innen geteilt werden können. Um eine Seite aus einem Template zu erstellen, siehe [Templates verwenden](#using-templates).
@@ -67,18 +67,18 @@ Sie können diese Blöcke verwenden, um Inhalte hinzuzufügen und das Layout Ihr
 | Titel | Ein Textblock zum Hinzufügen einer Überschrift oder eines Titels zu Ihrem Inhalt. Nützlich für die Strukturierung von Abschnitten und die Verbesserung der Lesbarkeit. |
 | Absatz | Ein Textblock für längere Beschreibungen oder zusätzlichen Kontext. Unterstützt Rich-Text-Formatierung. |
 | Button | Ein klickbares Element, das Nutzer:innen zu einer bestimmten Aktion weiterleitet, z. B. zum Öffnen eines Links oder zum Absenden eines Formulars. |
-| Radio-Button | Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen müssen. Bei der Übermittlung wird das zugehörige angepasste Attribut im Nutzerprofil protokolliert. |
+| Optionsfeld | Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen müssen. Bei der Übermittlung wird das zugehörige angepasste Attribut im Nutzerprofil protokolliert. |
 | Bild | Ein Block zur Anzeige von Bildern. Sie können ein Bild hochladen oder eine URL angeben, um auf eine externe Quelle zu verweisen. |
 | Link | Ein Hyperlink, auf den Nutzer:innen klicken können, um zu einer bestimmten URL zu navigieren. Kann in Text eingebettet oder eigenständig verwendet werden. |
 | Abstandshalter | Ein unsichtbarer Block, der vertikalen Abstand zwischen Elementen hinzufügt, um Layout und Lesbarkeit zu verbessern. |
-| Benutzerdefinierter Code | Ein Block, mit dem Sie benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen einfügen und ausführen können. |
+| Angepasster Code | Ein Block, mit dem Sie angepasstes HTML, CSS oder JavaScript einfügen und ausführen können, um erweiterte Anpassungen vorzunehmen. Um über diesen Block mit dem Braze SDK zu interagieren, siehe [JavaScript-Brücke für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) und [Angepasste Formular-Blöcke erstellen]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3: Seite anpassen" }
 
 #### Span-Text {#span-text}
 
-Um bestimmte Stile auf Textblöcke ohne benutzerdefinierten Code anzuwenden, markieren Sie den Text, den Sie gestalten möchten, und wählen Sie dann **Mit Span für Stil umschließen**.
+Um bestimmte Stile auf Textblöcke ohne angepassten Code anzuwenden, markieren Sie den Text, den Sie gestalten möchten, und wählen Sie dann **Mit Span für Stil umschließen**.
 
-![Textfeld mit verschiedenen stilisierten Textabschnitten, wie unterschiedlichen Schriftgrößen und Farben, und einem hervorgehobenen Bereich, der eine Symbolleiste mit der Option „Mit Span für Stil umschließen“ anzeigt.]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+![Textfeld mit verschiedenen stilisierten Textabschnitten, wie unterschiedlichen Schriftgrößen und Farben, und einem hervorgehobenen Abschnitt, der eine Symbolleiste mit der Option „Mit Span für Stil umschließen“ anzeigt.]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
 Passen Sie die Span-Eigenschaften an, um Ihre Textgestaltung zu aktualisieren, einschließlich:
 
@@ -88,15 +88,15 @@ Passen Sie die Span-Eigenschaften an, um Ihre Textgestaltung zu aktualisieren, e
 - Textausrichtung und -farbe
 - Block-Padding
 
-![Panel mit Span-Eigenschaften und verschiedenen Optionen zur Aktualisierung.]({% image_buster /assets/img/landing_pages/span_properties.png %}){: style="max-width:35%;"}
+![Panel für Span-Eigenschaften mit verschiedenen Optionen zur Aktualisierung.]({% image_buster /assets/img/landing_pages/span_properties.png %}){: style="max-width:35%;"}
 
 
 {% endtab %}
 {% tab Formular-Blöcke %}
 
-Sie können diese Blöcke verwenden, um ein Formular zu erstellen, das von Nutzer:innen übermittelte Daten mit deren Profil in Braze verknüpft. Beachten Sie, dass Sie bei Verwendung von Formular-Blöcken auch eine zusätzliche Landing-Page für den Bestätigungsstatus erstellen müssen.
+Sie können diese Blöcke verwenden, um ein Formular zu erstellen, das von Nutzer:innen übermittelte Daten mit ihrem Profil in Braze verknüpft. Beachten Sie, dass Sie bei Verwendung von Formular-Blöcken auch eine zusätzliche Landing-Page für den Bestätigungsstatus erstellen müssen.
 
-![Ein Formular-Block, der neue Kund:innen registriert und einen Rabattcode an deren E-Mail sendet.]({% image_buster /assets/img/landing_pages/form.png %}){: style="max-width:70%;"}
+![Ein Formular-Block, der neue Kund:innen registriert und einen Rabattcode an ihre E-Mail-Adresse sendet.]({% image_buster /assets/img/landing_pages/form.png %}){: style="max-width:70%;"}
 
 | Blocktyp | Beschreibung |
 |---------------|-------------|
@@ -104,12 +104,12 @@ Sie können diese Blöcke verwenden, um ein Formular zu erstellen, das von Nutze
 | Telefon-Erfassung | Ein Formularfeld für Telefonnummern. Bei der Übermittlung wird die Nutzer:in für Ihre SMS- oder WhatsApp-Abo-Gruppe abonniert. |
 | Eingabefeld | Ein Formularfeld, das Standardattribute (wie Vor- und Nachname) oder einen angepassten Attribut-String Ihrer Wahl unterstützt. |
 | Dropdown | Nutzer:innen können einen Artikel aus einer vordefinierten Liste auswählen. Sie können beliebige angepasste Attribut-Strings zur Liste hinzufügen. |
-| Checkbox | Wenn Nutzer:innen das Kästchen ankreuzen, wird das Attribut des Blocks auf `true` gesetzt. Wenn es nicht angekreuzt wird, wird das Attribut auf `false` gesetzt. |
-| Checkbox-Gruppe | Nutzer:innen können aus mehreren Auswahlmöglichkeiten wählen. Werte werden entweder gesetzt oder einem definierten Array-Attribut hinzugefügt. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Span-Text" }
+| Kontrollkästchen | Wenn Nutzer:innen das Kästchen ankreuzen, wird das Attribut des Blocks auf `true` gesetzt. Wenn es nicht angekreuzt wird, wird das Attribut auf `false` gesetzt. |
+| Kontrollkästchen-Gruppe | Nutzer:innen können aus mehreren angebotenen Optionen auswählen. Werte werden entweder gesetzt oder einem definierten Array-Attribut hinzugefügt. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Formular-Blöcke" }
 
 {% alert important %}
-Nachdem Sie eine Landing-Page mit einem Formular erstellt haben, betten Sie unbedingt den zugehörigen [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) in Ihre Nachricht ein. Mit diesem Tag kann Braze bestehende Nutzerprofile automatisch identifizieren und aktualisieren, wenn diese das Formular absenden.
+Nachdem Sie eine Landing-Page mit einem Formular erstellt haben, betten Sie unbedingt den zugehörigen [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) in Ihre Nachricht ein. Mit diesem Tag kann Braze bestehende Nutzerprofile automatisch identifizieren und aktualisieren, wenn sie das Formular absenden.
 {% endalert %}
 
 {% endtab %}
@@ -127,7 +127,7 @@ Wir empfehlen, zuerst Stile auf Seitencontainer-Ebene einzurichten, bevor Sie St
 
 Sie können Ihre Landing-Page responsiv für die Bildschirmgröße der Nutzergeräte gestalten, indem Sie Spalten auf kleineren Bildschirmen vertikal stapeln. Um dies zu aktivieren, fügen Sie eine Spalte in die Zeile ein, die Sie responsiv gestalten möchten, und schalten Sie dann **Auf kleineren Bildschirmen vertikal stapeln** im Bereich **Spalten anpassen** ein.
 
-Wenn diese Option aktiviert ist, können Sie auch die Stapelreihenfolge der Spalten umkehren, um die vertikale Reihenfolge von mehrspaltigem Inhalt auf kleineren Bildschirmen zu steuern. So sehen und fühlen sich Seiten auf Mobilgeräten besser an – ohne benutzerdefinierten Code.
+Wenn aktiviert, können Sie auch die Stapelreihenfolge der Spalten umkehren, um die vertikale Reihenfolge von mehrspaltigem Inhalt auf kleineren Bildschirmen zu steuern. So sehen und fühlen sich Seiten auf Mobilgeräten besser an – ohne angepassten Code.
 
 ![Der Schalter „Auf kleineren Bildschirmen vertikal stapeln“ im Bereich „Spalten anpassen“.]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
@@ -138,12 +138,12 @@ Wenn diese Option aktiviert ist, können Sie auch die Stapelreihenfolge der Spal
 Sie können festlegen, ob bestimmte Formularfelder erforderlich oder optional sind. Erforderliche Felder müssen ausgefüllt werden, bevor das Formular abgesendet werden kann. Optionale Felder können von Nutzer:innen leer gelassen oder nicht ausgewählt werden.
 
 {% alert note %}
-Radio-Buttons sind immer erforderlich und können nicht als optional festgelegt werden. Wenn Sie ein optionales Einzelauswahlfeld benötigen, verwenden Sie stattdessen ein Dropdown.
+Optionsfelder sind immer erforderlich und können nicht als optional festgelegt werden. Wenn Sie ein optionales Einzelauswahl-Feld benötigen, verwenden Sie stattdessen ein Dropdown.
 {% endalert %}
 
-Um beispielsweise die Einwilligungserfassung vor dem Absenden des Formulars zu erzwingen, können Sie **Erforderliche Feldeingabe** aktivieren, um eine Checkbox mit dem entsprechenden Hinweistext als erforderlich festzulegen.
+Um beispielsweise die Einwilligungserfassung vor dem Absenden des Formulars zu erzwingen, können Sie **Erforderliche Feldeingabe** aktivieren, um ein Kontrollkästchen mit dem entsprechenden Hinweistext als erforderlich festzulegen.
 
-![Ein Checkbox-Formularfeld mit aktiviertem Schalter „Erforderliche Feldeingabe“.]({% image_buster /assets/img/landing_pages/lp-optional-required.png %}){: style="max-width:50%;"}
+![Ein Kontrollkästchen-Formularfeld mit aktiviertem Schalter „Erforderliche Feldeingabe“.]({% image_buster /assets/img/landing_pages/lp-optional-required.png %}){: style="max-width:50%;"}
 
 ### Schritt 4: Bestätigungsseite erstellen (optional) {#step-4-create-a-confirmation-page-optional}
 
@@ -158,7 +158,7 @@ So verknüpfen Sie die Bestätigungsseite:
 Wenn Sie keine Bestätigungsseite einbinden, wissen Nutzer:innen möglicherweise nicht, dass ihr Formular erfolgreich abgesendet wurde. Fügen Sie immer ein Bestätigungserlebnis hinzu, um den Ablauf abzuschließen.
 
 {% alert note %}
-Wenn Ihre Bestätigungsseite in einem neuen Tab geöffnet wird, können Nutzer:innen, die zur ursprünglichen Landing-Page zurückkehren und das Formular mit aktualisierten Informationen erneut absenden, die vorherige Übermittlung überschreiben, was zu inkonsistenten Daten führen kann.
+Wenn Ihre Bestätigungsseite in einem neuen Tab geöffnet wird, kann eine Nutzer:in, die zur ursprünglichen Landing-Page zurückkehrt und das Formular mit aktualisierten Informationen erneut absendet, die vorherige Übermittlung überschreiben, was zu inkonsistenten Daten führen kann.
 {% endalert %}
 
 ### Schritt 5: Seite in der Vorschau anzeigen {#step-5-preview-the-page}
@@ -187,7 +187,7 @@ Stellen Sie vor der Veröffentlichung sicher, dass:
 Wenn Sie bereit sind, wählen Sie **Landing-Page veröffentlichen**.
 
 {% alert note %}
-Aggressive Pop-up-Blocker und Werbeblocker auf iOS und in Safari (einschließlich der integrierten Steuerungen von Safari und Drittanbieter-Erweiterungen) können das Verhalten von Landing-Pages negativ beeinflussen, wenn ein **Absenden**-Button des Formulars gleichzeitig eine andere URL öffnet – unabhängig davon, ob diese URL im selben Tab oder in einem neuen Tab geöffnet wird.
+Aggressive Pop-up-Blocker und Werbeblocker auf iOS und in Safari (einschließlich der integrierten Steuerungen von Safari und Erweiterungen von Drittanbietern) können das Verhalten von Landing-Pages negativ beeinflussen, wenn ein **Absenden**-Button des Formulars gleichzeitig eine andere URL öffnet – unabhängig davon, ob diese URL im selben Tab oder in einem neuen Tab geöffnet wird.
 {% endalert %}
 
 ## Templates verwenden {#use-templates}

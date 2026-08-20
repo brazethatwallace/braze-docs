@@ -96,7 +96,11 @@ Adjust the span properties to update your text styling, which includes:
 
 You can use these blocks to create a form that links user-submitted data to their profile in Braze. Keep in mind, if you use form blocks, you'll also need to create an additional landing page for the confirmation state.
 
-![A form block that registers a new customer and will send a discount code to their email.]({% image_buster /assets/img/landing_pages/form.png %}){: style="max-width:70%;"}
+![A form block that registers a new customer and sends a discount code to their email.]({% image_buster /assets/img/landing_pages/form.png %}){: style="max-width:70%;"}
+
+{% alert tip %}
+You can break a long form into multiple steps, each with its own fields and a built-in confirmation step, by using a [multi-step form]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms) instead of placing form blocks directly in a row.
+{% endalert %}
 
 | Block Type     | Description |
 |---------------|-------------|
@@ -106,7 +110,8 @@ You can use these blocks to create a form that links user-submitted data to thei
 | Dropdown      | Users can select an item from a pre-defined list. You can add any custom attribute strings to the list. |
 | Checkbox      | If a user checks the box, the block's attribute is set to `true`. If left unchecked, its attribute is set to `false`. |
 | Checkbox Group| Users can select from multiple choices presented. Values are either set or added to a defined array custom attribute. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Form blocks" }
+| Manage Subscriptions | A checklist of email subscription groups. Users select which groups they want to join when they submit the form. For more information, see [Manage Subscriptions block]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions/). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
 
 {% alert important %}
 After creating a landing page with a form, be sure to embed its [landing page Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) into your message. With this tag, Braze can automatically identify and update existing user profiles when they submit the form.
@@ -149,6 +154,10 @@ For example, to enforce consent capture before form submission, you can turn on 
 
 If your landing page doesn’t include a form, continue to the next step.
 
+{% alert note %}
+If your form uses a [multi-step form]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms), skip this step. Multi-step forms include a built-in, locked confirmation step, so you don't need a separate confirmation page.
+{% endalert %}
+
 If your landing page includes a [form](#form-blocks), create a second landing page to serve as the confirmation experience. This page should thank users or provide a next step after form submission.
 
 To link the confirmation page:
@@ -181,7 +190,7 @@ For preview links on other channels, see [shareable preview]({{site.baseurl}}/us
 Before you publish, make sure:
 
 - You haven’t exceeded your plan’s published landing page limit
-- Each form-based page links to a [confirmation page](#step-4-create-a-confirmation-page) using the **Open web URL** action
+- Each form-based page links to a [confirmation page](#step-4-create-a-confirmation-page-optional) using the **Open web URL** action, or uses a [multi-step form]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms) with its built-in confirmation step
 - All required page fields (like URL path and title) are complete
 
 When you're ready, select **Publish Landing Page**.

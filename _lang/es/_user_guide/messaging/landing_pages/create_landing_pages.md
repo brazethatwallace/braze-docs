@@ -35,7 +35,7 @@ Introduce un nombre y una descripción para la página de inicio. Estos detalles
 
 #### Detalles del sitio {#site-details}
 
-Configura metaetiquetas para personalizar cómo aparece tu página en la pestaña del navegador y optimizar los resultados de los motores de búsqueda. Estos serán visibles para tus clientes.
+Configura las metaetiquetas para personalizar cómo aparece tu página en la pestaña del navegador y optimizar los resultados de los motores de búsqueda. Serán visibles para tus clientes.
 
 Te sugerimos seguir estas buenas prácticas:
 
@@ -71,14 +71,14 @@ Puedes usar estos bloques para añadir contenido y personalizar el diseño de tu
 | Imagen | Un bloque para mostrar imágenes. Puedes subir una imagen o proporcionar una URL para hacer referencia a una fuente externa. |
 | Enlace | Un hipervínculo en el que los usuarios pueden hacer clic para navegar a una URL específica. Puede incrustarse dentro del texto o ser independiente. |
 | Espaciador | Un bloque invisible que añade espacio vertical entre elementos para mejorar el diseño y la legibilidad. |
-| Código personalizado | Un bloque que te permite insertar y ejecutar HTML, CSS o JavaScript personalizado para una personalización avanzada. |
+| Código personalizado | Un bloque que te permite insertar y ejecutar HTML, CSS o JavaScript personalizado para una personalización avanzada. Para interactuar con el SDK de Braze desde este bloque, consulta [Puente JavaScript para páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) y [Crear bloques de formulario personalizados]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Personalizar la página" }
 
 #### Texto con span {#span-text}
 
 Para aplicar estilos específicos a bloques de texto sin código personalizado, resalta el texto que deseas estilizar y luego selecciona **Envolver con span para estilo**.
 
-![Cuadro de texto con diferentes secciones de texto estilizadas, como distintos tamaños de fuente y colores, y una sección resaltada que muestra una barra de herramientas con la opción de envolver con span para estilo.]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+![Cuadro de texto con diferentes secciones de texto estilizadas, como diferentes tamaños de fuente y colores, y una sección resaltada que muestra una barra de herramientas con la opción de envolver con span para estilo.]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
 Ajusta las propiedades del span para actualizar el estilo de tu texto, que incluyen:
 
@@ -106,7 +106,7 @@ Puedes usar estos bloques para crear un formulario que vincule los datos enviado
 | Desplegable | Los usuarios pueden seleccionar un elemento de una lista predefinida. Puedes añadir cualquier cadena de atributo personalizado a la lista. |
 | Casilla de verificación | Si un usuario marca la casilla, el atributo del bloque se establece en `true`. Si se deja sin marcar, su atributo se establece en `false`. |
 | Grupo de casillas de verificación | Los usuarios pueden seleccionar entre múltiples opciones presentadas. Los valores se establecen o se añaden a un atributo personalizado de tipo array definido. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Texto con span" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bloques de formulario" }
 
 {% alert important %}
 Después de crear una página de inicio con un formulario, asegúrate de incrustar su [etiqueta de Liquid de página de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) en tu mensaje. Con esta etiqueta, Braze puede identificar y actualizar automáticamente los perfiles de usuario existentes cuando envían el formulario.
@@ -123,7 +123,7 @@ Te recomendamos configurar los estilos a nivel del contenedor de página antes d
 
 ![La sección "Contenedor de página" con opciones para personalizar imágenes de fondo, colores, detalles de borde y estilo de contenido.]({% image_buster /assets/img/landing_pages/page_container.png %}){: style="max-width:40%;"}
 
-#### Adaptación a los dispositivos de los usuarios {#responsive-to-user-devices}
+#### Receptivo a los dispositivos de los usuarios {#responsive-to-user-devices}
 
 Puedes hacer que tu página de inicio sea receptiva al tamaño del dispositivo del usuario apilando columnas verticalmente en pantallas más pequeñas. Para habilitar esto, añade una columna en la fila que deseas hacer receptiva y luego activa **Apilar verticalmente en pantallas más pequeñas** en la sección **Personalizar columnas**.
 
@@ -180,14 +180,14 @@ Para enlaces de vista previa en otros canales, consulta [vista previa compartibl
 
 Antes de publicar, asegúrate de que:
 
-- No hayas excedido el límite de páginas de inicio publicadas de tu plan
+- No has excedido el límite de páginas de inicio publicadas de tu plan
 - Cada página basada en formulario esté vinculada a una [página de confirmación](#step-4-create-a-confirmation-page) usando la acción **Abrir URL web**
 - Todos los campos obligatorios de la página (como la ruta URL y el título) estén completos
 
 Cuando estés listo, selecciona **Publicar página de inicio**.
 
 {% alert note %}
-Los bloqueadores de ventanas emergentes agresivos y los bloqueadores de anuncios en iOS y en Safari (incluidos los controles integrados de Safari y las extensiones de terceros) pueden afectar negativamente el comportamiento de las páginas de inicio cuando un botón **Enviar** de formulario también abre otra URL, ya sea que esa URL se abra en la misma pestaña o en una nueva pestaña.
+Los bloqueadores de ventanas emergentes agresivos y los bloqueadores de anuncios en iOS y en Safari (incluidos los controles integrados de Safari y las extensiones de terceros) pueden afectar negativamente el comportamiento de las páginas de inicio cuando un botón **Enviar** de formulario también abre otra URL, ya sea que esa URL se abra en la misma pestaña o en una nueva.
 {% endalert %}
 
 ## Usar plantillas {#use-templates}

@@ -14,7 +14,7 @@ Liquid es un lenguaje de plantillas de código abierto desarrollado por Shopify 
 
 ## Cómo funciona {#how-it-works}
 
-Las etiquetas de Liquid actúan como marcadores de posición en tus mensajes que pueden extraer información consentida de la cuenta de tu usuario y habilitar prácticas de personalización y mensajería relevante.
+Las etiquetas de Liquid actúan como marcadores de posición en tus mensajes que pueden extraer información consentida de la cuenta de tu usuario y habilitar la personalización y prácticas de mensajería relevantes.
 
 En el siguiente bloque, puedes ver un uso dual de una etiqueta de Liquid para llamar al nombre del usuario, así como una etiqueta predeterminada en caso de que un usuario no tenga su nombre registrado.
 
@@ -24,7 +24,7 @@ Hi {{ ${first_name} | default: 'Valued User' }}, thanks for using the App!
 ```
 {% endraw %}
 
-Para una usuaria llamada Janet Doe, el mensaje aparecería como:
+Para una usuaria llamada Janet Doe, el mensaje le aparecería de una de estas formas:
 
 ```
 Hi Janet, thanks for using the App!
@@ -37,39 +37,59 @@ Hi Valued User, thanks for using the App!
 ```
 
 {% alert important %}
-Los comentarios HTML (`<!-- -->`) se eliminan antes de que se lea cualquier Liquid, por lo que las etiquetas de Liquid dentro de los comentarios HTML **no se** renderizan en tu mensaje. Para un renderizado correcto, asegúrate de que todas las etiquetas de Liquid que quieras usar estén fuera de los comentarios HTML.
+Los comentarios HTML (`<!-- -->`) se eliminan antes de que se lea cualquier Liquid, por lo que las etiquetas de Liquid dentro de los comentarios HTML **no** se renderizan en tu mensaje. Para un renderizado correcto, asegúrate de que todas las etiquetas de Liquid que quieras usar estén fuera de los comentarios HTML.
 {% endalert %}
 
-## Valores compatibles para sustituir {#supported-values-to-substitute}
+## Valores admitidos para sustituir {#supported-values-to-substitute}
 
-Los siguientes valores pueden sustituirse en un mensaje, dependiendo de su disponibilidad:
+Los siguientes valores se pueden sustituir en un mensaje, dependiendo de su disponibilidad:
 
 - [Información básica del usuario]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) (por ejemplo, `first_name`, `last_name`, `email_address`)
 - [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)
     - [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#liquid-templating)
 - [Propiedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
 - [Información del dispositivo usado más recientemente]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#most-recently-used-device-information)
-- [Información del dispositivo objetivo]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information)
+- [Información del dispositivo de destino]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information)
 
 También puedes extraer contenido directamente de un servidor web a través del [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) de Braze.
 
 {% alert important %}
-Braze actualmente es compatible con Liquid hasta e incluyendo Liquid 5 de Shopify.
+Braze actualmente es compatible con Liquid hasta la versión Liquid 5 de Shopify, inclusive.
 {% endalert %}
 
-## Usar Liquid {#using-liquid}
+## Uso de Liquid {#using-liquid}
 
 Usando [etiquetas de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags), puedes elevar la calidad de tus mensajes enriqueciéndolos con un toque personal.
 
 ### Sintaxis de Liquid {#liquid-syntax}
 
-Liquid sigue una estructura específica, o sintaxis, que deberás tener en cuenta mientras creas personalización dinámica. Aquí tienes algunas reglas básicas a recordar:
+Liquid sigue una estructura específica, o sintaxis, que deberás tener en cuenta mientras creas personalización dinámica. Aquí tienes algunas reglas básicas a considerar:
 
-1. **Usa comillas rectas en Braze:** Hay una diferencia entre las comillas tipográficas (**' '**) y las comillas rectas (**&#39; &#39;**). Usa comillas rectas (**&#39; &#39;**) en tu Liquid en Braze. Puedes ver comillas tipográficas al copiar y pegar desde ciertos editores de texto, lo que puede causar problemas en tu Liquid. Si introduces las comillas directamente en el panel de Braze, ¡no tendrás problemas!
-2. **Las llaves van en pares:** Cada llave debe abrirse y cerrarse **{ }**. ¡Asegúrate de usar llaves!
-3. **Las sentencias if van en pares:** Por cada `if`, necesitas un `endif` para indicar que la sentencia `if` ha terminado.
-4. **Las sentencias case van en pares:** Por cada `case`, necesitas un `endcase` para cerrar el bloque.
-5. **Los nombres de variables deben usar caracteres ASCII:** Los nombres de variables de Liquid (creados con `assign` o `capture`) solo admiten letras ASCII, dígitos y guiones bajos. Los nombres de atributos de personalización de Braze (dentro de `custom_attribute.${...}` o `event_properties.${...}`) pueden incluir caracteres no ASCII.
+- **Usa comillas rectas en Braze:** Hay una diferencia entre las comillas tipográficas (**' '**) y las comillas rectas (**&#39; &#39;**). Usa comillas rectas (**&#39; &#39;**) en tu Liquid en Braze. Es posible que veas comillas tipográficas al copiar y pegar desde ciertos editores de texto, lo que puede causar problemas en tu Liquid. Si introduces las comillas directamente en el panel de Braze, no tendrás problemas.
+- **Los corchetes van en pares:** Cada corchete debe abrirse y cerrarse **{ }**. Asegúrate de usar llaves.
+- **Las sentencias if van en pares:** Por cada `if`, necesitas un `endif` para indicar que la sentencia `if` ha terminado.
+- **Las sentencias case van en pares:** Por cada `case`, necesitas un `endcase` para cerrar el bloque.
+- **Los nombres de variables deben usar caracteres ASCII:** Los nombres de variables de Liquid (creados con `assign` o `capture`) solo admiten letras ASCII, dígitos y guiones bajos. Los nombres de atributos de personalización de Braze (dentro de `custom_attribute.${...}` o `event_properties.${...}`) pueden incluir caracteres no ASCII.
+- **Envuelve las variables de Liquid de Braze en etiquetas `assign` multilínea:** Usa llaves dobles {% raw %}(`{{ }}`){% endraw %} alrededor de las variables de Liquid de Braze cuando un `assign` abarca varias líneas.
+
+#### Etiquetas `assign` multilínea {#multi-line-assign-tags}
+
+Puedes dividir un `assign` en varias líneas (por ejemplo, continuando filtros con `|` antes de la etiqueta de cierre) siempre que envuelvas todas las variables de Liquid de Braze con llaves dobles {% raw %}(`{{ }}`){% endraw %}. Sin esas llaves, las sentencias assign multilínea pueden causar un renderizado inesperado, incluyendo atributos personalizados que no se procesan como plantilla. El siguiente ejemplo muestra un assign multilínea funcional:
+
+{% raw %}
+```liquid
+{%- assign color = {{custom_attribute.${favorite_color}}}
+| default: {{custom_attribute.${fav_color}}}
+| default: 'blue'
+%}
+```
+
+También puedes escribir el `assign` completo en una sola línea:
+
+```liquid
+{%- assign color = custom_attribute.${favorite_color} | default: custom_attribute.${fav_color} | default: 'blue' %}
+```
+{% endraw %}
 
 #### Dónde usar operadores y filtros {#where-to-use-operators-and-filters}
 
@@ -84,13 +104,13 @@ Los operadores (como `==`, `!=`, `>`, `and`, `or`) y los filtros (como `| size`,
 | Acceso a arrays (`[ ]`) | No compatible | No compatible |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dónde usar operadores y filtros" }
 
-[^case_when_ops]: En las etiquetas `case` y `when`, Liquid compara la expresión `case` con cada valor `when` usando igualdad (similar a encadenar `if` y `elsif` con `==`). No puedes usar operadores de comparación arbitrarios ni operadores lógicos dentro de una cláusula `when` como lo haces con `if` y `elsif`. Para ver ejemplos, consulta [Lógica de mensajería condicional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when).
+[^case_when_ops]: En las etiquetas `case` y `when`, Liquid compara la expresión `case` con cada valor `when` usando igualdad (similar a encadenar `if` y `elsif` con `==`). No puedes usar operadores de comparación o lógicos arbitrarios dentro de una cláusula `when` como lo haces con `if` y `elsif`. Para ver ejemplos, consulta [Lógica de mensajería condicional]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when).
 
 Cuando necesites un valor filtrado en un contexto que no admite filtros, asigna primero el resultado a una variable.
 
 {% raw %}
 
-##### Usar el resultado de un filtro en un condicional {#use-a-filter-result-in-a-conditional}
+##### Usar un resultado de filtro en un condicional {#use-a-filter-result-in-a-conditional}
 
 No puedes usar un filtro directamente en una sentencia condicional. Esto es incorrecto:
 
@@ -109,7 +129,7 @@ You have more than 3 items!
 {% endif %}
 ```
 
-##### Usar el resultado de un filtro en un bucle for {#use-a-filter-result-in-a-for-loop}
+##### Usar un resultado de filtro en un bucle for {#use-a-filter-result-in-a-for-loop}
 
 No puedes aplicar un filtro al iterable en un bucle `for`. Esto es incorrecto:
 
@@ -128,7 +148,7 @@ En su lugar, asigna el valor filtrado a una variable:
 {% endfor %}
 ```
 
-##### Usar el resultado de un filtro para acceso a arrays {#use-a-filter-result-for-array-access}
+##### Usar un resultado de filtro para acceso a arrays {#use-a-filter-result-for-array-access}
 
 No puedes usar un filtro dentro de corchetes. Esto es incorrecto:
 
@@ -143,7 +163,7 @@ En su lugar, asigna primero el valor filtrado:
 {{ my_array[adjusted_index] }}
 ```
 
-##### Almacenar el resultado de una comparación en una variable {#store-a-comparison-result-in-a-variable}
+##### Almacenar un resultado de comparación en una variable {#store-a-comparison-result-in-a-variable}
 
 No puedes usar un operador en una sentencia `assign`. Esto es incorrecto:
 
@@ -173,7 +193,7 @@ Welcome to the VIP lounge!
 
 {% raw %}
 
-Si incluyes el siguiente texto en tu mensaje: `{{${first_name}}}`, el nombre del usuario (extraído del perfil de usuario) se sustituirá cuando se envíe el mensaje. Puedes usar el mismo formato con otros atributos predeterminados del usuario.
+Si incluyes el siguiente texto en tu mensaje: `{{${first_name}}}`, el nombre del usuario (extraído del perfil del usuario) se sustituirá cuando se envíe el mensaje. Puedes usar el mismo formato con otros atributos predeterminados del usuario.
 
 Si deseas usar el valor de un atributo personalizado, debes añadir el espacio de nombres "custom_attribute" a la variable. Por ejemplo, para usar un atributo personalizado llamado "zip code", incluirías `{{custom_attribute.${zip code}}}` en tu mensaje.
 
@@ -183,7 +203,7 @@ Puedes insertar etiquetas escribiendo dos llaves de apertura `{{` en cualquier m
 
 Si estás usando una etiqueta personalizada, puedes copiar y pegar la etiqueta en el mensaje que desees.
 
-#### Excepciones para llaves dobles {#exceptions-for-double-brackets}
+#### Excepciones para las llaves dobles {#exceptions-for-double-brackets}
 
 Si usas una etiqueta dentro de otra etiqueta de Liquid, como `{% assign %}` o `{% if %}`, puedes usar llaves dobles o ninguna llave. Solo cuando la etiqueta está sola debe estar encerrada en llaves dobles. Para simplificar, siempre puedes usar llaves dobles.
 
@@ -203,8 +223,8 @@ Las siguientes etiquetas son todas correctas:
 
 Si usas Liquid en tus mensajes de correo electrónico, asegúrate de:
 
-1. Insertarlo usando el editor HTML en lugar del editor clásico. El editor clásico puede interpretar el Liquid como texto plano. Por ejemplo, el Liquid se interpretaría como {% raw %}`Hi {{ ${first_name} }}, thanks for using our service!`{% endraw %} en lugar de insertar el nombre del usuario mediante la plantilla.
-2. Colocar el código Liquid solo dentro de la etiqueta `<body>`. Colocarlo fuera de esta etiqueta puede causar un renderizado inconsistente en la entrega.
+1. Insertarlo usando el editor HTML en lugar del editor clásico. El editor clásico puede interpretar el Liquid como texto plano. Por ejemplo, el Liquid se interpretaría como {% raw %}`Hi {{ ${first_name} }}, thanks for using our service!`{% endraw %} en lugar de procesar como plantilla el nombre del usuario.
+2. Colocar el código Liquid únicamente dentro de la etiqueta `<body>`. Colocarlo fuera de esta etiqueta puede causar un renderizado inconsistente en la entrega.
 
 {% endalert %}
 
@@ -218,6 +238,6 @@ Puedes insertar variables preformateadas con valores predeterminados a través d
 
 ![El modal Añadir personalización que aparece después de seleccionar insertar personalización. El modal tiene campos para tipo de personalización, atributo, valor predeterminado opcional y muestra una vista previa de la sintaxis de Liquid.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
 
-El modal insertará Liquid con tu valor predeterminado especificado en el punto donde estaba tu cursor. El punto de inserción también se especifica mediante el cuadro de vista previa, que muestra el texto anterior y posterior. Si un bloque de texto está resaltado, el texto resaltado será reemplazado.
+El modal insertará Liquid con tu valor predeterminado especificado en el punto donde estaba tu cursor. El punto de inserción también se indica en el cuadro de vista previa, que muestra el texto anterior y posterior. Si un bloque de texto está resaltado, el texto resaltado será reemplazado.
 
 ![Un GIF del modal Añadir personalización que muestra al usuario insertando "fellow traveler" como valor predeterminado, y el modal reemplazando el texto resaltado "name" en el creador con el fragmento de código de Liquid.]({% image_buster /assets/img_archive/insert_var_shot.gif %})

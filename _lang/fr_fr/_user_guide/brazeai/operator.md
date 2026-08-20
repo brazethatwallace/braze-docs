@@ -9,7 +9,7 @@ description: "Découvrez comment accéder à BrazeAI Operator<sup>TM</sup> et l'
 
 # BrazeAI Operator
 
-> BrazeAI Operator<sup>TM</sup> est un assistant alimenté par l'intelligence artificielle, intégré au tableau de bord. Operator vous aide à créer — en rédigeant des campagnes, des segments et du contenu — et vous aide à avancer, que ce soit pour répondre à vos questions, résoudre des problèmes ou générer des idées.
+> BrazeAI Operator<sup>TM</sup> est un assistant alimenté par l'intelligence artificielle, intégré au tableau de bord. Operator vous aide à créer — en rédigeant des Campaigns, des Canvas, des Segments et du contenu — et vous aide à avancer, que ce soit pour répondre à vos questions, résoudre des problèmes ou générer des idées.
 
 ## Accéder à Operator {#access-operator}
 
@@ -26,12 +26,12 @@ Agrandissez le panneau pour faciliter la lecture, ou réduisez-le pour garder Op
 
 ## Utiliser Operator {#use-operator}
 
-Décrivez ce que vous souhaitez accomplir en langage naturel. Des prompts clairs et précis conduisent à des réponses plus utiles. Les prompts peuvent aller d'une simple question à une demande de création complète :
+Décrivez ce que vous souhaitez accomplir en langage naturel. Des prompts clairs et précis permettent d'obtenir des réponses plus utiles. Les prompts peuvent aller d'une simple question à une demande de création complète :
 
 - **Poser une question :** Pourquoi mon Liquid ne s'affiche-t-il pas ?
 - **Créer quelque chose :** Rédige un Segment d'utilisateurs ayant abandonné leur panier au cours des 7 derniers jours.
 
-Operator peut fournir des instructions étape par étape, des liens vers la documentation Braze, des explications en langage courant, ainsi que des ébauches de Campaigns, de Segments et de contenu que vous pouvez examiner et insérer directement dans votre travail. Pour savoir comment Operator propose et applique des modifications, consultez [Agir avec Operator](#take-action-with-operator).
+Operator peut fournir des instructions étape par étape, des liens vers la documentation Braze, des explications en langage courant, ainsi que des ébauches de Campaigns, de Canvas, de Segments et de contenu que vous pouvez examiner et insérer directement dans votre travail. Pour savoir comment Operator propose et applique des modifications, consultez [Agir avec Operator](#take-action-with-operator).
 
 Operator utilise [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra), qui est adapté aux tâches complexes et multi-étapes. Pour découvrir l'ensemble de ce qu'Operator peut vous aider à créer, consultez [Ce que vous pouvez faire avec Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities). Pour des exemples prêts à l'emploi, consultez la [bibliothèque de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
@@ -84,7 +84,7 @@ Operator peut proposer et exécuter des modifications directement dans le tablea
 
 ### Copier les réponses vers d'autres outils {#copy-responses-to-other-tools}
 
-Les réponses d'Operator sont formatées en Markdown. Lorsque vous avez reçu une réponse, sélectionnez **Copy** dans la barre d'outils qui apparaît pour copier l'intégralité de la réponse dans votre presse-papiers. La plupart des outils affichent le Markdown nativement ou l'acceptent avec des ajustements mineurs. Sélectionnez un onglet correspondant à votre destination :
+Les réponses d'Operator sont formatées en Markdown. Lorsque vous avez reçu une réponse, sélectionnez **Copy** dans la barre d'outils qui apparaît pour copier la réponse complète dans votre presse-papiers. La plupart des outils affichent le Markdown nativement ou l'acceptent avec des ajustements mineurs. Sélectionnez un onglet correspondant à votre destination :
 
 {% tabs %}
 {% tab Google Docs %}
@@ -111,7 +111,7 @@ Collez directement. Slack affiche le gras, le code en ligne, les blocs de code, 
 
 Si vous souhaitez travailler dans un fichier ou utiliser des outils de conversion, vous pouvez également :
 
-- Ouvrir un éditeur de texte comme [VS Code](https://code.visualstudio.com/) et créer un nouveau fichier texte, puis coller le Markdown et prévisualiser pour vérifier la mise en forme avant de le convertir ou de le coller ailleurs.
+- Ouvrir un éditeur de texte comme [VS Code](https://code.visualstudio.com/) et créer un nouveau fichier texte, puis coller le Markdown et prévisualiser pour vérifier le formatage avant de le convertir ou de le coller ailleurs.
 - Utiliser [Pandoc](https://pandoc.org/) pour convertir le Markdown en document Word, HTML ou PDF lorsque vous avez besoin d'une structure prévisible dans Word ou Outlook sans passer par un collage depuis un navigateur.
 
 {% endtab %}
@@ -121,11 +121,11 @@ Si vous souhaitez travailler dans un fichier ou utiliser des outils de conversio
 
 ### Arrêter une réponse {#stop-a-response}
 
-Pendant qu'Operator génère une réponse, le bouton **Envoyer** devient un bouton **Arrêter**. Sélectionnez **Arrêter** pour interrompre la réponse si vous devez reformuler votre question ou si la réponse ne va pas dans la bonne direction.
+Pendant qu'Operator génère une réponse, le bouton **Envoyer** devient un bouton **Arrêter**. Sélectionnez **Arrêter** pour mettre fin à la réponse prématurément si vous devez reformuler votre question ou si la réponse ne va pas dans la bonne direction.
 
 ### Effacer votre historique {#clear-your-history}
 
-Pour repartir de zéro ou supprimer des informations sensibles de la conversation, sélectionnez **Effacer l'historique de conversation**. Cela supprime tout le contenu actuel et réinitialise le contexte de la conversation.
+Pour repartir de zéro ou supprimer des informations sensibles de la conversation, sélectionnez **Clear chat history**. Cela supprime tout le contenu actuel et réinitialise le contexte de la conversation.
 
 ### Donner votre avis {#provide-feedback}
 

@@ -29,14 +29,14 @@ O vídeo a seguir apresenta uma visão geral de como criar e personalizar relat�
 
 1. Acesse **Analytics** > **Report Builder (New)**.
 2. Selecione **Create New Report**.
-3. No menu suspenso **Rows**, selecione sobre o que você deseja gerar o relatório:
+3. No menu suspenso **Rows**, selecione sobre o que você gostaria de gerar relatórios:
     - Campaigns
     - Canvas
     - Campaigns e Canvas
     - Canais
     - Tags
 
-    Observe que sua seleção de **Rows** impacta [as métricas que você pode visualizar](#metrics-availability). Por exemplo, você pode visualizar métricas multivariantes somente se gerar o relatório sobre **Canvas** ou **Campaigns** com um detalhamento por **Variant**. Não é possível visualizar essas métricas ao gerar relatórios sobre **Campaigns and Canvases**, mesmo que essas Campaigns e Canvas tenham testes multivariantes.
+    Sua seleção de **Rows** impacta [as métricas que você pode visualizar](#metrics-availability). Por exemplo, você pode visualizar métricas multivariantes somente se gerar relatórios sobre **Canvas** ou **Campaigns** com um detalhamento por **Variant**. Não é possível visualizar essas métricas ao gerar relatórios sobre **Campaigns and Canvases**, mesmo que essas Campaigns e Canvas tenham testes multivariantes.
 
 ![A seção "Rows and columns" com campos para selecionar as linhas e agrupamentos do seu relatório.]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
 
@@ -44,10 +44,10 @@ O vídeo a seguir apresenta uma visão geral de como criar e personalizar relat�
 4. (Opcional) Selecione **Add drilldown** para detalhar seus dados em visualizações mais granulares:
     - Canais
     - Data
-        - Use essa opção para dividir seus dados em intervalos de tempo menores. Por exemplo, se você deseja saber como suas Campaigns se saíram por dia, selecione a seguinte configuração:
+        - Use isso para dividir seus dados em intervalos de tempo menores. Por exemplo, se você deseja saber como suas Campaigns se saíram por dia, selecione a seguinte configuração:
             - **Rows**: Campaigns
-            - **Grouping:** Data
-            - **Interval:** Dias
+            - **Grouping:** Date
+            - **Interval:** Days
     - Variantes
     - Campaigns e Canvas
 
@@ -67,8 +67,8 @@ Experimente diferentes configurações de opções de detalhamento para explorar
 8. Em seguida, dependendo das suas seleções na etapa 3, escolha adicionar manualmente ou automaticamente Campaigns, Canvas ou ambos ao seu relatório.
     - **Adicionar manualmente:** Escolha cada Campaign ou Canvas para incluir no relatório usando os filtros de datas de **Last Sent** e tags ou canais, ou pesquisando pelo nome da Campaign ou do Canvas.<br><br>![A seção "Manually add campaigns and canvases" com uma lista de Campaigns para selecionar.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
     - **Adicionar automaticamente:** Defina regras para quais Campaigns ou Canvas incluir no relatório. Você só precisa selecionar um campo nesta página.
-        - Observe que, à medida que Campaigns ou Canvas adicionais atendam às condições definidas nesta tela, eles serão automaticamente adicionados a execuções futuras do seu relatório.
-        - Banners não é uma opção no menu suspenso **Channel**, então você não pode usar regras de canal para adicionar automaticamente Campaigns ou Canvas de Banner. Ainda assim, é possível incluir KPIs de Banner nas métricas do seu relatório.<br><br>![A seção "Automatically add campaigns and canvases" com campos para definir regras sobre quais Campaigns e Canvas devem ser adicionados ao relatório.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
+        - À medida que Campaigns ou Canvas adicionais atendam às condições definidas nesta tela, eles serão automaticamente adicionados a execuções futuras do seu relatório.
+        - Banners não é uma opção no menu suspenso **Channel**, então você não pode usar regras de canal para adicionar automaticamente Campaigns ou Canvas de Banner. Você ainda pode incluir KPIs de Banner nas métricas do seu relatório.<br><br>![A seção "Automatically add campaigns and canvases" com campos para definir regras sobre quais Campaigns e Canvas devem ser adicionados ao relatório.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
 9. Execute o relatório selecionando **Save & Run**.
 
 {% alert note %}
@@ -80,7 +80,7 @@ O relatório pode levar alguns minutos para ser executado, dependendo do interva
 Sua seleção de **Linhas** afeta as métricas que você pode selecionar.
 
 {% alert tip %}
-Se você quiser gerar relatórios sobre variantes ou etapas de Canvas, selecione **Canvas** para as linhas e deixe o campo vazio ou selecione **Data** como o detalhamento. Após executar o relatório, um menu suspenso **Visualização do Canvas** aparece na página de resultados para visualizar métricas apenas do Canvas, ou agrupar métricas por variante, etapa ou mensagem.<br><br> Ao editar seu relatório, a tabela de prévia mostra no máximo 50 linhas. Execute o relatório para visualizar todas as linhas na página de resultados com paginação (100 linhas por página) ou exporte o conjunto de dados completo como CSV.
+Se você quiser gerar relatórios sobre variantes ou etapas de Canvas, selecione **Canvas** para linhas e deixe o campo vazio ou selecione **Data** como detalhamento. Após executar o relatório, um menu suspenso **Visualização do Canvas** aparece na página de resultados para visualizar métricas apenas do Canvas, ou agrupar métricas por variante, etapa ou mensagem.<br><br> Ao editar seu relatório, a tabela de prévia mostra no máximo 50 linhas. Execute o relatório para visualizar todas as linhas na página de resultados com paginação (100 linhas por página) ou exporte o conjunto de dados completo como CSV.
 
 ![O menu suspenso "Visualização do Canvas" aberto.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}
@@ -100,9 +100,9 @@ Se você quiser gerar relatórios sobre variantes ou etapas de Canvas, selecione
 
 ### Variantes de mensagem excluídas {#deleted-message-variants}
 
-As estatísticas de variantes de mensagem excluídas não são exibidas quando você detalha seu relatório por Campaigns ou Canvas. No entanto, os totais no nível do canal incluem todas as estatísticas, independentemente de a variante ter sido excluída. Por exemplo, os *Envios* de e-mail incluem todos os envios de e-mail, mas se você detalhar essas estatísticas por Campaign, os números podem ser menores porque os envios de variantes de mensagem excluídas são filtrados.
+As estatísticas de variantes de mensagem excluídas não são exibidas quando você detalha seu relatório por Campaigns ou Canvas. No entanto, os totais no nível do canal incluem todas as estatísticas, independentemente de a variante ter sido excluída. Por exemplo, *Envios* de e-mail incluem todos os envios de e-mail, mas se você detalhar essas estatísticas por Campaign, os números podem ser menores porque os envios de variantes de mensagem excluídas são filtrados.
 
-No mesmo relatório, os *Destinatários únicos* podem ser maiores que as *Impressões únicas* quando uma variante de mensagem foi excluída após o envio. Os *Destinatários únicos* no nível da Campaign ainda podem incluir usuários que receberam a variante excluída, enquanto as *Impressões únicas* omitem estatísticas de variantes excluídas nas agregações no nível da mensagem.
+No mesmo relatório, *Destinatários únicos* pode ser maior que *Impressões únicas* quando uma variante de mensagem foi excluída após o envio. *Destinatários únicos* no nível da Campaign ainda podem incluir usuários que receberam a variante excluída, enquanto *Impressões únicas* omitem estatísticas de variantes excluídas nas agregações no nível da mensagem.
 
 ## Visualizando um relatório {#viewing-a-report}
 
@@ -147,11 +147,23 @@ O menu suspenso **Email Recipients** lista apenas os usuários da empresa na Bra
 3. Selecione se deseja criar um novo dashboard ou adicionar a um dashboard existente.<br><br>![Janela com opções para selecionar se você deseja adicionar o relatório a um dashboard novo ou existente.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
 4. Siga as etapas em [Criador de dashboards]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) para saber mais sobre como criar um dashboard.
 
+## Permissões de equipe {#team-permissions}
+
+Os relatórios do Criador de relatórios não suportam [atribuição de equipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams) como Campaigns ou Canvas. Não é possível limitar um relatório salvo a uma equipe específica ao criá-lo.
+
+Usuários com permissão ["View Dashboard Reports"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) no nível de equipe (em vez de no nível do espaço de trabalho) ainda podem usar o Criador de relatórios, mas a visibilidade dos relatórios é limitada:
+
+- Esses usuários só veem relatórios em que todas as Campaigns e Canvas selecionados estão atribuídos às suas equipes.
+- Relatórios com **Canais** como linhas ficam ocultos.
+- Relatórios que usam seleção automática para adicionar Campaigns ou Canvas ficam ocultos, porque a Braze não consegue verificar o acesso da equipe para mensagens que podem ser adicionadas quando o relatório é executado.
+
+O [Criador de relatórios (legado)]({{site.baseurl}}/report_builder_legacy) define por equipe quais Campaigns e Canvas você pode adicionar a um relatório, mas os relatórios salvos não são filtrados da lista da mesma forma que no Criador de relatórios (novo). Para configuração de permissões, consulte [Configuração de permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) e [Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams).
+
 ## Solução de problemas {#troubleshooting}
 
 ### O relatório não mostra envios para uma Campaign ou Canvas {#report-shows-no-sends-for-a-campaign-or-canvas}
 
-Uma Campaign ou Canvas aparece no relatório quando a data do **Último envio** está dentro da janela de **Último envio** que você configurou. **Envios** e outras métricas são preenchidos apenas para atividades dentro do intervalo de datas de **Mostrar dados para**. Se a mensagem não foi enviada durante o período de **Mostrar dados para**, a linha ainda pode listar a Campaign ou Canvas com zero envios.
+Uma Campaign ou Canvas aparece no relatório quando a data do **Último envio** está dentro da janela de **Último envio** que você configurou. **Envios** e outras métricas só são preenchidos para atividades dentro do intervalo de datas de **Mostrar dados para**. Se a mensagem não foi enviada durante o período de **Mostrar dados para**, a linha ainda pode listar a Campaign ou Canvas com zero envios.
 
 Por exemplo, suponha que **Último envio** seja de 1º de janeiro de 2025 a 14 de abril de 2025, então uma Campaign é incluída, mas **Mostrar dados para** é de 1º de dezembro de 2024 a 14 de janeiro de 2025. Se essa Campaign não teve envios em dezembro ou janeiro, ela ainda aparece na tabela sem métricas de envio.
 

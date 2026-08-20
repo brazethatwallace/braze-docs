@@ -9,7 +9,7 @@ description: "Aprende a acceder y utilizar BrazeAI Operator<sup>TM</sup>, un asi
 
 # BrazeAI Operator
 
-> BrazeAI Operator<sup>TM</sup> es un asistente basado en inteligencia artificial integrado en el panel. Operator te ayuda a construir (redactando campañas, segmentos y contenido) y te ayuda a avanzar, desde responder preguntas y solucionar problemas hasta generar ideas.
+> BrazeAI Operator<sup>TM</sup> es un asistente basado en inteligencia artificial integrado en el panel. Operator te ayuda a construir —redactando Campaigns, Canvas, Segments y contenido— y te ayuda a avanzar, desde responder preguntas y solucionar problemas hasta generar ideas.
 
 ## Acceder a Operator {#access-operator}
 
@@ -31,7 +31,7 @@ Describe lo que intentas lograr usando lenguaje natural. Los prompts claros y es
 - **Haz una pregunta:** ¿Por qué no se renderiza mi Liquid?
 - **Construye algo:** Redacta un Segment de usuarios que abandonaron su carrito en los últimos 7 días.
 
-Operator puede proporcionar instrucciones paso a paso, enlaces a la documentación de Braze, explicaciones en lenguaje sencillo y borradores de Campaigns, Segments y contenido que puedes revisar e insertar directamente en tu trabajo. Para saber cómo Operator propone y aplica cambios, consulta [Tomar acción con Operator](#take-action-with-operator).
+Operator puede proporcionar instrucciones paso a paso, enlaces a la documentación de Braze, explicaciones en lenguaje sencillo y borradores de Campaigns, Canvas, Segments y contenido que puedes revisar e insertar directamente en tu trabajo. Para saber cómo Operator propone y aplica cambios, consulta [Tomar acción con Operator](#take-action-with-operator).
 
 Operator utiliza [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra), que es adecuado para tareas complejas de varios pasos. Para conocer todo lo que Operator puede ayudarte a construir, consulta [Qué puedes hacer con Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities). Para ejemplos listos para usar, consulta la [biblioteca de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
@@ -68,21 +68,21 @@ Para ideas de prompts listas para usar, consulta la [biblioteca de prompts]({{si
 
 ## Trabajar con las respuestas de Operator {#work-with-operator-responses}
 
-### Comienza con prompts sugeridos {#get-started-with-suggested-prompts}
+### Comenzar con prompts sugeridos {#get-started-with-suggested-prompts}
 
-Cuando abres una conversación con Operator, aparecen prompts sugeridos basados en tareas comunes y tu página actual. Selecciona uno para comenzar rápidamente o escribe tu propia pregunta personalizada.
+Cuando abres una conversación con Operator, aparecen prompts sugeridos basados en tareas comunes y tu página actual. Selecciona uno para comenzar rápidamente, o escribe tu propia pregunta personalizada.
 
-### Comprende cómo piensa Operator {#understand-how-operator-thinks}
+### Entender cómo piensa Operator {#understand-how-operator-thinks}
 
 Operator muestra sus pasos de razonamiento en secciones desplegables etiquetadas como **Reasoned**. Selecciona el desplegable para expandir estas secciones y ver cómo Operator determinó una respuesta. Esto es útil cuando quieres entender la lógica detrás de una sugerencia o verificar el enfoque.
 
 ![El desplegable "Reasoned" contraído en una respuesta de Operator.]({% image_buster /assets/img/operator/operator_reasoning_collapsed.png %}){:style="max-width:40%"}
 
-### Toma acción con Operator {#take-action-with-operator}
+### Tomar acción con Operator {#take-action-with-operator}
 
-Operator puede proponer y ejecutar cambios directamente en el panel de Braze, como rellenar campos de formularios, actualizar la configuración, generar contenido o dirigirte a una página diferente para completar tu solicitud. Cada cambio propuesto se presenta como una tarjeta de acción para que lo revises y apruebes antes de que surta efecto. Para más información sobre cómo funciona, consulta [Revisar acciones]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
+Operator puede proponer y ejecutar cambios directamente en el panel de Braze, como rellenar campos de formulario, actualizar configuraciones, generar contenido o llevarte a una página diferente para completar tu solicitud. Cada cambio propuesto se presenta como una tarjeta de acción para que lo revises y apruebes antes de que surta efecto. Para más información sobre cómo funciona esto, consulta [Revisar acciones]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
 
-### Copia las respuestas a otras herramientas {#copy-responses-to-other-tools}
+### Copiar respuestas a otras herramientas {#copy-responses-to-other-tools}
 
 Las respuestas de Operator están formateadas en Markdown. Cuando hayas recibido una respuesta, selecciona **Copy** en la barra de herramientas que aparece para copiar la respuesta completa a tu portapapeles. La mayoría de las herramientas renderizan Markdown de forma nativa o lo aceptan con ajustes menores. Selecciona una pestaña según tu destino:
 
