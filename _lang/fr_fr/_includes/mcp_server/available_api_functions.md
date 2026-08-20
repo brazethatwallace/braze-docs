@@ -23,7 +23,7 @@ Votre client MCP fait référence à ces outils pour interagir avec le serveur B
 
 | Outil | Endpoint API | Accès | Description |
 | --- | --- | --- | --- |
-| `get_campaign_list` | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) | lecture | Exporter une liste de Campaigns avec le nom, l'identifiant API de la Campaign, l'indicateur API-campaign et les tags. |
+| `get_campaign_list` | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) | lecture | Exporter une liste de Campaigns avec le nom, l'identifiant API de la Campaign, le drapeau API-campaign et les tags. |
 | `get_campaign_details` | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) | lecture | Récupérer les informations pertinentes sur une Campaign spécifiée par `campaign_id`. |
 | `get_campaign_dataseries` | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) | lecture | Séries quotidiennes de statistiques de Campaign au fil du temps (envois, ouvertures, clics, conversions par canal). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Campaigns" }
@@ -85,7 +85,7 @@ Votre client MCP fait référence à ces outils pour interagir avec le serveur B
 
 | Outil | Endpoint API | Accès | Description |
 | --- | --- | --- | --- |
-| `create_media_library_asset` | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) | création | Charger une ressource dans la bibliothèque multimédia de Braze via une URL externe ou un contenu de fichier en base64. Un seul mode de chargement doit être fourni. |
+| `create_media_library_asset` | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) | création | Importer une ressource dans la bibliothèque multimédia de Braze via une URL externe ou un contenu de fichier en base64. Un seul mode d'importation doit être fourni. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Bibliothèque multimédia" }
 
 ### Achats {#purchases}
@@ -101,7 +101,7 @@ Votre client MCP fait référence à ces outils pour interagir avec le serveur B
 
 | Outil | Endpoint API | Accès | Description |
 | --- | --- | --- | --- |
-| `get_segment_list` | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment) | lecture | Exporter les Segments avec le nom, l'identifiant API du Segment et l'indicateur de suivi analytique. |
+| `get_segment_list` | [`/segments/list`]({{site.baseurl}}/api/endpoints/export/segments/get_segment) | lecture | Exporter les Segments avec le nom, l'identifiant API du Segment et le drapeau de suivi analytique. |
 | `get_segment_details` | [`/segments/details`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_details) | lecture | Récupérer les informations pertinentes sur un Segment par `segment_id`. |
 | `get_segment_data_series` | [`/segments/data_series`]({{site.baseurl}}/api/endpoints/export/segments/get_segment_analytics) | lecture | Séries quotidiennes de la taille estimée d'un Segment au fil du temps. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Segments" }
@@ -119,14 +119,6 @@ Votre client MCP fait référence à ces outils pour interagir avec le serveur B
 | --- | --- | --- | --- |
 | `get_session_data_series` | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics) | lecture | Nombre de sessions pour votre application sur une période donnée. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Sessions" }
-
-### Groupes d'abonnement {#subscription-groups}
-
-| Outil | Endpoint API | Accès | Description |
-| --- | --- | --- | --- |
-| `get_subscription_group_status` | [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) | lecture | État d'abonnement d'un utilisateur dans un groupe d'abonnement. |
-| `get_user_subscription_groups` | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) | lecture | Lister les groupes d'abonnement d'un utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Groupes d'abonnement" }
 
 ### Modèles {#templates}
 

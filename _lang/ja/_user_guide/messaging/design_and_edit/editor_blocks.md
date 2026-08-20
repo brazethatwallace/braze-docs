@@ -513,6 +513,30 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
 
+### 購読管理 {#manage-subscriptions}
+
+訪問者がフォーム送信時に購読のオプトインや管理ができるよう、[メール購読グループ]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups)のチェックリストを追加します。ブロックに購読グループを追加した後に設定します。このブロックはメール購読グループのみをサポートしており、SMS、RCS、またはWhatsApp購読グループはサポートしていません。
+
+ランディングページの[Liquidタグ]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users)を通じてページを開いた識別済みユーザーの場合、ブロックは各チェックボックスにユーザーの現在の購読状態を事前入力するため、ユーザー設定管理ページとしても機能します。
+
+エディターでブロックを選択すると、以下の操作ができます:
+
+- 購読グループの並べ替え
+- 購読グループの追加または削除
+- 説明の追加または削除
+- ブロック内のすべての購読グループを選択する「すべて購読」チェックボックスの追加または削除
+- ブロック内のすべての購読グループの選択を解除する「選択をクリア」チェックボックスの追加または削除
+
+| プロパティ | 説明 |
+| --- | --- |
+| 購読グループ | ブロックに表示される購読グループを追加、削除、または並べ替えます。 |
+| 説明を含める | 各購読グループの名前の横に説明を表示します。 |
+| **選択をクリア**チェックボックス | ブロック内のすべての購読グループの選択を解除するチェックボックスを追加します。 |
+| **すべて購読**チェックボックス | ブロック内のすべての購読グループを選択するチェックボックスを追加します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="購読管理" }
+
+完全な設定フローについては、[購読管理ブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions)を参照してください。
+
 ### ロングテキスト
 
 アンケートスタイルのフロー用の複数行テキストフィールドです。このブロックが表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)またはBrazeのカスタマーサクセスマネージャーにお問い合わせください。このブロックは標準ランディングページでは利用できません。

@@ -49,7 +49,7 @@ tool: Media
 | 줄 높이 | 텍스트 줄 사이의 간격을 수정합니다. |
 | 자간 | 각 문자 사이의 간격을 수정합니다. |
 | 텍스트 방향 | 기본값은 왼쪽에서 오른쪽이지만 [오른쪽에서 왼쪽]({{site.baseurl}}/right_to_left_messages)으로 편집할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="제목" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
 
 ### 단락 {#paragraph}
 
@@ -67,7 +67,7 @@ tool: Media
 | 줄 높이 | 텍스트 줄 사이의 간격을 수정합니다. |
 | 자간 | 각 문자 사이의 간격을 수정합니다. |
 | 텍스트 방향 | 기본값은 왼쪽에서 오른쪽이지만 [오른쪽에서 왼쪽]({{site.baseurl}}/right_to_left_messages)으로 편집할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="단락" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
 
 ### 목록 {#list}
 
@@ -89,7 +89,7 @@ tool: Media
 | 줄 높이 | 텍스트 줄 사이의 간격을 수정합니다. |
 | 자간 | 각 문자 사이의 간격을 수정합니다. |
 | 텍스트 방향 | 기본값은 왼쪽에서 오른쪽이지만 [오른쪽에서 왼쪽]({{site.baseurl}}/right_to_left_messages)으로 편집할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="목록" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
 
 ### 버튼 {#button}
 
@@ -99,7 +99,7 @@ tool: Media
 |---|---|
 | 버튼 옵션 | 글꼴, 크기, 너비, 색상, 패딩 등 다양한 버튼 옵션을 설정합니다. |
 | 버튼 호버 | 사용자가 마우스 또는 트랙패드로 버튼 위에 마우스를 올렸을 때의 스타일입니다. 버튼의 배경색, 글꼴 색상, 테두리 스타일이 포함됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="버튼" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button" }
 
 #### 클릭 시 동작 {#on-click-behavior}
 
@@ -110,7 +110,7 @@ tool: Media
 | 수신자, 제목, 본문 | **이메일 보내기** 링크 유형의 경우, 사용자가 버튼을 선택했을 때 이메일 초안에 채워질 수신자 이메일 주소, 제목, 콘텐츠를 설정합니다. |
 | 전화번호 | **전화 걸기** 및 **SMS 보내기** 링크 유형의 경우, 사용자가 버튼을 선택했을 때 전화하거나 문자를 보낼 전화번호를 설정합니다. |
 | 메시지 | **SMS 보내기** 링크 유형의 경우, 사용자가 버튼을 선택했을 때 SMS 메시지 초안에 채워질 콘텐츠를 설정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="클릭 시 동작" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
 ### 구분선 {#divider}
 
@@ -122,7 +122,7 @@ tool: Media
 | 선 | 점선, 파선 또는 실선 등 다양한 선 형식입니다. 구분선의 두께와 색상도 수정할 수 있습니다. |
 | 너비 | 5단위로 구분선의 범위를 조정합니다. |
 | 정렬 | 선을 왼쪽, 가운데 또는 오른쪽 정렬로 이동합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="구분선" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
 
 ### 스페이서 {#spacer}
 
@@ -131,7 +131,7 @@ tool: Media
 | 속성 | 설명 |
 |---|---|
 | 높이 | 스페이서 블록의 높이를 조정합니다. 기본값은 60px입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="스페이서" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spacer" }
 
 ### 이미지 {#image}
 
@@ -149,7 +149,7 @@ tool: Media
 | 둥근 모서리 이미지 | 이미지를 둥근 모서리로 렌더링합니다. 기본적으로 이미지는 직각 모서리로 렌더링됩니다. |
 | 동작 | 사용자가 이미지를 클릭했을 때 동작을 트리거합니다. |
 | 블록 옵션 | 이미지 블록 주위의 패딩을 설정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="이미지" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
 
 {% alert tip %}
 **자동 너비**의 경우, 자동 이미지 크기 조정은 이미지 너비와 레이아웃에서 사용 가능한 공간의 조합을 기반으로 이미지에 가장 적합한 크기를 선택합니다:
@@ -181,7 +181,7 @@ Gmail은 하이퍼링크(`href`)가 연결되지 않은 이미지에 자동으�
 | 재생 아이콘 스타일 | 비디오 이미지 상단에 위치한 재생 버튼의 다양한 옵션을 포함합니다. |
 | 재생 아이콘 색상 | 재생 버튼에 대해 **밝게** 또는 **어둡게**를 선택하는 옵션입니다. |
 | 재생 아이콘 크기 | 재생 버튼의 픽셀 크기를 선택합니다. 50&nbsp;px에서 80&nbsp;px까지 미리 정의된 범위(5&nbsp;px 단위 증가)입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="비디오" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video" }
 
 {% alert tip %}
 Vimeo에서 호스팅하는 비디오는 공개로 설정된 경우에만 작동합니다. Vimeo 내에서 사용 가능한 다른 모든 보안 설정(예: "Vimeo.com에서 숨기기")은 이 Content Block에서 지원하지 않는 다른 링크 형식을 생성합니다. 이러한 유형의 링크는 빌더에 의해 변경되어 Braze가 썸네일을 생성하지 못하게 합니다.
@@ -197,7 +197,7 @@ Vimeo에서 호스팅하는 비디오는 공개로 설정된 경우에만 작동
 | 아이콘 컬렉션 구성 | 각 소셜 아이콘의 URL을 설정합니다. 제목과 대체 텍스트를 편집하는 **추가 옵션** 토글을 포함합니다. |
 | 정렬 | 소셜 아이콘을 왼쪽, 가운데 또는 오른쪽 정렬로 이동합니다. |
 | 아이콘 간격 | 각 소셜 아이콘 사이의 간격을 결정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="소셜" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Social" }
 
 ### 아이콘 {#icons}
 
@@ -215,7 +215,7 @@ Vimeo에서 호스팅하는 비디오는 공개로 설정된 경우에만 작동
 | 아이콘 크기 | 아이콘의 크기를 결정합니다. |
 | 아이콘 간격 | 아이콘의 간격을 수정합니다. |
 | 아이콘 패딩 | 아이콘의 패딩을 수정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="아이콘" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Icons" }
 
 ### HTML
 
@@ -244,11 +244,11 @@ Vimeo에서 호스팅하는 비디오는 공개로 설정된 경우에만 작동
 | 모바일 메뉴 | 모바일 기기에서 표시될 때 아이콘 크기, 색상, 아이콘 유형을 수정하는 옵션을 포함합니다. |
 | 항목 패딩 | **+** 또는 **-** 버튼을 사용하거나 특정 숫자를 입력하여 패딩을 수정합니다. |
 | 모든 면 | 항목 패딩이 비활성화된 경우 일관된 패딩 숫자를 설정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="메뉴" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Menu" }
 
 ### 제품 {#product}
 
-[제품 카탈로그]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks)에서 제품 행을 렌더링합니다. 카탈로그 선택 항목의 정적 항목(최대 12개) 또는 [Canvas 이커머스 트리거]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases)에 의해 구동되는 동적 제품(최대 24개)으로 렌더링할 수 있습니다.
+[제품 카탈로그]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks)에서 제품 행을 렌더링합니다. 카탈로그 선택 항목의 정적 항목(최대 12개) 또는 [Canvas 이커머스 트리거]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases)(최대 24개)에 의해 구동되는 동적 제품으로 렌더링할 수 있습니다.
 
 | 속성 | 설명 |
 | --- | --- |
@@ -266,7 +266,7 @@ Vimeo에서 호스팅하는 비디오는 공개로 설정된 경우에만 작동
 | 행당 최대 제품 수 | 행당 표시되는 제품 수를 설정합니다: **1**, **2** 또는 **3**(**3**은 방향이 **이미지 가운데**인 경우에만 사용 가능). |
 | 제품 간격 | 제품 사이의 간격을 설정합니다: **자동** 또는 **커스텀**. |
 | 커스텀 간격 | *(**커스텀**이 선택된 경우)* 제품 사이의 간격을 픽셀 단위로 설정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="제품" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Product" }
 
 ## 개인화 {#personalization}
 
@@ -343,7 +343,7 @@ Liquid 또는 연결된 콘텐츠를 사용하여 이메일에 개인화를 추�
 | 속성 | 설명 |
 | --- | --- |
 | 커스텀 코드 | 인앱 메시지에 대한 HTML, CSS, JavaScript를 추가, 편집 또는 삭제할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="커스텀 코드" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 ### 전화번호 수집 {#phone-capture}
 
@@ -467,7 +467,7 @@ Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved
 | 속성 | 설명 |
 | --- | --- |
 | 커스텀 코드 | HTML, CSS, JavaScript를 추가, 편집 또는 삭제할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="커스텀 코드" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer {#countdown-timer}
@@ -512,6 +512,30 @@ After you add a **Countdown timer** block, use the properties panel to set the t
 사용자가 여러 옵션을 선택합니다. 값은 정의된 [배열 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)에 설정되거나 추가됩니다.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
+
+### 구독 관리 {#manage-subscriptions}
+
+방문자가 양식을 제출할 때 [이메일 구독 그룹]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups)에 옵트인하거나 구독을 관리할 수 있는 체크리스트를 추가합니다. 블록에 구독 그룹을 추가한 후 구성합니다. 이 블록은 이메일 구독 그룹만 지원하며, SMS, RCS 또는 WhatsApp 구독 그룹은 지원하지 않습니다.
+
+랜딩 페이지의 [Liquid 태그]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users)를 통해 페이지를 여는 식별된 사용자의 경우, 블록이 각 체크박스에 사용자의 현재 구독 상태를 미리 채우므로 환경설정 관리 페이지로도 활용할 수 있습니다.
+
+편집기에서 블록을 선택하여 다음을 수행합니다:
+
+- 구독 그룹 순서 변경
+- 구독 그룹 추가 또는 제거
+- 설명 추가 또는 제거
+- 블록의 모든 구독 그룹을 선택하는 "모두 구독" 체크박스 추가 또는 제거
+- 블록의 모든 구독 그룹을 선택 해제하는 "선택 초기화" 체크박스 추가 또는 제거
+
+| 속성 | 설명 |
+| --- | --- |
+| 구독 그룹 | 블록에 표시되는 구독 그룹을 추가, 제거 또는 순서를 변경합니다. |
+| 설명 포함 | 각 구독 그룹의 설명을 이름과 함께 표시합니다. |
+| **선택 초기화** 체크박스 | 블록의 모든 구독 그룹을 선택 해제하는 체크박스를 추가합니다. |
+| **모두 구독** 체크박스 | 블록의 모든 구독 그룹을 선택하는 체크박스를 추가합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Manage subscriptions" }
+
+전체 설정 플로우는 [구독 관리 블록]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions)을 참조하세요.
 
 ### 긴 텍스트
 
@@ -593,7 +617,7 @@ Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved
 | 속성 | 설명 |
 | --- | --- |
 | 커스텀 코드 | 배너용 HTML(및 관련 에셋)을 추가하거나 편집합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="커스텀 코드" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 ### 전화번호 수집
 

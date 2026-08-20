@@ -25,7 +25,7 @@ Seu cliente MCP faz referência a essas ferramentas para interagir com o servido
 | --- | --- | --- | --- |
 | `get_campaign_list` | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) | leitura | Exporte uma lista de Campaigns com nome, identificador de API da Campaign, flag de API-campaign e tags. |
 | `get_campaign_details` | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) | leitura | Recupere informações relevantes sobre uma Campaign específica por `campaign_id`. |
-| `get_campaign_dataseries` | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) | leitura | Série diária de estatísticas de Campaign ao longo do tempo (envios, aberturas, cliques, conversões por canal). |
+| `get_campaign_dataseries` | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) | leitura | Série diária de estatísticas da Campaign ao longo do tempo (envios, aberturas, cliques, conversões por canal). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Campaigns" }
 
 ### Canvas {#canvases}
@@ -42,7 +42,7 @@ Seu cliente MCP faz referência a essas ferramentas para interagir com o servido
 
 | Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
-| `get_catalogs` | [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) | leitura | Liste os catálogos em um espaço de trabalho. |
+| `get_catalogs` | [`/catalogs`]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) | leitura | Liste catálogos em um espaço de trabalho. |
 | `get_catalog_items` | [`/catalogs/{catalog_name}/items`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_items_details_bulk) | leitura | Retorne múltiplos itens de catálogo e seus conteúdos. |
 | `get_catalog_item` | [`/catalogs/{catalog_name}/items/{item_id}`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/get_catalog_item_details) | leitura | Retorne um único item de catálogo e seu conteúdo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catálogos" }
@@ -67,7 +67,7 @@ Seu cliente MCP faz referência a essas ferramentas para interagir com o servido
 
 | Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
-| `list_integrations` | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list) | leitura | Liste as integrações existentes de ingestão de dados na nuvem (Cloud Data Ingestion), 10 por chamada. |
+| `list_integrations` | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list) | leitura | Liste integrações existentes de ingestão de dados na nuvem (Cloud Data Ingestion), 10 por chamada. |
 | `get_integration_job_sync_status` | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status) | leitura | Status de sincronizações anteriores para uma determinada integração CDI, 10 por chamada. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Integrações CDI" }
 
@@ -110,7 +110,7 @@ Seu cliente MCP faz referência a essas ferramentas para interagir com o servido
 
 | Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
-| `get_send_data_series` | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) | leitura | Estatísticas diárias para um `send_id` rastreado (API campaigns). A Braze armazena análise de dados de envios por 14 dias após o envio. |
+| `get_send_data_series` | [`/sends/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) | leitura | Estatísticas diárias para um `send_id` rastreado (API campaigns). A Braze armazena análise de dados de envio por 14 dias após o envio. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Envios" }
 
 ### Sessões {#sessions}
@@ -120,32 +120,24 @@ Seu cliente MCP faz referência a essas ferramentas para interagir com o servido
 | `get_session_data_series` | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics) | leitura | Número de sessões do seu app em um período de tempo designado. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Sessões" }
 
-### Grupos de inscrições {#subscription-groups}
-
-| Ferramenta | Endpoint de API | Acesso | Descrição |
-| --- | --- | --- | --- |
-| `get_subscription_group_status` | [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) | leitura | Status de inscrição de um usuário em um grupo de inscrições. |
-| `get_user_subscription_groups` | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) | leitura | Liste os grupos de inscrições de um usuário. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Grupos de inscrições" }
-
 ### Modelos {#templates}
 
 | Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
-| `get_email_templates` | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates) | leitura | Liste os modelos de e-mail disponíveis na sua conta Braze. |
+| `get_email_templates` | [`/templates/email/list`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates) | leitura | Liste modelos de e-mail disponíveis na sua conta Braze. |
 | `get_email_template_info` | [`/templates/email/info`]({{site.baseurl}}/api/endpoints/templates/email_templates/get_see_email_template_information) | leitura | Obtenha informações sobre um modelo de e-mail específico. Modelos do editor de arrastar e soltar não são aceitos. |
 | `create_email_template` | [`/templates/email/create`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template) | criação | Crie um modelo de e-mail no dashboard da Braze. |
 | `update_email_template` | [`/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template) | atualização | Atualize um modelo de e-mail existente. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Modelos" }
 
-### Content Blocks
+### Blocos de conteúdo {#content-blocks}
 
 | Ferramenta | Endpoint de API | Acesso | Descrição |
 | --- | --- | --- | --- |
-| `get_content_blocks` | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks) | leitura | Liste informações sobre blocos de conteúdo existentes. |
-| `get_content_block_info` | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information) | leitura | Obtenha informações sobre um bloco de conteúdo existente, opcionalmente com dados de inclusão em Campaign ou Canvas. |
+| `get_content_blocks` | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks) | leitura | Liste informações de blocos de conteúdo existentes. |
+| `get_content_block_info` | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information) | leitura | Obtenha informações sobre um bloco de conteúdo existente, opcionalmente com dados de inclusão em Campaigns ou Canvas. |
 | `create_content_block` | [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) | criação | Crie um bloco de conteúdo. |
 | `update_content_block` | [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) | atualização | Atualize um bloco de conteúdo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Content Blocks" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Blocos de conteúdo" }
 
 {% multi_lang_include mcp_server/legal_disclaimer.md %}

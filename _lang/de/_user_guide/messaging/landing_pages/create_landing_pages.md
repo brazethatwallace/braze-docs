@@ -11,11 +11,11 @@ page_order: 0
 
 ## Voraussetzungen {#prerequisites}
 
-Um auf den Landing-Page-Builder zugreifen zu können, benötigen Sie [bestimmte Berechtigungen]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). Wenn Sie keinen Zugriff haben, wenden Sie sich an Ihre:n Braze-Administrator:in.
+Um auf den Landing-Page-Builder zuzugreifen, benötigen Sie [bestimmte Berechtigungen]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). Wenn Sie keinen Zugriff haben, wenden Sie sich an Ihre:n Braze-Administrator:in.
 
 ## Landing-Page erstellen {#create-a-landing-page}
 
-Eine Landing-Page ist eine veröffentlichte Webseite mit einer teilbaren URL, die Ihre Kund:innen besuchen können.
+Eine Landing-Page ist eine veröffentlichte, live geschaltete Webseite mit einer teilbaren URL, die Ihre Kund:innen besuchen können.
 
 {% alert note %}
 Landing-Page-Templates sind unveröffentlichte Design-Ausgangspunkte ohne öffentliche URL, die nicht mit Ihren Kund:innen geteilt werden können. Um eine Seite aus einem Template zu erstellen, siehe [Templates verwenden](#using-templates).
@@ -66,7 +66,7 @@ Sie können diese Blöcke verwenden, um Inhalte hinzuzufügen und das Layout Ihr
 |-------------|-------------|
 | Titel | Ein Textblock zum Hinzufügen einer Überschrift oder eines Titels zu Ihrem Inhalt. Nützlich für die Strukturierung von Abschnitten und die Verbesserung der Lesbarkeit. |
 | Absatz | Ein Textblock für längere Beschreibungen oder zusätzlichen Kontext. Unterstützt Rich-Text-Formatierung. |
-| Button | Ein klickbares Element, das Nutzer:innen zu einer bestimmten Aktion weiterleitet, z. B. zum Öffnen eines Links oder zum Absenden eines Formulars. |
+| Button | Ein klickbares Element, das Nutzer:innen zu einer bestimmten Aktion weiterleitet, z. B. das Öffnen eines Links oder das Absenden eines Formulars. |
 | Optionsfeld | Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen müssen. Bei der Übermittlung wird das zugehörige angepasste Attribut im Nutzerprofil protokolliert. |
 | Bild | Ein Block zur Anzeige von Bildern. Sie können ein Bild hochladen oder eine URL angeben, um auf eine externe Quelle zu verweisen. |
 | Link | Ein Hyperlink, auf den Nutzer:innen klicken können, um zu einer bestimmten URL zu navigieren. Kann in Text eingebettet oder eigenständig verwendet werden. |
@@ -94,22 +94,27 @@ Passen Sie die Span-Eigenschaften an, um Ihre Textgestaltung zu aktualisieren, e
 {% endtab %}
 {% tab Formular-Blöcke %}
 
-Sie können diese Blöcke verwenden, um ein Formular zu erstellen, das von Nutzer:innen übermittelte Daten mit ihrem Profil in Braze verknüpft. Beachten Sie, dass Sie bei Verwendung von Formular-Blöcken auch eine zusätzliche Landing-Page für den Bestätigungsstatus erstellen müssen.
+Sie können diese Blöcke verwenden, um ein Formular zu erstellen, das von Nutzer:innen übermittelte Daten mit deren Profil in Braze verknüpft. Beachten Sie, dass Sie bei Verwendung von Formular-Blöcken auch eine zusätzliche Landing-Page für den Bestätigungszustand erstellen müssen.
 
-![Ein Formular-Block, der neue Kund:innen registriert und einen Rabattcode an ihre E-Mail-Adresse sendet.]({% image_buster /assets/img/landing_pages/form.png %}){: style="max-width:70%;"}
+![Ein Formular-Block, der neue Kund:innen registriert und einen Rabattcode an deren E-Mail sendet.]({% image_buster /assets/img/landing_pages/form.png %}){: style="max-width:70%;"}
+
+{% alert tip %}
+Sie können ein langes Formular in mehrere Schritte aufteilen, jeweils mit eigenen Feldern und einem integrierten Bestätigungsschritt, indem Sie ein [mehrstufiges Formular]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms) verwenden, anstatt Formular-Blöcke direkt in einer Zeile zu platzieren.
+{% endalert %}
 
 | Blocktyp | Beschreibung |
 |---------------|-------------|
 | E-Mail-Erfassung | Ein Formularfeld für E-Mail-Adressen. Bei der Übermittlung wird die E-Mail-Adresse dem Nutzerprofil in Braze hinzugefügt. |
-| Telefon-Erfassung | Ein Formularfeld für Telefonnummern. Bei der Übermittlung wird die Nutzer:in für Ihre SMS- oder WhatsApp-Abo-Gruppe abonniert. |
+| Telefon-Erfassung | Ein Formularfeld für Telefonnummern. Bei der Übermittlung wird die Nutzer:in für Ihre SMS- oder WhatsApp-Abo-Gruppe angemeldet. |
 | Eingabefeld | Ein Formularfeld, das Standardattribute (wie Vor- und Nachname) oder einen angepassten Attribut-String Ihrer Wahl unterstützt. |
 | Dropdown | Nutzer:innen können einen Artikel aus einer vordefinierten Liste auswählen. Sie können beliebige angepasste Attribut-Strings zur Liste hinzufügen. |
-| Kontrollkästchen | Wenn Nutzer:innen das Kästchen ankreuzen, wird das Attribut des Blocks auf `true` gesetzt. Wenn es nicht angekreuzt wird, wird das Attribut auf `false` gesetzt. |
-| Kontrollkästchen-Gruppe | Nutzer:innen können aus mehreren angebotenen Optionen auswählen. Werte werden entweder gesetzt oder einem definierten Array-Attribut hinzugefügt. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Formular-Blöcke" }
+| Kontrollkästchen | Wenn eine Nutzer:in das Kästchen ankreuzt, wird das Attribut des Blocks auf `true` gesetzt. Wenn es nicht angekreuzt wird, wird das Attribut auf `false` gesetzt. |
+| Kontrollkästchen-Gruppe | Nutzer:innen können aus mehreren Auswahlmöglichkeiten wählen. Werte werden entweder gesetzt oder einem definierten Array-Attribut hinzugefügt. |
+| Abos verwalten | Eine Checkliste von E-Mail-Abo-Gruppen. Nutzer:innen wählen aus, welchen Gruppen sie beim Absenden des Formulars beitreten möchten. Weitere Informationen finden Sie unter [Block „Abos verwalten“]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Span-Text" }
 
 {% alert important %}
-Nachdem Sie eine Landing-Page mit einem Formular erstellt haben, betten Sie unbedingt den zugehörigen [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) in Ihre Nachricht ein. Mit diesem Tag kann Braze bestehende Nutzerprofile automatisch identifizieren und aktualisieren, wenn sie das Formular absenden.
+Nachdem Sie eine Landing-Page mit einem Formular erstellt haben, betten Sie unbedingt den [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) in Ihre Nachricht ein. Mit diesem Tag kann Braze bestehende Nutzerprofile automatisch identifizieren und aktualisieren, wenn sie das Formular absenden.
 {% endalert %}
 
 {% endtab %}
@@ -117,9 +122,9 @@ Nachdem Sie eine Landing-Page mit einem Formular erstellt haben, betten Sie unbe
 
 #### Seitencontainer-Stile {#page-container-styles}
 
-Sie können Stile festlegen, die auf alle relevanten Komponentenblöcke Ihrer Landing-Page angewendet werden, und zwar über den Tab **Seitencontainer**. Diese Stile gelten überall auf Ihrer Seite, es sei denn, Sie überschreiben sie mit einem bestimmten Block.
+Sie können Stile festlegen, die auf alle relevanten Komponentenblöcke Ihrer Landing-Page angewendet werden, und zwar über den Tab **Seitencontainer**. Diese Stile gelten überall auf Ihrer Seite, außer dort, wo Sie sie mit einem bestimmten Block überschreiben.
 
-Wir empfehlen, zuerst Stile auf Seitencontainer-Ebene einzurichten, bevor Sie Stile auf Block-Ebene anpassen. Sie können auch ein Hintergrundbild für die gesamte Seite hinzufügen.
+Wir empfehlen, zunächst Stile auf Seitencontainer-Ebene einzurichten, bevor Sie Stile auf Block-Ebene anpassen. Sie können auch ein Hintergrundbild für die gesamte Seite hinzufügen.
 
 ![Der Bereich „Seitencontainer“ mit Optionen zur Anpassung von Hintergrundbildern, Farben, Rahmendetails und Inhaltsgestaltung.]({% image_buster /assets/img/landing_pages/page_container.png %}){: style="max-width:40%;"}
 
@@ -138,7 +143,7 @@ Wenn aktiviert, können Sie auch die Stapelreihenfolge der Spalten umkehren, um 
 Sie können festlegen, ob bestimmte Formularfelder erforderlich oder optional sind. Erforderliche Felder müssen ausgefüllt werden, bevor das Formular abgesendet werden kann. Optionale Felder können von Nutzer:innen leer gelassen oder nicht ausgewählt werden.
 
 {% alert note %}
-Optionsfelder sind immer erforderlich und können nicht als optional festgelegt werden. Wenn Sie ein optionales Einzelauswahl-Feld benötigen, verwenden Sie stattdessen ein Dropdown.
+Optionsfelder sind immer erforderlich und können nicht als optional festgelegt werden. Wenn Sie ein optionales Einzelauswahlfeld benötigen, verwenden Sie stattdessen ein Dropdown.
 {% endalert %}
 
 Um beispielsweise die Einwilligungserfassung vor dem Absenden des Formulars zu erzwingen, können Sie **Erforderliche Feldeingabe** aktivieren, um ein Kontrollkästchen mit dem entsprechenden Hinweistext als erforderlich festzulegen.
@@ -149,7 +154,11 @@ Um beispielsweise die Einwilligungserfassung vor dem Absenden des Formulars zu e
 
 Wenn Ihre Landing-Page kein Formular enthält, fahren Sie mit dem nächsten Schritt fort.
 
-Wenn Ihre Landing-Page ein [Formular](#form-blocks) enthält, erstellen Sie eine zweite Landing-Page als Bestätigungserlebnis. Diese Seite sollte Nutzer:innen danken oder einen nächsten Schritt nach dem Absenden des Formulars anbieten.
+{% alert note %}
+Wenn Ihr Formular ein [mehrstufiges Formular]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms) verwendet, überspringen Sie diesen Schritt. Mehrstufige Formulare enthalten einen integrierten, gesperrten Bestätigungsschritt, sodass Sie keine separate Bestätigungsseite benötigen.
+{% endalert %}
+
+Wenn Ihre Landing-Page ein [Formular](#form-blocks) enthält, erstellen Sie eine zweite Landing-Page als Bestätigungserlebnis. Diese Seite sollte den Nutzer:innen danken oder einen nächsten Schritt nach dem Absenden des Formulars anbieten.
 
 So verknüpfen Sie die Bestätigungsseite:
 - Wählen Sie den **Absenden**-Button in Ihrem Formular aus
@@ -158,7 +167,7 @@ So verknüpfen Sie die Bestätigungsseite:
 Wenn Sie keine Bestätigungsseite einbinden, wissen Nutzer:innen möglicherweise nicht, dass ihr Formular erfolgreich abgesendet wurde. Fügen Sie immer ein Bestätigungserlebnis hinzu, um den Ablauf abzuschließen.
 
 {% alert note %}
-Wenn Ihre Bestätigungsseite in einem neuen Tab geöffnet wird, kann eine Nutzer:in, die zur ursprünglichen Landing-Page zurückkehrt und das Formular mit aktualisierten Informationen erneut absendet, die vorherige Übermittlung überschreiben, was zu inkonsistenten Daten führen kann.
+Wenn Ihre Bestätigungsseite in einem neuen Tab geöffnet wird, kann eine Nutzer:in, die zur ursprünglichen Landing-Page zurückkehrt und mit aktualisierten Informationen erneut absendet, die vorherige Übermittlung überschreiben, was zu inkonsistenten Daten führen kann.
 {% endalert %}
 
 ### Schritt 5: Seite in der Vorschau anzeigen {#step-5-preview-the-page}
@@ -181,7 +190,7 @@ Für Vorschau-Links auf anderen Kanälen siehe [Teilbare Vorschau]({{site.baseur
 Stellen Sie vor der Veröffentlichung sicher, dass:
 
 - Sie das Limit für veröffentlichte Landing-Pages Ihres Plans nicht überschritten haben
-- Jede formularbasierte Seite über die Aktion **Web-URL öffnen** mit einer [Bestätigungsseite](#step-4-create-a-confirmation-page) verknüpft ist
+- Jede formularbasierte Seite über die Aktion **Web-URL öffnen** mit einer [Bestätigungsseite](#step-4-create-a-confirmation-page-optional) verknüpft ist oder ein [mehrstufiges Formular]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms) mit integriertem Bestätigungsschritt verwendet
 - Alle erforderlichen Seitenfelder (wie URL-Pfad und Titel) vollständig sind
 
 Wenn Sie bereit sind, wählen Sie **Landing-Page veröffentlichen**.
@@ -192,7 +201,7 @@ Aggressive Pop-up-Blocker und Werbeblocker auf iOS und in Safari (einschließlic
 
 ## Templates verwenden {#use-templates}
 
-Landing-Page-Templates sind wiederverwendbare Design-Ausgangspunkte, mit denen Sie Landing-Pages schneller erstellen können. Ein Template hat keine öffentliche URL und kann von Kund:innen nicht besucht werden. Um aus einem Template eine aktive Landing-Page zu erstellen, wählen Sie das Template beim Erstellen einer neuen Landing-Page aus, passen Sie es nach Bedarf an und veröffentlichen Sie es.
+Landing-Page-Templates sind wiederverwendbare Design-Ausgangspunkte, die Ihnen helfen, Landing-Pages schneller zu erstellen. Ein Template hat keine öffentliche URL und kann nicht von Kund:innen besucht werden. Um eine Live-Landing-Page aus einem Template zu erstellen, wählen Sie das Template beim Erstellen einer neuen Landing-Page aus, passen Sie es nach Bedarf an und veröffentlichen Sie es.
 
 Templates können sowohl im Landing-Page-Editor als auch auf der Seite **Landing Page Templates** (**Content** > **Landing Page**) aufgerufen und verwaltet werden. Landing-Page-Templates erfordern einen Namen und eine optionale Beschreibung.
 
@@ -204,9 +213,9 @@ Sie können Landing-Page-Templates in der Vorschau anzeigen, archivieren oder be
 
 ## Analytics anzeigen {#view-analytics}
 
-Um die Effektivität Ihrer Landing-Page zu analysieren, gehen Sie zu **Messaging** > **Landing-Pages** und wählen Sie eine veröffentlichte Landing-Page aus. Hier können Sie die Anzahl der Seitenaufrufe, Seitenklicks, Seitenübermittlungen und die Übermittlungsraten Ihrer Landing-Page verfolgen.
+Um die Effektivität Ihrer Landing-Page zu analysieren, gehen Sie zu **Messaging** > **Landing-Pages** und wählen Sie eine veröffentlichte Landing-Page aus. Hier können Sie die Anzahl der Seitenaufrufe, Seitenklicks, Seitenübermittlungen und die Übermittlungsraten für Ihre Landing-Page verfolgen.
 
-![Der Analytics-Bereich einer Landing-Page.]({% image_buster /assets/img/landing_pages/analytics.png %})
+![Der Analytics-Bereich für eine Landing-Page.]({% image_buster /assets/img/landing_pages/analytics.png %})
 
 ## Fehler bei der Formularübermittlung behandeln {#handling-form-submission-errors}
 
