@@ -167,8 +167,12 @@ If at least one user opens your iOS push notification, but few or no _Direct Ope
 
 ### Push Story image clicks do nothing
 
-If tapping a Push Story image does not open the expected action, check your Notification Content Extension `Info.plist`. Do not add `UNNotificationExtensionUserInteractionEnabled`—this key is not supported for Push Story and can cause undefined behavior, including unresponsive image taps. Follow the [Push Story setup]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/push_story) guide for the required `NSExtension` keys instead.
+This section applies to the Objective-C SDK Push Story integration. If you use the Swift SDK `BrazePushStory` module, set `UNNotificationExtensionUserInteractionEnabled` to `YES`. See [Push stories]({{site.baseurl}}/developer_guide/push_notifications/push_stories/?sdktab=swift).
 
-### Xcode build failures after upgrading the Cordova SDK
+If tapping a Push Story image doesn't open the expected action, open the Notification Content Extension `Info.plist` and match the keys in [Push Story setup]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/push_story):
 
-Cordova Braze SDK 9.0.0 and later use the native iOS Swift SDK 9.0.0 bridge, which requires **Xcode 15.2** or newer. If your build fails after upgrading the Cordova plugin, update Xcode to 15.2+ and confirm your toolchain matches the [Swift SDK release requirements]({{site.baseurl}}/developer_guide/platforms/swift/changelog).
+- `UNNotificationExtensionCategory` = `ab_cat_push_story_v2`
+- `UNNotificationExtensionDefaultContentHidden` = `YES`
+- `UNNotificationExtensionInitialContentSizeRatio` = `0.65`
+
+If `UNNotificationExtensionUserInteractionEnabled` is in that plist, remove it. The Objective-C Push Story setup does not include that key.
