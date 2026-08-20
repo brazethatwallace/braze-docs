@@ -73,7 +73,9 @@ For information on how to set an `external_id` against a user profile, see our d
 
 ### Reporting and merged profiles
 
-When anonymous and identified profiles merge, Braze dashboard campaign summaries can show that a user received a message on the surviving profile while internal log pipelines (for example, Kibana or other log exports) may attribute the send to the orphaned profile ID. This is expected when merge happens after the send. Use the identified user's `external_id` or `braze_id` when correlating dashboard reports with external logs.
+When anonymous and identified profiles merge after a send, dashboard campaign summaries show that send on the surviving (identified) profile. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), and the [Messaging History]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab) tab still attribute the send to the orphaned profile's user ID—the ID at send time. This is expected. For the full list of fields that transfer, see [merge behavior]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
+
+To find that send in Currents, Query Builder, or Messaging History, look up the orphaned profile's `braze_id`. A query that uses only the identified user's `braze_id` does not return the pre-merge send.
 
 {% alert note %}
 Orphaned users are not eligible to receive messages.
