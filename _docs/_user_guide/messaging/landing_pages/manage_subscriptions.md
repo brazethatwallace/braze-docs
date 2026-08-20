@@ -55,10 +55,6 @@ Use the **Block properties** panel to adjust how the block behaves and appears.
 
 Turn on **Include descriptions** to display each subscription group's description text alongside its name, giving visitors more context about what they're opting into.
 
-### "Clear selections" checkbox
-
-Turn on the **"Clear selections" checkbox** setting to add an extra checkbox to the block. When a visitor selects it, every subscription group checkbox in the block is deselected—useful for letting visitors quickly opt out of everything you're listing before submitting the form.
-
 ### "Subscribe to all" checkbox
 
 Turn on the **"Subscribe to all" checkbox** setting to add an extra checkbox to the block. When a visitor selects it, every subscription group checkbox in the block is selected—useful for a quick opt-in to all listed groups.
