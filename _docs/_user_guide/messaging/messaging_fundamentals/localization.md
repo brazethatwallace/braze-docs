@@ -324,6 +324,65 @@ Lastly, use Liquid for templating your messages:
 - SheetDB offers a limited free account and multiple paying options that should be considered based on your campaign strategy. 
 - Connected Content calls can be cached. We recommend measuring the projected cadence of the API calls and investigating an alternative approach of calling the main SheetDB endpoint instead of using the search method.
 {% endsubtab %}
+{% subtab JSON API via Sheetlabs %}
+
+This option turns a Google Sheet into a JSON API you can query with Connected Content. Sheetlabs supports large query volumes and offers free and paid tiers.
+
+#### Step 1: Prepare your translations sheet in Google Sheets
+
+Build the Google Sheet so each row is a language. For example:
+
+| language | greeting | title1 | legal1 |
+| ---- | ---- | ---- | ---- |
+| en | Welcome! | Your exclusive offer is here | ... |
+| fr | Bienvenue! | Votre offre exclusive est arrivée | ... |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Step 1: Prepare your translations sheet in Google Sheets" }
+
+#### Step 2: Use Sheetlabs to import the sheet and create an API
+
+1. Sign up at [Sheetlabs](https://sheetlabs.com).
+2. Follow the Sheetlabs instructions to import data from Google Sheets.
+3. Select the spreadsheet you created in step 1.
+4. Select **Create a matching API**.
+
+#### Step 3: Add your Sheetlabs authentication token to Braze (optional)
+
+If your Sheetlabs API is public, skip this step. If it requires authentication:
+
+1. Go to the **My Account** page in Sheetlabs and copy your API token.
+2. Follow the steps in [Braze authentication with Basic Auth]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#using-basic-authentication) to create a basic authentication credential in Braze. Use your Sheetlabs username (email address) and the API token you copied.
+3. Save the credential with a name such as `sheetlabs_creds`.
+
+#### Step 4: Call the Sheetlabs API from Connected Content
+
+Add a Connected Content call to Sheetlabs. Replace `/XXX/yourapi` with the path to the API you created in step 2.
+
+{% raw %}
+```liquid
+{% connected_content https://sheetlabs.com/XXX/yourapi?language={{${language}}} :save translations :basic_auth sheetlabs_creds %}
+
+```
+{% endraw %}
+
+#### Step 5: Template your messages
+
+Use Liquid to reference the returned fields. For example:
+
+{% raw %}
+```liquid
+{{translations[0].greeting}} {{${first_name}}},
+{{translations[0].body1}}
+```
+{% endraw %}
+
+#### Considerations
+
+- Define the {% raw %}`{{${language}}}`{% endraw %} field for every user you want to match. If a user has no language set, include a Liquid fallback.
+- Connected Content calls can be cached. Measure your projected API cadence when choosing a Sheetlabs plan.
+
+For more information, see [Using Sheetlabs with Braze](https://app.sheetlabs.com/docs/producers/braze/).
+
+{% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 {% endtabs %}

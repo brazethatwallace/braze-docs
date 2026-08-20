@@ -13,29 +13,29 @@ tool: Reports
 
 Las fórmulas te ayudan a comprender las relaciones complejas que existen en tus datos. Por ejemplo, puedes comparar cuántos eventos personalizados completaron los usuarios activos diarios que cumplen los requisitos de un segmento concreto frente a la población general (o frente a otro segmento).
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
-Las fórmulas, especialmente cuando se combinan con eventos personalizados, pueden ayudarte a comprender los comportamientos de los usuarios dentro de tu aplicación. Las fórmulas también pueden proporcionar una visión más profunda de los patrones de compra de los segmentos, incluso si tu empresa utiliza medios contratados junto con Braze, como Google Ads o TV.
+Las fórmulas, especialmente cuando se combinan con eventos personalizados, pueden ayudarte a comprender los comportamientos de los usuarios dentro de tu aplicación. Las fórmulas también pueden ofrecer información más profunda sobre los patrones de compra de los Segments, incluso si tu empresa utiliza medios contratados junto con Braze, como Google Ads o televisión.
 
-Los siguientes son algunos ejemplos de los tipos de patrones de comportamiento que pueden detectarse utilizando fórmulas:
+Los siguientes son algunos ejemplos de los tipos de patrones de comportamiento que se pueden detectar usando fórmulas:
 
-- **Aplicaciones de transporte compartido:** Si tienes un evento personalizado para cuando el usuario cancela un viaje, puedes configurar una función para Viajes cancelados / DAU para encontrar si ciertos segmentos de usuarios tienden a cancelar más viajes que otros.
-- **Aplicaciones de comercio electrónico:** Al configurar una función para compras de un determinado ID de producto / MAU, puedes comparar la popularidad de un producto promocionado recientemente entre segmentos, incluso si no se han podido rastrear todas las promociones mediante Braze.
-- **Aplicaciones multimedia que utilizan anuncios:** Si la experiencia de los usuarios se ve interrumpida por anuncios entre clips de video o audio, registrar las salidas a mitad de anuncio como un evento personalizado y calcular la proporción de salidas a mitad de anuncio / DAU puede ayudar a encontrar los mejores segmentos a los que dirigirse con una Campaign de suscripciones premium sin anuncios.
+- **Aplicaciones de transporte compartido:** Si tienes un evento personalizado para cuando el usuario cancela un viaje, puedes configurar una función de Viajes cancelados / usuarios activos diarios para averiguar si ciertos Segments de usuarios tienden a cancelar más viajes que otros.
+- **Aplicaciones de comercio electrónico:** Al configurar una función de compras de un ID de producto determinado / MAU, puedes comparar la popularidad de un producto promocionado recientemente entre Segments, incluso si todas las promociones no pudieron rastrearse usando Braze.
+- **Aplicaciones de medios que usan anuncios:** Si la experiencia de los usuarios se interrumpe con anuncios entre clips de video o audio, registrar las salidas a mitad de anuncio como un evento personalizado y calcular la proporción de salidas a mitad de anuncio / usuarios activos diarios puede ayudar a encontrar los mejores Segments a los que dirigir una Campaign de suscripciones premium sin anuncios.
 
 ## Creación de fórmulas {#creating-formulas}
 
-Se puede acceder a las fórmulas en los paneles de estadísticas de las páginas [Inicio]({{site.baseurl}}/user_guide/analytics/dashboards/home), [Informe de ingresos]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) e [Informe de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) del dashboard. Para ver este panel, ve al gráfico **Performance Over Time**, cambia el desplegable **Statistics For** a **KPI Formulas** y, a continuación, selecciona al menos una fórmula de KPI para rellenar el gráfico.
+Se puede acceder a las fórmulas en las páginas [Inicio]({{site.baseurl}}/user_guide/analytics/dashboards/home), [Informe de ingresos]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) e [Informe de eventos personalizados]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report) del panel. En **Inicio** e **Informe de ingresos**, abre el gráfico **Rendimiento a lo largo del tiempo**, establece **Estadísticas para** en **Fórmulas de KPI** y selecciona al menos una fórmula. En la página **Informe de eventos personalizados**, abre **Filtros**, selecciona una o más opciones de **Fórmula de KPI** y selecciona **Aplicar**.
 
-![Ver las estadísticas de las fórmulas de KPI en el dashboard de Braze]({% image_buster /assets/img_archive/kpi_forms.png %})
+![Ver estadísticas de fórmulas de KPI en el panel de Braze]({% image_buster /assets/img_archive/kpi_forms.png %})
 
 Para crear una nueva fórmula:
 
-1. Ve al dashboard correspondiente (**Home**, **Revenue Report** o **Custom Events Report**).
-2. Selecciona **Manage KPI Formulas**.
+1. Ve al panel correspondiente (**Inicio**, **Informe de ingresos** o **Informe de eventos personalizados**).
+2. Selecciona **Administrar fórmulas de KPI**.
 3. Introduce un nombre para tu fórmula.
-4. Selecciona los numeradores y denominadores correspondientes.
-5. Selecciona **Save**.
+4. Selecciona los numeradores y denominadores relevantes.
+5. Selecciona **Guardar**.
 
 ## Numeradores y denominadores disponibles {#available-numerators-and-denominators}
 
@@ -61,28 +61,28 @@ table td {
 
 <div class="small_table"></div>
 
-### Dashboard de resumen {#overview-dashboard}
+### Panel de resumen {#overview-dashboard}
 
 | Numeradores | Denominadores |
 | --- | --- |
 | DAU | MAU |
 | Sesiones | DAU |
-| | Tamaño del segmento |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard de resumen" }
+| | Tamaño del Segment |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Panel de resumen" }
 
-### Dashboard de ingresos {#revenue-dashboard}
+### Panel de ingresos {#revenue-dashboard}
 
 | Numeradores | Denominadores |
 | --- | --- |
 | Compras (todas) | DAU |
-| Compras específicas (como una tarjeta regalo o un ID de producto) | MAU |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard de ingresos" }
+| Compras seleccionadas (como una tarjeta de regalo o un ID de producto) | MAU |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Panel de ingresos" }
 
-### Dashboard de eventos personalizados {#custom-event-dashboard}
+### Panel de eventos personalizados {#custom-event-dashboard}
 
 | Numeradores | Denominadores |
 | --- | --- |
 | Recuento de eventos personalizados | MAU |
 |  | DAU |
-|  | Tamaño del segmento (solo se pueden utilizar los segmentos que tengan habilitado el [seguimiento de análisis]({{site.baseurl}}/viewing_and_understanding_segment_data)) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard de eventos personalizados" }
+|  | Tamaño del Segment (solo se pueden usar Segments que tengan habilitado el [seguimiento de análisis]({{site.baseurl}}/viewing_and_understanding_segment_data)) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Panel de eventos personalizados" }

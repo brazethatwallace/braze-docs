@@ -57,7 +57,7 @@ Um die Liste der angepassten Events als CSV-Datei zu exportieren, wählen Sie ob
 Es gibt keine feste Dashboard-Obergrenze für die Anzahl unterschiedlicher **angepasster Events** oder **angepasster Attribute**, die Sie in einem Profil definieren oder speichern können. Die praktischen Grenzen hängen von der Datenstruktur, dem Aufnahmevolumen und der Workspace-Performance ab. Wenn Sie einen sehr großen Katalog von Events oder Attributen tracken möchten, arbeiten Sie mit Ihrem Braze-Account-Team an der Modellierung und Datenhygiene (z. B. [Blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data) ungenutzter Daten).
 {% endalert %}
 
-## Nutzungsberichte anzeigen {#viewing-usage-reports}
+## Anzeigen von Nutzungsberichten {#viewing-usage-reports}
 
 Der Nutzungsbericht listet alle Canvases, Campaigns und Segments auf, die ein bestimmtes angepasstes Event verwenden. Diese Liste enthält keine Verwendungen von Liquid.
 
@@ -65,9 +65,9 @@ Sie können bis zu 100 Nutzungsberichte gleichzeitig anzeigen, indem Sie die Kon
 
 ## Angepasste Events protokollieren {#logging-custom-events}
 
-Angepasste Events erfordern eine zusätzliche Einrichtung. In der folgenden Plattform-Dokumentation finden Sie die Methoden zum Protokollieren angepasster Events sowie Informationen dazu, wie Sie Ihren angepassten Events Eigenschaften und Mengen hinzufügen können.
+Angepasste Events erfordern eine zusätzliche Einrichtung. In der folgenden Plattform-Dokumentation finden Sie die Methoden zum Protokollieren angepasster Events sowie Informationen dazu, wie Sie Eigenschaften und Mengen zu Ihren angepassten Events hinzufügen können.
 
-{% details Dokumentation nach Plattform aufklappen %}
+{% details Dokumentation nach Plattform anzeigen %}
 
 - [Android und FireOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
@@ -85,16 +85,12 @@ Alle im **Nutzerprofil** gespeicherten Daten, einschließlich Metadaten angepass
 
 ## Event-Verlauf von Nutzer:innen anzeigen {#view-a-users-event-history}
 
-{% alert important %}
-Der Event-Verlauf befindet sich derzeit im Early Access. Wenden Sie sich an Ihren Braze Account Manager, wenn Sie an einer Teilnahme interessiert sind.
-{% endalert %}
-
-Verwenden Sie den Tab **Event History** im Profil von Nutzer:innen, um deren kürzliche angepasste Events und Käufe anzuzeigen. So können Sie bestätigen, dass Ihre Integration Events korrekt protokolliert, und Probleme auf Nutzerebene direkt im Dashboard beheben.
+Verwenden Sie den Tab **Event-Verlauf** im Profil von Nutzer:innen, um deren kürzliche angepasste Events und Käufe einzusehen. So können Sie bestätigen, dass Ihre Integration Events korrekt protokolliert, und Probleme auf Nutzerebene direkt im Dashboard beheben.
 
 So zeigen Sie den Event-Verlauf von Nutzer:innen an:
 
-1. Gehen Sie zu **Audience** > **Search Users** und wählen Sie dann Nutzer:innen aus, um deren Profil zu öffnen.
-2. Wählen Sie den Tab **Event History** aus.
+1. Gehen Sie zu **Zielgruppe** > **Nutzer:innen suchen** und wählen Sie dann Nutzer:innen aus, um deren Profil zu öffnen.
+2. Wählen Sie den Tab **Event-Verlauf** aus.
 
 Der Tab listet die angepassten Events und Käufe der Nutzer:innen der letzten 30 Tage auf, bis zu den 100 neuesten Events, sortiert von neuesten zu ältesten.
 
@@ -112,7 +108,7 @@ Häufige Anwendungsfälle sind:
 - Untersuchung eines Support-Falls für bestimmte Nutzer:innen, ohne einen Datenexport einrichten zu müssen.
 
 {% alert note %}
-Das Anzeigen des Tabs **Event History** erfordert die Nutzerberechtigungen **Search Users**, **View PII** und **View User Event Properties**, da Event-Eigenschaften personenbezogene Daten enthalten können. Weitere Informationen finden Sie unter [Nutzerberechtigungen im Unternehmen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Zum Anzeigen des Tabs **Event-Verlauf** sind die Nutzerberechtigungen **Nutzer:innen suchen**, **PII anzeigen** und **Event-Eigenschaften von Nutzer:innen anzeigen** erforderlich, da Event-Eigenschaften personenbezogene Daten enthalten können. Weitere Informationen finden Sie unter [Nutzerberechtigungen im Unternehmen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
 ## Segmentierungsfilter {#segmentation-filters}
@@ -121,23 +117,23 @@ Die folgende Tabelle zeigt die verfügbaren Filter für die Segmentierung von Nu
 
 | Segmentierungsoptionen | Dropdown-Filter | Eingabeoptionen |
 | ---------------------| --------------- | ------------- |
-| Prüfen, ob das angepasste Event **mehr als X Mal** aufgetreten ist | **MEHR ALS** | **ANZAHL** |
-| Prüfen, ob das angepasste Event **weniger als X Mal** aufgetreten ist | **WENIGER ALS** | **ANZAHL** |
-| Prüfen, ob das angepasste Event **genau X Mal** aufgetreten ist | **GENAU** | **ANZAHL** |
-| Prüfen, ob das angepasste Event zuletzt **nach dem Datum X** aufgetreten ist | **NACH** | **ZEIT** |
-| Prüfen, ob das angepasste Event zuletzt **vor dem Datum X** aufgetreten ist | **VOR** | **ZEIT** |
-| Prüfen, ob das angepasste Event zuletzt **vor mehr als X Tagen** aufgetreten ist | **MEHR ALS** | **ANZAHL DER TAGE HER** (positive Zahl) |
-| Prüfen, ob das angepasste Event zuletzt **vor weniger als X Tagen** aufgetreten ist | **WENIGER ALS** | **ANZAHL DER TAGE HER** (positive Zahl) |
-| Prüfen, ob das angepasste Event **mehr als X (Max = 50) Mal** aufgetreten ist | **MEHR ALS** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
-| Prüfen, ob das angepasste Event **weniger als X (Max = 50) Mal** aufgetreten ist | **WENIGER ALS** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
-| Prüfen, ob das angepasste Event **genau X (Max = 50) Mal** aufgetreten ist | **GENAU** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
+| Prüfen, ob das angepasste Event **mehr als X Mal** aufgetreten ist | **MORE THAN** | **NUMBER** |
+| Prüfen, ob das angepasste Event **weniger als X Mal** aufgetreten ist | **LESS THAN** | **NUMBER** |
+| Prüfen, ob das angepasste Event **genau X Mal** aufgetreten ist | **EXACTLY** | **NUMBER** |
+| Prüfen, ob das angepasste Event zuletzt **nach dem Datum X** aufgetreten ist | **AFTER** | **TIME** |
+| Prüfen, ob das angepasste Event zuletzt **vor dem Datum X** aufgetreten ist | **BEFORE** | **TIME** |
+| Prüfen, ob das angepasste Event zuletzt **vor mehr als X Tagen** aufgetreten ist | **MORE THAN** | **NUMBER OF DAYS AGO** (positive Zahl) |
+| Prüfen, ob das angepasste Event zuletzt **vor weniger als X Tagen** aufgetreten ist | **LESS THAN** | **NUMBER OF DAYS AGO** (positive Zahl) |
+| Prüfen, ob das angepasste Event **mehr als X Mal (Max = 50)** aufgetreten ist | **MORE THAN** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
+| Prüfen, ob das angepasste Event **weniger als X Mal (Max = 50)** aufgetreten ist | **LESS THAN** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
+| Prüfen, ob das angepasste Event **genau X Mal (Max = 50)** aufgetreten ist | **EXACTLY** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Segmentierungsfilter" }
 
 ## Analytics
 
-Braze erfasst, wie oft angepasste Events aufgetreten sind und wann sie zuletzt von den einzelnen Nutzer:innen ausgeführt wurden, um sie für die Segmentierung zu verwenden. Sie können diese Analytics einsehen, indem Sie zu **Analytics** > **Custom Events Report** navigieren.
+Braze erfasst, wie oft angepasste Events aufgetreten sind und wann sie zuletzt von den einzelnen Nutzer:innen ausgeführt wurden, um sie für die Segmentierung zu verwenden. Informationen zur Einrichtung von Berichten, Filtern und Exportoptionen finden Sie unter [Bericht über angepasste Events]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report).
 
-Auf der Seite **Custom Events Report** im Dashboard können Sie in aggregierter Form sehen, wie oft jedes angepasste Event auftritt. Die grauen Linien, die über die Zeitreihe gelegt werden, zeigen an, wann zuletzt eine Campaign gesendet wurde. Dies ist nützlich, um zu sehen, wie Ihre Campaigns die Aktivität angepasster Events beeinflusst haben.
+Auf der Seite **Custom Events Report** können Sie in aggregierter Form sehen, wie oft jedes angepasste Event auftritt. Die grauen Linien, die über die Zeitreihe gelegt werden, zeigen an, wann zuletzt eine Campaign gesendet wurde. Dies ist nützlich, um zu sehen, wie Ihre Campaigns die Aktivität angepasster Events beeinflusst haben.
 
 ![Diagramm der Anzahl angepasster Events auf der Seite „Custom Events“ im Dashboard mit Trends für ein angepasstes Event]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 

@@ -513,6 +513,28 @@ Users pick multiple options; values set or append to a defined [array custom att
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
 
+### Manage subscriptions
+
+Adds a checklist of [email subscription groups]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-groups) so visitors can opt in to or manage their subscriptions when they submit the form. Configure it after you add subscription groups to the block. This block only supports email subscription groups; it doesn't support SMS, RCS, or WhatsApp subscription groups.
+
+For identified users who open the page through the landing page's [Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/), the block pre-fills each checkbox with the user's current subscription state, so it can also serve as a preference management page.
+
+Select the block in the editor to:
+
+- Reorder subscription groups
+- Add or remove subscription groups
+- Add or remove descriptions
+- Add or remove a "Subscribe to all" checkbox that selects every subscription group in the block
+
+| Property | Description |
+| --- | --- |
+| Subscription groups | Add, remove, or reorder the subscription groups shown in the block. |
+| Include descriptions | Displays each subscription group's description alongside its name. |
+| **Subscribe to all** checkbox | Adds a checkbox that selects every subscription group in the block. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Manage subscriptions" }
+
+For the full setup flow, see [Manage Subscriptions block]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions/).
+
 ### Long text
 
 Multi-line text field for survey-style flows. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) or your Braze customer success manager. This block is not available for standard landing pages.

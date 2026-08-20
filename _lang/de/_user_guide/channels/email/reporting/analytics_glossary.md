@@ -418,46 +418,50 @@ Der Segment-Filter [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audie
 
 {% endapi %}
 
-## Fehlerbehebung und häufige Fragen zur E-Mail-Berichterstattung {#email-reporting-troubleshooting-and-faqs}
+## Fehlerbehebung und FAQs zum E-Mail-Reporting {#email-reporting-troubleshooting-and-faqs}
 
 ### Abmeldelinks und eindeutige Klicks {#unsubscribe-links-and-unique-clicks}
 
-Wenn Empfänger:innen auf einen Abmeldelink klicken, zählt Braze dies als Klick, da die Aktion eine URL verwendet. Dies gilt sowohl für von Braze bereitgestellte Abmeldelinks als auch für angepasste Abmeldelinks in Ihrem Nachrichtentext. Diese Klicks fließen zusammen mit anderen Link-Klicks in *Unique Clicks* und *Total Clicks* ein. Metrikdefinitionen finden Sie unter [Eindeutige Klicks](#unique-clicks) und unter [Warum sehe ich eine andere Anzahl von Abmeldungen als Klicks auf meinen Abmeldelink?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+Wenn Empfänger:innen auf einen Abmeldelink klicken, zählt Braze dies als Klick, da die Aktion eine URL verwendet. Dies gilt sowohl für von Braze bereitgestellte Abmeldelinks als auch für benutzerdefinierte Abmeldelinks im Nachrichtentext. Diese Klicks fließen zusammen mit anderen Linkklicks in *Eindeutige Klicks* und *Gesamtklicks* ein. Metrikdefinitionen finden Sie unter [Eindeutige Klicks](#unique-clicks) und [Warum sehe ich eine andere Anzahl von Abmeldungen als Klicks auf meinen Abmeldelink?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
 ### Im Browser anzeigen {#view-in-browser}
 
 Braze bietet keine integrierte Funktion „Diese E-Mail im Browser anzeigen“. Hosten Sie den E-Mail-Inhalt auf einer externen Landing-Page (z. B. Ihrer Website) und fügen Sie über das **Link**-Tool im E-Mail-Editor einen Link aus der Nachricht hinzu. Weitere Informationen finden Sie unter [Kann ich einen „Diese E-Mail im Browser anzeigen“-Link zu meinen E-Mails hinzufügen?]({{site.baseurl}}/user_guide/channels/email/faq#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails).
 
-### Aktualisierungen der angepassten Abmeldeseite {#custom-unsubscribe-page-updates}
+### Aktualisierungen der benutzerdefinierten Abmeldeseite {#custom-unsubscribe-page-updates}
 
-Änderungen an Ihrer [angepassten Abmeldeseite]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) werden innerhalb weniger Minuten wirksam. Aktive Sendungen verwenden einen kurzlebigen Cache der Seite, der beim Speichern von Änderungen aktualisiert wird.
+Änderungen an Ihrer [benutzerdefinierten Abmeldeseite]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) werden innerhalb weniger Minuten wirksam. Live-Versendungen verwenden einen kurzlebigen Cache der Seite, der beim Speichern von Änderungen aktualisiert wird.
 
-### Bounces bei überschrittenem Kontingent und vollem Postfach {#over-quota-and-full-mailbox-bounces}
+### Bounces wegen Kontingentüberschreitung und vollem Postfach {#over-quota-and-full-mailbox-bounces}
 
-Ein Bounce wegen überschrittenem Kontingent oder vollem Postfach bedeutet, dass das Postfach der Empfänger:innen keine neuen E-Mails annehmen kann. Diese Adressen können bei neuen Registrierungen mit ungültigen oder riskanten Adressen auftreten oder bei lange inaktiven Profilen, deren Postfächer sich gefüllt haben, während sie inaktiv waren.
+Ein Bounce wegen Kontingentüberschreitung oder vollem Postfach bedeutet, dass das Postfach der Empfänger:innen keine neuen E-Mails annehmen kann. Diese Adressen können bei neuen Registrierungen mit ungültigen oder riskanten Adressen auftreten oder bei lange inaktiven Profilen, deren Posteingänge sich gefüllt haben, während sie inaktiv waren.
 
-Überprüfen Sie die Bounce-Raten nach Segment und Quelle, entfernen Sie Adressen, die wiederholt Hard Bounces verursachen, oder setzen Sie sie auf inaktiv, und verwenden Sie bestätigtes oder doppeltes Opt-in für neue Abonnent:innen. Informationen zur Listenhygiene finden Sie unter [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps) und [E-Mail-Berichterstattung]({{site.baseurl}}/user_guide/channels/email/reporting#troubleshooting).
+Überprüfen Sie die Absprungraten nach Segment und Quelle, entfernen Sie Adressen, die wiederholt Hard-Bounces verursachen, oder setzen Sie diese auf inaktiv, und verwenden Sie bestätigtes oder doppeltes Opt-in für neue Abonnent:innen. Informationen zur Listenhygiene finden Sie unter [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps) und [E-Mail-Reporting]({{site.baseurl}}/user_guide/channels/email/reporting#troubleshooting).
 
-### 550 5.7.1 – Unerwünschte E-Mail {#550-571-unsolicited-mail}
+### 550 5.7.1 unerwünschte E-Mail {#550-571-unsolicited-mail}
 
 Eine `550 5.7.1`-Antwort wie „Our system has detected that this message is likely unsolicited mail“ stammt häufig von strengen Postfachanbietern (z. B. Gmail), wenn Reputations- oder Engagement-Signale schlecht aussehen. Häufige Ursachen sind Spam-Beschwerden, geringes Engagement, gekaufte oder gemietete Listen und plötzliche Volumenspitzen.
 
-Setzen Sie auf einwilligungsbasiertes Listenwachstum, setzen Sie inaktive Abonnent:innen auf inaktiv und überwachen Sie Beschwerde- und Bounce-Raten. Weitere Informationen finden Sie unter [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps).
+Setzen Sie auf einwilligungsbasiertes Listenwachstum, setzen Sie inaktive Abonnent:innen auf inaktiv und überwachen Sie Beschwerde- und Absprungraten. Weitere Informationen finden Sie unter [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps).
 
-### Gute E-Mail-Zustellraten {#good-email-deliverability-rates}
+### Gute E-Mail-Zustellbarkeitsraten {#good-email-deliverability-rates}
 
-**Zustellung** gibt an, ob der empfangende Server Ihre Nachricht akzeptiert; Sie können dies mit Metriken wie *Deliveries* und Bounce-Rate messen. **Zustellbarkeit** (Posteingangsplatzierung) hängt von der Filterung des Anbieters ab und wird nicht als einzelne Braze-Metrik angezeigt.
+**Zustellung** bezeichnet, ob der empfangende Server Ihre Nachricht akzeptiert; Sie können dies mit Metriken wie *Zustellungen* und Absprungrate messen. **Zustellbarkeit** (Posteingangsplatzierung) hängt von der Filterung des Anbieters ab und wird nicht als einzelne Braze-Metrik angezeigt.
 
-Als allgemeine Richtlinie sollten Sie eine Zustellrate von nahezu 99 % mit Hard Bounces unter ca. 1 % anstreben und Öffnungen sowie Klicks für Engagement-Trends beobachten. Die genauen Zielwerte variieren je nach Branche und Versandmuster. Informationen zu Praktiken, die Ihre Reputation unterstützen, finden Sie unter [E-Mail-Zustellbarkeit verbessern]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability) und [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps).
+Als allgemeine Richtlinie sollten Sie eine Zustellrate von nahezu 99 % mit Hard-Bounces unter etwa 1 % anstreben und Öffnungen sowie Klicks auf Engagement-Trends beobachten. Genaue Zielwerte variieren je nach Branche und Versandmuster. Informationen zu Praktiken, die Ihre Reputation unterstützen, finden Sie unter [E-Mail-Zustellbarkeit verbessern]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability) und [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps).
 
-### „Campaign is already in delay window, so not enqueueing another“ {#campaign-is-already-in-delay-window-so-not-enqueueing-another}
+### „Campaign is already in delay window, so not enqueueing another“
 
-In der Nachrichtenaktivität oder den Diagnoseprotokollen für [aktionsbasierte Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) bedeutet dieses Verarbeitungsergebnis, dass Braze einen doppelten Versand blockiert hat, während ein früherer Trigger für dieselbe:n Nutzer:in noch innerhalb des Zustellfensters der Campaign liegt. Eine Entprellungssperre verhindert mehrfaches Einreihen in die Warteschlange für denselben Trigger-Burst.
+In der Nachrichtenaktivität oder in Diagnoseprotokollen für [aktionsbasierte Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) bedeutet dieses Verarbeitungsergebnis, dass Braze einen doppelten Versand blockiert hat, während ein früherer Trigger für dieselben Nutzer:innen noch innerhalb des Zustellfensters der Campaign liegt. Eine Entprellungssperre verhindert mehrfaches Einreihen in die Warteschlange für denselben Trigger-Burst.
 
 Dieses Ergebnis kann auch auftreten, wenn die Campaign **Sofort senden** anzeigt, sofern eine der folgenden Bedingungen zutrifft:
 
-- Die Campaign verwendet ein [Ausnahme-Event]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events) oder eine Sendezeitverzögerung, die das Timing beeinflusst.
-- Nutzer:innen haben eine [Wiederzulassungs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility)-Periode, sodass sie die Nachricht erst nach Ablauf dieses Fensters erneut erhalten können.
-- Eine andere Campaign oder ein Canvas-Nachrichtenschritt mit höherer Priorität hat den Sendeplatz belegt, wenn sich Trigger überschneiden.
+- Die Campaign verwendet ein [Ausnahme-Event]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events) oder eine Versandzeitverzögerung, die das Timing beeinflusst.
+- Nutzer:innen haben eine [Wiederzulassungsfrist]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility), sodass sie die Nachricht erst nach Ablauf dieses Zeitfensters erneut erhalten können.
+- Eine andere Campaign oder ein Canvas-Nachrichtenschritt mit höherer Priorität hat den Versandplatz belegt, wenn sich Trigger überschneiden.
 
-Wenn Nutzer:innen die Nachricht hätten erhalten sollen, dies aber nicht geschehen ist, prüfen Sie frühere Ergebnisse für denselben Trigger (z. B. E-Mail-Bounce oder nicht für den Kanal aktiviert). Eine andere Nachricht im selben Workflow hat diesen Versand möglicherweise verhindert.
+Wenn Nutzer:innen die Nachricht hätten erhalten sollen, dies aber nicht geschah, prüfen Sie frühere Ergebnisse für denselben Trigger (z. B. E-Mail-Bounce oder Kanal nicht aktiviert). Eine andere Nachricht im selben Workflow hat diesen Versand möglicherweise verhindert.
+
+### Wie berechnet Braze eindeutige Klicks für E-Mails? {#how-does-braze-calculate-unique-clicks-for-email}
+
+Braze zählt *Eindeutige Klicks* über ein Sieben-Tage-Fenster pro Empfänger:in pro [`dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id). Die vollständige Definition, Formeln, das Verhalten bei Abmeldelinks und die Currents-Abstimmung finden Sie unter [Eindeutige Klicks](#unique-clicks).

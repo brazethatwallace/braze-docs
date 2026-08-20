@@ -24,6 +24,10 @@ Select a tab to view details for available channel performance dashboards.
 
 View your email performance dashboard by going to **Analytics** > **Email Performance**, and selecting the date range for the period you want to view data. Your date range can be up to one year in the past.
 
+{% alert note %}
+To view the **Email Performance** dashboard, you need the "View Usage Data" or "View Dashboard Reports" permission.
+{% endalert %}
+
 ![Email performance dashboard displaying email channel engagement from the last thirty days.]({% image_buster /assets/img_archive/email_performance_dashboard_1.png %})
 
 ![An example email campaign with 335,630 sends, with an average of 11,187.667 per day.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
@@ -200,4 +204,3 @@ This means that while Braze recorded positive counts for a particular metric for
 This means Braze hasn't recorded any data for that metric during the time you selected. If you haven't set up or sent any emails yet, learn more about how to do so in our dedicated [Email]({{site.baseurl}}/user_guide/channels/email) section.
 
 --->
-

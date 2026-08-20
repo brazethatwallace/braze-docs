@@ -29,17 +29,17 @@ Antes de acessar, criar e publicar landing pages, você precisa ter [permissões
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
-## Níveis de plano {#plan-tiers}
+## Planos disponíveis {#plan-tiers}
 
 O número de landing pages publicadas, domínios personalizados e recursos que você pode usar depende do seu tipo de plano: gratuito ou pro (incremental).
 
-| Recurso                                                                                                   | Nível gratuito     | Nível pro (incremental)     |
+| Recurso                                                                                                   | Plano gratuito     | Plano pro (incremental)     |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | Landing pages publicadas                                                                 | Cinco por empresa | 20 adicionais |
 | Domínios personalizados          | Um por empresa | Cinco adicionais |
 | [Personalização com Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages) | Não disponível | Disponível |
 | Campos de formulário pré-preenchidos | Não disponível | Disponível |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Níveis de plano" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Planos disponíveis" }
 
 ## Adicionando o Google Tag Manager a uma landing page {#adding-google-tag-manager-to-a-landing-page}
 
@@ -68,7 +68,7 @@ O corpo da landing page pode ter até 500 KB.
 
 ### As landing pages conseguem lidar com cenários de alto tráfego? {#can-landing-pages-handle-high-traffic-scenarios}
 
-Sim, landing pages não personalizadas conseguem lidar com cenários de alto tráfego de forma eficaz. Quando uma landing page não personalizada é solicitada pela primeira vez, a Braze a armazena em cache por meio do Cloudflare. Isso significa que todas as solicitações subsequentes para o mesmo link são servidas a partir do cache, de modo que o desempenho não é prejudicado em solicitações de alto volume. Esse cache dura 24 horas, e as visualizações de páginas em cache não contam para os limites de frequência.
+Sim, landing pages não personalizadas conseguem lidar com cenários de alto tráfego de forma eficaz. Quando uma landing page não personalizada é solicitada pela primeira vez, a Braze a armazena em cache por meio do Cloudflare. Isso significa que todas as solicitações subsequentes para o mesmo link são servidas a partir do cache, então o desempenho não é prejudicado em solicitações de alto volume. Esse cache dura 24 horas, e as visualizações de página em cache não contam para os limites de frequência.
 
 Para landing pages personalizadas (usando personalização com Liquid), os limites de frequência se aplicam a solicitações não armazenadas em cache. Para manter o desempenho ideal, consulte [Considerações sobre personalização]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
 
@@ -78,21 +78,21 @@ Não, não há requisitos técnicos.
 
 ### Existe um editor de HTML para landing pages? {#is-there-an-html-editor-for-landing-pages}
 
-Sim. Use o bloco **Custom Code** no editor de arrastar e soltar para adicionar ou editar HTML.
+Sim. Use o bloco **Custom Code** no editor de arrastar e soltar para adicionar ou editar HTML. Para interagir com o SDK da Braze a partir do seu código personalizado, consulte [Ponte JavaScript para landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge). Para conectar uma interface totalmente personalizada a um formulário de landing page, consulte [Criar blocos de formulário personalizados]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
 
 ### Posso usar iframes em landing pages? {#can-i-use-iframes-on-landing-pages}
 
-Sim. Adicione um bloco **Custom Code** no editor de arrastar e soltar e inclua um elemento iframe com a URL do conteúdo que você deseja incorporar.
+Sim. Adicione um bloco **Custom Code** no editor de arrastar e soltar e inclua um elemento iframe com a URL do conteúdo que deseja incorporar.
 
-Se o site incorporado restringir o enquadramento por meio de `frame-ancestors` na sua Content Security Policy (CSP) ou `X-Frame-Options`, a página pode não carregar no iframe. A Braze não pode substituir essas configurações — o site incorporado precisa ser configurado para permitir o domínio da sua landing page.
+Se o site incorporado restringir o enquadramento por meio de `frame-ancestors` na sua Content Security Policy (CSP) ou `X-Frame-Options`, a página pode não carregar no iframe. A Braze não pode substituir essas configurações — o site incorporado deve ser configurado para permitir o domínio da sua landing page.
 
 ### Posso criar um webhook dentro de uma landing page? {#can-i-create-a-webhook-inside-a-landing-page}
 
-Não, mas o evento **Submitted a Landing Page form** pode atuar como gatilho para Canvas ou Campaigns de webhook:
+Não, mas o evento **Submitted a Landing Page form** pode atuar como um disparador para Canvas ou webhook Campaigns:
 
-- **Canvas:** Use o evento **Submitted a Landing Page form** como gatilho de entrada do Canvas e adicione uma etapa de webhook.
+- **Canvas:** Use o evento **Submitted a Landing Page form** como disparador de entrada do Canvas e adicione uma etapa de webhook.
 - **Campaign:** Use o evento **Submitted a Landing Page form** para disparar com base no envio do formulário.
 
-Quando a página não é enviada por meio de um canal da Braze (como por um site ou anúncio), um novo perfil de usuário pode ser criado no envio — mesmo que essa pessoa já exista na Braze. Para lidar com isso, configure um Canvas disparado por **Submitted a Landing Page form** e adicione uma etapa de webhook Braze-to-Braze que chame o endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) para mesclar o novo perfil ao existente.
+Quando a página não é enviada por meio de um canal da Braze (como por um website ou anúncio), um novo perfil de usuário pode ser criado no envio — mesmo que essa pessoa já exista na Braze. Para lidar com isso, configure um Canvas disparado por **Submitted a Landing Page form** e adicione uma etapa de webhook Braze-to-Braze que chame o endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) para mesclar o novo perfil ao existente.
 
-Quando você usa a Liquid tag `landing_page_url` para compartilhar a página, os envios de formulário são automaticamente vinculados ao perfil de usuário existente. Você pode então referenciar os atributos de usuário enviados na landing page por meio de Liquid para templates subsequentes.
+Quando você usa a Liquid tag `landing_page_url` para compartilhar a página, os envios de formulário são automaticamente vinculados ao perfil de usuário existente. Você pode então referenciar os atributos de usuário enviados na landing page por meio de Liquid para a criação de templates subsequentes.

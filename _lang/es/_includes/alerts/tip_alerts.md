@@ -1,7 +1,15 @@
+{% if include.alert == "Landing pages manage subscriptions" %}
+
+{% alert tip %}
+También puedes gestionar suscripciones en una página de destino de Braze. Añade un bloque **Gestionar suscripciones** para que los consumidores puedan revisar y actualizar sus suscripciones existentes o suscribirse a nuevas, mientras tú capturas sus datos de participación en la misma página. Para más información, consulta [Bloque Gestionar suscripciones]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions).
+{% endalert %}
+
+{% endif %}
+
 {% if include.alert == "Liquid email display name and reply-to address" %}
 
 {% alert tip %}
-Puedes utilizar [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/) en los campos **«Nombre para mostrar + Dirección»** y **«Dirección de respuesta»** para crear plantillas dinámicas basadas en atributos personalizados. Esto te permite enviar desde diferentes marcas, regiones o departamentos utilizando una sola campaña de envío por correo electrónico o un solo paso en Canvas.
+Puedes utilizar [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid) en los campos **From Display Name + Address** y **Reply-To Address** para crear plantillas dinámicas basadas en atributos personalizados. Esto te permite enviar desde diferentes marcas, regiones o departamentos utilizando una sola Campaign de correo electrónico o un solo paso en Canvas.
 {% endalert %}
 
 {% endif %}
@@ -9,7 +17,7 @@ Puedes utilizar [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic
 {% if include.alert == "Reference properties from triggering event" %}
 
 {% alert tip %}
-No necesitas un paso de contexto para hacer referencia a las propiedades del evento desencadenante en los pasos [de ruta de audiencia]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths) o paso [para la división de decisiones]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split). Puedes hacer referencia a las propiedades directamente en los grupos de filtros con el filtro **Variable de contexto**. Asegúrate de seleccionar el tipo de datos correcto.
+No necesitas un paso de contexto para hacer referencia a las propiedades del evento desencadenante en los pasos de [ruta de audiencia]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths) o [división de decisiones]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split). Puedes hacer referencia a las propiedades directamente en los grupos de filtros con el filtro **Context Variable**. Asegúrate de seleccionar el tipo de datos correcto.
 {% endalert %}
 
 {% endif %}
@@ -17,7 +25,7 @@ No necesitas un paso de contexto para hacer referencia a las propiedades del eve
 {% if include.alert == 'catalog data images' %}
 
 {% alert tip %}
-Para importar imágenes para los elementos que desencadenan el catálogo, este debe incluir un campo denominado `image_url`. A continuación, puedes hacer referencia a él utilizando {%raw%}``{{ items[0].image_url }}``{%endraw%}.
+Para importar imágenes para los elementos desencadenantes del catálogo, este debe incluir un campo denominado `image_url`. A continuación, puedes hacer referencia a él utilizando {%raw%}``{{ items[0].image_url }}``{%endraw%}.
 {% endalert %}
 
 {% endif %}
@@ -25,7 +33,7 @@ Para importar imágenes para los elementos que desencadenan el catálogo, este d
 {% if include.alert == 'Export troubleshooting' %}
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endif %}
@@ -37,7 +45,7 @@ Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problem
 
 <br>
 
-Si quieres ver cuántos segmentos enviará tu mensaje, introduce tu copia en la calculadora. Ten en cuenta que esto no procesará ni predecirá la salida de Liquid o Contenido conectado.
+Si quieres ver cuántos segmentos enviará tu mensaje, introduce tu texto en la calculadora. Ten en cuenta que esto no procesará ni predecirá la salida de Liquid o contenido conectado.
 <!-- Note: This calculator uses fixed DOM IDs and global variables. Include only once per page to avoid conflicts. -->
 <style>
   .segment_data_hide {
@@ -98,24 +106,24 @@ Si quieres ver cuántos segmentos enviará tu mensaje, introduce tu copia en la 
   }
 </style>
 <form id="sms_split">
-  <textarea id="sms_message_split" placeholder="Escribe aquí tu copia del SMS..." style="width:100%;border: 1px solid #33333333;" rows="5"></textarea><br />
+  <textarea id="sms_message_split" placeholder="Escribe aquí el texto de tu SMS..." style="width:100%;border: 1px solid #33333333;" rows="5"></textarea><br />
   <input type="radio" name="sms_type" value="auto" checked="checked" id="sms_type_auto" /> <label for="sms_type_auto" style="padding-left: 5px;"> Detección automática</label><label id="auto_encoding" style="padding-left: 5px;"></label><br />
   <input type="radio" name="sms_type" value="gsm" id="sms_type_gsm" /> <label for="sms_type_gsm" style="padding-left: 5px;">Codificación GSM-7</label><br />
   <input type="radio" name="sms_type" value="ucs2" id="sms_type_ucs2" /> <label for="sms_type_ucs2" style="padding-left: 5px;">Codificación UCS-2</label><br />
   <br />
   Longitud del mensaje: <span id="sms_length" style="padding-left: 5px;">0</span> caracteres.<br />
   Recuento de segmentos SMS: <span id="sms_segments" style="padding-left: 5px;">0</span> segmentos. <br />
-  Salida de mensajes: <span id="sms_output" style="padding-left: 5px;"></span><br />
-  <input type="checkbox" id="encoding_section" name="encoding_section"> <label for="encoding_section" style="padding-left: 5px; margin-bottom: 0px;">Codificación de caracteres de visualización</label>
+  Salida del mensaje: <span id="sms_output" style="padding-left: 5px;"></span><br />
+  <input type="checkbox" id="encoding_section" name="encoding_section"> <label for="encoding_section" style="padding-left: 5px; margin-bottom: 0px;">Mostrar codificación de caracteres</label>
   <div class="segment_data_hide" id="character_encoding_container">
     <div class="encoding_legend">
-      <div class="encoding_legend_item"><span class="encoding_gsm">GSM</span> GSM-7 caracteres</div>
-      <div class="encoding_legend_item">Caracteres <span class="encoding_ucs2">UCS</span> UCS-2</div>
+      <div class="encoding_legend_item"><span class="encoding_gsm">GSM</span> Caracteres GSM-7</div>
+      <div class="encoding_legend_item"><span class="encoding_ucs2">UCS</span> Caracteres UCS-2</div>
     </div>
     <span id="character_encoding_label">Codificación de caracteres: </span><span id="character_encoding" style="padding-left: 5px;"></span><br />
   </div>
   <br />
-  <input type="checkbox" id="segment_section" name="segment_section"> <label for="segment_section" style="padding-left: 5px; margin-bottom: 0px;">Segmentos de pantalla</label>
+  <input type="checkbox" id="segment_section" name="segment_section"> <label for="segment_section" style="padding-left: 5px; margin-bottom: 0px;">Mostrar segmentos</label>
   <span class="segment_data_hide" id="sms_segments_data"></span>
 </form>
 <script type="text/javascript">
@@ -378,56 +386,56 @@ auto: function (s) { return segmenter[smsutil.pickencoding(s)](s); },
 }
 
 function countLength(type, s) {
-  const t = (tipo === "auto") ? smsutil.pickencoding(s) : tipo;
+  const t = (type === "auto") ? smsutil.pickencoding(s) : type;
 
   if (t === "gsm") {
-    returns.length  \+ (s.match(/^|€|{|}|[|]|~||/g) || []).length;
+    return s.length + (s.match(/\^|€|{|}|\[|\]|~|\|/g) || []).length;
   } else {
-    devolver s.length;
+    return s.length;
   }
 }
 
-función escapeHtml(texto) {
-  return text.replace(/[&<>"'/]/g, function (c) {
+function escapeHtml(text) {
+  return text.replace(/[&<>"'\/]/g, function (c) {
     switch (c) {
-      caso'&':  devolver '&';
-      caso'<':  retorno <';
-case '>'': retorno '>';
-      caso '"': devuelve '"';
-      caso «"»: devuelve «''»;
-      caso '/': devuelve '/';
-      predeterminado: devuelve c;
-      }
-    });
-  }
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&#39;';
+      case '/': return '&#x2F;';
+      default: return c;
+    }
+  });
+}
 
-función getCharacterEncoding(char, tipo) {
-  if (tipo === "ucs2") return "ucs2";
-  if (tipo === "gsm") return "gsm";
+function getCharacterEncoding(char, type) {
+  if (type === "ucs2") return "ucs2";
+  if (type === "gsm") return "gsm";
 
-  // Para la detección automática, comprueba si el carácter está en el conjunto GSM-7.
+  // For auto detection, check if character is in GSM-7 set
   const codePoint = char.charCodeAt(0);
   return (codePoint in unicodeToGsm) ? "gsm" : "ucs2";
 }
 
-función mostrarCodificaciónDeCaracteres(texto, tipo) {
-  const caracteres = smsutil.unicodeCharacters(texto);
+function displayCharacterEncoding(text, type) {
+  const characters = smsutil.unicodeCharacters(text);
   return characters.map((char, index) => {
-    const encoding = getCharacterEncoding(char, tipo);
-    const displayChar = char === " " ? " " : escapeHtml(char);
-    const titleChar = char === " " ? "espacio" : char;
-    const encodingClass = encoding === "gsm" ?"encoding_gsm"  : "encoding_ucs2";
-    const encodingLabel = encoding === "gsm" ? «GSM»: «UCS»;
-    devolver `<span id="character_encoding_data_${index}" class="${encodingClass}" title="${escapeHtml(titleChar)} - ${encoding.toUpperCase()}">${encodingLabel}</span>`;
+    const encoding = getCharacterEncoding(char, type);
+    const displayChar = char === " " ? "&nbsp;" : escapeHtml(char);
+    const titleChar = char === " " ? "space" : char;
+    const encodingClass = encoding === "gsm" ? "encoding_gsm" : "encoding_ucs2";
+    const encodingLabel = encoding === "gsm" ? "GSM" : "UCS";
+    return `<span id="character_encoding_data_${index}" class="${encodingClass}" title="${escapeHtml(titleChar)} - ${encoding.toUpperCase()}">${encodingLabel}</span>`;
   }).join("");
 }
 
 function updateSMSSplit(){
-    varsms_text  = $('#sms_message_split').val();
-    varsms_type  = $('#sms_split input[name=sms_type]:checked').val();
+    var sms_text = $('#sms_message_split').val();
+    var sms_type = $('#sms_split input[name=sms_type]:checked').val();
     var unicodeinput = smsutil.unicodeCharacters(sms_text);
-    var caracteresCodificados = codificador[sms_type](sms_text);
-    var smsSegments = segmentador[sms_type](unicodeinput);
+    var encodedChars = encoder[sms_type](sms_text);
+    var smsSegments = segmenter[sms_type](unicodeinput);
     $('#sms_length').html(countLength(sms_type, sms_text));
     $('#sms_segments').html(smsSegments.length);
 
@@ -450,49 +458,49 @@ function updateSMSSplit(){
     $('#sms_output').html(messageOutput.join(""));
     $('#sms_segments_data').html(segmentsHtml);
 }
-// Funcionalidad mejorada al pasar el cursor con resaltado en tres direcciones.
-// Uso de mouseenter/mouseleave para evitar la acumulación de controladores
-$("#sms_segments_data").on("mouseenter", "[id^='sms_segments_data_']", función(e){
-  const segmentoIndex = e.target.id.split("sms_segments_data_")[1];
+// Enhanced hover functionality with three-way highlighting
+// Using mouseenter/mouseleave to avoid handler accumulation
+$("#sms_segments_data").on("mouseenter", "[id^='sms_segments_data_']", function(e){
+  const segmentIndex = e.target.id.split("sms_segments_data_")[1];
   const messageOutputElement = `#message_output_data_${segmentIndex}`;
   const charIndex = $(messageOutputElement).attr('data-char-index');
-  const encodingElement = charIndex !== undefined ?`#character_encoding_data_${charIndex}`: null;
+  const encodingElement = charIndex !== undefined ? `#character_encoding_data_${charIndex}` : null;
 
-  let elementosParaResaltar = `${messageOutputElement}, #${e.target.id}`;
-  if(encodingElement) elementosParaResaltar += `, ${encodingElement}`;
+  let elementsToHighlight = `${messageOutputElement}, #${e.target.id}`;
+  if(encodingElement) elementsToHighlight += `, ${encodingElement}`;
 
   $(elementsToHighlight).addClass("hover_segment");
-}).on("mouseleave","[id^='sms_segments_data_']",  función(e){
+}).on("mouseleave", "[id^='sms_segments_data_']", function(e){
   $(".hover_segment").removeClass("hover_segment");
 });
 
-$("#sms_output").on("mouseenter", "[id^='message_output_data_']", función(e){
-  const segmentoIndex = e.target.id.split("message_output_data_")[1];
-  const segmentoElemento = `#sms_segments_data_${segmentIndex}`;
+$("#sms_output").on("mouseenter", "[id^='message_output_data_']", function(e){
+  const segmentIndex = e.target.id.split("message_output_data_")[1];
+  const segmentElement = `#sms_segments_data_${segmentIndex}`;
   const charIndex = $(e.target).attr('data-char-index');
-  const encodingElement = charIndex !== undefined ?`#character_encoding_data_${charIndex}`: null;
+  const encodingElement = charIndex !== undefined ? `#character_encoding_data_${charIndex}` : null;
 
-  let elementosParaResaltar = `${segmentElement}, #${e.target.id}`;
-  if(encodingElement) elementosParaResaltar += `, ${encodingElement}`;
+  let elementsToHighlight = `${segmentElement}, #${e.target.id}`;
+  if(encodingElement) elementsToHighlight += `, ${encodingElement}`;
 
   $(elementsToHighlight).addClass("hover_segment");
-}).on("mouseleave","[id^='message_output_data_']",  función(e){
+}).on("mouseleave", "[id^='message_output_data_']", function(e){
   $(".hover_segment").removeClass("hover_segment");
 });
 
-$("#character_encoding").on("mouseenter", "[id^='character_encoding_data_']", función(e){
+$("#character_encoding").on("mouseenter", "[id^='character_encoding_data_']", function(e){
   const charIndex = e.target.id.split("character_encoding_data_")[1];
   const messageOutputElement = $(`[data-char-index='${charIndex}']`);
-  const messageOutputId = messageOutputElement.attr('ID');
+  const messageOutputId = messageOutputElement.attr('id');
 
   if(messageOutputId) {
-    const segmentoIndex = messageOutputId.split("message_output_data_")[1];
-    const segmentoElemento = `#sms_segments_data_${segmentIndex}`;
+    const segmentIndex = messageOutputId.split("message_output_data_")[1];
+    const segmentElement = `#sms_segments_data_${segmentIndex}`;
 
     const elementsToHighlight = `#${e.target.id}, #${messageOutputId}, ${segmentElement}`;
     $(elementsToHighlight).addClass("hover_segment");
   }
-}).on("mouseleave","[id^='character_encoding_data_']",  función(e){
+}).on("mouseleave", "[id^='character_encoding_data_']", function(e){
   $(".hover_segment").removeClass("hover_segment");
 });
 $('#segment_section').click(function() {
@@ -511,7 +519,7 @@ $('#encoding_section').click(function() {
     $("#character_encoding_container").hide();
   }
 });
-$('#sms_message_split').on("input", función(e){
+$('#sms_message_split').on("input", function(e){
   $('#auto_encoding').html("");
   updateSMSSplit();
 });
@@ -519,7 +527,7 @@ $('#sms_split input[name=sms_type]').change(function(e){
     $('#auto_encoding').html("");
     updateSMSSplit();
 });
-})(); // Fin de IIFE
+})(); // End IIFE
 </script>
 
 {% endalert %}
