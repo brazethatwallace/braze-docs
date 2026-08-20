@@ -41040,6 +41040,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/user_guide/data/unification/cloud_ingestion/decisioning_studio",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/prepare_data/connect_data_sources",
+    "permanent": true
+  },
+  {
     "source": "/docs/user_guide/data/unification/cloud_ingestion/deleteusers",
     "destination": "/docs/user_guide/data/unification/cloud_ingestion/delete_users",
     "permanent": true

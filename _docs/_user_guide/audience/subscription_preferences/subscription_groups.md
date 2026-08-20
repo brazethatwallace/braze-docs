@@ -67,7 +67,7 @@ Some channels have additional archive rules. See [LINE subscription groups](#lin
 
 ### Update subscription group status
 
-You can update a user's subscription group membership through the REST API, SDK, user import, user profile, email preference center, Canvas User Update step, and other channel-specific flows. The exact methods depend on the channel—see each [channel section](#channel-specific-behavior) and [SMS, MMS, and RCS subscription groups]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#set-a-users-state) for SMS-specific timing guidance.
+You can update a user's subscription group membership through the REST API, SDK, user import, user profile, email preference center, User Update step in a Canvas, and other channel-specific flows. The exact methods depend on the channel—see each [channel section](#channel-specific-behavior) and [SMS, MMS, and RCS subscription groups]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#set-a-users-state) for SMS-specific timing guidance.
 
 ## Preference centers
 
