@@ -155,7 +155,7 @@ If your HTML references REST data returned by Connected Content, that data is av
 
 ### What is the maximum delay after a trigger for in-app message campaigns?
 
-In-app message campaigns can delay delivery after the trigger event by up to two hours (7,200 seconds). The delay options are **Immediately** and **After a delay**. For a longer wait, add a [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) step before an in-app Message step in a Canvas. For delay setup, see [Action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-2-select-delay-length).
+In-app message campaigns can delay delivery after the trigger event by up to two hours (7,200 seconds). The delay options are **Immediately** and **After a delay**. For a longer wait, add a [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) step before an in-app message step in a Canvas. For delay setup, see [Action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-2-select-delay-length).
 
 ### Why is there a delay before my in-app message displays?
 

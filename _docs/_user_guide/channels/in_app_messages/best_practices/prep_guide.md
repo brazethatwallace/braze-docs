@@ -31,7 +31,7 @@ toc_headers: h2
 
 When an in-app message campaign has **Schedule Delay** with a trigger on session start, a user who starts a session and then closes the app before the in-app message displays can still get that message on the next session start, after the delay expires.
 
-In-app message campaigns can delay delivery after the trigger by up to two hours. For a longer wait, add a [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) step before an in-app Message step in a Canvas. For delay setup, see [Action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-2-select-delay-length).
+In-app message campaigns can delay delivery after the trigger by up to two hours. For a longer wait, add a [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) step before an in-app message step in a Canvas. For delay setup, see [Action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-2-select-delay-length).
 
 That timing can produce unexpected display behavior, especially if **Re-evaluate campaign eligibility before displaying** isn't selected on the campaign.
 
