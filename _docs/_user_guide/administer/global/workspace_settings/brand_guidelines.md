@@ -16,7 +16,7 @@ Create and manage brand guidelines from **Content** > **Brand Guidelines**.
 
 ### Step 1: Create a brand guideline
 
-On the **Brand Guidelines** page, select **Create new**. If you want this brand guideline to be the default for the workspace, check **Use as default brand guideline**. You can have one default per workspace.
+On the **Brand Guidelines** page, select **Create new**. If you want this brand guideline to be the default for the workspace, select **Use as default brand guideline**. You can have one default per workspace.
 
 ### Step 2: Describe your brand personality
 
