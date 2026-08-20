@@ -24,7 +24,7 @@ For **Brand personality**, think about what makes your brand unique. Include tra
 
 Here are some characteristics to consider:
 
-| **Characteristic**       | **Definition**                                                                       | **Example**                                                        |
+| Characteristic       | Definition                                                                       | Example                                                       |
 |--------------------------|--------------------------------------------------------------------------------------|--------------------------------------------------------------------|
 | Reputation               | How you want your brand to be perceived in the market.                               | We are known for being the most reliable and customer-focused brand in our industry. |
 | Personality traits       | Human-like characteristics that describe your brand's character.                     | Our brand is friendly, approachable, and always upbeat.          |
