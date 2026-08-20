@@ -74,6 +74,8 @@ Selecciona si deseas crear un [mensaje de plantilla](#template-messages) de What
 Puedes usar [plantillas de mensaje de WhatsApp aprobadas]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates
 ) para iniciar conversaciones con tus usuarios en WhatsApp. Estas se envían previamente a WhatsApp para la aprobación de contenido, lo que puede tardar hasta 24 horas. Cualquier edición que hagas en el texto debe editarse y reenviarse a WhatsApp.
 
+Para crear y enviar una nueva plantilla sin salir del creador de Campaign o Canvas, selecciona **Crear nueva plantilla**. Para categorías, tipos y el proceso completo de creación, consulta [Creador de plantillas de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder).
+
 Los campos de texto deshabilitados (resaltados en gris) no se pueden editar, ya que forman parte de la plantilla de WhatsApp aprobada. Para actualizar el texto deshabilitado, debes editar tu plantilla y obtener una nueva aprobación.
 
 #### Idiomas {#languages}
@@ -82,7 +84,7 @@ Cada plantilla tiene un idioma asignado, por lo que necesitas crear una Campaign
 
 ![Lista de plantillas que incluye vistas previas de sus mensajes, sus idiomas asignados y su estado de aprobación.]({% image_buster /assets/img/whatsapp/whatsapp_templates.png %}){: style="max-width:80%;"}
 
-Si estás añadiendo texto en un idioma que se escribe de derecha a izquierda, ten en cuenta que la apariencia final de los mensajes de derecha a izquierda depende en gran medida de cómo los proveedores de servicios los rendericen. Para conocer las mejores prácticas sobre cómo crear mensajes de derecha a izquierda que se muestren con la mayor precisión posible, consulta [Creación de mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+Si estás añadiendo texto en un idioma que se escribe de derecha a izquierda, ten en cuenta que la apariencia final de los mensajes de derecha a izquierda depende en gran medida de cómo los proveedores de servicios los rendericen. Para conocer las mejores prácticas sobre cómo redactar mensajes de derecha a izquierda que se muestren con la mayor precisión posible, consulta [Creación de mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 #### Variables {#variables}
 
@@ -104,14 +106,14 @@ Las URL de llamada a la acción pueden contener variables, aunque Meta requiere 
 
 ### Imágenes dinámicas {#dynamic-images}
 
-Puedes añadir imágenes desde la biblioteca de medios o por URL. Cuando usas una URL, puedes personalizar la imagen con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) o [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), incluyendo lógica completa de Liquid en cualquier parte de la URL. Las imágenes dinámicas son compatibles con mensajes de plantilla y mensajes de respuesta (mensajes multimedia y diseños de respuesta rápida).
+Puedes añadir imágenes desde la biblioteca de medios o por URL. Cuando usas una URL, puedes personalizar la imagen con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) o [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), incluyendo lógica completa de Liquid en cualquier parte de la URL. Las imágenes dinámicas son compatibles con los mensajes de plantilla y los mensajes de respuesta (mensajes multimedia y diseños de respuesta rápida).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 {% endtab %}
 {% tab Mensajes de respuesta %}
 
-Puedes usar mensajes de respuesta para responder a mensajes entrantes de tus usuarios. Estos mensajes se crean dentro de la aplicación en Braze durante tu experiencia de composición y pueden editarse en cualquier momento. Puedes usar Liquid para hacer coincidir el idioma del mensaje de respuesta con los usuarios apropiados.
+Puedes usar mensajes de respuesta para responder a mensajes entrantes de tus usuarios. Estos mensajes se crean en la aplicación en Braze durante tu experiencia de composición y se pueden editar en cualquier momento. Puedes usar Liquid para hacer coincidir el idioma del mensaje de respuesta con los usuarios apropiados.
 
 Hay cinco diseños de mensajes de respuesta que puedes usar:
 - Respuesta rápida
@@ -172,7 +174,7 @@ Dado que los reintentos pueden continuar durante un máximo de 24 horas, es posi
 Si una etapa muestra un fallo, el panel muestra el error y los pasos sugeridos a seguir. Las razones comunes por las que un envío de prueba puede fallar incluyen:
 
 - La plantilla de mensaje está pausada o aún no ha sido aprobada en Meta
-- El número de teléfono del destinatario tiene limitación de frecuencia
+- El número de teléfono del destinatario tiene limitación de tasa
 - Las variables de Liquid en el mensaje no se completaron para el usuario de prueba seleccionado
 
 Para problemas persistentes, verifica el estado de tu plantilla en el Meta Business Manager o comprueba que tu destinatario de prueba tenga los atributos de usuario requeridos completados en Braze.
@@ -186,7 +188,7 @@ A continuación, construye el resto de tu Campaign. Consulta las siguientes secc
 
 #### Elige un horario de entrega o desencadenante {#choose-a-delivery-schedule-or-trigger}
 
-Los mensajes de WhatsApp pueden entregarse según un horario programado, una acción o un desencadenante de API. Para más información, consulta [Programar tu Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Los mensajes de WhatsApp se pueden entregar según un horario programado, una acción o un desencadenante de API. Para más información, consulta [Programar tu Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 Para la entrega basada en acciones, también puedes establecer la duración de la Campaign y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
@@ -235,7 +237,7 @@ Las siguientes características son compatibles con los mensajes salientes de Wh
 | Enlaces CTA | Se admiten varios tipos de llamada a la acción (CTA). Para más detalles, consulta [Tipos de llamada a la acción](#ctas). | — | — |
 | Imágenes | Las imágenes pueden incrustarse dentro del texto del cuerpo. Deben ser de 8 bits y usar un modelo de color RGB o RGBA. | < 5 MB | `.png`, `.jpg`, `.jpeg` |
 | Documentos | Los documentos pueden incrustarse dentro del texto del cuerpo. Los archivos deben estar alojados a través de URL. | < 100 MB | `.txt`, `.xls`, `.xlsx`, `.doc`, `.docx`, `.ppt`, `.pttx`, `.pdf` |
-| Videos | Los videos pueden incrustarse dentro del texto del cuerpo. Los archivos deben estar alojados a través de URL o en la [biblioteca multimedia de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). | < 16 MB | `.3gp`, `.mp4` |
+| Videos | Los videos pueden incrustarse dentro del texto del cuerpo. Los archivos deben estar alojados a través de URL o en la [biblioteca de medios de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). | < 16 MB | `.3gp`, `.mp4` |
 | Audio | El audio solo es compatible a través de mensajes de respuesta. Los archivos deben estar alojados a través de URL. | < 16 MB | `.aac`, `.amr`, `.mp3`, `.mp4`, `.ogg` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Mensajes salientes" }
 
