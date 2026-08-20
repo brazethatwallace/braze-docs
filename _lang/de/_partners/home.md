@@ -50,6 +50,7 @@ Willkommen bei der Dokumentation der Braze-Technologie-Partner (Alloys). Durchsu
 - [BlueConic]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/blueconic)
 - [Bluedot]({{site.baseurl}}/partners/message_personalization/location/bluedot)
 - [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)
+- [Bynder]({{site.baseurl}}/partners/message_orchestration/cms_dam/bynder)
 
 </div>
 
@@ -406,6 +407,6 @@ Wenn die Integration eine Einrichtung auf Braze-Seite erfordert, melden Sie sich
 Vollständig vom Partner verwaltete Integrationen sind hier möglicherweise nicht aufgeführt. Lesen Sie die partnerspezifische Dokumentation, um die Zuständigkeit für die Integration und die Konfigurationsschritte zu überprüfen.
 {% endalert %}
 
-Wenn in Braze **Ungültige Zugangsdaten** für einen Partner angezeigt werden, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Technologie-Partnerseite und verbinden Sie sie erneut. Bestätigen Sie API-Schlüssel, OAuth-Token und Berechtigungen auf der Partnerseite.
+Wenn Sie in Braze **Ungültige Zugangsdaten** für einen Partner sehen, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Technologie-Partnerseite und verbinden Sie sie erneut. Überprüfen Sie außerdem API-Schlüssel, OAuth-Token und Berechtigungen auf der Partnerseite.
 
 Einige externe Dashboards (z. B. Tools zur Zustellbarkeits- oder Posteingangsüberwachung) können einen anderen Verbindungs- oder Verifizierungsstatus anzeigen als die Braze-Technologie-Partnerseite. Verwenden Sie die Partner-Kachel in Braze für den Verbindungsstatus, auf den sich Braze für Synchronisierung und Versand stützt.

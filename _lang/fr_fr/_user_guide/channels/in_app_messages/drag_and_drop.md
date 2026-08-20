@@ -53,7 +53,7 @@ Voici les exigences minimales individuelles du SDK pour ces fonctionnalités :
 
 ### Prérequis supplémentaires {#additional-prerequisites}
 
-- Pour le SDK Web, l'option d'initialisation [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) doit être définie sur `true`. L'option `enableHtmlInAppMessages` permet également à ces messages de fonctionner, mais elle est obsolète et doit être remplacée par `allowUserSuppliedJavascript`.
+- Pour le SDK web, l'option d'initialisation [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) doit être définie sur `true`. L'option `enableHtmlInAppMessages` permet également à ces messages de fonctionner, mais elle est obsolète et devrait être remplacée par `allowUserSuppliedJavascript`.
 - Si vous utilisez Google Tag Manager, vous devez activer « Allow HTML In-App Messages » dans la configuration GTM.
 
 ## Étape 1 : Créer un message in-app {#step-1-create-an-in-app-message}
@@ -178,9 +178,21 @@ Oui, vous pouvez segmenter en fonction des clics sur les boutons pour un maximum
 
 ![Le champ « Identifier for Reporting » avec la valeur « 0 ».]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-### Puis-je personnaliser mon message in-app avec du HTML personnalisé ou du JavaScript, ou transférer des messages HTML existants dans l'éditeur ? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
+### Puis-je personnaliser mon message in-app avec du HTML ou du JavaScript personnalisé, ou transférer des messages HTML existants dans l'éditeur ? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
-Vous ne pouvez pas transférer directement des messages HTML existants dans l'éditeur, mais vous pouvez insérer du HTML brut, du CSS et du JavaScript dans un bloc **Custom code**. Vous pouvez utiliser les blocs **Custom code** pour intégrer des vidéos tierces et du Liquid avancé, comme le contenu connecté ou les instructions conditionnelles. Pour les méthodes JavaScript `brazeBridge` et les exemples de suivi des clics, consultez [Messages in-app en HTML personnalisé]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html).
+Vous ne pouvez pas transférer directement des messages HTML existants dans l'éditeur, mais vous pouvez insérer du HTML brut, du CSS et du JavaScript dans un bloc **Code personnalisé**. Vous pouvez utiliser les blocs **Code personnalisé** pour intégrer des vidéos tierces et du Liquid avancé, comme le contenu connecté ou les instructions conditionnelles. Pour les méthodes JavaScript `brazeBridge` et les exemples de suivi des clics, consultez [Messages in-app en HTML personnalisé]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html).
+
+### Pourquoi la vue du compositeur de l'éditeur par glisser-déposer peut-elle être différente du message final ? {#why-might-the-drag-and-drop-editors-composer-view-look-different-from-the-final-message}
+
+L'éditeur par glisser-déposer affiche votre message dans un compositeur et applique des styles et des valeurs par défaut réservés à l'aperçu afin que vous puissiez construire et vérifier la mise en page. Ces traitements vous aident à visualiser la structure et le contenu de substitution pendant que vous éditez ; ils ne sont pas inclus dans le message que vos utilisateurs reçoivent.
+
+Voici des exemples courants de comportements propres à l'éditeur :
+
+- L'éditeur encapsule les blocs **Code personnalisé** dans un conteneur `bz-html-code-block` avec une `min-height` par défaut de `40px`, afin que les blocs vides ou courts restent visibles pendant l'édition.
+- Les images vides ou contenant du Liquid affichent un espace réservé dans l'éditeur.
+- Les groupes de cases à cocher et les boutons radio présélectionnent la première option pour que vous puissiez prévisualiser l'état actif.
+
+Si quelque chose semble différent uniquement dans l'éditeur, il s'agit généralement d'un comportement d'aperçu. Lors du dépannage du message livré, examinez les styles et le balisage dans vos blocs de message, et non le cadre de l'éditeur ou les valeurs par défaut de l'aperçu.
 
 ### Comment puis-je créer un message in-app contextuel ? {#how-can-i-create-a-slideup-in-app-message}
 
@@ -188,7 +200,7 @@ Actuellement, l'éditeur est limité aux messages modaux et plein écran uniquem
 
 ### Puis-je enregistrer mon message in-app en tant que modèle après l'avoir créé dans ma Campaign ou mon Canvas ? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Oui. Pour tout message in-app que vous souhaitez réutiliser dans une future Campaign ou étape du Canvas, vous pouvez l'enregistrer en tant que modèle personnalisé à l'aide du bouton **Save as template**, disponible après avoir quitté l'éditeur. Avant de pouvoir l'enregistrer en tant que modèle, vous devez d'abord lancer la Campaign OU l'enregistrer en tant que brouillon.
+Oui. Pour tout message in-app que vous souhaitez réutiliser dans une future Campaign ou étape Canvas, vous pouvez l'enregistrer en tant que modèle personnalisé à l'aide du bouton **Save as template**, disponible après avoir quitté l'éditeur. Avant de pouvoir l'enregistrer en tant que modèle, vous devez d'abord lancer la Campaign OU l'enregistrer en tant que brouillon.
 
 ![Un aperçu d'un message in-app pour une visite guidée du produit.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
@@ -201,4 +213,4 @@ Si vous voyez la syntaxe Liquid apparaître en texte brut lors du test d'un mess
 Pour résoudre le problème :
 
 1. Vérifiez chaque page de votre message pour détecter les erreurs de syntaxe Liquid. Un aperçu défaillant sur une page ne signifie pas que l'erreur se trouve sur cette page — puisque les pages ne sont pas indépendantes, l'erreur de syntaxe peut se trouver n'importe où dans le message.
-2. Vérifiez que toutes les étiquettes Liquid sont correctement fermées et formatées.
+2. Vérifiez que toutes les balises Liquid sont correctement fermées et formatées.

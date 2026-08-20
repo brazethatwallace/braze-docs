@@ -28,7 +28,7 @@ Use campaigns for single, simple messaging (such as informing users about a prod
 3. Name your campaign something clear and meaningful.
 4. Add [teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) and [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) as needed.
    * Tags make your campaigns easier to find and build reports out of. For example, when using the [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder), you can filter by the relevant tags.
-5. Add and name as many variants as you like for your campaign. You can choose different platforms, message types, and layouts for each of your added variants. For more on variants, refer to [Multivariate and A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing).
+5. Add and name as many variants as you like for your campaign. You can choose different platforms, message types, and layouts for each of your added variants. For more on variants, see [Multivariate and A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
 If all messages in your campaign are similar or have the same content, compose your message before adding additional variants. You can then select **Copy from Variant** from the **Add Variant** dropdown.
@@ -53,7 +53,7 @@ If all messages in your campaign are similar or have the same content, compose y
 
 Select one of three essential Content Card types: **Classic**, **Captioned Image**, and **Image Only**. 
 
-To learn more about the expected behavior and look of each type, refer to [Creative Details]({{site.baseurl}}/user_guide/channels/content_cards/creative_details), or check out the links in the following table. These Content Card types are accepted by both mobile apps and web applications.
+To learn more about the expected behavior and look of each type, see [Creative Details]({{site.baseurl}}/user_guide/channels/content_cards/creative_details), or check out the links in the following table. These Content Card types are accepted by both mobile apps and web applications.
 
 | Message Type | Example | Description |
 |---|---|---|
@@ -72,13 +72,13 @@ The content here varies based on the **Card Type** chosen in the previous step, 
 
 ### Language
 
-Select **Add Languages** to add your desired languages from the provided list. This inserts [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) into your message. We recommend selecting your languages before writing your content so you can fill in your text where it belongs in the Liquid. For our full list of available languages you can use, refer to [Languages supported]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
+Select **Add Languages** to add your desired languages from the provided list. This inserts [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) into your message. We recommend selecting your languages before writing your content so you can fill in your text where it belongs in the Liquid. For our full list of available languages you can use, see [Languages supported]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
 
 ![A window with English, Spanish, and French selected for the languages, and title, description, and link text selected for fields to internationalize.]({% image_buster /assets/img/add_languages.png %}){: style="max-width:70%;"}
 
 #### Create right-to-left messages
 
-The final appearance of right-to-left messages depends largely on how service providers render them. For best practices on crafting right-to-left messages that display as accurately as possible, refer to [Creating right-to-left messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+The final appearance of right-to-left messages depends largely on how service providers render them. For best practices on crafting right-to-left messages that display as accurately as possible, see [Creating right-to-left messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 #### Title and message
 
@@ -131,7 +131,7 @@ Build the remainder of your campaign. Continue to the next sections for addition
 
 ### Choose a delivery schedule or trigger
 
-Content Cards can be delivered based on a scheduled time, an action, or an API trigger. For more, refer to [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Content Cards can be delivered based on a scheduled time, an action, or an API trigger. For more, see [Scheduling your campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 You can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) and determine the Content Card's expiration. Set a specific expiration date or the days until a Card expires, up to 30 days. All variants must use the same expiration (duration or specific time).
 
@@ -144,11 +144,11 @@ For example, if an action-based Content Card is sent at 2 pm today with a 1-day 
 
 {% multi_lang_include alerts/note_alerts.md alert='Content Cards frequency capping' %}
 
-For action-based delivery, there is an expected short delay before the Content Card appears. For details on why this happens and how to minimize it, refer to [Why don't Content Cards appear immediately after a trigger event?]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#why-dont-content-cards-appear-immediately-after-a-trigger-event).
+For action-based delivery, there is an expected short delay before the Content Card appears. For details on why this happens and how to minimize it, see [Why don't Content Cards appear immediately after a trigger event?]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#why-dont-content-cards-appear-immediately-after-a-trigger-event).
 
 #### Scheduled delivery
 
-For Content Card campaigns with scheduled delivery, you can choose when Braze evaluates audience eligibility and personalization for new Content Card campaigns by specifying when the card is created. For more, refer to [card creation]({{site.baseurl}}/card_creation).
+For Content Card campaigns with scheduled delivery, you can choose when Braze evaluates audience eligibility and personalization for new Content Card campaigns by specifying when the card is created. For more, see [card creation]({{site.baseurl}}/card_creation).
 
 #### Choose users to target
 
@@ -164,7 +164,7 @@ Braze allows you to track how often users perform specific actions, [conversion 
 
 {% tab Canvas %}
 
-If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how build out the rest of your Canvas, implement [multivariate testing]({{site.baseurl}}/user_guide/messaging/ab_testing) and [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) step of our Canvas documentation.
+If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how to build out the rest of your Canvas, implement [multivariate testing]({{site.baseurl}}/user_guide/messaging/ab_testing) and [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), and more, see the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) step of our Canvas documentation.
 
 {% endtab %}
 {% endtabs %}
@@ -370,7 +370,18 @@ If you need to minimize delays for both new and existing users, you can create t
 - **Existing users with session count greater than 0:** Use a scheduled delivery campaign. Cards are pre-created and immediately available.
 - **New users with session count equal to 0:** Use an action-triggered campaign. Cards are created after the first session trigger.
 
-This approach ensures existing users see cards instantly while still reaching new users after a brief delay in their first session. For additional strategies to improve latency, refer to [Improve low latency for Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/best_practices/improving_low_latency_requirements).
+This approach ensures existing users see cards instantly while still reaching new users after a brief delay in their first session. For additional strategies to improve latency, see [Improve low latency for Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/best_practices/improving_low_latency_requirements).
+
+### Why do impression or dismiss timestamps fall outside the campaign schedule?
+
+Impression and dismiss timestamps in analytics and Currents reflect when a user views or dismisses a Content Card, not when Braze creates or sends the card. A card can remain in a user's feed until Content Cards are refreshed, so impression and dismiss timestamps can fall after the campaign's send window.
+
+If times still look unexpected:
+
+- Confirm whether you're viewing analytics in your company time zone versus the user's time zone in Currents.
+- Check that the user actually viewed or dismissed the card after receiving it, rather than comparing against send time alone.
+
+For more on Content Card metrics, see [Content Card reporting]({{site.baseurl}}/user_guide/channels/content_cards/reporting).
 
 ### "All expiration values for a campaign must match" error
 

@@ -33,7 +33,7 @@ Não tem certeza se sua mensagem no app deve ser enviada usando uma campanha ou 
 
 {% details Mais informações sobre SDKs mínimos %}
 
-As mensagens criadas usando o editor de arrastar e soltar só podem ser enviadas para usuários nas versões mínimas do SDK (consulte a tabela na seção anterior). Se um usuário não tiver atualizado seu aplicativo (ou seja, estiver em uma versão mais antiga do SDK), ele não receberá a mensagem no app.
+Mensagens criadas usando o editor de arrastar e soltar só podem ser enviadas para usuários nas versões mínimas do SDK (consulte a tabela na seção anterior). Se um usuário não tiver atualizado seu aplicativo (ou seja, estiver em uma versão mais antiga do SDK), ele não receberá a mensagem no app.
 
 Para aproveitar todos os recursos disponíveis no editor de arrastar e soltar, atualize seus SDKs para as versões recomendadas do SDK. Isso permite que você aproveite os seguintes recursos adicionais:
 
@@ -53,7 +53,7 @@ A seguir estão os requisitos mínimos individuais do SDK para esses recursos:
 
 ### Pré-requisitos adicionais {#additional-prerequisites}
 
-- Para o SDK web, a opção de inicialização [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) deve ser definida como `true`. A opção `enableHtmlInAppMessages` também permitirá que essas mensagens funcionem, mas está obsoleta e deve ser atualizada para `allowUserSuppliedJavascript`.
+- Para o SDK web, a opção de inicialização [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) deve ser definida como `true`. A opção `enableHtmlInAppMessages` também permite que essas mensagens funcionem, mas está obsoleta e deve ser atualizada para `allowUserSuppliedJavascript`.
 - Se você estiver usando o Google Tag Manager, será necessário ativar "Allow HTML In-App Messages" na configuração do GTM.
 
 ## Etapa 1: Crie uma mensagem no app {#step-1-create-an-in-app-message}
@@ -180,7 +180,19 @@ Sim, você pode segmentar com base em cliques de botão para até dois botões n
 
 ### Posso personalizar minha mensagem no app usando HTML ou JavaScript personalizados, ou transferir mensagens HTML existentes para o editor? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
-Você não pode transferir diretamente mensagens HTML existentes para o editor, mas pode inserir HTML, CSS e JavaScript brutos em um bloco de **Custom code**. Você pode usar blocos de **Custom code** para incorporar vídeos de terceiros e Liquid avançado, como Connected Content ou instruções condicionais. Para métodos JavaScript `brazeBridge` e exemplos de rastreamento de cliques, consulte [Mensagens no app com HTML personalizado]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html).
+Não é possível transferir diretamente mensagens HTML existentes para o editor, mas você pode inserir HTML, CSS e JavaScript brutos em um bloco de **Custom code**. Você pode usar blocos de **Custom code** para incorporar vídeos de terceiros e Liquid avançado, como Connected Content ou instruções condicionais. Para métodos JavaScript `brazeBridge` e exemplos de rastreamento de cliques, consulte [Mensagens no app com HTML personalizado]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html).
+
+### Por que a visualização do criador do editor de arrastar e soltar pode parecer diferente da mensagem final? {#why-might-the-drag-and-drop-editors-composer-view-look-different-from-the-final-message}
+
+O editor de arrastar e soltar renderiza sua mensagem dentro de um criador e aplica estilos e padrões exclusivos da prévia para que você possa construir e revisar o layout. Esses tratamentos ajudam você a ver a estrutura e o conteúdo de espaço reservado enquanto edita; eles não são incluídos na mensagem que seus usuários recebem.
+
+Exemplos comuns de comportamento exclusivo do editor incluem:
+
+- O editor envolve blocos de **Custom code** em um contêiner `bz-html-code-block` com um `min-height` padrão de `40px`, para que blocos vazios ou curtos permaneçam visíveis enquanto você edita
+- Imagens em branco ou que contêm Liquid exibindo um espaço reservado no editor
+- Grupos de caixas de seleção e botões de opção que pré-selecionam a primeira opção para que você possa visualizar o estado ativo
+
+Se algo parece diferente apenas no editor, geralmente é um comportamento de prévia. Ao solucionar problemas da mensagem entregue, revise os estilos e a marcação nos blocos da sua mensagem — não o quadro exclusivo do editor ou os padrões de prévia.
 
 ### Como posso criar uma mensagem no app do tipo slideup? {#how-can-i-create-a-slideup-in-app-message}
 
@@ -188,17 +200,17 @@ Atualmente, o editor é limitado apenas a mensagens modais e em tela cheia. Voc�
 
 ### Posso salvar minha mensagem no app como modelo depois de criá-la na minha Campaign ou Canvas? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
-Sim. Para qualquer mensagem no app que você queira reutilizar em uma futura Campaign ou etapa do Canvas, você pode salvá-la como modelo personalizado usando o botão **Save as template**, disponível após sair do editor. Antes de salvá-la como modelo, você deve primeiro lançar a Campaign OU salvá-la como rascunho.
+Sim. Para qualquer mensagem no app que você queira reutilizar em uma Campaign ou etapa do Canvas futura, você pode salvá-la como modelo personalizado usando o botão **Save as template**, disponível após sair do editor. Antes de salvá-la como modelo, você deve primeiro lançar a Campaign OU salvá-la como rascunho.
 
-![Prévia de uma mensagem no app para um tour de produto.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
+![Uma prévia de uma mensagem no app para um tour de produto.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-Você também pode criar e salvar modelos de mensagens no app acessando **Conteúdo** > **In-App Message**.
+Você também pode criar e salvar modelos de mensagens no app acessando **Content** > **In-App Message**.
 
 ### Por que minha sintaxe Liquid está aparecendo como texto simples na minha mensagem no app paginada? {#why-is-my-liquid-syntax-appearing-as-plain-text-in-my-paginated-in-app-message}
 
 Se você está vendo a sintaxe Liquid aparecer como texto simples ao testar uma mensagem no app paginada (em vez do conteúdo personalizado), pode haver um erro de sintaxe Liquid em uma das páginas. Se houver um erro de sintaxe em uma página, isso afeta a renderização do Liquid em todas as páginas da mensagem — as páginas não são independentes.
 
-Para solucionar o problema:
+Para solucionar problemas:
 
 1. Verifique todas as páginas da sua mensagem em busca de erros de sintaxe Liquid. Uma prévia quebrada em uma página não significa que o erro está nessa página — como as páginas não são independentes, o erro de sintaxe pode estar em qualquer lugar da mensagem.
-2. Verifique se todas as Liquid tags estão devidamente fechadas e formatadas corretamente.
+2. Verifique se todas as tags Liquid estão devidamente fechadas e formatadas corretamente.

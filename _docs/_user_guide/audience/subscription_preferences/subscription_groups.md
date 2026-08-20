@@ -39,7 +39,7 @@ How you get a subscription group depends on the channel. Email groups are create
 
 1. Go to **Audience** > **Subscription Group Management**.
 2. Select **Create email subscription group**.
-3. Enter a name and description.
+3. Enter a name and description. Each subscription group in your workspace must have a unique name. If you enter a name that already exists, the dashboard displays an error and doesn't save the group.
 4. Select **Save**.
 
 ![Fields to create a subscription group.]({% image_buster /assets/img/sub_group_create.png %}){: style="max-width:75%"}
@@ -89,6 +89,8 @@ Email-specific details:
 #### Viewing subscription group sizes
 
 On **Subscription Group Management**, use the **Subscription Group Timeseries** graph to view group size over time. This count reflects membership in that group, not global email subscription state.
+
+Today's subscription group size isn't calculated by default. If your date range includes today, select **Calculate today's statistics** to add today's value to the timeseries. For very large workspaces, Braze may display estimated counts instead of exact counts.
 
 For footers, unsubscribe pages, and global email subscription management, see [Email subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions).
 

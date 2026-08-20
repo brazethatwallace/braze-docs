@@ -104,6 +104,9 @@ Your users can opt out in two ways:
 1. Set up an inbound WhatsApp message with a specific opt-out word and use a webhook to update the user subscription status.
 2. Add an opt-out quick reply within the WhatsApp template, with a corresponding webhook to update. 
 
+#### Can I use a Braze WhatsApp subscription group if I send WhatsApp messages through a third party?
+No. Braze WhatsApp subscription groups apply to messages sent through the Braze WhatsApp channel. If you send WhatsApp messages through a third-party provider or custom integrations outside Braze WhatsApp campaigns and Canvases, you can store opt-in consent in a custom attribute (or your own subscription model) and use that attribute for segmentation and eligibility. For related patterns when Braze owns the WhatsApp number, see [How do I connect WhatsApp support and marketing in Braze?](#how-do-i-connect-whatsapp-support-and-marketing-in-braze).
+
 ### Messaging limits and quality rating
 
 #### What are messaging limits? 
@@ -233,12 +236,16 @@ Not in the Braze dashboard today. Campaign and Canvas analytics show sends, deli
 
 ### Integrations, data, and reporting
 
+#### Why isn't WhatsApp listed under Technology Partners?
+WhatsApp appears on the **Technology Partners** page when WhatsApp is enabled for your company. If you don't see WhatsApp on that page, contact your Braze account team to confirm WhatsApp is provisioned for your dashboard.
+
 #### Does Braze support customer support use cases like chatbots and human-assisted chat for WhatsApp? 
 We do not support chatbots or human-assisted chat within Braze or through direct integrations. 
 
 If you already use WhatsApp as a customer support channel, we recommend you keep your current setup and create a new WABA via Braze for marketing messaging. This WABA will require a new phone number. 
 
-#### How can I “bridge the gap” between my customer support messaging and my marketing messaging via Braze? 
+#### How do I connect WhatsApp support and marketing in Braze? {#how-do-i-connect-whatsapp-support-and-marketing-in-braze}
+
 You can use WhatsApp Liquid properties to forward inbound WhatsApp message content (including message body and media URLs) from Braze to other platforms, including any customer support tool. For details, see our [Supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags). 
 
 To send information into Braze, for example, to indicate that a user is in an active support conversation, you can log a custom attribute (such as a boolean "has existing support chat = true/false") and use that as segmentation criteria in their marketing campaigns. You can also deep link between two chat threads to direct users to the support thread from the marketing thread and the reverse. 

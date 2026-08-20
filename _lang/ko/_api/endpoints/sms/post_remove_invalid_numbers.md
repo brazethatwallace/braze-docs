@@ -45,7 +45,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | ----------|-----------| ---------|------ |
-| `phone_number` | 필수 | e.164 형식의 문자열 배열 | 수정할 최대 50개의 전화번호 배열입니다. |
+| `phone_numbers` | 필수 | e.164 형식의 문자열 배열 | 수정할 최대 50개의 전화번호 배열입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}

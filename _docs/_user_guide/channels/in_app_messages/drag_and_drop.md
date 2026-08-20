@@ -182,6 +182,18 @@ Yes, you can segment based on button clicks for up to two buttons in your messag
 
 You can't directly transfer existing HTML messages into the editor, but you can insert raw HTML, CSS, and JavaScript into a **Custom code** block. You can use **Custom code** blocks to embed third-party videos and advanced Liquid, such as Connected Content or conditional statements. For `brazeBridge` JavaScript methods and click tracking examples, see [Custom HTML in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/).
 
+### Why might the drag-and-drop editor's composer view look different from the final message?
+
+The drag-and-drop editor renders your message inside a composer and applies preview-only styles and defaults so you can build and review the layout. Those treatments help you see structure and placeholder content while you edit; they aren't included in the message your users receive.
+
+Common examples of editor-only behavior include:
+
+- The editor wraps **Custom code** blocks in a `bz-html-code-block` container with a default `min-height` of `40px`, so empty or short blocks stay visible while you edit
+- Images that are blank or contain Liquid displaying a placeholder in the editor
+- Checkbox groups and radio buttons that preselect the first option so you can preview the active state
+
+If something looks different only in the editor, it is usually preview behavior. When troubleshooting the delivered message, review the styles and markup in your message blocks—not the editor-only frame or preview defaults.
+
 ### How can I create a slideup in-app message?
 
 Currently the editor is limited to modal and fullscreen messages only. You can switch between display types in the **Message container** section of the **Message styles** panel.

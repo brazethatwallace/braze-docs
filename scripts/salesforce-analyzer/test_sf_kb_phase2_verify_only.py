@@ -13,7 +13,9 @@ SALESFORCE_ANALYZER_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(SALESFORCE_ANALYZER_DIR))
 
 from sf_kb_phase2_run_batches import (  # noqa: E402
+    _topic_bucket,
     batch_context,
+    find_topic_mismatch_rows,
     filter_claimed_siblings,
     verify_batch,
 )
@@ -79,6 +81,7 @@ class BatchContextPartialClaimTests(unittest.TestCase):
                             id_column="article_id",
                             scanner=scanner,
                             ignore_warnings=True,
+                            allow_topic_mismatch=False,
                         )
 
         self.assertIsNotNone(ctx)
@@ -109,6 +112,7 @@ class BatchContextPartialClaimTests(unittest.TestCase):
                         id_column="article_id",
                         scanner=scanner,
                         ignore_warnings=True,
+                        allow_topic_mismatch=False,
                     )
 
         self.assertIsNone(ctx)
@@ -241,6 +245,80 @@ class VerifyOnlyBatchTests(unittest.TestCase):
                 dry_run=True,
             )
         self.assertFalse(ok)
+
+
+class TopicMismatchGuardTests(unittest.TestCase):
+    def test_topic_bucket_normalizes_md_stems(self) -> None:
+        self.assertEqual(
+            _topic_bucket("_docs/_developer_guide/sdk_integration.md"),
+            _topic_bucket("_docs/_developer_guide/sdk_integration/google_tag_manager.md"),
+        )
+
+    def test_find_topic_mismatch_rows_blocks_cross_area_batch(self) -> None:
+        row = _actionable_row("ka-cross", "Retake Braze Certification Exam")
+        with patch(
+            "sf_kb_phase2_run_batches.infer_best_doc_path",
+            return_value=(
+                "_docs/_user_guide/administer/personal/braze_certification.md",
+                "best-fit doc (topic score)",
+            ),
+        ):
+            mismatches = find_topic_mismatch_rows(
+                "_docs/_user_guide/brazeai/decisioning_studio/decisioning_studio_go/faq.md",
+                [row],
+            )
+        self.assertEqual(len(mismatches), 1)
+        aid, _title, inferred, _note = mismatches[0]
+        self.assertEqual(aid, "ka-cross")
+        self.assertEqual(
+            inferred,
+            "_docs/_user_guide/administer/personal/braze_certification.md",
+        )
+
+    def test_topic_mismatch_override_allows_batch_context(self) -> None:
+        rows = [_actionable_row("ka-cross", "Certification retake")]
+        scanner = OverlapScanner(fetch_develop=False)
+        scanner._loaded = True  # noqa: SLF001
+        scanner._path_prs = {}  # noqa: SLF001
+        scanner._article_prs = {}  # noqa: SLF001
+
+        with patch.object(scanner, "_develop_text_for", return_value="clean"):
+            with patch.object(scanner, "_recent_develop_sf_commits", return_value=[]):
+                with patch.object(scanner, "_remote_sf_branches", return_value=[]):
+                    with patch(
+                        "sf_kb_phase2_run_batches.assignees_for_doc_path",
+                        return_value=[],
+                    ):
+                        with patch(
+                            "sf_kb_phase2_run_batches.find_topic_mismatch_rows",
+                            return_value=[
+                                (
+                                    "ka-cross",
+                                    "Certification retake",
+                                    "_docs/_user_guide/administer/personal/braze_certification.md",
+                                    "best-fit mismatch",
+                                )
+                            ],
+                        ):
+                            blocked = batch_context(
+                                "_docs/_user_guide/brazeai/decisioning_studio/decisioning_studio_go/faq.md",
+                                rows,
+                                id_column="article_id",
+                                scanner=scanner,
+                                ignore_warnings=True,
+                                allow_topic_mismatch=False,
+                            )
+                            allowed = batch_context(
+                                "_docs/_user_guide/brazeai/decisioning_studio/decisioning_studio_go/faq.md",
+                                rows,
+                                id_column="article_id",
+                                scanner=scanner,
+                                ignore_warnings=True,
+                                allow_topic_mismatch=True,
+                            )
+
+        self.assertIsNone(blocked)
+        self.assertIsNotNone(allowed)
 
 
 if __name__ == "__main__":

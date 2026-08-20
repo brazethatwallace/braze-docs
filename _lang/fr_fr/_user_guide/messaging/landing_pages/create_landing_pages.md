@@ -15,7 +15,7 @@ Pour accéder au générateur de pages de destination, vous devez disposer de [c
 
 ## Créer une page de destination {#create-a-landing-page}
 
-Une page de destination est une page web publiée et accessible en direct, dotée d'une URL partageable que vos clients peuvent visiter.
+Une page de destination est une page web publiée et accessible en direct, dotée d'une URL partageable que vos clients peuvent consulter.
 
 {% alert note %}
 Les modèles de page de destination sont des points de départ de conception non publiés, sans URL publique, ce qui signifie qu'ils ne peuvent pas être partagés avec vos clients. Pour créer une page à partir d'un modèle, consultez [Utiliser des modèles](#using-templates).
@@ -35,7 +35,7 @@ Saisissez un nom et une description pour la page de destination. Ces détails so
 
 #### Détails du site {#site-details}
 
-Configurez les balises méta pour personnaliser l'apparence de votre page dans l'onglet du navigateur et optimiser les résultats des moteurs de recherche. Ceux-ci seront visibles par vos clients.
+Configurez les balises méta pour personnaliser l'apparence de votre page dans l'onglet du navigateur et optimiser les résultats des moteurs de recherche. Elles seront visibles par vos clients.
 
 Nous vous recommandons de suivre ces bonnes pratiques :
 
@@ -69,16 +69,16 @@ Vous pouvez utiliser ces blocs pour ajouter du contenu et personnaliser la mise 
 | Bouton | Un élément cliquable qui dirige les utilisateurs vers une action spécifiée, comme ouvrir un lien ou soumettre un formulaire. |
 | Bouton radio | Ajoute une liste d'options parmi lesquelles les utilisateurs doivent en sélectionner une. Lors de la soumission, le profil utilisateur enregistre l'attribut personnalisé associé. |
 | Image | Un bloc pour afficher des images. Vous pouvez télécharger une image ou fournir une URL pour référencer une source externe. |
-| Lien | Un lien hypertexte sur lequel les utilisateurs peuvent cliquer pour accéder à une URL spécifiée. Peut être intégré dans du texte ou autonome. |
+| Lien | Un lien hypertexte sur lequel les utilisateurs peuvent cliquer pour accéder à une URL spécifiée. Peut être intégré dans du texte ou utilisé de manière autonome. |
 | Espacement | Un bloc invisible qui ajoute un espacement vertical entre les éléments pour améliorer la mise en page et la lisibilité. |
-| Code personnalisé | Un bloc qui vous permet d'insérer et d'exécuter du HTML, CSS ou JavaScript personnalisé pour une personnalisation avancée. |
+| Code personnalisé | Un bloc qui vous permet d'insérer et d'exécuter du HTML, CSS ou JavaScript personnalisé pour une personnalisation avancée. Pour interagir avec le SDK Braze depuis ce bloc, consultez [Pont JavaScript pour les pages de destination]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) et [Créer des blocs de formulaire personnalisés]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Personnaliser la page" }
 
 #### Texte span {#span-text}
 
 Pour appliquer un style spécifique aux blocs de texte sans code personnalisé, surlignez le texte que vous souhaitez styliser, puis sélectionnez **Wrap with span for style**.
 
-![Zone de texte avec différentes sections de texte stylisées, comme différentes tailles et couleurs de police, et une section surlignée affichant une barre d'outils avec l'option « Wrap with span for style ».]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+![Zone de texte avec différentes sections de texte stylisées, comme des tailles et couleurs de police différentes, et une section surlignée affichant une barre d'outils avec l'option « Wrap with span for style ».]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
 Ajustez les propriétés du span pour mettre à jour le style de votre texte, notamment :
 
@@ -96,20 +96,25 @@ Ajustez les propriétés du span pour mettre à jour le style de votre texte, no
 
 Vous pouvez utiliser ces blocs pour créer un formulaire qui relie les données soumises par les utilisateurs à leur profil dans Braze. Gardez à l'esprit que si vous utilisez des blocs de formulaire, vous devrez également créer une page de destination supplémentaire pour l'état de confirmation.
 
-![Un bloc de formulaire qui enregistre un nouveau client et enverra un code de réduction à son e-mail.]({% image_buster /assets/img/landing_pages/form.png %}){: style="max-width:70%;"}
+![Un bloc de formulaire qui enregistre un nouveau client et envoie un code de réduction à son e-mail.]({% image_buster /assets/img/landing_pages/form.png %}){: style="max-width:70%;"}
+
+{% alert tip %}
+Vous pouvez diviser un long formulaire en plusieurs étapes, chacune avec ses propres champs et une étape de confirmation intégrée, en utilisant un [formulaire multi-étapes]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms) au lieu de placer des blocs de formulaire directement dans une ligne.
+{% endalert %}
 
 | Type de bloc | Description |
 |---------------|-------------|
 | Capture d'e-mail | Un champ de formulaire pour les adresses e-mail. Lors de la soumission, l'adresse e-mail est ajoutée au profil de cet utilisateur dans Braze. |
 | Capture de téléphone | Un champ de formulaire pour les numéros de téléphone. Lors de la soumission, l'utilisateur est abonné à votre groupe d'abonnement SMS ou WhatsApp. |
-| Champ de saisie | Un champ de formulaire qui prend en charge les attributs standard (tels que le prénom et le nom) ou une chaîne d'attribut personnalisé de votre choix. |
+| Champ de saisie | Un champ de formulaire qui prend en charge les attributs standard (comme le prénom et le nom) ou une chaîne d'attribut personnalisé de votre choix. |
 | Liste déroulante | Les utilisateurs peuvent sélectionner un élément dans une liste prédéfinie. Vous pouvez ajouter n'importe quelle chaîne d'attribut personnalisé à la liste. |
-| Case à cocher | Si un utilisateur coche la case, l'attribut du bloc est défini sur `true`. Si elle n'est pas cochée, son attribut est défini sur `false`. |
+| Case à cocher | Si un utilisateur coche la case, l'attribut du bloc est défini sur `true`. Si elle reste décochée, son attribut est défini sur `false`. |
 | Groupe de cases à cocher | Les utilisateurs peuvent sélectionner parmi plusieurs choix présentés. Les valeurs sont soit définies, soit ajoutées à un attribut personnalisé de type tableau défini. |
+| Gérer les abonnements | Une liste de groupes d'abonnement e-mail. Les utilisateurs sélectionnent les groupes qu'ils souhaitent rejoindre lorsqu'ils soumettent le formulaire. Pour plus d'informations, consultez [Bloc Gérer les abonnements]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Texte span" }
 
 {% alert important %}
-Après avoir créé une page de destination avec un formulaire, assurez-vous d'intégrer son [étiquette Liquid de page de destination]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) dans votre message. Grâce à cette étiquette, Braze peut automatiquement identifier et mettre à jour les profils utilisateur existants lorsqu'ils soumettent le formulaire.
+Après avoir créé une page de destination avec un formulaire, assurez-vous d'intégrer son [étiquette Liquid de page de destination]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) dans votre message. Grâce à cette étiquette, Braze peut automatiquement identifier et mettre à jour les profils utilisateurs existants lorsqu'ils soumettent le formulaire.
 {% endalert %}
 
 {% endtab %}
@@ -127,7 +132,7 @@ Nous vous recommandons de configurer les styles au niveau du conteneur de page a
 
 Vous pouvez rendre votre page de destination adaptative à la taille de l'appareil d'un utilisateur en empilant verticalement les colonnes sur les écrans plus petits. Pour activer cette fonctionnalité, ajoutez une colonne dans la ligne que vous souhaitez rendre adaptative, puis activez **Vertically stack on smaller screens** dans la section **Customize columns**.
 
-Lorsque cette option est activée, vous pouvez également inverser l'empilement des colonnes pour contrôler l'ordre vertical du contenu multi-colonnes sur les écrans plus petits. Cela améliore l'apparence et le ressenti des pages sur mobile sans code personnalisé.
+Lorsque cette option est activée, vous pouvez également inverser l'empilement des colonnes pour contrôler l'ordre vertical du contenu multi-colonnes sur les écrans plus petits. Cela améliore l'apparence et l'expérience sur mobile sans code personnalisé.
 
 ![Le bouton bascule « Vertically stack on smaller screens » dans la section « Customize columns ».]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
@@ -149,13 +154,17 @@ Par exemple, pour imposer la capture du consentement avant la soumission du form
 
 Si votre page de destination n'inclut pas de formulaire, passez à l'étape suivante.
 
+{% alert note %}
+Si votre formulaire utilise un [formulaire multi-étapes]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms), ignorez cette étape. Les formulaires multi-étapes incluent une étape de confirmation intégrée et verrouillée, vous n'avez donc pas besoin d'une page de confirmation séparée.
+{% endalert %}
+
 Si votre page de destination inclut un [formulaire](#form-blocks), créez une seconde page de destination pour servir d'expérience de confirmation. Cette page devrait remercier les utilisateurs ou fournir une prochaine étape après la soumission du formulaire.
 
 Pour lier la page de confirmation :
 - Sélectionnez le bouton **Submit** sur votre formulaire
 - Utilisez l'action **Open web URL** pour créer un lien vers votre page de confirmation
 
-Si vous n'incluez pas de page de confirmation, les utilisateurs risquent de ne pas savoir que leur formulaire a été soumis avec succès. Incluez toujours une expérience de confirmation pour compléter le parcours.
+Si vous n'incluez pas de page de confirmation, les utilisateurs pourraient ne pas savoir que leur formulaire a été soumis avec succès. Incluez toujours une expérience de confirmation pour compléter le parcours.
 
 {% alert note %}
 Si votre page de confirmation s'ouvre dans un nouvel onglet, un utilisateur qui revient sur la page de destination d'origine et soumet à nouveau avec des informations mises à jour peut écraser la soumission précédente, ce qui entraîne des données incohérentes.
@@ -163,7 +172,7 @@ Si votre page de confirmation s'ouvre dans un nouvel onglet, un utilisateur qui 
 
 ### Étape 5 : Prévisualiser la page {#step-5-preview-the-page}
 
-Vous pouvez prévisualiser votre page de destination dans l'onglet **Preview** de l'éditeur. Après avoir enregistré votre page de destination en tant que brouillon, vous pouvez visiter l'URL en accédant à **Landing Pages** et en sélectionnant **Copy URL** à côté de votre page de destination.
+Vous pouvez prévisualiser votre page de destination dans l'onglet **Preview** de l'éditeur. Après avoir enregistré votre page de destination en tant que brouillon, vous pouvez consulter l'URL en accédant à **Landing Pages** et en sélectionnant **Copy URL** à côté de votre page de destination.
 
 ![Une page de destination avec le menu ouvert affichant l'option « Copy URL ».]({% image_buster /assets/img/landing_pages/copy-url.png %})
 
@@ -171,7 +180,7 @@ Vous pouvez prévisualiser votre page de destination dans l'onglet **Preview** d
 
 Dans l'éditeur, vous pouvez également sélectionner **Copy preview link** pour partager la page avec des réviseurs qui n'ont pas accès au tableau de bord.
 
-- Si votre page de destination n'utilise pas Liquid, ce lien est le même que l'URL directe de **Copy URL**, ouverte en mode prévisualisation.
+- Si votre page de destination n'utilise pas Liquid, ce lien est identique à l'URL directe de **Copy URL**, ouverte en mode prévisualisation.
 - Si votre page de destination utilise Liquid et que vous disposez de l'offre Landing Pages Pro, le lien affiche plutôt la page en direct à la demande et reflète vos modifications actuelles plutôt qu'un instantané du moment où vous avez généré le lien. Le contenu est personnalisé par utilisateur. La prévisualisation affiche le favicon Braze et ne peut pas être modifiée.
 
 Pour les liens de prévisualisation sur d'autres canaux, consultez [prévisualisation partageable]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
@@ -181,7 +190,7 @@ Pour les liens de prévisualisation sur d'autres canaux, consultez [prévisualis
 Avant de publier, assurez-vous que :
 
 - Vous n'avez pas dépassé la limite de pages de destination publiées de votre forfait
-- Chaque page basée sur un formulaire est liée à une [page de confirmation](#step-4-create-a-confirmation-page) via l'action **Open web URL**
+- Chaque page basée sur un formulaire est liée à une [page de confirmation](#step-4-create-a-confirmation-page-optional) via l'action **Open web URL**, ou utilise un [formulaire multi-étapes]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms) avec son étape de confirmation intégrée
 - Tous les champs de page obligatoires (comme le chemin URL et le titre) sont remplis
 
 Lorsque vous êtes prêt, sélectionnez **Publish Landing Page**.
@@ -198,13 +207,13 @@ Les modèles sont accessibles et gérables à la fois dans l'éditeur de pages d
 
 ## Gérer les modèles {#manage-templates}
 
-Vous pouvez prévisualiser, archiver ou modifier des modèles de page de destination. Vous pouvez dupliquer vos propres modèles de page de destination (situés dans **Vos modèles**), mais pas les modèles Braze. Lors de la modification d'une page de destination, vous pouvez enregistrer votre page de destination en tant que modèle, apporter des modifications au modèle ou supprimer le contenu de la page de destination.
+Vous pouvez prévisualiser, archiver ou modifier les modèles de page de destination. Vous pouvez dupliquer vos propres modèles de page de destination (situés dans **Vos modèles**), mais pas les modèles Braze. Lors de la modification d'une page de destination, vous pouvez enregistrer votre page de destination en tant que modèle, apporter des modifications au modèle ou supprimer le contenu de la page de destination.
 
 ![Un menu déroulant avec des options pour enregistrer, modifier et supprimer une page de destination.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 
 ## Consulter les analyses {#view-analytics}
 
-Pour analyser l'efficacité de votre page de destination, accédez à **Messaging** > **Landing Pages**, puis sélectionnez une page de destination que vous avez publiée. Vous pouvez y suivre le nombre de vues de page, de clics sur la page, de soumissions de page, ainsi que les taux de soumission de votre page de destination.
+Pour analyser l'efficacité de votre page de destination, accédez à **Messaging** > **Landing Pages**, puis sélectionnez une page de destination que vous avez publiée. Vous pouvez y suivre le nombre de vues de page, de clics sur la page, de soumissions de page et les taux de soumission de votre page de destination.
 
 ![La section d'analyse d'une page de destination.]({% image_buster /assets/img/landing_pages/analytics.png %})
 

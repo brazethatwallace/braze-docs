@@ -1,7 +1,15 @@
+{% if include.alert == "Landing pages manage subscriptions" %}
+
+{% alert tip %}
+Vous pouvez également gérer les abonnements sur une page de destination Braze. Ajoutez un bloc **Gérer les abonnements** pour permettre aux consommateurs de consulter et de mettre à jour leurs abonnements existants ou de s'inscrire à de nouveaux abonnements, tout en capturant leurs données d'engagement sur la même page. Pour en savoir plus, consultez [Bloc Gérer les abonnements]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions).
+{% endalert %}
+
+{% endif %}
+
 {% if include.alert == "Liquid email display name and reply-to address" %}
 
 {% alert tip %}
-Vous pouvez utiliser [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/) dans les champs **« Nom d'affichage + Adresse »** et **« Adresse de réponse** » pour créer des modèles dynamiques basés sur des attributs personnalisés. Cela vous permet d'envoyer des messages provenant de différentes marques, régions ou départements à l'aide d'une seule campagne d'e-mails ou d'une seule étape du canvas.
+Vous pouvez utiliser [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid) dans les champs **From Display Name + Address** et **Reply-To Address** pour créer des modèles dynamiques basés sur des attributs personnalisés. Cela vous permet d'envoyer des messages provenant de différentes marques, régions ou départements à l'aide d'une seule campagne d'e-mails ou d'une seule étape du Canvas.
 {% endalert %}
 
 {% endif %}
@@ -9,7 +17,7 @@ Vous pouvez utiliser [Liquid]({{site.baseurl}}/user_guide/personalization_and_dy
 {% if include.alert == "Reference properties from triggering event" %}
 
 {% alert tip %}
-Il n'est pas nécessaire d'utiliser une étape Contexte pour référencer les propriétés de l'événement déclencheur dans les étapes [du parcours d'audience]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths) ou [de l'arbre décisionnel]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split). Vous pouvez référencer les propriétés directement dans les groupes de filtres à l'aide du filtre **Variable de contexte**. Veuillez vous assurer de sélectionner le type de données approprié.
+Il n'est pas nécessaire d'utiliser une étape Contexte pour référencer les propriétés de l'événement déclencheur dans les étapes [Parcours d'audience]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths) ou [Arbre décisionnel]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split). Vous pouvez référencer les propriétés directement dans les groupes de filtres à l'aide du filtre **Variable de contexte**. Veillez à sélectionner le type de données approprié.
 {% endalert %}
 
 {% endif %}
@@ -25,7 +33,7 @@ Pour intégrer des images pour les éléments déclencheurs du catalogue, votre 
 {% if include.alert == 'Export troubleshooting' %}
 
 {% alert tip %}
-Pour obtenir de l’aide sur les exportations CSV et de l’API, consultez la section [Résolution des problèmes d’exportation]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endif %}
@@ -37,7 +45,7 @@ Pour obtenir de l’aide sur les exportations CSV et de l’API, consultez la se
 
 <br>
 
-Pour voir le nombre de segments dans lequel votre message sera envoyé, saisissez votre texte dans la calculatrice. Cette opération ne traite pas et ne prédit pas la sortie de Liquid ou du contenu connecté.
+Pour voir le nombre de segments dans lequel votre message sera envoyé, saisissez votre texte dans le calculateur. Notez que celui-ci ne traite pas et ne prédit pas la sortie de Liquid ou du contenu connecté.
 <!-- Note: This calculator uses fixed DOM IDs and global variables. Include only once per page to avoid conflicts. -->
 <style>
   .segment_data_hide {
@@ -99,23 +107,23 @@ Pour voir le nombre de segments dans lequel votre message sera envoyé, saisisse
 </style>
 <form id="sms_split">
   <textarea id="sms_message_split" placeholder="Saisissez ici le texte de votre SMS..." style="width:100%;border: 1px solid #33333333;" rows="5"></textarea><br />
-  <input type="radio" name="sms_type" value="auto" checked="checked" id="sms_type_auto" /> <label for="sms_type_auto" style="padding-left: 5px;">Détection automatique</label><label id="auto_encoding" style="padding-left: 5px;"></label><br />
+  <input type="radio" name="sms_type" value="auto" checked="checked" id="sms_type_auto" /> <label for="sms_type_auto" style="padding-left: 5px;"> Détection automatique</label><label id="auto_encoding" style="padding-left: 5px;"></label><br />
   <input type="radio" name="sms_type" value="gsm" id="sms_type_gsm" /> <label for="sms_type_gsm" style="padding-left: 5px;">Codage GSM-7</label><br />
   <input type="radio" name="sms_type" value="ucs2" id="sms_type_ucs2" /> <label for="sms_type_ucs2" style="padding-left: 5px;">Codage UCS-2</label><br />
   <br />
   Longueur du message : <span id="sms_length" style="padding-left: 5px;">0</span> caractères.<br />
   Nombre de segments SMS : <span id="sms_segments" style="padding-left: 5px;">0</span> segments. <br />
-  Sortie du message : <span id="sms_output" style="padding-left: 5px;"></span><br />
-  <input type="checkbox" id="encoding_section" name="encoding_section"> <label for="encoding_section" style="padding-left: 5px; margin-bottom: 0px;">Affichage du codage des caractères</label>
+  Sortie du message : <span id="sms_output" style="padding-left: 5px;"></span><br />
+  <input type="checkbox" id="encoding_section" name="encoding_section"> <label for="encoding_section" style="padding-left: 5px; margin-bottom: 0px;">Afficher le codage des caractères</label>
   <div class="segment_data_hide" id="character_encoding_container">
     <div class="encoding_legend">
-      <div class="encoding_legend_item"><span class="encoding_gsm">GSM</span> GSM-7 caractères</div>
-      <div class="encoding_legend_item">Caractères <span class="encoding_ucs2">UCS</span>-2</div>
+      <div class="encoding_legend_item"><span class="encoding_gsm">GSM</span> Caractères GSM-7</div>
+      <div class="encoding_legend_item"><span class="encoding_ucs2">UCS</span> Caractères UCS-2</div>
     </div>
     <span id="character_encoding_label">Codage des caractères : </span><span id="character_encoding" style="padding-left: 5px;"></span><br />
   </div>
   <br />
-  <input type="checkbox" id="segment_section" name="segment_section"> <label for="segment_section" style="padding-left: 5px; margin-bottom: 0px;">Segments d'affichage</label>
+  <input type="checkbox" id="segment_section" name="segment_section"> <label for="segment_section" style="padding-left: 5px; margin-bottom: 0px;">Afficher les segments</label>
   <span class="segment_data_hide" id="sms_segments_data"></span>
 </form>
 <script type="text/javascript">
@@ -377,57 +385,57 @@ ucs2: smsutil._segmentWith(140, 134, smsutil.encodeCharUtf16),
 auto: function (s) { return segmenter[smsutil.pickencoding(s)](s); },
 }
 
-fonction countLength(type, s) {
+function countLength(type, s) {
   const t = (type === "auto") ? smsutil.pickencoding(s) : type;
 
-  si (t === "gsm") {
-    returns.length\+ (s.match(/^|€|{|}|[|]|~||/g) || []).length;
+  if (t === "gsm") {
+    return s.length + (s.match(/\^|€|{|}|\[|\]|~|\|/g) || []).length;
   } else {
-    retourner s.length;
+    return s.length;
   }
 }
 
-function escapeHtml(texte) {
-  retour text.replace(/[&<>"'/]/g, fonction (c) {
+function escapeHtml(text) {
+  return text.replace(/[&<>"'\/]/g, function (c) {
     switch (c) {
-      case'&':  return '&';
-      case'<':return <';
-case '>'' : return '>' ;
-      cas « » : renvoyer « » ;
-      cas « ' » : renvoyer « » ;
-      cas « / » : renvoyer « / » ;
-      par défaut : renvoyer c ;
-      }
-    });
-  }
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&#39;';
+      case '/': return '&#x2F;';
+      default: return c;
+    }
+  });
+}
 
 function getCharacterEncoding(char, type) {
-  si (type === « ucs2 ») renvoyer « ucs2 » ;
-  si (type === « gsm ») renvoyer « gsm » ;
+  if (type === "ucs2") return "ucs2";
+  if (type === "gsm") return "gsm";
 
-  // Pour la détection automatique, veuillez vérifier si le caractère est dans le jeu GSM-7.
-  const codePoint = char.charCodeAt(0) ;
-  return (codePoint in unicodeToGsm) ? « gsm » : « ucs2 » ;
+  // For auto detection, check if character is in GSM-7 set
+  const codePoint = char.charCodeAt(0);
+  return (codePoint in unicodeToGsm) ? "gsm" : "ucs2";
 }
 
-function afficherEncodageCaractères(texte, type) {
-  const characters = smsutil.unicodeCharacters(texte) ;
-  return characters.map((caractère, index) => {
-    const encoding = getCharacterEncoding(char, type) ;
-    const displayChar = char === " " ? " " : escapeHtml(char) ;
-    const titleChar = char === " " ? "espace" : char ;
-    const encodingClass = encoding === "gsm" ?"encoding_gsm"  : "encoding_ucs2";
-    const encodingLabel = encoding === "gsm" ? « GSM » : « UCS » ;
-    retourner `<span id="character_encoding_data_${index}" class="${encodingClass}" title="${escapeHtml(titleChar)} - ${encoding.toUpperCase()}">${encodingLabel}</span>`;
+function displayCharacterEncoding(text, type) {
+  const characters = smsutil.unicodeCharacters(text);
+  return characters.map((char, index) => {
+    const encoding = getCharacterEncoding(char, type);
+    const displayChar = char === " " ? "&nbsp;" : escapeHtml(char);
+    const titleChar = char === " " ? "space" : char;
+    const encodingClass = encoding === "gsm" ? "encoding_gsm" : "encoding_ucs2";
+    const encodingLabel = encoding === "gsm" ? "GSM" : "UCS";
+    return `<span id="character_encoding_data_${index}" class="${encodingClass}" title="${escapeHtml(titleChar)} - ${encoding.toUpperCase()}">${encodingLabel}</span>`;
   }).join("");
 }
 
-fonction updateSMSSplit(){
-    varsms_text= $('#sms_message_split').val();
-    varsms_type= $('#sms_split input[name=sms_type]:checked').val();
+function updateSMSSplit(){
+    var sms_text = $('#sms_message_split').val();
+    var sms_type = $('#sms_split input[name=sms_type]:checked').val();
     var unicodeinput = smsutil.unicodeCharacters(sms_text);
-    var encodedChars = encodeur [sms_type](sms_text);
-    var smsSegments = segmenter [sms_type](unicodeinput);
+    var encodedChars = encoder[sms_type](sms_text);
+    var smsSegments = segmenter[sms_type](unicodeinput);
     $('#sms_length').html(countLength(sms_type, sms_text));
     $('#sms_segments').html(smsSegments.length);
 
@@ -450,19 +458,19 @@ fonction updateSMSSplit(){
     $('#sms_output').html(messageOutput.join(""));
     $('#sms_segments_data').html(segmentsHtml);
 }
-Fonctionnalité de survol améliorée avec mise en évidence à trois niveaux
-// Utilisation de mouseenter/mouseleave pour éviter l'accumulation de gestionnaires
+// Enhanced hover functionality with three-way highlighting
+// Using mouseenter/mouseleave to avoid handler accumulation
 $("#sms_segments_data").on("mouseenter", "[id^='sms_segments_data_']", function(e){
   const segmentIndex = e.target.id.split("sms_segments_data_")[1];
   const messageOutputElement = `#message_output_data_${segmentIndex}`;
   const charIndex = $(messageOutputElement).attr('data-char-index');
-  const encodingElement = charIndex !== undefined ?`#character_encoding_data_${charIndex}`: null;
+  const encodingElement = charIndex !== undefined ? `#character_encoding_data_${charIndex}` : null;
 
-  définir elementsToHighlight = `${messageOutputElement}, #${e.target.id}`;
-  si(élémentEncodage) élémentsÀMettreEnÉvidence += `, ${encodingElement}`;
+  let elementsToHighlight = `${messageOutputElement}, #${e.target.id}`;
+  if(encodingElement) elementsToHighlight += `, ${encodingElement}`;
 
   $(elementsToHighlight).addClass("hover_segment");
-}).on("mouseleave","[id^='sms_segments_data_']",  function(e){
+}).on("mouseleave", "[id^='sms_segments_data_']", function(e){
   $(".hover_segment").removeClass("hover_segment");
 });
 
@@ -470,29 +478,29 @@ $("#sms_output").on("mouseenter", "[id^='message_output_data_']", function(e){
   const segmentIndex = e.target.id.split("message_output_data_")[1];
   const segmentElement = `#sms_segments_data_${segmentIndex}`;
   const charIndex = $(e.target).attr('data-char-index');
-  const encodingElement = charIndex !== undefined ?`#character_encoding_data_${charIndex}`: null;
+  const encodingElement = charIndex !== undefined ? `#character_encoding_data_${charIndex}` : null;
 
-  définir elementsToHighlight = `${segmentElement}, #${e.target.id}`;
-  si(élémentEncodage) élémentsÀMettreEnÉvidence += `, ${encodingElement}`;
+  let elementsToHighlight = `${segmentElement}, #${e.target.id}`;
+  if(encodingElement) elementsToHighlight += `, ${encodingElement}`;
 
   $(elementsToHighlight).addClass("hover_segment");
-}).on("mouseleave","[id^='message_output_data_']",  function(e){
+}).on("mouseleave", "[id^='message_output_data_']", function(e){
   $(".hover_segment").removeClass("hover_segment");
 });
 
 $("#character_encoding").on("mouseenter", "[id^='character_encoding_data_']", function(e){
   const charIndex = e.target.id.split("character_encoding_data_")[1];
   const messageOutputElement = $(`[data-char-index='${charIndex}']`);
-  const messageOutputId = messageOutputElement.attr('ID');
+  const messageOutputId = messageOutputElement.attr('id');
 
-  si(messageOutputId) {
+  if(messageOutputId) {
     const segmentIndex = messageOutputId.split("message_output_data_")[1];
     const segmentElement = `#sms_segments_data_${segmentIndex}`;
 
     const elementsToHighlight = `#${e.target.id}, #${messageOutputId}, ${segmentElement}`;
     $(elementsToHighlight).addClass("hover_segment");
   }
-}).on("mouseleave","[id^='character_encoding_data_']",  function(e){
+}).on("mouseleave", "[id^='character_encoding_data_']", function(e){
   $(".hover_segment").removeClass("hover_segment");
 });
 $('#segment_section').click(function() {
@@ -513,13 +521,13 @@ $('#encoding_section').click(function() {
 });
 $('#sms_message_split').on("input", function(e){
   $('#auto_encoding').html("");
-  mettreAJourSMSSplit();
+  updateSMSSplit();
 });
 $('#sms_split input[name=sms_type]').change(function(e){
     $('#auto_encoding').html("");
-    mettreAJourSMSSplit();
+    updateSMSSplit();
 });
-})(); // Fin IIFE
+})(); // End IIFE
 </script>
 
 {% endalert %}

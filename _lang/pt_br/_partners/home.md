@@ -50,6 +50,7 @@ Bem-vindo à documentação de parceiros de tecnologia Braze Alloys. Navegue pel
 - [BlueConic]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/blueconic)
 - [Bluedot]({{site.baseurl}}/partners/message_personalization/location/bluedot)
 - [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)
+- [Bynder]({{site.baseurl}}/partners/message_orchestration/cms_dam/bynder)
 
 </div>
 
@@ -408,4 +409,4 @@ Integrações totalmente gerenciadas pelo parceiro podem não estar listadas aqu
 
 Se você vir **Credenciais inválidas** para um parceiro na Braze, mas a integração parecer correta no dashboard desse parceiro, desconecte e reconecte a integração na página de Parceiros de Tecnologia e confirme as chaves de API, tokens OAuth e permissões no lado do parceiro.
 
-Alguns dashboards externos (por exemplo, ferramentas de entregabilidade ou monitoramento de caixa de entrada) podem mostrar um status de conexão ou verificação diferente do exibido na página de Parceiros de Tecnologia da Braze. Use o bloco do parceiro na Braze para verificar o estado de conexão no qual a Braze se baseia para sincronização e envio.
+Alguns dashboards externos (por exemplo, ferramentas de entregabilidade ou monitoramento de caixa de entrada) podem mostrar um status de conexão ou verificação diferente da página de Parceiros de Tecnologia da Braze. Use o bloco do parceiro na Braze para verificar o estado de conexão no qual a Braze se baseia para sincronização e envio.

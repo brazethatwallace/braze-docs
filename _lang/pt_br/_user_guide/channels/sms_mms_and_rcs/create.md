@@ -29,7 +29,7 @@ Não tem certeza se sua mensagem deve ser enviada usando uma campanha ou um Canv
 2. Selecione **SMS/MMS/RCS** ou, para campanhas direcionadas a vários canais, selecione **Multichannel**.
 3. Dê à sua campanha um nome claro e significativo.
 4. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário.
-   * Tags facilitam a localização das suas campanhas e a criação de relatórios. Por exemplo, ao usar o [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar por tags específicas.
+   * Tags facilitam a busca e a criação de relatórios das suas campanhas. Por exemplo, ao usar o [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar por tags específicas.
 5. Adicione e nomeie quantas variantes forem necessárias para sua campanha. Você pode escolher diferentes plataformas, tipos de mensagem e layouts para cada uma das variantes adicionadas. Para saber mais sobre esse tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
    * A Braze permite incluir variantes de SMS e RCS em uma única campanha, para que você possa comparar o desempenho de cada uma.
 
@@ -65,7 +65,7 @@ O grupo de inscrições que você selecionar determina quais tipos de mensagem e
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Selecionar um grupo de inscrições" }
 
 {% alert tip %}
-A Braze recomenda fortemente que todo grupo de inscrições que contenha um remetente RCS também inclua pelo menos um código SMS como fallback. Isso garante que, se uma mensagem RCS não for entregue (por exemplo, devido à incompatibilidade do dispositivo ou cobertura incompleta da operadora), a mensagem ainda chegue ao seu usuário por SMS.
+A Braze recomenda fortemente que cada grupo de inscrições contendo um remetente RCS também inclua pelo menos um código SMS para fallback. Isso garante que, se uma mensagem RCS não for entregue (por exemplo, devido a incompatibilidade de dispositivo ou cobertura incompleta da operadora), a mensagem ainda chegue ao seu usuário por SMS.
 {% endalert %}
 
 Após selecionar seu grupo de inscrições, escolha o tipo de mensagem que você deseja criar. Se o seu grupo de inscrições suportar vários tipos, você verá opções para selecionar entre eles.
@@ -79,13 +79,13 @@ A experiência de composição muda dependendo do tipo de mensagem que você sel
 {% tabs local %}
 {% tab SMS %}
 
-Escreva sua mensagem usando idiomas e personalização (Liquid, Connected Content e emojis) conforme necessário. Certifique-se de seguir nossos limites de cópia de mensagem para reduzir suas chances de cobranças excedentes.
+Escreva sua mensagem usando idiomas e personalização (Liquid, Connected Content e emojis) conforme necessário. Certifique-se de seguir nossos limites de cópia de mensagem para reduzir suas chances de cobranças de excedente.
 
 {% alert important %}
 Antes de prosseguir, leia as diretrizes sobre [segmentos de mensagem SMS e limites de cópia]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator). Os segmentos de mensagem SMS são os lotes de caracteres que as operadoras de telefonia usam para medir mensagens de texto. As mensagens são cobradas por segmento de mensagem, então é uma boa ideia entender as nuances de como as mensagens serão divididas.
 {% endalert %}
 
-![Criador de SMS na Braze com a mensagem "Hi first_name, we appreciate your support! Why not stop by one of our stores and show them this SMS for an exclusive discount? Reply STOP to stop receiving messages from us."]({% image_buster /assets/img/sms_campaign_compose.png %})
+![Criador de SMS na Braze com a mensagem "Olá first_name, agradecemos seu apoio! Que tal passar em uma de nossas lojas e mostrar este SMS para um desconto exclusivo? Responda STOP para parar de receber mensagens nossas."]({% image_buster /assets/img/sms_campaign_compose.png %})
 
 ### Adicionando um cartão de contato {#adding-a-contact-card}
 
@@ -120,12 +120,12 @@ Evite enviar MMS para números do Google Voice. O Google Voice tem suporte limit
 
 ### MMS de entrada e personalização {#inbound-mms-and-personalization}
 
-Quando um cliente envia uma mensagem de entrada que inclui mídia, a Braze expõe a mídia nos [eventos de entrada de SMS do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) e em Liquid como {% raw %}`{{sms.${inbound_media_urls}}}`{% endraw %} (por exemplo, em mensagens de redirecionamento ou acompanhamento). Para saber mais sobre o uso de propriedades de SMS de entrada no Canvas, consulte [Etapa de mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).
+Quando um cliente envia uma mensagem de entrada que inclui mídia, a Braze expõe a mídia nos [eventos de entrada de SMS do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) e no Liquid como {% raw %}`{{sms.${inbound_media_urls}}}`{% endraw %} (por exemplo, em mensagens de redirecionamento ou acompanhamento). Para saber mais sobre o uso de propriedades de SMS de entrada no Canvas, consulte [Etapa de mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).
 
 {% endtab %}
 {% tab RCS %}
 
-Assista a este rápido passo a passo para ver como criar uma mensagem de texto ou mídia RCS.
+Assista a este rápido passo a passo para ver como criar uma mensagem RCS de texto ou mídia.
 
 {% multi_lang_include video.html id="3y0iiqqygw" source="wistia" %}
 
@@ -166,6 +166,7 @@ As mensagens de mídia RCS permitem que você use formatos de mídia envolventes
 - Arquivos de imagem (JPEG, PNG) enviados da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
 - Arquivos de vídeo (MP4, MPEG, MV4) adicionados por URL no criador de mensagem.
 - Arquivos de documento (PDF) adicionados por URL no criador de mensagem.
+- Arquivos de áudio adicionados por URL no criador de mensagem (por exemplo, mensagens de voz pré-gravadas).
 
 ![Criador RCS com uma opção para fazer upload de um arquivo de mídia.]({% image_buster /assets/img/rcs/rcs_media_type.png %})
 
@@ -177,6 +178,7 @@ As mensagens de mídia RCS permitem que você use formatos de mídia envolventes
 | Imagem | Formatos suportados: JPG, JPEG, GIF |
 | Vídeo | Formatos suportados: H263, M4V, MP4, MPEG-4, MPEG, WEBM |
 | Documento | Formato suportado: PDF |
+| Áudio | Formatos suportados: AAC, MP3, MPEG, MP4, 3GPP, OGG (varia conforme o provedor de serviço SMS) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="MMS de entrada e personalização" }
 
 **Considerações:**
@@ -186,7 +188,7 @@ A experiência do usuário ao receber mensagens RCS pode variar com base na cobe
 {% endsubtab %}
 {% endsubtabs %}
 
-Escreva sua mensagem usando idiomas e personalização ([Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) e emojis) conforme necessário. Certifique-se de seguir os limites de cópia de mensagem para reduzir suas chances de cobranças excedentes.
+Escreva sua mensagem usando idiomas e personalização ([Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) e emojis) conforme necessário. Certifique-se de seguir os limites de cópia de mensagem para reduzir suas chances de cobranças de excedente.
 
 {% alert important %}
 Antes de prosseguir, leia as [diretrizes de tipo de mensagem RCS](#step-3-compose-your-message) anteriormente nesta seção. As mensagens RCS são [cobradas por mensagem]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator), então é uma boa ideia entender o que pode ser incluído em cada tipo.
@@ -205,9 +207,9 @@ Se você planeja usar Liquid, certifique-se de incluir um valor padrão para a p
 
 #### Gerando texto com IA {#generating-ai-copy}
 
-Experimente usar o [Assistente de Copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Insira um nome ou descrição de produto, e a IA gerará um texto de marketing semelhante ao humano para uso no seu envio de mensagens.
+Experimente usar o [Assistente de Copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Insira o nome ou a descrição de um produto, e a IA gerará um texto de marketing semelhante ao humano para uso no seu envio de mensagens.
 
-![Botão Iniciar Assistente de Copywriting com IA, localizado no campo Mensagem do criador de SMS.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_sms.png %}){: style="max-width:60%"}
+![Botão Iniciar Copywriter com IA, localizado no campo Mensagem do criador de SMS.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_sms.png %}){: style="max-width:60%"}
 
 #### Criando mensagens da direita para a esquerda {#creating-right-to-left-messages}
 
@@ -215,9 +217,9 @@ A aparência final das mensagens da direita para a esquerda depende em grande pa
 
 #### Criar fluxos de mensagens conversacionais (RCS) {#create-conversational-message-workflows-rcs}
 
-Os fluxos de mensagens conversacionais permitem que você responda dinamicamente aos usuários, criando uma experiência de mensagens de ida e volta. Para criar um fluxo, crie um Canvas e combine respostas sugeridas com [jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) para direcionar seu fluxo com base na resposta que o usuário selecionar.
+Os fluxos de mensagens conversacionais permitem que você responda dinamicamente aos usuários, criando uma experiência de envio de mensagens de ida e volta. Para criar um fluxo, crie um Canvas e combine respostas sugeridas com [jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) para direcionar seu fluxo com base na resposta que o usuário selecionar.
 
-1. No criador de Canvas, crie uma etapa de mensagem RCS com múltiplas respostas sugeridas.
+1. No construtor de Canvas, crie uma etapa de mensagem RCS com múltiplas respostas sugeridas.
 
 ![Criador de mensagem RCS com respostas sugeridas.]({% image_buster /assets/img/rcs/suggested_replies.png %})
 
@@ -238,7 +240,7 @@ Os fluxos de mensagens conversacionais permitem que você responda dinamicamente
 
 ## Etapa 4: Pré-visualize e teste sua mensagem {#step-4-preview-and-test-your-message}
 
-A Braze sempre recomenda pré-visualizar e testar sua mensagem antes de enviá-la. Alterne para a guia **Test** para enviar uma mensagem de teste de SMS, MMS ou RCS para [grupos de teste de conteúdo]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou usuários individuais, ou pré-visualize a mensagem como um usuário diretamente na Braze.
+A Braze sempre recomenda pré-visualizar e testar sua mensagem antes de enviá-la. Alterne para a guia **Test** para enviar um SMS, MMS ou mensagem RCS de teste para [grupos de teste de conteúdo]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou usuários individuais, ou pré-visualize a mensagem como um usuário diretamente na Braze.
 
 {% alert tip %}
 Se você quiser testar em quantos segmentos de mensagem seu SMS pode ser dividido, teste o comprimento do seu texto com a [calculadora de segmentos de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#segment-calculator).
@@ -285,7 +287,7 @@ Interessado em redirecionamento? Consulte [Redirecionamento de usuários]({{site
 
 ### Escolha os eventos de conversão {#choose-conversion-events}
 
-A Braze permite que você rastreie a frequência com que os usuários realizam ações específicas, chamadas [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), após receberem uma campanha. Você tem a opção de permitir uma janela de até 30 dias durante a qual uma conversão será contabilizada se o usuário realizar a ação especificada.
+A Braze permite que você rastreie com que frequência os usuários realizam ações específicas, chamadas [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), após receberem uma campanha. Você tem a opção de permitir uma janela de até 30 dias durante a qual uma conversão será contabilizada se o usuário realizar a ação especificada.
 
 Os eventos de conversão ajudam a medir o sucesso da sua campanha. Por exemplo:
 
