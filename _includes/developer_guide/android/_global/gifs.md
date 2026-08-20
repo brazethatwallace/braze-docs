@@ -238,11 +238,11 @@ class GlideIntegrationApplication : Application() {
 {% endtab %}
 {% endtabs %}
 
-### Troubleshooting Content Card images with Glide
+### Troubleshooting Glide image loads
 
-If Content Card images stop loading after you set a custom [`IBrazeImageLoader`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/index.html) (for example with Glide), check whether a global OkHttp interceptor adds authentication headers to every request.
+If images stop loading after you set a custom [`IBrazeImageLoader`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/index.html) (for example with Glide), check whether a global OkHttp interceptor adds authentication headers to every request.
 
-Braze serves Content Card images from public CDN URLs. Those requests must not receive your API auth headers. Scope interceptors to your own API hosts, or exclude Braze image hosts from the interceptor.
+The Glide sample on this page uses the same load path for Content Cards, in-app messages, and push. Braze-hosted images are CDN URLs and do not use your REST API authentication. Scope interceptors to your own API hosts, or exclude Braze image hosts. A Content Card image that fails after a Glide integration is a common symptom of this interceptor pattern.
 
 ## Custom Image Loading with Jetpack Compose
 
