@@ -120,12 +120,12 @@ Wenn ein Entwurf innerhalb eines aktiven Canvas erstellt wird, wird keine verkü
 ![Tab „Test“ der Nachricht mit Feldern zur Auswahl von Testempfänger:innen.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening2.png %})
 
 {% alert note %}
-Liquid-Personalisierung und verkürzte URLs werden im Tab **Test** erst nach Auswahl einer/eines Nutzer:in gerendert. Stellen Sie sicher, dass eine:r Nutzer:in ausgewählt ist, um eine genaue Zeichenanzahl zu erhalten.
+Liquid-Personalisierung und verkürzte URLs werden im Tab **Test** erst nach Auswahl einer/eines Nutzer:in gerendert. Stellen Sie sicher, dass ein:e Nutzer:in ausgewählt ist, um eine genaue Zeichenanzahl zu erhalten.
 {% endalert %}
 
 ## Klick-Tracking {#click-tracking}
 
-Wenn die Linkverkürzung aktiviert ist, enthält die Tabelle **SMS/MMS/RCS-Performance** eine Spalte mit dem Titel **Klicks gesamt**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu Metriken finden Sie unter [Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
+Wenn die Linkverkürzung aktiviert ist, enthält die Tabelle **SMS/MMS/RCS-Performance** eine Spalte mit dem Titel **Klicks gesamt**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. **Klicks gesamt** schließt vermutete Bot-Klicks aus den Dashboard-Zählungen aus. Weitere Details zu Metriken finden Sie unter [Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting) und [Bot-Klick-Filterung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering).
 
 ![Tabelle mit SMS- und MMS-Performance-Metriken.]({% image_buster /assets/img/link_shortening/shortening4.png %})
 

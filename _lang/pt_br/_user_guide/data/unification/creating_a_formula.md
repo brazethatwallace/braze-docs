@@ -15,25 +15,25 @@ As fórmulas ajudam você a entender as relações complexas que existem em seus
 
 ## Casos de uso {#use-cases}
 
-As fórmulas, especialmente quando combinadas com eventos personalizados, podem ajudar você a entender o comportamento do usuário em seu app. As fórmulas também podem fornecer insights mais profundos sobre os padrões de compra do segmento, mesmo que sua empresa use mídia paga em conjunto com a Braze, como o Google Ads ou a TV.
+As fórmulas, especialmente quando combinadas com eventos personalizados, podem ajudar a entender os comportamentos dos usuários dentro do seu app. As fórmulas também podem oferecer insights mais profundos sobre padrões de compra de segmentos, mesmo que sua empresa use mídia paga em conjunto com a Braze, como Google Ads ou TV.
 
-A seguir, alguns exemplos dos tipos de padrões de comportamento que podem ser detectados com o uso de fórmulas:
+A seguir estão alguns exemplos dos tipos de padrões de comportamento que podem ser detectados usando fórmulas:
 
-- **Apps de viagem por aplicativo:** Se você tiver um evento personalizado para quando o usuário cancelar uma viagem, poderá configurar uma função para Canceled Rides / DAU para descobrir se determinados segmentos de usuários tendem a cancelar mais viagens do que outros.
-- **Apps de e-commerce:** Ao configurar uma função para compras de um determinado ID de produto / MAU, você pode comparar a popularidade de um produto promovido recentemente entre segmentos, mesmo que todas as promoções não possam ser rastreadas usando a Braze.
-- **Apps de mídia que usam anúncios:** Se a experiência dos usuários for interrompida por anúncios entre clipes de vídeo ou áudio, registrar as saídas no meio do anúncio como um evento personalizado e calcular a proporção de saídas no meio do anúncio / DAU pode ajudar a encontrar os melhores segmentos para direcionamento com uma Campaign de inscrições premium sem anúncios.
+- **Viagem por aplicativo:** Se você tem um evento personalizado para quando o usuário cancela uma corrida, é possível configurar uma função para Corridas Canceladas / usuário ativo diário para descobrir se determinados segmentos de usuários tendem a cancelar mais corridas do que outros.
+- **Apps de eCommerce:** Ao configurar uma função para compras de um determinado ID de produto / MAU, você pode comparar a popularidade de um produto recentemente promovido entre segmentos, mesmo que todas as promoções não pudessem ser rastreadas usando a Braze.
+- **Apps de mídia que usam anúncios:** Se a experiência dos usuários é interrompida por anúncios entre clipes de vídeo ou áudio, registrar saídas no meio do anúncio como um evento personalizado e calcular a proporção de saídas no meio do anúncio / usuário ativo diário pode ajudar a encontrar os melhores segmentos para direcionar com uma Campaign de inscrições premium sem anúncios.
 
-## Criação de fórmulas {#creating-formulas}
+## Criando fórmulas {#creating-formulas}
 
-As fórmulas podem ser acessadas nos painéis de estatísticas nas páginas [Página inicial]({{site.baseurl}}/user_guide/analytics/dashboards/home), [Relatório de receitas]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) e [Relatório de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) no dashboard. Para visualizar esse painel, acesse o gráfico **Performance Over Time**, altere o menu suspenso **Statistics For** para **KPI Formulas** e selecione pelo menos uma fórmula de KPI para preencher o gráfico.
+As fórmulas podem ser acessadas nas páginas [Início]({{site.baseurl}}/user_guide/analytics/dashboards/home), [Relatório de receita]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) e [Relatório de eventos personalizados]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report) no dashboard. Em **Início** e **Relatório de receita**, abra o gráfico **Performance Over Time**, defina **Statistics For** como **KPI Formulas** e selecione pelo menos uma fórmula. Na página **Relatório de eventos personalizados**, abra **Filters**, selecione uma ou mais opções de **KPI formula** e selecione **Apply**.
 
-![Exibir estatísticas para fórmulas de KPI no dashboard da Braze]({% image_buster /assets/img_archive/kpi_forms.png %})
+![Visualizar estatísticas de fórmulas de KPI no dashboard da Braze]({% image_buster /assets/img_archive/kpi_forms.png %})
 
 Para criar uma nova fórmula:
 
-1. Acesse o dashboard apropriado (**Home**, **Revenue Report** ou **Custom Events Report**).
+1. Acesse o dashboard apropriado (**Início**, **Relatório de receita** ou **Relatório de eventos personalizados**).
 2. Selecione **Manage KPI Formulas**.
-3. Digite um nome para sua fórmula.
+3. Insira um nome para sua fórmula.
 4. Selecione os numeradores e denominadores relevantes.
 5. Selecione **Save**.
 
@@ -67,16 +67,16 @@ table td {
 | --- | --- |
 | DAU | MAU |
 | Sessões | DAU |
-| | Tamanho do segmento |
+| | Tamanho do Segment |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard de visão geral" }
 
-### Dashboard de receitas {#revenue-dashboard}
+### Dashboard de receita {#revenue-dashboard}
 
 | Numeradores | Denominadores |
 | --- | --- |
 | Compras (todas) | DAU |
 | Compras selecionadas (como um cartão-presente ou ID de produto) | MAU |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard de receitas" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard de receita" }
 
 ### Dashboard de eventos personalizados {#custom-event-dashboard}
 
@@ -84,5 +84,5 @@ table td {
 | --- | --- |
 | Contagem de eventos personalizados | MAU |
 |  | DAU |
-|  | Tamanho do segmento (somente segmentos que tenham o [rastreamento de análise de dados]({{site.baseurl}}/viewing_and_understanding_segment_data) ativado podem ser usados) |
+|  | Tamanho do Segment (somente Segments que têm o [rastreamento de análise de dados]({{site.baseurl}}/viewing_and_understanding_segment_data) ativado podem ser usados) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard de eventos personalizados" }

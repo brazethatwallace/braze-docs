@@ -31,7 +31,7 @@ Enregistrez les adresses IP Braze de votre cluster dans votre tableau de bord Co
 2. Sélectionnez **Center & Upload IP Allowlist (센터&업로드 IP 화이트리스트)**.
 3. Ajoutez les adresses IP de votre cluster Braze. Pour la liste complète des IP par cluster, consultez [Liste d'autorisation des IP]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting).
 
-![Tableau de bord Comm.One montrant où ajouter les adresses IP.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
+![Tableau de bord Comm.One montrant où vous pouvez ajouter des adresses IP.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
 
 ### Types de comptes KakaoTalk {#types-of-kakaotalk-accounts}
 
@@ -64,10 +64,10 @@ Après avoir rassemblé vos documents, suivez ces étapes :
 
 ## Intégrer KakaoTalk {#integrate-kakaotalk}
 
-### Étape 1 : Connecter le canal KakaoTalk à Braze {#step-1-connect-the-kakaotalk-channel-to-braze}
+### Connecter le canal KakaoTalk à Braze {#connect-the-kakaotalk-channel-to-braze}
 
-1. Accédez à **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez votre fournisseur KakaoTalk.
-2. Rassemblez les identifiants requis pour votre fournisseur (voir la section suivante), puis saisissez-les sur la page **Partenaires technologiques** et enregistrez.
+1. Accédez à **Partner Integrations** > **Technology Partners** et sélectionnez votre fournisseur KakaoTalk.
+2. Rassemblez les identifiants requis pour votre fournisseur (voir la section suivante), puis saisissez-les sur la page **Technology Partners** et enregistrez.
 3. Utilisez les identifiants nouvellement enregistrés pour l'envoi.
 
 #### CJ OliveNetworks
@@ -97,7 +97,7 @@ Accédez à votre [tableau de bord Comm.One](https://ums.cjmplace.com/) et rasse
 Vous ne pouvez intégrer une clé d'expéditeur KakaoTalk que dans un seul espace de travail à la fois. Pour utiliser la même clé d'expéditeur dans un autre espace de travail, vous devez d'abord archiver le groupe d'abonnement KakaoTalk dans l'espace de travail d'origine, puis contacter le [support Braze]({{site.baseurl}}/braze_support) pour supprimer l'intégration. Une fois que Braze a supprimé l'intégration, vous pouvez configurer l'intégration dans le nouvel espace de travail.
 {% endalert %}
 
-![Identifiants pour un canal Braze KakaoTalk.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
+![Identifiants pour un canal KakaoTalk Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
 
 {% endtab %}
 {% tab Channel name (카카오톡 채널 프로필명) %}
@@ -116,20 +116,49 @@ Vous ne pouvez intégrer une clé d'expéditeur KakaoTalk que dans un seul espac
 Seuls les canaux associés à un identifiant commun unique peuvent être enregistrés.
 {% endalert %}
 
-![Champs sur la page Partenaires technologiques pour CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
+![Champs de la page Technology Partners pour CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 
-Accédez à votre tableau de bord Infobip et rassemblez les informations suivantes.
+Accédez à votre tableau de bord Infobip et au [centre d'administration des canaux KakaoTalk](https://center-pf.kakao.com/) pour rassembler les informations suivantes.
 
 | Champ | Emplacement |
 | --- | --- |
-| **API Base URL** | Sélectionnez **Developer Tools** > **API Keys**. |
-| **API Key** | Sélectionnez **Developer Tools** > **API Keys**. |
-| **Sender name / Sender key** | Sélectionnez **Channels and Numbers** > **Channels**, puis sélectionnez l'onglet **Senders**. |
-| **Sender profile UUID** | Fourni directement par Infobip. Contactez Infobip si vous ne disposez pas de cette information. |
-| **Channel name** | Fourni directement par Infobip. Contactez Infobip si vous ne disposez pas de cette information. |
+| **API Base URL** | Dans le portail Infobip, accédez à **Developer Tools** > **API Keys**. |
+| **API Key** | Dans le portail Infobip, accédez à **Developer Tools** > **API Keys**. |
+| **Sender name / Sender key** | Dans le portail Infobip, accédez à **Channels and Numbers** > **Channels**, puis sélectionnez l'onglet **Senders**. |
+| **Sender profile UUID** | Dans le centre d'administration des canaux KakaoTalk, accédez à **Channels** et trouvez le **Search ID** dans la fenêtre d'informations du canal. |
+| **Channel name** | Dans le centre d'administration des canaux KakaoTalk, trouvez le **channel name** dans la même fenêtre d'informations du canal. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Infobip" }
+
+##### Clé API et URL de base {#api-key-and-base-url}
+
+1. Dans le portail Infobip, sélectionnez **Developer Tools** > **API Keys**.
+2. Sur la page **API keys**, copiez l'**API base URL**.
+
+![Page API Keys d'Infobip affichant l'URL de base de l'API.]({% image_buster /assets/img/kakaotalk/infobip_api_keys_page.png %})
+
+{: start="3"}
+3. Sélectionnez **CREATE API KEY**.
+4. Saisissez le **Name**, sélectionnez la **Expiration date**, puis sélectionnez les portées API requises pour KakaoTalk. Ces portées contrôlent les actions de l'API Infobip que votre clé peut effectuer.
+
+![Page de création de clé API Infobip affichant les champs de nom, de date d'expiration et de portées API.]({% image_buster /assets/img/kakaotalk/infobip_api_key_scopes.png %})
+
+{: start="5"}
+5. Sélectionnez **CREATE** pour générer la clé.
+6. Copiez la clé générée. Vous pouvez revenir sur cette page pour mettre à jour le nom, la date d'expiration ou les portées API.
+
+##### UUID du profil d'expéditeur et nom du canal {#sender-profile-uuid-and-channel-name}
+
+1. Dans le [centre d'administration des canaux KakaoTalk](https://center-pf.kakao.com/), sélectionnez **Channels**.
+2. Dans la fenêtre **Channel Information**, trouvez le **Channel name** et le **Search id** (UUID de l'expéditeur).
+3. Saisissez les **Customer center contact information**. Ces informations sont requises lors de l'envoi de messages publicitaires.
+
+![Fenêtre d'informations du canal KakaoTalk affichant les champs de coordonnées du centre client.]({% image_buster /assets/img/kakaotalk/kakao_customer_center_contact.png %})
+
+{: start="4"}
+4. Pour afficher un autre canal, sélectionnez l'icône du canal en haut du menu.
+5. Dans la liste **My channel**, sélectionnez le canal que vous souhaitez afficher, puis répétez les étapes précédentes.
 
 ## Configurer les profils utilisateur {#set-user-profiles}
 

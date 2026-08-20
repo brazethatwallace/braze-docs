@@ -172,7 +172,7 @@ For more ideas on improving deliverability, read [Deliverability pitfalls and sp
 
 If Microsoft is your main mailbox provider, you can view Microsoft SNDS data in the Deliverability Center. This includes dedicated sending IPs for workspaces that use Amazon SES, SendGrid, or SparkPost. Use this data to monitor IP health and understand how Microsoft inbox providers are rating your sending.
 
-Microsoft SNDS provides IP-level data on spam complaints, spam trap hits, and sending volume as reported by Microsoft inbox providers such as Outlook, Hotmail, and Live.
+Microsoft SNDS provides IP-level data on spam complaints and sending volume as reported by Microsoft inbox providers such as Outlook, Hotmail, and Live.
 
 {% alert important %}
 If you don't see your data in the Deliverability Center, contact [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) with a list of your IP addresses.
@@ -182,11 +182,7 @@ If you don't see your data in the Deliverability Center, contact [Support]({{sit
 
 For workspaces that send email through Amazon SES, the Deliverability Center displays Microsoft SNDS metrics for your dedicated sending IPs. Braze backfills up to 90 days of historical SNDS data when this feature is turned on for your workspace.
 
-{% alert note %}
-Amazon SES doesn't provide **Trap message period start** or **Trap message period end** metrics. For SES sending IPs, those columns are hidden in the Microsoft SNDS table. You can still view other SNDS metrics for those IPs, including spam trap hits.
-{% endalert %}
-
-![An example of results from Microsoft SNDS, including sample IPs, recipients, RCPT commands, data commands, filter result, complaint rate, trap message period start and end, and spam trap hits.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
+![An example of results from Microsoft SNDS, including sample IPs, recipients, RCPT commands, data commands, filter result, and complaint rate.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
 
 ### Metrics and definitions
 
@@ -224,13 +220,15 @@ To calculate the complaint rate, divide the number of complaints by the number o
 | More than 100% | Note that SNDS displays complaints for the day they were reported, not retroactively against the day the complained-about mail was delivered. | 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Complaint rate" }
 
-#### Spam trap hits
+#### Spam trap hits and trap message period
 
-Spam trap hits are the number of messages sent to "trap accounts," which are accounts maintained by Outlook.com that don't solicit any mail. It's likely that any messages sent to these trap accounts are considered spam, so it's important to monitor this metric to make sure that it's low. Low spam trap hits means the messages aren't sent to these accounts and are being sent to actual accounts instead.
+{% alert important %}
+Microsoft no longer includes spam trap hit counts or trap message period data in SNDS reports. For more information, see [Microsoft's SNDS announcement](https://substrate.office.com/ip-domain-management-snds/snds).
+{% endalert %}
 
-#### Trap message period start and end
+Spam trap hits were the number of messages sent to "trap accounts," which are accounts maintained by Outlook.com that don't solicit any mail.
 
-These columns show when the first and last messages sent to trap accounts were received from the IP during the activity period. Amazon SES does not provide these metrics, so the columns are hidden when you view only SES sending IPs in the Microsoft SNDS table.
+The trap message period start and end columns showed when the first and last messages sent to trap accounts were received from the IP during the activity period.
 
 {% alert tip %}
 If you're looking for records related to one of your verified domains in Braze, note that the Deliverability Center lists your data from Google Postmaster or Microsoft SNDS, meaning it's likely that either platform doesn't have any data to share with Braze. Alternatively, try maintaining consistent email delivery, as this can lead to a higher reputation. 

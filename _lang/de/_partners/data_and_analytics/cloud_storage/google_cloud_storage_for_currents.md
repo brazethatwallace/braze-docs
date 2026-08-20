@@ -85,6 +85,8 @@ Verwenden Sie unten auf der Seite den Button **Create Key**, um einen **JSON** P
 
 Navigieren Sie in Braze zu **Currents** > **+ Create Current** > **Google Cloud Storage Data Export** und geben Sie den Namen Ihrer Integration und Ihre Kontakt-E-Mail an.
 
+{% multi_lang_include currents/contact_email_notifications.md %}
+
 Als Nächstes laden Sie Ihren JSON Private Key unter **GCS JSON Credentials** hoch und geben den GCS-Bucket-Namen und das GCS-Präfix (optional) an. Beachten Sie, dass Sie diese Zugangsdaten über Google Cloud Platform generieren müssen, wie in den vorherigen Schritten beschrieben.
 
 {% alert important %}

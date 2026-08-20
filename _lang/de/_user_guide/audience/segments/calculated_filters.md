@@ -17,9 +17,9 @@ Berechnete Filter befinden sich derzeit im Early Access. Wenn Sie am Early Acces
 
 ## So funktioniert es {#how-it-works}
 
-Segments in Braze bieten Ihnen leistungsstarke Targeting-Tools, um dynamische Gruppen von Nutzer:innen zu erstellen. Für die meisten Anwendungsfälle reicht dies aus, um Ihre Zielgruppe effektiv zu erreichen. Berechnete Filter sind für fortgeschrittene Anwendungsfälle konzipiert, bei denen Sie Verhaltensweisen von bis zu zwei Jahren analysieren oder komplexe Logik anwenden müssen – ohne die Datenaufbewahrung oder die Systemleistung zu beeinträchtigen. Sie können Daten aus Ihrem eigenen [Data Warehouse]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) verwenden, um Ihre Zielgruppe weiter zu verfeinern.
+Segments in Braze bieten Ihnen leistungsstarke Targeting-Tools, um dynamische Gruppen von Nutzer:innen zu erstellen. Für die meisten Anwendungsfälle reicht dies aus, um Ihre Zielgruppe effektiv zu erreichen. Berechnete Filter sind für fortgeschrittene Anwendungsfälle konzipiert, bei denen Sie Verhaltensweisen von bis zu zwei Jahren analysieren oder komplexe Logik anwenden müssen – ohne die Datenaufbewahrung oder Systemleistung zu beeinträchtigen. Sie können Daten aus Ihrem eigenen [Data Warehouse]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) verwenden, um Ihre Zielgruppe weiter zu verfeinern.
 
-Zum Beispiel findet die Standard-Segmentierung von Braze Nutzer:innen, die bestimmte von Ihnen definierte Kriterien erfüllen, wie etwa die Identifizierung von Nutzer:innen, die kürzlich eines Ihrer Produkte gekauft haben. Berechnete Filter ermöglichen es Ihnen, tiefer zu gehen – etwa um Nutzer:innen zu identifizieren, die eine bestimmte Farbe eines bestimmten Produkts mindestens zweimal in einem Zeitraum von 18 bis 24 Monaten gekauft haben. Berechnete Filter sind eine Erweiterung, keine Voraussetzung. Wenn Sie fortgeschrittenere Filter oder ein längeres historisches Zeitfenster benötigen, sind sie ein großartiges Tool, das Ihnen hilft und gleichzeitig Ihre Datennutzung optimiert hält.
+Zum Beispiel findet die Standard-Segmentierung von Braze Nutzer:innen, die bestimmte von Ihnen definierte Kriterien erfüllen, wie etwa die Identifizierung von Nutzer:innen, die kürzlich eines Ihrer Produkte gekauft haben. Berechnete Filter ermöglichen es Ihnen, tiefer zu gehen – etwa um Nutzer:innen zu identifizieren, die eine bestimmte Farbe eines bestimmten Produkts mindestens zweimal zwischen 18 und 24 Monaten in der Vergangenheit gekauft haben. Berechnete Filter sind eine Erweiterung, keine Voraussetzung. Wenn Sie fortgeschrittenere Filter oder ein längeres historisches Zeitfenster benötigen, sind sie ein großartiges Tool, das Ihnen hilft und gleichzeitig Ihre Datennutzung optimiert hält.
 
 ## Berechnete Filter und SQL-Segmenterweiterungen {#calculated-filters-and-sql-segment-extensions}
 
@@ -29,8 +29,8 @@ Zum Beispiel findet die Standard-Segmentierung von Braze Nutzer:innen, die besti
 |---|---|---|
 | Wie Sie die Zielgruppe definieren | Wählen Sie Käufe, empfohlene E-Commerce-Events, Nachrichteninteraktionen oder angepasste Events sowie Anzahlen, Zeitfenster und optionale Eigenschaftsfilter aus | Schreiben Sie SQL gegen Ihre Snowflake-Verbindung; verwenden Sie Templates, inkrementelle Aktualisierung oder vollständige Aktualisierung |
 | Wo die Logik ausgeführt wird | Kriterien und Aktualisierung werden in Braze als berechnete Filter verwaltet | Die Abfrage wird in Ihrem Data-Warehouse-Kontext gemäß Ihrer Erweiterungskonfiguration ausgeführt |
-| Filterlistenseite | Ein berechneter Filtertyp, die Spalte **Segments** zeigt, wie viele Segments jeden Filter verwenden, die Status **Processing** und **Processing Failed** spiegeln den Generierungsstatus wider | Enthält eine Spalte **Type** und Filter, die je nach Erweiterungstyp variieren |
-| Typische Anwendungsfälle | Kaufhäufigkeit, Gesamtausgaben, Anzahl angepasster Events und eigenschaftsbasierte Regeln über Ihr ausgewähltes Zeitfenster | Warehouse-gestützte Logik, Joins über Tabellen hinweg und historische Zeitfenster oder Aggregationen, die über das Formular für berechnete Filter hinausgehen |
+| Filterlistenseite | Ein berechneter Filtertyp, die Spalte **Segments** zeigt, wie viele Segments jeden Filter verwenden, die Status **Processing** und **Processing Failed** spiegeln den Generierungszustand wider | Enthält eine Spalte **Type** und Filter, die je nach Erweiterungstyp variieren |
+| Typische Anwendungsfälle | Kaufhäufigkeit, Gesamtausgaben, Anzahl angepasster Events und eigenschaftsbasierte Regeln über Ihr ausgewähltes Zeitfenster | Data-Warehouse-gestützte Logik, Joins über Tabellen hinweg und historische Zeitfenster oder Aggregationen, die über das Formular für berechnete Filter hinausgehen |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Berechnete Filter und SQL-Segmenterweiterungen" }
 
 ### Wann Sie berechnete Filter verwenden sollten {#when-to-use-calculated-filters}
@@ -43,7 +43,7 @@ Verwenden Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/se
 
 ### Berechnete Filter und Segmenterweiterungen gemeinsam verwenden {#use-calculated-filters-and-segment-extensions-together}
 
-Ein Segment kann einen berechneten Filter zusammen mit einer SQL- oder CDI-Segmenterweiterung referenzieren – zum Beispiel eine Warehouse-definierte Kohorte aus einer Erweiterung plus Kauf- oder angepasste Event-Regeln, die Sie im Builder für berechnete Filter pflegen.
+Ein Segment kann einen berechneten Filter zusammen mit einer SQL- oder CDI-Segmenterweiterung referenzieren – zum Beispiel eine Data-Warehouse-definierte Kohorte aus einer Erweiterung plus Kauf- oder angepasste Event-Regeln, die Sie im Builder für berechnete Filter pflegen.
 
 ## Berechneten Filter erstellen {#create-a-calculated-filter}
 
@@ -51,9 +51,9 @@ Um einen berechneten Filter zu erstellen, definieren Sie Kriterien basierend auf
 
 ### Schritt 1: Details einrichten {#step-1-set-up-details}
 
-1. Gehen Sie zu **Zielgruppe** > **Berechnete Filter**.
+1. Gehen Sie zu **Audience** > **Calculated Filters**.
 2. Wählen Sie **Create Calculated Filter** aus.
-3. Benennen Sie Ihren berechneten Filter, indem Sie die Nutzer:innen beschreiben, die Sie ansprechen möchten. Ein aussagekräftiger Name erleichtert das Auffinden des Filters, wenn Sie ihn einem Segment hinzufügen.
+3. Benennen Sie Ihren berechneten Filter, indem Sie die Nutzer:innen beschreiben, die Sie ansprechen möchten. Ein aussagekräftiger Name erleichtert das Auffinden des Filters, wenn Sie ihn zu einem Segment hinzufügen.
 4. (Optional) Fügen Sie [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu, um berechnete Filter in Ihrem Workspace zu organisieren.
 
 Sie können auch **Enable recurring audience update** auswählen, um den Filter nach einem wiederkehrenden Zeitplan zu aktualisieren. Wenn Sie diese Einstellung nicht aktivieren, wird der berechnete Filter nur aktualisiert, wenn Sie den Filter ändern oder **Update audience** auswählen.
@@ -63,7 +63,7 @@ Sie können auch **Enable recurring audience update** auswählen, um den Filter 
 Wählen Sie ein Kriterium für Kauf-, E-Commerce-, angepasste oder Nachrichteninteraktions-Events für das Targeting aus. Nachdem Sie einen Event-Typ ausgewählt haben, wählen Sie das spezifische Event, wie oft die Nutzer:innen es abgeschlossen haben müssen (mehr als, weniger als oder gleich) und den Zeitraum.
 
 {% alert note %}
-Die Filter **mehr als** und **weniger als** sind exklusiv – sie schließen die angegebene Zahl nicht ein. Zum Beispiel umfasst ein Filter für **mehr als 4 Mal und weniger als 16 Mal** Nutzer:innen mit 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 oder 15 Mal.
+Die Filter **mehr als** und **weniger als** sind exklusiv – sie schließen die angegebene Zahl nicht ein. Zum Beispiel umfasst ein Filter für **mehr als 4 Mal und weniger als 16 Mal** Nutzer:innen, die 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 oder 15 Mal gezählt wurden.
 {% endalert %}
 
 Bei der Auswahl Ihres Zeitraums können Sie einen relativen Datumsbereich (die letzten X Tage), ein Startdatum, ein Enddatum oder einen exakten Datumsbereich angeben.
@@ -74,10 +74,10 @@ Bei der Auswahl Ihres Zeitraums können Sie einen relativen Datumsbereich (die l
 
 Um die Targeting-Präzision zu erhöhen, wählen Sie **Add Property Filters** aus. Damit können Sie nach Eigenschaften Ihrer Kauf-, E-Commerce- oder angepassten Events filtern. Braze unterstützt die Event-Eigenschafts-Segmentierung basierend auf String-, numerischen, booleschen und Zeitobjekten.
 
-Für String-Eigenschaften können Sie mehrere Werte gleichzeitig eingeben – zum Beispiel Nutzer:innen mit einem Status gleich Gold, Silber oder Bronze ansprechen. Für empfohlene E-Commerce-Events wird das Eigenschafts-Dropdown mit den für dieses Event verfügbaren Eigenschaften befüllt.
+Für String-Eigenschaften können Sie mehrere Werte auf einmal eingeben – zum Beispiel Nutzer:innen mit einem Status gleich Gold, Silber oder Bronze ansprechen. Für empfohlene E-Commerce-Events wird das Eigenschafts-Dropdown mit den für dieses Event verfügbaren Eigenschaften befüllt.
 
 {% alert note %}
-Sie benötigen keine berechneten Filter, um Event-Eigenschaften in Ihrem Segment zu verwenden. Berechnete Filter erweitern lediglich das historische Zeitfenster, das zur Erstellung eines Standard-Segments verwendet wird. Sie können ein Realtime-Standard-[Segment]({{site.baseurl}}/user_guide/audience/segments) erstellen, das Event-Eigenschaften der letzten 30 Tage verwendet. Ebenso können Sie [Ihre Nachricht so planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery), dass sie in Realtime basierend auf einer Event-Eigenschaft getriggert wird – kein berechneter Filter erforderlich.
+Sie benötigen keine berechneten Filter, um Event-Eigenschaften in Ihrem Segment zu verwenden. Berechnete Filter erweitern lediglich das historische Zeitfenster, das zur Erstellung eines Standard-Segments verwendet wird. Sie können ein Realtime-Standard-[Segment]({{site.baseurl}}/user_guide/audience/segments) erstellen, das Event-Eigenschaften der letzten 30 Tage verwendet. Ebenso können Sie [Ihre Nachricht planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery), um sie in Realtime basierend auf einer Event-Eigenschaft zu triggern – kein berechneter Filter erforderlich.
 {% endalert %}
 
 ### Schritt 3: Filter speichern und aktivieren {#step-3-save-and-activate-your-filter}
@@ -124,10 +124,10 @@ Jeder berechnete Filter zeigt einen der folgenden Status an. **Verarbeitung** un
 Öffnen Sie das Zeilenmenü eines berechneten Filters, um ihn zu bearbeiten, zu archivieren, die Zielgruppe zu aktualisieren oder zu sehen, wie er im Messaging verwendet wird. Sie können einen berechneten Filter nicht bearbeiten, während er verarbeitet wird.
 
 {% alert note %}
-Ihr Workspace kann gleichzeitig bis zu 500 aktivierte berechnete Filter enthalten. Wenden Sie sich an Ihren Braze Account Manager, wenn Sie dieses Limit erhöhen müssen.
+Ihr Workspace kann gleichzeitig bis zu 100 aktivierte berechnete Filter enthalten. Wenden Sie sich an Ihren Braze Account Manager, wenn Sie dieses Limit erhöhen müssen.
 {% endalert %}
 
-#### Speichern versus aktivieren {#save-versus-activate}
+#### Speichern versus Aktivieren {#save-versus-activate}
 
 Sie können einen berechneten Filter speichern, ohne ihn zu aktivieren. Inaktive Filter verbleiben in Ihrem Workspace, können aber erst zu Segments hinzugefügt werden, wenn Sie sie aktivieren. Wählen Sie **Filter aktivieren**, um den Filter in der Segmentierung zu verwenden.
 
@@ -141,7 +141,7 @@ Sie können mehrere Events hinzufügen oder auf mehrere Snowflake-Tabellen verwe
 
 ### Kann ich berechnete Filter archivieren, wenn sie in einer aktiven Campaign vorhanden sind? {#can-i-archive-calculated-filters-if-they-exist-in-an-active-campaign}
 
-Nein. Bevor Sie einen berechneten Filter archivieren können, müssen Sie ihn aus allen aktiven Nachrichten entfernen.
+Nein. Bevor Sie einen berechneten Filter archivieren können, müssen Sie ihn aus allen aktiven Messaging-Aktivitäten entfernen.
 
 ### Kann ich Arrays in berechneten Filtern verwenden? {#can-i-use-arrays-in-calculated-filters}
 

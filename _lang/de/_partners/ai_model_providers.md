@@ -12,6 +12,9 @@ guide_top_text: "Durchsuchen Sie Technologie-Partnerintegrationen für KI-Modell
 
 guide_featured_title: "Verfügbare Anbieter"
 guide_featured_list:
+  - name: "Amazon Bedrock"
+    link: /docs/partners/ai_model_providers/amazon_bedrock
+    image: /assets/img/braze_icons/cloud-01.svg
   - name: "Anthropic"
     link: /docs/partners/ai_model_providers/anthropic
     image: /assets/img/braze_icons/zap.svg

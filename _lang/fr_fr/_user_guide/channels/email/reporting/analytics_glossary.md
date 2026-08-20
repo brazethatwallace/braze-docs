@@ -422,42 +422,46 @@ Le filtre de segment [`Message Open Likelihood`]({{site.baseurl}}/user_guide/aud
 
 ### Liens de désabonnement et clics uniques {#unsubscribe-links-and-unique-clicks}
 
-Lorsqu'un destinataire clique sur un lien de désabonnement, Braze le comptabilise comme un clic car l'action utilise une URL. Cela s'applique aux liens de désabonnement fournis par Braze et aux liens de désabonnement personnalisés dans le corps de votre message. Ces clics contribuent aux *Clics uniques* et aux *Clics totaux* aux côtés des autres clics sur les liens. Pour les définitions des indicateurs, consultez [Clics uniques](#unique-clicks) et [Pourquoi le nombre de désabonnements diffère-t-il du nombre de clics sur mon lien de désabonnement ?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+Lorsqu'un destinataire clique sur un lien de désabonnement, Braze le comptabilise comme un clic, car l'action utilise une URL. Cela s'applique aux liens de désabonnement fournis par Braze et aux liens de désabonnement personnalisés dans le corps de votre message. Ces clics contribuent aux *clics uniques* et aux *clics totaux* au même titre que les autres clics sur des liens. Pour les définitions des indicateurs, consultez [Clics uniques](#unique-clicks) et [Pourquoi le nombre de désabonnements diffère-t-il du nombre de clics sur mon lien de désabonnement ?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
 ### Afficher dans le navigateur {#view-in-browser}
 
-Braze n'inclut pas de fonctionnalité intégrée « Afficher cet e-mail dans un navigateur ». Hébergez le contenu de l'e-mail sur une page de destination externe (comme votre site web) et ajoutez un lien depuis le message à l'aide de l'outil **Lien** de l'éditeur d'e-mail. Pour en savoir plus, consultez [Puis-je ajouter un lien « afficher cet e-mail dans un navigateur » à mes e-mails ?]({{site.baseurl}}/user_guide/channels/email/faq#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails).
+Braze ne propose pas de fonctionnalité intégrée « Afficher cet e-mail dans un navigateur ». Hébergez le contenu de l'e-mail sur une page de destination externe (comme votre site web) et ajoutez un lien depuis le message à l'aide de l'outil **Lien** de l'éditeur d'e-mail. Pour en savoir plus, consultez [Puis-je ajouter un lien « afficher cet e-mail dans un navigateur » à mes e-mails ?]({{site.baseurl}}/user_guide/channels/email/faq#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails).
 
 ### Mises à jour de la page de désabonnement personnalisée {#custom-unsubscribe-page-updates}
 
-Les modifications apportées à votre [page de désabonnement personnalisée]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) apparaissent en quelques minutes. Les envois en cours utilisent un cache de courte durée de la page, qui est actualisé lorsque vous enregistrez les modifications.
+Les modifications apportées à votre [page de désabonnement personnalisée]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) apparaissent en quelques minutes. Les envois en cours utilisent un cache de courte durée de la page, qui est actualisé lorsque vous enregistrez vos modifications.
 
 ### Rebonds pour dépassement de quota et boîte de réception pleine {#over-quota-and-full-mailbox-bounces}
 
-Un rebond pour dépassement de quota ou boîte de réception pleine signifie que la boîte de réception du destinataire ne peut pas accepter de nouveaux messages. Vous pouvez observer ces adresses parmi les nouvelles inscriptions avec des adresses invalides ou à risque, ou parmi les profils inactifs depuis longtemps dont les boîtes de réception se sont remplies pendant leur période d'inactivité.
+Un rebond pour dépassement de quota ou boîte de réception pleine signifie que la boîte de réception du destinataire ne peut pas accepter de nouveaux messages. Vous pouvez observer ces adresses parmi les nouvelles inscriptions comportant des adresses invalides ou à risque, ou parmi les profils inactifs depuis longtemps dont les boîtes de réception se sont remplies pendant leur période d'inactivité.
 
-Examinez les taux de rebond par segment et par source, supprimez ou désactivez les adresses qui subissent des échecs d'envoi définitifs de manière répétée, et utilisez l'abonnement confirmé ou le double opt-in pour les nouveaux abonnés. Pour les bonnes pratiques d'hygiène de liste, consultez [Pièges de livrabilité et pièges à spam]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps) et [Rapports e-mail]({{site.baseurl}}/user_guide/channels/email/reporting#troubleshooting).
+Examinez les taux de rebond par Segment et par source, supprimez ou désactivez les adresses qui génèrent des échecs d'envoi définitifs de manière répétée, et utilisez l'abonnement confirmé ou le double opt-in pour les nouveaux abonnés. Pour les bonnes pratiques d'hygiène de liste, consultez [Pièges de livrabilité et spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps) et [Rapports e-mail]({{site.baseurl}}/user_guide/channels/email/reporting#troubleshooting).
 
 ### 550 5.7.1 courrier non sollicité {#550-571-unsolicited-mail}
 
-Une réponse `550 5.7.1` telle que « Our system has detected that this message is likely unsolicited mail » provient souvent de fournisseurs de messagerie stricts (par exemple, Gmail) lorsque les signaux de réputation ou d'engagement sont faibles. Les causes courantes incluent les plaintes pour spam, un faible engagement, des listes achetées ou louées, et des pics de volume soudains.
+Une réponse `550 5.7.1` telle que « Our system has detected that this message is likely unsolicited mail » provient souvent de fournisseurs de messagerie stricts (par exemple, Gmail) lorsque les signaux de réputation ou d'engagement sont faibles. Les causes courantes incluent les plaintes pour spam, un faible engagement, les listes achetées ou louées, et les pics de volume soudains.
 
-Concentrez-vous sur une croissance de liste basée sur le consentement, désactivez les abonnés inactifs et surveillez les taux de plaintes et de rebonds. Pour en savoir plus, consultez [Pièges de livrabilité et pièges à spam]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps).
+Concentrez-vous sur une croissance de liste basée sur le consentement, désactivez les abonnés inactifs, et surveillez les taux de plaintes et de rebonds. Pour en savoir plus, consultez [Pièges de livrabilité et spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps).
 
 ### Bons taux de livrabilité des e-mails {#good-email-deliverability-rates}
 
-La **livraison** indique si le serveur destinataire accepte votre message ; vous pouvez la mesurer avec des indicateurs tels que les *Livraisons* et le taux de rebond. La **livrabilité** (placement en boîte de réception) dépend du filtrage du fournisseur et n'est pas affichée comme un indicateur unique dans Braze.
+La **distribution** indique si le serveur destinataire accepte votre message ; vous pouvez la mesurer à l'aide d'indicateurs tels que les *distributions* et le taux de rebond. La **livrabilité** (placement en boîte de réception) dépend du filtrage du fournisseur et n'est pas représentée par un indicateur unique dans Braze.
 
-En règle générale, visez un taux de livraison proche de 99 % avec des échecs d'envoi définitifs inférieurs à environ 1 %, et surveillez les ouvertures et les clics pour les tendances d'engagement. Les objectifs exacts varient selon le secteur et le modèle d'envoi. Pour les pratiques qui soutiennent la réputation, consultez [Améliorer la livrabilité des e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability) et [Pièges de livrabilité et pièges à spam]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps).
+En règle générale, visez un taux de distribution proche de 99 % avec des échecs d'envoi définitifs inférieurs à environ 1 %, et surveillez les ouvertures et les clics pour détecter les tendances d'engagement. Les objectifs exacts varient selon le secteur d'activité et le rythme d'envoi. Pour les pratiques qui soutiennent la réputation, consultez [Améliorer la livrabilité des e-mails]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability) et [Pièges de livrabilité et spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps).
 
-### « Campaign is already in delay window, so not enqueueing another » {#campaign-is-already-in-delay-window-so-not-enqueueing-another}
+### « Campaign is already in delay window, so not enqueueing another »
 
-Dans le journal d'activité des messages ou les journaux de diagnostic des [campagnes déclenchées par une action]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery), ce résultat de traitement signifie que Braze a bloqué un envoi en double alors qu'un déclencheur précédent pour le même utilisateur est encore dans la fenêtre de livraison de la campagne. Un verrou anti-rebond empêche les mises en file d'attente multiples pour la même rafale de déclencheurs.
+Dans le journal d'activité des messages ou les journaux de diagnostic des [Campaigns déclenchées par une action]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery), ce résultat de traitement signifie que Braze a bloqué un envoi en double alors qu'un déclencheur précédent pour le même utilisateur se trouve encore dans la fenêtre de distribution de la Campaign. Un verrou anti-rebond empêche la mise en file d'attente multiple pour la même rafale de déclencheurs.
 
-Vous pouvez observer ce résultat même lorsque la campagne affiche **Envoyer immédiatement** si l'une des conditions suivantes s'applique :
+Vous pouvez observer ce résultat même lorsque la Campaign affiche **Envoyer immédiatement** si l'une des conditions suivantes s'applique :
 
-- La campagne utilise un [événement d'exception]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events) ou un délai d'envoi qui affecte le timing.
+- La Campaign utilise un [événement d'exception]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events) ou un délai d'envoi qui affecte le timing.
 - Les utilisateurs ont une période de [rééligibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility), de sorte qu'ils ne peuvent pas recevoir le message à nouveau tant que cette fenêtre n'est pas écoulée.
-- Un autre message de campagne ou une étape de message Canvas avec une priorité plus élevée a consommé le créneau d'envoi lorsque les déclencheurs se chevauchent.
+- Une autre Campaign ou une étape de message Canvas avec une priorité plus élevée a consommé le créneau d'envoi lorsque les déclencheurs se chevauchent.
 
-Si un utilisateur aurait dû recevoir le message mais ne l'a pas reçu, vérifiez les résultats précédents pour le même déclencheur (par exemple, rebond d'e-mail ou canal non activé). Un autre message dans le même flux de travail peut avoir empêché cet envoi.
+Si un utilisateur aurait dû recevoir le message mais ne l'a pas reçu, vérifiez les résultats précédents pour le même déclencheur (par exemple, rebond d'e-mail ou canal non activé). Un autre message dans le même workflow peut avoir empêché cet envoi.
+
+### Comment Braze calcule-t-il les clics uniques pour les e-mails ? {#how-does-braze-calculate-unique-clicks-for-email}
+
+Braze comptabilise les *clics uniques* sur une fenêtre de sept jours par destinataire et par [`dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id). Pour la définition complète, les formules, le comportement des liens de désabonnement et l'alignement avec Currents, consultez [Clics uniques](#unique-clicks).

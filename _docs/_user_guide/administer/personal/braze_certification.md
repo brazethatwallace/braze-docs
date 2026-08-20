@@ -36,7 +36,7 @@ Braze Certifications must be kept current over time. Renewal steps and how to ch
 
 ## Policies and program details
 
-Exam fees, retakes, cancellations, accommodations, non-English exams, candidate agreements, and other program rules are updated on Braze Learning and in the handbook. For current policies, see the frequently asked questions on the [Braze Certification page](https://learning.braze.com/page/certification) and the Braze Certification Program Handbook (downloadable on the Braze Certification page).
+Exam fees, cancellations, accommodations, non-English exams, candidate agreements, and other program rules are maintained on Braze Learning and in the handbook. For retake waiting periods, attempt limits, and eligibility—and for other current policies—see the frequently asked questions on the [Braze Certification page](https://learning.braze.com/page/certification) and the Braze Certification Program Handbook (downloadable on the Braze Certification page).
 
 {% alert note %}
 For program questions, policy clarifications, or accommodation requests, refer to the Braze Certification Program Handbook or email [certification@braze.com](mailto:certification@braze.com).
