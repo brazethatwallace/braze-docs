@@ -153,6 +153,10 @@ For [templated in-app messages](#what-are-templated-in-app-messages), Connected 
 
 If your HTML references REST data returned by Connected Content, that data is available for the session in which the message was templated. Multiple buttons can reference the same Connected Content response without triggering additional calls on click.
 
+### What is the maximum delay after a trigger for in-app message campaigns?
+
+In-app message campaigns can delay delivery after the trigger event by up to two hours (7,200 seconds). The delay options are **Immediately** and **After a delay**. For a longer wait, add a [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) step before an in-app Message step in a Canvas. For delay setup, see [Action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-2-select-delay-length).
+
 ### Why is there a delay before my in-app message displays?
 
 Standard in-app messages display as soon as the cached payload is ready after the trigger event. On Android and iOS, large images or other CDN-hosted assets referenced in the message can add a short delay while those resources finish downloading before the in-app message appears.
