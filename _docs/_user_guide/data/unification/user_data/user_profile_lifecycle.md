@@ -70,10 +70,9 @@ Not all data is merged from the anonymous profile. Push tokens and messaging his
 
 For information on how to set an `external_id` against a user profile, see our documentation ([iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web)).
 
-
 ### Reporting and merged profiles
 
-When anonymous and identified profiles merge after a send, dashboard campaign summaries show that send on the surviving (identified) profile. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), and the [Messaging History]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab) tab still attribute the send to the orphaned profile's user ID—the ID at send time. This is expected. For the full list of fields that transfer, see [merge behavior]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
+When anonymous and identified profiles merge after a send, dashboard campaign summaries attribute that send to the surviving (identified) profile. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), and the [Messaging History]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab) tab still attribute the send to the orphaned profile's user ID—the ID at send time. This is expected. For the full list of fields that transfer, see [merge behavior]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
 
 To find that send in Currents, Query Builder, or Messaging History, look up the orphaned profile's `braze_id`. A query that uses only the identified user's `braze_id` does not return the pre-merge send.
 
