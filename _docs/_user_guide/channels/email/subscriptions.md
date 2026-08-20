@@ -98,7 +98,7 @@ Use the [Subscription Group endpoints]({{site.baseurl}}/api/endpoints/subscripti
 
 1. Go to **Audience** > **Subscription Group Management**.
 2. Select **Create email subscription group**. 
-3. Give your subscription group a name and description.
+3. Give your subscription group a name and description. Each subscription group in your workspace must have a unique name. If you choose a name that already exists, the dashboard displays an error and does not save the change.
 4. Select **Save**. 
 
 All subscription groups are automatically added to your preference center.
@@ -124,9 +124,13 @@ Braze doesn't process state changes for users in archived groups. For example, i
 
 #### Viewing subscription group sizes
 
-You can reference the **Subscription Group Timeseries** graph in the **Subscription Groups** page to view the subscription group size based on the number of users over a period of time. These subscription group sizes are also consistent with other areas of Braze, such as segment size calculation.
+You can reference the **Subscription Group Timeseries** graph in the **Subscription Groups** page to view the subscription group size based on the number of users over a period of time. These subscription group sizes are also consistent with other areas of Braze, such as segment size calculation. For very large workspaces, Braze may display estimated counts instead of exact counts.
 
 ![An example "Subscription Group Timeseries" graph dated from December 2nd through 11th. The graph shows a ~10 million increase in the number of users from the 6th to the 7th.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
+
+Today's subscription group size is not calculated by default. If your date range includes today, select **Calculate today's statistics** to add today's value to the timeseries.
+
+If the timeseries count diverges sharply from a segment using **Email Subscription Status is Unsubscribed**, remember the graph counts membership in that subscription group, while that filter reflects global email subscription state (for example, users can be globally subscribed but unsubscribed from a specific group).
 
 #### Why subscription group counts can differ from segment counts
 
@@ -231,4 +235,3 @@ Use the "Email Subscription Status" and "Push Subscription Status" filters to se
 Use this to target users who have neither opted in nor out and encourage an explicit opt in. Create a segment with the filter "Email/Push Subscription Status is Subscribed" and send campaigns to users who are subscribed but not opted in.
 
 ![Email Subscription Status used as a segment filter.]({% image_buster /assets/img_archive/not_optin.png %})
-

@@ -13,17 +13,13 @@ channel: email
 
 ## How it works
 
-You can use automated IP warming to gradually increase your daily send volume, allowing inbox providers to learn and trust your sending patterns. When you add a domain to your workspace, you can select the **Automated IP Warming** tile in the **Pick up where you left off** section of your home dashboard. This tile remains for 60 days while your workspace is in the new-sender onboarding window. If your workspace supports multiple plans, the tile is also hidden after you complete at least one plan.
+You can use automated IP warming to gradually increase your daily send volume, allowing inbox providers to learn and trust your sending patterns. When you add a domain to your workspace, you can select the **Automated IP Warming** tile in the **Pick up where you left off** section of your home dashboard. This tile remains for 60 days while your workspace is in the new-sender onboarding window, and is hidden after you complete at least one plan.
 
 Each automated IP warming plan is tied to one from address. That from address maps to a sending subdomain and an IP pool. If the pool contains multiple dedicated IPs, Braze warms them together in a single plan.
 
 Braze sends to your most engaged subscribers first, which allows daily volume to grow at a pace that matches best practices. Then, Braze tracks engagement and deliverability signals. If Braze detects any issues, the system adjusts your schedule automatically.
 
 After you complete at least one plan, you can view completed plans at **Settings** > **Email Preferences** > **Automated IP warming**.
-
-{% alert note %}
-If you see only a single-plan experience in your dashboard, your workspace may not have access to multiple IP warming plans yet. Contact your Braze account team for availability.
-{% endalert %}
 
 ## Prerequisites
 
@@ -44,15 +40,11 @@ To perform automated IP warming, you must have the following:
 If the campaign approval workflow is turned on, Braze automatically approves campaigns created by automated IP warming on your behalf.
 {% endalert %}
 
-{% alert important %}
-This feature may not be supported depending on your email infrastructure.
-{% endalert %}
-
 ## Set up an automated IP warming plan
 
 ### Step 1: Set a schedule
 
-1. If your workspace supports multiple IP warming plans, enter a unique **Plan name**. Plan names may contain letters, numbers, hyphens, and underscores only, and must be unique in your workspace. A plan name is required before you can launch.
+1. Enter a unique **Plan name**. Plan names may contain letters, numbers, hyphens, and underscores only, and must be unique in your workspace. A plan name is required before you can launch.
 2. In the **Sending information** section, select the **From address** to warm IP addresses for. Braze displays the associated **IP pool** and the number of **IP addresses in pool** for that from address.
 3. Enter the **Current daily send volume** and **Target send volume**. Braze suggests a target send volume of up to 2 million sends per IP in the selected pool. If your current daily send volume is 0, the first day of your schedule starts at up to 50 sends per IP, capped at 500 total.
 4. Select the start date for automated IP warming. This date must be at least one day after the plan is launched.
@@ -158,7 +150,7 @@ You can stop an IP warming plan to prevent creation of future campaigns. Stoppin
 
 IP warming is marked as completed when the last day of IP warming ends at midnight in your workspace time zone (or company time zone if the workspace has no override). For example, if the last campaign in the plan sends at 8 pm, the plan is marked complete at midnight four hours later.
 
-Completed plans remain available from **Settings** > **Email Preferences** > **Automated IP warming**. If your workspace uses the single-plan experience, the tracker also stays on the home dashboard for 90 days after the plan ends. After 90 days, the home dashboard tracker is removed.
+Completed plans remain available from **Settings** > **Email Preferences** > **Automated IP warming**. The tracker also stays on the home dashboard for 90 days after the plan ends. After 90 days, the home dashboard tracker is removed.
 
 Downloading the data includes these standard email metrics:
 

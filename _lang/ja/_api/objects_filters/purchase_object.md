@@ -13,9 +13,9 @@ description: "このリファレンス記事では、購入オブジェクトの
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
-## 購入オブジェクトとは {#what-is-a-purchase-object}
+## 購入オブジェクトとは？ {#what-is-a-purchase-object}
 
-購入オブジェクトは、購入が行われたときにAPIを通じて渡されるオブジェクトです。各購入オブジェクトは購入配列内に配置され、各オブジェクトは特定のユーザーが特定の時間に行った単一の購入を表します。購入オブジェクトにはさまざまなフィールドがあり、Brazeのバックエンドはこの情報を保存して、カスタマイズ、データ収集、パーソナライゼーションに使用できます。
+購入オブジェクトは、購入が行われた際にAPIを通じて渡されるオブジェクトです。各購入オブジェクトは購入配列内に配置され、各オブジェクトは特定のユーザーが特定の時点で行った1回の購入を表します。購入オブジェクトにはさまざまなフィールドがあり、Brazeバックエンドがカスタマイズ、データ収集、パーソナライゼーションのためにこの情報を保存・使用できるようにします。
 
 ### オブジェクト本体 {#object-body}
 
@@ -43,33 +43,37 @@ description: "このリファレンス記事では、購入オブジェクトの
 }
 ```
 
+{% alert note %}
+将来のタイムスタンプを持つ購入は、デフォルトで現在の時刻に設定されます。これにより、購入イベントが正確なタイミングで記録されます。
+{% endalert %}
+
 - [外部ユーザー ID]({{site.baseurl}}/api/basics#user-ids)
 - [アプリ識別子]({{site.baseurl}}/api/identifier_types)
 - [ISO 4217 通貨コード Wiki](http://en.wikipedia.org/wiki/ISO_4217)
-- [ISO 8601 時間コード Wiki](https://en.wikipedia.org/wiki/ISO_8601)
+- [ISO 8601 時刻コード Wiki](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-一部の識別子ペアは一緒に使用できません。また、両方が指定された場合は`email`が`phone`よりも優先されます。詳しくは、[識別子の解決]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution)を参照してください。
+一部の識別子の組み合わせは同時に使用できません。また、`email`と`phone`の両方が提供された場合、`email`が優先されます。詳細については、[識別子の解決]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution)を参照してください。
 {% endalert %}
 
-## 購入製品 ID {#purchase-product-id}
+## 購入プロダクト ID {#purchase-product-id}
 
-購入オブジェクト内では、`product_id`は購入の識別子です（`Product Name`や`Product Category`など）。
+購入オブジェクト内の `product_id` は、購入の識別子です（`Product Name` や `Product Category` など）。
 
-- Brazeでは、ダッシュボードに最大5,000個の`product_id`を保存できます。
-- `product_id`は最大255文字までです。
+- Brazeでは、ダッシュボードに最大5,000個の `product_id` を保存できます。
+- `product_id` は最大255文字です。
 
 ### 命名規則 {#naming-conventions}
 
-Brazeでは、購入オブジェクトの`product_id`に関する一般的な命名規則を提供しています。`product_id`を選択する際、Brazeは記録されたすべてのアイテムをこの`product_id`でグループ化することを目的として、（SKUではなく）製品名や製品カテゴリなどのシンプルな名前を使用することを推奨しています。
+Brazeでは、購入オブジェクトの `product_id` に関する一般的な命名規則を提供しています。`product_id` を選択する際、Brazeでは（SKUではなく）商品名や商品カテゴリなどのシンプルな名前を使用することを推奨しています。これは、ログに記録されたすべてのアイテムをこの `product_id` でグループ化することを目的としています。
 
-これにより、セグメンテーションやトリガーの際に製品を識別しやすくなります。
+これにより、セグメンテーションやトリガーの際に商品を識別しやすくなります。
 
-### 注文レベルでの購入記録 {#log-purchases-at-the-order-level}
+### 注文レベルでの購入の記録 {#log-purchases-at-the-order-level}
 
-製品レベルではなく注文レベルで購入を記録したい場合は、注文名または注文カテゴリを`product_id`として使用できます（`Online Order`や`Completed Order`など）。
+商品レベルではなく注文レベルで購入を記録したい場合は、注文名や注文カテゴリを `product_id` として使用できます（`Online Order` や `Completed Order` など）。
 
-たとえば、Web SDKで注文レベルの購入を記録するには以下のようにします。
+たとえば、Web SDKで注文レベルの購入を記録するには、次のようにします。
 
 ```html
 POST https://YOUR_REST_API_URL/users/track

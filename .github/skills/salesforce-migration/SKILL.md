@@ -33,6 +33,8 @@ description: >
 
 Copy [`.jira.env.example`](../../../.jira.env.example) to `.jira.env` and run `source scripts/jira_env.sh` before Jira scripts. **Never commit `.jira.env`** — it is gitignored and blocked by the pre-commit hook.
 
+Phase 2 verification scratch files (`.sf-kb-verification*.md`) are also gitignored — keep them local only; do not stage them in docs PRs.
+
 ## Scripts
 
 Phase 1 **writes** the two markdown files and may edit the CSV. Phase 2 **reads** them. `sf_kb_sync_tracker.py` trims the CSV when run explicitly.
@@ -71,11 +73,11 @@ python3 scripts/prune_data_files.py --confirm [--group support-csv|kb-generated|
 
 ## Phase 1: Script-driven triage
 
-> **The script is the sole triage authority.** `generate_kb_phase1_outputs.py` applies all classification gates. Your job is to run the script and fix `doc_path` values — not to re-evaluate whether individual rows should be actionable or skipped.
-
-### Skip gates (script decides — do not override)
+> **The script is the sole gate authority.** `generate_kb_phase1_outputs.py` decides actionable vs skipped. Do **not** hand-edit `kb_articles_actioned.md` / `kb_articles_skipped.md`. Recover work by editing the CSV, then re-running Phase 1.
 
 If the script marks something actionable, accept it and proceed to Phase 2 without second-guessing.
+
+### Skip gates (script decides — do not override in markdown)
 
 | Gate | Skip condition |
 |------|----------------|
@@ -87,19 +89,70 @@ If the script marks something actionable, accept it and proceed to Phase 2 witho
 | `target` + paths | `target` is `knowledge_article` and no `_docs/` path found in any field |
 | Path resolution | No on-disk `_docs/...` target found after path extraction, IA remaps, scripted inference, and best-fit placement |
 
-### What you fix (only this)
+### What you fix in the CSV
 
 - `doc_path` is blank or stale but you can identify the correct current path → update the CSV field, then re-run.
 - A path failed because it's under an old IA layout (e.g. `engagement_tools/`, `message_building_by_channel/`) → extend `PATH_INFERENCE_EXACT` or `PATH_INFERENCE_PREFIXES` in `generate_kb_phase1_outputs.py` after confirming the mapping.
 - A row landed in skipped with reason "no locatable on-disk target" but has a clear `suggested_change` and a valid topic → search `_docs/` for the best-fit page, set `doc_path`, re-run.
+- A row landed in skipped because **`suggested_change` is vague / author-brief** → follow [Recovering vague `suggested_change` skips](#recovering-vague-suggested_change-skips) (rewrite ship-ready prose **or** mark ignore — do not leave recoverable facts stuck behind the brief).
 
 **Never manually move rows between the actioned and skipped files.**
 
+### Recovering vague `suggested_change` skips
+
+The Phase 1 gate only checks the **first line** of `suggested_change` for author-brief starters (`Add to…`, `Ensure…`, `Document…`, `Consider…`, `Optional…`, and the rest in `sf_kb_suggested_change.py`). Many skipped rows still contain a concrete product fact after that wrapper — or in `title` / `conflict` / `conflict_resolution` / `codebase_evidence` / optional `sf_kb_articles.csv` Resolution.
+
+When `kb_articles_skipped.md` lists a row under the vague-`suggested_change` bucket, **use context to choose UPDATE or IGNORE**. Do not invent limits or behavior.
+
+#### Context to read (in order)
+
+1. CSV `title`, `suggested_change` (full cell), `conflict`, `conflict_resolution`, `codebase_evidence`, `doc_path`, `notes`
+2. Current public docs at `doc_path` (and best-fit FAQ/troubleshooting if `doc_path` is wrong)
+3. Optional SF Resolution in `_data/sf_kb_articles.csv` — **redact PII**; never paste customer names into public docs or PR bodies
+4. Reference repos when the fact is behavioral (`braze-docs:reference-repos`) — required before Phase 2 if still `inconclusive`
+
+#### Choose **UPDATE** (rewrite → re-queue) when
+
+- A **concrete, customer-facing fact** is present (limit, condition, error cause, expected behavior, permission name, formula) even if the first line is an editor brief
+- Public docs at the target (or a better `_docs/` page) **omit or contradict** that fact
+- The fact is verifiable in reference repos, or `conflict_resolution` already confirms knowledge / overlap with a clear delta
+- You can name a real `_docs/` / `_includes/` landing spot
+
+**Then edit the CSV:**
+
+1. Rewrite `suggested_change` as **ship-ready public prose** — FAQ `###` question + direct answer, or a short note that can paste into the page. Strip editor wrappers (`Add to path:`, `Ensure docs…`, `Consider adding…`). Keep the fact; drop internal-only tooling (Kibana, Slack, Jira keys) from the public draft.
+2. Fix `doc_path` if the brief pointed at a stale or wrong page.
+3. Append a one-line `notes` trail (for example `Phase 1: rewrote vague suggested_change from author brief`).
+4. Re-run `generate_kb_phase1_outputs.py --no-prune` and confirm the row appears in `kb_articles_actioned.md`.
+
+#### Choose **IGNORE** (leave skipped / disposition) when
+
+- The same guidance is **already on `develop`** (or in an open PR that claims the article)
+- The ask is **internal-only** (Support process, Kibana, INTERNAL bug UX, “contact Support” with no public behavior)
+- The brief is **speculative** (`if reproducible`, `if intentional`, `needs SME`) and you cannot verify a fact from source or Resolution
+- There is **no public delta** after reading the target page — only a restatement of existing docs
+- The only action would be archiving the KA without a docs change
+
+**Then edit the CSV (do not invent a PR):**
+
+1. Prefer `implementation_status` = `archived` (or `actioned` if a prior PR already covered it) with a short `notes` reason, **or** leave status unchanged and add `notes` explaining why it stays skipped.
+2. Re-run Phase 1 so skipped/actioned markdown stays accurate.
+3. Never open an empty docs PR just to clear the skip bucket.
+
+#### Examples
+
+| Vague first line | Decision | CSV action |
+|---|---|---|
+| `Add to quiet hours docs: Segment membership is evaluated at trigger time…` | **UPDATE** — fact is concrete | Rewrite as `###` FAQ answer; set `doc_path` to quiet hours / segmentation page |
+| `Ensure Unique Recipients FAQ states bounces still count…` | **UPDATE** if docs omit it; **IGNORE** if already stated | Rewrite or mark `actioned` / `archived` with note |
+| `Consider adding known limitation if reproducible.` | **IGNORE** until verified | Note `needs source verification`; leave skipped or `archived` |
+| `Optional: contact Support for mass developer email migration.` | **IGNORE** — process, not public product behavior | `archived` + note |
+
 ### Steps
 
-1. Edit [`_data/kb_articles.csv`](_data/kb_articles.csv) only to fix `doc_path` values.
+1. Edit [`_data/kb_articles.csv`](_data/kb_articles.csv) to fix `doc_path` values and, when recovering vague skips, rewrite `suggested_change` or set disposition (`archived` / `actioned` + `notes`).
 2. Run `--infer-doc-paths --no-prune` when `doc_path` is missing or wrong, then `--no-prune` to refresh markdown. Omit `--no-prune` to also prune `archived`/`actioned` rows from the CSV. Extend path maps in `generate_kb_phase1_outputs.py` only after you confirm targets; otherwise search `_docs/` (FAQ/troubleshooting first).
-3. Inspect `kb_articles_skipped.md` — address only rows where fixing `doc_path` would recover them. Do not override the skip on any other gate.
+3. Inspect `kb_articles_skipped.md` — recover **path** misses and **vague `suggested_change`** rows per above. Do not override other skip gates by editing markdown; change the CSV (or path maps) and re-run.
 4. Inspect `kb_articles_actioned.md` section 1 — one PR per primary `_docs` file.
 
 **`inconclusive`:** still actionable with a `doc_path` — **verify in reference repos** before Phase 2.

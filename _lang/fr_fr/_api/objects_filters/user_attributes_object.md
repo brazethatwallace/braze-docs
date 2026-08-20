@@ -48,7 +48,7 @@ Utilisez les noms de champs de profil utilisateur Braze (énumérés ci-après o
 }
 ```
 
-- [ID externe d'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
+- [ID externe]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
 - [Alias d'utilisateur]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
 
 {% alert note %}
@@ -71,7 +71,7 @@ Gardez les points suivants à l'esprit lorsque vous utilisez des identifiants :
 - **`email` a la priorité sur `phone`.** Si `email` et `phone` sont tous deux inclus dans le même objet, Braze utilise `email` comme identifiant. Cela signifie que les attributs sont appliqués au profil utilisateur associé à cette adresse e-mail, même si le numéro de téléphone appartient à un profil différent.
 
 {% alert important %}
-Pour éviter tout comportement inattendu, utilisez un seul identifiant par objet d'attributs utilisateur. Fournir plusieurs identifiants qui font référence à des profils utilisateur différents peut entraîner l'application des attributs au mauvais profil.
+Pour éviter tout comportement inattendu, utilisez un seul identifiant par objet d'attributs utilisateur. Fournir plusieurs identifiants faisant référence à des profils utilisateur différents peut entraîner l'application des attributs au mauvais profil.
 {% endalert %}
 
 #### Mettre à jour uniquement les profils existants {#update-existing-profiles-only}
@@ -86,10 +86,10 @@ Si vous créez un profil utilisateur uniquement basé sur un alias via l'endpoin
 
 Avant d'importer des jetons push dans Braze, vérifiez bien si vous en avez besoin. Lorsque les SDK Braze sont mis en place, ils gèrent automatiquement les jetons push sans qu'il soit nécessaire de les télécharger via l'API.
 
-Si vous constatez que vous devez les télécharger via l'API, ils peuvent être téléchargés pour des utilisateurs identifiés ou anonymes. Cela signifie qu'un `external_id` doit être présent, ou que les utilisateurs anonymes doivent avoir l'indicateur `push_token_import` défini sur `true`.
+Si vous constatez que vous devez les télécharger via l'API, ils peuvent être téléchargés pour des utilisateurs identifiés ou des utilisateurs anonymes. Cela signifie qu'un `external_id` doit être présent, ou que les utilisateurs anonymes doivent avoir l'indicateur `push_token_import` défini sur `true`.
 
 {% alert note %}
-Lors de l'importation de jetons push depuis d'autres systèmes, un `external_id` n'est pas toujours disponible. Pour maintenir la communication avec ces utilisateurs pendant votre transition vers Braze, vous pouvez importer les jetons hérités pour les utilisateurs anonymes sans fournir d'`external_id` en spécifiant `push_token_import` comme `true`.
+Lors de l'importation de jetons push depuis d'autres systèmes, un `external_id` n'est pas toujours disponible. Pour maintenir la communication avec ces utilisateurs pendant votre transition vers Braze, vous pouvez importer les jetons hérités pour des utilisateurs anonymes sans fournir d'`external_id` en spécifiant `push_token_import` comme `true`.
 {% endalert %}
 
 Lorsque vous spécifiez `push_token_import` comme `true` :
@@ -100,9 +100,9 @@ Lorsque vous spécifiez `push_token_import` comme `true` :
 
 Après l'importation, lorsque chaque utilisateur lance la version de votre application compatible avec Braze, Braze déplace automatiquement son jeton push importé vers son profil utilisateur Braze et nettoie le profil temporaire.
 
-Braze vérifie une fois par mois s'il existe des profils anonymes avec l'indicateur `push_token_import` qui ne possèdent pas de jeton push. Si le profil anonyme n'a plus de jeton push, Braze supprime le profil. Cependant, si le profil anonyme possède encore un jeton push, ce qui suggère que l'utilisateur réel ne s'est pas encore connecté à l'appareil avec ledit jeton push, Braze ne fait rien.
+Braze vérifie une fois par mois s'il existe des profils anonymes avec l'indicateur `push_token_import` qui ne possèdent pas de jeton push. Si le profil anonyme n'a plus de jeton push, Braze supprime le profil. Cependant, si le profil anonyme possède encore un jeton push, ce qui suggère que l'utilisateur réel ne s'est pas encore connecté à l'appareil avec ce jeton push, Braze ne fait rien.
 
-Pour plus d'informations, consultez [Migrer les jetons push](#migrate-push-tokens).
+Pour plus d'informations, consultez [Migration des jetons push](#migrate-push-tokens).
 
 #### Types de données des attributs personnalisés {#custom-attribute-data-types}
 
@@ -117,7 +117,7 @@ Les types de données suivants peuvent être stockés en tant qu'attribut person
 | Floats | Les attributs personnalisés de type float sont des nombres positifs ou négatifs avec une virgule décimale. Par exemple, vous pouvez utiliser les floats pour stocker des soldes de compte ou des évaluations d'utilisateurs pour des produits ou services. |
 | Entiers | Vous pouvez incrémenter les attributs personnalisés de type entier en assignant un objet avec le champ « inc » et le montant à ajouter. <br><br>Exemple : `"my_custom_attribute_2" : {"inc" : int_value},`|
 | Attributs personnalisés imbriqués | Les attributs personnalisés imbriqués définissent un ensemble d'attributs comme propriété d'un autre attribut. Lorsque vous définissez un objet d'attribut personnalisé, vous ajoutez un ensemble d'attributs à cet objet. Pour plus d'informations, consultez [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support). |
-| Chaînes de caractères | Les attributs personnalisés de type chaîne de caractères sont des séquences de caractères utilisées pour stocker des données textuelles. Par exemple, vous pouvez utiliser les chaînes de caractères pour stocker les prénoms et noms, les adresses e-mail ou les préférences. |
+| Chaînes de caractères | Les attributs personnalisés de type chaîne de caractères sont des séquences de caractères utilisées pour stocker des données textuelles. Par exemple, vous pouvez utiliser des chaînes de caractères pour stocker les prénoms et noms, les adresses e-mail ou les préférences. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Types de données des attributs personnalisés" }
 
 {% alert tip %}
@@ -126,7 +126,7 @@ Pour savoir quand utiliser un événement personnalisé plutôt qu'un attribut p
 
 ##### Exemple de tableau d'objets {#array-of-objects-example}
 
-Ce tableau d'objets vous permet de créer des Segments basés sur des critères spécifiques au sein des séjours, et de personnaliser vos messages en utilisant les données de chaque séjour avec les modèles Liquid.
+Ce tableau d'objets vous permet de créer des Segments basés sur des critères spécifiques au sein des séjours, et de personnaliser vos messages en utilisant les données de chaque séjour avec des modèles Liquid.
 
 ```json
 {"hotel_stays": [
@@ -159,8 +159,8 @@ Pour une référence des attributs standard destinée aux clients, organisée pa
 | dob | (date de naissance) Chaîne de caractères au format « YYYY-MM-DD », par exemple, 1980-12-21. |
 | email | (string) |
 | email_subscribe | (string) Les valeurs disponibles sont « opted_in » (explicitement inscrit pour recevoir des e-mails), « unsubscribed » (explicitement désinscrit des e-mails) et « subscribed » (ni inscrit ni désinscrit).  |
-| email_open_tracking_disabled | (boolean) `true` ou `false` accepté. Définissez sur `true` pour désactiver l'ajout du pixel de suivi d'ouverture à tous les futurs e-mails envoyés à cet utilisateur. |
-| email_click_tracking_disabled | (boolean) `true` ou `false` accepté. Définissez sur `true` pour désactiver le suivi des clics pour tous les liens dans un futur e-mail envoyé à cet utilisateur. |
+| email_open_tracking_disabled |(boolean) `true` ou `false` accepté. Définissez sur `true` pour désactiver l'ajout du pixel de suivi d'ouverture à tous les futurs e-mails envoyés à cet utilisateur.|
+| email_click_tracking_disabled |(boolean) `true` ou `false` accepté. Définissez sur `true` pour désactiver le suivi des clics pour tous les liens dans un futur e-mail envoyé à cet utilisateur.|
 | external_id | (string) Un identifiant unique pour un profil utilisateur. Après l'attribution d'un `external_id`, Braze identifie le profil utilisateur sur tous les appareils de l'utilisateur. Lors de la première attribution d'un external_id à un profil utilisateur inconnu, Braze migre toutes les données de profil utilisateur existantes vers le nouveau profil utilisateur. |
 | facebook | Hash contenant l'un des éléments suivants : `id` (string), `likes` (tableau de chaînes de caractères), `num_friends` (entier). |
 | first_name | (string) |
@@ -169,10 +169,10 @@ Pour une référence des attributs standard destinée aux clients, organisée pa
 | language | (string) Nous exigeons que la langue soit transmise à Braze selon la norme [ISO-639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). Pour les langues prises en charge, consultez notre [liste des langues acceptées]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes).<br><br>Définir `language` sur un utilisateur par importation CSV ou API empêche Braze de capturer automatiquement cette information via le SDK. |
 | last_name | (string) |
 | marked_email_as_spam_at | (string) Date à laquelle l'e-mail de l'utilisateur a été marqué comme spam. Apparaît au format ISO 8601 ou dans l'un des formats suivants : <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` |
-| phone | (string) Nous recommandons de fournir les numéros de téléphone au format [E.164](https://en.wikipedia.org/wiki/E.164). Pour plus de détails, consultez [Numéros de téléphone des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format). |
+| phone | (string) Nous recommandons de fournir les numéros de téléphone au format [E.164](https://en.wikipedia.org/wiki/E.164). Pour plus de détails, consultez [Numéros de téléphone des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format).|
 | push_subscribe | (string) Les valeurs disponibles sont « opted_in » (explicitement inscrit pour recevoir des notifications push), « unsubscribed » (explicitement désinscrit des notifications push) et « subscribed » (ni inscrit ni désinscrit).  |
 | push_tokens | Tableau d'objets avec les chaînes de caractères `app_id` et `token`. Vous pouvez éventuellement fournir un `device_id` pour l'appareil auquel ce jeton est associé, par exemple, `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Si aucun `device_id` n'est fourni, un identifiant est généré aléatoirement. |
-| subscription_groups | Tableau d'objets avec les chaînes de caractères `subscription_group_id` et `subscription_state`, par exemple, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Les valeurs disponibles pour `subscription_state` sont « subscribed » et « unsubscribed ». |
+| subscription_groups| Tableau d'objets avec les chaînes de caractères `subscription_group_id` et `subscription_state`, par exemple, `[{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed"}]`. Les valeurs disponibles pour `subscription_state` sont « subscribed » et « unsubscribed ».|
 | time_zone | (string) Nom du fuseau horaire issu de la [base de données des fuseaux horaires IANA](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (par exemple, « America/New_York » ou « Eastern Time (US & Canada) »). Seules les valeurs de fuseau horaire valides sont définies. |
 | twitter | Hash contenant l'un des éléments suivants : `id` (entier), `screen_name` (string, identifiant X (anciennement Twitter)), `followers_count` (entier), `friends_count` (entier), `statuses_count` (entier). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Champs du profil utilisateur Braze" }
@@ -242,7 +242,7 @@ La migration manuelle des jetons push consiste à importer ces clés précédemm
 
 Migrez de manière programmatique les jetons iOS (APNs) et Android (FCM) vers votre plateforme en utilisant l'[endpoint `users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Vous pouvez migrer à la fois les utilisateurs identifiés (utilisateurs associés à un ID externe) et les utilisateurs anonymes (utilisateurs sans ID externe).
 
-Spécifiez l'`app_id` de votre application lors de la migration des jetons push pour associer le jeton push approprié à l'application correspondante. Chaque application (iOS, Android, etc.) possède son propre `app_id`, que vous pouvez trouver dans la section **Identification** de la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). Assurez-vous d'utiliser l'`app_id` de la bonne plateforme.
+Spécifiez l'`app_id` de votre application lors de la migration des jetons push pour associer le jeton push approprié à l'application correspondante. Chaque application (iOS, Android, etc.) possède son propre `app_id`, que vous trouverez dans la section **Identification** de la page [Clés API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). Assurez-vous d'utiliser l'`app_id` de la bonne plateforme.
 
 {% alert important %}
 Il n'est pas possible de migrer les jetons push Web via l'API. En effet, les jetons push Web ne sont pas conformes au même schéma que les autres plateformes.
@@ -350,11 +350,11 @@ Si vous devez envoyer des notifications push Android à vos utilisateurs avant q
 Vous devez disposer d'un récepteur pour gérer et afficher les payloads push. Pour notifier le récepteur du payload push, ajoutez les paires clé-valeur nécessaires à la Campaign push. Les valeurs de ces paires dépendent du partenaire push spécifique que vous utilisiez avant Braze.
 
 {% alert note %}
-Pour certains fournisseurs de notifications push, Braze doit aplatir les paires clé-valeur afin qu'elles puissent être correctement interprétées. Pour aplatir les paires clé-valeur pour une application Android spécifique, contactez votre gestionnaire du succès des clients.
+Pour certains fournisseurs de notifications push, Braze doit aplatir les paires clé-valeur afin qu'elles puissent être correctement interprétées. Pour aplatir les paires clé-valeur d'une application Android spécifique, contactez votre gestionnaire du succès des clients.
 {% endalert %}
 
 ## Questions fréquentes {#frequently-asked-questions}
 
-### Comment trouver les utilisateurs traités comme spam ou bloqués pour l'envoi de messages ? {#how-do-i-find-users-treated-as-spam-or-blocked-from-messaging}
+### Comment trouver les utilisateurs traités comme spam ou bloqués pour la communication ? {#how-do-i-find-users-treated-as-spam-or-blocked-from-messaging}
 
-Braze ne fournit pas de liste de spam dédiée dans le tableau de bord. Braze bloque les utilisateurs individuels ayant plus de cinq millions de sessions (« utilisateurs factices ») et n'ingère plus leurs événements SDK. Si un identifiant est bloqué, [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) peut renvoyer l'erreur `"provided external_id is blacklisted and disallowed"`. Ce libellé est repris tel quel de la réponse de l'API. Pour trouver les profils concernés, créez un [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) avec le filtre **Session Count** défini sur **more than 5,000,000**, exportez le Segment au format CSV, puis vérifiez les champs de profil dans **Engagement** > **Search users** ou avec l'endpoint [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier).
+Braze ne fournit pas de liste de spam dédiée dans le tableau de bord. Braze bloque les profils utilisateur individuels (« utilisateurs factices ») ayant plus de cinq millions de sessions, plus de 20 000 noms d'événements personnalisés distincts ou plus de 20 000 noms de produits distincts dans les achats, et cesse d'ingérer toutes les données entrantes pour ce profil, aussi bien depuis les SDK que depuis la REST API. Si un identifiant est bloqué, [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) peut renvoyer l'erreur `"provided external_id is blacklisted and disallowed"`. Ce libellé est repris tel quel depuis la réponse de l'API. Pour trouver les profils bloqués en raison d'un nombre excessif de sessions, créez un [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) avec le filtre **Session Count** défini sur **more than 5,000,000**, exportez le Segment au format CSV, puis vérifiez les champs du profil dans **Engagement** > **Search users** ou avec l'endpoint [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier). Il n'existe pas de filtre équivalent pour les noms d'événements personnalisés distincts ou les noms de produits, contactez donc votre gestionnaire de compte Braze pour identifier les profils bloqués pour ces raisons. Pour en savoir plus, consultez [Blocage du spam]({{site.baseurl}}/user_archival).

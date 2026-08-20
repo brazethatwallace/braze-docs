@@ -32,7 +32,7 @@ Wenn ein Team durch ein angepasstes Attribut, eine Sprache oder ein Land definie
 
 ## Nutzer:innen Teams zuweisen {#assign-users-to-teams}
 
-Braze-Administrator:innen und eingeschränkte Nutzer:innen mit der unternehmensweiten Berechtigung „Unternehmenseinstellungen verwalten“ können einem/einer Unternehmensnutzer:in mit eingeschränktem Zugriff Berechtigungen auf Team-Ebene zuweisen. Wenn Unternehmensnutzer:innen einem Team zugewiesen werden, sind sie darauf beschränkt, nur Daten zu lesen oder zu schreiben, die ihren jeweiligen Teams zur Verfügung stehen – beispielsweise Nutzersprache, Standort oder angepasste Attribute, wie bei der Erstellung des Teams festgelegt.
+Braze-Administrator:innen und eingeschränkte Nutzer:innen mit der unternehmensweiten Berechtigung „Unternehmenseinstellungen verwalten“ können einem/einer Unternehmensnutzer:in mit eingeschränktem Zugriff Berechtigungen auf Team-Ebene zuweisen. Wenn Unternehmensnutzer:innen einem Team zugewiesen werden, sind sie darauf beschränkt, nur Daten zu lesen oder zu schreiben, die ihren jeweiligen Teams zur Verfügung stehen – wie z. B. Nutzersprache, Standort oder angepasste Attribute, wie bei der Erstellung des Teams festgelegt.
 
 ### Berechtigungen von Unternehmensnutzer:innen einschränken, ohne sie zu löschen {#limit-company-user-permissions-without-deleting-a-user}
 
@@ -48,13 +48,13 @@ Führen Sie dann die folgenden Schritte aus:
 
 1. Fügen Sie im Abschnitt **Berechtigungen auf Workspace-Ebene** die/den Nutzer:in dem entsprechenden Workspace hinzu, falls sie/er noch nicht enthalten ist.
 
-![Berechtigungen auf Workspace-Ebene mit der festgelegten Banner-Template-Berechtigung.]({% image_buster /assets/img/team_level_permissions.png %})
+![Berechtigungen auf Workspace-Ebene mit festgelegter Banner-Template-Berechtigung.]({% image_buster /assets/img/team_level_permissions.png %})
 
 {: start="2"}
-2. Wählen Sie **+ Berechtigungen auf Team-Ebene hinzufügen** und dann das **Team** aus, dem Sie diese:n Nutzer:in hinzufügen möchten.
+2. Wählen Sie **+ Team-Berechtigungen hinzufügen** und dann das **Team**, dem Sie diese:n Nutzer:in hinzufügen möchten.
 3. Weisen Sie spezifische Berechtigungen im Abschnitt **Team**-Berechtigungen zu.
 
-![Berechtigungen für Landing-Page-Templates auf Team-Ebene.]({% image_buster /assets/img/teams.png %})
+![Template-Berechtigungen für Landing-Pages auf Team-Ebene.]({% image_buster /assets/img/teams.png %})
 
 ### Verfügbare Berechtigungen auf Team-Ebene {#available-team-level-permissions}
 
@@ -107,6 +107,18 @@ Beschreibungen der einzelnen Nutzerberechtigungen und ihrer Verwendung finden Si
 ## Team-Tags zuweisen {#tags-and-filters}
 
 Sie können ein Team Canvases, Campaigns, Content Cards, Segmenten, E-Mail-Templates, Webhook-Templates, Content Blocks und Medienbibliothek-Assets mit dem Filter **Team hinzufügen** zuweisen.
+
+### Automatische Team-Zuweisung {#automatic-team-assignment}
+
+Für Nutzer:innen mit ausschließlich Berechtigungen auf Team-Ebene (und ohne Bearbeitungsberechtigung auf Workspace-Ebene) kann Braze Teams bei der Objekterstellung automatisch zuweisen:
+
+| Team-Mitgliedschaft der Nutzer:innen | Verhalten |
+| --- | --- |
+| Genau ein Team | Braze weist dieses Team automatisch zu, wenn die Nutzer:innen eine neue Campaign, ein Canvas, einen Content-Block oder ein E-Mail-Template erstellen. |
+| Mehr als ein Team | Die Nutzer:innen müssen vor dem Speichern ein Team auswählen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verhalten bei automatischer Team-Zuweisung" }
+
+Wenn ein Team einer Campaign oder einem Canvas zugewiesen wird, erscheinen die erforderlichen Segmentierungsfilter dieses Teams im Zielgruppen-Builder als schreibgeschützte **Team-Filter**-Gruppe.
 
 Bei Canvases prüft Braze nur beim Eintritt in das Canvas, ob Nutzer:innen die Kriterien des Team-Filters erfüllen. Nachdem ein:e Nutzer:in ein Canvas betreten hat, erhält er/sie weiterhin Nachrichten aus allen Canvas-Schritten, auch wenn sich die Attribute ändern und er/sie die Kriterien des Team-Filters nicht mehr erfüllt. Team-Filter verhalten sich nicht wie [Zustellungsvalidierungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations), die Nutzer:innen bei jedem Nachrichtenschritt-Versand erneut auswerten.
 
@@ -173,4 +185,4 @@ Wählen Sie ein oder mehrere Teams zum Archivieren aus. Wenn das Team mit keinem
 
 ![Archivierung eines Teams, das mit einem Objekt in Braze verknüpft ist]({% image_buster /assets/img_archive/archive_a_team.png %}){: style="max-width:70%;"}
 
-Braze-Admins können ein Team dearchivieren, indem sie das archivierte Team auswählen und **Dearchivieren** wählen.
+Braze-Administrator:innen können ein Team dearchivieren, indem sie das archivierte Team auswählen und **Dearchivieren** wählen.

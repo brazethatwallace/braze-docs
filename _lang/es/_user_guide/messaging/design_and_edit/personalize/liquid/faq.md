@@ -62,7 +62,7 @@ Para el uso en URL y cadenas de consulta (por ejemplo, cuando un nombre contiene
 
 ### ¿Cómo uso Liquid con objetos anidados? {#how-do-i-use-liquid-with-nested-objects}
 
-Braze tiene una característica integrada que genera código Liquid para segmentos que se pueden usar en un mensaje. Específicamente, puedes crear un segmento que coincida con múltiples criterios en un objeto.
+Braze tiene una característica integrada que genera código Liquid para Segments que se pueden usar en un mensaje. Específicamente, puedes crear un Segment que coincida con múltiples criterios en un objeto.
 
 Para más información, consulta [Segmentación multicriterio]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects).
 
@@ -82,11 +82,13 @@ Liquid no admite de forma nativa arreglos de arreglos. Almacena los valores como
 
 Puedes crear y asignar variables usando la etiqueta `assign`. Esto crea una variable en el creador de mensajes que también se puede referenciar a lo largo de tu mensaje.
 
+Puedes dividir un `assign` en varias líneas si envuelves todas las variables de Liquid de Braze con llaves dobles (`{{ }}`). Sin esas llaves, las sentencias de asignación multilínea pueden causar un renderizado inesperado, incluyendo atributos personalizados que no se procesan como plantilla. Para ver ejemplos y reglas de sintaxis relacionadas, consulta [Usar Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
+
 ### ¿Cuándo debo usar `assign` en lugar de `capture`? {#when-should-i-use-assign-versus-capture}
 
 Tanto `assign` como `capture` crean variables de Liquid, pero tienen propósitos diferentes:
 
-- `assign` es para variables simples que almacenan un único valor, como un booleano, un número o una cadena simple. También puedes aplicar un único filtro en la misma línea.
+- `assign` es para variables simples que almacenan un único valor, como un booleano, un número o una cadena simple. También puedes aplicar un solo filtro en la misma línea.
 - `capture` es para almacenar un bloque de texto que puede incluir múltiples variables, cadenas o expresiones complejas.
 
 Usa `capture` cuando el valor sea demasiado complejo para una sola sentencia `assign`, como URLs que usan otras variables de Liquid o atributos personalizados como parámetros. `capture` también es preferible al implementar variables de Liquid en el cuerpo de llamadas de contenido conectado.
@@ -143,11 +145,11 @@ Una vez que se cumplan las condiciones establecidas, tu mensaje puede continuar.
 
 ### ¿Qué es la lógica de cancelación y cómo puedo usarla? {#what-is-abort-logic-and-how-can-i-use-it}
 
-La lógica de cancelación te permite detener el envío de un mensaje si se cumplen las condiciones. Esto es especialmente útil para evitar que se envíen mensajes incompletos a tus usuarios. Para ver ejemplos de lógica de cancelación en tus Campaigns de marketing, consulta [Cancelar mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
+La lógica de cancelación te permite detener el envío de un mensaje si se cumplen las condiciones. Esto es especialmente útil para evitar que se envíen mensajes incompletos a tus usuarios. Para ver ejemplos de lógica de cancelación en tus Campaigns de marketing, lee más en [Cancelar mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
 
 ### ¿Puedo usar Liquid dentro de la etiqueta `abort_message`? {#can-i-use-liquid-inside-the-abort_message-tag}
 
-No. La etiqueta {% raw %}`{% abort_message %}`{% endraw %} acepta una cadena estática entre comillas, no personalización de Liquid. Usa otra lógica de Liquid antes de la etiqueta si necesitas un comportamiento de cancelación condicional.
+No. La etiqueta {% raw %}`{% abort_message %}`{% endraw %} acepta una cadena estática entre comillas, no personalización con Liquid. Usa otra lógica de Liquid antes de la etiqueta si necesitas un comportamiento de cancelación condicional.
 
 ### ¿Cómo enmascaro números de teléfono con Liquid? {#how-do-i-mask-phone-numbers-with-liquid}
 
@@ -206,9 +208,9 @@ Algunos tipos de [propiedades de contexto de Canvas]({{site.baseurl}}/user_guide
 ```
 {% endraw %}
 
-### ¿Por qué mi fragmento de código de Liquid del catálogo devuelve un mensaje de cancelación? {#why-does-my-catalog-liquid-snippet-return-an-abort-message}
+### ¿Por qué mi fragmento de código Liquid de catálogo devuelve un mensaje de cancelación? {#why-does-my-catalog-liquid-snippet-return-an-abort-message}
 
-Si un fragmento de código de Liquid del catálogo se cancela durante el envío, recrea el fragmento desde el menú de personalización seleccionando elementos individuales del catálogo en lugar de usar una selección masiva o completamente dinámica. Consulta [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs) y [Selecciones]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
+Si un fragmento de código Liquid de catálogo se cancela durante el envío, recrea el fragmento desde el menú de personalización seleccionando elementos individuales del catálogo en lugar de usar una selección masiva o completamente dinámica. Consulta [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs) y [Selecciones]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
 
 ## Content Blocks y el creador de mensajes {#content-blocks-and-the-message-composer}
 
@@ -229,7 +231,7 @@ Si notas un espaciado adicional en los mensajes enviados que usan Content Blocks
 
 Cuando el código Liquid se distribuye en varias líneas en el editor de arrastrar y soltar de mensajes dentro de la aplicación o en el editor de arrastrar y soltar de correo electrónico, cada bloque {% raw %}`{% %}`{% endraw %} se renderiza como texto no visible. Los saltos de línea se conservan como líneas vacías antes de la salida visible, lo que provoca espacios en blanco inesperados.
 
-#### Solución 1: Usa etiquetas de control de espacios en blanco (recomendado) {#solution-1-use-whitespace-control-tags-recommended}
+#### Solución 1: Usar etiquetas de control de espacios en blanco (recomendado) {#solution-1-use-whitespace-control-tags-recommended}
 
 Agrega guiones dentro de los delimitadores de etiqueta para eliminar los espacios en blanco circundantes y mantener el código legible:
 
@@ -243,7 +245,7 @@ Only {{ difference_days }} days until your move!
 ```
 {% endraw %}
 
-#### Solución 2: Consolida el Liquid en una sola línea {#solution-2-consolidate-liquid-onto-a-single-line}
+#### Solución 2: Consolidar el Liquid en una sola línea {#solution-2-consolidate-liquid-onto-a-single-line}
 
 Elimina todos los saltos de línea para que el Liquid quede en una sola línea continua:
 
@@ -253,7 +255,7 @@ Elimina todos los saltos de línea para que el Liquid quede en una sola línea c
 ```
 {% endraw %}
 
-Ambos enfoques evitan líneas vacías no deseadas en tu mensaje renderizado. Esto aplica al editor de arrastrar y soltar de mensajes dentro de la aplicación, al editor de arrastrar y soltar de correo electrónico y a los Content Blocks con Liquid. Para más información, consulta [Control de espacios en blanco](https://shopify.github.io/liquid/basics/whitespace/).
+Ambos enfoques evitan líneas vacías no deseadas en tu mensaje renderizado. Esto aplica al editor de arrastrar y soltar de mensajes dentro de la aplicación, al editor de arrastrar y soltar de correo electrónico y a los Content Blocks con Liquid. Para más información, consulta la documentación de Shopify sobre [control de espacios en blanco](https://shopify.github.io/liquid/basics/whitespace/) y la [sintaxis de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax) de Braze.
 
 ### ¿Por qué mi Content Block no aparece en **Row** en la herramienta de búsqueda de arrastrar y soltar? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
 
@@ -261,7 +263,7 @@ Algunos Content Blocks no aparecen en **Row** en la búsqueda del editor de arra
 
 ### ¿Por qué la vista previa de mi Content Block de arrastrar y soltar difiere de la vista de composición? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
 
-Cuando creas una plantilla de un Content Block con Liquid, las media queries para dispositivos móviles en el bloque pueden no aplicarse en la vista previa de la misma manera que cuando arrastras el bloque directamente a un mensaje. Arrastrar el bloque conserva el diseño, pero lo desvincula del bloque de origen, por lo que las ediciones futuras al bloque ya no actualizan el mensaje automáticamente.
+Cuando creas una plantilla de un Content Block con Liquid, las media queries para dispositivos móviles en el bloque pueden no aplicarse en la vista previa de la misma forma que cuando arrastras el bloque directamente a un mensaje. Arrastrar el bloque conserva el diseño, pero lo desvincula del bloque de origen, por lo que las ediciones futuras al bloque ya no actualizan el mensaje automáticamente.
 
 ### ¿Cómo puedo previsualizar los valores de propiedades de eventos en el creador de mensajes? {#how-do-i-preview-event-property-values-in-message-composer}
 
@@ -273,9 +275,9 @@ Usa **Preview as Custom User** e introduce valores de ejemplo de propiedades de 
 
 Esta cancelación ocurre cuando el Liquid en la dirección **De** produce una sintaxis no válida, como una variable faltante, espacios adicionales o caracteres no permitidos. Previsualiza con un usuario de prueba y verifica que la dirección **De** renderizada coincida con tu dominio de envío configurado.
 
-### ¿Cómo creo una dirección de respuesta dinámica? {#how-do-i-create-a-dynamic-reply-to-address}
+### ¿Cómo creo una dirección dinámica de responder a? {#how-do-i-create-a-dynamic-reply-to-address}
 
-Usa Liquid en el campo **Responder a** cuando tu espacio de trabajo admita la configuración dinámica de respuesta. Combínalo con la configuración de tu nombre para mostrar en **De** según sea necesario. Consulta [Configuración de correo electrónico]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) para conocer las opciones específicas del espacio de trabajo.
+Usa Liquid en el campo **Responder a** cuando tu espacio de trabajo admita la configuración dinámica de responder a. Combínalo con la configuración de tu nombre para mostrar en **De** según sea necesario. Consulta [Configuración de correo electrónico]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) para conocer las opciones específicas del espacio de trabajo.
 
 ## Solución de problemas de errores de Liquid {#troubleshooting-liquid-errors}
 

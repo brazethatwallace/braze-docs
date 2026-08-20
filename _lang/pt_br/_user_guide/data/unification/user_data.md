@@ -40,7 +40,7 @@ guide_featured_list:
 <br>
 
 {% alert important %}
-A Braze banirá ou bloqueará usuários ("usuários fictícios") com mais de 5 milhões de sessões e deixará de processar seus eventos de SDK, pois eles geralmente são resultado de uma integração incorreta. Se isso acontecer com um usuário legítimo, fale com o gerente da sua conta na Braze.
+A Braze bloqueia perfis de usuários ("usuários fictícios") com mais de 5.000.000 de sessões, mais de 20.000 nomes distintos de eventos personalizados ou mais de 20.000 nomes distintos de produtos em compras, pois eles geralmente são resultado de uma integração incorreta. Depois que um perfil é bloqueado, a Braze para de processar todos os dados de entrada desse perfil, tanto dos SDKs quanto da REST API. Se isso acontecer com um usuário legítimo, entre em contato com o gerente da sua conta na Braze.
 {% endalert %}
 
 <br>

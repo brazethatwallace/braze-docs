@@ -53,7 +53,7 @@ search_rank: 3.9
 
 3つの基本的なContent Cardsタイプから1つを選択します: **クラシック**、**キャプション付き画像**、**画像のみ**。
 
-各タイプの想定される動作と外観の詳細については、[クリエイティブの詳細]({{site.baseurl}}/user_guide/channels/content_cards/creative_details)を参照するか、以下の表のリンクを確認してください。これらのContent Cardsタイプは、モバイルアプリとWebアプリケーションの両方で利用できます。
+各タイプの想定される動作と外観の詳細については、[クリエイティブの詳細]({{site.baseurl}}/user_guide/channels/content_cards/creative_details)を参照するか、以下の表のリンクを確認してください。これらのContent Cardsタイプは、モバイルアプリとWebアプリケーションの両方で使用できます。
 
 | メッセージタイプ | 例 | 説明 |
 |---|---|---|
@@ -62,17 +62,17 @@ search_rank: 3.9
 | [画像のみ]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![テキストのみが表示された画像のみのContent Card。]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 画像のみカードは、画像、GIF、その他のクリエイティブなテキスト以外のコンテンツ用のスペースで注目を集めます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ2: メッセージタイプを指定する" }
 
-## ステップ3: Content Cardを作成する {#step-3-compose-a-content-card}
+## ステップ3: Content Cardsを作成する {#step-3-compose-a-content-card}
 
 メッセージエディターの**作成**タブで、メッセージのコンテンツと動作のすべての側面を編集できます。
 
-![メッセージエディターの作成タブにおけるContent Cardの詳細のサンプル。]({% image_buster /assets/img/content_card_compose.png %})
+![メッセージエディターの「作成」タブにおけるContent Cardsの詳細のサンプル。]({% image_buster /assets/img/content_card_compose.png %})
 
-ここでのコンテンツは、前のステップで選択した**カードタイプ**によって異なりますが、以下のオプションのいずれかが含まれる場合があります。
+ここに表示されるコンテンツは、前のステップで選択した**カードタイプ**によって異なりますが、以下のオプションのいずれかが含まれる場合があります。
 
 ### 言語 {#language}
 
-**言語を追加**を選択して、提供されたリストから希望する言語を追加します。これにより、メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic)が挿入されます。Liquidの適切な場所にテキストを入力できるように、コンテンツを書く前に言語を選択することをお勧めします。使用可能な言語の完全なリストについては、[サポートされている言語]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported)を参照してください。
+**言語を追加**を選択して、提供されたリストから希望する言語を追加します。これにより、メッセージに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic)が挿入されます。コンテンツを作成する前に言語を選択し、Liquid内の適切な場所にテキストを入力できるようにすることをお勧めします。使用可能な言語の完全なリストについては、[サポートされている言語]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported)を参照してください。
 
 ![英語、スペイン語、フランス語が言語として選択され、タイトル、説明、リンクテキストが国際化するフィールドとして選択されたウィンドウ。]({% image_buster /assets/img/add_languages.png %}){: style="max-width:70%;"}
 
@@ -82,33 +82,33 @@ search_rank: 3.9
 
 #### タイトルとメッセージ {#title-and-message}
 
-好きなことを何でも書けます。制限はありませんが、メッセージを素早く伝えて顧客にクリックしてもらえるほど効果的です！明確で簡潔なタイトルとメッセージコンテンツをお勧めします。これらのフィールドは画像のみのカードには提供されないことに注意してください。
+自由に記述できます。制限はありませんが、メッセージを素早く伝えて顧客にクリックしてもらえるほど効果的です。明確で簡潔なタイトルとメッセージコンテンツをお勧めします。これらのフィールドは画像のみのカードには提供されないことに注意してください。
 
 #### 画像 {#image}
 
-Content Cardに画像を追加するには、**画像を追加**を選択するか、画像URLを入力します。**画像を追加**を選択すると**メディアライブラリ**が開き、以前にアップロードした画像を選択するか、新しい画像を追加できます。
+Content Cardsに画像を追加するには、**画像を追加**を選択するか、画像URLを入力します。**画像を追加**を選択すると**メディアライブラリ**が開き、以前にアップロードした画像を選択するか、新しい画像を追加できます。
 
-メッセージタイプとプラットフォームごとに推奨される比率と要件が異なる場合があるため、画像を委託したりゼロから作成したりする前に、それらを確認してください。Content Cardのメッセージフィールドは合計サイズが2&nbsp;KBに制限されていることに注意してください。
+メッセージタイプとプラットフォームごとに推奨される比率と要件が異なる場合があるため、画像を作成する前にそれらを確認してください。Content Cardsのメッセージフィールドは合計サイズが2&nbsp;KBに制限されていることに注意してください。
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 #### トップに固定 {#pin-to-top}
 
-Brazeは固定されたカードをユーザーのフィードの上部に表示し、ユーザーはそれを閉じることができません。ユーザーのフィードに複数の固定カードがある場合、Brazeはそれらを時系列順に並べます。BrazeがContent Cardを配信する際、カードは固定または固定解除のいずれかであり、そのステータスはカードの有効期間中変更されません。キャンペーンの固定設定を変更した場合、更新は変更後に送信されたカードにのみ適用されます。すでにユーザーのフィードにあるカードの固定ステータスは変更されません。
+Brazeは固定されたカードをユーザーのフィードの上部に表示し、ユーザーはそれを閉じることができません。ユーザーのフィードに複数の固定カードがある場合、Brazeはそれらを時系列順に並べます。BrazeがContent Cardsを配信する際、カードは固定または非固定のいずれかであり、そのステータスはカードの有効期間中変更されません。キャンペーンの固定設定を変更した場合、更新は変更後に送信されたカードにのみ適用されます。すでにユーザーのフィードにあるカードの固定ステータスは変更されません。
 
-![「このカードをフィードのトップに固定する」オプションが選択された、モバイルとWebのBrazeにおけるContent Cardプレビューの並列表示。]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
+![「このカードをフィードのトップに固定する」オプションが選択された、モバイルとWebのBrazeにおけるContent Cardsプレビューの並列表示。]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
 #### クリック時の動作 {#on-click-behavior}
 
-顧客がカード内の表示されたリンクをクリックすると、リンクはアプリの深い階層に誘導するか、別のサイトに誘導できます。Content Cardのクリック時の動作を選択する場合は、それに応じて**リンクテキスト**を更新することを忘れないでください。
+顧客がカード内の表示されたリンクをクリックすると、リンクはアプリ内のより深い場所または別のサイトに誘導できます。Content Cardsのクリック時の動作を選択する場合は、それに応じて**リンクテキスト**を更新することを忘れないでください。
 
-Content Cardのリンクには以下のアクションが利用可能です。
+Content Cardsのリンクには以下のアクションが利用可能です。
 
 | アクション | 説明 |
 |---|---|
 | Web URLにリダイレクト | ネイティブでないWebページを開きます。 |
 | [アプリへのディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content) | アプリ内の既存の画面にディープリンクします。 |
-| カスタムイベントを記録 | トリガーする[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を選択します。別のContent Cardの表示や追加のメッセージングのトリガーに使用できます。 |
+| カスタムイベントを記録 | トリガーする[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を選択します。別のContent Cardsの表示や追加のメッセージングのトリガーに使用できます。 |
 | カスタム属性を記録 | 現在のユーザーに設定する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)を選択します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="クリック時の動作" }
 
@@ -127,11 +127,11 @@ Content Cardのリンクには以下のアクションが利用可能です。
 {% tabs %}
 {% tab キャンペーン %}
 
-キャンペーンの残りの部分を構築します。Content Cardsを構築するためのツールの最適な使い方については、次のセクションに進んでください。
+キャンペーンの残りの部分を構築します。Content Cardsを構築するためのツールの最適な使用方法については、次のセクションに進んでください。
 
 ### 配信スケジュールまたはトリガーを選択する {#choose-a-delivery-schedule-or-trigger}
 
-Content Cardsは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳しくは、[キャンペーンのスケジュール]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)を参照してください。
+Content Cardsは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。詳細については、[キャンペーンのスケジュール]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)を参照してください。
 
 また、キャンペーンの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)を設定し、Content Cardsの有効期限を決定することもできます。特定の有効期限日、またはカードが期限切れになるまでの日数（最大30日）を設定します。すべてのバリアントは同じ有効期限（期間または特定の時間）を使用する必要があります。
 
@@ -144,11 +144,11 @@ Content Cardsは、スケジュールされた時間、アクション、また�
 
 {% multi_lang_include alerts/note_alerts.md alert='Content Cards frequency capping' %}
 
-アクションベースの配信では、Content Cardsが表示されるまでに短い遅延が予想されます。この遅延が発生する理由と最小限に抑える方法については、[トリガーイベント後にContent Cardsがすぐに表示されないのはなぜですか？]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#why-dont-content-cards-appear-immediately-after-a-trigger-event)を参照してください。
+アクションベースの配信では、Content Cardsが表示されるまでに短い遅延が予想されます。これが発生する理由と遅延を最小限に抑える方法の詳細については、[トリガーイベントの後にContent Cardsがすぐに表示されないのはなぜですか？]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#why-dont-content-cards-appear-immediately-after-a-trigger-event)を参照してください。
 
 #### スケジュール配信 {#scheduled-delivery}
 
-スケジュール配信のContent Cardsキャンペーンでは、カードが作成されるタイミングを指定することで、Brazeが新しいContent Cardsキャンペーンのオーディエンスの適格性とパーソナライゼーションを評価するタイミングを選択できます。詳しくは、[カード作成]({{site.baseurl}}/card_creation)を参照してください。
+スケジュール配信のContent Cardsキャンペーンでは、カードが作成されるタイミングを指定することで、Brazeが新しいContent Cardsキャンペーンのオーディエンスの適格性とパーソナライゼーションを評価するタイミングを選択できます。詳細については、[カード作成]({{site.baseurl}}/card_creation)を参照してください。
 
 #### ターゲットユーザーを選択する {#choose-users-to-target}
 
@@ -174,7 +174,7 @@ Brazeでは、キャンペーンを受信した後にユーザーが特定のア
 キャンペーンまたはキャンバスの構築が完了したら、詳細を確認し、[テスト]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)を行ってから送信します。詳細については、[テストメッセージの送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=content%20card)を参照してください。
 
 {% alert note %}
-Content Cardsは本番環境ではプッシュ通知を必要としませんが、テスト送信ではカードがプッシュペイロードで配信されるため、テストデバイスでプッシュを有効にする必要があります。テスト用のContent Cardsは送信後約5分で期限切れになります。
+Content Cardsは本番環境ではプッシュ通知を必要としませんが、テスト送信ではカードがプッシュペイロードで配信されるため、テストデバイスでプッシュを有効にする必要があります。テスト用のContent Cardsは、送信後約5分で期限切れになります。
 {% endalert %}
 
 {% alert warning %}
@@ -217,7 +217,7 @@ Content Cardsのペイロードサイズを管理するためのベストプラ�
 
 #### フィード内のカード数 {#number-of-cards-in-feed}
 
-各ユーザーは、任意の時点でフィードに最大250枚の有効期限内のContent Cardsを保持できます。この制限を超えると、Brazeは未読であっても最も古いカードを返さなくなります。却下されたカードもこの制限にカウントされるため、却下されたカードが多いと古いカードに利用できるスペースが減少します。
+各ユーザーは、任意の時点でフィードに最大250枚の有効期限内のContent Cardsを保持できます。この制限を超えると、Brazeは未読であっても最も古いカードの返却を停止します。却下されたカードもこの制限にカウントされるため、却下されたカードが多いと古いカードに利用可能なスペースが減少します。
 
 カード制限に関する問題を防ぐために、以下のベストプラクティスをお勧めします。
 
@@ -259,7 +259,7 @@ Content Cardsが送信された後、ユーザーに配信される準備がで�
 ##### オプション1：キャンペーンを複製する（即時変更に推奨） {#option-1-duplicate-the-campaign-recommended-for-immediate-changes}
 
 {% alert tip %}
-カードに最新のコンテンツを表示している場合、変更をすぐに反映する必要がある場合、または再適格性がオフになっている場合に、このオプションをお勧めします。
+カードに最新のコンテンツを表示する場合、変更をすぐに反映する必要がある場合、または再適格性がオフになっている場合に、このオプションをお勧めします。
 {% endalert %}
 
 最初のアプローチは、キャンペーンをアーカイブし、新しい複製キャンペーンを起動することです。
@@ -307,7 +307,7 @@ Content Cardsが送信された後、ユーザーに配信される準備がで�
 
 キャンペーンを停止することで、いつでもすべてのユーザーのフィードからカードを手動で削除できます。
 
-1. Content Cardsキャンペーンを開き、キャンペーンを停止を選択します。
+1. Content Cardsのキャンペーンを開き、Stop キャンペーンを選択します。
 2. プロンプトが表示されたら、**Remove card after the next sync**を選択します。カードは次のフィード更新時に削除されます。
 
 ##### 自動カード削除 {#action-based-card-removal}
@@ -321,10 +321,10 @@ Content Cardsが送信された後、ユーザーに配信される準備がで�
 {% endalert %}
 
 {% alert tip %}
-ユーザーのフィードからカードを削除するべき複数のカスタムイベントと購入を指定できます。ユーザーがそれらのアクションのいずれかを実行すると、キャンペーンのカードによって送信された既存のカードが削除されます。適格なカードは、メッセージのスケジュールに従って引き続き送信されます。
+ユーザーのフィードからカードを削除するべき複数のカスタムイベントと購入を指定できます。これらのアクションのいずれかがユーザーによって実行されると、キャンペーンのカードによって送信された既存のカードが削除されます。適格なカードは、メッセージのスケジュールに従って引き続き送信されます。
 {% endalert %}
 
-![Content Cards削除イベントオプションを含むContent Cards削除条件パネル。]({% image_buster /assets/img/content_cards/content_card_removal_event.png %})
+![Content Cardsの削除イベントオプションを含むContent Cards削除条件パネル。]({% image_buster /assets/img/content_cards/content_card_removal_event.png %})
 
 ##### カードの有効期限 {#card-expiration}
 
@@ -333,7 +333,7 @@ Content Cardsは送信されてから最大30日間利用可能です。30日後
 #### カードを30日以上持続させる {#making-cards-last-longer-than-30-days}
 
 {% alert tip %}
-30日間のContent Cards制限よりも長くメッセージを持続させる必要があるユースケースには、バナーの使用を検討してください。バナーは永続性を考慮して設計されており、必須の有効期限がないため、必要な限り表示し続けることができます。
+30日間のContent Cards制限よりも長くメッセージを持続させる必要があるユースケースでは、バナーの使用を検討してください。バナーは永続性を考慮して設計されており、必須の有効期限がないため、必要な限り表示し続けることができます。
 {% endalert %}
 
 カードが常に利用可能であるように見せたい場合、30日ごとにカードを効果的に置き換える繰り返しキャンペーンを作成できます。
@@ -354,24 +354,35 @@ Content Cardsはスケジュールに従って、またアプリがフィード�
 
 ### トリガーイベント後にContent Cardsがすぐに表示されないのはなぜですか？ {#why-dont-content-cards-appear-immediately-after-a-trigger-event}
 
-アクションベースの配信キャンペーン（セッション開始など）では、トリガーイベントからカードが利用可能になるまでに短い遅延が発生することが想定されています。この遅延は以下の理由で発生します。
+アクションベースの配信キャンペーン（セッション開始など）では、トリガーイベントからカードが利用可能になるまでに短い遅延が発生することが想定されます。この遅延は以下の理由で発生します。
 
 - トリガーイベントがBrazeのサーバーにフラッシュされる
 - キャンペーンがトリガーされ、ユーザーの適格性が記録される
 - そのユーザーのContent Cardsがデータベースに作成される
-- SDKが同期し、利用可能なすべてのカードをデバイスにプルする
+- SDKが同期し、利用可能なすべてのカードをデバイスに取得する
 
 SDKの同期がユーザーの適格性の記録前に行われた場合、ユーザーはカードを受信しません。
 
-最初のセッションにいる新規ユーザーの場合、この遅延は避けられません。即時利用が必要な既存ユーザーの場合は、代わりにスケジュール配信の使用を検討してください。
+初回セッションの新規ユーザーの場合、この遅延は避けられません。即時利用が必要な既存ユーザーの場合は、代わりにスケジュール配信の使用を検討してください。
 
 新規ユーザーと既存ユーザーの両方で遅延を最小限に抑える必要がある場合は、2つのキャンペーンを作成できます。
 
 - **セッション数が0より大きい既存ユーザー：** スケジュール配信キャンペーンを使用します。カードは事前に作成され、すぐに利用可能です。
 - **セッション数が0の新規ユーザー：** アクショントリガーキャンペーンを使用します。カードは最初のセッショントリガー後に作成されます。
 
-このアプローチにより、既存ユーザーはカードを即座に確認でき、新規ユーザーも最初のセッションでの短い遅延の後にカードを受け取ることができます。レイテンシーを改善するための追加の戦略については、[Content Cardsの低レイテンシー要件の改善]({{site.baseurl}}/user_guide/channels/content_cards/best_practices/improving_low_latency_requirements)を参照してください。
+このアプローチにより、既存ユーザーはカードを即座に確認でき、新規ユーザーも初回セッションでの短い遅延の後にカードを受け取ることができます。レイテンシーを改善するための追加の戦略については、[Content Cardsの低レイテンシー要件の改善]({{site.baseurl}}/user_guide/channels/content_cards/best_practices/improving_low_latency_requirements)を参照してください。
+
+### インプレッションや却下のタイムスタンプがキャンペーンスケジュールの範囲外になるのはなぜですか？ {#why-do-impression-or-dismiss-timestamps-fall-outside-the-campaign-schedule}
+
+分析やCurrentsにおけるインプレッションおよび却下のタイムスタンプは、Brazeがカードを作成または送信した時点ではなく、ユーザーがContent Cardsを閲覧または却下した時点を反映しています。カードはContent Cardsが更新されるまでユーザーのフィードに残ることがあるため、インプレッションや却下のタイムスタンプがキャンペーンの送信ウィンドウの後になることがあります。
+
+それでもタイムスタンプが予期しない場合は、以下を確認してください。
+
+- 分析を会社のタイムゾーンで表示しているか、Currentsでのユーザーのタイムゾーンで表示しているかを確認してください。
+- ユーザーが送信時間だけと比較するのではなく、カードを受信した後に実際に閲覧または却下したかどうかを確認してください。
+
+Content Cardsの指標の詳細については、[Content Cardsレポート]({{site.baseurl}}/user_guide/channels/content_cards/reporting)を参照してください。
 
 ### 「All expiration values for a campaign must match」エラー {#all-expiration-values-for-a-campaign-must-match-error}
 
-このエラーは、多変量Content Cardsキャンペーンでバリアント間で異なる有効期限設定が使用されている場合に表示されます。すべてのバリアントに同じ有効期限（期間または特定の時間）を設定するか、キャンペーンを単一のバリアントに減らしてから、再度保存してください。キャンペーン作成時の有効期限の設定方法については、[配信スケジュールまたはトリガーを選択する](#choose-a-delivery-schedule-or-trigger)を参照してください。
+このエラーは、多変量Content Cardsキャンペーンでバリアント間で異なる有効期限設定が使用されている場合に表示されます。すべてのバリアントに同じ有効期限（期間または特定の時間）を設定するか、キャンペーンを単一のバリアントに減らしてから再度保存してください。キャンペーン作成時の有効期限の設定方法については、[配信スケジュールまたはトリガーの選択](#choose-a-delivery-schedule-or-trigger)を参照してください。
