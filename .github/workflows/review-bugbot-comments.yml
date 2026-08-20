@@ -41,7 +41,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install anthropic
+        run: pip install -r scripts/ci/requirements.txt
 
       - name: Evaluate Bugbot comments
         id: review
