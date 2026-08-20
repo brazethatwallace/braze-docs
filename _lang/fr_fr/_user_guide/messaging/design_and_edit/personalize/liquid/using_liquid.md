@@ -14,7 +14,7 @@ Liquid est un langage de modèles open source développé par Shopify et écrit 
 
 ## Comment ça fonctionne {#how-it-works}
 
-Les étiquettes Liquid agissent comme des marques substitutives dans vos messages. Elles peuvent extraire des informations consenties du compte de votre utilisateur et permettre la personnalisation ainsi que des pratiques de communication pertinentes.
+Les étiquettes Liquid agissent comme des marques substitutives dans vos messages, capables d'extraire des informations consenties depuis le compte de votre utilisateur et de permettre la personnalisation ainsi que des pratiques de communication pertinentes.
 
 Dans le bloc suivant, vous pouvez voir une double utilisation d'une étiquette Liquid pour appeler le prénom de l'utilisateur, ainsi qu'une étiquette par défaut au cas où l'utilisateur n'aurait pas enregistré son prénom.
 
@@ -24,7 +24,7 @@ Hi {{ ${first_name} | default: 'Valued User' }}, thanks for using the App!
 ```
 {% endraw %}
 
-Pour une utilisatrice nommée Janet Doe, le message apparaîtrait de l'une des manières suivantes :
+Pour une utilisatrice nommée Janet Doe, le message s'afficherait de l'une des manières suivantes :
 
 ```
 Hi Janet, thanks for using the App!
@@ -37,14 +37,14 @@ Hi Valued User, thanks for using the App!
 ```
 
 {% alert important %}
-Les commentaires HTML (`<!-- -->`) sont supprimés avant toute lecture du Liquid, de sorte que les étiquettes Liquid à l'intérieur des commentaires HTML **ne s'affichent pas** dans votre message. Pour un rendu correct, assurez-vous que toutes les étiquettes Liquid que vous souhaitez utiliser se trouvent en dehors des commentaires HTML.
+Les commentaires HTML (`<!-- -->`) sont supprimés avant toute lecture du Liquid, de sorte que les étiquettes Liquid placées dans des commentaires HTML **ne s'affichent pas** dans votre message. Pour un rendu correct, assurez-vous que toutes les étiquettes Liquid que vous souhaitez utiliser se trouvent en dehors des commentaires HTML.
 {% endalert %}
 
 ## Valeurs prises en charge pour la substitution {#supported-values-to-substitute}
 
 Les valeurs suivantes peuvent être substituées dans un message, en fonction de leur disponibilité :
 
-- [Informations utilisateur de base]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) (par exemple, `first_name`, `last_name`, `email_address`)
+- [Informations de base sur l'utilisateur]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) (par exemple, `first_name`, `last_name`, `email_address`)
 - [Attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)
     - [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#liquid-templating)
 - [Propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
@@ -63,13 +63,33 @@ En utilisant les [étiquettes Liquid]({{site.baseurl}}/user_guide/messaging/desi
 
 ### Syntaxe Liquid {#liquid-syntax}
 
-Liquid suit une structure, ou syntaxe, spécifique que vous devez garder à l'esprit lorsque vous créez une personnalisation dynamique. Voici quelques règles de base à retenir :
+Liquid suit une structure spécifique, ou syntaxe, que vous devrez garder à l'esprit lorsque vous créez de la personnalisation dynamique. Voici quelques règles de base à retenir :
 
-1. **Utilisez des guillemets droits dans Braze :** il y a une différence entre les guillemets courbes (**' '**) et les guillemets droits (**&#39; &#39;**). Utilisez des guillemets droits (**&#39; &#39;**) dans votre Liquid dans Braze. Vous pouvez voir des guillemets courbes lors du copier-coller depuis certains éditeurs de texte, ce qui peut causer des problèmes dans votre Liquid. Si vous saisissez les guillemets directement dans le tableau de bord de Braze, tout ira bien !
-2. **Les accolades vont par paires :** chaque accolade doit être ouverte et fermée **{ }**. Assurez-vous d'utiliser des accolades !
-3. **Les instructions if vont par paires :** pour chaque `if`, vous avez besoin d'un `endif` pour indiquer que l'instruction `if` est terminée.
-4. **Les instructions case vont par paires :** pour chaque `case`, vous avez besoin d'un `endcase` pour fermer le bloc.
-5. **Les noms de variables doivent utiliser des caractères ASCII :** les noms de variables Liquid (créés avec `assign` ou `capture`) ne prennent en charge que les lettres ASCII, les chiffres et les underscores. Les noms d'attributs de personnalisation Braze (à l'intérieur de `custom_attribute.${...}` ou `event_properties.${...}`) peuvent inclure des caractères non ASCII.
+- **Utilisez des guillemets droits dans Braze :** il existe une différence entre les guillemets courbes (**' '**) et les guillemets droits (**&#39; &#39;**). Utilisez des guillemets droits (**&#39; &#39;**) dans votre Liquid dans Braze. Vous pouvez voir des guillemets courbes lors du copier-coller depuis certains éditeurs de texte, ce qui peut causer des problèmes dans votre Liquid. Si vous saisissez les guillemets directement dans le tableau de bord de Braze, tout ira bien.
+- **Les accolades vont par paires :** chaque accolade doit s'ouvrir et se fermer **{ }**. Assurez-vous d'utiliser des accolades.
+- **Les instructions if vont par paires :** pour chaque `if`, vous avez besoin d'un `endif` pour indiquer que l'instruction `if` est terminée.
+- **Les instructions case vont par paires :** pour chaque `case`, vous avez besoin d'un `endcase` pour fermer le bloc.
+- **Les noms de variables doivent utiliser des caractères ASCII :** les noms de variables Liquid (créés avec `assign` ou `capture`) ne prennent en charge que les lettres ASCII, les chiffres et les underscores. Les noms d'attributs de personnalisation Braze (à l'intérieur de `custom_attribute.${...}` ou `event_properties.${...}`) peuvent inclure des caractères non-ASCII.
+- **Encadrez les variables Liquid Braze dans des balises `assign` multi-lignes :** utilisez des doubles accolades {% raw %}(`{{ }}`){% endraw %} autour des variables Liquid Braze lorsqu'un `assign` s'étend sur plusieurs lignes.
+
+#### Balises `assign` multi-lignes {#multi-line-assign-tags}
+
+Vous pouvez répartir un `assign` sur plusieurs lignes (par exemple, en continuant les filtres avec `|` avant la balise de fermeture) tant que vous encadrez toutes les variables Liquid Braze avec des doubles accolades {% raw %}(`{{ }}`){% endraw %}. Sans ces accolades, les instructions assign multi-lignes peuvent provoquer un rendu inattendu, y compris des attributs personnalisés qui échouent au templating. L'exemple suivant montre un assign multi-lignes fonctionnel :
+
+{% raw %}
+```liquid
+{%- assign color = {{custom_attribute.${favorite_color}}}
+| default: {{custom_attribute.${fav_color}}}
+| default: 'blue'
+%}
+```
+
+Vous pouvez également écrire l'intégralité de l'`assign` sur une seule ligne :
+
+```liquid
+{%- assign color = custom_attribute.${favorite_color} | default: custom_attribute.${fav_color} | default: 'blue' %}
+```
+{% endraw %}
 
 #### Où utiliser les opérateurs et les filtres {#where-to-use-operators-and-filters}
 
@@ -84,13 +104,13 @@ Les opérateurs (tels que `==`, `!=`, `>`, `and`, `or`) et les filtres (tels que
 | Accès aux tableaux (`[ ]`) | Non pris en charge | Non pris en charge |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Où utiliser les opérateurs et les filtres" }
 
-[^case_when_ops]: Dans les étiquettes `case` et `when`, Liquid compare l'expression `case` à chaque valeur `when` en utilisant l'égalité (similaire à l'enchaînement de `if` et `elsif` avec `==`). Vous ne pouvez pas utiliser d'opérateurs de comparaison ou logiques arbitraires à l'intérieur d'une clause `when` comme vous le feriez avec `if` et `elsif`. Pour des exemples, consultez [Logique de messagerie conditionnelle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when).
+[^case_when_ops]: Dans les balises `case` et `when`, Liquid compare l'expression `case` à chaque valeur `when` en utilisant l'égalité (similaire à l'enchaînement de `if` et `elsif` avec `==`). Vous ne pouvez pas utiliser d'opérateurs de comparaison arbitraires ou d'opérateurs logiques à l'intérieur d'une clause `when` comme vous le feriez avec `if` et `elsif`. Pour des exemples, consultez [Logique de messagerie conditionnelle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when).
 
 Lorsque vous avez besoin d'une valeur filtrée dans un contexte qui ne prend pas en charge les filtres, assignez d'abord le résultat à une variable.
 
 {% raw %}
 
-##### Utiliser le résultat d'un filtre dans une condition {#use-a-filter-result-in-a-conditional}
+##### Utiliser un résultat de filtre dans une condition {#use-a-filter-result-in-a-conditional}
 
 Vous ne pouvez pas utiliser un filtre directement dans une instruction conditionnelle. Ceci est incorrect :
 
@@ -109,7 +129,7 @@ You have more than 3 items!
 {% endif %}
 ```
 
-##### Utiliser le résultat d'un filtre dans une boucle for {#use-a-filter-result-in-a-for-loop}
+##### Utiliser un résultat de filtre dans une boucle for {#use-a-filter-result-in-a-for-loop}
 
 Vous ne pouvez pas appliquer un filtre à l'itérable dans une boucle `for`. Ceci est incorrect :
 
@@ -128,7 +148,7 @@ Vous ne pouvez pas appliquer un filtre à l'itérable dans une boucle `for`. Cec
 {% endfor %}
 ```
 
-##### Utiliser le résultat d'un filtre pour l'accès aux tableaux {#use-a-filter-result-for-array-access}
+##### Utiliser un résultat de filtre pour l'accès aux tableaux {#use-a-filter-result-for-array-access}
 
 Vous ne pouvez pas utiliser un filtre à l'intérieur de crochets. Ceci est incorrect :
 
@@ -143,7 +163,7 @@ Vous ne pouvez pas utiliser un filtre à l'intérieur de crochets. Ceci est inco
 {{ my_array[adjusted_index] }}
 ```
 
-##### Stocker le résultat d'une comparaison dans une variable {#store-a-comparison-result-in-a-variable}
+##### Stocker un résultat de comparaison dans une variable {#store-a-comparison-result-in-a-variable}
 
 Vous ne pouvez pas utiliser un opérateur dans une instruction `assign`. Ceci est incorrect :
 
@@ -173,21 +193,21 @@ Welcome to the VIP lounge!
 
 {% raw %}
 
-Si vous incluez le texte suivant dans votre message : `{{${first_name}}}`, le prénom de l'utilisateur (extrait du profil utilisateur) sera substitué lors de l'envoi du message. Vous pouvez utiliser le même format avec d'autres attributs utilisateur par défaut.
+Si vous incluez le texte suivant dans votre message : `{{${first_name}}}`, le prénom de l'utilisateur (extrait du profil utilisateur) sera substitué lors de l'envoi du message. Vous pouvez utiliser le même format avec d'autres attributs par défaut de l'utilisateur.
 
 Si vous souhaitez utiliser la valeur d'un attribut personnalisé, vous devez ajouter l'espace de noms « custom_attribute » à la variable. Par exemple, pour utiliser un attribut personnalisé nommé « zip code », vous incluriez `{{custom_attribute.${zip code}}}` dans votre message.
 
-### Insérer des étiquettes {#inserting-tags}
+### Insérer des balises {#inserting-tags}
 
-Vous pouvez insérer des étiquettes en tapant deux accolades ouvrantes `{{` dans n'importe quel message, ce qui déclenchera une fonctionnalité d'auto-complétion qui continuera à se mettre à jour au fur et à mesure de votre saisie. Vous pouvez même sélectionner une variable parmi les options qui apparaissent pendant que vous tapez.
+Vous pouvez insérer des balises en tapant deux accolades ouvrantes `{{` dans n'importe quel message, ce qui déclenchera une fonctionnalité d'auto-complétion qui continuera à se mettre à jour au fur et à mesure que vous tapez. Vous pouvez même sélectionner une variable parmi les options qui apparaissent pendant la saisie.
 
-Si vous utilisez une étiquette personnalisée, vous pouvez copier et coller l'étiquette dans le message de votre choix.
+Si vous utilisez une balise personnalisée, vous pouvez copier et coller la balise dans le message de votre choix.
 
 #### Exceptions pour les doubles accolades {#exceptions-for-double-brackets}
 
-Si vous utilisez une étiquette à l'intérieur d'une autre étiquette Liquid, comme `{% assign %}` ou `{% if %}`, vous pouvez utiliser soit les doubles accolades, soit aucune accolade. Ce n'est que lorsque l'étiquette est utilisée seule qu'elle doit être encadrée par des doubles accolades. Par souci de simplicité, vous pouvez toujours utiliser les doubles accolades.
+Si vous utilisez une balise à l'intérieur d'une autre balise Liquid, comme `{% assign %}` ou `{% if %}`, vous pouvez utiliser soit des doubles accolades, soit aucune accolade. Ce n'est que lorsque la balise est autonome qu'elle doit être encadrée par des doubles accolades. Par souci de simplicité, vous pouvez toujours utiliser des doubles accolades.
 
-Les étiquettes suivantes sont toutes correctes :
+Les balises suivantes sont toutes correctes :
 
 ```liquid
 {% if custom_attribute.${Number_Game_Attended} == 1 %}
@@ -201,10 +221,10 @@ Les étiquettes suivantes sont toutes correctes :
 
 {% alert note %}
 
-Si vous utilisez Liquid dans vos e-mails, veillez à :
+Si vous utilisez Liquid dans vos e-mails, assurez-vous de :
 
-1. L'insérer en utilisant l'éditeur HTML plutôt que l'éditeur classique. L'éditeur classique peut interpréter le Liquid comme du texte brut. Par exemple, le Liquid serait interprété comme {% raw %}`Hi {{ ${first_name} }}, thanks for using our service!`{% endraw %} au lieu d'insérer le prénom de l'utilisateur.
-2. Placer le code Liquid uniquement à l'intérieur de la balise `<body>`. Le placer en dehors de cette balise peut entraîner un rendu incohérent lors de la réception.
+1. L'insérer en utilisant l'éditeur HTML plutôt que l'éditeur classique. L'éditeur classique peut analyser le Liquid comme du texte brut. Par exemple, le Liquid serait analysé comme {% raw %}`Hi {{ ${first_name} }}, thanks for using our service!`{% endraw %} au lieu de remplacer par le prénom de l'utilisateur.
+2. Placer le code Liquid uniquement à l'intérieur de la balise `<body>`. Le placer en dehors de cette balise peut provoquer un rendu incohérent lors de la réception.
 
 {% endalert %}
 
@@ -216,8 +236,8 @@ Lorsque vous basculez entre les éditeurs HTML et classique, les extraits de cod
 
 Vous pouvez insérer des variables pré-formatées avec des valeurs par défaut via la fenêtre modale **Ajouter une personnalisation** située à proximité de tout champ de texte avec modèle.
 
-![La fenêtre modale Ajouter une personnalisation qui apparaît après avoir sélectionné l'insertion de personnalisation. La fenêtre modale contient des champs pour le type de personnalisation, l'attribut, la valeur par défaut facultative, et affiche un aperçu de la syntaxe Liquid.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
+![La fenêtre modale Ajouter une personnalisation qui apparaît après avoir sélectionné l'insertion de personnalisation. La fenêtre modale comporte des champs pour le type de personnalisation, l'attribut, la valeur par défaut optionnelle, et affiche un aperçu de la syntaxe Liquid.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
 
-La fenêtre modale insérera le Liquid avec votre valeur par défaut spécifiée à l'endroit où se trouvait votre curseur. Le point d'insertion est également indiqué par la zone de prévisualisation, qui affiche le texte avant et après. Si un bloc de texte est surligné, le texte surligné sera remplacé.
+La fenêtre modale insérera le Liquid avec votre valeur par défaut spécifiée à l'endroit où se trouvait votre curseur. Le point d'insertion est également indiqué par la zone d'aperçu, qui affiche le texte avant et après. Si un bloc de texte est surligné, le texte surligné sera remplacé.
 
-![Un GIF de la fenêtre modale Ajouter une personnalisation montrant l'utilisateur qui saisit « fellow traveler » comme valeur par défaut, et la fenêtre modale qui remplace le texte surligné « name » dans le compositeur par l'extrait de code Liquid.]({% image_buster /assets/img_archive/insert_var_shot.gif %})
+![Un GIF de la fenêtre modale Ajouter une personnalisation montrant l'utilisateur insérant « fellow traveler » comme valeur par défaut, et la fenêtre modale remplaçant le texte surligné « name » dans le compositeur par l'extrait de code Liquid.]({% image_buster /assets/img_archive/insert_var_shot.gif %})

@@ -1,0 +1,1 @@
+Indiquez une adresse e-mail de contact pour les notifications d'erreurs d'intégration. Braze envoie des notifications à cette adresse si l'intégration rencontre des erreurs, telles que des problèmes d'identifiants ou de connectivité. Pour vous assurer que les bonnes personnes reçoivent les alertes, utilisez une liste de distribution ou une adresse e-mail de groupe.

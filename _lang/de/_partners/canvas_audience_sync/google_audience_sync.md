@@ -23,11 +23,23 @@ Die Braze Audience Sync to Google Integration wird für Google Ads unterstützt,
 
 Google Ads generiert keine ähnlichen Zielgruppen, auch bekannt als „Lookalike Audiences“, mehr für Targeting und Reporting. Lesen Sie die [Dokumentation von Google Ads](https://support.google.com/google-ads/answer/12463119?), um mehr zu erfahren.
 
-**Häufige Anwendungsfälle für die Synchronisierung von angepassten Zielgruppen sind:**
+## Google Data Manager API
+
+{% alert important %}
+Die Unterstützung der Google Data Manager API für Audience Sync to Google befindet sich im Early Access. Wenden Sie sich an Ihren Braze Account Manager, um Informationen zur Berechtigung und zum Zeitplan für die Einführung zu erhalten.
+{% endalert %}
+
+Google konsolidiert Werbeintegrationen auf die Data Manager API. Im Early Access kann Braze Audience Sync to Google diese API nutzen, um laufende Änderungen an der Google-Werbe-API zu unterstützen.
+
+Für neue und erneut verbundene Google Audience Sync-Verbindungen fordert Braze den erforderlichen Data-Manager-Bereich automatisch an. Bestehende Verbindungen werden weiterhin über den bisherigen Pfad synchronisiert, bis sie erneut verbunden werden.
+
+Folgen Sie weiterhin dieser Anleitung für die Kontoverbindung, die Zielgruppen-Einrichtung und das Synchronisierungsverhalten.
+
+**Häufige Anwendungsfälle für die Synchronisierung von Custom Audiences umfassen:**
 {% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 {% alert note %}
-Mit diesem Feature können Marken kontrollieren, welche spezifischen First-Party-Daten mit Google geteilt werden. Bei Braze werden die Integrationen, mit denen Sie Ihre First-Party-Daten teilen können und mit denen Sie sie nicht teilen können, genauestens geprüft. Erfahren Sie mehr über unsere [Braze-Datenschutzrichtlinie](https://www.braze.com/privacy).
+Dieses Feature ermöglicht es Marken zu kontrollieren, welche spezifischen First-Party-Daten mit Google geteilt werden. Bei Braze werden die Integrationen, über die Sie Ihre First-Party-Daten teilen können und nicht teilen können, mit größter Sorgfalt behandelt. Erfahren Sie mehr über unsere [Braze-Datenschutzrichtlinie](https://www.braze.com/privacy).
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -37,9 +49,9 @@ Stellen Sie sicher, dass die folgenden Punkte erstellt und abgeschlossen sind, b
 | Anforderung | Herkunft | Beschreibung |
 | ----------- | ------ | ----------- |
 | Google Ads-Konto | [Google](https://support.google.com/google-ads/answer/6366720?hl=en) | Ein aktives Google Ads-Konto für Ihre Marke.<br><br>Wenn Sie eine Zielgruppe über mehrere verwaltete Konten hinweg teilen möchten, können Sie Ihre Zielgruppen in Ihr [Verwaltungskonto](https://support.google.com/google-ads/answer/6139186) hochladen. |
-| Google Ads-Nutzungsbedingungen und Google Ads-Richtlinien | [Google](https://support.google.com/adspolicy/answer/54818?hl=en) | Sie müssen die [Google Ads-Nutzungsbedingungen](https://payments.google.com/u/0/paymentsinfofinder?hostOrigin=aHR0cHM6Ly9wYXltZW50cy5nb29nbGUuY29tOjQ0Mw..&sri=-40) und die [Google Ads-Richtlinien](https://support.google.com/adspolicy/answer/6008942?sjid=15557182366992806023-NC) akzeptieren und deren Einhaltung sicherstellen, einschließlich der [EU-Richtlinie zur Nutzereinwilligung](https://www.google.com/about/company/user-consent-policy/), soweit für Sie zutreffend, bei Ihrer Nutzung von Braze Audience Sync.<br><br>Wenden Sie sich an Ihr Rechtsteam bezüglich Googles neuer EU-Richtlinie zur Nutzereinwilligung, um sicherzustellen, dass Sie die entsprechende Einwilligung einholen, um die Dienste von Google Ads für Ihre Endnutzer:innen im EWR, in Großbritannien und in der Schweiz zu nutzen. |
-| Google Customer Match | [Google](https://support.google.com/google-ads/answer/6299717) | Customer Match ist nicht für alle Werbetreibenden verfügbar.<br><br>**Um Customer Match zu nutzen, muss Ihr Konto folgende Voraussetzungen erfüllen:**<br>• Eine gute Richtlinien-Compliance-Historie<br>• Eine gute Zahlungshistorie<br>• Mindestens 90 Tage Historie in Google Ads<br>• Mehr als 50.000 USD Gesamtausgaben über die gesamte Lifetime. Für Werbetreibende, deren Konten in anderen Währungen als USD geführt werden, wird Ihr Ausgabenbetrag anhand des durchschnittlichen monatlichen Wechselkurses für diese Währung in USD umgerechnet.<br><br>Wenn Ihr Konto diese Kriterien nicht erfüllt, ist Ihr Konto derzeit nicht berechtigt, Customer Match zu nutzen.<br><br>Wenden Sie sich an Ihre Google Ads-Vertretung, um weitere Informationen zur Verfügbarkeit von Customer Match für Ihr Konto zu erhalten. |
-| Google-Einwilligungssignale | [Google](https://support.google.com/google-ads/answer/14310715) | Wenn Sie Endnutzer:innen im EWR über Googles Customer Match-Dienst Werbung ausspielen möchten, müssen Sie Braze die folgenden angepassten Attribute (Boolean) im Rahmen von Googles EU-Richtlinie zur Nutzereinwilligung übergeben. Weitere Details finden Sie unter [Einwilligung für Endnutzer:innen im EWR, in Großbritannien und in der Schweiz einholen](#collecting-consent-for-eea-uk-and-switzerland-end-users): <br> - `$google_ad_user_data` <br> - `$google_ad_personalization` |
+| Google Ads-Nutzungsbedingungen und Google Ads-Richtlinien | [Google](https://support.google.com/adspolicy/answer/54818?hl=en) | Sie müssen die [Google Ads-Nutzungsbedingungen](https://payments.google.com/u/0/paymentsinfofinder?hostOrigin=aHR0cHM6Ly9wYXltZW50cy5nb29nbGUuY29tOjQ0Mw..&sri=-40) und die [Google Ads-Richtlinien](https://support.google.com/adspolicy/answer/6008942?sjid=15557182366992806023-NC) akzeptieren und deren Einhaltung sicherstellen, einschließlich der [EU-Richtlinie zur Nutzereinwilligung](https://www.google.com/about/company/user-consent-policy/), soweit für Sie zutreffend, bei Ihrer Nutzung von Braze Audience Sync.<br><br>Wenden Sie sich an Ihr Rechtsteam bezüglich der neuen EU-Richtlinie zur Nutzereinwilligung von Google, um sicherzustellen, dass Sie die entsprechende Einwilligung einholen, um die Dienste von Google Ads für Ihre Endnutzer:innen im EWR, in Großbritannien und in der Schweiz zu nutzen. |
+| Google Customer Match | [Google](https://support.google.com/google-ads/answer/6299717) | Customer Match ist nicht für alle Werbetreibenden verfügbar.<br><br>**Um Customer Match zu nutzen, muss Ihr Konto Folgendes aufweisen:**<br>• Eine gute Richtlinien-Compliance-Historie<br>• Eine gute Zahlungshistorie<br>• Mindestens 90 Tage Historie in Google Ads<br>• Mehr als 50.000 USD Gesamtausgaben über die gesamte Laufzeit. Für Werbetreibende, deren Konten in anderen Währungen als USD geführt werden, wird Ihr Ausgabenbetrag anhand des durchschnittlichen monatlichen Wechselkurses für diese Währung in USD umgerechnet.<br><br>Wenn Ihr Konto diese Kriterien nicht erfüllt, ist Ihr Konto derzeit nicht berechtigt, Customer Match zu nutzen.<br><br>Wenden Sie sich an Ihre Google Ads-Vertretung, um weitere Informationen zur Verfügbarkeit von Customer Match für Ihr Konto zu erhalten. |
+| Google-Einwilligungssignale | [Google](https://support.google.com/google-ads/answer/14310715) | Wenn Sie Endnutzer:innen im EWR über den Customer-Match-Dienst von Google Werbung ausspielen möchten, müssen Sie Braze die folgenden angepassten Attribute (Boolean) im Rahmen der EU-Richtlinie zur Nutzereinwilligung von Google übergeben. Weitere Details finden Sie unter [Einwilligung für Endnutzer:innen im EWR, in Großbritannien und in der Schweiz einholen](#collecting-consent-for-eea-uk-and-switzerland-end-users): <br> - `$google_ad_user_data` <br> - `$google_ad_personalization` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ### Erforderliche SDK-Versionen {#required-sdk-versions}
@@ -50,12 +62,12 @@ Wenn Sie Braze-SDKs verwenden, um Einwilligungssignale zu erfassen, stellen Sie 
 
 ### Einwilligung für Endnutzer:innen im EWR, in Großbritannien und in der Schweiz einholen {#collecting-consent-for-eea-uk-and-switzerland-end-users}
 
-Googles EU-Richtlinie zur Nutzereinwilligung verlangt von Werbetreibenden, ihren Endnutzer:innen im EWR, in Großbritannien und in der Schweiz Folgendes offenzulegen und deren Einwilligung dafür einzuholen:
+Die EU-Richtlinie zur Nutzereinwilligung von Google verlangt von Werbetreibenden, ihren Endnutzer:innen im EWR, in Großbritannien und in der Schweiz Folgendes offenzulegen und deren Einwilligung dafür einzuholen:
 
 * Die Verwendung von Cookies oder anderen lokalen Speichermethoden, sofern gesetzlich vorgeschrieben; und
 * Die Erhebung, Weitergabe und Nutzung ihrer personenbezogenen Daten zur Personalisierung von Werbung.
 
-Dies betrifft keine Endnutzer:innen in den USA oder andere Endnutzer:innen außerhalb des EWR, Großbritanniens oder der Schweiz. Wenden Sie sich an Ihr Rechtsteam bezüglich Googles neuer EU-Richtlinie zur Nutzereinwilligung, um sicherzustellen, dass Sie die entsprechende Einwilligung einholen, um die Dienste von Google Ads für Ihre Endnutzer:innen im EWR, in Großbritannien und in der Schweiz zu nutzen.
+Dies betrifft keine Endnutzer:innen in den USA oder andere Endnutzer:innen außerhalb des EWR, Großbritanniens oder der Schweiz. Wenden Sie sich an Ihr Rechtsteam bezüglich der neuen EU-Richtlinie zur Nutzereinwilligung von Google, um sicherzustellen, dass Sie die entsprechende Einwilligung einholen, um die Dienste von Google Ads für Ihre Endnutzer:innen im EWR, in Großbritannien und in der Schweiz zu nutzen.
 
 Gemäß den Anforderungen des Digital Markets Act (DMA), die seit dem 6. März 2024 gelten, müssen Werbetreibende die Einwilligung für Endnutzer:innen im EWR, in Großbritannien und in der Schweiz übermitteln, wenn sie Daten mit Google teilen. Im Rahmen dieser Änderung können Sie beide Einwilligungssignale in Braze als die folgenden angepassten Boolean-Attribute erfassen:
 
@@ -66,10 +78,10 @@ Braze synchronisiert die Daten aus diesen angepassten Attributen mit den entspre
 
 #### Widerrufene Einwilligung verwalten {#managing-revoked-consent}
 
-Um Ihre Zielgruppenlisten aktuell zu halten, falls Endnutzer:innen im EWR zur Zielgruppenliste hinzugefügt wurden und anschließend eine der beiden Einwilligungen (`$google_ad_user_data` oder `$google_ad_personalization`) widerrufen haben, müssen Sie einen Canvas einrichten, um Nutzer:innen mithilfe eines Audience Sync-Schritts aus den bestehenden Zielgruppenlisten zu entfernen.
+Um Ihre Zielgruppenlisten aktuell zu halten, falls Endnutzer:innen im EWR zur Zielgruppenliste hinzugefügt wurden und anschließend eine der beiden Einwilligungen (`$google_ad_user_data` oder `$google_ad_personalization`) widerrufen haben, müssen Sie einen Canvas einrichten, um Nutzer:innen mithilfe eines Audience-Sync-Schritts aus den bestehenden Zielgruppenlisten zu entfernen.
 
 {% alert note %}
-Wenn Endnutzer:innen im EWR zuvor die Einwilligung für beide Signale erteilt haben, werden diese Daten weiterhin für Googles Customer Match verwendet, bis die Liste abläuft, der Einwilligungsstatus explizit über Google Audience Sync aktualisiert wird, oder beides.
+Wenn Endnutzer:innen im EWR zuvor die Einwilligung für beide Signale erteilt haben, werden diese Daten weiterhin für Google Customer Match verwendet, bis die Liste abläuft, der Einwilligungsstatus explizit über Google Audience Sync aktualisiert wird, oder beides.
 {% endalert %}
 
 #### Tipps {#tips}
@@ -77,10 +89,10 @@ Wenn Endnutzer:innen im EWR zuvor die Einwilligung für beide Signale erteilt ha
 * Senden Sie den Wert als Boolean-Typ, nicht als String-Typ.
 * Stellen Sie dem Attributnamen ein Dollarzeichen ($) voran. Braze verwendet ein Dollarzeichen am Anfang eines Attributnamens, um anzuzeigen, dass es sich um einen speziellen und reservierten Schlüssel handelt.
 * Geben Sie den Attributnamen in Kleinbuchstaben ein.
-* Sie können zwar nicht explizit festlegen, dass eine Nutzer:in als „nicht angegeben“ gilt, aber wenn Sie einen `null`- oder `nil`-Wert oder einen Wert senden, der weder `true` noch `false` ist, übergibt Braze diese Nutzer:in an Google als `UNSPECIFIED`.
+* Obwohl Sie Nutzer:innen nicht explizit als „nicht angegeben“ festlegen können, übergibt Braze diese:n Nutzer:in an Google als `UNSPECIFIED`, wenn Sie einen `null`- oder `nil`-Wert oder einen Wert senden, der weder `true` noch `false` ist.
 * Neue Nutzer:innen, die hinzugefügt oder aktualisiert werden, ohne dass eines der Einwilligungsattribute angegeben wird, werden mit diesen Einwilligungsattributen als „nicht angegeben“ an Google synchronisiert.
 
-Wenn Sie versuchen, Nutzer:innen im EWR ohne die erforderlichen Einwilligungsfelder und den gewährten Status zu synchronisieren, wird Google dies ablehnen und diesen Nutzer:innen keine Werbung ausspielen. Darüber hinaus können Sie haftbar gemacht werden und einem finanziellen Risiko ausgesetzt sein, wenn Werbung an Endnutzer:innen im EWR ohne deren ausdrückliche Einwilligung ausgespielt wird. Um dies zu vermeiden, empfehlen wir, Campaigns mit Segment-Filtern zu senden, die nur Nutzer:innen im EWR, in Großbritannien und in der Schweiz mit `true` Google-Einwilligungsattributen einschließen. Weitere Details zur EU-Richtlinie zur Nutzereinwilligung für Customer Match-Upload-Partner finden Sie in Googles [FAQs](https://support.google.com/google-ads/answer/14310715).
+Wenn Sie versuchen, Nutzer:innen im EWR ohne die erforderlichen Einwilligungsfelder und den gewährten Status zu synchronisieren, wird Google dies ablehnen und diesen Nutzer:innen keine Werbung ausspielen. Darüber hinaus können Sie haftbar gemacht werden und einem finanziellen Risiko ausgesetzt sein, wenn Werbung an Nutzer:innen im EWR ohne deren ausdrückliche Einwilligung ausgespielt wird. Um dies zu vermeiden, empfehlen wir, Campaigns mit Segment-Filtern zu senden, die nur Nutzer:innen im EWR, in Großbritannien und in der Schweiz mit dem Google-Einwilligungsattribut `true` einschließen. Weitere Details zur EU-Richtlinie zur Nutzereinwilligung für Customer-Match-Upload-Partner finden Sie in den [FAQs](https://support.google.com/google-ads/answer/14310715) von Google.
 
 ### Ihren Canvas einrichten {#setting-up-your-canvas}
 
@@ -89,7 +101,7 @@ Nachdem Sie die Synchronisierung mit Braze durchgeführt haben, stehen die folge
 - `$google_ad_user_data`
 - `$google_ad_personalization`
 
-In jedem Canvas, in dem Sie Endnutzer:innen im EWR, in Großbritannien und in der Schweiz über einen Google Audience Sync ansprechen, um Nutzer:innen zu einer Zielgruppe hinzuzufügen, müssen Sie diese Nutzer:innen ausschließen, wenn eines der beiden Einwilligungsattribute einen anderen Wert als `true` hat. Sie können dies tun, indem Sie diese Nutzer:innen segmentieren, wenn die Einwilligungswerte auf `true` gesetzt sind. Dies stellt auch sicher, dass die Analytics der synchronisierten Nutzer:innen genauer sind, da wir wissen, dass Google diese Nutzer:innen aus den Zielgruppen ablehnen wird. Beachten Sie, dass Einwilligungsattribute nicht erforderlich sind, wenn Sie Google Audience Sync verwenden, um Nutzer:innen aus einer Zielgruppe zu entfernen.
+In jedem Canvas, in dem Sie Endnutzer:innen im EWR, in Großbritannien und in der Schweiz über einen Google Audience Sync ansprechen, um Nutzer:innen zu einer Zielgruppe hinzuzufügen, müssen Sie diese Nutzer:innen ausschließen, wenn eines der beiden Einwilligungsattribute einen anderen Wert als `true` hat. Sie können dies tun, indem Sie diese Nutzer:innen segmentieren, wenn die Einwilligungswerte auf `true` gesetzt sind. Dies stellt auch sicher, dass genauere Analytics der Nutzer:innen synchronisiert werden, da wir wissen, dass Google diese Nutzer:innen aus den Zielgruppen ablehnen wird. Beachten Sie, dass Einwilligungsattribute nicht erforderlich sind, wenn Sie Google Audience Sync verwenden, um Nutzer:innen aus einer Zielgruppe zu entfernen.
 
 ## Integration
 
@@ -181,11 +193,11 @@ Vervollständigen Sie den Rest Ihrer User Journey in Canvas und starten Sie dann
 
 Die Nutzer:innen gehen dann zur nächsten Komponente des Canvas über, wenn es eine gibt, oder verlassen den Canvas, wenn es der letzte Schritt der User Journey ist.
 
-## Synchronisierung von Nutzer:innen und Überlegungen zu Rate-Limits {#user-syncing-and-rate-limit-considerations}
+## Nutzersynchronisierung und Rate-Limit-Überlegungen {#user-syncing-and-rate-limit-considerations}
 
 Wenn Nutzer:innen die Audience-Sync-Komponente erreichen, synchronisiert Braze diese Nutzer:innen nahezu in Echtzeit und berücksichtigt dabei die Rate-Limits der Google Ads API. In der Praxis bedeutet dies, dass Braze versucht, alle 5 Sekunden so viele Nutzer:innen wie möglich zu bündeln und zu verarbeiten, bevor sie an Google gesendet werden.
 
-Sobald ein:e Kund:in kurz davor ist, das Rate-Limit der Google Ads API zu erreichen, gibt Google Braze Rückmeldungen zu Wiederholungsempfehlungen. Wenn ein:e Braze-Kund:in das Rate-Limit erreicht, versucht Braze im Canvas die Synchronisierung bis zu &#126;13 Stunden lang erneut. Wenn die Synchronisierung nicht möglich ist, werden diese Nutzer:innen unter der Metrik „Fehlerhafte Nutzer:innen“ aufgeführt.
+Sobald ein:e Kund:in kurz davor ist, das Rate-Limit der Google Ads API zu erreichen, gibt Google Braze Rückmeldungen zu Wiederholungsempfehlungen. Wenn ein:e Braze-Kund:in das Rate-Limit erreicht, versucht Braze im Canvas die Synchronisierung bis zu &#126;13 Stunden lang erneut. Wenn die Synchronisierung nicht möglich ist, werden diese Nutzer:innen unter der Metrik „Users Errored“ aufgeführt.
 
 ## Analytics verstehen {#understanding-analytics}
 
@@ -194,11 +206,11 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Metrik | Beschreibung |
 | ------ | ----------- |
 | *Eingetreten* | Anzahl der Nutzer:innen, die diesen Schritt betreten haben, um mit Google synchronisiert zu werden. |
-| *Zum nächsten Schritt fortgefahren* | Wie viele Nutzer:innen zur nächsten Komponente vorgerückt sind, falls eine vorhanden ist. Alle Nutzer:innen rücken automatisch vor. Wenn dies der letzte Schritt im Canvas-Zweig ist, beträgt diese Metrik 0. |
-| *Synchronisierte Nutzer:innen* | Anzahl der Nutzer:innen, die erfolgreich mit Google synchronisiert wurden. |
-| *Nicht synchronisierte Nutzer:innen* | Anzahl der Nutzer:innen, die aufgrund fehlender Abgleichfelder oder weil das Einwilligungsattribut auf `false` gesetzt war, nicht synchronisiert wurden. |
-| *Fehlerhafte Nutzer:innen* | Anzahl der Nutzer:innen, die nach &#126;13 Stunden Wiederholungsversuchen aufgrund eines Fehlers nicht mit Google synchronisiert wurden. Bei bestimmten Fehlern, wie Unterbrechungen des Google-Ads-API-Dienstes, wiederholt Canvas die Synchronisierung bis zu &#126;13 Stunden lang. Wenn die Synchronisierung zu diesem Zeitpunkt immer noch nicht möglich ist, wird *Nicht synchronisierte Nutzer:innen* befüllt. |
-| *Ausstehende Nutzer:innen* | Anzahl der Nutzer:innen, die derzeit von Braze zur Synchronisierung mit Google verarbeitet werden. |
+| *Zum nächsten Schritt weitergegangen* | Wie viele Nutzer:innen zum nächsten Baustein weitergegangen sind, falls einer vorhanden ist. Alle Nutzer:innen gehen automatisch weiter. Wenn dies der letzte Schritt im Canvas-Zweig ist, beträgt diese Metrik 0. |
+| *Nutzer:innen synchronisiert* | Anzahl der Nutzer:innen, die erfolgreich mit Google synchronisiert wurden. |
+| *Nutzer:in nicht synchronisiert* | Anzahl der Nutzer:innen, die aufgrund fehlender Abgleichfelder oder weil das Einwilligungsattribut auf `false` gesetzt war, nicht synchronisiert wurden. |
+| *Nutzer:innen mit Fehler* | Anzahl der Nutzer:innen, die aufgrund eines Fehlers nach ca. 13 Stunden Wiederholungsversuchen nicht mit Google synchronisiert wurden. Bei bestimmten Fehlern, wie Unterbrechungen des Google-Ads-API-Dienstes, versucht Canvas die Synchronisierung bis zu ca. 13 Stunden lang erneut. Wenn die Synchronisierung zu diesem Zeitpunkt immer noch nicht möglich ist, wird *Nutzer:in nicht synchronisiert* befüllt. |
+| *Nutzer:innen ausstehend* | Anzahl der Nutzer:innen, die derzeit von Braze zur Synchronisierung mit Google verarbeitet werden. |
 | *Canvas verlassen* | Anzahl der Nutzer:innen, die den Canvas verlassen haben. Dies tritt auf, wenn der letzte Schritt in einem Canvas ein Google-Schritt ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 
@@ -220,12 +232,12 @@ Aus Datenschutzgründen wird die Größe der Nutzerliste als null angezeigt, bis
 
 Obwohl Braze eine bestimmte Anzahl von Nutzer:innen an Google synchronisieren kann, kann die tatsächliche abgeglichene Zielgruppengröße, die Sie in Google Ads sehen, deutlich niedriger sein. Das liegt daran, dass Google die von Ihnen bereitgestellten Nutzerdaten (wie E-Mail-Adressen oder Telefonnummern) mit tatsächlichen Google-Konten auf ihrer Plattform abgleichen muss.
 
-Selbst wenn Ihre Braze-Nutzerprofile gültige Abgleichfelder enthalten, erscheinen Nutzer:innen nur in Ihrer Google Custom Audience, wenn sie ein Google-Konto mit übereinstimmenden Informationen haben.
+Auch wenn Ihre Braze-Nutzerprofile gültige Abgleichfelder enthalten, erscheinen Nutzer:innen nur dann in Ihrer Google Custom Audience, wenn sie ein Google-Konto mit übereinstimmenden Informationen haben.
 
 So verbessern Sie Ihre Abgleichrate:
 - Stellen Sie sicher, dass Sie [Ihre Daten korrekt formatieren](https://support.google.com/google-ads/answer/7659867).
 - Geben Sie nach Möglichkeit mehrere Bezeichner an (zum Beispiel sowohl E-Mail als auch Telefonnummer).
-- Beachten Sie, dass es 48 bis 72 Stunden dauern kann, bis Google Nutzer:innen verarbeitet und abgleicht, wobei es in einigen Fällen mehrere Tage dauern kann.
+- Beachten Sie, dass es 48 bis 72 Stunden dauern kann, bis Google Nutzer:innen verarbeitet und abgleicht, wobei es in einigen Fällen auch mehrere Tage dauern kann.
 
 Die endgültige abgeglichene Zielgruppengröße hängt vollständig vom Abgleichprozess von Google ab. Braze hat keinen Einblick in den Abgleich von Google, sobald die Daten an deren Plattform übergeben wurden.
 
@@ -237,8 +249,8 @@ Die endgültige abgeglichene Zielgruppengröße hängt vollständig vom Abgleich
 
 Wenn Sie Zielgruppen mit Google synchronisieren, wird dieser Fehler ausgelöst, wenn Sie mobile Bezeichner als Teil Ihrer Synchronisierungen ausgewählt, aber Ihre mobilen App-IDs von der Google-Partnerseite gelöscht haben. Um dieses Problem zu beheben, stellen Sie sicher, dass Sie die entsprechenden mobilen App-IDs für iOS und Android auf der Google-Partnerseite hinzugefügt haben.
 
-### Warum habe ich eine E-Mail über ungültige Google Ads-Zugangsdaten erhalten, obwohl das Dashboard die Verbindung noch als aktiv anzeigt? {#why-did-i-get-a-google-ads-invalid-credentials-email-when-the-dashboard-still-shows-connected}
+### Warum habe ich eine E-Mail über ungültige Google Ads-Zugangsdaten erhalten, obwohl das Dashboard weiterhin als verbunden angezeigt wird? {#why-did-i-get-a-google-ads-invalid-credentials-email-when-the-dashboard-still-shows-connected}
 
-Braze sendet diese E-Mail automatisch, wenn die Google-API einen Autorisierungsfehler zurückgibt. Das kann auch dann passieren, wenn **Google Ads** im Dashboard weiterhin als verbunden angezeigt wird und Zielgruppen scheinbar synchronisiert werden – zum Beispiel, wenn das verbundene Google-Konto keine Berechtigung für eine bestimmte von Google angeforderte Aktion hat oder wenn die Google Ads-Nutzungsbedingungen für das Konto noch akzeptiert werden müssen.
+Braze sendet diese E-Mail automatisch, wenn die API von Google einen Autorisierungsfehler zurückgibt. Das kann auch dann passieren, wenn **Google Ads** im Dashboard weiterhin als verbunden angezeigt wird und Zielgruppen scheinbar synchronisiert werden – zum Beispiel, wenn das verbundene Google-Konto keine Berechtigung für eine bestimmte von Google angeforderte Aktion hat oder wenn die Nutzungsbedingungen von Google Ads für das Konto noch akzeptiert werden müssen.
 
 Einige Autorisierungsfehler lösen sich von selbst. Überprüfen Sie Ihre Canvas-**Audience Sync**-Analytics (zum Beispiel *Users Synced* und *Users Errored*), um zu bestätigen, ob Nutzer:innen weiterhin synchronisiert werden. Wenn die Probleme weiterhin bestehen, gehen Sie zu **Partnerintegrationen** > **Technologie-Partner** > **Google Ads**, suchen Sie **Google Audience Sync** und verwenden Sie **Change Account**, um sich erneut mit einem Google Ads-Konto zu verbinden, das über den erforderlichen Zugriff und eine abgeschlossene Einrichtung verfügt.

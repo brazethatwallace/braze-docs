@@ -19,7 +19,7 @@ tool: Segments
 
 Braze Segments는 동적 사용자 그룹을 생성할 수 있는 강력한 타겟팅 도구를 제공합니다. 대부분의 사용 사례에서는 이것만으로도 오디언스에 효과적으로 도달할 수 있습니다. 계산된 필터는 최대 2년 전의 행동을 분석하거나 복잡한 로직을 적용해야 하는 고급 사용 사례를 위해 설계되었으며, 데이터 유지 또는 시스템 성능을 저하시키지 않습니다. 자체 [데이터 웨어하우스]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)의 데이터를 사용하여 오디언스를 더욱 세밀하게 조정할 수 있습니다.
 
-예를 들어, Braze 기본 세분화는 최근 제품 중 하나를 구매한 사용자를 식별하는 것처럼 정의한 특정 기준에 맞는 사용자를 찾습니다. 계산된 필터를 사용하면 더 깊이 분석할 수 있습니다. 예를 들어, 18~24개월 전 사이에 특정 제품의 특정 색상을 최소 두 번 이상 구매한 사용자를 식별할 수 있습니다. 계산된 필터는 필수가 아닌 향상 기능입니다. 더 고급 필터나 더 긴 과거 기간이 필요한 경우, 데이터 사용을 최적화하면서도 도움이 되는 훌륭한 도구입니다.
+예를 들어, Braze 기본 세분화는 최근 제품 중 하나를 구매한 사용자를 식별하는 것처럼 정의한 특정 기준에 맞는 사용자를 찾습니다. 계산된 필터를 사용하면 더 깊이 분석할 수 있습니다. 예를 들어, 18~24개월 전 사이에 특정 제품의 특정 색상을 최소 두 번 이상 구매한 사용자를 식별할 수 있습니다. 계산된 필터는 필수가 아닌 향상 기능입니다. 더 고급 필터나 더 긴 기간의 데이터가 필요한 경우, 데이터 사용을 최적화하면서도 유용하게 활용할 수 있는 훌륭한 도구입니다.
 
 ## 계산된 필터와 SQL 세그먼트 확장 {#calculated-filters-and-sql-segment-extensions}
 
@@ -35,11 +35,11 @@ Braze Segments는 동적 사용자 그룹을 생성할 수 있는 강력한 타�
 
 ### 계산된 필터를 사용해야 하는 경우 {#when-to-use-calculated-filters}
 
-대시보드에서 안내하는 구매, 이커머스, 메시지 상호작용 및 커스텀 이벤트 규칙만으로 충분하고, 데이터 웨어하우스 테이블에 대한 임의의 SQL이 필요하지 않은 경우 계산된 필터를 사용하세요.
+대시보드에서 안내하는 구매, 이커머스, 메시지 상호작용 및 커스텀 이벤트 규칙만으로 충분하고, 데이터 웨어하우스 테이블에 대한 임의의 SQL이 필요하지 않은 경우 계산된 필터를 사용합니다.
 
 ### 다른 세그먼트 확장 유형을 사용해야 하는 경우 {#when-to-use-other-segment-extension-types}
 
-전체 SQL, Snowflake 기반 데이터, 템플릿 또는 대규모 또는 복잡한 데이터 웨어하우스 쿼리를 위해 설계된 새로고침 모드가 필요한 경우 [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)을 사용하세요. [Cloud Data Ingestion]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) 연결의 데이터를 사용하여 데이터 웨어하우스를 직접 쿼리하는 SQL이 필요한 경우 [CDI 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments)을 사용하세요.
+전체 SQL, Snowflake 기반 데이터, 템플릿 또는 대규모 또는 복잡한 데이터 웨어하우스 쿼리를 위한 새로고침 모드가 필요한 경우 [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)을 사용합니다. [클라우드 데이터 수집]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) 연결의 데이터를 사용하여 데이터 웨어하우스를 직접 쿼리하는 SQL이 필요한 경우 [CDI 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments)을 사용합니다.
 
 ### 계산된 필터와 세그먼트 확장을 함께 사용하기 {#use-calculated-filters-and-segment-extensions-together}
 
@@ -47,16 +47,16 @@ Braze Segments는 동적 사용자 그룹을 생성할 수 있는 강력한 타�
 
 ## 계산된 필터 만들기 {#create-a-calculated-filter}
 
-계산된 필터를 만들려면 사용자 행동을 기반으로 기준을 정의한 다음, 필터를 저장하고 활성화한 후 Segment에서 사용하세요.
+계산된 필터를 만들려면 사용자 행동을 기반으로 기준을 정의한 다음, 필터를 저장하고 활성화한 후 Segment에서 사용합니다.
 
 ### 1단계: 세부 정보 설정 {#step-1-set-up-details}
 
 1. **오디언스** > **계산된 필터**로 이동합니다.
 2. **계산된 필터 만들기**를 선택합니다.
 3. 타겟팅하려는 사용자를 설명하는 이름을 지정합니다. 설명적인 이름을 사용하면 Segment에 추가할 때 필터를 더 쉽게 찾을 수 있습니다.
-4. (선택 사항) 워크스페이스에서 계산된 필터를 정리하기 위해 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)를 추가합니다.
+4. (선택 사항) [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)를 추가하여 워크스페이스에서 계산된 필터를 정리합니다.
 
-또한 **반복 오디언스 업데이트 활성화**를 선택하여 반복 스케줄에 따라 필터를 새로고침할 수 있습니다. 이 설정을 켜지 않으면 필터를 업데이트하거나 **오디언스 업데이트**를 선택하지 않는 한 계산된 필터가 새로고침되지 않습니다.
+**반복 오디언스 업데이트 활성화**를 선택하여 반복 스케줄에 따라 필터를 새로고침할 수도 있습니다. 이 설정을 켜지 않으면 필터를 업데이트하거나 **오디언스 업데이트**를 선택하지 않는 한 계산된 필터가 새로고침되지 않습니다.
 
 ### 2단계: 기준 선택 {#step-2-choose-your-criteria}
 
@@ -82,19 +82,19 @@ Segment에서 이벤트 속성정보를 사용하기 위해 계산된 필터가 
 
 ### 3단계: 필터 저장 및 활성화 {#step-3-save-and-activate-your-filter}
 
-**저장**을 선택하여 계산된 필터를 저장합니다. 활성화하지 않고도 필터를 저장할 수 있지만, Segment를 빌드할 때 옵션으로 표시되려면 필터를 활성화해야 합니다.
+**저장**을 선택하여 계산된 필터를 저장합니다. 활성화하지 않고 필터를 저장할 수 있지만, Segment를 빌드할 때 옵션으로 표시되려면 필터를 활성화해야 합니다.
 
 계산된 필터를 활성화하면, 해당 필터를 참조하는 Segment, Campaign 또는 Canvas가 평가될 때 Braze가 실시간으로 필터를 평가합니다.
 
 ## Segment에서 계산된 필터 사용하기 {#use-a-calculated-filter-in-a-segment}
 
-계산된 필터를 생성하고 활성화한 후, Segment를 구축하거나 Campaign 또는 Canvas의 오디언스를 정의할 때 해당 필터를 추가하세요.
+계산된 필터를 생성하고 활성화한 후, Segment를 구축하거나 Campaign 또는 Canvas의 오디언스를 정의할 때 해당 필터를 추가할 수 있습니다.
 
 1. Segment 빌더에서 필터 목록을 엽니다.
 2. **기타 필터**에서 **기존 계산된 필터**를 선택합니다.
 3. Segment 정의에 포함할 계산된 필터를 선택합니다.
 
-필터를 추가한 후, 필터 드롭다운 옆에 있는 아이콘을 선택하여 필터의 세부 정보를 확인하고 오디언스에 적용된 기준을 검토하세요.
+필터를 추가한 후, 필터 드롭다운 옆의 아이콘을 선택하면 필터의 세부 정보를 확인하고 오디언스에 적용된 기준을 검토할 수 있습니다.
 
 ![세부 정보를 확인할 수 있는 아이콘이 있는 Segment 빌더의 계산된 필터.]({% image_buster /assets/img/segment/view_cf_details.png %}){: style="max-width:70%;"}
 
@@ -124,33 +124,33 @@ Segment 구축에 대한 자세한 내용은 [Segment 만들기]({{site.baseurl}
 계산된 필터의 행 메뉴를 열어 편집, 보관, 오디언스 새로고침 또는 메시징에서 사용되는 방식을 확인할 수 있습니다. 처리 중인 계산된 필터는 편집할 수 없습니다.
 
 {% alert note %}
-워크스페이스에서 한 번에 최대 500개의 활성화된 계산된 필터를 사용할 수 있습니다. 이 제한을 늘려야 하는 경우 Braze 계정 매니저에게 문의하세요.
+워크스페이스에서 한 번에 최대 100개의 활성화된 계산된 필터를 사용할 수 있습니다. 이 한도를 늘려야 하는 경우 Braze 계정 매니저에게 문의하세요.
 {% endalert %}
 
 #### 저장과 활성화 {#save-versus-activate}
 
-계산된 필터를 활성화하지 않고 저장할 수 있습니다. 비활성 필터는 워크스페이스에 남아 있지만 활성화하기 전까지 Segment에 추가할 수 없습니다. 세분화에서 필터를 사용하려면 **필터 활성화**를 선택하세요.
+계산된 필터를 활성화하지 않고 저장할 수 있습니다. 비활성 필터는 워크스페이스에 남아 있지만 활성화할 때까지 Segment에 추가할 수 없습니다. **필터 활성화**를 선택하여 세분화에서 필터를 사용하세요.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
-### 여러 커스텀 이벤트를 사용하는 계산 필터를 만들 수 있나요? {#can-i-create-a-calculated-filter-that-uses-multiple-custom-events}
+### 여러 커스텀 이벤트를 사용하는 계산된 필터를 만들 수 있나요? {#can-i-create-a-calculated-filter-that-uses-multiple-custom-events}
 
-계산 필터를 사용할 때 하나의 커스텀 이벤트, 하나의 구매 이벤트, 하나의 이커머스 이벤트 또는 하나의 채널 인터랙션을 선택할 수 있습니다. 그러나 Segment를 생성할 때 여러 계산 필터를 AND 또는 OR로 결합할 수 있습니다.
+계산된 필터를 사용할 때 하나의 커스텀 이벤트, 하나의 구매 이벤트, 하나의 이커머스 이벤트 또는 하나의 채널 인터랙션을 선택할 수 있습니다. 그러나 Segment를 생성할 때 여러 계산된 필터를 AND 또는 OR로 결합할 수 있습니다.
 
 [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)을 사용하면 여러 이벤트를 추가하거나 여러 Snowflake 테이블을 참조할 수 있습니다.
 
-### 활성 Campaign에 존재하는 계산 필터를 아카이브할 수 있나요? {#can-i-archive-calculated-filters-if-they-exist-in-an-active-campaign}
+### 활성 Campaign에 존재하는 계산된 필터를 아카이브할 수 있나요? {#can-i-archive-calculated-filters-if-they-exist-in-an-active-campaign}
 
-아니요. 계산 필터를 아카이브하려면 먼저 모든 활성 메시징에서 해당 필터를 제거해야 합니다.
+아니요. 계산된 필터를 아카이브하려면 먼저 모든 활성 메시징에서 해당 필터를 제거해야 합니다.
 
-### 계산 필터에서 배열을 사용할 수 있나요? {#can-i-use-arrays-in-calculated-filters}
+### 계산된 필터에서 배열을 사용할 수 있나요? {#can-i-use-arrays-in-calculated-filters}
 
 네. 배열을 사용하려면 속성정보 이름에 대괄호(`[]`)를 추가하세요. 속성정보가 `location_code`인 경우 `location_code[]`로 입력합니다.
 
-Braze는 `[]`를 사용하여 배열을 순회하고 순회된 배열의 항목이 이벤트 속성정보와 일치하는지 확인합니다. 예를 들어, 배열 속성정보의 값 중 하나 이상과 일치하는 사용자의 계산 필터를 만들 수 있습니다.
+Braze는 `[]`를 사용하여 배열을 순회하고 순회된 배열의 항목이 이벤트 속성정보와 일치하는지 확인합니다. 예를 들어, 배열 속성정보의 값 중 하나 이상과 일치하는 사용자의 계산된 필터를 만들 수 있습니다.
 
-### Braze는 "지난 X일" 상대 기간의 시간 범위를 어떻게 계산하나요? {#how-does-braze-calculate-the-time-period-for-a-relative-time-period-of-last-x-days}
+### Braze는 "최근 X일" 상대적 기간의 시간 범위를 어떻게 계산하나요? {#how-does-braze-calculate-the-time-period-for-a-relative-time-period-of-last-x-days}
 
-계산 필터가 상대 기간("지난 X일")을 계산할 때 시작 시간은 자정 UTC로 설정됩니다. 예를 들어, 2024-09-16 21:00 UTC에 새로고침되고 10일을 지정하는 계산 필터의 경우 시작 시간은 2024-09-06 21:00 UTC가 아닌 2024-09-06 00:00 UTC로 설정됩니다.
+계산된 필터가 상대적 기간("최근 X일")을 계산할 때, 시작 시간은 UTC 자정으로 설정됩니다. 예를 들어, 2024-09-16 21:00 UTC에 새로고침되고 10일을 지정하는 계산된 필터의 경우, 시작 시간은 2024-09-06 21:00 UTC가 아닌 2024-09-06 00:00 UTC로 설정됩니다.
 
 그러나 SQL 세그먼트를 사용하여 시간대를 지정할 수 있습니다. 예를 들어, 회사 시간 기준 자정을 기준으로 10일 전에 커스텀 이벤트를 수행한 사용자를 식별하거나, 현재 시간을 기준으로 10일 전에 이벤트를 수행한 사용자를 식별할 수 있습니다.

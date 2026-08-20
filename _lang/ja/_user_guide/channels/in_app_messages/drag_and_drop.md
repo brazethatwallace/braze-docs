@@ -132,7 +132,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 ## ステップ4: アプリ内メッセージを構築・デザインする {#step-4-build-and-design-your-in-app-message}
 
-ここでは、ブランド独自のスタイルを身にまとったメッセージがランウェイを歩くように仕上げていきます。エディターブロックとスタイル設定を組み合わせて、アプリ内メッセージをカスタマイズおよびデザインできます。
+ここでは、ブランド独自のスタイルを反映させてメッセージをデザインします。エディターブロックとスタイル設定を組み合わせて、アプリ内メッセージをカスタマイズおよびデザインできます。
 
 - 利用可能なエディターブロックとそのプロパティの一覧については、[エディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages)を参照してください。
 - メッセージのルック＆フィールのカスタマイズについては、[スタイル設定]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings)をご確認ください。
@@ -140,7 +140,7 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 ## ステップ5：アプリ内メッセージをテストする {#step-5-test-your-in-app-message}
 
-**プレビューとテスト**セクションでは、さまざまなデバイスでアプリ内メッセージをプレビューし、デバイスにテストメッセージを送信できます。ここでは、ドラッグ＆ドロップのアプリ内メッセージキャンペーンにおいて、すべてのプラットフォームで詳細が整合していることを確認できます。
+**プレビューとテスト**セクションでは、さまざまなデバイスでアプリ内メッセージをプレビューし、デバイスにテストメッセージを送信できます。ここでは、ドラッグ＆ドロップのアプリ内メッセージキャンペーンのすべてのプラットフォームで詳細が整合していることを確認できます。
 
 キャンペーンを送信する前に、必ずアプリ内メッセージをテストすることが重要です。これにより、ユーザーの視点から最終的なメッセージがどのように表示されるかを確認できます。
 
@@ -172,24 +172,45 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 ドラッグ＆ドロップエディターで作成されたアプリ内メッセージでは、ボディクリックは自動的に収集されません。詳細については、[iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310)および[Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100)のSDK変更ログを参照してください。
 
-### ボタンクリックに基づいてセグメントできますか？ {#can-i-segment-based-on-button-clicks}
+### ボタンクリックに基づいてセグメントを作成できますか？ {#can-i-segment-based-on-button-clicks}
 
-はい、メッセージ内の最大2つのボタンについて、ボタンクリックに基づいてセグメントできます。これを行うには、ボタンの**レポート用識別子**を「0」と「1」に設定します。これにより、セグメンテーションフィルター「アプリ内メッセージボタン1をクリック」と「アプリ内メッセージボタン2をクリック」にそれぞれ対応します。
+はい、メッセージ内の最大2つのボタンのクリックに基づいてセグメントを作成できます。これを行うには、ボタンの**レポート用識別子**を「0」と「1」に設定します。これにより、セグメンテーションフィルター「アプリ内メッセージボタン1をクリック」と「アプリ内メッセージボタン2をクリック」にそれぞれ対応します。
 
-![「レポート用識別子」フィールドに値「0」が設定されている画面。]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
+![「レポート用識別子」フィールドに値「0」が設定されている画面]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
 ### カスタムHTMLやJavaScriptを使用してアプリ内メッセージをカスタマイズしたり、既存のHTMLメッセージをエディターに移行したりできますか？ {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
 既存のHTMLメッセージをエディターに直接移行することはできませんが、**カスタムコード**ブロックに生のHTML、CSS、JavaScriptを挿入できます。**カスタムコード**ブロックを使用して、サードパーティの動画や、Connected Contentや条件文などの高度なLiquidを埋め込むことができます。`brazeBridge` JavaScriptメソッドとクリックトラッキングの例については、[カスタムHTMLアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html)を参照してください。
 
+### ドラッグ＆ドロップエディターのコンポーザービューが最終的なメッセージと異なって見えるのはなぜですか？ {#why-might-the-drag-and-drop-editors-composer-view-look-different-from-the-final-message}
+
+ドラッグ＆ドロップエディターは、コンポーザー内でメッセージをレンダリングし、プレビュー専用のスタイルとデフォルトを適用して、レイアウトの構築と確認ができるようにしています。これらの処理は、編集中に構造やプレースホルダーコンテンツを確認するためのものであり、ユーザーが受け取るメッセージには含まれません。
+
+エディター専用の動作の一般的な例は以下のとおりです。
+
+- エディターは**カスタムコード**ブロックを`bz-html-code-block`コンテナでラップし、デフォルトの`min-height`を`40px`に設定するため、空のブロックや短いブロックでも編集中に表示されます
+- 画像が空白であったり、Liquidを含んでいる場合にエディターでプレースホルダーが表示されます
+- チェックボックスグループやラジオボタンが最初のオプションを事前選択し、アクティブ状態をプレビューできるようにします
+
+エディターでのみ異なって見える場合は、通常プレビューの動作です。配信されたメッセージのトラブルシューティングを行う際は、エディター専用のフレームやプレビューのデフォルトではなく、メッセージブロック内のスタイルとマークアップを確認してください。
+
 ### スライドアップアプリ内メッセージを作成するにはどうすればよいですか？ {#how-can-i-create-a-slideup-in-app-message}
 
 現在、エディターはモーダルとフルスクリーンメッセージのみに対応しています。**メッセージスタイル**パネルの**メッセージコンテナ**セクションで表示タイプを切り替えることができます。
 
-### キャンペーンまたはキャンバス内でアプリ内メッセージを作成した後、テンプレートとして保存できますか？ {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### キャンペーンまたはキャンバス内で作成したアプリ内メッセージをテンプレートとして保存できますか？ {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
 はい。今後のキャンペーンやキャンバスステップで再利用したいアプリ内メッセージは、エディターを終了した後に表示される**テンプレートとして保存**ボタンを使用して、カスタムテンプレートとして保存できます。テンプレートとして保存するには、まずキャンペーンを開始するか、下書きとして保存する必要があります。
 
-![製品ツアー用のアプリ内メッセージのプレビュー。]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
+![製品ツアー用のアプリ内メッセージのプレビュー]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
 また、**コンテンツ** > **アプリ内メッセージ**に移動して、アプリ内メッセージテンプレートを作成・保存することもできます。
+
+### ページ分割されたアプリ内メッセージでLiquid構文がプレーンテキストとして表示されるのはなぜですか？ {#why-is-my-liquid-syntax-appearing-as-plain-text-in-my-paginated-in-app-message}
+
+ページ分割されたアプリ内メッセージのテスト時にLiquid構文がプレーンテキストとして表示される場合（パーソナライズされたコンテンツの代わりに）、いずれかのページにLiquid構文エラーがある可能性があります。1つのページに構文エラーがあると、メッセージ内のすべてのページのLiquidレンダリングに影響します。ページは独立していません。
+
+トラブルシューティングの手順：
+
+1. メッセージ内のすべてのページでLiquid構文エラーを確認してください。1つのページでプレビューが壊れていても、そのページにエラーがあるとは限りません。ページは独立していないため、構文エラーはメッセージ内のどこにでも存在する可能性があります。
+2. すべてのLiquidタグが正しく閉じられ、正しい形式になっていることを確認してください。

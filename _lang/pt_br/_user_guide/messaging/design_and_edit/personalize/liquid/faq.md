@@ -18,7 +18,7 @@ A Braze atualmente não oferece suporte a 100% do Liquid da Shopify, apenas a ce
 
 ### Como uso snippets de Liquid na Braze? {#how-do-i-use-liquid-snippets-in-braze}
 
-Em muitos casos, você pode incorporar snippets de Liquid acessando suas Campaigns ou Canvas e inserindo Liquid no modal de personalização em áreas como o corpo da mensagem de e-mail ou em seus Segments.
+Em muitos casos, você pode incorporar snippets de Liquid acessando suas Campaigns ou Canvas e inserindo Liquid no modal de personalização em áreas como o corpo da mensagem de e-mail ou nos seus Segments.
 
 #### Onde posso saber mais? {#where-can-i-learn-more}
 
@@ -28,9 +28,9 @@ Para saber mais sobre Liquid, confira nosso caminho guiado [Personalização din
 
 O Braze Connected Content é um exemplo de Liquid tag. Ele também é usado para personalização, mas os dados vêm de um endpoint externo em vez de dados armazenados na Braze. Confira nossa seção dedicada de [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para saber mais sobre como expandir a personalização das suas mensagens.
 
-### O que é templating de Liquid? {#what-is-liquid-templating}
+### O que é templating com Liquid? {#what-is-liquid-templating}
 
-Essa é a forma mais comum de usar Liquid na Braze. O templating de Liquid envolve extrair dados do perfil de um usuário para uma mensagem. Esses dados podem variar desde o nome do usuário até eventos personalizados de uma mensagem disparada por evento.
+Essa é a forma mais comum de usar Liquid na Braze. O templating com Liquid envolve extrair dados do perfil de um usuário para uma mensagem. Esses dados podem variar desde o nome do usuário até eventos personalizados de uma mensagem disparada por evento.
 
 Consulte [Tags de personalização compatíveis]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) para uma lista completa das Liquid tags compatíveis.
 
@@ -55,10 +55,10 @@ Existe um atributo padrão para a localização do usuário: `{{${most_recent_lo
 {% raw %}
 ### Qual é a diferença entre {{campaign.${name}}} e {{campaign.${message_name}}}? {#whats-the-difference-between-campaignname-and-campaignmessage_name}
 
-Tanto `{{campaign.${name}}}` quanto `{{campaign.${message_name}}}` são tags de personalização Liquid compatíveis. Ambas as tags fazem referência a atributos da Campaign. `{{campaign.${name}}}` indica o nome da sua Campaign, e `{{campaign.${message_name}}}` é o nome da sua variante de mensagem.
+Tanto `{{campaign.${name}}}` quanto `{{campaign.${message_name}}}` são tags de personalização Liquid compatíveis. Ambas as tags fazem referência a atributos de Campaign. `{{campaign.${name}}}` indica o nome da sua Campaign, e `{{campaign.${message_name}}}` é o nome da sua variante de mensagem.
 {% endraw %}
 
-Para uso em URLs e strings de consulta (por exemplo, quando um nome contém `%` ou espaços), consulte [Nomes de Campaigns em URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls).
+Para uso em URLs e strings de consulta (por exemplo, quando um nome contém `%` ou espaços), consulte [Nomes de Campaign em URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls).
 
 ### Como uso Liquid com objetos aninhados? {#how-do-i-use-liquid-with-nested-objects}
 
@@ -66,7 +66,7 @@ A Braze tem um recurso integrado que gera código Liquid para Segments que podem
 
 Para saber mais, confira [Segmentação com múltiplos critérios]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects).
 
-### Como uso propriedades de eventos para personalizar uma mensagem que um evento está disparando? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
+### Como uso propriedades de evento para personalizar uma mensagem que um evento está disparando? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
 {% raw %}
 Você pode acessar propriedades de eventos disparados por API com a tag `api_triggered_property`: `{{api_trigger_properties.${attribute_key}}}`.
@@ -78,9 +78,11 @@ O Liquid não suporta nativamente arrays de arrays. Armazene os valores como um 
 
 ## Variáveis e sintaxe {#variables-and-syntax}
 
-### Como atribuir variáveis com Liquid? {#how-do-i-assign-variables-with-liquid}
+### Como atribuo variáveis com Liquid? {#how-do-i-assign-variables-with-liquid}
 
 Você pode criar e atribuir variáveis usando a tag `assign`. Isso cria uma variável no criador de mensagem que também pode ser referenciada ao longo da sua mensagem.
+
+Você pode dividir um `assign` em várias linhas se envolver todas as variáveis Liquid da Braze com chaves duplas (`{{ }}`). Sem essas chaves, instruções de atribuição em várias linhas podem causar renderização inesperada, incluindo atributos personalizados que falham ao processar o modelo. Para exemplos e regras de sintaxe relacionadas, consulte [Usar Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
 
 ### Quando devo usar `assign` versus `capture`? {#when-should-i-use-assign-versus-capture}
 
@@ -120,7 +122,7 @@ Join our VIP program to unlock free shipping.
 
 ### As variáveis Liquid são compartilhadas entre a linha de assunto e o corpo? {#do-liquid-variables-carry-between-subject-line-and-body}
 
-Não. A Braze renderiza cada componente da mensagem separadamente (como linha de assunto, corpo HTML, pré-cabeçalho e título do push). Atribuições ou capturas feitas em um campo não ficam disponíveis em outro. Repita o Liquid ou a chamada de Connected Content em cada campo que precisar do valor.
+Não. A Braze renderiza cada componente da mensagem separadamente (como linha de assunto, corpo HTML, pré-cabeçalho e título push). Atribuições ou capturas feitas em um campo não ficam disponíveis em outro. Repita o Liquid ou a chamada de Connected Content em cada campo que precisar do valor.
 
 ### O que é a lógica de loop for e como posso usá-la? {#what-is-for-loop-logic-and-how-can-i-use-it}
 
@@ -143,11 +145,11 @@ Quando as condições definidas forem atendidas, sua mensagem pode prosseguir. U
 
 ### O que é a lógica de interrupção e como posso usá-la? {#what-is-abort-logic-and-how-can-i-use-it}
 
-A lógica de interrupção permite impedir que uma mensagem seja enviada se as condições forem atendidas. Isso é especialmente útil para evitar que mensagens incompletas sejam enviadas aos seus usuários. Para exemplos de lógica de interrupção nas suas Campaigns de marketing, leia mais em [Interrompendo mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
+A lógica de interrupção permite impedir que uma mensagem seja enviada se as condições forem atendidas. Isso é especialmente útil para evitar que mensagens incompletas sejam enviadas aos seus usuários. Para exemplos de lógica de interrupção nas suas Campaigns de marketing, leia mais em [Interromper mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
 
 ### Posso usar Liquid dentro da tag `abort_message`? {#can-i-use-liquid-inside-the-abort_message-tag}
 
-Não. A tag {% raw %}`{% abort_message %}`{% endraw %} aceita uma string estática entre aspas, não personalização Liquid. Use outra lógica Liquid antes da tag se precisar de um comportamento de interrupção condicional.
+Não. A tag {% raw %}`{% abort_message %}`{% endraw %} aceita uma string estática entre aspas, não personalização Liquid. Use outra lógica Liquid antes da tag se precisar de um comportamento condicional de interrupção.
 
 ### Como mascarar números de telefone com Liquid? {#how-do-i-mask-phone-numbers-with-liquid}
 
@@ -210,11 +212,11 @@ Alguns tipos de [propriedade de contexto do Canvas]({{site.baseurl}}/user_guide/
 
 Se um snippet de Liquid de catálogo for interrompido durante o envio, recrie o snippet a partir do menu de personalização selecionando itens individuais do catálogo em vez de usar uma seleção em massa ou totalmente dinâmica. Consulte [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs) e [Seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
 
-## Content Blocks e o criador de mensagens {#content-blocks-and-the-message-composer}
+## Content Blocks e o criador de mensagem {#content-blocks-and-the-message-composer}
 
 ### Por que há espaçamento extra em mensagens que usam Content Blocks? {#why-is-there-extra-spacing-in-messages-that-use-content-blocks}
 
-Se você notar espaçamento extra em mensagens enviadas que usam Content Blocks com Liquid, pode haver quebras de parágrafo ou de linha desnecessárias dentro das suas instruções condicionais. Escreva suas instruções condicionais em uma única linha, em vez de distribuí-las em várias linhas.
+Se você notar espaçamento extra em mensagens enviadas que usam Content Blocks com Liquid, pode haver quebras de parágrafo ou de linha desnecessárias dentro das suas declarações condicionais. Escreva suas declarações condicionais em uma única linha, em vez de distribuí-las em várias linhas.
 
 #### Exemplo {#example}
 
@@ -253,35 +255,35 @@ Remova todas as quebras de linha para que o Liquid fique em uma linha contínua:
 ```
 {% endraw %}
 
-Ambas as abordagens evitam linhas vazias indesejadas na mensagem renderizada. Isso se aplica ao editor de arrastar e soltar de mensagens no app, ao editor de arrastar e soltar de e-mail e a Content Blocks com Liquid. Para saber mais, consulte [Controle de espaço em branco](https://shopify.github.io/liquid/basics/whitespace/).
+Ambas as abordagens evitam linhas vazias indesejadas na sua mensagem renderizada. Isso se aplica ao editor de arrastar e soltar de mensagens no app, ao editor de arrastar e soltar de e-mail e a Content Blocks com Liquid. Para saber mais, consulte a documentação de [controle de espaço em branco](https://shopify.github.io/liquid/basics/whitespace/) da Shopify e a [sintaxe Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax) da Braze.
 
-### Por que meu Content Block não aparece em **Row** na ferramenta de busca do editor de arrastar e soltar? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
+### Por que meu Content Block não aparece em **Row** na ferramenta de busca de arrastar e soltar? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
 
 Alguns Content Blocks não aparecem em **Row** na busca do editor de arrastar e soltar. Adicione um bloco HTML a partir da guia **Content** (**Advanced**) e, em seguida, insira a Liquid tag do Content Block nesse bloco HTML para renderizar o conteúdo do bloco.
 
-### Por que a prévia do meu Content Block de arrastar e soltar é diferente da visualização de composição? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
+### Por que a prévia do meu Content Block de arrastar e soltar difere da visualização de composição? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
 
-Quando você usa um modelo de Content Block com Liquid, as media queries para dispositivos móveis no bloco podem não ser aplicadas na prévia da mesma forma que quando você arrasta o bloco diretamente para uma mensagem. Arrastar o bloco preserva o layout, mas o desvincula do bloco de origem, de modo que edições futuras no bloco não atualizam mais a mensagem automaticamente.
+Quando você usa um modelo de Content Block com Liquid, as media queries para dispositivos móveis no bloco podem não ser aplicadas na prévia da mesma forma que quando você arrasta o bloco diretamente para uma mensagem. Arrastar o bloco preserva o layout, mas o desacopla do bloco de origem, de modo que edições futuras no bloco não atualizam mais a mensagem automaticamente.
 
-### Como faço para visualizar valores de propriedades de eventos no criador de mensagens? {#how-do-i-preview-event-property-values-in-message-composer}
+### Como faço para visualizar valores de propriedades de evento no criador de mensagem? {#how-do-i-preview-event-property-values-in-message-composer}
 
-Use **Preview as Custom User** e insira valores de amostra de propriedades de eventos personalizados para o usuário que você está visualizando. Isso também é útil para mensagens com lógica de interrupção quando você precisa de valores de prévia que não disparem uma interrupção.
+Use **Preview as Custom User** e insira valores de amostra de propriedades de evento personalizado para o usuário que você está visualizando. Isso também é útil para mensagens com lógica de interrupção quando você precisa de valores de prévia que não disparem uma interrupção.
 
 ## Liquid em mensagens de e-mail {#liquid-in-email-messages}
 
 ### Por que minha mensagem é interrompida com "Invalid from email address for recipient:"? {#why-does-my-message-abort-with-invalid-from-email-address-for-recipient}
 
-Essa interrupção ocorre quando o Liquid no endereço **De** produz uma sintaxe inválida, como uma variável ausente, espaços extras ou caracteres não permitidos. Visualize com um usuário teste e verifique se o endereço **De** renderizado corresponde ao domínio de envio configurado.
+Essa interrupção ocorre quando o Liquid no campo **De** produz uma sintaxe inválida, como uma variável ausente, espaços extras ou caracteres não permitidos. Faça a prévia com um usuário teste e verifique se o endereço **De** renderizado corresponde ao domínio de envio configurado.
 
 ### Como criar um endereço de resposta dinâmico? {#how-do-i-create-a-dynamic-reply-to-address}
 
-Use Liquid no campo **Responder para** quando seu espaço de trabalho suportar configuração dinâmica de endereço de resposta. Combine com as configurações de nome de exibição do **De** conforme necessário. Consulte [Configurações de e-mail]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) para opções específicas do espaço de trabalho.
+Use Liquid no campo **Responder para** quando seu espaço de trabalho suportar configuração dinâmica de endereço de resposta. Combine com as configurações de nome de exibição do campo **De** conforme necessário. Consulte [Configurações de e-mail]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) para opções específicas do espaço de trabalho.
 
 ## Solução de problemas de erros de Liquid {#troubleshooting-liquid-errors}
 
 ### Por que meu código Liquid não funciona mesmo parecendo correto? {#why-is-my-liquid-code-not-working-when-it-looks-correct}
 
-Se o seu código Liquid parece sintaticamente correto, mas não está funcionando, verifique se há aspas inteligentes (aspas curvas como `' '` ou `" "`) e travessões inteligentes (travessões longos como `—`) em vez de aspas retas (`' '` ou `" "`) e hifens (`-`). O Liquid reconhece apenas caracteres ASCII retos, então aspas e travessões inteligentes causarão erros de análise.
+Se o seu código Liquid parece sintaticamente correto, mas não funciona, verifique se há aspas inteligentes (aspas curvas como `' '` ou `" "`) e travessões inteligentes (travessões longos como `—`) em vez de aspas retas (`' '` ou `" "`) e hifens (`-`). O Liquid reconhece apenas caracteres ASCII retos, então aspas e travessões inteligentes causarão erros de análise.
 
 Isso acontece frequentemente quando a configuração de teclado do macOS **Usar aspas e travessões inteligentes** está ativada, o que converte automaticamente os caracteres enquanto você digita no dashboard da Braze.
 
@@ -304,17 +306,17 @@ Para saber mais sobre o uso de aspas no Liquid, consulte [Sintaxe do Liquid]({{s
 
 Esse erro geralmente indica chaves extras ou ausentes. Não aninhe {% raw %}`{{ }}`{% endraw %} dentro de outra expressão de tag Liquid. Por exemplo, use {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} em vez de envolver a referência do atributo em um par adicional de chaves.
 
-### Por que a tentativa de reconexão do Connected Content não está disponível para minha mensagem no app? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
+### Por que a tentativa de repetição do Connected Content não está disponível para minha mensagem no app? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
 
 {% raw %}
-A tag `{% connected_content %}` com tentativa de reconexão não é compatível com todos os tipos de mensagem, incluindo alguns formatos de mensagem no app. Remova os parâmetros de tentativa de reconexão ou use um canal compatível para chamadas de Connected Content com nova tentativa.
+A tag `{% connected_content %}` com tentativa de repetição não é compatível com todos os tipos de mensagem, incluindo alguns formatos de mensagem no app. Remova os parâmetros de tentativa de repetição ou use um canal compatível para chamadas de Connected Content com repetição.
 {% endraw %}
 
 ### Por que estou vendo "Liquid Error: Comparison of Time with String Failed"? {#why-am-i-seeing-liquid-error-comparison-of-time-with-string-failed}
 
 Esse erro ocorre ao comparar um atributo personalizado de tempo ou uma propriedade de evento diretamente com um valor em branco (uma string vazia). O Liquid não suporta comparações diretas entre tipos de dados diferentes, como um objeto de tempo e uma string.
 
-A seguir, um exemplo comum que causa esse erro:
+O exemplo a seguir é um caso comum que causa esse erro:
 
 {% raw %}
 ```liquid
@@ -339,7 +341,7 @@ Para resolver, converta o atributo de tempo em uma string atribuindo-o a uma var
 {% endraw %}
 
 
-Ao comparar um atributo personalizado de tempo com a hora atual ou datas futuras, use a mesma abordagem:
+Ao comparar um atributo personalizado de tempo com o horário atual ou datas futuras, use a mesma abordagem:
 
 {% raw %}
 ```liquid

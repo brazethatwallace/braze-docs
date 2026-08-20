@@ -13,7 +13,7 @@ description: "This reference article describes the Message Activity Log shows yo
 
 You can see API campaign transactions, troubleshoot details on failed messages, and gather insight on how to improve notification delivery or solve existing technical issues.
 
-To access the log, go to **Settings** > **Message Activity Log**.
+To access the log, go to **Settings** > **Setup and Testing** > **Message Activity Log**.
 
 ![Message Activity Log]({% image_buster /assets/img_archive/message_activity_log.png %})
 

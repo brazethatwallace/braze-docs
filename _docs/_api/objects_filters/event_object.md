@@ -42,6 +42,10 @@ For steps on how to set up custom events for a specific platform, refer to the P
 }
 ```
 
+{% alert note %}
+Events with timestamps in the future default to the current time. This ensures that custom events are recorded with accurate timing.
+{% endalert %}
+
 - [External user ID]({{site.baseurl}}/api/basics#user-ids)
 - [App identifier]({{site.baseurl}}/api/identifier_types)
 - [ISO 8601 time code](https://en.wikipedia.org/wiki/ISO_8601)

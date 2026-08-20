@@ -216,6 +216,15 @@ The **Message Performance** panel outlines how well your message has performed a
 
 ![이메일 캠페인과 총 클릭 수가 포함된 링크 별칭 예시 패널이 있는 Preview & Heatmap 페이지 예시.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
+##### 히트맵 구독 취소 클릭과 캠페인 분석 비교 {#heatmap-unsubscribe-clicks-versus-campaign-analytics}
+
+히트맵의 구독 취소 링크 클릭은 캠페인 분석의 *Unsubscribers* 측정기준과 다를 수 있습니다:
+
+- 메시지 본문에 커스텀 구독 취소 URL을 사용하는 경우, Braze는 히트맵 목적상 해당 링크를 일반 추적 링크로 취급합니다. 이 링크는 다른 링크와 마찬가지로 **Link Table by Total Clicks**에 표시됩니다. Braze가 Braze 제공 구독 취소 링크에서 구독 취소를 처리하면 *Unsubscribers* 측정기준이 증가합니다. 커스텀 구독 취소 URL은 API를 통해 사용자를 업데이트하지 않는 한 해당 측정기준을 증가시키지 않습니다.
+- 사용자가 [list-unsubscribe 헤더]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe)(일부 받은편지함 제공업체에서 표시하는 원클릭 구독 취소 옵션)를 사용하여 구독을 취소하면, 캠페인 분석에서 *Unsubscribers*가 증가하지만 히트맵에는 클릭으로 표시되지 않습니다. 메시지가 **특정 구독 그룹에서 구독 취소**를 사용하는 경우, Braze는 전체적으로가 아닌 구성된 구독 그룹에서만 사용자의 구독을 취소합니다. 이 옵션의 사용 가능 여부는 받은편지함 제공업체가 list-unsubscribe 헤더를 렌더링하거나 지원하는지 여부에 따라 수신자마다 다릅니다.
+
+구독 취소 동작의 전체 보기를 위해 히트맵 링크 세부 정보와 *Unsubscribers* 측정기준을 모두 검토하세요. 자세한 내용은 [*Unsubscribes*와 구독 취소 링크 클릭이 다를 수 있는 이유]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#why-unsubscribes-and-unsubscribe-link-clicks-can-differ)를 참조하세요.
+
 ##### 히트맵의 모바일 전용 링크 {#mobile-only-links-in-the-heatmap}
 
 히트맵은 선택한 미리보기 크기에서 보이는 링크에 대해서만 히트 시그니처를 표시합니다.
