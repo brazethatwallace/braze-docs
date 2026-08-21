@@ -18,10 +18,10 @@ Die Integration von Braze und RudderStack bietet eine native SDK-Integration fü
 | Anforderung | Beschreibung |
 | --- | --- |
 | RudderStack-Konto | Sie benötigen ein [RudderStack-Konto](https://app.rudderstack.com/), um die Vorteile dieser Partnerschaft zu nutzen. |
-| Konfigurierte Quelle | Eine [Quelle](https://www.rudderstack.com/docs/dashboard-guides/sources/) ist im Wesentlichen die Herkunft aller Daten, die an RudderStack gesendet werden, wie Websites, mobile Apps oder Backend-Server. Bevor Sie Braze als Ziel in RudderStack einrichten, müssen Sie die Quelle konfigurieren. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track`, `users.identify`, `users.delete` und `users.alias.new`.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-App-Schlüssel | Um Ihren App-Schlüssel im Braze-Dashboard zu erhalten, gehen Sie zu **Einstellungen** > **App Settings** > **Identification** und suchen Sie den Namen Ihrer App. Speichern Sie den zugehörigen Bezeichner-String.
-| Datenzentrum | Ihr Datenzentrum stimmt mit Ihrer Braze-Dashboard-[Instanz]({{site.baseurl}}/api/basics#endpoints) überein.  |
+| Konfigurierte Quelle | Eine [Quelle](https://www.rudderstack.com/docs/dashboard-guides/sources/) ist im Wesentlichen die Herkunft aller Daten, die an RudderStack gesendet werden, wie z. B. Websites, mobile Apps oder Backend-Server. Sie müssen die Quelle konfigurieren, bevor Sie Braze als Ziel in RudderStack einrichten. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `users.track`, `users.identify`, `users.delete` und `users.alias.new`.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-App-Schlüssel | Um Ihren App-Schlüssel im Braze-Dashboard zu finden, navigieren Sie zu **Einstellungen** > **App-Einstellungen** > **Identifikation** und suchen Sie Ihren App-Namen. Speichern Sie den zugehörigen Bezeichner-String. |
+| Rechenzentrum | Ihr Rechenzentrum entspricht Ihrer Braze-Dashboard-[Instanz]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -90,20 +90,20 @@ Um [Ereignisse über den Hybrid-Modus zu senden](https://www.rudderstack.com/doc
 
 ## 4. Schritt: Zusätzliche Einstellungen konfigurieren {#step-4-configure-additional-settings}
 
-Nach Abschluss der Ersteinrichtung konfigurieren Sie die folgenden Einstellungen, um Ihre Daten in Braze korrekt zu empfangen:
+Konfigurieren Sie nach Abschluss der Ersteinrichtung die folgenden Einstellungen, um Ihre Daten korrekt in Braze zu empfangen:
 
 - **Enable subscription groups in group call**: Aktivieren Sie diese Einstellung, um den Abo-Gruppenstatus in Ihren Gruppenereignissen zu senden. Weitere Informationen finden Sie unter [Group](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#group).
-- **Use Custom Attributes Operation**: Aktivieren Sie diese Einstellung, wenn Sie die Funktionalität der [verschachtelten angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) in Braze nutzen möchten, um Segmente zu erstellen und Ihre Nachrichten mithilfe eines angepassten Attributobjekts zu personalisieren. Weitere Informationen finden Sie unter [Send user traits as nested custom attributes](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes).
-- **Track events for anonymous users**: Aktivieren Sie diese Einstellung, um anonyme Nutzer:innen-Aktivitäten zu tracken und diese Informationen an Braze zu senden.
+- **Use Custom Attributes Operation**: Aktivieren Sie diese Einstellung, wenn Sie die Funktionalität der [verschachtelten angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) in Braze nutzen möchten, um Segmente zu erstellen und Ihre Nachrichten mithilfe eines angepassten Attribut-Objekts zu personalisieren. Weitere Informationen finden Sie unter [Send user traits as nested custom attributes](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes).
+- **Track events for anonymous users**: Aktivieren Sie diese Einstellung, um die Aktivitäten anonymer Nutzer:innen zu verfolgen und diese Informationen an Braze zu senden.
 
-### Einstellungen des Gerätemodus {#device-mode-settings}
+### Einstellungen für den Gerätemodus {#device-mode-settings}
 
 Die folgenden Einstellungen gelten nur, wenn Sie Ereignisse über den [Gerätemodus](https://www.rudderstack.com/docs/destinations/rudderstack-connection-modes/#device-mode) an Braze senden:
 
-- **Client-side Events Filtering**: Mit dieser Einstellung können Sie festlegen, welche Ereignisse für Braze gesperrt oder zugelassen werden sollen. Weitere Informationen zu dieser Einstellung finden Sie unter [Client-side Events Filtering](https://www.rudderstack.com/docs/sources/event-streams/sdks/event-filtering/).
-- **Deduplicate Traits**: Aktivieren Sie diese Einstellung, um die Nutzer:innen-Traits im [`identify`](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#identify)-Aufruf zu deduplizieren.
-- **Show Braze logs**: Diese Einstellung gilt nur, wenn Sie das [JavaScript SDK](https://www.rudderstack.com/docs/sources/event-streams/sdks/rudderstack-javascript-sdk/) als Quelle verwenden. Aktivieren Sie sie, um die Braze-Protokolle für Ihre Nutzer:innen anzuzeigen.
-- **OneTrust Cookie Categories**: Mit dieser Einstellung können Sie die [OneTrust-Cookie-Zustimmungsgruppen](https://www.rudderstack.com/docs/sources/event-streams/sdks/onetrust/javascript/) mit Braze verknüpfen.
+- **Client-side Events Filtering**: Mit dieser Einstellung können Sie festlegen, welche Ereignisse blockiert oder an Braze durchgelassen werden sollen. Weitere Informationen zu dieser Einstellung finden Sie unter [Client-side Events Filtering](https://www.rudderstack.com/docs/sources/event-streams/sdks/event-filtering/).
+- **Deduplicate Traits**: Aktivieren Sie diese Einstellung, um die Nutzer-Traits im [`identify`](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#identify)-Aufruf zu deduplizieren.
+- **Show Braze logs**: Diese Einstellung ist nur bei Verwendung des [JavaScript SDK](https://www.rudderstack.com/docs/sources/event-streams/sdks/rudderstack-javascript-sdk/) als Quelle anwendbar. Aktivieren Sie sie, um Ihren Nutzer:innen die Braze-Logs anzuzeigen.
+- **OneTrust Cookie Categories**: Mit dieser Einstellung können Sie die [OneTrust](https://www.rudderstack.com/docs/sources/event-streams/sdks/onetrust/javascript/)-Cookie-Zustimmungsgruppen mit Braze verknüpfen.
 
 ## Unterstützte Methoden {#supported-methods}
 
@@ -112,53 +112,53 @@ Braze unterstützt die RudderStack-Methoden identify, track, screen, page, group
 {% tabs %}
 {% tab Identify %}
 
-Die RudderStack-[`identify`-Methode](https://rudderstack.com/docs/destinations/marketing/braze/#identify) verknüpft Nutzer:innen mit ihren Aktionen. RudderStack erfasst eine eindeutige Nutzer-ID und optionale Traits wie Name, E-Mail, IP-Adresse usw.
+Die RudderStack-[`identify`-Methode](https://rudderstack.com/docs/destinations/marketing/braze/#identify) verknüpft Nutzer:innen mit ihren Aktionen. RudderStack erfasst eine eindeutige Nutzer-ID und optionale Merkmale, die mit diesen Nutzer:innen verknüpft sind, wie Name, E-Mail, IP-Adresse usw.
 
-**Delta-Verwaltung für identify-Aufrufe**<br>
-Wenn Sie Ereignisse über den Gerätemodus an Braze senden, können Sie Kosten sparen, indem Sie Ihre `identify`-Aufrufe deduplizieren. Aktivieren Sie dazu die Dashboard-Einstellung **Deduplicate Traits**. RudderStack sendet dann nur die geänderten oder modifizierten Attribute (Traits) an Braze.
+**Delta-Management für Identify-Aufrufe**<br>
+Wenn Sie Ereignisse im Device-Modus an Braze senden, können Sie Kosten sparen, indem Sie Ihre `identify`-Aufrufe deduplizieren. Aktivieren Sie dazu die Einstellung „Deduplicate Traits“ im Dashboard. RudderStack sendet dann nur die geänderten oder aktualisierten Attribute (Traits) an Braze.
 
 **Nutzer:in löschen**<br>
-Sie können eine:n Nutzer:in in Braze mit der [Verordnung „Suppression with Delete“](https://www.rudderstack.com/docs/api/data-regulation-api/#adding-a-suppression-with-delete-regulation) der RudderStack [Data Regulation API](https://www.rudderstack.com/docs/api/data-regulation-api/) löschen.
+Sie können Nutzer:innen in Braze mithilfe der [Suppression with Delete regulation](https://www.rudderstack.com/docs/api/data-regulation-api/#adding-a-suppression-with-delete-regulation) der RudderStack-[Data Regulation API](https://www.rudderstack.com/docs/api/data-regulation-api/) löschen.
 
 {% endtab %}
 {% tab Track %}
 
-Die [`track`-Methode](https://rudderstack.com/docs/destinations/marketing/braze/#track) von RudderStack erfasst alle Nutzer:innen-Aktivitäten und die mit diesen Aktivitäten verbundenen Eigenschaften.
+Die RudderStack-[`track`-Methode](https://rudderstack.com/docs/destinations/marketing/braze/#track) erfasst alle Nutzeraktivitäten und die damit verbundenen Eigenschaften.
 
-**Bestellung abgeschlossen**<br>
-Wenn Sie die [RudderStack E-Commerce API](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/) verwenden, um die track-Methode für ein Ereignis mit dem Namen `Order Completed` aufzurufen, sendet RudderStack die in diesem Ereignis aufgeführten Produkte an Braze als [`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data).
+**Order Completed**<br>
+Wenn Sie die [RudderStack-E-Commerce-API](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/) verwenden, um die Track-Methode für ein Ereignis mit dem Namen `Order Completed` aufzurufen, sendet RudderStack die in diesem Ereignis aufgeführten Produkte als [`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data) an Braze.
 
 {% endtab %}
 {% tab Screen %}
 
-Mit der [`screen`-Methode](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#screen) von RudderStack können Sie die mobilen Bildschirmansichten Ihrer Nutzer:innen mit allen zusätzlichen Informationen über den betrachteten Bildschirm aufzeichnen.
+Die RudderStack-[`screen`-Methode](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#screen) ermöglicht es Ihnen, die mobilen Bildschirmansichten Ihrer Nutzer:innen zusammen mit zusätzlichen Informationen zum angezeigten Bildschirm aufzuzeichnen.
 
 {% endtab %}
 {% tab Page %}
 
-Mit der [`page`-Methode](https://rudderstack.com/docs/destinations/marketing/braze/#page) von RudderStack können Sie die Seitenaufrufe Ihrer Website aufzeichnen. Außerdem werden alle anderen relevanten Informationen über diese Seite erfasst.
+Die RudderStack-[`page`-Methode](https://rudderstack.com/docs/destinations/marketing/braze/#page) ermöglicht es Ihnen, die Seitenaufrufe Ihrer Website aufzuzeichnen. Sie erfasst außerdem alle weiteren relevanten Informationen zu dieser Seite.
 
 {% endtab %}
 {% tab Group %}
 
-Mit der [`group`-Methode](https://rudderstack.com/docs/destinations/marketing/braze/#group) von RudderStack können Sie eine:n Nutzer:in mit einer Gruppe verknüpfen.
+Die RudderStack-[`group`-Methode](https://rudderstack.com/docs/destinations/marketing/braze/#group) ermöglicht es Ihnen, Nutzer:innen einer Gruppe zuzuordnen.
 
 **Abo-Gruppenstatus**<br>
-Um den Abo-Gruppenstatus zu aktualisieren, aktivieren Sie im RudderStack-Dashboard die Einstellung „Enable subscription groups in group call“ und senden Sie den Abo-Gruppenstatus im Gruppenaufruf.
+Um den Abo-Gruppenstatus zu aktualisieren, aktivieren Sie die Einstellung „Enable subscription groups in group call“ im RudderStack-Dashboard und senden Sie den Abo-Gruppenstatus im Group-Aufruf.
 
 {% endtab %}
 {% tab Alias %}
 
-Die [`alias`-Methode](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#alias) von RudderStack erlaubt es Ihnen, verschiedene Identitäten einer/eines bekannten Nutzer:in zusammenzuführen. Beachten Sie, dass RudderStack den alias-Aufruf für Braze nur im Cloud-Modus unterstützt.
+Die RudderStack-[`alias`-Methode](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#alias) ermöglicht es Ihnen, verschiedene Identitäten bekannter Nutzer:innen zusammenzuführen. Beachten Sie, dass RudderStack den Alias-Aufruf für Braze nur im Cloud-Modus unterstützt.
 
 {% endtab %}
 {% endtabs %}
 
-## Nutzer:innen-Traits als verschachtelte angepasste Attribute senden {#send-user-traits-as-nested-custom-attributes}
+## Nutzer-Traits als verschachtelte angepasste Attribute senden {#send-user-traits-as-nested-custom-attributes}
 
-Sie können die Nutzer:innen-Traits als verschachtelte angepasste Attribute an Braze senden und Hinzufüge-, Aktualisierungs- und Entfernungsoperationen darauf ausführen. Aktivieren Sie dazu die Einstellung „Use Custom Attributes Operation“ im Dashboard in RudderStack, während Sie das Braze-Ziel konfigurieren. Dieses Feature ist nur im Cloud-Modus verfügbar.
+Sie können die Nutzer-Traits als verschachtelte angepasste Attribute an Braze senden und Hinzufüge-, Aktualisierungs- und Entfernungsoperationen darauf ausführen. Aktivieren Sie dazu die Einstellung „Use Custom Attributes Operation dashboard“ in RudderStack, während Sie das Braze-Ziel konfigurieren. Dieses Feature ist nur im Cloud-Modus verfügbar.
 
-Sie können die Nutzer:innen-Traits als verschachtelte angepasste Attribute in Ihren `identify`-Ereignissen im folgenden Format senden:
+Sie können die Nutzer-Traits als verschachtelte angepasste Attribute in Ihren `identify`-Ereignissen im folgenden Format senden:
 ```javascript
 rudderanalytics.identify("1hKOmRA4GRlm", {
   "cars": {
@@ -201,7 +201,7 @@ rudderanalytics.identify("1hKOmRA4GRlm", {
 })
 ```
 
-Um die Nutzer:innen-Traits als angepasste Nutzerattribute über die Aufrufe `track`, `page` oder `screen` zu senden, übergeben Sie `traits` als kontextuelles Feld im Ereignis:
+Um die Nutzer-Traits als angepasste Nutzerattribute über die Aufrufe `track`, `page` oder `screen` zu senden, übergeben Sie `traits` als kontextuelles Feld im Ereignis:
 ```javascript
 rudderanalytics.track("Product Viewed", {
     revenue: 8.99,
@@ -251,5 +251,15 @@ rudderanalytics.track("Product Viewed", {
 ```
 
 {% alert note %}
-Für die Operationen „Aktualisieren“ und „Entfernen“ ist `identifier` ein erforderlicher Schlüssel. Wenn im verschachtelten Array keine Operationen zum Hinzufügen, Aktualisieren oder Entfernen vorhanden sind, verwendet RudderStack standardmäßig die Operation „Erstellen“, um die Eigenschaften zu erstellen. Weitere Informationen zum Senden von verschachtelten angepassten Attributen finden Sie unter [Array von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
+Für die Aktualisierungs- und Entfernungsoperationen ist `identifier` ein erforderlicher Schlüssel. Wenn Hinzufüge-, Aktualisierungs- oder Entfernungsoperationen im verschachtelten Array nicht vorhanden sind, verwendet RudderStack standardmäßig die Erstellungsoperation, um die Eigenschaften zu erstellen. Weitere Informationen zum Senden verschachtelter angepasster Attribute finden Sie unter [Array von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 {% endalert %}
+
+## Fehlerbehebung {#troubleshooting}
+
+### In den RudderStack-Logs wird „[Braze Deduplication]: Duplicate user detected, the user is dropped“ angezeigt {#i-see-braze-deduplication-duplicate-user-detected-the-user-is-dropped-in-rudderstack-logs}
+
+Diese Meldung stammt von RudderStack, wenn **Deduplicate Traits** aktiviert ist und RudderStack unveränderte Nutzer:innen-Traits verwirft, bevor sie an Braze weitergeleitet werden. Es handelt sich nicht um einen Braze-Fehler.
+
+RudderStack vergleicht eingehende `identify`- und `track`-Traits mit dem Nutzerprofil und überspringt Attribute ohne Änderung, um die Braze-Datenpunkt-Nutzung zu reduzieren. Weitere Informationen finden Sie in der RudderStack-Dokumentation [User Trait Deduplication in Braze](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/trait-deduplication/).
+
+Wenn Sie möchten, dass bei jedem Aufruf alle Traits gesendet werden, deaktivieren Sie **Deduplicate Traits** in den Einstellungen Ihres RudderStack-Braze-Ziels. Beachten Sie, dass dies den Verbrauch von Braze-Datenpunkten erhöhen kann.

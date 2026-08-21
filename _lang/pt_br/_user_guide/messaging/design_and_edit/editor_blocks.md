@@ -525,13 +525,11 @@ Selecione o bloco no editor para:
 - Adicionar ou remover grupos de inscrições
 - Adicionar ou remover descrições
 - Adicionar ou remover uma caixa de seleção "Inscrever-se em todos" que seleciona todos os grupos de inscrições no bloco
-- Adicionar ou remover uma caixa de seleção "Limpar seleções" que desmarca todos os grupos de inscrições no bloco
 
 | Propriedade | Descrição |
 | --- | --- |
 | Grupos de inscrições | Adicione, remova ou reordene os grupos de inscrições exibidos no bloco. |
 | Incluir descrições | Exibe a descrição de cada grupo de inscrições ao lado do seu nome. |
-| Caixa de seleção **Limpar seleções** | Adiciona uma caixa de seleção que desmarca todos os grupos de inscrições no bloco. |
 | Caixa de seleção **Inscrever-se em todos** | Adiciona uma caixa de seleção que seleciona todos os grupos de inscrições no bloco. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Gerenciar inscrições" }
 
