@@ -56,7 +56,7 @@ When a user receives an opt-in prompt, they have 30 days to confirm their opt-in
 
 ## Subscription group status
 
-Only after the user completes the double opt-in workflow does their [subscription group status]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) update to `Subscribed`. If the user begins the workflow but doesn’t complete it, they remain `Unsubscribed` and cannot be sent messages from that subscription group.
+Only after the user completes the double opt-in workflow does their [subscription group status]({{site.baseurl}}/sms_rcs_subscription_groups) update to `Subscribed`. If the user begins the workflow but doesn’t complete it, they remain `Unsubscribed` and cannot be sent messages from that subscription group.
 
 Users can also be entered into the double opt-in workflow if they are [subscribed from other sources]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) (for example, REST API, SDK).
 

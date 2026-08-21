@@ -153,7 +153,7 @@ Test the user experience before implementing link shortening with universal link
 
 ### Are `send_ids` associated with SMS click events?
 
-No. However, if you have advanced tracking enabled, you can generally attribute `send_ids` with click events by using [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) to query Currents data with this query:
+No. However, if you have advanced tracking enabled, you can generally attribute `send_ids` with click events by using [Query Builder]({{site.baseurl}}/query_builder/) to query Currents data with this query:
 
 ```sql
 SELECT c.*, s.send_id

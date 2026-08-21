@@ -18,7 +18,7 @@ channel:
 
 ### Select your subscription group
 
-Send SMS messages from a [subscription group]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups). A subscription group contains sending phone numbers, such as short codes, long codes, and alphanumeric sender IDs, for a specific messaging purpose. Use separate subscription groups for use cases such as transactional and promotional messaging.
+Send SMS messages from a [subscription group]({{site.baseurl}}/sms_rcs_subscription_groups). A subscription group contains sending phone numbers, such as short codes, long codes, and alphanumeric sender IDs, for a specific messaging purpose. Use separate subscription groups for use cases such as transactional and promotional messaging.
 
 ### Compose the message
 

@@ -86,7 +86,7 @@ A long code is a standard phone number used to send and receive SMS messages. Th
 | Pros |
 | ---- |
 | **Familiarity and trust**<br> Long codes look like personal phone numbers, often including a local area code. For brands, this represents a balance between professional presence and a personal, approachable feel. |
-| **Greater availability worldwide**<br>Long codes are available in over 100 major countries worldwide. Contact your customer success manager or [Braze support]({{site.baseurl}}/user_guide/administer/personal/braze_support) for a list of available countries.|
+| **Greater availability worldwide**<br>Long codes are available in over 100 major countries worldwide. Contact your customer success manager or [Braze support]({{site.baseurl}}/braze_support/) for a list of available countries.|
 {: .reset-td-br-1 aria-label="Pros and cons" }
 
 | Cons |

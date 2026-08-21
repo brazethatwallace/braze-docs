@@ -32,7 +32,7 @@ You can track SMS opt-ins and opt-outs with the following methods:
 |--------|-------------|
 | Segmenter | The segmenter displays the number of users in a specific [Subscription Group]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#subscription-group). It does not deduplicate by phone number—if multiple users share the same phone number, each instance is counted separately. |
 | Subscription group timeseries | Provides a daily snapshot of subscriptions for email and phone numbers. The timeseries counts subscriptions, unsubscribes, and resubscribes. For example, if a user subscribes, unsubscribes, and then resubscribes, they are counted as one subscribed user. |
-| Currents | Use Currents to export [subscription and engagement events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) for your own reporting. |
+| Currents | Use Currents to export [subscription and engagement events]({{site.baseurl}}/message_events_glossary) for your own reporting. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Track SMS opt-ins and opt-outs" }
 
 {% alert note %}
