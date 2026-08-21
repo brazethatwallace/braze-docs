@@ -78,3 +78,7 @@ No. If the destination Canvas uses a scheduled entry type, users sent from the S
 ### How does advancement behavior work for Send to Destination steps?
 
 Users who enter the Send to Destination step continue their user journey if there are additional steps in the source Canvas. If users also meet the audience criteria of the destination Canvas, they can enter that Canvas and begin that journey.
+
+### Is the Send to Destination step subject to API rate limits?
+
+No. Users are sent between Canvases within Braze without making external API calls.

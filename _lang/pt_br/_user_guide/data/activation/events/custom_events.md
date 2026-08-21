@@ -31,7 +31,7 @@ Selecione o menu ao lado de um evento personalizado para as seguintes ações:
 
 ### Bloqueio
 
-Você pode bloquear eventos personalizados individuais pelo menu de ações ou selecionar e bloquear até 100 eventos em massa.
+Você pode bloquear eventos personalizados individuais pelo menu de ações, ou selecionar e bloquear até 100 eventos em massa.
 
 Quando você bloqueia um evento personalizado:
 
@@ -59,9 +59,9 @@ Não há um limite fixo no dashboard para a quantidade de **eventos personalizad
 
 ## Visualizando relatórios de uso
 
-O relatório de uso lista todos os Canvas, Campaigns e Segments que utilizam um evento personalizado específico. Essa lista não inclui usos de Liquid.
+O relatório de uso lista todos os Canvas, Campaigns e Segments que usam um evento personalizado específico. Essa lista não inclui usos de Liquid.
 
-Você pode visualizar até 100 relatórios de uso por vez selecionando as caixas de seleção ao lado dos respectivos eventos personalizados e, em seguida, selecionando **Visualizar relatório de uso**.
+Você pode visualizar até 100 relatórios de uso por vez selecionando as caixas de seleção ao lado dos respectivos eventos personalizados e, em seguida, selecionando **View usage report**.
 
 ## Registrando eventos personalizados
 
@@ -83,16 +83,12 @@ Todos os dados armazenados no **Perfil de Usuário**, incluindo metadados de eve
 
 ## Visualizar o histórico de eventos de um usuário
 
-{% alert important %}
-O Histórico de Eventos está atualmente em acesso antecipado. Entre em contato com o gerente da sua conta Braze se tiver interesse em participar.
-{% endalert %}
-
-Use a guia **Histórico de Eventos** no perfil de um usuário para visualizar os eventos personalizados e compras recentes desse usuário. Isso ajuda a confirmar se a sua integração está registrando eventos corretamente e a solucionar problemas no nível do usuário diretamente no dashboard.
+Use a guia **Histórico de eventos** no perfil de um usuário para visualizar os eventos personalizados e compras recentes desse usuário. Isso ajuda a confirmar se a sua integração está registrando eventos corretamente e a solucionar problemas no nível do usuário diretamente no dashboard.
 
 Para visualizar o histórico de eventos de um usuário:
 
-1. Acesse **Público** > **Pesquisar Usuários** e selecione um usuário para abrir o perfil.
-2. Selecione a guia **Histórico de Eventos**.
+1. Acesse **Público** > **Pesquisar usuários** e selecione um usuário para abrir o perfil dele.
+2. Selecione a guia **Histórico de eventos**.
 
 A guia lista os eventos personalizados e compras do usuário dos últimos 30 dias, até os 100 eventos mais recentes, ordenados do mais novo para o mais antigo.
 
@@ -110,7 +106,7 @@ Casos de uso comuns incluem:
 - Investigar um problema de suporte para um usuário específico sem precisar configurar uma exportação de dados.
 
 {% alert note %}
-Visualizar a guia **Histórico de Eventos** requer as permissões de usuário **Pesquisar Usuários**, **Visualizar IPI** e **Visualizar Propriedades de Eventos do Usuário**, pois as propriedades de eventos podem conter dados pessoais. Para saber mais, consulte [Permissões de usuário da empresa]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Visualizar a guia **Histórico de eventos** requer as permissões de usuário **Pesquisar usuários**, **Visualizar IPI** e **Visualizar propriedades de eventos do usuário**, pois as propriedades de eventos podem conter dados pessoais. Para saber mais, consulte [Permissões de usuário da empresa]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
 ## Filtros de segmentação
@@ -139,7 +135,7 @@ Na página **Custom Events Report**, você pode visualizar de forma agregada a f
 
 ![Gráfico de contagem de eventos personalizados na página Custom Events no dashboard mostrando tendências para um evento personalizado]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-Você também pode usar **Filters** para detalhar seus eventos personalizados por hora, média mensal de usuários ativos (MAU), Segments ou fórmulas de KPI.
+Você também pode usar **Filtros** para detalhar seus eventos personalizados por hora, média mensal de usuários ativos (MAU), Segments ou fórmulas de KPI.
 
 ![Filtros do gráfico de eventos personalizados]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
@@ -149,7 +145,7 @@ Você também pode usar **Filters** para detalhar seus eventos personalizados po
 
 ### Por que a análise de dados de eventos personalizados não está aparecendo
 
-Segments criados com dados de eventos personalizados não podem exibir dados históricos anteriores à data de criação.
+Segments criados com dados de eventos personalizados não podem exibir dados históricos anteriores à data de sua criação.
 
 ## Propriedades de eventos personalizados
 

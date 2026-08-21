@@ -939,7 +939,6 @@ def call_claude(user_prompt: str) -> dict:
     response = client.messages.create(
         model=REVIEW_MODEL,
         max_tokens=8192,
-        temperature=0,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_prompt}],
     )
