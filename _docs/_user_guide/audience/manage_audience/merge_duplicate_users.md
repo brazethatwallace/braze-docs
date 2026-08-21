@@ -151,4 +151,3 @@ Before you merge duplicates, use the [Export user profile by identifier endpoint
 - [User merge behavior]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior)
 - [POST: Merge users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)
 - [Delete users]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users)
-
