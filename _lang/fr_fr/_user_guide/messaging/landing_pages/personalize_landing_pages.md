@@ -38,10 +38,10 @@ Si votre page dépasse ces limites de taille, vous recevrez un e-mail indiquant 
 
 Pour éviter que votre page ne dépasse les limites de taille ou ne subisse des temps de chargement lents, veillez à utiliser une personnalisation Liquid qui :
 
-- Ne boucle pas continuellement ou ne référence pas de grands ensembles de données.
+- Ne boucle pas continuellement sur de grands ensembles de données et ne les référence pas.
 - Ne repose pas sur une logique mathématique ou conditionnelle étendue au sein du bloc Liquid.
 
-De plus, évitez d'intégrer directement dans le code de votre page de destination des scripts volumineux, des feuilles de style et des ressources encodées en base64. Ces ressources en ligne comptent dans la limite de taille de la page et peuvent ralentir le rendu. Téléchargez plutôt les polices, images, feuilles de style et scripts dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Les ressources servies depuis la bibliothèque multimédia sont hébergées sur le CDN de Braze, elles ne sont donc pas traitées pour le rendu Liquid et ne comptent pas dans la limite de taille de la page.
+De plus, évitez d'intégrer directement dans le code de votre page de destination des scripts volumineux, des feuilles de style et des ressources encodées en base64. Ces ressources intégrées comptent dans la limite de taille de la page et peuvent ralentir le rendu. Téléchargez plutôt les polices, images, feuilles de style et scripts dans la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Les ressources servies depuis la bibliothèque multimédia sont hébergées sur le CDN de Braze, elles ne sont donc pas traitées pour le rendu Liquid et ne comptent pas dans la limite de taille de la page.
 
 ### Utiliser Liquid pour les utilisateurs identifiés et anonymes {#use-liquid-for-identified-and-anonymous-users}
 
@@ -50,33 +50,37 @@ Liquid peut personnaliser l'expérience de la page de destination pour les visit
 - **Utilisateurs identifiés :** Créez un lien vers la page de destination depuis un message Braze et incluez l'[étiquette Liquid de page de destination]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users#using-landing-page-liquid-tags). Cela associe l'utilisateur à son profil Braze et personnalise l'expérience de la page.
 - **Visiteurs anonymes :** Utilisez Liquid pour du contenu contextuel non basé sur le profil, comme un nombre aléatoire ou un message d'accueil selon l'heure de la journée.
 
-### Préremplir les champs de formulaire {#pre-fill-form-fields}
+### Pré-remplir les champs de formulaire {#pre-fill-form-fields}
 
-Si un champ de formulaire de page de destination correspond à un attribut de profil utilisateur, vous pouvez préremplir ce champ pour les utilisateurs qui reviennent. Cela contribue à réduire les frictions liées au formulaire et améliore les taux de complétion pour les visiteurs connus.
+Si un champ de formulaire de page de destination correspond à un attribut de profil utilisateur, vous pouvez pré-remplir ce champ pour les utilisateurs qui reviennent. Cela contribue à réduire les frictions liées au formulaire et améliore les taux de complétion pour les visiteurs connus.
 
-Pour utiliser le préremplissage des champs de formulaire :
+Pour utiliser le pré-remplissage des champs de formulaire :
 
 1. Sélectionnez votre champ de formulaire dans l'éditeur par glisser-déposer.
 2. Dans le panneau de paramètres à droite, associez le champ à l'attribut de profil approprié.
-3. Sélectionnez **Préremplir à partir du profil utilisateur**.
+3. Sélectionnez **Pré-remplir à partir du profil utilisateur**.
 
-![Paramètres du champ de formulaire de page de destination montrant l'option de préremplissage à partir des données du profil utilisateur.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
+![Paramètres d'un champ de formulaire de page de destination montrant l'option de pré-remplissage à partir des données du profil utilisateur.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
 
-Le préremplissage ne fonctionne que pour les [utilisateurs identifiés](#use-liquid-for-identified-and-anonymous-users). Pour les visiteurs anonymes, les champs de formulaire conservent leur état par défaut :
+Le pré-remplissage ne fonctionne que pour les [utilisateurs identifiés](#use-liquid-for-identified-and-anonymous-users). Pour les visiteurs anonymes, les champs de formulaire conservent leur état par défaut :
 
 - **Champs de saisie :** Affichent leur texte de marque substitutive.
 - **Cases à cocher, boutons radio et contrôles similaires :** Restent non sélectionnés jusqu'à ce que l'utilisateur interagisse avec eux.
 
 {% alert warning %}
-Si un utilisateur transfère un lien de page de destination (depuis un e-mail, un SMS ou un autre message) à une autre personne, le destinataire voit les données préremplies destinées à l'utilisateur d'origine. Il s'agit de la même considération de sécurité qui s'applique aux liens de désabonnement et aux liens du centre de préférences. Tenez compte de la sensibilité des données que vous préremplissez et du comportement de partage de votre audience lorsque vous utilisez cette fonctionnalité.
+Si un utilisateur transfère un lien de page de destination (depuis un e-mail, un SMS ou un autre message) à une autre personne, le destinataire voit les données pré-remplies destinées à l'utilisateur d'origine. Il s'agit de la même considération de sécurité qui s'applique aux liens de désabonnement et aux liens du centre de préférences. Tenez compte de la sensibilité des données que vous pré-remplissez et du comportement de partage de votre audience lorsque vous utilisez cette fonctionnalité.
 {% endalert %}
 
 ## Récupérer des données externes avec du code personnalisé {#fetching-external-data-with-custom-code}
 
-Vous pouvez utiliser un bloc **Custom Code** pour récupérer des données depuis des endpoints externes et les afficher sur votre page de destination. Cette approche effectue la requête côté client (dans le navigateur de l'utilisateur), ce qui permet à la page de se charger rapidement sans délais de rendu côté serveur.
+Vous pouvez utiliser un bloc **Custom Code** pour récupérer des données depuis des endpoints externes et les afficher sur votre page de destination. Cette approche effectue la requête côté client (dans le navigateur de l'utilisateur), ce qui permet à la page de se charger rapidement sans délai de rendu côté serveur.
+
+{% alert tip %}
+Pour d'autres utilisations avancées du bloc **Custom Code**, consultez [Pont JavaScript pour les pages de destination]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) et [Créer des blocs de formulaire personnalisés]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
+{% endalert %}
 
 {% alert warning %}
-Lorsque vous récupérez des données externes, vous êtes responsable de la sécurité de votre déploiement. Les identifiants externes utilisés dans les appels API doivent être des UUID ou utiliser un schéma de nommage d'un niveau de sécurité équivalent. Consultez les [bonnes pratiques de nommage des ID utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
+Lorsque vous récupérez des données externes, vous êtes responsable de la sécurité de votre déploiement. Les identifiants externes utilisés dans les appels API doivent être des UUID ou utiliser un schéma de nommage d'un niveau de sécurité équivalent. Consultez [Bonnes pratiques de nommage des ID utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 {% endalert %}
 
 ### Cas d'usage {#use-case}
@@ -128,15 +132,15 @@ window.onload = () => {
 
 Lorsque vous récupérez des données externes dans des pages de destination :
 
-- **États de chargement :** Les utilisateurs verront un texte de remplacement jusqu'à ce que l'endpoint réponde. Envisagez d'ajouter un indicateur de chargement ou un écran squelette.
+- **États de chargement :** Les utilisateurs verront un texte de marque substitutive jusqu'à ce que l'endpoint réponde. Envisagez d'ajouter un indicateur de chargement ou un écran squelette.
 - **Gestion des erreurs :** Si l'endpoint échoue ou met du temps à répondre, la page peut sembler défaillante. Implémentez des messages d'erreur et des solutions de repli appropriés.
 - **Performance :** La page se charge immédiatement, mais les données apparaissent une fois la requête externe terminée. Gardez vos réponses API rapides pour offrir la meilleure expérience utilisateur.
-- **Sécurité :** Assurez-vous que votre endpoint API valide l'identifiant et ne renvoie que les données que l'utilisateur est autorisé à consulter. Mettez en place une limitation du débit pour prévenir les abus. Pour des conseils sur le choix d'identifiants sécurisés, consultez les [bonnes pratiques de nommage des ID utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
+- **Sécurité :** Assurez-vous que votre endpoint API valide l'identifiant et ne renvoie que les données que l'utilisateur est autorisé à consulter. Mettez en place une limitation du débit pour prévenir les abus. Pour des conseils sur le choix d'identifiants sécurisés, consultez [Bonnes pratiques de nommage des ID utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 
 {% alert warning %}
-Pour les pages de destination personnalisées avec Liquid, Braze traite les délimiteurs {% raw %}`{{`{% endraw %} et {% raw %}`{%`{% endraw %} partout où ils apparaissent dans le HTML de la page de destination, y compris à l'intérieur des chaînes JavaScript, des commentaires et des expressions régulières. Cela s'applique à l'ensemble de la page, mais les blocs **Custom Code** sont l'endroit le plus susceptible de contenir ces séquences par accident.
+Pour les pages de destination personnalisées avec Liquid, Braze traite les délimiteurs {% raw %}`{{`{% endraw %} et {% raw %}`{%`{% endraw %} partout où ils apparaissent dans le HTML de la page de destination, y compris à l'intérieur des chaînes de caractères JavaScript, des commentaires et des expressions régulières. Cela s'applique à l'ensemble de la page, mais les blocs **Custom Code** sont l'endroit le plus susceptible de contenir ces séquences par accident.
 
-Si ces séquences apparaissent sans balises de fermeture correspondantes (par exemple, {% raw %}`/* version {{ 2.0 */`{% endraw %}), Braze les traite comme des balises Liquid ouvertes. D'autres balises Liquid valides sur la page peuvent ne pas s'afficher correctement, ou le rendu Liquid peut échouer ailleurs dans le même bloc. Dans les cas les plus graves, du Liquid mal formé peut empêcher la publication de la page ou entraîner sa dépublication (voir [Pages de repli](#fallback-pages)).
+Si ces séquences apparaissent sans balises de fermeture correspondantes (par exemple, {% raw %}`/* version {{ 2.0 */`{% endraw %}), Braze les traite comme des balises Liquid ouvertes. D'autres balises Liquid valides sur la page peuvent ne pas s'afficher correctement, ou le rendu Liquid peut échouer ailleurs dans le même bloc. Dans les cas les plus graves, du Liquid défaillant peut empêcher la publication de la page ou entraîner sa dépublication (voir [Pages de repli](#fallback-pages)).
 
 Pour éviter cela, échappez ou supprimez {% raw %}`{{`{% endraw %} et {% raw %}`{%`{% endraw %} des contextes non-Liquid, divisez les séquences en JavaScript (par exemple, {% raw %}`'{' + '{'`{% endraw %}). Liquid s'exécute côté serveur avant l'exécution du script. Vous pouvez également encadrer les sections non-Liquid plus longues avec des balises {% raw %}`&#123;% raw %&#125;...&#123;% endraw %&#125;`{% endraw %}.
 {% endalert %}

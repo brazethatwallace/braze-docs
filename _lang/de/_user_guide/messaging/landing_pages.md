@@ -31,19 +31,19 @@ Bevor Sie auf Landing-Pages zugreifen, diese erstellen und veröffentlichen kön
 
 ## Planstufen {#plan-tiers}
 
-Die Anzahl der veröffentlichten Landing-Pages, angepassten Domains und Features, die Sie nutzen können, hängt von Ihrem Tariftyp ab: kostenlos oder kostenpflichtig (inkrementell).
+Die Anzahl der veröffentlichten Landing-Pages, angepassten Domains und Features, die Sie nutzen können, hängt von Ihrem Plantyp ab: Free oder Pro (inkrementell).
 
-| Feature | Kostenloser Tarif | Kostenpflichtiger Tarif (inkrementell) |
+| Feature                                                                                                   | Free-Stufe     | Pro-Stufe (inkrementell)     |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
-| Veröffentlichte Landing-Pages | Fünf pro Unternehmen | 20 zusätzlich |
-| Angepasste Domains | Eine pro Unternehmen | Fünf zusätzlich |
+| Veröffentlichte Landing-Pages                                                                 | Fünf pro Unternehmen | 20 zusätzlich |
+| Angepasste Domains          | Eine pro Unternehmen | Fünf zusätzlich |
 | [Liquid-Personalisierung]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages) | Nicht verfügbar | Verfügbar |
 | Vorausgefüllte Formularfelder | Nicht verfügbar | Verfügbar |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Planstufen" }
 
 ## Google Tag Manager zu einer Landing-Page hinzufügen {#adding-google-tag-manager-to-a-landing-page}
 
-Um Google Tag Manager zu Ihren Landing-Pages hinzuzufügen, fügen Sie einen **Custom Code**-Block zu Ihrer Landing-Page im Drag-and-Drop-Editor hinzu und fügen Sie dann den Tag-Manager-Code in den Block ein. Stellen Sie sicher, dass Sie vor dem Tag-Manager-Code einen Data Layer hinzufügen, wie in diesem Beispiel:
+Um Google Tag Manager zu Ihren Landing-Pages hinzuzufügen, fügen Sie im Drag-and-Drop-Editor einen **Custom Code**-Block zu Ihrer Landing-Page hinzu und fügen Sie dann den Tag-Manager-Code in den Block ein. Stellen Sie sicher, dass Sie vor dem Tag-Manager-Code einen Data Layer hinzufügen, wie in diesem Beispiel:
 
 ```
 <script>
@@ -62,35 +62,35 @@ Weitere Informationen zur Implementierung von Google Tag Manager finden Sie in d
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Wie groß darf eine Landing-Page maximal sein? {#whats-the-maximum-size-for-landing-pages}
+### Wie groß dürfen Landing-Pages maximal sein? {#whats-the-maximum-size-for-landing-pages}
 
 Die Größe des Landing-Page-Bodys kann bis zu 500 KB betragen.
 
-### Können Landing-Pages hohe Traffic-Szenarien bewältigen? {#can-landing-pages-handle-high-traffic-scenarios}
+### Können Landing-Pages Szenarien mit hohem Traffic bewältigen? {#can-landing-pages-handle-high-traffic-scenarios}
 
-Ja, nicht personalisierte Landing-Pages können hohe Traffic-Szenarien effektiv bewältigen. Wenn eine nicht personalisierte Landing-Page zum ersten Mal angefordert wird, wird sie von Braze über Cloudflare gecacht. Das bedeutet, dass alle nachfolgenden Anfragen für denselben Link aus dem Cache bedient werden, sodass die Performance bei hohem Anfragevolumen nicht beeinträchtigt wird. Dieser Cache ist 24 Stunden gültig, und gecachte Seitenaufrufe zählen nicht für Rate-Limits.
+Ja, nicht personalisierte Landing-Pages können Szenarien mit hohem Traffic effektiv bewältigen. Wenn eine nicht personalisierte Landing-Page zum ersten Mal angefordert wird, wird sie von Braze über Cloudflare gecacht. Das bedeutet, dass alle nachfolgenden Anfragen für denselben Link aus dem Cache bedient werden, sodass die Performance bei hohem Anfragevolumen nicht beeinträchtigt wird. Dieser Cache ist 24 Stunden gültig, und gecachte Seitenaufrufe werden nicht auf Rate-Limits angerechnet.
 
-Für personalisierte Landing-Pages (mit Liquid-Personalisierung) gelten Rate-Limits für nicht gecachte Anfragen. Um eine optimale Performance aufrechtzuerhalten, lesen Sie [Hinweise zur Personalisierung]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
+Für personalisierte Landing-Pages (mit Liquid-Personalisierung) gelten Rate-Limits für nicht gecachte Anfragen. Um eine optimale Performance aufrechtzuerhalten, siehe [Überlegungen zur Personalisierung]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
 
-### Gibt es technische Anforderungen, um eine Landing-Page zu veröffentlichen? {#are-there-any-technical-requirements-to-publish-a-landing-page}
+### Gibt es technische Voraussetzungen, um eine Landing-Page zu veröffentlichen? {#are-there-any-technical-requirements-to-publish-a-landing-page}
 
-Nein, es gibt keine technischen Anforderungen.
+Nein, es gibt keine technischen Voraussetzungen.
 
 ### Gibt es einen HTML-Editor für Landing-Pages? {#is-there-an-html-editor-for-landing-pages}
 
-Ja. Verwenden Sie den **Custom Code**-Block im Drag-and-Drop-Editor, um HTML hinzuzufügen oder zu bearbeiten.
+Ja. Verwenden Sie den Block **Custom Code** im Drag-and-Drop-Editor, um HTML hinzuzufügen oder zu bearbeiten. Um über Ihren benutzerdefinierten Code mit dem Braze SDK zu interagieren, siehe [JavaScript-Bridge für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge). Um eine vollständig benutzerdefinierte UI mit einem Landing-Page-Formular zu verbinden, siehe [Benutzerdefinierte Formularblöcke erstellen]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
 
 ### Kann ich iframes auf Landing-Pages verwenden? {#can-i-use-iframes-on-landing-pages}
 
-Ja. Fügen Sie einen **Custom Code**-Block im Drag-and-Drop-Editor hinzu und fügen Sie ein iframe-Element mit der URL des Inhalts ein, den Sie einbetten möchten.
+Ja. Fügen Sie einen Block **Custom Code** im Drag-and-Drop-Editor hinzu und fügen Sie ein iframe-Element mit der URL des Inhalts ein, den Sie einbetten möchten.
 
 Wenn die eingebettete Website das Framing über `frame-ancestors` in ihrer Content Security Policy (CSP) oder `X-Frame-Options` einschränkt, wird die Seite möglicherweise nicht im iframe geladen. Braze kann diese Einstellungen nicht überschreiben – die eingebettete Website muss so konfiguriert sein, dass sie Ihre Landing-Page-Domain zulässt.
 
 ### Kann ich einen Webhook innerhalb einer Landing-Page erstellen? {#can-i-create-a-webhook-inside-a-landing-page}
 
-Nein, aber das Ereignis **Submitted a Landing Page form** kann als Trigger für Canvases oder Webhook-Kampagnen dienen:
+Nein, aber das Ereignis **Submitted a Landing Page form** kann als Trigger für Canvases oder Webhook-Campaigns dienen:
 
-- **Canvas:** Verwenden Sie das Ereignis **Submitted a Landing Page form** als Canvas-Eingangs-Trigger und fügen Sie einen Webhook-Schritt hinzu.
+- **Canvas:** Verwenden Sie das Ereignis **Submitted a Landing Page form** als Canvas-Entry-Trigger und fügen Sie einen Webhook-Schritt hinzu.
 - **Campaign:** Verwenden Sie das Ereignis **Submitted a Landing Page form**, um basierend auf der Formularübermittlung zu triggern.
 
 Wenn die Seite nicht über einen Braze-Kanal gesendet wird (z. B. über eine Website oder Anzeige), kann bei der Übermittlung ein neues Nutzerprofil erstellt werden – selbst wenn diese Person bereits in Braze existiert. Um dies zu handhaben, richten Sie einen Canvas ein, der durch **Submitted a Landing Page form** getriggert wird, und fügen Sie einen Braze-zu-Braze-Webhook-Schritt hinzu, der den Endpunkt [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) aufruft, um das neue Profil mit dem bestehenden zusammenzuführen.

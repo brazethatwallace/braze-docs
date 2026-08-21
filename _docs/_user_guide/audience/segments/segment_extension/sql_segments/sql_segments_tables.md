@@ -39,6 +39,8 @@ Table | Description
 [USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_HISTORY_VIEW_SHARED) | Historical default profile attributes with effective date ranges
 [USER_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_DEFAULT_ATTRIBUTES_VIEW_SHARED) | Periodic snapshot of default profile attributes per user
 [USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED](#USER_LATEST_STATE_DEFAULT_ATTRIBUTES_VIEW_SHARED) | Near real-time default profile attributes per user
+[USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED](#USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED) | Historical custom profile attributes with effective date ranges (**Snowflake Data Sharing only**)
+[USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED](#USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED) | Near real-time custom profile attributes per user (**Snowflake Data Sharing only**)
 [CATALOGS_ITEMS_SHARED](#CATALOGS_ITEMS_SHARED) | Non-deleted catalog items
 [CHANGELOGS_CAMPAIGN_SHARED](#CHANGELOGS_CAMPAIGN_SHARED) | When a campaign is changed (**Snowflake Data Sharing only**)
 [CHANGELOGS_CANVAS_SHARED](#CHANGELOGS_CANVAS_SHARED) | When a Canvas is changed (**Snowflake Data Sharing only**)
@@ -319,6 +321,22 @@ Field | Type | Description
 `TIME_ZONE` | `string` | [PII] Time zone
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED #USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED" }
 
+### USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED {#USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED}
+
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
+
+{% multi_lang_include partners/snowflake_user_attributes_custom_view_schemas.md schema="history" %}
+
+For usage guidance and example queries, see [Snowflake user attributes]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes#historical-change-logs).
+
+### USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED {#USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED}
+
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
+
+{% multi_lang_include partners/snowflake_user_attributes_custom_view_schemas.md schema="latest" %}
+
+For usage guidance and example queries, see [Snowflake user attributes]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes#real-time-user-profile-views).
+
 ## Catalogs
 
 ### CATALOGS_ITEMS_SHARED {#CATALOGS_ITEMS_SHARED}
@@ -351,9 +369,7 @@ Field | Type | Description
 
 ### CHANGELOGS_CAMPAIGN_SHARED {#CHANGELOGS_CAMPAIGN_SHARED}
 
-{% alert note %}
-This table is available in Snowflake Data Sharing only.
-{% endalert %}
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
 
 Field | Type | Description
 ------|------|------------
@@ -368,9 +384,7 @@ Field | Type | Description
 
 ### CHANGELOGS_CANVAS_SHARED {#CHANGELOGS_CANVAS_SHARED}
 
-{% alert note %}
-This table is available in Snowflake Data Sharing only.
-{% endalert %}
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
 
 Field | Type | Description
 ------|------|------------
@@ -1708,9 +1722,7 @@ Field | Type | Description
 
 ### USERS_MESSAGES_EMAIL_RETRY_SHARED {#USERS_MESSAGES_EMAIL_RETRY_SHARED}
 
-{% alert note %}
-This table is available in Snowflake Data Sharing only.
-{% endalert %}
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
 
 This event occurs when a message is deprioritized or frequency capped and is retried later within the configured retry window.
 
@@ -2036,9 +2048,7 @@ Field | Type | Description
 
 ### USERS_MESSAGES_LINE_RETRY_SHARED {#USERS_MESSAGES_LINE_RETRY_SHARED}
 
-{% alert note %}
-This table is available in Snowflake Data Sharing only.
-{% endalert %}
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
 
 This event occurs when a message is deprioritized or frequency capped and is retried later within the configured retry window.
 
@@ -2895,9 +2905,7 @@ Field | Type | Description
 
 ### USERS_MESSAGES_SMS_RETRY_SHARED {#USERS_MESSAGES_SMS_RETRY_SHARED}
 
-{% alert note %}
-This table is available in Snowflake Data Sharing only.
-{% endalert %}
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
 
 This event occurs when a message is deprioritized or frequency capped and is retried later within the configured retry window.
 
@@ -3023,9 +3031,7 @@ Field | Type | Description
 
 ### USERS_MESSAGES_WEBHOOK_RETRY_SHARED {#USERS_MESSAGES_WEBHOOK_RETRY_SHARED}
 
-{% alert note %}
-This table is available in Snowflake Data Sharing only.
-{% endalert %}
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
 
 This event occurs when a message is deprioritized or frequency capped and is retried later within the configured retry window.
 
@@ -3278,9 +3284,7 @@ Field | Type | Description
 
 ### USERS_MESSAGES_WHATSAPP_RETRY_SHARED {#USERS_MESSAGES_WHATSAPP_RETRY_SHARED}
 
-{% alert note %}
-This table is available in Snowflake Data Sharing only.
-{% endalert %}
+{% multi_lang_include partners/snowflake_user_attributes_qb_excluded_view_note.md %}
 
 This event occurs when a message is deprioritized or frequency capped and is retried later within the configured retry window.
 

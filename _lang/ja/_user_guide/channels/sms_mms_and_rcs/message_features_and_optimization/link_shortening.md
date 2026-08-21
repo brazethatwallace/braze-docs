@@ -125,7 +125,7 @@ Liquidパーソナライゼーションと短縮URLは、ユーザーが選択�
 
 ## クリックトラッキング {#click-tracking}
 
-リンク短縮が有効になっている場合、**SMS/MMS/RCSパフォーマンス**テーブルには、バリアントごとのクリックイベント数と関連するクリック率を示す**合計クリック数**という列が含まれます。指標の詳細については、[メッセージパフォーマンス]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting)を参照してください。
+リンク短縮が有効になっている場合、**SMS/MMS/RCSパフォーマンス**テーブルには、バリアントごとのクリックイベント数と関連するクリック率を示す**合計クリック数**という列が含まれます。**合計クリック数**は、ダッシュボードのカウントからボットクリックの疑いがあるものを除外します。指標の詳細については、[メッセージパフォーマンス]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting)および[ボットクリックフィルタリング]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering)を参照してください。
 
 ![SMSおよびMMSのパフォーマンス指標テーブル。]({% image_buster /assets/img/link_shortening/shortening4.png %})
 

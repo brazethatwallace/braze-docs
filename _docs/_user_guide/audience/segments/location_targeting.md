@@ -12,7 +12,7 @@ description: "This how-to article will walk you through how to set up Location t
 
 # Location targeting
 
-> This article will walk you through how to set up Location Targeting, allowing you to segment users by their most recent location. This is perfect for if you are looking into location-based campaigns and strategies.
+> This article covers how to set up location targeting so you can segment users by their most recent location.
 
 ## Step 1: Create your segment
 
@@ -22,9 +22,13 @@ Navigate to the **Segments** page, under **Audience**, to view all of your curre
 
 ## Step 2: Customize your location
 
-After you have created your segment, add a **Most Recent Location** filter to target users by the last place that they used your app. You have the option of  highlighting users within or outside of a standard circular region or customizable polygonal region.
+After you've created your segment, add a `Most Recent Location` filter to highlight users by the last place that they used your app. You have the option of highlighting users within or outside of a standard circular region or customizable polygonal region.
 
 ![Filter for a most recent location within a circle.]({% image_buster /assets/img_archive/filter_recent_location.png %})
+
+### Users without location data
+
+Users without location data—including users whose location was previously recorded and later cleared—match filters for `most recent location outside of circle` and `most recent location outside of polygon`. To exclude users without location data, combine the `Most Recent Location` filter with a `Location Available` filter.
 
 {% tabs %}
 {% tab Circular %}

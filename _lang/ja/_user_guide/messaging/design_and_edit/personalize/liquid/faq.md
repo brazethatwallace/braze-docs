@@ -22,7 +22,7 @@ Brazeは現在、ShopifyのLiquidを100%サポートしているわけではな�
 
 #### 詳しくはどこで学べますか？ {#where-can-i-learn-more}
 
-Liquidの詳細については、Braze Learningのガイド付きパス[Liquidによるダイナミックパーソナライゼーション](https://learning.braze.com/path/dynamic-personalization-with-liquid)をご覧ください。また、[Liquidユースケースライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases)を参照して、Liquidを使用したさまざまなパーソナライゼーション例からインスピレーションを得ることもできます。
+Liquidの詳細については、Braze Learningのガイド付きパス「[Dynamic Personalization with Liquid](https://learning.braze.com/path/dynamic-personalization-with-liquid)」をご覧ください。また、[Liquidユースケースライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases)を参照して、Liquidを使用したさまざまなパーソナライゼーションの例やインスピレーションを得ることもできます。
 
 ### パーソナライゼーションにおけるLiquidとConnected Contentの違いは何ですか？ {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
 
@@ -30,7 +30,7 @@ Braze Connected Contentは、Liquidタグの一例です。パーソナライゼ
 
 ### Liquidテンプレートとは何ですか？ {#what-is-liquid-templating}
 
-これは、BrazeでLiquidを使用する最も一般的な方法です。Liquidテンプレートでは、ユーザーのプロファイルからメッセージにデータを取り込みます。このデータは、ユーザーの名からトリガーメッセージのカスタムイベントまで多岐にわたります。
+これは、BrazeでLiquidを使用する最も一般的な方法です。Liquidテンプレートでは、ユーザープロファイルからメッセージにデータを取り込みます。このデータは、ユーザーの名からトリガーメッセージのカスタムイベントまで多岐にわたります。
 
 サポートされているLiquidタグの完全なリストについては、[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)を参照してください。
 
@@ -42,7 +42,7 @@ Braze Connected Contentは、Liquidタグの一例です。パーソナライゼ
 
 ### Liquidを使用してパーソナライズされた挨拶を送信するにはどうすればよいですか？ {#how-can-i-use-liquid-to-send-a-personalized-greeting}
 
-ユーザーの名を使用してパーソナライズされた挨拶を作成するには、{% raw %}`{{${first_name}}}`や`{{${last_name}}}`{% endraw %}などの標準ユーザープロファイル属性を使用します。
+ユーザーの名を使用したパーソナライズされた挨拶には、{% raw %}`{{${first_name}}}`や`{{${last_name}}}`{% endraw %}などの標準ユーザープロファイル属性を使用します。
 
 また、Liquidの{% raw %}`{% if X %}`{% endraw %}ステートメントを使用して、曜日やカスタム属性など、あらゆる条件に基づいた条件付きレンダリングを行うこともできます。条件文で使用できるサポートされているLiquid演算子の詳細については、[演算子]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators)を参照してください。
 
@@ -66,7 +66,7 @@ Brazeには、メッセージで使用できるセグメント用のLiquidコー
 
 詳細については、[複数条件セグメンテーション]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects)を参照してください。
 
-### イベントがトリガーしているメッセージをパーソナライズするために、イベント属性を使用するにはどうすればよいですか？ {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
+### イベント属性を使用して、イベントがトリガーするメッセージをパーソナライズするにはどうすればよいですか？ {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
 {% raw %}
 APIトリガーイベントのプロパティには、`api_triggered_property`タグを使用してアクセスできます：`{{api_trigger_properties.${attribute_key}}}`。
@@ -82,12 +82,14 @@ Liquidは配列の配列をネイティブにサポートしていません。�
 
 `assign`タグを使用して変数を作成し、割り当てることができます。これにより、メッセージ作成画面で変数が作成され、メッセージ全体で参照することもできます。
 
-### `assign`と`capture`はどのように使い分ければよいですか？ {#when-should-i-use-assign-versus-capture}
+すべてのBraze Liquid変数を二重波括弧（`{{ }}`）で囲めば、`assign`を複数行に分割できます。これらの波括弧がない場合、複数行のassignステートメントは、テンプレート化に失敗するカスタム属性を含む予期しないレンダリングを引き起こす可能性があります。例と関連する構文ルールについては、[Liquidの使用]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax)を参照してください。
+
+### `assign`と`capture`はどのように使い分けるべきですか？ {#when-should-i-use-assign-versus-capture}
 
 `assign`と`capture`はどちらもLiquid変数を作成しますが、目的が異なります。
 
 - `assign`は、ブール値、数値、単純な文字列など、単一の値を格納するシンプルな変数に使用します。同じ行で単一のフィルターを適用することもできます。
-- `capture`は、複数の変数、文字列、または複雑な式を含むテキストブロックを格納するために使用します。
+- `capture`は、複数の変数、文字列、または複雑な式を含む可能性のあるテキストブロックを格納するために使用します。
 
 他のLiquid変数やカスタム属性をパラメーターとして使用するURLなど、単一の`assign`ステートメントでは複雑すぎる値の場合は`capture`を使用してください。`capture`は、Connected Content呼び出しの本文にLiquid変数を実装する場合にも推奨されます。
 
@@ -126,7 +128,7 @@ Join our VIP program to unlock free shipping.
 
 forループは[反復タグ](https://shopify.github.io/liquid/tags/iteration/)とも呼ばれます。Liquidスニペットでforループロジックを使用すると、条件が満たされるまでLiquidブロックを繰り返し処理できます。
 
-Brazeでは、配列カスタム属性の項目チェック、または[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)、[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)呼び出しのレスポンスから返される値やオブジェクトのリストのチェックに使用できます。具体的には、forループロジックをメッセージングの一部として使用して、商品が在庫にあるかどうか、または商品が最低評価を満たしているかどうかを確認できます。
+Brazeでは、配列カスタム属性の項目、または[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)、[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)呼び出しのレスポンスから返される値やオブジェクトのリストを確認するために使用できます。具体的には、forループロジックをメッセージングの一部として使用して、商品が在庫にあるかどうか、または商品が最低評価を満たしているかどうかを確認できます。
 
 例えば、「Games」というカタログに「cheap_games」というセレクションがあるとします。「cheap_games」のゲームタイトルを取得するには、次のLiquidスニペットを使用できます。
 
@@ -139,7 +141,7 @@ Brazeでは、配列カスタム属性の項目チェック、または[カタ�
 ```
 {% endraw %}
 
-設定した条件が満たされると、メッセージの処理が続行されます。このロジックを使用すると、異なる条件に対してLiquidブロックを繰り返す代わりに時間を節約できます。
+設定した条件が満たされると、メッセージは処理を続行できます。このロジックを使用すると、異なる条件に対してLiquidブロックを繰り返す代わりに時間を節約できます。
 
 ### 中止ロジックとは何ですか？どのように使用できますか？ {#what-is-abort-logic-and-how-can-i-use-it}
 
@@ -151,7 +153,7 @@ Brazeでは、配列カスタム属性の項目チェック、または[カタ�
 
 ### Liquidで電話番号をマスクするにはどうすればよいですか？ {#how-do-i-mask-phone-numbers-with-liquid}
 
-`slice`フィルターを使用して特定の桁を抽出し、`append`フィルターを使用してマスク文字と組み合わせることで、電話番号をマスクできます。
+`slice`フィルターを使用して特定の数字を抽出し、`append`フィルターを使用してマスク文字と組み合わせることで、電話番号をマスクできます。
 
 #### 下4桁以外をすべてマスクする {#mask-all-but-the-last-four-digits}
 
@@ -184,7 +186,7 @@ Brazeでは、配列カスタム属性の項目チェック、または[カタ�
 ```
 {% endraw %}
 
-## キャンバス、カタログ、トリガープロパティ {#canvas-catalogs-and-trigger-properties}
+## キャンバス、カタログ、およびトリガープロパティ {#canvas-catalogs-and-trigger-properties}
 
 ### APIトリガーのLiquidがBrazeで失敗するのはなぜですか？ {#why-is-my-api-triggered-liquid-failing-in-braze}
 
@@ -194,7 +196,7 @@ Brazeでは、配列カスタム属性の項目チェック、または[カタ�
 
 ### キャンバスコンテキストプロパティにサイズ制限はありますか？ {#are-there-size-limits-for-canvas-context-properties}
 
-Brazeは[キャンバスコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)にハードリミットを設けていませんが、ペイロードは約1 KB（約1,000文字）以下に抑えてください。オブジェクトが大きくなると、メモリ使用量が増加し、大量送信時にメッセージのレンダリングが遅延する可能性があります。
+Brazeは[キャンバスコンテキストプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)にハードリミットを設けていませんが、ペイロードは約1 KB（約1,000文字）以下に抑えてください。大きなオブジェクトはメモリ使用量を増加させ、大量送信時にメッセージのレンダリングを遅延させる可能性があります。
 
 ### ダッシュボードで特定のデータ型をプレビューするとLiquidエラーが発生するのはなぜですか？ {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
 
@@ -208,13 +210,13 @@ Brazeは[キャンバスコンテキストプロパティ]({{site.baseurl}}/user
 
 ### カタログのLiquidスニペットが中止メッセージを返すのはなぜですか？ {#why-does-my-catalog-liquid-snippet-return-an-abort-message}
 
-カタログのLiquidスニペットが送信時に中止される場合は、一括選択や完全にダイナミックな選択を使用する代わりに、パーソナライゼーションメニューから個別のカタログアイテムを選択してスニペットを再作成してください。詳細については、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)および[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)を参照してください。
+カタログのLiquidスニペットが送信中に中止される場合は、一括選択や完全にダイナミックな選択を使用する代わりに、パーソナライゼーションメニューから個々のカタログアイテムを選択してスニペットを再作成してください。詳細については、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)および[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)を参照してください。
 
 ## Content Blocksとメッセージ作成画面 {#content-blocks-and-the-message-composer}
 
 ### Content Blocksを使用するメッセージに余分なスペースが入るのはなぜですか？ {#why-is-there-extra-spacing-in-messages-that-use-content-blocks}
 
-Liquidを使用するContent Blocksで送信されたメッセージに余分なスペースが入る場合、条件文の中に不要な段落や改行が含まれている可能性があります。条件文は複数行にまたがるのではなく、1行にまとめて記述してください。
+Liquidを使用したContent Blocksで送信されたメッセージに余分なスペースが入る場合、条件文内に不要な段落や改行が含まれている可能性があります。条件文は複数行にまたがらず、1行で記述してください。
 
 #### 例 {#example}
 
@@ -225,7 +227,7 @@ Liquidを使用するContent Blocksで送信されたメッセージに余分な
 {% endraw %}
 
 
-### 複数行のLiquidがドラッグ＆ドロップエディターで予期しない空白を生成するのはなぜですか？ {#why-does-multi-line-liquid-create-unexpected-whitespace-in-the-drag-and-drop-editors}
+### ドラッグ＆ドロップエディターで複数行のLiquidが予期しない空白を生成するのはなぜですか？ {#why-does-multi-line-liquid-create-unexpected-whitespace-in-the-drag-and-drop-editors}
 
 アプリ内メッセージのドラッグ＆ドロップエディターやメールのドラッグ＆ドロップエディターでLiquidコードが複数行にまたがっている場合、各{% raw %}`{% %}`{% endraw %}ブロックは非表示テキストとしてレンダリングされます。改行は表示される出力の前に空行として保持されるため、予期しない空白が発生します。
 
@@ -245,7 +247,7 @@ Only {{ difference_days }} days until your move!
 
 #### 解決策2：Liquidを1行にまとめる {#solution-2-consolidate-liquid-onto-a-single-line}
 
-すべての改行を削除して、Liquidを1つの連続した行にまとめます。
+すべての改行を削除して、Liquidを1つの連続した行にします。
 
 {% raw %}
 ```liquid
@@ -253,15 +255,15 @@ Only {{ difference_days }} days until your move!
 ```
 {% endraw %}
 
-どちらの方法でも、レンダリングされたメッセージ内の不要な空行を防ぐことができます。これはアプリ内メッセージのドラッグ＆ドロップエディター、メールのドラッグ＆ドロップエディター、およびLiquidを使用するContent Blocksに適用されます。詳細については、[Whitespace control](https://shopify.github.io/liquid/basics/whitespace/)を参照してください。
+どちらの方法でも、レンダリングされたメッセージ内の不要な空行を防ぐことができます。これはアプリ内メッセージのドラッグ＆ドロップエディター、メールのドラッグ＆ドロップエディター、およびLiquidを使用したContent Blocksに適用されます。詳細については、Shopifyの[Whitespace control](https://shopify.github.io/liquid/basics/whitespace/)ドキュメントおよびBrazeの[Liquid構文]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax)を参照してください。
 
-### ドラッグ＆ドロップの検索ツールで**Row**にContent Blockが表示されないのはなぜですか？ {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
+### ドラッグ＆ドロップの検索ツールで**行**にContent Blockが表示されないのはなぜですか？ {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
 
-一部のContent Blocksは、ドラッグ＆ドロップエディターの検索で**Row**の下に表示されません。**Content**タブ（**Advanced**）からHTMLブロックを追加し、そのHTMLブロック内にContent BlockのLiquidタグを挿入して、ブロックのコンテンツをレンダリングしてください。
+一部のContent Blocksは、ドラッグ＆ドロップエディターの検索で**行**の下に表示されません。**コンテンツ**タブ（**詳細**）からHTMLブロックを追加し、そのHTMLブロック内にContent BlockのLiquidタグを挿入してブロックコンテンツをレンダリングしてください。
 
 ### ドラッグ＆ドロップのContent Blockプレビューが作成ビューと異なるのはなぜですか？ {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
 
-Content BlockをLiquidでテンプレート化する場合、ブロック内のモバイルメディアクエリは、ブロックを直接メッセージにドラッグした場合と同じようにプレビューに適用されないことがあります。ブロックをドラッグするとレイアウトは保持されますが、ソースブロックとの連携が解除されるため、今後のブロック編集がメッセージに自動的に反映されなくなります。
+Content BlockをLiquidでテンプレート化する場合、ブロック内のモバイルメディアクエリは、ブロックを直接メッセージにドラッグした場合と同じようにプレビューに適用されないことがあります。ブロックをドラッグするとレイアウトは保持されますが、ソースブロックから切り離されるため、今後のブロック編集がメッセージに自動的に反映されなくなります。
 
 ### メッセージ作成画面でイベントプロパティの値をプレビューするにはどうすればよいですか？ {#how-do-i-preview-event-property-values-in-message-composer}
 
@@ -275,13 +277,13 @@ Content BlockをLiquidでテンプレート化する場合、ブロック内の�
 
 ### 動的な返信先アドレスを作成するにはどうすればよいですか？ {#how-do-i-create-a-dynamic-reply-to-address}
 
-ワークスペースが動的な返信先設定をサポートしている場合、**返信先**フィールドでLiquidを使用します。必要に応じて**差出人**の表示名設定と組み合わせてください。ワークスペース固有のオプションについては、[メール設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences)を参照してください。
+ワークスペースが動的な返信先設定をサポートしている場合、**返信先**フィールドでLiquidを使用してください。必要に応じて、**差出人**の表示名設定と組み合わせてください。ワークスペース固有のオプションについては、[メール設定]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences)を参照してください。
 
 ## Liquidエラーのトラブルシューティング {#troubleshooting-liquid-errors}
 
 ### Liquidコードが正しく見えるのに動作しないのはなぜですか？ {#why-is-my-liquid-code-not-working-when-it-looks-correct}
 
-Liquidコードの構文が正しいように見えるのに動作しない場合、ストレート引用符（`' '` や `" "`）やハイフン（`-`）の代わりに、スマート引用符（`' '` や `" "` のような丸い引用符）やスマートダッシュ（`—` のようなemダッシュ）が使用されていないか確認してください。LiquidはストレートASCII文字のみを認識するため、スマート引用符やダッシュはパースエラーの原因になります。
+Liquidコードの構文が正しいように見えるのに動作しない場合、ストレート引用符（`' '`や`" "`）やハイフン（`-`）の代わりに、スマート引用符（`' '`や`" "`のような丸い引用符）やスマートダッシュ（`—`のようなemダッシュ）が使用されていないか確認してください。LiquidはストレートASCII文字のみを認識するため、スマート引用符やダッシュはパースエラーの原因になります。
 
 これは、macOSのキーボード設定で**スマート引用符とダッシュを使用**が有効になっている場合によく発生します。この設定により、Brazeダッシュボードで入力する際に文字が自動的に変換されます。
 
@@ -296,7 +298,7 @@ macOSでこの設定を無効にするには：
 | 条件分岐 | {% raw %}`{% if ${country} contains 'US' %}`{% endraw %} | {% raw %}`{% if ${country} contains 'US' %}`{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="スマート引用符の例" }
 
-これはデフォルト値、条件分岐、および引用符を使用するその他すべてのLiquidに適用されます。丸い引用符とストレート引用符は画面上では同じに見えることがあるため、コードを注意深く比較するか、プレーンテキストエディタに貼り付けて確認してください。
+これはデフォルト値、条件分岐、および引用符を使用するその他すべてのLiquidに適用されます。丸い引用符とストレート引用符は画面上では同じように見えることがあるため、コードを注意深く比較するか、プレーンテキストエディタに貼り付けて確認してください。
 
 Liquidでの引用符の使用方法の詳細については、[Liquid構文]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax)を参照してください。
 
@@ -326,7 +328,7 @@ Liquidでの引用符の使用方法の詳細については、[Liquid構文]({{
 
 これは、データ型が時間であるカスタム属性を文字列（`blank`）と比較できないため失敗します。
 
-これを解決するには、時間属性を変数に代入し、レンダリング時に属性が空と評価される場合に`default`フィルターを使用して文字列に変換します：
+これを解決するには、時間属性を変数に割り当て、レンダリング時に属性が空と評価される場合に`default`フィルターを使用して文字列に変換します：
 
 {% raw %}
 ```liquid
@@ -339,7 +341,7 @@ Liquidでの引用符の使用方法の詳細については、[Liquid構文]({{
 {% endraw %}
 
 
-時間型のカスタム属性を現在時刻や将来の日付と比較する場合も、同じアプローチを使用します：
+時間型のカスタム属性を現在の時刻や将来の日付と比較する場合も、同じアプローチを使用します：
 
 {% raw %}
 ```liquid

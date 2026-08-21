@@ -19,7 +19,7 @@ search_rank: 1
 
 Antes de criar mensagens do WhatsApp, você precisa revisar e concluir o seguinte a partir da [visão geral do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup):
   - Reconhecer as políticas, limites e regras de conteúdo
-  - Configurar sua conexão com o WhatsApp
+  - Configurar sua conexão do WhatsApp
   - Criar modelos iniciais na Meta para usar em suas mensagens
 
 ## Criando uma mensagem {#creating-a-message}
@@ -30,7 +30,7 @@ Antes de criar mensagens do WhatsApp, você precisa revisar e concluir o seguint
 O WhatsApp cria diferentes [modelos de mensagem](#template-messages) para cada idioma. Crie uma Campaign para cada idioma com segmentação para enviar o modelo correto aos usuários, ou use o Canvas.
 {% endalert %}
 
-Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canvas? Campaigns são melhores para campanhas de envio de mensagens únicas e direcionadas, enquanto Canvas são melhores para jornadas de usuário com várias etapas.
+Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canvas? Campaigns são melhores para campanhas de mensagens únicas e direcionadas, enquanto Canvas são melhores para jornadas de usuário com várias etapas.
 
 {% tabs %}
 {% tab Campaign %}
@@ -40,9 +40,9 @@ Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canv
 1. Acesse a página **Campaigns** e clique em <i class="fas fa-plus"></i> **Create Campaign**.
 2. Selecione **WhatsApp** ou, para Campaigns direcionadas a vários canais, selecione **Multichannel Campaign**.
 3. Dê à sua Campaign um nome claro e significativo.
-4. Adicione [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário.
+4. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário.
    * Tags facilitam a localização das suas Campaigns e a criação de relatórios. Por exemplo, ao usar o [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder), você pode filtrar por tags específicas.
-5. Adicione e nomeie quantas variantes forem necessárias para sua Campaign. Você pode escolher diferentes plataformas, tipos de mensagem e layouts para cada uma das variantes adicionadas. Para saber mais sobre este tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+5. Adicione e nomeie quantas variantes forem necessárias para sua Campaign. Você pode escolher diferentes plataformas, tipos de mensagem e layouts para cada variante adicionada. Para saber mais sobre esse tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
 Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conteúdo, crie sua mensagem antes de adicionar variantes adicionais. Em seguida, escolha **Copy from Variant** no menu suspenso **Add Variant**.
@@ -72,9 +72,11 @@ Selecione se deseja criar uma [mensagem de modelo](#template-messages) ou uma me
 {% tab Mensagens de modelo %}
 
 Você pode usar [modelos de mensagem aprovados do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates
-) para iniciar conversas com seus usuários no WhatsApp. Essas mensagens são enviadas antecipadamente ao WhatsApp para aprovação de conteúdo, o que pode levar até 24 horas. Qualquer edição que você fizer no texto precisa ser editada e reenviada ao WhatsApp.
+) para iniciar conversas com seus usuários no WhatsApp. Esses modelos são enviados antecipadamente ao WhatsApp para aprovação de conteúdo, o que pode levar até 24 horas. Qualquer edição que você fizer no texto precisa ser editada e reenviada ao WhatsApp.
 
-Campos de texto desativados (destacados em cinza) não podem ser editados, pois fazem parte do modelo aprovado do WhatsApp. Para fazer atualizações no texto desativado, você deve editar seu modelo e obter uma nova aprovação.
+Para criar e enviar um novo modelo sem sair do criador de Campaign ou Canvas, selecione **Criar novo modelo**. Para categorias, tipos e o processo completo de criação, consulte [Construtor de modelos do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder).
+
+Campos de texto desabilitados (destacados em cinza) não podem ser editados, pois fazem parte do modelo aprovado do WhatsApp. Para fazer atualizações no texto desabilitado, você deve editar seu modelo e obter uma nova aprovação.
 
 #### Idiomas {#languages}
 
@@ -86,9 +88,9 @@ Se você estiver adicionando texto em um idioma escrito da direita para a esquer
 
 #### Variáveis {#variables}
 
-Se você adicionou variáveis ao criar o modelo do WhatsApp no Meta Business Manager, essas variáveis aparecerão como espaços em branco no criador de mensagem. Substitua esses espaços em branco por Liquid ou texto simples. Para usar texto simples, use o formato "texto aqui" entre chaves duplas. Se você optou por incluir imagens ao criar seu modelo, pode fazer upload ou adicionar imagens da biblioteca de mídia ou referenciando uma URL de imagem. Quando possível, recomendamos fazer upload das imagens diretamente na sua biblioteca de mídia para garantir consistência e confiabilidade.
+Se você adicionou variáveis ao criar o modelo do WhatsApp no Meta Business Manager, essas variáveis aparecerão como espaços em branco no criador de mensagens. Substitua esses espaços em branco por Liquid ou texto simples. Para usar texto simples, use o formato "texto aqui" entre chaves duplas. Se você optou por incluir imagens ao criar seu modelo, pode fazer upload ou adicionar imagens da biblioteca de mídia ou referenciando uma URL de imagem. Quando possível, recomendamos fazer upload das imagens diretamente na sua biblioteca de mídia para garantir consistência e confiabilidade.
 
-Observe que campos de texto desativados (destacados em cinza) não podem ser editados, pois fazem parte do modelo aprovado do WhatsApp. Se você deseja fazer atualizações no texto desativado, deve editar seu modelo e obter uma nova aprovação.
+Observe que campos de texto desabilitados (destacados em cinza) não podem ser editados, pois fazem parte do modelo aprovado do WhatsApp. Se você deseja fazer atualizações no texto desabilitado, deve editar seu modelo e obter uma nova aprovação.
 
 {% alert tip %}
 {% raw %}
@@ -100,16 +102,18 @@ Se você planeja usar Liquid, inclua um valor padrão para a personalização es
 
 ### Links dinâmicos {#dynamic-links}
 
-URLs de chamada para ação podem conter variáveis, embora a Meta exija que estejam no final da URL, como `{% raw %}https://example.com/{{variable}}{% endraw %}`, onde a variável pode ser substituída na Braze por Liquid. Links também podem ser incluídos como texto do corpo como parte do modelo. Ambos os links podem ser encurtados e rastreados usando o [rastreamento de cliques]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking).
+URLs de chamada para ação podem conter variáveis, embora a Meta exija que estejam no final da URL, como `{% raw %}https://example.com/{{variable}}{% endraw %}`, onde a variável pode ser substituída na Braze com Liquid. Links também podem ser incluídos como texto do corpo como parte do modelo. Ambos os links podem ser encurtados e rastreados usando o [rastreamento de cliques]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking).
 
 ### Imagens dinâmicas {#dynamic-images}
+
+Você pode adicionar imagens da biblioteca de mídia ou por URL. Ao usar uma URL, você pode personalizar a imagem com [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) ou [Conteúdo Conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), incluindo lógica Liquid completa em qualquer parte da URL. Imagens dinâmicas são compatíveis com mensagens de modelo e mensagens de resposta (mensagens de mídia e layouts de resposta rápida).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 {% endtab %}
 {% tab Mensagens de resposta %}
 
-Você pode usar mensagens de resposta para responder a mensagens de entrada dos seus usuários. Essas mensagens são criadas no app na Braze durante sua experiência de composição e podem ser editadas a qualquer momento. Você pode usar Liquid para corresponder o idioma da mensagem de resposta aos usuários apropriados.
+Você pode usar mensagens de resposta para responder a mensagens de entrada dos seus usuários. Essas mensagens são criadas no app da Braze durante sua experiência de composição e podem ser editadas a qualquer momento. Você pode usar Liquid para corresponder o idioma da mensagem de resposta aos usuários apropriados.
 
 Existem cinco layouts de mensagem de resposta que você pode usar:
 - Resposta rápida
@@ -125,7 +129,7 @@ Existem cinco layouts de mensagem de resposta que você pode usar:
 
 ### Etapa 3: Prévia e teste da sua mensagem {#step-3-preview-and-test-your-message}
 
-A Braze sempre recomenda fazer a prévia e testar sua mensagem antes de enviá-la. Alterne para a guia **Test** para enviar uma mensagem de teste do WhatsApp para [grupos de teste de conteúdo]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou usuários individuais, ou visualize a prévia da mensagem como um usuário diretamente na Braze.
+A Braze sempre recomenda visualizar e testar sua mensagem antes de enviá-la. Alterne para a guia **Test** para enviar uma mensagem de teste do WhatsApp para [grupos de teste de conteúdo]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou usuários individuais, ou visualize a prévia da mensagem como um usuário diretamente na Braze.
 
 ![Uma prévia de mensagem para um usuário personalizado chamado Max.]({% image_buster /assets/img/whatsapp/whatsapp8.png %}){: style="max-width:80%;"}
 
@@ -139,7 +143,7 @@ Para saber mais, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guid
 
 ### Etapa 4: Visualize os resultados do envio de teste {#step-4-view-test-send-results}
 
-Após enviar uma mensagem de teste do WhatsApp, você pode visualizar um relatório detalhado de entrega diretamente no criador de mensagem. Isso ajuda a confirmar que sua mensagem chegou ao destinatário pretendido e a solucionar falhas antes do lançamento.
+Após enviar uma mensagem de teste do WhatsApp, você pode visualizar um relatório detalhado de entrega diretamente no criador de mensagens. Isso ajuda a confirmar que sua mensagem chegou ao destinatário pretendido e a solucionar falhas antes do lançamento.
 
 O botão **View test results** aparece quando os dados de envio de teste estão disponíveis para a Campaign ou etapa do Canvas atual. Selecione-o para abrir o painel de resultados.
 
@@ -184,13 +188,13 @@ Em seguida, construa o restante da sua Campaign. Consulte as seções a seguir p
 
 #### Escolha um cronograma de entrega ou gatilho {#choose-a-delivery-schedule-or-trigger}
 
-Mensagens do WhatsApp podem ser entregues com base em um horário agendado, uma ação ou com base em um gatilho de API. Para saber mais, consulte [Agendando sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Mensagens do WhatsApp podem ser entregues com base em um horário agendado, uma ação ou um gatilho de API. Para saber mais, consulte [Agendando sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 Para entrega baseada em ação, você também pode definir a duração da Campaign e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) para receber a Campaign, ou ativar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
+Nesta etapa, você também pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) para receber a Campaign, ou habilitar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
 
-#### Escolha os usuários a direcionar {#choose-users-to-target}
+#### Escolha os usuários a serem direcionados {#choose-users-to-target}
 
 Em seguida, você deve [direcionar usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo Segments ou filtros para restringir seu público. Você já deve ter escolhido o grupo de inscrições, que restringe os usuários pelo nível ou categoria de comunicação que desejam ter com você. Nesta etapa, você seleciona o público maior dos seus Segments e restringe ainda mais esse Segment com nossos filtros. Você recebe automaticamente um panorama de como é a população aproximada desse Segment. Lembre-se de que a composição exata do Segment é sempre calculada antes do envio da mensagem.
 
@@ -217,7 +221,7 @@ Como as janelas de conversa só podem durar 24 horas por mensagem de entrada, a 
 
 Depois de terminar de construir a última parte da sua Campaign ou Canvas, revise seus detalhes, teste e envie!
 
-Em seguida, confira os [relatórios do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/reporting) para saber como você pode acessar os resultados das suas Campaigns do WhatsApp.
+Em seguida, confira os [relatórios do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/reporting) para saber como acessar os resultados das suas Campaigns do WhatsApp.
 
 ## Recursos do WhatsApp compatíveis {#supported-whatsapp-features}
 
@@ -234,7 +238,7 @@ Os seguintes recursos são compatíveis com mensagens de saída do WhatsApp envi
 | Imagens | As imagens podem ser incorporadas no texto do corpo. Elas devem ser de 8 bits e usar o modelo de cores RGB ou RGBA. | < 5 MB | `.png`, `.jpg`, `.jpeg` |
 | Documentos | Os documentos podem ser incorporados no texto do corpo. Os arquivos devem ser hospedados por URL. | < 100 MB | `.txt`, `.xls`, `.xlsx`, `.doc`, `.docx`, `.ppt`, `.pttx`, `.pdf` |
 | Vídeos | Os vídeos podem ser incorporados no texto do corpo. Os arquivos devem ser hospedados por URL ou na [biblioteca de mídia da Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). | < 16 MB | `.3gp`, `.mp4` |
-| Áudio | O áudio só é compatível com mensagens de resposta. Os arquivos devem ser hospedados por URL. | < 16 MB | `.aac`, `.amr`, `.mp3`, `.mp4`, `.ogg` |
+| Áudio | O áudio só é compatível por meio de mensagens de resposta. Os arquivos devem ser hospedados por URL. | < 16 MB | `.aac`, `.amr`, `.mp3`, `.mp4`, `.ogg` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Mensagens de saída" }
 
 {% multi_lang_include alerts/important_alerts.md alert='Meta MP4 video issue' %}
@@ -245,11 +249,11 @@ Os seguintes recursos são compatíveis com mensagens de entrada do WhatsApp rec
 
 | Recurso | Detalhes | Formatos compatíveis |
 | ------- | ------- | ------------------ |
-| Texto do corpo | Apenas strings padrão são compatíveis. | — |
+| Texto do corpo | Somente strings padrão são compatíveis. | — |
 | Imagens | As imagens devem ser de 8 bits e usar o modelo de cores RGB ou RGBA. Os arquivos devem ter menos de 5 MB. | `.jpg`, `.png` |
-| Áudio | Apenas arquivos Ogg codificados com o codec Opus são compatíveis. Outros formatos Ogg não são compatíveis. | `.aac`, `.mp4`, `.mpeg`, `.amr`, `.ogg (Opus only)` |
+| Áudio | Somente arquivos Ogg codificados com o codec Opus são compatíveis. Outros formatos Ogg não são compatíveis. | `.aac`, `.mp4`, `.mpeg`, `.amr`, `.ogg (Opus only)` |
 | Documentos | Os documentos são compatíveis por meio de anexo de mensagem. | `.txt`, `.pdf`, `.ppt`, `.doc`, `.xls`, `.docx`, `.pptx`, `.xlsx` |
-| Vídeo | Apenas o codec de vídeo H.264 e o codec de áudio AAC são compatíveis. Os vídeos devem ter uma única faixa de áudio ou nenhuma faixa de áudio. | `.mp4`, `.3gp` |
+| Vídeo | Somente o codec de vídeo H.264 e o codec de áudio AAC são compatíveis. Os vídeos devem ter uma única faixa de áudio ou nenhuma faixa de áudio. | `.mp4`, `.3gp` |
 | Links de CTA | Vários tipos de chamada para ação (CTA) são compatíveis. Para saber mais, consulte [Tipos de chamada para ação](#ctas). | — |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mensagens de entrada" }
 

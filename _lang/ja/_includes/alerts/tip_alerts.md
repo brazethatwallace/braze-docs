@@ -1,7 +1,15 @@
+{% if include.alert == "Landing pages manage subscriptions" %}
+
+{% alert tip %}
+Brazeのランディングページで購読を管理することもできます。**購読を管理**ブロックを追加すると、消費者が既存の購読を確認・更新したり、新しい購読にオプトインしたりできるようになります。同時に、同じページでエンゲージメントデータをキャプチャできます。詳細については、[購読を管理ブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions)を参照してください。
+{% endalert %}
+
+{% endif %}
+
 {% if include.alert == "Liquid email display name and reply-to address" %}
 
 {% alert tip %}
-**From Display Name + Address** と **返信先 Address** のフィールドでは、カスタム属性に基づいてダイナミックなテンプレートを作成するために [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/) を使用できる。これにより、単一のメールキャンペーンやキャンバスステップを使って、異なるブランド、地域、部門から送信できる。
+**差出人表示名 + アドレス**と**返信先アドレス**のフィールドでは、[Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid)を使用して、カスタム属性に基づいてダイナミックなテンプレートを作成できます。これにより、単一のメールキャンペーンやキャンバスステップを使って、異なるブランド、地域、部門から送信できます。
 {% endalert %}
 
 {% endif %}
@@ -9,7 +17,7 @@
 {% if include.alert == "Reference properties from triggering event" %}
 
 {% alert tip %}
-[オーディエンスパス]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths)や[条件分岐]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split)ステップにおいて、トリガーとなるイベントのプロパティを参照するためにコンテキストステップは必要ない。**コンテキスト変数**フィルターを使えば、フィルターグループ内でプロパティを直接参照できる。正しいデータ型を選択するように注意せよ。
+[オーディエンスパス]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths)や[条件分岐]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split)ステップにおいて、トリガーイベントのプロパティを参照するためにコンテキストステップは必要ありません。**コンテキスト変数**フィルターを使えば、フィルターグループ内でプロパティを直接参照できます。正しいデータ型を選択するようにしてください。
 {% endalert %}
 
 {% endif %}
@@ -17,7 +25,7 @@
 {% if include.alert == 'catalog data images' %}
 
 {% alert tip %}
-カタログのトリガーアイテム用に画像を読み込むには、カタログにという名前のフィールドが含まれている`image_url`必要がある。その後、. を使って参照できる{%raw%}``{{ items[0].image_url }}``{%endraw%}。
+カタログのトリガーアイテム用に画像を取り込むには、カタログに`image_url`という名前のフィールドが含まれている必要があります。その後、{%raw%}``{{ items[0].image_url }}``{%endraw%}を使って参照できます。
 {% endalert %}
 
 {% endif %}
@@ -25,7 +33,7 @@
 {% if include.alert == 'Export troubleshooting' %}
 
 {% alert tip %}
-CSV および API のエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting)を参照してください。
 {% endalert %}
 
 {% endif %}
@@ -33,11 +41,11 @@ CSV および API のエクスポートに関するヘルプについては、�
 
 {% alert tip %}
 
-**SMS コピーの長さのテスト**
+**SMSコピーの長さをテストする**
 
 <br>
 
-メッセージのセグメント数を確認したい場合は、計算機にコピーを入力する。これは、Liquid のコンテンツやコネクテッドコンテンツの出力を処理したり予測したりしない点に注意してください。
+メッセージが何セグメントで送信されるかを確認したい場合は、計算機にコピーを入力してください。なお、LiquidやConnected Contentの出力は処理・予測されません。
 <!-- Note: This calculator uses fixed DOM IDs and global variables. Include only once per page to avoid conflicts. -->
 <style>
   .segment_data_hide {
@@ -98,24 +106,24 @@ CSV および API のエクスポートに関するヘルプについては、�
   }
 </style>
 <form id="sms_split">
-  <textarea id="sms_message_split" placeholder="SMS のコピーをここに入力..." style="width:100%;border: 1px solid #33333333;" rows="5"></textarea><br />
+  <textarea id="sms_message_split" placeholder="SMSのコピーをここに入力..." style="width:100%;border: 1px solid #33333333;" rows="5"></textarea><br />
   <input type="radio" name="sms_type" value="auto" checked="checked" id="sms_type_auto" /> <label for="sms_type_auto" style="padding-left: 5px;"> 自動検出</label><label id="auto_encoding" style="padding-left: 5px;"></label><br />
   <input type="radio" name="sms_type" value="gsm" id="sms_type_gsm" /> <label for="sms_type_gsm" style="padding-left: 5px;">GSM-7エンコーディング</label><br />
   <input type="radio" name="sms_type" value="ucs2" id="sms_type_ucs2" /> <label for="sms_type_ucs2" style="padding-left: 5px;">UCS-2エンコーディング</label><br />
   <br />
-  メッセージの長さ: <span id="sms_length" style="padding-left: 5px;">0</span>文字。<br />
-  SMSセグメント数：<span id="sms_segments" style="padding-left: 5px;">0</span>セグメント。<br />
-  メッセージの出力： <span id="sms_output" style="padding-left: 5px;"></span><br />
-  <input type="checkbox" id="encoding_section" name="encoding_section"> <label for="encoding_section" style="padding-left: 5px; margin-bottom: 0px;">表示文字エンコーディング</label>
+  メッセージの長さ: <span id="sms_length" style="padding-left: 5px;">0</span> 文字。<br />
+  SMSセグメント数: <span id="sms_segments" style="padding-left: 5px;">0</span> セグメント。<br />
+  メッセージ出力: <span id="sms_output" style="padding-left: 5px;"></span><br />
+  <input type="checkbox" id="encoding_section" name="encoding_section"> <label for="encoding_section" style="padding-left: 5px; margin-bottom: 0px;">文字エンコーディングを表示</label>
   <div class="segment_data_hide" id="character_encoding_container">
     <div class="encoding_legend">
-      <div class="encoding_legend_item"><span class="encoding_gsm">GSM</span> GSM-7 文字</div>
-      <div class="encoding_legend_item"><span class="encoding_ucs2">UCS</span> UCS-2 文字</div>
+      <div class="encoding_legend_item"><span class="encoding_gsm">GSM</span> GSM-7文字</div>
+      <div class="encoding_legend_item"><span class="encoding_ucs2">UCS</span> UCS-2文字</div>
     </div>
-    <span id="character_encoding_label">文字エンコーディング： </span><span id="character_encoding" style="padding-left: 5px;"></span><br />
+    <span id="character_encoding_label">文字エンコーディング: </span><span id="character_encoding" style="padding-left: 5px;"></span><br />
   </div>
   <br />
-  <input type="checkbox" id="segment_section" name="segment_section"> <label for="segment_section" style="padding-left: 5px; margin-bottom: 0px;">表示セグメント</label>
+  <input type="checkbox" id="segment_section" name="segment_section"> <label for="segment_section" style="padding-left: 5px; margin-bottom: 0px;">セグメントを表示</label>
   <span class="segment_data_hide" id="sms_segments_data"></span>
 </form>
 <script type="text/javascript">
@@ -338,12 +346,12 @@ if(smsutil.unicodeCodePoints(s).every(function (x) {return x in unicodeToGsm})) 
   return "ucs2";
 }
 },
-_segmentWith: function (maxSingleセグメントSize, maxConcatセグメントSize, doEncode) {
+_segmentWith: function (maxSingleSegmentSize, maxConcatSegmentSize, doEncode) {
 return function (listOfUnichrs) {
     var bytes = smsutil.map(listOfUnichrs, doEncode);
     if (listOfUnichrs.length == 0) {
         return [];
-    } else if ([].concat.apply([], bytes).length <= maxSingleセグメントSize) {
+    } else if ([].concat.apply([], bytes).length <= maxSingleSegmentSize) {
         return [{text:listOfUnichrs, bytes: bytes}];
     }
     var segments = []
@@ -353,7 +361,7 @@ return function (listOfUnichrs) {
         function nextChrLen() {
             return bytes[0] === undefined ? length : length + bytes[0].length;
         }
-        while(listOfUnichrs.length > 0 && nextChrLen() <= maxConcatセグメントSize) {
+        while(listOfUnichrs.length > 0 && nextChrLen() <= maxConcatSegmentSize) {
             var c = listOfUnichrs.shift()
             var b = bytes.shift();
             segment.text.push(c);
@@ -378,34 +386,34 @@ auto: function (s) { return segmenter[smsutil.pickencoding(s)](s); },
 }
 
 function countLength(type, s) {
-  const t = (type === "auto") ?smsutil.pickencoding(s) : type；
+  const t = (type === "auto") ? smsutil.pickencoding(s) : type;
 
-  if (t === "gsm") {.
-    returns.length\+ (s.match(/^|€|{|}|[|]|~||/g) || []).length;
+  if (t === "gsm") {
+    return s.length + (s.match(/\^|€|{|}|\[|\]|~|\|/g) || []).length;
   } else {
     return s.length;
   }
 }
 
 function escapeHtml(text) {
-  return text.replace(/[&<>"'/]/g, function (c) {
-    切り替える (c) {
-      case'&':  return '&';
-      case'<':return <';
-case '>'': return '>';
-      case '"': return '"';
-      case "'": return ''';
-      '/' の場合：'/' を返す。
-      デフォルト: cを返す。
-      }
-    });
-  }
+  return text.replace(/[&<>"'\/]/g, function (c) {
+    switch (c) {
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&#39;';
+      case '/': return '&#x2F;';
+      default: return c;
+    }
+  });
+}
 
 function getCharacterEncoding(char, type) {
   if (type === "ucs2") return "ucs2";
   if (type === "gsm") return "gsm";
 
-  自動検出のため、文字がGSM-7設定に含まれているか確認する
+  // For auto detection, check if character is in GSM-7 set
   const codePoint = char.charCodeAt(0);
   return (codePoint in unicodeToGsm) ? "gsm" : "ucs2";
 }
@@ -414,32 +422,32 @@ function displayCharacterEncoding(text, type) {
   const characters = smsutil.unicodeCharacters(text);
   return characters.map((char, index) => {
     const encoding = getCharacterEncoding(char, type);
-    const displayChar = char === " " ? " " : escapeHtml(char);
+    const displayChar = char === " " ? "&nbsp;" : escapeHtml(char);
     const titleChar = char === " " ? "space" : char;
-    const encodingClass = encoding === "gsm" ?"encoding_gsm"  : "encoding_ucs2";
-    const encodingLabel = encoding === "gsm" ?「GSM」：UCS
+    const encodingClass = encoding === "gsm" ? "encoding_gsm" : "encoding_ucs2";
+    const encodingLabel = encoding === "gsm" ? "GSM" : "UCS";
     return `<span id="character_encoding_data_${index}" class="${encodingClass}" title="${escapeHtml(titleChar)} - ${encoding.toUpperCase()}">${encodingLabel}</span>`;
   }).join("");
 }
 
 function updateSMSSplit(){
-    varsms_text  = $('#sms_message_split').val();
-    varsms_type  = $('#sms_split input[name=sms_type]:checked').val();
+    var sms_text = $('#sms_message_split').val();
+    var sms_type = $('#sms_split input[name=sms_type]:checked').val();
     var unicodeinput = smsutil.unicodeCharacters(sms_text);
     var encodedChars = encoder[sms_type](sms_text);
-    var smsセグメント = segmenter[sms_type](unicodeinput);
+    var smsSegments = segmenter[sms_type](unicodeinput);
     $('#sms_length').html(countLength(sms_type, sms_text));
-    $('#sms_segments').html(smsセグメント.length);
+    $('#sms_segments').html(smsSegments.length);
 
     // Display character encoding
     $('#character_encoding').html(displayCharacterEncoding(sms_text, sms_type));
 
     const segmentColors = (i) => `segment_color_${i > 3 ? i%3 : i}`;
-    const segmentsHtml = smsセグメント.map((segment,segment_index) =>  segment.bytes.map((byte, i) => `<div id='sms_segments_data_${segment_index}-${i}' class='segment ${segmentColors(segment_index)}'>${byte.map(b => smsutil.hexEncode(b)).join(" ")}</div>`).join("")).join("");
+    const segmentsHtml = smsSegments.map((segment,segment_index) =>  segment.bytes.map((byte, i) => `<div id='sms_segments_data_${segment_index}-${i}' class='segment ${segmentColors(segment_index)}'>${byte.map(b => smsutil.hexEncode(b)).join(" ")}</div>`).join("")).join("");
 
     // Create message output with both segment and character indexing
     let characterIndex = 0;
-    const messageOutput = smsセグメント.map((segment,segment_index) =>
+    const messageOutput = smsSegments.map((segment,segment_index) =>
       segment.text.map((ch, i) => {
         const safeCh = ch === " " ? "\u00A0" : escapeHtml(ch);
         const result = `<div id='message_output_data_${segment_index}-${i}' data-char-index='${characterIndex}' class='message_output_char ${segmentColors(segment_index)}'>${safeCh}</div>`;
@@ -450,19 +458,19 @@ function updateSMSSplit(){
     $('#sms_output').html(messageOutput.join(""));
     $('#sms_segments_data').html(segmentsHtml);
 }
-三方向ハイライト機能を備えた強化されたホバー機能
-マウスオーバー/マウスアウトイベントを使ってハンドラの蓄積を避ける
+// Enhanced hover functionality with three-way highlighting
+// Using mouseenter/mouseleave to avoid handler accumulation
 $("#sms_segments_data").on("mouseenter", "[id^='sms_segments_data_']", function(e){
   const segmentIndex = e.target.id.split("sms_segments_data_")[1];
   const messageOutputElement = `#message_output_data_${segmentIndex}`;
   const charIndex = $(messageOutputElement).attr('data-char-index');
-  const encodingElement = charIndex !== undefined ? null`#character_encoding_data_${charIndex}` : null;
+  const encodingElement = charIndex !== undefined ? `#character_encoding_data_${charIndex}` : null;
 
-  ハイライトする要素を let elementsToHighlight = `${messageOutputElement}, #${e.target.id}`;
+  let elementsToHighlight = `${messageOutputElement}, #${e.target.id}`;
   if(encodingElement) elementsToHighlight += `, ${encodingElement}`;
 
   $(elementsToHighlight).addClass("hover_segment");
-}).on("mouseleave","[id^='sms_segments_data_']",function(e){
+}).on("mouseleave", "[id^='sms_segments_data_']", function(e){
   $(".hover_segment").removeClass("hover_segment");
 });
 
@@ -470,13 +478,13 @@ $("#sms_output").on("mouseenter", "[id^='message_output_data_']", function(e){
   const segmentIndex = e.target.id.split("message_output_data_")[1];
   const segmentElement = `#sms_segments_data_${segmentIndex}`;
   const charIndex = $(e.target).attr('data-char-index');
-  const encodingElement = charIndex !== undefined ? null`#character_encoding_data_${charIndex}` : null;
+  const encodingElement = charIndex !== undefined ? `#character_encoding_data_${charIndex}` : null;
 
-  ハイライトする要素を let elementsToHighlight = `${segmentElement}, #${e.target.id}`;
+  let elementsToHighlight = `${segmentElement}, #${e.target.id}`;
   if(encodingElement) elementsToHighlight += `, ${encodingElement}`;
 
   $(elementsToHighlight).addClass("hover_segment");
-}).on("mouseleave","[id^='message_output_data_']",function(e){
+}).on("mouseleave", "[id^='message_output_data_']", function(e){
   $(".hover_segment").removeClass("hover_segment");
 });
 
@@ -492,7 +500,7 @@ $("#character_encoding").on("mouseenter", "[id^='character_encoding_data_']", fu
     const elementsToHighlight = `#${e.target.id}, #${messageOutputId}, ${segmentElement}`;
     $(elementsToHighlight).addClass("hover_segment");
   }
-}).on("mouseleave","[id^='character_encoding_data_']",function(e){
+}).on("mouseleave", "[id^='character_encoding_data_']", function(e){
   $(".hover_segment").removeClass("hover_segment");
 });
 $('#segment_section').click(function() {
@@ -519,7 +527,7 @@ $('#sms_split input[name=sms_type]').change(function(e){
     $('#auto_encoding').html("");
     updateSMSSplit();
 });
-})(); // IIFEの終わり
+})(); // End IIFE
 </script>
 
 {% endalert %}

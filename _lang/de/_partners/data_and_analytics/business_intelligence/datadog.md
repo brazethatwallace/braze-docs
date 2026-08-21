@@ -19,7 +19,7 @@ Die Integration von Braze und Datadog ermöglicht es Kund:innen, Braze-Daten in 
 
 | Anforderung | Beschreibung |
 |---|---|
-| Datadog-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein Datadog-Konto erforderlich. |
+| Datadog-Konto | Ein Datadog-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -34,7 +34,7 @@ Navigieren Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Pa
 
 ## Braze-Ereignisse {#braze-events}
 
-Nach der Integration der Verbindung sendet Braze die folgenden Ereignisse an Datadog:
+Nachdem die Verbindung integriert ist, sendet Braze die folgenden Ereignisse an Datadog:
 
 - `braze.messaging.sent` – Die Anzahl der Sendungen
 
@@ -45,6 +45,25 @@ Jedes dieser Ereignisse enthält Metadaten in Form von Datadog-Tags, die Ihnen I
 - `campaign_id` / `campaign_name` (falls verfügbar)
 - `canvas_id` / `canvas_name` / `canvas_step_id` / `canvas_step_name` (falls verfügbar)
 
-Diese Ereignisse und Tags können auf der Datadog-Seite **Metrics Explorer** überwacht werden. Diese Metriken werden als [Verteilungen](https://docs.datadoghq.com/metrics/distributions/) an Datadog protokolliert. Aufgrund der Natur der Metriken und der Ungenauigkeit der Aggregationen und Rollups von Datadog unternimmt Braze keine erneuten Versuche bei vorübergehenden Netzwerkfehlern oder anderen Datadog-API-Fehlern, die während der Übertragung auftreten können. Das bedeutet, dass die Zählungen dieser Metriken geringfügig von den Zählungen im Braze-Dashboard und/oder über Currents abweichen können.
+Diese Ereignisse und Tags können auf der Datadog-Seite **Metrics Explorer** überwacht werden. Diese Metriken werden als [Distributions](https://docs.datadoghq.com/metrics/distributions/) in DataDog protokolliert. Aufgrund der Natur von Metriken und der Ungenauigkeit der Aggregationen und Rollups von DataDog unternimmt Braze keine Wiederholungsversuche bei vorübergehenden Netzwerkfehlern oder anderen DataDog-API-Fehlern, die während der Übertragung auftreten können. Das bedeutet, dass diese Metrikzähler geringfügig von den im Braze-Dashboard und/oder über Currents angezeigten Werten abweichen können.
 
 ![Datadog Metrics Explorer mit Braze-Ereignismetriken und Tags.]({% image_buster /assets/img/datadog.png %})
+
+## Fehlerbehebung {#troubleshooting}
+
+### Warum fehlen `braze.messaging.sent`-Metriken in Datadog? {#why-are-brazemessagingsent-metrics-missing-in-datadog}
+
+Wenn Sie Braze mit Datadog verbunden haben, aber `braze.messaging.sent` im Metrics Explorer nicht sehen, überprüfen Sie, ob die in Braze ausgewählte **Datadog-Site** mit der Site-URL Ihrer Datadog-Organisation übereinstimmt. Verfügbare Sites sind:
+
+- `datadoghq.com` (Standard)
+- `us3.datadoghq.com`
+- `us5.datadoghq.com`
+- `datadoghq.eu`
+- `ddog-gov.com`
+- `ap1.datadoghq.com`
+
+Eine nicht übereinstimmende Site kann dazu führen, dass Metriken im Workspace, in dem Sie suchen, nicht angezeigt werden. Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** > **Datadog** und überprüfen Sie, ob die Site mit der Subdomain in Ihrer Datadog-Konto-URL übereinstimmt.
+
+Das Feld **Datadog-Site** ist nach dem Verbinden gesperrt. Um es zu ändern, trennen Sie die Integration und verbinden Sie sich erneut mit der korrekten Site.
+
+Nachdem Sie die Site korrigiert haben, warten Sie auf neue Sendeaktivität, bevor Metriken erscheinen. Historische Daten werden nicht nachträglich aufgefüllt.

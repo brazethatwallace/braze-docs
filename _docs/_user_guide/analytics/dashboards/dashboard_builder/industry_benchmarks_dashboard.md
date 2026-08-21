@@ -3,9 +3,7 @@ nav_title: Industry Benchmarks dashboard
 article_title: Industry Benchmarks dashboard
 alias: "/industry_benchmarks_dashboard/"
 page_order: 3
-description: "This article provides an overview of the Industry Benchmarks dashboard dashboard."
-hidden: true
-noidex: true
+description: "This article provides an overview of the Industry Benchmarks dashboard."
 ---
 
 # Industry Benchmarks dashboard
@@ -15,10 +13,6 @@ noidex: true
 Use the **Industry Benchmarks** dashboard to compare your email, push, Content Card, and SMS performance to industry peers and to identify channels and regions where there are opportunities to optimize.
 
 To view the **Industry Benchmarks** dashboard, go to **Analytics** > **Dashboard Builder**, then select **Industry Benchmarks**. If the dashboard has no data, select **Run Dashboard** to generate the latest results. Use the filters at the top of the dashboard to refine results by industry vertical or timeframe.
-
-{% alert note %}
-The **Industry Benchmarks** dashboard is currently in early access. Contact your customer success manager if you're interested in participating in the early access.
-{% endalert %}
 
 ## About the dashboard
 

@@ -30,15 +30,15 @@ Sin embargo, al previsualizar la página de destino desde la tabla de datos o la
 Para mantener un rendimiento óptimo con las páginas de destino personalizadas, ten en cuenta los siguientes límites de tamaño:
 
 - **Guardar una página de destino:** Si el tamaño supera los 500&nbsp;KB, es posible que recibas un mensaje de advertencia indicando que la página ha superado nuestros límites de tamaño, lo que puede impedir su publicación.
-- **Renderizado con personalización de Liquid:** El tamaño total no debe superar 1&nbsp;MB. De lo contrario, Braze puede cancelar automáticamente la publicación de la página.
+- **Renderizado con personalización de Liquid:** El tamaño total no debe superar 1&nbsp;MB. De lo contrario, Braze puede despublicar la página automáticamente.
 
-### Evitar la cancelación de publicación de páginas de destino {#avoid-unpublishing-landing-pages}
+### Evitar la despublicación de páginas de destino {#avoid-unpublishing-landing-pages}
 
-Si tu página supera estos límites de tamaño, recibirás un correo electrónico indicando que puede cancelarse su publicación si continúa superando el límite. Cuando se alcance el umbral, la página se cancelará automáticamente y recibirás una notificación.
+Si tu página supera estos límites de tamaño, recibirás un correo electrónico indicando que puede ser despublicada si continúa superando el límite. Cuando se alcance el umbral, la página se despublicará automáticamente y recibirás una notificación.
 
 Para evitar que tu página supere los límites de tamaño o experimente tiempos de carga lentos, asegúrate de usar personalización de Liquid que:
 
-- No recorra continuamente ni haga referencia a grandes conjuntos de datos.
+- No recorra continuamente ni haga referencia a conjuntos de datos grandes.
 - No dependa de lógica matemática o condicional extensa dentro del bloque de Liquid.
 
 Además, evita incrustar scripts grandes, hojas de estilo y activos codificados en base64 directamente en el código de tu página de destino. Estos activos en línea cuentan para el límite de tamaño de la página y pueden ralentizar el renderizado. En su lugar, sube fuentes, imágenes, hojas de estilo y scripts a la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Los activos servidos desde la biblioteca de medios están alojados en el CDN de Braze, por lo que no se procesan para el renderizado de Liquid y no cuentan para el límite de tamaño de la página.
@@ -47,33 +47,37 @@ Además, evita incrustar scripts grandes, hojas de estilo y activos codificados 
 
 Liquid puede personalizar la experiencia de la página de destino tanto para visitantes identificados como anónimos.
 
-- **Usuarios identificados:** Enlaza a la página de destino desde un mensaje de Braze e incluye la [etiqueta de Liquid de la página de destino]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users#using-landing-page-liquid-tags). Esto asocia al usuario con su perfil de Braze y personaliza la experiencia de la página.
+- **Usuarios identificados:** Enlaza a la página de destino desde un mensaje de Braze e incluye la [etiqueta de Liquid de página de destino]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users#using-landing-page-liquid-tags). Esto asocia al usuario con su perfil de Braze y personaliza la experiencia de la página.
 - **Visitantes anónimos:** Usa Liquid para contenido contextual no basado en el perfil, como un número aleatorio o un saludo según la hora del día.
 
 ### Rellenar previamente los campos del formulario {#pre-fill-form-fields}
 
-Si un campo de formulario de la página de destino se asigna a un atributo del perfil de usuario, puedes rellenar previamente ese campo para los usuarios que regresan. Esto ayuda a reducir la fricción del formulario y mejora las tasas de finalización para los visitantes conocidos.
+Si un campo de formulario de la página de destino está mapeado a un atributo del perfil de usuario, puedes rellenar previamente ese campo para los usuarios que regresan. Esto ayuda a reducir la fricción del formulario y mejora las tasas de finalización para los visitantes conocidos.
 
 Para usar el rellenado previo de campos del formulario:
 
-1. Selecciona el campo del formulario en el editor de arrastrar y soltar.
-2. En el panel de configuración de la derecha, asigna el campo al atributo de perfil correspondiente.
+1. Selecciona tu campo de formulario en el editor de arrastrar y soltar.
+2. En el panel de configuración de la derecha, mapea el campo al atributo de perfil correspondiente.
 3. Selecciona **Rellenar previamente desde el perfil de usuario**.
 
-![Configuración de campo de formulario de la página de destino mostrando la opción de rellenar previamente desde los datos del perfil de usuario.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
+![Configuración de campo de formulario de página de destino mostrando la opción de rellenar previamente desde los datos del perfil de usuario.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
 
 El rellenado previo solo funciona para [usuarios identificados](#use-liquid-for-identified-and-anonymous-users). Para los visitantes anónimos, los campos del formulario mantienen su estado predeterminado:
 
 - **Campos de entrada:** Muestran su texto de marcador de posición.
-- **Casillas de verificación, botones de opción y controles similares:** Permanecen sin seleccionar hasta que el usuario interactúa con ellos.
+- **Casillas de verificación, botones de radio y controles similares:** Permanecen sin seleccionar hasta que el usuario interactúe con ellos.
 
 {% alert warning %}
-Si un usuario reenvía un enlace de página de destino (desde un correo electrónico, SMS u otro mensaje) a otra persona, el destinatario verá los datos rellenados previamente destinados al usuario original. Esta es la misma consideración de seguridad que se aplica a los enlaces de cancelación de suscripción y los enlaces del centro de preferencias. Ten en cuenta la sensibilidad de los datos que estás rellenando previamente y el comportamiento de compartición de tu audiencia al usar esta característica.
+Si un usuario reenvía un enlace de página de destino (desde un correo electrónico, SMS u otro mensaje) a otra persona, el destinatario verá los datos rellenados previamente destinados al usuario original. Esta es la misma consideración de seguridad que se aplica a los enlaces de cancelación de suscripción y a los enlaces del centro de preferencias. Ten en cuenta la sensibilidad de los datos que estás rellenando previamente y el comportamiento de compartición de tu audiencia al usar esta característica.
 {% endalert %}
 
 ## Obtener datos externos con código personalizado {#fetching-external-data-with-custom-code}
 
-Puedes usar un bloque de **Custom Code** para obtener datos de endpoints externos y mostrarlos en tu página de destino. Este enfoque realiza la solicitud en el lado del cliente (en el navegador del usuario), por lo que la página se carga rápidamente sin retrasos de renderizado del lado del servidor.
+Puedes usar un bloque de **código personalizado** para obtener datos de endpoints externos y mostrarlos en tu página de destino. Este enfoque realiza la solicitud en el lado del cliente (en el navegador del usuario), por lo que la página se carga rápidamente sin retrasos de renderizado del lado del servidor.
+
+{% alert tip %}
+Para otros usos avanzados del bloque de **código personalizado**, consulta [Puente JavaScript para páginas de destino]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) y [Crear bloques de formulario personalizados]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
+{% endalert %}
 
 {% alert warning %}
 Al obtener datos externos, eres responsable de la seguridad de tu implementación. Los identificadores externos utilizados en las llamadas a la API deben ser UUID o usar un esquema de nomenclatura equivalentemente seguro; consulta [Mejores prácticas de nomenclatura de ID de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
@@ -131,10 +135,10 @@ Al obtener datos externos en páginas de destino:
 - **Estados de carga:** Los usuarios verán texto de marcador de posición hasta que el endpoint responda. Considera añadir un indicador de carga o una pantalla esqueleto.
 - **Manejo de errores:** Si el endpoint falla o tarda en responder, la página puede parecer rota. Implementa mensajes de error y alternativas apropiados.
 - **Rendimiento:** La página se carga inmediatamente, pero los datos aparecen después de que se completa la solicitud externa. Mantén las respuestas de tu API rápidas para la mejor experiencia de usuario.
-- **Seguridad:** Asegúrate de que tu endpoint de API valide el identificador y solo devuelva datos que el usuario está autorizado a ver. Implementa límites de velocidad para prevenir abusos. Para orientación sobre cómo elegir identificadores seguros, consulta [Mejores prácticas de nomenclatura de ID de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
+- **Seguridad:** Asegúrate de que tu endpoint de API valide el identificador y solo devuelva datos que el usuario esté autorizado a ver. Implementa límites de velocidad para prevenir abusos. Para orientación sobre cómo elegir identificadores seguros, consulta [Mejores prácticas de nomenclatura de ID de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 
 {% alert warning %}
-Para páginas de destino personalizadas con Liquid, Braze procesa los delimitadores {% raw %}`{{`{% endraw %} y {% raw %}`{%`{% endraw %} en cualquier lugar donde aparezcan en el HTML de la página de destino, incluyendo dentro de cadenas de JavaScript, comentarios y expresiones regulares. Esto se aplica a toda la página, pero los bloques de **Custom Code** son el lugar más probable donde estas secuencias aparezcan accidentalmente.
+Para páginas de destino personalizadas con Liquid, Braze procesa los delimitadores {% raw %}`{{`{% endraw %} y {% raw %}`{%`{% endraw %} en cualquier lugar donde aparezcan en el HTML de la página de destino, incluyendo dentro de cadenas de JavaScript, comentarios y expresiones regulares. Esto se aplica a toda la página, pero los bloques de **código personalizado** son el lugar más probable donde estas secuencias se incluyan accidentalmente.
 
 Si estas secuencias aparecen sin etiquetas de cierre coincidentes (por ejemplo, {% raw %}`/* version {{ 2.0 */`{% endraw %}), Braze las trata como etiquetas de Liquid abiertas. Otras etiquetas de Liquid válidas en la página pueden no renderizarse, o el renderizado de Liquid puede fallar en otra parte del mismo bloque. En casos graves, un Liquid roto puede impedir que la página se publique o causar que se despublique (consulta [Páginas alternativas](#fallback-pages)).
 
@@ -145,6 +149,6 @@ Para evitar esto, escapa o elimina {% raw %}`{{`{% endraw %} y {% raw %}`{%`{% e
 
 Si tus usuarios intentan acceder a una página que ha sido despublicada, verán un mensaje indicando que la página no puede cargarse en ese momento. Las razones por las que una página ha sido despublicada incluyen:
 
-- Liquid complejo o con errores, lo que puede causar tiempos de renderizado prolongados
+- Liquid complejo o con errores, que puede causar tiempos de renderizado prolongados
 - Problemas de red del usuario
 - Exceder los límites máximos de tamaño de la página de destino

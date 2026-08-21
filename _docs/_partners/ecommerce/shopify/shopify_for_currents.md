@@ -50,6 +50,10 @@ If you have not already, follow [Shopify standard integration setup]({{site.base
 
 In addition to event data, the Shopify integration can sync user profile updates from Braze to your Shopify store. When a user's profile is updated in Braze, Currents creates or updates the matching customer in your store.
 
+{% alert note %}
+User profile sync isn't supported on [Test Currents connectors]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/#testing-currents-connectors). Other event exports are unaffected. To sync user profiles, use a [standard Shopify Currents connector](#step-2-create-braze-current).
+{% endalert %}
+
 ### User matching
 
 Braze matches Shopify customers using the Braze `user_id` as a Shopify [custom identifier](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerSet) (`customId`) with the namespace `braze` and the key `user_id`. If no customer with that identifier exists in your store, a new customer is created. Anonymous users are not synced.
