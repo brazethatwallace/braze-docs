@@ -525,13 +525,11 @@ Sélectionnez le bloc dans l'éditeur pour :
 - Ajouter ou supprimer des groupes d'abonnement
 - Ajouter ou supprimer des descriptions
 - Ajouter ou supprimer une case à cocher « S'abonner à tous » qui sélectionne tous les groupes d'abonnement du bloc
-- Ajouter ou supprimer une case à cocher « Effacer les sélections » qui désélectionne tous les groupes d'abonnement du bloc
 
 | Propriété | Description |
 | --- | --- |
 | Groupes d'abonnement | Ajoutez, supprimez ou réorganisez les groupes d'abonnement affichés dans le bloc. |
 | Inclure les descriptions | Affiche la description de chaque groupe d'abonnement à côté de son nom. |
-| Case à cocher **Effacer les sélections** | Ajoute une case à cocher qui désélectionne tous les groupes d'abonnement du bloc. |
 | Case à cocher **S'abonner à tous** | Ajoute une case à cocher qui sélectionne tous les groupes d'abonnement du bloc. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Gestion des abonnements" }
 

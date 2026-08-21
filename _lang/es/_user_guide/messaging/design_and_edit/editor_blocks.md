@@ -525,13 +525,11 @@ Selecciona el bloque en el editor para:
 - Añadir o eliminar grupos de suscripción
 - Añadir o eliminar descripciones
 - Añadir o eliminar una casilla de verificación "Suscribirse a todos" que selecciona todos los grupos de suscripción del bloque
-- Añadir o eliminar una casilla de verificación "Borrar selecciones" que deselecciona todos los grupos de suscripción del bloque
 
 | Propiedad | Descripción |
 | --- | --- |
 | Grupos de suscripción | Añade, elimina o reordena los grupos de suscripción que se muestran en el bloque. |
 | Incluir descripciones | Muestra la descripción de cada grupo de suscripción junto a su nombre. |
-| Casilla de verificación **Borrar selecciones** | Añade una casilla de verificación que deselecciona todos los grupos de suscripción del bloque. |
 | Casilla de verificación **Suscribirse a todos** | Añade una casilla de verificación que selecciona todos los grupos de suscripción del bloque. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Gestionar suscripciones" }
 
