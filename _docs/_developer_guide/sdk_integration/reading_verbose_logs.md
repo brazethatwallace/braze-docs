@@ -531,7 +531,7 @@ In verbose log payloads, Braze uses abbreviated event names. Here's a reference:
 
 ### Geofences not triggering on Android SDK 13.1.0–15.x
 
-Braze Android SDK versions 13.1.0 through 15.x had a regression that could prevent geofence and session location events from firing reliably. Upgrade to Android SDK 16.0.0 or later if geofence triggers stop working after an SDK upgrade in that range. For geofence setup requirements, see [Geofences]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences).
+Braze Android SDK 13.1.0 through 15.x had a regression that could stop geofence update events from recording. On devices running Android 10 or earlier, session-start location updates could also fail. Upgrade to Android SDK 16.0.0 or later. For SDK setup, see [Geofences]({{site.baseurl}}/developer_guide/geofences).
 
 ### When might a user have 0 sessions recorded against their profile?
 
