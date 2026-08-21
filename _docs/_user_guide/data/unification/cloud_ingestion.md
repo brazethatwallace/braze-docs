@@ -21,7 +21,7 @@ Sync frequency in the dashboard controls how often Braze runs a sync (for exampl
 
 
 {% alert note %}
-**Amazon S3** file storage integrations work differently from warehouse connections. S3 CDI is event-driven—Braze ingests new files when S3/SQS notifications arrive, not on the interval-based sync schedule used for warehouses. For setup details, see [File storage integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+Amazon S3 file storage integrations work differently from warehouse connections. S3 CDI is event-driven—Braze ingests new files when S3/SQS notifications arrive, not on the interval-based sync schedule used for warehouses. For setup details, see [File storage integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 {% endalert %}
 
 When a sync runs, Braze directly connects to your data warehouse instance, retrieves all new data from the specified table, and updates the corresponding data on your Braze dashboard. Each time the sync runs, any updated data is reflected in Braze.
