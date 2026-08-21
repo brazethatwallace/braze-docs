@@ -513,6 +513,28 @@ Los usuarios eligen múltiples opciones; los valores se establecen o añaden a u
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
 
+### Gestionar suscripciones {#manage-subscriptions}
+
+Añade una lista de verificación de [grupos de suscripción de correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups) para que los visitantes puedan optar por suscribirse o gestionar sus suscripciones cuando envíen el formulario. Configúralo después de añadir grupos de suscripción al bloque. Este bloque solo admite grupos de suscripción de correo electrónico; no admite grupos de suscripción de SMS, RCS ni WhatsApp.
+
+Para usuarios identificados que abren la página a través de la [etiqueta de Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) de la página de destino, el bloque rellena previamente cada casilla de verificación con el estado de suscripción actual del usuario, por lo que también puede servir como página de gestión de preferencias.
+
+Selecciona el bloque en el editor para:
+
+- Reordenar grupos de suscripción
+- Añadir o eliminar grupos de suscripción
+- Añadir o eliminar descripciones
+- Añadir o eliminar una casilla de verificación "Suscribirse a todos" que selecciona todos los grupos de suscripción del bloque
+
+| Propiedad | Descripción |
+| --- | --- |
+| Grupos de suscripción | Añade, elimina o reordena los grupos de suscripción que se muestran en el bloque. |
+| Incluir descripciones | Muestra la descripción de cada grupo de suscripción junto a su nombre. |
+| Casilla de verificación **Suscribirse a todos** | Añade una casilla de verificación que selecciona todos los grupos de suscripción del bloque. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Gestionar suscripciones" }
+
+Para el flujo de configuración completo, consulta [Bloque de gestión de suscripciones]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions).
+
 ### Texto largo
 
 Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, contacta con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze. Este bloque no está disponible para páginas de destino estándar.

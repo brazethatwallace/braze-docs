@@ -1123,6 +1123,8 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 
 Dado que un espectador puede ser un destinatario único cada día, deberías esperar que este valor sea mayor que las <i>Unique Impressions</i>. Este número es recibido de Braze y se basa en el `user_id`. Los destinatarios únicos se cuentan a nivel de campaña o paso en Canvas, no a nivel de <a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>identificador de envío</a>.
 
+Los usuarios que rebotan aún cuentan como <i>Unique Recipients</i> cuando Braze los cuenta como destinatarios para ese día de envío. Los <i>Unique Recipients</i> se basan en los usuarios a los que Braze dirigió el mensaje ese día, no solo en las entregas exitosas.
+
 <span class="calculation-line">Cálculo: Recuento</span>
 
 {% endapi %}

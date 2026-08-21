@@ -228,10 +228,7 @@ To help manage this, Braze offers tooling and logic that supports a well-integra
 
 ### Subscription syncing and event logic
 
-1. **Subscription sync tool:** This tool is automatically deployed after a successful LINE channel integration. Use it to update existing profiles and create new profiles.<br><br>All Braze user profiles that have a `native_line_id` that follows the LINE channel will be updated to have a subscription group status of `subscribed`. Any follower of the LINE channel that doesn't have a Braze user profile with the `native_line_id` will have:<br><br>- An anonymous user profile created with `native_line_id` set to the user LINE ID following the channel <br>- A user alias `line_id` set to the user LINE ID following the channel <br>- A subscription group status of `subscribed`
-
-{: start="2"}
-2. **Event updates:** These are used to update a user's subscription status. When Braze receives user event updates for the integrated LINE channel and the event is a follow, the user profile will have a subscription group status of `subscribed`. If the event is an unfollow, the user profile will have a subscription group status of `unsubscribed`.<br><br>- All Braze user profiles with a matching `native_line_id` will be automatically updated. <br>- If no matching user profile exists for an event, Braze will [create an anonymous user]({{site.baseurl}}/line/user_management).
+For how the subscription sync tool and follow and unfollow event updates keep LINE subscription status aligned with Braze, see [Subscription status]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#line).
 
 ## Re-integrate a LINE channel in another workspace
 

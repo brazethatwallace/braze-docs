@@ -23,7 +23,7 @@ description: "この記事では、APIのみを使用したBrazeエンドポイ�
 {% multi_lang_include api/payload_size_alert.md %}
 
 {% alert important %}
-このエンドポイントをAPI キャンペーンで使用する場合、リクエストが成功するためには、受信者が既にBrazeに存在している必要があります。これは、`external_user_ids` または `user_aliases` パラメーターでユーザーを指定する際に適用されます。
+このエンドポイントをAPIキャンペーンで使用する場合、リクエストが成功するためには、受信者が既にBrazeに存在している必要があります。これは、`external_user_ids` または `user_aliases` パラメーターでユーザーを指定する際に適用されます。
 {% endalert %}
 
 ## API送信で新規ユーザーを作成する {#creating-new-users-with-api-sends}
@@ -69,7 +69,7 @@ Authorization: Bearer YOUR-REST-API-KEY
    "user_aliases": (optional, array of user alias object) see user alias,
    "segment_id": (optional, string) see segment identifier,
    "audience": (optional, connected audience object) see connected audience,
-   "campaign_id": (optional*, string) *required if you wish to track campaign stats (for example, sends, clicks, bounces, etc). see campaign identifier,
+   "campaign_id": (optional*, string) required if you wish to track campaign stats (for example, sends, clicks, bounces, etc). see campaign identifier,
    "send_id": (optional, string) see send identifier,
    "override_frequency_capping": (optional, bool) ignore frequency_capping for campaigns, defaults to false,
    "recipient_subscription_state": (optional, string) use this to send messages to only users who have opted in ('opted_in'), only users who have subscribed or are opted in ('subscribed') or to all users, including unsubscribed users ('all'), the latter being useful for transactional email messaging. Defaults to 'subscribed',
@@ -96,10 +96,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `user_aliases` | オプション | ユーザー別名オブジェクトの配列 | [ユーザー別名オブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)を参照してください。 |
 | `segment_id` | オプション | 文字列 | [セグメント識別子]({{site.baseurl}}/api/identifier_types#segment-identifier)を参照してください。 |
 | `audience` | オプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience)を参照してください。 |
-| `campaign_id` | オプション* | 文字列 | 詳細は[キャンペーン識別子]({{site.baseurl}}/api/identifier_types#campaign-identifier)を参照してください。<br><br>*キャンペーンの指標（*送信数*、*クリック数*、*バウンス*など）をBrazeダッシュボードでトラッキングしたい場合、またはユーザープロファイルの[メッセージ履歴タブ]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles#messaging-history-tab)でこのメッセージに関連するイベントを確認したい場合は必須です。 |
+| `campaign_id` | オプション* | 文字列 | 詳細は[キャンペーン識別子]({{site.baseurl}}/api/identifier_types#campaign-identifier)を参照してください。<br><br>*キャンペーンの指標（*送信数*、*クリック数*、*バウンス*など）をBrazeダッシュボードでトラッキングしたい場合、またはユーザープロファイルの[メッセージ履歴タブ]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles#messaging-history-tab)でこのメッセージに関連するイベントを確認したい場合は必須です。`campaign_id` がない場合、Brazeはダッシュボードの配信統計をインクリメントしません。送信は[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)に表示されますが、ダッシュボードのメールパフォーマンス指標には表示されません。 |
 | `send_id` | オプション | 文字列 | [送信識別子]({{site.baseurl}}/api/identifier_types#send-identifier)を参照してください。 |
 | `override_frequency_capping` | オプション | ブール値 | キャンペーンの `frequency_capping` を無視します。デフォルトは `false` です。 |
-| `recipient_subscription_state` | オプション | 文字列 | これを使用して、オプトインしたユーザーのみ（`opted_in`）、配信登録済みかオプトインしているユーザーのみ（`subscribed`）、または配信停止済みのユーザーを含むすべてのユーザー（`all`）にメッセージを送信します。<br><br>`all` ユーザーへの送信は、トランザクションメールメッセージングに便利です。デフォルトは `subscribed` です。 |
+| `recipient_subscription_state` | オプション | 文字列 | これを使用して、オプトインしたユーザーのみ（`opted_in`）、購読済みかオプトインしているユーザーのみ（`subscribed`）、または購読解除済みのユーザーを含むすべてのユーザー（`all`）にメッセージを送信します。<br><br>`all` ユーザーへの送信は、トランザクションメールメッセージングに便利です。デフォルトは `subscribed` です。 |
 | `messages` | オプション | メッセージングオブジェクト | [利用可能なメッセージングオブジェクト]({{site.baseurl}}/api/objects_filters#messaging-objects)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 

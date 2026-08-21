@@ -15,7 +15,7 @@ Para acceder al creador de páginas de inicio, necesitas [ciertos permisos]({{si
 
 ## Crear una página de inicio {#create-a-landing-page}
 
-Una página de inicio es una página web en vivo y publicada con una URL compartible que tus clientes pueden visitar.
+Una página de inicio es una página web publicada y en vivo con una URL compartible que tus clientes pueden visitar.
 
 {% alert note %}
 Las plantillas de páginas de inicio son puntos de partida de diseño sin publicar y sin URL pública, lo que significa que no se pueden compartir con tus clientes. Para crear una página a partir de una plantilla, consulta [Uso de plantillas](#using-templates).
@@ -23,7 +23,7 @@ Las plantillas de páginas de inicio son puntos de partida de diseño sin public
 
 ### Paso 1: Crear un nuevo borrador {#step-1-create-a-new-draft}
 
-Ve a **Mensajería** > **Páginas de inicio** y selecciona **Crear página de inicio**. También puedes seleccionar el nombre de una página de inicio existente para duplicarla o realizar cambios.
+Ve a **Mensajería** > **Páginas de inicio** y selecciona **Crear página de inicio**. También puedes seleccionar el nombre de una página de inicio existente para duplicarla o hacerle cambios.
 
 ### Paso 2: Introducir los detalles de la página {#step-2-enter-the-page-details}
 
@@ -51,7 +51,7 @@ Te sugerimos seguir estas buenas prácticas:
 
 Si aún no lo has hecho, selecciona **Guardar como borrador**. Para empezar a personalizar tu página, selecciona **Editar página de inicio**. El editor de arrastrar y soltar precargará una plantilla predeterminada que puedes personalizar para adaptarla a tu caso de uso.
 
-![Un ejemplo de página de inicio creándose en el editor de arrastrar y soltar.]({% image_buster /assets/img/landing_pages/template.png %})
+![Un ejemplo de página de inicio siendo creada en el editor de arrastrar y soltar.]({% image_buster /assets/img/landing_pages/template.png %})
 
 El editor utiliza dos tipos de componentes para la composición de páginas de inicio: bloques básicos y bloques de formulario. Todos los bloques deben colocarse en una fila. Para una referencia dedicada de cada bloque y sus propiedades, consulta [Bloques de editor (páginas de inicio)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
@@ -68,17 +68,17 @@ Puedes usar estos bloques para añadir contenido y personalizar el diseño de tu
 | Párrafo | Un bloque de texto para descripciones más largas o contexto adicional. Admite formato de texto enriquecido. |
 | Botón | Un elemento clicable que dirige a los usuarios a una acción específica, como abrir un enlace o enviar un formulario. |
 | Botón de opción | Añade una lista de opciones de las cuales los usuarios deben seleccionar una. Al enviarse, el perfil de usuario registra el atributo personalizado asociado. |
-| Imagen | Un bloque para mostrar imágenes. Puedes subir una imagen o proporcionar una URL para referenciar una fuente externa. |
+| Imagen | Un bloque para mostrar imágenes. Puedes subir una imagen o proporcionar una URL para hacer referencia a una fuente externa. |
 | Enlace | Un hipervínculo en el que los usuarios pueden hacer clic para navegar a una URL específica. Puede incrustarse dentro del texto o ser independiente. |
 | Espaciador | Un bloque invisible que añade espacio vertical entre elementos para mejorar el diseño y la legibilidad. |
-| Código personalizado | Un bloque que te permite insertar y ejecutar HTML, CSS o JavaScript personalizado para una personalización avanzada. |
+| Código personalizado | Un bloque que te permite insertar y ejecutar HTML, CSS o JavaScript personalizado para una personalización avanzada. Para interactuar con el SDK de Braze desde este bloque, consulta [Puente JavaScript para páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) y [Crear bloques de formulario personalizados]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Personalizar la página" }
 
 #### Texto con span {#span-text}
 
 Para aplicar estilos específicos a bloques de texto sin código personalizado, resalta el texto que deseas estilizar y luego selecciona **Envolver con span para estilo**.
 
-![Cuadro de texto con diferentes secciones de texto estilizadas, como diferentes tamaños de fuente y colores, y una sección resaltada que muestra una barra de herramientas con la opción de "Envolver con span para estilo".]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
+![Cuadro de texto con diferentes secciones de texto estilizadas, como diferentes tamaños de fuente y colores, y una sección resaltada que muestra una barra de herramientas con la opción de envolver con span para estilo.]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
 Ajusta las propiedades del span para actualizar el estilo de tu texto, que incluye:
 
@@ -94,9 +94,13 @@ Ajusta las propiedades del span para actualizar el estilo de tu texto, que inclu
 {% endtab %}
 {% tab Bloques de formulario %}
 
-Puedes usar estos bloques para crear un formulario que vincule los datos enviados por el usuario a su perfil en Braze. Ten en cuenta que, si usas bloques de formulario, también necesitarás crear una página de inicio adicional para el estado de confirmación.
+Puedes usar estos bloques para crear un formulario que vincule los datos enviados por los usuarios a su perfil en Braze. Ten en cuenta que, si usas bloques de formulario, también necesitarás crear una página de inicio adicional para el estado de confirmación.
 
-![Un bloque de formulario que registra un nuevo cliente y enviará un código de descuento a su correo electrónico.]({% image_buster /assets/img/landing_pages/form.png %}){: style="max-width:70%;"}
+![Un bloque de formulario que registra un nuevo cliente y envía un código de descuento a su correo electrónico.]({% image_buster /assets/img/landing_pages/form.png %}){: style="max-width:70%;"}
+
+{% alert tip %}
+Puedes dividir un formulario largo en varios pasos, cada uno con sus propios campos y un paso de confirmación integrado, usando un [formulario de varios pasos]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms) en lugar de colocar bloques de formulario directamente en una fila.
+{% endalert %}
 
 | Tipo de bloque | Descripción |
 |---------------|-------------|
@@ -106,6 +110,7 @@ Puedes usar estos bloques para crear un formulario que vincule los datos enviado
 | Desplegable | Los usuarios pueden seleccionar un elemento de una lista predefinida. Puedes añadir cualquier cadena de atributo personalizado a la lista. |
 | Casilla de verificación | Si un usuario marca la casilla, el atributo del bloque se establece en `true`. Si se deja sin marcar, su atributo se establece en `false`. |
 | Grupo de casillas de verificación | Los usuarios pueden seleccionar entre múltiples opciones presentadas. Los valores se establecen o se añaden a un atributo personalizado de tipo array definido. |
+| Gestionar suscripciones | Una lista de verificación de grupos de suscripción de correo electrónico. Los usuarios seleccionan a qué grupos quieren unirse cuando envían el formulario. Para más información, consulta [Bloque de gestión de suscripciones]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Texto con span" }
 
 {% alert important %}
@@ -123,13 +128,13 @@ Te recomendamos configurar los estilos a nivel del contenedor de página antes d
 
 ![La sección "Contenedor de página" con opciones para personalizar imágenes de fondo, colores, detalles de borde y estilo de contenido.]({% image_buster /assets/img/landing_pages/page_container.png %}){: style="max-width:40%;"}
 
-#### Adaptable a los dispositivos del usuario {#responsive-to-user-devices}
+#### Receptivo a los dispositivos de los usuarios {#responsive-to-user-devices}
 
-Puedes hacer que tu página de inicio sea adaptable al tamaño del dispositivo del usuario apilando columnas verticalmente en pantallas más pequeñas. Para habilitar esto, añade una columna a la fila que deseas hacer adaptable y luego activa **Apilar verticalmente en pantallas más pequeñas** en la sección **Personalizar columnas**.
+Puedes hacer que tu página de inicio sea receptiva al tamaño del dispositivo del usuario apilando columnas verticalmente en pantallas más pequeñas. Para habilitar esto, añade una columna en la fila que quieras hacer receptiva y luego activa **Apilar verticalmente en pantallas más pequeñas** en la sección **Personalizar columnas**.
 
 Cuando está habilitado, también puedes invertir el apilamiento de columnas para controlar el orden vertical del contenido multicolumna en pantallas más pequeñas. Esto hace que las páginas se vean y se sientan mejor en dispositivos móviles sin código personalizado.
 
-![El interruptor "Apilar verticalmente en pantallas más pequeñas" en la sección "Personalizar columnas".]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
+![La opción "Apilar verticalmente en pantallas más pequeñas" en la sección "Personalizar columnas".]({% image_buster /assets/img/landing_pages/device_responsive_toggle.png %}){: style="max-width:50%;"}
 
 {% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='landing_page' %}
 
@@ -143,11 +148,15 @@ Los botones de opción siempre son obligatorios y no se pueden establecer como o
 
 Por ejemplo, para exigir la captura de consentimiento antes del envío del formulario, puedes activar **Entrada de campo obligatoria** para establecer una casilla de verificación como obligatoria con el texto de descargo de responsabilidad apropiado.
 
-![Un campo de formulario de casilla de verificación con el interruptor "Entrada de campo obligatoria" seleccionado.]({% image_buster /assets/img/landing_pages/lp-optional-required.png %}){: style="max-width:50%;"}
+![Un campo de formulario de casilla de verificación con la opción "Entrada de campo obligatoria" seleccionada.]({% image_buster /assets/img/landing_pages/lp-optional-required.png %}){: style="max-width:50%;"}
 
 ### Paso 4: Crear una página de confirmación (opcional) {#step-4-create-a-confirmation-page-optional}
 
 Si tu página de inicio no incluye un formulario, continúa con el siguiente paso.
+
+{% alert note %}
+Si tu formulario usa un [formulario de varios pasos]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms), omite este paso. Los formularios de varios pasos incluyen un paso de confirmación integrado y bloqueado, por lo que no necesitas una página de confirmación separada.
+{% endalert %}
 
 Si tu página de inicio incluye un [formulario](#form-blocks), crea una segunda página de inicio que sirva como experiencia de confirmación. Esta página debe agradecer a los usuarios o proporcionar un siguiente paso después del envío del formulario.
 
@@ -172,7 +181,7 @@ Puedes previsualizar tu página de inicio en la pestaña **Vista previa** del ed
 En el editor, también puedes seleccionar **Copiar enlace de vista previa** para compartir la página con revisores que no tienen acceso al panel.
 
 - Si tu página de inicio no usa Liquid, este enlace es el mismo que la URL directa de **Copiar URL**, abierta en modo de vista previa.
-- Si tu página de inicio usa Liquid y tienes el derecho Landing Pages Pro, el enlace en su lugar renderiza la página en vivo bajo demanda y refleja tus cambios actuales en lugar de una instantánea de cuando generaste el enlace. El contenido se personaliza por usuario.
+- Si tu página de inicio usa Liquid y tienes el derecho Landing Pages Pro, el enlace en su lugar renderiza la página en vivo bajo demanda y refleja tus cambios actuales en lugar de una instantánea de cuando generaste el enlace. El contenido se personaliza por usuario. La vista previa muestra el favicon de Braze y no se puede cambiar.
 
 Para enlaces de vista previa en otros canales, consulta [vista previa compartible]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
@@ -180,9 +189,9 @@ Para enlaces de vista previa en otros canales, consulta [vista previa compartibl
 
 Antes de publicar, asegúrate de que:
 
-- No hayas excedido el límite de páginas de inicio publicadas de tu plan
-- Cada página basada en formulario esté vinculada a una [página de confirmación](#step-4-create-a-confirmation-page) usando la acción **Abrir URL web**
-- Todos los campos obligatorios de la página (como la ruta URL y el título) estén completos
+- No has excedido el límite de páginas de inicio publicadas de tu plan
+- Cada página basada en formulario enlaza a una [página de confirmación](#step-4-create-a-confirmation-page-optional) usando la acción **Abrir URL web**, o usa un [formulario de varios pasos]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms) con su paso de confirmación integrado
+- Todos los campos obligatorios de la página (como la ruta URL y el título) están completos
 
 Cuando estés listo, selecciona **Publicar página de inicio**.
 
@@ -192,7 +201,7 @@ Los bloqueadores de ventanas emergentes agresivos y los bloqueadores de anuncios
 
 ## Usar plantillas {#use-templates}
 
-Las plantillas de páginas de inicio son puntos de partida de diseño reutilizables que te ayudan a crear páginas de inicio más rápido. Una plantilla no tiene URL pública y los clientes no pueden visitarla. Para crear una página de inicio en vivo a partir de una plantilla, selecciona la plantilla al crear una nueva página de inicio, personalízala según sea necesario y luego publícala.
+Las plantillas de páginas de inicio son puntos de partida de diseño reutilizables que te ayudan a crear páginas de inicio más rápido. Una plantilla no tiene una URL pública y los clientes no pueden visitarla. Para crear una página de inicio en vivo a partir de una plantilla, selecciona la plantilla al crear una nueva página de inicio, personalízala según sea necesario y luego publícala.
 
 Puedes acceder a las plantillas y gestionarlas tanto en el editor de páginas de inicio como desde la página **Landing Page Templates** (**Content** > **Landing Page**). Las plantillas de páginas de inicio requieren un nombre y una descripción opcional.
 

@@ -166,4 +166,4 @@ The following table lists official documentation for commonly used DNS providers
 | Microsoft Azure DNS | [Manage DNS records using the Azure portal](https://learn.microsoft.com/en-us/azure/dns/dns-operations-recordsets-portal) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="DNS provider documentation" }
 
-For additional domain provider resources, see [Set up IPs and domains]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains#step-3-add-dns-records).
+For additional domain provider resources, see [Set up IPs and domains]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains#step-2-add-and-verify-a-sending-domain).

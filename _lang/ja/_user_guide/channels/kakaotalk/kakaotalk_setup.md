@@ -16,11 +16,11 @@ channel:
 
 | 要件 | 説明 |
 | --- | --- |
-| サポートされている KakaoTalk パートナーのアカウント | KakaoTalk メッセージングチャネルを使用するには、サポートされている KakaoTalk パートナーである [CJ OliveNetworks](https://www.braze.com/partners/solutions-partners/cjolivenetworks/) または [Infobip](https://marketplace.braze.com/partners/infobip) のアカウントが必要です。 |
-| KakaoTalk ビジネスチャネル | Braze を通じて KakaoTalk メッセージを送信するには、KakaoTalk アカウントが KakaoTalk ビジネスチャネルである必要があります。アカウントを作成すると、デフォルトのステータスはベーシックになります。アカウントをビジネスチャネルにするには、ビジネスの認証を行い、関連するドキュメントを提出する必要があります。 |
-| KakaoTalk 送信者キー | 有効な KakaoTalk 送信者キーが必要です。 |
-| 連絡先電話番号 | KakaoTalk チャネルの管理者の連絡先電話番号が必要です。 |
-| Braze クラスター IP の許可リスト登録 | すべての顧客に IP 許可リストの登録が必要です。KakaoTalk を Braze に連携する前に、お使いのクラスターの Braze IP アドレスを登録してください。 |
+| サポートされている KakaoTalk パートナーのアカウント | KakaoTalk メッセージングチャネルを使用するには、サポートされている KakaoTalk パートナー（[CJ OliveNetworks](https://www.braze.com/partners/solutions-partners/cjolivenetworks/) または [Infobip](https://marketplace.braze.com/partners/infobip)）のアカウントが必要です。 |
+| KakaoTalk ビジネスチャネル | Brazeを通じて KakaoTalk メッセージを送信するには、KakaoTalk アカウントが KakaoTalk ビジネスチャネルである必要があります。アカウントを作成すると、デフォルトのステータスはベーシックになります。アカウントをビジネスチャネルにするには、ビジネスの認証を行い、関連するドキュメントを提出する必要があります。 |
+| KakaoTalk 送信者キー | 有効な KakaoTalk 送信者キー。 |
+| 連絡先電話番号 | KakaoTalk チャネルの管理者の連絡先電話番号。 |
+| Braze クラスター IP の許可リスト登録 | すべての顧客に IP 許可リストの登録が必要です。KakaoTalk を Braze に統合する前に、お使いのクラスターの Braze IP アドレスを登録してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ### Braze IP アドレスの登録 {#register-braze-ip-addresses}
@@ -55,7 +55,7 @@ KakaoTalk チャネルの情報（チャネル名、プロフィール画像な�
 
 書類を準備したら、以下のステップに従ってください。
 
-1. [KakaoTalk Channel Admin Center](https://center-pf.kakao.com/) にログインします。
+1. [KakaoTalk チャネル管理センター](https://center-pf.kakao.com/)にログインします。
 2. アップグレードしたい既存の KakaoTalk チャネルを選択します。
 3. **Management (관리)** セクションで、**Business Channel Application (비즈니스 채널 신청)** のオプションを選択します。
 4. **Apply** または **Request button (신청)** を選択してプロセスを開始します。
@@ -64,7 +64,7 @@ KakaoTalk チャネルの情報（チャネル名、プロフィール画像な�
 
 ## KakaoTalkを連携する {#integrate-kakaotalk}
 
-### ステップ1：KakaoTalkチャネルをBrazeに接続する {#step-1-connect-the-kakaotalk-channel-to-braze}
+### KakaoTalkチャネルをBrazeに接続する {#connect-the-kakaotalk-channel-to-braze}
 
 1. **パートナー連携** > **テクノロジーパートナー**に移動し、KakaoTalkプロバイダーを選択します。
 2. プロバイダーに必要な認証情報を収集し（次のセクションを参照）、**テクノロジーパートナー**ページに入力して保存します。
@@ -76,7 +76,7 @@ KakaoTalk チャネルの情報（チャネル名、プロフィール画像な�
 
 | フィールド | 場所 |
 | --- | --- |
-| **Comm.One Login ID (로그인 아이디)** | プロフィールを選択します。 |
+| **Comm.One Login ID (로그인 아이디)** | プロファイルを選択します。 |
 | **Sender Key (발신프로필 키)** | **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**に移動します。 |
 | **Channel name (카카오톡 채널 프로필명)** | Comm.Oneダッシュボードで、**Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**に移動します。 |
 | **Sender number (연락처)** | {::nomarkdown}<ol><li><b>Account Management (계정 관리)</b>に移動し、メニューアイコンを選択してから<b>View Details (자세히보기)</b>を選択します。</li><li><b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b>に移動します。</li></ul>{:/} |
@@ -86,15 +86,15 @@ KakaoTalk チャネルの情報（チャネル名、プロフィール画像な�
 {% tabs local %}
 {% tab Comm.One Login ID (로그인 아이디) %}
 
-![Comm.Oneダッシュボードに表示されたマスク済みのログインID。]({% image_buster /assets/img/kakaotalk/comm.one_login_id.png %})
+![Comm.OneダッシュボードにマスクされたログインIDが表示されている画面。]({% image_buster /assets/img/kakaotalk/comm.one_login_id.png %})
 
 {% endtab %}
 {% tab Sender Key (발신프로필 키) %}
 
-![Comm.Oneダッシュボードに表示されたマスク済みのSender Key。]({% image_buster /assets/img/kakaotalk/sender_key.png %})
+![Comm.Oneダッシュボードにマスクされたセンダーキーが表示されている画面。]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
 {% alert important %}
-KakaoTalkのSender Keyは、一度に1つのワークスペースにのみ連携できます。同じSender Keyを別のワークスペースで使用するには、まず元のワークスペースでKakaoTalk購読グループをアーカイブしてから、[Brazeサポート]({{site.baseurl}}/braze_support)に連絡して連携を削除してもらう必要があります。Brazeが連携を削除した後、新しいワークスペースで連携を設定できます。
+KakaoTalkのセンダーキーは、一度に1つのワークスペースにのみ連携できます。同じセンダーキーを別のワークスペースで使用するには、まず元のワークスペースでKakaoTalk購読グループをアーカイブしてから、[Brazeサポート]({{site.baseurl}}/braze_support)に連絡して連携を削除してもらう必要があります。Brazeが連携を削除した後、新しいワークスペースで連携を設定できます。
 {% endalert %}
 
 ![Braze KakaoTalkチャネルの認証情報。]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
@@ -102,12 +102,12 @@ KakaoTalkのSender Keyは、一度に1つのワークスペースにのみ連携
 {% endtab %}
 {% tab Channel name (카카오톡 채널 프로필명) %}
 
-![Comm.Oneダッシュボードに表示されたマスク済みのチャネル名。]({% image_buster /assets/img/kakaotalk/channel_profile_name.png %})
+![Comm.Oneダッシュボードにマスクされたチャネル名が表示されている画面。]({% image_buster /assets/img/kakaotalk/channel_profile_name.png %})
 
 {% endtab %}
 {% tab Credential (ID) & Password (비밀번호) %}
 
-![Comm.Oneダッシュボードに表示されたマスク済みの認証情報IDとパスワード。]({% image_buster /assets/img/kakaotalk/id_and_password.png %})
+![Comm.Oneダッシュボードにマスクされた認証情報IDとパスワードが表示されている画面。]({% image_buster /assets/img/kakaotalk/id_and_password.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -120,21 +120,50 @@ KakaoTalkのSender Keyは、一度に1つのワークスペースにのみ連携
 
 #### Infobip
 
-Infobipダッシュボードにアクセスし、以下の情報を収集します。
+Infobipダッシュボードと[KakaoTalkチャネル管理センター](https://center-pf.kakao.com/)にアクセスし、以下の情報を収集します。
 
 | フィールド | 場所 |
 | --- | --- |
-| **API Base URL** | **Developer Tools** > **API Keys**を選択します。 |
-| **APIキー** | **Developer Tools** > **API Keys**を選択します。 |
-| **Sender name / Sender key** | **Channels and Numbers** > **Channels**を選択し、**Senders**タブを選択します。 |
-| **Sender profile UUID** | Infobipから直接提供されます。この情報がない場合は、Infobipにお問い合わせください。 |
-| **Channel name** | Infobipから直接提供されます。この情報がない場合は、Infobipにお問い合わせください。 |
+| **API Base URL** | Infobipポータルで、**Developer Tools** > **API Keys**に移動します。 |
+| **APIキー** | Infobipポータルで、**Developer Tools** > **API Keys**に移動します。 |
+| **Sender name / Sender key** | Infobipポータルで、**Channels and Numbers** > **Channels**に移動し、**Senders**タブを選択します。 |
+| **Sender profile UUID** | KakaoTalkチャネル管理センターで、**Channels**に移動し、チャネル情報ウィンドウで**Search ID**を確認します。 |
+| **Channel name** | KakaoTalkチャネル管理センターで、同じチャネル情報ウィンドウの**チャネル名**を確認します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Infobip" }
+
+##### APIキーとベースURL {#api-key-and-base-url}
+
+1. Infobipポータルで、**Developer Tools** > **API Keys**を選択します。
+2. **API keys**ページで、**API base URL**をコピーします。
+
+![API base URLが表示されているInfobip API Keysページ。]({% image_buster /assets/img/kakaotalk/infobip_api_keys_page.png %})
+
+{: start="3"}
+3. **CREATE API KEY**を選択します。
+4. **Name**を入力し、**Expiration date**を選択してから、KakaoTalkに必要なAPIスコープを選択します。これらのスコープは、キーが実行できるInfobip APIアクションを制御します。
+
+![名前、有効期限、APIスコープのフィールドが表示されているInfobip Create API Keyページ。]({% image_buster /assets/img/kakaotalk/infobip_api_key_scopes.png %})
+
+{: start="5"}
+5. **CREATE**を選択してキーを生成します。
+6. 生成されたキーをコピーします。このページに戻って名前、有効期限、またはAPIスコープを更新できます。
+
+##### センダープロファイルUUIDとチャネル名 {#sender-profile-uuid-and-channel-name}
+
+1. [KakaoTalkチャネル管理センター](https://center-pf.kakao.com/)で、**Channels**を選択します。
+2. **Channel Information**ウィンドウで、**Channel name**と**Search id**（センダーUUID）を確認します。
+3. **Customer center contact information**を入力します。これは広告メッセージを送信する際に必要です。
+
+![カスタマーセンターの連絡先情報フィールドが表示されているKakaoTalkチャネル情報ウィンドウ。]({% image_buster /assets/img/kakaotalk/kakao_customer_center_contact.png %})
+
+{: start="4"}
+4. 別のチャネルを表示するには、メニュー上部のチャネルアイコンを選択します。
+5. **My channel**リストで、表示したいチャネルを選択し、前のステップを繰り返します。
 
 ## ユーザープロファイルの設定 {#set-user-profiles}
 
-ユーザープロファイルには、KakaoTalk を通じてメッセージを送信するために E.164 形式の電話番号が必要です。電話番号はユーザープロファイルに表示されます。KakaoTalk では電話番号が E.164 形式（例: `+821025749774`）である必要があります。これは、複数の形式の電話番号を受け入れる他のメッセージングチャネルとは異なります。
+ユーザープロファイルには、KakaoTalkを通じてメッセージを送信するために、E.164形式の電話番号が必要です。電話番号はユーザープロファイルに表示されます。KakaoTalkでは、電話番号がE.164形式（例：`+821025749774`）である必要があります。これは、複数の形式の電話番号を受け付ける他のメッセージングチャネルとは異なります。
 
 ### 電話番号のインポート {#import-phone-numbers}
 
-[CSV のアップロードまたは API の使用]({{site.baseurl}}/user_guide/data/unification/user_data/import_users)により電話番号をインポートしてユーザーを作成します。インポートする前に、電話番号が E.164 形式であることを確認してください。
+ユーザーを作成するには、[CSVをアップロードするかAPIを使用して]({{site.baseurl}}/user_guide/data/unification/user_data/import_users)電話番号をインポートします。インポートする前に、電話番号がE.164形式であることを確認してください。

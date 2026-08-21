@@ -15,11 +15,11 @@ A personalização com Liquid para landing pages está disponível apenas no pla
 
 ## Inserindo Liquid {#inserting-liquid}
 
-No editor de arrastar e soltar, você pode inserir personalização com Liquid tanto no editor quanto nas configurações da página ou do bloco no painel à direita. Para instruções sobre como implementar Liquid, confira nossa [documentação dedicada sobre Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
+No editor de arrastar e soltar, você pode inserir personalização com Liquid tanto no editor quanto nas configurações da página ou do bloco no painel à direita. Para instruções sobre como implementar Liquid, confira nossa [documentação dedicada de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 
 ![Editor de landing page com personalização Liquid adicionada.]({% image_buster /assets/img/landing_pages/lp_liquid_.png %})
 
-## Prévia e teste {#previewing-and-testing}
+## Prévia e testes {#previewing-and-testing}
 
 Ao visualizar a prévia de uma landing page no editor, você pode ver a página como um usuário aleatório, um usuário existente ou um usuário personalizado.
 
@@ -36,23 +36,23 @@ Para manter o desempenho ideal com landing pages personalizadas, observe os segu
 
 Se sua página exceder esses limites de tamanho, você receberá um e-mail informando que ela poderá ser tornada privada caso continue excedendo o limite. Quando o limite for atingido, a página será automaticamente tornada privada e você receberá uma notificação.
 
-Para evitar que sua página exceda os limites de tamanho ou tenha tempos de carregamento lentos, certifique-se de usar personalização Liquid que:
+Para evitar que sua página exceda os limites de tamanho ou tenha tempos de carregamento lentos, use personalização Liquid que:
 
 - Não faça loops contínuos nem referencie grandes conjuntos de dados.
-- Não dependa de lógica condicional ou matemática extensa dentro do bloco Liquid.
+- Não dependa de lógica matemática ou condicional extensa dentro do bloco Liquid.
 
-Além disso, evite incorporar scripts grandes, folhas de estilo e ativos codificados em base64 diretamente no código da sua landing page. Esses ativos inline contam para o limite de tamanho da página e podem tornar a renderização mais lenta. Em vez disso, faça upload de fontes, imagens, folhas de estilo e scripts para a [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Os ativos servidos pela biblioteca de mídia são hospedados na CDN da Braze, portanto não são processados para renderização Liquid e não contam para o limite de tamanho da página.
+Além disso, evite incorporar scripts grandes, folhas de estilo e ativos codificados em base64 diretamente no código da sua landing page. Esses ativos inline contam para o limite de tamanho da página e podem tornar a renderização mais lenta. Em vez disso, faça upload de fontes, imagens, folhas de estilo e scripts para a [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Os ativos servidos pela biblioteca de mídia são hospedados na rede de distribuição de conteúdo (CDN) da Braze, portanto não são processados para renderização Liquid e não contam para o limite de tamanho da página.
 
 ### Usar Liquid para usuários identificados e anônimos {#use-liquid-for-identified-and-anonymous-users}
 
 O Liquid pode personalizar a experiência da landing page tanto para visitantes identificados quanto para anônimos.
 
-- **Usuários identificados:** Vincule a landing page a partir de uma mensagem da Braze e inclua a [Liquid tag de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users#using-landing-page-liquid-tags). Isso associa o usuário ao seu perfil na Braze e personaliza a experiência da página.
+- **Usuários identificados:** Vincule a landing page a partir de uma mensagem da Braze e inclua a [Liquid tag de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users#using-landing-page-liquid-tags). Isso associa o usuário ao perfil dele na Braze e personaliza a experiência da página.
 - **Visitantes anônimos:** Use Liquid para conteúdo contextual não baseado em perfil, como um número aleatório ou uma saudação baseada no horário do dia.
 
 ### Preencher campos de formulário automaticamente {#pre-fill-form-fields}
 
-Se um campo de formulário da landing page estiver mapeado para um atributo do perfil de usuário, você pode preencher automaticamente esse campo para usuários recorrentes. Isso ajuda a reduzir o atrito no formulário e melhora as taxas de conclusão para visitantes conhecidos.
+Se um campo de formulário de landing page estiver mapeado para um atributo de perfil de usuário, você pode preencher automaticamente esse campo para usuários recorrentes. Isso ajuda a reduzir o atrito no formulário e melhora as taxas de conclusão para visitantes conhecidos.
 
 Para usar o preenchimento automático de campos de formulário:
 
@@ -60,9 +60,9 @@ Para usar o preenchimento automático de campos de formulário:
 2. No painel de configurações à direita, mapeie o campo para o atributo de perfil apropriado.
 3. Selecione **Preencher a partir do perfil de usuário**.
 
-![Configurações de campo de formulário da landing page mostrando a opção de preencher a partir dos dados do perfil de usuário.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
+![Configurações de campo de formulário de landing page mostrando a opção de preencher a partir dos dados do perfil de usuário.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
 
-O preenchimento automático funciona apenas para [usuários identificados](#use-liquid-for-identified-and-anonymous-users). Para visitantes anônimos, os campos do formulário mantêm seu estado padrão:
+O preenchimento automático funciona apenas para [usuários identificados](#use-liquid-for-identified-and-anonymous-users). Para visitantes anônimos, os campos de formulário mantêm seu estado padrão:
 
 - **Campos de entrada:** Exibem o texto de placeholder.
 - **Caixas de seleção, botões de opção e controles similares:** Permanecem desmarcados até que o usuário interaja com eles.
@@ -74,6 +74,10 @@ Se um usuário encaminhar um link de landing page (de um e-mail, SMS ou outra me
 ## Buscando dados externos com código personalizado {#fetching-external-data-with-custom-code}
 
 Você pode usar um bloco **Custom Code** para buscar dados de endpoints externos e exibi-los na sua landing page. Essa abordagem faz a requisição no lado do cliente (no navegador do usuário), então a página carrega rapidamente sem atrasos de renderização no servidor.
+
+{% alert tip %}
+Para outros usos avançados do bloco **Custom Code**, consulte [Ponte JavaScript para landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) e [Criar blocos de formulário personalizados]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
+{% endalert %}
 
 {% alert warning %}
 Ao buscar dados externos, você é responsável pela segurança da sua implementação. Identificadores externos usados em chamadas de API devem ser UUIDs ou usar um esquema de nomenclatura equivalentemente seguro. Consulte [Práticas recomendadas de nomenclatura de ID de usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
@@ -136,7 +140,7 @@ Ao buscar dados externos em landing pages:
 {% alert warning %}
 Para landing pages personalizadas com Liquid, a Braze processa os delimitadores {% raw %}`{{`{% endraw %} e {% raw %}`{%`{% endraw %} em qualquer lugar em que apareçam no HTML da landing page — incluindo dentro de strings JavaScript, comentários e expressões regulares. Isso se aplica à página inteira, mas os blocos **Custom Code** são o local mais provável para incluir essas sequências acidentalmente.
 
-Se essas sequências aparecerem sem tags de fechamento correspondentes (por exemplo, {% raw %}`/* version {{ 2.0 */`{% endraw %}), a Braze as trata como tags Liquid abertas. Outras tags Liquid válidas na página podem falhar na renderização, ou a renderização Liquid pode quebrar em outro lugar no mesmo bloco. Em casos graves, Liquid quebrado pode impedir a publicação da página ou fazer com que ela seja despublicada (consulte [Páginas de fallback](#fallback-pages)).
+Se essas sequências aparecerem sem tags de fechamento correspondentes (por exemplo, {% raw %}`/* version {{ 2.0 */`{% endraw %}), a Braze as trata como tags Liquid abertas. Outras tags Liquid válidas na página podem falhar ao renderizar, ou a renderização Liquid pode quebrar em outro lugar no mesmo bloco. Em casos graves, Liquid quebrado pode impedir a publicação da página ou fazer com que ela seja despublicada (consulte [Páginas de fallback](#fallback-pages)).
 
 Para evitar isso, escape ou remova {% raw %}`{{`{% endraw %} e {% raw %}`{%`{% endraw %} de contextos que não são Liquid, divida as sequências em JavaScript (por exemplo, {% raw %}`'{' + '{'`{% endraw %}). O Liquid é executado no servidor antes do script ser executado. Você também pode envolver seções maiores que não são Liquid em tags {% raw %}`&#123;% raw %&#125;...&#123;% endraw %&#125;`{% endraw %}.
 {% endalert %}

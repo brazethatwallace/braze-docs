@@ -103,7 +103,7 @@ Le raccourcissement de liens est également activé pour les messages API unique
 
 Pour une liste complète des paramètres de requête, consultez les [paramètres de requête]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
 
-## Test {#testing}
+## Test {#legacy_testing}
 
 Avant de lancer votre Campaign ou Canvas, il est recommandé de prévisualiser et de tester votre message au préalable. Pour ce faire, accédez à l'onglet **Test** pour prévisualiser et envoyer un message SMS ou RCS à des [groupes de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou à un utilisateur individuel.
 
@@ -125,7 +125,7 @@ La personnalisation Liquid et les URL raccourcies sont modélisées dans l'ongle
 
 ## Suivi des clics {#click-tracking}
 
-Lorsque le raccourcissement de liens est activé, le tableau **Performances SMS/MMS/RCS** inclut une colonne intitulée **Total des clics** qui affiche un décompte des événements de clic par variante et un taux de clics associé. Pour plus de détails sur les indicateurs, consultez [Performances des messages]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
+Lorsque le raccourcissement de liens est activé, le tableau **Performances SMS/MMS/RCS** inclut une colonne intitulée **Total des clics** qui affiche un décompte des événements de clic par variante et un taux de clics associé. Le **Total des clics** exclut les clics suspects de bots des décomptes du tableau de bord. Pour plus de détails sur les indicateurs, consultez [Performances des messages]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting) et [Filtrage des clics de bots]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering).
 
 ![Tableau des indicateurs de performances SMS et MMS.]({% image_buster /assets/img/link_shortening/shortening4.png %})
 

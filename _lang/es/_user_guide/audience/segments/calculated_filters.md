@@ -23,14 +23,14 @@ Por ejemplo, la segmentación predeterminada de Braze encuentra usuarios que cum
 
 ## Filtros calculados y extensiones de segmento SQL {#calculated-filters-and-sql-segment-extensions}
 
-Las [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y los filtros calculados te ayudan a crear audiencias a partir del comportamiento de compras y eventos personalizados, pero utilizan herramientas y orígenes de datos diferentes. Las extensiones de segmento SQL usan SQL que escribes contra tus datos de Snowflake conectados.
+Las [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y los filtros calculados te ayudan a crear audiencias a partir del comportamiento de compras y eventos personalizados, pero utilizan herramientas y orígenes de datos diferentes. Las extensiones de segmento SQL utilizan SQL que escribes contra tus datos de Snowflake conectados.
 
 | Comportamiento | Filtros calculados | Extensiones de segmento SQL |
 |---|---|---|
-| Cómo defines la audiencia | Elige compras, eventos recomendados de eCommerce, interacción con mensajes o eventos personalizados, así como recuentos, ventanas de tiempo y filtros de propiedades opcionales | Escribe SQL contra tu conexión de Snowflake; usa plantillas, actualización incremental o actualización completa |
+| Cómo defines la audiencia | Elige compras, eventos recomendados de eCommerce, interacción con mensajes o eventos personalizados, así como conteos, ventanas de tiempo y filtros de propiedades opcionales | Escribe SQL contra tu conexión de Snowflake; usa plantillas, actualización incremental o actualización completa |
 | Dónde se ejecuta la lógica | Los criterios y la actualización se gestionan en Braze como filtros calculados | La consulta se ejecuta en el contexto de tu almacén de datos según la configuración de tu extensión |
-| Página de lista de filtros | Un tipo de filtro calculado; la columna **Segments** muestra cuántos Segments usan cada filtro; los estados **Processing** y **Processing Failed** reflejan el estado de generación | Incluye una columna **Type** y filtros que varían según el tipo de extensión |
-| Casos de uso típicos | Frecuencia de compra, gasto total, recuentos de eventos personalizados y reglas basadas en propiedades durante la ventana seleccionada | Lógica respaldada por el almacén de datos, uniones entre tablas y ventanas históricas o agregaciones que van más allá del formulario de filtros calculados |
+| Página de lista de filtros | Un tipo de filtro calculado; la columna **Segments** muestra cuántos Segments utilizan cada filtro; los estados **Processing** y **Processing Failed** reflejan el estado de generación | Incluye una columna **Type** y filtros que varían según el tipo de extensión |
+| Casos de uso típicos | Frecuencia de compra, gasto total, conteos de eventos personalizados y reglas basadas en propiedades durante la ventana seleccionada | Lógica respaldada por el almacén de datos, uniones entre tablas y ventanas históricas o agregaciones que van más allá del formulario de filtros calculados |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtros calculados y extensiones de segmento SQL" }
 
 ### Cuándo usar filtros calculados {#when-to-use-calculated-filters}
@@ -53,7 +53,7 @@ Para crear un filtro calculado, define criterios basados en el comportamiento de
 
 1. Ve a **Audiencia** > **Filtros calculados**.
 2. Selecciona **Crear filtro calculado**.
-3. Asigna un nombre a tu filtro calculado describiendo a los usuarios que pretendes segmentar. Un nombre descriptivo facilita encontrar el filtro cuando lo añadas a un Segment.
+3. Nombra tu filtro calculado describiendo a los usuarios que pretendes segmentar. Un nombre descriptivo facilita encontrar el filtro cuando lo añadas a un Segment.
 4. (Opcional) Añade [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) para organizar los filtros calculados en tu espacio de trabajo.
 
 También puedes seleccionar **Habilitar actualización recurrente de audiencia** para actualizar el filtro de forma periódica. Si no activas esta configuración, el filtro calculado no se actualizará a menos que modifiques el filtro o selecciones **Actualizar audiencia**.
@@ -74,10 +74,10 @@ Al elegir tu período de tiempo, puedes especificar un rango de fechas relativo 
 
 Para aumentar la precisión de la segmentación, selecciona **Añadir filtros de propiedades**. Esto te permite filtrar por propiedades de tu evento de compra, evento de eCommerce o evento personalizado. Braze admite la segmentación por propiedades del evento basada en objetos de cadena, numéricos, booleanos y de tiempo.
 
-Para propiedades de cadena, introduce varios valores a la vez; por ejemplo, segmentar usuarios con un estado igual a oro, plata o bronce. Para eventos recomendados de eCommerce, el menú desplegable de propiedades se rellena con las propiedades disponibles para ese evento.
+Para propiedades de cadena, introduce varios valores a la vez; por ejemplo, segmentar usuarios con un estado igual a oro, plata o bronce. Para eventos recomendados de eCommerce, el menú desplegable de propiedades se completa con las propiedades disponibles para ese evento.
 
 {% alert note %}
-No necesitas filtros calculados para usar propiedades del evento en tu Segment. Los filtros calculados simplemente amplían la ventana histórica utilizada para crear un Segment predeterminado. Puedes crear un [Segment]({{site.baseurl}}/user_guide/audience/segments) predeterminado en tiempo real que utilice propiedades del evento de los últimos 30 días. De forma similar, puedes [programar tu mensaje]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) para que se desencadene en tiempo real basándose en una propiedad del evento, sin necesidad de un filtro calculado.
+No necesitas filtros calculados para usar propiedades del evento en tu Segment. Los filtros calculados simplemente amplían la ventana histórica utilizada para crear un Segment predeterminado. Puedes crear un [Segment]({{site.baseurl}}/user_guide/audience/segments) predeterminado en tiempo real que use propiedades del evento de los últimos 30 días. De manera similar, puedes [programar tu mensaje]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) para que se desencadene en tiempo real basándose en una propiedad del evento, sin necesidad de un filtro calculado.
 {% endalert %}
 
 ### Paso 3: Guardar y activar tu filtro {#step-3-save-and-activate-your-filter}
@@ -124,7 +124,7 @@ Cada filtro calculado muestra uno de los siguientes estados. **Procesando** y **
 Abre el menú de fila de un filtro calculado para editarlo, archivarlo, actualizar la audiencia o ver cómo se está utilizando en la mensajería. No puedes editar un filtro calculado mientras se está procesando.
 
 {% alert note %}
-Tu espacio de trabajo puede tener hasta 500 filtros calculados activados a la vez. Contacta a tu director de cuentas de Braze si necesitas aumentar este límite.
+Tu espacio de trabajo puede tener hasta 100 filtros calculados activados a la vez. Contacta a tu director de cuentas de Braze si necesitas aumentar este límite.
 {% endalert %}
 
 #### Guardar versus activar {#save-versus-activate}
@@ -135,19 +135,19 @@ Puedes guardar un filtro calculado sin activarlo. Los filtros inactivos permanec
 
 ### ¿Puedo crear un filtro calculado que utilice varios eventos personalizados? {#can-i-create-a-calculated-filter-that-uses-multiple-custom-events}
 
-Al usar filtros calculados, puedes seleccionar un evento personalizado, un evento de compra, un evento de comercio electrónico o una interacción de canal. Sin embargo, puedes combinar varios filtros calculados con AND u OR al crear el segmento.
+Al usar filtros calculados, puedes seleccionar un evento personalizado, un evento de compra, un evento de comercio electrónico o una interacción de canal. Sin embargo, puedes combinar varios filtros calculados con un AND u OR al crear el segmento.
 
 Puedes añadir varios eventos o hacer referencia a varias tablas de Snowflake al usar [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
 
 ### ¿Puedo archivar filtros calculados si existen en una Campaign activa? {#can-i-archive-calculated-filters-if-they-exist-in-an-active-campaign}
 
-No. Antes de poder archivar un filtro calculado, debes eliminarlo de toda la mensajería activa.
+No. Antes de poder archivar un filtro calculado, necesitas eliminarlo de toda la mensajería activa.
 
-### ¿Puedo usar matrices en los filtros calculados? {#can-i-use-arrays-in-calculated-filters}
+### ¿Puedo usar arrays en los filtros calculados? {#can-i-use-arrays-in-calculated-filters}
 
-Sí. Para usar matrices, añade corchetes (`[]`) al nombre de tu propiedad. Si tu propiedad es `location_code`, deberías introducir `location_code[]`.
+Sí. Para usar arrays, añade corchetes (`[]`) al nombre de tu propiedad. Si tu propiedad es `location_code`, deberías introducir `location_code[]`.
 
-Braze usa `[]` para recorrer matrices y comprobar si algún elemento de la matriz recorrida coincide con la propiedad del evento. Por ejemplo, podrías crear un filtro calculado de usuarios que coincidan con al menos un valor de una propiedad de matriz.
+Braze usa `[]` para recorrer arrays y comprobar si algún elemento del array recorrido coincide con la propiedad del evento. Por ejemplo, podrías crear un filtro calculado de usuarios que coincidan con al menos un valor de una propiedad de array.
 
 ### ¿Cómo calcula Braze el período de tiempo para un período de tiempo relativo de "últimos X días"? {#how-does-braze-calculate-the-time-period-for-a-relative-time-period-of-last-x-days}
 

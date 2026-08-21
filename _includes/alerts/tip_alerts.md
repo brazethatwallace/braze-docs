@@ -1,3 +1,11 @@
+{% if include.alert == "Landing pages manage subscriptions" %}
+
+{% alert tip %}
+You can also manage subscriptions on a Braze landing page. Add a **Manage Subscriptions** block so consumers can review and update their existing subscriptions or opt in to new ones, all while you capture their engagement data on the same page. For more information, see [Manage Subscriptions block]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions).
+{% endalert %}
+
+{% endif %}
+
 {% if include.alert == "Liquid email display name and reply-to address" %}
 
 {% alert tip %}

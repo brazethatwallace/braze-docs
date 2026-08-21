@@ -81,8 +81,8 @@ If you enable subscriber collection in your configuration settings, you need to 
 
 The Shopify marketing opt-in status for email and SMS marketing can be updated in the following ways:
 - **Manual update:** You can manually change a user’s email or SMS marketing opt-in status in your Shopify admin.
-- **Shopify newsletter footer:** If a user enters their email in the Shopify default newsletter footer, their opt-in status will be updated.
-- **Checkout process:** If a user updates their opt-in status during checkout.
+- **Shopify newsletter footer:** If a user enters their email in the Shopify default newsletter footer, their opt-in status is updated.
+- **Checkout:** User consent is captured at checkout when users select the marketing checkbox and proceed with checkout by selecting **Pay now** on the one-page checkout or **Continue to shipping** on the three-page checkout.
 
 {% alert note %}
 The email marketing opt-in status from Shopify will not change a user’s [global email subscription state]({{site.baseurl}}/user_guide/channels/email/subscriptions/) in Braze. The default subscription state when a user profile is created is “subscribed.” Remember to use the subscription group as part of your campaign or Canvas entry criteria.

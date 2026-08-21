@@ -248,7 +248,7 @@ Vimeo에서 호스팅하는 비디오는 공개로 설정된 경우에만 작동
 
 ### 제품 {#product}
 
-[제품 카탈로그]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks)에서 제품 행을 렌더링합니다. 카탈로그 선택 항목의 정적 항목(최대 12개) 또는 [Canvas 이커머스 트리거]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases)에 의해 구동되는 동적 제품(최대 24개)으로 렌더링할 수 있습니다.
+[제품 카탈로그]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks)에서 제품 행을 렌더링합니다. 카탈로그 선택 항목의 정적 항목(최대 12개) 또는 [Canvas 이커머스 트리거]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases)(최대 24개)에 의해 구동되는 동적 제품으로 렌더링할 수 있습니다.
 
 | 속성 | 설명 |
 | --- | --- |
@@ -512,6 +512,28 @@ After you add a **Countdown timer** block, use the properties panel to set the t
 사용자가 여러 옵션을 선택합니다. 값은 정의된 [배열 커스텀 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)에 설정되거나 추가됩니다.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
+
+### 구독 관리 {#manage-subscriptions}
+
+방문자가 양식을 제출할 때 [이메일 구독 그룹]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups)에 옵트인하거나 구독을 관리할 수 있는 체크리스트를 추가합니다. 블록에 구독 그룹을 추가한 후 구성합니다. 이 블록은 이메일 구독 그룹만 지원하며, SMS, RCS 또는 WhatsApp 구독 그룹은 지원하지 않습니다.
+
+랜딩 페이지의 [Liquid 태그]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users)를 통해 페이지를 여는 식별된 사용자의 경우, 블록이 각 체크박스에 사용자의 현재 구독 상태를 미리 채우므로 환경설정 관리 페이지로도 활용할 수 있습니다.
+
+편집기에서 블록을 선택하여 다음을 수행합니다:
+
+- 구독 그룹 순서 변경
+- 구독 그룹 추가 또는 제거
+- 설명 추가 또는 제거
+- 블록의 모든 구독 그룹을 선택하는 "모두 구독" 체크박스 추가 또는 제거
+
+| 속성 | 설명 |
+| --- | --- |
+| 구독 그룹 | 블록에 표시되는 구독 그룹을 추가, 제거 또는 순서를 변경합니다. |
+| 설명 포함 | 각 구독 그룹의 설명을 이름과 함께 표시합니다. |
+| **모두 구독** 체크박스 | 블록의 모든 구독 그룹을 선택하는 체크박스를 추가합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="구독 관리" }
+
+전체 설정 플로우는 [구독 관리 블록]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions)을 참조하세요.
 
 ### 긴 텍스트
 

@@ -38,7 +38,7 @@ Pour copier une campagne vers un autre espace de travail :
 La copie de Canvas vers d'autres espaces de travail est disponible de manière générale. Les canaux suivants ne sont pas pris en charge actuellement : LINE, Content Cards et WhatsApp.
 {% endalert %}
 
-Vous pouvez copier des Canvas vers d'autres espaces de travail pour les canaux pris en charge suivants : e-mail, messages in-app, push, webhooks et SMS.
+Vous pouvez copier des Canvas vers d'autres espaces de travail pour les canaux pris en charge suivants : e-mail, messages in-app, notifications push, webhooks et SMS.
 
 Pour copier un Canvas vers un autre espace de travail :
 
@@ -63,14 +63,18 @@ Pour copier une page de destination vers un autre espace de travail :
 {% endtab %}
 {% endtabs %}
 
+{% alert note %}
+Vous pouvez copier une campagne ou un Canvas vers un autre espace de travail à n'importe quel moment de son cycle de vie, y compris après son lancement. Braze copie la version active.<br><br>Si vous avez [enregistré des modifications en brouillon]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch#campaign-drafts) pour une campagne ou [enregistré un brouillon de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/canvas_drafts) que vous n'avez pas encore lancé, Braze n'inclut pas ces modifications en attente. Lancez d'abord le brouillon dans l'espace de travail d'origine, puis effectuez la copie.
+{% endalert %}
+
 ## Ce qui est copié entre les espaces de travail {#whats-copied-across-workspaces}
 
-Notez que les tableaux suivants couvrent les champs des campagnes et des Canvas, et ne constituent pas une liste exhaustive de ce qui est copié entre les espaces de travail et de ce qui est omis. En tant que bonne pratique, vérifiez les détails de la campagne, du Canvas et de la page de destination, et testez pour confirmer que votre message fonctionne comme prévu.
+Notez que les tableaux suivants couvrent les champs des Campaigns et des Canvas, et ne constituent pas une liste exhaustive de ce qui est copié ou omis entre les espaces de travail. En tant que bonne pratique, vérifiez les détails de la Campaign, du Canvas et de la page de destination, puis testez pour confirmer que votre message fonctionne comme prévu.
 
 Les pages de destination sont copiées en tant que brouillons. Avant de publier une page de destination copiée, vérifiez l'URL de la page, les paramètres de domaine personnalisé, le traitement de la soumission du formulaire, ainsi que toute référence Liquid ou spécifique à l'espace de travail.
 
 {% alert note %}
-Les traductions ne sont pas copiées lors de la copie de campagnes e-mail, de Canvas ou de modèles entre les espaces de travail. Après la copie, saisissez à nouveau ou rechargez les traductions dans l'espace de travail de destination.
+Les traductions ne sont pas copiées lors de la copie de Campaigns par e-mail, de Canvas ou de modèles entre les espaces de travail. Après la copie, saisissez à nouveau ou rechargez les traductions dans l'espace de travail de destination.
 {% endalert %}
 
 ### Détails {#details}
@@ -81,11 +85,11 @@ Les traductions ne sont pas copiées lors de la copie de campagnes e-mail, de Ca
 | Copié | Omis |
 |---|---|
 | Description | Territoires |
-| Type | Étiquettes |
+| Type | Tags |
 | Actions (imbriquées) | Segments et filtres |
 | Comportements de conversion (imbriqués) | [Approbations]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
-| Configurations des heures calmes | Planification de déclenchement |
-| Configurations de limite de fréquence | Résumés de campagne |
+| Configurations du mode silencieux | Planification de déclenchement |
+| Configurations de limite de fréquence | Résumés de Campaign |
 | État d'abonnement du destinataire |  |
 | Planification récurrente |  |
 | Est transactionnel |  |
@@ -97,17 +101,17 @@ Les traductions ne sont pas copiées lors de la copie de campagnes e-mail, de Ca
 | Copié | Omis |
 |---|---|
 | Description | Territoires |
-| Type | Étiquettes |
+| Type | Tags |
 | Actions (imbriquées) | Segments et filtres |
 | Comportements de conversion (imbriqués) | [Approbations]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
-| Configurations des heures calmes | Planification de déclenchement |
-| Configurations de limite de fréquence | Résumés du Canvas |
+| Configurations du mode silencieux | Planification de déclenchement |
+| Configurations de limite de fréquence | Résumés de Canvas |
 | État d'abonnement du destinataire |  |
 | Planification récurrente | Critères de sortie |
 | Est transactionnel |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Détails" }
 
-Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre décisionnel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)) ne sont pas copiés vers l'espace de travail de destination. Reconfigurez ces filtres après la copie.
+Les critères de filtre des étapes Canvas (par exemple, les étapes [Arbre décisionnel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)) ne sont pas copiés vers l'espace de travail de destination. Reconfigurez ces filtres après la copie.
 
 {% endtab %}
 {% endtabs %}
@@ -120,7 +124,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Copié | Omis |
 |---|---|
 | Type de comportement | ID d'espace de travail |
-| Interaction avec la campagne | ID de campagne |
+| Interaction de Campaign | ID de Campaign |
 | Nom d'événement personnalisé |  |
 | Nom du produit |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comportements de conversion" }
@@ -131,7 +135,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Copié | Omis |
 |---|---|
 | Type de comportement | ID d'espace de travail |
-| Interaction avec le Canvas | ID de Canvas |
+| Interaction de Canvas | ID de Canvas |
 | Nom d'événement personnalisé |  |
 | Nom du produit |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comportements de conversion" }
@@ -147,7 +151,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Copié | Omis |
 |---|---|
 | Type de comportement | ID d'espace de travail |
-| Interaction avec la campagne | ID de campagne |
+| Interaction de Campaign | ID de Campaign |
 | Nom d'événement personnalisé |  |
 | Nom du produit |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
@@ -158,7 +162,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Copié | Omis |
 |---|---|
 | Type de comportement | ID d'espace de travail |
-| Interaction avec le Canvas | ID de Canvas |
+| Interaction de Canvas | ID de Canvas |
 | Nom d'événement personnalisé |  |
 | Nom du produit |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Actions" }
@@ -166,61 +170,61 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 {% endtab %}
 {% endtabs %}
 
-### Variantes de message {#message-variations}
+### Variations de message {#message-variations}
 
 {% tabs local %}
 {% tab campaigns %}
 
 | Copié | Omis |
 |---|---|
-| Pourcentage d'envoi | ID de l'API |
+| Pourcentage d'envoi | ID API |
 | Type | ID de groupes initiateurs |
 |  | ID de modèles de lien |
 |  | ID de groupes d'utilisateurs internes |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Variantes de message" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Variations de message" }
 
 {% endtab %}
 {% tab canvas %}
 
 | Copié | Omis |
 |---|---|
-| Pourcentage d'envoi | ID de l'API |
+| Pourcentage d'envoi | ID API |
 | Type | ID de groupes initiateurs |
 |  | ID de modèles de lien |
 |  | ID de groupes d'utilisateurs internes |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Variantes de message" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Variations de message" }
 
 {% endtab %}
 {% endtabs %}
 
 
-### Variante de message e-mail {#email-message-variation}
+### Variation de message e-mail {#email-message-variation}
 
 {% tabs local %}
 {% tab campaigns %}
 
 | Copié | Omis |
 |---|---|
-| Corps de l'e-mail | Adresse d'expédition |
+| Corps de l'e-mail | Adresse d'expéditeur |
 | Extras de message | Répondre à |
 | Titre | CCI |
 | Objet | Modèle de lien |
 |  | Aliasing de lien |
 |  | Traductions |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Variante de message e-mail" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Variation de message e-mail" }
 
 {% endtab %}
 {% tab canvas %}
 
 | Copié | Omis |
 |---|---|
-| Corps de l'e-mail | Adresse d'expédition |
+| Corps de l'e-mail | Adresse d'expéditeur |
 | Extras de message | Répondre à |
 | Titre | CCI |
 | Objet | Modèle de lien |
 |  | Aliasing de lien |
 |  | Traductions |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Variante de message e-mail" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Variation de message e-mail" }
 
 {% endtab %}
 {% endtabs %}
@@ -261,10 +265,10 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 
 | Copié | Omis |
 |---|---|
-| Corps de l'e-mail | ID de l'API |
+| Corps de l'e-mail | ID API |
 | Description | ID d'images |
 | Objet | Territoires |
-| En-têtes | Étiquettes |
+| En-têtes | Tags |
 | | Traductions |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Modèles d'e-mail" }
 
@@ -273,10 +277,10 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 
 | Copié | Omis |
 |---|---|
-| Corps de l'e-mail | ID de l'API |
+| Corps de l'e-mail | ID API |
 | Description | ID d'images |
 | Objet | Territoires |
-| En-têtes | Étiquettes |
+| En-têtes | Tags |
 | | Traductions |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Modèles d'e-mail" }
 
@@ -293,7 +297,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Nom | Aliasing de lien |
 | Description | Clés API |
 | Contenu | Territoires |
-| Contenu HTML et glisser-déposer | Étiquettes |
+| Contenu HTML et glisser-déposer | Tags |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
@@ -304,13 +308,13 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Nom | Aliasing de lien |
 | Description | Clés API |
 | Contenu | Territoires |
-| Contenu HTML et glisser-déposer | Étiquettes |
+| Contenu HTML et glisser-déposer | Tags |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
 
 {% endtab %}
 {% endtabs %}
 
-### Variante de message SMS {#sms-message-variation}
+### Variation de message SMS {#sms-message-variation}
 
 {% tabs local %}
 {% tab campaigns %}
@@ -321,7 +325,7 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Raccourcissement de lien | Éléments multimédias VCF |
 | Suivi des clics |  |
 | Éléments multimédias |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Variante de message SMS" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Variation de message SMS" }
 
 {% endtab %}
 {% tab canvas %}
@@ -332,34 +336,34 @@ Les critères de filtre des étapes du Canvas (par exemple, les étapes [Arbre d
 | Raccourcissement de lien | Éléments multimédias VCF |
 | Suivi des clics |  |
 | Éléments multimédias |  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Variante de message SMS" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Variation de message SMS" }
 
 {% endtab %}
 {% endtabs %}
 
-## Copier des messages contenant du Liquid {#copying-messages-that-contain-liquid}
+## Copie de messages contenant du Liquid {#copying-messages-that-contain-liquid}
 
 Les références Liquid dans le corps des messages sont copiées vers l'espace de travail de destination, mais elles peuvent ne pas fonctionner comme prévu. Cela signifie que si un Canvas de l'espace de travail A est copié vers l'espace de travail B, l'espace de travail B ne peut pas référencer les détails de l'espace de travail A, y compris les références Liquid. Par exemple, les champs tels que les actions de déclenchement, les filtres d'audience et les critères de filtre de l'[arbre décisionnel]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) ne sont pas copiés.
 
-Gardez une trace des références Liquid suivantes avec des dépendances lors de la copie de campagnes, de Canvas et de pages de destination entre les espaces de travail :
+Gardez une trace des références Liquid suivantes avec des dépendances lors de la copie de Campaigns, de Canvas et de pages de destination entre les espaces de travail :
 
-- Étiquettes d'éléments de catalogue
-- Balises de contenu connecté
+- Tags d'éléments de catalogue
+- Tags de contenu connecté
 - Content Blocks
 - Attributs personnalisés
 - Centres de préférences
 - Recommandations produit
-- Balises d'état d'abonnement
-- Balises de bons de réduction et de promotions
+- Tags d'état d'abonnement
+- Tags de bons et de promotions
 
 ## Copier des messages avec des feature flags {#copying-messages-with-feature-flags}
 
-Pour copier une campagne de feature flag et un Canvas comportant une étape Feature Flag entre les espaces de travail, assurez-vous que l'espace de travail de destination dispose d'une [expérience de feature flag]({{site.baseurl}}/developer_guide/feature_flags/experiments) configurée avec un ID correspondant soit au feature flag référencé dans la campagne d'origine, soit à l'étape Feature Flag référencée dans le Canvas d'origine.
+Pour copier une campagne de feature flag et un Canvas avec une étape Feature Flag entre les espaces de travail, assurez-vous que l'espace de travail de destination dispose d'une [expérience de feature flag]({{site.baseurl}}/developer_guide/feature_flags/experiments) configurée avec un ID correspondant soit au feature flag référencé dans la campagne d'origine, soit à l'étape Feature Flag référencée dans le Canvas d'origine.
 
 Si vous copiez une campagne ou un Canvas comportant une étape Feature Flag avec un ID de feature flag qui n'existe pas dans l'espace de travail de destination, l'étape Feature Flag sera copiée mais son contenu ne le sera pas.
 
 ## Copier des messages avec des Content Blocks {#copying-messages-with-content-blocks}
 
-Lorsque vous copiez une campagne entre les espaces de travail, les Content Blocks ne sont pas copiés. Cependant, un Content Block peut être référencé dans l'espace de travail de destination si un bloc portant le même nom existe. Vous pouvez également créer le Content Block (ou ces références Liquid) dans l'espace de travail de destination pour éviter les erreurs lors du lancement d'une campagne.
+Lorsque vous copiez une campagne d'un espace de travail à un autre, les Content Blocks ne sont pas copiés. Cependant, un Content Block peut être référencé dans l'espace de travail de destination si un bloc portant le même nom y existe. Vous pouvez également créer le Content Block (ou ces références Liquid) dans l'espace de travail de destination pour éviter les erreurs lors du lancement d'une campagne.
 
-Pour les Canvas qui référencent un Content Block, le Content Block doit d'abord être copié vers l'espace de travail de destination.
+Pour les Canvas qui font référence à un Content Block, celui-ci doit d'abord être copié dans l'espace de travail de destination.

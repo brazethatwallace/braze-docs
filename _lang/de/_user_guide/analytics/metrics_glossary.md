@@ -1123,6 +1123,8 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 
 Da ein:e Betrachter:in jeden Tag ein:e eindeutige:r Empfänger:in sein kann, sollten Sie erwarten, dass dieser Wert höher ist als die <i>eindeutigen Impressionen</i>. Diese Zahl wird von Braze bereitgestellt und basiert auf der `user_id`. Eindeutige Empfänger:innen werden auf Campaign- oder Canvas-Schritt-Ebene gezählt, nicht auf der Ebene des <a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>Send-Identifiers</a>.
 
+Nutzer:innen, die einen Bounce verursachen, zählen weiterhin zu den <i>eindeutigen Empfänger:innen</i>, wenn Braze sie als Empfänger:in für diesen Versandtag zählt. <i>Eindeutige Empfänger:innen</i> basieren auf den Nutzer:innen, die Braze für die Nachricht an diesem Tag angesprochen hat, nicht nur auf erfolgreichen Zustellungen.
+
 <span class="calculation-line">Berechnung: Anzahl</span>
 
 {% endapi %}

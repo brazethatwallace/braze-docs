@@ -8,9 +8,9 @@ description: "Referência do README do Braze Unity SDK espelhada do GitHub."
 <!-- BEGIN GENERATED README CONTENT -->
 # Guia do repositório do Unity SDK {#unity-sdk-repository-guide}
 
-## Sobre o Braze Unity SDK {#about-the-braze-unity-sdk}
+## Sobre o SDK do Unity da Braze {#about-the-braze-unity-sdk}
 
-O Braze Unity SDK ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu aplicativo.
+O SDK do Unity da Braze ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu aplicativo.
 
 Para começar, consulte os seguintes recursos:
 
@@ -21,7 +21,7 @@ Para começar, consulte os seguintes recursos:
 
 Antes de começar a usar a Braze em scripts Unity, você precisará importar os arquivos do plugin para o seu projeto Unity.
 
-**Recomendado:** Os plugins para Android e iOS estão empacotados como um pacote Unity disponível para baixar na [página de lançamentos do SDK][1].
+**Recomendado:** Os plugins para Android e iOS são empacotados como um pacote Unity disponível para download na [página de lançamentos do SDK][1].
 
 **Configuração manual do plugin:** Como alternativa, você pode copiar os plugins para o seu projeto Unity:
   1. Primeiro, clone este repositório.
@@ -30,14 +30,14 @@ Antes de começar a usar a Braze em scripts Unity, você precisará importar os 
 
 ## Configuração da integração {#integration-setup}
 
-Para integrar a Braze ao seu aplicativo Unity, siga nossas instruções para [Integração do SDK do Unity da Braze][2].
+Para integrar a Braze ao seu app Unity, siga as instruções em [Integração do SDK do Unity da Braze][2].
 
 [1]: https://github.com/braze-inc/braze-unity-sdk/releases
 [2]: https://www.braze.com/docs/developer_guide/sdk_integration?sdktab=unity
 
-## Fale conosco {#contact}
+## Contato {#contact}
 
-Se você tiver dúvidas, entre em contato pelo e-mail [support@braze.com](mailto:support@braze.com).
+Para dúvidas, entre em contato com o suporte técnico da Braze para obter assistência.
 <!-- END GENERATED README CONTENT -->
 
-Para informações sobre o repositório e projetos de exemplo, acesse [https://github.com/braze-inc/braze-unity-sdk](https://github.com/braze-inc/braze-unity-sdk).
+Para detalhes do repositório e projetos de exemplo, consulte [https://github.com/braze-inc/braze-unity-sdk](https://github.com/braze-inc/braze-unity-sdk).
