@@ -159,14 +159,13 @@ Braze runs tests through actual email clients and works to ensure renderings are
 
 If you consistently see an issue with a client, open a [support ticket]({{site.baseurl}}/braze_support).
 
-
-### Troubleshooting iframe-heavy clients (for example, GMX)
+### Troubleshoot iframe-heavy clients
 
 Some email clients, including GMX, render messages inside iframes and may strip or ignore CSS in `<style>` blocks. If Inbox Vision or live sends show missing styles in these clients:
 
-1. Use table-based layouts instead of CSS positioning.
-2. Apply critical styles as inline `style` attributes on the affected elements.
-3. For drag-and-drop emails, use responsive row classes such as `desktop_hide` and `mobile_hide` to show or hide content by viewport instead of relying on iframe-incompatible CSS.
+- Use table-based layouts instead of CSS positioning.
+- Apply critical styles as inline `style` attributes on the affected elements.
+- For drag-and-drop emails, use **Hide on desktop** and **Hide on mobile** on rows to show or hide content by viewport.
 
 Test the updated message in Inbox Vision with the affected client preview before sending.
 
