@@ -44,10 +44,10 @@ To turn on double opt-in, go to the **Global Keywords** table in the applicable 
 
 | Category   |    Fields    | Description   
 | ----------- |----------- |---------------- 
-| Opt-In Prompt | Keywords | These are the keywords that a user can text to indicate opt-in intent. `START` is a required keyword. This opt-in prompt will also be sent to the user when their subscription status is updated by sources listed in the [Subscription sources](#subscription-sources) section.
-| | Reply Message | This is the initial response that a user will receive after texting an opt-in keyword (for example, “Reply Y to confirm you want to receive messages from this number. Msg&Data Rates may apply.” )
+| Opt-In Prompt | Keywords | These are the keywords that a user can text to indicate opt-in intent. `START` is a required keyword. This opt-in prompt is also sent to the user when their subscription status is updated by sources listed in the [Subscription sources](#subscription-sources) section.
+| | Reply Message | This is the initial response a user receives after texting an opt-in keyword (for example, “Reply Y to confirm you want to receive messages from this number. Msg&Data Rates may apply.” )
 | Double Opt-In Confirmation | Keywords | These are the keywords a user can reply with to confirm their opt-in intent. At least one keyword is required. These keywords should be specified in the **Opt-In Prompt Reply Message** field.
-| | Reply Message | This is the confirmation response that a user will receive after they have explicitly confirmed their opt-in and are now messageable. The user’s subscription group status will be set to `Subscribed`.
+| | Reply Message | This is the confirmation response a user receives after they have explicitly confirmed their opt-in and are now messageable. The user’s subscription group status is set to `Subscribed`.
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Configurable fields #configurable-fields" }
 
 When a user receives an opt-in prompt, they have 30 days to confirm their opt-in intent. If a user wants to subscribe after the 30-day window, they need to text an opt-in keyword to start the double opt-in workflow again.
@@ -62,7 +62,7 @@ Users can also be entered into the double opt-in workflow if they are [subscribe
 
 ## Subscription sources {#subscription-sources}
 
-Users can also enter the double opt-in workflow through subscription updates that occur outside of inbound messages. These sources include updates from the REST API, SDK, and preference center. When a user enters the double opt-in workflow through these sources, they will receive the **Opt-In Prompt Reply Message**.
+Users can also enter the double opt-in workflow through subscription updates that occur outside of inbound messages. These sources include updates from the REST API, SDK, and preference center. When a user enters the double opt-in workflow through these sources, they receive the **Opt-In Prompt Reply Message**.
 
 {% alert important %}
 When users are entered into the double opt-in workflow through sources other than inbound messages, they receive at most one opt-in prompt reply message in a rolling 24-hour period, regardless of the number of times they are entered into this workflow.
@@ -72,11 +72,11 @@ Each subscription source has a different enrollment behavior, as described in th
 
 Source    | Double Opt-In Enrollment Behavior   
 ----------- | -----------
-SDK | Users will automatically enter the double opt-in workflow when subscribed through the Braze SDK.
+SDK | Users automatically enter the double opt-in workflow when subscribed through the Braze SDK.
 REST API | Users can be entered into the workflow when the subscription status is set through `/subscription/status/set`, `/v2/subscription/status/set` or `/users/track` and the optional parameter `use_double_opt_in_logic` is passed as `true` (for example, [{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed", "use_double_opt_in_logic": true}]). If this parameter is omitted, users won't be entered into the double opt-in workflow. <br><br>When using `use_double_opt_in_logic` with the REST API, if no user profile is associated with the provided phone number, the subscription state isn't updated, and the user can't enter the double opt-in workflow.
 Shopify | Users aren't entered into the double opt-in workflow when their subscription status is set by our Shopify integration.
 User Import | Users aren't entered into the double opt-in workflow when their subscription status is set by User Import.
-[Preference Center]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) | Users will automatically enter into the double opt-in workflow when subscribed through a preference center.
+[Preference Center]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) | Users automatically enter the double opt-in workflow when subscribed through a preference center.
 User Update Step | Users can be entered into the double opt-in workflow when their subscription status is set through the User Update step and the optional parameter `use_double_opt_in_logic` is passed as `true`. If this parameter is omitted, users aren't entered into the double opt-in workflow.
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Subscription sources #subscription-sources" }
 
