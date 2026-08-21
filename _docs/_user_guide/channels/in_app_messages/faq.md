@@ -94,11 +94,17 @@ In-app messages are delivered as templated in-app messages when **Re-evaluate ca
 - `catalog_selection_items`
 - `event_properties`
 
+Braze also uses templated delivery for idle in-app message campaigns (campaigns that are still active but no longer sending or no longer needed). These campaigns continue to follow their configured audience and trigger rules.
+
+Braze may also use templated delivery to protect app performance. If preparing Liquid content delays a session response by more than a few seconds, Braze defers the remaining work. Those messages render when triggered.
+
 This means that during session start, the device receives the trigger of that in-app message instead of the entire message. When the user triggers the in-app message, the user's device makes a network request to fetch the actual message.
 
 {% alert note %}
 The message is not delivered if the device doesn't have access to the internet. The message might not be delivered if the Liquid logic takes too long to resolve.
 {% endalert %}
+
+To reduce the amount of Liquid that Braze processes at session start, see [Optimize in-app message performance]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide#optimize-in-app-message-performance).
 
 ## How does abort behavior work for in-app messages?
 
