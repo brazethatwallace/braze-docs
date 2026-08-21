@@ -62,7 +62,7 @@ You can also use custom event properties for personalization within the messagin
 
 #### Considerations with filters
 
-- **API calls:** When making API calls and using the "is blank" filter, a custom event property is considered "blank" if excluded from the call. For example, if you include `"event_property": ""`, your users are considered "not blank".
+- **API calls:** When making API calls and using the "is blank" filter, a custom event property is considered "blank" if excluded from the call or if the value is an empty string (`""`). For example, if you include `"event_property": ""`, your users are considered "blank".
 - **Integers:** When filtering for a number custom event property and the number is very large, don't use the "exactly" filter. If a number is too large, it may be rounded at a certain length, so your filter won't work as expected.
 
 #### Type coercion for comparisons

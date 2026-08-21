@@ -44,6 +44,7 @@ glossary_tags:
   - name: Email Templates
   - name: KPI
   - name: Media Library
+  - name: Messaging API
   - name: Purchases
   - name: Preference Center
   - name: Schedule Messages
@@ -124,6 +125,14 @@ glossaries:
     description: Send immediate, one-off transactional messages to a designated user.
     tags:
       - Send Messages
+  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
+    description: Retrieve eligible Banners for a user and a set of placements.
+    tags:
+      - Messaging API
+  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
+    description: Record impression and click events for Banners.
+    tags:
+      - Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
     description: Send dashboard created campaign messages through API-triggered delivery.
     tags:

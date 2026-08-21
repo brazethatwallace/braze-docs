@@ -1,0 +1,4 @@
+# Shared Python deps for Claude CI workflows (style review, Bugbot review, auto-translate).
+# Ranges allow 1.x / 6.x patches; Dependabot opens a PR for a new major version.
+anthropic>=1.0.0,<2
+pyyaml>=6.0.3,<7

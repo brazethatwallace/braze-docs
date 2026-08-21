@@ -36,19 +36,19 @@ Microsoft Azure Blob Storageと連携するには、Brazeがデータをエク�
 
 ## 接続文字列認証方式 {#connection-string-auth-method}
 
-### ステップ1：ストレージアカウントを作成する {#step-1-create-a-storage-account}
+### ステップ1:ストレージアカウントを作成する {#step-1-create-a-storage-account}
 
-Microsoft Azureで、サイドバーの**ストレージアカウント**に移動し、**+ 追加**をクリックして新しいストレージアカウントを作成します。次に、ストレージアカウント名を入力します。その他のデフォルト設定は更新する必要はありません。最後に、**確認と作成**を選択します。
+Microsoft Azureで、サイドバーの**Storage Accounts**に移動し、**+ Add**をクリックして新しいストレージアカウントを作成します。次に、ストレージアカウント名を入力します。その他のデフォルト設定は更新する必要はありません。最後に、**Review + create**を選択します。
 
 すでにストレージアカウントをお持ちの場合でも、Brazeデータ専用に新しいストレージアカウントを作成することをお勧めします。
 
-![Microsoft Azureのストレージアカウント作成ページの「基本」タブ。ストレージアカウント名フィールドがハイライトされています。]({% image_buster /assets/img/azure-currents-step-1.png %})
+![Microsoft Azureのストレージアカウント作成ページの「Basics」タブ。ストレージアカウント名フィールドがハイライトされています。]({% image_buster /assets/img/azure-currents-step-1.png %})
 
-### ステップ2：接続文字列を取得する {#step-2-get-the-connection-string}
+### ステップ2:接続文字列を取得する {#step-2-get-the-connection-string}
 
-ストレージアカウントがデプロイされたら、ストレージアカウントから**アクセスキー**メニューに移動し、接続文字列をメモします。
+ストレージアカウントがデプロイされたら、ストレージアカウントから**Access Keys**メニューに移動し、接続文字列をメモします。
 
-Microsoftは、一方のキーを再生成している間にもう一方のキーで接続を維持できるよう、2つのアクセスキーを提供しています。いずれか一方の接続文字列のみが必要です。
+Microsoftは、一方のキーを再生成している間にもう一方のキーで接続を維持できるよう、2つのアクセスキーを提供しています。どちらか一方の接続文字列のみが必要です。
 
 {% alert note %}
 Brazeはこのメニューのキーではなく、接続文字列を使用します。
@@ -56,34 +56,36 @@ Brazeはこのメニューのキーではなく、接続文字列を使用しま
 
 ![Azureストレージアカウントのアクセスキーページ。key1の下にある接続文字列フィールドがハイライトされています。]({% image_buster /assets/img/azure-currents-step-2.png %})
 
-### ステップ3：Blobサービスコンテナを作成する {#step-3-create-a-blob-service-container}
+### ステップ3:Blobサービスコンテナを作成する {#step-3-create-a-blob-service-container}
 
-ストレージアカウントの**Blobサービス**セクションにある**Blob**メニューに移動します。先ほど作成したストレージアカウント内にBlobサービスコンテナを作成します。
+ストレージアカウントの**Blob Service**セクションにある**Blobs**メニューに移動します。先ほど作成したストレージアカウント内にBlobサービスコンテナを作成します。
 
 Blobサービスコンテナの名前を入力します。その他のデフォルト設定は更新する必要はありません。
 
-![Azureストレージアカウントの「Blobサービス」の下にあるBlobページ。コンテナを追加するオプションが表示されています。]({% image_buster /assets/img/azure-currents-step-3.png %})
+![Azureストレージアカウントの「Blob Service」配下のBlobsページ。コンテナを追加するオプションが表示されています。]({% image_buster /assets/img/azure-currents-step-3.png %})
 
-### ステップ4：Currentsを設定する {#step-4-set-up-currents}
+### ステップ4:Currentsを設定する {#step-4-set-up-currents}
 
-Brazeで、**Currents > + Currentを作成 > Azure Blobデータエクスポート**に移動し、連携名と連絡先メールアドレスを入力します。
+Brazeで、**Currents > + Create Current > Azure Blob Data Export**に移動し、連携名と連絡先メールアドレスを入力します。
+
+{% multi_lang_include currents/contact_email_notifications.md %}
 
 次に、接続文字列、コンテナ名、BlobStorageプレフィックス（任意）を入力します。
 
-![BrazeのMicrosoft Azure BlobストレージCurrentsページ。このページには、連携名、連絡先メール、接続文字列、コンテナ名、プレフィックスのフィールドがあります。]({% image_buster /assets/img/maz.png %})
+![BrazeのMicrosoft Azure Blob Storage Currentsページ。このページには、連携名、連絡先メール、接続文字列、コンテナ名、プレフィックスのフィールドがあります。]({% image_buster /assets/img/maz.png %})
 
 最後に、ページの下部までスクロールし、エクスポートしたいメッセージエンゲージメントイベントまたは顧客行動イベントを選択します。完了したら、Currentを起動します。
 
-### ステップ5：Azureデータエクスポートを設定する {#step-5-set-up-azure-data-export}
+### ステップ5:Azureデータエクスポートを設定する {#step-5-set-up-azure-data-export}
 
-以下は、次の用途で使用される認証情報を設定します：
+以下は、次の用途で使用される認証情報を設定します。
 1. APIを通じたセグメントエクスポート
 2. CSVエクスポート（キャンペーン、セグメント、キャンバスのユーザーデータをダッシュボードからエクスポート）
 3. エンゲージメントレポート
 
 Brazeで、**パートナー連携** > **テクノロジーパートナー** > **Microsoft Azure**に移動し、接続文字列、Azureストレージコンテナ名、Azureストレージプレフィックスを入力します。
 
-次に、**これをデフォルトのデータエクスポート先にする**チェックボックスがオンになっていることを確認します。これにより、エクスポートされたデータがAzureに送信されます。完了したら、連携を保存します。
+次に、**Make this the default data export destination**チェックボックスがオンになっていることを確認します。これにより、エクスポートされたデータがAzureに送信されます。完了したら、連携を保存します。
 
 ![BrazeのMicrosoft Azureデータエクスポートページ。このページには、接続文字列、コンテナ名、プレフィックスのフィールドがあります。]({% image_buster /assets/img/azure_data_export.png %})
 
@@ -93,10 +95,10 @@ Brazeで、**パートナー連携** > **テクノロジーパートナー** > *
 
 ## 証明書サービスプリンシパル認証方式 {#certificate-service-principal-auth-method}
 
-この方式は、証明書を使用して Microsoft Entra ID に認証し、共有アカウントキーを使わずに Azure ロールベースアクセス制御 (RBAC) を通じてコンテナーに書き込みます。この方式は Braze Currentsでのみ利用できます。
+この方式は、証明書を使用して Microsoft Entra ID に認証し、共有アカウントキーを使用せずに Azure ロールベースアクセス制御 (RBAC) を通じてコンテナーに書き込みます。この方式は Braze Currents でのみ利用できます。
 
 {% alert note %}
-Microsoft Entra ID にアップロードするのは公開証明書のみです。秘密キーが Azure に送信されることはありません。Braze は証明書と秘密キーを保存時に暗号化し、お客様が割り当てた [Storage Blob Data Contributor](#cert-sp-4) ロールを通じてのみアクセスを許可します。また、Azure のアプリ登録から証明書を削除することで、いつでもアクセスを取り消すことができます。
+Microsoft Entra ID にアップロードするのは公開証明書のみです。秘密キーが Azure に送信されることはありません。Braze は証明書と秘密キーを保存時に暗号化し、割り当てた [Storage Blob Data Contributor](#cert-sp-4) ロールを通じてのみアクセスを許可します。Azure のアプリ登録から証明書を削除することで、いつでもアクセスを取り消すことができます。
 {% endalert %}
 
 開始する前に、[接続文字列方式](#connection-string-auth-method)の説明に従って、[ストレージアカウントを作成](#step-1-create-a-storage-account)し、[Blob サービスコンテナーを作成](#step-3-create-a-blob-service-container)してください。
@@ -133,7 +135,7 @@ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem \
 秘密キーは暗号化されていない状態である必要があります。パスフレーズで保護することはできません。Azure にアップロードするのは公開証明書のみです。秘密キーは絶対にアップロードしないでください。
 {% endalert %}
 
-**既に証明書をお持ちですか？** `.pfx` ファイルとして既存の証明書をお持ちの場合（例: Azure Key Vault、認証局、または [Microsoft の PowerShell 方式](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-self-signed-certificate)から取得したもの）、新しい証明書を生成する代わりに、Braze が必要とする形式に変換してください。
+**既に証明書をお持ちですか？** 既存の証明書が `.pfx` ファイルとしてある場合（例: Azure Key Vault、認証局、または [Microsoft の PowerShell 方式](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-self-signed-certificate)から取得したもの）、新しい証明書を生成する代わりに、Braze が必要とする形式に変換してください。
 
 ```bash
 # The public certificate to upload to Azure (Step 3)
@@ -149,7 +151,7 @@ openssl pkcs12 -in your-cert.pfx -nodes -out braze-currents.pem
 
 アプリ登録で、**Certificates & secrets** > **Certificates** > **Upload certificate** に移動し、前のステップで作成した `cert.pem` ファイルをアップロードします。説明を追加して **Add** を選択します。詳細な手順については、Microsoft の [Add and manage app credentials in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-credentials) を参照してください。
 
-証明書の有効期限をメモしてください。[Currentsの Azure 認証情報の更新](#updating-currents-credentials)を参照してください。
+証明書の有効期限をメモしてください。[Currents の Azure 認証情報の更新](#updating-currents-credentials)を参照してください。
 
 ### ステップ4: ストレージアカウントへのアクセスを許可する {#cert-sp-4}
 
@@ -183,7 +185,7 @@ openssl pkcs12 -in your-cert.pfx -nodes -out braze-currents.pem
 証明書サービスプリンシパル認証は、パブリック Azure クラウドのみをサポートしています。Blob エンドポイントは `.blob.core.windows.net` で終わる必要があります。
 {% endalert %}
 
-### ステップ6: Currentsを設定する {#cert-sp-6}
+### ステップ6: Currents を設定する {#cert-sp-6}
 
 Braze には、証明書と暗号化されていない秘密キーを含む単一の PEM ファイルが必要です。[ステップ2](#cert-sp-2)で新しい証明書を生成した場合は、2つのファイルを1つに結合します。
 
@@ -193,7 +195,11 @@ cat cert.pem key.pem > braze-currents.pem
 
 [ステップ2](#cert-sp-2)で既存の `.pfx` を変換した場合は、この `braze-currents.pem` ファイルが既にあります。
 
-Braze で、**Currents** > **+ Create Current** > **Azure Blob Data Export** に移動し、連携名と連絡先メールアドレスを入力します。**Credentials** で **Certificate Service Principal** を選択し、以下を入力します。
+Braze で、**Currents** > **+ Create Current** > **Azure Blob Data Export** に移動し、連携名と連絡先メールアドレスを入力します。
+
+{% multi_lang_include currents/contact_email_notifications.md %}
+
+**Credentials** で、**Certificate Service Principal** を選択し、以下を入力します。
 
 | フィールド | 値 |
 | ----- | ----- |
@@ -209,7 +215,7 @@ Braze で、**Currents** > **+ Create Current** > **Azure Blob Data Export** に
 
 保存すると、Braze は入力された認証情報を検証します。
 
-最後に、ページの下部までスクロールし、エクスポートするメッセージエンゲージメントイベントまたは顧客行動イベントを選択します。完了したら、Currentを起動します。
+最後に、ページの下部までスクロールし、エクスポートするメッセージエンゲージメントイベントまたは顧客行動イベントを選択します。完了したら、Current を起動します。
 
 ## Currentsの Azure 認証情報の更新 {#updating-currents-credentials}
 
@@ -229,7 +235,7 @@ Braze で、**Currents** > **+ Create Current** > **Azure Blob Data Export** に
 - すべてのダッシュボードレポートとCSVレポートは、ダウンロード用にユーザーのメールに送信され（ストレージ権限は不要）、データストレージにバックアップされます。
 
 {% alert important %}
-**JSON形式の要件**: JSONエクスポートの場合、Brazeは[JSONL](https://jsonlines.org/)（改行区切りJSON）形式を使用します。各行には個別のJSONオブジェクトが含まれます。この形式は、単一のJSON配列またはオブジェクトである標準JSONとは異なります。エクスポートされたファイルの各行は有効なJSONオブジェクトですが、ファイル全体は単一の有効なJSONドキュメントではありません。これらのファイルを処理する際は、ファイル全体を単一のJSONドキュメントとして解析しようとするのではなく、各行を個別のJSONオブジェクトとして解析してください。<br><br> Currentsエクスポートは、JSONではなく[Apache Avro](https://avro.apache.org/)形式（`.avro`ファイル）を使用します。このJSON形式の要件は、ダッシュボードデータエクスポートおよびJSON形式を使用するAPIエクスポートに適用されます。
+**JSON形式の要件**: JSONエクスポートの場合、Brazeは[JSONL](https://jsonlines.org/)（改行区切りJSON）形式を使用します。各行には個別のJSONオブジェクトが含まれます。この形式は、単一のJSON配列またはオブジェクトである標準JSONとは異なります。エクスポートされたファイルの各行は有効なJSONオブジェクトですが、ファイル全体は単一の有効なJSONドキュメントではありません。これらのファイルを処理する際は、ファイル全体を単一のJSONドキュメントとして解析しようとするのではなく、各行を個別のJSONオブジェクトとして解析してください。<br><br> Currentsエクスポートは[Apache Avro](https://avro.apache.org/)形式（`.avro`ファイル）を使用し、JSONは使用しません。このJSON形式の要件は、ダッシュボードデータエクスポートおよびJSON形式を使用するAPIエクスポートに適用されます。
 {% endalert %}
 
 ## FAQ

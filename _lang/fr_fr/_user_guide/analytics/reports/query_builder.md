@@ -15,39 +15,50 @@ alias: /query_builder/
 
 ## Tables de données disponibles {#available-data-tables}
 
-Le Générateur de requêtes utilise les mêmes tables SQL Snowflake que les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) et le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Pour une liste complète des tables disponibles et de leurs colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Le Générateur de requêtes utilise les mêmes tables SQL Snowflake que les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) et le [partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Pour une liste complète des tables disponibles et de leurs colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+
+### Vues des attributs du profil utilisateur {#user-profile-attribute-views}
+
+Le Générateur de requêtes et les extensions de segments SQL incluent la plupart des [vues des attributs du profil utilisateur]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views), telles que les instantanés périodiques et l'historique des attributs par défaut.
+
+Deux vues d'attributs personnalisés sont disponibles uniquement via le [partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes) :
+
+- `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
+- `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
+
+Braze exclut ces vues du Générateur de requêtes et des extensions de segments SQL car elles sont lentes à interroger à l'échelle d'un espace de travail et dépassent souvent le délai d'exécution. Utilisez `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` pour les instantanés d'attributs personnalisés dans le Générateur de requêtes. Si vous avez besoin de données d'attributs personnalisés historiques ou en quasi-temps réel, interrogez les vues exclues via le partage de données Snowflake.
 
 ## Exécuter des rapports dans le Générateur de requêtes {#running-reports-in-the-query-builder}
 
 Pour exécuter un rapport dans le Générateur de requêtes :
 
-1. Accédez à **Analytics** > **Query Builder**.
+1. Accédez à **Analytics** > **Générateur de requêtes**.
 2. Sélectionnez **Create SQL Query**. Si vous avez besoin d'inspiration ou d'aide pour rédiger votre requête, sélectionnez **Query Template** et choisissez un modèle dans la liste. Sinon, sélectionnez **SQL Editor** pour accéder directement à l'éditeur.
-3. Votre rapport reçoit automatiquement un nom avec la date et l'heure actuelles. Survolez le nom et sélectionnez <i class="fas fa-pencil" alt="Modifier"></i> pour donner un nom significatif à votre requête SQL.
-4. Écrivez votre requête SQL dans l'éditeur ou [obtenez l'aide de l'IA](#ai-query-builder) depuis l'onglet **AI Query Builder**. Si vous écrivez votre propre SQL, consultez [Écrire des requêtes SQL personnalisées](#custom-sql) pour les exigences et les ressources.
+3. Votre rapport reçoit automatiquement un nom basé sur la date et l'heure actuelles. Survolez le nom et sélectionnez <i class="fas fa-pencil" alt="Modifier"></i> pour donner un nom significatif à votre requête SQL.
+4. Rédigez votre requête SQL dans l'éditeur ou [obtenez l'aide de l'IA](#ai-query-builder) depuis l'onglet **AI Query Builder**. Si vous rédigez votre propre requête SQL, consultez [Rédiger des requêtes SQL personnalisées](#custom-sql) pour connaître les exigences et les ressources disponibles.
 5. Sélectionnez **Run Query**.
 6. Enregistrez votre requête.
 7. Pour télécharger un CSV de votre rapport, sélectionnez **Export**.
 
 ![Le Générateur de requêtes affichant les résultats de la requête modèle « Channel engagement and revenue for the last 30 days ».]({% image_buster /assets/img_archive/query_builder.png %})
 
-Les résultats de chaque rapport peuvent être générés une fois par jour. Si vous exécutez le même rapport plus d'une fois dans une même journée calendaire, vous verrez les mêmes résultats dans les deux rapports.
+Les résultats de chaque rapport peuvent être générés une fois par jour. Si vous exécutez le même rapport plus d'une fois au cours d'une même journée calendaire, vous obtiendrez les mêmes résultats dans les deux rapports.
 
 ### Modèles de requêtes {#query-templates}
 
-Accédez aux modèles de requêtes en sélectionnant **Create SQL Query** > **Query Template** lors de la création initiale d'un rapport.
+Accédez aux modèles de requêtes en sélectionnant **Create SQL Query** > **Query Template** lors de la création d'un rapport.
 
-Consultez [Modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) pour une liste des modèles disponibles.
+Consultez [Modèles de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) pour obtenir la liste des modèles disponibles.
 
 ### Période des données {#data-timeframe}
 
-Les requêtes renvoient les données des 60 derniers jours. Si vous utilisez Currents ou le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), vous pourrez peut-être interroger jusqu'à deux ans de données, ce qui correspond à la durée de conservation de vos données dans Snowflake. Pour plus de détails sur la conservation étendue des données, contactez votre gestionnaire de la satisfaction client.
+Les requêtes renvoient les données des 60 derniers jours. Si vous utilisez Currents ou le [partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), vous pouvez interroger jusqu'à deux ans de données, ce qui correspond à la durée de conservation de vos données dans Snowflake. Pour plus de détails sur la conservation étendue des données, contactez votre gestionnaire du succès des clients.
 
 ### Fuseau horaire du Générateur de requêtes {#query-builder-time-zone}
 
 Le fuseau horaire par défaut pour interroger notre base de données Snowflake est UTC. Par conséquent, il peut y avoir des écarts de données entre votre page **Email Channel Engagement** (qui suit le fuseau horaire de votre entreprise) et les résultats de votre Générateur de requêtes.
 
-Pour convertir le fuseau horaire dans les résultats de votre requête, ajoutez le SQL suivant à votre requête et personnalisez-le pour le fuseau horaire de votre entreprise :
+Pour convertir le fuseau horaire dans les résultats de votre requête, ajoutez le code SQL suivant à votre requête et personnalisez-le en fonction du fuseau horaire de votre entreprise :
 
 {% raw %}
 ```sql
@@ -72,27 +83,35 @@ send_date_sydney;
 
 ### Historique des requêtes {#query-history}
 
-La section **Query history** du Générateur de requêtes affiche vos requêtes précédemment exécutées pour vous aider à suivre et réutiliser votre travail. L'historique des requêtes est conservé pendant sept jours, ce qui signifie que les requêtes de plus de sept jours sont automatiquement supprimées.
+La section **Query history** du Générateur de requêtes affiche vos requêtes précédemment exécutées pour vous aider à suivre et réutiliser votre travail. L'historique des requêtes est conservé pendant sept jours, ce qui signifie que les requêtes datant de plus de sept jours sont automatiquement supprimées.
 
 Si vous devez auditer l'utilisation des requêtes sur des périodes plus longues ou conserver des enregistrements au-delà de sept jours, nous vous recommandons d'exporter ou d'enregistrer les résultats de requêtes importants avant leur expiration.
 
-## Générer du SQL avec l'AI Query Builder {#generating-sql-with-the-ai-query-builder}
+### Comparaison du Générateur de requêtes avec d'autres sources de rapports {#comparing-query-builder-with-other-reporting-sources}
 
-L'AI Query Builder s'appuie sur [GPT](https://openai.com/gpt-4), propulsé par OpenAI, pour recommander du SQL pour votre requête.
+Les résultats du Générateur de requêtes peuvent différer de ceux d'autres outils de reporting, car ils utilisent des sources de données et des méthodes de traitement différentes.
 
-![L'AI Query Builder SQL.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
+Par exemple, le nombre d'échecs provisoires d'envoi dans le Générateur de requêtes peut être plus élevé que dans les rapports de livrabilité SendGrid. Le Générateur de requêtes comptabilise toutes les occurrences d'échecs provisoires d'envoi sans déduplication. Si un utilisateur subit plusieurs échecs provisoires d'envoi avant une livraison réussie (ou après des tentatives prolongées), chaque tentative d'échec provisoire est comptabilisée. SendGrid Deliverability utilise ses propres données et sa propre logique, auxquelles Braze n'a pas accès, de sorte que les chiffres entre les deux rapports peuvent ne pas correspondre.
 
-Pour générer du SQL avec l'AI Query Builder :
+Pour plus d'informations sur le suivi des échecs provisoires d'envoi dans les différentes sources de rapports, consultez [Échec provisoire d'envoi]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce) dans le glossaire d'analyse des e-mails.
+
+## Générer du SQL avec le Générateur de requêtes IA {#generating-sql-with-the-ai-query-builder}
+
+Le Générateur de requêtes IA s'appuie sur [GPT](https://openai.com/gpt-4), développé par OpenAI, pour vous recommander du SQL pour votre requête.
+
+![Le Générateur de requêtes SQL IA.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
+
+Pour générer du SQL avec le Générateur de requêtes IA :
 
 1. Après avoir créé un rapport dans le Générateur de requêtes, sélectionnez l'onglet **AI Query Builder**.
-2. Saisissez votre prompt ou sélectionnez un exemple de prompt, puis sélectionnez **Generate** pour traduire votre prompt en SQL.
+2. Saisissez votre prompt ou sélectionnez un exemple de prompt, puis cliquez sur **Generate** pour traduire votre prompt en SQL.
 3. Vérifiez le SQL généré pour vous assurer qu'il est correct, puis sélectionnez **Insert into Editor**.
 
 ### Conseils {#tips}
 
-- Familiarisez-vous avec les tables et colonnes disponibles dans la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). Demander des données qui n'existent pas dans ces tables peut amener ChatGPT à inventer une fausse table.
-- Familiarisez-vous avec les [règles d'écriture SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) pour cette fonctionnalité. Le non-respect de ces règles entraînera une erreur.
-- Vous pouvez envoyer jusqu'à 20 prompts par minute avec l'AI Query Builder.
+- Familiarisez-vous avec les tables et colonnes disponibles dans la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables). Demander des données qui n'existent pas dans ces tables peut amener ChatGPT à inventer une table fictive.
+- Familiarisez-vous avec les [règles d'écriture SQL]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) propres à cette fonctionnalité. Le non-respect de ces règles entraînera une erreur.
+- Vous pouvez envoyer jusqu'à 20 prompts par minute avec le Générateur de requêtes IA.
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
 
@@ -172,7 +191,7 @@ Une fois une variable créée, elle apparaîtra dans l'onglet **Variables** de v
 
 Les variables doivent respecter la syntaxe Liquid suivante : {% raw %}`{{ type.${name}}}`{% endraw %}, où `type` doit être l'un des types acceptés et `name` peut être ce que vous souhaitez. Les libellés de ces variables correspondent par défaut au nom de la variable.
 
-Par défaut, toutes les variables sont obligatoires (et votre rapport ne s'exécutera pas tant que les valeurs des variables ne seront pas sélectionnées), à l'exception de la plage de dates, qui prend par défaut les 30 derniers jours lorsque la valeur n'est pas fournie.
+Par défaut, toutes les variables sont obligatoires (et votre rapport ne s'exécutera pas tant que les valeurs des variables ne seront pas sélectionnées), à l'exception de la plage de dates, qui correspond par défaut aux 30 derniers jours lorsque la valeur n'est pas fournie.
 
 ### Types de variables {#variable-types}
 
@@ -180,7 +199,7 @@ Les types de variables suivants sont acceptés :
 
 - [Nombre](#number)
 - [Plage de dates](#date-range)
-- [Envoi de messages](#messaging)
+- [Communication](#messaging)
 - [Produits](#products)
 - [Événements personnalisés](#custom-events)
 - [Propriétés d'événements personnalisés](#custom-event-properties)
@@ -194,7 +213,7 @@ Les types de variables suivants sont acceptés :
 
 #### Nombre {#number}
 
-- **Valeur de remplacement :** La valeur fournie, telle que `5.5`
+- **Valeur de remplacement :** La valeur fournie, par exemple `5.5`
 - **Exemple d'utilisation :** {% raw %}`some_number_column < {{number.${some name}}}`{% endraw %}
 
 #### Plage de dates {#date-range}
@@ -215,67 +234,67 @@ Les quatre types sont affichés si `start_date` et `end_date` sont utilisés ave
 | Plage de dates | Spécifie à la fois une date de début et une date de fin | Nécessite à la fois `start_date` et `end_date` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Exemples de valeurs" }
 
-- **Valeur de remplacement :** Remplace `start_date` et `end_date` par un horodatage Unix en secondes pour une date spécifiée en UTC, tel que `1696517353`.
-- **Exemple d'utilisation :** Pour toutes les variables relatives, date de début, date de fin et plage de dates :
+- **Valeur de remplacement :** Remplace `start_date` et `end_date` par un horodatage Unix en secondes pour une date spécifiée en UTC, par exemple `1696517353`.
+- **Exemple d'utilisation :** Pour toutes les variables relatives, de date de début, de date de fin et de plage de dates :
     - {% raw %}`time > {{start_date.${some name}}} AND time < {{end_date.${some name}}}` {% endraw %}
-        - Vous pouvez utiliser soit `start_date` soit `end_date` si vous ne souhaitez pas de plage de dates.
+        - Vous pouvez utiliser soit `start_date`, soit `end_date` si vous ne souhaitez pas de plage de dates.
 
-#### Envoi de messages {#messaging}
+#### Communication {#messaging}
 
-Toutes les variables d'envoi de messages doivent partager le même identifiant lorsque vous souhaitez lier leur état dans un même groupe.
+Toutes les variables de communication doivent partager le même identifiant lorsque vous souhaitez lier leur état dans un même groupe.
 
-##### Canvas
+##### Canvas {#canvas}
 
-Pour sélectionner un Canvas. Partager le même nom avec une Campaign entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
+Pour sélectionner un Canvas. Partager le même nom avec une Campaign entraînera l'affichage d'un bouton radio dans l'onglet **Variables** permettant de choisir entre Canvas ou Campaign.
 
 - **Valeur de remplacement :** ID BSON du Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
 ##### Canvas (multiples) {#canvases}
 
-Pour sélectionner plusieurs Canvas. Partager le même nom avec une Campaign entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
+Pour sélectionner plusieurs Canvas. Partager le même nom avec une Campaign entraînera l'affichage d'un bouton radio dans l'onglet **Variables** permettant de choisir entre Canvas ou Campaign.
 
 - **Valeur de remplacement :** ID BSON des Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_id IN ({{canvases.${some name}}})`{% endraw %}
 
-##### Campaign
+##### Campaign {#campaign}
 
-Pour sélectionner une Campaign. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
+Pour sélectionner une Campaign. Partager le même nom avec un Canvas entraînera l'affichage d'un bouton radio dans l'onglet **Variables** permettant de choisir entre Canvas ou Campaign.
 
 - **Valeur de remplacement :** ID BSON de la Campaign
 - **Exemple d'utilisation :** {% raw %}`campaign_id = '{{campaign.${some name}}}'`{% endraw %}
 
 ##### Campaigns {#campaigns}
 
-Pour sélectionner plusieurs Campaigns. Partager le même nom avec un Canvas entraînera un bouton radio dans l'onglet **Variables** permettant de sélectionner soit Canvas soit Campaign.
+Pour sélectionner plusieurs Campaigns. Partager le même nom avec un Canvas entraînera l'affichage d'un bouton radio dans l'onglet **Variables** permettant de choisir entre Canvas ou Campaign.
 
 - **Valeur de remplacement :** ID BSON des Campaigns
 - **Exemple d'utilisation :** {% raw %}`campaign_id IN ({{campaigns.${some name}}})`{% endraw %}
 
-##### Variantes de Campaign {#campaign-variants}
+##### Variantes de campagne {#campaign-variants}
 
-Pour sélectionner les variantes de Campaign appartenant à la Campaign sélectionnée. Doit être utilisé conjointement avec une variable Campaign ou Campaigns.
+Pour sélectionner les variantes de campagne appartenant à la Campaign sélectionnée. Cette variable doit être utilisée conjointement avec une variable Campaign ou Campaigns.
 
-- **Valeur de remplacement :** ID API des variantes de Campaign, chaînes de caractères délimitées par des virgules telles que `api-id1, api-id2`.
+- **Valeur de remplacement :** ID API des variantes de campagne, chaînes de caractères délimitées par des virgules, par exemple `api-id1, api-id2`.
 - **Exemple d'utilisation :** {% raw %}`message_variation_api_id IN ({{campaign_variants.${some name}}})`{% endraw %}
 
 ##### Variantes de Canvas {#canvas-variants}
 
-Pour sélectionner les variantes de Canvas appartenant à un Canvas choisi. Doit être utilisé avec une variable Canvas ou Canvas (multiples).
+Pour sélectionner les variantes de Canvas appartenant à un Canvas choisi. Cette variable doit être utilisée avec une variable Canvas ou Canvas (multiples).
 
-- **Valeur de remplacement :** ID API des variantes de Canvas, chaînes de caractères délimitées par des virgules telles que `api-id1, api-id2`.
+- **Valeur de remplacement :** ID API des variantes de Canvas, chaînes de caractères délimitées par des virgules, par exemple `api-id1, api-id2`.
 - **Exemple d'utilisation :** {% raw %}`canvas_variation_api_id IN ({{canvas_variants.${some name}}})`{% endraw %}
 
 ##### Étape du Canvas {#canvas-step}
 
-Pour sélectionner une étape du Canvas appartenant à un Canvas choisi. Doit être utilisé avec une variable Canvas.
+Pour sélectionner une étape du Canvas appartenant à un Canvas choisi. Cette variable doit être utilisée avec une variable Canvas.
 
 - **Valeur de remplacement :** ID API de l'étape du Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_step_api_id = '{{canvas_step.${some name}}}'`{% endraw %}
 
 ##### Étapes du Canvas {#canvas-steps}
 
-Pour sélectionner les étapes du Canvas appartenant aux Canvas choisis. Doit être utilisé avec une variable Canvas ou Canvas (multiples).
+Pour sélectionner les étapes du Canvas appartenant aux Canvas choisis. Cette variable doit être utilisée avec une variable Canvas ou Canvas (multiples).
 
 - **Valeur de remplacement :** ID API des étapes du Canvas
 - **Exemple d'utilisation :** {% raw %}`canvas_step_api_id IN ({{canvas_steps.${some name}}})`{% endraw %}

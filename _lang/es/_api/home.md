@@ -44,6 +44,7 @@ glossary_tags:
   - name: Email Templates
   - name: KPI
   - name: Media Library
+  - name: Messaging API
   - name: Purchases
   - name: Preference Center
   - name: Schedule Messages
@@ -83,7 +84,7 @@ glossaries:
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_segment'>/users/export/segment</a>
-    description: Exporta todos los usuarios de un Segment.
+    description: Exporta todos los usuarios de un segmento.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename'>/users/external_ids/rename</a>
@@ -126,6 +127,14 @@ glossaries:
     description: Envía mensajes transaccionales inmediatos y puntuales a un usuario designado.
     tags:
       - Send Messages
+  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
+    description: Recupera los Banners elegibles para un usuario y un conjunto de ubicaciones.
+    tags:
+      - Messaging API
+  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
+    description: Registra eventos de impresión y clic para Banners.
+    tags:
+      - Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
     description: Envía mensajes de Campaign creados en el panel mediante entrega desencadenada por API.
     tags:
@@ -259,19 +268,19 @@ glossaries:
     tags:
       - Canvas
   - name: <a href='/docs/api/endpoints/export/segments/get_segment_analytics'>/segments/data_series</a>
-    description: Recupera una serie diaria del tamaño estimado de un Segment a lo largo del tiempo.
+    description: Recupera una serie diaria del tamaño estimado de un segmento a lo largo del tiempo.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/get_segment_details'>/segments/details</a>
-    description: Recupera información relevante sobre un Segment.
+    description: Recupera información relevante sobre un segmento.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/get_segment'>/segments/list</a>
-    description: Exporta una lista de Segments, cada uno de los cuales incluye su nombre, el identificador de API del Segment y si tiene habilitado el seguimiento de análisis.
+    description: Exporta una lista de segmentos, cada uno de los cuales incluye su nombre, el identificador de API del segmento y si tiene habilitado el seguimiento de análisis.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/post_cancel_export'>/export/segment/cancel</a>
-    description: Cancela las exportaciones para el ID de Segment proporcionado.
+    description: Cancela las exportaciones para el ID de segmento proporcionado.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/sessions/get_sessions_analytics'>/sessions/data_series</a>

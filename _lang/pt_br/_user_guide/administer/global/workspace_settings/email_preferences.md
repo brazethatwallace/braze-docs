@@ -13,9 +13,9 @@ toc_headers: h2
 
 # Preferências de e-mail {#email-preferences}
 
-> Preferências de e-mail é onde você pode definir configurações específicas de e-mail de saída, como rodapés personalizados, páginas personalizadas de opt-in e descadastramento, e mais. Incluir essas opções nos seus e-mails de saída proporciona uma experiência fluida e coesa para seus usuários.
+> Preferências de e-mail é onde você pode definir configurações específicas de e-mail de saída, como rodapés personalizados, páginas personalizadas de aceitação e cancelamento de inscrição, e mais. Incluir essas opções nos seus e-mails de saída proporciona uma experiência fluida e coesa para seus usuários.
 
-**Preferências de e-mail** pode ser encontrado em **Configurações** no dashboard.
+**Preferências de e-mail** pode ser encontrado em **Configurações** > **Configurações do espaço de trabalho** no dashboard.
 
 ## Configuração de envio {#sending-configuration}
 
@@ -61,12 +61,12 @@ Default to English Display Name
 {% endtab %}
 {% tab Reply-To Address %}
 
-Adicionar um endereço de e-mail nesta seção permite que você o selecione como endereço de resposta para sua campanha de e-mail. Você também pode tornar um endereço de e-mail o padrão selecionando **Make Default**. Esses endereços de e-mail estarão disponíveis nas opções de **Sending Info** ao compor sua campanha de e-mail.
+Adicionar um endereço de e-mail nesta seção permite que você o selecione como endereço de resposta para sua campanha de e-mail. Você também pode tornar um endereço de e-mail o padrão selecionando **Make Default**. Esses endereços de e-mail ficam disponíveis nas opções de **Sending Info** ao compor sua campanha de e-mail.
 
-![Seção "Reply-To Address" com campos para inserir vários endereços de resposta.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
+![Seção "Reply-To Address" com campos para inserir múltiplos endereços de resposta.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
 {% alert note %}
-Os domínios de envio da Braze não aceitam e-mails de entrada. Se um destinatário responder a um e-mail enviado de um domínio de envio configurado na Braze, a resposta será rejeitada com um erro `550 5.7.1 relaying denied`. O endereço de resposta não precisa compartilhar o mesmo domínio do endereço de remetente. Se você precisar receber respostas — por exemplo, para coletar confirmações de convites de calendário — use um subdomínio que não esteja configurado para envio e que tenha uma caixa de entrada configurada para aceitar e-mails.
+Os domínios de envio da Braze não aceitam e-mails de entrada. Se um destinatário responder a um e-mail enviado de um domínio de envio configurado na Braze, a resposta será rejeitada com o erro `550 5.7.1 relaying denied`. O endereço de resposta não precisa compartilhar o mesmo domínio do endereço de remetente. Se você precisar receber respostas — por exemplo, para coletar confirmações de convites de calendário — use um subdomínio que não esteja configurado para envio e que tenha uma caixa de entrada configurada para receber e-mails.
 {% endalert %}
 
 #### Personalizar com Liquid
@@ -85,7 +85,7 @@ Você também pode usar [Liquid]({{site.baseurl}}/user_guide/messaging/design_an
 {% endraw %}
 
 {% alert tip %}
-Se você usar um bloco de conteúdo para preencher o **Reply-To Address**, certifique-se de que o valor final renderizado seja um endereço de e-mail válido e inclua um `@`. A Braze não pode validar isso quando você salva a configuração, pois o valor final só é conhecido no momento do envio.
+Se você usar um bloco de conteúdo para preencher o campo **Reply-To Address**, certifique-se de que o valor final renderizado seja um endereço de e-mail válido e inclua um `@`. A Braze não pode validar isso quando você salva a configuração, pois o valor final só é conhecido no momento do envio.
 
 - Se o seu bloco de conteúdo armazena a parte local (o texto antes do `@`) e o domínio separadamente, construa o campo como um único endereço (por exemplo, {% raw %}`{{content_blocks.${reply_to_local}}}@{{content_blocks.${reply_to_domain}}}`{% endraw %}).
 {% endalert %}
@@ -93,15 +93,15 @@ Se você usar um bloco de conteúdo para preencher o **Reply-To Address**, certi
 {% endtab %}
 {% tab BCC Address %}
 
-Esta seção permite gerenciar endereços BCC que você pode anexar a mensagens de e-mail de saída enviadas pela Braze. Anexar um endereço BCC a uma mensagem de e-mail envia uma cópia idêntica da mensagem que seu usuário recebe para sua caixa de entrada BCC. Essa é uma ferramenta útil para manter cópias das mensagens enviadas aos seus usuários para requisitos de conformidade ou questões de suporte ao cliente. E-mails BCC não são incluídos nos relatórios e análises de e-mail.
+Esta seção permite gerenciar endereços BCC que podem ser adicionados às mensagens de e-mail de saída enviadas pela Braze. Adicionar um endereço BCC a uma mensagem de e-mail envia uma cópia idêntica da mensagem que o usuário recebe para sua caixa de entrada BCC. Essa é uma ferramenta útil para manter cópias das mensagens enviadas aos seus usuários para requisitos de conformidade ou questões de suporte ao cliente. Os e-mails BCC não são incluídos nos relatórios e análises de e-mail.
 
-Endereços BCC estão disponíveis para Amazon SES, SendGrid e SparkPost. Como alternativa aos endereços BCC, recomendamos usar o [arquivamento de mensagens]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) para salvar uma cópia das mensagens enviadas aos usuários para fins de arquivamento ou conformidade.
+Os endereços BCC estão disponíveis para Amazon SES, SendGrid e SparkPost. Como alternativa aos endereços BCC, recomendamos usar o [arquivamento de mensagens]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) para salvar uma cópia das mensagens enviadas aos usuários para fins de arquivamento ou conformidade.
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-Depois de adicionar um endereço, ele ficará disponível para seleção ao compor um e-mail em Campaigns ou etapas do Canvas. Selecione **Make Default** ao lado de um endereço para defini-lo como selecionado por padrão ao iniciar uma nova campanha de e-mail ou componente do Canvas. Para substituir isso no nível da mensagem, você pode selecionar **No BCC** ao configurar sua mensagem.
+Depois de adicionar um endereço, ele fica disponível para seleção ao compor um e-mail em Campaigns ou etapas do Canvas. Selecione **Make Default** ao lado de um endereço para defini-lo como selecionado por padrão ao iniciar uma nova campanha de e-mail ou componente do Canvas. Para substituir isso no nível da mensagem, você pode selecionar **No BCC** ao configurar sua mensagem.
 
-Se você exigir que todas as mensagens de e-mail enviadas pela Braze incluam um endereço BCC, ative a opção **Require a BCC address for all your email campaigns**. Isso exigirá que você selecione um endereço padrão, que será automaticamente selecionado em novas campanhas de e-mail ou etapas do Canvas. O endereço padrão também será adicionado automaticamente a todas as mensagens disparadas pela REST API. Não é necessário alterar a solicitação de API existente para incluir o endereço.
+Se você exigir que todas as mensagens de e-mail enviadas pela Braze incluam um endereço BCC, ative a opção **Require a BCC address for all your email campaigns**. Isso requer que você selecione um endereço padrão, que é automaticamente selecionado em novas campanhas de e-mail ou etapas do Canvas. O endereço padrão também é adicionado automaticamente a todas as mensagens disparadas pela REST API. Não é necessário alterar a solicitação de API existente para incluir o endereço.
 
 #### BCC dinâmico {#dynamic-bcc}
 
@@ -109,7 +109,7 @@ Com o BCC dinâmico, você pode usar Liquid no seu endereço BCC. Esse recurso e
 
 Por exemplo, você pode adicionar {% raw %}`{{custom_attribute.${support_agent}}}`{% endraw %} como o endereço BCC para e-mails da sua equipe de suporte.
 
-![Seção BCC Address da guia Email Settings com um endereço BCC usando Liquid.]({% image_buster /assets/img/email_settings/dynamic_bcc.png %}){: style="max-width:90%;" }
+![Seção de endereço BCC na guia de configurações de e-mail com um endereço BCC usando Liquid.]({% image_buster /assets/img/email_settings/dynamic_bcc.png %}){: style="max-width:90%;" }
 
 {% endtab %}
 {% endtabs %}
@@ -122,7 +122,7 @@ O pixel de rastreamento de abertura de e-mail é uma imagem invisível de 1 x 1&
 
 ### Posicionamento {#placement}
 
-O comportamento padrão na Braze é inserir o pixel de rastreamento na parte inferior do seu e-mail, geralmente em uma tag `<body>`. Para a maioria dos usuários, esse é o local ideal para colocar o pixel.
+O comportamento padrão na Braze é anexar o pixel de rastreamento na parte inferior do seu e-mail, geralmente em uma tag `<body>`. Para a maioria dos usuários, esse é o local ideal para colocar o pixel.
 
 Embora o pixel já esteja estilizado para causar o mínimo possível de alterações visuais, quaisquer alterações visuais não intencionais seriam menos visíveis na parte inferior de um e-mail. Esse também é o padrão para provedores de e-mail como SendGrid e SparkPost.
 
@@ -136,7 +136,7 @@ Atualmente, a Braze permite substituir o local padrão do pixel de rastreamento 
 
 Para alterar o local:
 
-1. Na Braze, acesse **Configurações** > **Preferências de e-mail**.
+1. Na Braze, acesse **Configurações** > **Configurações do espaço de trabalho** > **Preferências de e-mail**.
 2. Selecione uma das seguintes opções: **Move for SendGrid**, **Move for SparkPost** ou **Move for Amazon SES**
 3. Selecione **Salvar**.
 
@@ -291,38 +291,38 @@ Alterar essa configuração não afeta nenhuma das suas mensagens de e-mail ou m
 
 Você pode reinscrever automaticamente os usuários quando eles alteram o endereço de e-mail. Por exemplo, se um usuário do espaço de trabalho que cancelou a inscrição anteriormente alterar o endereço de e-mail para um que não esteja na lista de cancelamento de inscrição da Braze, ele será automaticamente reinscrito.
 
-![Configuração do espaço de trabalho que reinscreve automaticamente os usuários quando o endereço de e-mail é alterado.]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
+![Configuração do espaço de trabalho que reinscreve automaticamente os usuários quando o endereço de e-mail muda.]({% image_buster /assets/img/email_settings/resubscribe_users.png %}){: style="max-width:90%;" }
 
 ## Páginas de inscrição e rodapés {#subscription-pages-and-footers}
 
 {% tabs local %}
 {% tab Rodapé personalizado %}
 
-Para e-mails comerciais, a [CAN-SPAM Act](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003) exige que todos os e-mails comerciais incluam uma opção de cancelamento de inscrição. Com as configurações de rodapé personalizado, você pode manter a conformidade com a CAN-SPAM e, ao mesmo tempo, personalizar o rodapé de cancelamento de inscrição dos seus e-mails. Para manter a conformidade, é necessário adicionar seu rodapé personalizado a todos os e-mails enviados como parte de Campaigns neste espaço de trabalho.
+Para e-mails comerciais, a [CAN-SPAM Act](https://en.wikipedia.org/wiki/CAN-SPAM_Act_of_2003) exige que todos os e-mails comerciais incluam uma opção de cancelamento de inscrição. Com as configurações de rodapé personalizado, você pode manter a conformidade com a CAN-SPAM e, ao mesmo tempo, personalizar o rodapé de cancelamento de inscrição dos seus e-mails. Para manter a conformidade, você deve adicionar seu rodapé personalizado a todos os e-mails enviados como parte de Campaigns neste espaço de trabalho.
 
 Observe os seguintes requisitos ao criar um rodapé personalizado para suas mensagens de e-mail:
-- Deve incluir uma URL de cancelamento de inscrição e um endereço postal físico.
+- Deve incluir uma URL de cancelamento de inscrição e um endereço físico de correspondência.
 - Deve ter menos de 100 KB.
 
-![Editor de rodapé de e-mail personalizado com campos de link de cancelamento de inscrição e endereço postal para conformidade com a CAN-SPAM.]({% image_buster /assets/img/email_settings/custom_footer.png %})
+![Editor de rodapé de e-mail personalizado com campos de link de cancelamento de inscrição e endereço de correspondência para conformidade com a CAN-SPAM.]({% image_buster /assets/img/email_settings/custom_footer.png %})
 
-Para templates Liquid de rodapé personalizado, consulte [Rodapés personalizados]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
+Para modelos Liquid de rodapé personalizado, consulte [Rodapés personalizados]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 {% endtab %}
 {% tab Página de cancelamento de inscrição personalizada %}
 
-A Braze permite que você configure uma **Página de cancelamento de inscrição personalizada** com seu próprio HTML. Essa página é exibida depois que um usuário opta por cancelar a inscrição na parte inferior de um e-mail. Essa página deve ter menos de 750 KB.
+A Braze permite que você defina uma **Página de cancelamento de inscrição personalizada** com seu próprio HTML. Essa página é exibida depois que um usuário seleciona cancelar a inscrição na parte inferior de um e-mail. Observe que essa página deve ter menos de 750 KB.
 
-![Editor HTML e prévia da página de cancelamento de inscrição personalizada exibida após o usuário cancelar a inscrição de e-mail.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
+![Editor de HTML e prévia da página de cancelamento de inscrição personalizada exibida após o usuário cancelar a inscrição de e-mail.]({% image_buster /assets/img/email_settings/custom_unsubscribe.png %})
 
 {% multi_lang_include email/external_font_domains.md page_type='unsubscribe' %}
 
 {% endtab %}
 {% tab Página de aceitação personalizada %}
 
-Você pode criar uma página de aceitação personalizada usando seu próprio HTML. Incluir essa página nos seus e-mails pode ser especialmente útil se você quiser manter a identidade visual e a mensagem consistentes ao longo de todo o ciclo de vida do usuário. Essa página deve ter menos de 750 KB.
+Você pode criar uma página de aceitação personalizada usando seu próprio HTML. Incluir isso nos seus e-mails pode ser especialmente útil se você quiser que sua identidade visual e mensagem permaneçam consistentes ao longo do ciclo de vida do usuário. Observe que essa página deve ter menos de 750 KB.
 
-![Editor HTML e prévia da página de aceitação personalizada para confirmação de inscrição de e-mail com identidade visual.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
+![Editor de HTML e prévia da página de aceitação personalizada para confirmação de inscrição de e-mail com identidade visual.]({% image_buster /assets/img/email_settings/custom_opt_in.png %})
 
 {% multi_lang_include email/external_font_domains.md page_type='opt-in' %}
 
@@ -330,7 +330,7 @@ Você pode criar uma página de aceitação personalizada usando seu próprio HT
 {% endtabs %}
 
 {% alert tip %}
-Na seção **Prévia** de uma página de inscrição ou rodapé, selecione **Copy preview link** para gerar e copiar um link de prévia compartilhável que mostra a aparência do rodapé de e-mail, da página de cancelamento de inscrição ou da página de aceitação para um usuário aleatório. Para saber mais, consulte [Prévia compartilhável]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
+Na seção **Prévia** de uma página de inscrição ou rodapé, selecione **Copy preview link** para gerar e copiar um link de prévia compartilhável que mostra como o rodapé do e-mail, a página de cancelamento de inscrição ou a página de aceitação aparece para um usuário aleatório. Para saber mais, consulte [Prévia compartilhável]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 {% endalert %}
 
 ## Perguntas frequentes {#frequently-asked-questions}
@@ -346,37 +346,37 @@ Uma Central de Preferências não é considerada um link de cancelamento de insc
 {% enddetails %}
 
 {% details Preciso editar Campaigns e Canvas de e-mail anteriores para aplicar a configuração de cancelamento de inscrição com um clique após ativá-la? %}
-Se você não tiver nenhum dos casos de uso para a configuração de list-unsubscribe com um clique no nível da mensagem, nenhuma ação é necessária, desde que a configuração esteja ativada em **Preferências de e-mail**. A Braze adiciona automaticamente os cabeçalhos de cancelamento de inscrição com um clique a todas as mensagens de marketing e promocionais enviadas. No entanto, se você precisar configurar o comportamento de cancelamento de inscrição com um clique por mensagem, será necessário atualizar as Campaigns de e-mail e as etapas do Canvas anteriores.
+Se você não tem nenhum dos casos de uso para a configuração de cancelamento de inscrição com um clique no nível da mensagem (list-unsubscribe), não é necessária nenhuma ação, desde que a configuração esteja ativada em **Preferências de e-mail**. A Braze adiciona automaticamente os cabeçalhos de cancelamento de inscrição com um clique a todas as mensagens de marketing e promocionais enviadas. No entanto, se você precisar configurar o comportamento de cancelamento de inscrição com um clique no nível de cada mensagem, será necessário atualizar as Campaigns de e-mail e as etapas do Canvas anteriores.
 {% enddetails %}
 
-{% details Consigo ver o cabeçalho list-unsubscribe e de cancelamento de inscrição com um clique na mensagem original ou nos dados brutos, mas por que não vejo o botão Cancelar inscrição no Gmail ou no Yahoo? %}
-O Gmail e o Yahoo decidem se exibem ou não o cabeçalho list-unsubscribe ou de cancelamento de inscrição com um clique. Para remetentes novos ou com baixa reputação de remetente, isso pode ocasionalmente fazer com que o botão de cancelamento de inscrição não seja exibido.
+{% details Consigo ver o cabeçalho list-unsubscribe e o cabeçalho de cancelamento de inscrição com um clique na mensagem original ou nos dados brutos, mas por que não vejo o botão Cancelar inscrição no Gmail ou no Yahoo? %}
+O Gmail e o Yahoo decidem, em última instância, se exibem ou não o cabeçalho list-unsubscribe ou de cancelamento de inscrição com um clique. Para remetentes novos ou com baixa reputação de remetente, isso pode ocasionalmente fazer com que o botão de cancelamento de inscrição não seja exibido.
 {% enddetails %}
 
 {% details O cabeçalho personalizado de cancelamento de inscrição com um clique é compatível com Liquid? %}
-Sim, Liquid e lógica condicional são compatíveis para permitir URLs dinâmicas de cancelamento de inscrição com um clique no cabeçalho.
+Sim, Liquid e lógica condicional são compatíveis, permitindo URLs dinâmicas de cancelamento de inscrição com um clique para o cabeçalho.
 {% enddetails %}
 
 {% alert tip %}
 Se você estiver adicionando lógica condicional, evite valores de saída que adicionem espaços em branco à sua URL, pois a Braze não remove esses espaços.
 {% endalert %}
 
-### List-unsubscribe com um clique no nível da mensagem
+### Cancelamento de inscrição com um clique no nível da mensagem (list-unsubscribe)
 
-{% details Se eu adicionar manualmente os cabeçalhos de e-mail para cancelamento com um clique e tiver o cabeçalho de cancelamento de inscrição de e-mail ativado, qual é o comportamento esperado? %}
-Os cabeçalhos de e-mail adicionados para list-unsubscribe com um clique se aplicam a todos os envios futuros dessa campanha.
+{% details Se eu adicionar manualmente os cabeçalhos de e-mail para cancelamento de inscrição com um clique e tiver o cabeçalho de cancelamento de inscrição de e-mail ativado, qual é o comportamento esperado? %}
+Os cabeçalhos de e-mail adicionados para cancelamento de inscrição com um clique (list-unsubscribe) se aplicam a todos os envios futuros dessa Campaign.
 {% enddetails %}
 
 {% details Por que os grupos de inscrições precisam ser iguais entre as variantes da mensagem para o lançamento? %}
 Para uma Campaign com testes A/B, a Braze envia aleatoriamente uma das variantes para o usuário. Se você tiver dois grupos de inscrições diferentes configurados na mesma Campaign (a Variante A está configurada com o Grupo de inscrições A e a Variante B está configurada com o Grupo de inscrições B), não é possível garantir que os usuários inscritos apenas no Grupo de inscrições B recebam a Variante B. Pode haver um cenário em que os usuários cancelam a inscrição de um grupo de inscrições do qual já haviam optado por sair.
 {% enddetails %}
 
-{% details A configuração de cabeçalho de cancelamento de inscrição de e-mail está desativada nas Preferências de e-mail, mas nas informações de envio da minha Campaign, a configuração de list-unsubscribe com um clique está definida como "Use workspace default". Isso é um bug? %}
-Não. Se a configuração do espaço de trabalho estiver desativada e a configuração da mensagem estiver definida como **Use workspace default**, a Braze segue o que está configurado em **Preferências de e-mail**. Isso significa que não adicionamos o cabeçalho de cancelamento de inscrição com um clique para a Campaign.
+{% details A configuração de cabeçalho de cancelamento de inscrição de e-mail está desativada nas Preferências de e-mail, mas nas informações de envio da minha Campaign, a configuração de cancelamento de inscrição com um clique (list-unsubscribe) está definida como "Usar padrão do espaço de trabalho". Isso é um bug? %}
+Não. Se a configuração do espaço de trabalho estiver desativada e a configuração da mensagem estiver definida como **Usar padrão do espaço de trabalho**, a Braze segue o que está configurado em **Preferências de e-mail**. Isso significa que não adicionamos o cabeçalho de cancelamento de inscrição com um clique para a Campaign.
 {% enddetails %}
 
 {% details O que acontece se um grupo de inscrições for arquivado? Isso afeta o cancelamento de inscrição com um clique nos e-mails enviados? %}
-Se um grupo de inscrições referenciado em **Sending Info** para cancelamento com um clique for arquivado, a Braze ainda processa os cancelamentos de inscrição com um clique. O grupo de inscrições não aparece mais no dashboard (filtro de Segment, perfil de usuário e áreas semelhantes).
+Se um grupo de inscrições referenciado nas **Informações de envio** para cancelamento com um clique for arquivado, a Braze ainda processa os cancelamentos de inscrição com um clique. O grupo de inscrições não aparece mais no dashboard (filtro de Segment, perfil de usuário e áreas semelhantes).
 {% enddetails %}
 
 {% details A configuração de cancelamento de inscrição com um clique está disponível para modelos de e-mail? %}
@@ -384,5 +384,5 @@ Não, atualmente não temos planos de adicionar isso para modelos de e-mail, poi
 {% enddetails %}
 
 {% details Esse recurso verifica se a URL de cancelamento de inscrição com um clique adicionada à opção personalizada é válida? %}
-Não, não verificamos nem validamos nenhum link no dashboard da Braze. Certifique-se de testar sua URL corretamente antes do lançamento.
+Não, não verificamos nem validamos nenhum link no dashboard da Braze. Certifique-se de testar adequadamente sua URL antes do lançamento.
 {% enddetails %}

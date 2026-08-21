@@ -11,6 +11,10 @@
 
 RCS is a modern messaging system that offers more features than traditional SMS, introducing capabilities like branded sender IDs, rich media, and interactive content, such as scrollable carousels, quick replies, CTA buttons, and more. It’s designed to provide a sleeker and more engaging user experience.  
 
+{% alert important %}
+RCS messages can't send through Twilio messaging services. Subscription groups that use Twilio for SMS must use an Infobip-compatible RCS sender (or another supported RCS provider) for RCS traffic. Otherwise, RCS sends abort at send time.
+{% endalert %}
+
 #### Details
 
 | Visual components | Access | Throughput | MMS enabled | 1-way vs. 2-way |

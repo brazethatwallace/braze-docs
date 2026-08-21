@@ -88,13 +88,6 @@ Your MCP client references these tools to interact with the Braze MCP server.
 | `create_media_library_asset` | [`/media_library/create`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) | create | Upload an asset to the Braze media library through external URL or base64 file content. Exactly one upload mode must be provided. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Media library" }
 
-### Messages
-
-| Tool | API endpoint | Access | Description |
-| --- | --- | --- | --- |
-| `get_scheduled_broadcasts` | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled) | read | List scheduled campaigns and entry Canvases between now and a designated `end_time`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Messages" }
-
 ### Purchases
 
 | Tool | API endpoint | Access | Description |
@@ -103,13 +96,6 @@ Your MCP client references these tools to interact with the Braze MCP server.
 | `get_quantity_series` | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases) | read | Total number of purchases in your app over a time range. |
 | `get_revenue_series` | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series) | read | Total money spent in your app over a time range. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Purchases" }
-
-### SDK authentication
-
-| Tool | API endpoint | Access | Description |
-| --- | --- | --- | --- |
-| `get_sdk_authentication_keys` | [`/app_group/sdk_authentication/keys`]({{site.baseurl}}/api/endpoints/sdk_authentication/get_sdk_authentication_keys) | read | Retrieve all SDK authentication keys for an app. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="SDK authentication" }
 
 ### Segments
 
@@ -133,14 +119,6 @@ Your MCP client references these tools to interact with the Braze MCP server.
 | --- | --- | --- | --- |
 | `get_session_data_series` | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics) | read | Number of sessions for your app over a designated time period. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Sessions" }
-
-### Subscription groups
-
-| Tool | API endpoint | Access | Description |
-| --- | --- | --- | --- |
-| `get_subscription_group_status` | [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) | read | Subscription state of a user in a subscription group. |
-| `get_user_subscription_groups` | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) | read | List a user's subscription groups. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Subscription groups" }
 
 ### Templates
 

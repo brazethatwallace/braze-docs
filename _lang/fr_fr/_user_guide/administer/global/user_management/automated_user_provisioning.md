@@ -20,7 +20,7 @@ alias: /scim/automated_user_provisioning/
 La disponibilité du provisionnement SCIM dépend de votre édition de plateforme. Si cette fonctionnalité n'est pas disponible dans votre espace de travail, contactez votre gestionnaire du succès des clients pour plus d'informations.
 {% endalert %}
 
-1. Dans le tableau de bord de Braze, accédez à **Paramètres** > **Paramètres d'administration** > **Provisionnement SCIM**, puis sélectionnez **Configurer l'intégration SCIM**.
+1. Dans le tableau de bord de Braze, accédez à **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Provisionnement SCIM**, puis sélectionnez **Configurer l'intégration SCIM**.
 2. À l'étape **Configuration de Braze**, sélectionnez une méthode de provisionnement et fournissez les paramètres d'accès.
 
 ![Une page pour configurer l'intégration SCIM avec des sections pour sélectionner une méthode de provisionnement et fournir les paramètres d'accès.]({% image_buster /assets/img_archive/scim_braze_config.png %}){: style="max-width:70%;"}
@@ -183,7 +183,7 @@ Après avoir renseigné les champs obligatoires, appuyez sur **Generate SCIM tok
 
 ![Champs endpoint API SCIM et jeton SCIM affichés avec des valeurs masquées et des boutons de copie. Sous le champ du jeton se trouve un bouton « Reset Token ».]({% image_buster /assets/img/scim.png %})
 
-Braze exige que toutes les requêtes SCIM contiennent le jeton porteur (bearer token) de l'API SCIM, attaché via un en-tête HTTP `Authorization`.
+Braze exige que toutes les requêtes SCIM contiennent le jeton bearer de l'API SCIM joint via un en-tête HTTP `Authorization`.
 
 {% endtab %}
 {% endtabs %}

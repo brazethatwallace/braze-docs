@@ -116,11 +116,11 @@ For more information, see Meta's documentation on [template archival](https://de
 - New rules on utility template miscategorization—businesses can face template rejection and submission restrictions
 
 ### April 2025: Pause of marketing messages to US phone numbers
-*Last Updated August 2025*
+*Last Updated August 2026*
 
-Meta will pause the delivery of all marketing template messages to WhatsApp users who have a United States phone number (a number composed of a `+1` dialing code and a US area code). There is no current scheduled date when this pause will be lifted. 
+Meta pauses new business-initiated marketing conversations with WhatsApp users who have a United States phone number (a number composed of a `+1` dialing code and a US area code). There is no current scheduled date when this pause will be lifted.
 
-Any attempts to send a template to a WhatsApp user with a US phone number will result in the error `131049`.
+Marketing templates can still be delivered during an open user-initiated conversation window, such as a 24-hour customer service window or a 72-hour free entry point window opened by an [Ad That Clicks to WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/use_cases/ads_that_click_to_whatsapp#considerations). Outside these windows, attempts to send marketing templates to US phone numbers result in error `131049`. Utility, authentication, service, and response messages remain available.
 
 ### March 2025: Template category misuse restrictions
 *Last Updated March 2026*

@@ -15,7 +15,7 @@ description: "Este artículo de referencia explica los distintos componentes de 
 
 ## ¿Qué es un objeto de compra? {#what-is-a-purchase-object}
 
-Un objeto de compra es un objeto que se pasa a través de la API cuando se ha realizado una compra. Cada objeto de compra está ubicado dentro de una matriz de compras, siendo cada objeto una única compra realizada por un usuario concreto en un momento determinado. El objeto de compra tiene muchos campos diferentes que permiten al backend de Braze almacenar y utilizar esta información para la personalización, la recopilación de datos y la adaptación del contenido.
+Un objeto de compra es un objeto que se pasa a través de la API cuando se ha realizado una compra. Cada objeto de compra se encuentra dentro de un arreglo de compras, y cada objeto representa una compra individual realizada por un usuario en particular en un momento determinado. El objeto de compra tiene muchos campos diferentes que permiten al backend de Braze almacenar y utilizar esta información para personalización, recopilación de datos y personalización.
 
 ### Cuerpo del objeto {#object-body}
 
@@ -43,31 +43,35 @@ Un objeto de compra es un objeto que se pasa a través de la API cuando se ha re
 }
 ```
 
-- [ID de usuario externo]({{site.baseurl}}/api/basics#user-ids)
-- [Identificador de la aplicación]({{site.baseurl}}/api/identifier_types)
-- [Wiki de código de divisa ISO 4217](http://en.wikipedia.org/wiki/ISO_4217)
-- [Wiki de código de hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
-
 {% alert note %}
-Algunos pares de identificadores no se pueden utilizar juntos, y `email` tiene prioridad sobre `phone` cuando se proporcionan ambos. Para obtener más información, consulta [Resolución de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
+Las compras con marcas de tiempo en el futuro se registran de forma predeterminada con la hora actual. Esto garantiza que los eventos de compra se registren con una temporización precisa.
 {% endalert %}
 
-## ID del producto de compra {#purchase-product-id}
+- [ID de usuario externo]({{site.baseurl}}/api/basics#user-ids)
+- [Identificador de aplicación]({{site.baseurl}}/api/identifier_types)
+- [Wiki de códigos de moneda ISO 4217](http://en.wikipedia.org/wiki/ISO_4217)
+- [Wiki de códigos de tiempo ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
 
-Dentro del objeto de compra, el `product_id` es un identificador de la compra (como `Product Name` o `Product Category`):
+{% alert note %}
+Algunos pares de identificadores no se pueden usar juntos, y `email` tiene prioridad sobre `phone` cuando se proporcionan ambos. Para obtener más detalles, consulta [Resolución de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
+{% endalert %}
 
-- Braze te permite almacenar hasta 5000 `product_id` en el dashboard.
+## ID de producto de compra {#purchase-product-id}
+
+Dentro del objeto de compra, el `product_id` es un identificador para la compra (como `Product Name` o `Product Category`):
+
+- Braze te permite almacenar hasta 5000 `product_id`s en el panel.
 - El `product_id` puede tener hasta 255 caracteres.
 
-### Convenciones de denominación {#naming-conventions}
+### Convenciones de nomenclatura {#naming-conventions}
 
-En Braze, ofrecemos algunas convenciones generales de nomenclatura para el `product_id` del objeto de compra. Al elegir `product_id`, Braze sugiere utilizar nombres simplistas como el nombre del producto o la categoría del producto (en lugar de SKU) con la intención de agrupar todos los artículos registrados por este `product_id`.
+En Braze, ofrecemos algunas convenciones generales de nomenclatura para el `product_id` del objeto de compra. Al elegir el `product_id`, Braze sugiere usar nombres sencillos como el nombre del producto o la categoría del producto (en lugar de SKUs) con la intención de agrupar todos los elementos registrados por este `product_id`.
 
-Esto ayuda a que los productos sean más fáciles de identificar para la segmentación y la activación.
+Esto facilita la identificación de productos para la segmentación y el desencadenamiento.
 
-### Registrar las compras a nivel de pedido {#log-purchases-at-the-order-level}
+### Registrar compras a nivel de pedido {#log-purchases-at-the-order-level}
 
-Si quieres registrar las compras a nivel de pedido en lugar de a nivel de producto, puedes utilizar el nombre del pedido o la categoría del pedido como `product_id` (como `Online Order` o `Completed Order`).
+Si deseas registrar compras a nivel de pedido en lugar de a nivel de producto, puedes usar el nombre del pedido o la categoría del pedido como `product_id` (como `Online Order` o `Completed Order`).
 
 Por ejemplo, para registrar compras a nivel de pedido en el SDK Web:
 

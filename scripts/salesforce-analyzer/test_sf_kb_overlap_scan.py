@@ -14,6 +14,7 @@ sys.path.insert(0, str(SALESFORCE_ANALYZER_DIR))
 from sf_kb_overlap_scan import (  # noqa: E402
     PHASE2_MARKER,
     BatchOverlapReport,
+    OverlapHit,
     OverlapScanner,
     PrRef,
     merged_within_lookback,
@@ -93,6 +94,42 @@ class OverlapScanTests(unittest.TestCase):
     def test_status_label_clear(self) -> None:
         report = BatchOverlapReport(doc_path="_docs/x.md", article_ids=("ka1",))
         self.assertEqual(report.status_label(), "clear")
+
+    def test_path_covered_by_pr_and_claimed_article_ids(self) -> None:
+        report = BatchOverlapReport(
+            doc_path="_docs/_user_guide/foo.md",
+            article_ids=("ka-claimed", "ka-open"),
+            hits=[
+                OverlapHit(
+                    kind="article_id",
+                    message="`ka-claimed` already claimed in a PR body",
+                    blocking=True,
+                ),
+                OverlapHit(
+                    kind="open_pr",
+                    message="Open PR(s) already edit `_docs/_user_guide/foo.md`",
+                    blocking=True,
+                ),
+            ],
+        )
+        self.assertTrue(report.path_covered_by_pr)
+        self.assertEqual(report.claimed_article_ids(), {"ka-claimed"})
+
+    def test_partial_claim_without_path_pr_is_not_path_covered(self) -> None:
+        report = BatchOverlapReport(
+            doc_path="_docs/_user_guide/bar.md",
+            article_ids=("ka-claimed", "ka-sibling"),
+            hits=[
+                OverlapHit(
+                    kind="article_id",
+                    message="`ka-claimed` already claimed in a PR body",
+                    blocking=True,
+                ),
+            ],
+        )
+        self.assertFalse(report.path_covered_by_pr)
+        self.assertEqual(report.claimed_article_ids(), {"ka-claimed"})
+        self.assertTrue(report.blocked)
 
     def test_load_pr_index_uses_bulk_pr_bodies(self) -> None:
         scanner = OverlapScanner(fetch_develop=False)

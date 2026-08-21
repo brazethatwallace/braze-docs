@@ -281,3 +281,13 @@ If push notifications are not working when using the Braze event kit (embedded k
 ### Sending unnecessary or duplicate data to Braze
 Braze counts a data point each time an attribute is passed to Braze, even if the value is unchanged. For this reason, Braze recommends only forwarding data needed to action on within Braze and ensuring that only deltas of attributes are being passed.
 
+### Events are not appearing in Braze
+
+If mParticle events or attributes are missing in Braze, the issue is often a misconfiguration in your mParticle connection or event mapping—not a Braze outage. Check the following:
+
+- **Connection output:** Confirm Braze is enabled as an output for the relevant connection and that the correct Braze instance, app identifier, and REST API key are configured.
+- **Identity mapping:** Server-to-server and audience syncs require an `external_id`. Anonymous users are not forwarded.
+- **Event mapping:** Verify events are routed to the Braze output and that unsupported data types (nested objects, arrays in event properties) are not being dropped.
+
+If configuration looks correct but data still does not arrive, contact [mParticle support](https://support.mparticle.com/) to review delivery logs on their side.
+

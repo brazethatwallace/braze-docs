@@ -23,27 +23,27 @@ La disponibilidad de páginas de inicio y dominios personalizados depende de tu 
 
 Antes de poder acceder, crear y publicar páginas de inicio, necesitas [permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) de administrador o todos los permisos siguientes:
 
-- View Landing Pages
-- Edit Landing Page Drafts
-- Publish Landing Pages
+- Ver páginas de inicio
+- Editar borradores de páginas de inicio
+- Publicar páginas de inicio
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
 ## Niveles de plan {#plan-tiers}
 
-El número de páginas de inicio publicadas, dominios personalizados y características que puedes usar depende de tu tipo de plan: gratuito o de pago (incremental).
+El número de páginas de inicio publicadas, dominios personalizados y características que puedes utilizar depende de tu tipo de plan: gratuito o pro (incremental).
 
-| Característica | Nivel gratuito | Nivel de pago (incremental) |
+| Característica                                                                                                   | Nivel gratuito     | Nivel pro (incremental)     |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
-| Páginas de inicio publicadas | Cinco por empresa | 20 adicionales |
-| Dominios personalizados | Uno por empresa | Cinco adicionales |
+| Páginas de inicio publicadas                                                                 | Cinco por empresa | 20 adicionales |
+| Dominios personalizados          | Uno por empresa | Cinco adicionales |
 | [Personalización con Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages) | No disponible | Disponible |
 | Campos de formulario prerrellenados | No disponible | Disponible |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Niveles de plan" }
 
 ## Añadir Google Tag Manager a una página de inicio {#adding-google-tag-manager-to-a-landing-page}
 
-Para añadir Google Tag Manager a tus páginas de inicio, agrega un bloque de **Custom Code** a tu página de inicio en el editor de arrastrar y soltar, y luego inserta el código de Tag Manager en el bloque. Asegúrate de añadir una capa de datos antes del código de Tag Manager, como en este ejemplo:
+Para añadir Google Tag Manager a tus páginas de inicio, añade un bloque de **código personalizado** a tu página de inicio en el editor de arrastrar y soltar, y luego inserta el código de Tag Manager en el bloque. Asegúrate de añadir una capa de datos antes del código de Tag Manager, como en este ejemplo:
 
 ```
 <script>
@@ -58,7 +58,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 ```
 
-Para más detalles sobre la implementación de Google Tag Manager, consulta la [documentación de Google](https://developers.google.com/tag-platform/tag-manager/datalayer#installation).
+Para obtener más información sobre la implementación de Google Tag Manager, consulta la [documentación de Google](https://developers.google.com/tag-platform/tag-manager/datalayer#installation).
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
@@ -66,9 +66,9 @@ Para más detalles sobre la implementación de Google Tag Manager, consulta la [
 
 El tamaño del cuerpo de la página de inicio puede ser de hasta 500 KB.
 
-### ¿Pueden las páginas de inicio gestionar escenarios de alto tráfico? {#can-landing-pages-handle-high-traffic-scenarios}
+### ¿Pueden las páginas de inicio manejar escenarios de alto tráfico? {#can-landing-pages-handle-high-traffic-scenarios}
 
-Sí, las páginas de inicio no personalizadas pueden gestionar escenarios de alto tráfico de forma eficaz. Cuando se solicita por primera vez una página de inicio no personalizada, Braze la almacena en caché a través de Cloudflare. Esto significa que todas las solicitudes posteriores del mismo enlace se sirven desde la caché, por lo que el rendimiento no se degrada en solicitudes de alto volumen. Esta caché dura 24 horas, y las vistas de páginas en caché no cuentan para los límites de velocidad.
+Sí, las páginas de inicio no personalizadas pueden manejar escenarios de alto tráfico de manera efectiva. Cuando se solicita por primera vez una página de inicio no personalizada, Braze la almacena en caché a través de Cloudflare. Esto significa que todas las solicitudes posteriores del mismo enlace se sirven desde la caché, por lo que el rendimiento no se degrada en solicitudes de alto volumen. Esta caché dura 24 horas, y las vistas de páginas en caché no cuentan para los límites de velocidad.
 
 Para páginas de inicio personalizadas (que usan personalización con Liquid), los límites de velocidad se aplican a las solicitudes no almacenadas en caché. Para mantener un rendimiento óptimo, consulta [Consideraciones de personalización]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
 
@@ -76,23 +76,23 @@ Para páginas de inicio personalizadas (que usan personalización con Liquid), l
 
 No, no hay ningún requisito técnico.
 
-### ¿Hay un editor HTML para las páginas de inicio? {#is-there-an-html-editor-for-landing-pages}
+### ¿Hay un editor HTML para páginas de inicio? {#is-there-an-html-editor-for-landing-pages}
 
-Sí. Usa el bloque **Custom Code** en el editor de arrastrar y soltar para añadir o editar HTML.
+Sí. Usa el bloque **Custom Code** en el editor de arrastrar y soltar para añadir o editar HTML. Para interactuar con el SDK de Braze desde tu código personalizado, consulta [Puente JavaScript para páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge). Para conectar una interfaz de usuario totalmente personalizada a un formulario de página de inicio, consulta [Crear bloques de formulario personalizados]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
 
 ### ¿Puedo usar iframes en las páginas de inicio? {#can-i-use-iframes-on-landing-pages}
 
-Sí. Agrega un bloque de **Custom Code** en el editor de arrastrar y soltar e incluye un elemento iframe con la URL del contenido que deseas incrustar.
+Sí. Añade un bloque **Custom Code** en el editor de arrastrar y soltar e incluye un elemento iframe con la URL del contenido que deseas incrustar.
 
-Si el sitio web incrustado restringe el enmarcado a través de `frame-ancestors` en su política de seguridad de contenido (CSP) o `X-Frame-Options`, es posible que la página no se cargue en el iframe. Braze no puede anular esa configuración: el sitio incrustado debe estar configurado para permitir el dominio de tu página de inicio.
+Si el sitio web incrustado restringe el enmarcado a través de `frame-ancestors` en su Política de Seguridad de Contenido (CSP) o `X-Frame-Options`, es posible que la página no se cargue en el iframe. Braze no puede anular esa configuración: el sitio incrustado debe estar configurado para permitir el dominio de tu página de inicio.
 
 ### ¿Puedo crear un webhook dentro de una página de inicio? {#can-i-create-a-webhook-inside-a-landing-page}
 
-No, pero el evento **Submitted a Landing Page form** puede actuar como desencadenante para Canvas o campañas de webhook:
+No, pero el evento **Submitted a Landing Page form** puede actuar como desencadenante para Canvas o Campaigns de webhook:
 
 - **Canvas:** Usa el evento **Submitted a Landing Page form** como desencadenante de entrada de Canvas y añade un paso de webhook.
 - **Campaign:** Usa el evento **Submitted a Landing Page form** para desencadenar en función del envío del formulario.
 
-Cuando la página no se envía a través de un canal de Braze (por ejemplo, a través de un sitio web o un anuncio), puede crearse un nuevo perfil de usuario al enviar el formulario, incluso si esa persona ya existe en Braze. Para gestionar esto, configura un Canvas desencadenado por **Submitted a Landing Page form** y añade un paso de webhook de Braze a Braze que llame al endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) para fusionar el nuevo perfil con el existente.
+Cuando la página no se envía a través de un canal de Braze (como a través de un sitio web o un anuncio), se puede crear un nuevo perfil de usuario al enviar el formulario, incluso si esa persona ya existe en Braze. Para manejar esto, configura un Canvas desencadenado por **Submitted a Landing Page form** y añade un paso de webhook de Braze a Braze que llame al endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) para fusionar el nuevo perfil con el existente.
 
-Cuando usas la etiqueta de Liquid `landing_page_url` para compartir la página, los envíos de formularios se vinculan automáticamente al perfil de usuario existente. Después puedes hacer referencia a los atributos de usuario enviados en la página de inicio a través de Liquid para la creación de plantillas posteriores.
+Cuando usas la etiqueta de Liquid `landing_page_url` para compartir la página, los envíos de formularios se vinculan automáticamente al perfil de usuario existente. Luego puedes hacer referencia a los atributos de usuario enviados en la página de inicio a través de Liquid para la creación de plantillas posteriores.
