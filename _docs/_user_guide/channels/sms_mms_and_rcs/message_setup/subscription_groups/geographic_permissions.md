@@ -30,7 +30,7 @@ Remove previously selected countries by clearing the respective boxes next to th
 
 ### Saving your changes
 
-Changes will take effect after you save. Removing countries from your allowlist will prevent all SMS, MMS, and RCS messages from being sent to phone numbers with those countries' dialing codes.
+Changes take effect after you save. Removing countries from your allowlist prevents all SMS, MMS, and RCS messages from being sent to phone numbers with those countries' dialing codes.
 
 ![Warning modal confirming the countries that will be deleted from the allowlist.]({% image_buster /assets/img/sms/delete_allowlist_warning.png %}){: style="max-width:70%;"}
 
@@ -43,7 +43,7 @@ Certain countries have a higher risk of SMS, MMS, and RCS traffic pumping. These
 If you allow sending in these countries, you must first acknowledge the risk of doing so before the country is added to your allowlist.
 
 {% alert note %}
-Limit the countries on your allowlist to only those required to support your business needs. This will minimize your potential for fraudulent traffic. For more guidance on preventing SMS, MMS, and RCS traffic pumping, view [Understanding and preventing SMS, MMS, and RCS traffic pumping fraud]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/sms_traffic_pumping_fraud).
+Limit the countries on your allowlist to only those required to support your business needs. This minimizes your potential for fraudulent traffic. For more guidance on preventing SMS, MMS, and RCS traffic pumping, view [Understanding and preventing SMS, MMS, and RCS traffic pumping fraud]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/sms_traffic_pumping_fraud).
 {% endalert %}
 
 ## Visibility of sends outside the allowlist

@@ -36,7 +36,7 @@ When a user sends a message that contains an opt-in keyword, they are sent a mes
 
 ## Enabling double opt-in
 
-To turn on double opt-in, go to the **Global Keywords** table in the applicable subscription group, and click **Edit** in the **Opt-In Keyword Category**. Next, select your opt-in method (**Opt-In** or **Double Opt-In**). Selecting **Double Opt-In** will expand the page to show additional [configurable fields](#configurable-fields).
+To turn on double opt-in, go to the **Global Keywords** table in the applicable subscription group, and select **Edit** in the **Opt-In Keyword Category**. Next, select your opt-in method (**Opt-In** or **Double Opt-In**). Selecting **Double Opt-In** expands the page to show additional [configurable fields](#configurable-fields).
 
 ![The Opt-In Method section has two opt-in methods to choose from: Opt-In and Double Opt-In.]({% image_buster /assets/img/double_opt_in_method.png %}){:style="max-width:50%;"}
 
