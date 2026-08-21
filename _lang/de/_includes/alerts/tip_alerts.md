@@ -9,7 +9,7 @@ Sie können Abos auch auf einer Braze Landing-Page verwalten. Fügen Sie einen B
 {% if include.alert == "Liquid email display name and reply-to address" %}
 
 {% alert tip %}
-Sie können [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid) in den Feldern **Anzeigename + Adresse** und **Antwortadresse** verwenden, um diese basierend auf angepassten Attributen dynamisch zu gestalten. So können Sie mit einer einzigen E-Mail-Campaign oder einem einzigen Canvas-Schritt Nachrichten von verschiedenen Marken, Regionen oder Abteilungen versenden.
+Sie können [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/) in den Feldern **Anzeigename + Adresse** und **Antwortadresse** verwenden, um diese basierend auf angepassten Attributen dynamisch zu gestalten. So können Sie mit einer einzigen E-Mail-Campaign oder einem einzigen Canvas-Schritt Nachrichten von verschiedenen Marken, Regionen oder Abteilungen versenden.
 {% endalert %}
 
 {% endif %}
@@ -33,7 +33,7 @@ Um Bilder für Katalog-Trigger-Artikel abzurufen, muss Ihr Katalog ein Feld mit 
 {% if include.alert == 'Export troubleshooting' %}
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endif %}

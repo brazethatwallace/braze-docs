@@ -21,9 +21,9 @@ Hier können Sie jede Abo-Gruppe verwalten und anzeigen. Jede von Ihnen erstellt
 Das Präferenzzentrum ist für die Verwendung innerhalb des Braze-E-Mail-Kanals vorgesehen. Die Links zum Präferenzzentrum sind dynamisch und basieren auf den einzelnen Nutzer:innen und können nicht extern gehostet werden.
 {% endalert %}
 
-## Einstellungscenter mit API erstellen {#create-a-preference-center-with-api}
+## Präferenzzentrum mit API erstellen {#create-a-preference-center-with-api}
 
-Mithilfe der [Braze-Endpunkte für das Einstellungscenter]({{site.baseurl}}/api/endpoints/preference_center) können Sie ein Einstellungscenter erstellen – eine von Braze gehostete Website, die den Abo-Status und die Abo-Gruppenstatusangaben Ihrer Nutzer:innen anzeigen kann. Mithilfe von HTML und CSS kann Ihr Entwickler:innen-Team das Einstellungscenter so gestalten, dass das Seitendesign Ihren Markenrichtlinien entspricht.
+Mithilfe der [Braze-Endpunkte für das Präferenzzentrum]({{site.baseurl}}/api/endpoints/preference_center) können Sie ein Präferenzzentrum erstellen – eine von Braze gehostete Website, die den Abo-Status und die Abo-Gruppenstatusangaben Ihrer Nutzer:innen anzeigen kann. Mithilfe von HTML und CSS kann Ihr Entwickler:innen-Team das Präferenzzentrum so gestalten, dass das Seitendesign Ihren Markenrichtlinien entspricht.
 
 Durch die Verwendung von Liquid können Sie die Namen Ihrer Abo-Gruppen und den Status jeder Nutzerin und jedes Nutzers abrufen. Auf diese Weise speichert und ruft Braze diese Daten ab, wenn die Seite geladen wird.
 
@@ -31,17 +31,17 @@ Durch die Verwendung von Liquid können Sie die Namen Ihrer Abo-Gruppen und den 
 
 | Anforderung | Beschreibung |
 |---|---|
-| Aktiviertes Einstellungscenter | Ihr Braze-Dashboard verfügt über die Berechtigungen zur Nutzung des Einstellungscenter-Features. |
+| Aktiviertes Präferenzzentrum | Ihr Braze-Dashboard verfügt über die Berechtigungen zur Nutzung des Präferenzzentrum-Features. |
 | Gültiger Workspace mit einer E-Mail-, SMS- oder WhatsApp-Abo-Gruppe | Ein funktionierender Workspace mit gültigen Nutzer:innen und einer E-Mail-, SMS- oder WhatsApp-Abo-Gruppe. |
 | Gültige:r Nutzer:in | Eine Nutzerin oder ein Nutzer mit einer E-Mail-Adresse und einer externen ID. |
-| Generierter API-Schlüssel mit Einstellungscenter-Berechtigungen | Gehen Sie im Braze-Dashboard zu **Einstellungen** > **API-Schlüssel**, um zu bestätigen, dass Sie Zugriff auf einen API-Schlüssel mit Einstellungscenter-Berechtigungen haben. |
+| Generierter API-Schlüssel mit Präferenzzentrum-Berechtigungen | Gehen Sie im Braze-Dashboard zu **Einstellungen** > **API-Schlüssel**, um zu bestätigen, dass Sie Zugriff auf einen API-Schlüssel mit Präferenzzentrum-Berechtigungen haben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-### Schritt 1: Den Endpunkt „Einstellungscenter erstellen“ verwenden {#step-1-use-the-create-preference-center-endpoint}
+### Schritt 1: Den Endpunkt „Präferenzzentrum erstellen“ verwenden {#step-1-use-the-create-preference-center-endpoint}
 
-Beginnen wir mit dem Aufbau eines Einstellungscenters mithilfe des [Endpunkts „Einstellungscenter erstellen“]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center). Um Ihr Einstellungscenter anzupassen, können Sie HTML, das zu Ihrem Branding passt, in das Feld `preference_center_page_html` und das Feld `confirmation_page_html` einfügen.
+Beginnen wir mit dem Aufbau eines Präferenzzentrums mithilfe des [Endpunkts „Präferenzzentrum erstellen“]({{site.baseurl}}/api/endpoints/preference_center/post_create_preference_center). Um Ihr Präferenzzentrum anzupassen, können Sie HTML, das zu Ihrem Branding passt, in das Feld `preference_center_page_html` und das Feld `confirmation_page_html` einfügen.
 
-Der [Endpunkt „Einstellungscenter-URL generieren“]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center) ermöglicht es Ihnen, die Einstellungscenter-URL für eine:n bestimmte:n Nutzer:in außerhalb einer über Braze gesendeten E-Mail abzurufen.
+Der [Endpunkt „Präferenzzentrum-URL generieren“]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center) ermöglicht es Ihnen, die Präferenzzentrum-URL für eine:n bestimmte:n Nutzer:in außerhalb einer über Braze gesendeten E-Mail abzurufen.
 
 {% alert note %}
 Braze rendert `confirmation_page_html` in einem iframe, der eine `data:`-URL verwendet. Browser behandeln `data:`-URLs als opake Ursprünge. Daher können Skripte in diesem iframe keine zusätzlichen externen Ressourcen laden, und die Navigation des übergeordneten Fensters oder die Kommunikation über Frames von dieser Seite aus schlägt fehl.<br><br>Stattdessen können Sie auf externe Inhalte verlinken, z. B. eine gehostete Umfrage-URL, anstatt Skripte einzubetten. Wenn Sie ein Drittanbieter-Tool einbetten müssen und der Anbieter dies erlaubt, verwenden Sie ein `<iframe title="Beschreibung des eingebetteten Inhalts" src="https://example.com/...">`, das auf die gehostete HTTPS-URL des Tools verweist.
@@ -51,7 +51,7 @@ Braze rendert `confirmation_page_html` in einem iframe, der eine `data:`-URL ver
 
 {% multi_lang_include alerts/important_alerts.md alert='Preference Center warning' %}
 
-Um einen Link zum Einstellungscenter in Ihren E-Mails zu platzieren, verwenden Sie den folgenden Liquid-Tag an der gewünschten Stelle in Ihrer E-Mail, ähnlich wie Sie Abmelde-URLs einfügen würden.
+Um einen Link zum Präferenzzentrum in Ihren E-Mails zu platzieren, verwenden Sie den folgenden Liquid-Tag an der gewünschten Stelle in Ihrer E-Mail, ähnlich wie Sie Abmelde-URLs einfügen würden.
 
 {% raw %}
 ```liquid
@@ -59,7 +59,7 @@ Um einen Link zum Einstellungscenter in Ihren E-Mails zu platzieren, verwenden S
 ```
 {%endraw%}
 
-Sie können auch eine Kombination aus HTML mit Liquid verwenden. Zum Beispiel können Sie Folgendes als URL entweder im HTML-Editor oder im Drag-and-Drop-Editor einfügen. Dies zeigt das grundlegende Einstellungscenter-Layout, das automatisch alle E-Mail-Abo-Gruppen auflistet. Wenn Sie [Link Aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) verwenden, fügen Sie nach dem Liquid-Tag ein nachgestelltes Fragezeichen (`?`) hinzu, damit Braze Tracking-Parameter anhängen kann.
+Sie können auch eine Kombination aus HTML mit Liquid verwenden. Zum Beispiel können Sie Folgendes als URL entweder im HTML-Editor oder im Drag-and-Drop-Editor einfügen. Dies zeigt das grundlegende Präferenzzentrum-Layout, das automatisch alle E-Mail-Abo-Gruppen auflistet. Wenn Sie [Link Aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) verwenden, fügen Sie nach dem Liquid-Tag ein nachgestelltes Fragezeichen (`?`) hinzu, damit Braze Tracking-Parameter anhängen kann.
 
 {% raw %}
 ```html
@@ -67,21 +67,21 @@ Sie können auch eine Kombination aus HTML mit Liquid verwenden. Zum Beispiel k�
 ```
 {%endraw%}
 
-Das Einstellungscenter verfügt über ein Kontrollkästchen, mit dem sich Ihre Nutzer:innen von allen E-Mails abmelden können.
+Das Präferenzzentrum verfügt über ein Kontrollkästchen, mit dem sich Ihre Nutzer:innen von allen E-Mails abmelden können.
 
 {% multi_lang_include preference_center/testing.md section="api" %}
 
-#### Ein Einstellungscenter bearbeiten {#edit-a-preference-center}
+#### Ein Präferenzzentrum bearbeiten {#edit-a-preference-center}
 
-Sie können Ihr Einstellungscenter mithilfe des [Endpunkts „Einstellungscenter aktualisieren“]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center) bearbeiten und aktualisieren.
+Sie können Ihr Präferenzzentrum mithilfe des [Endpunkts „Präferenzzentrum aktualisieren“]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center) bearbeiten und aktualisieren.
 
-#### Einstellungscenter und Details identifizieren {#identify-preference-centers-and-details}
+#### Präferenzzentren und Details identifizieren {#identify-preference-centers-and-details}
 
-Um Ihre Einstellungscenter zu identifizieren, verwenden Sie den [Endpunkt „Details für Einstellungscenter anzeigen“]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center), um zugehörige Informationen wie den Zeitstempel der letzten Aktualisierung, die Einstellungscenter-ID und mehr abzurufen.
+Um Ihre Präferenzzentren zu identifizieren, verwenden Sie den [Endpunkt „Details für Präferenzzentrum anzeigen“]({{site.baseurl}}/api/endpoints/preference_center/get_view_details_preference_center), um zugehörige Informationen wie den Zeitstempel der letzten Aktualisierung, die Präferenzzentrum-ID und mehr abzurufen.
 
-## Ein Präferenzcenter anpassen {#customize-a-preference-center}
+## Ein Präferenzzentrum anpassen {#customize-a-preference-center}
 
-Braze verwaltet die Aktualisierungen des Abo-Status über das Präferenzcenter, wodurch das Präferenzcenter synchron gehalten wird. Sie können jedoch auch Ihr eigenes Präferenzcenter erstellen und hosten, indem Sie die [Abo-Gruppen-APIs]({{site.baseurl}}/api/endpoints/subscription_groups) mit den folgenden Optionen verwenden.
+Braze verwaltet die Aktualisierungen des Abo-Status über das Präferenzzentrum, wodurch das Präferenzzentrum synchron gehalten wird. Sie können jedoch auch Ihr eigenes Präferenzzentrum erstellen und hosten, indem Sie die [Abo-Gruppen-APIs]({{site.baseurl}}/api/endpoints/subscription_groups) mit den folgenden Optionen verwenden.
 
 ### Option 1: Link mit String-Abfrageparametern {#option-1-link-with-string-query-parameters}
 
@@ -116,17 +116,17 @@ Dieser Ansatz erfordert keine in die URL eingebetteten Abfragestring-Wert-Paare,
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Warum funktioniert mein Preference Center nicht bei einem Testversand? {#why-doesnt-my-preference-center-work-in-a-test-send}
+### Warum funktioniert mein Präferenzzentrum nicht bei einem Testversand? {#why-doesnt-my-preference-center-work-in-a-test-send}
 
-Links zum Preference Center erfordern einen Live-Versandkontext. Testversände erzeugen keine gültigen Preference-Center-URLs, und der Button **Einstellungen speichern** ist deaktiviert, wenn die Seite geladen wird. Dies ist das erwartete Verhalten. Um End-to-End zu testen, starten Sie eine Campaign oder einen Canvas-Schritt an eine:n Testnutzer:in oder ein kleines internes Segment, oder verwenden Sie den [Endpunkt „Preference-Center-URL generieren“]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center). Weitere Informationen finden Sie unter [Preference Center testen](#testing-preference-centers).
+Links zum Präferenzzentrum erfordern einen Live-Versandkontext. Testversände erzeugen keine gültigen Präferenzzentrum-URLs, und der Button **Präferenzen speichern** ist deaktiviert, wenn die Seite geladen wird. Dies ist das erwartete Verhalten. Um End-to-End zu testen, starten Sie eine Campaign oder einen Canvas-Schritt an eine:n Testnutzer:in oder ein kleines internes Segment, oder verwenden Sie den [Endpunkt „Präferenzzentrum-URL generieren“]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center). Weitere Informationen finden Sie unter [Präferenzzentrum testen](#testing-preference-centers).
 
-### Ich habe kein Preference Center erstellt. Warum wird „PreferenceCenterBrazeDefault“ in meinem Dashboard angezeigt? {#i-havent-created-a-preference-center-why-am-i-seeing-preferencecenterbrazedefault-on-my-dashboard}
+### Ich habe kein Präferenzzentrum erstellt. Warum wird „PreferenceCenterBrazeDefault“ in meinem Dashboard angezeigt? {#i-havent-created-a-preference-center-why-am-i-seeing-preferencecenterbrazedefault-on-my-dashboard}
 
-Dieses wird verwendet, um das Preference Center zu rendern, wenn das Legacy-Liquid {%raw%}`${preference_center_url}`{%endraw%} genutzt wird. Das bedeutet, dass Canvas-Schritte oder Templates, die entweder {%raw%}`${preference_center_url}` oder `preference_center.${PreferenceCenterBrazeDefault}`{%endraw%} referenzieren, nicht funktionieren. Dies gilt auch für zuvor gesendete Nachrichten, die das Legacy-Liquid oder „PreferenceCenterBrazeDefault“ als Teil der Nachricht enthielten.
+Dieses wird verwendet, um das Präferenzzentrum zu rendern, wenn das Legacy-Liquid {%raw%}`${preference_center_url}`{%endraw%} genutzt wird. Das bedeutet, dass Canvas-Schritte oder Templates, die entweder {%raw%}`${preference_center_url}` oder `preference_center.${PreferenceCenterBrazeDefault}`{%endraw%} referenzieren, nicht funktionieren. Dies gilt auch für zuvor gesendete Nachrichten, die das Legacy-Liquid oder „PreferenceCenterBrazeDefault“ als Teil der Nachricht enthielten.
 
-Wenn Sie {%raw%}`${preference_center_url}`{%endraw%} erneut in einer neuen Nachricht referenzieren, wird ein Preference Center mit dem Namen „PreferenceCenterBrazeDefault“ erneut erstellt.
+Wenn Sie {%raw%}`${preference_center_url}`{%endraw%} erneut in einer neuen Nachricht referenzieren, wird ein Präferenzzentrum mit dem Namen „PreferenceCenterBrazeDefault“ erneut erstellt.
 
-### Unterstützen Preference Center mehrere Sprachen? {#do-preference-centers-support-multiple-languages}
+### Unterstützen Präferenzzentren mehrere Sprachen? {#do-preference-centers-support-multiple-languages}
 
 Nein. Sie können jedoch Liquid nutzen, wenn Sie den HTML-Code für benutzerdefinierte Opt-in- und Opt-out-Seiten schreiben. Wenn Sie dynamische Links zur Verwaltung von Abmeldungen verwenden, handelt es sich um einen einzelnen Link.
 
@@ -145,13 +145,13 @@ ${unsubscribe_url}
 
 Anschließend könnten Sie über Currents ermitteln, welche Nutzer:innen Spanisch sprechen und wie viele Klick-Ereignisse es für diesen Abmeldelink gab.
 
-### Sind sowohl Abmeldelinks als auch E-Mail-Preference-Center für den Versand erforderlich? {#are-both-unsubscribe-links-and-email-preference-centers-required-for-sending}
+### Sind sowohl Abmeldelinks als auch E-Mail-Präferenzzentren für den Versand erforderlich? {#are-both-unsubscribe-links-and-email-preference-centers-required-for-sending}
 
 Nein. Wenn beim Erstellen einer E-Mail-Campaign die Meldung „Your Email Body does not include an unsubscribe link“ angezeigt wird, ist diese Warnung zu erwarten, wenn sich Ihr Abmeldelink in einem Content-Block befindet.
 
 ### Wie aktualisiere ich das Standard-Browsersymbol? {#how-do-i-update-the-default-browser-icon}
 
-Standardmäßig verwendet das Symbol neben dem Browser-Tab-Namen (Favicon) das Braze-Logo. Um ein benutzerdefiniertes Favicon hinzuzufügen, legen Sie es über das Attribut `links-tags` in Ihrem API-Aufruf zum Erstellen oder Aktualisieren des [Preference Center]({{site.baseurl}}/api/endpoints/preference_center) fest. Braze speist dann den {% raw %}`<link rel="icon" ...>`{% endraw %}-Tag in die gehostete Seite für Sie ein.
+Standardmäßig verwendet das Symbol neben dem Browser-Tab-Namen (Favicon) das Braze-Logo. Um ein benutzerdefiniertes Favicon hinzuzufügen, legen Sie es über das Attribut `links-tags` in Ihrem API-Aufruf zum Erstellen oder Aktualisieren des [Präferenzzentrums]({{site.baseurl}}/api/endpoints/preference_center) fest. Braze speist dann den {% raw %}`<link rel="icon" ...>`{% endraw %}-Tag in die gehostete Seite für Sie ein.
 
 {% raw %}
 ```
