@@ -29,9 +29,10 @@ description: "This reference article explains the different components of the Br
   "extras": (optional, valid Key-Value Hash) extra hash - for SendGrid users, this is passed to SendGrid as Unique Arguments,
   "headers": (optional, valid Key-Value Hash) hash of custom extensions headers (available for SparkPost, SendGrid, or Amazon SES),
   "should_inline_css": (optional, boolean) whether to inline CSS on the body. If not provided, falls back to the default CSS inlining value for the workspace,
-  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name" and "url",
+  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name", "url", and optionally "basic_auth_credential",
     "file_name": (required, string) the name of the file you want to attach to your email, excluding the extension (for example, ".pdf"). Attach files up to 2 MB. This is required if you use "attachments",
     "url": (required, string) the corresponding URL of the file you want to attach to your email. The file name's extension is detected automatically from the URL defined, which should return the appropriate "Content-Type" as a response header. This is required if you use "attachments",
+    "basic_auth_credential": (optional, string) the name of the stored basic authentication credential to use when the attachment URL requires a login,
 }
 ```
 
@@ -68,9 +69,13 @@ An `email_template_id` can be retrieved from the bottom of any email template cr
 
 ## Authentication for email file attachments
 
-1. Navigate to **Settings** > **Connected Content** and click **Add Credential** to add your authentication credentials.
-2. Enter a name, and add a username and password.
-3. In email object of the `/messages/send` endpoint, include a `basic_auth_credential` property specifying the credential name in the attachment details. Refer to the following example with the credential name `company_basic_auth_credential_name`:
+Use a stored basic authentication credential when an attachment URL requires a login. This applies to attachments in the email object on [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) and to the top-level `attachments` array on [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
+
+1. Go to **Settings** > **Connected Content**.
+2. Select **Add credential**.
+3. Select **Basic authentication**.
+4. Enter a credential name, username, and password.
+5. Include a `basic_auth_credential` property on each attachment that requires authentication, and set it to that credential name. The following example uses the credential name `company_basic_auth_credential_name` in an email object:
 
 ```json
 {
@@ -78,7 +83,7 @@ An `email_template_id` can be retrieved from the bottom of any email template cr
   "messages":{
     "email":{
       "app_id": "153e8a29-fd6d-4f77-ade7-1a4ca08d457a",
-      "subject": "Basis auth attachment test",
+      "subject": "Basic auth attachment test",
       "from": "mail <mail@example.com>",
       "body": "my attachment test",
       "attachments":[
