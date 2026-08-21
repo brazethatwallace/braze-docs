@@ -391,6 +391,12 @@ On each request, Braze performs the following server-side validation checks:
 
 If authentication fails, the API returns an error response with an HTTP status code. For example, `401 Unauthorized` indicates an invalid or missing key, while `403 Forbidden` indicates the key doesn't have permission for the requested endpoint. For more information, see [API errors]({{site.baseurl}}/api/errors).
 
+### Request header casing {#header-casing}
+
+HTTP header names are case-insensitive, so `Authorization` and `authorization` are equivalent. The same applies to other standard request headers, such as `Content-Type`. Send whichever casing your HTTP client produces.
+
+Braze also accepts any casing of the `Bearer` scheme (`Bearer`, `bearer`, or `BEARER`). Send the REST API key itself exactly as it was issued.
+
 ### Network-level security
 
 REST API requests to Braze are protected by Transport Layer Security (TLS) encryption across the full request path. The following table describes the network flow for an API request from your server to Braze:
