@@ -17,14 +17,13 @@ hide_toc: true
 열 정의는 다음과 같습니다.
 
 |---------|-------------------------------------------------|
-| **목적지** | Braze 플랫폼을 통해 전송되는 특정 최종 지역, 국가 또는 액션 유형 |
+| **목적지** | Braze 플랫폼을 통해 전송되는 특정 최종 지역, 국가 또는 작업 유형 |
 | **1회 전송당 크레딧** | 1회 전송을 수행하는 데 필요한 정확한 메시지 크레딧 수<br> (전송당 크레딧 = 크레딧 비율 x 목적지 배수) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-
 ## 메시지 크레딧 - Lambda 크레딧 비율 표 {#credit-ratio-table-for-message-credits-lambda}
 
-{% details 펼치려면 클릭하세요 %}
+{% details 펼쳐서 보기 %}
 <table class="credits-table" aria-label="메시지 크레딧 - Lambda 크레딧 비율 표">
     <colgroup>
         <col span="3">
@@ -33,8 +32,8 @@ hide_toc: true
     <thead>
     <tr>
         <th><b>채널</b></th>
-        <th><b>목적지</b></th>
-        <th class="credits-column"><b>1회 전송당 크레딧</b></th>
+        <th><b>수신지</b></th>
+        <th class="credits-column"><b>1회 발송당 크레딧</b></th>
     </tr>
     <tr>
         <td>Agent Console</td>
@@ -370,7 +369,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>도미니카공화국</td>
+        <td>도미니카 공화국</td>
         <td>10.20</td>
     </tr>
     <tr>
@@ -395,7 +394,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>적도기니</td>
+        <td>적도 기니</td>
         <td>5.40</td>
     </tr>
     <tr>
@@ -1905,7 +1904,7 @@ hide_toc: true
     </tr>
     <tr>
         <td>웹훅</td>
-        <td>표준</td>
+        <td>스탠다드</td>
         <td>0.08</td>
     </tr>
     <tr>
@@ -2040,22 +2039,22 @@ hide_toc: true
 
 ------
 
-## Agent Console 세부 정보 {#agent-console-details}
-Braze는 Braze 플랫폼에서 전송된 Agent Console 호출(Invocation)에 대해 메시지 크레딧을 청구합니다. 호출은 에이전트가 LLM에 대한 호출을 시작할 때 기록됩니다. 기본적으로 계약에는 가입 기간의 각 기간당 1만 건의 호출이 포함되어 있습니다.
+## Agent Console 세부 사항 {#agent-console-details}
+Braze는 Braze 플랫폼에서 전송된 Agent Console 호출에 대해 메시지 크레딧을 청구합니다. 호출은 에이전트가 LLM에 대한 호출을 시작할 때 기록됩니다. 기본적으로, 계약에는 구독 기간의 각 기간당 만 건의 호출이 포함되어 있습니다.
 
 ## SMS/MMS 채널 세부 정보 {#smsmms-channel-details}
 
-### SMS 세그먼트 {#sms-segments}
+### SMS 메시지 세그먼트 {#sms-segments}
 
-SMS 메시지 세그먼트는 SMS 업계에서 메시지를 계산하는 방식입니다. 메시지 세그먼트는 정해진 문자 수(GSM-7 인코딩의 경우 160자, UCS-2 인코딩의 경우 67자)까지의 그룹으로, 단일 SMS 발송으로 전송됩니다. GSM-7 인코딩을 사용하여 161자의 SMS를 발송하면 두(2)개의 메시지 세그먼트가 전송된 것을 확인할 수 있습니다. 여러 메시지 세그먼트를 전송하면 추가 요금이 발생합니다.
+SMS 메시지 세그먼트는 SMS 업계에서 메시지를 집계하는 방식입니다. 메시지 세그먼트는 정해진 문자 수(GSM-7 인코딩의 경우 160자, UCS-2 인코딩의 경우 67자)까지의 문자 그룹으로, 단일 SMS 발송으로 전송됩니다. GSM-7 인코딩을 사용하여 161자의 SMS를 발송하면 두(2)개의 메시지 세그먼트가 전송된 것을 확인할 수 있습니다. 여러 메시지 세그먼트를 전송하면 추가 요금이 발생합니다.
 
-### MMS 세그먼트 {#mms-segments}
+### MMS 메시지 세그먼트 {#mms-segments}
 
 MMS의 경우 메시지 제한은 5MB입니다(멀티미디어 자산과 메시지 본문 크기 포함). 안전을 위해 Braze는 메시지 본문을 포함하면서 멀티미디어 자산을 600KB 이하로 유지할 것을 권장합니다.
 
 ### RCS 유형 {#rcs-types}
 
-RCS는 SMS와 MMS의 차세대 버전입니다. SMS와 같은 직접적이고 높은 인게이지먼트 채널의 장점을 제공하면서, 현대 소비자가 기대하는 리치 콘텐츠(이미지, 비디오, 문서), 인증 및 브랜드 발신, 추천 답장 및 액션과 같은 인터랙티브 기능 등 더 풍부한 기능을 갖추고 있습니다.
+RCS는 SMS와 MMS의 차세대 버전입니다. SMS와 같은 직접적이고 높은 인게이지먼트 채널의 장점을 제공하면서, 현대 소비자가 기대하는 리치 콘텐츠(이미지, 비디오, 문서), 인증 및 브랜드 발신, 추천 답장 및 액션과 같은 인터랙티브 기능 등 더욱 풍부한 기능을 갖추고 있습니다.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
@@ -2067,15 +2066,17 @@ RCS는 SMS와 MMS의 차세대 버전입니다. SMS와 같은 직접적이고 �
 
 ### 웹훅 {#webhooks}
 
-웹훅은 2024년 12월 9일부터 메시지 크레딧에 포함되었습니다. Braze는 Braze 플랫폼에서 전송된 모든 웹훅에 대해 메시지 크레딧을 청구합니다. 기본적으로 계약에는 가입 기간의 각 기간당 10만 건의 웹훅이 포함되어 있습니다. 추가 웹훅은 주문서에 따라 청구됩니다.
+웹훅은 2024년 12월 9일부터 메시지 크레딧에 포함되었습니다. Braze는 Braze 플랫폼에서 전송되는 모든 웹훅에 대해 메시지 크레딧을 부과합니다. 기본적으로 계약에는 구독 기간의 각 기간당 10만 건의 웹훅이 포함되어 있습니다. 추가 웹훅은 주문서에 따라 요금이 부과됩니다.
+
+{% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Message Credits' %}
 
 ### BYO(Bring Your Own) SMS 커넥터 {#bring-your-own-byo-sms-connectors}
 
-Braze는 고객이 "BYO SMS 커넥터" 모델을 통해 서드파티 공급자와 통합하여 SMS 메시지를 전송할 수 있도록 합니다. Braze는 BYO SMS 커넥터를 통해 Braze 플랫폼에서 전송된 각 메시지에 대해 메시지 크레딧을 청구합니다.
+Braze는 고객이 "BYO SMS 커넥터" 모델을 통해 서드파티 공급자와 통합하여 SMS 메시지를 전송할 수 있도록 지원합니다. Braze는 BYO SMS 커넥터를 통해 Braze 플랫폼에서 전송되는 각 메시지에 대해 메시지 크레딧을 부과합니다.
 
 ### LINE
 
-Braze는 Braze 플랫폼에서 전송된 모든 LINE 메시지에 대해 메시지 크레딧을 청구합니다.
+Braze는 Braze 플랫폼에서 전송되는 모든 LINE 메시지에 대해 메시지 크레딧을 부과합니다.
 
 ## 청구 지역 분류 {#billing-region-breakdown}
 
@@ -2097,7 +2098,7 @@ Braze는 Braze 플랫폼에서 전송된 모든 LINE 메시지에 대해 메시�
 
 ### 기타 라틴 아메리카 {#rest-of-latin-america}
 
-볼리비아, 코스타리카, 도미니카공화국, 에콰도르, 엘살바도르, 과테말라, 아이티, 온두라스, 자메이카, 니카라과, 파나마, 파라과이, 푸에르토리코, 우루과이, 베네수엘라
+볼리비아, 코스타리카, 도미니카 공화국, 에콰도르, 엘살바도르, 과테말라, 아이티, 온두라스, 자메이카, 니카라과, 파나마, 파라과이, 푸에르토리코, 우루과이, 베네수엘라
 
 ### 기타 중동 {#rest-of-middle-east}
 

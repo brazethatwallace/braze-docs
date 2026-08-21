@@ -20,13 +20,13 @@ alias: /scim/automated_user_provisioning/
 La disponibilidad del aprovisionamiento SCIM depende de tu edición de la plataforma. Si esta característica no está en tu espacio de trabajo, contacta a tu administrador de éxito de cliente para obtener información.
 {% endalert %}
 
-1. En el panel de Braze, ve a **Configuración** > **Configuración de administrador** > **Aprovisionamiento SCIM** y selecciona **Configurar integración SCIM**.
+1. En el panel de Braze, ve a **Configuración** > **Configuración de la empresa** > **Configuración de administrador** > **Aprovisionamiento SCIM** y selecciona **Configurar integración SCIM**.
 2. En el paso **Configuración de Braze**, selecciona un método de aprovisionamiento y proporciona la configuración de acceso.
 
 ![Una página para configurar la integración SCIM con secciones para seleccionar un método de aprovisionamiento y proporcionar la configuración de acceso.]({% image_buster /assets/img_archive/scim_braze_config.png %}){: style="max-width:70%;"}
 
 {: start="3"}
-3. En el paso **Configuración del IdP**, sigue los pasos dentro de la plataforma para tu método de aprovisionamiento seleccionado.
+3. En el paso **Configuración del IdP**, sigue los pasos dentro de la plataforma para el método de aprovisionamiento seleccionado.
 
 {% tabs %}
 {% tab Okta - Braze app %}
@@ -174,14 +174,14 @@ El atributo `userName` debe coincidir exactamente con la dirección de correo el
 ## Paso 1: Configurar tus ajustes SCIM {#step-1-configure-your-scim-settings}
 
 - **Espacio de trabajo predeterminado:** Selecciona el espacio de trabajo donde se deben agregar los nuevos usuarios de forma predeterminada. Si no especificas un espacio de trabajo en tu [solicitud de API SCIM]({{site.baseurl}}/post_create_user_account), Braze asigna a los usuarios a este espacio de trabajo.
-- **Service Origin:** Ingresa el dominio de origen de tus solicitudes SCIM. Braze lo utiliza en el encabezado `X-Request-Origin` para verificar de dónde provienen las solicitudes.
-- **Lista de IP permitidas (opcional):** Puedes restringir las solicitudes SCIM a direcciones IP específicas. Ingresa una lista separada por comas o un rango de direcciones IP a permitir. El encabezado `X-Request-Origin` en cada solicitud se utiliza para verificar la dirección IP de la solicitud contra la lista de permitidos.
+- **Service Origin:** Ingresa el dominio de origen de tus solicitudes SCIM. Braze lo usa en el encabezado `X-Request-Origin` para verificar de dónde provienen las solicitudes.
+- **Lista de IP permitidas (opcional):** Puedes restringir las solicitudes SCIM a direcciones IP específicas. Ingresa una lista separada por comas o un rango de direcciones IP a permitir. El encabezado `X-Request-Origin` en cada solicitud se usa para verificar la dirección IP de la solicitud contra la lista de permitidos.
 
 ## Paso 2: Generar un token SCIM {#step-2-generate-a-scim-token}
 
 Después de completar los campos obligatorios, presiona **Generate SCIM token** para generar un token SCIM y ver tu endpoint de API SCIM. Asegúrate de copiar el token SCIM antes de navegar a otra página. **Este token aparece solo una vez.**
 
-![Campos de endpoint de API SCIM y token SCIM mostrados con valores enmascarados y botones de copiar. Debajo del campo del token hay un botón "Reset Token".]({% image_buster /assets/img/scim.png %})
+![Campos de endpoint de API SCIM y token SCIM mostrados con valores enmascarados y botones de copiar. Debajo del campo del token hay un botón de reinicio de token.]({% image_buster /assets/img/scim.png %})
 
 Braze espera que todas las solicitudes SCIM contengan el token bearer de la API SCIM adjunto a través de un encabezado HTTP `Authorization`.
 

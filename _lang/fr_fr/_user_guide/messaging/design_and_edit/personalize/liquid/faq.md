@@ -38,13 +38,13 @@ Consultez la section [Tags de personnalisation pris en charge]({{site.baseurl}}/
 
 Non.
 
-## Étiquettes de personnalisation et sources de données {#personalization-tags-and-data-sources}
+## Balises de personnalisation et sources de données {#personalization-tags-and-data-sources}
 
 ### Comment puis-je utiliser Liquid pour envoyer un message d'accueil personnalisé ? {#how-can-i-use-liquid-to-send-a-personalized-greeting}
 
 Pour un message d'accueil personnalisé utilisant le prénom d'un utilisateur, récupérez les attributs standard du profil utilisateur tels que {% raw %}`{{${first_name}}}` et `{{${last_name}}}`{% endraw %}.
 
-Vous pouvez également utiliser une instruction Liquid {% raw %}`{% if X %}`{% endraw %} pour effectuer un rendu conditionnel basé sur n'importe quel critère, comme le jour de la semaine ou des attributs personnalisés. Pour plus d'informations sur les opérateurs Liquid pris en charge pouvant être utilisés dans les instructions conditionnelles, consultez [Opérateurs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators).
+Vous pouvez également utiliser une instruction Liquid {% raw %}`{% if X %}`{% endraw %} pour effectuer un rendu conditionnel basé sur n'importe quel critère, comme le jour de la semaine ou des attributs personnalisés. Pour plus d'informations sur les opérateurs Liquid pris en charge dans les instructions conditionnelles, consultez [Opérateurs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/operators).
 
 ### Comment puis-je personnaliser un message en fonction de la localisation d'un utilisateur ? {#how-can-i-personalize-a-message-based-on-a-users-location}
 
@@ -55,7 +55,7 @@ Il existe un attribut par défaut pour la localisation de l'utilisateur : `{{${m
 {% raw %}
 ### Quelle est la différence entre {{campaign.${name}}} et {{campaign.${message_name}}} ? {#whats-the-difference-between-campaignname-and-campaignmessage_name}
 
-`{{campaign.${name}}}` et `{{campaign.${message_name}}}` sont toutes deux des étiquettes de personnalisation Liquid prises en charge. Ces deux étiquettes font référence aux attributs de la Campaign. `{{campaign.${name}}}` désigne le nom de votre Campaign, et `{{campaign.${message_name}}}` est le nom de votre variante de message.
+`{{campaign.${name}}}` et `{{campaign.${message_name}}}` sont toutes deux des balises de personnalisation Liquid prises en charge. Ces deux balises font référence aux attributs de la Campaign. `{{campaign.${name}}}` désigne le nom de votre Campaign, et `{{campaign.${message_name}}}` est le nom de votre variante de message.
 {% endraw %}
 
 Pour l'utilisation dans les URL et les chaînes de requête (par exemple, lorsqu'un nom contient `%` ou des espaces), consultez [Noms de Campaign dans les URL]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls).
@@ -69,7 +69,7 @@ Pour plus d'informations, consultez [Segmentation multicritère]({{site.baseurl}
 ### Comment utiliser les attributs d'événement pour personnaliser un message déclenché par un événement ? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
 {% raw %}
-Vous pouvez accéder aux propriétés des événements déclenchés par API avec l'étiquette `api_triggered_property` : `{{api_trigger_properties.${attribute_key}}}`.
+Vous pouvez accéder aux propriétés des événements déclenchés par API avec la balise `api_triggered_property` : `{{api_trigger_properties.${attribute_key}}}`.
 {% endraw %}
 
 ### Braze prend-il en charge un tableau de tableaux en Liquid ? {#does-braze-support-an-array-of-arrays-in-liquid}
@@ -80,7 +80,9 @@ Liquid ne prend pas nativement en charge les tableaux de tableaux. Stockez les v
 
 ### Comment assigner des variables avec Liquid ? {#how-do-i-assign-variables-with-liquid}
 
-Vous pouvez créer et assigner des variables en utilisant la balise `assign`. Cela crée une variable dans le compositeur de messages qui peut également être référencée dans l'ensemble de votre message.
+Vous pouvez créer et assigner des variables en utilisant la balise `assign`. Cela crée une variable dans le composeur de messages qui peut également être référencée dans l'ensemble de votre message.
+
+Vous pouvez répartir un `assign` sur plusieurs lignes si vous encadrez toutes les variables Liquid de Braze avec des doubles accolades (`{{ }}`). Sans ces accolades, les instructions assign sur plusieurs lignes peuvent provoquer un rendu inattendu, y compris des attributs personnalisés qui ne se modélisent pas correctement. Pour des exemples et les règles de syntaxe associées, consultez [Utiliser Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
 
 ### Quand dois-je utiliser `assign` plutôt que `capture` ? {#when-should-i-use-assign-versus-capture}
 
@@ -89,7 +91,7 @@ Vous pouvez créer et assigner des variables en utilisant la balise `assign`. Ce
 - `assign` est destiné aux variables simples qui stockent une seule valeur, comme un booléen, un nombre ou une chaîne de caractères simple. Vous pouvez également appliquer un seul filtre sur la même ligne.
 - `capture` est destiné au stockage d'un bloc de texte pouvant inclure plusieurs variables, chaînes de caractères ou expressions complexes.
 
-Utilisez `capture` lorsque la valeur est trop complexe pour une seule instruction `assign`, comme les URL qui utilisent d'autres variables Liquid ou des attributs personnalisés comme paramètres. `capture` est également préféré lors de l'implémentation de variables Liquid dans le corps des appels de contenu connecté.
+Utilisez `capture` lorsque la valeur est trop complexe pour une seule instruction `assign`, comme des URL qui utilisent d'autres variables Liquid ou des attributs personnalisés comme paramètres. `capture` est également préféré lors de l'implémentation de variables Liquid dans le corps des appels de contenu connecté.
 
 #### Exemples {#examples}
 
@@ -126,7 +128,7 @@ Non. Braze effectue le rendu de chaque composant du message séparément (comme 
 
 Les boucles for sont également connues sous le nom de [balises d'itération](https://shopify.github.io/liquid/tags/iteration/). L'utilisation de la logique de boucle for dans vos extraits Liquid vous permet de parcourir des blocs Liquid jusqu'à ce qu'une condition soit remplie.
 
-Dans Braze, cela peut être utilisé pour vérifier des éléments dans un attribut personnalisé de type tableau, ou une liste de valeurs et d'objets renvoyés par un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs), une [sélection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) ou un appel de [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Plus précisément, vous pouvez utiliser la logique de boucle for dans vos messages pour vérifier si un produit est en stock ou s'il a une note minimale.
+Dans Braze, cela peut être utilisé pour vérifier des éléments dans un attribut personnalisé de type tableau, ou une liste de valeurs et d'objets renvoyés par un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs), une [sélection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) ou une réponse d'appel de [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Plus précisément, vous pouvez utiliser la logique de boucle for dans vos messages pour vérifier si un produit est en stock ou s'il a une note minimale.
 
 Par exemple, supposons que vous ayez un catalogue appelé « Games » qui contient une sélection appelée « cheap_games ». Pour récupérer les titres des jeux dans « cheap_games », vous pouvez utiliser cet extrait Liquid :
 
@@ -143,11 +145,11 @@ Une fois les conditions définies remplies, votre message peut être envoyé. L'
 
 ### Qu'est-ce que la logique d'abandon et comment l'utiliser ? {#what-is-abort-logic-and-how-can-i-use-it}
 
-La logique d'abandon vous permet d'empêcher l'envoi d'un message si les conditions sont remplies. Cela est particulièrement utile pour éviter l'envoi de messages incomplets à vos utilisateurs. Pour des exemples de logique d'abandon dans vos Campaigns marketing, consultez [Abandon de messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
+La logique d'abandon vous permet d'empêcher l'envoi d'un message si les conditions sont remplies. Cela est particulièrement utile pour éviter l'envoi de messages incomplets à vos utilisateurs. Pour des exemples de logique d'abandon dans vos Campaigns marketing, consultez [Abandonner des messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
 
 ### Puis-je utiliser Liquid à l'intérieur de la balise `abort_message` ? {#can-i-use-liquid-inside-the-abort_message-tag}
 
-Non. La balise {% raw %}`{% abort_message %}`{% endraw %} accepte une chaîne de caractères statique entre guillemets, pas de personnalisation Liquid. Utilisez d'autres logiques Liquid avant la balise si vous avez besoin d'un comportement d'abandon conditionnel.
+Non. La balise {% raw %}`{% abort_message %}`{% endraw %} accepte une chaîne de caractères statique entre guillemets, pas de personnalisation Liquid. Utilisez une autre logique Liquid avant la balise si vous avez besoin d'un comportement d'abandon conditionnel.
 
 ### Comment masquer des numéros de téléphone avec Liquid ? {#how-do-i-mask-phone-numbers-with-liquid}
 
@@ -229,7 +231,7 @@ Si vous remarquez un espacement supplémentaire dans les messages envoyés qui u
 
 Lorsque le code Liquid est réparti sur plusieurs lignes dans l'éditeur par glisser-déposer de messages in-app ou l'éditeur par glisser-déposer d'e-mails, chaque bloc {% raw %}`{% %}`{% endraw %} est rendu sous forme de texte non visible. Les sauts de ligne sont conservés sous forme de lignes vides avant la sortie visible, ce qui provoque des espaces blancs inattendus.
 
-#### Solution 1 : utiliser les balises de contrôle des espaces blancs (recommandé) {#solution-1-use-whitespace-control-tags-recommended}
+#### Solution 1 : Utiliser les balises de contrôle des espaces blancs (recommandé) {#solution-1-use-whitespace-control-tags-recommended}
 
 Ajoutez des tirets à l'intérieur des délimiteurs de balise pour supprimer les espaces blancs environnants tout en gardant le code lisible :
 
@@ -243,7 +245,7 @@ Only {{ difference_days }} days until your move!
 ```
 {% endraw %}
 
-#### Solution 2 : regrouper le Liquid sur une seule ligne {#solution-2-consolidate-liquid-onto-a-single-line}
+#### Solution 2 : Consolider le Liquid sur une seule ligne {#solution-2-consolidate-liquid-onto-a-single-line}
 
 Supprimez tous les sauts de ligne pour que le Liquid soit sur une seule ligne continue :
 
@@ -253,7 +255,7 @@ Supprimez tous les sauts de ligne pour que le Liquid soit sur une seule ligne co
 ```
 {% endraw %}
 
-Les deux approches empêchent les lignes vides indésirables dans votre message rendu. Cela s'applique à l'éditeur par glisser-déposer de messages in-app, à l'éditeur par glisser-déposer d'e-mails et aux Content Blocks avec Liquid. Pour en savoir plus, consultez [Contrôle des espaces blancs](https://shopify.github.io/liquid/basics/whitespace/).
+Les deux approches empêchent les lignes vides indésirables dans votre message rendu. Cela s'applique à l'éditeur par glisser-déposer de messages in-app, à l'éditeur par glisser-déposer d'e-mails et aux Content Blocks avec Liquid. Pour en savoir plus, consultez la documentation de Shopify sur le [contrôle des espaces blancs](https://shopify.github.io/liquid/basics/whitespace/) et la [syntaxe Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax) de Braze.
 
 ### Pourquoi mon Content Block n'apparaît-il pas sous **Row** dans l'outil de recherche par glisser-déposer ? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
 
@@ -261,11 +263,11 @@ Certains Content Blocks n'apparaissent pas sous **Row** dans la recherche de l'�
 
 ### Pourquoi l'aperçu de mon Content Block par glisser-déposer diffère-t-il de la vue de composition ? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
 
-Lorsque vous intégrez un Content Block avec Liquid, les media queries mobiles du bloc peuvent ne pas s'appliquer de la même manière dans l'aperçu que lorsque vous glissez le bloc directement dans un message. Glisser le bloc préserve la mise en page mais le dissocie du bloc source, de sorte que les modifications futures du bloc ne mettent plus à jour le message automatiquement.
+Lorsque vous intégrez un Content Block avec Liquid via un modèle, les media queries mobiles du bloc peuvent ne pas s'appliquer de la même manière dans l'aperçu que lorsque vous glissez le bloc directement dans un message. Glisser le bloc préserve la mise en page mais le dissocie du bloc source, de sorte que les modifications futures du bloc ne mettent plus à jour le message automatiquement.
 
 ### Comment prévisualiser les valeurs des propriétés d'événement dans le compositeur de messages ? {#how-do-i-preview-event-property-values-in-message-composer}
 
-Utilisez **Preview as Custom User** et saisissez des exemples de valeurs de propriétés d'événement personnalisé pour l'utilisateur que vous prévisualisez. Cela est également utile pour les messages avec une logique d'abandon lorsque vous avez besoin de valeurs d'aperçu qui ne déclenchent pas un abandon.
+Utilisez **Preview as Custom User** et saisissez des exemples de valeurs de propriétés d'événements personnalisés pour l'utilisateur que vous prévisualisez. Cela est également utile pour les messages avec une logique d'abandon lorsque vous avez besoin de valeurs d'aperçu qui ne déclenchent pas un abandon.
 
 ## Liquid dans les e-mails {#liquid-in-email-messages}
 
@@ -281,14 +283,14 @@ Utilisez Liquid dans le champ **Reply-To** lorsque votre espace de travail prend
 
 ### Pourquoi mon code Liquid ne fonctionne-t-il pas alors qu'il semble correct ? {#why-is-my-liquid-code-not-working-when-it-looks-correct}
 
-Si votre code Liquid semble syntaxiquement correct mais ne fonctionne pas, vérifiez la présence de guillemets typographiques (guillemets courbes comme `' '` ou `" "`) et de tirets longs (tirets cadratins comme `—`) au lieu de guillemets droits (`' '` ou `" "`) et de traits d'union (`-`). Liquid ne reconnaît que les caractères ASCII droits, les guillemets typographiques et les tirets longs provoqueront donc des erreurs d'analyse.
+Si votre code Liquid semble syntaxiquement correct mais ne fonctionne pas, vérifiez la présence de guillemets typographiques (guillemets courbes comme `' '` ou `" "`) et de tirets longs (tirets cadratins comme `—`) au lieu de guillemets droits (`' '` ou `" "`) et de traits d'union (`-`). Liquid ne reconnaît que les caractères ASCII droits, de sorte que les guillemets typographiques et les tirets longs provoquent des erreurs d'analyse.
 
-Cela se produit fréquemment lorsque le paramètre clavier macOS **Utiliser les guillemets et tirets intelligents** est activé, ce qui convertit automatiquement les caractères au fur et à mesure de la saisie dans le tableau de bord de Braze.
+Cela se produit fréquemment lorsque le paramètre clavier macOS **Use smart quotes and dashes** est activé, ce qui convertit automatiquement les caractères au fur et à mesure de la saisie dans le tableau de bord de Braze.
 
 Pour désactiver ce paramètre sur macOS :
 
-1. Accédez à **Réglages Système** > **Clavier** > **Saisie de texte** > **Modifier**.
-2. Décochez **Utiliser les guillemets et tirets intelligents**.
+1. Accédez à **System Settings** > **Keyboard** > **Text Input** > **Edit**.
+2. Décochez **Use smart quotes and dashes**.
 
 | Exemple | Guillemets courbes (ne fonctionne pas) | Guillemets droits (fonctionne) |
 | --- | --- | --- |
@@ -296,7 +298,7 @@ Pour désactiver ce paramètre sur macOS :
 | Condition | {% raw %}`{% if ${country} contains 'US' %}`{% endraw %} | {% raw %}`{% if ${country} contains 'US' %}`{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Exemples de guillemets typographiques" }
 
-Cela s'applique aux valeurs par défaut, aux conditions et à tout autre code Liquid utilisant des guillemets. Les guillemets courbes et droits peuvent sembler identiques à l'écran, comparez donc votre code attentivement ou collez-le dans un éditeur de texte brut.
+Cela s'applique aux valeurs par défaut, aux conditions et à tout autre code Liquid utilisant des guillemets. Les guillemets courbes et droits peuvent sembler identiques à l'écran, alors comparez votre code attentivement ou collez-le dans un éditeur de texte brut.
 
 Pour plus d'informations sur l'utilisation des guillemets dans Liquid, consultez [Syntaxe Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
 
@@ -304,7 +306,7 @@ Pour plus d'informations sur l'utilisation des guillemets dans Liquid, consultez
 
 Cette erreur indique généralement la présence d'accolades en trop ou manquantes. N'imbriquez pas {% raw %}`{{ }}`{% endraw %} à l'intérieur d'une autre expression de balise Liquid. Par exemple, utilisez {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} plutôt que d'envelopper la référence d'attribut dans une paire d'accolades supplémentaire.
 
-### Pourquoi la relance du contenu connecté n'est-elle pas disponible pour mon message in-app ? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
+### Pourquoi la relance de contenu connecté n'est-elle pas disponible pour mon message in-app ? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
 
 {% raw %}
 La balise `{% connected_content %}` avec relance n'est pas prise en charge pour tous les types de messages, y compris certains formats de messages in-app. Supprimez les paramètres de relance ou utilisez un canal pris en charge pour les appels de contenu connecté avec relance.

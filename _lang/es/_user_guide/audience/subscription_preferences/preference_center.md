@@ -19,4 +19,5 @@ guide_featured_list:
   image: /assets/img/braze_icons/mail-01.svg
 
 ---
-<br><br>
+
+{% multi_lang_include alerts/tip_alerts.md alert="Landing pages manage subscriptions" %}

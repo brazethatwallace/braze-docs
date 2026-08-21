@@ -215,6 +215,15 @@ Si los enlaces utilizan Liquid para URL dinámicas, las URL en las que se hizo c
 
 ![Ejemplo de la página Preview & Heatmap que incluye una campaña de correo electrónico y un panel con ejemplos de alias de enlaces con su total de clics.]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
+##### Clics de cancelación de suscripción en el mapa de calor frente a análisis de campaña {#heatmap-unsubscribe-clicks-versus-campaign-analytics}
+
+Los clics en los enlaces de cancelación de suscripción en el mapa de calor pueden diferir de la métrica *Unsubscribers* en los análisis de campaña:
+
+- Cuando utilizas una URL de cancelación de suscripción personalizada en el cuerpo de tu mensaje, Braze trata ese enlace como un enlace rastreado estándar para los fines del mapa de calor: aparece en la **Link Table by Total Clicks** como cualquier otro enlace. Cuando Braze procesa una cancelación de suscripción desde el enlace de cancelación de suscripción proporcionado por Braze, la métrica *Unsubscribers* se incrementa. Las URL de cancelación de suscripción personalizadas no incrementan esa métrica a menos que actualices a los usuarios a través de la API.
+- Cuando un usuario cancela su suscripción utilizando el [encabezado list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) (una opción de cancelación de suscripción con un solo clic que muestran algunos proveedores de buzón), esa acción incrementa *Unsubscribers* en los análisis de campaña pero no aparece como un clic en el mapa de calor. Si el mensaje utiliza **Unsubscribe from specific subscription group**, Braze cancela la suscripción del usuario solo del grupo de suscripción configurado en lugar de hacerlo de forma global. La disponibilidad de esta opción varía según el destinatario porque los proveedores de buzón difieren en si muestran o admiten el encabezado list-unsubscribe.
+
+Para obtener una vista completa del comportamiento de cancelación de suscripción, revisa tanto el desglose de enlaces del mapa de calor como la métrica *Unsubscribers*. Para más detalles, consulta [Por qué las cancelaciones de suscripción y los clics en el enlace de cancelación de suscripción pueden diferir]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#why-unsubscribes-and-unsubscribe-link-clicks-can-differ).
+
 ##### Enlaces solo para móvil en el mapa de calor {#mobile-only-links-in-the-heatmap}
 
 El mapa de calor solo muestra las firmas de calor de los enlaces visibles en el tamaño de vista previa seleccionado.

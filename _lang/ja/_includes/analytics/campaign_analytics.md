@@ -215,6 +215,15 @@ The **Message Performance** panel outlines how well your message has performed a
 
 ![メールキャンペーンと、リンクエイリアスの例とその合計クリック数を示すパネルを含むプレビューとヒートマップページの例。]({% image_buster /assets/img_archive/email_heatmap_example.png %})
 
+##### ヒートマップの購読解除クリックとキャンペーン分析 {#heatmap-unsubscribe-clicks-versus-campaign-analytics}
+
+ヒートマップの購読解除リンクのクリック数は、キャンペーン分析の*購読解除者*指標と異なる場合があります。
+
+- メッセージ本文でカスタム購読解除URLを使用している場合、Brazeはヒートマップ上でそのリンクを標準的なトラッキングリンクとして扱います。そのリンクは他のリンクと同様に**合計クリック数によるリンクテーブル**に表示されます。Brazeが提供する購読解除リンクからの購読解除を処理すると、*購読解除者*指標が増加します。カスタム購読解除URLは、APIを通じてユーザーを更新しない限り、その指標を増加させません。
+- ユーザーが[list-unsubscribeヘッダー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe)（一部の受信トレイプロバイダーが表示するワンクリック購読解除オプション）を使用して購読解除した場合、そのアクションはキャンペーン分析の*購読解除者*を増加させますが、ヒートマップにはクリックとして表示されません。メッセージが**特定の購読グループからの購読解除**を使用している場合、Brazeはグローバルではなく、設定された購読グループからのみユーザーの購読を解除します。このオプションの利用可能性は受信者によって異なります。受信トレイプロバイダーによってlist-unsubscribeヘッダーのレンダリングやサポートが異なるためです。
+
+購読解除の動作を完全に把握するには、ヒートマップのリンク内訳と*購読解除者*指標の両方を確認してください。詳細については、[*購読解除*と購読解除リンクのクリックが異なる理由]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#why-unsubscribes-and-unsubscribe-link-clicks-can-differ)を参照してください。
+
 ##### ヒートマップのモバイル専用リンク {#mobile-only-links-in-the-heatmap}
 
 ヒートマップは、選択したプレビューサイズで表示されるリンクのヒートシグネチャのみを表示します。

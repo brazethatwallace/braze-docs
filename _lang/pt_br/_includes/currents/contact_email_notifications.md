@@ -1,0 +1,1 @@
+Forneça um e-mail de contato para notificações de erros de integração. A Braze envia notificações para esse endereço se a integração encontrar erros, como problemas de credencial ou de conectividade. Para garantir que as pessoas certas recebam os alertas, use uma lista de distribuição ou um endereço de e-mail de grupo.

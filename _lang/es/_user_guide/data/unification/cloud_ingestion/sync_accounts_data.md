@@ -11,30 +11,24 @@ description: "Aprende a sincronizar los datos de tu cuenta de Braze utilizando C
 
 > Aprende a sincronizar los datos de tu cuenta de Braze utilizando CDI.
 
-{% alert important %}
-[Los objetos de cuenta](https://braze.com/unlisted_docs/account_opportunity_object/) están en fase beta y son necesarios para utilizar esta característica. Ponte en contacto con tu director de cuentas de Braze si te interesa participar en la beta.
-{% endalert %}
-
 ## Requisitos previos {#prerequisites}
 
-Antes de poder sincronizar los datos de tu cuenta mediante CDI, deberás [configurar el esquema de tus cuentas](https://braze.com/unlisted_docs/account_opportunity_object/).
-
 {% alert note %}
-Realiza actualizaciones en el esquema de tu cuenta solo cuando la sincronización esté pausada o no esté planificada, para evitar conflictos entre los datos de tu almacén de datos y el esquema en Braze.
+Solo realiza actualizaciones en el esquema de tu cuenta cuando la sincronización esté en pausa o no esté programada, para evitar conflictos entre los datos de tu almacén de datos y el esquema en Braze.
 {% endalert %}
 
 ## Cómo funciona la sincronización {#how-syncing-works}
 
-- Cada sincronización importa filas donde `UPDATED_AT` es posterior a la última marca de tiempo sincronizada. Las filas que coinciden exactamente con la marca de tiempo límite pueden volver a sincronizarse si nuevas filas comparten esa misma marca de tiempo. Para más información, consulta [Evitar la resincronización de filas con marcas de tiempo duplicadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
-- Los datos de la integración crean o actualizan cuentas basándose en el `id` proporcionado.
+- Cada sincronización importa filas en las que `UPDATED_AT` es posterior a la última marca de tiempo sincronizada. Las filas en la marca de tiempo exacta del límite pueden volver a sincronizarse si nuevas filas comparten esa misma marca de tiempo. Para más información, consulta [Evitar resincronizar filas con marcas de tiempo duplicadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
+- Los datos de la integración crean o actualizan cuentas en función del `id` proporcionado.
 - Si `DELETED` es `true`, la cuenta se elimina.
 - La sincronización no registra puntos de datos, pero todos los datos sincronizados cuentan para el uso total de tus cuentas, medido por el total de datos almacenados; no es necesario limitarse solo a los datos modificados.
-- Los campos que no se encuentran en el esquema de tus cuentas se descartan; actualiza el esquema antes de sincronizar los nuevos campos.
-- Puedes actualizar, reanudar o pausar una sincronización pasando el cursor por encima del nombre de la sincronización y seleccionando la acción correspondiente.
+- Los campos que no estén en el esquema de tus cuentas se descartan; actualiza el esquema antes de sincronizar nuevos campos.
+- Puedes actualizar, reanudar o pausar una sincronización pasando el cursor sobre el nombre de la sincronización y seleccionando la acción correspondiente.
 
-## Sincroniza los datos de tu cuenta {#sync-your-account-data}
+## Sincronizar los datos de tu cuenta {#sync-your-account-data}
 
-Puedes sincronizar los datos de tu cuenta utilizando CDI a través de un almacén de datos o un almacenamiento de archivos.
+Puedes sincronizar los datos de tu cuenta usando CDI a través de un almacén de datos o un almacenamiento de archivos.
 
 {% tabs local %}
 {% tab Data Warehouse %}
@@ -43,7 +37,7 @@ Para integrar tu origen de datos con tu almacén de datos:
 {% subtabs %}
 {% subtab Snowflake %}
 
-1. Crea una tabla de origen en Snowflake. Utiliza los nombres del ejemplo o elige tus propios nombres de base de datos, esquema y tabla. También puedes utilizar una vista o una vista materializada en lugar de una tabla.
+1. Crea una tabla de origen en Snowflake. Usa los nombres del ejemplo o elige tus propios nombres de base de datos, esquema y tabla. También puedes usar una vista o una vista materializada en lugar de una tabla.
   ```sql
     CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
     CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
@@ -59,7 +53,7 @@ Para integrar tu origen de datos con tu almacén de datos:
          DELETED BOOLEAN
     );
     ```
-2. Crea un rol, un almacén y un usuario, y concede permisos. Si ya tienes credenciales de otra sincronización, puedes reutilizarlas; asegúrate de que tengan acceso a la tabla de cuentas.
+2. Crea un rol, un almacén y un usuario, y otorga permisos. Si ya tienes credenciales de otra sincronización, puedes reutilizarlas; asegúrate de que tengan acceso a la tabla de cuentas.
     ```sql
     CREATE ROLE BRAZE_INGESTION_ROLE;
 
@@ -73,19 +67,19 @@ Para integrar tu origen de datos con tu almacén de datos:
     CREATE USER BRAZE_INGESTION_USER;
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
-3. Si utilizas políticas de red, añade las IP de Braze a la lista de permitidas para que el servicio CDI pueda conectarse. Para consultar la lista de IP, ve a [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
-4. En el panel de Braze, ve a **Configuración de datos** > **Ingesta de datos de Cloud** y crea una nueva sincronización.
+3. Si usas políticas de red, añade las IP de Braze a la lista de permitidas para que el servicio de CDI pueda conectarse. Para consultar la lista de IP, ve a [Ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+4. En el panel de Braze, ve a **Configuración de datos** > **Ingesta de datos en la nube** y crea una nueva sincronización.
 5. Introduce los detalles de conexión (o reutiliza los existentes) y luego añade la tabla de origen.
-6. Selecciona el tipo de sincronización **Accounts** y luego introduce el nombre de la integración y la planificación.
+6. Selecciona el tipo de sincronización **Accounts**, luego introduce el nombre de la integración y la programación.
 7. Elige la frecuencia de sincronización.
-8. Añade la clave pública del dashboard al usuario que creaste. Esto requiere un usuario con acceso `SECURITYADMIN` o superior en Snowflake.
+8. Añade la clave pública del panel al usuario que creaste. Esto requiere un usuario con acceso `SECURITYADMIN` o superior en Snowflake.
 9. Selecciona **Test Connection** para confirmar la configuración.
 10. Cuando hayas terminado, guarda la sincronización.
 
 {% endsubtab %}
 {% subtab Redshift %}
 
-1. Crea una tabla de origen en Redshift. Utiliza los nombres del ejemplo o elige tus propios nombres de base de datos, esquema y tabla. También puedes utilizar una vista o una vista materializada en lugar de una tabla.
+1. Crea una tabla de origen en Redshift. Usa los nombres del ejemplo o elige tus propios nombres de base de datos, esquema y tabla. También puedes usar una vista o una vista materializada en lugar de una tabla.
     ```sql
     CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
     CREATE SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION;
@@ -101,7 +95,7 @@ Para integrar tu origen de datos con tu almacén de datos:
        deleted boolean
     )
     ```
-2. Crea un usuario y concede permisos. Si ya tienes credenciales de otra sincronización, puedes reutilizarlas; asegúrate de que tengan acceso a la tabla de cuentas.
+2. Crea un usuario y otorga permisos. Si ya tienes credenciales de otra sincronización, puedes reutilizarlas; asegúrate de que tengan acceso a la tabla de cuentas.
     {% raw %}
     ```sql
     CREATE USER braze_user PASSWORD '{password}';
@@ -109,7 +103,7 @@ Para integrar tu origen de datos con tu almacén de datos:
     GRANT SELECT ON TABLE ACCOUNTS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. Si tienes un firewall o políticas de red, permite el acceso de Braze a tu instancia de Redshift. Para consultar la lista de IP, ve a [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+3. Si tienes un firewall o políticas de red, permite el acceso de Braze a tu instancia de Redshift. Para consultar la lista de IP, ve a [Ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% subtab BigQuery %}
@@ -119,7 +113,7 @@ Para integrar tu origen de datos con tu almacén de datos:
     CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
     ```
 
-2. Crea la tabla de origen para tu integración CDI:
+2. Crea la tabla de origen para tu integración de CDI:
     ```sql
     CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.ACCOUNTS_SYNC`
     (
@@ -143,7 +137,7 @@ Para integrar tu origen de datos con tu almacén de datos:
     {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sincronizar los datos de tu cuenta" }
 
 {:start="3"}
-3. Crea un usuario y concede permisos. Si ya tienes credenciales de otra sincronización, puedes reutilizarlas siempre que tengan acceso a la tabla de cuentas.
+3. Crea un usuario y otorga permisos. Si ya tienes credenciales de otra sincronización, puedes reutilizarlas siempre que tengan acceso a la tabla de cuentas.
 
     | Permiso | Propósito |
     |------------|---------|
@@ -153,10 +147,10 @@ Para integrar tu origen de datos con tu almacén de datos:
     | BigQuery Job User | Permite a Braze ejecutar trabajos. |
     {: .reset-td-br-1 .reset-td-br-2 aria-label="Sincronizar los datos de tu cuenta" }
 
-    Después de conceder los permisos, genera una clave JSON. Consulta [Crear y eliminar claves](https://cloud.google.com/iam/docs/keys-create-delete) para obtener instrucciones. La cargarás en el panel de Braze más adelante.
+    Después de otorgar los permisos, genera una clave JSON. Consulta [Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete) para obtener instrucciones. La subirás al panel de Braze más adelante.
 
 {:start="4"}
-4. Si utilizas políticas de red, permite que las IP de Braze accedan a tu instancia de BigQuery. Para consultar la lista de IP, ve a [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+4. Si usas políticas de red, permite las IP de Braze para acceder a tu instancia de BigQuery. Para consultar la lista de IP, ve a [Ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% subtab Databricks %}
@@ -166,7 +160,7 @@ Para integrar tu origen de datos con tu almacén de datos:
     CREATE SCHEMA BRAZE-CLOUD-PRODUCTION.INGESTION;
     ```
 
-2. Crea la tabla de origen para tu integración CDI:
+2. Crea la tabla de origen para tu integración de CDI:
     ```sql
     CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.ACCOUNTS_SYNC`
     (
@@ -183,7 +177,7 @@ Para integrar tu origen de datos con tu almacén de datos:
     | Nombre del campo | Tipo | ¿Obligatorio? |
     | ---------- | ---- | --------- |
     | `UPDATED_AT` | Timestamp | Sí |
-    | `PAYLOAD` | String, Struct, or Map | Sí |
+    | `PAYLOAD` | String, Struct o Map | Sí |
     | `ID` | String | Sí |
     | `NAME` | String | Sí |
     | `DELETED` | Boolean | Opcional |
@@ -198,12 +192,12 @@ Para integrar tu origen de datos con tu almacén de datos:
     5. Copia y guarda el token de forma segura para usarlo en el panel de Braze.
 
 {:start="4"}
-4. Si utilizas políticas de red, permite que las IP de Braze accedan a tu instancia de Databricks. Para consultar la lista de IP, ve a [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+4. Si usas políticas de red, permite las IP de Braze para acceder a tu instancia de Databricks. Para consultar la lista de IP, ve a [Ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% subtab Microsoft Fabric %}
 
-1. Crea una o más tablas para tu integración CDI con estos campos:
+1. Crea una o más tablas para tu integración de CDI con estos campos:
     ```sql
     CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name]
     (
@@ -217,10 +211,10 @@ Para integrar tu origen de datos con tu almacén de datos:
     ```
 
 {:start="2"}
-2. Crea un service principal y concede permisos. Si ya tienes credenciales de otra sincronización, puedes reutilizarlas; asegúrate de que tengan acceso a la tabla de cuentas.
+2. Crea un principal de servicio y otorga permisos. Si ya tienes credenciales de otra sincronización, puedes reutilizarlas; asegúrate de que tengan acceso a la tabla de cuentas.
 
 {:start="3"}
-3. Si utilizas políticas de red, permite que las IP de Braze accedan a tu instancia de Microsoft Fabric. Para consultar la lista de IP, ve a [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+3. Si usas políticas de red, permite las IP de Braze para acceder a tu instancia de Microsoft Fabric. Para consultar la lista de IP, ve a [Ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -254,7 +248,7 @@ Los siguientes ejemplos muestran formatos JSON y CSV válidos para sincronizar d
 ```
 
 {% alert important %}
-Cada línea del archivo de origen debe contener JSON válido o, de lo contrario, el archivo se omitirá.
+Cada línea de tu archivo de origen debe contener JSON válido o el archivo será omitido.
 {% endalert %}
 {% endsubtab %}
 {% subtab CSV Accounts with Delete %}

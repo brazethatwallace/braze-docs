@@ -22,7 +22,7 @@ Antes de poder crear mensajes de WhatsApp, debes revisar y completar lo siguient
   - Configurar tu conexión de WhatsApp
   - Crear plantillas iniciales en Meta para usar en tus mensajes
 
-## Crear un mensaje {#creating-a-message}
+## Creación de un mensaje {#creating-a-message}
 
 ### Paso 1: Elige dónde crear tu mensaje {#step-1-choose-where-to-build-your-message}
 
@@ -74,6 +74,8 @@ Selecciona si deseas crear un [mensaje de plantilla](#template-messages) de What
 Puedes usar [plantillas de mensaje de WhatsApp aprobadas]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates
 ) para iniciar conversaciones con tus usuarios en WhatsApp. Estas se envían previamente a WhatsApp para la aprobación de contenido, lo que puede tardar hasta 24 horas. Cualquier edición que hagas en el texto debe editarse y reenviarse a WhatsApp.
 
+Para crear y enviar una nueva plantilla sin salir del creador de Campaign o Canvas, selecciona **Crear nueva plantilla**. Para categorías, tipos y el proceso completo de creación, consulta [Creador de plantillas de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder).
+
 Los campos de texto deshabilitados (resaltados en gris) no se pueden editar, ya que forman parte de la plantilla de WhatsApp aprobada. Para actualizar el texto deshabilitado, debes editar tu plantilla y obtener una nueva aprobación.
 
 #### Idiomas {#languages}
@@ -82,11 +84,11 @@ Cada plantilla tiene un idioma asignado, por lo que necesitas crear una Campaign
 
 ![Lista de plantillas que incluye vistas previas de sus mensajes, sus idiomas asignados y su estado de aprobación.]({% image_buster /assets/img/whatsapp/whatsapp_templates.png %}){: style="max-width:80%;"}
 
-Si estás añadiendo texto en un idioma que se escribe de derecha a izquierda, ten en cuenta que la apariencia final de los mensajes de derecha a izquierda depende en gran medida de cómo los proveedores de servicios los rendericen. Para conocer las mejores prácticas sobre cómo crear mensajes de derecha a izquierda que se muestren con la mayor precisión posible, consulta [Crear mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+Si estás añadiendo texto en un idioma que se escribe de derecha a izquierda, ten en cuenta que la apariencia final de los mensajes de derecha a izquierda depende en gran medida de cómo los proveedores de servicios los rendericen. Para conocer las mejores prácticas sobre cómo redactar mensajes de derecha a izquierda que se muestren con la mayor precisión posible, consulta [Creación de mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 #### Variables {#variables}
 
-Si añadiste variables al crear la plantilla de WhatsApp en el Meta Business Manager, esas variables aparecerán como espacios en blanco en el creador de mensajes. Reemplaza estos espacios en blanco con Liquid o texto sin formato. Para usar texto sin formato, utiliza el formato "texto aquí" encerrado entre llaves dobles. Si optaste por incluir imágenes al crear tu plantilla, puedes subir o añadir imágenes desde la biblioteca de medios o haciendo referencia a una URL de imagen. Cuando sea posible, recomendamos subir las imágenes directamente a tu biblioteca de medios para garantizar la consistencia y la fiabilidad.
+Si añadiste variables al crear la plantilla de WhatsApp en el Meta Business Manager, esas variables aparecerán como espacios en blanco en el creador de mensajes. Reemplaza estos espacios en blanco con Liquid o texto plano. Para usar texto plano, utiliza el formato "texto aquí" encerrado entre llaves dobles. Si optaste por incluir imágenes al crear tu plantilla, puedes subir o añadir imágenes desde la biblioteca de medios o haciendo referencia a una URL de imagen. Cuando sea posible, recomendamos subir las imágenes directamente a tu biblioteca de medios para garantizar la consistencia y fiabilidad.
 
 Ten en cuenta que los campos de texto deshabilitados (resaltados en gris) no se pueden editar, ya que forman parte de la plantilla de WhatsApp aprobada. Si deseas actualizar el texto deshabilitado, debes editar tu plantilla y obtener una nueva aprobación.
 
@@ -100,16 +102,18 @@ Si planeas usar Liquid, asegúrate de incluir un valor predeterminado para la pe
 
 ### Enlaces dinámicos {#dynamic-links}
 
-Las URL de llamada a la acción pueden contener variables, aunque Meta requiere que estén al final de la URL, como `{% raw %}https://example.com/{{variable}}{% endraw %}`, donde la variable puede reemplazarse en Braze con Liquid. Los enlaces también pueden incluirse como texto del cuerpo como parte de la plantilla. Ambos tipos de enlaces pueden acortarse y rastrearse mediante el [seguimiento de clics]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking).
+Las URL de llamada a la acción pueden contener variables, aunque Meta requiere que estén al final de la URL, como `{% raw %}https://example.com/{{variable}}{% endraw %}`, donde la variable puede reemplazarse en Braze con Liquid. Los enlaces también pueden incluirse como texto del cuerpo como parte de la plantilla. Ambos tipos de enlaces pueden acortarse y rastrearse usando el [seguimiento de clics]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking).
 
 ### Imágenes dinámicas {#dynamic-images}
+
+Puedes añadir imágenes desde la biblioteca de medios o por URL. Cuando usas una URL, puedes personalizar la imagen con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) o [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), incluyendo lógica completa de Liquid en cualquier parte de la URL. Las imágenes dinámicas son compatibles con los mensajes de plantilla y los mensajes de respuesta (mensajes multimedia y diseños de respuesta rápida).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 {% endtab %}
 {% tab Mensajes de respuesta %}
 
-Puedes usar mensajes de respuesta para responder a mensajes entrantes de tus usuarios. Estos mensajes se crean dentro de la aplicación en Braze durante tu experiencia de composición y pueden editarse en cualquier momento. Puedes usar Liquid para hacer coincidir el idioma del mensaje de respuesta con los usuarios apropiados.
+Puedes usar mensajes de respuesta para responder a mensajes entrantes de tus usuarios. Estos mensajes se crean en la aplicación en Braze durante tu experiencia de composición y se pueden editar en cualquier momento. Puedes usar Liquid para hacer coincidir el idioma del mensaje de respuesta con los usuarios apropiados.
 
 Hay cinco diseños de mensajes de respuesta que puedes usar:
 - Respuesta rápida
@@ -125,7 +129,7 @@ Hay cinco diseños de mensajes de respuesta que puedes usar:
 
 ### Paso 3: Previsualiza y prueba tu mensaje {#step-3-preview-and-test-your-message}
 
-Braze siempre recomienda previsualizar y probar tu mensaje antes de enviarlo. Cambia a la pestaña **Prueba** para enviar un mensaje de prueba de WhatsApp a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) o a usuarios individuales, o previsualiza el mensaje como un usuario directamente en Braze.
+Braze siempre recomienda previsualizar y probar tu mensaje antes de enviarlo. Cambia a la pestaña **Prueba** para enviar un mensaje de prueba de WhatsApp a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) o usuarios individuales, o previsualiza el mensaje como un usuario directamente en Braze.
 
 ![Un mensaje de vista previa para un usuario personalizado llamado Max.]({% image_buster /assets/img/whatsapp/whatsapp8.png %}){: style="max-width:80%;"}
 
@@ -165,12 +169,12 @@ Cuando se determina el resultado final (entrega exitosa, reintentos agotados o u
 Dado que los reintentos pueden continuar durante un máximo de 24 horas, es posible que no veas un resultado final inmediatamente después de un envío fallido.
 {% endalert %}
 
-#### Solucionar fallos {#troubleshoot-failures}
+#### Solución de problemas de fallos {#troubleshoot-failures}
 
 Si una etapa muestra un fallo, el panel muestra el error y los pasos sugeridos a seguir. Las razones comunes por las que un envío de prueba puede fallar incluyen:
 
 - La plantilla de mensaje está pausada o aún no ha sido aprobada en Meta
-- El número de teléfono del destinatario tiene limitación de frecuencia
+- El número de teléfono del destinatario tiene limitación de tasa
 - Las variables de Liquid en el mensaje no se completaron para el usuario de prueba seleccionado
 
 Para problemas persistentes, verifica el estado de tu plantilla en el Meta Business Manager o comprueba que tu destinatario de prueba tenga los atributos de usuario requeridos completados en Braze.
@@ -184,7 +188,7 @@ A continuación, construye el resto de tu Campaign. Consulta las siguientes secc
 
 #### Elige un horario de entrega o desencadenante {#choose-a-delivery-schedule-or-trigger}
 
-Los mensajes de WhatsApp pueden entregarse según un horario programado, una acción o un desencadenante de API. Para más información, consulta [Programar tu Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Los mensajes de WhatsApp se pueden entregar según un horario programado, una acción o un desencadenante de API. Para más información, consulta [Programar tu Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 Para la entrega basada en acciones, también puedes establecer la duración de la Campaign y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
@@ -192,7 +196,7 @@ En este paso también puedes especificar controles de entrega, como permitir que
 
 #### Elige los usuarios a los que dirigirte {#choose-users-to-target}
 
-A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo Segments o filtros para reducir tu audiencia. Ya deberías haber elegido el grupo de suscripción, que filtra a los usuarios por el nivel o categoría de comunicación que desean tener contigo. En este paso, seleccionas la audiencia más amplia de tus Segments y la reduces aún más con nuestros filtros. Recibirás automáticamente una instantánea de cómo se ve aproximadamente la población de ese Segment. Recuerda que la pertenencia exacta al Segment siempre se calcula antes de que se envíe el mensaje.
+A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo Segments o filtros para reducir tu audiencia. Ya deberías haber elegido el grupo de suscripción, que filtra a los usuarios por el nivel o categoría de comunicación que desean tener contigo. En este paso, seleccionas la audiencia más amplia de tus Segments y la reduces aún más con nuestros filtros. Recibirás automáticamente una instantánea de cómo se ve aproximadamente la población de ese Segment. Recuerda que la membresía exacta del Segment siempre se calcula antes de que se envíe el mensaje.
 
 {% multi_lang_include audience/target_audiences.md %}
 

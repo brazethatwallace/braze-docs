@@ -7,11 +7,11 @@ glossary_top_header: "Braze API ガイド"
 glossary_top_text: "Brazeは、ユーザーのトラッキング、メッセージの送信、データのエクスポートなどを可能にする高パフォーマンスなREST APIを提供しています。このページでは、利用可能なBraze APIエンドポイントとその用途を紹介します。"
 page_type: glossary
 description: "このランディングページでは、利用可能なBraze APIエンドポイントとその用途を紹介します。"
-glossary_tag_name: Endpoint Type
+glossary_tag_name: エンドポイントタイプ
 
-glossary_filter_text: "Select endpoint type to narrow the glossary:"
+glossary_filter_text: "エンドポイントタイプを選択して用語集を絞り込む:"
 
-glossary_mid_text: "Endpoint Search"
+glossary_mid_text: "エンドポイント検索"
 guide_featured_list:
   - name: APIの概要
     image: /assets/img/braze_icons/annotation-info.svg
@@ -44,6 +44,7 @@ glossary_tags:
   - name: Email Templates
   - name: KPI
   - name: Media Library
+  - name: Messaging API
   - name: Purchases
   - name: Preference Center
   - name: Schedule Messages
@@ -126,6 +127,14 @@ glossaries:
     description: 指定したユーザーに即時の1回限りのトランザクションメッセージを送信します。
     tags:
       - Send Messages
+  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
+    description: ユーザーおよびプレースメントのセットに対して対象となるバナーを取得します。
+    tags:
+      - Messaging API
+  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
+    description: バナーのインプレッションイベントおよびクリックイベントを記録します。
+    tags:
+      - Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
     description: ダッシュボードで作成したキャンペーンメッセージをAPIトリガー配信で送信します。
     tags:

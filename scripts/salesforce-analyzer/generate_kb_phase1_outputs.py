@@ -1380,6 +1380,73 @@ def main() -> None:
     # One Phase 2 PR per primary doc (may include one or many articles).
     pr_batches_sorted = sorted(by_file.items(), key=lambda kv: (-len(kv[1]), kv[0]))
 
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from sf_kb_overlap_scan import OverlapScanner, format_scan_summary  # noqa: WPS433
+
+    scanner = OverlapScanner(fetch_develop=False)
+    scanner.refresh()
+    overlap_inputs = [
+        (
+            path_key,
+            [article_id_from_row(c.row) for c in group if article_id_from_row(c.row)],
+        )
+        for path_key, group in pr_batches_sorted
+    ]
+    overlap_reports = scanner.scan_batches(overlap_inputs) if scanner.available else {}
+
+    # Needs-PR queue:
+    # - Omit the whole batch when an open/draft PR already edits the path.
+    # - When only some article_ids are claimed, keep unclaimed siblings in the queue
+    #   (do not hide remaining work behind a partial claim).
+    needs_pr_batches: list[tuple[str, list]] = []
+    covered_batches: list[tuple[str, list]] = []
+    claimed_articles_omitted = 0
+    for path_key, group in pr_batches_sorted:
+        report = overlap_reports.get(path_key)
+        if report and report.path_covered_by_pr:
+            covered_batches.append((path_key, group))
+            continue
+        claimed = report.claimed_article_ids() if report else set()
+        if claimed:
+            remaining = [
+                c
+                for c in group
+                if (article_id_from_row(c.row) or "") not in claimed
+            ]
+            claimed_articles_omitted += len(group) - len(remaining)
+        else:
+            remaining = list(group)
+        if remaining:
+            needs_pr_batches.append((path_key, remaining))
+        elif group:
+            covered_batches.append((path_key, group))
+
+    # Re-scan overlap for remaining article IDs so claimed-sibling hits do not
+    # mark the filtered batch as blocked in the queue summary.
+    if scanner.available and needs_pr_batches:
+        needs_inputs = [
+            (
+                path_key,
+                [article_id_from_row(c.row) for c in group if article_id_from_row(c.row)],
+            )
+            for path_key, group in needs_pr_batches
+        ]
+        overlap_reports = {
+            **overlap_reports,
+            **scanner.scan_batches(needs_inputs),
+        }
+
+    needs_pr_rows = sum(len(group) for _, group in needs_pr_batches)
+    omit_note = (
+        f"{len(covered_batches)} batch(es) omitted — open/draft PR on path "
+        f"or all articles claimed"
+    )
+    if claimed_articles_omitted:
+        omit_note += (
+            f"; {claimed_articles_omitted} claimed article(s) dropped from "
+            "multi-article batches"
+        )
+
     act_lines = [
         "# KB articles — Phase 1 actionable backlog",
         "",
@@ -1388,9 +1455,16 @@ def main() -> None:
         "These rows passed Phase 1 and resolve to an on-disk `_docs/...` file. "
         "Work queue for Phase 2 — not CSV `actioned` status.",
         "",
-        f"**Totals:** **{len(actionable)}** actionable rows (of {len(rows)}).",
+        f"**Totals:** **{len(actionable)}** actionable rows (of {len(rows)}); "
+        f"**{needs_pr_rows}** still need a Phase 2 PR written "
+        f"({omit_note}).",
     ]
-    ref_verify_n = sum(1 for c in actionable if c.reference_verify)
+    ref_verify_n = sum(
+        1
+        for _, group in needs_pr_batches
+        for c in group
+        if c.reference_verify
+    )
     if ref_verify_n:
         act_lines.append(
             f"**Reference-repo verification:** **{ref_verify_n}** row(s) have "
@@ -1401,10 +1475,14 @@ def main() -> None:
     act_lines.extend(
         [
             "",
-            "## 1. Phase 2 PR batches (one primary `_docs` file per PR)",
+            "## 1. Phase 2 PR batches still needing a PR (one primary `_docs` file per PR)",
             "",
             "Open **one PR per row** in the table below. Each PR edits **only** that file; "
             "multiple Salesforce Knowledge articles may land in the same PR when they share the same `doc_path`.",
+            "",
+            "Batches already covered by an open/draft PR editing the same path are "
+            "**omitted**. Claimed `article_id`s are dropped from multi-article batches, "
+            "but unclaimed siblings on that path stay in the queue.",
             "",
             "Do **not** batch PRs by product vertical — mixed verticals under one path are expected "
             "(for example, mis-routed paths). Use **Product vertical** (`Team` in "
@@ -1415,31 +1493,28 @@ def main() -> None:
             "to check for overlap with open/draft/merged PRs, claimed `article_id`s, `develop` content, "
             "and remote `sf-cursor-*` branches before opening work.",
             "",
-            f"**Phase 2 batches:** **{len(pr_batches_sorted)}** (one per primary doc).",
+            f"**Phase 2 batches needing a PR:** **{len(needs_pr_batches)}** "
+            f"(omitted **{len(covered_batches)}** already covered).",
             "",
-            "| Primary `_docs` target | Articles | Overlap | Product vertical | Suggested branch slug | Product owner |",
-            "| --- | ---: | --- | --- | --- | --- |",
         ]
     )
-    if not pr_batches_sorted:
-        act_lines.append("| _none_ | 0 | | | | |")
-        act_lines.append("")
+    if not needs_pr_batches:
+        act_lines.extend(
+            [
+                "| Primary `_docs` target | Articles | Overlap | Product vertical | Suggested branch slug | Product owner |",
+                "| --- | ---: | --- | --- | --- | --- |",
+                "| _none_ | 0 | | | | |",
+                "",
+            ]
+        )
     else:
-        sys.path.insert(0, str(Path(__file__).resolve().parent))
-        from sf_kb_overlap_scan import OverlapScanner, format_scan_summary  # noqa: WPS433
-
-        scanner = OverlapScanner(fetch_develop=False)
-        scanner.refresh()
-        overlap_inputs = [
-            (
-                path_key,
-                [article_id_from_row(c.row) for c in group if article_id_from_row(c.row)],
-            )
-            for path_key, group in pr_batches_sorted
-        ]
-        overlap_reports = scanner.scan_batches(overlap_inputs) if scanner.available else {}
+        needs_reports = {
+            path_key: overlap_reports[path_key]
+            for path_key, _ in needs_pr_batches
+            if path_key in overlap_reports
+        }
         if scanner.available:
-            act_lines.append(f"**Overlap scan:** {format_scan_summary(overlap_reports)}.")
+            act_lines.append(f"**Overlap scan (queue only):** {format_scan_summary(needs_reports)}.")
             act_lines.append("")
         else:
             act_lines.append(
@@ -1448,7 +1523,13 @@ def main() -> None:
             )
             act_lines.append("")
 
-        for path_key, group in pr_batches_sorted:
+        act_lines.extend(
+            [
+                "| Primary `_docs` target | Articles | Overlap | Product vertical | Suggested branch slug | Product owner |",
+                "| --- | ---: | --- | --- | --- | --- |",
+            ]
+        )
+        for path_key, group in needs_pr_batches:
             hint = infer_product_vertical_label(path_key)
             slug = doc_path_branch_slug(path_key)
             overlap = overlap_reports.get(path_key)
@@ -1457,7 +1538,7 @@ def main() -> None:
                 f"| `{path_key}` | {len(group)} | {overlap_cell} | {hint} | `sf-cursor-{slug}-<YYYYMMDD>` |  |"
             )
         act_lines.append("")
-        for path_key, group in pr_batches_sorted:
+        for path_key, group in needs_pr_batches:
             slug = doc_path_branch_slug(path_key)
             overlap = overlap_reports.get(path_key)
             act_lines.append(
@@ -1488,7 +1569,12 @@ def main() -> None:
                 )
             act_lines.append("")
 
-    inferred_rows = [c for c in actionable if c.path_inference]
+    inferred_rows = [
+        c
+        for _, group in needs_pr_batches
+        for c in group
+        if c.path_inference
+    ]
     if inferred_rows:
         act_lines.extend(
             [
@@ -1518,8 +1604,11 @@ def main() -> None:
 
     inferred_n = sum(1 for c in actionable if c.path_inference)
     inf = f", {inferred_n} inferred path(s)" if inferred_n else ""
-    print(f"Wrote {SKIPPED_OUT.relative_to(REPO_ROOT)} ({len(skipped)} skipped), "
-          f"{ACTIONED_OUT.relative_to(REPO_ROOT)} ({len(actionable)} actionable{inf})")
+    print(
+        f"Wrote {SKIPPED_OUT.relative_to(REPO_ROOT)} ({len(skipped)} skipped), "
+        f"{ACTIONED_OUT.relative_to(REPO_ROOT)} ({len(actionable)} actionable, "
+        f"{len(needs_pr_batches)} batch(es) need PR, {len(covered_batches)} covered/omitted{inf})"
+    )
 
 
 if __name__ == "__main__":

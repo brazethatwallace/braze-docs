@@ -18,7 +18,7 @@ search_rank: 1
 ## Voraussetzungen {#prerequisites}
 
 Bevor Sie WhatsApp-Nachrichten erstellen können, müssen Sie die folgenden Punkte aus der [WhatsApp-Übersicht]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) überprüfen und abschließen:
-  - Richtlinien, Limits und Inhaltsregeln bestätigen
+  - Richtlinien, Limits und Content-Regeln bestätigen
   - Ihre WhatsApp-Verbindung einrichten
   - Erste Templates in Meta erstellen, die Sie in Ihren Nachrichten verwenden können
 
@@ -37,7 +37,7 @@ Sie sind sich nicht sicher, ob Ihre Nachricht über eine Campaign oder ein Canva
 
 **Schritte:**
 
-1. Gehen Sie zur Seite **Campaigns** und klicken Sie auf <i class="fas fa-plus"></i> **Campaign erstellen**.
+1. Gehen Sie zur Seite **Campaigns** und klicken Sie auf <i class="fas fa-plus" aria-label="Erstellen"></i> **Campaign erstellen**.
 2. Wählen Sie **WhatsApp** oder, für Campaigns, die auf mehrere Kanäle abzielen, **Multichannel Campaign**.
 3. Geben Sie Ihrer Campaign einen klaren und aussagekräftigen Namen.
 4. Fügen Sie bei Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu.
@@ -74,25 +74,27 @@ Wählen Sie, ob Sie eine WhatsApp-[Template-Nachricht](#template-messages) oder 
 Sie können [genehmigte WhatsApp-Template-Nachrichten]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates
 ) verwenden, um Konversationen mit Ihren Nutzer:innen auf WhatsApp zu initiieren. Diese Nachrichten werden vorab zur Inhaltsgenehmigung bei WhatsApp eingereicht, was bis zu 24 Stunden dauern kann. Alle Änderungen, die Sie am Text vornehmen, müssen bearbeitet und erneut bei WhatsApp eingereicht werden.
 
+Um ein neues Template zu erstellen und einzureichen, ohne die Campaign oder den Canvas-Editor zu verlassen, wählen Sie **Neues Template erstellen**. Informationen zu Kategorien, Typen und dem vollständigen Erstellungsprozess finden Sie unter [WhatsApp-Template-Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder).
+
 Deaktivierte Textfelder (grau hervorgehoben) können nicht bearbeitet werden, da sie Teil des genehmigten WhatsApp-Templates sind. Um Aktualisierungen am deaktivierten Text vorzunehmen, müssen Sie Ihr Template bearbeiten und erneut genehmigen lassen.
 
 #### Sprachen {#languages}
 
-Jedes Template hat eine zugewiesene Sprache, sodass Sie für jede Sprache eine Campaign oder einen Canvas-Schritt erstellen müssen, um die korrekte Zuordnung zu den Nutzer:innen sicherzustellen. Wenn Sie beispielsweise ein Canvas erstellen, das Templates für Indonesisch und Englisch verwendet, müssen Sie einen Canvas-Schritt für das indonesische Template und einen Canvas-Schritt für das englische Template erstellen.
+Jedes Template hat eine zugewiesene Sprache, daher müssen Sie eine Campaign oder einen Canvas-Schritt für jede Sprache erstellen, um die Zuordnung zu den Nutzer:innen korrekt einzurichten. Wenn Sie beispielsweise ein Canvas erstellen, das Templates für Indonesisch und Englisch verwendet, müssen Sie einen Canvas-Schritt für das indonesische Template und einen Canvas-Schritt für das englische Template erstellen.
 
 ![Liste von Templates mit Vorschau der Nachrichten, zugewiesenen Sprachen und Genehmigungsstatus.]({% image_buster /assets/img/whatsapp/whatsapp_templates.png %}){: style="max-width:80%;"}
 
-Wenn Sie Text in einer Sprache hinzufügen, die von rechts nach links geschrieben wird, beachten Sie, dass das endgültige Erscheinungsbild von Rechts-nach-links-Nachrichten weitgehend davon abhängt, wie die Dienstanbieter sie darstellen. Best Practices für die Erstellung von Rechts-nach-links-Nachrichten, die möglichst genau angezeigt werden, finden Sie unter [Rechts-nach-links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+Wenn Sie Text in einer Sprache hinzufügen, die von rechts nach links geschrieben wird, beachten Sie, dass das endgültige Erscheinungsbild von Rechts-nach-links-Nachrichten weitgehend davon abhängt, wie Dienstanbieter sie darstellen. Best Practices für die Erstellung von Rechts-nach-links-Nachrichten, die möglichst genau angezeigt werden, finden Sie unter [Rechts-nach-links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 #### Variablen {#variables}
 
-Wenn Sie beim Erstellen des WhatsApp-Templates im Meta Business Manager Variablen hinzugefügt haben, werden diese als leere Felder im Nachrichten-Editor angezeigt. Ersetzen Sie diese leeren Felder durch Liquid oder Klartext. Um Klartext zu verwenden, nutzen Sie das Format „Text hier“ in doppelten geschweiften Klammern. Wenn Sie sich beim Erstellen Ihres Templates für die Einbindung von Bildern entschieden haben, können Sie Bilder hochladen oder aus der Medienbibliothek hinzufügen oder eine Bild-URL referenzieren. Wir empfehlen, Bilder nach Möglichkeit direkt in Ihre Medienbibliothek hochzuladen, um Konsistenz und Zuverlässigkeit sicherzustellen.
+Wenn Sie beim Erstellen des WhatsApp-Templates im Meta Business Manager Variablen hinzugefügt haben, werden diese Variablen als Leerfelder im Nachrichten-Editor angezeigt. Ersetzen Sie diese Leerfelder durch Liquid oder Klartext. Um Klartext zu verwenden, nutzen Sie das Format „Text hier“ in doppelten geschweiften Klammern. Wenn Sie sich beim Erstellen Ihres Templates für die Einbindung von Bildern entschieden haben, können Sie Bilder hochladen oder aus der Medienbibliothek hinzufügen oder eine Bild-URL referenzieren. Wir empfehlen, Bilder nach Möglichkeit direkt in Ihre Medienbibliothek hochzuladen, um Konsistenz und Zuverlässigkeit sicherzustellen.
 
 Beachten Sie, dass deaktivierte Textfelder (grau hervorgehoben) nicht bearbeitet werden können, da sie Teil des genehmigten WhatsApp-Templates sind. Wenn Sie Aktualisierungen am deaktivierten Text vornehmen möchten, müssen Sie Ihr Template bearbeiten und erneut genehmigen lassen.
 
 {% alert tip %}
 {% raw %}
-Wenn Sie Liquid verwenden möchten, stellen Sie sicher, dass Sie einen Standardwert für Ihre gewählte Personalisierung angeben, damit Empfänger:innen, deren Nutzerprofil unvollständig ist, keine Nachricht mit fehlenden Werten erhalten. Nachrichten mit fehlenden Liquid-Variablen werden von WhatsApp nicht gesendet.
+Wenn Sie Liquid verwenden möchten, stellen Sie sicher, dass Sie einen Standardwert für Ihre gewählte Personalisierung angeben, damit Empfänger:innen, deren Nutzerprofil unvollständig ist, keine Nachricht mit fehlenden Variablen erhalten. Nachrichten mit fehlenden Liquid-Variablen werden von WhatsApp nicht gesendet.
 {% endraw %}
 {% endalert %}
 
@@ -104,6 +106,8 @@ Call-to-Action-URLs können Variablen enthalten, wobei Meta verlangt, dass diese
 
 ### Dynamische Bilder {#dynamic-images}
 
+Sie können Bilder aus der Medienbibliothek oder per URL hinzufügen. Wenn Sie eine URL verwenden, können Sie das Bild mit [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) oder [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) personalisieren, einschließlich vollständiger Liquid-Logik an beliebiger Stelle in der URL. Dynamische Bilder werden für Template-Nachrichten und Antwortnachrichten (Mediennachrichten und Quick-Reply-Layouts) unterstützt.
+
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 {% endtab %}
@@ -111,55 +115,55 @@ Call-to-Action-URLs können Variablen enthalten, wobei Meta verlangt, dass diese
 
 Sie können Antwortnachrichten verwenden, um auf eingehende Nachrichten Ihrer Nutzer:innen zu antworten. Diese Nachrichten werden in Braze während der Erstellung in der App erstellt und können jederzeit bearbeitet werden. Sie können Liquid verwenden, um die Sprache der Antwortnachricht den entsprechenden Nutzer:innen zuzuordnen.
 
-Es gibt fünf Layouts für Antwortnachrichten:
-- Schnellantwort
+Es gibt fünf Antwortnachrichten-Layouts, die Sie verwenden können:
+- Quick Reply
 - Textnachricht
 - Mediennachricht
 - Call-to-Action-Button
 - Listennachricht
 
-![Der Nachrichten-Editor für Antwortnachrichten, der neue Nutzer:innen mit einem Rabattcode begrüßt.]({% image_buster /assets/img/whatsapp/whatsapp_response_messages.png %}){: style="max-width:80%;"}
+![Der Antwortnachrichten-Editor für eine Antwortnachricht, die neue Nutzer:innen mit einem Rabattcode begrüßt.]({% image_buster /assets/img/whatsapp/whatsapp_response_messages.png %}){: style="max-width:80%;"}
 
 {% endtab %}
 {% endtabs %}
 
 ### Schritt 3: Vorschau und Test Ihrer Nachricht {#step-3-preview-and-test-your-message}
 
-Braze empfiehlt immer, Ihre Nachricht vor dem Senden in der Vorschau anzuzeigen und zu testen. Wechseln Sie zum Tab **Test**, um eine Test-WhatsApp-Nachricht an [Content-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) oder einzelne Nutzer:innen zu senden, oder zeigen Sie die Nachricht direkt in Braze als Nutzer:in in der Vorschau an.
+Braze empfiehlt immer, Ihre Nachricht vor dem Senden in der Vorschau anzuzeigen und zu testen. Wechseln Sie zum Tab **Test**, um eine Test-WhatsApp-Nachricht an [Content-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) oder einzelne Nutzer:innen zu senden, oder zeigen Sie die Nachricht als Nutzer:in direkt in Braze in der Vorschau an.
 
-![Eine Vorschaunachricht für eine:n angepasste:n Nutzer:in namens Max.]({% image_buster /assets/img/whatsapp/whatsapp8.png %}){: style="max-width:80%;"}
+![Eine Vorschaunachricht für eine:n benutzerdefinierte:n Nutzer:in namens Max.]({% image_buster /assets/img/whatsapp/whatsapp8.png %}){: style="max-width:80%;"}
 
 {% alert note %}
 Zum Senden von Antwortnachrichten, einschließlich Testnachrichten, ist ein Konversationsfenster erforderlich. Um ein Konversationsfenster zu öffnen, senden Sie eine WhatsApp-Nachricht an die Telefonnummer, die der Abo-Gruppe zugeordnet ist, die Sie für diese Nachricht verwenden. Die zugehörige Telefonnummer wird im Hinweis auf dem Tab **Test** angezeigt.
 {% endalert %}
 
-![Ein Hinweis, der besagt, dass ein Nachrichtenfenster durch Senden einer WhatsApp-Nachricht geöffnet werden soll, und dann eine Nachricht an die:den Testnutzer:in gesendet werden soll.]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
+![Ein Hinweis, der besagt, dass Sie ein Nachrichtenfenster öffnen sollen, indem Sie eine WhatsApp-Nachricht senden, und dann eine Nachricht an die Testnutzer:innen senden.]({% image_buster /assets/img/whatsapp/whatsapp_test_phone_number.png %}){: style="max-width:70%;"}
 
 Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=whatsapp).
 
 ### Schritt 4: Ergebnisse des Testversands anzeigen {#step-4-view-test-send-results}
 
-Nach dem Senden einer Test-WhatsApp-Nachricht können Sie einen detaillierten Zustellbericht direkt im Nachrichten-Editor einsehen. So können Sie bestätigen, dass Ihre Nachricht die:den beabsichtigte:n Empfänger:in erreicht hat, und Fehler vor dem Start beheben.
+Nach dem Senden einer Test-WhatsApp-Nachricht können Sie einen detaillierten Zustellungsbericht direkt im Nachrichten-Editor anzeigen. Dies hilft Ihnen zu bestätigen, dass Ihre Nachricht die beabsichtigten Empfänger:innen erreicht hat, und Fehler vor dem Start zu beheben.
 
-Der Button **Testergebnisse anzeigen** erscheint, wenn Testversanddaten für die aktuelle Campaign oder den aktuellen Canvas-Schritt verfügbar sind. Wählen Sie ihn aus, um das Ergebnispanel zu öffnen.
+Der Button **Testergebnisse anzeigen** wird angezeigt, wenn Testversanddaten für die aktuelle Campaign oder den aktuellen Canvas-Schritt verfügbar sind. Wählen Sie ihn aus, um das Ergebnis-Panel zu öffnen.
 
-Das Ergebnispanel zeigt jede Phase, die Ihre Nachricht auf dem Weg zur:zum Empfänger:in durchlaufen hat:
+Das Ergebnis-Panel zeigt jede Phase, die Ihre Nachricht auf dem Weg zu den Empfänger:innen durchlaufen hat:
 - **Braze:** Ob Braze die Nachricht erfolgreich verarbeitet und versendet hat
 - **Meta:** Ob Meta die Nachricht zur Zustellung akzeptiert hat
-- **Nutzergerät:** Ob die Nachricht auf dem Gerät der:des Empfänger:in zugestellt wurde
+- **Nutzergerät:** Ob die Nachricht auf dem Gerät der Empfänger:innen zugestellt wurde
 
 Jede Phase zeigt ihren aktuellen Status an. Wenn eine Phase fehlgeschlagen ist, zeigt das Panel den aufgetretenen Fehler und eine Anleitung zur Behebung an. Die Ergebnisse bleiben erhalten, wenn Sie dieselbe Campaign oder dasselbe Canvas schließen und erneut öffnen.
 
-![Ergebnispanel mit zwei erfolgreichen Testversendungen und einem fehlgeschlagenen Testversand.]({% image_buster /assets/img/whatsapp/whatsapp_test_results.png %}){: style="max-width:80%;"}
+![Ergebnis-Panel mit zwei erfolgreichen Testversendungen und einem fehlgeschlagenen Testversand.]({% image_buster /assets/img/whatsapp/whatsapp_test_results.png %}){: style="max-width:80%;"}
 
 #### Wiederholungsversuche und frühere Versuche {#retries-and-past-attempts}
 
-Wenn ein Testversand fehlschlägt, wiederholt Braze die Zustellung automatisch bis zu 24 Stunden lang. Das Ergebnispanel spiegelt dies mit zwei Tabs wider:
+Wenn ein Testversand fehlschlägt, wiederholt Braze die Zustellung automatisch bis zu 24 Stunden lang. Das Ergebnis-Panel spiegelt dies mit zwei Tabs wider:
 
-- **Aktuell:** Der letzte Zustellversuch, der in Echtzeit aktualisiert wird, wenn Wiederholungsversuche stattfinden
-- **Frühere Versuche:** Ein Verlauf früherer Wiederholungsläufe, jeweils mit den Phasenstatus und aufgetretenen Fehlern
+- **Aktuell:** Der letzte Zustellungsversuch, der in Echtzeit aktualisiert wird, wenn Wiederholungsversuche stattfinden
+- **Frühere Versuche:** Ein Verlauf früherer Wiederholungsversuche, jeweils mit den Phasenstatus und aufgetretenen Fehlern
 
-Wenn das endgültige Ergebnis feststeht (erfolgreiche Zustellung, erschöpfte Wiederholungsversuche oder ein Fehler, der durch Wiederholung nicht behoben werden kann), werden die Tabs in **Ergebnis** bzw. **Wiederholungsverlauf** umbenannt.
+Wenn das endgültige Ergebnis feststeht (erfolgreiche Zustellung, erschöpfte Wiederholungsversuche oder ein Fehler, den Wiederholungsversuche nicht beheben können), werden die Tabs in **Ergebnis** bzw. **Wiederholungsverlauf** umbenannt.
 
 {% alert note %}
 Da Wiederholungsversuche bis zu 24 Stunden andauern können, sehen Sie möglicherweise nicht sofort nach einem fehlgeschlagenen Versand ein endgültiges Ergebnis.
@@ -167,13 +171,13 @@ Da Wiederholungsversuche bis zu 24 Stunden andauern können, sehen Sie mögliche
 
 #### Fehlerbehebung {#troubleshoot-failures}
 
-Wenn eine Phase einen Fehler anzeigt, zeigt das Panel den Fehler und empfohlene nächste Schritte an. Häufige Gründe für das Fehlschlagen eines Testversands sind:
+Wenn eine Phase einen Fehler anzeigt, zeigt das Panel den Fehler und empfohlene nächste Schritte an. Häufige Gründe, warum ein Testversand fehlschlagen kann, sind:
 
 - Das Nachrichten-Template ist pausiert oder noch nicht bei Meta genehmigt
-- Die Telefonnummer der:des Empfänger:in ist ratenbegrenzt
-- Liquid-Variablen in der Nachricht wurden für die:den ausgewählte:n Testnutzer:in nicht befüllt
+- Die Telefonnummer der Empfänger:innen ist ratenbegrenzt
+- Liquid-Variablen in der Nachricht wurden für die ausgewählten Testnutzer:innen nicht befüllt
 
-Bei anhaltenden Problemen überprüfen Sie den Template-Status im Meta Business Manager oder stellen Sie sicher, dass Ihre:Ihr Testempfänger:in die erforderlichen Nutzerattribute in Braze hinterlegt hat.
+Bei anhaltenden Problemen überprüfen Sie den Template-Status im Meta Business Manager oder stellen Sie sicher, dass Ihre Testempfänger:innen die erforderlichen Nutzerattribute in Braze hinterlegt haben.
 
 ### Schritt 5: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
@@ -182,25 +186,25 @@ Bei anhaltenden Problemen überprüfen Sie den Template-Status im Meta Business 
 
 Erstellen Sie als Nächstes den Rest Ihrer Campaign. In den folgenden Abschnitten finden Sie weitere Details zur optimalen Nutzung unserer Tools für die Erstellung von WhatsApp-Nachrichten.
 
-#### Wählen Sie einen Zustellzeitplan oder Trigger {#choose-a-delivery-schedule-or-trigger}
+#### Wählen Sie einen Zustellungszeitplan oder Trigger {#choose-a-delivery-schedule-or-trigger}
 
 WhatsApp-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Für die aktionsbasierte Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen.
+Für aktionsbasierte Zustellung können Sie auch die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen.
 
-In diesem Schritt können Sie auch Zustellkontrollen festlegen, z. B. ob Nutzer:innen [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) werden können, die Campaign zu erhalten, oder ob [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)-Regeln aktiviert werden sollen.
+In diesem Schritt können Sie auch Zustellungskontrollen festlegen, z. B. ob Nutzer:innen [erneut berechtigt]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) werden können, die Campaign zu erhalten, oder ob [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)-Regeln aktiviert werden sollen.
 
 #### Zielgruppe zusammenstellen {#choose-users-to-target}
 
-Als Nächstes müssen Sie die [Zielgruppe zusammenstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segments oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie sollten bereits die Abo-Gruppe ausgewählt haben, die die Nutzer:innen nach dem Grad oder der Kategorie der Kommunikation eingrenzt, die sie mit Ihnen haben möchten. In diesem Schritt wählen Sie die größere Zielgruppe aus Ihren Segments aus und grenzen dieses Segment mit unseren Filtern weiter ein. Sie erhalten automatisch eine Momentaufnahme der ungefähren Segmentpopulation. Beachten Sie, dass die genaue Segmentzugehörigkeit immer vor dem Senden der Nachricht berechnet wird.
+Als Nächstes müssen Sie die [Zielgruppe zusammenstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segments oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie sollten bereits die Abo-Gruppe ausgewählt haben, die Nutzer:innen nach dem Grad oder der Kategorie der Kommunikation eingrenzt, die sie mit Ihnen haben möchten. In diesem Schritt wählen Sie die größere Zielgruppe aus Ihren Segments aus und grenzen dieses Segment mit unseren Filtern weiter ein. Sie erhalten automatisch eine Momentaufnahme der ungefähren Segment-Population. Beachten Sie, dass die genaue Segment-Zugehörigkeit immer vor dem Senden der Nachricht berechnet wird.
 
 {% multi_lang_include audience/target_audiences.md %}
 
 #### Konversions-Events auswählen {#choose-conversion-events}
 
-Braze ermöglicht es Ihnen zu tracken, wie oft Nutzer:innen bestimmte Aktionen, [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Campaign ausführen. Sie können ein Zeitfenster von bis zu 30 Tagen festlegen, in dem eine Konversion gezählt wird, wenn die:der Nutzer:in die angegebene Aktion ausführt.
+Braze ermöglicht es Ihnen zu tracken, wie oft Nutzer:innen bestimmte Aktionen ausführen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nachdem sie eine Campaign erhalten haben. Sie können ein Zeitfenster von bis zu 30 Tagen festlegen, in dem eine Konversion gezählt wird, wenn die Nutzer:innen die angegebene Aktion ausführen.
 
-Sie können auch angepasste Konversions-Events basierend auf Ihrem spezifischen Anwendungsfall festlegen. Seien Sie kreativ und überlegen Sie, wie Sie den Erfolg dieser Campaign wirklich messen möchten.
+Sie können auch benutzerdefinierte Konversions-Events basierend auf Ihrem spezifischen Anwendungsfall festlegen. Seien Sie kreativ und überlegen Sie, wie Sie den Erfolg dieser Campaign wirklich messen möchten.
 
 {% endtab %}
 
@@ -208,7 +212,7 @@ Sie können auch angepasste Konversions-Events basierend auf Ihrem spezifischen 
 
 Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung multivariater Tests und intelligenter Auswahl und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message) unserer Canvas-Dokumentation.
 
-Da Konversationsfenster pro eingehender Nachricht nur 24 Stunden dauern können, prüft Braze, ob zwischen einer eingehenden Nachricht und einer Antwortnachricht keine Verzögerungen von mehr als 24 Stunden bestehen.
+Da Konversationsfenster pro eingehender Nachricht nur 24 Stunden dauern können, überprüft Braze, ob es keine Verzögerungen von mehr als 24 Stunden zwischen einer eingehenden Nachricht und einer Antwortnachricht gibt.
 
 {% endtab %}
 {% endtabs %}
@@ -217,7 +221,7 @@ Da Konversationsfenster pro eingehender Nachricht nur 24 Stunden dauern können,
 
 Nachdem Sie den letzten Teil Ihrer Campaign oder Ihres Canvas fertiggestellt haben, überprüfen Sie die Details, testen Sie sie und senden Sie sie ab!
 
-Sehen Sie sich als Nächstes das [WhatsApp-Reporting]({{site.baseurl}}/user_guide/channels/whatsapp/reporting) an, um zu erfahren, wie Sie auf die Ergebnisse Ihrer WhatsApp-Campaigns zugreifen können.
+Lesen Sie als Nächstes den Artikel [WhatsApp-Reporting]({{site.baseurl}}/user_guide/channels/whatsapp/reporting), um zu erfahren, wie Sie auf die Ergebnisse Ihrer WhatsApp-Campaigns zugreifen können.
 
 ## Unterstützte WhatsApp-Features {#supported-whatsapp-features}
 
@@ -249,7 +253,7 @@ Die folgenden Features werden für eingehende WhatsApp-Nachrichten unterstützt,
 | Bilder | Bilder müssen 8-Bit sein und entweder ein RGB- oder RGBA-Farbmodell verwenden. Dateien müssen kleiner als 5 MB sein. | `.jpg`, `.png` |
 | Audio | Nur Ogg-Dateien, die mit dem Opus-Codec codiert sind, werden unterstützt. Andere Ogg-Formate werden nicht unterstützt. | `.aac`, `.mp4`, `.mpeg`, `.amr`, `.ogg (Opus only)` |
 | Dokumente | Dokumente werden über Nachrichtenanhänge unterstützt. | `.txt`, `.pdf`, `.ppt`, `.doc`, `.xls`, `.docx`, `.pptx`, `.xlsx` |
-| Video | Nur der H.264-Video-Codec und der AAC-Audio-Codec werden unterstützt. Videos müssen entweder einen einzelnen Audiostream oder keinen Audiostream enthalten. | `.mp4`, `.3gp` |
+| Video | Nur der H.264-Video-Codec und der AAC-Audio-Codec werden unterstützt. Videos müssen entweder einen einzelnen Audio-Stream oder keinen Audio-Stream enthalten. | `.mp4`, `.3gp` |
 | CTA-Links | Verschiedene Call-to-Action-Typen (CTA) werden unterstützt. Weitere Details finden Sie unter [Call-to-Action-Typen](#ctas). | — |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Eingehende Nachrichten" }
 

@@ -63,7 +63,7 @@ import BrazeUI
 final class BannerViewController: UIViewController {
 
   static let bannerPlacementID = "top-1"
-  var bannerHeightConstraints: NSLayoutConstraint?
+  var bannerHeightConstraint: NSLayoutConstraint?
 
   lazy var contentView: UILabel = {
     let contentView = UILabel()
@@ -122,35 +122,35 @@ lines-AppDelegate.swift=14
 
 ### 1. Activer le débogage (facultatif) {#1-enable-debugging-optional}
 
-Pour faciliter la résolution des problèmes lors du développement, pensez à activer le débogage.
+Pour faciliter la résolution des problèmes pendant le développement, envisagez d'activer le débogage.
 
 !!step
 lines-AppDelegate.swift=20
 
 ### 2. Actualiser vos placements {#2-refresh-your-placements}
 
-Après avoir initialisé le SDK Braze, appelez `requestBannersRefresh(placementIds: ["PLACEMENT_ID"])` pour actualiser le contenu de la bannière au début de chaque session.
+Après avoir initialisé le SDK Braze, appelez `requestBannersRefresh(placementIds: ["PLACEMENT_ID"])` pour actualiser le contenu des bannières au début de chaque session.
 
 !!step
 lines-BannerViewController.swift=19-37
 
 ### 3. Initialiser la bannière et fournir un rappel {#3-initialize-the-banner-and-provide-a-callback}
 
-Créez une instance `BrazeBannerUI.BannerUIView` avec votre objet Braze et votre ID de placement, puis fournissez un rappel `processContentUpdates` pour afficher la bannière et mettre à jour sa contrainte de hauteur en fonction de la hauteur du contenu fourni.
+Créez une instance de `BrazeBannerUI.BannerUIView` avec votre objet Braze et l'ID de placement, puis fournissez un rappel `processContentUpdates` pour afficher la bannière et mettre à jour sa contrainte de hauteur en fonction de la hauteur du contenu fourni.
 
 !!step
 lines-BannerViewController.swift=38-40
 
 ### 4. Activer les contraintes Auto Layout {#4-enable-auto-layout-constraints}
 
-Masquez la vue de la bannière par défaut, puis désactivez la traduction du masque de redimensionnement automatique afin d'activer les contraintes Auto Layout.
+Masquez la vue de la bannière par défaut, puis désactivez la traduction du masque de redimensionnement automatique pour activer les contraintes Auto Layout.
 
 !!step
 lines-BannerViewController.swift=43-58
 
-### 5. Ancrer le contenu et définir des contraintes de hauteur {#5-anchor-content-and-set-height-constraints}
+### 5. Ancrer le contenu et définir les contraintes de hauteur {#5-anchor-content-and-set-height-constraints}
 
-Ancrez votre contenu principal en haut à l'aide d'Auto Layout et placez la vue de la bannière après celui-ci. Épinglez les bords avant (leading), arrière (trailing) et inférieur de la bannière à la zone sécurisée (safe area), et définissez une contrainte de hauteur initiale de `0` qui sera mise à jour lors du chargement du contenu.
+Ancrez votre contenu principal en haut à l'aide d'Auto Layout, puis placez la vue de la bannière en dessous. Fixez les bords gauche, droit et inférieur de la bannière à la zone de sécurité, et définissez une contrainte de hauteur initiale de `0` qui sera mise à jour lorsque le contenu sera chargé.
 
 {% endscrolly %}
 {% endtab %}
@@ -253,14 +253,14 @@ lines-AppDelegate.swift=13
 
 ### 1. Activer le débogage (facultatif)
 
-Pour faciliter la résolution des problèmes lors du développement, pensez à activer le débogage.
+Pour faciliter la résolution des problèmes pendant le développement, envisagez d'activer le débogage.
 
 !!step
 lines-AppDelegate.swift=19
 
 ### 2. Actualiser vos placements
 
-Après avoir initialisé le SDK Braze, appelez `requestBannersRefresh(placementIds: ["PLACEMENT_ID"])` pour actualiser le contenu de la bannière au début de chaque session.
+Après avoir initialisé le SDK Braze, appelez `requestBannersRefresh(placementIds: ["PLACEMENT_ID"])` pour actualiser le contenu des bannières au début de chaque session.
 
 !!step
 lines-BannerSwiftUIView.swift=1-46
@@ -281,21 +281,21 @@ lines-BannerSwiftUIView.swift=17-32
 
 ### 5. Afficher `BannerView` uniquement après son chargement {#5-only-show-bannerview-after-it-loads}
 
-Afin d'éviter les espaces vides dans votre interface utilisateur, n'affichez `BrazeBannerUI.BannerView` que si une bannière est présente et que le SDK est initialisé.
+Pour éviter un espace vide dans votre interface, n'affichez `BrazeBannerUI.BannerView` que si une bannière est présente et que le SDK est initialisé.
 
 !!step
 lines-BannerSwiftUIView.swift=23-32
 
 ### 6. Mettre à jour dynamiquement la hauteur de la bannière {#6-dynamically-update-banner-height}
 
-Utilisez le rappel `processContentUpdates` pour récupérer la hauteur du contenu de la bannière dès son chargement. Mettez à jour votre état SwiftUI (`contentHeight`) et appliquez une contrainte `.frame(height:)` en utilisant la hauteur fournie.
+Utilisez le rappel `processContentUpdates` pour récupérer la hauteur du contenu de la bannière dès son chargement. Mettez à jour l'état SwiftUI (`contentHeight`) et appliquez une contrainte `.frame(height:)` en utilisant la hauteur fournie.
 
 !!step
 lines-BannerSwiftUIView.swift=34
 
 ### 7. Limiter la hauteur de la bannière {#7-limit-the-banner-height}
 
-Pour vous assurer que votre bannière ne dépasse jamais la hauteur maximale, appliquez le modificateur `.frame(height: min(contentHeight, 80))`. Cela permet de conserver l'équilibre visuel de votre interface utilisateur, quel que soit le contenu de la bannière.
+Pour vous assurer que votre bannière ne dépasse jamais la hauteur maximale, appliquez un modificateur `.frame(height: min(contentHeight, 80))`. Cela permettra de garder votre interface visuellement équilibrée, quel que soit le contenu de la bannière.
 
 {% endscrolly %}
 {% endtab %}

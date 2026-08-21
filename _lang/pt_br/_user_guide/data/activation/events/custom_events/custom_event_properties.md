@@ -62,8 +62,8 @@ Você também pode usar propriedades de eventos personalizados para personaliza�
 
 #### Considerações com filtros {#considerations-with-filters}
 
-- **Chamadas de API:** Ao fazer chamadas de API e usar o filtro "está em branco", uma propriedade de evento personalizado é considerada "em branco" se excluída da chamada. Por exemplo, se você incluir `"event_property": ""`, seus usuários são considerados "não em branco".
-- **Inteiros:** Ao filtrar por uma propriedade de evento personalizado numérica e o número for muito grande, não use o filtro "exatamente". Se um número for grande demais, ele pode ser arredondado em um determinado comprimento, então seu filtro não funcionará como esperado.
+- **Chamadas de API:** Ao fazer chamadas de API e usar o filtro "está em branco", uma propriedade de evento personalizado é considerada "em branco" se for excluída da chamada ou se o valor for uma string vazia (`""`). Por exemplo, se você incluir `"event_property": ""`, seus usuários serão considerados "em branco".
+- **Inteiros:** Ao filtrar por uma propriedade de evento personalizado numérica e o número for muito grande, não use o filtro "exatamente". Se um número for muito grande, ele pode ser arredondado em um determinado comprimento, então seu filtro não funcionará como esperado.
 
 #### Coerção de tipo para comparações {#type-coercion-for-comparisons}
 
@@ -98,7 +98,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 {% endraw %}
 
 {% alert warning %}
-Se o usuário não tiver conexão com a internet, mensagens no app disparadas com propriedades de eventos personalizados modeladas (por exemplo, {% raw %}``{{event_properties.${time_spent}}}``{% endraw %}) falham e não são exibidas.
+Se o usuário não tiver conexão com a internet, mensagens no app disparadas com propriedades de eventos personalizados modeladas (por exemplo, {% raw %}``{{event_properties.${time_spent}}}``{% endraw %}) falharão e não serão exibidas.
 {% endalert %}
 
 Para uma lista completa de Liquid tags que fazem com que mensagens no app sejam entregues como mensagens no app modeladas, consulte [Perguntas frequentes]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages).
@@ -111,24 +111,24 @@ No Canvas, `context` e `event_properties` servem a propósitos diferentes:
 - **`event_properties`**: Propriedades de um evento personalizado ou compra que ocorre durante a jornada. Use-as apenas na primeira etapa de mensagem após uma etapa de [jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) — não no caminho "Todos os outros" e não em etapas de mensagem posteriores.
 
 {% alert important %}
-Na primeira etapa de mensagem de um Canvas, use `context` em vez de `event_properties`, ou adicione uma etapa de jornadas de ação antes da etapa de mensagem. Exceção: para mensagens no app, você pode usar `event_properties` na primeira etapa de mensagem quando esse evento é o gatilho de entrada do Canvas.
+Na primeira etapa de mensagem de um Canvas, use `context` em vez de `event_properties`, ou adicione uma etapa de jornadas de ação antes da etapa de mensagem. Exceção: para mensagens no app, você pode usar `event_properties` na primeira etapa de mensagem quando esse evento for o gatilho de entrada do Canvas.
 {% endalert %}
 
-Para saber mais, consulte [Contexto e propriedades de eventos]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) e [Propriedades de entrada do Canvas e propriedades de eventos](#canvas-entry-properties-and-event-properties).
+Para saber mais, consulte [Propriedades de contexto e evento]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) e [Propriedades de entrada do Canvas e propriedades de evento](#canvas-entry-properties-and-event-properties).
 
 ### Segmentação {#segmentation}
 
 Use a segmentação por propriedade de evento para direcionar usuários com base em eventos personalizados realizados e nas propriedades associadas a esses eventos. Isso aumenta suas opções de filtragem ao segmentar por compras e eventos personalizados.
 
-As propriedades de eventos para eventos personalizados são atualizadas em tempo real para qualquer segmento que as utilize. Você pode gerenciar propriedades acessando **Configurações de dados** > **Eventos personalizados** e selecionando **Gerenciar propriedades** para o evento personalizado associado. As propriedades de eventos personalizados usadas em determinados filtros de segmento têm um histórico máximo de retrospectiva de 30 dias.
+As propriedades de eventos para eventos personalizados são atualizadas em tempo real para qualquer Segment que as utilize. Você pode gerenciar propriedades acessando **Configurações de dados** > **Eventos personalizados** e selecionando **Gerenciar propriedades** para o evento personalizado associado. As propriedades de eventos personalizados usadas em determinados filtros de Segment têm um histórico máximo de retrospectiva de 30 dias.
 
-#### Adicionando propriedades de eventos para segmentação {#adding-event-properties-for-segmentation}
+#### Adicionando propriedades de evento para segmentação {#adding-event-properties-for-segmentation}
 
-Você precisa da [permissão de usuário]({{site.baseurl}}/user_guide/data/infrastructure/data_points#viewing-data-point-usage) "Edit Custom Event Property Segmentation" para criar segmentos com base na recência e frequência de propriedades de eventos.
+Você precisa da permissão de usuário "Edit Custom Event Property Segmentation" ([permissão de usuário]({{site.baseurl}}/user_guide/data/infrastructure/data_points#viewing-data-point-usage)) para criar Segments com base na recência e frequência de propriedades de evento.
 
-Por padrão, você pode ter 20 propriedades de eventos segmentáveis por espaço de trabalho. Entre em contato com seu gerente de conta da Braze para aumentar esse limite.
+Por padrão, você pode ter 20 propriedades de evento segmentáveis por espaço de trabalho. Entre em contato com seu gerente de conta da Braze para aumentar esse limite.
 
-Para adicionar propriedades de eventos para segmentação, faça o seguinte:
+Para adicionar propriedades de evento para segmentação, faça o seguinte:
 
 1. Acesse seu evento personalizado e selecione **Gerenciar propriedades**.
 2. Selecione o botão **Ativar segmentação** para adicionar a propriedade de evento para segmentação. Você pode acessar opções de filtragem adicionais ao segmentar.
@@ -139,7 +139,7 @@ Os filtros de segmentação por propriedade de evento incluem:
 
 ![Um grupo de filtros que tem "Carrinho abandonado" com propriedade "número de itens" e valor 2 mais de 1 vez nos últimos 30 dias corridos.]({% image_buster /assets/img/nested_object3.png %})
 
-Os dados são registrados apenas para uma determinada propriedade de evento após você ativá-la, e as propriedades de eventos ficam disponíveis apenas a partir dessa data.
+Os dados são registrados apenas para uma determinada propriedade de evento após você ativá-la, e as propriedades de evento ficam disponíveis apenas a partir dessa data.
 
 #### Pontos de dados {#data-points}
 
@@ -148,7 +148,7 @@ Em relação ao uso de inscrição, as propriedades de eventos personalizados at
 - `X Custom Event Property in Y Days`
 - `X Purchase Property in Y Days`
 
-### Propriedades de entrada do Canvas e propriedades de eventos {#canvas-entry-properties-and-event-properties}
+### Propriedades de entrada do Canvas e propriedades de evento {#canvas-entry-properties-and-event-properties}
 
 {% multi_lang_include canvas/entry_event_properties.md %}
 
@@ -165,6 +165,6 @@ As propriedades de eventos personalizados foram projetadas para ajudar você a a
 Você pode segmentar com base nos valores das propriedades de eventos de duas maneiras:
 
 1. **Nos últimos 30 dias:** Você pode usar a segmentação por propriedades de eventos com base na frequência e na recência de valores específicos de propriedades de eventos dentro dos Segments da Braze. Essa opção impacta o uso de dados.<br><br>
-2. **Nos últimos 30 dias e além:** Para cobrir tanto a segmentação de propriedades de eventos a curto quanto a longo prazo, você pode usar as [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Esse recurso segmenta usuários com base em eventos personalizados e propriedades de eventos rastreados nos últimos dois anos. Essa opção não impacta o uso de dados.
+2. **Nos últimos 30 dias e além:** Para cobrir tanto a segmentação de propriedades de eventos a curto quanto a longo prazo, você pode usar as [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Esse recurso segmenta os usuários com base em eventos personalizados e propriedades de eventos rastreados nos últimos dois anos. Essa opção não impacta o uso de dados.
 
 Entre em contato com seu gerente de sucesso do cliente da Braze para obter recomendações sobre a melhor abordagem de acordo com suas necessidades específicas.

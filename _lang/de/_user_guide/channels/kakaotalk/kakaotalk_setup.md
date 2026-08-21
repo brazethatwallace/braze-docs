@@ -19,7 +19,7 @@ channel:
 | Konto bei einem unterstützten KakaoTalk-Partner | Ein Konto bei einem unterstützten KakaoTalk-Partner, [CJ OliveNetworks](https://www.braze.com/partners/solutions-partners/cjolivenetworks/) oder [Infobip](https://marketplace.braze.com/partners/infobip), ist erforderlich, um den KakaoTalk-Messaging-Kanal zu nutzen. |
 | KakaoTalk-Business-Kanal | Ihr KakaoTalk-Konto muss ein KakaoTalk-Business-Kanal sein, um KakaoTalk-Nachrichten über Braze zu senden. Wenn Sie ein Konto erstellen, ist der Standardstatus „Basic“. Um Ihr Konto zu einem Business-Kanal zu machen, müssen Sie Ihr Unternehmen verifizieren und die entsprechenden Unterlagen einreichen. |
 | KakaoTalk-Sender-Key | Ein gültiger KakaoTalk-Sender-Key. |
-| Kontakt-Telefonnummer | Eine Kontakt-Telefonnummer für die Administratorin bzw. den Administrator Ihres KakaoTalk-Kanals. |
+| Kontakt-Telefonnummer | Eine Kontakt-Telefonnummer für die Administration Ihres KakaoTalk-Kanals. |
 | Braze-Cluster-IPs auf der Allowlist | Die Registrierung auf der IP-Allowlist ist für alle Kund:innen erforderlich. Registrieren Sie die Braze-IP-Adressen für Ihren Cluster, bevor Sie KakaoTalk in Braze integrieren. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -33,15 +33,15 @@ Registrieren Sie die Braze-IP-Adressen für Ihren Cluster in Ihrem Comm.One-Dash
 
 ![Comm.One-Dashboard, das zeigt, wo Sie IP-Adressen hinzufügen können.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
 
-### Typen von KakaoTalk-Konten {#types-of-kakaotalk-accounts}
+### Arten von KakaoTalk-Konten {#types-of-kakaotalk-accounts}
 
 | Kontotyp | Beschreibung |
 | --- | --- |
 | Basic-Kanal | Ein Standard-KakaoTalk-Kanal, den jede Organisation einrichten kann. Er ermöglicht Broadcast-Messaging und 1:1-Chat über KakaoTalk. |
 | [Business-Kanal](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | Ein erweiterter, geschäftlich verifizierter KakaoTalk-Kanal, der einen Antrags- und Verifizierungsprozess erfordert. Er bietet erweiterte Features, wie z. B. {::nomarkdown}<ul><li>Verifiziertes Badge</li><li>Anzeige als empfohlener Kanal</li><li>Unterstützung für Business-Messaging</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Typen von KakaoTalk-Konten" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Arten von KakaoTalk-Konten" }
 
-#### Einen Business-Kanal beantragen {#apply-for-a-business-channel}
+#### Antrag auf einen Business-Kanal stellen {#apply-for-a-business-channel}
 
 Bevor Sie den Antrag starten, sammeln Sie die folgenden Geschäftsunterlagen:
 - Koreanische Gewerbeanmeldung (Business Registration Certificate)
@@ -53,7 +53,7 @@ Bevor Sie den Antrag starten, sammeln Sie die folgenden Geschäftsunterlagen:
 Die Informationen in Ihrem KakaoTalk-Kanal (wie Kanalname, Profilbild und andere) müssen exakt mit den Informationen in Ihren offiziell eingereichten Dokumenten übereinstimmen.
 {% endalert %}
 
-Nachdem Sie Ihre Unterlagen zusammengestellt haben, folgen Sie diesen Schritten:
+Nachdem Sie Ihre Unterlagen zusammengestellt haben, führen Sie die folgenden Schritte aus:
 
 1. Melden Sie sich im [KakaoTalk Channel Admin Center](https://center-pf.kakao.com/) an.
 2. Wählen Sie den bestehenden KakaoTalk-Kanal aus, den Sie upgraden möchten.
@@ -64,17 +64,17 @@ Nachdem Sie Ihre Unterlagen zusammengestellt haben, folgen Sie diesen Schritten:
 
 ## KakaoTalk integrieren {#integrate-kakaotalk}
 
-### Schritt 1: Den KakaoTalk-Kanal mit Braze verbinden {#step-1-connect-the-kakaotalk-channel-to-braze}
+### Den KakaoTalk-Kanal mit Braze verbinden {#connect-the-kakaotalk-channel-to-braze}
 
 1. Gehen Sie zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie Ihren KakaoTalk-Anbieter aus.
 2. Sammeln Sie die erforderlichen Zugangsdaten für Ihren Anbieter (siehe folgenden Abschnitt), geben Sie diese auf der **Technologie-Partnerseite** ein und speichern Sie sie.
-3. Verwenden Sie die neu gespeicherten Zugangsdaten für den Versand.
+3. Verwenden Sie die neu gespeicherten Zugangsdaten zum Senden.
 
 #### CJ OliveNetworks
 
 Gehen Sie zu Ihrem [Comm.One-Dashboard](https://ums.cjmplace.com/) und sammeln Sie die folgenden Informationen.
 
-| Feld | Ort |
+| Feld | Standort |
 | --- | --- |
 | **Comm.One Login ID (로그인 아이디)** | Wählen Sie Ihr Profil aus. |
 | **Sender Key (발신프로필 키)** | Gehen Sie zu **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
@@ -94,7 +94,7 @@ Gehen Sie zu Ihrem [Comm.One-Dashboard](https://ums.cjmplace.com/) und sammeln S
 ![Comm.One-Dashboard mit einem zensierten Sender Key.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
 {% alert important %}
-Sie können einen KakaoTalk-Sender-Key jeweils nur in einen Workspace integrieren. Um denselben Sender Key in einem anderen Workspace zu verwenden, müssen Sie zunächst die KakaoTalk-Abo-Gruppe im ursprünglichen Workspace archivieren und dann den [Braze-Support]({{site.baseurl}}/braze_support) kontaktieren, um die Integration zu entfernen. Nachdem Braze die Integration entfernt hat, können Sie die Integration im neuen Workspace einrichten.
+Sie können einen KakaoTalk Sender Key jeweils nur in einen Workspace integrieren. Um denselben Sender Key in einem anderen Workspace zu verwenden, müssen Sie zunächst die KakaoTalk-Abo-Gruppe im ursprünglichen Workspace archivieren und dann den [Braze-Support]({{site.baseurl}}/braze_support) kontaktieren, um die Integration zu entfernen. Nachdem Braze die Integration entfernt hat, können Sie die Integration im neuen Workspace einrichten.
 {% endalert %}
 
 ![Zugangsdaten für einen Braze-KakaoTalk-Kanal.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
@@ -120,16 +120,45 @@ Es können nur die Kanäle registriert werden, die einer einzelnen gemeinsamen I
 
 #### Infobip
 
-Gehen Sie zu Ihrem Infobip-Dashboard und sammeln Sie die folgenden Informationen.
+Gehen Sie zu Ihrem Infobip-Dashboard und zum [KakaoTalk Channel Admin Center](https://center-pf.kakao.com/), um die folgenden Informationen zu sammeln.
 
-| Feld | Ort |
+| Feld | Standort |
 | --- | --- |
-| **API Base URL** | Wählen Sie **Developer Tools** > **API Keys**. |
-| **API Key** | Wählen Sie **Developer Tools** > **API Keys**. |
-| **Sender name / Sender key** | Wählen Sie **Channels and Numbers** > **Channels** und dann den Tab **Absender**. |
-| **Sender profile UUID** | Wird direkt von Infobip bereitgestellt. Kontaktieren Sie Infobip, falls Sie diese Information nicht haben. |
-| **Channel name** | Wird direkt von Infobip bereitgestellt. Kontaktieren Sie Infobip, falls Sie diese Information nicht haben. |
+| **API Base URL** | Gehen Sie im Infobip-Portal zu **Developer Tools** > **API Keys**. |
+| **API Key** | Gehen Sie im Infobip-Portal zu **Developer Tools** > **API Keys**. |
+| **Sender name / Sender key** | Gehen Sie im Infobip-Portal zu **Channels and Numbers** > **Channels** und wählen Sie dann den Tab **Senders**. |
+| **Sender profile UUID** | Gehen Sie im KakaoTalk Channel Admin Center zu **Channels** und suchen Sie die **Search ID** im Kanalinformationsfenster. |
+| **Channel name** | Suchen Sie im KakaoTalk Channel Admin Center den **Kanalnamen** im selben Kanalinformationsfenster. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Infobip" }
+
+##### API-Schlüssel und Base URL {#api-key-and-base-url}
+
+1. Wählen Sie im Infobip-Portal **Developer Tools** > **API Keys**.
+2. Kopieren Sie auf der Seite **API keys** die **API base URL**.
+
+![Infobip-Seite „API Keys“ mit der API-Base-URL.]({% image_buster /assets/img/kakaotalk/infobip_api_keys_page.png %})
+
+{: start="3"}
+3. Wählen Sie **CREATE API KEY**.
+4. Geben Sie den **Name** ein, wählen Sie das **Expiration date** und dann die für KakaoTalk erforderlichen API-Scopes aus. Diese Scopes steuern, welche Infobip-API-Aktionen Ihr Schlüssel ausführen kann.
+
+![Infobip-Seite „Create API Key“ mit den Feldern für Name, Ablaufdatum und API-Scopes.]({% image_buster /assets/img/kakaotalk/infobip_api_key_scopes.png %})
+
+{: start="5"}
+5. Wählen Sie **CREATE**, um den Schlüssel zu generieren.
+6. Kopieren Sie den generierten Schlüssel. Sie können zu dieser Seite zurückkehren, um den Namen, das Ablaufdatum oder die API-Scopes zu aktualisieren.
+
+##### Sender-Profil-UUID und Kanalname {#sender-profile-uuid-and-channel-name}
+
+1. Wählen Sie im [KakaoTalk Channel Admin Center](https://center-pf.kakao.com/) **Channels** aus.
+2. Suchen Sie im Fenster **Channel Information** den **Kanalnamen** und die **Search id** (Sender-UUID).
+3. Geben Sie die **Customer center contact information** ein. Diese Angabe ist beim Senden von Werbenachrichten erforderlich.
+
+![KakaoTalk-Kanalinformationsfenster mit den Kontaktinformationsfeldern des Kundencenters.]({% image_buster /assets/img/kakaotalk/kakao_customer_center_contact.png %})
+
+{: start="4"}
+4. Um einen anderen Kanal anzuzeigen, wählen Sie das Kanalsymbol oben im Menü.
+5. Wählen Sie in der Liste **My channel** den gewünschten Kanal aus und wiederholen Sie die vorherigen Schritte.
 
 ## Nutzerprofile einrichten {#set-user-profiles}
 

@@ -15,27 +15,27 @@ Formeln helfen Ihnen, komplexe Beziehungen in Ihren Daten zu verstehen. Sie kön
 
 ## Anwendungsfälle {#use-cases}
 
-Formeln, insbesondere in Kombination mit angepassten Events, können Ihnen helfen, das Nutzerverhalten innerhalb Ihrer App zu verstehen. Formeln können auch tiefere Insights in das Kaufverhalten von Segmenten geben, selbst wenn Ihr Unternehmen Paid Media in Verbindung mit Braze verwendet, wie z. B. Google Ads oder TV.
+Formeln können, insbesondere in Kombination mit angepassten Events, dabei helfen, das Verhalten von Nutzer:innen innerhalb Ihrer App zu verstehen. Formeln können auch tiefere Insights in die Kaufmuster von Segmenten liefern, selbst wenn Ihr Unternehmen Paid Media in Verbindung mit Braze nutzt, wie z. B. Google Ads oder TV.
 
-Im Folgenden finden Sie einige Beispiele für die Arten von Verhaltensmustern, die mit Formeln erkannt werden können:
+Im Folgenden finden Sie einige Beispiele für Verhaltensmuster, die mithilfe von Formeln erkannt werden können:
 
-- **Mitfahr-Apps:** Wenn Sie ein angepasstes Event für den Fall haben, dass Nutzer:innen eine Fahrt stornieren, können Sie eine Funktion für stornierte Fahrten / DAU konfigurieren, um herauszufinden, ob bestimmte Nutzersegmente dazu neigen, mehr Fahrten zu stornieren als andere.
-- **E-Commerce-Apps:** Indem Sie eine Funktion für Käufe einer bestimmten Produkt-ID / MAU konfigurieren, können Sie die Beliebtheit eines kürzlich beworbenen Produkts zwischen Segmenten vergleichen, auch wenn nicht alle Aktionen mit Braze getrackt werden konnten.
-- **Medien-Apps mit Anzeigen:** Wenn das Nutzererlebnis durch Werbung zwischen Video- oder Audioclips unterbrochen wird, kann die Aufzeichnung von Mid-Ad-Exits als angepasstes Event und die Berechnung des Verhältnisses von Mid-Ad-Exits / DAU dabei helfen, die besten Segmente für das Targeting einer Campaign für werbefreie Premium-Abos zu finden.
+- **Mitfahr-Apps:** Wenn Sie ein angepasstes Event für den Fall haben, dass Nutzer:innen eine Fahrt stornieren, können Sie eine Funktion für stornierte Fahrten / täglich aktive Nutzer:innen konfigurieren, um herauszufinden, ob bestimmte Nutzer:innen-Segmente dazu neigen, mehr Fahrten zu stornieren als andere.
+- **E-Commerce-Apps:** Durch die Konfiguration einer Funktion für Käufe einer bestimmten Produkt-ID / MAU können Sie die Beliebtheit eines kürzlich beworbenen Produkts zwischen Segmenten vergleichen, selbst wenn nicht alle Aktionen über Braze getrackt werden konnten.
+- **Medien-Apps mit Werbung:** Wenn das Erlebnis der Nutzer:innen durch Werbung zwischen Video- oder Audioclips unterbrochen wird, kann das Erfassen von Abbrüchen während der Werbung als angepasstes Event und die Berechnung des Verhältnisses von Werbeabbrüchen / täglich aktiven Nutzer:innen dabei helfen, die besten Segmente für eine Campaign für werbefreie Premium-Abos zu identifizieren.
 
 ## Formeln erstellen {#creating-formulas}
 
-Auf die Formeln können Sie in den Statistik-Panels auf den Seiten [Home]({{site.baseurl}}/user_guide/analytics/dashboards/home), [Umsatzbericht]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) und [Bericht zu angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) im Dashboard zugreifen. Um dieses Panel anzuzeigen, gehen Sie zum Chart **Performance Over Time**, ändern Sie die Dropdown-Liste **Statistics For** in **KPI Formulas** und wählen Sie dann mindestens eine KPI-Formel aus, um das Chart zu füllen.
+Auf Formeln kann im Dashboard auf den Seiten [Home]({{site.baseurl}}/user_guide/analytics/dashboards/home), [Umsatzbericht]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) und [Bericht zu angepassten Events]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report) zugegriffen werden. Öffnen Sie auf **Home** und **Umsatzbericht** das Chart **Performance Over Time**, setzen Sie **Statistics For** auf **KPI Formulas** und wählen Sie mindestens eine Formel aus. Öffnen Sie auf der Seite **Custom Events Report** die **Filter**, wählen Sie eine oder mehrere **KPI formula**-Optionen aus und klicken Sie auf **Apply**.
 
 ![Statistiken für KPI-Formeln im Braze-Dashboard anzeigen]({% image_buster /assets/img_archive/kpi_forms.png %})
 
 So erstellen Sie eine neue Formel:
 
-1. Rufen Sie das entsprechende Dashboard auf (**Home**, **Umsatzbericht** oder **Bericht zu angepassten Events**).
-2. Wählen Sie **Manage KPI Formulas**.
+1. Gehen Sie zum entsprechenden Dashboard (**Home**, **Revenue Report** oder **Custom Events Report**).
+2. Wählen Sie **Manage KPI Formulas** aus.
 3. Geben Sie einen Namen für Ihre Formel ein.
-4. Wählen Sie die entsprechenden Zähler und Nenner aus.
-5. Wählen Sie **Save**.
+4. Wählen Sie die relevanten Zähler und Nenner aus.
+5. Wählen Sie **Save** aus.
 
 ## Verfügbare Zähler und Nenner {#available-numerators-and-denominators}
 
@@ -75,7 +75,7 @@ table td {
 | Zähler | Nenner |
 | --- | --- |
 | Käufe (alle) | DAU |
-| Bestimmte Käufe (z. B. eine Geschenkkarte oder eine Produkt-ID) | MAU |
+| Ausgewählte Käufe (z. B. eine Geschenkkarte oder Produkt-ID) | MAU |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Umsatz-Dashboard" }
 
 ### Dashboard für angepasste Events {#custom-event-dashboard}
@@ -84,5 +84,5 @@ table td {
 | --- | --- |
 | Anzahl angepasster Events | MAU |
 |  | DAU |
-|  | Segmentgröße (nur Segmente, für die [Analytics-Tracking]({{site.baseurl}}/viewing_and_understanding_segment_data) aktiviert ist, können verwendet werden) |
+|  | Segmentgröße (es können nur Segmente verwendet werden, bei denen [Analytics-Tracking]({{site.baseurl}}/viewing_and_understanding_segment_data) aktiviert ist) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard für angepasste Events" }

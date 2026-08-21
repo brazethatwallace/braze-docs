@@ -74,6 +74,8 @@ Select if you’d like to create a WhatsApp [template message](#template-message
 You can use [approved WhatsApp template messages]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#step-3-create-whatsapp-templates
 ) to initiate conversations with your users on WhatsApp. These messages are submitted in advance to WhatsApp for content approval, which can take up to 24 hours to approve. Any edits you make to copy needs to be edited and resubmitted to WhatsApp.
 
+To create and submit a new template without leaving the campaign or Canvas composer, select **Create new template**. For categories, types, and the full build process, see [WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder).
+
 Disabled text fields (highlighted gray) cannot be edited as they are part of the approved WhatsApp template. To make updates to the disabled text, you must edit your template and get it reapproved.
 
 #### Languages
@@ -103,6 +105,8 @@ If you plan to use Liquid, be sure to include a default value for your chosen pe
 Call-to-action URLs may contain variables, though Meta requires them to be at the end of the URL, such as `{% raw %}https://example.com/{{variable}}{% endraw %}`, where the variable can then be replaced in Braze with Liquid. Links can also be included as the body text as part of the template. Both of these links can be shortened and tracked using [click tracking]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking).
 
 ### Dynamic images
+
+You can add images from the media library or by URL. When you use a URL, you can personalize the image with [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) or [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), including full Liquid logic anywhere in the URL. Dynamic images are supported for template messages and response messages (media messages and quick reply layouts).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 

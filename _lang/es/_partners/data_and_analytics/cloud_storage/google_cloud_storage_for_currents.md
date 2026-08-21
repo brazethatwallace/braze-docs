@@ -32,7 +32,7 @@ La integración de Braze y Google Cloud Storage te permite transmitir datos de C
 Para integrarte con Google Cloud Storage, debes configurar las credenciales adecuadas que permitan a Braze obtener información sobre los contenedores de almacenamiento en los que se escribe (`storage.buckets.get`) y crear objetos dentro de ese contenedor (`storage.objects.create`).
 
 {% alert note %}
-Workload Identity Federation (WIF) no es compatible como método de autenticación para Currents. Debes usar una cuenta de servicio con una clave privada JSON.
+Workload Identity Federation (WIF) no es compatible como método de autenticación para Currents. Debes utilizar una cuenta de servicio con una clave privada JSON.
 {% endalert %}
 
 Esto se puede hacer siguiendo las instrucciones a continuación, que te guiarán para crear un rol y una cuenta de servicio que generará una clave privada para usar en tu integración de Currents.
@@ -52,11 +52,11 @@ Dale un nombre al rol, luego selecciona **+Add Permissions** y elige los siguien
 - `storage.buckets.get`
 
 {% alert note %}
-El permiso `storage.objects.delete` es opcional. Permite a Braze limpiar archivos incompletos.<br><br>En circunstancias poco frecuentes, Google Cloud puede terminar las conexiones antes de tiempo, lo que provoca que Braze escriba archivos incompletos en Google Cloud Storage. En la mayoría de los casos, Braze reintentará y creará un nuevo archivo con los datos correctos, dejando el archivo antiguo en Google Cloud Storage.
+El permiso `storage.objects.delete` es opcional. Permite a Braze limpiar archivos incompletos.<br><br>En circunstancias excepcionales, Google Cloud puede terminar las conexiones antes de tiempo, lo que provoca que Braze escriba archivos incompletos en Google Cloud Storage. En la mayoría de los casos, Braze reintentará y creará un nuevo archivo con los datos correctos, dejando el archivo antiguo en Google Cloud Storage.
 {% endalert %}
 
 {% alert important %}
-Si tu contenedor usa [espacio de nombres jerárquico](https://cloud.google.com/storage/docs/hns-overview), también debes añadir el permiso `storage.folders.create`. En estos contenedores, las carpetas son recursos gestionados, por lo que Braze necesita este permiso para crear la estructura de carpetas de tus archivos exportados. Sin él, Braze no puede escribir en el contenedor y la integración no logra exportar datos.
+Si tu contenedor utiliza [espacio de nombres jerárquico](https://cloud.google.com/storage/docs/hns-overview), también debes añadir el permiso `storage.folders.create`. En estos contenedores, las carpetas son recursos gestionados, por lo que Braze necesita este permiso para crear la estructura de carpetas de tus archivos exportados. Sin él, Braze no puede escribir en el contenedor y la integración no logra exportar datos.
 {% endalert %}
 
 Cuando hayas terminado, selecciona **Create**.
@@ -85,13 +85,15 @@ En la parte inferior de la página, usa el botón **Create Key** para crear una 
 
 En Braze, navega a **Currents** > **+ Create Current** > **Google Cloud Storage Data Export** y proporciona el nombre de tu integración y el correo electrónico de contacto.
 
+{% multi_lang_include currents/contact_email_notifications.md %}
+
 A continuación, sube tu clave privada JSON en **GCS JSON Credentials** y proporciona el nombre de tu contenedor GCS y el prefijo GCS (opcional). Ten en cuenta que debes generar estas credenciales a través de Google Cloud Platform, como se describe en los pasos anteriores.
 
 {% alert important %}
 Es importante mantener tu archivo de credenciales actualizado; si las credenciales de tu conector caducan, el conector dejará de enviar eventos. Si esto persiste durante más de **5 días**, los eventos del conector se descartarán y los datos se perderán permanentemente.
 {% endalert %}
 
-![La página de Currents de Google Cloud Storage en Braze. En esta página existen campos para nombre de integración, correo electrónico de contacto, credencial JSON de GCS, nombre de contenedor GCS y prefijo.]({% image_buster /assets/img/gcs6.png %})
+![La página de Currents de Google Cloud Storage en Braze. En esta página existen campos para el nombre de la integración, correo electrónico de contacto, credencial JSON de GCS, nombre del contenedor GCS y prefijo.]({% image_buster /assets/img/gcs6.png %})
 
 Por último, desplázate hasta la parte inferior de la página y selecciona qué eventos de participación de mensajes o eventos de comportamiento del cliente deseas exportar. Cuando hayas terminado, lanza tu Current.
 
@@ -99,7 +101,7 @@ Por último, desplázate hasta la parte inferior de la página y selecciona qué
 
 Para configurar las exportaciones de Google Cloud Storage (GCS), ve a **Technology Partners** > **Google Cloud Storage**, introduce tus credenciales de GCS y selecciona **Make this the default data export destination**.
 
-Ten en cuenta que la organización y el contenido de cualquier archivo exportado serán idénticos en las integraciones de AWS S3, Microsoft Azure y Google Cloud Storage.
+Ten en cuenta que la organización y el contenido de los archivos exportados serán idénticos en las integraciones de AWS S3, Microsoft Azure y Google Cloud Storage.
 
 {% alert important %}
 Asegúrate de introducir el valor JSON completo que es [generado por Google Cloud](https://cloud.google.com/iam/docs/keys-create-delete).
