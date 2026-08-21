@@ -40,7 +40,7 @@ Para impedir que um usuário da empresa faça login e ao mesmo tempo preservar s
 
 Se o usuário precisar continuar podendo fazer login com capacidades limitadas, acesse **Configurações** > **Usuários da empresa**, selecione o usuário e edite suas permissões. Remova as permissões de nível de espaço de trabalho para Campaigns, Canvas, Segments e dados de usuários, e deixe apenas o acesso mínimo — por exemplo, "View Media Library Assets". Para saber mais, consulte [Editar permissões de um usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 
-As permissões de equipe funcionam sobre as permissões do espaço de trabalho. Se você atribuir o usuário a uma equipe, conceda apenas as permissões mínimas de nível de equipe necessárias e não conceda permissões para Campaigns, Canvas, Segments ou perfis de usuário. Eles permanecem no espaço de trabalho e podem fazer login, mas não conseguem executar a maioria das ações de envio de mensagens ou de público.
+As permissões de equipe funcionam sobre as permissões de espaço de trabalho. Se você atribuir o usuário a uma equipe, conceda apenas as permissões mínimas de nível de equipe necessárias e não conceda permissões para Campaigns, Canvas, Segments ou perfis de usuário. Eles permanecem no espaço de trabalho e podem fazer login, mas não conseguem executar a maioria das ações de envio de mensagens ou de público.
 
 Para atribuir um usuário a uma equipe, acesse **Configurações** > **Usuários da empresa** e selecione o usuário que você deseja adicionar à sua equipe.
 
@@ -51,7 +51,7 @@ Em seguida, execute as seguintes etapas:
 ![Permissões de nível de espaço de trabalho com a permissão de modelo de banner definida.]({% image_buster /assets/img/team_level_permissions.png %})
 
 {: start="2"}
-2. Selecione **+ Adicionar permissões de nível de equipe** e, em seguida, selecione a **Equipe** à qual você deseja adicionar este usuário.
+2. Selecione **+ Adicionar permissões de nível de equipe** e, em seguida, selecione a **Equipe** à qual você deseja adicionar esse usuário.
 3. Atribua permissões específicas na seção de permissões da **Equipe**.
 
 ![Permissões de modelo de landing page de nível de equipe.]({% image_buster /assets/img/teams.png %})
@@ -60,53 +60,65 @@ Em seguida, execute as seguintes etapas:
 
 A seguir estão todas as permissões disponíveis que você pode atribuir no nível de equipe. Quaisquer permissões não listadas aqui são concedidas apenas no nível do espaço de trabalho, e essas permissões aparecerão como "--" na coluna de permissões de **Equipes**.
 
-- View Campaigns
-- Edit Campaigns
-- Archive Campaigns
-- Launch Campaigns
-- Approve Campaigns
-- View Canvases
-- Edit Canvases
-- Archive Canvases
-- Launch Canvases
-- Approve Canvases
-- View Content Blocks
-- Edit Content Blocks
-- Archive Content Blocks
-- Launch Content Blocks
-- View Segments
-- Edit Segments
-- Archive Segments
-- View IAM Templates
-- Edit IAM Templates
-- Archive IAM Templates
-- View Email Templates
-- Edit Email Templates
-- Archive Email Templates
-- View Webhook Templates
-- Edit Webhook Templates
-- Archive Webhook Templates
-- View Email Link Templates
-- Edit Email Link Templates
-- View Media Library Assets
-- Edit Media Library Assets
-- Delete Media Library Assets
-- Export User Data
-- View User Profiles (PII Redacted)
-- View PII
-- Edit Dashboard Users
-- Edit Canvas Templates
-- View Canvas Templates
-- Archive Canvas Templates
-- View Dashboard Reports
-- Edit Dashboard Reports
-- Delete Dashboard Reports
+- Ver Campaigns
+- Editar Campaigns
+- Arquivar Campaigns
+- Lançar Campaigns
+- Aprovar Campaigns
+- Ver Canvas
+- Editar Canvas
+- Arquivar Canvas
+- Lançar Canvas
+- Aprovar Canvas
+- Ver Content Blocks
+- Editar Content Blocks
+- Arquivar Content Blocks
+- Lançar Content Blocks
+- Ver Segments
+- Editar Segments
+- Arquivar Segments
+- Ver modelos de mensagem no app
+- Editar modelos de mensagem no app
+- Arquivar modelos de mensagem no app
+- Ver modelos de e-mail
+- Editar modelos de e-mail
+- Arquivar modelos de e-mail
+- Ver modelos de webhook
+- Editar modelos de webhook
+- Arquivar modelos de webhook
+- Ver modelos de link de e-mail
+- Editar modelos de link de e-mail
+- Ver ativos da biblioteca de mídia
+- Editar ativos da biblioteca de mídia
+- Excluir ativos da biblioteca de mídia
+- Exportar dados de usuários
+- Ver perfis de usuário (IPI ocultada)
+- Ver IPI
+- Editar usuários do dashboard
+- Editar modelos de Canvas
+- Ver modelos de Canvas
+- Arquivar modelos de Canvas
+- Ver relatórios do dashboard
+- Editar relatórios do dashboard
+- Excluir relatórios do dashboard
 
 Para ver descrições do que cada permissão de usuário inclui e como usá-las, consulte nossa seção [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ## Atribuir tags de Equipe {#tags-and-filters}
 
 Você pode atribuir uma Equipe a Canvas, Campaigns, Content Cards, Segments, modelos de e-mail, modelos de webhook, Content Blocks e ativos da biblioteca de mídia com o filtro **Adicionar equipe**.
+
+### Atribuição automática de Equipe {#automatic-team-assignment}
+
+Para usuários com permissões apenas de nível de Equipe (e sem permissão de edição no nível do espaço de trabalho), a Braze pode atribuir Equipes automaticamente durante a criação de objetos:
+
+| Associação de Equipe do usuário | Comportamento |
+| --- | --- |
+| Exatamente uma Equipe | A Braze atribui automaticamente essa Equipe quando o usuário cria uma nova campanha, Canvas, Content Block ou modelo de e-mail. |
+| Mais de uma Equipe | O usuário deve escolher uma Equipe antes de salvar. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamento da atribuição automática de Equipe" }
+
+Quando uma Equipe é atribuída a uma campanha ou Canvas, os filtros de segmentação obrigatórios dessa Equipe aparecem no construtor de público como um grupo de **filtro de Equipe** somente leitura.
 
 Para Canvas, a Braze só verifica se os usuários correspondem aos critérios do filtro de equipe quando eles entram no Canvas. Depois que um usuário entra em um Canvas, ele continua recebendo mensagens de todas as etapas do Canvas, mesmo que seus atributos mudem e ele não corresponda mais aos critérios do filtro de equipe. Os filtros de equipe não se comportam como [validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations), que reavaliam os usuários a cada envio de etapa de mensagem.
 
@@ -147,7 +159,7 @@ Assim como no primeiro cenário, Michelle deve adicionar a tag de Equipe Develop
 {% endtab %}
 {% endtabs %}
 
-## Teste com equipes {#test-with-teams}
+## Testar com equipes {#test-with-teams}
 
 Um possível caso de uso para equipes é criar um sistema de aprovação baseado em equipes para testar e lançar conteúdo em um ambiente de produção.
 

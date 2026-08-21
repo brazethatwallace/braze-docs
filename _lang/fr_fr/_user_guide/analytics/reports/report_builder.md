@@ -36,7 +36,7 @@ La vidéo suivante offre un aperçu de la création et de la personnalisation de
     - Canaux
     - Tags
 
-    Notez que votre sélection dans **Rows** aura un impact sur [les indicateurs que vous pouvez consulter](#metrics-availability). Par exemple, vous pouvez afficher les indicateurs multivariantes uniquement si vous créez un rapport sur les **Canvas**, ou les **Campaigns** avec un détail par **Variant**. Vous ne pouvez pas afficher ces indicateurs lorsque vous créez un rapport sur **Campaigns and Canvases**, même si ces Campaigns et Canvas comportent des tests multivariantes.
+    Notez que votre sélection dans **Rows** a un impact sur [les indicateurs que vous pouvez consulter](#metrics-availability). Par exemple, vous pouvez afficher les indicateurs multivariantes uniquement si vous créez un rapport sur les **Canvas**, ou les **Campaigns** avec un détail par **Variant**. Vous ne pouvez pas afficher ces indicateurs lorsque vous créez un rapport sur **Campaigns and Canvases**, même si ces Campaigns et Canvas comportent des tests multivariantes.
 
 ![La section « Rows and columns » avec des champs pour sélectionner les lignes et les regroupements de votre rapport.]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
 
@@ -65,14 +65,14 @@ Essayez différentes configurations d'options de détail pour explorer les [nomb
     - Réorganisez les indicateurs et les colonnes en faisant glisser l'icône en pointillés vers le haut ou vers le bas.
 7. Dans **Report content**, configurez la plage de dates pour laquelle vous souhaitez inclure des données dans votre rapport.
 8. Ensuite, en fonction de vos sélections à l'étape 3, choisissez d'ajouter manuellement ou automatiquement des Campaigns, des Canvas, ou les deux à votre rapport.
-    - **Ajouter manuellement :** Choisissez chaque Campaign ou Canvas à inclure dans le rapport en utilisant les filtres pour les dates de **Last Sent** et les tags ou canaux, ou en recherchant le nom de la Campaign ou du Canvas.<br><br>![La section « Manually add campaigns and canvases » avec une liste de Campaigns à sélectionner.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
-    - **Ajouter automatiquement :** Définissez des règles pour déterminer quelles Campaigns ou quels Canvas inclure dans le rapport. Vous n'êtes tenu de sélectionner qu'un seul champ sur cette page.
+    - **Add manually :** Choisissez chaque Campaign ou Canvas à inclure dans le rapport en utilisant les filtres pour les dates de **Last Sent** et les tags ou canaux, ou en recherchant le nom de la Campaign ou du Canvas.<br><br>![La section « Manually add campaigns and canvases » avec une liste de Campaigns à sélectionner.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
+    - **Add automatically :** Définissez des règles pour déterminer quelles Campaigns ou quels Canvas inclure dans le rapport. Vous n'êtes tenu de sélectionner qu'un seul champ sur cette page.
         - Notez qu'à mesure que des Campaigns ou des Canvas supplémentaires remplissent les conditions que vous avez définies sur cet écran, ils sont automatiquement ajoutés aux exécutions futures de votre rapport.
-        - Les bannières ne sont pas une option dans le menu déroulant **Channel**, vous ne pouvez donc pas utiliser les règles de canal pour ajouter automatiquement des Campaigns ou des Canvas de type bannière. Vous pouvez toutefois inclure les KPI des bannières dans les indicateurs de votre rapport.<br><br>![La section « Automatically add campaigns and canvases » avec des champs pour définir les règles déterminant quelles Campaigns et quels Canvas doivent être ajoutés au rapport.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
+        - Banner n'est pas une option dans le menu déroulant **Channel**, vous ne pouvez donc pas utiliser les règles de canal pour ajouter automatiquement des Campaigns ou des Canvas de type Banner. Vous pouvez toutefois inclure les KPI de Banner dans les indicateurs de votre rapport.<br><br>![La section « Automatically add campaigns and canvases » avec des champs pour définir les règles déterminant quelles Campaigns et quels Canvas doivent être ajoutés au rapport.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
 9. Exécutez le rapport en sélectionnant **Save & Run**.
 
 {% alert note %}
-L'exécution du rapport peut prendre quelques minutes, en fonction de la plage de dates et du nombre de Campaigns ou de Canvas que vous avez sélectionnés lors de la configuration.
+L'exécution du rapport peut prendre quelques minutes, en fonction de la plage de dates et du nombre de Campaigns ou de Canvas que vous avez sélectionnés lors de l'étape de configuration.
 {% endalert %}
 
 ## Disponibilité des indicateurs {#metrics-availability}
@@ -80,7 +80,7 @@ L'exécution du rapport peut prendre quelques minutes, en fonction de la plage d
 Votre sélection pour **Lignes** affecte les indicateurs que vous pouvez sélectionner.
 
 {% alert tip %}
-Si vous souhaitez créer un rapport sur les variantes ou les étapes d'un Canvas, sélectionnez **Canvas** pour les lignes et laissez le champ vide ou sélectionnez **Date** comme ventilation. Cela crée un menu déroulant **Vue Canvas** pour afficher les indicateurs du Canvas uniquement, ou regrouper les indicateurs par variante, étape ou message.<br><br> Lorsque vous regroupez par étape, le tableau de prévisualisation lors de la configuration de votre rapport affiche un maximum de 50 lignes. Exécutez le rapport ou exportez-le au format CSV pour afficher toutes les lignes.
+Si vous souhaitez créer un rapport sur les variantes ou les étapes d'un Canvas, sélectionnez **Canvas** pour les lignes et laissez le champ vide ou sélectionnez **Date** comme niveau de détail. Après l'exécution du rapport, un menu déroulant **Vue Canvas** apparaît sur la page de résultats pour afficher les indicateurs du Canvas uniquement, ou regrouper les indicateurs par variante, étape ou message.<br><br> Lors de la modification de votre rapport, le tableau de prévisualisation affiche un maximum de 50 lignes. Exécutez le rapport pour afficher toutes les lignes sur la page de résultats avec pagination (100 lignes par page) ou exportez l'ensemble des données au format CSV.
 
 ![Le menu déroulant « Vue Canvas » ouvert.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}
@@ -88,25 +88,25 @@ Si vous souhaitez créer un rapport sur les variantes ou les étapes d'un Canvas
 | Indicateur | Description |
 | --- | --- |
 | Indicateurs de conversion | Disponible pour Campaigns, Canvas, Campaigns et Canvas. |
-| Entrées | Disponible pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. |
+| Entrées | Disponible pour Campaigns, Canvas, Campaigns et Canvas, Tags. |
 | Date du dernier envoi | Disponible pour Campaigns, Canvas, Campaigns et Canvas. S'affiche uniquement pour les campagnes planifiées — ne se remplit pas pour les campagnes déclenchées par une action ou par l'API. |
 | Envois | Disponible pour chaque canal pertinent. |
-| Messages envoyés | Disponible pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. |
-| Ligne d'objet | Disponible pour les Campaigns d'e-mail avec la ventilation **Variante**, les Canvas et les Canvas avec la ventilation **Variante**. |
-| Chiffre d'affaires total | Disponible pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. Non disponible avec la ventilation **Canaux**. |
-| Impressions uniques | Disponible pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. |
-| Destinataires uniques | Disponible pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. Non disponible avec la ventilation **Canaux**. |
+| Messages envoyés | Disponible pour Campaigns, Canvas, Campaigns et Canvas, Tags. |
+| Ligne d'objet | Disponible pour les Campaigns e-mail avec le niveau de détail **Variante**, les Canvas, et les Canvas avec le niveau de détail **Variante**. |
+| Chiffre d'affaires total | Disponible pour Campaigns, Canvas, Campaigns et Canvas, Tags. Non disponible avec le niveau de détail **Canaux**. |
+| Impressions uniques | Disponible pour Campaigns, Canvas, Campaigns et Canvas, Tags. |
+| Destinataires uniques | Disponible pour Campaigns, Canvas, Campaigns et Canvas, Tags. Non disponible avec le niveau de détail **Canaux**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Disponibilité des indicateurs" }
 
 ### Variantes de message supprimées {#deleted-message-variants}
 
-Les statistiques des variantes de message supprimées ne s'affichent pas lorsque vous ventilez votre rapport par campagnes ou Canvas. Cependant, les totaux au niveau du canal incluent toutes les statistiques, que la variante ait été supprimée ou non. Par exemple, les _Envois_ pour l'e-mail incluent tous les envois d'e-mails, mais si vous ventilez ces statistiques par campagne, les chiffres peuvent être inférieurs car les envois des variantes de message supprimées sont filtrés.
+Les statistiques des variantes de message supprimées ne sont pas affichées lorsque vous décomposez votre rapport par campagnes ou Canvas. Cependant, les totaux au niveau du canal incluent toutes les statistiques, que la variante ait été supprimée ou non. Par exemple, les _Envois_ pour l'e-mail incluent tous les envois d'e-mails, mais si vous décomposez ces statistiques par campagne, les chiffres peuvent être inférieurs car les envois des variantes de message supprimées sont filtrés.
 
 Dans le même rapport, les _Destinataires uniques_ peuvent être supérieurs aux _Impressions uniques_ lorsqu'une variante de message a été supprimée après l'envoi. Les _Destinataires uniques_ au niveau de la campagne peuvent toujours inclure les utilisateurs qui ont reçu la variante supprimée, tandis que les _Impressions uniques_ omettent les statistiques des variantes supprimées dans les agrégations au niveau du message.
 
 ## Consulter un rapport {#viewing-a-report}
 
-Après avoir exécuté votre rapport, vous pouvez consulter vos résultats sous forme de tableau sur la page du rapport.
+Après avoir exécuté votre rapport, vous pouvez consulter vos résultats sous forme de tableau sur la page des résultats du rapport.
 
 ![Un tableau des données du rapport pour les indicateurs de chaque campagne.]({% image_buster /assets/img/report_builder_2/report_table.png %}){: style="width:90%;"}
 
@@ -117,7 +117,7 @@ En bas de la page, vous pouvez créer un graphique de vos données en sélection
 ![Un graphique des données du rapport avec des options pour configurer l'axe x, l'axe y, le type de graphique, et plus encore.]({% image_buster /assets/img/report_builder_2/visualize_table.png %}){: style="max-width:90%;"}
 
 {% alert note %}
-Pour créer un graphique linéaire, sélectionnez **Date** comme option de ventilation lors de la configuration du rapport. Cela affichera les tendances au fil du temps.
+Pour créer un graphique linéaire, sélectionnez **Date** comme option de ventilation lors de la configuration du rapport. Cela affiche les tendances au fil du temps.
 {% endalert %}
 
 #### Télécharger un graphique de rapport {#downloading-a-report-chart}
@@ -130,7 +130,7 @@ Pour télécharger une image du graphique de rapport, sélectionnez l'icône en 
 
 Vous pouvez partager un lien vers le tableau de bord du rapport en sélectionnant **Partager** et l'une de ces options :
 - **Partager un lien :** Copiez et partagez le lien.
-- **Envoyer ou planifier un e-mail :** Envoyez un e-mail immédiatement ou à un moment défini, contenant un lien de téléchargement qui expire au bout d'une heure. Vous pouvez sélectionner des destinataires parmi les utilisateurs de l'entreprise répertoriés dans le menu déroulant **Email Recipients** ou saisir toute autre adresse e-mail.
+- **Envoyer ou planifier un e-mail :** Envoyez un e-mail immédiatement ou à un moment désigné contenant un lien de téléchargement qui expire au bout d'une heure. Vous pouvez sélectionner des destinataires parmi les utilisateurs de l'entreprise répertoriés dans le menu déroulant **Email Recipients** ou saisir toute autre adresse e-mail.
 
 {% alert note %}
 Le menu déroulant **Email Recipients** répertorie uniquement les utilisateurs Braze de l'entreprise et enregistre leurs adresses e-mail pour les planifications de rapports. Les adresses e-mail externes doivent être saisies manuellement chaque fois que vous créez une nouvelle planification de rapport. Si vous envoyez fréquemment des rapports à des destinataires externes, comme un contact partenaire, envisagez de les ajouter en tant qu'utilisateur de l'entreprise avec les autorisations appropriées afin que leur adresse apparaisse dans le menu déroulant.
@@ -140,20 +140,32 @@ Le menu déroulant **Email Recipients** répertorie uniquement les utilisateurs 
 
 - **Télécharger le CSV :** Téléchargez un CSV du rapport.
 
-## Ajout d'un rapport à un tableau de bord {#adding-a-report-to-a-dashboard}
+## Ajouter un rapport à un tableau de bord {#adding-a-report-to-a-dashboard}
 
 1. Sélectionnez l'icône en pointillés en haut du tableau du rapport.
 2. Sélectionnez **Ajouter au tableau de bord**.
 3. Choisissez si vous souhaitez créer un nouveau tableau de bord ou l'ajouter à un tableau de bord existant.<br><br>![Fenêtre avec les options pour choisir d'ajouter le rapport à un nouveau tableau de bord ou à un tableau de bord existant.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
-4. Suivez les étapes décrites dans le [Générateur de tableaux de bord]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) pour en savoir plus sur la création d'un tableau de bord.
+4. Suivez les étapes décrites dans [Générateur de tableaux de bord]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) pour en savoir plus sur la création d'un tableau de bord.
+
+## Autorisations d'équipe {#team-permissions}
+
+Les rapports du générateur de rapports ne prennent pas en charge l'[affectation par équipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams) comme les Campaigns ou les Canvas. Vous ne pouvez pas limiter un rapport enregistré à une équipe spécifique lors de sa création.
+
+Les utilisateurs disposant de l'autorisation [« Afficher les rapports du tableau de bord »]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) au niveau de l'équipe (plutôt qu'au niveau de l'espace de travail) peuvent toujours utiliser le générateur de rapports, mais la visibilité des rapports est limitée :
+
+- Ces utilisateurs ne voient que les rapports dans lesquels chaque Campaign et Canvas sélectionné est affecté à leurs équipes.
+- Les rapports avec **Canaux** en lignes sont masqués.
+- Les rapports qui utilisent la sélection automatique pour ajouter des Campaigns ou des Canvas sont masqués, car Braze ne peut pas vérifier l'accès par équipe pour les messages susceptibles d'être ajoutés lors de l'exécution du rapport.
+
+Le [Générateur de rapports (ancien)]({{site.baseurl}}/report_builder_legacy) limite les Campaigns et Canvas que vous pouvez ajouter à un rapport en fonction de l'équipe, mais les rapports enregistrés ne sont pas filtrés de la liste de la même manière que dans le générateur de rapports (nouveau). Pour la configuration des autorisations, consultez [Définir les autorisations des utilisateurs]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) et [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams).
 
 ## Résolution des problèmes {#troubleshooting}
 
 ### Le rapport n'affiche aucun envoi pour une campagne ou un Canvas {#report-shows-no-sends-for-a-campaign-or-canvas}
 
-Une campagne ou un Canvas apparaît dans le rapport lorsque sa date de **Dernier envoi** se situe dans la fenêtre **Dernier envoi** que vous avez configurée. Les **envois** et les autres indicateurs ne sont renseignés que pour l'activité comprise dans la plage de dates **Afficher les données pour**. Si le message n'a pas été envoyé pendant la période **Afficher les données pour**, la ligne peut tout de même afficher la campagne ou le Canvas avec zéro envoi.
+Une campagne ou un Canvas apparaît dans le rapport lorsque sa date de **Dernier envoi** se situe dans la fenêtre **Dernier envoi** que vous avez configurée. Les **Envois** et les autres indicateurs ne sont renseignés que pour l'activité comprise dans la plage de dates **Afficher les données pour**. Si le message n'a pas été envoyé pendant la période **Afficher les données pour**, la ligne peut tout de même afficher la campagne ou le Canvas avec zéro envoi.
 
-Par exemple, supposons que **Dernier envoi** soit défini du 1er janvier 2025 au 14 avril 2025, de sorte qu'une campagne est incluse, mais que **Afficher les données pour** couvre la période du 1er décembre 2024 au 14 janvier 2025. Si cette campagne n'a eu aucun envoi en décembre ou en janvier, elle apparaît tout de même dans le tableau sans indicateur d'envoi.
+Par exemple, supposons que **Dernier envoi** soit défini du 1er janvier 2025 au 14 avril 2025, de sorte qu'une campagne est incluse, mais que **Afficher les données pour** couvre la période du 1er décembre 2024 au 14 janvier 2025. Si cette campagne n'a eu aucun envoi en décembre ou en janvier, elle apparaît tout de même dans le tableau sans indicateurs d'envoi.
 
 ### Le lien de téléchargement a expiré {#download-link-has-expired}
 

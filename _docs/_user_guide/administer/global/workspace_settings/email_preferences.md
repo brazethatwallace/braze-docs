@@ -15,7 +15,7 @@ toc_headers: h2
 
 > Email Preferences is where you can set specific outbound email settings like custom footers, custom opt-in and opt-out pages, and more. Including these options in your outbound emails makes for a fluid and cohesive experience for your users.
 
-**Email Preferences** can be found under **Settings** in the dashboard.
+**Email Preferences** can be found under **Settings** > **Workspace Settings** in the dashboard.
 
 ## Sending configuration
 
@@ -61,7 +61,7 @@ Default to English Display Name
 {% endtab %}
 {% tab Reply-To Address %}
 
-Adding an email address in this section allows you to select it as a reply-to address for your email campaign. You can also make an email address the default one by selecting **Make Default**. These email addresses will be available in the **Sending Info** options as you compose your email campaign.
+Adding an email address in this section allows you to select it as a reply-to address for your email campaign. You can also make an email address the default one by selecting **Make Default**. These email addresses are available in the **Sending Info** options as you compose your email campaign.
 
 !["Reply-To Address" section with fields to enter multiple reply-to addresses.]({% image_buster /assets/img/email_settings/reply_to_address.png %}){: style="max-width:75%;" }
 
@@ -99,9 +99,9 @@ BCC addresses are available for Amazon SES, SendGrid, and SparkPost. As an alter
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-After you add an address, the address will be made available to select when composing an email in either campaigns or Canvas steps. Select **Make Default** next to an address to set this address to be selected by default when launching a new email campaign or Canvas component. To override this at the message level, you can select **No BCC** when setting up your message.
+After you add an address, the address is made available to select when composing an email in either campaigns or Canvas steps. Select **Make Default** next to an address to set this address to be selected by default when launching a new email campaign or Canvas component. To override this at the message level, you can select **No BCC** when setting up your message.
 
-If you require that all email messages sent from Braze have a BCC address included, you can select the **Require a BCC address for all your email campaigns** toggle. This will require you to select a default address, which will be automatically selected on new email campaigns or Canvas steps. The default address will also be automatically added to all messages triggered through our REST API. There is no need to change the existing API request to include the address.
+If you require that all email messages sent from Braze have a BCC address included, you can select the **Require a BCC address for all your email campaigns** toggle. This requires you to select a default address, which is automatically selected on new email campaigns or Canvas steps. The default address is also automatically added to all messages triggered through our REST API. There is no need to change the existing API request to include the address.
 
 #### Dynamic BCC
 
@@ -136,7 +136,7 @@ Braze currently supports overriding the ESP's default open tracking pixel locati
 
 To change the location:
 
-1. In Braze, go to **Settings** > **Email Preferences**.
+1. In Braze, go to **Settings** > **Workspace Settings** > **Email Preferences**.
 2. Select from the following options: **Move for SendGrid**, **Move for SparkPost**, or **Move for Amazon SES**
 3. Select **Save**.
 

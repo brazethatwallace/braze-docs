@@ -513,6 +513,28 @@ Os usuários escolhem várias opções; os valores são definidos ou adicionados
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
 
+### Gerenciar inscrições {#manage-subscriptions}
+
+Adiciona uma lista de verificação de [grupos de inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups) para que os visitantes possam optar por participar ou gerenciar suas inscrições ao enviar o formulário. Configure-o depois de adicionar grupos de inscrições ao bloco. Este bloco aceita apenas grupos de inscrições de e-mail; ele não aceita grupos de inscrições de SMS, RCS ou WhatsApp.
+
+Para usuários identificados que abrem a página por meio da [Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) da landing page, o bloco preenche previamente cada caixa de seleção com o estado de inscrição atual do usuário, podendo também servir como uma página de gerenciamento de preferências.
+
+Selecione o bloco no editor para:
+
+- Reordenar grupos de inscrições
+- Adicionar ou remover grupos de inscrições
+- Adicionar ou remover descrições
+- Adicionar ou remover uma caixa de seleção "Inscrever-se em todos" que seleciona todos os grupos de inscrições no bloco
+
+| Propriedade | Descrição |
+| --- | --- |
+| Grupos de inscrições | Adicione, remova ou reordene os grupos de inscrições exibidos no bloco. |
+| Incluir descrições | Exibe a descrição de cada grupo de inscrições ao lado do seu nome. |
+| Caixa de seleção **Inscrever-se em todos** | Adiciona uma caixa de seleção que seleciona todos os grupos de inscrições no bloco. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Gerenciar inscrições" }
+
+Para o fluxo completo de configuração, consulte [Bloco Gerenciar inscrições]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions).
+
 ### Texto longo
 
 Campo de texto multilinha para fluxos no estilo de pesquisa. Se você não vir este bloco, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) ou seu gerente de sucesso do cliente da Braze. Este bloco não está disponível para landing pages padrão.

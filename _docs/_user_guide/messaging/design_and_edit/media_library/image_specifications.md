@@ -142,3 +142,9 @@ Large image notifications display best when using an image of at least 600 x 300
 
 For additional resources, see [Push image and text specifications]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).
 
+### SMS and MMS
+
+{% multi_lang_include channels/image_specs.md variable_name='sms and mms' %}
+
+For composing MMS messages, refer to [Create an SMS, MMS, or RCS message]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
+

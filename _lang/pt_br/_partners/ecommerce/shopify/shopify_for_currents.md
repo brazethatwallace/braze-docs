@@ -44,15 +44,19 @@ Se ainda não tiver feito isso, siga as etapas de [configuração da integraçã
 4. Selecione os eventos que deseja rastrear. Uma lista de eventos disponíveis é fornecida.
 5. Selecione **Launch Current**
 
-![A página Braze Shopify Currents. Esta página inclui campos para nome da integração, e-mail de contato e loja Shopify.]({% image_buster /assets/img/shopify/shopify_currents.png %})
+![A página do Braze Shopify Currents. Esta página inclui campos para nome da integração, e-mail de contato e loja Shopify.]({% image_buster /assets/img/shopify/shopify_currents.png %})
 
 ## Sincronização de perfil de usuário {#user-profile-sync}
 
-Além dos dados de eventos, a integração com Shopify pode sincronizar atualizações de perfil de usuário da Braze para sua loja Shopify. Quando o perfil de um usuário é atualizado na Braze, o Currents cria ou atualiza o cliente correspondente na sua loja.
+Além dos dados de eventos, a integração com o Shopify pode sincronizar atualizações de perfil de usuário da Braze para a sua loja Shopify. Quando o perfil de um usuário é atualizado na Braze, o Currents cria ou atualiza o cliente correspondente na sua loja.
+
+{% alert note %}
+A sincronização de perfil de usuário não é compatível com [conectores de teste do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#testing-currents-connectors). Outras exportações de eventos não são afetadas. Para sincronizar perfis de usuário, use um [conector padrão do Shopify com o Currents](#step-2-create-braze-current).
+{% endalert %}
 
 ### Correspondência de usuários {#user-matching}
 
-A Braze faz a correspondência de clientes Shopify usando o `user_id` da Braze como um [identificador personalizado](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerSet) (`customId`) do Shopify com o namespace `braze` e a chave `user_id`. Se nenhum cliente com esse identificador existir na sua loja, um novo cliente será criado. Usuários anônimos não são sincronizados.
+A Braze faz a correspondência de clientes do Shopify usando o `user_id` da Braze como um [identificador personalizado](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerSet) (`customId`) do Shopify, com o namespace `braze` e a chave `user_id`. Se nenhum cliente com esse identificador existir na sua loja, um novo cliente será criado. Usuários anônimos não são sincronizados.
 
 ### Mapeamento de campos {#field-mapping}
 
@@ -60,8 +64,8 @@ Os seguintes campos de perfil da Braze são sincronizados com o Shopify:
 
 | Campo da Braze | Campo do cliente Shopify | Notas |
 | ----------- | ---------------------- | ----- |
-| `first_name` | `firstName` | Mapeado diretamente. Enviado apenas quando presente na atualização do perfil. |
-| `last_name` | `lastName` | Mapeado diretamente. Enviado apenas quando presente na atualização do perfil. |
+| `first_name` | `firstName` | Mapeado como está. Enviado apenas quando presente na atualização do perfil. |
+| `last_name` | `lastName` | Mapeado como está. Enviado apenas quando presente na atualização do perfil. |
 | `email_address` | `email` | Espaços removidos e convertido para minúsculas antes do envio. |
 | `phone_number` | `phone` | Enviado no formato [E.164](https://en.wikipedia.org/wiki/E.164). |
 | `language` | `locale` | Convertido para um locale compatível com o Shopify. Português e chinês recebem uma variante regional (como `pt-BR`) com base no país do usuário. Se o idioma do usuário não for compatível com o Shopify, esse campo é omitido. |

@@ -17,15 +17,14 @@ hide_toc: true
 Die Spaltendefinitionen lauten wie folgt:
 
 |---------|-------------------------------------------------|
-| **Ziel** | Die spezifische Endregion, das Land oder die Art der Aktion, die über die Braze-Plattform gesendet wird |
-| **Credits pro 1 Versand** | Genaue Anzahl der Message Credits für einen Versand<br> (Credits pro Versand = Credit-Verhältnis × Zielmultiplikator) |
+| **Ziel** | Bestimmte Endregion, bestimmtes Land oder bestimmter Aktionstyp, der über die Braze-Plattform gesendet wird |
+| **Credits pro 1 Versand** | Genaue Anzahl der Nachrichten-Credits für einen Versand<br> (Credits pro Versand = Credit-Verhältnis x Ziel-Multiplikator) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-
-## Credit-Verhältnistabelle für Message Credits – Gamma {#credit-ratio-table-for-message-credits-gamma}
+## Credit-Ratio-Tabelle für Message Credits – Gamma {#credit-ratio-table-for-message-credits-gamma}
 
 {% details Zum Aufklappen klicken %}
-<table class="credits-table" aria-label="Credit-Verhältnistabelle für Message Credits – Gamma">
+<table class="credits-table" aria-label="Credit-Ratio-Tabelle für Message Credits – Gamma">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -34,7 +33,7 @@ Die Spaltendefinitionen lauten wie folgt:
     <tr>
         <th><b>Kanal</b></th>
         <th><b>Ziel</b></th>
-        <th class="credits-column"><b>Credits pro 1 Versand</b></th>
+        <th class="credits-column"><b>Credits pro Versand</b></th>
     </tr>
     </thead>
     <tbody>
@@ -50,52 +49,52 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS - US / CA</td>
-        <td>Canada</td>
+        <td>Kanada</td>
         <td>0.40</td>
     </tr>
     <tr>
         <td>SMS - US / CA</td>
-        <td>Canada Toll Free</td>
+        <td>Kanada Toll Free</td>
         <td>0.52</td>
     </tr>
     <tr>
         <td>SMS - US / CA</td>
-        <td>United States</td>
+        <td>Vereinigte Staaten</td>
         <td>0.40</td>
     </tr>
     <tr>
         <td>SMS - US / CA</td>
-        <td>United States Toll Free</td>
+        <td>Vereinigte Staaten Toll Free</td>
         <td>0.60</td>
     </tr>
     <tr>
         <td>MMS - US / CA</td>
-        <td>Canada Long Code</td>
+        <td>Kanada Langcode</td>
         <td>1.80</td>
     </tr>
     <tr>
         <td>MMS - US / CA</td>
-        <td>Canada Short Code</td>
+        <td>Kanada Shortcode</td>
         <td>4.80</td>
     </tr>
     <tr>
         <td>MMS - US / CA</td>
-        <td>Canada Toll Free</td>
+        <td>Kanada Toll Free</td>
         <td>1.56</td>
     </tr>
     <tr>
         <td>MMS - US / CA</td>
-        <td>United States</td>
+        <td>Vereinigte Staaten</td>
         <td>1.20</td>
     </tr>
     <tr>
         <td>MMS - US / CA</td>
-        <td>United States Toll Free</td>
+        <td>Vereinigte Staaten Toll Free</td>
         <td>2.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Abkhazia</td>
+        <td>Abchasien</td>
         <td>6.20</td>
     </tr>
     <tr>
@@ -105,17 +104,17 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Albania</td>
+        <td>Albanien</td>
         <td>22.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Algeria</td>
+        <td>Algerien</td>
         <td>52.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>American Samoa</td>
+        <td>Amerikanisch-Samoa</td>
         <td>47.40</td>
     </tr>
     <tr>
@@ -135,17 +134,17 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Antigua and Barbuda</td>
+        <td>Antigua und Barbuda</td>
         <td>24.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Argentina</td>
+        <td>Argentinien</td>
         <td>10.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Armenia</td>
+        <td>Armenien</td>
         <td>34.90</td>
     </tr>
     <tr>
@@ -155,22 +154,22 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Australia MMS</td>
+        <td>Australien MMS</td>
         <td>31.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Australia SMS</td>
+        <td>Australien SMS</td>
         <td>3.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Austria</td>
+        <td>Österreich</td>
         <td>17.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Azerbaijan</td>
+        <td>Aserbaidschan</td>
         <td>97.70</td>
     </tr>
     <tr>
@@ -185,7 +184,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bangladesh</td>
+        <td>Bangladesch</td>
         <td>58.10</td>
     </tr>
     <tr>
@@ -200,7 +199,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Belgium</td>
+        <td>Belgien</td>
         <td>24.00</td>
     </tr>
     <tr>
@@ -225,12 +224,12 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bolivia</td>
+        <td>Bolivien</td>
         <td>36.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bosnia and Herzegovina</td>
+        <td>Bosnien und Herzegowina</td>
         <td>21.20</td>
     </tr>
     <tr>
@@ -240,7 +239,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Brazil</td>
+        <td>Brasilien</td>
         <td>2.50</td>
     </tr>
     <tr>
@@ -250,7 +249,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Bulgaria</td>
+        <td>Bulgarien</td>
         <td>27.00</td>
     </tr>
     <tr>
@@ -265,37 +264,37 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Cambodia</td>
+        <td>Kambodscha</td>
         <td>43.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Cameroon</td>
+        <td>Kamerun</td>
         <td>34.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Cape Verde</td>
+        <td>Kap Verde</td>
         <td>36.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Caribbean Netherlands</td>
+        <td>Karibische Niederlande</td>
         <td>21.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Cayman Islands</td>
+        <td>Kaimaninseln</td>
         <td>33.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Central African Republic</td>
+        <td>Zentralafrikanische Republik</td>
         <td>30.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Chad</td>
+        <td>Tschad</td>
         <td>73.00</td>
     </tr>
     <tr>
@@ -310,22 +309,22 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Colombia</td>
+        <td>Kolumbien</td>
         <td>0.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Comoros</td>
+        <td>Komoren</td>
         <td>61.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Congo</td>
+        <td>Kongo</td>
         <td>50.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Cook Islands</td>
+        <td>Cookinseln</td>
         <td>35.20</td>
     </tr>
     <tr>
@@ -335,37 +334,37 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Croatia</td>
+        <td>Kroatien</td>
         <td>23.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Cuba</td>
+        <td>Kuba</td>
         <td>21.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Curacao</td>
+        <td>Curaçao</td>
         <td>9.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Cyprus</td>
+        <td>Zypern</td>
         <td>21.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Czech Republic</td>
+        <td>Tschechische Republik</td>
         <td>10.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Denmark</td>
+        <td>Dänemark</td>
         <td>10.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Djibouti</td>
+        <td>Dschibuti</td>
         <td>40.90</td>
     </tr>
     <tr>
@@ -375,12 +374,12 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Dominican Republic</td>
+        <td>Dominikanische Republik</td>
         <td>12.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>DR Congo</td>
+        <td>DR Kongo</td>
         <td>57.70</td>
     </tr>
     <tr>
@@ -390,7 +389,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Egypt</td>
+        <td>Ägypten</td>
         <td>24.30</td>
     </tr>
     <tr>
@@ -400,7 +399,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Equatorial Guinea</td>
+        <td>Äquatorialguinea</td>
         <td>43.60</td>
     </tr>
     <tr>
@@ -410,7 +409,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Estonia</td>
+        <td>Estland</td>
         <td>24.10</td>
     </tr>
     <tr>
@@ -420,47 +419,47 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Ethiopia</td>
+        <td>Äthiopien</td>
         <td>86.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Falkland Islands</td>
+        <td>Falklandinseln</td>
         <td>34.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Faroe Islands</td>
+        <td>Färöer</td>
         <td>17.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Fiji</td>
+        <td>Fidschi</td>
         <td>41.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Finland</td>
+        <td>Finnland</td>
         <td>14.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>France</td>
+        <td>Frankreich</td>
         <td>9.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>French Guiana</td>
+        <td>Französisch-Guayana</td>
         <td>46.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>French Polynesia</td>
+        <td>Französisch-Polynesien</td>
         <td>45.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Gabon</td>
+        <td>Gabun</td>
         <td>66.40</td>
     </tr>
     <tr>
@@ -470,12 +469,12 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Georgia</td>
+        <td>Georgien</td>
         <td>26.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Germany</td>
+        <td>Deutschland</td>
         <td>18.80</td>
     </tr>
     <tr>
@@ -490,12 +489,12 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Greece</td>
+        <td>Griechenland</td>
         <td>9.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Greenland</td>
+        <td>Grönland</td>
         <td>10.30</td>
     </tr>
     <tr>
@@ -550,27 +549,27 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Hong Kong</td>
+        <td>Hongkong</td>
         <td>13.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Hungary</td>
+        <td>Ungarn</td>
         <td>19.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Iceland</td>
+        <td>Island</td>
         <td>17.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>India</td>
+        <td>Indien</td>
         <td>10.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Indonesia</td>
+        <td>Indonesien</td>
         <td>66.30</td>
     </tr>
     <tr>
@@ -580,12 +579,12 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Iraq</td>
+        <td>Irak</td>
         <td>47.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Ireland</td>
+        <td>Irland</td>
         <td>13.10</td>
     </tr>
     <tr>
@@ -600,17 +599,17 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Italy</td>
+        <td>Italien</td>
         <td>7.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Ivory Coast</td>
+        <td>Elfenbeinküste</td>
         <td>24.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Jamaica</td>
+        <td>Jamaika</td>
         <td>30.50</td>
     </tr>
     <tr>
@@ -625,17 +624,17 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Jordan</td>
+        <td>Jordanien</td>
         <td>55.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Kazakhstan</td>
+        <td>Kasachstan</td>
         <td>55.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Kenya</td>
+        <td>Kenia</td>
         <td>26.20</td>
     </tr>
     <tr>
@@ -645,7 +644,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Korea Republic of</td>
+        <td>Republik Korea</td>
         <td>6.90</td>
     </tr>
     <tr>
@@ -660,22 +659,22 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Kyrgyzstan</td>
+        <td>Kirgisistan</td>
         <td>61.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Laos PDR</td>
+        <td>Laos</td>
         <td>15.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Latvia</td>
+        <td>Lettland</td>
         <td>18.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Lebanon</td>
+        <td>Libanon</td>
         <td>30.70</td>
     </tr>
     <tr>
@@ -690,7 +689,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Libya</td>
+        <td>Libyen</td>
         <td>81.70</td>
     </tr>
     <tr>
@@ -700,12 +699,12 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Lithuania</td>
+        <td>Litauen</td>
         <td>13.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Luxembourg</td>
+        <td>Luxemburg</td>
         <td>18.60</td>
     </tr>
     <tr>
@@ -715,12 +714,12 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Macedonia</td>
+        <td>Mazedonien</td>
         <td>18.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Madagascar</td>
+        <td>Madagaskar</td>
         <td>94.00</td>
     </tr>
     <tr>
@@ -735,7 +734,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Maldives</td>
+        <td>Malediven</td>
         <td>18.00</td>
     </tr>
     <tr>
@@ -750,7 +749,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Marshall Islands</td>
+        <td>Marshallinseln</td>
         <td>40.00</td>
     </tr>
     <tr>
@@ -760,7 +759,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Mauritania</td>
+        <td>Mauretanien</td>
         <td>65.10</td>
     </tr>
     <tr>
@@ -775,17 +774,17 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Mexico</td>
+        <td>Mexiko</td>
         <td>2.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Micronesia</td>
+        <td>Mikronesien</td>
         <td>18.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Moldova</td>
+        <td>Moldawien</td>
         <td>15.90</td>
     </tr>
     <tr>
@@ -795,7 +794,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Mongolia</td>
+        <td>Mongolei</td>
         <td>70.30</td>
     </tr>
     <tr>
@@ -810,12 +809,12 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Morocco</td>
+        <td>Marokko</td>
         <td>26.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Mozambique</td>
+        <td>Mosambik</td>
         <td>27.60</td>
     </tr>
     <tr>
@@ -840,17 +839,17 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Netherlands</td>
+        <td>Niederlande</td>
         <td>16.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>New Caledonia</td>
+        <td>Neukaledonien</td>
         <td>44.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>New Zealand</td>
+        <td>Neuseeland</td>
         <td>19.20</td>
     </tr>
     <tr>
@@ -875,22 +874,22 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Norfolk Island</td>
+        <td>Norfolkinsel</td>
         <td>7.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>North Macedonia</td>
+        <td>Nordmazedonien</td>
         <td>3.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Northern Cyprus</td>
+        <td>Nordzypern</td>
         <td>2.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Norway</td>
+        <td>Norwegen</td>
         <td>10.50</td>
     </tr>
     <tr>
@@ -910,7 +909,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Palestinian Territory</td>
+        <td>Palästinensische Gebiete</td>
         <td>76.80</td>
     </tr>
     <tr>
@@ -920,7 +919,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Papua New Guinea</td>
+        <td>Papua-Neuguinea</td>
         <td>190.10</td>
     </tr>
     <tr>
@@ -935,12 +934,12 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Philippines</td>
+        <td>Philippinen</td>
         <td>2.80</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Poland</td>
+        <td>Polen</td>
         <td>5.20</td>
     </tr>
     <tr>
@@ -955,47 +954,47 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Qatar</td>
+        <td>Katar</td>
         <td>5.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Reunion/Mayotte</td>
+        <td>Réunion/Mayotte</td>
         <td>48.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Romania</td>
+        <td>Rumänien</td>
         <td>10.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Russia</td>
+        <td>Russland</td>
         <td>95.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Rwanda</td>
+        <td>Ruanda</td>
         <td>46.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Saint Kitts and Nevis</td>
+        <td>St. Kitts und Nevis</td>
         <td>9.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Saint Lucia</td>
+        <td>St. Lucia</td>
         <td>10.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Saint Pierre and Miquelon</td>
+        <td>Saint-Pierre und Miquelon</td>
         <td>23.10</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Saint Vincent and The Grenadines</td>
+        <td>St. Vincent und die Grenadinen</td>
         <td>10.60</td>
     </tr>
     <tr>
@@ -1010,12 +1009,12 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Sao Tome and Principe</td>
+        <td>São Tomé und Príncipe</td>
         <td>32.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Saudi Arabia</td>
+        <td>Saudi-Arabien</td>
         <td>19.10</td>
     </tr>
     <tr>
@@ -1025,12 +1024,12 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Serbia</td>
+        <td>Serbien</td>
         <td>60.90</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Seychelles</td>
+        <td>Seychellen</td>
         <td>9.40</td>
     </tr>
     <tr>
@@ -1040,7 +1039,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Singapore</td>
+        <td>Singapur</td>
         <td>7.00</td>
     </tr>
     <tr>
@@ -1050,17 +1049,17 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Slovakia</td>
+        <td>Slowakei</td>
         <td>22.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Slovenia</td>
+        <td>Slowenien</td>
         <td>37.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Solomon Islands</td>
+        <td>Salomonen</td>
         <td>20.90</td>
     </tr>
     <tr>
@@ -1070,22 +1069,22 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>South Africa</td>
+        <td>Südafrika</td>
         <td>3.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>South Ossetia</td>
+        <td>Südossetien</td>
         <td>20.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>South Sudan</td>
+        <td>Südsudan</td>
         <td>8.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Spain</td>
+        <td>Spanien</td>
         <td>8.00</td>
     </tr>
     <tr>
@@ -1105,22 +1104,22 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Swaziland</td>
+        <td>Swasiland</td>
         <td>23.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Sweden</td>
+        <td>Schweden</td>
         <td>8.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Switzerland</td>
+        <td>Schweiz</td>
         <td>6.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Syria</td>
+        <td>Syrien</td>
         <td>78.60</td>
     </tr>
     <tr>
@@ -1130,12 +1129,12 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Tajikistan</td>
+        <td>Tadschikistan</td>
         <td>113.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Tanzania</td>
+        <td>Tansania</td>
         <td>53.80</td>
     </tr>
     <tr>
@@ -1160,17 +1159,17 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Trinidad and Tobago</td>
+        <td>Trinidad und Tobago</td>
         <td>30.20</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Tunisia</td>
+        <td>Tunesien</td>
         <td>70.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Turkey</td>
+        <td>Türkei</td>
         <td>7.70</td>
     </tr>
     <tr>
@@ -1180,7 +1179,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Turks and Caicos Islands</td>
+        <td>Turks- und Caicosinseln</td>
         <td>33.80</td>
     </tr>
     <tr>
@@ -1200,17 +1199,17 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>United Arab Emirates</td>
+        <td>Vereinigte Arabische Emirate</td>
         <td>12.40</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>United Kingdom</td>
+        <td>Vereinigtes Königreich</td>
         <td>6.50</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Unknown</td>
+        <td>Unbekannt</td>
         <td>39.20</td>
     </tr>
     <tr>
@@ -1220,7 +1219,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Uzbekistan</td>
+        <td>Usbekistan</td>
         <td>68.80</td>
     </tr>
     <tr>
@@ -1240,82 +1239,82 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Virgin Islands, British</td>
+        <td>Britische Jungferninseln</td>
         <td>47.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Virgin Islands, U.S.</td>
+        <td>Amerikanische Jungferninseln</td>
         <td>5.00</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Wallis and Futuna</td>
+        <td>Wallis und Futuna</td>
         <td>27.70</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Yemen</td>
+        <td>Jemen</td>
         <td>60.30</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Zambia</td>
+        <td>Sambia</td>
         <td>67.60</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
-        <td>Zimbabwe</td>
+        <td>Simbabwe</td>
         <td>35.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Authentication</td>
+        <td>Argentinien Authentication</td>
         <td>6.90</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Marketing</td>
+        <td>Argentinien Marketing</td>
         <td>16.39</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Marketing - BYO</td>
+        <td>Argentinien Marketing - BYO or Meta Direct</td>
         <td>0.62</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Marketing - Optimized Delivery</td>
+        <td>Argentinien Marketing - Optimized Delivery</td>
         <td>16.39</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Utility</td>
+        <td>Argentinien Utility</td>
         <td>6.90</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brazil Authentication</td>
+        <td>Brasilien Authentication</td>
         <td>1.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brazil Marketing</td>
+        <td>Brasilien Marketing</td>
         <td>16.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brazil Marketing - BYO</td>
+        <td>Brasilien Marketing - BYO or Meta Direct</td>
         <td>0.63</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brazil Marketing - Optimized Delivery</td>
+        <td>Brasilien Marketing - Optimized Delivery</td>
         <td>16.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brazil Utility</td>
+        <td>Brasilien Utility</td>
         <td>1.80</td>
     </tr>
     <tr>
@@ -1330,7 +1329,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Chile Marketing - BYO</td>
+        <td>Chile Marketing - BYO or Meta Direct</td>
         <td>0.89</td>
     </tr>
     <tr>
@@ -1345,167 +1344,167 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Authentication</td>
+        <td>Kolumbien Authentication</td>
         <td>0.05</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Marketing</td>
+        <td>Kolumbien Marketing</td>
         <td>3.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Marketing - BYO</td>
+        <td>Kolumbien Marketing - BYO or Meta Direct</td>
         <td>0.13</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Marketing - Optimized Delivery</td>
+        <td>Kolumbien Marketing - Optimized Delivery</td>
         <td>3.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Utility</td>
+        <td>Kolumbien Utility</td>
         <td>0.05</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Authentication</td>
+        <td>Ägypten Authentication</td>
         <td>0.96</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Authentication International</td>
+        <td>Ägypten Authentication International</td>
         <td>17.24</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Marketing</td>
+        <td>Ägypten Marketing</td>
         <td>28.47</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Marketing - BYO</td>
+        <td>Ägypten Marketing - BYO or Meta Direct</td>
         <td>0.64</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Marketing - Optimized Delivery</td>
+        <td>Ägypten Marketing - Optimized Delivery</td>
         <td>28.47</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Utility</td>
+        <td>Ägypten Utility</td>
         <td>1.38</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>France Authentication</td>
+        <td>Frankreich Authentication</td>
         <td>7.96</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>France Marketing</td>
+        <td>Frankreich Marketing</td>
         <td>37.99</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>France Marketing - BYO</td>
+        <td>Frankreich Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>France Marketing - Optimized Delivery</td>
+        <td>Frankreich Marketing - Optimized Delivery</td>
         <td>37.99</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>France Utility</td>
+        <td>Frankreich Utility</td>
         <td>7.96</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Germany Authentication</td>
+        <td>Deutschland Authentication</td>
         <td>14.59</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Germany Marketing</td>
+        <td>Deutschland Marketing</td>
         <td>36.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Germany Marketing - BYO</td>
+        <td>Deutschland Marketing - BYO or Meta Direct</td>
         <td>1.37</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Germany Marketing - Optimized Delivery</td>
+        <td>Deutschland Marketing - Optimized Delivery</td>
         <td>36.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Germany Utility</td>
+        <td>Deutschland Utility</td>
         <td>14.59</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Authentication</td>
+        <td>Indien Authentication</td>
         <td>0.37</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Authentication International</td>
+        <td>Indien Authentication International</td>
         <td>7.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Marketing</td>
+        <td>Indien Marketing</td>
         <td>2.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Marketing - BYO</td>
+        <td>Indien Marketing - BYO or Meta Direct</td>
         <td>0.12</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Marketing - Optimized Delivery</td>
+        <td>Indien Marketing - Optimized Delivery</td>
         <td>2.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Utility</td>
+        <td>Indien Utility</td>
         <td>0.37</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Authentication</td>
+        <td>Indonesien Authentication</td>
         <td>6.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Authentication International</td>
+        <td>Indonesien Authentication International</td>
         <td>36.08</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Marketing</td>
+        <td>Indonesien Marketing</td>
         <td>10.90</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Marketing - BYO</td>
+        <td>Indonesien Marketing - BYO or Meta Direct</td>
         <td>0.41</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Marketing - Optimized Delivery</td>
+        <td>Indonesien Marketing - Optimized Delivery</td>
         <td>10.90</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Utility</td>
+        <td>Indonesien Utility</td>
         <td>5.30</td>
     </tr>
     <tr>
@@ -1520,7 +1519,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Israel Marketing - BYO</td>
+        <td>Israel Marketing - BYO or Meta Direct</td>
         <td>0.35</td>
     </tr>
     <tr>
@@ -1535,27 +1534,27 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italy Authentication</td>
+        <td>Italien Authentication</td>
         <td>7.96</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italy Marketing</td>
+        <td>Italien Marketing</td>
         <td>18.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italy Marketing - BYO</td>
+        <td>Italien Marketing - BYO or Meta Direct</td>
         <td>0.69</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italy Marketing - Optimized Delivery</td>
+        <td>Italien Marketing - Optimized Delivery</td>
         <td>18.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italy Utility</td>
+        <td>Italien Utility</td>
         <td>7.96</td>
     </tr>
     <tr>
@@ -1575,7 +1574,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malaysia Marketing - BYO</td>
+        <td>Malaysia Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1590,52 +1589,52 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Mexico Authentication</td>
+        <td>Mexiko Authentication</td>
         <td>2.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Mexico Marketing</td>
+        <td>Mexiko Marketing</td>
         <td>8.10</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Mexico Marketing - BYO</td>
+        <td>Mexiko Marketing - BYO or Meta Direct</td>
         <td>0.31</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Mexico Marketing - Optimized Delivery</td>
+        <td>Mexiko Marketing - Optimized Delivery</td>
         <td>8.10</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Mexico Utility</td>
+        <td>Mexiko Utility</td>
         <td>2.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Netherlands Authentication</td>
+        <td>Niederlande Authentication</td>
         <td>13.26</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Netherlands Marketing</td>
+        <td>Niederlande Marketing</td>
         <td>42.37</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Netherlands Marketing - BYO</td>
+        <td>Niederlande Marketing - BYO or Meta Direct</td>
         <td>1.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Netherlands Marketing - Optimized Delivery</td>
+        <td>Niederlande Marketing - Optimized Delivery</td>
         <td>42.37</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Netherlands Utility</td>
+        <td>Niederlande Utility</td>
         <td>13.26</td>
     </tr>
     <tr>
@@ -1655,7 +1654,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Marketing - BYO</td>
+        <td>Nigeria Marketing - BYO or Meta Direct</td>
         <td>0.52</td>
     </tr>
     <tr>
@@ -1670,52 +1669,52 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>North America Authentication</td>
+        <td>Nordamerika Authentication</td>
         <td>1.06</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>North America Marketing</td>
+        <td>Nordamerika Marketing</td>
         <td>6.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>North America Marketing - BYO</td>
+        <td>Nordamerika Marketing - BYO or Meta Direct</td>
         <td>0.25</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>North America Marketing - Optimized Delivery</td>
+        <td>Nordamerika Marketing - Optimized Delivery</td>
         <td>6.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>North America Utility</td>
+        <td>Nordamerika Utility</td>
         <td>1.06</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Other Authentication</td>
+        <td>Sonstige Authentication</td>
         <td>2.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Other Marketing</td>
+        <td>Sonstige Marketing</td>
         <td>16.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Other Marketing - BYO</td>
+        <td>Sonstige Marketing - BYO or Meta Direct</td>
         <td>0.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Other Marketing - Optimized Delivery</td>
+        <td>Sonstige Marketing - Optimized Delivery</td>
         <td>16.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Other Utility</td>
+        <td>Sonstige Utility</td>
         <td>2.00</td>
     </tr>
     <tr>
@@ -1735,7 +1734,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistan Marketing - BYO</td>
+        <td>Pakistan Marketing - BYO or Meta Direct</td>
         <td>0.47</td>
     </tr>
     <tr>
@@ -1760,7 +1759,7 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Peru Marketing - BYO</td>
+        <td>Peru Marketing - BYO or Meta Direct</td>
         <td>0.70</td>
     </tr>
     <tr>
@@ -1775,357 +1774,357 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Africa Authentication</td>
+        <td>Übriges Afrika Authentication</td>
         <td>1.06</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Africa Marketing</td>
+        <td>Übriges Afrika Marketing</td>
         <td>5.97</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Africa Marketing - BYO</td>
+        <td>Übriges Afrika Marketing - BYO or Meta Direct</td>
         <td>0.23</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Africa Marketing - Optimized Delivery</td>
+        <td>Übriges Afrika Marketing - Optimized Delivery</td>
         <td>5.97</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Africa Utility</td>
+        <td>Übriges Afrika Utility</td>
         <td>1.06</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Asia Pacific Authentication</td>
+        <td>Übriger Asien-Pazifik-Raum Authentication</td>
         <td>3.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Asia Pacific Marketing</td>
+        <td>Übriger Asien-Pazifik-Raum Marketing</td>
         <td>19.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Asia Pacific Marketing - BYO</td>
+        <td>Übriger Asien-Pazifik-Raum Marketing - BYO or Meta Direct</td>
         <td>0.73</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Asia Pacific Marketing - Optimized Delivery</td>
+        <td>Übriger Asien-Pazifik-Raum Marketing - Optimized Delivery</td>
         <td>19.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Asia Pacific Utility</td>
+        <td>Übriger Asien-Pazifik-Raum Utility</td>
         <td>3.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Central & Eastern Europe Authentication</td>
+        <td>Übriges Mittel- und Osteuropa Authentication</td>
         <td>5.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Central & Eastern Europe Marketing</td>
+        <td>Übriges Mittel- und Osteuropa Marketing</td>
         <td>22.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Central & Eastern Europe Marketing - BYO</td>
+        <td>Übriges Mittel- und Osteuropa Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Central & Eastern Europe Marketing - Optimized Delivery</td>
+        <td>Übriges Mittel- und Osteuropa Marketing - Optimized Delivery</td>
         <td>22.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Central & Eastern Europe Utility</td>
+        <td>Übriges Mittel- und Osteuropa Utility</td>
         <td>5.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Latin America Authentication</td>
+        <td>Übriges Lateinamerika Authentication</td>
         <td>3.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Latin America Marketing</td>
+        <td>Übriges Lateinamerika Marketing</td>
         <td>19.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Latin America Marketing - BYO</td>
+        <td>Übriges Lateinamerika Marketing - BYO or Meta Direct</td>
         <td>0.74</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Latin America Marketing - Optimized Delivery</td>
+        <td>Übriges Lateinamerika Marketing - Optimized Delivery</td>
         <td>19.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Latin America Utility</td>
+        <td>Übriges Lateinamerika Utility</td>
         <td>3.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Message Types - BYO</td>
+        <td>Übrige Nachrichtentypen - BYO or Meta Direct</td>
         <td>0.10</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Middle East Authentication</td>
+        <td>Übriger Naher Osten Authentication</td>
         <td>2.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Middle East Marketing</td>
+        <td>Übriger Naher Osten Marketing</td>
         <td>9.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Middle East Marketing - BYO</td>
+        <td>Übriger Naher Osten Marketing - BYO or Meta Direct</td>
         <td>0.34</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Middle East Marketing - Optimized Delivery</td>
+        <td>Übriger Naher Osten Marketing - Optimized Delivery</td>
         <td>9.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Middle East Utility</td>
+        <td>Übriger Naher Osten Utility</td>
         <td>2.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Western Europe Authentication</td>
+        <td>Übriges Westeuropa Authentication</td>
         <td>4.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Western Europe Marketing</td>
+        <td>Übriges Westeuropa Marketing</td>
         <td>15.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Western Europe Marketing - BYO</td>
+        <td>Übriges Westeuropa Marketing - BYO or Meta Direct</td>
         <td>0.59</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Western Europe Marketing - Optimized Delivery</td>
+        <td>Übriges Westeuropa Marketing - Optimized Delivery</td>
         <td>15.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Western Europe Utility</td>
+        <td>Übriges Westeuropa Utility</td>
         <td>4.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Russia Authentication</td>
+        <td>Russland Authentication</td>
         <td>10.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Russia Marketing</td>
+        <td>Russland Marketing</td>
         <td>21.28</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Russia Marketing - BYO</td>
+        <td>Russland Marketing - BYO or Meta Direct</td>
         <td>0.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Russia Marketing - Optimized Delivery</td>
+        <td>Russland Marketing - Optimized Delivery</td>
         <td>21.28</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Russia Utility</td>
+        <td>Russland Utility</td>
         <td>10.60</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Authentication</td>
+        <td>Saudi-Arabien Authentication</td>
         <td>3.05</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Authentication International</td>
+        <td>Saudi-Arabien Authentication International</td>
         <td>15.86</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Marketing</td>
+        <td>Saudi-Arabien Marketing</td>
         <td>11.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Marketing - BYO</td>
+        <td>Saudi-Arabien Marketing - BYO or Meta Direct</td>
         <td>0.46</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Marketing - Optimized Delivery</td>
+        <td>Saudi-Arabien Marketing - Optimized Delivery</td>
         <td>11.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Utility</td>
+        <td>Saudi-Arabien Utility</td>
         <td>3.05</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Authentication</td>
+        <td>Südafrika Authentication</td>
         <td>2.84</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Authentication International</td>
+        <td>Südafrika Authentication International</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Marketing</td>
+        <td>Südafrika Marketing</td>
         <td>10.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Marketing - BYO</td>
+        <td>Südafrika Marketing - BYO or Meta Direct</td>
         <td>0.38</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Marketing - Optimized Delivery</td>
+        <td>Südafrika Marketing - Optimized Delivery</td>
         <td>10.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Utility</td>
+        <td>Südafrika Utility</td>
         <td>2.84</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Spain Authentication</td>
+        <td>Spanien Authentication</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Spain Marketing</td>
+        <td>Spanien Marketing</td>
         <td>16.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Spain Marketing - BYO</td>
+        <td>Spanien Marketing - BYO or Meta Direct</td>
         <td>0.62</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Spain Marketing - Optimized Delivery</td>
+        <td>Spanien Marketing - Optimized Delivery</td>
         <td>16.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Spain Utility</td>
+        <td>Spanien Utility</td>
         <td>5.30</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turkey Authentication</td>
+        <td>Türkei Authentication</td>
         <td>1.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turkey Marketing</td>
+        <td>Türkei Marketing</td>
         <td>2.89</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turkey Marketing - BYO</td>
+        <td>Türkei Marketing - BYO or Meta Direct</td>
         <td>0.11</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turkey Marketing - Optimized Delivery</td>
+        <td>Türkei Marketing - Optimized Delivery</td>
         <td>2.89</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turkey Utility</td>
+        <td>Türkei Utility</td>
         <td>1.40</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Authentication</td>
+        <td>Vereinigte Arabische Emirate Authentication</td>
         <td>4.17</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Authentication International</td>
+        <td>Vereinigte Arabische Emirate Authentication International</td>
         <td>13.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Marketing</td>
+        <td>Vereinigte Arabische Emirate Marketing</td>
         <td>9.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Marketing - BYO</td>
+        <td>Vereinigte Arabische Emirate Marketing - BYO or Meta Direct</td>
         <td>0.50</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Marketing - Optimized Delivery</td>
+        <td>Vereinigte Arabische Emirate Marketing - Optimized Delivery</td>
         <td>9.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Utility</td>
+        <td>Vereinigte Arabische Emirate Utility</td>
         <td>4.17</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Kingdom Authentication</td>
+        <td>Vereinigtes Königreich Authentication</td>
         <td>5.80</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Kingdom Marketing</td>
+        <td>Vereinigtes Königreich Marketing</td>
         <td>14.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Kingdom Marketing - BYO</td>
+        <td>Vereinigtes Königreich Marketing - BYO or Meta Direct</td>
         <td>0.53</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Kingdom Marketing - Optimized Delivery</td>
+        <td>Vereinigtes Königreich Marketing - Optimized Delivery</td>
         <td>14.00</td>
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Kingdom Utility</td>
+        <td>Vereinigtes Königreich Utility</td>
         <td>5.80</td>
     </tr>
     <tr>
         <td>Line</td>
-        <td>All Regions</td>
+        <td>Alle Regionen</td>
         <td>0.15</td>
     </tr>
     <tr>
         <td>KakaoTalk</td>
-        <td>All Regions</td>
+        <td>Alle Regionen</td>
         <td>0.20</td>
     </tr>
     <tr>
@@ -2135,132 +2134,132 @@ Die Spaltendefinitionen lauten wie folgt:
     </tr>
     <tr>
         <td>BYO SMS Connector</td>
-        <td>Infobip - All Regions</td>
+        <td>Infobip - Alle Regionen</td>
         <td>0.30</td>
     </tr>
     <tr>
         <td>BYO SMS Connector</td>
-        <td>Twilio - All Regions</td>
+        <td>Twilio - Alle Regionen</td>
         <td>0.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Brazil - Basic</td>
+        <td>Brasilien - Basic</td>
         <td>2.50</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Brazil - Single</td>
+        <td>Brasilien - Single</td>
         <td>3.50</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Colombia - Basic</td>
+        <td>Kolumbien - Basic</td>
         <td>1.90</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Colombia - Single</td>
+        <td>Kolumbien - Single</td>
         <td>2.40</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>France - Basic</td>
+        <td>Frankreich - Basic</td>
         <td>12.60</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>France - Single</td>
+        <td>Frankreich - Single</td>
         <td>12.60</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Germany - Basic</td>
+        <td>Deutschland - Basic</td>
         <td>12.50</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Germany - Single</td>
+        <td>Deutschland - Single</td>
         <td>12.80</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Italy - Basic</td>
+        <td>Italien - Basic</td>
         <td>4.70</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Italy - Single</td>
+        <td>Italien - Single</td>
         <td>6.70</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Mexico - Basic</td>
+        <td>Mexiko - Basic</td>
         <td>6.10</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Mexico - Single</td>
+        <td>Mexiko - Single</td>
         <td>6.90</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Singapore - Basic</td>
+        <td>Singapur - Basic</td>
         <td>4.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Singapore - Single</td>
+        <td>Singapur - Single</td>
         <td>8.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Spain - Basic</td>
+        <td>Spanien - Basic</td>
         <td>6.20</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Spain - Single</td>
+        <td>Spanien - Single</td>
         <td>13.90</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Sweden - Basic</td>
+        <td>Schweden - Basic</td>
         <td>7.20</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>Sweden - Single</td>
+        <td>Schweden - Single</td>
         <td>10.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>United Kingdom - Basic</td>
+        <td>Vereinigtes Königreich - Basic</td>
         <td>7.80</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>United Kingdom - Single</td>
+        <td>Vereinigtes Königreich - Single</td>
         <td>14.10</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>United States - Basic - Deprecated</td>
+        <td>Vereinigte Staaten - Basic - Veraltet</td>
         <td>1.00</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>United States - Rich</td>
+        <td>Vereinigte Staaten - Rich</td>
         <td>1.00</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>United States - Rich Media</td>
+        <td>Vereinigte Staaten - Rich Media</td>
         <td>1.30</td>
     </tr>
     <tr>
         <td>RCS</td>
-        <td>United States - Single - Deprecated</td>
+        <td>Vereinigte Staaten - Single - Veraltet</td>
         <td>1.30</td>
     </tr>
     </tbody>
@@ -2271,17 +2270,17 @@ Die Spaltendefinitionen lauten wie folgt:
 ------
 
 ## Details zur Agent Console {#agent-console-details}
-Braze berechnet Message Credits für Agent-Console-Aufrufe, die über die Braze-Plattform gesendet werden. Ein Aufruf wird protokolliert, wenn ein Agent einen Aufruf an ein LLM initiiert. Standardmäßig umfasst Ihr Vertrag zehntausend Aufrufe pro Zeitraum Ihrer Abo-Laufzeit.
+Braze berechnet Nachrichtenguthaben für Agent-Console-Aufrufe, die von der Braze-Plattform gesendet werden. Ein Aufruf wird protokolliert, wenn ein Agent einen Aufruf an ein LLM initiiert. Standardmäßig umfasst Ihr Vertrag zehntausend Aufrufe pro Zeitraum Ihrer Abonnementlaufzeit.
 
-## Details zum SMS-/MMS-Kanal {#smsmms-channel-details}
+## SMS/MMS-Kanaldetails {#smsmms-channel-details}
 
 ### SMS-Nachrichtensegmente {#sms-segments}
 
-SMS-Nachrichtensegmente sind die Art und Weise, wie die SMS-Branche Nachrichten zählt. Ein Nachrichtensegment ist eine Gruppierung von bis zu einer definierten Anzahl von Zeichen (160 für GSM-7-Kodierung; 67 für UCS-2-Kodierung), die in einem einzelnen SMS-Versand gesendet wird. Wenn Sie eine SMS mit 161 Zeichen in GSM-7-Kodierung versenden, werden Sie feststellen, dass zwei (2) Nachrichtensegmente gesendet wurden. Das Senden mehrerer Nachrichtensegmente führt zu zusätzlichen Kosten.
+SMS-Nachrichtensegmente sind die Art und Weise, wie die SMS-Branche Nachrichten zählt. Ein Nachrichtensegment ist eine Gruppierung von bis zu einer definierten Anzahl von Zeichen (160 für GSM-7-Kodierung; 67 für UCS-2-Kodierung), die in einem einzelnen SMS-Versand gesendet wird. Wenn Sie eine SMS mit 161 Zeichen unter Verwendung der GSM-7-Kodierung versenden, werden Sie feststellen, dass zwei (2) Nachrichtensegmente gesendet wurden. Das Senden mehrerer Nachrichtensegmente führt zu zusätzlichen Kosten.
 
-### MMS-Nachrichtensegmente {#mms-segments}
+### MMS-Segmente {#mms-segments}
 
-Für MMS beträgt das Nachrichtenlimit 5 MB (dies umfasst das Multimedia-Asset und die Größe des Nachrichtentexts). Um auf der sicheren Seite zu sein, empfiehlt Braze, 600 KB für Ihr Multimedia-Asset nicht zu überschreiten und gleichzeitig einen Nachrichtentext einzuschließen.
+Für MMS liegt das Nachrichtenlimit bei 5 MB (dies umfasst das Multimedia-Asset und die Größe des Nachrichtentexts). Um auf der sicheren Seite zu sein, empfiehlt Braze, 600 KB für Ihr Multimedia-Asset nicht zu überschreiten und gleichzeitig einen Nachrichtentext einzuschließen.
 
 ### RCS-Typen {#rcs-types}
 
@@ -2297,15 +2296,17 @@ RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines di
 
 ### Webhooks
 
-Webhooks wurden am 9. Dezember 2024 in die Nachrichtenguthaben aufgenommen. Braze berechnet Nachrichtenguthaben für alle Webhooks, die über die Braze-Plattform gesendet werden. Standardmäßig enthält Ihr Vertrag hunderttausend Webhooks pro Zeitraum Ihrer Abonnementlaufzeit. Zusätzliche Webhooks werden gemäß Ihrem Bestellformular berechnet.
+Webhooks wurden am 9. Dezember 2024 in die Nachrichtenguthaben aufgenommen. Braze berechnet Nachrichtenguthaben für alle Webhooks, die über die Braze-Plattform gesendet werden. Standardmäßig umfasst Ihr Vertrag hunderttausend Webhooks pro Zeitraum Ihrer Abonnementlaufzeit. Zusätzliche Webhooks werden gemäß Ihrem Bestellformular berechnet.
+
+{% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Message Credits' %}
 
 ### Bring your own (BYO) SMS-Konnektoren {#bring-your-own-byo-sms-connectors}
 
-Braze ermöglicht es Kund:innen, sich mit Drittanbietern zu integrieren, um SMS-Nachrichten über das „BYO SMS-Konnektor“-Modell zu senden. Braze berechnet Nachrichtenguthaben für jede Nachricht, die über BYO SMS-Konnektoren von der Braze-Plattform gesendet wird.
+Braze ermöglicht es Kund:innen, Drittanbieter zu integrieren, um SMS-Nachrichten über das „BYO SMS-Konnektor“-Modell zu senden. Braze berechnet Nachrichtenguthaben für jede Nachricht, die über BYO SMS-Konnektoren von der Braze-Plattform gesendet wird.
 
 ### LINE
 
-Braze berechnet Nachrichtenguthaben für alle LINE-Nachrichten, die von der Braze-Plattform gesendet werden.
+Braze berechnet Nachrichtenguthaben für alle LINE-Nachrichten, die über die Braze-Plattform gesendet werden.
 
 ## Aufschlüsselung nach Abrechnungsregion {#billing-region-breakdown}
 
