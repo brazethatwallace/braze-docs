@@ -163,11 +163,11 @@ If you consistently see an issue with a client, open a [support ticket]({{site.b
 
 Some email clients, including GMX, render messages inside iframes and may strip or ignore CSS in `<style>` blocks. If Inbox Vision or live sends show missing styles in these clients:
 
-- Use table-based layouts instead of CSS positioning.
+- Use table-based layouts instead of CSS-positioned layouts.
 - Apply critical styles as inline `style` attributes on the affected elements.
 - For drag-and-drop emails, use **Hide on desktop** and **Hide on mobile** on rows to show or hide content by viewport.
 
-Test the updated message in Inbox Vision with the affected client preview before sending.
+Before sending, test the updated message in Inbox Vision with the affected client preview.
 
 ### Test accuracy versus live inboxes
 
