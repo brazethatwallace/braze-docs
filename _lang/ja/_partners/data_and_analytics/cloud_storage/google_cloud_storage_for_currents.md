@@ -32,16 +32,16 @@ BrazeとGoogle Cloud Storageの統合により、CurrentsデータをGoogle Clou
 Google Cloud Storageと連携するには、Brazeが書き込み先のストレージバケットに関する情報を取得（`storage.buckets.get`）し、そのバケット内にオブジェクトを作成（`storage.objects.create`）できるようにするための適切な認証情報を設定する必要があります。
 
 {% alert note %}
-Workload Identity Federation（WIF）は、Currentsの認証方法としてサポートされていません。JSON秘密キーを持つサービスアカウントを使用する必要があります。
+Workload Identity Federation（WIF）は、Currentsの認証方法としてサポートされていません。JSON秘密キーを使用するサービスアカウントを使用する必要があります。
 {% endalert %}
 
-以下の手順に従って設定できます。この手順では、Currents連携で使用する秘密キーを生成するロールとサービスアカウントの作成方法を説明します。
+以下の手順に従って設定できます。この手順では、ロールとサービスアカウントを作成し、Currents連携で使用する秘密キーを生成します。
 
 ### ステップ1:ロールを作成する {#step-1-create-role}
 
 Google Cloud Platformコンソールで**IAM & admin** > **Roles** > **+ Create Role**に移動して、新しいロールを作成します。
 
-![ロール作成アクションが表示されたGoogle Cloud IAMロールページ。]({% image_buster /assets/img/gcs1.png %})
+![「Create Role」アクションが表示されたGoogle Cloud IAMロールページ。]({% image_buster /assets/img/gcs1.png %})
 
 ロールに名前を付け、**+Add Permissions**を選択して以下を選択します。
 
@@ -56,7 +56,7 @@ Google Cloud Platformコンソールで**IAM & admin** > **Roles** > **+ Create 
 {% endalert %}
 
 {% alert important %}
-バケットが[階層型名前空間](https://cloud.google.com/storage/docs/hns-overview)を使用している場合は、`storage.folders.create`権限も追加する必要があります。これらのバケットではフォルダーがマネージドリソースであるため、Brazeがエクスポートファイルのフォルダー構造を作成するにはこの権限が必要です。この権限がないと、Brazeはバケットに書き込めず、連携によるデータエクスポートが失敗します。
+バケットが[階層型名前空間](https://cloud.google.com/storage/docs/hns-overview)を使用している場合は、`storage.folders.create`権限も追加する必要があります。これらのバケットではフォルダーがマネージドリソースであるため、Brazeがエクスポートファイルのフォルダー構造を作成するにはこの権限が必要です。この権限がないと、Brazeはバケットに書き込むことができず、連携によるデータエクスポートが失敗します。
 {% endalert %}
 
 完了したら、**Create**を選択します。
@@ -85,7 +85,9 @@ Google Cloud Platformコンソールで**IAM & admin** > **Service Accounts**に
 
 Brazeで**Currents** > **+ Create Current** > **Google Cloud Storage Data Export**に移動し、連携名と連絡先メールアドレスを入力します。
 
-次に、**GCS JSON Credentials**でJSON秘密キーをアップロードし、GCSバケット名とGCSプレフィックス（オプション）を入力します。これらの認証情報は、前のステップで説明したとおり、Google Cloud Platformで生成する必要があります。
+{% multi_lang_include currents/contact_email_notifications.md %}
+
+次に、**GCS JSON Credentials**にJSON秘密キーをアップロードし、GCSバケット名とGCSプレフィックス（オプション）を入力します。これらの認証情報は、前のステップで説明したとおり、Google Cloud Platformを通じて生成する必要があります。
 
 {% alert important %}
 認証情報ファイルを最新の状態に保つことが重要です。コネクターの認証情報が期限切れになると、コネクターはイベントの送信を停止します。この状態が**5日間**以上続くと、コネクターのイベントは破棄され、データは永久に失われます。
@@ -105,7 +107,7 @@ Google Cloud Storage（GCS）エクスポートを設定するには、**テク�
 [Google Cloudで生成された](https://cloud.google.com/iam/docs/keys-create-delete)完全なJSON値を入力してください。
 {% endalert %}
 
-![BrazeダッシュボードのGoogle Cloud Storageページ。]({% image_buster /assets/img/gcs7.png %}){: style="max-width:70%;"}
+![Brazeダッシュボードに表示されたGoogle Cloud Storageページ。]({% image_buster /assets/img/gcs7.png %}){: style="max-width:70%;"}
 
 ### ステップ5:サービスアカウントの認証情報をテストする（オプション） {#step-5-test-your-service-account-credentials-optional}
 
@@ -117,9 +119,9 @@ Google Cloud IAMサービスアカウントには、以下の権限が必要で�
 - `storage.objects.get`
 - `storage.buckets.get`
 
-これらの権限をBrazeダッシュボードで確認するには、**Google Cloud Storage**ページに移動し、**Test Credentials**を選択します。
+これらの権限を確認するには、Brazeダッシュボードで**Google Cloud Storage**ページに移動し、**Test Credentials**を選択します。
 
-![BrazeダッシュボードのGoogle Cloud Storage認証情報セクション。]({% image_buster /assets/img/gcs8.png %}){: style="max-width:70%;"}
+![Brazeダッシュボードに表示されたGoogle Cloud Storage認証情報セクション。]({% image_buster /assets/img/gcs8.png %}){: style="max-width:70%;"}
 
 ## エクスポートの動作 {#export-behavior}
 
@@ -129,7 +131,7 @@ Google Cloud IAMサービスアカウントには、以下の権限が必要で�
 - すべてのダッシュボードレポートとCSVレポートは、ダウンロード用にユーザーのメールに送信され（ストレージ権限は不要）、データストレージにバックアップされます。
 
 {% alert important %}
-**JSON形式の要件**：JSONエクスポートの場合、BrazeはJSONL（改行区切りJSON）形式を使用します。各行には個別のJSONオブジェクトが含まれます。この形式は、単一のJSON配列またはオブジェクトである標準JSONとは異なります。エクスポートされたファイルの各行は有効なJSONオブジェクトですが、ファイル全体は単一の有効なJSONドキュメントではありません。これらのファイルを処理する際は、ファイル全体を単一のJSONドキュメントとして解析しようとするのではなく、各行を個別のJSONオブジェクトとして解析してください。
+**JSON形式の要件**: JSONエクスポートの場合、BrazeはJSONL（改行区切りJSON）形式を使用します。各行には個別のJSONオブジェクトが含まれます。この形式は、単一のJSON配列またはオブジェクトである標準JSONとは異なります。エクスポートされたファイルの各行は有効なJSONオブジェクトですが、ファイル全体としては単一の有効なJSONドキュメントではありません。これらのファイルを処理する際は、ファイル全体を単一のJSONドキュメントとして解析しようとするのではなく、各行を個別のJSONオブジェクトとして解析してください。
 
 Currentsエクスポートは、JSONではなくApache Avro形式（`.avro`ファイル）を使用します。このJSON形式の要件は、ダッシュボードデータエクスポートおよびJSON形式を使用するAPIエクスポートに適用されます。
 {% endalert %}
@@ -152,4 +154,4 @@ Google Cloud IAMサービスアカウントに以下の権限があることを�
 - `storage.objects.get`
 - `storage.buckets.get`
 
-確認後、[Brazeダッシュボードで認証情報をテスト](#step-5-test-your-service-account-credentials-optional)できます。
+確認後、[Brazeダッシュボードでサービスアカウントの認証情報をテスト](#step-5-test-your-service-account-credentials-optional)できます。

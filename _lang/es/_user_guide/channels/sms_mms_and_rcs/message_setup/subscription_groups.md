@@ -11,6 +11,9 @@ channel:
   - RCS
 
 
+
+
+
 ---
 
 # Grupos de suscripción de SMS, MMS y RCS {#sms-mms-and-rcs-subscription-groups}
@@ -26,23 +29,23 @@ Existen dos estados de suscripción para los usuarios de SMS y RCS: `subscribed`
 | Estado | Definición |
 | --------- | ---------- |
 | Suscrito | El usuario está suscrito para recibir SMS y RCS de un grupo de suscripción específico. Un usuario puede suscribirse actualizando su estado de suscripción a través de la API de suscripción de Braze o enviando un mensaje de texto con una palabra clave de adhesión voluntaria. Un usuario debe estar suscrito a un grupo de suscripción de SMS o RCS para recibir SMS, RCS o ambos. Cuando la [doble adhesión voluntaria]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) está habilitada, los usuarios deben confirmar su intención de adhesión antes de que su estado de suscripción se actualice a `Subscribed`. |
-| Dado de baja | El usuario ha optado explícitamente por no recibir mensajes de tu grupo de suscripción de SMS y RCS y de los números de teléfono de envío dentro del grupo de suscripción. Pueden cancelar la suscripción enviando un mensaje de texto con una palabra clave de cancelación, o puedes cancelar la suscripción de los usuarios a través de la [API de suscripción de Braze]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Los usuarios dados de baja de un grupo de suscripción de SMS y RCS dejarán de recibir cualquier SMS o RCS de los números de teléfono de envío que pertenezcan al grupo de suscripción. |
+| Dado de baja | El usuario ha optado explícitamente por no recibir mensajes de tu grupo de suscripción de SMS y RCS y de los números de teléfono de envío dentro del grupo de suscripción. Pueden cancelar la suscripción enviando un mensaje de texto con una palabra clave de cancelación, o puedes cancelar la suscripción de los usuarios a través de la [API de suscripción de Braze]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Los usuarios dados de baja de un grupo de suscripción de SMS y RCS dejan de recibir cualquier SMS o RCS de los números de teléfono de envío que pertenezcan al grupo de suscripción. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de los grupos de suscripción" }
 
 ### Establecer el estado de un usuario {#set-a-users-state}
 
 Cuando se actualiza un número de teléfono en el perfil de un usuario, el nuevo número de teléfono hereda el estado del grupo de suscripción del usuario. Si el número de teléfono se actualiza a un número que ya existe en Braze, se hereda el estado de suscripción de ese número de teléfono existente.
 
-Por ejemplo, si el Usuario A tiene un número de teléfono que está suscrito a varios grupos de suscripción y ese número de teléfono se añade al Usuario B, el Usuario B estará suscrito a los mismos grupos de suscripción. Para evitar que un usuario herede las suscripciones existentes, puedes restablecer los grupos de suscripción del número anterior a través de la REST API de Braze cada vez que un usuario cambie su número. Si varios usuarios comparten este número de teléfono, todos serán dados de baja.
+Por ejemplo, si el Usuario A tiene un número de teléfono suscrito a varios grupos de suscripción y ese número de teléfono se añade al Usuario B, el Usuario B queda suscrito a los mismos grupos de suscripción. Para evitar que un usuario herede las suscripciones existentes, puedes restablecer los grupos de suscripción del número anterior a través de la REST API de Braze cada vez que un usuario cambie su número. Si varios usuarios comparten este número de teléfono, todos quedan dados de baja.
 
 Para establecer el estado del grupo de suscripción de un usuario, utiliza uno de los siguientes métodos:
 
-- **REST API:** Los perfiles de usuario se pueden configurar programáticamente mediante el [endpoint `/subscription/status/set`]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) usando la REST API de Braze.
-- **Integración de SDK:** Los usuarios se pueden añadir a un grupo de suscripción de correo electrónico o SMS y RCS usando el método `addToSubscriptionGroup` para [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) o [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
-- **Formulario IAM de captura de número de teléfono:** Los números de teléfono de los usuarios se pueden recopilar a través de la plantilla de captura de número de teléfono en el editor de arrastrar y soltar de mensajes dentro de la aplicación.
-- **Gestionado automáticamente tras la adhesión/cancelación del usuario:** Cuando los usuarios envían un mensaje de texto con una [palabra clave]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) predeterminada de adhesión o cancelación, Braze configura y actualiza automáticamente el estado de suscripción de los usuarios.
-- **Importación de usuarios:** Los usuarios se pueden añadir a grupos de suscripción de correo electrónico o SMS y RCS a través de **Importar usuarios**. Al actualizar el estado del grupo de suscripción, debes tener estas dos columnas en tu CSV: `subscription_group_id` y `subscription_state`. Consulta [Importación de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) para más información.
-- **Panel de Braze:** En [Búsqueda de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles), abre el perfil de un usuario y actualiza los grupos de suscripción de SMS o RCS en **Configuración de contacto** en la pestaña **Participación**.
+- **REST API:** Utiliza el [endpoint `/subscription/status/set`]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) para configurar programáticamente los perfiles de usuario con la REST API de Braze. Cada solicitud puede incluir entre 1 y 25 grupos de suscripción.
+- **Integración de SDK:** Los usuarios pueden añadirse o eliminarse de un grupo de suscripción de correo electrónico o SMS y RCS utilizando `addToSubscriptionGroup` y `removeFromSubscriptionGroup` para [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) o [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup). Los métodos del SDK no reemplazan los flujos regulatorios de adhesión voluntaria o cancelación gestionados por palabras clave y la REST API.
+- **Formulario IAM de captura de número de teléfono:** Los números de teléfono de los usuarios pueden recopilarse a través de la plantilla de captura de número de teléfono en el editor de arrastrar y soltar de mensajes dentro de la aplicación.
+- **Gestionado automáticamente tras la adhesión/cancelación del usuario:** Cuando los usuarios envían un mensaje de texto con una [palabra clave]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) predeterminada de adhesión o cancelación, Braze establece y actualiza automáticamente el estado de suscripción de los usuarios.
+- **Importación de usuarios**: Los usuarios pueden añadirse a grupos de suscripción de correo electrónico o SMS y RCS a través de **Importar usuarios**. Al actualizar el estado del grupo de suscripción, debes tener estas dos columnas en tu CSV: `subscription_group_id` y `subscription_state`. Consulta [Importación de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) para más información.
+- **Panel de Braze:** Selecciona **Búsqueda de usuarios** en la barra lateral, abre el perfil de un usuario y actualiza los grupos de suscripción de SMS o RCS en **Configuración de contacto** en la pestaña **Participación**.
 - **Ingesta de datos en la nube (CDI):** Incluye `subscription_group_id` y `subscription_state` en las filas sincronizadas. Consulta [Configuración de tablas de ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
 - **Paso de actualización de usuario:** Actualiza el estado de suscripción en un Canvas con un paso de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update). Consulta [Actualizar el estado de un usuario en un Canvas](#update-a-users-state-in-a-canvas) para consideraciones de temporización.
 
@@ -50,20 +53,20 @@ Para establecer el estado del grupo de suscripción de un usuario, utiliza uno d
 
 Al actualizar el estado del grupo de suscripción de un usuario como parte de un flujo de Canvas, utiliza un paso de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) en lugar de un webhook. El paso de Actualización de usuario espera a que se complete el procesamiento antes de avanzar al usuario al siguiente paso, de modo que los pasos de mensajería posteriores utilicen el estado de suscripción actualizado.
 
-Si utilizas un webhook para actualizar los grupos de suscripción, el usuario avanza tan pronto como se envía el webhook, no cuando el cambio de suscripción termina de procesarse. Esto puede crear una condición de carrera en la que un paso de SMS posterior se ejecuta antes de que el usuario esté suscrito, lo que provoca que el mensaje falle para una parte de los usuarios. Si debes usar un webhook, añade un paso de retraso de al menos 1 minuto antes del siguiente paso de mensajería.
+Si utilizas un webhook para actualizar los grupos de suscripción, el usuario avanza tan pronto como se envía el webhook, no cuando el cambio de suscripción termina de procesarse. Esto puede crear una condición de carrera en la que un paso de SMS posterior se ejecuta antes de que el usuario esté suscrito, lo que provoca que el mensaje falle para una parte de los usuarios. Si debes utilizar un webhook, añade un paso de retraso de al menos 1 minuto antes del siguiente paso de mensajería.
 
-#{% multi_lang_include api/orphaned_subscription_states.md %}
+{% multi_lang_include api/orphaned_subscription_states.md %}
 
 ### Comprobar el grupo de un usuario {#check-a-users-group}
 
 Para comprobar el grupo de suscripción de un usuario, utiliza uno de los siguientes métodos:
 
 - **Perfil de usuario:** Se puede acceder a los perfiles de usuario individuales a través del panel de Braze seleccionando **Búsqueda de usuarios** en la barra lateral. Aquí puedes buscar perfiles de usuario por dirección de correo electrónico, número de teléfono o ID de usuario externo. Dentro del perfil de un usuario, en la pestaña Participación, puedes ver los grupos de suscripción de SMS y RCS del usuario.
-- **REST API:** El grupo de suscripción de perfiles de usuario individuales se puede consultar mediante el [endpoint Lista de grupos de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) o el [endpoint Estado del grupo de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) usando la REST API de Braze.
+- **REST API:** El grupo de suscripción de los perfiles de usuario individuales puede consultarse mediante el [endpoint de lista de grupos de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) o el [endpoint de estado del grupo de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) utilizando la REST API de Braze.
 
 ## Enviar mensajes con un grupo de suscripción {#send-messages-with-a-subscription-group}
 
-Para lanzar una campaña de SMS o RCS a través de Braze, selecciona un grupo de suscripción en el menú desplegable **SMS/MMS/RCS Variants**. Una vez seleccionado, se añadirá automáticamente un filtro de audiencia a tu campaña o Canvas, lo que garantiza que solo los usuarios con estado `subscribed` en el grupo de suscripción seleccionado estén en el público objetivo.
+Para lanzar una campaña de SMS o RCS a través de Braze, selecciona un grupo de suscripción en el menú desplegable **SMS/MMS/RCS Variants**. Una vez seleccionado, se añade automáticamente un filtro de audiencia a tu campaña o Canvas, lo que garantiza que solo los usuarios `subscribed` al grupo de suscripción seleccionado estén en el público objetivo.
 
 Antes de que los usuarios puedan recibir mensajes de una campaña o Canvas, deben estar suscritos al grupo de suscripción seleccionado. Si los envíos fallan para usuarios que de otro modo serían válidos, confirma que están suscritos utilizando uno de los métodos en [Establecer el estado de un usuario](#set-a-users-state). Para los requisitos de doble adhesión voluntaria, consulta [Estados de los grupos de suscripción](#subscription-group-states).
 
@@ -71,7 +74,7 @@ Antes de que los usuarios puedan recibir mensajes de una campaña o Canvas, debe
 En cumplimiento con las [leyes y regulaciones internacionales de telecomunicaciones]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations), Braze nunca envía SMS o RCS a usuarios que no se hayan suscrito al grupo de suscripción seleccionado.
 {% endalert %}
 
-![Creador de SMS con el menú desplegable de grupo de suscripción abierto y "Messaging Service A for SMS" resaltado por el usuario.]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
+![Creador de SMS con el menú desplegable del grupo de suscripción abierto y "Messaging Service A for SMS" resaltado por el usuario.]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
 
 ## Buenas prácticas para grupos de suscripción de SMS {#sms-subscription-group-best-practices}
 
@@ -83,7 +86,7 @@ Para habilitar grupos de suscripción para SMS, MMS o RCS, consulta lo siguiente
 
 {% tabs local %}
 {% tab SMS %}
-Durante tu proceso de incorporación de SMS, un administrador de incorporación de Braze configurará los grupos de suscripción para tu cuenta del panel. Trabajará contigo para determinar cuántos grupos de suscripción necesitas y añadirá los números de teléfono de envío apropiados a tus grupos de suscripción. Los plazos para configurar un grupo de suscripción dependerán del tipo de números de teléfono que estés añadiendo. Por ejemplo, las solicitudes de códigos abreviados pueden tardar entre 8 y 12 semanas, mientras que los códigos largos pueden configurarse en un día. Si tienes preguntas sobre la configuración de tu panel de Braze, ponte en contacto con tu representante de Braze para obtener asistencia.
+Durante tu proceso de incorporación de SMS, un administrador de incorporación de Braze configura los grupos de suscripción para tu cuenta del panel. Trabajan contigo para determinar cuántos grupos de suscripción necesitas y añaden los números de teléfono de envío apropiados a tus grupos de suscripción. Los plazos para configurar un grupo de suscripción dependen del tipo de números de teléfono que estés añadiendo. Por ejemplo, las solicitudes de códigos abreviados pueden tardar entre 8 y 12 semanas, mientras que los códigos largos pueden configurarse en un día. Si tienes preguntas sobre la configuración de tu panel de Braze, ponte en contacto con tu representante de Braze para obtener asistencia.
 {% endtab %}
 
 {% tab MMS %}
@@ -100,7 +103,7 @@ Hay dos formas de añadir un remitente verificado de RCS:
 - Crear un nuevo grupo de suscripción de RCS
 La elección depende en gran medida de los ejemplos de RCS que te interesen.
 
-Dependiendo de tu integración, Braze puede añadir remitentes verificados de RCS a tus grupos de suscripción de SMS existentes o configurar nuevos grupos de suscripción para ti. En cualquier caso, tu administrador de éxito de cliente te guiará a través de una actualización de tráfico SMS fluida y eficiente.
+Dependiendo de tu integración, Braze puede añadir remitentes verificados de RCS a tus grupos de suscripción de SMS existentes o configurar nuevos grupos de suscripción para ti. En cualquier caso, tu administrador de éxito de cliente te guía a través de una actualización de tráfico SMS fluida y eficiente.
 {% endtab %}
 {% endtabs %}
 
@@ -130,7 +133,7 @@ El uso de la consola de agentes consume créditos de mensajes o acciones.
 
 Si tienes grupos de suscripción de SMS y RCS separados, puedes migrar usuarios de SMS a RCS utilizando un Canvas de un solo paso.
 
-Braze recomienda que primero pruebes el envío de RCS a volúmenes más pequeños de usuarios y migres más usuarios al grupo de suscripción de RCS con el tiempo. Por ejemplo, si tienes 1.000.000 de usuarios suscritos a un grupo de suscripción de SMS, esto podría consistir en migrar primero a todos los usuarios al nuevo grupo de suscripción y luego segmentar una audiencia más pequeña de 50.000 a 100.000 (5-10%) para probar los mensajes RCS.
+Braze recomienda que primero pruebes enviando RCS a volúmenes más pequeños de usuarios y migres más usuarios al grupo de suscripción de RCS con el tiempo. Por ejemplo, si tienes 1.000.000 de usuarios suscritos a un grupo de suscripción de SMS, esto podría consistir en migrar primero a todos los usuarios al nuevo grupo de suscripción y luego segmentar una audiencia más pequeña de 50.000 a 100.000 (5-10%) para probar los mensajes RCS.
 
 ### Paso 1: Crea un Canvas y completa el calendario de entrada {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
@@ -170,7 +173,11 @@ Añade un paso de actualización de usuario a tu Canvas. En el paso, abre el **E
 ```
 {% endraw %}
 
-!["Objeto de actualización de usuario" que contiene el código JSON indicado anteriormente.]({% image_buster /assets/img/sms/user_update_object.png %})
+{% alert important %}
+Al usar `use_double_opt_in_logic`, ya debe existir un perfil de usuario para que se actualice el estado de suscripción. Si no hay un perfil de usuario asociado con el identificador proporcionado, el estado de suscripción no se actualiza.
+{% endalert %}
+
+![Objeto de actualización de usuario que contiene el código JSON indicado anteriormente.]({% image_buster /assets/img/sms/user_update_object.png %})
 
 ### Paso 4: Prueba el Canvas {#step-4-test-the-canvas}
 
@@ -178,7 +185,7 @@ Recomendamos encarecidamente [probar tu Canvas]({{site.baseurl}}/user_guide/mess
 
 ### Paso 5: Lanza tu Canvas {#step-5-launch-your-canvas}
 
-Después de haber probado con éxito tu Canvas, ¡lánzalo para tu subconjunto de usuarios!
+Después de haber probado tu Canvas con éxito, ¡lánzalo para tu subconjunto de usuarios!
 
 Para confirmar que tus usuarios se migraron correctamente, recomendamos revisar algunos perfiles de usuario individuales que se actualizaron. En la pestaña **Participación**, busca **Configuración de contacto** y desplázate para ver los grupos de suscripción a los que el usuario está suscrito. El interruptor del grupo de suscripción de RCS debería estar activado.
 

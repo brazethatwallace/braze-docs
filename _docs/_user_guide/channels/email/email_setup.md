@@ -38,6 +38,9 @@ guide_featured_list:
 - name: "Open pixel and click tracking"
   link: /docs/user_guide/channels/email/email_setup/open_pixel_and_click_tracking
   image: /assets/img/braze_icons/cursor-click-02.svg
+- name: "Subscription status"
+  link: /docs/user_guide/audience/subscription_preferences/subscription_status
+  image: /assets/img/braze_icons/check-verified-02.svg
 ---
 
 ## Requirements

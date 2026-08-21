@@ -63,14 +63,18 @@ Para copiar una página de destino a un espacio de trabajo diferente:
 {% endtab %}
 {% endtabs %}
 
+{% alert note %}
+Puedes copiar una Campaign o un Canvas a otro espacio de trabajo en cualquier momento de su ciclo de vida, incluso después de haberlo lanzado. Braze copia la versión activa.<br><br>Si tienes [cambios de borrador guardados]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/change_your_campaign_after_launch#campaign-drafts) para una Campaign o [un borrador de Canvas guardado]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/canvas_drafts) que aún no has lanzado, Braze no incluye esas ediciones pendientes. Lanza primero el borrador en el espacio de trabajo original y luego cópialo.
+{% endalert %}
+
 ## Qué se copia entre espacios de trabajo {#whats-copied-across-workspaces}
 
-Ten en cuenta que las siguientes tablas cubren campos de Campaigns y Canvas, y no son una lista exhaustiva de lo que se copia entre espacios de trabajo y lo que se omite. Como práctica recomendada, verifica los detalles de la Campaign, el Canvas y la página de destino, y prueba para confirmar que tu mensaje funciona como se espera.
+Ten en cuenta que las siguientes tablas cubren los campos de Campaigns y Canvas, y no son una lista exhaustiva de lo que se copia entre espacios de trabajo y lo que se omite. Como práctica recomendada, revisa los detalles de la Campaign, el Canvas y la página de destino, y realiza pruebas para confirmar que tu mensaje funciona como se espera.
 
-Las páginas de destino se copian como borradores. Antes de publicar una página de destino copiada, revisa la URL de la página, la configuración de dominio personalizado, el manejo de envío de formularios y cualquier referencia de Liquid o específica del espacio de trabajo.
+Las páginas de destino se copian como borradores. Antes de publicar una página de destino copiada, revisa la URL de la página, la configuración del dominio personalizado, el manejo del envío de formularios y cualquier referencia a Liquid o específica del espacio de trabajo.
 
 {% alert note %}
-Las traducciones no se copian cuando se copian Campaigns de correo electrónico, Canvas o plantillas entre espacios de trabajo. Después de copiar, vuelve a introducir o cargar las traducciones en el espacio de trabajo de destino.
+Las traducciones no se copian al copiar Campaigns de correo electrónico, Canvas o plantillas entre espacios de trabajo. Después de copiar, vuelve a introducir o cargar las traducciones en el espacio de trabajo de destino.
 {% endalert %}
 
 ### Detalles {#details}
@@ -84,10 +88,10 @@ Las traducciones no se copian cuando se copian Campaigns de correo electrónico,
 | Tipo | Etiquetas |
 | Acciones (anidadas) | Segments y filtros |
 | Comportamientos de conversión (anidados) | [Aprobaciones]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
-| Configuraciones de tiempo en silencio | Planificación de desencadenamiento |
+| Configuraciones de horario silencioso | Programación de desencadenantes |
 | Configuraciones de limitación de frecuencia | Resúmenes de Campaign |
 | Estado de suscripción del destinatario |  |
-| Planificación recurrente |  |
+| Programación recurrente |  |
 | Es transaccional |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Detalles" }
 
@@ -100,10 +104,10 @@ Las traducciones no se copian cuando se copian Campaigns de correo electrónico,
 | Tipo | Etiquetas |
 | Acciones (anidadas) | Segments y filtros |
 | Comportamientos de conversión (anidados) | [Aprobaciones]({{site.baseurl}}/user_guide/messaging/governance/approvals) |
-| Configuraciones de tiempo en silencio | Planificación de desencadenamiento |
+| Configuraciones de horario silencioso | Programación de desencadenantes |
 | Configuraciones de limitación de frecuencia | Resúmenes de Canvas |
 | Estado de suscripción del destinatario |  |
-| Planificación recurrente | Criterios de salida |
+| Programación recurrente | Criterios de salida |
 | Es transaccional |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Detalles" }
 
@@ -120,7 +124,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 | Copiado | Omitido |
 |---|---|
 | Tipo de comportamiento | ID de espacio de trabajo |
-| Interacción con la Campaign | ID de Campaign |
+| Interacción de Campaign | ID de Campaign |
 | Nombre de evento personalizado |  |
 | Nombre de producto |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamientos de conversión" }
@@ -131,7 +135,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 | Copiado | Omitido |
 |---|---|
 | Tipo de comportamiento | ID de espacio de trabajo |
-| Interacción con Canvas | ID de Canvas |
+| Interacción de Canvas | ID de Canvas |
 | Nombre de evento personalizado |  |
 | Nombre de producto |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamientos de conversión" }
@@ -147,7 +151,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 | Copiado | Omitido |
 |---|---|
 | Tipo de comportamiento | ID de espacio de trabajo |
-| Interacción con la Campaign | ID de Campaign |
+| Interacción de Campaign | ID de Campaign |
 | Nombre de evento personalizado |  |
 | Nombre de producto |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Acciones" }
@@ -158,7 +162,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 | Copiado | Omitido |
 |---|---|
 | Tipo de comportamiento | ID de espacio de trabajo |
-| Interacción con Canvas | ID de Canvas |
+| Interacción de Canvas | ID de Canvas |
 | Nombre de evento personalizado |  |
 | Nombre de producto |  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Acciones" }
@@ -232,7 +236,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 
 | Copiado | Omitido |
 |---|---|
-| Texto plano | Aliasing de enlaces |
+| Texto sin formato | Aliasing de enlaces |
 | Contenido HTML y de arrastrar y soltar | Traducciones |
 | Preencabezado |  |
 | CSS en línea |  |
@@ -244,7 +248,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 
 | Copiado | Omitido |
 |---|---|
-| Texto plano | Aliasing de enlaces |
+| Texto sin formato | Aliasing de enlaces |
 | Contenido HTML y de arrastrar y soltar | Traducciones |
 | Preencabezado |  |
 | CSS en línea |  |
@@ -339,7 +343,7 @@ Los criterios de filtro de los pasos en Canvas (por ejemplo, los pasos de [divis
 
 ## Copiar mensajes que contienen Liquid {#copying-messages-that-contain-liquid}
 
-Las referencias de Liquid dentro de los cuerpos de los mensajes se copian al espacio de trabajo de destino, pero es posible que no funcionen como se espera. Esto significa que si un Canvas del espacio de trabajo A se copia al espacio de trabajo B, el espacio de trabajo B no puede hacer referencia a los detalles del espacio de trabajo A, incluidas las referencias de Liquid. Por ejemplo, campos como las acciones desencadenantes, los filtros de audiencia y los criterios de filtro de [división de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) no se copian.
+Las referencias de Liquid dentro del cuerpo de los mensajes se copian al espacio de trabajo de destino, pero es posible que no funcionen como se espera. Esto significa que si un Canvas del espacio de trabajo A se copia al espacio de trabajo B, el espacio de trabajo B no puede hacer referencia a los detalles del espacio de trabajo A, incluidas las referencias de Liquid. Por ejemplo, campos como las acciones desencadenantes, los filtros de audiencia y los criterios de filtro de [división de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) no se copian.
 
 Ten en cuenta las siguientes referencias de Liquid con dependencias al copiar Campaigns, Canvas y páginas de destino entre espacios de trabajo:
 
@@ -354,12 +358,12 @@ Ten en cuenta las siguientes referencias de Liquid con dependencias al copiar Ca
 
 ## Copiar mensajes con conmutadores de características {#copying-messages-with-feature-flags}
 
-Para copiar una Campaign de conmutador de características y un Canvas con un paso de conmutador de características entre espacios de trabajo, asegúrate de que el espacio de trabajo de destino tenga un [experimento de conmutador de características]({{site.baseurl}}/developer_guide/feature_flags/experiments) configurado con un ID que coincida con el conmutador de características referenciado en la Campaign original o el paso de conmutador de características referenciado en el Canvas original.
+Para copiar una Campaign con conmutador de características y un Canvas con un paso de conmutador de características entre espacios de trabajo, asegúrate de que el espacio de trabajo de destino tenga un [experimento de conmutador de características]({{site.baseurl}}/developer_guide/feature_flags/experiments) configurado con un ID que coincida con el conmutador de características referenciado en la Campaign original o con el paso de conmutador de características referenciado en el Canvas original.
 
-Si copias una Campaign o un Canvas que tiene un paso de conmutador de características con un ID de conmutador de características que no existe en el espacio de trabajo de destino, el paso de conmutador de características se copiará pero su contenido no.
+Si copias una Campaign o un Canvas que tiene un paso de conmutador de características con un ID de conmutador de características que no existe en el espacio de trabajo de destino, el paso de conmutador de características se copiará, pero su contenido no.
 
 ## Copiar mensajes con Content Blocks {#copying-messages-with-content-blocks}
 
-Cuando copias una Campaign entre espacios de trabajo, los Content Blocks no se copian. Sin embargo, se puede hacer referencia a un Content Block en el espacio de trabajo de destino si existe un bloque con el mismo nombre. Alternativamente, puedes crear el Content Block (o estas referencias de Liquid) en el espacio de trabajo de destino para evitar errores al lanzar una Campaign.
+Cuando copias una Campaign entre espacios de trabajo, los Content Blocks no se copiarán. Sin embargo, se puede hacer referencia a un Content Block en el espacio de trabajo de destino si existe un bloque con el mismo nombre. Alternativamente, puedes crear el Content Block (o estas referencias de Liquid) en el espacio de trabajo de destino para evitar errores al lanzar una Campaign.
 
 Para los Canvas que hacen referencia a un Content Block, el Content Block debe copiarse primero al espacio de trabajo de destino.

@@ -20,7 +20,7 @@ description: "증상 색인, HTTP 오류 표, 비정상 호스트 감지 안내�
 | `598 Host Unhealthy` 또는 요청이 일시적으로 중단됨 | [비정상 호스트 감지]({{site.baseurl}}/support_contact) |
 | 연결된 콘텐츠가 미리보기 또는 발송 시 빈 값으로 렌더링됨 | [연결된 콘텐츠가 응답 본문을 반환하지 않음](#connected-content-returns-no-response-body) |
 | Braze에서 자동 오류 이메일 수신 | [자동 이메일 및 메시지 활동 로그 항목](#automated-emails-and-message-activity-log-entries) |
-| Currents에서 웹훅 실패 이벤트가 필요함 | [Braze 커런츠의 추가 실패 인사이트](#additional-failure-insights-in-braze-currents) |
+| Currents에서 웹훅 실패 이벤트가 필요한 경우 | [Braze 커런츠의 추가 실패 인사이트](#additional-failure-insights-in-braze-currents) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="웹훅 및 연결된 콘텐츠 증상" }
 
 ## 표준 조사 경로 {#standard-investigation-path}
@@ -62,7 +62,7 @@ table td {
           <li>요청 페이로드에 구문 오류가 없는지 확인합니다.</li>
           <li>모든 필수 필드가 포함되어 있고 올바른 형식인지 확인합니다.</li>
           <li>JSON 페이로드를 전송하는 경우 JSON 구조를 검증합니다.</li>
-          <li>웹훅 요청에서 Liquid를 사용하여 개인화 태그를 템플릿으로 지정하는 경우, Liquid가 빈 값으로 확인되거나 JSON을 깨뜨리는 문자(이스케이프되지 않은 따옴표 등)를 생성하지 않는지 확인합니다. 테스트 사용자에 대해 메시지를 미리보기하여 렌더링된 출력이 유효한지 확인합니다.</li>
+          <li>웹훅 요청에서 Liquid를 사용하여 개인화 태그를 템플릿으로 지정하는 경우, Liquid가 빈 값으로 확인되거나 JSON을 깨뜨리는 문자(이스케이프되지 않은 따옴표 등)를 생성하지 않는지 확인합니다. 테스트 사용자에 대해 메시지를 미리 보기하여 렌더링된 출력이 유효한지 확인합니다.</li>
         </ul>
       </td>
     </tr>
@@ -99,7 +99,7 @@ table td {
     </tr>
     <tr>
       <td><b>405 Method Not Allowed</b></td>
-      <td>요청 메서드가 엔드포인트에서 인식되지만 대상 리소스에서 지원되지 않습니다.</td>
+      <td>요청 메서드가 엔드포인트에 알려져 있지만 대상 리소스에서 지원되지 않습니다.</td>
       <td>
         <ul>
           <li>요청에 사용된 HTTP 메서드(DELETE, GET, POST, PUT)를 확인합니다.</li>
@@ -146,7 +146,7 @@ table td {
 | 오류 코드                    | 의미                                                                                                                                         |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **500 Internal Server Error** | 엔드포인트가 요청을 완료하지 못하게 하는 예기치 않은 상태를 만났습니다.                                                       |
-| **502 Bad Gateway**           | 엔드포인트가 업스트림 서버로부터 잘못된 응답을 수신했습니다.                                                                                   |
+| **502 Bad Gateway**           | 엔드포인트가 업스트림 서버로부터 잘못된 응답을 받았습니다.                                                                                   |
 | **503 Service Unavailable**   | 엔드포인트가 일시적인 과부하 또는 유지보수로 인해 현재 요청을 처리할 수 없습니다.                                                    |
 | **504 Gateway Timeout**       | 엔드포인트가 업스트림 서버로부터 적시에 응답을 받지 못했습니다.                                                                               |
 | **529 Host Overloaded**       | 엔드포인트 호스트가 과부하 상태여서 응답할 수 없습니다. |
@@ -156,9 +156,9 @@ table td {
 
 ### 5XX 오류 해결 {#resolving-5xx-errors}
 
-일반적인 `5XX` 오류를 해결하기 위한 팁은 다음과 같습니다:
+다음은 일반적인 `5XX` 오류를 문제 해결하기 위한 팁입니다:
 
-- **Message Activity Log**에서 확인할 수 있는 구체적인 세부 정보를 오류 메시지에서 확인하세요. 웹훅의 경우 Braze 홈 페이지의 **Performance Over Time** 섹션으로 이동하여 웹훅 통계를 선택하세요. 여기에서 오류가 발생한 시점을 나타내는 타임스탬프를 확인할 수 있습니다.
+- **메시지 활동 로그**에서 사용할 수 있는 구체적인 세부 정보를 오류 메시지에서 확인하세요. 웹훅의 경우 Braze 홈 페이지의 **시간별 성능** 섹션으로 이동하여 웹훅 통계를 선택하세요. 여기에서 오류가 발생한 시점을 나타내는 타임스탬프를 확인할 수 있습니다.
 - 엔드포인트에 과부하를 일으킬 만큼 너무 많은 요청을 보내고 있지 않은지 확인하세요. 배치로 전송하거나 사용량 제한을 조정하여 오류가 줄어드는지 확인할 수 있습니다.
 
 ## 비정상 호스트 감지 {#unhealthy-host-detection}
@@ -186,7 +186,8 @@ Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저
 연결된 콘텐츠 호출이 메시지 미리보기 또는 발송에서 빈 값으로 렌더링되는 경우 다음을 확인하세요:
 
 - **URL의 줄 바꿈 없는 공백:** Braze는 요청을 보내기 전에 연결된 콘텐츠 URL에서 줄 바꿈 없는 공백(`&nbsp;` 또는 유니코드 `U+00A0`)을 제거합니다. 문서나 대시보드 필드에서 복사한 URL에 문자 사이에 줄 바꿈 없는 공백이 삽입된 경우, 요청이 실패하거나 사용 가능한 본문을 반환하지 않을 수 있습니다. URL을 일반 텍스트로 다시 입력하거나 숨겨진 공백을 제거한 후 다시 미리보기하세요.
-- **HTTP 오류 및 빈 본문:** 300 이상의 상태 코드 또는 차단된 호스트의 경우, 연결된 콘텐츠는 빈 문자열을 렌더링할 수 있습니다. [API 호출하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)를 참조하고 **메시지 활동 로그**에서 실패를 확인하세요.
+- **리다이렉트 응답(`3xx`):** 연결된 콘텐츠는 리다이렉트를 따르지 않습니다. `2xx` 응답만 성공으로 처리되므로, 동일한 URL이 Postman에서 작동하더라도 `301` 또는 `302`는 빈 값으로 렌더링될 수 있습니다. 최종 대상 URL을 사용하거나, Braze가 호출하는 URL에서 `2xx` 응답(일반적으로 `200`)을 반환하도록 엔드포인트를 구성하세요. [엔드포인트가 리다이렉트를 반환할 때 연결된 콘텐츠가 실패하는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#why-does-connected-content-fail-when-my-endpoint-returns-a-redirect-301-or-302)를 참조하세요.
+- **HTTP 오류 및 빈 본문:** `2xx` 범위 밖의 상태 코드 또는 차단된 호스트의 경우, 연결된 콘텐츠는 빈 문자열을 렌더링할 수 있습니다. [API 호출하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)를 참조하고 **메시지 활동 로그**에서 실패를 확인하세요.
 
 ## 자동 이메일 및 메시지 활동 로그 항목 {#automated-emails-and-message-activity-log-entries}
 

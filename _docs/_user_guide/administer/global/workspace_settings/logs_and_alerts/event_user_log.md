@@ -15,7 +15,7 @@ description: "This reference article covers the Event User Log, which can help y
 In addition to this article, we also recommend checking out our [Quality Assurance and Debugging Tools](https://learning.braze.com/quality-assurance-and-debugging-tools-in-the-dashboard/) Braze Learning course, which covers how to use the Event User Log to conduct your own troubleshooting and debugging.
 {% endalert %}
 
-To access the log, go to **Settings** > **Event User Log**.
+To access the log, go to **Settings** > **Setup and Testing** > **Event User Log**.
 
 To find your logs easily, you can filter based on:
 
@@ -48,7 +48,7 @@ If you've added a user to an internal group, but they aren't showing any SDK log
 
 ### Delay in logs updates
 
-This is potentially a normal slowness on the part of our API.
+This delay is typically caused by normal API processing load.
 
 When you call SDK methods, generally the SDK caches those events locally and flushes them to the server every 10 seconds. It can take anywhere from a second to a few minutes for our job processing queue to ingest events, depending on the overall load at the time.  
 
@@ -60,9 +60,9 @@ If an in-app message fails to display, you can find the reason in the Event User
 
 ### Session end and session start have similar timestamps (iOS)
 
-The Event User Log shows the timestamp of when Braze was notified the session ended, which will be milliseconds before the next session starts. Braze is unable to know the session has ended before the app is re-opened because iOS is aggressive about stopping the execution of threads when the app is in the background—so no data can be flushed to Braze until the app is reopened.
+The Event User Log shows the timestamp of when Braze was notified the session ended, which is milliseconds before the next session starts. Braze is unable to know the session has ended before the app is re-opened because iOS is aggressive about stopping the execution of threads when the app is in the background—so no data can be flushed to Braze until the app is reopened.
 
-While the session end time will be specified as seconds before session start, when the event is flushed, the Session Duration is flushed separately and is correct—reflecting the time the app was open. Therefore, this behavior does not impact the `Median Session Duration` filter.
+While the session end time is specified as seconds before session start, when the event is flushed, the Session Duration is flushed separately and is correct—reflecting the time the app was open. Therefore, this behavior does not impact the `Median Session Duration` filter.
 
 In relation to user sessions, you can use Braze to monitor data like:
 

@@ -41,7 +41,7 @@ All attributes are sourced from the Braze REST API.
 {% if include.alert == 'subscription group limit' %}
 
 {% alert note %}
-You can add up to 350 subscription groups per workspace.
+You can add up to 450 subscription groups per workspace.
 {% endalert %}
 
 {% endif %}

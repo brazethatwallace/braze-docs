@@ -45,7 +45,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | ----------|-----------| ---------|------ |
-| `phone_number` | 必須 | e.164 形式の文字列の配列 | 変更する最大50件の電話番号の配列。 |
+| `phone_numbers` | 必須 | e.164 形式の文字列の配列 | 変更する最大50件の電話番号の配列。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
