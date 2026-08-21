@@ -260,4 +260,4 @@ The timeline to set up an alphanumeric sender ID depends heavily on whether the 
 
 ## Frequently asked questions
 
-For answers to frequently asked questions about SMS and RCS senders, refer to our [SMS frequently asked questions]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#frequently-asked-questions) page.
+For answers to frequently asked questions about SMS and RCS senders, refer to our [SMS frequently asked questions]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs) page.
