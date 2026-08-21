@@ -153,9 +153,9 @@ When every link in an email opens your app—including links you expect to open 
 
 To fix this:
 
-1. Host your AASA file on your ESP click-tracking domain, not only your primary website domain.
-2. Limit `paths` to URLs that should open the app. For SendGrid, configure AASA paths to match `/uni/` segments and add `universal="true"` only on links that should open the app.
-3. For Android, use specific `pathPrefix` values in your Digital Asset Links configuration—avoid matching the entire click-tracking domain.
+- Host your AASA file on your ESP click-tracking domain, not only your primary website domain.
+- Limit `paths` to URLs that should open the app. For SendGrid, configure AASA paths to match `/uni/` segments and add `universal="true"` only on links that should open the app.
+- For Android, use specific `pathPrefix` values in your Digital Asset Links configuration—avoid matching the entire click-tracking domain.
 
 For step-by-step SendGrid `/uni/` setup and click-tracking examples, see [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking).
 
