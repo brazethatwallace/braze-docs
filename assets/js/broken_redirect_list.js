@@ -1124,7 +1124,7 @@ validurls['/docs/hidden/private_betas/view_pii'] = '/docs/user_guide/administer/
 validurls['/docs/hidden/private_betas/partners/adobe'] = '/docs/partners/data_and_analytics/customer_data_platform/adobe';
 validurls['/docs/hidden/private_betas/link_aliasing'] = '/docs/user_guide/messaging/templates/email_templates/link_aliasing';
 validurls['/docs/hidden/private_betas/shopify'] = '/docs/partners/ecommerce/shopify';
-validurls['/docs/braze_surveys'] = '/docs/user_guide/channels/in_app_messages/drag_and_drop/surveys';
+validurls['/docs/braze_surveys'] = '/docs/user_guide/messaging/surveys';
 validurls['/docs/hidden/private_betas/twilio'] = '/docs/releases/deprecations/twilio';
 
 validurls['/docs/api/tls_deprecation'] = '/docs/releases/deprecations/tls_deprecation';

@@ -15,7 +15,7 @@ Angepasste Events sind Aktionen oder Updates, die von Ihren Nutzer:innen durchge
 
 ## Anwendungsfälle {#use-cases}
 
-Einige gängige Anwendungsfälle für angepasste Events sind:
+Einige häufige Anwendungsfälle für angepasste Events sind:
 
 {% multi_lang_include data_activation/custom_event_use_cases.md %}
 
@@ -85,18 +85,14 @@ Alle im **Nutzerprofil** gespeicherten Daten, einschließlich Metadaten angepass
 
 ## Event-Verlauf von Nutzer:innen anzeigen {#view-a-users-event-history}
 
-{% alert important %}
-Der Event-Verlauf befindet sich derzeit im Early Access. Wenden Sie sich an Ihren Braze Account Manager, wenn Sie an einer Teilnahme interessiert sind.
-{% endalert %}
-
-Verwenden Sie den Tab **Event-Verlauf** im Profil von Nutzer:innen, um deren kürzliche angepasste Events und Käufe anzuzeigen. So können Sie bestätigen, dass Ihre Integration Events korrekt protokolliert, und Probleme auf Nutzerebene direkt im Dashboard beheben.
+Verwenden Sie den Tab **Event-Verlauf** im Profil von Nutzer:innen, um deren kürzliche angepasste Events und Käufe einzusehen. So können Sie bestätigen, dass Ihre Integration Events korrekt protokolliert, und Probleme auf Nutzerebene direkt im Dashboard beheben.
 
 So zeigen Sie den Event-Verlauf von Nutzer:innen an:
 
 1. Gehen Sie zu **Zielgruppe** > **Nutzer:innen suchen** und wählen Sie dann Nutzer:innen aus, um deren Profil zu öffnen.
 2. Wählen Sie den Tab **Event-Verlauf** aus.
 
-Der Tab listet die angepassten Events und Käufe der Nutzer:innen der letzten 30 Tage auf, bis zu den 100 neuesten Events, sortiert von neu nach alt.
+Der Tab listet die angepassten Events und Käufe der Nutzer:innen der letzten 30 Tage auf, bis zu den 100 neuesten Events, sortiert von neuesten zu ältesten.
 
 Jedes Event enthält:
 
@@ -107,12 +103,12 @@ Jedes Event enthält:
 
 Häufige Anwendungsfälle sind:
 
-- Überprüfen, ob Ihre SDK- oder API-Integration während der Entwicklung oder nach einem Release Events wie erwartet sendet.
+- Überprüfen, ob Ihre SDK- oder API-Integration Events wie erwartet sendet – während der Entwicklung oder nach einem Release.
 - Fehlerbehebung, warum Nutzer:innen eine event-getriggerte Campaign oder ein Canvas betreten haben oder nicht.
 - Untersuchung eines Support-Falls für bestimmte Nutzer:innen, ohne einen Datenexport einrichten zu müssen.
 
 {% alert note %}
-Das Anzeigen des Tabs **Event-Verlauf** erfordert die Nutzerberechtigungen **Nutzer:innen suchen**, **PII anzeigen** und **Nutzer-Event-Eigenschaften anzeigen**, da Event-Eigenschaften personenbezogene Daten enthalten können. Weitere Informationen finden Sie unter [Nutzerberechtigungen im Unternehmen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Zum Anzeigen des Tabs **Event-Verlauf** sind die Nutzerberechtigungen **Nutzer:innen suchen**, **PII anzeigen** und **Event-Eigenschaften von Nutzer:innen anzeigen** erforderlich, da Event-Eigenschaften personenbezogene Daten enthalten können. Weitere Informationen finden Sie unter [Nutzerberechtigungen im Unternehmen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
 ## Segmentierungsfilter {#segmentation-filters}

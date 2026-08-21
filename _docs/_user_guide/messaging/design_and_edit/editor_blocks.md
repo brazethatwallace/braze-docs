@@ -525,13 +525,11 @@ Select the block in the editor to:
 - Add or remove subscription groups
 - Add or remove descriptions
 - Add or remove a "Subscribe to all" checkbox that selects every subscription group in the block
-- Add or remove a "Clear selections" checkbox that deselects every subscription group in the block
 
 | Property | Description |
 | --- | --- |
 | Subscription groups | Add, remove, or reorder the subscription groups shown in the block. |
 | Include descriptions | Displays each subscription group's description alongside its name. |
-| **Clear selections** checkbox | Adds a checkbox that deselects every subscription group in the block. |
 | **Subscribe to all** checkbox | Adds a checkbox that selects every subscription group in the block. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Manage subscriptions" }
 

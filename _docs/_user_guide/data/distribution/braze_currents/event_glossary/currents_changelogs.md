@@ -1,4 +1,7 @@
 ---
+# This file is a template consumed by the external `braze-currents-generate-docs` tool
+# (braze-agent-plugins / braze-currents plugin) to generate the Currents event glossary
+# docs. It is not referenced from within braze-docs, so do not delete it as "unused".
 nav_title: Currents Event Changelogs
 page_order: 6
 description: "This page includes the event changes for each Currents release."
@@ -6,6 +9,54 @@ tool: Currents
 ---
 
 # Currents changelog
+
+## Changes in Version 12 (release date 2026-09-02)
+
+### Changes for Storage:
+
+* Field changes to event type `users.messages.email.Abort`:
+    * Added new `string` field `message_extras`: [PII] A JSON string of the tagged key-value pairs during liquid rendering
+
+* Field changes to event type `users.messages.email.Bounce`:
+    * Added new `int` field `send_time`: Time of the corresponding Send Event
+
+* Field changes to event type `users.messages.email.Click`:
+    * Added new `int` field `send_time`: Time in seconds of the corresponding Send Event
+    * Added new `boolean` field `has_url_parameters`: Whether the clicked URL contained query parameters
+    * Added new `boolean` field `link_aliasing_enabled`: Whether link aliasing was enabled for the workspace when this click was processed
+
+* Field changes to event type `users.messages.email.Deferral`:
+    * Added new `int` field `send_time`: Time of the corresponding Send Event
+
+* Field changes to event type `users.messages.email.Delivery`:
+    * Added new `int` field `send_time`: Time of the corresponding Send Event
+
+* Field changes to event type `users.messages.email.MarkAsSpam`:
+    * Added new `int` field `send_time`: Time of the corresponding Send Event
+
+* Field changes to event type `users.messages.email.Open`:
+    * Added new `int` field `send_time`: Time of the corresponding Send Event
+
+* Field changes to event type `users.messages.email.SoftBounce`:
+    * Added new `int` field `send_time`: Time of the corresponding Send Event
+
+* Field changes to event type `users.messages.line.Abort`:
+    * Added new `string` field `message_extras`: [PII] A JSON string of the tagged key-value pairs during liquid rendering
+
+* Field changes to event type `users.messages.pushnotification.Abort`:
+    * Added new `string` field `message_extras`: [PII] A JSON string of the tagged key-value pairs during liquid rendering
+
+* Field changes to event type `users.messages.rcs.Abort`:
+    * Added new `string` field `message_extras`: [PII] A JSON string of the tagged key-value pairs during liquid rendering
+
+* Field changes to event type `users.messages.sms.Abort`:
+    * Added new `string` field `message_extras`: [PII] A JSON string of the tagged key-value pairs during liquid rendering
+
+* Field changes to event type `users.messages.webhook.Abort`:
+    * Added new `string` field `message_extras`: [PII] A JSON string of the tagged key-value pairs during liquid rendering
+
+* Field changes to event type `users.messages.whatsapp.Abort`:
+    * Added new `string` field `message_extras`: [PII] A JSON string of the tagged key-value pairs during liquid rendering
 
 ## Changes in Version 11 (release date 2026-08-05)
 
@@ -24,7 +75,7 @@ tool: Currents
 * Added new event type `users.messages.survey.Response`.
 
 * Field changes to event type `agentconsole.AgentExecuted`:
-    * Added new `string` field `thinking_level`: the thinking oir reasoning level used for the request
+    * Added new `string` field `thinking_level`: the thinking/reasoning level used for the request
 
 * Field changes to event type `users.messages.banner.Click`:
     * Added new `boolean` field `is_unique`: Whether this was the user's first click on the message variation, counting toward unique click stats

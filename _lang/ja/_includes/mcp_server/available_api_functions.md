@@ -10,7 +10,7 @@
 
 ## 利用可能なBraze API関数 {#available-braze-api-functions}
 
-MCPクライアントはこれらのツールを参照して、Braze MCPサーバーとやり取りします。
+MCPクライアントは、これらのツールを参照してBraze MCPサーバーとやり取りします。
 
 ### ワークスペース {#workspaces}
 
@@ -23,19 +23,19 @@ MCPクライアントはこれらのツールを参照して、Braze MCPサー�
 
 | ツール | APIエンドポイント | アクセス | 説明 |
 | --- | --- | --- | --- |
-| `get_campaign_list` | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) | read | 名前、キャンペーンAPI識別子、APIキャンペーンフラグ、タグを含むキャンペーンの一覧をエクスポートします。 |
+| `get_campaign_list` | [`/campaigns/list`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) | read | 名前、キャンペーンAPI識別子、APIキャンペーンフラグ、タグを含むキャンペーンのリストをエクスポートします。 |
 | `get_campaign_details` | [`/campaigns/details`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) | read | `campaign_id`で指定したキャンペーンの関連情報を取得します。 |
-| `get_campaign_dataseries` | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) | read | キャンペーン統計の日次系列データ（送信数、開封数、クリック数、チャネル別コンバージョン数）を取得します。 |
+| `get_campaign_dataseries` | [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) | read | キャンペーン統計の日次系列データ（チャネル別の送信数、開封数、クリック数、コンバージョン数）を取得します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="キャンペーン" }
 
 ### キャンバス {#canvases}
 
 | ツール | APIエンドポイント | アクセス | 説明 |
 | --- | --- | --- | --- |
-| `get_canvas_list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) | read | 名前、キャンバスAPI識別子、タグを含むキャンバスの一覧をエクスポートします。 |
+| `get_canvas_list` | [`/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) | read | 名前、キャンバスAPI識別子、タグを含むキャンバスのリストをエクスポートします。 |
 | `get_canvas_details` | [`/canvas/details`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) | read | キャンバスのメタデータ（名前、作成日時、現在のステータスなど）をエクスポートします。 |
 | `get_canvas_data_series` | [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) | read | キャンバスの時系列データをエクスポートします。 |
-| `get_canvas_data_summary` | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary) | read | キャンバスの時系列データの集計をエクスポートし、簡潔な結果サマリーを取得します。 |
+| `get_canvas_data_summary` | [`/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary) | read | キャンバスの時系列データのロールアップをエクスポートし、簡潔な結果サマリーを取得します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="キャンバス" }
 
 ### カタログ {#catalogs}
@@ -63,13 +63,13 @@ MCPクライアントはこれらのツールを参照して、Braze MCPサー�
 | `get_events_data_series` | [`/events/data_series`]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics) | read | 指定した期間におけるカスタムイベントの発生回数を取得します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="カスタムイベント" }
 
-### CDI連携 {#cdi-integrations}
+### CDIインテグレーション {#cdi-integrations}
 
 | ツール | APIエンドポイント | アクセス | 説明 |
 | --- | --- | --- | --- |
-| `list_integrations` | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list) | read | 既存のCloud Data Ingestion連携を1回の呼び出しにつき10件ずつ一覧表示します。 |
-| `get_integration_job_sync_status` | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status) | read | 指定したCDI連携の過去の同期ステータスを1回の呼び出しにつき10件ずつ取得します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="CDI連携" }
+| `list_integrations` | [`/cdi/integrations`]({{site.baseurl}}/api/endpoints/cdi/get_integration_list) | read | 既存のCloud Data Ingestionインテグレーションを1回の呼び出しにつき10件ずつ一覧表示します。 |
+| `get_integration_job_sync_status` | [`/cdi/integrations/{integration_id}/job_sync_status`]({{site.baseurl}}/api/endpoints/cdi/get_job_sync_status) | read | 指定したCDIインテグレーションの過去の同期ステータスを1回の呼び出しにつき10件ずつ取得します。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="CDIインテグレーション" }
 
 ### KPI
 
@@ -92,9 +92,9 @@ MCPクライアントはこれらのツールを参照して、Braze MCPサー�
 
 | ツール | APIエンドポイント | アクセス | 説明 |
 | --- | --- | --- | --- |
-| `get_product_list` | [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id) | read | 製品IDのページネーション付き一覧を取得します。 |
-| `get_quantity_series` | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases) | read | 指定した期間におけるアプリ内の購入総数を取得します。 |
-| `get_revenue_series` | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series) | read | 指定した期間におけるアプリ内の総売上金額を取得します。 |
+| `get_product_list` | [`/purchases/product_list`]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id) | read | ページネーションされた商品IDのリストを取得します。 |
+| `get_quantity_series` | [`/purchases/quantity_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases) | read | 指定した期間におけるアプリの購入総数を取得します。 |
+| `get_revenue_series` | [`/purchases/revenue_series`]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series) | read | 指定した期間におけるアプリの総売上金額を取得します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="購入" }
 
 ### セグメント {#segments}
@@ -120,14 +120,6 @@ MCPクライアントはこれらのツールを参照して、Braze MCPサー�
 | `get_session_data_series` | [`/sessions/data_series`]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics) | read | 指定した期間におけるアプリのセッション数を取得します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="セッション" }
 
-### 購読グループ {#subscription-groups}
-
-| ツール | APIエンドポイント | アクセス | 説明 |
-| --- | --- | --- | --- |
-| `get_subscription_group_status` | [`/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) | read | 購読グループにおけるユーザーの購読ステータスを取得します。 |
-| `get_user_subscription_groups` | [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) | read | ユーザーの購読グループを一覧表示します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="購読グループ" }
-
 ### テンプレート {#templates}
 
 | ツール | APIエンドポイント | アクセス | 説明 |
@@ -143,7 +135,7 @@ MCPクライアントはこれらのツールを参照して、Braze MCPサー�
 | ツール | APIエンドポイント | アクセス | 説明 |
 | --- | --- | --- | --- |
 | `get_content_blocks` | [`/content_blocks/list`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks) | read | 既存のコンテンツブロック情報を一覧表示します。 |
-| `get_content_block_info` | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information) | read | 既存のコンテンツブロックの情報を取得します。オプションでキャンペーンまたはキャンバスの包含データも取得できます。 |
+| `get_content_block_info` | [`/content_blocks/info`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information) | read | 既存のコンテンツブロックの情報を取得します。オプションでキャンペーンやキャンバスの包含データも取得できます。 |
 | `create_content_block` | [`/content_blocks/create`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) | create | コンテンツブロックを作成します。 |
 | `update_content_block` | [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) | update | コンテンツブロックを更新します。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="コンテンツブロック" }

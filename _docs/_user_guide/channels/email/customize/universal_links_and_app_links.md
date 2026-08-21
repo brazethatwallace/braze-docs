@@ -446,6 +446,12 @@ Make sure you have the correct definitions for domains your app is allowed to op
 - **iOS:** Review the Associated Domains set up in Xcode for your app ([Step 1c: Turn on Associated Domains in your Xcode project]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)). Check that the click-tracking domain is included in that list.
 - **Android:** Open the app info page (long press the app icon and click ⓘ). Within the app info menu, locate **Open by default** and tap that. This should show a screen with all verified links the app is allowed to open. Check that the click-tracking domain is included in that list.
 
+#### Every email link opens the app
+
+If every link in an email opens your app, including links you expect to open in a browser, the AASA `paths` (iOS) or Android `pathPrefix` values on your click-tracking domain match the entire domain (for example `*` or `/*`).
+
+Limit those patterns to the URLs that should open the app. For SendGrid, match `/uni/` and add `universal="true"` only on those links. See [Universal links, App Links, and click-tracking](#universal-links-app-links-and-click-tracking).
+
 #### Tracking domain can't serve .well-known files
 
 In some cases, your click-tracking domain may not be able to host the required `.well-known` files due to ESP limitations or infrastructure constraints. If you can't host the AASA or Digital Asset Links file on your tracking domain, consider the following options:

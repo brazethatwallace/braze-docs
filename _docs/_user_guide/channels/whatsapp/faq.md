@@ -214,13 +214,15 @@ No. Braze doesn't offer a native WhatsApp-to-SMS fallback path. To retry on anot
 
 #### Are WhatsApp response messages free? {#are-whatsapp-response-messages-free}
 
-Response messages composed in the Braze campaign or Canvas editor (not approved WhatsApp templates) are treated as service messages by Meta. Service messages sent through Braze's native WhatsApp integration don't consume Action Credits when they are sent as [response messages]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) within an open customer service window.
+Response messages composed in the Braze campaign or Canvas editor (not approved WhatsApp templates) are treated as service messages by Meta. Through September 30, 2026, service messages sent through Braze's native WhatsApp integration don't consume Action Credits when they're sent as [response messages]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) within an open customer service window.
+
+Starting October 1, 2026, service messages consume Action Credits per delivered message. This classification depends on the message itself: A non-templated response is a service message, even when the conversation started with a template. If you respond with an approved marketing, utility, or authentication template, the message is billed according to its template category.
 
 | Message type | Action Credits | Notes |
 |---|---|---|
-| Response message (inbound reply) | Not consumed | Composed in Braze; not a Meta-approved template. |
+| Response message (inbound reply) | Not consumed through September 30, 2026; consumed starting October 1, 2026 | Composed in Braze; not a Meta-approved template. Meta classifies it as a service message. |
 | Template message | Consumed | Marketing, utility, authentication, and limited time offer templates are billed per send. |
-| Utility template in service window | Not consumed by Meta | Meta doesn't charge for utility templates sent within 24 hours of a user-initiated message. Action Credit consumption follows your contract. |
+| Utility template in service window | Not charged by Meta through September 30, 2026; charged starting October 1, 2026 | Action Credit consumption follows your contract. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response message Action Credits" }
 
 For Canvas flows where users tap quick replies after the original 24-hour window, see [Quick replies and inbound messages outside the 24-hour window]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
