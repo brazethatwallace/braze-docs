@@ -52,6 +52,18 @@ The platform repo uses a domain-driven architecture — most feature logic lives
 
 **Feature naming conventions:** Braze product names map predictably to code names — Canvas → `canvas`, Campaigns → `campaign`, Content Cards → `content_card`, In-App Messages → `in_app_message`, Segments → `segment`.
 
+#### After verification — UI copy check
+
+If verification read or cited any **component file** under `dashboard/app/javascript/src/` — specifically a `.tsx`, `.jsx`, `.ts`, or `.vue` file that renders UI strings (not `shared_constants.json`, test files, or pure utilities) — **stop before updating docs or filing issues** and ask:
+
+If AskUserQuestion is available:
+- "Run /find-ux-debt" — scan the component file(s) for copy inconsistencies: mismatched labels, deprecated terms, i18n mismatches, and style issues. Adds a few minutes but catches issues before you finalize the doc.
+- "Skip for now" — continue without scanning. You can always run `/find-ux-debt` later.
+
+Otherwise ask: "Verification surfaced a UI component file. Run /find-ux-debt to scan for copy issues before continuing? (y/n)"
+
+If the writer skips, continue normally. If they confirm, invoke `/find-ux-debt` with the component file path.
+
 ### Localized UI terms (translations)
 
 Use these paths when you need to reference how Braze translates UI terms (e.g. for docs, glossaries, or consistency):

@@ -1,11 +1,10 @@
 ---
 nav_title: IP 주소 및 도메인 설정
-article_title: IP 및 도메인 설정
+article_title: IP 주소 및 도메인 설정
 page_order: 0
 page_type: tutorial
 channel: email
-description: "이 도움말 문서에서는 Braze를 통해 이메일을 보내기 위한 IP와 도메인을 설정하는 방법을 안내합니다."
-
+description: "이 도움말 문서에서는 Braze를 통해 이메일을 보내기 위한 IP 주소, IP 풀, 도메인 및 하위 도메인을 설정하는 방법을 안내합니다."
 ---
 
 # IP 주소 및 도메인 설정 {#set-up-ips-and-domains}
@@ -17,89 +16,94 @@ description: "이 도움말 문서에서는 Braze를 통해 이메일을 보내�
 <br>
 
 {% alert important %}
-이메일 서비스 공급자(ESP) 파트너로 SendGrid, SparkPost 또는 Amazon Simple Email Service(SES)를 사용할 수 있습니다. 2026년부터 Braze는 새로운 이메일 설정에 대해 Amazon SES를 기본 ESP로 사용합니다. 자세한 내용은 [Amazon SES 설정]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses)을 참조하세요.
+2026년부터 Braze는 새로운 이메일 설정에 대해 Amazon Simple Email Service(SES)를 기본 이메일 서비스 공급자(ESP)로 사용합니다. 자세한 내용은 [Amazon SES 설정]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses)을 참조하세요.
 {% endalert %}
 
-## 방법 1: Braze와 협력하기 (권장) {#method-1-coordinate-with-braze-recommended}
+## 방법 1: 셀프 서비스 이메일 설정 {#method-1-self-service-email-setup}
 
-### 1단계: 정보 정리 {#step-1-outline-information}
+이 방법은 회사의 발송 및 추적 도메인을 설정합니다. 먼저 Braze 온보딩 팀에 문의하고, IP 풀과 IP 주소를 추가하기 위해 다음 정보를 Braze 담당자에게 전달해야 합니다:
 
-다음 정보를 Braze 담당자에게 전달하세요:
-
-* 선택한 도메인 및 하위 도메인
-* 매월 발송할 이메일의 대략적인 수량(필요한 IP 수를 결정하는 데 도움이 됩니다)
-* 발송 도메인을 할당된 IP에 매핑하는 방식에 대한 선호 사항
-
-### 2단계: Braze에서 정보 구성 {#step-2-braze-configures-information}
-
-이메일을 수신한 후, IP, 도메인, 하위 도메인 및 IP 풀을 구성하는 작업을 진행합니다.
-
-### 3단계: DNS 레코드 추가 {#step-3-add-dns-records}
-
-IP, 도메인, 하위 도메인 및 IP 풀이 구성되면 DNS 레코드 목록을 보내드립니다. 엔지니어링 및 개발자 팀에 요청하여 필요한 곳에 이 DNS 레코드를 추가하고, 추가가 완료되면 Braze 온보딩 팀에 알려주세요.
-
-SPF, DKIM, DMARC 및 ESP별 레코드 구조를 포함하여 Braze 이메일 서비스 공급자 전반에서 DNS 레코드가 어떻게 작동하는지에 대한 자세한 설명은 [DNS 레코드 이해하기]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/understanding_dns_records)를 참조하세요.
-
-{% multi_lang_include channels/email/dns_records.md %}
-
-Braze에서 DNS 레코드를 제공한 후, DNS 또는 IT 팀이 가능한 한 빨리 추가하세요. 도메인 인증에는 시간 제한이 있으며, 레코드가 너무 늦게 추가되면 나중에 DNS 레코드가 올바르게 확인되더라도 인증이 실패할 수 있습니다. DNS 레코드가 올바른 것으로 보이지만 인증이 실패하는 경우, Braze 온보딩 또는 지원 팀에 연락하여 인증을 다시 시작하세요.
-
-### 다음 단계 {#next-steps}
-
-설정을 확인하고 내부 시스템에서 모든 정보를 검증합니다. Braze 온보딩 팀에서 준비가 완료되었거나 엔지니어링 팀과 함께 해결해야 할 DNS 레코드 문제가 있는 경우 알려드립니다.
-
-## 방법 2: 셀프 서비스 이메일 설정 {#method-2-self-service-email-setup}
-
-이 방법은 회사 전체에 대해 하나의 발송 도메인, 하나의 추적 도메인, 하나의 IP를 설정합니다. 더 많은 설정이 필요한 경우 Braze 온보딩 팀에 문의하세요(방법 1).
-
-{% multi_lang_include alerts/early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
-<br>셀프 서비스 이메일 설정 기능을 사용하는 경우 Braze 온보딩 팀과도 반드시 상담하세요.
+- 선택한 도메인 및 하위 도메인
+- 매월 발송하는 대략적인 이메일 수(필요한 IP 수를 결정하는 데 도움이 됩니다)
+- 발송 도메인을 할당된 IP 풀에 매핑하는 방식에 대한 선호 사항
 
 ### 필수 조건 {#prerequisites}
 
-셀프 서비스 이메일 설정을 사용하려면 다음 필수 조건을 충족해야 합니다:
+셀프 서비스 이메일 설정을 사용하려면 다음 필수 조건을 충족하는지 확인하세요:
 
-1. 온보딩 중인 신규 고객이어야 합니다.
-2. "Manage Company Settings" 회사 수준 권한이 있어야 합니다.
+- 온보딩 중인 신규 고객이어야 합니다.
+- "Edit Domain Settings" 회사 수준 권한이 있어야 합니다.
 
 ### 1단계: 설정 시작 {#step-1-begin-setup}
 
-1. **설정** > **회사 설정** 아래의 **관리자 설정**으로 이동합니다.
-2. 다음으로 **발신자 인증** 탭을 선택합니다. 이 탭을 보려면 "Manage Company Settings" 회사 수준 권한이 필요합니다.
-3. **설정 시작**을 선택합니다.
+1. **설정** > **회사 설정** 아래의 **이메일 셀프 서비스**로 이동합니다.
+2. **설정 시작**을 선택합니다.
 
-### 2단계: 발송 도메인 추가 및 인증 {#step-2-add-and-verify-a-sending-domain}
+### 2단계: 발송 도메인 추가 및 확인 {#step-2-add-and-verify-a-sending-domain}
 
-발송 도메인은 이메일 발송 시 "보낸 사람" 주소에 사용됩니다. 발송 도메인을 입력하고 **제출**을 클릭합니다.
+발송 도메인은 이메일을 보낼 때 "보낸 사람" 주소에 사용됩니다.
 
-다음으로, 페이지 하단의 TXT 및 CNAME 레코드를 DNS 공급자에 추가합니다. 그런 다음 Braze 대시보드로 돌아가서 **인증**을 클릭합니다.
+1. 발송 도메인을 입력하고 **제출**을 선택합니다.
+2. 페이지 하단의 TXT 및 CNAME 레코드를 DNS 공급자에 추가합니다.
 
-![발송 도메인을 인증하기 위한 TXT 및 CNAME DNS 레코드가 표시된 이메일 설정 페이지.]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
+![도메인 관리 시스템에 복사할 TXT 및 CNAME 레코드를 보여주는 DNS 레코드 섹션.]({% image_buster /assets/img/email_setup/dns_records.png %})
 
-인증에 실패했지만 DNS 레코드가 올바르다고 판단되는 경우, Braze 지원팀에 문의하여 도움을 받으세요.
+{: start="3"}
+3. Braze 대시보드로 돌아가서 **확인**을 선택합니다.
+
+엔지니어와 개발자에게 필요한 곳에 이러한 DNS 레코드를 추가하도록 요청하세요. SPF, DKIM, DMARC 및 ESP별 레코드 구조를 포함하여 Braze 이메일 서비스 공급자 전반에서 DNS 레코드가 어떻게 작동하는지에 대한 자세한 설명은 [DNS 레코드 이해하기]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/understanding_dns_records)를 참조하세요.
+
+{% multi_lang_include channels/email/dns_records.md %}
+
+확인에 실패했지만 DNS 레코드가 올바르다고 판단되면, Braze 지원팀에 문의하여 도움을 받으세요.
 
 {% alert important %}
-발송 도메인은 소유하고 있는 도메인의 하위 도메인이어야 합니다. 예를 들어, "example.com"을 소유하고 있다면 하위 도메인은 "mail.example.com"이 될 수 있으며, 이를 통해 "@mail.example.com" 발송 주소를 사용할 수 있습니다.
+발송 도메인은 소유한 도메인의 하위 도메인이어야 합니다. 예를 들어, "example.com"을 소유하고 있다면 하위 도메인은 "mail.example.com"이 될 수 있으며, 이를 통해 발송 주소 "@mail.example.com"을 사용할 수 있습니다.
 {% endalert %}
 
-### 3단계: 추적 도메인 추가 및 인증 {#step-3-add-and-verify-a-tracking-domain}
+### 3단계: 추적 도메인 추가 및 확인 {#step-3-add-and-verify-a-tracking-domain}
 
-추적 도메인은 클릭 추적 및 브랜딩 목적으로 이메일의 링크를 래핑하는 데 사용됩니다. 사용자가 이메일 링크 위에 마우스를 올리거나 클릭할 때 이 도메인이 표시됩니다. 발송 도메인과 일치시키는 것을 권장합니다.
+추적 도메인은 클릭 추적 및 브랜딩 목적으로 이메일의 링크를 래핑하는 데 사용됩니다. 수신자가 이메일 링크 위에 마우스를 올리거나 클릭할 때 이 도메인이 표시됩니다. Braze는 이를 발송 도메인과 일치시키는 것을 권장합니다.
 
 1. 추적 도메인을 입력하고 **제출**을 선택합니다.
-2. 다음으로, 페이지 하단의 CNAME 레코드를 DNS 공급자에 추가합니다.
-3. 그런 다음 Braze 대시보드로 돌아가서 **인증**을 선택합니다.
+2. 페이지 하단의 CNAME 레코드를 DNS 공급자에 추가합니다.
+3. Braze 대시보드로 돌아가서 **확인**을 선택합니다.
 
 ### 4단계: IP 주소 추가 {#step-4-add-an-ip-address}
 
-Braze는 역방향 DNS(rDNS)라는 설정을 통해 IP 주소를 발송 하위 도메인에 연결하는 A 레코드를 생성합니다. DNS 공급자에 A 레코드를 추가한 다음 **rDNS 설정**을 클릭하여 전달 가능성을 지원합니다.
+Braze는 역방향 DNS(rDNS)라는 설정에서 IP 주소를 발송 하위 도메인에 연결하기 위한 A 레코드를 생성합니다. DNS 공급자에 A 레코드를 추가한 다음, **rDNS 설정**을 선택하여 전달 가능성을 지원하세요.
 
-추가된 도메인은 **발신자 인증** 섹션에 표시되지 않습니다. 더 많은 도메인을 추가하려면 Braze 지원팀에 문의하세요.
+IP 풀의 IP 주소를 추가하거나 편집하려면 Braze 지원팀에 문의하세요.
 
-### 전용 IP가 두 개 이상인 IP 풀 {#ip-pools-with-more-than-one-dedicated-ip}
+#### 전용 IP가 두 개 이상인 IP 풀 {#ip-pools-with-more-than-one-dedicated-ip}
 
-IP 풀에 여러 전용 IP 주소가 포함된 경우, Braze와 이메일 서비스 공급자는 용량 및 전달 가능성을 위해 대량 발송을 해당 IP들에 분산합니다. 분산은 대략적이며, Campaign의 모든 메시지가 모든 IP를 사용하는 것은 아니고, 소규모 발송의 경우 주소 간 분배가 고르지 않을 수 있습니다. SendGrid는 종종 메일을 청크 단위(대략 청크당 약 1,500개 메시지)로 처리하므로, 볼륨이 항상 IP 간에 정확히 1:1 비율로 분할되지는 않습니다. 일상적으로 매우 높은 일일 볼륨을 발송하는 경우, Braze 온보딩 또는 고객 성공 담당자와 풀 크기에 대해 논의하세요.
+IP 풀에 여러 전용 IP 주소가 포함된 경우, Braze와 이메일 서비스 공급자는 용량과 전달 가능성을 위해 대량 발송을 해당 IP들에 분산시킵니다. 분산은 대략적이며, Campaign의 모든 메시지가 모든 IP를 사용하는 것은 아니고, 소규모 발송은 주소 간에 불균등하게 보일 수 있습니다. SendGrid는 종종 메일을 청크 단위(대략 청크당 약 1,500개 메시지)로 처리하므로, 볼륨이 항상 IP 간에 엄격한 일대일 비율로 분할되지는 않습니다. 일상적으로 매우 높은 일일 볼륨을 발송하는 경우, Braze 온보딩 또는 고객 성공 담당자와 풀 크기에 대해 논의하세요.
 
-### 다음 단계
+### 다음 단계 {#next-steps}
 
-발신자 인증이 완료되면, 메시지가 일관되게 높은 비율로 수신자의 받은편지함에 도달할 수 있도록 IP 워밍을 권장합니다. 이 설정을 완료한 후, 도메인과 [IP 주소]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)가 정상적으로 작동하는지 확인하기 위해 Braze 온보딩 팀과도 반드시 상담하세요.
+발신자 확인이 완료되면, Braze는 메시지가 지속적으로 높은 비율로 수신자의 받은편지함에 도달할 수 있도록 IP 워밍을 권장합니다. [자동 IP 워밍]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming)을 사용하여 워밍업 스케줄을 설정하고 모니터링하세요.
+
+이 설정을 완료한 후, Braze 온보딩 팀에 문의하여 도메인과 [IP 워밍]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)이 정상적으로 작동하는지 확인하세요.
+
+## 방법 2: 인증된 도메인 {#method-2-verified-domains}
+
+인증된 도메인을 사용하면 특정 하위 도메인에 대한 제어 권한을 Braze에 부여하여 이메일 설정 및 HTTPS 클릭 추적을 자동화할 수 있습니다. DNS 도메인 위임을 통해 Braze가 이메일 발송 및 클릭 추적에 필요한 DNS 레코드를 관리합니다. 예를 들어, 하위 도메인이 "mail.example.com"인 경우 이를 Braze에 위임하여 발송 및 추적 도메인을 설정할 수 있습니다.
+
+{% alert important %}
+인증된 도메인은 현재 Amazon SES만 지원합니다. SendGrid 또는 SparkPost를 사용하는 경우 이 기능은 사용할 수 없습니다.<br><br>인증된 도메인은 이메일에서만 지원됩니다. {% multi_lang_include product_feedback_cta.md context="gap" feature="verified domains for channels other than email" %}
+{% endalert %}
+
+### 설정 {#setup}
+
+#### 1단계: Braze와 조율하기 {#step-1-coordinate-with-braze}
+
+다음 정보를 Braze 담당자에게 전달하세요:
+
+- 선택한 도메인 및 하위 도메인
+- 도메인을 IP 풀에 매핑하는 방식에 대한 선호 사항
+- 각 하위 도메인에서 매월 발송할 예상 이메일 수(IP 풀에 필요한 IP 수를 결정하는 데 도움이 됩니다)
+- 사전에 알려야 할 전달 가능성 관련 우려 사항
+
+#### 2단계: Braze가 정보를 구성합니다 {#step-2-braze-configures-information}
+
+이메일을 수신한 후 Braze가 예상 IP 수와 IP 풀을 추가합니다. IP 풀과 IP 주소가 추가되면 [인증된 도메인]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/verified_domains)의 단계를 따르세요.

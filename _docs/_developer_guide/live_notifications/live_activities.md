@@ -643,9 +643,11 @@ func findActivityInstance<Attributes: ActivityAttributes>(
 
 Currently, Live Activities are a feature specific to iOS and iPadOS. By default, activities launched on an iPhone or iPad are additionally displayed on any paired watchOS 11+ or macOS 26+ device.
 
+Braze does not currently provide native Live Activities support on Android. For Android, you can build live-update experiences through Braze push notifications and custom notification rendering.
+
 ![A screenshot of a macOS menu bar displaying a Live Activity as an alert.]({% image_buster /assets/img/live-activity-macos.png %}){: style="max-width:60%;"}
 
-The Live Activities article covers the [prerequisites]({{site.baseurl}}/developer_guide/platforms/swift/live_activities#prerequisites) for managing Live Activities through the Braze Swift SDK.
+The Live Activities article covers the [prerequisites]({{site.baseurl}}/developer_guide/live_notifications/live_activities#implementing-a-live-activity) for managing Live Activities through the Braze Swift SDK.
 
 #### Do React Native apps support Live Activities?
 
@@ -689,7 +691,7 @@ To verify that your push-to-start notification successfully arrived at the devic
 
 #### After starting my Live Activity with push-to-start, why isn't it receiving new updates?
 
-Verify that you have correctly implemented the instructions described in [Swift BrazeActivityAttributes setup](#swift_brazeActivityAttributes). Your `ActivityAttributes` should contain both the `BrazeLiveActivityAttributes` protocol conformance and the `brazeActivityId` property.
+Verify that you have correctly implemented the instructions in [Step 2.2: Add the BrazeLiveActivityAttributes protocol](#swift_brazeActivityAttributes). Your `ActivityAttributes` should contain both the `BrazeLiveActivityAttributes` protocol conformance and the `brazeActivityId` property.
 
 After receiving a Live Activity push-to-start notification, double-check that you can see an outgoing network request to the `/push_token_tag` endpoint of your Braze URL and that it contains the correct activity ID under the `"tag"` field.
 

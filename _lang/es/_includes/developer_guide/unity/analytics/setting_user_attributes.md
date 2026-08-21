@@ -117,6 +117,14 @@ AppboyBinding.SetCustomUserAttribute("custom float attribute key", 'float value'
 
 {% endtab %}
 
+{% tab Double %}
+
+```csharp
+AppboyBinding.SetCustomUserAttribute("custom double attribute key", 'double value');
+```
+
+{% endtab %}
+
 {% tab Boolean %}
 
 ```csharp
@@ -219,8 +227,8 @@ Windows no requiere una adhesión voluntaria explícita para enviar notificacion
 
 | Tipo de suscripción | Descripción |
 |------------------------------------------|-------------|
-| `EmailNotificationSubscriptionType` | Los usuarios se establecerán como `SUBSCRIBED` automáticamente al recibir una dirección de correo electrónico válida. Sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícita y configures este valor como `OPTED_IN` cuando recibas el consentimiento explícito de tu usuario. Visita nuestro documento sobre [Cambiar suscripciones de usuario]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) para más detalles. |
-| `PushNotificationSubscriptionType` | Los usuarios se establecerán como `SUBSCRIBED` automáticamente tras un registro push válido. Sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícita y configures este valor como `OPTED_IN` cuando recibas el consentimiento explícito de tu usuario. Visita nuestro documento sobre [Cambiar suscripciones de usuario]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) para más detalles. |
+| `EmailNotificationSubscriptionType` | Los usuarios se establecerán como `SUBSCRIBED` automáticamente al recibir una dirección de correo electrónico válida. Sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícita y configures este valor como `OPTED_IN` cuando recibas el consentimiento explícito de tu usuario. Visita nuestro documento sobre [Cambiar las suscripciones de usuario]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) para obtener más detalles. |
+| `PushNotificationSubscriptionType` | Los usuarios se establecerán como `SUBSCRIBED` automáticamente tras un registro push válido. Sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícita y configures este valor como `OPTED_IN` cuando recibas el consentimiento explícito de tu usuario. Visita nuestro documento sobre [Cambiar las suscripciones de usuario]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) para obtener más detalles. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configuración de suscripciones de usuario" }
 
 {% alert note %}

@@ -8,6 +8,7 @@ page_type: reference
 channel:
   - SMS
 
+
 ---
 
 # SMSメッセージ送信 {#sms-message-sending}
@@ -16,17 +17,17 @@ channel:
 
 ## SMS送信の基本 {#sms-sending-basics}
 
-### サブスクリプショングループの選択 {#select-your-subscription-group}
+### 購読グループを選択する {#select-your-subscription-group}
 
-SMSメッセージは[サブスクリプショングループ]({{site.baseurl}}/sms_rcs_subscription_groups)から送信する必要があります。サブスクリプショングループとは、特定のメッセージング目的に使用される送信用電話番号（ショートコード、ロングコード、英数字の送信者IDなど）の集合です。購読中のユーザーのみがターゲットとなるように、サブスクリプショングループを指定する必要があります。トランザクションSMSメッセージングやプロモーションSMSメッセージングなど、異なるユースケースに対して複数のサブスクリプショングループを持つクライアントもいます。<br><br>
+SMSメッセージは[購読グループ]({{site.baseurl}}/sms_rcs_subscription_groups)から送信する必要があります。購読グループとは、特定のメッセージング目的に使用される送信用電話番号（ショートコード、ロングコード、英数字の送信者IDなど）の集合です。購読済みのユーザーのみがターゲットとなるように、購読グループを指定する必要があります。クライアントによっては、トランザクションSMSメッセージングやプロモーションSMSメッセージングなど、異なるユースケースに対応する複数の購読グループを持つ場合があります。<br><br>
 
-### メッセージ本文の入力 {#input-message-body}
+### メッセージ本文を入力する {#input-message-body}
 
-SMSメッセージ本文には、絵文字、Liquid、コネクテッドコンテンツを含めて最大1,600文字を入力できます。1回のキャンペーン送信で、複数のメッセージセグメント送信が発生する場合があります。BrazeのSMSメッセージ本文は、[GSM-7](https://en.wikipedia.org/wiki/GSM_03.38)または[UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set)のいずれかのエンコーディング標準で構成できます。UCS-2文字（例：絵文字）が使用された場合、メッセージ本文は自動的にそのエンコーディング標準にフォーマットされます。<br><br>
+SMSメッセージ本文には、絵文字、Liquid、Connected Contentを含めて最大1,600文字を入力できます。1回のキャンペーン送信で、複数のメッセージセグメント送信が発生する場合があります。BrazeのSMSメッセージ本文は、[GSM-7](https://en.wikipedia.org/wiki/GSM_03.38)または[UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set)のいずれかのエンコーディング規格で構成できます。UCS-2文字（絵文字など）が使用された場合、メッセージ本文は自動的にそのエンコーディング規格にフォーマットされます。<br><br>
 
-### メッセージセグメントと文字数制限の理解 {#understand-message-segments-and-character-limits}
+### メッセージセグメントと文字数制限を理解する {#understand-message-segments-and-character-limits}
 
-SMSメッセージセグメントは、SMS業界でメッセージをカウントする方法です。メッセージセグメントとは、1回のSMS送信で送られる定義された文字数（GSM-7エンコーディングで160文字、UCS-2エンコーディングで67文字）までのグループです。GSM-7エンコーディングで161文字のSMSを送信した場合、2つのメッセージセグメントが送信されたことになります。複数のメッセージセグメントを送信すると、追加料金が発生する場合があります。<br><br>
+SMSメッセージセグメントは、SMS業界でメッセージをカウントする方法です。メッセージセグメントとは、1回のSMS送信で送られる定義された文字数（GSM-7エンコーディングでは160文字、UCS-2エンコーディングでは67文字）までのグループです。メッセージがGSM-7拡張テーブルの文字（`{`、`}`、`~`など）を使用している場合、各セグメントに含められる文字数が少なくなることがあります。GSM-7エンコーディングで161文字のSMSを送信すると、2つのメッセージセグメントが送信されます。複数のメッセージセグメントを送信すると、追加料金が発生する場合があります。<br><br>
 
 ### キーワードのカスタマイズ（オプション） {#keyword-customization-optional}
 
@@ -36,4 +37,4 @@ SMSメッセージセグメントは、SMS業界でメッセージをカウン�
 SMSキャンペーンの作成方法を学びたいですか？[SMS、MMS、またはRCSメッセージの作成]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)のステップバイステップガイドをご覧ください。
 {% endalert %}
 
-マルチカントリーおよび大量送信のガイダンスを含む送信のベストプラクティスについては、[SMS、MMS、RCSのベストプラクティス]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/best_practices)を参照してください。
+マルチカントリー送信や大量送信のガイダンスを含む送信のベストプラクティスについては、[SMS、MMS、RCSのベストプラクティス]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/best_practices)を参照してください。

@@ -44,6 +44,7 @@ glossary_tags:
   - name: Email Templates
   - name: KPI
   - name: Media Library
+  - name: Messaging API
   - name: Purchases
   - name: Preference Center
   - name: Schedule Messages
@@ -126,6 +127,14 @@ glossaries:
     description: 지정된 사용자에게 즉시 일회성 트랜잭션 메시지를 발송합니다.
     tags:
       - Send Messages
+  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
+    description: 사용자 및 배치 세트에 대해 적격한 배너를 조회합니다.
+    tags:
+      - Messaging API
+  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
+    description: 배너에 대한 노출 및 클릭 이벤트를 기록합니다.
+    tags:
+      - Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
     description: 대시보드에서 생성한 Campaign 메시지를 API 트리거 전달을 통해 발송합니다.
     tags:

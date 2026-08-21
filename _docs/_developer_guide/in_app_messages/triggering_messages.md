@@ -344,7 +344,7 @@ If a server-sent event is logged while the app is not in the foreground, the eve
 {% tab swift %}
 #### Step 1: Handle silent push and key-value pairs
 
-Implement the following function and call it within the [`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`: method](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application/):
+Implement the following function and call it within the [`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`: method](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/application(_:didreceiveremotenotification:fetchcompletionhandler:)):
 
 {% subtabs %}
 {% subtab swift %}

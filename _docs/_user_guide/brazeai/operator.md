@@ -9,7 +9,7 @@ description: "Learn how to access and use BrazeAI Operator<sup>TM</sup>, an AI-p
 
 # BrazeAI Operator
 
-> BrazeAI Operator<sup>TM</sup> is an AI-powered assistant built into the dashboard. Operator helps you build—drafting campaigns, segments, and content—and helps you get unstuck, from answering questions and troubleshooting issues to brainstorming ideas.
+> BrazeAI Operator<sup>TM</sup> is an AI-powered assistant built into the dashboard. Operator helps you build—drafting campaigns, Canvases, segments, and content—and helps you get unstuck, from answering questions and troubleshooting issues to brainstorming ideas.
 
 ## Access Operator
 
@@ -29,9 +29,9 @@ Maximize to expand the panel for easier reading, or minimize to keep Operator av
 Describe what you're trying to accomplish using natural language. Clear and specific prompts lead to more helpful responses. Prompts can range from a single question to a full build request:
 
 - **Ask a question:** Why isn't my Liquid rendering?
-- **Build something:** Draft a segment of users who abandoned their cart in the last 7 days.
+- **Build something:** Draft a segment of users who abandoned their card in the last 7 days.
 
-Operator can provide step-by-step instructions, links to Braze documentation, plain-language explanations, and drafts of campaigns, segments, and content that you can review and insert directly into your work. For how Operator proposes and applies changes, see [Take action with Operator](#take-action-with-operator). 
+Operator can provide step-by-step instructions, links to Braze documentation, plain-language explanations, and drafts of campaigns, Canvases, segments, and content that you can review and insert directly into your work. For how Operator proposes and applies changes, see [Take action with Operator](#take-action-with-operator). 
 
 Operator uses [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra), which is suited for complex, multi-step tasks. For the full range of what Operator can help you build, see [What you can do with Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities). For ready-to-use examples, see the [prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
@@ -61,7 +61,10 @@ To set up brand guidelines, go to **Content** > **Brand Guidelines**. For more, 
 
 Operator automatically understands your location in Braze and tailors responses based on that context. For example, when you open Operator while building a Canvas, it can suggest relevant steps or provide guidance about Canvas features without you having to explain where you are in your workflow.
 
-This context-awareness means you can ask shorter, more natural questions like "How do I add a delay?" instead of "How do I add a delay step in a Canvas workflow?" For ready-to-use prompts organized by dashboard page, see the [prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
+This context-awareness means you can use short, natural prompts to interact with Operator, like "Update my editor settings to match my brand guidelines." When your request needs a different part of the dashboard, Operator can [navigate you there]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#navigate-the-dashboard) directly.
+
+
+For ready-to-use prompt ideas, see the [prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Work with Operator responses
 
@@ -77,7 +80,7 @@ Operator shows its reasoning steps in collapsible sections labeled **Reasoned**.
 
 ### Take action with Operator
 
-Operator can propose and execute changes directly in the Braze dashboard, such as filling in form fields, updating settings, or generating content. Each proposed change is presented as an action card for you to review and approve before it takes effect. For more on how this works, see [Reviewing actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
+Operator can propose and execute changes directly in the Braze dashboard, such as filling in form fields, updating settings, generating content, or navigating you to a different page to complete your request. Each proposed change is presented as an action card for you to review and approve before it takes effect. For more on how this works, see [Reviewing actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
 
 ### Copy responses to other tools
 

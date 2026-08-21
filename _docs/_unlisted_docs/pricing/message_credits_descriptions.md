@@ -170,7 +170,9 @@ Refer to our [message archiving documentation]({{site.baseurl}}/user_guide/data/
 
 ### Webhooks
 
-Webhooks credit ratios are denominated in increments of one thousand webhooks sent from the Braze platform. By default, your contract includes one hundred thousand webhooks per each Period of your Subscription Term. Additional webhooks will be charged as per your Order Form.
+Webhooks credit ratios are denominated in increments of one thousand webhooks successfully sent from the Braze platform. By default, your contract includes one hundred thousand webhooks per each Period of your Subscription Term. Additional webhooks will be charged as per your Order Form.
+
+{% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Action Credits' %}
 
 {% alert note %}
 Refer to our [webhooks documentation]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks) to learn more about Braze Webhooks.

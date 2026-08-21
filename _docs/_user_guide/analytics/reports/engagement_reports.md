@@ -110,6 +110,11 @@ If the time range spans more than one chunk, you may see multiple rows for the s
 
 To align the date column with when your selected campaigns and Canvases actually sent, set the report [start date in **Select time frame**](#select-time-frame) to the earliest date you want in the file—typically when those messages started sending—rather than leaving the default range that reaches back to the oldest selected message.
 
+In the exported CSV, the first column is the date:
+
+- **Show Data by Entire Campaign or Canvas:** The date is the start of the report date range or a chunk boundary within it, not the campaign or Canvas start date. 
+- **Show Data by Every X Days or Weeks:** Each row's date reflects when the events in that aggregation window occurred.
+
 #### Schedule your report
 
 There are two options when scheduling your report:

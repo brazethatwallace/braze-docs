@@ -13,9 +13,9 @@ description: "Cet article de référence explique les différents composants d'u
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
-## Qu'est-ce qu'un objet Achat ? {#what-is-a-purchase-object}
+## Qu'est-ce qu'un objet d'achat ? {#what-is-a-purchase-object}
 
-Un objet Achat est un objet transmis via l'API lorsqu'un achat a été effectué. Chaque objet Achat se trouve dans un tableau d'achats, et chaque objet représente un achat unique réalisé par un utilisateur donné à un moment donné. L'objet Achat comporte de nombreux champs qui permettent au backend de Braze de stocker et d'exploiter ces informations à des fins de personnalisation, de collecte de données et d'adaptation du contenu.
+Un objet d'achat est un objet transmis via l'API lorsqu'un achat a été effectué. Chaque objet d'achat se trouve dans un tableau d'achats, chaque objet représentant un achat unique effectué par un utilisateur particulier à un moment donné. L'objet d'achat possède de nombreux champs différents qui permettent au backend de Braze de stocker et d'utiliser ces informations à des fins de personnalisation, de collecte de données et de personnalisation.
 
 ### Corps de l'objet {#object-body}
 
@@ -43,33 +43,37 @@ Un objet Achat est un objet transmis via l'API lorsqu'un achat a été effectué
 }
 ```
 
-- [ID utilisateur externe]({{site.baseurl}}/api/basics#user-ids)
-- [Identifiant d'application]({{site.baseurl}}/api/identifier_types)
-- [Code des devises ISO 4217 (Wiki)](http://en.wikipedia.org/wiki/ISO_4217)
-- [Code temporel ISO 8601 (Wiki)](https://en.wikipedia.org/wiki/ISO_8601)
-
 {% alert note %}
-Certaines paires d'identifiants ne peuvent pas être utilisées conjointement, et `email` a priorité sur `phone` lorsque les deux sont fournis. Pour plus de détails, consultez la section [Résolution des identifiants]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
+Les achats dont l'horodatage se situe dans le futur sont enregistrés par défaut à l'heure actuelle. Cela garantit que les événements d'achat sont enregistrés avec un horodatage précis.
 {% endalert %}
 
-## ID du produit d'achat {#purchase-product-id}
+- [ID utilisateur externe]({{site.baseurl}}/api/basics#user-ids)
+- [Identifiant d'application]({{site.baseurl}}/api/identifier_types)
+- [Wiki des codes de devise ISO 4217](http://en.wikipedia.org/wiki/ISO_4217)
+- [Wiki des codes temporels ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
 
-Dans l'objet Achat, le `product_id` est un identifiant pour l'achat (tel que `Product Name` ou `Product Category`) :
+{% alert note %}
+Certaines paires d'identifiants ne peuvent pas être utilisées ensemble, et `email` a la priorité sur `phone` lorsque les deux sont fournis. Pour plus de détails, consultez la section [Résolution des identifiants]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
+{% endalert %}
+
+## ID de produit d'achat {#purchase-product-id}
+
+Au sein de l'objet d'achat, le `product_id` est un identifiant pour l'achat (tel que `Product Name` ou `Product Category`) :
 
 - Braze vous permet de stocker jusqu'à 5 000 `product_id` dans le tableau de bord.
 - Le `product_id` peut contenir jusqu'à 255 caractères.
 
 ### Conventions de nommage {#naming-conventions}
 
-Chez Braze, nous proposons des conventions générales de nommage pour le `product_id` de l'objet Achat. Lorsque vous choisissez un `product_id`, Braze suggère d'utiliser des noms simples tels que le nom du produit ou la catégorie de produit (au lieu des unités de gestion des stocks) dans l'intention de regrouper tous les éléments enregistrés par ce `product_id`.
+Chez Braze, nous proposons quelques conventions de nommage générales pour le `product_id` de l'objet d'achat. Lors du choix du `product_id`, Braze suggère d'utiliser des noms simples tels que le nom du produit ou la catégorie de produit (plutôt que des unités de gestion des stocks) dans le but de regrouper tous les éléments enregistrés par ce `product_id`.
 
-Cela facilite l'identification des produits à des fins de segmentation et de déclenchement.
+Cela facilite l'identification des produits pour la segmentation et le déclenchement.
 
-### Journaliser les achats au niveau de la commande {#log-purchases-at-the-order-level}
+### Enregistrer les achats au niveau de la commande {#log-purchases-at-the-order-level}
 
-Si vous souhaitez enregistrer les achats au niveau de la commande plutôt qu'au niveau du produit, vous pouvez utiliser le nom de la commande ou la catégorie de commande comme `product_id` (par exemple `Online Order` ou `Completed Order`).
+Si vous souhaitez enregistrer les achats au niveau de la commande plutôt qu'au niveau du produit, vous pouvez utiliser le nom de la commande ou la catégorie de commande comme `product_id` (tel que `Online Order` ou `Completed Order`).
 
-Par exemple, pour enregistrer des achats au niveau de la commande dans le SDK Web :
+Par exemple, pour enregistrer les achats au niveau de la commande dans le SDK Web :
 
 ```html
 POST https://YOUR_REST_API_URL/users/track

@@ -29,6 +29,7 @@ import re
 import subprocess
 import sys
 import difflib
+import time
 from pathlib import Path
 
 REPO = os.environ.get("GITHUB_REPOSITORY", "braze-inc/braze-docs")
@@ -938,7 +939,6 @@ def call_claude(user_prompt: str) -> dict:
     response = client.messages.create(
         model=REVIEW_MODEL,
         max_tokens=8192,
-        temperature=0,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_prompt}],
     )
@@ -1772,17 +1772,26 @@ def _latest_pr_comment(comments: list[dict]) -> dict | None:
 
 def _list_pr_comments_with_marker() -> list[dict]:
     owner, repo = REPO.split("/", 1)
-    result = subprocess.run(
-        [
-            "gh",
-            "api",
-            f"repos/{owner}/{repo}/issues/{PR_NUMBER}/comments",
-            "--paginate",
-        ],
-        capture_output=True,
-        text=True,
-        check=True,
-    )
+    try:
+        result = subprocess.run(
+            [
+                "gh",
+                "api",
+                f"repos/{owner}/{repo}/issues/{PR_NUMBER}/comments",
+                "--paginate",
+            ],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+    except subprocess.CalledProcessError as exc:
+        detail = (exc.stderr or exc.stdout or "").strip()
+        print(
+            f"Warning: unable to list PR comments for style review marker lookup. {detail}",
+            file=sys.stderr,
+        )
+        return []
+
     comments = json.loads(result.stdout)
     return [c for c in comments if SUMMARY_MARKER in (c.get("body") or "")]
 
@@ -1961,22 +1970,43 @@ def sync_summary_comment(
         if comment.get("id")
     }
 
-    result = subprocess.run(
-        [
-            "gh",
-            "api",
-            "--method",
-            "POST",
-            f"repos/{owner}/{repo}/issues/{PR_NUMBER}/comments",
-            "--input",
-            "-",
-        ],
-        input=json.dumps({"body": body}),
-        cwd=REPO_ROOT,
-        capture_output=True,
-        text=True,
-        check=True,
-    )
+    result: subprocess.CompletedProcess[str] | None = None
+    post_attempts = 3
+    for attempt in range(1, post_attempts + 1):
+        try:
+            result = subprocess.run(
+                [
+                    "gh",
+                    "api",
+                    "--method",
+                    "POST",
+                    f"repos/{owner}/{repo}/issues/{PR_NUMBER}/comments",
+                    "--input",
+                    "-",
+                ],
+                input=json.dumps({"body": body}),
+                cwd=REPO_ROOT,
+                capture_output=True,
+                text=True,
+                check=True,
+            )
+            break
+        except subprocess.CalledProcessError as exc:
+            detail = (exc.stderr or exc.stdout or "").strip()
+            print(
+                f"Warning: failed to post style review summary comment (attempt {attempt}/{post_attempts}). {detail}",
+                file=sys.stderr,
+            )
+            if attempt < post_attempts:
+                time.sleep(attempt * 2)
+
+    if result is None:
+        print(
+            "Warning: giving up on posting summary comment after repeated GitHub API failures.",
+            file=sys.stderr,
+        )
+        SUMMARY_FILE.write_text(body, encoding="utf-8")
+        return
 
     keep_comment_id: int | None = None
     try:

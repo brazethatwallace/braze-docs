@@ -331,7 +331,7 @@ $(document).ready(function() {
             <i class="{{menu_list.fa_icon}}"></i>
             {%- else -%}
               {%- if menu_list.image -%}
-              <img src="{{site.baseurl}}{{ menu_list.image}} " alt="{{ menu_list.name }} image" />
+              <span class="guide_item_icon"><img src="{{site.baseurl}}{{ menu_list.image}} " alt="{{ menu_list.name }} image" width="40" height="40" /></span>
               {%- endif -%}
             {%- endif -%}
             <div class="menu_description">

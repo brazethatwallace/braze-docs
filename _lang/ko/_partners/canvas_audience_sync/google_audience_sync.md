@@ -23,11 +23,23 @@ Braze Audience Sync to Google 통합은 Google Ads를 지원하며, Google Ads M
 
 Google Ads는 더 이상 타겟팅 및 보고를 위한 유사 오디언스("유사 잠재고객"이라고도 함)를 생성하지 않습니다. 자세한 내용은 [Google Ads 설명서](https://support.google.com/google-ads/answer/12463119?)를 참조하세요.
 
-**커스텀 오디언스 동기화의 일반적인 사용 사례:**
+## Google Data Manager API
+
+{% alert important %}
+Google Audience Sync를 위한 Google Data Manager API 지원은 얼리 액세스 단계입니다. 자격 요건 및 출시 일정에 대해서는 Braze 계정 매니저에게 문의하세요.
+{% endalert %}
+
+Google은 광고 통합을 Data Manager API로 통합하고 있습니다. 얼리 액세스 단계에서 Braze Audience Sync to Google은 이 API를 사용하여 지속적인 Google 광고 API 변경 사항을 지원할 수 있습니다.
+
+신규 및 재연결된 Google Audience Sync 연결의 경우, Braze가 필요한 Data Manager 범위를 자동으로 요청합니다. 기존 연결은 재연결할 때까지 레거시 경로를 통해 계속 동기화됩니다.
+
+계정 연결, 오디언스 설정 및 동기화 동작에 대해서는 이 가이드를 계속 따라 주세요.
+
+**커스텀 오디언스 동기화의 일반적인 사용 사례는 다음과 같습니다:**
 {% multi_lang_include partners/canvas_audience_sync/common_use_cases.md %}
 
 {% alert note %}
-이 기능을 통해 브랜드는 Google과 공유되는 특정 퍼스트파티 데이터를 제어할 수 있습니다. Braze에서는 퍼스트파티 데이터를 공유할 수 있는 통합과 공유할 수 없는 통합에 대해 최대한 신중하게 고려합니다. 자세한 내용은 [Braze 데이터 프라이버시 정책](https://www.braze.com/privacy)을 참조하세요.
+이 기능을 통해 브랜드는 Google과 공유할 특정 퍼스트파티 데이터를 제어할 수 있습니다. Braze에서는 퍼스트파티 데이터를 공유할 수 있는 통합과 공유할 수 없는 통합에 대해 최대한 신중하게 고려합니다. 자세한 내용은 [Braze 데이터 프라이버시 정책](https://www.braze.com/privacy)을 참조하세요.
 {% endalert %}
 
 ## 사전 요구 사항 {#prerequisites}
@@ -38,7 +50,7 @@ Canvas에서 Google 오디언스 단계를 설정하기 전에 다음 항목이 
 | ----------- | ------ | ----------- |
 | Google Ads 계정 | [Google](https://support.google.com/google-ads/answer/6366720?hl=en) | 브랜드의 활성 Google Ads 계정이 필요합니다.<br><br>여러 관리 계정에서 오디언스를 공유하려면 [관리자 계정](https://support.google.com/google-ads/answer/6139186)에 오디언스를 업로드할 수 있습니다. |
 | Google Ads 약관 및 Google Ads 정책 | [Google](https://support.google.com/adspolicy/answer/54818?hl=en) | Braze 오디언스 동기화를 사용할 때 [Google 광고 약관](https://payments.google.com/u/0/paymentsinfofinder?hostOrigin=aHR0cHM6Ly9wYXltZW50cy5nb29nbGUuY29tOjQ0Mw..&sri=-40) 및 [Google 광고 정책](https://support.google.com/adspolicy/answer/6008942?sjid=15557182366992806023-NC)에 동의하고 이를 준수해야 하며, 해당되는 경우 [EU 사용자 동의 정책](https://www.google.com/about/company/user-consent-policy/)도 포함됩니다.<br><br>EEA, 영국 및 스위스 최종 사용자를 대상으로 Google Ads 서비스를 사용하기 위해 적절한 동의를 수집하고 있는지 법무 팀과 상의하세요. |
-| Google 고객 일치 | [Google](https://support.google.com/google-ads/answer/6299717) | 고객 일치는 모든 광고주에게 제공되지 않습니다.<br><br>**고객 일치를 사용하려면 계정에 다음이 필요합니다:**<br>• 정책 준수에 대한 양호한 이력<br>• 양호한 결제 이력<br>• Google Ads에서 최소 90일 이상의 이력<br>• 총 누적 지출 50,000 USD 이상. USD 이외의 통화로 관리되는 계정의 경우, 해당 통화의 월평균 전환율을 사용하여 지출 금액이 USD로 변환됩니다.<br><br>계정이 이러한 기준을 충족하지 않으면 현재 고객 일치를 사용할 수 없습니다.<br><br>계정의 고객 일치 사용 가능 여부에 대한 자세한 안내는 Google Ads 담당자에게 문의하세요. |
+| Google 고객 일치 | [Google](https://support.google.com/google-ads/answer/6299717) | 고객 일치는 모든 광고주가 사용할 수 있는 것은 아닙니다.<br><br>**고객 일치를 사용하려면 계정에 다음이 필요합니다:**<br>• 정책 준수에 대한 양호한 이력<br>• 양호한 결제 이력<br>• Google Ads에서 최소 90일 이상의 이력<br>• 총 누적 지출 50,000 USD 이상. USD 이외의 통화로 관리되는 계정의 경우, 해당 통화의 월평균 전환율을 사용하여 지출 금액이 USD로 환산됩니다.<br><br>계정이 이러한 기준을 충족하지 않으면 현재 고객 일치를 사용할 수 없습니다.<br><br>계정의 고객 일치 사용 가능 여부에 대한 자세한 안내는 Google Ads 담당자에게 문의하세요. |
 | Google 동의 신호 | [Google](https://support.google.com/google-ads/answer/14310715) | Google의 고객 일치 서비스를 사용하여 EEA 최종 사용자에게 광고를 게재하려면 Google의 EU 사용자 동의 정책의 일환으로 다음 커스텀 속성(부울)을 Braze에 전달해야 합니다. 자세한 내용은 [EEA, 영국 및 스위스 최종 사용자의 동의 수집](#collecting-consent-for-eea-uk-and-switzerland-end-users)을 참조하세요: <br> - `$google_ad_user_data` <br> - `$google_ad_personalization` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사전 요구 사항" }
 
@@ -55,9 +67,9 @@ Google의 EU 사용자 동의 정책에 따라 광고주는 EEA, 영국 및 스�
 * 법적으로 요구되는 경우 쿠키 또는 기타 로컬 저장소의 사용
 * 광고 개인화를 위한 개인 데이터의 수집, 공유 및 사용
 
-이는 미국 최종 사용자 또는 EEA, 영국 또는 스위스 이외 지역에 위치한 기타 최종 사용자에게는 영향을 미치지 않습니다. EEA, 영국 및 스위스 최종 사용자를 대상으로 Google Ads 서비스를 사용하기 위해 적절한 동의를 수집하고 있는지 법무 팀과 상의하세요.
+이는 미국 최종 사용자 또는 EEA, 영국 또는 스위스 이외 지역에 위치한 다른 최종 사용자에게는 영향을 미치지 않습니다. EEA, 영국 및 스위스 최종 사용자를 대상으로 Google Ads 서비스를 사용하기 위해 적절한 동의를 수집하고 있는지 법무 팀과 상의하세요.
 
-2024년 3월 6일부터 시행되는 디지털 시장법(DMA) 요구 사항에 따라, 광고주는 Google과 데이터를 공유할 때 EEA, 영국 및 스위스 최종 사용자의 동의를 전달해야 합니다. 이 변경 사항의 일환으로, Braze에서 다음 부울 커스텀 속성으로 두 가지 동의 신호를 수집할 수 있습니다:
+2024년 3월 6일부터 시행되는 디지털 시장법(DMA) 요구 사항에 따라, 광고주는 Google과 데이터를 공유할 때 EEA, 영국 및 스위스 최종 사용자의 동의를 전달해야 합니다. 이 변경 사항의 일환으로, Braze에서 다음 부울 커스텀 속성으로 두 가지 동의 신호를 모두 수집할 수 있습니다:
 
 * `$google_ad_user_data`
 * `$google_ad_personalization`
@@ -84,12 +96,12 @@ EEA 사용자가 이전에 두 신호 모두에 동의한 경우, 해당 목록�
 
 ### Canvas 설정 {#setting-up-your-canvas}
 
-Braze에 동기화한 후 다음 동의 속성을 사용자 프로필 및 세분화에서 사용할 수 있습니다:
+Braze에 동기화한 후 다음 동의 속성을 사용자 프로필에서 사용할 수 있으며 세분화에 활용할 수 있습니다:
 
 - `$google_ad_user_data`
 - `$google_ad_personalization`
 
-Google 오디언스 동기화를 사용하여 오디언스에 사용자를 추가하면서 EEA, 영국 및 스위스 최종 사용자를 타겟팅하는 Canvas에서는 두 동의 속성이 `true`가 아닌 값인 경우 해당 사용자를 제외해야 합니다. 동의 값이 `true`로 설정된 사용자를 세분화하여 이를 수행할 수 있습니다. 이렇게 하면 Google이 오디언스에서 이러한 사용자를 거부할 것을 알고 있으므로 동기화되는 사용자의 분석이 더 정확해집니다. Google 오디언스 동기화를 사용하여 오디언스에서 사용자를 제거하는 경우에는 동의 속성이 필요하지 않습니다.
+Google 오디언스 동기화를 사용하여 EEA, 영국 및 스위스 최종 사용자를 오디언스에 추가하는 Canvas에서는 두 동의 속성이 `true`가 아닌 값일 때마다 해당 사용자를 제외해야 합니다. 동의 값이 `true`로 설정된 사용자를 세분화하여 이를 수행할 수 있습니다. 이렇게 하면 Google이 오디언스에서 이러한 사용자를 거부할 것을 알고 있으므로 동기화되는 사용자의 분석이 더 정확해집니다. Google 오디언스 동기화를 사용하여 오디언스에서 사용자를 제거하는 경우에는 동의 속성이 필요하지 않습니다.
 
 ## 통합 {#integration}
 
@@ -99,21 +111,21 @@ Google 오디언스 동기화를 사용하여 오디언스에 사용자를 추�
 Google Ads를 Braze 계정에 연결하려면 ["관리자" 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin)이 필요합니다.
 {% endalert %}
 
-시작하려면 **파트너 통합** > **기술 파트너** > **Google Ads**로 이동하여 **Connect Google Ads**를 선택합니다. Google Ads 계정에 연결된 이메일을 선택하고 Braze에 Google Ads 계정 액세스 권한을 부여하라는 Modal이 표시됩니다.
+시작하려면 **파트너 통합** > **기술 파트너** > **Google Ads**로 이동하여 **Connect Google Ads**를 선택합니다. Google Ads 계정과 연결된 이메일을 선택하라는 Modal이 표시되며, 그런 다음 Braze에 Google Ads 계정에 대한 액세스 권한을 부여합니다.
 
-Google Ads 계정을 성공적으로 연결하면 Google Ads 파트너 페이지로 돌아갑니다. 그런 다음 Braze 워크스페이스에서 액세스할 광고 계정을 선택하라는 메시지가 표시됩니다.
+Google Ads 계정이 성공적으로 연결되면 Google Ads 파트너 페이지로 돌아갑니다. 그런 다음 Braze 워크스페이스에서 액세스할 광고 계정을 선택하라는 메시지가 표시됩니다.
 
-![Google Ads 계정을 Braze에 성공적으로 연결하는 워크플로를 보여주는 GIF.]({% image_buster /assets/img/google_sync/googlesync.gif %}){: style="max-width:85%;"}
+![Google Ads 계정이 Braze에 성공적으로 연결되는 워크플로를 보여주는 GIF.]({% image_buster /assets/img/google_sync/googlesync.gif %}){: style="max-width:85%;"}
 
 #### iOS IDFA 또는 Google 광고 ID 내보내기 {#export-ios-idfa-or-google-advertising-ids}
 
-오디언스 동기화에서 iOS IDFA 또는 Google 광고 ID를 내보낼 계획이라면, Google은 요청에 iOS 앱 ID와 Android 앱 ID를 포함하도록 요구합니다. Google 오디언스 동기화에서 **Add Mobile Advertising IDs**를 선택하고 iOS 앱 ID와 Android 앱 ID(앱 패키지 이름)를 입력한 후 각각 저장합니다.
+오디언스 동기화에서 iOS IDFA 또는 Google 광고 ID를 내보낼 계획이라면, Google은 요청에 iOS 앱 ID와 Android 앱 ID를 포함하도록 요구합니다. Google 오디언스 동기화에서 **Add Mobile Advertising IDs**를 선택하고, iOS 앱 ID와 Android 앱 ID(앱 패키지 이름)를 입력한 후 각각 저장합니다.
 
 <br><br>
 ![연결된 광고 계정을 보여주는 업데이트된 Google Ads 기술 페이지로, 계정을 다시 동기화하고 모바일 광고 ID를 추가할 수 있습니다.]({% image_buster /assets/img/google_sync/google_sync5.png %}){: style="max-width:75%;"}
 <br><br>
 
-단일 워크스페이스에 여러 앱이 있는 경우, 사용자의 모바일 광고 ID는 여러 앱에서 동일하므로 설정에서 아무 앱 ID나 입력할 수 있습니다. Android GAID와 iOS IDFA 모두 기기의 범용 광고 식별자이며 앱별로 다르지 않기 때문입니다. 특정 앱의 사용자에 대한 모바일 광고 ID를 동기화하려면 Segment 필터("마지막으로 사용한 특정 앱" 또는 "최신 앱 버전")를 사용하여 해당 사용자를 타겟팅할 수 있습니다.
+단일 워크스페이스에 여러 앱이 있는 경우, 사용자의 모바일 광고 ID는 여러 앱에서 동일하므로 설정에서 앱 ID 중 아무 것이나 입력할 수 있습니다. Android GAID와 iOS IDFA 모두 기기의 범용 광고 식별자이며 앱별로 다르지 않기 때문입니다. 특정 앱의 사용자에 대한 모바일 광고 ID를 동기화하려면 Segment 필터("마지막으로 사용한 특정 앱" 또는 "최신 앱 버전")를 사용하여 해당 사용자를 타겟팅할 수 있습니다.
 
 ### 2단계: Canvas에 Google 오디언스 단계 추가 {#step-2-add-a-google-audience-step-in-canvas}
 
@@ -155,15 +167,15 @@ Canvas에 컴포넌트를 추가한 다음 **Audience Sync**를 선택합니다.
 
 ![Canvas 컴포넌트에서 새 오디언스가 생성된 후 나타나는 알림.]({% image_buster /assets/img/audience_sync/g_sync3.png %})
 
-새 오디언스로 Canvas를 시작하면 Braze는 Canvas 시작 시 새 커스텀 오디언스를 생성하고, 이후 사용자가 Google 오디언스 단계에 진입할 때 거의 실시간으로 동기화합니다.
+새 오디언스로 Canvas를 시작하면, Braze는 Canvas 시작 시 새 커스텀 오디언스를 생성하고 이후 사용자가 Google 오디언스 단계에 진입할 때 거의 실시간으로 동기화합니다.
 
 {% alert important %}
-Google의 Customer Match 요구 사항에 따라 동일한 고객 목록에 고객 연락처 정보와 모바일 광고 ID를 함께 포함할 수 없습니다. 그런 다음 Google Customer Match는 이 정보를 사용하여 Google 검색, Google 디스플레이, YouTube 및 Gmail에서 타겟팅 가능한 사용자를 결정합니다. Google Customer Match 요구 사항에 대한 자세한 내용은 해당 [설명서](https://support.google.com/google-ads/answer/7474166?hl=en&ref_topic=6296507)를 참조하세요.
+Google의 Customer Match 요구 사항에 따라 동일한 고객 목록에 고객 연락처 정보와 모바일 광고 ID를 함께 포함할 수 없습니다. 그런 다음 Google Customer Match는 이 정보를 사용하여 Google 검색, Google 디스플레이, YouTube 및 Gmail에서 타겟팅 가능한 사용자를 결정합니다. Google Customer Match 요구 사항에 대한 자세한 내용은 해당 [문서](https://support.google.com/google-ads/answer/7474166?hl=en&ref_topic=6296507)를 참조하세요.
 {% endalert %}
 {% endtab %}
 {% tab 기존 오디언스와 동기화 %}
 
-Braze는 기존 Google 고객 목록에 사용자를 추가하거나 제거하여 해당 오디언스를 최신 상태로 유지하는 기능도 제공합니다. 기존 오디언스와 동기화하려면:
+Braze는 기존 Google 고객 목록에 사용자를 추가하거나 제거하여 이러한 오디언스를 최신 상태로 유지하는 기능도 제공합니다. 기존 오디언스와 동기화하려면:
 
 1. 동기화할 기존 커스텀 오디언스를 선택합니다.
 2. **Add to the audience** 또는 **Remove from the audience** 중 하나를 선택합니다.
@@ -177,9 +189,9 @@ Braze는 기존 Google 고객 목록에 사용자를 추가하거나 제거하�
 
 ### 4단계: Canvas 시작 {#step-4-launch-canvas}
 
-Canvas에서 나머지 사용자 여정을 완료한 다음 시작합니다! 새 오디언스를 만들기로 선택한 경우, Braze는 Google 내에서 오디언스를 생성한 다음 사용자가 Canvas의 이 단계에 도달할 때 추가합니다. 기존 오디언스에서 사용자를 추가하거나 제거하도록 선택한 경우, Braze는 사용자가 사용자 여정에서 이 단계에 도달할 때 추가하거나 제거합니다.
+Canvas 내에서 나머지 사용자 여정을 완료한 다음 시작합니다! 새 오디언스를 만들기로 선택한 경우, Braze는 Google 내에서 오디언스를 생성한 다음 사용자가 Canvas의 이 단계에 도달하면 추가합니다. 기존 오디언스에서 사용자를 추가하거나 제거하도록 선택한 경우, Braze는 사용자가 사용자 여정에서 이 단계에 도달할 때 사용자를 추가하거나 제거합니다.
 
-그런 다음 사용자는 Canvas의 다음 컴포넌트가 있으면 해당 컴포넌트로 진행하고, 사용자 여정의 마지막 단계인 경우 Canvas를 종료합니다.
+그런 다음 사용자는 Canvas의 다음 컴포넌트가 있으면 해당 컴포넌트로 진행하거나, 사용자 여정의 마지막 단계인 경우 Canvas를 종료합니다.
 
 ## 사용자 동기화 및 사용량 제한 고려 사항 {#user-syncing-and-rate-limit-considerations}
 
@@ -197,7 +209,7 @@ Canvas에서 나머지 사용자 여정을 완료한 다음 시작합니다! 새
 | *다음 단계로 진행함* | 다음 구성 요소가 있는 경우 해당 구성 요소로 진행한 사용자 수입니다. 모든 사용자는 자동으로 진행됩니다. Canvas 브랜치의 마지막 단계인 경우 이 측정기준은 0입니다. |
 | *동기화된 사용자* | Google에 성공적으로 동기화된 사용자 수입니다. |
 | *동기화되지 않은 사용자* | 일치시킬 필드가 누락되었거나 동의 속성이 `false`로 설정되어 동기화되지 않은 사용자 수입니다. |
-| *오류 발생 사용자* | 약 13시간의 재시도 후에도 오류로 인해 Google에 동기화되지 않은 사용자 수입니다. Google Ads API 서비스 중단과 같은 특정 오류의 경우, Canvas는 최대 약 13시간 동안 동기화를 재시도합니다. 해당 시점에서도 동기화가 불가능한 경우 *동기화되지 않은 사용자*가 채워집니다. |
+| *오류 발생 사용자* | 약 13시간의 재시도 후에도 오류로 인해 Google에 동기화되지 않은 사용자 수입니다. Google Ads API 서비스 중단과 같은 특정 오류의 경우, Canvas는 최대 약 13시간 동안 동기화를 재시도합니다. 해당 시점에도 동기화가 불가능한 경우 *동기화되지 않은 사용자*에 반영됩니다. |
 | *대기 중인 사용자* | 현재 Braze에서 Google로 동기화하기 위해 처리 중인 사용자 수입니다. |
 | *Canvas 종료함* | Canvas를 종료한 사용자 수입니다. Canvas의 마지막 단계가 Google 단계인 경우 발생합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="분석 이해하기" }
@@ -206,7 +218,7 @@ Canvas에서 나머지 사용자 여정을 완료한 다음 시작합니다! 새
 
 ### Google 오디언스 단계 구성에서 일치시킬 필드를 여러 개 선택할 수 없는 이유는 무엇인가요? {#why-can-i-not-select-multiple-fields-to-match-in-my-google-audience-step-configuration}
 
-Google Customer Match는 이러한 오디언스의 형식과 포함되는 고객 정보에 대해 엄격한 요구 사항을 적용합니다. 구체적으로, 모바일 광고주 ID는 고객 연락처 정보(예: 이메일 및 전화번호)와 별도로 업로드해야 합니다. 자세한 내용은 [Google의 Customer Match 설명서](https://support.google.com/google-ads/answer/7659867?hl=en#undefined)를 참조하세요.
+Google 고객 일치에는 이러한 오디언스의 형식과 포함되는 고객 정보에 대한 엄격한 요구 사항이 있습니다. 구체적으로, 모바일 광고주 ID는 고객 연락처 정보(예: 이메일 및 전화번호)와 별도로 업로드해야 합니다. 자세한 내용은 [Google의 고객 일치 설명서](https://support.google.com/google-ads/answer/7659867?hl=en#undefined)를 참조하세요.
 
 ### Google에서 오디언스가 동기화되는 데 얼마나 걸리나요? {#how-long-will-it-take-for-my-audiences-to-sync-in-google}
 
@@ -218,26 +230,26 @@ Google Customer Match는 이러한 오디언스의 형식과 포함되는 고객
 
 ### Google에서 일치된 오디언스 크기가 Braze에서 동기화된 사용자 수보다 적은 이유는 무엇인가요? {#why-is-my-matched-audience-size-in-google-lower-than-the-number-of-users-synced-from-braze}
 
-Braze가 특정 수의 사용자를 Google에 동기화하더라도, Google Ads에서 확인되는 실제 일치된 오디언스 크기는 상당히 낮을 수 있습니다. 이는 Google이 사용자가 제공한 데이터(예: 이메일 주소 또는 전화번호)를 자사 플랫폼의 실제 Google 계정과 매칭해야 하기 때문입니다.
+Braze가 특정 수의 사용자를 Google에 동기화하더라도, Google Ads에서 확인되는 실제 일치된 오디언스 크기는 상당히 낮을 수 있습니다. 이는 Google이 사용자가 제공한 데이터(예: 이메일 주소 또는 전화번호)를 자사 플랫폼의 실제 Google 계정과 일치시켜야 하기 때문입니다.
 
 Braze 사용자 프로필에 유효한 일치 필드가 포함되어 있더라도, 사용자는 일치하는 정보가 있는 Google 계정을 보유한 경우에만 Google 커스텀 오디언스에 표시됩니다.
 
 일치율을 높이려면:
 - [데이터 형식이 올바른지](https://support.google.com/google-ads/answer/7659867) 확인하세요.
 - 가능한 경우 여러 식별자를 제공하세요(예: 이메일과 전화번호 모두).
-- Google이 사용자를 처리하고 매칭하는 데 48~72시간이 소요될 수 있으며, 경우에 따라 며칠이 걸릴 수도 있습니다.
+- Google이 사용자를 처리하고 일치시키는 데 48~72시간이 소요될 수 있으며, 경우에 따라 며칠이 걸릴 수도 있습니다.
 
-최종 일치된 오디언스 크기는 전적으로 Google의 매칭 프로세스에 따라 결정됩니다. 데이터가 Google 플랫폼으로 전달된 이후에는 Braze에서 Google의 매칭 과정을 확인할 수 없습니다.
+최종 일치된 오디언스 크기는 전적으로 Google의 일치 프로세스에 따라 결정됩니다. 데이터가 Google 플랫폼으로 전달된 이후에는 Braze에서 Google의 일치 과정을 확인할 수 없습니다.
 
 ### Google에 오디언스를 동기화했는데 광고가 게재되지 않습니다. {#ive-synced-an-audience-into-google-but-my-ads-are-not-serving}
 
 광고 게재를 시작하려면 오디언스에 최소 5,000명의 사용자가 포함되어 있는지 확인하세요.
 
-### "Mobile App IDs Deleted" 오류를 어떻게 해결하나요? {#how-do-i-resolve-the-mobile-app-ids-deleted-error}
+### "모바일 앱 ID 삭제됨" 오류를 어떻게 해결하나요? {#how-do-i-resolve-the-mobile-app-ids-deleted-error}
 
 Google에 오디언스를 동기화하는 경우, 동기화의 일부로 모바일 식별자를 동기화하도록 선택했지만 Google 파트너 페이지에서 모바일 앱 ID를 삭제한 경우 이 오류가 발생합니다. 이 문제를 해결하려면 iOS 및 Android용 적절한 모바일 앱 ID가 Google 파트너 페이지에 추가되어 있는지 확인하세요.
 
-### 대시보드에서는 여전히 연결된 것으로 표시되는데 Google Ads 유효하지 않은 자격 증명 이메일을 받은 이유는 무엇인가요? {#why-did-i-get-a-google-ads-invalid-credentials-email-when-the-dashboard-still-shows-connected}
+### 대시보드에서는 여전히 연결된 것으로 표시되는데 Google Ads 잘못된 자격 증명 이메일을 받은 이유는 무엇인가요? {#why-did-i-get-a-google-ads-invalid-credentials-email-when-the-dashboard-still-shows-connected}
 
 Braze는 Google의 API가 인증 오류를 반환할 때 이 이메일을 자동으로 발송합니다. 이는 대시보드에서 **Google Ads**가 여전히 연결된 것으로 표시되고 오디언스가 동기화되는 것처럼 보이는 경우에도 발생할 수 있습니다. 예를 들어, 연결된 Google 계정에 Google이 요청한 특정 작업에 대한 권한이 없거나, 해당 계정에 대해 Google Ads 서비스 약관에 아직 동의하지 않은 경우입니다.
 
