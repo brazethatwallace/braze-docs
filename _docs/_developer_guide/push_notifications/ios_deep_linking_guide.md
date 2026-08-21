@@ -89,7 +89,7 @@ This option opens a web page inside a modal WebView within your app. It's handle
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Universal links" }
 
 {% alert important %}
-If you send emails through Braze, your ESP (SendGrid, SparkPost, or Amazon SES) wraps links in a click-tracking domain. You must host the AASA file on your click-tracking domain as well, not only on your primary domain. For complete setup, see [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
+If you send emails through Braze, your ESP (SendGrid, SparkPost, or Amazon SES) wraps links in a click-tracking domain. You must host the AASA file on your click-tracking domain as well, not only on your primary domain. For complete setup, see [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links). If every email link opens the app, see [Every email link opens the app]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting#every-email-link-opens-the-app).
 {% endalert %}
 
 ### "Open Web URL Inside App"
@@ -117,7 +117,7 @@ You don't need an AASA file when:
 - You only use custom scheme deep links (for example, `myapp://`) from push, in-app messages, or Content Cards.
 - You use the **Open Web URL Inside App** option.
 
-For AASA setup instructions, see [Universal links and App Links]({{site.baseurl}}/user_guide/message_building_by_channel/email/universal_links#setting-up-universal-links-and-app-links).
+For AASA setup instructions, see [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
 
 ## When you need app code to handle links {#when-app-code}
 
@@ -144,18 +144,4 @@ If you use [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/
 4. **Forward universal links**: Set `configuration.forwardUniversalLinks = true` in your Braze SDK configuration.
 
 For implementation details and debugging guidance, see [Branch for deep linking]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking).
-
-## Troubleshooting
-
-### Why do all links in my email campaign open the app?
-
-When every link in an email opens your app—including links you expect to open in a browser—your Apple App Site Association (AASA) file likely uses overly broad `paths` entries on your click-tracking domain (for example `*` or `/*`).
-
-To fix this:
-
-- Host your AASA file on your ESP click-tracking domain, not only your primary website domain.
-- Limit `paths` to URLs that should open the app. For SendGrid, configure AASA paths to match `/uni/` segments and add `universal="true"` only on links that should open the app.
-- For Android, use specific `pathPrefix` values in your Digital Asset Links configuration—avoid matching the entire click-tracking domain.
-
-For step-by-step SendGrid `/uni/` setup and click-tracking examples, see [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking).
 
