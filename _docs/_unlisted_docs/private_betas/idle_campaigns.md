@@ -1,5 +1,5 @@
 ---
-nav_title: "Idle Campaigns and Canvases"
+nav_title: Idle campaigns and Canvases
 permalink: "/idle_campaigns_canvases/"
 hidden: true
 ---
@@ -8,120 +8,112 @@ hidden: true
 
 > This reference article explains the idle status for campaigns and Canvases and answers frequently asked questions.
 
-{% alert note %}
-In 2024, Canvases will be marked **Idle** and stopped, similar to campaigns. When Canvases are idle or stopped, they will follow the logic in this document.
-{% endalert %}
+Campaigns and Canvases receive an idle status when they haven't sent messages or entered users for a period of time. Braze auto-stops them on their associated stop dates. You can filter the **Campaigns** and **Canvas** lists by **Idle** to sort and manage these items.
 
-Campaigns and Canvases are assigned an idle status when they have not sent messages or entered users in some time. These campaigns and Canvases will be automatically stopped at their associated stop dates. You can filter for idle campaigns and Canvases to help you sort and manage your list of campaigns and Canvases.
-
-Campaigns and Canvases with end dates and one-time sends are idle for 7 days before auto-stopping. Campaigns and Canvases that haven't sent a message in 11 months are idle for 1 month before auto-stopping.
+Idle campaigns and Canvases stay active until Braze stops them. One-time sends and messaging with end dates become idle when that date passes, then auto-stop after seven days. Messaging without an end date becomes idle after 11 months without activity and auto-stops after one year.
 
 ## Idle campaigns
 
-On an ongoing basis, the idle campaigns that meet the following criteria will be stopped:
- 
+Braze stops idle campaigns that meet any of these criteria:
+
 - A scheduled one-time send is past its send date by seven days
 - A scheduled or action-based campaign with an end date is past its end date by seven days
-- A campaign without an end date that has not sent messages in one year
+- A campaign without an end date hasn't sent a message, enrolled a user in a control group, or been edited in one year
 
-For campaigns without end dates, if a message is sent or the campaign is updated, the one-year countdown for stopping the campaign will be reset. When campaigns are stopped, Braze will notify customers in their dashboard and by email.
+For campaigns without end dates, a send, control-group enrollment, or edit resets the one-year countdown. When Braze stops campaigns, it notifies company users in the dashboard and by email.
 
-Campaigns will be stopped at the later of the default stop date and one day after their last occurring conversion deadline. Sends that are a result of a Winning or Personalized Variant are treated as scheduled sends, and will be stopped seven days after the Winning or Personalized Variant is sent. All campaigns will be stopped at 4 am UTC every day for all Braze users.
+Braze stops campaigns at the later of the default stop date and one day after the last conversion deadline. Sends from a Winning or Personalized Variant are treated as scheduled sends, and Braze stops them seven days after that variant sends. Campaigns stop at 4 am UTC each day.
 
-Content Cards will not be stopped until their expiration deadline, and will also abide by the aforementioned criteria as well as the conversion deadline rule.
+Content Cards aren't stopped until their expiration deadline, and they also follow the idle campaign stop criteria and the conversion deadline rule. For details, see [How does stopping Content Cards work?](#how-does-stopping-content-cards-work).
 
-Reference this table for how to keep an idle campaign active:
+Use this table to keep an idle campaign active:
 
-| Reason for idle status                                                                              | Steps to make campaign active                     |
-|-----------------------------------------------------------------------------------------------------|---------------------------------------------------|
-| Campaigns that are scheduled one-time sends, and are past the send date                 | Schedule a future send                            |
-| Campaigns that are scheduled or action-based, have end dates, and are past the end date | Extend the end date                               |
-| Campaigns without an end date that have not sent messages in one year                                | Send one message or make any edit to the campaign |
-| Campaigns with end dates and one-time sends | Schedule a future send |
-| Campaigns that have not sent a message in 11 months | Send one message or make any edit to the campaign | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Reason for idle status | Steps to make the campaign active |
+|---|---|
+| Scheduled one-time send is past the send date | Schedule a future send |
+| Scheduled or action-based campaign has an end date that has passed | Extend the end date |
+| Campaign without an end date hasn't sent a message, enrolled a user in a control group, or been edited in 11 months | Send a message or edit the campaign |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="How to keep an idle campaign active" }
+
+Feature flag campaigns and feature flag experiments don't become idle and aren't auto-stopped.
 
 ### In-app message campaigns
 
-If an in-app message campaign has no impressions and has not been edited for over 30 days, it becomes an idle campaign. An idle in-app message campaign continues to deliver based on its configuration, but the in-app message becomes a templated in-app message.
+Action-based in-app message campaigns become idle after 30 days with no send, control-group enrollment, or edit. An idle in-app message campaign continues to deliver based on its configuration. Depending on your workspace, Braze may deliver it as a [templated in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages).
 
-If your users trigger an impression event or the marketer edits the campaign, it brings the campaign back to active status and the 30-day counter resets.
+A send, control-group enrollment, or edit returns the campaign to active status and resets the 30-day window. Auto-stop still follows the seven-day and one-year rules in [Idle campaigns](#idle-campaigns), not the 30-day idle window.
 
 ## Idle Canvases
 
-On an ongoing basis, idle Canvases that meet the following criteria will be stopped:
+Braze stops idle Canvases that meet any of these criteria:
 
-- A scheduled one-time send is past its send date and maximum duration by over 7 days
-- A scheduled or action-based Canvas with an end date is past its end date and maximum duration by over 7 days
-- A Canvas without an end date has not entered users or been edited in over 12 months and its maximum duration
+- A scheduled one-time send is past its send date and [maximum duration]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#maximum-duration) by more than seven days
+- A scheduled or action-based Canvas with an end date is past its end date and maximum duration by more than seven days
+- A Canvas without an end date hasn't entered users or been edited in more than 12 months plus its maximum duration
 
-For Canvases without end dates, if a user is entered or the Canvas is updated, the one-year countdown for stopping the Canvas will be reset. When Canvases are stopped, Braze will notify customers in their dashboard and via email.
+For Canvases without end dates, a user entry or edit resets the one-year countdown. When Braze stops Canvases, it notifies company users in the dashboard and by email.
 
-The [maximum duration]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/) of a Canvas is the longest possible time a user can take to complete a given Canvas. This duration includes expirations for Content Cards and in-app messages.
+The maximum duration of a Canvas is the longest possible time a user can take to complete that Canvas. This duration includes expirations for Content Cards and in-app messages.
 
-Reference this table for how to keep an idle Canvas active:
+Use this table to keep an idle Canvas active:
 
-| Reason for idle status                                                                                                  | Steps to make Canvas active                     |
-|-------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
-| Canvases that are scheduled one-time sends, and maximum duration past the send date                 | Schedule a future send                          |
-| Canvases that are scheduled or action-based, have end dates, and maximum duration past the end date | Extend the end date                             |
-| Canvases without end dates that have not sent messages in one year                                                      | Send one message or make any edit to the Canvas |
-| Canvases with end dates and one-time sends | Schedule a future send |
-| Canvases that haven't sent a message in 11 months | Send one message or make any edit to the Canvas | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Reason for idle status | Steps to make the Canvas active |
+|---|---|
+| Scheduled one-time send is past the send date and maximum duration | Schedule a future send |
+| Scheduled or action-based Canvas has an end date and maximum duration that have passed | Extend the end date |
+| Canvas without an end date hasn't entered users or been edited in 11 months | Enter a user or edit the Canvas |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="How to keep an idle Canvas active" }
 
-If there isn't an option to restore interaction data, this may be because:
+Canvases with feature flag steps don't become idle and aren't auto-stopped.
 
-- The restoration or other interaction data-related operation is currently in progress.
-- No interaction data existed for this Canvas.
-- If the Canvas was created before 2021, the data may have been permanently deleted based on the previous policy.
+For messaging interaction data on stopped campaigns and Canvases, see [About messaging interaction data availability]({{site.baseurl}}/messaging_interaction_data).
 
 ## Frequently asked questions
 
 ### What campaigns or Canvases does this apply to?
 
-This will apply to campaigns and Canvases that already meet the previously listed criteria, and campaigns and Canvases that will meet the criteria moving forward.
+This applies to campaigns and Canvases that already meet the criteria in this article, and to those that meet the criteria later.
 
 ### How do I know if a campaign or Canvas is idle?
 
-Idle campaigns and Canvases will be displayed in the campaign and Canvas list pages under the category **Idle**. The date on which the campaign or Canvas will be stopped is listed as a column in the list.
+Idle campaigns and Canvases appear on the **Campaigns** and **Canvas** pages when you select the **Idle** status. The date Braze stops the campaign or Canvas is listed as a column in the list.
 
 ![The "Idle" filter on the "Campaigns" page.][1]{: style="max-width:60%;"}
 
 ### What happens if an idle campaign or Canvas is updated?
 
-If a campaign that hasn’t sent a message or a Canvas that hasn’t entered users is updated, the countdown will reset.
+If you update a campaign that hasn't sent a message or a Canvas that hasn't entered users, the countdown resets.
 
-### What happens to campaigns that haven’t sent a message in one year (or Canvases that haven’t entered users in one year), but have an end date in the future?
+### What happens to campaigns that haven't sent a message in one year (or Canvases that haven't entered users in one year), but have an end date in the future?
 
-We will stop these campaigns and Canvases seven days after the end date at 4 am UTC.
+Braze stops these campaigns and Canvases seven days after the end date at 4 am UTC.
 
-#### Can I stop campaigns from automatically stopping?
+### Can I prevent campaigns from auto-stopping?
 
-No. This helps keep only the necessary campaigns active to keep dashboards less cluttered and improve performance. If you'd like a list of all auto-stopped campaigns, [submit a Support ticket]({{site.baseurl}}/help/support) to be provided one. 
+No. Auto-stopping keeps only the necessary campaigns active, which reduces dashboard clutter and improves performance. If you need a list of all auto-stopped campaigns, [submit a support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
-### Who will receive email notifications about stopped campaigns and Canvases?
+### Who receives email notifications about stopped campaigns and Canvases?
 
-By default, all users with administrator permissions are opted into email notifications about auto-stopping campaigns and Canvases. The creator of the campaign or Canvas will always be notified when it is stopped. Users can manage email notification preferences by going to **Company Settings** > **Notification Preferences**, then adding or removing recipients from the notification **Campaign Automatically Stopped** and the notification **Canvas Automatically Stopped**.
+By default, all users with administrator permissions are opted into email notifications about auto-stopped campaigns and Canvases. The creator of the campaign or Canvas is always notified when it is stopped. To manage recipients, go to **Settings** > **Admin Settings** > **Notification Preferences**, then add or remove recipients from **Campaign Automatically Stopped** and **Canvas Automatically Stopped**.
 
 ### How does stopping Content Cards work?
 
-Content Cards in campaigns will not be stopped until their expiration deadline and the appropriate buffer period. They will be stopped at the later of the buffer period (corresponding to whether the campaign is a one-time send, has an end date, or does not have an end date) and the expiration deadline. 
+Content Cards in campaigns aren't stopped until their expiration deadline and the appropriate buffer period. Braze stops them at the later of the buffer period (one-time send, end date, or no end date) and the expiration deadline.
 
-For example, if a Content Card expires on April 1, is a one-time send, and has a conversion deadline of 10 days, it will be stopped on April 12 (10 days after the conversion deadline, plus one day). If a Content Card expires on April 1, is API-triggered, and has not sent messages since March 15, it will expire on March 15 of next year.
+For example, if a Content Card expires on April 1, is a one-time send, and has a conversion deadline of 10 days, Braze stops it on April 12 (10 days after the conversion deadline, plus one day). If a Content Card expires on April 1, is API-triggered, and hasn't sent messages since March 15, it expires on March 15 of the following year.
 
-Canvases are only stopped after the Content Cards are stopped, meaning their maximum duration has passed.
+Canvases stop only after their Content Cards stop, meaning their maximum duration has passed.
 
-### I have a feature flag experiment in my Canvas. After my feature flag is set, will the Canvas remain active?
+### I have a feature flag experiment in my Canvas. After my feature flag is set, does the Canvas remain active?
 
-Canvases with feature flag steps are not automatically stopped and do not become idle.
+Yes. Canvases with feature flag steps aren't auto-stopped and don't become idle. Feature flag campaigns and feature flag experiments follow the same exception.
 
-### Why am I seeing idle campaigns displayed in my campaigns list when I applied a filter to show active campaigns only?
+### Why do idle campaigns appear when I filter the campaign list to active only?
 
 Idle campaigns are considered active until they're stopped.
 
-### Would a campaign be listed as idle when it's still sending push notifications?
+### Is a campaign idle if it's still sending push notifications?
 
-No. A campaign will be listed as idle when it's no longer actively sending messages.
+No. A campaign is listed as idle when it's no longer actively sending messages.
 
 [1]: {% image_buster /assets/unlisted_docs/img/idle_filter.png %}
