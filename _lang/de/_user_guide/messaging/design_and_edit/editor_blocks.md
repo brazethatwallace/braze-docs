@@ -390,7 +390,7 @@ Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nich
 <!-- Saved row is not yet released. Uncomment when available.
 ### Gespeicherte Zeile {#saved-row}
 
-Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Gespeicherte Zeile** unter **Zeilen** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
+Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Gespeicherte Zeile** unter **Rows** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
 -->
 
 ## Wissenswertes {#things-to-know}
@@ -513,6 +513,30 @@ Nutzer:innen wählen mehrere Optionen aus; Werte werden in einem definierten [Ar
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
 
+### Abos verwalten {#manage-subscriptions}
+
+Fügt eine Checkliste von [E-Mail-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups) hinzu, damit Besucher:innen sich anmelden oder ihre Abos verwalten können, wenn sie das Formular absenden. Konfigurieren Sie den Block, nachdem Sie Abo-Gruppen hinzugefügt haben. Dieser Block unterstützt nur E-Mail-Abo-Gruppen; er unterstützt keine SMS-, RCS- oder WhatsApp-Abo-Gruppen.
+
+Für identifizierte Nutzer:innen, die die Seite über den [Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) der Landing-Page öffnen, füllt der Block jedes Kontrollkästchen mit dem aktuellen Abo-Status der Nutzer:in vor, sodass er auch als Seite zur Präferenzverwaltung dienen kann.
+
+Wählen Sie den Block im Editor aus, um:
+
+- Abo-Gruppen neu anzuordnen
+- Abo-Gruppen hinzuzufügen oder zu entfernen
+- Beschreibungen hinzuzufügen oder zu entfernen
+- Ein Kontrollkästchen „Alle abonnieren“ hinzuzufügen oder zu entfernen, das jede Abo-Gruppe im Block auswählt
+- Ein Kontrollkästchen „Auswahl aufheben“ hinzuzufügen oder zu entfernen, das jede Abo-Gruppe im Block abwählt
+
+| Eigenschaft | Beschreibung |
+| --- | --- |
+| Subscription groups | Fügen Sie Abo-Gruppen hinzu, entfernen oder ordnen Sie sie im Block neu an. |
+| Include descriptions | Zeigt die Beschreibung jeder Abo-Gruppe neben ihrem Namen an. |
+| Kontrollkästchen **Clear selections** | Fügt ein Kontrollkästchen hinzu, das jede Abo-Gruppe im Block abwählt. |
+| Kontrollkästchen **Subscribe to all** | Fügt ein Kontrollkästchen hinzu, das jede Abo-Gruppe im Block auswählt. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abos verwalten" }
+
+Den vollständigen Einrichtungsablauf finden Sie unter [Block „Abos verwalten“]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions).
+
 ### Langtext
 
 Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager. Dieser Block ist für Standard-Landing-Pages nicht verfügbar.
@@ -522,7 +546,7 @@ Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nich
 <!-- Saved row is not yet released. Uncomment when available.
 ### Gespeicherte Zeile
 
-Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Gespeicherte Zeile** unter **Zeilen** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
+Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Gespeicherte Zeile** unter **Rows** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
 -->
 
 ## Wissenswertes
@@ -616,7 +640,7 @@ Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nich
 <!-- Saved row is not yet released. Uncomment when available.
 ### Gespeicherte Zeile
 
-Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Gespeicherte Zeile** unter **Zeilen** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
+Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-Drop-Content Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Wenn Sie **Gespeicherte Zeile** unter **Rows** nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Braze-Customer-Success-Manager.
 -->
 
 ## Wissenswertes

@@ -20,27 +20,56 @@ channel:
 
 ### Step 1: Go to WhatsApp Templates
 
-Go to **Content** > **WhatsApp**, then select **Create new template**.
+Go to **Content** > **Templates** > **WhatsApp**, then select **Create new template**.
 
 ![WhatsApp templates page with button to create a new template.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 
-### Step 2: Configure template settings
+You can also create a template while composing a WhatsApp campaign or Canvas. For more information, see [Create a template from a campaign or Canvas](#create-a-template-from-a-campaign-or-canvas).
+
+### Step 2: Choose a category and type
+
+Select a template category and template type, then select **Continue to template** when you're ready.
+
+{% alert note %}
+Meta reviews templates based on [category guidelines](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-categorization) and content. 
+{% endalert %}
+
+#### Marketing
+
+Marketing templates are for promotional and engagement messages (for example, welcome messages, promotions, offers, coupons, newsletters, and announcements).
+
+| Type | Description |
+| --- | --- |
+| **Custom** | A standard WhatsApp message you build from scratch. This is the layout covered in [Build your template](#step-4-build-your-template). |
+| **Carousel** | A message with horizontally scrollable cards. For more information, see [Carousel templates]({{site.baseurl}}/whatsapp_carousel_templates). |
+| **Limited-time offer** | A time-sensitive promotional offer. For more information, see [Limited time offer templates]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#limited-time-offer-templates). |
+| **Flow** | A template that opens a WhatsApp Flow (for example, surveys or appointment bookings). Create and manage the Flow in Meta's WhatsApp Manager, then select it when you build the template. For more information, see [WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Marketing template types" }
+
+#### Utility
+
+Utility templates are for non-promotional messages (for example, order confirmations, account updates, receipts, appointment reminders, and billing). Meta reclassifies promotional content as marketing.
+
+| Type | Description |
+| --- | --- |
+| **Custom** | A standard utility message you build from scratch. Follow the same composition steps as [Build your template](#step-4-build-your-template). |
+| **Flow** | A utility Flow template (for example, reminders, feedback, or order management). Create and manage the Flow in Meta's WhatsApp Manager, then select it when you build the template. For more information, see [WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Utility template types" }
+
+{% alert note %}
+Carousel and limited-time offer layouts are available only for Marketing templates.
+{% endalert %}
+
+### Step 3: Configure template settings
 
 Fill in the following fields:
 
 | Field | Description |
 | ----- | ----- |
-| **Account** | The WhatsApp Business Account (WABA) you’d like to submit the template to. All subscription groups and phone numbers within a WABA will share template access. |
+| **Account** | The WhatsApp Business Account (WABA) you’d like to submit the template to. All subscription groups and phone numbers within a WABA share template access. |
 | **Language** | The language for this template. WhatsApp requires a separate template for each language. |
 | **Template name** | A unique name for your template. Template names can only contain lowercase letters, numbers, and underscores. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure template settings" }
-
-### Step 3: Choose a layout
-
-Under **Layout**, select the template type:
-
-- **Default:** A standard WhatsApp message. This is the layout covered in this article.  
-- **Carousel:** A message with horizontally scrollable cards. For more information, see [Carousel templates]({{site.baseurl}}/whatsapp_carousel_templates).
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure template settings" }
 
 ### Step 4: Build your template
 
@@ -63,6 +92,15 @@ Enter the main content of your message and personalize the body as needed by usi
 
 You can add personalization wherever the **+** plus button appears. Not all fields support personalization.
 
+#### Liquid character limits
+
+Meta enforces character limits on the template structure you submit for approval (for example, 1,024 characters for the body and 60 characters for a text header). In the Template Builder, these limits apply to the template sent to Meta, not the final rendered message at send time.
+
+- **{% raw %}`{{ }}`{% endraw %} variables:** Braze converts Liquid variables to numbered placeholders ({% raw %}`{{1}}`, `{{2}}`{% endraw %}) before checking length. A long expression like {% raw %}`{{${first_name}}}`{% endraw %} counts as a short placeholder, not the full Liquid syntax.
+- **{% raw %}`{% %}`{% endraw %} tags:** Liquid logic tags count as literal text at their full length and appear as uneditable copy in template messages.
+
+For complex personalization, use a [Context step]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) to compute values, then reference shorter variables in the template. For Message Extras and conditional logic constraints, see [Liquid in the WhatsApp Template Builder]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder/template_builder_liquid).
+
 #### Footer (optional)
 
 Add a short footer to appear after the message body.
@@ -81,20 +119,33 @@ Add up to 10 buttons to your template. Button types have different categories an
 
 ![WhatsApp template composer with quick reply and call to action buttons.]({% image_buster /assets/img/whatsapp/templates/buttons.png %})
 
+For Flow templates, configure the Flow button and select an existing Flow from Meta instead of adding standard call-to-action buttons.
+
 ### Step 5: Preview your template
 
-Before submitting, preview how your message will appear to recipients:
+Before submitting, preview how your message appears to recipients:
 
 - **Preview as a user:** See a generic preview of the message.  
-- **Preview as a specific user:** Select a user profile to preview how the template will render with that user's data.
+- **Preview as a specific user:** Select a user profile to preview how the template renders with that user's data.
 
 ### Step 6: Submit for review
 
 Select **Submit** to send your template to Meta for review, which typically takes a few minutes but can take up to 24 hours. The template appears on your **WhatsApp templates** page when it's submitted, and the status updates when you refresh the **WhatsApp templates** page.
 
-## Supported template categories
+## Create a template from a campaign or Canvas
 
-Only Marketing templates are currently supported in the WhatsApp Template Builder.
+You can create and submit a WhatsApp template without leaving a campaign or Canvas Message step.
+
+1. In a WhatsApp [campaign]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message) or Canvas Message step, select the **WhatsApp Template Message** message type.
+2. Select **Create new template**.
+3. Choose a category and type, then build and submit the template the same way you would on the WhatsApp Templates page.
+4. After you submit, Braze binds the pending template to the message. Continue composing personalization while the template is pending, then launch after Meta approves it.
+
+Select **Choose template from library** to leave the builder and pick an existing template instead.
+
+{% alert note %}
+When you create a template from a campaign or Canvas, Braze can save your work as a draft so it persists if you leave the Message step.
+{% endalert %}
 
 ## Use an approved template in a campaign
 
@@ -116,7 +167,7 @@ Reviews typically complete within five minutes, but can take up to 24 hours.
 
 ### Can I edit a template after it's been approved?
 
-Any changes to locked content (body copy or other Meta-controlled fields) require resubmitting the template for approval, which must be done from the WhatsApp Business Manager. You can update content and personalization when building your campaign or Canvas.
+You can update variable content and personalization when building a campaign or Canvas. Changes to locked content (body copy, button layout, or other Meta-controlled fields) require creating a new template in the Template Builder or editing the template in Meta's WhatsApp Manager and waiting for Meta re-approval. If you use [click tracking]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking), see that article before editing Braze-created templates in Meta's WhatsApp Manager.
 
 ### What happens to templates I submitted before the Template Builder was available?
 

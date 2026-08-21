@@ -186,7 +186,8 @@ If you believe the unhealthy host detection may be causing issues, contact [Braz
 If a Connected Content call renders as blank in your message preview or send, check:
 
 - **Non-breaking spaces in the URL:** Braze strips non-breaking spaces (`&nbsp;` or Unicode `U+00A0`) from Connected Content URLs before making the request. If your URL was copied from a document or dashboard field that inserted non-breaking spaces between characters, the request may fail or return no usable body. Re-type the URL in plain text or remove hidden spaces, then preview again.
-- **HTTP errors and empty bodies:** For status codes greater than 300 or blocked hosts, Connected Content can render an empty string. See [Making an API call]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) and review failures in the **Message Activity Log**.
+- **Redirect responses (`3xx`):** Connected Content does not follow redirects. Only `2xx` responses are treated as successful, so a `301` or `302` can render blank even when the same URL works in Postman. Use the final destination URL, or configure the endpoint to return a `2xx` response (typically `200`) at the URL Braze calls. See [Why does Connected Content fail when my endpoint returns a redirect?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#why-does-connected-content-fail-when-my-endpoint-returns-a-redirect-301-or-302).
+- **HTTP errors and empty bodies:** For status codes outside the `2xx` range or blocked hosts, Connected Content can render an empty string. See [Making an API call]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) and review failures in the **Message Activity Log**.
 
 ## Automated emails and Message Activity Log entries {#automated-emails-and-message-activity-log-entries}
 

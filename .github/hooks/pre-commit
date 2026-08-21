@@ -16,9 +16,34 @@
 #
 # Install: run scripts/install_hooks.sh from the repo root.
 # Skip:    SKIP_A11Y=1 and/or SKIP_SPELL=1 and/or SKIP_PII=1 git commit
+#
+# Blocks commits that stage .jira.env or .phrase-tms.env (local credentials).
 # ---------------------------------------------------------------------------
 
 set -euo pipefail
+
+# ---------------------------------------------------------------------------
+# Block local credential files (never commit — see .gitignore)
+# ---------------------------------------------------------------------------
+BLOCKED_ENV_FILES=()
+while IFS= read -r f; do
+  BLOCKED_ENV_FILES+=("$f")
+done < <(
+  git diff --cached --name-only --diff-filter=ACMRT \
+    | grep -E '^\.(jira|phrase-tms)\.env$' \
+    || true
+)
+if [[ ${#BLOCKED_ENV_FILES[@]} -gt 0 ]]; then
+  echo ""
+  echo "────────────────────────────────────────────────────────"
+  echo "❌  Commit blocked: local credential files must not be committed:"
+  printf '    %s\n' "${BLOCKED_ENV_FILES[@]}"
+  echo ""
+  echo "    Copy .jira.env.example to .jira.env locally and add your token."
+  echo "    These paths are in .gitignore and must stay on your machine only."
+  echo "────────────────────────────────────────────────────────"
+  exit 1
+fi
 
 # ---------------------------------------------------------------------------
 # Accessibility checks

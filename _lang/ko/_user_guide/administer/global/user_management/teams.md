@@ -30,17 +30,17 @@ Teams는 고객 기반 위치, 언어, 커스텀 속성에 따라 설정할 수 
 
 Teams가 커스텀 속성, 언어 또는 국가로 정의된 경우, 해당 Teams를 사용하여 Campaigns, Canvases, Content Cards, Segments 등의 기능에 대해 최종 사용자를 필터링할 수 있습니다. 자세한 내용은 [Teams 태그 할당](#tags-and-filters)을 참조하세요.
 
-## Teams에 사용자 할당 {#assign-users-to-teams}
+## Teams에 사용자 할당하기 {#assign-users-to-teams}
 
 Braze 관리자 및 "회사 설정 관리 가능" 회사 수준 권한을 가진 제한된 사용자는 제한된 액세스 권한을 가진 회사 사용자에게 팀 수준 권한을 할당할 수 있습니다. 팀에 할당되면 회사 사용자는 팀이 생성될 때 정의된 사용자 언어, 위치 또는 커스텀 속성과 같이 해당 팀에서 사용할 수 있는 데이터만 읽거나 쓸 수 있도록 제한됩니다.
 
-### 사용자를 삭제하지 않고 회사 사용자 권한 제한 {#limit-company-user-permissions-without-deleting-a-user}
+### 사용자를 삭제하지 않고 회사 사용자 권한 제한하기 {#limit-company-user-permissions-without-deleting-a-user}
 
 회사 사용자의 계정을 유지하면서 로그인을 중지하려면 사용자를 삭제하는 대신 [사용자를 일시 중지]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#suspending-company-users)하세요. 일시 중지하면 계정이 비활성 상태가 되어 사용자가 로그인할 수 없습니다.
 
-사용자가 제한된 기능으로 계속 로그인할 수 있어야 하는 경우, **설정** > **회사 사용자**로 이동하여 사용자를 선택하고 권한을 편집하세요. Campaigns, Canvases, Segments 및 사용자 데이터에 대한 워크스페이스 수준 권한을 제거하고 최소한의 액세스만 남겨두세요(예: "미디어 라이브러리 에셋 보기"). 자세한 내용은 [사용자 권한 편집]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions)을 참조하세요.
+사용자가 제한된 기능으로 계속 로그인할 수 있어야 하는 경우, **설정** > **회사 사용자**로 이동하여 사용자를 선택하고 권한을 편집하세요. Campaigns, Canvases, Segments 및 사용자 데이터에 대한 워크스페이스 수준 권한을 제거하고 최소한의 액세스만 남겨두세요(예: "미디어 라이브러리 에셋 보기"). 자세한 내용은 [사용자 권한 편집하기]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions)를 참조하세요.
 
-팀 권한은 워크스페이스 권한 위에서 작동합니다. 사용자를 팀에 할당하는 경우, 필요한 최소한의 팀 수준 권한만 부여하고 Campaigns, Canvases, Segments 또는 고객 프로필에 대한 권한은 부여하지 마세요. 사용자는 워크스페이스에 남아 있고 로그인할 수 있지만, 대부분의 메시징 또는 오디언스 작업을 수행할 수 없습니다.
+팀 권한은 워크스페이스 권한 위에서 작동합니다. 사용자를 팀에 할당하는 경우, 필요한 최소한의 팀 수준 권한만 부여하고 Campaigns, Canvases, Segments 또는 고객 프로필에 대한 권한은 부여하지 마세요. 사용자는 워크스페이스에 남아 있고 로그인할 수 있지만 대부분의 메시징 또는 오디언스 작업을 수행할 수 없습니다.
 
 사용자를 팀에 할당하려면 **설정** > **회사 사용자**로 이동하여 팀에 추가할 사용자를 선택하세요.
 
@@ -92,7 +92,7 @@ Braze 관리자 및 "회사 설정 관리 가능" 회사 수준 권한을 가진
 - 미디어 라이브러리 에셋 편집
 - 미디어 라이브러리 에셋 삭제
 - 사용자 데이터 내보내기
-- 고객 프로필 보기 (PII 수정됨)
+- 고객 프로필 보기 (PII 삭제됨)
 - PII 보기
 - 대시보드 사용자 편집
 - Canvas 템플릿 편집
@@ -107,6 +107,18 @@ Braze 관리자 및 "회사 설정 관리 가능" 회사 수준 권한을 가진
 ## Teams 태그 할당 {#tags-and-filters}
 
 **팀 추가** 필터를 사용하여 Canvases, Campaigns, Content Cards, Segments, 이메일 템플릿, 웹훅 템플릿, Content Blocks 및 미디어 라이브러리 자산에 Teams를 할당할 수 있습니다.
+
+### 자동 Teams 할당 {#automatic-team-assignment}
+
+Teams 수준 권한만 가진 사용자(워크스페이스 수준 편집 권한이 없는 경우)에 대해, Braze는 오브젝트 생성 시 자동으로 Teams를 할당할 수 있습니다.
+
+| 사용자의 Teams 멤버십 | 동작 |
+| --- | --- |
+| 정확히 하나의 Teams | 사용자가 새 Campaign, Canvas, 콘텐츠 블록 또는 이메일 템플릿을 생성할 때 Braze가 해당 Teams를 자동으로 할당합니다. |
+| 둘 이상의 Teams | 사용자가 저장하기 전에 Teams를 선택해야 합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="자동 Teams 할당 동작" }
+
+Teams가 Campaign 또는 Canvas에 할당되면, 해당 Teams의 필수 세분화 필터가 오디언스 빌더에 읽기 전용 **Teams 필터** 그룹으로 표시됩니다.
 
 Canvases의 경우, Braze는 사용자가 Canvas에 진입할 때만 Teams 필터 기준과 일치하는지 확인합니다. 사용자가 Canvas에 진입한 후에는 속성이 변경되어 더 이상 Teams 필터 기준과 일치하지 않더라도 모든 캔버스 단계에서 메시지를 계속 수신합니다. Teams 필터는 각 메시지 단계 전송 시 사용자를 재평가하는 [전달 유효성 검사]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations)와는 다르게 동작합니다.
 
@@ -149,7 +161,7 @@ Michelle은 "Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, S
 
 ## Teams를 활용한 테스트 {#test-with-teams}
 
-Teams의 가능한 사용 사례 중 하나는 프로덕션 환경에서 콘텐츠를 테스트하고 출시하기 위한 Teams 기반 승인 시스템을 만드는 것입니다.
+Teams의 가능한 사용 사례 중 하나는 프로덕션 환경에서 콘텐츠를 테스트하고 실행하기 위한 Teams 기반 승인 시스템을 만드는 것입니다.
 
 이를 위해 테스트 사용자에게만 액세스할 수 있는 "Development" 팀을 만드세요. 테스트 사용자가 커스텀 속성으로 식별 가능한 경우, 팀이 테스트 사용자에게만 액세스하도록 제한할 수 있습니다. 그런 다음, 팀을 만들거나 편집할 때 해당 커스텀 속성을 정의로 추가하세요(앞의 [Teams 만들기](#creating-Teams) 섹션을 참조하세요). 승인자는 모든 사용자에 대한 액세스 권한을 가져야 합니다.
 
@@ -165,7 +177,7 @@ Teams의 가능한 사용 사례 중 하나는 프로덕션 환경에서 콘텐�
 2. Development 팀이 수정 사항을 적용하고 승인자 팀과 공유합니다.
 3. 승인자 팀이 "Development" 팀 태그를 제거하고, 이전 Campaign을 일시 중지한 후 새 Campaign을 실행합니다.
 
-## 기존 팀 보관하기 {#archive-an-existing-team}
+## 기존 팀 보관 {#archive-an-existing-team}
 
 **내부 Teams** 페이지에서 Teams를 보관할 수 있습니다.
 

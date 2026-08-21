@@ -21,6 +21,7 @@ on:
       - "_includes/**"
       - "_lang/**"
       - "scripts/review_docs_style.py"
+      - "scripts/ci/requirements.txt"
       - ".github/workflows/review-docs-style.yml"
       - ".github/skills/braze-docs/references/writing-style.md"
 
@@ -64,7 +65,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install anthropic
+        run: pip install -r scripts/ci/requirements.txt
 
       - name: Run docs style review
         env:

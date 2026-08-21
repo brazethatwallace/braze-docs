@@ -10,7 +10,7 @@ description: "GitHub에서 미러링된 Braze Unity SDK README 참조입니다."
 
 ## Braze Unity SDK 소개 {#about-the-braze-unity-sdk}
 
-Braze Unity SDK는 Braze 메시징, 분석 및 사용자 참여 기능을 애플리케이션에 통합하는 데 도움을 줍니다.
+Braze Unity SDK는 Braze 메시징, 분석, 사용자 인게이지먼트 기능을 애플리케이션에 통합하는 데 도움을 줍니다.
 
 시작하려면 다음 리소스를 참조하세요:
 
@@ -26,18 +26,18 @@ Unity 스크립트에서 Braze를 사용하려면 먼저 플러그인 파일을 
 **수동 플러그인 설정:** 또는 플러그인을 Unity 프로젝트에 직접 복사할 수 있습니다:
   1. 먼저 이 리포지토리를 복제합니다.
   2. 다른 플러그인을 사용하지 않는 경우, 이 리포지토리의 `Plugins` 디렉토리를 Unity 프로젝트의 `Assets` 폴더에 복사하기만 하면 됩니다.
-  3. 이미 `/<your-project>/Assets/Plugins` 디렉토리가 있는 경우(다른 플러그인을 이미 사용 중이기 때문일 수 있음), `Plugins/Appboy/AppboyBinding.cs`를 `/<your-project>/Assets/Plugins`에 복사합니다. 그런 다음 이 리포지토리의 `Plugins/iOS` 및 `Plugins/Android` 내용을 각각 `/<your-project>/Assets/Plugins/iOS` 및 `/<your-project>/Assets/Plugins/Android`에 복사합니다.
+  3. 이미 `/<your-project>/Assets/Plugins` 디렉토리가 있는 경우(다른 플러그인을 이미 사용 중일 수 있음), `Plugins/Appboy/AppboyBinding.cs`를 `/<your-project>/Assets/Plugins`에 복사합니다. 그런 다음 이 리포지토리의 `Plugins/iOS` 및 `Plugins/Android` 내용을 각각 `/<your-project>/Assets/Plugins/iOS` 및 `/<your-project>/Assets/Plugins/Android`에 복사합니다.
 
 ## 통합 설정 {#integration-setup}
 
-Braze를 Unity 애플리케이션에 통합하려면 [Braze Unity SDK 통합][2] 안내를 완료하세요.
+Braze를 Unity 애플리케이션에 통합하려면 [Braze Unity SDK 통합하기][2]의 안내를 따르세요.
 
 [1]: https://github.com/braze-inc/braze-unity-sdk/releases
 [2]: https://www.braze.com/docs/developer_guide/sdk_integration?sdktab=unity
 
-## 연락처 {#contact}
+## 문의 {#contact}
 
-질문이 있으시면 [support@braze.com](mailto:support@braze.com)으로 문의해 주세요.
+질문이 있으시면 Braze 기술 지원팀에 문의하세요.
 <!-- END GENERATED README CONTENT -->
 
 리포지토리 세부 정보 및 샘플 프로젝트는 [https://github.com/braze-inc/braze-unity-sdk](https://github.com/braze-inc/braze-unity-sdk)를 참조하세요.

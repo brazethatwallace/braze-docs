@@ -117,6 +117,14 @@ AppboyBinding.SetCustomUserAttribute("custom float attribute key", 'float value'
 
 {% endtab %}
 
+{% tab Double %}
+
+```csharp
+AppboyBinding.SetCustomUserAttribute("custom double attribute key", 'double value');
+```
+
+{% endtab %}
+
 {% tab Boolean %}
 
 ```csharp
@@ -135,7 +143,7 @@ AppboyBinding.SetCustomUserAttributeToSecondsFromEpoch("custom date attribute ke
 ```
 
 {% alert note %}
-Datumsangaben, die an Braze übergeben werden, müssen entweder im [ISO-8601](http://en.wikipedia.org/wiki/ISO_8601)-Format (z. B. `2013-07-16T19:20:30+01:00`) oder im Format `yyyy-MM-dd'T'HH:mm:ss:SSSZ` (z. B. `2016-12-14T13:32:31.601-0800`) vorliegen.
+An Braze übergebene Datumsangaben müssen entweder im [ISO-8601](http://en.wikipedia.org/wiki/ISO_8601)-Format (z. B. `2013-07-16T19:20:30+01:00`) oder im Format `yyyy-MM-dd'T'HH:mm:ss:SSSZ` (z. B. `2016-12-14T13:32:31.601-0800`) vorliegen.
 {% endalert %}
 
 {% endtab %}
@@ -190,7 +198,7 @@ AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 
 ### Verwendung der REST API {#using-the-rest-api}
 
-Sie können auch unsere REST API verwenden, um Nutzerattribute zu setzen oder zurückzusetzen. Weitere Informationen finden Sie unter [Nutzerdaten-Endpunkte]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+Sie können auch unsere REST API verwenden, um Nutzerattribute festzulegen oder zurückzusetzen. Weitere Informationen finden Sie unter [Nutzerdaten-Endpunkte]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
 ## Nutzer:innen-Abos festlegen {#setting-user-subscriptions}
 

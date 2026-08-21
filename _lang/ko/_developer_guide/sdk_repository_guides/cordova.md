@@ -25,7 +25,7 @@ Braze Cordova SDK는 Braze 메시징, 분석 및 사용자 인게이지먼트 �
 | 2.31.0+      | >= 12.0.0       | >= 5.0.0    |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="최소 버전 요구 사항" }
 
-이 SDK는 기본 Braze 네이티브 SDK의 요구 사항도 상속합니다. 아래 목록도 반드시 준수해 주세요:
+이 SDK는 기본 Braze 네이티브 SDK의 요구 사항도 상속합니다. 다음 목록도 반드시 준수하세요:
 * [Android SDK 요구 사항](https://github.com/braze-inc/braze-android-sdk?tab=readme-ov-file#version-information)
 * [SWIFT SDK 요구 사항](https://github.com/braze-inc/braze-swift-sdk?tab=readme-ov-file#version-information)
 

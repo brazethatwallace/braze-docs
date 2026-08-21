@@ -1285,7 +1285,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Argentina Marketing - BYO</td>
+        <td>Argentina Marketing - BYO or Meta Direct</td>
         <td>0.62</td>
     </tr>
     <tr>
@@ -1310,7 +1310,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Brazil Marketing - BYO</td>
+        <td>Brazil Marketing - BYO or Meta Direct</td>
         <td>0.63</td>
     </tr>
     <tr>
@@ -1335,7 +1335,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Chile Marketing - BYO</td>
+        <td>Chile Marketing - BYO or Meta Direct</td>
         <td>0.89</td>
     </tr>
     <tr>
@@ -1360,7 +1360,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Colombia Marketing - BYO</td>
+        <td>Colombia Marketing - BYO or Meta Direct</td>
         <td>0.13</td>
     </tr>
     <tr>
@@ -1390,7 +1390,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Egypt Marketing - BYO</td>
+        <td>Egypt Marketing - BYO or Meta Direct</td>
         <td>0.64</td>
     </tr>
     <tr>
@@ -1415,7 +1415,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>France Marketing - BYO</td>
+        <td>France Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1440,7 +1440,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Germany Marketing - BYO</td>
+        <td>Germany Marketing - BYO or Meta Direct</td>
         <td>1.37</td>
     </tr>
     <tr>
@@ -1470,7 +1470,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>India Marketing - BYO</td>
+        <td>India Marketing - BYO or Meta Direct</td>
         <td>0.12</td>
     </tr>
     <tr>
@@ -1500,7 +1500,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Indonesia Marketing - BYO</td>
+        <td>Indonesia Marketing - BYO or Meta Direct</td>
         <td>0.41</td>
     </tr>
     <tr>
@@ -1525,7 +1525,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Israel Marketing - BYO</td>
+        <td>Israel Marketing - BYO or Meta Direct</td>
         <td>0.35</td>
     </tr>
     <tr>
@@ -1550,7 +1550,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Italy Marketing - BYO</td>
+        <td>Italy Marketing - BYO or Meta Direct</td>
         <td>0.69</td>
     </tr>
     <tr>
@@ -1580,7 +1580,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Malaysia Marketing - BYO</td>
+        <td>Malaysia Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1605,7 +1605,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Mexico Marketing - BYO</td>
+        <td>Mexico Marketing - BYO or Meta Direct</td>
         <td>0.31</td>
     </tr>
     <tr>
@@ -1630,7 +1630,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Netherlands Marketing - BYO</td>
+        <td>Netherlands Marketing - BYO or Meta Direct</td>
         <td>1.60</td>
     </tr>
     <tr>
@@ -1660,7 +1660,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Nigeria Marketing - BYO</td>
+        <td>Nigeria Marketing - BYO or Meta Direct</td>
         <td>0.52</td>
     </tr>
     <tr>
@@ -1685,7 +1685,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>North America Marketing - BYO</td>
+        <td>North America Marketing - BYO or Meta Direct</td>
         <td>0.25</td>
     </tr>
     <tr>
@@ -1710,7 +1710,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Other Marketing - BYO</td>
+        <td>Other Marketing - BYO or Meta Direct</td>
         <td>0.60</td>
     </tr>
     <tr>
@@ -1740,7 +1740,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Pakistan Marketing - BYO</td>
+        <td>Pakistan Marketing - BYO or Meta Direct</td>
         <td>0.47</td>
     </tr>
     <tr>
@@ -1765,7 +1765,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Peru Marketing - BYO</td>
+        <td>Peru Marketing - BYO or Meta Direct</td>
         <td>0.70</td>
     </tr>
     <tr>
@@ -1790,7 +1790,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Africa Marketing - BYO</td>
+        <td>Rest of Africa Marketing - BYO or Meta Direct</td>
         <td>0.23</td>
     </tr>
     <tr>
@@ -1815,7 +1815,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Asia Pacific Marketing - BYO</td>
+        <td>Rest of Asia Pacific Marketing - BYO or Meta Direct</td>
         <td>0.73</td>
     </tr>
     <tr>
@@ -1840,7 +1840,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Central & Eastern Europe Marketing - BYO</td>
+        <td>Rest of Central & Eastern Europe Marketing - BYO or Meta Direct</td>
         <td>0.86</td>
     </tr>
     <tr>
@@ -1865,7 +1865,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Latin America Marketing - BYO</td>
+        <td>Rest of Latin America Marketing - BYO or Meta Direct</td>
         <td>0.74</td>
     </tr>
     <tr>
@@ -1880,7 +1880,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Message Types - BYO</td>
+        <td>Rest of Message Types - BYO or Meta Direct</td>
         <td>0.10</td>
     </tr>
     <tr>
@@ -1895,7 +1895,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Middle East Marketing - BYO</td>
+        <td>Rest of Middle East Marketing - BYO or Meta Direct</td>
         <td>0.34</td>
     </tr>
     <tr>
@@ -1920,7 +1920,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Rest of Western Europe Marketing - BYO</td>
+        <td>Rest of Western Europe Marketing - BYO or Meta Direct</td>
         <td>0.59</td>
     </tr>
     <tr>
@@ -1945,7 +1945,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Russia Marketing - BYO</td>
+        <td>Russia Marketing - BYO or Meta Direct</td>
         <td>0.80</td>
     </tr>
     <tr>
@@ -1975,7 +1975,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Saudi Arabia Marketing - BYO</td>
+        <td>Saudi Arabia Marketing - BYO or Meta Direct</td>
         <td>0.46</td>
     </tr>
     <tr>
@@ -2005,7 +2005,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>South Africa Marketing - BYO</td>
+        <td>South Africa Marketing - BYO or Meta Direct</td>
         <td>0.38</td>
     </tr>
     <tr>
@@ -2030,7 +2030,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Spain Marketing - BYO</td>
+        <td>Spain Marketing - BYO or Meta Direct</td>
         <td>0.62</td>
     </tr>
     <tr>
@@ -2055,7 +2055,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>Turkey Marketing - BYO</td>
+        <td>Turkey Marketing - BYO or Meta Direct</td>
         <td>0.11</td>
     </tr>
     <tr>
@@ -2085,7 +2085,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Arab Emirates Marketing - BYO</td>
+        <td>United Arab Emirates Marketing - BYO or Meta Direct</td>
         <td>0.50</td>
     </tr>
     <tr>
@@ -2110,7 +2110,7 @@ Column definitions are as follows:
     </tr>
     <tr>
         <td>WhatsApp</td>
-        <td>United Kingdom Marketing - BYO</td>
+        <td>United Kingdom Marketing - BYO or Meta Direct</td>
         <td>0.53</td>
     </tr>
     <tr>
@@ -2300,6 +2300,8 @@ RCS is the next generation of SMS and MMS. It offers the benefits of a direct, h
 ### Webhooks
 
 Webhooks were made part of Message Credits on Dec, 9, 2024. Braze will charge Message Credits for any webhooks sent from the Braze platform. By default, your contract includes one hundred thousand webhooks per each Period of your Subscription Term. Additional webhooks will be charged as per your Order Form.
+
+{% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Message Credits' %}
 
 ### Bring your own (BYO) SMS connectors
 

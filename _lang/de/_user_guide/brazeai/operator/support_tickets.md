@@ -11,14 +11,16 @@ description: "Erfahren Sie, wie Sie Support-Tickets direkt über BrazeAI Operato
 
 ## So reichen Sie ein Ticket ein {#how-to-file-a-ticket}
 
-1. Stellen Sie dem Operator eine Frage und wählen Sie dann <i class="fa-regular fa-circle-question"></i> **Contact Support** aus (oder bitten Sie den Operator, eines einzureichen).
+1. Stellen Sie Operator eine Frage und wählen Sie dann <i class="fa-regular fa-circle-question"></i> **Supportticket einreichen** aus (oder bitten Sie Operator, eines einzureichen).
 2. Geben Sie den Titel und die Beschreibung des Problems ein.
-3. Überprüfen Sie die vorgeschlagenen Anhänge und den beizufügenden Kontext.
-4. Überprüfen Sie alles und wählen Sie **Submit** aus.
+3. Überprüfen Sie die vorgeschlagenen Anhänge und den einzubeziehenden Kontext.
+4. Überprüfen Sie alles und wählen Sie **Absenden** aus.
+
+Das Einreichen eines Tickets über Operator wird auf das unternehmensweite tägliche Nutzungslimit angerechnet und verbraucht weniger als das Erstellen oder Bearbeiten von Objekten wie Campaigns und Segmente. Wenn das Limit bereits erreicht ist, leitet Operator Sie weiterhin zu **Supportticket einreichen** über das Webformular weiter. Weitere Informationen finden Sie unter [Einschränkungen]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#limitations).
 
 ## Automatisch enthaltener Kontext {#auto-included-context}
 
-Wenn Sie ein Ticket über den Operator einreichen, wird der folgende Kontext automatisch beigefügt:
+Wenn Sie ein Ticket über den Operator erstellen, wird der folgende Kontext automatisch einbezogen:
 
 - Letzte Nachrichten aus der Operator-Chat-Sitzung
 - Seitenkontext der aktiven Seite, als der Operator geöffnet wurde
@@ -29,6 +31,6 @@ Sie können manuell zusätzlichen Kontext über das Textfeld hinzufügen oder Da
 
 ## Tipps für eine schnellere Lösung {#tips-for-faster-resolution}
 
-- Fügen Sie eine detaillierte Beschreibung der Schritte zur Reproduktion des Problems hinzu.
+- Fügen Sie eine detaillierte Beschreibung der Schritte hinzu, um das Problem zu reproduzieren.
 - Geben Sie relevante Fehlermeldungen oder unerwartetes Verhalten an.
-- Überprüfen Sie die automatisch vorgeschlagenen Anhänge vor dem Absenden.
+- Überprüfen Sie die automatisch vorgeschlagenen Anhänge, bevor Sie das Formular absenden.

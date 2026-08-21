@@ -168,8 +168,8 @@ The following default attributes are available for user import.
 | `home_city` | String | The home city of your users as they have indicated (for example, `London`). | No |
 | `language` | String | Language must be passed to Braze in the ISO-639-1 standard (for example, `en`). Refer to our [list of accepted languages]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). | No |
 | `phone` | String | A telephone number as indicated by your users, in `E.164` format (for example, `+442071838750`). Refer to [User Phone Numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers) for formatting guidance. | No |
-| `email_open_tracking_disabled` | Boolean | true or false accepted. Set to true to disable the open tracking pixel from being added to all future emails sent to this user. Available for SparkPost and SendGrid only. | No |
-| `email_click_tracking_disabled` | Boolean | true or false accepted. Set to true to disable the click tracking for all links within a future email, sent to this user. Available for SparkPost and SendGrid only. | No |
+| `email_open_tracking_disabled` | Boolean | true or false accepted. Set to true to disable the open tracking pixel from being added to all future emails sent to this user. | No |
+| `email_click_tracking_disabled` | Boolean | true or false accepted. Set to true to disable the click tracking for all links within a future email, sent to this user. | No |
 | `email_subscribe` | String | Available values are `opted_in` (explicitly registered to receive email messages), `unsubscribed` (explicitly opted out of email messages), and `subscribed` (neither opted in nor out). | No |
 | `push_subscribe` | String | Available values are `opted_in` (explicitly registered to receive push messages), `unsubscribed` (explicitly opted out of push messages), and `subscribed` (neither opted in nor out). | No |
 | `time_zone` | String | Time zone must be passed to Braze in the same format as the IANA Time Zone Database (for example, `America/New_York` or `Eastern Time (US & Canada)`). | No |

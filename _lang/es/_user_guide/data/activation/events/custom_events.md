@@ -54,10 +54,10 @@ Puedes añadir etiquetas a un evento personalizado después de crearlo si tienes
 Para exportar la lista de eventos personalizados como un archivo CSV, selecciona **Exportar todo** en la parte superior de la página. Se genera el archivo CSV y se te envía un enlace de descarga por correo electrónico.
 
 {% alert note %}
-No existe un límite fijo en el panel sobre cuántos **eventos personalizados** o **atributos personalizados** distintos puedes definir o almacenar en un perfil; los límites prácticos dependen de la forma de los datos, el volumen de ingesta y el rendimiento del espacio de trabajo. Si planeas hacer seguimiento de un catálogo muy grande de eventos o atributos, trabaja con tu equipo de cuentas de Braze en el modelado y la higiene de datos (por ejemplo, [bloquear]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data) datos no utilizados).
+No existe un límite fijo en el panel sobre cuántos **eventos personalizados** o **atributos personalizados** distintos puedes definir o almacenar en un perfil; los límites prácticos dependen de la forma de los datos, el volumen de ingesta y el rendimiento del espacio de trabajo. Si planeas hacer seguimiento de un catálogo muy grande de eventos o atributos, trabaja con tu equipo de cuenta de Braze en el modelado y la higiene de datos (por ejemplo, [bloquear]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data) datos no utilizados).
 {% endalert %}
 
-## Visualización de informes de uso {#viewing-usage-reports}
+## Ver informes de uso {#viewing-usage-reports}
 
 El informe de uso enumera todos los Canvas, Campaigns y Segments que utilizan un evento personalizado específico. Esta lista no incluye los usos de Liquid.
 
@@ -85,10 +85,6 @@ Todos los datos almacenados en el **perfil de usuario**, incluidos los metadatos
 
 ## Ver el historial de eventos de un usuario {#view-a-users-event-history}
 
-{% alert important %}
-El historial de eventos se encuentra actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas de Braze si te interesa participar.
-{% endalert %}
-
 Usa la pestaña **Historial de eventos** en el perfil de un usuario para ver sus eventos personalizados y compras recientes. Esto te ayuda a confirmar que tu integración está registrando eventos correctamente y a solucionar problemas a nivel de usuario directamente en el panel.
 
 Para ver el historial de eventos de un usuario:
@@ -96,23 +92,23 @@ Para ver el historial de eventos de un usuario:
 1. Ve a **Audiencia** > **Buscar usuarios** y selecciona un usuario para abrir su perfil.
 2. Selecciona la pestaña **Historial de eventos**.
 
-La pestaña muestra los eventos personalizados y las compras del usuario de los últimos 30 días, hasta sus 100 eventos más recientes, ordenados del más reciente al más antiguo.
+La pestaña muestra los eventos personalizados y las compras del usuario de los últimos 30 días, hasta sus 100 eventos más recientes, ordenados del más nuevo al más antiguo.
 
 Cada evento incluye:
 
-- **Tipo de evento:** si el evento es un evento personalizado o una compra.
-- **Nombre del evento:** el nombre del evento tal como fue registrado.
-- **Hora:** cuándo ocurrió el evento.
-- **Propiedades:** las propiedades completas del evento para esa ocurrencia, mostradas como JSON.
+- **Tipo de evento:** Si el evento es un evento personalizado o una compra.
+- **Nombre del evento:** El nombre del evento tal como fue registrado.
+- **Hora:** Cuándo ocurrió el evento.
+- **Propiedades:** Las propiedades completas del evento para esa ocurrencia, mostradas como JSON.
 
-Los casos de uso más comunes incluyen:
+Los casos de uso comunes incluyen:
 
 - Verificar que tu integración del SDK o la API está enviando eventos como se espera durante el desarrollo o después de un lanzamiento.
 - Solucionar problemas sobre por qué un usuario entró o no entró en una Campaign o Canvas desencadenados por eventos.
 - Investigar un problema de soporte para un usuario específico sin necesidad de configurar una exportación de datos.
 
 {% alert note %}
-Ver la pestaña **Historial de eventos** requiere los permisos de usuario **Buscar usuarios**, **Ver PII** y **Ver propiedades de eventos de usuario**, ya que las propiedades de eventos pueden contener datos personales. Para más información, consulta [Permisos de usuario de la empresa]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Ver la pestaña **Historial de eventos** requiere los permisos de usuario **Buscar usuarios**, **Ver PII** y **Ver propiedades de eventos de usuario**, ya que las propiedades del evento pueden contener datos personales. Para más información, consulta [Permisos de usuario de la empresa]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
 ## Filtros de segmentación {#segmentation-filters}
@@ -135,18 +131,18 @@ La siguiente tabla muestra los filtros disponibles para segmentar usuarios por e
 
 ## Análisis {#analytics}
 
-Braze registra el número de veces que se han producido eventos personalizados y la última vez que cada usuario los realizó para la segmentación. Consulta estos análisis en **Analytics** > **Custom Events Report**.
+Braze registra el número de veces que se han producido eventos personalizados y la última vez que cada usuario los realizó para la segmentación. Para la configuración de informes, filtros y opciones de exportación, consulta [Informe de eventos personalizados]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report).
 
-En la página **Custom Events Report** del panel, puedes ver de forma agregada con qué frecuencia se produce cada evento personalizado. Las líneas grises superpuestas en la serie temporal indican la última vez que se envió una Campaign, lo cual es útil para ver cómo tus Campaigns afectaron a la actividad de eventos personalizados.
+En la página **Custom Events Report**, puedes ver de forma agregada con qué frecuencia se produce cada evento personalizado. Las líneas grises superpuestas en la serie temporal indican la última vez que se envió una Campaign, lo cual es útil para ver cómo tus Campaigns afectaron la actividad de eventos personalizados.
 
-![Gráfico de recuento de eventos personalizados en la página Custom Events del panel que muestra tendencias de un evento personalizado]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
+![Gráfico de recuento de eventos personalizados en la página Custom Events del panel que muestra tendencias para un evento personalizado]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-También puedes usar **Filters** para desglosar tus eventos personalizados por hora, usuarios activos mensuales (MAU), Segments o fórmulas de KPI.
+También puedes usar **Filters** para desglosar tus eventos personalizados por hora, usuarios activos mensuales promedio (MAU), Segments o fórmulas de KPI.
 
 ![Filtros del gráfico de eventos personalizados]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[Incrementa atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) para mantener un contador de una acción de usuario similar a un evento personalizado. Sin embargo, no puedes ver datos de atributos personalizados en una serie temporal. Las acciones de usuario que no necesitan analizarse en una serie temporal deben registrarse con este método.
+[Incrementa los atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) para mantener un contador de una acción del usuario similar a un evento personalizado. Sin embargo, no puedes ver los datos de atributos personalizados en una serie temporal. Las acciones de usuario que no necesitan analizarse en una serie temporal deben registrarse con este método.
 {% endalert %}
 
 ### Por qué no se muestran los análisis de eventos personalizados {#why-custom-events-analytics-arent-showing}

@@ -93,7 +93,7 @@ Para deep linking, a Braze abrirá sua URL independentemente do valor de `abExte
 
 Para que a Braze trate seu link HTTP ou HTTPS como um deep link, defina `?abDeepLink=true`.
 
-Quando esse parâmetro de consulta está ausente ou definido como `false`, a Braze tentará abrir o link web em um navegador web interno dentro do app host.
+Quando esse parâmetro de string de consulta está ausente ou definido como `false`, a Braze tentará abrir o link web em um navegador web interno dentro do app host.
 
 ### Fechar mensagem no app {#close-in-app-message}
 
@@ -105,9 +105,9 @@ Por exemplo, `<a onclick="brazeBridge.closeMessage()" href="#">Fechar</a>` fecha
 
 Ao criar mensagens no app com HTML personalizado, você pode visualizar seu conteúdo interativo diretamente na Braze.
 
-O painel de prévia de mensagem do editor mostra uma prévia realista que renderiza o JavaScript incluído na sua mensagem. Você pode visualizar e interagir com suas mensagens personalizadas no painel de prévia clicando na paginação, enviando formulários ou pesquisas, assistindo animações JavaScript e muito mais!
+O painel de prévia de mensagens do editor mostra uma prévia realista que renderiza o JavaScript incluído na sua mensagem. Você pode visualizar e interagir com suas mensagens personalizadas no painel de prévia clicando na paginação, enviando formulários ou pesquisas, assistindo a animações JavaScript e muito mais!
 
-![Interagindo com a prévia de HTML ao deslizar entre páginas.]({% image_buster /assets/img/iam-beta-javascript-preview.gif %})
+![Interagindo com a prévia de HTML ao deslizar entre as páginas.]({% image_buster /assets/img/iam-beta-javascript-preview.gif %})
 
 {% alert tip %}
 Quaisquer métodos JavaScript `brazeBridge` que você usar no seu HTML não atualizarão perfis de usuário durante a prévia no dashboard.
@@ -121,8 +121,8 @@ Ao criar mensagens no app com código personalizado usando upload de HTML, você
 
 Os seguintes tipos de arquivo são compatíveis para upload:
 
-| Tipo de arquivo        | Extensão do arquivo               |
-| :--------------------- | :-------------------------------- |
+| Tipo de arquivo       | Extensão do arquivo               |
+| :-------------------- | :-------------------------------- |
 | Arquivos de fonte      | `.ttf`, `.woff`, `.otf`, `.woff2` |
 | Imagens SVG            | `.svg`                            |
 | Arquivos JavaScript    | `.js`                             |
@@ -131,24 +131,24 @@ Os seguintes tipos de arquivo são compatíveis para upload:
 
 A Braze recomenda fazer upload de ativos para a biblioteca de mídia por dois motivos:
 
-1. Ativos adicionados a uma campaign pela biblioteca de mídia permitem que suas mensagens sejam exibidas mesmo quando o usuário está offline ou com uma conexão de internet ruim.
-2. Ativos enviados para a Braze podem ser reutilizados em diferentes Campaigns.
+1. Ativos adicionados a uma campaign pela biblioteca de mídia permitem que suas mensagens sejam exibidas mesmo quando o usuário estiver offline ou com uma conexão de internet ruim.
+2. Ativos enviados para a Braze podem ser reutilizados em diferentes campaigns.
 
 ##### Adicionando arquivos de ativos {#adding-asset-files}
 
 Você pode adicionar ativos novos ou existentes à sua campaign.
 
-Para adicionar novos ativos à sua campaign, use a seção de arrastar e soltar para fazer upload de um arquivo. Ativos adicionados nesta seção também serão automaticamente adicionados à biblioteca de mídia. Para adicionar ativos que você já enviou para a biblioteca de mídia, selecione **Adicionar da biblioteca de mídia**.
+Para adicionar novos ativos à sua campaign, use a seção de arrastar e soltar para fazer upload de um arquivo. Ativos adicionados nesta seção também serão automaticamente adicionados à biblioteca de mídia. Para adicionar ativos que você já enviou para a biblioteca de mídia, selecione **Adicionar da Biblioteca de Mídia**.
 
-Depois que seus ativos forem adicionados, eles aparecerão na seção **Ativos para esta campaign**.
+Após seus ativos serem adicionados, eles aparecerão na seção **Ativos para esta campaign**.
 
 Se o nome de um arquivo de ativo corresponder ao de um ativo HTML local, ele será substituído automaticamente (por exemplo, `cat.png` é enviado e `<img src="cat.png" />` existe).
 
-Caso contrário, passe o cursor sobre um ativo da lista e selecione <i class="fas fa-copy"></i> **Copiar** para copiar a URL do arquivo para a área de transferência. Em seguida, cole a URL do ativo copiado no seu HTML como você faria normalmente ao referenciar um ativo remoto.
+Caso contrário, passe o mouse sobre um ativo da lista e selecione <i class="fas fa-copy"></i> **Copiar** para copiar a URL do arquivo para a área de transferência. Em seguida, cole a URL do ativo copiado no seu HTML como faria normalmente ao referenciar um ativo remoto.
 
 ### Editor de HTML {#html-editor}
 
-As alterações que você faz no HTML são renderizadas automaticamente no painel de prévia conforme você digita. Quaisquer métodos JavaScript [`brazeBridge`](#bridge) que você usar no seu HTML não atualizarão perfis de usuário durante a prévia no dashboard.
+As alterações que você fizer no HTML são renderizadas automaticamente no painel de prévia conforme você digita. Quaisquer métodos JavaScript [`brazeBridge`](#bridge) que você usar no seu HTML não atualizarão perfis de usuário durante a prévia no dashboard.
 
 {% alert tip %}
 Você pode selecionar <i class="fa-solid fa-magnifying-glass" aria-label="Pesquisar"></i> **Pesquisar** no editor de HTML para buscar dentro do seu código!
@@ -163,8 +163,8 @@ Você pode rastrear o desempenho dentro da sua mensagem no app com código perso
 | Botão 1    | `brazeBridge.logClick('0')` |
 | Botão 2    | `brazeBridge.logClick('1')` |
 | Clique no corpo | `brazeBridge.logClick()`    |
-| Rastreamento de botão personalizado | `brazeBridge.logClick('your custom name here')` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Rastreamento de botões" }
+| Rastreamento de botão personalizado |`brazeBridge.logClick('your custom name here')`|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rastreamento de botões #button-tracking-improvements" }
 
 {% alert note %}
 Este método de rastreamento de botões substitui os métodos anteriores de rastreamento automático de cliques (como `?abButtonId=0`), que foram removidos.
@@ -174,13 +174,26 @@ Use [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) para mens
 
 ### Solução de problemas com links HTML personalizados e comportamento de fechamento {#troubleshoot-custom-html-links-and-close-behavior}
 
-#### Cliques no botão não abrem o link {#button-clicks-do-not-open-the-link}
+#### Cliques em botões não abrem o link {#button-clicks-do-not-open-the-link}
 
 Se um botão na sua mensagem no app com HTML personalizado não carregar ao ser clicado, verifique se o link usa uma URL válida ou um esquema de deep link compatível. URLs malformadas ou esquemas personalizados não compatíveis podem impedir que a ação de clique seja concluída.
 
 #### Cliques no corpo ao fechar a mensagem {#body-clicks-when-closing-the-message}
 
-Chamar `brazeBridge.closeMessage()` fecha a mensagem, mas não registra dados de análise por conta própria. Para registrar um clique no corpo quando o usuário fecha a mensagem, chame `brazeBridge.logClick()` antes de `brazeBridge.closeMessage()` para que o registro de cliques permaneça consistente entre plataformas.
+Chamar `brazeBridge.closeMessage()` fecha a mensagem, mas não registra análise de dados por conta própria. Para registrar um clique no corpo quando o usuário fecha a mensagem, chame `brazeBridge.logClick()` antes de `brazeBridge.closeMessage()` para que o registro de cliques permaneça consistente entre as plataformas.
+
+#### HTML personalizado não renderiza no Android (arquivos zip do Windows) {#custom-html-not-rendering-on-android-windows-zip-files}
+
+Se sua mensagem no app com HTML personalizado renderiza na prévia, mas não é exibida em dispositivos Android, verifique como seus arquivos HTML e de ativos foram empacotados. Alguns utilitários de zip do Windows adicionam entradas de diretório (caminhos de pastas) dentro do arquivo em vez de colocar os arquivos no nível raiz.
+
+O Android pode falhar ao carregar ativos referenciados com caminhos relativos quando o zip inclui entradas de diretório aninhadas. Para corrigir isso:
+
+1. Extraia seus arquivos HTML, CSS, JavaScript e de imagem para uma única pasta.
+2. Selecione todos os arquivos (não a pasta pai) ao criar o arquivo zip.
+3. Confirme que os caminhos no seu HTML referenciam arquivos na raiz do zip (por exemplo, `style.css`, não `assets/style.css`), ou ajuste os caminhos para corresponder à estrutura simplificada.
+4. Faça o upload do zip novamente e envie uma mensagem de teste para um dispositivo Android.
+
+Alternativamente, faça upload dos ativos pela [biblioteca de mídia](#asset-files) em vez de empacotá-los em um arquivo zip.
 
 ### Alterações incompatíveis com versões anteriores {#backward-incompatible-changes}
 
@@ -193,4 +206,4 @@ Chamar `brazeBridge.closeMessage()` fecha a mensagem, mas não registra dados de
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Alterações incompatíveis com versões anteriores" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Alterações incompatíveis com versões anteriores #backward-incompatible-changes" }

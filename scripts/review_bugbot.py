@@ -221,7 +221,6 @@ def evaluate_comments(client, comment_contexts):
     response = client.messages.create(
         model=REVIEW_MODEL,
         max_tokens=4096,
-        temperature=0,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_prompt}],
     )

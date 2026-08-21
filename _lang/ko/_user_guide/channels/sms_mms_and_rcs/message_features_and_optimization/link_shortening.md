@@ -125,7 +125,7 @@ Liquid 개인화 및 단축 URL은 사용자가 선택된 후 **테스트** 탭�
 
 ## 클릭 추적 {#click-tracking}
 
-링크 단축이 활성화되면 **SMS/MMS/RCS 성능** 테이블에 배리언트별 클릭 이벤트 수와 관련 클릭률을 보여주는 **총 클릭 수** 열이 포함됩니다. 측정기준에 대한 자세한 내용은 [메시지 성능]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting)을 참조하세요.
+링크 단축이 활성화되면 **SMS/MMS/RCS 성능** 테이블에 배리언트별 클릭 이벤트 수와 관련 클릭률을 보여주는 **총 클릭 수** 열이 포함됩니다. **총 클릭 수**는 대시보드 수치에서 봇 클릭 의심 건을 제외합니다. 측정기준에 대한 자세한 내용은 [메시지 성능]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting) 및 [봇 클릭 필터링]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering)을 참조하세요.
 
 ![SMS 및 MMS 성능 측정기준 테이블.]({% image_buster /assets/img/link_shortening/shortening4.png %})
 

@@ -11,10 +11,12 @@ description: "Learn how to file support tickets directly from BrazeAI Operator w
 
 ## How to file a ticket
 
-1. Ask Operator a question, then select <i class="fa-regular fa-circle-question"></i> **Contact Support** (or ask Operator to file one).
+1. Ask Operator a question, then select <i class="fa-regular fa-circle-question"></i> **File a support ticket** (or ask Operator to file one).
 2. Fill in the title and description of the issue.
 3. Review the suggested attachments and context to include.
 4. Review and select **Submit**.
+
+Filing a ticket through Operator counts toward the company-wide daily usage limit, and is lighter usage than creating or editing objects such as campaigns and segments. If the limit is already reached, Operator still directs you to **File a support ticket** through the web form. For more information, see [Limitations]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#limitations).
 
 ## Auto-included context
 

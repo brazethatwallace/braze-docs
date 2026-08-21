@@ -27,7 +27,7 @@ Die Braze-Integration mit Shopify bietet eine leistungsstarke Lösung für E-Com
 | ----------- | ----------- |
 | Currents | Um Daten nach Shopify zu exportieren, muss [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) für Ihr Konto eingerichtet sein. |
 | Shopify-Shop | Stellen Sie sicher, dass Sie bereits [mindestens einen Shopify-Shop mit Braze eingerichtet]({{site.baseurl}}/shopify_standard_integration) haben. |
-| Berechtigungen als Shopify-Shop-Inhaber:in oder Mitarbeiter:in | {::nomarkdown}<ul><li>Zugriff auf alle Einstellungen unter <b>General</b> und <b>Online Store</b>.</li><li> Zusätzliche Administratorberechtigungen:</li><ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></ul>{:/} |
+| Berechtigungen als Shopify-Shop-Inhaber:in oder Mitarbeiter:in | {::nomarkdown}<ul><li>Zugriff auf alle Einstellungen unter <b>General</b> und <b>Online Store</b>.</li><li> Zusätzliche Administratorberechtigungen:</li><ul><li>Bestellungen: Anzeigen</li><li>Kund:in: Lesen/Schreiben</li><li>Kundenereignisse anzeigen (Web Pixels)</li><li>Einstellungen verwalten</li><li>Von Mitarbeiter:innen/Mitarbeitenden entwickelte Apps anzeigen</li><li>Apps und Kanäle verwalten/installieren</li><li>Angepasste Pixels verwalten/hinzufügen</li></ul></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integration
@@ -50,9 +50,13 @@ Falls noch nicht geschehen, folgen Sie den Schritten zur [Shopify-Standardintegr
 
 Zusätzlich zu Ereignisdaten kann die Shopify-Integration Nutzerprofil-Aktualisierungen von Braze mit Ihrem Shopify-Shop synchronisieren. Wenn das Profil einer Nutzerin oder eines Nutzers in Braze aktualisiert wird, erstellt oder aktualisiert Currents den entsprechenden Kunden in Ihrem Shop.
 
+{% alert note %}
+Die Nutzerprofil-Synchronisierung wird bei [Test-Currents-Konnektoren]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#testing-currents-connectors) nicht unterstützt. Andere Ereignis-Exporte sind davon nicht betroffen. Um Nutzerprofile zu synchronisieren, verwenden Sie einen [Standard-Shopify-Currents-Konnektor](#step-2-create-braze-current).
+{% endalert %}
+
 ### Nutzer:innen-Zuordnung {#user-matching}
 
-Braze ordnet Shopify-Kunden anhand der Braze `user_id` als Shopify-[Custom Identifier](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerSet) (`customId`) mit dem Namespace `braze` und dem Schlüssel `user_id` zu. Wenn in Ihrem Shop kein Kunde mit diesem Bezeichner existiert, wird ein neuer Kunde erstellt. Anonyme Nutzer:innen werden nicht synchronisiert.
+Braze ordnet Shopify-Kunden anhand der Braze-`user_id` als Shopify-[Custom Identifier](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerSet) (`customId`) mit dem Namespace `braze` und dem Schlüssel `user_id` zu. Wenn in Ihrem Shop kein Kunde mit diesem Bezeichner existiert, wird ein neuer Kunde erstellt. Anonyme Nutzer:innen werden nicht synchronisiert.
 
 ### Feldzuordnung {#field-mapping}
 
@@ -73,4 +77,4 @@ Es werden nur die Felder gesendet, die in einem Profil-Update enthalten sind. Fe
 
 Die Integration schreibt derzeit keine Shopify-Metafelder. Daher werden Profilfelder, die ein Metafeld erfordern würden, nicht synchronisiert. Insbesondere werden angepasste Attribute nicht an Shopify gesendet. Weitere nicht gesendete Felder sind `external_user_id`, `gender`, `dob` (Geburtsdatum), `timezone`, `home_city`, `country` und `archived`.
 
-Braze kann Metafeld-Definitionen unter dem Namespace `braze` in Ihrem Shop erstellen (z. B. `braze.gender`). Diese Definitionen sind für eine mögliche zukünftige Nutzung reserviert – Braze schreibt derzeit keine Werte in sie. Die Ausnahme ist `braze.user_id`, das den Bezeichner speichert, der zur Zuordnung Ihrer Kunden verwendet wird.
+Braze kann in Ihrem Shop Metafeld-Definitionen unter dem Namespace `braze` erstellen (z. B. `braze.gender`). Diese Definitionen sind für eine mögliche zukünftige Nutzung reserviert – Braze schreibt derzeit keine Werte in sie. Die Ausnahme ist `braze.user_id`, das den Bezeichner speichert, der zur Zuordnung Ihrer Kunden verwendet wird.

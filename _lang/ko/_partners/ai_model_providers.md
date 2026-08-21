@@ -12,6 +12,9 @@ guide_top_text: "AI 모델 제공업체를 위한 기술 파트너 통합을 살
 
 guide_featured_title: "사용 가능한 제공업체"
 guide_featured_list:
+  - name: "Amazon Bedrock"
+    link: /docs/partners/ai_model_providers/amazon_bedrock
+    image: /assets/img/braze_icons/cloud-01.svg
   - name: "Anthropic"
     link: /docs/partners/ai_model_providers/anthropic
     image: /assets/img/braze_icons/zap.svg

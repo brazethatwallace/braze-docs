@@ -12,7 +12,7 @@ description: "Este artículo de referencia explica cómo encontrar la certificac
 
 ## Obtén tu certificación {#get-certified}
 
-Hay tres pasos para obtener una credencial: seleccionar un tipo de certificación de Braze, prepararte con los recursos de estudio recomendados y luego registrarte y completar tu examen en [Certiverse](https://www.certiverse.com/#/store/Braze).
+Hay tres pasos para obtener una credencial: selecciona un tipo de certificación de Braze, prepárate con los recursos de estudio recomendados y luego regístrate y completa tu examen en [Certiverse](https://www.certiverse.com/#/store/Braze).
 
 ### Paso 1: Elige una certificación de Braze {#step-1-choose-a-braze-certification}
 
@@ -20,7 +20,7 @@ Visita la [página de certificación de Braze](https://learning.braze.com/page/c
 
 ### Paso 2: Prepárate para tu examen {#step-2-prepare-for-your-exam}
 
-Cada credencial enlaza a [rutas de aprendizaje de Braze Learning](https://learning.braze.com/page/learning-paths) recomendadas y materiales de estudio en la [página de certificación de Braze](https://learning.braze.com/page/certification). Desde el dashboard, ve a **Soporte** > **Braze Learning**, o inicia sesión en Braze Learning directamente para estudiar antes de registrarte en Certiverse.
+Cada credencial enlaza a [rutas de Braze Learning](https://learning.braze.com/page/learning-paths) recomendadas y materiales de estudio en la [página de certificación de Braze](https://learning.braze.com/page/certification). Desde el panel, ve a **Soporte** > **Braze Learning**, o inicia sesión en Braze Learning directamente para estudiar antes de registrarte en Certiverse.
 
 ### Paso 3: Regístrate y realiza tu examen {#step-3-register-and-take-your-exam}
 
@@ -28,16 +28,16 @@ Los exámenes se programan y se entregan a través de Certiverse. Los pasos de r
 
 ## Después de aprobar {#after-you-pass}
 
-Cuando apruebas un examen, recibes una credencial digital y los beneficios del programa relacionados. Cómo se reportan los resultados, cómo se emiten las señales de habilidades y qué puedes hacer con tu credencial se cubren en las preguntas frecuentes de la [página de certificación de Braze](https://learning.braze.com/page/certification). Para ver o administrar las señales de habilidades que ya has obtenido, inicia sesión en [Credly](https://www.credly.com/users/sign_in).
+Cuando apruebas un examen, recibes una credencial digital y los beneficios del programa relacionados. Cómo se reportan los resultados, cómo se emiten las señales de habilidades y qué puedes hacer con tu credencial se cubren en las preguntas frecuentes de la [página de certificación de Braze](https://learning.braze.com/page/certification). Para ver o gestionar las señales de habilidades que ya has obtenido, inicia sesión en [Credly](https://www.credly.com/users/sign_in).
 
 ## Recertificación {#recertification}
 
-Las certificaciones de Braze deben mantenerse actualizadas con el tiempo. Los pasos de renovación y cómo verificar tu estado se encuentran en la [guía de recertificación](https://learning.braze.com/page/recertification) en Braze Learning.
+Las certificaciones de Braze deben mantenerse actualizadas a lo largo del tiempo. Los pasos de renovación y cómo comprobar tu estado se encuentran en la [Guía de recertificación](https://learning.braze.com/page/recertification) en Braze Learning.
 
 ## Políticas y detalles del programa {#policies-and-program-details}
 
-Las tarifas de examen, repeticiones, cancelaciones, adaptaciones, exámenes en idiomas distintos al inglés, acuerdos de candidatos y otras reglas del programa se actualizan en Braze Learning y en el manual. Para consultar las políticas vigentes, revisa las preguntas frecuentes en la [página de certificación de Braze](https://learning.braze.com/page/certification) y el manual del programa de certificación de Braze (descargable en la página de certificación de Braze).
+Las tarifas de examen, cancelaciones, adaptaciones, exámenes en idiomas distintos al inglés, acuerdos para candidatos y otras reglas del programa se mantienen en Braze Learning y en el manual. Para conocer los períodos de espera entre reintentos, los límites de intentos y la elegibilidad, así como otras políticas vigentes, consulta las preguntas frecuentes en la [página de Braze Certification](https://learning.braze.com/page/certification) y el Manual del Programa de Braze Certification (disponible para descarga en la página de Braze Certification).
 
 {% alert note %}
-Para preguntas sobre el programa, aclaraciones de políticas o solicitudes de adaptaciones, consulta el manual del programa de certificación de Braze o envía un correo electrónico a [certification@braze.com](mailto:certification@braze.com).
+Para preguntas sobre el programa, aclaraciones de políticas o solicitudes de adaptaciones, consulta el Manual del Programa de Braze Certification o envía un correo electrónico a [certification@braze.com](mailto:certification@braze.com).
 {% endalert %}
