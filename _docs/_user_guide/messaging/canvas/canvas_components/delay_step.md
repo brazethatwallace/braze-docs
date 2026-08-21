@@ -115,9 +115,11 @@ If you add a Delay component to your Canvas and there are no subsequent steps, a
 
 Select the **Personalize delay** toggle to set up a personalized delay for your users. You can use this with a [Context step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) to select the context variable to delay by. This overrides the time of day set in the selected attribute or property. This is useful when applying an offset in days or weeks, and you want users to move forward at a specific time. The time zone comes from the attribute or property, or uses the fallback if none is available. 
 
-#### Time zone behavior for "at specific time"
+#### Time zone behavior for "At a specific time"
 
-When configuring personalized delays with the **at specific time** option, time zone behavior depends on the data type of your attribute or context variable:
+When you select the **At a specific time** checkbox, the delivery time you set uses the same time zone that Braze uses for the personalized calendar date. Braze doesn't apply a separate time zone to the date and the time. Both use the time zone from your attribute or context variable, or the fallback time zone when the variable is a string without time zone information.
+
+Which time zone applies depends on the data type of your attribute or context variable:
 
 - **String data type with time zone:** If the attribute or context variable is a string data type that includes time zone information, it conforms to the time zone specified in the string. For example, `2025-06-10T10:00:00-08:00` uses UTC-8.
 - **String data type without time zone:** If the attribute or context variable is a string data type without time zone information, it conforms to the fallback time zone. For example, `2025-06-10` uses the fallback time zone.

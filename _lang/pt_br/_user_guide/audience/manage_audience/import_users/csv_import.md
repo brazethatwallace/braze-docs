@@ -20,11 +20,11 @@ Você pode usar a importação via CSV para registrar e atualizar os seguintes a
 | Eventos personalizados | Eventos exclusivos do seu negócio que representam ações do usuário. | `trip_booked` | 50 MB |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Sobre a importação via CSV" }
 
-## Usando importação via CSV {#using-csv-import}
+## Usando a importação via CSV {#using-csv-import}
 
 ### Etapa 1: Baixar um modelo de CSV {#step-1-download-a-csv-template}
 
-Para abrir a importação via CSV, acesse **Audiences** > **Import Users**. Nessa página, você encontrará uma tabela com detalhes sobre as importações mais recentes, como a data de upload, o nome de quem fez o upload, o nome do arquivo, a disponibilidade de direcionamento, o número de linhas importadas e o status da importação.
+Para abrir a importação via CSV, acesse **Públicos** > **Importar Usuários**. Nessa página, você encontrará uma tabela com detalhes sobre as importações mais recentes, como a data do upload, o nome de quem fez o upload, o nome do arquivo, a disponibilidade de direcionamento, o número de linhas importadas e o status da importação.
 
 Para começar, selecione **Attributes** ou **Events** e baixe o modelo apropriado para ajudar a criar seu arquivo CSV para upload.
 
@@ -49,7 +49,7 @@ Se você estiver fazendo upload de uma combinação de usuários com `external_i
 
 <!-- TAB -->
 {% tab user alias %}
-Para direcionar usuários que não possuem um `external_id`, você pode importar uma lista de usuários com aliases de usuário. Um alias funciona como um identificador único alternativo e pode ser útil se você estiver tentando alcançar usuários anônimos que não se cadastraram ou criaram uma conta no seu app.
+Para direcionar usuários que não possuem um `external_id`, você pode importar uma lista de usuários com aliases de usuário. Um alias funciona como um identificador único alternativo e pode ser útil se você estiver tentando alcançar usuários anônimos que ainda não se cadastraram ou criaram uma conta no seu app.
 
 Se você estiver fazendo upload ou atualizando perfis de usuário que possuem apenas alias, seu CSV deve conter as duas colunas a seguir:
 
@@ -168,21 +168,21 @@ Os seguintes atributos padrão estão disponíveis para importação de usuário
 | `home_city` | String | A cidade natal dos seus usuários conforme indicado por eles (por exemplo, `London`). | Não |
 | `language` | String | O idioma deve ser passado para a Braze no padrão ISO-639-1 (por exemplo, `en`). Consulte nossa [lista de idiomas aceitos]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). | Não |
 | `phone` | String | Um número de telefone conforme indicado pelos seus usuários, no formato `E.164` (por exemplo, `+442071838750`). Consulte [Números de telefone de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers) para orientações de formatação. | Não |
-| `email_open_tracking_disabled` | Boolean | Aceita true ou false. Defina como true para desativar a adição do pixel de rastreamento de abertura em todos os e-mails futuros enviados a este usuário. Disponível apenas para SparkPost e SendGrid. | Não |
-| `email_click_tracking_disabled` | Boolean | Aceita true ou false. Defina como true para desativar o rastreamento de cliques em todos os links de e-mails futuros enviados a este usuário. Disponível apenas para SparkPost e SendGrid. | Não |
-| `email_subscribe` | String | Os valores disponíveis são `opted_in` (registrou-se explicitamente para receber mensagens de e-mail), `unsubscribed` (optou explicitamente por não receber mensagens de e-mail) e `subscribed` (nem optou por receber nem por não receber). | Não |
-| `push_subscribe` | String | Os valores disponíveis são `opted_in` (registrou-se explicitamente para receber mensagens push), `unsubscribed` (optou explicitamente por não receber mensagens push) e `subscribed` (nem optou por receber nem por não receber). | Não |
+| `email_open_tracking_disabled` | Boolean | Aceita true ou false. Defina como true para desativar a adição do pixel de rastreamento de abertura em todos os e-mails futuros enviados a este usuário. | Não |
+| `email_click_tracking_disabled` | Boolean | Aceita true ou false. Defina como true para desativar o rastreamento de cliques em todos os links de e-mails futuros enviados a este usuário. | Não |
+| `email_subscribe` | String | Os valores disponíveis são `opted_in` (optou explicitamente por receber mensagens de e-mail), `unsubscribed` (optou explicitamente por não receber mensagens de e-mail) e `subscribed` (nem optou por receber nem por não receber). | Não |
+| `push_subscribe` | String | Os valores disponíveis são `opted_in` (optou explicitamente por receber mensagens push), `unsubscribed` (optou explicitamente por não receber mensagens push) e `subscribed` (nem optou por receber nem por não receber). | Não |
 | `time_zone` | String | O fuso horário deve ser passado para a Braze no mesmo formato do banco de dados de fusos horários IANA (por exemplo, `America/New_York` ou `Eastern Time (US & Canada)`). | Não |
 | `date_of_first_session`  `date_of_last_session` | String | Pode ser passado em um dos seguintes formatos ISO 8601: "YYYY-MM-DD" "YYYY-MM-DDTHH:MM:SS+00:00" "YYYY-MM-DDTHH:MM:SSZ" "YYYY-MM-DDTHH:MM:SS" (por exemplo, 2019-11-20T18:38:57) | Não |
 | `subscription_group_id` | String | O `id` do seu grupo de inscrições. Esse identificador pode ser encontrado na página de grupos de inscrições do seu dashboard. | Não |
 | `subscription_state` | String | O estado de inscrição para o grupo de inscrições especificado por `subscription_group_id`. Os valores permitidos são `unsubscribed` (não está no grupo de inscrições) ou `subscribed` (está no grupo de inscrições). | Não, mas fortemente recomendado se `subscription_group_id` for usado |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Atributos padrão" }
 
-#### Atualizar status do grupo de inscrições (opcional) {#updating-subscription-group-status-optional}
+#### Atualizar o status do grupo de inscrições (opcional) {#updating-subscription-group-status-optional}
 
-Além disso, você pode adicionar usuários a grupos de inscrições de e-mail ou SMS por meio da importação de usuários. Isso é particularmente útil para SMS, pois um usuário deve estar inscrito em um grupo de inscrições de SMS para receber mensagens pelo canal de SMS. Para saber mais, consulte [Grupos de inscrições de SMS]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement).
+Além disso, você pode adicionar usuários a grupos de inscrições de e-mail ou SMS por meio da importação de usuários. Isso é particularmente útil para SMS, pois um usuário precisa estar inscrito em um grupo de inscrições de SMS para receber mensagens pelo canal de SMS. Para saber mais, consulte [Grupos de inscrições de SMS]({{site.baseurl}}/sms_rcs_subscription_groups#subscription-group-mms-enablement).
 
-Se você estiver atualizando status de grupos de inscrições, seu CSV deve conter as duas colunas a seguir:
+Se você estiver atualizando os status de grupos de inscrições, seu CSV deve conter as duas colunas a seguir:
 
 - `subscription_group_id`: O `id` do [grupo de inscrições]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups).
 - `subscription_state`: Os valores disponíveis são `unsubscribed` (não está no grupo de inscrições) ou `subscribed` (está no grupo de inscrições).
@@ -191,7 +191,7 @@ Se você estiver atualizando status de grupos de inscrições, seu CSV deve cont
 | :---- | :---- | :---- | :---- |
 | A8i3mkd99 | Colby | 6ff593d7-cf69-448b-aca9-abf7d7b8c273 | subscribed |
 | k2LNhj8Ks | Tom | aea02307-a91e-4bc0-abad-1c0bee817dfa | subscribed |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Atualizar status do grupo de inscrições (opcional)" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Atualizar o status do grupo de inscrições (opcional)" }
 
 {% alert note %}
 Apenas um único `subscription_group_id` pode ser definido por linha na importação de usuários. Linhas diferentes podem ter valores de `subscription_group_id` diferentes. No entanto, se você precisar inscrever os mesmos usuários em múltiplos grupos de inscrições, será necessário fazer múltiplas importações.
@@ -292,7 +292,7 @@ Neste exemplo:
 
 Para fazer upload do seu arquivo, selecione **Attributes** ou **Events**, clique em **Browse Files** e faça upload do seu CSV. A Braze exibirá uma prévia das primeiras linhas e um resumo dos campos detectados.
 
-Para arquivos grandes (até 500 MB para atributos padrão e atributos personalizados, ou 50 MB para eventos personalizados), o dashboard pode parecer temporariamente sem resposta enquanto o arquivo é carregado e a Braze calcula a importação. Esses uploads e cálculos podem levar mais tempo para serem concluídos do que para arquivos menores. Aguarde a conclusão desta etapa. Para mais contexto sobre limites de arquivo e tempo, consulte [Construindo seu CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv).
+Para arquivos grandes (até 500 MB para atributos padrão e atributos personalizados, ou 50 MB para eventos personalizados), o dashboard pode parecer temporariamente sem resposta enquanto o arquivo é carregado e a Braze calcula a importação. Esses uploads e cálculos podem levar mais tempo para serem concluídos do que para arquivos menores. Aguarde a conclusão dessa etapa. Para mais contexto sobre limites de arquivo e tempo, consulte [Construindo seu CSV]({{site.baseurl}}/user_guide/data/user_data_collection/user_import#constructing-your-csv).
 
 Antes de fazer upload do seu arquivo CSV, renomeie-o com o nome de importação que você deseja ver na Braze. Não é possível editar o nome da importação após o upload.
 
@@ -409,7 +409,7 @@ Após iniciar sua importação, você pode verificar o status na página **Impor
 O relatório de erros pós-importação inclui linhas que falharam por motivos que a validação não cobre, como quando um usuário não existe na Braze.
 
 {% alert important %}
-Arquivos CSV enviados anteriormente ficam disponíveis para download na página **Import Users** por 14 dias após a data de upload. Após 14 dias, o arquivo é excluído permanentemente e não pode mais ser acessado.
+Arquivos CSV enviados anteriormente ficam disponíveis para download na página **Import Users** por 14 dias após a data do upload. Após 14 dias, o arquivo é excluído permanentemente e não pode mais ser acessado.
 {% endalert %}
 
 ## Considerações sobre pontos de dados {#data-point-considerations}
@@ -418,13 +418,13 @@ Cada dado de cliente importado de um arquivo CSV sobrescreve o valor existente n
 
 | Consideração | Detalhes |
 |---|---|
-| IDs externos | Fazer upload de um CSV contendo apenas `external_id` não registra pontos de dados. Isso permite segmentar usuários existentes da Braze sem impactar os limites de dados. No entanto, incluir campos como `email` ou `phone` sobrescreve os dados existentes do usuário e **registra** pontos de dados. <br><br>Importações via CSV usadas apenas para segmentação não registram pontos de dados, como aquelas que contêm apenas `external_id`, `braze_id` ou `user_alias_name`. |
+| IDs externos | Fazer upload de um CSV contendo apenas `external_id` não registra pontos de dados. Isso permite segmentar usuários existentes da Braze sem impactar os limites de dados. No entanto, incluir campos como `email` ou `phone` sobrescreve os dados existentes do usuário e **registra** pontos de dados. <br><br>Importações de CSV usadas apenas para segmentação não registram pontos de dados, como aquelas que contêm apenas `external_id`, `braze_id` ou `user_alias_name`. |
 | Valores em branco | Valores em branco no seu CSV não sobrescrevem os dados existentes do perfil de usuário. Você não precisa incluir todos os atributos de usuário ou eventos personalizados ao importar. |
 | Estados de inscrição | Atualizar `email_subscribe`, `push_subscribe`, `subscription_group_id` ou `subscription_state` **não** conta para o uso de pontos de dados. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Considerações sobre pontos de dados" }
 
 {% alert important %}
-Definir `language` ou `country` em um usuário por meio de importação via CSV ou API impede que a Braze capture automaticamente essas informações pelo SDK.
+Definir `language` ou `country` em um usuário por meio de importação de CSV ou API impede que a Braze capture automaticamente essas informações pelo SDK.
 {% endalert %}
 
 ## Solução de problemas {#troubleshooting}
@@ -441,7 +441,7 @@ Se sua importação parecer travada em Calculating:
 
 - Deixe a importação continuar. Não cancele e reenvie o arquivo, a menos que o suporte da Braze recomende.
 - Confirme que seu arquivo está dentro dos limites suportados em [Construindo seu CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#import-options).
-- Revise a [Etapa 4: Faça upload do seu arquivo](#step-4-upload-your-file) e a [Etapa 8: Inicie sua importação de CSV](#step-8-start-your-csv-import) para entender o comportamento esperado do dashboard e os tempos de processamento.
+- Revise a [Etapa 4: Faça upload do seu arquivo](#step-4-upload-your-file) e a [Etapa 8: Inicie sua importação de CSV](#step-8-start-your-csv-import) para o comportamento esperado do dashboard e os tempos de processamento.
 - Entre em contato com o suporte da Braze se `Calculating` durar muito mais do que o esperado para o tamanho do seu arquivo, após confirmar essas verificações.
 
 ### Usar e-mail como `external_id` {#use-email-as-external_id}
@@ -450,22 +450,22 @@ A Braze não recomenda usar um endereço de e-mail como `external_id`. Se você 
 
 ### Caracteres de aspas em valores de `external_id` {#quote-characters-in-external_id-values}
 
-Se uma célula de `external_id` contiver aspas duplas, escape-as duplicando o caractere (`""`), conforme descrito em [Aspas duplas sem escape ou desbalanceadas](#missing-row). A importação de CSV não usa escape com barra invertida.
+Se uma célula de `external_id` contiver aspas duplas, faça o escape dobrando o caractere (`""`), conforme descrito em [Aspas duplas sem escape ou desbalanceadas](#missing-row). A importação de CSV não usa escape com barra invertida.
 
-### Importação de CSV não está disponível como filtro de segmento {#csv-import-isnt-available-as-a-segment-filter}
+### Importação de CSV não está disponível como filtro de Segment {#csv-import-isnt-available-as-a-segment-filter}
 
-Você pode usar uma importação de CSV como filtro de segmento somente se tiver ativado uma preferência de direcionamento durante o upload.
+Você pode usar uma importação de CSV como filtro de Segment somente se tiver ativado uma preferência de direcionamento durante o upload.
 
 Para verificar se a disponibilidade de direcionamento está ativada para uma importação existente:
 
 1. Na página **Import Users**, encontre sua importação de CSV.
 2. Verifique se **Go to Segment** aparece para essa importação.
-3. Se **Go to Segment** aparecer, seu CSV está disponível no filtro de segmento `Updated/Imported from CSV`.
+3. Se **Go to Segment** aparecer, seu CSV está disponível no filtro de Segment `Updated/Imported from CSV`.
 4. Se **Go to Segment** não aparecer, a disponibilidade de direcionamento não foi ativada para essa importação.
 
-Não é possível ativar a disponibilidade de direcionamento após a conclusão de um upload de CSV. Para usar esse CSV como filtro de segmento, reenvie o arquivo e, na [Etapa 6: Escolha as preferências de direcionamento](#step-6-choose-targeting-preferences), selecione **Create targeting filter** ou **Create targeting filter and add to new segment**.
+Não é possível ativar a disponibilidade de direcionamento após a conclusão de um upload de CSV. Para usar esse CSV como filtro de Segment, reenvie o arquivo e, na [Etapa 6: Escolha as preferências de direcionamento](#step-6-choose-targeting-preferences), selecione **Create targeting filter** ou **Create targeting filter and add to new segment**.
 
-Se seu objetivo é criar um segmento sem atualizar dados de perfil, faça upload de um CSV que inclua apenas colunas de identificadores (por exemplo, `external_id` ou colunas de identificadores de alias) e selecione **Create targeting filter and add to new segment**.
+Se seu objetivo é criar um Segment sem atualizar dados de perfil, faça upload de um CSV que inclua apenas colunas de identificador (por exemplo, `external_id` ou colunas de identificador de alias) e selecione **Create targeting filter and add to new segment**.
 
 ### Problemas de formatação de arquivo {#file-formatting-issues}
 
@@ -489,7 +489,7 @@ Existem alguns motivos pelos quais o número de usuários importados pode não c
 | Caracteres acentuados | Seu CSV pode incluir nomes ou atributos com acentos. Certifique-se de que o arquivo esteja codificado em UTF-8 para evitar problemas de importação. |
 | ID da Braze pertence a um usuário órfão | Se um usuário foi mesclado com outro e a Braze não consegue associar o ID da Braze ao perfil restante, a linha não será importada. |
 | Linha vazia | Linhas em branco no CSV podem causar erros de dados malformados. Verifique usando um editor de texto simples, não Excel ou Sheets. |
-| Aspas duplas sem escape ou desbalanceadas (`"`) | Aspas duplas envolvem valores de string que contêm vírgulas. Se um valor contiver aspas duplas, escape-as duplicando-as (`""`). Aspas duplas sem escape ou desbalanceadas causam uma linha malformada. |
+| Aspas duplas sem escape ou desbalanceadas (`"`) | Aspas duplas envolvem valores de string que contêm vírgulas. Se um valor contiver aspas duplas, faça o escape dobrando-as (`""`). Aspas duplas sem escape ou desbalanceadas causam uma linha malformada. |
 | Quebras de linha inconsistentes | Quebras de linha mistas (por exemplo, `\n` e `\r\n`) podem fazer com que a primeira linha de dados seja tratada como parte do cabeçalho. Use um editor hexadecimal ou de texto avançado para inspecionar e corrigir. |
 | Arquivo codificado incorretamente | Mesmo que acentos sejam permitidos, o arquivo deve estar codificado em UTF-8. Outras codificações podem funcionar parcialmente, mas não são totalmente suportadas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Linha ausente" }
@@ -513,21 +513,21 @@ Se seu upload foi concluído com erros, pode haver um ou mais endereços de e-ma
 
 #### Dados importados como atributo personalizado {#data-imported-as-custom-attribute}
 
-Se um dado padrão do usuário (como `email` ou `first_name`) for importado como atributo personalizado, verifique as maiúsculas/minúsculas e o espaçamento do seu arquivo CSV. Por exemplo, `First_name` é importado como atributo personalizado, enquanto `first_name` é importado corretamente no campo "nome" do perfil do usuário.
+Se um dado padrão do usuário (como `email` ou `first_name`) for importado como atributo personalizado, verifique as maiúsculas/minúsculas e o espaçamento do seu arquivo CSV. Por exemplo, `First_name` é importado como atributo personalizado, enquanto `first_name` é importado corretamente no campo "nome" do perfil de um usuário.
 
 #### Alterar o tipo de dados de um atributo personalizado {#change-a-custom-attributes-data-type}
 
-Se você precisar alterar o tipo de dados de um atributo personalizado existente (por exemplo, de string para booleano), atualize o tipo de dados na página [**Custom Attributes**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) no dashboard antes de importar seu CSV. Se o tipo de dados no seu CSV não corresponder ao tipo de dados atualmente definido para o atributo, a importação falhará com um erro.
+Se você precisar alterar o tipo de dados de um atributo personalizado existente (por exemplo, de string para booleano), atualize o tipo de dados na página [**Custom Attributes**]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) no dashboard antes de importar seu CSV. Se o tipo de dados no seu CSV não corresponder ao tipo de dados atualmente definido do atributo, a importação falhará com um erro.
 
 #### Múltiplos tipos de dados {#multiple-data-types}
 
 A Braze espera que cada valor em uma coluna seja do mesmo tipo de dados. Valores que não correspondem ao tipo de dados do atributo causam erros na segmentação.
 
-Além disso, iniciar um atributo numérico com zero causará problemas, pois números que começam com zeros são considerados strings. Quando a Braze converte essa string, ela pode ser tratada como um valor octal (que usa dígitos de zero a sete), o que significa que é convertida para seu valor decimal correspondente. Por exemplo, se o valor no arquivo CSV for 0130, o perfil na Braze mostrará 88. Para evitar esse problema, use atributos com tipo de dados string. No entanto, esse tipo de dados não está disponível na comparação numérica de segmentação.
+Além disso, iniciar um atributo numérico com zero causará problemas, pois números que começam com zeros são considerados strings. Quando a Braze converte essa string, ela pode ser tratada como um valor octal (que usa dígitos de zero a sete), o que significa que é convertida para seu valor decimal correspondente. Por exemplo, se o valor no arquivo CSV for 0130, o perfil na Braze mostrará 88. Para evitar esse problema, use atributos com tipos de dados string. No entanto, esse tipo de dados não está disponível na comparação numérica de segmentação.
 
 #### Tipos de atributos padrão {#default-attribute-types}
 
-Alguns atributos padrão podem aceitar apenas determinados valores como válidos para atualizações de usuários. Para orientação, consulte [Construindo seu CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
+Alguns atributos padrão podem aceitar apenas determinados valores como válidos para atualizações de usuário. Para orientação, consulte [Construindo seu CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
 
 Espaços à direita e diferenças de capitalização podem fazer com que um valor seja interpretado como inválido. Por exemplo, no arquivo CSV a seguir, apenas o usuário na primeira linha (`brazetest1`) tem seus status de e-mail e push atualizados com sucesso, pois os valores aceitos são `unsubscribed`, `subscribed` e `opted_in`.
 

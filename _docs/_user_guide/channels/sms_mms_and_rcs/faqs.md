@@ -80,19 +80,19 @@ While we can't promise that you won't occasionally have an overage, you could fo
 
 - Pay attention to the number of characters in your SMS. Unintentionally sending more than one segment could cause overages. For more details, refer to our [segment breakdown]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Carefully calculate your SMS characters to account for Liquid or Connected Content. The Braze SMS composer in your dashboard does not estimate or factor in the usage of either of these features.
-- Consider the type of encoding your message uses - if your message uses GSM-7 encoding, you can usually estimate that you can send a message with 128 characters per message segment. If your message uses [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set) encoding, you can usually estimate that you can send a message with 67 characters per message segment.
+- Consider the type of encoding your message uses. If your message uses GSM-7 encoding, you can usually estimate 160 characters per message segment (fewer if you use characters from the GSM-7 extension table). If your message uses [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set) encoding, you can usually estimate 67 characters per message segment.
 - Test, test, and test! Always test your SMS messages before launch, especially when using Liquid and Connected Content.
 
 ### If a message is sent to a landline, will the message still count toward my SMS send count?
 
 In the US, Canada, and UK:
-- If an SMS is sent to a landline, it will be marked as **Undelivered**. Note that Twilio will still charge for attempted delivery, so messages marked as **Sent**, **Delivered**, or **Undelivered** in your message logs will be billed.
-- In the UK, some carriers will convert the SMS into a voicemail, delivering the message.
+- If an SMS is sent to a landline, it is marked as **Undelivered**. Billing behavior depends on your SMS service provider. With Twilio, attempted delivery is still charged, so messages marked as **Sent**, **Delivered**, or **Undelivered** in your message logs are billed.
+- In the UK, some carriers convert the SMS into a voicemail, delivering the message.
 
 In other countries:
-- Twilio will throw an error, and you will not be billed for the attempted SMS message.
+- With Twilio, an error is thrown and you are not billed for the attempted SMS message.
 
-### Why is the Braze dashboard warning me I may be charged for additional message segments when my message is under 160 (GSM-7) or 70 (UCS-2) characters?
+### Why is the Braze dashboard warning me I may be charged for additional message segments when my message is under 160 (GSM-7) or 67 (UCS-2) characters?
 
 You might be charged additional message segments if you have Liquid personalization included in your message. Content Block templating does not occur until the message is preparing to be sent. When you are editing an SMS with a Content Block, Braze does not know what the Content Block will contain but provides a rough estimate. We recommend that users use the test pane to preview the message to better understand what to expect.
 
@@ -136,7 +136,7 @@ Custom keywords would be written as custom events, so you would want to create s
 
 ### If a user texts "Stop" to our short code, are they unsubscribed from the subscription group?
 
-What does that look like on the user profile? The subscription group will revert to 2 dashes (- -), and there will be custom events for subscribe and unsubscribe.
+What does that look like on the user profile? The subscription group shows as unsubscribed under **Contact Settings**, and there are custom events for subscribe and unsubscribe.
 
 ### If a user is opted out and sends a keyword to our short and long code, do they receive the response we configured for that keyword in Braze?
 

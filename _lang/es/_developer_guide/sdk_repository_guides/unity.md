@@ -8,9 +8,9 @@ description: "Referencia del README del SDK de Unity de Braze reflejada desde Gi
 <!-- BEGIN GENERATED README CONTENT -->
 # Guía del repositorio del SDK de Unity {#unity-sdk-repository-guide}
 
-## Acerca del SDK de Unity de Braze {#about-the-braze-unity-sdk}
+## Acerca del SDK de Unity Braze {#about-the-braze-unity-sdk}
 
-El SDK de Unity de Braze te ayuda a integrar las funciones de mensajería, análisis y participación de usuarios de Braze en tu aplicación.
+El SDK de Unity Braze te ayuda a integrar las funciones de mensajería, análisis y participación de usuarios de Braze en tu aplicación.
 
 Para empezar, consulta los siguientes recursos:
 
@@ -25,19 +25,19 @@ Antes de poder empezar a utilizar Braze en scripts de Unity, tendrás que import
 
 **Configuración manual del plugin:** Alternativamente, puedes copiar los plugins en tu proyecto de Unity:
   1. Primero, clona este repositorio.
-  2. Si no estás utilizando ningún otro plugin, lo único que tienes que hacer es copiar el directorio `Plugins` de este repositorio en la carpeta `Assets` de tu proyecto de Unity.
+  2. Si no estás utilizando ningún otro plugin, todo lo que tienes que hacer es copiar el directorio `Plugins` de este repositorio en la carpeta `Assets` de tu proyecto de Unity.
   3. Si ya tienes un directorio `/<your-project>/Assets/Plugins` (probablemente porque ya estás utilizando otro plugin), copia `Plugins/Appboy/AppboyBinding.cs` en `/<your-project>/Assets/Plugins`. Luego copia el contenido de `Plugins/iOS` y `Plugins/Android` de este repositorio en `/<your-project>/Assets/Plugins/iOS` y `/<your-project>/Assets/Plugins/Android` respectivamente.
 
 ## Configuración de la integración {#integration-setup}
 
-Para integrar Braze en tu aplicación de Unity, completa nuestras instrucciones para [integrar el SDK de Unity de Braze][2].
+Para integrar Braze en tu aplicación Unity, sigue las instrucciones en [Integración del SDK de Unity de Braze][2].
 
 [1]: https://github.com/braze-inc/braze-unity-sdk/releases
 [2]: https://www.braze.com/docs/developer_guide/sdk_integration?sdktab=unity
 
-## Ponte en contacto {#contact}
+## Contacto {#contact}
 
-Si tienes preguntas, ponte en contacto con [support@braze.com](mailto:support@braze.com).
+Si tienes preguntas, contacta con soporte técnico de Braze para obtener ayuda.
 <!-- END GENERATED README CONTENT -->
 
 Para obtener detalles del repositorio y proyectos de ejemplo, consulta [https://github.com/braze-inc/braze-unity-sdk](https://github.com/braze-inc/braze-unity-sdk).

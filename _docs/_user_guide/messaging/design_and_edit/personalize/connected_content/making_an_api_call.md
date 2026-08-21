@@ -145,7 +145,7 @@ For more on planning endpoint capacity and reducing call volume, see [Best pract
 - Braze does not charge for API calls and does not count toward your given data point usage.
 - There is a 1 MB limit for Connected Content responses.
 - Connected Content executes when the message is rendered. For in-app messages, the message is rendered at impression time.
-- Connected Content calls do not follow redirects.
+- Connected Content calls do not follow redirects. Only `2xx` responses are treated as successful. If your endpoint returns a `3xx` redirect (for example, `301` or `302`), Braze does not follow the redirect to the final URL. For symptoms and troubleshooting steps, see [Why does Connected Content fail when my endpoint returns a redirect?](#why-does-connected-content-fail-when-my-endpoint-returns-a-redirect-301-or-302).
 
 ### How Connected Content calls are processed
 
@@ -377,6 +377,14 @@ grant_type=client_credentials&username=test&password=test
 {% endraw %}
 
 ## Frequently asked questions
+
+### Why does Connected Content fail when my endpoint returns a redirect (301 or 302)?
+
+A redirect can cause Connected Content to render blank in preview or send, or log a Message Activity Log error with HTTP status code `301` or `302`. Postman and other clients often follow redirects automatically, so a URL can work in Postman but fail in Braze.
+
+Configure your endpoint to return a `2xx` response (typically `200`) with the response body at the URL Braze calls. If that URL itself returns a redirect, replace it with the final destination URL.
+
+For related checks when content renders blank, see [Connected Content returns no response body]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#connected-content-returns-no-response-body).
 
 ### Why are there more Connected Content calls than users or sends?
 

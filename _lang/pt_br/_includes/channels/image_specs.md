@@ -185,6 +185,20 @@ Para saber mais, consulte os [detalhes de criação dos Content Cards]({{site.ba
 
 {% endif %}
 
+{% if include.variable_name == "sms and mms" %}
+
+Mensagens MMS suportam uma única imagem por mensagem. Somente grupos de inscrições habilitados para MMS podem enviar imagens.
+
+| Propriedade | Recomendação |
+| --- | --- |
+| Tamanho | 600&nbsp;KB ou menor para entrega confiável pela operadora. O criador bloqueia uploads maiores que 1&nbsp;MB. |
+| Tipos de arquivo | PNG, JPEG, GIF |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS e MMS" }
+
+Para saber mais sobre os limites de tamanho de arquivo e taxa de transferência das operadoras, consulte [Limites e taxa de transferência de mensagens MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup#mms-message-limits-and-throughput).
+
+{% endif %}
+
 {% if include.variable_name == "WhatsApp images" %}
 
 Essas especificações se aplicam a cabeçalhos de modelo, mensagens de mídia de resposta e mensagens de imagem.

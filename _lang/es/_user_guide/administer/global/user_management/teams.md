@@ -32,7 +32,7 @@ Si un equipo se define por un atributo personalizado, un idioma o un país, pued
 
 ## Asignar usuarios a equipos {#assign-users-to-teams}
 
-Los administradores de Braze y los usuarios limitados con el permiso a nivel de empresa "Can Manage Company Settings" pueden asignar permisos a nivel de equipo a un usuario de la empresa con acceso limitado. Cuando se asigna a un equipo, los usuarios de la empresa se limitan a leer o escribir únicamente los datos disponibles para sus equipos particulares, como el idioma del usuario, la ubicación o el atributo personalizado, según se definió cuando se creó el equipo.
+Los administradores de Braze y los usuarios limitados con el permiso a nivel de empresa "Can Manage Company Settings" pueden asignar permisos a nivel de equipo a un usuario de la empresa con acceso limitado. Cuando se asigna a un equipo, los usuarios de la empresa se limitan a solo leer o escribir datos disponibles para sus equipos particulares, como el idioma del usuario, la ubicación o un atributo personalizado, según se definió cuando se creó el equipo.
 
 ### Limitar los permisos de un usuario de la empresa sin eliminar al usuario {#limit-company-user-permissions-without-deleting-a-user}
 
@@ -40,25 +40,25 @@ Para impedir que un usuario de la empresa inicie sesión y al mismo tiempo conse
 
 Si el usuario debe poder seguir iniciando sesión con capacidades limitadas, ve a **Configuración** > **Usuarios de la empresa**, selecciona al usuario y edita sus permisos. Elimina los permisos a nivel de espacio de trabajo para Campaigns, Canvas, Segments y datos de usuario, y deja solo el acceso mínimo, por ejemplo, "View Media Library Assets". Para más información, consulta [Editar los permisos de un usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions).
 
-Los permisos de equipo funcionan sobre los permisos del espacio de trabajo. Si asignas al usuario a un equipo, otorga solo los permisos mínimos a nivel de equipo que necesite y no concedas permisos para Campaigns, Canvas, Segments ni perfiles de usuario. El usuario permanece en el espacio de trabajo y puede iniciar sesión, pero no puede realizar la mayoría de las acciones de mensajería o audiencia.
+Los permisos de equipo funcionan sobre los permisos del espacio de trabajo. Si asignas al usuario a un equipo, otorga solo los permisos mínimos a nivel de equipo que necesite y no otorgues permisos para Campaigns, Canvas, Segments o perfiles de usuario. El usuario permanece en el espacio de trabajo y puede iniciar sesión, pero no puede realizar la mayoría de las acciones de mensajería o audiencia.
 
-Para asignar un usuario a un equipo, ve a **Configuración** > **Usuarios de la empresa** y selecciona al usuario que deseas añadir a tu equipo.
+Para asignar un usuario a un equipo, navega a **Configuración** > **Usuarios de la empresa** y selecciona al usuario que deseas agregar a tu equipo.
 
-A continuación, realiza los siguientes pasos:
+Luego realiza los siguientes pasos:
 
-1. En la sección **Permisos a nivel de espacio de trabajo**, añade al usuario al espacio de trabajo correspondiente si aún no está incluido.
+1. En la sección **Permisos a nivel de espacio de trabajo**, agrega al usuario al espacio de trabajo correspondiente si aún no está incluido.
 
 ![Permisos a nivel de espacio de trabajo con el permiso de plantilla de banner configurado.]({% image_buster /assets/img/team_level_permissions.png %})
 
 {: start="2"}
-2. Selecciona **+ Add team-level permissions** y luego selecciona el **equipo** al que deseas añadir a este usuario.
-3. Asigna permisos específicos desde la sección de permisos de **equipo**.
+2. Selecciona **+ Agregar permisos a nivel de equipo** y luego selecciona el **equipo** al que deseas agregar a este usuario.
+3. Asigna permisos específicos desde la sección de permisos del **equipo**.
 
 ![Permisos de plantilla de página de destino a nivel de equipo.]({% image_buster /assets/img/teams.png %})
 
 ### Permisos disponibles a nivel de equipo {#available-team-level-permissions}
 
-A continuación se muestran todos los permisos disponibles que puedes asignar a nivel de equipo. Los permisos que no aparecen aquí solo se otorgan a nivel de espacio de trabajo, y estos permisos aparecerán como "--" en la columna de permisos de **equipos**.
+Los siguientes son todos los permisos disponibles que puedes asignar a nivel de equipo. Cualquier permiso que no aparezca aquí solo se otorga a nivel de espacio de trabajo, y estos permisos aparecerán como "--" en la columna de permisos de **equipos**.
 
 - Ver Campaigns
 - Editar Campaigns
@@ -92,7 +92,7 @@ A continuación se muestran todos los permisos disponibles que puedes asignar a 
 - Editar activos de la biblioteca multimedia
 - Eliminar activos de la biblioteca multimedia
 - Exportar datos de usuario
-- Ver perfiles de usuario (PII censurada)
+- Ver perfiles de usuario (PII oculta)
 - Ver PII
 - Editar usuarios del panel
 - Editar plantillas de Canvas
@@ -108,9 +108,21 @@ Para ver las descripciones de lo que incluye cada permiso de usuario y cómo uti
 
 Puedes asignar un equipo a Canvas, Campaigns, Content Cards, Segments, plantillas de correo electrónico, plantillas de webhook, Content Blocks y activos de la biblioteca de medios con el filtro **Añadir equipo**.
 
+### Asignación automática de equipo {#automatic-team-assignment}
+
+Para los usuarios que solo tienen permisos a nivel de equipo (y no tienen permisos de edición a nivel de espacio de trabajo), Braze puede asignar equipos automáticamente durante la creación de objetos:
+
+| Pertenencia del usuario a equipos | Comportamiento |
+| --- | --- |
+| Exactamente un equipo | Braze asigna automáticamente ese equipo cuando el usuario crea una nueva campaña, Canvas, bloque de contenido o plantilla de correo electrónico. |
+| Más de un equipo | El usuario debe elegir un equipo antes de guardar. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamiento de la asignación automática de equipo" }
+
+Cuando se asigna un equipo a una campaña o Canvas, los filtros de segmentación requeridos de ese equipo aparecen en el creador de audiencias como un grupo de **filtro de equipo** de solo lectura.
+
 En el caso de Canvas, Braze solo comprueba si los usuarios coinciden con los criterios del filtro de equipo cuando entran en el Canvas. Después de que un usuario entra en un Canvas, sigue recibiendo mensajes de todos los pasos del Canvas aunque sus atributos cambien y ya no coincidan con los criterios del filtro de equipo. Los filtros de equipo no se comportan como las [validaciones de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations), que reevalúan a los usuarios en el envío de cada paso de mensaje.
 
-![Añadir una etiqueta de equipo a una Campaign.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
+![Añadir una etiqueta de equipo a una campaña.]({% image_buster /assets/img/teams1.png %}){: style="max-width:70%;"}
 
 - Según las definiciones aplicadas cuando se creó el equipo, cuando se asigna un filtro de equipo, la audiencia de esa herramienta de participación se restringe a los perfiles de usuario que coincidan con la definición.
 - Según los permisos asignados, los miembros del equipo solo pueden acceder a las herramientas de participación del panel que tengan configurado su filtro de equipo. Si tienen permisos de espacio de trabajo limitados o nulos, deben añadir un filtro de equipo a ciertos objetos antes de poder guardarlos o lanzarlos. Los miembros del equipo también pueden filtrar Canvas, Campaigns, Content Cards y Segments por equipo para identificar el contenido relevante para ellos.

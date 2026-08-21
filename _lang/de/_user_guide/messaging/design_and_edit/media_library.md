@@ -14,7 +14,7 @@ tool: Media
 
 ## Voraussetzungen {#prerequisites}
 
-| Anforderungen | Beschreibung |
+| Anforderung | Beschreibung |
 |---|---|
 | Berechtigung „View Media Library Assets“ | Assets der Medienbibliothek anzeigen |
 | Berechtigung „Edit Media Library Assets“ | Assets der Medienbibliothek erstellen und aktualisieren |
@@ -26,11 +26,11 @@ Weitere Informationen finden Sie unter [Nutzer:innenberechtigungen]({{site.baseu
 
 ## Medienbibliothek im Vergleich zu CDN {#media-library-versus-cdn}
 
-Die Verwendung der Medienbibliothek anstelle eines Content Delivery Network (CDN) bietet besseres Caching und bessere Performance für In-App-Nachrichten. Alle Medienbibliothek-Assets in einer In-App-Nachricht werden für eine schnellere Anzeige vorab zwischengespeichert und stehen auch offline zur Verfügung. Darüber hinaus ist die Medienbibliothek in die Braze-Editoren integriert, sodass Marketer Bilder auswählen oder taggen können, anstatt Bild-URLs kopieren und einfügen zu müssen.
+Die Verwendung der Medienbibliothek anstelle eines Content Delivery Network (CDN) bietet besseres Caching und eine höhere Performance für In-App-Nachrichten. Alle in einer In-App-Nachricht enthaltenen Assets aus der Medienbibliothek werden für eine schnellere Anzeige vorab zwischengespeichert und stehen auch offline zur Verfügung. Darüber hinaus ist die Medienbibliothek in die Braze-Editoren integriert, sodass Sie Bilder auswählen oder taggen können, anstatt Bild-URLs kopieren und einfügen zu müssen.
 
 ## Zugriff auf die Medienbibliothek {#accessing-the-media-library}
 
-In der Medienbibliothek können Sie den Asset-Typ, die Größe, die Abmessungen, die URL, das Datum des Hinzufügens zur Bibliothek und weitere Informationen einsehen. Um auf Ihre Braze-Medienbibliothek zuzugreifen, gehen Sie zu **Inhalt** > **Medienbibliothek**. Hier können Sie:
+In der Medienbibliothek können Sie den Asset-Typ, die Größe, die Abmessungen, die URL, das Datum, an dem es zur Bibliothek hinzugefügt wurde, und weitere Informationen einsehen. Um auf Ihre Braze-Medienbibliothek zuzugreifen, navigieren Sie zu **Inhalt** > **Medienbibliothek**. Hier können Sie:
 
 * Mehrere Bilder gleichzeitig hochladen
 * Virtual Contact Files (.vcf) hochladen
@@ -48,7 +48,7 @@ In der Medienbibliothek können Sie den Asset-Typ, die Größe, die Abmessungen,
 
 Wenn Sie später eine Nachricht in Braze verfassen, können Sie Ihre Bilder aus der Medienbibliothek einfügen.
 
-![Zwei gängige Möglichkeiten, auf die Medienbibliothek zuzugreifen, je nach Nachrichten-Editor. Eine zeigt den E-Mail-Drag-and-Drop-Editor mit dem Titel „Bilder und GIFs“ und einem Button „Aus Medienbibliothek hinzufügen“. Die andere zeigt die Standard-Editoren, z. B. für Push- und In-App-Nachrichten, mit dem Titel „Medien“ und einem Button „Bild hinzufügen“.]({% image_buster /assets/img_archive/media_library_composers.png %}){: style="border:none"}
+![Zwei gängige Möglichkeiten, auf die Medienbibliothek zuzugreifen, je nach Nachrichten-Editor. Eine zeigt den E-Mail-Drag-and-Drop-Editor mit dem Titel „Bilder und GIFs“ und einem Button „Aus Medienbibliothek hinzufügen“. Die andere zeigt die Standard-Editoren, wie Push und In-App-Nachrichten, mit dem Titel „Medien“ und einem Button „Bild hinzufügen“.]({% image_buster /assets/img_archive/media_library_composers.png %}){: style="border:none"}
 
 {% alert tip %} Weitere Hilfe zur Medienbibliothek finden Sie in unseren [FAQ zur Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/faq). {% endalert %}
 
@@ -60,28 +60,30 @@ Dies gilt für jede Datei im Archiv – einschließlich Schriftdateien (`.ttf`, 
 
 Alternativ können Sie Assets auch einzeln in die Medienbibliothek hochladen, ohne sie zu komprimieren.
 
-## Eine Datei ersetzen {#replace-a-file}
+## Datei ersetzen {#replace-a-file}
 
-Sie können die Datei eines vorhandenen Assets in der Medienbibliothek ersetzen und dabei die URL und die Asset-ID beibehalten. Da sich die URL nicht ändert, spiegelt jede Nachricht oder Campaign, die auf dieses Asset verweist – einschließlich bereits gesendeter E-Mails – automatisch die aktualisierte Datei wider. Dies ist nützlich, wenn Sie ein gemeinsam genutztes Asset (z. B. ein Logo) an einer Stelle aktualisieren möchten, anstatt jede Campaign einzeln zu aktualisieren.
+Sie können die Datei eines vorhandenen Assets in der Medienbibliothek ersetzen und dabei die URL und die Asset-ID beibehalten. Da sich die URL nicht ändert, spiegelt jede Nachricht oder Campaign, die auf dieses Asset verweist – einschließlich bereits gesendeter E-Mails – automatisch die aktualisierte Datei wider. Dies ist nützlich, wenn Sie ein gemeinsam genutztes Asset (z. B. ein Logo) an einer Stelle aktualisieren möchten, anstatt jede Campaign einzeln zu ändern.
 
 Um ein Asset zu ersetzen, benötigen Sie die Berechtigung „Replace Media Library Assets“:
 
-1. Gehen Sie zu **Content** > **Medienbibliothek**.
+1. Navigieren Sie zu **Inhalt** > **Medienbibliothek**.
 2. Wählen Sie das Asset aus, das Sie ersetzen möchten.
-3. Wählen Sie im Modal **Replace file** aus.
+3. Wählen Sie im Modal **Datei ersetzen** aus.
 4. Laden Sie die Ersatzdatei hoch.
 
-![Bearbeitungsmodal der Medienbibliothek mit den Buttons „Replace file“, „Crop image“ und „Delete“ für ein Asset.]({% image_buster /assets/img_archive/media_library_replace_file.png %}){: style="max-width:60%;border:none"}
+![Modal zur Bearbeitung in der Medienbibliothek mit den Buttons „Datei ersetzen“, „Bild zuschneiden“ und „Löschen“ für ein Asset.]({% image_buster /assets/img_archive/media_library_replace_file.png %}){: style="max-width:60%;border:none"}
 
 ### Anforderungen und Einschränkungen {#requirements-and-limitations}
 
-- Die Ersatzdatei muss die gleiche Dateierweiterung wie das Original haben. Beispielsweise können Sie ein `.png`-Asset nicht durch eine `.jpg`-Datei ersetzen.
+- Die Ersatzdatei muss dieselbe Dateierweiterung wie das Original haben. Beispielsweise können Sie ein `.png`-Asset nicht durch eine `.jpg`-Datei ersetzen.
 - Video-Assets können nicht ersetzt werden.
 - Nach dem Ersetzen kann es aufgrund von CDN-Caching einige Zeit dauern, bis die aktualisierte Datei für alle Verbraucher:innen angezeigt wird.
 
 ### Kanäle mit verarbeiteten Bildkopien {#channels-with-processed-image-copies}
 
-Einige Kanäle erstellen beim Einrichten der Nachricht eine optimierte Kopie des Bildes, was zu einer separaten URL führt. Das Ersetzen des ursprünglichen Medienbibliothek-Assets aktualisiert nicht, was Verbraucher:innen für Nachrichten sehen, die über diese Kanäle erstellt wurden, einschließlich In-App-Nachrichten, Content Cards, Push-Benachrichtigungen und Banner.
+Einige Kanäle erstellen beim Einrichten der Nachricht eine optimierte Kopie des Bildes, was zu einer separaten URL führt. Dies gilt unabhängig davon, ob das Bild aus der Medienbibliothek oder über eine externe URL (z. B. aus einem S3-Bucket) hinzugefügt wurde. Das Ersetzen des ursprünglichen Medienbibliothek-Assets aktualisiert nicht, was Verbraucher:innen bei Nachrichten sehen, die über diese Kanäle erstellt wurden, einschließlich Content Cards, Push-Benachrichtigungen und Banner.
+
+Traditionelle In-App-Nachrichten (Modal, Slideup und Vollbild) folgen ebenfalls diesem Verhalten. HTML-In-App-Nachrichten und Drag-and-Drop-In-App-Nachrichten hingegen nicht. Bei diesen Typen speichert Braze das Bild nicht im Cache, sodass das Ändern oder Entfernen der ursprünglichen Bild-URL das Bild in aktiven Campaigns beschädigt.
 
 Sie können ein Asset auch programmatisch über den Endpunkt [`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file) ersetzen.
 
@@ -90,7 +92,7 @@ Sie können ein Asset auch programmatisch über den Endpunkt [`PUT /media_librar
 Alle in die Medienbibliothek hochgeladenen Bilder müssen kleiner als 5&nbsp;MB sein. Unterstützte Dateitypen sind PNG, JPEG, GIF, SVG und WebP. Empfohlene Bildgrößen und Spezifikationen nach Messaging-Kanal finden Sie unter [Bildspezifikationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications).
 
 {% alert important %}
-GIFs mit sehr langgestreckten Formen (z. B. 3000 x 2 Pixel) oder 300 oder mehr Frames können beim Hochladen fehlschlagen, selbst wenn die Gesamtdateigröße klein ist.
+GIFs mit sehr langgestreckten Formen (zum Beispiel 3000 x 2 Pixel) oder 300 oder mehr Frames können möglicherweise nicht hochgeladen werden, selbst wenn die Gesamtdateigröße klein ist.
 {% endalert %}
 
 ## Bilder mit BrazeAI<sup>TM</sup> generieren {#generate-ai}
@@ -101,4 +103,4 @@ GIFs mit sehr langgestreckten Formen (z. B. 3000 x 2 Pixel) oder 300 oder mehr F
 Bevor Sie dieses Feature verwenden, lesen Sie, [wie Ihre Daten verwendet und an OpenAI gesendet werden]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security).
 {% endalert %}
 
-Wenn Sie **AI Image Generator** auf der Seite **Media Library** nicht sehen, bestätigen Sie, dass Sie die Berechtigung **Edit Media Library Assets** haben. Falls die Option weiterhin fehlt, wenden Sie sich an Ihr Braze-Kundenteam, um zu bestätigen, dass Ihr Workspace Zugriff auf die BrazeAI-Bildgenerierung hat. Falls die Generierung fehlschlägt, lesen Sie die [OpenAI-Inhaltsrichtlinie]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security).
+Wenn Sie **Mit Operator generieren** auf der Seite **Medienbibliothek** nicht sehen, bestätigen Sie, dass Sie die Berechtigung „Edit Media Library Assets“ haben. Falls die Option weiterhin fehlt, wenden Sie sich an Ihr Braze-Kundenteam, um zu bestätigen, dass Ihr Workspace Zugriff auf die BrazeAI-Bildgenerierung hat. Falls die Generierung fehlschlägt, lesen Sie die [OpenAI-Inhaltsrichtlinie]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#data-privacy-and-security).

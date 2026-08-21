@@ -11,7 +11,7 @@ channel:
 
 # Opt-in and opt-out
 
-> Handling WhatsApp opt-ins and opt-outs is crucial as WhatsApp monitors your [phone number quality rating](https://www.facebook.com/business/help/896873687365001), and low ratings may result in your message limits being reduced. <br><br>One way to build a high-quality rating is to prevent users from blocking or reporting your business. This can be done by providing [high-quality messaging](https://developers.facebook.com/docs/whatsapp/messaging-limits#quality-rating-and-messaging-limits) (such as value to your users), controlling message frequency, and allowing customers to opt-out of receiving future communications. <br><br>This page covers how to set up opt-ins and opt-outs, and the differences between the "regex" and "is" modifiers.
+> Handling WhatsApp opt-ins and opt-outs is crucial as WhatsApp monitors your [phone number quality rating](https://www.facebook.com/business/help/896873687365001), and low ratings may result in your message limits being reduced. <br><br>One way to build a high-quality rating is to prevent users from blocking or reporting your business. This can be done by providing [high-quality messaging](https://developers.facebook.com/docs/whatsapp/messaging-limits#quality-rating-and-messaging-limits) (such as value to your users), controlling message frequency, and allowing customers to opt-out of receiving future communications. <br><br>For a cross-channel overview of WhatsApp subscription status, see [Subscription status]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#whatsapp). This page covers how to set up opt-ins and opt-outs, and the differences between the "regex" and "is" modifiers.
 
 Opt-ins can come from external sources or from Braze methods, such as SMS or in-app and in-browser messages. Opt-outs can be dealt with using keywords set in Braze and WhatsApp marketing buttons. Reference the following methods for guidance on setting up opt-ins and opt-outs.
 
@@ -30,6 +30,14 @@ Opt-ins can come from external sources or from Braze methods, such as SMS or in-
 
 For WhatsApp opt-ins, you must comply with [WhatsApp's requirements](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/). You will also need to provide Braze with the following information:
 - An `external_id`, a [phone number]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers), and an updated subscription status for every user. This can be done by using the [SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/) or through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to update the phone number and subscription status.
+
+An inbound WhatsApp message doesn't automatically subscribe a user to your WhatsApp subscription group. You must explicitly update the subscription status with a [User Update step](#user-update-step), [webhook](#webhook-campaign-to-trigger-a-second-whatsapp-campaign), or API call.
+
+Meta requires opt-in copy to:
+
+- Clearly state that the person is opting in to receive messages from your business
+- Include your business name (not generic language such as "we'll message you")
+- Comply with applicable local laws
 
 {% alert note %}
 Braze released an improvement to the `/users/track` endpoint that allows updates to the subscription status that you can learn about in [Subscription groups]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#update-subscription-status). However, if you have already created opt-in protocols using the [`/v2/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2), you may continue to do so there.
@@ -176,7 +184,7 @@ For "STOP" messages, invert the message step confirming the opt-out and the User
 
 #### Considerations
 
-The update might complete at variable speeds because Braze batches the [User Update step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) requests.
+The update might complete at variable speeds because Braze batches the [User Update step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) requests. For time-sensitive opt-in flows where the confirmation must send immediately after the subscription update, use the [webhook method](#webhook-campaign-to-trigger-a-second-whatsapp-campaign) instead of a User Update step.
 
 ### Webhook campaign to trigger a second WhatsApp campaign
 

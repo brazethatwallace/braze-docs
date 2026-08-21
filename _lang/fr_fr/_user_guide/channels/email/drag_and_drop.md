@@ -29,10 +29,10 @@ L'éditeur par glisser-déposer utilise le [Contenu](#content) et les [Lignes](#
     <tbody>
     <tr>
         <td style="text-align: center;">
-            <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="L'onglet « Lignes » qui inclut différentes combinaisons structurelles pour la mise en page de votre e-mail." style="max-width: 100%; height: auto;">
+            <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="L'onglet 'Lignes' qui inclut différentes combinaisons structurelles pour la mise en page de votre e-mail." style="max-width: 100%; height: auto;">
         </td>
         <td style="text-align: center;">
-            <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="L'onglet « Contenu » qui inclut les blocs de base, les médias et les blocs avancés." style="max-width: 100%; height: auto;">
+            <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="L'onglet 'Contenu' qui inclut les blocs de base, les médias et les blocs avancés." style="max-width: 100%; height: auto;">
         </td>
     </tr>
     </tbody>
@@ -63,22 +63,22 @@ Les blocs médias vous permettent d'ajouter différents contenus visuels tels qu
 {% endtab %}
 {% tab Avancés %}
 
-Bien que l'éditeur par glisser-déposer simplifie votre flux de travail avec ces blocs, vous pouvez également utiliser des blocs avancés pour insérer du HTML ou ajouter un menu dans le corps de votre e-mail. Notez que l'utilisation de votre propre HTML peut affecter le rendu du message.
+Bien que l'éditeur par glisser-déposer simplifie votre flux de travail avec ces blocs, vous pouvez également utiliser les blocs avancés pour insérer du HTML ou ajouter un menu dans le corps de votre e-mail. Notez que l'utilisation de votre propre HTML peut affecter le rendu du message.
 
 {% endtab %}
 {% endtabs %}
 
 ### Lignes {#rows}
 
-Les **Lignes** sont des unités structurelles qui définissent la composition horizontale d'une section du message en utilisant des colonnes. Vous pouvez utiliser des lignes vides ou des [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). L'utilisation de plusieurs colonnes vous permet de placer différents éléments de contenu côte à côte. De cette façon, vous pouvez ajouter tous les éléments structurels nécessaires à votre message, quel que soit le modèle que vous avez sélectionné au départ.
+Les **Lignes** sont des unités structurelles qui définissent la composition horizontale d'une section du message à l'aide de colonnes. Vous pouvez utiliser des lignes vides ou des [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). L'utilisation de plusieurs colonnes vous permet de placer différents éléments de contenu côte à côte. De cette façon, vous pouvez ajouter tous les éléments structurels nécessaires à votre message, quel que soit le modèle que vous avez sélectionné au départ.
 
 #### Imbriquer des images dans des blocs de texte {#nesting-images-inside-text-blocks}
 
-Vous ne pouvez pas imbriquer une image à l'intérieur d'un paragraphe ou d'un autre bloc de texte dans l'éditeur par glisser-déposer. Pour placer une image à côté ou à l'intérieur d'une mise en page de texte, utilisez des colonnes dans une **Ligne** : par exemple, une ligne multi-colonnes sur ordinateur avec **Masquer sur mobile** pour cette ligne, et une ligne distincte réservée au mobile (avec **Masquer sur ordinateur** et **Ne pas empiler sur mobile** selon les besoins) afin que l'image et le texte s'alignent correctement sur les petits écrans.
+Vous ne pouvez pas imbriquer une image à l'intérieur d'un paragraphe ou d'un autre bloc de texte dans l'éditeur par glisser-déposer. Pour placer une image à côté ou à l'intérieur d'une mise en page textuelle, utilisez des colonnes dans une **Ligne** : par exemple, une ligne multi-colonnes sur ordinateur avec **Masquer sur mobile** pour cette ligne, et une ligne distincte réservée au mobile (avec **Masquer sur ordinateur** et **Ne pas empiler sur mobile** selon les besoins) afin que l'image et le texte s'alignent correctement sur les petits écrans.
 
 #### Style Cartes {#cards-style}
 
-Le **Style Cartes** est une propriété de ligne qui vous permet d'ajouter de l'espacement entre les colonnes et d'arrondir leurs coins. Avec le formatage en style carte, vous pouvez créer des mises en page plus visuellement attrayantes pour mettre en valeur votre contenu le plus important, comme les nouvelles fonctionnalités produit, les témoignages, les offres spéciales, les actualités, et bien plus encore.
+Le **Style Cartes** est une propriété de ligne qui vous permet d'ajouter un espacement entre les colonnes et d'arrondir leurs coins. Avec le formatage en style carte, vous pouvez créer des mises en page plus visuellement attrayantes pour mettre en valeur votre contenu le plus important, comme les nouvelles fonctionnalités produit, les témoignages, les offres spéciales, les actualités, et bien plus encore.
 
 ## Utiliser l'éditeur par glisser-déposer {#using-the-drag-and-drop-editor}
 
@@ -88,7 +88,7 @@ Vous ne savez pas si votre e-mail doit être envoyé via une Campaign ou un Canv
 Vous ne pouvez pas enregistrer un e-mail par glisser-déposer depuis une Campaign ou un Canvas directement dans **Modèles** > **Modèles d'e-mail** en tant que modèle d'e-mail. Créez d'abord sous **Modèles**, ou consultez [Puis-je enregistrer mon e-mail par glisser-déposer en tant que modèle après l'avoir créé dans ma Campaign ou mon Canvas ?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) pour recréer un modèle par glisser-déposer ou exporter le HTML avec **Télécharger le fichier**.
 {% endalert %}
 
-Une fois que vous avez choisi où créer votre message, passons aux étapes de création d'un e-mail par glisser-déposer.
+Après avoir choisi où créer votre message, passons aux étapes de création d'un e-mail par glisser-déposer.
 
 ### Étape 1 : Sélectionner votre modèle {#step-1-select-your-template}
 
@@ -116,7 +116,7 @@ L'expérience d'édition par glisser-déposer est divisée en trois sections : *
 
 Lorsque vous êtes prêt, utilisez les blocs de contenu par glisser-déposer pour créer votre e-mail.
 
-1. Sélectionnez le panneau **Lignes**. Glissez et déposez les configurations de lignes dans l'éditeur principal. Cela définira la mise en page du contenu de votre e-mail.
+1. Sélectionnez le panneau **Lignes**. Glissez et déposez les configurations de lignes dans l'éditeur principal. Cela définit la mise en page du contenu de votre e-mail.
 - Notez que les nouvelles configurations doivent être glissées en haut ou en bas d'une section existante.
 - Lorsque vous sélectionnez une configuration de ligne, les paramètres **Propriétés de la ligne** apparaissent pour une personnalisation plus poussée des couleurs d'arrière-plan, des images et des tailles de colonnes personnalisées.
 2. Sélectionnez le panneau **Contenu**. Glissez et déposez les tuiles de contenu souhaitées dans les composants de ligne.
@@ -125,10 +125,10 @@ Lorsque vous êtes prêt, utilisez les blocs de contenu par glisser-déposer pou
 
 Consultez [Autres personnalisations](#other-customizations) pour d'autres façons de personnaliser davantage votre e-mail par glisser-déposer.
 
-Pendant la création de votre e-mail, vous pouvez basculer entre une vue bureau et mobile pour prévisualiser l'apparence de votre e-mail pour vos groupes d'utilisateurs. Cela vous permettra de vérifier que votre contenu est responsive, et vous pourrez effectuer les ajustements nécessaires au fur et à mesure.
+Pendant la création de votre e-mail, vous pouvez basculer entre une vue bureau et mobile pour prévisualiser l'apparence de votre e-mail pour vos groupes d'utilisateurs. Cela vérifie que votre contenu est responsive, et vous pouvez effectuer les ajustements nécessaires au fur et à mesure.
 
 {% alert tip %}
-Besoin d'aide pour rédiger un texte percutant ? Essayez d'utiliser l'[assistant de rédaction IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Saisissez un nom ou une description de produit, et l'IA générera un texte marketing de qualité humaine à utiliser dans vos communications.
+Besoin d'aide pour rédiger un texte percutant ? Essayez d'utiliser l'[assistant de rédaction IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Saisissez un nom ou une description de produit, et l'IA générera un texte marketing semblable à celui d'un rédacteur humain, à utiliser dans vos communications.
 
 ![Bouton de rédaction, situé dans le panneau Contenu à côté des paramètres de style dans l'éditeur par glisser-déposer.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}
@@ -143,7 +143,7 @@ Une fois que vous avez terminé la conception et la création de votre e-mail, i
 
 Un aperçu dans le panneau de droite se remplira avec les informations d'envoi que vous avez ajoutées. Ces informations peuvent également être mises à jour en accédant à **Paramètres** > **Préférences e-mail** > **Configuration d'envoi**.
 
-#### Ajouter des pièces jointes {#add-email-attachments}
+#### Ajouter des pièces jointes à l'e-mail {#add-email-attachments}
 
 Dans **Paramètres d'envoi** > **Avancé**, vous pouvez ajouter des pièces jointes à l'e-mail par les méthodes suivantes :
 
@@ -161,7 +161,7 @@ Les fonctionnalités avancées apparaîtront dans le compositeur de Campaign ou 
 
 ### Étape 4 : Tester votre e-mail {#step-4-test-your-email}
 
-Après avoir ajouté vos informations d'envoi, il est enfin temps de tester votre e-mail.
+Après avoir ajouté vos informations d'envoi, il est temps de tester votre e-mail.
 
 {% alert tip %}
 Si l'e-mail semble différent dans l'éditeur par rapport à l'aperçu ou à l'envoi test, vérifiez que toutes les balises sont fermées, que les attributs d'image ont des valeurs et que les images d'arrière-plan ne sont pas floues sur les bords.
@@ -177,25 +177,25 @@ Comme vous pouvez visualiser trois versions différentes du même e-mail dans l'
 
 #### Aperçu et envoi test {#preview-and-test-send}
 
-Sous l'onglet **Aperçu en tant qu'utilisateur**, vous pouvez sélectionner les types d'utilisateurs suivants pour prévisualiser votre message.
+Sous l'onglet **Prévisualiser en tant qu'utilisateur**, vous pouvez sélectionner les types d'utilisateurs suivants pour prévisualiser votre message.
 
 - **Utilisateur aléatoire :** Braze sélectionnera aléatoirement un utilisateur dans la base de données et prévisualisera l'e-mail en fonction de ses attributs ou informations d'événements.
 - **Sélectionner un utilisateur :** Vous pouvez sélectionner un utilisateur spécifique en fonction de son adresse e-mail ou de son ID externe. L'e-mail sera prévisualisé en fonction des attributs et des informations d'événements de cet utilisateur.
-- **Utilisateur personnalisé :** Vous pouvez personnaliser un utilisateur. Braze proposera des champs de saisie pour tous les attributs et événements disponibles. Vous pouvez saisir toutes les informations que vous souhaitez voir dans l'e-mail d'aperçu.
+- **Utilisateur personnalisé :** Vous pouvez personnaliser un utilisateur. Braze proposera des champs de saisie pour tous les attributs et événements disponibles. Vous pouvez saisir toutes les informations que vous souhaitez voir dans l'e-mail de prévisualisation.
 
 {% alert note %}
 L'utilisateur aléatoire peut ou non faire partie de vos critères de segmentation. La segmentation est sélectionnée par la suite, donc Braze ne connaît pas votre audience cible à ce stade.
 {% endalert %}
 
-Vous pouvez également sélectionner **Copier le lien d'aperçu** pour générer et copier un lien d'aperçu partageable qui montre à quoi ressemblera l'e-mail pour un utilisateur aléatoire. Pour plus d'informations, consultez [Aperçu partageable]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
+Vous pouvez également sélectionner **Copier le lien de prévisualisation** pour générer et copier un lien de prévisualisation partageable qui montre à quoi ressemblera l'e-mail pour un utilisateur aléatoire. Pour plus d'informations, consultez [Aperçu partageable]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
-![Aperçu de l'e-mail avec un bouton pour « Copier le lien d'aperçu » et copier le lien généré.]({% image_buster /assets/img/dnd_email_link_preview.png %})
+![Aperçu de l'e-mail avec un bouton pour « Copier le lien de prévisualisation » et copier le lien généré.]({% image_buster /assets/img/dnd_email_link_preview.png %})
 
 #### Utiliser Inbox Vision {#use-inbox-vision}
 
 Inbox Vision vous permet de visualiser vos Campaigns d'e-mail du point de vue des clients de messagerie et des appareils mobiles. Pour tester votre e-mail à l'aide d'Inbox Vision, sélectionnez **Inbox Vision** dans la section **Aperçu et test** et sélectionnez **Lancer Inbox Vision**.
 
-Il est important de tester et de vérifier les détails les plus fins de votre e-mail. Par exemple, les images d'arrière-plan dans les e-mails peuvent parfois provoquer l'apparition de lignes blanches ou de déconnexions entre les images, ou des clients tels que Windows Outlook peuvent ne pas afficher les images d'arrière-plan. L'utilisation d'Inbox Vision peut aider à identifier ces écarts entre les clients. Dans ce scénario, définissez une couleur d'arrière-plan de secours afin que ces images puissent s'afficher comme prévu.
+Il est important de tester et de vérifier les détails les plus fins de votre e-mail. Par exemple, les images d'arrière-plan dans les e-mails peuvent parfois provoquer l'apparition de lignes blanches ou de déconnexions entre les images, ou des clients tels que Windows Outlook peuvent ne pas afficher les images d'arrière-plan. L'utilisation d'Inbox Vision peut aider à identifier ces divergences entre les clients. Dans ce scénario, définissez une couleur d'arrière-plan de secours afin que ces images puissent s'afficher comme prévu.
 
 Pour plus d'informations, consultez [Envoyer des messages test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=email).
 
@@ -207,7 +207,7 @@ Le moteur sous-jacent qui produit le HTML à partir de l'éditeur par glisser-d�
 La taille moyenne de nos données HTML exportées a été réduite, ce qui entraîne un chargement et un rendu plus rapides, une réduction du rognage sur mobile et une consommation de bande passante réduite.
 
 Le rendu HTML a été amélioré grâce aux mises à jour suivantes qui minimisent le nombre de commentaires conditionnels et de requêtes média CSS. En conséquence, les fichiers HTML sont plus petits et codés de manière plus efficace.
-- Migration d'une conception basée sur des éléments `<div>` vers un code standard formaté en `<table aria-label="Utiliser Inbox Vision">`
+- Migration d'une conception basée sur des éléments `<div>` vers une base de code formatée en `<table aria-label="Utiliser Inbox Vision">` standard
   <caption>Utiliser Inbox Vision</caption>
 - Les [blocs éditeur (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email) ont été recodés pour plus de concision
 - Le code HTML final est compressé pour supprimer les espaces entre les balises
@@ -216,7 +216,7 @@ Le rendu HTML a été amélioré grâce aux mises à jour suivantes qui minimise
 
 ## Autres personnalisations {#other-customizations}
 
-Au fur et à mesure que vous construisez vos e-mails par glisser-déposer, vous pouvez personnaliser davantage le corps de chaque e-mail en utilisant une combinaison de ces détails créatifs pour capter l'attention et l'intérêt de votre audience.
+Au fur et à mesure que vous construisez vos e-mails par glisser-déposer, vous pouvez personnaliser davantage chaque corps d'e-mail en utilisant une combinaison de ces détails créatifs pour capter l'attention et l'intérêt de votre audience.
 
 {% alert tip %}
 Vous pouvez créer un thème personnalisé pour votre éditeur par glisser-déposer en utilisant les [paramètres de style globaux]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings).
@@ -238,11 +238,11 @@ Grâce à la superposition de couleurs, vous pouvez modifier la couleur de l'arr
 
 ![Options de bloc pour l'éditeur par glisser-déposer.]({% image_buster /assets/img/dnd/dnd3.png %}){: style="float:right;max-width:25%;margin-left:15px;"}
 
-Pour ajuster l'espacement, faites défiler jusqu'à **Options de bloc** et sélectionnez **Plus d'options**. Vous pouvez affiner votre espacement pour obtenir un e-mail au rendu parfait.
+Pour ajuster l'espacement, faites défiler jusqu'à **Options de bloc** et sélectionnez **Plus d'options**. Vous pouvez affiner votre espacement pour que votre e-mail soit exactement comme vous le souhaitez.
 
 ### Arrière-plan du contenu {#content-background}
 
-Vous pouvez ajouter une image d'arrière-plan à la configuration de votre ligne, ce qui vous permet d'intégrer davantage de design et de contenu visuel dans votre campagne d'e-mailing.
+Vous pouvez ajouter une image d'arrière-plan à la configuration de votre ligne, ce qui vous permet d'incorporer davantage de design et de contenu visuel dans votre campagne d'e-mail.
 
 ### Attribut de langue {#language-attribute}
 
@@ -268,7 +268,7 @@ La personnalisation Liquid n'est pas prise en charge pour les blocs d'images et 
 Vous pouvez choisir d'inclure des images dynamiques dans vos e-mails en intégrant du [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) ou du [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) dans l'attribut source de votre image. Par exemple, au lieu d'une image statique, vous pouvez insérer {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} comme URL d'image pour inclure le prénom d'un utilisateur dans l'image. Cela permet de personnaliser vos e-mails pour chaque utilisateur.
 
 {% alert important %}
-L'URL de votre image doit commencer par `https://`. L'utilisation de `http://` provoque un plantage de votre application.
+L'URL de votre image doit commencer par `https://`. L'utilisation de `http://` provoque le plantage de votre application.
 {% endalert %}
 
 ### Direction du texte {#text-direction}
@@ -287,10 +287,14 @@ L'apparence finale des messages de droite à gauche dépend en grande partie de 
 
 Lorsque vous utilisez des liens, des boutons, des images et des vidéos dans l'éditeur par glisser-déposer, sélectionnez **Ajouter un nouvel attribut** sous **Attributs** dans la section **Contenu** pour ajouter des informations supplémentaires aux balises HTML dans les e-mails. Cela peut être particulièrement utile pour la personnalisation des messages, la segmentation et le style.
 
-Un cas d'usage courant consiste à insérer un attribut dans votre balise d'ancrage pour désactiver le suivi des clics lors de l'envoi via Braze.
+Un cas d'usage courant consiste à désactiver le suivi des clics pour des liens spécifiques lors de l'envoi via Braze. Vous pouvez le faire de deux manières :
 
-* **SendGrid :** `clicktracking = "off"`
-* **SparkPost :** `data-msys-clicktrack = "0"`
+- **Utiliser les attributs du module de lien :** Sélectionnez un élément de lien (comme un bouton ou un module de lien), puis utilisez **Ajouter un nouvel attribut** sous **Attributs** pour ajouter :
+  - Pour SendGrid, utilisez `clicktracking` comme nom et `off` comme valeur.
+  - Pour SparkPost, utilisez `data-msys-clicktrack` comme nom et `0` comme valeur.
+- **Utiliser un bloc HTML :** Insérez un bloc HTML et incluez l'attribut de suivi des clics directement dans le code de votre balise d'ancrage :
+  - Pour SendGrid, utilisez `<a href="your-url" clicktracking="off">Texte du lien</a>`.
+  - Pour SparkPost, utilisez `<a href="your-url" data-msys-clicktrack="0">Texte du lien</a>`.
 
 Un autre cas d'usage courant consiste à signaler des liens spécifiques comme liens universels. Les liens universels sont des liens qui redirigent vers votre application, offrant à vos utilisateurs une expérience intégrée.
 
@@ -323,7 +327,7 @@ Tout ce qui est ajouté en dehors des balises `<head>` sera ajouté après la ba
 | Balise | Attribut | Description | Exemple |
 | --- | --- | --- | --- |
 | `base` | `href` | URL de base à utiliser pour les URL relatives. | ```<base href="https://braze.com">``` |
-| `base` | `target`| Cible par défaut pour tous les hyperliens et formulaires. | ```<base target="_blank">``` |
+| `base` | `target`| Cible par défaut pour tous les liens hypertextes et formulaires. | ```<base target="_blank">``` |
 | `link` | `href` | URL vers la ressource externe. | ```<link href="style.css">``` |
 | `link` | `rel` | Définit les relations entre le message actuel et le message lié. | ```<link rel="stylesheet">``` |
 | `link` | `type` | Type de la ressource liée. | ```<link type="text/css">``` |

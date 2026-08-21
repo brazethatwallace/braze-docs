@@ -418,46 +418,50 @@ El filtro de Segment [`Message Open Likelihood`]({{site.baseurl}}/user_guide/aud
 
 {% endapi %}
 
-## Solución de problemas y preguntas frecuentes sobre informes de correo electrónico {#email-reporting-troubleshooting-and-faqs}
+## Solución de problemas e información frecuente sobre informes de correo electrónico {#email-reporting-troubleshooting-and-faqs}
 
 ### Enlaces de cancelación de suscripción y clics únicos {#unsubscribe-links-and-unique-clicks}
 
-Cuando un destinatario hace clic en un enlace de cancelación de suscripción, Braze lo cuenta como un clic porque la acción utiliza una URL. Esto se aplica a los enlaces de cancelación de suscripción proporcionados por Braze y a los enlaces de cancelación de suscripción personalizados en el cuerpo de tu mensaje. Esos clics contribuyen a *Clics únicos* y *Clics totales* junto con otros clics en enlaces. Para las definiciones de métricas, consulta [Clics únicos](#unique-clicks) y [¿Por qué veo un número diferente de cancelaciones de suscripción que de clics en mi enlace de cancelación de suscripción?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+Cuando un destinatario hace clic en un enlace de cancelación de suscripción, Braze lo cuenta como un clic porque la acción utiliza una URL. Esto se aplica a los enlaces de cancelación de suscripción proporcionados por Braze y a los enlaces de cancelación de suscripción personalizados en el cuerpo de tu mensaje. Esos clics contribuyen a *Unique Clicks* y *Total Clicks* junto con otros clics en enlaces. Para las definiciones de métricas, consulta [Unique Clicks](#unique-clicks) y [¿Por qué veo un número diferente de cancelaciones de suscripción que de clics en mi enlace de cancelación de suscripción?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
 ### Ver en el navegador {#view-in-browser}
 
-Braze no incluye una función integrada de «Ver este correo electrónico en un navegador». Aloja el contenido del correo electrónico en una página de inicio externa (como tu sitio web) y agrega un enlace desde el mensaje usando la herramienta **Enlace** del editor de correo electrónico. Para más información, consulta [¿Puedo agregar un enlace de «ver este correo electrónico en un navegador» a mis correos electrónicos?]({{site.baseurl}}/user_guide/channels/email/faq#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails).
+Braze no incluye una función integrada de "Ver este correo electrónico en un navegador". Aloja el contenido del correo electrónico en una página de destino externa (como tu sitio web) y añade un enlace desde el mensaje utilizando la herramienta **Enlace** del editor de correo electrónico. Para más información, consulta [¿Puedo añadir un enlace de "ver este correo electrónico en un navegador" a mis correos electrónicos?]({{site.baseurl}}/user_guide/channels/email/faq#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails).
 
-### Actualizaciones de la página personalizada para cancelar la suscripción {#custom-unsubscribe-page-updates}
+### Actualizaciones de la página de cancelación de suscripción personalizada {#custom-unsubscribe-page-updates}
 
-Los cambios en tu [página personalizada para cancelar la suscripción]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) aparecen en pocos minutos. Los envíos en vivo usan una caché de corta duración de la página que se actualiza cuando guardas los cambios.
+Los cambios en tu [página de cancelación de suscripción personalizada]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) aparecen en pocos minutos. Los envíos en vivo utilizan una caché de corta duración de la página que se actualiza cuando guardas los cambios.
 
 ### Rebotes por cuota excedida y buzón lleno {#over-quota-and-full-mailbox-bounces}
 
-Un rebote por cuota excedida o buzón lleno significa que el buzón del destinatario no puede aceptar correo nuevo. Puedes ver estas direcciones entre nuevos registros con direcciones no válidas o de riesgo, o entre perfiles inactivos durante mucho tiempo cuyos buzones se llenaron mientras estaban inactivos.
+Un rebote por cuota excedida o buzón lleno significa que el buzón de entrada del destinatario no puede aceptar correo nuevo. Puedes ver estas direcciones entre nuevos registros con direcciones no válidas o de riesgo, o entre perfiles inactivos durante mucho tiempo cuyos buzones se llenaron mientras estaban inactivos.
 
-Revisa las tasas de rebote por segmento y fuente, elimina o retira las direcciones que rebotan repetidamente de forma dura, y usa la adhesión voluntaria confirmada o doble para nuevos suscriptores. Para prácticas de higiene de listas, consulta [Trampas de capacidad de entrega y correo no deseado]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps) e [Informes de correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting#troubleshooting).
+Revisa las tasas de rebote por Segment y origen, elimina o retira las direcciones que rebotan de forma dura repetidamente, y utiliza la adhesión voluntaria confirmada o doble para nuevos suscriptores. Para prácticas de higiene de listas, consulta [Trampas de capacidad de entrega y correo no deseado]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps) e [Informes de correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting#troubleshooting).
 
 ### 550 5.7.1 correo no solicitado {#550-571-unsolicited-mail}
 
-Una respuesta `550 5.7.1` como «Nuestro sistema ha detectado que este mensaje probablemente es correo no solicitado» suele provenir de proveedores de buzón estrictos (por ejemplo, Gmail) cuando las señales de reputación o interacción son deficientes. Los factores comunes incluyen quejas de correo no deseado, baja interacción, listas compradas o alquiladas y picos repentinos de volumen.
+Una respuesta `550 5.7.1` como "Our system has detected that this message is likely unsolicited mail" suele provenir de proveedores de buzón estrictos (por ejemplo, Gmail) cuando las señales de reputación o participación son deficientes. Los factores comunes incluyen quejas de correo no deseado, baja participación, listas compradas o alquiladas y picos repentinos de volumen.
 
-Concéntrate en el crecimiento de listas basado en el consentimiento, retira a los suscriptores inactivos y monitorea las tasas de quejas y rebotes. Para más información, consulta [Trampas de capacidad de entrega y correo no deseado]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps).
+Céntrate en el crecimiento de listas basado en el consentimiento, retira a los suscriptores inactivos y monitoriza las tasas de quejas y rebotes. Para más información, consulta [Trampas de capacidad de entrega y correo no deseado]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps).
 
 ### Buenas tasas de capacidad de entrega de correo electrónico {#good-email-deliverability-rates}
 
-La **entrega** indica si el servidor receptor acepta tu mensaje; puedes medirla con métricas como *Entregas* y la tasa de rebote. La **capacidad de entrega** (ubicación en el buzón de entrada) depende del filtrado del proveedor y no se muestra como una única métrica de Braze.
+**Entrega** es si el servidor receptor acepta tu mensaje; puedes medirla con métricas como *Entregas* y la tasa de rebote. **Capacidad de entrega** (colocación en el buzón de entrada) depende del filtrado del proveedor y no se muestra como una única métrica de Braze.
 
-Como guía general, apunta a una entrega cercana al 99 % con rebotes duros por debajo de aproximadamente el 1 %, y observa las aperturas y los clics para detectar tendencias de interacción. Los objetivos exactos varían según la industria y el patrón de envío. Para prácticas que respaldan la reputación, consulta [Mejorar la capacidad de entrega del correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability) y [Trampas de capacidad de entrega y correo no deseado]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps).
+Como guía general, apunta a una entrega cercana al 99 % con rebotes duros por debajo de aproximadamente el 1 %, y observa las aperturas y los clics para detectar tendencias de participación. Los objetivos exactos varían según la industria y el patrón de envío. Para prácticas que respaldan la reputación, consulta [Mejorar la capacidad de entrega del correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices/improve_deliverability) y [Trampas de capacidad de entrega y correo no deseado]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps).
 
-### «La campaña ya está en la ventana de retraso, por lo que no se pone en cola otra» {#campaign-is-already-in-delay-window-so-not-enqueueing-another}
+### "Campaign is already in delay window, so not enqueueing another"
 
-En el registro de actividad de mensajes o los registros de diagnóstico de [campañas basadas en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery), este resultado de procesamiento significa que Braze bloqueó un envío duplicado mientras un desencadenante anterior para el mismo usuario aún se encuentra dentro de la ventana de entrega de la campaña. Un bloqueo de antirrebote evita múltiples puestas en cola para la misma ráfaga de desencadenantes.
+En el registro de actividad de mensajes o en los registros de diagnóstico de [Campaigns basadas en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery), este resultado de procesamiento significa que Braze bloqueó un envío duplicado mientras un desencadenante anterior para el mismo usuario aún se encuentra dentro de la ventana de entrega de la Campaign. Un bloqueo de antirrebote impide múltiples puestas en cola para la misma ráfaga de desencadenantes.
 
-Puedes ver este resultado incluso cuando la campaña muestra **Enviar inmediatamente** si se cumple alguna de las siguientes condiciones:
+Puedes ver este resultado incluso cuando la Campaign muestra **Enviar inmediatamente** si se cumple alguna de las siguientes condiciones:
 
-- La campaña usa un [evento de excepción]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events) o un retraso en el momento de envío que afecta la temporización.
-- Los usuarios tienen un período de [reelegibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility), por lo que no pueden recibir el mensaje de nuevo hasta que pase esa ventana.
-- Otro mensaje de Campaign o paso de mensaje de Canvas con mayor prioridad consumió el espacio de envío cuando los desencadenantes se superponen.
+- La Campaign utiliza un [evento de excepción]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events) o un retraso en el momento de envío que afecta la temporización.
+- Los usuarios tienen un periodo de [reelegibilidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility), por lo que no pueden recibir el mensaje de nuevo hasta que pase esa ventana.
+- Otra Campaign u otro paso de mensaje de Canvas con mayor prioridad consumió el espacio de envío cuando los desencadenantes se superponen.
 
-Si un usuario debería haber recibido el mensaje pero no lo hizo, verifica los resultados anteriores para el mismo desencadenante (por ejemplo, rebote de correo electrónico o canal no habilitado). Otro mensaje en el mismo flujo de trabajo puede haber impedido este envío.
+Si un usuario debería haber recibido el mensaje pero no lo hizo, revisa los resultados anteriores para el mismo desencadenante (por ejemplo, rebote de correo electrónico o canal no habilitado). Otro mensaje en el mismo flujo de trabajo puede haber impedido este envío.
+
+### ¿Cómo calcula Braze los clics únicos para correo electrónico? {#how-does-braze-calculate-unique-clicks-for-email}
+
+Braze cuenta los *Unique Clicks* en una ventana de siete días por destinatario por [`dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id). Para la definición completa, fórmulas, comportamiento del enlace de cancelación de suscripción y alineación con Currents, consulta [Unique Clicks](#unique-clicks).

@@ -29,6 +29,9 @@ guide_featured_list:
   - name: "Judo"
     link: /docs/partners/message_personalization/dynamic_content/visual_and_interactive_content/judo
     image: /assets/img/braze_icons/target-05.svg
+  - name: "Multiplied Media"
+    link: /docs/partners/message_personalization/dynamic_content/visual_and_interactive_content/multiplied_media
+    image: /assets/img/braze_icons/image-05.svg
   - name: "NiftyImages"
     link: /docs/partners/message_personalization/dynamic_content/visual_and_interactive_content/niftyimages
     image: /assets/img/braze_icons/globe-02.svg

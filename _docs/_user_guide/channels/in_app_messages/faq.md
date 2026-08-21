@@ -75,6 +75,10 @@ When multiple messages share the same priority level, the most recently created 
 
 To control the display order within a priority bucket, go to the delivery settings for any of the campaigns and select **Set Exact Priority**, then drag and drop campaigns into the desired order. For more details, refer to [Choose a priority]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority).
 
+## How are in-app message impressions and clicks logged?
+
+See [In-app message reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/) for how impressions and clicks are logged by user action. For examples specific to fullscreen messages created with the traditional editor, refer to [Fullscreen message metrics by user action]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/#fullscreen-metrics-by-user-action).
+
 ## How does Braze calculate an in-app message expiration set to "after 1 day(s)"?
 
 Braze calculates an expiration time of one day as 24 hours after users are eligible to receive a message.

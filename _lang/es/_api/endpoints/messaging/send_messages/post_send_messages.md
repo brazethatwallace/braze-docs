@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artículo describe en detalle el punto de conexión de Braze Enviar mensajes inmediatamente utilizando solo la API."
+description: "Este artículo describe en detalle el endpoint de Braze Enviar mensajes inmediatamente utilizando solo la API."
 
 ---
 {% api %}
@@ -14,7 +14,7 @@ description: "Este artículo describe en detalle el punto de conexión de Braze 
 /messages/send
 {% endapimethod %}
 
-> Utiliza este punto de conexión para enviar mensajes inmediatos a usuarios designados utilizando la API de Braze.
+> Utiliza este endpoint para enviar mensajes inmediatos a usuarios designados utilizando la API de Braze.
 
 Si te diriges a un segmento, se almacenará un registro de tu solicitud en la [consola para desarrolladores](https://dashboard.braze.com/app_settings/developer_console/activitylog/).
 
@@ -23,7 +23,7 @@ Si te diriges a un segmento, se almacenará un registro de tu solicitud en la [c
 {% multi_lang_include api/payload_size_alert.md %}
 
 {% alert important %}
-Al utilizar este punto de conexión para campañas de API, el destinatario debe existir previamente en Braze para que la solicitud se realice correctamente. Esto se aplica al especificar usuarios en los parámetros `external_user_ids` o `user_aliases`.
+Al utilizar este endpoint para Campaigns de API, el destinatario debe existir previamente en Braze para que la solicitud se realice correctamente. Esto se aplica al especificar usuarios en los parámetros `external_user_ids` o `user_aliases`.
 {% endalert %}
 
 ## Creación de nuevos usuarios con envíos de API {#creating-new-users-with-api-sends}
@@ -32,16 +32,16 @@ Si necesitas crear un usuario como parte de un envío mediante la API, tienes do
 
 ### Opción 1: Usar `/users/track` y luego enviar {#option-1-use-userstrack-then-send}
 
-Primero, crea el usuario con el punto de conexión [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) y luego espera a que se propaguen los datos (por lo general, se recomienda esperar unos minutos) antes de iniciar el envío solo mediante API. Ten en cuenta que Braze no garantiza los tiempos de procesamiento de datos en `/users/track`, por lo que pueden producirse [condiciones de carrera]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions) si no dejas suficiente tiempo entre estas llamadas.
+Primero, crea el usuario con el endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) y luego espera a que se propaguen los datos (por lo general, se recomienda esperar unos minutos) antes de iniciar el envío solo mediante API. Ten en cuenta que Braze no garantiza los tiempos de procesamiento de datos en `/users/track`, por lo que pueden producirse [condiciones de carrera]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions) si no dejas suficiente tiempo entre estas llamadas.
 
-### Opción 2: Usar una campaña desencadenada por API o Canvas {#option-2-use-an-api-triggered-campaign-or-canvas}
+### Opción 2: Usar una Campaign desencadenada por API o Canvas {#option-2-use-an-api-triggered-campaign-or-canvas}
 
-Utiliza una [campaña desencadenada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) o un flujo de trabajo de [Canvas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases). Estos te permiten crear un destinatario si aún no existe. Esta opción simplifica tus procesos de backend, pero requiere que configures una campaña o Canvas en el dashboard de Braze.
+Utiliza una [Campaign desencadenada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) o un flujo de trabajo de [Canvas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases). Estos te permiten crear un destinatario si aún no existe. Esta opción simplifica tus procesos de backend, pero requiere que configures una Campaign o Canvas en el panel de Braze.
 
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, deberás generar una clave de API con el permiso `messages.send`.
+Para utilizar este endpoint, deberás generar una clave de API con el permiso `messages.send`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -69,7 +69,7 @@ Authorization: Bearer YOUR-REST-API-KEY
    "user_aliases": (optional, array of user alias object) see user alias,
    "segment_id": (optional, string) see segment identifier,
    "audience": (optional, connected audience object) see connected audience,
-   "campaign_id": (optional*, string) *required if you wish to track campaign stats (for example, sends, clicks, bounces, etc). see campaign identifier,
+   "campaign_id": (optional*, string) required if you wish to track campaign stats (for example, sends, clicks, bounces, etc). see campaign identifier,
    "send_id": (optional, string) see send identifier,
    "override_frequency_capping": (optional, bool) ignore frequency_capping for campaigns, defaults to false,
    "recipient_subscription_state": (optional, string) use this to send messages to only users who have opted in ('opted_in'), only users who have subscribed or are opted in ('subscribed') or to all users, including unsubscribed users ('all'), the latter being useful for transactional email messaging. Defaults to 'subscribed',
@@ -91,15 +91,15 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `broadcast` | Opcional | Booleano | Debes establecer `broadcast` en true cuando envíes un mensaje a un segmento completo al que se dirige una campaña o Canvas. Este parámetro está predeterminado como false (desde el 31 de agosto de 2017). <br><br> Si `broadcast` tiene el valor true, no se puede incluir una lista `recipients`. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
+| `broadcast` | Opcional | Booleano | Debes establecer `broadcast` en true cuando envíes un mensaje a un segmento completo al que se dirige una Campaign o Canvas. Este parámetro está predeterminado como false (desde el 31 de agosto de 2017). <br><br> Si `broadcast` tiene el valor true, no se puede incluir una lista `recipients`. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
 | `external_user_ids` | Opcional | Matriz de cadenas | Ver [ID de usuario externo]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields). |
 | `user_aliases` | Opcional | Matriz de objetos de alias de usuario | Ver [objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object). |
-| `segment_id ` | Opcional | Cadena | Ver [identificador de segmento]({{site.baseurl}}/api/identifier_types#segment-identifier). |
+| `segment_id` | Opcional | Cadena | Ver [identificador de segmento]({{site.baseurl}}/api/identifier_types#segment-identifier). |
 | `audience` | Opcional | Objeto de audiencia conectada | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience). |
-| `campaign_id` | Opcional* | Cadena | Consulta [identificador de campaña]({{site.baseurl}}/api/identifier_types#campaign-identifier) para obtener más información. <br><br>*Obligatorio si deseas realizar el seguimiento de las métricas de la campaña (como _envíos_, _clics_ o _rebotes_) en el dashboard de Braze, o si quieres ver los eventos asociados a este mensaje en la [pestaña Historial de mensajes]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles#messaging-history-tab) del perfil de usuario. |
+| `campaign_id` | Opcional* | Cadena | Consulta [identificador de campaña]({{site.baseurl}}/api/identifier_types#campaign-identifier) para obtener más información. <br><br>*Obligatorio si deseas realizar el seguimiento de las métricas de la Campaign (como _envíos_, _clics_ o _rebotes_) en el panel de Braze, o si quieres ver los eventos asociados a este mensaje en la [pestaña Historial de mensajes]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles#messaging-history-tab) del perfil de usuario. Sin un `campaign_id`, Braze no incrementa las estadísticas de capacidad de entrega del panel. Los envíos siguen apareciendo en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), pero no en las métricas de rendimiento de correo electrónico del panel. |
 | `send_id` | Opcional | Cadena | Ver [identificador de envío]({{site.baseurl}}/api/identifier_types#send-identifier). |
 | `override_frequency_capping` | Opcional | Booleano | Ignora `frequency_capping` para las campañas, predeterminado como `false`. |
-| `recipient_subscription_state` | Opcional | Cadena | Utiliza esta opción para enviar mensajes solo a los usuarios que se hayan adherido voluntariamente (`opted_in`), solo a los usuarios que se hayan suscrito o estén adheridos voluntariamente (`subscribed`) o a todos los usuarios, incluidos los que hayan cancelado la suscripción (`all`). <br><br>El uso de `all` es útil para la mensajería de correo electrónico transaccional. De forma predeterminada, `subscribed`. |
+| `recipient_subscription_state` | Opcional | Cadena | Utiliza esta opción para enviar mensajes solo a los usuarios que se hayan adherido voluntariamente (`opted_in`), solo a los usuarios que se hayan suscrito o estén adheridos voluntariamente (`subscribed`) o a todos los usuarios, incluidos los que hayan cancelado la suscripción (`all`). <br><br>El uso de `all` es útil para la mensajería de correo transaccional. De forma predeterminada, `subscribed`. |
 | `messages` | Opcional | Objetos de mensajería | Consulta [los objetos de mensajería disponibles]({{site.baseurl}}/api/objects_filters#messaging-objects). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
@@ -178,6 +178,6 @@ curl --location --request POST 'https://rest.iad-01.braze.com/messages/send' \
 
 ## Detalles de la respuesta {#response-details}
 
-Las respuestas del punto de conexión de envío de mensajes incluyen el `dispatch_id` del mensaje como referencia del envío. El `dispatch_id` es el ID del envío del mensaje, es decir, el ID único de cada "transmisión" enviada desde Braze. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
+Las respuestas del endpoint de envío de mensajes incluyen el `dispatch_id` del mensaje como referencia del envío. El `dispatch_id` es el ID del envío del mensaje, es decir, el ID único de cada "transmisión" enviada desde Braze. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 {% endapi %}
