@@ -1,0 +1,63 @@
+# Search-keyword extraction for {% api %} endpoint pages.
+# Consumed by _plugins/api.rb to build the data-search-keywords attribute used
+# by in-page API search. Algolia indexes the rendered HTML; changing these
+# patterns changes which heading, tag, description, and JSON field names are
+# assembled into that attribute.
+#
+# Use single-quoted YAML so regex backslashes stay literal. `options` maps to
+# Ruby Regexp flags: i = IGNORECASE, m = MULTILINE (dot matches newline).
+
+version: 1
+
+# Joined in this order (space-separated, then lowercased) into data-search-keywords.
+keyword_fields:
+  - heading
+  - tags
+  - description
+  - json_field_names
+
+patterns:
+  heading:
+    regex: '<h2[^>]*>(.*?)</h2>'
+    options: i
+    mode: match
+    capture: 1
+    transforms:
+      - strip_html
+      - strip
+  tags:
+    regex: 'data-tags=[''"]([^''"]*)[''"]'
+    options: i
+    mode: match
+    capture: 1
+    transforms:
+      - strip
+  description:
+    regex: 'class=[''"]api_tags[''"][^>]*></div>\s*<p>(.*?)</p>'
+    options: m
+    mode: match
+    capture: 1
+    transforms:
+      - strip_sr_only
+      - strip_html
+      - strip
+  json_field_names:
+    # JSON object keys are wrapped in <span class="nl">"field_name"</span> by Rouge.
+    regex: '<span class="nl">"([a-z][a-z0-9_]+)"</span>'
+    mode: scan
+    unique: true
+    join: ' '
+
+transforms:
+  strip_html:
+    regex: '<[^>]+>'
+    replacement: ''
+  strip_sr_only:
+    regex: '<span class=[''"]sr-only[''"][^>]*>.*?</span>'
+    options: m
+    replacement: ''
+
+# Applied in order after keyword assembly.
+keyword_escaping:
+  '"': '&quot;'
+  "'": '&#39;'
