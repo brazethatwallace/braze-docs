@@ -83,7 +83,7 @@ To exclude users with rejected SMS sends from your segments, use [SQL Segment Ex
 
 ## Add users to SMS and RCS subscription groups
 
-For a user to receive an SMS or RCS message, they must have a valid phone number and be opted-in to a subscription group. Subscription groups are tied to the SMS or RCS program you are running (make sure you follow the [legal requirements for SMS, MMS, and RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) and have recorded consent for each customer). For more information, refer to [SMS and RCS subscription groups]({{site.baseurl}}/sms_rcs_subscription_groups).
+For a user to receive an SMS or RCS message, they must have a valid phone number and be opted-in to a subscription group. Subscription groups are tied to the SMS or RCS program you are running (make sure you follow the [legal requirements for SMS, MMS, and RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) and have recorded consent for each customer). For more information, refer to [SMS and RCS subscription groups]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups).
 
 ## Third-party sourcing and verification
 
@@ -91,4 +91,4 @@ Braze relies on third-party tools to source invalid numbers. Braze is not respon
 
 ## Phone number capture
 
-To capture phone numbers through in-app messages, refer to [Phone number capture]({{site.baseurl}}/phone_number_capture).
+To capture phone numbers through in-app messages, refer to [SMS, RCS, and WhatsApp sign-up form]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture).

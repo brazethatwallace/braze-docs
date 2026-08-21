@@ -1,6 +1,6 @@
 Link shortening allows you to automatically shorten URLs contained in SMS or RCS messages and collect click-through-rate analytics, providing additional engagement metrics to help understand how users are engaging with your campaigns.
 
-Link shortening can be turned on at the [message variant-level]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#step-1-create-your-campaign) in both campaigns and Canvases. When link shortening is turned on, clicks will generate an [SMS click event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) sent through Currents.
+Link shortening can be turned on at the [message variant-level]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) in both campaigns and Canvases. When link shortening is turned on, clicks will generate an [SMS click event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) sent through Currents.
 
 {% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
 
@@ -33,13 +33,13 @@ Braze recognizes only URLs that start with `http://` or `https://`. When a URL i
 
 ## Liquid personalization in URLs
 
-For information on how to dynamically construct URLs directly within the Braze composer, allowing you to add dynamic UTM parameters to your URLs or send users unique links, see [Use Liquid personalization in URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#use-liquid-personalization-in-urls).
+For information on how to dynamically construct URLs directly within the Braze composer, allowing you to add dynamic UTM parameters to your URLs or send users unique links, see [Use Liquid personalization in URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#use-liquid-personalization-in-urls).
 
 ## Testing
 
 Before launching your campaign or Canvas, it's best practice to preview and test your message first. To do so, go to the **Test** tab to preview and send an SMS or RCS message to [content test groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) or an individual user. 
 
-This preview updates with relevant personalization and the shortened URL. The number of characters and [billable segments]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/) also update to reflect the rendered personalization and the shortened URL.
+This preview updates with relevant personalization and the shortened URL. The number of characters and [billable segments]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) also update to reflect the rendered personalization and the shortened URL.
 
 Make sure to save the campaign or Canvas before sending a test message to receive a representation of the shortened URL that is dispatched in your message. If the campaign or Canvas isn't saved before a test send, the test send includes a placeholder URL.
 
@@ -55,7 +55,7 @@ Liquid personalization and shortened URLs are templated in the **Test** tab afte
 
 ## Click tracking
 
-When link shortening is turned on, the **SMS/MMS/RCS Performance** table includes a column titled **Total Clicks** that shows a count of click events per variant and an associated click rate. For more details on metrics, see [Message performance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting/).
+When link shortening is turned on, the **SMS/MMS/RCS Performance** table includes a column titled **Total Clicks** that shows a count of click events per variant and an associated click rate. For more details on metrics, see [Message performance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
 
 ![SMS and MMS performance metrics table.]({% image_buster /assets/img/link_shortening/shortening4.png %})
 
@@ -63,7 +63,7 @@ The **Historical Performance** and **SMS/MMS/RCS Performance** tables also inclu
 
 ## Retargeting users
 
-For guidance on retargeting, visit [Retargeting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/#filter-by-advanced-tracking-links).
+For guidance on retargeting, visit [Retargeting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#filter-by-advanced-tracking-links).
 
 {% multi_lang_include analytics/click_tracking.md section='Custom Domains' %}
 
@@ -71,7 +71,7 @@ For guidance on retargeting, visit [Retargeting]({{site.baseurl}}/user_guide/cha
 
 ### Do I know which individual users are clicking on a URL?
 
-Yes. You can retarget users who have clicked URLs by using the [SMS retargeting filters]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) or the SMS click events (`users.messages.sms.ShortLinkClick`) sent by Currents.
+Yes. You can retarget users who have clicked URLs by using the [SMS retargeting filters]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) or the SMS click events (`users.messages.sms.ShortLinkClick`) sent by Currents.
 
 ### Does link shortening work with deep links or universal links?
 
@@ -83,7 +83,7 @@ Test the user experience before implementing link shortening with universal link
 
 ### Are `send_ids` associated with SMS click events?
 
-No. However, you can generally attribute `send_ids` with click events by using [Query Builder]({{site.baseurl}}/query_builder/) to query Currents data with this query:
+No. However, you can generally attribute `send_ids` with click events by using [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) to query Currents data with this query:
 
 ```sql
 SELECT c.*, s.send_id

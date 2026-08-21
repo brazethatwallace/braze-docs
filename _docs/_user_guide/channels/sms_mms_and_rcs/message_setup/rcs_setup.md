@@ -76,7 +76,7 @@ When your RCS-verified sender is approved, our operations team updates your subs
 
 ## Step 3: Set up subscription groups
 
-Depending on your integration, Braze can add RCS-verified senders to your existing SMS subscription groups or set up new ones. For detailed setup instructions, refer to [SMS and RCS subscription groups]({{site.baseurl}}/sms_rcs_subscription_groups).
+Depending on your integration, Braze can add RCS-verified senders to your existing SMS subscription groups or set up new ones. For detailed setup instructions, refer to [SMS and RCS subscription groups]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups).
 
 ## Migrating SMS traffic to RCS
 

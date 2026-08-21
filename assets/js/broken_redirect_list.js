@@ -1194,7 +1194,7 @@ validurls['/docs/help/best_practices/image_and_text_specifications#web-push-noti
 validurls['/docs/help/best_practices/image_and_text_specifications#native-mobile-push-notifications'] = '/docs/user_guide/channels/push/create_a_push_message/message_and_image_formats';
 validurls['/docs/help/best_practices/image_and_text_specifications#in-app-messages'] = '/docs/user_guide/channels/in_app_messages/message_types';
 validurls['/docs/help/best_practices/image_and_text_specifications#news-feed-specifications'] = '/docs/user_guide/channels/content_cards';
-validurls['/docs/help/best_practices/image_and_text_specifications#mms'] = '/docs/user_guide/channels/sms_mms_and_rcs/create#image-specifications';
+validurls['/docs/help/best_practices/image_and_text_specifications#mms'] = '/docs/user_guide/channels/sms_mms_and_rcs/create#mms-media-specifications';
 validurls['/docs/help/best_practices/image_and_text_specifications#email'] = '/docs/user_guide/channels/email/best_practices/email_guidelines#email-size';
 validurls['/docs/help/best_practices/image_and_text_specifications'] = '/docs/user_guide/channels/push/create_a_push_message/message_and_image_formats';
 validurls['/docs/help/best_practices/in-app_messages/in-app_message_specs'] = '/docs/developer_guide/changelogs#specs';
