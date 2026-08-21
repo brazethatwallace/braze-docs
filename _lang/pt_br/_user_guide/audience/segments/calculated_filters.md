@@ -19,16 +19,16 @@ Os filtros calculados estão atualmente em acesso antecipado. Se você tem inter
 
 Os Segments da Braze oferecem ferramentas de direcionamento poderosas para criar grupos dinâmicos de usuários. Para a maioria dos casos de uso, isso é suficiente para alcançar seu público de forma eficaz. Os filtros calculados são projetados para casos de uso avançados em que você precisa analisar comportamentos de até dois anos atrás ou aplicar lógica complexa, sem comprometer a retenção de dados ou o desempenho do sistema. Você pode usar dados do seu próprio [data warehouse]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) para refinar ainda mais seu público.
 
-Por exemplo, a segmentação padrão da Braze encontra usuários que atendem a critérios específicos definidos por você, como identificar um usuário que comprou recentemente um dos seus produtos. Os filtros calculados permitem ir mais fundo, como identificar usuários que compraram uma cor específica de um produto pelo menos duas vezes entre 18 e 24 meses atrás. Os filtros calculados são um aprimoramento, não um requisito. Se você precisa de filtros mais avançados ou de uma janela histórica mais longa, eles são uma ótima ferramenta para ajudar, mantendo o uso de dados otimizado.
+Por exemplo, a segmentação padrão da Braze encontra usuários que atendem a critérios específicos que você define, como identificar um usuário que comprou recentemente um dos seus produtos. Os filtros calculados permitem ir mais fundo, como identificar usuários que compraram uma cor específica de um produto específico pelo menos duas vezes entre 18 e 24 meses atrás. Os filtros calculados são um aprimoramento, não um requisito. Se você precisa de filtros mais avançados ou de uma janela histórica mais longa, eles são uma ótima ferramenta para ajudar, mantendo o uso de dados otimizado.
 
 ## Filtros calculados e extensões de segmento SQL {#calculated-filters-and-sql-segment-extensions}
 
-[Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e filtros calculados ajudam a criar públicos com base em comportamentos de compra e eventos personalizados, mas usam ferramentas e fontes de dados diferentes. As extensões de segmento SQL usam SQL que você escreve com base nos dados do Snowflake conectado.
+[Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e filtros calculados ajudam a criar públicos com base em comportamentos de compra e eventos personalizados, mas usam ferramentas e fontes de dados diferentes. As extensões de segmento SQL usam SQL que você escreve em relação aos seus dados conectados do Snowflake.
 
 | Comportamento | Filtros calculados | Extensões de segmento SQL |
 |---|---|---|
 | Como você define o público | Escolha compras, eventos recomendados de eCommerce, interação com mensagens ou eventos personalizados, além de contagens, janelas de tempo e filtros de propriedade opcionais | Escreva SQL na sua conexão com o Snowflake; use modelos, atualização incremental ou atualização completa |
-| Onde a lógica é executada | Os critérios e a atualização são gerenciados na Braze como filtros calculados | A consulta é executada no contexto do seu data warehouse de acordo com a configuração da extensão |
+| Onde a lógica é executada | Os critérios e a atualização são gerenciados na Braze como filtros calculados | A consulta é executada no contexto do seu data warehouse de acordo com a configuração da sua extensão |
 | Página de lista de filtros | Um tipo de filtro calculado; a coluna **Segments** mostra quantos Segments usam cada filtro; os status **Processing** e **Processing Failed** refletem o estado de geração | Inclui uma coluna **Type** e filtros que variam por tipo de extensão |
 | Casos de uso típicos | Frequência de compra, gasto total, contagens de eventos personalizados e regras baseadas em propriedades na janela selecionada | Lógica baseada em data warehouse, junções entre tabelas e janelas históricas ou agregações além do formulário de filtro calculado |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Filtros calculados e extensões de segmento SQL" }
@@ -51,16 +51,16 @@ Para criar um filtro calculado, defina critérios com base no comportamento do u
 
 ### Etapa 1: Configurar detalhes {#step-1-set-up-details}
 
-1. Acesse **Público** > **Filtros calculados**.
-2. Selecione **Criar filtro calculado**.
+1. Acesse **Público** > **Filtros Calculados**.
+2. Selecione **Criar Filtro Calculado**.
 3. Nomeie seu filtro calculado descrevendo os usuários que você pretende direcionar. Um nome descritivo facilita encontrar o filtro quando você adicioná-lo a um Segment.
-4. (Opcional) Adicione [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) para organizar os filtros calculados no seu espaço de trabalho.
+4. (Opcional) Adicione [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) para organizar filtros calculados no seu espaço de trabalho.
 
 Você também pode selecionar **Ativar atualização recorrente de público** para atualizar o filtro em um cronograma recorrente. Se você não ativar essa configuração, o filtro calculado não será atualizado a menos que você atualize o filtro ou selecione **Atualizar público**.
 
 ### Etapa 2: Escolher seus critérios {#step-2-choose-your-criteria}
 
-Escolha um critério de evento de compra, eCommerce, evento personalizado ou interação com mensagem para direcionamento. Depois de selecionar um tipo de evento, escolha o evento específico, quantas vezes o usuário deve tê-lo concluído (mais que, menos que ou igual a) e o período de tempo.
+Escolha um critério de evento de compra, eCommerce, personalizado ou de interação com mensagem para direcionamento. Depois de selecionar um tipo de evento, escolha o evento específico, quantas vezes o usuário deve tê-lo concluído (mais que, menos que ou igual a) e o período de tempo.
 
 {% alert note %}
 Os filtros **mais que** e **menos que** são exclusivos — eles não incluem o número que você especificar. Por exemplo, um filtro para **mais que 4 vezes e menos que 16 vezes** inclui usuários que realizaram 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ou 15 vezes.
@@ -72,7 +72,7 @@ Ao escolher seu período de tempo, você pode especificar um intervalo de datas 
 
 #### Segmentação por propriedade de evento {#event-property-segmentation}
 
-Para aumentar a precisão do direcionamento, selecione **Adicionar filtros de propriedade**. Isso permite filtrar por propriedades da sua compra, evento de eCommerce ou evento personalizado. A Braze oferece suporte à segmentação por propriedade de evento com base em objetos de string, numéricos, booleanos e de tempo.
+Para aumentar a precisão do direcionamento, selecione **Adicionar Filtros de Propriedade**. Isso permite filtrar por propriedades do seu evento de compra, evento de eCommerce ou evento personalizado. A Braze oferece suporte à segmentação por propriedade de evento com base em objetos de string, numéricos, booleanos e de tempo.
 
 Para propriedades de string, insira vários valores de uma vez — por exemplo, direcionando usuários com status igual a ouro, prata ou bronze. Para eventos recomendados de eCommerce, o menu suspenso de propriedades é preenchido com as propriedades disponíveis para aquele evento.
 
@@ -124,7 +124,7 @@ Cada filtro calculado exibe um dos seguintes status. **Processing** e **Processi
 Abra o menu de linha de um filtro calculado para editar, arquivar, atualizar o público ou ver como ele está sendo usado no envio de mensagens. Não é possível editar um filtro calculado enquanto ele está sendo processado.
 
 {% alert note %}
-Seu espaço de trabalho pode ter até 500 filtros calculados ativados por vez. Entre em contato com o gerente de conta da Braze se precisar aumentar esse limite.
+Seu espaço de trabalho pode ter até 100 filtros calculados ativados por vez. Entre em contato com o gerente de conta da Braze se precisar aumentar esse limite.
 {% endalert %}
 
 #### Salvar versus ativar {#save-versus-activate}

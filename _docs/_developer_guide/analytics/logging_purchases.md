@@ -14,7 +14,7 @@ description: "Learn how to log purchases through the Braze SDK."
 For wrapper SDKs not listed, use the relevant native Android or Swift method instead.
 {% endalert %}
 
-Any non-USD currency reported will display in Braze in USD based on the exchange rate on the date it was reported. To prevent currency conversion, hardcode the currency to USD.
+Any non-USD currency reported will display in Braze in USD based on the exchange rate on the date it was reported. For dashboard conversion, caching, and exchange rate refresh timing, see [Currency conversion]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#currency-conversion). To prevent conversion, log purchases with `USD` as the currency code.
 
 ## Logging purchases and revenue
 

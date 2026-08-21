@@ -91,7 +91,7 @@ BrazeBinding.SetUserFirstName(null);
 커스텀 속성을 설정하려면 속성 유형에 해당하는 메서드를 사용하세요:
 
 {% tabs %}
-{% tab String %}
+{% tab 문자열 %}
 
 ```csharp
 AppboyBinding.SetCustomUserAttribute("custom string attribute key", "string custom attribute");
@@ -99,7 +99,7 @@ AppboyBinding.SetCustomUserAttribute("custom string attribute key", "string cust
 
 {% endtab %}
 
-{% tab Integer %}
+{% tab 정수 %}
 
 ```csharp
 // Set Integer Attribute
@@ -109,7 +109,7 @@ AppboyBinding.IncrementCustomUserAttribute("key", increment(int))
 ```
 {% endtab %}
 
-{% tab Float %}
+{% tab 플로트 %}
 
 ```csharp
 AppboyBinding.SetCustomUserAttribute("custom float attribute key", 'float value');
@@ -117,14 +117,22 @@ AppboyBinding.SetCustomUserAttribute("custom float attribute key", 'float value'
 
 {% endtab %}
 
-{% tab Boolean %}
+{% tab Double %}
+
+```csharp
+AppboyBinding.SetCustomUserAttribute("custom double attribute key", 'double value');
+```
+
+{% endtab %}
+
+{% tab 부울 %}
 
 ```csharp
 AppboyBinding.SetCustomUserAttribute("custom boolean attribute key", 'boolean value');
 ```
 {% endtab %}
 
-{% tab Date %}
+{% tab 날짜 %}
 
 ```csharp
 AppboyBinding.SetCustomUserAttributeToNow("custom date attribute key");
@@ -140,7 +148,7 @@ Braze에 전달되는 날짜는 [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601
 
 {% endtab %}
 
-{% tab Array %}
+{% tab 배열 %}
 
 ```csharp
 // Setting An Array
@@ -219,8 +227,8 @@ Windows에서는 사용자에게 푸시 알림을 보내기 위해 명시적인 
 
 | 가입 유형 | 설명 |
 |------------------------------------------|-------------|
-| `EmailNotificationSubscriptionType` | 유효한 이메일 주소를 수신하면 사용자가 자동으로 `SUBSCRIBED`로 설정됩니다. 그러나 명시적인 옵트인 프로세스를 구축하고 사용자로부터 명시적인 동의를 받은 후 이 값을 `OPTED_IN`으로 설정하는 것을 권장합니다. 자세한 내용은 [사용자 가입 변경]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) 문서를 참조하세요. |
-| `PushNotificationSubscriptionType` | 유효한 푸시 등록 시 사용자가 자동으로 `SUBSCRIBED`로 설정됩니다. 그러나 명시적인 옵트인 프로세스를 구축하고 사용자로부터 명시적인 동의를 받은 후 이 값을 `OPTED_IN`으로 설정하는 것을 권장합니다. 자세한 내용은 [사용자 가입 변경]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) 문서를 참조하세요. |
+| `EmailNotificationSubscriptionType` | 유효한 이메일 주소를 수신하면 사용자가 자동으로 `SUBSCRIBED`로 설정됩니다. 그러나 명시적인 옵트인 프로세스를 구축하고 사용자로부터 명시적인 동의를 받은 후 이 값을 `OPTED_IN`으로 설정하는 것을 권장합니다. 자세한 내용은 [사용자 가입 변경]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) 설명서를 참조하세요. |
+| `PushNotificationSubscriptionType` | 유효한 푸시 등록 시 사용자가 자동으로 `SUBSCRIBED`로 설정됩니다. 그러나 명시적인 옵트인 프로세스를 구축하고 사용자로부터 명시적인 동의를 받은 후 이 값을 `OPTED_IN`으로 설정하는 것을 권장합니다. 자세한 내용은 [사용자 가입 변경]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) 설명서를 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 가입 설정" }
 
 {% alert note %}

@@ -513,6 +513,30 @@ Les utilisateurs choisissent plusieurs options ; les valeurs sont définies ou a
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
 
+### Gestion des abonnements {#manage-subscriptions}
+
+Ajoute une liste de [groupes d'abonnement e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups) afin que les visiteurs puissent s'abonner ou gérer leurs abonnements lors de la soumission du formulaire. Configurez-le après avoir ajouté des groupes d'abonnement au bloc. Ce bloc ne prend en charge que les groupes d'abonnement e-mail ; il ne prend pas en charge les groupes d'abonnement SMS, RCS ou WhatsApp.
+
+Pour les utilisateurs identifiés qui ouvrent la page via l'[étiquette Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) de la page de destination, le bloc pré-remplit chaque case à cocher avec l'état d'abonnement actuel de l'utilisateur, ce qui permet également de l'utiliser comme page de gestion des préférences.
+
+Sélectionnez le bloc dans l'éditeur pour :
+
+- Réorganiser les groupes d'abonnement
+- Ajouter ou supprimer des groupes d'abonnement
+- Ajouter ou supprimer des descriptions
+- Ajouter ou supprimer une case à cocher « S'abonner à tous » qui sélectionne tous les groupes d'abonnement du bloc
+- Ajouter ou supprimer une case à cocher « Effacer les sélections » qui désélectionne tous les groupes d'abonnement du bloc
+
+| Propriété | Description |
+| --- | --- |
+| Groupes d'abonnement | Ajoutez, supprimez ou réorganisez les groupes d'abonnement affichés dans le bloc. |
+| Inclure les descriptions | Affiche la description de chaque groupe d'abonnement à côté de son nom. |
+| Case à cocher **Effacer les sélections** | Ajoute une case à cocher qui désélectionne tous les groupes d'abonnement du bloc. |
+| Case à cocher **S'abonner à tous** | Ajoute une case à cocher qui sélectionne tous les groupes d'abonnement du bloc. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Gestion des abonnements" }
+
+Pour le flux de configuration complet, consultez [Bloc Gestion des abonnements]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions).
+
 ### Texte long
 
 Champ de texte multiligne pour les flux de type enquête. Si vous ne voyez pas ce bloc, contactez le [support Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) ou votre gestionnaire du succès des clients Braze. Ce bloc n'est pas disponible pour les pages de destination standard.

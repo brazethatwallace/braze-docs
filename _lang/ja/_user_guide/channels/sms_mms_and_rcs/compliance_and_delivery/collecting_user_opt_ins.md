@@ -8,6 +8,7 @@ channel:
   - SMS
 
 
+
 ---
 
 # ユーザーオプトインの収集 {#collect-user-opt-ins}
@@ -16,17 +17,17 @@ channel:
 
 ## オプション1：ユーザーにショートコードまたはロングコードへのテキスト送信を依頼する {#option-1-ask-users-to-text-your-short-or-long-code}
 
-ユーザーに「START」、「UNSTOP」、「YES」、またはカスタムオプトインキーワードを番号にテキスト送信するよう依頼すると、自動的に購読グループに追加されます。Webサイト、モバイルアプリ、さらには広告でユーザーにオプトインを促すことができ、必要に応じてインセンティブを提供することもできます。
+ユーザーに「START」、「UNSTOP」、「YES」、またはカスタムオプトインキーワードをあなたの番号にテキスト送信するよう依頼すると、自動的に購読グループに追加されます。Webサイト、モバイルアプリ、さらには広告でも、ユーザーにオプトインのためにこの操作を依頼でき、必要に応じてインセンティブを提供することもできます。
 
 ## オプション2：アプリ内メッセージでユーザーがオプトインする {#option-2-users-opt-in-via-in-app-message}
 
-アプリ内メッセージからユーザーがSMSにオプトインできるようにするには、Brazeが提供する[電話番号キャプチャフォーム]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture)を使用して、電話番号を収集しSMSリストを拡大するためのブランド付きフォームを作成します。
+アプリ内メッセージからユーザーがSMSにオプトインできるようにするには、Brazeが提供する[電話番号キャプチャフォーム]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture)を使用して、電話番号を収集しSMSリストを拡大できるブランド対応フォームを作成します。
 
 ![電話番号キャプチャ用テンプレートを使用したアプリ内メッセージ作成画面。]({% image_buster /assets/img_archive/dnd_iam_phone_capture_select.png %}){: style="max-width:80%;"}
 
 Brazeでは、[SMSダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)機能も併せて使用することをお勧めします。この機能はアプリ内メッセージの電話番号キャプチャフォームと自動的に連携し、ユーザーがフォームから電話番号を送信した後に、意思確認を促します。
 
-## オプション3：サインアップフロー {#option-3-sign-up-flow}
+## オプション 3: サインアップフロー {#option-3-sign-up-flow}
 
 新しいユーザーがWebサイトまたはアプリでサインアップまたは登録する際に、電話番号とメールアドレスを尋ねます。プロモーションメールやSMSの受信に同意するチェックボックスを含めてください。
 
@@ -77,7 +78,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 {% endraw %}
 
 {% alert note %}
-REST APIを通じて購読登録する際に、ユーザーを[SMSダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)ワークフローに登録するには、リクエストで`use_double_opt_in_logic`を`true`に設定します。このパラメーターは、[`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)、[`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2)、および[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)でサポートされています。
+REST APIを通じて購読登録する際に、ユーザーを[SMSダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)ワークフローに登録するには、リクエストで`use_double_opt_in_logic`を`true`に設定します。このパラメーターは、[`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)、[`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2)、および[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)でサポートされています。購読ステータスを更新するには、ユーザープロファイルが存在している必要があります。提供された電話番号に関連付けられたユーザープロファイルがない場合、購読ステータスは更新されません。
 <br><br>
 REST APIを通じた購読の更新では、ウェルカムメッセージは自動的にトリガーされません。ウェルカムメッセージを送信するには、[購読グループステータスの更新]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#update-subscription-group-status)トリガーを使用してアクションベースのキャンペーンを作成し、更新ソースを**REST API**に設定してください。
 {% endalert %}

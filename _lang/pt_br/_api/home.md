@@ -9,9 +9,9 @@ page_type: glossary
 description: "Esta landing page lista os endpoints da API da Braze disponíveis e seus usos."
 glossary_tag_name: Endpoint Type
 
-glossary_filter_text: "Select endpoint type to narrow the glossary:"
+glossary_filter_text: "Selecione o tipo de endpoint para refinar o glossário:"
 
-glossary_mid_text: "Endpoint Search"
+glossary_mid_text: "Pesquisa de endpoint"
 guide_featured_list:
   - name: Visão geral da API
     image: /assets/img/braze_icons/annotation-info.svg
@@ -44,6 +44,7 @@ glossary_tags:
   - name: Email Templates
   - name: KPI
   - name: Media Library
+  - name: Messaging API
   - name: Purchases
   - name: Preference Center
   - name: Schedule Messages
@@ -126,6 +127,14 @@ glossaries:
     description: Envie mensagens transacionais únicas e imediatas para um usuário designado.
     tags:
       - Send Messages
+  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
+    description: Recupere Banners elegíveis para um usuário e um conjunto de posicionamentos.
+    tags:
+      - Messaging API
+  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
+    description: Registre eventos de impressão e clique para Banners.
+    tags:
+      - Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
     description: Envie mensagens de Campaign criadas no dashboard por meio de entrega disparada pela API.
     tags:

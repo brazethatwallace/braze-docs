@@ -64,4 +64,3 @@ Conversations that start from an Ad That Clicks to WhatsApp are free of charge i
 
 - If a user messages you through a [Free Entry Point](https://developers.facebook.com/docs/whatsapp/pricing#free-entry-point-conversations), such as an Ad That Clicks to WhatsApp, a 24-hour [customer service window](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-messages#customer-service-windows) opens in which you can send that user any type of message.
 - If you respond within the customer service window (within 24 hours), a free entry point opens for 72 hours, and all messages within the 72-hour window will be free of charge.
-- Response messaging is free of charge.

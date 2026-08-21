@@ -11,28 +11,27 @@ page_order: 3
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de começar, você precisará criar uma [landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages).
+Antes de começar, crie uma [landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages).
 
 ## Redirecionamento de usuários {#retargeting-users}
 
-A Braze rastreia automaticamente quando um usuário envia um formulário de landing page. Você pode visualizar o número total de envios de um formulário em [análise de dados de landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#view-analytics). No entanto, para redirecionamento específico por usuário, você precisará redirecionar os usuários por meio do formulário da sua landing page usando um dos seguintes métodos:
-
-- **Usando um Segment:** Você pode criar um novo Segment para identificar automaticamente os usuários que enviaram ou não um formulário de landing page.
-- **Usando um disparador de mensagem:** Você pode configurar um disparador de mensagem para enviar mensagens automaticamente aos usuários ou inseri-los em um Canvas após o envio do formulário.
+A Braze rastreia automaticamente quando um usuário envia um formulário de landing page. Você pode visualizar o número total de envios de um formulário em [análise de dados de landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#view-analytics). Para redirecionamento específico de usuários, redirecione usuários por meio do formulário da sua landing page usando um dos seguintes métodos:
 
 {% tabs local %}
 {% tab Usando um Segment %}
-Ao [criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), no grupo "Redirecionamento", escolha **Submitted form on Landing Page**.
+
+Crie um novo Segment para identificar automaticamente os usuários que enviaram ou não um formulário de landing page. Ao [criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), no grupo "Retargeting", escolha **Submitted Form on Landing Page**.
 
 ![Criação de Segment com o grupo de filtros selecionado como "Submitted Form on Landing Page".]({% image_buster /assets/img/landing_pages/segmentation_selected.png %})
 
-A partir daqui, você pode segmentar os usuários com base em terem ou não enviado um formulário de landing page para a sua landing page.
+A partir daqui, você pode segmentar usuários com base em terem ou não enviado um formulário de landing page para a sua landing page.
 {% endtab %}
 
 {% tab Usando um disparador de mensagem %}
-Ao escolher a opção de entrega para a sua [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) ou [Canvas]({{site.baseurl}}/user_guide/messaging/canvas), selecione **Action Based Delivery** e, em seguida, **Submitted Landing Page form**.
 
-Todos os usuários que enviarem um formulário por meio dessa landing page receberão uma mensagem pelo canal de envio de mensagens escolhido ou serão inseridos no Canvas escolhido.
+Configure um disparador de mensagem para enviar mensagens automaticamente aos usuários ou inseri-los em um Canvas após o envio do formulário. Ao escolher a opção de entrega para sua [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) ou [Canvas]({{site.baseurl}}/user_guide/messaging/canvas), selecione **Action Based Delivery** e, em seguida, **Submitted a Landing Page form**.
+
+Todos os usuários que enviarem um formulário por meio desse formulário de landing page receberão mensagens pelo canal de envio de mensagens escolhido ou serão inseridos no Canvas escolhido.
 
 ![Ação-gatilho de landing page no envio de mensagens.]({% image_buster /assets/img/landing_pages/trigger.png %})
 
@@ -42,3 +41,7 @@ A opção de entrega baseada em ação para landing pages não está disponível
 
 {% endtab %}
 {% endtabs %}
+
+### Formulário de múltiplas etapas {#multi-step-form}
+
+Para um [formulário de múltiplas etapas]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms), ambos os métodos de redirecionamento dependem do evento **Submitted a Landing Page form**, que só é registrado após o usuário concluir todas as etapas. Um usuário que envia algumas etapas, mas não todas, tem os dados salvos no perfil, mas não é incluído em nenhum dos métodos até concluir o formulário inteiro. Para saber mais, consulte [Rastrear dados de formulários parcialmente preenchidos]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms#track-data-from-partially-completed-forms).

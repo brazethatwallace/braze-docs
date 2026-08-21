@@ -5,6 +5,9 @@ Phase 2: prepare Salesforce KB batches, then open PRs after polish (`gh`, option
 Reads `kb_articles.csv` (read-only). Skips batches that fail the overlap scan (open/draft/merged
 PRs, ``article_id`` claims, ``develop`` content, remote ``sf-cursor-*`` branches).
 
+Also blocks prepare/open-pr when actionable rows strongly infer to a different docs area than the
+batch `doc_path` (override only with `--allow-topic-mismatch`).
+
 **Default (`--prepare`):** requires reference-repo verification proof for `inconclusive`
 articles **before** bulk-inserting CSV draft text (use `--verify-only` to check first).
 
@@ -38,6 +41,7 @@ REPO = "braze-inc/braze-docs"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from generate_kb_phase1_outputs import doc_path_branch_slug, infer_product_vertical_label  # noqa: E402
+from generate_kb_phase1_outputs import infer_best_doc_path  # noqa: E402
 from sf_kb_article_ids import article_id_column, article_id_from_row  # noqa: E402
 from sf_kb_assignees import assignees_for_doc_path  # noqa: E402
 from sf_kb_jira_ticket import (  # noqa: E402
@@ -339,6 +343,83 @@ def apply_doc_edit(doc_path: str, rows: list[dict[str, str]]) -> bool:
     return True
 
 
+def filter_claimed_siblings(
+    actionable: list[dict[str, str]],
+    *,
+    id_column: str | None,
+    overlap,
+) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+    """
+    Align Phase 2 prepare/open-pr with the Phase 1 needs-PR queue.
+
+    When only some ``article_id``s are claimed, drop those rows and return the
+    remaining siblings so a partial claim does not block prepare. Path-level
+    open/draft coverage is handled by the caller before invoking this helper.
+    """
+    claimed = overlap.claimed_article_ids() if overlap else set()
+    if not claimed:
+        return actionable, []
+
+    remaining: list[dict[str, str]] = []
+    claimed_rows: list[dict[str, str]] = []
+    for row in actionable:
+        aid = article_id_from_row(row, id_column=id_column) or ""
+        if aid and aid in claimed:
+            claimed_rows.append(row)
+        else:
+            remaining.append(row)
+    return remaining, claimed_rows
+
+
+def _topic_bucket(path: str) -> tuple[str, ...]:
+    """
+    Build a coarse path bucket so we only block large-topic mismatches.
+
+    Example:
+    - `_docs/_user_guide/channels/email/faq.md` -> (`_user_guide`, `channels`, `email`)
+    - `_docs/_user_guide/brazeai/operator.md` -> (`_user_guide`, `brazeai`)
+    """
+    parts = [p for p in path.strip("/").split("/") if p]
+    normalized = [p[:-3] if p.endswith(".md") else p for p in parts]
+    if len(parts) < 3:
+        return tuple(normalized)
+    if normalized[0] != "_docs":
+        return tuple(normalized[:3])
+    if normalized[1] == "_user_guide":
+        if len(normalized) >= 5 and normalized[2] == "channels":
+            return tuple(normalized[1:4])
+        return tuple(normalized[1:3])
+    return tuple(normalized[1:3])
+
+
+def find_topic_mismatch_rows(
+    doc_path: str,
+    actionable: list[dict[str, str]],
+) -> list[tuple[str, str, str, str]]:
+    """
+    Return rows whose best-fit topic strongly points to another docs area.
+
+    Each tuple is: (article_id, title, inferred_doc_path, inference_note).
+    """
+    mismatches: list[tuple[str, str, str, str]] = []
+    doc_bucket = _topic_bucket(doc_path)
+    for row in actionable:
+        inferred, note = infer_best_doc_path(row, REPO_ROOT)
+        if not inferred or inferred == doc_path:
+            continue
+        if _topic_bucket(inferred) == doc_bucket:
+            continue
+        mismatches.append(
+            (
+                article_id_from_row(row) or "<missing-article-id>",
+                (row.get("title") or "").strip(),
+                inferred,
+                note or "best-fit doc path differs from batch path",
+            )
+        )
+    return mismatches
+
+
 def batch_context(
     doc_path: str,
     rows: list[dict[str, str]],
@@ -346,6 +427,7 @@ def batch_context(
     id_column: str | None,
     scanner: OverlapScanner,
     ignore_warnings: bool,
+    allow_topic_mismatch: bool,
 ) -> dict | None:
     actionable = [r for r in rows if is_actionable_row(r)]
     skipped_internal = [r for r in rows if r not in actionable]
@@ -356,6 +438,69 @@ def batch_context(
     article_ids = [article_id_from_row(r, id_column=id_column) for r in actionable]
     article_ids = [aid for aid in article_ids if aid]
     overlap = scanner.check_batch(doc_path, article_ids)
+
+    # Path-level open/draft coverage still blocks the whole batch. Partial
+    # article_id claims only drop the claimed rows (same as Phase 1 queue).
+    if overlap.path_covered_by_pr:
+        print_overlap_skip(doc_path, overlap)
+        return None
+
+    actionable, claimed_rows = filter_claimed_siblings(
+        actionable,
+        id_column=id_column,
+        overlap=overlap,
+    )
+    if claimed_rows:
+        claimed_ids = [
+            article_id_from_row(r, id_column=id_column)
+            for r in claimed_rows
+            if article_id_from_row(r, id_column=id_column)
+        ]
+        print(
+            f"INFO {doc_path}: dropping {len(claimed_rows)} claimed article(s) "
+            f"({', '.join(f'`{aid}`' for aid in claimed_ids)}); "
+            f"{len(actionable)} unclaimed sibling(s) remain",
+            file=sys.stderr,
+        )
+    if not actionable:
+        print(
+            f"SKIP {doc_path}: all actionable articles already claimed in a PR body",
+            file=sys.stderr,
+        )
+        return None
+
+    mismatches = find_topic_mismatch_rows(doc_path, actionable)
+    if mismatches:
+        summary = "; ".join(
+            f"`{aid}` -> `{inferred}` ({note})"
+            for aid, _title, inferred, note in mismatches[:3]
+        )
+        if len(mismatches) > 3:
+            summary += f"; ... (+{len(mismatches) - 3} more)"
+        if not allow_topic_mismatch:
+            print(
+                f"SKIP {doc_path}: topic/path mismatch detected for {len(mismatches)} actionable row(s). "
+                "The batch target and inferred best-fit docs path disagree. "
+                "Fix row `doc_path` in `_data/kb_articles.csv` and re-run Phase 1, "
+                "or use `--allow-topic-mismatch` for an intentional override. "
+                + summary,
+                file=sys.stderr,
+            )
+            return None
+        print(
+            f"WARN {doc_path}: topic/path mismatch override enabled; "
+            f"continuing with {len(mismatches)} mismatched row(s): {summary}",
+            file=sys.stderr,
+        )
+
+    if claimed_rows:
+        article_ids = [
+            article_id_from_row(r, id_column=id_column)
+            for r in actionable
+            if article_id_from_row(r, id_column=id_column)
+        ]
+        overlap = scanner.check_batch(doc_path, article_ids)
+
     if should_skip_for_overlap(overlap, ignore_warnings=ignore_warnings):
         print_overlap_skip(doc_path, overlap)
         return None
@@ -384,6 +529,15 @@ def batch_context(
         for r in skipped_internal
         if article_id_from_row(r, id_column=id_column)
     ]
+    skipped.extend(
+        (
+            article_id_from_row(r, id_column=id_column),
+            r.get("title", "").strip(),
+            "already claimed in a PR body",
+        )
+        for r in claimed_rows
+        if article_id_from_row(r, id_column=id_column)
+    )
 
     return {
         "doc_path": doc_path,
@@ -404,6 +558,7 @@ def prepare_batch(
     dry_run: bool,
     scanner: OverlapScanner,
     ignore_warnings: bool,
+    allow_topic_mismatch: bool,
     verification_lines: list[str],
     require_verification: bool,
     pull_repos: bool,
@@ -415,6 +570,7 @@ def prepare_batch(
         id_column=id_column,
         scanner=scanner,
         ignore_warnings=ignore_warnings,
+        allow_topic_mismatch=allow_topic_mismatch,
     )
     if not ctx:
         return None
@@ -502,6 +658,7 @@ def publish_batch(
     dry_run: bool,
     scanner: OverlapScanner,
     ignore_warnings: bool,
+    allow_topic_mismatch: bool,
     verification_lines: list[str],
     require_verification: bool,
     pull_repos: bool,
@@ -513,6 +670,7 @@ def publish_batch(
         id_column=id_column,
         scanner=scanner,
         ignore_warnings=ignore_warnings,
+        allow_topic_mismatch=allow_topic_mismatch,
     )
     if not ctx:
         return None
@@ -714,6 +872,11 @@ def main() -> None:
         action="store_true",
         help="Proceed even when overlap scan reports non-blocking warnings",
     )
+    parser.add_argument(
+        "--allow-topic-mismatch",
+        action="store_true",
+        help="Allow prepare/open-pr even when row topic inference points to a different docs area",
+    )
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument(
         "--verify-only",
@@ -843,6 +1006,7 @@ def main() -> None:
                 dry_run=args.dry_run,
                 scanner=scanner,
                 ignore_warnings=args.ignore_warnings,
+                allow_topic_mismatch=args.allow_topic_mismatch,
                 verification_lines=verification_lines,
                 require_verification=require_verification,
                 pull_repos=args.pull_reference_repos,
@@ -856,6 +1020,7 @@ def main() -> None:
                 dry_run=args.dry_run,
                 scanner=scanner,
                 ignore_warnings=args.ignore_warnings,
+                allow_topic_mismatch=args.allow_topic_mismatch,
                 verification_lines=verification_lines,
                 require_verification=require_verification,
                 pull_repos=args.pull_reference_repos,

@@ -1,0 +1,3 @@
+# Local credential files — never commit (see .gitignore)
+.jira.env
+.phrase-tms.env

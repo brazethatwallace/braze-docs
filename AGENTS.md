@@ -19,6 +19,8 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 | [`redirect-management`](.github/skills/redirect-management/SKILL.md) | Adding, updating, and validating redirects in `broken_redirect_list.js` |
 | [`reference-repos`](.github/skills/reference-repos/SKILL.md) | Verifying product, API, or SDK behavior against source repos |
 | [`docs-discrepancies`](.github/skills/docs-discrepancies/SKILL.md) | Page-by-page doc vs platform audits and discrepancy PRs |
+| [`find-ux-debt`](.github/skills/find-ux-debt/SKILL.md) | Scanning Braze platform UI files for 8 detectable copy problem types; routes Tier 1 findings to `log-ux-debt` and offers to log Tier 2 findings as a consolidated UXW story |
+| [`log-ux-debt`](.github/skills/log-ux-debt/SKILL.md) | Filing UX Debt Jira tickets for factual copy inconsistencies found in platform source (CODEOWNERS lookup, dedup, ticket creation) |
 | [`support-analyzer`](.github/skills/support-analyzer/SKILL.md) | Manual triage of support case CSVs (after CI digest / Phase 2) |
 | [`salesforce-migration`](.github/skills/salesforce-migration/SKILL.md) | Jira SF KB migration tickets and `_data/sf_*.xml` / CSV workflows |
 | [`image-pruner`](.github/skills/image-pruner/SKILL.md) | Finding and removing unreferenced `assets/img/` files (all locales) |
@@ -40,6 +42,10 @@ Inside `SKILL.md` files and agent rules, cross-reference other skills with `braz
 ## Privacy
 
 Do not include customer names, company names, email addresses, or other PII from support tickets or Slack in public output.
+
+## Local credentials (never commit)
+
+`.jira.env` and `.phrase-tms.env` are **local-only** (listed in [`.gitignore`](.gitignore)). Copy [`.jira.env.example`](.jira.env.example) to `.jira.env` for SF KB / Jira scripts (`source scripts/jira_env.sh`). Never stage, commit, or push these files on any branch. The pre-commit hook blocks them if installed (`bash scripts/install_hooks.sh`).
 
 ## Support analyzer (CI)
 

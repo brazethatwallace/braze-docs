@@ -1123,6 +1123,8 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 
 Étant donné qu'un lecteur peut être un destinataire unique chaque jour, vous devez vous attendre à ce que ce nombre soit supérieur aux <i>impressions uniques</i>. Ce nombre est reçu de Braze et est basé sur le `user_id`. Les destinataires uniques sont comptabilisés au niveau de la campagne ou de l'étape du Canvas, et non au niveau de l'<a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>identifiant d'envoi</a>.
 
+Les utilisateurs qui rebondissent sont toujours comptabilisés dans les <i>destinataires uniques</i> lorsque Braze les considère comme destinataires pour ce jour d'envoi. Les <i>destinataires uniques</i> sont basés sur les utilisateurs que Braze a ciblés pour le message ce jour-là, et non uniquement sur les livraisons réussies.
+
 <span class="calculation-line">Calcul : Nombre</span>
 
 {% endapi %}

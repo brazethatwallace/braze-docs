@@ -157,7 +157,9 @@ Für die Instanz `KR-01` sind dies die relevanten IP-Adressen:
 - `43.200.215.4`
 - `52.79.67.175`
 - `52.79.113.60`
-
+- `3.34.212.92`
+- `54.116.134.231`
+- `3.37.197.225`
 {% endsubtab %}
 {% endsubtabs %}
 {% endif %}

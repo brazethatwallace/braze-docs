@@ -26,23 +26,23 @@ BrazeとShopifyの統合は、カスタマーエンゲージメントを強化�
 | 要件 | 説明 |
 | ----------- | ----------- |
 | Currents | Shopifyにデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents)が設定されている必要があります。 |
-| Shopifyストア | すでに[Brazeで少なくとも1つのShopifyストアを設定]({{site.baseurl}}/shopify_standard_integration)していることを確認してください。 |
-| Shopifyストアオーナーまたはスタッフメンバーの権限 | {::nomarkdown}<ul><li>すべての<b>一般</b>および<b>オンラインストア</b>設定へのアクセス。</li><li>追加の管理者権限:</li><ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></ul>{:/} |
+| Shopifyストア | [少なくとも1つのShopifyストアがBrazeと連携されている]({{site.baseurl}}/shopify_standard_integration)ことを確認してください。 |
+| Shopifyストアオーナーまたはスタッフメンバーの権限 | {::nomarkdown}<ul><li>すべての<b>一般</b>および<b>オンラインストア</b>設定へのアクセス。</li><li> 追加の管理者権限:</li><ul><li>Orders: View</li><li>Customer: ReadWrite</li><li>View Customer Events (Web Pixels)</li><li>Manage Settings</li><li>View Apps Developed by Staff/Collaborators</li><li>Manage/Install Apps and Channels</li><li>Manage/Add Custom Pixels</li></ul></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## 連携 {#integration}
 
-### ステップ1:Shopifyストアを設定する {#step-1-set-up-your-shopify-store}
+### ステップ1：Shopifyストアを設定する {#step-1-set-up-your-shopify-store}
 
-まだ設定していない場合は、[Shopify標準連携の設定]({{site.baseurl}}/shopify_standard_integration)手順に従って、Brazeで少なくとも1つのShopifyストアを設定してください。
+まだ設定していない場合は、[Shopify標準連携の設定]({{site.baseurl}}/shopify_standard_integration)の手順に従って、Brazeで少なくとも1つのShopifyストアを設定してください。
 
-### ステップ2:Braze Currentsを作成する {#step-2-create-braze-current}
+### ステップ2：Braze Currentsを作成する {#step-2-create-braze-current}
 
-1. Brazeで、**パートナー連携** > **Currents** > **+ Create New Current** > **Shopify Export** に移動します。
+1. Brazeで、**パートナー連携** > **Currents** > **+ 新しいCurrentsを作成** > **Shopifyエクスポート**に移動します。
 2. 連携名と連絡先メールアドレスを入力します。
 3. **認証情報**セクションで、[ステップ1](#step-1-set-up-your-shopify-store)で設定したShopifyストアを選択します。
 4. トラッキングしたいイベントを選択します。利用可能なイベントの一覧が表示されます。
-5. **Launch Current** を選択します。
+5. **Currentsを起動**を選択します。
 
 ![Braze Shopify Currentsページ。このページには、連携名、連絡先メール、Shopifyストアのフィールドが含まれています。]({% image_buster /assets/img/shopify/shopify_currents.png %})
 
@@ -50,9 +50,13 @@ BrazeとShopifyの統合は、カスタマーエンゲージメントを強化�
 
 イベントデータに加えて、Shopify連携ではBrazeからShopifyストアへのユーザープロファイルの更新を同期できます。Brazeでユーザーのプロファイルが更新されると、Currentsがストア内の一致する顧客を作成または更新します。
 
+{% alert note %}
+ユーザープロファイルの同期は、[テスト用Currentsコネクター]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#testing-currents-connectors)ではサポートされていません。その他のイベントエクスポートには影響しません。ユーザープロファイルを同期するには、[標準のShopify Currentsコネクター](#step-2-create-braze-current)を使用してください。
+{% endalert %}
+
 ### ユーザーマッチング {#user-matching}
 
-BrazeはBrazeの`user_id`をShopifyの[カスタム識別子](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerSet)（`customId`）として使用し、名前空間`braze`とキー`user_id`でShopifyの顧客とマッチングします。そのストアにその識別子を持つ顧客が存在しない場合、新しい顧客が作成されます。匿名ユーザーは同期されません。
+BrazeはBrazeの`user_id`をShopifyの[カスタム識別子](https://shopify.dev/docs/api/admin-graphql/latest/mutations/customerSet)（`customId`）として使用し、名前空間`braze`とキー`user_id`でShopifyの顧客とマッチングします。そのストアに該当する識別子を持つ顧客が存在しない場合、新しい顧客が作成されます。匿名ユーザーは同期されません。
 
 ### フィールドマッピング {#field-mapping}
 
@@ -67,10 +71,10 @@ BrazeはBrazeの`user_id`をShopifyの[カスタム識別子](https://shopify.de
 | `language` | `locale` | Shopifyがサポートするロケールに変換されます。ポルトガル語と中国語は、ユーザーの国に基づいて地域バリアント（`pt-BR`など）が割り当てられます。ユーザーの言語がShopifyでサポートされていない場合、このフィールドは省略されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-プロファイル更新に含まれているフィールドのみが送信されます。更新から省略されたフィールドはShopifyで変更されません。同期によってShopify顧客のフィールドがクリアまたは削除されることはありません。
+プロファイル更新に含まれるフィールドのみが送信されます。更新から省略されたフィールドはShopifyで変更されません。同期によってShopify顧客のフィールドがクリアまたは削除されることはありません。
 
 ### 同期されないフィールド {#fields-that-are-not-synced}
 
 この連携は現在Shopifyメタフィールドへの書き込みに対応していないため、メタフィールドが必要なプロファイルフィールドは同期されません。特に、カスタム属性はShopifyに送信されません。その他送信されないフィールドは、`external_user_id`、`gender`、`dob`（生年月日）、`timezone`、`home_city`、`country`、`archived`です。
 
-Brazeはストア上の`braze`名前空間にメタフィールド定義を作成する場合があります（例：`braze.gender`）。これらの定義は将来の使用のために予約されており、Brazeは現在これらに値を書き込みません。例外は`braze.user_id`で、顧客のマッチングに使用される識別子を保存します。
+Brazeはストア上の`braze`名前空間にメタフィールド定義を作成する場合があります（例：`braze.gender`）。これらの定義は将来の使用のために予約されており、Brazeは現在これらに値を書き込みません。例外は`braze.user_id`で、顧客のマッチングに使用される識別子が格納されます。

@@ -75,6 +75,10 @@ When multiple messages share the same priority level, the most recently created 
 
 To control the display order within a priority bucket, go to the delivery settings for any of the campaigns and select **Set Exact Priority**, then drag and drop campaigns into the desired order. For more details, refer to [Choose a priority]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority).
 
+## How are in-app message impressions and clicks logged?
+
+See [In-app message reporting]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/) for how impressions and clicks are logged by user action. For examples specific to fullscreen messages created with the traditional editor, refer to [Fullscreen message metrics by user action]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/#fullscreen-metrics-by-user-action).
+
 ## How does Braze calculate an in-app message expiration set to "after 1 day(s)"?
 
 Braze calculates an expiration time of one day as 24 hours after users are eligible to receive a message.
@@ -148,6 +152,10 @@ This table compares the in-app message flows that Sam experienced:
 For [templated in-app messages](#what-are-templated-in-app-messages), Connected Content and other Liquid tags resolve when the trigger event occurs and the device requests the message payload—not when the user clicks a button inside the message. Each templated fetch can include Connected Content calls for that display.
 
 If your HTML references REST data returned by Connected Content, that data is available for the session in which the message was templated. Multiple buttons can reference the same Connected Content response without triggering additional calls on click.
+
+### What is the maximum delay after a trigger for in-app message campaigns?
+
+In-app message campaigns can delay delivery after the trigger event by up to two hours (7,200 seconds). The delay options are **Immediately** and **After a delay**. For a longer wait, add a [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) step before an in-app message step in a Canvas. For delay setup, see [Action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-2-select-delay-length).
 
 ### Why is there a delay before my in-app message displays?
 

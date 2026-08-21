@@ -8,7 +8,7 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 
 # BrazeAI Operator 프롬프트 라이브러리 {#prompt-library-for-brazeai-operator}
 
-> Braze 전문가가 큐레이트한 Operator 프롬프트 모음을 살펴보세요. 목표를 선택하면 관련 프롬프트를 확인할 수 있습니다. 자세한 내용은 [페이지 인식 컨텍스트 활용하기]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)를 참조하세요.
+> Braze 전문가가 큐레이트한 Operator 프롬프트 모음을 살펴보세요. 목표를 선택하면 관련 프롬프트를 확인할 수 있습니다. Braze 어디에서든 시작할 수 있습니다. Operator가 대시보드의 다른 부분이 필요하면 [해당 위치로 이동합니다]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#navigate-the-dashboard). 자세한 내용은 [페이지 인식 컨텍스트 활용하기]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)를 참조하세요.
 
 
 <div class="prompt-library-tabs">
@@ -42,9 +42,20 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 
 {% include copy_block.html content="How can we use the [your segment name] segment to build a re-engagement journey and reduce churn?" available="Segments" %}
 
-{% include copy_block.html content="How should we structure frequency-capping extensions (email/SMS/48h) to reduce over-messaging without hurting conversions?" available="세그먼트 확장" %}
+{% include copy_block.html content="How should we structure frequency-capping extensions (email/SMS/48h) to reduce over-messaging without hurting conversions?" available="Segment Extensions" %}
 
-{% include copy_block.html content="What are 3 high-impact reports we should create here to monitor weekly campaign and Canvas health and catch issues early?" available="보고서 빌더" %}
+{% include copy_block.html content="What are 3 high-impact reports we should create here to monitor weekly campaign and Canvas health and catch issues early?" available="Report Builder" %}
+
+{% endsdktab %}
+{% sdktab 생성 및 편집 %}
+
+{% include copy_block.html content="Create a Canvas that waits 1 hour after cart abandonment, sends an email reminder, then a push after 24 hours if the user still hasn't purchased." %}
+
+{% include copy_block.html content="Update my abandoned cart Canvas to add a push message after the email reminder." %}
+
+{% include copy_block.html content="Build a segment of users who made a purchase in the last 30 days but haven't opened the app in the last 7 days." %}
+
+{% include copy_block.html content="Build me a report which shows my workspace SMS engagement over the last 30 days." %}
 
 {% endsdktab %}
 {% sdktab 메시징 성과 %}
@@ -59,7 +70,7 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 
 {% include copy_block.html content="What channels performed best for campaigns targeting 'C&L Newsletter Clickers' versus 'Openers but not Clickers' in the last 30 days?" available="Segments" %}
 
-{% include copy_block.html content="How much Attributed Revenue and Conversions did campaigns generate for users excluded by our caps in the last 30 days (7-day window)?" available="세그먼트 확장" %}
+{% include copy_block.html content="How much Attributed Revenue and Conversions did campaigns generate for users excluded by our caps in the last 30 days (7-day window)?" available="Segment Extensions" %}
 
 {% include copy_block.html content="Compare our email Open Rate and Click-Through Rate versus industry benchmarks for the last 30 days." available="Email Performance" %}
 
@@ -127,8 +138,6 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 {% endsdktab %}
 {% sdktab 오디언스 관리 %}
 
-{% include copy_block.html content="Build a segment of users who made a purchase in the last 30 days but haven't opened the app in the last 7 days." available="Segments" %}
-
 {% include copy_block.html content="Which of our active segments were edited most recently, and which ones look like duplicates we should consolidate?" available="Segments" %}
 
 {% include copy_block.html content='What does "Complex audience" mean here, and how can I simplify those campaigns without losing targeting?' available="Campaigns" %}
@@ -149,11 +158,11 @@ description: "BrazeAI Operator의 예시 프롬프트를 목적별로 정리하�
 
 {% include copy_block.html content="Show me the 5 idle active campaigns and recommend which to pause, refresh, or archive." available="Campaigns" %}
 
-{% include copy_block.html content="Which Segment Extensions are active but haven't been processed recently, and are they safe to archive for free slots?" available="세그먼트 확장" %}
+{% include copy_block.html content="Which Segment Extensions are active but haven't been processed recently, and are they safe to archive for free slots?" available="Segment Extensions" %}
 
-{% include copy_block.html content="How can we reduce Query Builder credit usage without losing reporting coverage? Suggest 3 tactics." available="쿼리 빌더" %}
+{% include copy_block.html content="How can we reduce Query Builder credit usage without losing reporting coverage? Suggest 3 tactics." available="Query Builder" %}
 
-{% include copy_block.html content="Which saved queries haven't been run in 90 days—can you help me identify candidates to archive?" available="쿼리 빌더" %}
+{% include copy_block.html content="Which saved queries haven't been run in 90 days—can you help me identify candidates to archive?" available="Query Builder" %}
 
 {% endsdktab %}
 {% endsdktabs %}

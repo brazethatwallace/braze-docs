@@ -26,7 +26,7 @@ Inspired by the [#whatsapp-sme-global](https://braze.enterprise.slack.com/archiv
 |-------------|-----|
 | **Slack MCP** in your agent environment | Search channels and read threads. Tool names differ by host (for example Cursor MCP Bundle vs Claude Code Slack integration); use whichever Slack search/read tools your agent exposes. |
 | **`gh` authenticated** for `braze-inc/braze-docs` | List open/merged PRs and open drafts |
-| **Sibling `platform` repo** (optional but recommended) | Source verification via [reference-repos](../reference-repos/SKILL.md) |
+| **Sibling `platform` (and SDK) repos** | **REQUIRED SUB-SKILL:** [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`) for every product-behavior theme before it appears in the overview |
 
 If Slack MCP is unavailable, stop and ask the user to reconnect or enable it before mining threads.
 
@@ -80,7 +80,19 @@ For each promising hit, read the full thread (parent message + replies) using yo
 | **Already documented** | Same answer exists on `develop` in `_docs/` | Skip |
 | **Internal-only** | Unreleased feature, internal tooling, account-specific workaround, “ask your CSM” | Skip — do not publish |
 | **Bug / product** | Defect or behavior that should be fixed in code | Skip — note for eng, not docs |
-| **Unverified** | Cannot confirm in source or existing public docs | Skip or flag for SME follow-up |
+| **Unverified** | Cannot confirm in sibling source repos or existing public docs | Skip or flag for SME follow-up — do not put in a proposed PR |
+
+### Source verification (required before the overview)
+
+After triage, **before** writing the overview table, run **REQUIRED SUB-SKILL:** [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`) for every **Docs gap** theme.
+
+Follow that skill in full: `git pull --ff-only` in the sibling repos you will search, search `shared_code/domains/` first for platform claims, flag flippers and rollout status, and do not guess.
+
+| Claim type | Where to verify | If verification fails |
+|------------|-----------------|------------------------|
+| Braze product, API, or SDK behavior | Sibling `platform` or the relevant SDK repo | Do **not** propose a PR. Mark **Unverified** and skip or flag for SME. |
+| Meta / carrier / third-party policy | Existing public docs plus the SME thread (not Braze code) | Propose only if public docs or the thread state a stable rule; say so in **Verified?**. |
+| Already on `develop` | `_docs/` / root `_includes/` | Skip — do not re-document. |
 
 ### Internal-only filter (required)
 
@@ -94,29 +106,38 @@ For each promising hit, read the full thread (parent message + replies) using yo
 
 ### Output: overview list
 
-Write to chat (and optionally `_data/slack_to_docs_overview_<channel>_<date>.md` if the user wants a saved artifact):
+Write to chat (and optionally `_data/slack_to_docs_overview_<channel>_<date>.md` if the user wants a saved artifact).
+
+**`Verified?` must include proof**, not `Yes` / `No` / `Docs skim`. Use one of:
+
+| Status | Proof to put in the cell |
+|--------|--------------------------|
+| **Verified** | `Verified — <repo-relative path> (<what the code does>)` — for example `Verified — platform/shared_code/domains/channel_whats_app/…/messaging_service.rb (one subscription group per sending service)` |
+| **Flipper** | `Flipper — <key>; rollout <global / limited / unknown>` |
+| **Meta / policy** | `Policy — not Braze code; <public doc or SME conclusion>` |
+| **Unverified** | `Unverified — <what you searched>; no matching source` — **Proposed PR** must be blank or **Skip** |
+
+Example row:
 
 ```markdown
-## Slack → docs overview: #channel-name (date range)
-
 | Theme | Threads | Verified? | Target doc(s) | Canonical home | Dedup status | Proposed PR |
 |-------|---------|-----------|---------------|----------------|--------------|-------------|
-| … | 2 | Yes | `messaging_users.md` (+ FAQ cross-link if needed) | Main reference page | Clear | PR A |
+| Subscription is per sending number | 1 | Verified — `platform/shared_code/domains/chat_messaging_pipeline/…/messaging_service_base.rb` (`has_one :subscription_group`) | `opt_ins_and_opt_outs.md` | Main opt-in article | Clear | PR C |
 ```
+
+Do not propose a product-behavior PR unless **Verified?** has a source path (or an explicit flipper/policy exception).
 
 **Wait gate:** Present the overview and proposed PR batch. **Do not draft or open PRs** until the user approves the plan (or explicitly says to proceed with the full batch).
 
 ---
 
-## Step 3: Verify against source and existing docs
+## Step 3: Confirm coverage before drafting
 
 For each **approved** theme:
 
 1. **Search `_docs/` and root `_includes/`** on `develop` for existing coverage (`Grep`, `Read`). Prefer updating over duplicating.
-2. **REQUIRED SUB-SKILL:** [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`) — confirm behavior in `../platform` or the relevant SDK repo when the claim is product-specific.
-3. Record **Verified against Braze source code.** in the plan when confirmed; say explicitly when verification was not possible.
-
-Never paste `platform/` or SDK paths in PR descriptions or public docs.
+2. Reuse the **Verified?** proof from Step 2. Re-run **REQUIRED SUB-SKILL:** [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`) if the approved claim is narrower or different from the overview.
+3. Carry the same proof into the PR **Approach** (repo-relative paths, no local filesystem paths), per [reference-repos](../reference-repos/SKILL.md).
 
 ---
 
@@ -180,7 +201,7 @@ If more than five files need changes for a theme, split into **2 PRs by sub-them
 
 - [ ] Every theme in the PR passed dedup check
 - [ ] No internal-only content
-- [ ] Source verified or limitation stated
+- [ ] Source verified via [reference-repos](../reference-repos/SKILL.md); proof from **Verified?** is in **Approach**
 - [ ] Canonical home chosen (main article first; FAQ/troubleshooting only if clearly best)
 - [ ] Satellites cross-link only — no duplicate FAQ entries for the same question
 - [ ] Slack thread URLs collected for **Source threads** section
@@ -225,7 +246,11 @@ If more than five files need changes for a theme, split into **2 PRs by sub-them
 
 ### Approach
 
-<Canonical home choice, what was wrong before, verification summary.>
+<Canonical home choice, what was wrong before.>
+
+Verified against Braze source code:
+
+- `<repo-relative path>` — <what it proves>
 
 ### Source threads
 
@@ -274,7 +299,7 @@ Run slack-to-docs on C08CYL6KN1K — overview only, no PRs yet.
 
 | Skill | Use when |
 |-------|----------|
-| [reference-repos](../reference-repos/SKILL.md) | Verifying product behavior |
+| [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`) | **Required** during Step 2 for each docs-gap theme; proof goes in **Verified?** |
 | [braze-docs](../braze-docs/SKILL.md) | Writing and formatting edits |
 | [create-pr](../create-pr/SKILL.md) | Pre-PR gates and opening drafts |
 | [docs-discrepancies](../docs-discrepancies/SKILL.md) | Single-page source audit (not Slack-driven) |

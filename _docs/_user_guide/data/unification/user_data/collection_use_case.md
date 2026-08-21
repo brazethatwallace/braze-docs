@@ -56,6 +56,6 @@ These attributes allow you to send campaigns to users such as:
 2. Using our message templates and [personalization features]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) to drag the unique promotion code attribute into messaging directed at users.
 
 {% alert important %}
-Braze will ban or block users ("dummy users") with over 5,000,000 sessions and no longer ingest their SDK events because they are usually the result of misintegration. If you find that this has happened to a legitimate user, contact your Braze account manager.
+Braze blocks user profiles ("dummy users") with more than 5,000,000 sessions, more than 20,000 distinct custom event names, or more than 20,000 distinct product names in purchases, because they are usually the result of misintegration. After a profile is blocked, Braze stops ingesting all inbound data for that profile, from both the SDKs and the REST API. If you find that this has happened to a legitimate user, contact your Braze account manager.
 {% endalert %}
 
