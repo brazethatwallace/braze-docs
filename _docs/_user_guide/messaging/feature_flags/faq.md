@@ -133,9 +133,11 @@ You can't enable feature flags for users in your [Global Control Group]({{site.b
 
 ### Is email-based recipient identification part of Braze Feature Flags?
 
-No. Email-based recipient identification for message sending is a workspace messaging capability, not the Braze Feature Flags product documented on this page. It uses platform configuration such as the `update_by_email_message_sending` feature flipper and recipient prioritization rules when sending to email addresses.
+No. Identifying recipients by email when you send a message is not part of the Feature Flags product on this page. Feature Flags control in-app or on-site experiences through the Braze SDK.
 
-For API behavior, see [POST: Send messages]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) and [POST: Create and update users]({{site.baseurl}}/api/endpoints/user_data/post_user_track/).
+API-triggered campaign and Canvas sends can include `email` on the [recipients object]({{site.baseurl}}/api/objects_filters/recipient_object) instead of an `external_user_id`. When you use `email`, include `prioritization` so Braze can select the matching user profile. This send option is not available on every workspace.
+
+For the request shape, see [POST: Send campaigns using API-triggered delivery]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) and [POST: Send Canvas messages using API-triggered delivery]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 
 ## Additional questions?
 
