@@ -1,8 +1,15 @@
-# Search-keyword extraction for {% api %} endpoint pages.
+# Search-keyword extraction for {% api %} blocks.
 # Consumed by _plugins/api.rb to build the data-search-keywords attribute used
-# by in-page API search. Algolia indexes the rendered HTML; changing these
-# patterns changes which heading, tag, description, and JSON field names are
-# assembled into that attribute.
+# by in-page glossary search (agents_use_case_glossary.js,
+# message_engagement_glossary.js). Algolia indexes rendered HTML, not this
+# attribute. Changing these patterns changes which heading, tag, description,
+# and JSON field names are assembled into that attribute.
+#
+# Heading uses first-match of h1 or h2:
+# - Glossary entries have no h1; the first heading is the h2 entry title.
+# - API endpoint pages wrap the article in one {% api %} block, so the first
+#   heading is the h1 endpoint name (not the first h2, which is usually
+#   "Prerequisites"). See BD-7189.
 #
 # Use single-quoted YAML so regex backslashes stay literal. `options` maps to
 # Ruby Regexp flags: i = IGNORECASE, m = MULTILINE (dot matches newline).
@@ -18,7 +25,7 @@ keyword_fields:
 
 patterns:
   heading:
-    regex: '<h2[^>]*>(.*?)</h2>'
+    regex: '<h[12][^>]*>(.*?)</h[12]>'
     options: i
     mode: match
     capture: 1

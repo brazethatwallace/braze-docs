@@ -55,17 +55,35 @@ RSpec.describe Api::Metadata do
     HTML
   end
 
-  # Captured from the pre-YAML extractors in _plugins/api.rb. A YAML change that
-  # would alter search keywords fails here instead of shipping silently.
-  let(:legacy_keywords) do
-    'delete users user data,delete delete any user profile by specifying a known identifier. ' \
-      'external_ids braze_ids'
-  end
-
   after { described_class.reset_cache! }
 
-  it 'matches the previous hardcoded extraction for representative API HTML' do
-    expect(described_class.new(config).keywords_for(fixture_html)).to eq(legacy_keywords)
+  it 'indexes the glossary h2 title, tags, description, and unique JSON keys' do
+    expect(described_class.new(config).keywords_for(fixture_html)).to eq(
+      'delete users user data,delete delete any user profile by specifying a known identifier. ' \
+      'external_ids braze_ids'
+    )
+  end
+
+  it 'indexes the h1 endpoint name instead of the first h2 on endpoint pages' do
+    html = <<~HTML
+      <h1 id="delete-catalog-selection">Delete catalog selection</h1>
+      <h2 id="prerequisites">Prerequisites</h2>
+      <h2 id="rate-limit">Rate limit</h2>
+      <pre class="highlight json"><code>
+        <span class="nl">"message"</span>
+        <span class="nl">"errors"</span>
+      </code></pre>
+      <h2 id="troubleshooting">Troubleshooting</h2>
+    HTML
+
+    keywords = described_class.new(config).keywords_for(html)
+
+    expect(keywords).to start_with('delete catalog selection')
+    expect(keywords).to include('message')
+    expect(keywords).to include('errors')
+    expect(keywords).not_to include('prerequisites')
+    expect(keywords).not_to include('rate limit')
+    expect(keywords).not_to include('troubleshooting')
   end
 
   it 'includes heading text, tags, description, and unique JSON keys' do
