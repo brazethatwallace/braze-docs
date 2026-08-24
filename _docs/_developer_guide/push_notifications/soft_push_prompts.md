@@ -2,6 +2,7 @@
 page_order: 6
 nav_title: Soft push prompts
 article_title: Set up soft push prompts for the Braze SDK
+description: "Learn how to set up soft push prompts for the Braze Web SDK before the native browser notification permission prompt."
 channel:
   - push notifications
 ---

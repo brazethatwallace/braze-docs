@@ -6,7 +6,7 @@ article_title: Currents
 layout: dev_guide
 
 page_type: landing
-description: "This landing page lists articles about the Braze data product called Currents. Here, you can find out how to set up Currents, available partners, delivery semantics, event glossaries, and more."
+description: "Learn how to set up Braze Currents, explore data partners, delivery semantics, and event glossaries for engagement data export."
 tool: currents
 search_rank: 9
 guide_top_header: "Braze Currents"

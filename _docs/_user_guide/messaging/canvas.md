@@ -8,7 +8,7 @@ guide_top_text: "Marketing is a science that needs an artist's touch and special
 search_rank: 3
 page_type: landing
 tool: Canvas
-description: "This landing page is home to Canvas articles. Here, you'll find resources on building Canvases, using Canvas components, managing and testing Canvases, and applying various ideas and strategies."
+description: "Resources for building Canvases, using Canvas components, managing and testing Canvases, and applying engagement strategies."
 
 guide_featured_title: "Sections"
 guide_featured_list:

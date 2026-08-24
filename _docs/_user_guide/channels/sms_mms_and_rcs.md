@@ -8,7 +8,7 @@ channel:
   - MMS
   - RCS
 search_rank: 3
-description: "This landing page is home to SMS (Short Messaging Service), MMS (Multimedia Messaging Service), and RCS (Rich Communication Services). These services offer a more direct way to reach your users than most other messaging channels, as they utilize their phone number, allowing you to reach them in real-time."
+description: "Learn SMS, MMS, and RCS in Braze, including setup, compliance, and best practices for reaching users by phone number."
 ---
 
 # SMS, MMS, and RCS

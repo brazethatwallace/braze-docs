@@ -30,6 +30,7 @@ For the full reference — descriptions, when-to-use guidance, and invocation sy
 | [`snippet-pii`](scripts/check_snippet_pii.py) | Advisory fenced-code-block PII scan for `_docs/` and `_includes/` (see `check-snippet-pii.yml`) |
 | [`tam-solutions`](.github/skills/tam-solutions/SKILL.md) | Converting TAM solution assets into public User Guide example articles |
 | [`slack-to-docs`](.github/skills/slack-to-docs/SKILL.md) | Mining SME Slack channels for source-verified doc PRs with dedup and thread citations |
+| [`page-seo-audit`](.github/skills/page-seo-audit/SKILL.md) | SEO/AEO page scoring, link fix tables, and pilot recommendation packets for `_docs/` |
 
 ## How to invoke (Cursor)
 

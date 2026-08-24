@@ -19,7 +19,7 @@ search_rank: 3
 
 Before you start, make sure you have the following:
 
-- **Push integrated into your app or website.** Work with your developers to set this up. For detailed steps, refer to the integration guides for [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android), and [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
+- **Push integrated into your app or website.** Work with your developers to set this up. For detailed steps, refer to the integration guides for [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android), and [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
 - **A push opt-in strategy.** Users must grant push permission on their device. Consider using [push primer messages]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) to explain the value before prompting.
 
 ## Use cases
