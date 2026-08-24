@@ -27,3 +27,7 @@ For reference, this information is reflected on the user profile in the email **
 Braze click tracking only rewrites links that use `http://` or `https://` URLs. Links that use other schemes, such as `mailto:` or `tel:`, are not click-tracked.
 
 To track clicks on phone numbers or email addresses, use an `https://` redirect URL that forwards to the `tel:` or `mailto:` destination instead.
+
+### Click tracking URL patterns
+
+When links are wrapped for click tracking, the URL structure depends on your email service provider. For details on the URL patterns your ESP generates—useful for firewall configuration or security allowlisting—refer to [Click tracking URL patterns]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#click-tracking-url-patterns) in the SSL overview.

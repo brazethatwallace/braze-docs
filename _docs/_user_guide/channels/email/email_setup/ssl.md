@@ -62,6 +62,23 @@ For click and open tracking, delivery partners transform links using a branded s
 If you can't or don't want to use the listed CDNs for SSL click and open tracking, you may set up a custom SSL configuration. Alternate CDNs or custom proxies can result in a more complex setup. Refer to [SendGrid](https://sendgrid.com/docs/ui/account-and-settings/custom-ssl-configurations/) and [SparkPost](https://www.sparkpost.com/docs/tech-resources/using-proxy-https-tracking-domain/) documentation.
 {% endalert %}
 
+## Click tracking URL patterns
+
+When Braze wraps links for click tracking, the URL structure depends on your email service provider (ESP). If you need to configure firewalls, security policies, or mobile app deep linking, refer to your ESP's documentation for the complete URL pattern specifications.
+
+### URL pattern references by ESP
+
+| ESP | Example pattern | Documentation |
+| --- | --- | --- |
+| SendGrid | `track.yourdomain.com/wf/click?upn=...` | [SendGrid click tracking](https://www.twilio.com/docs/sendgrid/ui/analytics-and-reporting/click-tracking) |
+| SparkPost | Varies by configuration | [SparkPost click tracking](https://www.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/) |
+| Amazon SES | `track.yourdomain.com/L1/{customPath}/...` (when using custom paths) | [Amazon SES custom open and click domains](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Click tracking URL patterns by ESP" }
+
+{% alert tip %}
+For universal links and App Links, custom path configuration is covered in [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/).
+{% endalert %}
+
 ### Additional resources
 
 {% alert important %}
