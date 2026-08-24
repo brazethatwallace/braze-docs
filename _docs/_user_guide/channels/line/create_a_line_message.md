@@ -114,7 +114,7 @@ You can also set custom conversion events based on your specific use case. Get c
 {% endtab %}
 {% tab Canvas %}
 
-If you haven't already, complete the remaining sections of your Canvas. For further details on how to build the rest of your Canvas, use multivariate testing and Intelligent Selection, and more, refer to [Create a Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
+If you haven't already, complete the remaining sections of your Canvas. For details about building the rest of your Canvas, including multivariate testing and **Optimize with BrazeAI™**, see [Create a Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
 
 {% endtab %}
 {% endtabs %}

@@ -15,7 +15,7 @@ Decisioning Studio Go is an AI decisioning agent for recurring email programs. I
 
 You define the variants the agent can choose from—such as subject lines, CTAs, images, send days, and send times. For each user in your segment, the agent picks the option most likely to drive engagement, within the constraints and schedule you configure.
 
-This differs from campaign-level A/B testing or [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), which optimize a single variant for the whole audience. Decisioning Studio Go personalizes at the individual level across every send in the program.
+This differs from campaign-level A/B testing with [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection), which optimizes variants for the audience. Decisioning Studio Go personalizes at the individual level across every send in the program.
 
 ### How it works
 

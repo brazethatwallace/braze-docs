@@ -8,7 +8,7 @@ tool: Canvas
 
 # Winning Path in Experiment Paths
 
-> Winning Path is similar to [Winning Variant]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) in campaigns, and lets you automate your A/B tests.
+> Winning Path automatically tests Canvas paths and sends subsequent users down the best-performing path.
 
 When Winning Path is turned on in an Experiment Path step, after a specified period of time, all subsequent users are sent down the path with the highest conversion rate.
 

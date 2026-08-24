@@ -777,7 +777,7 @@ validurls['/docs/dashboard_features#user-import'] = '/docs/user_guide/audience/m
 validurls['/docs/dashboard_features'] = '/docs/user_guide/home';
 validurls['/docs/deep_dives/conversion_events'] = '/docs/user_guide/messaging/messaging_fundamentals/conversion_events';
 validurls['/docs/deep_dives/creating_a_webhook'] = '/docs/user_guide/channels/webhooks/create_a_webhook';
-validurls['/docs/deep_dives/multivariate_testing#intelligent-selection'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_selection';
+validurls['/docs/deep_dives/multivariate_testing#intelligent-selection'] = '/docs/user_guide/brazeai/intelligence_suite/variant_selection';
 validurls['/docs/deep_dives/multivariate_testing'] = '/docs/user_guide/messaging/ab_testing';
 
 validurls['/docs/message_building_and_personalization/personalization#connected-content'] = '/docs/user_guide/messaging/design_and_edit/personalize/connected_content';
@@ -922,7 +922,7 @@ validurls['/docs/user_guide/data_and_analytics/braze_currents/advanced_topics/ho
 validurls['/docs/user_guide/data_and_analytics/braze_currents/integration/requirements_and_methodology'] = '/docs/user_guide/data/distribution/braze_currents/setting_up_currents';
 validurls['/docs/user_guide/engagement_tools/campaigns/scheduling_and_organizing/intelligent_delivery'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_timing';
 validurls['/docs/hidden/misc_reference/most_engaged_channel'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_channel';
-validurls['/docs/user_guide/engagement_tools/campaigns/testing_and_more/multivariate_testing#intelligent-selection'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_selection';
+validurls['/docs/user_guide/engagement_tools/campaigns/testing_and_more/multivariate_testing#intelligent-selection'] = '/docs/user_guide/brazeai/intelligence_suite/variant_selection';
 validurls['/docs/user_guide/engagement_tools/campaigns/testing_and_more/multivariate_testing'] = '/docs/user_guide/messaging/ab_testing';
 validurls['/docs/user_guide/intelligence/multivariate_testing'] = '/docs/user_guide/messaging/ab_testing';
 validurls['/docs/user_guide/data_and_analytics/braze_currents/customer_behavior_events'] = '/docs/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events';
@@ -1663,7 +1663,7 @@ validurls['/docs/user_guide/sage_ai/predictive_suite/predictive_events/predictio
 validurls['/docs/user_guide/sage_ai/predictive_suite/predictive_events/messaging_users'] = '/docs/user_guide/brazeai/predictive_suite/predictive_events/messaging_users';
 validurls['/docs/user_guide/sage_ai/intelligence'] = '/docs/user_guide/brazeai/intelligence_suite';
 validurls['/docs/user_guide/sage_ai/intelligence/intelligent_channel'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_channel';
-validurls['/docs/user_guide/sage_ai/intelligence/intelligent_selection'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_selection';
+validurls['/docs/user_guide/sage_ai/intelligence/intelligent_selection'] = '/docs/user_guide/brazeai/intelligence_suite/variant_selection';
 validurls['/docs/user_guide/sage_ai/intelligence/intelligent_timing'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_timing';
 validurls['/docs/user_guide/sage_ai/intelligence/faqs'] = '/docs/user_guide/brazeai/intelligence_suite';
 validurls['/docs/user_guide/sage_ai/recommendations'] = '/docs/user_guide/brazeai/item_recommendations';
@@ -1692,7 +1692,7 @@ validurls['/docs/user_guide/predictive_suite/predictive_purchases/prediction_ana
 validurls['/docs/user_guide/predictive_suite/predictive_purchases/messaging_users'] = '/docs/user_guide/brazeai/predictive_suite/predictive_events/messaging_users';
 validurls['/docs/user_guide/intelligence'] = '/docs/user_guide/brazeai/intelligence_suite';
 validurls['/docs/user_guide/intelligence/intelligent_channel'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_channel';
-validurls['/docs/user_guide/intelligence/intelligent_selection'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_selection';
+validurls['/docs/user_guide/intelligence/intelligent_selection'] = '/docs/user_guide/brazeai/intelligence_suite/variant_selection';
 validurls['/docs/user_guide/intelligence/intelligent_timing'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_timing';
 validurls['/docs/user_guide/intelligence/ai_copywriting'] = '/docs/user_guide/brazeai/operator/capabilities#generate-copy';
 validurls['/docs/user_guide/intelligence/faqs'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_timing#faq';
@@ -1779,7 +1779,7 @@ validurls['/docs/user_guide/engagement_tools/canvas/ideas_and_strategies/lead_sc
 validurls['/docs/user_guide/data_and_analytics/ideas_and_strategies/b2b_data_models'] = '/docs/user_guide/get_started/b2b_use_cases/b2b_data_models';
 
 validurls['/docs/developer_guide/platform_wide/analytics_overview'] = '/docs/developer_guide/analytics';
-validurls['/docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step/personal_path'] = '/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths';
+validurls['/docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step/personal_path'] = '/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path';
 validurls['/docs/user_guide/engagement_tools/landing_pages/connect_subdomain'] = '/docs/user_guide/messaging/landing_pages/customize_the_url';
 
 validurls['/docs/help/release_notes/2021/12_14_21'] = '/docs/releases/2021/december';
@@ -3431,7 +3431,7 @@ validurls['/docs/user_guide/brazeai/generative_ai/ai_content_qa'] = '/docs/user_
 validurls['/docs/user_guide/brazeai/generative_ai/ai_copywriting'] = '/docs/user_guide/brazeai/operator/capabilities#generate-copy';
 validurls['/docs/user_guide/brazeai/generative_ai/ai_liquid'] = '/docs/user_guide/brazeai/operator/capabilities#generate-liquid';
 validurls['/docs/user_guide/brazeai/generative_ai/ai_liquid/ai_liquid_prompts'] = '/docs/user_guide/brazeai/operator/capabilities#generate-liquid';
-validurls['/docs/user_guide/brazeai/intelligence/faqs#intelligent-selection'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_selection#faq';
+validurls['/docs/user_guide/brazeai/intelligence/faqs#intelligent-selection'] = '/docs/user_guide/brazeai/intelligence_suite/variant_selection#frequently-asked-questions';
 validurls['/docs/user_guide/brazeai/intelligence/faqs#intelligent-timing'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_timing#faq';
 validurls['/docs/user_guide/brazeai/recommendations/about_item_recommendations'] = '/docs/user_guide/brazeai/item_recommendations';
 validurls['/docs/user_guide/brazeai/predictive_suite/predictive_churn/prediction_analytics/prediction_quality'] = '/docs/user_guide/brazeai/predictive_suite/predictive_churn/analytics';
@@ -4270,7 +4270,7 @@ validurls['/docs/user_guide/engagement_tools/testing/global_control_group'] = '/
 validurls['/docs/user_guide/analytics/tracking/email_tracking'] = '/docs/user_guide/channels/email/email_setup/open_pixel_and_click_tracking';
 
 // Braze AI (short paths -> intelligence_suite / predictive_suite)
-validurls['/docs/user_guide/brazeai/intelligence/intelligent_selection'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_selection';
+validurls['/docs/user_guide/brazeai/intelligence/intelligent_selection'] = '/docs/user_guide/brazeai/intelligence_suite/variant_selection';
 validurls['/docs/user_guide/brazeai/intelligence/intelligent_timing'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_timing';
 validurls['/docs/user_guide/brazeai/predictive_churn'] = '/docs/user_guide/brazeai/predictive_suite/predictive_churn';
 validurls['/docs/user_guide/brazeai/predictive_events'] = '/docs/user_guide/brazeai/predictive_suite/predictive_events';
@@ -4322,7 +4322,7 @@ validurls['/docs/user_guide/engagement_tools/canvas/canvas_components/context'] 
 validurls['/docs/user_guide/engagement_tools/canvas/canvas_components/decision_split'] = '/docs/user_guide/messaging/canvas/canvas_components/decision_split';
 validurls['/docs/user_guide/engagement_tools/canvas/canvas_components/delay_step'] = '/docs/user_guide/messaging/canvas/canvas_components/delay_step';
 validurls['/docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step'] = '/docs/user_guide/messaging/canvas/canvas_components/experiment_step';
-validurls['/docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step/personalized_paths'] = '/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths';
+validurls['/docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step/personalized_paths'] = '/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path';
 validurls['/docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step/winning_path'] = '/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path';
 validurls['/docs/user_guide/engagement_tools/canvas/canvas_components/message_step'] = '/docs/user_guide/messaging/canvas/canvas_components/message_step';
 validurls['/docs/user_guide/engagement_tools/canvas/canvas_components/user_update'] = '/docs/user_guide/messaging/canvas/canvas_components/user_update';
@@ -5231,7 +5231,7 @@ validurls['/docs/user_guide/analytics/dashboards/overview'] = '/docs/user_guide/
 validurls['/docs/user_guide/analytics/dashboards/performance_overview'] = '/docs/user_guide/analytics/dashboards/home';
 
 // --- BrazeAI — personalized_paths lives under experiment_step ---
-validurls['/docs/user_guide/brazeai/decisioning_studio/personalized_paths'] = '/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths';
+validurls['/docs/user_guide/brazeai/decisioning_studio/personalized_paths'] = '/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path';
 
 // --- Channels — email ---
 validurls['/docs/user_guide/channels/email/email_setup/email_settings'] = '/docs/user_guide/administer/global/workspace_settings/email_preferences';
@@ -5448,7 +5448,7 @@ validurls['/docs/user_guide/engagement_tools/testing/multivariant_testing#what-a
 validurls['/docs/user_guide/engagement_tools/testing/multivariant_testing/multivariate_analytics#personalized-variant'] = '/docs/user_guide/messaging/ab_testing/analytics#personalized-variant';
 validurls['/docs/user_guide/intelligence/ai_content_qa'] = '/docs/user_guide/brazeai/operator/capabilities#review-content-quality';
 validurls['/docs/user_guide/engagement_tools/templates_and_media/media_library#generate-ai'] = '/docs/user_guide/messaging/design_and_edit/media_library#generate-ai';
-validurls['/docs/user_guide/intelligence/intelligent_selection#intelligent-selection'] = '/docs/user_guide/brazeai/intelligence_suite/intelligent_selection';
+validurls['/docs/user_guide/intelligence/intelligent_selection#intelligent-selection'] = '/docs/user_guide/brazeai/intelligence_suite/variant_selection';
 validurls['/docs/user_guide/predictive_suite/predictive_churn/prediction_analytics#prediction_quality'] = '/docs/user_guide/brazeai/predictive_suite/predictive_churn/analytics#prediction_quality';
 validurls['/docs/user_guide/predictive_suite/predictive_churn/prediction_analytics#estimated_results'] = '/docs/user_guide/brazeai/predictive_suite/predictive_churn/analytics#estimated_results';
 validurls['/docs/user_guide/predictive_suite/predictive_churn/creating_a_churn_prediction#sample-definitions'] = '/docs/user_guide/brazeai/predictive_suite/predictive_churn/creating_a_churn_prediction#sample-definitions';
@@ -10564,5 +10564,7 @@ validurls['/docs/user_guide/data/{{site.baseurl}}/user_guide/audience/segments']
 validurls['/docs/user_guide/data/{{site.baseurl}}/user_guide/data/activation'] = '/docs/user_guide/data/activation';
 validurls['/docs/user_guide/get_started/{{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings'] = '/docs/user_guide/administer/global/workspace_settings/push_settings';
 validurls['/docs/user_guide/get_started/{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns'] = '/docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns';
+validurls['/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'] = '/docs/user_guide/brazeai/intelligence_suite/variant_selection';
+validurls['/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths'] = '/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path';
 
 // validurls['OLD'] = 'NEW';

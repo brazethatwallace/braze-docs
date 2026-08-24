@@ -27,9 +27,9 @@ Yes. The [Canvas context object]({{site.baseurl}}/api/objects_filters/context_ob
 
 This error appears when the combination of step branching and entry audience size may create cluster performance issues that prevent messages from sending. For resolution steps—including using [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths), reducing branching or audience size, and rebuilding in Canvas Flow—see ["Too many Canvas branches" error]({{site.baseurl}}/user_guide/messaging/canvas/troubleshooting#too-many-canvas-branches-error).
 
-### Can I use Intelligent Selection with re-eligibility in a Canvas?
+### Can I use Optimize with BrazeAI™ with re-eligibility in a Canvas?
 
-Yes. Canvases can use [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) when re-eligibility is enabled, while campaigns require a re-eligibility window of 24 hours or longer when Intelligent Selection is on. Braze can't guarantee the same variant on re-entry because allocation shifts over time.
+Yes. Canvases can use [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#optimize-canvas-variants-with-brazeai) when re-eligibility is enabled. Braze can't guarantee the same variant on re-entry because allocation shifts over time. Campaigns require a re-eligibility window of 24 hours or longer when **Optimize with BrazeAI™** is on.
 
 ### What's the difference between a component and a step?
 

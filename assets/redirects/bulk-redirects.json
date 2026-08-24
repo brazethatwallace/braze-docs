@@ -39991,7 +39991,7 @@
   },
   {
     "source": "/docs/user_guide/brazeai/decisioning_studio/personalized_paths",
-    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
     "permanent": true
   },
   {
@@ -40126,7 +40126,7 @@
   },
   {
     "source": "/docs/user_guide/brazeai/intelligence/intelligent_selection",
-    "destination": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {
@@ -40137,6 +40137,11 @@
   {
     "source": "/docs/user_guide/brazeai/intelligence/tutorial",
     "destination": "/docs/user_guide/brazeai/intelligence_suite/use_case",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {
@@ -42671,12 +42676,12 @@
   },
   {
     "source": "/docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step/personal_path",
-    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
     "permanent": true
   },
   {
     "source": "/docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step/personalized_paths",
-    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
     "permanent": true
   },
   {
@@ -43891,7 +43896,7 @@
   },
   {
     "source": "/docs/user_guide/intelligence/intelligent_selection",
-    "destination": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {
@@ -46155,6 +46160,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
+    "permanent": true
+  },
+  {
     "source": "/docs/user_guide/messaging/canvas/create_a_canvas/canvas_templates",
     "destination": "/docs/user_guide/messaging/templates/canvas_templates",
     "permanent": true
@@ -47421,7 +47431,7 @@
   },
   {
     "source": "/docs/user_guide/sage_ai/intelligence/intelligent_selection",
-    "destination": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {

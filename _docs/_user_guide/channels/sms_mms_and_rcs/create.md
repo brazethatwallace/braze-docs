@@ -299,7 +299,7 @@ You can also set custom conversion events based on your specific use case.
 {% endtab %}
 {% tab Canvas %}
 
-If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how build out the rest of your Canvas, implement multivariate testing and Intelligent Selection, and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) step of our Canvas documentation.
+If you haven't done so already, complete the remaining sections of your Canvas component. For details about building the rest of your Canvas, including multivariate testing and **Optimize with BrazeAI™**, see [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas).
 
 {% endtab %}
 {% endtabs %}
