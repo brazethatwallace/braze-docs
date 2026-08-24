@@ -113,7 +113,7 @@ def split_url(url: str) -> tuple[str, str, str]:
     return base, query, frag
 
 
-def build_link_replacements(rows: list[dict]) -> list[tuple[re.Pattern[str], str]]:
+def build_link_replacements(rows: list[dict]) -> list[tuple[re.Pattern[str], object]]:
     """Return regex replacements sorted longest-path-first to avoid prefix collisions."""
     specs: list[tuple[str, str, str, str, str]] = []
     seen: set[tuple[str, str]] = set()
@@ -128,35 +128,51 @@ def build_link_replacements(rows: list[dict]) -> list[tuple[re.Pattern[str], str
         if pair in seen:
             continue
         seen.add(pair)
-        old_base, old_query, old_frag = split_url(old)
-        new_base, new_query, new_frag = split_url(new)
+        old_base, _old_query, _old_frag = split_url(old)
+        _new_base, new_query, new_frag = split_url(new)
         old_tail = docs_tail(old_base)
-        new_tail = docs_tail(new_base)
+        new_tail = docs_tail(_new_base)
         if not old_tail or old_tail == new_tail:
             continue
-        specs.append((old, old_tail, new_tail, new_query or old_query, new_frag or old_frag))
+        specs.append((old, old_tail, new_tail, new_query, new_frag))
 
     specs.sort(key=lambda s: len(s[1]), reverse=True)
 
-    replacements: list[tuple[re.Pattern[str], str]] = []
-    for old, old_tail, new_tail, query, frag in specs:
-        new_suffix = (f"?{query}" if query else "") + (f"#{frag}" if frag else "")
-        new_liquid = f"{{{{site.baseurl}}}}/{new_tail}{new_suffix}"
+    replacements: list[tuple[re.Pattern[str], object]] = []
+    suffix_pat = r"(?P<query>\?[^)#\s\"]*)?(?P<frag>#[^)\s\"]*)?"
+    for old, old_tail, new_tail, new_query, new_frag in specs:
         tail_escaped = re.escape(old_tail.rstrip("/"))
-        # Do not match when old_tail is only a prefix of a longer docs path.
+
+        def liquid_replacer(
+            match: re.Match[str],
+            *,
+            tail: str = new_tail,
+            csv_query: str = new_query,
+            csv_frag: str = new_frag,
+        ) -> str:
+            query = f"?{csv_query}" if csv_query else (match.group("query") or "")
+            frag = f"#{csv_frag}" if csv_frag else (match.group("frag") or "")
+            return f"{{{{site.baseurl}}}}/{tail}{query}{frag}"
+
+        def docs_replacer(
+            match: re.Match[str],
+            *,
+            tail: str = new_tail,
+            csv_query: str = new_query,
+            csv_frag: str = new_frag,
+        ) -> str:
+            query = f"?{csv_query}" if csv_query else (match.group("query") or "")
+            frag = f"#{csv_frag}" if csv_frag else (match.group("frag") or "")
+            return f"/docs/{tail}{query}{frag}"
+
         liquid_pat = re.compile(
-            r"\{\{site\.baseurl\}\}/"
-            + tail_escaped
-            + r"(?:\?[^)#\s\"]*)?(?:#[^)\s\"]*)?"
-            + r"(?!/)"
+            r"\{\{site\.baseurl\}\}/" + tail_escaped + suffix_pat + r"(?!/)"
         )
-        replacements.append((liquid_pat, new_liquid))
+        replacements.append((liquid_pat, liquid_replacer))
 
         if old.startswith("/docs"):
-            docs_pat = re.compile(
-                r"/docs/" + tail_escaped + r"(?:\?[^)#\s\"]*)?(?:#[^)\s\"]*)?" + r"(?!/)"
-            )
-            replacements.append((docs_pat, f"/docs/{new_tail}{new_suffix}"))
+            docs_pat = re.compile(r"/docs/" + tail_escaped + suffix_pat + r"(?!/)")
+            replacements.append((docs_pat, docs_replacer))
 
         replacements.append((re.compile(re.escape(old)), new))
     return replacements
@@ -165,7 +181,10 @@ def build_link_replacements(rows: list[dict]) -> list[tuple[re.Pattern[str], str
 def apply_link_fixes(text: str, rows: list[dict]) -> tuple[str, int]:
     count = 0
     for pattern, repl in build_link_replacements(rows):
-        text, n = pattern.subn(repl, text)
+        if callable(repl):
+            text, n = pattern.subn(repl, text)
+        else:
+            text, n = pattern.subn(str(repl), text)
         count += n
     return text, count
 
