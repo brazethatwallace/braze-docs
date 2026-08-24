@@ -90,15 +90,25 @@ jobs:
             exit 1
           fi
 
-          REPO_COUNT=$(jq -n \
-            --arg repo_url "${REPO_URL}" \
-            --slurpfile cfg "${REF_CONFIG}" \
-            '[{url: $repo_url, startingRef: "develop"}] + ($cfg[0].referenceRepos | map({url})) | length')
-          if [ "${REPO_COUNT}" -gt 20 ]; then
-            echo "::error::Cursor API allows at most 20 repos per agent (got ${REPO_COUNT})"
-            exit 1
-          fi
-          echo "Cloning ${REPO_COUNT} repositories for this agent (braze-docs + reference repos)."
+          build_repos_json() {
+            local tier="$1"
+            jq -c -n \
+              --arg repo_url "${REPO_URL}" \
+              --arg tier "${tier}" \
+              --slurpfile cfg "${REF_CONFIG}" \
+              '
+                def primary: [{ url: $repo_url, startingRef: "develop" }];
+                def with_refs($list): $list | map(select(.url and .startingRef) | { url, startingRef });
+                def core: with_refs($cfg[0].coreReferenceRepos // []);
+                def extended: with_refs($cfg[0].extendedReferenceRepos // ($cfg[0].referenceRepos // []));
+                primary + (
+                  if $tier == "minimal" then []
+                  elif $tier == "core" then core
+                  else core + extended
+                  end
+                )
+              '
+          }
 
           BOOTSTRAP=$(cat <<'BOOT'
           Read .cursor/agents/feedback-handler.md in this repository for your full instructions before doing anything else.
@@ -107,44 +117,72 @@ jobs:
           )
           PROMPT_TEXT="${BOOTSTRAP//TICKET_ID_PLACEHOLDER/${TICKET_ID}}"
 
-          BODY=$(jq -n \
-            --arg prompt_text "${PROMPT_TEXT}" \
-            --arg repo_url "${REPO_URL}" \
-            --arg gh_token "${GH_TOKEN}" \
-            --arg jira_user_email "${JIRA_USER_EMAIL}" \
-            --arg jira_api_token "${JIRA_API_TOKEN}" \
-            --slurpfile ref_config "${REF_CONFIG}" \
-            '{
-              prompt: { text: $prompt_text },
-              repos: (
-                [{ url: $repo_url, startingRef: "develop" }] +
-                ($ref_config[0].referenceRepos | map({ url }))
-              ),
-              autoCreatePR: false,
-              envVars: {
-                GH_TOKEN: $gh_token,
-                JIRA_USER_EMAIL: $jira_user_email,
-                JIRA_API_TOKEN: $jira_api_token
-              }
-            }')
-
-          HTTP_CODE=$(curl -sS -o /tmp/cursor-agent-response.json -w '%{http_code}' \
-            --request POST \
-            --url 'https://api.cursor.com/v1/agents' \
-            -u "${CURSOR_API_KEY}:" \
-            --header 'Content-Type: application/json' \
-            --data "${BODY}")
-
-          echo "Cursor API HTTP status: ${HTTP_CODE}"
-          cat /tmp/cursor-agent-response.json
-          echo
-
-          if [ "${HTTP_CODE}" -lt 200 ] || [ "${HTTP_CODE}" -ge 300 ]; then
-            echo "::error::Cursor Cloud Agent API request failed (HTTP ${HTTP_CODE})"
-            if jq -e '.error.message' /tmp/cursor-agent-response.json >/dev/null 2>&1; then
-              echo "::error::$(jq -r '.error.message' /tmp/cursor-agent-response.json)"
-              echo "::error::If a repository or branch is listed, confirm that repo is granted to the Cursor GitHub App (Integrations) and included in CURSOR_API_KEY scope."
+          AGENT_STARTED=false
+          for REPO_TIER in full core minimal; do
+            REPOS_JSON=$(build_repos_json "${REPO_TIER}")
+            REPO_COUNT=$(echo "${REPOS_JSON}" | jq 'length')
+            if [ "${REPO_COUNT}" -gt 20 ]; then
+              echo "::error::Cursor API allows at most 20 repos per agent (got ${REPO_COUNT} for ${REPO_TIER})"
+              exit 1
             fi
+            echo "Trying Cursor API with ${REPO_TIER} repo set (${REPO_COUNT} repositories)."
+
+            BODY=$(jq -n \
+              --arg prompt_text "${PROMPT_TEXT}" \
+              --arg gh_token "${GH_TOKEN}" \
+              --arg jira_user_email "${JIRA_USER_EMAIL}" \
+              --arg jira_api_token "${JIRA_API_TOKEN}" \
+              --argjson repos "${REPOS_JSON}" \
+              '{
+                prompt: { text: $prompt_text },
+                repos: $repos,
+                autoCreatePR: false,
+                envVars: {
+                  GH_TOKEN: $gh_token,
+                  JIRA_USER_EMAIL: $jira_user_email,
+                  JIRA_API_TOKEN: $jira_api_token
+                }
+              }')
+
+            HTTP_CODE=$(curl -sS -o /tmp/cursor-agent-response.json -w '%{http_code}' \
+              --request POST \
+              --url 'https://api.cursor.com/v1/agents' \
+              -u "${CURSOR_API_KEY}:" \
+              --header 'Content-Type: application/json' \
+              --data "${BODY}")
+
+            echo "Cursor API HTTP status: ${HTTP_CODE}"
+            cat /tmp/cursor-agent-response.json
+            echo
+
+            if [ "${HTTP_CODE}" -ge 200 ] && [ "${HTTP_CODE}" -lt 300 ]; then
+              AGENT_STARTED=true
+              if [ "${REPO_TIER}" != "full" ]; then
+                echo "::warning::Agent started with ${REPO_TIER} repo set (${REPO_COUNT} repos). Grant missing repos to the Cursor GitHub App to enable full reference-repo verification."
+              fi
+              break
+            fi
+
+            ERROR_MSG=""
+            if jq -e '.error.message' /tmp/cursor-agent-response.json >/dev/null 2>&1; then
+              ERROR_MSG=$(jq -r '.error.message' /tmp/cursor-agent-response.json)
+            fi
+
+            if [ "${HTTP_CODE}" = "400" ] && [ "${REPO_TIER}" != "minimal" ]; then
+              echo "::warning::Cursor API rejected ${REPO_TIER} repo set: ${ERROR_MSG:-unknown validation error}"
+              continue
+            fi
+
+            echo "::error::Cursor Cloud Agent API request failed (HTTP ${HTTP_CODE})"
+            if [ -n "${ERROR_MSG}" ]; then
+              echo "::error::${ERROR_MSG}"
+              echo "::error::Confirm each repo is granted to the Cursor GitHub App (Integrations) and included in CURSOR_API_KEY scope."
+            fi
+            exit 1
+          done
+
+          if [ "${AGENT_STARTED}" != "true" ]; then
+            echo "::error::Cursor Cloud Agent API request failed for all repo tiers (full, core, minimal)."
             exit 1
           fi
 
