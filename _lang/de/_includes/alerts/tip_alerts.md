@@ -33,7 +33,7 @@ Um Bilder für Katalog-Trigger-Artikel abzurufen, muss Ihr Katalog ein Feld mit 
 {% if include.alert == 'Export troubleshooting' %}
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endif %}
