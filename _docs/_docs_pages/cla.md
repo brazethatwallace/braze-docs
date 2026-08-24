@@ -92,7 +92,7 @@ Select one of the following options and sign as indicated. By signing, You accep
   font-size: 14px;
   font-size: 1rem;
   line-height: 1.4;
-  font-family: Sailec W00 Bold, Arial, sans-serif;
+  font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
   text-transform: uppercase;
   padding: 1.14286rem 2.85714rem;
   border-radius: 0;

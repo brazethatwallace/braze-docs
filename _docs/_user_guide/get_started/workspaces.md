@@ -122,7 +122,7 @@ The following table describes the benefits and drawbacks of these two approaches
     font-weight: bold;
     text-transform: uppercase;
     color: #212123;
-    font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;
+    font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;
   }
   th[colspan="2"] {
     background-color: #fffae6;
@@ -149,7 +149,7 @@ The following table describes the benefits and drawbacks of these two approaches
     font-weight: bold;
     text-transform: uppercase;
     color: #212123;
-    font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;
+    font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;
   }
 </style>
 
