@@ -1960,7 +1960,7 @@ validurls['/docs/user_guide/message_building_by_channel/email/reporting'] = '/do
 validurls['/docs/user_guide/data_and_analytics/your_reports/retention_reports'] = '/docs/user_guide/analytics/reports/retention_reports';
 validurls['/docs/user_guide/data_and_analytics/your_reports/funnel_reports'] = '/docs/user_guide/analytics/reports/funnel_reports';
 
-validurls['/docs/idle_campaigns'] = '/docs/idle_campaigns_canvases';
+validurls['/docs/idle_campaigns'] = '/docs/user_guide/messaging/governance/statuses/idle_messages';
 
 validurls['/docs/one-click_unsubscribe'] = '/docs/user_guide/administer/global/workspace_settings/email_preferences';
 
@@ -5528,7 +5528,7 @@ validurls['/docs/iam_generations'] = '/docs/iam_generations';
 validurls['/docs/get_app_group_apps'] = '/docs/get_app_group_apps';
 validurls['/docs/get_campaign_link_alias'] = '/docs/get_campaign_link_alias';
 validurls['/docs/get_canvas_link_alias'] = '/docs/get_canvas_link_alias';
-validurls['/docs/idle_campaigns_canvases'] = '/docs/idle_campaigns_canvases';
+validurls['/docs/idle_campaigns_canvases'] = '/docs/user_guide/messaging/governance/statuses/idle_messages';
 validurls['/docs/message_credits_delta_a3sy'] = '/docs/message_credits_delta_a3sy';
 validurls['/docs/message_credits_gamma_0dhr'] = '/docs/message_credits_gamma_0dhr';
 validurls['/docs/message_credits_lambda_k5gh'] = '/docs/message_credits_lambda_k5gh';

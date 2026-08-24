@@ -28816,7 +28816,12 @@
   },
   {
     "source": "/docs/idle_campaigns",
-    "destination": "/docs/idle_campaigns_canvases",
+    "destination": "/docs/user_guide/messaging/governance/statuses/idle_messages",
+    "permanent": true
+  },
+  {
+    "source": "/docs/idle_campaigns_canvases",
+    "destination": "/docs/user_guide/messaging/governance/statuses/idle_messages",
     "permanent": true
   },
   {
