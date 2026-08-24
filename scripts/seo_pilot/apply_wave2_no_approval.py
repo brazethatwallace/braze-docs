@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply no-approval SEO fixes from wave-2 audit outputs."""
+"""Apply no-approval SEO fixes from audit outputs."""
 
 from __future__ import annotations
 
@@ -22,6 +22,12 @@ def unescape_table(value: str) -> str:
     return html.unescape(value.replace("&#58;", ":"))
 
 
+def format_frontmatter_value(value: str) -> str:
+    if value.startswith('"') and value.endswith('"'):
+        return value
+    return f'"{value}"'
+
+
 def apply_frontmatter_fixes(text: str, fixes: dict[str, str]) -> tuple[str, list[str]]:
     applied: list[str] = []
     m = FRONTMATTER_RE.match(text)
@@ -30,21 +36,34 @@ def apply_frontmatter_fixes(text: str, fixes: dict[str, str]) -> tuple[str, list
     prefix, body, suffix = m.group(1), m.group(2), m.group(3)
     lines = body.splitlines()
     out_lines: list[str] = []
+    present_keys: set[str] = set()
     for line in lines:
         if ":" not in line:
             out_lines.append(line)
             continue
-        key, _, val = line.partition(":")
+        key, _, _val = line.partition(":")
         key = key.strip()
+        present_keys.add(key)
         if key not in fixes:
             out_lines.append(line)
             continue
         new_val = fixes[key]
-        if new_val.startswith('"') or new_val.endswith('"'):
-            out_lines.append(f'{key}: {new_val}')
-        else:
-            out_lines.append(f'{key}: "{new_val}"')
+        out_lines.append(f"{key}: {format_frontmatter_value(new_val)}")
         applied.append(key)
+
+    missing = {k: v for k, v in fixes.items() if k not in present_keys}
+    if missing:
+        insert_at = len(out_lines)
+        for i, line in enumerate(out_lines):
+            if line.partition(":")[0].strip() == "article_title":
+                insert_at = i + 1
+                break
+        for key in ("description", "article_title"):
+            if key in missing:
+                out_lines.insert(insert_at, f"{key}: {format_frontmatter_value(missing[key])}")
+                applied.append(key)
+                insert_at += 1
+
     if not applied:
         return text, applied
     return prefix + "\n".join(out_lines) + suffix + text[m.end() :], applied
@@ -94,9 +113,10 @@ def split_url(url: str) -> tuple[str, str, str]:
     return base, query, frag
 
 
-def apply_link_fixes(text: str, rows: list[dict]) -> tuple[str, int]:
-    count = 0
-    seen_pairs: set[tuple[str, str]] = set()
+def build_link_replacements(rows: list[dict]) -> list[tuple[re.Pattern[str], str]]:
+    """Return regex replacements sorted longest-path-first to avoid prefix collisions."""
+    specs: list[tuple[str, str, str, str, str]] = []
+    seen: set[tuple[str, str]] = set()
     for row in rows:
         if row.get("status") != "redirect_resolved":
             continue
@@ -105,37 +125,48 @@ def apply_link_fixes(text: str, rows: list[dict]) -> tuple[str, int]:
         if not old or not new:
             continue
         pair = (old, new)
-        if pair in seen_pairs:
+        if pair in seen:
             continue
-        seen_pairs.add(pair)
-
+        seen.add(pair)
         old_base, old_query, old_frag = split_url(old)
         new_base, new_query, new_frag = split_url(new)
         old_tail = docs_tail(old_base)
         new_tail = docs_tail(new_base)
         if not old_tail or old_tail == new_tail:
             continue
+        specs.append((old, old_tail, new_tail, new_query or old_query, new_frag or old_frag))
 
-        replacements: list[tuple[str, str]] = [
-            (old, new),
-            (old_base, new_base + (f"?{new_query}" if new_query else "") + (f"#{new_frag}" if new_frag else "")),
-            (old_base.rstrip("/"), new_base.rstrip("/")),
-        ]
-        # site.baseurl links (with optional query/fragment on the old URL)
-        old_liquid = re.escape(f"{{{{site.baseurl}}}}/{old_tail}")
-        new_liquid_base = f"{{{{site.baseurl}}}}/{new_tail}"
-        text, n = re.subn(
-            old_liquid + r"(?:\?[^)#\s]*)?(?:#[^)\s]*)?",
-            new_liquid_base
-            + (f"?{new_query}" if new_query else "")
-            + (f"#{new_frag or old_frag}" if (new_frag or old_frag) else ""),
-            text,
+    specs.sort(key=lambda s: len(s[1]), reverse=True)
+
+    replacements: list[tuple[re.Pattern[str], str]] = []
+    for old, old_tail, new_tail, query, frag in specs:
+        new_suffix = (f"?{query}" if query else "") + (f"#{frag}" if frag else "")
+        new_liquid = f"{{{{site.baseurl}}}}/{new_tail}{new_suffix}"
+        tail_escaped = re.escape(old_tail.rstrip("/"))
+        # Do not match when old_tail is only a prefix of a longer docs path.
+        liquid_pat = re.compile(
+            r"\{\{site\.baseurl\}\}/"
+            + tail_escaped
+            + r"(?:\?[^)#\s\"]*)?(?:#[^)\s\"]*)?"
+            + r"(?!/)"
         )
+        replacements.append((liquid_pat, new_liquid))
+
+        if old.startswith("/docs"):
+            docs_pat = re.compile(
+                r"/docs/" + tail_escaped + r"(?:\?[^)#\s\"]*)?(?:#[^)\s\"]*)?" + r"(?!/)"
+            )
+            replacements.append((docs_pat, f"/docs/{new_tail}{new_suffix}"))
+
+        replacements.append((re.compile(re.escape(old)), new))
+    return replacements
+
+
+def apply_link_fixes(text: str, rows: list[dict]) -> tuple[str, int]:
+    count = 0
+    for pattern, repl in build_link_replacements(rows):
+        text, n = pattern.subn(repl, text)
         count += n
-        for a, b in replacements:
-            if a and a in text:
-                text = text.replace(a, b)
-                count += 1
     return text, count
 
 
@@ -149,7 +180,7 @@ def main() -> int:
     parser.add_argument(
         "--link-fix-csv",
         type=Path,
-        default=REPO_ROOT / "scripts/temp/link-fix-table-ga-top100.csv",
+        default=REPO_ROOT / "scripts/temp/link-fix-table-pilot.csv",
     )
     args = parser.parse_args()
 
@@ -162,6 +193,8 @@ def main() -> int:
                     continue
                 src = row.get("source_file", "")
                 link_by_file.setdefault(src, []).append(row)
+    else:
+        print(f"Warning: link fix CSV not found: {args.link_fix_csv}", file=sys.stderr)
 
     changed_files: list[str] = []
     for rel, fixes in sorted(meta_fixes.items()):
@@ -176,7 +209,6 @@ def main() -> int:
             md.write_text(new_text, encoding="utf-8")
             changed_files.append(f"{rel} (meta: {applied_meta}, links: {link_count})")
 
-    # Files with link-only fixes
     for rel, rows in sorted(link_by_file.items()):
         if rel in meta_fixes:
             continue
