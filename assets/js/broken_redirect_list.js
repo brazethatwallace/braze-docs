@@ -5484,8 +5484,6 @@ validurls['/docs/user_guide/message_building_by_channel/in-app_messages/customiz
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/create#choose-a-priority'] = '/docs/user_guide/channels/in_app_messages/traditional#choose-a-priority';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/create#fullscreen'] = '/docs/user_guide/channels/in_app_messages/message_types/fullscreen';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/create#resetting-styles-to-default'] = '/docs/user_guide/channels/in_app_messages/customize/style_settings#resetting-styles-to-default';
-validurls['/docs/user_guide/channels/email/reporting/deliverability_glossary'] = '/docs/user_guide/channels/email/reporting/analytics_glossary';
-validurls['/docs/user_guide/channels/email/reporting/deliverability_glossary/'] = '/docs/user_guide/channels/email/reporting/analytics_glossary';
 validurls['/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-groups'] = '/docs/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups';
 validurls['/docs/user_guide/message_building_by_channel/push/best_practices/push_primer_messages'] = '/docs/user_guide/channels/push/best_practices/push_primer_messages';
 validurls['/docs/user_guide/message_building_by_channel/whatsapp/overview'] = '/docs/user_guide/channels/whatsapp/whatsapp_setup';
@@ -5496,8 +5494,6 @@ validurls['/docs/user_guide/message_building_by_channel/in-app_messages/beta-pre
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/customize/html_in-app_messages#button-tracking-improvements'] = '/docs/user_guide/channels/in_app_messages/message_types/custom_html#button-tracking-improvements';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/dark-mode'] = '/docs/user_guide/channels/in_app_messages/customize/dark_mode_themes';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey'] = '/docs/user_guide/channels/in_app_messages/message_types/simple_survey';
-validurls['/docs/user_guide/messaging/governance/shareable_preview'] = '/docs/user_guide/channels/email/html_editor';
-validurls['/docs/user_guide/messaging/governance/shareable_preview/'] = '/docs/user_guide/channels/email/html_editor';
 validurls['/docs/user_guide/engagement_tools/landing_pages/drag_and_drop#step-2-set-up-your-landing-page-details'] = '/docs/user_guide/messaging/landing_pages/create_landing_pages';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/creative_details/modal'] = '/docs/user_guide/channels/in_app_messages/message_types/modal';
 validurls['/docs/user_guide/engagement_tools/landing_pages/personalizing_pages#personalization-considerations-on-landing-pages'] = '/docs/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations';
