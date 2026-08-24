@@ -65,6 +65,10 @@ def path_only(url: str) -> str:
     return url.rstrip("/") or "/docs"
 
 
+def url_fragment(url: str) -> str | None:
+    return url.split("#", 1)[1] if "#" in url else None
+
+
 def load_redirect_map() -> dict[str, str]:
     """Load redirect map preserving query strings and fragments in keys/values."""
     text = REDIRECT_JS.read_text(encoding="utf-8")
@@ -95,24 +99,25 @@ def resolve_redirect(url: str, redirects: dict[str, str], max_hops: int = 10) ->
             current = redirects[path_key]
             redirected = True
             continue
-        allow_fragment_keys = "#" in current
-        path_matches = [
-            k
-            for k in redirects
-            if path_only(k) == path_key
-            and k != current
-            and (allow_fragment_keys or "#" not in k)
-        ]
-        if path_matches:
-            if allow_fragment_keys:
-                fragment = current.split("#", 1)[1]
-                exact_frag = [k for k in path_matches if k.endswith(f"#{fragment}")]
-                chosen = exact_frag[0] if exact_frag else sorted(path_matches, key=len)[0]
-            else:
-                chosen = sorted(path_matches, key=len)[0]
-            current = redirects[chosen]
-            redirected = True
-            continue
+        fragment = url_fragment(current)
+        if fragment is not None:
+            exact_frag = [
+                k
+                for k in redirects
+                if path_only(k) == path_key and url_fragment(k) == fragment
+            ]
+            if exact_frag:
+                current = redirects[exact_frag[0]]
+                redirected = True
+                continue
+        else:
+            path_matches = [
+                k for k in redirects if path_only(k) == path_key and k != current and "#" not in k
+            ]
+            if path_matches:
+                current = redirects[sorted(path_matches, key=len)[0]]
+                redirected = True
+                continue
         doc = url_to_markdown(current)
         if doc and doc.is_file():
             return current, "redirect_resolved" if redirected else "canonical_exists"
