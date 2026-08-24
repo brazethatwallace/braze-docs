@@ -19,7 +19,7 @@ description: "This article outlines the details about the Change user's email su
 Users can be `opted_in`, `unsubscribed`, or `subscribed` (not specifically opted in or out).
 
 {% alert note %}
-This endpoint updates the user's global email subscription state, which is different from subscription group status. The global subscription state applies across all emails, while [subscription groups]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups) allow more granular control over specific types of emails. When a user is globally unsubscribed, they won't receive emails regardless of their subscription group status. To query subscription group status, use the [List user's subscription group status endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status).
+This endpoint updates the user's global email subscription state, which is different from subscription group status. The global subscription state applies across all emails, while [subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups) allow more granular control over specific types of emails. When a user is globally unsubscribed, they won't receive emails regardless of their subscription group status. To query subscription group status, use the [List user's subscription group status endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status).
 {% endalert %}
 
 You can set the email subscription state for an email address that is not yet associated with any of your users within Braze. When that email address is subsequently associated with a user, the email subscription state that you uploaded is automatically set.
