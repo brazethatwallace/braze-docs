@@ -1,90 +1,69 @@
 {
-  "description": "Read-only reference repos cloned alongside braze-docs for feedback-handler cloud agents. Mirrors braze-workspace.code-workspace (excluding braze-docs). Used by .github/workflows/jira-feedback-agent.yml. Cursor API allows at most 20 repos per agent (braze-docs + these 17 = 18).",
+  "description": "Read-only reference repos cloned alongside braze-docs for feedback-handler cloud agents. Mirrors braze-workspace.code-workspace (excluding braze-docs). Used by .github/workflows/jira-feedback-agent.yml. Cursor API allows at most 20 repos per agent (braze-docs + entries here). Each repo must be granted to the Cursor GitHub App (Integrations dashboard) and reachable by CURSOR_API_KEY. Reference repos omit startingRef so Cursor clones each repo default branch. braze-shopify-app is excluded until it is added to the Cursor GitHub App installation (API returned 400 verifying main, 2026-08-24).",
   "referenceRepos": [
     {
-      "folder": "braze-shopify-app",
-      "url": "https://github.com/braze-inc/braze-shopify-app",
-      "startingRef": "main"
+      "folder": "platform",
+      "url": "https://github.com/Appboy/platform"
     },
     {
       "folder": "liquid",
-      "url": "https://github.com/braze-inc/liquid",
-      "startingRef": "master"
+      "url": "https://github.com/braze-inc/liquid"
     },
     {
       "folder": "grapesjs",
-      "url": "https://github.com/braze-inc/grapesjs",
-      "startingRef": "dev"
+      "url": "https://github.com/braze-inc/grapesjs"
     },
     {
       "folder": "braze-android-sdk",
-      "url": "https://github.com/braze-inc/braze-android-sdk",
-      "startingRef": "master"
+      "url": "https://github.com/braze-inc/braze-android-sdk"
     },
     {
       "folder": "braze-swift-sdk",
-      "url": "https://github.com/braze-inc/braze-swift-sdk",
-      "startingRef": "main"
+      "url": "https://github.com/braze-inc/braze-swift-sdk"
     },
     {
       "folder": "braze-web-sdk",
-      "url": "https://github.com/braze-inc/braze-web-sdk",
-      "startingRef": "master"
+      "url": "https://github.com/braze-inc/braze-web-sdk"
     },
     {
       "folder": "braze-react-native-sdk",
-      "url": "https://github.com/braze-inc/braze-react-native-sdk",
-      "startingRef": "master"
+      "url": "https://github.com/braze-inc/braze-react-native-sdk"
     },
     {
       "folder": "braze-flutter-sdk",
-      "url": "https://github.com/braze-inc/braze-flutter-sdk",
-      "startingRef": "master"
+      "url": "https://github.com/braze-inc/braze-flutter-sdk"
     },
     {
       "folder": "braze-unity-sdk",
-      "url": "https://github.com/braze-inc/braze-unity-sdk",
-      "startingRef": "master"
+      "url": "https://github.com/braze-inc/braze-unity-sdk"
     },
     {
       "folder": "braze-unreal-sdk",
-      "url": "https://github.com/braze-inc/braze-unreal-sdk",
-      "startingRef": "master"
+      "url": "https://github.com/braze-inc/braze-unreal-sdk"
     },
     {
       "folder": "braze-roku-sdk",
-      "url": "https://github.com/braze-inc/braze-roku-sdk",
-      "startingRef": "main"
+      "url": "https://github.com/braze-inc/braze-roku-sdk"
     },
     {
       "folder": "braze-cordova-sdk",
-      "url": "https://github.com/braze-inc/braze-cordova-sdk",
-      "startingRef": "master"
+      "url": "https://github.com/braze-inc/braze-cordova-sdk"
     },
     {
       "folder": "braze-expo-plugin",
-      "url": "https://github.com/braze-inc/braze-expo-plugin",
-      "startingRef": "main"
+      "url": "https://github.com/braze-inc/braze-expo-plugin"
     },
     {
       "folder": "braze-xamarin-sdk",
-      "url": "https://github.com/braze-inc/braze-xamarin-sdk",
-      "startingRef": "master"
+      "url": "https://github.com/braze-inc/braze-xamarin-sdk"
     },
     {
       "folder": "event-replay",
-      "url": "https://github.com/braze-inc/event-replay",
-      "startingRef": "main"
+      "url": "https://github.com/braze-inc/event-replay"
     },
     {
       "folder": "event-modeling-service",
-      "url": "https://github.com/braze-inc/event-modeling-service",
-      "startingRef": "main"
-    },
-    {
-      "folder": "platform",
-      "url": "https://github.com/Appboy/platform",
-      "startingRef": "develop"
+      "url": "https://github.com/braze-inc/event-modeling-service"
     }
   ]
 }
