@@ -62,7 +62,7 @@ Visit [Segment](https://segment.com/docs/destinations/#connection-modes) to lear
 Also called device-mode, this integration maps Segment's SDK and [methods](#methods) to the Braze SDK, allowing access to all the features our SDK provides, such as push, in-app messaging, and other methods native to Braze. 
 
 {% alert note %}
-When using Segment's device-mode, you do not need to integrate the Braze SDK directly. When adding Braze as a device-mode destination for Segment, the Segment SDK will initialize the Braze SDK and call the relevant mapped Braze methods.
+When using Segment's device-mode, let Segment initialize Braze. Do not also initialize the Braze SDK in your app. The destination plugin configures Braze and opens sessions; a second native init can log duplicate sessions. Use Segment `identify` to set the user ID. The plugin maps that call to `changeUser()`.
 {% endalert %}
 
 {% alert important %}

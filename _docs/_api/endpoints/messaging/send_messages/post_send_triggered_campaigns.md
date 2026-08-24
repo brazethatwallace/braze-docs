@@ -58,11 +58,12 @@ Authorization: Bearer YOUR-REST-API-KEY
       "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
     }
   ],
-  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name" and "url",
+  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name", "url", and optionally "basic_auth_credential",
     [
       {
        "file_name": (required, string) the name of the file you want to attach to your email, excluding the extension (for example, ".pdf"). Attach files up to 2 MB. This is required if you use "attachments",
        "url": (required, string) the corresponding URL of the file you want to attach to your email. The file name's extension is detected automatically from the URL defined, which should return the appropriate "Content-Type" as a response header. This is required if you use "attachments",
+       "basic_auth_credential": (optional, string) the name of the stored basic authentication credential to use when the attachment URL requires a login,
       }
     ]
 }
@@ -78,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 |`broadcast`| Optional | Boolean | You must set `broadcast` to true when sending a message to the entire segment configured as the campaign's target audience in the Braze dashboard. This parameter defaults to false (as of August 31, 2017). <br><br> If `broadcast` is set to true, a `recipients` list cannot be included. However, use caution when setting `broadcast: true`, as unintentionally setting this flag may cause you to send your message to a larger-than-expected audience. |
 |`audience`| Optional | Connected audience object| See [connected audience]({{site.baseurl}}/api/objects_filters/connected_audience). When you include `audience`, the message is sent only to users who match the defined filters, such as custom attributes and subscription statuses. |
 |`recipients`| Optional | Array | See [recipients object]({{site.baseurl}}/api/objects_filters/recipient_object).<br><br>If `send_to_existing_only` is `false`, an `attributes` object must be included.<br><br>You can update a user's subscription group status by including `subscription_groups` in the nested `attributes` object. For more details, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object).<br><br>If `recipients` is not provided and `broadcast` is set to true, the message is sent to the entire segment configured as the campaign's target audience in the Braze dashboard.<br><br>If `email` is the identifier, you must include [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers) in the recipients object. |
-|`attachments`| Optional | Array | If `broadcast` is set to true, then the `attachments` list cannot be included. |
+|`attachments`| Optional | Array | If `broadcast` is set to true, then the `attachments` list cannot be included. <br><br>When an attachment URL requires a login, include `basic_auth_credential` on that attachment and set it to the name of a stored basic authentication credential. To set up a credential, refer to [Authentication for email file attachments]({{site.baseurl}}/api/objects_filters/messaging/email_object#authentication-for-email-file-attachments). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Recipient resolution behavior
@@ -195,7 +196,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
   "attachments": [
     {
       "file_name" : "YourFileName",
-      "url" : "https://exampleurl.com/YourFileName.pdf"
+      "url" : "https://exampleurl.com/YourFileName.pdf",
+      "basic_auth_credential": "company_basic_auth_credential_name"
     }
   ]
 }'

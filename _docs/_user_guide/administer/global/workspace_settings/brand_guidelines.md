@@ -16,13 +16,15 @@ Create and manage brand guidelines from **Content** > **Brand Guidelines**.
 
 ### Step 1: Create a brand guideline
 
-On the **Brand Guidelines** page, select **Create new**. If you want this brand guideline to be the default for the workspace, check **Use as default brand guideline**. You can have one default per workspace.
+On the **Brand Guidelines** page, select **Create new**. If you want this brand guideline to be the default for the workspace, select **Use as default brand guideline**. You can have one default per workspace.
 
 ### Step 2: Describe your brand personality
 
-For **Brand personality**, think about what makes your brand unique. Include traits, values, voice, and any archetypes that define your brand. Here are some characteristics to consider:
+For **Brand personality**, think about what makes your brand unique. Include traits, values, voice, and any archetypes that define your brand. Keep this field to 10,000 or fewer characters. If you generate this text with an LLM, include that character limit in your prompt so the output fits the field.
 
-| **Characteristic**       | **Definition**                                                                       | **Example**                                                        |
+Here are some characteristics to consider:
+
+| Characteristic       | Definition                                                                       | Example                                                       |
 |--------------------------|--------------------------------------------------------------------------------------|--------------------------------------------------------------------|
 | Reputation               | How you want your brand to be perceived in the market.                               | We are known for being the most reliable and customer-focused brand in our industry. |
 | Personality traits       | Human-like characteristics that describe your brand's character.                     | Our brand is friendly, approachable, and always upbeat.          |
@@ -34,7 +36,7 @@ For **Brand personality**, think about what makes your brand unique. Include tra
 
 ### Step 3: Define language that should be avoided (optional)
 
-For **Exclusions**, list any language or style that doesn't align with your brand. For example, you might want to avoid "sarcasm," "negative attitudes," or "condescending" tones.
+For **Exclusions**, list any language or style that doesn't align with your brand. For example, you might want to avoid "sarcasm," "negative attitudes," or "condescending" tones. Keep this field to 300 or fewer characters.
 
 ![The "Create brand guideline" window with fields to enter the name, description, personality, exclusions, and tone.]({% image_buster /assets/img/guidelines_create.png %})
 

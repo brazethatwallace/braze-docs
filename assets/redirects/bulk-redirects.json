@@ -361,7 +361,7 @@
   },
   {
     "source": "/docs/braze_surveys",
-    "destination": "/docs/user_guide/channels/in_app_messages/drag_and_drop/surveys",
+    "destination": "/docs/user_guide/messaging/surveys",
     "permanent": true
   },
   {
@@ -41035,6 +41035,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/user_guide/data/unification/cloud_ingestion/decisioning_studio",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/prepare_data/connect_data_sources",
+    "permanent": true
+  },
+  {
     "source": "/docs/user_guide/data/unification/cloud_ingestion/deleteusers",
     "destination": "/docs/user_guide/data/unification/cloud_ingestion/delete_users",
     "permanent": true
@@ -44371,7 +44376,7 @@
   },
   {
     "source": "/docs/user_guide/message_building_by_channel/email/email_setup/subscription_groups",
-    "destination": "/docs/user_guide/channels/email/subscriptions",
+    "destination": "/docs/user_guide/audience/subscription_preferences/subscription_groups",
     "permanent": true
   },
   {
@@ -44456,7 +44461,7 @@
   },
   {
     "source": "/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/subscription_groups",
-    "destination": "/docs/user_guide/channels/email/subscriptions",
+    "destination": "/docs/user_guide/audience/subscription_preferences/subscription_groups",
     "permanent": true
   },
   {
@@ -44546,7 +44551,7 @@
   },
   {
     "source": "/docs/user_guide/message_building_by_channel/email/subscription_groups",
-    "destination": "/docs/user_guide/channels/email/subscriptions",
+    "destination": "/docs/user_guide/audience/subscription_preferences/subscription_groups",
     "permanent": true
   },
   {

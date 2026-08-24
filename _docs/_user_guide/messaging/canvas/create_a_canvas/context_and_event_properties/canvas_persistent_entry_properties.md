@@ -91,3 +91,10 @@ The second step may send another push notification prompting the user to checkou
 
 ![Screenshot related to use case.]({% image_buster /assets/img/persistent_entry_properties/PEP12.png %}){: style="border:0;margin-left:15px;"}
 
+## Troubleshooting
+
+### Entry properties are blank with multiple entry triggers
+
+Braze stores `canvas_entry_properties` from the trigger that entered this user, not from every trigger configured on the Canvas. If that trigger has no event or API payload—for example **Start Session** or **Change Custom Attribute Value**—Liquid `canvas_entry_properties` is blank for that journey. Users who enter the same Canvas from a custom event, purchase, or API call still have the properties from that payload.
+
+To keep entry properties populated for every user, use only entry types that pass those properties (custom event, purchase, or API-triggered). For personalization in the current Canvas editor, use [context and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). To filter on properties, use [event property segmentation]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects) instead of Liquid `canvas_entry_properties`.
