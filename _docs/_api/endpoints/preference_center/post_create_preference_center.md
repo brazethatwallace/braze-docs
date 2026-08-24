@@ -176,7 +176,7 @@ Refer to the following Liquid tags that can be included in your HTML to generate
         background-color: #fff;
         color: #333335;
         font-family:
-          Sailec W00 Medium,
+          Aribau Grotesk Regular,
           helvetica,
           arial,
           sans-serif;

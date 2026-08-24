@@ -9,7 +9,7 @@ page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "Approvals, archive, duplicate, copy across workspaces, shareable preview, statuses, and tags for campaigns, Canvases, and landing pages."
+description: "Approvals, archive, duplicate, copy across workspaces, shareable preview, statuses, idle campaigns and Canvases, and tags for campaigns, Canvases, and landing pages."
 
 guide_featured_title: "Section articles"
 guide_featured_list:
@@ -31,6 +31,9 @@ guide_featured_list:
   - name: Statuses
     link: /docs/user_guide/messaging/governance/statuses
     image: /assets/img/braze_icons/book-closed.svg
+  - name: Idle campaigns and Canvases
+    link: /docs/user_guide/messaging/governance/statuses/idle_messages
+    image: /assets/img/braze_icons/clock-snooze.svg
   - name: Tags
     link: /docs/user_guide/messaging/governance/tags
     image: /assets/img/braze_icons/tag-01.svg

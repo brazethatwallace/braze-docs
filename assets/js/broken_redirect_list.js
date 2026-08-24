@@ -1960,7 +1960,7 @@ validurls['/docs/user_guide/message_building_by_channel/email/reporting'] = '/do
 validurls['/docs/user_guide/data_and_analytics/your_reports/retention_reports'] = '/docs/user_guide/analytics/reports/retention_reports';
 validurls['/docs/user_guide/data_and_analytics/your_reports/funnel_reports'] = '/docs/user_guide/analytics/reports/funnel_reports';
 
-validurls['/docs/idle_campaigns'] = '/docs/idle_campaigns_canvases';
+validurls['/docs/idle_campaigns'] = '/docs/user_guide/messaging/governance/statuses/idle_messages';
 
 validurls['/docs/one-click_unsubscribe'] = '/docs/user_guide/administer/global/workspace_settings/email_preferences';
 
@@ -5528,7 +5528,7 @@ validurls['/docs/iam_generations'] = '/docs/iam_generations';
 validurls['/docs/get_app_group_apps'] = '/docs/get_app_group_apps';
 validurls['/docs/get_campaign_link_alias'] = '/docs/get_campaign_link_alias';
 validurls['/docs/get_canvas_link_alias'] = '/docs/get_canvas_link_alias';
-validurls['/docs/idle_campaigns_canvases'] = '/docs/idle_campaigns_canvases';
+validurls['/docs/idle_campaigns_canvases'] = '/docs/user_guide/messaging/governance/statuses/idle_messages';
 validurls['/docs/message_credits_delta_a3sy'] = '/docs/message_credits_delta_a3sy';
 validurls['/docs/message_credits_gamma_0dhr'] = '/docs/message_credits_gamma_0dhr';
 validurls['/docs/message_credits_lambda_k5gh'] = '/docs/message_credits_lambda_k5gh';
@@ -10571,4 +10571,37 @@ validurls['/docs/user_guide/data/{{site.baseurl}}/user_guide/data/activation'] =
 validurls['/docs/user_guide/get_started/{{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings'] = '/docs/user_guide/administer/global/workspace_settings/push_settings';
 validurls['/docs/user_guide/get_started/{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns'] = '/docs/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns';
 
+
+// Marketing site locale mirror redirects (non-EN crawl, Aug 2026)
+validurls['/docs/en/partners/canvas_steps'] = '/docs/partners/canvas_audience_sync';
+validurls['/docs/fr/user_guide/engagement_tools/canvas'] = '/docs/fr/user_guide/messaging/canvas';
+validurls['/docs/ja/developer_guide/platform_integration_guides/swift/changelog'] = '/docs/ja/developer_guide/changelogs?sdktab=swift';
+validurls['/docs/ja/developer_guide/platform_integration_guides/web/smart_tvs'] = '/docs/ja/developer_guide/platforms/web/smart_tvs';
+validurls['/docs/ja/help/help_articles/campaigns_and_canvas/using_custom_event_properties'] = '/docs/ja/developer_guide/analytics/logging_events';
+validurls['/docs/ja/user_guide/analytics/dashboard/deliverability_center'] = '/docs/ja/user_guide/analytics/dashboards/deliverability_center';
+validurls['/docs/ja/user_guide/analytics/query_builder'] = '/docs/ja/user_guide/analytics/reports/query_builder';
+validurls['/docs/ja/user_guide/analytics/reporting/funnel_reports'] = '/docs/ja/user_guide/analytics/reports/funnel_reports';
+validurls['/docs/ja/user_guide/analytics/reporting/funnel_reports?redirected=1'] = '/docs/ja/user_guide/analytics/reports/funnel_reports';
+validurls['/docs/ja/user_guide/analytics/reporting/report_builder'] = '/docs/ja/user_guide/analytics/reports/report_builder';
+validurls['/docs/ja/user_guide/brazeai/intelligence/intelligent_channel'] = '/docs/ja/user_guide/brazeai/intelligence_suite/intelligent_channel';
+validurls['/docs/ja/user_guide/brazeai/recommendations/ai_item_recommendations'] = '/docs/ja/user_guide/brazeai/item_recommendations/creating_recommendations/ai';
+validurls['/docs/ja/user_guide/brazeai/recommendations/creating_recommendations/ai'] = '/docs/ja/user_guide/brazeai/item_recommendations/creating_recommendations/ai';
+validurls['/docs/ja/user_guide/data_and_analytics/analytics/deliverability_center'] = '/docs/ja/user_guide/analytics/dashboards/deliverability_center';
+validurls['/docs/ja/user_guide/data_and_analytics/cloud_ingestion'] = '/docs/ja/user_guide/data/unification/cloud_ingestion';
+validurls['/docs/ja/user_guide/engagement_tools/campaigns/testing_and_more/triggered_action_based'] = '/docs/ja/user_guide/messaging/campaigns/test_campaigns/triggered_action_based';
+validurls['/docs/ja/user_guide/engagement_tools/canvas/canvas_components/audience_paths'] = '/docs/ja/user_guide/messaging/canvas/canvas_components/audience_paths';
+validurls['/docs/ja/user_guide/engagement_tools/canvas/canvas_components/experiment_step/personalized_paths'] = '/docs/ja/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths';
+validurls['/docs/ja/user_guide/engagement_tools/testing/multivariant_testing/multivariate_analytics'] = '/docs/ja/user_guide/messaging/ab_testing/analytics';
+validurls['/docs/ja/user_guide/getting_started/web_sdk'] = '/docs/ja/user_guide/get_started/sdk_overview';
+validurls['/docs/ja/user_guide/message_building_by_channel/content_cards/about'] = '/docs/ja/user_guide/channels/content_cards';
+validurls['/docs/ja/user_guide/message_building_by_channel/email/email_setup/authentication'] = '/docs/ja/user_guide/channels/email/email_setup/authentication';
+validurls['/docs/ja/user_guide/message_building_by_channel/in-app_messages'] = '/docs/ja/user_guide/channels/in_app_messages';
+validurls['/docs/ja/user_guide/message_building_by_channel/in-app_messages/creative_details/fullscreen'] = '/docs/ja/user_guide/channels/in_app_messages/message_types/fullscreen';
+validurls['/docs/ja/user_guide/message_building_by_channel/in-app_messages/traditional/templates/simple_survey'] = '/docs/ja/user_guide/channels/in_app_messages/message_types/simple_survey';
+validurls['/docs/ja/user_guide/personalization_and_dynamic_content/connected_content'] = '/docs/ja/user_guide/messaging/design_and_edit/personalize/connected_content';
+validurls['/docs/ja/user_guide/sage_ai'] = '/docs/ja/user_guide/brazeai';
+validurls['/docs/ja/user_guide/sage_ai/intelligence/intelligent_timing'] = '/docs/ja/user_guide/brazeai/intelligence_suite/intelligent_timing';
+validurls['/docs/ja/user_guide/sage_ai/recommendations/ai_item_recommendations'] = '/docs/ja/user_guide/brazeai/item_recommendations';
+validurls['/docs/pt-br/user_guide/introduction'] = '/docs/pt-br/user_guide/home';
+validurls['/docs/pt-br/user_guide/message_building_by_channel/whatsapp/message_processing/opt-ins_and_opt-outs'] = '/docs/pt-br/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs';
 // validurls['OLD'] = 'NEW';
