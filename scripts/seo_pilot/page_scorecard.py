@@ -76,13 +76,20 @@ def doc_path_to_url(rel_md: Path) -> str:
     return f"/docs/{collection}"
 
 
+def is_braze_host(hostname: str | None) -> bool:
+    if not hostname:
+        return False
+    host = hostname.lower()
+    return host == "braze.com" or host.endswith(".braze.com")
+
+
 def extract_docs_path(url: str) -> str | None:
     """Return /docs/... pathname when url is a Braze docs URL."""
     url = url.strip()
     if url.startswith("/docs"):
         return url.split("?")[0].split("#")[0]
     parsed = urlparse(url)
-    if parsed.netloc.endswith("braze.com") and parsed.path.startswith("/docs"):
+    if is_braze_host(parsed.hostname) and parsed.path.startswith("/docs"):
         return parsed.path.split("?")[0].split("#")[0]
     return None
 

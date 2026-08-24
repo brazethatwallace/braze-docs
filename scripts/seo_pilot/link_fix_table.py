@@ -29,12 +29,19 @@ LINK_INLINE_RE = re.compile(r"(?<!!)\[([^\]]*)\]\(([^)]+)\)")
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.+)$")
 
 
+def is_braze_host(hostname: str | None) -> bool:
+    if not hostname:
+        return False
+    host = hostname.lower()
+    return host == "braze.com" or host.endswith(".braze.com")
+
+
 def extract_docs_path(url: str) -> str | None:
     url = url.strip()
     if url.startswith("/docs"):
         return url
     parsed = urlparse(url)
-    if parsed.netloc.endswith("braze.com") and parsed.path.startswith("/docs"):
+    if is_braze_host(parsed.hostname) and parsed.path.startswith("/docs"):
         path = parsed.path
         if parsed.query:
             path += f"?{parsed.query}"
