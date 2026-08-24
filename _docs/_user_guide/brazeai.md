@@ -9,7 +9,7 @@ Tool:
   - Dashboard
 
 guide_top_header: "BrazeAI<sup>TM</sup>"
-guide_top_text: "BrazeAI<sup>TM</sup> powers a collection of accessible, easy-to-use tools that lower the barriers to entry for creativity, personalization and optimization for your engagement strategy. With BrazeAI<sup>TM</sup> capabilities, you can have a trusted advisor to help guide your creativity, make better decisions, and optimize the user experience for your customers."
+guide_top_text: "BrazeAI<sup>TM</sup> powers a collection of accessible, easy-to-use tools that lower the barriers to entry for creativity, personalization, and optimization for your engagement strategy. With BrazeAI<sup>TM</sup> capabilities, you can have a trusted advisor to help guide your creativity, make better decisions, and optimize the user experience for your customers. This hub links to guides for generative AI, the Intelligence Suite, item recommendations, agents, and other BrazeAI features you can use in campaigns and Canvases."
 
 guide_featured_title: "Features"
 guide_featured_list:

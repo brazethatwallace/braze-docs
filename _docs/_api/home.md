@@ -4,9 +4,9 @@ nav_title: Home
 article_title: Braze API Guide
 layout: api_glossary
 glossary_top_header: "Braze API Guide"
-glossary_top_text: "Braze provides a high-performance REST API to allow you to track users, send messages, export data, and more. This page lists available Braze API endpoints and their uses."
+glossary_top_text: "Braze provides a high-performance REST API to track users, send messages, export data, and manage campaigns, Canvases, catalogs, and more. Use this glossary to browse endpoints by type, open reference articles for request and response details, and find links to authentication, rate limits, and object documentation."
+description: "Browse Braze REST API endpoints by type, with links to authentication, rate limits, and object reference documentation."
 page_type: glossary
-description: "This landing page lists available Braze API endpoints and their uses."
 glossary_tag_name: Endpoint Type
 
 glossary_filter_text: "Select endpoint type to narrow the glossary:"

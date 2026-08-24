@@ -12,7 +12,7 @@ alias: /whatsapp/
 
 # WhatsApp
 
-> WhatsApp is a popular peer-to-peer messaging platform used across the world offering conversation-based messaging for businesses. The WhatsApp messaging channel offers a direct way to reach users and customers on the WhatsApp platform.
+> WhatsApp is a peer-to-peer messaging platform used worldwide for conversation-based business messaging. With the WhatsApp channel in Braze, you send support messages, notifications, and promotional campaigns in threaded conversations users already use every day. This hub covers WhatsApp setup, message types, templates, subscription management, and reporting. Begin with [WhatsApp setup]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) to connect your Meta Business and WhatsApp Business accounts.
 
 ## Prerequisites
 

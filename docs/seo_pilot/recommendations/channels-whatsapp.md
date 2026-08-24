@@ -17,9 +17,9 @@
 
 ### Opening answer block (proposed)
 
-> *Current intro is ~34 words. Target 80–120 words that directly answer the primary question before the first `##` section.*
+> *Current intro is ~62 words. Target 80–120 words that directly answer the primary question before the first `##` section.*
 
-> WhatsApp > WhatsApp is a popular peer-to-peer messaging platform used across the world offering conversation-based messaging for businesses. The.
+> WhatsApp > WhatsApp is a peer-to-peer messaging platform used worldwide for conversation-based business messaging. With the WhatsApp channel in.
 
 ### FAQ additions (proposed)
 

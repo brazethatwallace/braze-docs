@@ -17,9 +17,9 @@
 
 ### Opening answer block (proposed)
 
-> *Current intro is ~19 words. Target 80–120 words that directly answer the primary question before the first `##` section.*
+> *Current intro is ~74 words. Target 80–120 words that directly answer the primary question before the first `##` section.*
 
-> Technology Partners Welcome to the Braze Alloys Technology Partners documentation. Browse partners alphabetically. <div class="partners-az-list".
+> Technology Partners > Braze Alloys technology partners extend Braze with personalization, data infrastructure, attribution, eCommerce, audience.
 
 ### FAQ additions (proposed)
 
