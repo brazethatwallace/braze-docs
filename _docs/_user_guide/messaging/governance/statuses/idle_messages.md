@@ -1,7 +1,11 @@
 ---
 nav_title: Idle campaigns and Canvases
-permalink: "/idle_campaigns_canvases/"
-hidden: true
+article_title: Idle campaigns and Canvases
+page_order: 1
+page_type: reference
+alias: /idle_campaigns/
+description: "This reference article covers the idle status for campaigns and Canvases, including auto-stop criteria and frequently asked questions."
+toc_headers: h2
 ---
 
 # Idle campaigns and Canvases
@@ -78,7 +82,7 @@ This applies to campaigns and Canvases that already meet the criteria in this ar
 
 Idle campaigns and Canvases appear on the **Campaigns** and **Canvas** pages when you select the **Idle** status. The date Braze stops the campaign or Canvas is listed as a column in the list.
 
-![The "Idle" filter on the "Campaigns" page.][1]{: style="max-width:60%;"}
+![The "Idle" filter on the Campaigns page.]({% image_buster /assets/img/idle_filter.png %}){: style="max-width:80%;"}
 
 ### What happens if an idle campaign or Canvas is updated?
 
@@ -115,5 +119,3 @@ Idle campaigns are considered active until they're stopped.
 ### Is a campaign idle if it's still sending push notifications?
 
 No. A campaign is listed as idle when it's no longer actively sending messages.
-
-[1]: {% image_buster /assets/unlisted_docs/img/idle_filter.png %}
