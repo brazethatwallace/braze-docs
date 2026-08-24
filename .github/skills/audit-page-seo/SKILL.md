@@ -1,5 +1,5 @@
 ---
-name: page-seo-audit
+name: audit-page-seo
 description: >
   Run in-house SEO/AEO page audits: score pilot candidates, generate verified link
   fix tables, and produce per-page recommendation packets split into no-approval
@@ -7,7 +7,9 @@ description: >
   running the SEO pilot, or delivering page-level title/meta/FAQ/link recommendations.
 ---
 
-# Page SEO audit
+# Audit page SEO
+
+Invoke with `/audit-page-seo`.
 
 ## When to use
 

@@ -8,7 +8,7 @@ In-house SEO and answer-engine optimization pilot for English canonical docs (`_
 |-------|----------|
 | Page structure template | [docs/contributing/style_guide/seo_aeo_page_template.md](../contributing/style_guide/seo_aeo_page_template.md) |
 | Pilot tooling | [scripts/seo_pilot/](../../scripts/seo_pilot/) |
-| Agent skill | [.github/skills/page-seo-audit/](../../.github/skills/page-seo-audit/SKILL.md) |
+| Agent skill | [.github/skills/audit-page-seo/](../../.github/skills/audit-page-seo/SKILL.md) |
 | Pilot page selection | [pilot-selection.md](pilot-selection.md) |
 | Per-page recommendations | [recommendations/](recommendations/) |
 
