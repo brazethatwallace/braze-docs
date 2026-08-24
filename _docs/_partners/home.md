@@ -9,7 +9,7 @@ description: "Browse Braze Alloys technology partners and integration docs for p
 
 # Technology Partners
 
-> Braze Alloys technology partners extend Braze with personalization, data infrastructure, attribution, eCommerce, audience sync, and workflow tools. This documentation hub lists partners alphabetically and links to integration guides for each connection. Use these articles to review prerequisites, setup steps, and supported Braze features before you enable a partner in your workspace. Search the alphabetical partner list or jump to a letter to find a specific integration.
+Welcome to the Braze Alloys Technology Partners documentation. Browse partners alphabetically.
 
 <div class="partners-az-list" markdown="1">
 

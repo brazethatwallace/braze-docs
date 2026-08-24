@@ -4,7 +4,7 @@ article_title: Preference center
 page_order: 8
 layout: dev_guide
 guide_top_header: "Preference center"
-guide_top_text: "An email preference center lets users manage notification preferences for email campaigns and newsletters from a branded page in your app or website. Use these articles to create and manage a preference center with the <a href='/docs/api/endpoints/preference_center'>Braze Preference Center API</a> or the drag-and-drop editor, including subscription groups, opt-in states, and hosted page customization."
+guide_top_text: "Creating an email preference center is an easy way to allow your users to manage their notification preferences for email campaigns and newsletters. Check out these articles to learn how to create and manage your preference center via the <a href='/docs/api/endpoints/preference_center'>Braze Preference Center API</a> or through the drag-and-drop editor."
 description: "This landing page includes articles on the Braze email preference center and how to use the Preference Center API."
 channel:
   - email

@@ -17,9 +17,9 @@
 
 ### Opening answer block (proposed)
 
-> *Current intro is ~74 words. Target 80–120 words that directly answer the primary question before the first `##` section.*
+> *Current intro is ~57 words. Target 80–120 words that directly answer the primary question before the first `##` section.*
 
-> Email > With email at Braze, you create customized and personalized email messages in campaigns or Canvases that reach users outside your app or.
+> Email > With email at Braze, you can create completely customized and personalized email messages in either campaigns or Canvas that grab your.
 
 ### FAQ additions (proposed)
 

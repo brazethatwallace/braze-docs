@@ -15,9 +15,11 @@
 
 ## Approval-needed
 
-### Opening answer block
+### Opening answer block (proposed)
 
-*Intro is ~84 words — within range. Optional polish only.*
+> *Current intro is ~66 words. Target 80–120 words that directly answer the primary question before the first `##` section.*
+
+> SMS, MMS, and RCS > SMS (Short Messaging Service), MMS (Multimedia Messaging Service), and RCS (Rich Communication Services) offer a more direct.
 
 ### FAQ additions (proposed)
 

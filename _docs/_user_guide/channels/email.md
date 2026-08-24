@@ -11,7 +11,7 @@ search_rank: 2
 
 # Email
 
-> With email at Braze, you create customized and personalized email messages in campaigns or Canvases that reach users outside your app or website. This hub covers email setup, drag-and-drop and HTML editors, subscription management, templates, and testing so you can launch compliant, on-brand email programs. Start with [Email setup]({{site.baseurl}}/user_guide/channels/email/email_setup) if you are configuring a new sending domain. To see examples of email campaigns, refer to the Braze [case studies](https://www.braze.com/customers/).
+> With email at Braze, you can create completely customized and personalized email messages in either campaigns or Canvas that grab your user's attention outside of your app or website. Customize your email messages from managing your audience to including eye-catching multimedia content. To see examples of email campaigns, refer to the Braze [case studies](https://www.braze.com/customers/).
 
 ## Prerequisites
 

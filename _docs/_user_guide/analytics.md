@@ -5,7 +5,7 @@ page_order: 7.5
 layout: dev_guide
 
 guide_top_header: "Analytics"
-guide_top_text: "Braze provides a comprehensive set of metrics and reporting tools to measure campaign performance, track user engagement, and make data-driven decisions. Use dashboards for at-a-glance monitoring, reports for deeper analysis across campaigns and Canvases, and tracking settings to configure how Braze captures user actions. You can also supplement your analytics with <a href='/docs/user_guide/data/distribution/braze_currents'>Currents</a>, a data streaming export tool for acting on large amounts of granular customer data in your own BI platforms."
+guide_top_text: "Braze provides a comprehensive set of metrics and reporting tools to measure campaign performance, track user engagement, and make data-driven decisions. You can also supplement your analytics with <a href='/docs/user_guide/data/distribution/braze_currents'>Currents</a>, a data streaming export tool for acting on large amounts of granular customer data in your own BI platforms."
 description: "Use Braze analytics to measure campaign performance, track user engagement, and access detailed reports and dashboards."
 
 guide_featured_title: "Section articles"

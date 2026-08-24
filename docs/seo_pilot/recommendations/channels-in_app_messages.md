@@ -16,9 +16,9 @@
 
 ### Opening answer block (proposed)
 
-> *Current intro is ~72 words. Target 80–120 words that directly answer the primary question before the first `##` section.*
+> *Current intro is ~60 words. Target 80–120 words that directly answer the primary question before the first `##` section.*
 
-> In-app messages > In-app messages deliver content inside your app or website without interrupting users with a push notification. Customized.
+> In-app messages > In-app messages help you get content to your users without interrupting their day with a push notification. Customized and.
 
 ### FAQ additions
 

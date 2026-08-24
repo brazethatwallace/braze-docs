@@ -13,7 +13,9 @@ description: "Learn SMS, MMS, and RCS in Braze, including setup, compliance, and
 
 # SMS, MMS, and RCS
 
-> SMS (Short Messaging Service), MMS (Multimedia Messaging Service), and RCS (Rich Communication Services) offer a direct way to reach users on their phone numbers in real time. SMS remains one of the most widely used channels worldwide because it is fast, familiar, and effective for time-sensitive updates. This hub covers sender setup, compliance, opt-in collection, message creation, and reporting for SMS, MMS, and RCS in Braze. Review [Laws and regulations]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) before you send your first message.
+> SMS (Short Messaging Service), MMS (Multimedia Messaging Service), and RCS (Rich Communication Services) offer a more direct way to reach your users than most other messaging channels, as they utilize phone numbers for real-time reach.
+
+SMS remains one of the most widely used channels worldwide—billions of text messages are sent every day—because it is fast, direct, and familiar to customers.
 
 ## Prerequisites
 

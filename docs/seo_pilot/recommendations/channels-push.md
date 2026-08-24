@@ -14,9 +14,11 @@
 
 ## Approval-needed
 
-### Opening answer block
+### Opening answer block (proposed)
 
-*Intro is ~87 words — within range. Optional polish only.*
+> *Current intro is ~57 words. Target 80–120 words that directly answer the primary question before the first `##` section.*
+
+> Push > Push notifications are a tried-and-true way to send time-sensitive calls to action through mobile or web, as well as re-engage users who.
 
 ### FAQ additions
 

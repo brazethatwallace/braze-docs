@@ -1,4 +1,4 @@
-# SEO/AEO recommendation: Soft push prompts for Web
+# SEO/AEO recommendation: Set up soft push prompts for the Braze SDK
 
 **Page:** `/docs/developer_guide/push_notifications/soft_push_prompts`
 **Source:** `_docs/_developer_guide/push_notifications/soft_push_prompts.md`
@@ -7,6 +7,7 @@
 
 | Field | Current | Recommended | Rationale |
 |-------|---------|-------------|-----------|
+| `article_title` | `Set up soft push prompts for the Braze SDK` | `Soft push prompts for Web` | Align title tag with H1 intent |
 | `page_type` | *(unset or not FAQ)* | — | No change unless promoting to FAQ hub |
 
 ### Link fix table
@@ -15,9 +16,11 @@
 
 ## Approval-needed
 
-### Opening answer block
+### Opening answer block (proposed)
 
-*Intro is ~99 words — within range. Optional polish only.*
+> *Current intro is ~34 words. Target 80–120 words that directly answer the primary question before the first `##` section.*
+
+> Soft push prompts for Web > Learn how to set up soft push prompts for the Braze SDK.
 
 ### FAQ additions (proposed)
 
