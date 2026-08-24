@@ -21,6 +21,7 @@ English canonical `_docs/` only unless the user explicitly requests locale work.
 
 1. **Broken links (optional):** `./bdocs fblinks || true`
 2. **Score pages:** `python3 scripts/seo_pilot/page_scorecard.py --out scripts/temp/seo-pilot-scorecard.csv --top 15 --write-pilot-list`
+   - **Targeted set:** add `--pages-file scripts/temp/top-traffic-pages.txt` (and optional `--gsc` + `--sort-by gsc_clicks`)
 3. **Link fix table:** `python3 scripts/seo_pilot/link_fix_table.py --pages-file scripts/temp/pilot-pages.txt --out scripts/temp/link-fix-table-pilot.csv --scan-all`
 4. **Page audits:** `python3 scripts/seo_pilot/page_audit.py --pages-file scripts/temp/pilot-pages.txt --out-dir docs/seo_pilot/recommendations`
 5. **Ship no-approval items** in a PR (titles, metas, verified link fixes). Route approval-needed copy to editorial.

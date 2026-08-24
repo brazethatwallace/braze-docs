@@ -21,6 +21,26 @@ python3 scripts/seo_pilot/page_scorecard.py \
   --top 15
 ```
 
+### Target a specific page set
+
+Pass a text file with one entry per line (`_docs/...md` path, `/docs/...` URL, or full `braze.com/docs` URL). Useful for top-traffic or editorially chosen pages:
+
+```bash
+python3 scripts/seo_pilot/page_scorecard.py \
+  --pages-file scripts/temp/top-traffic-pages.txt \
+  --gsc path/to/gsc-pages-ytd.csv \
+  --sort-by gsc_clicks \
+  --top 20 \
+  --write-pilot-list
+```
+
+| `--sort-by` | Use when |
+|-------------|----------|
+| `headroom` | Default — prioritize metadata/link gaps within the set |
+| `input` | Preserve the order in your pages file (e.g. traffic rank) |
+| `gsc_clicks` | Sort by GSC clicks (requires `--gsc`) |
+| `gsc_impressions` | Sort by GSC impressions (requires `--gsc`) |
+
 Without external CSVs, the script still scores pages using:
 
 - Editorial hub boosts (SMS, Canvas, Liquid, API, preference center, etc.)
@@ -92,6 +112,20 @@ python3 scripts/seo_pilot/page_scorecard.py --out scripts/temp/seo-pilot-scoreca
 # pilot-pages.txt is written by scorecard (--write-pilot-list)
 python3 scripts/seo_pilot/link_fix_table.py --pages-file scripts/temp/pilot-pages.txt --out scripts/temp/link-fix-table-pilot.csv
 python3 scripts/seo_pilot/page_audit.py --pages-file scripts/temp/pilot-pages.txt --out-dir docs/seo_pilot/recommendations
+```
+
+**Targeted set (e.g. top 20 traffic pages):**
+
+```bash
+./bdocs fblinks || true
+python3 scripts/seo_pilot/page_scorecard.py \
+  --pages-file scripts/temp/top-traffic-pages.txt \
+  --gsc path/to/gsc-pages-ytd.csv \
+  --sort-by gsc_clicks \
+  --top 20 \
+  --write-pilot-list
+python3 scripts/seo_pilot/link_fix_table.py --pages-file scripts/temp/pilot-pages.txt --scan-all
+python3 scripts/seo_pilot/page_audit.py --pages-file scripts/temp/pilot-pages.txt
 ```
 
 See [SEO and AEO page template](../../docs/contributing/style_guide/seo_aeo_page_template.md).

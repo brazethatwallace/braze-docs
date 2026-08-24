@@ -14,6 +14,8 @@ In-house SEO and answer-engine optimization pilot for English canonical docs (`_
 
 ## Regenerate
 
+**Full corpus ranking (pilot selection):**
+
 ```bash
 ./bdocs fblinks || true
 python3 scripts/seo_pilot/page_scorecard.py \
@@ -27,6 +29,18 @@ python3 scripts/seo_pilot/link_fix_table.py \
 python3 scripts/seo_pilot/page_audit.py \
   --pages-file scripts/temp/pilot-pages.txt \
   --out-dir docs/seo_pilot/recommendations
+```
+
+**Targeted page set (e.g. top 20 traffic URLs):**
+
+```bash
+python3 scripts/seo_pilot/page_scorecard.py \
+  --pages-file scripts/temp/top-traffic-pages.txt \
+  --gsc path/to/gsc-pages-ytd.csv \
+  --sort-by gsc_clicks \
+  --top 20 \
+  --write-pilot-list
+# then link_fix_table + page_audit as above
 ```
 
 Optional inputs: GSC pages export, Algolia zero-result CSV, support cases CSV. See [scripts/seo_pilot/README.md](../../scripts/seo_pilot/README.md).

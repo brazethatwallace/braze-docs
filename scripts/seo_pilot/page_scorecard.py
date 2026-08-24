@@ -8,6 +8,7 @@ and link-health checks. Writes a scorecard CSV and optional pilot-pages list.
 Usage:
   python3 scripts/seo_pilot/page_scorecard.py --out scripts/temp/seo-pilot-scorecard.csv --top 15
   python3 scripts/seo_pilot/page_scorecard.py --gsc gsc.csv --support cases.csv --write-pilot-list
+  python3 scripts/seo_pilot/page_scorecard.py --pages-file scripts/temp/top-traffic-pages.txt --gsc gsc.csv
 """
 
 from __future__ import annotations
@@ -274,12 +275,111 @@ def iter_doc_files() -> list[Path]:
     return out
 
 
+def normalize_pages_file_entry(line: str) -> str | None:
+    """Map a pages-file line to a repo-relative _docs/...md path."""
+    entry = line.strip()
+    if not entry or entry.startswith("#"):
+        return None
+    if entry.startswith("_docs/"):
+        return entry if entry.endswith(".md") else f"{entry}.md"
+    if entry.startswith("/docs"):
+        return url_to_doc_path(entry)
+    parsed = urlparse(entry)
+    if parsed.scheme and parsed.netloc:
+        return url_to_doc_path(entry)
+    return None
+
+
+def load_pages_file(path: Path) -> list[str]:
+    """Load targeted doc paths from a text file (one entry per line)."""
+    entries: list[str] = []
+    seen: set[str] = set()
+    for line in path.read_text(encoding="utf-8").splitlines():
+        doc_path = normalize_pages_file_entry(line)
+        if not doc_path:
+            continue
+        if doc_path in seen:
+            continue
+        seen.add(doc_path)
+        entries.append(doc_path)
+    return entries
+
+
+def score_page(
+    md_path: Path,
+    *,
+    gsc_data: dict[str, dict[str, float]],
+    algolia_data: dict[str, float],
+    support_data: dict[str, int],
+    broken_counts: dict[str, int],
+    hub_set: set[str],
+    input_rank: int | None = None,
+) -> dict | None:
+    rel = md_path.relative_to(REPO_ROOT)
+    rel_s = str(rel).replace("\\", "/")
+    if not md_path.is_file():
+        return None
+    text = md_path.read_text(encoding="utf-8", errors="replace")
+    fm = parse_frontmatter(text)
+    if fm.get("noindex", "").lower() == "true":
+        return None
+    if fm.get("hidden", "").lower() == "true" and fm.get("permalink", "") == "":
+        return None
+
+    url = doc_path_to_url(rel)
+    gsc = gsc_data.get(url, gsc_data.get(url + "/", {}))
+    meta_pen, meta_notes = metadata_penalty(fm, text)
+    editorial_boost = 35 if rel_s in hub_set else 0
+    broken = broken_counts.get(rel_s, 0)
+    support_n = support_data.get(rel_s, 0)
+    algolia_n = algolia_data.get(rel_s, 0)
+
+    headroom = (
+        gsc_headroom(gsc)
+        + meta_pen
+        + editorial_boost
+        + broken * 5
+        + support_n * 3
+        + algolia_n * 2
+    )
+
+    row = {
+        "doc_path": rel_s,
+        "docs_url": url,
+        "gsc_clicks": int(gsc.get("clicks", 0)),
+        "gsc_impressions": int(gsc.get("impressions", 0)),
+        "gsc_avg_position": round(gsc.get("position", 0), 1),
+        "gsc_ctr": round(gsc.get("ctr", 0), 2),
+        "support_mentions": support_n,
+        "algolia_zero_hits": round(algolia_n, 1),
+        "broken_links": broken,
+        "metadata_flags": ";".join(meta_notes) if meta_notes else "",
+        "editorial_hub": "yes" if editorial_boost else "no",
+        "headroom_score": round(headroom, 1),
+        "pilot_tier": "",
+    }
+    if input_rank is not None:
+        row["input_rank"] = input_rank
+    return row
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="SEO/AEO page scorecard for _docs/")
     parser.add_argument("--gsc", type=Path, help="GSC pages export CSV")
     parser.add_argument("--algolia", type=Path, help="Algolia zero-result queries CSV")
     parser.add_argument("--support", type=Path, help="Support cases CSV")
     parser.add_argument("--out", type=Path, default=REPO_ROOT / "scripts/temp/seo-pilot-scorecard.csv")
+    parser.add_argument(
+        "--pages-file",
+        type=Path,
+        help="Score only these pages (one _docs/...md path, /docs/... URL, or braze.com/docs URL per line)",
+    )
+    parser.add_argument(
+        "--sort-by",
+        choices=("headroom", "input", "gsc_clicks", "gsc_impressions"),
+        default="headroom",
+        help="Sort scorecard output (default: headroom). Use input to preserve pages-file order.",
+    )
     parser.add_argument("--top", type=int, default=15, help="Flag top N as pilot_tier=yes")
     parser.add_argument("--write-pilot-list", action="store_true", help="Write scripts/temp/pilot-pages.txt")
     args = parser.parse_args()
@@ -292,51 +392,50 @@ def main() -> int:
     hub_set = {f"{h}.md" for h in EDITORIAL_HUBS}
 
     rows: list[dict] = []
-    for md_path in iter_doc_files():
-        rel = md_path.relative_to(REPO_ROOT)
-        rel_s = str(rel)
-        text = md_path.read_text(encoding="utf-8", errors="replace")
-        fm = parse_frontmatter(text)
-        if fm.get("noindex", "").lower() == "true":
-            continue
-        if fm.get("hidden", "").lower() == "true" and fm.get("permalink", "") == "":
-            continue
+    if args.pages_file:
+        if not args.pages_file.is_file():
+            print(f"Pages file not found: {args.pages_file}", file=sys.stderr)
+            return 1
+        targets = load_pages_file(args.pages_file)
+        if not targets:
+            print(f"No valid doc paths in {args.pages_file}", file=sys.stderr)
+            return 1
+        for i, doc_path in enumerate(targets, start=1):
+            md_path = REPO_ROOT / doc_path
+            if not md_path.is_file():
+                print(f"Skip missing: {doc_path}", file=sys.stderr)
+                continue
+            row = score_page(
+                md_path,
+                gsc_data=gsc_data,
+                algolia_data=algolia_data,
+                support_data=support_data,
+                broken_counts=broken_counts,
+                hub_set=hub_set,
+                input_rank=i,
+            )
+            if row:
+                rows.append(row)
+    else:
+        for md_path in iter_doc_files():
+            row = score_page(
+                md_path,
+                gsc_data=gsc_data,
+                algolia_data=algolia_data,
+                support_data=support_data,
+                broken_counts=broken_counts,
+                hub_set=hub_set,
+            )
+            if row:
+                rows.append(row)
 
-        url = doc_path_to_url(rel)
-        gsc = gsc_data.get(url, gsc_data.get(url + "/", {}))
-        meta_pen, meta_notes = metadata_penalty(fm, text)
-        editorial_boost = 35 if rel_s in hub_set else 0
-        broken = broken_counts.get(rel_s, 0)
-        support_n = support_data.get(rel_s, 0)
-        algolia_n = algolia_data.get(rel_s, 0)
-
-        headroom = (
-            gsc_headroom(gsc)
-            + meta_pen
-            + editorial_boost
-            + broken * 5
-            + support_n * 3
-            + algolia_n * 2
-        )
-
-        rows.append(
-            {
-                "doc_path": rel_s,
-                "docs_url": url,
-                "gsc_impressions": int(gsc.get("impressions", 0)),
-                "gsc_avg_position": round(gsc.get("position", 0), 1),
-                "gsc_ctr": round(gsc.get("ctr", 0), 2),
-                "support_mentions": support_n,
-                "algolia_zero_hits": round(algolia_n, 1),
-                "broken_links": broken,
-                "metadata_flags": ";".join(meta_notes) if meta_notes else "",
-                "editorial_hub": "yes" if editorial_boost else "no",
-                "headroom_score": round(headroom, 1),
-                "pilot_tier": "",
-            }
-        )
-
-    rows.sort(key=lambda r: -r["headroom_score"])
+    sort_keys = {
+        "headroom": lambda r: (-r["headroom_score"], r.get("input_rank", 0)),
+        "input": lambda r: (r.get("input_rank", 999999), -r["headroom_score"]),
+        "gsc_clicks": lambda r: (-r["gsc_clicks"], -r["headroom_score"]),
+        "gsc_impressions": lambda r: (-r["gsc_impressions"], -r["headroom_score"]),
+    }
+    rows.sort(key=sort_keys[args.sort_by])
     for i, row in enumerate(rows):
         row["pilot_tier"] = "yes" if i < args.top else "no"
 
@@ -348,9 +447,14 @@ def main() -> int:
         w.writerows(rows)
 
     print(f"Wrote {len(rows)} rows to {args.out}")
-    print(f"Top {args.top} pilot candidates:")
+    label = "targeted pages" if args.pages_file else f"Top {args.top} pilot candidates"
+    print(f"{label}:")
     for row in rows[: args.top]:
-        print(f"  {row['headroom_score']:6.1f}  {row['doc_path']}  [{row['metadata_flags']}]")
+        rank = f"#{row['input_rank']} " if "input_rank" in row else ""
+        print(
+            f"  {row['headroom_score']:6.1f}  {rank}{row['doc_path']}  "
+            f"[{row['metadata_flags'] or 'ok'}]"
+        )
 
     if args.write_pilot_list:
         pilot_list = REPO_ROOT / "scripts" / "temp" / "pilot-pages.txt"
