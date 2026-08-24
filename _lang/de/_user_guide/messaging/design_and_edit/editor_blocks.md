@@ -33,7 +33,7 @@ Weitere Informationen zum Erstellen von E-Mails im **Drag-and-Drop-Editor** find
 Sie können auch [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes) zu jeder URL innerhalb der Editor-Blöcke `Image`, `Button` oder `Text` hinzufügen.
 {% endalert %}
 
-### Title {#title}
+### Titel {#title}
 
 Fügt Text für Überschriften innerhalb der E-Mail hinzu.
 
@@ -51,7 +51,7 @@ Fügt Text für Überschriften innerhalb der E-Mail hinzu.
 | Text direction | Standard ist links nach rechts, kann aber auf [rechts nach links]({{site.baseurl}}/right_to_left_messages) geändert werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
 
-### Paragraph {#paragraph}
+### Absatz {#paragraph}
 
 Gibt Text in die Nachricht ein. Eine Symbolleiste hilft bei der Schrift- und Textbearbeitung.
 
@@ -69,7 +69,7 @@ Gibt Text in die Nachricht ein. Eine Symbolleiste hilft bei der Schrift- und Tex
 | Text direction | Standard ist links nach rechts, kann aber auf [rechts nach links]({{site.baseurl}}/right_to_left_messages) geändert werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
 
-### List {#list}
+### Liste {#list}
 
 Fügt eine Aufzählungsliste hinzu.
 
@@ -112,7 +112,7 @@ Fügt einen Standard-Button hinzu. Über die Eigenschaften können Sie das Styli
 | Message | Für den Linktyp **Send SMS**: Legt den Inhalt fest, der in einem SMS-Entwurf vorausgefüllt wird, wenn Nutzer:innen den Button auswählen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
-### Divider {#divider}
+### Trennlinie {#divider}
 
 Fügt eine durchgezogene, gepunktete oder gestrichelte Linie ein, um beim Abstand zu helfen.
 
@@ -124,7 +124,7 @@ Fügt eine durchgezogene, gepunktete oder gestrichelte Linie ein, um beim Abstan
 | Align | Verschiebt die Linie nach links, zentriert oder rechts. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
 
-### Spacer {#spacer}
+### Abstandshalter {#spacer}
 
 Fügt Abstand oder Padding zwischen anderen Blöcken hinzu.
 
@@ -133,7 +133,7 @@ Fügt Abstand oder Padding zwischen anderen Blöcken hinzu.
 | Height | Passt die Höhe des Abstandshalter-Blocks an. Der Standardwert beträgt 60 px. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Spacer" }
 
-### Image {#image}
+### Bild {#image}
 
 Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) ein. Für dynamische Bilder (Bilder mit Liquid oder Connected Content) müssen Sie ein Fallback-Bild festlegen, um die automatischen Breiteneinstellungen zu verwenden. Bildspezifikationen finden Sie unter [E-Mail-Bildspezifikationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications#email).
 
@@ -226,7 +226,7 @@ Fügt rohes HTML ein. Empfohlen für [Liquid]({{site.baseurl}}/liquid), wie Conn
 | HTML | Fügen Sie rohes HTML hinzu oder bearbeiten Sie es, einschließlich [Liquid]({{site.baseurl}}/liquid) für Personalisierung oder bedingte Logik. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
-### Menu {#menu}
+### Menü {#menu}
 
 Erstellt ein flexibles Menü für die Nachricht, die Sie gestalten.
 
@@ -246,7 +246,7 @@ Erstellt ein flexibles Menü für die Nachricht, die Sie gestalten.
 | All sides | Legt eine einheitliche Padding-Zahl fest, wenn das Elementpadding deaktiviert ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Menu" }
 
-### Product {#product}
+### Produkt {#product}
 
 Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks), entweder als statische Artikel aus einer Katalogauswahl (bis zu 12) oder als dynamische Produkte, die durch einen [Canvas-E-Commerce-Trigger]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases) gesteuert werden (bis zu 24).
 
@@ -343,7 +343,7 @@ Fügt benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen 
 | Eigenschaft | Beschreibung |
 | --- | --- |
 | Custom code | Ermöglicht das Hinzufügen, Bearbeiten oder Löschen von HTML, CSS und JavaScript für eine In-App-Nachricht. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Benutzerdefinierter Code" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 ### Telefonnummernerfassung {#phone-capture}
 
@@ -467,7 +467,7 @@ Fügt benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen 
 | Eigenschaft | Beschreibung |
 | --- | --- |
 | Custom code | Ermöglicht das Hinzufügen, Bearbeiten oder Löschen von HTML, CSS und JavaScript. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Benutzerdefinierter Code" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown-Timer {#countdown-timer}
@@ -525,13 +525,11 @@ Wählen Sie den Block im Editor aus, um:
 - Abo-Gruppen hinzuzufügen oder zu entfernen
 - Beschreibungen hinzuzufügen oder zu entfernen
 - Ein Kontrollkästchen „Alle abonnieren“ hinzuzufügen oder zu entfernen, das jede Abo-Gruppe im Block auswählt
-- Ein Kontrollkästchen „Auswahl aufheben“ hinzuzufügen oder zu entfernen, das jede Abo-Gruppe im Block abwählt
 
 | Eigenschaft | Beschreibung |
 | --- | --- |
-| Subscription groups | Fügen Sie Abo-Gruppen hinzu, entfernen oder ordnen Sie sie im Block neu an. |
+| Subscription groups | Fügen Sie Abo-Gruppen hinzu, entfernen oder ordnen Sie die im Block angezeigten Abo-Gruppen neu an. |
 | Include descriptions | Zeigt die Beschreibung jeder Abo-Gruppe neben ihrem Namen an. |
-| Kontrollkästchen **Clear selections** | Fügt ein Kontrollkästchen hinzu, das jede Abo-Gruppe im Block abwählt. |
 | Kontrollkästchen **Subscribe to all** | Fügt ein Kontrollkästchen hinzu, das jede Abo-Gruppe im Block auswählt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Abos verwalten" }
 
@@ -617,7 +615,7 @@ Fügt benutzerdefiniertes HTML für erweiterte Layouts oder eingebettete Inhalte
 | Eigenschaft | Beschreibung |
 | --- | --- |
 | Custom code | Fügen Sie HTML (und zugehörige Assets) für das Banner hinzu oder bearbeiten Sie es. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Benutzerdefinierter Code" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 ### Telefonnummernerfassung
 

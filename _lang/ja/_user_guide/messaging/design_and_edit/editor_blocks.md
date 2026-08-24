@@ -49,7 +49,7 @@ tool: Media
 | 行の高さ | テキスト行間の距離を変更します。 |
 | 文字間隔 | 各文字間の距離を変更します。 |
 | テキスト方向 | デフォルトは左から右ですが、[右から左]({{site.baseurl}}/right_to_left_messages)に編集できます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="タイトル" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
 
 ### 段落 {#paragraph}
 
@@ -67,7 +67,7 @@ tool: Media
 | 行の高さ | テキスト行間の距離を変更します。 |
 | 文字間隔 | 各文字間の距離を変更します。 |
 | テキスト方向 | デフォルトは左から右ですが、[右から左]({{site.baseurl}}/right_to_left_messages)に編集できます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="段落" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
 
 ### リスト {#list}
 
@@ -89,7 +89,7 @@ tool: Media
 | 行の高さ | テキスト行間の距離を変更します。 |
 | 文字間隔 | 各文字間の距離を変更します。 |
 | テキスト方向 | デフォルトは左から右ですが、[右から左]({{site.baseurl}}/right_to_left_messages)に編集できます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="リスト" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
 
 ### ボタン {#button}
 
@@ -99,7 +99,7 @@ tool: Media
 |---|---|
 | ボタンオプション | フォント、サイズ、幅、色、パディングなど、さまざまなボタンオプションを設定します。 |
 | ボタンホバー | マウスやトラックパッドでユーザーがボタンにカーソルを合わせたときのスタイルです。ボタンの背景色、フォント色、ボーダースタイルが含まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ボタン" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button" }
 
 #### クリック時の動作 {#on-click-behavior}
 
@@ -110,7 +110,7 @@ tool: Media
 | メール宛先、件名、本文 | **メールを送信**リンクタイプの場合、ユーザーがボタンを選択したときに下書きメールに入力される受信者メールアドレス、件名、コンテンツを設定します。 |
 | 電話番号 | **電話をかける**および**SMSを送信**リンクタイプの場合、ユーザーがボタンを選択したときに電話またはテキストする電話番号を設定します。 |
 | メッセージ | **SMSを送信**リンクタイプの場合、ユーザーがボタンを選択したときにSMSメッセージの下書きに入力されるコンテンツを設定します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="クリック時の動作" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
 ### 区切り線 {#divider}
 
@@ -122,7 +122,7 @@ tool: Media
 | 線 | 点線、破線、実線などのさまざまな線の形式です。区切り線の太さと色も変更できます。 |
 | 幅 | 5刻みで区切り線の広がりを調整します。 |
 | 配置 | 線を左揃え、中央揃え、または右揃えに移動します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="区切り線" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
 
 ### スペーサー {#spacer}
 
@@ -131,7 +131,7 @@ tool: Media
 | プロパティ | 説明 |
 |---|---|
 | 高さ | スペーサーブロックの高さを調整します。デフォルトは60pxです。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="スペーサー" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spacer" }
 
 ### 画像 {#image}
 
@@ -149,7 +149,7 @@ tool: Media
 | 角丸画像 | 角丸で画像をレンダリングします。デフォルトでは、画像は角が四角でレンダリングされます。 |
 | アクション | ユーザーが画像をクリックしたときにアクションをトリガーします。 |
 | ブロックオプション | 画像ブロック周囲のパディングを設定します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="画像" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
 
 {% alert tip %}
 **自動幅**の場合、自動画像リサイズは画像幅と利用可能なレイアウトスペースの組み合わせに基づいて最適なサイズを選択します:
@@ -181,7 +181,7 @@ Gmailは、ハイパーリンク（`href`）が関連付けられていない画
 | 再生アイコンスタイル | 動画画像の上部にある再生ボタンのさまざまなオプションが含まれます。 |
 | 再生アイコンカラー | 再生ボタンに**ライト**または**ダーク**を選択するオプションです。 |
 | 再生アイコンサイズ | 再生ボタンのピクセルサイズを選択します。50&nbsp;pxから80&nbsp;pxまでの事前定義された範囲（5&nbsp;px刻み）です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="動画" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video" }
 
 {% alert tip %}
 Vimeoでホストされている動画は、公開に設定されている場合にのみ機能します。Vimeo内で利用可能なその他のセキュリティ設定（例:「Vimeo.comから非表示」）は、このContent Blockでサポートされていない異なるリンク形式を生成します。これらのタイプのリンクはビルダーによって変更され、Brazeがサムネイルを生成できなくなります。
@@ -197,7 +197,7 @@ Vimeoでホストされている動画は、公開に設定されている場合
 | アイコンコレクションの設定 | 各ソーシャルアイコンのURLを設定します。タイトルと代替テキストを編集するための**その他のオプション**トグルが含まれます。 |
 | 配置 | ソーシャルアイコンを左揃え、中央揃え、または右揃えに移動します。 |
 | アイコン間隔 | 各ソーシャルアイコン間の間隔を決定します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ソーシャル" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Social" }
 
 ### アイコン {#icons}
 
@@ -215,7 +215,7 @@ Vimeoでホストされている動画は、公開に設定されている場合
 | アイコンサイズ | アイコンのサイズを決定します。 |
 | アイコン間隔 | アイコンのスペースを変更します。 |
 | アイコンパディング | アイコンのパディングを変更します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="アイコン" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Icons" }
 
 ### HTML
 
@@ -244,7 +244,7 @@ Vimeoでホストされている動画は、公開に設定されている場合
 | モバイルメニュー | モバイルデバイスで表示されるときのアイコンサイズ、色、アイコンタイプを変更するオプションが含まれます。 |
 | 項目パディング | **+**または**-**ボタンを使用するか、特定の数値を入力してパディングを変更します。 |
 | 全辺 | 項目パディングが無効の場合、一貫したパディング数値を設定します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="メニュー" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Menu" }
 
 ### 商品 {#product}
 
@@ -266,7 +266,7 @@ Vimeoでホストされている動画は、公開に設定されている場合
 | 1行あたりの最大商品数 | 1行に表示する商品数を設定します: **1**、**2**、または**3**（**3**は向きが**画像中央**の場合のみ利用可能）。 |
 | 商品間隔 | 商品間の間隔を設定します: **自動**または**カスタム**。 |
 | カスタム間隔 | *（**カスタム**が選択された場合）* 商品間のギャップをピクセル単位で設定します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="商品" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Product" }
 
 ## パーソナライゼーション {#personalization}
 
@@ -343,7 +343,7 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 | プロパティ | 説明 |
 | --- | --- |
 | カスタムコード | アプリ内メッセージ用のHTML、CSS、JavaScriptを追加、編集、または削除できます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="カスタムコード" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 ### 電話番号キャプチャ {#phone-capture}
 
@@ -388,9 +388,9 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
-### 保存済み行 {#saved-row}
+### Saved row {#saved-row}
 
-以前ドラッグ＆ドロップContent Blockとして保存した再利用可能な行を挿入します。保存済み行は元のContent Blockに**リンクされていません**。元のContent Blockが更新された場合、最新バージョンを取得するにはエディターに再度ドラッグする必要があります。詳細については、[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)を参照してください。**行**の下に**保存済み行**が表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)またはBrazeのカスタマーサクセスマネージャーにお問い合わせください。
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
 -->
 
 ## 知っておくべきこと {#things-to-know}
@@ -467,14 +467,14 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 | プロパティ | 説明 |
 | --- | --- |
 | カスタムコード | HTML、CSS、JavaScriptを追加、編集、または削除できます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="カスタムコード" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 <!-- Countdown timer is not yet released. Uncomment when available.
-### カウントダウンタイマー {#countdown-timer}
+### Countdown timer {#countdown-timer}
 
-設定した日時までのカウントダウンを表示します。このブロックが表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)またはBrazeのカスタマーサクセスマネージャーにお問い合わせください。
+Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
 
-**カウントダウンタイマー**ブロックを追加した後、プロパティパネルを使用してターゲットの日時、ラベル、スタイルを設定します。
+After you add a **Countdown timer** block, use the properties panel to set the target date and time, labels, and styling.
 -->
 
 ### メールキャプチャ
@@ -525,15 +525,13 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 - 購読グループの追加または削除
 - 説明の追加または削除
 - ブロック内のすべての購読グループを選択する「すべて購読」チェックボックスの追加または削除
-- ブロック内のすべての購読グループの選択を解除する「選択をクリア」チェックボックスの追加または削除
 
 | プロパティ | 説明 |
 | --- | --- |
 | 購読グループ | ブロックに表示される購読グループを追加、削除、または並べ替えます。 |
 | 説明を含める | 各購読グループの名前の横に説明を表示します。 |
-| **選択をクリア**チェックボックス | ブロック内のすべての購読グループの選択を解除するチェックボックスを追加します。 |
 | **すべて購読**チェックボックス | ブロック内のすべての購読グループを選択するチェックボックスを追加します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="購読管理" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Manage subscriptions" }
 
 完全な設定フローについては、[購読管理ブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions)を参照してください。
 
@@ -544,9 +542,9 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
-### 保存済み行
+### Saved row
 
-以前ドラッグ＆ドロップContent Blockとして保存した再利用可能な行を挿入します。保存済み行は元のContent Blockに**リンクされていません**。元のContent Blockが更新された場合、最新バージョンを取得するにはエディターに再度ドラッグする必要があります。詳細については、[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)を参照してください。**行**の下に**保存済み行**が表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)またはBrazeのカスタマーサクセスマネージャーにお問い合わせください。
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
 -->
 
 ## 知っておくべきこと
@@ -612,12 +610,12 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 
 ### カスタムコード
 
-高度なレイアウトや埋め込みコンテンツ（例: 動画）用にカスタムHTMLを挿入します。カスタムHTML内のクリックは、`brazeBridge.logClick()`を呼び出さない限り追跡されません。詳細については、[バナーのカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/custom_code)を参照してください。
+高度なレイアウトや埋め込みコンテンツ（例: 動画）用にカスタムHTMLを挿入します。カスタムHTML内のクリックは、`brazeBridge.logClick()`を呼び出さない限りトラッキングされません。詳細については、[バナーのカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/custom_code)を参照してください。
 
 | プロパティ | 説明 |
 | --- | --- |
 | カスタムコード | バナー用のHTML（および関連アセット）を追加または編集します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="カスタムコード" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom code" }
 
 ### 電話番号キャプチャ
 
@@ -638,9 +636,9 @@ LiquidまたはConnected Contentを使用してメールにパーソナライゼ
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
-### 保存済み行
+### Saved row
 
-以前ドラッグ＆ドロップContent Blockとして保存した再利用可能な行を挿入します。保存済み行は元のContent Blockに**リンクされていません**。元のContent Blockが更新された場合、最新バージョンを取得するにはエディターに再度ドラッグする必要があります。詳細については、[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)を参照してください。**行**の下に**保存済み行**が表示されない場合は、[Brazeサポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)またはBrazeのカスタマーサクセスマネージャーにお問い合わせください。
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
 -->
 
 ## 知っておくべきこと

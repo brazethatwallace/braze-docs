@@ -94,11 +94,17 @@ In-app messages are delivered as templated in-app messages when **Re-evaluate ca
 - `catalog_selection_items`
 - `event_properties`
 
+Braze also uses templated delivery for idle in-app message campaigns (campaigns that are still active but no longer sending or no longer needed). These campaigns continue to follow their configured audience and trigger rules.
+
+Braze may also use templated delivery to protect app performance. If preparing Liquid content delays a session response by more than a few seconds, Braze defers the remaining work. Those messages render when triggered.
+
 This means that during session start, the device receives the trigger of that in-app message instead of the entire message. When the user triggers the in-app message, the user's device makes a network request to fetch the actual message.
 
 {% alert note %}
 The message is not delivered if the device doesn't have access to the internet. The message might not be delivered if the Liquid logic takes too long to resolve.
 {% endalert %}
+
+To reduce the amount of Liquid that Braze processes at session start, see [Optimize in-app message performance]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide#optimize-in-app-message-performance).
 
 ## How does abort behavior work for in-app messages?
 
@@ -152,6 +158,10 @@ This table compares the in-app message flows that Sam experienced:
 For [templated in-app messages](#what-are-templated-in-app-messages), Connected Content and other Liquid tags resolve when the trigger event occurs and the device requests the message payload—not when the user clicks a button inside the message. Each templated fetch can include Connected Content calls for that display.
 
 If your HTML references REST data returned by Connected Content, that data is available for the session in which the message was templated. Multiple buttons can reference the same Connected Content response without triggering additional calls on click.
+
+### What is the maximum delay after a trigger for in-app message campaigns?
+
+In-app message campaigns can delay delivery after the trigger event by up to two hours (7,200 seconds). The delay options are **Immediately** and **After a delay**. For a longer wait, add a [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) step before an in-app message step in a Canvas. For delay setup, see [Action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-2-select-delay-length).
 
 ### Why is there a delay before my in-app message displays?
 

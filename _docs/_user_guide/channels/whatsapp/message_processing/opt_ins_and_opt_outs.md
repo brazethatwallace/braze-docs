@@ -39,9 +39,22 @@ Meta requires opt-in copy to:
 - Include your business name (not generic language such as "we'll message you")
 - Comply with applicable local laws
 
+Meta allows general messaging consent that meets these requirements instead of requiring WhatsApp-specific consent. However, Braze recommends collecting channel-specific WhatsApp consent so users know where to expect your messages.
+
 {% alert note %}
 Braze released an improvement to the `/users/track` endpoint that allows updates to the subscription status that you can learn about in [Subscription groups]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#update-subscription-status). However, if you have already created opt-in protocols using the [`/v2/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2), you may continue to do so there.
 {% endalert %}
+
+### Manage consent for different use cases
+
+WhatsApp subscription status applies to the subscription group associated with a sending phone number. It doesn't distinguish between marketing, utility, or other use cases that share the same number. For example, unsubscribing a user from the subscription group prevents you from targeting that user with messages from the number, regardless of the message category.
+
+To manage consent separately by use case, choose one of these approaches:
+
+- Use separate WhatsApp phone numbers and subscription groups for each use case.
+- Use one phone number, store use-case consent in custom attributes, and exclude users who haven't consented from the relevant campaign or Canvas audience.
+
+Custom attributes don't replace the WhatsApp subscription group. Users must still be subscribed to the phone number's subscription group to receive messages through Braze.
 
 ### External to Braze opt-in methods
 
