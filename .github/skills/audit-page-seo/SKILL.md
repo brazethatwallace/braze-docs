@@ -26,7 +26,10 @@ English canonical `_docs/` only unless the user explicitly requests locale work.
    - **Targeted set:** add `--pages-file scripts/temp/top-traffic-pages.txt` (and optional `--gsc` + `--sort-by gsc_clicks`)
 3. **Link fix table:** `python3 scripts/seo_pilot/link_fix_table.py --pages-file scripts/temp/pilot-pages.txt --out scripts/temp/link-fix-table-pilot.csv --scan-all`
 4. **Page audits:** `python3 scripts/seo_pilot/page_audit.py --pages-file scripts/temp/pilot-pages.txt --out-dir docs/seo_pilot/recommendations`
-5. **Ship no-approval items** in a PR (titles, metas, verified link fixes). Route approval-needed copy to editorial.
+5. **Apply no-approval fixes:** `python3 scripts/seo_pilot/apply_wave2_no_approval.py` (meta + verified links from audit outputs)
+6. **Ship in a content PR**; delete recommendation packets before opening. Route approval-needed copy to editorial.
+
+For GA traffic targeting, run `ga_pages_to_list.py` first — see [scripts/seo_pilot/README.md](../../scripts/seo_pilot/README.md).
 
 ## Template and tiers
 

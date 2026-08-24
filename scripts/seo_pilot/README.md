@@ -104,6 +104,34 @@ python3 scripts/seo_pilot/page_audit.py \
 
 Outputs one markdown recommendation packet per page under `docs/seo_pilot/recommendations/`.
 
+## GA4 traffic page list
+
+Build a deduped pages file from a GA4 **Pages and screens** export (skips utility paths and pilot round-1 hubs):
+
+```bash
+python3 scripts/seo_pilot/ga_pages_to_list.py path/to/ga-export.csv --top 100
+```
+
+Writes:
+
+| Output | Purpose |
+|--------|---------|
+| `scripts/temp/ga-top-traffic-pages.txt` | Doc paths for `--pages-file` (with view counts in comments) |
+| `scripts/temp/ga-traffic-as-gsc.csv` | GSC-shaped CSV (`views` → `clicks`) for scorecard sorting |
+| `scripts/temp/ga-top-traffic-report.csv` | Selection report with skip reasons |
+
+## Apply no-approval fixes
+
+After generating recommendation packets and a link fix table, apply shippable meta and link updates:
+
+```bash
+python3 scripts/seo_pilot/apply_wave2_no_approval.py \
+  --recommendations docs/seo_pilot/recommendations \
+  --link-fix-csv scripts/temp/link-fix-table-pilot.csv
+```
+
+Applies `article_title` / `description` changes from audit packets and `redirect_resolved` rows from the link fix CSV. Delete recommendation packets before opening the content PR.
+
 ## Typical workflow
 
 ```bash
@@ -126,6 +154,28 @@ python3 scripts/seo_pilot/page_scorecard.py \
   --write-pilot-list
 python3 scripts/seo_pilot/link_fix_table.py --pages-file scripts/temp/pilot-pages.txt --scan-all
 python3 scripts/seo_pilot/page_audit.py --pages-file scripts/temp/pilot-pages.txt
+```
+
+**GA top-N traffic (deduped, pilot round-1 excluded):**
+
+```bash
+python3 scripts/seo_pilot/ga_pages_to_list.py path/to/ga-export.csv --top 100
+./bdocs fblinks || true
+python3 scripts/seo_pilot/page_scorecard.py \
+  --pages-file scripts/temp/ga-top-traffic-pages.txt \
+  --gsc scripts/temp/ga-traffic-as-gsc.csv \
+  --sort-by input --top 100 --write-pilot-list \
+  --out scripts/temp/ga-top-traffic-scorecard.csv
+python3 scripts/seo_pilot/link_fix_table.py \
+  --pages-file scripts/temp/pilot-pages.txt \
+  --out scripts/temp/link-fix-table-ga-top100.csv --scan-all
+python3 scripts/seo_pilot/page_audit.py \
+  --pages-file scripts/temp/pilot-pages.txt \
+  --link-fix-csv scripts/temp/link-fix-table-ga-top100.csv \
+  --out-dir docs/seo_pilot/recommendations
+python3 scripts/seo_pilot/apply_wave2_no_approval.py \
+  --recommendations docs/seo_pilot/recommendations \
+  --link-fix-csv scripts/temp/link-fix-table-ga-top100.csv
 ```
 
 See [SEO and AEO page template](../../docs/contributing/style_guide/seo_aeo_page_template.md).
