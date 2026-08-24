@@ -95,7 +95,8 @@ def extract_docs_path(url: str) -> str | None:
     return None
 
 
-def url_to_doc_path(url: str) -> str | None:
+def docs_url_to_doc_path(url: str) -> str | None:
+    """Map a /docs URL to the expected _docs/...md path (no filesystem check)."""
     path = extract_docs_path(url)
     if not path:
         return None
@@ -106,9 +107,18 @@ def url_to_doc_path(url: str) -> str | None:
         return None
     collection = segments[0]
     sub = "/".join(segments[1:])
-    md = DOCS_ROOT / f"_{collection}" / f"{sub}.md" if sub else DOCS_ROOT / f"_{collection}.md"
+    if sub:
+        return f"_docs/_{collection}/{sub}.md"
+    return f"_docs/_{collection}.md"
+
+
+def url_to_doc_path(url: str) -> str | None:
+    doc_path = docs_url_to_doc_path(url)
+    if not doc_path:
+        return None
+    md = REPO_ROOT / doc_path
     if md.is_file():
-        return str(md.relative_to(REPO_ROOT))
+        return doc_path
     return None
 
 
@@ -283,10 +293,10 @@ def normalize_pages_file_entry(line: str) -> str | None:
     if entry.startswith("_docs/"):
         return entry if entry.endswith(".md") else f"{entry}.md"
     if entry.startswith("/docs"):
-        return url_to_doc_path(entry)
+        return docs_url_to_doc_path(entry)
     parsed = urlparse(entry)
     if parsed.scheme and parsed.netloc:
-        return url_to_doc_path(entry)
+        return docs_url_to_doc_path(entry)
     return None
 
 
@@ -294,15 +304,31 @@ def load_pages_file(path: Path) -> list[str]:
     """Load targeted doc paths from a text file (one entry per line)."""
     entries: list[str] = []
     seen: set[str] = set()
-    for line in path.read_text(encoding="utf-8").splitlines():
+    for lineno, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+        entry = line.strip()
+        if not entry or entry.startswith("#"):
+            continue
         doc_path = normalize_pages_file_entry(line)
         if not doc_path:
+            print(f"Warning: could not map pages-file line {lineno}: {entry!r}", file=sys.stderr)
             continue
         if doc_path in seen:
             continue
         seen.add(doc_path)
         entries.append(doc_path)
     return entries
+
+
+def page_skip_reason(md_path: Path) -> str | None:
+    if not md_path.is_file():
+        return "missing_file"
+    text = md_path.read_text(encoding="utf-8", errors="replace")
+    fm = parse_frontmatter(text)
+    if fm.get("noindex", "").lower() == "true":
+        return "noindex"
+    if fm.get("hidden", "").lower() == "true" and fm.get("permalink", "") == "":
+        return "hidden"
+    return None
 
 
 def score_page(
@@ -402,8 +428,9 @@ def main() -> int:
             return 1
         for i, doc_path in enumerate(targets, start=1):
             md_path = REPO_ROOT / doc_path
-            if not md_path.is_file():
-                print(f"Skip missing: {doc_path}", file=sys.stderr)
+            skip = page_skip_reason(md_path)
+            if skip:
+                print(f"Skip {doc_path} ({skip})", file=sys.stderr)
                 continue
             row = score_page(
                 md_path,
@@ -416,6 +443,8 @@ def main() -> int:
             )
             if row:
                 rows.append(row)
+            else:
+                print(f"Skip {doc_path} (excluded)", file=sys.stderr)
     else:
         for md_path in iter_doc_files():
             row = score_page(
