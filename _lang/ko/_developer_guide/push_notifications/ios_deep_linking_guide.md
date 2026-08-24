@@ -18,52 +18,52 @@ channel:
 
 ## 링크 유형 선택 {#choosing-a-link-type}
 
-iOS 앱에서 Braze 메시지의 링크를 처리하는 방법은 세 가지입니다. 각각의 방식은 서로 다르게 작동하며, 서로 다른 채널과 사용 사례에 적합합니다.
+Braze 메시지에서 iOS 앱의 링크를 처리하는 방법은 세 가지가 있습니다. 각 방법은 서로 다르게 작동하며 다양한 채널과 사용 사례에 적합합니다.
 
-| 링크 유형 | 예시 | 적합한 용도 | 앱이 설치되지 않은 상태에서도 열리나요? |
+| 링크 유형 | 예시 | 적합한 경우 | 앱이 설치되지 않은 상태에서 열리나요? |
 |---|---|---|---|
-| **커스텀 스킴** | `myapp://products/123` | 푸시 알림, 인앱 메시지, Content Cards | 아니요 — 링크 실패 |
-| **유니버설 링크** | `https://myapp.com/products/123` | 이메일, SMS, 클릭 추적이 있는 채널 | 예 — 웹으로 대체됩니다 |
-| **앱 내에서 웹 URL 열기** | 모든 `https://` URL | 모달 WebView에서 웹 콘텐츠 표시 | 해당 없음 — WebView에 표시됨 |
+| **커스텀 스킴** | `myapp://products/123` | 푸시, 인앱 메시지, Content Cards | 아니요 — 링크 실패 |
+| **유니버설 링크** | `https://myapp.com/products/123` | 이메일, SMS, 클릭 추적이 있는 채널 | 예 — 웹으로 폴백 |
+| **앱 내에서 웹 URL 열기** | 모든 `https://` URL | Modal WebView에서 웹 콘텐츠 표시 | 해당 없음 — WebView에서 표시 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="링크 유형 선택" }
 
 ### 커스텀 스킴 딥링크 {#custom-scheme-deep-links}
 
-커스텀 스킴 딥링크(예: `myapp://products/123`)는 앱을 특정 화면으로 직접 엽니다. 타사에 의해 링크가 수정되지 않는 채널에서 가장 간단한 옵션입니다.
+커스텀 스킴 딥링크(예: `myapp://products/123`)는 앱을 특정 화면으로 직접 엽니다. 제3자가 링크를 수정하지 않는 채널에서 가장 간단한 옵션입니다.
 
-**다음과 같은 경우 커스텀 스킴 딥링크를 사용하세요:**
-- 푸시 알림, 인앱 메시지 또는 Content Cards 발송
-- 앱이 설치되어 있지 않을 때 링크가 작동할 필요가 없는 경우
-- 클릭 추적(이메일 서비스 공급자 링크 래핑)이 필요하지 않은 경우
+**커스텀 스킴 딥링크를 사용해야 하는 경우:**
+- 푸시 알림, 인앱 메시지, 또는 Content Cards를 전송할 때
+- 앱이 설치되지 않은 경우 링크가 작동할 필요가 없을 때
+- 클릭 추적이 필요하지 않을 때(이메일 ESP 링크 래핑)
 
-**다음과 같은 경우에는 커스텀 스킴 딥링크를 사용하지 마세요:**
-- 이메일 발송 — 이메일 서비스 공급자는 클릭 추적을 위해 링크를 래핑하므로 커스텀 스킴이 깨집니다
-- 앱이 설치되지 않은 경우 웹 페이지로 대체되는 링크가 필요한 경우
+**커스텀 스킴 딥링크를 사용하지 말아야 하는 경우:**
+- 이메일을 전송할 때 — ESP가 클릭 추적을 위해 링크를 래핑하므로 커스텀 스킴이 깨집니다
+- 앱이 설치되지 않은 경우 웹 페이지로 폴백해야 할 때
 
 ### 유니버설 링크 {#universal-links}
 
-유니버설 링크(예: `https://myapp.com/products/123`)는 iOS가 브라우저에서 열지 않고 앱으로 라우팅할 수 있는 표준 HTTPS URL입니다. 서버 측 구성(AASA 파일)과 앱 측 설정(Associated Domains 권한)이 필요합니다.
+유니버설 링크(예: `https://myapp.com/products/123`)는 iOS가 브라우저에서 열지 않고 앱으로 라우팅할 수 있는 표준 HTTPS URL입니다. 서버 측 설정(AASA 파일)과 앱 측 설정(Associated Domains 엔타이틀먼트)이 필요합니다.
 
-**다음과 같은 경우에 유니버설 링크를 사용하세요:**
-- 이메일 발송 시. 이메일 서비스 공급자가 클릭 추적을 위해 링크를 래핑하므로 링크는 반드시 HTTPS여야 합니다.
-- 링크가 래핑되거나 단축되는 SMS 또는 기타 채널을 통해 발송하는 경우.
-- 앱이 설치되지 않았을 때 웹 페이지로 대체되는 링크가 필요한 경우.
-- Branch 또는 AppsFlyer 같은 타사 링크 제공업체를 사용하는 경우.
+**유니버설 링크를 사용해야 하는 경우:**
+- 이메일을 전송할 때. ESP가 클릭 추적을 위해 링크를 래핑하므로 링크는 HTTPS여야 합니다.
+- SMS 또는 링크가 래핑되거나 단축되는 다른 채널에서 전송할 때.
+- 앱이 설치되지 않은 경우 웹 페이지로 폴백해야 할 때.
+- Branch 또는 AppsFlyer와 같은 서드파티 링크 제공자를 사용할 때.
 
-**다음과 같은 경우에는 유니버설 링크를 사용하지 마세요:**
-- 푸시 알림, 인앱 메시지 또는 Content Cards에서만 딥링크가 필요한 경우. 커스텀 스킴이 더 간단합니다.
+**유니버설 링크를 사용하지 말아야 하는 경우:**
+- 푸시, 인앱 메시지, 또는 Content Cards에서만 딥링크가 필요한 경우. 커스텀 스킴이 더 간단합니다.
 
 ### "앱 내에서 웹 URL 열기" {#open-web-url-inside-app}
 
-이 옵션은 앱 내의 모달 WebView에서 웹 페이지를 엽니다. `Braze.WebViewController`를 사용하여 Braze SDK가 전적으로 처리하므로 URL 처리 코드를 직접 작성할 필요가 없습니다.
+이 옵션은 앱 내의 Modal WebView에서 웹 페이지를 엽니다. Braze SDK의 `Braze.WebViewController`를 사용하여 완전히 처리되므로 URL 처리 코드를 작성할 필요가 없습니다.
 
-**다음과 같은 경우에 "앱 내에서 웹 URL 열기"를 사용하세요:**
-- 앱을 벗어나지 않고 웹 페이지(예: 프로모션이나 문서)를 표시하고 싶은 경우.
-- URL이 특정 앱 화면으로의 딥링크가 아닌 표준 HTTPS 웹 페이지인 경우.
+**"앱 내에서 웹 URL 열기"를 사용해야 하는 경우:**
+- 앱을 벗어나지 않고 웹 페이지(프로모션이나 기사 등)를 표시하고 싶을 때.
+- URL이 특정 앱 화면에 대한 딥링크가 아닌 표준 HTTPS 웹 페이지일 때.
 
-**다음과 같은 경우에는 "앱 내에서 웹 URL 열기"를 사용하지 마세요:**
-- 앱에서 특정 뷰로 이동해야 하는 경우. 대신 커스텀 스킴이나 유니버설 링크를 사용하세요.
-- 웹 페이지에 인증이 필요하거나 임베딩을 차단하는 콘텐츠 보안 정책 헤더가 있는 경우.
+**"앱 내에서 웹 URL 열기"를 사용하지 말아야 하는 경우:**
+- 앱 내의 특정 뷰로 이동해야 할 때. 대신 커스텀 스킴이나 유니버설 링크를 사용합니다.
+- 웹 페이지에 인증이 필요하거나 임베딩을 차단하는 Content Security Policy 헤더가 있을 때.
 
 ## 각 링크 유형에 필요한 사항 {#what-you-need-for-each-link-type}
 
@@ -71,9 +71,9 @@ iOS 앱에서 Braze 메시지의 링크를 처리하는 방법은 세 가지입�
 
 | 요구 사항 | 세부 정보 |
 |---|---|
-| AASA 파일 | 필요하지 않음 |
-| `Info.plist` | `CFBundleURLTypes` 아래에 스킴을 등록하고 `LSApplicationQueriesSchemes`에 추가 |
-| 앱 델리게이트 메서드 | URL을 구문 분석하고 이동하도록 `application(_:open:options:)` 구현 |
+| AASA 파일 | 필요 없음 |
+| `Info.plist` | `CFBundleURLTypes` 아래에 스킴을 등록하고 `LSApplicationQueriesSchemes`에 추가합니다 |
+| 앱 델리게이트 메서드 | `application(_:open:options:)`를 구현하여 URL을 파싱하고 탐색합니다 |
 | Braze SDK 구성 | 없음 — SDK는 기본적으로 커스텀 스킴 URL을 엽니다 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="커스텀 스킴 딥링크" }
 
@@ -81,24 +81,24 @@ iOS 앱에서 Braze 메시지의 링크를 처리하는 방법은 세 가지입�
 
 | 요구 사항 | 세부 정보 |
 |---|---|
-| AASA 파일 | 필수 — `https://yourdomain.com/.well-known/apple-app-site-association`에 호스팅 |
-| Associated Domains | Xcode의 **Signing & Capabilities** 아래에 `applinks:yourdomain.com` 추가 |
-| 앱 델리게이트 메서드 | `NSUserActivity`를 처리하도록 `application(_:continue:restorationHandler:)` 구현 |
-| Braze SDK 구성 | `configuration.forwardUniversalLinks = true` 설정 |
-| BrazeDelegate(선택 사항) | 커스텀 라우팅을 위해 `braze(_:shouldOpenURL:)` 구현(예: Branch) |
+| AASA 파일 | 필수 — `https://yourdomain.com/.well-known/apple-app-site-association`에 호스팅합니다 |
+| Associated Domains | Xcode의 **Signing & Capabilities** 아래에 `applinks:yourdomain.com`을 추가합니다 |
+| 앱 델리게이트 메서드 | `application(_:continue:restorationHandler:)`를 구현하여 `NSUserActivity`를 처리합니다 |
+| Braze SDK 구성 | `configuration.forwardUniversalLinks = true`로 설정합니다 |
+| BrazeDelegate (선택 사항) | 커스텀 라우팅(예: Branch)을 위해 `braze(_:shouldOpenURL:)`을 구현합니다 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="유니버설 링크" }
 
 {% alert important %}
-Braze를 통해 이메일을 발송하는 경우, 이메일 서비스 공급자(SendGrid, SparkPost 또는 Amazon SES)가 링크를 클릭 추적 도메인으로 래핑합니다. AASA 파일은 기본 도메인뿐만 아니라 클릭 추적 도메인에도 호스팅해야 합니다. 전체 설정 방법은 [유니버설 링크 및 앱 링크]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links)를 참조하세요.
+Braze를 통해 이메일을 발송하는 경우, ESP(SendGrid, SparkPost 또는 Amazon SES)가 링크를 클릭 추적 도메인으로 래핑합니다. 기본 도메인뿐만 아니라 클릭 추적 도메인에도 AASA 파일을 호스팅해야 합니다. 전체 설정 방법은 [유니버설 링크 및 앱 링크]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links)를 참조하세요. 모든 이메일 링크가 앱을 여는 경우 [모든 이메일 링크가 앱을 여는 문제]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting#every-email-link-opens-the-app)를 참조하세요.
 {% endalert %}
 
 ### "앱 내에서 웹 URL 열기"
 
 | 요구 사항 | 세부 정보 |
 |---|---|
-| AASA 파일 | 필요하지 않음 |
+| AASA 파일 | 필요 없음 |
 | 앱 델리게이트 메서드 | 필요 없음 — SDK가 자동으로 처리합니다 |
-| Braze SDK 구성 | 없음 — Campaign 작성기에서 **Open Web URL Inside App**을 선택 |
+| Braze SDK 구성 | 없음 — Campaign 작성기에서 **Open Web URL Inside App**을 선택합니다 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="앱 내에서 웹 URL 열기" }
 
 ## AASA 파일이 필요한 경우 {#when-aasa}
@@ -117,7 +117,7 @@ Apple App Site Association(AASA) 파일은 **유니버설 링크**를 사용할 
 - 푸시 알림, 인앱 메시지 또는 Content Cards에서 커스텀 스킴 딥링크(예: `myapp://`)만 사용하는 경우.
 - **앱 내에서 웹 URL 열기** 옵션을 사용하는 경우.
 
-AASA 설정 방법은 [유니버설 링크 및 앱 링크]({{site.baseurl}}/user_guide/message_building_by_channel/email/universal_links#setting-up-universal-links-and-app-links)를 참조하세요.
+AASA 설정 방법은 [유니버설 링크 및 앱 링크]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links)를 참조하세요.
 
 ## 앱 코드에서 링크를 처리해야 하는 경우 {#when-app-code}
 

@@ -58,11 +58,12 @@ Authorization: Bearer YOUR-REST-API-KEY
       "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
     }
   ],
-  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name" and "url",
+  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name", "url", and optionally "basic_auth_credential",
     [
       {
        "file_name": (required, string) the name of the file you want to attach to your email, excluding the extension (for example, ".pdf"). Attach files up to 2 MB. This is required if you use "attachments",
        "url": (required, string) the corresponding URL of the file you want to attach to your email. The file name's extension is detected automatically from the URL defined, which should return the appropriate "Content-Type" as a response header. This is required if you use "attachments",
+       "basic_auth_credential": (optional, string) the name of the stored basic authentication credential to use when the attachment URL requires a login,
       }
     ]
 }
@@ -78,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `broadcast` | Facultatif | Valeur booléenne | Vous devez définir `broadcast` sur true lorsque vous envoyez un message à l'ensemble du Segment configuré comme audience cible de la Campaign dans le tableau de bord de Braze. Ce paramètre est défini sur false par défaut (depuis le 31 août 2017). <br><br> Si `broadcast` est défini sur true, une liste `recipients` ne peut pas être incluse. Toutefois, soyez prudent lorsque vous définissez `broadcast: true`, car en activant involontairement cet indicateur, vous risquez d'envoyer votre message à une audience plus large que prévu. |
 | `audience` | Facultatif | Objet audience connectée | Voir [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience). Lorsque vous incluez `audience`, le message est envoyé uniquement aux utilisateurs qui correspondent aux filtres définis, tels que les attributs personnalisés et les statuts d'abonnement. |
 | `recipients` | Facultatif | Tableau | Voir [objet destinataire]({{site.baseurl}}/api/objects_filters/recipient_object).<br><br>Si `send_to_existing_only` est `false`, un objet `attributes` doit être inclus.<br><br>Vous pouvez mettre à jour le statut du groupe d'abonnement d'un utilisateur en incluant `subscription_groups` dans l'objet `attributes` imbriqué. Pour plus de détails, consultez [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object).<br><br>Si `recipients` n'est pas fourni et que `broadcast` est défini sur true, le message est envoyé à l'ensemble du Segment configuré comme audience cible de la Campaign dans le tableau de bord de Braze.<br><br>Si `email` est l'identifiant, vous devez inclure [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers) dans l'objet destinataire. |
-| `attachments` | Facultatif | Tableau | Si `broadcast` est défini sur true, la liste `attachments` ne peut pas être incluse. |
+| `attachments` | Facultatif | Tableau | Si `broadcast` est défini sur true, la liste `attachments` ne peut pas être incluse. <br><br>Lorsqu'une URL de pièce jointe nécessite une connexion, incluez `basic_auth_credential` sur cette pièce jointe et définissez-le avec le nom d'un identifiant d'authentification basique enregistré. Pour configurer un identifiant, consultez [Authentification pour les pièces jointes d'e-mails]({{site.baseurl}}/api/objects_filters/messaging/email_object#authentication-for-email-file-attachments). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de la requête" }
 
 ### Comportement de résolution des destinataires {#recipient-resolution-behavior}
@@ -195,7 +196,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
   "attachments": [
     {
       "file_name" : "YourFileName",
-      "url" : "https://exampleurl.com/YourFileName.pdf"
+      "url" : "https://exampleurl.com/YourFileName.pdf",
+      "basic_auth_credential": "company_basic_auth_credential_name"
     }
   ]
 }'

@@ -58,11 +58,12 @@ Authorization: Bearer YOUR-REST-API-KEY
       "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
     }
   ],
-  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name" and "url",
+  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name", "url", and optionally "basic_auth_credential",
     [
       {
        "file_name": (required, string) the name of the file you want to attach to your email, excluding the extension (for example, ".pdf"). Attach files up to 2 MB. This is required if you use "attachments",
        "url": (required, string) the corresponding URL of the file you want to attach to your email. The file name's extension is detected automatically from the URL defined, which should return the appropriate "Content-Type" as a response header. This is required if you use "attachments",
+       "basic_auth_credential": (optional, string) the name of the stored basic authentication credential to use when the attachment URL requires a login,
       }
     ]
 }
@@ -78,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `broadcast` | Opcional | Booleano | Debes establecer `broadcast` en verdadero cuando envíes un mensaje a todo el Segment configurado como público objetivo de la Campaign en el panel de Braze. Este parámetro está predeterminado como falso (a 31 de agosto de 2017). <br><br> Si `broadcast` tiene el valor true, no se puede incluir una lista `recipients`. Sin embargo, ten cuidado al configurar `broadcast: true`, ya que si lo haces involuntariamente puede que envíes tu mensaje a una audiencia mayor de la esperada. |
 | `audience` | Opcional | Objeto de audiencia conectada | Ver [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience). Cuando incluyes `audience`, el mensaje solo se envía a los usuarios que coinciden con los filtros definidos, como los atributos personalizados y los estados de suscripción. |
 | `recipients` | Opcional | Matriz | Ver [objeto de destinatarios]({{site.baseurl}}/api/objects_filters/recipient_object).<br><br>Si `send_to_existing_only` es `false`, debe incluirse un objeto `attributes`.<br><br>Puedes actualizar el estado del grupo de suscripción de un usuario incluyendo `subscription_groups` en el objeto `attributes` anidado. Para más detalles, consulta [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object).<br><br>Si no se proporciona `recipients` y `broadcast` se establece en verdadero, el mensaje se envía a todo el Segment configurado como público objetivo de la Campaign en el panel de Braze.<br><br>Si `email` es el identificador, debes incluir [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers) en el objeto de destinatarios. |
-| `attachments` | Opcional | Matriz | Si `broadcast` está configurado como verdadero, no se puede incluir la lista `attachments`. |
+| `attachments` | Opcional | Matriz | Si `broadcast` está configurado como verdadero, no se puede incluir la lista `attachments`. <br><br>Cuando la URL de un archivo adjunto requiera inicio de sesión, incluye `basic_auth_credential` en ese archivo adjunto y establécelo con el nombre de una credencial de autenticación básica almacenada. Para configurar una credencial, consulta [Autenticación para archivos adjuntos de correo electrónico]({{site.baseurl}}/api/objects_filters/messaging/email_object#authentication-for-email-file-attachments). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ### Comportamiento de resolución de destinatarios {#recipient-resolution-behavior}
@@ -195,7 +196,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
   "attachments": [
     {
       "file_name" : "YourFileName",
-      "url" : "https://exampleurl.com/YourFileName.pdf"
+      "url" : "https://exampleurl.com/YourFileName.pdf",
+      "basic_auth_credential": "company_basic_auth_credential_name"
     }
   ]
 }'
