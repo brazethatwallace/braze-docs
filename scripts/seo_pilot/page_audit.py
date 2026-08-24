@@ -19,8 +19,8 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 H1_RE = re.compile(r"^#\s+(.+)$", re.MULTILINE)
 H2_RE = re.compile(r"^##\s+(.+)$", re.MULTILINE)
-FAQ_HEADING_RE = re.compile(r"faq|frequently asked", re.I)
-HEADING_LEVEL_RE = re.compile(r"^(#{1,6})\s+")
+FAQ_HEADING_RE = re.compile(r"^#{1,6}\s+.*(faq|frequently asked)", re.I | re.MULTILINE)
+HEADING_LEVEL_RE = re.compile(r"^(#{1,6})\s+", re.MULTILINE)
 
 
 def parse_frontmatter(text: str) -> dict[str, str]:
@@ -183,12 +183,15 @@ def audit_page(md_path: Path, link_rows: list[dict]) -> str:
     return "\n".join(lines)
 
 
+COLLECTION_ROOTS = ("user_guide", "api", "developer_guide", "partners")
+
+
 def slugify(path: Path) -> str:
     name = path.stem
     parent = path.parent.name
     if parent.startswith("_"):
         parent = parent[1:]
-    return f"{parent}-{name}" if parent not in ("_user_guide", "_api", "_developer_guide", "_partners") else name
+    return name if parent in COLLECTION_ROOTS else f"{parent}-{name}"
 
 
 def main() -> int:
