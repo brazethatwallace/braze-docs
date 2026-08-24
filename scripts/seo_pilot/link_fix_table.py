@@ -16,6 +16,7 @@ import csv
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urlparse
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 REDIRECT_JS = REPO_ROOT / "assets" / "js" / "broken_redirect_list.js"
@@ -28,48 +29,75 @@ LINK_INLINE_RE = re.compile(r"(?<!!)\[([^\]]*)\]\(([^)]+)\)")
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.+)$")
 
 
-def normalize_path(path: str) -> str:
+def extract_docs_path(url: str) -> str | None:
+    url = url.strip()
+    if url.startswith("/docs"):
+        return url
+    parsed = urlparse(url)
+    if parsed.netloc.endswith("braze.com") and parsed.path.startswith("/docs"):
+        path = parsed.path
+        if parsed.query:
+            path += f"?{parsed.query}"
+        if parsed.fragment:
+            path += f"#{parsed.fragment}"
+        return path
+    return None
+
+
+def ensure_docs_path(path: str) -> str:
     path = path.strip()
     if not path.startswith("/docs"):
         path = "/docs" + path if path.startswith("/") else "/docs/" + path
-    # strip query/fragment for redirect lookup
-    path = path.split("?")[0].split("#")[0]
-    return path.rstrip("/") or "/docs"
+    return path
+
+
+def path_only(url: str) -> str:
+    """Strip query and fragment for filesystem / path-only redirect lookups."""
+    url = ensure_docs_path(url)
+    url = url.split("?")[0].split("#")[0]
+    return url.rstrip("/") or "/docs"
 
 
 def load_redirect_map() -> dict[str, str]:
+    """Load redirect map preserving query strings and fragments in keys/values."""
     text = REDIRECT_JS.read_text(encoding="utf-8")
     mapping: dict[str, str] = {}
     for m in REDIRECT_RE.finditer(text):
-        old_p, new_p = m.group(1), m.group(2)
-        old_key = normalize_path(f"/docs{old_p}")
-        new_val = normalize_path(f"/docs{new_p}")
-        mapping[old_key] = new_val
-        mapping[old_key + "/"] = new_val
+        old_full = ensure_docs_path(f"/docs{m.group(1)}")
+        new_full = ensure_docs_path(f"/docs{m.group(2)}")
+        mapping[old_full] = new_full
     return mapping
 
 
 def resolve_redirect(url: str, redirects: dict[str, str], max_hops: int = 10) -> tuple[str, str]:
     """Return (final_url, status)."""
-    current = normalize_path(url)
-    seen = set()
+    current = ensure_docs_path(url)
+    seen: set[str] = set()
+    redirected = False
     for _ in range(max_hops):
         if current in seen:
             return current, "redirect_loop"
         seen.add(current)
         if current in redirects:
             current = redirects[current]
+            redirected = True
             continue
-        # file exists check
+        # Path-only fallback for redirects without matching query/fragment
+        path_key = path_only(current)
+        path_matches = [k for k in redirects if path_only(k) == path_key and k != current]
+        if path_matches:
+            current = redirects[path_matches[0]]
+            redirected = True
+            continue
         doc = url_to_markdown(current)
         if doc and doc.is_file():
-            return current, "redirect_resolved" if len(seen) > 1 else "canonical_exists"
+            return current, "redirect_resolved" if redirected else "canonical_exists"
         return current, "manual_required"
     return current, "redirect_loop"
 
 
 def url_to_markdown(url: str) -> Path | None:
-    url = normalize_path(url)
+    url = path_only(url)
     if not url.startswith("/docs/"):
         return None
     rest = url[len("/docs/") :]
@@ -92,7 +120,7 @@ def nearest_heading_and_sentence(content: str, link_substring: str) -> tuple[str
         hm = HEADING_RE.match(line)
         if hm and int(hm.group(1).count("#")) <= 4:
             current_heading = hm.group(2).strip()
-        if link_substring in line or normalize_path(link_substring) in line:
+        if link_substring in line or path_only(link_substring) in line:
             # extract sentence around link
             chunk = line
             if len(chunk) < 20 and i + 1 < len(lines):
@@ -168,12 +196,14 @@ def main() -> int:
             rel = str(md_path.relative_to(REPO_ROOT))
             content = md_path.read_text(encoding="utf-8", errors="replace")
             for link, text in scan_file_links(md_path):
-                full = normalize_path(link)
-                final, status = resolve_redirect(full, redirects)
-                doc = url_to_markdown(final)
-                if doc and doc.is_file() and normalize_path(full) == normalize_path(final):
+                full = ensure_docs_path(link)
+                source_doc = url_to_markdown(full)
+                if source_doc and source_doc.is_file():
                     continue
-                if status == "manual_required" or normalize_path(full) != normalize_path(final):
+                final, status = resolve_redirect(full, redirects)
+                if status == "canonical_exists":
+                    continue
+                if status in ("redirect_resolved", "manual_required", "redirect_loop"):
                     heading, sentence = nearest_heading_and_sentence(content, link)
                     out_rows.append(
                         {
@@ -195,7 +225,9 @@ def main() -> int:
             current = row.get("Broken Link", "").strip()
             md_path = REPO_ROOT / source
             content = md_path.read_text(encoding="utf-8", errors="replace") if md_path.is_file() else ""
-            link_path = current.replace("https://www.braze.com", "").split("?")[0]
+            link_path = current.replace("https://www.braze.com", "")
+            if not link_path.startswith("/docs"):
+                link_path = extract_docs_path(current) or link_path
             final, status = resolve_redirect(link_path, redirects)
             heading, sentence = nearest_heading_and_sentence(content, current)
             out_rows.append(
@@ -204,7 +236,7 @@ def main() -> int:
                     "section_heading": heading,
                     "surrounding_sentence": sentence,
                     "link_text": "",
-                    "current_url": normalize_path(link_path),
+                    "current_url": ensure_docs_path(link_path),
                     "verified_replacement": final if status != "manual_required" else "",
                     "status": status,
                 }

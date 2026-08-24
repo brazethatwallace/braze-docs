@@ -18,6 +18,7 @@ import re
 import sys
 from collections import defaultdict
 from pathlib import Path
+from urllib.parse import urlparse
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DOCS_ROOT = REPO_ROOT / "_docs"
@@ -75,19 +76,29 @@ def doc_path_to_url(rel_md: Path) -> str:
     return f"/docs/{collection}"
 
 
+def extract_docs_path(url: str) -> str | None:
+    """Return /docs/... pathname when url is a Braze docs URL."""
+    url = url.strip()
+    if url.startswith("/docs"):
+        return url.split("?")[0].split("#")[0]
+    parsed = urlparse(url)
+    if parsed.netloc.endswith("braze.com") and parsed.path.startswith("/docs"):
+        return parsed.path.split("?")[0].split("#")[0]
+    return None
+
+
 def url_to_doc_path(url: str) -> str | None:
-    url = url.strip().rstrip("/")
-    if "braze.com" in url:
-        url = re.sub(r"^https?://[^/]+", "", url)
-    if not url.startswith("/docs/"):
+    path = extract_docs_path(url)
+    if not path:
         return None
-    path = url[len("/docs/") :]
-    segments = path.split("/")
-    if not segments:
+    path = path.rstrip("/")
+    rest = path[len("/docs/") :]
+    segments = rest.split("/")
+    if not segments or not segments[0]:
         return None
     collection = segments[0]
-    rest = "/".join(segments[1:])
-    md = DOCS_ROOT / f"_{collection}" / f"{rest}.md" if rest else DOCS_ROOT / f"_{collection}.md"
+    sub = "/".join(segments[1:])
+    md = DOCS_ROOT / f"_{collection}" / f"{sub}.md" if sub else DOCS_ROOT / f"_{collection}.md"
     if md.is_file():
         return str(md.relative_to(REPO_ROOT))
     return None
@@ -111,10 +122,10 @@ def load_gsc(path: Path) -> dict[str, dict[str, float]]:
             if not page:
                 continue
             if not page.startswith("/docs"):
-                if "braze.com/docs" in page:
-                    page = re.sub(r"^https?://[^/]+", "", page.split("?")[0])
-                else:
+                docs_path = extract_docs_path(page)
+                if not docs_path:
                     continue
+                page = docs_path
             page = page.rstrip("/")
             try:
                 impressions = float(row.get(fields.get("impressions", "impressions"), 0) or 0)
@@ -154,7 +165,7 @@ def load_algolia(path: Path) -> dict[str, float]:
             for hub in EDITORIAL_HUBS:
                 hub_slug = hub.split("/")[-1].replace("_", " ")
                 if hub_slug in query or hub.replace("_", " ") in query:
-                    out[str(REPO_ROOT / f"{hub}.md")] += count * 0.5
+                    out[f"{hub}.md"] += count * 0.5
     return dict(out)
 
 
@@ -174,7 +185,7 @@ def load_support(path: Path) -> dict[str, int]:
             for hub in EDITORIAL_HUBS:
                 slug = hub.split("/")[-1].replace("_", " ")
                 if slug in blob:
-                    out[str(REPO_ROOT / f"{hub}.md")] += 1
+                    out[f"{hub}.md"] += 1
     return dict(out)
 
 

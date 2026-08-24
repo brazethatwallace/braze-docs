@@ -11,9 +11,7 @@
 
 ### Link fix table
 
-| Section heading | Surrounding sentence | Current URL | Verified replacement | Status |
-|-------------------|----------------------|-------------|----------------------|--------|
-| Customize your emails | - User subscriptions... | `/docs/user_guide/channels/email/subscriptions` | `/docs/user_guide/audience/subscription_preferences/subscription_groups` | redirect_resolved |
+*No broken or stale internal links detected on this page.*
 
 ## Approval-needed
 

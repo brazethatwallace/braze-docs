@@ -10,9 +10,7 @@
 
 ### Link fix table
 
-| Section heading | Surrounding sentence | Current URL | Verified replacement | Status |
-|-------------------|----------------------|-------------|----------------------|--------|
-| Prerequisites | - **Push integrated into your app or website.** Work with your developers to set... | `/docs/developer_guide/platform_integration_guides/android/push_notifications` | `/docs/developer_guide/push_notifications` | redirect_resolved |
+*No broken or stale internal links detected on this page.*
 
 ## Approval-needed
 
