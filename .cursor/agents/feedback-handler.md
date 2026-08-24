@@ -45,6 +45,32 @@ edited docs content or in the PR description. Anonymize or omit it.
 
 ---
 
+## Cloud agent reference repos
+
+The Jira feedback workflow clones **braze-docs** plus read-only
+reference repositories listed in
+`.github/config/feedback-handler-reference-repos.json` (the same set
+as `braze-workspace.code-workspace`, including `Appboy/platform`).
+
+**Finding repos on the cloud VM:**
+1. List top-level directories in the workspace root, or run:
+   `curl -fsS --unix-socket "${CURSOR_AGENT_SOCKET:-/run/cursor/api.sock}" \
+   http://cursor-agent/v1/meta-data/workspace/repo-urls`
+2. Match each URL to a folder name using the `folder` field in the
+   config file (for example, `github.com/Appboy/platform` → `platform`).
+3. Search and read files under that folder. Reference repos are
+   **read-only** — never commit or edit outside `braze-docs`.
+
+**Paths in PR descriptions:** Use repo-relative paths without `../`
+or absolute VM paths (for example,
+`platform/shared_code/domains/...`, `braze-web-sdk/src/...`).
+
+Before searching reference repos, follow the pull guidance in
+[`.github/skills/reference-repos/SKILL.md`](.github/skills/reference-repos/SKILL.md)
+for the repos your ticket needs.
+
+---
+
 ## Steps — work through these in order, do not skip any
 
 ### 1. Read the ticket and all linked resources
@@ -401,10 +427,10 @@ actual paths from your verification — the examples below are
 illustrative only.>
 
 Example (replace with real paths):
-- `../platform/path/to/file.rb` line 42 — confirmed the described
-  behavior matches the implementation
-- `../platform/path/to/other_file.rb` lines 88–91 — inconclusive,
-  no direct reference to this feature
+- `platform/shared_code/domains/path/to/file.rb` line 42 — confirmed
+  the described behavior matches the implementation
+- `platform/shared_code/domains/path/to/other_file.rb` lines 88–91 —
+  inconclusive, no direct reference to this feature
 
 ## Notes for reviewer
 <Anything the reviewer should pay attention to, unresolved questions,

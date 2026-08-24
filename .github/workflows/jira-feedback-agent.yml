@@ -1,5 +1,7 @@
 # Triggers a Cursor Cloud Agent to investigate a Jira feedback ticket and propose a fix.
 # Draft PRs are opened by the agent using `.cursor/agents/feedback-handler.md` (Cursor API `autoCreatePR` stays off).
+# Clones braze-docs plus read-only reference repos from `.github/config/feedback-handler-reference-repos.json`
+# so agents can verify behavior against platform and SDK source (see reference-repos skill).
 # `GH_TOKEN`, `JIRA_USER_EMAIL`, and `JIRA_API_TOKEN` are passed via Cursor API `envVars` so the agent can
 # open PRs with `gh` and post edge-case Jira comments via the REST API; configure those repository secrets.
 # Caller dispatches `repository_dispatch` with event type `jira-feedback-ticket` and a client_payload
@@ -23,8 +25,16 @@ jobs:
     name: Start Cursor cloud agent
     runs-on: ubuntu-latest
     permissions:
-      contents: none
+      contents: read
     steps:
+      - name: Check out workflow config
+        uses: actions/checkout@v7
+        with:
+          ref: develop
+          sparse-checkout: |
+            .github/config/feedback-handler-reference-repos.json
+          sparse-checkout-cone-mode: false
+
       - name: Log Jira ticket context
         env:
           TICKET_ID: ${{ github.event.client_payload.ticket_id }}
@@ -70,9 +80,25 @@ jobs:
         run: |
           set -euo pipefail
 
-          # Request body: prompt, repos, autoCreatePR, envVars (GH_TOKEN for gh; Jira creds for edge-case comments).
+          # Request body: prompt, repos (braze-docs + reference repos), autoCreatePR, envVars.
           # Full playbook lives in-repo at .cursor/agents/feedback-handler.md; the agent reads it after clone.
           # Auth: Basic with API key as username, empty password (same as curl -u 'KEY:').
+
+          REF_CONFIG=".github/config/feedback-handler-reference-repos.json"
+          if [ ! -f "${REF_CONFIG}" ]; then
+            echo "::error::Missing ${REF_CONFIG}"
+            exit 1
+          fi
+
+          REPO_COUNT=$(jq -n \
+            --arg repo_url "${REPO_URL}" \
+            --slurpfile cfg "${REF_CONFIG}" \
+            '[{url: $repo_url, startingRef: "develop"}] + ($cfg[0].referenceRepos | map({url, startingRef})) | length')
+          if [ "${REPO_COUNT}" -gt 20 ]; then
+            echo "::error::Cursor API allows at most 20 repos per agent (got ${REPO_COUNT})"
+            exit 1
+          fi
+          echo "Cloning ${REPO_COUNT} repositories for this agent (braze-docs + reference repos)."
 
           BOOTSTRAP=$(cat <<'BOOT'
           Read .cursor/agents/feedback-handler.md in this repository for your full instructions before doing anything else.
@@ -87,14 +113,13 @@ jobs:
             --arg gh_token "${GH_TOKEN}" \
             --arg jira_user_email "${JIRA_USER_EMAIL}" \
             --arg jira_api_token "${JIRA_API_TOKEN}" \
+            --slurpfile ref_config "${REF_CONFIG}" \
             '{
               prompt: { text: $prompt_text },
-              repos: [
-                {
-                  url: $repo_url,
-                  startingRef: "develop"
-                }
-              ],
+              repos: (
+                [{ url: $repo_url, startingRef: "develop" }] +
+                ($ref_config[0].referenceRepos | map({ url, startingRef }))
+              ),
               autoCreatePR: false,
               envVars: {
                 GH_TOKEN: $gh_token,
