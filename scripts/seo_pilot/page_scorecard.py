@@ -445,6 +445,13 @@ def main() -> int:
                 rows.append(row)
             else:
                 print(f"Skip {doc_path} (excluded)", file=sys.stderr)
+        if not rows:
+            print(
+                f"No scoreable pages from {args.pages_file} "
+                "(all entries missing, unmapped, noindex, or hidden).",
+                file=sys.stderr,
+            )
+            return 1
     else:
         for md_path in iter_doc_files():
             row = score_page(
@@ -485,7 +492,7 @@ def main() -> int:
             f"[{row['metadata_flags'] or 'ok'}]"
         )
 
-    if args.write_pilot_list:
+    if args.write_pilot_list and rows:
         pilot_list = REPO_ROOT / "scripts" / "temp" / "pilot-pages.txt"
         pilot_list.parent.mkdir(parents=True, exist_ok=True)
         pilot_list.write_text(
