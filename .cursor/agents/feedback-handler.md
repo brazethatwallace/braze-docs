@@ -49,28 +49,66 @@ edited docs content or in the PR description. Anonymize or omit it.
 
 ### 1. Read the ticket and all linked resources
 
-Prerequisite: The Atlassian MCP must be enabled for Cloud Agent runs
-in this repo. If it is not configured, Step 1 and all edge cases that
-require leaving comments will fail. Confirm this is set up before
-running the workflow in production.
+Cloud agent runs receive `JIRA_USER_EMAIL` and `JIRA_API_TOKEN` in the
+environment. Use them for **all Jira reads and writes** in this
+workflow unless Atlassian MCP is explicitly noted as an alternative.
 
-Use the Atlassian MCP to fetch the full ticket by ticket ID. Then
-check for any linked resources and read those too before proceeding.
-Do not skip this — linked tickets and pages often contain the context
-that makes the correct fix clear.
+**Jira reads (feedback ticket + linked issues):**
+1. **Atlassian MCP** — use when it is enabled for your cloud agent run.
+2. **Jira REST API** — use when MCP is unavailable or cannot read an
+   issue. This is the required fallback for API-started agents and
+   must be tried before you treat linked Jira issues as inaccessible.
+
+**Confluence reads:** Atlassian MCP only. There is no REST fallback in
+this workflow. If a Confluence page is linked but unreadable, note it
+in the PR description and proceed when linked **Jira** issues (read via
+MCP or REST) already contain enough context. Use the **not enough
+information** edge case only when you still cannot determine the correct
+fix after reading every linked Jira issue you can reach.
+
+#### Fetch a Jira issue via REST (required fallback)
+
+Use Basic auth with the service account credentials already in the
+environment. Replace `${ISSUE_KEY}` with the ticket ID (for example,
+`BD-7193` or `PQ-4989`).
+
+```bash
+AUTH_B64=$(printf '%s:%s' "${JIRA_USER_EMAIL}" "${JIRA_API_TOKEN}" | base64 -w0)
+
+curl -sS \
+  --url "https://braze.atlassian.net/rest/api/3/issue/${ISSUE_KEY}?fields=summary,description,status,comment,issuelinks" \
+  --header "Authorization: Basic ${AUTH_B64}" \
+  --header 'Accept: application/json' \
+  -o "/tmp/jira-${ISSUE_KEY}.json"
+```
+
+Read `fields.summary`, `fields.description`, and every entry in
+`fields.comment.comments`. If the response is not HTTP 2xx, log the
+status and issue key; only then treat that issue as inaccessible.
+
+#### Workflow for Step 1
+
+1. Fetch the feedback ticket (`TICKET_ID` from the bootstrap prompt)
+   via MCP or REST.
+2. Collect linked Jira issue keys from:
+   - `fields.issuelinks` on the feedback ticket
+   - Issue keys in the description or comments (for example `PQ-4989`,
+     `BD-1234`, or `https://jira.atl.braze.com/browse/PQ-4989`)
+3. Fetch **each linked Jira issue** via MCP or REST. PQ tickets
+   frequently contain the authoritative answer — do not skip them.
+4. For Confluence URLs, use Atlassian MCP when available.
+5. Summarize your understanding before Step 2.
 
 **Linked Jira issues:**
 If the ticket links to other Jira issues — particularly Product
-Question (PQ) tickets — use the Atlassian MCP to read each linked
-issue in full. PQ tickets frequently contain the authoritative
-answer to the question the feedback ticket is raising, and the fix
-should reflect that answer.
+Question (PQ) tickets — read each linked issue in full via MCP or REST.
+The fix should reflect the PQ answer when one exists.
 
 **Confluence links:**
 If the ticket or any linked Jira issue references a Confluence page,
-use the Atlassian MCP to read it. Confluence pages often contain
-design decisions, feature specs, or clarifications that are directly
-relevant to what the docs should say.
+read it with Atlassian MCP when available. Confluence pages often
+contain design decisions, feature specs, or clarifications that are
+directly relevant to what the docs should say.
 
 **Salesforce links:**
 Do not attempt to navigate to Salesforce URLs — they are not
@@ -438,7 +476,8 @@ not use the Atlassian MCP `addCommentToJiraIssue` tool. Replace
 **@-mention the assignee:** Edge-case comments should @-mention the
 Jira ticket assignee when one is set so reporters know who to contact.
 You may reuse the assignee `accountId` and `displayName` from Step 1
-(Atlassian MCP), or fetch them with the curl below before posting.
+(Jira REST or Atlassian MCP), or fetch them with the curl below before
+posting.
 
 - For **already documented**, **bug or workaround**, and
   **deprecated/removed behavior** (when closing without an edit):
@@ -641,6 +680,12 @@ follow the normal PR workflow instead of transitioning the ticket.
 
 **The ticket does not contain enough information to identify the
 correct fix:**
+Use this edge case only after you have tried **both** Atlassian MCP
+(when available) **and** the Jira REST fallback for the feedback ticket
+and every linked Jira issue key you can find. Do **not** use this edge
+case solely because a Confluence page is unreadable when linked PQ or
+other Jira issues already contain the answer.
+
 Post a comment with specific questions for the assigned writer
 (@-mention the assignee at the start when one is set). Do not make
 speculative edits. Do **not** transition the ticket — leave it in To
