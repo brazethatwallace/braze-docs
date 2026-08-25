@@ -152,5 +152,14 @@ RSpec.describe "anchor drift detection in validate_doc_redirects.rb" do
 
       expect(warnings).to be_empty
     end
+
+    it "does not warn on a same-page anchor pointing at the page's own first heading" do
+      heading_map = { "_docs/a.md" => { "all_ids" => ["page-title"], "heading_ids" => ["page-title", "second"], "local_redirect_keys" => [] } }
+      l = link.call("_docs/a.md", "_docs/a.md", "page-title")
+
+      warnings = first_heading_warnings_for(heading_map, [l], Set["_docs/a.md"])
+
+      expect(warnings).to be_empty
+    end
   end
 end
