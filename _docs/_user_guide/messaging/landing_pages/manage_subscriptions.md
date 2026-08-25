@@ -79,8 +79,8 @@ Pre-filling a user's current subscription state in the **Manage Subscriptions** 
 
 To collect new subscribers, pair the **Manage Subscriptions** block with a capture field for that channel:
 
-- Email: Add an [Email Capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages) block so the page captures the visitor's email address alongside their email subscription group selections.
-- SMS: Add a [Phone Capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages) block so the page captures the visitor's phone number alongside their SMS subscription group selections.
+- **Email:** Add an [Email Capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages) block so the page captures the visitor's email address alongside their email subscription group selections.
+- **SMS:** Add a [Phone Capture]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages) block so the page captures the visitor's phone number alongside their SMS subscription group selections.
 
 If the visitor isn't identified (for example, they arrive without a landing page Liquid tag), the checkboxes start unselected. When they submit the form, they're subscribed to whichever subscription groups they selected.
 
