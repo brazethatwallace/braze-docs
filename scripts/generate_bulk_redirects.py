@@ -6,6 +6,7 @@ Bulk Redirects (bulkRedirectsPath in vercel.json).
 Client-side-only entries are skipped for bulk export:
 - Source URLs with `#` fragments (not sent to the server)
 - Source URLs with `?` query strings (bulk redirect sources are path-only)
+- Source paths with embedded `://` (invalid Vercel route patterns; e.g. concatenated CMS URLs)
 - Comment lines such as `// validurls['OLD'] = 'NEW';`
 
 Usage:
@@ -57,10 +58,22 @@ def normalize_path(path: str) -> str:
     return f"{base}{query_part}{hash_part}"
 
 
+def source_path_only(source: str) -> str:
+    return source.split("?", 1)[0].split("#", 1)[0]
+
+
 def source_has_fragment(source: str) -> bool:
     """Fragment in the request path is never sent to the edge; skip for bulk."""
     path = source.split("?", 1)[0]
     return "#" in path
+
+
+def source_has_embedded_scheme(source: str) -> bool:
+    """`:`` in a pathname breaks Vercel bulk redirect route parsing."""
+    path = source_path_only(source)
+    if "://" not in path:
+        return False
+    return not (path.startswith("http://") or path.startswith("https://"))
 
 
 def parse_validurls(js_text: str) -> dict[str, str]:
@@ -84,6 +97,7 @@ def build_bulk_redirects(validurls: dict[str, str]) -> tuple[list[dict], dict[st
         "total_validurls": len(validurls),
         "skipped_fragment_source": 0,
         "skipped_query_source": 0,
+        "skipped_embedded_scheme_source": 0,
         "skipped_invalid_source": 0,
         "skipped_identity": 0,
         "exported": 0,
@@ -97,6 +111,9 @@ def build_bulk_redirects(validurls: dict[str, str]) -> tuple[list[dict], dict[st
             continue
         if "?" in source:
             stats["skipped_query_source"] += 1
+            continue
+        if source_has_embedded_scheme(source):
+            stats["skipped_embedded_scheme_source"] += 1
             continue
 
         norm_source = normalize_path(source)
@@ -172,6 +189,7 @@ def main() -> int:
         f"  exported={stats['exported']} "
         f"skipped_fragment_source={stats['skipped_fragment_source']} "
         f"skipped_query_source={stats['skipped_query_source']} "
+        f"skipped_embedded_scheme_source={stats['skipped_embedded_scheme_source']} "
         f"skipped_invalid_source={stats['skipped_invalid_source']} "
         f"skipped_identity={stats['skipped_identity']} "
         f"total_validurls={stats['total_validurls']}"

@@ -26,7 +26,7 @@ Se você estiver direcionando um Segment, um registro da sua solicitação é ar
 
 Para usar esse endpoint, você precisará gerar uma chave de API com a permissão `campaigns.trigger.send`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='send endpoints' category='send messages endpoints' %}
 
@@ -58,11 +58,12 @@ Authorization: Bearer YOUR-REST-API-KEY
       "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
     }
   ],
-  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name" and "url",
+  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name", "url", and optionally "basic_auth_credential",
     [
       {
        "file_name": (required, string) the name of the file you want to attach to your email, excluding the extension (for example, ".pdf"). Attach files up to 2 MB. This is required if you use "attachments",
        "url": (required, string) the corresponding URL of the file you want to attach to your email. The file name's extension is detected automatically from the URL defined, which should return the appropriate "Content-Type" as a response header. This is required if you use "attachments",
+       "basic_auth_credential": (optional, string) the name of the stored basic authentication credential to use when the attachment URL requires a login,
       }
     ]
 }
@@ -78,7 +79,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `broadcast` | Opcional | Booleano | Você deve definir `broadcast` como true ao enviar uma mensagem para todo o Segment configurado como o público-alvo da Campaign no dashboard da Braze. O padrão desse parâmetro é false (a partir de 31 de agosto de 2017). <br><br> Se `broadcast` estiver definido como true, uma lista `recipients` não poderá ser incluída. No entanto, tenha cuidado ao definir `broadcast: true`, pois definir essa flag inadvertidamente pode fazer com que você envie sua mensagem para um público maior do que o esperado. |
 | `audience` | Opcional | Objeto de público conectado | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience). Quando você inclui `audience`, a mensagem é enviada apenas para usuários que correspondem aos filtros definidos, como atributos personalizados e status de inscrição. |
 | `recipients` | Opcional | Vetor | Consulte [objeto de destinatários]({{site.baseurl}}/api/objects_filters/recipient_object).<br><br>Se `send_to_existing_only` for `false`, um objeto `attributes` deverá ser incluído.<br><br>Você pode atualizar o status do grupo de inscrições de um usuário incluindo `subscription_groups` no objeto `attributes` aninhado. Para saber mais, consulte [Objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object).<br><br>Se `recipients` não for fornecido e `broadcast` estiver definido como true, a mensagem é enviada para todo o Segment configurado como o público-alvo da Campaign no dashboard da Braze.<br><br>Se `email` for o identificador, você deve incluir [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers) no objeto de destinatários. |
-| `attachments` | Opcional | Vetor | Se `broadcast` estiver definido como true, a lista `attachments` não poderá ser incluída. |
+| `attachments` | Opcional | Vetor | Se `broadcast` estiver definido como true, a lista `attachments` não poderá ser incluída. <br><br>Quando uma URL de anexo exigir um login, inclua `basic_auth_credential` nesse anexo e defina-o com o nome de uma credencial de autenticação básica armazenada. Para configurar uma credencial, consulte [Autenticação para anexos de arquivo de e-mail]({{site.baseurl}}/api/objects_filters/messaging/email_object#authentication-for-email-file-attachments). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ### Comportamento de resolução de destinatários {#recipient-resolution-behavior}
@@ -195,7 +196,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
   "attachments": [
     {
       "file_name" : "YourFileName",
-      "url" : "https://exampleurl.com/YourFileName.pdf"
+      "url" : "https://exampleurl.com/YourFileName.pdf",
+      "basic_auth_credential": "company_basic_auth_credential_name"
     }
   ]
 }'

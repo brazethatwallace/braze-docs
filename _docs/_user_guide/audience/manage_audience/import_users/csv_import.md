@@ -184,7 +184,7 @@ Additionally, you can add users to email or SMS subscription groups through user
 
 If you are updating subscription group statuses, you must have the following two columns in your CSV:
 
-- `subscription_group_id`: The `id` of the [subscription group]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups).  
+- `subscription_group_id`: The `id` of the [subscription group]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).  
 - `subscription_state`: Available values are `unsubscribed` (not in the subscription group) or `subscribed` (in the subscription group).
 
 | external_id | first_name | subscription_group_id | subscription_state |

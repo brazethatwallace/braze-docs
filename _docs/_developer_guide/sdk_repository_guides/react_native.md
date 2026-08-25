@@ -136,7 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 - **`postInitialization` closure** *(optional)*: receives the live `Braze` instance after creation, for setup that requires the instance (e.g. storing a reference, setting delegates).
 
 {% alert note %}
-** `BrazeReactInitializer.configure` is a Swift-first API that replaces the deprecated `BrazeReactBridge.initBraze(_:)`. It also resolves a Swift type-resolution issue with `Braze.Configuration` in the Objective-C bridge.
+`BrazeReactInitializer.configure` is a Swift-first API that replaces the deprecated `BrazeReactBridge.initBraze(_:)`. It also resolves a Swift type-resolution issue with `Braze.Configuration` in the Objective-C bridge.
 {% endalert %}
 ---
 
@@ -350,7 +350,7 @@ useEffect(() => {
 - **Expo**: use the [Braze Expo plugin](https://github.com/braze-inc/braze-expo-plugin) to avoid manual native wiring where possible.
 - **New Architecture / Turbo Modules**: supported on recent plugin versions; follow the developer guide and sample `AppDelegate` / Gradle settings if you migrate.
 - **Privacy (iOS)**: methods such as `updateTrackingPropertyAllowList` support privacy manifest–related configuration; see [Swift privacy manifest](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/).
-## - **Jest**: mock `react-native` native modules or the Braze Turbo module (see `__tests__/jest.setup.js` in this repo for patterns).
+- **Jest**: mock `react-native` native modules or the Braze Turbo module (see `__tests__/jest.setup.js` in this repo for patterns).
 
 ## Version support
 

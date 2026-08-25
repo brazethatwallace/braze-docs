@@ -4,7 +4,7 @@
   - channel (obrigatório): "in_app_message" ou "landing_page"
 {% endcomment %}
 
-{% multi_lang_include alerts/early_access_beta_alert.md feature='Braze surveys' %}
+Para uma visão geral das pesquisas e dos recursos compartilhados entre canais, consulte [Pesquisas]({{site.baseurl}}/user_guide/messaging/surveys).
 
 ## Pré-requisitos {#prerequisites}
 
@@ -23,17 +23,17 @@ Antes de criar uma pesquisa, você deve:
 
 ## Criar uma pesquisa {#create-a-survey}
 
-Durante o acesso antecipado, as pesquisas são criadas dentro do fluxo de composição de mensagens existente.
+As pesquisas são criadas dentro do fluxo de composição de mensagens existente.
 
 {% if include.channel == 'in_app_message' %}
 1. Crie uma [mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) em uma Campaign ou Canvas.
 2. Selecione **Survey** como o tipo de mensagem.
 {% elsif include.channel == 'landing_page' %}
-1. Acesse **Messaging** > **Landing Pages**.
+1. Acessar **Messaging** > **Landing Pages**.
 2. Crie uma nova landing page.
 3. Selecione **Survey** como o tipo de mensagem.
 {% else %}
-1. Acesse **Messaging** > **Landing Pages** ou crie uma [mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) em uma Campaign ou Canvas.
+1. Acessar **Messaging** > **Landing Pages**, ou crie uma [mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) em uma Campaign ou Canvas.
 2. Crie uma nova mensagem.
 3. Selecione **Survey** como o tipo de mensagem.
 {% endif %}
@@ -49,7 +49,7 @@ As pesquisas de mensagem no app contêm duas páginas por padrão:
 
 Por padrão, os botões estão vinculados a **Next page**. Para alterar esse comportamento, atualize cada botão no painel **Actions**.
 
-![Fluxo de páginas e configurações de ação da pesquisa de mensagem no app.]({% image_buster /assets/img/surveys/iam-survey-nav.png %}){: style="max-width:40%;"}
+![Fluxo de páginas e configurações de ação de uma pesquisa de mensagem no app.]({% image_buster /assets/img/surveys/iam-survey-nav.png %}){: style="max-width:40%;"}
 
 {% endif %}
 
@@ -66,7 +66,7 @@ Para controles compartilhados de estilo e composição, consulte:
 - [Blocos de formulário de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% endif %}
 
-Você pode adicionar os seguintes blocos de formulário às pesquisas:
+Você pode adicionar os seguintes blocos de formulário a pesquisas:
 
 - Captura de telefone
 - Captura de e-mail
@@ -77,42 +77,22 @@ Você pode adicionar os seguintes blocos de formulário às pesquisas:
 - Caixa de seleção única
 - Grupo de caixas de seleção
 - Escala de avaliação
+- NPS
 
 ### Randomizar opções de resposta {#randomize-answer-choices}
 
-Os blocos de grupo de botões de opção, grupo de caixas de seleção e menu suspenso suportam opções de resposta randomizadas. Ative **Randomize choice order** para embaralhar as opções cada vez que a pesquisa for carregada. Use essa configuração para reduzir o viés de ordem quando a mesma primeira opção pode distorcer as respostas.
-
-A randomização altera apenas a ordem de exibição para cada respondente da pesquisa. Os rótulos e valores dos relatórios permanecem mapeados para as opções que você configurou, então a análise de dados, as exportações CSV e a segmentação usam os mesmos dados de resposta.
+Os blocos de grupo de botões de opção, grupo de caixas de seleção e menu suspenso aceitam opções de resposta aleatórias. Ative **Randomize choice order** para embaralhar as opções cada vez que a pesquisa for carregada. Para saber mais, consulte [Ordem aleatória de opções]({{site.baseurl}}/user_guide/messaging/surveys#randomized-choice-order).
 
 ### Captura de texto longo {#long-text-capture}
 
-A captura de texto longo é útil para feedback qualitativo.
-
-Você pode configurar:
-
-- Contagens mínima e máxima de caracteres (até 1.000)
-- Se os limites de caracteres devem ser exibidos durante a composição
-- Altura da área de texto (linhas)
-- Texto de placeholder
-
-Durante o acesso antecipado, as respostas de texto longo estão disponíveis em relatórios e exportações, mas não podem ser registradas como atributos personalizados no perfil de usuário.
-
-![Configurações do bloco de captura de texto longo.]({% image_buster /assets/img/surveys/long-form-surveys.png %}){: style="max-width:40%;"}
+A captura de texto longo é útil para feedback qualitativo, com até 1.000 caracteres. Para saber mais, consulte [Captura de texto em formato longo]({{site.baseurl}}/user_guide/messaging/surveys#long-form-text-capture).
 
 ### Escala de avaliação {#rating-scale}
 
-A escala de avaliação é útil para capturar sentimento, satisfação ou probabilidade de recomendação como um único número.
-
-No painel de configurações, selecione uma escala no menu suspenso:
-
-- **1–10**
-- **1–5**
-- **0–10** (faixa padrão do Net Promoter Score (NPS))
-
-Você pode coletar uma avaliação como resposta da pesquisa, registrá-la como um atributo personalizado do tipo inteiro, ou ambos. Combine um bloco de escala de avaliação com um bloco de [captura de texto longo](#long-text-capture) para coletar uma pontuação numérica junto com feedback qualitativo na mesma pesquisa.
+A escala de avaliação (também chamada de pergunta com escala numérica) é útil para capturar sentimento, satisfação ou probabilidade de recomendação como um único número. Para saber mais, consulte [Perguntas com escala numérica]({{site.baseurl}}/user_guide/messaging/surveys#number-scale-questions).
 
 {% if include.channel == 'in_app_message' %}
-![Escala de avaliação para avaliar sua experiência na loja de 1 a 5.]({% image_buster /assets/img/surveys/iam_rating_scale_example.png %}){: style="max-width:40%;"}
+![Escala de avaliação para classificar sua experiência na loja de 1 a 5.]({% image_buster /assets/img/surveys/iam_rating_scale_example.png %}){: style="max-width:40%;"}
 {% elsif include.channel == 'landing_page' %}
 ![Escala de avaliação para indicar a probabilidade de recomendar o produto a um amigo de 1 a 10.]({% image_buster /assets/img/surveys/landing_page_rating_scale_example.png %}){: style="max-width:70%;"}
 {% else %}
@@ -121,9 +101,9 @@ Você pode coletar uma avaliação como resposta da pesquisa, registrá-la como 
 
 ## Configurar campos e atributos obrigatórios {#configure-required-fields-and-attributes}
 
-Para cada bloco de formulário, insira um **Identificador para relatório** no painel de configurações do lado direito. Esse identificador aparece nos relatórios de pesquisa e nas exportações de CSV.
+Para cada bloco de formulário, insira um **Identificador para relatório** no painel de configurações do lado direito. Esse identificador aparece nos relatórios de pesquisa e nas exportações em CSV.
 
-Durante o acesso antecipado:
+Tenha em mente:
 
 - Você pode registrar a maioria das respostas de pesquisa em atributos personalizados do perfil de usuário.
 - Respostas de texto longo não podem ser registradas como atributos personalizados.
@@ -131,7 +111,7 @@ Durante o acesso antecipado:
 
 ![Configurações de identificador para relatório e registro de atributos.]({% image_buster /assets/img/surveys/reporting-id-surveys.png %}){: style="max-width:40%;"}
 
-## Visualizar relatórios e análise de dados {#view-reporting-and-analytics}
+## Ver relatórios e análise de dados {#view-reporting-and-analytics}
 
 Após o lançamento, revise os resultados em:
 
@@ -144,39 +124,19 @@ Após o lançamento, revise os resultados em:
 - A visualização de análise de dados da landing page para pesquisas de landing page
 {% endif %}
 
-As análises de nível superior incluem:
-
-- **All responses:** Total de respostas completas e incompletas
-- **Completed:** Usuários que completaram todas as perguntas obrigatórias
-- **Partially complete:** Usuários que enviaram alguns dados, mas não completaram todas as perguntas obrigatórias
-- **Unique impressions:** Total de visualizações de página
+Para definições da análise de dados de nível superior disponível para cada pesquisa (todas as respostas, concluídas, parcialmente concluídas e impressões únicas), consulte [Análise de dados]({{site.baseurl}}/user_guide/messaging/surveys#analytics).
 
 {% if include.channel == 'landing_page' %}
 {% alert note %}
-As pesquisas de landing page não rastreiam respostas parcialmente completas durante o acesso antecipado.
+Pesquisas de landing page rastreiam respostas parcialmente concluídas quando a pesquisa usa [formulários de múltiplas etapas]({{site.baseurl}}/user_guide/messaging/surveys#multi-step-landing-page-forms).
 {% endalert %}
 {% endif %}
 
-Você também pode revisar os detalhamentos de respostas por pergunta e exportar os dados como CSV.
-
-### Escolher um tipo de gráfico {#choose-a-chart-type}
-
-Para blocos de formulário com botão de opção, menu suspenso e caixa de seleção, você pode escolher entre três tipos de gráfico na visualização de análise de dados da pesquisa. Isso oferece mais flexibilidade para interpretar e compartilhar insights sem precisar exportar para uma ferramenta de terceiros.
-
-| Tipo de gráfico | Melhor para |
-| --- | --- |
-| Gráfico de barras | A visualização horizontal padrão de contagens e porcentagens de respostas. |
-| Gráfico de colunas | Uma visualização vertical de contagens e porcentagens de respostas. Use este gráfico para comparar respostas lado a lado, especialmente para perguntas de múltipla seleção ou perguntas com mais opções de resposta. |
-| Gráfico de pizza | Um detalhamento proporcional das respostas. Use este gráfico para perguntas de seleção única quando quiser ver como as respostas estão distribuídas entre as opções. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de gráfico de pesquisa" }
-
-Cada gráfico é atualizado em tempo real conforme as respostas chegam. Você pode alternar entre os tipos de gráfico a qualquer momento sem afetar os dados subjacentes.
-
-![Detalhamento por pergunta da pesquisa usando um gráfico de barras.]({% image_buster /assets/img/surveys/bar-charts-1.png %})
+Você também pode revisar os detalhamentos de respostas por pergunta, escolher entre três tipos de gráfico e exportar dados como CSV. Para saber mais, consulte [Tipos de gráfico]({{site.baseurl}}/user_guide/messaging/surveys#chart-types).
 
 ## Redirecionar e disparar {#retarget-and-trigger}
 
-Durante o acesso antecipado, você pode:
+Você pode:
 
 - Segmentar usuários por respostas de pesquisa que são registradas como atributos de usuário.
 - Segmentar usuários por status de conclusão da pesquisa.
@@ -209,7 +169,7 @@ Durante o acesso antecipado, você pode:
 
 ### Limitações {#limitations}
 
-Durante o acesso antecipado, você está sujeito às seguintes restrições:
+Você tem as seguintes restrições:
 
 - Não é possível segmentar usuários por respostas de texto longo.
 - O disparo por pergunta e resposta que não depende de atributos de usuário registrados não está disponível.

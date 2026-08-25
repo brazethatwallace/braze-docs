@@ -25,6 +25,7 @@ You can customize your email messaging in a variety of ways, including:
 - [Custom HTML templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
 - [Editor blocks (email)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
 - [User subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions)
+- [Subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups)
 
 ## Test your emails
 

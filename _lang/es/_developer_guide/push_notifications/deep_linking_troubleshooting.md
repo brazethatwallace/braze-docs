@@ -16,29 +16,30 @@ channel:
 
 ## Empieza aquí: Identifica tu síntoma {#start-here-match-your-symptom}
 
-Busca el comportamiento que estás observando en la tabla y luego sigue los pasos de esa sección. Si no estás seguro de qué sección aplica, usa la [ruta de investigación estándar](#standard-investigation-path).
+Busca el comportamiento que estás observando en la tabla y luego sigue los pasos de esa sección. Si no estás seguro de qué sección aplica, utiliza la [ruta de investigación estándar](#standard-investigation-path).
 
 | Síntoma | Ir a |
 | --- | --- |
-| El vínculo de esquema personalizado abre la aplicación pero muestra la pantalla incorrecta | [El vínculo profundo de esquema personalizado no abre la vista correcta](#custom-scheme-deep-link-does-not-open-the-correct-view) |
+| El enlace de esquema personalizado abre la aplicación pero muestra la pantalla incorrecta | [El vínculo profundo de esquema personalizado no abre la vista correcta](#custom-scheme-deep-link-does-not-open-the-correct-view) |
 | El enlace universal abre Safari en lugar de la aplicación | [El enlace universal se abre en Safari en lugar de la aplicación](#universal-link-opens-in-safari-instead-of-the-app) |
 | El enlace del correo electrónico no abre la aplicación | [El vínculo profundo desde el correo electrónico no abre la aplicación](#deep-link-from-email-does-not-open-the-app) |
-| Funciona desde push pero no desde un mensaje dentro de la aplicación (o viceversa) | [El vínculo profundo funciona desde push pero no desde un mensaje dentro de la aplicación](#deep-link-works-from-push-but-not-from-in-app-message) |
+| Todos los enlaces del correo electrónico abren la aplicación | [Todos los enlaces del correo electrónico abren la aplicación](#every-email-link-opens-the-app) |
+| Funciona desde push pero no desde mensaje dentro de la aplicación (o viceversa) | [El vínculo profundo funciona desde push pero no desde mensaje dentro de la aplicación](#deep-link-works-from-push-but-not-from-in-app-message) |
 | "Open Web URL Inside App" muestra un WebView en blanco | ["Open Web URL Inside App" muestra una página en blanco o rota](#open-web-url-inside-app-shows-a-blank-or-broken-page) |
 | El enlace de Branch no abre la aplicación o no enruta correctamente | [Solución de problemas de Branch con Braze](#branch) |
-| El vínculo profundo falla sin una causa clara | [Consejos generales de depuración](#general-debugging-tips) |
+| El vínculo profundo falla sin causa clara | [Consejos generales de depuración](#general-debugging-tips) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Síntoma de vinculación en profundidad" }
 
 ## Ruta de investigación estándar {#standard-investigation-path}
 
 Utiliza este flujo de trabajo para cada incidente de vinculación en profundidad. Comienza en el paso 1.
 
-1. Prueba el vínculo fuera de Braze. Para esquemas personalizados, ejecuta `xcrun simctl openurl booted "<URL>"` en Terminal (por ejemplo, `xcrun simctl openurl booted "myapp://products/123"`). Para vínculos universales, pega la URL en la aplicación Notas en un dispositivo físico y tócala.
+1. Prueba el enlace fuera de Braze. Para esquemas personalizados, ejecuta `xcrun simctl openurl booted "<URL>"` en Terminal (por ejemplo, `xcrun simctl openurl booted "myapp://products/123"`). Para enlaces universales, pega la URL en la aplicación Notas en un dispositivo físico y tócala.
 2. [Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) y reproduce el problema. Busca entradas `Opening '<URL>':` con `channel`, `useWebView` e `isUniversalLink`.
-3. Para vínculos universales, valida tu archivo AASA y el entitlement de Associated Domains.
-4. Para vínculos de correo electrónico, confirma que el dominio de seguimiento de clics aloja un archivo AASA válido.
-5. Si implementas `BrazeDelegate.braze(_:shouldOpenURL:)`, verifica que gestione los vínculos de forma coherente en todos los canales.
-6. Si el problema persiste, contacta con [soporte de Braze]({{site.baseurl}}/braze_support) con los registros detallados y la URL del vínculo.
+3. Para enlaces universales, valida tu archivo AASA y el permiso de Associated Domains.
+4. Para enlaces de correo electrónico, confirma que el dominio de seguimiento de clics aloja un archivo AASA válido.
+5. Si implementas `BrazeDelegate.braze(_:shouldOpenURL:)`, verifica que gestione los enlaces de manera consistente en todos los canales.
+6. Si el problema persiste, contacta con [soporte de Braze]({{site.baseurl}}/braze_support) con los registros detallados y la URL del enlace.
 
 ## El vínculo profundo con esquema personalizado no abre la vista correcta {#custom-scheme-deep-link-does-not-open-the-correct-view}
 
@@ -140,6 +141,16 @@ Para probar:
 2. Mantén presionado el enlace e inspecciona la URL: esta es la URL de seguimiento de clics.
 3. Verifica que este dominio tenga un archivo AASA válido.
 
+## Todos los enlaces de correo electrónico abren la aplicación {#every-email-link-opens-the-app}
+
+**Síntoma:** Todos los enlaces de un correo electrónico abren tu aplicación, incluidos los enlaces que esperas que se abran en un navegador.
+
+Tu archivo AASA en el dominio de seguimiento de clics usa `paths` que coinciden con todas las URL de ese dominio (por ejemplo, `*` o `/*`). iOS entonces trata cada enlace de correo electrónico con seguimiento de clics como un enlace universal.
+
+Limita `paths` a las URL que deben abrir la aplicación. Para SendGrid, haz coincidir `/uni/` y añade `universal="true"` solo en esos enlaces.
+
+Para la configuración específica de ESP, incluidos los valores de `pathPrefix` de Android, consulta [Enlaces universales y App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking).
+
 ## El vínculo profundo funciona desde push pero no desde un mensaje dentro de la aplicación (o viceversa) {#deep-link-works-from-push-but-not-from-in-app-message}
 
 **Síntoma:** El mismo vínculo profundo funciona desde un canal de Braze pero no desde otro.
@@ -231,7 +242,7 @@ Prueba el enlace de Branch fuera de Braze para aislar el problema:
 
 ### Usa el registro detallado {#use-verbose-logging}
 
-[Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) para ver exactamente cómo el SDK procesa los enlaces. Entradas clave que debes buscar:
+[Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) para ver exactamente cómo el SDK procesa los enlaces. Entradas clave a buscar:
 
 | Entrada de registro | Qué significa |
 |---|---|
@@ -248,10 +259,10 @@ Para más detalles sobre cómo leer estos registros, consulta [Lectura de regist
 
 Antes de probar a través de Braze, verifica que tu vínculo profundo o enlace universal funcione por sí solo:
 
-- **Esquema personalizado**: Ejecuta `xcrun simctl openurl booted "myapp://path"` en Terminal.
-- **Enlace universal**: Pega la URL en la aplicación Notas en un dispositivo físico y tócala. No pruebes desde la barra de direcciones de Safari, ya que iOS trata las URL escritas de forma diferente a los enlaces tocados.
+- **Esquema personalizado**: Ejecuta `xcrun simctl openurl booted "myapp://path"` en la Terminal.
+- **Enlace universal**: Pega la URL en la aplicación Notas en un dispositivo físico y tócala. No pruebes desde la barra de direcciones de Safari, ya que iOS trata las URL escritas de forma diferente a los enlaces que se tocan.
 - **Enlace de Branch**: Abre el enlace de Branch desde la aplicación Notas en un dispositivo.
 
 ### Prueba en un dispositivo físico {#test-on-a-physical-device}
 
-Los enlaces universales tienen soporte limitado en el simulador de iOS. Siempre prueba en un dispositivo físico para obtener resultados precisos. Si necesitas probar en un simulador, agrega el archivo `.entitlements` a la fase de compilación **Copy Bundle Resources**.
+Los enlaces universales tienen soporte limitado en el simulador de iOS. Siempre prueba en un dispositivo físico para obtener resultados precisos. Si necesitas probar en un simulador, añade el archivo `.entitlements` a la fase de compilación **Copy Bundle Resources**.

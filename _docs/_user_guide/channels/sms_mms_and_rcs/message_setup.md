@@ -4,7 +4,7 @@ article_title: Message setup
 page_order: 0
 layout: dev_guide
 guide_top_header: "Message setup"
-guide_top_text: "Set up your SMS, MMS, and RCS messaging by configuring senders, subscription groups, and phone numbers. For compliance guidance, refer to Compliance and delivery."
+guide_top_text: "Set up your SMS, MMS, and RCS messaging by configuring senders, subscription groups, and phone numbers. For a cross-channel overview of subscription groups, see <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>Subscription groups</a>. For compliance guidance, refer to Compliance and delivery."
 page_type: landing
 description: "Set up SMS, MMS, and RCS messaging in Braze, including sender configuration, subscription groups, and phone numbers."
 channel:

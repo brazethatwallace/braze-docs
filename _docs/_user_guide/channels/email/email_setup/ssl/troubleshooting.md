@@ -162,6 +162,48 @@ If you're using Amazon SES as your email service provider, the following configu
 
 Common redirection issues typically result from an improper configuration between the CDN hosting the tracking domain and its associated SSL certificates or DNS CNAME records. These misconfigurations often cause users to receive a "connection is not secure" privacy error or a `404` failure after clicking a tracked email link.
 
+### HTML link formatting requirements {#html-link-formatting-requirements}
+
+For click tracking to work, your email service provider (SendGrid, SparkPost, or Amazon SES) must find and replace links in your HTML. Across these providers, links must meet these formatting requirements:
+
+- Links must be in an HTML `<a>` tag with an `href` attribute.
+- The URL must start with `http://` or `https://`.
+
+Additional provider-specific rules:
+
+- **SendGrid:** Enclose the URL in single or double quotes, and do not include spaces around the `=` in the `href` attribute.
+- **Amazon SES:** URLs must comply with [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986). Unencoded spaces in a URL prevent Amazon SES from tracking the link.
+
+For more on which URL schemes Braze click tracking supports, see [Click tracking link requirements]({{site.baseurl}}/user_guide/channels/email/email_setup/open_pixel_and_click_tracking#click-tracking-link-requirements). For provider HTML details, see [SendGrid click tracking HTML best practices](https://www.twilio.com/docs/sendgrid/ui/analytics-and-reporting/click-tracking-html-best-practices), [SparkPost template language](https://developers.sparkpost.com/api/template-language/), and [Amazon SES email sending metrics FAQs](https://docs.aws.amazon.com/ses/latest/dg/faqs-metrics.html).
+
+Valid examples include:
+
+```html
+<a href="http://www.example.com">Link</a>
+<a href='https://example.com'>Link</a>
+<a target="_blank" href="https://example.com">Link</a>
+```
+
+The following examples omit `http://` or `https://` and are not tracked:
+
+```html
+<a href="example.com">Link</a>
+<a href="www.example.com">Link</a>
+```
+
+If you use SendGrid, the following examples are also not tracked:
+
+```html
+<a href= http://www.example.com>Link</a>
+<a href = "https://example.com">Link</a>
+```
+
+{% alert note %}
+While a `www` subdomain is optional, `http://` or `https://` is required for click tracking to work properly.
+{% endalert %}
+
+### Testing click tracking {#testing-click-tracking}
+
 After completing the [triage workflow](#triage-workflow), use the following template to test the CDN configuration of your tracking domain, which is the mechanism supporting analytics for links within your emails.
 
 1. Copy and paste the following template into a Braze HTML email campaign.

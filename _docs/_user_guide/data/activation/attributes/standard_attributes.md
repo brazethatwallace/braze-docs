@@ -70,7 +70,7 @@ These fields manage how a user receives messages across channels. Updating them 
 | `marked_email_as_spam_at` | String | Timestamp at which the user's email was marked as spam. Use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-For details on subscription group setup, see [Subscription groups]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups).
+For details on subscription group setup, see [Subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
 
 ## Sessions and engagement
 
