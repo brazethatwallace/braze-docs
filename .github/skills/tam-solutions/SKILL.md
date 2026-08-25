@@ -33,6 +33,7 @@ TAM solutions may live in any of these sources. Use whichever the user provides,
 | **Google Drive folder** | [TAM Assets folder](https://drive.google.com/drive/folders/1APchTnf3UWN6MGpGkeBfryGMn73LBUM0) |
 | **Confluence** | TAM solution pages (user supplies URL), or Atlassian MCP when available |
 | **Local JSON export** | `_data/tam_solutions/export_<YYYYMMDD>.json` from [`scripts/tam-solutions/export_drive_solutions.py`](../../../scripts/tam-solutions/export_drive_solutions.py) |
+| **Example library tracker** | [TAM solutions to Docs tracker — Example library](https://docs.google.com/spreadsheets/d/1YChWu-L-hPMRo9cVIMfqSYKBQQdNRs4PkFnXPnKk5RE/edit) — **Product team** per solution (used as **Product team:** on the BD Story). After the draft PR exists, write the PR URL into **PR link** on the matching row (see Step 7). |
 
 ### Google Doc URL
 
@@ -291,11 +292,62 @@ If verified against product source, include **Verified against Braze source code
 
 Run this only after `gh pr create` succeeds and the user already approved the draft (Step 6). Do not create a Story during audit or for skipped solutions.
 
-1. **Dedup** — Skip create if the PR title or body already has a `BD-####` other than `BD-7190`, or if JQL finds an open child of the epic for this PR:
+Tracker sync and Jira Story create are **independent**. Always match the tracker row and write **PR link** after the draft PR exists, even if you skip Story create (Dedup) or Jira create fails.
+
+1. **Match the tracker row** — Resolve the Example library tracker row from the [TAM solutions to Docs tracker — Example library](https://docs.google.com/spreadsheets/d/1YChWu-L-hPMRo9cVIMfqSYKBQQdNRs4PkFnXPnKk5RE/edit) Google Sheet (spreadsheet ID `1YChWu-L-hPMRo9cVIMfqSYKBQQdNRs4PkFnXPnKk5RE`). Do **not** `WebFetch` the Sheet (SSO). Use Google Sheets MCP `get_sheet_data`.
+
+   1. Read both tabs: **Customer agnostic — Confluence** and **TAM assets — Google Drive**.
+   2. Match the TAM source to a row: Google Doc ID in the **Link** cell, or the Confluence page URL. Prefer URL/ID match over title.
+   3. Keep the matched tab name, row number, and **Product team** cell for later steps. Do not copy customer names from tracker titles. Do not read the **PM** column unless the user asks.
+
+2. **Write the PR onto the tracker** — Always run this after `gh pr create`, using the row from step 1. Do **not** wait for Story create. Use Google Sheets MCP `update_cell` (Editor access on the Sheet). Do **not** `WebFetch`. Do **not** insert a new row.
+
+   | Tab | **PR link** column |
+   |-----|-------------------|
+   | **Customer agnostic — Confluence** | **PR link** (column `E`) already exists |
+   | **TAM assets — Google Drive** | If row 1 has no **PR link** header, set `E1` to `PR link` once, then use column `E` for the matched row |
+
+   Call `update_cell` with `spreadsheet_id` `1YChWu-L-hPMRo9cVIMfqSYKBQQdNRs4PkFnXPnKk5RE`, the tab name, cell (for example `E3`), and content `[{"text": "<pr url>", "url": "<pr url>"}]`.
+
+   - If **PR link** is empty, write the new PR URL.
+   - If it already equals this PR, skip.
+   - If it is a **different** URL, do not overwrite; tell the user.
+   - If no row matched, Sheets MCP lacks write access, or `update_cell` fails: leave the PR up and tell the user. Do not block the PR or skip later Jira steps.
+
+3. **Dedup Story create** — Skip **only** Story create (step 4) if the PR title or body already has a `BD-####` other than `BD-7190`, or if JQL finds an open child of the epic for this PR:
    `parent = BD-7190 AND description ~ "<github pull request url>"`
-2. **Create** — Prefer Rovo `createJiraIssue` (workspace Jira access). Project `BD`, issue type `Story`, parent **BD-7190** (`parent` and epic-link field if required). Priority **P4**. Summary: `TAM solutions - <example title>`. Description (markdown): PR URL, example path under `_docs/_user_guide/example_library/`, TAM source URL, one-line what the example covers. Confirm required BD fields with issue-type metadata if create fails.
-3. **Write back** — `gh pr edit` the title to `[TAM solutions][BD-####] <short summary>` (child Story key, not `BD-7190`). Set **### Jira** to the Story URL and keep the BD-7190 epic link. Optionally comment on the Story with the PR URL.
-4. **Failure** — If Jira MCP is unavailable or create fails, leave the PR up, keep the epic link in the PR body, and tell the user the Story was not created. Do not block the PR. Do not use branch names like `jira-BD-####` (reserved for feedback-handler).
+   Dedup does **not** skip tracker write (step 2).
+
+4. **Create the Story** — Prefer Rovo `createJiraIssue` (workspace Jira access). Project `BD`, issue type `Story`, parent **BD-7190** (`parent` and epic-link field if required). Priority **P4**. Summary: `TAM solutions - <example title>`.
+
+   **Assignee** — Assign every Story this skill creates to **Lydia Xie** (GitHub `lydia-xie`). Before create, call Rovo `lookupJiraAccountId` with search string `Lydia Xie` and pass the returned account ID as `assignee_account_id` on `createJiraIssue`. If lookup returns more than one person, pick the Braze Docs / Technical Writing match. If lookup or assign fails, still create the Story unassigned and tell the user.
+
+   **Product team:** — Copy the **Product team** cell from the matched tracker row (step 1) as-is, including multiple values separated by `;`. If step 1 found no row, Sheets MCP failed, or that cell is empty, set **Product team:** to `Unknown — confirm in tracker` and tell the user. Still create the Story.
+
+   Description must be markdown in this exact shape (fill each value; do not omit labels). Confirm required BD fields with issue-type metadata if create fails.
+
+   ```markdown
+   **GitHub PR:**
+   <pull request URL>
+
+   **Docs path for example:**
+   `_docs/_user_guide/example_library/<category>/<slug>.md`
+
+   **TAM source:**
+   <Google Doc, Drive, or Confluence URL>
+
+   **Product team:**
+   <Product team from the matching tracker row>
+
+   **Example description:**
+   <one line on what the example covers>
+   ```
+
+   Do not put customer names or other PII in **Example description**.
+
+5. **Write back** — If step 4 created a Story, `gh pr edit` the title to `[TAM solutions][BD-####] <short summary>` (child Story key, not `BD-7190`). Set **### Jira** to the Story URL and keep the BD-7190 epic link. Optionally comment on the Story with the PR URL. Skip this step when Dedup skipped create.
+
+6. **Jira failure** — If Jira MCP is unavailable or create fails, leave the PR up, keep the epic link in the PR body, and tell the user the Story was not created. Still complete tracker write (step 2) if it has not run yet. Do not block the PR. Do not use branch names like `jira-BD-####` (reserved for feedback-handler).
 
 ---
 
@@ -309,7 +361,7 @@ Run this only after `gh pr create` succeeds and the user already approved the dr
 | 4 | Draft article with four required sections | User reviews draft |
 | 5 | Branch, commit, push | — |
 | 6 | — | **User approves before PR** |
-| 7 | Open draft PR; create a BD Story under [BD-7190](https://jira.atl.braze.com/browse/BD-7190); patch PR with the Story key | — |
+| 7 | Open draft PR; create a BD Story under [BD-7190](https://jira.atl.braze.com/browse/BD-7190); write the PR URL to the tracker **PR link** cell; patch PR with the Story key | — |
 
 No CI or scripts for v1 — Cursor-driven only.
 
