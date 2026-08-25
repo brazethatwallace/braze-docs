@@ -103,7 +103,7 @@ When you configure your CDN's click-tracking domain, enable the `X-Forwarded-Hos
 
 ## Click and open tracking URL patterns
 
-Your email service provider (ESP) rewrites each tracked link to point at your click tracking domain, then adds a path prefix that marks the request as a tracked click or open. Braze doesn't build these paths. Your ESP adds them when it rewrites the link, so use your ESP's documentation as the source of truth when you configure CDN or proxy rules, security allowlists, or mobile app link handling.
+Your email service provider (ESP) rewrites each tracked link to point at your click tracking domain, then adds a path prefix that marks the request as a tracked click or open. Braze doesn't build these paths. Your ESP adds them when it rewrites the link. For CDN or proxy rules, security allowlists, or mobile app link handling, use your ESP's documentation as the source of truth.
 
 | ESP | Path patterns | ESP documentation |
 | --- | --- | --- |
