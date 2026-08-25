@@ -75,25 +75,72 @@ environment. Replace `${ISSUE_KEY}` with the ticket ID (for example,
 ```bash
 AUTH_B64=$(printf '%s:%s' "${JIRA_USER_EMAIL}" "${JIRA_API_TOKEN}" | base64 -w0)
 
-curl -sS \
-  --url "https://braze.atlassian.net/rest/api/3/issue/${ISSUE_KEY}?fields=summary,description,status,comment,issuelinks" \
+set +e
+ISSUE_HTTP=$(curl -sS -o "/tmp/jira-${ISSUE_KEY}.json" -w '%{http_code}' \
+  --url "https://braze.atlassian.net/rest/api/3/issue/${ISSUE_KEY}?fields=summary,description,status,comment,issuelinks&expand=renderedFields" \
   --header "Authorization: Basic ${AUTH_B64}" \
-  --header 'Accept: application/json' \
-  -o "/tmp/jira-${ISSUE_KEY}.json"
+  --header 'Accept: application/json')
+ISSUE_CURL_EXIT=$?
+set -e
+
+if [ "${ISSUE_CURL_EXIT}" -ne 0 ] || [ "${ISSUE_HTTP:-0}" -lt 200 ] || [ "${ISSUE_HTTP:-0}" -ge 300 ]; then
+  echo "Warning: Jira issue ${ISSUE_KEY} inaccessible (HTTP ${ISSUE_HTTP:-?}, curl exit ${ISSUE_CURL_EXIT})."
+  # Treat this issue as inaccessible. Do not parse the JSON body.
+else
+  echo "Fetched ${ISSUE_KEY} (HTTP ${ISSUE_HTTP})."
+fi
 ```
 
-Read `fields.summary`, `fields.description`, and every entry in
-`fields.comment.comments`. If the response is not HTTP 2xx, log the
-status and issue key; only then treat that issue as inaccessible.
+Do **not** treat the saved JSON as ticket content unless curl exited 0
+and `${ISSUE_HTTP}` is 2xx. Error bodies (401/404) are still written to
+`-o` while curl can exit 0.
+
+**Parse REST JSON (API v3 is ADF, not plain text):**
+
+- `fields.summary` — plain string.
+- `fields.description` and `fields.comment.comments[].body` — Atlassian
+  Document Format (ADF) objects. Do **not** read them as prose. Prefer
+  HTML from `renderedFields.description` and
+  `renderedFields.comment.comments[].body` (`expand=renderedFields`).
+  If `renderedFields` is empty, collect every ADF `text` node.
+- Linked issue keys are **not** on the `issuelinks` object itself.
+  They are `inwardIssue.key` or `outwardIssue.key` on each entry.
+
+```bash
+# Linked Jira keys (inward and/or outward)
+jq -r '.fields.issuelinks[]? | (.inwardIssue.key // empty), (.outwardIssue.key // empty)' \
+  "/tmp/jira-${ISSUE_KEY}.json"
+
+# Description: rendered HTML first, else ADF text nodes
+jq -r '
+  if .renderedFields.description then .renderedFields.description
+  else [.fields.description | .. | objects | select(has("text")) | .text] | join("\n")
+  end
+' "/tmp/jira-${ISSUE_KEY}.json"
+
+# Comments: rendered HTML first, else ADF text nodes
+jq -r '
+  (.renderedFields.comment.comments // .fields.comment.comments // [])
+  | .[]
+  | if .body | type == "string" then .body
+    else [.body | .. | objects | select(has("text")) | .text] | join(" ")
+    end
+' "/tmp/jira-${ISSUE_KEY}.json"
+```
+
+Also collect issue keys that appear in that extracted description and
+comment text (for example `PQ-4989`, `BD-1234`, or
+`https://jira.atl.braze.com/browse/PQ-4989`).
 
 #### Workflow for Step 1
 
 1. Fetch the feedback ticket (`TICKET_ID` from the bootstrap prompt)
    via MCP or REST.
 2. Collect linked Jira issue keys from:
-   - `fields.issuelinks` on the feedback ticket
-   - Issue keys in the description or comments (for example `PQ-4989`,
-     `BD-1234`, or `https://jira.atl.braze.com/browse/PQ-4989`)
+   - `inwardIssue.key` / `outwardIssue.key` on `fields.issuelinks`
+   - Issue keys in the **extracted** description or comments (for
+     example `PQ-4989`, `BD-1234`, or
+     `https://jira.atl.braze.com/browse/PQ-4989`)
 3. Fetch **each linked Jira issue** via MCP or REST. PQ tickets
    frequently contain the authoritative answer — do not skip them.
 4. For Confluence URLs, use Atlassian MCP when available.
