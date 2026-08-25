@@ -767,6 +767,7 @@ event_documentation:
       - Agent
   users.profile.Update:
     description: This represents the profile updates for a user.
+    alert_important: The user profile update event is in beta. Contact your customer success manager or account manager for access.
     api_tags:
       - Profile
   users.UserDeleteRequest:
