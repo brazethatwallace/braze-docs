@@ -42,7 +42,6 @@ glossary_tags:
   - name: Custom Events
   - name: Email List
   - name: Email Templates
-  - name: Webhook Templates
   - name: KPI
   - name: Media Library
   - name: Messaging API
@@ -234,18 +233,6 @@ glossaries:
     description: Get a list of available email templates in your Braze account.
     tags:
       - Email Templates
-  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_source_webhook_template'>/templates/webhook/translations/source</a>
-    description: View the default source translations for a webhook template.
-    tags:
-      - Webhook Templates
-  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_translations_webhook_template'>/templates/webhook/translations</a>
-    description: View translations for a webhook template.
-    tags:
-      - Webhook Templates
-  - name: <a href='/docs/api/endpoints/translations/webhook_templates/put_update_webhook_template'>/templates/webhook/translations</a>
-    description: Update translations for a webhook template.
-    tags:
-      - Webhook Templates
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaign_analytics'>/campaigns/data_series</a>
     description: Retrieve a daily series of various stats for a campaign over time.
     tags:
