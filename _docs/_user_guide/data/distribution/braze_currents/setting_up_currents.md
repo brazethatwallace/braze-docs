@@ -27,6 +27,15 @@ If you see "You do not have any remaining Currents integrations" when adding a n
 
 To resolve this, check other workspaces within your company. A different workspace may show an available Currents entitlement. If you need to request an entitlement or adjust your configuration, contact your Braze account manager.
 
+### Cannot enable additional event tracking
+
+If you can create or edit a connector but can't enable one of the optional tracking switches, your workspace may have reached an entitlement limit for that event category.
+
+- **Track Customer Behavior and User Events** requires available **Customer Behavior Events** entitlements.
+- **Track user profiles and attributes** requires available **User Profiles and Attributes** entitlements.
+
+If you need additional entitlements or help adjusting your configuration, contact your Braze account manager.
+
 ## Requirements
 
 Using Currents with any of our partners requires the same basic parameters and connection methodology.
