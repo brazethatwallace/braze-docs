@@ -48,10 +48,10 @@ The `selection` object allows you to specify which items from your catalog shoul
 | --- | -------- | --------- | ----------- |
 | `name` | Required | String | The name of the catalog selection. |
 | `description` | Optional | String | A description of the catalog selection. |
-| `external_id` | Required | String | A unique identifier for the selection. |
+| `external_id` | Optional | String | A unique identifier for the selection. |
 | `source` | Optional | String | The source of the catalog data. For Shopify catalogs, set this to `"Shopify"`. Accepted values are `"Shopify"` and `"Braze"`. |
-| `filters` | Optional | Array of objects | An array of filter objects to apply to the catalog items. You can specify up to four filters per request. If no filters are provided, all items from the catalog are included. |
-| `results_limit` | Optional | Integer | The maximum number of results to return. Must be a number between 1 and 50. |
+| `filters` | Required | Array of objects | An array of filter objects to apply to the catalog items. You can specify up to ten filters per request. If an empty array of filters is provided, all items from the catalog are included. |
+| `results_limit` | Required | Integer | The maximum number of results to return. Must be a number between 1 and 50. |
 | `sort_field` | Optional | String | The field to sort results by. This must be paired with `sort_order`. If both `sort_field` and `sort_order` are not present, results are returned in random order. |
 | `sort_order` | Optional | String | The order to sort results. Accepted values are `"asc"` (ascending) or `"desc"` (descending). This must be paired with `sort_field`. If both `sort_field` and `sort_order` are not present, results are returned in random order. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Object details" }
@@ -68,5 +68,5 @@ Each filter object in the `filters` array contains the fields described in the f
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Filter object" }
 
 {% alert note %}
-The API supports a maximum of four filters per selection request. In the Braze dashboard, you can add up to 10 filters per selection. Filters are applied in the order they appear in the array.
+The API supports a maximum of ten filters per selection request. Filters are applied in the order they appear in the array.
 {% endalert %}
