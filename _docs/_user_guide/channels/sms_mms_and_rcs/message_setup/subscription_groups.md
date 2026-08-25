@@ -19,6 +19,7 @@ channel:
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
 ## Subscription group states
+{: #sms-subscription-states}
 
 There are two subscription states for SMS and RCS users: `subscribed` and `unsubscribed`. A user's subscription state resides at the subscription group level and is not shared across subscription groups, meaning a user can be `subscribed` to a transactional subscription group but `unsubscribed` to a promotional one. For brands, this separation of states ensures that they can continue to send relevant SMS and RCS messages to their users.
 
