@@ -5798,6 +5798,7 @@ This event occurs if an email message was aborted based on Liquid aborts, etc.
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 email messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
@@ -10285,6 +10286,7 @@ This event occurs when a scheduled LINE message cannot be delivered, before send
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 LINE messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
@@ -11840,6 +11842,7 @@ This event occurs if a push notification message was aborted based on Liquid abo
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 push messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
@@ -15000,6 +15003,7 @@ This event occurs if an SMS message was aborted based on Liquid aborts, etc.
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 SMS messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
@@ -17593,6 +17597,7 @@ This event occurs if a webhook message was aborted based on Liquid aborts, etc.
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 webhook messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
@@ -18573,6 +18578,7 @@ This event occurs if a WhatsApp message was aborted based on Liquid aborts, etc.
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 WhatsApp messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
