@@ -35520,8 +35520,13 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/just_ai",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/just_words",
-    "destination": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/partners/home",
     "permanent": true
   },
   {
@@ -36075,8 +36080,13 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_words",
-    "destination": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/partners/home",
     "permanent": true
   },
   {
