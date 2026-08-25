@@ -180,7 +180,7 @@ When using calculated filters, you can select one custom event, one purchase eve
 
 You can add multiple events or reference multiple Snowflake tables when using [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/). 
 
-### Can I archive a calculated filter if it is in use?
+### Can I archive a calculated filter if it is in use? {#can-i-archive-calculated-filters-if-they-exist-in-an-active-campaign}
 
 No. Before you can archive a calculated filter, remove it from all campaigns, Canvases, and segments that use it.
 
