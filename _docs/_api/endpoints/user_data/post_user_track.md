@@ -1,6 +1,6 @@
 ---
 nav_title: "POST: Create and update users"
-article_title: "POST: Create and update users"
+article_title: "Create and update users"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -28,7 +28,7 @@ Use the [`/users/track/bulk` endpoint]({{site.baseurl}}/api/endpoints/user_data/
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.track` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics) with the `users.track` permission.
 
 Customers using the API for server-to-server calls may need to allowlist `rest.iad-01.braze.com` if they're behind a firewall.
 

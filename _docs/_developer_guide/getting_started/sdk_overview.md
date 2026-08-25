@@ -1,7 +1,7 @@
 ---
 nav_title: SDK overview
 article_title: SDK Overview for Developers
-description: "This onboarding reference article provides a technical overview for developers of the Braze SDK. It discusses default analytics tracked by the SDK, blocking automatic data collection, and the live SDK version of your app."
+description: "This onboarding reference article provides a technical overview for developers of the Braze SDK. It discusses default analytics tracked by the."
 page_order: 0
 ---
 

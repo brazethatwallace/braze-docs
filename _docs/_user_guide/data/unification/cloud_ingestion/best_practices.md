@@ -1,11 +1,10 @@
 ---
 nav_title: Best practices
-article_title: Cloud Data Ingestion Best Practices
+article_title: "Best practices"
 toc_headers: h2
 page_order: 1
 page_type: reference
 description: "This page provides an overview of Cloud Data Ingestion, best practices, and product limitations."
-
 ---
 
 # Best practices

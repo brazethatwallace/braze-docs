@@ -2,7 +2,7 @@
 nav_title: Content Optimizer
 article_title: Content Optimizer
 alias: "/content_optimizer/"
-description: "Content Optimizer helps you test and optimize message content at scale, using AI to generate and evaluate high volumes of content variants automatically."
+description: "Content Optimizer helps you test and optimize message content at scale, using AI to generate and evaluate high volumes of content variants."
 page_type: reference
 page_order: 3
 ---

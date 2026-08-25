@@ -1,9 +1,8 @@
 ---
 nav_title: Log custom events
-article_title: Log custom events through the Braze SDK
+article_title: "Log custom events"
 page_order: 3.1
 description: "Learn how to log custom events through the Braze SDK."
-
 ---
 
 # Log custom events
@@ -359,7 +358,7 @@ To confirm that the event properties are successfully tracked, you can view all 
 
 ### Verify values
 
-After [adding your user as a test user]({{site.baseurl}}/user_guide/administrative/app_settings/internal_groups_tab#adding-test-users), follow these steps to verify your values: 
+After [adding your user as a test user]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), follow these steps to verify your values: 
 
 1. Perform the custom event within the app.
 2. Wait for roughly 10 seconds for the data to flush.

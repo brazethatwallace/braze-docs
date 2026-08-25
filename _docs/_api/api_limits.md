@@ -1,10 +1,9 @@
 ---
 nav_title: Rate limits
-article_title: API Rate Limits
+article_title: "Rate limits"
 page_order: 4.5
 description: "This reference article covers API rate limits for the Braze API infrastructure."
 page_type: reference
-
 ---
 
 # Rate limits
@@ -196,7 +195,7 @@ This information is intentionally included in the header of the response to the 
 HTTP headers will be returned in all lowercase characters. This behavior aligns with the HTTP/2 protocol that mandates all header field names must be lowercase. This differs from HTTP/1.X where header names were case-insensitive but were commonly written in various capitalizations.
 {% endalert %}
 
-If you have questions about API limits, contact your customer success manager or open a [support ticket]({{site.baseurl}}/braze_support).
+If you have questions about API limits, contact your customer success manager or open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 {% alert tip %}
 You can use the [API usage dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage) to view and compare incoming traffic against your rate limits.

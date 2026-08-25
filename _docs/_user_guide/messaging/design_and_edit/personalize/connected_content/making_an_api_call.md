@@ -346,7 +346,7 @@ Generate a preview in **Preview & Test**, then select **View details** to open t
 
 You can also verify the Liquid tag includes the parameters your endpoint expects (for example, `:method`, `:headers`, `:content_type`, `:body`, and `:basic_auth` when required). If you rely on the HTTP status code key in a saved JSON object, the endpoint must return a JSON object and a `2XX` status.
 
-For high error rates from your host, review [Unhealthy host detection]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors#unhealthy-host-detection) and [Connected Content call volume](#understanding-connected-content-call-volume).
+For high error rates from your host, review [Unhealthy host detection]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content) and [Connected Content call volume](#understanding-connected-content-call-volume).
 
 ### Ampersand encoding in email POST requests
 
@@ -410,4 +410,4 @@ Caching can help reduce duplicate Connected Content calls but isn't guaranteed t
 
 ### What happens if I use the same Connected Content call in multiple places?
 
-Each Connected Content tag is evaluated separately, even if multiple tags use the same URL and parameters. When the URL and cache settings allow, identical requests may be served from cache rather than triggering a new outbound request (see [Caching responses]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/caching_responses) for details).
+Each Connected Content tag is evaluated separately, even if multiple tags use the same URL and parameters. When the URL and cache settings allow, identical requests may be served from cache rather than triggering a new outbound request (see [Caching responses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) for details).

@@ -1,6 +1,6 @@
 ---
 nav_title: Manage placements
-article_title: Manage Banner placements for the Braze SDK
+article_title: "Manage Banner placements"
 description: "Learn how to create and manage Banner placements in the Braze SDK, including accessing their unique properties and logging impressions."
 page_order: 2
 platform:

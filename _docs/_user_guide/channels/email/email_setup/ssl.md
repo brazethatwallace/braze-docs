@@ -1,11 +1,10 @@
 ---
 nav_title: SSL at Braze
-article_title: SSL Overview
+article_title: "SSL at Braze"
 page_order: 5
 page_type: reference
 description: "This reference article covers SSL, what it is used for, and how it is used at Braze."
 channel: email
-
 ---
 
 # SSL at Braze
