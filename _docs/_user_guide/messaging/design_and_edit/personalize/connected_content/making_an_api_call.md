@@ -324,22 +324,17 @@ Replace `{YOUR_BRAZE_IP_RANGE}` with the Braze IP ranges for your instance liste
 
 For more information about bucket policies and condition keys, refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazon-s3-policy-keys.html).
 
-### `User-Agent` header
+## Outgoing request headers
 
-Braze includes a `User-Agent` header in all Connected Content and webhook requests that is similar to the following:
+{% multi_lang_include connected_content/outgoing_request_headers.md %}
 
-```text
-Braze Sender 75e404755ae1270441f07eb238f0faf25e44dfdc
-```
-
-{% alert tip %}
-Keep in mind that the hash value changes regularly. If you're filtering traffic by `User-Agent`, allow all values that start with `Braze Sender`.
-{% endalert %}
+Webhook requests also send a `User-Agent` that starts with `Braze Sender` when you have not set that header.
 
 ## Troubleshooting
 
 If your Connected Content call is not rendering correctly or at all, check for the following details:
 
+- **Inspect the live request and response:** Use the [Connected Content Debugger]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) in **Preview & Test**.
 - **Confirm that a Connected Content call was made:** You can check that a call was made at the [Messaging History tab]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#messaging-history-tab). You can also test send a single Connected Content request.
 - **Verify through Postman or a CURL request to check if the ideal request succeeds:** If the request works and returns a response, compare the request in detail (including headers). Confirm that the headers are captured in key-value pairs with double quotations.
 - **Validate authorization is handled correctly:** Confirm the `:basic_auth`/`:auth_credentials` option is used and has added the Connected Content authorization to the Connected Content workspace settings. Sometimes the Connected Content URL requires headers beyond authentication that need to be entered.
@@ -347,10 +342,7 @@ If your Connected Content call is not rendering correctly or at all, check for t
 - **Confirm the data has been parsed correctly:** Check that the Liquid is correctly referencing the expected field. For nested JSON, use {% raw %}`{{sampleresult.data[0].sample_field}}`{% endraw %} to point at the intended nested field. You can check the nested JSON properties by printing out the expected outcome with {% raw %}`RESPONSE:{{sampleresult.data}}`{% endraw %}.
 - **Check the response status code:** The response status code must be a `2XX` code. Connected Content does not have a way to consume the response when the code is not `2XX`.
 
-You can also use [Webhook.site](https://webhook.site/) to troubleshoot your Connected Content calls and to diagnose issues with the request headers, request body, and other information that is being sent in the call.
-
-1. Switch the URL in your Connected Content call with the unique URL generated on the site.
-2. Preview and test your campaign or Canvas step to see the requests come through to this website.
+Generate a preview in **Preview & Test**, then select **View details** to open the [Connected Content Debugger]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger). The debugger lists headers from your Connected Content tag. For headers Braze adds to the outgoing request, see [Outgoing request headers](#outgoing-request-headers).
 
 You can also verify the Liquid tag includes the parameters your endpoint expects (for example, `:method`, `:headers`, `:content_type`, `:body`, and `:basic_auth` when required). If you rely on the HTTP status code key in a saved JSON object, the endpoint must return a JSON object and a `2XX` status.
 
