@@ -100,6 +100,25 @@ If you are using Amazon SES as your ESP, refer to **Option 2: Configuring an HTT
 When you configure your CDN's click-tracking domain, enable the `X-Forwarded-Host` header to prevent potential security issues such as host header attacks. Refer to your CDN provider for steps.
 {% endalert %}
 
+## Click and open tracking URL patterns
+
+Your email service provider (ESP) rewrites each tracked link to point at your click tracking domain, then adds a path prefix that marks the request as a tracked click or open. Braze doesn't build these paths. Your ESP adds them when it rewrites the link. For CDN or proxy rules, security allowlists, or mobile app link handling, use your ESP's documentation as the source of truth.
+
+| ESP | Path patterns | ESP documentation |
+| --- | --- | --- |
+| SendGrid | `/wf/click?upn=...` for tracked clicks, and `/uni/wf/click?upn=...` for links you flag as universal links. Depending on your configuration, branded links can also use `/ls/click` (long signed) or `/ss/` (shortened). | [Universal links](https://www.twilio.com/docs/sendgrid/ui/sending-email/universal-links) and [shortened links](https://support.sendgrid.com/hc/en-us/articles/44375837088795-How-to-Know-if-my-Links-Are-Shortened-by-SendGrid) |
+| SparkPost | `/f/` for tracked clicks and `/q/` for tracked opens. Links that set a `data-msys-sublink` custom path follow `/f/{custom_path}/`. | [Deep links](https://docs.sparkpost.com/docs/tech-resources/deep-links-self-serve) |
+| Amazon SES | `/CL0/{encodedUrl}/{index}/{messageId}/{hmac}` for tracked clicks. Links that set the `ses:custom-path` attribute follow `/CL1/{customPath}/{encodedUrl}/...`. | [Custom open and click domains](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Click and open tracking URL patterns by ESP" }
+
+For example, if your click tracking domain is `clicks.example.com` and your ESP is SparkPost, a tracked click resolves to a URL that starts with `https://clicks.example.com/f/`.
+
+{% alert important %}
+Your ESP owns these path prefixes and can change them or add new ones, so Braze can't guarantee a permanent or exhaustive list. When your security tooling supports it, allowlist your full click tracking domain instead of individual paths, and confirm current patterns in your ESP's documentation.
+{% endalert %}
+
+To handle these paths in your mobile app, refer to [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
+
 ## Troubleshooting
 
 While you should handle CDN configuration, certificates, and proxy issues with your CDN, use these tips to identify common SSL click tracking issues. For troubleshooting guidance, refer to [Troubleshooting]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting).
