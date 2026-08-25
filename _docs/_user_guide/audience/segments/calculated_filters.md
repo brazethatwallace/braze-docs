@@ -12,7 +12,7 @@ tool: Segments
 > Calculated filters allow you to build very precise segments over an extended period of a user's history. For example, use calculated filters to target users who have purchased a particular product in the last 16 months or have spent a certain amount of money with your service. Refine this audience by using event properties to make targeting even more granular.
 
 {% alert important %}
-Calculated filters are currently in early access. If you're interested in participating in the early access, contact your customer success manager.
+Calculated filters are currently in early access. If you're interested in participating in the early access, contact your Braze account manager.
 {% endalert %}
 
 ## How it works
@@ -155,16 +155,16 @@ Your workspace can have up to 100 active calculated filters at a time. Contact y
 
 #### Unarchive
 
-Unarchive an archived filter by:
+You can unarchive a filter in any of the following ways:
 
-- Selecting **Unarchive** in the row menu
-- Selecting one or more archived filters, then selecting **Unarchive**
-- Opening an archived calculated filter and selecting **Unarchive** on its page
+- Select **Unarchive** in the filter's row menu.
+- Select one or more archived filters, then select **Unarchive**.
+- Open an archived calculated filter and select **Unarchive** on its page.
 
-After you unarchive:
+When you unarchive a filter, its status returns to what it was before you archived it:
 
-- A draft returns to **Draft**
-- An activated filter returns to **Active**, counts toward the active filter limit, and Braze starts an audience refresh
+- A draft returns to **Draft**.
+- An activated filter returns to **Active**, counts toward the active filter limit, and Braze starts an audience refresh.
 
 Wait until processing finishes before you unarchive a filter that shows **Processing**. If you've reached the active filter limit, archive an active filter before you unarchive another active filter.
 

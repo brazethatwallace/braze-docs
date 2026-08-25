@@ -96,7 +96,13 @@ Add or update account records through the REST API or in-browser editing.
 
 ### Step 3: Create a calculated filter for account criteria
 
-Before segmenting on account data, go to **Audience** > **Calculated Filters**, select **Create filter**, then select **Data Object filters**. Define your account criteria there. For details, see [Calculated filters]({{site.baseurl}}/user_guide/audience/segments/calculated_filters#create-a-calculated-filter).
+Before segmenting on account data, create a calculated filter that defines your account criteria:
+
+1. Go to **Audience** > **Calculated Filters**.
+2. Select **Create filter**, then select **Data Object filters**.
+3. Define your account criteria.
+
+For details, see [Calculated filters]({{site.baseurl}}/user_guide/audience/segments/calculated_filters#create-a-calculated-filter).
 
 ### Step 4: Use the calculated filter in Segment Builder
 
