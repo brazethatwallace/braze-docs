@@ -2,7 +2,7 @@
 nav_title: "サブスクリプション"
 article_title: "サブスクリプション"
 page_order: 5
-description: "このリファレンス記事では、さまざまなユーザーのサブスクリプション状態、購読グループの作成と管理方法、およびサブスクリプションに基づいてユーザーをセグメント化する方法について説明します。"
+description: "このリファレンス記事では、さまざまなユーザーの購読状態、メール購読の管理方法、および購読に基づいてユーザーをセグメント化する方法について説明します。"
 channel:
   - email
 
@@ -10,7 +10,7 @@ channel:
 
 # メールのサブスクリプション {#email-subscriptions}
 
-> ユーザーのサブスクリプション状態、購読グループの作成と管理方法、およびサブスクリプションに基づいてユーザーをセグメント化する方法について説明します。
+> グローバルなメール購読状態、フッターと購読解除ページ、ユーザー設定センター、およびキャンペーンのターゲティングについて説明します。すべてのチャネルにわたる購読グループについては、[購読グループ]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups)を参照してください。
 
 この文書は情報提供のみを目的としています。いかなる形でも法的助言を提供することを意図しておらず、また法的助言として依拠することはできません。マーケティングメールやトランザクションメールの送信は、特定の法的要件の対象となる場合があります。お客様の会社に適用されるすべての法律、規則、規制を遵守していることを確認するために、法務顧問や規制コンプライアンスチームに助言を求めてください。
 
@@ -86,87 +86,27 @@ Braze SDKを使用して、ユーザーの購読状態を更新します。
 
 ## 購読グループ {#subscription-groups}
 
-購読グループは、[グローバル購読ステート](#subscription-states)からオーディエンスをさらに絞り込むことができるセグメントフィルターです。これらのグループにより、エンドユーザーに対してより詳細な購読オプションを提示できます。
+メール購読グループを使用すると、ユーザーはグローバルなメール購読ステータスを変更することなく、特定のメールカテゴリ（ニュースレターやプロモーションなど）のオプトインまたはオプトアウトができます。作成したグループは[ユーザー設定センター]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)に追加できます。
 
-{% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
+グループの作成、セグメンテーション、アーカイブ、チャネル固有の動作について詳しくは、[購読グループ]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups)を参照してください。
 
-たとえば、複数のカテゴリのメールキャンペーン（プロモーション、ニュースレター、製品アップデートなど）を送信しているとします。その場合、購読グループを使用して、[メールユーザー設定センター](#email-preference-center)を利用し、顧客が1つのページからまとめて購読または購読解除するメールカテゴリを選択できるようにすることができます。あるいは、購読グループを使用して、日次、週次、月次のメール用の購読グループを作成し、顧客がメールの受信頻度を選択できるようにすることもできます。
+## メール設定センター {#email-preference-center}
 
-[購読グループエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups)を使用して、Brazeダッシュボードの**購読グループ**ページに保存されている購読グループをプログラムで管理できます。
+メール設定センターを使用すると、どのユーザーが購読グループのニュースレターを受信するかを管理できます。ダッシュボードの **Subscription Groups** から確認できます。作成した各購読グループは、設定センターのリストに追加されます。
 
-### 購読グループの作成 {#creating-a-subscription-group}
-
-1. **オーディエンス** > **購読グループ管理**に移動します。
-2. **メール購読グループを作成**を選択します。
-3. 購読グループに名前と説明を入力します。ワークスペース内の各購読グループには一意の名前が必要です。既に存在する名前を選択した場合、ダッシュボードにエラーが表示され、変更は保存されません。
-4. **保存**を選択します。
-
-すべての購読グループは自動的にユーザー設定センターに追加されます。
-
-![購読グループを作成するためのフィールド。]({% image_buster /assets/img/sub_group_create.png %}){: style="max-width:75%"}
-
-### 購読グループによるセグメンテーション {#segmenting-with-a-subscription-group}
-
-セグメントを作成する際、購読グループ名をフィルターとして設定し、グループにオプトインしたユーザーをターゲットにします。これは月次ニュースレター、クーポン、メンバーシップティアなどに便利です。
-
-![「週次メール」購読グループのフィルターを使用して「休眠ユーザー」セグメントのユーザーをターゲットにする例。]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
-
-### 購読グループのアーカイブ {#archiving-subscription-groups}
-
-アーカイブされた購読グループは編集できず、セグメントフィルターやユーザー設定センターにも表示されなくなります。メール、キャンペーン、またはキャンバスのセグメントフィルターとして使用されているグループをアーカイブしようとすると、そのグループのすべての使用箇所を削除するまでアーカイブを阻止するエラーメッセージが表示されます。
-
-**購読グループ**ページからグループをアーカイブするには、以下の手順に従います。
-
-1. 購読グループのリストからグループを見つけます。
-2. <i class="fa-solid fa-ellipsis-vertical" aria-label="その他のオプション"></i>&nbsp;ドロップダウンメニューから**アーカイブ**を選択します。
-
-Brazeはアーカイブされたグループのユーザーのステート変更を処理しません。たとえば、Alexが購読グループ1に購読している状態でそのグループをアーカイブした場合、Alexは購読解除リンクをクリックしても「購読済み」のままになります。購読グループ1はアーカイブされており、それを使用してメッセージを送信することはできないため、これは問題になりません。
-
-#### 購読グループサイズの表示 {#viewing-subscription-group-sizes}
-
-**購読グループ**ページの**購読グループ時系列**グラフを参照して、一定期間のユーザー数に基づく購読グループサイズを確認できます。これらの購読グループサイズは、セグメントサイズの計算など、Brazeの他の領域とも一致しています。非常に大きなワークスペースの場合、Brazeは正確な数値ではなく推定数を表示することがあります。
-
-![12月2日から11日までの「購読グループ時系列」グラフの例。グラフは6日から7日にかけてユーザー数が約1,000万増加したことを示しています。]({% image_buster /assets/img_archive/subscription_group_graph.png %})
-
-当日の購読グループサイズはデフォルトでは計算されません。日付範囲に当日が含まれている場合は、**本日の統計を計算**を選択して、当日の値を時系列に追加します。
-
-時系列のカウントが**メール購読ステータスが購読解除**を使用するセグメントと大きく異なる場合は、グラフがその購読グループのメンバーシップをカウントしているのに対し、そのフィルターはグローバルメール購読ステートを反映していることを覚えておいてください（たとえば、ユーザーはグローバルでは購読済みでも、特定のグループからは購読解除されている場合があります）。
-
-#### 購読グループのカウントがセグメントのカウントと異なる理由 {#why-subscription-group-counts-can-differ-from-segment-counts}
-
-購読グループサイズは、**購読グループ**フィルターのみを使用するセグメントと一致します。**メール購読ステータス**を使用するセグメントとは異なる場合があります。これは特定のグループのメンバーシップではなく、[グローバルメール購読ステート](#subscription-states)を反映しているためです。また、複数のフィルターを組み合わせたセグメントとも異なる場合があります。たとえば、ユーザーはグローバルではメールに購読済みでも、特定の購読グループからは購読解除されている場合があります。
-
-ユーザーのグローバル購読ステートと購読グループメンバーシップを比較するには、そのユーザーのプロファイルに移動し、**エンゲージメント**タブを選択します。グローバルステートによるフィルタリングについては、[ユーザー購読によるセグメンテーション](#segmenting-by-user-subscriptions)を参照してください。
-
-#### キャンペーン分析での購読グループの表示 {#viewing-subscription-groups-in-campaign-analytics}
-
-特定のメールキャンペーンから購読ステートを変更した（購読または購読解除した）ユーザーの数を、そのキャンペーンの分析ページで確認できます。
-
-1. キャンペーンの**キャンペーン分析**ページで、**メールメッセージパフォーマンス**セクションまでスクロールします。
-2. **購読グループ**の下にある矢印を選択して、顧客が送信したステート変更の集計数を確認します。
-
-![顧客が送信したステート変更の集計数を表示する「メールメッセージパフォーマンス」ページ。]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
-
-### ユーザーのメール購読グループの確認 {#checking-a-users-email-subscription-group}
-
-- **ユーザープロファイル：** 個々のユーザープロファイルには、Brazeダッシュボードの[ユーザー検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles)ページからアクセスできます。ここでは、メールアドレス、電話番号、または外部ユーザーIDでユーザープロファイルを検索できます。また、**エンゲージメント**タブでユーザーのメール購読グループを確認することもできます。
-- **Braze REST API：** [ユーザーの購読グループ一覧エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups)または[ユーザーの購読グループステータス一覧エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)を使用して、個々のユーザープロファイルの購読グループを確認できます。
-
-## メールユーザー設定センター {#email-preference-center}
-
-メールユーザー設定センターでは、購読グループのニュースレターを受信するユーザーを管理できます。ダッシュボードの**購読グループ**から確認できます。作成した各購読グループは、ユーザー設定センターのリストに追加されます。
-
-ユーザー設定センターの追加やカスタマイズの詳細については、[ユーザー設定センター]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)を参照してください。
+設定センターの追加またはカスタマイズの詳細については、[ユーザー設定センター]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)を参照してください。
 
 ## メールサブスクリプションの変更 {#changing-email-subscriptions}
 
-ほとんどの場合、ユーザーは受信したメールに含まれるリンクを通じてメールサブスクリプションを管理します。すべてのメールの下部に、配信停止リンクを含む法的に準拠したフッターを挿入してください。ユーザーが配信停止URLを選択すると、Brazeはそのユーザーの配信を停止し、変更を確認するランディングページを表示します。このLiquidタグを含めてください: {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%}。
+ほとんどの場合、ユーザーは受信したメールに含まれるリンクを通じてメールサブスクリプションを管理します。すべてのメールの下部に、購読解除リンクを含む法的に準拠したフッターを挿入してください。ユーザーが購読解除URLを選択すると、Brazeはそのユーザーの購読を解除し、変更を確認するランディングページを表示します。このLiquidタグを含めてください: {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%}。
 
 {% alert note %}
 {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%} Liquidタグは、メールキャンペーンとキャンバスでのみ使用できます。他のメッセージングチャネルではこのタグを使用できません。
 {% endalert %}
 
-ユーザーがユーザー設定センターで「上記のすべてのメールタイプの配信を停止する」を選択すると、Brazeはそのユーザーのグローバルメールサブスクリプションステータスを`unsubscribed`に設定し、すべてのグループから配信停止にします。
+ユーザーがユーザー設定センターで「上記のすべてのメールタイプの配信を停止する」を選択すると、Brazeはそのユーザーのグローバルメールサブスクリプションステータスを`unsubscribed`に設定し、すべてのグループから購読解除します。
+
+受信者側のメール購読解除（購読解除リンク、list-unsubscribe、ユーザー設定センターの送信、メールサービスプロバイダー (ESP) が報告した購読解除）は、Snowflakeの`USERS_MESSAGES_EMAIL_UNSUBSCRIBE`テーブルに表示されます。REST APIを通じて行われた購読解除はこのテーブルには含まれません。それらの場合は、代わりに[`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#subscription-group-state-change-events)または[`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events)イベントが発行されます。テーブルスキーマについては、[USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED)を参照してください。
 
 ### カスタムフッターの作成 {#custom-footer}
 
@@ -176,26 +116,26 @@ Brazeはアーカイブされたグループのユーザーのステート変更
 
 #### 中国のIPアドレスに対するサブスクリプション状態の管理 {#managing-subscription-states-for-chinese-ip-addresses}
 
-中国のIPアドレスが予想される場合は、`unsubscribed`リストの維持を配信停止リンクのみに頼らないでください。サポートチケットやカスタマー担当者のメールなど、代替の配信停止手段を提供してください。
+中国のIPアドレスが予想される場合は、`unsubscribed`リストの維持を購読解除リンクのみに頼らないでください。サポートチケットやカスタマー担当者のメールなど、代替の購読解除手段を提供してください。
 
-### カスタム配信停止ページの作成 {#creating-a-custom-unsubscribe-page}
+### カスタム購読解除ページの作成 {#creating-a-custom-unsubscribe-page}
 
-ユーザーがメール内の配信停止URLを選択すると、サブスクリプションの変更を確認するデフォルトのランディングページが開きます。
+ユーザーがメール内の購読解除URLを選択すると、サブスクリプションの変更を確認するデフォルトのランディングページが開きます。
 
 代わりにカスタムランディングページを使用するには:
 
 1. **メール設定** > **購読ページおよびフッター**に移動します。
 2. カスタムページのHTMLを追加します。
 
-再購読リンク（例: {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}）を含めて、ユーザーが誤った配信停止を元に戻せるようにしてください。{% raw %}`${set_user_to_unsubscribed_url}`{% endraw %}と同様に、このタグはメールキャンペーンとキャンバスでのみ使用できます。
+再購読リンク（例: {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}）を含めて、ユーザーが誤った購読解除を元に戻せるようにしてください。{% raw %}`${set_user_to_unsubscribed_url}`{% endraw %}と同様に、このタグはメールキャンペーンとキャンバスでのみ使用できます。
 
 また、ユーザーをサイトに誘導し、Braze REST APIでステータスを更新することもできます（例: {% raw %}`?user_id={{${user_id}}}`{% endraw %}を含むリンクを使用し、[`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)を呼び出します）。
 
 {% alert note %}
-HTMLコンテンツブロックのみではなくダッシュボードフッターを使用する場合、テンプレートには保存するために{% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %}が含まれている必要があります。一時的に別の配信停止URLを使用するには、デフォルトのタグをコメントアウトできます。例: {% raw %}`<!-- {{${set_user_to_unsubscribed_url}}} -->`{% endraw %}。
+HTMLコンテンツブロックのみではなくダッシュボードフッターを使用する場合、テンプレートには保存するために{% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %}が含まれている必要があります。一時的に別の購読解除URLを使用するには、デフォルトのタグをコメントアウトできます。例: {% raw %}`<!-- {{${set_user_to_unsubscribed_url}}} -->`{% endraw %}。
 {% endalert %}
 
-![「お別れは残念です！」というプレビューが表示されたカスタム配信停止ページ。]({% image_buster /assets/img/custom_unsubscribe.png %})
+![「お別れは残念です！」というプレビューが表示されたカスタム購読解除ページ。]({% image_buster /assets/img/custom_unsubscribe.png %})
 
 ### カスタムオプトインページの作成 {#creating-a-custom-opt-in-page}
 

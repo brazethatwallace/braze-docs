@@ -20,6 +20,9 @@ guide_featured_list:
   - name: Associer des éléments de catalogue à un tableau d'attributs
     link: /docs/user_guide/example_library/catalogs/match_catalog_items_to_attribute_array
     image: /assets/img/braze_icons/list.svg
+  - name: Gérer du contenu localisé avec les catalogues
+    link: /docs/user_guide/example_library/catalogs/manage_localized_content_with_catalogs
+    image: /assets/img/braze_icons/table.svg
   - name: Comparer les approches de traduction
     link: /docs/user_guide/example_library/localization/compare_translation_approaches
     image: /assets/img/braze_icons/globe-02.svg
@@ -33,13 +36,13 @@ guide_featured_list:
 
 ## Ce que vous trouverez ici {#what-you-find-here}
 
-Chaque exemple présente un modèle pratique : l'objectif qu'il résout, les points à considérer avant de le créer, et comment le configurer dans Braze. Les exemples sont organisés par thème, afin que vous puissiez trouver des modèles correspondant au résultat que vous recherchez.
+Chaque exemple présente un cas pratique : l'objectif visé, les points à considérer avant de commencer et comment le configurer dans Braze. Les exemples sont organisés par thème, pour vous aider à trouver les cas qui correspondent au résultat que vous souhaitez atteindre.
 
-Ces articles complètent les articles de référence des fonctionnalités. Lorsque vous avez besoin des détails complets d'un canal, d'un composant Canvas ou d'un outil de données utilisé dans un exemple, suivez les liens vers les articles associés sur cette page.
+Ces articles complètent les articles de référence des fonctionnalités. Lorsque vous avez besoin des détails complets sur un canal, un composant Canvas ou un outil de données utilisé dans un exemple, suivez les liens vers les articles associés sur cette page.
 
 ## Comment utiliser ces exemples {#how-to-use-these-examples}
 
 1. **Commencez par votre objectif :** Identifiez le résultat que vous souhaitez obtenir (par exemple, valider du Liquid personnalisé en prévisualisation, ou orchestrer un parcours en plusieurs étapes).
-2. **Adaptez le modèle :** Considérez chaque exemple comme un point de départ. Remplacez les événements, attributs, Segments et créations par les vôtres.
-3. **Vérifiez dans votre espace de travail :** Confirmez les prérequis tels que la disponibilité des données, la configuration des canaux et les permissions avant de lancer.
+2. **Adaptez le modèle :** Considérez chaque exemple comme un point de départ. Remplacez les événements, attributs, Segments et éléments créatifs par les vôtres.
+3. **Vérifiez dans votre espace de travail :** Confirmez les prérequis tels que la disponibilité des données, la configuration des canaux et les autorisations avant de lancer.
 4. **Approfondissez avec les ressources associées :** Utilisez les articles connexes sur chaque page d'exemple lorsque vous avez besoin d'une documentation de référence plus complète sur une fonctionnalité de Braze.

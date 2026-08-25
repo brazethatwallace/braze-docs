@@ -9,7 +9,7 @@ page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "Campaigns, Canvases 및 랜딩 페이지를 위한 승인, 아카이브, 복제, 워크스페이스 간 복사, 공유 가능한 미리보기, 상태 및 태그."
+description: "Campaigns, Canvases 및 랜딩 페이지를 위한 승인, 아카이브, 복제, 워크스페이스 간 복사, 공유 가능한 미리보기, 상태, 비활성 Campaigns 및 Canvases, 태그."
 
 guide_featured_title: "섹션 문서"
 guide_featured_list:
@@ -31,6 +31,9 @@ guide_featured_list:
   - name: 상태
     link: /docs/user_guide/messaging/governance/statuses
     image: /assets/img/braze_icons/book-closed.svg
+  - name: 비활성 Campaigns 및 Canvases
+    link: /docs/user_guide/messaging/governance/statuses/idle_messages
+    image: /assets/img/braze_icons/clock-snooze.svg
   - name: 태그
     link: /docs/user_guide/messaging/governance/tags
     image: /assets/img/braze_icons/tag-01.svg

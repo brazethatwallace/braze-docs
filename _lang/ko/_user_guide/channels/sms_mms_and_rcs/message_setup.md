@@ -4,7 +4,7 @@ article_title: 메시지 설정
 page_order: 0
 layout: dev_guide
 guide_top_header: "메시지 설정"
-guide_top_text: "발신자, 구독 그룹, 전화번호를 구성하여 SMS, MMS, RCS 메시징을 설정하세요. 규정 준수 관련 안내는 규정 준수 및 전달을 참조하세요."
+guide_top_text: "발신자, 구독 그룹, 전화번호를 구성하여 SMS, MMS, RCS 메시징을 설정하세요. 구독 그룹의 크로스채널 개요는 <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>구독 그룹</a> 을 참조하세요. 규정 준수 관련 안내는 규정 준수 및 전달을 참조하세요."
 page_type: landing
 description: "발신자 구성, 구독 그룹, 전화번호를 포함하여 Braze에서 SMS, MMS, RCS 메시징을 설정하세요."
 channel:

@@ -10,101 +10,101 @@ description: "Tudo o que você faz na plataforma Braze acontece em um espaço de
 
 > Tudo o que você faz na plataforma Braze acontece em um espaço de trabalho. Os espaços de trabalho funcionam como silos separados de dados e permitem que você mantenha marcas ou atividades diferentes separadas. Várias versões do seu site ou app móvel podem enviar dados para o mesmo espaço de trabalho. Referimo-nos aos diferentes sites e apps que são coletados em um espaço de trabalho como "instâncias do app".
 
-## Entendendo os espaços de trabalho {#understanding-workspaces}
+## Entendendo espaços de trabalho {#understanding-workspaces}
 
-Os espaços de trabalho têm dois objetivos principais:
+Os espaços de trabalho têm dois propósitos principais:
 
-- **Unificação dos dados de usuários:** Quando várias instâncias do app estão em um espaço de trabalho, é possível coletar e direcionar dados de usuários de forma integrada em diferentes versões do seu app, como iOS, Android e web. Isso garante que você sempre tenha informações atualizadas sobre cada usuário, independentemente da plataforma que ele estiver usando.
-- **Separação de atividades distintas:** Os espaços de trabalho também oferecem um meio de manter marcas ou atividades distintas separadas. Por exemplo, se você tiver várias submarcas com diferentes bases de usuários, é vantajoso criar espaços de trabalho separados para cada uma delas.
+- **Unificar dados de usuários:** Quando várias instâncias do app estão em um único espaço de trabalho, você pode coletar e direcionar dados de usuários de forma integrada entre diferentes versões do seu app, como iOS, Android e web. Isso garante que você sempre tenha informações atualizadas sobre cada usuário, independentemente da plataforma que ele esteja usando.
+- **Separar atividades distintas:** Os espaços de trabalho também oferecem uma maneira de manter marcas ou atividades distintas separadas. Por exemplo, se você tem várias submarcas com bases de usuários diferentes, é vantajoso criar espaços de trabalho separados para cada uma.
 
 {% alert tip %}
-Essa abordagem é particularmente útil para empresas como as de jogos móveis, que podem gerenciar espaços de trabalho individuais para cada um de seus jogos, ou sites de comércio eletrônico que desejam espaços de trabalho separados para cada região em que operam.
+Essa abordagem é particularmente útil para empresas como estúdios de jogos mobile que podem gerenciar espaços de trabalho individuais para cada um de seus jogos, ou sites de eCommerce que desejam espaços de trabalho separados para cada região em que operam.
 {% endalert %}
 
-## Planejamento de espaços de trabalho {#planning-workspaces}
+## Planejando espaços de trabalho {#planning-workspaces}
 
-Você deve criar instâncias do app separadas para cada versão do seu app em cada plataforma. Ao decidir quais instâncias do app incluir em um espaço de trabalho, pense nos usuários que deseja direcionar e agrupe-os de acordo.
+Você precisa criar instâncias de app separadas para cada versão do seu app em cada plataforma. Ao decidir quais instâncias de app incluir em um espaço de trabalho, pense nos usuários que deseja direcionar e agrupe-os de acordo.
 
-A vantagem de ter várias instâncias do app em um único espaço de trabalho pode ser atraente, pois permite limitar a taxa de envio de mensagens em todo o seu portfólio de apps. No entanto, como prática recomendada, sugerimos apenas colocar versões diferentes do mesmo app (ou de apps muito semelhantes) em um único espaço de trabalho.
+A tentação de ter várias instâncias de app em um único espaço de trabalho pode ser grande, pois isso permite aplicar limite de frequência ao envio de mensagens em todo o portfólio de apps. No entanto, como prática recomendada, sugerimos colocar apenas versões diferentes do mesmo app (ou apps muito semelhantes) em um único espaço de trabalho.
 
 ### Espaços de trabalho compartilhados {#shared-workspaces}
 
-Exemplos comuns de quando você desejaria ter várias instâncias do app no mesmo espaço de trabalho:
+Exemplos comuns de quando você vai querer ter várias instâncias de app no mesmo espaço de trabalho:
 
 - Quando você tem vários apps quase idênticos em diferentes plataformas
-- Quando você tem diferentes revisões principais do app, mas deseja manter o engajamento dos mesmos usuários quando eles fazem upgrade
-- Quando você tem versões diferentes do app que o mesmo usuário pode usar ou deixar de usar (por exemplo, de gratuito para premium)
+- Quando você tem diferentes revisões importantes do app, mas quer continuar engajando os mesmos usuários quando eles fizerem upgrade
+- Quando você tem diferentes versões do app entre as quais o mesmo usuário pode transitar (como versão gratuita para premium)
 
 #### Impacto nos filtros de segmentação {#impact-on-segmentation-filters}
 
-Todos os apps que você optar por ter em um espaço de trabalho terão seus dados agregados. Isso terá um impacto notável nos seguintes filtros de segmentação na Braze (essa não é uma lista exaustiva):
+Qualquer app que você optar por incluir em um espaço de trabalho terá seus dados agregados. Isso terá um impacto significativo nos seguintes filtros de segmentação na Braze (esta não é uma lista exaustiva):
 
-- Último uso do app
-- Usou o app pela primeira vez
-- Contagem de sessões
-- Dinheiro gasto no app
-- Inscrição por push (isso se torna uma situação de tudo ou nada: se os usuários cancelarem a inscrição em um app, eles cancelarão a inscrição em todos os apps do espaço de trabalho.)
-- Inscrição de e-mail (isso se torna uma situação de tudo ou nada e pode deixá-lo exposto a problemas de conformidade.)
+- Último App Usado
+- Primeiro App Usado
+- Contagem de Sessões
+- Dinheiro Gasto no App
+- Inscrição Push (Isso se torna uma situação de tudo ou nada — se seus usuários cancelarem a inscrição de um app, eles são cancelados de todos os apps no espaço de trabalho.)
+- Inscrição de E-mail (Isso se torna uma situação de tudo ou nada e pode deixar você vulnerável a problemas de conformidade.)
 
 {% alert note %}
-A agregação de dados entre instâncias do app nesses filtros é o motivo pelo qual não recomendamos hospedar apps substancialmente diferentes no mesmo espaço de trabalho. Isso pode tornar o direcionamento complicado!
+A agregação de dados entre instâncias de app nesses filtros é o motivo pelo qual não recomendamos abrigar apps substancialmente diferentes no mesmo espaço de trabalho. Isso pode tornar o direcionamento complicado!
 {% endalert %}
 
 ### Espaços de trabalho separados {#separate-workspaces}
 
-Outras vezes, você pode desejar ter vários espaços de trabalho separados. Exemplos comuns disso incluem:
+Em outros casos, você pode preferir ter vários espaços de trabalho separados. Exemplos comuns incluem:
 
 - Espaços de trabalho separados para ambientes de desenvolvimento e produção do mesmo app
-- Diferentes submarcas, por exemplo, uma empresa de jogos para celular que oferece vários jogos
-- Diferentes localizações do mesmo app ou site que operam em diferentes países ou direcionam para diferentes idiomas
+- Diferentes submarcas — por exemplo, uma empresa de jogos para dispositivos móveis que oferece vários jogos
+- Diferentes localizações do mesmo app ou website que operam em diferentes países ou direcionam diferentes idiomas
 
 ### Considerações importantes {#important-considerations}
 
-Lembre-se de que os espaços de trabalho funcionam como silos separados de dados. Todos os dados, sejam eles dados de usuários ou ativos de marketing, são armazenados em um espaço de trabalho. Esses dados não podem ser facilmente compartilhados fora desse espaço de trabalho.
+Lembre-se de que espaços de trabalho funcionam como silos separados de dados. Todos os dados, sejam dados de usuários ou ativos de marketing, são armazenados dentro de um espaço de trabalho. Esses dados não podem ser facilmente compartilhados fora desse espaço de trabalho.
 
-A seguir estão todos os elementos-chave que são configurados em um espaço de trabalho:
+Os seguintes são todos elementos-chave configurados dentro de um espaço de trabalho:
 
-- [Instâncias do app](#app-instances)
+- [Instâncias de app](#app-instances)
 - [Equipes](#teams)
-- [Permissões de usuário da empresa](#company-user-permissions) (mas não usuários da empresa)
+- [Permissões de usuário da empresa](#company-user-permissions) (mas não os usuários da empresa)
 - [Conectores Currents](#currents-connectors)
 - [Perfis de usuário](#user-profiles) e os dados de usuários associados
 - [Segments, Campaigns e Canvas](#segments-campaigns-and-canvases)
 
-#### Instâncias do app {#app-instances}
+#### Instâncias de app {#app-instances}
 
-Você deve criar instâncias do app separadas para cada versão do seu app em cada plataforma. Por exemplo, se você tiver versões Free e Pro do seu app no iOS e no Android, crie quatro instâncias do app em seu espaço de trabalho (app gratuito para iOS, app gratuito para Android, app pro para iOS e app pro para Android). Isso lhe dará quatro chaves de API para usar, uma para cada instância do app.
+Você precisa criar instâncias de app separadas para cada versão do seu app em cada plataforma. Por exemplo, se você tem versões Gratuita e Pro do seu app tanto no iOS quanto no Android, crie quatro instâncias de app dentro do seu espaço de trabalho (app iOS gratuito, app Android gratuito, app iOS pro e app Android pro). Isso fornecerá quatro chaves de API para uso, uma para cada instância de app.
 
 #### Equipes {#teams}
 
-[As equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) podem ser configuradas de acordo com o local, o idioma e os atributos personalizados da base de clientes, de modo que os membros e não membros da equipe tenham acesso diferente aos recursos de envio de mensagens e aos dados de clientes.
+[Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) podem ser configuradas com base na localização da base de clientes, idioma e atributos personalizados, para que membros e não membros da equipe tenham diferentes acessos a recursos de envio de mensagens e dados de clientes.
 
 #### Permissões de usuário da empresa {#company-user-permissions}
 
-Os espaços de trabalho têm acesso independente e definições de permissão de usuário. [As permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) permitem criar controles granulares em relação ao que um usuário individual do dashboard ou uma equipe tem acesso em um único espaço de trabalho.
+Espaços de trabalho possuem definições independentes de acesso e permissões de usuário. [Permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) permitem que você crie controles granulares sobre o que um usuário individual do dashboard ou equipe pode acessar dentro de um único espaço de trabalho.
 
 #### Conectores Currents {#currents-connectors}
 
-A ferramenta [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) é um fluxo de dados em tempo real de seus eventos de engajamento que é a exportação mais robusta e granular da plataforma Braze. Os conectores Currents estão incluídos em determinados pacotes da Braze, e você pode ter recebido um inicialmente, supondo um único espaço de trabalho.
+A ferramenta [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) é um fluxo de dados em tempo real dos seus eventos de engajamento, sendo a exportação mais robusta e granular da plataforma Braze. Os conectores Currents estão incluídos em determinados pacotes da Braze, e você pode ter recebido inicialmente um, considerando um único espaço de trabalho.
 
-Quando estiver decidindo entre criar espaços de trabalho separados ou combinados, é importante pensar no número de conectores Currents que você tem, pois os conectores Currents não são compartilhados entre os espaços de trabalho.
+Ao decidir entre criar espaços de trabalho separados ou combinados, é importante considerar o número de conectores Currents que você possui, pois os conectores Currents não são compartilhados entre espaços de trabalho.
 
-Por exemplo, se você tiver espaços de trabalho separados para os ambientes de desenvolvimento e produção do mesmo app, ative seu conector Currents no espaço de trabalho de produção. Para ativar o Currents em ambos os espaços de trabalho, você precisará adquirir um conector Currents adicional.
+Por exemplo, se você tem espaços de trabalho separados para os ambientes de desenvolvimento e produção do mesmo app, ative seu conector Currents no espaço de trabalho de produção. Para ativar o Currents em ambos os espaços de trabalho, será necessário adquirir um conector Currents adicional.
 
 #### Perfis de usuário {#user-profiles}
 
-Todos os dados persistentes associados a um usuário são armazenados em seu [perfil de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles). No entanto, os perfis de usuário também são um ótimo recurso para solução de problemas e testes, pois é possível acessar facilmente informações sobre o histórico de engajamento, a associação ao Segment, o dispositivo e o sistema operacional de um usuário.
+Todos os dados persistentes associados a um usuário são armazenados no seu [perfil de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles). No entanto, os perfis de usuário também são um ótimo recurso para solução de problemas e testes, pois você pode acessar facilmente informações sobre o histórico de engajamento, pertencimento a Segments, dispositivo e sistema operacional de um usuário.
 
 #### Segments, Campaigns e Canvas {#segments-campaigns-and-canvases}
 
-Um Segment, uma Campaign ou um Canvas não pode fazer referência ou acessar dados armazenados em outro espaço de trabalho. Por outro lado, quando vários apps estiverem no mesmo espaço de trabalho, todos os apps terão seus dados agregados. Isso terá um [impacto sobre os filtros na Braze](#impact-on-segmentation-filters).
+Um Segment, uma Campaign ou um Canvas não pode referenciar ou acessar dados armazenados em outro espaço de trabalho. Por outro lado, quando vários apps estão no mesmo espaço de trabalho, todos os apps terão seus dados agregados. Isso terá um [impacto nos filtros na Braze](#impact-on-segmentation-filters).
 
 ### Visão geral de cada abordagem {#overview-of-each-approach}
 
-A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordagens para o planejamento do espaço de trabalho:
+A tabela a seguir descreve os benefícios e desvantagens dessas duas abordagens para o planejamento de espaços de trabalho:
 
-- **Espaços de trabalho e perfis de usuário separados:** Um espaço de trabalho tem uma instância do app e uma pessoa tem um perfil de usuário para essa instância do app.
-- **Espaços de trabalho e perfis de usuário compartilhados:** Um espaço de trabalho tem várias instâncias do app e uma pessoa tem um perfil de usuário para todas essas instâncias do app.
+- **Espaços de trabalho e perfis de usuário separados:** Um espaço de trabalho tem uma instância de app e uma pessoa tem um perfil de usuário para aquela instância de app.
+- **Espaços de trabalho e perfis de usuário compartilhados:** Um espaço de trabalho tem várias instâncias de app e uma pessoa tem um perfil de usuário para todas essas instâncias de app.
 
 <style type="text/css">
   table {
@@ -122,7 +122,7 @@ A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordage
     font-weight: bold;
     text-transform: uppercase;
     color: #212123;
-    font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;
+    font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;
   }
   th[colspan="2"] {
     background-color: #fffae6;
@@ -149,7 +149,7 @@ A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordage
     font-weight: bold;
     text-transform: uppercase;
     color: #212123;
-    font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;
+    font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;
   }
 </style>
 
@@ -172,44 +172,44 @@ A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordage
     <tbody>
     <tr>
         <th scope="row">Direcionamento</th>
-        <td>A maneira mais segura de manter as comunicações separadas. As Campaigns têm a garantia de direcionar apenas perfis de usuários específicos.</td>
-        <td>Não é possível enviar mensagens promocionais cruzadas, mesmo sabendo que um usuário tem outro perfil de usuário em um espaço de trabalho diferente.</td>
-        <td>Pode enviar mensagens promocionais cruzadas se souber que um usuário tem vários apps em seu espaço de trabalho.<br><br>Pode fazer referência a dados de usuários de vários apps. Por exemplo, João tem um atributo X relevante para o App 1 e um atributo Y relevante para o App 2, que podem ser referenciados em uma Campaign.</td>
-        <td>Mais espaço para erro humano — você pode direcionar acidentalmente os usuários em várias instâncias do app.<br><br>Para enviar mensagens no app, é necessário ter eventos personalizados específicos do app para que uma Campaign não seja exibida em outro app por acidente. Por exemplo, <code>app_1_action</code> versus <code>app_2_action</code>.</td>
+        <td>Forma mais segura de manter as comunicações separadas. As Campaigns são garantidas de direcionar apenas perfis de usuário específicos.</td>
+        <td>Não é possível enviar mensagens de promoção cruzada, mesmo que você saiba que um usuário tem outro perfil de usuário em um espaço de trabalho diferente.</td>
+        <td>É possível enviar mensagens de promoção cruzada se você souber que um usuário tem vários apps no seu espaço de trabalho.<br><br>Pode referenciar dados de usuários de diferentes apps. Por exemplo, João tem o atributo X relevante para o App 1 e o atributo Y relevante para o App 2, e ambos podem ser referenciados em uma Campaign.</td>
+        <td>Mais margem para erro humano — você poderia acidentalmente direcionar usuários em várias instâncias de app.<br><br>Para enviar mensagens no app, você precisa ter eventos personalizados específicos por app para que uma Campaign não seja exibida em outro app por engano. Por exemplo, <code>app_1_action</code> versus <code>app_2_action</code>.</td>
     </tr>
     <tr>
         <th scope="row">Eventos e atributos personalizados</th>
-        <td>É garantido que os atributos e eventos personalizados sejam específicos de uma instância do app.</td>
-        <td>Não é possível rastrear o comportamento do usuário nos espaços de trabalho.<br><br><b>Dica:</b> Você pode utilizar vários conectores Currents para fazer isso.</td>
-        <td>Pode rastrear o comportamento do usuário em todas as instâncias do app no espaço de trabalho.</td>
-        <td>Atributos e eventos personalizados se aplicariam a todas as instâncias do app, o que poderia dificultar a identificação de quais dados de um perfil de usuário são relevantes para qual instância do app. Por exemplo, "date_of_parking" é relevante para o App 1 ou o App 2? Para combater isso, certifique-se de usar convenções de nomenclatura bem estruturadas.</td>
+        <td>Atributos e eventos personalizados são garantidos de serem específicos para uma instância de app.</td>
+        <td>Não é possível rastrear o comportamento do usuário entre espaços de trabalho.<br><br><b>Dica:</b> Você pode alavancar vários conectores Currents para conseguir isso.</td>
+        <td>É possível rastrear o comportamento do usuário em todas as instâncias de app no espaço de trabalho.</td>
+        <td>Atributos e eventos personalizados se aplicariam a todas as instâncias de app, o que pode dificultar identificar quais dados em um perfil de usuário são relevantes para qual instância de app. Por exemplo, "date_of_parking" é relevante para o App 1 ou para o App 2? Para contornar isso, certifique-se de usar convenções de nomenclatura bem estruturadas.</td>
     </tr>
     <tr>
         <th scope="row">Limite de frequência</th>
-        <td>O limite de frequência pode ser definido separadamente para cada instância do app (com base no espaço de trabalho).</td>
+        <td>O limite de frequência pode ser definido separadamente para cada instância de app (com base no espaço de trabalho).</td>
         <td>N/D</td>
         <td>N/D</td>
-        <td>O limite de frequência se aplica a todas as Campaigns, e não por app, o que torna mais difícil evitar o envio excessivo de mensagens aos clientes.</td>
+        <td>O limite de frequência se aplica a todas as Campaigns, não por app, o que torna mais difícil evitar o envio excessivo de mensagens aos clientes.</td>
     </tr>
     <tr>
-        <th scope="row">Status da inscrição para perfis de usuário</th>
-        <td>O status de inscrição de cada perfil de usuário é exclusivo para cada instância do app.</td>
+        <th scope="row">Status de inscrição para perfis de usuário</th>
+        <td>O status de inscrição de cada perfil de usuário é único para cada instância de app.</td>
         <td>N/D</td>
         <td>N/D</td>
-        <td>Os status de inscrição de um perfil de usuário são combinados entre as instâncias do app.<br><br><b>Dica:</b> Em vez disso, é possível usar <a href='/docs/user_guide/data/activation/attributes/custom_attributes'>atributos personalizados</a> para gerenciar as inscrições de seus usuários.</td>
+        <td>Os status de inscrição de um perfil de usuário são combinados entre instâncias de app.<br><br><b>Dica:</b> Você pode usar <a href='/docs/user_guide/data/activation/attributes/custom_attributes'>atributos personalizados</a> para gerenciar as inscrições dos seus usuários.</td>
     </tr>
     <tr>
         <th scope="row">Permissões de usuário da empresa</th>
         <td>N/D</td>
-        <td>A atualização das <a href='/docs/user_guide/administer/global/user_management/permissions'>permissões de usuário</a> para um usuário do dashboard deve ser feita separadamente para cada espaço de trabalho ao qual o usuário precisa ter acesso.</td>
-        <td>As <a href='/docs/user_guide/administer/global/user_management/permissions'>permissões de usuário</a> podem ser definidas uma vez para um usuário do dashboard, e ele terá as mesmas permissões para todas as instâncias do app no espaço de trabalho.</td>
+        <td>Atualizar as <a href='/docs/user_guide/administer/global/user_management/permissions'>permissões de usuário</a> para um usuário do dashboard deve ser feito separadamente para cada espaço de trabalho ao qual o usuário precisa de acesso.</td>
+        <td>As <a href='/docs/user_guide/administer/global/user_management/permissions'>permissões de usuário</a> podem ser definidas uma única vez para um usuário do dashboard, e ele terá as mesmas permissões para todas as instâncias de app no espaço de trabalho.</td>
         <td>N/D</td>
     </tr>
     <tr>
         <th scope="row">Duplicação de conteúdo</th>
         <td>N/D</td>
         <td>Alguns conteúdos, como Segments e Campaigns de cartão de conteúdo, não podem ser copiados entre espaços de trabalho.</td>
-        <td>Pode <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces'>copiar Campaigns, Canvas e landing pages entre espaços de trabalho</a>. Os conteúdos suportados incluem Campaigns e Canvas para canais elegíveis, além de landing pages, modelos de e-mail, Feature Flags e Content Blocks.<br><br>Pode duplicar Segments, Campaigns, Canvas e landing pages para reutilizar conteúdo de uma instância do app para outra.</td>
+        <td>É possível <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces'>copiar Campaigns, Canvas e landing pages entre espaços de trabalho</a>. O conteúdo compatível inclui Campaigns e Canvas para canais elegíveis, bem como landing pages, modelos de e-mail, Feature Flags e Content Blocks.<br><br>É possível duplicar Segments, Campaigns, Canvas e landing pages para reutilizar conteúdo de uma instância de app para outra.</td>
         <td>N/D</td>
     </tr>
     <tr>
@@ -217,36 +217,36 @@ A tabela a seguir descreve os benefícios e as desvantagens dessas duas abordage
         <td>As estatísticas globais serão precisas na página inicial.</td>
         <td>N/D</td>
         <td>N/D</td>
-        <td>As estatísticas globais serão agregadas para todas as instâncias do app no espaço de trabalho na página inicial.</td>
+        <td>As estatísticas globais serão agregadas para todas as instâncias de app no espaço de trabalho na página inicial.</td>
     </tr>
     </tbody>
 </table>
 
 {% alert note %}
-Para saber como o MAU difere ao visualizar todos os apps em comparação com um único app, consulte [Usuários ativos mensais]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users).
+Para entender como o MAU difere ao visualizar todos os apps versus um único app, consulte [Usuários ativos mensais]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users).
 {% endalert %}
 
 ## Práticas recomendadas {#best-practices}
 
-### Configure um espaço de trabalho para testes {#set-up-a-testing-workspace}
+### Configure um espaço de trabalho de teste {#set-up-a-testing-workspace}
 
-Como prática recomendada, sempre que planejar configurar um espaço de trabalho de produção (um espaço de trabalho que enviará mensagens para usuários reais), você também deve configurar um espaço de trabalho de teste. Um espaço de trabalho de teste é uma duplicata do seu espaço de trabalho de produção sem dados reais de usuários.
+Como prática recomendada, sempre que você planejar configurar um espaço de trabalho de produção (um espaço de trabalho que enviará mensagens para usuários reais), você também deve configurar um espaço de trabalho de teste. Um espaço de trabalho de teste é uma cópia do seu espaço de trabalho de produção sem nenhum dado real de usuários.
 
-Essa é considerada uma prática recomendada por vários motivos:
+Isso é considerado uma prática recomendada por vários motivos:
 
-- **Isolamento de alterações:** Permite testar novos recursos, configurações ou atualizações em um ambiente isolado sem afetar o ambiente de produção ao vivo. Dessa forma, se algo der errado durante o teste, seu ambiente de produção não será afetado.
-- **Testes precisos:** Permite testes mais precisos, pois os dados no ambiente de teste podem ser controlados e manipulados sem a preocupação com os dados do mundo real.
-- **Depuração:** É mais fácil depurar problemas em um ambiente de teste, pois você pode manipular livremente o ambiente sem se preocupar em afetar o ambiente de produção.
-- **Treinamento:** Os novos membros da equipe podem se familiarizar com o espaço de trabalho em um ambiente seguro, onde os erros não terão consequências no mundo real.
+- **Isolamento de alterações:** Permite que você teste novos recursos, configurações ou atualizações em um ambiente isolado, sem afetar seu ambiente de produção ativo. Dessa forma, se algo der errado durante os testes, seu ambiente de produção não será afetado.
+- **Testes mais precisos:** Permite testes mais precisos, já que os dados no ambiente de teste podem ser controlados e manipulados sem preocupação com dados reais.
+- **Depuração:** É mais fácil depurar problemas em um ambiente de teste, pois você pode manipular o ambiente livremente sem se preocupar em impactar o ambiente de produção.
+- **Treinamento:** Novos membros da equipe podem se familiarizar com o espaço de trabalho em um ambiente seguro, onde erros não terão consequências reais.
 
 {% alert tip %}
-A ordem em que você configura um espaço de trabalho de teste e um espaço de trabalho de produção pode depender de suas necessidades e circunstâncias específicas. No entanto, geralmente é uma boa ideia configurar um espaço de trabalho de teste primeiro. Isso permite que você teste recursos, configurações e atualizações antes de serem implementados no espaço de trabalho de produção. Quando estiver satisfeito com os testes e os resultados, você poderá estabelecer seu espaço de trabalho de produção.
+A ordem em que você configura um espaço de trabalho de teste e um de produção pode depender das suas necessidades e circunstâncias específicas. No entanto, geralmente é uma boa ideia configurar o espaço de trabalho de teste primeiro. Isso permite que você teste recursos, configurações e atualizações antes de implementá-los no espaço de trabalho de produção. Depois que estiver satisfeito com os testes e resultados, você pode então estabelecer seu espaço de trabalho de produção.
 {% endalert %}
 
-### Adicionar administradores {#add-administrators}
+### Adicione administradores {#add-administrators}
 
-Você deve ter mais de um usuário da Braze com permissões de administrador para um único espaço de trabalho. Isso garante que haja um número suficiente de pessoas em sua organização para gerenciar as permissões de outros usuários.
+Você deve ter mais de um usuário da Braze com permissões de administrador em um único espaço de trabalho. Isso garante que haja pessoas suficientes na sua organização para gerenciar as permissões de outros usuários.
 
 ## Próximas etapas {#next-steps}
 
-Depois de determinar o plano do espaço de trabalho, é hora de criar o espaço de trabalho e adicionar instâncias do app. Para ver as etapas, confira [Criar e gerenciar espaços de trabalho]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces).
+Depois de determinar o plano do seu espaço de trabalho, é hora de criar seu espaço de trabalho e adicionar instâncias do app. Para ver as etapas, confira [Criar e gerenciar espaços de trabalho]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces).

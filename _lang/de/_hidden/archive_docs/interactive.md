@@ -14,80 +14,80 @@ hidden: true
   display: none !important;
 }
 
-#main_content \#article-main {
+#main_content #article-main {
   padding-top: 0px;
 }
 
-#main_content \#article-main .block ul>li::before,#main_content \#article-main .block ol>li::before {
-  Inhalt: "";
+#main_content #article-main .block ul>li::before,#main_content #article-main .block ol>li::before {
+  content: "";
 }
-#main_content \#article-main #swagger-ui .global-server-container, #main_content \#article-main #swagger-ui .scheme-container {
-  background-color: #f4f4f7;  
+#main_content #article-main #swagger-ui .global-server-container, #main_content #article-main #swagger-ui .scheme-container {
+  background-color: #f4f4f7;
 }
 
-#main_content \#article-main #swagger-ui .opblock-tag {
-  Rand-unten: 1px solid rgba(59,65,81,.3);
+#main_content #article-main #swagger-ui  .opblock-tag {
+  border-bottom: 1px solid rgba(59,65,81,.3);
 }
-#main_content \#article-main #swagger-ui .auth-container p {
-  Rand-unten: 5px;
+#main_content #article-main #swagger-ui .auth-container p {
+  margin-bottom: 5px;
 }
-#main_content \#article-main #swagger-ui .auth-wrapper {
+#main_content #article-main #swagger-ui .auth-wrapper {
   -webkit-box-pack: start;
-  -ms-flex-pack: Start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 
-#main_content \#article-main #swagger-ui .dialog-ux .modal-ux-content {
+#main_content #article-main #swagger-ui .dialog-ux .modal-ux-content {
   padding-top: 0px;
 }
-#main_content \#article-main #swagger-ui .auth-container input[type=text]{
-  Grenze: 1px solid #f4f4f7;
-  Breite: 100%;
+#main_content #article-main #swagger-ui .auth-container input[type=text]{
+  border: 1px solid #f4f4f7;
+  width: 100%;
 
 }
-#main_content \#article-main #swagger-ui .opblock-tag-section a {
-    font-family: "Sailec W00 Bold", Arial, Helvetica, sans-serif;
-    Anzeige: inline;
-    Farbe: #212123;
+#main_content #article-main #swagger-ui .opblock-tag-section a {
+    font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;
+    display: inline;
+    color: #212123;
     border-bottom-width: 0px;
-    Rahmen-Farbe: Transparent;
-    text-decoration: keine;
+    border-color: transparent;
+    text-decoration: none;
     font-weight: 700;
-    Übergang: alle Leichtigkeit .2s;
+    transition: all ease .2s;
     -webkit-transition: all ease .2s;
     -moz-transition: all ease .2s
 }
-#main_content \#article-main #swagger-ui .opblock-tag-section .tab a {
-  font-family: "Sailec W00 Regular", Arial, Helvetica, sans-serif;
+#main_content #article-main  #swagger-ui .opblock-tag-section .tab a  {
+  font-family: "Aribau Grotesk Regular", "Aribau Grotesk", Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
-#main_content \#article-main #swagger-ui .opblock-tag-section .tab .active a {
-  font-family: "Sailec W00 Bold", Arial, Helvetica, sans-serif;
+#main_content #article-main  #swagger-ui .opblock-tag-section .tab .active a  {
+  font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;
   font-weight: 700;
 }
-#main_content \#article-main #swagger-ui .opblock-tag-section a:hover {
-    Hintergrundfarbe: transparent;
+#main_content #article-main #swagger-ui .opblock-tag-section a:hover {
+    background-color: transparent;
 }
 
 
-\#swagger-ui table, #swagger-ui table td, #swagger-ui table thead, #swagger-ui table tr {
+#swagger-ui table, #swagger-ui table td, #swagger-ui table thead, #swagger-ui table tr {
   border: none !important;
 }
-\#swagger-ui .model-box {
-  Breite: 100%;
+#swagger-ui .model-box {
+  width: 100%;
 }
-\#swagger-ui table td.col, #swagger-ui table th.col {
-  Breite: auto !important;
+#swagger-ui table td.col, #swagger-ui table th.col  {
+  width: auto !important;
 }
-\#swagger-ui Tabelle thead {
-  Hintergrund: transparent;
+#swagger-ui table thead {
+  background: transparent;
 
 }
-\#swagger-ui table thead tr td, #swagger-ui table thead tr th {
-  Rand-unten: 1px solid rgba(59,65,81,.2) !important;
+#swagger-ui  table thead tr td, #swagger-ui table thead tr th {
+  border-bottom: 1px solid rgba(59,65,81,.2) !important;
 }
 
-\#swagger-ui .btn.authorize, #swagger-ui .server select{
+#swagger-ui .btn.authorize , #swagger-ui .servers select{
   background-color: #ffffff;
 
 }
@@ -98,22 +98,22 @@ hidden: true
 <script>
 $(document).ready(function() {
 
-  // Bauen Sie ein System
+  // Build a system
   const ui = SwaggerUIBundle({
     url: "/docs/assets/js/swagger/braze_swagger.json",
     dom_id: '#swagger-ui',
-    docExpansion: 'keine',
+    docExpansion: 'none',
     deepLinking: true,
-    Voreinstellungen: [
-          SwaggerUIBundle.presets.apis,
-          SwaggerUIStandalonePreset
-      ],
-Plugins: [
+    presets: [
+      SwaggerUIBundle.presets.apis,
+      SwaggerUIStandalonePreset
+    ],
+    plugins: [
       SwaggerUIBundle.plugins.DownloadUrl
     ],
-Layout: "BaseLayout"
-})
+    layout: "BaseLayout"
+  })
 
-  window.ui = UI;
+  window.ui = ui;
 });
 </script>

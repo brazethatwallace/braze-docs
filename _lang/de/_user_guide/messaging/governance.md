@@ -4,12 +4,12 @@ article_title: Governance
 layout: dev_guide
 page_order: 2
 guide_top_header: "Governance"
-guide_top_text: "Verwalten Sie den Lebenszyklus und die Organisation Ihrer Campaigns, Canvases und Landing-Pages. In den folgenden Artikeln erfahren Sie, wie Sie Genehmigungs-Workflows einrichten, Elemente archivieren oder duplizieren, sie zwischen Workspaces kopieren, teilbare Vorschauen mit Stakeholdern teilen und Status und Tags verwenden, um Ihren Workspace organisiert zu halten."
+guide_top_text: "Verwalten Sie den Lebenszyklus und die Organisation Ihrer Campaigns, Canvases und Landing-Pages. In den folgenden Artikeln erfahren Sie, wie Sie Genehmigungs-Workflows einrichten, Elemente archivieren oder duplizieren, sie zwischen Workspaces kopieren, Vorschauen mit Stakeholdern teilen und Status und Tags verwenden, um Ihren Workspace organisiert zu halten."
 page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "Genehmigungen, Archivieren, Duplizieren, Zwischen Workspaces kopieren, teilbare Vorschau, Status und Tags für Campaigns, Canvases und Landing-Pages."
+description: "Genehmigungen, Archivieren, Duplizieren, Zwischen Workspaces kopieren, teilbare Vorschau, Status, inaktive Campaigns und Canvases sowie Tags für Campaigns, Canvases und Landing-Pages."
 
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:
@@ -31,6 +31,9 @@ guide_featured_list:
   - name: Status
     link: /docs/user_guide/messaging/governance/statuses
     image: /assets/img/braze_icons/book-closed.svg
+  - name: Inaktive Campaigns und Canvases
+    link: /docs/user_guide/messaging/governance/statuses/idle_messages
+    image: /assets/img/braze_icons/clock-snooze.svg
   - name: Tags
     link: /docs/user_guide/messaging/governance/tags
     image: /assets/img/braze_icons/tag-01.svg

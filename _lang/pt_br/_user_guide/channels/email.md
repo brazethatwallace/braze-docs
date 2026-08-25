@@ -19,16 +19,17 @@ Antes de enviar e-mails com a Braze, você precisa configurar seus IPs dedicados
 
 ## Personalize seus e-mails {#customize-your-emails}
 
-Você pode personalizar o envio de mensagens por e-mail de diversas maneiras, incluindo:
+Você pode personalizar seu envio de mensagens por e-mail de várias maneiras, incluindo:
 
 - [Modelos de e-mail da Braze]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)
 - [Modelos HTML personalizados]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
 - [Blocos do editor (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
 - [Inscrições de usuários]({{site.baseurl}}/user_guide/channels/email/subscriptions)
+- [Grupos de inscrições]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups)
 
 ## Teste seus e-mails {#test-your-emails}
 
-[Grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) enviam automaticamente cópias das suas Campaigns de e-mail para usuários internos para fins de controle de qualidade. Os e-mails de teste incluem `[SEED]` no início da linha de assunto para ajudar a identificá-los.
+[Grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) enviam automaticamente cópias das suas Campaigns de e-mail para usuários internos, permitindo a realização de controle de qualidade. Os e-mails de teste incluem `[SEED]` no início da linha de assunto para facilitar a identificação.
 
 ## Casos de uso {#use-cases}
 
@@ -37,9 +38,9 @@ Você pode personalizar o envio de mensagens por e-mail de diversas maneiras, in
 | Reengajamento | Alcance usuários fora do seu app, incluindo aqueles que não instalaram o app. |
 | Integração | Integre e incentive novos usuários a ativar notificações por push ou compartilhar o app em redes sociais. |
 | Mensagens ricas | Permita mensagens HTML ricas e dinâmicas. |
-| Conteúdo multimídia | Facilidade na inserção de conteúdo multimídia que engaja os usuários, como vídeos e imagens. |
+| Conteúdo multimídia | Facilidade de inserção de conteúdo multimídia que engaja os usuários, como vídeos e imagens. |
 | Newsletters | Envie newsletters mensais ou semanais de forma prática para manter o engajamento dos usuários. |
-| Transações | Notifique os usuários sobre compras recentes e entregue informações importantes sobre produtos e envio com [e-mails de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
+| Transações | Notifique os usuários sobre compras recentes e forneça informações importantes sobre produtos e envio com [e-mails de transação]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Serviços de e-mail {#email-services}
@@ -62,7 +63,7 @@ Esses serviços podem incluir:
   - Recomendações para melhorar o desempenho e os resultados do programa de e-mail utilizando dados e melhores práticas estabelecidas
 - Atenuar e remediar a triagem de crise para eventos que levam a problemas como inclusão em lista de bloqueio de entregabilidade
 
-## Próximos passos {#next-steps}
+## Próximas etapas {#next-steps}
 
 - [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup)
 - [Criar um e-mail com o editor de arrastar e soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)

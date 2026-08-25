@@ -2,7 +2,7 @@
 nav_title: "Suscripciones"
 article_title: "Suscripciones"
 page_order: 5
-description: "Este artículo de referencia cubre los diferentes estados de suscripción de los usuarios, cómo crear y administrar grupos de suscripción, y cómo segmentar usuarios en función de sus suscripciones."
+description: "Este artículo de referencia cubre los diferentes estados de suscripción de los usuarios, cómo gestionar las suscripciones de correo electrónico y cómo segmentar usuarios en función de sus suscripciones."
 channel:
   - email
 
@@ -10,7 +10,7 @@ channel:
 
 # Suscripciones de correo electrónico {#email-subscriptions}
 
-> Aprende sobre los estados de suscripción de los usuarios, cómo crear y administrar grupos de suscripción, y cómo segmentar usuarios en función de sus suscripciones.
+> Aprende sobre los estados globales de suscripción de correo electrónico, los pies de página y las páginas de cancelación de suscripción, los centros de preferencias y la segmentación de Campaigns. Para los grupos de suscripción en todos los canales, consulta [Grupos de suscripción]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
 
 Este documento es solo para fines informativos. No pretende proporcionar, ni se puede confiar en él como fuente de asesoramiento legal en ningún sentido. El envío de correos electrónicos de marketing y transaccionales puede estar sujeto a requisitos legales específicos. Para asegurarte de que lo haces en cumplimiento con todas las leyes, normas y regulaciones aplicables específicas de tu empresa, debes buscar el asesoramiento de tu equipo legal y/o de cumplimiento normativo.
 
@@ -86,71 +86,9 @@ Cuando el estado de suscripción global de correo electrónico de un usuario cam
 
 ## Grupos de suscripción {#subscription-groups}
 
-Los grupos de suscripción son filtros de segmento que pueden acotar aún más tu audiencia a partir de los [estados de suscripción globales](#subscription-states). Estos grupos te permiten presentar opciones de suscripción más detalladas a los usuarios finales.
+Los grupos de suscripción de correo electrónico permiten a los usuarios adherirse o cancelar la suscripción a categorías específicas de correo electrónico (como boletines o promociones) sin cambiar su estado global de suscripción de correo electrónico. Los grupos que crees estarán disponibles para añadir a tu [centro de preferencias]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
 
-{% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
-
-Por ejemplo, supongamos que envías varias categorías de Campaigns de correo electrónico (promocionales, boletines informativos o actualizaciones de producto). En ese caso, puedes usar grupos de suscripción para que tus clientes elijan de qué categorías de correo electrónico quieren suscribirse o cancelar la suscripción de forma masiva desde una sola página, utilizando un [centro de preferencias de correo electrónico](#email-preference-center). Alternativamente, podrías usar grupos de suscripción para que tus clientes elijan con qué frecuencia quieren recibir correos electrónicos tuyos, creando grupos de suscripción para correos diarios, semanales o mensuales.
-
-Usa los [endpoints de grupos de suscripción]({{site.baseurl}}/api/endpoints/subscription_groups) para gestionar de forma programática los grupos de suscripción que tienes almacenados en el panel de Braze en la página **Grupo de suscripción**.
-
-### Crear un grupo de suscripción {#creating-a-subscription-group}
-
-1. Ve a **Audiencia** > **Gestión de grupos de suscripción**.
-2. Selecciona **Crear grupo de suscripción de correo electrónico**.
-3. Dale un nombre y una descripción a tu grupo de suscripción. Cada grupo de suscripción en tu espacio de trabajo debe tener un nombre único. Si eliges un nombre que ya existe, el panel muestra un error y no guarda el cambio.
-4. Selecciona **Guardar**.
-
-Todos los grupos de suscripción se añaden automáticamente a tu centro de preferencias.
-
-![Campos para crear un grupo de suscripción.]({% image_buster /assets/img/sub_group_create.png %}){: style="max-width:75%"}
-
-### Segmentar con un grupo de suscripción {#segmenting-with-a-subscription-group}
-
-Al crear tus segmentos, establece el nombre del grupo de suscripción como filtro para dirigirte a los usuarios que se han suscrito a tu grupo. Esto es útil para boletines mensuales, cupones, niveles de membresía y más.
-
-![Ejemplo de segmentación de usuarios en el segmento "Lapsed Users" con el filtro para usuarios en el grupo de suscripción "Weekly Emails".]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
-
-### Archivar grupos de suscripción {#archiving-subscription-groups}
-
-Los grupos de suscripción archivados no se pueden editar y ya no aparecen en los filtros de segmento ni en tu centro de preferencias. Si intentas archivar un grupo que se está utilizando como filtro de segmento en algún correo electrónico, Campaign o Canvas, recibirás un mensaje de error que te impedirá archivar el grupo hasta que elimines todos los usos del mismo.
-
-Para archivar tu grupo desde la página **Grupos de suscripción**, haz lo siguiente:
-
-1. Busca tu grupo en la lista de grupos de suscripción.
-2. Selecciona **Archivar** en el menú desplegable <i class="fa-solid fa-ellipsis-vertical" aria-label="Más opciones"></i>&nbsp;.
-
-Braze no procesa cambios de estado para los usuarios en grupos archivados. Por ejemplo, si archivas el Grupo de suscripción 1 mientras Alex está suscrito a él, Alex permanece como "suscrito" incluso si hace clic en un enlace de cancelación de suscripción. Esto no importa porque el Grupo de suscripción 1 está archivado y no puedes enviar mensajes usándolo.
-
-#### Ver el tamaño de los grupos de suscripción {#viewing-subscription-group-sizes}
-
-Puedes consultar el gráfico **Serie temporal de grupos de suscripción** en la página **Grupos de suscripción** para ver el tamaño del grupo de suscripción basado en el número de usuarios a lo largo de un período de tiempo. Estos tamaños de grupos de suscripción también son consistentes con otras áreas de Braze, como el cálculo del tamaño de segmento. Para espacios de trabajo muy grandes, Braze puede mostrar recuentos estimados en lugar de recuentos exactos.
-
-![Un ejemplo del gráfico "Serie temporal de grupos de suscripción" con fechas del 2 al 11 de diciembre. El gráfico muestra un aumento de aproximadamente 10 millones en el número de usuarios del 6 al 7.]({% image_buster /assets/img_archive/subscription_group_graph.png %})
-
-El tamaño del grupo de suscripción de hoy no se calcula de forma predeterminada. Si tu rango de fechas incluye hoy, selecciona **Calcular las estadísticas de hoy** para añadir el valor de hoy a la serie temporal.
-
-Si el recuento de la serie temporal diverge notablemente de un segmento que usa **Estado de suscripción de correo electrónico es Cancelado**, recuerda que el gráfico cuenta la membresía en ese grupo de suscripción, mientras que ese filtro refleja el estado de suscripción global de correo electrónico (por ejemplo, los usuarios pueden estar suscritos globalmente pero haber cancelado la suscripción de un grupo específico).
-
-#### Por qué los recuentos de grupos de suscripción pueden diferir de los recuentos de segmento {#why-subscription-group-counts-can-differ-from-segment-counts}
-
-Los tamaños de los grupos de suscripción se alinean con los segmentos que usan únicamente el filtro **Grupo de suscripción**. Pueden divergir de un segmento que usa **Estado de suscripción de correo electrónico**, que refleja el [estado de suscripción global de correo electrónico](#subscription-states), no la membresía en un grupo específico, o que combina múltiples filtros. Por ejemplo, un usuario puede estar suscrito globalmente al correo electrónico pero haber cancelado la suscripción de un grupo de suscripción específico.
-
-Para comparar el estado de suscripción global de un usuario con sus membresías en grupos de suscripción, ve a su perfil y selecciona la pestaña **Participación**. Para filtrar por estado global, consulta [Segmentar por suscripciones de usuario](#segmenting-by-user-subscriptions).
-
-#### Ver grupos de suscripción en los análisis de Campaign {#viewing-subscription-groups-in-campaign-analytics}
-
-Puedes ver los recuentos de usuarios que cambiaron su estado de suscripción (suscrito o cancelado) desde una Campaign de correo electrónico específica en la página de análisis de esa Campaign.
-
-1. Desde la página **Análisis de Campaign** de tu Campaign, desplázate hacia abajo hasta la sección **Rendimiento de mensajes de correo electrónico**.
-2. Selecciona la flecha en **Grupos de suscripción** para ver el recuento agregado de cambios de estado, tal como los enviaron tus clientes.
-
-![La página "Rendimiento de mensajes de correo electrónico" que muestra el recuento agregado de cambios de estado enviados por los clientes.]({% image_buster /assets/img/campaign_analytics_sub_groups.png %})
-
-### Comprobar el grupo de suscripción de correo electrónico de un usuario {#checking-a-users-email-subscription-group}
-
-- **Perfil de usuario:** Se puede acceder a los perfiles de usuario individuales a través del panel de Braze desde la página [Buscar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Aquí puedes buscar perfiles de usuario por dirección de correo electrónico, número de teléfono o ID de usuario externo. También puedes ver los grupos de suscripción de correo electrónico de un usuario en la pestaña **Participación**.
-- **REST API de Braze:** Usa el [endpoint para listar los grupos de suscripción de un usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) o el [endpoint para listar el estado del grupo de suscripción de un usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) para ver los grupos de suscripción del perfil de un usuario individual.
+Para más información sobre cómo crear grupos, segmentar, archivar y el comportamiento específico de cada canal, consulta [Grupos de suscripción]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups).
 
 ## Centro de preferencias de correo electrónico {#email-preference-center}
 
@@ -166,7 +104,9 @@ En la mayoría de los casos, los usuarios administran su suscripción de correo 
 Solo puedes usar la etiqueta de Liquid {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%} en Campaigns de correo electrónico y Canvas. No puedes usar esta etiqueta en otros canales de mensajería.
 {% endalert %}
 
-Cuando un usuario selecciona "Cancelar suscripción de todos los tipos de correos electrónicos anteriores" en el centro de preferencias, Braze establece su estado de suscripción global de correo electrónico como `unsubscribed` y cancela su suscripción de todos los grupos.
+Cuando un usuario selecciona "Cancelar suscripción de todos los tipos de correos electrónicos listados" en el centro de preferencias, Braze establece su estado de suscripción global de correo electrónico como `unsubscribed` y cancela su suscripción de todos los grupos.
+
+Las cancelaciones de suscripción del lado del destinatario —enlaces de cancelación de suscripción, list-unsubscribe, envíos del centro de preferencias y cancelaciones de suscripción reportadas por el ESP— aparecen en la tabla `USERS_MESSAGES_EMAIL_UNSUBSCRIBE` de Snowflake. Las cancelaciones de suscripción realizadas a través de la REST API no se incluyen en esa tabla; en su lugar, emiten eventos [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#subscription-group-state-change-events) o [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events). Para el esquema de la tabla, consulta [USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED).
 
 ### Creación de pies de página personalizados {#custom-footer}
 
@@ -199,7 +139,7 @@ Si usas el pie de página del panel en lugar de solo un bloque de contenido HTML
 
 ### Creación de una página personalizada de adhesión voluntaria {#creating-a-custom-opt-in-page}
 
-Usa una página personalizada de adhesión voluntaria para permitir que los usuarios reconozcan y controlen las preferencias de notificación antes de suscribirse. Esta comunicación adicional puede ayudar a que las campañas de correo electrónico no terminen en las carpetas de correo no deseado.
+Usa una página personalizada de adhesión voluntaria para permitir que los usuarios reconozcan y controlen las preferencias de notificación antes de suscribirse. Esta comunicación adicional puede ayudar a que las Campaigns de correo electrónico no terminen en las carpetas de correo no deseado.
 
 1. Ve a **Configuración** > **Preferencias de correo electrónico**.
 2. Selecciona **Páginas de suscripción y pies de página**.
