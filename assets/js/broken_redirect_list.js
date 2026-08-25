@@ -3097,7 +3097,9 @@ validurls['/docs/partners/data_and_infrastructure_agility/analytics/inbox_monste
 validurls['/docs/partners/data_and_infrastructure_agility/analytics/kubit'] = '/docs/partners/data_and_analytics/analytics/kubit';
 validurls['/docs/partners/data_and_infrastructure_agility/analytics/mixpanel_for_currents'] = '/docs/partners/data_and_analytics/analytics/mixpanel';
 validurls['/docs/partners/data_and_infrastructure_agility/cohort_import/mixpanel'] = '/docs/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import';
-validurls['/docs/partners/data_and_infrastructure_agility/analytics/npaw'] = '/docs/partners/data_and_analytics/analytics/npaw';
+validurls['/docs/partners/data_and_infrastructure_agility/analytics/npaw'] = '/docs/partners/home';
+validurls['/docs/partners/data_and_analytics/analytics/npaw'] = '/docs/partners/home';
+validurls['/docs/partners/npaw'] = '/docs/partners/home';
 validurls['/docs/partners/data_and_infrastructure_agility/analytics/saleswings'] = '/docs/partners/data_and_analytics/analytics/saleswings';
 validurls['/docs/partners/data_and_infrastructure_agility/analytics/clarisights'] = '/docs/partners/data_and_analytics/business_intelligence/clarisights';
 validurls['/docs/partners/data_and_infrastructure_agility/analytics/datadog'] = '/docs/partners/data_and_analytics/business_intelligence/datadog';

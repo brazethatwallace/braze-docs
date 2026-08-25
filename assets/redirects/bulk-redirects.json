@@ -34610,6 +34610,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/data_and_analytics/analytics/npaw",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/data_and_analytics/business_intelligence/heap",
     "destination": "/docs/partners/data_and_analytics/analytics/heap",
     "permanent": true
@@ -34806,7 +34811,7 @@
   },
   {
     "source": "/docs/partners/data_and_infrastructure_agility/analytics/npaw",
-    "destination": "/docs/partners/data_and_analytics/analytics/npaw",
+    "destination": "/docs/partners/home",
     "permanent": true
   },
   {
@@ -36281,6 +36286,11 @@
   },
   {
     "source": "/docs/partners/neura",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
+    "source": "/docs/partners/npaw",
     "destination": "/docs/partners/home",
     "permanent": true
   },
