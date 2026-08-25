@@ -30,4 +30,4 @@ To track clicks on phone numbers or email addresses, use an `https://` redirect 
 
 ### Click tracking URL patterns
 
-When links are wrapped for click tracking, the URL structure depends on your email service provider. For details on the URL patterns your ESP generates—useful for firewall configuration or security allowlisting—refer to [Click tracking URL patterns]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#click-tracking-url-patterns) in the SSL overview.
+When your email service provider (ESP) rewrites a link for click tracking, the resulting URL uses your click tracking domain and an ESP-specific path prefix. For the patterns each ESP generates, which you need for firewall rules and security allowlists, refer to [Click and open tracking URL patterns]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#click-and-open-tracking-url-patterns).
