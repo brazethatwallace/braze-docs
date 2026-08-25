@@ -71,7 +71,7 @@ If you selected **Data Object filters**, choose a data object, then add attribut
 {% endtab %}
 {% tab User activity filters %}
 
-If you selected **User activity filters**, or **Create filter** opened the user activity builder directly, choose one of the following **Criterion** options for targeting:
+If **Create filter** opens the user activity builder directly, or if you select **User activity filters**, choose one of the following **Criterion** options for targeting:
 
 - **Made a Purchase**
 - **Performed an eCommerce event**
