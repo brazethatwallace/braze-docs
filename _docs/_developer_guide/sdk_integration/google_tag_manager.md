@@ -121,6 +121,16 @@ For more information, refer to [Audience Sync to Google]({{site.baseurl}}/partne
 
 ## Troubleshooting
 
+### Web SDK sessions attributed to the wrong user
+
+If GTM fires Braze initialization or event tags before your app identifies the signed-in user, sessions and events may attach to the wrong profile. Initialize the Web SDK, call `changeUser()` with the signed-in user's `external_id`, and then call `openSession()` before any tags that log events or set attributes. Use GTM tag sequencing or consent triggers so Braze tags run only after your authentication flow completes.
+
+### Web SDK console logging with Shopify or script-tag installs
+
+The Shopify app embed loads the Web SDK with console logging turned off. Set logging in your GTM Initialization tag or `initialize()` options. The Braze dashboard does not include a logging control for these loaders.
+
+If Braze logs appear in the browser console, remove `enableLogging: true` from the GTM Initialization tag or custom HTML before you publish to production. After initialization, use `toggleLogging()` or the `?brazeLogging=true` URL parameter. For the full Web SDK options, see [Verbose logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging).
+
 If Braze does not initialize or events do not appear as expected, confirm your GTM container is published, triggers and tag firing order align with your SDK [lifecycle and initialization strategy]({{site.baseurl}}/developer_guide/sdk_integration), and that test devices are not blocking Braze endpoints.
 
 For initialization failures, verify the Braze tag or custom tag provider receives the expected `actionType` and parameters (see the Android, Swift, and Web tabs on this page). For verbose logging while validating GTM-fired events, enable your platform’s SDK debug logging as described in the platform integration guides linked from those tabs.
