@@ -58,7 +58,7 @@ You can edit brand guidelines by selecting them on the **Brand Guidelines** page
 
 ## Using brand guidelines
 
-In the Operator chat panel, select <i class="fa-regular fa-plus"></i>&nbsp;**Add context for Operator**, then choose one or more guidelines under **Brand guidelines**. Operator applies the guidelines you select to generated copy, templates, and images. By default, nothing is selected. For more information, see [Apply brand guidelines]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines)
+In the Operator chat panel, select <i class="fa-regular fa-plus"></i>&nbsp;**Add context for Operator**, then choose one or more guidelines under **Brand guidelines**. Operator applies the guidelines you select to generated copy, templates, and images. By default, nothing is selected. 
 
 ![Selecting brand guidelines in the Operator chat panel.]({% image_buster /assets/img/operator/operator_brand_guidelines.png %})
 
