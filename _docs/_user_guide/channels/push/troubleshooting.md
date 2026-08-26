@@ -35,7 +35,7 @@ Use this workflow when a user or test device didn't receive a push. Start at ste
 3. Check global frequency caps, rate limits, and control group assignment for the campaign or Canvas.
 4. Confirm you're using the correct push type for the device (for example, Android, iOS, or Kindle).
 5. For internal testing, confirm the tester is logged into the correct app on the device.
-6. If delivery still fails, review [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes) or contact [Braze Support]({{site.baseurl}}/braze_support) with the campaign or Canvas ID, user ID, and timestamp with timezone.
+6. If delivery still fails, review [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes) or contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) with the campaign or Canvas ID, user ID, and timestamp with timezone.
 
 ## Missing push notifications {#missing-push-notifications}
 
