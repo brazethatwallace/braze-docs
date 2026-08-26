@@ -291,7 +291,7 @@ limitations with appropriate, positive context without promising future features
 
 When you add a new public article in `user_guide`, `developer_guide`, `api`, `partners`, or `help`, include `date_published` as a quoted `YYYY-MM-DD` value. Use today's UTC date, or the UTC date you expect this PR to merge. The value must not be in the past. Confirm it is still accurate before merge. Do not change it after the article is public.
 
-If the page is `hidden: true` or `config_only: true` at first, add `date_published` when you make it public, unless a date is already present—then keep that date. Do not add a date within the last 14 days (or a future date) to an already-public article that lacks the field.
+If the page is `hidden: true` or `config_only: true` at first, add `date_published` when you make it public, unless a date is already present—then keep that date. Pages with `layout: redirect` do not need `date_published`. Do not add a date within the last 14 days (or a future date) to an already-public article that lacks the field.
 
 ## Reviews
 

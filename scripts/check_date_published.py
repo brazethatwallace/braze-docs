@@ -6,8 +6,8 @@ Check 1 — first public ship (new eligible file, or unhide / leave config_only
 with no date already present)
   The field must be present, formatted YYYY-MM-DD, and not in the past
   (UTC). Today and future dates are allowed so writers can set the date they
-  expect the PR to merge. Hidden and config_only pages are exempt until they
-  become public.
+  expect the PR to merge. Hidden, config_only, and ``layout: redirect`` pages
+  are exempt until they become public (redirect stubs stay exempt).
 
 Check 2 — immutability
   If the base version already had a valid ``date_published`` and the page is
@@ -195,9 +195,16 @@ def is_yaml_true(value: str | None) -> bool:
     return value.strip().lower() in TRUE_VALUES
 
 
+def is_redirect(fm: Frontmatter) -> bool:
+    layout = (fm.values.get('layout') or '').strip().lower()
+    return layout == 'redirect'
+
+
 def is_eligible(fm: Frontmatter) -> bool:
-    return not is_yaml_true(fm.values.get('hidden')) and not is_yaml_true(
-        fm.values.get('config_only')
+    return (
+        not is_yaml_true(fm.values.get('hidden'))
+        and not is_yaml_true(fm.values.get('config_only'))
+        and not is_redirect(fm)
     )
 
 
@@ -332,7 +339,7 @@ def evaluate_change(
             today_iso=today_iso,
         )
 
-    if base_eligible and base_date is None and head_date:
+    if base_eligible and base_date is None and head_date is not None:
         return _late_add_finding(
             head_path=head_path,
             head_fm=head_fm,

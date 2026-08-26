@@ -153,13 +153,14 @@ Set `date_published` once, when the article first ships. Use today's UTC date, o
 
 If the page first shipped with [`hidden`](#hide-page-from-navigation) set to `true` (or [`config_only`](#navigation-only)), add `date_published` on the pull request that makes the page public, unless a date is already present. If a date is already present, keep it.
 
-CI requires this field on new public articles under `_docs/` in the `user_guide`, `developer_guide`, `api`, `partners`, and `help` collections. Pages with `hidden: true` or `config_only` are exempt until they become public. Existing articles without the field are not backfilled. If you add the field to an already-public article, the date must be older than 14 days (so it does not appear on the New card) and must not be in the future.
+CI requires this field on new public articles under `_docs/` in the `user_guide`, `developer_guide`, `api`, `partners`, and `help` collections. Pages with `hidden: true`, `config_only`, or [`layout: redirect`](page_layouts.md#redirect) are exempt. Redirect stubs stay exempt (they are not public articles). Existing articles without the field are not backfilled. If you add the field to an already-public article, the date must be older than 14 days (so it does not appear on the New card) and must not be in the future.
 
 The homepage card includes a page when all of the following are true:
 
 - `date_published` is present and valid
 - `hidden` is not `true`
 - `config_only` is not `true`
+- `layout` is not `redirect`
 - `date_published` is within the last 14 days
 
 Run the check locally with `python3 scripts/check_date_published.py --base origin/develop`.

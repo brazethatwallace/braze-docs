@@ -184,6 +184,9 @@ class Check1NewFileTests(unittest.TestCase):
     def test_config_only_new_file_is_exempt(self) -> None:
         self.assertIsNone(evaluate(article(config_only='true')))
 
+    def test_redirect_new_file_is_exempt(self) -> None:
+        self.assertIsNone(evaluate(article(layout='redirect')))
+
     def test_out_of_scope_new_file_is_ignored(self) -> None:
         self.assertIsNone(
             evaluate(article(), path='_docs/_releases/2026/note.md')
@@ -310,6 +313,12 @@ class NoBackfillTests(unittest.TestCase):
         self.assertIsNotNone(finding)
         assert finding is not None
         self.assertEqual(finding.code, 'recency')
+
+    def test_adding_empty_date_to_existing_public_is_rejected(self) -> None:
+        finding = evaluate(article(date_published='""'), base=article())
+        self.assertIsNotNone(finding)
+        assert finding is not None
+        self.assertEqual(finding.code, 'malformed')
 
     def test_rename_of_old_file_without_field_is_ignored(self) -> None:
         self.assertIsNone(

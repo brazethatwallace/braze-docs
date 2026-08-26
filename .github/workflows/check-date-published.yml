@@ -5,6 +5,7 @@
 # already present) must have date_published as YYYY-MM-DD, not in the past
 # (UTC). Today and future dates are allowed (anticipated merge date). Hidden
 # and config_only pages are exempt until they become public.
+# Redirect stubs (`layout: redirect`) are exempt and must not appear on the New card.
 # Check 2: an existing date_published value must not change once the page is
 # public, or when unhiding a page that already has a date.
 # Late add: adding the field to an already-public article is allowed only when
