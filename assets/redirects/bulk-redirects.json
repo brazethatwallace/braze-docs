@@ -215,6 +215,51 @@
     "permanent": true
   },
   {
+    "source": "/docs/api/messaging_api",
+    "destination": "/docs/api/device_messaging_api",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/authentication",
+    "destination": "/docs/api/device_messaging_api/authentication",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints",
+    "destination": "/docs/api/device_messaging_api/endpoints",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints/banners",
+    "destination": "/docs/api/device_messaging_api/endpoints/banners",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints/banners/post_sync_banners",
+    "destination": "/docs/api/device_messaging_api/endpoints/banners/post_sync_banners",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints/banners/post_track_banner_events",
+    "destination": "/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/error_handling",
+    "destination": "/docs/api/device_messaging_api/error_handling",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/overview",
+    "destination": "/docs/api/device_messaging_api/overview",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/rate_limits",
+    "destination": "/docs/api/device_messaging_api/rate_limits",
+    "permanent": true
+  },
+  {
     "source": "/docs/api/new_home",
     "destination": "/docs/api/home",
     "permanent": true
@@ -34565,6 +34610,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/data_and_analytics/analytics/npaw",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/data_and_analytics/business_intelligence/heap",
     "destination": "/docs/partners/data_and_analytics/analytics/heap",
     "permanent": true
@@ -34761,7 +34811,7 @@
   },
   {
     "source": "/docs/partners/data_and_infrastructure_agility/analytics/npaw",
-    "destination": "/docs/partners/data_and_analytics/analytics/npaw",
+    "destination": "/docs/partners/home",
     "permanent": true
   },
   {
@@ -35520,8 +35570,13 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/just_ai",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/just_words",
-    "destination": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/partners/home",
     "permanent": true
   },
   {
@@ -36075,8 +36130,13 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_words",
-    "destination": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/partners/home",
     "permanent": true
   },
   {
@@ -36226,6 +36286,11 @@
   },
   {
     "source": "/docs/partners/neura",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
+    "source": "/docs/partners/npaw",
     "destination": "/docs/partners/home",
     "permanent": true
   },

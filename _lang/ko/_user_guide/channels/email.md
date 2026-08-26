@@ -13,33 +13,34 @@ search_rank: 2
 
 > Braze의 이메일을 사용하면 Campaigns 또는 Canvas에서 완전히 맞춤화되고 개인화된 이메일 메시지를 만들어 앱이나 웹사이트 외부에서도 사용자의 관심을 끌 수 있습니다. 오디언스 관리부터 눈길을 끄는 멀티미디어 콘텐츠 포함까지 이메일 메시지를 자유롭게 커스터마이즈하세요. 이메일 Campaign 예시는 Braze [사례 연구](https://www.braze.com/customers/)를 참조하세요.
 
-## 사전 요구 사항 {#prerequisites}
+## 전제 조건 {#prerequisites}
 
-Braze로 이메일을 발송하기 전에 전용 IP, 도메인, 이메일 인증 및 IP 워밍을 구성해야 합니다. 전체 안내는 [이메일 설정]({{site.baseurl}}/user_guide/channels/email/email_setup)을 참조하세요.
+Braze로 이메일을 발송하기 전에 전용 IP, 도메인, 이메일 인증 및 IP 워밍을 구성해야 합니다. 전체 과정에 대한 안내는 [이메일 설정]({{site.baseurl}}/user_guide/channels/email/email_setup)을 참조하세요.
 
-## 이메일 커스터마이징 {#customize-your-emails}
+## 이메일 커스텀하기 {#customize-your-emails}
 
-다양한 방법으로 이메일 메시징을 커스터마이징할 수 있습니다:
+다음과 같은 다양한 방법으로 이메일 메시징을 커스텀할 수 있습니다:
 
 - [Braze 이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)
 - [커스텀 HTML 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
 - [편집기 블록(이메일)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
 - [사용자 구독]({{site.baseurl}}/user_guide/channels/email/subscriptions)
+- [구독 그룹]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups)
 
 ## 이메일 테스트 {#test-your-emails}
 
-[시드 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups)은 품질 보증을 수행하기 위해 이메일 Campaign의 사본을 내부 사용자에게 자동으로 발송합니다. 시드 이메일은 제목란 앞에 `[SEED]`가 추가되어 쉽게 식별할 수 있습니다.
+[시드 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups)은 품질 보증을 위해 이메일 Campaign의 사본을 내부 사용자에게 자동으로 발송합니다. 시드 이메일은 식별할 수 있도록 제목란 앞에 `[SEED]`가 추가됩니다.
 
 ## 사용 사례 {#use-cases}
 
 | 사용 사례 | 설명 |
 | --- | --- |
 | 재참여 | 앱을 설치하지 않은 사용자를 포함하여 앱 외부에서 사용자에게 도달할 수 있습니다. |
-| 온보딩 | 신규 사용자를 온보딩하고 푸시 알림을 활성화하거나 소셜 네트워크에서 앱을 공유하도록 유도합니다. |
-| 리치 메시지 | 풍부하고 동적인 HTML 메시지를 전달할 수 있습니다. |
-| 멀티미디어 콘텐츠 | 비디오, 이미지 등 사용자의 참여를 유도하는 멀티미디어 콘텐츠를 손쉽게 배치할 수 있습니다. |
+| 온보딩 | 신규 사용자의 온보딩을 지원하고 푸시 알림 활성화 또는 소셜 네트워크에서 앱 공유를 유도합니다. |
+| 리치 메시지 | 풍부하고 동적인 HTML 메시지를 사용할 수 있습니다. |
+| 멀티미디어 콘텐츠 | 비디오 및 이미지와 같이 사용자의 참여를 유도하는 멀티미디어 콘텐츠를 쉽게 배치할 수 있습니다. |
 | 뉴스레터 | 월간 또는 주간 뉴스레터를 편리하게 발송하여 사용자 인게이지먼트를 유지할 수 있습니다. |
-| 트랜잭션 | 최근 구매 내역을 사용자에게 알리고, [트랜잭션 이메일]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)을 통해 중요한 제품 및 배송 정보를 전달합니다. |
+| 트랜잭션 | 최근 구매에 대해 사용자에게 알리고, [트랜잭션 이메일]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)을 통해 중요한 제품 및 배송 정보를 전달합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="사용 사례" }
 
 ## 이메일 서비스 {#email-services}

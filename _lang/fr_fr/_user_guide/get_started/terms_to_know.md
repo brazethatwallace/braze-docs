@@ -27,7 +27,7 @@ glossaries:
   - name: Équipe
     description: "Les administrateurs de Braze peuvent répartir un sous-ensemble d'utilisateurs du tableau de bord en <a href=\"/docs/user_guide/administer/global/user_management/teams\">équipes</a> avec différents rôles et autorisations. Cela permet aux administrateurs de Braze de limiter l'accès à certaines fonctionnalités en fonction de l'appartenance à un groupe."
   - name: Campaign
-    description: "Les Campaigns sont des méthodes d'envoi de messages personnalisées permettant d'apporter une réponse personnalisée à vos clients. Vous pouvez <a href=\"/docs/user_guide/messaging/campaigns\">créer des Campaigns</a> en utilisant différents canaux de communication pour envoyer vos messages uniques."
+    description: "Les Campaigns sont des méthodes d'envoi de messages personnalisées permettant d'apporter une réponse adaptée à vos clients. Vous pouvez <a href=\"/docs/user_guide/messaging/campaigns\">créer des Campaigns</a> en utilisant différents canaux de communication pour envoyer vos messages uniques."
   - name: Canvas
     description: "<a href=\"/docs/user_guide/messaging/canvas\">Canvas</a> est une interface unifiée où les marketeurs peuvent implémenter des Campaigns avec plusieurs messages et étapes pour former un parcours cohérent. Canvas vous permet de comparer et d'optimiser ces expériences à l'aide d'analyses complètes pour l'ensemble de l'expérience utilisateur."
   - name: Contenu connecté
@@ -45,7 +45,7 @@ glossaries:
   - name: Point de donnée
     description: "Un point de donnée est comptabilisé lorsqu'un <a href=\"/docs/user_guide/data/activation/attributes/custom_attributes\">attribut personnalisé</a> est défini ou mis à jour (même si vous le mettez à jour avec la même valeur), lorsqu'un <a href=\"/docs/user_guide/data/activation/events/custom_events\">événement personnalisé</a> ou un événement d'achat est enregistré, lorsqu'une donnée standard (par exemple, <code>email</code>, <code>first_name</code>, <code>last_name</code>, <code>country</code> ou <code>home_city</code>) est enregistrée, lorsqu'une session commence et lorsqu'elle se termine."
   - name: Création de liens profonds
-    description: "Les <a href=\"/docs/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls\">liens profonds</a> sont utilisés pour orienter les clients vers leur prochaine action ou interaction. Grâce aux liens profonds, vous pouvez connecter un message à un contenu ciblé au sein d'un site Web ou d'une application mobile."
+    description: "Les <a href=\"/docs/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls\">deep links</a> sont utilisés pour orienter les clients vers leur prochaine action ou interaction. Grâce aux deep links, vous pouvez connecter un message à un contenu ciblé au sein d'un site Web ou d'une application mobile."
   - name: Utilisateurs dormants
     description: "Un utilisateur est considéré comme <a href=\"/docs/user_archival#dormant-users\">dormant</a> lorsqu'il n'a eu aucune activité qualifiante au cours des douze derniers mois : il n'a utilisé aucune application ni aucun site Web dans l'espace de travail, n'a reçu aucun message de l'espace de travail et n'a pas été mis à jour depuis plus de douze mois. Par défaut, Braze utilise une fenêtre de douze mois pour l'archivage des utilisateurs dormants ; les paramètres de votre entreprise peuvent modifier le nombre de jours."
   - name: Endpoint
@@ -79,7 +79,7 @@ glossaries:
   - name: Nouvel utilisateur
     description: "Braze considère un nouvel utilisateur comme toute personne qui a récemment installé votre application. Un nouvel utilisateur peut également être défini comme un utilisateur avec un ID utilisateur qui n'a pas été identifié auparavant dans Braze."
   - name: Personnalisation
-    description: "Utiliser la technologie pour prendre en compte les préférences et les tendances individuelles de chaque utilisateur lors de la communication avec eux. L'<a href=\"/docs/user_guide/messaging/design_and_edit/personalize\">envoi de messages personnalisés</a> aide à créer des expériences client précieuses en s'adaptant à leurs préférences."
+    description: "Utiliser la technologie pour prendre en compte les préférences et les tendances individuelles de chaque utilisateur lors de la communication. L'<a href=\"/docs/user_guide/messaging/design_and_edit/personalize\">envoi de messages personnalisés</a> aide à créer des expériences client de valeur en s'adaptant à leurs préférences."
   - name: Notification push
     description: "Une <a href=\"/docs/user_guide/channels/push\">notification push</a> est une notification qui s'affiche depuis une application mobile. Les notifications push s'affichent souvent sous forme de boîtes de dialogue contextuelles et de bannières pour iOS et Android."
   - name: Jeton de notification push
@@ -95,7 +95,7 @@ glossaries:
   - name: Kit de développement logiciel (SDK)
     description: "Les <a href=\"/docs/developer_guide/getting_started/sdk_overview\">SDK</a> sont intégrés à vos applications mobiles, sites Web et expériences connectées, et fournissent des outils de marketing, de communication et d'analyse. Braze publie des guides d'intégration SDK pour des plateformes telles que <a href=\"/docs/developer_guide/sdk_integration?sdktab=swift\">Swift</a> et <a href=\"/docs/developer_guide/sdk_integration?sdktab=android\">Android</a> ; pour le Web et les autres plateformes, suivez les parcours d'intégration liés depuis l'aperçu du SDK."
   - name: Groupes d'abonnement
-    description: "Les <a href=\"/docs/user_guide/channels/email/subscriptions#subscription-groups\">groupes d'abonnement</a> se superposent aux états d'abonnement globaux afin de vous permettre d'offrir des choix d'abonnement granulaires (par exemple, newsletters versus promotions). Des modèles similaires existent pour des canaux tels que le SMS et WhatsApp ; ciblez toujours un groupe d'abonnement lorsque votre canal l'exige."
+    description: "Les <a href=\"/docs/user_guide/audience/subscription_preferences/subscription_groups\">groupes d'abonnement</a> se superposent aux états d'abonnement globaux afin de vous permettre d'offrir des choix d'abonnement granulaires (par exemple, newsletters versus promotions). Des modèles similaires existent pour des canaux tels que le SMS et WhatsApp ; ciblez toujours un groupe d'abonnement lorsque votre canal l'exige."
   - name: Temporisation
     description: "La temporisation désigne le processus d'identification des utilisateurs désengagés et de cessation de l'envoi actif de messages à ces utilisateurs sans qu'ils aient à prendre de mesures. Créer des politiques de temporisation pour vos messages <a href=\"/docs/user_guide/channels/email/best_practices/sunset_policies\">e-mail</a> et de <a href=\"/docs/user_guide/channels/push/best_practices#implement-a-sunset-policy-for-unresponsive-users\">notification push</a> peut aider à réduire les impacts sur vos taux d'ouverture."
   - name: Étiquette

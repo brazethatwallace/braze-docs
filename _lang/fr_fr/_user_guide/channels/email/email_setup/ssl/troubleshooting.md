@@ -16,7 +16,7 @@ channel: email
 | Symptôme | Aller à |
 | --- | --- |
 | Les taux d'ouverture des e-mails ont chuté soudainement | [Faibles taux d'ouverture des e-mails](#low-email-open-rates) |
-| Les liens suivis renvoient une erreur HTTP 403 | [HTTP 403 sur les liens de redirection](#http-403-on-redirect-links) |
+| Les liens suivis renvoient HTTP 403 | [HTTP 403 sur les liens de redirection](#http-403-on-redirect-links) |
 | Le DNS ou le CNAME pointe vers le fournisseur de services d'e-mailing au lieu du CDN | [Problèmes de registre de domaine](#domain-registry-issues) |
 | « La connexion n'est pas privée » ou les liens ne fonctionnent pas pendant la configuration | [Problèmes de CDN](#cdn-issues) |
 | La configuration SSL est terminée mais les liens affichent toujours HTTP | [Statut d'activation SSL](#ssl-enablement-status) |
@@ -27,18 +27,18 @@ channel: email
 ## Parcours d'investigation standard {#standard-investigation-path}
 
 1. Confirmez que votre sous-domaine de suivi des clics pointe vers votre [réseau de diffusion de contenu (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it), et non directement vers votre fournisseur de services d'e-mailing (SendGrid, SparkPost ou Amazon SES). Demandez à votre équipe informatique ou web de vérifier que les paramètres de votre domaine correspondent à votre configuration Braze. Pour les exigences Braze, consultez [Obtenir un certificat SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
-2. Confirmez que votre certificat SSL est actif pour le domaine de suivi. Demandez à votre équipe informatique ou web de confirmer que le certificat est à jour et couvre votre sous-domaine de suivi des clics. Pour les étapes de configuration et les guides spécifiques aux CDN, consultez [Obtenir un certificat SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) et [Ressources supplémentaires]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
+2. Confirmez que votre certificat SSL est actif pour le domaine de suivi. Demandez à votre équipe informatique ou web de confirmer que le certificat est à jour et couvre votre sous-domaine de suivi des clics. Pour les étapes de configuration et les guides spécifiques au CDN, consultez [Obtenir un certificat SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) et [Ressources supplémentaires]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
 3. Envoyez un e-mail de test à l'aide du [modèle de résolution des problèmes de suivi des clics](#click-tracking-issues). Comparez les URL suivies et non suivies.
 4. Si les liens suivis échouent avec une erreur 403, vérifiez les règles du CDN et du WAF (agents utilisateurs, chaînes de requête, schémas de redirection).
 5. Si la configuration est terminée mais que les liens restent en HTTP, contactez votre gestionnaire du succès des clients Braze pour confirmer que Braze a activé le SSL.
-6. Pour les problèmes persistants, coordonnez-vous avec votre CDN ou votre équipe informatique et contactez l'[Assistance Braze]({{site.baseurl}}/braze_support) en fournissant les codes d'erreur et tous les détails de votre CDN ou fournisseur de domaine.
+6. En cas de problèmes persistants, coordonnez-vous avec votre CDN ou votre équipe informatique et contactez l'[Assistance Braze]({{site.baseurl}}/braze_support) en fournissant les codes d'erreur et tout détail provenant de votre CDN ou de votre fournisseur de domaine.
 
 ## Concepts clés {#key-concepts}
 
 - **Domaine de suivi des clics (CTD) :** Le sous-domaine personnalisé que Braze utilise pour encapsuler les liens à des fins de suivi des clics (par exemple, `clicks.mail.yourbrand.com`).
-- **URL suivie :** Encapsule le lien HTTPS d'origine dans votre domaine de suivi. Lorsqu'un utilisateur clique dessus, le domaine de suivi résout la requête et redirige vers la destination finale. Un CDN vous permet de suivre les URL sécurisées (HTTPS). Sans celui-ci, les utilisateurs peuvent rencontrer une erreur de confidentialité « la connexion n'est pas sécurisée ».
+- **URL suivie :** Encapsule le lien HTTPS d'origine dans votre domaine de suivi. Lorsqu'un utilisateur clique dessus, le domaine de suivi résout la requête et redirige vers la destination finale. Un CDN vous permet de suivre les URL sécurisées (HTTPS). Sans CDN, les utilisateurs peuvent rencontrer une erreur de confidentialité « la connexion n'est pas sécurisée ».
 - **URL non suivie :** Conserve l'URL d'origine intacte, en contournant le CDN pour servir d'environnement de contrôle.
-- **Routage Phase 1 et Phase 2 :** La Phase 1 fait pointer le CNAME de votre domaine de suivi des clics directement vers votre fournisseur de services d'e-mailing (ESP) pour la vérification HTTP initiale. La Phase 2 fait pointer le CNAME vers votre CDN ou pare-feu d'application web (WAF), qui termine le SSL et transmet les requêtes à l'ESP avec les en-têtes requis. Pour les destinations CNAME spécifiques à chaque ESP, consultez [Routage Phase 1 et Phase 2 par ESP](#esp-phase-1-and-phase-2-routing).
+- **Routage Phase 1 et Phase 2 :** La Phase 1 fait pointer le CNAME de votre domaine de suivi des clics directement vers votre fournisseur de services d'e-mailing (ESP) pour la vérification HTTP initiale. La Phase 2 fait pointer le CNAME vers votre CDN ou pare-feu d'application web (WAF), qui termine le SSL et transmet les requêtes par proxy à l'ESP avec les en-têtes requis. Pour les destinations CNAME spécifiques à chaque ESP, consultez [Routage ESP Phase 1 et Phase 2](#esp-phase-1-and-phase-2-routing).
 
 ## Domaines de suivi des clics et phases DNS {#click-tracking-domains-and-dns-phases}
 
@@ -161,6 +161,48 @@ Si vous utilisez Amazon SES comme fournisseur de services d'e-mailing, les probl
 **Symptôme :** Les liens d'e-mail suivis échouent alors que les liens non suivis fonctionnent, ou les utilisateurs voient des erreurs de certificat ou de DNS après avoir cliqué.
 
 Les problèmes courants de redirection résultent généralement d'une mauvaise configuration entre le CDN hébergeant le domaine de suivi et ses certificats SSL associés ou ses enregistrements DNS CNAME. Ces mauvaises configurations entraînent souvent une erreur de confidentialité « la connexion n'est pas sécurisée » ou un échec `404` après avoir cliqué sur un lien d'e-mail suivi.
+
+### Exigences de formatage des liens HTML {#html-link-formatting-requirements}
+
+Pour que le suivi des clics fonctionne, votre fournisseur de services d'e-mailing (SendGrid, SparkPost ou Amazon SES) doit trouver et remplacer les liens dans votre HTML. Quel que soit le fournisseur, les liens doivent respecter ces exigences de formatage :
+
+- Les liens doivent se trouver dans une balise HTML `<a>` avec un attribut `href`.
+- L'URL doit commencer par `http://` ou `https://`.
+
+Règles supplémentaires spécifiques aux fournisseurs :
+
+- **SendGrid :** Entourez l'URL de guillemets simples ou doubles, et n'incluez pas d'espaces autour du `=` dans l'attribut `href`.
+- **Amazon SES :** Les URL doivent être conformes à la [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986). Les espaces non encodés dans une URL empêchent Amazon SES de suivre le lien.
+
+Pour en savoir plus sur les schémas d'URL pris en charge par le suivi des clics Braze, consultez [Exigences relatives aux liens de suivi des clics]({{site.baseurl}}/user_guide/channels/email/email_setup/open_pixel_and_click_tracking#click-tracking-link-requirements). Pour les détails HTML spécifiques aux fournisseurs, consultez [Bonnes pratiques HTML pour le suivi des clics SendGrid](https://www.twilio.com/docs/sendgrid/ui/analytics-and-reporting/click-tracking-html-best-practices), [Langage de modèle SparkPost](https://developers.sparkpost.com/api/template-language/) et [FAQ sur les indicateurs d'envoi d'e-mails Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/faqs-metrics.html).
+
+Exemples valides :
+
+```html
+<a href="http://www.example.com">Link</a>
+<a href='https://example.com'>Link</a>
+<a target="_blank" href="https://example.com">Link</a>
+```
+
+Les exemples suivants omettent `http://` ou `https://` et ne sont pas suivis :
+
+```html
+<a href="example.com">Link</a>
+<a href="www.example.com">Link</a>
+```
+
+Si vous utilisez SendGrid, les exemples suivants ne sont pas non plus suivis :
+
+```html
+<a href= http://www.example.com>Link</a>
+<a href = "https://example.com">Link</a>
+```
+
+{% alert note %}
+Bien qu'un sous-domaine `www` soit facultatif, `http://` ou `https://` est requis pour que le suivi des clics fonctionne correctement.
+{% endalert %}
+
+### Tester le suivi des clics {#testing-click-tracking}
 
 Après avoir complété le [parcours de triage](#triage-workflow), utilisez le modèle suivant pour tester la configuration du CDN de votre domaine de suivi, qui est le mécanisme prenant en charge l'analyse des liens dans vos e-mails.
 

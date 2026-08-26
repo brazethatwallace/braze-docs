@@ -1,6 +1,6 @@
 ---
 nav_title: Customize messages
-article_title: Customize in-app messages for the Braze SDK
+article_title: "Customize in-app messages"
 page_order: 0.1
 description: "Learn how to set up in-app messages for the Braze SDK."
 platform: 

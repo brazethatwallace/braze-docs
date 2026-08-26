@@ -1,12 +1,11 @@
 ---
 nav_title: "POST: Delete users"
-article_title: "POST: Delete Users"
+article_title: "Delete users"
 search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
 description: "This article outlines details about the Delete users Braze endpoint."
-
 ---
 {% api %}
 # Delete users
@@ -28,7 +27,7 @@ Deleting user profiles cannot be undone. The delete action permanently removes u
 
 ## Prerequisites
 
-To use this endpoint, you need an [API key]({{site.baseurl}}/api/api_key) with the `users.delete` permission.
+To use this endpoint, you need an [API key]({{site.baseurl}}/api/basics) with the `users.delete` permission.
 
 ## Rate limit
 

@@ -15,18 +15,18 @@ description: "Cette page fournit un aperçu de l'ingestion de données cloud, de
 ## Comprendre la colonne `UPDATED_AT` {#understanding-the-updated_at-column}
 
 {% alert note %}
-`UPDATED_AT` est pertinent uniquement pour les intégrations d'entrepôts de données, et non pour les synchronisations S3.
+`UPDATED_AT` est pertinent uniquement pour les intégrations d'entrepôts de données, pas pour les synchronisations S3.
 {% endalert %}
 
 Lorsqu'une synchronisation s'exécute, Braze se connecte directement à votre instance d'entrepôt de données, récupère toutes les nouvelles données de la table spécifiée et met à jour les données correspondantes sur votre tableau de bord de Braze. À chaque exécution de la synchronisation, Braze reflète toutes les données mises à jour.
 
 {% alert important %}
-Braze CDI synchronise les lignes strictement en fonction de la valeur `UPDATED_AT`, que le contenu de la ligne soit identique ou non à celui actuellement présent dans Braze. Compte tenu de cela, nous recommandons d'utiliser `UPDATED_AT` correctement afin de ne synchroniser que les données nouvelles ou mises à jour, et ainsi éviter toute consommation inutile de points de donnée.
+L'ingestion de données cloud (CDI) de Braze synchronise les lignes strictement en fonction de la valeur `UPDATED_AT`, que le contenu de la ligne soit identique ou non à ce qui se trouve actuellement dans Braze. C'est pourquoi nous recommandons d'utiliser `UPDATED_AT` correctement pour ne synchroniser que les données nouvelles ou mises à jour afin d'éviter une consommation inutile de points de donnée.
 {% endalert %}
 
 ### Exemple : synchronisation récurrente {#example-recurring-sync}
 
-Pour illustrer l'utilisation de `UPDATED_AT` dans une synchronisation CDI, considérez cet exemple de synchronisation récurrente pour la mise à jour des attributs utilisateur :
+Pour illustrer comment `UPDATED_AT` est utilisé dans une synchronisation CDI, considérez cet exemple de synchronisation récurrente pour la mise à jour des attributs utilisateur :
 
 - Sources de stockage de fichiers
    - Amazon S3
@@ -37,33 +37,33 @@ L'ingestion de données cloud prend en charge les types de données suivants :
 - Attributs utilisateur, notamment :
    - Attributs personnalisés imbriqués
    - Tableaux d'objets
-   - États d'abonnement
+   - Statuts d'abonnement
 - Événements personnalisés
 - Événements d'achat
 - Éléments de catalogue
-- Demandes de suppression d'utilisateur
+- Demandes de suppression d'utilisateurs
 
 ### Éviter les problèmes de types de données {#avoiding-data-type-issues}
 
-Lorsque vous utilisez CDI pour synchroniser des données provenant de sources externes (telles que Databricks ou Snowflake), assurez-vous que vos colonnes sources utilisent les types de données corrects avant la synchronisation. Les problèmes courants incluent :
+Lorsque vous utilisez l'ingestion de données cloud pour synchroniser des données provenant de sources externes (telles que Databricks ou Snowflake), assurez-vous que vos colonnes source utilisent les types de données corrects avant la synchronisation. Les problèmes courants incluent :
 
 - **Horodatages stockés sous forme de chaînes de caractères :** Assurez-vous que vos colonnes de dates utilisent un type timestamp ou datetime dans votre base de données source, et non un type varchar ou string.
 - **Nombres stockés sous forme de chaînes de caractères :** Convertissez les colonnes numériques en types integer ou float dans votre requête source avant la synchronisation.
-- **Types incohérents entre les synchronisations :** Si le type d'une colonne change entre deux synchronisations, Braze peut rejeter les nouvelles données. Vérifiez que le schéma de votre source reste cohérent.
+- **Types incohérents entre les synchronisations :** Si le type d'une colonne change entre les synchronisations, Braze peut rejeter les nouvelles données. Vérifiez que le schéma de votre source reste cohérent.
 
 Pour forcer ou modifier les types de données des attributs personnalisés dans le tableau de bord de Braze, consultez [Gérer les données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#forcing-data-type-comparisons).
 
-Vous pouvez mettre à jour les données utilisateur à l'aide de l'ID externe, de l'alias d'utilisateur, de l'identifiant Braze, de l'e-mail ou du numéro de téléphone. Vous pouvez supprimer des utilisateurs par ID externe, alias d'utilisateur ou identifiant Braze.
+Vous pouvez mettre à jour les données utilisateur par ID externe, alias d'utilisateur, identifiant Braze, e-mail ou numéro de téléphone. Vous pouvez supprimer des utilisateurs par ID externe, alias d'utilisateur ou identifiant Braze.
 
 ## Ce qui est synchronisé {#what-gets-synced}
 
-À chaque exécution d'une synchronisation, Braze recherche les lignes qui n'ont pas encore été synchronisées. Cette vérification s'appuie sur la colonne `UPDATED_AT` de votre table ou vue. Braze sélectionne et importe toutes les lignes dont la valeur `UPDATED_AT` est postérieure à la dernière valeur `UPDATED_AT` synchronisée. Les lignes situées exactement à l'horodatage limite peuvent également être re-synchronisées si de nouvelles lignes sont ajoutées avec ce même horodatage entre deux exécutions.
+À chaque exécution d'une synchronisation, Braze recherche les lignes qui n'ont pas encore été synchronisées. Cette vérification s'effectue à l'aide de la colonne `UPDATED_AT` dans votre table ou vue. Braze sélectionne et importe toutes les lignes dont la valeur `UPDATED_AT` est postérieure à la dernière valeur `UPDATED_AT` synchronisée. Les lignes situées exactement à l'horodatage limite peuvent également être re-synchronisées si de nouvelles lignes sont ajoutées avec ce même horodatage entre deux exécutions.
 
 {% alert important %}
 CDI suit le nombre de lignes à la dernière valeur `UPDATED_AT` synchronisée. Si de nouvelles lignes sont ajoutées avec ce même horodatage entre deux exécutions, CDI passe à une limite inclusive (`>=`) et re-synchronise toutes les lignes à cet horodatage, y compris celles déjà traitées. Pour éviter les synchronisations en double et la consommation inutile de points de donnée, utilisez des valeurs `UPDATED_AT` uniques entre les exécutions de synchronisation. Pour plus d'informations, consultez [Éviter la re-synchronisation de lignes avec des horodatages en double](#avoid-resyncing-rows-with-duplicate-timestamps).
 {% endalert %}
 
-Dans votre entrepôt de données, ajoutez les utilisateurs et attributs suivants à votre table, en définissant l'heure `UPDATED_AT` sur le moment où vous ajoutez ces données :
+Dans votre entrepôt de données, ajoutez les utilisateurs et attributs suivants à votre table, en définissant l'heure `UPDATED_AT` au moment où vous ajoutez ces données :
 
 <table role="presentation">
   <thead>
@@ -120,7 +120,7 @@ Dans votre entrepôt de données, ajoutez les utilisateurs et attributs suivants
   </tbody>
 </table>
 
-Lors de la prochaine synchronisation planifiée, Braze synchronise toutes les lignes dont l'horodatage `UPDATED_AT` est postérieur au dernier horodatage synchronisé. Braze met à jour ou ajoute des champs, vous n'avez donc pas besoin de synchroniser l'intégralité du profil utilisateur à chaque fois. Après la synchronisation, les profils utilisateur reflètent les nouvelles mises à jour :
+Lors de la prochaine synchronisation planifiée, Braze synchronise toutes les lignes dont l'horodatage `UPDATED_AT` est postérieur au dernier horodatage synchronisé. Braze met à jour ou ajoute les champs, vous n'avez donc pas besoin de synchroniser l'intégralité du profil utilisateur à chaque fois. Après la synchronisation, les profils utilisateur reflètent les nouvelles mises à jour :
 
 **Synchronisation récurrente, deuxième exécution le 20 juillet 2022 à 12 h**
 
@@ -192,7 +192,7 @@ Lors de la prochaine synchronisation planifiée, Braze synchronise toutes les li
   </tbody>
 </table>
 
-Une nouvelle ligne a été ajoutée pour `customer_9012`, mais sa valeur `UPDATED_AT` (`2022-07-16 00:25:30`) est antérieure à l'horodatage enregistré (`2022-07-19 09:07:23`), elle ne sera donc pas synchronisée. En revanche, la ligne existante pour `customer_5678` a une valeur `UPDATED_AT` égale à l'horodatage enregistré, elle est donc re-synchronisée en raison de la limite inclusive. Pour plus de détails sur ce comportement, consultez [Assurez-vous que l'heure UPDATED_AT ne correspond pas à celle de votre synchronisation](#make-sure-the-updated_at-time-isnt-the-same-time-as-your-sync). La valeur `UPDATED_AT` enregistrée reste `2022-07-19 09:07:23`.
+Une nouvelle ligne a été ajoutée pour `customer_9012`, mais sa valeur `UPDATED_AT` (`2022-07-16 00:25:30`) est antérieure à l'horodatage stocké (`2022-07-19 09:07:23`), elle ne sera donc pas synchronisée. En revanche, la ligne existante pour `customer_5678` a une valeur `UPDATED_AT` égale à l'horodatage stocké, elle est donc re-synchronisée en raison de la limite inclusive. Pour plus de détails sur ce comportement, consultez [Assurez-vous que l'heure UPDATED_AT n'est pas la même que l'heure de votre synchronisation](#make-sure-the-updated_at-time-isnt-the-same-time-as-your-sync). La valeur `UPDATED_AT` stockée reste `2022-07-19 09:07:23`.
 
 **Synchronisation récurrente, troisième exécution le 21 juillet 2022 à 12 h**
 
@@ -280,19 +280,19 @@ Une nouvelle ligne a été ajoutée pour `customer_9012`, mais sa valeur `UPDATE
   </tbody>
 </table>
 
-Lors de cette troisième exécution, une nouvelle ligne a été ajoutée pour `customer_1234` avec une valeur `UPDATED_AT` (`2022-07-21 08:30:00`) postérieure à l'horodatage enregistré. Cette nouvelle ligne et la ligne existante pour `customer_5678` (dont la valeur `UPDATED_AT` est égale à l'horodatage enregistré) sont toutes deux synchronisées. La valeur `UPDATED_AT` enregistrée est désormais `2022-07-21 08:30:00`.
+Lors de cette troisième exécution, une nouvelle ligne a été ajoutée pour `customer_1234` avec une valeur `UPDATED_AT` (`2022-07-21 08:30:00`) postérieure à l'horodatage stocké. Cette nouvelle ligne et la ligne existante pour `customer_5678` (dont la valeur `UPDATED_AT` est égale à l'horodatage stocké) sont toutes les deux synchronisées. La valeur `UPDATED_AT` stockée est maintenant définie à `2022-07-21 08:30:00`.
 
 {% alert note %}
-Les valeurs `UPDATED_AT` peuvent être postérieures à l'heure de début d'exécution d'une synchronisation donnée. Cependant, cette pratique n'est pas recommandée car elle repousse le dernier horodatage `UPDATED_AT` « dans le futur » et les synchronisations suivantes ne synchroniseront pas les valeurs antérieures.
+Les valeurs `UPDATED_AT` peuvent même être postérieures à l'heure de début de l'exécution pour une synchronisation donnée. Cependant, cela n'est pas recommandé, car cela pousse le dernier horodatage `UPDATED_AT` « dans le futur » et les synchronisations suivantes ne synchroniseront pas les valeurs antérieures.
 {% endalert %}
 
 ## Utiliser un horodatage UTC pour la colonne `UPDATED_AT` {#use-a-utc-timestamp-for-the-updated_at-column}
 
-La colonne `UPDATED_AT` doit être en UTC pour éviter les problèmes liés aux changements d'heure. Utilisez de préférence des fonctions UTC uniquement, telles que `SYSDATE()` plutôt que `CURRENT_DATE()`, dès que possible.
+La colonne `UPDATED_AT` doit être en UTC afin d'éviter les problèmes liés aux changements d'heure. Privilégiez les fonctions exclusivement UTC, telles que `SYSDATE()` au lieu de `CURRENT_DATE()`, dans la mesure du possible.
 
 ## Éviter la re-synchronisation de lignes avec des horodatages en double {#avoid-resyncing-rows-with-duplicate-timestamps}
 
-CDI suit le nombre de lignes à la dernière valeur `UPDATED_AT` synchronisée. Si CDI détecte que de nouvelles lignes ont été ajoutées avec ce même horodatage depuis la dernière exécution, il utilise une limite inclusive (`>=`) pour re-sélectionner toutes les lignes à cet horodatage, y compris celles déjà traitées. Sinon, CDI utilise une limite exclusive (`>`) et ne sélectionne que les lignes strictement postérieures à la dernière valeur synchronisée.
+CDI suit le nombre de lignes au dernier horodatage `UPDATED_AT` synchronisé. Si CDI détecte que de nouvelles lignes ont été ajoutées avec ce même horodatage depuis la dernière exécution, il utilise une limite inclusive (`>=`) pour re-sélectionner toutes les lignes à cet horodatage, y compris celles déjà traitées. Sinon, CDI utilise une limite exclusive (`>`) et ne sélectionne que les lignes strictement postérieures à la dernière valeur synchronisée.
 
 Par exemple, si une synchronisation traite cinq lignes avec `UPDATED_AT = 2025-04-01 00:00:00`, et qu'une sixième ligne est ajoutée ultérieurement avec le même horodatage, la synchronisation suivante détecte le changement de nombre et re-synchronise les six lignes. Cela peut entraîner des données en double et une consommation inutile de points de donnée.
 
@@ -309,7 +309,7 @@ Cet exemple illustre le processus général de synchronisation des données pour
 
 <style type="text/css">
 .tg td{word-break:normal;}
-.tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
+.tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 
@@ -539,40 +539,40 @@ CDI ne synchronisera que les nouvelles lignes, de sorte que la prochaine synchro
 
 ## Conseils supplémentaires {#additional-tips}
 
-### N'écrivez que les attributs nouveaux ou mis à jour pour limiter la consommation {#only-write-new-or-updated-attributes-to-minimize-consumption}
+### N'écrivez que les attributs nouveaux ou mis à jour pour minimiser la consommation {#only-write-new-or-updated-attributes-to-minimize-consumption}
 
-À chaque exécution d'une synchronisation, Braze recherche les lignes qui n'ont pas encore été synchronisées. Cette vérification s'appuie sur la colonne `UPDATED_AT` de votre table ou vue. Braze sélectionne et importe toutes les lignes dont la valeur `UPDATED_AT` est postérieure à la dernière valeur `UPDATED_AT` synchronisée, qu'elles soient identiques ou non à celles actuellement présentes dans le profil utilisateur. Les lignes situées à l'horodatage limite peuvent également être re-synchronisées si de nouvelles lignes partagent cet horodatage. C'est pourquoi nous recommandons de ne synchroniser que les attributs que vous souhaitez ajouter ou mettre à jour.
+Chaque fois qu'une synchronisation s'exécute, Braze recherche les lignes qui n'ont pas encore été synchronisées. Cette vérification est effectuée à l'aide de la colonne `UPDATED_AT` de votre table ou vue. Braze sélectionne et importe toutes les lignes dont la valeur `UPDATED_AT` est postérieure à la dernière valeur `UPDATED_AT` synchronisée, que ces lignes soient ou non identiques à ce qui figure actuellement dans le profil utilisateur. Les lignes situées à la limite du timestamp peuvent également être re-synchronisées si de nouvelles lignes partagent ce même timestamp. C'est pourquoi nous recommandons de ne synchroniser que les attributs que vous souhaitez ajouter ou mettre à jour.
 
-La consommation de points de donnée est identique avec CDI et avec d'autres méthodes d'ingestion telles que les REST API ou les SDK. Il est donc de votre responsabilité de vous assurer que vous n'ajoutez que des attributs nouveaux ou mis à jour dans vos tables sources.
+La consommation de points de donnée avec CDI est identique à celle des autres méthodes d'ingestion comme les REST API ou les SDK. Il vous appartient donc de veiller à n'ajouter que des attributs nouveaux ou mis à jour dans vos tables source.
 
-### Séparer la colonne `EXTERNAL_ID` de la colonne `payload` {#separate-external_id-from-payload-column}
+### Séparez l'`EXTERNAL_ID` de la colonne `payload` {#separate-external_id-from-payload-column}
 
 L'objet `payload` ne doit pas contenir d'ID externe ni d'autre type d'identifiant.
 
 ### Supprimer un attribut {#remove-an-attribute}
 
-Vous pouvez lui attribuer la valeur `null` si vous souhaitez omettre un attribut du profil d'un utilisateur. Si vous souhaitez qu'un attribut reste inchangé, ne l'envoyez pas à Braze tant qu'il n'a pas été mis à jour. Pour supprimer complètement un attribut, utilisez `TO_JSON(OBJECT_CONSTRUCT_KEEP_NULL(...))`.
+Vous pouvez le définir sur `null` si vous souhaitez omettre un attribut du profil d'un utilisateur. Si vous souhaitez qu'un attribut reste inchangé, ne l'envoyez pas à Braze tant qu'il n'a pas été mis à jour. Pour supprimer complètement un attribut, utilisez `TO_JSON(OBJECT_CONSTRUCT_KEEP_NULL(...))`.
 
-### Effectuer des mises à jour incrémentielles {#make-incremental-updates}
+### Effectuez des mises à jour incrémentales {#make-incremental-updates}
 
-Effectuez des mises à jour incrémentielles de vos données afin d'éviter les écrasements involontaires lors de mises à jour simultanées.
+Effectuez des mises à jour incrémentales de vos données afin d'éviter les écrasements involontaires lorsque des mises à jour simultanées sont effectuées.
 
 {% alert important %}
-* **Mises à jour de différents attributs :** Dans la grande majorité des cas, si deux mises à jour n'affectent pas les mêmes attributs d'un utilisateur, elles produisent des résultats totalement indépendants. Par exemple, si vous mettez à jour l'attribut `Color` d'un utilisateur et que vous mettez à jour séparément son attribut `Size`, les deux mises à jour devraient être appliquées correctement, même si elles ont lieu à quelques secondes d'intervalle.
-* **Mises à jour du même attribut :** Des conditions de concurrence peuvent survenir lorsque plusieurs mises à jour ciblent le même attribut au cours d'une même exécution de synchronisation. Dans ces cas exceptionnels, une mise à jour peut écraser l'autre. La meilleure façon d'éviter ce comportement est de vous assurer que les données source de votre synchronisation CDI reflètent uniquement l'état le plus récent de chaque utilisateur, ou que toutes les mises à jour pour un utilisateur donné ou une paire utilisateur+attribut sont contenues dans une seule ligne.
-* **Opérateurs de tableau d'objets :** Les seules exceptions aux mises à jour indépendantes concernent les opérateurs `$add`, `$remove` et `$update` pour les tableaux d'objets, où les mises à jour d'un même tableau peuvent interagir entre elles.
-* **Événements :** Les conditions de concurrence n'affectent pas les événements, car chaque événement est unique et associé à un horodatage.
+* **Mises à jour d'attributs différents :** Dans la grande majorité des cas, si deux mises à jour n'impactent pas les mêmes attributs d'un utilisateur, elles produisent des résultats entièrement indépendants. Par exemple, si vous mettez à jour l'attribut `Color` d'un utilisateur et que vous mettez à jour séparément son attribut `Size`, les deux mises à jour devraient être appliquées correctement, même si elles ont lieu à quelques secondes d'intervalle.
+* **Mises à jour du même attribut :** Des conditions de concurrence peuvent survenir lorsque plusieurs mises à jour ciblent le même attribut au sein d'une même exécution de synchronisation. Dans ces cas rares, une mise à jour peut en écraser une autre. Le meilleur moyen d'éviter ce comportement est de s'assurer que les données source de votre synchronisation CDI reflètent uniquement le dernier état de chaque utilisateur, ou que toutes les mises à jour pour un utilisateur donné ou une combinaison utilisateur+attribut sont contenues dans une seule ligne.
+* **Opérateurs de tableaux d'objets :** Les seules exceptions aux mises à jour indépendantes concernent les opérateurs `$add`, `$remove` et `$update` pour les tableaux d'objets, où les mises à jour du même tableau peuvent interagir entre elles.
+* **Événements :** Les conditions de concurrence n'affectent pas les événements, car chaque événement est unique et possède un timestamp qui lui est associé.
 {% endalert %}
 
-La meilleure façon d'éviter ce comportement est de vous assurer que les données source de votre synchronisation CDI reflètent uniquement l'état le plus récent de chaque utilisateur, ou que toutes les mises à jour pour un utilisateur donné ou une paire utilisateur+attribut sont contenues dans une seule ligne.
+Le meilleur moyen d'éviter ce comportement est de s'assurer que les données source de votre synchronisation CDI reflètent uniquement le dernier état de chaque utilisateur, ou que toutes les mises à jour pour un utilisateur donné ou une combinaison utilisateur+attribut sont contenues dans une seule ligne.
 
-### Créer une chaîne de caractères JSON à partir d'une autre table {#create-a-json-string-from-another-table}
+### Créer une chaîne JSON à partir d'une autre table {#create-a-json-string-from-another-table}
 
-Si vous préférez stocker chaque attribut dans sa propre colonne en interne, vous devez convertir ces colonnes en chaîne de caractères JSON pour alimenter la synchronisation avec Braze. Pour ce faire, vous pouvez utiliser une requête du type :
+Si vous préférez stocker chaque attribut dans sa propre colonne en interne, vous devez convertir ces colonnes en une chaîne JSON pour alimenter la synchronisation avec Braze. Pour ce faire, vous pouvez utiliser une requête comme :
 
 {% tabs local %}
 {% tab Snowflake %}
-Utilisez cette requête dans Snowflake pour formater les colonnes sources en champs CDI.
+Utilisez cette requête dans Snowflake pour formater les colonnes source en champs CDI.
 ```sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
@@ -595,7 +595,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Redshift %}
-Utilisez cette requête dans Redshift pour formater les colonnes sources en champs CDI.
+Utilisez cette requête dans Redshift pour formater les colonnes source en champs CDI.
 ```sql
 CREATE TABLE "EXAMPLE_USER_DATA"
     (attribute_1 string,
@@ -618,7 +618,7 @@ SELECT
 ```
 {% endtab %}
 {% tab BigQuery %}
-Utilisez cette requête dans BigQuery pour formater les colonnes sources en champs CDI.
+Utilisez cette requête dans BigQuery pour formater les colonnes source en champs CDI.
 ```sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (attribute_1 string,
      attribute_2 STRING,
@@ -639,7 +639,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Databricks %}
-Utilisez cette requête dans Databricks pour formater les colonnes sources en champs CDI.
+Utilisez cette requête dans Databricks pour formater les colonnes source en champs CDI.
 ```sql
 CREATE OR REPLACE TABLE BRAZE.EXAMPLE_USER_DATA (
     attribute_1 string,
@@ -662,7 +662,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Microsoft Fabric %}
-Utilisez cette requête dans Microsoft Fabric pour formater les colonnes sources en champs CDI.
+Utilisez cette requête dans Microsoft Fabric pour formater les colonnes source en champs CDI.
 ```sql
 CREATE TABLE [braze].[users] (
     attribute_1 VARCHAR,
@@ -685,38 +685,38 @@ FROM [braze].[users] ;
 
 {% endtabs %}
 
-### Utiliser l'horodatage `UPDATED_AT` {#use-the-updated_at-timestamp}
+### Utiliser le timestamp `UPDATED_AT` {#use-the-updated_at-timestamp}
 
-Braze utilise l'horodatage `UPDATED_AT` pour suivre les données qui ont été synchronisées avec succès. CDI suit également le nombre de lignes au dernier horodatage synchronisé. Si de nouvelles lignes sont ajoutées avec ce même horodatage entre deux exécutions, CDI re-synchronise toutes les lignes à cet horodatage, ce qui peut entraîner des données en double. Pour plus de détails et de conseils, consultez [Éviter la re-synchronisation de lignes avec des horodatages en double](#avoid-resyncing-rows-with-duplicate-timestamps).
+Braze utilise le timestamp `UPDATED_AT` pour suivre les données qui ont été synchronisées avec succès. CDI suit également le nombre de lignes au dernier timestamp synchronisé. Si de nouvelles lignes sont ajoutées avec ce même timestamp entre deux exécutions, CDI re-synchronise toutes les lignes à ce timestamp, ce qui peut entraîner des données en double. Pour plus de détails et de conseils, consultez [Éviter la re-synchronisation des lignes avec des timestamps en double](#avoid-resyncing-rows-with-duplicate-timestamps).
 
 ### Configuration de la table {#table-configuration}
 
-Nous disposons d'un [dépôt GitHub](https://github.com/braze-inc/braze-examples/tree/main/cloud-data-ingestion) public permettant aux clients de partager des bonnes pratiques ou des extraits de code. Pour contribuer avec vos propres extraits de code, créez une pull request !
+Nous disposons d'un [dépôt GitHub](https://github.com/braze-inc/braze-examples/tree/main/cloud-data-ingestion) public permettant aux clients de partager des bonnes pratiques ou des extraits de code. Pour contribuer avec vos propres extraits, créez une pull request !
 
 ### Formatage des données {#data-formatting}
 
-Les exigences de configuration des tables d'ingestion de données cloud et les exigences de formatage des payloads sont documentées dans [Configuration des tables pour l'ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
+Les exigences de configuration des tables pour Cloud Data Ingestion et les exigences de formatage du payload sont documentées sur la page [Configuration des tables pour Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
 
 Utilisez cette page pour distinguer :
 
-- Les exigences relatives aux tables sources (colonnes requises, colonnes d'identifiants et comportement de `UPDATED_AT`)
-- Les exigences relatives aux payloads (quels champs doivent correspondre au format d'objet `/users/track` pour chaque type de données)
+- Les exigences relatives aux tables source (colonnes requises, colonnes d'identifiants et comportement d'`UPDATED_AT`)
+- Les exigences relatives au payload (quels champs doivent correspondre au format d'objet `/users/track` pour chaque type de données)
 
 ### Éviter les délais d'expiration pour les requêtes d'entrepôt de données {#avoid-timeouts-for-data-warehouse-queries}
 
-Nous recommandons que les requêtes soient exécutées en moins d'une heure pour des performances optimales et pour éviter les erreurs potentielles. Si les requêtes dépassent ce délai, envisagez de revoir la configuration de votre entrepôt de données. L'optimisation des ressources allouées à votre entrepôt peut contribuer à améliorer la vitesse d'exécution des requêtes.
+Nous recommandons que les requêtes soient terminées en moins d'une heure pour des performances optimales et pour éviter d'éventuelles erreurs. Si les requêtes dépassent ce délai, envisagez de revoir la configuration de votre entrepôt de données. L'optimisation des ressources allouées à votre entrepôt peut contribuer à améliorer la vitesse d'exécution des requêtes.
 
 ## Limites du produit {#product-limitations}
 
-| Limitation | Description |
+| Limite                 | Description                                                                                                                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nombre d'intégrations | Le nombre d'intégrations que vous pouvez configurer n'est pas limité. Cependant, vous ne pourrez configurer qu'une seule intégration par table ou vue. |
-| Nombre de lignes | Par défaut, chaque exécution peut synchroniser jusqu'à 500 millions de lignes. Braze interrompt toute synchronisation comportant plus de 500 millions de nouvelles lignes. Si vous avez besoin d'une limite plus élevée, contactez votre gestionnaire de la satisfaction client Braze ou l'assistance Braze. |
-| Attributs par ligne | Chaque ligne doit contenir un seul ID utilisateur et un objet JSON comportant jusqu'à 250 attributs. Chaque clé de l'objet JSON compte pour un attribut (c'est-à-dire qu'un tableau compte pour un attribut). |
-| Taille du payload | Chaque ligne peut contenir un payload allant jusqu'à 1 Mo. Braze rejette les payloads supérieurs à 1&nbsp;Mo et consigne l'erreur « Le payload était supérieur à 1 Mo » dans le journal de synchronisation, avec l'ID externe associé et le payload tronqué. |
-| Type de données | Vous pouvez synchroniser les attributs utilisateur, les événements et les achats via l'ingestion de données cloud. |
-| Région Braze | Ce produit est disponible dans toutes les régions Braze. Toute région Braze peut se connecter à n'importe quelle région de données source. |
-| Région source | Braze se connectera à votre entrepôt de données ou à votre environnement cloud dans n'importe quelle région ou chez n'importe quel fournisseur cloud. |
+| Nombre d'intégrations  | Il n'y a pas de limite au nombre d'intégrations que vous pouvez configurer. Cependant, vous ne pourrez configurer qu'une seule intégration par table ou vue.                        |
+| Nombre de lignes       | Par défaut, chaque exécution peut synchroniser jusqu'à 500 millions de lignes. Braze arrête toute synchronisation dépassant 500 millions de nouvelles lignes. Si vous avez besoin d'une limite plus élevée, contactez votre gestionnaire du succès des clients Braze ou le support Braze. |
+| Attributs par ligne    | Chaque ligne doit contenir un identifiant utilisateur unique et un objet JSON contenant jusqu'à 250 attributs. Chaque clé de l'objet JSON compte comme un attribut (c'est-à-dire qu'un tableau compte comme un seul attribut). |
+| Taille du payload      | Chaque ligne peut contenir un payload d'une taille maximale de 1 Mo. Braze rejette les payloads supérieurs à 1&nbsp;Mo et enregistre l'erreur « Payload was greater than 1MB » dans le journal de synchronisation, accompagnée de l'ID externe associé et du payload tronqué. |
+| Type de données        | Vous pouvez synchroniser des attributs utilisateur, des événements et des achats via l'ingestion de données cloud.                                                                 |
+| Région Braze           | Ce produit est disponible dans toutes les régions Braze. N'importe quelle région Braze peut se connecter à n'importe quelle région de données source.                              |
+| Région source          | Braze se connectera à votre entrepôt de données ou environnement cloud dans n'importe quelle région ou chez n'importe quel fournisseur cloud.                                      |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Limites du produit" }
 
 <br><br>

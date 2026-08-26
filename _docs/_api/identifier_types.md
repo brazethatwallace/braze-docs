@@ -3,14 +3,13 @@ nav_title: "API identifier types"
 article_title: API Identifier Types
 page_order: 2.2
 toc_headers: h2
-description: "This reference article covers the different types of API identifiers that exist in the Braze dashboard, where you can find them, and what they are used for."
+description: "This reference article covers the different types of API identifiers that exist in the Braze dashboard, where you can find them, and what they are."
 page_type: reference
-
 ---
 
 # API identifier types
 
-> This reference guide touches on the different types of API identifiers that can be found within the Braze dashboard, their purpose, where you can find them, and how they are typically used. For information on REST API keys or workspace API keys, refer to the [API overview]({{site.baseurl}}/api/api_key).
+> This reference guide touches on the different types of API identifiers that can be found within the Braze dashboard, their purpose, where you can find them, and how they are typically used. For information on REST API keys or workspace API keys, refer to the [API overview]({{site.baseurl}}/api/basics).
 
 The following identifiers can be used to access your template, Canvas, campaign, or segment from the Braze external API. All messages should follow [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoding.
 
@@ -130,7 +129,7 @@ Go to **Settings** > **APIs and Identifiers**. Here, Braze offers an **Additiona
 - Grab details on a specific campaign
 - With Currents to bring in user-level data for a "bigger picture" approach to campaigns
 - With API-triggered delivery to collect statistics for transactional messages
-- To [search for a specific campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/search_campaigns#search-syntax) on the **Campaigns** page using the filter `api_id:YOUR_API_ID`
+- To [search for a specific campaign]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns) on the **Campaigns** page using the filter `api_id:YOUR_API_ID`
 
 ## Segment identifier
 

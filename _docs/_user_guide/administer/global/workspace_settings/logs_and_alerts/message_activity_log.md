@@ -1,10 +1,9 @@
 ---
 nav_title: Message activity log
-article_title: Message Activity Log
+article_title: "Message Activity Log {#dev-console-troubleshooting}"
 page_order: 3
 page_type: reference
-description: "This reference article describes the Message Activity Log shows you messages associated with your campaigns and sends. Here, you can also find information on how to understand log messages."
-
+description: "This reference article describes the Message Activity Log shows you messages associated with your campaigns and sends. Here, you can also find."
 ---
 
 # Message Activity Log {#dev-console-troubleshooting}

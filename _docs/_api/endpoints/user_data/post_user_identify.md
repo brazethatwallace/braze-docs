@@ -1,13 +1,12 @@
 ---
 nav_title: "POST: Identify users"
-article_title: "POST: Identify Users"
+article_title: "Identify users"
 search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
 alias: /users_identify_merge/
 description: "This article outlines details about the Identify users Braze endpoint."
-
 ---
 {% api %}
 # Identify users
@@ -32,7 +31,7 @@ Identifying a user requires an `external_id` to be included in the following obj
 If there isn't a user with that `external_id`, the `external_id` is added to the aliased user's record, and the user is considered identified. Users can have only one alias for a specific label. If a user already exists with the `external_id` and has an existing alias with the same label as the alias-only profile, then the user profiles are not combined.
 
 {% alert tip %}
-To prevent unexpected loss of data when identifying users, we highly recommend that you first refer to [data collection best practices]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices#capturing-user-data-when-alias-only-user-info-is-already-present) to learn about capturing user data when alias-only user information is already present.
+To prevent unexpected loss of data when identifying users, we highly recommend that you first refer to [data collection best practices]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices) to learn about capturing user data when alias-only user information is already present.
 {% endalert %}
 
 ### Merging behavior
@@ -77,7 +76,7 @@ By default, this endpoint merges the following list of fields found **exclusivel
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.identify` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics) with the `users.identify` permission.
 
 ## Rate limit
 
@@ -166,7 +165,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 The `alias_name` field is case-sensitive. A request that returns a `201` status code only confirms the request syntax was valid—it does not confirm the alias was matched. If the capitalization of `alias_name` in your request doesn't exactly match the alias stored on the user profile, the operation will silently fail and the `external_id` won't be assigned. For example, if the stored alias is `JimJones@example.com`, a request with `jimjones@example.com` will return success but produce no result.
 
 {% alert tip %}
-For more information on `alias_name` and `alias_label`, check out our [user aliases]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases) documentation.
+For more information on `alias_name` and `alias_label`, check out our [user aliases]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) documentation.
 {% endalert %}
 
 ### Why does my identify request return success but the profile did not merge?

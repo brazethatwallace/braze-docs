@@ -19,7 +19,7 @@ description: "이 문서에서는 사용자의 이메일 구독 상태 변경 Br
 사용자는 `opted_in`, `unsubscribed` 또는 `subscribed`(명시적으로 옵트인 또는 옵트아웃하지 않은 상태)일 수 있습니다.
 
 {% alert note %}
-이 엔드포인트는 사용자의 글로벌 이메일 구독 상태를 업데이트하며, 이는 구독 그룹 상태와 다릅니다. 글로벌 구독 상태는 모든 이메일에 적용되는 반면, [구독 그룹]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups)을 사용하면 특정 유형의 이메일을 더 세밀하게 제어할 수 있습니다. 사용자가 글로벌 탈퇴 상태인 경우, 구독 그룹 상태와 관계없이 이메일을 수신하지 않습니다. 구독 그룹 상태를 쿼리하려면 [사용자의 구독 그룹 상태 목록 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)를 사용하세요.
+이 엔드포인트는 사용자의 글로벌 이메일 구독 상태를 업데이트하며, 이는 구독 그룹 상태와 다릅니다. 글로벌 구독 상태는 모든 이메일에 적용되는 반면, [구독 그룹]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups)을 사용하면 특정 유형의 이메일을 더 세밀하게 제어할 수 있습니다. 사용자가 글로벌 탈퇴 상태인 경우, 구독 그룹 상태와 관계없이 이메일을 수신하지 않습니다. 구독 그룹 상태를 쿼리하려면 [사용자의 구독 그룹 상태 목록 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)를 사용하세요.
 {% endalert %}
 
 Braze 내에서 아직 사용자와 연결되지 않은 이메일 주소의 이메일 구독 상태를 설정할 수 있습니다. 나중에 해당 이메일 주소가 사용자와 연결되면 업로드한 이메일 구독 상태가 자동으로 설정됩니다.

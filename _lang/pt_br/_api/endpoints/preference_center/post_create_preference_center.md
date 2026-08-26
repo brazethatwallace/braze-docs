@@ -14,7 +14,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Criar C
 /preference_center/v1
 {% endapimethod %}
 
-> Use esse endpoint para criar uma Central de Preferências que permita aos usuários gerenciar suas preferências de notificação para suas campanhas de e-mail. Consulte [Criar uma Central de Preferências com API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api) para ver as etapas de como criar uma Central de Preferências gerada por API.
+> Use esse endpoint para criar uma Central de Preferências que permita aos usuários gerenciar suas preferências de notificação para campanhas de e-mail. Consulte [Criar uma Central de Preferências com API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api) para ver as etapas de como criar uma Central de Preferências gerada por API.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 
@@ -176,7 +176,7 @@ Consulte as seguintes Liquid tags que podem ser incluídas no HTML para gerar o 
         background-color: #fff;
         color: #333335;
         font-family:
-          Sailec W00 Medium,
+          Aribau Grotesk Regular,
           helvetica,
           arial,
           sans-serif;

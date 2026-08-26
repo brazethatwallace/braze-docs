@@ -92,7 +92,7 @@ Wählen Sie eine der folgenden Optionen und unterschreiben Sie wie angegeben. Mi
   font-size: 14px;
   font-size: 1rem;
   line-height: 1.4;
-  font-family: Sailec W00 Bold, Arial, sans-serif;
+  font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
   text-transform: uppercase;
   padding: 1.14286rem 2.85714rem;
   border-radius: 0;

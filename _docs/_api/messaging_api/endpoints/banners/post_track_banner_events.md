@@ -1,6 +1,7 @@
 ---
 nav_title: "POST: Track Banner analytics events"
 article_title: "POST: Track Banner analytics events"
+permalink: /api/device_messaging_api/endpoints/banners/post_track_banner_events
 search_tag: Endpoint
 page_order: 1
 layout: api_page
@@ -16,7 +17,7 @@ hidden: true
 {% endapimethod %}
 
 {% alert important %}
-This page is in beta. Features and documentation for the Messaging API are subject to change.
+This page is in beta. Features and documentation for the Device Messaging API are subject to change.
 {% endalert %}
 
 > Use this endpoint to record impression and click events for Banners.
@@ -28,9 +29,9 @@ Braze validates each event separately. When a request contains both valid and in
 To use this endpoint, you need the following:
 
 - A workspace with Banners enabled
-- A [client-side REST API key]({{site.baseurl}}/api/messaging_api/authentication) with the `banners.track` permission
+- A [client-side REST API key]({{site.baseurl}}/api/device_messaging_api/authentication) with the `banners.track` permission
 - The [REST endpoint]({{site.baseurl}}/api/basics#endpoints) for your Braze instance
-- A Banner `id` returned by the [Retrieve Banners for a user endpoint]({{site.baseurl}}/api/messaging_api/endpoints/banners/post_sync_banners)
+- A Banner `id` returned by the [Retrieve Banners for a user endpoint]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)
 
 Include the client-side REST API key in the `Authorization` header as a bearer token.
 
@@ -38,7 +39,7 @@ Include the client-side REST API key in the `Authorization` header as a bearer t
 
 Rate limits apply per workspace. If you exceed the rate limit, Braze returns a `429` status code. When available, use the `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset`, and `X-RateLimit-Retry-After` response headers to monitor your usage and determine when to retry.
 
-For more information, see [Messaging API rate limits]({{site.baseurl}}/api/messaging_api/rate_limits).
+For more information, see [Device Messaging API rate limits]({{site.baseurl}}/api/device_messaging_api/rate_limits).
 
 ## Request body
 
@@ -170,6 +171,6 @@ If Braze can't process any events, it returns a `400` status code.
 | `429` | The workspace exceeded its rate limit. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Status codes" }
 
-For more information, see [Messaging API error handling and retries]({{site.baseurl}}/api/messaging_api/error_handling).
+For more information, see [Device Messaging API error handling and retries]({{site.baseurl}}/api/device_messaging_api/error_handling).
 
 {% endapi %}

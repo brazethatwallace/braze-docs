@@ -15,7 +15,7 @@ search_rank: 2
 
 ## Prérequis {#prerequisites}
 
-Avant de pouvoir envoyer des e-mails avec Braze, vous devez configurer vos adresses IP dédiées, vos domaines, l'authentification des e-mails et l'IP warming. Pour un guide complet, consultez la section [Configuration des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup).
+Avant de pouvoir envoyer des e-mails avec Braze, vous devez configurer vos IP dédiées, vos domaines, l'authentification des e-mails et l'IP warming. Pour un guide complet, consultez la [Configuration des e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup).
 
 ## Personnalisez vos e-mails {#customize-your-emails}
 
@@ -25,10 +25,11 @@ Vous pouvez personnaliser vos e-mails de différentes manières, notamment :
 - [Modèles HTML personnalisés]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
 - [Blocs de l'éditeur (e-mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
 - [Abonnements des utilisateurs]({{site.baseurl}}/user_guide/channels/email/subscriptions)
+- [Groupes d'abonnement]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups)
 
 ## Testez vos e-mails {#test-your-emails}
 
-Les [groupes initiateurs]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) envoient automatiquement des copies de vos campagnes e-mail aux utilisateurs internes pour effectuer un contrôle qualité. Les e-mails initiateurs incluent `[SEED]` ajouté au début de la ligne d'objet pour vous aider à les identifier.
+Les [groupes initiateurs]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) envoient automatiquement des copies de vos campagnes e-mail aux utilisateurs internes pour effectuer un contrôle qualité. Les e-mails initiateurs incluent `[SEED]` ajouté en début de ligne d'objet pour vous aider à les identifier.
 
 ## Cas d'usage {#use-cases}
 
@@ -37,9 +38,9 @@ Les [groupes initiateurs]({{site.baseurl}}/user_guide/administer/global/user_man
 | Réengagement | Contactez les utilisateurs en dehors de votre application, y compris ceux qui ne l'ont pas installée. |
 | Onboarding | Accueillez et encouragez les nouveaux utilisateurs à activer les notifications push ou à partager l'application sur les réseaux sociaux. |
 | Messages enrichis | Permettez l'envoi de messages HTML riches et dynamiques. |
-| Contenu multimédia | Facilitez l'intégration de contenu multimédia engageant pour les utilisateurs, comme des vidéos et des images. |
+| Contenu multimédia | Facilitez l'intégration de contenus multimédias qui engagent les utilisateurs, tels que des vidéos et des images. |
 | Newsletters | Envoyez facilement des newsletters mensuelles ou hebdomadaires pour maintenir l'engagement des utilisateurs. |
-| Transactions | Informez les utilisateurs de leurs achats récents et transmettez des informations importantes sur les produits et la livraison grâce aux [e-mails transactionnels]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email). |
+| Transactions | Informez les utilisateurs de leurs achats récents et transmettez les informations importantes sur les produits et la livraison grâce aux [e-mails transactionnels]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'usage" }
 
 ## Services e-mail {#email-services}

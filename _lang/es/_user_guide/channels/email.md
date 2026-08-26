@@ -15,16 +15,17 @@ search_rank: 2
 
 ## Requisitos previos {#prerequisites}
 
-Antes de poder enviar correos electrónicos con Braze, necesitas configurar tus IP dedicadas, dominios, autenticación de correo electrónico y calentamiento de IP. Para un recorrido completo, consulta [Configuración del correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup).
+Antes de poder enviar correos electrónicos con Braze, necesitas configurar tus IP dedicadas, dominios, autenticación de correo electrónico y calentamiento de IP. Para una guía completa, consulta [Configuración del correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup).
 
 ## Personaliza tus correos electrónicos {#customize-your-emails}
 
-Puedes personalizar tu mensajería de correo electrónico de diversas formas, incluyendo:
+Puedes personalizar tu mensajería de correo electrónico de diversas formas, entre ellas:
 
 - [Plantillas de correo electrónico de Braze]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)
 - [Plantillas HTML personalizadas]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
 - [Bloques del editor (correo electrónico)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
 - [Suscripciones de usuarios]({{site.baseurl}}/user_guide/channels/email/subscriptions)
+- [Grupos de suscripción]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups)
 
 ## Prueba tus correos electrónicos {#test-your-emails}
 
@@ -35,10 +36,10 @@ Los [grupos semilla]({{site.baseurl}}/user_guide/administer/global/user_manageme
 | Ejemplo | Explicación |
 | --- | --- |
 | Reactivación | Llega a los usuarios fuera de tu aplicación, incluidos aquellos que no la han instalado. |
-| Incorporación | Incorpora y anima a los nuevos usuarios a activar las notificaciones push o a compartir la aplicación en las redes sociales. |
+| Incorporación | Incorpora y anima a nuevos usuarios a activar las notificaciones push o a compartir la aplicación en redes sociales. |
 | Mensajes enriquecidos | Permite mensajes HTML enriquecidos y dinámicos. |
-| Contenido multimedia | Facilita la colocación de contenido multimedia que atrae a los usuarios, como videos e imágenes. |
-| Boletines informativos | Envía cómodamente boletines mensuales o semanales para mantener la participación de los usuarios. |
+| Contenido multimedia | Facilita la colocación de contenido multimedia que capta la atención de los usuarios, como videos e imágenes. |
+| Boletines | Envía de manera conveniente boletines mensuales o semanales para mantener la participación de los usuarios. |
 | Transacciones | Notifica a los usuarios sobre compras recientes y entrega información importante sobre productos y envíos con [correos transaccionales]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ejemplos" }
 

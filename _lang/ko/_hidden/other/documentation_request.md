@@ -12,7 +12,7 @@ hide_toc: true
       background-color: #fff;
       font-weight: 400;
       font-size: 15px;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       font-style: normal;
       color: #212123;
   }
@@ -74,7 +74,7 @@ hide_toc: true
     }
     .h1, h1  {
       font-size: 34pt;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       margin-bottom: 24px;
     }
 
@@ -83,7 +83,7 @@ hide_toc: true
     }
     .subhead {
       font-size: 14pt;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       margin-bottom: 16px;
     }
 
@@ -118,7 +118,7 @@ hide_toc: true
       padding: 0px 1.5rem;
       height: 40px;
       min-width: 200px;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       font-size: 12pt;
       font-weight: 700;
       border-radius: 2px;
@@ -185,7 +185,7 @@ hide_toc: true
     }
     .form-group label {
       font-size: 13pt !important;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       margin-bottom: 6px;
     }
     input[type=text] {
@@ -196,25 +196,25 @@ hide_toc: true
     }
     #doc_release_notes_label {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     #doc_verify_label {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     input[type="checkbox"] {
         display:none;
     }
     input[type="checkbox"] + label {
       font-size: 14pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
     }
     .form-check {
       padding-left: 0;
     }
     .sublabel {
       font-size: 12pt !important;
-      font-family: Sailec W00 Regular,Arial,sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       color: #5E6C75;
       line-height: 1.4;
     }
@@ -264,7 +264,7 @@ hide_toc: true
     }
     .inline_text {
       display: flex;
-      font-family: Sailec, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Regular', 'Aribau Grotesk', Arial, sans-serif;
       font-size: 10pt;
     }
     #braze_internal {
@@ -273,7 +273,7 @@ hide_toc: true
       background-color: #FFEEE3;
       padding: 10px;
       height: 45px;
-      font-family: Sailec W00 Bold, Arial, sans-serif;
+      font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
       font-size: 12tpt;
       position: absolute;
       left: 0;
@@ -290,82 +290,81 @@ hide_toc: true
     }
   </style>
   <script type="text/javascript">
-    // jQuery is loaded with defer in html_include.html, so wait for DOMContentLoaded
-    // (deferred scripts run before this event) before using $.
-    document.addEventListener('DOMContentLoaded', function() {
-      ! function(e, i) {
-        if ("function" == typeof define && define.amd) define(["exports", "jquery"], function(e, r) {
-          return i(e, r)
-        });
-        else if ("undefined" != typeof exports) {
-          var r = require("jquery");
-          i(exports, r)
-        } else i(e, e.jQuery || e.Zepto || e.ender || e.$)
-      }(window, function(e, i) {
-        function r(e, r) {
-          function n(e, i, r) {
-            return e[i] = r, e
-          }
-
-          function a(e, i) {
-            for (var r, a = e.match(t.key); void 0 !== (r = a.pop());)
-              if (t.push.test(r)) {
-                var u = s(e.replace(/\[\]$/, ""));
-                i = n([], u, i)
-              } else t.fixed.test(r) ? i = n([], r, i) : t.named.test(r) && (i = n({}, r, i));
-            return i
-          }
-
-          function s(e) {
-            return void 0 === h[e] && (h[e] = 0), h[e]++
-          }
-
-          function u(e) {
-            switch (i('[name="' + e.name + '"]', r).attr("type")) {
-              case "checkbox":
-                return "on" === e.value ? !0 : e.value;
-              default:
-                return e.value
-            }
-          }
-
-          function f(i) {
-            if (!t.validate.test(i.name)) return this;
-            var r = a(i.name, u(i));
-            return l = e.extend(!0, l, r), this
-          }
-
-          function d(i) {
-            if (!e.isArray(i)) throw new Error("formSerializer.addPairs expects an Array");
-            for (var r = 0, t = i.length; t > r; r++) this.addPair(i[r]);
-            return this
-          }
-
-          function o() {
-            return l
-          }
-
-          function c() {
-            return JSON.stringify(o())
-          }
-          var l = {},
-            h = {};
-          this.addPair = f, this.addPairs = d, this.serialize = o, this.serializeJSON = c
-        }
-        var t = {
-          validate: /^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,
-          key: /[a-z0-9_]+|(?=\[\])/gi,
-          push: /^$/,
-          fixed: /^\d+$/,
-          named: /^[a-z0-9_]+$/i
-        };
-        return r.patterns = t, r.serializeObject = function() {
-          return new r(i, this).addPairs(this.serializeArray()).serialize()
-        }, r.serializeJSON = function() {
-          return new r(i, this).addPairs(this.serializeArray()).serializeJSON()
-        }, "undefined" != typeof i.fn && (i.fn.serializeObject = r.serializeObject, i.fn.serializeJSON = r.serializeJSON), e.FormSerializer = r, r
+    ! function(e, i) {
+      if ("function" == typeof define && define.amd) define(["exports", "jquery"], function(e, r) {
+        return i(e, r)
       });
+      else if ("undefined" != typeof exports) {
+        var r = require("jquery");
+        i(exports, r)
+      } else i(e, e.jQuery || e.Zepto || e.ender || e.$)
+    }(this, function(e, i) {
+      function r(e, r) {
+        function n(e, i, r) {
+          return e[i] = r, e
+        }
 
+        function a(e, i) {
+          for (var r, a = e.match(t.key); void 0 !== (r = a.pop());)
+            if (t.push.test(r)) {
+              var u = s(e.replace(/\[\]$/, ""));
+              i = n([], u, i)
+            } else t.fixed.test(r) ? i = n([], r, i) : t.named.test(r) && (i = n({}, r, i));
+          return i
+        }
+
+        function s(e) {
+          return void 0 === h[e] && (h[e] = 0), h[e]++
+        }
+
+        function u(e) {
+          switch (i('[name="' + e.name + '"]', r).attr("type")) {
+            case "checkbox":
+              return "on" === e.value ? !0 : e.value;
+            default:
+              return e.value
+          }
+        }
+
+        function f(i) {
+          if (!t.validate.test(i.name)) return this;
+          var r = a(i.name, u(i));
+          return l = e.extend(!0, l, r), this
+        }
+
+        function d(i) {
+          if (!e.isArray(i)) throw new Error("formSerializer.addPairs expects an Array");
+          for (var r = 0, t = i.length; t > r; r++) this.addPair(i[r]);
+          return this
+        }
+
+        function o() {
+          return l
+        }
+
+        function c() {
+          return JSON.stringify(o())
+        }
+        var l = {},
+          h = {};
+        this.addPair = f, this.addPairs = d, this.serialize = o, this.serializeJSON = c
+      }
+      var t = {
+        validate: /^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,
+        key: /[a-z0-9_]+|(?=\[\])/gi,
+        push: /^$/,
+        fixed: /^\d+$/,
+        named: /^[a-z0-9_]+$/i
+      };
+      return r.patterns = t, r.serializeObject = function() {
+        return new r(i, this).addPairs(this.serializeArray()).serialize()
+      }, r.serializeJSON = function() {
+        return new r(i, this).addPairs(this.serializeArray()).serializeJSON()
+      }, "undefined" != typeof i.fn && (i.fn.serializeObject = r.serializeObject, i.fn.serializeJSON = r.serializeJSON), e.FormSerializer = r, r
+    });
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function() {
       var braze_internal = $('#braze_internal').remove();
       $('#header_nav').after(braze_internal);
 
@@ -399,15 +398,15 @@ hide_toc: true
       });
 
       $('#doc_form').submit(function(e) {
-        e.preventDefault();
         $('#submit_progress').css('display','inline');
         $('#submit_text').html('제출 중');
         $('#ticket_submit_button').prop("disabled",true);
 
+        e.preventDefault();
         var mform = $(this);
         var url = 'https://c9616da7-4322-4bed-9b51-917c1874fb31.trayapp.io/request';
 
-        $.ajax({
+        var jqxhr = $.ajax({
           url: url,
           method: "GET",
           dataType: "json",
@@ -416,16 +415,12 @@ hide_toc: true
           $('#doc_div').hide();
           $('#doc_thankyou').show();
           $('#doc_thankyou_msg').fadeTo(800,0,function(){
-              $(this).html('<h3>제출해 주셔서 감사합니다!</h3> 궁금한 사항이 있으면 팀에서 연락드리겠습니다. 티켓 상태를 확인하거나 댓글을 추가하려면 이메일에서 티켓 확인 메일을 확인해 주세요.').fadeTo(800,1);
+              $(this).html('<h3>제출해 주셔서 감사합니다!</h3> 궁금한 사항이 있으면 저희 팀에서 연락드리겠습니다. 티켓 상태를 확인하거나 댓글을 추가하려면 이메일로 받은 티켓 확인 메일을 확인해 주세요.').fadeTo(800,1);
           });
-        }).fail(function() {
-          $('#submit_progress').css('display','none');
-          $('#submit_text').html('요청 제출');
-          $('#ticket_submit_button').prop("disabled",false);
-          alert('요청을 제출하는 중에 문제가 발생했습니다. 다시 시도해 주세요.');
         });
 
       });
+
     });
   </script>
 
@@ -512,7 +507,7 @@ hide_toc: true
               <div class="form-group">
 
                 <label for="doc_snippet" id="doc_snippet_label" style="margin-bottom:6px;line-height:1.2;">코드 스니펫 (선택 사항)</label>
-                <div class="sublabel" style="margin-bottom:6px;">개발자에게 유용합니다. 컨텍스트를 포함하고 어떤 코드 언어가 사용되었는지 명확히 해 주세요.</div>
+                <div class="sublabel" style="margin-bottom:6px;">개발자에게 유용합니다. 컨텍스트를 포함하고 사용된 코드 언어를 명확히 기재해 주세요.</div>
                 <textarea name="Snippet" class="form-control" id="doc_snippet" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
                   rows="7"></textarea>
               </div>

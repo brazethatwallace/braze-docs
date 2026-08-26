@@ -4,9 +4,9 @@ nav_title: Home
 article_title: Braze API Guide
 layout: api_glossary
 glossary_top_header: "Braze API Guide"
-glossary_top_text: "Braze provides a high-performance REST API to allow you to track users, send messages, export data, and more. This page lists available Braze API endpoints and their uses."
+glossary_top_text: "Braze provides a high-performance REST API to track users, send messages, export data, and manage campaigns, Canvases, catalogs, and more. Use this glossary to browse endpoints by type, open reference articles for request and response details, and find links to authentication, rate limits, and object documentation."
+description: "Browse Braze REST API endpoints by type, with links to authentication, rate limits, and object reference documentation."
 page_type: glossary
-description: "This landing page lists available Braze API endpoints and their uses."
 glossary_tag_name: Endpoint Type
 
 glossary_filter_text: "Select endpoint type to narrow the glossary:"
@@ -44,7 +44,7 @@ glossary_tags:
   - name: Email Templates
   - name: KPI
   - name: Media Library
-  - name: Messaging API
+  - name: Device Messaging API
   - name: Purchases
   - name: Preference Center
   - name: Schedule Messages
@@ -125,14 +125,14 @@ glossaries:
     description: Send immediate, one-off transactional messages to a designated user.
     tags:
       - Send Messages
-  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
     description: Retrieve eligible Banners for a user and a set of placements.
     tags:
-      - Messaging API
-  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
+      - Device Messaging API
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
     description: Record impression and click events for Banners.
     tags:
-      - Messaging API
+      - Device Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
     description: Send dashboard created campaign messages through API-triggered delivery.
     tags:

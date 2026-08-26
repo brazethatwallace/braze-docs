@@ -1,23 +1,24 @@
 ---
 nav_title: Authentication and security
-article_title: Messaging API authentication and security
+article_title: Device Messaging API authentication and security
+permalink: /api/device_messaging_api/authentication
 page_order: 1
 page_type: reference
-description: "Learn how to authenticate Messaging API requests securely."
+description: "Learn how to authenticate Device Messaging API requests securely."
 hidden: true
 ---
 
-# Messaging API authentication and security
+# Device Messaging API authentication and security
 
 {% alert important %}
-This page is in beta. Features and documentation for the Messaging API are subject to change.
+This page is in beta. Features and documentation for the Device Messaging API are subject to change.
 {% endalert %}
 
-The Messaging API uses client-side REST API keys. These keys are distinct from the private REST API keys used for server-side Braze REST API requests.
+The Device Messaging API uses client-side REST API keys. These keys are distinct from the private REST API keys used for server-side Braze REST API requests.
 
 ## Client-side REST API keys
 
-Client-side REST API keys are scoped to one workspace and restricted to Messaging API permissions. You can embed these keys in client applications.
+Client-side REST API keys are scoped to one workspace and restricted to Device Messaging API permissions. You can embed these keys in client applications.
 
 {% alert important %}
 Use only a client-side REST API key in a client application. Never expose a private server-side REST API key in client-side code.
@@ -44,8 +45,8 @@ Use HTTPS and the [REST endpoint]({{site.baseurl}}/api/basics#endpoints) for you
 
 A client-side REST API key authenticates the calling application and workspace, not the user. The `external_user_id` in a request identifies the user associated with Banner content and events.
 
-Apply your application's authorization controls before making Messaging API requests.
+Apply your application's authorization controls before making Device Messaging API requests.
 
 ## Authentication errors
 
-Authentication and permission failures can differ by endpoint. Refer to each endpoint's status-code table and [Messaging API error handling]({{site.baseurl}}/api/messaging_api/error_handling).
+Authentication and permission failures can differ by endpoint. Refer to each endpoint's status-code table and [Device Messaging API error handling]({{site.baseurl}}/api/device_messaging_api/error_handling).

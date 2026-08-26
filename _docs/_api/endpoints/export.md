@@ -3,13 +3,13 @@ nav_title: Export
 article_title: Export Endpoints
 search_tag: Endpoint
 page_order: 2
-description: "This reference article explains the Braze export endpoints, including prerequisites, what you can export, how data is delivered, and a full list of endpoints."
+description: "This reference article explains the Braze export endpoints, including prerequisites, what you can export, how data is delivered, and a full list."
 page_type: reference
 ---
 
 # Export endpoints
 
-With this collection of endpoints, you can access and export various levels of details on your KPIs, app sessions, users, segments, campaigns, and Canvases. Make sure you know your [Braze instance]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints), [API key]({{site.baseurl}}/api/api_key), and [API identifier]({{site.baseurl}}/api/identifier_types) when building your parameters and request bodies.
+With this collection of endpoints, you can access and export various levels of details on your KPIs, app sessions, users, segments, campaigns, and Canvases. Make sure you know your [Braze instance]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints), [API key]({{site.baseurl}}/api/basics), and [API identifier]({{site.baseurl}}/api/identifier_types) when building your parameters and request bodies.
 
 ## Prerequisites
 

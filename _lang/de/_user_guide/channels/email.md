@@ -19,27 +19,28 @@ Bevor Sie E-Mails mit Braze versenden können, müssen Sie Ihre dedizierten IPs,
 
 ## E-Mails anpassen {#customize-your-emails}
 
-Sie können Ihr E-Mail-Messaging auf verschiedene Arten anpassen, darunter:
+Sie können Ihr E-Mail-Messaging auf verschiedene Weise anpassen, unter anderem durch:
 
 - [Braze E-Mail-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)
 - [Benutzerdefinierte HTML-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
 - [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
 - [Nutzer:innen-Abos]({{site.baseurl}}/user_guide/channels/email/subscriptions)
+- [Abo-Gruppen]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups)
 
 ## Testen Sie Ihre E-Mails {#test-your-emails}
 
-[Seed-Gruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) senden automatisch Kopien Ihrer E-Mail-Campaigns an interne Nutzer:innen, um eine Qualitätssicherung durchzuführen. Seed-E-Mails enthalten `[SEED]` am Anfang der Betreffzeile, damit Sie sie leicht identifizieren können.
+[Seed-Gruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) senden automatisch Kopien Ihrer E-Mail-Campaigns an interne Nutzer:innen, um die Qualitätssicherung durchzuführen. Seed-E-Mails enthalten `[SEED]` am Anfang der Betreffzeile, damit Sie sie leicht identifizieren können.
 
 ## Anwendungsfälle {#use-cases}
 
 | Anwendungsfall | Erklärung |
 | --- | --- |
-| Erneute Interaktion | Erreichen Sie Nutzer:innen außerhalb Ihrer App, einschließlich derjenigen, die die App nicht installiert haben. |
+| Erneute Interaktion | Erreichen Sie Nutzer:innen außerhalb Ihrer App, einschließlich derer, die die App nicht installiert haben. |
 | Onboarding | Begrüßen Sie neue Nutzer:innen und ermutigen Sie sie, Push-Benachrichtigungen zu aktivieren oder die App in sozialen Netzwerken zu teilen. |
 | Rich-Nachrichten | Ermöglichen Sie reichhaltige und dynamische HTML-Nachrichten. |
 | Multimedia-Inhalte | Einfache Platzierung von Multimedia-Inhalten wie Videos und Bildern, die Nutzer:innen ansprechen. |
 | Newsletter | Versenden Sie bequem monatliche oder wöchentliche Newsletter, um das Nutzer:innen-Engagement aufrechtzuerhalten. |
-| Transaktionen | Benachrichtigen Sie Nutzer:innen über kürzlich getätigte Käufe und liefern Sie wichtige Produkt- und Versandinformationen mit [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
+| Transaktionen | Benachrichtigen Sie Nutzer:innen über kürzliche Käufe und übermitteln Sie wichtige Produkt- und Versandinformationen mit [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfälle" }
 
 ## E-Mail-Dienste {#email-services}

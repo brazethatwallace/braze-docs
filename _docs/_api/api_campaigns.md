@@ -23,7 +23,7 @@ After the campaign begins, you can view the results in the dashboard. API campai
 Because API campaigns always include a `campaign_id`, their sends are reflected in dashboard stats. If you call [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) without a `campaign_id`, Braze doesn't increment those metrics—sends still appear in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), but not in email performance metrics in the dashboard.
 
 {% alert warning %}
-Because API campaigns are typically transactional, all users are eligible for API campaigns, even those in your Global Control Group. A [one-click list-unsubscribe]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#list-unsubscribe) header is not added to these sends by default. To add a one-click list-unsubscribe header to an API campaign, see [Add one-click list-unsubscribe to API campaigns](#add-one-click-list-unsubscribe-to-api-campaigns). To add a one-click list-unsubscribe header to all API campaigns, contact your customer success manager.
+Because API campaigns are typically transactional, all users are eligible for API campaigns, even those in your Global Control Group. A [one-click list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) header is not added to these sends by default. To add a one-click list-unsubscribe header to an API campaign, see [Add one-click list-unsubscribe to API campaigns](#add-one-click-list-unsubscribe-to-api-campaigns). To add a one-click list-unsubscribe header to all API campaigns, contact your customer success manager.
 {% endalert %}
 
 ## Create a new campaign

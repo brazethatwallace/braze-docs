@@ -176,7 +176,7 @@ Im Folgenden finden Sie die Liquid-Tags, die Sie in Ihr HTML einfügen können, 
         background-color: #fff;
         color: #333335;
         font-family:
-          Sailec W00 Medium,
+          Aribau Grotesk Regular,
           helvetica,
           arial,
           sans-serif;

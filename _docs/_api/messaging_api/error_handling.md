@@ -1,19 +1,20 @@
 ---
 nav_title: Error handling and retries
-article_title: Messaging API error handling and retries
+article_title: Device Messaging API error handling and retries
+permalink: /api/device_messaging_api/error_handling
 page_order: 2
 page_type: reference
-description: "Learn how to handle Messaging API responses, errors, and retries."
+description: "Learn how to handle Device Messaging API responses, errors, and retries."
 hidden: true
 ---
 
-# Messaging API error handling and retries
+# Device Messaging API error handling and retries
 
 {% alert important %}
-This page is in beta. Features and documentation for the Messaging API are subject to change.
+This page is in beta. Features and documentation for the Device Messaging API are subject to change.
 {% endalert %}
 
-Messaging API response bodies and success semantics vary by endpoint. Use each endpoint's response schema and status-code table as the authoritative contract.
+Device Messaging API response bodies and success semantics vary by endpoint. Use each endpoint's response schema and status-code table as the authoritative contract.
 
 ## Success responses
 
@@ -41,12 +42,12 @@ Use the following guidance when deciding whether to retry:
 |---|---|
 | `400` | Correct the request before retrying. For Banner tracking, correct skipped events before retrying them. |
 | `401` or `403` | Verify the client-side REST API key and its permissions before retrying. |
-| `404` | Confirm that the Messaging API is enabled for the workspace and that the endpoint URL is correct. |
+| `404` | Confirm that the Device Messaging API is enabled for the workspace and that the endpoint URL is correct. |
 | `429` | Reduce the request rate and retry with exponential backoff. Use rate-limit response headers when available. |
 | `5XX` | Retry with exponential backoff and a maximum number of attempts. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Messaging API retry guidance" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Device Messaging API retry guidance" }
 
 For the exact response body and supported status codes, refer to the relevant endpoint:
 
-- [Retrieve Banners for a user]({{site.baseurl}}/api/messaging_api/endpoints/banners/post_sync_banners)
-- [Track Banner analytics events]({{site.baseurl}}/api/messaging_api/endpoints/banners/post_track_banner_events)
+- [Retrieve Banners for a user]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)
+- [Track Banner analytics events]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_track_banner_events)
