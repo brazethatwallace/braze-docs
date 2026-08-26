@@ -222,6 +222,10 @@ Most of the code that handles deep links also handles push opens. First, ensure 
 
 If opens are being logged, check whether it is an issue with the deep link in general or with the deep linking push click handling. To do this, test to see if a deep link from an in-app message click works.
 
+### Push Story image taps do nothing
+
+If tapping a Push Story image does nothing, open the Notification Content Extension `Info.plist` and confirm `UNNotificationExtensionUserInteractionEnabled` is `YES`. The Swift SDK `BrazePushStory` module needs that key so the extension can receive taps. See [Push stories]({{site.baseurl}}/developer_guide/push_notifications/push_stories/?sdktab=swift).
+
 {% endsdktab %}
 
 {% sdktab fireos %}
