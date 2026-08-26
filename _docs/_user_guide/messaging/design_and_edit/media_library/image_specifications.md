@@ -28,6 +28,10 @@ Videos uploaded to the media library can only be used in WhatsApp messages. For 
 
 GIFs are supported in iOS push, in-app messages, email, Content Cards, and MMS or RCS messages. GIFs with very elongated shapes (for example, 3000 x 2 pixels) or 300 or more frames may fail to upload, even if the total file size is small.
 
+{% alert note %}
+GIFs sent via RCS are displayed as static images on iOS devices.
+{% endalert %}
+
 {% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
 ## Channel guidance
