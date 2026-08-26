@@ -138,6 +138,10 @@ A Media Rich Card is a visual message containing an image or video. It must incl
     - Custom video thumbnails aren't supported in the early access. The early access only supports a vertical layout with a tall media height for both image and video files.
 - **Buttons:** At least one button is required. You can add up to four buttons with **Suggested reply** or **Open web URL** actions.
 
+{% alert note %}
+On iOS, GIFs in Rich Cards display as static images. On Android, they animate as expected. To send animated content to iOS, use an RCS **Media** message or include video in the Rich Card. A GIF may still animate in the Braze preview, so send a test to an iOS device.
+{% endalert %}
+
 {% endsubtab %}
 {% endsubtabs %}
 
