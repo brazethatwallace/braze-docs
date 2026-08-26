@@ -117,9 +117,7 @@ Operator can generate a full message design for any channel or editor with an HT
 - Push
 - Webhook
 
-Describe the message you want in natural language, review the output, and keep the conversation going to refine the result. For example, you can ask for a different layout, shorter copy, or updated button styling.
-
-In an HTML editor, insert the generated design into your composer. In a drag-and-drop editor, Operator can edit the design in the composer. Support varies by editor, and drag-and-drop coverage expands regularly.
+Operator can also generate a full message design in some drag-and-drop editors. In drag-and-drop editors that don't support direct design generation, Operator can help with copy or other content you add manually. Describe the message you want in natural language, review the output, and insert it into your composer. For example, you can ask for a different layout, shorter copy, or updated button styling. Support varies by editor, and drag-and-drop coverage expands regularly.
 
 You get the best results when you use Operator in the composer you're building, where it has [page-aware context]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context) for the channel and message type. When brand guidelines are configured, Operator applies them automatically.
 
