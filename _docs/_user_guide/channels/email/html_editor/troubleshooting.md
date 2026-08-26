@@ -163,7 +163,7 @@ This behavior prevents analytics from becoming bloated with thousands of unique 
 
 If you rely on unique query parameters to track user-specific behavior in external platforms (for example, `https://example.com?user_id=USER_ID`), be aware that Braze click analytics will only preserve those parameters for the first 100 unique links clicked. After that threshold, clicks still register in your analytics but are attributed to the de-parameterized URL.
 
-User-level click data remains available through [Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents) or the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), regardless of how many unique parameterized links are clicked.
+User-level click data remains available through [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) or the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), regardless of how many unique parameterized links are clicked.
 
 ### Superscript line height issues {#superscript-line-height-issues}
 
