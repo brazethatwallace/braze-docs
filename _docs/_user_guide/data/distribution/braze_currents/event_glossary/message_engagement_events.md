@@ -8739,6 +8739,10 @@ In-App Messages, Abort
 
 This event occurs when an originally scheduled in-app message was aborted.
 
+{% alert note %}
+[Abort events]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) are only logged for [templated in-app messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated). Standard in-app messages don't log abort events because Liquid evaluation occurs before the trigger action. For more details on in-app message abort behavior, refer to [In-app messages FAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#how-does-abort-behavior-work-for-in-app-messages).
+{% endalert %}
+
 {% tabs %}
 {% tab Cloud Storage %}
 ```json
