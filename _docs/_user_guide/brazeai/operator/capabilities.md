@@ -88,7 +88,7 @@ Operator can generate and review the content in your messages, including copy, m
 
 ### Apply brand guidelines {#apply-brand-guidelines}
 
-Add [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) as context in the Operator chat panel so generated copy, templates, and images match your brand's voice, tone, and style. Operator applies them after you select them. For steps, see [Apply brand guidelines]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines) in the Operator usage guide.
+Add [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) as context in the Operator chat panel so generated copy, templates, and images match your brand's voice, tone, and style. 
 
 ### Generate copy {#generate-copy}
 
