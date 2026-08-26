@@ -77,7 +77,7 @@ config[config_fields.HEARTBEAT_FREQ_IN_SECONDS] = 5
 globalNode.addFields({brazeConfig: config})
 ```
 
-[SDK 엔드포인트]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints)와 API 키는 Braze 대시보드에서 확인할 수 있습니다.
+[SDK 엔드포인트]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)와 API 키는 Braze 대시보드에서 확인할 수 있습니다.
 
 ### 4단계: Braze 초기화 {#step-4-initialize-braze}
 

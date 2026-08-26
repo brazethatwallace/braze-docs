@@ -1,11 +1,11 @@
 ---
 nav_title: SDKの概要
 article_title: 開発者向けのSDK概要
-description: "このオンボーディングリファレンス記事には、Braze SDKの開発者向けの技術概要が記載されています。ここでは、SDKでトラッキングされるデフォルトの分析、自動データ収集のブロック、アプリのライブSDKバージョンについて説明します。"
+description: "このオンボーディングリファレンス記事には、Braze SDKの開発者向けの技術概要が記載されています。ここでは、SDKでトラッキングされるデフォルトの分析について説明します。"
 page_order: 0
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}開発者向けSDKの概要 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
+# [![Braze Learningコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/developer/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}開発者向けSDKの概要 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdevelopersdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordersdk-overview-for-developers}
 
 > Braze SDKの統合を開始する前に、正確に何を構築および統合するのかを疑問に思うかもしれません。また、ニーズに応じてSDKをより詳細にカスタマイズする方法に興味があるかもしれません。この記事は、SDKに関するすべての疑問を解決するのに役立ちます。
 
@@ -15,7 +15,7 @@ Braze SDKを簡単に説明すると、次のとおりです。
 * ユーザーデータを収集し、統合ユーザープロファイルに同期します
 * セッションデータ、デバイス情報、プッシュトークンを自動的に収集します
 * マーケティングエンゲージメントデータとビジネスに固有のカスタムデータを取得します
-* プッシュ通知、**In-App Messages**、コンテンツカードメッセージングチャネルを強化します
+* プッシュ通知、アプリ内メッセージ、コンテンツカードメッセージングチャネルを強化します
 
 以下の動画で、Braze SDKの統合の基本とコア機能について簡単に紹介しています。
 
@@ -25,83 +25,83 @@ Braze SDKを簡単に説明すると、次のとおりです。
 
 Brazeがアプリのパフォーマンスに悪影響を及ぼすことはありません。
 
-Braze SDKのフットプリントは非常に小さいです。手動のネットワーク制御が許可されるのに加え、ネットワークの品質に応じ、ユーザーデータをフラッシュするレートの自動変更が実行されます。SDKからのAPIリクエストを自動的にバッチ処理して、ネットワーク効率を常に最大化しながらデータが迅速にロギングされるようにします。最後に、各API呼び出し内でクライアントからBrazeに送信されるデータは非常に少量です。
+Braze SDKは非常に軽量に設計されています。ネットワークの品質に応じてユーザーデータのフラッシュレートを自動的に変更するほか、手動によるネットワーク制御も可能です。SDKからのAPIリクエストを自動的にバッチ処理することで、最大限のネットワーク効率を維持しながら迅速にデータを記録します。さらに、各API呼び出しでクライアントからBrazeに送信されるデータ量は非常に小さくなっています。
 
 ## SDKの互換性 {#sdk-compatibility}
 
-Braze SDKは非常に円滑に動作し、アプリ内に存在する他のSDKに干渉しないよう設計されています。他のSDKとの互換性不足が原因と思われる問題が発生している場合は、Brazeサポートにお問い合わせください。
+Braze SDKは、非常に行儀よく動作し、アプリ内の他のSDKに干渉しないように設計されています。他のSDKとの非互換性が原因と思われる問題が発生した場合は、Brazeサポートにお問い合わせください。
 
 ## デフォルトの分析とセッション処理 {#default-analytics-and-session-handling}
 
-最初に使用したアプリ、最後に使用したアプリ、合計セッション数、デバイスOSなど、特定のユーザーデータはSDKで自動的に収集されます。統合ガイドに従ってSDKを実装すると、この[デフォルトデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)を利用できるようになります。このリストを確認することで、ユーザーに関する同じ情報を複数回保存しなくて済みます。セッション開始とセッション終了を除き、その他の自動的にトラッキングされるデータは、データポイント使用量にはカウントされません。
+特定のユーザーデータはSDKによって自動的に収集されます。例えば、アプリの初回使用日、アプリの最終使用日、合計セッション数、デバイスOSなどです。統合ガイドに従ってSDKを実装すると、この[デフォルトのデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)を活用できます。このリストを確認することで、ユーザーに関する同じ情報を重複して保存することを避けられます。セッション開始とセッション終了を除き、自動的にトラッキングされるその他すべてのデータはデータポイント使用量にカウントされません。
 
 {% alert note %}
-すべての機能が構成可能ですが、デフォルトのデータ収集モデルを完全に実装することをお勧めします。
+すべての機能は設定可能ですが、デフォルトのデータ収集モデルを完全に実装することをお勧めします。
 
-<br>ユースケースで必要な場合は、統合の完了後に[特定のデータの収集を制限](#blocking-data-collection)できます。
+<br>ユースケースに応じて必要であれば、統合完了後に[特定のデータの収集を制限する](#blocking-data-collection)ことができます。
 {% endalert %}
 
 ## データのアップロードとダウンロード {#data-upload-and-download}
 
-Braze SDKでは、データ（セッション、カスタムイベントなど）がキャッシュされ、定期的にアップロードされます。データがアップロードされた後でのみ、ダッシュボード上で値が更新されます。アップロード間隔は、デバイスの状態を考慮し、ネットワーク接続の品質に基づいて決定されます。
+Braze SDKはデータ（セッション、カスタムイベントなど）をキャッシュし、定期的にアップロードします。データがアップロードされて初めて、ダッシュボード上の値が更新されます。アップロード間隔はデバイスの状態を考慮し、ネットワーク接続の品質によって制御されます。
 
-| ネットワーク接続品質 | データフラッシュ間隔 |
+|ネットワーク接続品質 |    データフラッシュ間隔|
 |---|---|
-| 素晴らしい | 10秒 |
-| 良好 | 30秒 |
-| 不良 | 60秒 |
+|良好    |10秒|
+|普通    |30秒|
+|不良    |60秒|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="データのアップロードとダウンロード" }
 
-ネットワーク接続がない場合、ネットワーク接続が再確立されるまで、データはデバイスのローカルにキャッシュされます。接続が再確立されると、データがBrazeにアップロードされます。
+ネットワーク接続がない場合、データはネットワーク接続が再確立されるまでデバイス上にローカルにキャッシュされます。接続が再確立されると、データはBrazeにアップロードされます。
 
-セッションの時点でユーザーが属するセグメントに基づいて、セッションの開始時にBrazeからSDKにデータが送信されます。新しいアプリ内メッセージはセッション中に更新されません。ただし、セッション中のユーザーデータは、クライアントから送信されると継続的に処理されます。たとえば、離脱ユーザー（アプリを最後に使用してから7日以上経過）には、アプリに戻ってから最初のセッションで、離脱ユーザーをターゲットにしたコンテンツが提供されます。
+Brazeは、セッションの開始時に、そのセッション時点でユーザーが該当するセグメントに基づいてSDKにデータを送信します。新しいアプリ内メッセージはセッション中に更新されません。ただし、セッション中のユーザーデータは、クライアントから送信されるたびに継続的に処理されます。たとえば、休眠ユーザー（7日以上アプリを使用していないユーザー）は、アプリに戻った最初のセッションで休眠ユーザー向けのコンテンツを受け取ります。
 
 ## データ収集のブロック {#blocking-data-collection}
 
-SDK統合からの特定のデータの自動収集をブロックしたり、そのプロセスを許可リストに登録したりすることは（推奨はされませんが）可能です。
+SDK統合から特定のデータの自動収集をブロックしたり、収集を行うプロセスを許可リストに登録したりすることは可能ですが、推奨されません。
 
-分析データを削除すると、プラットフォームのパーソナライゼーションとターゲット設定の能力が低下するため、データ収集をブロックすることは推奨されません。以下はその例です。
+データ収集のブロックは推奨されません。分析データを除去すると、プラットフォームのパーソナライゼーションやターゲティングの能力が低下するためです。例:
 
-- いずれかのSDKで位置情報を完全に統合しないことを選択した場合、言語や位置情報に基づいてメッセージングをパーソナライズできません。
-- タイムゾーンを統合しないことを選択した場合、ユーザーのタイムゾーン内でメッセージを送信できない可能性があります。
-- 特定のデバイスビジュアル情報を統合しないことを選択した場合、メッセージのコンテンツがそのデバイス向けに最適化されない可能性があります。
+- いずれかのSDKでロケーションを完全に統合しない場合、言語やロケーションに基づいたメッセージングのパーソナライゼーションができなくなります。
+- タイムゾーンを統合しない場合、ユーザーのタイムゾーンに合わせたメッセージ送信ができなくなる可能性があります。
+- 特定のデバイスのビジュアル情報を統合しない場合、メッセージコンテンツがそのデバイスに最適化されない可能性があります。
 
-製品の機能を最大限に活用するには、SDKを完全に統合することを強くお勧めします。
+製品の機能を最大限に活用するために、SDKを完全に統合することを強くお勧めします。
 
 {% tabs %}
 {% tab Web SDK %}
 
-SDKの特定の部分を統合しないことも、ユーザーに対して[`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk)を使用することもできます。このメソッドにより、`disableSDK()`の呼び出し前にロギングされたデータが同期され、このページと将来のページの読み込みに対するその後のBraze Web SDKの呼び出しはすべて無視されます。後の時点でデータ収集を再開するには、[`enableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk)メソッドを使用できます。この詳細については、[Webトラッキングの無効化]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=web)に関する記事をご覧ください。
+SDKの特定の部分を統合しないか、ユーザーに対して[`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk)を使用できます。このメソッドは`disableSDK()`が呼び出される前にログに記録されたデータを同期し、このページおよび将来のページ読み込みに対するBraze Web SDKへの後続のすべての呼び出しを無視します。後からデータ収集を再開する場合は、[`enableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk)メソッドを使用してデータ収集を再開できます。詳細については、[Webトラッキングの無効化]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=web)の記事をご覧ください。
 
 {% endtab %}
 {% tab Android SDK %}
 
-[`setDeviceObjectAllowlist`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html?query=fun%20setDeviceObjectAllowlist(deviceObjectAllowlist:%20EnumSet%3CDeviceKey%3E):%20BrazeConfig.Builder)を使用し、設定された許可リストに従ってデバイスオブジェクトのキーまたは値のサブセットのみを送信するようSDKを構成できます。これは[`setDeviceObjectAllowlistEnabled`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html?query=fun%20setDeviceObjectAllowlistEnabled(enabled:%20Boolean):%20BrazeConfig.Builder)を介して有効にする必要があります。
+[`setDeviceObjectAllowlist`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html?query=fun%20setDeviceObjectAllowlist(deviceObjectAllowlist:%20EnumSet%3CDeviceKey%3E):%20BrazeConfig.Builder)を使用して、設定した許可リストに従ってデバイスオブジェクトのキーまたは値のサブセットのみを送信するようにSDKを構成できます。これは[`setDeviceObjectAllowlistEnabled`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html?query=fun%20setDeviceObjectAllowlistEnabled(enabled:%20Boolean):%20BrazeConfig.Builder)で有効にする必要があります。
 
 {% alert important %}
-許可リストが空の場合、デバイスデータはBrazeに送信**されません**。
+空の許可リストを設定すると、デバイスデータはBrazeに**一切**送信されなくなります。
 {% endalert %}
 
 {% endtab %}
 {% tab Swift SDK %}
 
-`Braze.Configuration`で対象となるフィールドのセットを[`configuration.devicePropertyAllowList`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/devicepropertyallowlist)に割り当て、SDKで収集されるデバイスフィールドの許可リストを指定することができます。フィールドの完全なリストは[`Braze.Configuration.DeviceProperty`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/deviceproperty)で定義されます。すべてのデバイスフィールドの収集をオフにするには、このプロパティの値を空のセット (`[]`) に設定します。
+`Braze.Configuration`の[`configuration.devicePropertyAllowList`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/devicepropertyallowlist)に対象フィールドのセットを割り当てることで、SDKが収集するデバイスフィールドの許可リストを指定できます。フィールドの完全なリストは[`Braze.Configuration.DeviceProperty`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/deviceproperty)で定義されています。すべてのデバイスフィールドの収集を無効にするには、このプロパティの値を空のセット（`[]`）に設定します。
 
 {% alert important %}
-デフォルトでは、Braze Swift SDKですべてのフィールドが収集されます。一部のデバイスプロパティを削除すると、SDK機能が無効になる場合があります。
+デフォルトでは、すべてのフィールドがBraze Swift SDKによって収集されます。一部のデバイスプロパティを削除すると、SDK機能が無効になる場合があります。
 {% endalert %}
 
-使用の詳細については、Swift SDKドキュメントの[ストレージ]({{site.baseurl}}/developer_guide/storage?tab=swift)を参照してください。
+使用方法の詳細については、Swift SDKドキュメントの[Speicher]({{site.baseurl}}/developer_guide/storage?tab=swift)を参照してください。
 
 {% endtab %}
 {% endtabs %}
 
-## 使用しているSDKバージョンの確認 {#what-version-of-the-sdk-am-i-on}
+## 使用しているSDKのバージョンは？ {#what-version-of-the-sdk-am-i-on}
 
-ダッシュボードを使用して、**設定** > **アプリ設定**から特定のアプリのSDKバージョンを確認できます。**ライブSDKバージョン**には、ユーザーの5%以上を対象とする最新のライブアプリケーションで使用されている最上位のBraze SDKバージョンが表示されます。
+ダッシュボードで特定のアプリのSDKバージョンを確認するには、**設定 > アプリ設定**にアクセスします。**ライブSDKバージョン**には、ユーザーの少なくとも5%が使用している最新のライブアプリケーションで使用されている最も高いBraze SDKバージョンが表示されます。
 
-![ワークスペースのSwiftyという名前のアプリ。ライブSDKバージョンは6.6.0です。]({% image_buster /assets/img/live-sdk-version.png %}){: style="max-width:80%"}
+![ワークスペース内のSwiftyという名前のアプリ。ライブSDKバージョンは6.6.0です。]({% image_buster /assets/img/live-sdk-version.png %}){: style="max-width:80%"}
 
 {% alert tip %}
-iOSアプリをお持ちの場合、**ライブSDKバージョン**が5.0.0（最初にリリースされたSwift SDKのバージョン）以降であれば、従来の[Objective-C iOS SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview)の代わりに[Swift SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift)を使用していることを確認できます。
+iOSアプリをお持ちの場合、**ライブSDKバージョン**が5.0.0以上であれば、レガシーの[Objective-C iOS SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview)ではなく[Swift SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift)を使用していることを確認できます。5.0.0はSwift SDKの最初のリリースバージョンです。
 {% endalert %}

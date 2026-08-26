@@ -1,9 +1,8 @@
 ---
 nav_title: 위치 추적
-article_title: Braze SDK를 통해 위치 추적
+article_title: 위치 추적
 page_order: 3.4
 description: "Braze SDK를 통해 위치를 추적하는 방법을 알아보세요."
-
 ---
 
 # 위치 추적 {#track-location}

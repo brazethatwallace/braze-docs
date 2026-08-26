@@ -1,9 +1,8 @@
 ---
 nav_title: Rastrear local
-article_title: Rastrear local através do SDK da Braze
+article_title: Rastrear local
 page_order: 3.4
 description: "Aprenda como rastrear local através do SDK da Braze."
-
 ---
 
 # Rastrear local {#track-location}

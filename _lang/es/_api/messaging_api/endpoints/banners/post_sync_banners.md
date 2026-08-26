@@ -1,6 +1,7 @@
 ---
 nav_title: "POST: Recuperar Banners para un usuario"
 article_title: "POST: Recuperar Banners para un usuario"
+permalink: /api/device_messaging_api/endpoints/banners/post_sync_banners
 search_tag: Endpoint
 page_order: 0
 layout: api_page
@@ -16,7 +17,7 @@ hidden: true
 {% endapimethod %}
 
 {% alert important %}
-Esta página está en fase beta. Las características y la documentación de la API de mensajería están sujetas a cambios.
+Esta página está en fase beta. Las características y la documentación de la API de mensajería de dispositivo están sujetas a cambios.
 {% endalert %}
 
 > Usa este endpoint para recuperar el Banner elegible para cada ubicación solicitada para un usuario.
@@ -28,7 +29,7 @@ La respuesta contiene propiedades estructuradas del Banner que puedes utilizar p
 Para usar este endpoint, necesitas lo siguiente:
 
 - Un espacio de trabajo con Banners habilitados
-- Una [clave de API REST del lado del cliente]({{site.baseurl}}/api/messaging_api/authentication) con el permiso `banners.sync`
+- Una [clave de API REST del lado del cliente]({{site.baseurl}}/api/device_messaging_api/authentication) con el permiso `banners.sync`
 - El [endpoint REST]({{site.baseurl}}/api/basics#endpoints) de tu instancia de Braze
 
 Incluye la clave de API REST del lado del cliente en el encabezado `Authorization` como un token bearer.
@@ -37,7 +38,7 @@ Incluye la clave de API REST del lado del cliente en el encabezado `Authorizatio
 
 Los límites de velocidad se aplican por espacio de trabajo. Si superas el límite de velocidad, Braze devuelve un código de estado `429`. Cuando estén disponibles, utiliza los encabezados de respuesta `X-RateLimit-Limit`, `X-RateLimit-Remaining` y `X-RateLimit-Reset` para monitorear tu uso.
 
-Para más información, consulta [Límites de velocidad de la API de mensajería]({{site.baseurl}}/api/messaging_api/rate_limits).
+Para más información, consulta [Límites de velocidad de la API de mensajería de dispositivo]({{site.baseurl}}/api/device_messaging_api/rate_limits).
 
 ## Cuerpo de la solicitud {#request-body}
 
@@ -137,6 +138,6 @@ Una solicitud exitosa devuelve un código de estado `200` y el Banner resuelto p
 | `429` | El espacio de trabajo superó su límite de velocidad. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Códigos de estado" }
 
-Para más información, consulta [Manejo de errores y reintentos de la API de mensajería]({{site.baseurl}}/api/messaging_api/error_handling).
+Para más información, consulta [Manejo de errores y reintentos de la API de mensajería de dispositivo]({{site.baseurl}}/api/device_messaging_api/error_handling).
 
 {% endapi %}

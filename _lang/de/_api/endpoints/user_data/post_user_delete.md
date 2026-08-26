@@ -21,14 +21,14 @@ Bis zu 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` oder `p
 Wenn Sie einen Anwendungsfall haben, der nicht mit der Massenlöschung von Nutzer:innen über die API gelöst werden kann, kontaktieren Sie das [Braze Support-Team]({{site.baseurl}}/user_guide/administer/personal/braze_support) für Unterstützung.
 
 {% alert warning %}
-Das Löschen von Nutzerprofilen kann nicht rückgängig gemacht werden. Es entfernt Nutzer:innen dauerhaft, was zu Unstimmigkeiten in Ihren Daten führen kann. Weitere Informationen finden Sie unter [Auswirkungen des Löschens von Nutzerprofilen](#effects-of-deleting-user-profiles).
+Das Löschen von Nutzerprofilen kann nicht rückgängig gemacht werden. Die Löschaktion entfernt Nutzer:innen dauerhaft, was zu Unstimmigkeiten in Ihren Daten führen kann. Weitere Informationen finden Sie unter [Auswirkungen des Löschens von Nutzerprofilen](#effects-of-deleting-user-profiles).
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#22e91d00-d178-4b4f-a3df-0073ecfcc992 {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `users.delete`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `users.delete`.
 
 ## Rate-Limit
 

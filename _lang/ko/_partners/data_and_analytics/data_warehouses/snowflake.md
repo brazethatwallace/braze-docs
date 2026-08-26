@@ -2,10 +2,9 @@
 nav_title: Snowflake
 article_title: Snowflake
 alias: /partners/snowflake/
-description: "이 문서에서는 데이터 공유(Braze에서 Snowflake로)와 클라우드 데이터 수집(Snowflake에서 Braze로)을 포함하여 Braze와 Snowflake 간의 파트너십에 대해 설명합니다."
+description: "이 문서에서는 데이터 공유(Braze에서 Snowflake로)와 클라우드 데이터 수집을 포함하여 Braze와 Snowflake 간의 파트너십에 대해 설명합니다."
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Snowflake
@@ -14,45 +13,45 @@ search_tag: Partner
 
 Braze는 Snowflake와 두 가지 통합을 제공합니다. 이 두 가지를 함께 사용하면 Braze와 Snowflake 환경 간에 완전한 양방향 데이터 파이프라인을 구축할 수 있습니다.
 
-## 통합 선택 {#choosing-an-integration}
+## 통합 선택하기 {#choosing-an-integration}
 
-### 데이터 공유(Braze에서 Snowflake로) {#data-sharing-braze-to-snowflake}
+### 데이터 공유 (Braze에서 Snowflake로) {#data-sharing-braze-to-snowflake}
 
-Snowflake [보안 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing)를 사용하면 Snowflake 인스턴스에서 직접 Braze 인게이지먼트 및 Campaign 데이터에 안전하게 실시간으로 접근할 수 있습니다. 계정 간에 데이터가 복사되거나 전송되지 않으며, 모든 공유는 Snowflake의 고유한 서비스 레이어와 메타데이터 저장소를 통해 이루어집니다.
+Snowflake [보안 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing)를 사용하면 Snowflake 인스턴스에서 Braze 인게이지먼트 및 Campaign 데이터에 안전하게 실시간으로 액세스할 수 있습니다. 계정 간에 데이터가 복사되거나 전송되지 않으며, 모든 공유는 Snowflake의 고유한 서비스 레이어와 메타데이터 저장소를 통해 이루어집니다.
 
 **데이터 공유를 사용하면 좋은 경우:**
 - Snowflake SQL을 사용하여 Braze 이벤트 및 Campaign 데이터를 쿼리하고 싶을 때
-- 복잡한 보고서를 생성하고 기여도 모델링을 수행하고 싶을 때
+- 복잡한 보고서를 작성하고 기여도 모델링을 수행하고 싶을 때
 - Braze 데이터를 Snowflake 데이터 웨어하우스의 다른 데이터와 결합하고 싶을 때
-- 채널, 산업, 기기 플랫폼 전반에 걸쳐 인게이지먼트 데이터를 벤치마크하고 싶을 때
+- 채널, 산업 및 기기 플랫폼 전반에 걸쳐 인게이지먼트 데이터를 벤치마킹하고 싶을 때
 
 설정 방법은 [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing)를 참조하세요.
 
-### 클라우드 데이터 수집(Snowflake에서 Braze로) {#cloud-data-ingestion-snowflake-to-braze}
+### 클라우드 데이터 수집 (Snowflake에서 Braze로) {#cloud-data-ingestion-snowflake-to-braze}
 
-[클라우드 데이터 수집(CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)을 사용하면 Snowflake 인스턴스의 데이터를 Braze로 직접 동기화할 수 있습니다. 이를 통해 Braze의 사용자 속성, 이벤트, 구매 데이터를 신뢰할 수 있는 소스인 데이터 웨어하우스와 최신 상태로 유지할 수 있습니다.
+[클라우드 데이터 수집(CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)을 사용하면 Snowflake 인스턴스의 데이터를 Braze로 직접 동기화할 수 있습니다. 이를 통해 소스 오브 트루스(source-of-truth) 데이터 웨어하우스와 Braze의 사용자 속성, 이벤트 및 구매 데이터를 항상 최신 상태로 유지할 수 있습니다.
 
 **클라우드 데이터 수집을 사용하면 좋은 경우:**
 - Snowflake의 사용자 속성을 Braze 고객 프로필에 동기화하고 싶을 때
 - Snowflake의 이벤트 또는 구매 데이터를 Braze로 전송하고 싶을 때
-- 데이터 웨어하우스에서 발생하는 데이터 변환과 Braze를 동기화 상태로 유지하고 싶을 때
+- 데이터 웨어하우스에서 수행되는 데이터 변환과 Braze를 동기화 상태로 유지하고 싶을 때
 - Snowflake에서 Braze로의 커스텀 ETL 파이프라인 구축 및 유지 관리를 피하고 싶을 때
 
 Snowflake의 데이터 공유에 대해 자세히 알아보려면 [보안 데이터 공유 소개](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#how-does-secure-data-sharing-work)를 참조하세요.
 
 ## 전제 조건 {#prerequisites}
 
-이 기능을 사용하기 전에 다음을 완료해야 합니다:
+이 기능을 사용하려면 먼저 다음 사항을 완료해야 합니다:
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Braze 접근 권한 | Braze에서 이 기능에 접근하려면 Braze 계정 매니저 또는 고객 성공 매니저에게 문의해야 합니다. |
-| Snowflake 계정 | `admin` 권한이 있는 Snowflake 계정이 필요합니다. HIPAA(미국의료정보보호법) 비대상 고객의 경우 Snowflake Standard 또는 Enterprise Edition이 지원됩니다. HIPAA(미국의료정보보호법) 준수 데이터 공유의 경우 Business Critical Edition이 필요합니다. |
+| Braze 액세스 | Braze에서 이 기능에 액세스하려면 Braze 계정 담당자 또는 고객 성공 매니저에게 문의해야 합니다. |
+| Snowflake 계정 | `admin` 권한이 있는 Snowflake 계정이 필요합니다. 비 HIPAA(미국의료정보보호법) 고객의 경우 Snowflake Standard 또는 Enterprise Edition이 지원됩니다. HIPAA 규정을 준수하는 데이터 공유의 경우 Business Critical Edition이 필요합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="전제 조건" }
 
 ## 보안 데이터 공유 설정 {#setting-up-secure-data-sharing}
 
-Snowflake에서 데이터 공유는 [데이터 공급자](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#providers)와 [데이터 소비자](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#consumers) 간에 이루어집니다. 이 컨텍스트에서 Braze 계정은 데이터 공유를 생성하고 전송하는 데이터 공급자이며&#8212;Snowflake 계정은 데이터 공유를 사용하여 데이터베이스를 생성하는 데이터 소비자입니다. 자세한 내용은 [Snowflake: 공유 데이터 사용](https://docs.snowflake.com/en/user-guide/data-share-consumers)을 참조하세요.
+Snowflake에서 데이터 공유는 [데이터 공급자](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#providers)와 [데이터 소비자](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#consumers) 간에 이루어집니다. 이 맥락에서 Braze 계정은 데이터 공유를 생성하고 전송하는 데이터 공급자이며, Snowflake 계정은 데이터 공유를 사용하여 데이터베이스를 생성하는 데이터 소비자입니다. 자세한 내용은 [Snowflake: 공유 데이터 소비](https://docs.snowflake.com/en/user-guide/data-share-consumers)를 참조하세요.
 
 ### 1단계: Braze에서 데이터 공유 전송 {#step-1-send-the-datashare-from-braze}
 
@@ -60,90 +59,90 @@ Snowflake에서 데이터 공유는 [데이터 공급자](https://docs.snowflake
 
 ### 2단계: Snowflake에서 데이터베이스 생성 {#step-2-create-the-database-in-snowflake}
 
-1. 몇 분 후, 인바운드 데이터 공유가 Snowflake 계정에 수신됩니다.
+1. 몇 분 후 Snowflake 계정에서 인바운드 데이터 공유를 수신할 수 있습니다.
 2. 인바운드 데이터 공유를 사용하여 테이블을 조회하고 쿼리할 데이터베이스를 생성합니다. 예시:
     ```sql
     CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>
     ```
-3. 새 데이터베이스를 쿼리할 수 있는 권한을 부여합니다.
+3. 새 데이터베이스에 대한 쿼리 권한을 부여합니다.
 
 {% alert warning %}
-Braze 대시보드에서 공유를 삭제하고 다시 생성하는 경우, 이전에 생성한 데이터베이스를 삭제하고 `CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>`을 사용하여 다시 생성해야 인바운드 공유를 쿼리할 수 있습니다.
-여러 워크스페이스가 동일한 Snowflake 계정으로 데이터를 공유하는 경우, 다중 워크스페이스 구성 관리에 대한 안내는 [Snowflake 데이터 공유 FAQ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs)를 참조하세요.
+Braze 대시보드에서 공유를 삭제하고 다시 생성한 경우, 이전에 생성한 데이터베이스를 삭제하고 `CREATE DATABASE <name> FROM SHARE <provider_account>.<share_name>`을 사용하여 다시 생성해야 인바운드 공유를 쿼리할 수 있습니다.
+여러 워크스페이스의 데이터를 동일한 Snowflake 계정에 공유하는 경우, 다중 워크스페이스 구성 관리에 대한 안내는 [Snowflake 데이터 공유 FAQ]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/faqs)를 참조하세요.
 {% endalert %}
 
-## 사용 및 시각화 {#usage-and-visualization}
+## 사용법 및 시각화 {#usage-and-visualization}
 
-데이터 공유가 프로비저닝된 후, 수신 데이터 공유에서 데이터베이스를 생성해야 합니다. 그러면 공유된 모든 테이블이 Snowflake 인스턴스에 나타나며, 인스턴스에 저장된 다른 데이터와 마찬가지로 쿼리할 수 있습니다. 다만, 공유 데이터는 읽기 전용이며 쿼리만 가능하고 어떤 방식으로도 수정하거나 삭제할 수 없다는 점을 유의하세요.
+데이터 공유가 프로비저닝된 후, 수신 데이터 공유에서 데이터베이스를 생성해야 합니다. 이렇게 하면 공유된 모든 테이블이 Snowflake 인스턴스에 나타나며, 인스턴스에 저장된 다른 데이터와 마찬가지로 쿼리할 수 있습니다. 다만, 공유 데이터는 읽기 전용이며 쿼리만 가능하고 어떤 방식으로든 수정하거나 삭제할 수 없다는 점에 유의하세요.
 
 Currents와 마찬가지로, Snowflake 보안 데이터 공유를 사용하여 다음을 수행할 수 있습니다:
 
 {% multi_lang_include partners/data_sharing_use_cases.md %}
 
-사용 가능한 테이블 및 열의 전체 목록은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)를 참조하세요. Snowflake 데이터 공유에는 해당 참조의 모든 테이블과 스냅샷, Campaign 및 Canvas 체인지로그, 에이전트 콘솔 이벤트, 메시지 재시도 이벤트에 대한 추가 Snowflake 전용 테이블이 포함됩니다.
+사용 가능한 테이블 및 열의 전체 목록은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)를 참조하세요. Snowflake 데이터 공유에는 해당 참조의 모든 테이블과 스냅샷, Campaign 및 Canvas 체인지로그, 에이전트 콘솔 이벤트, 메시지 재시도 이벤트를 위한 추가 Snowflake 전용 테이블이 포함됩니다.
 
-[원시 테이블 스키마를 다운로드](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)하여 텍스트 파일로 확인할 수도 있습니다.
+또한 [원시 테이블 스키마를 다운로드](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)하여 텍스트 파일로 확인할 수 있습니다.
 
 ### 사용자 ID 스키마 {#user-id-schema}
 
-사용자 ID에 대한 Braze와 Snowflake 명명 규칙의 다음 차이점에 유의하세요.
+사용자 ID에 대한 Braze와 Snowflake 명명 규칙의 차이점을 참고하세요.
 
 | Braze 스키마 | Snowflake 스키마 | 설명 |
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Braze에서 자동으로 할당하는 고유 식별자입니다. |
-| `external_id` | `"EXTERNAL_USER_ID"` | 고객이 설정하는 고객 프로필의 고유 식별자입니다. |
+| `external_id` | `"EXTERNAL_USER_ID"` | 고객이 설정한 사용자 프로필의 고유 식별자입니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 ID 스키마" }
 
 ## 중요 정보 및 제한 사항 {#important-information-and-limitations}
 
-### 호환성을 깨는 변경과 깨지 않는 변경 {#breaking-versus-non-breaking-changes}
+### 호환성을 유지하는 변경과 유지하지 않는 변경 {#breaking-versus-non-breaking-changes}
 
-#### 호환성을 깨지 않는 변경 {#non-breaking-changes}
+#### 호환성을 유지하는 변경(Non-breaking changes)
 
 {% multi_lang_include partners/snowflake/non_breaking_changes.md %}
 
 {% alert important %}
-새 열은 호환성을 깨지 않는 변경으로 간주되므로, Braze는 `SELECT *` 쿼리를 사용하는 대신 각 쿼리에서 관심 있는 열을 명시적으로 나열할 것을 강력히 권장합니다. 또는 열을 명시적으로 지정하는 뷰를 생성한 다음 테이블 대신 해당 뷰를 쿼리하는 것도 좋은 방법입니다.
+새 열은 호환성을 유지하는 변경으로 간주되므로, Braze는 `SELECT *` 쿼리를 사용하는 대신 각 쿼리에서 관심 있는 열을 명시적으로 나열할 것을 강력히 권장합니다. 또는 열을 명시적으로 지정하는 뷰를 생성한 다음 테이블 대신 해당 뷰를 쿼리할 수도 있습니다.
 {% endalert %}
 
-#### 호환성을 깨는 변경 {#breaking-changes}
+#### 호환성을 유지하지 않는 변경(Breaking changes)
 
 {% multi_lang_include partners/snowflake/breaking_changes.md %}
 
 ### Snowflake 리전 {#snowflake-regions}
 
-Braze는 현재 Snowflake AWS US East-1, EU-Central(프랑크푸르트), AP-Northeast-1(도쿄), AP-Southeast-2(시드니), AP-Southeast-3(자카르타) 리전에서 모든 사용자 수준 데이터를 호스팅하고 있습니다. 해당 리전 외부의 사용자에 대해서는, Braze가 AWS, Azure 또는 GCP 리전에서 Snowflake 인프라를 호스팅하는 공동 고객에게 데이터 공유를 제공할 수 있습니다.
+Braze는 현재 모든 사용자 수준 데이터를 Snowflake AWS US East-1, EU-Central(프랑크푸르트), AP-Northeast-1(도쿄), AP-Southeast-2(시드니) 및 AP-Southeast-3(자카르타) 리전에 호스팅합니다. 해당 리전 외부의 사용자를 위해 Braze는 모든 AWS, Azure 또는 GCP 리전에서 Snowflake 인프라를 호스팅하는 공동 고객에게 데이터 공유를 제공할 수 있습니다.
 
 ### 데이터 보존 {#data-retention}
 
 #### 보존 정책 {#retention-policy}
 
-2년이 지난 데이터는 아카이브되어 장기 스토리지로 이동됩니다. 아카이브 프로세스의 일환으로 모든 이벤트가 익명화되며, 개인 식별 정보(PII) 민감 필드가 제거됩니다(`properties`와 같은 선택적 PII 필드 포함). 아카이브된 데이터에는 여전히 `user_id` 필드가 포함되어 있어 모든 이벤트 데이터에 대한 사용자별 분석이 가능합니다.
+2년 이상 경과한 데이터는 아카이브되어 장기 스토리지로 이동됩니다. 아카이브 프로세스의 일환으로 모든 이벤트는 익명화되며, 개인 식별 정보(PII)에 해당하는 민감한 필드는 제거됩니다(여기에는 `properties`와 같은 선택적 PII 필드도 포함됩니다). 아카이브된 데이터에는 여전히 `user_id` 필드가 포함되어 있어 모든 이벤트 데이터에 걸쳐 사용자별 분석이 가능합니다.
 
-각 이벤트에 대해 해당 `USERS_*_SHARED` 뷰에서 최근 2년간의 데이터를 쿼리할 수 있습니다. 또한 각 이벤트에는 익명화된 데이터와 익명화되지 않은 데이터를 모두 반환하도록 쿼리할 수 있는 `USERS_*_SHARED_ALL` 뷰가 있습니다.
+각 이벤트에 대해 해당하는 `USERS_*_SHARED` 뷰에서 최근 2년간의 데이터를 쿼리할 수 있습니다. 또한 각 이벤트에는 익명화된 데이터와 익명화되지 않은 데이터를 모두 반환하는 `USERS_*_SHARED_ALL` 뷰도 있습니다.
 
 #### 과거 데이터 {#historical-data}
 
-Snowflake의 과거 이벤트 데이터 아카이브는 2019년 4월까지 거슬러 올라갑니다. Braze가 Snowflake에 데이터를 저장하기 시작한 초기 몇 달 동안 제품 변경이 이루어져, 일부 데이터가 약간 다르게 보이거나 null 값이 있을 수 있습니다(당시 모든 사용 가능한 필드에 데이터를 전달하지 않았기 때문입니다). 2019년 8월 이전의 데이터를 포함하는 결과는 예상과 약간 다를 수 있다고 가정하는 것이 좋습니다.
+Snowflake의 과거 이벤트 데이터 아카이브는 2019년 4월까지 거슬러 올라갑니다. Braze가 Snowflake에 데이터를 저장하기 시작한 처음 몇 개월 동안 제품 변경이 이루어졌으며, 이로 인해 일부 데이터가 약간 다르게 보이거나 null 값을 가질 수 있습니다(당시에는 사용 가능한 모든 필드에 데이터를 전달하지 않았기 때문입니다). 2019년 8월 이전의 데이터를 포함하는 결과는 예상과 약간 다를 수 있다고 가정하는 것이 좋습니다.
 
-### 일반 데이터 보호 규정(GDPR) 준수 {#general-data-protection-regulation-gdpr-compliance}
+### 개인정보 보호 규정(GDPR) 준수 {#general-data-protection-regulation-gdpr-compliance}
 
 {% multi_lang_include partners/snowflake_pii_gdpr.md %}
 
 ### 공유 데이터 쿼리: `TIME` 및 쿼리 성능 {#querying-shared-data-time-and-query-performance}
 
-데이터 공유 뷰(예: `USERS_BEHAVIORS_CUSTOMEVENT_SHARED`)의 이벤트 데이터는 **`TIME` 필드를 기준으로 클러스터링**되어 있습니다. **이벤트 발생 시점**을 기준으로 필터링할 때는 **`TIME`**을 기본 필터로 사용하세요. **`TIME`**으로 행을 제한하는 쿼리는 클러스터링이 이벤트 시간과 일치하기 때문에 **`SF_CREATED_AT`**로 필터링하는 쿼리보다 일반적으로 **더 높은 성능**을 보입니다.
+데이터 공유 뷰(예: `USERS_BEHAVIORS_CUSTOMEVENT_SHARED`)의 이벤트 데이터는 **`TIME` 필드를 기준으로 클러스터링**되어 있습니다. **이벤트 발생 시점**을 기준으로 필터링할 때는 **`TIME`**을 선호하는 필터로 사용하세요. **`TIME`**을 사용하여 행을 제한하는 쿼리는 일반적으로 **`SF_CREATED_AT`**로 필터링하는 쿼리보다 **더 높은 성능**을 보입니다. 이는 클러스터링이 이벤트 시간에 맞춰져 있기 때문입니다.
 
 | 필드 | 의미 |
 | ----- | ------- |
-| `TIME` | 이벤트가 발생한 Unix 타임스탬프입니다. 발생 시점 기준으로 필터링할 때 이 필드를 사용하세요. |
-| `SF_CREATED_AT` | 행이 Snowflake에 로드된 타임스탬프(수집 시간)입니다. |
+| `TIME` | 이벤트가 발생한 시점의 Unix 타임스탬프입니다. 발생 시간 기준으로 필터링할 때 이 필드를 사용하세요. |
+| `SF_CREATED_AT` | 행이 Snowflake에 로드된 시점의 타임스탬프입니다(수집 시간). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="공유 데이터 쿼리: TIME 및 쿼리 성능" }
 
-### 쿼리 속도, 성능, 비용 {#speed-performance-cost-of-queries}
+### 쿼리 속도, 성능 및 비용 {#speed-performance-cost-of-queries}
 
-데이터에 대해 실행하는 모든 쿼리의 속도, 성능 및 비용은 데이터를 쿼리하는 데 사용하는 데이터 웨어하우스 크기에 따라 결정됩니다. 경우에 따라 분석을 위해 접근하는 데이터 양에 따라 쿼리가 성공하려면 더 큰 데이터 웨어하우스 크기를 사용해야 할 수 있습니다. Snowflake는 [데이터 웨어하우스 개요](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) 및 [데이터 웨어하우스 고려 사항](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html)을 포함하여 최적의 크기를 결정하는 방법에 대한 훌륭한 리소스를 제공합니다.
+데이터를 대상으로 실행되는 모든 쿼리의 속도, 성능 및 비용은 데이터를 쿼리하는 데 사용하는 웨어하우스 크기에 따라 결정됩니다. 경우에 따라 분석을 위해 액세스하는 데이터 양에 따라 쿼리를 성공적으로 실행하기 위해 더 큰 웨어하우스 크기를 사용해야 할 수도 있습니다. Snowflake는 적절한 크기를 결정하는 방법에 대한 우수한 리소스를 제공합니다. [웨어하우스 개요](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) 및 [웨어하우스 고려 사항](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html)을 참조하세요.
 
-> Snowflake 설정 시 참조할 수 있는 예시 쿼리 세트는 [샘플 쿼리]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries) 및 [ETL 이벤트 파이프라인 설정]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup) 예시를 확인하세요.
+> Snowflake 설정 시 참조할 수 있는 예제 쿼리 세트는 [샘플 쿼리]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries) 및 [ETL 이벤트 파이프라인 설정]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup) 예제를 확인하세요.
 
 설정 방법은 [클라우드 데이터 수집: 데이터 웨어하우스 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)을 참조하세요.

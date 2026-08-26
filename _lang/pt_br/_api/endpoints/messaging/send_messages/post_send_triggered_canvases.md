@@ -1,12 +1,11 @@
 ---
 nav_title: "POST: Enviar mensagens do Canvas usando entrega acionada por API"
-article_title: "POST: Enviar mensagens do Canvas usando entrega acionada por API"
+article_title: "Enviar mensagens do Canvas usando entrega acionada por API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze para envio de Canvas usando entrega acionada por API."
-
 ---
 {% api %}
 # Enviar mensagens do Canvas usando entrega acionada por API {#send-canvas-messages-using-api-triggered-delivery}

@@ -1,16 +1,15 @@
 ---
 nav_title: In-App-Nachrichten
-article_title: In-App-Nachrichten für das Braze SDK
-platform: 
+article_title: In-App-Nachrichten
+platform:
   - Android
   - FireOS
   - Swift
 page_order: 2.2
 description: "Erfahren Sie mehr über In-App-Nachrichten und wie Sie sie für das Braze SDK einrichten."
-
 ---
 
-# In-App-Nachrichten
+# In-App-Nachrichten {#in-app-messages}
 
 > Erfahren Sie mehr über In-App-Nachrichten und wie Sie sie für das Braze SDK einrichten.
 
@@ -60,10 +59,10 @@ description: "Erfahren Sie mehr über In-App-Nachrichten und wie Sie sie für da
 {% endsdktab %}
 {% endsdktabs %}
 
-## Nächste Schritte
+## Nächste Schritte {#next-steps}
 
-Sind Sie bereit, tiefer einzutauchen? Bitte beachten Sie diese Schritt-für-Schritt-Anleitungen:
+Bereit, tiefer einzusteigen? Sehen Sie sich diese Schritt-für-Schritt-Tutorials an:
 
-- Optimieren Sie den Zeitpunkt der Zustellung von Nachrichten, indem Sie [getriggerte Nachrichten zurückstellen und wiederherstellen]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).  
-- Verfeinern Sie das Targeting Ihrer Nachrichten, indem [Sie bedingte Anzeigeregeln festlegen]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages).  
-- Passen Sie das Erscheinungsbild Ihrer Marke an, indem [Sie das Design der Nachrichten mit Schlüssel-Wert-Paaren individuell anpassen]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/customizing_message_styling).
+- Optimieren Sie das Timing der Nachrichtenzustellung, indem Sie [getriggerte Nachrichten zurückstellen und wiederherstellen]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
+- Verfeinern Sie das Nachrichten-Targeting, indem Sie [bedingte Anzeigeregeln festlegen]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages).
+- Passen Sie das Erscheinungsbild an Ihre Marke an, indem Sie [das Nachrichten-Styling mit Schlüssel-Wert-Paaren anpassen]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/customizing_message_styling).

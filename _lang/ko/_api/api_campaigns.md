@@ -23,7 +23,7 @@ API 캠페인은 일반적으로 트랜잭션 메시징에 사용됩니다. API 
 API 캠페인에는 항상 `campaign_id`가 포함되므로 해당 발송은 대시보드 통계에 반영됩니다. `campaign_id` 없이 [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)를 호출하면 Braze는 해당 측정기준을 증가시키지 않습니다. 발송은 여전히 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에 표시되지만, 대시보드의 이메일 성능 측정기준에는 표시되지 않습니다.
 
 {% alert warning %}
-API 캠페인은 일반적으로 트랜잭션이므로 글로벌 컨트롤 그룹에 속한 사용자를 포함하여 모든 사용자가 API 캠페인을 수신할 수 있습니다. 이러한 발송에는 기본적으로 [원클릭 목록 수신 거부]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#list-unsubscribe) 헤더가 추가되지 않습니다. API 캠페인에 원클릭 목록 수신 거부 헤더를 추가하려면 [API 캠페인에 원클릭 목록 수신 거부 추가](#add-one-click-list-unsubscribe-to-api-campaigns)를 참조하세요. 모든 API 캠페인에 원클릭 목록 수신 거부 헤더를 추가하려면 고객 성공 매니저에게 문의하세요.
+API 캠페인은 일반적으로 트랜잭션이므로 글로벌 컨트롤 그룹에 속한 사용자를 포함하여 모든 사용자가 API 캠페인을 수신할 수 있습니다. 이러한 발송에는 기본적으로 [원클릭 목록 수신 거부]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) 헤더가 추가되지 않습니다. API 캠페인에 원클릭 목록 수신 거부 헤더를 추가하려면 [API 캠페인에 원클릭 목록 수신 거부 추가](#add-one-click-list-unsubscribe-to-api-campaigns)를 참조하세요. 모든 API 캠페인에 원클릭 목록 수신 거부 헤더를 추가하려면 고객 성공 매니저에게 문의하세요.
 {% endalert %}
 
 ## 새 Campaign 만들기 {#create-a-new-campaign}
@@ -37,24 +37,24 @@ API 캠페인은 일반적으로 트랜잭션이므로 글로벌 컨트롤 그�
 Campaign을 구성하려면 다음 단계를 수행합니다:
 
 1. 메시지를 보낸 후 Campaigns 페이지에서 결과를 찾을 수 있도록 설명이 포함된 제목을 추가합니다.
-2. **Add Message**를 선택하고 API Campaign에 포함할 메시지 유형을 추가합니다. 이렇게 하면 `campaign_id`와 메시지 배리언트 ID가 생성되며, 이 ID는 포함하는 각 채널마다 다릅니다.
-3. 선택 사항으로, 특정 액션이나 Campaign 목표에 대한 사용자 전환을 추적하기 위해 전환 이벤트를 추가할 수 있습니다.
-4. **Save Campaign**을 선택하여 API Campaign을 시작합니다.
+2. **메시지 추가**를 선택하고 API Campaign에 포함할 메시지 유형을 추가합니다. 이를 통해 `campaign_id`와 메시지 배리언트 ID를 생성할 수 있으며, 이 ID는 포함하는 각 채널마다 다릅니다.
+3. 선택 사항으로, 특정 행동이나 Campaign 목표에 대한 사용자 전환을 추적하기 위해 전환 이벤트를 추가할 수 있습니다.
+4. **Campaign 저장**을 선택하여 API Campaign을 시작합니다.
 
 ## API 호출 {#api-calls}
 
-API Campaign을 저장한 후, API 요청에 다음을 포함하세요:
+API Campaign을 저장한 후 API 요청에 다음을 포함합니다:
 
-- [메시지 전송 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)에 명시된 대로 API 요청에 생성된 `campaign_id` 필드를 포함합니다.
-- Campaign에 포함된 각 플랫폼에 대한 [메시지 오브젝트]({{site.baseurl}}/api/objects_filters#messaging-objects)를 포함합니다. 메시지 오브젝트에서 메시지 배리언트 ID를 제공하세요. 이렇게 하면 해당 배리언트 아래에 통계가 수집되고 표시됩니다. 지원되는 메시지 오브젝트는 Android, Content Cards, 이메일, iOS, Kindle, SMS/MMS, 웹 푸시, 웹훅입니다.
+- [메시지 전송 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)에서 명시된 위치에 생성된 `campaign_id` 필드를 API 요청에 포함합니다.
+- Campaign에 포함된 각 플랫폼에 대한 [메시지 오브젝트]({{site.baseurl}}/api/objects_filters#messaging-objects)를 포함합니다. 메시지 오브젝트에 메시지 배리언트 ID를 제공합니다. 이를 통해 해당 배리언트 아래에 통계가 수집되고 표시됩니다. 지원되는 메시지 오브젝트는 Android, Content Cards, 이메일, iOS, Kindle, SMS/MMS, 웹 푸시, 웹훅입니다.
 
 ## API Campaigns에 원클릭 목록 수신 거부 추가 {#add-one-click-list-unsubscribe-to-api-campaigns}
 
 {% raw %}
-기본적으로 Braze는 API Campaigns에 원클릭 목록 수신 거부 헤더를 추가하지 않습니다. API Campaign 발송 시 이메일 헤더 필드에 `{{${set_user_to_one_click_list_unsubscribe}}}` Liquid 태그를 포함하면 개별 API Campaign 발송에 이 헤더를 추가할 수 있습니다.
+기본적으로 Braze는 API Campaigns에 원클릭 목록 수신 거부 헤더를 추가하지 않습니다. 이메일 헤더 필드에 `{{${set_user_to_one_click_list_unsubscribe}}}` Liquid 태그를 포함하여 개별 API Campaign 발송에 이 헤더를 추가할 수 있습니다.
 {% endraw %}
 
-원클릭 목록 수신 거부에 대한 [RFC 8058](https://datatracker.ietf.org/doc/html/rfc8058) 규정을 준수하려면 API 요청에 `List-Unsubscribe` 및 `List-Unsubscribe-Post` 헤더를 모두 포함하세요:
+원클릭 목록 수신 거부에 대한 [RFC 8058](https://datatracker.ietf.org/doc/html/rfc8058) 을 준수하려면 API 요청에 `List-Unsubscribe` 및 `List-Unsubscribe-Post` 헤더를 모두 포함하세요:
 
 {% raw %}
 ```json
@@ -77,11 +77,11 @@ API Campaign을 저장한 후, API 요청에 다음을 포함하세요:
 {% endraw %}
 
 {% alert note %}
-이러한 헤더를 포함한다고 해서 이메일 클라이언트에 수신 거부 버튼이 반드시 표시되는 것은 아닙니다. 이메일 클라이언트는 발송자 평판 및 메시지 콘텐츠와 같은 요소를 기반으로 수신 거부 옵션 표시 여부를 결정합니다.
+이러한 헤더를 포함한다고 해서 이메일 클라이언트가 수신 거부 버튼을 표시한다는 보장은 없습니다. 이메일 클라이언트는 발송자 평판 및 메시지 콘텐츠 등의 요소를 기반으로 수신 거부 옵션 표시 여부를 결정합니다.
 {% endalert %}
 
 ### 이메일 첨부 파일 추가 {#add-email-attachments}
 
 API Campaign 이메일에 첨부 파일을 추가하려면 [이메일 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/email_object)에 `attachments` 배열을 포함하세요. 이메일 오브젝트에 `email_template_id`를 제공하여 드래그 앤 드롭 또는 HTML 에디터에서 생성한 이메일 템플릿을 참조한 다음, API 호출을 통해 첨부 파일을 추가할 수 있습니다.
 
-첨부 파일 세부 정보, 크기 제한 및 모범 사례에 대해서는 [첨부 파일이 포함된 이메일 오브젝트 예시]({{site.baseurl}}/api/objects_filters/messaging/email_object#example-email-object-with-attachment)를 참조하세요.
+첨부 파일 세부 사항, 크기 제한 및 모범 사례에 대해서는 [첨부 파일이 포함된 이메일 오브젝트 예시]({{site.baseurl}}/api/objects_filters/messaging/email_object#example-email-object-with-attachment)를 참조하세요.

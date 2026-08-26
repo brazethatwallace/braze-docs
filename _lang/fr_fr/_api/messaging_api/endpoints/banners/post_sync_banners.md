@@ -1,6 +1,7 @@
 ---
 nav_title: "POST : Récupérer les bannières pour un utilisateur"
 article_title: "POST : Récupérer les bannières pour un utilisateur"
+permalink: /api/device_messaging_api/endpoints/banners/post_sync_banners
 search_tag: Endpoint
 page_order: 0
 layout: api_page
@@ -16,7 +17,7 @@ hidden: true
 {% endapimethod %}
 
 {% alert important %}
-Cette page est en version bêta. Les fonctionnalités et la documentation de l'API de messaging sont susceptibles d'être modifiées.
+Cette page est en version bêta. Les fonctionnalités et la documentation de l'API Device Messaging sont susceptibles d'être modifiées.
 {% endalert %}
 
 > Utilisez cet endpoint pour récupérer la bannière éligible pour chaque emplacement demandé pour un utilisateur.
@@ -28,7 +29,7 @@ La réponse contient des propriétés de bannière structurées que vous pouvez 
 Pour utiliser cet endpoint, vous avez besoin des éléments suivants :
 
 - Un espace de travail avec les bannières activées
-- Une [clé API REST côté client]({{site.baseurl}}/api/messaging_api/authentication) avec la permission `banners.sync`
+- Une [clé API REST côté client]({{site.baseurl}}/api/device_messaging_api/authentication) avec la permission `banners.sync`
 - L'[endpoint REST]({{site.baseurl}}/api/basics#endpoints) de votre instance Braze
 
 Incluez la clé API REST côté client dans l'en-tête `Authorization` en tant que jeton Bearer.
@@ -37,7 +38,7 @@ Incluez la clé API REST côté client dans l'en-tête `Authorization` en tant q
 
 Les limites de débit s'appliquent par espace de travail. Si vous dépassez la limite de débit, Braze renvoie un code de statut `429`. Lorsqu'ils sont disponibles, utilisez les en-têtes de réponse `X-RateLimit-Limit`, `X-RateLimit-Remaining` et `X-RateLimit-Reset` pour surveiller votre utilisation.
 
-Pour plus d'informations, consultez [Limites de débit de l'API de messaging]({{site.baseurl}}/api/messaging_api/rate_limits).
+Pour plus d'informations, consultez [Limites de débit de l'API Device Messaging]({{site.baseurl}}/api/device_messaging_api/rate_limits).
 
 ## Corps de la requête {#request-body}
 
@@ -137,6 +138,6 @@ Une requête réussie renvoie un code de statut `200` et la bannière résolue p
 | `429` | L'espace de travail a dépassé sa limite de débit. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Codes de statut" }
 
-Pour plus d'informations, consultez [Gestion des erreurs et nouvelles tentatives de l'API de messaging]({{site.baseurl}}/api/messaging_api/error_handling).
+Pour plus d'informations, consultez [Gestion des erreurs et nouvelles tentatives de l'API Device Messaging]({{site.baseurl}}/api/device_messaging_api/error_handling).
 
 {% endapi %}

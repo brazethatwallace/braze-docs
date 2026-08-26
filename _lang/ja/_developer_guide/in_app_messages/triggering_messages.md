@@ -1,6 +1,6 @@
 ---
 nav_title: トリガーメッセージ
-article_title: Braze SDKを通じてアプリ内メッセージをトリガーする
+article_title: アプリ内メッセージをトリガーする
 page_order: 0.2
 description: "Braze SDKを通じてアプリ内メッセージをトリガーする方法について、1つのセッションでメッセージを連鎖させる方法やデフォルトのレート制限をオーバーライドする方法を含めて説明します。"
 platform:
@@ -16,27 +16,27 @@ platform:
 
 ## メッセージのトリガーと配信 {#message-triggers-and-delivery}
 
-アプリ内メッセージは、SDKが次のカスタムイベントタイプのいずれかを記録したときにトリガーされます: `Session Start`、`Push Click`、`Any Purchase`、`Specific Purchase`、および`Custom Event`（最後の2つには堅牢なプロパティフィルターが含まれます）。
+アプリ内メッセージは、SDKが次のいずれかのカスタムイベントタイプを記録したときにトリガーされます: `Session Start`、`Push Click`、`Any Purchase`、`Specific Purchase`、および`Custom Event`（後者2つには堅牢なプロパティフィルターが含まれます）。
 
-ユーザーのセッション開始時に、Brazeは対象となるすべてのアプリ内メッセージをデバイスに配信し、同時にアセットをプリフェッチして表示の遅延を最小限に抑えます。トリガーイベントに対象となるアプリ内メッセージが複数ある場合、最も優先度の高いメッセージのみが配信されます。詳細については、[セッションライフサイクル]({{site.baseurl}}/developer_guide/analytics/tracking_sessions)を参照してください。
+ユーザーのセッション開始時に、Brazeは対象となるすべてのアプリ内メッセージをそのデバイスに配信し、同時にアセットをプリフェッチして表示の遅延を最小限に抑えます。トリガーイベントに対象となるアプリ内メッセージが複数ある場合、最も優先度の高いメッセージのみが配信されます。詳細については、[セッションライフサイクル]({{site.baseurl}}/developer_guide/analytics/tracking_sessions)を参照してください。
 
 {% alert note %}
-アプリ内メッセージは、APIやAPIイベントによってトリガーすることはできません&#8212;SDKによって記録されたカスタムイベントのみで可能です。ログ記録の詳細については、[カスタムイベントのログ記録]({{site.baseurl}}/developer_guide/analytics/logging_events)を参照してください。
+アプリ内メッセージは、APIやAPIイベントによってトリガーすることはできません&#8212;SDKによって記録されたカスタムイベントのみで可能です。記録の詳細については、[カスタムイベントの記録]({{site.baseurl}}/developer_guide/analytics/logging_events)を参照してください。
 {% endalert %}
 
 ## アプリ内メッセージの種類 {#types-of-in-app-messages}
 
-Brazeは、セッション開始時にユーザーのデバイスに次の種類のアプリ内メッセージを送信します：`inapp`と`templated_iam`です。ダッシュボードユーザーとしてはこれらの種類の違いを目にすることはありませんが、Brazeは設定やコンテンツに応じてそれぞれ異なる方法で処理します。
+Brazeは、セッション開始時にユーザーのデバイスへ次の種類のアプリ内メッセージを送信します：`inapp`と`templated_iam`です。ダッシュボードユーザーとしてはこれらの種類の違いを目にすることはありませんが、Brazeは設定やコンテンツに応じてそれぞれ異なる方法で処理します。
 
 ### `inapp`（標準） {#inapp-standard}
 
-`inapp`（または「[標準]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages#standard-message-types)」）アプリ内メッセージは、Brazeがすでに把握しているカスタム属性など、必要な情報がすでにテンプレート化されています。一般的に、アプリ内メッセージがデバイスにダウンロードされると、デバイスがオフラインや機内モードであっても、トリガーイベントによってSDKが`inapp`アプリ内メッセージを表示します。
+`inapp`（「[標準]({{site.baseurl}}/user_guide/channels/in_app_messages)」）アプリ内メッセージは、Brazeがすでに把握しているカスタム属性など、必要な情報があらかじめテンプレート化されています。一般的に、アプリ内メッセージがデバイスにダウンロードされると、デバイスがオフラインや機内モードであっても、トリガーイベントによってSDKが`inapp`アプリ内メッセージを表示します。
 
 ### `templated_iam`（テンプレート化） {#templated_iam-templated}
 
-`templated_iam`（または「テンプレート化」）アプリ内メッセージは、必要な情報がまだテンプレート化されていません。メッセージを表示する前に、Brazeが情報を取得するために別のリクエストを行う必要があります。
+`templated_iam`（「テンプレート化」）アプリ内メッセージは、必要な情報がまだテンプレート化されていません。メッセージを表示する前に、Brazeが別のリクエストを行って情報を取得する必要があります。
 
-アプリ内メッセージは、**表示前にキャンペーンの適格性を再評価する**が選択されている場合、またはメッセージに以下のいずれかのLiquidタグが含まれている場合に、テンプレート化アプリ内メッセージとして配信されます：
+アプリ内メッセージは、**表示前にキャンペーンの適格性を再評価する**が選択されている場合、またはメッセージ内に以下のいずれかのLiquidタグが存在する場合に、テンプレート化アプリ内メッセージとして配信されます：
 
 - `canvas_entry_properties`
 - `connected_content`
@@ -48,7 +48,7 @@ Brazeは、セッション開始時にユーザーのデバイスに次の種類
 これは、セッション開始時にデバイスがメッセージ全体ではなく、そのアプリ内メッセージのトリガーを受信することを意味します。ユーザーがアプリ内メッセージをトリガーすると、ユーザーのデバイスが実際のメッセージを取得するためにネットワークリクエストを行います。
 
 {% alert note %}
-デバイスがインターネットにアクセスできない場合、メッセージは配信されません。Liquidロジックの解決に時間がかかりすぎる場合も、メッセージが配信されないことがあります。
+デバイスがインターネットに接続されていない場合、メッセージは配信されません。Liquidロジックの解決に時間がかかりすぎる場合も、メッセージが配信されない可能性があります。
 {% endalert %}
 
 ## キーと値のペア {#key-value-pairs}
@@ -158,28 +158,28 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 ```
 
 {% alert important %}
-`braze.automaticallyShowInAppMessages()` を削除せずに `braze.showInAppMessage` を呼び出すと、メッセージが二重に表示される場合があります。
+`braze.automaticallyShowInAppMessages()` を削除せずに `braze.showInAppMessage` を呼び出すと、メッセージが2回表示される場合があります。
 {% endalert %}
 
 メッセージのタイミングに関するより高度なコントロール（トリガーメッセージの遅延や復元など）については、[チュートリアル:トリガーメッセージの遅延と復元]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages)を参照してください。
 {% endtab %}
 
 {% tab android %}
-1. [`IInAppMessageManagerListener`]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener)を実装してカスタムリスナーを設定します。
-2. [`beforeInAppMessageDisplayed()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/before-in-app-message-displayed.html)メソッドを更新して[`InAppMessageOperation.DISCARD`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/-d-i-s-c-a-r-d/index.html)を返すようにします。
+1. [`IInAppMessageManagerListener`]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener)を実装して、カスタムリスナーを設定します。
+2. [`beforeInAppMessageDisplayed()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/before-in-app-message-displayed.html) メソッドを更新して、[`InAppMessageOperation.DISCARD`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/-d-i-s-c-a-r-d/index.html) を返すようにします。
 
-メッセージのタイミングに関するより高度なコントロール（後から表示する、再キューに入れるなど）については、[メッセージのカスタマイズ]({{site.baseurl}}/developer_guide/in_app_messages/customization?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener)ページを参照してください。
+メッセージのタイミングに関するより高度なコントロール（後から表示する、再エンキューするなど）については、[メッセージのカスタマイズ]({{site.baseurl}}/developer_guide/in_app_messages/customization?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener)ページを参照してください。
 {% endtab %}
 
 {% tab swift %}
-1. アプリに `BrazeInAppMessageUIDelegate` デリゲートを実装します。詳しい手順については、[チュートリアル:アプリ内メッセージUI](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui)を参照してください。
+1. アプリに `BrazeInAppMessageUIDelegate` デリゲートを実装します。完全なウォークスルーについては、[チュートリアル:In-App Message UI](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui) を参照してください。
 2. `inAppMessage(_:displayChoiceForMessage:)` デリゲートメソッドを更新して `.discard` を返すようにします。
 
 メッセージのタイミングに関するより高度なコントロール（トリガーメッセージの遅延や復元など）については、[チュートリアル:トリガーメッセージの遅延と復元]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages)を参照してください。
 {% endtab %}
 
 {% tab flutter %}
-1. デフォルトでバージョン `2.2.0` 以降で有効になっている自動統合イニシャライザーを使用していることを確認します。
+1. デフォルトで有効になっている自動インテグレーションイニシャライザーを使用していることを確認します（バージョン `2.2.0` 以降）。
 2. `braze.xml` ファイルに以下の行を追加して、アプリ内メッセージ操作のデフォルトを `DISCARD` に設定します。
     ```xml
     <string name="com_braze_flutter_automatic_integration_iam_operation">DISCARD</string>
@@ -189,15 +189,15 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 {% tab unity %}
 {% subtabs %}
 {% subtab Android %}
-Androidの場合、Braze設定エディターで**Automatically Display In-App Messages**の選択を解除します。または、Unityプロジェクトの `braze.xml` で `com_braze_inapp_show_inapp_messages_automatically` を `false` に設定することもできます。
+Androidの場合、Braze設定エディターで **Automatically Display In-App Messages** の選択を解除します。または、Unityプロジェクトの `braze.xml` で `com_braze_inapp_show_inapp_messages_automatically` を `false` に設定することもできます。
 
-アプリ内メッセージの初期表示操作は、Braze設定の「In App Message Manager Initial Display Operation」で設定できます。
+最初のアプリ内メッセージ表示操作は、Braze設定の「In App Message Manager Initial Display Operation」で設定できます。
 {% endsubtab %}
 
 {% subtab iOS %}
-iOSの場合、Braze設定エディターでゲームオブジェクトリスナーを設定し、**Braze Displays In-App Messages**が選択されていないことを確認します。
+iOSの場合、Braze設定エディターでゲームオブジェクトリスナーを設定し、**Braze Displays In-App Messages** が選択されていないことを確認します。
 
-アプリ内メッセージの初期表示操作は、Braze設定の「In App Message Manager Initial Display Operation」で設定できます。
+最初のアプリ内メッセージ表示操作は、Braze設定の「In App Message Manager Initial Display Operation」で設定できます。
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -205,15 +205,15 @@ iOSの場合、Braze設定エディターでゲームオブジェクトリスナ
 
 ## 1つのセッションで2つのアプリ内メッセージを連鎖させる {#chaining-two-in-app-messages-in-one-session}
 
-セッション開始時にアプリ内メッセージをトリガーし、最初のメッセージのボタンが押された後に2つ目のアプリ内メッセージをトリガーできます。これを行うには、2つ目のメッセージをトリガーするボタンクリックのカスタムイベントを記録します。2つ目のメッセージのトリガーはすでにデバイス上に存在している必要があり（ユーザーはすでに2つ目のメッセージの対象である必要があります）、デバイス側で発生する必要があります（Braze SDKはBrazeサーバー上で発生したカスタム属性の変更を取得しません）。アプリ内メッセージを短い間隔で連続表示するには、アプリ内メッセージトリガー間のデフォルトの30秒クールダウンを変更する必要があります。プラットフォーム固有の設定については、[デフォルトのレート制限のオーバーライド](#overriding-the-default-rate-limit)を参照してください。
+セッション開始時にアプリ内メッセージをトリガーし、最初のメッセージのボタンが押された後に2つ目のアプリ内メッセージをトリガーできます。これを行うには、2つ目のメッセージをトリガーするボタンクリックのカスタムイベントを記録します。2つ目のメッセージのトリガーはすでにデバイス上に存在している必要があり（ユーザーがすでに2つ目のメッセージの対象である必要があります）、デバイス側で発生する必要があります（Braze SDKはBrazeサーバー上で発生したカスタム属性の変更を取得しません）。アプリ内メッセージを素早く連続して表示するには、アプリ内メッセージトリガー間のデフォルトの30秒クールダウンを変更する必要があります。プラットフォーム固有の設定については、[デフォルトのレート制限のオーバーライド](#overriding-the-default-rate-limit)を参照してください。
 
-## デフォルトのレート制限のオーバーライド {#overriding-the-default-rate-limit}
+## デフォルトのレート制限をオーバーライドする {#overriding-the-default-rate-limit}
 
-デフォルトでは、SDKはトリガーされたアプリ内メッセージのレート制限を30秒に1回に設定しています。これをオーバーライドするには、Brazeインスタンスが初期化される前に、設定ファイルに以下のプロパティを追加します。この値は、新しいレート制限（秒単位）として使用されます。
+デフォルトでは、SDKはトリガーされたアプリ内メッセージを30秒に1回にレート制限します。これをオーバーライドするには、Brazeインスタンスが初期化される前に、設定ファイルに以下のプロパティを追加します。この値は、新しいレート制限（秒単位）として使用されます。
 
-本番アプリでは、ユーザーが連続するアプリ内メッセージに圧倒されないよう、この値を10秒未満に設定しないでください。テストやサンプルアプリのフローでは、5秒が一般的な設定です。
+本番アプリでは、この値を10秒未満に設定しないでください。アプリ内メッセージが連続して表示され、ユーザーに負担をかける可能性があります。テストやサンプルアプリのフローでは、5秒が一般的な設定です。
 
-テスト用にこの間隔を`0`に設定できます。ただし、`0`秒の間隔を設定しても、複数のアプリ内メッセージが同時に表示されるわけではありません。1つのアプリ内メッセージがすでに表示されている場合、現在のメッセージが閉じられるまで、別のトリガーメッセージは表示されません。
+テスト目的でこの間隔を `0` に設定できます。ただし、`0` 秒の間隔は、複数のアプリ内メッセージを同時に表示させるものではありません。1つのアプリ内メッセージがすでに表示されている場合、現在のメッセージが閉じられるまで、トリガーされた別のメッセージは表示されません。
 
 {% tabs %}
 {% tab web %}
@@ -266,17 +266,17 @@ AppDelegate.braze = braze;
 
 {% tabs %}
 {% tab web %}
-現時点では、Web Braze SDKはサーバーサイドイベントを使用したメッセージの手動トリガーをサポートしていません。
+現時点では、Web Braze SDKはサーバーサイドイベントを使用したメッセージの手動トリガーに対応していません。
 {% endtab %}
 
 {% tab android %}
-サーバー送信イベントを使用してアプリ内メッセージをトリガーするには、デバイスにサイレントプッシュ通知を送信し、カスタムプッシュコールバックでSDKベースのイベントを記録できるようにします。このイベントが、ユーザーに表示されるアプリ内メッセージをトリガーします。
+サーバー送信イベントを使用してアプリ内メッセージをトリガーするには、デバイスにサイレントプッシュ通知を送信し、カスタムプッシュコールバックでSDKベースのイベントを記録できるようにします。このイベントにより、ユーザー向けのアプリ内メッセージがトリガーされます。
 
 #### ステップ1:サイレントプッシュを受信するプッシュコールバックを作成する {#step-1-create-a-push-callback-to-receive-the-silent-push}
 
-特定のサイレントプッシュ通知をリッスンするカスタムプッシュコールバックを登録します。詳細については、[プッシュ通知の設定]({{site.baseurl}}/developer_guide/push_notifications#android_setting-up-push-notifications)を参照してください。
+特定のサイレントプッシュ通知をリッスンするカスタムプッシュコールバックを登録します。詳しくは、[プッシュ通知の設定]({{site.baseurl}}/developer_guide/push_notifications#android_setting-up-push-notifications)を参照してください。
 
-アプリ内メッセージを配信するために、2つのイベントが記録されます。1つはサーバーによるもの、もう1つはカスタムプッシュコールバック内からのものです。同じイベントが重複しないようにするため、プッシュコールバック内から記録されるイベントは、サーバー送信イベントと同じ名前ではなく、「アプリ内メッセージトリガーイベント」などの汎用的な命名規則に従う必要があります。これを行わないと、単一のユーザーアクションに対して重複イベントが記録され、セグメンテーションやユーザーデータに影響を与える可能性があります。
+アプリ内メッセージを配信するために、サーバーからのイベントとカスタムプッシュコールバック内からのイベントの2つが記録されます。同じイベントが重複しないようにするため、プッシュコールバック内から記録されるイベントは、「アプリ内メッセージトリガーイベント」などの汎用的な命名規則に従い、サーバー送信イベントと同じ名前にしないでください。これを行わないと、1つのユーザーアクションに対して重複イベントが記録され、セグメンテーションやユーザーデータに影響が出る可能性があります。
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -317,33 +317,33 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 
 #### ステップ2:プッシュキャンペーンを作成する {#step-2-create-a-push-campaign}
 
-サーバー送信イベントによってトリガーされる[サイレントプッシュキャンペーン]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android)を作成します。
+サーバー送信イベントでトリガーされる[サイレントプッシュキャンペーン]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android)を作成します。
 
 ![アクションベース配信で設定されたサイレントプッシュキャンペーンの配信ステップ。server_eventカスタムイベントトリガーが設定されています。]({% image_buster /assets/img_archive/serverSentPush.png %})
 
 プッシュキャンペーンには、このプッシュキャンペーンがSDKカスタムイベントを記録するために送信されることを示すキーと値のペアのエクストラを含める必要があります。このイベントがアプリ内メッセージのトリガーに使用されます。
 
-![2組のキーと値のペア：IS_SERVER_EVENTが「true」に設定され、CAMPAIGN_NAMEが「example campaign name」に設定されています。]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
+![2組のキーと値のペア: IS_SERVER_EVENTが「true」に設定され、CAMPAIGN_NAMEが「example campaign name」に設定されています。]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
 
 先ほどのプッシュコールバックのサンプルコードは、キーと値のペアを認識し、適切なSDKカスタムイベントを記録します。
 
-「アプリ内メッセージトリガー」イベントにイベントプロパティを添付したい場合は、プッシュペイロードのキーと値のペアにそれらを渡すことで実現できます。この例では、後続のアプリ内メッセージのキャンペーン名が含まれています。カスタムプッシュコールバックは、カスタムイベントを記録する際に、イベントプロパティのパラメーターとしてその値を渡すことができます。
+「アプリ内メッセージトリガー」イベントにイベントプロパティを添付したい場合は、プッシュペイロードのキーと値のペアにそれらを渡すことで実現できます。この例では、後続のアプリ内メッセージのキャンペーン名が含まれています。カスタムプッシュコールバックは、カスタムイベントを記録する際にイベントプロパティのパラメータとしてその値を渡すことができます。
 
 #### ステップ3:アプリ内メッセージキャンペーンを作成する {#step-3-create-an-in-app-message-campaign}
 
-Brazeダッシュボードで、ユーザーに表示されるアプリ内メッセージキャンペーンを作成します。このキャンペーンはアクションベース配信を使用し、カスタムプッシュコールバック内から記録されたカスタムイベントによってトリガーされる必要があります。
+Brazeダッシュボードで、ユーザーに表示するアプリ内メッセージキャンペーンを作成します。このキャンペーンはアクションベースの配信で、カスタムプッシュコールバック内から記録されるカスタムイベントによってトリガーされる必要があります。
 
-以下の例では、最初のサイレントプッシュの一部としてイベントプロパティを送信することで、トリガーされる特定のアプリ内メッセージが設定されています。
+次の例では、最初のサイレントプッシュの一部としてイベントプロパティを送信することで、トリガーする特定のアプリ内メッセージが設定されています。
 
-![「campaign_name」が「IAM campaign name example」と等しい場合にアプリ内メッセージがトリガーされるアクションベース配信キャンペーン。]({% image_buster /assets/img_archive/iam_event_trigger.png %})
+![「campaign_name」が「IAM campaign name example」と等しいときにアプリ内メッセージがトリガーされるアクションベース配信キャンペーン。]({% image_buster /assets/img_archive/iam_event_trigger.png %})
 
-アプリがフォアグラウンドにない状態でサーバー送信イベントが記録された場合、イベントは記録されますが、アプリ内メッセージは表示されません。アプリケーションがフォアグラウンドになるまでイベントを遅延させたい場合は、カスタムプッシュレシーバーにチェックを含めて、アプリがフォアグラウンドに入るまでイベントを無視または遅延させる必要があります。
+アプリがフォアグラウンドにない状態でサーバー送信イベントが記録された場合、イベントは記録されますが、アプリ内メッセージは表示されません。アプリケーションがフォアグラウンドに戻るまでイベントを遅延させたい場合は、カスタムプッシュレシーバーにチェックを含めて、アプリがフォアグラウンドに入るまでイベントを却下または遅延させる必要があります。
 {% endtab %}
 
 {% tab swift %}
 #### ステップ1:サイレントプッシュとキーと値のペアを処理する {#step-1-handle-silent-push-and-key-value-pairs}
 
-以下の関数を実装し、[`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`メソッド](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/application(_:didreceiveremotenotification:fetchcompletionhandler:))内で呼び出します。
+以下の関数を実装し、[`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`メソッド](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/application(_:didreceiveremotenotification:fetchcompletionhandler:))内で呼び出します:
 
 {% subtabs %}
 {% subtab swift %}
@@ -372,33 +372,33 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
 {% endsubtab %}
 {% endsubtabs %}
 
-サイレントプッシュが受信されると、SDKが記録した「アプリ内メッセージトリガー」イベントがユーザープロファイルに対して記録されます。
+サイレントプッシュが受信されると、SDKが記録したイベント「アプリ内メッセージトリガー」がユーザープロファイルに対して記録されます。
 
 {% alert important %}
-プッシュメッセージを使用してSDK記録のカスタムイベントを記録するため、Brazeはこのソリューションを有効にするために各ユーザーのプッシュトークンを保存する必要があります。iOSユーザーの場合、BrazeはユーザーがOSのプッシュプロンプトを受け取った時点からのみトークンを保存します。それ以前は、ユーザーにプッシュで到達できないため、上記のソリューションは使用できません。
+プッシュメッセージがSDK記録のカスタムイベントの記録に使用されるため、Brazeはこのソリューションを有効にするために各ユーザーのプッシュトークンを保存する必要があります。iOSユーザーの場合、Brazeはユーザーに対してOSのプッシュプロンプトが提示された時点からのみトークンを保存します。それ以前は、ユーザーにプッシュで到達できないため、上記のソリューションは使用できません。
 {% endalert %}
 
 #### ステップ2:サイレントプッシュキャンペーンを作成する {#step-2-create-a-silent-push-campaign}
 
-サーバー送信イベントによってトリガーされる[サイレントプッシュキャンペーン]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift)を作成します。
+サーバー送信イベントでトリガーされる[サイレントプッシュキャンペーン]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift)を作成します。
 
 ![カスタムイベント「server_event」を持つユーザープロファイルのユーザーに配信されるアクションベース配信のアプリ内メッセージキャンペーン。]({% image_buster /assets/img_archive/iosServerSentPush.png %})
 
 プッシュキャンペーンには、このプッシュキャンペーンがSDKカスタムイベントを記録するために送信されることを示すキーと値のペアのエクストラを含める必要があります。このイベントがアプリ内メッセージのトリガーに使用されます。
 
-![2つのキーと値のペアを持つアクションベース配信のアプリ内メッセージキャンペーン。「CAMPAIGN_NAME」が「In-app message name example」に設定され、「IS_SERVER_EVENT」が「true」に設定されています。]({% image_buster /assets/img_archive/iOSServerPush.png %})
+![2つのキーと値のペアを持つアクションベース配信のアプリ内メッセージキャンペーン。「CAMPAIGN_NAME」は「In-app message name example」に設定され、「IS_SERVER_EVENT」は「true」に設定されています。]({% image_buster /assets/img_archive/iOSServerPush.png %})
 
-`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`メソッド内のコードは、キー`IS_SERVER_EVENT`をチェックし、存在する場合はSDKカスタムイベントを記録します。
+`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` メソッド内のコードはキー `IS_SERVER_EVENT` をチェックし、存在する場合はSDKカスタムイベントを記録します。
 
-プッシュペイロードのキーと値のペアのエクストラ内に目的の値を送信することで、イベント名またはイベントプロパティを変更できます。カスタムイベントを記録する際、これらのエクストラをイベント名のパラメーターまたはイベントプロパティとして使用できます。
+プッシュペイロードのキーと値のペアのエクストラ内に目的の値を送信することで、イベント名やイベントプロパティを変更できます。カスタムイベントを記録する際、これらのエクストラをイベント名またはイベントプロパティのパラメータとして使用できます。
 
 #### ステップ3:アプリ内メッセージキャンペーンを作成する
 
-Brazeダッシュボードで、ユーザーに表示されるアプリ内メッセージキャンペーンを作成します。このキャンペーンはアクションベース配信を使用し、`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`メソッド内から記録されたカスタムイベントによってトリガーされる必要があります。
+Brazeダッシュボードで、ユーザーに表示するアプリ内メッセージキャンペーンを作成します。このキャンペーンはアクションベースの配信で、`application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` メソッド内から記録されるカスタムイベントによってトリガーされる必要があります。
 
-以下の例では、最初のサイレントプッシュの一部としてイベントプロパティを送信することで、トリガーされる特定のアプリ内メッセージが設定されています。
+次の例では、最初のサイレントプッシュの一部としてイベントプロパティを送信することで、トリガーする特定のアプリ内メッセージが設定されています。
 
-![カスタムイベント「In-app message trigger」を実行し、「campaign_name」が「IAM キャンペーン Name Example」と等しいユーザーに配信されるアクションベース配信のアプリ内メッセージキャンペーン。]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
+![カスタムイベント「In-app message trigger」を実行し「campaign_name」が「IAM キャンペーン Name Example」と等しいユーザーに配信されるアクションベース配信のアプリ内メッセージキャンペーン。]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
 
 {% alert note %}
 これらのアプリ内メッセージは、アプリケーションがフォアグラウンドにある状態でサイレントプッシュが受信された場合にのみトリガーされます。
@@ -406,13 +406,13 @@ Brazeダッシュボードで、ユーザーに表示されるアプリ内メッ
 {% endtab %}
 {% endtabs %}
 
-### 事前定義されたメッセージの表示 {#displaying-a-pre-defined-message}
+### 事前定義済みメッセージの表示 {#displaying-a-pre-defined-message}
 
-事前定義されたアプリ内メッセージを手動で表示するには、以下のメソッドを使用します。
+事前定義済みのアプリ内メッセージを手動で表示するには、以下のメソッドを使用します:
 
 {% tabs %}
 {% tab web %}
-Web SDKの場合、`braze.showInAppMessage(inAppMessage)`を使用して任意のアプリ内メッセージを表示します。詳細と例については、[リアルタイムでのメッセージ表示](#displaying-a-message-in-real-time)を参照してください。
+Web SDKの場合、`braze.showInAppMessage(inAppMessage)` を使用してアプリ内メッセージを表示します。詳細と例については、[リアルタイムでのメッセージの表示](#displaying-a-message-in-real-time)を参照してください。
 {% endtab %}
 
 {% tab android %}
@@ -443,9 +443,9 @@ if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMes
 {% endtab %}
 {% endtabs %}
 
-### リアルタイムでのメッセージ表示 {#displaying-a-message-in-real-time}
+### リアルタイムでのメッセージの表示 {#displaying-a-message-in-real-time}
 
-ダッシュボードで利用可能なものと同じカスタマイズオプションを使用して、ローカルのアプリ内メッセージをリアルタイムで作成・表示することもできます。これを行うには：
+ダッシュボードで利用可能なものと同じカスタマイズオプションを使用して、ローカルのアプリ内メッセージをリアルタイムで作成および表示することもできます。その方法は以下の通りです:
 
 {% tabs %}
 {% tab web %}
@@ -480,12 +480,12 @@ inAppMessage.message = "Welcome to Braze! This is a slideup in-app message."
 {% endsubtabs %}
 
 {% alert important %}
-ソフトキーボードが画面に表示されている間は、アプリ内メッセージを表示しないでください。この状況ではレンダリングが未定義となります。
+ソフトキーボードが画面に表示されている状態ではアプリ内メッセージを表示しないでください。この状況ではレンダリングが不定になります。
 {% endalert %}
 {% endtab %}
 
 {% tab swift %}
-`inAppMessagePresenter`の[`present(message:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter/present(message:))メソッドを手動で呼び出します。例：
+`inAppMessagePresenter` の[`present(message:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter/present(message:))メソッドを手動で呼び出します。例:
 
 {% subtabs %}
 {% subtab swift %}
@@ -516,12 +516,12 @@ customInAppMessage.themes = @{
 {% endsubtabs %}
 
 {% alert note %}
-独自のアプリ内メッセージを作成すると、分析トラッキングからオプトアウトされるため、`message.context`を使用してクリックとインプレッションのログを手動で処理する必要があります。
+独自のアプリ内メッセージを作成すると、分析トラッキングがオプトアウトされるため、`message.context` を使用してクリックとインプレッションのログ記録を手動で処理する必要があります。
 {% endalert %}
 {% endtab %}
 
 {% tab unity %}
-スタック内の次のメッセージを表示するには、`DisplayNextInAppMessage()`メソッドを使用します。アプリ内メッセージの表示アクションとして`DISPLAY_LATER`または`BrazeUnityInAppMessageDisplayActionType.IAM_DISPLAY_LATER`が選択された場合、メッセージはこのスタックに保存されます。
+スタック内の次のメッセージを表示するには、`DisplayNextInAppMessage()` メソッドを使用します。アプリ内メッセージの表示アクションとして `DISPLAY_LATER` または `BrazeUnityInAppMessageDisplayActionType.IAM_DISPLAY_LATER` が選択されている場合、メッセージはこのスタックに保存されます。
 
 ```csharp
 Appboy.AppboyBinding.DisplayNextInAppMessage();
@@ -531,17 +531,17 @@ Appboy.AppboyBinding.DisplayNextInAppMessage();
 
 ## アプリ内メッセージの遅延の原因 {#causes-of-in-app-message-delays}
 
-セッション開始から数秒後にアプリ内メッセージキャンペーンを受信した場合、その遅延は以下の原因で発生した可能性があります。
+セッション開始後数秒でアプリ内メッセージキャンペーンを受信する場合、遅延は以下の原因で発生している可能性があります。
 
 - キャンペーントリガーの遅延
 - カスタマイズ
-- トリガーイベントが予想よりも遅く記録された（`templated_iam` の場合など）
+- トリガーイベントの記録が予想より遅れた場合（`templated_iam` を使用した場合など）
 
 ## Web向け離脱意図メッセージ {#exit-intent-messages-for-web}
 
-離脱意図メッセージは、訪問者がWebサイトを離れる前に重要な情報を伝えるために使用される、非侵入型のアプリ内メッセージです。
+離脱意図メッセージは、訪問者がWebサイトを離れる前に重要な情報を伝えるために使用される、操作を中断しないアプリ内メッセージです。
 
-Web SDKでこれらのメッセージタイプのトリガーを設定するには、Webサイトに離脱意図ライブラリ（[ouibounceのオープンソースライブラリ](https://github.com/carlsednaoui/ouibounce)など）を実装し、以下のコードを使用してBrazeで`'exit intent'`をカスタムイベントとして記録します。これにより、今後のアプリ内メッセージキャンペーンで、このメッセージタイプをカスタムイベントトリガーとして使用できます。
+Web SDKでこれらのメッセージタイプのトリガーを設定するには、Webサイトに離脱意図ライブラリ（[ouibounceのオープンソースライブラリ](https://github.com/carlsednaoui/ouibounce)など）を実装し、次のコードを使用してBrazeで`'exit intent'`をカスタムイベントとして記録します。これにより、今後のアプリ内メッセージキャンペーンで、このメッセージタイプをカスタムイベントトリガーとして使用できます。
 
 ```javascript
   var _ouibounce = ouibounce(false, {

@@ -22,7 +22,7 @@ Vous pouvez spécifier jusqu'à 50 fusions par requête. Cet endpoint est asynch
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `users.merge`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics) avec l'autorisation `users.merge`.
 
 ## Limite de débit {#rate-limit}
 

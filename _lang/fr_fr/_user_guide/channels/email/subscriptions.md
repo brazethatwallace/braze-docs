@@ -1,11 +1,10 @@
 ---
 nav_title: "Abonnements"
-article_title: "Abonnements"
+article_title: "Abonnements e-mail"
 page_order: 5
-description: "Cet article de référence couvre les différents états d'abonnement des utilisateurs, comment gérer les abonnements e-mail, et comment segmenter les utilisateurs en fonction de leurs abonnements."
+description: "Cet article de référence couvre les différents états d'abonnement des utilisateurs, comment gérer les abonnements e-mail et comment segmenter les utilisateurs en fonction de leurs abonnements."
 channel:
   - email
-
 ---
 
 # Abonnements e-mail {#email-subscriptions}
@@ -61,14 +60,16 @@ Incluez le code Liquid du [centre de préférences](#email-preference-center) en
 
 ![Profil utilisateur de John Doe avec son état d'abonnement e-mail défini sur Subscribed.]({% image_buster /assets/img/push_example.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-Vous pouvez vérifier l'état d'abonnement e-mail d'un utilisateur de la manière suivante :
+Vous pouvez vérifier l'état d'abonnement e-mail d'un utilisateur de l'une des manières suivantes :
 
-1. **Export via la REST API :** Utilisez les endpoints [Exporter les utilisateurs par segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) ou [Exporter les utilisateurs par identifiant]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) pour exporter les profils utilisateur individuels au format JSON.
-2. **Profil utilisateur :** Trouvez le profil de l'utilisateur sur la page [Rechercher des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles), puis sélectionnez l'onglet **Engagement** pour consulter et mettre à jour manuellement l'état d'abonnement d'un utilisateur.
+1. **Export via la REST API :** utilisez les endpoints [Exporter les utilisateurs par Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) ou [Exporter les utilisateurs par identifiant]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) pour exporter les profils utilisateur individuels au format JSON.
+2. **Profil utilisateur :** trouvez le profil de l'utilisateur sur la page [Rechercher des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles), puis sélectionnez l'onglet **Engagement** pour consulter et mettre à jour manuellement l'état d'abonnement d'un utilisateur.
 
 Lorsqu'un utilisateur met à jour son adresse e-mail, son état d'abonnement est défini sur « abonné ». Si l'adresse e-mail mise à jour existe déjà ailleurs dans un espace de travail Braze, l'utilisateur hérite de l'état d'abonnement de cet utilisateur existant, sauf si l'option **Resubscribe users when they update their email setting** est activée dans **Sending Configuration**.
 
-Pour résoudre les problèmes liés aux changements d'état d'abonnement, consultez **Email Subscription-State Changes** dans les journaux du profil utilisateur pour l'historique et la source. Les sources suivantes peuvent déclencher un changement d'état d'abonnement e-mail :
+Pour résoudre les problèmes liés aux changements d'état d'abonnement, consultez l'événement Currents [Global Subscription State Change]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events) (`users.behaviors.subscription.GlobalStateChange`), qui contient l'historique et la source des changements d'état d'abonnement.
+
+Les sources suivantes peuvent déclencher un changement d'état d'abonnement e-mail :
 
 | Source | Description |
 | ------ | ----------- |
@@ -79,7 +80,7 @@ Pour résoudre les problèmes liés aux changements d'état d'abonnement, consul
 | Centre de préférences | L'utilisateur a mis à jour ses préférences depuis un centre de préférences hébergé par Braze |
 | Page d'abonnement | L'utilisateur a sélectionné un lien de désabonnement dans un e-mail et a accédé à la page d'abonnement Braze |
 | List-Unsubscribe | L'utilisateur s'est désabonné via l'en-tête list-unsubscribe natif du client de messagerie |
-| Étape de mise à jour utilisateur Canvas | État d'abonnement mis à jour par une [étape de mise à jour utilisateur]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update) dans un Canvas |
+| Étape de mise à jour utilisateur Canvas | État d'abonnement mis à jour par une [étape de mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) dans un Canvas |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sources de mise à jour de l'état d'abonnement e-mail" }
 
 Lorsque l'état d'abonnement e-mail global d'un utilisateur change, Braze propage cet état aux autres profils partageant la même adresse e-mail, jusqu'à 100 profils par changement. Braze ne garantit pas la propagation lorsque plus de 100 profils partagent la même adresse e-mail. Si des utilisateurs partageant une adresse e-mail affichent des états d'abonnement différents, contactez l'assistance Braze.
@@ -88,13 +89,13 @@ Lorsque l'état d'abonnement e-mail global d'un utilisateur change, Braze propag
 
 Les groupes d'abonnement par e-mail permettent aux utilisateurs de s'abonner ou de se désabonner de catégories d'e-mails spécifiques (telles que les newsletters ou les promotions) sans modifier leur état d'abonnement global aux e-mails. Les groupes que vous créez peuvent être ajoutés à votre [centre de préférences]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
 
-Pour plus d'informations sur la création de groupes, la segmentation, l'archivage et le comportement spécifique à chaque canal, consultez [Groupes d'abonnement]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups).
+Pour en savoir plus sur la création de groupes, la segmentation, l'archivage et le comportement spécifique aux canaux, consultez [Groupes d'abonnement]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups).
 
 ## Centre de préférences e-mail {#email-preference-center}
 
 Le centre de préférences e-mail vous permet de gérer quels utilisateurs reçoivent les newsletters des groupes d'abonnement. Vous le trouverez dans le tableau de bord sous **Subscription Groups**. Chaque groupe d'abonnement que vous créez est ajouté à la liste du centre de préférences.
 
-Pour en savoir plus sur la manière d'ajouter ou de personnaliser un centre de préférences, consultez [Centre de préférences]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
+Pour en savoir plus sur l'ajout ou la personnalisation d'un centre de préférences, consultez [Centre de préférences]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
 
 ## Modification des abonnements e-mail {#changing-email-subscriptions}
 
@@ -164,7 +165,7 @@ Braze prend en charge trois états de ciblage :
 - Tous les utilisateurs, y compris ceux qui se sont désabonnés.
 
 {% alert important %}
-Il est de votre responsabilité de vous conformer à toutes les [lois anti-spam]({{site.baseurl}}/help/best_practices/spam_regulations#spam-regulations) applicables lors de l'utilisation de ces paramètres de ciblage.
+Il est de votre responsabilité de vous conformer à toutes les [lois anti-spam]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations) applicables lors de l'utilisation de ces paramètres de ciblage.
 {% endalert %}
 
 ## Segmentation par abonnements des utilisateurs {#segmenting-by-user-subscriptions}

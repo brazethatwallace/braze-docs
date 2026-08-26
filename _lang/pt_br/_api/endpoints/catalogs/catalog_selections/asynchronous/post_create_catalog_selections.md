@@ -45,10 +45,10 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | ---------------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `name`           | Obrigatório | String    | O nome da seleção de catálogo. |
 | `description`    | Opcional | String    | Uma descrição da seleção de catálogo. |
-| `external_id`    | Obrigatório | String    | Um identificador único para a seleção. |
-| `source`         | Obrigatório | String    | A origem dos dados do catálogo. Para catálogos do Shopify, use `"Shopify"`. Para catálogos personalizados, use `"custom"`. |
-| `filters`        | Opcional | Array    | Um array de objetos de filtro a serem aplicados aos itens do catálogo. Você pode especificar até quatro filtros por solicitação. Se nenhum filtro for fornecido, todos os itens do catálogo são incluídos. |
-| `results_limit`  | Opcional | Inteiro   | O número máximo de resultados a retornar. Deve ser um número entre 1 e 50. |
+| `external_id`    | Opcional | String    | Um identificador único para a seleção. |
+| `source`         | Opcional | String    | A origem dos dados do catálogo. Para catálogos do Shopify, defina como `"Shopify"`. Os valores aceitos são `"Shopify"` e `"Braze"`. |
+| `filters`        | Obrigatório | Array    | Um array de objetos de filtro a serem aplicados aos itens do catálogo. Você pode especificar até dez filtros por solicitação. Se um array de filtros vazio for fornecido, todos os itens do catálogo são incluídos. |
+| `results_limit`  | Obrigatório | Inteiro   | O número máximo de resultados a retornar. Deve ser um número entre 1 e 50. |
 | `sort_field`     | Opcional | String    | O campo para ordenar os resultados. Deve ser usado em conjunto com `sort_order`. Se `sort_field` e `sort_order` não estiverem presentes, os resultados são randomizados. |
 | `sort_order`     | Opcional | String    | A ordem para classificar os resultados. Os valores aceitos são `"asc"` (crescente) ou `"desc"` (decrescente). Deve ser usado em conjunto com `sort_field`. Se `sort_field` e `sort_order` não estiverem presentes, os resultados são randomizados. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
@@ -68,7 +68,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     "name": "favorite-restaurants",
     "description": "Favorite restaurants in NYC",
     "external_id": "favorite-nyc-restaurants",
-    "source": "custom",
+    "source": "Braze",
     "filters": [
       {
         "field": "City",
@@ -90,7 +90,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 
 ### Operadores de filtro {#filter-operators}
 
-| Tipo de campo | Operadores suportados                                     |
+| Tipo de campo | Operadores compatíveis                                     |
 | ---------- | ------------------------------------------------------- |
 | `string`   | `equals`, `does not equal`                              |
 | `number`   | `equals`, `does not equal`, `greater than`, `less than` |
@@ -101,7 +101,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
-A API suporta um máximo de quatro filtros por solicitação de seleção. No dashboard da Braze, você pode adicionar até 10 filtros por seleção. Os filtros são aplicados na ordem em que aparecem no array.
+A API aceita um máximo de dez filtros por solicitação de seleção. Os filtros são aplicados na ordem em que aparecem no array.
 {% endalert %}
 
 {% alert note %}
@@ -124,7 +124,7 @@ O código de status `202` poderia retornar o seguinte corpo de resposta.
 
 ### Exemplo de resposta de erro {#example-error-response}
 
-O código de status `400` poderia retornar o seguinte corpo de resposta. Consulte [Solução de problemas](#troubleshooting) para obter mais informações sobre os erros que você pode encontrar.
+O código de status `400` poderia retornar o seguinte corpo de resposta. Consulte [Solução de problemas](#troubleshooting) para saber mais sobre os erros que você pode encontrar.
 
 ```json
 {
@@ -154,14 +154,14 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `company-size-limit-already-reached` | O limite de tamanho do armazenamento do catálogo foi atingido.                                                    |
 | `selection-limit-reached`            | O limite de seleções do catálogo foi atingido.                                                      |
 | `invalid-selection`                  | Verifique se a seleção é válida.                                                            |
-| `too-many-filters`                   | Verifique se a seleção tem muitos filtros.                                                  |
+| `too-many-filters`                   | Verifique se a seleção tem filtros demais.                                                  |
 | `selection-name-already-exists`      | Verifique se o nome da seleção já existe no catálogo.                                    |
 | `selection-has-invalid-filter`       | Verifique se o filtro da seleção é válido.                                                       |
 | `selection-invalid-results-limit`    | Verifique se o limite de resultados da seleção é válido.                                                |
 | `invalid-sorting`                    | Verifique se a ordenação da seleção é válida.                                                      |
 | `invalid-sort-field`                 | Verifique se o campo de ordenação da seleção é válido.                                                   |
 | `invalid-sort-order`                 | Verifique se a ordem de classificação da seleção é válida.                                                   |
-| `selection-contains-too-many-arrays` | Verifique se a seleção contém mais de um campo com o tipo `array`. Apenas um é suportado. |
+| `selection-contains-too-many-arrays` | Verifique se a seleção contém mais de um campo com o tipo `array`. Apenas um é compatível. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}

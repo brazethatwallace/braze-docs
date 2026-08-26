@@ -1,6 +1,7 @@
 ---
 nav_title: "POST: 배너 분석 이벤트 추적"
 article_title: "POST: 배너 분석 이벤트 추적"
+permalink: /api/device_messaging_api/endpoints/banners/post_track_banner_events
 search_tag: Endpoint
 page_order: 1
 layout: api_page
@@ -16,7 +17,7 @@ hidden: true
 {% endapimethod %}
 
 {% alert important %}
-이 페이지는 베타 버전입니다. 메시징 API의 기능 및 설명서는 변경될 수 있습니다.
+이 페이지는 베타 버전입니다. Device Messaging API의 기능 및 설명서는 변경될 수 있습니다.
 {% endalert %}
 
 > 이 엔드포인트를 사용하여 배너의 노출 횟수 및 클릭 이벤트를 기록합니다.
@@ -28,9 +29,9 @@ Braze는 각 이벤트를 개별적으로 검증합니다. 요청에 유효한 �
 이 엔드포인트를 사용하려면 다음이 필요합니다:
 
 - 배너가 활성화된 워크스페이스
-- `banners.track` 권한이 있는 [클라이언트 측 REST API 키]({{site.baseurl}}/api/messaging_api/authentication)
+- `banners.track` 권한이 있는 [클라이언트 측 REST API 키]({{site.baseurl}}/api/device_messaging_api/authentication)
 - Braze 인스턴스의 [REST 엔드포인트]({{site.baseurl}}/api/basics#endpoints)
-- [사용자의 배너 조회 엔드포인트]({{site.baseurl}}/api/messaging_api/endpoints/banners/post_sync_banners)에서 반환된 배너 `id`
+- [사용자의 배너 조회 엔드포인트]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)에서 반환된 배너 `id`
 
 클라이언트 측 REST API 키를 `Authorization` 헤더에 베어러 토큰으로 포함하세요.
 
@@ -38,7 +39,7 @@ Braze는 각 이벤트를 개별적으로 검증합니다. 요청에 유효한 �
 
 사용량 제한은 워크스페이스별로 적용됩니다. 사용량 제한을 초과하면 Braze는 `429` 상태 코드를 반환합니다. 가능한 경우 `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset`, `X-RateLimit-Retry-After` 응답 헤더를 사용하여 사용량을 모니터링하고 재시도 시점을 결정하세요.
 
-자세한 내용은 [메시징 API 사용량 제한]({{site.baseurl}}/api/messaging_api/rate_limits)을 참조하세요.
+자세한 내용은 [Device Messaging API 사용량 제한]({{site.baseurl}}/api/device_messaging_api/rate_limits)을 참조하세요.
 
 ## 요청 본문 {#request-body}
 
@@ -170,6 +171,6 @@ Braze가 이벤트를 처리할 수 없는 경우 `400` 상태 코드를 반환�
 | `429` | 워크스페이스가 사용량 제한을 초과했습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="상태 코드" }
 
-자세한 내용은 [메시징 API 오류 처리 및 재시도]({{site.baseurl}}/api/messaging_api/error_handling)를 참조하세요.
+자세한 내용은 [Device Messaging API 오류 처리 및 재시도]({{site.baseurl}}/api/device_messaging_api/error_handling)를 참조하세요.
 
 {% endapi %}

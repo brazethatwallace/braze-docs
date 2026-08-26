@@ -5,7 +5,7 @@ page_order: 4
 layout: dev_guide
 search_rank: 3
 guide_top_header: "コネクテッドコンテンツ"
-guide_top_text: "Brazeのコネクテッドコンテンツは、マーケティングのパーソナライゼーションを拡張し、カスタマーエンゲージメントとコンバージョンを向上させます。この機能を使用すると、APIでアクセス可能なあらゆる情報を、ユーザーに送信するメッセージに直接挿入できます。コネクテッドコンテンツでは、Webサーバーから直接、または公開APIからコンテンツを取得できます。また、<b><a href='/docs/partners/data_augmentation/contextual_location/accuweather/'>AccuWeather</a></b> や <b><a href='/docs/partners/channel_extensions/localization/transifex/'>Transifex</a></b> などのテクノロジーパートナーとともに、コネクテッドコンテンツ機能を活用することもできます。<br><br>以下の記事一覧に加えて、<b><a href='https://learning.braze.com/connected-content'>Connected Content</a></b> Braze Learningコースもぜひご確認ください。"
+guide_top_text: "Brazeのコネクテッドコンテンツは、マーケティングのパーソナライゼーションを拡張し、カスタマーエンゲージメントとコンバージョンを向上させます。この機能を使用すると、APIでアクセス可能なあらゆる情報を、ユーザーに送信するメッセージに直接挿入できます。コネクテッドコンテンツでは、Webサーバーから直接、または公開APIからコンテンツを取得できます。また、<b><a href='/docs/partners/data_augmentation/contextual_location/accuweather/'>AccuWeather</a></b>や <b><a href='/docs/partners/channel_extensions/localization/transifex/'>Transifex</a></b> などのテクノロジーパートナーとともに、コネクテッドコンテンツ機能を活用することもできます。<br><br>以下の記事一覧に加えて、<b><a href='https://learning.braze.com/connected-content'>Connected Content</a></b> Braze Learningコースもぜひご確認ください。"
 description: "このランディングページは、コネクテッドコンテンツに関するすべての情報をまとめたページです。API呼び出しの方法、ローカルコネクテッドコンテンツ変数、コンテンツの中止などに関する記事をご覧いただけます。"
 
 guide_featured_title: "セクション記事"
@@ -28,6 +28,9 @@ guide_featured_list:
 - name: コネクテッドコンテンツのリトライ
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries
   image: /assets/img/braze_icons/refresh-ccw-01.svg
+- name: コネクテッドコンテンツデバッガー
+  link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/debugger
+  image: /assets/img/braze_icons/search-refraction.svg
 - name: Webhookとコネクテッドコンテンツのトラブルシューティング
   link: /docs/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content
   image: /assets/img/braze_icons/check-square-broken.svg

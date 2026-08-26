@@ -1,6 +1,7 @@
 ---
 nav_title: "POST: Registrar eventos de análisis de Banner"
 article_title: "POST: Registrar eventos de análisis de Banner"
+permalink: /api/device_messaging_api/endpoints/banners/post_track_banner_events
 search_tag: Endpoint
 page_order: 1
 layout: api_page
@@ -16,7 +17,7 @@ hidden: true
 {% endapimethod %}
 
 {% alert important %}
-Esta página está en versión beta. Las características y la documentación de la API de mensajería están sujetas a cambios.
+Esta página está en versión beta. Las características y la documentación de la API de mensajería del dispositivo están sujetas a cambios.
 {% endalert %}
 
 > Usa este endpoint para registrar eventos de impresión y clic para Banners.
@@ -28,9 +29,9 @@ Braze valida cada evento por separado. Cuando una solicitud contiene eventos vá
 Para usar este endpoint, necesitas lo siguiente:
 
 - Un espacio de trabajo con Banners habilitado
-- Una [clave de API REST del lado del cliente]({{site.baseurl}}/api/messaging_api/authentication) con el permiso `banners.track`
+- Una [clave de API REST del lado del cliente]({{site.baseurl}}/api/device_messaging_api/authentication) con el permiso `banners.track`
 - El [endpoint REST]({{site.baseurl}}/api/basics#endpoints) de tu instancia de Braze
-- Un `id` de Banner devuelto por el [endpoint Recuperar Banners para un usuario]({{site.baseurl}}/api/messaging_api/endpoints/banners/post_sync_banners)
+- Un `id` de Banner devuelto por el [endpoint Recuperar Banners para un usuario]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)
 
 Incluye la clave de API REST del lado del cliente en el encabezado `Authorization` como un token bearer.
 
@@ -38,7 +39,7 @@ Incluye la clave de API REST del lado del cliente en el encabezado `Authorizatio
 
 Los límites de velocidad se aplican por espacio de trabajo. Si superas el límite de velocidad, Braze devuelve un código de estado `429`. Cuando estén disponibles, usa los encabezados de respuesta `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset` y `X-RateLimit-Retry-After` para monitorear tu uso y determinar cuándo reintentar.
 
-Para más información, consulta [Límites de velocidad de la API de mensajería]({{site.baseurl}}/api/messaging_api/rate_limits).
+Para más información, consulta [Límites de velocidad de la API de mensajería del dispositivo]({{site.baseurl}}/api/device_messaging_api/rate_limits).
 
 ## Cuerpo de la solicitud {#request-body}
 
@@ -65,7 +66,7 @@ Para más información, consulta [Límites de velocidad de la API de mensajería
 | `app_id` | Obligatorio | Cadena | El [identificador de API de la aplicación]({{site.baseurl}}/api/identifier_types#app-identifier). Debe identificar una aplicación en el espacio de trabajo autenticado. | `26a39c72-e647-4766-b62e-4521fa2dae59` |
 | `app_version` | Obligatorio | Cadena | La versión de la aplicación anfitriona. No debe superar los 255 caracteres. | `1.0.0` |
 | `events` | Obligatorio | Array de objetos | Uno o más eventos de análisis de Banner para registrar. | `[{"id":"bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E","event_type":"impression","timestamp":"2026-04-09T12:00:00Z"}]` |
-| `events[].id` | Obligatorio | Cadena | El `id` de Banner devuelto por el endpoint Recuperar Banners para un usuario. Usa el ID de Banner, no el `placement_id`, para que Braze atribuya el evento a la Campaign y variante correctas. | `bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E` |
+| `events[].id` | Obligatorio | Cadena | El `id` de Banner devuelto por el endpoint Recuperar Banners para un usuario. Usa el ID de Banner, no el `placement_id`, para que Braze atribuya el evento a la Campaign y la variante correctas. | `bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E` |
 | `events[].event_type` | Obligatorio | Cadena | El tipo de evento. Los valores posibles son `impression` y `click`. | `impression` |
 | `events[].timestamp` | Obligatorio | Cadena | La fecha y hora en que ocurrió el evento, con formato de cadena [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). | `2026-04-09T12:00:00Z` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Parámetros de la solicitud" }
@@ -170,6 +171,6 @@ Si Braze no puede procesar ningún evento, devuelve un código de estado `400`.
 | `429` | El espacio de trabajo superó su límite de velocidad. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Códigos de estado" }
 
-Para más información, consulta [Manejo de errores y reintentos de la API de mensajería]({{site.baseurl}}/api/messaging_api/error_handling).
+Para más información, consulta [Manejo de errores y reintentos de la API de mensajería del dispositivo]({{site.baseurl}}/api/device_messaging_api/error_handling).
 
 {% endapi %}

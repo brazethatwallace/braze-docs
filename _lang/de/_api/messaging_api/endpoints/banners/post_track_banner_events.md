@@ -1,6 +1,7 @@
 ---
 nav_title: "POST: Banner-Analytics-Ereignisse tracken"
 article_title: "POST: Banner-Analytics-Ereignisse tracken"
+permalink: /api/device_messaging_api/endpoints/banners/post_track_banner_events
 search_tag: Endpoint
 page_order: 1
 layout: api_page
@@ -16,7 +17,7 @@ hidden: true
 {% endapimethod %}
 
 {% alert important %}
-Diese Seite befindet sich in der Betaphase. Features und Dokumentation für die Messaging API können sich ändern.
+Diese Seite befindet sich in der Betaphase. Features und Dokumentation für die Device Messaging API können sich ändern.
 {% endalert %}
 
 > Verwenden Sie diesen Endpunkt, um Impression- und Klick-Ereignisse für Banner aufzuzeichnen.
@@ -28,9 +29,9 @@ Braze validiert jedes Ereignis einzeln. Wenn eine Anfrage sowohl gültige als au
 Um diesen Endpunkt zu verwenden, benötigen Sie Folgendes:
 
 - Einen Workspace mit aktiviertem Banner-Feature
-- Einen [clientseitigen REST-API-Schlüssel]({{site.baseurl}}/api/messaging_api/authentication) mit der Berechtigung `banners.track`
+- Einen [clientseitigen REST-API-Schlüssel]({{site.baseurl}}/api/device_messaging_api/authentication) mit der Berechtigung `banners.track`
 - Den [REST-Endpunkt]({{site.baseurl}}/api/basics#endpoints) für Ihre Braze-Instanz
-- Eine Banner-`id`, die vom Endpunkt [Banner für eine:n Nutzer:in abrufen]({{site.baseurl}}/api/messaging_api/endpoints/banners/post_sync_banners) zurückgegeben wird
+- Eine Banner-`id`, die vom Endpunkt [Banner für eine:n Nutzer:in abrufen]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners) zurückgegeben wird
 
 Fügen Sie den clientseitigen REST-API-Schlüssel im `Authorization`-Header als Bearer-Token ein.
 
@@ -38,7 +39,7 @@ Fügen Sie den clientseitigen REST-API-Schlüssel im `Authorization`-Header als 
 
 Rate-Limits gelten pro Workspace. Wenn Sie das Rate-Limit überschreiten, gibt Braze den Statuscode `429` zurück. Verwenden Sie nach Möglichkeit die Antwort-Header `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset` und `X-RateLimit-Retry-After`, um Ihre Nutzung zu überwachen und den richtigen Zeitpunkt für einen erneuten Versuch zu bestimmen.
 
-Weitere Informationen finden Sie unter [Messaging API Rate-Limits]({{site.baseurl}}/api/messaging_api/rate_limits).
+Weitere Informationen finden Sie unter [Device Messaging API – Rate-Limits]({{site.baseurl}}/api/device_messaging_api/rate_limits).
 
 ## Anfragekörper {#request-body}
 
@@ -170,6 +171,6 @@ Wenn Braze keine Ereignisse verarbeiten kann, gibt es den Statuscode `400` zurü
 | `429` | Der Workspace hat sein Rate-Limit überschritten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Statuscodes" }
 
-Weitere Informationen finden Sie unter [Messaging API – Fehlerbehandlung und Wiederholungsversuche]({{site.baseurl}}/api/messaging_api/error_handling).
+Weitere Informationen finden Sie unter [Device Messaging API – Fehlerbehandlung und Wiederholungsversuche]({{site.baseurl}}/api/device_messaging_api/error_handling).
 
 {% endapi %}

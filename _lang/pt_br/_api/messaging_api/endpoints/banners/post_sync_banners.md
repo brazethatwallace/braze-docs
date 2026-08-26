@@ -1,6 +1,7 @@
 ---
 nav_title: "POST: Recuperar Banners para um usuário"
 article_title: "POST: Recuperar Banners para um usuário"
+permalink: /api/device_messaging_api/endpoints/banners/post_sync_banners
 search_tag: Endpoint
 page_order: 0
 layout: api_page
@@ -16,7 +17,7 @@ hidden: true
 {% endapimethod %}
 
 {% alert important %}
-Esta página está em beta. Os recursos e a documentação da API de envio de mensagens estão sujeitos a alterações.
+Esta página está em beta. Os recursos e a documentação da API de envio de mensagens para dispositivos estão sujeitos a alterações.
 {% endalert %}
 
 > Use este endpoint para recuperar o Banner elegível para cada posicionamento solicitado para um usuário.
@@ -28,7 +29,7 @@ A resposta contém propriedades estruturadas do Banner que você pode usar para 
 Para usar este endpoint, você precisa do seguinte:
 
 - Um espaço de trabalho com Banners ativados
-- Uma [chave da API REST do lado do cliente]({{site.baseurl}}/api/messaging_api/authentication) com a permissão `banners.sync`
+- Uma [chave da API REST do lado do cliente]({{site.baseurl}}/api/device_messaging_api/authentication) com a permissão `banners.sync`
 - O [endpoint REST]({{site.baseurl}}/api/basics#endpoints) da sua instância da Braze
 
 Inclua a chave da API REST do lado do cliente no cabeçalho `Authorization` como um token bearer.
@@ -37,7 +38,7 @@ Inclua a chave da API REST do lado do cliente no cabeçalho `Authorization` como
 
 Os limites de frequência se aplicam por espaço de trabalho. Se você exceder o limite de frequência, a Braze retornará um código de status `429`. Quando disponíveis, use os cabeçalhos de resposta `X-RateLimit-Limit`, `X-RateLimit-Remaining` e `X-RateLimit-Reset` para monitorar seu uso.
 
-Para saber mais, consulte [Limites de frequência da API de envio de mensagens]({{site.baseurl}}/api/messaging_api/rate_limits).
+Para saber mais, consulte [Limites de frequência da API de envio de mensagens para dispositivos]({{site.baseurl}}/api/device_messaging_api/rate_limits).
 
 ## Corpo da requisição {#request-body}
 
@@ -137,6 +138,6 @@ Uma requisição bem-sucedida retorna um código de status `200` e o Banner reso
 | `429` | O espaço de trabalho excedeu seu limite de frequência. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Códigos de status" }
 
-Para saber mais, consulte [Tratamento de erros e novas tentativas da API de envio de mensagens]({{site.baseurl}}/api/messaging_api/error_handling).
+Para saber mais, consulte [Tratamento de erros e novas tentativas da API de envio de mensagens para dispositivos]({{site.baseurl}}/api/device_messaging_api/error_handling).
 
 {% endapi %}

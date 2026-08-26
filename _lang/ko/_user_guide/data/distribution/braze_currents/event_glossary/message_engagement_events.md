@@ -5,7 +5,7 @@ alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "이 용어집에는 Braze가 추적하고 Currents를 사용하여 선택한 데이터 웨어하우스로 전송할 수 있는 다양한 메시지 인게이지먼트 이벤트가 나열되어 있습니다."
+description: "이 용어집은 Braze가 추적하고 Currents를 사용하여 선택한 데이터 웨어하우스로 전송할 수 있는 다양한 메시지 인게이지먼트 이벤트를 나열합니다."
 tool: Currents
 search_rank: 6
 lazy_partner_tabs: true
@@ -15,13 +15,13 @@ lazy_partner_tabs: true
 
 {% details 스키마 범위 및 관련 리소스 %}
 
-스토리지 스키마는 데이터 웨어하우스 스토리지 파트너(Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage)로 전송하는 플랫 파일 이벤트 데이터에 적용됩니다. 다른 파트너에 적용되는 스키마는 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) 목록을 참조하고 해당 페이지를 확인하세요.
+스토리지 스키마는 데이터 웨어하우스 스토리지 파트너(Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage)에 전송하는 플랫 파일 이벤트 데이터에 적용됩니다. 다른 파트너에 적용되는 스키마는 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) 목록을 참조하고 각 파트너 페이지를 확인하세요.
 
 {% alert tip %}
-이러한 이벤트는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder), [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments), [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)에서 SQL 테이블로도 사용할 수 있습니다. SQL 테이블 스키마 및 열 세부정보는 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)를 참조하세요.
+이 이벤트는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder), [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments), [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)에서 SQL 테이블로도 사용할 수 있습니다. SQL 테이블 스키마 및 열 세부정보는 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)를 참조하세요.
 {% endalert %}
 
-추가 이벤트 권한에 대한 액세스가 필요한 경우 계정 매니저에게 문의하거나 [지원 티켓]({{site.baseurl}}/braze_support)을 열어주세요. 이 문서에서 필요한 내용을 찾을 수 없는 경우 [고객 행동 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 또는 [Currents 샘플 데이터 예시](https://github.com/Appboy/currents-examples/tree/master/sample-data)를 확인하세요.
+추가 이벤트 권한에 대한 액세스가 필요하면 계정 매니저에게 문의하거나 [지원 티켓]({{site.baseurl}}/user_guide/administer/personal/braze_support)을 열어주세요. 이 문서에서 필요한 내용을 찾을 수 없는 경우, [고객 행동 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 또는 [Currents 샘플 데이터 예제](https://github.com/Appboy/currents-examples/tree/master/sample-data)를 확인해 주세요.
 
 {% enddetails %}
 
@@ -29,11 +29,11 @@ lazy_partner_tabs: true
 
 ## 이벤트 구조 {#event-structure}
 
-이 이벤트 분석은 메시지 인게이지먼트 이벤트에 일반적으로 포함되는 정보 유형을 보여줍니다. 구성 요소를 확실히 이해하면 개발자와 비즈니스 인텔리전스 전략 팀이 수신되는 Currents 이벤트 데이터를 사용하여 데이터 중심 보고서와 차트를 만들고 기타 유용한 데이터 측정기준을 활용할 수 있습니다.
+이 이벤트 분석은 메시지 인게이지먼트 이벤트에 일반적으로 포함되는 정보 유형을 보여줍니다. 구성 요소를 확실히 이해하면 개발자와 비즈니스 인텔리전스 전략 팀이 수신되는 Currents 이벤트 데이터를 사용하여 데이터 중심 보고서와 차트를 작성하고, 기타 유용한 데이터 측정기준을 활용할 수 있습니다.
 
-![사용자별 속성, Campaign 또는 Canvas 추적 속성, 이벤트별 속성으로 그룹화된 속성 목록이 포함된 이메일 수신 거부 이벤트를 보여주는 메시지 인게이지먼트 이벤트 분석]({% image_buster /assets/img/message_engagement_event.png %})
+![사용자별 속성, 캠페인 또는 Canvas 추적 속성, 이벤트별 속성으로 그룹화된 나열된 속성과 함께 이메일 구독 취소 이벤트를 보여주는 메시지 인게이지먼트 이벤트 분석]({% image_buster /assets/img/message_engagement_event.png %})
 
-메시지 인게이지먼트 이벤트는 **사용자별** 속성, **Campaign/Canvas 추적** 속성, **이벤트별** 속성으로 구성됩니다.
+메시지 인게이지먼트 이벤트는 **사용자별** 속성, **캠페인/Canvas 추적** 속성, **이벤트별** 속성으로 구성됩니다.
 
 ### 사용자 ID 스키마 {#user-id-schema}
 
@@ -41,14 +41,14 @@ lazy_partner_tabs: true
 
 | Braze 스키마 | Currents 스키마 | 설명 |
 | ----------- | ----------- | ----------- |
-| `braze_id` | `"USER_ID"` | Braze에서 자동으로 할당하는 고유 식별자입니다. |
+| `braze_id` | `"USER_ID"` | Braze가 자동으로 할당하는 고유 식별자입니다. |
 | `external_id` | `"EXTERNAL_USER_ID"` | 고객이 설정한 사용자 프로필의 고유 식별자입니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 ID 스키마" }
 
 ### 플랫폼 값 {#platform-values}
 
 특정 이벤트는 사용자 기기의 플랫폼을 지정하는 `platform` 값을 반환합니다.
-<br>다음 표에는 반환될 수 있는 값이 나열되어 있습니다.
+<br>다음 표는 반환될 수 있는 값을 자세히 설명합니다.
 
 | 사용자 기기 | 플랫폼 값 |
 | --- | --- |
@@ -63,11 +63,11 @@ lazy_partner_tabs: true
 
 {% enddetails %}
 
-{% details 메시지 인게이지먼트 이벤트 관련 고려사항 %}
+{% details 메시지 인게이지먼트 이벤트에 대한 고려 사항 %}
 
 - Currents는 페이로드가 900&nbsp;KB를 초과하는 이벤트를 삭제합니다.
 - Canvas Flow와 관련된 객체에는 그룹화에 사용할 수 있는 ID가 있으며, [Canvas 세부정보 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)를 통해 사람이 읽을 수 있는 이름으로 변환할 수 있습니다.
-- Campaign 또는 Canvas를 업데이트한 직후에는 특정 필드에 최신 상태가 즉시 표시되지 않을 수 있습니다.
+- 캠페인이나 Canvas를 업데이트한 직후에는 특정 필드가 최신 상태를 즉시 표시하지 않을 수 있습니다.
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -75,7 +75,7 @@ lazy_partner_tabs: true
   - `canvas_variation_name`
   - `experiment_split_name`
   - `message_variation_name`
-- 이러한 필드에 대해 완전한 일관성이 필요한 경우, 마지막 업데이트 후 1시간을 기다린 다음 사용자에게 메시지를 보내세요.
+- 이러한 필드에 완전한 일관성이 필요한 경우, 마지막 업데이트 후 1시간 기다린 후 사용자에게 메시지를 전송하세요.
 
 {% enddetails %}
 
@@ -735,7 +735,7 @@ Subscription
 | REST API | REST API 엔드포인트 |
 | CSV 가져오기 | CSV 사용자 가져오기 |
 | 환경설정 센터 | 환경설정 센터에서 사용자가 업데이트되는 경우 |
-| 인바운드 메시지 | 최종 사용자가 SMS 등의 채널을 통해 보낸 인바운드 메시지로 사용자가 업데이트되는 경우 |
+| 인바운드 메시지 | SMS 등의 채널을 통해 최종 사용자가 보낸 인바운드 메시지로 사용자가 업데이트되는 경우 |
 | 마이그레이션 | 내부 마이그레이션 또는 유지 관리 스크립트에 의해 사용자가 업데이트되는 경우 |
 | 사용자 병합 | 사용자 병합 프로세스에 의해 사용자가 업데이트되는 경우 |
 | Canvas 사용자 업데이트 단계 | Canvas 사용자 업데이트 단계에 의해 사용자가 업데이트되는 경우 |
@@ -2874,7 +2874,7 @@ Canvas, Entry
 Canvas, Progression
 {% endapitags %}
 
-이 이벤트는 사용자가 Canvas의 단계를 진행하여 특정 결과를 얻을 때 발생합니다. 이 이벤트는 단계에 진입하거나 퇴출할 때는 발생하지 않습니다. 현재는 분할 단계(오디언스 경로, 결정 분할, 작업 경로, 실험)와 진행 결과만 단계 진행 이벤트를 생성합니다.
+이 이벤트는 사용자가 Canvas의 단계를 특정 결과와 함께 진행할 때 발생합니다. 이 이벤트는 단계에 진입하거나 퇴출할 때는 발생하지 않습니다. 현재는 분할 단계(오디언스 경로, 결정 분할, 작업 경로, 실험)와 진행 결과만 단계 진행 이벤트를 생성합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -3362,7 +3362,7 @@ Banner, Abort
 
 - `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)을 참조하세요.
 - `abort_type`은 메시지가 글로벌 빈도 제한 규칙으로 인해 중단된 경우 `frequency_capped`가 됩니다.
-- `abort_log`는 중단을 트리거한 특정 규칙에 대한 정보를 포함합니다. 예시: `Frequency cap rule: 5 Banner messages every 1 week`
+- `abort_log`에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예시: `Frequency cap rule: 5 Banner messages every 1 week`
 
 {% endapi %}
 
@@ -5328,7 +5328,7 @@ Content Cards, Impressions
 Content Cards, Sends
 {% endapitags %}
 
-이 이벤트는 Content Cards가 사용자에게 전송될 때 발생합니다.
+이 이벤트는 사용자에게 Content Cards가 전송될 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -5798,6 +5798,7 @@ Abort, Email
 - `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)을 참조하세요.
 - 글로벌 빈도 제한 규칙으로 인해 메시지가 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
 - `abort_log`는 중단을 트리거한 특정 규칙에 대한 정보를 포함합니다. 예시: `Frequency cap rule: 5 email messages every 1 week`
+- `message_extras`는 렌더링 도중 {% raw %}`{% message_extras %}`{% endraw %} 태그가 실행된 후 중단이 발생한 경우에만 채워집니다.
 
 {% endapi %}
 
@@ -8243,7 +8244,7 @@ Email, Bounce
 Email, Subscription
 {% endapitags %}
 
-이 이벤트는 최종 사용자가 이메일에서 "수신 거부"를 클릭했을 때 발생합니다.
+이 이벤트는 최종사용자가 이메일에서 "수신 거부"를 클릭했을 때 발생합니다.
 
 {% alert important %}
 `Unsubscribe` 이벤트는 사용자가 이메일의 수신 거부 링크(이메일 본문 또는 바닥글 내의 일반 수신 거부 링크 또는 [list-unsubscribe 헤더]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) 사용)를 클릭할 때 발생하는 특수 클릭 이벤트로 간주되며, 사용자가 수신 거부 상태로 변경될 때 발생하는 것이 아닙니다. 구독 상태 변경이 API를 통해 전송되거나 커스텀(비-Braze) 수신 거부 링크로 전송되는 경우 Currents에서 이메일 수신 거부 이벤트가 트리거되지 않습니다.
@@ -8468,7 +8469,7 @@ Email, Subscription
 
 ### 속성정보 세부 정보
 
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 디스패치에 대한 ID입니다. 동일한 디스패치에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 디스패치에 속하는 이벤트를 그룹화하면 해당 디스패치의 푸시 메시지 생애 주기(전송, 반송, 열기 등)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 디스패치에 대한 ID입니다. 동일한 디스패치에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 디스패치에 속하는 이벤트를 그룹화하면 해당 디스패치의 푸시 메시지 생애 주기(전송, 반송, 열람 등)를 그룹화하고 상관관계를 파악할 수 있습니다.
   - `dispatch_id`의 동작은 Canvas와 Campaigns 간에 다릅니다. Braze는 스케줄 가능한 진입 단계를 제외한 Canvas 단계를 스케줄된 경우에도 트리거된 이벤트로 취급하기 때문입니다. 자세한 내용은 [디스패치 ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)을 참조하세요.
 
 {% endapi %}
@@ -9012,7 +9013,7 @@ In-App Messages, Abort
 ### 속성정보 세부 정보
 
 - `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)을 참조하세요.
-- 메시지가 전역 빈도 제한 규칙으로 인해 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
+- 메시지가 글로벌 빈도 제한 규칙으로 인해 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
 - `abort_log`는 중단을 트리거한 특정 규칙에 대한 정보를 포함합니다. 예시: `Frequency cap rule: 5 in-app messages every 1 week`
 
 {% endapi %}
@@ -9592,7 +9593,7 @@ In-App Messages, Impressions
 Landing Pages, Clicks
 {% endapitags %}
 
-이 이벤트는 최종 사용자가 랜딩 페이지의 특정 요소 및 양식 필드를 클릭할 때 발생합니다.
+이 이벤트는 최종사용자가 랜딩 페이지의 특정 요소 및 양식 필드를 클릭할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -9747,7 +9748,7 @@ Landing Pages, Clicks
 Landing Pages, Form Submissions
 {% endapitags %}
 
-이 이벤트는 최종 사용자가 랜딩 페이지에서 양식을 작성하고 버튼을 클릭하여 정보를 제출할 때 발생합니다.
+이 이벤트는 최종사용자가 랜딩 페이지에서 양식을 작성하고 버튼을 클릭하여 정보를 제출할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -10285,6 +10286,7 @@ LINE, Abort
 - `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)을 참조하세요.
 - 메시지가 글로벌 빈도 제한 규칙으로 인해 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
 - `abort_log`에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예시: `Frequency cap rule: 5 LINE messages every 1 week`
+- `message_extras`는 렌더링 중에 {% raw %}`{% message_extras %}`{% endraw %} 태그가 실행된 후 중단이 발생한 경우에만 채워집니다.
 
 {% endapi %}
 
@@ -11840,6 +11842,7 @@ Abort, Push
 - `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)을 참조하세요.
 - 글로벌 빈도 제한 규칙으로 인해 메시지가 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
 - `abort_log`에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예시: `Frequency cap rule: 5 push messages every 1 week`
+- `message_extras`는 렌더링 중에 {% raw %}`{% message_extras %}`{% endraw %} 태그가 실행된 후 중단이 발생한 경우에만 채워집니다.
 
 {% endapi %}
 
@@ -12111,7 +12114,7 @@ Push, Bounce
 Push, iOS, Opens
 {% endapitags %}
 
-이 이벤트는 [Swift SDK](https://github.com/braze-inc/braze-swift-sdk)에서 지원되지 않으며, [Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk)에서는 현재 더 이상 사용되지 않습니다.
+이 이벤트는 [Swift SDK](https://github.com/braze-inc/braze-swift-sdk)에서 지원되지 않으며, [Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk)에서는 현재 지원 중단되었습니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -15000,6 +15003,7 @@ Abort, SMS
 - `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)을 참조하세요.
 - 메시지가 글로벌 빈도 제한 규칙으로 인해 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
 - `abort_log`에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예시: `Frequency cap rule: 5 SMS messages every 1 week`
+- `message_extras`는 렌더링 과정에서 {% raw %}`{% message_extras %}`{% endraw %} 태그가 실행된 후 중단이 발생한 경우에만 채워집니다.
 
 {% endapi %}
 
@@ -16459,7 +16463,7 @@ SMS, Retry
 SMS, Sends
 {% endapitags %}
 
-이 이벤트는 사용자가 SMS를 보낼 때 발생합니다.
+이 이벤트는 사용자가 SMS를 전송할 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -17593,6 +17597,7 @@ Abort, Webhooks
 - `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)을 참조하세요.
 - 메시지가 글로벌 빈도 제한 규칙으로 인해 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
 - `abort_log`에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예시: `Frequency cap rule: 5 webhook messages every 1 week`
+- `message_extras`는 렌더링 중에 {% raw %}`{% message_extras %}`{% endraw %} 태그가 실행된 후 중단이 발생한 경우에만 채워집니다.
 
 {% endapi %}
 
@@ -18573,6 +18578,7 @@ WhatsApp, Abort
 - `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)을 참조하세요.
 - 메시지가 글로벌 빈도 제한 규칙으로 인해 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
 - `abort_log`는 중단을 트리거한 특정 규칙에 대한 정보를 포함합니다. 예시: `Frequency cap rule: 5 WhatsApp messages every 1 week`
+- `message_extras`는 렌더링 중 {% raw %}`{% message_extras %}`{% endraw %} 태그가 실행된 후에 중단이 발생한 경우에만 채워집니다.
 
 {% endapi %}
 
