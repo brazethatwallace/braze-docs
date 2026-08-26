@@ -147,6 +147,8 @@ description: "This reference article covers how user permissions work at Braze."
 
 Optional fields: `tool`, `noindex`, `hidden`, `layout`, `local_redirect`, `search_rank`.
 
+`date_published`: quoted `YYYY-MM-DD` equal to today's UTC date, or the UTC date you expect the PR to merge. Must not be in the past. CI requires it the first time a public article in `user_guide`, `developer_guide`, `api`, `partners`, or `help` ships. Confirm the date before merge. Do not change it later. Hidden and `config_only` pages are exempt until they become public; if a date is already present when you unhide, keep it. See [`docs/contributing/yaml_front_matter/metadata.md`](../../../docs/contributing/yaml_front_matter/metadata.md#date-published).
+
 ## Internal linking
 
 ```markdown

@@ -1223,7 +1223,9 @@ Instead of creating one article for each engagement tool and each channel, creat
 
 #### Metadata and YAML
 
-Articles in Braze documentation require certain metadata for search and index purposes. For information on what metadata is required, refer to the GitHub page on [YAML and Metadata Layouts](https://github.com/braze-inc/braze-docs/wiki/YAML-%26-Metadata-Layouts).
+Articles in Braze documentation require YAML front matter for navigation, search, and page behavior. For required and optional keys, see [Metadata](../yaml_front_matter/metadata.md).
+
+When you add a new public article in `user_guide`, `developer_guide`, `api`, `partners`, or `help`, include [`date_published`](../yaml_front_matter/metadata.md#date-published) with today's UTC date (`YYYY-MM-DD`), or the UTC date you expect this pull request to merge. The value must not be in the past. Confirm the date is still accurate before you merge. Do not change this field on an existing public article. If the page is `hidden: true` at first, add `date_published` when you remove `hidden`, unless a date is already present—then keep it. CI enforces these rules.
 
 #### Naming conventions
 
