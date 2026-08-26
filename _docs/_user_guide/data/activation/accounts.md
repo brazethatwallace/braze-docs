@@ -147,9 +147,7 @@ To iterate over all matched accounts:
 
 You can use the REST API to manage account records during Early Access.
 
-{% alert note %}
-Endpoint details for Accounts are provided during Early Access onboarding. If you need access or onboarding details, contact your Braze account team.
-{% endalert %}
+For endpoint details, refer to [Custom Objects endpoints]({{site.baseurl}}/api/endpoints/custom_objects).
 
 For authentication and REST endpoint basics, refer to [Braze API overview]({{site.baseurl}}/api/basics).
 
