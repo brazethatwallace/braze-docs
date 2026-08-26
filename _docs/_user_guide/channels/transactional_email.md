@@ -15,7 +15,7 @@ description: "Send transactional emails for critical, time-sensitive notificatio
 
 ## Prerequisites
 
-Transactional email is only available as part of select Braze packages. Contact your Braze customer success manager or open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support/) for more details.
+Transactional email is only available as part of select Braze packages. Contact your Braze customer success manager or open a [support ticket]({{site.baseurl}}/braze_support) for more details.
 
 Before you start, make sure you have the following:
 

@@ -148,7 +148,7 @@ For action-based delivery, there is an expected short delay before the Content C
 
 #### Scheduled delivery
 
-For Content Card campaigns with scheduled delivery, you can choose when Braze evaluates audience eligibility and personalization for new Content Card campaigns by specifying when the card is created. For more, see [card creation]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/).
+For Content Card campaigns with scheduled delivery, you can choose when Braze evaluates audience eligibility and personalization for new Content Card campaigns by specifying when the card is created. For more, see [card creation]({{site.baseurl}}/card_creation).
 
 #### Choose users to target
 

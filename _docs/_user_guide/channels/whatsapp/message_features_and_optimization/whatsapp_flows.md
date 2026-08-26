@@ -195,4 +195,4 @@ To use the Flow response through Liquid with [supported personalization tags]({{
 
 ![WhatsApp message composer with an "Add Personalization" component to insert a WhatsApp properties personalization with the custom attribute inbound_flow_response.]({% image_buster /assets/img/whatsapp/flows/inbound_flow_response.png %}){: style="max-width:80%;"}
 
-For any questions or further assistance, contact [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+For any questions or further assistance, contact [Support]({{site.baseurl}}/braze_support).

@@ -157,7 +157,7 @@ Running Inbox Vision every time you make a single edit or change can quickly con
 
 Braze runs tests through actual email clients and works to ensure renderings are accurate. Braze defaults to the top 20 previews based on general industry and expert data, which covers the majority of where your users are engaging with your emails. If your data analysis points to other, more popular previews, you can define a default set of previews every time you run Inbox Vision. 
 
-If you consistently see an issue with a client, open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+If you consistently see an issue with a client, open a [support ticket]({{site.baseurl}}/braze_support).
 
 ### Test accuracy versus live inboxes
 

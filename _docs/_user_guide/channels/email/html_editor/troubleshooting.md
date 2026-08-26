@@ -34,7 +34,7 @@ Use this workflow when HTML email rendering or editor behavior doesn't match wha
 2. Send a [test email]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) and note which email clients or browsers show the issue.
 3. Preview with [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) to compare rendering across clients.
 4. Rule out [browser extension conflicts](#extension-conflicts) if the editor itself misbehaves.
-5. If the issue persists, open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support/) with screenshots from Inbox Vision and the affected clients.
+5. If the issue persists, open a [support ticket]({{site.baseurl}}/braze_support) with screenshots from Inbox Vision and the affected clients.
 
 ## HTML renders incorrectly in test emails {#html-renders-incorrectly-in-test-emails}
 
