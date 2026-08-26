@@ -58,12 +58,10 @@ You can edit brand guidelines by selecting them on the **Brand Guidelines** page
 
 ## Using brand guidelines
 
-In the Operator chat panel, select <i class="fa-regular fa-plus"></i>&nbsp;**Add context for Operator**, then choose one or more guidelines under **Brand guidelines**. Operator applies the guidelines you select to generated copy, templates, and images. Nothing is selected by default, including the workspace default.
-
-When you configure an agent, select brand guidelines under [Add context]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources) so the agent follows that voice and style. Agent Console selects the workspace default for you.
-
-For more information, see [Apply brand guidelines]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines) and [Generate copy]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy).
+In the Operator chat panel, select <i class="fa-regular fa-plus"></i>&nbsp;**Add context for Operator**, then choose one or more guidelines under **Brand guidelines**. Operator applies the guidelines you select to generated copy, templates, and images. By default, nothing is selected. For more information, see [Apply brand guidelines]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines)
 
 ![Selecting brand guidelines in the Operator chat panel.]({% image_buster /assets/img/operator/operator_brand_guidelines.png %})
+
+When you configure an agent, select brand guidelines under [Add context]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources) so the agent follows that voice and style. Agent Console selects the workspace default for you.
 
 {% multi_lang_include brazeai/generative_ai/policy.md %}
