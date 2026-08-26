@@ -20,7 +20,7 @@ Speicherschemata gelten für die Flat-File-Event-Daten, die wir an Data-Warehous
 Diese Events sind auch als SQL-Tabellen im [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und in der [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verfügbar. Informationen zu SQL-Tabellenschemata und Spaltendetails finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Wenden Sie sich an Ihre Braze-Vertretung oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen. Wenn Sie auf dieser Seite nicht finden, was Sie suchen, sehen Sie sich unsere [Bibliothek der Message-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) oder unsere [Beispieldaten von Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data) an.
+Wenden Sie sich an Ihre Braze-Vertretung oder öffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen. Wenn Sie auf dieser Seite nicht finden, was Sie suchen, sehen Sie sich unsere [Bibliothek der Message-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) oder unsere [Beispieldaten von Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data) an.
 
 {% enddetails %}
 
@@ -70,7 +70,7 @@ Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Nutz
 Random Bucket Number
 {% endapitags %}
 
-Dieses Nutzer-Event wird jedes Mal ausgelöst, wenn ein:e neue:r Nutzer:in in seinem/ihrem Workspace erstellt wird. Dabei wird jedem/jeder neuen Nutzer:in eine zufällige Bucket-Nummer zugewiesen, mit der Sie dann gleichmäßig verteilte Segmente aus zufälligen Nutzer:innen erstellen können. Verwenden Sie diese Funktion, um eine Reihe zufälliger Bucket-Nummern zu gruppieren und die Performance Ihrer Campaigns und Kampagnenvarianten zu vergleichen.
+Dieses Nutzer-Event wird jedes Mal ausgelöst, wenn ein:e neue:r Nutzer:in innerhalb des Workspace erstellt wird. Dabei wird jedem/jeder neuen Nutzer:in eine zufällige Bucket-Nummer zugewiesen, mit der Sie dann gleichmäßig verteilte Segmente aus zufälligen Nutzer:innen erstellen können. Verwenden Sie diese Funktion, um eine Reihe zufälliger Bucket-Nummern zu gruppieren und die Performance Ihrer Campaigns und Kampagnenvarianten zu vergleichen.
 
 {% alert important %}
 Dieses Currents-Event ist nur für Kund:innen verfügbar, die einen „All Events Connector“ erworben haben, und steht nur für Storage-Event-Konnektoren (wie Amazon S3, Microsoft Azure und Google Cloud Storage) zur Verfügung.
@@ -1608,7 +1608,7 @@ Ein „update“-Event wird erfasst, wenn sich eine Eigenschaft eines bestehende
 Braze löst außerdem ein „update“-Event mit `push_token_state_change_type` auf `"update"` aus, wenn ein:e anonyme:r Nutzer:in auf demselben Profil identifiziert wird und bestehende Push-Tokens auf diesem Profil verbleiben. In diesem Fall ändert sich die `user_id` nicht, und `external_user_id` wird auf die externe ID des/der identifizierten Nutzer:in gesetzt. Dies umfasst die Identifizierung über den [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)-Endpunkt und SDK-`changeUser`, wenn dem anonymen Profil auf dem Gerät eine externe ID zugewiesen wird.
 
 {% alert note %}
-In den meisten Fällen führt eine Neuinstallation der App oder eine Backup-Wiederherstellung zu einem neuen „add“-Event mit einem neuen `push_token` und einer neuen `device_id` (da das SDK eine neue `device_id` generiert und das Betriebssystem einen neuen Push-Token-String bereitstellt). Dadurch werden zwei separate Token- und Geräteeinträge im Nutzerprofil erstellt, wobei der ältere Eintrag später durch Uninstall-Tracking oder Kampagnenversand bereinigt wird.<br><br>
+In den meisten Fällen führt eine Neuinstallation der App oder eine Backup-Wiederherstellung zu einem neuen „add“-Event mit einem neuen `push_token` und einer neuen `device_id` (da das SDK eine neue `device_id` generiert und das Betriebssystem einen neuen Push-Token-String bereitstellt). Dadurch werden zwei separate Token- und Geräteeinträge im Nutzerprofil erstellt, wobei der ältere Eintrag später durch Uninstall-Tracking oder Campaign-Versand bereinigt wird.<br><br>
 
 Es wäre äußerst ungewöhnlich, wenn sich nur die `device_id` ändern würde, ohne dass sich das `push_token` ändert (dies würde erfordern, dass das Betriebssystem nach der Neuinstallation denselben Token-String zurückgibt).
 {% endalert %}

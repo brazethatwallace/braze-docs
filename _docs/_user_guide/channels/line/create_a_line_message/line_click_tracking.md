@@ -32,7 +32,7 @@ To set up click tracking for a text message:
 
 1. Drag a **Text** message into the composer and add a URL to the text field.
 
-![LINE message composer with a Text message containing a long URL: {{site.baseurl}}/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
+![LINE message composer with a Text message containing a long URL before shortening.]({% image_buster /assets/img/line/click_tracking_text_message.png %})
 
 {: start="2"}
 2. Go to the **Settings** tab and confirm **Click Tracking** is turned on. Click tracking is turned on by default for all new messages.
@@ -79,7 +79,7 @@ LINE click tracking allows you to use your own domain to personalize the look an
 ## Liquid personalization in URLs
 
 You can dynamically construct your URL directly within the Braze composer, allowing you to add dynamic UTM parameters to your URLs or send users unique links (such as directing users to their abandoned cart or to a specific product that is back in stock).
-URLs can be dynamically generated through the use of any supported Liquid personalization tags.
+You can dynamically generate URLs using any supported Liquid personalization tags.
 
 {% raw %}
 ```

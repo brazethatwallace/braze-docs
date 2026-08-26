@@ -1,6 +1,7 @@
 ---
 nav_title: "POST: 사용자의 배너 조회"
 article_title: "POST: 사용자의 배너 조회"
+permalink: /api/device_messaging_api/endpoints/banners/post_sync_banners
 search_tag: Endpoint
 page_order: 0
 layout: api_page
@@ -16,7 +17,7 @@ hidden: true
 {% endapimethod %}
 
 {% alert important %}
-이 페이지는 베타 버전입니다. 메시징 API의 기능과 설명서는 변경될 수 있습니다.
+이 페이지는 베타 버전입니다. Device Messaging API의 기능과 설명서는 변경될 수 있습니다.
 {% endalert %}
 
 > 이 엔드포인트를 사용하여 사용자에 대해 요청된 각 배치에 적합한 배너를 조회합니다.
@@ -28,7 +29,7 @@ hidden: true
 이 엔드포인트를 사용하려면 다음이 필요합니다.
 
 - 배너가 활성화된 워크스페이스
-- `banners.sync` 권한이 있는 [클라이언트 측 REST API 키]({{site.baseurl}}/api/messaging_api/authentication)
+- `banners.sync` 권한이 있는 [클라이언트 측 REST API 키]({{site.baseurl}}/api/device_messaging_api/authentication)
 - Braze 인스턴스의 [REST 엔드포인트]({{site.baseurl}}/api/basics#endpoints)
 
 클라이언트 측 REST API 키를 `Authorization` 헤더에 베어러 토큰으로 포함하세요.
@@ -37,7 +38,7 @@ hidden: true
 
 사용량 제한은 워크스페이스별로 적용됩니다. 사용량 제한을 초과하면 Braze는 `429` 상태 코드를 반환합니다. 가능한 경우 `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset` 응답 헤더를 사용하여 사용량을 모니터링하세요.
 
-자세한 내용은 [메시징 API 사용량 제한]({{site.baseurl}}/api/messaging_api/rate_limits)을 참조하세요.
+자세한 내용은 [Device Messaging API 사용량 제한]({{site.baseurl}}/api/device_messaging_api/rate_limits)을 참조하세요.
 
 ## 요청 본문 {#request-body}
 
@@ -137,6 +138,6 @@ curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/
 | `429` | 워크스페이스가 사용량 제한을 초과했습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="상태 코드" }
 
-자세한 내용은 [메시징 API 오류 처리 및 재시도]({{site.baseurl}}/api/messaging_api/error_handling)를 참조하세요.
+자세한 내용은 [Device Messaging API 오류 처리 및 재시도]({{site.baseurl}}/api/device_messaging_api/error_handling)를 참조하세요.
 
 {% endapi %}

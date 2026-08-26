@@ -1,7 +1,8 @@
 ---
 page_order: 2.2
 nav_title: 콘텐츠 카드
-article_title: Braze SDK의 콘텐츠 카드
+article_title: 콘텐츠 카드
+description: "데이터 모델, 카드 유형, 모바일 및 웹 앱을 위한 커스터마이징 옵션을 포함하여 Braze SDK로 Content Cards를 구현하는 방법을 알아보세요."
 channel:
   - content cards
 platform:
@@ -43,18 +44,18 @@ Content Cards 데이터 모델은 Android SDK에서 사용할 수 있으며 다�
 
 | 속성정보 | 설명 |
 |---|---|
-| `getId()` | Braze에서 설정한 카드 ID를 반환합니다. |
-| `getViewed()` | 사용자가 카드를 읽었는지 읽지 않았는지를 나타내는 불리언을 반환합니다. |
-| `getExtras()` | 이 카드의 키-값 추가 항목 맵을 반환합니다. |
-| `getCreated()` | Braze에서 카드가 생성된 시간의 unix 타임스탬프를 반환합니다. |
-| `isPinned` | 카드가 고정되어 있는지를 나타내는 불리언을 반환합니다. |
-| `getOpenUriInWebView()` | 이 카드의 URI를 Braze WebView에서 열어야 하는지 <br> 여부를 나타내는 불리언을 반환합니다. |
-| `getExpiredAt()` | 카드의 만료 날짜를 가져옵니다. |
-| `isRemoved()` | 최종사용자가 이 카드를 해제했는지를 나타내는 불리언을 반환합니다. |
-| `isDismissibleByUser()` | 사용자가 카드를 해제할 수 있는지를 나타내는 불리언을 반환합니다. |
-| `isClicked()` | 이 카드의 클릭 상태를 나타내는 불리언을 반환합니다. |
-| `isDismissed` | 카드가 해제되었는지를 나타내는 불리언을 반환합니다. 카드를 해제됨으로 표시하려면 `true`로 설정합니다. 이미 해제됨으로 표시된 카드는 다시 해제됨으로 표시할 수 없습니다. |
-| `isControl()` | 이 카드가 컨트롤 카드이며 렌더링되지 않아야 하는지를 나타내는 불리언을 반환합니다. |
+|`getId()` | Braze에서 설정한 카드 ID를 반환합니다.|
+|`getViewed()` | 사용자가 카드를 읽었는지 읽지 않았는지를 나타내는 불리언을 반환합니다.|
+|`getExtras()` | 이 카드의 키-값 추가 항목 맵을 반환합니다.|
+|`getCreated()` | Braze에서 카드가 생성된 시간의 unix 타임스탬프를 반환합니다.|
+|`isPinned` | 카드가 고정되어 있는지를 나타내는 불리언을 반환합니다.|
+|`getOpenUriInWebView()` | 이 카드의 URI를 Braze WebView에서 열어야 하는지 <br> 여부를 나타내는 불리언을 반환합니다.|
+|`getExpiredAt()` | 카드의 만료 날짜를 가져옵니다.|
+|`isRemoved()` | 최종사용자가 이 카드를 해제했는지를 나타내는 불리언을 반환합니다.|
+|`isDismissibleByUser()` | 사용자가 카드를 해제할 수 있는지를 나타내는 불리언을 반환합니다.|
+|`isClicked()` | 이 카드의 클릭 상태를 나타내는 불리언을 반환합니다.|
+|`isDismissed` | 카드가 해제되었는지를 나타내는 불리언을 반환합니다. 카드를 해제됨으로 표시하려면 `true`로 설정합니다. 이미 해제됨으로 표시된 카드는 다시 해제됨으로 표시할 수 없습니다.|
+|`isControl()` | 이 카드가 컨트롤 카드이며 렌더링되지 않아야 하는지를 나타내는 불리언을 반환합니다.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="기본 카드 모델 #base-card-for-android" }
 
 ### 이미지 전용 {#banner-image-card-for-android}
@@ -63,9 +64,9 @@ Content Cards 데이터 모델은 Android SDK에서 사용할 수 있으며 다�
 
 | 속성정보 | 설명 |
 |---|---|
-| `getImageUrl()` | 카드 이미지의 URL을 반환합니다. |
-| `getUrl()` | 카드를 클릭한 후 열리는 URL을 반환합니다. HTTP(s) URL 또는 프로토콜 URL일 수 있습니다. |
-| `getDomain()` | 속성정보 URL의 링크 텍스트를 반환합니다. |
+|`getImageUrl()` | 카드 이미지의 URL을 반환합니다.|
+|`getUrl()` | 카드를 클릭한 후 열리는 URL을 반환합니다. HTTP(s) URL 또는 프로토콜 URL일 수 있습니다.|
+|`getDomain()` | 속성정보 URL의 링크 텍스트를 반환합니다.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="이미지 전용 #banner-image-card-for-android" }
 
 ### 캡션 이미지 {#captioned-image-card-for-android}
@@ -74,11 +75,11 @@ Content Cards 데이터 모델은 Android SDK에서 사용할 수 있으며 다�
 
 | 속성정보 | 설명 |
 |---|---|
-| `getImageUrl()` | 카드 이미지의 URL을 반환합니다. |
-| `getTitle()` | 카드의 제목 텍스트를 반환합니다. |
-| `getDescription()` | 카드의 본문 텍스트를 반환합니다. |
-| `getUrl()` | 카드를 클릭한 후 열리는 URL을 반환합니다. HTTP(s) URL 또는 프로토콜 URL일 수 있습니다. |
-| `getDomain()` | 속성정보 URL의 링크 텍스트를 반환합니다. |
+|`getImageUrl()` | 카드 이미지의 URL을 반환합니다.|
+|`getTitle()` | 카드의 제목 텍스트를 반환합니다.|
+|`getDescription()` | 카드의 본문 텍스트를 반환합니다.|
+|`getUrl()` | 카드를 클릭한 후 열리는 URL을 반환합니다. HTTP(s) URL 또는 프로토콜 URL일 수 있습니다.|
+|`getDomain()` | 속성정보 URL의 링크 텍스트를 반환합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="캡션 이미지 #captioned-image-card-for-android" }
 
 ### 클래식 {#text-Announcement-card-for-android}
@@ -87,12 +88,12 @@ Content Cards 데이터 모델은 Android SDK에서 사용할 수 있으며 다�
 
 | 속성정보 | 설명 |
 |---|---|
-| `getTitle()` | 카드의 제목 텍스트를 반환합니다. |
-| `getDescription()` | 카드의 본문 텍스트를 반환합니다. |
-| `getUrl()` | 카드를 클릭한 후 열리는 URL을 반환합니다. HTTP(s) URL 또는 프로토콜 URL일 수 있습니다. |
-| `getDomain()` | 속성정보 URL의 링크 텍스트를 반환합니다. |
-| `getImageUrl()` | 카드 이미지의 URL을 반환합니다. 클래식 짧은 뉴스 카드에만 적용됩니다. |
-| `isDismissed` | 카드가 해제되었는지를 나타내는 불리언을 반환합니다. 카드를 해제됨으로 표시하려면 `true`로 설정합니다. 이미 해제됨으로 표시된 카드는 다시 해제됨으로 표시할 수 없습니다. |
+|`getTitle()` | 카드의 제목 텍스트를 반환합니다. |
+|`getDescription()` | 카드의 본문 텍스트를 반환합니다. |
+|`getUrl()` | 카드를 클릭한 후 열리는 URL을 반환합니다. HTTP(s) URL 또는 프로토콜 URL일 수 있습니다. |
+|`getDomain()` | 속성정보 URL의 링크 텍스트를 반환합니다. |
+|`getImageUrl()` | 카드 이미지의 URL을 반환합니다. 클래식 짧은 뉴스 카드에만 적용됩니다. |
+|`isDismissed` | 카드가 해제되었는지를 나타내는 불리언을 반환합니다. 카드를 해제됨으로 표시하려면 `true`로 설정합니다. 이미 해제됨으로 표시된 카드는 다시 해제됨으로 표시할 수 없습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="클래식 #text-Announcement-card-for-android" }
 
 ## 카드 메서드 {#card-methods}
@@ -101,8 +102,8 @@ Content Cards 데이터 모델은 Android SDK에서 사용할 수 있으며 다�
 
 | 메서드 | 설명 |
 |---|---|
-| `logImpression()` | 특정 카드에 대한 노출을 Braze에 수동으로 기록합니다. |
-| `logClick()` | 특정 카드에 대한 클릭을 Braze에 수동으로 기록합니다. |
+|`logImpression()` | 특정 카드에 대한 노출을 Braze에 수동으로 기록합니다. |
+|`logClick()` | 특정 카드에 대한 클릭을 Braze에 수동으로 기록합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="카드 메서드" }
 
 {% endsdktab %}

@@ -15,23 +15,23 @@ lazy_partner_tabs: true
 
 {% details Alcance del esquema y recursos relacionados %}
 
-Los esquemas de almacenamiento se aplican a los datos de eventos en archivos planos que enviamos a los partners de almacenamiento en almacenes de datos (Google Cloud Storage, Amazon S3 y Microsoft Azure Blob Storage). Para los esquemas que se aplican a los demás partners, consulta nuestra lista de [partners disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) y revisa sus páginas respectivas.
+Los esquemas de almacenamiento se aplican a los datos de eventos de archivo plano que enviamos a los partners de almacenamiento en almacenes de datos (Google Cloud Storage, Amazon S3 y Microsoft Azure Blob Storage). Para los esquemas que se aplican a los demás partners, consulta nuestra lista de [partners disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) y revisa sus páginas respectivas.
 
 {% alert tip %}
-Estos eventos también están disponibles como tablas SQL en el [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), las [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para los esquemas de tablas SQL y los detalles de las columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Estos eventos también están disponibles como tablas SQL en el [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para los esquemas de tablas SQL y detalles de columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Ponte en contacto con tu director de cuentas o abre un [ticket de soporte]({{site.baseurl}}/braze_support) si necesitas acceso a derechos de eventos adicionales. Si no encuentras lo que necesitas en este artículo, consulta nuestra [biblioteca de eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) o nuestros [ejemplos de datos de muestra de Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Contacta a tu director de cuentas o abre un [ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) si necesitas acceso a derechos de eventos adicionales. Si no encuentras lo que necesitas en este artículo, consulta nuestra [biblioteca de eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) o nuestros [ejemplos de datos de muestra de Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
-{% details Explicación de la estructura de los eventos de interacción con mensajes y los valores de plataforma %}
+{% details Explicación de la estructura de los eventos de interacción con mensajes y valores de plataforma %}
 
 ## Estructura del evento {#event-structure}
 
-Este desglose de eventos muestra qué tipo de información se incluye generalmente en un evento de interacción con mensajes. Con una comprensión sólida de sus componentes, tus desarrolladores y tu equipo de estrategia de inteligencia empresarial pueden utilizar los datos de eventos entrantes de Currents para crear informes y gráficos basados en datos, y aprovechar otras métricas de datos valiosas.
+Este desglose de eventos muestra qué tipo de información se incluye generalmente en un evento de interacción con mensajes. Con una comprensión sólida de sus componentes, tus desarrolladores y el equipo de estrategia de inteligencia empresarial pueden utilizar los datos de eventos de Currents entrantes para crear informes y gráficos basados en datos, y aprovechar otras métricas de datos valiosas.
 
-![Desglose de un evento de interacción con mensajes que muestra un evento de cancelación de suscripción de correo electrónico con las propiedades enumeradas agrupadas por propiedades específicas del usuario, propiedades de seguimiento de Campaign o Canvas, y propiedades específicas del evento]({% image_buster /assets/img/message_engagement_event.png %})
+![Desglose de un evento de interacción con mensajes que muestra un evento de cancelación de suscripción de correo electrónico con las propiedades enumeradas agrupadas por propiedades específicas del usuario, propiedades de seguimiento de Campaign o Canvas y propiedades específicas del evento]({% image_buster /assets/img/message_engagement_event.png %})
 
 Los eventos de interacción con mensajes se componen de propiedades **específicas del usuario**, propiedades de **seguimiento de Campaign/Canvas** y propiedades **específicas del evento**.
 
@@ -66,8 +66,8 @@ Ciertos eventos devuelven un valor `platform` que especifica la plataforma del d
 {% details Consideraciones para los eventos de interacción con mensajes %}
 
 - Currents descarta los eventos con cargas útiles superiores a 900&nbsp;KB.
-- Los objetos relacionados con Canvas Flow tienen ID que puedes usar para agrupar y traducir a nombres legibles a través del [endpoint Exportar detalles de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
-- Es posible que ciertos campos no muestren su estado más reciente inmediatamente después de actualizar una Campaign o un Canvas:
+- Los objetos relacionados con Canvas Flow tienen ID que puedes utilizar para agrupar y traducir a nombres legibles mediante el [endpoint Exportar detalles del Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
+- Es posible que ciertos campos no muestren su estado más reciente inmediatamente después de actualizar un Campaign o Canvas:
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -75,7 +75,7 @@ Ciertos eventos devuelven un valor `platform` que especifica la plataforma del d
   - `canvas_variation_name`
   - `experiment_split_name`
   - `message_variation_name`
-- Si necesitas una consistencia completa para estos campos, espera una hora después de la última actualización antes de enviar mensajes a tus usuarios.
+- Si necesitas consistencia completa para estos campos, espera una hora después de la última actualización antes de enviar mensajes a tus usuarios.
 
 {% enddetails %}
 
@@ -343,7 +343,7 @@ Actualizaciones del almacén de componentes
 Uninstall
 {% endapitags %}
 
-Este evento se produce cuando un usuario desinstala una aplicación. Utiliza estos datos para saber cuándo los usuarios desinstalan una aplicación. Aunque actualmente se trata de un evento de interacción con mensajes, en el futuro se cambiará a un evento de comportamiento del usuario.
+Este evento se produce cuando un usuario desinstala una aplicación. Utiliza estos datos para rastrear cuándo los usuarios desinstalan una aplicación. Aunque actualmente se trata de un evento de interacción con mensajes, en el futuro se cambiará a un evento de comportamiento del usuario.
 
 {% alert important %}
 Este evento no se dispara cuando el usuario realmente desinstala la aplicación, ya que eso es imposible de rastrear con exactitud. Braze envía un push silencioso diario para determinar si la aplicación sigue existiendo en el dispositivo de tu usuario, y si obtenemos un error en ese push silencioso, se asume que la aplicación ha sido desinstalada.
@@ -730,7 +730,7 @@ Este evento se produce cuando Braze recibe una solicitud para actualizar el esta
 | Fuente | Descripción |
 | --- | --- |
 | SDK | Endpoints del SDK |
-| Dashboard | Cuando se actualiza el estado de suscripción de un usuario desde la página **Perfil de usuario** del panel |
+| Dashboard | Cuando se actualiza el estado de suscripción de un usuario desde la página **Perfil de usuario** en el panel |
 | Subscription Page | Cuando un usuario cancela la suscripción a través de un enlace de correo electrónico que no es el centro de preferencias |
 | REST API | Endpoints de la REST API |
 | CSV import | Importación de usuarios en CSV |
@@ -741,7 +741,7 @@ Este evento se produce cuando Braze recibe una solicitud para actualizar el esta
 | Canvas User Update Step | Cuando se actualiza un usuario mediante el paso de actualización de usuario en Canvas |
 | Push Token Registration | Cuando un usuario se actualiza mediante el proceso de registro de tokens |
 | List-Unsubscribe | Cuando un usuario cancela la suscripción a través del mailto de Braze o del encabezado de cancelar suscripción con un solo clic |
-| Other | Incluye cualquier otra fuente, como trabajos de sincronización de demostración o de proveedores, o devoluciones de llamada de eventos SMS y WhatsApp |
+| Other | Incluye cualquier otra fuente, como trabajos de sincronización de demostración o de proveedores, o devoluciones de llamada de eventos de SMS y WhatsApp |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Detalles de la propiedad" }
 
 
@@ -4483,7 +4483,7 @@ Este evento se produce si un mensaje de Content Cards fue cancelado debido a can
 
 ### Detalles de la propiedad
 
-- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como enviar, rebotar y abrir).
+- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 - El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 Content Card messages every 1 week`
@@ -4762,7 +4762,7 @@ Este evento se produce cuando un usuario hace clic en una Content Card.
 
 ### Detalles de la propiedad
 
-- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
+- Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Obtén más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Si utilizas Kafka para la ingesta de datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente para habilitar el envío de `ad_id`.
 
 {% endapi %}
@@ -5798,6 +5798,7 @@ Este evento se produce si un mensaje de correo electrónico fue cancelado debido
 - El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 email messages every 1 week`
+- `message_extras` solo se rellena cuando se produce una cancelación después de que la etiqueta {% raw %}`{% message_extras %}`{% endraw %} se ejecuta durante el renderizado.
 
 {% endapi %}
 
@@ -10285,6 +10286,7 @@ Este evento se produce cuando un mensaje programado de LINE no se puede entregar
 - El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 LINE messages every 1 week`
+- `message_extras` solo se rellena cuando se produce una cancelación después de que la etiqueta {% raw %}`{% message_extras %}`{% endraw %} se ejecuta durante el renderizado.
 
 {% endapi %}
 
@@ -11840,6 +11842,7 @@ Este evento se produce si se canceló un mensaje de notificación push debido a 
 - El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 push messages every 1 week`
+- `message_extras` solo se rellena cuando se produce una cancelación después de que la etiqueta {% raw %}`{% message_extras %}`{% endraw %} se ejecute durante el renderizado.
 
 {% endapi %}
 
@@ -12600,7 +12603,7 @@ En casos excepcionales, puede aparecer una apertura push antes del evento de env
 Push, Retry
 {% endapitags %}
 
-Este evento se produce cuando un mensaje pierde prioridad o sufre limitación de frecuencia, y se volverá a intentar más tarde dentro del intervalo de reintento configurado. Esta función solo está disponible para los clientes de la versión beta de priorización de mensajes.
+Este evento se produce cuando un mensaje pierde prioridad o sufre limitación de frecuencia, y se reintentará más tarde dentro del intervalo de reintento configurado. Esta función solo está disponible para los clientes de la versión beta de priorización de mensajes.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -12844,7 +12847,7 @@ Este evento se produce cuando un mensaje pierde prioridad o sufre limitación de
 Push, Sends
 {% endapitags %}
 
-Este evento se produce cuando Braze procesa un mensaje push para un usuario, comunicándolo al servicio de notificaciones push de Apple o a Fire Cloud Messaging. Esto no significa que el push haya llegado al dispositivo, solo que se ha enviado un mensaje.
+Este evento se produce cuando Braze procesa un mensaje push para un usuario, comunicándolo al servicio de notificaciones push de Apple o a Fire Cloud Messaging. Esto no significa que la notificación push se haya entregado al dispositivo, solo que se ha enviado un mensaje.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -15000,6 +15003,7 @@ Este evento se produce si un mensaje SMS se canceló debido a cancelaciones de L
 - El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 SMS messages every 1 week`
+- `message_extras` solo se llena cuando se produce una cancelación después de que la etiqueta {% raw %}`{% message_extras %}`{% endraw %} se ejecuta durante el renderizado.
 
 {% endapi %}
 
@@ -17593,6 +17597,7 @@ Este evento se produce si un mensaje webhook se canceló debido a cancelaciones 
 - El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 webhook messages every 1 week`
+- `message_extras` se rellena únicamente cuando se produce una cancelación después de que la etiqueta {% raw %}`{% message_extras %}`{% endraw %} se ejecuta durante el renderizado.
 
 {% endapi %}
 
@@ -18573,6 +18578,7 @@ Este evento se produce si un mensaje de WhatsApp se canceló debido a cancelacio
 - El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 WhatsApp messages every 1 week`
+- `message_extras` se completa solo cuando se produce una cancelación después de que la etiqueta {% raw %}`{% message_extras %}`{% endraw %} se ejecuta durante el renderizado.
 
 {% endapi %}
 

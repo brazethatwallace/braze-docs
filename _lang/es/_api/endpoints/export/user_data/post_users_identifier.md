@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "En este artículo se describen los detalles del endpoint Exportar usuarios por identificador de Braze."
-
 ---
 {% api %}
 # Exportar perfil de usuario por identificador {#export-user-profile-by-identifier}
@@ -105,7 +104,7 @@ La siguiente es una lista de valores `fields_to_export` válidos. Utilizar `fiel
 | `created_at` | Cadena | Fecha y hora de creación del perfil de usuario, en formato ISO 8601. |
 | `custom_attributes` | Objeto | Pares clave-valor de atributos personalizados para este usuario. |
 | `custom_events` | Matriz | Eventos personalizados atribuidos a este usuario en los últimos 90 días. |
-| `devices` | Matriz | Información sobre el dispositivo del usuario, que podría incluir lo siguiente dependiendo de la plataforma:<br><br>- `model`: nombre del modelo del dispositivo<br>- `os`: sistema operativo del dispositivo<br>- `carrier`: operador de servicio del dispositivo, si está disponible<br>- `idfv`: (iOS) identificador del dispositivo Braze, el identificador de Apple para el proveedor, si existe<br>- `idfa`: (iOS) identificador de publicidad, si existe<br>- `device_id`: (Android) identificador de dispositivo Braze<br>- `google_ad_id`: (Android) identificador de publicidad de Google Play, si existe<br>- `roku_ad_id`: (Roku) identificador de publicidad de Roku<br>- `ad_tracking_enabled`: si el seguimiento de anuncios está habilitado en el dispositivo, puede ser verdadero o falso |
+| `devices` | Matriz | Información sobre el dispositivo del usuario, que podría incluir lo siguiente dependiendo de la plataforma:<br><br>- `model`: nombre del modelo del dispositivo<br>- `os`: sistema operativo del dispositivo<br>- `carrier`: operador de servicio del dispositivo, si está disponible<br>- `idfv`: (iOS) identificador de dispositivo Braze, el identificador de Apple para el proveedor, si existe<br>- `idfa`: (iOS) identificador de publicidad, si existe<br>- `device_id`: (Android) identificador de dispositivo Braze<br>- `google_ad_id`: (Android) identificador de publicidad de Google Play, si existe<br>- `roku_ad_id`: (Roku) identificador de publicidad de Roku<br>- `ad_tracking_enabled`: si el seguimiento de anuncios está habilitado en el dispositivo, puede ser verdadero o falso |
 | `dob` | Cadena | Fecha de nacimiento del usuario en el formato `YYYY-MM-DD`. |
 | `email` | Cadena | Dirección de correo electrónico del usuario. |
 | `external_id` | Cadena | Identificador único de usuario para usuarios identificados. |
@@ -118,7 +117,7 @@ La siguiente es una lista de valores `fields_to_export` válidos. Utilizar `fiel
 | `phone` | Cadena | Número de teléfono del usuario en formato E.164. |
 | `purchases` | Matriz | Compras que este usuario ha realizado en los últimos 90 días. |
 | `push_tokens` | Matriz | Identificador anónimo único que especifica dónde enviar las notificaciones de una aplicación. |
-| `random_bucket` | Entero | [Número de contenedor aleatorio]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event) del usuario, utilizado para crear segmentos uniformemente distribuidos de usuarios aleatorios. |
+| `random_bucket` | Entero | [Número de contenedor aleatorio]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) del usuario, utilizado para crear segmentos uniformemente distribuidos de usuarios aleatorios. |
 | `time_zone` | Cadena | Zona horaria del usuario en el mismo formato que la base de datos de zonas horarias de IANA. |
 | `total_revenue` | Flotante | Total de ingresos atribuidos a este usuario. Los ingresos totales se calculan en función de las compras que el usuario realizó durante las ventanas de conversión de las Campaigns y los Canvas que recibió. |
 | `uninstalled_at` | Marca de tiempo | Fecha y hora en que el usuario desinstala la aplicación. Se omite si no se ha desinstalado la aplicación. |

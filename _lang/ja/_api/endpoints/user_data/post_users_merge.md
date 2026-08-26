@@ -1,12 +1,11 @@
 ---
-nav_title: "POST:ユーザーをマージする"
-article_title: "POST:ユーザーをマージする"
+nav_title: "POST: ユーザーをマージする"
+article_title: "ユーザーをマージする"
 search_tag: Endpoint
 page_order: 6
 layout: api_page
 page_type: reference
 description: "この記事では、「ユーザーのマージ」Brazeエンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # ユーザーをマージする {#merge-users}
@@ -22,7 +21,7 @@ description: "この記事では、「ユーザーのマージ」Brazeエンド�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.merge` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
+このエンドポイントを使用するには、`users.merge` 権限を持つ[APIキー]({{site.baseurl}}/api/basics)が必要です。
 
 ## レート制限 {#rate-limit}
 

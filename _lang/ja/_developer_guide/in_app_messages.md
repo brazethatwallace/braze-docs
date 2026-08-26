@@ -1,18 +1,17 @@
 ---
 nav_title: アプリ内メッセージ
-article_title: Braze SDK用アプリ内メッセージ
-platform: 
+article_title: アプリ内メッセージ
+platform:
   - Android
   - FireOS
   - Swift
 page_order: 2.2
-description: "アプリ内メッセージとBraze SDKの設定方法について学習する。"
-
+description: "アプリ内メッセージと、Braze SDKでの設定方法について説明します。"
 ---
 
-# アプリ内メッセージ
+# アプリ内メッセージ {#in-app-messages}
 
-> アプリ内メッセージとBraze SDKの設定方法について学習する。
+> アプリ内メッセージと、Braze SDKでの設定方法について説明します。
 
 {% sdktabs %}
 {% sdktab web %}
@@ -60,10 +59,10 @@ description: "アプリ内メッセージとBraze SDKの設定方法について
 {% endsdktab %}
 {% endsdktabs %}
 
-## 次のステップ
+## 次のステップ {#next-steps}
 
-もっと深く潜る準備はできているか？これらのステップバイステップのチュートリアルを見てみろ：
+さらに詳しく知りたいですか？以下のステップバイステップのチュートリアルをご覧ください。
 
-- [トリガーメッセージを遅延させたり復元したり]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages)することで、メッセージ配信のタイミングを微調整する。  
-- [条件付き表示ルールを設定]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages)することで、メッセージのターゲティングを精緻化する。  
-- [キーと値のペアでメッセージのスタイルをカスタマイズし]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/customizing_message_styling)、ブランドの見た目に合わせるのだ。
+- [トリガーメッセージの遅延と復元]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages)で、メッセージ配信のタイミングを微調整できます。
+- [条件付き表示ルールの設定]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/conditionally_displaying_messages)で、メッセージのターゲティングを精緻化できます。
+- [キーと値のペアによるメッセージスタイリングのカスタマイズ]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/customizing_message_styling)で、ブランドの外観に合わせることができます。

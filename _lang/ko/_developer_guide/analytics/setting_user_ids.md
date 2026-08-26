@@ -1,50 +1,49 @@
 ---
 nav_title: 사용자 ID 설정
-article_title: Braze SDK를 통해 사용자 ID 설정
+article_title: 사용자 ID 설정
 page_order: 1.1
 description: "Braze SDK를 통해 사용자 ID를 설정하는 방법을 알아보세요."
-
 ---
 
 # 사용자 ID 설정 {#set-user-ids}
 
-> Braze SDK를 통해 사용자 ID를 설정하는 방법을 알아보세요. 이는 여러 기기와 플랫폼에서 사용자를 추적하고, [사용자 데이터 API]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data)를 통해 데이터를 가져오고, [메시징 API]({{site.baseurl}}/api/endpoints/messaging)를 통해 타겟팅된 메시지를 보낼 수 있는 고유 식별자입니다. 사용자에게 고유 ID를 할당하지 않으면 Braze에서 익명 ID를 대신 할당하지만, 할당할 때까지는 이러한 기능을 사용할 수 없습니다.
+> Braze SDK를 통해 사용자 ID를 설정하는 방법을 알아보세요. 이는 여러 기기와 플랫폼에서 사용자를 추적하고, [사용자 데이터 API]({{site.baseurl}}/api/endpoints/user_data)를 통해 데이터를 가져오고, [메시징 API]({{site.baseurl}}/api/endpoints/messaging)를 통해 타겟팅된 메시지를 보낼 수 있는 고유 식별자입니다. 사용자에게 고유 ID를 할당하지 않으면 Braze에서 익명 ID를 대신 할당하지만, 할당할 때까지는 이러한 기능을 사용할 수 없습니다.
 
 {% alert note %}
 목록에 없는 래퍼 SDK의 경우 관련 네이티브 Android 또는 Swift 메서드를 대신 사용하세요.
 {% endalert %}
 
-## 익명 사용자 정보 {#about-anonymous-users}
+## 익명 사용자에 대해 {#about-anonymous-users}
 
 {% multi_lang_include anonymous_users/about_anonymous_users.md %}
 
 ### 익명 사용자 추적 방지 {#preventing-anonymous-user-tracking}
 
-사용자가 식별되기 전에 데이터를 수집하지 않아야 하는 사용 사례의 경우, 사용자가 로그인하고 `external_id`를 사용할 수 있을 때까지 Braze SDK 초기화를 지연할 수 있습니다. 코드에서 사용자가 로그인하면 `true`로 전환되는 플래그를 설정하고, 해당 플래그가 설정된 경우에만 SDK를 초기화하세요.
+사용자가 식별되기 전에 데이터가 수집되지 않아야 하는 사용 사례의 경우, 사용자가 로그인하고 `external_id`를 사용할 수 있을 때까지 Braze SDK 초기화를 지연시킬 수 있습니다. 코드에 사용자가 로그인할 때 `true`로 전환되는 플래그를 설정하고, 해당 플래그가 설정된 경우에만 SDK를 초기화합니다.
 
 {% alert warning %}
-사용자가 앱을 **처음 다운로드할 때**(`external_id`가 설정되기 전)에만 초기화를 지연하세요. 사용자가 로그아웃하거나 새 세션을 시작할 때마다 SDK 초기화를 방지하면 인앱 메시지 및 콘텐츠 카드 에셋의 프리페칭에 간섭이 발생하여 해당 Campaign에 전달 가능성 오류가 발생할 수 있습니다.
+사용자가 앱을 **처음** 다운로드할 때(`external_id`가 설정되기 전)에만 초기화를 지연시키세요. 사용자가 로그아웃하거나 새 세션을 시작할 때마다 SDK 초기화를 막으면, 인앱 메시지 및 콘텐츠 카드 에셋의 프리페칭에 간섭이 발생하여 해당 Campaigns의 전달 가능성 오류가 발생할 수 있습니다.
 {% endalert %}
 
 ## 사용자 ID 설정 {#setting-a-user-id}
 
 사용자 ID를 설정하려면 사용자가 처음 로그인한 후 `changeUser()` 메서드를 호출합니다. ID는 고유해야 하며 [명명 모범 사례](#naming-best-practices)를 따라야 합니다.
 
-고유 식별자를 해싱하는 경우 해싱 함수의 입력을 정규화해야 합니다. 예를 들어 이메일 주소를 해시할 때는 앞뒤 공백을 모두 제거하고 현지화를 고려하세요.
+고유 식별자를 해싱하는 경우, 해싱 함수의 입력을 정규화해야 합니다. 예를 들어, 이메일 주소를 해싱할 때는 선행 및 후행 공백을 제거하고 현지화를 고려해야 합니다.
 
 {% tabs local %}
 {% tab WEB %}
-표준 웹 SDK 구현의 경우 다음 메서드를 사용할 수 있습니다:
+표준 웹 SDK 구현의 경우, 다음 메서드를 사용할 수 있습니다:
 
 ```javascript
 braze.changeUser(YOUR_USER_ID_STRING);
 ```
 
-대신 Google Tag Manager를 사용하려면 **Change User** 태그 유형을 사용하여 [`changeUser` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)를 호출할 수 있습니다. 사용자가 로그인하거나 고유한 `external_id` 식별자로 식별될 때마다 사용합니다.
+Google Tag Manager를 대신 사용하려면 **Change User** 태그 유형을 사용하여 [`changeUser` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)를 호출할 수 있습니다. 사용자가 로그인하거나 고유한 `external_id` 식별자로 식별될 때마다 사용합니다.
 
-일반적으로 웹사이트에서 전송한 데이터 레이어 변수를 사용하여 채워지는 **External User ID** 필드에 현재 사용자의 고유 ID를 입력해야 합니다.
+**External User ID** 필드에 현재 사용자의 고유 ID를 입력해야 하며, 이는 일반적으로 웹사이트에서 전송하는 데이터 레이어 변수를 통해 채워집니다.
 
-![Braze 액션 태그 구성 설정을 보여주는 대화 상자. 포함된 설정은 "tag type" 및 "external user ID"입니다.]({% image_buster /assets/img/web-gtm/gtm-change-user.png %})
+![Braze 액션 태그 구성 설정을 보여주는 대화 상자. 설정에는 '태그 유형'과 '외부 사용자 ID'가 포함됩니다.]({% image_buster /assets/img/web-gtm/gtm-change-user.png %})
 {% endtab %}
 
 {% tab ANDROID %}
@@ -77,7 +76,7 @@ AppDelegate.braze?.changeUser(userId: "YOUR_USER_ID")
 {% endsubtabs %}
 
 {% alert note %}
-`changeUser`는 사용자 전환을 대기줄에 넣고 호출 스레드에서 즉시 반환합니다. 이후 `braze.user`에서 호출된 모든 속성 설정자는 `changeUser`에 의해 시작된 작업 뒤에 자동으로 직렬화됩니다. `braze.user.id`를 읽으면 사용자 전환이 완전히 완료될 때까지 호출 스레드가 차단됩니다. 메인 스레드 또는 지연에 민감한 컨텍스트에서는 대신 비차단 대안을 사용하세요.
+`changeUser`는 사용자 전환을 대기줄에 넣고 호출 스레드에서 즉시 반환합니다. 이후 `braze.user`에서 호출된 모든 속성 setter는 `changeUser`에 의해 시작된 작업 뒤에 자동으로 직렬화됩니다. `braze.user.id`를 읽으면 사용자 전환이 완전히 완료될 때까지 호출 스레드가 차단됩니다. 메인 스레드 또는 지연에 민감한 컨텍스트에서는 대신 비차단 대안을 사용하세요.
 
 {% subtabs local %}
 {% subtab Swift %}
@@ -130,7 +129,7 @@ Braze.changeUser("YOUR_USER_ID_STRING");
 
 ### `changeUser()` 작동 방식 {#how-changeuser-works}
 
-`changeUser()`를 호출하면 다음과 같은 동작이 적용됩니다:
+`changeUser()`를 호출하면 다음 동작이 적용됩니다:
 
 - 이미 설정된 것과 **동일한** 사용자 ID로 `changeUser()`를 호출하면 세션 수에 영향을 미치지 않습니다.
 - **다른** 사용자 ID로 `changeUser()`를 호출하면 현재 세션이 자동으로 종료되고 새 세션이 시작됩니다.
@@ -138,11 +137,11 @@ Braze.changeUser("YOUR_USER_ID_STRING");
 - 익명 사용자가 **기존** 사용자 ID로 `changeUser()`를 호출하면 익명 프로필의 데이터가 식별된 프로필에 병합되지 않습니다.
 
 {% alert note %}
-`changeUser()`를 호출하면 현재 사용자의 세션을 종료하는 과정에서 데이터 플러시가 트리거됩니다. SDK는 새 사용자로 전환하기 전에 이전 사용자의 보류 중인 데이터를 자동으로 플러시하므로 `changeUser()`를 호출하기 전에 수동으로 데이터 플러시를 요청할 필요가 없습니다.
+`changeUser()`를 호출하면 현재 사용자의 세션 종료 과정의 일부로 데이터 플러시가 트리거됩니다. SDK는 새 사용자로 전환하기 전에 이전 사용자의 보류 중인 데이터를 자동으로 플러시하므로, `changeUser()`를 호출하기 전에 수동으로 데이터 플러시를 요청할 필요가 없습니다.
 {% endalert %}
 
 {% alert warning %}
-단일 공유 사용자 ID(예: 정적 기본값 외부 ID)를 할당하거나 사용자가 로그아웃할 때 `changeUser()`를 호출하지 마세요. 이렇게 하면 공유 기기에서 이전에 로그인한 사용자를 다시 참여시킬 수 없으며, 모든 데이터가 단일 사용자 ID에 기록되어 다른 기능이 예상대로 작동하지 않을 수 있습니다. 대신 모든 사용자 ID를 개별적으로 추적하고 앱의 로그아웃 프로세스에서 이전에 로그인한 사용자로 다시 전환할 수 있도록 하세요. 새 세션이 시작되면 Braze는 새로 활성화된 프로필의 데이터를 자동으로 새로고침합니다.
+단일 공유 사용자 ID(예: 정적 기본 외부 ID)를 할당하거나 사용자가 로그아웃할 때 `changeUser()`를 호출하지 마세요. 이렇게 하면 공유 기기에서 이전에 로그인한 사용자를 리인게이지먼트할 수 없게 되며, 모든 데이터가 단일 사용자 ID에 기록되어 다른 기능이 예상대로 작동하지 않을 수 있습니다. 대신 모든 사용자 ID를 별도로 추적하고, 앱의 로그아웃 프로세스에서 이전에 로그인한 사용자로 다시 전환할 수 있도록 해야 합니다. 새 세션이 시작되면 Braze가 새로 활성화된 프로필의 데이터를 자동으로 새로고침합니다.
 {% endalert %}
 
 ## 사용자 별칭 {#user-aliases}
@@ -153,7 +152,7 @@ Braze.changeUser("YOUR_USER_ID_STRING");
 
 ### 사용자 별칭 설정 {#setting-a-user-alias}
 
-사용자 별칭은 이름과 레이블의 두 부분으로 구성됩니다. 이름은 식별자 자체를 가리키고, 레이블은 식별자가 속한 유형을 가리킵니다. 예를 들어 타사 고객지원 플랫폼에 외부 ID `987654`를 가진 사용자가 있는 경우, Braze에서 이름 `987654`와 레이블 `support_id`로 별칭을 할당하면 여러 플랫폼에서 해당 사용자를 추적할 수 있습니다.
+사용자 별칭은 이름과 레이블의 두 부분으로 구성됩니다. 이름은 식별자 자체를 나타내고, 레이블은 식별자가 속하는 유형을 나타냅니다. 예를 들어, 외부 ID가 `987654`인 사용자가 서드파티 고객 지원 플랫폼에 있는 경우, Braze에서 이름이 `987654`이고 레이블이 `support_id`인 별칭을 할당하여 여러 플랫폼에서 해당 사용자를 추적할 수 있습니다.
 
 {% tabs local %}
 {% tab web %}

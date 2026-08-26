@@ -15,7 +15,7 @@ description: "이 문서에서는 사용자 식별 Braze 엔드포인트에 대�
 /users/identify
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 제공된 외부 ID를 사용하여 미식별(별칭 전용, 이메일 전용 또는 전화번호 전용) 사용자를 식별할 수 있습니다.
+> 이 엔드포인트를 사용하여 제공된 외부 ID를 통해 미식별(별칭 전용, 이메일 전용 또는 전화번호 전용) 사용자를 식별할 수 있습니다.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5f74e0f7-0620-4c7b-b0a2-f5f38fdbff58 {% endapiref %}
 
@@ -29,15 +29,15 @@ description: "이 문서에서는 사용자 식별 Braze 엔드포인트에 대�
 - `emails_to_identify`
 - `phone_numbers_to_identify`
 
-해당 `external_id`를 가진 사용자가 없으면, `external_id`가 별칭 사용자의 기록에 추가되고 사용자는 식별된 것으로 간주됩니다. 사용자는 특정 레이블에 대해 하나의 별칭만 가질 수 있습니다. 사용자가 이미 `external_id`와 함께 존재하고 별칭 전용 프로필과 동일한 레이블로 기존 별칭이 있는 경우, 고객 프로필은 결합되지 않습니다.
+해당 `external_id`를 가진 사용자가 없으면, `external_id`가 별칭 사용자의 기록에 추가되고 사용자는 식별된 것으로 간주됩니다. 사용자는 특정 레이블에 대해 하나의 별칭만 가질 수 있습니다. 사용자가 이미 `external_id`와 함께 존재하고 별칭 전용 프로필과 동일한 레이블의 기존 별칭이 있는 경우, 고객 프로필은 결합되지 않습니다.
 
 {% alert tip %}
-사용자 식별 시 예기치 않은 데이터 손실을 방지하려면 먼저 [데이터 수집 모범 사례]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices#capturing-user-data-when-alias-only-user-info-is-already-present)를 참조하여 별칭 전용 사용자 정보가 이미 존재하는 경우 사용자 데이터를 캡처하는 방법에 대해 알아보는 것이 좋습니다.
+사용자 식별 시 예기치 않은 데이터 손실을 방지하려면 먼저 [데이터 수집 모범 사례]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices)를 참조하여 별칭 전용 사용자 정보가 이미 존재하는 경우 사용자 데이터를 캡처하는 방법에 대해 알아보는 것이 좋습니다.
 {% endalert %}
 
 ### 병합 동작 {#merging-behavior}
 
-기본적으로, 이 엔드포인트는 익명 사용자에게서 **독점적으로** 발견된 다음 필드 목록을 식별된 사용자로 병합합니다.
+기본적으로 이 엔드포인트는 익명 사용자에게서 **독점적으로** 발견된 다음 필드 목록을 식별된 사용자로 병합합니다.
 
 {% details 병합되는 필드 목록 %}
 - 이름
@@ -72,12 +72,12 @@ description: "이 문서에서는 사용자 식별 Braze 엔드포인트에 대�
 - 커스텀 이벤트 및 구매 이벤트 수와 첫 번째 날짜 및 마지막 날짜 타임스탬프
   - 이 병합된 필드는 "Y일 동안 X 이벤트" 필터를 업데이트합니다. 구매 이벤트의 경우 이러한 필터에는 "Y일 내 구매 횟수" 및 "지난 Y일 동안 지출한 금액"이 포함됩니다.
 - 앱이 두 고객 프로필에 모두 존재하는 경우 세션 데이터
-  - 예를 들어, 타겟 사용자가 "ABCApp"에 대한 앱 요약이 없지만 원래 사용자가 있다면, 병합 후 타겟 사용자는 프로필에 "ABCApp" 앱 요약을 갖게 됩니다.
+  - 예를 들어, 타겟 사용자에게 "ABCApp"에 대한 앱 요약이 없지만 원래 사용자에게는 있다면, 병합 후 타겟 사용자의 프로필에 "ABCApp" 앱 요약이 추가됩니다.
 {% enddetails %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.identify` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.identify` 권한이 있는 [API 키]({{site.baseurl}}/api/basics)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -166,7 +166,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 `alias_name` 필드는 대소문자를 구분합니다. `201` 상태 코드를 반환하는 요청은 요청 구문이 유효했음을 확인할 뿐, 별칭이 일치했음을 확인하는 것은 아닙니다. 요청의 `alias_name` 대소문자가 고객 프로필에 저장된 별칭과 정확히 일치하지 않으면 작업이 자동으로 실패하고 `external_id`가 할당되지 않습니다. 예를 들어, 저장된 별칭이 `JimJones@example.com`인 경우 `jimjones@example.com`으로 요청하면 성공을 반환하지만 결과가 생성되지 않습니다.
 
 {% alert tip %}
-`alias_name` 및 `alias_label`에 대한 자세한 내용은 [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases) 설명서를 참조하세요.
+`alias_name` 및 `alias_label`에 대한 자세한 내용은 [사용자 별칭]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) 설명서를 참조하세요.
 {% endalert %}
 
 ### 식별 요청이 성공을 반환했는데 프로필이 병합되지 않은 이유는 무엇인가요? {#why-does-my-identify-request-return-success-but-the-profile-did-not-merge}

@@ -1,6 +1,7 @@
 ---
 nav_title: "POST: Rastrear eventos de análise de dados de Banners"
 article_title: "POST: Rastrear eventos de análise de dados de Banners"
+permalink: /api/device_messaging_api/endpoints/banners/post_track_banner_events
 search_tag: Endpoint
 page_order: 1
 layout: api_page
@@ -16,7 +17,7 @@ hidden: true
 {% endapimethod %}
 
 {% alert important %}
-Esta página está em beta. Os recursos e a documentação da API de envio de mensagens estão sujeitos a alterações.
+Esta página está em beta. Os recursos e a documentação da API de envio de mensagens do dispositivo estão sujeitos a alterações.
 {% endalert %}
 
 > Use este endpoint para registrar eventos de impressão e clique para Banners.
@@ -28,9 +29,9 @@ A Braze valida cada evento separadamente. Quando uma solicitação contém event
 Para usar este endpoint, você precisa do seguinte:
 
 - Um espaço de trabalho com Banners ativados
-- Uma [chave da API REST do lado do cliente]({{site.baseurl}}/api/messaging_api/authentication) com a permissão `banners.track`
+- Uma [chave da API REST do lado do cliente]({{site.baseurl}}/api/device_messaging_api/authentication) com a permissão `banners.track`
 - O [endpoint REST]({{site.baseurl}}/api/basics#endpoints) da sua instância da Braze
-- Um `id` de Banner retornado pelo [endpoint Recuperar Banners para um usuário]({{site.baseurl}}/api/messaging_api/endpoints/banners/post_sync_banners)
+- Um `id` de Banner retornado pelo [endpoint Recuperar Banners para um usuário]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)
 
 Inclua a chave da API REST do lado do cliente no cabeçalho `Authorization` como um token bearer.
 
@@ -38,7 +39,7 @@ Inclua a chave da API REST do lado do cliente no cabeçalho `Authorization` como
 
 Os limites de frequência se aplicam por espaço de trabalho. Se você exceder o limite de frequência, a Braze retornará um código de status `429`. Quando disponíveis, use os cabeçalhos de resposta `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset` e `X-RateLimit-Retry-After` para monitorar seu uso e determinar quando tentar novamente.
 
-Para saber mais, consulte [Limites de frequência da API de envio de mensagens]({{site.baseurl}}/api/messaging_api/rate_limits).
+Para saber mais, consulte [Limites de frequência da API de envio de mensagens do dispositivo]({{site.baseurl}}/api/device_messaging_api/rate_limits).
 
 ## Corpo da solicitação {#request-body}
 
@@ -65,7 +66,7 @@ Para saber mais, consulte [Limites de frequência da API de envio de mensagens](
 | `app_id` | Obrigatório | String | O [identificador de API do app]({{site.baseurl}}/api/identifier_types#app-identifier). Deve identificar um app no espaço de trabalho autenticado. | `26a39c72-e647-4766-b62e-4521fa2dae59` |
 | `app_version` | Obrigatório | String | A versão do app host. Não deve exceder 255 caracteres. | `1.0.0` |
 | `events` | Obrigatório | Array de objetos | Um ou mais eventos de análise de dados de Banner para registrar. | `[{"id":"bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E","event_type":"impression","timestamp":"2026-04-09T12:00:00Z"}]` |
-| `events[].id` | Obrigatório | String | O `id` do Banner retornado pelo endpoint Recuperar Banners para um usuário. Use o ID do Banner, não o `placement_id`, para que a Braze atribua o evento à Campaign e variante corretas. | `bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E` |
+| `events[].id` | Obrigatório | String | O `id` do Banner retornado pelo endpoint Recuperar Banners para um usuário. Use o ID do Banner, não o `placement_id`, para que a Braze atribua o evento à Campaign e à variante corretas. | `bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E` |
 | `events[].event_type` | Obrigatório | String | O tipo de evento. Os valores possíveis são `impression` e `click`. | `impression` |
 | `events[].timestamp` | Obrigatório | String | A data e hora em que o evento ocorreu, formatada como uma string [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). | `2026-04-09T12:00:00Z` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Parâmetros da solicitação" }
@@ -170,6 +171,6 @@ Se a Braze não conseguir processar nenhum evento, ela retornará um código de 
 | `429` | O espaço de trabalho excedeu seu limite de frequência. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Códigos de status" }
 
-Para saber mais, consulte [Tratamento de erros e novas tentativas da API de envio de mensagens]({{site.baseurl}}/api/messaging_api/error_handling).
+Para saber mais, consulte [Tratamento de erros e novas tentativas da API de envio de mensagens do dispositivo]({{site.baseurl}}/api/device_messaging_api/error_handling).
 
 {% endapi %}

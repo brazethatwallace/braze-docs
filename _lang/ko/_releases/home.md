@@ -1,11 +1,10 @@
 ---
 nav_title: 홈
 article_title: Braze의 새로운 기능
-description: "Braze 릴리스 노트는 매월 게시되어 주요 제품 릴리스, 지속적인 제품 개선, Braze 파트너십, SDK 주요 변경 사항 및 기능 지원 중단에 대한 최신 정보를 확인할 수 있습니다."
+description: "Braze 릴리스 노트는 매월 게시되어 주요 제품 릴리스, 지속적인 제품 개선, Braze 파트너십에 대한 최신 정보를 확인할 수 있습니다."
 page_order: 0
 search_rank: 1
 page_type: reference
-
 ---
 
 # Braze의 새로운 기능 {#whats-new-in-braze}
@@ -499,7 +498,7 @@ BrazeAI<sup>TM</sup> 배리언트 선택은 여러 푸시 배리언트를 추가
 
 #### Databricks Mosaic - AI 모델 제공업체 {#databricks-mosaic-ai-model-providers}
 
-[Databricks Mosaic]({{site.baseurl}}/partners/databricks_mosaic)은 Databricks Data Intelligence Platform에서 AI 및 머신 러닝 모델을 대규모로 구축, 배포 및 관리하기 위한 Databricks의 통합 플랫폼입니다.
+[Databricks Mosaic]({{site.baseurl}}/partners/ai_model_providers/databricks_mosaic)은 Databricks Data Intelligence Platform에서 AI 및 머신 러닝 모델을 대규모로 구축, 배포 및 관리하기 위한 Databricks의 통합 플랫폼입니다.
 
 #### DinMo - 데이터 및 분석 - 리버스 ETL {#dinmo-data-and-analytics-reverse-etl}
 
@@ -660,7 +659,7 @@ Currents 및 데이터 공유에 새로운 `Banner.Dismiss` 이벤트와 기존 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-계정에 액세스하고 특정 작업을 수행할 수 있는 사람을 관리하는 것은 보안과 운영 효율성 모두에 중요합니다. 더 많은 제어를 제공하기 위해 Braze는 계정 전반에서 사용자 액세스를 관리하는 더 유연하고 정밀한 방법인 [세분화된 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/granular_permissions_migration)을 도입합니다.
+계정에 액세스하고 특정 작업을 수행할 수 있는 사람을 관리하는 것은 보안과 운영 효율성 모두에 중요합니다. 더 많은 제어를 제공하기 위해 Braze는 계정 전반에서 사용자 액세스를 관리하는 더 유연하고 정밀한 방법인 [세분화된 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 도입합니다.
 
 #### 대상으로 보내기 Canvas 구성요소 {#send-to-destination-canvas-component}
 
@@ -761,7 +760,7 @@ Currents Mixpanel 통합은 이제 Mixpanel의 EU 및 인도 데이터 센터를
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-워크스페이스에 로캘을 추가한 후 [다국어 번역]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales)을 사용하여 단일 푸시, 이메일, 배너, 인앱 메시지 또는 Content Block 내에서 다양한 언어의 사용자를 타겟팅할 수 있습니다.
+워크스페이스에 로캘을 추가한 후 [다국어 번역]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)을 사용하여 단일 푸시, 이메일, 배너, 인앱 메시지 또는 Content Block 내에서 다양한 언어의 사용자를 타겟팅할 수 있습니다.
 
 ![로캘 미리보기]({% image_buster /assets/img/multi-language_support/multi_language_user_preview.png %}){: style="max-width:70%;"}
 
@@ -771,10 +770,10 @@ Currents Mixpanel 통합은 이제 Mixpanel의 EU 및 인도 데이터 센터를
 
 Canvas에서 이제 컨텍스트 변수를 참조하여 다음을 설정할 수 있습니다:
 
-- 메시지 단계에서 배너 및 인앱 메시지의 [만료]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#set-an-expiration)
-- 행동 경로 단계의 [개인화된 지연]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#action-path-delays)
+- 메시지 단계에서 배너 및 인앱 메시지의 [만료]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)
+- 행동 경로 단계의 [개인화된 지연]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)
 
-컨텍스트 변수 이름 필드에서 컨텍스트 변수 이름을 직접 입력하거나 단계 편집기의 드롭다운에서 선택할 수도 있습니다. 자세한 내용은 [컨텍스트]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context) 및 [컨텍스트 변수]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables)를 참조하세요.
+컨텍스트 변수 이름 필드에서 컨텍스트 변수 이름을 직접 입력하거나 단계 편집기의 드롭다운에서 선택할 수도 있습니다. 자세한 내용은 [컨텍스트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) 및 [컨텍스트 변수]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)를 참조하세요.
 
 ### 채널 및 터치포인트
 
@@ -790,7 +789,7 @@ Canvas에서 이제 컨텍스트 변수를 참조하여 다음을 설정할 수 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Canvas [메시지 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step)에서 [배너]({{site.baseurl}}/user_guide/message_building_by_channel/banners)를 메시징 채널로 사용할 수 있습니다. 배너를 사용하면 앱 또는 웹사이트 콘텐츠를 동적으로 개인화하여 실시간 사용자 자격 및 행동을 반영할 수 있습니다.
+Canvas [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)에서 [배너]({{site.baseurl}}/user_guide/channels/banners)를 메시징 채널로 사용할 수 있습니다. 배너를 사용하면 앱 또는 웹사이트 콘텐츠를 동적으로 개인화하여 실시간 사용자 자격 및 행동을 반영할 수 있습니다.
 
 ### 파트너십
 
@@ -896,7 +895,7 @@ Braze가 새로운 [데이터 센터]({{site.baseurl}}/user_guide/data/infrastru
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Braze는 사용자 액세스를 관리하는 더 유연한 방법인 [세분화된 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 도입합니다. 레거시 권한이 세분화된 권한에 어떻게 매핑되는지를 포함한 마이그레이션 프로세스에 대해 알아보려면 [세분화된 권한으로 마이그레이션]({{site.baseurl}}/granular_permissions_migration)을 참조하세요.
+Braze는 사용자 액세스를 관리하는 더 유연한 방법인 [세분화된 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 도입합니다. 레거시 권한이 세분화된 권한에 어떻게 매핑되는지를 포함한 마이그레이션 프로세스에 대해 알아보려면 [세분화된 권한으로 마이그레이션]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)을 참조하세요.
 
 #### 채널 기반 사용량 제한 {#channel-based-rate-limiting}
 
@@ -1096,7 +1095,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 #### 이메일 열기 이벤트 — "machine_open" 필드 {#email-open-event-machine_open-field}
 
-[이메일 열기 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events)는 이제 "machine_open" 필드 값을 생성하여 [_머신 열기_]({{site.baseurl}}/user_guide/analytics/reporting/report_metrics#machine-opens) 측정기준을 보고할 수 있습니다.
+[이메일 열기 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events)는 이제 "machine_open" 필드 값을 생성하여 [_머신 열기_]({{site.baseurl}}/user_guide/analytics/metrics_glossary) 측정기준을 보고할 수 있습니다.
 
 ### SDK
 

@@ -1,16 +1,16 @@
 ---
-nav_title: Definir atribuições do usuário
-article_title: Defina atributos do usuário através do SDK do Braze
+nav_title: Definir atributos do usuário
+article_title: Definir atributos do usuário
 page_order: 1.2
-description: "Aprenda como definir atributos do usuário através do SDK do Braze."
+description: "Aprenda como definir atributos do usuário através do SDK da Braze."
 ---
 
-# Definir atribuições do usuário
+# Definir atributos do usuário {#set-user-attributes}
 
-> Aprenda como definir atributos do usuário através do SDK do Braze.
+> Aprenda como definir atributos do usuário através do SDK da Braze.
 
 {% alert note %}
-Para SDKs wrapper não listados, use o método nativo relevante do Android ou Swift.
+Para wrapper SDKs não listados, use o método nativo relevante do Android ou SWIFT.
 {% endalert %}
 
 {% sdktabs %}

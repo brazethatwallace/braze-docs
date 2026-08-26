@@ -35720,11 +35720,6 @@
     "permanent": true
   },
   {
-    "source": "/docs/partners/message_orchestration/attribution",
-    "destination": "/docs/partners/message_orchestration",
-    "permanent": true
-  },
-  {
     "source": "/docs/partners/message_orchestration/attribution/ab180",
     "destination": "/docs/partners/home",
     "permanent": true
@@ -36097,11 +36092,6 @@
   {
     "source": "/docs/partners/message_orchestration/learning/edume",
     "destination": "/docs/partners/additional_channels_and_extensions/extensions/learning/edume",
-    "permanent": true
-  },
-  {
-    "source": "/docs/partners/message_personalization/dynamic_content",
-    "destination": "/docs/partners/message_personalization",
     "permanent": true
   },
   {

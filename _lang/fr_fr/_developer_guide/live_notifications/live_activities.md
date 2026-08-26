@@ -1,6 +1,6 @@
 ---
 nav_title: Activités en direct pour Swift
-article_title: Activités en direct pour le SDK Swift de Braze
+article_title: Activités en direct pour Swift
 page_order: 0.2
 description: "Découvrez comment configurer les activités en direct pour le SDK Swift de Braze."
 platform:
@@ -13,11 +13,11 @@ platform:
 
 ## Fonctionnement {#how-it-works}
 
-![Un suivi de livraison en activité en direct sur l'écran de verrouillage d'un iPhone. Une barre de progression avec une voiture est remplie à presque la moitié. Le texte indique « 2 min until pickup »]({% image_buster /assets/img/swift/live_activities/example_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
+![Un suivi de livraison sous forme de Live Activity sur l'écran de verrouillage d'un iPhone. Une barre de progression avec une voiture est remplie à presque la moitié. Le texte indique « 2 min until pickup »]({% image_buster /assets/img/swift/live_activities/example_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
 
-Les activités en direct présentent une combinaison d'informations statiques et d'informations dynamiques que vous mettez à jour. Par exemple, vous pouvez créer une activité en direct qui fournit un suivi de statut pour une livraison. Cette activité en direct inclut le nom de votre entreprise en tant qu'information statique, ainsi qu'un « Délai de livraison » dynamique qui se met à jour à mesure que le livreur approche de sa destination.
+Les Live Activities présentent une combinaison d'informations statiques et d'informations dynamiques que vous mettez à jour. Par exemple, vous pouvez créer une Live Activity qui fournit un suivi de statut pour une livraison. Cette Live Activity inclut le nom de votre entreprise en tant qu'information statique, ainsi qu'un « délai de livraison » dynamique qui se met à jour à mesure que le livreur s'approche de sa destination.
 
-En tant que développeur, vous pouvez utiliser Braze pour gérer les cycles de vie de vos activités en direct, effectuer des appels à la REST API de Braze pour mettre à jour les activités en direct, et faire en sorte que tous les appareils abonnés reçoivent la mise à jour dès que possible. Et, comme vous gérez les activités en direct via Braze, vous pouvez les utiliser conjointement avec vos autres canaux de communication&mdash;notifications push, messages in-app, Content Cards&mdash;pour favoriser l'adoption.
+En tant que développeur, vous pouvez utiliser Braze pour gérer les cycles de vie de vos Live Activities, effectuer des appels à la REST API de Braze pour mettre à jour les Live Activities, et faire en sorte que tous les appareils abonnés reçoivent la mise à jour dès que possible. Et, parce que vous gérez les Live Activities via Braze, vous pouvez les utiliser conjointement avec vos autres canaux de communication&mdash;notifications push, In-App Messages, Content Cards&mdash;pour favoriser l'adoption.
 
 ## Diagramme de séquence {#sequence-diagram}
 
@@ -66,14 +66,14 @@ sequenceDiagram
 {% endtab %}
 {% endtabs %}
 
-## Déployer une Live Activity {#implementing-a-live-activity}
+## Implémenter une Live Activity {#implementing-a-live-activity}
 
 #{% multi_lang_include developer_guide/prerequisites/swift.md %} Vous devrez également remplir les conditions suivantes :
 
 - Assurez-vous que votre projet cible iOS 16.1 ou une version ultérieure.
-- Ajoutez l'autorisation `Push Notification` sous **Signing & Capabilities** dans votre projet Xcode.
+- Ajoutez le droit `Push Notification` sous **Signing & Capabilities** dans votre projet Xcode.
 - Assurez-vous que des clés `.p8` sont utilisées pour envoyer des notifications. Les fichiers plus anciens tels que `.p12` ou `.pem` ne sont pas pris en charge.
-- À partir de la version 8.2.0 du SDK Swift de Braze, vous pouvez [enregistrer une Live Activity à distance](#swift_step-2-start-the-activity). Pour utiliser cette fonctionnalité, iOS 17.2 ou une version ultérieure est requis.
+- À partir de la version 8.2.0 du SDK Swift de Braze, vous pouvez [enregistrer une Live Activity à distance](#swift_step-2-start-the-activity). Pour utiliser cette fonctionnalité, iOS 17.2 ou une version ultérieure est requise.
 
 {% alert note %}
 Bien que les Live Activities et les notifications push soient similaires, leurs autorisations système sont distinctes. Par défaut, toutes les fonctionnalités des Live Activities sont activées, mais les utilisateurs peuvent désactiver cette fonctionnalité par application.
@@ -85,9 +85,9 @@ Bien que les Live Activities et les notifications push soient similaires, leurs 
 
 Tout d'abord, assurez-vous d'avoir suivi la documentation Apple [Displaying live data with Live Activities](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities) pour configurer les Live Activities dans votre application iOS. Dans le cadre de cette tâche, assurez-vous d'inclure `NSSupportsLiveActivities` défini sur `YES` dans votre `Info.plist`.
 
-Étant donné que la nature exacte de votre Live Activity est spécifique à votre cas d'usage, configurez et initialisez les objets [Activity](https://developer.apple.com/documentation/activitykit/activityattributes). Il est important de définir :
-* `ActivityAttributes` : Ce protocole définit le contenu statique (immuable) et dynamique (variable) qui apparaît dans votre Live Activity.
-* `ActivityAttributes.ContentState` : Ce type définit les données dynamiques qui se mettent à jour au cours de l'activité.
+Étant donné que la nature exacte de votre Live Activity est propre à votre cas d'usage, configurez et initialisez les objets [Activity](https://developer.apple.com/documentation/activitykit/activityattributes). Il est important de définir :
+* `ActivityAttributes` : Ce protocole définit le contenu statique (invariable) et dynamique (variable) qui apparaît dans votre Live Activity.
+* `ActivityAttributes.ContentState` : Ce type définit les données dynamiques qui sont mises à jour au cours du cycle de vie de l'activité.
 
 Vous utilisez également SwiftUI pour créer la présentation de l'interface utilisateur sur l'écran de verrouillage et le Dynamic Island sur les appareils compatibles.
 
@@ -99,7 +99,7 @@ Si vous prévoyez d'envoyer des notifications push fréquentes à la même Live 
 
 #### Exemple {#example}
 
-Imaginons que nous souhaitons créer une Live Activity pour donner à nos utilisateurs des mises à jour sur le spectacle Superb Owl, où deux centres de sauvetage de la faune concurrents reçoivent des points pour les hiboux qu'ils hébergent. Pour cet exemple, nous avons créé une structure appelée `SportsActivityAttributes`, mais vous pouvez utiliser votre propre implémentation d'`ActivityAttributes`.
+Imaginons que nous voulions créer une Live Activity pour donner à nos utilisateurs des mises à jour sur le spectacle Superb Owl, où deux refuges animaliers concurrents reçoivent des points pour les chouettes qu'ils hébergent. Pour cet exemple, nous avons créé une structure appelée `SportsActivityAttributes`, mais vous pouvez utiliser votre propre implémentation d'`ActivityAttributes`.
 
 ```swift
 #if canImport(ActivityKit)
@@ -122,13 +122,13 @@ struct SportsActivityAttributes: ActivityAttributes {
 
 Tout d'abord, choisissez comment vous souhaitez enregistrer votre activité :
 
-- **À distance :** Utilisez la méthode [`registerPushToStart`](<http://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/registerpushtostart(fortype:name:)>) tôt dans le cycle de vie de votre utilisateur et avant que le jeton push-to-start ne soit nécessaire, puis démarrez une activité en utilisant l'endpoint [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start).
+- **À distance :** Utilisez la méthode [`registerPushToStart`](<http://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/registerpushtostart(fortype:name:)>) tôt dans le cycle de vie de l'utilisateur et avant que le jeton push-to-start ne soit nécessaire, puis démarrez une activité en utilisant l'endpoint [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start).
 - **Localement :** Créez une instance de votre Live Activity, puis utilisez la méthode [`launchActivity`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/launchactivity(pushtokentag:activity:fileid:line:)>) pour créer des jetons push que Braze pourra gérer.
 
 {% tabs local %}
-{% tab remote %}
+{% tab à distance %}
 {% alert important %}
-Pour enregistrer une Live Activity à distance, iOS 17.2 ou une version ultérieure est requis.
+Pour enregistrer une Live Activity à distance, iOS 17.2 ou une version ultérieure est requise.
 {% endalert %}
 
 #### Étape 2.1 : Ajouter BrazeKit à votre extension de widget {#step-21-add-brazekit-to-your-widget-extension}
@@ -170,10 +170,10 @@ struct SportsActivityAttributes: ActivityAttributes, BrazeLiveActivityAttributes
 
 #### Étape 2.3 : S'enregistrer pour le push-to-start {#step-23-register-for-push-to-start}
 
-Ensuite, enregistrez le type de Live Activity, afin que Braze puisse suivre tous les jetons push-to-start et les instances de Live Activity associées à ce type.
+Ensuite, enregistrez le type de Live Activity afin que Braze puisse suivre tous les jetons push-to-start et les instances de Live Activity associées à ce type.
 
 {% alert warning %}
-Le système d'exploitation iOS ne génère des jetons push-to-start que lors de la première installation de l'application après le redémarrage d'un appareil. Pour vous assurer que vos jetons sont enregistrés de manière fiable, appelez `registerPushToStart` dans votre méthode `didFinishLaunchingWithOptions`.
+Le système d'exploitation iOS ne génère des jetons push-to-start que lors de la première installation de l'application après un redémarrage de l'appareil. Pour vous assurer que vos jetons sont enregistrés de manière fiable, appelez `registerPushToStart` dans votre méthode `didFinishLaunchingWithOptions`.
 {% endalert %}
 
 ##### Exemple
@@ -208,11 +208,11 @@ Envoyez une notification push-to-start à distance en utilisant l'endpoint [`/me
 {% endtab %}
 
 {% tab local %}
-Vous pouvez utiliser le [framework ActivityKit d'Apple](https://developer.apple.com/documentation/activitykit) pour obtenir un jeton push, que le SDK de Braze peut gérer pour vous. Cela vous permet de mettre à jour les Live Activities via l'API Braze, car Braze envoie le jeton push au service Apple Push Notification (APNs) côté serveur.
+Vous pouvez utiliser le [framework ActivityKit d'Apple](https://developer.apple.com/documentation/activitykit) pour obtenir un jeton push, que le SDK de Braze peut gérer pour vous. Cela vous permet de mettre à jour les Live Activities via l'API Braze, car Braze envoie le jeton push au service de notification push d'Apple (APNs) en arrière-plan.
 
 1. Créez une instance de votre implémentation de Live Activity en utilisant les API ActivityKit d'Apple.
 2. Définissez le paramètre `pushType` sur `.token`.
-3. Transmettez les `ActivitiesAttributes` et `ContentState` de Live Activities que vous avez définis.
+3. Passez les `ActivitiesAttributes` et `ContentState` des Live Activities que vous avez définis.
 4. Enregistrez votre activité auprès de votre instance Braze en la passant à [`launchActivity(pushTokenTag:activity:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class). Le paramètre `pushTokenTag` est une chaîne de caractères personnalisée que vous définissez. Elle doit être unique pour chaque Live Activity que vous créez.
 
 Après avoir enregistré la Live Activity, le SDK de Braze extrait et observe les changements dans les jetons push.
@@ -252,7 +252,7 @@ class LiveActivityManager {
 
 Votre widget Live Activity affiche ce contenu initial à vos utilisateurs.
 
-![Une Live Activity sur l'écran de verrouillage d'un iPhone avec les scores de deux équipes. Le Wild Bird Fund et le Owl Rehab ont tous deux un score de 0.]({% image_buster /assets/img/swift/live_activities/example_1_1.png %}){: style="max-width:40%;"}
+![Une Live Activity sur l'écran de verrouillage d'un iPhone avec les scores de deux équipes. Le Wild Bird Fund et l'Owl Rehab ont chacun un score de 0.]({% image_buster /assets/img/swift/live_activities/example_1_1.png %}){: style="max-width:40%;"}
 {% endtab %}
 {% endtabs %}
 
@@ -264,7 +264,7 @@ Pour vous assurer que Braze suit votre Live Activity au lancement de l'applicati
 2. Importez le module `ActivityKit` s'il est disponible.
 3. Appelez [`resumeActivities(ofType:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/resumeactivities(oftype:)) dans `application(_:didFinishLaunchingWithOptions:)` pour tous les types `ActivityAttributes` que vous avez enregistrés dans votre application.
 
-Cela permet à Braze de reprendre les tâches de suivi des mises à jour de jetons push pour toutes les Live Activities actives. Notez que si un utilisateur a explicitement fermé la Live Activity sur son appareil, elle est considérée comme supprimée et Braze ne la suit plus.
+Cela permet à Braze de reprendre les tâches de suivi des mises à jour des jetons push pour toutes les Live Activities actives. Notez que si un utilisateur a explicitement fermé la Live Activity sur son appareil, elle est considérée comme supprimée et Braze ne la suit plus.
 
 #### Exemple
 
@@ -299,7 +299,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ### Étape 4 : Mettre à jour l'activité {#update-the-activity}
 
-![Une Live Activity sur l'écran de verrouillage d'un iPhone avec les scores de deux équipes. Le Wild Bird Fund a 2 points et le Owl Rehab a 4 points.]({% image_buster /assets/img/swift/live_activities/example_1_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
+![Une Live Activity sur l'écran de verrouillage d'un iPhone avec les scores de deux équipes. Le Wild Bird Fund a 2 points et l'Owl Rehab a 4 points.]({% image_buster /assets/img/swift/live_activities/example_1_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
 
 L'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) vous permet de mettre à jour une Live Activity via des notifications push transmises par la REST API de Braze. Utilisez cet endpoint pour mettre à jour le `ContentState` de votre Live Activity.
 
@@ -311,52 +311,52 @@ Consultez notre article sur l'[endpoint `/messages/live_activity/update`]({{site
 
 Lorsqu'une Live Activity est active, elle est affichée à la fois sur l'écran de verrouillage de l'utilisateur et sur le Dynamic Island. Pour la terminer via Braze, utilisez l'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) avec `end_activity` défini sur `true`.
 
-Pour améliorer la fiabilité lors de la fin d'une Live Activity, suivez les étapes optionnelles suivantes :
+Pour améliorer la fiabilité lors de la terminaison d'une Live Activity, suivez les étapes optionnelles suivantes :
 
-1. Incluez éventuellement `dismissal_date` dans cette même requête `update` pour suggérer quand iOS devrait supprimer l'interface de la Live Activity.
-2. Vérifiez les résultats de distribution dans le [journal d'activité des messages]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab).
+1. Incluez éventuellement `dismissal_date` dans cette même requête `update` pour suggérer à iOS quand supprimer l'interface utilisateur de la Live Activity.
+2. Vérifiez les résultats de distribution dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
 
-#### Planifier la fermeture automatique {#arranging-automatic-dismissal}
+#### Planifier un renvoi automatique {#arranging-automatic-dismissal}
 
-Pour planifier une fermeture automatique, programmez une requête de suivi vers l'endpoint de mise à jour après avoir démarré la Live Activity.
+Pour planifier un renvoi automatique, programmez une requête de suivi vers l'endpoint de mise à jour après avoir démarré la Live Activity.
 
 1. Envoyez une requête `/messages/live_activity/start` avec un `activity_id` que vous pouvez suivre.
 2. Stockez cet `activity_id` et votre heure de fin cible dans votre planificateur backend.
 3. À l'heure de fin cible, envoyez une requête `/messages/live_activity/update` avec `end_activity` défini sur `true`.
-4. Configurez la date de fermeture dans la même requête de mise à jour. Pour plus de détails, consultez l'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update).
+4. Configurez la date de renvoi dans la même requête de mise à jour. Pour plus de détails, consultez l'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update).
 
-Notez que le moment de la fermeture est contrôlé par iOS. Même après l'envoi d'une requête de fin valide, la suppression de l'écran de verrouillage ou du Dynamic Island peut être retardée ou se comporter différemment en fonction des conditions au niveau du système d'exploitation.
+Notez que le timing du renvoi est contrôlé par iOS. Même après l'envoi d'une requête de fin valide, la suppression de l'écran de verrouillage ou du Dynamic Island peut être retardée ou se comporter différemment en fonction des conditions au niveau du système d'exploitation.
 
 Une Live Activity peut également se terminer en dehors de Braze :
 
-* **Fermeture par l'utilisateur** : Un utilisateur peut fermer manuellement une Live Activity.
+* **Renvoi par l'utilisateur** : Un utilisateur peut manuellement fermer une Live Activity.
 * **Expiration** : Après un délai par défaut de huit heures, iOS supprime la Live Activity du Dynamic Island de l'utilisateur. Après un délai par défaut de 12 heures, iOS supprime la Live Activity de l'écran de verrouillage de l'utilisateur.
 
 Consultez notre article sur l'[endpoint `/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) pour tous les détails.
 
 ## Suivi des Live Activities {#tracking-live-activities}
 
-Les événements de Live Activity sont disponibles dans Currents, le partage de données Snowflake et le générateur de requêtes. Les événements suivants peuvent vous aider à comprendre et à surveiller le cycle de vie de vos Live Activities, à suivre la disponibilité des jetons et à diagnostiquer de manière indépendante les problèmes ou à vérifier les statuts de distribution.
+Les événements de Live Activity sont disponibles dans Currents, Snowflake Data Sharing et le générateur de requêtes. Les événements suivants peuvent vous aider à comprendre et à surveiller le cycle de vie de vos Live Activities, à suivre la disponibilité des jetons et à diagnostiquer de manière indépendante les problèmes ou à vérifier les statuts de distribution.
 
-- [Changement de jeton Push To Start de Live Activity]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events#live-activity-push-to-start-token-change-events) : capture le moment où un jeton push-to-start (PTS) est ajouté ou mis à jour dans Braze, vous permettant de suivre les enregistrements et la disponibilité des jetons par utilisateur.
-- [Changement de jeton de mise à jour de Live Activity]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events#live-activity-update-token-change-events) : suit l'ajout, la mise à jour ou la suppression des jetons de mise à jour de Live Activity (LAU).
-- [Envoi de Live Activity]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#live-activity-send-events) : enregistre chaque fois qu'une Live Activity est démarrée, mise à jour ou terminée par Braze.
-- [Résultat de Live Activity]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#live-activity-outcome-events) : indique le statut de distribution final auprès du service Apple Push Notification (APN) pour chaque Live Activity envoyée depuis Braze.
+- [Live Activity Push To Start Token Change]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) : capture le moment où un jeton push-to-start (PTS) est ajouté ou mis à jour dans Braze, vous permettant de suivre les enregistrements et la disponibilité des jetons par utilisateur.
+- [Live Activity Update Token Change]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) : suit l'ajout, la mise à jour ou la suppression des jetons Live Activity Update (LAU).
+- [Live Activity Send]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) : enregistre chaque fois qu'une Live Activity est démarrée, mise à jour ou terminée par Braze.
+- [Live Activity Outcome]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) : indique le statut final de distribution au service Apple Push Notification (APNs) pour chaque Live Activity envoyée depuis Braze.
 
 ## Vérifier les envois de Live Activity {#verify-live-activity-sends}
 
-Si vous devez confirmer si un espace de travail envoie des iOS Live Activities, vous pouvez utiliser les méthodes suivantes :
+Si vous devez confirmer si un espace de travail envoie des Live Activities iOS, vous pouvez utiliser les méthodes suivantes :
 
 ### Journal d'activité des messages {#message-activity-log}
 
-Accédez à **Paramètres** > **Journal d'activité des messages** et filtrez par erreurs de Live Activity pour voir les résultats de distribution liés aux Live Activities pendant la période attendue. Pour plus d'informations, consultez [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
+Accédez à **Paramètres** > **Journal d'activité des messages** et filtrez par erreurs de Live Activity pour voir les résultats de distribution liés aux Live Activities pendant la période prévue. Pour en savoir plus, consultez [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
 
 ### Query Builder, Currents ou partage de données Snowflake {#query-builder-currents-or-snowflake-data-sharing}
 
-Vérifiez les événements Live Activity suivants pour confirmer le cycle de vie et la distribution des Live Activities :
+Vérifiez les événements de Live Activity suivants pour confirmer le cycle de vie et la distribution des Live Activities :
 
-- **Live Activity Send :** enregistré chaque fois qu'une Live Activity est démarrée, mise à jour ou terminée par Braze
-- **Live Activity Outcome :** statut final de distribution vers les APN pour chaque Live Activity envoyée
+- **Live Activity Send :** Enregistré chaque fois qu'une Live Activity est démarrée, mise à jour ou terminée par Braze
+- **Live Activity Outcome :** Statut final de distribution vers APN pour chaque Live Activity envoyée
 
 Vous pouvez également vérifier les signaux de disponibilité des jetons :
 - **Live Activity Push To Start Token Change**
@@ -364,7 +364,7 @@ Vous pouvez également vérifier les signaux de disponibilité des jetons :
 
 ### Tableau de bord d'utilisation de l'API {#api-usage-dashboard}
 
-Accédez à **Paramètres** > **API et identifiants** > **Tableau de bord**, sélectionnez **Filtres**, puis filtrez par **Endpoint** pour voir les réponses de l'API. Par exemple, sélectionnez `/messages/live_activity/update` (ou `/messages/live_activity/start`) et consultez le volume de requêtes sur les 30 derniers jours. Les réponses de l'API indiquent que l'API est appelée et que les notifications iOS Live Activity sont utilisées dans cet espace de travail. Pour plus d'informations, consultez [Tableau de bord d'utilisation de l'API]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage).
+Accédez à **Paramètres** > **API et identifiants** > **Tableau de bord**, sélectionnez **Filtres**, puis filtrez par **Endpoint** pour voir les réponses de l'API. Par exemple, sélectionnez `/messages/live_activity/update` (ou `/messages/live_activity/start`) et consultez le volume de requêtes des 30 derniers jours. Les réponses de l'API indiquent que l'API est appelée et que les notifications Live Activity iOS sont utilisées dans cet espace de travail. Pour en savoir plus, consultez [Tableau de bord d'utilisation de l'API]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage).
 
 ## Observer les événements d'activité en direct (facultatif) {#observe-live-activity-events}
 

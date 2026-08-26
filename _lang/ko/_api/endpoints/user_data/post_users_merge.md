@@ -6,7 +6,6 @@ page_order: 6
 layout: api_page
 page_type: reference
 description: "이 문서에서는 사용자 병합 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
-
 ---
 {% api %}
 # 사용자 병합 {#merge-users}
@@ -22,7 +21,7 @@ description: "이 문서에서는 사용자 병합 Braze 엔드포인트에 대�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.merge` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.merge` 권한이 있는 [API 키]({{site.baseurl}}/api/basics)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

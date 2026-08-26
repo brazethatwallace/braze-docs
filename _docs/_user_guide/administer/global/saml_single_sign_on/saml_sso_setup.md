@@ -19,7 +19,7 @@ Upon setup, you will be asked to provide a sign-on URL and an Assertion Consumer
 | Requirement | Details |
 |---|---|
 | Assertion Consumer Service (ACS) URL | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br><br> For European Union domains, the ASC URL is `https://<SUBDOMAIN>.braze.eu/auth/saml/callback`. <br><br> For some IdPs, this can also be referred to as the Reply URL, Sign-On URL, Audience URL, or Audience URI. |
-| Entity ID | `braze_dashboard` |
+| Entity ID | `braze_dashboard` by default. <br><br> To set up a unique Entity ID for this dashboard, enable a custom Entity ID and use the generated value (`braze_dashboard_<COMPANY_ID>`) instead. For steps, refer to [Using a custom Entity ID](#using-a-custom-entity-id). |
 | RelayState API key | Go to **Settings** > **API Keys** and create an API key with `sso.saml.login` permissions, and then input the generated API key as the `RelayState` parameter within your IdP. For detailed steps, refer to [Setting up your RelayState](#setting-up-your-relaystate). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
@@ -72,6 +72,32 @@ Make sure that your `x.509` certificate follows this format when adding it to th
 ### Step 3: Sign into Braze
 
 Save your security settings and log out. Then, sign back in with your identity provider.
+
+## Using a custom Entity ID
+
+By default, every Braze dashboard uses the shared Entity ID `braze_dashboard`. A custom Entity ID gives your dashboard a unique identifier, so your identity provider can verify that sign-in requests are meant for this specific dashboard. This is useful if you are setting up SAML SSO across multiple Braze companies in the same identity provider.
+
+Using a custom Entity ID is optional. If you don't enable it, your dashboard continues to use `braze_dashboard`.
+
+{% alert warning %}
+The pre-built [Braze Okta marketplace app](https://www.okta.com/integrations/braze/) enforces the shared Entity ID `braze_dashboard` and isn't compatible with a custom Entity ID. If you already have SAML SSO set up with the Braze Okta marketplace app, turning on a custom Entity ID without updating the Entity ID field in Okta through a custom SAML app will break sign-in and can lock users out of the dashboard. To use a custom Entity ID with Okta, set up a custom SAML app instead.
+{% endalert %}
+
+### Step 1: Turn on the custom Entity ID
+
+Go to **Settings** > **Admin Settings** > **Security Settings** and open the SAML Single Sign-On section. Turn on the **Custom Entity ID** toggle. Braze generates a unique Entity ID for your dashboard in the format `braze_dashboard_<COMPANY_ID>`. If you don't see the **Custom Entity ID** option, contact your Braze account manager.
+
+### Step 2: Update your identity provider
+
+Copy the generated Entity ID and paste it into the Entity ID field of your identity provider's Braze application. Depending on your provider, this field may be labeled **Entity ID**, **Audience**, or **Audience URI**.
+
+{% alert important %}
+The Entity ID must match in both Braze and your identity provider. Until both sides use the same value, users can't sign in with SAML SSO. Update your identity provider before saving this page to avoid locking users out.
+{% endalert %}
+
+### Step 3: Save and test
+
+Save your security settings, log out, and then sign back in through your identity provider to confirm sign-in works with the custom Entity ID.
 
 ## Setting up your RelayState
 

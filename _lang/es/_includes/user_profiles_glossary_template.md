@@ -11,10 +11,6 @@ search_rank: 7
 
 <div class="api-glossary-preamble" markdown="1">
 
-{% alert important %}
-Los eventos de perfiles de usuario están en fase beta. Ponte en contacto con tu administrador de éxito de cliente o director de cuentas para obtener acceso.
-{% endalert %}
-
 {% alert tip %}
 Estos eventos también están disponibles como tablas SQL en el [generador de consultas]({{site.baseurl}}/user_guide/analytics/query_builder), las [extensiones de segmento SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments) y el [intercambio de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para los esquemas de tablas SQL y los detalles de las columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/sql_segments/sql_segments_tables). Para los esquemas de intercambio de datos de Snowflake de las vistas de atributos de perfiles de usuario, consulta [Atributos de perfiles de usuario]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes).
 {% endalert %}

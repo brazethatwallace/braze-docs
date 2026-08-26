@@ -5,7 +5,7 @@ hidden: true
 
 # Braze Data Transformation
 
-> Braze [Data Transformation]({{site.baseurl}}/data_transformation/) can ingest a webhook from a partner platform and allow a customer to define a mapping to convert that webhook's payload to the desired user data, such as attributes, events, or purchases on Braze user profiles.
+> Braze [Data Transformation]({{site.baseurl}}/data_transformation) can ingest a webhook from a partner platform and allow a customer to define a mapping to convert that webhook's payload to the desired user data, such as attributes, events, or purchases on Braze user profiles.
 
 ## What a Data Transformation based integration would look like
 

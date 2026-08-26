@@ -1,7 +1,8 @@
 ---
 page_order: 2.2
 nav_title: Content Cards
-article_title: Content Cards dans le SDK de Braze
+article_title: Content Cards
+description: "Découvrez comment implémenter les Content Cards avec le SDK de Braze, notamment les modèles de données, les types de cartes et les options de personnalisation pour vos applications mobiles et web."
 channel:
   - content cards
 platform:
@@ -55,7 +56,7 @@ Le modèle de [carte de base](https://braze-inc.github.io/braze-android-sdk/kdoc
 | `isClicked()` | Renvoie un booléen reflétant l'état de clic de cette carte. |
 | `isDismissed` | Renvoie un booléen indiquant si la carte a été rejetée. Définissez sur `true` pour marquer la carte comme rejetée. Si une carte est déjà marquée comme rejetée, elle ne peut pas être marquée comme rejetée à nouveau. |
 | `isControl()` | Renvoie un booléen indiquant si cette carte est une carte de contrôle et ne doit pas être affichée. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Modèle de carte de base #base-card-for-android" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Base card model #base-card-for-android" }
 
 ### Image uniquement {#banner-image-card-for-android}
 
@@ -66,7 +67,7 @@ Les [cartes image uniquement](https://braze-inc.github.io/braze-android-sdk/kdoc
 | `getImageUrl()` | Renvoie l'URL de l'image de la carte. |
 | `getUrl()` | Renvoie l'URL qui est ouverte après un clic sur la carte. Il peut s'agir d'une URL HTTP(s) ou d'une URL de protocole. |
 | `getDomain()` | Renvoie le texte du lien pour l'URL de la propriété. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image uniquement #banner-image-card-for-android" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image only #banner-image-card-for-android" }
 
 ### Image avec légende {#captioned-image-card-for-android}
 
@@ -79,7 +80,7 @@ Les [cartes image avec légende](https://braze-inc.github.io/braze-android-sdk/k
 | `getDescription()` | Renvoie le texte du corps de la carte. |
 | `getUrl()` | Renvoie l'URL qui est ouverte après un clic sur la carte. Il peut s'agir d'une URL HTTP(s) ou d'une URL de protocole. |
 | `getDomain()` | Renvoie le texte du lien pour l'URL de la propriété. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image avec légende #captioned-image-card-for-android" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image #captioned-image-card-for-android" }
 
 ### Classique {#text-Announcement-card-for-android}
 
@@ -93,7 +94,7 @@ Une carte classique sans image donne une [carte d'annonce textuelle](https://bra
 | `getDomain()` | Renvoie le texte du lien pour l'URL de la propriété. |
 | `getImageUrl()` | Renvoie l'URL de l'image de la carte, s'applique uniquement à la carte classique d'actualité courte. |
 | `isDismissed` | Renvoie un booléen indiquant si la carte a été rejetée. Définissez sur `true` pour marquer la carte comme rejetée. Si une carte est déjà marquée comme rejetée, elle ne peut pas être marquée comme rejetée à nouveau. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Classique #text-Announcement-card-for-android" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic #text-Announcement-card-for-android" }
 
 ## Méthodes de carte {#card-methods}
 
@@ -103,7 +104,7 @@ Tous les objets du modèle de données [`Card`](https://braze-inc.github.io/braz
 |---|---|
 | `logImpression()` | Enregistre manuellement une impression sur Braze pour une carte particulière. |
 | `logClick()` | Enregistre manuellement un clic sur Braze pour une carte particulière. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Méthodes de carte" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
 
 {% endsdktab %}
 
@@ -129,7 +130,7 @@ Tous les objets du modèle de données [`Card`](https://braze-inc.github.io/braz
 Avant de pouvoir utiliser les Content Cards, intégrez le [SDK Swift de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) dans votre application. Ensuite, suivez les étapes de configuration de votre application tvOS.
 
 {% alert important %}
-Implémentez votre propre interface utilisateur personnalisée, car les Content Cards sont prises en charge via une interface sans affichage (headless UI) à l'aide du SDK Swift, qui n'inclut aucune interface utilisateur ni vue par défaut pour tvOS.
+Implémentez votre propre interface utilisateur personnalisée, car les Content Cards sont prises en charge via une interface sans affichage (headless UI) à l'aide du SDK Swift&#8212;qui n'inclut aucune interface utilisateur ni vue par défaut pour tvOS.
 {% endalert %}
 
 ## Configuration de votre application tvOS {#setting-up-your-tvos-app}
