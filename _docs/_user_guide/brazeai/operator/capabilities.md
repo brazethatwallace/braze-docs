@@ -11,7 +11,7 @@ description: "This reference article covers what BrazeAI Operator™ can do acro
 
 > [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator) is an AI assistant built into the Braze dashboard. It answers questions, composes messages, and acts across supported pages—describe what you want in natural language and Operator handles it in context.
 
-Because Operator understands your workspace—your brand guidelines, custom attributes, Connected Content, and the page you're working on—its output is more context-aware than what standalone assistants can produce. When Operator proposes a change to a campaign, Canvas, segment, or other object, it shows the change as a visual diff in an [action card]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) that you review and approve before anything is saved.
+Because Operator understands your workspace—custom attributes, Connected Content, the page you're working on, and any brand guidelines you add as context—its output is more context-aware than what standalone assistants can produce. When Operator proposes a change to a campaign, Canvas, segment, or other object, it shows the change as a visual diff in an [action card]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) that you review and approve before anything is saved.
 
 You can keep the conversation going with follow-ups. Operator remembers earlier messages until you clear your chat history.
 
@@ -80,15 +80,15 @@ Operator can help you build and refine agents in [Agent Console]({{site.baseurl}
 
 - **Create an agent from scratch:** Operator has access to every field in Agent Console, so you can describe the agent you want and Operator helps you configure it. This includes instructions, output settings, and other agent fields.
 - **Start from template:** Agent Console offers a **Create agent with Operator** option that loads a pre-written prompt for a common use case, such as copywriting, sentiment analysis, journey routing, or catalog enrichment. Select a category, and Operator helps you draft an agent you can refine. For the full list of templates, see [Agent templates built with Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator).
-- **Refine an existing agent:** When you're editing an agent, select **Generate with Operator** or **Refine with Operator** near the agent's instructions field to get Operator's help writing or revising the agent's prompt and output settings.
+- **Refine an existing agent:** When you're editing an agent, select **Generate with Operator** or **Refine with Operator** near the agent's instructions field to get Operator's help writing or revising the agent's prompt and output settings. If the agent already has a brand guideline, Operator attaches it as context.
 
 ## Content and creative {#content-and-creative}
 
-Operator can generate and review the content in your messages, including copy, message HTML, Liquid, and images, and apply your brand guidelines automatically wherever they're configured. You can also ask Operator for help from the template library and overview pages. For example, you can create or update [email templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates) or Content Blocks from their list pages, schedule work on the [Content Calendar]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar), create [in-app message color profile templates]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles), or configure [Banner placements]({{site.baseurl}}/developer_guide/banners/placements).
+Operator can generate and review the content in your messages, including copy, message HTML, Liquid, and images, and apply any brand guidelines you add as context. You can also ask Operator for help from the template library and overview pages. For example, you can create or update [email templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates) or Content Blocks from their list pages, schedule work on the [Content Calendar]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar), create [in-app message color profile templates]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles), or configure [Banner placements]({{site.baseurl}}/developer_guide/banners/placements).
 
 ### Apply brand guidelines {#apply-brand-guidelines}
 
-Operator uses the brand guidelines configured in your workspace so generated copy, templates, and images match your brand's voice, tone, and style. To set up brand guidelines, go to **Content** > **Brand Guidelines**. For more information, see [Brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) and [Apply brand guidelines]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines) in the Operator usage guide.
+Add [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) as context in the Operator chat panel so generated copy, templates, and images match your brand's voice, tone, and style. Operator applies them after you select them. For steps, see [Apply brand guidelines]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines) in the Operator usage guide.
 
 ### Generate copy {#generate-copy}
 
@@ -96,14 +96,14 @@ You can use Operator to brainstorm or generate copy from anywhere, but you get t
 
 Operator improves on the standalone copywriter in a few ways:
 
-- It applies your [brand guidelines](#apply-brand-guidelines) automatically when they're configured.
+- It applies any [brand guidelines](#apply-brand-guidelines) you add as context.
 - It uses [page-aware context]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context), so you don't have to re-describe the channel or message you're working on. Because it's page-aware, you can also use it to edit or refine an existing message instead of generating one from scratch.
 - It can look up your [custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) and events, so you can ask it to personalize copy recommendations with real Liquid.
 - You can keep the conversation going and iterate. For example, ask for a different tone, a shorter version, or a translation.
 
 #### Tones {#generate-copy-tones}
 
-The tone of generated copy is driven by your prompt. Describe the style you want and Operator adjusts its output to match. For example, ask for formal, casual, urgent, or eye-catching. You can also refine the tone in follow-up prompts, such as asking for a more relaxed or more polished version. When brand guidelines are configured, Operator applies them automatically so copy stays consistent with your brand's voice.
+The tone of generated copy is driven by your prompt. Describe the style you want and Operator adjusts its output to match. For example, ask for formal, casual, urgent, or eye-catching. You can also refine the tone in follow-up prompts, such as asking for a more relaxed or more polished version. When you add brand guidelines as context, Operator applies them so copy stays consistent with your brand's voice.
 
 ### Generate messages {#generate-messages}
 
@@ -119,7 +119,7 @@ Operator can generate a full message design for any channel or editor with an HT
 
 Drag-and-drop editors don't support direct design generation, though Operator can still help with copy or other content you add manually. Describe the message you want in natural language, review the output, and insert it into your composer. Keep the conversation going to refine the result. For example, you can ask for a different layout, shorter copy, or updated button styling before you insert the HTML into the editor.
 
-You get the best results when you use Operator in the composer you're building, where it has [page-aware context]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context) for the channel and message type. When brand guidelines are configured, Operator applies them automatically.
+You get the best results when you use Operator in the composer you're building, where it has [page-aware context]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context) for the channel and message type. When you add brand guidelines as context, Operator applies them to the generated message.
 
 ### Create Content Blocks {#create-content-blocks}
 
