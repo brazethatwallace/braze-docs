@@ -22,7 +22,8 @@ Encontre o comportamento que você está observando na tabela e siga as etapas d
 | --- | --- |
 | Link de esquema personalizado abre o app, mas na tela errada | [Deep link de esquema personalizado não abre a visualização correta](#custom-scheme-deep-link-does-not-open-the-correct-view) |
 | Link universal abre o Safari em vez do app | [Link universal abre no Safari em vez do app](#universal-link-opens-in-safari-instead-of-the-app) |
-| Link do e-mail não abre o app | [Deep link do e-mail não abre o app](#deep-link-from-email-does-not-open-the-app) |
+| Link de e-mail não abre o app | [Deep link de e-mail não abre o app](#deep-link-from-email-does-not-open-the-app) |
+| Todos os links de e-mail abrem o app | [Todos os links de e-mail abrem o app](#every-email-link-opens-the-app) |
 | Funciona via push, mas não via mensagem no app (ou o contrário) | [Deep link funciona via push, mas não via mensagem no app](#deep-link-works-from-push-but-not-from-in-app-message) |
 | "Open Web URL Inside App" mostra WebView em branco | ["Open Web URL Inside App" mostra uma página em branco ou com erro](#open-web-url-inside-app-shows-a-blank-or-broken-page) |
 | Link da Branch não abre o app ou não direciona corretamente | [Solução de problemas da Branch com a Braze](#branch) |
@@ -33,9 +34,9 @@ Encontre o comportamento que você está observando na tabela e siga as etapas d
 
 Use este fluxo de trabalho para cada incidente de deep linking. Comece na etapa 1.
 
-1. Teste o link fora da Braze. Para esquemas personalizados, execute `xcrun simctl openurl booted "<URL>"` no Terminal (por exemplo, `xcrun simctl openurl booted "myapp://products/123"`). Para links universais, cole a URL no app Notas em um dispositivo físico e toque nela.
+1. Teste o link fora da Braze. Para esquemas personalizados, execute `xcrun simctl openurl booted "<URL>"` no Terminal (por exemplo, `xcrun simctl openurl booted "myapp://products/123"`). Para universal links, cole a URL no app Notas em um dispositivo físico e toque nela.
 2. [Ative o registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) e reproduza o problema. Procure por entradas `Opening '<URL>':` com `channel`, `useWebView` e `isUniversalLink`.
-3. Para links universais, valide seu arquivo AASA e o entitlement de Associated Domains.
+3. Para universal links, valide seu arquivo AASA e o entitlement de Associated Domains.
 4. Para links de e-mail, confirme se o domínio de rastreamento de cliques hospeda um arquivo AASA válido.
 5. Se você implementa `BrazeDelegate.braze(_:shouldOpenURL:)`, verifique se ele lida com links de forma consistente em todos os canais.
 6. Se o problema persistir, entre em contato com o [suporte da Braze]({{site.baseurl}}/braze_support) com os logs detalhados e a URL do link.
@@ -140,6 +141,16 @@ Para testar:
 2. Mantenha o link pressionado e inspecione a URL — essa é a URL de rastreamento de cliques.
 3. Verifique se esse domínio possui um arquivo AASA válido.
 
+## Todos os links de e-mail abrem o app {#every-email-link-opens-the-app}
+
+**Sintoma:** todos os links em um e-mail abrem o app, incluindo links que você espera que abram no navegador.
+
+Seu arquivo AASA no domínio de rastreamento de cliques usa `paths` que correspondem a todas as URLs desse domínio (por exemplo, `*` ou `/*`). O iOS então trata todos os links de e-mail com rastreamento de cliques como links universais.
+
+Limite os `paths` apenas às URLs que devem abrir o app. Para o SendGrid, corresponda a `/uni/` e adicione `universal="true"` somente nesses links.
+
+Para configurações específicas de provedor de serviços de e-mail, incluindo valores `pathPrefix` do Android, consulte [Links universais e App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking).
+
 ## Deep link funciona a partir de push, mas não de mensagem no app (ou vice-versa) {#deep-link-works-from-push-but-not-from-in-app-message}
 
 **Sintoma:** O mesmo deep link funciona a partir de um canal da Braze, mas não de outro.
@@ -229,29 +240,29 @@ Teste o link do Branch fora da Braze para isolar o problema:
 
 ## Dicas gerais de depuração {#general-debugging-tips}
 
-### Use o registro detalhado {#use-verbose-logging}
+### Usar registro detalhado (verbose logging) {#use-verbose-logging}
 
-[Ative o registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) para ver exatamente como o SDK processa os links. Entradas importantes a serem observadas:
+[Ative o registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) para ver exatamente como o SDK processa links. Principais entradas a serem observadas:
 
-| Entrada de registro | O que significa |
+| Entrada do registro | O que significa |
 |---|---|
 | `Opening '<URL>': - channel: notification` | O SDK está processando um link de uma notificação por push |
 | `Opening '<URL>': - channel: inAppMessage` | O SDK está processando um link de uma mensagem no app |
 | `Opening '<URL>': - channel: contentCard` | O SDK está processando um link de um Content Cards |
 | `useWebView: true` | O SDK abre a URL na WebView do app |
 | `isUniversalLink: true` | O SDK identificou a URL como um universal link |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Use o registro detalhado" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Usar registro detalhado (verbose logging)" }
 
 Para mais detalhes sobre como ler esses registros, consulte [Leitura de registros detalhados]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging).
 
-### Teste os links isoladamente {#test-links-in-isolation}
+### Testar links isoladamente {#test-links-in-isolation}
 
 Antes de testar pela Braze, verifique se o seu deep link ou universal link funciona por conta própria:
 
 - **Esquema personalizado**: Execute `xcrun simctl openurl booted "myapp://path"` no Terminal.
-- **Universal link**: Cole a URL no app Notas em um dispositivo físico e toque nela. Não teste pela barra de endereço do Safari, pois o iOS trata URLs digitadas de forma diferente de links tocados.
+- **Universal link**: Cole a URL no app Notas em um dispositivo físico e toque nela. Não teste pela barra de endereços do Safari, pois o iOS trata URLs digitadas de forma diferente de links tocados.
 - **Link do Branch**: Abra o link do Branch pelo app Notas em um dispositivo.
 
-### Teste em um dispositivo físico {#test-on-a-physical-device}
+### Testar em um dispositivo físico {#test-on-a-physical-device}
 
 Os universal links têm suporte limitado no simulador do iOS. Sempre teste em um dispositivo físico para obter resultados precisos. Se for necessário testar no simulador, adicione o arquivo `.entitlements` à fase de build **Copy Bundle Resources**.

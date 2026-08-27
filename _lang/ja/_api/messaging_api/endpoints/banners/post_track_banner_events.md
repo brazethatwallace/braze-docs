@@ -1,6 +1,7 @@
 ---
 nav_title: "POST: バナー分析イベントのトラッキング"
 article_title: "POST: バナー分析イベントのトラッキング"
+permalink: /api/device_messaging_api/endpoints/banners/post_track_banner_events
 search_tag: Endpoint
 page_order: 1
 layout: api_page
@@ -16,7 +17,7 @@ hidden: true
 {% endapimethod %}
 
 {% alert important %}
-このページはベータ版です。メッセージングAPIの機能とドキュメントは変更される可能性があります。
+このページはベータ版です。Device Messaging APIの機能とドキュメントは変更される可能性があります。
 {% endalert %}
 
 > このエンドポイントを使用して、バナーのインプレッションイベントとクリックイベントを記録します。
@@ -28,9 +29,9 @@ Brazeは各イベントを個別に検証します。リクエストに有効な
 このエンドポイントを使用するには、以下が必要です。
 
 - バナーが有効になっているワークスペース
-- `banners.track`権限を持つ[クライアントサイドREST APIキー]({{site.baseurl}}/api/messaging_api/authentication)
+- `banners.track`権限を持つ[クライアントサイドREST APIキー]({{site.baseurl}}/api/device_messaging_api/authentication)
 - Brazeインスタンスの[RESTエンドポイント]({{site.baseurl}}/api/basics#endpoints)
-- [ユーザーのバナー取得エンドポイント]({{site.baseurl}}/api/messaging_api/endpoints/banners/post_sync_banners)から返されたバナー`id`
+- [ユーザーのバナー取得エンドポイント]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)から返されたバナー`id`
 
 クライアントサイドREST APIキーを`Authorization`ヘッダーにBearerトークンとして含めてください。
 
@@ -38,7 +39,7 @@ Brazeは各イベントを個別に検証します。リクエストに有効な
 
 レート制限はワークスペースごとに適用されます。レート制限を超えた場合、Brazeは`429`ステータスコードを返します。利用可能な場合は、`X-RateLimit-Limit`、`X-RateLimit-Remaining`、`X-RateLimit-Reset`、`X-RateLimit-Retry-After`レスポンスヘッダーを使用して使用状況を監視し、リトライのタイミングを判断してください。
 
-詳細については、[メッセージングAPIのレート制限]({{site.baseurl}}/api/messaging_api/rate_limits)を参照してください。
+詳細については、[Device Messaging APIのレート制限]({{site.baseurl}}/api/device_messaging_api/rate_limits)を参照してください。
 
 ## リクエスト本文 {#request-body}
 
@@ -72,7 +73,7 @@ Brazeは各イベントを個別に検証します。リクエストに有効な
 
 ## リクエスト例 {#example-request}
 
-*`YOUR_REST_API_URL`*をBrazeインスタンスの[RESTエンドポイント]({{site.baseurl}}/api/basics#endpoints)に置き換えてください。
+*`YOUR_REST_API_URL`* をBrazeインスタンスの[RESTエンドポイント]({{site.baseurl}}/api/basics#endpoints)に置き換えてください。
 
 ```bash
 curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/track' \
@@ -170,6 +171,6 @@ Brazeがイベントを処理できない場合、`400`ステータスコード�
 | `429` | ワークスペースがレート制限を超えました。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ステータスコード" }
 
-詳細については、[メッセージングAPIのエラー処理とリトライ]({{site.baseurl}}/api/messaging_api/error_handling)を参照してください。
+詳細については、[Device Messaging APIのエラー処理とリトライ]({{site.baseurl}}/api/device_messaging_api/error_handling)を参照してください。
 
 {% endapi %}

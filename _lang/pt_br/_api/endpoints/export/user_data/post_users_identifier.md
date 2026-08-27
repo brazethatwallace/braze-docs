@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze para exportar usuários por identificador."
-
 ---
 {% api %}
 # Exportar perfil de usuário por identificador {#export-user-profile-by-identifier}
@@ -62,7 +61,7 @@ Para clientes que fizeram a integração com a Braze em 22 de agosto de 2024 ou 
 | `email_address` | Opcional | String | Endereço de e-mail do usuário. |
 | `phone` | Opcional | String no formato [E.164](https://en.wikipedia.org/wiki/E.164) | Número de telefone do usuário. |
 | `fields_to_export` | Opcional* | Matriz de strings | Nome dos campos de dados de usuários a serem exportados.<br><br>*Este campo é obrigatório para usar o limite de taxa mais rápido de 40 solicitações por segundo. Se omitido, será usado o limite de taxa padrão de 250 solicitações por minuto. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 *Obrigatório para clientes que fizeram a integração com a Braze em 22 de agosto de 2024 ou após essa data.
 
@@ -118,12 +117,12 @@ A seguir, uma lista de `fields_to_export` válidos. Usar `fields_to_export` para
 | `phone` | String | Número de telefone do usuário no formato E.164. |
 | `purchases` | Matriz | Compras que esse usuário fez nos últimos 90 dias. |
 | `push_tokens` | Matriz | Identificador anônimo exclusivo que especifica para onde enviar as notificações de um app. |
-| `random_bucket` | Inteiro | [Número de bucket aleatório]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event) do usuário, usado para criar segmentos uniformemente distribuídos de usuários aleatórios. |
+| `random_bucket` | Inteiro | [Número de bucket aleatório]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) do usuário, usado para criar segmentos uniformemente distribuídos de usuários aleatórios. |
 | `time_zone` | String | Fuso horário do usuário no mesmo formato do banco de dados de fuso horário da IANA. |
 | `total_revenue` | Float | Receita total atribuída a esse usuário. A receita total é calculada com base nas compras que o usuário fez durante as janelas de conversão das Campaigns e Canvas que recebeu. |
 | `uninstalled_at` | Timestamp | Data e hora em que o usuário desinstala o app. Omitido se o app não tiver sido desinstalado. |
 | `user_aliases` | Objeto | [Objeto de aliases de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object) contendo `alias_name` e `alias_label`, se houver. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos a serem exportados" }
 
 Esteja ciente de que o endpoint `/users/export/ids` reunirá todo o perfil desse usuário, incluindo dados como todas as Campaigns e Canvas recebidos, todos os eventos personalizados realizados, todas as compras feitas e todos os atributos personalizados. Como resultado, esse endpoint é mais lento do que outros endpoints da REST API.
 

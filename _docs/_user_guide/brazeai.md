@@ -9,7 +9,7 @@ Tool:
   - Dashboard
 
 guide_top_header: "BrazeAI<sup>TM</sup>"
-guide_top_text: "BrazeAI<sup>TM</sup> powers a collection of accessible, easy-to-use tools that lower the barriers to entry for creativity, personalization and optimization for your engagement strategy. With BrazeAI<sup>TM</sup> capabilities, you can have a trusted advisor to help guide your creativity, make better decisions, and optimize the user experience for your customers."
+guide_top_text: "BrazeAI<sup>TM</sup> powers a collection of accessible, easy-to-use tools that lower the barriers to entry for creativity, personalization, and optimization for your engagement strategy. With BrazeAI<sup>TM</sup> capabilities, you can have a trusted advisor to help guide your creativity, make better decisions, and optimize the user experience for your customers. This hub links to guides for generative AI, the Intelligence Suite, item recommendations, agents, and other BrazeAI features you can use in campaigns and Canvases."
 
 guide_featured_title: "Features"
 guide_featured_list:
@@ -65,3 +65,13 @@ guide_featured_list:
 | Send at the best time or the best channel per user | [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), [Intelligent Channel]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) |
 | Create or refine copy and creative directly in the dashboard | [Operator]({{site.baseurl}}/user_guide/brazeai/operator) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Feature overview" }
+
+## Frequently asked questions
+
+### What is BrazeAI? {#what-is-brazeai}
+
+BrazeAI is a set of AI-powered tools in Braze for generative copy, personalization, predictions, recommendations, and decisioning. Use the feature links on this page to open setup guides for each capability.
+
+### Which BrazeAI feature should I use first? {#which-brazeai-feature-should-i-use-first}
+
+Start with the [Feature overview](#feature-overview) table on this page to match your goal—such as copy generation, send-time optimization, or product recommendations—to the recommended BrazeAI feature.

@@ -11,7 +11,7 @@ search_rank: 2
 
 # Email
 
-> With email at Braze, you can create completely customized and personalized email messages in either campaigns or Canvas that grab your user's attention outside of your app or website. Customize your email messages from managing your audience to including eye-catching multimedia content. To see examples of email campaigns, refer to the Braze [case studies](https://www.braze.com/customers/).
+> With email at Braze, you create customized and personalized email messages in campaigns or Canvases that reach users outside your app or website. This hub covers email setup, drag-and-drop and HTML editors, subscription management, templates, and testing so you can launch compliant, on-brand email programs. Use Braze email templates or custom HTML to match your brand voice and layout. Start with [Email setup]({{site.baseurl}}/user_guide/channels/email/email_setup) if you are configuring a new sending domain. To see examples of email campaigns, refer to the Braze [case studies](https://www.braze.com/customers/).
 
 ## Prerequisites
 
@@ -25,6 +25,7 @@ You can customize your email messaging in a variety of ways, including:
 - [Custom HTML templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
 - [Editor blocks (email)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
 - [User subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions)
+- [Subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups)
 
 ## Test your emails
 
@@ -61,6 +62,20 @@ These services can include:
   - Monitoring of deliverability performance by domain
   - Recommendations to improve email program performance and results utilizing data and established best practices
 - Mitigate and remediate crisis triage for events that lead to issues like a blocklist for deliverability
+
+## Frequently asked questions
+
+### How do I set up email sending in Braze? {#how-do-i-set-up-email-sending-in-braze}
+
+Configure dedicated IPs, domains, authentication, and IP warming before your first send. Refer to [Email setup]({{site.baseurl}}/user_guide/channels/email/email_setup) for the full checklist.
+
+### What is the difference between user subscriptions and subscription groups? {#what-is-the-difference-between-user-subscriptions-and-subscription-groups}
+
+User subscriptions control global opt-in status for a channel (for example, subscribed or unsubscribed to email). Subscription groups let users choose specific message categories within that channel. Refer to [User subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions) and [Subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
+
+### How can I test an email before I send a campaign? {#how-can-i-test-an-email-before-i-send-a-campaign}
+
+Use [seed groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) to send preview copies to internal reviewers and confirm rendering across clients.
 
 ## Next steps
 

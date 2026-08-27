@@ -1,6 +1,6 @@
 ---
 nav_title: プッシュ通知
-article_title: "Braze SDKのプッシュ通知"
+article_title: プッシュ通知
 page_order: 2.3
 description: "このランディングページは、プッシュ通知に関するすべての情報をまとめたページです。"
 ---

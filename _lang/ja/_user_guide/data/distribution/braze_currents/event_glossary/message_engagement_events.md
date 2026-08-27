@@ -18,10 +18,10 @@ lazy_partner_tabs: true
 ストレージスキーマは、データウェアハウスストレージパートナー（Google Cloud Storage、Amazon S3、Microsoft Azure Blob Storage）に送信するフラットファイルイベントデータに適用されます。その他のパートナーに適用されるスキーマについては、[利用可能なパートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)の一覧を参照し、それぞれのページをご確認ください。
 
 {% alert tip %}
-これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)、および[Snowflakeデータシェアリング]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)でSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。
+これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)、および[Snowflakeデータシェアリング]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)でもSQLテーブルとして利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。
 {% endalert %}
 
-追加のイベントエンタイトルメントへのアクセスが必要な場合は、アカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。この記事で必要な情報が見つからない場合は、[顧客行動イベントライブラリ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)または[Currentsサンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご確認ください。
+追加のイベントエンタイトルメントへのアクセスが必要な場合は、アカウントマネージャーに連絡するか、[サポートチケット]({{site.baseurl}}/user_guide/administer/personal/braze_support)を開いてください。この記事で必要な情報が見つからない場合は、[顧客行動イベントライブラリ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)または[Currentsサンプルデータ例](https://github.com/Appboy/currents-examples/tree/master/sample-data)をご覧ください。
 
 {% enddetails %}
 
@@ -29,9 +29,9 @@ lazy_partner_tabs: true
 
 ## イベント構造 {#event-structure}
 
-このイベントの内訳は、メッセージエンゲージメントイベントに一般的に含まれる情報の種類を示しています。そのコンポーネントをしっかり理解することで、開発者やビジネスインテリジェンス戦略チームは、受信したCurrentsイベントデータを使用してデータドリブン型のレポートやチャートを作成し、その他の貴重なデータ指標を活用できます。
+このイベントの分解は、メッセージエンゲージメントイベントに一般的に含まれる情報の種類を示しています。コンポーネントをしっかりと理解することで、開発者やビジネスインテリジェンス戦略チームは、受信するCurrentsイベントデータを使用してデータドリブン型のレポートやチャートを作成し、その他の貴重なデータ指標を活用できます。
 
-![メッセージエンゲージメントイベントの内訳。メール購読解除イベントを示し、リストされたプロパティがユーザー固有のプロパティ、キャンペーンまたはキャンバスのトラッキングプロパティ、イベント固有のプロパティにグループ化されています]({% image_buster /assets/img/message_engagement_event.png %})
+![メッセージエンゲージメントイベントの分解図。メール購読解除イベントを示し、リストされたプロパティがユーザー固有のプロパティ、キャンペーンまたはキャンバスのトラッキングプロパティ、およびイベント固有のプロパティにグループ化されています]({% image_buster /assets/img/message_engagement_event.png %})
 
 メッセージエンゲージメントイベントは、**ユーザー固有**のプロパティ、**キャンペーン/キャンバスのトラッキング**プロパティ、および**イベント固有**のプロパティで構成されています。
 
@@ -48,7 +48,7 @@ lazy_partner_tabs: true
 ### プラットフォーム値 {#platform-values}
 
 一部のイベントは、ユーザーのデバイスのプラットフォームを指定する `platform` 値を返します。
-<br>以下の表に、返される可能性のある値を示します。
+<br>以下の表は、返される可能性のある値の詳細を示しています。
 
 | ユーザーデバイス | プラットフォーム値 |
 | --- | --- |
@@ -63,11 +63,11 @@ lazy_partner_tabs: true
 
 {% enddetails %}
 
-{% details メッセージエンゲージメントイベントに関する注意事項 %}
+{% details メッセージエンゲージメントイベントに関する考慮事項 %}
 
 - Currentsは、ペイロードが900&nbsp;KBを超えるイベントをドロップします。
 - キャンバスフローに関連するオブジェクトには、グループ化に使用でき、[キャンバス詳細エクスポートエンドポイント]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)を通じて人間が読める名前に変換できるIDがあります。
-- キャンペーンまたはキャンバスを更新した直後に、一部のフィールドが最新の状態を表示しない場合があります。
+- キャンペーンまたはキャンバスを更新した直後に、特定のフィールドが最新の状態をすぐに表示しない場合があります。
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -1012,8 +1012,8 @@ Subscription
 
 ### プロパティの詳細
 <ul>
-<li><code>dispatch_id</code> は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生したすべてのプッシュイベントには同じ <code>dispatch_id</code> が含まれます。<code>dispatch_id</code> を使用して、同じディスパッチに属するイベントをグループ化し、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化して相関させることができます。</li>
-<li><code>state_change_source</code> は、完全なソース名の文字列を返します。例えば、ソースがCSVインポートの場合、文字列 <code>CSV import</code> が返されます。利用可能なソースを以下に示します。</li>
+<li><code>dispatch_id</code>は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生したすべてのプッシュイベントには同じ<code>dispatch_id</code>が含まれます。<code>dispatch_id</code>を使用して、同じディスパッチに属するイベントをグループ化し、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化して相関させることができます。</li>
+<li><code>state_change_source</code>は、完全なソース名の文字列を返します。例えば、ソースがCSVインポートの場合、文字列<code>CSV import</code>が返されます。利用可能なソースを以下に示します。</li>
 </ul>
 <table class="reset-td-br-1 reset-td-br-2" role="presentation">
 <thead>
@@ -1028,7 +1028,7 @@ Subscription
 <tr><td>ユーザー設定センター</td><td>ユーザー設定センターからユーザーが更新された場合</td></tr>
 <tr><td>受信メッセージ</td><td>SMSなどのチャネルを経由するエンドユーザーからのインバウンドメッセージによってユーザーが更新された場合</td></tr>
 <tr><td>移行</td><td>内部移行または保守スクリプトによってユーザーが更新された場合</td></tr>
-<tr><td>ユーザーマージ</td><td>ユーザーのマージプロセスによってユーザーが更新された場合</td></tr>
+<tr><td>ユーザーマージ</td><td>ユーザーマージプロセスによってユーザーが更新された場合</td></tr>
 <tr><td>キャンバスユーザー更新ステップ</td><td>キャンバスユーザー更新ステップによってユーザーが更新された場合</td></tr>
 </tbody>
 </table>
@@ -1047,7 +1047,7 @@ Campaign, Conversion
 このイベントは、キャンペーンでコンバージョンイベントとして設定されたアクションをユーザーが実行したときに発生します。
 
 {% alert important %}
-コンバージョンイベントは `conversion_behavior` フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index` フィールドは、0 = A、1 = B、2 = C、3 = D のように、どのコンバージョンイベントかを表します。
+コンバージョンイベントは`conversion_behavior`フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index`フィールドは、0 = A、1 = B、2 = C、3 = D のように、どのコンバージョンイベントかを表します。
 {% endalert %}
 
 {% tabs %}
@@ -1429,7 +1429,7 @@ Canvas, Conversion
 このイベントは、キャンバスでコンバージョンイベントとして設定されたアクションをユーザーが実行したときに発生します。
 
 {% alert important %}
-コンバージョンイベントは `conversion_behavior` フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index` フィールドは、0 = A、1 = B、2 = C、3 = D のように、どのコンバージョンイベントかを表します。
+コンバージョンイベントは`conversion_behavior`フィールドにエンコードされ、コンバージョンイベントのタイプ、ウィンドウ（期間）、およびコンバージョンイベントのタイプに応じた追加情報が含まれます。`conversion_behavior_index`フィールドは、0 = A、1 = B、2 = C、3 = D のように、どのコンバージョンイベントかを表します。
 {% endalert %}
 
 {% tabs %}
@@ -2874,7 +2874,7 @@ Canvas, Entry
 Canvas, Progression
 {% endapitags %}
 
-このイベントは、ユーザーがキャンバスのステップを何らかの結果を伴って進行したときに発生します。このイベントは、ステップへのエントリ時または退出時には発生しないことに注意してください。現在、分岐ステップ（オーディエンスパス、条件分岐、アクションパス、実験）およびAdvanceの結果のみがステップ進行イベントを生成します。
+このイベントは、ユーザーがキャンバスのステップを何らかの結果を伴って進行したときに発生します。このイベントは、ステップへのエントリ時または退出時には発生しないことに注意してください。現在、分岐ステップ（オーディエンスパス、条件分岐、アクションパス、実験）および Advance の結果のみがステップ進行イベントを生成します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -4261,7 +4261,7 @@ Banner, Impressions
 Abort, Content Cards
 {% endapitags %}
 
-このイベントは、Content Cardsのメッセージが Liquid の中止などに基づいて中止された場合に発生します。
+このイベントは、Content Cardsのメッセージが Liquidの中止などに基づいて中止された場合に発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -5798,6 +5798,7 @@ Abort, Email
 - `abort_type`フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
 - `abort_type`は、グローバルなフリークエンシーキャップルールによりメッセージが中止された場合、`frequency_capped`になります。
 - `abort_log`には、中止をトリガーした特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 email messages every 1 week`
+- `message_extras`は、レンダリング中に {% raw %}`{% message_extras %}`{% endraw %} タグが実行された後に中止が発生した場合にのみ値が入ります。
 
 {% endapi %}
 
@@ -9299,7 +9300,7 @@ In-App Messages, Clicks
 {% endapi %}
 
 {% api %}
-## アプリ内メッセージインプレッションイベント {#in-app-message-impression-events}
+## アプリ内メッセージのインプレッションイベント {#in-app-message-impression-events}
 
 {% apitags %}
 In-App Messages, Impressions
@@ -9747,7 +9748,7 @@ Landing Pages, Clicks
 Landing Pages, Form Submissions
 {% endapitags %}
 
-このイベントは、エンドユーザーがランディングページ上のフォームに入力し、送信ボタンをクリックしたときに発生します。
+このイベントは、エンドユーザーがランディングページ上のフォームに入力し、送信ボタンをクリックして情報を送信したときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -10281,10 +10282,11 @@ LINE, Abort
 
 ### プロパティの詳細
 
-- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
-- `abort_type` フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
-- `abort_type` は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped` になります。
-- `abort_log` には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 LINE messages every 1 week`
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `abort_type`フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
+- メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`abort_type`は`frequency_capped`になります。
+- `abort_log`には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 LINE messages every 1 week`
+- `message_extras`は、レンダリング中に{% raw %}`{% message_extras %}`{% endraw %}タグが実行された後に中止が発生した場合にのみ設定されます。
 
 {% endapi %}
 
@@ -10535,7 +10537,7 @@ LINE, Clicks
 
 ### プロパティの詳細
 
-- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -10775,7 +10777,7 @@ LINE, Inbound Received
 
 ### プロパティの詳細
 
-- `dispatch_id` は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ `dispatch_id` が含まれます。`dispatch_id` を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -11245,7 +11247,7 @@ LINE, Sends
 
 ### プロパティの詳細
 
-- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチの ID です。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
+- `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
 
@@ -11256,7 +11258,7 @@ LINE, Sends
 Live Activity, Outcome
 {% endapitags %}
 
-このイベントは、ライブアクティビティの送信後に Braze がサードパーティプロバイダー（APNs など）からレスポンスを受信したときに発生します。
+このイベントは、ライブアクティビティの送信後にBrazeがサードパーティプロバイダー（APNsなど）からレスポンスを受信したときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -11432,7 +11434,7 @@ Live Activity, Outcome
 Live Activity, Sends
 {% endapitags %}
 
-このイベントは、Braze システムがライブアクティビティに関してプロバイダーにリクエストを送信したときに発生します。
+このイベントは、Brazeシステムがライブアクティビティに関してプロバイダーにリクエストを送信したときに発生します。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -11840,6 +11842,7 @@ Abort, Push
 - `abort_type`フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
 - `abort_type`は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped`になります。
 - `abort_log`には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 push messages every 1 week`
+- `message_extras`は、レンダリング中に{% raw %}`{% message_extras %}`{% endraw %}タグが実行された後に中止が発生した場合にのみ入力されます。
 
 {% endapi %}
 
@@ -14287,7 +14290,7 @@ RCS, Read
 RCS, Rejection
 {% endapitags %}
 
-通信事業者の介入により、RCSメッセージがユーザーのモバイルデバイスに配信されなかった場合に生成されるイベントです。
+通信キャリアの介入により、RCSメッセージがユーザーのモバイルデバイスに配信されなかった場合に生成されるイベントです。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -15000,6 +15003,7 @@ Abort, SMS
 - `abort_type`フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
 - `abort_type`は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped`になります。
 - `abort_log`には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 SMS messages every 1 week`
+- `message_extras`は、レンダリング中に {% raw %}`{% message_extras %}`{% endraw %} タグが実行された後に中止が発生した場合にのみ入力されます。
 
 {% endapi %}
 
@@ -15985,7 +15989,7 @@ BrazeがこのインバウンドメッセージがBrazeから送信されたア�
 SMS, Rejection
 {% endapitags %}
 
-このイベントは、SMS送信が通信事業者によって拒否されたときに発生します。これはいくつかの理由で起こる可能性があります。このイベントと提供されたエラーコードを使用して、SMS配信に関する問題のトラブルシューティングに役立ててください。
+このイベントは、SMS送信がキャリアによって拒否されたときに発生します。これはいくつかの理由で発生する可能性があります。このイベントと提供されるエラーコードを使用して、SMS配信に関する問題のトラブルシューティングに役立ててください。
 
 {% alert note %}
 Brazeは、イベントがログ記録のために処理される時点でBrazeユーザープロファイルがワークスペースにまだ存在している場合にのみ、`users.messages.sms.Rejection`をCurrents、Snowflakeデータ共有、および関連するエクスポートに送信します。そのプロファイルが事前に削除されていた場合、データウェアハウスやCurrentsエクスポートにこのイベントは表示されません。同じ処理ルールは、Brazeが同じパイプラインを通じてログに記録する他の`users.messages.sms.*`アウトバウンドイベント（配信、配信失敗、キャリアへの送信など）にも適用されます。ワークスペースレベルのSMS指標には、Snowflakeの行と1対1で対応しない集計カウントが含まれる場合があります。
@@ -16246,7 +16250,7 @@ Brazeは、イベントがログ記録のために処理される時点でBraze�
 SMS, Retry
 {% endapitags %}
 
-このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定された再試行ウィンドウ内で後から再試行される場合に発生します。これはメッセージ優先順位付けのベータ版のお客様のみ利用可能です。
+このイベントは、メッセージの優先度が下げられたりフリークエンシーキャップが適用されたりして、設定された再試行ウィンドウ内で後から再試行される場合に発生します。これはメッセージ優先順位付けベータ版のお客様のみ利用可能です。
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -16712,7 +16716,7 @@ SMS, Sends
 
 ### プロパティの詳細
 
-- `message_extras`を使用すると、Connected Contentからのダイナミックなデータ、カスタム属性（言語、国など）、およびキャンバスエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[Message extras]({{site.baseurl}}/message_extras_tag)を参照してください。
+- `message_extras`を使用すると、Connected Contentからのダイナミックなデータ、カスタム属性（言語、国など）、およびキャンバスエントリプロパティで送信イベントに注釈を付けることができます。詳細については、[Message extras]({{site.baseurl}}/message_extras_tag)を参照してください。
 - `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
@@ -17593,6 +17597,7 @@ Abort, Webhooks
 - `abort_type`フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
 - `abort_type`は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped`になります。
 - `abort_log`には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 webhook messages every 1 week`
+- `message_extras`は、レンダリング中に {% raw %}`{% message_extras %}`{% endraw %} タグが実行された後に中止が発生した場合にのみ入力されます。
 
 {% endapi %}
 
@@ -18321,7 +18326,7 @@ Webhooks, Sends
 
 ### プロパティの詳細
 
-- `message_extras`を使用すると、Connected Contentからのダイナミックなデータ、カスタム属性（言語や国など）、およびキャンバスエントリのプロパティを使用して、送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag)を参照してください。
+- `message_extras`を使用すると、Connected Contentからのダイナミックなデータ、カスタム属性（言語や国など）、およびキャンバスエントリのプロパティで送信イベントに注釈を付けることができます。詳細については、[メッセージエクストラ]({{site.baseurl}}/message_extras_tag)を参照してください。
 - `dispatch_id`は、キャンペーン送信などの特定のメッセージディスパッチのIDです。同じディスパッチから発生するすべてのプッシュイベントには、同じ`dispatch_id`が含まれます。`dispatch_id`を使用して同じディスパッチに属するイベントをグループ化することで、そのディスパッチのプッシュメッセージライフサイクル（送信、バウンス、開封など）をグループ化し、関連付けることができます。
 
 {% endapi %}
@@ -18573,6 +18578,7 @@ WhatsApp, Abort
 - `abort_type`フィールドは、メッセージが中止された理由を示します。値の完全なリストについては、[中止タイプ]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)を参照してください。
 - `abort_type`は、メッセージがグローバルなフリークエンシーキャップルールにより中止された場合、`frequency_capped`になります。
 - `abort_log`には、中止のトリガーとなった特定のルールに関する情報が含まれます。例: `Frequency cap rule: 5 WhatsApp messages every 1 week`
+- `message_extras`は、レンダリング中に {% raw %}`{% message_extras %}`{% endraw %} タグが実行された後に中止が発生した場合にのみ値が設定されます。
 
 {% endapi %}
 

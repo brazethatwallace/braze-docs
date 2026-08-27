@@ -179,7 +179,7 @@ Before you test the campaign, confirm Stayfilm has configured your project with 
 4. Select **Compose webhook** > **Start from scratch**.
 5. Under **Compose Webhook** > **Webhook URL**, enter the Stayfilm `POST /Job` endpoint URL provided by Stayfilm. Replace *`{BASE_URL}`* in the following example: `https://{BASE_URL}/stg/v3/job`
 6. Set **HTTP method** to **POST**.
-7. Under **Request Body**, select **Raw Text**, then paste the job payload Stayfilm provides. You can use [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/) to make the body dynamic.
+7. Under **Request Body**, select **Raw Text**, then paste the job payload Stayfilm provides. You can use [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) to make the body dynamic.
 
 Include `CallbackRelayData` set to the Braze user's `external_id`. Stayfilm returns this value in the callback as `RelayedData`.
 

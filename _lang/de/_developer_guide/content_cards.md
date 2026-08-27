@@ -1,7 +1,8 @@
 ---
 page_order: 2.2
 nav_title: Content Cards
-article_title: Content Cards im Braze SDK
+article_title: Content Cards
+description: "Erfahren Sie, wie Sie Content Cards mit dem Braze SDK implementieren, einschließlich Datenmodelle, Kartentypen und Anpassungsoptionen für Ihre mobilen und Web-Apps."
 channel:
   - content cards
 platform:
@@ -55,7 +56,7 @@ Das [Basis-Kartenmodell](https://braze-inc.github.io/braze-android-sdk/kdoc/braz
 | `isClicked()` | Gibt einen booleschen Wert zurück, der den Klickstatus dieser Karte widerspiegelt.|
 | `isDismissed` | Gibt einen booleschen Wert zurück, der angibt, ob die Karte geschlossen wurde. Setzen Sie den Wert auf `true`, um die Karte als geschlossen zu markieren. Wenn eine Karte bereits als geschlossen markiert ist, kann sie nicht erneut als geschlossen markiert werden.|
 | `isControl()` | Gibt einen booleschen Wert zurück, wenn diese Karte eine Kontrollkarte ist und nicht gerendert werden soll.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Basis-Kartenmodell" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Basis-Kartenmodell #base-card-for-android" }
 
 ### Nur Bild {#banner-image-card-for-android}
 
@@ -66,7 +67,7 @@ Das [Basis-Kartenmodell](https://braze-inc.github.io/braze-android-sdk/kdoc/braz
 | `getImageUrl()` | Gibt die URL des Kartenbilds zurück.|
 | `getUrl()` | Gibt die URL zurück, die nach dem Klicken auf die Karte geöffnet wird. Es kann eine HTTP(s)-URL oder eine Protokoll-URL sein.|
 | `getDomain()` | Gibt den Linktext für die Eigenschafts-URL zurück.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Nur Bild" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nur Bild #banner-image-card-for-android" }
 
 ### Bild mit Beschriftung {#captioned-image-card-for-android}
 
@@ -79,7 +80,7 @@ Das [Basis-Kartenmodell](https://braze-inc.github.io/braze-android-sdk/kdoc/braz
 | `getDescription()` | Gibt den Textkörper der Karte zurück.|
 | `getUrl()` | Gibt die URL zurück, die nach dem Klicken auf die Karte geöffnet wird. Es kann eine HTTP(s)-URL oder eine Protokoll-URL sein.|
 | `getDomain()` | Gibt den Linktext für die Eigenschafts-URL zurück. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Bild mit Beschriftung" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bild mit Beschriftung #captioned-image-card-for-android" }
 
 ### Klassisch {#text-Announcement-card-for-android}
 
@@ -93,7 +94,7 @@ Eine klassische Karte ohne Bild ergibt eine [Textankündigungskarte](https://bra
 | `getDomain()` | Gibt den Linktext für die Eigenschafts-URL zurück. |
 | `getImageUrl()` | Gibt die URL des Kartenbilds zurück, gilt nur für die klassische Kurznachrichtenkarte. |
 | `isDismissed` | Gibt einen booleschen Wert zurück, der angibt, ob die Karte geschlossen wurde. Setzen Sie den Wert auf `true`, um die Karte als geschlossen zu markieren. Wenn eine Karte bereits als geschlossen markiert ist, kann sie nicht erneut als geschlossen markiert werden. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Klassisch" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Klassisch #text-Announcement-card-for-android" }
 
 ## Kartenmethoden {#card-methods}
 

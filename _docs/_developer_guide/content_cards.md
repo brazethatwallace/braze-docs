@@ -1,7 +1,8 @@
 ---
 page_order: 2.2
 nav_title: Content Cards
-article_title: Content Cards in the Braze SDK
+article_title: "Content Cards"
+description: "Learn how to implement Content Cards with the Braze SDK, including data models, card types, and customization options for your mobile and web apps."
 channel:
   - content cards
 platform:

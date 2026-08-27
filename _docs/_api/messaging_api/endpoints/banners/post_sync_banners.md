@@ -1,6 +1,7 @@
 ---
 nav_title: "POST: Retrieve Banners for a user"
 article_title: "POST: Retrieve Banners for a user"
+permalink: /api/device_messaging_api/endpoints/banners/post_sync_banners
 search_tag: Endpoint
 page_order: 0
 layout: api_page
@@ -16,7 +17,7 @@ hidden: true
 {% endapimethod %}
 
 {% alert important %}
-This page is in beta. Features and documentation for the Messaging API are subject to change.
+This page is in beta. Features and documentation for the Device Messaging API are subject to change.
 {% endalert %}
 
 > Use this endpoint to retrieve the eligible Banner for each requested placement for a user.
@@ -28,7 +29,7 @@ The response contains structured Banner properties that you can use to build a c
 To use this endpoint, you need the following:
 
 - A workspace with Banners enabled
-- A [client-side REST API key]({{site.baseurl}}/api/messaging_api/authentication) with the `banners.sync` permission
+- A [client-side REST API key]({{site.baseurl}}/api/device_messaging_api/authentication) with the `banners.sync` permission
 - The [REST endpoint]({{site.baseurl}}/api/basics#endpoints) for your Braze instance
 
 Include the client-side REST API key in the `Authorization` header as a bearer token.
@@ -37,7 +38,7 @@ Include the client-side REST API key in the `Authorization` header as a bearer t
 
 Rate limits apply per workspace. If you exceed the rate limit, Braze returns a `429` status code. When available, use the `X-RateLimit-Limit`, `X-RateLimit-Remaining`, and `X-RateLimit-Reset` response headers to monitor your usage.
 
-For more information, see [Messaging API rate limits]({{site.baseurl}}/api/messaging_api/rate_limits).
+For more information, see [Device Messaging API rate limits]({{site.baseurl}}/api/device_messaging_api/rate_limits).
 
 ## Request body
 
@@ -137,6 +138,6 @@ A successful request returns a `200` status code and the resolved Banner for eac
 | `429` | The workspace exceeded its rate limit. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Status codes" }
 
-For more information, see [Messaging API error handling and retries]({{site.baseurl}}/api/messaging_api/error_handling).
+For more information, see [Device Messaging API error handling and retries]({{site.baseurl}}/api/device_messaging_api/error_handling).
 
 {% endapi %}

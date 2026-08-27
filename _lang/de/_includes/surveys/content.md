@@ -4,7 +4,7 @@
   - channel (erforderlich): "in_app_message" oder "landing_page"
 {% endcomment %}
 
-{% multi_lang_include alerts/early_access_beta_alert.md feature='Braze surveys' %}
+Einen Überblick über Umfragen und die kanalübergreifend verfügbaren Funktionen finden Sie unter [Umfragen]({{site.baseurl}}/user_guide/messaging/surveys).
 
 ## Voraussetzungen {#prerequisites}
 
@@ -23,7 +23,7 @@ Bevor Sie eine Umfrage erstellen, müssen Sie:
 
 ## Umfrage erstellen {#create-a-survey}
 
-Während des Early Access werden Umfragen innerhalb Ihres bestehenden Nachrichtenkompositions-Flows erstellt.
+Umfragen werden innerhalb Ihres bestehenden Nachrichtenerstellungs-Flows erstellt.
 
 {% if include.channel == 'in_app_message' %}
 1. Erstellen Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) in einer Campaign oder einem Canvas.
@@ -33,7 +33,7 @@ Während des Early Access werden Umfragen innerhalb Ihres bestehenden Nachrichte
 2. Erstellen Sie eine neue Landing-Page.
 3. Wählen Sie **Umfrage** als Nachrichtentyp aus.
 {% else %}
-1. Gehen Sie zu **Messaging** > **Landing-Pages**, oder erstellen Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) in einer Campaign oder einem Canvas.
+1. Gehen Sie zu **Messaging** > **Landing-Pages** oder erstellen Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) in einer Campaign oder einem Canvas.
 2. Erstellen Sie eine neue Nachricht.
 3. Wählen Sie **Umfrage** als Nachrichtentyp aus.
 {% endif %}
@@ -45,7 +45,7 @@ Während des Early Access werden Umfragen innerhalb Ihres bestehenden Nachrichte
 In-App-Nachrichten-Umfragen enthalten standardmäßig zwei Seiten:
 
 - **Seite 1**, auf der Nutzer:innen Fragen beantworten
-- **Bestätigungsseite**, auf der die Umfrage abgesendet wird
+- **Bestätigungsseite**, auf der die Umfrage übermittelt wird
 
 Standardmäßig sind Buttons mit **Nächste Seite** verknüpft. Um dieses Verhalten zu ändern, aktualisieren Sie jeden Button im Panel **Aktionen**.
 
@@ -70,46 +70,26 @@ Sie können die folgenden Formularblöcke zu Umfragen hinzufügen:
 
 - Telefonnummernerfassung
 - E-Mail-Erfassung
-- Optionsfeld-Gruppe
+- Optionsfeldgruppe
 - Kurztexterfassung
 - Langtexterfassung
 - Dropdown
 - Einzelnes Kontrollkästchen
-- Kontrollkästchen-Gruppe
+- Kontrollkästchengruppe
 - Bewertungsskala
+- NPS
 
 ### Antwortmöglichkeiten randomisieren {#randomize-answer-choices}
 
-Optionsfeld-Gruppen, Kontrollkästchen-Gruppen und Dropdown-Blöcke unterstützen randomisierte Antwortmöglichkeiten. Aktivieren Sie **Randomize choice order**, um die Auswahlmöglichkeiten bei jedem Laden der Umfrage zufällig anzuordnen. Verwenden Sie diese Einstellung, um Reihenfolge-Bias zu reduzieren, wenn dieselbe erste Option die Antworten verzerren könnte.
-
-Die Randomisierung ändert nur die Anzeigereihenfolge für jede:n Umfrageteilnehmer:in. Reporting-Labels und -Werte bleiben den von Ihnen konfigurierten Auswahlmöglichkeiten zugeordnet, sodass Analytics, CSV-Exporte und Segmentierung dieselben Antwortdaten verwenden.
+Optionsfeldgruppe, Kontrollkästchengruppe und Dropdown-Blöcke unterstützen randomisierte Antwortmöglichkeiten. Aktivieren Sie **Randomize choice order**, um die Auswahlmöglichkeiten bei jedem Laden der Umfrage zufällig anzuordnen. Weitere Informationen finden Sie unter [Randomisierte Reihenfolge der Auswahlmöglichkeiten]({{site.baseurl}}/user_guide/messaging/surveys#randomized-choice-order).
 
 ### Langtexterfassung {#long-text-capture}
 
-Die Langtexterfassung eignet sich für qualitatives Feedback.
-
-Sie können Folgendes konfigurieren:
-
-- Minimale und maximale Zeichenanzahl (bis zu 1.000)
-- Ob Zeichenlimits während der Erstellung angezeigt werden sollen
-- Höhe des Textbereichs (Zeilen)
-- Platzhaltertext
-
-Während des Early Access sind Langtextantworten in Berichten und Exporten verfügbar, können jedoch nicht als angepasste Attribute im Nutzerprofil protokolliert werden.
-
-![Einstellungen für den Langtexterfassungs-Block.]({% image_buster /assets/img/surveys/long-form-surveys.png %}){: style="max-width:40%;"}
+Die Langtexterfassung eignet sich für qualitatives Feedback mit bis zu 1.000 Zeichen. Weitere Informationen finden Sie unter [Langtexterfassung]({{site.baseurl}}/user_guide/messaging/surveys#long-form-text-capture).
 
 ### Bewertungsskala {#rating-scale}
 
-Die Bewertungsskala eignet sich zur Erfassung von Stimmung, Zufriedenheit oder Weiterempfehlungswahrscheinlichkeit als einzelne Zahl.
-
-Wählen Sie im Einstellungs-Panel eine Skala aus dem Dropdown:
-
-- **1–10**
-- **1–5**
-- **0–10** (Standard-Net-Promoter-Score-Bereich (NPS))
-
-Sie können eine Bewertung als Umfrageantwort erfassen, als ganzzahliges angepasstes Attribut protokollieren oder beides. Kombinieren Sie einen Bewertungsskala-Block mit einem [Langtexterfassungs](#long-text-capture)-Block, um in derselben Umfrage einen numerischen Wert zusammen mit qualitativem Feedback zu erfassen.
+Die Bewertungsskala (auch als Zahlenskala-Frage bezeichnet) eignet sich zur Erfassung von Stimmung, Zufriedenheit oder Weiterempfehlungswahrscheinlichkeit als einzelne Zahl. Weitere Informationen finden Sie unter [Zahlenskala-Fragen]({{site.baseurl}}/user_guide/messaging/surveys#number-scale-questions).
 
 {% if include.channel == 'in_app_message' %}
 ![Bewertungsskala zur Bewertung Ihres Shop-Erlebnisses von 1 bis 5.]({% image_buster /assets/img/surveys/iam_rating_scale_example.png %}){: style="max-width:40%;"}
@@ -121,95 +101,75 @@ Sie können eine Bewertung als Umfrageantwort erfassen, als ganzzahliges angepas
 
 ## Pflichtfelder und Attribute konfigurieren {#configure-required-fields-and-attributes}
 
-Geben Sie für jeden Formularblock im Einstellungs-Panel auf der rechten Seite einen **Bezeichner für das Reporting** ein. Dieser Bezeichner erscheint im Umfrage-Reporting und in CSV-Exporten.
+Geben Sie für jeden Formularblock im Einstellungs-Panel auf der rechten Seite einen **Bezeichner für das Reporting** ein. Dieser Bezeichner wird im Umfrage-Reporting und in CSV-Exporten angezeigt.
 
-Während des Early Access:
+Beachten Sie Folgendes:
 
 - Sie können die meisten Umfrageantworten in angepassten Attributen des Nutzerprofils protokollieren.
 - Langtextantworten können nicht als angepasste Attribute protokolliert werden.
 - Wenn Sie eine Antwort nicht als Nutzerattribut protokollieren, können Sie Nutzer:innen nicht nach diesem Antwortwert segmentieren.
 
-![Bezeichner für das Reporting und Einstellungen zur Attributprotokollierung.]({% image_buster /assets/img/surveys/reporting-id-surveys.png %}){: style="max-width:40%;"}
+![Einstellungen für den Bezeichner für das Reporting und die Attributprotokollierung.]({% image_buster /assets/img/surveys/reporting-id-surveys.png %}){: style="max-width:40%;"}
 
-## Berichte und Analytics anzeigen {#view-reporting-and-analytics}
+## Berichte und Analytics ansehen {#view-reporting-and-analytics}
 
-Nach dem Start können Sie die Ergebnisse hier überprüfen:
+Überprüfen Sie nach dem Start die Ergebnisse in:
 
 {% if include.channel == 'in_app_message' %}
-- Im Tab **Responses** für In-App-Nachricht-Umfragen
+- Dem Tab **Responses** für In-App-Nachricht-Umfragen
 {% elsif include.channel == 'landing_page' %}
-- In der Landing-Page-Analytics-Ansicht für Landing-Page-Umfragen
+- Der Landing-Page-Analytics-Ansicht für Landing-Page-Umfragen
 {% else %}
-- Im Tab **Responses** für In-App-Nachricht-Umfragen
-- In der Landing-Page-Analytics-Ansicht für Landing-Page-Umfragen
+- Dem Tab **Responses** für In-App-Nachricht-Umfragen
+- Der Landing-Page-Analytics-Ansicht für Landing-Page-Umfragen
 {% endif %}
 
-Übergeordnete Analytics umfassen:
-
-- **All responses:** Gesamtzahl der vollständigen und unvollständigen Antworten
-- **Completed:** Nutzer:innen, die alle Pflichtfragen beantwortet haben
-- **Partially complete:** Nutzer:innen, die einige Daten übermittelt, aber nicht alle Pflichtfragen beantwortet haben
-- **Unique impressions:** Gesamtzahl der Seitenaufrufe
+Definitionen der übergeordneten Analytics, die für jede Umfrage verfügbar sind (alle Antworten, abgeschlossen, teilweise abgeschlossen und eindeutige Impressionen), finden Sie unter [Analytics]({{site.baseurl}}/user_guide/messaging/surveys#analytics).
 
 {% if include.channel == 'landing_page' %}
 {% alert note %}
-Landing-Page-Umfragen erfassen während des Early Access keine teilweise abgeschlossenen Antworten.
+Landing-Page-Umfragen erfassen teilweise abgeschlossene Antworten, wenn die Umfrage [mehrstufige Formulare]({{site.baseurl}}/user_guide/messaging/surveys#multi-step-landing-page-forms) verwendet.
 {% endalert %}
 {% endif %}
 
-Sie können auch Aufschlüsselungen der Antworten pro Frage einsehen und Daten als CSV exportieren.
-
-### Chart-Typ auswählen {#choose-a-chart-type}
-
-Für Radiobutton-, Dropdown- und Checkbox-Formularblöcke können Sie in der Umfrage-Analytics-Ansicht zwischen drei Chart-Typen wählen. So erhalten Sie mehr Flexibilität bei der Interpretation und Weitergabe von Insights, ohne in ein Drittanbieter-Tool exportieren zu müssen.
-
-| Chart-Typ | Geeignet für |
-| --- | --- |
-| Balkendiagramm | Die standardmäßige horizontale Ansicht von Antwortanzahlen und Prozentsätzen. |
-| Säulendiagramm | Eine vertikale Ansicht von Antwortanzahlen und Prozentsätzen. Verwenden Sie dieses Chart, um Antworten nebeneinander zu vergleichen, insbesondere bei Mehrfachauswahl-Fragen oder Fragen mit mehr Antwortoptionen. |
-| Kreisdiagramm | Eine proportionale Aufschlüsselung der Antworten. Verwenden Sie dieses Chart für Einzelauswahl-Fragen, wenn Sie sehen möchten, wie sich die Antworten auf die Optionen verteilen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Chart-Typen für Umfragen" }
-
-Jedes Chart wird in Echtzeit aktualisiert, sobald Antworten eingehen. Sie können den Chart-Typ jederzeit wechseln, ohne die zugrunde liegenden Daten zu beeinflussen.
-
-![Aufschlüsselung der Umfrageergebnisse auf Fragenebene als Balkendiagramm.]({% image_buster /assets/img/surveys/bar-charts-1.png %})
+Sie können auch Aufschlüsselungen der Antworten pro Frage überprüfen, zwischen drei Chart-Typen wählen und Daten als CSV exportieren. Weitere Informationen finden Sie unter [Chart-Typen]({{site.baseurl}}/user_guide/messaging/surveys#chart-types).
 
 ## Retarget und Trigger {#retarget-and-trigger}
 
-Während des Early Access können Sie:
+Sie können:
 
-- Nutzer:innen nach Umfrageantworten segmentieren, die als Nutzerattribute protokolliert werden.
-- Nutzer:innen nach dem Abschlussstatus der Umfrage segmentieren.
+- Nutzer:innen anhand von Umfrageantworten segmentieren, die als Nutzerattribute protokolliert werden.
+- Nutzer:innen anhand des Umfrage-Abschlussstatus segmentieren.
 
 {% if include.channel == 'in_app_message' %}
 
-![Trigger-Einrichtung und Segmentierungsfilter für die Umfrage-Nachverfolgung.]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
+![Trigger-Einrichtung und Segmentierungsfilter für die Nachverfolgung von Umfragen.]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
 
-- Campaigns und Canvases triggern, wenn Nutzer:innen eine Umfrage in einer In-App-Nachrichten-Campaign abschließen.
+- Campaigns und Canvases triggern, wenn Nutzer:innen eine Umfrage in einer In-App-Nachricht-Campaign abschließen.
 
-![Trigger-Einrichtung und Segmentierungsfilter für die Nachverfolgung einer In-App-Nachrichten-Campaign-Umfrage.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
+![Trigger-Einrichtung und Segmentierungsfilter für die Nachverfolgung von In-App-Nachricht-Campaign-Umfragen.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
 
 {% elsif include.channel == 'landing_page' %}
 
-![Trigger-Einrichtung und Segmentierungsfilter für die Nachverfolgung einer Landing-Page-Umfrage.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
+![Trigger-Einrichtung und Segmentierungsfilter für die Nachverfolgung von Landing-Page-Umfragen.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
 - Campaigns und Canvases triggern, wenn Nutzer:innen eine Umfrage auf einer Landing-Page abschließen.
 
 {% else %}
 
-![Trigger-Einrichtung und Segmentierungsfilter für die Umfrage-Nachverfolgung.]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
+![Trigger-Einrichtung und Segmentierungsfilter für die Nachverfolgung von Umfragen.]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
 
-- Campaigns und Canvases triggern, wenn Nutzer:innen eine Umfrage auf einer Landing-Page oder in einer In-App-Nachrichten-Campaign abschließen.
+- Campaigns und Canvases triggern, wenn Nutzer:innen eine Umfrage auf einer Landing-Page oder in einer In-App-Nachricht-Campaign abschließen.
 
-![Trigger-Einrichtung und Segmentierungsfilter für die Nachverfolgung einer Landing-Page-Umfrage.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
+![Trigger-Einrichtung und Segmentierungsfilter für die Nachverfolgung von Landing-Page-Umfragen.]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
-![Trigger-Einrichtung und Segmentierungsfilter für die Nachverfolgung einer In-App-Nachrichten-Campaign-Umfrage.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
+![Trigger-Einrichtung und Segmentierungsfilter für die Nachverfolgung von In-App-Nachricht-Campaign-Umfragen.]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
 
 {% endif %}
 
 ### Einschränkungen {#limitations}
 
-Während des Early Access gelten die folgenden Einschränkungen:
+Es gelten die folgenden Einschränkungen:
 
-- Sie können Nutzer:innen nicht nach Freitext-Antworten segmentieren.
-- Frage-und-Antwort-Triggering, das nicht auf protokollierten Nutzerattributen basiert, ist nicht verfügbar.
+- Sie können Nutzer:innen nicht anhand von Freitext-Antworten segmentieren.
+- Eine Frage-und-Antwort-Triggerung, die nicht auf protokollierten Nutzerattributen basiert, ist nicht verfügbar.

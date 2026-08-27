@@ -1,6 +1,6 @@
 ---
 nav_title: Déclencher des messages
-article_title: Déclencher des messages in-app via le SDK Braze
+article_title: Déclencher des messages in-app
 page_order: 0.2
 description: "Découvrez comment déclencher des messages in-app via le SDK Braze, y compris l'enchaînement de messages au cours d'une même session et le remplacement de la limite de débit par défaut."
 platform:
@@ -14,11 +14,11 @@ platform:
 
 > Découvrez comment déclencher des messages in-app via le SDK Braze.
 
-## Déclencheurs et distribution des messages {#message-triggers-and-delivery}
+## Déclencheurs de messages et distribution {#message-triggers-and-delivery}
 
-Les messages in-app sont déclenchés lorsque le SDK enregistre l'un des types d'événements personnalisés suivants : `Session Start`, `Push Click`, `Any Purchase`, `Specific Purchase` et `Custom Event` (les deux derniers contenant des filtres de propriétés avancés).
+Les messages in-app sont déclenchés lorsque le SDK enregistre l'un des types d'événements personnalisés suivants : `Session Start`, `Push Click`, `Any Purchase`, `Specific Purchase` et `Custom Event` (les deux derniers contenant des filtres de propriétés robustes).
 
-Au début de la session d'un utilisateur, Braze envoie tous les messages in-app éligibles à son appareil, tout en préchargeant les ressources pour minimiser la latence d'affichage. Si l'événement déclencheur comporte plusieurs messages in-app éligibles, seul le message ayant la priorité la plus élevée est distribué. Pour en savoir plus, consultez [Cycle de vie des sessions]({{site.baseurl}}/developer_guide/analytics/tracking_sessions).
+Au début de la session d'un utilisateur, Braze envoie tous les messages in-app éligibles à son appareil, tout en préchargeant les ressources pour minimiser la latence d'affichage. Si l'événement déclencheur possède plus d'un message in-app éligible, seul le message ayant la priorité la plus élevée est distribué. Pour plus d'informations, consultez [Cycle de vie de la session]({{site.baseurl}}/developer_guide/analytics/tracking_sessions).
 
 {% alert note %}
 Les messages in-app ne peuvent pas être déclenchés via l'API ou par des événements API — uniquement par des événements personnalisés enregistrés par le SDK. Pour en savoir plus sur l'enregistrement, consultez [Enregistrement des événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events).
@@ -26,17 +26,17 @@ Les messages in-app ne peuvent pas être déclenchés via l'API ou par des évé
 
 ## Types de messages in-app {#types-of-in-app-messages}
 
-Braze envoie les types de messages in-app suivants aux appareils des utilisateurs au démarrage de la session : `inapp` et `templated_iam`. En tant qu'utilisateur du tableau de bord, vous ne voyez pas les différents types, mais Braze les traite différemment en fonction de la configuration et du contenu.
+Braze envoie les types suivants de messages in-app aux appareils des utilisateurs au début de la session : `inapp` et `templated_iam`. En tant qu'utilisateur du tableau de bord, vous ne voyez pas les différents types, mais Braze les traite différemment en fonction de la configuration et du contenu.
 
 ### `inapp` (standard) {#inapp-standard}
 
-Un message in-app `inapp` (ou « [standard]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages#standard-message-types) ») est déjà modélisé avec les informations nécessaires, telles que les attributs personnalisés que Braze connaît déjà. En général, lorsque le message in-app est téléchargé sur l'appareil, l'événement déclencheur amène le SDK à afficher le message in-app `inapp` même lorsque l'appareil est hors ligne ou en mode avion.
+Un message in-app `inapp` (ou « [standard]({{site.baseurl}}/user_guide/channels/in_app_messages) ») est déjà modélisé avec les informations nécessaires, telles que les attributs personnalisés que Braze connaît déjà. En règle générale, lorsque le message in-app est téléchargé sur l'appareil, l'événement déclencheur amène le SDK à afficher le message in-app `inapp` même lorsque l'appareil est hors ligne ou en mode avion.
 
 ### `templated_iam` (modélisé) {#templated_iam-templated}
 
 Un message in-app `templated_iam` (ou « modélisé ») n'est pas encore modélisé avec les informations nécessaires. Braze doit effectuer une autre requête pour récupérer les informations avant que le message puisse s'afficher.
 
-Les messages in-app sont distribués en tant que messages in-app modélisés lorsque l'option **Réévaluer l'éligibilité de la campagne avant l'affichage** est sélectionnée ou si l'une des étiquettes Liquid suivantes existe dans le message :
+Les messages in-app sont distribués en tant que messages in-app modélisés lorsque l'option **Réévaluer l'éligibilité de la campagne avant l'affichage** est sélectionnée ou si l'une des étiquettes Liquid suivantes est présente dans le message :
 
 - `canvas_entry_properties`
 - `connected_content`
@@ -45,10 +45,10 @@ Les messages in-app sont distribués en tant que messages in-app modélisés lor
 - `catalog_selection_items`
 - `event_properties`
 
-Cela signifie qu'au démarrage de la session, l'appareil reçoit le déclencheur de ce message in-app au lieu du message entier. Lorsque l'utilisateur déclenche le message in-app, son appareil effectue une requête réseau pour récupérer le message réel.
+Cela signifie qu'au début de la session, l'appareil reçoit le déclencheur de ce message in-app au lieu du message complet. Lorsque l'utilisateur déclenche le message in-app, son appareil effectue une requête réseau pour récupérer le message réel.
 
 {% alert note %}
-Le message ne sera pas distribué si l'appareil n'a pas accès à Internet. Le message pourrait ne pas être distribué si la logique Liquid prend trop de temps à se résoudre.
+Le message ne sera pas distribué si l'appareil n'a pas accès à Internet. Le message pourrait ne pas être distribué si la logique Liquid met trop de temps à se résoudre.
 {% endalert %}
 
 ## Paires clé-valeur {#key-value-pairs}
@@ -128,7 +128,7 @@ if ([message.extras[@"custom-display"] isKindOfClass:[NSString class]]) {
 {% endtab %}
 {% endtabs %}
 
-## Désactiver les déclencheurs automatiques {#disabling-automatic-triggers}
+## Désactivation des déclencheurs automatiques {#disabling-automatic-triggers}
 
 Par défaut, les messages in-app sont déclenchés automatiquement. Pour désactiver ce comportement :
 
@@ -158,7 +158,7 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 ```
 
 {% alert important %}
-Si vous appelez `braze.showInAppMessage` sans supprimer `braze.automaticallyShowInAppMessages()`, les messages risquent de s'afficher deux fois.
+Si vous appelez `braze.showInAppMessage` sans supprimer `braze.automaticallyShowInAppMessages()`, les messages peuvent s'afficher deux fois.
 {% endalert %}
 
 Pour un contrôle plus avancé du timing des messages, y compris le report et la restauration des messages déclenchés, consultez notre [Tutoriel : Reporter et restaurer les messages déclenchés]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
@@ -166,14 +166,14 @@ Pour un contrôle plus avancé du timing des messages, y compris le report et la
 
 {% tab android %}
 1. Implémentez le [`IInAppMessageManagerListener`]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener) pour définir un écouteur personnalisé.
-2. Mettez à jour votre méthode [`beforeInAppMessageDisplayed()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/before-in-app-message-displayed.html) pour qu'elle retourne [`InAppMessageOperation.DISCARD`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/-d-i-s-c-a-r-d/index.html).
+2. Mettez à jour votre méthode [`beforeInAppMessageDisplayed()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/before-in-app-message-displayed.html) pour qu'elle renvoie [`InAppMessageOperation.DISCARD`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/-d-i-s-c-a-r-d/index.html).
 
-Pour un contrôle plus avancé du timing des messages, y compris l'affichage différé et la remise en file d'attente, consultez notre page [Personnalisation des messages]({{site.baseurl}}/developer_guide/in_app_messages/customization?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener).
+Pour un contrôle plus avancé du timing des messages, y compris l'affichage ultérieur et la remise en file d'attente, consultez notre page [Personnalisation des messages]({{site.baseurl}}/developer_guide/in_app_messages/customization?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener).
 {% endtab %}
 
 {% tab swift %}
-1. Implémentez le délégué `BrazeInAppMessageUIDelegate` dans votre application. Pour une procédure complète, consultez le [Tutoriel : Interface utilisateur des messages in-app](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui).
-2. Mettez à jour votre méthode déléguée `inAppMessage(_:displayChoiceForMessage:)` pour qu'elle retourne `.discard`.
+1. Implémentez le délégué `BrazeInAppMessageUIDelegate` dans votre application. Pour un guide complet, consultez le [Tutoriel : Interface utilisateur des messages in-app](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui).
+2. Mettez à jour votre méthode déléguée `inAppMessage(_:displayChoiceForMessage:)` pour qu'elle renvoie `.discard`.
 
 Pour un contrôle plus avancé du timing des messages, y compris le report et la restauration des messages déclenchés, consultez notre [Tutoriel : Reporter et restaurer les messages déclenchés]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
 {% endtab %}
@@ -191,21 +191,21 @@ Pour un contrôle plus avancé du timing des messages, y compris le report et la
 {% subtab Android %}
 Pour Android, décochez **Automatically Display In-App Messages** dans l'éditeur de configuration Braze. Vous pouvez également définir `com_braze_inapp_show_inapp_messages_automatically` sur `false` dans le fichier `braze.xml` de votre projet Unity.
 
-L'opération d'affichage initiale des messages in-app peut être définie dans la configuration Braze via « In App Message Manager Initial Display Operation ».
+L'opération d'affichage initiale des messages in-app peut être définie dans la configuration Braze en utilisant « In App Message Manager Initial Display Operation ».
 {% endsubtab %}
 
 {% subtab iOS %}
 Pour iOS, définissez les écouteurs d'objet de jeu dans l'éditeur de configuration Braze et assurez-vous que **Braze Displays In-App Messages** n'est pas sélectionné.
 
-L'opération d'affichage initiale des messages in-app peut être définie dans la configuration Braze via « In App Message Manager Initial Display Operation ».
+L'opération d'affichage initiale des messages in-app peut être définie dans la configuration Braze en utilisant « In App Message Manager Initial Display Operation ».
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 {% endtabs %}
 
-## Enchaîner deux messages in-app au cours d'une même session {#chaining-two-in-app-messages-in-one-session}
+## Chaîner deux messages in-app au cours d'une même session {#chaining-two-in-app-messages-in-one-session}
 
-Vous pouvez déclencher un message in-app au démarrage de la session, puis déclencher un second message in-app après qu'un bouton a été pressé dans le premier. Pour ce faire, enregistrez un événement personnalisé pour le clic sur le bouton qui déclenchera le second message. Le déclencheur du second message doit déjà être présent sur l'appareil (l'utilisateur doit déjà être éligible au second message) et se produire côté appareil (le SDK Braze ne prendra pas en compte les modifications d'attributs personnalisés effectuées sur les serveurs Braze). Le délai de récupération par défaut de 30 secondes entre les déclencheurs de messages in-app doit être modifié pour afficher plusieurs messages in-app en succession rapide. Pour la configuration spécifique à chaque plateforme, consultez [Remplacer la limite de débit par défaut](#overriding-the-default-rate-limit).
+Vous pouvez déclencher un message in-app au démarrage de la session, puis déclencher un second message in-app après qu'un bouton a été pressé dans le premier. Pour ce faire, enregistrez un événement personnalisé pour le clic sur le bouton qui déclenchera le second message. Le déclencheur du second message doit déjà être présent sur l'appareil (l'utilisateur doit déjà être éligible au second message) et se produire côté appareil (le SDK Braze ne prendra pas en compte les modifications d'attributs personnalisés effectuées sur les serveurs Braze). Le délai de temporisation par défaut de 30 secondes entre les déclenchements de messages in-app doit être modifié pour afficher plusieurs messages in-app en succession rapide. Pour la configuration spécifique à chaque plateforme, consultez [Remplacer la limite de débit par défaut](#overriding-the-default-rate-limit).
 
 ## Remplacer la limite de débit par défaut {#overriding-the-default-rate-limit}
 
@@ -260,7 +260,7 @@ AppDelegate.braze = braze;
 
 ## Déclencher manuellement des messages {#manually-triggering-messages}
 
-Par défaut, les messages in-app sont automatiquement déclenchés lorsque le SDK enregistre un événement personnalisé. Cependant, vous pouvez également déclencher manuellement des messages à l'aide des méthodes suivantes.
+Par défaut, les messages in-app sont automatiquement déclenchés lorsque le SDK enregistre un événement personnalisé. Cependant, en complément de ce comportement, vous pouvez déclencher manuellement des messages à l'aide des méthodes suivantes.
 
 ### Utiliser un événement côté serveur {#using-a-server-side-event}
 
@@ -270,13 +270,13 @@ Actuellement, le SDK Web de Braze ne prend pas en charge le déclenchement manue
 {% endtab %}
 
 {% tab android %}
-Pour déclencher un message in-app à l'aide d'un événement envoyé par le serveur, envoyez une notification push silencieuse à l'appareil, ce qui permet à un rappel push personnalisé d'enregistrer un événement basé sur le SDK. Cet événement déclenchera ensuite le message in-app visible par l'utilisateur.
+Pour déclencher un message in-app à l'aide d'un événement envoyé par le serveur, envoyez une notification push silencieuse à l'appareil, ce qui permet à un rappel push personnalisé d'enregistrer un événement basé sur le SDK. Cet événement déclenchera ensuite le message in-app destiné à l'utilisateur.
 
 #### Étape 1 : Créer un rappel push pour recevoir la notification push silencieuse {#step-1-create-a-push-callback-to-receive-the-silent-push}
 
 Enregistrez votre rappel push personnalisé pour écouter une notification push silencieuse spécifique. Pour plus d'informations, consultez la section [Configuration des notifications push]({{site.baseurl}}/developer_guide/push_notifications#android_setting-up-push-notifications).
 
-Deux événements seront enregistrés pour que le message in-app soit distribué : l'un par le serveur et l'autre depuis votre rappel push personnalisé. Pour éviter que le même événement ne soit dupliqué, l'événement enregistré depuis votre rappel push doit suivre une convention de nommage générique, par exemple « événement déclencheur de message in-app », et ne pas porter le même nom que l'événement envoyé par le serveur. Si cela n'est pas respecté, la segmentation et les données utilisateur peuvent être affectées par des événements dupliqués enregistrés pour une seule action utilisateur.
+Deux événements seront enregistrés pour que le message in-app soit distribué : l'un par le serveur et l'autre depuis votre rappel push personnalisé. Pour éviter que le même événement soit dupliqué, l'événement enregistré depuis votre rappel push devrait suivre une convention de nommage générique, par exemple « événement déclencheur de message in-app », et ne pas porter le même nom que l'événement envoyé par le serveur. Si cela n'est pas respecté, la segmentation et les données utilisateur peuvent être affectées par des événements dupliqués enregistrés pour une seule action utilisateur.
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -319,15 +319,15 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 
 Créez une [campagne push silencieuse]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android) déclenchée via l'événement envoyé par le serveur.
 
-![Étape de distribution d'une campagne push silencieuse configurée pour une livraison par événement avec un déclencheur d'événement personnalisé server_event.]({% image_buster /assets/img_archive/serverSentPush.png %})
+![Étape de réception d'une campagne push silencieuse configurée pour une livraison par événement avec un déclencheur d'événement personnalisé server_event.]({% image_buster /assets/img_archive/serverSentPush.png %})
 
-La campagne push doit inclure des paires clé-valeur supplémentaires indiquant que cette campagne push est envoyée pour enregistrer un événement personnalisé du SDK. Cet événement sera utilisé pour déclencher le message in-app.
+La campagne push doit inclure des paires clé-valeur supplémentaires indiquant que cette campagne push est envoyée pour enregistrer un événement personnalisé SDK. Cet événement sera utilisé pour déclencher le message in-app.
 
 ![Deux ensembles de paires clé-valeur : IS_SERVER_EVENT défini sur « true » et CAMPAIGN_NAME défini sur « example campaign name ».]({% image_buster /assets/img_archive/kvpConfiguration.png %}){: style="max-width:70%;" }
 
-L'exemple de code de rappel push précédent reconnaît les paires clé-valeur et enregistre l'événement personnalisé SDK approprié.
+L'exemple de code de rappel push présenté précédemment reconnaît les paires clé-valeur et enregistre l'événement personnalisé SDK approprié.
 
-Si vous souhaitez inclure des propriétés d'événement à joindre à votre événement « déclencheur de message in-app », vous pouvez le faire en les transmettant dans les paires clé-valeur du payload push. Dans cet exemple, le nom de la campagne du message in-app suivant a été inclus. Votre rappel push personnalisé peut ensuite transmettre la valeur en tant que paramètre de la propriété d'événement lors de l'enregistrement de l'événement personnalisé.
+Si vous souhaitez inclure des propriétés d'événement à associer à votre événement « déclencheur de message in-app », vous pouvez les transmettre dans les paires clé-valeur du payload push. Dans cet exemple, le nom de la campagne du message in-app suivant a été inclus. Votre rappel push personnalisé peut ensuite transmettre la valeur comme paramètre de la propriété d'événement lors de l'enregistrement de l'événement personnalisé.
 
 #### Étape 3 : Créer une campagne de message in-app {#step-3-create-an-in-app-message-campaign}
 
@@ -335,9 +335,9 @@ Créez votre campagne de message in-app visible par l'utilisateur dans le tablea
 
 Dans l'exemple suivant, le message in-app spécifique à déclencher a été configuré en envoyant la propriété d'événement dans le cadre de la notification push silencieuse initiale.
 
-![Une campagne à livraison par événement où un message in-app sera déclenché lorsque « campaign_name » est égal à « IAM campaign name example ».]({% image_buster /assets/img_archive/iam_event_trigger.png %})
+![Une campagne avec livraison par événement où un message in-app sera déclenché lorsque « campaign_name » est égal à « IAM campaign name example ».]({% image_buster /assets/img_archive/iam_event_trigger.png %})
 
-Si un événement envoyé par le serveur est enregistré alors que l'application n'est pas au premier plan, l'événement sera enregistré, mais le message in-app ne sera pas affiché. Si vous souhaitez que l'événement soit retardé jusqu'à ce que l'application soit au premier plan, une vérification doit être incluse dans votre récepteur push personnalisé pour ignorer ou retarder l'événement jusqu'à ce que l'application soit revenue au premier plan.
+Si un événement envoyé par le serveur est enregistré alors que l'application n'est pas au premier plan, l'événement sera enregistré, mais le message in-app ne sera pas affiché. Si vous souhaitez que l'événement soit différé jusqu'à ce que l'application soit au premier plan, une vérification doit être incluse dans votre récepteur push personnalisé pour ignorer ou retarder l'événement jusqu'à ce que l'application passe au premier plan.
 {% endtab %}
 
 {% tab swift %}
@@ -375,22 +375,22 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
 Lorsque la notification push silencieuse est reçue, un événement enregistré par le SDK « déclencheur de message in-app » sera consigné dans le profil utilisateur.
 
 {% alert important %}
-Étant donné qu'un message push est utilisé pour enregistrer un événement personnalisé du SDK, Braze devra stocker un jeton push pour chaque utilisateur afin d'activer cette solution. Pour les utilisateurs iOS, Braze ne stockera un jeton qu'à partir du moment où l'utilisateur aura reçu l'invite push du système d'exploitation. Avant cela, l'utilisateur ne sera pas joignable par push, et la solution précédente ne sera pas possible.
+Étant donné qu'un message push est utilisé pour enregistrer un événement personnalisé consigné par le SDK, Braze devra stocker un jeton push pour chaque utilisateur afin d'activer cette solution. Pour les utilisateurs iOS, Braze ne stockera un jeton qu'à partir du moment où l'utilisateur aura reçu l'invite push du système d'exploitation. Avant cela, l'utilisateur ne sera pas joignable via push, et la solution décrite ci-dessus ne sera pas possible.
 {% endalert %}
 
 #### Étape 2 : Créer une campagne push silencieuse {#step-2-create-a-silent-push-campaign}
 
 Créez une [campagne push silencieuse]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift) déclenchée via l'événement envoyé par le serveur.
 
-![Une campagne de message in-app à livraison par événement qui sera distribuée aux utilisateurs dont le profil contient l'événement personnalisé « server_event ».]({% image_buster /assets/img_archive/iosServerSentPush.png %})
+![Une campagne de message in-app avec livraison par événement qui sera envoyée aux utilisateurs dont le profil contient l'événement personnalisé « server_event ».]({% image_buster /assets/img_archive/iosServerSentPush.png %})
 
-La campagne push doit inclure des paires clé-valeur supplémentaires indiquant que cette campagne push est envoyée pour enregistrer un événement personnalisé du SDK. Cet événement sera utilisé pour déclencher le message in-app.
+La campagne push doit inclure des paires clé-valeur supplémentaires indiquant que cette campagne push est envoyée pour enregistrer un événement personnalisé SDK. Cet événement sera utilisé pour déclencher le message in-app.
 
-![Une campagne de message in-app à livraison par événement avec deux paires clé-valeur. « CAMPAIGN_NAME » défini sur « In-app message name example » et « IS_SERVER_EVENT » défini sur « true ».]({% image_buster /assets/img_archive/iOSServerPush.png %})
+![Une campagne de message in-app avec livraison par événement comportant deux paires clé-valeur. « CAMPAIGN_NAME » défini sur « In-app message name example » et « IS_SERVER_EVENT » défini sur « true ».]({% image_buster /assets/img_archive/iOSServerPush.png %})
 
-Le code dans la méthode `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` vérifie la clé `IS_SERVER_EVENT` et enregistrera un événement personnalisé du SDK si celle-ci est présente.
+Le code dans la méthode `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` vérifie la présence de la clé `IS_SERVER_EVENT` et enregistre un événement personnalisé SDK si elle est présente.
 
-Vous pouvez modifier le nom de l'événement ou les propriétés d'événement en envoyant la valeur souhaitée dans les paires clé-valeur supplémentaires du payload push. Lors de l'enregistrement de l'événement personnalisé, ces extras peuvent être utilisés comme paramètre du nom de l'événement ou comme propriété d'événement.
+Vous pouvez modifier le nom de l'événement ou les propriétés d'événement en envoyant la valeur souhaitée dans les paires clé-valeur supplémentaires du payload push. Lors de l'enregistrement de l'événement personnalisé, ces suppléments peuvent être utilisés comme paramètre du nom de l'événement ou comme propriété d'événement.
 
 #### Étape 3 : Créer une campagne de message in-app
 
@@ -398,10 +398,10 @@ Créez votre campagne de message in-app visible par l'utilisateur dans le tablea
 
 Dans l'exemple suivant, le message in-app spécifique à déclencher a été configuré en envoyant la propriété d'événement dans le cadre de la notification push silencieuse initiale.
 
-![Une campagne de message in-app à livraison par événement qui sera distribuée aux utilisateurs qui effectuent l'événement personnalisé « In-app message trigger » où « campaign_name » est égal à « IAM Campaign Name Example ».]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
+![Une campagne de message in-app avec livraison par événement qui sera envoyée aux utilisateurs effectuant l'événement personnalisé « In-app message trigger » où « campaign_name » est égal à « IAM Campaign Name Example ».]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
 
 {% alert note %}
-Notez que ces messages in-app ne se déclencheront que si la notification push silencieuse est reçue alors que l'application est au premier plan.
+Notez que ces messages in-app ne seront déclenchés que si la notification push silencieuse est reçue alors que l'application est au premier plan.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -480,7 +480,7 @@ inAppMessage.message = "Welcome to Braze! This is a slideup in-app message."
 {% endsubtabs %}
 
 {% alert important %}
-N'affichez pas de messages in-app lorsque le clavier virtuel est affiché à l'écran, car le rendu n'est pas défini dans cette situation.
+N'affichez pas de messages in-app lorsque le clavier virtuel est affiché à l'écran, car le rendu n'est pas défini dans ce cas.
 {% endalert %}
 {% endtab %}
 
@@ -516,12 +516,12 @@ customInAppMessage.themes = @{
 {% endsubtabs %}
 
 {% alert note %}
-En créant votre propre message in-app, vous désactivez tout suivi analytique et devrez gérer manuellement l'enregistrement des clics et des impressions à l'aide de votre `message.context`.
+En créant votre propre message in-app, vous désactivez tout suivi analytique et devrez gérer manuellement la journalisation des clics et des impressions en utilisant votre `message.context`.
 {% endalert %}
 {% endtab %}
 
 {% tab unity %}
-Pour afficher le prochain message dans la pile, utilisez la méthode `DisplayNextInAppMessage()`. Les messages seront enregistrés dans cette pile si `DISPLAY_LATER` ou `BrazeUnityInAppMessageDisplayActionType.IAM_DISPLAY_LATER` est choisi comme action d'affichage du message in-app.
+Pour afficher le prochain message de la pile, utilisez la méthode `DisplayNextInAppMessage()`. Les messages seront enregistrés dans cette pile si `DISPLAY_LATER` ou `BrazeUnityInAppMessageDisplayActionType.IAM_DISPLAY_LATER` est choisi comme action d'affichage du message in-app.
 
 ```csharp
 Appboy.AppboyBinding.DisplayNextInAppMessage();
@@ -531,7 +531,7 @@ Appboy.AppboyBinding.DisplayNextInAppMessage();
 
 ## Causes des retards des messages in-app {#causes-of-in-app-message-delays}
 
-Si vous recevez une campagne de message in-app quelques secondes après le début de la session, le retard peut avoir été causé par :
+Si vous recevez une campagne de messages in-app quelques secondes après le début de la session, le retard peut avoir été causé par :
 
 - Un retard dans le déclencheur de la campagne
 - Des personnalisations
@@ -541,7 +541,7 @@ Si vous recevez une campagne de message in-app quelques secondes après le débu
 
 Les messages d'intention de sortie sont des messages in-app non intrusifs utilisés pour communiquer des informations importantes aux visiteurs avant qu'ils ne quittent votre site web.
 
-Pour configurer des déclencheurs pour ces types de messages dans le SDK Web, implémentez une bibliothèque d'intention de sortie sur votre site web (telle que [la bibliothèque open source d'ouibounce](https://github.com/carlsednaoui/ouibounce)), puis utilisez le code suivant pour enregistrer `'exit intent'` en tant qu'événement personnalisé dans Braze. Vos futures Campaigns de messages in-app pourront alors utiliser ce type de message comme déclencheur d'événement personnalisé.
+Pour configurer des déclencheurs pour ces types de messages dans le SDK Web, implémentez une bibliothèque d'intention de sortie dans votre site web (telle que [la bibliothèque open source ouibounce](https://github.com/carlsednaoui/ouibounce)), puis utilisez le code suivant pour enregistrer `'exit intent'` en tant qu'événement personnalisé dans Braze. Vos futures Campaigns de messages in-app pourront alors utiliser ce type de message comme déclencheur d'événement personnalisé.
 
 ```javascript
   var _ouibounce = ouibounce(false, {

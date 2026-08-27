@@ -9,7 +9,17 @@ description: "Browse Braze technology partners (Alloys) alphabetically. Find int
 
 # Technology Partners
 
-Welcome to the Braze Alloys Technology Partners documentation. Browse partners alphabetically.
+> Braze Alloys technology partners extend Braze with personalization, data infrastructure, attribution, eCommerce, audience sync, and workflow tools. This documentation hub lists partners alphabetically and links to integration guides for each connection. Use these articles to review prerequisites, setup steps, and supported Braze features before you enable a partner in your workspace. Search the alphabetical partner list or jump to a letter to find a specific integration, then open that partner's article for configuration details. For partner categories and use cases, see the sections that follow.
+
+## Frequently asked questions
+
+### How do I find a Braze technology partner integration? {#how-do-i-find-a-braze-technology-partner-integration}
+
+Browse the alphabetical list on this page or jump to a letter heading to locate a partner by name. Each entry links to that partner's Braze integration article.
+
+### What is Braze Alloys? {#what-is-braze-alloys}
+
+Braze Alloys is Braze's technology partner program. Partners extend the Braze platform with complementary data, content, attribution, and orchestration capabilities documented in this hub.
 
 <div class="partners-az-list" markdown="1">
 
@@ -168,7 +178,6 @@ Welcome to the Braze Alloys Technology Partners documentation. Browse partners a
 - [Jasper]({{site.baseurl}}/partners/message_orchestration/templates/jasper)
 - [Jebbit]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/jebbit)
 - [Judo]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/judo)
-- [JustAI]({{site.baseurl}}/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai)
 - [Justuno]({{site.baseurl}}/partners/data_and_analytics/leads_capture/justuno)
 
 </div>

@@ -44,29 +44,29 @@ L'objet `selection` vous permet de spécifier quels éléments de votre catalogu
 
 ## Détails de l'objet {#object-details}
 
-| Clé | Requis | Type de données | Description |
-| --- | -------- | --------- | ----------- |
-| `name` | Requis | Chaîne de caractères | Le nom de la sélection du catalogue. |
-| `description` | Facultatif | Chaîne de caractères | Une description de la sélection du catalogue. |
-| `external_id` | Requis | Chaîne de caractères | Un identifiant unique pour la sélection. |
-| `source` | Facultatif | Chaîne de caractères | La source des données du catalogue. Pour les catalogues Shopify, définissez cette valeur sur `"Shopify"`. Les valeurs acceptées sont `"Shopify"` et `"Braze"`. |
-| `filters` | Facultatif | Tableau d'objets | Un ensemble d'objets filtres à appliquer aux éléments du catalogue. Vous pouvez spécifier jusqu'à quatre filtres par requête. Si aucun filtre n'est fourni, tous les éléments du catalogue sont inclus. |
-| `results_limit` | Facultatif | Nombre entier | Le nombre maximal de résultats à renvoyer. Il doit s'agir d'un nombre compris entre 1 et 50. |
-| `sort_field` | Facultatif | Chaîne de caractères | Le champ selon lequel trier les résultats. Ce paramètre doit être associé à `sort_order`. Si ni `sort_field` ni `sort_order` ne sont présents, les résultats sont renvoyés dans un ordre aléatoire. |
-| `sort_order` | Facultatif | Chaîne de caractères | L'ordre de tri des résultats. Les valeurs acceptées sont `"asc"` (ascendant) ou `"desc"` (descendant). Ce paramètre doit être associé à `sort_field`. Si ni `sort_field` ni `sort_order` ne sont présents, les résultats sont renvoyés dans un ordre aléatoire. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Object details" }
+| Clé | Obligatoire | Type de données | Description |
+| --- | ----------- | --------------- | ----------- |
+| `name` | Obligatoire | String | Le nom de la sélection de catalogue. |
+| `description` | Facultatif | String | Une description de la sélection de catalogue. |
+| `external_id` | Facultatif | String | Un identifiant unique pour la sélection. |
+| `source` | Facultatif | String | La source des données du catalogue. Pour les catalogues Shopify, définissez cette valeur sur `"Shopify"`. Les valeurs acceptées sont `"Shopify"` et `"Braze"`. |
+| `filters` | Obligatoire | Tableau d'objets | Un tableau d'objets de filtre à appliquer aux éléments du catalogue. Vous pouvez spécifier jusqu'à dix filtres par requête. Si un tableau de filtres vide est fourni, tous les éléments du catalogue sont inclus. |
+| `results_limit` | Obligatoire | Entier | Le nombre maximum de résultats à renvoyer. Doit être un nombre compris entre 1 et 50. |
+| `sort_field` | Facultatif | String | Le champ selon lequel trier les résultats. Ce paramètre doit être associé à `sort_order`. Si `sort_field` et `sort_order` ne sont pas présents, les résultats sont renvoyés dans un ordre aléatoire. |
+| `sort_order` | Facultatif | String | L'ordre de tri des résultats. Les valeurs acceptées sont `"asc"` (croissant) ou `"desc"` (décroissant). Ce paramètre doit être associé à `sort_field`. Si `sort_field` et `sort_order` ne sont pas présents, les résultats sont renvoyés dans un ordre aléatoire. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Détails de l'objet" }
 
 ### Objet filtre {#filter-object}
 
-Chaque objet filtre du tableau `filters` contient les champs décrits dans le tableau suivant.
+Chaque objet filtre dans le tableau `filters` contient les champs décrits dans le tableau suivant.
 
-| Clé | Requis | Type de données                                   | Description |
-| --- | -------- | ------------------------------------------- | ----------- |
-| `field`    | Requis | Chaîne de caractères                                      | Le champ du catalogue sur lequel appliquer le filtre. |
-| `operator` | Requis | Chaîne de caractères                                      | L'opérateur de comparaison à utiliser pour le filtrage. Par exemple, `"includes value"` et `"does not include value"`. |
-| `value`    | Requis | Variable (chaîne de caractères, nombre, valeur booléenne, heure)     | La valeur à comparer. Elle doit correspondre au type de données du champ du catalogue sous-jacent (par exemple, chaîne de caractères, nombre, valeur booléenne, heure). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Filter object" }
+| Clé | Obligatoire | Type de données | Description |
+| --- | ----------- | --------------- | ----------- |
+| `field` | Obligatoire | String | Le champ du catalogue sur lequel filtrer. |
+| `operator` | Obligatoire | String | L'opérateur de comparaison à utiliser pour le filtrage. Les exemples incluent `"includes value"` et `"does not include value"`. |
+| `value` | Obligatoire | Variable (string, nombre, booléen, heure) | La valeur à comparer. Elle doit correspondre au type de données du champ de catalogue sous-jacent (par exemple, string, nombre, booléen, heure). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Objet filtre" }
 
 {% alert note %}
-L'API prend en charge un maximum de quatre filtres par requête de sélection. Dans le tableau de bord de Braze, vous pouvez ajouter jusqu'à 10 filtres par sélection. Les filtres sont appliqués dans l'ordre dans lequel ils apparaissent dans le tableau.
+L'API prend en charge un maximum de dix filtres par requête de sélection. Les filtres sont appliqués dans l'ordre où ils apparaissent dans le tableau.
 {% endalert %}

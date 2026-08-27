@@ -231,13 +231,13 @@ To test your Content Card:
 
 ## Content Card placements
 
-Content Cards can be used in many different ways. Three common implementations are to use them as a message center, a dynamic image ad, or an image carousel. For each of these placements, you will assign [key-value pairs]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior#key-value-pairs) (the `extras` property in the data model) to your Content Cards, and based on the values, dynamically adjust the card's behavior, appearance, or functionality during runtime. 
+Content Cards can be used in many different ways. Three common implementations are to use them as a message center, a dynamic image ad, or an image carousel. For each of these placements, you will assign [key-value pairs]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior) (the `extras` property in the data model) to your Content Cards, and based on the values, dynamically adjust the card's behavior, appearance, or functionality during runtime. 
 
 ![Diagram showing three Content Card placement examples: message inbox, dynamic image ad, and image carousel.]({% image_buster /assets/img_archive/cc_placements.png %}){: style="border:0px;"}
 
 ### Message inbox
 
-Content Cards can be used to simulate a message center. In this format, each message is its own card that contains [key-value pairs]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior#key-value-pairs) that power on-click events. These key-value pairs are the key identifiers that the application looks at when deciding where to go when the user clicks on an inbox message. The values of the key-value pairs are arbitrary. 
+Content Cards can be used to simulate a message center. In this format, each message is its own card that contains [key-value pairs]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior) that power on-click events. These key-value pairs are the key identifiers that the application looks at when deciding where to go when the user clicks on an inbox message. The values of the key-value pairs are arbitrary. 
 
 #### Example
 
@@ -403,15 +403,15 @@ You can set Content Cards in your fully-custom carousel feed, allowing users to 
 
 To implement a Content Card carousel:
 
-1. Create custom logic that observes for [changes in your Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#refreshing-the-feed) and handles Content Card arrival.
+1. Create custom logic that observes for [changes in your Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) and handles Content Card arrival.
 2. Create custom client-side logic to display a specific number of cards in the carousel any one time. For example, you could select the first five Content Card objects from the array or introduce key-value pairs to build conditional logic around.
 
 {% alert tip %}
-If you're implementing a carousel as a secondary Content Cards feed, be sure to [sort cards into the correct feed using key-value pairs]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).
+If you're implementing a carousel as a secondary Content Cards feed, be sure to [sort cards into the correct feed using key-value pairs]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed).
 {% endalert %}
 
 ### Image-only
 
 Content Cards don't have to look like "cards." For example, Content Cards can appear as a dynamic image that persistently displays on your home page or at the top of designated pages.
 
-To achieve this, your marketers will create a campaign or Canvas step with an **Image Only** type of Content Card. Then, set key-value pairs that are appropriate for using [Content Cards as supplemental content]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior#content-cards-as-supplemental-content).
+To achieve this, your marketers will create a campaign or Canvas step with an **Image Only** type of Content Card. Then, set key-value pairs that are appropriate for using [Content Cards as supplemental content]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior).

@@ -1692,6 +1692,8 @@ Field | Type | Description
 
 ### USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED {#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED}
 
+This table logs message-level email unsubscribes from the recipient's side: clicking an unsubscribe link, the email client's one-click List-Unsubscribe, preference center submissions, and ESP-reported unsubscribes. Unsubscribes made through the REST API are not included; those emit [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#subscription-group-state-change-events) or [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#global-subscription-state-change-events) events instead.
+
 Field | Type | Description
 ------|------|------------
 `id` | `string` | Globally unique ID for this event

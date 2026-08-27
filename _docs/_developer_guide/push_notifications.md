@@ -1,6 +1,6 @@
 ---
 nav_title: Push notifications
-article_title: "Push notifications for the Braze SDK"
+article_title: "Push notifications"
 page_order: 2.3
 description: "This landing page is home to all things push notifications."
 ---

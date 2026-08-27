@@ -176,7 +176,7 @@ Consulta las siguientes etiquetas de Liquid que puedes incluir en tu HTML para g
         background-color: #fff;
         color: #333335;
         font-family:
-          Sailec W00 Medium,
+          Aribau Grotesk Regular,
           helvetica,
           arial,
           sans-serif;

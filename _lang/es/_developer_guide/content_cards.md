@@ -1,7 +1,8 @@
 ---
 page_order: 2.2
 nav_title: Content Cards
-article_title: Content Cards en el SDK de Braze
+article_title: Content Cards
+description: "Aprende a implementar Content Cards con el SDK de Braze, incluidos los modelos de datos, tipos de tarjetas y opciones de personalización para tus aplicaciones móviles y web."
 channel:
   - content cards
 platform:
@@ -13,7 +14,7 @@ platform:
 
 # Content Cards {#content-cards}
 
-> Obtén información sobre las Content Cards para el SDK de Braze, incluidos los diferentes modelos de datos y las propiedades específicas de las tarjetas disponibles para tu aplicación.
+> Aprende sobre las Content Cards del SDK de Braze, incluidos los diferentes modelos de datos y las propiedades específicas de las tarjetas disponibles para tu aplicación.
 
 {% multi_lang_include banners/content_card_alert.md %}
 
@@ -43,18 +44,18 @@ El modelo de [tarjeta base](https://braze-inc.github.io/braze-android-sdk/kdoc/b
 
 | Propiedad | Descripción |
 |---|---|
-| `getId()` | Devuelve el ID de la tarjeta establecido por Braze. |
-| `getViewed()` | Devuelve un booleano que indica si la tarjeta ha sido leída o no por el usuario. |
-| `getExtras()` | Devuelve un mapa de extras clave-valor para esta tarjeta. |
-| `getCreated()` | Devuelve la marca de tiempo unix del momento de creación de la tarjeta en Braze. |
-| `isPinned` | Devuelve un booleano que indica si la tarjeta está fijada. |
-| `getOpenUriInWebView()` | Devuelve un booleano que indica si las URI de esta tarjeta deben abrirse <br> en el WebView de Braze o no. |
-| `getExpiredAt()` | Obtiene la fecha de expiración de la tarjeta. |
-| `isRemoved()` | Devuelve un booleano que indica si el usuario final ha descartado esta tarjeta. |
-| `isDismissibleByUser()` | Devuelve un booleano que indica si la tarjeta puede ser descartada por el usuario. |
-| `isClicked()` | Devuelve un booleano que indica el estado de clic de esta tarjeta. |
-| `isDismissed` | Devuelve un booleano que indica si la tarjeta ha sido descartada. Establécelo en `true` para marcar la tarjeta como descartada. Si una tarjeta ya está marcada como descartada, no se puede marcar como descartada de nuevo. |
-| `isControl()` | Devuelve un booleano que indica si esta tarjeta es una tarjeta de control y no debe renderizarse. |
+|`getId()` | Devuelve el ID de la tarjeta establecido por Braze.|
+|`getViewed()` | Devuelve un booleano que indica si la tarjeta ha sido leída o no por el usuario.|
+|`getExtras()` | Devuelve un mapa de extras clave-valor para esta tarjeta.|
+|`getCreated()`  | Devuelve la marca de tiempo unix del momento de creación de la tarjeta en Braze.|
+|`isPinned` | Devuelve un booleano que indica si la tarjeta está fijada.|
+|`getOpenUriInWebView()`  | Devuelve un booleano que indica si las URI de esta tarjeta deben abrirse <br> en el WebView de Braze o no.|
+|`getExpiredAt()` | Obtiene la fecha de expiración de la tarjeta.|
+|`isRemoved()` | Devuelve un booleano que indica si el usuario final ha descartado esta tarjeta.|
+|`isDismissibleByUser()`  | Devuelve un booleano que indica si la tarjeta puede ser descartada por el usuario.|
+|`isClicked()` | Devuelve un booleano que indica el estado de clic de esta tarjeta.|
+|`isDismissed` | Devuelve un booleano que indica si la tarjeta ha sido descartada. Establécelo en `true` para marcar la tarjeta como descartada. Si una tarjeta ya está marcada como descartada, no se puede marcar como descartada de nuevo.|
+|`isControl()` | Devuelve un booleano que indica si esta tarjeta es una tarjeta de control y no debe renderizarse.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Modelo de tarjeta base #base-card-for-android" }
 
 ### Solo imagen {#banner-image-card-for-android}
@@ -63,9 +64,9 @@ Las [tarjetas de solo imagen](https://braze-inc.github.io/braze-android-sdk/kdoc
 
 | Propiedad | Descripción |
 |---|---|
-| `getImageUrl()` | Devuelve la URL de la imagen de la tarjeta. |
-| `getUrl()` | Devuelve la URL que se abre después de hacer clic en la tarjeta. Puede ser una URL HTTP(s) o una URL de protocolo. |
-| `getDomain()` | Devuelve el texto del enlace para la URL de la propiedad. |
+|`getImageUrl()` | Devuelve la URL de la imagen de la tarjeta.|
+|`getUrl()` | Devuelve la URL que se abre después de hacer clic en la tarjeta. Puede ser una URL HTTP(s) o una URL de protocolo.|
+|`getDomain()` | Devuelve el texto del enlace para la URL de la propiedad.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Solo imagen #banner-image-card-for-android" }
 
 ### Imagen con subtítulo {#captioned-image-card-for-android}
@@ -74,11 +75,11 @@ Las [tarjetas de imagen con subtítulo](https://braze-inc.github.io/braze-androi
 
 | Propiedad | Descripción |
 |---|---|
-| `getImageUrl()` | Devuelve la URL de la imagen de la tarjeta. |
-| `getTitle()` | Devuelve el texto del título de la tarjeta. |
-| `getDescription()` | Devuelve el texto del cuerpo de la tarjeta. |
-| `getUrl()` | Devuelve la URL que se abre después de hacer clic en la tarjeta. Puede ser una URL HTTP(s) o una URL de protocolo. |
-| `getDomain()` | Devuelve el texto del enlace para la URL de la propiedad. |
+|`getImageUrl()` | Devuelve la URL de la imagen de la tarjeta.|
+|`getTitle()` | Devuelve el texto del título de la tarjeta.|
+|`getDescription()` | Devuelve el texto del cuerpo de la tarjeta.|
+|`getUrl()` | Devuelve la URL que se abre después de hacer clic en la tarjeta. Puede ser una URL HTTP(s) o una URL de protocolo.|
+|`getDomain()` | Devuelve el texto del enlace para la URL de la propiedad. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Imagen con subtítulo #captioned-image-card-for-android" }
 
 ### Clásica {#text-Announcement-card-for-android}
@@ -87,12 +88,12 @@ Una tarjeta clásica sin imagen incluida da como resultado una [tarjeta de anunc
 
 | Propiedad | Descripción |
 |---|---|
-| `getTitle()` | Devuelve el texto del título de la tarjeta. |
-| `getDescription()` | Devuelve el texto del cuerpo de la tarjeta. |
-| `getUrl()` | Devuelve la URL que se abre después de hacer clic en la tarjeta. Puede ser una URL HTTP(s) o una URL de protocolo. |
-| `getDomain()` | Devuelve el texto del enlace para la URL de la propiedad. |
-| `getImageUrl()` | Devuelve la URL de la imagen de la tarjeta; aplica solo a la tarjeta clásica de noticias breves. |
-| `isDismissed` | Devuelve un booleano que indica si la tarjeta ha sido descartada. Establécelo en `true` para marcar la tarjeta como descartada. Si una tarjeta ya está marcada como descartada, no se puede marcar como descartada de nuevo. |
+|`getTitle()` | Devuelve el texto del título de la tarjeta. |
+|`getDescription()` | Devuelve el texto del cuerpo de la tarjeta. |
+|`getUrl()` | Devuelve la URL que se abre después de hacer clic en la tarjeta. Puede ser una URL HTTP(s) o una URL de protocolo. |
+|`getDomain()` | Devuelve el texto del enlace para la URL de la propiedad. |
+|`getImageUrl()` | Devuelve la URL de la imagen de la tarjeta; aplica solo a la tarjeta clásica de noticias breves. |
+|`isDismissed` | Devuelve un booleano que indica si la tarjeta ha sido descartada. Establécelo en `true` para marcar la tarjeta como descartada. Si una tarjeta ya está marcada como descartada, no se puede marcar como descartada de nuevo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Clásica #text-Announcement-card-for-android" }
 
 ## Métodos de tarjeta {#card-methods}
@@ -101,8 +102,8 @@ Todos los objetos del modelo de datos [`Card`](https://braze-inc.github.io/braze
 
 | Método | Descripción |
 |---|---|
-| `logImpression()` | Registra manualmente una impresión en Braze para una tarjeta en particular. |
-| `logClick()` | Registra manualmente un clic en Braze para una tarjeta en particular. |
+|`logImpression()` | Registra manualmente una impresión en Braze para una tarjeta en particular. |
+|`logClick()` | Registra manualmente un clic en Braze para una tarjeta en particular. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Métodos de tarjeta" }
 
 {% endsdktab %}
@@ -129,7 +130,7 @@ Todos los objetos del modelo de datos [`Card`](https://braze-inc.github.io/braze
 Antes de poder usar Content Cards, integra el [SDK Swift de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) en tu aplicación. Luego completa los pasos para configurar tu aplicación tvOS.
 
 {% alert important %}
-Implementa tu propia interfaz personalizada, ya que las Content Cards son compatibles a través de una interfaz headless usando el SDK Swift, que no incluye ninguna interfaz ni vistas predeterminadas para tvOS.
+Implementa tu propia interfaz personalizada, ya que las Content Cards son compatibles a través de una interfaz headless usando el SDK Swift&#8212;que no incluye ninguna interfaz ni vistas predeterminadas para tvOS.
 {% endalert %}
 
 ## Configurar tu aplicación tvOS {#setting-up-your-tvos-app}

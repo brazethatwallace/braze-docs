@@ -347,3 +347,7 @@ public void onCreate() {
 {% endsubtabs %}
 
 After creating the channel in your Android code, use the channel ID when sending push notifications from the Braze dashboard. For more information on notification channels, see [Android notification channels]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/).
+
+## Troubleshooting iOS builds after upgrading the plugin
+
+Cordova Braze SDK 9.0.0 and later use Swift SDK 9.0.0 or later. Starting with Swift SDK 8.0.0, that native SDK is compiled with **Xcode 15.2**. If your iOS build fails after you upgrade the Cordova plugin to 9.0.0 or later, update Xcode to 15.2 or newer and confirm it matches the [Swift SDK changelog]({{site.baseurl}}/developer_guide/changelogs/?sdktab=swift) for the native iOS version your plugin uses.

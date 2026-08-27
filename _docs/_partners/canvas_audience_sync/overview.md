@@ -2,11 +2,10 @@
 nav_title: About Audience Sync
 article_title: About Audience Sync
 alias: /partners/about_audience_sync/
-description: "This reference article covers how to use Braze Audience Sync to Facebook, to deliver advertisements based upon behavioral triggers, segmentation, and more."
+description: "This reference article covers how to use Braze Audience Sync to Facebook, to deliver advertisements based upon behavioral triggers, segmentation,."
 page_order: 0
 Tool:
   - Canvas
-
 ---
 
 # About Audience Sync
@@ -120,7 +119,7 @@ This documentation is not intended to provide, nor may it be relied upon as prov
 
 When building audiences for Ad Tracking, you may wish to include or exclude certain users based on their preferences, and to comply with privacy laws, such as the “Do Not Sell or Share” right under the [CCPA](https://oag.ca.gov/privacy/ccpa). Marketers should implement the relevant filters for users’ eligibility within their Canvas entry criteria. The following options can help.
 
-If you have collected the [iOS IDFA through the Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection), you will be able to use the "Ads Tracking Enabled" filter. Select the value as `true` to only send users into Audience Sync destinations where they have opted in.
+If you have collected the [iOS IDFA through the Braze SDK]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations), you will be able to use the "Ads Tracking Enabled" filter. Select the value as `true` to only send users into Audience Sync destinations where they have opted in.
 
 ![A Canvas with an entry audience of "Ad Tracking Enabled is true".]({% image_buster /assets/img/audience_sync/audience_sync2.png %})
 

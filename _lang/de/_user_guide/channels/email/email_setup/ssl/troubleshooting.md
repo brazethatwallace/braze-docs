@@ -26,19 +26,19 @@ channel: email
 
 ## Standardmäßiger Untersuchungspfad {#standard-investigation-path}
 
-1. Bestätigen Sie, dass Ihre Klick-Tracking-Subdomain auf Ihr [Content Delivery Network (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it) verweist – und nicht direkt auf Ihren E-Mail-Anbieter (SendGrid, SparkPost oder Amazon SES). Bitten Sie Ihr IT- oder Web-Team zu überprüfen, ob Ihre Domain-Einstellungen mit Ihrem Braze-Setup übereinstimmen. Die Braze-Anforderungen finden Sie unter [SSL-Zertifikat erwerben]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
-2. Bestätigen Sie, dass Ihr SSL-Zertifikat für die Tracking-Domain aktiv ist. Bitten Sie Ihr IT- oder Web-Team zu bestätigen, dass das Zertifikat aktuell ist und Ihre Klick-Tracking-Subdomain abdeckt. Einrichtungsschritte und CDN-spezifische Anleitungen finden Sie unter [SSL-Zertifikat erwerben]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) und [Zusätzliche Ressourcen]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
-3. Senden Sie eine Test-E-Mail mit dem [Template zur Fehlerbehebung beim Klick-Tracking](#click-tracking-issues). Vergleichen Sie getrackte mit nicht getrackten URLs.
-4. Wenn getrackte Links mit einem 403-Fehler fehlschlagen, überprüfen Sie die CDN- und WAF-Regeln (User Agents, Query-Strings, Redirect-Muster).
-5. Wenn die Einrichtung abgeschlossen ist, Links aber weiterhin HTTP verwenden, kontaktieren Sie Ihren Braze-Customer-Success-Manager, um zu bestätigen, dass Braze SSL aktiviert hat.
-6. Bei anhaltenden Problemen koordinieren Sie sich mit Ihrem CDN- oder IT-Team und kontaktieren Sie den [Braze-Support]({{site.baseurl}}/braze_support) mit Fehlercodes und allen Details von Ihrem CDN- oder Domain-Anbieter.
+1. Bestätigen Sie, dass Ihre Klick-Tracking-Subdomain auf Ihr [Content Delivery Network (CDN)]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#what-is-a-cdn-and-why-do-i-need-it) verweist – nicht direkt auf Ihren E-Mail-Anbieter (SendGrid, SparkPost oder Amazon SES). Bitten Sie Ihr IT- oder Web-Team zu überprüfen, ob Ihre Domain-Einstellungen mit Ihrem Braze-Setup übereinstimmen. Informationen zu den Braze-Anforderungen finden Sie unter [SSL-Zertifikat erwerben]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate).
+2. Bestätigen Sie, dass Ihr SSL-Zertifikat für die Tracking-Domain aktiv ist. Bitten Sie Ihr IT- oder Web-Team zu bestätigen, dass das Zertifikat aktuell ist und Ihre Klick-Tracking-Subdomain abdeckt. Informationen zu Einrichtungsschritten und CDN-spezifischen Anleitungen finden Sie unter [SSL-Zertifikat erwerben]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) und [Zusätzliche Ressourcen]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
+3. Senden Sie eine Test-E-Mail mit dem [Template zur Fehlerbehebung für Klick-Tracking](#click-tracking-issues). Vergleichen Sie getrackte und nicht getrackte URLs.
+4. Wenn getrackte Links mit einem 403-Fehler fehlschlagen, überprüfen Sie die CDN- und WAF-Regeln (User Agents, Query-Strings, Weiterleitungsmuster).
+5. Wenn die Einrichtung abgeschlossen ist, Links aber weiterhin über HTTP geladen werden, wenden Sie sich an Ihren Braze-Customer-Success-Manager, um zu bestätigen, dass Braze SSL aktiviert hat.
+6. Bei anhaltenden Problemen koordinieren Sie sich mit Ihrem CDN- oder IT-Team und kontaktieren Sie den [Braze-Support]({{site.baseurl}}/braze_support) mit Fehlercodes und allen Details Ihres CDN- oder Domain-Anbieters.
 
 ## Schlüsselkonzepte {#key-concepts}
 
-- **Klick-Tracking-Domain (CTD):** Die gebrandete Subdomain, die Braze zum Umschließen von Links für das Klick-Tracking verwendet (zum Beispiel `clicks.mail.yourbrand.com`).
-- **Getrackte URL:** Umschließt den ursprünglichen HTTPS-Link mit Ihrer Tracking-Domain. Wenn Nutzer:innen darauf klicken, löst die Tracking-Domain die Anfrage auf und leitet zum endgültigen Ziel weiter. Ein CDN ermöglicht es Ihnen, sichere (HTTPS) URLs zu tracken. Ohne CDN kann es vorkommen, dass Nutzer:innen einen Datenschutzfehler „Verbindung ist nicht sicher“ erhalten.
+- **Klick-Tracking-Domain (CTD):** Die gebrandete Subdomain, die Braze zum Wrappen von Links für das Klick-Tracking verwendet (zum Beispiel `clicks.mail.yourbrand.com`).
+- **Getrackte URL:** Umschließt den ursprünglichen HTTPS-Link mit Ihrer Tracking-Domain. Wenn Nutzer:innen darauf klicken, löst die Tracking-Domain die Anfrage auf und leitet zum endgültigen Ziel weiter. Ein CDN ermöglicht es Ihnen, sichere (HTTPS) URLs zu tracken. Ohne CDN kann bei Nutzer:innen ein Datenschutzfehler mit dem Hinweis „Verbindung ist nicht sicher“ auftreten.
 - **Ungetrackte URL:** Behält die ursprüngliche URL unverändert bei und umgeht das CDN, um als Kontrollumgebung zu dienen.
-- **Phase-1- und Phase-2-Routing:** Phase 1 verweist den CNAME Ihrer Klick-Tracking-Domain direkt auf Ihren E-Mail-Anbieter (ESP) für die initiale HTTP-Verifizierung. Phase 2 verweist den CNAME auf Ihr CDN oder Ihre Web Application Firewall (WAF), die SSL terminiert und Anfragen mit den erforderlichen Headern an den ESP weiterleitet. Informationen zu ESP-spezifischen CNAME-Zielen finden Sie unter [ESP-Phase-1- und Phase-2-Routing](#esp-phase-1-and-phase-2-routing).
+- **Phase-1- und Phase-2-Routing:** Phase 1 verweist den CNAME Ihrer Klick-Tracking-Domain direkt auf Ihren E-Mail-Anbieter (ESP) zur initialen HTTP-Verifizierung. Phase 2 verweist den CNAME auf Ihr CDN oder Ihre Web Application Firewall (WAF), die SSL terminiert und Anfragen mit den erforderlichen Headern an den ESP weiterleitet. Informationen zu ESP-spezifischen CNAME-Zielen finden Sie unter [ESP-Phase-1- und Phase-2-Routing](#esp-phase-1-and-phase-2-routing).
 
 ## Klick-Tracking-Domains und DNS-Phasen {#click-tracking-domains-and-dns-phases}
 
@@ -161,6 +161,48 @@ Wenn Sie Amazon SES als E-Mail-Anbieter verwenden, können die folgenden Konfigu
 **Symptom:** Getrackte E-Mail-Links schlagen fehl, aber ungetrackte Links funktionieren, oder Nutzer:innen sehen Zertifikats- oder DNS-Fehler nach dem Klicken.
 
 Häufige Weiterleitungsprobleme resultieren typischerweise aus einer fehlerhaften Konfiguration zwischen dem CDN, das die Tracking-Domain hostet, und den zugehörigen SSL-Zertifikaten oder DNS-CNAME-Einträgen. Diese Fehlkonfigurationen führen häufig dazu, dass Nutzer:innen einen Datenschutzfehler „Verbindung ist nicht sicher“ oder einen `404`-Fehler erhalten, nachdem sie auf einen getrackten E-Mail-Link geklickt haben.
+
+### Anforderungen an die HTML-Link-Formatierung {#html-link-formatting-requirements}
+
+Damit Klick-Tracking funktioniert, muss Ihr E-Mail-Anbieter (SendGrid, SparkPost oder Amazon SES) Links in Ihrem HTML finden und ersetzen können. Bei all diesen Anbietern müssen Links folgende Formatierungsanforderungen erfüllen:
+
+- Links müssen sich in einem HTML-`<a>`-Tag mit einem `href`-Attribut befinden.
+- Die URL muss mit `http://` oder `https://` beginnen.
+
+Zusätzliche anbieterspezifische Regeln:
+
+- **SendGrid:** Schließen Sie die URL in einfache oder doppelte Anführungszeichen ein und fügen Sie keine Leerzeichen um das `=` im `href`-Attribut ein.
+- **Amazon SES:** URLs müssen [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986) entsprechen. Nicht kodierte Leerzeichen in einer URL verhindern, dass Amazon SES den Link trackt.
+
+Weitere Informationen zu den von Braze unterstützten URL-Schemata für Klick-Tracking finden Sie unter [Anforderungen an Klick-Tracking-Links]({{site.baseurl}}/user_guide/channels/email/email_setup/open_pixel_and_click_tracking#click-tracking-link-requirements). Anbieterspezifische HTML-Details finden Sie unter [SendGrid Click Tracking HTML Best Practices](https://www.twilio.com/docs/sendgrid/ui/analytics-and-reporting/click-tracking-html-best-practices), [SparkPost Template Language](https://developers.sparkpost.com/api/template-language/) und [Amazon SES Email Sending Metrics FAQs](https://docs.aws.amazon.com/ses/latest/dg/faqs-metrics.html).
+
+Gültige Beispiele sind:
+
+```html
+<a href="http://www.example.com">Link</a>
+<a href='https://example.com'>Link</a>
+<a target="_blank" href="https://example.com">Link</a>
+```
+
+Die folgenden Beispiele lassen `http://` oder `https://` weg und werden nicht getrackt:
+
+```html
+<a href="example.com">Link</a>
+<a href="www.example.com">Link</a>
+```
+
+Wenn Sie SendGrid verwenden, werden die folgenden Beispiele ebenfalls nicht getrackt:
+
+```html
+<a href= http://www.example.com>Link</a>
+<a href = "https://example.com">Link</a>
+```
+
+{% alert note %}
+Obwohl eine `www`-Subdomain optional ist, wird `http://` oder `https://` benötigt, damit Klick-Tracking korrekt funktioniert.
+{% endalert %}
+
+### Klick-Tracking testen {#testing-click-tracking}
 
 Nachdem Sie den [Triage-Workflow](#triage-workflow) abgeschlossen haben, verwenden Sie das folgende Template, um die CDN-Konfiguration Ihrer Tracking-Domain zu testen – den Mechanismus, der Analytics für Links in Ihren E-Mails unterstützt.
 

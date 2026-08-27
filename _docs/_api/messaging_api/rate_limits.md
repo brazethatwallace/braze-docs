@@ -1,21 +1,22 @@
 ---
 nav_title: Rate limits
-article_title: Messaging API rate limits
+article_title: Device Messaging API rate limits
+permalink: /api/device_messaging_api/rate_limits
 page_order: 3
 page_type: reference
-description: "Learn how Messaging API rate limits and response headers work."
+description: "Learn how Device Messaging API rate limits and response headers work."
 hidden: true
 ---
 
-# Messaging API rate limits
+# Device Messaging API rate limits
 
 {% alert important %}
-This page is in beta. Features and documentation for the Messaging API are subject to change.
+This page is in beta. Features and documentation for the Device Messaging API are subject to change.
 {% endalert %}
 
-Braze applies Messaging API rate limits per workspace. If a workspace exceeds a limit, Braze returns a `429 Too Many Requests` status code.
+Braze applies Device Messaging API rate limits per workspace. If a workspace exceeds a limit, Braze returns a `429 Too Many Requests` status code.
 
-Messaging API limits are separate from the default limits documented for other Braze REST API endpoints. Don't assume that a limit, time window, payload size, or reset schedule documented for another endpoint applies to the Messaging API.
+Device Messaging API limits are separate from the default limits documented for other Braze REST API endpoints. Don't assume that a limit, time window, payload size, or reset schedule documented for another endpoint applies to the Device Messaging API.
 
 ## Rate-limit headers
 
@@ -27,7 +28,7 @@ When rate-limit information is available, a response includes the following head
 | `X-RateLimit-Remaining` | The number of requests remaining in the current rate-limit window. |
 | `X-RateLimit-Reset` | The UTC epoch time when the current rate-limit window resets. |
 | `X-RateLimit-Retry-After` | The number of seconds to wait before retrying a rate-limited request. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Messaging API rate-limit headers" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Device Messaging API rate-limit headers" }
 
 Use these headers to reduce or pause requests before reaching a limit. Headers might not be present on every response.
 

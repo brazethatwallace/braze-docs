@@ -8,50 +8,49 @@ alias: /whatsapp_subscription_groups/
 channel:
   - WhatsApp
 
-
 ---
 
 # WhatsApp-Abo-Gruppen {#whatsapp-subscription-groups}
 
-> WhatsApp-Abo-Gruppen werden bei der Integration von WhatsApp in Ihre App über das **Technology Partner Portal** erstellt.
+> WhatsApp-Abo-Gruppen werden bei der Integration von WhatsApp in Ihre App über das **Technology Partner Portal** erstellt. Einen kanalübergreifenden Überblick über Abo-Gruppen finden Sie unter [Abo-Gruppen]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
 ## WhatsApp-Abo-Status {#whatsapp-subscription-states}
 
-Definitionen der WhatsApp-Abo-Status und deren Zusammenhang mit den Opt-in-Anforderungen von Meta finden Sie unter [Abo-Status]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#whatsapp).
+Definitionen der WhatsApp-Abo-Status und wie sie mit den Opt-in-Anforderungen von Meta zusammenhängen, finden Sie unter [Abo-Status]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#whatsapp).
 
 ### WhatsApp-Abo-Gruppen von Nutzer:innen festlegen {#setting-users-whatsapp-subscription-groups}
 
-- **REST API:** Nutzerprofile können programmatisch über den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) mithilfe der Braze REST API festgelegt werden.
-- **Web SDK:** Nutzer:innen können über die Methode `addToSubscriptionGroup` zu einer E-Mail-, SMS- oder WhatsApp-Abo-Gruppe hinzugefügt werden – für [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) oder [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
-- **Nutzerimport**: Nutzer:innen können über **Nutzer:innen importieren** zu E-Mail- oder SMS-Abo-Gruppen hinzugefügt werden. Beim Aktualisieren des Abo-Gruppenstatus müssen diese zwei Spalten in Ihrer CSV-Datei vorhanden sein: `subscription_group_id` und `subscription_state`. Weitere Informationen finden Sie unter [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv).
+- **REST API:** Nutzerprofile können programmatisch über den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) mit der Braze REST API festgelegt werden.
+- **Web SDK:** Nutzer:innen können einer E-Mail-, SMS- oder WhatsApp-Abo-Gruppe mit der Methode `addToSubscriptionGroup` für [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) oder [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup) hinzugefügt werden.
+- **Nutzerimport**: Nutzer:innen können über **Nutzer:innen importieren** zu E-Mail- oder SMS-Abo-Gruppen hinzugefügt werden. Beim Aktualisieren des Abo-Gruppenstatus müssen diese beiden Spalten in Ihrer CSV-Datei vorhanden sein: `subscription_group_id` und `subscription_state`. Weitere Informationen finden Sie unter [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv).
 
 ### WhatsApp-Abo-Gruppe einer Nutzer:in überprüfen {#checking-a-users-whatsapp-subscription-group}
 
-- **Nutzerprofil:** Auf einzelne Nutzerprofile kann über das Braze-Dashboard unter **Zielgruppe** > **Nutzer:innen suchen** zugegriffen werden. Dort können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Innerhalb eines Nutzerprofils können Sie unter dem Tab **Engagement** die WhatsApp-Abo-Gruppe und den Status der Nutzer:in einsehen.
+- **Nutzerprofil:** Auf einzelne Nutzerprofile kann über das Braze-Dashboard unter **Zielgruppe** > **Nutzer:innen suchen** zugegriffen werden. Hier können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Wenn Sie sich in einem Nutzerprofil befinden, können Sie unter dem Tab **Engagement** die WhatsApp-Abo-Gruppe und den Status einer Nutzer:in einsehen.
 
-- **REST API:** Die Abo-Gruppe einzelner Nutzerprofile kann über den [Endpunkt „Abo-Gruppen von Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) oder den [Endpunkt „Abo-Gruppenstatus von Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) mithilfe der Braze REST API abgerufen werden.
+- **REST API:** Die Abo-Gruppe einzelner Nutzerprofile kann über den [Endpunkt „Abo-Gruppen von Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) oder den [Endpunkt „Abo-Gruppenstatus von Nutzer:innen auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) mit der Braze REST API abgerufen werden.
 
 ## Abo-Gruppen archivieren {#archive-subscription-groups}
 
-Wenn Sie eine WhatsApp-Abo-Gruppe nicht mehr verwenden müssen, können Sie sie archivieren, um sie als inaktiv zu markieren.
+Wenn Sie eine WhatsApp-Abo-Gruppe nicht mehr verwenden müssen, können Sie sie archivieren, um sie als inaktiv zu kennzeichnen.
 
-Das Archivieren einer Abo-Gruppe markiert sie als inaktiv, löscht sie jedoch nicht aus Ihrem Workspace. Wenn Sie eine WhatsApp-Telefonnummer oder Abo-Gruppe vollständig entfernen möchten, müssen Sie die Abo-Gruppe zunächst in der Abo-Gruppen-Verwaltung archivieren, bevor Sie die Löschung beim Braze-Support beantragen.
+Das Archivieren einer Abo-Gruppe kennzeichnet sie als inaktiv, löscht sie jedoch nicht aus Ihrem Workspace. Wenn Sie eine WhatsApp-Telefonnummer oder Abo-Gruppe vollständig entfernen möchten, müssen Sie zuerst die Abo-Gruppe in der Abo-Gruppen-Verwaltung archivieren, bevor Sie die Löschung beim Braze-Support beantragen.
 
 So archivieren Sie eine Abo-Gruppe:
 
-1. Navigieren Sie zu **Zielgruppe** > **Abo-Gruppen-Verwaltung**.
+1. Gehen Sie zu **Zielgruppe** > **Abo-Gruppen-Verwaltung**.
 2. Suchen Sie die WhatsApp-Abo-Gruppe, die Sie archivieren möchten.
-3. Bewegen Sie den Mauszeiger über den Status der Abo-Gruppe und wählen Sie <i class="fa-solid fa-box-archive"></i> **Archivieren** aus.
+3. Bewegen Sie den Mauszeiger über den Status der Abo-Gruppe und wählen Sie <i class="fa-solid fa-box-archive" aria-label="Archivieren"></i> **Archivieren** aus.
 
 ## Opt-in- und Opt-out-Prozess für WhatsApp {#whatsapp-opt-in-and-opt-out-process}
 
-Einen Überblick über den WhatsApp-Abo-Status, Opt-in-Anforderungen und das Opt-out-Verhalten finden Sie unter [Abo-Status]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#whatsapp).
+Einen Überblick über den WhatsApp-Abo-Status, Opt-in-Anforderungen und Opt-out-Verhalten finden Sie unter [Abo-Status]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#whatsapp).
 
-Derzeit können sich Nutzer:innen auf verschiedene Weise für WhatsApp-Messaging anmelden und [Opt-in und Opt-out]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) durchführen, darunter per [SMS](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal), über eine Website, einen WhatsApp-Thread, telefonisch oder persönlich. Beachten Sie, dass Opt-ins erforderlich sind.
+Derzeit können Nutzer:innen sich auf verschiedene Weisen für WhatsApp-Messaging anmelden und [Opt-in und Opt-out]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) durchführen, darunter per [SMS](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal), über eine Website, einen WhatsApp-Thread, per Telefon oder persönlich. Beachten Sie, dass Opt-ins erforderlich sind.
 
-Opt-in-Keywords werden derzeit für den WhatsApp-Kanal nicht unterstützt, sodass Sie selbst eine Nutzerliste pflegen müssen. WhatsApp verfolgt einen retrospektiven Ansatz bei Opt-ins und Rate-Limits: Wenn Nutzer:innen Sie melden oder blockieren, wird Ihr Rate-Limit gesenkt.
+Opt-in-Keywords werden derzeit für den WhatsApp-Kanal nicht unterstützt, daher sind Sie für die Pflege einer Nutzerliste verantwortlich. WhatsApp verfolgt einen rückwirkenden Ansatz bei Opt-ins und Rate-Limits: Wenn Nutzer:innen beginnen, Sie zu melden oder zu blockieren, wird Ihr Rate-Limit gesenkt.
 
 ## Abo-Status von Nutzer:innen für einen WhatsApp-Canvas aktualisieren {#update-subscription-status}
 

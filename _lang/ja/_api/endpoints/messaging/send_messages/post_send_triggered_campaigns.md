@@ -1,12 +1,11 @@
 ---
-nav_title: "POST:APIトリガーによる配信でキャンペーンを送信する"
-article_title: "POST:APIトリガー配信でキャンペーンを送信する"
+nav_title: "POST: APIトリガー配信でキャンペーンを送信する"
+article_title: "APIトリガー配信を使用したキャンペーンメッセージの送信"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
 description: "この記事では、APIトリガー配信を使用したキャンペーンの送信Brazeエンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # APIトリガー配信を使用したキャンペーンメッセージの送信 {#send-campaign-messages-using-api-triggered-delivery}
@@ -24,7 +23,7 @@ APIトリガー配信を使用すると、メッセージのコンテンツをBr
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.trigger.send` 権限を持つAPIキーを生成する必要があります。
+このエンドポイントを使用するには、`campaigns.trigger.send`権限を持つAPIキーを生成する必要があります。
 
 ## レート制限 {#rate-limit}
 
@@ -58,11 +57,12 @@ Authorization: Bearer YOUR-REST-API-KEY
       "attributes": (optional, object) fields in the attributes object create or update an attribute of that name with the given value on the specified user profile before the message is sent and existing values are overwritten
     }
   ],
-  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name" and "url",
+  "attachments": (optional, array) array of JSON objects that define the files you need attached, defined by "file_name", "url", and optionally "basic_auth_credential",
     [
       {
        "file_name": (required, string) the name of the file you want to attach to your email, excluding the extension (for example, ".pdf"). Attach files up to 2 MB. This is required if you use "attachments",
        "url": (required, string) the corresponding URL of the file you want to attach to your email. The file name's extension is detected automatically from the URL defined, which should return the appropriate "Content-Type" as a response header. This is required if you use "attachments",
+       "basic_auth_credential": (optional, string) the name of the stored basic authentication credential to use when the attachment URL requires a login,
       }
     ]
 }
@@ -78,7 +78,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `broadcast` | オプション | ブール値 | Brazeダッシュボードでキャンペーンのターゲットオーディエンスとして設定されたセグメント全体にメッセージを送信する場合は、`broadcast`をtrueに設定する必要があります。このパラメーターのデフォルトはfalseです（2017年8月31日現在）。<br><br>`broadcast`がtrueに設定されている場合、`recipients`リストを含めることはできません。ただし、`broadcast: true`を設定する際は注意が必要です。意図せずにこのフラグを設定すると、想定よりも大きなオーディエンスにメッセージが送信される可能性があります。 |
 | `audience` | オプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience)を参照してください。`audience`を含めると、メッセージはカスタム属性や購読ステータスなど、定義されたフィルターに一致するユーザーにのみ送信されます。 |
 | `recipients` | オプション | 配列 | [受信者オブジェクト]({{site.baseurl}}/api/objects_filters/recipient_object)を参照してください。<br><br>`send_to_existing_only`が`false`の場合、`attributes`オブジェクトを含める必要があります。<br><br>ネストされた`attributes`オブジェクト内に`subscription_groups`を含めることで、ユーザーの購読グループのステータスを更新できます。詳細については、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object)を参照してください。<br><br>`recipients`が指定されず、`broadcast`がtrueに設定されている場合、メッセージはBrazeダッシュボードでキャンペーンのターゲットオーディエンスとして設定されたセグメント全体に送信されます。<br><br>`email`が識別子の場合、受信者オブジェクトに[`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)を含める必要があります。 |
-| `attachments` | オプション | 配列 | `broadcast`がtrueに設定されている場合、`attachments`リストを含めることはできません。 |
+| `attachments` | オプション | 配列 | `broadcast`がtrueに設定されている場合、`attachments`リストを含めることはできません。<br><br>添付ファイルのURLにログインが必要な場合、その添付ファイルに`basic_auth_credential`を含め、保存済みのベーシック認証情報の名前を設定してください。認証情報を設定するには、[メールファイル添付の認証]({{site.baseurl}}/api/objects_filters/messaging/email_object#authentication-for-email-file-attachments)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ### 受信者の解決動作 {#recipient-resolution-behavior}
@@ -195,7 +195,8 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
   "attachments": [
     {
       "file_name" : "YourFileName",
-      "url" : "https://exampleurl.com/YourFileName.pdf"
+      "url" : "https://exampleurl.com/YourFileName.pdf",
+      "basic_auth_credential": "company_basic_auth_credential_name"
     }
   ]
 }'

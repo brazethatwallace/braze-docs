@@ -6,7 +6,6 @@ page_order: 6
 layout: api_page
 page_type: reference
 description: "En este artículo se describen los detalles del endpoint Fusionar usuarios de Braze."
-
 ---
 {% api %}
 # Fusionar usuarios {#merge-users}
@@ -22,7 +21,7 @@ Se pueden especificar hasta 50 fusiones por solicitud. Este endpoint es asíncro
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.merge`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics) con el permiso `users.merge`.
 
 ## Límite de velocidad {#rate-limit}
 

@@ -1,6 +1,6 @@
 ---
 nav_title: Set user attributes
-article_title: Set user attributes through the Braze SDK
+article_title: "Set user attributes"
 page_order: 1.2
 description: "Learn how to set user attributes through the Braze SDK."
 ---

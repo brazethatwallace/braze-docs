@@ -1,11 +1,10 @@
 ---
 nav_title: ホーム
 article_title: Brazeの新機能
-description: "Brazeリリースノートは毎月発行されるため、主要な製品リリース、継続的な製品改良、Brazeパートナーシップ、SDKの破壊的変更、および機能の非推奨について最新の状態を維持できます。"
+description: "Brazeリリースノートは毎月発行されるため、主要な製品リリース、継続的な製品改良、Brazeパートナーシップについて最新の状態を維持できます。"
 page_order: 0
 search_rank: 1
 page_type: reference
-
 ---
 
 # Brazeの新機能 {#whats-new-in-braze}
@@ -97,7 +96,7 @@ page_type: reference
 
 [ワークスペースクワイエットアワー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/workspace_quiet_hours)を使用すると、ワークスペース全体でメッセージングチャネルのデフォルトのクワイエットアワーウィンドウを設定できます。そのチャネルのすべてのキャンペーンとキャンバスが、各受信者のローカルタイムゾーンでウィンドウを尊重します。ワークスペースのデフォルトを維持するか、オプトアウトしてキャンペーンまたはキャンバス固有のウィンドウを適用できます。
 
-ウィンドウ中に送信されるメッセージは、キャンペーンタイプに応じて、後で配信するために保留されるか、アボートされます。ワークスペースクワイエットアワーはメッセージコンテンツを変更しません。
+ウィンドウ中に送信されるメッセージは、キャンペーンタイプに応じて、後で配信するために保留されるか、中止されます。ワークスペースクワイエットアワーはメッセージコンテンツを変更しません。
 
 #### キャンバスしきい値アラート {#canvas-threshold-alerts}
 
@@ -117,7 +116,7 @@ page_type: reference
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-[Connected Contentデバッガー]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger)は、**プレビュー＆テスト**で各Connected Contentコールのライブリクエストとレスポンスを表示するため、キャンペーンやキャンバスを起動する前にエンドポイント、ヘッダー、Liquidタグを検証できます。**詳細を表示**を開いて、URL、メソッド、ステータスコード、リクエストおよびレスポンスヘッダー、ペイロード、所要時間、レスポンスがキャッシュから提供されたかどうかを確認できます。
+[Connected Contentデバッガー]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger)は、**プレビューとテスト**で各Connected Contentコールのライブリクエストとレスポンスを表示するため、キャンペーンやキャンバスを起動する前にエンドポイント、ヘッダー、Liquidタグを検証できます。**詳細を表示**を開いて、URL、メソッド、ステータスコード、リクエストおよびレスポンスヘッダー、ペイロード、所要時間、レスポンスがキャッシュから提供されたかどうかを確認できます。
 
 早期アクセス中、デバッガーはContent Cards、メール、アプリ内メッセージ、プッシュ、SMS/MMS/RCS、webhook、WhatsAppで利用可能です。
 
@@ -499,7 +498,7 @@ BrazeAI<sup>TM</sup>バリアントセレクションは、複数のプッシュ
 
 #### Databricks Mosaic - AIモデルプロバイダー {#databricks-mosaic-ai-model-providers}
 
-[Databricks Mosaic]({{site.baseurl}}/partners/databricks_mosaic)は、Databricks Data Intelligence Platform上でAIおよび機械学習モデルを大規模に構築、デプロイ、管理するためのDatabricksの統合プラットフォームです。
+[Databricks Mosaic]({{site.baseurl}}/partners/ai_model_providers/databricks_mosaic)は、Databricks Data Intelligence Platform上でAIおよび機械学習モデルを大規模に構築、デプロイ、管理するためのDatabricksの統合プラットフォームです。
 
 #### DinMo - データと分析 - リバースETL {#dinmo-data-and-analytics-reverse-etl}
 
@@ -660,7 +659,7 @@ Currentsとデータ共有に、新しい`Banner.Dismiss`イベントと既存�
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-アカウントにアクセスし特定のアクションを実行できるユーザーを管理することは、セキュリティと運用効率の両方にとって重要です。より多くのコントロールを提供するために、Brazeはアカウント全体でユーザーアクセスを管理するためのより柔軟で正確な方法である[きめ細かな権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/granular_permissions_migration)を導入しています。
+アカウントにアクセスし特定のアクションを実行できるユーザーを管理することは、セキュリティと運用効率の両方にとって重要です。より多くのコントロールを提供するために、Brazeはアカウント全体でユーザーアクセスを管理するためのより柔軟で正確な方法である[きめ細かな権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を導入しています。
 
 #### 送信先キャンバスコンポーネント {#send-to-destination-canvas-component}
 
@@ -761,7 +760,7 @@ Currents Mixpanelインテグレーションが、MixpanelのEUおよびイン�
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-ワークスペースにロケールを追加した後、[多言語翻訳]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales)を使用して、1つのプッシュ、メール、バナー、アプリ内メッセージ、またはContent Block内で異なる言語のユーザーをターゲットにできます。
+ワークスペースにロケールを追加した後、[多言語翻訳]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を使用して、1つのプッシュ、メール、バナー、アプリ内メッセージ、またはContent Block内で異なる言語のユーザーをターゲットにできます。
 
 ![ロケールプレビュー]({% image_buster /assets/img/multi-language_support/multi_language_user_preview.png %}){: style="max-width:70%;"}
 
@@ -771,10 +770,10 @@ Currents Mixpanelインテグレーションが、MixpanelのEUおよびイン�
 
 キャンバスで、コンテキスト変数を参照して以下を設定できるようになりました。
 
-- メッセージステップのバナーおよびアプリ内メッセージの[有効期限]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#set-an-expiration)
-- アクションパスステップの[パーソナライズされた遅延]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#action-path-delays)
+- メッセージステップのバナーおよびアプリ内メッセージの[有効期限]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)
+- アクションパスステップの[パーソナライズされた遅延]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)
 
-コンテキスト変数名フィールドでは、コンテキスト変数名を入力するか、ステップエディタのドロップダウンから選択することもできます。詳細については、[コンテキスト]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context)および[コンテキスト変数]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables)を参照してください。
+コンテキスト変数名フィールドでは、コンテキスト変数名を入力するか、ステップエディタのドロップダウンから選択することもできます。詳細については、[コンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)および[コンテキスト変数]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)を参照してください。
 
 ### チャネルとタッチポイント
 
@@ -790,7 +789,7 @@ Currents Mixpanelインテグレーションが、MixpanelのEUおよびイン�
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-キャンバスの[メッセージステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step)のメッセージングチャネルとして[バナー]({{site.baseurl}}/user_guide/message_building_by_channel/banners)を使用できます。バナーを使用すると、リアルタイムのユーザー適格性と動作を反映して、アプリやWebサイトのコンテンツを動的にパーソナライズできます。
+キャンバスの[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)のメッセージングチャネルとして[バナー]({{site.baseurl}}/user_guide/channels/banners)を使用できます。バナーを使用すると、リアルタイムのユーザー適格性と動作を反映して、アプリやWebサイトのコンテンツを動的にパーソナライズできます。
 
 ### パートナーシップ
 
@@ -888,7 +887,7 @@ Brazeは新しい[データセンター]({{site.baseurl}}/user_guide/data/infras
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents)は、Braze内で作成できるAIパワーのヘルパーです。エージェントは、コンテンツを生成し、インテリジェントな意思決定を行い、データを拡張して、よりパーソナライズされた顧客体験を提供できます。エージェントを作成する際に、その目的を定義し、動作のガードレールを設定します。ライブになった後、エージェントはBrazeに[デプロイ]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents)して、パーソナライズされたコピーの生成、リアルタイムの意思決定、またはカタログフィールドの更新を行うことができます。
+[Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents)は、Braze内で作成できるAIパワーのヘルパーです。エージェントは、コンテンツを生成し、インテリジェントな意思決定を行い、データを拡充して、よりパーソナライズされた顧客体験を提供できます。エージェントを作成する際に、その目的を定義し、動作のガードレールを設定します。ライブになった後、エージェントはBrazeに[デプロイ]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents)して、パーソナライズされたコピーの生成、リアルタイムの意思決定、またはカタログフィールドの更新を行うことができます。
 
 ### オーケストレーション
 
@@ -896,7 +895,7 @@ Brazeは新しい[データセンター]({{site.baseurl}}/user_guide/data/infras
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Brazeは、ユーザーアクセスを管理するためのより柔軟な方法である[きめ細かな権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を導入しています。レガシー権限がきめ細かな権限にどのようにマッピングされるかを含む移行プロセスについては、[きめ細かな権限への移行]({{site.baseurl}}/granular_permissions_migration)を参照してください。
+Brazeは、ユーザーアクセスを管理するためのより柔軟な方法である[きめ細かな権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を導入しています。レガシー権限がきめ細かな権限にどのようにマッピングされるかを含む移行プロセスについては、[きめ細かな権限への移行]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を参照してください。
 
 #### チャネルベースのレート制限 {#channel-based-rate-limiting}
 
@@ -1074,7 +1073,7 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-新しい[再試行イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)が、メール、LINE、プッシュ通知、SMS、webhook、およびWhatsAppチャネルで利用可能になりました。これらのイベントは、フリークエンシーキャップによってスケジュールされたメッセージがアボートされるのではなく遅延される場合の可視性を提供します。メッセージが優先度を下げられたりフリークエンシーキャップが適用されたりすると、設定された再試行ウィンドウ内で再試行できるようになり、メッセージ配信パターンとフリークエンシーキャップの影響についてより良いインサイトが得られます。詳細については、[Currents変更ログ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)を参照してください。
+新しい[再試行イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)が、メール、LINE、プッシュ通知、SMS、webhook、およびWhatsAppチャネルで利用可能になりました。これらのイベントは、フリークエンシーキャップによってスケジュールされたメッセージが中止されるのではなく遅延される場合の可視性を提供します。メッセージが優先度を下げられたりフリークエンシーキャップが適用されたりすると、設定された再試行ウィンドウ内で再試行できるようになり、メッセージ配信パターンとフリークエンシーキャップの影響についてより良いインサイトが得られます。詳細については、[Currents変更ログ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)を参照してください。
 
 #### TokenStateChangeイベントに新しい`time_ms`フィールドを追加 {#add-new-time_ms-field-to-tokenstatechange-event}
 
@@ -1096,7 +1095,7 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 #### メールオープンイベント — 「machine_open」フィールド {#email-open-event-machine_open-field}
 
-[メールオープンイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events)が「machine_open」フィールド値を生成するようになり、[_Machine Open_]({{site.baseurl}}/user_guide/analytics/reporting/report_metrics#machine-opens)指標をレポートできます。
+[メールオープンイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events)が「machine_open」フィールド値を生成するようになり、[_Machine Open_]({{site.baseurl}}/user_guide/analytics/metrics_glossary)指標をレポートできます。
 
 ### SDK
 

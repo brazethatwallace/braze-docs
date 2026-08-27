@@ -131,7 +131,14 @@ To control this, [listen for updates]({{site.baseurl}}/developer_guide/platform_
 
 You can't enable feature flags for users in your [Global Control Group]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts). This means users in your Global Control Group also can't be part of Feature Flag experiments.
 
+### Is email-based recipient identification part of Braze Feature Flags?
+
+No. Identifying recipients by email when you send a message is not part of the Feature Flags product on this page. Feature Flags control in-app or on-site experiences through the Braze SDK.
+
+API-triggered campaign and Canvas sends can include `email` on the [recipients object]({{site.baseurl}}/api/objects_filters/recipient_object) instead of an `external_user_id`. When you use `email`, include `prioritization` so Braze can select the matching user profile. This send option is not available on every workspace.
+
+For the request shape, see [POST: Send campaigns using API-triggered delivery]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) and [POST: Send Canvas messages using API-triggered delivery]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
+
 ## Additional questions?
 
 Have questions or feedback? Email our team: [feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com).
-

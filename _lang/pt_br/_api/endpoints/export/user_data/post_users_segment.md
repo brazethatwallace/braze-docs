@@ -160,7 +160,7 @@ A seguir, uma lista de `fields_to_export` válidos. O uso de `fields_to_export` 
 | `phone` | String | Número de telefone do usuário no formato em que foi importado para a Braze. Por exemplo, se uma solicitação para adicionar um número de telefone chegar como `1234567890`, ele será exportado no mesmo formato. |
 | `purchases` | Vetor | Compras que esse usuário fez nos últimos 90 dias. |
 | `push_tokens` | Vetor | Informações sobre os tokens por push do usuário. |
-| `random_bucket` | Inteiro | [Número de bucket aleatório]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event) do usuário, usado para criar segmentos uniformemente distribuídos de usuários aleatórios. |
+| `random_bucket` | Inteiro | [Número de bucket aleatório]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) do usuário, usado para criar segmentos uniformemente distribuídos de usuários aleatórios. |
 | `time_zone` | String | Fuso horário do usuário no mesmo formato do banco de dados de fuso horário da IANA. |
 | `total_revenue` | Float | Receita total atribuída a esse usuário. A receita total é calculada com base nas compras que o usuário fez durante as janelas de conversão das Campaigns e Canvas que recebeu. |
 | `uninstalled_at` | Data e hora | Data e hora em que o usuário desinstala o app. Omitido se o app não tiver sido desinstalado. |

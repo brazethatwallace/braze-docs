@@ -6,7 +6,6 @@ page_order: 6
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Nutzer:innen zusammenführen“."
-
 ---
 {% api %}
 # Nutzer:innen zusammenführen {#merge-users}
@@ -22,7 +21,7 @@ Pro Anfrage können bis zu 50 Zusammenführungen angegeben werden. Dieser Endpun
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `users.merge`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `users.merge`.
 
 ## Rate-Limit
 
@@ -77,8 +76,8 @@ Dieser Endpunkt führt die folgenden Felder zusammen, wenn sie bei der Zielnutze
 - Angepasste Event- und Kauf-Event-Eigenschaften für die Segmentierung „X-mal in Y Tagen“ (wobei X<=50 und Y<=30)
 - Segmentierbare Zusammenfassung angepasster Events
   - Event-Anzahl (die Summe aus beiden Profilen)
-  - Event erstmals aufgetreten (Braze wählt das frühere der beiden Daten)
-  - Event zuletzt aufgetreten (Braze wählt das spätere der beiden Daten)
+  - Ereignis erstmals aufgetreten (Braze wählt das frühere der beiden Daten)
+  - Ereignis zuletzt aufgetreten (Braze wählt das spätere der beiden Daten)
 - In-App-Käufe insgesamt in Cent (die Summe aus beiden Profilen)
 - Gesamtzahl der Käufe (die Summe aus beiden Profilen)
 - Datum des ersten Kaufs (Braze wählt das frühere der beiden Daten)

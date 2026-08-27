@@ -18,6 +18,8 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para lista
 
 Esses grupos estarão disponíveis na página do **Grupo de inscrições**. A resposta deste endpoint incluirá o ID externo e o status subscribed, unsubscribed ou unknown para o grupo de inscrições específico solicitado na chamada de API. Isso pode ser usado para atualizar o estado do grupo de inscrições em chamadas subsequentes de API ou para ser exibido em uma página da web hospedada.
 
+Se você coleta e-mails por meio de um formulário personalizado e depois define a associação ao grupo de inscrições pela REST API, chame este endpoint primeiro para verificar se já existe um perfil. Se não houver um perfil correspondente, crie ou inscreva o usuário com o endpoint [Atualizar status do grupo de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Caso contrário, atualize o perfil existente em vez de criar uma duplicata. Para outros padrões de coleta, consulte [Práticas recomendadas de coleta]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices).
+
 Se você quiser ver exemplos ou testar este endpoint para **grupos de inscrições para e-mail**:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#488c8923-fa44-4124-9245-036d13c615f2 {% endapiref %}

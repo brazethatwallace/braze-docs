@@ -1,16 +1,16 @@
 ---
 nav_title: ユーザー属性を設定する
-article_title: Braze SDKを通じてユーザー属性を設定する
+article_title: ユーザー属性を設定する
 page_order: 1.2
-description: "Braze SDKを通してユーザー属性を設定する方法を学習する。"
+description: "Braze SDKを通じてユーザー属性を設定する方法を説明します。"
 ---
 
-# ユーザー属性を設定する
+# ユーザー属性を設定する {#set-user-attributes}
 
-> Braze SDKを通してユーザー属性を設定する方法を学習する。
+> Braze SDKを通じてユーザー属性を設定する方法を説明します。
 
 {% alert note %}
-リストされていないラッパーSDK の場合は、代わりに関連するネイティブAndroid またはSwift メソッドを使用します。
+一覧にないラッパーSDKの場合は、代わりに関連するネイティブのAndroidまたはSwiftメソッドを使用してください。
 {% endalert %}
 
 {% sdktabs %}

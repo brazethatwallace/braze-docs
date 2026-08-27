@@ -1,6 +1,6 @@
 ---
 nav_title: Notificações por push
-article_title: "Notificações por push para o SDK Braze"
+article_title: Notificações por push
 page_order: 2.3
 description: "Esta landing page reúne tudo sobre notificações por push."
 ---

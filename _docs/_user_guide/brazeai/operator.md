@@ -4,7 +4,7 @@ article_title: BrazeAI Operator
 page_order: 7
 alias: /operator/
 toc_headers: h2
-description: "Learn how to access and use BrazeAI Operator<sup>TM</sup>, an AI-powered assistant built into the Braze dashboard, including its features and best practices."
+description: "Learn how to access and use BrazeAI Operator<sup>TM</sup>, an AI-powered assistant built into the Braze dashboard, including its features and best."
 ---
 
 # BrazeAI Operator
@@ -51,9 +51,16 @@ Treat Operator as a conversation, not a search engine. Short, natural prompts wo
 
 ### Apply brand guidelines
 
-Add brand guidelines as context to Operator queries so responses match your brand's voice, tone, and personality. Operator uses the brand guidelines configured in your workspace, which helps ensure consistent messaging when it suggests copy or explains features.
+Add brand guidelines as context so Operator can match your brand's voice, tone, and personality when it suggests copy or explains features.
 
-To set up brand guidelines, go to **Content** > **Brand Guidelines**. For more, see [Brand Guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines).
+1. Select <i class="fa-regular fa-plus"></i>&nbsp;**Add context for Operator** in the chat panel.
+2. Under **Brand guidelines**, select one or more guidelines.
+
+Operator applies only the guidelines you select. Nothing is selected by default, including the workspace default.
+
+When you open Operator from **Generate with Operator** or **Refine with Operator** in Agent Console, Operator attaches the guideline already on the agent as context. You can add or remove guidelines from the same menu.
+
+To set up brand guidelines, go to **Content** > **Brand Guidelines**. For more information, see [Brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines).
 
 ![Selecting brand guidelines in the Operator chat panel.]({% image_buster /assets/img/operator/operator_brand_guidelines.png %})
 

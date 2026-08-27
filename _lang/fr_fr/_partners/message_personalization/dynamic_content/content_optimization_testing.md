@@ -14,9 +14,6 @@ guide_featured_list:
   - name: "Jacquard"
     link: /docs/partners/message_personalization/dynamic_content/content_optimization_testing/jacquard
     image: /assets/img/braze_icons/zap.svg
-  - name: "JustAI"
-    link: /docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai
-    image: /assets/img/braze_icons/layers-three-01.svg
   - name: "Notify"
     link: /docs/partners/message_personalization/dynamic_content/content_optimization_testing/notify
     image: /assets/img/braze_icons/bar-chart-01.svg

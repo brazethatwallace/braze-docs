@@ -101,23 +101,23 @@ Web実装が複数のルートドメインにまたがる場合は、1つのア�
 
 ![データソースからユーザーデバイスへの情報の流れを表す抽象的なピラミッド図形。]({% image_buster /assets/img/getting-started/data-graphic.png %}){: style="max-width:45%;float:right;margin-left:15px;"}
 
-BrazeはiOSアプリ、Androidアプリ、ウェブアプリなどをサポートしています。また、React NativeやUnityのようなクロスプラットフォームのラッパーSDKを使うこともできます。通常、顧客は1〜6週間で統合を完了します。多くの顧客は、技術スキルと帯域幅の広さにもよりますが、たった1人のエンジニアでBrazeを統合しています。これは具体的な統合の範囲と、チームがBrazeプロジェクトに費やす時間に完全に依存します。
+BrazeはiOSアプリ、Androidアプリ、Webアプリなどをサポートしています。また、React NativeやUnityのようなクロスプラットフォームのラッパーSDKを使用することもできます。通常、顧客は1〜6週間で統合を完了します。多くの顧客は、技術スキルの幅と帯域幅にもよりますが、たった1人のエンジニアでBrazeを統合しています。これは具体的な統合の範囲と、チームがBrazeプロジェクトに費やす時間に完全に依存します。
 
 以下に精通した開発者が必要です。
 * アプリやサイトのネイティブレイヤーでの作業
 * REST APIにアクセスするプロセスの作成
 * 統合テスト
-* JSONウェブトークン認証
+* JSON Webトークン認証
 * 一般的なデータ管理スキル
 * DNSレコードの設定
 
 ### CDP統合パートナー {#cdp-integration-partners}
 
-多くの顧客は、Brazeのオンボーディングを、統合パートナーとして顧客データプラットフォーム（CDP）とも統合する機会として利用しています。Brazeはデータの追跡と分析を提供し、CDPは追加のデータルーティングとオーケストレーションを提供できます。Brazeは、[mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle)や[セグメント]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment)など多くのCDPとシームレスに統合できます。
+多くの顧客は、Brazeのオンボーディングを、統合パートナーとして顧客データプラットフォーム（CDP）とも統合する機会として利用しています。Brazeはデータのトラッキングと分析を提供し、CDPは追加のデータルーティングとオーケストレーションを提供できます。Brazeは、[mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle)や[セグメント]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment)など多くのCDPとシームレスに統合できます。
 
 CDPとサイドバイサイドの統合を行う場合は、CDPのSDKからの呼び出しをBraze SDKにマッピングします。基本的に、以下を実行します。
 * 識別呼び出しを`changeUser`（[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html)、[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/)、[web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)）にマッピングし、属性を設定します。
-* データフラッシュ呼び出しを`requestImmediateDataFlush`（[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-immediate-data-flush.html?query=abstract%20fun%20requestImmediateDataFlush())、[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/requestimmediatedataflush()、[web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestimmediatedataflush)）にマッピングします。
+* データフラッシュ呼び出しを`requestImmediateDataFlush`（[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-immediate-data-flush.html?query=abstract%20fun%20requestImmediateDataFlush())、[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/requestimmediatedataflush())、[web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestimmediatedataflush)）にマッピングします。
 * カスタムイベントや購入を記録します。
 
 選択したプラットフォームによっては、Braze SDKと選択したCDP間の統合例を利用できる場合があります。詳細は[CDPテクノロジーパートナーのリスト]({{site.baseurl}}/partners/data_and_analytics)を参照してください。
@@ -127,7 +127,7 @@ CDPとサイドバイサイドの統合を行う場合は、CDPのSDKからの�
 Braze SDKは2つの重要な機能を提供します。ユーザーデータを収集し統合されたユーザープロファイルに同期することと、プッシュ通知、アプリ内メッセージ、Content Cardsなどのメッセージングチャネルを強化することです。
 
 {% alert tip %}
-Braze SDKはアプリやサイトと完全に統合されると、完全に実現されたレベルの高度なマーケティングを提供します。Braze SDKの統合を延期すると、ドキュメントに記載されている機能の一部が利用できなくなります。
+Braze SDKをアプリやサイトと完全に統合すると、完全に実現されたレベルの高度なマーケティングが可能になります。Braze SDKの統合を延期すると、ドキュメントに記載されている機能の一部が利用できなくなります。
 {% endalert %}
 
 {% alert note %}
@@ -137,8 +137,8 @@ Braze SDKはアプリやサイトと完全に統合されると、完全に実�
 SDKの実装では、以下を行います。
 
 * サポートしたいプラットフォームごとにSDK統合コードを記述します。
-* 各プラットフォームのメッセージングチャネルを有効にし、Braze SDKがメール、SMS、プッシュ通知、その他のチャネルにわたる顧客とのインタラクションのデータを追跡するようにします。
-* 予定されているUIコンポーネントのカスタマイズ（例：カスタムContent Cards）を作成します。完全にカスタム化されたコンテンツの場合、SDKの自動データ収集では新しいコンポーネントを認識できないため、分析のログを取る必要があります。この実装はデフォルトのコンポーネントをパターンとして利用できます。
+* 各プラットフォームのメッセージングチャネルを有効にし、Braze SDKがメール、SMS、プッシュ通知、その他のチャネルにわたる顧客とのインタラクションのデータをトラッキングするようにします。
+* 予定されているUIコンポーネントのカスタマイズ（例：カスタムContent Cards）を作成します。完全にカスタム化されたコンテンツの場合、SDKの自動データ収集では新しいコンポーネントを認識できないため、分析のログを記録する必要があります。この実装はデフォルトのコンポーネントをパターンとして利用できます。
 
 ### Braze APIの使用 {#using-the-braze-api}
 
@@ -163,23 +163,23 @@ Brazeはデータがすべてです。Brazeのデータはユーザープロフ�
 
 Brazeの[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、Brazeの外部で記録された履歴データを移行できます。よくインポートされるデータの例としては、プッシュトークンや過去の購入履歴などがあります。このエンドポイントは、単発のインポートや定期的なバッチ更新に使用できます。
 
-また、ダッシュボードに一度だけ[CSVをアップロード]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#importing-a-csv)することで、ユーザーをインポートし、顧客の属性値を更新することもできます。CSVのアップロードはマーケターにとって便利ですが、REST APIを使えばより柔軟に対応できます。
+また、ダッシュボードに一度だけ[CSVをアップロード]({{site.baseurl}}/user_guide/audience/manage_audience/import_users)することで、ユーザーをインポートし、顧客の属性値を更新することもできます。CSVのアップロードはマーケターにとって便利ですが、REST APIを使えばより柔軟に対応できます。
 
 ### セッショントラッキングの設定 {#setting-up-session-tracking}
 
 Braze SDKは「セッション開始」と「セッション終了」のデータポイントを生成します。また、Braze SDKは定期的にデータをフラッシュします。セッショントラッキングのデフォルト値（いずれもカスタマイズ可能）については、以下のリンクを参照してください（[Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android)、[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift)、[web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web)）。
 
-### カスタムイベント、属性、購入イベントの追跡 {#tracking-custom-events-attributes-and-purchase-events}
+### カスタムイベント、属性、購入イベントのトラッキング {#tracking-custom-events-attributes-and-purchase-events}
 
 カスタムイベント、ユーザー属性、購入イベントなど、計画したデータスキーマを設定するためにチームと調整してください。[カスタムデータスキーム]({{site.baseurl}}/user_guide/data/activation/events/custom_events)はダッシュボードを使用して入力され、SDK統合中に実装したものと完全に一致しなければなりません。
 
 {% alert tip %}
-ユーザーID（Brazeでは`external_id`と呼ばれます）は、既知のすべてのユーザーに対して設定する必要があります。これらは不変であるべきで、ユーザーがアプリを開いたときにアクセスできるようにし、デバイスやプラットフォームを超えてユーザーを追跡できるようにします。ベストプラクティスについては、[ユーザーライフサイクル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)の記事を参照してください。
+ユーザーID（Brazeでは`external_id`と呼ばれます）は、既知のすべてのユーザーに対して設定する必要があります。これらは不変であるべきで、ユーザーがアプリを開いたときにアクセスできるようにし、デバイスやプラットフォームを超えてユーザーをトラッキングできるようにします。ベストプラクティスについては、[ユーザーライフサイクル]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)の記事を参照してください。
 {% endalert %}
 
 ### その他のツール {#other-tools}
 
-ユースケースによっては、他にも設定が必要なツールがある場合があります。例えば、ユーザーストーリーを実現するために[ジオフェンス]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences)のようなツールを設定する必要がある場合があります。重要な統合ステップを完了した後にこれらの追加ツールをセットアップできる顧客が最も成功していることが明らかになっています。
+ユースケースによっては、他にも設定が必要なツールがある場合があります。例えば、ユーザーストーリーを実現するために[ジオフェンス]({{site.baseurl}}/user_guide/audience/locations_and_geofences)のようなツールを設定する必要がある場合があります。重要な統合ステップを完了した後にこれらの追加ツールを設定できる顧客が最も成功していることがわかっています。
 
 ## 品質保証 {#qa}
 統合を実行する際には、設定したすべてが期待通りに機能していることを確認するため、品質保証を行います。このQAは、データインジェストとメッセージチャネルの2つに大別されます。
@@ -197,9 +197,9 @@ QAを始める前に、本番環境とテスト環境がセットアップされ
 | ユーザー属性情報がユーザープロファイルに対して正しく記録されていることを確認します。 | プッシュトークンが正しく登録されていることを確認します。 |
 | ユーザープロファイルに対してカスタムデータが正しく記録されていることをテストします。 | プッシュトークンが正しく削除されていることを確認します。 |
 | 匿名ユーザープロファイルを作成します。 | プッシュキャンペーンがデバイスに正しく送信され、エンゲージメントが記録されているかテストします。 |
-| `changeUser()`メソッドが呼び出されたときに、匿名ユーザープロファイルが既知のユーザープロファイルになることを確認します。 | アプリ内メッセージが配信され、指標が記録されることをテストします。 |
+| `changeUser()` メソッドが呼び出されたときに、匿名ユーザープロファイルが既知のユーザープロファイルになることを確認します。 | アプリ内メッセージが配信され、指標が記録されることをテストします。 |
 |                           | Content Cardsが配信され、指標が記録されていることをテストします。 |
-|                           | Connected Contentを促進します（例：AccuWeather）。 |
+|                           | Connected Contentを活用します（例：AccuWeather）。 |
 |                           | すべてのメッセージチャネルの統合が正しく連携していることを確認します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="品質保証" }
 
@@ -211,9 +211,9 @@ SDK統合のQAを行う際、[SDKデバッガー]({{site.baseurl}}/developer_gui
 
 プラットフォームやサイトを統合したら、マーケティングチームを関与させてプラットフォームの所有権を引き渡しましょう。このプロセスは企業によって異なりますが、以下のようなものが含まれる場合があります。
 
-* 複雑な[Liquidロジック]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid#about-liquid)を構成する
+* 複雑な[Liquidロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を構成する
 * [メールのIPウォームアップ]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)を支援する
-* 他の利害関係者に追跡されるデータの種類を理解させる
+* 他の利害関係者にトラッキングされるデータの種類を理解させる
 
 ### 未来のために開発する {#develop-for-the-future}
 
@@ -233,15 +233,15 @@ Brazeの[GitHub](https://github.com/braze-inc/)を通じて、Brazeプラット�
 
 ### Monthly Active Users CY 24-25、Universal MAU、Web MAU、Mobile MAU {#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 
-Monthly Active Users CY 24-25、Universal MAU、Web MAU、Mobile MAUを購入されたお客様に対して、Brazeは、SDKが使用するAPIリクエスト（セッション、ユーザー属性、イベント、その他のユーザープロファイルデータの更新）にサーバーサイドのレート制限を適用します。これはプラットフォームの安定性を確保し、高速で信頼性の高いサービスを維持するためです。
+Monthly Active Users CY 24-25、Universal MAU、Web MAU、Mobile MAUを購入されたお客様に対して、Brazeは当社SDKが使用するAPIリクエスト（セッション、ユーザー属性、イベント、その他のユーザープロファイルデータの更新）にサーバー側のレート制限を適用しています。これはプラットフォームの安定性を確保し、高速で信頼性の高いサービスを維持するためです。
 
-* 1時間あたりのレート制限は、アカウントで予想されるSDKトラフィックに基づいて設定されます。これは、購入された月間アクティブユーザー数（MAU）、業界、季節性、その他の要因に対応する場合があります。1時間あたりのレート制限に達すると、Brazeは次の1時間までリクエストをスロットリングします。
-* レート制限されたすべてのリクエストは、SDKによって自動的にリトライされます。
-* SDKリクエストは、実装で収集されるカスタムデータの量に相関します。1時間あたりのレート制限に常に近づいている、または達している場合は、以下を検討してください。
+* 時間あたりのレート制限は、アカウントで予想されるSDKトラフィックに基づいて設定されます。これは、購入された月間アクティブユーザー（MAU）数、業界、季節性、その他の要因に対応する場合があります。時間あたりのレート制限に達すると、Brazeは次の1時間までリクエストをスロットルします。
+* レート制限されたすべてのリクエストは、SDKにより自動的にリトライされます。
+* SDKリクエストは、実装で収集されるカスタムデータの量に相関します。時間あたりのレート制限に常に近づいている、または達している場合は、以下を検討してください。
     * SDK統合を見直して、過剰なデータ収集を削減する。
-    * マーケティングユースケースに不可欠でないカスタムデータをブロックリストに登録する。
-* バーストレート制限は、非常に短い期間（つまり数秒以内）に大量のリクエストが到着した場合に適用される短期間のレート制限です。バースト制限が発生した場合にアクションを取る必要はなく、SDKはすぐにリトライします。
-* 定常レート制限は、バーストウィンドウよりも長いローリングウィンドウ（例えば数分間）にわたる持続的なリクエスト量を制御し、バースト制限と1時間あたりのレート制限の間のトラフィックを平滑化するのに役立ちます。
+    * マーケティングのユースケースに不可欠でないカスタムデータをブロックリストに追加する。
+* バーストレート制限は、非常に短い期間（つまり数秒以内）に大量のリクエストが到着した場合に適用される短期間のレート制限です。バースト制限が発生した場合、対応は不要で、SDKがすぐにリトライします。
+* 定常レート制限は、バーストウィンドウよりも長いローリングウィンドウ（たとえば数分間）にわたる持続的なリクエスト量を制御し、バーストレート制限と時間あたりのレート制限の間で進行中のトラフィックを平滑化します。
 
 ### レート制限の確認 {#finding-your-rate-limits}
 
@@ -251,16 +251,16 @@ Monthly Active Users CY 24-25、Universal MAU、Web MAU、Mobile MAUを購入さ
 
 ### より高いレート制限のリクエスト {#requesting-higher-rate-limits}
 
-より高いBrazeレート制限が必要な場合は、Brazeサポートまたはカスタマーサクセスマネージャーに連絡し、以下の詳細を含めてください。
+Brazeのレート制限の引き上げが必要な場合は、Brazeサポートまたはカスタマーサクセスマネージャーに連絡し、以下の詳細を含めてください。
 
-* 一時的な増加が必要か、恒久的な増加が必要か。
-* 増加が必要な理由。
+* 一時的な引き上げが必要か、恒久的な引き上げが必要か。
+* 引き上げが必要な理由。
 * 影響を受けるエンドポイントと環境。
-* 開始日、期間、ピーク時間を含む、おおよそのトラフィック量とタイムライン。
-* コールをバッチ処理したり、トラフィックを時間的に分散させたりできるかどうか。
+* おおよそのトラフィック量とタイムライン（開始日、期間、ピーク時間を含む）。
+* コールをバッチ処理したり、トラフィックを時間的に分散させることが可能か。
 
-リクエストを送信すると、Brazeがそれを確認し、結果をお知らせします。
+リクエストを送信後、Brazeが内容を確認し、結果をお知らせします。
 
 ### 変更とサポート {#changes-and-support}
 
-Brazeは、システムの安定性を保護するため、またはアカウントのデータスループットの増加に対応するために、レート制限を変更する場合があります。レート制限とそれがビジネスに与える影響に関するご質問やご懸念については、Brazeサポートまたはカスタマーサクセスマネージャーにお問い合わせください。
+Brazeは、システムの安定性を保護するため、またはアカウントのデータスループットの増加に対応するために、レート制限を変更する場合があります。レート制限とそのビジネスへの影響に関するご質問やご懸念については、Brazeサポートまたはカスタマーサクセスマネージャーにお問い合わせください。

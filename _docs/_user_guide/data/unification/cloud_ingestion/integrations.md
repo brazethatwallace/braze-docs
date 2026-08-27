@@ -1,11 +1,10 @@
 ---
 nav_title: Data warehouse integrations
-article_title: Data Warehouse Integrations
+article_title: "Data warehouse storage integrations"
 alias: /partners/databricks/
 description: "This page covers how to use Braze Cloud Data Ingestion to sync relevant data with your Snowflake, Redshift, BigQuery, and Databricks integration."
 page_order: 3
 page_type: reference
-
 ---
 
 # Data warehouse storage integrations

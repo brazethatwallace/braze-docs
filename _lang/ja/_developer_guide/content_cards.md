@@ -1,7 +1,8 @@
 ---
 page_order: 2.2
 nav_title: Content Cards
-article_title: Braze SDKのContent Cards
+article_title: Content Cards
+description: "データモデル、カードタイプ、カスタマイズオプションなど、Braze SDKでContent Cardsを実装する方法について説明します。"
 channel:
   - content cards
 platform:
@@ -138,7 +139,7 @@ Content CardsはSwift SDKを使用したヘッドレスUIでサポートされ�
 
 Brazeで、**設定** > **アプリ設定**を選択し、**アプリを追加**を選択します。tvOSアプリの名前を入力し、**iOS**（_tvOSではありません_）を選択してから、**アプリを追加**を選択します。
 
-![tvOSアプリを登録するためにiOSプラットフォームが選択されたBrazeのアプリ追加ダイアログ。]({% image_buster /assets/img/tvos.png %}){: style="width:70%"}
+![tvOSアプリを登録するためにiOSプラットフォームが選択されたBrazeのアプリ追加ダイアログ]({% image_buster /assets/img/tvos.png %}){: style="width:70%"}
 
 {% alert warning %}
 **tvOS**チェックボックスを選択すると、tvOS用のContent Cardsをカスタマイズできなくなります。
@@ -148,7 +149,7 @@ Brazeで、**設定** > **アプリ設定**を選択し、**アプリを追加**
 
 アプリ設定で、新しいtvOSアプリを選択し、アプリのAPIキーをメモします。このキーを使用して、Xcodeでアプリを設定します。
 
-![SDK統合に使用されるAPIキーが表示されたtvOSアプリのアプリ設定。]({% image_buster /assets/img/tvos1.png %}){: style="width:70%"}
+![SDK統合に使用されるAPIキーが表示されたtvOSアプリのアプリ設定]({% image_buster /assets/img/tvos1.png %}){: style="width:70%"}
 
 ### ステップ3:BrazeKitを統合する {#step-3-integrate-brazekit}
 

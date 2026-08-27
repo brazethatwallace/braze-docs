@@ -41,7 +41,7 @@ The _Opt-In_ and _Opt-Out_ statistics in the **SMS/MMS/RCS Performance** panel r
 
 ### Track SMS campaign opt-outs
 
-Track SMS opt-outs at the campaign level by using the inbound receive table instead of the subscription group state change table. For example, in [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) or your data warehouse, you can run a query that references the `USERS_MESSAGES_SMS_INBOUNDRECEIVE` or [`USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED) table.
+Track SMS opt-outs at the campaign level by using the inbound receive table instead of the subscription group state change table. For example, in [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) or your data warehouse, you can run a query that references the `USERS_MESSAGES_SMS_INBOUNDRECEIVE` or [`USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED) table.
 
 This example query references the `USERS_MESSAGES_SMS_INBOUNDRECEIVE` table:
 
@@ -64,7 +64,7 @@ Keyword and inbound-message events in Currents or your data warehouse, such as t
 Event timestamps reflect when Braze received or processed the inbound message, not necessarily when the user sent the SMS or when a carrier or SMS provider received it. If your analysis treats opt-outs as when Braze processed the inbound opt-out path, these timestamps match that definition.
 {% endalert %}
 
-The user profile shows current subscription state but may not surface a single "SMS unsubscribed at" field unless you set a [custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) or similar when processing opt-outs.
+The user profile shows current subscription state but may not surface a single "SMS unsubscribed at" field unless you set a [custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) or similar when processing opt-outs.
 
 ## Charges applied to SMS sending outcomes
 
@@ -80,7 +80,7 @@ This table reflects Braze billing, not your provider's billing. Outcomes that ar
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Charges applied to SMS sending outcomes" }
 
 {% alert note %}
-**Sends to Carrier** is deprecated for new dashboards. Use **Sent**, **Confirmed Delivery**, **Delivery Failed**, and **Rejections** for current reporting. See the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary) for definitions.
+**Sends to Carrier** is deprecated for new dashboards. Use **Sent**, **Confirmed Delivery**, **Delivery Failed**, and **Rejections** for current reporting. See the [Report Metrics Glossary]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) for definitions.
 {% endalert %}
 
 ## RCS and SMS fallback reporting

@@ -11,10 +11,6 @@ search_rank: 7
 
 <div class="api-glossary-preamble" markdown="1">
 
-{% alert important %}
-ユーザープロファイルイベントはベータ版です。アクセスするには、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
-{% endalert %}
-
 {% alert tip %}
 これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/query_builder)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments)、および[Snowflakeデータシェアリング]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)でSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。ユーザープロファイル属性ビューのSnowflakeデータシェアリングスキーマについては、[ユーザープロファイル属性]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes)を参照してください。
 {% endalert %}

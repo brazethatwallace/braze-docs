@@ -21,7 +21,7 @@ Storage schemas apply to the flat file event data we send to Data Warehouse Stor
 These events are also available as SQL tables in the [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments), and [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). For SQL table schemas and column details, refer to the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_support) if you need access to additional event entitlements. If you can't find what you need in this article, check out our [Customer Behavior Events Library]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) or our [Currents sample data examples](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Contact your account manager or open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support) if you need access to additional event entitlements. If you can't find what you need in this article, check out our [Customer Behavior Events Library]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) or our [Currents sample data examples](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
@@ -1050,6 +1050,10 @@ This event occurs when a user does an action that has been set as a conversion e
 Note that the conversion event is encoded in the `conversion_behavior` field, which includes the type of conversion event, the window (timeframe), and additional information depending on the conversion event type. The `conversion_behavior_index` field represents which conversion event, such as 0 = A, 1 = B, 2 = C, 3 = D.
 {% endalert %}
 
+{% alert note %}
+The `message_extras` field is only available in send events (for example, Email Send, Push Send). It is not included in conversion events. To associate `message_extras` data with downstream engagement, use `dispatch_id` or `send_id` to join send events with conversion events in your data warehouse. For evaluating copy effectiveness by conversion rate, consider using [campaign variants]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/create_multivariate_campaign/) instead.
+{% endalert %}
+
 {% tabs %}
 {% tab Cloud Storage %}
 ```json
@@ -1430,6 +1434,10 @@ This event occurs when a user does an action that has been set as a conversion e
 
 {% alert important %}
 Note that the conversion event is encoded in the `conversion_behavior` field, which includes the type of conversion event, the window (timeframe), and additional information depending on the conversion event type. The `conversion_behavior_index` field represents which conversion event, such as 0 = A, 1 = B, 2 = C, 3 = D.
+{% endalert %}
+
+{% alert note %}
+The `message_extras` field is only available in send events (for example, Email Send, Push Send). It is not included in conversion events. To associate `message_extras` data with downstream engagement, use `send_id` to join send events with conversion events in your data warehouse. For evaluating copy effectiveness by conversion rate, consider using [Canvas variants]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#creating-tests) instead.
 {% endalert %}
 
 {% tabs %}
@@ -5798,6 +5806,7 @@ This event occurs if an email message was aborted based on Liquid aborts, etc.
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 email messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
@@ -8738,6 +8747,10 @@ In-App Messages, Abort
 
 This event occurs when an originally scheduled in-app message was aborted.
 
+{% alert note %}
+[Abort events]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) are only logged for [templated in-app messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated). Standard in-app messages don't log abort events because Liquid evaluation occurs before the trigger action. For more details on in-app message abort behavior, refer to [In-app messages FAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#how-does-abort-behavior-work-for-in-app-messages).
+{% endalert %}
+
 {% tabs %}
 {% tab Cloud Storage %}
 ```json
@@ -10285,6 +10298,7 @@ This event occurs when a scheduled LINE message cannot be delivered, before send
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 LINE messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
@@ -11840,6 +11854,7 @@ This event occurs if a push notification message was aborted based on Liquid abo
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 push messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
@@ -15000,6 +15015,7 @@ This event occurs if an SMS message was aborted based on Liquid aborts, etc.
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 SMS messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
@@ -17593,6 +17609,7 @@ This event occurs if a webhook message was aborted based on Liquid aborts, etc.
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 webhook messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 
@@ -18573,6 +18590,7 @@ This event occurs if a WhatsApp message was aborted based on Liquid aborts, etc.
 - The `abort_type` field describes the reason the message was aborted. For a full list of values, see [Abort types]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` will be `frequency_capped` if the message was aborted due to a global frequency cap rule.
 - `abort_log` includes information about the specific rule that triggered the abort. An example is: `Frequency cap rule: 5 WhatsApp messages every 1 week`
+- `message_extras` is populated only when an abort occurs after the {% raw %}`{% message_extras %}`{% endraw %} tag runs during rendering.
 
 {% endapi %}
 

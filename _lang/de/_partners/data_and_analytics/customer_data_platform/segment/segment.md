@@ -25,8 +25,8 @@ Die Integration von Braze und Segment ermöglicht es Ihnen, Ihre Nutzer:innen zu
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Segment-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein [Segment-Konto](https://app.segment.com/login) erforderlich. |
-| Installierte Quelle und Segment-Quell-[Bibliotheken](https://segment.com/docs/sources/) | Die Herkunft der Daten, die an Segment gesendet werden, wie z. B. mobile Apps, Websites oder Backend-Server.<br><br>Sie müssen die Bibliotheken in Ihrer App, Ihrer Website oder Ihrem Server installieren, bevor Sie einen erfolgreichen `Source > Destination`-Ablauf einrichten können. |
+| Segment-Konto | Um diese Partnerschaft nutzen zu können, ist ein [Segment-Konto](https://app.segment.com/login) erforderlich. |
+| Installierte Quelle und Segment-Quell-[Bibliotheken](https://segment.com/docs/sources/) | Der Ursprung aller Daten, die an Segment gesendet werden, wie z. B. mobile Apps, Websites oder Backend-Server.<br><br>Sie müssen die Bibliotheken in Ihrer App, Website oder auf Ihrem Server installieren, bevor Sie einen erfolgreichen `Source > Destination`-Ablauf einrichten können. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -62,7 +62,7 @@ Besuchen Sie [Segment](https://segment.com/docs/destinations/#connection-modes),
 Diese Integration, die auch als Gerätemodus bezeichnet wird, bildet das SDK und die [Methoden](#methods) von Segment auf das Braze SDK ab und ermöglicht so den Zugriff auf alle Features, die unser SDK bietet, wie Push, In-App-Nachrichten und andere native Braze-Methoden.
 
 {% alert note %}
-Wenn Sie den Gerätemodus von Segment verwenden, müssen Sie das Braze SDK nicht direkt integrieren. Wenn Sie Braze als Gerätemodus-Ziel für Segment hinzufügen, initialisiert das Segment SDK das Braze SDK und ruft die entsprechenden abgebildeten Braze-Methoden auf.
+Wenn Sie den Gerätemodus von Segment verwenden, lassen Sie Segment Braze initialisieren. Initialisieren Sie das Braze SDK nicht zusätzlich in Ihrer App. Das Ziel-Plugin konfiguriert Braze und öffnet Sitzungen; eine zweite native Initialisierung kann doppelte Sitzungen protokollieren. Verwenden Sie Segment `identify`, um die Nutzer-ID festzulegen. Das Plugin bildet diesen Aufruf auf `changeUser()` ab.
 {% endalert %}
 
 {% alert important %}
@@ -141,7 +141,7 @@ Innerhalb Ihrer App-Codebasis initialisieren Sie das Segment SDK bedingt nach Ge
 Wenn ein Push-Token von einem Gerät registriert und an Braze gesendet wird, wird es mit dem App-Bezeichner verknüpft, der bei der Initialisierung des SDK verwendet wurde. Die gerätetypabhängige Initialisierung stellt sicher, dass alle an Braze gesendeten Push-Token mit der entsprechenden App verknüpft sind.
 
 {% alert important %}
-Wenn die React Native App Braze mit demselben Braze-App-Bezeichner für alle Geräte initialisiert, werden alle React Native Nutzer:innen in Braze als Android- oder iOS-Nutzer:innen betrachtet und alle Push-Token werden mit diesem Betriebssystem assoziiert.
+Wenn die React Native App Braze mit demselben Braze-App-Bezeichner für alle Geräte initialisiert, werden alle React Native Nutzer:innen in Braze als Android- oder iOS-Nutzer:innen betrachtet, und alle Push-Token werden mit diesem Betriebssystem assoziiert.
 {% endalert %}
 
 Um Braze als Gerätemodus-Ziel für jede Quelle einzurichten, wählen Sie **Actions** als **Destination framework** und dann **Save**.
@@ -233,7 +233,7 @@ Obwohl Nutzer-Aliase als Bezeichner im Ziel Braze Cloud Mode (Actions) unterstü
 | Bezeichner-Typ | Unterstütztes Ziel |
 | --------------- | --------------------- |
 | `userId` (`external_id`) | Alle |
-| Anonyme Nutzer:innen | Gerätemodus-Ziele |
+| Anonyme:r Nutzer:in | Gerätemodus-Ziele |
 | Nutzer-Alias | Cloud-Modus-Ziele |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 4: Methoden abbilden" }
 
@@ -410,98 +410,98 @@ Wenn Sie Kaufdaten an Braze senden (siehe „Bestellung abgeschlossen“ im Tab 
 Wenn Sie eine Server-zu-Server-Integration (Cloud-Modus) verwenden, funktionieren Filter, die sich auf automatisch gesammelte Sitzungsdaten beziehen (z. B. „App zuerst verwendet“ und „App zuletzt verwendet“), nicht. Verwenden Sie eine Side-by-side-Integration (Gerätemodus), wenn Sie diese in Ihrer Segment- und Braze-Integration verwenden möchten.
 {% endalert %}
 
-## Nutzer:innen löschen und unterdrücken {#user-deletion-and-suppression}
+## Löschung und Unterdrückung von Nutzer:innen {#user-deletion-and-suppression}
 
-Wenn Sie Nutzer:innen löschen oder unterdrücken müssen, beachten Sie, dass das [Feature zum Löschen von Nutzer:innen](https://segment.com/docs/privacy/user-deletion-and-suppression/#which-destinations-can-i-send-deletion-requests-to) von Segment auf den Braze-[`/users/delete`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) **abgebildet wird**. Beachten Sie, dass die Überprüfung dieser Löschungen bis zu 30 Tage dauern kann.
+Wenn Sie Nutzer:innen löschen oder unterdrücken müssen, beachten Sie, dass die [Nutzerlöschfunktion von Segment](https://segment.com/docs/privacy/user-deletion-and-suppression/#which-destinations-can-i-send-deletion-requests-to) dem Braze-Endpunkt [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) **zugeordnet ist**. Beachten Sie, dass die Überprüfung dieser Löschungen bis zu 30 Tage dauern kann.
 
-Sie müssen sicherstellen, dass Sie einen gemeinsamen Nutzer:innen-Bezeichner zwischen Braze und Segment auswählen (wie `external_id`). Nachdem Sie eine Löschanfrage mit Segment initiiert haben, können Sie den Status im Tab „Löschanfragen“ in Ihrem Segment-Dashboard einsehen.
+Sie müssen sicherstellen, dass Sie einen gemeinsamen Nutzer-Bezeichner zwischen Braze und Segment auswählen (z. B. `external_id`). Nachdem Sie eine Löschanfrage über Segment initiiert haben, können Sie den Status im Tab für Löschanfragen in Ihrem Segment-Dashboard einsehen.
 
 ## Segment Replays {#segment-replays}
 
-Segment bietet einen Dienst für Kund:innen an, um alle historischen Daten an einen neuen Technologiepartner weiterzugeben. Neue Braze-Kund:innen, die alle relevanten historischen Daten importieren möchten, können dies über Segment tun. Sprechen Sie mit Ihrem Segment-Ansprechpartner, wenn Sie daran interessiert sind.
+Segment bietet seinen Kund:innen einen Dienst an, um alle historischen Daten an einen neuen Technologie-Partner zu „replaysn“ – also erneut zu übertragen. Neue Braze-Kund:innen, die alle relevanten historischen Daten importieren möchten, können dies über Segment tun. Sprechen Sie mit Ihrem Segment-Ansprechpartner, wenn Sie daran interessiert sind.
 
 Segment stellt eine Verbindung zu unserem [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) her, um Nutzerdaten in Ihrem Namen in Braze zu importieren.
 
 {% alert important %}
-Alle Bezeichner, die im Cloud Mode Actions-Ziel unterstützt werden, werden als Teil von Segment Replays unterstützt.
+Alle Bezeichner, die im Cloud-Mode-Actions-Ziel unterstützt werden, werden auch im Rahmen von Segment Replays unterstützt.
 {% endalert %}
 
-## Bewährte Praktiken {#best-practices}
+## Best Practices
 
-{% details Anwendungsfälle prüfen, um Mehrkosten bei den Daten zu vermeiden. %}
+{% details Überprüfen Sie Anwendungsfälle, um Mehrkosten bei Daten zu vermeiden. %}
 
-Segment schränkt die Anzahl der Datenelemente, die Kund:innen an sie senden, **nicht** ein. Segment ermöglicht es Ihnen, alle Events zu senden oder zu entscheiden, welche Events Sie an Braze senden. Anstatt alle Ihre Events über Segment zu senden, empfehlen wir Ihnen, mit Ihren Marketing- und Redaktionsteams Anwendungsfälle zu besprechen, um festzulegen, welche Events Sie an Braze senden, um Mehrkosten bei den Daten zu vermeiden.
+Segment begrenzt **nicht** die Anzahl der Datenelemente, die Kund:innen an sie senden. Segment erlaubt es Ihnen, alle Events zu senden oder auszuwählen, welche Events Sie an Braze senden möchten. Anstatt alle Ihre Events über Segment zu senden, empfehlen wir Ihnen, gemeinsam mit Ihren Marketing- und Redaktionsteams die Anwendungsfälle zu prüfen, um zu bestimmen, welche Events Sie an Braze senden – so vermeiden Sie Mehrkosten bei Daten.
 
 {% enddetails %}
 
-{% details Den Unterschied zwischen dem angepassten API-Endpunkt und dem angepassten REST API-Endpunkt in den Einstellungen des Mobile-Gerätemodus-Ziels verstehen. %}
+{% details Verstehen Sie den Unterschied zwischen dem Custom API Endpoint und dem Custom REST API Endpoint in den Mobile-Device-Mode-Zieleinstellungen. %}
 
-| Braze-Terminologie | Segment-Äquivalent |
+| Braze-Terminologie | Segment-Entsprechung |
 | ----------------- | ------------------ |
-| Braze SDK-Endpunkt | Angepasster API-Endpunkt |
-| Braze REST-Endpunkt | Angepasster REST API-Endpunkt |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Bewährte Praktiken" }
+| Braze-SDK-Endpunkt | Custom API Endpoint |
+| Braze-REST-Endpunkt | Custom REST API Endpoint |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Best Practices" }
 
-Ihr Braze API-Endpunkt (in Segment als „Custom API Endpoint“ bezeichnet) ist der SDK-Endpunkt, den Braze für Ihr SDK einrichtet (zum Beispiel `sdk.iad-03.braze.com`). Ihr Braze REST API-Endpunkt (in Segment als „Custom REST API Endpoint“ bezeichnet) ist der REST API-Endpunkt (zum Beispiel `https://rest.iad-03.braze.com`).
+Ihr Braze-API-Endpunkt (in Segment „Custom API Endpoint“ genannt) ist der SDK-Endpunkt, den Braze für Ihr SDK einrichtet (zum Beispiel `sdk.iad-03.braze.com`). Ihr Braze-REST-API-Endpunkt (in Segment „Custom REST API Endpoint“ genannt) ist der REST-API-Endpunkt (zum Beispiel `https://rest.iad-03.braze.com`).
 {% enddetails %}
 
-{% details Sicherstellen, dass der angepasste API-Endpunkt korrekt in den Einstellungen des Mobile-Gerätemodus-Ziels eingegeben wird. %}
+{% details Stellen Sie sicher, dass Ihr Custom API Endpoint korrekt in den Mobile-Device-Mode-Zieleinstellungen eingegeben ist. %}
 
-| Braze-Terminologie | Segment-Äquivalent |
+| Braze-Terminologie | Segment-Entsprechung |
 | ----------------- | ------------------ |
-| Braze SDK-Endpunkt | Angepasster API-Endpunkt |
-| Braze REST-Endpunkt | Angepasster REST API-Endpunkt |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Bewährte Praktiken" }
+| Braze-SDK-Endpunkt | Custom API Endpoint |
+| Braze-REST-Endpunkt | Custom REST API Endpoint |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Best Practices" }
 
-Um sicherzustellen, dass Sie Ihren Braze SDK-Endpunkt korrekt eingeben, müssen Sie das richtige Format einhalten. Ihr Braze SDK-Endpunkt darf nicht `https://` enthalten (z. B. `sdk.iad-03.braze.com`), da sonst die Braze-Integration fehlschlägt. Dies ist erforderlich, da Segment Ihrem Endpunkt automatisch `https://` voranstellt, was dazu führt, dass Braze mit einem ungültigen Endpunkt `https://https://sdk.iad-03.braze.com` initialisiert wird.
+Sie müssen das richtige Format einhalten, um Ihren Braze-SDK-Endpunkt korrekt einzugeben. Ihr Braze-SDK-Endpunkt darf kein `https://` enthalten (zum Beispiel `sdk.iad-03.braze.com`), da andernfalls die Braze-Integration fehlschlägt. Der Grund dafür ist, dass Segment Ihrem Endpunkt automatisch `https://` voranstellt, was dazu führen würde, dass Braze mit einem ungültigen Endpunkt `https://https://sdk.iad-03.braze.com` initialisiert wird.
 
 {% enddetails %}
 
-{% details Besonderheiten bei der Datenabbildung. %}
+{% details Besonderheiten bei der Datenzuordnung. %}
 
-Szenarien, in denen die Daten nicht wie erwartet weitergeleitet werden:
+Szenarien, in denen Daten nicht wie erwartet übermittelt werden:
 
 1. Verschachtelte angepasste Attribute
-  - Obwohl [verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) technisch über Segment an Braze gesendet werden können, wird jedes Mal die **gesamte Nutzlast** gesendet. Dadurch entstehen jedes Mal, wenn die Nutzlast gesendet wird, [Datenpunkte]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/nested_custom_attribute_support#data-points) pro im verschachtelten Objekt übergebenen Schlüssel.<br><br> Um nur eine Teilmenge der Datenpunkte beim Senden der Nutzlast auszugeben, können Sie das Feature der angepassten [Zielfunktionen](https://segment.com/docs/connections/functions/destination-functions/) von Segment verwenden. Dieses Feature in der Segment-Plattform ermöglicht es Ihnen, die Art und Weise, wie Daten an nachgelagerte Ziele gesendet werden, anzupassen.
+  - Obwohl [verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) technisch über Segment an Braze gesendet werden können, wird jedes Mal die **gesamte Payload** übermittelt. Dies verursacht [Datenpunkte]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/nested_custom_attribute_support#data-points) pro übergebenem Schlüssel im verschachtelten Objekt bei jedem Senden der Payload.<br><br> Um beim Senden der Payload nur einen Teil der Datenpunkte zu verbrauchen, können Sie das von Segment bereitgestellte Feature [Destination Functions](https://segment.com/docs/connections/functions/destination-functions/) verwenden. Dieses Feature in der Segment-Plattform ermöglicht es Ihnen, die Art und Weise anzupassen, wie Daten an nachgelagerte Ziele gesendet werden.
 
   {% alert note %}
-  Die Funktionen für angepasste Ziele werden innerhalb von Segment gesteuert, und Braze hat nur begrenzten Einblick in Funktionen, die extern konfiguriert wurden.
+  Custom Destination Functions werden innerhalb von Segment gesteuert, und Braze hat nur eingeschränkte Einblicke in extern konfigurierte Funktionen.
   {% endalert %}
 
 {: start="2"}
-2. Weitergabe anonymer Daten von Server zu Server.
-  - Kund:innen können die Server-zu-Server-Bibliotheken von Segment nutzen, um anonyme Daten in andere Systeme zu leiten. Lesen Sie den Abschnitt zu Abbildungsmethoden, um mehr darüber zu erfahren, wie Sie Nutzer:innen ohne `external_id` über eine Server-zu-Server-Integration (Cloud-Modus) an Braze senden können.
+2. Anonyme Daten per Server-zu-Server übermitteln.
+  - Kund:innen können die Server-zu-Server-Bibliotheken von Segment verwenden, um anonyme Daten an andere Systeme weiterzuleiten. Im Abschnitt zu den Map-Methoden erfahren Sie mehr darüber, wie Sie Nutzer:innen ohne `external_id` über eine Server-zu-Server-(Cloud-Mode)-Integration an Braze senden.
 
 {% enddetails %}
 
 {% details Anpassung der Braze-Initialisierung. %}
 
-Es gibt verschiedene Möglichkeiten, Braze anzupassen: Push, In-App-Nachrichten, Content Cards und Initialisierung. Bei einer Side-by-side-Integration können Sie Push, In-App-Nachrichten und Content Cards wie bei einer direkten Braze-Integration anpassen.
+Es gibt verschiedene Möglichkeiten, Braze anzupassen: Push, In-App-Nachrichten, Content Cards und Initialisierung. Bei einer Side-by-side-Integration können Sie Push, In-App-Nachrichten und Content Cards weiterhin so anpassen wie bei einer direkten Braze-Integration.
 
-Die Anpassung der Integration des Braze SDK oder die Festlegung von Initialisierungskonfigurationen kann jedoch schwierig und manchmal nicht möglich sein. Das liegt daran, dass Segment das Braze SDK für Sie initialisiert, wenn die Segment-Initialisierung erfolgt.
-
-{% enddetails %}
-
-{% details Nur Änderungen (Deltas) an Braze senden. %}
-
-Stellen Sie bei der Übergabe von Nutzer:innen-Attributdaten sicher, dass Sie nur Werte für Attribute übergeben, die sich seit dem letzten Update geändert haben. Dadurch wird die Aufzeichnung unnötiger Datenpunkte verhindert. Für clientseitige Quellen verwenden Sie das Open-Source-[Middleware](https://github.com/segmentio/segment-braze-mobile-middleware)-Tool von Segment, um Ihre Integration zu optimieren und die Datenpunkt-Nutzung zu begrenzen, indem Sie doppelte `identify()`-Aufrufe von Segment entprellen.
+Allerdings kann es schwierig und manchmal unmöglich sein, den Zeitpunkt der Integration des Braze SDK anzupassen oder Initialisierungskonfigurationen festzulegen. Das liegt daran, dass Segment das Braze SDK für Sie initialisiert, wenn die Segment-Initialisierung erfolgt.
 
 {% enddetails %}
 
-{% details Das richtige Braze-Datenzentrum verwenden. %}
+{% details Senden Sie Deltas an Braze. %}
 
-Segment verwendet Ihr Braze-Datenzentrum, um den entsprechenden Braze REST-Endpunkt (z. B. `https://rest.iad-01.braze.com`) für Server-zu-Server-Aufrufe abzurufen.
-
-{% enddetails %}
-
-{% details Den angepassten REST API-Endpunkt entfernen, wenn Sie den Event Tester von Segment verwenden. %}
-
-Der Event Tester von Segment sendet Events an den Braze `/users/track` REST API-Endpunkt und gibt einen `401 Invalid API Key`-Fehler aus, wenn ein angepasster REST API-Endpunkt in den Braze-Zieleinstellungen festgelegt ist, selbst wenn dieser Endpunkt korrekt ist. Entfernen Sie den Wert des angepassten REST API-Endpunkts in Segment, damit der Event Tester ordnungsgemäß funktioniert.
+Wenn Sie Nutzerattributdaten übermitteln, stellen Sie sicher, dass Sie nur Werte für Attribute übergeben, die sich seit dem letzten Update geändert haben. So vermeiden Sie das Protokollieren unnötiger Datenpunkte. Für clientseitige Quellen können Sie das Open-Source-Tool [Middleware](https://github.com/segmentio/segment-braze-mobile-middleware) von Segment verwenden, um Ihre Integration zu optimieren und die Datenpunkt-Nutzung durch Deduplizierung doppelter `identify()`-Aufrufe von Segment zu begrenzen.
 
 {% enddetails %}
 
-{% details Nach der Konfiguration einer neuen Quelle Zeit für Aktualisierungen einplanen. %}
+{% details Verwenden Sie das richtige Braze-Rechenzentrum. %}
 
-Segment speichert Ihre Konfigurationseinstellungen lange im Cache. Wenn Sie eine neue Quelle konfigurieren (z. B. von Cloud- auf Gerätemodus wechseln), zeigt Ihre App möglicherweise erst dann neues Verhalten oder neue Daten, wenn der Cache erneuert wird. Berücksichtigen Sie diese Verzögerung, wenn Sie eine Quelle hinzufügen möchten.
+Segment nutzt Ihr Braze-Rechenzentrum, um den passenden Braze-REST-Endpunkt abzurufen (zum Beispiel `https://rest.iad-01.braze.com`) für Server-zu-Server-Aufrufe.
+
+{% enddetails %}
+
+{% details Entfernen Sie den Custom REST API Endpoint, wenn Sie den Event Tester von Segment verwenden. %}
+
+Der Event Tester von Segment sendet Events an den Braze-REST-API-Endpunkt `/users/track` und gibt einen Fehler `401 Invalid API Key` aus, wenn in den Braze-Zieleinstellungen ein Custom REST API Endpoint konfiguriert ist – selbst wenn dieser Endpunkt korrekt ist. Entfernen Sie den Wert des Custom REST API Endpoint in Segment, damit der Event Tester ordnungsgemäß funktioniert.
+
+{% enddetails %}
+
+{% details Planen Sie nach der Konfiguration einer neuen Quelle Zeit für die Aktualisierung ein. %}
+
+Segment speichert Ihre Konfigurationseinstellungen lange im Cache. Wenn Sie eine neue Quelle konfigurieren (zum Beispiel von Cloud- auf Device-Mode umstellen), zeigt Ihre App möglicherweise erst dann neues Verhalten oder neue Daten, wenn der Cache erneuert wird. Berücksichtigen Sie diese Verzögerung, wenn Sie eine neue Quelle hinzufügen möchten.
 
 {% enddetails %}

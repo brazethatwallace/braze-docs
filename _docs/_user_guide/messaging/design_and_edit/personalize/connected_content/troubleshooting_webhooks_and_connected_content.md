@@ -7,7 +7,7 @@ description: "Diagnose webhook and Connected Content errors using a symptom inde
 
 # Troubleshoot webhook and Connected Content requests
 
-> Use this page to troubleshoot common error codes for webhooks and Connected Content. For setup, see [Creating a webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) and [Making an API call]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
+> Use this page to troubleshoot common error codes for webhooks and Connected Content. For setup, see [Creating a webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) and [Making an API call]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call). To inspect a Connected Content request in preview, see [Connected Content Debugger]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger).
 
 ## Start here: Match your symptom
 
@@ -19,6 +19,7 @@ Match your symptom in the table to navigate to the relevant section.
 | `5XX` server error or timeout | [5XX errors](#5xx-errors) |
 | `598 Host Unhealthy` or requests halted briefly | [Unhealthy host detection](#unhealthy-host-detection) |
 | Connected Content renders blank in preview or send | [Connected Content returns no response body](#connected-content-returns-no-response-body) |
+| Need to inspect a Connected Content request in preview | [Connected Content Debugger]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) |
 | Automated error email from Braze | [Automated emails and Message Activity Log entries](#automated-emails-and-message-activity-log-entries) |
 | Need webhook failure events in Currents | [Additional failure insights in Braze Currents](#additional-failure-insights-in-braze-currents) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook and Connected Content symptom" }
@@ -30,7 +31,7 @@ Use this workflow when a webhook or Connected Content request fails or renders i
 1. Open the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) and note the error code, timestamp, and endpoint URL.
 2. For `4XX` errors, verify request syntax, authentication headers, URL path, and HTTP method against the endpoint documentation.
 3. For `5XX` errors, check endpoint health, rate limits, and whether Braze flagged the host as unhealthy.
-4. For Connected Content, preview the message for a test user and confirm Liquid doesn't resolve to blank or JSON-breaking values.
+4. For Connected Content, preview the message for a test user. Use the [Connected Content Debugger]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) to inspect the request and response, and confirm Liquid doesn't resolve to blank or JSON-breaking values.
 5. If unhealthy host detection may be involved, review [Unhealthy host detection](#unhealthy-host-detection) before contacting [Braze Support]({{site.baseurl}}/support_contact).
 
 ## 4XX errors
@@ -183,7 +184,7 @@ If you believe the unhealthy host detection may be causing issues, contact [Braz
 
 **Symptom:** A Connected Content call renders as blank in your message preview or send.
 
-If a Connected Content call renders as blank in your message preview or send, check:
+If a Connected Content call renders as blank in your message preview or send, use the [Connected Content Debugger]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) to inspect the request and response, then check:
 
 - **Non-breaking spaces in the URL:** Braze strips non-breaking spaces (`&nbsp;` or Unicode `U+00A0`) from Connected Content URLs before making the request. If your URL was copied from a document or dashboard field that inserted non-breaking spaces between characters, the request may fail or return no usable body. Re-type the URL in plain text or remove hidden spaces, then preview again.
 - **Redirect responses (`3xx`):** Connected Content does not follow redirects. Only `2xx` responses are treated as successful, so a `301` or `302` can render blank even when the same URL works in Postman. Use the final destination URL, or configure the endpoint to return a `2xx` response (typically `200`) at the URL Braze calls. See [Why does Connected Content fail when my endpoint returns a redirect?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#why-does-connected-content-fail-when-my-endpoint-returns-a-redirect-301-or-302).

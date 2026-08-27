@@ -215,6 +215,51 @@
     "permanent": true
   },
   {
+    "source": "/docs/api/messaging_api",
+    "destination": "/docs/api/device_messaging_api",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/authentication",
+    "destination": "/docs/api/device_messaging_api/authentication",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints",
+    "destination": "/docs/api/device_messaging_api/endpoints",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints/banners",
+    "destination": "/docs/api/device_messaging_api/endpoints/banners",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints/banners/post_sync_banners",
+    "destination": "/docs/api/device_messaging_api/endpoints/banners/post_sync_banners",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints/banners/post_track_banner_events",
+    "destination": "/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/error_handling",
+    "destination": "/docs/api/device_messaging_api/error_handling",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/overview",
+    "destination": "/docs/api/device_messaging_api/overview",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/rate_limits",
+    "destination": "/docs/api/device_messaging_api/rate_limits",
+    "permanent": true
+  },
+  {
     "source": "/docs/api/new_home",
     "destination": "/docs/api/home",
     "permanent": true
@@ -14231,7 +14276,7 @@
   },
   {
     "source": "/docs/developer_guide/platform_integration_guides/legacy_sdks/tvos/news_feed",
-    "destination": "/docs/developer_guide/content_cards",
+    "destination": "/docs/developer_guide/content_cards?sdktab=tvos",
     "permanent": true
   },
   {
@@ -14972,6 +15017,11 @@
   {
     "source": "/docs/developer_guide/platform_integration_guides/tvos/initial_sdk_setup",
     "destination": "/docs/developer_guide/platforms/legacy_sdks/tvos/initial_sdk_setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/developer_guide/platform_integration_guides/tvos/news_feed",
+    "destination": "/docs/developer_guide/content_cards?sdktab=tvos",
     "permanent": true
   },
   {
@@ -17107,6 +17157,11 @@
   {
     "source": "/docs/email_spam_testing",
     "destination": "/docs/user_guide/channels/email/inbox_vision#spam-testing",
+    "permanent": true
+  },
+  {
+    "source": "/docs/en/partners/canvas_steps",
+    "destination": "/docs/partners/canvas_audience_sync",
     "permanent": true
   },
   {
@@ -26190,6 +26245,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/fr/user_guide/engagement_tools/canvas",
+    "destination": "/docs/fr/user_guide/messaging/canvas",
+    "permanent": true
+  },
+  {
     "source": "/docs/fr/user_guide/engagement_tools/canvas/canvas_components/action_paths",
     "destination": "/docs/fr/user_guide/messaging/canvas/canvas_components/action_paths",
     "permanent": true
@@ -28801,7 +28861,12 @@
   },
   {
     "source": "/docs/idle_campaigns",
-    "destination": "/docs/idle_campaigns_canvases",
+    "destination": "/docs/user_guide/messaging/governance/statuses/idle_messages",
+    "permanent": true
+  },
+  {
+    "source": "/docs/idle_campaigns_canvases",
+    "destination": "/docs/user_guide/messaging/governance/statuses/idle_messages",
     "permanent": true
   },
   {
@@ -29005,6 +29070,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/developer_guide/platform_integration_guides/swift/changelog",
+    "destination": "/docs/ja/developer_guide/changelogs?sdktab=swift",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/developer_guide/platform_integration_guides/swift/content_cards/integration",
     "destination": "/docs/ja/developer_guide/content_cards?sdktab=swift",
     "permanent": true
@@ -29090,6 +29160,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/developer_guide/platform_integration_guides/web/smart_tvs",
+    "destination": "/docs/ja/developer_guide/platforms/web/smart_tvs",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/developer_guide/platform_integration_guides/xamarin/analytics",
     "destination": "/docs/ja/developer_guide/analytics?sdktab=xamarin",
     "permanent": true
@@ -29172,6 +29247,11 @@
   {
     "source": "/docs/ja/help/help_articles/api/webhook_connected_content_errors",
     "destination": "/docs/ja/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/help/help_articles/campaigns_and_canvas/using_custom_event_properties",
+    "destination": "/docs/ja/developer_guide/analytics/logging_events",
     "permanent": true
   },
   {
@@ -29605,6 +29685,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/user_guide/analytics/dashboard/deliverability_center",
+    "destination": "/docs/ja/user_guide/analytics/dashboards/deliverability_center",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/analytics/dashboard/diagnostics_dashboard",
     "destination": "/docs/ja/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard",
     "permanent": true
@@ -29612,6 +29697,11 @@
   {
     "source": "/docs/ja/user_guide/analytics/dashboard/email_performance_dashboard",
     "destination": "/docs/ja/user_guide/analytics/dashboards/channel_performance",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/analytics/query_builder",
+    "destination": "/docs/ja/user_guide/analytics/reports/query_builder",
     "permanent": true
   },
   {
@@ -29625,8 +29715,18 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/user_guide/analytics/reporting/funnel_reports",
+    "destination": "/docs/ja/user_guide/analytics/reports/funnel_reports",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/analytics/reporting/global_control_group_reporting",
     "destination": "/docs/ja/user_guide/audience/global_control_group",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/analytics/reporting/report_builder",
+    "destination": "/docs/ja/user_guide/analytics/reports/report_builder",
     "permanent": true
   },
   {
@@ -29685,6 +29785,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/user_guide/brazeai/intelligence/intelligent_channel",
+    "destination": "/docs/ja/user_guide/brazeai/intelligence_suite/intelligent_channel",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/brazeai/intelligence/intelligent_timing",
     "destination": "/docs/ja/user_guide/brazeai/intelligence_suite/intelligent_timing",
     "permanent": true
@@ -29692,6 +29797,16 @@
   {
     "source": "/docs/ja/user_guide/brazeai/intelligence_suite/tutorial",
     "destination": "/docs/ja/user_guide/brazeai/intelligence_suite/use_case",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/brazeai/recommendations/ai_item_recommendations",
+    "destination": "/docs/ja/user_guide/brazeai/item_recommendations/creating_recommendations/ai",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/brazeai/recommendations/creating_recommendations/ai",
+    "destination": "/docs/ja/user_guide/brazeai/item_recommendations/creating_recommendations/ai",
     "permanent": true
   },
   {
@@ -29795,6 +29910,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/user_guide/data_and_analytics/analytics/deliverability_center",
+    "destination": "/docs/ja/user_guide/analytics/dashboards/deliverability_center",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/data_and_analytics/analytics/home_dashboard",
     "destination": "/docs/ja/user_guide/analytics/dashboards/home",
     "permanent": true
@@ -29817,6 +29937,11 @@
   {
     "source": "/docs/ja/user_guide/data_and_analytics/braze_currents/setting_up_currents",
     "destination": "/docs/ja/user_guide/data/distribution/braze_currents/setting_up_currents",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/data_and_analytics/cloud_ingestion",
+    "destination": "/docs/ja/user_guide/data/unification/cloud_ingestion",
     "permanent": true
   },
   {
@@ -30060,6 +30185,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/user_guide/engagement_tools/campaigns/testing_and_more/triggered_action_based",
+    "destination": "/docs/ja/user_guide/messaging/campaigns/test_campaigns/triggered_action_based",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/engagement_tools/canvas",
     "destination": "/docs/ja/user_guide/messaging/canvas",
     "permanent": true
@@ -30072,6 +30202,11 @@
   {
     "source": "/docs/ja/user_guide/engagement_tools/canvas/canvas_components/action_paths",
     "destination": "/docs/ja/user_guide/messaging/canvas/canvas_components/action_paths",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/engagement_tools/canvas/canvas_components/audience_paths",
+    "destination": "/docs/ja/user_guide/messaging/canvas/canvas_components/audience_paths",
     "permanent": true
   },
   {
@@ -30092,6 +30227,11 @@
   {
     "source": "/docs/ja/user_guide/engagement_tools/canvas/canvas_components/experiment_step",
     "destination": "/docs/ja/user_guide/messaging/canvas/canvas_components/experiment_step",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/engagement_tools/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/ja/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
     "permanent": true
   },
   {
@@ -30455,6 +30595,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/user_guide/engagement_tools/testing/multivariant_testing/multivariate_analytics",
+    "destination": "/docs/ja/user_guide/messaging/ab_testing/analytics",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/engagement_tools/testing/multivariant_testing/optimizations",
     "destination": "/docs/ja/user_guide/messaging/ab_testing/optimizations",
     "permanent": true
@@ -30560,6 +30705,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/user_guide/getting_started/web_sdk",
+    "destination": "/docs/ja/user_guide/get_started/sdk_overview",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/intelligence/multivariate_testing",
     "destination": "/docs/ja/user_guide/messaging/ab_testing",
     "permanent": true
@@ -30601,6 +30751,11 @@
   },
   {
     "source": "/docs/ja/user_guide/message_building_by_channel/content_cards",
+    "destination": "/docs/ja/user_guide/channels/content_cards",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/message_building_by_channel/content_cards/about",
     "destination": "/docs/ja/user_guide/channels/content_cards",
     "permanent": true
   },
@@ -30690,6 +30845,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/user_guide/message_building_by_channel/email/email_setup/authentication",
+    "destination": "/docs/ja/user_guide/channels/email/email_setup/authentication",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/message_building_by_channel/email/email_setup/deliverability_pitfalls_and_spam_traps",
     "destination": "/docs/ja/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps",
     "permanent": true
@@ -30765,8 +30925,18 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/user_guide/message_building_by_channel/in-app_messages",
+    "destination": "/docs/ja/user_guide/channels/in_app_messages",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/message_building_by_channel/in-app_messages/about",
     "destination": "/docs/ja/user_guide/channels/in_app_messages",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/message_building_by_channel/in-app_messages/creative_details/fullscreen",
+    "destination": "/docs/ja/user_guide/channels/in_app_messages/message_types/fullscreen",
     "permanent": true
   },
   {
@@ -30852,6 +31022,11 @@
   {
     "source": "/docs/ja/user_guide/message_building_by_channel/in-app_messages/traditional/customize/video",
     "destination": "/docs/ja/user_guide/channels/in_app_messages/customize/video_in_custom_html",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/message_building_by_channel/in-app_messages/traditional/templates/simple_survey",
+    "destination": "/docs/ja/user_guide/channels/in_app_messages/message_types/simple_survey",
     "permanent": true
   },
   {
@@ -31315,6 +31490,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/ja/user_guide/personalization_and_dynamic_content/connected_content",
+    "destination": "/docs/ja/user_guide/messaging/design_and_edit/personalize/connected_content",
+    "permanent": true
+  },
+  {
     "source": "/docs/ja/user_guide/personalization_and_dynamic_content/connected_content/aborting_connected_content",
     "destination": "/docs/ja/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content",
     "permanent": true
@@ -31407,6 +31587,21 @@
   {
     "source": "/docs/ja/user_guide/personalization_and_dynamic_content/promotion_codes/migrating_from_data_feeds",
     "destination": "/docs/ja/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/migrating_from_data_feeds",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/sage_ai",
+    "destination": "/docs/ja/user_guide/brazeai",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/sage_ai/intelligence/intelligent_timing",
+    "destination": "/docs/ja/user_guide/brazeai/intelligence_suite/intelligent_timing",
+    "permanent": true
+  },
+  {
+    "source": "/docs/ja/user_guide/sage_ai/recommendations/ai_item_recommendations",
+    "destination": "/docs/ja/user_guide/brazeai/item_recommendations",
     "permanent": true
   },
   {
@@ -34415,6 +34610,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/data_and_analytics/analytics/npaw",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/data_and_analytics/business_intelligence/heap",
     "destination": "/docs/partners/data_and_analytics/analytics/heap",
     "permanent": true
@@ -34611,7 +34811,7 @@
   },
   {
     "source": "/docs/partners/data_and_infrastructure_agility/analytics/npaw",
-    "destination": "/docs/partners/data_and_analytics/analytics/npaw",
+    "destination": "/docs/partners/home",
     "permanent": true
   },
   {
@@ -35370,8 +35570,13 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/just_ai",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/just_words",
-    "destination": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/partners/home",
     "permanent": true
   },
   {
@@ -35512,11 +35717,6 @@
   {
     "source": "/docs/partners/message_orchestration/additional_channels/retargeting/remerge",
     "destination": "/docs/partners/message_orchestration/retargeting/remerge",
-    "permanent": true
-  },
-  {
-    "source": "/docs/partners/message_orchestration/attribution",
-    "destination": "/docs/partners/message_orchestration",
     "permanent": true
   },
   {
@@ -35895,11 +36095,6 @@
     "permanent": true
   },
   {
-    "source": "/docs/partners/message_personalization/dynamic_content",
-    "destination": "/docs/partners/message_personalization",
-    "permanent": true
-  },
-  {
     "source": "/docs/partners/message_personalization/dynamic_content/amazon_personalize",
     "destination": "/docs/partners/message_personalization/dynamic_content/personalized_recommendations/amazon_personalize/amazon_personalize",
     "permanent": true
@@ -35925,8 +36120,13 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_words",
-    "destination": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/partners/home",
     "permanent": true
   },
   {
@@ -35972,6 +36172,11 @@
   {
     "source": "/docs/partners/message_personalization/dynamic_content/movable_ink",
     "destination": "/docs/partners/message_personalization/dynamic_content/visual_and_interactive_content/movable_ink",
+    "permanent": true
+  },
+  {
+    "source": "/docs/partners/message_personalization/dynamic_content/movable_ink/dynamic_sms_link",
+    "destination": "/docs/partners/message_personalization/dynamic_content/visual_and_interactive_content/movable_ink/dynamic_sms_link",
     "permanent": true
   },
   {
@@ -36075,6 +36280,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/npaw",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/openai",
     "destination": "/docs/partners/ai_model_providers/openai",
     "permanent": true
@@ -36172,6 +36382,11 @@
   {
     "source": "/docs/partners/technology_partners/channel_extensions/localization/transifex",
     "destination": "/docs/partners/message_personalization/localization/transifex",
+    "permanent": true
+  },
+  {
+    "source": "/docs/partners/technology_partners/channel_extensions/loyalty/talonone",
+    "destination": "/docs/partners/data_and_analytics/loyalty/talonone",
     "permanent": true
   },
   {
@@ -37955,6 +38170,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/pt-br/user_guide/introduction",
+    "destination": "/docs/pt-br/user_guide/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/pt-br/user_guide/message_building_by_channel",
     "destination": "/docs/pt-br/user_guide/channels",
     "permanent": true
@@ -38567,6 +38787,11 @@
   {
     "source": "/docs/pt-br/user_guide/message_building_by_channel/whatsapp/message_processing/handling_unknown_numbers",
     "destination": "/docs/pt-br/user_guide/channels/whatsapp/message_processing/handling_unknown_phone_numbers",
+    "permanent": true
+  },
+  {
+    "source": "/docs/pt-br/user_guide/message_building_by_channel/whatsapp/message_processing/opt-ins_and_opt-outs",
+    "destination": "/docs/pt-br/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs",
     "permanent": true
   },
   {
@@ -40317,11 +40542,6 @@
   {
     "source": "/docs/user_guide/channels/email/message_features_and_optimization/utm_tracking",
     "destination": "/docs/user_guide/channels/email/email_setup/open_pixel_and_click_tracking",
-    "permanent": true
-  },
-  {
-    "source": "/docs/user_guide/channels/email/reporting/deliverability_glossary",
-    "destination": "/docs/user_guide/channels/email/reporting/analytics_glossary",
     "permanent": true
   },
   {
@@ -42685,6 +42905,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/user_guide/engagement_tools/canvas/canvas_components/fb_audience_sync",
+    "destination": "/docs/partners/canvas_audience_sync/facebook_audience_sync",
+    "permanent": true
+  },
+  {
     "source": "/docs/user_guide/engagement_tools/canvas/canvas_components/feature_flags",
     "destination": "/docs/user_guide/messaging/canvas/canvas_components/feature_flags",
     "permanent": true
@@ -44376,7 +44601,7 @@
   },
   {
     "source": "/docs/user_guide/message_building_by_channel/email/email_setup/subscription_groups",
-    "destination": "/docs/user_guide/channels/email/subscriptions",
+    "destination": "/docs/user_guide/audience/subscription_preferences/subscription_groups",
     "permanent": true
   },
   {
@@ -44461,7 +44686,7 @@
   },
   {
     "source": "/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/subscription_groups",
-    "destination": "/docs/user_guide/channels/email/subscriptions",
+    "destination": "/docs/user_guide/audience/subscription_preferences/subscription_groups",
     "permanent": true
   },
   {
@@ -44551,7 +44776,7 @@
   },
   {
     "source": "/docs/user_guide/message_building_by_channel/email/subscription_groups",
-    "destination": "/docs/user_guide/channels/email/subscriptions",
+    "destination": "/docs/user_guide/audience/subscription_preferences/subscription_groups",
     "permanent": true
   },
   {
@@ -45745,6 +45970,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/user_guide/message_building_by_channel/sms_mms_rcs/mms/about_mms",
+    "destination": "/docs/user_guide/channels/sms_mms_and_rcs",
+    "permanent": true
+  },
+  {
     "source": "/docs/user_guide/message_building_by_channel/sms_mms_rcs/mms/about_rcs",
     "destination": "/docs/user_guide/channels/sms_mms_and_rcs",
     "permanent": true
@@ -46497,11 +46727,6 @@
   {
     "source": "/docs/user_guide/messaging/design_and_edit/personalize/overview",
     "destination": "/docs/user_guide/messaging/design_and_edit/personalize",
-    "permanent": true
-  },
-  {
-    "source": "/docs/user_guide/messaging/governance/shareable_preview",
-    "destination": "/docs/user_guide/channels/email/html_editor",
     "permanent": true
   },
   {

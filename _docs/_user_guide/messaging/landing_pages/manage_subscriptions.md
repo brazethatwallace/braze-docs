@@ -15,14 +15,14 @@ The **Manage Subscriptions** block supports two main use cases:
 - **[Capture new opt-ins](#capture-new-subscribers):** Add the block to a lead generation landing page, alongside an **Email Capture** block, so new visitors can choose which subscription groups to join when they submit the form.
 
 {% alert important %}
-The **Manage Subscriptions** block only supports [email subscription groups]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-groups). It doesn't support SMS, RCS, or WhatsApp subscription groups.
+The **Manage Subscriptions** block only supports [email subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups). It doesn't support SMS, RCS, or WhatsApp subscription groups.
 {% endalert %}
 
 ## Prerequisites
 
 | Requirements | Description |
 | --- | --- |
-| Email subscription groups | At least one [email subscription group]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-groups), [created from the dashboard]({{site.baseurl}}/user_guide/channels/email/subscriptions/#creating-a-subscription-group) or the [Subscription Group endpoints]({{site.baseurl}}/api/endpoints/subscription_groups/). |
+| Email subscription groups | At least one [email subscription group]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups), [created from the dashboard]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#create-a-subscription-group) or the [Subscription Group endpoints]({{site.baseurl}}/api/endpoints/subscription_groups). |
 | Landing page permissions | The same [permissions]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites) required to create and edit any landing page. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -34,7 +34,7 @@ The block is empty until you add subscription groups to it.
 
 ## Step 2: Select the subscription groups
 
-With the **Manage Subscriptions** block selected, select **+ Add subscription groups** in the right-hand **Block properties** panel. This opens a list of the [email subscription groups]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-groups) available in your workspace.
+With the **Manage Subscriptions** block selected, select **+ Add subscription groups** in the right-hand **Block properties** panel. This opens a list of the [email subscription groups]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups) available in your workspace.
 
 Select the checkbox next to each subscription group you want to include, then confirm your selection to add them to the block. Each subscription group appears as its own selectable checkbox on the landing page.
 

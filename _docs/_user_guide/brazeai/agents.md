@@ -1,6 +1,6 @@
 ---
 nav_title: Agent Console
-article_title: Braze Agents
+article_title: "Braze Agents in Agent Console"
 page_order: 1
 description: "Braze Agents can generate content, make intelligent decisions, and enrich your data so you can deliver more personalized customer experiences."
 ---
