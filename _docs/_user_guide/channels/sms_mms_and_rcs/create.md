@@ -106,7 +106,7 @@ To send business details that users can save to their device contacts, see [Cont
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-MMS availability and rendering depend on the receiving carrier. When a carrier cannot accept MMS, the media becomes a link in the SMS body via the provider. Avoid sending MMS to Google Voice numbers because its limited MMS support can cause unreliable delivery.
+MMS availability and rendering depend on the receiving carrier. When a carrier cannot accept MMS, the media becomes a link in the SMS body through the provider. Avoid sending MMS to Google Voice numbers because its limited MMS support can cause unreliable delivery.
 
 When a user sends inbound media, Braze exposes its URLs in [Currents SMS inbound events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) and through {% raw %}`{{sms.${inbound_media_urls}}}`{% endraw %} in Liquid.
 
