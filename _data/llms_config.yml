@@ -1,5 +1,6 @@
 # LLMs.txt generation configuration.
-# Consumed by _plugins/llms_txt_generator.rb and Rakefile verify_llms_txt_artifacts.
+# Consumed by _plugins/llms_collector.rb, _plugins/llms_writer.rb, and
+# Rakefile verify_llms_txt_artifacts.
 # Add a collection under `collections` to include it in llms.txt / llms-full.txt
 # output — no Ruby changes required.
 
