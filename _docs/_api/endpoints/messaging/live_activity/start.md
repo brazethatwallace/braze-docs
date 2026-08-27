@@ -33,7 +33,7 @@ To arrange automatic dismissal after a Live Activity starts, schedule a follow-u
 2. Store that `activity_id` and your target end time in your backend scheduler.
 3. At the target end time, send a `/messages/live_activity/update` request with `end_activity` set to `true`.
 4. Configure dismissal behavior in the same update request. For details, see the [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) endpoint.
-5. Verify send and outcome events in the [Message Activity Log]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab).
+5. Verify send and outcome events in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 
