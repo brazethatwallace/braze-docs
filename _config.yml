@@ -50,7 +50,8 @@ markdown_api: true
 # Markdown copy plugin - copies original .md files to _site for LLM processing
 markdown_copies: true
 
-# LLMs.txt generator - creates dynamic llms.txt and llms-full.txt for supported guide collections.
+# LLMs.txt generator - creates dynamic llms.txt and llms-full.txt for collections
+# listed in _data/llms_config.yml (collection list, labels, and output filenames).
 llms_txt: true
 
 # CLA Endpoint

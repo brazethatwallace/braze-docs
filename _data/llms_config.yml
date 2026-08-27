@@ -1,0 +1,24 @@
+# LLMs.txt generation configuration.
+# Consumed by _plugins/llms_txt_generator.rb and Rakefile verify_llms_txt_artifacts.
+# Add a collection under `collections` to include it in llms.txt / llms-full.txt
+# output — no Ruby changes required.
+
+# Filenames written under each collection directory in _site/
+# (e.g. _site/developer_guide/llms.txt).
+output_files:
+  index: llms.txt
+  full: llms-full.txt
+
+# Jekyll collections to include. `name` must match a collections key;
+# `label` is used in the generated file headings.
+collections:
+  - name: user_guide
+    label: User Guide
+  - name: developer_guide
+    label: Developer Guide
+  - name: api
+    label: API
+  - name: partners
+    label: Technology Partners
+  - name: releases
+    label: What's New

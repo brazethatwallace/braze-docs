@@ -6,15 +6,9 @@ module Jekyll
     RAW_MARKDOWN_KEY = "__export_merged_md"
     PUBLIC_MARKDOWN_KEY = "llm_markdown_content"
 
-    SUPPORTED_COLLECTIONS = %w[user_guide developer_guide api partners releases].freeze
-
-    COLLECTION_LABELS = {
-      'user_guide' => 'User Guide',
-      'developer_guide' => 'Developer Guide',
-      'api' => 'API',
-      'partners' => 'Technology Partners',
-      'releases' => "What's New"
-    }.freeze
+    DEFAULT_OUTPUT_INDEX = "llms.txt"
+    DEFAULT_OUTPUT_FULL = "llms-full.txt"
+    CONFIG_DATA_KEY = "llms_config"
 
     # Backed-by-memory static file written through Jekyll's normal write phase.
     # Using a real StaticFile instead of an out-of-band File.write() ensures the
@@ -95,20 +89,23 @@ module Jekyll
     def self.register_llms_txt_static_files(site)
       return unless should_generate_llms_txt?(site)
 
-      SUPPORTED_COLLECTIONS.each do |collection_name|
+      config = llms_config(site)
+      index_name = output_filename(config, :index)
+      full_name = output_filename(config, :full)
+
+      configured_collections(config).each do |collection_name, label|
         documents = collection_documents(site, collection_name)
         next if documents.empty?
 
-        label = COLLECTION_LABELS.fetch(collection_name, collection_name.tr('_', ' ').capitalize)
         llms_content = generate_llms_content(site, documents, label)
         llms_full_content = generate_llms_full_content(site, documents, label)
 
-        site.static_files << InMemoryStaticFile.new(site, "#{collection_name}/llms.txt", llms_content)
-        site.static_files << InMemoryStaticFile.new(site, "#{collection_name}/llms-full.txt", llms_full_content)
+        site.static_files << InMemoryStaticFile.new(site, "#{collection_name}/#{index_name}", llms_content)
+        site.static_files << InMemoryStaticFile.new(site, "#{collection_name}/#{full_name}", llms_full_content)
 
         Jekyll.logger.info(
           "LlmsTxtGenerator:",
-          "Registered llms.txt and llms-full.txt static files for #{documents.length} #{label} pages"
+          "Registered #{index_name} and #{full_name} static files for #{documents.length} #{label} pages"
         )
       end
     end
@@ -116,16 +113,20 @@ module Jekyll
     def self.generate_llms_txt(site)
       return unless should_generate_llms_txt?(site)
 
-      SUPPORTED_COLLECTIONS.each do |collection_name|
-        generate_llms_txt_for_collection(site, collection_name)
+      config = llms_config(site)
+      configured_collections(config).each do |collection_name, label|
+        generate_llms_txt_for_collection(site, collection_name, label, config)
       end
     end
 
-    def self.generate_llms_txt_for_collection(site, collection_name)
+    def self.generate_llms_txt_for_collection(site, collection_name, label = nil, config = nil)
+      config ||= llms_config(site)
+      label ||= default_collection_label(collection_name)
       documents = collection_documents(site, collection_name)
       return if documents.empty?
 
-      label = COLLECTION_LABELS.fetch(collection_name, collection_name.tr('_', ' ').capitalize)
+      index_name = output_filename(config, :index)
+      full_name = output_filename(config, :full)
       llms_content = generate_llms_content(site, documents, label)
       llms_full_content = generate_llms_full_content(site, documents, label)
 
@@ -133,18 +134,72 @@ module Jekyll
       collection_dir = File.join(site_dir, collection_name)
       FileUtils.mkdir_p(collection_dir)
 
-      File.write(File.join(collection_dir, 'llms.txt'), llms_content)
-      File.write(File.join(collection_dir, 'llms-full.txt'), llms_full_content)
+      File.write(File.join(collection_dir, index_name), llms_content)
+      File.write(File.join(collection_dir, full_name), llms_full_content)
 
       Jekyll.logger.info(
         "LlmsTxtGenerator:",
-        "Generated llms.txt and llms-full.txt (fallback path) with #{documents.length} #{label} pages"
+        "Generated #{index_name} and #{full_name} (fallback path) with #{documents.length} #{label} pages"
       )
     end
 
     def self.should_generate_llms_txt?(site)
       site.config['llms_txt'] != false &&
       (ENV['JEKYLL_ENV'] == 'production' || site.config['llms_txt'] == true)
+    end
+
+    # Reads `_data/llms_config.yml` (Jekyll loads it into site.data['llms_config']).
+    def self.llms_config(site)
+      raw = site.data[CONFIG_DATA_KEY]
+      return raw if raw.is_a?(Hash)
+
+      Jekyll.logger.warn(
+        "LlmsTxtGenerator:",
+        "Missing or invalid _data/#{CONFIG_DATA_KEY}.yml; no collections will be generated."
+      )
+      {}
+    end
+
+    def self.configured_collections(config)
+      entries = config['collections']
+      unless entries.is_a?(Array) && !entries.empty?
+        Jekyll.logger.warn(
+          "LlmsTxtGenerator:",
+          "No collections listed in _data/#{CONFIG_DATA_KEY}.yml."
+        )
+        return []
+      end
+
+      entries.filter_map do |entry|
+        next unless entry.is_a?(Hash)
+
+        name = entry['name'].to_s.strip
+        next if name.empty?
+
+        label = entry['label'].to_s.strip
+        label = default_collection_label(name) if label.empty?
+        [name, label]
+      end
+    end
+
+    def self.output_filename(config, kind)
+      files = config['output_files']
+      files = {} unless files.is_a?(Hash)
+
+      case kind
+      when :index
+        name = files['index'].to_s.strip
+        name.empty? ? DEFAULT_OUTPUT_INDEX : name
+      when :full
+        name = files['full'].to_s.strip
+        name.empty? ? DEFAULT_OUTPUT_FULL : name
+      else
+        raise ArgumentError, "Unknown output kind: #{kind}"
+      end
+    end
+
+    def self.default_collection_label(collection_name)
+      collection_name.to_s.tr('_', ' ').capitalize
     end
 
     def self.collection_documents(site, collection_name)
