@@ -21,14 +21,14 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 
 カスタム属性の一般的なユースケースには、以下のようなものがあります。
 
-- ロイヤルティティア、購読ステータス、希望言語、プランタイプなどの特性に基づいてユーザーをセグメント化し、オーディエンスのターゲティングや抑制を行う
-- ユーザーの名、報酬ポイント、お気に入りカテゴリなどの属性を参照し、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を使用してメッセージをパーソナライズする
+- ロイヤルティティア、購読ステータス、優先言語、プランタイプなどの特性に基づいてユーザーをセグメント化し、オーディエンスのターゲティングや抑制を行う
+- ユーザーの名、報酬ポイント、お気に入りカテゴリーなどの属性を参照し、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を使用してメッセージをパーソナライズする
 - オンボーディングステージ、アカウントステータス、トライアル終了日など、ライフサイクルステージやユーザーの状態をトラッキングする
-- [数値属性]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)を使用して低価値のアクションをカウントする（例：ユーザーが機能を閲覧するたびに `feature_views_count` 属性をインクリメントする）
-- [時間属性]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)を使用して、低価値のアクションが最後に発生した日時を記録する（例：`last_support_ticket_at` や `last_password_reset_at`）
-- お気に入りのジャンルや最近閲覧したコンテンツなどのユーザーの興味や履歴を[配列]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)として保存し、興味関心に基づいたターゲティングに活用する
-- 構造化されたプリファレンスや複数の保存済み住所など、より豊富なプロファイルデータを[オブジェクト]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)や[オブジェクトの配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)として保存する
-- [属性トリガー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers)を使用して、属性値が変更されたときにアクションベースのメッセージをトリガーする（例：ユーザーの `rewards_tier` が変更されたときにティアアップ通知を送信する）
+- [数値属性]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)を使用して低価値のアクションをカウントする（例: ユーザーが機能を閲覧するたびに`feature_views_count`属性をインクリメントする）
+- [時間属性]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)を使用して、低価値のアクションが最後に発生した日時を記録する（例: `last_support_ticket_at`や`last_password_reset_at`）
+- お気に入りジャンルや最近閲覧したコンテンツなどのユーザーの興味や履歴を[配列]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)として保存し、興味ベースのターゲティングに活用する
+- 構造化された設定や複数の保存済み住所など、より豊富なプロファイルデータを[オブジェクト]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)または[オブジェクトの配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)として保存する
+- [属性トリガー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers)を使用して、属性値が変更された際にアクションベースのメッセージをトリガーする（例: ユーザーの`rewards_tier`が変更されたときにティアアップ通知を送信する）
 
 ## カスタム属性の管理 {#managing-custom-attributes}
 
@@ -89,50 +89,50 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 
 カスタム属性のリストをCSVファイルとしてエクスポートするには、ページ上部の**すべてエクスポート**を選択します。CSVファイルが生成され、ダウンロードリンクがメールで送信されます。
 
-## カスタム属性のタイプを変更する {#change-custom-attribute-type}
+## カスタム属性のデータタイプを変更する {#change-custom-attribute-type}
 
 ### 前提条件 {#prerequisites}
 
-カスタム属性が、アクティブなキャンペーン、キャンバス、またはセグメントで現在使用されていないことが必要です。属性がまだ参照されている状態でデータタイプを変更しようとすると、ダッシュボードにエラーが表示され、変更がブロックされます。
+カスタム属性は、アクティブなキャンペーン、キャンバス、またはセグメントで現在使用されていない必要があります。属性がまだ参照されている状態でデータタイプを変更しようとすると、ダッシュボードにエラーが表示され、変更がブロックされます。
 
 ### データタイプの変更 {#changing-the-data-type}
 
-1. セグメントまたはフィルターで属性を使用しているアクティブなキャンペーンまたはキャンバスを停止します。
+1. セグメントまたはフィルターで属性を使用しているアクティブなキャンペーンやキャンバスを停止します。
 2. すべてのセグメント、キャンペーン、キャンバスのフィルターから属性を削除します。
-3. **データ設定** > **カスタム属性**（または**カスタムイベント**）に移動し、属性を見つけて、目的のデータタイプに更新します。
+3. **[データ設定]** > **[カスタム属性]**（または **[カスタムイベント]**）に移動し、属性を見つけて、目的のデータタイプに更新します。
 4. 既存のユーザープロファイルの属性値を新しいデータタイプに合わせて更新します（例えば、[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用します）。
-5. 関連するセグメント、キャンペーン、キャンバスに属性を再適用し、停止したキャンペーンまたはキャンバスを再度アクティブにします。
+5. 関連するセグメント、キャンペーン、キャンバスに属性を再適用し、停止したキャンペーンやキャンバスを再開します。
 
 ### 注意事項 {#things-to-know}
 
-- **ユーザーデータは遡って更新されません。** ユーザープロファイルに古いデータタイプの属性が設定されていた場合、その値は変更されません。セグメンテーションフィルターは新しいデータタイプを検索するため、古い値を持つユーザーは、プロファイルが更新されるまで一致するセグメントから除外されます。
-- **新しいデータは新しいデータタイプと一致する必要があります。** 変更後、この属性に対して以前のデータタイプを送信するAPI呼び出しやSDKイベントは受け付けられません。新しいデータタイプに一致する値のみが取り込まれます。
-- **フィルターは自動的に更新されません。** 変更された属性を参照しているセグメントやキャンペーンのフィルターは遡って更新されません。変更後にフィルターを削除して再追加する必要があります。
+- **ユーザーデータは遡って更新されません。**ユーザープロファイルに古いデータタイプの属性がある場合、その値はそのまま残ります。セグメンテーションフィルターは新しいデータタイプを探すため、古い値を持つユーザーは、プロファイルが更新されるまで一致するセグメントから除外されます。
+- **新しいデータは新しいデータタイプと一致する必要があります。**変更後、この属性に対して以前のデータタイプを送信するAPI呼び出しやSDKイベントは受け入れられません。新しいデータタイプに一致する値のみが取り込まれます。
+- **フィルターは自動的に更新されません。**変更された属性を参照しているセグメントやキャンペーンのフィルターは遡って更新されません。変更後にフィルターを削除してから再度追加する必要があります。
 
 ## 使用状況レポートの表示 {#view-usage-reports}
 
 使用状況レポートには、特定のカスタム属性を使用しているすべてのキャンバス、キャンペーン、セグメントが一覧表示されます。このリストにはLiquidの使用は含まれません。
 
-該当するカスタム属性の横にあるチェックボックスを選択し、**使用状況レポートを表示**を選択することで、一度に最大100件の使用状況レポートを表示できます。
+対象のカスタム属性の横にあるチェックボックスを選択し、**使用状況レポートを表示**を選択することで、一度に最大100件の使用状況レポートを表示できます。
 
-### 値タブ {#values-tab}
+### 「Values」タブ {#values-tab}
 
-使用状況レポートを表示する際に、**値**タブを選択すると、約250,000人のユーザーのサンプルに基づいて、選択したカスタム属性の上位の値を確認できます。結果はユーザーのサブセットからサンプリングされるため、サンプルにはすべての既存の値が含まれるわけではありません。つまり、**値**タブはトラブルシューティングや、すべてのユーザーのデータを組み込む必要があるユースケースには使用しないでください。
+使用状況レポートを表示する際に、**Values**タブを選択すると、約250,000人のユーザーのサンプルに基づいて、選択したカスタム属性の上位の値を確認できます。結果はユーザーのサブセットからサンプリングされるため、サンプルにはすべての既存の値が含まれるわけではありません。そのため、**Values**タブはトラブルシューティングや、すべてのユーザーのデータを必要とするユースケースには使用しないでください。
 
-![選択したカスタム属性の使用状況レポート。「値」タブが開かれ、「US」や「PR」などの国属性値の円グラフが表示されています。]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
+![選択されたカスタム属性の使用状況レポート。「Values」タブが開かれ、「US」や「PR」などの国属性値の円グラフが表示されています。]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
 ## カスタム属性を設定する {#set-custom-attributes}
 
-以下は、各プラットフォームでカスタム属性を設定するために使用されるメソッドの一覧です。
+以下は、カスタム属性の設定に使用される各プラットフォームのメソッド一覧です。
 
 {% details プラットフォーム別のドキュメントを展開 %}
 
 - [Android および FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)
 - [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
+- [React Native]({{site.baseurl}}/developer_guide/analytics)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=unity)
-- [.NET MAUI（旧 Xamarin）]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [.NET MAUI（旧 Xamarin）]({{site.baseurl}}/developer_guide/analytics?sdktab=xamarin)
 - [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
@@ -141,7 +141,7 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 
 **ユーザープロファイル**に保存されるすべてのデータ（カスタム属性データを含む）は、各プロファイルが<a href="/docs/user_archival#active-users">アクティブ</a> である限り、無期限に保持されます。
 
-カスタム属性として保存できるすべてのデータタイプ（ブール値、数値、文字列、配列、時刻、オブジェクト、オブジェクトの配列など）の完全なリファレンスについては、[カスタム属性のデータタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types)を参照してください。
+カスタム属性として保存できるすべてのデータタイプ（ブール値、数値、文字列、配列、時間、オブジェクト、オブジェクトの配列など）の完全なリファレンスについては、[カスタム属性のデータタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types)を参照してください。
 
 ### 空文字列とnull値 {#blank-strings-versus-null-values}
 
@@ -149,16 +149,16 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 
 | 値 | 動作 |
 | --- | --- |
-| `""`（空文字列） | 属性は空の値に設定され、ユーザープロファイル上に引き続き表示されます。 |
+| `""`（空文字列） | 属性は空の値に設定され、ユーザープロファイルに引き続き表示されます。 |
 | `null` | 属性はユーザープロファイルから完全に削除されます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="空文字列とnull値" }
 {: .reset-td-br-1 .reset-td-br-2 aria-label="空文字列とnull値" }
 {: .reset-td-br-1 .reset-td-br-2 aria-label="空文字列とnull値" }
 
-この動作はセグメンテーションにも影響します。カスタム属性の場合、**IS NOT BLANK**フィルターは空でない値をチェックします。つまり、空文字列（`""`）は、属性がプロファイル上に表示されていても一致しません。`null`値も、属性がプロファイルから削除されるため一致しません。
+この動作はセグメンテーションにも影響します。カスタム属性の場合、**IS NOT BLANK**フィルターは空でない値をチェックします。つまり、属性がプロファイルに表示されたままであっても、空文字列（`""`）はマッチしません。`null`値も、属性がプロファイルから削除されるため、マッチしません。
 
 {% alert important %}
-Brazeダッシュボードでデータタイプが手動で設定されている（自動検出ではない）文字列以外のデータタイプの場合、値の設定を解除するには`null`を使用する必要があります。`""`の受け渡しは文字列属性にのみ有効です。たとえば、ブール属性に`""`を設定すると空文字列として扱われますが、これはそのタイプにとって無効な値です。ブール値の設定を解除するには、`null`を渡してください。
+Brazeダッシュボードでデータタイプが手動で設定されている（自動検出ではない）文字列以外のデータタイプでは、値の設定を解除するために`null`を使用する必要があります。`""`の受け渡しは文字列属性にのみ有効です。たとえば、ブール属性に`""`を設定すると空文字列として扱われ、そのタイプでは無効な値となります。ブール値の設定を解除するには、`null`を渡してください。
 
-CSVインポートは`null`をサポートしていないことに注意してください。CSVインポートのブール値は`TRUE`または`FALSE`である必要があります。
+CSVインポートは`null`をサポートしていないことに注意してください。CSVインポートのブール値は`TRUE`または`FALSE`でなければなりません。
 {% endalert %}

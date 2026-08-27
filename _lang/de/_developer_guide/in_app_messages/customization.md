@@ -1,6 +1,6 @@
 ---
 nav_title: Nachrichten anpassen
-article_title: In-App-Nachrichten für das Braze SDK anpassen
+article_title: "In-App-Nachrichten anpassen"
 page_order: 0.1
 description: "Erfahren Sie, wie Sie In-App-Nachrichten für das Braze SDK einrichten können."
 platform:

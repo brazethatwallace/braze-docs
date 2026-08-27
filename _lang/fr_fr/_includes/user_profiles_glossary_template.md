@@ -11,10 +11,6 @@ search_rank: 7
 
 <div class="api-glossary-preamble" markdown="1">
 
-{% alert important %}
-Les événements de profils utilisateur sont en version bêta. Contactez votre gestionnaire du succès des clients ou votre gestionnaire de compte pour y accéder.
-{% endalert %}
-
 {% alert tip %}
 Ces événements sont également disponibles sous forme de tables SQL dans le [générateur de requêtes]({{site.baseurl}}/user_guide/analytics/query_builder), les [extensions de segments SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments) et le [partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Pour les schémas de tables SQL et les détails des colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/sql_segments/sql_segments_tables). Pour les schémas de partage de données Snowflake relatifs aux vues d'attributs de profils utilisateur, consultez [Attributs de profils utilisateur]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes).
 {% endalert %}

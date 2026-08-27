@@ -43,7 +43,7 @@ Certain countries have a higher risk of SMS, MMS, and RCS traffic pumping. These
 If you allow sending in these countries, you must first acknowledge the risk of doing so before the country is added to your allowlist.
 
 {% alert note %}
-Limit the countries on your allowlist to only those required to support your business needs. This will minimize your potential for fraudulent traffic. For more guidance on preventing SMS, MMS, and RCS traffic pumping, view [SMS traffic pumping fraud FAQs]({{site.baseurl}}/sms_traffic_pumping_fraud).
+Limit the countries on your allowlist to only those required to support your business needs. This minimizes your potential for fraudulent traffic. For more guidance on preventing SMS, MMS, and RCS traffic pumping, view [SMS traffic pumping fraud FAQs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/sms_traffic_pumping_fraud/).
 {% endalert %}
 
 ## Visibility of sends outside the allowlist
@@ -72,4 +72,4 @@ The customer is responsible for and will be invoiced for all Mobile Messages sen
 
 ### How to prevent traffic pumping 
 
-Failure to limit your message distribution strictly to the geographic regions where your actual customers reside creates immediate vulnerability to fraud and severe financial harm. To protect your company, you must proactively restrict your delivery regions using the Country Allowlist. In addition, and most importantly, you should secure any online phone number request form or API endpoint that triggers SMS, MMS, and RCS sends in accordance with industry best practices, as described in [Understanding and preventing SMS, MMS, and RCS traffic pumping fraud]({{site.baseurl}}/sms_traffic_pumping_fraud).
+Failure to limit your message distribution strictly to the geographic regions where your actual customers reside creates immediate vulnerability to fraud and severe financial harm. To protect your company, you must proactively restrict your delivery regions using the Country Allowlist. In addition, and most importantly, you should secure any online phone number request form or API endpoint that triggers SMS, MMS, and RCS sends in accordance with industry best practices, as described in [Understanding and preventing SMS, MMS, and RCS traffic pumping fraud]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/sms_traffic_pumping_fraud/).

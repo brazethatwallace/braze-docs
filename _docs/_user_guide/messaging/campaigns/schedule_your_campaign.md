@@ -28,7 +28,7 @@ guide_menu_list:
     link: /docs/user_guide/messaging/messaging_fundamentals/re_eligibility
     image: /assets/img/braze_icons/clock.svg
   - name: Campaign calendar
-    link: /docs/user_guide/messaging/campaigns/building_campaigns/delivery_types/campaign_calendar
+    link: /docs/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar/
     image: /assets/img/braze_icons/calendar-check-02.svg
 ---
 

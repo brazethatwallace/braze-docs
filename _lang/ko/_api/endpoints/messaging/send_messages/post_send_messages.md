@@ -1,6 +1,6 @@
 ---
 nav_title: "POST: API만 사용하여 즉시 메시지 보내기"
-article_title: "POST: API만 사용하여 즉시 메시지 보내기"
+article_title: "API만 사용하여 즉시 메시지 보내기"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -96,7 +96,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `user_aliases` | 선택 사항 | 사용자 별칭 오브젝트 배열 | [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object)를 참조하세요. |
 | `segment_id` | 선택 사항 | 문자열 | [Segment 식별자]({{site.baseurl}}/api/identifier_types#segment-identifier)를 참조하세요. |
 | `audience` | 선택 사항 | 연결된 오디언스 오브젝트 | [연결된 오디언스]({{site.baseurl}}/api/objects_filters/connected_audience)를 참조하세요. |
-| `campaign_id` | 선택 사항* | 문자열 | 자세한 내용은 [Campaign 식별자]({{site.baseurl}}/api/identifier_types#campaign-identifier)를 참조하세요. <br><br>*Braze 대시보드에서 Campaign 측정기준(예: *발송*, *클릭 수* 또는 *반송*)을 추적하거나, 고객 프로필의 [메시지 기록 탭]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles#messaging-history-tab)에서 이 메시지와 관련된 이벤트를 확인하려면 필수입니다. `campaign_id`가 없으면 Braze는 대시보드 전달 가능성 통계를 증가시키지 않습니다. 전송은 여전히 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에 표시되지만, 대시보드의 이메일 성능 측정기준에는 표시되지 않습니다. |
+| `campaign_id` | 선택 사항* | 문자열 | 자세한 내용은 [Campaign 식별자]({{site.baseurl}}/api/identifier_types#campaign-identifier)를 참조하세요. <br><br>*Braze 대시보드에서 Campaign 측정기준(예: *발송*, *클릭 수* 또는 *반송*)을 추적하거나, 고객 프로필의 [메시지 기록 탭]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)에서 이 메시지와 관련된 이벤트를 확인하려면 필수입니다. `campaign_id`가 없으면 Braze는 대시보드 전달 가능성 통계를 증가시키지 않습니다. 전송은 여전히 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에 표시되지만, 대시보드의 이메일 성능 측정기준에는 표시되지 않습니다. |
 | `send_id` | 선택 사항 | 문자열 | [전송 식별자]({{site.baseurl}}/api/identifier_types#send-identifier)를 참조하세요. |
 | `override_frequency_capping` | 선택 사항 | 부울 | Campaign의 `frequency_capping`을 무시하며, 기본값은 `false`입니다. |
 | `recipient_subscription_state` | 선택 사항 | 문자열 | 이를 사용하여 수신 동의한 사용자(`opted_in`), 구독했거나 수신 동의한 사용자(`subscribed`) 또는 구독 취소한 사용자를 포함한 모든 사용자(`all`)에게만 메시지를 보낼 수 있습니다. <br><br>`all` 사용자를 사용하면 트랜잭션 이메일 메시징에 유용합니다. 기본값은 `subscribed`입니다. |

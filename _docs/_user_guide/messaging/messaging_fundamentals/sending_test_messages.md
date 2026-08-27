@@ -295,7 +295,7 @@ If you are testing campaigns that populate user data or use custom event propert
 
 ### Testing campaigns personalized with user attributes
 
-If you are using [personalization]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview) in your message, you'll need to take additional steps to properly preview your campaign and check that user data is properly populating the content.
+If you are using [personalization]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/) in your message, you'll need to take additional steps to properly preview your campaign and check that user data is properly populating the content.
 
 When sending a test message, make sure to choose either the option to **Select Existing User** or preview as a **Custom User**.
 

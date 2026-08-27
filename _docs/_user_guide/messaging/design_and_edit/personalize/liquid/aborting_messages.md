@@ -97,7 +97,7 @@ If a campaign or Canvas step shows many users entered but few sends, or deliveri
 
 For push, email, SMS, webhooks, and Content Cards, abort logic runs when Braze processes the message for delivery—not when the user entered a Canvas or when a trigger event fired earlier.
 
-- Confirm required [custom attributes]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/), event properties, or [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) fields are set on the user before the Message step runs.
+- Confirm required [custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), event properties, or [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) fields are set on the user before the Message step runs.
 - Add explicit nil or empty checks before calling `abort_message()`. An `else` branch that aborts when a value is missing stops the send for any user without that data.
 - If personalization depends on a list, segment, or Connected Content response, confirm that data is available when the Message step executes. A user can enter a Canvas before list membership or downstream data is ready.
 

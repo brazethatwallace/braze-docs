@@ -1,12 +1,11 @@
 ---
 nav_title: "POST: APIトリガー配信を使用してトランザクションメールを送信する"
-article_title: "POST: APIトリガー配信を使用してトランザクションメールを送信する"
+article_title: "APIトリガー配信を使用してトランザクションメールを送信する"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
 description: "この記事では、APIトリガー配信を使用したトランザクションメールメッセージの送信に関するBrazeエンドポイントの詳細について説明します。"
-
 ---
 
 {% api %}
@@ -17,7 +16,7 @@ description: "この記事では、APIトリガー配信を使用したトラン
 
 > このエンドポイントを使用して、指定したユーザーに即時の単発トランザクションメッセージを送信します。
 
-このエンドポイントは、Brazeの[トランザクションメールキャンペーン]({{site.baseurl}}/api/api_campaigns/transactional_campaigns)と対応するキャンペーン IDの作成と併せて使用されます。
+このエンドポイントは、Brazeの[トランザクションメールキャンペーン]({{site.baseurl}}/api/api_campaigns/transactional_campaigns)と対応するキャンペーンIDの作成と併せて使用されます。
 
 {% alert important %}
 トランザクションメールは現在、一部のBrazeパッケージで利用できます。詳細については、担当のBrazeカスタマーサクセスマネージャーにお問い合わせください。
@@ -67,9 +66,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-| `external_send_id`| オプション | 文字列 | Base64互換の文字列です。以下の正規表現に対して検証されます。<br><br> `/^[a-zA-Z0-9-_+\/=]+$/` <br><br>このオプションフィールドを使用すると、この特定の送信に対する内部識別子を渡すことができます。この識別子は、トランザクションHTTPイベントポストバックから送信されるイベントに含まれます。渡された場合、この識別子は重複排除キーとしても使用され、Brazeは24時間保存します。<br><br>同じ識別子を別のリクエストで渡しても、Brazeは24時間以内に新たな送信インスタンスを生成しません。|
-| `trigger_properties`|オプション|オブジェクト|[トリガープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object)を参照してください。このリクエストのユーザーに適用されるパーソナライゼーションのキーと値のペアです。|
-| `recipient`|必須|オブジェクト| このメッセージの対象となるユーザーです。`attributes`と単一の`external_user_id`または`user_alias`を含めることができます。<br><br>Brazeにまだ存在しないexternal IDを指定した場合、`attributes`オブジェクトにフィールドを渡すと、Brazeにこのユーザープロファイルが作成され、新規作成されたユーザーにこのメッセージが送信されます。<br><br>同じユーザーに対して`attributes`オブジェクトに異なるデータを含む複数のリクエストを送信した場合、`first_name`、`last_name`、`email`属性は同期的に更新され、メッセージにテンプレートとして組み込まれます。カスタム属性にはこれと同じ保護がないため、このAPIを使用してユーザーを更新し、異なるカスタム属性値を連続して渡す場合は注意してください。|
+| `external_send_id` | オプション | 文字列 | Base64互換の文字列です。以下の正規表現に対して検証されます。<br><br> `/^[a-zA-Z0-9-_+\/=]+$/` <br><br>このオプションフィールドを使用すると、この特定の送信に対する内部識別子を渡すことができます。この識別子は、トランザクションHTTPイベントポストバックから送信されるイベントに含まれます。渡された場合、この識別子は重複排除キーとしても使用され、Brazeは24時間保存します。<br><br>同じ識別子を別のリクエストで渡しても、Brazeは24時間以内に新たな送信インスタンスを生成しません。|
+| `trigger_properties` | オプション | オブジェクト | [トリガープロパティ]({{site.baseurl}}/api/objects_filters/trigger_properties_object)を参照してください。このリクエストのユーザーに適用されるパーソナライゼーションのキーと値のペアです。|
+| `recipient` | 必須 | オブジェクト | このメッセージの対象となるユーザーです。`attributes`と単一の`external_user_id`または`user_alias`を含めることができます。<br><br>Brazeにまだ存在しないexternal IDを指定した場合、`attributes`オブジェクトにフィールドを渡すと、Brazeにこのユーザープロファイルが作成され、新規作成されたユーザーにこのメッセージが送信されます。<br><br>同じユーザーに対して`attributes`オブジェクトに異なるデータを含む複数のリクエストを送信した場合、`first_name`、`last_name`、`email`属性は同期的に更新され、メッセージにテンプレートとして組み込まれます。カスタム属性にはこれと同じ保護がないため、このAPIを使用してユーザーを更新し、異なるカスタム属性値を連続して渡す場合は注意してください。|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
@@ -111,14 +110,14 @@ curl -X POST \
 
 | エラー | トラブルシューティング |
 | ----- | --------------- |
-| `The campaign is not a transactional campaign. Only transactional campaigns may use this endpoint` | 指定されたキャンペーン IDはトランザクションキャンペーン用ではありません。 |
+| `The campaign is not a transactional campaign. Only transactional campaigns may use this endpoint` | 指定されたキャンペーンIDはトランザクションキャンペーン用ではありません。 |
 | `The external reference has been queued.  Please retry to obtain send_id.` | external_send_idは最近作成されたものです。新しいメッセージを送信する場合は、新しいexternal_send_idを試してください。 |
-| `Campaign does not exist` | 指定されたキャンペーン IDが既存のキャンペーンに対応していません。 |
-| `The campaign is archived. Unarchive the campaign in order for trigger requests to take effect.` | 指定されたキャンペーン IDはアーカイブされたキャンペーンに対応しています。 |
-| `The campaign is paused. Resume the campaign in order for trigger requests to take effect.` | 指定されたキャンペーン IDは一時停止中のキャンペーンに対応しています。 |
-| `campaign_id must be a string of the campaign api identifier` | 指定されたキャンペーン IDは有効なフォーマットではありません。 |
+| `キャンペーン does not exist` | 指定されたキャンペーンIDが既存のキャンペーンに対応していません。 |
+| `The campaign is archived. Unarchive the campaign in order for trigger requests to take effect.` | 指定されたキャンペーンIDはアーカイブされたキャンペーンに対応しています。 |
+| `The campaign is paused. Resume the campaign in order for trigger requests to take effect.` | 指定されたキャンペーンIDは一時停止中のキャンペーンに対応しています。 |
+| `campaign_id must be a string of the campaign api identifier` | 指定されたキャンペーンIDは有効なフォーマットではありません。 |
 | `Error authenticating credentials` | 指定されたAPIキーが無効です。 |
-| `Invalid whitelisted IPs `| リクエストを送信しているIPアドレスがIPホワイトリストに含まれていません（使用されている場合）。 |
+| `Invalid whitelisted IPs ` | リクエストを送信しているIPアドレスがIPホワイトリストに含まれていません（使用されている場合）。 |
 | `You do not have permission to access this resource` | 使用されたAPIキーには、このアクションを実行する権限がありません。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 

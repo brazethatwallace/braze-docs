@@ -1,52 +1,53 @@
 ---
 nav_title: エラー処理とリトライ
-article_title: メッセージングAPIのエラー処理とリトライ
+article_title: Device Messaging APIのエラー処理とリトライ
+permalink: /api/device_messaging_api/error_handling
 page_order: 2
 page_type: reference
-description: "メッセージングAPIのレスポンス、エラー、リトライの処理方法について説明します。"
+description: "Device Messaging APIのレスポンス、エラー、リトライの処理方法について説明します。"
 hidden: true
 ---
 
-# メッセージングAPIのエラー処理とリトライ {#messaging-api-error-handling-and-retries}
+# Device Messaging APIのエラー処理とリトライ {#device-messaging-api-error-handling-and-retries}
 
 {% alert important %}
-このページはベータ版です。メッセージングAPIの機能とドキュメントは変更される可能性があります。
+このページはベータ版です。Device Messaging APIの機能とドキュメントは変更される可能性があります。
 {% endalert %}
 
-メッセージングAPIのレスポンスボディと成功のセマンティクスはエンドポイントによって異なります。各エンドポイントのレスポンススキーマとステータスコード表を正式な仕様として使用してください。
+Device Messaging APIのレスポンスボディと成功のセマンティクスはエンドポイントによって異なります。各エンドポイントのレスポンススキーマとステータスコード表を正式な仕様として使用してください。
 
 ## 成功レスポンス {#success-responses}
 
-バナーエンドポイントは異なる成功レスポンスを使用します。
+Banner エンドポイントは異なる成功レスポンスを使用します。
 
-- `POST /v1/device-messaging/banners/sync` は `200` ステータスコードと `banners` オブジェクトを返します。
-- `POST /v1/device-messaging/banners/track` は `202` ステータスコードと `events_processed` および `message` を返します。Brazeが個別のイベントをスキップした場合、レスポンスには `errors` 配列も含まれます。
+- `POST /v1/device-messaging/banners/sync` は `banners` オブジェクトを含む `200` ステータスコードを返します。
+- `POST /v1/device-messaging/banners/track` は `events_processed` と `message` を含む `202` ステータスコードを返します。Braze が個別のイベントをスキップした場合、レスポンスには `errors` 配列も含まれます。
 
-トラッキングエンドポイントからの `202` レスポンスは、Brazeが少なくとも1つの有効なイベントを受け入れたことを意味します。スキップされたイベントを特定するには、`errors` 配列を確認してください。
+トラッキングエンドポイントからの `202` レスポンスは、Braze が少なくとも1つの有効なイベントを受け入れたことを意味します。スキップされたイベントを特定するには、`errors` 配列を確認してください。
 
 ## エラーレスポンス {#error-responses}
 
 エラーレスポンスのフィールドも異なります。
 
-- バナー取得エラーは `error` フィールドを使用します。
-- バナートラッキングエラーは `message` フィールドを使用し、インデックス付きの `errors` 配列を含むことがあります。
+- バナー取得エラーでは `error` フィールドが使用されます。
+- バナートラッキングエラーでは `message` フィールドが使用され、インデックス付きの `errors` 配列が含まれる場合があります。
 
-アプリケーションの動作を決定するためにエラーメッセージのテキストを解析しないでください。代わりに、HTTPステータスコードとエンドポイント固有のフィールドを使用してください。
+アプリケーションの動作を判断するためにエラーメッセージのテキストを解析しないでください。代わりに、HTTPステータスコードとエンドポイント固有のフィールドを使用してください。
 
-## リトライガイダンス {#retry-guidance}
+## リトライのガイダンス {#retry-guidance}
 
-リトライするかどうかを判断する際は、以下のガイダンスを参考にしてください。
+リトライするかどうかを判断する際には、以下のガイダンスを参考にしてください。
 
-| ステータスコード | リトライガイダンス |
+| ステータスコード | リトライのガイダンス |
 |---|---|
 | `400` | リトライする前にリクエストを修正してください。バナートラッキングの場合は、スキップされたイベントを修正してからリトライしてください。 |
-| `401` または `403` | リトライする前に、クライアント側のREST APIキーとその権限を確認してください。 |
-| `404` | ワークスペースでメッセージングAPIが有効になっていること、およびエンドポイントURLが正しいことを確認してください。 |
-| `429` | リクエストレートを下げ、指数バックオフでリトライしてください。利用可能な場合は、レート制限レスポンスヘッダーを使用してください。 |
-| `5XX` | 指数バックオフと最大リトライ回数を設定してリトライしてください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="メッセージングAPIのリトライガイダンス" }
+| `401` または `403` | リトライする前に、クライアントサイドのREST APIキーとその権限を確認してください。 |
+| `404` | ワークスペースでDevice Messaging APIが有効になっていること、およびエンドポイントURLが正しいことを確認してください。 |
+| `429` | リクエストレートを下げ、エクスポネンシャルバックオフでリトライしてください。利用可能な場合は、レートリミットのレスポンスヘッダーを使用してください。 |
+| `5XX` | エクスポネンシャルバックオフと最大リトライ回数を設定してリトライしてください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Device Messaging APIのリトライガイダンス" }
 
-正確なレスポンスボディとサポートされるステータスコードについては、該当するエンドポイントを参照してください。
+正確なレスポンスボディとサポートされているステータスコードについては、関連するエンドポイントを参照してください。
 
-- [ユーザーのバナーを取得する]({{site.baseurl}}/api/messaging_api/endpoints/banners/post_sync_banners)
-- [バナー分析イベントをトラッキングする]({{site.baseurl}}/api/messaging_api/endpoints/banners/post_track_banner_events)
+- [ユーザーのバナーを取得する]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)
+- [バナー分析イベントを追跡する]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_track_banner_events)

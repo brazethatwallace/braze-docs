@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "En este artículo se describen los detalles del endpoint Exportar detalles de campaña de Braze."
-
 ---
 {% api %}
 # Exportar detalles de la campaña {#export-campaign-details}
@@ -32,7 +31,7 @@ Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/ap
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Obligatorio | Cadena | Ver [identificador de API de campaña]({{site.baseurl}}/api/identifier_types).<br><br> Puedes encontrar el `campaign_id` para las campañas de API en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) y en la página **Campaign Details** dentro de tu panel; o puedes utilizar el [endpoint Exportar lista de campañas](#campaign-list-endpoint). |
+| `campaign_id` | Obligatorio | Cadena | Consulta [identificador de API de campaña]({{site.baseurl}}/api/identifier_types).<br><br> Puedes encontrar el `campaign_id` para las campañas de API en la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) y en la página **Campaign Details** dentro de tu panel; o puedes utilizar el [endpoint Exportar lista de campañas](#campaign-list-endpoint). |
 | `post_launch_draft_version` | Opcional | Booleano | Para los mensajes que tienen un borrador posterior al lanzamiento, configurar esto en `true` mostrará los cambios disponibles en el borrador. Predeterminado: `false`. |
 | `include_has_translatable_content` | Opcional | Booleano | Cuando se establece en `true`, la respuesta de la API incluye un campo `has_translatable_content` para cada mensaje. Predeterminado: `false`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }

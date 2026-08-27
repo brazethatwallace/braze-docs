@@ -4,14 +4,14 @@ nav_title: Inicio
 article_title: Guía de la API de Braze
 layout: api_glossary
 glossary_top_header: "Guía de la API de Braze"
-glossary_top_text: "Braze ofrece una REST API de alto rendimiento que te permite rastrear usuarios, enviar mensajes, exportar datos y más. Esta página enumera los endpoints disponibles de la API de Braze y sus usos."
+glossary_top_text: "Braze ofrece una REST API de alto rendimiento para rastrear usuarios, enviar mensajes, exportar datos y gestionar Campaigns, Canvas, catálogos y más. Usa este glosario para explorar los endpoints por tipo, abre artículos de referencia para ver detalles de solicitudes y respuestas, y encuentra enlaces a documentación sobre autenticación, límites de velocidad y objetos."
+description: "Explora los endpoints de la REST API de Braze por tipo, con enlaces a documentación sobre autenticación, límites de velocidad y referencia de objetos."
 page_type: glossary
-description: "Esta página de inicio enumera los endpoints disponibles de la API de Braze y sus usos."
 glossary_tag_name: Endpoint Type
 
-glossary_filter_text: "Select endpoint type to narrow the glossary:"
+glossary_filter_text: "Selecciona el tipo de endpoint para filtrar el glosario:"
 
-glossary_mid_text: "Endpoint Search"
+glossary_mid_text: "Búsqueda de endpoints"
 guide_featured_list:
   - name: Resumen de la API
     image: /assets/img/braze_icons/annotation-info.svg
@@ -44,7 +44,7 @@ glossary_tags:
   - name: Email Templates
   - name: KPI
   - name: Media Library
-  - name: Messaging API
+  - name: Device Messaging API
   - name: Purchases
   - name: Preference Center
   - name: Schedule Messages
@@ -64,7 +64,7 @@ glossaries:
     tags:
       - Apps
   - name: <a href='/docs/api/endpoints/user_data/post_user_alias'>/users/alias/new</a>
-    description: Añade nuevos alias de usuario para usuarios identificados existentes o para crear nuevos usuarios no identificados.
+    description: Añade nuevos alias de usuario para usuarios identificados existentes o crea nuevos usuarios no identificados.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/user_data/post_users_alias_update'>/users/alias/update</a>
@@ -84,7 +84,7 @@ glossaries:
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_segment'>/users/export/segment</a>
-    description: Exporta todos los usuarios de un segmento.
+    description: Exporta todos los usuarios de un Segment.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename'>/users/external_ids/rename</a>
@@ -127,14 +127,14 @@ glossaries:
     description: Envía mensajes transaccionales inmediatos y puntuales a un usuario designado.
     tags:
       - Send Messages
-  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
-    description: Recupera los Banners elegibles para un usuario y un conjunto de ubicaciones.
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
+    description: Recupera los banners elegibles para un usuario y un conjunto de ubicaciones.
     tags:
-      - Messaging API
-  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
-    description: Registra eventos de impresión y clic para Banners.
+      - Device Messaging API
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
+    description: Registra eventos de impresión y clic para banners.
     tags:
-      - Messaging API
+      - Device Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
     description: Envía mensajes de Campaign creados en el panel mediante entrega desencadenada por API.
     tags:
@@ -268,19 +268,19 @@ glossaries:
     tags:
       - Canvas
   - name: <a href='/docs/api/endpoints/export/segments/get_segment_analytics'>/segments/data_series</a>
-    description: Recupera una serie diaria del tamaño estimado de un segmento a lo largo del tiempo.
+    description: Recupera una serie diaria del tamaño estimado de un Segment a lo largo del tiempo.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/get_segment_details'>/segments/details</a>
-    description: Recupera información relevante sobre un segmento.
+    description: Recupera información relevante sobre un Segment.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/get_segment'>/segments/list</a>
-    description: Exporta una lista de segmentos, cada uno de los cuales incluye su nombre, el identificador de API del segmento y si tiene habilitado el seguimiento de análisis.
+    description: Exporta una lista de Segments, cada uno de los cuales incluye su nombre, el identificador de API del Segment y si tiene habilitado el seguimiento de análisis.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/segments/post_cancel_export'>/export/segment/cancel</a>
-    description: Cancela las exportaciones para el ID de segmento proporcionado.
+    description: Cancela las exportaciones para el ID de Segment proporcionado.
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/sessions/get_sessions_analytics'>/sessions/data_series</a>
@@ -476,19 +476,19 @@ glossaries:
     tags:
       - Cloud Data Ingestion
   - name: <a href='/docs/api/endpoints/sdk_authentication/post_create_sdk_authentication_key'>/app_group/sdk_authentication/create</a>
-    description: Crea una nueva clave de autenticación SDK para tu aplicación.
+    description: Crea una nueva clave de autenticación del SDK para tu aplicación.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/sdk_authentication/get_sdk_authentication_keys'>/app_group/sdk_authentication/keys</a>
-    description: Lista las claves de autenticación SDK para tu aplicación.
+    description: Lista las claves de autenticación del SDK para tu aplicación.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/sdk_authentication/put_primary_sdk_authentication_key'>/app_group/sdk_authentication/primary</a>
-    description: Establece una clave de autenticación SDK como clave principal para tu aplicación.
+    description: Establece una clave de autenticación del SDK como clave principal para tu aplicación.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/sdk_authentication/delete_sdk_authentication_key'>/app_group/sdk_authentication/delete</a>
-    description: Elimina una clave de autenticación SDK para tu aplicación.
+    description: Elimina una clave de autenticación del SDK para tu aplicación.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/media_library/manage_assets/create'>/media_library/create</a>

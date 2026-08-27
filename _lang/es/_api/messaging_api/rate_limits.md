@@ -1,35 +1,36 @@
 ---
 nav_title: Límites de velocidad
-article_title: Límites de velocidad de la API de mensajería
+article_title: Límites de velocidad de la API de mensajería del dispositivo
+permalink: /api/device_messaging_api/rate_limits
 page_order: 3
 page_type: reference
-description: "Descubre cómo funcionan los límites de velocidad y los encabezados de respuesta de la API de mensajería."
+description: "Descubre cómo funcionan los límites de velocidad y los encabezados de respuesta de la API de mensajería del dispositivo."
 hidden: true
 ---
 
-# Límites de velocidad de la API de mensajería {#messaging-api-rate-limits}
+# Límites de velocidad de la API de mensajería del dispositivo {#device-messaging-api-rate-limits}
 
 {% alert important %}
-Esta página está en fase beta. Las características y la documentación de la API de mensajería están sujetas a cambios.
+Esta página está en fase beta. Las características y la documentación de la API de mensajería del dispositivo están sujetas a cambios.
 {% endalert %}
 
-Braze aplica límites de velocidad de la API de mensajería por espacio de trabajo. Si un espacio de trabajo supera un límite, Braze devuelve un código de estado `429 Too Many Requests`.
+Braze aplica límites de velocidad de la API de mensajería del dispositivo por espacio de trabajo. Si un espacio de trabajo supera un límite, Braze devuelve un código de estado `429 Too Many Requests`.
 
-Los límites de la API de mensajería son independientes de los límites predeterminados documentados para otros endpoints de la REST API de Braze. No asumas que un límite, ventana de tiempo, tamaño de carga útil o programación de reinicio documentados para otro endpoint se aplican a la API de mensajería.
+Los límites de la API de mensajería del dispositivo son independientes de los límites predeterminados documentados para otros endpoints de la REST API de Braze. No asumas que un límite, ventana de tiempo, tamaño de carga útil o programación de reinicio documentados para otro endpoint se aplican a la API de mensajería del dispositivo.
 
 ## Encabezados de límite de velocidad {#rate-limit-headers}
 
-Cuando la información de límite de velocidad está disponible, la respuesta incluye los siguientes encabezados:
+Cuando la información sobre el límite de velocidad está disponible, una respuesta incluye los siguientes encabezados:
 
 | Encabezado | Descripción |
 |---|---|
 | `X-RateLimit-Limit` | El número máximo de solicitudes permitidas en el intervalo actual. |
 | `X-RateLimit-Remaining` | El número de solicitudes restantes en la ventana de límite de velocidad actual. |
-| `X-RateLimit-Reset` | La hora en formato epoch UTC en la que se reinicia la ventana de límite de velocidad actual. |
+| `X-RateLimit-Reset` | La hora en formato epoch UTC en la que se restablece la ventana de límite de velocidad actual. |
 | `X-RateLimit-Retry-After` | El número de segundos que debes esperar antes de reintentar una solicitud con límite de velocidad. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Encabezados de límite de velocidad de la API de mensajería" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Encabezados de límite de velocidad de la API de mensajería de dispositivos" }
 
-Usa estos encabezados para reducir o pausar las solicitudes antes de alcanzar un límite. Es posible que los encabezados no estén presentes en todas las respuestas.
+Usa estos encabezados para reducir o pausar solicitudes antes de alcanzar un límite. Es posible que los encabezados no estén presentes en todas las respuestas.
 
 ## Gestión de los límites de velocidad {#handling-rate-limits}
 

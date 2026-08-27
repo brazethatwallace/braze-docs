@@ -1,11 +1,10 @@
 ---
 nav_title: Melhores práticas
-article_title: Melhores práticas de Ingestão de Dados na Nuvem
+article_title: Melhores práticas
 toc_headers: h2
 page_order: 1
 page_type: reference
 description: "Esta página fornece uma visão geral da Ingestão de Dados na Nuvem, melhores práticas e limitações do produto."
-
 ---
 
 # Melhores práticas {#best-practices}
@@ -21,19 +20,19 @@ description: "Esta página fornece uma visão geral da Ingestão de Dados na Nuv
 Quando uma sincronização é executada, a Braze se conecta diretamente à sua instância de data warehouse, recupera todos os novos dados da tabela especificada e atualiza os dados correspondentes no seu dashboard da Braze. Cada vez que a sincronização é executada, a Braze reflete todos os dados atualizados.
 
 {% alert important %}
-O CDI da Braze sincronizará as linhas estritamente com base no valor de `UPDATED_AT`, independentemente de o conteúdo da linha ser igual ao que está atualmente na Braze. Por isso, recomendamos usar `UPDATED_AT` corretamente para sincronizar apenas dados novos ou atualizados, evitando uso desnecessário de pontos de dados.
+O CDI da Braze sincroniza as linhas estritamente com base no valor de `UPDATED_AT`, independentemente de o conteúdo da linha ser igual ao que está atualmente na Braze. Sendo assim, recomendamos usar `UPDATED_AT` corretamente para sincronizar apenas dados novos ou atualizados e evitar uso desnecessário de pontos de dados.
 {% endalert %}
 
-### Exemplo: Sincronização recorrente {#example-recurring-sync}
+### Exemplo: sincronização recorrente {#example-recurring-sync}
 
-Para ilustrar como `UPDATED_AT` é usado em uma sincronização CDI, considere este exemplo de sincronização recorrente para atualizar atributos de usuários:
+Para ilustrar como `UPDATED_AT` é usado em uma sincronização CDI, considere este exemplo de sincronização recorrente para atualização de atributos de usuários:
 
 - Fontes de armazenamento de arquivos
    - Amazon S3
 
 ## Tipos de dados compatíveis {#supported-data-types}
 
-A Cloud Data Ingestion é compatível com os seguintes tipos de dados:
+A Cloud Data Ingestion oferece suporte aos seguintes tipos de dados:
 - Atributos de usuário, incluindo:
    - Atributos personalizados aninhados
    - Vetores de objetos
@@ -45,22 +44,22 @@ A Cloud Data Ingestion é compatível com os seguintes tipos de dados:
 
 ### Evitando problemas com tipos de dados {#avoiding-data-type-issues}
 
-Ao usar a CDI para sincronizar dados de fontes externas (como Databricks ou Snowflake), verifique se as colunas de origem usam os tipos de dados corretos antes da sincronização. Problemas comuns incluem:
+Ao usar a CDI para sincronizar dados de fontes externas (como Databricks ou Snowflake), certifique-se de que as colunas de origem usem os tipos de dados corretos antes da sincronização. Problemas comuns incluem:
 
-- **Timestamps armazenados como strings:** Verifique se suas colunas de data usam um tipo timestamp ou datetime no banco de dados de origem, e não um varchar ou string.
-- **Números armazenados como strings:** Converta colunas numéricas para tipos integer ou float na consulta de origem antes de sincronizar.
-- **Tipos inconsistentes entre sincronizações:** Se o tipo de uma coluna mudar entre sincronizações, a Braze pode rejeitar os novos dados. Verifique se o esquema de origem permanece consistente.
+- **Timestamps armazenados como strings:** Certifique-se de que suas colunas de data usem um tipo timestamp ou datetime no banco de dados de origem, e não varchar ou string.
+- **Números armazenados como strings:** Converta colunas numéricas para tipos integer ou float na sua consulta de origem antes de sincronizar.
+- **Tipos inconsistentes entre sincronizações:** Se o tipo de uma coluna mudar entre sincronizações, a Braze poderá rejeitar os novos dados. Verifique se o esquema de origem permanece consistente.
 
 Para forçar ou alterar tipos de dados de atributos personalizados no dashboard da Braze, consulte [Gerenciar dados personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#forcing-data-type-comparisons).
 
-Você pode atualizar dados de usuários por ID externo, alias de usuário, Braze ID, e-mail ou número de telefone. Você pode excluir usuários por ID externo, alias de usuário ou Braze ID.
+Você pode atualizar dados de usuários por ID externo, alias de usuário, ID da Braze, e-mail ou número de telefone. Você pode excluir usuários por ID externo, alias de usuário ou ID da Braze.
 
 ## O que é sincronizado {#what-gets-synced}
 
-Cada vez que uma sincronização é executada, a Braze procura linhas que não foram sincronizadas anteriormente. Essa verificação é feita por meio da coluna `UPDATED_AT` na sua tabela ou visualização. A Braze seleciona e importa todas as linhas em que `UPDATED_AT` é posterior ao último valor sincronizado de `UPDATED_AT`. Linhas com o timestamp exato do limite também podem ser ressincronizadas se novas linhas forem adicionadas com esse mesmo timestamp entre as execuções.
+Cada vez que uma sincronização é executada, a Braze procura linhas que não foram sincronizadas anteriormente. Isso é verificado por meio da coluna `UPDATED_AT` na sua tabela ou visualização. A Braze seleciona e importa todas as linhas em que `UPDATED_AT` é posterior ao último valor de `UPDATED_AT` sincronizado. Linhas que estejam exatamente no timestamp limite também podem ser ressincronizadas se novas linhas forem adicionadas com esse mesmo timestamp entre as execuções.
 
 {% alert important %}
-A CDI rastreia o número de linhas no último valor sincronizado de `UPDATED_AT`. Se novas linhas forem adicionadas com o mesmo timestamp entre as execuções, a CDI muda para um limite inclusivo (`>=`) e ressincroniza todas as linhas com aquele timestamp, incluindo as que já foram processadas. Para evitar sincronizações duplicadas e consumo desnecessário de pontos de dados, use valores únicos de `UPDATED_AT` entre as execuções de sincronização. Para saber mais, consulte [Evitar ressincronizar linhas com timestamps duplicados](#avoid-resyncing-rows-with-duplicate-timestamps).
+O CDI rastreia o número de linhas no último valor de `UPDATED_AT` sincronizado. Se novas linhas forem adicionadas com esse mesmo timestamp entre as execuções, o CDI muda para um limite inclusivo (`>=`) e ressincroniza todas as linhas com esse timestamp, incluindo as que já foram processadas. Para evitar sincronizações duplicadas e consumo desnecessário de pontos de dados, use valores de `UPDATED_AT` únicos entre as execuções de sincronização. Para saber mais, consulte [Evitar ressincronizar linhas com timestamps duplicados](#avoid-resyncing-rows-with-duplicate-timestamps).
 {% endalert %}
 
 No seu data warehouse, adicione os seguintes usuários e atributos à sua tabela, definindo o horário de `UPDATED_AT` como o momento em que você adiciona esses dados:
@@ -192,7 +191,7 @@ Durante a próxima sincronização agendada, a Braze sincroniza todas as linhas 
   </tbody>
 </table>
 
-Uma nova linha foi adicionada para `customer_9012`, mas seu valor de `UPDATED_AT` (`2022-07-16 00:25:30`) é anterior ao timestamp armazenado (`2022-07-19 09:07:23`), então ela não será sincronizada. No entanto, a linha existente de `customer_5678` tem um valor de `UPDATED_AT` igual ao timestamp armazenado, então ela é ressincronizada devido ao limite inclusivo. Para mais detalhes sobre esse comportamento, consulte [Certifique-se de que o horário de UPDATED_AT não seja o mesmo horário da sua sincronização](#make-sure-the-updated_at-time-isnt-the-same-time-as-your-sync). O `UPDATED_AT` armazenado permanece como `2022-07-19 09:07:23`.
+Uma nova linha foi adicionada para `customer_9012`, mas seu valor de `UPDATED_AT` (`2022-07-16 00:25:30`) é anterior ao timestamp armazenado (`2022-07-19 09:07:23`), então ela não será sincronizada. No entanto, a linha existente para `customer_5678` tem um valor de `UPDATED_AT` igual ao timestamp armazenado, então ela é ressincronizada devido ao limite inclusivo. Para saber mais sobre esse comportamento, consulte [Certifique-se de que o horário de UPDATED_AT não seja o mesmo horário da sua sincronização](#make-sure-the-updated_at-time-isnt-the-same-time-as-your-sync). O `UPDATED_AT` armazenado permanece como `2022-07-19 09:07:23`.
 
 **Sincronização recorrente, terceira execução em 21 de julho de 2022 às 12h**
 
@@ -280,15 +279,15 @@ Uma nova linha foi adicionada para `customer_9012`, mas seu valor de `UPDATED_AT
   </tbody>
 </table>
 
-Nessa terceira execução, outra nova linha foi adicionada para `customer_1234` com um valor de `UPDATED_AT` (`2022-07-21 08:30:00`) posterior ao timestamp armazenado. Essa nova linha e a linha existente de `customer_5678` (que tem um `UPDATED_AT` igual ao timestamp armazenado) são ambas sincronizadas. O `UPDATED_AT` armazenado agora é definido como `2022-07-21 08:30:00`.
+Nessa terceira execução, outra nova linha foi adicionada para `customer_1234` com um valor de `UPDATED_AT` (`2022-07-21 08:30:00`) posterior ao timestamp armazenado. Essa nova linha e a linha existente para `customer_5678` (que tem um `UPDATED_AT` igual ao timestamp armazenado) são ambas sincronizadas. O `UPDATED_AT` armazenado agora é definido como `2022-07-21 08:30:00`.
 
 {% alert note %}
-Valores de `UPDATED_AT` podem ser até mesmo posteriores ao horário de início da execução de uma sincronização específica. No entanto, isso não é recomendado, pois empurra o último timestamp de `UPDATED_AT` "para o futuro", e sincronizações subsequentes não sincronizarão valores anteriores.
+Os valores de `UPDATED_AT` podem ser até mesmo posteriores ao horário de início da execução de uma determinada sincronização. No entanto, isso não é recomendado, pois empurra o último timestamp de `UPDATED_AT` "para o futuro", e sincronizações subsequentes não sincronizarão valores anteriores.
 {% endalert %}
 
-## Use um registro de data e hora UTC para a coluna `UPDATED_AT` {#use-a-utc-timestamp-for-the-updated_at-column}
+## Use um timestamp UTC para a coluna `UPDATED_AT` {#use-a-utc-timestamp-for-the-updated_at-column}
 
-A coluna `UPDATED_AT` deve estar em UTC para evitar problemas com o horário de verão. Prefira funções somente em UTC, como `SYSDATE()` em vez de `CURRENT_DATE()`, sempre que possível.
+A coluna `UPDATED_AT` deve estar em UTC para evitar problemas com o horário de verão. Prefira funções exclusivamente UTC, como `SYSDATE()` em vez de `CURRENT_DATE()`, sempre que possível.
 
 ## Evitar a ressincronização de linhas com timestamps duplicados {#avoid-resyncing-rows-with-duplicate-timestamps}
 
@@ -539,36 +538,36 @@ A CDI sincronizará apenas as novas linhas, então a próxima sincronização qu
 
 ## Dicas adicionais {#additional-tips}
 
-### Escreva apenas atributos novos ou atualizados para minimizar o consumo {#only-write-new-or-updated-attributes-to-minimize-consumption}
+### Grave apenas atributos novos ou atualizados para minimizar o consumo {#only-write-new-or-updated-attributes-to-minimize-consumption}
 
-Cada vez que uma sincronização é executada, a Braze procura linhas que ainda não foram sincronizadas anteriormente. Isso é verificado usando a coluna `UPDATED_AT` na sua tabela ou visualização. A Braze seleciona e importa todas as linhas em que `UPDATED_AT` é posterior ao último valor de `UPDATED_AT` sincronizado, independentemente de serem iguais ao que está atualmente no perfil de usuário. As linhas no limite do timestamp também podem ser ressincronizadas se novas linhas compartilharem esse mesmo timestamp. Por isso, recomendamos sincronizar apenas atributos que você deseja adicionar ou atualizar.
+Cada vez que uma sincronização é executada, a Braze procura por linhas que não foram sincronizadas anteriormente. Verificamos isso usando a coluna `UPDATED_AT` na sua tabela ou view. A Braze seleciona e importa quaisquer linhas em que o `UPDATED_AT` seja posterior ao último valor de `UPDATED_AT` sincronizado, independentemente de serem iguais ao que está atualmente no perfil de usuário. Linhas no limite do timestamp também podem ser sincronizadas novamente se novas linhas compartilharem esse timestamp. Sendo assim, recomendamos sincronizar apenas os atributos que você deseja adicionar ou atualizar.
 
-O uso de pontos de dados com CDI é idêntico a outros métodos de ingestão, como REST APIs ou SDKs. Então, cabe a você garantir que está adicionando apenas atributos novos ou atualizados nas suas tabelas de origem.
+O uso de pontos de dados é idêntico ao usar CDI ou outros métodos de ingestão, como REST APIs ou SDKs, então cabe a você garantir que está adicionando apenas atributos novos ou atualizados às suas tabelas de origem.
 
-### Separe `EXTERNAL_ID` da coluna `PAYLOAD` {#separate-external_id-from-payload-column}
+### Separe o `EXTERNAL_ID` da coluna `PAYLOAD` {#separate-external_id-from-payload-column}
 
 O objeto `PAYLOAD` não deve incluir um ID externo ou outro tipo de identificador.
 
 ### Remova um atributo {#remove-an-attribute}
 
-Você pode defini-lo como `null` se quiser omitir um atributo do perfil de um usuário. Se quiser que um atributo permaneça inalterado, não o envie para a Braze até que ele tenha sido atualizado. Para remover completamente um atributo, use `TO_JSON(OBJECT_CONSTRUCT_KEEP_NULL(...))`.
+Você pode defini-lo como `null` se quiser omitir um atributo do perfil de um usuário. Se quiser que um atributo permaneça inalterado, não o envie para a Braze até que tenha sido atualizado. Para remover completamente um atributo, use `TO_JSON(OBJECT_CONSTRUCT_KEEP_NULL(...))`.
 
 ### Faça atualizações incrementais {#make-incremental-updates}
 
-Faça atualizações incrementais nos seus dados para evitar sobrescritas não intencionais quando atualizações simultâneas são realizadas.
+Faça atualizações incrementais nos seus dados para evitar substituições não intencionais quando atualizações simultâneas são realizadas.
 
 {% alert important %}
-* **Atualizações em atributos diferentes:** Na grande maioria dos casos, se duas atualizações não afetam os mesmos atributos de um usuário, elas produzem resultados totalmente independentes. Por exemplo, se você atualizar o atributo `Color` de um usuário e separadamente atualizar o atributo `Size`, ambas as atualizações devem ser aplicadas corretamente, mesmo que ocorram com segundos de diferença.
-* **Atualizações no mesmo atributo:** Condições de corrida podem ocorrer quando múltiplas atualizações visam o mesmo atributo dentro de uma única execução de sincronização. Nesses casos raros, uma atualização pode sobrescrever outra. A melhor forma de prevenir esse comportamento é garantir que os dados de origem da sua sincronização CDI reflitam apenas o estado mais recente de cada usuário, ou que todas as atualizações para um determinado usuário ou par usuário+atributo estejam contidas em uma única linha.
-* **Operadores de vetor de objeto:** As únicas exceções para atualizações independentes são os operadores `$add`, `$remove` e `$update` para vetores de objeto, onde atualizações no mesmo vetor podem interagir entre si.
-* **Eventos:** Condições de corrida não afetam eventos porque cada evento é único e possui um timestamp associado.
+* **Atualizações em atributos diferentes:** Na grande maioria dos casos, se duas atualizações não impactam os mesmos atributos de um usuário, elas têm resultados totalmente independentes. Por exemplo, se você atualizar o atributo `Color` de um usuário e separadamente atualizar o atributo `Size`, ambas as atualizações devem ser aplicadas corretamente, mesmo que ocorram com poucos segundos de diferença.
+* **Atualizações no mesmo atributo:** Condições de corrida podem ocorrer quando múltiplas atualizações atingem o mesmo atributo dentro de uma única execução de sincronização. Nesses casos raros, uma atualização pode sobrescrever outra. A melhor forma de prevenir esse comportamento é garantir que os dados de origem da sua sincronização CDI reflitam apenas o estado mais recente de cada usuário, ou que todas as atualizações para um determinado usuário ou par usuário+atributo estejam contidas em uma única linha.
+* **Operadores de vetor de objeto:** As únicas exceções para atualizações independentes são os operadores `$add`, `$remove` e `$update` para vetores de objeto, em que atualizações no mesmo vetor podem interagir entre si.
+* **Eventos:** Condições de corrida não afetam eventos, pois cada evento é único e possui um timestamp associado a ele.
 {% endalert %}
 
 A melhor forma de prevenir esse comportamento é garantir que os dados de origem da sua sincronização CDI reflitam apenas o estado mais recente de cada usuário, ou que todas as atualizações para um determinado usuário ou par usuário+atributo estejam contidas em uma única linha.
 
 ### Crie uma string JSON a partir de outra tabela {#create-a-json-string-from-another-table}
 
-Se você prefere armazenar cada atributo em sua própria coluna internamente, é necessário converter essas colunas em uma string JSON para alimentar a sincronização com a Braze. Para isso, você pode usar uma consulta como:
+Se você preferir armazenar cada atributo em sua própria coluna internamente, precisa converter essas colunas em uma string JSON para preencher a sincronização com a Braze. Para isso, você pode usar uma consulta como:
 
 {% tabs local %}
 {% tab Snowflake %}
@@ -687,36 +686,36 @@ FROM [braze].[users] ;
 
 ### Use o timestamp `UPDATED_AT` {#use-the-updated_at-timestamp}
 
-A Braze usa o timestamp `UPDATED_AT` para rastrear quais dados foram sincronizados com sucesso. O CDI também rastreia o número de linhas no último timestamp sincronizado. Se novas linhas forem adicionadas com esse mesmo timestamp entre execuções, o CDI ressincroniza todas as linhas naquele timestamp, o que pode gerar dados duplicados. Para saber mais e conferir dicas, consulte [Evitar ressincronização de linhas com timestamps duplicados](#avoid-resyncing-rows-with-duplicate-timestamps).
+A Braze usa o timestamp `UPDATED_AT` para rastrear quais dados foram sincronizados com sucesso. O CDI também rastreia o número de linhas no último timestamp sincronizado. Se novas linhas forem adicionadas com o mesmo timestamp entre execuções, o CDI ressincroniza todas as linhas naquele timestamp, o que pode levar a dados duplicados. Para mais detalhes e dicas, consulte [Evitar a ressincronização de linhas com timestamps duplicados](#avoid-resyncing-rows-with-duplicate-timestamps).
 
-### Configuração de tabela {#table-configuration}
+### Configuração da tabela {#table-configuration}
 
-Temos um [repositório público no GitHub](https://github.com/braze-inc/braze-examples/tree/main/cloud-data-ingestion) para que os clientes compartilhem melhores práticas ou snippets de código. Para contribuir com seus próprios snippets, crie um pull request!
+Temos um [repositório público no GitHub](https://github.com/braze-inc/braze-examples/tree/main/cloud-data-ingestion) para que clientes compartilhem melhores práticas ou snippets de código. Para contribuir com seus próprios snippets, crie um pull request!
 
 ### Formatação de dados {#data-formatting}
 
-Os requisitos de configuração de tabela e de formatação de carga útil da ingestão de dados na nuvem estão documentados em [Configuração de tabela para ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
+Os requisitos de configuração de tabela e formatação de carga útil para Cloud Data Ingestion estão documentados em [Configuração de tabela para Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
 
 Use essa página para distinguir:
 
-- Requisitos de tabela de origem (colunas obrigatórias, colunas de identificador e comportamento de `UPDATED_AT`)
-- Requisitos de carga útil (quais campos devem corresponder ao formato do objeto `/users/track` para cada tipo de dado)
+- Requisitos da tabela de origem (colunas obrigatórias, colunas de identificador e comportamento do `UPDATED_AT`)
+- Requisitos da carga útil (quais campos devem corresponder ao formato do objeto `/users/track` para cada tipo de dados)
 
-### Evite timeouts nas consultas ao data warehouse {#avoid-timeouts-for-data-warehouse-queries}
+### Evite timeouts nas consultas do data warehouse {#avoid-timeouts-for-data-warehouse-queries}
 
-Recomendamos que as consultas sejam concluídas em até uma hora para um desempenho ideal e para evitar possíveis erros. Se as consultas excederem esse período, considere revisar a configuração do seu data warehouse. Otimizar os recursos alocados ao seu warehouse pode ajudar a melhorar a velocidade de execução das consultas.
+Recomendamos que as consultas sejam concluídas em até uma hora para desempenho ideal e para evitar possíveis erros. Se as consultas excederem esse prazo, considere revisar a configuração do seu data warehouse. Otimizar os recursos alocados ao seu warehouse pode ajudar a melhorar a velocidade de execução das consultas.
 
 ## Limitações do produto {#product-limitations}
 
-| Limitação | Descrição |
+| Limitação              | Descrição                                                                                                                                                                          |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Número de integrações | Não há limite para o número de integrações que você pode configurar. No entanto, você só poderá configurar uma integração por tabela ou visualização. |
-| Número de linhas | Por padrão, cada execução pode sincronizar até 500 milhões de linhas. A Braze interrompe qualquer sincronização com mais de 500 milhões de novas linhas. Se você precisar de um limite maior, entre em contato com seu gerente de sucesso do cliente ou com o suporte da Braze. |
-| Atributos por linha | Cada linha deve conter um único ID de usuário e um objeto JSON com até 250 atributos. Cada chave no objeto JSON conta como um atributo (ou seja, um vetor conta como um atributo). |
-| Tamanho da carga útil | Cada linha pode conter uma carga útil de até 1 MB. A Braze rejeita cargas úteis maiores que 1&nbsp;MB e registra o erro "Payload was greater than 1MB" no log de sincronização, junto com o ID externo associado e a carga útil truncada. |
-| Tipo de dados | Você pode sincronizar atributos de usuários, eventos e compras por meio da ingestão de dados na nuvem. |
-| Região da Braze | Este produto está disponível em todas as regiões da Braze. Qualquer região da Braze pode se conectar a qualquer região de dados de origem. |
-| Região de origem | A Braze se conectará ao seu data warehouse ou ambiente de nuvem em qualquer região ou provedor de nuvem. |
+| Número de integrações  | Não há limite para a quantidade de integrações que você pode configurar. No entanto, só é possível configurar uma integração por tabela ou visualização.                            |
+| Número de linhas       | Por padrão, cada execução pode sincronizar até 500 milhões de linhas. A Braze interrompe qualquer sincronização com mais de 500 milhões de novas linhas. Se você precisar de um limite maior, entre em contato com seu gerente de sucesso do cliente ou com o suporte da Braze. |
+| Atributos por linha    | Cada linha deve conter um único ID de usuário e um objeto JSON com até 250 atributos. Cada chave no objeto JSON conta como um atributo (ou seja, um vetor conta como um atributo). |
+| Tamanho da carga útil  | Cada linha pode conter uma carga útil de até 1 MB. A Braze rejeita cargas úteis maiores que 1&nbsp;MB e registra o erro "Payload was greater than 1MB" no registro de sincronização, juntamente com o ID externo associado e a carga útil truncada. |
+| Tipo de dados          | Você pode sincronizar atributos de usuário, eventos e compras por meio da ingestão de dados na nuvem.                                                                             |
+| Região da Braze        | Este produto está disponível em todas as regiões da Braze. Qualquer região da Braze pode se conectar a qualquer região de dados de origem.                                        |
+| Região de origem       | A Braze se conectará ao seu data warehouse ou ambiente de nuvem em qualquer região ou provedor de nuvem.                                                                           |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Limitações do produto" }
 
 <br><br>

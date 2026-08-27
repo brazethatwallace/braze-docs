@@ -1,21 +1,22 @@
 ---
 nav_title: レート制限
-article_title: メッセージングAPIのレート制限
+article_title: Device Messaging APIのレート制限
+permalink: /api/device_messaging_api/rate_limits
 page_order: 3
 page_type: reference
-description: "メッセージングAPIのレート制限とレスポンスヘッダーの仕組みについて説明します。"
+description: "Device Messaging APIのレート制限とレスポンスヘッダーの仕組みについて説明します。"
 hidden: true
 ---
 
-# メッセージングAPIのレート制限 {#messaging-api-rate-limits}
+# Device Messaging APIのレート制限 {#device-messaging-api-rate-limits}
 
 {% alert important %}
-このページはベータ版です。メッセージングAPIの機能とドキュメントは変更される可能性があります。
+このページはベータ版です。Device Messaging APIの機能とドキュメントは変更される可能性があります。
 {% endalert %}
 
-BrazeはワークスペースごとにメッセージングAPIのレート制限を適用します。ワークスペースが制限を超えた場合、Brazeは`429 Too Many Requests`ステータスコードを返します。
+BrazeはワークスペースごとにDevice Messaging APIのレート制限を適用します。ワークスペースが制限を超えた場合、Brazeは`429 Too Many Requests`ステータスコードを返します。
 
-メッセージングAPIの制限は、他のBraze REST APIエンドポイントに記載されているデフォルトの制限とは別のものです。他のエンドポイントに記載されている制限、時間枠、ペイロードサイズ、またはリセットスケジュールがメッセージングAPIに適用されると想定しないでください。
+Device Messaging APIの制限は、他のBraze REST APIエンドポイントに記載されているデフォルトの制限とは別のものです。他のエンドポイントに記載されている制限、時間枠、ペイロードサイズ、またはリセットスケジュールがDevice Messaging APIに適用されると想定しないでください。
 
 ## レート制限ヘッダー {#rate-limit-headers}
 
@@ -23,18 +24,18 @@ BrazeはワークスペースごとにメッセージングAPIのレート制限
 
 | ヘッダー | 説明 |
 |---|---|
-| `X-RateLimit-Limit` | 現在のインターバルで許可されるリクエストの最大数です。 |
-| `X-RateLimit-Remaining` | 現在のレート制限ウィンドウで残っているリクエスト数です。 |
-| `X-RateLimit-Reset` | 現在のレート制限ウィンドウがリセットされるUTCエポック時間です。 |
-| `X-RateLimit-Retry-After` | レート制限されたリクエストを再試行するまでに待機する秒数です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="メッセージングAPIのレート制限ヘッダー" }
+| `X-RateLimit-Limit` | 現在のインターバルで許可されるリクエストの最大数。 |
+| `X-RateLimit-Remaining` | 現在のレート制限ウィンドウで残っているリクエスト数。 |
+| `X-RateLimit-Reset` | 現在のレート制限ウィンドウがリセットされるUTCエポック時間。 |
+| `X-RateLimit-Retry-After` | レート制限されたリクエストを再試行するまでの待機秒数。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="デバイスメッセージングAPIのレート制限ヘッダー" }
 
 これらのヘッダーを使用して、制限に達する前にリクエストを減らすか一時停止してください。ヘッダーはすべてのレスポンスに含まれるとは限りません。
 
 ## レート制限の処理 {#handling-rate-limits}
 
-`429`レスポンスを受信した場合:
+`429` レスポンスを受信した場合：
 
-1. 該当するワークスペースのリクエストを停止または削減します。
-2. `X-RateLimit-Retry-After`が存在する場合は、それを使用して待機時間を決定します。存在しない場合は、`X-RateLimit-Reset`が利用可能であれば、それを使用して再開のタイミングを決定します。
-3. 指数バックオフと最大再試行回数を設定してリトライします。
+1. 影響を受けるワークスペースへのリクエストを停止または削減します。
+2. `X-RateLimit-Retry-After` が存在する場合は、それを使用して待機時間を決定します。それ以外の場合は、`X-RateLimit-Reset` が利用可能であれば、それを使用してリクエスト再開のタイミングを決定します。
+3. 指数バックオフと最大リトライ回数を設定してリトライします。

@@ -30,11 +30,11 @@ description: "この記事では、APIのみを使用したBrazeエンドポイ�
 
 APIを使用して送信の一部としてユーザーを作成する必要がある場合、次の2つの方法があります。
 
-### オプション 1: `/users/track` を使用してから送信する {#option-1-use-userstrack-then-send}
+### オプション1: `/users/track` を使用してから送信する {#option-1-use-userstrack-then-send}
 
-まず、[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントでユーザーを作成し、データが伝播するのを待ちます（通常、数分間待つことを推奨します）。その後にAPIのみの送信を開始します。Brazeは `/users/track` のデータ処理時間を保証しないため、これらの呼び出し間に十分な時間を設けない場合、[競合]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions)が発生する可能性があります。
+まず、[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントでユーザーを作成し、データが伝播するのを待ちます（通常、数分間待つことを推奨します）。その後にAPIのみの送信を開始します。Brazeは`/users/track`のデータ処理時間を保証しないため、これらの呼び出し間に十分な時間を設けない場合、[競合]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions)が発生する可能性があります。
 
-### オプション 2: APIトリガー型キャンペーンまたはキャンバスを使用する {#option-2-use-an-api-triggered-campaign-or-canvas}
+### オプション2: APIトリガー型キャンペーンまたはキャンバスを使用する {#option-2-use-an-api-triggered-campaign-or-canvas}
 
 [APIトリガー型キャンペーン]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)または[キャンバス]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)ワークフローを使用します。これらを使用すると、受信者がまだ存在しない場合に作成できます。このオプションはバックエンドのプロセスを簡素化しますが、Brazeダッシュボードでキャンペーンまたはキャンバスを設定する必要があります。
 
@@ -96,7 +96,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `user_aliases` | オプション | ユーザー別名オブジェクトの配列 | [ユーザー別名オブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)を参照してください。 |
 | `segment_id` | オプション | 文字列 | [セグメント識別子]({{site.baseurl}}/api/identifier_types#segment-identifier)を参照してください。 |
 | `audience` | オプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience)を参照してください。 |
-| `campaign_id` | オプション* | 文字列 | 詳細は[キャンペーン識別子]({{site.baseurl}}/api/identifier_types#campaign-identifier)を参照してください。<br><br>*キャンペーンの指標（*送信数*、*クリック数*、*バウンス*など）をBrazeダッシュボードでトラッキングしたい場合、またはユーザープロファイルの[メッセージ履歴タブ]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles#messaging-history-tab)でこのメッセージに関連するイベントを確認したい場合は必須です。`campaign_id` がない場合、Brazeはダッシュボードの配信統計をインクリメントしません。送信は[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)に表示されますが、ダッシュボードのメールパフォーマンス指標には表示されません。 |
+| `campaign_id` | オプション* | 文字列 | 詳細は[キャンペーン識別子]({{site.baseurl}}/api/identifier_types#campaign-identifier)を参照してください。<br><br>*キャンペーンの指標（*送信数*、*クリック数*、*バウンス*など）をBrazeダッシュボードでトラッキングしたい場合、またはユーザープロファイルの[メッセージ履歴タブ]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)でこのメッセージに関連するイベントを確認したい場合は必須です。`campaign_id` がない場合、Brazeはダッシュボードの配信統計をインクリメントしません。送信は[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)に表示されますが、ダッシュボードのメールパフォーマンス指標には表示されません。 |
 | `send_id` | オプション | 文字列 | [送信識別子]({{site.baseurl}}/api/identifier_types#send-identifier)を参照してください。 |
 | `override_frequency_capping` | オプション | ブール値 | キャンペーンの `frequency_capping` を無視します。デフォルトは `false` です。 |
 | `recipient_subscription_state` | オプション | 文字列 | これを使用して、オプトインしたユーザーのみ（`opted_in`）、購読済みかオプトインしているユーザーのみ（`subscribed`）、または購読解除済みのユーザーを含むすべてのユーザー（`all`）にメッセージを送信します。<br><br>`all` ユーザーへの送信は、トランザクションメールメッセージングに便利です。デフォルトは `subscribed` です。 |

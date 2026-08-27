@@ -4,12 +4,22 @@ nav_title: ホーム
 article_title: テクノロジーパートナー
 alias: /partners/partners/
 search_tag: Partner
-description: "Brazeのテクノロジーパートナー（Alloys）をアルファベット順にご覧いただけます。パーソナライゼーション、オーケストレーション、データ、e コマース、Audience Syncなどの連携ドキュメントをご確認ください。"
+description: "Brazeのテクノロジーパートナー（Alloys）をアルファベット順にご覧いただけます。パーソナライゼーション、オーケストレーション、データ、eコマース、Audience Syncなどの連携ドキュメントをご確認ください。"
 ---
 
 # テクノロジーパートナー {#technology-partners}
 
-Braze Alloysテクノロジーパートナーのドキュメントへようこそ。パートナーをアルファベット順にご覧ください。
+> Braze Alloysテクノロジーパートナーは、パーソナライゼーション、データインフラ、アトリビューション、eコマース、Audience Sync、ワークフローツールを通じてBrazeの機能を拡張します。このドキュメントハブでは、パートナーをアルファベット順に一覧表示し、各連携のガイドへのリンクを提供しています。パートナーをワークスペースで有効にする前に、これらの記事で前提条件、設定ステップ、サポートされているBraze機能をご確認ください。アルファベット順のパートナーリストを検索するか、特定の文字にジャンプして目的の連携を見つけたら、そのパートナーの記事を開いて設定の詳細をご確認ください。パートナーカテゴリやユースケースについては、以下のセクションをご覧ください。
+
+## よくある質問 {#frequently-asked-questions}
+
+### Brazeテクノロジーパートナー連携を見つけるにはどうすればよいですか？ {#how-do-i-find-a-braze-technology-partner-integration}
+
+このページのアルファベット順リストを閲覧するか、見出しの文字にジャンプして、パートナー名で検索できます。各エントリは、そのパートナーのBraze連携記事にリンクしています。
+
+### Braze Alloysとは何ですか？ {#what-is-braze-alloys}
+
+Braze Alloysは、Brazeのテクノロジーパートナープログラムです。パートナーは、このハブに記載されている補完的なデータ、コンテンツ、アトリビューション、オーケストレーション機能でBrazeプラットフォームを拡張します。
 
 <div class="partners-az-list" markdown="1">
 
@@ -168,7 +178,6 @@ Braze Alloysテクノロジーパートナーのドキュメントへようこ�
 - [Jasper]({{site.baseurl}}/partners/message_orchestration/templates/jasper)
 - [Jebbit]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/jebbit)
 - [Judo]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/judo)
-- [JustAI]({{site.baseurl}}/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai)
 - [Justuno]({{site.baseurl}}/partners/data_and_analytics/leads_capture/justuno)
 
 </div>
@@ -401,12 +410,12 @@ Brazeテクノロジーパートナーの完全な検索・フィルター可能
 
 ## パートナー接続のトラブルシューティング {#troubleshooting-partner-connections}
 
-連携にBraze側での設定が必要な場合は、Brazeダッシュボードにログインし、**パートナー連携** > **テクノロジーパートナー**に移動します。
+連携にBraze側でのセットアップが必要な場合は、Brazeダッシュボードにログインし、**パートナー連携** > **テクノロジーパートナー**に移動します。
 
 {% alert note %}
-パートナーが完全に所有する連携は、ここに表示されない場合があります。連携の所有権と設定手順を確認するには、パートナー固有のドキュメントを参照してください。
+完全にパートナーが管理する連携は、ここに表示されない場合があります。連携の所有者と設定手順を確認するには、パートナー固有のドキュメントを参照してください。
 {% endalert %}
 
-Brazeでパートナーに対して**無効な認証情報**と表示されているが、パートナーのダッシュボードでは連携が正しく設定されているように見える場合は、テクノロジーパートナーページで連携を切断してから再接続し、パートナー側でAPIキー、OAuthトークン、および権限を確認してください。
+Brazeでパートナーに対して**Invalid credentials**と表示されているが、そのパートナーのダッシュボードでは連携が正しく設定されているように見える場合は、テクノロジーパートナーページで連携を切断して再接続し、パートナー側でAPIキー、OAuthトークン、および権限を確認してください。
 
-一部の外部ダッシュボード（例えば、配信到達性や受信トレイ監視ツール）では、Brazeのテクノロジーパートナーページとは異なる接続状態や検証ステータスが表示されることがあります。同期や送信にBrazeが依存する接続状態については、Braze内のパートナータイルを使用してください。
+一部の外部ダッシュボード（例：到達率や受信トレイ監視ツール）では、Brazeのテクノロジーパートナーページとは異なる接続状態や検証ステータスが表示される場合があります。同期や送信でBrazeが依存する接続状態については、Braze内のパートナータイルを使用してください。

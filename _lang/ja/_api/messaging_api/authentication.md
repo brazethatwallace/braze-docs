@@ -1,23 +1,24 @@
 ---
 nav_title: 認証とセキュリティ
-article_title: メッセージングAPI認証とセキュリティ
+article_title: Device Messaging API認証とセキュリティ
+permalink: /api/device_messaging_api/authentication
 page_order: 1
 page_type: reference
-description: "メッセージングAPIリクエストを安全に認証する方法について説明します。"
+description: "Device Messaging APIリクエストを安全に認証する方法について説明します。"
 hidden: true
 ---
 
-# メッセージングAPI認証とセキュリティ {#messaging-api-authentication-and-security}
+# Device Messaging API認証とセキュリティ {#device-messaging-api-authentication-and-security}
 
 {% alert important %}
-このページはベータ版です。メッセージングAPIの機能とドキュメントは変更される可能性があります。
+このページはベータ版です。Device Messaging APIの機能とドキュメントは変更される可能性があります。
 {% endalert %}
 
-メッセージングAPIはクライアントサイドのREST APIキーを使用します。これらのキーは、サーバーサイドのBraze REST APIリクエストに使用されるプライベートREST APIキーとは異なります。
+Device Messaging APIはクライアントサイドのREST APIキーを使用します。これらのキーは、サーバーサイドのBraze REST APIリクエストに使用されるプライベートREST APIキーとは異なります。
 
 ## クライアントサイドREST APIキー {#client-side-rest-api-keys}
 
-クライアントサイドREST APIキーは1つのワークスペースにスコープされ、メッセージングAPIの権限に制限されています。これらのキーはクライアントアプリケーションに埋め込むことができます。
+クライアントサイドREST APIキーは1つのワークスペースにスコープされ、デバイスメッセージングAPIの権限に制限されています。これらのキーはクライアントアプリケーションに埋め込むことができます。
 
 {% alert important %}
 クライアントアプリケーションでは、クライアントサイドREST APIキーのみを使用してください。プライベートなサーバーサイドREST APIキーをクライアントサイドのコードに公開してはなりません。
@@ -32,7 +33,7 @@ hidden: true
 
 ## リクエストの認証 {#authenticating-requests}
 
-クライアントサイドREST APIキーを`Authorization`ヘッダーにBearerトークンとして送信します：
+クライアントサイドのREST APIキーを`Authorization`ヘッダーにBearerトークンとして送信します：
 
 ```bash
 Authorization: Bearer {YOUR_CLIENT_SIDE_REST_API_KEY}
@@ -42,10 +43,10 @@ HTTPSと、お使いのBrazeインスタンスの[RESTエンドポイント]({{s
 
 ## ユーザーの識別 {#user-identity}
 
-クライアントサイドREST APIキーは、呼び出し元のアプリケーションとワークスペースを認証しますが、ユーザーは認証しません。リクエスト内の`external_user_id`は、バナーのコンテンツとイベントに関連付けられたユーザーを識別します。
+クライアントサイドのREST APIキーは、呼び出し元のアプリケーションとワークスペースを認証しますが、ユーザーを認証するものではありません。リクエスト内の`external_user_id`は、バナーのコンテンツやイベントに関連付けられたユーザーを識別します。
 
-メッセージングAPIリクエストを行う前に、アプリケーションの認可制御を適用してください。
+Device Messaging APIリクエストを行う前に、アプリケーションの認可制御を適用してください。
 
 ## 認証エラー {#authentication-errors}
 
-認証と権限の失敗はエンドポイントによって異なる場合があります。各エンドポイントのステータスコード表と[メッセージングAPIエラーハンドリング]({{site.baseurl}}/api/messaging_api/error_handling)を参照してください。
+認証や権限に関するエラーは、エンドポイントによって異なる場合があります。各エンドポイントのステータスコードテーブルおよび[Device Messaging APIのエラー処理]({{site.baseurl}}/api/device_messaging_api/error_handling)を参照してください。

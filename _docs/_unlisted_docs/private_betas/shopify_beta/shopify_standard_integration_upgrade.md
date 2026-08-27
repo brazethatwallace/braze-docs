@@ -200,4 +200,4 @@ To verify that your new Shopify connector is live, test the following:
 
 {% multi_lang_include partners/shopify/upgrade_validation_checklist.md %}
 
-If you have any questions, [contact Support]({{site.baseurl}}/user_guide/administrative/access_braze/support/).
+If you have any questions, [contact Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
