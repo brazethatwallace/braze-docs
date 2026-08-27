@@ -23,7 +23,7 @@ _This integration is maintained by Tapcart._
 
 ## About the integration
 
-To learn how to integrate Tapcart with Braze, checkout [Tapcart’s integration guide](https://help.tapcart.com/en/articles/13893755-braze-tapcart) directly on their website. After integrating, you'll be able to leverage the following Tapcart features in Braze:
+To learn how to integrate Tapcart with Braze, check out [Tapcart's integration guide](https://help.tapcart.com/en/articles/13893755-braze-tapcart) directly on their website. After integrating, you can use the following Tapcart features in Braze:
 
 - Base SDK integration
 - iOS and Android push notifications
