@@ -28,7 +28,7 @@ You can create your own Content Cards interface by extending `ABKContentCardsTab
 
 ## API rate limits
 
-[Rate limits]({{site.baseurl}}/api/basics#api-limits) will apply to all customers onboarded after September 16, 2021. 
+[Rate limits]({{site.baseurl}}/api/api_limits) will apply to all customers onboarded after September 16, 2021. 
 
 ## Updates to Android and FireOS developer guides
 
