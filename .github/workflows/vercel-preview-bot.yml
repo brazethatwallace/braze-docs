@@ -311,6 +311,24 @@ jobs:
         run: |
           set -uo pipefail
 
+          api_with_retry() {
+            local max_attempts=3
+            local attempt=1
+
+            while [[ "${attempt}" -le "${max_attempts}" ]]; do
+              if gh api "$@"; then
+                return 0
+              fi
+
+              if [[ "${attempt}" -lt "${max_attempts}" ]]; then
+                sleep $((attempt * 2))
+              fi
+              attempt=$((attempt + 1))
+            done
+
+            return 1
+          }
+
           marker="<!-- vercel-preview-docs-bot -->"
           run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
@@ -328,16 +346,26 @@ jobs:
               "${{ steps.deploy.outputs.locale_links }}")"
           fi
 
-          existing_comment_id="$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate \
-            --jq ".[] | select(.body | contains(\"${marker}\")) | .id" \
-            | python3 -c 'import sys; ids=[l.strip() for l in sys.stdin if l.strip()]; print(ids[-1] if ids else "")')"
+          set +e
+          existing_comment_id="$(
+            api_with_retry "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate \
+              --jq ".[] | select(.body | contains(\"${marker}\")) | .id" \
+              | python3 -c 'import sys; ids=[l.strip() for l in sys.stdin if l.strip()]; print(ids[-1] if ids else "")'
+          )"
+          lookup_exit_code=$?
+          set -e
+
+          if [[ "${lookup_exit_code}" -ne 0 ]]; then
+            echo "::warning::Failed to list existing preview comments."
+            existing_comment_id=""
+          fi
 
           if [[ -n "${existing_comment_id}" ]]; then
-            gh api "repos/${GITHUB_REPOSITORY}/issues/comments/${existing_comment_id}" \
+            api_with_retry "repos/${GITHUB_REPOSITORY}/issues/comments/${existing_comment_id}" \
               --method PATCH \
-              -f body="${body}" >/dev/null
+              -f body="${body}" >/dev/null || echo "::warning::Failed to update preview comment."
           else
-            gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" \
+            api_with_retry "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" \
               --method POST \
-              -f body="${body}" >/dev/null
+              -f body="${body}" >/dev/null || echo "::warning::Failed to post preview comment."
           fi

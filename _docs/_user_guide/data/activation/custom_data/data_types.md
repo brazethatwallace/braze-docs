@@ -238,6 +238,8 @@ When segmenting using the **DOES NOT MATCH REGEX** filter, you must already have
 {% endtab %}
 {% tab Arrays %}
 
+### Arrays {#arrays}
+
 Arrays have a maximum size of 100&nbsp;KB. The default length for an attribute is up to 500 items (for example, if you're sending an attribute such as "Movies Watched" set to 500, when a user watches a 501st movie, the first movie is removed and the most recent is added). Note that if you input any values with spaces in between, before, or after words, Braze will also check for the same spaces.
 
 Array-type custom attributes cannot be imported via [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). To upload array values, use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
