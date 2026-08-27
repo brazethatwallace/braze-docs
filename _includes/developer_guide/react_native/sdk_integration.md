@@ -959,6 +959,10 @@ In the Braze dashboard, go to [User Search]({{site.baseurl}}/user_guide/engageme
 {% endtab %}
 {% endtabs %}
 
+## Testing with Jest
+
+React Native unit tests that import the Braze SDK need mocks for native modules and the Braze Turbo Module. The [Braze React Native SDK repository](https://github.com/braze-inc/braze-react-native-sdk) ships a reference Jest setup in [`__tests__/jest.setup.js`](https://github.com/braze-inc/braze-react-native-sdk/blob/master/__tests__/jest.setup.js). Add that file (or an adapted copy) to `setupFiles` in your Jest configuration so `NativeEventEmitter`, `TurboModuleRegistry`, and `BrazeReactBridge` are mocked when you test components that call Braze APIs.
+
 ## Next steps
 
 After integrating the Braze SDK, you can start implementing common messaging features:

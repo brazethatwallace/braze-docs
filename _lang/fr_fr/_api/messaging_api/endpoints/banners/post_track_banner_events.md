@@ -1,6 +1,7 @@
 ---
 nav_title: "POST : Suivre les événements d'analyse des bannières"
 article_title: "POST : Suivre les événements d'analyse des bannières"
+permalink: /api/device_messaging_api/endpoints/banners/post_track_banner_events
 search_tag: Endpoint
 page_order: 1
 layout: api_page
@@ -16,7 +17,7 @@ hidden: true
 {% endapimethod %}
 
 {% alert important %}
-Cette page est en version bêta. Les fonctionnalités et la documentation de l'API de messaging sont susceptibles d'être modifiées.
+Cette page est en version bêta. Les fonctionnalités et la documentation de l'API Device Messaging sont susceptibles d'être modifiées.
 {% endalert %}
 
 > Utilisez cet endpoint pour enregistrer les événements d'impression et de clic pour les bannières.
@@ -28,9 +29,9 @@ Braze valide chaque événement séparément. Lorsqu'une requête contient à la
 Pour utiliser cet endpoint, vous avez besoin des éléments suivants :
 
 - Un espace de travail avec les bannières activées
-- Une [clé API REST côté client]({{site.baseurl}}/api/messaging_api/authentication) avec la permission `banners.track`
+- Une [clé API REST côté client]({{site.baseurl}}/api/device_messaging_api/authentication) avec la permission `banners.track`
 - L'[endpoint REST]({{site.baseurl}}/api/basics#endpoints) de votre instance Braze
-- Un `id` de bannière renvoyé par l'[endpoint de récupération des bannières pour un utilisateur]({{site.baseurl}}/api/messaging_api/endpoints/banners/post_sync_banners)
+- Un `id` de bannière renvoyé par l'[endpoint de récupération des bannières pour un utilisateur]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)
 
 Incluez la clé API REST côté client dans l'en-tête `Authorization` en tant que jeton Bearer.
 
@@ -38,7 +39,7 @@ Incluez la clé API REST côté client dans l'en-tête `Authorization` en tant q
 
 Les limites de débit s'appliquent par espace de travail. Si vous dépassez la limite de débit, Braze renvoie un code de statut `429`. Lorsqu'ils sont disponibles, utilisez les en-têtes de réponse `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset` et `X-RateLimit-Retry-After` pour surveiller votre utilisation et déterminer quand réessayer.
 
-Pour plus d'informations, consultez [Limites de débit de l'API de messaging]({{site.baseurl}}/api/messaging_api/rate_limits).
+Pour plus d'informations, consultez [Limites de débit de l'API Device Messaging]({{site.baseurl}}/api/device_messaging_api/rate_limits).
 
 ## Corps de la requête {#request-body}
 
@@ -170,6 +171,6 @@ Si Braze ne peut traiter aucun événement, il renvoie un code de statut `400`.
 | `429` | L'espace de travail a dépassé sa limite de débit. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Codes de statut" }
 
-Pour plus d'informations, consultez [Gestion des erreurs et nouvelles tentatives de l'API de messaging]({{site.baseurl}}/api/messaging_api/error_handling).
+Pour plus d'informations, consultez [Gestion des erreurs et nouvelles tentatives de l'API Device Messaging]({{site.baseurl}}/api/device_messaging_api/error_handling).
 
 {% endapi %}

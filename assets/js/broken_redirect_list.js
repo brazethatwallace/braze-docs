@@ -3261,7 +3261,6 @@ validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce/yot
 validurls['/docs/partners/message_orchestration/channel_extensions/loyalty/extole'] = '/docs/partners/message_personalization/referrals/extole';
 validurls['/docs/partners/message_orchestration/channel_extensions/loyalty/friendbuy'] = '/docs/partners/message_personalization/referrals/friendbuy';
 validurls['/docs/partners/data_and_infrastructure_agility'] = '/docs/partners/data_and_analytics';
-validurls['/docs/partners/message_personalization/dynamic_content'] = '/docs/partners/message_personalization';
 validurls['/docs/partners/message_orchestration/additional_channels'] = '/docs/partners/additional_channels_and_extensions';
 validurls['/docs/partners/message_orchestration/additional_channels/instant_chat'] = '/docs/partners/additional_channels_and_extensions';
 validurls['/docs/partners/message_orchestration/additional_channels/retargeting'] = '/docs/partners/additional_channels_and_extensions';
@@ -3272,7 +3271,6 @@ validurls['/docs/partners/message_orchestration/channel_extensions/email_templat
 validurls['/docs/partners/message_orchestration/channel_extensions/loyalty'] = '/docs/partners/data_and_analytics';
 validurls['/docs/partners/message_orchestration/channel_extensions/ecommerce'] = '/docs/partners/ecommerce';
 validurls['/docs/partners/message_orchestration/channel_extensions/surveys'] = '/docs/partners/additional_channels_and_extensions';
-validurls['/docs/partners/message_orchestration/attribution'] = '/docs/partners/message_orchestration';
 validurls['/docs/partners/message_orchestration/learning'] = '/docs/partners/additional_channels_and_extensions';
 validurls['/docs/partners/data_and_infrastructure_agility/ab_testing'] = '/docs/partners/data_and_analytics';
 validurls['/docs/partners/data_and_infrastructure_agility/analytics'] = '/docs/partners/data_and_analytics';

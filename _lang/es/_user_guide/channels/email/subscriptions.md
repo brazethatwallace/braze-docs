@@ -1,11 +1,10 @@
 ---
 nav_title: "Suscripciones"
-article_title: "Suscripciones"
+article_title: "Suscripciones de correo electrónico"
 page_order: 5
-description: "Este artículo de referencia cubre los diferentes estados de suscripción de los usuarios, cómo gestionar las suscripciones de correo electrónico y cómo segmentar usuarios en función de sus suscripciones."
+description: "Este artículo de referencia cubre los diferentes estados de suscripción de los usuarios, cómo gestionar las suscripciones de correo electrónico y cómo segmentar usuarios en función de las mismas."
 channel:
   - email
-
 ---
 
 # Suscripciones de correo electrónico {#email-subscriptions}
@@ -22,7 +21,7 @@ Braze utiliza estados de suscripción globales para controlar qué usuarios reci
 
 Braze cancela automáticamente la suscripción de cualquier usuario que la cancele manualmente a través de un [pie de página personalizado]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer). Si el usuario actualiza su dirección de correo electrónico y **Volver a suscribir a los usuarios cuando actualicen su correo electrónico** está habilitado en **Configuración de envío**, se reanuda el envío normal.
 
-Si un usuario marca uno o más de tus correos electrónicos como correo no deseado, Braze solo envía correos electrónicos transaccionales a ese usuario. Los correos electrónicos transaccionales se refieren a la opción **Enviar a todos los usuarios, incluidos los que cancelaron su suscripción** en **Público objetivo**.
+Si un usuario marca uno o más de tus correos electrónicos como correo no deseado, Braze solo envía correos transaccionales a ese usuario. Los correos transaccionales se refieren a la opción **Enviar a todos los usuarios, incluidos los que cancelaron su suscripción** en **Público objetivo**.
 
 {% alert tip %}
 Consulta nuestras mejores prácticas de [calentamiento de IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) para obtener orientación sobre cómo volver a interactuar con tus usuarios de manera efectiva.
@@ -68,7 +67,9 @@ Usa cualquiera de los siguientes métodos para verificar el estado de suscripci�
 
 Cuando un usuario actualiza su dirección de correo electrónico, su estado de suscripción se establece como suscrito. Si la dirección de correo electrónico actualizada ya existe en otro lugar dentro de un espacio de trabajo de Braze, el usuario hereda el estado de suscripción de ese usuario existente, a menos que **Volver a suscribir a los usuarios cuando actualicen su configuración de correo electrónico** esté activado en **Configuración de envío**.
 
-Para solucionar problemas con los cambios de estado de suscripción, revisa **Cambios en el estado de suscripción de correo electrónico** en los registros del perfil de usuario para ver el historial y la fuente. Las siguientes fuentes pueden desencadenar un cambio en el estado de suscripción de correo electrónico:
+Para solucionar problemas con los cambios de estado de suscripción, revisa el evento de Currents [Cambio de estado de suscripción global]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events) (`users.behaviors.subscription.GlobalStateChange`), que incluye el historial y la fuente de los cambios de estado de suscripción.
+
+Las siguientes fuentes pueden desencadenar un cambio en el estado de suscripción de correo electrónico:
 
 | Fuente | Descripción |
 | ------ | ----------- |
@@ -79,16 +80,16 @@ Para solucionar problemas con los cambios de estado de suscripción, revisa **Ca
 | Centro de preferencias | El usuario actualizó su preferencia desde un centro de preferencias alojado en Braze |
 | Página de suscripción | El usuario seleccionó un enlace de cancelación de suscripción en un correo electrónico y llegó a la página de suscripción de Braze |
 | List-Unsubscribe | El usuario canceló la suscripción a través del encabezado nativo list-unsubscribe del cliente de correo electrónico |
-| Paso de actualización de usuario en Canvas | Estado de suscripción actualizado por un [paso de actualización de usuario]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update) en un Canvas |
+| Paso de actualización de usuario en Canvas | Estado de suscripción actualizado por un [paso de actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) en un Canvas |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fuentes de actualización del estado de suscripción de correo electrónico" }
 
 Cuando el estado de suscripción global de correo electrónico de un usuario cambia, Braze propaga ese estado a otros perfiles que comparten la misma dirección de correo electrónico, hasta 100 perfiles por cambio. Braze no garantiza la propagación cuando más de 100 perfiles comparten la misma dirección de correo electrónico. Si los usuarios que comparten un correo electrónico muestran diferentes estados de suscripción, ponte en contacto con soporte de Braze.
 
 ## Grupos de suscripción {#subscription-groups}
 
-Los grupos de suscripción de correo electrónico permiten a los usuarios adherirse o cancelar la suscripción a categorías específicas de correo electrónico (como boletines o promociones) sin cambiar su estado global de suscripción de correo electrónico. Los grupos que crees estarán disponibles para añadir a tu [centro de preferencias]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
+Los grupos de suscripción de correo electrónico permiten a los usuarios adherirse o cancelar su suscripción a categorías específicas de correo electrónico (como boletines informativos o promociones) sin cambiar su estado de suscripción global de correo electrónico. Los grupos que crees están disponibles para añadirlos a tu [centro de preferencias]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center).
 
-Para más información sobre cómo crear grupos, segmentar, archivar y el comportamiento específico de cada canal, consulta [Grupos de suscripción]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups).
+Para obtener más información sobre la creación de grupos, la segmentación, el archivado y el comportamiento específico de cada canal, consulta [Grupos de suscripción]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups).
 
 ## Centro de preferencias de correo electrónico {#email-preference-center}
 
@@ -164,7 +165,7 @@ Braze admite tres estados de segmentación:
 - Todos los usuarios, incluidos los que cancelaron su suscripción.
 
 {% alert important %}
-Es tu responsabilidad cumplir con todas las [leyes de correo no deseado]({{site.baseurl}}/help/best_practices/spam_regulations#spam-regulations) aplicables al usar esta configuración de segmentación.
+Es tu responsabilidad cumplir con todas las [leyes de correo no deseado]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations) aplicables al usar esta configuración de segmentación.
 {% endalert %}
 
 ## Segmentación por suscripciones de usuario {#segmenting-by-user-subscriptions}

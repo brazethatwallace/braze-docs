@@ -1,12 +1,11 @@
 ---
 nav_title: "POST : Envoyer des messages Canvas via la distribution déclenchée par l'API"
-article_title: "POST : Envoyer des messages Canvas via la distribution déclenchée par l'API"
+article_title: "Envoyer des messages Canvas via la distribution déclenchée par l'API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Braze permettant d'envoyer des Canvas via la distribution déclenchée par l'API."
-
 ---
 {% api %}
 # Envoyer des messages Canvas via la distribution déclenchée par l'API {#send-canvas-messages-using-api-triggered-delivery}

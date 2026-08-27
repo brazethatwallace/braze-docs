@@ -30,15 +30,27 @@ guide_featured_list:
 
 ## Currentsの機能 {#currents-capabilities}
 
-Currentsでは、次のことができます。
-* Brazeイベントデータをデータウェアハウスまたは[分析パートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)の1つにストリーミングし、詳細な分析を行います。
-* ビジネスインテリジェンスツール、機械学習アルゴリズムなどを強化するために、Brazeイベントデータを継続的にストリーミングします。
-* [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium)、[セグメント]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment)、[mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents)を使用して、Brazeイベントデータをさまざまな他のシステムにルーティングします。
+Currentsでは、以下のことが可能です。
+* Brazeのイベントデータをデータウェアハウスまたは[分析パートナー]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners)にストリーミングし、詳細な分析を行います。
+* Brazeのイベントデータを継続的にストリーミングし、ビジネスインテリジェンスツールや機械学習アルゴリズムなどを活用します。
+* [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium)、[セグメント]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment)、または[mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents)を使用して、Brazeのイベントデータをさまざまなシステムにルーティングします。
 
-Currentsからアクセスできるイベントデータを使用してできることは他にも多数あります。[BrazeでもCurrentsを活用]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents)しています。
+Currentsでアクセスできるイベントデータを活用して、さらに多くのことが実現できます。[BrazeもCurrentsを使用しています]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents)！
+
+## Currentsデータ配信モデル {#currents-data-distribution-model}
+
+Currentsは、エンタイトルメントプールを使用してコネクターの作成とオプションのイベントトラッキングを制御します。
+
+- **エンゲージメントイベントのエンタイトルメント**は、作成する各標準Currentsコネクターごとに必要です。
+- **顧客行動イベントのエンタイトルメント**は、コネクターで**顧客行動およびユーザーイベントをトラッキング**を有効にする場合に必要です。
+- **ユーザープロファイルおよび属性のエンタイトルメント**は、コネクターで**ユーザープロファイルと属性をトラッキング**を有効にする場合に必要です。
+
+テスト用Currentsコネクターは別のテスト上限を使用し、標準コネクターのエンタイトルメントを消費しません。
+
+いずれかのエンタイトルメント上限に達した場合は、[Currentsの設定トラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#troubleshooting)および[Currents FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq)を参照するか、アカウントマネージャーにお問い合わせください。
 
 ## Currentsへのアクセス方法 {#how-to-access-currents}
 
-Currentsコネクターは、弊社のプロレベルおよびエンタープライズレベルの多くのパッケージにすでに含まれています。Currentsの使用に興味がある場合は、アカウントマネージャーにお問い合わせください。アカウントマネージャーとデータスペシャリストが、[Currentsの設定と連携]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents)をサポートいたします。
+Currentsコネクターは、多くのプロおよびエンタープライズレベルのパッケージにすでに含まれています。Currentsの使用にご興味がある場合は、アカウントマネージャーにお問い合わせください。アカウントマネージャーとBrazeのデータスペシャリストが、[Currentsの設定と連携]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents)をサポートします。
 
 <br><br>

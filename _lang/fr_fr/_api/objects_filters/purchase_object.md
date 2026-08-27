@@ -1,10 +1,9 @@
 ---
 nav_title: "Objet Achat"
-article_title: Objet Achat de l'API
+article_title: "Objet Achat"
 page_order: 8
 page_type: reference
 description: "Cet article de référence explique les différents composants d'un objet Achat, comment l'utiliser correctement et des exemples dont vous pouvez vous inspirer."
-
 ---
 
 # Objet Achat {#purchase-object}
@@ -44,7 +43,7 @@ Un objet d'achat est un objet transmis via l'API lorsqu'un achat a été effectu
 ```
 
 {% alert note %}
-Les achats dont l'horodatage se situe dans le futur sont enregistrés par défaut à l'heure actuelle. Cela garantit que les événements d'achat sont enregistrés avec un horodatage précis.
+Les achats dont l'horodatage se situe dans le futur utilisent par défaut l'heure actuelle. Cela garantit que les événements d'achat sont enregistrés avec un horodatage précis.
 {% endalert %}
 
 - [ID utilisateur externe]({{site.baseurl}}/api/basics#user-ids)
@@ -53,12 +52,12 @@ Les achats dont l'horodatage se situe dans le futur sont enregistrés par défau
 - [Wiki des codes temporels ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Certaines paires d'identifiants ne peuvent pas être utilisées ensemble, et `email` a la priorité sur `phone` lorsque les deux sont fournis. Pour plus de détails, consultez la section [Résolution des identifiants]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
+Certaines paires d'identifiants ne peuvent pas être utilisées ensemble, et `email` prend le pas sur `phone` lorsque les deux sont fournis. Pour plus de détails, consultez la section [Résolution des identifiants]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 {% endalert %}
 
-## ID de produit d'achat {#purchase-product-id}
+## Identifiant de produit d'achat {#purchase-product-id}
 
-Au sein de l'objet d'achat, le `product_id` est un identifiant pour l'achat (tel que `Product Name` ou `Product Category`) :
+Dans l'objet d'achat, le `product_id` est un identifiant pour l'achat (tel que `Product Name` ou `Product Category`) :
 
 - Braze vous permet de stocker jusqu'à 5 000 `product_id` dans le tableau de bord.
 - Le `product_id` peut contenir jusqu'à 255 caractères.
@@ -106,7 +105,7 @@ Pour une référence consolidée des types de données à travers les attributs 
 
 ### Propriétés d'achat {#purchase-properties}
 
-Les [propriétés d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties) peuvent être utilisées pour déclencher des messages et pour la personnalisation à l'aide de Liquid, ce qui vous permet également de segmenter en fonction de ces propriétés.
+Les [propriétés d'achat]({{site.baseurl}}/user_guide/data/activation/events/purchase_events) peuvent être utilisées pour déclencher des messages et pour la personnalisation à l'aide de Liquid, ce qui vous permet également de segmenter en fonction de ces propriétés.
 
 {% include data_activation/segmentable_purchase_properties_keys_note.md %}
 
@@ -114,13 +113,13 @@ Les [propriétés d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom
 
 Il est important de noter que cette fonctionnalité est activée **par produit**, et non par achat. Par exemple, si vous avez un volume élevé de produits distincts, mais que chacun d'entre eux possède les mêmes propriétés, la segmentation peut s'avérer superflue.
 
-Dans ce cas, nous recommandons d'utiliser les noms de produits au niveau du groupe plutôt que les identifiants au niveau des transactions lors de la configuration des structures de données. Par exemple, une société de vente de billets de train devrait avoir des produits pour « voyage simple », « voyage aller-retour », « multi-villes », et non des transactions spécifiques telles que « transaction 123 » ou « transaction 046 ». Autre exemple, pour l'événement d'achat « nourriture », il serait préférable que les propriétés soient « gâteau » et « sandwich ».
+Dans ce cas, nous recommandons d'utiliser les noms de produits au « niveau du groupe » plutôt que les identifiants au niveau des transactions lors de la configuration des structures de données. Par exemple, une société de vente de billets de train devrait avoir des produits pour « voyage simple », « voyage aller-retour », « multi-villes », et non des transactions spécifiques telles que « transaction 123 » ou « transaction 046 ». Autre exemple, pour l'événement d'achat « nourriture », il serait préférable que les propriétés soient « gâteau » et « sandwich ».
 
 {% alert important %}
 Notez que les produits peuvent être ajoutés via la REST API de Braze. Par exemple, si vous envoyez un appel à l'endpoint `/users/track` et incluez un nouvel ID d'achat, Braze crée automatiquement un produit dans la section **Paramètres des données** > **Produits** du tableau de bord.
 {% endalert %}
 
-### Exemple d'objet Achat {#example-purchase-object}
+### Exemple d'objet d'achat {#example-purchase-object}
 
 ```html
 POST https://YOUR_REST_API_URL/users/track
@@ -170,8 +169,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-### Objets Achat, objets d'événement et webhooks {#purchase-objects-event-objects-and-webhooks}
+### Objets d'achat, objets d'événement et webhooks {#purchase-objects-event-objects-and-webhooks}
 
-À l'aide de l'exemple fourni, nous pouvons voir que quelqu'un a acheté un sac à dos avec les propriétés suivantes : couleur, monogramme, durée de paiement, taille et marque. Nous pouvons ensuite créer des segments avec ces propriétés en utilisant les [propriétés d'événement d'achat]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-properties) ou envoyer des messages personnalisés par le biais d'un canal à l'aide de Liquid. Par exemple : « Bonjour **Ann F.**, merci d'avoir acheté ce **sac à dos rouge de taille moyenne** pour **40,00 $** ! Merci d'avoir fait vos achats chez **Backpack Locker** ! »
+À l'aide de l'exemple fourni, nous pouvons voir que quelqu'un a acheté un sac à dos avec les propriétés suivantes : couleur, monogramme, durée de paiement, taille et marque. Nous pouvons ensuite créer des segments avec ces propriétés en utilisant les [propriétés d'événement d'achat]({{site.baseurl}}/user_guide/data/activation/events/purchase_events) ou envoyer des messages personnalisés par le biais d'un canal à l'aide de Liquid. Par exemple : « Bonjour **Ann F.**, merci d'avoir acheté ce **sac à dos rouge de taille moyenne** pour **40,00 $** ! Merci d'avoir fait vos achats chez **Backpack Locker** ! »
 
-Si vous souhaitez enregistrer, stocker et suivre les propriétés pour segmenter, vous devez les configurer comme attributs personnalisés. Pour ce faire, vous pouvez utiliser les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension), qui vous permettent de cibler les utilisateurs en fonction d'un événement personnalisé ou d'un comportement d'achat stocké pendant toute la durée de vie de ce profil utilisateur.
+Si vous souhaitez enregistrer, stocker et suivre les propriétés pour segmenter, vous devez les configurer comme attributs personnalisés. Pour ce faire, vous pouvez utiliser les [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension), qui vous permettent de cibler les utilisateurs en fonction d'un événement personnalisé ou d'un comportement d'achat stocké pendant toute la durée de vie de ce profil utilisateur.

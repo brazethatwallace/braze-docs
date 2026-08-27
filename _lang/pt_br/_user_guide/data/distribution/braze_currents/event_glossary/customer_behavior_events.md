@@ -20,7 +20,7 @@ Os esquemas de armazenamento se aplicam aos dados de eventos de arquivo simples 
 Esses eventos também estão disponíveis como tabelas SQL no [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder), nas [Extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e no [Compartilhamento de dados Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para esquemas de tabelas SQL e detalhes das colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Fale com seu representante da Braze ou abra um [ticket de suporte]({{site.baseurl}}/braze_support) se precisar de acesso a direitos de eventos adicionais. Se não encontrar o que precisa nesta página, consulte nossa [Biblioteca de eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) ou nossos [exemplos de dados de amostra do Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Fale com seu representante da Braze ou abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) se precisar de acesso a direitos de eventos adicionais. Se não encontrar o que precisa nesta página, consulte nossa [Biblioteca de eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) ou nossos [exemplos de dados de amostra do Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
@@ -70,7 +70,7 @@ Certos eventos retornam um valor `platform` que especifica a plataforma do dispo
 Random Bucket Number
 {% endapitags %}
 
-Esse evento de usuário ocorre sempre que um novo usuário é criado no espaço de trabalho. Durante esse evento, cada novo usuário recebe um número de bucket aleatório que você pode usar para criar segmentos de usuários aleatórios uniformemente distribuídos. Use isso para agrupar uma faixa de valores de número de bucket aleatório e comparar o desempenho entre suas campanhas e variantes de campanha.
+Esse evento de usuário ocorre sempre que um novo usuário é criado no espaço de trabalho. Durante esse evento, cada novo usuário recebe um número de bucket aleatório que você pode usar para criar segmentos de usuários aleatórios uniformemente distribuídos. Use isso para agrupar uma faixa de valores de número de bucket aleatório e comparar o desempenho entre suas Campaigns e variantes de campanha.
 
 {% alert important %}
 Este evento do Currents está disponível apenas para clientes que adquiriram um "conector de todos os eventos" e está disponível apenas para conectores de eventos de armazenamento (como Amazon S3, Microsoft Azure e Google Cloud Storage).
@@ -1608,7 +1608,7 @@ Um evento "update" é registrado quando uma propriedade muda em um token existen
 A Braze também emite um evento "update" com `push_token_state_change_type` definido como `"update"` quando um usuário anônimo é identificado no mesmo perfil e os tokens por push existentes permanecem nesse perfil. Nesse caso, `user_id` não muda, e `external_user_id` é definido como o ID externo do usuário identificado. Isso inclui a identificação por meio do endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) e do SDK `changeUser` quando ele atribui um ID externo ao perfil anônimo no dispositivo.
 
 {% alert note %}
-Na maioria dos casos, a reinstalação do app ou a restauração de backup resulta em um novo evento "add" com um novo `push_token` e novo `device_id` (porque o SDK gera um novo `device_id` e o sistema operacional fornece uma nova string de token por push). Isso cria duas entradas separadas de token e dispositivo no perfil do usuário, e a entrada mais antiga é removida posteriormente por meio do Uninstall Tracking ou envio de campanha.<br><br>
+Na maioria dos casos, a reinstalação do app ou a restauração de backup resulta em um novo evento "add" com um novo `push_token` e novo `device_id` (porque o SDK gera um novo `device_id` e o sistema operacional fornece uma nova string de token por push). Isso cria duas entradas separadas de token e dispositivo no perfil do usuário, e a entrada mais antiga é removida posteriormente por meio do Uninstall Tracking ou envio de Campaign.<br><br>
 
 Seria extremamente raro que apenas o `device_id` mudasse sem que o `push_token` mudasse (isso exigiria que o sistema operacional retornasse a mesma string de token após a reinstalação).
 {% endalert %}

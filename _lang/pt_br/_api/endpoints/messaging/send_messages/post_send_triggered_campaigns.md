@@ -1,12 +1,11 @@
 ---
 nav_title: "POST: Enviar Campaigns usando entrega disparada por API"
-article_title: "POST: Enviar Campaigns usando entrega disparada por API"
+article_title: "Enviar mensagens de Campaign usando entrega disparada por API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze para enviar Campaigns usando entrega disparada por API."
-
 ---
 {% api %}
 # Enviar mensagens de Campaign usando entrega disparada por API {#send-campaign-messages-using-api-triggered-delivery}

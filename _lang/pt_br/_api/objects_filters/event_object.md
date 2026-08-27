@@ -4,7 +4,6 @@ article_title: Objeto de evento da API
 page_order: 6
 page_type: reference
 description: "Este artigo de referência aborda o objeto de evento, o que ele é e como é uma parte crucial das estratégias de Campaign baseadas em eventos."
-
 ---
 
 # Objeto de evento {#event-object}
@@ -13,9 +12,9 @@ description: "Este artigo de referência aborda o objeto de evento, o que ele é
 
 ## O que é um objeto de evento? {#what-is-an-event-object}
 
-Um objeto de evento é um objeto que é passado pela API quando um evento específico ocorre. Os objetos de evento ficam armazenados em um array de eventos. Cada objeto de evento no array de eventos representa uma única ocorrência de um evento personalizado por um usuário específico no valor de tempo designado. O objeto de evento tem muitos campos diferentes que permitem personalizar configurando e usando propriedades de evento em mensagens, coleta de dados e personalização.
+Um objeto de evento é um objeto passado pela API quando um evento específico ocorre. Os objetos de evento ficam armazenados em um array de eventos. Cada objeto de evento no array de eventos representa uma única ocorrência de um evento personalizado realizado por um usuário específico no valor de tempo designado. O objeto de evento possui diversos campos que permitem personalizar ao definir e usar propriedades de evento em mensagens, coleta de dados e personalização.
 
-Para ver as etapas de como configurar eventos personalizados para uma plataforma específica, consulte o Guia de Integração de Plataforma no [Guia do Desenvolvedor]({{site.baseurl}}/developer_guide/home). Consulte o artigo relevante com base na sua plataforma:
+Para saber como configurar eventos personalizados para uma plataforma específica, consulte o Guia de Integração de Plataforma no [Guia do Desenvolvedor]({{site.baseurl}}/developer_guide/home). Consulte o artigo relevante com base na sua plataforma:
 
 - [Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
@@ -43,7 +42,7 @@ Para ver as etapas de como configurar eventos personalizados para uma plataforma
 ```
 
 {% alert note %}
-Eventos com timestamps no futuro usam como padrão o horário atual. Isso garante que os eventos personalizados sejam registrados com a temporização correta.
+Eventos com timestamps no futuro usam como padrão o horário atual. Isso garante que os eventos personalizados sejam registrados com a marcação de tempo correta.
 {% endalert %}
 
 - [ID de usuário externo]({{site.baseurl}}/api/basics#user-ids)
@@ -51,15 +50,15 @@ Eventos com timestamps no futuro usam como padrão o horário atual. Isso garant
 - [Código de tempo ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Alguns pares de identificadores não podem ser usados juntos em uma única solicitação. Quando `email` e `phone` são fornecidos ao mesmo tempo, `email` tem precedência sobre `phone`. Para mais detalhes, consulte [Resolução de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
+Alguns pares de identificadores não podem ser usados juntos em uma única solicitação. Quando `email` e `phone` são fornecidos simultaneamente, `email` tem prioridade sobre `phone`. Para mais detalhes, consulte [Resolução de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 {% endalert %}
 
 #### Atualizar apenas perfis existentes {#update-existing-profiles-only}
 
-Para atualizar apenas perfis de usuário existentes na Braze, você deve passar a chave `_update_existing_only` com o valor `true` no corpo da sua solicitação. Se esse valor for omitido, a Braze criará um novo perfil de usuário caso o `external_id` ainda não exista.
+Para atualizar apenas perfis de usuário já existentes na Braze, você deve passar a chave `_update_existing_only` com o valor `true` no corpo da sua solicitação. Se esse valor for omitido, a Braze criará um novo perfil de usuário caso o `external_id` ainda não exista.
 
 {% alert note %}
-Se você estiver criando um perfil de usuário somente com alias por meio do endpoint `/users/track`, `_update_existing_only` deve ser definido como `false`. Se esse valor for omitido, o perfil somente com alias não será criado.
+Se você estiver criando um perfil de usuário somente com alias por meio do endpoint `/users/track`, o `_update_existing_only` deve ser definido como `false`. Se esse valor for omitido, o perfil somente com alias não será criado.
 {% endalert %}
 
 ## Objeto de propriedades de evento {#event-properties-object}
@@ -72,7 +71,7 @@ Os valores das propriedades podem ser qualquer um dos seguintes tipos de dados:
 | --- | --- |
 | Números | Como [inteiros](https://en.wikipedia.org/wiki/Integer) ou [pontos flutuantes](https://en.wikipedia.org/wiki/Floating-point_arithmetic) |
 | Booleanos | `true` ou `false` |
-| Datas e horas | Devem ser formatados como strings no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ou em qualquer um dos seguintes formatos: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Não suportado dentro de arrays. <br><br>Nota: "T" é um designador de hora, não um espaço reservado, e não deve ser alterado ou removido. <br><br> Atributos de hora sem fuso horário serão definidos como meia-noite UTC por padrão (e serão formatados no dashboard como o equivalente à meia-noite UTC no fuso horário da empresa). <br><br> Eventos com timestamps no futuro serão definidos como a hora atual por padrão.  |
+| Datas e horas | Devem ser formatados como strings no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ou em qualquer um dos seguintes formatos: <br>- `yyyy-MM-ddTHH:mm:ss:SSSZ` <br>- `yyyy-MM-ddTHH:mm:ss` <br>- `yyyy-MM-dd HH:mm:ss` <br>- `yyyy-MM-dd` <br>- `MM/dd/yyyy` <br>- `ddd MM dd HH:mm:ss.TZD YYYY` <br><br>Não suportado dentro de arrays. <br><br>Nota: "T" é um designador de hora, não um espaço reservado, e não deve ser alterado ou removido. <br><br> Atributos de hora sem fuso horário terão como padrão meia-noite UTC (e serão formatados no dashboard como o equivalente à meia-noite UTC no fuso horário da empresa). <br><br> Eventos com carimbos de data/hora no futuro terão como padrão a hora atual.  |
 | Strings | 255 caracteres ou menos. |
 | Arrays | Arrays não podem incluir datas e horas. |
 | Objetos | Objetos serão ingeridos como strings. |
@@ -82,13 +81,13 @@ Objetos de propriedades de evento que contêm valores de array ou objeto podem t
 
 ### Chaves reservadas {#reserved-keys}
 
-As seguintes chaves são reservadas e não podem ser usadas como propriedades de eventos personalizados:
+As seguintes chaves são reservadas e não podem ser usadas como propriedades de evento personalizado:
 
 - `time`
 - `event_name`
 
 {% alert important %}
-Usar chaves reservadas como nomes de propriedades de eventos personalizados resultará em erros de API ao enviar solicitações para o endpoint `/users/track`.
+Usar chaves reservadas como nomes de propriedades de evento personalizado resultará em erros de API ao enviar solicitações para o endpoint `/users/track`.
 {% endalert %}
 
 ### Persistência de propriedades de evento {#event-property-persistence}
@@ -132,4 +131,4 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Objetos de evento {#event-objects}
 
-Usando o exemplo fornecido, podemos ver que alguém assistiu a um trailer recentemente e depois alugou um filme. Embora não seja possível entrar em uma Campaign e segmentar os usuários com base nessas propriedades, podemos usá-las estrategicamente na forma de um recibo, para enviar uma mensagem personalizada por meio de um canal usando Liquid. Por exemplo, "Olá **Alex**, Obrigado por alugar **The Sad Egg** de **Alex Smith**, aqui estão alguns filmes recomendados com base no seu aluguel..."
+Usando o exemplo fornecido, podemos ver que alguém assistiu a um trailer recentemente e depois alugou um filme. Embora não seja possível entrar em uma Campaign e segmentar os usuários com base nessas propriedades, podemos usá-las estrategicamente na forma de um recibo, para enviar uma mensagem personalizada por meio de um canal usando Liquid. Por exemplo, "Olá **Alex**, obrigado por alugar **The Sad Egg** de **Alex Smith**, aqui estão alguns filmes recomendados com base no seu aluguel..."

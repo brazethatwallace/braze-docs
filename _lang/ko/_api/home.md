@@ -4,9 +4,9 @@ nav_title: 홈
 article_title: Braze API 가이드
 layout: api_glossary
 glossary_top_header: "Braze API 가이드"
-glossary_top_text: "Braze는 사용자 추적, 메시지 발송, 데이터 내보내기 등을 수행할 수 있는 고성능 REST API를 제공합니다. 이 페이지에서는 사용 가능한 Braze API 엔드포인트와 그 용도를 확인할 수 있습니다."
+glossary_top_text: "Braze는 사용자 추적, 메시지 발송, 데이터 내보내기, Campaigns, Canvases, 카탈로그 등을 관리할 수 있는 고성능 REST API를 제공합니다. 이 용어집을 통해 유형별 엔드포인트를 탐색하고, 요청 및 응답 세부 사항에 대한 참조 문서를 열거나, 인증, 사용량 제한, 오브젝트 설명서에 대한 링크를 확인할 수 있습니다."
+description: "유형별 Braze REST API 엔드포인트를 탐색하고, 인증, 사용량 제한, 오브젝트 참조 설명서에 대한 링크를 확인할 수 있습니다."
 page_type: glossary
-description: "이 랜딩 페이지에는 사용 가능한 Braze API 엔드포인트와 그 용도가 나열되어 있습니다."
 glossary_tag_name: 엔드포인트 유형
 
 glossary_filter_text: "엔드포인트 유형을 선택하여 용어집을 좁히세요:"
@@ -44,7 +44,7 @@ glossary_tags:
   - name: Email Templates
   - name: KPI
   - name: Media Library
-  - name: Messaging API
+  - name: Device Messaging API
   - name: Purchases
   - name: Preference Center
   - name: Schedule Messages
@@ -127,14 +127,14 @@ glossaries:
     description: 지정된 사용자에게 즉시 일회성 트랜잭션 메시지를 발송합니다.
     tags:
       - Send Messages
-  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
     description: 사용자 및 배치 세트에 대해 적격한 배너를 조회합니다.
     tags:
-      - Messaging API
-  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
+      - Device Messaging API
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
     description: 배너에 대한 노출 및 클릭 이벤트를 기록합니다.
     tags:
-      - Messaging API
+      - Device Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
     description: 대시보드에서 생성한 Campaign 메시지를 API 트리거 전달을 통해 발송합니다.
     tags:

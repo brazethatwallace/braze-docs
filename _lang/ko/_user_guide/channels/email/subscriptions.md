@@ -1,11 +1,10 @@
 ---
 nav_title: "구독"
-article_title: "구독"
+article_title: "이메일 구독"
 page_order: 5
 description: "이 참조 문서에서는 다양한 사용자 구독 상태, 이메일 구독을 관리하는 방법, 그리고 구독을 기반으로 사용자를 세그먼트하는 방법을 다룹니다."
 channel:
   - email
-
 ---
 
 # 이메일 구독 {#email-subscriptions}
@@ -68,7 +67,9 @@ Braze SDK를 사용하여 사용자의 구독 상태를 업데이트합니다.
 
 사용자가 이메일 주소를 업데이트하면 구독 상태가 가입됨으로 설정됩니다. 업데이트된 이메일 주소가 Braze 워크스페이스의 다른 곳에 이미 존재하는 경우 해당 사용자는 기존 사용자의 구독 상태를 상속받습니다. 단, **발송 구성**에서 **이메일 업데이트 시 사용자 재구독** 설정이 활성화되어 있는 경우는 예외입니다.
 
-구독 상태 변경 문제를 해결하려면 고객 프로필 로그에서 **이메일 구독 상태 변경**을 검토하여 변경 이력과 소스를 확인하세요. 다음 소스가 이메일 구독 상태 변경을 트리거할 수 있습니다:
+구독 상태 변경 문제를 해결하려면 Currents [글로벌 구독 상태 변경]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events) 이벤트(`users.behaviors.subscription.GlobalStateChange`)를 확인하세요. 이 이벤트에는 구독 상태 변경 이력과 소스가 포함되어 있습니다.
+
+다음 소스가 이메일 구독 상태 변경을 트리거할 수 있습니다:
 
 | 소스 | 설명 |
 | ------ | ----------- |
@@ -79,7 +80,7 @@ Braze SDK를 사용하여 사용자의 구독 상태를 업데이트합니다.
 | 환경설정 센터 | Braze에서 호스팅하는 환경설정 센터에서 사용자가 환경설정을 업데이트함 |
 | 구독 페이지 | 사용자가 이메일의 탈퇴 링크를 선택하고 Braze 구독 페이지에 도달함 |
 | List-Unsubscribe | 사용자가 이메일 클라이언트의 기본 list-unsubscribe 헤더를 통해 탈퇴함 |
-| Canvas 사용자 업데이트 단계 | Canvas의 [사용자 업데이트 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update)에 의해 업데이트된 구독 상태 |
+| Canvas 사용자 업데이트 단계 | Canvas의 [사용자 업데이트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)에 의해 업데이트된 구독 상태 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="이메일 구독 상태 업데이트 소스" }
 
 사용자의 글로벌 이메일 구독 상태가 변경되면 Braze는 동일한 이메일 주소를 공유하는 다른 프로필에 해당 상태를 전파하며, 변경당 최대 100개의 프로필까지 처리합니다. 100개 이상의 프로필이 동일한 이메일 주소를 공유하는 경우 Braze는 전파를 보장하지 않습니다. 동일한 이메일을 공유하는 사용자가 서로 다른 구독 상태를 보이는 경우 Braze 고객지원에 문의하세요.
@@ -88,13 +89,13 @@ Braze SDK를 사용하여 사용자의 구독 상태를 업데이트합니다.
 
 이메일 구독 그룹을 사용하면 사용자가 글로벌 이메일 구독 상태를 변경하지 않고도 특정 이메일 카테고리(예: 뉴스레터 또는 프로모션)에 옵트인하거나 옵트아웃할 수 있습니다. 생성한 그룹은 [환경설정 센터]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)에 추가할 수 있습니다.
 
-그룹 생성, 세그먼팅, 보관 및 채널별 동작에 대한 자세한 내용은 [구독 그룹]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups)을 참조하세요.
+그룹 생성, 세그먼팅, 아카이브 및 채널별 동작에 대한 자세한 내용은 [구독 그룹]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups)을 참조하세요.
 
 ## 이메일 수신 설정 센터 {#email-preference-center}
 
-이메일 수신 설정 센터를 사용하면 구독 그룹 뉴스레터를 수신하는 사용자를 관리할 수 있습니다. 대시보드에서 **구독 그룹** 아래에서 확인할 수 있습니다. 생성한 각 구독 그룹은 수신 설정 센터 목록에 추가됩니다.
+이메일 수신 설정 센터를 사용하면 구독 그룹 뉴스레터를 수신할 사용자를 관리할 수 있습니다. 대시보드의 **구독 그룹**에서 확인할 수 있습니다. 생성한 각 구독 그룹은 수신 설정 센터 목록에 추가됩니다.
 
-수신 설정 센터를 추가하거나 커스터마이즈하는 방법에 대해 자세히 알아보려면 [수신 설정 센터]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)를 참조하세요.
+수신 설정 센터를 추가하거나 커스터마이즈하는 방법에 대한 자세한 내용은 [수신 설정 센터]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center)를 참조하세요.
 
 ## 이메일 구독 변경 {#changing-email-subscriptions}
 
@@ -164,7 +165,7 @@ Braze는 세 가지 타겟팅 상태를 지원합니다:
 - 탈퇴한 사용자를 포함한 모든 사용자.
 
 {% alert important %}
-이러한 타겟팅 설정을 사용할 때 해당되는 [스팸 관련 법률]({{site.baseurl}}/help/best_practices/spam_regulations#spam-regulations)을 준수하는 것은 사용자의 책임입니다.
+이러한 타겟팅 설정을 사용할 때 해당되는 [스팸 관련 법률]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations)을 준수하는 것은 사용자의 책임입니다.
 {% endalert %}
 
 ## 사용자 구독별 세분화 {#segmenting-by-user-subscriptions}

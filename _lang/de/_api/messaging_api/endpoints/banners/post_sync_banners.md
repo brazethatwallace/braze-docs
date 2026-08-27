@@ -1,6 +1,7 @@
 ---
 nav_title: "POST: Banner für eine:n Nutzer:in abrufen"
 article_title: "POST: Banner für eine:n Nutzer:in abrufen"
+permalink: /api/device_messaging_api/endpoints/banners/post_sync_banners
 search_tag: Endpoint
 page_order: 0
 layout: api_page
@@ -16,7 +17,7 @@ hidden: true
 {% endapimethod %}
 
 {% alert important %}
-Diese Seite befindet sich in der Betaphase. Features und Dokumentation für die Messaging-API können sich ändern.
+Diese Seite befindet sich in der Betaphase. Features und Dokumentation für die Device-Messaging-API können sich ändern.
 {% endalert %}
 
 > Verwenden Sie diesen Endpunkt, um das berechtigte Banner für jede angeforderte Platzierung für eine:n Nutzer:in abzurufen.
@@ -28,7 +29,7 @@ Die Antwort enthält strukturierte Banner-Eigenschaften, die Sie zum Erstellen e
 Um diesen Endpunkt zu verwenden, benötigen Sie Folgendes:
 
 - Einen Workspace mit aktivierten Bannern
-- Einen [clientseitigen REST-API-Schlüssel]({{site.baseurl}}/api/messaging_api/authentication) mit der Berechtigung `banners.sync`
+- Einen [clientseitigen REST-API-Schlüssel]({{site.baseurl}}/api/device_messaging_api/authentication) mit der Berechtigung `banners.sync`
 - Den [REST-Endpunkt]({{site.baseurl}}/api/basics#endpoints) für Ihre Braze-Instanz
 
 Fügen Sie den clientseitigen REST-API-Schlüssel im `Authorization`-Header als Bearer-Token ein.
@@ -37,7 +38,7 @@ Fügen Sie den clientseitigen REST-API-Schlüssel im `Authorization`-Header als 
 
 Rate-Limits gelten pro Workspace. Wenn Sie das Rate-Limit überschreiten, gibt Braze den Statuscode `429` zurück. Verwenden Sie nach Möglichkeit die Antwort-Header `X-RateLimit-Limit`, `X-RateLimit-Remaining` und `X-RateLimit-Reset`, um Ihre Nutzung zu überwachen.
 
-Weitere Informationen finden Sie unter [Rate-Limits der Messaging-API]({{site.baseurl}}/api/messaging_api/rate_limits).
+Weitere Informationen finden Sie unter [Rate-Limits der Device-Messaging-API]({{site.baseurl}}/api/device_messaging_api/rate_limits).
 
 ## Anfragekörper {#request-body}
 
@@ -137,6 +138,6 @@ Eine erfolgreiche Anfrage gibt den Statuscode `200` und das aufgelöste Banner f
 | `429` | Der Workspace hat sein Rate-Limit überschritten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Statuscodes" }
 
-Weitere Informationen finden Sie unter [Fehlerbehandlung und Wiederholungsversuche der Messaging-API]({{site.baseurl}}/api/messaging_api/error_handling).
+Weitere Informationen finden Sie unter [Fehlerbehandlung und Wiederholungsversuche der Device-Messaging-API]({{site.baseurl}}/api/device_messaging_api/error_handling).
 
 {% endapi %}

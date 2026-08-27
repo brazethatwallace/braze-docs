@@ -40,8 +40,10 @@ glossary_tags:
   - name: Catalogs
   - name: Content Blocks
   - name: Custom Events
+  - name: Custom Objects
   - name: Email List
   - name: Email Templates
+  - name: Webhook Templates
   - name: KPI
   - name: Media Library
   - name: Device Messaging API
@@ -107,6 +109,46 @@ glossaries:
     description: Merge a user profile into another user.
     tags:
       - User Data
+  - name: <a href='/docs/api/endpoints/custom_objects'>/custom_objects/*</a>
+    description: View the full Custom Objects endpoint reference, including object types, objects, and relationship endpoints.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_custom_object_types'>/custom_objects/types</a>
+    description: List custom object types in the workspace.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_custom_object_type'>/custom_objects/types/{type_name}</a>
+    description: Get one custom object type and its schema definition.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_user_relationship_types'>/custom_objects/types/{type_name}/user_relationship_types</a>
+    description: List user relationship kinds for a custom object type.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_object_relationship_types'>/custom_objects/types/{type_name}/object_relationship_types</a>
+    description: List object relationship kinds for a custom object type.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_list_custom_objects'>/custom_objects/objects/{type_name}</a>
+    description: List custom objects for a type.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_custom_object'>/custom_objects/objects/{type_name}/{external_id}</a>
+    description: Get one custom object, or replace, update, and delete it.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/object_relationships/get_list_object_relationships'>/custom_objects/objects/{type_name}/{external_id}/object_relationships</a>
+    description: List, create, replace, update, and delete object-to-object relationships.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/get_list_user_relationships'>/custom_objects/objects/{type_name}/{external_id}/user_relationships</a>
+    description: List user relationships for a custom object.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/post_create_user_relationship'>/custom_objects/objects/{type_name}/{external_id}/users</a>
+    description: Create, replace, update, and delete user-to-object relationships.
+    tags:
+      - Custom Objects
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns'>/campaigns/trigger/send</a>
     description: Send immediate, one-off messages to designated users through API-triggered delivery.
       - Send Messages
@@ -233,6 +275,18 @@ glossaries:
     description: Get a list of available email templates in your Braze account.
     tags:
       - Email Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_source_webhook_template'>/templates/webhook/translations/source</a>
+    description: View the default source translations for a webhook template.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_translations_webhook_template'>/templates/webhook/translations</a>
+    description: View translations for a webhook template.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/put_update_webhook_template'>/templates/webhook/translations</a>
+    description: Update translations for a webhook template.
+    tags:
+      - Webhook Templates
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaign_analytics'>/campaigns/data_series</a>
     description: Retrieve a daily series of various stats for a campaign over time.
     tags:

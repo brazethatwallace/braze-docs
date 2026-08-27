@@ -28,7 +28,7 @@ BrazeはAPIを通じて渡されたデータを額面通りに処理します。
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.track`権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
+このエンドポイントを使用するには、`users.track`権限を持つ[APIキー]({{site.baseurl}}/api/basics)が必要です。
 
 サーバー間の呼び出しにAPIを使用する顧客がファイアウォールの内側にいる場合には、`rest.iad-01.braze.com`を許可リストに登録する必要が生じることがあります。
 

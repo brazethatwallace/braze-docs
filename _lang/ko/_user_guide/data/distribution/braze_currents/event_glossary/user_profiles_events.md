@@ -11,10 +11,6 @@ search_rank: 7
 
 <div class="api-glossary-preamble" markdown="1">
 
-{% alert important %}
-고객 프로필 이벤트는 베타 버전입니다. 액세스하려면 고객 성공 매니저 또는 계정 매니저에게 문의하세요.
-{% endalert %}
-
 {% alert tip %}
 이러한 이벤트는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/query_builder), [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments), [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)에서 SQL 테이블로도 사용할 수 있습니다. SQL 테이블 스키마 및 열 세부 정보는 [SQL 테이블 참조]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/sql_segments/sql_segments_tables)를 확인하세요. Snowflake 데이터 공유의 고객 프로필 속성 뷰 스키마는 [고객 프로필 속성]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes)을 참조하세요.
 {% endalert %}
@@ -39,6 +35,7 @@ Currents는 페이로드가 900KB보다 큰 이벤트를 삭제합니다.
 
 <!--overview-end-->
 
+
 {% api %}
 ## 사용자 삭제 요청 이벤트 {#user-delete-request-events}
 
@@ -58,6 +55,24 @@ User Delete Request
   "id" : "(required, string) Globally unique ID for this event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.UserDeleteRequest
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
 }
 ```
 {% endtab %}
@@ -91,6 +106,28 @@ User Orphan
 }
 ```
 {% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.UserOrphan
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "orphaned_by_id" : "(required, string) BSON ID of the user whose profile was merged with the orphaned user's profile"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
 {% endtabs %}
 
 {% endapi %}
@@ -103,6 +140,10 @@ Profile
 {% endapitags %}
 
 사용자의 프로필 업데이트를 나타냅니다.
+
+{% alert important %}
+고객 프로필 업데이트 이벤트는 베타 버전입니다. 액세스하려면 고객 성공 매니저 또는 계정 매니저에게 문의하세요.
+{% endalert %}
 
 {% tabs %}
 {% tab Cloud Storage %}

@@ -4,10 +4,10 @@ nav_title: Home
 article_title: Braze API-Leitfaden
 layout: api_glossary
 glossary_top_header: "Braze API-Leitfaden"
-glossary_top_text: "Braze bietet eine leistungsstarke REST API, mit der Sie Nutzer:innen verfolgen, Nachrichten versenden, Daten exportieren und vieles mehr können. Auf dieser Seite sind die verfügbaren Braze-API-Endpunkte und ihre Verwendungszwecke aufgeführt."
+glossary_top_text: "Braze bietet eine leistungsstarke REST API, mit der Sie Nutzer:innen verfolgen, Nachrichten versenden, Daten exportieren und Campaigns, Canvases, Kataloge und vieles mehr verwalten können. Verwenden Sie dieses Glossar, um Endpunkte nach Typ zu durchsuchen, Referenzartikel für Anfrage- und Antwortdetails zu öffnen und Links zu Authentifizierung, Rate-Limits und Objektdokumentation zu finden."
+description: "Durchsuchen Sie die Braze REST API-Endpunkte nach Typ, mit Links zu Authentifizierung, Rate-Limits und Objektreferenz-Dokumentation."
 page_type: glossary
-description: "Diese Landing-Page listet die verfügbaren Braze-API-Endpunkte und ihre Verwendungszwecke auf."
-glossary_tag_name: Endpoint Type
+glossary_tag_name: Endpunkttyp
 
 glossary_filter_text: "Wählen Sie den Endpunkttyp aus, um das Glossar einzugrenzen:"
 
@@ -44,7 +44,7 @@ glossary_tags:
   - name: Email Templates
   - name: KPI
   - name: Media Library
-  - name: Messaging API
+  - name: Device Messaging API
   - name: Purchases
   - name: Preference Center
   - name: Schedule Messages
@@ -127,14 +127,14 @@ glossaries:
     description: Sofortige, einmalige transaktionsbezogene Nachrichten an bestimmte Nutzer:innen senden.
     tags:
       - Send Messages
-  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
     description: Berechtigte Banner für Nutzer:innen und eine Reihe von Placements abrufen.
     tags:
-      - Messaging API
-  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
+      - Device Messaging API
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
     description: Impression- und Klick-Events für Banner aufzeichnen.
     tags:
-      - Messaging API
+      - Device Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
     description: Im Dashboard erstellte Campaign-Nachrichten über API-getriggerte Zustellung senden.
     tags:
@@ -336,11 +336,11 @@ glossaries:
     tags:
       - KPI
   - name: <a href='/docs/api/endpoints/sms/post_remove_invalid_numbers'>/sms/invalid_phone_numbers/remove</a>
-    description: "„Ungültige“ Telefonnummern aus der Liste ungültiger Nummern in Braze entfernen. Verwenden Sie dies, um Telefonnummern erneut zu validieren, nachdem Braze sie als ungültig markiert hat."
+    description: „Ungültige“ Telefonnummern aus der Liste ungültiger Nummern in Braze entfernen. Verwenden Sie dies, um Telefonnummern erneut zu validieren, nachdem Braze sie als ungültig markiert hat.
     tags:
       - SMS
   - name: <a href='/docs/api/endpoints/sms/get_query_invalid_numbers'>/sms/invalid_phone_numbers</a>
-    description: "Eine Liste der Telefonnummern abrufen, die Braze innerhalb eines bestimmten Zeitraums als „ungültig“ markiert hat."
+    description: Eine Liste der Telefonnummern abrufen, die Braze innerhalb eines bestimmten Zeitraums als „ungültig“ markiert hat.
     tags:
       - SMS
   - name: <a href='/docs/api/endpoints/export/purchases/get_list_product_id'>/purchases/product_list</a>

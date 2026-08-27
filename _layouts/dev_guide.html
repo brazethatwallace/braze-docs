@@ -56,6 +56,9 @@ hide_binary_feedback: false
 
     <h1> {{ page.guide_top_header }} </h1>
     <p>  {{ page.guide_top_text | markdownify }} </p>
+    {%- if page.guide_top_alert -%}
+    {% alert important %}{{ page.guide_top_alert }}{% endalert %}
+    {%- endif -%}
     <p>  {{ page.guide_top_text2 | markdownify }} </p>
     <p>  {{ page.guide_top_text3 | markdownify }} </p>
 
