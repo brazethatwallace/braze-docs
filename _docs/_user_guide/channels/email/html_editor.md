@@ -302,11 +302,11 @@ Braze allows you to track how often users perform specific actions, [conversion 
 - Performs specific custom event
 - Opens email
 
-You can allow up to a 30-day window during which Braze counts a conversion if the user takes the specified action. While Braze tracks opens and clicks automatically, you may set the conversion event to an open or click to use [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
+You can allow up to a 30-day window during which Braze counts a conversion if the user takes the specified action. While Braze tracks opens and clicks automatically, you may set the conversion event to an open or click to use [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 {% endtab %}
 
 {% tab Canvas %}
-If you haven't done so already, complete the remaining sections of your Canvas components. For further details on how build out the rest of your Canvas, implement multivariate testing and Intelligent Selection, and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) step of our Canvas documentation.
+If you haven't done so already, complete the remaining sections of your Canvas components. For details about building the rest of your Canvas, including multivariate testing and [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#optimize-canvas-variants-with-brazeai), see [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas).
 {% endtab %}
 {% endtabs %}
 

@@ -55,9 +55,9 @@ Note the following about how Braze handles multiple conversions:
 
 The primary conversion event is the first event you add during campaign or Canvas creation. This event has the most bearing on your engagement and reporting. Braze uses your primary conversion event to:
 
-- Compute the winning message variation in [multivariate]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations#winning-variant) campaigns or Canvases.
+- Select the best-performing message variation in [multivariate campaigns]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) or Canvases.
 - Determine the window when revenue is calculated for the campaign or Canvas.
-- Adjust message distributions for campaigns and Canvases using [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
+- Adjust message distributions for campaigns and Canvases using [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
 The primary conversion event count is the number of conversion events that occurred. For multichannel campaigns, Braze counts conversions per channel (as described in [Conversion tracking rules](#conversion-tracking-rules)), which means the conversion count can exceed the number of unique users and result in conversion rates greater than 100%. Braze calculates the primary conversion event rate by dividing this count by the number of unique recipients. Braze considers a user a recipient when the message is sent or shown, depending on the channel. For example, in push or email, a user becomes a recipient after Braze sends the message. For in-app messages or Content Cards, the user must view the message to be considered a recipient.
 
