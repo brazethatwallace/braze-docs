@@ -170,6 +170,43 @@ As the Canvas runs, Content Optimizer mixes and matches variants across componen
 | SMS/MMS/RCS | CTA | {% raw %}`{% message_component "CTA" %}`{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid references" }
 
+#### Combination token
+
+Use the combination token to record which combination of variants a user received. Add the {% raw %}`{{component_combination_token}}`{% endraw %} Liquid tag to a link in your base message, then use the value in your own analytics tools to attribute downstream behavior to a specific combination.
+
+For example, add the token to a link as a UTM parameter:
+
+{% raw %}
+```liquid
+https://www.example.com/summer-sale?utm_content={{component_combination_token}}
+```
+{% endraw %}
+
+The tag renders a string of numbers separated by underscores, such as `3_2_8`:
+
+- Each position corresponds to one content component, in the order the components appear in the **Content Optimizer Settings** tab.
+- Each number is the index of the variant the user received for that component. Indexes start at 0, so `0` is the first variant created for that component, `1` is the second, and so on.
+
+Braze assigns an index to a variant when you create it and keeps that index for the lifetime of the step. You can deactivate a variant, but you can’t delete one, and indexes are never reused or renumbered. An index doesn’t reflect the variant’s position among the currently active variants.
+
+Because of this, indexes can climb higher than the five-variant limit per component suggests. That limit applies to active variants only, so if you deactivate several variants and add new ones, the new variants can have indexes such as 5, 6, 7, and 8.
+
+For example, an email step optimizes a subject line and a primary CTA. The subject component launched with five variants. Three were later deactivated and three new ones were added:
+
+| Subject variant | Index | Status |
+| --- | --- | --- |
+| Your summer sale starts now | 0 | Deactivated |
+| Summer sale: 20% off | 1 | Deactivated |
+| 20% off, this week only | 2 | Deactivated |
+| Save 20% on summer picks | 3 | Active |
+| Your 20% off code is inside | 4 | Active |
+| Summer picks, 20% off | 5 | Active |
+| Don’t miss 20% off | 6 | Active |
+| Last chance: 20% off summer | 7 | Active |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Subject variant indexes" }
+
+The primary CTA component has two variants, with indexes 0 and 1. In this step, a token of `6_1` means the user received the subject variant with index 6 (“Don’t miss 20% off”) and the primary CTA variant with index 1.
+
 ### Step 5: Select optimization event
 
 The optimization event determines how Content Optimizer evaluates performance and allocates traffic to content combinations over time.
@@ -186,6 +223,14 @@ For email, you can optimize for one of the following events. Content Optimizer u
 | Opens | Optimizes for combinations that get recipients to open the email. | Testing subject lines or aiming to increase visibility |
 | Clicks | Optimizes for combinations that drive engagement with links. Does not include bot clicks or Braze-recognized unsubscribe clicks. | Driving traffic, engagement, or conversion from links |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Select optimization event" }
+
+#### Exclude links from optimization
+
+When you optimize for clicks, you can exclude one or more links from optimization. Use this for links that don’t signal engagement with the content you’re testing, such as a preference center or a store locator.
+
+To exclude a link, go to the **Content Optimizer Settings** tab and add the link’s URL. Braze matches on the prefix, so a click on any URL in your message that begins with the URL you specify is excluded.
+
+Excluded clicks don’t count toward the optimization event, so they don’t influence which combinations Content Optimizer favors. They’re still counted in the step’s total analytics, and they aren’t counted in the [Performance by component](#performance-by-component) or [Performance by combination](#performance-by-combination) tables.
 
 {% endtab %}
 {% tab Push notifications %}
@@ -233,6 +278,10 @@ After your Canvas is launched, you can update a running Content Optimizer step b
 
 {% multi_lang_include messaging/canvas/content_optimizer_launched_step_actions.md %}
 
+{% alert note %}
+Braze assigns each user a content combination when they enter the Content Optimizer step. If their send is delayed by delivery controls such as rate limiting, Intelligent Timing, or quiet hours, they can still receive a variant you deactivated. To urgently stop these sends, follow the same steps as for a Message step. For more information, see [Stopping Canvases]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases).
+{% endalert %}
+
 When you publish changes, the optimizer resets and begins reallocating traffic from scratch across all active variants and combinations. Avoid updating variants while the step is in the Learning state. Historical data from before the edit is retained and viewable in the **Content Analytics** tab.
 
 The following settings cannot be changed after launch:
@@ -247,6 +296,7 @@ For SMS/MMS/RCS steps, the subscription group and message type also cannot be ch
 
 - In general, test more components rather than fewer for the Content Optimizer step. For example, instead of testing two components for email, test three.
 - Testing at least 10 total combinations generally yields better results.
+- For email, steps that optimize for clicks tend to outperform steps that optimize for opens. Where clicks fit your use case, choose clicks as your optimization event.
 - If this is your first time using Content Optimizer, consider using an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) step so only part of your audience enters the branch that contains the Content Optimizer step. For example, you could send half your users down a path with the Content Optimizer step and send the other half of your users down a control path that sends the Message Step with your current business-as-usual content. Then, gather data for 2-3 weeks and compare any key performance indicators (KPIs) or counter-metrics before you increase traffic to the paths with Content Optimizer steps. 
   - For an effective one-to-one comparison, include your business-as-usual content as one of the variants for each component in your Content Optimizer step.
 - When you're ready to update after your Content Optimizer step has been in the Optimizing state for some time, deactivate low-performing variants and add new ones that build on the traits of your top performers.
@@ -310,6 +360,15 @@ Reasons that analytics in the Content Optimizer step differ from the **Analytics
 - Push sends are de-duplicated for sends to the same user on different devices.
 - In general, clicks and opens are de-duplicated to be unique for each user. 
 - Only clicks and opens that happen within seven days of sending a message are counted in the Content Optimizer step. 
+- Excluded link clicks are counted in the step's total analytics but aren't counted in the **Performance by component** or **Performance by combination** tables. For more information, see [Exclude links from optimization](#exclude-links-from-optimization).
+
+### View variants on a user profile
+
+To see which variants an individual user received, open their user profile and go to the **Messaging History** tab. On the send event row for a Content Optimizer step, the table shows the component variants that were sent to that user. For more information, see [Messaging History tab]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab).
+
+### Compare steps in Report Builder
+
+To compare performance across more than one Content Optimizer step, create a report and select **Canvas Step with Canvas Optimizer**. The report shows step performance by component and by combination for the steps you include, whether those steps are in the same Canvas or in different Canvases. For more information, see [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 ## Troubleshooting
 
