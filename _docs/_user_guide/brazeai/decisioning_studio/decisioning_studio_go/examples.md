@@ -82,7 +82,7 @@ Across all fit levels, the agent learns best when your audience generates enough
 |---|---|
 | What it looks like | A single email sent in one blast—a Black Friday announcement, a new product launch, or a one-off corporate communication. |
 | Why it doesn't fit | The agent needs time to learn. A single send gives it no opportunity to improve decisions before the campaign ends. By the time it has enough engagement signal to make better choices, the program is over. |
-| What to do instead | If you have an evergreen program with similar content—for example, a year-round product-announcement program—use Decisioning Studio Go there and apply what you learn to one-time sends. For a one-time send, [A/B testing with Optimize with BrazeAI™]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) is a better fit. |
+| What to do instead | If you have an evergreen program with similar content—for example, a year-round product-announcement program—use Decisioning Studio Go there and apply what you learn to one-time sends. For a one-time send, use [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) for A/B testing. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="One-time email blasts" }
 
 ## At a glance
@@ -94,7 +94,7 @@ Across all fit levels, the agent learns best when your audience generates enough
 | Multi-email promotions | Supported | Aim for at least 10 campaign-days of runway; shorter promotions limit learning. |
 | Action- or event-driven journeys | Supported | Confirm send-timing requirements; you are responsible for sequence enforcement. |
 | Drip sequences (onboarding tutorials) | Not recommended | Use Canvas for sequencing; revisit Decisioning Studio Pro for in-drip optimization. |
-| One-time email blasts | Not recommended | Use A/B testing with Optimize with BrazeAI™ instead. |
+| One-time email blasts | Not recommended | Use Optimize with BrazeAI™ for A/B testing instead. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="example summary table" }
 
 ## Next steps

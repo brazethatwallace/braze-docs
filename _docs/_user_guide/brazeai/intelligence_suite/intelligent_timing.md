@@ -99,7 +99,7 @@ This is also because of time zones—selecting a period of less than 3 days may 
 
 For more information, refer to [FAQ: Intelligent Timing](#when-does-braze-check-the-eligibility-criteria-for-segment-and-audience-filters).
 
-#### Schedule winning variants 2 days after A/B test
+#### Schedule the optimized send at least 2 days after the A/B test
 
 If you use [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) for a single-send campaign, Intelligent Timing may affect the duration and timing of your campaign.
 
