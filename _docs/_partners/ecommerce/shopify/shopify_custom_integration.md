@@ -36,7 +36,7 @@ Before you add code to your Hydrogen storefront, connect your Shopify store and 
 In the custom setup flow, Braze prompts you to select the website app for your headless storefront:
 
 1. Select an existing website app or create a new one. You can name the app anything except **Shopify**, which Braze reserves for the standard Shopify integration path.
-2. Braze displays the selected app's API key and SDK endpoint in the onboarding step. Select **Copy** for each value—you don't need to open **Settings** > **App Settings**.
+2. Braze displays the selected app's API key and base URL (your SDK endpoint) in the onboarding step. Select **Copy** for each value—you don't need to open **Settings** > **App Settings**.
 3. Use the copied API key as `BRAZE_API_KEY` and the SDK endpoint as `BRAZE_API_URL` in your Shopify environment variables ([Step 2](#step-2)).
 
 After you connect the store, you can rename the selected website app in **Settings** > **App Settings**. You can't delete the app while it's connected to your Shopify integration.
