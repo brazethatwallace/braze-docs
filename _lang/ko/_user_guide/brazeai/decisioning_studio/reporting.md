@@ -9,13 +9,13 @@ page_order: 6
 
 > AI 기반 의사 결정이 캠페인에 어떤 영향을 미치는지 파악하기 위해 Braze에서 BrazeAI Decisioning Studio™ 보고서를 보는 방법을 알아보세요. 성과 측정기준부터 데이터 상태 및 시스템 변경 사항까지, 이러한 보고서를 통해 결과를 이해하고, 문제를 해결하고, 자신 있게 정보에 입각한 의사 결정을 내릴 수 있습니다.
 
-## 필수 조건 {#prerequisites}
+## 사전 요구 사항 {#prerequisites}
 
-Braze에서 Decisioning Studio 보고서를 보려면 다음 조건을 충족해야 합니다:
+Braze에서 Decisioning Studio 보고서를 확인하려면 다음 조건을 충족해야 합니다:
 
-- Braze 및 BrazeAI Decisioning Studio™에 대한 활성 계약을 체결해야 합니다.
-- 고객 성공 매니저에게 연락하여 BrazeAI Decisioning Studio™를 활성화해야 합니다.
-- 라이브 BrazeAI Decisioning Studio™ 에이전트가 있어야 합니다.
+- Braze 및 BrazeAI Decisioning Studio<sup>TM</sup>에 대한 활성 계약이 있어야 합니다.
+- CSM에게 연락하여 BrazeAI Decisioning Studio<sup>TM</sup>를 활성화해 달라고 요청하세요.
+- 활성 상태의 BrazeAI Decisioning Studio<sup>TM</sup> 에이전트가 있어야 합니다.
 
 ## 보고서 보기 {#view}
 
@@ -25,15 +25,15 @@ Braze에서 Decisioning Studio 에이전트의 측정기준을 보려면 **AI De
 
 ## 보고서 날짜 변경 {#change-report-dates}
 
-[보고서를 연](#view) 후 캘린더 드롭다운에서 새 시작 날짜와 종료 날짜를 선택하여 날짜 범위를 변경할 수 있습니다.
+[보고서를 열고 나서](#view) 캘린더 드롭다운에서 새로운 시작 날짜와 종료 날짜를 선택하여 날짜 범위를 변경할 수 있습니다.
 
-![캘린더 드롭다운이 열려 있는 BrazeAI Decisioning Studio™ 날짜 범위 선택기. 캘린더에는 보고서 보기를 커스텀하기 위해 선택 가능한 시작 날짜와 종료 날짜가 표시됩니다.]({% image_buster /assets/img/decisioning_studio/reporting_change_date_range.png %}){: style="max-width:50%;"}
+![BrazeAI Decisioning Studio™ 날짜 범위 선택기가 캘린더 드롭다운으로 열려 있는 화면. 캘린더에서 보고서 보기를 커스텀하기 위해 시작 날짜와 종료 날짜를 선택할 수 있습니다.]({% image_buster /assets/img/decisioning_studio/reporting_change_date_range.png %}){: style="max-width:50%;"}
 
-기본 시작 날짜를 설정하거나 항상 제외할 날짜를 선택할 수도 있습니다. 제외된 날짜는 해당 에이전트의 모든 보고서에서 필터링됩니다.
+기본값 시작 날짜를 설정하거나 항상 제외할 날짜를 선택할 수도 있습니다. 제외된 날짜는 해당 에이전트의 모든 보고서에서 필터링됩니다.
 
-날짜를 설정하거나 제외하려면 <i class="fa-solid fa-gear" aria-label="설정"></i> **설정**을 선택한 다음 필요에 따라 기본 날짜를 변경하거나 날짜를 제외합니다.
+날짜를 설정하거나 제외하려면 <i class="fa-solid fa-gear" aria-label="설정"></i> **Settings**를 선택한 다음 기본값 날짜를 변경하거나 필요에 따라 날짜를 제외합니다.
 
-![기본 시작 날짜를 설정하고 특정 날짜를 보고서에서 제외하는 옵션을 보여주는 BrazeAI Decisioning Studio™ 설정 패널. 이 패널에는 기본 시작 날짜 및 제외 날짜라는 두 섹션이 표시됩니다. 제외 날짜 아래에 여러 날짜가 각 날짜 옆에 체크박스와 함께 나열됩니다.]({% image_buster /assets/img/decisioning_studio/reporting_set_exclude_dates.png %})
+![BrazeAI Decisioning Studio™에서 설정 패널이 열려 있으며 기본값 시작 날짜를 설정하고 보고서에서 특정 날짜를 제외하는 옵션이 표시됩니다. 패널에는 기본값 시작 날짜와 날짜 제외 두 개의 섹션이 있습니다. 날짜 제외 아래에 각 날짜 옆에 체크박스가 있는 여러 날짜가 나열되어 있습니다.]({% image_buster /assets/img/decisioning_studio/reporting_set_exclude_dates.png %})
 
 ## 사용 가능한 보고서 {#available-reports}
 

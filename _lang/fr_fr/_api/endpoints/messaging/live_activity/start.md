@@ -33,7 +33,7 @@ Pour planifier la suppression automatique après le démarrage d'une activité e
 2. Stockez cet `activity_id` et l'heure de fin souhaitée dans le planificateur de votre backend.
 3. À l'heure de fin prévue, envoyez une requête `/messages/live_activity/update` avec `end_activity` défini sur `true`.
 4. Configurez le comportement de suppression dans la même requête de mise à jour. Pour plus de détails, consultez l'endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update).
-5. Vérifiez les événements d'envoi et de résultat dans le [journal d'activité des messages]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab).
+5. Vérifiez les événements d'envoi et de résultat dans le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 

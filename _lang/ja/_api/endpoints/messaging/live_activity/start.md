@@ -17,12 +17,12 @@ description: "この記事では、「ライブアクティビティを開始」
 
 > このエンドポイントを使用して、iOSアプリに表示される[ライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift)をリモートで開始します。このエンドポイントには追加の設定が必要です。
 
-ライブアクティビティを作成した後、セグメントや接続オーディエンス、または特定の外部ユーザーIDに対してアクティビティをリモートで開始するためにPOSTリクエストを送信できます。Appleのライブアクティビティの詳細については、[Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications) を参照してください。
+ライブアクティビティを作成した後、セグメントや接続オーディエンス、または特定の外部ユーザーIDに対してアクティビティをリモートで開始するためにPOSTリクエストを送信できます。Appleのライブアクティビティの詳細については、[Starting and updating Live Activities with ActivityKit push notifications](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications)を参照してください。
 
 `content-available` が設定されていない場合、Appleプッシュ通知サービス（APNs）のデフォルトの優先度は10です。`content-available` が設定されている場合、この優先度は5です。詳細については、[Appleプッシュオブジェクト]({{site.baseurl}}/api/objects_filters/messaging/apple_object)を参照してください。
 
 {% alert tip %}
-ライブアクティビティを終了するには、[`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) エンドポイントで `end_activity` を `true` に設定して使用します。
+ライブアクティビティを終了するには、[`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update)エンドポイントで `end_activity` を `true` に設定して使用します。
 {% endalert %}
 
 ## 自動非表示のスケジュール設定 {#arranging-automatic-dismissal}
@@ -32,8 +32,8 @@ description: "この記事では、「ライブアクティビティを開始」
 1. 後で再利用できる `activity_id` を含む `/messages/live_activity/start` リクエストを送信します。
 2. その `activity_id` とターゲット終了時間をバックエンドスケジューラーに保存します。
 3. ターゲット終了時間に、`end_activity` を `true` に設定した `/messages/live_activity/update` リクエストを送信します。
-4. 同じ更新リクエストで非表示の動作を設定します。詳細については、[`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) エンドポイントを参照してください。
-5. [メッセージアクティビティログ]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab)で送信イベントと結果イベントを確認します。
+4. 同じ更新リクエストで非表示の動作を設定します。詳細については、[`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update)エンドポイントを参照してください。
+5. [メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)で送信イベントと結果イベントを確認します。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 
@@ -78,7 +78,7 @@ description: "この記事では、「ライブアクティビティを開始」
 | `activity_attributes` | 必須 | オブジェクト | アクティビティタイプの静的属性値（スポーツチームの名前など、変更されないもの）。 |
 | `content_state` | 必須 | オブジェクト | ライブアクティビティを作成する際に `ContentState` パラメーターを定義します。このオブジェクトを使用して、`ContentState` の更新された値を渡します。<br><br>このリクエストの形式は、最初に定義した形状と一致している必要があります。 |
 | `stale_date` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | このパラメーターは、ライブアクティビティのコンテンツがユーザーのUIで古いものとしてマークされる時間をシステムに通知します。 |
-| `notification` | 必須 | オブジェクト | プッシュ通知を定義する [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object) オブジェクトを含めます。このプッシュ通知の動作は、ユーザーがアクティブかどうか、またはユーザーがプロキシデバイスを使用しているかどうかによって異なります。{::nomarkdown}<ul><li><code>notification</code> が含まれており、更新が配信されたときにユーザーがiPhoneでアクティブである場合、更新されたライブアクティビティUIがスライドダウンしてプッシュ通知のように表示されます。</li><li><code>notification</code> が含まれており、ユーザーがiPhoneでアクティブでない場合、ロック画面に更新されたライブアクティビティUIを表示するために画面が点灯します。</li><li><code>notification alert</code> は、標準のプッシュ通知として表示されません。さらに、ユーザーがApple Watchのようなプロキシデバイスを持っている場合、<code>alert</code> がそこに表示されます。</li></ul>{:/} |
+| `notification` | 必須 | オブジェクト | プッシュ通知を定義する[`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object)オブジェクトを含めます。このプッシュ通知の動作は、ユーザーがアクティブかどうか、またはユーザーがプロキシデバイスを使用しているかどうかによって異なります。{::nomarkdown}<ul><li><code>notification</code> が含まれており、更新が配信されたときにユーザーがiPhoneでアクティブである場合、更新されたライブアクティビティUIがスライドダウンしてプッシュ通知のように表示されます。</li><li><code>notification</code> が含まれており、ユーザーがiPhoneでアクティブでない場合、ロック画面に更新されたライブアクティビティUIを表示するために画面が点灯します。</li><li><code>notification alert</code> は、標準のプッシュ通知として表示されません。さらに、ユーザーがApple Watchのようなプロキシデバイスを持っている場合、<code>alert</code> がそこに表示されます。</li></ul>{:/} |
 | `external_user_ids` | `segment_id` または `custom_audience` が提供されている場合はオプション | 文字列の配列 | [外部ユーザーID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)を参照してください。最大50の外部ユーザーID。 |
 | `segment_id` | `external_user_ids` または `custom_audience` が提供されている場合はオプション | 文字列 | [セグメント識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
 | `custom_audience` | `external_user_ids` または `segment_id` が提供されている場合はオプション | 接続オーディエンスオブジェクト | [接続オーディエンス]({{site.baseurl}}/api/objects_filters/connected_audience)を参照してください。 |

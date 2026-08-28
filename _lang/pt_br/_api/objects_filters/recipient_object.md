@@ -31,25 +31,25 @@ O objeto de destinatários permite combinar o [objeto de alias do usuário]({{si
 }]
 ```
 
-Quando `send_to_existing_only` é `true`, a Braze envia a mensagem apenas para usuários existentes. No entanto, você não pode usar essa flag com aliases de usuário.
+Quando `send_to_existing_only` é `true`, a Braze envia a mensagem apenas para usuários existentes. No entanto, você não pode usar esse flag com aliases de usuário.
 
-Quando `send_to_existing_only` é `false`, você deve incluir um objeto `attributes` no mesmo destinatário. A flag não substitui `attributes`. A Braze usa `attributes` para criar ou atualizar o perfil antes do envio (por exemplo, adicionando campos de `email` ou telefone para entrega de e-mail ou SMS, ou atualizando grupos de inscrições). Sem esse objeto, você não obtém o comportamento combinado esperado para usuários novos em [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) ou [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
+Quando `send_to_existing_only` é `false`, você deve incluir um objeto `attributes` no mesmo destinatário. O flag não substitui `attributes`. A Braze usa `attributes` para a criação ou atualização de perfil antes do envio (por exemplo, adicionar campos de `email` ou telefone para entrega de e-mail ou SMS, ou atualizar grupos de inscrições). Sem esse objeto, você não obtém o comportamento combinado esperado para novos usuários em [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) ou [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 
 Esse perfil ainda precisa atender às regras de público e elegibilidade de canal da mensagem antes que a Braze faça o envio.
 
-- [ID da Braze]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
-- [Aliases do usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
+- [Braze ID]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
+- [Aliases de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases)
 - [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
 - [Priorização]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)
-- [Objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object)
+- [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 
 ## Deduplicação do objeto de destinatário {#recipient-object-deduping}
 
-Ao fazer uma chamada de API com o objeto de destinatário, **se existir um destinatário duplicado direcionado para o mesmo endereço (ou seja, e-mail, push), a Braze deduplica o usuário**, o que significa que a Braze remove usuários idênticos, deixando apenas um.
+Ao fazer uma chamada de API com o objeto de destinatário, **se existir um destinatário duplicado direcionado ao mesmo endereço (ou seja, e-mail, push), a Braze faz a deduplicação do usuário**, o que significa que a Braze remove os usuários idênticos, mantendo apenas um.
 
-Por exemplo, se você usar o mesmo `external_user_id`, o usuário receberá apenas uma mensagem. Considere fazer várias chamadas à API se precisar de uma solução alternativa para esse comportamento.
+Por exemplo, se você usar o mesmo `external_user_id`, o usuário receberá apenas uma mensagem. Considere fazer várias chamadas de API se precisar de uma solução alternativa para esse comportamento.
 
-Quando o mesmo `external_user_id` aparece várias vezes no array de destinatários, a Braze envia apenas uma mensagem e utiliza as propriedades do gatilho da última ocorrência no array. Esse comportamento é determinístico e baseado na ordem do array.
+Quando o mesmo `external_user_id` aparece várias vezes no array de destinatários, a Braze envia apenas uma mensagem e usa as propriedades de disparo da última ocorrência no array. Esse comportamento é determinístico e baseado na ordem do array.
 
 No exemplo a seguir, `userid1` recebe uma mensagem usando `"name": "Beth Test 2"` porque essa entrada aparece por último no array.
 

@@ -11,11 +11,11 @@ page_order: 6
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie Decisioning Studio-Berichte in Braze anzeigen können, müssen folgende Bedingungen erfüllt sein:
+Bevor Sie Decisioning-Studio-Berichte in Braze einsehen können, müssen Sie:
 
-- Ein aktiver Vertrag für Braze und BrazeAI Decisioning Studio™ liegt vor.
-- Kontaktieren Sie Ihren CSM, damit BrazeAI Decisioning Studio™ in Ihrem Namen für Sie aktiviert wird.
-- Ein aktiver BrazeAI Decisioning Studio™-Agent ist vorhanden.
+- Einen aktiven Vertrag für Braze und BrazeAI Decisioning Studio™ haben.
+- Ihren CSM kontaktieren, um BrazeAI Decisioning Studio™ für Sie aktivieren zu lassen.
+- Einen aktiven BrazeAI Decisioning Studio™ Agenten haben.
 
 ## Berichte anzeigen {#view}
 
@@ -25,15 +25,15 @@ Hier können Sie Berichte wie Performance, Insights, Diagnosen und Zeitleisten e
 
 ## Berichtsdaten ändern {#change-report-dates}
 
-Nach dem [Öffnen eines Berichts](#view) können Sie den Datumsbereich ändern, indem Sie ein neues Start- und Enddatum aus dem Kalender-Dropdown-Menü auswählen.
+Nachdem Sie [einen Bericht geöffnet haben](#view), können Sie den Datumsbereich ändern, indem Sie ein neues Start- und Enddatum aus dem Kalender-Dropdown auswählen.
 
-![Datumsbereichs-Selektor in BrazeAI Decisioning Studio™ mit geöffnetem Kalender-Dropdown-Menü. Der Kalender zeigt auswählbare Start- und Enddaten zur Anpassung der Berichtsansicht.]({% image_buster /assets/img/decisioning_studio/reporting_change_date_range.png %}){: style="max-width:50%;"}
+![BrazeAI Decisioning Studio™ Datumsbereichsauswahl mit geöffnetem Kalender-Dropdown. Der Kalender zeigt auswählbare Start- und Enddaten zur Anpassung der Berichtsansicht.]({% image_buster /assets/img/decisioning_studio/reporting_change_date_range.png %}){: style="max-width:50%;"}
 
-Sie können auch ein Standard-Startdatum festlegen oder bestimmte Daten auswählen, die immer ausgeschlossen werden sollen. Ausgeschlossene Daten werden aus allen Berichten für diesen Agenten herausgefiltert.
+Sie können auch ein Standard-Startdatum festlegen oder Daten auswählen, die immer ausgeschlossen werden sollen. Ausgeschlossene Daten werden aus allen Berichten für diesen Agenten herausgefiltert.
 
-Um Daten festzulegen oder auszuschließen, wählen Sie <i class="fa-solid fa-gear"></i> **Einstellungen** aus und ändern Sie dann Ihr Standarddatum oder schließen Sie Daten nach Bedarf aus.
+Um Daten festzulegen oder auszuschließen, wählen Sie <i class="fa-solid fa-gear" aria-label="Einstellungen"></i> **Settings** und ändern Sie dann Ihr Standarddatum oder schließen Sie Daten nach Bedarf aus.
 
-![Geöffnetes Einstellungen-Panel in BrazeAI Decisioning Studio™ mit Optionen zum Festlegen eines Standard-Startdatums und zum Ausschließen bestimmter Daten aus Berichten. Das Panel enthält die zwei Abschnitte „Standard-Startdatum“ und „Daten ausschließen“. Unter „Daten ausschließen“ sind mehrere Daten mit je einem Kontrollkästchen aufgeführt.]({% image_buster /assets/img/decisioning_studio/reporting_set_exclude_dates.png %})
+![Geöffnetes Settings-Panel in BrazeAI Decisioning Studio™ mit Optionen zum Festlegen eines Standard-Startdatums und zum Ausschließen bestimmter Daten aus Berichten. Das Panel zeigt zwei Abschnitte mit den Bezeichnungen „Default start date“ und „Exclude dates“. Unter „Exclude dates“ sind mehrere Daten mit Kontrollkästchen aufgelistet.]({% image_buster /assets/img/decisioning_studio/reporting_set_exclude_dates.png %})
 
 ## Verfügbare Berichte {#available-reports}
 

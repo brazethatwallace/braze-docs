@@ -50,7 +50,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | --------- | --------- | ----------- |
-| `alias_updates` | 필수 | 업데이트 사용자 별칭 오브젝트 배열 | [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object)를 참조하세요.<br><br> `old_alias_name`, `new_alias_name`, `alias_label`에 대한 자세한 내용은 [사용자 별칭]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)을 참조하세요. |
+| `alias_updates` | 필수 | 업데이트 사용자 별칭 오브젝트 배열 | [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object)를 참조하세요.<br><br> `old_alias_name`, `new_alias_name`, `alias_label`에 대한 자세한 내용은 [사용자 별칭]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases)을 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ### 업데이트 사용자 별칭 오브젝트 사양이 포함된 엔드포인트 요청 본문 {#endpoint-request-body-with-update-user-alias-object-specification}
