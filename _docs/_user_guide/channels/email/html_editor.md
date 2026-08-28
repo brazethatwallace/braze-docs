@@ -306,7 +306,7 @@ You can allow up to a 30-day window during which Braze counts a conversion if th
 {% endtab %}
 
 {% tab Canvas %}
-If you haven't done so already, complete the remaining sections of your Canvas components. For details about building the rest of your Canvas, including multivariate testing and **Optimize with BrazeAI™**, see [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas).
+If you haven't done so already, complete the remaining sections of your Canvas components. For details about building the rest of your Canvas, including multivariate testing and [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#optimize-canvas-variants-with-brazeai), see [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas).
 {% endtab %}
 {% endtabs %}
 

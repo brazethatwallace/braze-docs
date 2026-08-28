@@ -394,7 +394,7 @@ Braze allows you to track how often users perform specific actions, [conversion 
 {% endtab %}
 {% tab Canvas %}
 
-If you haven't done so already, complete the remaining sections of your Canvas component. For details about building the rest of your Canvas, including multivariate testing and **Optimize with BrazeAI™**, see [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas).
+If you haven't done so already, complete the remaining sections of your Canvas component. For details about building the rest of your Canvas, including multivariate testing and [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#optimize-canvas-variants-with-brazeai), see [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas).
 
 For information on Canvas-specific in-app messaging options, refer to [In-app messages in Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas).
 
