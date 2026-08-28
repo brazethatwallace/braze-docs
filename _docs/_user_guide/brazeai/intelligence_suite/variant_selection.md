@@ -24,10 +24,6 @@ For a multi-send campaign, you must also:
 
 In the **Target Audiences** step, go to **A/B Testing**, then turn on **Optimize with BrazeAI™**.
 
-{% alert note %}
-Optimization isn't available for push notification campaigns that use multiple platforms and multiple variants.
-{% endalert %}
-
 ## Single-send campaigns
 
 For a single-send campaign, Braze sends an initial portion of the audience to each variant. After the experiment duration ends, BrazeAI™ selects the best-performing variant and sends it to the remaining audience.
@@ -75,7 +71,6 @@ Optimization isn't available when:
 - The campaign has fewer than two active variants.
 - A multi-send campaign has no conversion events.
 - A multi-send campaign has a re-eligibility window shorter than 24 hours.
-- A push notification campaign uses multiple platforms and multiple variants.
 
 ### Why do my variants have similar send counts at first?
 

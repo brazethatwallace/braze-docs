@@ -41,9 +41,7 @@ To create a campaign targeting multiple platforms and devices:
 
 Multivariate testing is supported on multi-platform campaigns. Select the plus icon beside the variant name as you would for a single-platform campaign. For setup steps, see [Create multivariate and A/B tests]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests).
 
-{% alert note %}
-**Optimize with BrazeAI™** isn't available for push notification campaigns that use multiple platforms and multiple variants.
-{% endalert %}
+To automatically optimize your variants, see [Optimizing A/B tests with BrazeAI™]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
 ![Easy multi-platform, multivariate tests]({% image_buster /assets/img_archive/push_multiple_platform_message_composer_multivariate.png %})
 
