@@ -17,7 +17,7 @@ Esta página está en fase beta. Las características y la documentación de la 
 
 ## Claves de API REST del lado del cliente {#client-side-rest-api-keys}
 
-Las claves de API REST del lado del cliente tienen un alcance limitado a un espacio de trabajo y están restringidas a permisos de API de mensajería del dispositivo. Puedes integrar estas claves en aplicaciones del lado del cliente.
+Las claves de API REST del lado del cliente tienen un alcance limitado a un espacio de trabajo y están restringidas a permisos de la API de mensajería de dispositivos. Puedes integrar estas claves en aplicaciones del lado del cliente.
 
 {% alert important %}
 Utiliza solo una clave de API REST del lado del cliente en una aplicación del lado del cliente. Nunca expongas una clave de API REST privada del lado del servidor en código del lado del cliente.
@@ -28,7 +28,7 @@ Para crear una clave de API REST del lado del cliente:
 1. Ve a **Configuración** > **APIs e identificadores** > **Claves de API** en el panel de Braze.
 2. Selecciona **Crear clave de API**.
 3. En **Tipo de clave**, selecciona **Cliente**.
-4. Asigna el permiso `banners.sync` para recuperar Banners, el permiso `banners.track` para informar eventos de Banner, o ambos.
+4. Asigna el permiso `banners.sync` para recuperar banners, el permiso `banners.track` para informar eventos de banner, o ambos.
 
 ## Autenticación de solicitudes {#authenticating-requests}
 
@@ -42,9 +42,9 @@ Usa HTTPS y el [endpoint REST]({{site.baseurl}}/api/basics#endpoints) de tu inst
 
 ## Identidad del usuario {#user-identity}
 
-Una clave de API REST del lado del cliente autentica la aplicación y el espacio de trabajo que realizan la llamada, no al usuario. El `external_user_id` en una solicitud identifica al usuario asociado con el contenido y los eventos de Banner.
+Una clave de API REST del lado del cliente autentica la aplicación y el espacio de trabajo que realizan la llamada, no al usuario. El `external_user_id` en una solicitud identifica al usuario asociado con el contenido y los eventos de banner.
 
-Aplica los controles de autorización de tu aplicación antes de realizar solicitudes a la API de mensajería del dispositivo.
+Aplica los controles de autorización de tu aplicación antes de realizar solicitudes a la API de mensajería de dispositivos.
 
 ## Errores de autenticación {#authentication-errors}
 

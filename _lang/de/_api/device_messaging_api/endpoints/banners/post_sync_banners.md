@@ -37,7 +37,7 @@ Fügen Sie den clientseitigen REST-API-Schlüssel im `Authorization`-Header als 
 
 Rate-Limits gelten pro Workspace. Wenn Sie das Rate-Limit überschreiten, gibt Braze den Statuscode `429` zurück. Verwenden Sie nach Möglichkeit die Antwort-Header `X-RateLimit-Limit`, `X-RateLimit-Remaining` und `X-RateLimit-Reset`, um Ihre Nutzung zu überwachen.
 
-Weitere Informationen finden Sie unter [Rate-Limits der Device-Messaging-API]({{site.baseurl}}/api/device_messaging_api/rate_limits).
+Weitere Informationen finden Sie unter [Rate-Limits der Device Messaging API]({{site.baseurl}}/api/device_messaging_api/rate_limits).
 
 ## Anfragekörper {#request-body}
 
@@ -87,7 +87,7 @@ curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/
 | Parameter | Datentyp | Beschreibung |
 |---|---|---|
 | `banners` | Objekt | Eine Zuordnung jeder angeforderten Platzierungs-ID zu ihrem aufgelösten Banner. Der Wert ist `null`, wenn kein Banner für eine Platzierung berechtigt ist. |
-| `banners.{placement_id}.id` | String | Der eindeutige Banner-Bezeichner. Verwenden Sie diesen Wert, um Impression- und Klick-Events zu melden. |
+| `banners.{placement_id}.id` | String | Der eindeutige Banner-Bezeichner. Verwenden Sie diesen Wert, um Impression- und Klick-Ereignisse zu melden. |
 | `banners.{placement_id}.placement_id` | String | Die dem Banner zugeordnete Platzierungs-ID. |
 | `banners.{placement_id}.is_control` | Boolean | Ob das Banner eine Kontrollgruppen-Variante ist. |
 | `banners.{placement_id}.is_test_send` | Boolean | Ob das Banner aus einem Testversand stammt. Standardmäßig `false`. |
@@ -137,6 +137,6 @@ Eine erfolgreiche Anfrage gibt den Statuscode `200` und das aufgelöste Banner f
 | `429` | Der Workspace hat sein Rate-Limit überschritten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Statuscodes" }
 
-Weitere Informationen finden Sie unter [Fehlerbehandlung und Wiederholungsversuche der Device-Messaging-API]({{site.baseurl}}/api/device_messaging_api/error_handling).
+Weitere Informationen finden Sie unter [Fehlerbehandlung und Wiederholungsversuche der Device Messaging API]({{site.baseurl}}/api/device_messaging_api/error_handling).
 
 {% endapi %}

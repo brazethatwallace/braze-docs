@@ -17,27 +17,27 @@ Braze デバイスメッセージング API は、Braze SDKを使用せずに Br
 
 ## サポートされている機能 {#supported-capabilities}
 
-早期アクセス期間中、Device Messaging APIを使用して以下のことが可能です。
+早期アクセス期間中、デバイスメッセージング API を使用して以下のことが可能です。
 
-- 外部ユーザーIDとプレースメントのセットに対して[適格なBannerを取得する]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)
-- [Bannerのインプレッションおよびクリックイベントをレポートする]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_track_banner_events)
+- 外部ユーザー ID とプレースメントのセットに対して[適格なバナーを取得する]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)
+- [バナーのインプレッションおよびクリックイベントをレポートする]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_track_banner_events)
 
-Device Messaging APIは構造化されたBannerプロパティを返すため、カスタムインターフェイスを構築できます。レンダリングされたHTMLは返しません。
+デバイスメッセージング API は構造化されたバナープロパティを返すため、カスタムインターフェイスを構築できます。レンダリングされた HTML は返しません。
 
 ## 統合要件 {#integration-requirements}
 
-Device Messaging APIを統合するには、以下が必要です。
+デバイスメッセージング API を統合するには、以下が必要です。
 
-- Device Messaging APIが有効になっているワークスペース
-- そのワークスペースのクライアント側REST APIキー
-- そのワークスペースのRESTエンドポイント
+- デバイスメッセージング API が有効になっているワークスペース
+- そのワークスペースのクライアント側 REST APIキー
+- そのワークスペースの REST エンドポイント
 - ユーザーの外部ユーザー ID
-- アプリのAPI識別子
+- アプリの API 識別子
 
 認証情報の詳細については、[認証とセキュリティ]({{site.baseurl}}/api/device_messaging_api/authentication)を参照してください。
 
 ## デバイスメッセージング API と REST APIのガイダンス {#device-messaging-api-and-rest-api-guidance}
 
-デバイスメッセージング APIは、Braze REST APIと同じリージョン別 REST エンドポイントを使用しますが、認証とレスポンスの仕様は別になっています。プライベートなサーバーサイドキー、レスポンスボディ、エラー、レート制限に関する一般的な REST API ガイダンスは、デバイスメッセージング APIの記事で明示的に言及されていない限り適用されません。
+デバイスメッセージング API は、Braze REST APIと同じリージョン別 REST エンドポイントを使用しますが、認証とレスポンスの仕様は別になっています。プライベートなサーバーサイドキー、レスポンスボディ、エラー、レート制限に関する一般的な REST API ガイダンスは、デバイスメッセージング API の記事で明示的に言及されていない限り適用されません。
 
-リクエストフィールド、レスポンスボディ、ステータスコード、制限については、デバイスメッセージング APIのエンドポイントドキュメントを正式な情報源としてご利用ください。
+リクエストフィールド、レスポンスボディ、ステータスコード、制限については、デバイスメッセージング API のエンドポイントドキュメントを正式な情報源としてご利用ください。

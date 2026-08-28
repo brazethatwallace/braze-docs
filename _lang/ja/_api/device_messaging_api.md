@@ -34,4 +34,3 @@ guide_menu_list:
     link: /docs/api/device_messaging_api/endpoints/banners/post_track_banner_events
     image: /assets/img/braze_icons/line-chart-up-02.svg
 ---
-

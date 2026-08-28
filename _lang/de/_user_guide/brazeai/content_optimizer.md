@@ -15,16 +15,16 @@ page_order: 3
 Der Content Optimizer befindet sich derzeit in der Beta-Phase und ist nur für folgende Kanäle verfügbar: E-Mail, Push-Benachrichtigungen und SMS-/MMS-/RCS-Nachrichten. Für Unterstützung beim Einstieg wenden Sie sich bitte an Ihren Customer-Success-Manager.
 {% endalert %}
 
-## Über den Content Optimizer {#about-content-optimizer}
+## Über den Otimizador de Conteúdo {#about-content-optimizer}
 
 Der Content Optimizer wird in einem Canvas-Schritt ausgeführt. Er hilft Ihnen, Nachrichtenkomponenten zum Testen zu definieren, Varianten mithilfe von generativer KI oder manueller Eingabe zu erstellen und automatisch zu optimieren, welche Inhaltskombinationen an Nutzer:innen gesendet werden. Dieses Feature hilft Ihnen dabei:
 
-- Betreffzeilen, Body-Header, Body-Content oder primären CTA für E-Mails zu optimieren.
+- Betreffzeilen, Body-Header, Body-Inhalt oder primären CTA für E-Mails zu optimieren.
 - Titel und Nachrichten für Push-Benachrichtigungen zu optimieren.
 - Hooks, Bodys und CTAs für SMS-, MMS- und RCS-Nachrichten zu optimieren.
-- Die Nachrichten-Performance kontinuierlich zu verbessern – ohne manuelles A/B-Test-Setup.
+- Die Nachrichten-Performance kontinuierlich zu verbessern, ohne manuelles A/B-Test-Setup.
 - Große Mengen an Inhaltsvarianten schnell zu testen und KI für die Ideenfindung zu nutzen.
-- Leistungsschwache Inhalte automatisch auszusortieren und erfolgreiche hochzuskalieren.
+- Schlecht performende Inhalte automatisch auszusortieren und Gewinnervarianten hochzuskalieren.
 
 Erfahren Sie, wie Sie einen [Content-Optimizer-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step) erstellen.
 
@@ -32,11 +32,11 @@ Erfahren Sie, wie Sie einen [Content-Optimizer-Schritt]({{site.baseurl}}/user_gu
 
 ### OpenAI und Content Optimizer {#openai-and-content-optimizer}
 
-Der Content Optimizer verwendet OpenAI nur dann, wenn Sie explizit KI-generierte Variantenvorschläge anfordern. OpenAI wird nicht verwendet, um auszuwählen, welche Variante einzelne Nutzer:innen erhalten, oder um den Versandverkehr zuzuteilen.
+Content Optimizer verwendet OpenAI nur, wenn Sie explizit KI-generierte Variantenvorschläge anfordern. OpenAI wird nicht verwendet, um auszuwählen, welche Variante einzelne Nutzer:innen erhalten, oder um den Versand-Traffic zuzuweisen.
 
-- **Verwendet OpenAI:** Wenn Sie **KI-Vorschläge generieren** für eine Inhaltskomponente auswählen, sendet Braze Ihre Seed-Variante, Anweisungen, optionale [Markenrichtlinie]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) und (bei gestarteten Schritten mit ausreichend Versanddaten) aggregierten Performance-Kontext an OpenAI, um Variantenideen zu generieren.
-- **Bandit-Optimierung:** Der proprietäre Multi-Armed-Bandit-Algorithmus von Braze übernimmt die Verkehrsaufteilung, die Variantenauswahl zum Sendezeitpunkt und die Performance-basierte Optimierung. Siehe [So funktioniert es](#how-it-works).
-- **Manuelle Eingabe:** Sie können Varianten manuell eingeben, ohne Inhalte an OpenAI zu senden.
+- **Verwendet OpenAI:** Wenn Sie **KI-Vorschläge generieren** für eine Inhaltskomponente auswählen, sendet Braze Ihre Ausgangsvariante, Anweisungen, optionale [Markenrichtlinie]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) und (bei gestarteten Schritten mit ausreichenden Versanddaten) aggregierten Performance-Kontext an OpenAI, um Variantenideen zu generieren.
+- **Bandit-Optimierung:** Der proprietäre Multi-Armed-Bandit-Algorithmus von Braze übernimmt die Traffic-Zuweisung, die Variantenauswahl zum Sendezeitpunkt und die Performance-basierte Optimierung. Siehe [So funktioniert es](#how-it-works).
+- **Manuelle Eingabe:** Sie können Varianten selbst eingeben, ohne Inhalte an OpenAI zu senden.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -44,10 +44,10 @@ Der Content Optimizer verwendet OpenAI nur dann, wenn Sie explizit KI-generierte
 
 | Optimierungs-Anwendungsfall | Ziel | Beschreibung |
 | --- | --- | --- |
-| Betreffzeilen-Variationen | Öffnungsrate steigern | Testen Sie Tonalität, Dringlichkeit, Personalisierung und den Einsatz von Emojis. |
+| Variationen der Betreffzeile | Öffnungsrate steigern | Testen Sie Tonalität, Dringlichkeit, Personalisierung und den Einsatz von Emojis. |
 | Stile für Header-Nachrichten | Engagement steigern | Vergleichen Sie emotionale, wertorientierte und klare Formulierungen im Body-Header. |
-| Format des Body-Inhalts | Lesbarkeit und Engagement verbessern | Testen Sie Storytelling im Vergleich zu Feature-Listen, Aufzählungen im Vergleich zu Absätzen und verschiedene Inhaltslängen. |
-| CTA-Text und Tonalität | Click-throughs steigern | Vergleichen Sie handlungsorientierte, nutzenorientierte und Ich-Perspektive-CTA-Formulierungen. |
+| Format des Body-Inhalts | Lesbarkeit und Engagement verbessern | Testen Sie Storytelling im Vergleich zu Feature-Listen, Aufzählungen im Vergleich zu Absätzen und Inhaltslänge. |
+| CTA-Text und Tonalität | Click-throughs steigern | Vergleichen Sie handlungsorientierte, nutzenorientierte und in der ersten Person formulierte CTA-Formulierungen. |
 | Thematische Inhaltskombinationen | Leistungsstarke Kombinationen entdecken | Kombinieren Sie thematisch passende Betreffzeilen-, Body- und CTA-Komponenten, um die beste Gesamtkombination zu finden. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="E-Mail" }
 
@@ -55,7 +55,7 @@ Der Content Optimizer verwendet OpenAI nur dann, wenn Sie explizit KI-generierte
 
 | Optimierungs-Anwendungsfall | Ziel | Beschreibung |
 | --- | --- | --- |
-| Titel-Variationen | Öffnungsrate steigern | Testen Sie Klarheit, Dringlichkeit, Personalisierung und Tonalität im Push-Titel. |
+| Titelvariationen | Öffnungsrate steigern | Testen Sie Klarheit, Dringlichkeit, Personalisierung und Tonalität im Push-Titel. |
 | Stile für den Body-Text | Engagement verbessern | Vergleichen Sie prägnante, nutzenorientierte und handlungsorientierte Formulierungen im Push-Body. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push-Benachrichtigungen" }
 
@@ -63,9 +63,9 @@ Der Content Optimizer verwendet OpenAI nur dann, wenn Sie explizit KI-generierte
 
 | Optimierungs-Anwendungsfall | Ziel | Beschreibung |
 | --- | --- | --- |
-| Hook-Variationen | Engagement steigern | Testen Sie Dringlichkeit, Personalisierung und Tonalität in der ersten Zeile, die in SMS-Vorschauen, MMS-Bildunterschriften oder RCS-Einleitungen angezeigt wird. |
-| Stile für den Body-Text | Engagement verbessern | Vergleichen Sie prägnante und handlungsorientierte Formulierungen im Body, einschließlich Text, der Medien in MMS und RCS begleitet. |
-| CTA-Text-Variationen | Click-throughs steigern | Vergleichen Sie handlungsorientierte und dialogorientierte CTA-Formulierungen für Links und Nächste-Schritte-Aufforderungen in SMS, MMS und RCS. |
+| Hook-Variationen | Engagement steigern | Testen Sie Dringlichkeit, Personalisierung und Tonalität in der ersten Zeile, die in SMS-Vorschauen, MMS-Untertiteln oder RCS-Einleitungen angezeigt wird. |
+| Stile für den Body-Text | Engagement verbessern | Vergleichen Sie prägnante und handlungsorientierte Formulierungen im Body, einschließlich Texten, die Medien in MMS und RCS begleiten. |
+| CTA-Textvariationen | Click-throughs steigern | Vergleichen Sie handlungsorientierte und konversationelle CTA-Formulierungen für Links und Aufforderungen zu nächsten Schritten in SMS, MMS und RCS. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS-, MMS- und RCS-Nachrichten" }
 
 ## Funktionsweise {#how-it-works}
@@ -82,26 +82,28 @@ Der Content Optimizer ähnelt dem Nachricht-Schritt in Canvas und verfügt über
 
 Jede:r Nutzer:in erhält eine Nachricht pro Eintritt in den Content Optimizer-Schritt. Wiedereintritte werden als neu behandelt, ohne Berücksichtigung früherer Varianten.
 
-## Canvas-Eintritts-Setup {#canvas-entry-setup}
+Um nachgelagertes Verhalten in Ihren eigenen Analytics-Tools zuzuordnen, fügen Sie Ihrer Nachricht einen Liquid-Tag hinzu, der aufzeichnet, welche Kombination jede:r Nutzer:in erhalten hat. Weitere Informationen finden Sie unter [Kombinations-Token]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step#combination-token).
 
-Für beste Ergebnisse verwenden Sie den Otimizador de Conteúdo in Canvases, in denen Nutzer:innen den Schritt schrittweise und regelmäßig über die Zeit betreten, z. B. in wiederkehrenden oder dauerhaft aktiven Canvases mit konsistentem täglichem Volumen. Wenn alle Nutzer:innen den Schritt gleichzeitig betreten, hat der Content Optimizer nicht genügend Zeit, aus frühen Ergebnissen zu lernen. Der Schritt verhält sich dann eher wie ein statischer A/B-Test als eine Live-Optimierungs-Engine.
+## Einrichtung des Canvas-Entry {#canvas-entry-setup}
 
-Der Content Optimizer eignet sich am besten für Canvases mit täglichem wiederkehrendem Eintritt sowie für event-getriggerte und API-getriggerte Canvases mit relativ konsistenten täglichen Nutzereintritten. Wenn Sie den Content Optimizer in Einmal-Versand-Canvases oder Canvases mit „sprunghaftem“ Eintritt (z. B. monatlich wiederkehrend) verwenden, sollten Sie [Eintrittskontrollen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) nutzen, um die Nutzereintritte über den Verlauf mehrerer Tage zu verteilen.
+Für die besten Ergebnisse verwenden Sie den Content Optimizer in Canvases, bei denen Nutzer:innen den Schritt nach und nach und regelmäßig über die Zeit betreten, z. B. in wiederkehrenden oder dauerhaft aktiven Canvases mit konsistentem täglichem Volumen. Wenn alle Nutzer:innen den Schritt gleichzeitig betreten, hat der Content Optimizer keine Zeit, aus frühen Ergebnissen zu lernen. Der Schritt verhält sich dann eher wie ein statischer A/B-Test als eine Live-Optimierungs-Engine.
 
-### Zentrale Konzepte {#key-concepts}
+Der Content Optimizer eignet sich am besten für Canvases mit täglichem wiederkehrendem Entry sowie für ereignis- und API-getriggerte Canvases mit relativ konstantem täglichem Nutzer:innen-Eintritt. Wenn Sie den Content Optimizer in Canvases mit Einzelversand oder in Canvases mit „sprunghaftem“ Entry verwenden (z. B. monatlich wiederkehrend), sollten Sie [Entry-Kontrollen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) nutzen, um den Eintritt der Nutzer:innen über mehrere Tage zu verteilen.
+
+### Wichtige Konzepte {#key-concepts}
 
 | Begriff | Beschreibung |
 |-------------------------|-------------|
 | Basisnachricht | Das Haupt-Nachrichten-Template, aus dem Varianten erstellt werden, einschließlich aller Versandeinstellungen. |
-| Inhaltskomponenten | Elemente innerhalb einer Nachricht (z. B. Betreffzeile oder primärer CTA), die getestet und optimiert werden können. Marketer müssen den entsprechenden Liquid-Tag in die Nachricht einfügen, an der Stelle, an der die Komponente erscheinen soll. |
+| Inhaltskomponenten | Elemente innerhalb einer Nachricht (z. B. Betreffzeile oder primärer CTA), die getestet und optimiert werden können. Marketer müssen den entsprechenden Liquid-Tag an der Stelle in die Nachricht einfügen, an der die Komponente erscheinen soll. |
 | Inhaltsvarianten | Die verschiedenen Werte, die eine Inhaltskomponente annehmen kann. |
-| Inhaltskombinationen | Einzigartige Nachrichten, die durch das Mischen und Kombinieren von Inhaltsvarianten erstellt werden. |
-| Optimierungs-Event | Bestimmt, wie der Content Optimizer die Performance bewertet und den Traffic im Laufe der Zeit auf die Inhaltskombinationen verteilt – z. B. Klicks oder Öffnungen bei E-Mails. Gilt für alle Inhaltskomponenten in einem Schritt. Der Content Optimizer lernt kontinuierlich aus diesem Event und verschiebt die Zustellung automatisch in Richtung leistungsstärkerer Inhaltskombinationen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Zentrale Konzepte" }
+| Inhaltskombinationen | Eindeutige Nachrichten, die durch das Mischen und Kombinieren von Inhaltsvarianten erstellt werden. |
+| Optimierungsereignis | Bestimmt, wie der Content Optimizer die Performance bewertet und den Traffic im Laufe der Zeit auf Inhaltskombinationen verteilt, z. B. Klicks oder Öffnungen bei E-Mails. Gilt für alle Inhaltskomponenten in einem Schritt. Der Content Optimizer lernt kontinuierlich aus diesem Ereignis und verschiebt die Zustellung automatisch in Richtung leistungsstärkerer Inhaltskombinationen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Wichtige Konzepte" }
 
 ## Überlegungen {#considerations}
 
-- Der Content Optimizer befindet sich derzeit in der Beta-Phase und ist nur für diese Kanäle verfügbar: E-Mail, Push-Benachrichtigungen und SMS-/MMS-/RCS-Nachrichten.
+- Der Content Optimizer befindet sich derzeit in der Betaphase und ist nur für diese Kanäle verfügbar: E-Mail, Push-Benachrichtigungen und SMS/MMS/RCS-Nachrichten.
 - Für E-Mail kann der Content Optimizer bis zu 125 Kombinationen pro Schritt generieren:
    - Bis zu 3 Komponenten pro Schritt
    - Bis zu 5 Varianten pro Komponente
@@ -111,10 +113,10 @@ Der Content Optimizer eignet sich am besten für Canvases mit täglichem wiederk
 - Für SMS-, MMS- und RCS-Nachrichten kann der Content Optimizer bis zu 25 Kombinationen pro Schritt generieren:
    - Bis zu 2 Komponenten pro Schritt
    - Bis zu 5 Varianten pro Komponente
-- Pro Nutzer:in wird pro Entry nur eine Nachricht gesendet. Es gibt keinen Speicher für vorherige Sendungen bei erneutem Eintritt.
-- Marketer müssen Liquid-Tags für jede Komponente manuell im Nachrichten-Editor einfügen, dort wo die definierten Inhaltsvarianten der Komponenten gerendert werden sollen.
+- Pro Nutzer:in und Entry wird nur eine Nachricht gesendet. Es gibt keinen Speicher für vorherige Sendungen bei erneuten Eintritten.
+- Marketer müssen Liquid-Tags für jede Komponente manuell im Nachrichten-Editor einfügen, an der Stelle, an der die definierten Varianten der Inhaltskomponenten gerendert werden sollen.
 
 ## Nächste Schritte {#next-steps}
 
-- Wenden Sie sich an Ihren Customer-Success-Manager, um an der Beta teilzunehmen oder Unterstützung beim Onboarding zu erhalten.
+- Wenden Sie sich an Ihren Customer-Success-Manager, um am Beta-Programm teilzunehmen oder Unterstützung beim Onboarding zu erhalten.
 - Erfahren Sie, wie Sie einen [Content-Optimizer-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step) erstellen.

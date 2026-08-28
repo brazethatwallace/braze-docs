@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "Usa este endpoint para registrar eventos de impresión y clic para Banners."
+description: "Usa este endpoint para registrar eventos de impresión, clic y descarte para Banners."
 hidden: true
 ---
 
@@ -15,7 +15,7 @@ hidden: true
 /v1/device-messaging/banners/track
 {% endapimethod %}
 
-> Usa este endpoint para registrar eventos de impresión y clic para Banners.
+> Usa este endpoint para registrar eventos de impresión, clic y descarte para Banners.
 
 Braze valida cada evento por separado. Cuando una solicitud contiene eventos válidos e inválidos, Braze procesa los eventos válidos y devuelve detalles sobre los eventos omitidos en el array `errors`. Si ningún evento es válido, Braze devuelve un código de estado `400`.
 
@@ -38,7 +38,17 @@ Incluye la clave de API REST del lado del cliente en el encabezado `Authorizatio
 
 Los límites de velocidad se aplican por espacio de trabajo. Si superas el límite de velocidad, Braze devuelve un código de estado `429`. Cuando estén disponibles, usa los encabezados de respuesta `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset` y `X-RateLimit-Retry-After` para monitorear tu uso y determinar cuándo reintentar.
 
-Para más información, consulta [Límites de velocidad de la API de mensajería del dispositivo]({{site.baseurl}}/api/device_messaging_api/rate_limits).
+Para más información, consulta [Límites de velocidad de la API de mensajería de dispositivos]({{site.baseurl}}/api/device_messaging_api/rate_limits).
+
+## Descartar Banners {#dismissing-banners}
+
+Registrar un evento `dismiss` descarta el Banner para el usuario dado. Las sincronizaciones de Banner posteriores para ese usuario no incluirán los Banners descartados previamente, a menos que se haya configurado la reelegibilidad en la campaña.
+
+{% alert note %}
+Los eventos de descarte se procesan de forma asíncrona y no se reflejan de inmediato. En casos excepcionales, el procesamiento puede tardar unos minutos. Evita llamar al [endpoint Recuperar Banners para un usuario]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners) inmediatamente después de un descarte, ya que el Banner podría seguir siendo devuelto durante esta ventana.
+{% endalert %}
+
+Braze no concilia el estado del Banner en tu interfaz. Ocultar el Banner después de un descarte y mantenerlo oculto hasta que Braze procese el evento depende de tu aplicación.
 
 ## Cuerpo de la solicitud {#request-body}
 
@@ -66,7 +76,7 @@ Para más información, consulta [Límites de velocidad de la API de mensajería
 | `app_version` | Obligatorio | Cadena | La versión de la aplicación anfitriona. No debe superar los 255 caracteres. | `1.0.0` |
 | `events` | Obligatorio | Array de objetos | Uno o más eventos de análisis de Banner para registrar. | `[{"id":"bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E","event_type":"impression","timestamp":"2026-04-09T12:00:00Z"}]` |
 | `events[].id` | Obligatorio | Cadena | El `id` de Banner devuelto por el endpoint Recuperar Banners para un usuario. Usa el ID de Banner, no el `placement_id`, para que Braze atribuya el evento a la Campaign y la variante correctas. | `bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E` |
-| `events[].event_type` | Obligatorio | Cadena | El tipo de evento. Los valores posibles son `impression` y `click`. | `impression` |
+| `events[].event_type` | Obligatorio | Cadena | El tipo de evento. Los valores posibles son `impression`, `click` y `dismiss`. | `impression` |
 | `events[].timestamp` | Obligatorio | Cadena | La fecha y hora en que ocurrió el evento, con formato de cadena [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). | `2026-04-09T12:00:00Z` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Parámetros de la solicitud" }
 
@@ -131,7 +141,7 @@ Braze también devuelve un código de estado `202` cuando acepta al menos un eve
   "message": "success",
   "errors": [
     {
-      "type": "Invalid event_type. Valid types are: impression, click.",
+      "type": "Invalid event_type. Valid types are: impression, click, dismiss.",
       "index": 2
     }
   ]
@@ -147,7 +157,7 @@ Si Braze no puede procesar ningún evento, devuelve un código de estado `400`.
   "message": "No valid events provided.",
   "errors": [
     {
-      "type": "Invalid event_type. Valid types are: impression, click.",
+      "type": "Invalid event_type. Valid types are: impression, click, dismiss.",
       "index": 0
     },
     {
@@ -170,6 +180,6 @@ Si Braze no puede procesar ningún evento, devuelve un código de estado `400`.
 | `429` | El espacio de trabajo superó su límite de velocidad. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Códigos de estado" }
 
-Para más información, consulta [Manejo de errores y reintentos de la API de mensajería del dispositivo]({{site.baseurl}}/api/device_messaging_api/error_handling).
+Para más información, consulta [Manejo de errores y reintentos de la API de mensajería de dispositivos]({{site.baseurl}}/api/device_messaging_api/error_handling).
 
 {% endapi %}

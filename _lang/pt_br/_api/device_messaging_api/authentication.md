@@ -12,12 +12,12 @@ hidden: true
 A API de envio de mensagens do dispositivo usa chaves da REST API do lado do cliente. Essas chaves são diferentes das chaves privadas da REST API usadas para solicitações da REST API da Braze no lado do servidor.
 
 {% alert important %}
-Esta página está em beta. Os recursos e a documentação da API de envio de mensagens para dispositivos estão sujeitos a alterações. Entre em contato com o gerente da sua conta Braze para solicitar acesso.
+Esta página está em beta. Os recursos e a documentação da API de envio de mensagens do dispositivo estão sujeitos a alterações. Entre em contato com o gerente da sua conta Braze para solicitar acesso.
 {% endalert %}
 
 ## Chaves da API REST do lado do cliente {#client-side-rest-api-keys}
 
-As chaves da API REST do lado do cliente são limitadas a um espaço de trabalho e restritas a permissões de API de envio de mensagens para dispositivos. Você pode incorporar essas chaves em aplicações do lado do cliente.
+As chaves da API REST do lado do cliente são limitadas a um espaço de trabalho e restritas a permissões da API de envio de mensagens do dispositivo. Você pode incorporar essas chaves em aplicações do lado do cliente.
 
 {% alert important %}
 Use apenas uma chave da API REST do lado do cliente em uma aplicação do lado do cliente. Nunca exponha uma chave da API REST privada do lado do servidor em código do lado do cliente.
@@ -48,4 +48,4 @@ Aplique os controles de autorização do seu aplicativo antes de fazer solicita�
 
 ## Erros de autenticação {#authentication-errors}
 
-Falhas de autenticação e permissão podem variar de acordo com o endpoint. Consulte a tabela de códigos de status de cada endpoint e o [tratamento de erros da API de envio de mensagens para dispositivos]({{site.baseurl}}/api/device_messaging_api/error_handling).
+Falhas de autenticação e permissão podem variar de acordo com o endpoint. Consulte a tabela de códigos de status de cada endpoint e o [tratamento de erros da API de envio de mensagens do dispositivo]({{site.baseurl}}/api/device_messaging_api/error_handling).

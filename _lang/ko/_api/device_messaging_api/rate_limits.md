@@ -14,7 +14,7 @@ Braze는 워크스페이스별로 Device Messaging API 사용량 제한을 적�
 Device Messaging API 제한은 다른 Braze REST API 엔드포인트에 대해 문서화된 기본 제한과 별도로 적용됩니다. 다른 엔드포인트에 대해 문서화된 제한, 시간 창, 페이로드 크기 또는 재설정 스케줄이 Device Messaging API에도 적용된다고 가정하지 마세요.
 
 {% alert important %}
-이 페이지는 베타 버전입니다. 기기 메시징 API의 기능과 설명서는 변경될 수 있습니다. 액세스를 요청하려면 Braze 계정 매니저에게 문의하세요.
+이 페이지는 베타 버전입니다. Device Messaging API의 기능과 설명서는 변경될 수 있습니다. 액세스를 요청하려면 Braze 계정 매니저에게 문의하세요.
 {% endalert %}
 
 ## 사용량 제한 헤더 {#rate-limit-headers}
@@ -27,7 +27,7 @@ Device Messaging API 제한은 다른 Braze REST API 엔드포인트에 대해 �
 | `X-RateLimit-Remaining` | 현재 사용량 제한 윈도우에서 남은 요청 수입니다. |
 | `X-RateLimit-Reset` | 현재 사용량 제한 윈도우가 재설정되는 UTC 에포크 시간입니다. |
 | `X-RateLimit-Retry-After` | 사용량 제한이 적용된 요청을 재시도하기 전에 대기해야 하는 시간(초)입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="기기 메시징 API 사용량 제한 헤더" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Device Messaging API 사용량 제한 헤더" }
 
 이러한 헤더를 사용하여 제한에 도달하기 전에 요청을 줄이거나 일시 중지하세요. 헤더가 모든 응답에 포함되지 않을 수 있습니다.
 

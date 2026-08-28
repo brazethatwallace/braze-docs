@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "Use este endpoint para rastrear eventos de impressão e clique para Banners."
+description: "Use este endpoint para rastrear eventos de impressão, clique e dispensa para Banners."
 hidden: true
 ---
 
@@ -15,7 +15,7 @@ hidden: true
 /v1/device-messaging/banners/track
 {% endapimethod %}
 
-> Use este endpoint para registrar eventos de impressão e clique para Banners.
+> Use este endpoint para registrar eventos de impressão, clique e dispensa para Banners.
 
 A Braze valida cada evento separadamente. Quando uma solicitação contém eventos válidos e inválidos, a Braze processa os eventos válidos e retorna detalhes sobre os eventos ignorados no array `errors`. Se nenhum evento for válido, a Braze retorna um código de status `400`.
 
@@ -39,6 +39,16 @@ Inclua a chave da API REST do lado do cliente no cabeçalho `Authorization` como
 Os limites de frequência se aplicam por espaço de trabalho. Se você exceder o limite de frequência, a Braze retornará um código de status `429`. Quando disponíveis, use os cabeçalhos de resposta `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset` e `X-RateLimit-Retry-After` para monitorar seu uso e determinar quando tentar novamente.
 
 Para saber mais, consulte [Limites de frequência da API de envio de mensagens do dispositivo]({{site.baseurl}}/api/device_messaging_api/rate_limits).
+
+## Dispensar Banners {#dismissing-banners}
+
+Rastrear um evento `dismiss` dispensa o Banner para o usuário especificado. Sincronizações de Banner subsequentes para esse usuário não incluirão Banners dispensados anteriormente, a menos que a reelegibilidade esteja configurada na Campaign.
+
+{% alert note %}
+Eventos de dispensa são processados de forma assíncrona e não são refletidos imediatamente. Em casos raros, o processamento pode levar alguns minutos. Evite chamar o [endpoint Recuperar Banners para um usuário]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners) imediatamente após uma dispensa, pois o Banner ainda pode ser retornado durante esse intervalo.
+{% endalert %}
+
+A Braze não reconcilia o estado do Banner na sua interface. Ocultar o Banner após uma dispensa e mantê-lo oculto até que a Braze processe o evento é responsabilidade do seu app.
 
 ## Corpo da solicitação {#request-body}
 
@@ -66,7 +76,7 @@ Para saber mais, consulte [Limites de frequência da API de envio de mensagens d
 | `app_version` | Obrigatório | String | A versão do app host. Não deve exceder 255 caracteres. | `1.0.0` |
 | `events` | Obrigatório | Array de objetos | Um ou mais eventos de análise de dados de Banner para registrar. | `[{"id":"bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E","event_type":"impression","timestamp":"2026-04-09T12:00:00Z"}]` |
 | `events[].id` | Obrigatório | String | O `id` do Banner retornado pelo endpoint Recuperar Banners para um usuário. Use o ID do Banner, não o `placement_id`, para que a Braze atribua o evento à Campaign e à variante corretas. | `bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E` |
-| `events[].event_type` | Obrigatório | String | O tipo de evento. Os valores possíveis são `impression` e `click`. | `impression` |
+| `events[].event_type` | Obrigatório | String | O tipo de evento. Os valores possíveis são `impression`, `click` e `dismiss`. | `impression` |
 | `events[].timestamp` | Obrigatório | String | A data e hora em que o evento ocorreu, formatada como uma string [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). | `2026-04-09T12:00:00Z` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Parâmetros da solicitação" }
 
@@ -131,7 +141,7 @@ A Braze também retorna um código de status `202` quando aceita pelo menos um e
   "message": "success",
   "errors": [
     {
-      "type": "Invalid event_type. Valid types are: impression, click.",
+      "type": "Invalid event_type. Valid types are: impression, click, dismiss.",
       "index": 2
     }
   ]
@@ -147,7 +157,7 @@ Se a Braze não conseguir processar nenhum evento, ela retornará um código de 
   "message": "No valid events provided.",
   "errors": [
     {
-      "type": "Invalid event_type. Valid types are: impression, click.",
+      "type": "Invalid event_type. Valid types are: impression, click, dismiss.",
       "index": 0
     },
     {

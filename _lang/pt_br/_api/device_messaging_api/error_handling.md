@@ -41,10 +41,10 @@ Use as orientações a seguir para decidir se deve tentar novamente:
 |---|---|
 | `400` | Corrija a solicitação antes de tentar novamente. Para rastreamento de Banner, corrija os eventos ignorados antes de reenviá-los. |
 | `401` ou `403` | Verifique a chave da API REST no lado do cliente e suas permissões antes de tentar novamente. |
-| `404` | Confirme se a API de envio de mensagens do dispositivo está ativada para o espaço de trabalho e se a URL do endpoint está correta. |
+| `404` | Confirme se a API de envio de mensagens para dispositivos está ativada para o espaço de trabalho e se a URL do endpoint está correta. |
 | `429` | Reduza a taxa de solicitações e tente novamente com recuo exponencial. Use os cabeçalhos de resposta de limite de taxa quando disponíveis. |
 | `5XX` | Tente novamente com recuo exponencial e um número máximo de tentativas. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Orientações para novas tentativas da API de envio de mensagens do dispositivo" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Orientações para novas tentativas da API de envio de mensagens para dispositivos" }
 
 Para o corpo exato da resposta e os códigos de status compatíveis, consulte o endpoint relevante:
 

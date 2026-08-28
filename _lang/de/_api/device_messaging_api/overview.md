@@ -22,7 +22,7 @@ Während des Early Access können Sie die Device Messaging API nutzen, um:
 - [Berechtigte Banner abzurufen]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners) für eine externe Nutzer-ID und eine Reihe von Placements
 - [Banner-Impression- und Klick-Events zu melden]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_track_banner_events)
 
-Die Device Messaging API gibt strukturierte Banner-Eigenschaften zurück, sodass Sie eine benutzerdefinierte Oberfläche erstellen können. Sie gibt kein gerendertes HTML zurück.
+Die Device Messaging API gibt strukturierte Banner-Eigenschaften zurück, sodass Sie eine angepasste Oberfläche erstellen können. Sie gibt kein gerendertes HTML zurück.
 
 ## Integrationsanforderungen {#integration-requirements}
 
@@ -31,7 +31,7 @@ Für die Integration der Device Messaging API benötigen Sie:
 - Einen Workspace mit aktivierter Device Messaging API
 - Einen clientseitigen REST-API-Schlüssel für diesen Workspace
 - Den REST-Endpunkt für diesen Workspace
-- Die externe Nutzer-ID für die Nutzer:in
+- Die externe Nutzer-ID für den/die Nutzer:in
 - Den API-Bezeichner für die App
 
 Weitere Informationen zu Zugangsdaten finden Sie unter [Authentifizierung und Sicherheit]({{site.baseurl}}/api/device_messaging_api/authentication).

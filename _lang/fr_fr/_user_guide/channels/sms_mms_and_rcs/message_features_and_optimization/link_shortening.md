@@ -39,7 +39,7 @@ Les liens sont raccourcis à l'aide de notre domaine court partagé (`brz.ai`) o
 Toutes les URL statiques commençant par `http://` ou `https://` sont raccourcies. Les URL statiques raccourcies sont valides pendant un an à compter de leur date de création. Les URL raccourcies contenant une personnalisation Liquid sont valides pendant deux mois.
 
 {% alert note %}
-Les liens raccourcis Braze incluent toujours le protocole `https://` et ne peuvent pas être configurés pour utiliser un protocole différent.
+Les liens raccourcis de Braze incluent toujours le protocole `https://` et ne peuvent pas être configurés pour utiliser un protocole différent.
 {% endalert %}
 
 ## Utiliser le raccourcissement de liens {#using-link-shortening}

@@ -26,9 +26,9 @@ Braze 기기 메시징 API는 Braze SDK 없이 Braze 메시징 기능을 통합�
 
 ## 통합 요구 사항 {#integration-requirements}
 
-Device Messaging API를 통합하려면 다음이 필요합니다:
+기기 메시징 API를 통합하려면 다음이 필요합니다:
 
-- Device Messaging API가 활성화된 워크스페이스
+- 기기 메시징 API가 활성화된 워크스페이스
 - 해당 워크스페이스의 클라이언트 측 REST API 키
 - 해당 워크스페이스의 REST 엔드포인트
 - 사용자의 외부 사용자 ID

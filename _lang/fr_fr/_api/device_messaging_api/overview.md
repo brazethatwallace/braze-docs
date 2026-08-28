@@ -19,10 +19,10 @@ Cette page est en version bêta. Les fonctionnalités et la documentation de l'A
 
 Pendant l'accès anticipé, vous pouvez utiliser l'API Device Messaging pour :
 
-- [Récupérer les Banners éligibles]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners) pour un ID utilisateur externe et un ensemble de placements
-- [Signaler les événements d'impression et de clic de Banner]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_track_banner_events)
+- [Récupérer les bannières éligibles]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners) pour un ID utilisateur externe et un ensemble de placements
+- [Signaler les événements d'impression et de clic des bannières]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_track_banner_events)
 
-L'API Device Messaging renvoie les propriétés structurées des Banners afin que vous puissiez créer une interface personnalisée. Elle ne renvoie pas de HTML rendu.
+L'API Device Messaging renvoie les propriétés structurées des bannières afin que vous puissiez créer une interface personnalisée. Elle ne renvoie pas de HTML rendu.
 
 ## Prérequis d'intégration {#integration-requirements}
 
@@ -38,6 +38,6 @@ Pour plus d'informations sur les identifiants, consultez [Authentification et s�
 
 ## API Device Messaging et recommandations pour la REST API {#device-messaging-api-and-rest-api-guidance}
 
-L'API Device Messaging utilise les mêmes endpoints REST régionaux que la REST API de Braze, mais elle dispose d'un contrat d'authentification et de réponse distinct. Les recommandations générales relatives à la REST API concernant les clés privées côté serveur, les corps de réponse, les erreurs et les limitations de débit ne s'appliquent pas, sauf si un article de l'API Device Messaging y fait explicitement référence.
+L'API Device Messaging utilise les mêmes endpoints REST régionaux que la REST API de Braze, mais elle dispose d'un contrat d'authentification et de réponse distinct. Les recommandations générales relatives à la REST API concernant les clés privées côté serveur, les corps de réponse, les erreurs et les limites de débit ne s'appliquent pas, sauf si un article de l'API Device Messaging y fait explicitement référence.
 
 Utilisez la documentation des endpoints de l'API Device Messaging comme source de référence pour les champs de requête, les corps de réponse, les codes de statut et les limites.

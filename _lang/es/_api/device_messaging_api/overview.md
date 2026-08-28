@@ -26,9 +26,9 @@ La API de mensajería de dispositivos devuelve propiedades de Banner estructurad
 
 ## Requisitos de integración {#integration-requirements}
 
-Para integrar la API de mensajería del dispositivo, necesitas:
+Para integrar la API de mensajería de dispositivos, necesitas:
 
-- Un espacio de trabajo con la API de mensajería del dispositivo habilitada
+- Un espacio de trabajo con la API de mensajería de dispositivos habilitada
 - Una clave de API REST del lado del cliente para ese espacio de trabajo
 - El endpoint REST para ese espacio de trabajo
 - El ID de usuario externo del usuario
@@ -36,8 +36,8 @@ Para integrar la API de mensajería del dispositivo, necesitas:
 
 Para obtener más información sobre las credenciales, consulta [Autenticación y seguridad]({{site.baseurl}}/api/device_messaging_api/authentication).
 
-## Orientación sobre la API de mensajería del dispositivo y la REST API {#device-messaging-api-and-rest-api-guidance}
+## Orientación sobre la API de mensajería de dispositivos y la REST API {#device-messaging-api-and-rest-api-guidance}
 
-La API de mensajería del dispositivo utiliza los mismos endpoints REST regionales que la REST API de Braze, pero tiene un contrato de autenticación y respuesta independiente. La orientación general de la REST API sobre claves privadas del lado del servidor, cuerpos de respuesta, errores y límites de velocidad no aplica a menos que un artículo de la API de mensajería del dispositivo haga referencia explícita a ella.
+La API de mensajería de dispositivos utiliza los mismos endpoints REST regionales que la REST API de Braze, pero tiene un contrato de autenticación y respuesta independiente. La orientación general de la REST API sobre claves privadas del lado del servidor, cuerpos de respuesta, errores y límites de velocidad no aplica a menos que un artículo de la API de mensajería de dispositivos haga referencia explícita a ella.
 
-Utiliza la documentación de endpoints de la API de mensajería del dispositivo como la fuente de referencia para los campos de solicitud, cuerpos de respuesta, códigos de estado y límites.
+Utiliza la documentación de endpoints de la API de mensajería de dispositivos como la fuente de referencia para los campos de solicitud, cuerpos de respuesta, códigos de estado y límites.

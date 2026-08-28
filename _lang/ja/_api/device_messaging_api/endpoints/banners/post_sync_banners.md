@@ -20,7 +20,7 @@ hidden: true
 レスポンスには、カスタムインターフェイスの構築に使用できる構造化されたバナープロパティが含まれます。レンダリングされたHTMLは含まれません。
 
 {% alert important %}
-このページはベータ版です。デバイスメッセージング API の機能とドキュメントは変更される可能性があります。アクセスをリクエストするには、Braze アカウントマネージャーにお問い合わせください。
+このページはベータ版です。デバイスメッセージングAPIの機能とドキュメントは変更される可能性があります。アクセスをリクエストするには、Brazeアカウントマネージャーにお問い合わせください。
 {% endalert %}
 
 ## 前提条件 {#prerequisites}
@@ -37,7 +37,7 @@ hidden: true
 
 レート制限はワークスペースごとに適用されます。レート制限を超えた場合、Brazeは `429` ステータスコードを返します。利用可能な場合は、`X-RateLimit-Limit`、`X-RateLimit-Remaining`、`X-RateLimit-Reset` レスポンスヘッダーを使用して使用状況を監視してください。
 
-詳細については、[Device Messaging APIのレート制限]({{site.baseurl}}/api/device_messaging_api/rate_limits)を参照してください。
+詳細については、[デバイスメッセージングAPIのレート制限]({{site.baseurl}}/api/device_messaging_api/rate_limits)を参照してください。
 
 ## リクエストボディ {#request-body}
 
@@ -137,6 +137,6 @@ curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/
 | `429` | ワークスペースがレート制限を超えました。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ステータスコード" }
 
-詳細については、[Device Messaging APIのエラー処理とリトライ]({{site.baseurl}}/api/device_messaging_api/error_handling)を参照してください。
+詳細については、[デバイスメッセージングAPIのエラー処理とリトライ]({{site.baseurl}}/api/device_messaging_api/error_handling)を参照してください。
 
 {% endapi %}
