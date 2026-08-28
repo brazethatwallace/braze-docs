@@ -1,6 +1,6 @@
 ---
 nav_title: Notifications push
-article_title: "Notifications push pour le SDK de Braze"
+article_title: Notifications push
 page_order: 2.3
 description: "Cette page regroupe tout ce qui concerne les notifications push."
 ---
@@ -61,7 +61,7 @@ Pour vérifier que votre implémentation push fonctionne correctement, envoyez u
 
 ## Bonnes pratiques {#best-practices}
 
-Pour les marketeurs utilisant Braze, le lancement d'une Campaign vers Android TV est identique au lancement d'une notification push vers les applications mobiles Android. Pour cibler exclusivement ces appareils, sélectionnez l'application Android TV dans la segmentation.
+Pour les marketeurs utilisant Braze, le lancement d'une campagne vers Android TV est identique au lancement d'une notification push vers les applications mobiles Android. Pour cibler exclusivement ces appareils, sélectionnez l'application Android TV dans la segmentation.
 
 La réponse de livraison et de clic renvoyée par FCM suit la même convention qu'un appareil Android mobile ; par conséquent, toute erreur est visible dans le journal d'activité des messages.
 

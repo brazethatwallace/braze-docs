@@ -1,6 +1,6 @@
 ---
 nav_title: Data 
-article_title: Data 
+article_title: "Braze Data Platform"
 page_order: 3
 description: "Learn about the Braze Data Platform, including how to unify, activate, and distribute your data."
 ---

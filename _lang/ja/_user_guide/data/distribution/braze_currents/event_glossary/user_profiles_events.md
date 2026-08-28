@@ -11,15 +11,11 @@ search_rank: 7
 
 <div class="api-glossary-preamble" markdown="1">
 
-{% alert important %}
-ユーザープロファイルイベントはベータ版です。アクセスするには、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
-{% endalert %}
-
 {% alert tip %}
 これらのイベントは、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/query_builder)、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments)、および[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)でSQLテーブルとしても利用できます。SQLテーブルスキーマとカラムの詳細については、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/sql_segments/sql_segments_tables)を参照してください。Snowflakeデータ共有のユーザープロファイル属性ビューのスキーマについては、[ユーザープロファイル属性]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes)を参照してください。
 {% endalert %}
 
-追加のイベントエンタイトルメントへのアクセスが必要な場合は、Brazeの担当者に連絡するか、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。このページで必要な情報が見つからない場合は、[顧客行動イベントライブラリー]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events)、[メッセージエンゲージメントイベントライブラリー]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events)、または[Currentsサンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)を参照してください。
+追加のイベントエンタイトルメントへのアクセスが必要な場合は、Brazeの担当者に連絡するか、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。このページで必要な情報が見つからない場合は、[顧客行動イベントライブラリ]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events)、[メッセージエンゲージメントイベントライブラリ]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events)、または[Currentsサンプルデータの例](https://github.com/Appboy/currents-examples/tree/master/sample-data)を参照してください。
 
 {% details ユーザープロファイル更新イベント構造の説明 %}
 
@@ -38,6 +34,7 @@ Currentsは、ペイロードが900 KBを超えるイベントをドロップし
 </div>
 
 <!--overview-end-->
+
 
 {% api %}
 ## ユーザー削除リクエストイベント {#user-delete-request-events}
@@ -58,6 +55,24 @@ User Delete Request
   "id" : "(required, string) Globally unique ID for this event",
   "time" : "(required, int) UNIX timestamp at which the event happened",
   "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.UserDeleteRequest
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
 }
 ```
 {% endtab %}
@@ -91,6 +106,28 @@ User Orphan
 }
 ```
 {% endtab %}
+
+{% tab Custom HTTP Connector %}
+```json
+// users.UserOrphan
+
+{
+  "event_type" : "(required, string) The name of the event type",
+  "id" : "(required, string) Globally unique ID for this event",
+  "properties" : {
+    "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+    "app_id" : "(optional, string) API ID of the app on which this event occurred",
+    "orphaned_by_id" : "(required, string) BSON ID of the user whose profile was merged with the orphaned user's profile"
+  },
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user" : {
+    "device_id" : "(optional, string) ID of the device on which the event occurred",
+    "external_user_id" : "(optional, string) [PII] External ID of the user",
+    "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+  }
+}
+```
+{% endtab %}
 {% endtabs %}
 
 {% endapi %}
@@ -103,6 +140,10 @@ Profile
 {% endapitags %}
 
 これはユーザーのプロファイル更新を表します。
+
+{% alert important %}
+ユーザープロファイル更新イベントはベータ版です。アクセスするには、カスタマーサクセスマネージャーまたはアカウントマネージャーにお問い合わせください。
+{% endalert %}
 
 {% tabs %}
 {% tab Cloud Storage %}

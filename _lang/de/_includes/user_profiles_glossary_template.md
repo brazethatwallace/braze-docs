@@ -11,10 +11,6 @@ search_rank: 7
 
 <div class="api-glossary-preamble" markdown="1">
 
-{% alert important %}
-Nutzerprofil-Events befinden sich in der Betaphase. Wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um Zugang zu erhalten.
-{% endalert %}
-
 {% alert tip %}
 Diese Events sind auch als SQL-Tabellen im [Query Builder]({{site.baseurl}}/user_guide/analytics/query_builder), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/engagement_tools/segments/sql_segments) und im [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verfügbar. SQL-Tabellenschemata und Spaltendetails finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/sql_segments/sql_segments_tables). Snowflake-Data-Sharing-Schemata für Nutzerprofil-Attributansichten finden Sie unter [Nutzerprofilattribute]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes).
 {% endalert %}

@@ -46,7 +46,7 @@ hidden: true
 
 }
 #main_content #article-main #swagger-ui .opblock-tag-section a {
-    font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;
+    font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;
     display: inline;
     color: #212123;
     border-bottom-width: 0px;
@@ -58,11 +58,11 @@ hidden: true
     -moz-transition: all ease .2s
 }
 #main_content #article-main  #swagger-ui .opblock-tag-section .tab a  {
-  font-family: "Sailec W00 Regular",Arial,Helvetica,sans-serif;
+  font-family: "Aribau Grotesk Regular", "Aribau Grotesk", Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
 #main_content #article-main  #swagger-ui .opblock-tag-section .tab .active a  {
-  font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;
+  font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;
   font-weight: 700;
 }
 #main_content #article-main #swagger-ui .opblock-tag-section a:hover {

@@ -771,7 +771,7 @@ Shopify’s checkout completed webhook doesn't contain product URLs or image URL
 {% endraw %}
 
 {% alert note %}
-The Shopify integration currently doesn't support populating the Braze [purchase event]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-events). As a result, purchase filters, Liquid tags, action-based triggers, and analytics should use the `ecommerce.order_placed` event. 
+The Shopify integration currently doesn't support populating the Braze [purchase event]({{site.baseurl}}/user_guide/data/activation/events/purchase_events). As a result, purchase filters, Liquid tags, action-based triggers, and analytics should use the `ecommerce.order_placed` event. 
 {% endalert %}
 
 {% endsubtab %}

@@ -1,7 +1,8 @@
 ---
 page_order: 2.2
 nav_title: Content Cards
-article_title: Content Cards no SDK da Braze
+article_title: Content Cards
+description: "Saiba como implementar Content Cards com o SDK da Braze, incluindo modelos de dados, tipos de cartões e opções de personalização para seus apps mobile e web."
 channel:
   - content cards
 platform:
@@ -136,7 +137,7 @@ Implemente sua própria interface personalizada, pois os Content Cards são comp
 
 ### Etapa 1: Criar um novo app iOS {#step-1-create-a-new-ios-app}
 
-Na Braze, selecione **Configurações** > **Configurações do app** e, em seguida, selecione **Adicionar app**. Insira um nome para o seu app tvOS, selecione **iOS**&#8212;_não tvOS_&#8212;e selecione **Adicionar app**.
+Na Braze, selecione **Settings** > **App Settings** e, em seguida, selecione **Add App**. Insira um nome para o seu app tvOS, selecione **iOS**&#8212;_não tvOS_&#8212;e selecione **Add App**.
 
 ![Caixa de diálogo Adicionar app na Braze com a plataforma iOS selecionada para registrar um app tvOS.]({% image_buster /assets/img/tvos.png %}){: style="width:70%"}
 

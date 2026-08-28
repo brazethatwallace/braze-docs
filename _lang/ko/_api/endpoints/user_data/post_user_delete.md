@@ -1,12 +1,11 @@
 ---
 nav_title: "POST: 사용자 삭제"
-article_title: "POST: 사용자 삭제"
+article_title: "사용자 삭제"
 search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
 description: "이 문서에서는 사용자 삭제 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
-
 ---
 {% api %}
 # 사용자 삭제 {#delete-users}
@@ -28,7 +27,7 @@ API를 통한 대량 사용자 삭제로 해결할 수 없는 사용 사례가 �
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.delete` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.delete` 권한이 있는 [API 키]({{site.baseurl}}/api/basics)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 

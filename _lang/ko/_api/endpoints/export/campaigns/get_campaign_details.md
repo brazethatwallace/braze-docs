@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "이 문서에서는 캠페인 세부 정보 내보내기 Braze 엔드포인트에 대한 자세한 내용을 설명합니다."
-
 ---
 {% api %}
 # 캠페인 세부 정보 내보내기 {#export-campaign-details}
@@ -233,7 +232,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab 제어 메시지 %}
+{% tab 컨트롤 메시지 %}
 
 ```json
 {

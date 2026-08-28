@@ -1,24 +1,23 @@
 ---
 nav_title: "POST: Enviar campañas utilizando la entrega desencadenada por API"
-article_title: "POST: Enviar campañas mediante entrega desencadenada por API"
+article_title: "Enviar mensajes de Campaign mediante entrega desencadenada por API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
 description: "Este artículo describe en detalle el endpoint de Braze para enviar campañas mediante entrega desencadenada por API."
-
 ---
 {% api %}
-# Envía mensajes de Campaign utilizando la entrega desencadenada por API {#send-campaign-messages-using-api-triggered-delivery}
+# Enviar mensajes de Campaign mediante entrega desencadenada por API {#send-campaign-messages-using-api-triggered-delivery}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /campaigns/trigger/send
 {% endapimethod %}
 
-> Utiliza este endpoint para enviar mensajes inmediatos y puntuales a usuarios designados utilizando la entrega desencadenada por la API.
+> Utiliza este endpoint para enviar mensajes inmediatos y puntuales a usuarios designados mediante la entrega desencadenada por API.
 
 La entrega desencadenada por API te permite alojar el contenido de los mensajes dentro del panel de Braze, al tiempo que dictas cuándo se envía un mensaje y a quién mediante tu API.
 
-Si te diriges a un Segment, se almacena un registro de tu solicitud en la [consola para desarrolladores](https://dashboard.braze.com/app_settings/developer_console/activitylog/). Para enviar mensajes con este endpoint, debes tener un [ID de Campaign]({{site.baseurl}}/api/identifier_types) creado al crear una [Campaign desencadenada por la API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
+Si te diriges a un Segment, se almacena un registro de tu solicitud en la [consola para desarrolladores](https://dashboard.braze.com/app_settings/developer_console/activitylog/). Para enviar mensajes con este endpoint, debes tener un [ID de Campaign]({{site.baseurl}}/api/identifier_types) creado al crear una [Campaign desencadenada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aef185ae-f591-452a-93a9-61d4bc023b05 {% endapiref %}
 
@@ -214,7 +213,7 @@ Si tu solicitud encuentra un error fatal, consulta [Errores y respuestas]({{site
 Braze tiene un objeto de mensajería llamado `attributes` que te permite añadir, crear o actualizar atributos y valores para un usuario antes de enviarle una Campaign desencadenada por API. Usar el endpoint `campaign/trigger/send` como esta llamada a la API procesa el objeto de atributos de usuario antes de procesar y enviar la Campaign. Esto ayuda a minimizar el riesgo de que se produzcan problemas causados por [condiciones de carrera]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions).
 
 {% alert tip %}
-¿Buscas la versión Canvas de este endpoint? Echa un vistazo a [Enviar mensajes Canvas utilizando la entrega desencadenada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
+¿Buscas la versión Canvas de este endpoint? Consulta [Enviar mensajes Canvas mediante entrega desencadenada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 {% endalert %}
 
 ### ¿Por qué Liquid no se renderiza cuando lo pongo directamente en el cuerpo JSON? {#why-doesnt-liquid-render-when-i-put-it-directly-in-my-json-body}

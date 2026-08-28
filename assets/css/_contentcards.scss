@@ -93,7 +93,7 @@ a#cc_prompt {
     }
   }
   background-size: 120px 91px;
-  font-family: Sailec W00 Bold,Arial,sans-serif;
+  font-family: $braze-bold, Arial, sans-serif;
   font-size: 12px;
   letter-spacing: .75px;
   color: #147a86; // #3accdd → darkened for 5.1:1 on white background
@@ -125,7 +125,7 @@ a#cc_prompt {
       display: block;
       position: absolute;
       line-height: 1.5em;
-      font-family: Sailec W00 Bold,Arial,sans-serif;
+      font-family: $braze-bold, Arial, sans-serif;
       font-size: 12px;
       letter-spacing: .75px;
       background-size: 120px 91px;

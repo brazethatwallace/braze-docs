@@ -24,7 +24,7 @@ Use Braze data to shape what your AI agents say, how they respond, and when to e
 | ----------- | ----------- |
 | Regal account | A Regal account is required to take advantage of this partnership. |
 | Regal API key | A Regal API key allows you to send events from Braze to Regal.<br><br>Email [support@regal.io](mailto:support@regal.io) to get this key. |
-| Braze Data Transformation | A [Data Transformation]({{site.baseurl}}/data_transformation/) is required to receive data from Regal. |
+| Braze Data Transformation | A [Data Transformation]({{site.baseurl}}/data_transformation) is required to receive data from Regal. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration: Sending data from Braze to Regal

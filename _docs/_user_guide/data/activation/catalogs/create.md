@@ -102,7 +102,7 @@ For this tutorial, we're using a catalog that lists two games, their cost, and a
 
 <style type="text/css">
 .tg td{word-break:normal;}
-.tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
+.tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Aribau Grotesk Bold", "Aribau Grotesk", "Aribau Grotesk Regular", Arial, Helvetica, sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
 <table class="tg" aria-label="Tutorial: Creating a catalog from a CSV file">
@@ -144,7 +144,7 @@ Next, we'll name this catalog "games_catalog" and select the **Process Catalog**
 
 Note that you won't be able to edit this name after the catalog is created. You can delete a catalog and re-upload an updated version using the same catalog name.
 
-After creating the catalog, you can begin referencing the [catalog in a campaign]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
+After creating the catalog, you can begin referencing the [catalog in a campaign]({{site.baseurl}}/user_guide/data/activation/catalogs/use).
 
 {% alert important %}
 Previously uploaded CSV files are available to download from the **Catalogs** page for 30 days after the upload date. After 30 days, the file is permanently deleted and can no longer be accessed.

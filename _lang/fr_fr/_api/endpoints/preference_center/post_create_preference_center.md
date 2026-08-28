@@ -176,7 +176,7 @@ Voici les étiquettes Liquid que vous pouvez inclure dans votre HTML pour affich
         background-color: #fff;
         color: #333335;
         font-family:
-          Sailec W00 Medium,
+          Aribau Grotesk Regular,
           helvetica,
           arial,
           sans-serif;

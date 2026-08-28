@@ -11,13 +11,13 @@ description: "Este artigo de referência aborda o que o BrazeAI Operator™ pode
 
 > O [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator) é um assistente de IA integrado ao dashboard da Braze. Ele responde perguntas, compõe mensagens e atua nas páginas compatíveis — descreva o que você quer em linguagem natural e o Operator cuida disso no contexto.
 
-Como o Operator entende seu espaço de trabalho — suas diretrizes da marca, atributos personalizados, Connected Content e a página em que você está trabalhando — o resultado é mais contextualizado do que o que assistentes independentes conseguem produzir. Quando o Operator propõe uma alteração em uma Campaign, um Canvas, um Segment ou outro objeto, ele exibe a alteração como um diff visual em um [cartão de ação]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) que você revisa e aprova antes que qualquer coisa seja salva.
+Como o Operator entende seu espaço de trabalho — atributos personalizados, Connected Content, a página em que você está trabalhando e quaisquer diretrizes da marca que você adicionar como contexto — o resultado é mais contextualizado do que o que assistentes independentes conseguem produzir. Quando o Operator propõe uma alteração em uma Campaign, um Canvas, um Segment ou outro objeto, ele exibe a alteração como um diff visual em um [cartão de ação]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) que você revisa e aprova antes que qualquer coisa seja salva.
 
 Você pode manter o fluxo da conversa com acompanhamentos. O Operator lembra das mensagens anteriores até que você limpe o histórico do chat.
 
 ## Pré-requisitos {#prerequisites}
 
-O Operator tem as mesmas permissões que você, então certas ações exigem a permissão relevante para aquela superfície. Por exemplo, gerar uma imagem requer *Editar ativos da biblioteca de mídia*. Se você não encontrar um ponto de entrada, verifique suas permissões com o administrador. Para saber mais, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+O Operator tem as mesmas permissões que você, então certas ações exigem a permissão relevante para aquela área. Por exemplo, gerar uma imagem requer *Editar ativos da biblioteca de mídia*. Se você não encontrar um ponto de entrada, verifique suas permissões com seu administrador. Para saber mais, consulte [Lista de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 ## Navegar pelo dashboard {#navigate-the-dashboard}
 
@@ -80,15 +80,15 @@ O Operator pode ajudar você a criar e refinar agentes no [Agent Console]({{site
 
 - **Criar um agente do zero:** o Operator tem acesso a todos os campos do Agent Console, então você pode descrever o agente que quer e o Operator ajuda a configurá-lo. Isso inclui instruções, configurações de saída e outros campos do agente.
 - **Começar a partir de um modelo:** o Agent Console oferece uma opção **Create agent with Operator** que carrega um prompt pré-escrito para um caso de uso comum, como redação de textos, análise de sentimento, roteamento de jornada ou enriquecimento de catálogo. Selecione uma categoria, e o Operator ajuda a rascunhar um agente que você pode refinar. Para a lista completa de modelos, consulte [Modelos de agente criados com o Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator).
-- **Refinar um agente existente:** ao editar um agente, selecione **Generate with Operator** ou **Refine with Operator** próximo ao campo de instruções do agente para obter a ajuda do Operator na escrita ou revisão do prompt e das configurações de saída do agente.
+- **Refinar um agente existente:** ao editar um agente, selecione **Generate with Operator** ou **Refine with Operator** próximo ao campo de instruções do agente para obter a ajuda do Operator na escrita ou revisão do prompt e das configurações de saída do agente. Se o agente já tiver uma diretriz da marca, o Operator a anexa como contexto.
 
 ## Conteúdo e criação {#content-and-creative}
 
-O Operator pode gerar e revisar o conteúdo das suas mensagens, incluindo texto, HTML de mensagem, Liquid e imagens, e aplica suas diretrizes da marca automaticamente onde quer que estejam configuradas. Você também pode pedir ajuda ao Operator a partir da biblioteca de modelos e das páginas de visão geral. Por exemplo, você pode criar ou atualizar [modelos de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates) ou Content Blocks a partir de suas páginas de listagem, agendar trabalhos no [Calendário de conteúdo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar), criar [modelos de perfil de cores para mensagens no app]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles) ou configurar [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements).
+O Operator pode gerar e revisar o conteúdo das suas mensagens, incluindo texto, HTML de mensagem, Liquid e imagens, e aplicar quaisquer diretrizes da marca que você adicionar como contexto. Você também pode pedir ajuda ao Operator a partir da biblioteca de modelos e das páginas de visão geral. Por exemplo, você pode criar ou atualizar [modelos de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates) ou Content Blocks a partir de suas páginas de listagem, agendar trabalhos no [Calendário de conteúdo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar), criar [modelos de perfil de cores para mensagens no app]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles) ou configurar [posicionamentos de Banner]({{site.baseurl}}/developer_guide/banners/placements).
 
 ### Aplicar diretrizes da marca {#apply-brand-guidelines}
 
-O Operator usa as diretrizes da marca configuradas no seu espaço de trabalho para que textos, modelos e imagens gerados correspondam à voz, ao tom e ao estilo da sua marca. Para configurar as diretrizes da marca, acesse **Content** > **Brand Guidelines**. Para saber mais, consulte [Diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) e [Aplicar diretrizes da marca]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines) no guia de uso do Operator.
+Adicione [diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) como contexto no painel de chat do Operator para que textos, modelos e imagens gerados correspondam à voz, ao tom e ao estilo da sua marca.
 
 ### Gerar texto {#generate-copy}
 
@@ -96,14 +96,14 @@ Você pode usar o Operator para fazer brainstorming ou gerar textos de qualquer 
 
 O Operator melhora o copywriter independente de algumas formas:
 
-- Ele aplica suas [diretrizes da marca](#apply-brand-guidelines) automaticamente quando estão configuradas.
+- Ele aplica quaisquer [diretrizes da marca](#apply-brand-guidelines) que você adicionar como contexto.
 - Ele usa [contexto da página]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context), então você não precisa descrever novamente o canal ou a mensagem em que está trabalhando. Como ele reconhece a página, você também pode usá-lo para editar ou refinar uma mensagem existente em vez de gerar uma do zero.
 - Ele pode consultar seus [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) e eventos, então você pode pedir que ele personalize recomendações de texto com Liquid real.
 - Você pode manter o fluxo da conversa e iterar. Por exemplo, peça um tom diferente, uma versão mais curta ou uma tradução.
 
 #### Tons {#generate-copy-tones}
 
-O tom do texto gerado é orientado pelo seu prompt. Descreva o estilo que você quer e o Operator ajusta o resultado para corresponder. Por exemplo, peça um tom formal, casual, urgente ou chamativo. Você também pode refinar o tom em prompts de acompanhamento, como pedir uma versão mais descontraída ou mais polida. Quando as diretrizes da marca estão configuradas, o Operator as aplica automaticamente para que o texto permaneça consistente com a voz da sua marca.
+O tom do texto gerado é orientado pelo seu prompt. Descreva o estilo que você quer e o Operator ajusta o resultado para corresponder. Por exemplo, peça um tom formal, casual, urgente ou chamativo. Você também pode refinar o tom em prompts de acompanhamento, como pedir uma versão mais descontraída ou mais polida. Quando você adiciona diretrizes da marca como contexto, o Operator as aplica para que o texto permaneça consistente com a voz da sua marca.
 
 ### Gerar mensagens {#generate-messages}
 
@@ -119,7 +119,7 @@ O Operator pode gerar um design completo de mensagem para qualquer canal ou edit
 
 Editores de arrastar e soltar não suportam geração direta de design, embora o Operator ainda possa ajudar com texto ou outro conteúdo que você adiciona manualmente. Descreva a mensagem que você quer em linguagem natural, revise o resultado e insira no seu criador. Mantenha o fluxo da conversa para refinar o resultado. Por exemplo, você pode pedir um layout diferente, um texto mais curto ou um estilo de botão atualizado antes de inserir o HTML no editor.
 
-Você obtém os melhores resultados quando usa o Operator no criador em que está trabalhando, onde ele tem [contexto da página]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context) para o canal e o tipo de mensagem. Quando as diretrizes da marca estão configuradas, o Operator as aplica automaticamente.
+Você obtém os melhores resultados quando usa o Operator no criador em que está trabalhando, onde ele tem [contexto da página]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context) para o canal e o tipo de mensagem. Quando você adiciona diretrizes da marca como contexto, o Operator as aplica à mensagem gerada.
 
 ### Criar Content Blocks {#create-content-blocks}
 

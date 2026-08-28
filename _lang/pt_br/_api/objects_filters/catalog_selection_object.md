@@ -42,19 +42,19 @@ O objeto `selection` permite que você especifique quais itens do seu catálogo 
 }
 ```
 
-## Informações do objeto {#object-details}
+## Detalhes do objeto {#object-details}
 
 | Chave | Obrigatória | Tipo de dados | Descrição |
 | --- | -------- | --------- | ----------- |
 | `name` | Obrigatória | String | O nome da seleção de catálogo. |
 | `description` | Opcional | String | Uma descrição da seleção de catálogo. |
-| `external_id` | Obrigatória | String | Um identificador único para a seleção. |
+| `external_id` | Opcional | String | Um identificador exclusivo para a seleção. |
 | `source` | Opcional | String | A origem dos dados do catálogo. Para catálogos Shopify, defina como `"Shopify"`. Os valores aceitos são `"Shopify"` e `"Braze"`. |
-| `filters` | Opcional | Array de objetos | Um array de objetos de filtro a serem aplicados aos itens do catálogo. Você pode especificar até quatro filtros por solicitação. Se nenhum filtro for fornecido, todos os itens do catálogo são incluídos. |
-| `results_limit` | Opcional | Inteiro | O número máximo de resultados a serem retornados. Deve ser um número entre 1 e 50. |
-| `sort_field` | Opcional | String | O campo para ordenar os resultados. Deve ser emparelhado com `sort_order`. Se `sort_field` e `sort_order` não estiverem presentes, os resultados são retornados em ordem aleatória. |
-| `sort_order` | Opcional | String | A ordem para classificar os resultados. Os valores aceitos são `"asc"` (crescente) ou `"desc"` (decrescente). Deve ser emparelhado com `sort_field`. Se `sort_field` e `sort_order` não estiverem presentes, os resultados são retornados em ordem aleatória. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Object details" }
+| `filters` | Obrigatória | Array de objetos | Um array de objetos de filtro a serem aplicados aos itens do catálogo. Você pode especificar até dez filtros por solicitação. Se um array vazio de filtros for fornecido, todos os itens do catálogo serão incluídos. |
+| `results_limit` | Obrigatória | Inteiro | O número máximo de resultados a serem retornados. Deve ser um número entre 1 e 50. |
+| `sort_field` | Opcional | String | O campo pelo qual classificar os resultados. Deve ser combinado com `sort_order`. Se `sort_field` e `sort_order` não estiverem presentes, os resultados serão retornados em ordem aleatória. |
+| `sort_order` | Opcional | String | A ordem de classificação dos resultados. Os valores aceitos são `"asc"` (crescente) ou `"desc"` (decrescente). Deve ser combinado com `sort_field`. Se `sort_field` e `sort_order` não estiverem presentes, os resultados serão retornados em ordem aleatória. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalhes do objeto" }
 
 ### Objeto de filtro {#filter-object}
 
@@ -62,11 +62,11 @@ Cada objeto de filtro no array `filters` contém os campos descritos na tabela a
 
 | Chave | Obrigatória | Tipo de dados                                   | Descrição |
 | --- | -------- | ------------------------------------------- | ----------- |
-| `field`    | Obrigatória | String                                      | O campo do catálogo a ser filtrado. |
+| `field`    | Obrigatória | String                                      | O campo do catálogo pelo qual filtrar. |
 | `operator` | Obrigatória | String                                      | O operador de comparação a ser usado para filtragem. Exemplos incluem `"includes value"` e `"does not include value"`. |
-| `value`    | Obrigatória | Varia (string, número, booleano, tempo)     | O valor a ser comparado. Deve corresponder ao tipo de dado do campo do catálogo subjacente (por exemplo, string, número, booleano, tempo). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Filter object" }
+| `value`    | Obrigatória | Varia (string, número, booleano, hora)     | O valor a ser comparado. Deve corresponder ao tipo de dados do campo subjacente do catálogo (por exemplo, string, número, booleano, hora). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Objeto de filtro" }
 
 {% alert note %}
-A API suporta um máximo de quatro filtros por solicitação de seleção. No dashboard da Braze, você pode adicionar até 10 filtros por seleção. Os filtros são aplicados na ordem em que aparecem no array.
+A API suporta no máximo dez filtros por solicitação de seleção. Os filtros são aplicados na ordem em que aparecem no array.
 {% endalert %}

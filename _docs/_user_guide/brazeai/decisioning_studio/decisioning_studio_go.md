@@ -33,7 +33,7 @@ As users engage—or don't—the agent learns. Reporting indicates when the agen
 | **Schedule** | Send frequency (for example, a single selection three times per week), allowed days of the week, quiet hours in the user's local time zone, and agent-level frequency capping rule adherence. |
 | **Creatives** | One or more base creatives built in the Braze composer. Within each base creative, you can mark a subject line, CTA, and image as personalization points using Liquid tags, then provide a list of variants for each. The agent decides which base creative and variant to use for each recipient. |
 | **Constraints** | Limits that prevent the agent from sending the same base creative or the same subject line to a user more than once within a window you define. |
-| **Review and launch** | A final validation screen surfaces any warnings to attend to before you launch. The agent moves from **Draft** to **Live** and begins sending. |
+| **Review and launch** | A final validation screen surfaces any warnings to attend to before you launch. The agent moves from **Draft** to **Active** and begins sending. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Decisioning Studio Go configuration" }
 
 ### When to use Decisioning Studio Go

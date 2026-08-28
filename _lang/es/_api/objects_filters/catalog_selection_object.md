@@ -46,27 +46,27 @@ El objeto `selection` te permite especificar qué elementos de tu catálogo debe
 
 | Clave | Obligatorio | Tipo de datos | Descripción |
 | --- | -------- | --------- | ----------- |
-| `name` | Obligatorio | Cadena | El nombre de la selección del catálogo. |
-| `description` | Opcional | Cadena | Una descripción de la selección del catálogo. |
-| `external_id` | Obligatorio | Cadena | Un identificador único para la selección. |
-| `source` | Opcional | Cadena | La fuente de los datos del catálogo. Para los catálogos de Shopify, configura este valor como `"Shopify"`. Los valores aceptados son `"Shopify"` y `"Braze"`. |
-| `filters` | Opcional | Conjunto de objetos | Un conjunto de objetos de filtro que se aplican a los elementos del catálogo. Puedes especificar hasta cuatro filtros por solicitud. Si no se proporcionan filtros, se incluyen todos los elementos del catálogo. |
-| `results_limit` | Opcional | Entero | El número máximo de resultados que se devolverán. Debe ser un número entre 1 y 50. |
-| `sort_field` | Opcional | Cadena | El campo por el que ordenar los resultados. Debe combinarse con `sort_order`. Si no están presentes `sort_field` ni `sort_order`, los resultados se devuelven en orden aleatorio. |
-| `sort_order` | Opcional | Cadena | El orden en el que clasificar los resultados. Los valores aceptados son `"asc"` (ascendente) o `"desc"` (descendente). Debe combinarse con `sort_field`. Si no están presentes `sort_field` ni `sort_order`, los resultados se devuelven en orden aleatorio. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Object details" }
+| `name` | Obligatorio | String | El nombre de la selección de catálogo. |
+| `description` | Opcional | String | Una descripción de la selección de catálogo. |
+| `external_id` | Opcional | String | Un identificador único para la selección. |
+| `source` | Opcional | String | La fuente de los datos del catálogo. Para catálogos de Shopify, configura este valor como `"Shopify"`. Los valores aceptados son `"Shopify"` y `"Braze"`. |
+| `filters` | Obligatorio | Matriz de objetos | Una matriz de objetos de filtro que se aplicará a los elementos del catálogo. Puedes especificar hasta diez filtros por solicitud. Si se proporciona una matriz vacía de filtros, se incluyen todos los elementos del catálogo. |
+| `results_limit` | Obligatorio | Entero | El número máximo de resultados a devolver. Debe ser un número entre 1 y 50. |
+| `sort_field` | Opcional | String | El campo por el que se ordenan los resultados. Debe emparejarse con `sort_order`. Si tanto `sort_field` como `sort_order` no están presentes, los resultados se devuelven en orden aleatorio. |
+| `sort_order` | Opcional | String | El orden en que se clasifican los resultados. Los valores aceptados son `"asc"` (ascendente) o `"desc"` (descendente). Debe emparejarse con `sort_field`. Si tanto `sort_field` como `sort_order` no están presentes, los resultados se devuelven en orden aleatorio. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalles del objeto" }
 
 ### Objeto de filtro {#filter-object}
 
-Cada objeto de filtro en el conjunto `filters` contiene los campos descritos en la siguiente tabla.
+Cada objeto de filtro en la matriz `filters` contiene los campos descritos en la siguiente tabla.
 
 | Clave | Obligatorio | Tipo de datos                                   | Descripción |
 | --- | -------- | ------------------------------------------- | ----------- |
-| `field`    | Obligatorio | Cadena                                      | El campo del catálogo por el que filtrar. |
-| `operator` | Obligatorio | Cadena                                      | El operador de comparación que se utilizará para filtrar. Algunos ejemplos son `"includes value"` y `"does not include value"`. |
-| `value`    | Obligatorio | Varía (cadena, número, booleano, tiempo)     | El valor con el que comparar. Debe coincidir con el tipo de datos del campo del catálogo subyacente (por ejemplo, cadena, número, booleano, tiempo). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Filter object" }
+| `field`    | Obligatorio | String                                      | El campo del catálogo por el que se filtra. |
+| `operator` | Obligatorio | String                                      | El operador de comparación que se usa para filtrar. Por ejemplo, `"includes value"` y `"does not include value"`. |
+| `value`    | Obligatorio | Variable (cadena, número, booleano, hora)     | El valor con el que se compara. Debe coincidir con el tipo de datos del campo subyacente del catálogo (por ejemplo, cadena, número, booleano, hora). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Objeto de filtro" }
 
 {% alert note %}
-La API admite un máximo de cuatro filtros por solicitud de selección. En el panel de Braze, puedes añadir hasta 10 filtros por selección. Los filtros se aplican en el orden en que aparecen en el conjunto.
+La API admite un máximo de diez filtros por solicitud de selección. Los filtros se aplican en el orden en que aparecen en la matriz.
 {% endalert %}

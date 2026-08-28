@@ -4,10 +4,10 @@ nav_title: Accueil
 article_title: Guide de l'API Braze
 layout: api_glossary
 glossary_top_header: "Guide de l'API Braze"
-glossary_top_text: "Braze fournit une REST API haute performance qui vous permet de suivre vos utilisateurs, d'envoyer des messages, d'exporter des données et bien plus encore. Cette page répertorie les endpoints disponibles dans l'API Braze ainsi que leurs utilisations."
+glossary_top_text: "Braze fournit une REST API haute performance pour suivre les utilisateurs, envoyer des messages, exporter des données et gérer les Campaigns, Canvas, catalogues et bien plus encore. Utilisez ce glossaire pour parcourir les endpoints par type, consulter les articles de référence pour les détails des requêtes et réponses, et trouver des liens vers la documentation sur l'authentification, les limites de débit et les objets."
+description: "Parcourez les endpoints de la REST API Braze par type, avec des liens vers la documentation sur l'authentification, les limites de débit et les objets de référence."
 page_type: glossary
-description: "Cette page d'accueil répertorie les endpoints disponibles dans l'API Braze ainsi que leurs utilisations."
-glossary_tag_name: Endpoint Type
+glossary_tag_name: Type d'endpoint
 
 glossary_filter_text: "Sélectionnez le type d'endpoint pour affiner le glossaire :"
 
@@ -44,7 +44,7 @@ glossary_tags:
   - name: Email Templates
   - name: KPI
   - name: Media Library
-  - name: Messaging API
+  - name: Device Messaging API
   - name: Purchases
   - name: Preference Center
   - name: Schedule Messages
@@ -100,7 +100,7 @@ glossaries:
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/user_data/post_user_track'>/users/track</a>
-    description: "Enregistrer des événements personnalisés, des achats et mettre à jour les attributs de profil utilisateur."
+    description: Enregistrer des événements personnalisés, des achats et mettre à jour les attributs de profil utilisateur.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/user_data/post_users_merge'>/users/merge</a>
@@ -127,14 +127,14 @@ glossaries:
     description: Envoyer des messages transactionnels immédiats et ponctuels à un utilisateur désigné.
     tags:
       - Send Messages
-  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
     description: Récupérer les bannières éligibles pour un utilisateur et un ensemble de placements.
     tags:
-      - Messaging API
-  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
+      - Device Messaging API
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
     description: Enregistrer les événements d'impression et de clic pour les bannières.
     tags:
-      - Messaging API
+      - Device Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
     description: Envoyer des messages de Campaign créés dans le tableau de bord via la distribution déclenchée par l'API.
     tags:
@@ -172,7 +172,7 @@ glossaries:
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/get_messages_scheduled'>/messages/scheduled_broadcasts</a>
-    description: Renvoyer une liste JSON d'informations sur les Campaigns planifiées et les entrées Canvas entre maintenant et une date <code>end_time</code> désignée spécifiée dans la requête.
+    description: Renvoyer une liste JSON d'informations sur les Campaigns planifiées et les Canvas d'entrée entre maintenant et une date <code>end_time</code> désignée spécifiée dans la requête.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/live_activity/update'>/messages/live_activity/update</a>

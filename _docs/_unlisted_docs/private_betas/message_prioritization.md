@@ -81,7 +81,7 @@ If a campaign or Canvas step uses only ineligible channels, it won't participate
 
 ## Categories
 
-Prioritization rules are based on a ranking of categories, which are labels you can assign to a given campaign or Canvas (similar to a [tag]({{site.baseurl}}/user_guide/administrative/app_settings/tags)). There is a cap on the number of categories you can create at a given time; talk to your account manager if you'd like a higher limit.
+Prioritization rules are based on a ranking of categories, which are labels you can assign to a given campaign or Canvas (similar to a [tag]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)). There is a cap on the number of categories you can create at a given time; talk to your account manager if you'd like a higher limit.
 
 To add a new category:
 
@@ -328,7 +328,7 @@ Braze assumes your message was sent at the originally scheduled time if it is st
 
 ### My message was prioritized but aborted last-minute. What does that mean for prioritization?
 
-When a message is prioritized, Braze assumes it was sent at its originally scheduled time. In general for Message Prioritization, we don't recommend using Liquid aborts. If a message is aborted due to [`abort_message` Liquid logic]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages), we assume it was sent to that user and prioritize future campaigns accordingly.
+When a message is prioritized, Braze assumes it was sent at its originally scheduled time. In general for Message Prioritization, we don't recommend using Liquid aborts. If a message is aborted due to [`abort_message` Liquid logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages), we assume it was sent to that user and prioritize future campaigns accordingly.
 
 Let's say you have two messages: Message 1 and Message 2. If Message 1 is aborted in favor of a future higher-priority Message 2, this doesn't guarantee that Message 2 actually sends. Message 2 can still abort for any reason, including:
 
@@ -353,4 +353,4 @@ For campaigns, Message Prioritization uses each user's optimal send time for the
 
 Braze provides Message Prioritization-related events in Currents and data sharing for supported channels, including email, LINE, push notifications, SMS, webhooks, and WhatsApp. These include deprioritized and frequency-capped events, logged as the `users.messages.<channel>.Abort` event, as well as retry events that show when a message was later retried within the configured retry window, logged as the `users.messages.<channel>.Retry` event.
 
-You can also use the Messaging Diagnostics dashboard, the existing deprioritized and retried daily stats, and existing [Braze reporting functionality]({{site.baseurl}}/user_guide/analytics/reporting) to monitor the health and performance of your prioritized campaigns and Canvases.
+You can also use the Messaging Diagnostics dashboard, the existing deprioritized and retried daily stats, and existing [Braze reporting functionality]({{site.baseurl}}/user_guide/analytics/reports) to monitor the health and performance of your prioritized campaigns and Canvases.

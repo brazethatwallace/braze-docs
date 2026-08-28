@@ -1,12 +1,11 @@
 ---
 nav_title: "GET: Export campaign details"
-article_title: "GET: Export Campaign Details"
+article_title: "Export campaign details"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
 description: "This article outlines details about the Export campaign details Braze endpoint."
-
 ---
 {% api %}
 # Export campaign details

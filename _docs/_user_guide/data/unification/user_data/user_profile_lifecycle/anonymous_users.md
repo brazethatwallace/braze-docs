@@ -45,7 +45,7 @@ console.log(braze.getDeviceId());
 ```
 
 {:start="3"}
-3. On the Braze dashboard, use [User Search]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search) to search for the returned device ID.
+3. On the Braze dashboard, use [User Search]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/) to search for the returned device ID.
 
 ## Use cases
 

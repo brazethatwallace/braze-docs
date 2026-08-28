@@ -6,7 +6,6 @@ page_order: 5
 layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir usuários\"."
-
 ---
 {% api %}
 # Excluir usuários {#delete-users}
@@ -28,7 +27,7 @@ A exclusão de perfis de usuário não pode ser desfeita. Ela removerá permanen
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `users.delete`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.delete`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -52,7 +51,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 ```
 ### Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro         | Obrigatória | Tipo de dados                  | Descrição                                                                                      |
+| Parâmetro         | Obrigatório | Tipo de dados                  | Descrição                                                                                      |
 |-------------------|----------|----------------------------|--------------------------------------------------------------------------------------------------|
 | `external_ids`    | Opcional | Array de strings           | Identificadores externos a serem excluídos.                                                    |
 | `user_aliases`    | Opcional | Array de objetos de alias de usuário | [Aliases de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object) a serem excluídos. |

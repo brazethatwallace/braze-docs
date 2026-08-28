@@ -1,11 +1,10 @@
 ---
 nav_title: "Subscriptions"
-article_title: "Subscriptions"
+article_title: "Email subscriptions"
 page_order: 5
-description: "This reference article covers the different user subscription states, how to manage email subscriptions, and how to segment users based on their subscriptions."
+description: "This reference article covers the different user subscription states, how to manage email subscriptions, and how to segment users based on their."
 channel:
   - email
-
 ---
 
 # Email subscriptions
@@ -68,7 +67,9 @@ Use any of the following methods to check a user's email subscription state:
 
 When a user updates their email address, their subscription state is set to subscribed. If the updated email address already exists elsewhere in a Braze workspace, the user inherits the subscription state from that existing user unless **Resubscribe users when they update their email setting** is turned on in **Sending Configuration**.
 
-To troubleshoot subscription state changes, review **Email Subscription-State Changes** in the user profile logs for the history and source. The following sources can trigger an email subscription state change:
+To troubleshoot subscription state changes, check the Currents [Global Subscription State Change]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events) event (`users.behaviors.subscription.GlobalStateChange`), which includes the history and source of subscription state changes.
+
+The following sources can trigger an email subscription state change:
 
 | Source | Description |
 | ------ | ----------- |
@@ -79,7 +80,7 @@ To troubleshoot subscription state changes, review **Email Subscription-State Ch
 | Preference Center | User updated their preference from a Braze-hosted preference center |
 | Subscription Page | User selected an unsubscribe link in an email and landed on the Braze subscription page |
 | List-Unsubscribe | User unsubscribed through the email client's native list-unsubscribe header |
-| Canvas User Update Step | Subscription state updated by a [User Update step]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update) in a Canvas |
+| Canvas User Update Step | Subscription state updated by a [User Update step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) in a Canvas |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Email subscription state update sources" }
 
 When a user's global email subscription state changes, Braze propagates that state to other profiles that share the same email address, up to 100 profiles per change. Braze does not guarantee propagation when more than 100 profiles share the same email address. If users who share an email show different subscription states, contact Braze Support.
@@ -165,7 +166,7 @@ Braze supports three targeting states:
 - All users, including those who have unsubscribed.
 
 {% alert important %}
-It's your responsibility to comply with any applicable [spam laws]({{site.baseurl}}/help/best_practices/spam_regulations#spam-regulations) when using these targeting settings.
+It's your responsibility to comply with any applicable [spam laws]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations) when using these targeting settings.
 {% endalert %}
 
 ## Segmenting by user subscriptions {#segmenting-by-user-subscriptions}

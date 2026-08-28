@@ -1,6 +1,6 @@
 ---
 nav_title: Pontos de dados
-article_title: Visão geral dos pontos de dados
+article_title: Pontos de dados
 page_order: 3
 page_type: reference
 description: "Este artigo de referência descreve o que são pontos de dados na Braze e como você pode estar ciente de seu uso."
@@ -15,74 +15,74 @@ Os pontos de dados são baseados em informações registradas em perfis de usuá
 
 ## Definição {#definition}
 
-"Pontos de dados" referem-se a uma unidade faturável de uso dos Serviços da Braze, medida por um início de sessão, fim de sessão, evento personalizado ou compra registrada, bem como qualquer atributo definido em um perfil de usuário final. Para fins de clareza, cada um dos dados mencionados acima nesta seção (como início da sessão, fim da sessão, evento personalizado ou compra registrada, bem como qualquer atributo) definidos para o perfil de um usuário final em um determinado momento deve contar como um único ponto de dados.
+"Pontos de dados" referem-se a uma unidade faturável de uso dos Serviços da Braze, medida por um início de sessão, fim de sessão, evento personalizado ou compra registrada, bem como qualquer atributo definido em um perfil de usuário final. Para fins de esclarecimento, cada um dos dados mencionados anteriormente nesta seção (como início de sessão, fim de sessão, evento personalizado ou compra registrada, bem como qualquer atributo) definido no perfil de um usuário final em um determinado momento conta como um único ponto de dados.
 
-Os dados e eventos coletados por padrão pelos Serviços da Braze, incluindo, por exemplo, tokens por push, informações do dispositivo e todos os eventos de rastreamento de engajamento de Campaign, como aberturas de e-mail e cliques em notificações por push, *não* são contados como pontos de dados.
+Dados e eventos coletados por padrão pelos Serviços da Braze, incluindo, por exemplo, tokens por push, informações do dispositivo e todos os eventos de rastreamento de engajamento de Campaign, como aberturas de e-mail e cliques em notificações por push, *não* são contabilizados como pontos de dados.
 
-Consulte a seção [Contagem de consumo](#consumption-count) deste artigo para entender quais dados contam para sua alocação de pontos de dados.
+Consulte a seção [Contagem de consumo](#consumption-count) deste artigo para entender quais dados contam para a sua alocação de pontos de dados.
 
-## Visualização do uso de pontos de dados {#viewing-data-point-usage}
+## Visualizando o uso de pontos de dados {#viewing-data-point-usage}
 
-Para visualizar o uso de seus pontos de dados, acesse **Configurações** > **Faturamento** e selecione a guia **Total de uso de pontos de dados**.
+Para visualizar o uso de pontos de dados, acesse **Configurações** > **Faturamento** e selecione a guia **Uso total de pontos de dados**.
 
-### Programação de atualização dos pontos de dados {#data-point-refresh-schedule}
+### Cronograma de atualização de pontos de dados {#data-point-refresh-schedule}
 
 O uso de pontos de dados é armazenado em cache (não em tempo real) a cada 24 horas, por volta das 2h ET. Até que o cache seja atualizado, diferentes usuários do dashboard podem ver os mesmos totais, mesmo que abram a guia em horários diferentes no mesmo dia. Para o mesmo comportamento de cache em outras visualizações de faturamento, consulte [Dashboard de pontos de dados totais]({{site.baseurl}}/user_guide/administer/global/billing#total-data-points-dashboard).
 
 Para saber mais sobre os componentes do dashboard de pontos de dados, consulte [Faturamento]({{site.baseurl}}/user_guide/administer/global/billing).
 
 {% alert tip %}
-**Não desperdice pontos de dados. Atualize apenas os dados que estão mudando!**<br><br>
-Para minimizar o uso de pontos de dados, recomendamos a configuração de um programa para evitar o envio dos mesmos dados imutáveis e passar apenas dados novos e relevantes para a Braze. A Braze trabalhará com você para estabelecer essa prática recomendada durante a integração.
+**Não desperdice pontos de dados. Atualize apenas dados que mudam!**<br><br>
+Para minimizar o uso de pontos de dados, recomendamos configurar um programa que evite o envio dos mesmos dados inalterados, passando apenas dados novos e relevantes para a Braze. A Braze trabalhará com você para estabelecer essa prática recomendada durante a integração.
 {% endalert %}
 
 ## Contagem de consumo {#consumption-count}
 
-Em suma, os pontos de dados são acumulados quando os dados de perfil de um usuário são atualizados ou quando ele executa ações específicas. Essencialmente, os pontos de dados são contagens de cada um dos `session starts`, `session ends`, `events` e `purchases` de seus usuários.
+Em resumo, os pontos de dados são acumulados quando os dados do perfil de um usuário são atualizados ou quando ele realiza ações específicas. Essencialmente, pontos de dados são contagens de cada `session starts`, `session ends`, `events` e `purchases` dos seus usuários.
 
-Você pode encontrar um detalhamento de como a Braze acumula pontos de dados nas seções a seguir. Se você tiver alguma dúvida sobre as nuances dos pontos de dados da Braze, seu gerente de conta da Braze poderá respondê-la.
+Você pode encontrar um detalhamento de como a Braze acumula pontos de dados nas seções a seguir. Se tiver dúvidas sobre as nuances dos pontos de dados da Braze, seu gerente de conta da Braze pode respondê-las.
 
-Para ingestão via API, cada atualização faturável por meio de [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) segue as mesmas regras de outras atualizações de perfil: por exemplo, cada **evento personalizado** registrado conta como um ponto de dados, e **atributos personalizados** geralmente contam por atributo atualizado naquela solicitação (consulte as tabelas de faturamento na seção a seguir e [Circunstâncias especiais](#special-circumstances)).
+Para ingestão por API, cada atualização faturável por meio de [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) segue as mesmas regras de outras atualizações de perfil: por exemplo, cada **evento personalizado** registrado conta como um ponto de dados, e **atributos personalizados** geralmente contam por atributo atualizado naquela requisição (consulte as tabelas de faturamento na seção a seguir e [Circunstâncias especiais](#special-circumstances)).
 
 As seguintes ações não registram pontos de dados:
-- Exclusão de usuários da Braze
-- Uso de Conteúdo conectado no envio de mensagens
-- Alterações no estado da inscrição globalmente e em torno dos grupos de inscrições
-- Renomear os IDs externos de seus usuários por meio de [chamadas de API]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename)
-- Bloqueio de eventos, atributos ou propriedades de eventos
+- Excluir usuários da Braze
+- Usar Connected Content no envio de mensagens
+- Alterações no estado de inscrição globalmente e em grupos de inscrições
+- Renomear os IDs externos dos seus usuários por meio de [chamadas de API]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename)
+- Bloquear eventos, atributos ou propriedades de eventos
 
 ### Circunstâncias especiais {#special-circumstances}
 
-#### Matrizes {#arrays}
+#### Arrays {#arrays}
 
-Uma matriz é uma coleção ordenada de itens armazenados em um atributo personalizado. A atualização de uma matriz custa um ponto de dados por chamada de API, mesmo que a matriz não seja realmente alterada. Por exemplo, enviar uma operação `remove` para um valor que não existe na matriz ainda consome um ponto de dados. Da mesma forma, definir um atributo personalizado como `null` para removê-lo do perfil consome um ponto de dados. Se você adicionar valores a uma matriz de forma incremental, contará como um ponto de dados por valor.
+Um array é uma coleção ordenada de itens armazenados em um atributo personalizado. Atualizar um array custa um ponto de dados por chamada de API, mesmo que o array não seja realmente alterado. Por exemplo, enviar uma operação `remove` para um valor que não existe no array ainda consome um ponto de dados. Da mesma forma, definir um atributo personalizado como `null` para removê-lo do perfil consome um ponto de dados. Se você adicionar valores a um array de forma incremental, cada valor contará como um ponto de dados.
 
 {% alert tip %}
-Para matrizes simples, se você definir toda a matriz de uma vez, ela contará como um único ponto de dados. Dessa forma, as matrizes são uma ótima ferramenta para manter os perfis de usuário atualizados com informações relevantes e reduzir custos. <br><br> As matrizes de objetos consomem um ponto de dados para cada chave que é atualizada. Reduza o consumo desnecessário de pontos de dados transmitindo apenas atualizações para a Braze.
+Para arrays simples, se você definir o array inteiro de uma vez, ele contará como um único ponto de dados. Sendo assim, arrays são uma ótima ferramenta para manter os perfis de usuário atualizados com informações relevantes e reduzir custos. <br><br> Arrays de objetos consomem um ponto de dados para cada chave atualizada. Reduza o consumo desnecessário de pontos de dados enviando apenas atualizações para a Braze.
 {% endalert %}
 
 #### Atributos personalizados aninhados {#nested-custom-attributes}
 
-Os atributos personalizados aninhados referem-se a um objeto que define um conjunto de atributos como uma propriedade de outro atributo. Cada chave no objeto contará como um ponto de dados.
+Atributos personalizados aninhados referem-se a um objeto que define um conjunto de atributos como propriedade de outro atributo. Cada chave no objeto contará como um ponto de dados.
 
 {% alert note %}
-A atualização de um objeto de atributo personalizado para `null` também consome um ponto de dados.
+Atualizar um objeto de atributo personalizado para `null` também consome um ponto de dados.
 {% endalert %}
 
 #### CSV
 
-Os atributos personalizados cujo upload foi feito por meio da importação de CSV contam para seus pontos de dados. No entanto, as importações de CSV para fins de segmentação (importações feitas com `external_id`, `braze_id` ou `user_alias_name` como o único campo) não registrarão pontos de dados.
+Atributos personalizados enviados por importação de CSV contam para seus pontos de dados. No entanto, importações de CSV para fins de segmentação (importações feitas com `external_id`, `braze_id` ou `user_alias_name` como único campo) não registram pontos de dados.
 
-Além disso, como as alterações no estado da inscrição não registram pontos de dados, a atualização dos campos `email_subscribe`, `push_subscribe`, `subscription_group_id` ou `subscription_state` no seu arquivo CSV não incorrerá em cobranças.
+Além disso, como alterações no estado de inscrição não registram pontos de dados, atualizar os campos `email_subscribe`, `push_subscribe`, `subscription_group_id` ou `subscription_state` no seu arquivo CSV não gerará cobranças.
 
 ## Pontos de dados
 
 {% alert note %}
-As tabelas a seguir têm caráter ilustrativo. Para conhecer as convenções exatas de nomenclatura, capitalização e valores aceitos para determinados campos, consulte a documentação relevante do seu método de ingestão.
+As tabelas a seguir são ilustrativas. Para convenções exatas de nomenclatura, capitalização e valores aceitos para determinados campos, consulte a documentação relevante para o seu método de ingestão.
 {% endalert %}
 
 {% tabs %}
-{% tab Non-billable %}
+{% tab Não faturáveis %}
 
 ### Pontos de dados não faturáveis (padrão) {#non-billable-data-points-default}
 
@@ -90,12 +90,12 @@ As tabelas a seguir têm caráter ilustrativo. Para conhecer as convenções exa
 
 | Tipo de dados | Ponto de dados |
 | --------- | ---------- |
-| Dados do perfil | País |
-| Dados do perfil | Idioma |
-| Dados do perfil | ID do usuário |
-| Dados do perfil | Alias de usuário |
+| Dados de perfil | País |
+| Dados de perfil | Idioma |
+| Dados de perfil | ID do usuário |
+| Dados de perfil | Alias de usuário |
 | Dispositivos recentes | Número de dispositivos |
-| Dispositivos recentes | Observação mais recente |
+| Dispositivos recentes | Relógio mais recente |
 | Dispositivos recentes | Versão do app |
 | Dispositivos recentes | Dispositivo |
 | Dispositivos recentes | SO do dispositivo |
@@ -104,13 +104,13 @@ As tabelas a seguir têm caráter ilustrativo. Para conhecer as convenções exa
 | Configurações de contato | Apps registrados para push |
 | Configurações de contato | Grupo de inscrições |
 | Campaigns recebidas | Endereço de e-mail |
-| Atribuição da instalação | Origem da instalação |
-| Atribuição da instalação | Campaign |
-| Atribuição da instalação | Grupo de anúncios |
-| Atribuição da instalação | Anúncio |
-| Diversos | Número aleatório do bucket |
-| Mensagens do Canvas recebidas | Mensagens do Canvas recebidas |
-| Engajamento com mensagem | Todos os eventos de engajamento (como aberturas, cliques, impressões e recusas) |
+| Atribuição de instalação | Fonte de instalação |
+| Atribuição de instalação | Campaign |
+| Atribuição de instalação | Grupo de anúncios |
+| Atribuição de instalação | Anúncio |
+| Diversos | Número de bucket aleatório |
+| Mensagens de Canvas recebidas | Mensagens de Canvas recebidas |
+| Engajamento com mensagem | Todos os eventos de engajamento (como aberturas, cliques, impressões e dispensas) |
 | Twitter | Seguidores |
 | Twitter | Seguindo |
 | Twitter | Número de tweets |
@@ -118,12 +118,12 @@ As tabelas a seguir têm caráter ilustrativo. Para conhecer as convenções exa
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pontos de dados não faturáveis (padrão)" }
 
 {% endtab %}
-{% tab Billable %}
+{% tab Faturáveis %}
 
 ### Pontos de dados faturáveis {#billable-data-points}
 
 {% alert important %}
-Adicionar, remover ou atualizar os seguintes tipos de dados implicará em um ponto de dados faturável.
+Adicionar, remover ou atualizar os seguintes tipos de dados resultará em um ponto de dados faturável.
 {% endalert %}
 
 <style>
@@ -141,33 +141,33 @@ table td {
 }
 </style>
 
-| Tipo de dados | Ponto de dados | Notas |
+| Tipo de dados | Ponto de dados | Observações |
 | --------- | ---------- | ----- |
-| Dados do perfil | Nome | |
-| Dados do perfil | Sobrenome | |
-| Dados do perfil | Endereço de e-mail | |
-| Dados do perfil | Gênero | |
-| Dados do perfil | Faixa etária | |
-| Dados do perfil | País | Quando coletado manualmente. Não conta para o consumo quando coletado automaticamente. |
-| Dados do perfil | Cidade | |
-| Dados do perfil | Idioma | Quando coletado manualmente. Não conta para o consumo quando coletado automaticamente. |
-| Dados do perfil | Localização mais recente do dispositivo | |
-| Dados do perfil | Fuso horário | |
-| Dados do perfil | Data de nascimento (DOB) | |
-| Dados do perfil | Biografia | |
-| Dados do perfil | Número de telefone | |
+| Dados de perfil | Nome | |
+| Dados de perfil | Sobrenome | |
+| Dados de perfil | Endereço de e-mail | |
+| Dados de perfil | Gênero | |
+| Dados de perfil | Faixa etária | |
+| Dados de perfil | País | Quando coletado manualmente. Não é contabilizado no consumo quando coletado automaticamente. |
+| Dados de perfil | Cidade | |
+| Dados de perfil | Idioma | Quando coletado manualmente. Não é contabilizado no consumo quando coletado automaticamente. |
+| Dados de perfil | Localidade mais recente do dispositivo | |
+| Dados de perfil | Fuso horário | |
+| Dados de perfil | Data de nascimento (DOB) | |
+| Dados de perfil | Biografia | |
+| Dados de perfil | Número de telefone | |
 | Dados de uso do app | Início da sessão | |
 | Dados de uso do app | Fim da sessão | |
 | Atributos personalizados | Todos os atributos personalizados | |
 | Eventos personalizados | Todos os eventos personalizados | |
-| Propriedades de eventos personalizados | Todas as propriedades de eventos personalizados | As propriedades de eventos personalizados ativadas para segmentação com os filtros `X Custom Event Property in Y Days` ou `X Purchase Property in Y Days` são todas contadas como pontos de dados separados, além do ponto de dados contado pelo próprio evento personalizado. |
+| Propriedades de eventos personalizados | Todas as propriedades de eventos personalizados | Propriedades de eventos personalizados habilitadas para segmentação com os filtros `X Custom Event Property in Y Days` ou `X Purchase Property in Y Days` são contabilizadas como pontos de dados separados, além do ponto de dados contabilizado pelo próprio evento personalizado. |
 | Compras | Todas as compras | |
 | Propriedades de compra | Todas as propriedades de compra | |
 | Atribuição de coorte do Amplitude | Todas as atribuições | |
 | Atribuição de coorte do Mixpanel | Todas as atribuições | |
 | Atribuição de coorte do Hightouch | Todas as atribuições | |
 | Atribuição de coorte do Appsflyer | Todas as atribuições | |
-| Local mais recente | Todos os locais mais recentes | Entrar ou sair de geofences não registra pontos de dados porque os dados de geofences não são armazenados no perfil do usuário. As geofences são monitoradas pelos serviços de localização da Apple e do Google; a Braze só é notificada quando um usuário dispara uma geofence. |
+| Localização mais recente | Todas as localizações mais recentes | Entrar ou sair de geofences não registra pontos de dados porque os dados de geofence não são armazenados no perfil do usuário. As geofences são monitoradas pelos serviços de localização da Apple e do Google; a Braze só é notificada quando um usuário aciona uma geofence. |
 | Twitter | Nome de usuário | |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pontos de dados faturáveis" }
 

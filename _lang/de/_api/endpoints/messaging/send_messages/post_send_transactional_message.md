@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Senden von Transaktions-E-Mails mit API-getriggerter Zustellung."
-
 ---
 
 {% api %}
@@ -69,7 +68,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | --------- | ---------| --------- | ----------- |
 | `external_send_id` | Optional | String | Ein Base64-kompatibler String. Wird anhand der folgenden Regex validiert:<br><br> `/^[a-zA-Z0-9-_+\/=]+$/` <br><br>Dieses optionale Feld ermöglicht es Ihnen, einen internen Bezeichner für diesen bestimmten Versand zu übergeben, der in Ereignissen enthalten ist, die vom Transactional-HTTP-Event-Postback gesendet werden. Bei Übergabe wird dieser Bezeichner auch als Deduplizierungsschlüssel verwendet, den Braze für 24 Stunden speichert. <br><br>Die Übergabe desselben Bezeichners in einer weiteren Anfrage führt 24 Stunden lang nicht zu einer neuen Versandinstanz durch Braze. |
 | `trigger_properties` | Optional | Objekt | Siehe [Trigger-Eigenschaften]({{site.baseurl}}/api/objects_filters/trigger_properties_object). Personalisierungs-Schlüssel-Wert-Paare, die für die:den Nutzer:in in dieser Anfrage gelten. |
-| `recipient` | Erforderlich | Objekt | Die:der Nutzer:in, an die:den Sie diese Nachricht senden möchten. Kann `attributes` und ein einzelnes `external_user_id` oder `user_alias` enthalten.<br><br>Beachten Sie: Wenn Sie eine externe Nutzer-ID angeben, die noch nicht in Braze vorhanden ist, wird durch die Übergabe beliebiger Felder an das `attributes`-Objekt dieses Nutzerprofil in Braze erstellt und die Nachricht an die:den neu erstellte:n Nutzer:in gesendet. <br><br>Wenn Sie mehrere Anfragen an dieselbe:n Nutzer:in mit unterschiedlichen Daten im `attributes`-Objekt senden, werden die Attribute `first_name`, `last_name` und `email` synchron aktualisiert und in Ihre Nachricht eingefügt. Angepasste Attribute verfügen nicht über diesen Schutz. Gehen Sie daher vorsichtig vor, wenn Sie eine:n Nutzer:in über diese API aktualisieren und verschiedene Werte für angepasste Attribute in schneller Folge übergeben. |
+| `recipient` | Erforderlich | Objekt | Die:der Nutzer:in, an die:den Sie diese Nachricht senden möchten. Kann `attributes` und ein einzelnes `external_user_id` oder `user_alias` enthalten.<br><br>Beachten Sie: Wenn Sie eine externe ID angeben, die noch nicht in Braze vorhanden ist, wird durch die Übergabe beliebiger Felder an das `attributes`-Objekt dieses Nutzerprofil in Braze erstellt und die Nachricht an die:den neu erstellte:n Nutzer:in gesendet. <br><br>Wenn Sie mehrere Anfragen an dieselbe:n Nutzer:in mit unterschiedlichen Daten im `attributes`-Objekt senden, werden die Attribute `first_name`, `last_name` und `email` synchron aktualisiert und in Ihre Nachricht eingefügt. Angepasste Attribute verfügen nicht über diesen Schutz. Gehen Sie daher vorsichtig vor, wenn Sie eine:n Nutzer:in über diese API aktualisieren und verschiedene Werte für angepasste Attribute in schneller Folge übergeben. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrage-Parameter" }
 
 ## Beispielanfrage {#example-request}

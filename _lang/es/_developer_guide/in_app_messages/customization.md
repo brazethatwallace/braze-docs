@@ -1,6 +1,6 @@
 ---
 nav_title: Personalizar mensajes
-article_title: Personalizar mensajes dentro de la aplicación para el SDK de Braze
+article_title: "Personalizar mensajes dentro de la aplicación"
 page_order: 0.1
 description: "Aprende a configurar mensajes dentro de la aplicación para el SDK de Braze."
 platform:
@@ -49,7 +49,7 @@ Appboy.AppboyBinding.SetInAppMessageDisplayAction(BrazeUnityInAppMessageDisplayA
 
 ## Configurar un listener personalizado {#setting-a-custom-listener}
 
-Si necesitas más control sobre cómo un usuario interactúa con los mensajes dentro de la aplicación, utiliza un `BrazeInAppMessageListener` y asígnalo a `Appboy.AppboyBinding.inAppMessageListener`. Para cualquier delegado que no quieras utilizar, simplemente puedes dejarlo como `null`.
+Si necesitas más control sobre cómo interactúa un usuario con los mensajes dentro de la aplicación, utiliza un `BrazeInAppMessageListener` y asígnalo a `Appboy.AppboyBinding.inAppMessageListener`. Para cualquier delegado que no quieras utilizar, simplemente puedes dejarlo como `null`.
 
 ```csharp
 BrazeInAppMessageListener listener = new BrazeInAppMessageListener() {

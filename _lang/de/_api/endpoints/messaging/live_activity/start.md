@@ -33,7 +33,7 @@ Um das automatische Entfernen nach dem Start einer Live-Aktivität einzurichten,
 2. Speichern Sie diese `activity_id` und Ihren gewünschten Endzeitpunkt in Ihrem Backend-Scheduler.
 3. Senden Sie zum gewünschten Endzeitpunkt eine `/messages/live_activity/update`-Anfrage mit `end_activity` auf `true` gesetzt.
 4. Konfigurieren Sie das Entfernungsverhalten in derselben Update-Anfrage. Weitere Details finden Sie beim Endpunkt [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update).
-5. Überprüfen Sie Sende- und Ergebnis-Ereignisse im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab).
+5. Überprüfen Sie Sende- und Ergebnis-Ereignisse im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 
@@ -46,7 +46,7 @@ Um diesen Endpunkt zu verwenden, müssen Sie Folgendes tun:
 
 {% multi_lang_include api/payload_size_alert.md %}
 
-## Rate-Limits {#rate-limit}
+## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 

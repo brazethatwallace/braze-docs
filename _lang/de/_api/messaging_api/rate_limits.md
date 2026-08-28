@@ -1,21 +1,22 @@
 ---
 nav_title: Rate-Limits
-article_title: Messaging-API-Rate-Limits
+article_title: Rate-Limits der Device Messaging API
+permalink: /api/device_messaging_api/rate_limits
 page_order: 3
 page_type: reference
-description: "Erfahren Sie, wie Rate-Limits und Antwort-Header der Messaging API funktionieren."
+description: "Erfahren Sie, wie Rate-Limits und Antwort-Header der Device Messaging API funktionieren."
 hidden: true
 ---
 
-# Messaging-API-Rate-Limits
+# Rate-Limits der Device Messaging API {#device-messaging-api-rate-limits}
 
 {% alert important %}
-Diese Seite befindet sich in der Betaphase. Features und Dokumentation für die Messaging API können sich ändern.
+Diese Seite befindet sich in der Betaphase. Features und Dokumentation für die Device Messaging API können sich ändern.
 {% endalert %}
 
-Braze wendet Messaging-API-Rate-Limits pro Workspace an. Wenn ein Workspace ein Limit überschreitet, gibt Braze den Statuscode `429 Too Many Requests` zurück.
+Braze wendet Rate-Limits der Device Messaging API pro Workspace an. Wenn ein Workspace ein Limit überschreitet, gibt Braze den Statuscode `429 Too Many Requests` zurück.
 
-Die Messaging-API-Limits sind von den standardmäßigen Limits getrennt, die für andere Braze-REST-API-Endpunkte dokumentiert sind. Gehen Sie nicht davon aus, dass ein Limit, ein Zeitfenster, eine Payload-Größe oder ein Reset-Zeitplan, der für einen anderen Endpunkt dokumentiert ist, auch für die Messaging API gilt.
+Die Rate-Limits der Device Messaging API sind von den standardmäßigen Limits getrennt, die für andere Braze-REST-API-Endpunkte dokumentiert sind. Gehen Sie nicht davon aus, dass ein Limit, ein Zeitfenster, eine Payload-Größe oder ein Reset-Zeitplan, der für einen anderen Endpunkt dokumentiert ist, auch für die Device Messaging API gilt.
 
 ## Rate-Limit-Header {#rate-limit-headers}
 
@@ -25,9 +26,9 @@ Wenn Rate-Limit-Informationen verfügbar sind, enthält eine Antwort die folgend
 |---|---|
 | `X-RateLimit-Limit` | Die maximale Anzahl zulässiger Anfragen im aktuellen Intervall. |
 | `X-RateLimit-Remaining` | Die Anzahl der verbleibenden Anfragen im aktuellen Rate-Limit-Fenster. |
-| `X-RateLimit-Reset` | Der UTC-Epoch-Zeitpunkt, zu dem das aktuelle Rate-Limit-Fenster zurückgesetzt wird. |
+| `X-RateLimit-Reset` | Die UTC-Epochenzeit, zu der das aktuelle Rate-Limit-Fenster zurückgesetzt wird. |
 | `X-RateLimit-Retry-After` | Die Anzahl der Sekunden, die vor einem erneuten Versuch einer ratenbegrenzten Anfrage gewartet werden soll. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Messaging-API-Rate-Limit-Header" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate-Limit-Header der Device Messaging API" }
 
 Verwenden Sie diese Header, um Anfragen zu reduzieren oder zu pausieren, bevor ein Limit erreicht wird. Header sind möglicherweise nicht in jeder Antwort enthalten.
 
@@ -36,5 +37,5 @@ Verwenden Sie diese Header, um Anfragen zu reduzieren oder zu pausieren, bevor e
 Wenn Sie eine `429`-Antwort erhalten:
 
 1. Stoppen oder reduzieren Sie Anfragen für den betroffenen Workspace.
-2. Verwenden Sie `X-RateLimit-Retry-After`, sofern vorhanden, um zu bestimmen, wie lange gewartet werden soll. Andernfalls verwenden Sie `X-RateLimit-Reset`, sofern verfügbar, um zu bestimmen, wann die Anfragen fortgesetzt werden können.
-3. Wiederholen Sie den Versuch mit exponentiellem Backoff und einer maximalen Anzahl von Versuchen.
+2. Verwenden Sie `X-RateLimit-Retry-After`, sofern vorhanden, um die Wartezeit zu bestimmen. Andernfalls verwenden Sie `X-RateLimit-Reset`, sofern verfügbar, um den Zeitpunkt für die Wiederaufnahme zu ermitteln.
+3. Wiederholen Sie die Anfrage mit exponentiellem Backoff und einer maximalen Anzahl von Versuchen.

@@ -5,7 +5,7 @@ alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "Ce glossaire répertorie les différents événements d'engagement liés aux messages que Braze peut suivre et envoyer vers les entrepôts de données de votre choix à l'aide de Currents."
+description: "Ce glossaire répertorie les différents événements d'engagement liés aux messages que Braze peut suivre et envoyer aux entrepôts de données de votre choix via Currents."
 tool: Currents
 search_rank: 6
 lazy_partner_tabs: true
@@ -13,15 +13,15 @@ lazy_partner_tabs: true
 
 <div class="api-glossary-preamble" markdown="1">
 
-{% details Portée du schéma et ressources associées %}
+{% details Portée des schémas et ressources associées %}
 
-Les schémas de stockage s'appliquent aux données d'événements en fichiers plats que nous envoyons aux partenaires de stockage en entrepôt de données (Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Pour les schémas qui s'appliquent aux autres partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) et vérifiez leurs pages respectives.
+Les schémas de stockage s'appliquent aux données d'événements sous forme de fichiers plats que nous envoyons aux partenaires de stockage d'entrepôts de données (Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Pour les schémas qui s'appliquent aux autres partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) et vérifiez leurs pages respectives.
 
 {% alert tip %}
-Ces événements sont également disponibles sous forme de tables SQL dans le [générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder), les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) et le [partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Pour les schémas de tables SQL et les détails des colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Ces événements sont également disponibles sous forme de tables SQL dans le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder), les [Extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) et le [Partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Pour les schémas de tables SQL et les détails des colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Contactez votre gestionnaire de compte ou ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support) si vous avez besoin d'accéder à des droits d'événements supplémentaires. Si vous ne trouvez pas ce que vous cherchez dans cet article, consultez notre [bibliothèque d'événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) ou nos [exemples de données Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Contactez votre gestionnaire de compte ou ouvrez un [ticket d'assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support) si vous avez besoin d'accéder à des droits d'événements supplémentaires. Si vous ne trouvez pas ce dont vous avez besoin dans cet article, consultez notre [Bibliothèque d'événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) ou nos [exemples de données Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
@@ -31,17 +31,17 @@ Contactez votre gestionnaire de compte ou ouvrez un [ticket d'assistance]({{site
 
 Cette décomposition des événements montre le type d'informations généralement incluses dans un événement d'engagement lié aux messages. Avec une bonne compréhension de ses composants, vos développeurs et votre équipe d'aide à la décision peuvent utiliser les données d'événements Currents entrantes pour créer des rapports et des graphiques basés sur les données, et tirer parti d'autres indicateurs de données précieux.
 
-![Décomposition d'un événement d'engagement lié aux messages montrant un événement de désabonnement par e-mail avec les propriétés répertoriées regroupées par propriétés spécifiques à l'utilisateur, propriétés de suivi de Campaign ou Canvas, et propriétés spécifiques à l'événement]({% image_buster /assets/img/message_engagement_event.png %})
+![Décomposition d'un événement d'engagement lié aux messages montrant un événement de désabonnement par e-mail avec les propriétés listées regroupées par propriétés spécifiques à l'utilisateur, propriétés de suivi de Campaign ou Canvas, et propriétés spécifiques à l'événement]({% image_buster /assets/img/message_engagement_event.png %})
 
-Les événements d'engagement liés aux messages sont composés de propriétés **spécifiques à l'utilisateur**, de propriétés de **suivi Campaign/Canvas** et de propriétés **spécifiques à l'événement**.
+Les événements d'engagement liés aux messages sont composés de propriétés **spécifiques à l'utilisateur**, de propriétés de **suivi de Campaign/Canvas** et de propriétés **spécifiques à l'événement**.
 
 ### Schéma des identifiants utilisateur {#user-id-schema}
 
-Notez les conventions de nommage pour les identifiants utilisateur.
+Notez les conventions de nommage des identifiants utilisateur.
 
 | Schéma Braze | Schéma Currents | Description |
 | ----------- | ----------- | ----------- |
-| `braze_id` | `"USER_ID"` | L'identifiant unique attribué automatiquement par Braze. |
+| `braze_id` | `"USER_ID"` | L'identifiant unique automatiquement attribué par Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | L'identifiant unique du profil d'un utilisateur défini par le client. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schéma des identifiants utilisateur" }
 
@@ -50,7 +50,7 @@ Notez les conventions de nommage pour les identifiants utilisateur.
 Certains événements renvoient une valeur `platform` qui spécifie la plateforme de l'appareil de l'utilisateur.
 <br>Le tableau suivant détaille les valeurs possibles renvoyées :
 
-| Appareil de l'utilisateur | Valeur de plateforme |
+| Appareil utilisateur | Valeur de plateforme |
 | --- | --- |
 | iOS | `ios` |
 | Android | `android` |
@@ -65,9 +65,9 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 
 {% details Considérations relatives aux événements d'engagement liés aux messages %}
 
-- Currents supprime les événements dont les payloads dépassent 900&nbsp;Ko.
-- Les objets liés à Canvas Flow possèdent des identifiants que vous pouvez utiliser pour le regroupement et traduire en noms lisibles via l'[endpoint d'exportation des détails du Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
-- Certains champs peuvent ne pas afficher leur état le plus récent immédiatement après la mise à jour d'une Campaign ou d'un Canvas :
+- Currents abandonne les événements dont le payload dépasse 900&nbsp;Ko.
+- Les objets liés à Canvas Flow possèdent des identifiants que vous pouvez utiliser pour le regroupement et traduire en noms lisibles via l'[endpoint Exporter les détails du Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
+- Il est possible que certains champs n'affichent pas leur état le plus récent immédiatement après la mise à jour d'une Campaign ou d'un Canvas :
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -743,7 +743,6 @@ Cet événement se produit lorsque Braze reçoit une demande de mise à jour de 
 | List-Unsubscribe | Lorsqu'un utilisateur se désabonne via un « mailto » de Braze ou un en-tête de désabonnement de liste en un clic |
 | Autre | Inclut toutes les autres sources, telles que les tâches de synchronisation des démos ou des fournisseurs, ou les rappels d'événements SMS et WhatsApp |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Détails de la propriété" }
-
 
 {% endapi %}
 
@@ -3463,7 +3462,7 @@ Cet événement se produit lorsqu'un utilisateur clique sur une bannière.
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.messages.banner.Click
 
@@ -3755,7 +3754,7 @@ Cet événement se produit lorsqu'un utilisateur ferme une bannière.
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.messages.banner.Dismiss
 
@@ -4070,7 +4069,7 @@ Cet événement se produit lorsqu'un utilisateur visualise une bannière.
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.messages.banner.Impression
 
@@ -4327,7 +4326,7 @@ Cet événement se produit si un message Content Card a été interrompu en rais
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.messages.contentcard.Abort
 
@@ -4577,7 +4576,7 @@ Cet événement se produit lorsqu'un utilisateur clique sur une Content Card.
 ```
 {% endtab %}
 
-{% tab Custom HTTP Connector %}
+{% tab Connecteur HTTP personnalisé %}
 ```json
 // users.messages.contentcard.Click
 
@@ -5039,7 +5038,7 @@ Cet événement se produit lorsqu'un utilisateur rejette une Content Card.
 
 ### Détails de la propriété
 
-- Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA pour iOS et l'ID publicitaire Google pour Android par le biais des SDK natifs. En savoir plus sur cette configuration pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
+- Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. Pour en savoir plus sur cette configuration, consultez la documentation pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer les données de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), contactez votre gestionnaire du succès des clients pour activer l'envoi de `ad_id`.
 
 {% endapi %}
@@ -5316,7 +5315,7 @@ Cet événement se produit lorsqu'un utilisateur visualise une Content Card.
 
 ### Détails de la propriété
 
-- Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA pour iOS et l'ID publicitaire Google pour Android par le biais des SDK natifs. En savoir plus sur cette configuration pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
+- Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. Pour en savoir plus sur cette configuration, consultez la documentation pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer les données de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), contactez votre gestionnaire du succès des clients pour activer l'envoi de `ad_id`.
 
 {% endapi %}
@@ -5798,6 +5797,7 @@ Cet événement se produit si un e-mail a été interrompu en raison d'abandons 
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour consulter la liste complète des valeurs, reportez-vous à [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` prend la valeur `frequency_capped` si le message a été interrompu en raison d'une règle de limite de fréquence globale.
 - `abort_log` contient des informations sur la règle spécifique ayant déclenché l'interruption. Exemple : `Frequency cap rule: 5 email messages every 1 week`
+- `message_extras` n'est renseigné que lorsqu'une interruption survient après l'exécution de la balise {% raw %}`{% message_extras %}`{% endraw %} pendant le rendu.
 
 {% endapi %}
 
@@ -7480,7 +7480,7 @@ Le fait que les champs `device_model` et `mailbox_provider` de l'événement d'o
 Email, Retry
 {% endapitags %}
 
-Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une limite de fréquence et sera réessayé ultérieurement dans la fenêtre de nouvelle tentative configurée. Cette fonctionnalité est uniquement disponible pour les clients bêta de la priorisation des messages.
+Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une limitation de fréquence et sera réessayé ultérieurement dans la fenêtre de nouvelle tentative configurée. Cette fonctionnalité est uniquement disponible pour les clients bêta de la priorisation des messages.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -7726,7 +7726,7 @@ Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une l
 Email, Sends
 {% endapitags %}
 
-Cet événement se produit lorsqu'une demande d'envoi d'e-mail a été transmise avec succès entre Braze et SendGrid. Cependant, cela ne signifie pas que l'e-mail a été reçu dans la boîte de réception de l'utilisateur. Braze n'enregistre pas les événements dans les profils utilisateur ni dans les destinations Currents (telles que Snowflake) si l'événement ne peut pas être associé à la fois à l'adresse e-mail et à l'ID utilisateur liés à l'événement e-mail.
+Cet événement se produit lorsqu'une demande d'envoi d'e-mail a été transmise avec succès entre Braze et Sendgrid. Cependant, cela ne signifie pas que l'e-mail a été reçu dans la boîte de réception de l'utilisateur. Braze n'enregistre pas les événements dans les profils utilisateur ni dans les destinations Currents (telles que Snowflake) si l'événement ne peut pas être associé à la fois à l'adresse e-mail et à l'ID utilisateur liés à l'événement e-mail.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -10285,6 +10285,7 @@ Cet événement se produit lorsqu'un message LINE planifié ne peut pas être di
 - Le champ `abort_type` décrit la raison pour laquelle le message a été abandonné. Pour consulter la liste complète des valeurs, reportez-vous à [Types d'abandon]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` prend la valeur `frequency_capped` si le message a été abandonné en raison d'une règle de limite de fréquence globale.
 - `abort_log` contient des informations sur la règle spécifique ayant déclenché l'abandon. Exemple : `Frequency cap rule: 5 LINE messages every 1 week`
+- `message_extras` n'est renseigné que lorsqu'un abandon se produit après l'exécution de la balise {% raw %}`{% message_extras %}`{% endraw %} pendant le rendu.
 
 {% endapi %}
 
@@ -11840,6 +11841,7 @@ Cet événement se produit si un message de notification push a été interrompu
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour consulter la liste complète des valeurs, voir [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` prendra la valeur `frequency_capped` si le message a été interrompu en raison d'une règle de limite de fréquence globale.
 - `abort_log` contient des informations sur la règle spécifique ayant déclenché l'interruption. Exemple : `Frequency cap rule: 5 push messages every 1 week`
+- `message_extras` n'est renseigné que lorsqu'une interruption survient après l'exécution de la balise {% raw %}`{% message_extras %}`{% endraw %} pendant le rendu.
 
 {% endapi %}
 
@@ -13835,7 +13837,7 @@ Cet événement est généré lorsqu'un message RCS est distribué avec succès 
 
 ### Détails des propriétés
 
-- `dispatch_id` est un ID correspondant à un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des notifications push pour cet envoi (tels que Envoi, Rebond et Ouverture).
+- `dispatch_id` est un ID correspondant à un envoi de message spécifique, tel qu'un envoi de Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des notifications push pour cet envoi (tels que l'envoi, le rebond et l'ouverture).
 
 {% endapi %}
 
@@ -15000,6 +15002,7 @@ Cet événement se produit si un message SMS a été interrompu en raison d'aban
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour obtenir la liste complète des valeurs, consultez [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` aura la valeur `frequency_capped` si le message a été interrompu en raison d'une règle de limite de fréquence globale.
 - `abort_log` contient des informations sur la règle spécifique qui a déclenché l'interruption. Par exemple : `Frequency cap rule: 5 SMS messages every 1 week`
+- `message_extras` n'est renseigné que lorsqu'une interruption se produit après l'exécution de la balise {% raw %}`{% message_extras %}`{% endraw %} lors du rendu.
 
 {% endapi %}
 
@@ -15487,7 +15490,7 @@ Cet événement se produit lorsqu'un SMS a été distribué avec succès au tél
 
 ### Détails de la propriété
 
-- `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que Envoi, Rebond et Ouverture).
+- `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que l'envoi, le rebond et l'ouverture).
 
 {% endapi %}
 
@@ -15738,12 +15741,12 @@ Cet événement survient lorsqu'un SMS rencontre un échec de distribution. Util
 
 ### Détails de la propriété
 
-- `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que Envoi, Rebond et Ouverture).
+- `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi incluent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (tels que l'envoi, le rebond et l'ouverture).
 
 {% endapi %}
 
 {% api %}
-## Événements SMS entrants reçus {#sms-inbound-received-events}
+## Événements de réception de SMS entrants {#sms-inbound-received-events}
 
 {% apitags %}
 SMS, Inbound Received
@@ -15751,7 +15754,7 @@ SMS, Inbound Received
 
 Cet événement se produit lorsque l'un de vos utilisateurs envoie un SMS à un numéro de téléphone appartenant à l'un de vos groupes d'abonnement SMS Braze.
 
-Lorsque Braze reçoit un SMS entrant, ce message est attribué à tout utilisateur partageant ce numéro de téléphone. Par conséquent, vous pouvez recevoir plusieurs événements par message entrant si plusieurs utilisateurs de votre instance Braze partagent le même numéro de téléphone. Si vous devez attribuer des ID utilisateur spécifiques sur la base des messages précédemment envoyés à cet utilisateur, vous pouvez utiliser l'événement de distribution SMS pour attribuer les événements entrants reçus à l'ID utilisateur qui a reçu le plus récemment un message depuis votre numéro Braze.
+Lorsque Braze reçoit un SMS entrant, ce message est attribué à tout utilisateur partageant ce numéro de téléphone. Par conséquent, vous pouvez recevoir plusieurs événements par message entrant si plusieurs utilisateurs de votre instance Braze partagent le même numéro de téléphone. Si vous devez attribuer des ID utilisateur spécifiques sur la base de messages précédemment envoyés à cet utilisateur, vous pouvez utiliser l'événement de distribution SMS pour attribuer les événements de réception entrants à l'ID utilisateur qui a reçu le plus récemment un message depuis votre numéro Braze.
 
 Si Braze détecte que ce message entrant est une réponse à une Campaign sortante ou à un composant Canvas envoyé depuis Braze, les métadonnées de la Campaign ou du Canvas sont également incluses dans l'événement. Braze définit une réponse comme un message entrant reçu dans les quatre heures suivant un message sortant. Toutefois, il existe un cache d'une minute pour les informations de Campaign attribuées au dernier SMS sortant reçu.
 
@@ -17587,12 +17590,13 @@ Cet événement se produit si un message webhook a été interrompu en raison d'
 {% endtab %}
 {% endtabs %}
 
-### Détails de la propriété
+### Détails des propriétés
 
 - `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour obtenir la liste complète des valeurs, consultez [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` prend la valeur `frequency_capped` si le message a été interrompu en raison d'une règle de limite de fréquence globale.
 - `abort_log` contient des informations sur la règle spécifique ayant déclenché l'interruption. Par exemple : `Frequency cap rule: 5 webhook messages every 1 week`
+- `message_extras` n'est renseigné que lorsqu'une interruption se produit après l'exécution de la balise {% raw %}`{% message_extras %}`{% endraw %} pendant le rendu.
 
 {% endapi %}
 
@@ -17861,7 +17865,7 @@ Cet événement se produit si un message webhook a été distribué mais a écho
 {% endtab %}
 {% endtabs %}
 
-### Détails de la propriété
+### Détails des propriétés
 
 - `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie des messages push pour cet envoi (par exemple Envoi, Rebond et Ouverture).
 
@@ -18573,6 +18577,7 @@ Cet événement se produit lorsqu'un message WhatsApp a été interrompu en rais
 - Le champ `abort_type` décrit la raison pour laquelle le message a été interrompu. Pour consulter la liste complète des valeurs, voir [Types d'interruption]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` prendra la valeur `frequency_capped` si le message a été interrompu en raison d'une règle de limite de fréquence globale.
 - `abort_log` contient des informations sur la règle spécifique ayant déclenché l'interruption. Exemple : `Frequency cap rule: 5 WhatsApp messages every 1 week`
+- `message_extras` n'est renseigné que lorsqu'une interruption se produit après l'exécution de la balise {% raw %}`{% message_extras %}`{% endraw %} lors du rendu.
 
 {% endapi %}
 
@@ -19068,7 +19073,7 @@ Cet événement se produit lorsqu'un message WhatsApp envoyé est parvenu avec s
 
 ### Détails de la propriété
 
-- `dispatch_id` est un identifiant associé à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
+- `dispatch_id` est un identifiant correspondant à un envoi de message spécifique, par exemple l'envoi d'une Campaign. Tous les événements push provenant du même envoi partagent le même `dispatch_id`. Utilisez `dispatch_id` pour regrouper les événements appartenant au même envoi, ce qui vous permet de regrouper et de corréler le cycle de vie du message push pour cet envoi (par exemple envoi, rebond et ouverture).
 
 {% endapi %}
 
@@ -19911,7 +19916,7 @@ Cet événement se produit lorsqu'un message WhatsApp est lu par l'utilisateur.
 WhatsApp, Retry
 {% endapitags %}
 
-Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une limite de fréquence et sera réessayé ultérieurement dans la fenêtre de nouvelle tentative configurée. Cette fonctionnalité est uniquement disponible pour les clients bêta de la priorisation des messages.
+Cet événement se produit lorsqu'un message est dépriorisé ou soumis à une limitation de fréquence et sera réessayé ultérieurement dans la fenêtre de nouvelle tentative configurée. Cette fonctionnalité est uniquement disponible pour les clients bêta de la priorisation des messages.
 
 {% tabs %}
 {% tab Cloud Storage %}

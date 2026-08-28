@@ -1,7 +1,7 @@
 ---
 page_order: 1.2
 nav_title: Authentication
-article_title: Set up authentication for the Braze SDK
+article_title: "Set up SDK authentication"
 description: "This reference article covers SDK authentication and how to enable this feature in the Braze SDK."
 platform:
   - iOS

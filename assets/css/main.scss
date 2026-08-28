@@ -3,7 +3,8 @@
 // Mismatches cause the browser to ignore the font file and fall back silently.
 @font-face {
   font-family: "Aribau Grotesk Light";
-  src: url("../assets/fonts/AribauGrotesk-Light.woff");
+  src: url("../assets/fonts/AribauGrotesk-Light.woff2") format("woff2"),
+       url("../assets/fonts/AribauGrotesk-Light.woff") format("woff");
   font-weight: lighter;
   font-style: normal;
   font-display: swap;
@@ -11,7 +12,8 @@
 
 @font-face {
   font-family: "Aribau Grotesk Regular";
-  src: url("../assets/fonts/AribauGrotesk-Regular.woff");
+  src: url("../assets/fonts/AribauGrotesk-Regular.woff2") format("woff2"),
+       url("../assets/fonts/AribauGrotesk-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -19,7 +21,8 @@
 
 @font-face {
   font-family: "Aribau Grotesk Regular Italic";
-  src: url("../assets/fonts/AribauGrotesk-RegularItalic.woff");
+  src: url("../assets/fonts/AribauGrotesk-RegularItalic.woff2") format("woff2"),
+       url("../assets/fonts/AribauGrotesk-RegularItalic.woff") format("woff");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -27,7 +30,8 @@
 
 @font-face {
   font-family: "Aribau Grotesk Bold";
-  src: url("../assets/fonts/AribauGrotesk-Bold.woff");
+  src: url("../assets/fonts/AribauGrotesk-Bold.woff2") format("woff2"),
+       url("../assets/fonts/AribauGrotesk-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -35,7 +39,16 @@
 
 @font-face {
   font-family: "Aribau Grotesk Black";
-  src: url("../assets/fonts/AribauGrotesk-Black.woff");
+  src: url("../assets/fonts/AribauGrotesk-Black.woff2") format("woff2"),
+       url("../assets/fonts/AribauGrotesk-Black.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("../assets/fonts/RobotoMono-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;

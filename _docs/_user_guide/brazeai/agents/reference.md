@@ -176,7 +176,7 @@ Design each agent as a deliberate input-to-output pipeline. Wire every data poin
 3. [Context steps]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context): Set or update `context.*` variables upstream in the Canvas before an Agent step runs.
 4. **Additional context on the Agent step:** Pass any additional Liquid-templated values not already specified using the other methods to the agent at send time from the step configuration.
 
-Make sure to either Liquid template these context variables in the agent instructions or select **Add All Canvas Context**. If a value is not passed through one of these channels, the agent does not receive it. List required inputs in your instructions or in [use case prerequisites]({{site.baseurl}}/user_guide/brazeai/agents/use_cases), and verify inputs in **Agent Console** > **Logs** after testing.
+Make sure to either Liquid template these context variables in the agent instructions or select **Add All Canvas Context**. If a value is not passed through one of these channels, the agent does not receive it. List required inputs in your instructions or in [use case prerequisites]({{site.baseurl}}/user_guide/brazeai/agents/examples), and verify inputs in **Agent Console** > **Logs** after testing.
 
 ![The details for an agent that has Liquid in its instructions.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 

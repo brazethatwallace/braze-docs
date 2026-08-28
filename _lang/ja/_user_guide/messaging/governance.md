@@ -9,7 +9,7 @@ page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "キャンペーンやキャンバス、ランディングページの承認、アーカイブ、複製、ワークスペース間でのコピー、共有可能なプレビュー、ステータス、タグについて説明します。"
+description: "キャンペーンやキャンバス、ランディングページの承認、アーカイブ、複製、ワークスペース間でのコピー、共有可能なプレビュー、ステータス、アイドル状態のキャンペーンとキャンバス、タグについて説明します。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
@@ -31,6 +31,9 @@ guide_featured_list:
   - name: ステータス
     link: /docs/user_guide/messaging/governance/statuses
     image: /assets/img/braze_icons/book-closed.svg
+  - name: アイドル状態のキャンペーンとキャンバス
+    link: /docs/user_guide/messaging/governance/statuses/idle_messages
+    image: /assets/img/braze_icons/clock-snooze.svg
   - name: タグ
     link: /docs/user_guide/messaging/governance/tags
     image: /assets/img/braze_icons/tag-01.svg

@@ -91,4 +91,4 @@ Braze relies on third-party tools to source invalid numbers. Braze is not respon
 
 ## Phone number capture
 
-To capture phone numbers through in-app messages, refer to [Phone number capture]({{site.baseurl}}/phone_number_capture).
+To capture phone numbers through in-app messages, refer to [SMS, RCS, and WhatsApp sign-up form]({{site.baseurl}}/phone_number_capture).

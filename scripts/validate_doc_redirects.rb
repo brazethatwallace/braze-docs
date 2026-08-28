@@ -230,8 +230,15 @@ end
 # linking the page directly, and a reviewer would reasonably want to
 # double-check whether that was intentional -- but only for content this PR
 # is actually responsible for, not the whole site's pre-existing links.
+#
+# Same-page anchors are exempt: on the page that owns the heading, the anchor
+# scrolls the reader to that section, so it is not equivalent to a bare link
+# and the suggested fix (drop the anchor) would leave an empty href. The
+# writing style guide endorses this pattern ("On this page, see [heading]").
 def first_heading_warnings_for(heading_map_head, links_head, changed_files)
   links_head.select do |l|
+    next false if l.target_path == l.source_file
+
     changed_files.include?(l.source_file) && first_heading_link?(heading_map_head, l)
   end
 end

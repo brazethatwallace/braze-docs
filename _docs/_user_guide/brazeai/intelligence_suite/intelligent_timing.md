@@ -2,7 +2,7 @@
 nav_title: Intelligent Timing
 article_title: Intelligent Timing
 page_order: 1.3
-description: "This article provides an overview of Intelligent Timing (previously Intelligent Delivery) and how you can leverage this feature in your campaigns and Canvases."
+description: "This article provides an overview of Intelligent Timing (previously Intelligent Delivery) and how you can leverage this feature in your campaigns."
 toc_headers: h2
 ---
 

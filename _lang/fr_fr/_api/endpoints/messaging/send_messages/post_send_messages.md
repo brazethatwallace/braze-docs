@@ -1,12 +1,11 @@
 ---
 nav_title: "POST : Envoyer des messages immédiatement via l'API uniquement"
-article_title: "POST : Envoyer des messages immédiatement via l'API uniquement"
+article_title: "Envoyer des messages immédiatement via l'API uniquement"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
 description: "Cet article présente en détail l'endpoint Braze permettant d'envoyer des messages immédiatement en utilisant uniquement l'API."
-
 ---
 {% api %}
 # Envoyer des messages immédiatement via l'API uniquement {#send-messages-immediately-using-the-api-only}
@@ -23,7 +22,7 @@ Si vous ciblez un segment, un enregistrement de votre requête sera stocké dans
 {% multi_lang_include api/payload_size_alert.md %}
 
 {% alert important %}
-Lorsque vous utilisez cet endpoint pour des Campaigns API, le destinataire doit déjà exister dans Braze pour que la requête aboutisse. Cela s'applique lorsque vous spécifiez des utilisateurs dans les paramètres `external_user_ids` ou `user_aliases`.
+Lorsque vous utilisez cet endpoint pour des Campaigns via l'API, le destinataire doit déjà exister dans Braze pour que la requête aboutisse. Cela s'applique lorsque vous spécifiez des utilisateurs dans les paramètres `external_user_ids` ou `user_aliases`.
 {% endalert %}
 
 ## Création de nouveaux utilisateurs via l'API {#creating-new-users-with-api-sends}
@@ -96,7 +95,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `user_aliases` | Facultatif | Tableau d'objets alias d'utilisateur | Voir [objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object). |
 | `segment_id` | Facultatif | Chaîne de caractères | Voir [identifiant de segment]({{site.baseurl}}/api/identifier_types#segment-identifier). |
 | `audience` | Facultatif | Objet audience connectée | Voir [audience connectée]({{site.baseurl}}/api/objects_filters/connected_audience). |
-| `campaign_id` | Facultatif* | Chaîne de caractères | Pour plus d'informations, voir [identifiant de Campaign]({{site.baseurl}}/api/identifier_types#campaign-identifier). <br><br>*Requis si vous souhaitez suivre les indicateurs de Campaign (tels que les _envois_, les _clics_ ou les _rebonds_) sur le tableau de bord de Braze, ou si vous souhaitez voir les événements associés à ce message dans l'[onglet Historique des messages]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles#messaging-history-tab) du profil utilisateur. Sans `campaign_id`, Braze n'incrémente pas les statistiques de livrabilité du tableau de bord. Les envois apparaissent toujours dans le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), mais pas dans les indicateurs de performance des e-mails du tableau de bord. |
+| `campaign_id` | Facultatif* | Chaîne de caractères | Pour plus d'informations, voir [identifiant de Campaign]({{site.baseurl}}/api/identifier_types#campaign-identifier). <br><br>*Requis si vous souhaitez suivre les indicateurs de Campaign (tels que les _envois_, les _clics_ ou les _rebonds_) sur le tableau de bord de Braze, ou si vous souhaitez voir les événements associés à ce message dans l'[onglet Historique des messages]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) du profil utilisateur. Sans `campaign_id`, Braze n'incrémente pas les statistiques de livrabilité du tableau de bord. Les envois apparaissent toujours dans le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), mais pas dans les indicateurs de performance des e-mails du tableau de bord. |
 | `send_id` | Facultatif | Chaîne de caractères | Voir [identifiant d'envoi]({{site.baseurl}}/api/identifier_types#send-identifier). |
 | `override_frequency_capping` | Facultatif | Valeur booléenne | Ignore `frequency_capping` pour les Campaigns, la valeur par défaut est `false`. |
 | `recipient_subscription_state` | Facultatif | Chaîne de caractères | Utilisez cette option pour envoyer des messages uniquement aux utilisateurs ayant confirmé leur abonnement (`opted_in`), uniquement aux utilisateurs abonnés ou ayant confirmé leur abonnement (`subscribed`), ou à tous les utilisateurs, y compris les désabonnés (`all`). <br><br>L'option `all` est utile pour les e-mails transactionnels. Par défaut : `subscribed`. |

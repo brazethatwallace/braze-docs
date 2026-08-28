@@ -64,7 +64,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `preference_center_page_html` | 必須 | 文字列 | ユーザー設定センターページのHTML。 |
 | `confirmation_page_html` | 必須 | 文字列 | 確認ページのHTML。 |
 | `state` | オプション | 文字列 | `active` または `draft` を選択します。指定がない場合のデフォルトは `active` です。 |
-| `options` | オプション | オブジェクト | 属性: <br>`meta-viewport-content`: 存在する場合、`viewport` メタタグが `content= <value of attribute>` でページに追加されます。<br><br> `link-tags`: ページのファビコンを設定します。設定すると、rel 属性を持つ `<link>` タグがページに追加されます。 |
+| `options` | オプション | オブジェクト | 属性: <br>`meta-viewport-content`: 存在する場合、`viewport` メタタグが `content= <value of attribute>` でページに追加されます。<br><br> `link-tags`: ページのファビコンを設定します。設定すると、rel属性を持つ `<link>` タグがページに追加されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 {% alert note %}
@@ -73,7 +73,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ### Liquidタグ {#liquid-tags}
 
-ユーザー設定センターページでユーザーの購読状態を生成するために、HTMLに含めることができる以下のLiquidタグを参照してください。
+ユーザー設定センターページでユーザーの購読状態を生成するためにHTMLに含めることができる、以下のLiquidタグを参照してください。
 
 {% raw %}
 
@@ -176,7 +176,7 @@ Authorization: Bearer YOUR-REST-API-KEY
         background-color: #fff;
         color: #333335;
         font-family:
-          Sailec W00 Medium,
+          Aribau Grotesk Regular,
           helvetica,
           arial,
           sans-serif;

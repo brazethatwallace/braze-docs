@@ -18,6 +18,8 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Abo-G
 
 Diese Gruppen sind auf der Seite **Abo-Gruppe** verfügbar. Die Antwort dieses Endpunkts enthält die externe ID sowie den Status „Abonniert“, „Abgemeldet“ oder „Unbekannt“ für die im API-Aufruf angeforderte Abo-Gruppe. Dies kann verwendet werden, um den Abo-Gruppenstatus in nachfolgenden API-Aufrufen zu aktualisieren oder auf einer gehosteten Webseite anzuzeigen.
 
+Wenn Sie E-Mails über ein angepasstes Formular erfassen und dann die Abo-Gruppenmitgliedschaft über die REST API festlegen, rufen Sie diesen Endpunkt zuerst auf, um zu prüfen, ob bereits ein Profil vorhanden ist. Wenn kein übereinstimmendes Profil existiert, erstellen oder abonnieren Sie die Nutzer:in mit dem Endpunkt [Abo-Gruppenstatus der Nutzer:innen aktualisieren]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Andernfalls aktualisieren Sie das vorhandene Profil, anstatt ein Duplikat zu erstellen. Weitere Erfassungsmuster finden Sie unter [Best Practices für die Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices).
+
 Wenn Sie Beispiele sehen oder diesen Endpunkt für **E-Mail-Abo-Gruppen** testen möchten:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#488c8923-fa44-4124-9245-036d13c615f2 {% endapiref %}
