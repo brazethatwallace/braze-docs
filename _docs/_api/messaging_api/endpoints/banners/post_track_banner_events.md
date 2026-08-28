@@ -6,7 +6,7 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "Use this endpoint to track impression and click events for Banners."
+description: "Use this endpoint to track impression, click, and dismissal events for Banners."
 hidden: true
 ---
 
@@ -20,7 +20,7 @@ hidden: true
 This page is in beta. Features and documentation for the Device Messaging API are subject to change.
 {% endalert %}
 
-> Use this endpoint to record impression and click events for Banners.
+> Use this endpoint to record impression, click, and dismissal events for Banners.
 
 Braze validates each event separately. When a request contains both valid and invalid events, Braze processes the valid events and returns details about skipped events in the `errors` array. If no events are valid, Braze returns a `400` status code.
 
@@ -40,6 +40,16 @@ Include the client-side REST API key in the `Authorization` header as a bearer t
 Rate limits apply per workspace. If you exceed the rate limit, Braze returns a `429` status code. When available, use the `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset`, and `X-RateLimit-Retry-After` response headers to monitor your usage and determine when to retry.
 
 For more information, see [Device Messaging API rate limits]({{site.baseurl}}/api/device_messaging_api/rate_limits).
+
+## Dismissing Banners
+
+Tracking a `dismiss` event dismisses the Banner for the given user. Subsequent Banner syncs for that user won't include previously dismissed Banners, unless re-eligibility is configured in the campaign.
+
+{% alert note %}
+Dismissal events are processed asynchronously and aren't reflected immediately. In rare cases, processing can take a few minutes. Avoid calling the [Retrieve Banners for a user endpoint]({{site.baseurl}}/api/messaging_api/endpoints/banners/post_sync_banners) immediately after a dismissal, because the Banner may still be returned during this window.
+{% endalert %}
+
+Braze doesn't reconcile the Banner's state in your UI. Hiding the Banner after a dismissal, and keeping it hidden until Braze processes the event, is up to your app.
 
 ## Request body
 
@@ -67,7 +77,7 @@ For more information, see [Device Messaging API rate limits]({{site.baseurl}}/ap
 | `app_version` | Required | String | The version of the host app. It must not exceed 255 characters. | `1.0.0` |
 | `events` | Required | Array of objects | One or more Banner analytics events to record. | `[{"id":"bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E","event_type":"impression","timestamp":"2026-04-09T12:00:00Z"}]` |
 | `events[].id` | Required | String | The Banner `id` returned by the Retrieve Banners for a user endpoint. Use the Banner ID, not the `placement_id`, so Braze attributes the event to the correct campaign and variant. | `bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E` |
-| `events[].event_type` | Required | String | The event type. Possible values are `impression` and `click`. | `impression` |
+| `events[].event_type` | Required | String | The event type. Possible values are `impression`, `click`, and `dismiss`. | `impression` |
 | `events[].timestamp` | Required | String | The date and time when the event occurred, formatted as an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) string. | `2026-04-09T12:00:00Z` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Request parameters" }
 
@@ -132,7 +142,7 @@ Braze also returns a `202` status code when it accepts at least one valid event.
   "message": "success",
   "errors": [
     {
-      "type": "Invalid event_type. Valid types are: impression, click.",
+      "type": "Invalid event_type. Valid types are: impression, click, dismiss.",
       "index": 2
     }
   ]
@@ -148,7 +158,7 @@ If Braze can't process any events, it returns a `400` status code.
   "message": "No valid events provided.",
   "errors": [
     {
-      "type": "Invalid event_type. Valid types are: impression, click.",
+      "type": "Invalid event_type. Valid types are: impression, click, dismiss.",
       "index": 0
     },
     {
