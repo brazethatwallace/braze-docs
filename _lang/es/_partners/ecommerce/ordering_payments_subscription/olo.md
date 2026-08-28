@@ -20,27 +20,27 @@ Al integrar Olo y Braze, puedes:
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Cuenta Olo | Se requiere una cuenta de Olo con acceso a webhooks para aprovechar esta asociación. Configura suscripciones a webhooks a través de la [herramienta de webhooks de autoservicio](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) dentro del panel de Olo. |
-| Transformación de datos de Braze | Se necesita una [URL de transformación de datos]({{site.baseurl}}/data_transformation) para recibir datos de Olo. |
+| Cuenta de Olo | Se requiere una cuenta de Olo con acceso a webhooks para aprovechar esta integración. Configura las suscripciones a webhooks a través de la [herramienta de webhooks de autoservicio](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) dentro del panel de Olo. |
+| Transformación de datos de Braze | Es necesaria una [URL de Transformación de datos]({{site.baseurl}}/data_transformation) para recibir datos de Olo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-Un webhook es una forma en que Olo envía información basada en eventos a Braze sobre los usuarios y sus acciones, incluidos eventos como Order Placed, Guest Opt In, Order Picked Up y más. El webhook de Olo entrega el evento a Braze generalmente a los pocos segundos de realizarse la acción.
+Un webhook es una forma en que Olo envía información basada en eventos a Braze sobre los usuarios y sus acciones, incluidos eventos como Pedido realizado, Consentimiento del cliente, Pedido recogido y más. El webhook de Olo entrega el evento a Braze generalmente en cuestión de segundos tras realizarse la acción.
 
 ## Descargo de responsabilidad {#disclaimer}
 
-En Olo, estás limitado a un webhook por entorno para cada marca aprobada, todos enviados a la misma **URL de destino**. Las distintas marcas pueden tener URL diferentes, pero los eventos de una misma marca deben compartir una URL. En Braze, esto significa que solo puedes crear una transformación para usar con Olo.
+En Olo, estás limitado a un webhook por entorno para cada marca aprobada, todos enviados a la misma **URL de destino**. Las diferentes marcas pueden tener distintas URL, pero los eventos de la misma marca deben compartir una URL. En Braze, esto significa que solo puedes crear una transformación para usar con Olo.
 
-Para manejar múltiples eventos de Olo dentro de esta única transformación, busca el encabezado `X-Olo-Event-Type` en cada webhook. Este encabezado te permite procesar condicionalmente diferentes eventos de Olo.
+Para gestionar múltiples eventos de Olo dentro de esta única transformación, busca el encabezado `X-Olo-Event-Type` en cada webhook. Este encabezado te permite procesar condicionalmente diferentes eventos de Olo.
 
 ## Integración {#integration}
 
-### Paso 1: Configurar la transformación de datos de Braze para aceptar el evento de prueba de Olo {#step-1}
+### Paso 1: Configura la transformación de datos de Braze para aceptar el evento de prueba de Olo {#step-1}
 
 {% multi_lang_include data_activation/create_transformation.md location="default" %}
 
-### Paso 2: Configurar los webhooks de Olo {#step-2-set-up-olo-webhooks}
+### Paso 2: Configura los webhooks de Olo {#step-2-set-up-olo-webhooks}
 
-Utiliza la [herramienta de webhooks de autoservicio](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) del panel de Olo para configurar webhooks y enviarlos a tu transformación de datos.
+Usa la [herramienta de webhooks de autoservicio](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) dentro del panel de Olo para configurar los webhooks que se enviarán a tu transformación de datos.
 
 1. Elige qué eventos deben enviarse a Braze
 2. Configura la **URL de destino**. Esta será la URL de transformación de datos creada en el [paso 1](#step-1).
@@ -50,37 +50,37 @@ Utiliza la [herramienta de webhooks de autoservicio](https://olosupport.zendesk.
 {% endalert %}
 
 {:start="3"}
-3. Verifica que el webhook está configurado correctamente enviando un [evento de prueba](https://developer.olo.com/docs/load/webhooks#operation/test) a tu transformación de datos. Solo los usuarios del panel de Olo con el [permiso de herramientas para desarrolladores](https://olosupport.zendesk.com/hc/en-us/articles/115001427843-Dashboard-Permissions) pueden enviar eventos de prueba.
+3. Verifica que el webhook esté configurado correctamente enviando un [evento de prueba](https://developer.olo.com/docs/load/webhooks#operation/test) a tu transformación de datos. Solo los usuarios del panel de Olo con el [permiso de herramientas de desarrollador](https://olosupport.zendesk.com/hc/en-us/articles/115001427843-Dashboard-Permissions) pueden enviar eventos de prueba.
 
-Olo requiere una respuesta exitosa del webhook de evento de prueba antes de que puedas completar el proceso de configuración del webhook de Olo.
+Olo requiere una respuesta exitosa del webhook de evento de prueba antes de que puedas completar el proceso de configuración de webhooks de Olo.
 
-### Paso 3: Escribir código de transformación para aceptar los eventos de Olo elegidos {#step-3-write-transformation-code-to-accept-your-chosen-olo-events}
+### Paso 3: Escribe el código de transformación para aceptar los eventos de Olo que elegiste {#step-3-write-transformation-code-to-accept-your-chosen-olo-events}
 
-En este paso, transformarás la carga útil del webhook que se enviará desde la plataforma de origen en un valor de retorno de objeto JavaScript.
+En este paso, transformarás la carga útil del webhook que se enviará desde la plataforma de origen a un valor de retorno de objeto JavaScript.
 
-1. Envía una solicitud a tu URL de transformación de datos con una carga útil de ejemplo de un evento de Olo que pretendas admitir. Consulta el [formato del cuerpo de la solicitud](#request-body-format) para obtener ayuda sobre el formato de tu solicitud.
-2. Actualiza tu transformación de datos y asegúrate de que puedes ver la carga útil del evento de ejemplo en los **Detalles del webhook**.
-3. Actualiza tu código de transformación de datos para que sea compatible con los eventos de Olo elegidos.
-4. Haz clic en **Validar** para obtener una vista previa de la salida de tu código y comprobar si se trata de una solicitud `/users/track` aceptable.
+1. Envía una solicitud a la URL de tu transformación de datos con una carga útil de evento de muestra de un evento de Olo que desees soportar. Consulta el [formato del cuerpo de la solicitud](#request-body-format) para obtener ayuda con el formato de tu solicitud.
+2. Actualiza tu transformación de datos y asegúrate de que puedas ver la carga útil del evento de muestra en los **Detalles del webhook**.
+3. Actualiza el código de tu transformación de datos para soportar los eventos de Olo que elegiste.
+4. Haz clic en **Validate** para obtener una vista previa de la salida de tu código y verificar si es una solicitud `/users/track` aceptable.
 5. Guarda y activa tu transformación de datos.
 
 #### Formato del cuerpo de la solicitud {#request-body-format}
 
-Este valor de retorno debe ajustarse al formato del cuerpo de la solicitud `/users/track` de Braze:
+Este valor de retorno debe cumplir con el formato del cuerpo de la solicitud `/users/track` de Braze:
 
 {% multi_lang_include data_transformation/transformation_code_requirements.md %}
 
-## Ejemplo de transformaciones de datos para webhooks de Olo {#example-data-transformations-for-olo-webhooks}
+## Ejemplos de transformaciones de datos para webhooks de Olo {#example-data-transformations-for-olo-webhooks}
 
-Esta sección contiene plantillas de ejemplo que pueden utilizarse como punto de partida. Siéntete libre de empezar desde cero o de eliminar componentes específicos como mejor te parezca.
+Esta sección contiene plantillas de ejemplo que se pueden utilizar como punto de partida. Puedes empezar desde cero o eliminar componentes específicos como consideres oportuno.
 
 En cada plantilla, el código define una variable, `brazecall`, para construir una solicitud `/users/track`.
 
-Después de asignar la solicitud `/users/track` a `brazecall`, devolverás explícitamente `brazecall` para crear una salida.
+Después de que la solicitud `/users/track` se asigne a `brazecall`, devolverás explícitamente `brazecall` para crear una salida.
 
-### Transformación de un solo evento {#single-event-transformation}
+### Transformación de evento único {#single-event-transformation}
 
-Si solo quieres admitir un único evento de Olo, no necesitarás utilizar el encabezado `X-Olo-Event-Type` para crear condicionalmente la carga útil de solicitud `/users/track`. Por ejemplo, registrar un evento de compra o un evento personalizado en el perfil del usuario cuando se envía un webhook de Olo Order Placed a Braze.
+Si solo necesitas admitir un único evento de Olo, no será necesario utilizar el encabezado `X-Olo-Event-Type` para crear condicionalmente la carga útil de la solicitud `/users/track`. Por ejemplo, registrar un evento de compra o un evento personalizado en el perfil de usuario cuando se envía un webhook de pedido realizado de Olo a Braze.
 
 ### Registrar cada producto como una compra {#logging-each-product-as-a-purchase}
 
@@ -135,9 +135,9 @@ let brazecall = {
 return brazecall;
 ```
 
-## Transformación multievento {#multi-event-transformation}
+## Transformación de eventos múltiples {#multi-event-transformation}
 
-Olo envía el tipo de evento dentro del encabezado `X-Olo-Event-Type` de cada webhook. Para admitir varios eventos de webhook de Olo en una única transformación, utiliza lógica condicional para transformar la carga útil del webhook en función del valor de este tipo de encabezado.
+Olo envía el tipo de evento dentro del encabezado `X-Olo-Event-Type` de cada webhook. Para admitir múltiples eventos de webhook de Olo dentro de una sola transformación, utiliza lógica condicional para transformar la carga útil del webhook en función del valor de este tipo de encabezado.
 
 En el siguiente ejemplo de transformación, nuestro JavaScript crea una carga útil particular para los eventos `UserSignedUp` y `OrderPlaced`. Además, una condición `else` gestiona una carga útil para cualquier evento de Olo enviado a Braze sin el encabezado X-Olo-Event-Type de `UserSignedUp` y `OrderPlaced`.
 
@@ -236,16 +236,16 @@ return brazecall;
 
 ### Paso 4: Publica tu webhook de Olo {#step-4-publish-your-olo-webhook}
 
-Después de haber activado tu transformación de datos en Braze, utiliza la [herramienta de webhooks de autoservicio](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) en el panel de Olo para publicar tu webhook. Cuando el webhook se publique, la transformación de datos comenzará a recibir mensajes de eventos de webhook de Olo.
+Después de activar tu transformación de datos en Braze, utiliza la [herramienta de webhooks de autoservicio](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks) dentro del panel de Olo para publicar tu webhook. Cuando el webhook esté publicado, la transformación de datos comenzará a recibir mensajes de eventos de webhook de Olo.
 
-## Lo que debes saber {#things-to-know}
+## Cosas que debes saber {#things-to-know}
 
 ### Reintentos {#retries}
 
-Olo reintentará las llamadas de webhook que resulten en un código de estado de respuesta HTTP `429 - Too Many Requests` o en el rango `5xx` (por ejemplo, debido a un tiempo de espera de la puerta de enlace o a un error del servidor), hasta 50 veces en un periodo de 24 horas antes de abandonar la solicitud.
+Olo reintentará las llamadas de webhook que resulten en un código de estado de respuesta HTTP `429 - Too Many Requests` o en el rango `5xx` (por ejemplo, debido a un tiempo de espera de la puerta de enlace o un error del servidor), hasta 50 veces en un período de 24 horas antes de descartar la solicitud.
 
-### Entrega de al menos una vez {#at-least-once-delivery}
+### Entrega al menos una vez {#at-least-once-delivery}
 
-Si una llamada de webhook resulta en un código de estado de respuesta HTTP `429 - Too Many Requests` o en el rango `5xx` (por ejemplo, debido a un tiempo de espera de la puerta de enlace o a un error del servidor), Olo reintentará el mensaje hasta 50 veces en un periodo de 24 horas antes de desistir.
+Si una llamada de webhook resulta en un código de estado de respuesta HTTP `429 - Too Many Requests` o en el rango `5xx` (por ejemplo, debido a un tiempo de espera de la puerta de enlace o un error del servidor), Olo reintentará el mensaje hasta 50 veces en un período de 24 horas antes de desistir.
 
-Por lo tanto, un suscriptor puede recibir los webhooks varias veces. Depende del suscriptor ignorar los duplicados comprobando el encabezado `X-Olo-Message-Id`.
+Por lo tanto, un suscriptor puede recibir los webhooks varias veces. Es responsabilidad del suscriptor ignorar los duplicados comprobando el encabezado `X-Olo-Message-Id`.

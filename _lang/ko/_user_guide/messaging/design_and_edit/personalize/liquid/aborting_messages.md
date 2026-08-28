@@ -16,13 +16,13 @@ Canvas에서 메시지 단계가 중단되면 사용자는 Canvas를 **종료하
 
 ## `abort_message()`를 사용한 테스트 발송 {#test-sends-with-abort_message}
 
-`abort_message()`는 조건을 충족하지 않는 사용자에 대한 발송을 중지합니다. 해당 메시지는 사용자 프로필에 표시되지 않으며 전달 또는 최대 게재빈도 설정에 집계되지 않습니다.
+`abort_message()`는 조건을 충족하지 않는 사용자에 대한 발송을 중단합니다. 해당 메시지는 사용자 프로필에 표시되지 않으며, 전달 건수나 최대 게재빈도 설정에도 집계되지 않습니다.
 
-테스트 발송이 도착하지 않는 경우, 중단 조건을 충족하는 사용자로 미리보기한 다음 **테스트 발송**에서 **현재 미리보기 사용자의 속성으로 수신자 속성 재정의**를 활성화하세요(또는 조건을 충족하는 콘텐츠 테스트 그룹 멤버를 추가하세요).
+테스트 발송이 도착하지 않는 경우, 중단 조건을 충족하는 사용자로 미리보기한 다음 **Test Send**에서 **Override recipients' attributes with current preview user's attributes**를 활성화하세요(또는 조건을 충족하는 콘텐츠 테스트 그룹 구성원을 추가하세요).
 
-## "Number Games Attended" = 0인 경우 메시지 중단 {#abort-message-if-number-games-attended-0}
+## "참석한 경기 수"가 0인 경우 메시지 중단 {#abort-message-if-number-games-attended-0}
 
-예를 들어, 경기에 참석하지 않은 고객에게는 메시지를 보내고 싶지 않다고 가정해 보겠습니다:
+예를 들어, 경기에 참석하지 않은 고객에게는 메시지를 보내고 싶지 않다고 가정해 보겠습니다.
 
 {% raw %}
 ```liquid
@@ -36,11 +36,11 @@ Love the games? Get 10% off your next one with code SAVE10.
 ```
 {% endraw %}
 
-이 메시지는 경기에 참석한 것으로 확인된 고객에게만 발송됩니다.
+이 메시지는 경기에 참석한 것으로 확인된 고객에게만 전송됩니다.
 
 ## 영어를 사용하는 고객에게만 메시지 보내기 {#message-english-speaking-customers-only}
 
-고객의 언어가 영어인 경우에 일치하는 "if" 문과, 영어를 사용하지 않거나 프로필에 언어가 설정되지 않은 사용자에 대해 메시지를 중단하는 "else" 문을 만들어 영어를 사용하는 고객에게만 메시지를 보낼 수 있습니다.
+고객의 언어가 영어일 때 일치하는 "if" 문과, 영어를 사용하지 않거나 프로필에 언어가 설정되어 있지 않은 사용자에게 메시지를 중단하는 "else" 문을 만들어 영어를 사용하는 고객에게만 메시지를 보낼 수 있습니다.
 
 {% raw %}
 ```liquid
@@ -52,7 +52,7 @@ Send this message in English!
 {% endif %}
 ```
 
-기본적으로 Braze는 메시지 활동 로그에 일반적인 오류 메시지를 기록합니다:
+기본적으로 Braze는 메시지 활동 로그에 일반 오류 메시지를 기록합니다:
 
 ```text
 {% abort_message %} called
@@ -69,7 +69,7 @@ Send this message in English!
 
 ## 중단 메시지 쿼리 {#query-for-abort-messages}
 
-[쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder) 또는 Braze에 연결된 데이터 웨어하우스를 사용하여 Liquid 로직으로 인해 메시지가 중단될 때 트리거되는 특정 중단 메시지를 쿼리할 수 있습니다.
+[쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder) 또는 Braze에 연결된 자체 데이터 웨어하우스를 사용하여, Liquid 로직으로 인해 메시지가 중단될 때 트리거되는 특정 중단 메시지를 쿼리할 수 있습니다.
 
 ## 중단 로직이 평가되는 시점 {#when-abort-logic-is-evaluated}
 
@@ -77,46 +77,46 @@ Send this message in English!
 
 ### 푸시, 이메일, SMS, 웹훅, Content Cards {#push-email-sms-webhooks-and-content-cards}
 
-중단 로직은 Braze가 전달을 위해 메시지를 처리하는 발송 시점에 평가됩니다.
+중단 로직은 Braze가 메시지를 전송 처리할 때, 즉 발송 시점에 평가됩니다.
 
 ### 인앱 메시지 {#in-app-messages}
 
-중단 로직은 [템플릿 인앱 메시지]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated)에 한해 메시지가 처음 기기로 전송되는 시점이 아니라, 인앱 메시지가 트리거되는 시점(예: 사용자가 트리거 이벤트를 수행하거나 세션을 시작할 때)에만 평가됩니다. 인앱 메시지는 세션 시작 시 SDK로 전달되어 로컬에 캐시되며, `abort_message()` 호출을 포함한 Liquid는 트리거 조건이 충족될 때 실행됩니다.
+중단 로직은 [템플릿 인앱 메시지]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated)에 대해서만, 인앱 메시지가 트리거되는 시점(예: 사용자가 트리거 이벤트를 수행하거나 세션을 시작할 때)에 평가됩니다. 메시지가 기기로 처음 전송되는 시점에 평가되는 것이 아닙니다. 인앱 메시지는 세션 시작 시 SDK로 전달되어 로컬에 캐시되며, `abort_message()` 호출을 포함한 Liquid는 트리거 조건이 충족될 때 실행됩니다.
 
 ## 높은 중단율 문제 해결 {#troubleshooting-high-abort-rates}
 
-Campaign 또는 캔버스 단계에서 많은 사용자가 진입했지만 발송 수가 적거나, 전달 수가 예상보다 낮은 경우 중단 로직이 일반적인 원인입니다. 특히 Liquid가 평가 시점에 누락된 속성, 카탈로그 데이터 또는 목록 값을 필요로 할 때 자주 발생합니다.
+Campaign 또는 캔버스 단계에서 많은 사용자가 진입했지만 발송 수가 적거나 전달 수가 예상보다 낮은 경우, 중단 로직이 일반적인 원인입니다. 특히 Liquid에서 평가 시점에 누락된 속성, 카탈로그 데이터 또는 목록 값을 필요로 할 때 자주 발생합니다.
 
 ### 메시지 활동 로그 확인 {#check-the-message-activity-log}
 
-1. Braze 대시보드에서 해당 Campaign 또는 캔버스 메시지 단계의 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)를 엽니다.
-2. 중단 관련 항목을 필터링합니다. 기본적으로 Braze는 {% raw %}`{% abort_message %}`{% endraw %} called를 기록합니다. `abort_message()`에 사유 문자열을 전달한 경우 해당 텍스트가 대신 표시됩니다.
-3. 중단이 하나의 채널(예: 이메일만)에 집중되는지 또는 동일한 Canvas 내 여러 채널에 걸쳐 발생하는지 확인합니다.
+1. Braze 대시보드에서 해당 Campaign 또는 Canvas 메시지 단계의 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)를 엽니다.
+2. 중단 관련 항목을 필터링합니다. 기본적으로 Braze는 호출된 {% raw %}`{% abort_message %}`{% endraw %}를 기록합니다. `abort_message()`에 사유 문자열을 전달한 경우 해당 텍스트가 대신 표시됩니다.
+3. 중단이 하나의 채널(예: 이메일만)에 집중되는지, 아니면 동일한 Canvas 내 여러 채널에서 발생하는지 확인합니다.
 
 ### 발송 시점의 속성 및 Liquid 확인 {#verify-attributes-and-liquid-at-send-time}
 
-푸시, 이메일, SMS, 웹훅, Content Cards의 경우 중단 로직은 Braze가 전달을 위해 메시지를 처리할 때 실행됩니다. 사용자가 Canvas에 진입하거나 이전에 트리거 이벤트가 발생한 시점이 아닙니다.
+푸시, 이메일, SMS, 웹훅, Content Cards의 경우, 중단 로직은 Braze가 전달을 위해 메시지를 처리하는 시점에 실행됩니다. 사용자가 Canvas에 진입하거나 트리거 이벤트가 발생한 시점이 아닙니다.
 
-- 메시지 단계가 실행되기 전에 필요한 [커스텀 속성]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes), 이벤트 속성정보 또는 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs) 필드가 사용자에게 설정되어 있는지 확인합니다.
-- `abort_message()`를 호출하기 전에 명시적인 nil 또는 빈 값 검사를 추가합니다. 값이 누락될 때 중단하는 `else` 분기는 해당 데이터가 없는 모든 사용자에 대한 발송을 중지합니다.
-- 개인화가 목록, Segment 또는 연결된 콘텐츠 응답에 의존하는 경우, 메시지 단계가 실행될 때 해당 데이터가 사용 가능한지 확인합니다. 사용자는 목록 멤버십이나 다운스트림 데이터가 준비되기 전에 Canvas에 진입할 수 있습니다.
+- 메시지 단계가 실행되기 전에 필요한 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), 이벤트 속성정보 또는 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs) 필드가 사용자에게 설정되어 있는지 확인합니다.
+- `abort_message()`를 호출하기 전에 명시적인 nil 또는 빈 값 확인을 추가합니다. 값이 없을 때 중단하는 `else` 분기는 해당 데이터가 없는 모든 사용자의 발송을 중지시킵니다.
+- 개인화가 목록, Segment 또는 연결된 콘텐츠 응답에 의존하는 경우, 메시지 단계가 실행될 때 해당 데이터가 사용 가능한지 확인합니다. 사용자가 목록 멤버십이나 다운스트림 데이터가 준비되기 전에 Canvas에 진입할 수 있습니다.
 
-### Canvas 관련 동작 {#canvas-specific-behavior}
+### Canvas 특정 동작 {#canvas-specific-behavior}
 
-Canvas에서 메시지 단계가 중단되면 사용자는 Canvas를 종료하지 않습니다. 대신 다음 단계로 진행합니다. 중단은 해당 메시지 단계의 발송 수에만 영향을 미칩니다.
+Canvas에서 메시지 단계가 중단되면, 사용자는 Canvas에서 퇴장하지 않습니다. 대신 다음 단계로 진행합니다. 중단은 해당 메시지 단계의 발송 수에만 영향을 미칩니다.
 
 Canvas 중단을 진단할 때:
 
 - 메시지 단계의 진입 사용자 수와 동일 단계의 발송 사용자 수를 비교합니다.
-- 하나의 채널만 중단되는 경우, 해당 단계의 채널별 Liquid 또는 구독 상태를 검토합니다.
-- 목록 또는 카탈로그 업데이트 후 중단이 급증하는 경우, 업데이트가 완료되기 전에 메시지 단계가 실행되었는지 확인합니다.
+- 하나의 채널만 중단되는 경우, 해당 단계의 채널별 Liquid 또는 구독 상태를 확인합니다.
+- 목록 또는 카탈로그 업데이트 후 중단이 급증한 경우, 업데이트가 완료되기 전에 메시지 단계가 실행되었는지 확인합니다.
 
 ### 미리보기 및 테스트 발송으로 검증 {#validate-with-preview-and-test-sends}
 
-메시지 작성기에서 영향을 받는 수신자와 프로필이 일치하는 사용자로 미리보기합니다. 중단 로직이 프로필 데이터에 의존하는 경우, 테스트 발송 시 **현재 미리보기 사용자의 속성으로 수신자 속성 재정의**를 활성화하세요.
+메시지 작성기에서 영향을 받는 수신자의 프로필과 일치하는 사용자로 미리보기합니다. 테스트 발송 시, 중단 로직이 프로필 데이터에 의존하는 경우 **수신자의 속성을 현재 미리보기 사용자의 속성으로 재정의**를 활성화합니다.
 
-더 많은 중단 예시는 [중단 메시지 쿼리](#query-for-abort-messages)를 참조하세요.
+더 많은 중단 예제는 [중단 메시지 쿼리](#query-for-abort-messages)를 참조하세요.
 
 ## 고려 사항 {#considerations}
 
-`abort_message()` Liquid 메시지 태그는 사용자에게 메시지가 발송되는 것을 방지합니다. 즉, 메시지가 고객 프로필에 표시되지 않으며 전달 또는 최대 게재빈도 설정에 집계되지 않습니다.
+`abort_message()` Liquid 메시지 태그는 사용자에게 메시지가 전송되지 않도록 방지합니다. 즉, 메시지가 고객 프로필에 표시되지 않으며, 전달 횟수나 최대 게재빈도 설정에 포함되지 않습니다.

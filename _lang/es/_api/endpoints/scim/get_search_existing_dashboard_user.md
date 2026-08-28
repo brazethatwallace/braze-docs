@@ -33,27 +33,35 @@ Para usar este endpoint, necesitarás un token SCIM. Utilizarás el Origin de tu
 
 {% multi_lang_include rate_limits.md endpoint='look up dashboard user email' %}
 
-## Parámetros de ruta {#path-parameters}
+## Parámetros de consulta {#query-parameters}
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `userName@example.com` | Obligatorio | Cadena | El correo electrónico del usuario. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de ruta" }
+| `filter` | Obligatorio | Cadena | Expresión de filtro SCIM para buscar por correo electrónico. Braze solo admite `userName eq "user@example.com"`. El valor del correo electrónico debe estar entre comillas dobles. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de consulta" }
+
+{% alert important %}
+Braze solo admite filtros de coincidencia exacta en `userName` utilizando el operador `eq`. Otros campos u operadores de filtro SCIM devuelven una respuesta `400`.
+{% endalert %}
 
 ## Parámetros de la solicitud {#request-parameters}
 
 ```http
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
-Authorization: Bearer YOUR-REST-API-KEY
+Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
+
+{% alert note %}
+Si recibes una respuesta `401`, confirma que estás usando un token SCIM (no una clave de API REST), que `X-Request-Origin` coincide con el Origin de tu servicio y que tu dirección IP está en la lista de permitidos de SCIM. Para más detalles, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning).
+{% endalert %}
 
 ## Ejemplo de solicitud {#example-request}
 ```bash
 curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?filter=userName%20eq%20%22user@example.com%22' \
 --header 'Content-Type: application/json' \
 --header 'X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE' \
---header 'Authorization: Bearer YOUR-API-KEY-HERE' \
+--header 'Authorization: Bearer YOUR-SCIM-TOKEN-HERE' \
 ```
 
 ## Respuesta {#response}
@@ -70,7 +78,8 @@ curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?fil
                 "familyName": "User"
             },
             "department": "finance",
-            "lastSignInAt": "Thursday, January 1, 1970 12:00:00 AM",
+            "createdAt": "2024 Nov 11, 4:20 PM",
+            "lastSignInAt": "N/A",
             "permissions": {
                 "companyPermissions": ["manage_company_settings"],
                 "appGroup": [
@@ -90,6 +99,43 @@ curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?fil
             }
         }
     ]
+}
+```
+
+## Parámetros de respuesta {#response-parameters}
+
+| Parámetro | Tipo de datos | Descripción |
+|---|---|---|
+| `schemas` | Matriz de cadenas | Esquema de respuesta de lista SCIM. |
+| `totalResults` | Entero | Número de usuarios del panel coincidentes (0 si no hay coincidencias). |
+| `Resources` | Matriz | Matriz de objetos de usuario. Cada objeto utiliza los mismos campos que [GET: Buscar una cuenta de usuario existente en el panel]({{site.baseurl}}/get_see_user_account_information). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parámetros de respuesta" }
+
+### Campos del objeto de usuario {#user-object-fields}
+
+| Parámetro | Tipo de datos | Descripción |
+|---|---|---|
+| `id` | Cadena | El ID de recurso del usuario. |
+| `userName` | Cadena | La dirección de correo electrónico del usuario. |
+| `name` | Objeto | Contiene `givenName` y `familyName`. |
+| `department` | Cadena | El departamento del usuario, si está configurado. |
+| `createdAt` | Cadena | Fecha en la que se creó la cuenta de usuario. Devuelve `N/A` cuando no está configurado; de lo contrario, tiene el formato `YYYY Mon DD, H:MM AM/PM`. |
+| `lastSignInAt` | Cadena | Fecha en la que el usuario inició sesión por última vez. Devuelve `N/A` si el usuario no ha iniciado sesión; de lo contrario, tiene el formato `YYYY Mon DD, H:MM AM/PM`. |
+| `permissions` | Objeto | Permisos de empresa, espacio de trabajo, equipo y rol. Consulta el [objeto de permisos]({{site.baseurl}}/scim_api_appendix). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos del objeto de usuario" }
+
+### Estados de error {#error-states}
+
+Si el parámetro `filter` no se incluye o tiene un formato incorrecto, el endpoint devuelve:
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+  "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
+  "status": 400,
+  "detail": "Request is unparsable, syntactically incorrect, or violates schema."
 }
 ```
 

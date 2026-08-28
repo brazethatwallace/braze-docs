@@ -30,7 +30,7 @@ Os blocos do editor ficam na seção **Conteúdo** para mensagens de e-mail. Arr
 Para saber mais sobre como criar e-mails no **editor de arrastar e soltar**, consulte [Criar um e-mail com arrastar e soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) e <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Outras personalizações</a> nesse artigo.
 
 {% alert tip %}
-Você também pode adicionar [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes) a qualquer URL dentro dos blocos do editor `Image`, `Button` ou `Text`.
+Você também pode adicionar [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types) a qualquer URL dentro dos blocos do editor `Image`, `Button` ou `Text`.
 {% endalert %}
 
 ### Título {#title}
@@ -306,7 +306,7 @@ Adiciona uma lista de opções da qual os usuários podem selecionar uma. Quando
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
-### Imagem {#image}
+### Imagem
 
 Insere uma imagem da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
 
@@ -330,7 +330,7 @@ Insere um hiperlink que os usuários podem clicar para navegar até uma URL espe
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
-### Espaçador {#spacer}
+### Espaçador
 
 Adiciona espaço ou preenchimento entre outros blocos.
 
@@ -515,7 +515,7 @@ Os usuários escolhem várias opções; os valores são definidos ou adicionados
 
 ### Gerenciar inscrições {#manage-subscriptions}
 
-Adiciona uma lista de verificação de [grupos de inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups) para que os visitantes possam optar por participar ou gerenciar suas inscrições ao enviar o formulário. Configure-o depois de adicionar grupos de inscrições ao bloco. Este bloco aceita apenas grupos de inscrições de e-mail; ele não aceita grupos de inscrições de SMS, RCS ou WhatsApp.
+Adiciona uma lista de verificação de [grupos de inscrições de e-mail]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups) para que os visitantes possam optar por participar ou gerenciar suas inscrições ao enviar o formulário. Configure-o depois de adicionar grupos de inscrições ao bloco. Este bloco aceita apenas grupos de inscrições de e-mail; ele não aceita grupos de inscrições de SMS, RCS ou WhatsApp.
 
 Para usuários identificados que abrem a página por meio da [Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) da landing page, o bloco preenche previamente cada caixa de seleção com o estado de inscrição atual do usuário, podendo também servir como uma página de gerenciamento de preferências.
 

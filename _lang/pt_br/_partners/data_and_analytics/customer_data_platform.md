@@ -36,7 +36,7 @@ guide_featured_list:
     link: /docs/partners/data_and_analytics/customer_data_platform/growthloop
     image: /assets/img/braze_icons/puzzle-piece-01.svg
   - name: "Hightouch"
-    link: /docs/partners/data_and_analytics/customer_data_platform/hightouch
+    link: /docs/partners/data_and_analytics/reverse_etl/hightouch
     image: /assets/img/braze_icons/shopping-cart-03.svg
   - name: "Lemnisk"
     link: /docs/partners/data_and_analytics/customer_data_platform/lemnisk

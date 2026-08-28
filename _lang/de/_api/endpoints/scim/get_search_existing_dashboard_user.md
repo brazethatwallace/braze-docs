@@ -33,27 +33,35 @@ Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie di
 
 {% multi_lang_include rate_limits.md endpoint='look up dashboard user email' %}
 
-## Pfad-Parameter {#path-parameters}
+## Abfrageparameter {#query-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `userName@example.com` | Erforderlich | String | Die E-Mail-Adresse der Nutzer:in. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfad-Parameter" }
+| `filter` | Erforderlich | String | SCIM-Filterausdruck zur Suche per E-Mail. Braze unterstützt ausschließlich `userName eq "user@example.com"`. Der E-Mail-Wert muss in doppelte Anführungszeichen eingeschlossen sein. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Abfrageparameter" }
 
-## Anfrage-Parameter {#request-parameters}
+{% alert important %}
+Braze unterstützt nur exakte Übereinstimmungsfilter auf `userName` mit dem Operator `eq`. Andere SCIM-Filterfelder oder -Operatoren geben eine `400`-Antwort zurück.
+{% endalert %}
+
+## Anfrageparameter {#request-parameters}
 
 ```http
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
-Authorization: Bearer YOUR-REST-API-KEY
+Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
+
+{% alert note %}
+Wenn Sie eine `401`-Antwort erhalten, überprüfen Sie, ob Sie ein SCIM-Token (keinen REST-API-Schlüssel) verwenden, ob `X-Request-Origin` mit Ihrer Dienst-Herkunft übereinstimmt und ob Ihre IP-Adresse in der SCIM-Zulassungsliste enthalten ist. Weitere Informationen finden Sie unter [Automatisierte Bereitstellung von Nutzer:innen]({{site.baseurl}}/scim/automated_user_provisioning).
+{% endalert %}
 
 ## Beispielanfrage {#example-request}
 ```bash
 curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?filter=userName%20eq%20%22user@example.com%22' \
 --header 'Content-Type: application/json' \
 --header 'X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE' \
---header 'Authorization: Bearer YOUR-API-KEY-HERE' \
+--header 'Authorization: Bearer YOUR-SCIM-TOKEN-HERE' \
 ```
 
 ## Antwort {#response}
@@ -70,7 +78,8 @@ curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?fil
                 "familyName": "User"
             },
             "department": "finance",
-            "lastSignInAt": "Thursday, January 1, 1970 12:00:00 AM",
+            "createdAt": "2024 Nov 11, 4:20 PM",
+            "lastSignInAt": "N/A",
             "permissions": {
                 "companyPermissions": ["manage_company_settings"],
                 "appGroup": [
@@ -90,6 +99,43 @@ curl --location --request GET \ 'https://rest.iad-01.braze.com/scim/v2/Users?fil
             }
         }
     ]
+}
+```
+
+## Antwortparameter {#response-parameters}
+
+| Parameter | Datentyp | Beschreibung |
+|---|---|---|
+| `schemas` | String-Array | SCIM-Listenantwortschema. |
+| `totalResults` | Integer | Anzahl der übereinstimmenden Dashboard-Nutzer:innen (0, wenn keine Übereinstimmung). |
+| `Resources` | Array | Array von Nutzerobjekten. Jedes Objekt verwendet dieselben Felder wie [GET: Bestehendes Dashboard-Nutzerkonto nachschlagen]({{site.baseurl}}/get_see_user_account_information). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Antwortparameter" }
+
+### Felder des Nutzerobjekts {#user-object-fields}
+
+| Parameter | Datentyp | Beschreibung |
+|---|---|---|
+| `id` | String | Die Ressourcen-ID der/des Nutzer:in. |
+| `userName` | String | Die E-Mail-Adresse der/des Nutzer:in. |
+| `name` | Object | Enthält `givenName` und `familyName`. |
+| `department` | String | Die Abteilung der/des Nutzer:in, falls festgelegt. |
+| `createdAt` | String | Zeitpunkt der Erstellung des Nutzerkontos. Gibt `N/A` zurück, wenn nicht festgelegt; ansonsten im Format `YYYY Mon DD, H:MM AM/PM`. |
+| `lastSignInAt` | String | Zeitpunkt der letzten Anmeldung der/des Nutzer:in. Gibt `N/A` zurück, wenn sich die/der Nutzer:in noch nie angemeldet hat; ansonsten im Format `YYYY Mon DD, H:MM AM/PM`. |
+| `permissions` | Object | Berechtigungen für Unternehmen, Workspace, Team und Rolle. Siehe das [Berechtigungsobjekt]({{site.baseurl}}/scim_api_appendix). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Felder des Nutzerobjekts" }
+
+### Fehlerzustände {#error-states}
+
+Wenn der `filter`-Parameter fehlt oder fehlerhaft ist, gibt der Endpunkt Folgendes zurück:
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+  "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
+  "status": 400,
+  "detail": "Request is unparsable, syntactically incorrect, or violates schema."
 }
 ```
 

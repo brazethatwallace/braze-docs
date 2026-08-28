@@ -1,10 +1,10 @@
-## Das Cordova SDK integrieren {#integrating-the-cordova-sdk}
+## Integration des Cordova SDK {#integrating-the-cordova-sdk}
 
 ### Voraussetzungen {#prerequisites}
 
 Bevor Sie beginnen, stellen Sie sicher, dass Ihre Umgebung von der [neuesten Version des Braze Cordova SDK](https://github.com/braze-inc/braze-cordova-sdk?tab=readme-ov-file#minimum-version-requirements) unterstützt wird.
 
-### Schritt 1: Das SDK zu Ihrem Projekt hinzufügen {#step-1-add-the-sdk-to-your-project}
+### Schritt 1: SDK zu Ihrem Projekt hinzufügen {#step-1-add-the-sdk-to-your-project}
 
 {% alert warning %}
 Fügen Sie das Braze Cordova SDK nur mit den folgenden Methoden hinzu. Versuchen Sie nicht, es auf andere Weise zu installieren, da dies zu einer Sicherheitslücke führen könnte.
@@ -14,7 +14,7 @@ Wenn Sie Cordova 6 oder höher verwenden, können Sie das SDK direkt von GitHub 
 
 {% tabs local %}
 {% tab Geofence deaktiviert %}
-Wenn Sie keine Standorterfassung und Geofences verwenden möchten, nutzen Sie den `master`-Branch von GitHub.
+Wenn Sie nicht vorhaben, Standorterfassung und Geofences zu verwenden, nutzen Sie den `master`-Branch von GitHub.
 
 ```bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
@@ -22,7 +22,7 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
 {% endtab %}
 
 {% tab Geofence aktiviert %}
-Wenn Sie Standorterfassung und Geofences verwenden möchten, nutzen Sie den `geofence-branch` von GitHub.
+Wenn Sie vorhaben, Standorterfassung und Geofences zu verwenden, nutzen Sie den `geofence-branch` von GitHub.
 
 ```bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branch
@@ -56,9 +56,9 @@ Fügen Sie als Nächstes die folgenden Einstellungen zum `platform`-Element in d
 
 Ersetzen Sie Folgendes:
 
-| Wert                  | Beschreibung                                                                                                                                  |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `BRAZE_API_KEY`       | Ihr [Braze REST-API-Schlüssel]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys).                      |
+| Wert                  | Beschreibung                                                                                                                     |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `BRAZE_API_KEY`       | Ihr [Braze-REST-API-Schlüssel]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys).         |
 | `CUSTOM_API_ENDPOINT` | Ein angepasster API-Endpunkt. Dieser Endpunkt wird verwendet, um die Daten Ihrer Braze-Instanz an die richtige App-Gruppe in Ihrem Braze-Dashboard weiterzuleiten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Ihr Projekt konfigurieren" }
 
@@ -88,11 +88,11 @@ Das `platform`-Element in Ihrer `config.xml`-Datei sollte in etwa wie folgt auss
 
 Der folgende Abschnitt behandelt die plattformspezifische Syntax bei der Verwendung von Cordova mit iOS oder Android.
 
-### Ganzzahlen {#integers}
+### Integer {#integers}
 
 {% tabs %}
 {% tab ios %}
-Ganzzahl-Einstellungen werden als String-Darstellungen gelesen, wie im folgenden Beispiel:
+Integer-Einstellungen werden als String-Repräsentationen gelesen, wie im folgenden Beispiel:
 
 ```xml
 <platform name="ios">
@@ -103,7 +103,7 @@ Ganzzahl-Einstellungen werden als String-Darstellungen gelesen, wie im folgenden
 {% endtab %}
 
 {% tab android %}
-Aufgrund der Art und Weise, wie das Cordova 8.0.0+ Framework Einstellungen verarbeitet, müssen reine Ganzzahl-Einstellungen (wie z. B. Sender-IDs) als Strings mit dem Präfix `str_` festgelegt werden, wie im folgenden Beispiel:
+Aufgrund der Art und Weise, wie das Cordova 8.0.0+ Framework Einstellungen verarbeitet, müssen reine Integer-Einstellungen (wie Sender-IDs) als Strings mit vorangestelltem `str_` gesetzt werden, wie im folgenden Beispiel:
 
 ```xml
 <platform name="android">
@@ -114,11 +114,11 @@ Aufgrund der Art und Weise, wie das Cordova 8.0.0+ Framework Einstellungen verar
 {% endtab %}
 {% endtabs %}
 
-### Boolesche Werte {#booleans}
+### Boolean {#booleans}
 
 {% tabs %}
 {% tab ios %}
-Boolesche Einstellungen werden vom SDK mithilfe der Schlüsselwörter `YES` und `NO` als String-Darstellung gelesen, wie im folgenden Beispiel:
+Boolean-Einstellungen werden vom SDK mithilfe der Schlüsselwörter `YES` und `NO` als String-Repräsentation gelesen, wie im folgenden Beispiel:
 
 ```xml
 <platform name="ios">
@@ -129,7 +129,7 @@ Boolesche Einstellungen werden vom SDK mithilfe der Schlüsselwörter `YES` und 
 {% endtab %}
 
 {% tab android %}
-Boolesche Einstellungen werden vom SDK mithilfe der Schlüsselwörter `true` und `false` als String-Darstellung gelesen, wie im folgenden Beispiel:
+Boolean-Einstellungen werden vom SDK mithilfe der Schlüsselwörter `true` und `false` als String-Repräsentation gelesen, wie im folgenden Beispiel:
 
 ```xml
 <platform name="android">
@@ -282,15 +282,15 @@ Standardmäßig verfolgt das Android Cordova Plugin Sitzungen automatisch. Um da
 
 Um das Session-Tracking erneut zu starten, rufen Sie `BrazePlugin.startSessionTracking()` auf. Beachten Sie, dass nur Sitzungen verfolgt werden, die nach dem nächsten `Activity.onStart()` gestartet werden.
 
-## Benachrichtigungskanäle für Heads-up-Benachrichtigungen konfigurieren (nur Android) {#configuring-notification-channels-for-heads-up-notifications-android-only}
+## Konfiguration von Benachrichtigungskanälen für Heads-up-Benachrichtigungen (nur Android) {#configuring-notification-channels-for-heads-up-notifications-android-only}
 
-Ab Android 8.0 (API-Level 26) wird das Benachrichtigungsverhalten über Benachrichtigungskanäle gesteuert. Um Heads-up-Benachrichtigungen anzuzeigen – Hinweise, die kurz am oberen Bildschirmrand erscheinen, während Nutzer:innen ihr Gerät verwenden – müssen Sie in Ihrem Android-Anwendungscode einen Benachrichtigungskanal mit `NotificationManager.IMPORTANCE_HIGH` erstellen.
+Ab Android 8.0 (API-Level 26) wird das Benachrichtigungsverhalten über Benachrichtigungskanäle gesteuert. Um Heads-up-Benachrichtigungen anzuzeigen – Hinweise, die kurz oben auf dem Bildschirm erscheinen, während Nutzer:innen ihr Gerät verwenden – müssen Sie in Ihrem Android-Anwendungscode einen Benachrichtigungskanal mit `NotificationManager.IMPORTANCE_HIGH` erstellen.
 
-Das Cordova SDK ermöglicht es Ihnen zwar, den Standard-Benachrichtigungskanalnamen und die Beschreibung über `config.xml`-Einstellungen (`default_notification_channel_name` und `default_notification_channel_description`) festzulegen, die Wichtigkeitsstufe muss jedoch programmatisch in Ihrem nativen Android-Code konfiguriert werden.
+Das Cordova SDK ermöglicht es Ihnen zwar, den Standardnamen und die Standardbeschreibung des Benachrichtigungskanals über `config.xml`-Einstellungen (`default_notification_channel_name` und `default_notification_channel_description`) festzulegen, die Wichtigkeitsstufe muss jedoch programmatisch in Ihrem nativen Android-Code konfiguriert werden.
 
-### Beispiel: Einen Benachrichtigungskanal mit hoher Wichtigkeit erstellen {#example-creating-a-high-importance-notification-channel}
+### Beispiel: Erstellen eines Benachrichtigungskanals mit hoher Wichtigkeit {#example-creating-a-high-importance-notification-channel}
 
-Fügen Sie den folgenden Code zur `onCreate()`-Methode der `Application`-Klasse Ihrer Android-Anwendung hinzu:
+Fügen Sie den folgenden Code in die `onCreate()`-Methode der `Application`-Klasse Ihrer Android-Anwendung ein:
 
 {% subtabs local %}
 {% subtab Kotlin %}
@@ -347,3 +347,7 @@ public void onCreate() {
 {% endsubtabs %}
 
 Nachdem Sie den Kanal in Ihrem Android-Code erstellt haben, verwenden Sie die Kanal-ID beim Senden von Push-Benachrichtigungen über das Braze-Dashboard. Weitere Informationen zu Benachrichtigungskanälen finden Sie unter [Android-Benachrichtigungskanäle]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels).
+
+## Fehlerbehebung bei iOS-Builds nach dem Upgrade des Plugins {#troubleshooting-ios-builds-after-upgrading-the-plugin}
+
+Das Cordova Braze SDK 9.0.0 und höher verwendet das Swift SDK 9.0.0 oder höher. Ab dem Swift SDK 8.0.0 wird dieses native SDK mit **Xcode 15.2** kompiliert. Wenn Ihr iOS-Build nach dem Upgrade des Cordova-Plugins auf 9.0.0 oder höher fehlschlägt, aktualisieren Sie Xcode auf 15.2 oder neuer und stellen Sie sicher, dass die Version mit dem [Swift SDK Changelog]({{site.baseurl}}/developer_guide/changelogs/?sdktab=swift) für die native iOS-Version übereinstimmt, die Ihr Plugin verwendet.

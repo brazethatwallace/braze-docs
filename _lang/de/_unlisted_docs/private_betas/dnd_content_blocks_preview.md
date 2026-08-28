@@ -6,7 +6,7 @@ hidden: true
 
 # Vorschau von Content Blocks im Drag-and-Drop-Editor {#preview-drag-and-drop-editor-content-blocks}
 
-Nachdem Sie Ihre [Content Blocks für Ihre Drag-and-Drop-E-Mail-Campaigns]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_content_blocks/) erstellt haben, können Sie Ihre Bibliothek dieser Content Blocks im Drag-and-Drop-Editor anzeigen.
+Nachdem Sie Ihre [Content Blocks für Ihre Drag-and-Drop-E-Mail-Campaigns]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks?tab=drag-and-drop) erstellt haben, können Sie Ihre Bibliothek dieser Content Blocks im Drag-and-Drop-Editor anzeigen.
 
 {% alert important %}
 Diese Vorschaufunktion für die Drag-and-Drop-Content Blocks befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an der Teilnahme am Early Access interessiert sind.

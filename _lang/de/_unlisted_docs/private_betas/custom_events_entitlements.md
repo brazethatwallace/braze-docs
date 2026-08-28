@@ -6,23 +6,23 @@ hidden: true
 
 # [![Braze-Lernkurs]({% image_buster /assets/unlisted_docs/img/logos/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Angepasste Events {#braze-learning-course-image_buster-assetsunlisted_docsimglogosbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> Dieser Artikel beschreibt angepasste Events und Eigenschaften, zugehörige Segmentierungsfilter, Canvas-Entry-Eigenschaften, relevante Analytics und mehr. Um mehr über Braze-Events im Allgemeinen zu erfahren, lesen Sie [Events]({{site.baseurl}}/user_guide/data/custom_data/events).
+> Dieser Artikel beschreibt angepasste Events und Eigenschaften, zugehörige Segmentierungsfilter, Canvas-Entry-Eigenschaften, relevante Analytics und mehr. Um mehr über Braze-Events im Allgemeinen zu erfahren, lesen Sie [Events]({{site.baseurl}}/user_guide/data/activation/events).
 
 Angepasste Events sind Aktionen, die von Ihren Nutzer:innen durchgeführt werden, oder Updates über diese. Wenn angepasste Events protokolliert werden, können sie eine beliebige Anzahl und Art von Folgekampagnen auslösen. Sie können dann [Segmentierungsfilter](#segmentation-filters) verwenden, um Nutzer:innen danach zu segmentieren, wie kürzlich und wie häufig diese angepassten Events aufgetreten sind. Damit eignen sich angepasste Events am besten für das Tracking von hochwertigen Nutzerinteraktionen innerhalb Ihrer Anwendung.
 
 ## Anwendungsfälle {#use-cases}
 
-Einige gängige Anwendungsfälle für angepasste Events sind:
+Einige häufige Anwendungsfälle für angepasste Events sind:
 
 {% multi_lang_include data_activation/custom_event_use_cases.md %}
 
 ## Berechtigungen {#entitlements}
 
-Berechtigungen bestimmen Ihre Kapazität für angepasste Events, die die Anzahl der verschiedenen Event-Namen erfasst, die Sie definieren. Pro Workspace können Sie bis zu 2.000 angepasste Events verwenden. Wenn Sie Ihre Kapazität erhöhen müssen, wenden Sie sich an Ihren Braze Account Manager für weitere Informationen.
+Berechtigungen bestimmen Ihre Kapazität für angepasste Events, die die Anzahl der verschiedenen Event-Namen nachverfolgt, die Sie definieren. Sie können bis zu 2.000 angepasste Events pro Workspace haben. Wenn Sie Ihre Kapazität erhöhen möchten, wenden Sie sich an Ihren Braze Account Manager, um weitere Informationen zu erhalten.
 
 Wenn sich Ihr Workspace der maximalen Anzahl angepasster Events nähert, erhalten Sie Benachrichtigungen im Dashboard und per E-Mail, damit Sie den Überblick behalten.
 
-Auch nach Erreichen der Kapazitätsgrenze können bestehende angepasste Events weiterhin empfangen werden. Sie können jedoch keine neuen angepassten Events erstellen. Daten, die für angepasste Events empfangen werden, die noch nicht existieren, werden nicht verarbeitet.
+Auch nach Erreichen der Kapazitätsgrenze können vorhandene angepasste Events weiterhin empfangen werden. Sie können jedoch keine neuen angepassten Events erstellen. Daten, die für angepasste Events empfangen werden, die noch nicht existieren, werden nicht verarbeitet.
 
 ## Angepasste Events verwalten {#managing-custom-events}
 
@@ -38,31 +38,31 @@ Wenn Sie ein angepasstes Event blockieren:
 
 {% multi_lang_include data_activation/custom_event_block_effects.md %}
 
-Wenn ein blockiertes angepasstes Event derzeit von Filtern oder Triggern in anderen Bereichen von Braze referenziert wird, erscheint zusätzlich ein Warnhinweis-Modal, das erklärt, dass alle Instanzen der Filter oder Trigger, die darauf verweisen, entfernt und archiviert werden.
+Wenn ein blockiertes angepasstes Event derzeit von Filtern oder Triggern in anderen Bereichen von Braze referenziert wird, erscheint zusätzlich ein Warnungs-Modal, das erklärt, dass alle Instanzen der Filter oder Trigger, die darauf verweisen, entfernt und archiviert werden.
 
 ### Beschreibungen hinzufügen {#adding-descriptions}
 
-Sie können einem angepassten Event nach der Erstellung eine Beschreibung hinzufügen, wenn Sie über die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) `Manage Events, Attributes, Purchases` verfügen. Wählen Sie **Beschreibung bearbeiten** für das angepasste Event aus und geben Sie ein, was Sie möchten, z. B. eine Notiz für Ihr Team.
+Sie können einem angepassten Event nach der Erstellung eine Beschreibung hinzufügen, wenn Sie über die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) `Manage Events, Attributes, Purchases` verfügen. Wählen Sie **Beschreibung bearbeiten** für das angepasste Event aus und geben Sie ein, was Sie möchten, z. B. eine Notiz für Ihr Team.
 
 ## Tags hinzufügen {#adding-tags}
 
-Sie können Tags zu einem angepassten Event hinzufügen, nachdem es erstellt wurde, sofern Sie über die Nutzerberechtigung „Events, Attribute und Käufe verwalten“ verfügen ([Nutzerberechtigungen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions)). Die Tags können dann verwendet werden, um die Liste der Events zu filtern.
+Sie können Tags zu einem angepassten Event hinzufügen, nachdem es erstellt wurde, wenn Sie über die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) „Manage Events, Attributes, Purchases“ verfügen. Die Tags können dann verwendet werden, um die Liste der Events zu filtern.
 
 ### Nutzungsberichte anzeigen {#viewing-usage-reports}
 
-Der Nutzungsbericht listet alle Canvases, Campaigns und Segmente auf, die ein bestimmtes angepasstes Event verwenden. Die Liste enthält keine Verwendungen von Liquid.
+Der Nutzungsbericht listet alle Canvases, Campaigns und Segments auf, die ein bestimmtes angepasstes Event verwenden. Die Liste enthält keine Verwendungen von Liquid.
 
 Sie können bis zu 100 Nutzungsberichte gleichzeitig anzeigen, indem Sie die Kontrollkästchen für mehrere angepasste Events aktivieren und dann **Nutzungsbericht anzeigen** auswählen.
 
-## Daten exportieren {#exporting-data}
+## Exportieren von Daten {#exporting-data}
 
-Um die Liste der angepassten Events als CSV-Datei zu exportieren, wählen Sie den Button **Export all** oben auf der Seite. Die CSV-Datei wird generiert, und ein Download-Link wird Ihnen per E-Mail zugesendet.
+Um die Liste der angepassten Events als CSV-Datei zu exportieren, wählen Sie den Button **Export all** oben auf der Seite aus. Die CSV-Datei wird generiert und ein Download-Link wird Ihnen per E-Mail zugesendet.
 
 ## Angepasste Events protokollieren {#logging-custom-events}
 
-Angepasste Events erfordern eine zusätzliche Einrichtung. In den folgenden plattformspezifischen Dokumentationslinks finden Sie die Methoden zum Protokollieren angepasster Events sowie zum Hinzufügen von Eigenschaften und Mengen.
+Angepasste Events erfordern eine zusätzliche Einrichtung. In den Plattform-Dokumentationslinks finden Sie die Methoden, mit denen Sie angepasste Events protokollieren und Eigenschaften sowie Mengen hinzufügen können.
 
-{% details Dokumentation nach Plattform aufklappen %}
+{% details Dokumentation nach Plattform anzeigen %}
 
 - [Android und FireOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
@@ -80,7 +80,7 @@ Alle auf dem **Nutzerprofil** gespeicherten Daten, einschließlich Metadaten ang
 
 ## Segmentierungsfilter {#segmentation-filters}
 
-Die folgende Tabelle zeigt die verfügbaren Filter zur Segmentierung von Nutzer:innen nach angepassten Events.
+Die folgende Tabelle zeigt die verfügbaren Filter für die Segmentierung von Nutzer:innen nach angepassten Events.
 
 | Segmentierungsoptionen | Dropdown-Filter | Eingabeoptionen |
 | ---------------------| --------------- | ------------- |
@@ -116,7 +116,7 @@ Segmente, die mit Daten angepasster Events erstellt wurden, können keine frühe
 
 ## Angepasste Event-Eigenschaften {#custom-event-properties}
 
-Angepasste Event-Eigenschaften sind angepasste Event-Metadaten oder Attribute, die ein bestimmtes Vorkommen eines Events beschreiben. Diese Eigenschaften können verwendet werden, um Trigger-Bedingungen weiter zu qualifizieren, die Personalisierung im Messaging zu verbessern, Konversionen zu tracken und anspruchsvollere Analytics durch den Export von Rohdaten zu generieren.
+Angepasste Event-Eigenschaften sind angepasste Event-Metadaten oder Attribute, die ein bestimmtes Vorkommen eines Events beschreiben. Diese Eigenschaften können genutzt werden, um Trigger-Bedingungen weiter zu qualifizieren, die Personalisierung im Messaging zu verbessern, Konversionen zu tracken und über den Rohdatenexport anspruchsvollere Analytics zu generieren.
 
 Angepasste Event-Eigenschaften werden nicht im Braze-Profil gespeichert und verbrauchen daher keine Datenpunkte (siehe [Datenpunkte](#data-points) für Ausnahmen).
 
@@ -126,7 +126,7 @@ Jedes angepasste Event oder jeder Kauf kann bis zu 256 verschiedene angepasste E
 
 ### Erwartetes Format {#expected-format}
 
-Die Eigenschaftswerte sollten ein Objekt sein, bei dem die Schlüssel die Eigenschaftsnamen und die Werte die Eigenschaftswerte sind. Eigenschaftsnamen müssen nicht-leere Strings mit maximal 255 Zeichen sein, ohne führende Dollarzeichen (`$`).
+Die Eigenschaftswerte sollten ein Objekt sein, bei dem die Schlüssel die Eigenschaftsnamen und die Werte die Eigenschaftswerte sind. Eigenschaftsnamen müssen nicht-leere Strings mit maximal 255 Zeichen sein und dürfen nicht mit einem Dollarzeichen (`$`) beginnen.
 
 Eigenschaftswerte können einen der folgenden Datentypen haben:
 
@@ -134,7 +134,7 @@ Eigenschaftswerte können einen der folgenden Datentypen haben:
 | --- | --- |
 | Zahlen | Als [Ganzzahlen](https://en.wikipedia.org/wiki/Integer) oder [Gleitkommazahlen](https://en.wikipedia.org/wiki/Floating-point_arithmetic) |
 | Boolesche Werte | Wert `true` oder `false`. |
-| Datumsangaben | Formatiert als Strings im [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)- oder `yyyy-MM-dd'T'HH:mm:ss:SSSZ`-Format. Nicht unterstützt innerhalb von Arrays. |
+| Datumsangaben | Formatiert als Strings im [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)- oder `yyyy-MM-dd'T'HH:mm:ss:SSSZ`-Format. Nicht innerhalb von Arrays unterstützt. |
 | Strings | 255 Zeichen oder weniger. |
 | Arrays | Arrays können keine Datumsangaben enthalten. |
 | Objekte | Objekte werden als Strings aufgenommen. |
@@ -143,27 +143,27 @@ Eigenschaftswerte können einen der folgenden Datentypen haben:
 
 Event-Eigenschaftsobjekte, die Array- oder Objektwerte enthalten, können eine Event-Eigenschafts-Payload von bis zu 100&nbsp;KB haben.
 
-Sie können den Datentyp Ihrer angepassten Event-Eigenschaft ändern, sollten sich aber der Auswirkungen bewusst sein, die das [Ändern von Datentypen]({{site.baseurl}}/help/help_articles/data/change_custom_data_type) nach der Datenerfassung hat.
+Sie können den Datentyp Ihrer angepassten Event-Eigenschaft ändern, sollten sich aber der Auswirkungen bewusst sein, die das [Ändern von Datentypen]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#changing-custom-attribute-or-event-data-type) nach der Datenerfassung hat.
 
 ### Angepasste Event-Eigenschaften verwenden {#using-custom-event-properties}
 
-Angepasste Event-Eigenschaften können verwendet werden, um Campaign-Trigger zu qualifizieren, Konversionen zu tracken und Messaging zu personalisieren.
+Angepasste Event-Eigenschaften können genutzt werden, um Campaign-Trigger zu qualifizieren, Konversionen zu tracken und Messaging zu personalisieren.
 
 #### Nachrichten triggern {#trigger-messages}
 
-Verwenden Sie angepasste Event-Eigenschaften, um Ihre Zielgruppe für eine bestimmte Campaign oder ein Canvas weiter einzugrenzen. Wenn Sie beispielsweise eine E-Commerce-Anwendung haben und eine Nachricht an Nutzer:innen senden möchten, wenn diese ihren Warenkorb abbrechen, können Sie eine angepasste Event-Eigenschaft `cart value` hinzufügen, um Ihre Zielgruppe zu verbessern und eine stärkere Campaign-Personalisierung zu ermöglichen.
+Verwenden Sie angepasste Event-Eigenschaften, um Ihre Zielgruppe für eine bestimmte Campaign oder ein bestimmtes Canvas weiter einzugrenzen. Wenn Sie beispielsweise eine E-Commerce-Anwendung haben und eine Nachricht an Nutzer:innen senden möchten, wenn diese ihren Warenkorb abbrechen, können Sie eine angepasste Event-Eigenschaft `cart value` hinzufügen, um Ihre Zielgruppe zu verbessern und eine stärkere Campaign-Personalisierung zu ermöglichen.
 
-![Filter für angepasste Event-Eigenschaften für einen Warenkorb-Abbruch. Zwei Filter werden mit einem UND-Operator kombiniert, um diese Campaign an Nutzer:innen zu senden, die ihren Warenkorb mit einem Warenkorbwert zwischen 100 und 200 Dollar abgebrochen haben][16]
+![Filter für angepasste Event-Eigenschaften bei einem Warenkorb-Abbruch. Zwei Filter werden mit einem UND-Operator kombiniert, um diese Campaign an Nutzer:innen zu senden, die ihren Warenkorb mit einem Warenkorbwert zwischen 100 und 200 Dollar abgebrochen haben.][16]
 
-Verschachtelte angepasste Event-Eigenschaften werden auch bei der [aktionsbasierten Zustellung][19] unterstützt.
+Verschachtelte angepasste Event-Eigenschaften werden auch bei [aktionsbasierter Zustellung][19] unterstützt.
 
-![Filter für angepasste Event-Eigenschaften für einen Warenkorb-Abbruch. Ein Filter ist ausgewählt, wenn ein Artikel im Warenkorb einen Preis von mehr als 100 Dollar hat.][20]
+![Filter für angepasste Event-Eigenschaften bei einem Warenkorb-Abbruch. Ein Filter ist ausgewählt, wenn ein Artikel im Warenkorb einen Preis von mehr als 100 Dollar hat.][20]
 
 #### Nachrichten personalisieren {#personalize-messages}
 
-Sie können angepasste Event-Eigenschaften auch zur Personalisierung innerhalb des Messaging-Templates verwenden. Jede Campaign, die [aktionsbasierte Zustellung][19] mit einem Trigger-Event verwendet, kann angepasste Event-Eigenschaften dieses Events für die Messaging-Personalisierung nutzen.
+Sie können angepasste Event-Eigenschaften auch zur Personalisierung innerhalb des Messaging-Templates verwenden. Jede Campaign mit [aktionsbasierter Zustellung][19] und einem Trigger-Event kann angepasste Event-Eigenschaften dieses Events für die Messaging-Personalisierung nutzen.
 
-Wenn Sie beispielsweise eine Gaming-App haben und eine Nachricht an Nutzer:innen senden möchten, die ein Level abgeschlossen haben, könnten Sie Ihre Nachricht mit einer Eigenschaft für die Zeit, die Nutzer:innen zum Abschließen dieses Levels benötigt haben, weiter personalisieren. In diesem Beispiel wird die Nachricht für drei verschiedene Segmente mithilfe von [bedingter Logik][18] personalisiert. Die angepasste Event-Eigenschaft namens `time_spent` kann in die Nachricht eingefügt werden, indem Sie ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}`` aufrufen.
+Wenn Sie beispielsweise eine Gaming-App haben und eine Nachricht an Nutzer:innen senden möchten, die ein Level abgeschlossen haben, könnten Sie Ihre Nachricht mit einer Eigenschaft für die Zeit, die Nutzer:innen zum Abschließen des Levels benötigt haben, weiter personalisieren. In diesem Beispiel wird die Nachricht für drei verschiedene Segmente mithilfe von [bedingter Logik][18] personalisiert. Die angepasste Event-Eigenschaft namens `time_spent` kann in der Nachricht eingefügt werden, indem Sie ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}`` aufrufen.
 
 {% raw %}
 ```liquid
@@ -178,59 +178,59 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 {% endraw %}
 
 {% alert warning %}
-Wenn Nutzer:innen keine Internetverbindung haben, werden getriggerte In-App-Nachrichten mit vorlagenbasierten angepassten Event-Eigenschaften (z. B. {% raw %}``{{event_properties.${time_spent}}}``{% endraw %}) fehlschlagen und nicht angezeigt.
+Wenn Nutzer:innen keine Internetverbindung haben, werden getriggerte In-App-Nachrichten mit angepassten Event-Eigenschafts-Templates (z.B. {% raw %}``{{event_properties.${time_spent}}}``{% endraw %}) fehlschlagen und nicht angezeigt.
 {% endalert %}
 
-Eine vollständige Liste der Liquid-Tags, die dazu führen, dass In-App-Nachrichten als vorlagenbasierte In-App-Nachrichten zugestellt werden, finden Sie unter [Häufig gestellte Fragen]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/faq/#what-are-templated-in-app-messages/).
+Eine vollständige Liste der Liquid-Tags, die dazu führen, dass In-App-Nachrichten als vorlagenbasierte In-App-Nachrichten zugestellt werden, finden Sie in den [häufig gestellten Fragen]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/faq/#what-are-templated-in-app-messages/).
 
 ##### Hinweise zu Filtern {#considerations-with-filters}
 
-- **API-Aufrufe:** Wenn Sie API-Aufrufe tätigen und den Filter „ist leer“ verwenden, wird eine angepasste Event-Eigenschaft als „leer“ betrachtet, wenn sie aus dem Aufruf ausgeschlossen wird. Wenn Sie beispielsweise `"event_property": ""` einschließen, werden Ihre Nutzer:innen als „nicht leer“ betrachtet.
-- **Ganzzahlen:** Wenn Sie nach einer numerischen angepassten Event-Eigenschaft filtern und die Zahl sehr groß ist, verwenden Sie nicht den Filter „genau“. Wenn eine Zahl zu groß ist, wird sie möglicherweise ab einer bestimmten Länge gerundet, sodass Ihr Filter nicht wie erwartet funktioniert.
+- **API-Aufrufe:** Wenn Sie API-Aufrufe durchführen und den Filter „ist leer“ verwenden, gilt eine angepasste Event-Eigenschaft als „leer“, wenn sie im Aufruf nicht enthalten ist. Wenn Sie beispielsweise `"event_property": ""` einschließen, werden Ihre Nutzer:innen als „nicht leer“ betrachtet.
+- **Ganzzahlen:** Wenn Sie nach einer numerischen angepassten Event-Eigenschaft filtern und die Zahl sehr groß ist, verwenden Sie nicht den Filter „genau“. Wenn eine Zahl zu groß ist, kann sie ab einer bestimmten Länge gerundet werden, sodass Ihr Filter nicht wie erwartet funktioniert.
 
 #### Segmentierung {#segmentation}
 
-Verwenden Sie die Event-Eigenschafts-Segmentierung, um Nutzer:innen basierend auf durchgeführten angepassten Events und den mit diesen Events verknüpften Eigenschaften anzusprechen. Dies erweitert Ihre Filteroptionen bei der Segmentierung nach Käufen und angepassten Events.
+Verwenden Sie die Event-Eigenschafts-Segmentierung, um Nutzer:innen basierend auf durchgeführten angepassten Events und den mit diesen Events verknüpften Eigenschaften anzusprechen. Dies erweitert Ihre Filtermöglichkeiten bei der Segmentierung nach Käufen und angepassten Events.
 
 Event-Eigenschaften für angepasste Events werden in Echtzeit für jedes Segment aktualisiert, das sie verwendet. Sie können Eigenschaften verwalten, indem Sie zu **Dateneinstellungen** > **Angepasste Events** gehen und **Eigenschaften verwalten** für das zugehörige angepasste Event auswählen. Angepasste Event-Eigenschaften, die in bestimmten Segment-Filtern verwendet werden, haben einen maximalen Rückblickzeitraum von 30 Tagen.
 
 ##### Event-Eigenschaften für die Segmentierung hinzufügen {#adding-event-properties-for-segmentation}
 
-Sie benötigen die [Nutzerberechtigung]({{site.baseurl}}/user_guide/data/data_points#viewing-data-point-usage) „Manage Custom Event Property Segmentation“, um Segmente basierend auf der Aktualität und Häufigkeit von Event-Eigenschaften zu erstellen.
+Sie benötigen die [Nutzerberechtigung]({{site.baseurl}}/user_guide/data/data_points#viewing-data-point-usage) „Manage Custom Event Property Segmentation“, um Segmente basierend auf Event-Eigenschafts-Aktualität und -Häufigkeit zu erstellen.
 
-Standardmäßig können Sie 20 segmentierbare Event-Eigenschaften pro Workspace haben. Wenden Sie sich an Ihren Braze Account Manager, um dieses Limit zu erhöhen.
+Standardmäßig können Sie 20 segmentierbare Event-Eigenschaften pro Workspace haben. Kontaktieren Sie Ihren Braze Account Manager, um dieses Limit zu erhöhen.
 
 Um Event-Eigenschaften für die Segmentierung hinzuzufügen, gehen Sie wie folgt vor:
 
 1. Gehen Sie zu Ihrem angepassten Event und wählen Sie **Eigenschaften verwalten**.
-2. Wählen Sie den Schalter **Segmentierung aktivieren**, um die Event-Eigenschaft für die Segmentierung hinzuzufügen. Beim Segmentieren stehen Ihnen dann zusätzliche Filteroptionen zur Verfügung.
+2. Wählen Sie den Schalter **Segmentierung aktivieren**, um die Event-Eigenschaft für die Segmentierung hinzuzufügen. Beim Segmentieren haben Sie Zugriff auf zusätzliche Filteroptionen.
 
 Die Event-Eigenschafts-Segmentierungsfilter umfassen:
 
 {% multi_lang_include data_activation/custom_event_property_filters.md %}
 
-![Eine Filtergruppe mit „hat ‚Warenkorb-Abbruch' mit Eigenschaft ‚Anzahl der Artikel' und Wert ‚2' ‚mehr als' ‚1' Mal in den letzten ‚30' Kalendertagen.“][3]
+![Eine Filtergruppe mit der Bedingung „hat ‚Warenkorb-Abbruch' mit Eigenschaft ‚Anzahl der Artikel' und Wert ‚2' ‚mehr als' ‚1' Mal in den letzten ‚30' Kalendertagen“.][3]
 
-Daten werden erst für eine bestimmte Event-Eigenschaft protokolliert, nachdem sie von Ihrem Customer-Success-Manager aktiviert wurde, und Event-Eigenschaften sind erst ab diesem Datum verfügbar.
+Daten werden für eine bestimmte Event-Eigenschaft erst protokolliert, nachdem sie von Ihrem Customer-Success-Manager aktiviert wurde, und Event-Eigenschaften sind nur ab diesem Datum verfügbar.
 
 ##### Datenpunkte {#data-points}
 
-In Bezug auf die Abo-Nutzung werden angepasste Event-Eigenschaften, die für die Segmentierung mit den folgenden Filtern aktiviert sind, jeweils als separate Datenpunkte gezählt – zusätzlich zu dem Datenpunkt, der durch das angepasste Event selbst gezählt wird:
+Hinsichtlich der Abo-Nutzung werden angepasste Event-Eigenschaften, die für die Segmentierung mit den folgenden Filtern aktiviert sind, jeweils als separate Datenpunkte gezählt – zusätzlich zu dem Datenpunkt, der durch das angepasste Event selbst gezählt wird:
 
 - `X Custom Event Property in Y Days`
 - `X Purchase Property in Y Days`
 
 ### Canvas-Entry-Eigenschaften und Event-Eigenschaften {#canvas-entry-properties-and-event-properties}
 
-Sie können `canvas_entry_properties` und `event_properties` in Ihren Canvas-User-Journeys verwenden. Weitere Informationen und Beispiele finden Sie unter [Canvas-Entry-Eigenschaften und Event-Eigenschaften]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties).
+Sie können `canvas_entry_properties` und `event_properties` in Ihren Canvas-Nutzerreisen verwenden. Weitere Informationen und Beispiele finden Sie unter [Canvas-Entry-Eigenschaften und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties).
 
 {% tabs local %}
 {% tab Canvas-Entry-Eigenschaften %}
 
-[Canvas-Entry-Eigenschaften]({{site.baseurl}}/api/objects_filters/canvas_entry_properties_object) sind die Eigenschaften, die Sie für Canvases zuordnen, die aktionsbasiert oder API-getriggert sind. Beachten Sie, dass das `canvas_entry_properties`-Objekt eine maximale Größenbeschränkung von 50 KB hat.
+[Canvas-Entry-Eigenschaften]({{site.baseurl}}/api/objects_filters/canvas_entry_properties_object) sind die Eigenschaften, die Sie für Canvases zuordnen, die aktionsbasiert oder API-getriggert sind. Beachten Sie, dass das `canvas_entry_properties`-Objekt eine maximale Größe von 50 KB hat.
 
 {% alert note %}
-Speziell für In-App-Nachrichtenkanäle kann `canvas_entry_properties` nur in Canvas Flow und im ursprünglichen Canvas-Editor referenziert werden, wenn Sie persistente Entry-Eigenschaften im ursprünglichen Editor als Teil des vorherigen Early Access aktiviert haben.
+Speziell für In-App-Nachricht-Kanäle kann auf `canvas_entry_properties` nur im Canvas Flow und im Original-Canvas-Editor verwiesen werden, wenn Sie persistente Entry-Eigenschaften im Original-Editor als Teil des früheren Early Access aktiviert haben.
 {% endalert %}
 
 Für Canvas-Flow-Messaging kann `canvas_entry_properties` in jedem Nachrichtenschritt mit diesem Liquid-Format verwendet werden: ``{% raw %} canvas_entry_properties.${property_name} {% endraw %}``. Beachten Sie, dass die Events angepasste Events oder Kauf-Events sein müssen, um auf diese Weise verwendet zu werden.
@@ -241,7 +241,7 @@ Für Canvas-Flow-Messaging kann `canvas_entry_properties` in jedem Nachrichtensc
 Nehmen wir an, ein Einzelhandelsgeschäft, RetailApp, hat die folgende Anfrage: `"canvas_entry_properties" : {"product_name" : "shoes", "product_price" : 79.99}`. RetailApp kann den Produktnamen (shoes) mit dem Liquid `{{canvas_entry_properties.${product_name}}}` in eine Nachricht einfügen.
 {% endraw %}
 
-RetailApp kann auch bestimmte Nachrichten für verschiedene `product_name`-Eigenschaften in einem Canvas triggern, das Nutzer:innen anspricht, nachdem sie ein Kauf-Event ausgelöst haben. Beispielsweise können sie unterschiedliche Nachrichten an Nutzer:innen senden, die Schuhe gekauft haben, und an Nutzer:innen, die etwas anderes gekauft haben, indem sie das folgende Liquid in einen Nachrichtenschritt einfügen.
+RetailApp kann außerdem spezifische Nachrichten für verschiedene `product_name`-Eigenschaften in einem Canvas triggern, das Nutzer:innen anspricht, nachdem sie ein Kauf-Event ausgelöst haben. Beispielsweise können sie unterschiedliche Nachrichten an Nutzer:innen senden, die Schuhe gekauft haben, und an Nutzer:innen, die etwas anderes gekauft haben, indem sie das folgende Liquid in einen Nachrichtenschritt einfügen.
 
 {% raw %}
 ```markdown
@@ -254,11 +254,11 @@ RetailApp kann auch bestimmte Nachrichten für verschiedene `product_name`-Eigen
 ```
 {% endraw %}
 
-{% details Für den ursprünglichen Canvas-Editor erweitern %}
+{% details Aufklappen für den Original-Canvas-Editor %}
 
-Seit dem 28. Februar 2023 können Sie keine Canvases mehr mit dem ursprünglichen Editor erstellen oder duplizieren. Dieser Abschnitt dient nur als Referenz.
+Seit dem 28. Februar 2023 können Sie Canvases nicht mehr mit dem Original-Editor erstellen oder duplizieren. Dieser Abschnitt dient nur als Referenz.
 
-Für Canvases, die mit dem ursprünglichen Editor erstellt wurden, kann `canvas_entry_properties` nur im ersten vollständigen Schritt eines Canvas referenziert werden.
+Für Canvases, die mit dem Original-Editor erstellt wurden, kann auf `canvas_entry_properties` nur im ersten vollständigen Schritt eines Canvas verwiesen werden.
 
 {% enddetails %}
 {% endtab %}
@@ -271,15 +271,15 @@ Sie können `event_properties` nicht im ersten Nachrichtenschritt verwenden. Sta
 
 Event-Eigenschaften beziehen sich auf die Eigenschaften, die Sie für angepasste Events und Käufe festlegen. Diese `event_properties` können in Campaigns mit aktionsbasierter Zustellung und in Canvases verwendet werden.
 
-In Canvas Flow können angepasste Event- und Kauf-Event-Eigenschaften in Liquid in jedem Nachrichtenschritt verwendet werden, der auf einen Aktionspfade-Schritt folgt. Stellen Sie sicher, dass Sie {% raw %} ``{{event_properties.${property_name}}}``{% endraw %} verwenden, wenn Sie auf diese `event_properties` verweisen. Diese Events müssen angepasste Events oder Kauf-Events sein, um auf diese Weise in der Nachrichtenkomponente verwendet zu werden.
+Im Canvas Flow können angepasste Event- und Kauf-Event-Eigenschaften in Liquid in jedem Nachrichtenschritt verwendet werden, der auf einen Aktionspfade-Schritt folgt. Stellen Sie sicher, dass Sie {% raw %} ``{{event_properties.${property_name}}}``{% endraw %} verwenden, wenn Sie auf diese `event_properties` verweisen. Diese Events müssen angepasste Events oder Kauf-Events sein, um auf diese Weise in der Nachrichtenkomponente verwendet zu werden.
 
-Im ersten Nachrichtenschritt nach einem Aktionspfad können Sie `event_properties` verwenden, die sich auf das in diesem Aktionspfad referenzierte Event beziehen. Diese `event_properties` können nur verwendet werden, wenn Nutzer:innen die Aktion tatsächlich durchgeführt haben (und nicht in die Gruppe „Alle anderen“ gegangen sind). Zwischen diesem Aktionspfad und dem Nachrichtenschritt können andere Schritte (die kein weiterer Aktionspfade- oder Nachrichtenschritt sind) liegen.
+Im ersten Nachrichtenschritt nach einem Aktionspfad können Sie `event_properties` verwenden, die sich auf das in diesem Aktionspfad referenzierte Event beziehen. Diese `event_properties` können nur verwendet werden, wenn die Nutzer:innen die Aktion tatsächlich durchgeführt haben (und nicht in die „Alle anderen“-Gruppe gegangen sind). Sie können andere Schritte (die kein weiterer Aktionspfade- oder Nachrichtenschritt sind) zwischen diesem Aktionspfade- und dem Nachrichtenschritt haben.
 
-{% details Für den ursprünglichen Canvas-Editor erweitern %}
+{% details Aufklappen für den Original-Canvas-Editor %}
 
-Seit dem 28. Februar 2023 können Sie keine Canvases mehr mit dem ursprünglichen Editor erstellen oder duplizieren. Dieser Abschnitt dient nur als Referenz.
+Seit dem 28. Februar 2023 können Sie Canvases nicht mehr mit dem Original-Editor erstellen oder duplizieren. Dieser Abschnitt dient nur als Referenz.
 
-Für den ursprünglichen Canvas-Editor können `event_properties` nicht in geplanten vollständigen Schritten verwendet werden. Sie können `event_properties` jedoch im ersten vollständigen Schritt eines aktionsbasierten Canvas verwenden, auch wenn der vollständige Schritt geplant ist.
+Für den Original-Canvas-Editor können `event_properties` nicht in geplanten vollständigen Schritten verwendet werden. Sie können `event_properties` jedoch im ersten vollständigen Schritt eines aktionsbasierten Canvas verwenden, auch wenn der vollständige Schritt geplant ist.
 
 {% enddetails %}
 
@@ -288,18 +288,18 @@ Für den ursprünglichen Canvas-Editor können `event_properties` nicht in gepla
 
 ### Verschachtelte Objekte {#nested-objects}
 
-Sie können verschachtelte Objekte (Objekte innerhalb eines anderen Objekts) verwenden, um verschachtelte JSON-Daten als Eigenschaften von angepassten Events und Käufen zu senden. Diese verschachtelten Daten können für die Vorlagen-Personalisierung in Nachrichten, das Triggern von Nachrichtenversendungen und die Segmentierung von Nutzer:innen verwendet werden.
+Sie können verschachtelte Objekte (Objekte innerhalb eines anderen Objekts) verwenden, um verschachtelte JSON-Daten als Eigenschaften von angepassten Events und Käufen zu senden. Diese verschachtelten Daten können zum Erstellen von personalisierten Vorlagen in Nachrichten, zum Triggern von Nachrichtenversendungen und zur Segmentierung von Nutzer:innen verwendet werden.
 
-Weitere Informationen finden Sie auf unserer speziellen Seite zu [Verschachtelten Objekten]({{site.baseurl}}/user_guide/data/custom_data/custom_events/nested_objects).
+Weitere Informationen finden Sie auf unserer dedizierten Seite zu [verschachtelten Objekten]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 ## Speicherung angepasster Event-Eigenschaften {#custom-event-property-storage}
 
-Angepasste Event-Eigenschaften helfen Ihnen, die Targeting-Präzision zu erhöhen und Nachrichten noch persönlicher zu gestalten. Angepasste Event-Eigenschaften können in Braze sowohl kurz- als auch langfristig gespeichert werden.
+Angepasste Event-Eigenschaften helfen Ihnen, die Targeting-Präzision zu erhöhen und Nachrichten noch stärker zu personalisieren. Angepasste Event-Eigenschaften können in Braze sowohl kurz- als auch langfristig gespeichert werden.
 
 Sie können auf zwei Arten basierend auf den Werten von Event-Eigenschaften segmentieren:
 
-1. **Innerhalb von 30 Tagen:** Braze-Supportmitarbeiter:innen können die Segmentierung nach Event-Eigenschaften basierend auf der Häufigkeit und Aktualität bestimmter Event-Eigenschaftswerte innerhalb von Braze Segments aktivieren. Wenn Sie Event-Eigenschaften innerhalb von Segments nutzen möchten, wenden Sie sich an Ihren Braze Account Executive oder Customer-Success-Manager. Diese Option wirkt sich auf die Datennutzung aus.<br><br>
-2. **Innerhalb und über 30 Tage hinaus:** Um sowohl die kurz- als auch die langfristige Segmentierung nach Event-Eigenschaften abzudecken, können Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension) verwenden. Dieses Feature segmentiert Nutzer:innen basierend auf angepassten Events und Event-Eigenschaften, die innerhalb der letzten zwei Jahre erfasst wurden. Diese Option wirkt sich nicht auf die Datennutzung aus.
+1. **Innerhalb von 30 Tagen:** Braze-Supportmitarbeiter:innen können die Segmentierung nach Event-Eigenschaften basierend auf der Häufigkeit und Aktualität bestimmter Event-Eigenschaftswerte innerhalb von Braze Segments aktivieren. Wenn Sie Event-Eigenschaften innerhalb von Segments nutzen möchten, wenden Sie sich an Ihren Braze Account Manager oder Customer-Success-Manager. Diese Option wirkt sich auf die Datennutzung aus.<br><br>
+2. **Innerhalb und über 30 Tage hinaus:** Um sowohl kurzfristige als auch langfristige Segmentierung nach Event-Eigenschaften abzudecken, können Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) verwenden. Dieses Feature segmentiert Nutzer:innen basierend auf angepassten Events und Event-Eigenschaften, die innerhalb der letzten zwei Jahre erfasst wurden. Diese Option wirkt sich nicht auf die Datennutzung aus.
 
 Wenden Sie sich an Ihren Braze Customer-Success-Manager, um Empfehlungen zum besten Ansatz für Ihre spezifischen Anforderungen zu erhalten.
 

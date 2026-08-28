@@ -40,8 +40,10 @@ glossary_tags:
   - name: Catalogs
   - name: Content Blocks
   - name: Custom Events
+  - name: Custom Objects
   - name: Email List
   - name: Email Templates
+  - name: Webhook Templates
   - name: KPI
   - name: Media Library
   - name: Device Messaging API
@@ -107,6 +109,46 @@ glossaries:
     description: Ein Nutzerprofil mit einem anderen zusammenführen.
     tags:
       - User Data
+  - name: <a href='/docs/api/endpoints/custom_objects'>/custom_objects/*</a>
+    description: Die vollständige Endpunktreferenz für angepasste Objekte anzeigen, einschließlich Objekttypen, Objekten und Beziehungsendpunkten.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_custom_object_types'>/custom_objects/types</a>
+    description: Angepasste Objekttypen im Workspace auflisten.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_custom_object_type'>/custom_objects/types/{type_name}</a>
+    description: Einen angepassten Objekttyp und seine Schema-Definition abrufen.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_user_relationship_types'>/custom_objects/types/{type_name}/user_relationship_types</a>
+    description: Nutzer-Beziehungsarten für einen angepassten Objekttyp auflisten.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_object_relationship_types'>/custom_objects/types/{type_name}/object_relationship_types</a>
+    description: Objekt-Beziehungsarten für einen angepassten Objekttyp auflisten.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_list_custom_objects'>/custom_objects/objects/{type_name}</a>
+    description: Angepasste Objekte für einen Typ auflisten.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_custom_object'>/custom_objects/objects/{type_name}/{external_id}</a>
+    description: Ein angepasstes Objekt abrufen oder es ersetzen, aktualisieren und löschen.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/object_relationships/get_list_object_relationships'>/custom_objects/objects/{type_name}/{external_id}/object_relationships</a>
+    description: Objekt-zu-Objekt-Beziehungen auflisten, erstellen, ersetzen, aktualisieren und löschen.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/get_list_user_relationships'>/custom_objects/objects/{type_name}/{external_id}/user_relationships</a>
+    description: Nutzer-Beziehungen für ein angepasstes Objekt auflisten.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/post_create_user_relationship'>/custom_objects/objects/{type_name}/{external_id}/users</a>
+    description: Nutzer-zu-Objekt-Beziehungen erstellen, ersetzen, aktualisieren und löschen.
+    tags:
+      - Custom Objects
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns'>/campaigns/trigger/send</a>
     description: Sofortige, einmalige Nachrichten an bestimmte Nutzer:innen über API-getriggerte Zustellung senden.
     tags:
@@ -235,6 +277,18 @@ glossaries:
     description: Eine Liste der verfügbaren E-Mail-Templates in Ihrem Braze-Konto abrufen.
     tags:
       - Email Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_source_webhook_template'>/templates/webhook/translations/source</a>
+    description: Die Standard-Quellübersetzungen für ein Webhook-Template anzeigen.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_translations_webhook_template'>/templates/webhook/translations</a>
+    description: Übersetzungen für ein Webhook-Template anzeigen.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/put_update_webhook_template'>/templates/webhook/translations</a>
+    description: Übersetzungen für ein Webhook-Template aktualisieren.
+    tags:
+      - Webhook Templates
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaign_analytics'>/campaigns/data_series</a>
     description: Eine tägliche Reihe verschiedener Statistiken für eine Campaign über einen Zeitraum abrufen.
     tags:
@@ -336,11 +390,11 @@ glossaries:
     tags:
       - KPI
   - name: <a href='/docs/api/endpoints/sms/post_remove_invalid_numbers'>/sms/invalid_phone_numbers/remove</a>
-    description: „Ungültige“ Telefonnummern aus der Liste ungültiger Nummern in Braze entfernen. Verwenden Sie dies, um Telefonnummern erneut zu validieren, nachdem Braze sie als ungültig markiert hat.
+    description: "„Ungültige“ Telefonnummern aus der Liste ungültiger Nummern in Braze entfernen. Verwenden Sie dies, um Telefonnummern erneut zu validieren, nachdem Braze sie als ungültig markiert hat."
     tags:
       - SMS
   - name: <a href='/docs/api/endpoints/sms/get_query_invalid_numbers'>/sms/invalid_phone_numbers</a>
-    description: Eine Liste der Telefonnummern abrufen, die Braze innerhalb eines bestimmten Zeitraums als „ungültig“ markiert hat.
+    description: "Eine Liste der Telefonnummern abrufen, die Braze innerhalb eines bestimmten Zeitraums als „ungültig“ markiert hat."
     tags:
       - SMS
   - name: <a href='/docs/api/endpoints/export/purchases/get_list_product_id'>/purchases/product_list</a>

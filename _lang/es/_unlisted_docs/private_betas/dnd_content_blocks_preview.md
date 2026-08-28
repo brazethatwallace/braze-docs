@@ -6,7 +6,7 @@ hidden: true
 
 # Vista previa de Content Blocks del editor de arrastrar y soltar {#preview-drag-and-drop-editor-content-blocks}
 
-Después de crear tus [Content Blocks para tus campañas de correo electrónico de arrastrar y soltar]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_content_blocks/), puedes ver tu biblioteca de estos Content Blocks en el editor de arrastrar y soltar.
+Después de crear tus [Content Blocks para tus campañas de correo electrónico de arrastrar y soltar]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks?tab=drag-and-drop), puedes ver tu biblioteca de estos Content Blocks en el editor de arrastrar y soltar.
 
 {% alert important %}
 Esta característica de vista previa para los Content Blocks de arrastrar y soltar se encuentra actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas de Braze si te interesa participar en el acceso anticipado.
