@@ -19,31 +19,31 @@ Checkout Extensibilityへのアップグレードに関する一般情報につ�
 
 ## 連携への影響 {#impact-to-your-integration}
 
-BrazeとShopifyの連携は、[Shopify ScriptTags](https://shopify.dev/docs/apps/build/online-store/script-tag-legacy)を使用して、ヘッドレスでないサイトにBraze Web SDKを読み込みます。`checkout.liquid`が完全に廃止される前にすべての顧客をサポートするため、2025年の期限前に新しいバージョンの連携をリリースする予定です。
+BrazeとShopifyの連携では、[Shopify ScriptTags](https://shopify.dev/docs/apps/build/online-store/script-tag-legacy)を使用して、ヘッドレスでないサイトにBraze Web SDKを読み込みます。2025年の期限までにすべての顧客をサポートするため、`checkout.liquid`が完全に非推奨となる前に、連携の新バージョンをリリースする予定です。
 
-2024年8月13日に予定されている変更については、以下の詳細を確認して、開発チームが影響を受けるかどうかをご確認ください。
+2024年8月13日に予定されている変更について、開発チームが影響を受けるかどうか、以下の詳細を確認してください。
 
-### フェーズ1: 2024年8月13日 {#phase-one-august-13-2024}
+### フェーズ1：2024年8月13日 {#phase-one-august-13-2024}
 
-デフォルトのBrazeとShopifyの連携は、チェックアウト体験内の情報、配送、および支払いページを使用しません。そのため、デフォルトの連携は影響を受けません。
+デフォルトのBrazeとShopifyの連携では、チェックアウト体験内の情報、配送、および支払いページを使用しません。そのため、デフォルトの連携は影響を受けません。
 
 #### Shopify Plus
 
-Shopify Plusの顧客の場合、情報、配送、または支払いページの`checkout.liquid`を変更するカスタムSDKコードスニペットは、この日以降無効になります。例えば、これらのページからイベントを記録するカスタムコードは機能しなくなります。カスタムSDKコードがある場合は、移行のための[開発者ガイダンス](#developer-guidance)をご覧ください。
+Shopify Plusの顧客の場合、情報、配送、または支払いページ用に`checkout.liquid`を変更するカスタムSDKコードスニペットは、この日以降無効になります。たとえば、これらのページからイベントを記録するカスタムコードは機能しなくなります。カスタムSDKコードを使用している場合は、移行に関する[開発者ガイダンス](#developer-guidance)をご覧ください。
 
-#### 非Shopify Plus {#non-shopify-plus}
+#### Shopify Plus以外 {#non-shopify-plus}
 
-Shopify Plus以外の顧客の場合、情報、支払い、および配送ページをカスタマイズする必要がある場合は、[Shopify Plusにアップグレードする必要があります](https://help.shopify.com/en/manual/checkout-settings/customize-checkout-configurations/checkout-extensibility#eligibility)。その後、[開発者ガイダンス](#developer-guidance)に従ってください。
+Shopify Plus以外の顧客の場合、情報、支払い、および配送ページをカスタマイズする必要がある場合は、[Shopify Plusにアップグレード](https://help.shopify.com/en/manual/checkout-settings/customize-checkout-configurations/checkout-extensibility#eligibility)した上で、[開発者ガイダンス](#developer-guidance)に従ってください。
 
-### フェーズ2: 2025年8月28日 {#phase-two-august-28-2025}
+### フェーズ2：2025年8月28日 {#phase-two-august-28-2025}
 
-Shopifyは、連携で使用されている`checkout.liquid`ページでの[ScriptTags](https://shopify.dev/docs/apps/build/online-store/script-tag-legacy)のサポートを廃止します。これを受けて、2025年8月の期限よりも十分前にリリースする予定のShopify連携の新バージョンを積極的に構築しています。Braze製品チームからの詳細情報をお待ちください。
+Shopifyは、連携で使用されている`checkout.liquid`ページの[ScriptTags](https://shopify.dev/docs/apps/build/online-store/script-tag-legacy)のサポートを非推奨にします。これに対応して、2025年8月の期限に十分先立ってリリースすることを目指し、Shopify連携の新バージョンを積極的に開発しています。Brazeプロダクトチームからの詳細情報にご期待ください。
 
-## 開発者ガイダンス {#developer-guidance}
+## 開発者向けガイダンス {#developer-guidance}
 
-このガイダンスは、`checkout.liquid`の情報、配送、または支払いページにカスタムSDKコードスニペットを追加したShopify Plusの顧客に適用されます。これらのカスタマイズを行っていない場合は、このガイダンスを無視してかまいません。
+このガイダンスは、`checkout.liquid`の情報ページ、配送ページ、または支払いページにカスタムSDKコードスニペットを追加したShopify Plusの顧客に適用されます。これらのカスタマイズを行っていない場合は、このガイダンスを無視できます。
 
-`checkout.liquid`では、情報、配送、または支払いページにカスタムSDKコードスニペットを追加できなくなります。代わりに、カスタムSDKコードスニペットをサンキューページまたは注文ステータスページに追加する必要があります。これにより、チェックアウトを完了したユーザーを照合できます。
+今後、`checkout.liquid`の情報ページ、配送ページ、または支払いページにカスタムSDKコードスニペットを追加できなくなります。代わりに、サンキューページまたは注文ステータスページにカスタムSDKコードスニペットを追加する必要があります。これにより、チェックアウトを完了したユーザーを照合できます。
 1. サンキューページと注文ステータスページでBraze Web SDKを読み込みます。
 2. ユーザーからメールアドレスを取得します。
 3. `setEmail`を呼び出します。
@@ -55,6 +55,6 @@ braze.getUser().setEmail(<email address>);
 {% endraw %}
 
 {: start="4"}
-4. Brazeで、ユーザープロファイルをメールアドレスでマージします。
+4. Brazeでメールアドレスに基づいてユーザープロファイルをマージします。
 
-重複するユーザープロファイルが発生した場合は、データを効率化するために[一括マージツール]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/duplicate_users#bulk-merging)を使用できます。
+重複するユーザープロファイルが見つかった場合は、[一括マージツール]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#bulk-merging)を使用してデータの整理を効率化できます。

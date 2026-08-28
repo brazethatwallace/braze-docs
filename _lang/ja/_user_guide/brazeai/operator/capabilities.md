@@ -11,13 +11,13 @@ description: "このリファレンス記事では、BrazeAI Operator™がダ�
 
 > [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator)は、Brazeダッシュボードに組み込まれたAIアシスタントです。質問に回答し、メッセージを作成し、対応するページ上でアクションを実行します。やりたいことを自然言語で説明すれば、Operatorがコンテキストに沿って処理します。
 
-Operatorはワークスペース（ブランドガイドライン、カスタム属性、Connected Content、作業中のページ）を理解しているため、スタンドアロンのアシスタントよりもコンテキストを考慮した出力が可能です。Operatorがキャンペーン、キャンバス、セグメント、その他のオブジェクトへの変更を提案する場合、保存前に確認・承認できる[アクションカード]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)としてビジュアルdiffで変更を表示します。
+Operatorはワークスペースを理解しているため（カスタム属性、Connected Content、作業中のページ、コンテキストとして追加したブランドガイドラインなど）、スタンドアロンのアシスタントよりもコンテキストを考慮した出力が可能です。Operatorがキャンペーン、キャンバス、セグメント、その他のオブジェクトへの変更を提案する場合、保存前に確認・承認できる[アクションカード]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)としてビジュアルdiffで変更を表示します。
 
 フォローアップで会話を続けることもできます。Operatorはチャット履歴をクリアするまで、以前のメッセージを記憶しています。
 
 ## 前提条件 {#prerequisites}
 
-オペレーターはあなたと同じ権限を持っているため、特定のアクションにはそのサーフェスに関連する権限が必要です。たとえば、画像を生成するには*メディアライブラリアセットの編集*権限が必要です。エントリポイントが表示されない場合は、管理者に権限を確認してください。詳細については、[権限のリスト]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)を参照してください。
+オペレーターはあなたと同じ権限を持っているため、特定のアクションにはそのサーフェスに関連する権限が必要です。たとえば、画像を生成するには*メディアライブラリアセットの編集*権限が必要です。エントリポイントが表示されない場合は、管理者に権限を確認してください。詳細については、[権限の一覧]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)を参照してください。
 
 ## ダッシュボードのナビゲーション {#navigate-the-dashboard}
 
@@ -76,19 +76,19 @@ Operatorのダッシュボード全体での機能は定期的に拡張されて
 
 ![エージェント作成メニュー。カスタムエージェントオプションとOperatorで構築されたエージェントテンプレートが表示されています。]({% image_buster /assets/img/operator/operator_create_agent.png %}){: style="float:right;max-width:45%;margin-left:15px;"}
 
-Operatorは、[エージェントコンソール]({{site.baseurl}}/user_guide/brazeai/agents)でエージェントの構築と改善を支援できます。Operatorがエージェントに提案する変更は、保存前に確認するアクションカードとして表示されます。
+オペレーターは、[エージェントコンソール]({{site.baseurl}}/user_guide/brazeai/agents)でエージェントの構築と改善を支援できます。オペレーターがエージェントに提案する変更は、保存前に確認するアクションカードとして表示されます。
 
-- **ゼロからエージェントを作成：** Operatorはエージェントコンソールのすべてのフィールドにアクセスできるため、希望するエージェントを説明すると、Operatorが設定を支援します。これには指示、出力設定、その他のエージェントフィールドが含まれます。
-- **テンプレートから開始：** エージェントコンソールには、コピーライティング、感情分析、ジャーニールーティング、カタログエンリッチメントなどの一般的なユースケース向けに事前に記述されたプロンプトを読み込む**Operatorでエージェントを作成**オプションがあります。カテゴリを選択すると、Operatorが改善可能なエージェントの下書きを支援します。テンプレートの完全なリストについては、[Operatorで構築されたエージェントテンプレート]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)を参照してください。
-- **既存のエージェントを改善：** エージェントを編集する際、エージェントの指示フィールドの近くにある**Operatorで生成**または**Operatorで改善**を選択して、エージェントのプロンプトと出力設定の記述や修正についてOperatorの支援を受けられます。
+- **ゼロからエージェントを作成：** オペレーターはエージェントコンソールのすべてのフィールドにアクセスできるため、希望するエージェントを説明すると、オペレーターが設定を支援します。これには指示、出力設定、その他のエージェントフィールドが含まれます。
+- **テンプレートから開始：** エージェントコンソールには、コピーライティング、感情分析、ジャーニールーティング、カタログエンリッチメントなどの一般的なユースケース向けに事前に記述されたプロンプトを読み込む**オペレーターでエージェントを作成**オプションがあります。カテゴリを選択すると、オペレーターが改善可能なエージェントの下書きを支援します。テンプレートの完全なリストについては、[オペレーターで構築されたエージェントテンプレート]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)を参照してください。
+- **既存のエージェントを改善：** エージェントを編集する際、エージェントの指示フィールドの近くにある**オペレーターで生成**または**オペレーターで改善**を選択して、エージェントのプロンプトと出力設定の記述や修正についてオペレーターの支援を受けられます。エージェントにすでにブランドガイドラインが設定されている場合、オペレーターはそれをコンテキストとして添付します。
 
 ## コンテンツとクリエイティブ {#content-and-creative}
 
-オペレーターは、コピー、メッセージHTML、Liquid、画像を含むメッセージのコンテンツを生成・レビューでき、ブランドガイドラインが設定されている場所では自動的に適用します。テンプレートライブラリや概要ページからオペレーターにヘルプを依頼することもできます。たとえば、[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates)やContent Blocksをそれぞれのリストページから作成・更新したり、[コンテンツカレンダー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar)で作業をスケジュールしたり、[アプリ内メッセージのカラープロファイルテンプレート]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles)を作成したり、[バナーのプレースメント]({{site.baseurl}}/developer_guide/banners/placements)を設定したりできます。
+オペレーターは、コピー、メッセージHTML、Liquid、画像を含むメッセージのコンテンツを生成・レビューでき、コンテキストとして追加したブランドガイドラインを適用できます。テンプレートライブラリや概要ページからオペレーターにヘルプを依頼することもできます。たとえば、[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates)やContent Blocksをそれぞれのリストページから作成・更新したり、[コンテンツカレンダー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar)で作業をスケジュールしたり、[アプリ内メッセージのカラープロファイルテンプレート]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles)を作成したり、[バナーのプレースメント]({{site.baseurl}}/developer_guide/banners/placements)を設定したりできます。
 
 ### ブランドガイドラインの適用 {#apply-brand-guidelines}
 
-オペレーターは、ワークスペースで設定されたブランドガイドラインを使用して、生成されたコピー、テンプレート、画像がブランドのボイス、トーン、スタイルに一致するようにします。ブランドガイドラインを設定するには、**コンテンツ** > **ブランド・ガイドライン**に移動します。詳細については、[ブランド・ガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)およびオペレーター使用ガイドの[ブランドガイドラインの適用]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines)を参照してください。
+オペレーターのチャットパネルでコンテキストとして[ブランド・ガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)を追加すると、生成されたコピー、テンプレート、画像がブランドのボイス、トーン、スタイルに一致するようになります。
 
 ### コピーの生成 {#generate-copy}
 
@@ -96,14 +96,14 @@ Operatorは、[エージェントコンソール]({{site.baseurl}}/user_guide/br
 
 オペレーターは、スタンドアロンのコピーライターからいくつかの点で改善されています：
 
-- 設定されている場合、[ブランドガイドライン](#apply-brand-guidelines)を自動的に適用します。
+- コンテキストとして追加した[ブランドガイドライン](#apply-brand-guidelines)を適用します。
 - [ページ対応コンテキスト]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)を使用するため、作業中のチャネルやメッセージを再度説明する必要がありません。ページ対応であるため、ゼロから生成する代わりに、既存のメッセージの編集や改善にも使用できます。
 - [カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)やイベントを検索できるため、実際のLiquidを使用したパーソナライズされたコピーの推奨を依頼できます。
 - 会話を続けてイテレーションできます。たとえば、異なるトーン、短いバージョン、翻訳を依頼できます。
 
 #### トーン {#generate-copy-tones}
 
-生成されるコピーのトーンはプロンプトによって決まります。希望するスタイルを説明すると、オペレーターがそれに合わせて出力を調整します。たとえば、フォーマル、カジュアル、緊急、目を引くなどを指定できます。フォローアッププロンプトでトーンを調整することもできます。たとえば、よりリラックスした、またはより洗練されたバージョンを依頼できます。ブランドガイドラインが設定されている場合、オペレーターはそれを自動的に適用し、コピーがブランドのボイスと一貫性を保つようにします。
+生成されるコピーのトーンはプロンプトによって決まります。希望するスタイルを説明すると、オペレーターがそれに合わせて出力を調整します。たとえば、フォーマル、カジュアル、緊急、目を引くなどを指定できます。フォローアッププロンプトでトーンを調整することもできます。たとえば、よりリラックスした、またはより洗練されたバージョンを依頼できます。ブランドガイドラインをコンテキストとして追加すると、オペレーターはそれを適用し、コピーがブランドのボイスと一貫性を保つようにします。
 
 ### メッセージの生成 {#generate-messages}
 
@@ -119,17 +119,17 @@ Operatorは、[エージェントコンソール]({{site.baseurl}}/user_guide/br
 
 ドラッグ＆ドロップエディターは直接的なデザイン生成をサポートしていませんが、オペレーターは手動で追加するコピーやその他のコンテンツの支援は可能です。自然言語で希望するメッセージを説明し、出力をレビューしてコンポーザーに挿入します。会話を続けて結果を改善できます。たとえば、HTMLをエディターに挿入する前に、異なるレイアウト、短いコピー、更新されたボタンスタイリングを依頼できます。
 
-作成中のコンポーザー内でオペレーターを使用すると、チャネルとメッセージタイプの[ページ対応コンテキスト]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)を持つため、最良の結果が得られます。ブランドガイドラインが設定されている場合、オペレーターはそれを自動的に適用します。
+作成中のコンポーザー内でオペレーターを使用すると、チャネルとメッセージタイプの[ページ対応コンテキスト]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)を持つため、最良の結果が得られます。ブランドガイドラインをコンテキストとして追加すると、オペレーターはそれを生成されたメッセージに適用します。
 
 ### Content Blocksの作成 {#create-content-blocks}
 
-オペレーターは、メッセージ間で挿入する再利用可能なコンテンツである[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)の作成を支援できます。希望するブロックを説明すると、オペレーターが保存前に確認するコンテンツの下書きを作成します。Content Blocksは共有されるため、1つを更新すると、それを参照するすべてのメッセージが更新されます。
+オペレーターは、メッセージ間で挿入する再利用可能なコンテンツである[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)の作成を支援できます。希望するブロックを説明すると、オペレーターが保存前にレビューするコンテンツの下書きを作成します。Content Blocksは共有されるため、1つを更新すると、それを参照するすべてのメッセージが更新されます。
 
 オペレーターはダッシュボードで一度に1つずつContent Blocksを作成します。Content Blocksを一括で作成するには、`content_blocks.create`権限を持つAPIキーで[Content Blocksの作成]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block)エンドポイントを使用してください。
 
 ### メッセージテンプレートの作成 {#create-message-templates}
 
-オペレーターは、キャンペーン全体で適用できる再利用可能な[メッセージテンプレート]({{site.baseurl}}/user_guide/messaging/templates)の作成を支援できます。希望するテンプレートを説明すると、オペレーターが保存前に確認する下書きを作成します。Braze内のどこからでも開始できます。テンプレートの生成はメッセージの生成と同様に機能するため、対応するチャネルとエディターについては[メッセージの生成](#generate-messages)を参照してください。
+オペレーターは、キャンペーン全体で適用できる再利用可能な[メッセージテンプレート]({{site.baseurl}}/user_guide/messaging/templates)の作成を支援できます。希望するテンプレートを説明すると、オペレーターが保存前にレビューする下書きを作成します。Braze内のどこからでも開始できます。テンプレートの生成はメッセージの生成と同様に機能するため、対応するチャネルとエディターについては[メッセージの生成](#generate-messages)を参照してください。
 
 ### Liquidの生成 {#generate-liquid}
 
@@ -179,7 +179,7 @@ Operatorは、[エージェントコンソール]({{site.baseurl}}/user_guide/br
 
 ### コンテンツ品質のレビュー {#review-content-quality}
 
-SMS、Androidプッシュ通知、iOSプッシュ通知、従来のアプリ内メッセージの**テスト**タブで、**オペレーターでレビュー**を選択して、送信前にコンテンツをレビューします。デフォルトでは、オペレーターはスペルと文法のエラー、ブランドに合わないまたは不適切なトーン、不快な言語、不要なコード、テストコンテンツ、レンダリングされていないLiquidについてキャンペーンをレビューし、見つかった問題の修正方法を推奨します。プロンプトで直接、オペレーターにコンテンツのレビュー方法をカスタマイズするよう依頼することもできます。
+SMS、Androidプッシュ、iOSプッシュ、従来のアプリ内メッセージの**テスト**タブで、**オペレーターでレビュー**を選択して、送信前にコンテンツをレビューします。デフォルトでは、オペレーターはキャンペーンのスペルと文法のエラー、ブランドに合わないまたは不適切なトーン、不快な言語、不要なコード、テストコンテンツ、レンダリングされていないLiquidをレビューし、見つかった問題の修正方法を推奨します。プロンプトで直接、オペレーターにコンテンツのレビュー方法をカスタマイズするよう依頼することもできます。
 
 デフォルトのレビューに加えて、オペレーターに特定のチェックに焦点を当てるよう指示できます。以下のいずれかを確認するようプロンプトすることを検討してください：
 

@@ -226,12 +226,12 @@
   },
   {
     "source": "/docs/api/messaging_api/endpoints",
-    "destination": "/docs/api/device_messaging_api/endpoints",
+    "destination": "/docs/api/device_messaging_api",
     "permanent": true
   },
   {
     "source": "/docs/api/messaging_api/endpoints/banners",
-    "destination": "/docs/api/device_messaging_api/endpoints/banners",
+    "destination": "/docs/api/device_messaging_api",
     "permanent": true
   },
   {

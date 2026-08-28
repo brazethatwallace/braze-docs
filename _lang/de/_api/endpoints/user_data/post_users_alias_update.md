@@ -50,7 +50,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | --------- | --------- | ----------- |
-| `alias_updates` | Erforderlich | Array von Nutzer-Alias-Aktualisierungsobjekten | Siehe [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Weitere Informationen zu `old_alias_name`, `new_alias_name` und `alias_label` finden Sie unter [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases). |
+| `alias_updates` | Erforderlich | Array von Nutzer-Alias-Aktualisierungsobjekten | Siehe [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Weitere Informationen zu `old_alias_name`, `new_alias_name` und `alias_label` finden Sie unter [Nutzer-Aliase]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ### Anfragetext des Endpunkts mit Spezifikation des Nutzer-Alias-Aktualisierungsobjekts {#endpoint-request-body-with-update-user-alias-object-specification}

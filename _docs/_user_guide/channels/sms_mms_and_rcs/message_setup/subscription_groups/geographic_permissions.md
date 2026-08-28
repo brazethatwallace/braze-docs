@@ -30,7 +30,7 @@ Remove previously selected countries by clearing the respective boxes next to th
 
 ### Saving your changes
 
-Changes will take effect after you save. Removing countries from your allowlist will prevent all SMS, MMS, and RCS messages from being sent to phone numbers with those countries' dialing codes.
+Changes take effect after you save. Removing countries from your allowlist prevents all SMS, MMS, and RCS messages from being sent to phone numbers with those countries' dialing codes.
 
 ![Warning modal confirming the countries that will be deleted from the allowlist.]({% image_buster /assets/img/sms/delete_allowlist_warning.png %}){: style="max-width:70%;"}
 
@@ -68,7 +68,7 @@ Furthermore, system routing restrictions are enforced based on destination count
 
 ### Customer responsibility and financial liability 
 
-The customer is responsible for and will be invoiced for all Mobile Messages sent through the Services on its behalf, including any messages resulting from SMS, MMS, and RCS traffic pumping. Platform safeguards, such as the Country Allowlist, will assist you in restricting delivery to trusted regions. Ultimately, however, securing your external-facing endpoints and preventing devastating financial harm remains the sole responsibility of the customer.
+The customer is responsible for and will be invoiced for all Mobile Messages sent through the Services on its behalf, including any messages resulting from SMS, MMS, and RCS traffic pumping. Platform safeguards, such as the Country Allowlist, assist you in restricting delivery to trusted regions. Ultimately, however, securing your external-facing endpoints and preventing devastating financial harm remains the sole responsibility of the customer.
 
 ### How to prevent traffic pumping 
 

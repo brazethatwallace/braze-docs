@@ -20,20 +20,20 @@ iOS 15 introdujo nuevas características de notificación para ayudar a los usua
 
 ## Tarjetas de contacto {#contact-cards}
 
-Las tarjetas de contacto son un formato de archivo estandarizado para enviar información empresarial y de contacto que puede importarse fácilmente a libretas de direcciones o de contactos. Ahora puedes cargar y crear tarjetas de contacto para tus mensajes SMS y MMS. Para saber más sobre cómo crear tarjetas de contacto con nuestro generador de tarjetas de contacto integrado, visita nuestra [documentación]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card).
+Las tarjetas de contacto son un formato de archivo estandarizado para enviar información empresarial y de contacto que se puede importar fácilmente en libretas de direcciones o de contactos. Ahora puedes cargar y crear tarjetas de contacto para tus mensajes SMS y MMS. Para obtener más información sobre cómo crear tarjetas de contacto en nuestro generador de tarjetas de contacto integrado, visita nuestra [documentación]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card).
 
-## Personalización predeterminada de las Content Cards {#default-content-cards-customization}
+## Personalización predeterminada de Content Cards {#default-content-cards-customization}
 
-Puedes crear tu propia interfaz de Content Cards ampliando `ABKContentCardsTableViewController` para personalizar todos los elementos de la interfaz de usuario y el comportamiento de las Content Cards. Para saber más sobre cómo personalizar la fuente de Content Cards, visita nuestra [documentación]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style).
+Puedes crear tu propia interfaz de Content Cards extendiendo `ABKContentCardsTableViewController` para personalizar todos los elementos de la interfaz de usuario y el comportamiento de Content Cards. Para saber más sobre cómo personalizar la fuente de Content Cards, visita nuestra [documentación]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style).
 
 ## Límites de velocidad de la API {#api-rate-limits}
 
-[Los límites de velocidad]({{site.baseurl}}/api/basics#api-limits) se aplicarán a todos los clientes incorporados después del 16 de septiembre de 2021.
+[Los límites de velocidad]({{site.baseurl}}/api/api_limits) se aplicarán a todos los clientes incorporados después del 16 de septiembre de 2021.
 
-## Actualizaciones de las guías para desarrolladores de Android y FireOS {#updates-to-android-and-fireos-developer-guides}
+## Actualizaciones en las guías para desarrolladores de Android y FireOS {#updates-to-android-and-fireos-developer-guides}
 
-Las guías para desarrolladores de Android y FireOS se han fusionado en una sola ubicación. En esta [nueva sección de Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) habrá artículos dedicados a FireOS.
+Las guías para desarrolladores de Android y FireOS se han fusionado en una única ubicación. Los artículos dedicados a FireOS estarán disponibles en esta [nueva sección de Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android).
 
 ## Actualizaciones de los informes de embudo y retención {#updates-to-funnel-and-retention-reports}
 
-Ya están disponibles [los informes de embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) y los [informes de retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) para las campañas por SMS.
+Los [informes de embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) y los [informes de retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) ahora están disponibles para Campaigns de SMS.

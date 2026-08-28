@@ -11,11 +11,11 @@ page_order: 6
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de visualizar os relatórios do Decisioning Studio na Braze, você precisará:
+Antes de visualizar os relatórios do Decisioning Studio na Braze, você deve:
 
-- Ter um contrato ativo para a Braze e o BrazeAI Decisioning Studio™.
-- Falar com seu CSM para ativar o BrazeAI Decisioning Studio™ para você.
-- Ter um agente do BrazeAI Decisioning Studio™ ativo.
+- Ter um contrato ativo para a Braze e o BrazeAI<sup>TM</sup> Decisioning Studio.
+- Entrar em contato com seu CSM para ativar o BrazeAI<sup>TM</sup> Decisioning Studio em seu nome.
+- Ter um agente ativo do BrazeAI<sup>TM</sup> Decisioning Studio.
 
 ## Visualizar relatórios {#view}
 
@@ -25,15 +25,15 @@ Aqui, você pode visualizar relatórios como desempenho, insights, diagnósticos
 
 ## Alterar datas do relatório {#change-report-dates}
 
-Após [abrir um relatório](#view), você pode alterar o intervalo de datas selecionando uma nova data inicial e final no menu suspenso do calendário.
+Após [abrir um relatório](#view), você pode alterar o intervalo de datas selecionando uma nova data de início e fim no menu suspenso do calendário.
 
-![Seletor de intervalo de datas do BrazeAI Decisioning Studio™ aberto com um menu suspenso de calendário. O calendário exibe datas de início e término selecionáveis para personalizar a exibição do relatório.]({% image_buster /assets/img/decisioning_studio/reporting_change_date_range.png %}){: style="max-width:50%;"}
+![Seletor de intervalo de datas do BrazeAI Decisioning Studio™ aberto com um menu suspenso de calendário. O calendário exibe datas de início e fim selecionáveis para personalizar a visualização do relatório.]({% image_buster /assets/img/decisioning_studio/reporting_change_date_range.png %}){: style="max-width:50%;"}
 
-Você também pode definir uma data de início padrão ou escolher datas a serem sempre excluídas. As datas excluídas serão filtradas de todos os relatórios desse agente.
+Você também pode definir uma data de início padrão ou escolher datas para sempre excluir. As datas excluídas serão filtradas de todos os relatórios daquele agente.
 
-Para definir ou excluir datas, selecione <i class="fa-solid fa-gear" aria-label="Configurações"></i> **Configurações** e, em seguida, altere a data padrão ou exclua as datas conforme necessário.
+Para definir ou excluir datas, selecione <i class="fa-solid fa-gear" aria-label="Configurações"></i> **Configurações** e, em seguida, altere sua data padrão ou exclua datas conforme necessário.
 
-![Painel de configurações aberto no BrazeAI Decisioning Studio™ mostrando opções para definir uma data de início padrão e excluir datas específicas dos relatórios. O painel exibe duas seções denominadas Data de início padrão e Excluir datas. Em Excluir datas, várias datas são listadas com caixas de seleção ao lado de cada uma.]({% image_buster /assets/img/decisioning_studio/reporting_set_exclude_dates.png %})
+![Painel de configurações aberto no BrazeAI Decisioning Studio™ mostrando opções para definir uma data de início padrão e excluir datas específicas dos relatórios. O painel exibe duas seções: Data de início padrão e Excluir datas. Em Excluir datas, várias datas são listadas com caixas de seleção ao lado de cada uma.]({% image_buster /assets/img/decisioning_studio/reporting_set_exclude_dates.png %})
 
 ## Relatórios disponíveis {#available-reports}
 

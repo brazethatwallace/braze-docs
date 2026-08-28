@@ -15,7 +15,7 @@ description: "Este artigo descreve detalhes sobre o endpoint `PUT /media_library
 /media_library/replace_file
 {% endapimethod %}
 
-> Use este endpoint para substituir o arquivo de um ativo existente na [biblioteca de mídia da Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library), preservando o ID e a URL do ativo. Você pode fornecer o arquivo de substituição usando uma URL hospedada externamente (`asset_url`) ou dados binários de arquivo enviados no corpo da solicitação (`asset_file`).
+> Use este endpoint para substituir o arquivo de um ativo existente na [biblioteca de mídia da Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications), preservando o ID e a URL do ativo. Você pode fornecer o arquivo de substituição usando uma URL hospedada externamente (`asset_url`) ou dados binários de arquivo enviados no corpo da solicitação (`asset_file`).
 
 ## Pré-requisitos {#prerequisites}
 
