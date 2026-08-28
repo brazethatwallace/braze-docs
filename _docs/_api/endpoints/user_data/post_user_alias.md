@@ -26,7 +26,7 @@ You can send API-triggered campaigns to users by `user_alias` using the [`/campa
 
 ## When `alias_label` and `alias_name` already exist
 
-The combination of `alias_label` and `alias_name` must be unique across your user base. For more information, see [User aliases]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).
+The combination of `alias_label` and `alias_name` must be unique across your user base. For more information, see [User aliases]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases).
 
 If you send a request where the `alias_label` and `alias_name` pair already exists for any user (whether on the same user or another), the endpoint still returns a successful response (for example, `"aliases_processed": 1`, `"message": "success"`). In that case, no new alias is added to the user in the request. Because the `alias_label` and `alias_name` pair is already in use, the request does not make any changes, and it can appear that the alias was never added to the user in question.
 
@@ -57,7 +57,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
-| `user_aliases` | Required | Array of new user alias objects | See [user alias object]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> For more information on `alias_name` and `alias_label`, check out our [User Aliases]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases) documentation.|
+| `user_aliases` | Required | Array of new user alias objects | See [user alias object]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> For more information on `alias_name` and `alias_label`, check out our [User Aliases]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases) documentation.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ### Endpoint request body with new user alias object specification

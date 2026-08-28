@@ -3,7 +3,7 @@ nav_title: Brand guidelines
 article_title: Brand guidelines
 page_order: 1
 page_type: reference
-description: "This reference article describes how to create, manage, and use brand guidelines that Operator applies when generating copy, templates, and images."
+description: "This reference article describes how to create, manage, and add brand guidelines as context for Operator and agents."
 ---
 
 # Brand guidelines
@@ -58,8 +58,10 @@ You can edit brand guidelines by selecting them on the **Brand Guidelines** page
 
 ## Using brand guidelines
 
-When composing a message, open Operator to [generate copy]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) and select your brand guideline in the **Apply brand guideline** dropdown. If you designate a specific brand guideline as the default, Braze automatically selects it in the dropdown, but you can choose a different guideline.
+In the Operator chat panel, select <i class="fa-regular fa-plus"></i>&nbsp;**Add context for Operator**, then choose one or more guidelines under **Brand guidelines**. Operator applies the guidelines you select to generated copy, templates, and images. By default, nothing is selected. 
 
-!["Operator with "Important Alerts!!" selected as the brand guideline.]({% image_buster /assets/img/guidelines_ai_assistant.png %})
+![Selecting brand guidelines in the Operator chat panel.]({% image_buster /assets/img/operator/operator_brand_guidelines.png %})
+
+When you configure an agent, select brand guidelines under [Add context]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources) so the agent follows that voice and style. Agent Console selects the workspace default for you.
 
 {% multi_lang_include brazeai/generative_ai/policy.md %}

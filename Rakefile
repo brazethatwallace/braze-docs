@@ -110,12 +110,39 @@ end
 # Post-build sanity check: confirms the llms.txt / llms-full.txt files the
 # llms_txt_generator plugin is supposed to emit are actually present on disk.
 # Only enforced for the English build (other locales don't generate them).
+# Collection list and output filenames come from _data/llms_config.yml.
 def verify_llms_txt_artifacts(lang)
   return unless lang == 'en'
   return if %w[1 true yes].include?(ENV.fetch('SKIP_LLMS_TXT_VERIFY', '').downcase)
 
-  expected = %w[user_guide developer_guide api partners releases].flat_map do |collection|
-    %W[_site/#{collection}/llms.txt _site/#{collection}/llms-full.txt]
+  config_path = File.join('_data', 'llms_config.yml')
+  unless File.exist?(config_path)
+    abort "LLMS verify: missing #{config_path}; cannot determine expected artifacts."
+  end
+
+  require 'yaml'
+  config = YAML.safe_load(File.read(config_path), aliases: true)
+  unless config.is_a?(Hash)
+    abort "LLMS verify: #{config_path} must be a YAML mapping; got #{config.class}."
+  end
+
+  collections = Array(config['collections']).filter_map do |entry|
+    next unless entry.is_a?(Hash)
+    name = entry['name'].to_s.strip
+    name.empty? ? nil : name
+  end
+  if collections.empty?
+    abort "LLMS verify: no collections listed in #{config_path}."
+  end
+
+  output_files = config['output_files'].is_a?(Hash) ? config['output_files'] : {}
+  index_name = output_files['index'].to_s.strip
+  index_name = 'llms.txt' if index_name.empty?
+  full_name = output_files['full'].to_s.strip
+  full_name = 'llms-full.txt' if full_name.empty?
+
+  expected = collections.flat_map do |collection|
+    %W[_site/#{collection}/#{index_name} _site/#{collection}/#{full_name}]
   end
 
   missing = expected.reject { |path| File.exist?(path) && File.size(path) > 0 }
