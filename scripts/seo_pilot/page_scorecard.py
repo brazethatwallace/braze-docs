@@ -21,7 +21,7 @@ from collections import defaultdict
 from pathlib import Path
 from urllib.parse import urlparse
 
-from meta_exempt import skips_seo_meta
+from meta_exempt import skips_seo_audit
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DOCS_ROOT = REPO_ROOT / "_docs"
@@ -324,6 +324,9 @@ def load_pages_file(path: Path) -> list[str]:
 
 
 def page_skip_reason(md_path: Path) -> str | None:
+    rel = str(md_path.relative_to(REPO_ROOT)).replace("\\", "/")
+    if skips_seo_audit(rel):
+        return "archive_docs (unpublished)"
     if not md_path.is_file():
         return "missing_file"
     text = md_path.read_text(encoding="utf-8", errors="replace")

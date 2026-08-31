@@ -10,7 +10,7 @@ import re
 import sys
 from pathlib import Path
 
-from meta_exempt import parse_frontmatter, skips_seo_meta
+from meta_exempt import parse_frontmatter, skips_seo_audit, skips_seo_meta
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 FRONTMATTER_RE = re.compile(r"^(---\s*\n)(.*?)(\n---\s*\n)", re.DOTALL)
@@ -225,6 +225,8 @@ def main() -> int:
 
     changed_files: list[str] = []
     for rel, fixes in sorted(meta_fixes.items()):
+        if skips_seo_audit(rel):
+            continue
         md = REPO_ROOT / rel
         if not md.is_file():
             print(f"Skip missing {rel}", file=sys.stderr)
@@ -241,6 +243,8 @@ def main() -> int:
             changed_files.append(f"{rel} (meta: {applied_meta}, links: {link_count})")
 
     for rel, rows in sorted(link_by_file.items()):
+        if skips_seo_audit(rel):
+            continue
         if rel in meta_fixes:
             continue
         md = REPO_ROOT / rel

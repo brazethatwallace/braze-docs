@@ -14,7 +14,7 @@ import re
 import sys
 from pathlib import Path
 
-from meta_exempt import parse_frontmatter, skip_meta_reason, skips_seo_meta
+from meta_exempt import parse_frontmatter, skip_meta_reason, skips_seo_audit, skips_seo_meta
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
@@ -253,6 +253,9 @@ def main() -> int:
         md_path = REPO_ROOT / page
         if not md_path.is_file():
             print(f"Skip missing: {page}", file=sys.stderr)
+            continue
+        if skips_seo_audit(page):
+            print(f"Skip archived (unpublished): {page}", file=sys.stderr)
             continue
         text = md_path.read_text(encoding="utf-8", errors="replace")
         fm = parse_frontmatter(text)

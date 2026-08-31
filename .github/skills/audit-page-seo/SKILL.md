@@ -42,6 +42,8 @@ Follow [docs/contributing/style_guide/seo_aeo_page_template.md](../../docs/contr
 
 **Meta-exempt pages** — skip `description` / `article_title` recommendations and auto-apply for `layout: redirect`, `bare`, `broken_page`, `blank_config`, and `config_only: true` stubs (`scripts/seo_pilot/meta_exempt.py`). Redirect layouts are `noindex` and do not render meta description.
 
+**Archived pages** — skip all audit/apply steps for paths containing `/archive_docs/` (unpublished hidden archive content).
+
 ## Input files
 
 See [scripts/seo_pilot/README.md](../../scripts/seo_pilot/README.md) for GSC, Algolia, and support CSV formats.

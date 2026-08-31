@@ -9,6 +9,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from meta_exempt import skips_seo_audit
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DOCS_ROOT = REPO_ROOT / "_docs"
 TEMP = REPO_ROOT / "scripts/temp"
@@ -22,7 +24,11 @@ def run(cmd: list[str], *, check: bool = True) -> subprocess.CompletedProcess[st
 def folder_pages(folder: str) -> Path:
     pages_file = TEMP / f"pages-{folder}.txt"
     pages_file.parent.mkdir(parents=True, exist_ok=True)
-    paths = sorted((DOCS_ROOT / folder).rglob("*.md"))
+    paths = sorted(
+        p
+        for p in (DOCS_ROOT / folder).rglob("*.md")
+        if not skips_seo_audit(str(p.relative_to(REPO_ROOT)))
+    )
     pages_file.write_text("\n".join(str(p.relative_to(REPO_ROOT)) for p in paths) + "\n", encoding="utf-8")
     return pages_file
 

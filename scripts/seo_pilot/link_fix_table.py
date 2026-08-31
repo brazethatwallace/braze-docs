@@ -18,6 +18,8 @@ import sys
 from pathlib import Path
 from urllib.parse import urlparse
 
+from meta_exempt import skips_seo_audit
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 REDIRECT_JS = REPO_ROOT / "assets" / "js" / "broken_redirect_list.js"
 DOCS_ROOT = REPO_ROOT / "_docs"
@@ -223,6 +225,8 @@ def main() -> int:
             md_files = [p for p in md_files if str(p.relative_to(REPO_ROOT)) in page_filter]
         for md_path in md_files:
             rel = str(md_path.relative_to(REPO_ROOT))
+            if skips_seo_audit(rel):
+                continue
             content = md_path.read_text(encoding="utf-8", errors="replace")
             for link, text in scan_file_links(md_path):
                 full = ensure_docs_path(link)
@@ -249,6 +253,8 @@ def main() -> int:
         broken = load_broken_csv(args.broken_links)
         for row in broken:
             source = row.get("File", "").strip()
+            if skips_seo_audit(source):
+                continue
             if page_filter and source not in page_filter:
                 continue
             current = row.get("Broken Link", "").strip()
