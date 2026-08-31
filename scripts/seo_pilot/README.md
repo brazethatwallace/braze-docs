@@ -132,6 +132,8 @@ python3 scripts/seo_pilot/apply_wave2_no_approval.py \
 
 Applies `article_title` / `description` changes from audit packets and `redirect_resolved` rows from the link fix CSV. Delete recommendation packets before opening the content PR.
 
+**Meta-exempt pages** (`layout: redirect`, `bare`, `broken_page`, `blank_config`, or `config_only: true`) are skipped for description/title recommendations and fixes. See `meta_exempt.py`.
+
 ## Typical workflow
 
 ```bash

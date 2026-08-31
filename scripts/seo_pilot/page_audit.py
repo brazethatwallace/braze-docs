@@ -14,6 +14,8 @@ import re
 import sys
 from pathlib import Path
 
+from meta_exempt import parse_frontmatter, skip_meta_reason, skips_seo_meta
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
 FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
@@ -106,6 +108,8 @@ def audit_page(md_path: Path, link_rows: list[dict]) -> str:
 
     has_faq = bool(FAQ_HEADING_RE.search(body)) or fm.get("page_type", "").upper() == "FAQ"
     page_links = [r for r in link_rows if r.get("source_file") == str(rel)]
+    meta_exempt = skips_seo_meta(fm)
+    meta_exempt_reason = skip_meta_reason(fm)
 
     lines = [
         f"# SEO/AEO recommendation: {article_title or h1}",
@@ -119,18 +123,23 @@ def audit_page(md_path: Path, link_rows: list[dict]) -> str:
         "|-------|---------|-------------|-----------|",
     ]
 
-    if not description:
-        rec = suggest_description(article_title, h1, intro)
-        lines.append(f"| `description` | *(missing)* | `{rec}` | Required for search snippets |")
-    elif len(description) > 150:
-        rec = description[:147].rsplit(" ", 1)[0] + "."
-        lines.append(f"| `description` | `{description[:60]}...` ({len(description)} chars) | `{rec}` | Over 150-character limit |")
+    if meta_exempt:
+        lines.append(f"| Meta | *(exempt)* | — | {meta_exempt_reason} |")
+    else:
+        if not description:
+            rec = suggest_description(article_title, h1, intro)
+            lines.append(f"| `description` | *(missing)* | `{rec}` | Required for search snippets |")
+        elif len(description) > 150:
+            rec = description[:147].rsplit(" ", 1)[0] + "."
+            lines.append(
+                f"| `description` | `{description[:60]}...` ({len(description)} chars) | `{rec}` | Over 150-character limit |"
+            )
 
-    if article_title and h1 and article_title.lower() != h1.lower():
-        rec_title = h1 if len(h1) <= 70 else article_title
-        lines.append(
-            f"| `article_title` | `{article_title}` | `{rec_title}` | Align title tag with H1 intent |"
-        )
+        if article_title and h1 and article_title.lower() != h1.lower():
+            rec_title = h1 if len(h1) <= 70 else article_title
+            lines.append(
+                f"| `article_title` | `{article_title}` | `{rec_title}` | Align title tag with H1 intent |"
+            )
 
     if not has_faq and "faq" not in str(rel).lower():
         lines.append("| `page_type` | *(unset or not FAQ)* | — | No change unless promoting to FAQ hub |")
@@ -244,6 +253,12 @@ def main() -> int:
         md_path = REPO_ROOT / page
         if not md_path.is_file():
             print(f"Skip missing: {page}", file=sys.stderr)
+            continue
+        text = md_path.read_text(encoding="utf-8", errors="replace")
+        fm = parse_frontmatter(text)
+        page_links = [r for r in link_rows if r.get("source_file") == page]
+        if skips_seo_meta(fm) and not page_links:
+            print(f"Skip meta-exempt (no links): {page}", file=sys.stderr)
             continue
         content = audit_page(md_path, link_rows)
         out_name = slugify(md_path) + ".md"

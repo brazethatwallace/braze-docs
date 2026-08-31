@@ -40,6 +40,8 @@ Follow [docs/contributing/style_guide/seo_aeo_page_template.md](../../docs/contr
 | No-approval | `description`, verified link fixes, heading levels, `search_rank` |
 | Approval-needed | Opening answer rewrites, new FAQ blocks, section reorganization |
 
+**Meta-exempt pages** — skip `description` / `article_title` recommendations and auto-apply for `layout: redirect`, `bare`, `broken_page`, `blank_config`, and `config_only: true` stubs (`scripts/seo_pilot/meta_exempt.py`). Redirect layouts are `noindex` and do not render meta description.
+
 ## Input files
 
 See [scripts/seo_pilot/README.md](../../scripts/seo_pilot/README.md) for GSC, Algolia, and support CSV formats.

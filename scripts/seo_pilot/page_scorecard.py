@@ -21,6 +21,8 @@ from collections import defaultdict
 from pathlib import Path
 from urllib.parse import urlparse
 
+from meta_exempt import skips_seo_meta
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DOCS_ROOT = REPO_ROOT / "_docs"
 BROKEN_LINKS_CSV = REPO_ROOT / "scripts" / "temp" / "broken-links.csv"
@@ -222,6 +224,8 @@ def load_broken_link_counts() -> dict[str, int]:
 
 def metadata_penalty(fm: dict[str, str], body: str) -> tuple[float, list[str]]:
     """Higher penalty = more headroom / needs work."""
+    if skips_seo_meta(fm):
+        return 0.0, []
     penalty = 0.0
     notes: list[str] = []
     desc = fm.get("description", "").strip()

@@ -10,6 +10,8 @@ import re
 import sys
 from pathlib import Path
 
+from meta_exempt import parse_frontmatter, skips_seo_meta
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 FRONTMATTER_RE = re.compile(r"^(---\s*\n)(.*?)(\n---\s*\n)", re.DOTALL)
 META_ROW_RE = re.compile(
@@ -94,7 +96,13 @@ def parse_recommendations(rec_dir: Path) -> dict[str, dict[str, str]]:
                 if current != recommended:
                     page_fixes[field] = recommended
         if page_fixes:
-            fixes[rel] = page_fixes
+            md_path = REPO_ROOT / rel
+            if md_path.is_file() and skips_seo_meta(parse_frontmatter(md_path.read_text(encoding="utf-8"))):
+                page_fixes = {
+                    k: v for k, v in page_fixes.items() if k not in ("description", "article_title")
+                }
+            if page_fixes:
+                fixes[rel] = page_fixes
     return fixes
 
 
@@ -222,6 +230,10 @@ def main() -> int:
             print(f"Skip missing {rel}", file=sys.stderr)
             continue
         text = md.read_text(encoding="utf-8")
+        if skips_seo_meta(parse_frontmatter(text)):
+            fixes = {k: v for k, v in fixes.items() if k not in ("description", "article_title")}
+            if not fixes:
+                continue
         new_text, applied_meta = apply_frontmatter_fixes(text, fixes)
         new_text, link_count = apply_link_fixes(new_text, link_by_file.get(rel, []))
         if new_text != text:
