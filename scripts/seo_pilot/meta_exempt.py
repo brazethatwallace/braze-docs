@@ -16,6 +16,7 @@ UNPUBLISHED_PATH_MARKERS = ("/archive_docs/", "/archived_layouts/")
 PROTECTED_DOC_PATHS = frozenset(
     {
         "_docs/_hidden/other/support_contact.md",
+        "_docs/_hidden/other/feedback.md",
     }
 )
 
