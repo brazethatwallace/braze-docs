@@ -42,7 +42,7 @@ Follow [docs/contributing/style_guide/seo_aeo_page_template.md](../../docs/contr
 
 **Meta-exempt pages** — skip `description` / `article_title` recommendations and auto-apply for `layout: redirect`, `bare`, `broken_page`, `blank_config`, and `config_only: true` stubs (`scripts/seo_pilot/meta_exempt.py`). Redirect layouts are `noindex` and do not render meta description.
 
-**Archived pages** — skip all audit/apply steps for paths containing `/archive_docs/` or `/archived_layouts/` (unpublished hidden archive content). Skip **`support_contact.md`**, **`feedback.md`**, and **`documentation_request.md`** under `_docs/_hidden/other/` (protected functional pages; do not auto-edit).
+**Unpublished paths** — skip audit/apply for `/archive_docs/`, `/archived_layouts/`, and `/_unlisted_docs/`. Skip **`support_contact.md`**, **`feedback.md`**, and **`documentation_request.md`** under `_docs/_hidden/other/` (protected functional pages; do not auto-edit).
 
 ## Input files
 

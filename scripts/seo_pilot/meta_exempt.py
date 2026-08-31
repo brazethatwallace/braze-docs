@@ -10,7 +10,7 @@ FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 SKIP_META_LAYOUTS = frozenset({"redirect", "bare", "blank_config", "broken_page"})
 
 # Unpublished archived hidden content (not in public sitemap).
-UNPUBLISHED_PATH_MARKERS = ("/archive_docs/", "/archived_layouts/")
+UNPUBLISHED_PATH_MARKERS = ("/archive_docs/", "/archived_layouts/", "/_unlisted_docs/")
 
 # Functional pages excluded from automated SEO edits (see style-qa / create-pr skills).
 PROTECTED_DOC_PATHS = frozenset(
