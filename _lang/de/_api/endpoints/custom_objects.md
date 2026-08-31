@@ -35,13 +35,13 @@ guide_menu_list:
   - name: "GET: Angepasstes Objekt abrufen"
     link: /docs/api/endpoints/custom_objects/objects/get_custom_object
     image: /assets/img/braze_icons/search-md.svg
-  - name: "POST: Benutzerdefiniertes Objekt erstellen"
+  - name: "POST: Angepasstes Objekt erstellen"
     link: /docs/api/endpoints/custom_objects/objects/post_create_custom_object
     image: /assets/img/braze_icons/check-square-broken.svg
-  - name: "PUT: Benutzerdefiniertes Objekt ersetzen"
+  - name: "PUT: Angepasstes Objekt ersetzen"
     link: /docs/api/endpoints/custom_objects/objects/put_replace_custom_object
     image: /assets/img/braze_icons/refresh-ccw-04.svg
-  - name: "PATCH: Benutzerdefiniertes Objekt aktualisieren"
+  - name: "PATCH: Angepasstes Objekt aktualisieren"
     link: /docs/api/endpoints/custom_objects/objects/patch_update_custom_object
     image: /assets/img/braze_icons/user-edit.svg
   - name: "DELETE: Angepasstes Objekt löschen"

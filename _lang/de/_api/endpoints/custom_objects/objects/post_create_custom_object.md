@@ -1,19 +1,19 @@
 ---
-nav_title: "POST: Benutzerdefiniertes Objekt erstellen"
-article_title: "POST: Benutzerdefiniertes Objekt erstellen"
+nav_title: "POST: Angepasstes Objekt erstellen"
+article_title: "POST: Angepasstes Objekt erstellen"
 search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum Endpunkt „Benutzerdefiniertes Objekt erstellen“."
+description: "Dieser Artikel beschreibt Details zum Endpunkt „Angepasstes Objekt erstellen“."
 ---
 {% api %}
-# Benutzerdefiniertes Objekt erstellen {#create-custom-object}
+# Angepasstes Objekt erstellen {#create-custom-object}
 {% apimethod post %}
 /custom_objects/objects/{type_name}
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um ein benutzerdefiniertes Objekt für einen Typ zu erstellen.
+> Verwenden Sie diesen Endpunkt, um ein angepasstes Objekt für einen Typ zu erstellen.
 
 {% alert important %}
 Custom Objects befindet sich derzeit im Early Access. Ihr Workspace muss aktiviert sein, bevor die API-Schlüssel-Berechtigungen für Custom Objects unter **Einstellungen** > **API-Schlüssel** angezeigt werden.
@@ -33,8 +33,8 @@ Die folgende Tabelle listet und beschreibt die Pfadparameter für den Endpunkt `
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `type_name` | Erforderlich | String | Maschinenname des benutzerdefinierten Objekttyps |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfadparameter für benutzerdefiniertes Objekt erstellen" }
+| `type_name` | Erforderlich | String | Maschinenname des angepassten Objekttyps |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfadparameter für angepasstes Objekt erstellen" }
 
 ## Anfrageparameter {#request-parameters}
 
@@ -45,7 +45,7 @@ Die folgende Tabelle listet und beschreibt die JSON-Request-Body-Parameter für 
 | `external_id` | Erforderlich | String | Objektbezeichner, eindeutig innerhalb des Typs |
 | `attributes` | Erforderlich | Objekt | Feldnamen-basierte Werte, die gegen das Typschema validiert werden |
 | `display_name` | Optional | String | Anzeigename für das Objekt. Wenn der Typ ein Anzeigename-Quellfeld besitzt, hat der Wert dieses Felds Vorrang. Standardmäßig `external_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter für benutzerdefiniertes Objekt erstellen" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter für angepasstes Objekt erstellen" }
 
 ## Beispielanfrage {#example-request}
 
@@ -104,11 +104,11 @@ Die folgende Tabelle listet und beschreibt die Felder in einer erfolgreichen Ant
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `custom_object` | Erforderlich | Objekt | Erstellter benutzerdefinierter Objektdatensatz |
-| `custom_object.type_name` | Erforderlich | String | Maschinenname des benutzerdefinierten Objekttyps |
-| `custom_object.external_id` | Erforderlich | String | Bezeichner des benutzerdefinierten Objekts |
+| `custom_object` | Erforderlich | Objekt | Erstellter angepasster Objektdatensatz |
+| `custom_object.type_name` | Erforderlich | String | Maschinenname des angepassten Objekttyps |
+| `custom_object.external_id` | Erforderlich | String | Bezeichner des angepassten Objekts |
 | `custom_object.attributes` | Erforderlich | Objekt | Gespeicherte Objektattribute, nach Feldnamen geordnet |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Antwortparameter für benutzerdefiniertes Objekt erstellen" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Antwortparameter für angepasstes Objekt erstellen" }
 
 ## Fehler {#errors}
 
@@ -123,5 +123,5 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und wie Sie die
 | `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch die Allowlist blockiert | Stellen Sie sicher, dass der Schlüssel über `custom_objects.create` verfügt und Ihre Quell-IP in der Allowlist des Schlüssels enthalten ist, sofern konfiguriert. |
 | `429` | Rate-Limit überschritten | Versuchen Sie es nach `X-RateLimit-Reset` erneut und reduzieren Sie die Anfragehäufigkeit. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler beim Erstellen benutzerdefinierter Objekte" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler beim Erstellen angepasster Objekte" }
 {% endapi %}

@@ -1,19 +1,19 @@
 ---
-nav_title: "PUT: Benutzerdefiniertes Objekt ersetzen"
-article_title: "PUT: Benutzerdefiniertes Objekt ersetzen"
+nav_title: "PUT: Angepasstes Objekt ersetzen"
+article_title: "PUT: Angepasstes Objekt ersetzen"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt den Endpunkt „Benutzerdefiniertes Objekt ersetzen“."
+description: "Dieser Artikel beschreibt den Endpunkt „Angepasstes Objekt ersetzen“."
 ---
 {% api %}
-# Benutzerdefiniertes Objekt ersetzen {#replace-custom-object}
+# Angepasstes Objekt ersetzen {#replace-custom-object}
 {% apimethod put %}
 /custom_objects/objects/{type_name}/{external_id}
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um ein benutzerdefiniertes Objekt mit vollständiger Attributersetzungssemantik zu erstellen oder zu ersetzen.
+> Verwenden Sie diesen Endpunkt, um ein angepasstes Objekt mit vollständiger Attributersetzungssemantik zu erstellen oder zu ersetzen.
 
 {% alert important %}
 Custom Objects befindet sich derzeit im Early Access. Ihr Workspace muss aktiviert sein, bevor die API-Schlüssel-Berechtigungen für Custom Objects unter **Einstellungen** > **API-Schlüssel** angezeigt werden.
@@ -33,9 +33,9 @@ Die folgende Tabelle listet und beschreibt die Pfadparameter für den Endpunkt `
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `type_name` | Erforderlich | String | Maschinenname des benutzerdefinierten Objekttyps |
+| `type_name` | Erforderlich | String | Maschinenname des angepassten Objekttyps |
 | `external_id` | Erforderlich | String | Objektbezeichner |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfadparameter für benutzerdefiniertes Objekt ersetzen" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfadparameter für angepasstes Objekt ersetzen" }
 
 ## Anfrageparameter {#request-parameters}
 
@@ -45,7 +45,7 @@ Die folgende Tabelle listet und beschreibt die JSON-Anfragebody-Parameter für d
 |---|---|---|---|
 | `attributes` | Erforderlich | Objekt | Vollständige Objektattribute. Ausgelassene Felder werden gelöscht. |
 | `display_name` | Optional | String | Anzeigename für das Objekt. Wenn der Typ ein Quellenfeld für den Anzeigenamen hat, hat der Wert dieses Feldes Vorrang. Standardmäßig `external_id`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter für benutzerdefiniertes Objekt ersetzen" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter für angepasstes Objekt ersetzen" }
 
 ## Beispielanfrage {#example-request}
 
@@ -100,11 +100,11 @@ Die folgende Tabelle listet und beschreibt die Felder in einer erfolgreichen Ant
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `custom_object` | Erforderlich | Objekt | Erstellter oder ersetzter Datensatz des benutzerdefinierten Objekts |
-| `custom_object.type_name` | Erforderlich | String | Maschinenname des benutzerdefinierten Objekttyps |
-| `custom_object.external_id` | Erforderlich | String | Bezeichner des benutzerdefinierten Objekts |
+| `custom_object` | Erforderlich | Objekt | Erstellter oder ersetzter Datensatz des angepassten Objekts |
+| `custom_object.type_name` | Erforderlich | String | Maschinenname des angepassten Objekttyps |
+| `custom_object.external_id` | Erforderlich | String | Bezeichner des angepassten Objekts |
 | `custom_object.attributes` | Erforderlich | Objekt | Gespeicherte Objektattribute, nach Feldname indiziert |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Antwortparameter für benutzerdefiniertes Objekt ersetzen" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Antwortparameter für angepasstes Objekt ersetzen" }
 
 ## Fehler {#errors}
 
@@ -118,5 +118,5 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und wie Sie die
 | `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch eine Zulassungsliste blockiert | Stellen Sie sicher, dass der Schlüssel die Berechtigung `custom_objects.update` hat und dass Ihre Quell-IP in der Schlüssel-Zulassungsliste enthalten ist, falls konfiguriert. |
 | `429` | Rate-Limit überschritten | Wiederholen Sie die Anfrage nach `X-RateLimit-Reset` und reduzieren Sie die Anfragehäufigkeit. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler beim Ersetzen benutzerdefinierter Objekte" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler beim Ersetzen angepasster Objekte" }
 {% endapi %}

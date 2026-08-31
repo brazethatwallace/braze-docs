@@ -1,22 +1,22 @@
 ---
-nav_title: "PATCH: Benutzerdefiniertes Objekt aktualisieren"
-article_title: "PATCH: Benutzerdefiniertes Objekt aktualisieren"
+nav_title: "PATCH: Angepasstes Objekt aktualisieren"
+article_title: "PATCH: Angepasstes Objekt aktualisieren"
 search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum Endpunkt „Benutzerdefiniertes Objekt aktualisieren“."
+description: "Dieser Artikel beschreibt Details zum Endpunkt „Angepasstes Objekt aktualisieren“."
 ---
 {% api %}
-# Benutzerdefiniertes Objekt aktualisieren {#update-custom-object}
+# Angepasstes Objekt aktualisieren {#update-custom-object}
 {% apimethod patch %}
 /custom_objects/objects/{type_name}/{external_id}
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um Attribute in ein bestehendes benutzerdefiniertes Objekt zusammenzuführen.
+> Verwenden Sie diesen Endpunkt, um Attribute in ein bestehendes angepasstes Objekt zusammenzuführen.
 
 {% alert important %}
-Benutzerdefinierte Objekte befinden sich derzeit im Early Access. Ihr Workspace muss aktiviert sein, bevor die API-Schlüssel-Berechtigungen für benutzerdefinierte Objekte unter **Einstellungen** > **API-Schlüssel** angezeigt werden.
+Angepasste Objekte befinden sich derzeit im Early Access. Ihr Workspace muss aktiviert sein, bevor die API-Schlüssel-Berechtigungen für angepasste Objekte unter **Einstellungen** > **API-Schlüssel** angezeigt werden.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -25,7 +25,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 ## Rate-Limit
 
-Dieser Endpunkt befindet sich im Schreib-Bucket für benutzerdefinierte Objekte mit einem Standardlimit von 50 Anfragen pro Minute.
+Dieser Endpunkt befindet sich im Schreib-Bucket für angepasste Objekte mit einem Standardlimit von 50 Anfragen pro Minute.
 
 ## Pfadparameter {#path-parameters}
 
@@ -33,9 +33,9 @@ Die folgende Tabelle listet und beschreibt die Pfadparameter für den Endpunkt `
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `type_name` | Erforderlich | String | Maschinenname des benutzerdefinierten Objekttyps |
+| `type_name` | Erforderlich | String | Maschinenname des angepassten Objekttyps |
 | `external_id` | Erforderlich | String | Objektbezeichner |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfadparameter für benutzerdefiniertes Objekt aktualisieren" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfadparameter für angepasstes Objekt aktualisieren" }
 
 ## Anfrageparameter {#request-parameters}
 
@@ -45,7 +45,7 @@ Die folgende Tabelle listet und beschreibt die JSON-Anfragebody-Parameter für d
 |---|---|---|---|
 | `attributes` | Erforderlich | Objekt | Felder der obersten Ebene zum Zusammenführen |
 | `display_name` | Optional | String | Anzeigename für das Objekt. Wenn der Typ ein Quellfeld für den Anzeigenamen hat, hat der Wert dieses Feldes Vorrang. Wird er weggelassen, bleibt der bestehende Anzeigename erhalten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter für benutzerdefiniertes Objekt aktualisieren" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter für angepasstes Objekt aktualisieren" }
 
 ## Beispielanfrage {#example-request}
 
@@ -96,11 +96,11 @@ Die folgende Tabelle listet und beschreibt die Felder in einer erfolgreichen Ant
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `custom_object` | Erforderlich | Objekt | Aktualisierter Datensatz des benutzerdefinierten Objekts |
-| `custom_object.type_name` | Erforderlich | String | Maschinenname des benutzerdefinierten Objekttyps |
-| `custom_object.external_id` | Erforderlich | String | Bezeichner des benutzerdefinierten Objekts |
+| `custom_object` | Erforderlich | Objekt | Aktualisierter Datensatz des angepassten Objekts |
+| `custom_object.type_name` | Erforderlich | String | Maschinenname des angepassten Objekttyps |
+| `custom_object.external_id` | Erforderlich | String | Bezeichner des angepassten Objekts |
 | `custom_object.attributes` | Erforderlich | Objekt | Objektattribute nach der Zusammenführung |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Antwortparameter für benutzerdefiniertes Objekt aktualisieren" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Antwortparameter für angepasstes Objekt aktualisieren" }
 
 ## Fehler {#errors}
 
@@ -113,5 +113,5 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und deren Beheb
 | `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch eine Allowlist blockiert | Stellen Sie sicher, dass der Schlüssel über `custom_objects.update` verfügt und dass Ihre Quell-IP auf der Allowlist des Schlüssels steht, falls konfiguriert. |
 | `429` | Rate-Limit überschritten | Versuchen Sie es nach `X-RateLimit-Reset` erneut und reduzieren Sie die Anfragehäufigkeit. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler beim Aktualisieren benutzerdefinierter Objekte" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler beim Aktualisieren angepasster Objekte" }
 {% endapi %}
