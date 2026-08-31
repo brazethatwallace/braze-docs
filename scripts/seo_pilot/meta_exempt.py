@@ -17,6 +17,7 @@ PROTECTED_DOC_PATHS = frozenset(
     {
         "_docs/_hidden/other/support_contact.md",
         "_docs/_hidden/other/feedback.md",
+        "_docs/_hidden/other/documentation_request.md",
     }
 )
 

@@ -85,11 +85,13 @@ def parse_recommendations(rec_dir: Path) -> dict[str, dict[str, str]]:
             current_raw = current_raw.strip()
             recommended = unescape_table(recommended)
             if field == "description":
+                if recommended.strip().startswith("<"):
+                    continue
                 if "(missing)" in current_raw:
                     if recommended.startswith(("Content Cards >", "Learn about")):
                         recommended = recommended.split(">", 1)[-1].strip()
                     page_fixes[field] = recommended
-                elif "chars)" in current_raw or len(recommended) <= 150:
+                elif "chars)" in current_raw:
                     page_fixes[field] = recommended
             elif field == "article_title":
                 current = unescape_table(current_raw.strip("`"))
