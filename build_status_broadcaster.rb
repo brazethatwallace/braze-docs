@@ -4,12 +4,15 @@ require 'filewatcher'
 require 'json'
 require 'singleton'
 
-# Watches the Jekyll build-status file and broadcasts SSE events to connected clients.
+# Watches the Jekyll build-status files and broadcasts SSE events to connected clients.
 class BuildStatusBroadcaster
   include Singleton
 
   HEARTBEAT_INTERVAL = 15
-  BUILD_STATUS_FILE = File.expand_path('.dev/build-complete', __dir__)
+  BUILD_STATUS_DIR = File.expand_path('.dev', __dir__)
+  BUILD_STARTED_FILE = File.join(BUILD_STATUS_DIR, 'build-started')
+  BUILD_COMPLETE_FILE = File.join(BUILD_STATUS_DIR, 'build-complete')
+  BUILD_STATUS_FILE = BUILD_COMPLETE_FILE
 
   def initialize
     @mutex = Mutex.new
@@ -21,12 +24,20 @@ class BuildStatusBroadcaster
     return if @watcher_thread&.alive?
 
     @watcher_thread = Thread.new do
-      FileUtils.mkdir_p(File.dirname(BUILD_STATUS_FILE))
-      FileUtils.touch(BUILD_STATUS_FILE) unless File.exist?(BUILD_STATUS_FILE)
+      FileUtils.mkdir_p(BUILD_STATUS_DIR)
+      [BUILD_STARTED_FILE, BUILD_COMPLETE_FILE].each do |path|
+        FileUtils.touch(path) unless File.exist?(path)
+      end
 
-      filewatcher = Filewatcher.new([BUILD_STATUS_FILE])
-      filewatcher.watch do |_changes|
-        broadcast_latest
+      filewatcher = Filewatcher.new([BUILD_STARTED_FILE, BUILD_COMPLETE_FILE])
+      filewatcher.watch do |changes|
+        changes.each do |filename, _event|
+          if filename.end_with?('build-started')
+            broadcast_started
+          elsif filename.end_with?('build-complete')
+            broadcast_complete
+          end
+        end
       end
     rescue StandardError => e
       warn "Build status watcher error: #{e.message}"
@@ -52,13 +63,32 @@ class BuildStatusBroadcaster
     @mutex.synchronize { @clients.delete(out) }
   end
 
+  def broadcast_started
+    started_at = read_timestamp(BUILD_STARTED_FILE)
+    broadcast_event('build-started', started_at: started_at)
+  end
+
+  def broadcast_complete
+    completed_at = read_timestamp(BUILD_COMPLETE_FILE)
+    broadcast_event('build-complete', completed_at: completed_at)
+  end
+
   def broadcast_latest
-    completed_at = read_completed_at
-    payload = "event: build-complete\ndata: #{JSON.generate(completed_at: completed_at)}\n\n"
+    broadcast_complete
+  end
+
+  def read_completed_at
+    read_timestamp(BUILD_COMPLETE_FILE)
+  end
+
+  private
+
+  def broadcast_event(event_name, payload)
+    data = "event: #{event_name}\ndata: #{JSON.generate(payload)}\n\n"
 
     @mutex.synchronize do
       @clients.each do |client|
-        client << payload
+        client << data
         client.flush if client.respond_to?(:flush)
       rescue StandardError
         @clients.delete(client)
@@ -66,18 +96,16 @@ class BuildStatusBroadcaster
     end
   end
 
-  def read_completed_at
-    return Time.now.to_f unless File.exist?(BUILD_STATUS_FILE)
+  def read_timestamp(path)
+    return Time.now.to_f unless File.exist?(path)
 
-    content = File.read(BUILD_STATUS_FILE).strip
+    content = File.read(path).strip
     return Time.now.to_f if content.empty?
 
     Float(content)
   rescue ArgumentError
     Time.now.to_f
   end
-
-  private
 
   def wait_with_heartbeats(io)
     loop do

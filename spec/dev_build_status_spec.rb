@@ -26,7 +26,15 @@ RSpec.describe Jekyll::DevBuildStatus do
   it 'writes a timestamp to .dev/build-complete under the site source' do
     described_class.write_build_complete(site)
 
-    path = described_class.build_status_path(site)
+    path = described_class.build_complete_path(site)
+    expect(File).to exist(path)
+    expect(Float(File.read(path))).to be_a(Float)
+  end
+
+  it 'writes a timestamp to .dev/build-started under the site source' do
+    described_class.write_build_started(site)
+
+    path = described_class.build_started_path(site)
     expect(File).to exist(path)
     expect(Float(File.read(path))).to be_a(Float)
   end
