@@ -189,6 +189,14 @@ MMS is only displayed on the Braze dashboard when a subscription group is consid
 
 Additionally, certain situations will require Twilio to re-approve the enablement of short codes that originally didn't have MMS enabled. This approval process could take weeks.
 
+### Why does my MMS with an image fail to send?
+
+Some SMS providers validate the `Content-Type` header on image URLs. If an MMS with an image aborts, confirm the hosted image URL returns `image/png` or another supported image type (for example, with `curl -I <image-url>`). Re-host the asset in the Braze media library or on a CDN that serves the correct `Content-Type`.
+
+### Why doesn't my contact card image appear in an MMS?
+
+MMS contact card photos can fail to render when the contact card file references an image URL the recipient's device can't fetch. Create the contact card on a phone, export the file, and upload it to the media library for use in your MMS message.
+
 ## RCS
 
 ### Why doesn't my RCS message render accurately on iOS devices?
