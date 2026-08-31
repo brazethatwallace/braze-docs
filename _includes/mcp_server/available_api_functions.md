@@ -180,4 +180,17 @@ Your MCP client references these tools to interact with the Braze MCP server.
 | `update_content_block` | [`/content_blocks/update`]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) | update | Update a content block. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Content blocks" }
 
+### Operator
+
+| Tool | API endpoint | Access | Description |
+| --- | --- | --- | --- |
+| `send_operator_prompt` | N/A | update | Send a natural-language prompt to the BrazeAI Operator. Submits a background job and returns a job_id. |
+| `get_operator_result` | N/A | read | Poll for the result of a submitted Operator job using its job_id. |
+| `cancel_operator_job` | N/A | update | Cancel a running Operator job. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Operator" }
+
+{% alert important %}
+These tools are only available to customers participating in the Operator beta program. If your account does not have this feature enabled, you may receive an error when attempting to use it. To join the beta program, contact your account manager.
+{% endalert %}
+
 {% multi_lang_include mcp_server/legal_disclaimer.md %}
