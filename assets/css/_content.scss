@@ -124,6 +124,17 @@
 			}
 		}
 
+		// Reserve aspect ratio when markdown supplies width/height (CLS).
+		img[width][height] {
+			height: auto;
+			max-width: 100%;
+		}
+
+		video[width][height] {
+			height: auto;
+			max-width: 100%;
+		}
+
     span.inline-link {
       display: inline-block;
     }
