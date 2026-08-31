@@ -40950,11 +40950,6 @@
     "permanent": true
   },
   {
-    "source": "/docs/user_guide/data/cloud_ingestion/sync_accounts_data",
-    "destination": "/docs/user_guide/data/unification/cloud_ingestion/sync_accounts_data",
-    "permanent": true
-  },
-  {
     "source": "/docs/user_guide/data/cloud_ingestion/sync_catalogs_data",
     "destination": "/docs/user_guide/data/unification/cloud_ingestion/sync_catalogs_data",
     "permanent": true
@@ -41271,6 +41266,11 @@
   },
   {
     "source": "/docs/user_guide/data/unification/cloud_ingestion/overview",
+    "destination": "/docs/user_guide/data/unification/cloud_ingestion",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/data/unification/cloud_ingestion/sync_accounts_data",
     "destination": "/docs/user_guide/data/unification/cloud_ingestion",
     "permanent": true
   },

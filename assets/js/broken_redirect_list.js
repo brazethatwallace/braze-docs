@@ -3542,7 +3542,6 @@ validurls['/docs/user_guide/data/export_braze_data/export_troubleshooting'] = '/
 validurls['/docs/user_guide/data/export_braze_data/faqs'] = '/docs/user_guide/data/distribution/export_braze_data/faqs';
 validurls['/docs/user_guide/data/field_level_encryption'] = '/docs/user_guide/data/infrastructure/field_level_encryption';
 validurls['/docs/user_guide/data/braze_currents/event_glossary'] = '/docs/user_guide/data/distribution/braze_currents/event_glossary';
-validurls['/docs/user_guide/data/cloud_ingestion/sync_accounts_data'] = '/docs/user_guide/data/unification/cloud_ingestion/sync_accounts_data';
 
 
 validurls['/docs/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/canvas_persistent_entry_properties'] = '/docs/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties';
@@ -3806,6 +3805,7 @@ validurls['/docs/user_guide/administrative/app_settings/manage_your_braze_users/
 validurls['/docs/partners/message_personalization/dynamic_content/cloudinary'] = '/docs/partners/message_personalization/dynamic_content/visual_and_interactive_content/cloudinary';
 
 validurls['/docs/user_guide/data/unification/cloud_ingestion/overview'] = '/docs/user_guide/data/unification/cloud_ingestion';
+validurls['/docs/user_guide/data/unification/cloud_ingestion/sync_accounts_data/'] = '/docs/user_guide/data/unification/cloud_ingestion';
 validurls['/docs/contributing/content_management/language_translations'] = '/docs';
 
 validurls['/docs/developer_guide/sdk_integration?sdktab=xamarin'] = '/docs/developer_guide/sdk_integration?sdktab=.net%20maui';
@@ -4004,7 +4004,6 @@ validurls['/docs/user_guide/data/unification/creating_a_formula#creating-a-formu
 validurls['/docs/user_guide/data/unification/data_transformation/creating_a_transformation#creating-a-transformation'] = '/docs/user_guide/data/unification/data_transformation/creating_a_transformation#create-a-transformation';
 validurls['/docs/user_guide/data/unification/user_data/import_users#importing-users'] = '/docs/user_guide/audience/manage_audience/import_users';
 validurls['/docs/user_guide/data/unification/user_data/delete_users#deleting-users'] = '/docs/user_guide/audience/manage_audience/user_profiles/delete_users';
-validurls['/docs/user_guide/data/unification/cloud_ingestion/sync_accounts_data#syncing-account-data-using-cdi'] = '/docs/user_guide/data/unification/cloud_ingestion/sync_accounts_data#sync-account-data-using-cdi';
 validurls['/docs/user_guide/data/distribution/braze_currents/setting_up_currents#setting-up-currents'] = '/docs/user_guide/data/distribution/braze_currents/setting_up_currents#set-up-currents';
 validurls['/docs/user_guide/data/distribution/braze_currents/transferring_data_to_redshift#transferring-data-to-redshift'] = '/docs/user_guide/data/distribution/braze_currents/use_cases/transferring_data_to_redshift#transfer-data-to-redshift';
 validurls['/docs/user_guide/data/distribution/braze_currents/s3_to_snowflake#transferring-data-from-amazon-s3-to-snowflake'] = '/docs/user_guide/data/distribution/braze_currents/use_cases/s3_to_snowflake#transfer-data-from-amazon-s3-to-snowflake';
