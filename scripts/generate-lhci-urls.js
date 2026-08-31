@@ -14,6 +14,7 @@
  *
  * Usage:
  *   node scripts/generate-lhci-urls.js [--output lhci-urls.txt] [--skip-preflight]
+ *   node scripts/generate-lhci-urls.js --all [--limit N]   # every eligible sitemap URL
  */
 
 'use strict';
@@ -175,6 +176,9 @@ async function main() {
   const outputFlag      = args.indexOf('--output');
   const outputFile      = outputFlag !== -1 ? args[outputFlag + 1] : 'lhci-urls.txt';
   const skipPreflight   = args.includes('--skip-preflight');
+  const includeAll      = args.includes('--all');
+  const limitFlag       = args.indexOf('--limit');
+  const limit           = limitFlag !== -1 ? parseInt(args[limitFlag + 1], 10) : null;
 
   const sitemapPath = path.join(__dirname, '..', '_data', 'sitemap_en.json');
   if (!fs.existsSync(sitemapPath)) {
@@ -208,17 +212,29 @@ async function main() {
     console.warn(`WARNING: ${hiddenPinned.length} pinned key(s) are hidden — use public pages instead:`);
     hiddenPinned.forEach(k => console.warn(`  - ${k}`));
   }
-  const selectedKeys = new Set(
-    PINNED_KEYS.filter(k => sitemap[k] !== undefined && isEligibleKey(k))
-  );
-
-  for (const [coll, count] of Object.entries(SAMPLE_PER_COLLECTION)) {
-    if (!count) continue;
-    const pool = (byCollection[coll] || []).filter(k => !selectedKeys.has(k) && isEligibleKey(k));
-    for (const k of sample(pool, count)) selectedKeys.add(k);
+  let selectedKeys;
+  if (includeAll) {
+    selectedKeys = new Set(allKeys.filter(isEligibleKey));
+    console.log(`--all: selected ${selectedKeys.size} eligible URL(s) from sitemap`);
+  } else {
+    selectedKeys = new Set(
+      PINNED_KEYS.filter(k => sitemap[k] !== undefined && isEligibleKey(k))
+    );
+    for (const [coll, count] of Object.entries(SAMPLE_PER_COLLECTION)) {
+      if (!count) continue;
+      const pool = (byCollection[coll] || []).filter(k => !selectedKeys.has(k) && isEligibleKey(k));
+      for (const k of sample(pool, count)) selectedKeys.add(k);
+    }
   }
 
-  let urls = shuffle([...selectedKeys].map(keyToUrl));
+  let urls = includeAll
+    ? [...selectedKeys].map(keyToUrl).sort()
+    : shuffle([...selectedKeys].map(keyToUrl));
+
+  if (limit !== null && !Number.isNaN(limit) && limit > 0 && urls.length > limit) {
+    console.warn(`WARNING: --limit ${limit} truncating URL list from ${urls.length}.`);
+    urls = urls.slice(0, limit);
+  }
 
   const trailingSlashUrls = urls.filter((url) => url.endsWith('/'));
   if (trailingSlashUrls.length > 0) {
