@@ -12,9 +12,20 @@ SKIP_META_LAYOUTS = frozenset({"redirect", "bare", "blank_config", "broken_page"
 # Unpublished archived hidden content (not in public sitemap).
 UNPUBLISHED_PATH_MARKERS = ("/archive_docs/", "/archived_layouts/")
 
+# Functional pages excluded from automated SEO edits (see style-qa / create-pr skills).
+PROTECTED_DOC_PATHS = frozenset(
+    {
+        "_docs/_hidden/other/support_contact.md",
+    }
+)
+
 
 def normalize_doc_path(rel: str) -> str:
     return rel.replace("\\", "/")
+
+
+def is_protected_doc_path(rel: str) -> bool:
+    return normalize_doc_path(rel) in PROTECTED_DOC_PATHS
 
 
 def is_unpublished_doc_path(rel: str) -> bool:
@@ -29,7 +40,7 @@ def is_archive_doc_path(rel: str) -> bool:
 
 def skips_seo_audit(rel: str) -> bool:
     """True when a page should be excluded from SEO pilot audits entirely."""
-    return is_unpublished_doc_path(rel)
+    return is_protected_doc_path(rel) or is_unpublished_doc_path(rel)
 
 
 def parse_frontmatter(text: str) -> dict[str, str]:
