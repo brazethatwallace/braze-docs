@@ -10,6 +10,7 @@ import re
 import sys
 from pathlib import Path
 
+from anchor_utils import normalize_fragment, sanitize_fragment_for_target
 from meta_exempt import parse_frontmatter, skips_seo_audit, skips_seo_meta
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -99,7 +100,7 @@ def parse_recommendations(rec_dir: Path) -> dict[str, dict[str, str]]:
                     page_fixes[field] = recommended
         if page_fixes:
             md_path = REPO_ROOT / rel
-            if md_path.is_file() and skips_seo_meta(parse_frontmatter(md_path.read_text(encoding="utf-8"))):
+            if md_path.is_file() and skips_seo_meta(parse_frontmatter(md_path.read_text(encoding="utf-8")), rel):
                 page_fixes = {
                     k: v for k, v in page_fixes.items() if k not in ("description", "article_title")
                 }
@@ -161,7 +162,11 @@ def build_link_replacements(rows: list[dict]) -> list[tuple[re.Pattern[str], obj
             csv_frag: str = new_frag,
         ) -> str:
             query = f"?{csv_query}" if csv_query else (match.group("query") or "")
-            frag = f"#{csv_frag}" if csv_frag else (match.group("frag") or "")
+            raw_frag = csv_frag or (match.group("frag") or "")
+            frag_value = normalize_fragment(raw_frag.lstrip("#")) if raw_frag else ""
+            if frag_value:
+                frag_value = sanitize_fragment_for_target(tail, frag_value)
+            frag = f"#{frag_value}" if frag_value else ""
             return f"{{{{site.baseurl}}}}/{tail}{query}{frag}"
 
         def docs_replacer(
@@ -172,7 +177,11 @@ def build_link_replacements(rows: list[dict]) -> list[tuple[re.Pattern[str], obj
             csv_frag: str = new_frag,
         ) -> str:
             query = f"?{csv_query}" if csv_query else (match.group("query") or "")
-            frag = f"#{csv_frag}" if csv_frag else (match.group("frag") or "")
+            raw_frag = csv_frag or (match.group("frag") or "")
+            frag_value = normalize_fragment(raw_frag.lstrip("#")) if raw_frag else ""
+            if frag_value:
+                frag_value = sanitize_fragment_for_target(tail, frag_value)
+            frag = f"#{frag_value}" if frag_value else ""
             return f"/docs/{tail}{query}{frag}"
 
         liquid_pat = re.compile(
@@ -234,7 +243,7 @@ def main() -> int:
             print(f"Skip missing {rel}", file=sys.stderr)
             continue
         text = md.read_text(encoding="utf-8")
-        if skips_seo_meta(parse_frontmatter(text)):
+        if skips_seo_meta(parse_frontmatter(text), rel):
             fixes = {k: v for k, v in fixes.items() if k not in ("description", "article_title")}
             if not fixes:
                 continue

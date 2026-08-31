@@ -62,20 +62,32 @@ def is_truthy(value: str) -> bool:
     return value.strip().lower() in ("true", "yes", "1")
 
 
-def skips_seo_meta(fm: dict[str, str]) -> bool:
+def is_release_doc_path(rel: str) -> bool:
+    return "/_releases/" in normalize_doc_path(rel)
+
+
+def skips_seo_meta(fm: dict[str, str], rel: str = "") -> bool:
     """True when description/article_title SEO fixes should not apply."""
+    if rel and is_release_doc_path(rel):
+        return True
     layout = fm.get("layout", "").strip().lower()
     if layout in SKIP_META_LAYOUTS:
         return True
     if is_truthy(fm.get("config_only", "")):
         return True
+    if is_truthy(fm.get("noindex", "")):
+        return True
     return False
 
 
-def skip_meta_reason(fm: dict[str, str]) -> str:
+def skip_meta_reason(fm: dict[str, str], rel: str = "") -> str:
+    if rel and is_release_doc_path(rel):
+        return "release notes are historical content"
     layout = fm.get("layout", "").strip().lower()
     if layout in SKIP_META_LAYOUTS:
         return f"`layout: {layout}` does not render SEO meta"
     if is_truthy(fm.get("config_only", "")):
         return "`config_only: true` stub page"
+    if is_truthy(fm.get("noindex", "")):
+        return "`noindex: true` page"
     return ""
