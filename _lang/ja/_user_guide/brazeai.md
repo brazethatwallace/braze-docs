@@ -9,7 +9,7 @@ tool:
   - Dashboard
 
 guide_top_header: "BrazeAI<sup>TM</sup>"
-guide_top_text: "BrazeAI<sup>TM</sup>は、エンゲージメント戦略における創造性、パーソナライゼーション、最適化へのハードルを下げる、利用しやすく使いやすいツールのコレクションを提供します。BrazeAI<sup>TM</sup>の機能を活用すれば、信頼できるアドバイザーとして創造性を導き、より良い意思決定を行い、顧客のユーザーエクスペリエンスを最適化できます。"
+guide_top_text: "BrazeAI<sup>TM</sup>は、エンゲージメント戦略における創造性、パーソナライゼーション、最適化へのハードルを下げる、利用しやすく使いやすいツールのコレクションを提供します。BrazeAI<sup>TM</sup>の機能を活用すれば、信頼できるアドバイザーとして創造性を導き、より良い意思決定を行い、顧客のユーザーエクスペリエンスを最適化できます。このハブでは、生成AI、インテリジェントスイート、アイテムのおすすめ、エージェント、その他キャンペーンやキャンバスで活用できるBrazeAI機能のガイドをご覧いただけます。"
 
 guide_featured_title: "機能"
 guide_featured_list:
@@ -40,14 +40,11 @@ guide_featured_list:
   - name: 予測スイート
     link: /docs/user_guide/brazeai/predictive_suite
     image: /assets/img/braze_icons/stars-01.svg
-  - name: パーソナライズ済みパス
-    link: /docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths
-    image: /assets/img/braze_icons/chevron-up-double.svg
   - name: 勝者パス
     link: /docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path
     image: /assets/img/braze_icons/dataflow-03.svg
-  - name: 勝者バリアントとパーソナライズ済みバリアント
-    link: /docs/user_guide/messaging/ab_testing/optimizations
+  - name: BrazeAI<sup>TM</sup>で最適化
+    link: /docs/user_guide/brazeai/intelligence_suite/variant_selection
     image: /assets/img/braze_icons/trophy-01.svg
 ---
 
@@ -55,13 +52,23 @@ guide_featured_list:
 
 ## 機能の概要 {#feature-overview}
 
-| 目標 | おすすめの機能 |
+| 目標 | 推奨される機能 |
 | --- | --- |
-| ユーザーのコンテキストを使用してメッセージコピーをユーザーごとにパーソナライズする | [Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents)（[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)または[カタログ]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)）、単発の下書きコピーには[生成AI]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
-| どのメッセージコンテンツ（件名、CTAなど）が時間の経過とともに最もパフォーマンスが高いかを最適化する | [コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer)（メール、プッシュ通知、またはSMS/MMS/RCS）または[勝者バリアント]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) |
+| ユーザーのコンテキストを使用してユーザーごとにメッセージコピーをパーソナライズする | [Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents)（[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)または[カタログ]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)）、一度限りの下書きコピーには[生成AI]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
+| どのメッセージコンテンツ（件名やCTAなど）が時間の経過とともに最もパフォーマンスが高いかを最適化する | [コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer)（メール、プッシュ通知、またはSMS/MMS/RCS）または[BrazeAI<sup>TM</sup>で最適化]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) |
 | オファー、チャネル、タイミングにわたる1:1の意思決定でビジネス指標（収益、コンバージョン）を最大化する | [Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
-| 解約する可能性が高いユーザーやイベントを実行する可能性が高いユーザーを見つける | [解約予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)または[予測イベント]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
-| メッセージ内でカタログから特定の製品をおすすめする | [アイテムのおすすめ]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |
-| ユーザーごとに最適な時間や最適なチャネルで送信する | [インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)、[インテリジェントチャネル]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) |
+| 解約しそうなユーザーやイベントを実行しそうなユーザーを特定する | [解約予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)または[予測イベント]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
+| メッセージ内のカタログから特定の商品をレコメンドする | [アイテムレコメンデーション]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |
+| ユーザーごとに最適なタイミングまたは最適なチャネルで送信する | [インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)、[インテリジェントチャネル]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) |
 | ダッシュボードで直接コピーやクリエイティブを作成・改善する | [オペレーター]({{site.baseurl}}/user_guide/brazeai/operator) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="機能の概要" }
+
+## よくある質問 {#frequently-asked-questions}
+
+### BrazeAIとは？ {#what-is-brazeai}
+
+BrazeAIは、生成コピー、パーソナライゼーション、予測、レコメンデーション、意思決定のためのBraze内のAI搭載ツールセットです。このページの機能リンクを使用して、各機能の設定ガイドを開いてください。
+
+### 最初にどのBrazeAI機能を使うべきですか？ {#which-brazeai-feature-should-i-use-first}
+
+このページの[機能の概要](#feature-overview)テーブルを参照して、コピー生成、送信時間の最適化、製品レコメンデーションなど、目標に合ったBrazeAI機能を見つけてください。

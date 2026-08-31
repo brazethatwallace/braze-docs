@@ -2,7 +2,7 @@
 nav_title: Content Optimizer
 article_title: Content Optimizer
 alias: "/content_optimizer/"
-description: "Content Optimizer helps you test and optimize message content at scale, using AI to generate and evaluate high volumes of content variants automatically."
+description: "Content Optimizer helps you test and optimize message content at scale, using AI to generate and evaluate high volumes of content variants."
 page_type: reference
 page_order: 3
 ---
@@ -81,6 +81,8 @@ When the step first launches, Content Optimizer sends variants randomly to colle
 Content Optimizer is similar to the Message step in Canvas, with features like quiet hours, [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), and event logging. You can configure a Content Optimizer step by creating a base message and defining which content components (such as subject line, body text, or call-to-action) to optimize. Variants for each component can be generated with AI or entered manually, and Liquid tags must be added to the base message to map components into the message content.
 
 Each user receives one message per entry into the Content Optimizer step. Re-entries are treated as new, with no memory of previous variants.
+
+To attribute downstream behavior in your own analytics tools, add a Liquid tag to your message that records which combination each user received. For more information, see [Combination token]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step#combination-token).
 
 ## Canvas entry setup
 

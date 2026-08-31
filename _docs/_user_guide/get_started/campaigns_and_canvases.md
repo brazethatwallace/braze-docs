@@ -1,10 +1,9 @@
 ---
 nav_title: Campaigns and Canvases
-article_title: Getting Started&#58; Campaigns and Canvases
+article_title: "Get started: Campaigns and Canvases"
 page_order: 3
 page_type: reference
 description: "This article provides an overview of the different ways you can send messages with Braze."
-
 ---
 
 # Get started: Campaigns and Canvases

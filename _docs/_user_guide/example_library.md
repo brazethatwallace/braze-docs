@@ -20,6 +20,9 @@ guide_featured_list:
   - name: Match catalog items to an attribute array
     link: /docs/user_guide/example_library/catalogs/match_catalog_items_to_attribute_array
     image: /assets/img/braze_icons/list.svg
+  - name: Manage localized content with catalogs
+    link: /docs/user_guide/example_library/catalogs/manage_localized_content_with_catalogs
+    image: /assets/img/braze_icons/table.svg
   - name: Compare translation approaches
     link: /docs/user_guide/example_library/localization/compare_translation_approaches
     image: /assets/img/braze_icons/globe-02.svg

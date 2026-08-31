@@ -230,20 +230,17 @@ document.addEventListener("DOMContentLoaded", function () {
     input.dataset.searchWatcherApplied = "true";
   }
 
-  /**
-   * Remove source/type label badges from the tab order — they are metadata
-   * inside result rows, not independent interactive controls.
-   * @param {Element} [root] — scope the search; defaults to document
-   */
-  function patchSourceLabels(root) {
-    (root || document)
-      .querySelectorAll(".su__source-label, .su__ribbon-title")
-      .forEach((el) => {
-        if (el.getAttribute("tabindex") !== "-1") {
-          el.setAttribute("tabindex", "-1");
-        }
-      });
-  }
+  const patchSourceLabels =
+    window.SuSearchA11y?.patchSourceLabels ||
+    function (root) {
+      (root || document)
+        .querySelectorAll(".su__source-label, .su__ribbon-title")
+        .forEach((el) => {
+          if (el.getAttribute("tabindex") !== "-1") {
+            el.setAttribute("tabindex", "-1");
+          }
+        });
+    };
 
   /**
    * MutationObserver → waits for dynamic injection of searchForm, input,

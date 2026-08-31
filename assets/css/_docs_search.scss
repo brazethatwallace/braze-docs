@@ -338,7 +338,8 @@ section.su__w-100.su__py-4.su__search_section.su__bg-blue-grd {
 	border: 2px solid black !important;
   }
   #su_main_search span.su_source_label_font { color: #101828; }
-#su_main_search span[title="Api"] { background: #f7caf5; }
+#su_main_search span[title="Api"],
+#su_main_search span[title="API"] { background: #f7caf5; }
 #su_main_search span[title="Developer Guide"] { background: #FFD6AE; }
 #su_main_search span[title="Dashboard"] { background: #FFA4FB; }
 #su_main_search span[title="User Guide"] { background: #CEC1F1; }

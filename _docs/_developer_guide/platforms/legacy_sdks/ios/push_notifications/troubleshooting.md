@@ -165,3 +165,14 @@ If at least one user opens your iOS push notification, but few or no _Direct Ope
    - [Register for push]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-1-register-for-push-notifications-with-apns): On every single app launch, preferably within `application:didFinishLaunchingWithOptions:`, the code from step 3 needs to occur. The delegate property of `UNUserNotificationCenter.current()` needs to be assigned to an object that implements `UNUserNotificationCenterDelegate` and contains the `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` method.
    - [Enable push handling]({{site.baseurl}}/developer_guide/platform_integration_guides/legacy_sdks/ios/push_notifications/integration#step-5-enable-push-handling): Verify that the `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` method has been implemented.
 
+### Push Story image clicks do nothing
+
+This section applies to the Objective-C SDK Push Story integration. If you use the Swift SDK `BrazePushStory` module, set `UNNotificationExtensionUserInteractionEnabled` to `YES`. See [Push stories]({{site.baseurl}}/developer_guide/push_notifications/push_stories/?sdktab=swift).
+
+If tapping a Push Story image doesn't open the expected action, open the Notification Content Extension `Info.plist` and match the keys in [Push Story setup]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/push_story):
+
+- `UNNotificationExtensionCategory` = `ab_cat_push_story_v2`
+- `UNNotificationExtensionDefaultContentHidden` = `YES`
+- `UNNotificationExtensionInitialContentSizeRatio` = `0.65`
+
+If `UNNotificationExtensionUserInteractionEnabled` is in that plist, remove it. The Objective-C Push Story setup does not include that key.

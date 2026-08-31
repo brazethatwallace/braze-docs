@@ -163,7 +163,7 @@ Data points are a structure by which you ensure you're capturing the right data 
 
 You can use the Braze [`/users/track endpoint`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to migrate historical data that was recorded outside of Braze. Examples of commonly imported data include push tokens and past purchases. This endpoint can be used for one-off imports or regular batch updates. 
 
-You can also import users and update customer attribute values through a one-time [CSV upload]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#importing-a-csv) to the dashboard. Uploading CSVs can be helpful for marketers, while our REST API allows for greater flexibility.
+You can also import users and update customer attribute values through a one-time [CSV upload]({{site.baseurl}}/user_guide/audience/manage_audience/import_users) to the dashboard. Uploading CSVs can be helpful for marketers, while our REST API allows for greater flexibility.
 
 ### Setting up session tracking
 
@@ -179,7 +179,7 @@ User IDs, called `external_id`s in Braze, should be set for all known users. The
 
 ### Other tools
 
-Based on your use case, there may be other tools you need to set up. For example, you might need to configure a tool like [geofences]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences) to realize your user stories. We have found that customers who have the ability to set up these additional tools after completing the essential integration steps are most successful.
+Based on your use case, there may be other tools you need to set up. For example, you might need to configure a tool like [geofences]({{site.baseurl}}/user_guide/audience/locations_and_geofences) to realize your user stories. We have found that customers who have the ability to set up these additional tools after completing the essential integration steps are most successful.
 
 ## Quality assurance {#qa}
 As you execute your integration, you'll provide quality assurance to make sure everything you're setting up is working as expected. This QA falls into two general categories: data ingestion and message channels.
@@ -211,7 +211,7 @@ While performing QA on your SDK integration, use the [SDK Debugger]({{site.baseu
 
 Once you have integrated your platform or site, you will want to involve your Marketing team to pass ownership of the platform to them. This process looks different at every company, but might include the following:
 
-* Composing complex [Liquid logic]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid#about-liquid)
+* Composing complex [Liquid logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)
 * Help facilitating [email IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)
 * Making sure other stakeholders understand the kind of data being tracked
 

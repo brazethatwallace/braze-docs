@@ -339,6 +339,10 @@ The `useUUIDAsDeviceId` feature configures the [Swift SDK](https://github.com/br
 If you still want to collect IDFV separately, you can use [`set(identifierforvendor:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforvendor:)).
 
 {% alert note %}
+Apple is responsible for creating IDFV, and IDFV is Apple-managed. Braze does not transform or change IDFVs, and Apple makes no guarantees about casing or format.
+{% endalert %}
+
+{% alert note %}
 Reading `braze.deviceId` blocks the calling thread until the SDK has completed its post-initialization operations. For main-thread or latency-sensitive contexts, use the non-blocking alternatives instead.
 
 {% subtabs local %}

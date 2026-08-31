@@ -1,9 +1,8 @@
 ---
 nav_title: Seguimiento de ubicación
-article_title: Seguimiento de la ubicación a través del SDK de Braze
+article_title: "Seguimiento de la ubicación"
 page_order: 3.4
 description: "Aprende a realizar el seguimiento de la ubicación a través del SDK de Braze."
-
 ---
 
 # Seguimiento de la ubicación {#track-location}

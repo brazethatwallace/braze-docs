@@ -42,11 +42,11 @@ Administrators can also create custom attributes and mark them as PII from this 
 
 ### Adding descriptions
 
-You can add a description to a custom attribute after it's created if you have the `Manage Events, Attributes, Purchases` [user permission]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/). Edit the custom attribute and input whatever you like, such as a note for your team.
+You can add a description to a custom attribute after it's created if you have the `Manage Events, Attributes, Purchases` [user permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Edit the custom attribute and input whatever you like, such as a note for your team.
 
 ### Adding tags
 
-You can add tags to a custom attribute after it's created if you have the "Manage Events, Attributes, Purchases" [user permission]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/). The tags can then be used to filter the list of attributes. 
+You can add tags to a custom attribute after it's created if you have the "Manage Events, Attributes, Purchases" [user permission]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). The tags can then be used to filter the list of attributes. 
 
 ### Removing custom attributes
 
@@ -96,8 +96,8 @@ The following data types may be stored as custom attributes:
 - [Strings](#strings)
 - [Arrays](#arrays)
 - [Time](#time)
-- [Objects]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [Arrays of objects]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [Objects]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)
+- [Arrays of objects]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)
 
 ### Booleans (true/false) {#booleans}
 
@@ -197,7 +197,7 @@ The option to increase the maximum length will not be available if the attribute
 {% alert tip %}
 For more on how to use regular expressions (regex), check out these resources:
 - [Perl compatible regular expressions (PCRE)](https://www.regextester.com/pregsyntax.html)
-- [Regex with Braze]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/)
+- [Regex with Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [Regex debugger and tester](https://www.regex101.com/)
 - [Regex tutorial](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -232,11 +232,11 @@ The last date a custom event or purchase event occurred is automatically recorde
 
 ### Objects
 
-You can use nested custom attributes to send objects as a data type for custom attributes. For more information, refer to [Nested custom attributes]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
+You can use nested custom attributes to send objects as a data type for custom attributes. For more information, refer to [Nested custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 ### Arrays of objects
 
-Use an array of objects to group related attributes. For more details, refer to our article on [Array of objects]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/).
+Use an array of objects to group related attributes. For more details, refer to our article on [Array of objects]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 
 ### Consolidated operators
 
@@ -272,4 +272,4 @@ Using our purchase methods to record in-app purchases establishes the Lifetime V
 If you would like to segment on the number of times a specific purchase has occurred, you should also record that purchase individually as an [incrementing custom attribute]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/#incrementingdecrementing-custom-attributes).
 {% endalert %}
 
-You can change the data type of your custom attribute, but you should be aware of the impacts of [changing data types]({{site.baseurl}}/help/help_articles/data/change_custom_data_type/).
+You can change the data type of your custom attribute, but you should be aware of the impacts of [changing data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#changing-custom-attribute-or-event-data-type).

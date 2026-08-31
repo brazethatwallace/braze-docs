@@ -1,9 +1,9 @@
 ---
 nav_title: Use eCommerce recommended events
-article_title: How to use eCommerce recommended events
+article_title: "How to use eCommerce Events"
 page_type: reference
 alias: /ecommerce_events/
-description: "Learn how to use eCommerce recommended events in Braze, including supported features, key metrics, and best practices for segmentation, messaging, and reporting."
+description: "Learn how to use eCommerce recommended events in Braze, including supported features, key metrics, and best practices for segmentation, messaging,."
 ---
 
 # How to use eCommerce Events

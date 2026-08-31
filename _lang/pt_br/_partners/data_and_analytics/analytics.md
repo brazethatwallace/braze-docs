@@ -32,7 +32,7 @@ guide_featured_list:
   - name: "Contentsquare"
     link: /docs/partners/data_and_analytics/analytics/contentsquare
     image: /assets/img/braze_icons/globe-02.svg
-  - name: "Importação de coorte Heap"
+  - name: "Heap Cohort Import"
     link: /docs/partners/data_and_analytics/analytics/heap/heap_cohort_import
     image: /assets/img/braze_icons/puzzle-piece-01.svg
   - name: "Inbox Monster"
@@ -47,9 +47,6 @@ guide_featured_list:
   - name: "Mixpanel"
     link: /docs/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import
     image: /assets/img/braze_icons/magic-wand-02.svg
-  - name: "NPAW"
-    link: /docs/partners/data_and_analytics/analytics/npaw
-    image: /assets/img/braze_icons/send-01.svg
   - name: "SalesWings"
     link: /docs/partners/data_and_analytics/analytics/saleswings
     image: /assets/img/braze_icons/database-01.svg

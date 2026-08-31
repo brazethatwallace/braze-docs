@@ -4,7 +4,7 @@ article_title: Configuration des messages
 page_order: 0
 layout: dev_guide
 guide_top_header: "Configuration des messages"
-guide_top_text: "Configurez vos envois de messages SMS, MMS et RCS en paramétrant les expéditeurs, les groupes d'abonnement et les numéros de téléphone. Pour des conseils de conformité, consultez Conformité et réception."
+guide_top_text: "Configurez vos envois de messages SMS, MMS et RCS en paramétrant les expéditeurs, les groupes d'abonnement et les numéros de téléphone. Pour un aperçu cross-canal des groupes d'abonnement, consultez <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>Groupes d'abonnement</a>. Pour des conseils de conformité, consultez Conformité et réception."
 page_type: landing
 description: "Configurez les envois de messages SMS, MMS et RCS dans Braze, y compris la configuration des expéditeurs, les groupes d'abonnement et les numéros de téléphone."
 channel:
@@ -17,7 +17,7 @@ guide_featured_list:
   - name: Termes à connaître
     link: /docs/user_guide/channels/sms_mms_and_rcs/message_setup/terms
     image: /assets/img/braze_icons/book-closed.svg
-  - name: Configuration de l'expéditeur
+  - name: Configuration des expéditeurs
     link: /docs/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup
     image: /assets/img/braze_icons/phone-02.svg
   - name: Groupes d'abonnement

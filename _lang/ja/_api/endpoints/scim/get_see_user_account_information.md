@@ -36,19 +36,24 @@ description: "この記事では、リソースIDによる既存のダッシュ�
 | `id` | 必須 | 文字列 | ユーザーのリソースID。このパラメーターは、`POST` `/scim/v2/Users/`または`GET` `/scim/v2/Users?filter=userName eq "user@example.com"`メソッドによって返されます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="パスパラメーター" }
 
-## リクエスト本文 {#request-body}
+## リクエストパラメーター {#request-parameters}
+
 ```http
 Content-Type: application/json
 X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE
-Authorization: Bearer YOUR-REST-API-KEY
+Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
+
+{% alert note %}
+`401`レスポンスを受け取った場合は、SCIMトークン（REST APIキーではない）を使用していること、`X-Request-Origin`がサービスOriginと一致していること、およびIPアドレスがSCIM許可リストに含まれていることを確認してください。詳細については、[自動ユーザープロビジョニング]({{site.baseurl}}/scim/automated_user_provisioning)を参照してください。
+{% endalert %}
 
 ## リクエスト例 {#example-request}
 ```bash
 curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa245b7-24195aec-887bb3ad-602b3340' \
 --header 'Content-Type: application/json' \
 --header 'X-Request-Origin: YOUR-REQUEST-ORIGIN-HERE' \
---header 'Authorization: Bearer YOUR-API-KEY-HERE' \
+--header 'Authorization: Bearer YOUR-SCIM-TOKEN-HERE' \
 ```
 
 ## レスポンス {#response}
@@ -62,8 +67,8 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
         "familyName": "User"
     },
     "department": "finance",
-    "lastSignInAt": "Thursday, January 1, 1970 12:00:00 AM",
-    "createdAt": "Thursday, January 1, 1970 12:00:00 AM",
+    "lastSignInAt": "2024 Nov 11, 4:20 PM",
+    "createdAt": "2024 Nov 11, 4:20 PM",
     "permissions": {
         "companyPermissions": ["manage_company_settings"],
         "roles": [
@@ -100,6 +105,35 @@ curl --location --request GET 'https://rest.iad-01.braze.com/scim/v2/Users/dfa24
             }
         ]
     }
+}
+```
+
+## レスポンスパラメーター {#response-parameters}
+
+| パラメーター | データタイプ | 説明 |
+|---|---|---|
+| `schemas` | 文字列の配列 | SCIMユーザースキーマ。 |
+| `id` | 文字列 | ユーザーのリソースID。 |
+| `userName` | 文字列 | ユーザーのメールアドレス。 |
+| `name` | オブジェクト | `givenName`と`familyName`を含みます。 |
+| `department` | 文字列 | ユーザーの部署（設定されている場合）。 |
+| `createdAt` | 文字列 | ユーザーアカウントが作成された日時。未設定の場合は`N/A`を返します。それ以外の場合は`YYYY Mon DD, H:MM AM/PM`の形式で返されます。 |
+| `lastSignInAt` | 文字列 | ユーザーが最後にサインインした日時。ユーザーがサインインしたことがない場合は`N/A`を返します。それ以外の場合は`YYYY Mon DD, H:MM AM/PM`の形式で返されます。 |
+| `permissions` | オブジェクト | ユーザーの会社、ワークスペース、チーム、およびロールの権限。[権限オブジェクト]({{site.baseurl}}/scim_api_appendix)を参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="レスポンスパラメーター" }
+
+### エラーステート {#error-states}
+
+指定されたリソース`id`に該当するユーザーが存在しない場合、エンドポイントは以下を返します:
+
+```http
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+  "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
+  "status": 404,
+  "detail": "Resource not found"
 }
 ```
 

@@ -4,9 +4,9 @@ nav_title: Início
 article_title: Guia da API da Braze
 layout: api_glossary
 glossary_top_header: "Guia da API da Braze"
-glossary_top_text: "A Braze oferece uma REST API de alta performance para que você possa rastrear usuários, enviar mensagens, exportar dados e muito mais. Esta página lista os endpoints da API da Braze disponíveis e seus usos."
+glossary_top_text: "A Braze oferece uma REST API de alta performance para rastrear usuários, enviar mensagens, exportar dados e gerenciar Campaigns, Canvas, catálogos e muito mais. Use este glossário para navegar pelos endpoints por tipo, abrir artigos de referência com detalhes de requisição e resposta, e encontrar links para autenticação, limites de frequência e documentação de objetos."
+description: "Navegue pelos endpoints da REST API da Braze por tipo, com links para autenticação, limites de frequência e documentação de referência de objetos."
 page_type: glossary
-description: "Esta landing page lista os endpoints da API da Braze disponíveis e seus usos."
 glossary_tag_name: Endpoint Type
 
 glossary_filter_text: "Selecione o tipo de endpoint para refinar o glossário:"
@@ -40,11 +40,13 @@ glossary_tags:
   - name: Catalogs
   - name: Content Blocks
   - name: Custom Events
+  - name: Custom Objects
   - name: Email List
   - name: Email Templates
+  - name: Webhook Templates
   - name: KPI
   - name: Media Library
-  - name: Messaging API
+  - name: Device Messaging API
   - name: Purchases
   - name: Preference Center
   - name: Schedule Messages
@@ -107,6 +109,46 @@ glossaries:
     description: Mescle um perfil de usuário em outro usuário.
     tags:
       - User Data
+  - name: <a href='/docs/api/endpoints/custom_objects'>/custom_objects/*</a>
+    description: "Veja a referência completa de endpoints de Custom Objects, incluindo tipos de objetos, objetos e endpoints de relacionamento."
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_custom_object_types'>/custom_objects/types</a>
+    description: Liste os tipos de objetos personalizados no espaço de trabalho.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_custom_object_type'>/custom_objects/types/{type_name}</a>
+    description: Obtenha um tipo de objeto personalizado e sua definição de esquema.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_user_relationship_types'>/custom_objects/types/{type_name}/user_relationship_types</a>
+    description: Liste os tipos de relacionamento de usuário para um tipo de objeto personalizado.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_object_relationship_types'>/custom_objects/types/{type_name}/object_relationship_types</a>
+    description: Liste os tipos de relacionamento de objeto para um tipo de objeto personalizado.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_list_custom_objects'>/custom_objects/objects/{type_name}</a>
+    description: Liste objetos personalizados para um tipo.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_custom_object'>/custom_objects/objects/{type_name}/{external_id}</a>
+    description: "Obtenha um objeto personalizado, ou substitua, atualize e exclua-o."
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/object_relationships/get_list_object_relationships'>/custom_objects/objects/{type_name}/{external_id}/object_relationships</a>
+    description: "Liste, crie, substitua, atualize e exclua relacionamentos entre objetos."
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/get_list_user_relationships'>/custom_objects/objects/{type_name}/{external_id}/user_relationships</a>
+    description: Liste os relacionamentos de usuário para um objeto personalizado.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/post_create_user_relationship'>/custom_objects/objects/{type_name}/{external_id}/users</a>
+    description: "Crie, substitua, atualize e exclua relacionamentos entre usuários e objetos."
+    tags:
+      - Custom Objects
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns'>/campaigns/trigger/send</a>
     description: Envie mensagens únicas e imediatas para usuários designados por meio de entrega disparada pela API.
     tags:
@@ -127,14 +169,14 @@ glossaries:
     description: Envie mensagens transacionais únicas e imediatas para um usuário designado.
     tags:
       - Send Messages
-  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_sync_banners'>/v1/device-messaging/banners/sync</a>
     description: Recupere Banners elegíveis para um usuário e um conjunto de posicionamentos.
     tags:
-      - Messaging API
-  - name: <a href='/docs/api/messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
+      - Device Messaging API
+  - name: <a href='/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events'>/v1/device-messaging/banners/track</a>
     description: Registre eventos de impressão e clique para Banners.
     tags:
-      - Messaging API
+      - Device Messaging API
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
     description: Envie mensagens de Campaign criadas no dashboard por meio de entrega disparada pela API.
     tags:
@@ -220,7 +262,7 @@ glossaries:
     tags:
       - Email Templates
   - name: <a href='/docs/api/endpoints/email/get_list_hard_bounces'>/email/hard_bounces</a>
-    description: "Obtenha uma lista de endereços de e-mail que tiveram \"hard bounce\" nas suas mensagens de e-mail em um determinado período de tempo."
+    description: "Obtenha uma lista de endereços de e-mail que tiveram \"hard bounce\" nas suas mensagens de e-mail em um determinado período."
     tags:
       - Email List
   - name: <a href='/docs/api/endpoints/email/get_query_unsubscribed_email_addresses'>/email/unsubscribes</a>
@@ -235,6 +277,18 @@ glossaries:
     description: Obtenha uma lista dos modelos de e-mail disponíveis na sua conta Braze.
     tags:
       - Email Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_source_webhook_template'>/templates/webhook/translations/source</a>
+    description: Veja as traduções de origem padrão para um modelo de webhook.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_translations_webhook_template'>/templates/webhook/translations</a>
+    description: Veja as traduções para um modelo de webhook.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/put_update_webhook_template'>/templates/webhook/translations</a>
+    description: Atualize as traduções para um modelo de webhook.
+    tags:
+      - Webhook Templates
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaign_analytics'>/campaigns/data_series</a>
     description: Recupere uma série diária de várias estatísticas de uma Campaign ao longo do tempo.
     tags:
@@ -284,7 +338,7 @@ glossaries:
     tags:
       - Segments
   - name: <a href='/docs/api/endpoints/export/sessions/get_sessions_analytics'>/sessions/data_series</a>
-    description: Recupere uma série do número de sessões do seu app em um período de tempo designado.
+    description: Recupere uma série do número de sessões do seu app em um período designado.
     tags:
       - Sessions
   - name: <a href='/docs/api/endpoints/export/custom_attributes/get_custom_attributes'>/custom_attributes</a>
@@ -292,7 +346,7 @@ glossaries:
     tags:
       - Custom Attributes
   - name: <a href='/docs/api/endpoints/export/custom_events/get_custom_events_analytics'>/events/data_series</a>
-    description: Recupere uma série do número de ocorrências de um evento personalizado no seu app em um período de tempo designado.
+    description: Recupere uma série do número de ocorrências de um evento personalizado no seu app em um período designado.
     tags:
       - Custom Events
   - name: <a href='/docs/api/endpoints/export/custom_events/get_custom_events_data'>/events</a>
@@ -340,7 +394,7 @@ glossaries:
     tags:
       - SMS
   - name: <a href='/docs/api/endpoints/sms/get_query_invalid_numbers'>/sms/invalid_phone_numbers</a>
-    description: "Obtenha uma lista de números de telefone que a Braze marcou como \"inválidos\" em um determinado período de tempo."
+    description: "Obtenha uma lista de números de telefone que a Braze marcou como \"inválidos\" em um determinado período."
     tags:
       - SMS
   - name: <a href='/docs/api/endpoints/export/purchases/get_list_product_id'>/purchases/product_list</a>

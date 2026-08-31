@@ -19,7 +19,7 @@ La manière d'associer les URL dépend de l'éditeur d'e-mail que vous utilisez 
 - **Éditeur par glisser-déposer :** Dans un bloc **Paragraph**, sélectionnez les mots à lier, ouvrez le contrôle **Link** dans la barre d'outils et collez l'URL depuis le [format d'URL](#url-format). Vous pouvez également utiliser un bloc **Button**, définir le **Link type** sur **Open web page** et coller l'URL dans **URL**.
 - **Éditeur HTML :** Utilisez les contrôles de lien en texte enrichi pour le texte lié, ou ajoutez des balises `<a href="...">` dans votre HTML pour chaque URL de calendrier.
 
-## Format d'URL {#url-format}
+## Format de l'URL {#url-format}
 
 Ajoutez l'URL suivante à vos liens, en remplaçant les marques substitutives. La seule différence entre ces deux URL est que Google Calendar nécessite un paramètre supplémentaire : `&format=gcal`.
 
@@ -48,7 +48,7 @@ Remplacez les éléments suivants :
 - `END_TIME` : Heure de fin de l'événement au format ISO 8601 (YYYY-MM-DDTHH:MM:SSZ) en UTC
 - `EVENT_DESCRIPTION` : Description de l'événement
 
-Remplacez les espaces par le code d'échappement HTML `%20`. Par exemple, un sujet « Meet Braze » deviendrait « Meet%20Braze ».
+Remplacez tous les espaces par le code d'échappement HTML `%20`. Par exemple, un sujet « Meet Braze » deviendrait « Meet%20Braze ».
 
 Voici un exemple d'URL « Ajouter à Google Calendar » :
 
@@ -62,8 +62,8 @@ Les paramètres suivants sont facultatifs et peuvent être utilisés pour défin
 
 - **Nom de l'organisateur :** `&organizer=name`
 - **Joindre une URL liée à l'événement :** `&attach=http://www.example.com/`
-- **Durée :** `duration=30M`, comme alternative à l'heure de fin de l'événement (dtend), spécifiez une durée comme 1H ou 30M
-- **Rappel d'alarme, en minutes :** `&reminder=15`
+- **Durée :** `duration=30M`, comme alternative à l'heure de fin de l'événement (dtend), spécifiez une durée telle que 1H ou 30M
+- **Heure de rappel, en minutes :** `&reminder=15`
 - **Événement sur toute la journée :** `&allday=1`
 - **UID :** paramètre facultatif permettant de coder en dur l'identifiant unique de l'événement, offrant à certaines applications de calendrier la possibilité de mettre à jour l'événement au fil du temps. La chaîne de caractères @ics.agical.io est automatiquement ajoutée à la valeur.
 
@@ -76,7 +76,7 @@ Vous pouvez également ajouter des paramètres supplémentaires pour les événe
 
 Lorsqu'un utilisateur clique sur le lien, les calendriers transforment automatiquement les horodatages UTC dans les URL pour refléter le fuseau horaire défini dans son calendrier.
 
-Par exemple, si vous ouvrez l'exemple de lien « Ajouter à Google Calendar » et que votre calendrier est réglé sur CST, l'heure de l'événement sera pré-remplie en fonction de l'équivalent de 15 h UTC en CST (10 h).
+Par exemple, si vous ouvrez l'exemple de lien « Ajouter à Google Calendar » et que votre calendrier est réglé sur CST, l'heure de l'événement sera pré-remplie en fonction de ce que représente 15 h UTC en CST (10 h).
 
 ### Google Calendar {#google-calendar}
 
@@ -86,22 +86,22 @@ Lorsqu'on clique dessus, Google Calendar s'ouvre dans un nouvel onglet ou une no
 
 ### iCal ou Outlook {#ical-or-outlook}
 
-Lorsqu'on clique dessus sur ordinateur, un fichier ICS est téléchargé. L'utilisateur doit ensuite ouvrir le fichier ICS, ce qui lance iCal ou Outlook et l'invite à ajouter l'événement à son calendrier.
+Sur ordinateur, un fichier ICS est téléchargé à l'emplacement de téléchargement par défaut de votre navigateur (généralement le dossier **Téléchargements**). L'utilisateur doit ensuite ouvrir le fichier ICS, ce qui lance iCal ou Outlook et l'invite à ajouter l'événement à son calendrier.
 
 ![Calendrier iCal avec une boîte de dialogue pour ajouter un nouvel événement, qui invite l'utilisateur à sélectionner un calendrier et à confirmer.]({% image_buster /assets/img_archive/calendar_3.png %}){: style="max-width:75%"}
 
 ![Calendrier iCal avec l'événement ajouté.]({% image_buster /assets/img_archive/calendar_4.png %}){: style="max-width:81%"}
 
-Sur mobile, le comportement dépend de l'appareil et de l'application d'e-mail.
+Sur mobile, le comportement dépend de l'appareil et de l'application de messagerie.
 
 {% alert note %}
-Sur iPhone, l'application Mail et Microsoft Outlook téléchargent le fichier ICS lorsque les utilisateurs appuient sur le lien iCal, mais ces applications n'ouvrent pas Calendrier à partir du lien. Pour ajouter l'événement, ouvrez le fichier téléchargé depuis **Fichiers**, **Téléchargements** ou la vue des pièces jointes (selon l'application), puis suivez les étapes dans Calendrier.
+Sur iPhone, l'application Mail et Microsoft Outlook téléchargent le fichier ICS sur l'appareil lorsque les utilisateurs appuient sur le lien iCal, mais ces applications n'ouvrent pas Calendrier à partir du lien. Pour ajouter l'événement, ouvrez le fichier téléchargé depuis **Fichiers**, **Téléchargements** ou la vue des pièces jointes (selon l'application), puis suivez les étapes dans Calendrier. L'emplacement précis dépend de l'application de messagerie et des paramètres iOS.
 {% endalert %}
 
-Dans certaines autres applications d'e-mail ou navigateurs mobiles, un appui long sur le lien peut afficher une option pour ajouter l'événement à un calendrier.
+Dans certaines autres applications de messagerie ou navigateurs mobiles, un appui long sur le lien peut afficher une option pour ajouter l'événement à un calendrier.
 
-![Pop-up iOS qui s'affiche lors d'un appui long sur un lien de calendrier, avec un bouton « Ajouter au calendrier ».]({% image_buster /assets/img_archive/calendar_5.png %}){: style="max-width:50%"}
+![Pop-up iOS qui s'affiche lors d'un appui long sur un lien de calendrier, incluant un bouton « Ajouter au calendrier ».]({% image_buster /assets/img_archive/calendar_5.png %}){: style="max-width:50%"}
 
 Pour en savoir plus, consultez :
-* [Create events for Google Calendar](https://developers.google.com/calendar/api/guides/create-events)
-* [Create an Add to calendar link in an email message](https://support.microsoft.com/en-us/office/create-an-add-to-calendar-link-in-an-email-message-34f8ea28-322a-4867-b423-2998f9634e59)
+* [Créer des événements pour Google Calendar](https://developers.google.com/calendar/api/guides/create-events)
+* [Créer un lien « Ajouter au calendrier » dans un e-mail](https://support.microsoft.com/en-us/office/create-an-add-to-calendar-link-in-an-email-message-34f8ea28-322a-4867-b423-2998f9634e59)

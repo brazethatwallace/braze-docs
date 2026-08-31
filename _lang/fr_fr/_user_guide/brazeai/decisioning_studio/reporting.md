@@ -9,13 +9,13 @@ page_order: 6
 
 > Découvrez comment afficher les rapports BrazeAI Decisioning Studio™ dans Braze afin de comprendre l'impact des décisions basées sur l'IA sur vos campagnes. Des indicateurs de performance à la santé des données en passant par les modifications du système, ces rapports vous aident à comprendre les résultats, à résoudre les problèmes et à prendre des décisions avisées en toute confiance.
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
-Avant de pouvoir consulter les rapports Decisioning Studio dans Braze, vous devez :
+Avant de pouvoir consulter les rapports de Decisioning Studio dans Braze, vous devez :
 
 - Disposer d'un contrat actif pour Braze et BrazeAI Decisioning Studio™.
-- Contacter votre CSM pour qu'il active BrazeAI Decisioning Studio™ en votre nom.
-- Disposer d'un agent BrazeAI Decisioning Studio™ en production.
+- Contacter votre CSM pour qu'il active BrazeAI Decisioning Studio™ pour vous.
+- Disposer d'un agent BrazeAI Decisioning Studio™ actif.
 
 ## Afficher les rapports {#view}
 
@@ -23,17 +23,17 @@ Pour afficher les indicateurs d'un agent Decisioning Studio dans Braze, rendez-v
 
 Vous pouvez y consulter des rapports tels que les performances, les informations, les diagnostics et les chronologies. Pour plus de détails, voir [Rapports disponibles](#available-reports).
 
-## Modifier les dates des rapports {#change-report-dates}
+## Modifier les dates du rapport {#change-report-dates}
 
 Après avoir [ouvert un rapport](#view), vous pouvez modifier la plage de dates en sélectionnant une nouvelle date de début et de fin dans le menu déroulant du calendrier.
 
-![Sélecteur de plage de dates de BrazeAI Decisioning Studio™ avec un calendrier déroulant. Le calendrier affiche des dates de début et de fin sélectionnables pour personnaliser l'affichage du rapport.]({% image_buster /assets/img/decisioning_studio/reporting_change_date_range.png %}){: style="max-width:50%;"}
+![Sélecteur de plage de dates de BrazeAI Decisioning Studio™ ouvert avec un menu déroulant de calendrier. Le calendrier affiche des dates de début et de fin sélectionnables pour personnaliser la vue du rapport.]({% image_buster /assets/img/decisioning_studio/reporting_change_date_range.png %}){: style="max-width:50%;"}
 
-Vous pouvez également définir une date de début par défaut ou choisir des dates à exclure systématiquement. Les dates exclues seront filtrées dans tous les rapports de cet agent.
+Vous pouvez également définir une date de début par défaut ou choisir des dates à toujours exclure. Les dates exclues seront filtrées dans tous les rapports de cet agent.
 
 Pour définir ou exclure des dates, sélectionnez <i class="fa-solid fa-gear" aria-label="Paramètres"></i> **Paramètres**, puis modifiez votre date par défaut ou excluez des dates selon vos besoins.
 
-![Panneau des paramètres ouvert dans BrazeAI Decisioning Studio™ affichant les options permettant de définir une date de début par défaut et d'exclure des dates spécifiques des rapports. Le panneau affiche deux sections intitulées « Date de début par défaut » et « Dates exclues ». Sous « Dates exclues », plusieurs dates s'affichent avec des cases à cocher.]({% image_buster /assets/img/decisioning_studio/reporting_set_exclude_dates.png %})
+![Panneau des paramètres ouvert dans BrazeAI Decisioning Studio™ affichant les options pour définir une date de début par défaut et exclure des dates spécifiques des rapports. Le panneau affiche deux sections intitulées « Date de début par défaut » et « Exclure des dates ». Sous « Exclure des dates », plusieurs dates sont répertoriées avec des cases à cocher à côté de chacune.]({% image_buster /assets/img/decisioning_studio/reporting_set_exclude_dates.png %})
 
 ## Rapports disponibles {#available-reports}
 

@@ -6,7 +6,7 @@ hidden: true
 
 # Prévisualiser les Content Blocks de l'éditeur par glisser-déposer {#preview-drag-and-drop-editor-content-blocks}
 
-Après avoir créé vos [Content Blocks pour vos campagnes d'e-mail par glisser-déposer]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_content_blocks/), vous pouvez consulter votre bibliothèque de Content Blocks dans l'éditeur par glisser-déposer.
+Après avoir créé vos [Content Blocks pour vos campagnes d'e-mail par glisser-déposer]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks?tab=drag-and-drop), vous pouvez consulter votre bibliothèque de Content Blocks dans l'éditeur par glisser-déposer.
 
 {% alert important %}
 Cette fonctionnalité de prévisualisation des Content Blocks par glisser-déposer est actuellement en accès anticipé. Contactez votre gestionnaire de compte Braze si vous souhaitez participer à l'accès anticipé.

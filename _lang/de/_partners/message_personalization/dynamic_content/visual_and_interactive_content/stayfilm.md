@@ -17,41 +17,41 @@ _Diese Integration wird von Stayfilm gepflegt._
 
 ## Anwendungsfälle {#use-cases}
 
-Stayfilm unterstützt die personalisierte Videozustellung über den gesamten Kundenlebenszyklus, einschließlich:
+Stayfilm unterstützt die personalisierte Videozustellung über den gesamten Kundenlebenszyklus hinweg, unter anderem für:
 
-- **Onboarding- und Willkommens-Journeys:** Begrüßen Sie neue Nutzer:innen mit Videos, die auf ihr Profil oder ihren Anmeldekontext personalisiert sind
-- **Produkt- und Marktplatzinhalte:** Generieren Sie produktbezogene Videos aus Katalog- oder nutzerbereitgestellten Medien
-- **Conversion und Aktivierung:** Verstärken Sie wichtige Aktionen mit kontextuellem Video-Messaging
+- **Onboarding und Willkommens-Journeys:** Begrüßen Sie neue Nutzer:innen mit Videos, die auf ihr Profil oder ihren Anmeldekontext zugeschnitten sind
+- **Produkt- und Marktplatzinhalte:** Generieren Sie produktbezogene Videos aus Katalogen oder von Nutzer:innen bereitgestellten Medien
+- **Konversion und Aktivierung:** Verstärken Sie wichtige Aktionen mit kontextuellem Video-Messaging
 - **Kundenbindung und Upselling:** Heben Sie personalisierte Angebote oder Nutzungsmeilensteine im Videoformat hervor
 - **Rückgewinnung und Churn-Prävention:** Reaktivieren Sie inaktive Nutzer:innen mit maßgeschneiderten Videoinhalten
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie beginnen, stellen Sie sicher, dass Sie über Folgendes verfügen:
+Bevor Sie beginnen, stellen Sie sicher, dass Folgendes vorhanden ist:
 
-| Voraussetzung | Beschreibung |
-| ------------- | ------------ |
-| Stayfilm-API-Zugang | Kontaktieren Sie Stayfilm, um Ihre Projekt-Zugangsdaten zu erhalten, einschließlich `idproject`, `Subscription-Key`, OAuth-Client-Zugangsdaten und der Stayfilm-API-Basis-URL. Informationen zur Authentifizierung und zu Endpunkten finden Sie in der [Stayfilm-API-Dokumentation](https://apidoc.stayfilm.com). |
+| Anforderung | Beschreibung |
+| ----------- | ----------- |
+| Stayfilm-API-Zugang | Kontaktieren Sie Stayfilm, um Ihre Projekt-Zugangsdaten zu erhalten, einschließlich `idproject`, `Subscription-Key`, OAuth-Client-Zugangsdaten und die Stayfilm-API-Basis-URL. Informationen zur Authentifizierung und zu Endpunkten finden Sie in der [Stayfilm-API-Dokumentation](https://apidoc.stayfilm.com). |
 | Braze-Datentransformation | Verwenden Sie die [Braze-Datentransformation]({{site.baseurl}}/user_guide/data/unification/data_transformation), um Stayfilm-Callbacks zu empfangen und sie über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) Braze-Nutzerprofilen zuzuordnen. |
-| Braze-Nutzerbezeichner | Diese Anleitung verwendet `external_id`, um Stayfilm-Jobs mit Braze-Nutzerprofilen zu korrelieren. Der Wert, den Sie in `CallbackRelayData` übergeben, muss mit der `external_id` der Nutzer:innen in Braze übereinstimmen. |
-| Braze-Sandbox (empfohlen) | Testen Sie die Integration in einem Braze-Sandbox-Workspace, bevor Sie sie in der Produktion einsetzen. |
+| Braze-Nutzerbezeichner | Diese Anleitung verwendet `external_id`, um Stayfilm-Jobs mit Braze-Nutzerprofilen zu verknüpfen. Der Wert, den Sie in `CallbackRelayData` übergeben, muss mit der `external_id` der Nutzer:innen in Braze übereinstimmen. |
+| Braze-Sandbox (empfohlen) | Testen Sie die Integration in einem Braze-Sandbox-Workspace, bevor Sie sie in der Produktionsumgebung einsetzen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-## Funktionsweise der Integration {#how-the-integration-works}
+## So funktioniert die Integration {#how-the-integration-works}
 
 Diese Integration verwendet einen bidirektionalen Webhook-Ablauf:
 
-1. **Ausgehend:** Eine Braze-[Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks) sendet einen Render-Job an den Stayfilm-Endpunkt `POST /Job`. Die Anfrage enthält Nutzermedien, Template-Konfiguration und `CallbackRelayData`, das auf die `external_id` der Braze-Nutzer:innen gesetzt ist.
-2. **Eingehend:** Wenn Stayfilm das Rendering abgeschlossen hat, sendet es einen Callback an Ihre Braze-Datentransformations-Webhook-URL. Die Transformation ordnet die Antwort [angepassten Attributen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) und angepassten Events im entsprechenden Nutzerprofil zu.
-3. **Zustellung:** Verwenden Sie das gespeicherte Attribut `stayfilm_video_url` in Messaging-Kanälen, z. B. in einer [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages) mit angepasstem HTML.
+1. **Ausgehend:** Eine Braze-[Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks) sendet einen Render-Auftrag an den Stayfilm-Endpunkt `POST /Job`. Die Anfrage enthält Nutzermedien, die Template-Konfiguration und `CallbackRelayData`, das auf die `external_id` der/des Braze-Nutzer:in gesetzt ist.
+2. **Eingehend:** Wenn Stayfilm das Rendering abgeschlossen hat, sendet es einen Callback an Ihre Braze-Datentransformations-Webhook-URL. Die Transformation bildet die Antwort auf [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) und angepasste Events im entsprechenden Nutzerprofil ab.
+3. **Zustellung:** Verwenden Sie das gespeicherte Attribut `stayfilm_video_url` in Messaging-Kanälen, z. B. in einer [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages) mit benutzerdefiniertem HTML.
 
 Die Datentransformation in dieser Anleitung schreibt die folgenden angepassten Attribute:
 
 | Attribut | Beschreibung |
-| -------- | ------------ |
+| --------- | ----------- |
 | `stayfilm_video_status` | `ready`, wenn das Rendering erfolgreich ist, oder `failed`, wenn Stayfilm einen Fehler meldet |
 | `stayfilm_video_url` | URL des gerenderten MP4-Videos |
-| `stayfilm_job_id` | Stayfilm-Job-Bezeichner |
+| `stayfilm_job_id` | Stayfilm-Auftragsbezeichner |
 | `stayfilm_render_error` | Fehlermeldung, wenn das Rendering fehlschlägt |
 | `stayfilm_callback_received_at` | ISO-Zeitstempel des Callbacks |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Angepasste Attribute" }
@@ -179,7 +179,7 @@ Bevor Sie die Campaign testen, bestätigen Sie, dass Stayfilm Ihr Projekt mit de
 4. Wählen Sie **Compose webhook** > **Start from scratch** aus.
 5. Geben Sie unter **Compose Webhook** > **Webhook URL** die von Stayfilm bereitgestellte `POST /Job`-Endpunkt-URL ein. Ersetzen Sie *`{BASE_URL}`* im folgenden Beispiel: `https://{BASE_URL}/stg/v3/job`
 6. Setzen Sie **HTTP method** auf **POST**.
-7. Wählen Sie unter **Request Body** die Option **Raw Text** aus und fügen Sie dann den von Stayfilm bereitgestellten Job-Payload ein. Sie können [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call) verwenden, um den Body dynamisch zu gestalten.
+7. Wählen Sie unter **Request Body** die Option **Raw Text** aus und fügen Sie dann den von Stayfilm bereitgestellten Job-Payload ein. Sie können [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) verwenden, um den Body dynamisch zu gestalten.
 
 Fügen Sie `CallbackRelayData` ein, das auf die `external_id` der Braze-Nutzer:innen gesetzt ist. Stayfilm gibt diesen Wert im Callback als `RelayedData` zurück.
 
@@ -202,7 +202,7 @@ Fügen Sie `CallbackRelayData` ein, das auf die `external_id` der Braze-Nutzer:i
 Fügen Sie die folgenden Anfrage-Header hinzu:
 
 | Schlüssel | Wert |
-| --------- | ---- |
+| --- | ----- |
 | `idproject` | Der von Stayfilm bereitgestellte `idproject`-Wert |
 | `Subscription-Key` | Der von Stayfilm bereitgestellte `Subscription-Key` |
 | `Content-Type` | `application/json` |
@@ -323,24 +323,24 @@ Das gerenderte Video wird in der Vorschau angezeigt und abgespielt, wenn `stayfi
 
 ## Integration erweitern {#extend-the-integration}
 
-Diese Anleitung deckt einen Teil der Stayfilm-API ab. Um Job-Templates, Medieneingaben oder nachgelagertes Messaging anzupassen, lesen Sie die [Stayfilm-API-Dokumentation](https://apidoc.stayfilm.com) und aktualisieren Sie Ihren Webhook-Payload, die Datentransformations-Zuordnung und die Campaign-Logik entsprechend.
+Diese Anleitung deckt einen Teil der Stayfilm-API ab. Um Job-Templates, Medieneingaben oder nachgelagertes Messaging anzupassen, lesen Sie die [Stayfilm-API-Dokumentation](https://apidoc.stayfilm.com) und aktualisieren Sie Ihren Webhook-Payload, die Datentransformations-Abbildung und die Campaign-Logik entsprechend.
 
-## Hinweise {#considerations}
+## Überlegungen {#considerations}
 
-- **Asynchrones Rendering:** Die Videogenerierung erfolgt nicht sofort. Lösen Sie Folgenachrichten über das angepasste Event `stayfilm_video_ready` oder ein Segment basierend auf `stayfilm_video_status` aus, anstatt die In-App-Nachricht im selben Ablauf wie den Webhook zu senden.
-- **Bezeichner-Konsistenz:** Der Wert in `CallbackRelayData` muss exakt mit der `external_id` der Braze-Nutzer:innen übereinstimmen.
-- **OAuth-Token-Caching:** Das Connected-Content-Beispiel speichert das OAuth-Token für 3000 Sekunden im Cache. Passen Sie `cache_max_age` an, wenn Stayfilm die Anforderungen an die Token-Lebensdauer ändert.
-- **Sandbox-Tests:** Validieren Sie den vollständigen Callback-Ablauf in einer Braze-Sandbox, bevor Sie in die Produktion gehen.
-- **Kapazität für angepasste Attribute:** Bestätigen Sie, dass Ihr Workspace Kapazität für die angepassten Attribute und Events hat, die diese Integration erstellt.
+- **Asynchrones Rendering:** Die Videogenerierung erfolgt nicht sofort. Triggern Sie Folgenachrichten über das angepasste Event `stayfilm_video_ready` oder ein Segment basierend auf `stayfilm_video_status`, anstatt die In-App-Nachricht im selben Flow wie den Webhook zu senden.
+- **Konsistenz der Bezeichner:** Der Wert in `CallbackRelayData` muss exakt mit der `external_id` der Braze-Nutzer:innen übereinstimmen.
+- **OAuth-Token-Caching:** Das Connected-Content-Beispiel speichert das OAuth-Token für 3000 Sekunden im Cache. Passen Sie `cache_max_age` an, falls Stayfilm die Anforderungen für die Token-Lifetime ändert.
+- **Sandbox-Tests:** Validieren Sie den vollständigen Callback-Loop in einer Braze-Sandbox, bevor Sie in die Produktionsumgebung wechseln.
+- **Kapazität für angepasste Attribute:** Stellen Sie sicher, dass Ihr Workspace über ausreichend Kapazität für die angepassten Attribute und Events verfügt, die diese Stayfilm-Integration erstellt.
 
 ## Fehlerbehebung {#troubleshooting}
 
-Konsultieren Sie die folgende Tabelle, wenn Probleme mit der Stayfilm-Integration auftreten.
+In der folgenden Tabelle finden Sie Lösungen für mögliche Probleme mit der Stayfilm-Integration.
 
 | Problem | Lösung |
-| ------- | ------ |
-| Validierung der Datentransformation schlägt fehl | Bestätigen Sie, dass `RelayedData` in Ihrem Test-Payload mit einer gültigen Braze-`external_id` übereinstimmt, und laden Sie dann die Seite **Data Transformation** neu, bevor Sie **Validate** auswählen. |
-| Webhook-Test gibt eine Nicht-201-Antwort zurück | Überprüfen Sie die Stayfilm-Zugangsdaten in Ihren Anfrage-Headern, bestätigen Sie, dass der OAuth-Connected-Content-Block URL-kodierte Werte verwendet, und prüfen Sie, ob Ihre `POST /Job`-URL korrekt ist. |
-| Callback erscheint nicht in den Transformations-Logs | Bestätigen Sie, dass Stayfilm Ihre aktive Datentransformations-Webhook-URL hat, und warten Sie, bis das Video-Rendering abgeschlossen ist. |
-| In-App-Vorschau zeigt das Video nicht an | Bestätigen Sie, dass `stayfilm_video_url` im Testnutzerprofil gesetzt ist und dass die In-App-Nachricht auf **Web Browsers** mit **Custom Code** ausgerichtet ist. |
+| ----- | ---------- |
+| Die Validierung der Datentransformation schlägt fehl | Stellen Sie sicher, dass `RelayedData` in Ihrem Test-Payload einer gültigen Braze `external_id` entspricht, und laden Sie dann die Seite **Datentransformation** neu, bevor Sie **Validate** auswählen. |
+| Der Webhook-Test gibt eine Antwort zurück, die nicht 201 ist | Überprüfen Sie die Stayfilm-Zugangsdaten in Ihren Anfrage-Headern, stellen Sie sicher, dass der OAuth-Connected-Content-Block URL-kodierte Werte verwendet, und prüfen Sie, ob Ihre `POST /Job`-URL korrekt ist. |
+| Der Callback erscheint nicht in den Transformationsprotokollen | Stellen Sie sicher, dass Stayfilm Ihre aktive Datentransformations-Webhook-URL hat, und warten Sie, bis das Video-Rendering abgeschlossen ist. |
+| Die In-App-Vorschau zeigt das Video nicht an | Stellen Sie sicher, dass `stayfilm_video_url` im Profil der Testnutzer:in gesetzt ist und dass die In-App-Nachricht auf **Web Browsers** mit **Custom Code** ausgerichtet ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }

@@ -13,7 +13,7 @@ description: "Cet article de référence explique comment utiliser les attributs
 
 ## À propos des attributs imbriqués {#about-nested-attributes}
 
-Les attributs imbriqués vous permettent de créer des Segments plus riches et de personnaliser vos messages à l'aide de données provenant d'un seul objet d'attribut personnalisé.
+Les attributs imbriqués vous permettent de créer des Segments plus riches et de personnaliser vos messages avec les données d'un seul objet d'attribut personnalisé.
 
 Dans l'exemple suivant, l'attribut personnalisé `favorite_book` contient les attributs imbriqués `title`, `author` et `publishing_date`. Cet objet peut être utilisé pour cibler des utilisateurs par auteur, filtrer par date de publication ou insérer le titre du livre directement dans un message :
 
@@ -30,15 +30,15 @@ Dans l'exemple suivant, l'attribut personnalisé `favorite_book` contient les at
 
 ## Considérations {#considerations}
 
-- Les attributs personnalisés imbriqués sont destinés aux attributs personnalisés envoyés via le SDK ou l'API Braze.
+- Les attributs personnalisés imbriqués sont conçus pour les attributs personnalisés envoyés via le SDK ou l'API Braze.
 - Les objets ont une taille maximale de 100&nbsp;Ko. Si une mise à jour entraîne un dépassement de 100&nbsp;Ko pour l'objet, Braze rejette la mise à jour et l'attribut reste inchangé.
 - Les noms de clés et les valeurs de chaînes de caractères ont une limite de 255 caractères.
 - Les noms de clés ne peuvent pas contenir d'espaces.
 - Les points (`.`) et les signes dollar (`$`) ne sont pas des caractères pris en charge dans un payload d'API si vous tentez d'envoyer un attribut personnalisé imbriqué à un profil utilisateur.
-- Tous les partenaires Braze ne prennent pas en charge les attributs personnalisés imbriqués. Consultez la [documentation des partenaires]({{site.baseurl}}/partners/home) pour vérifier si des intégrations partenaires spécifiques prennent en charge cette fonctionnalité.
+- Tous les partenaires Braze ne prennent pas en charge les attributs personnalisés imbriqués. Consultez la [documentation des partenaires]({{site.baseurl}}/partners/home) pour vérifier si des intégrations spécifiques de partenaires prennent en charge cette fonctionnalité.
 - Les attributs personnalisés imbriqués ne peuvent pas être utilisés comme filtre lors d'un appel à l'API Connected Audience.
-- Par défaut, le filtre de Segment **Nested Custom Attributes** inclut les attributs personnalisés de type objet, les attributs de type tableau d'objets et les attributs personnalisés de type tableau. Lorsque vous sélectionnez un attribut, le sélecteur de schéma de propriétés inclut les chemins de tableau (utilisant la notation `[]`) pour les champs de tableau imbriqués. Pour masquer les attributs personnalisés de type tableau de niveau supérieur dans ce filtre, contactez le [support Braze]({{site.baseurl}}/braze_support).
-- Lors de la prévisualisation de messages dans le tableau de bord à l'aide de **Preview as a Custom User**, vous ne pouvez saisir des données fictives que sous forme de chaîne de caractères ou de tableau de chaînes de caractères — les objets imbriqués ne sont pas pris en charge. Pour prévisualiser un message qui fait référence à des attributs personnalisés imbriqués, sélectionnez un utilisateur existant qui possède déjà l'attribut imbriqué dans son profil. Pour les propriétés d'événements personnalisés imbriqués, vous devez lancer une Campaign en direct ciblant un utilisateur test pour vérifier le rendu.
+- Par défaut, le filtre de Segment **Nested Custom Attributes** inclut les attributs personnalisés de type objet, les attributs de type tableau d'objets et les attributs personnalisés de type tableau. Lorsque vous sélectionnez un attribut, le sélecteur de schéma de propriétés inclut les chemins de tableau (utilisant la notation `[]`) pour les champs de tableaux imbriqués. Pour masquer les attributs personnalisés de type tableau de premier niveau dans ce filtre, contactez le [support Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+- Lors de la prévisualisation de messages dans le tableau de bord à l'aide de **Preview as a Custom User**, vous ne pouvez saisir des données fictives qu'en tant que chaîne de caractères ou tableau de chaînes de caractères — les objets imbriqués ne sont pas pris en charge. Pour prévisualiser un message qui fait référence à des attributs personnalisés imbriqués, sélectionnez un utilisateur existant qui possède déjà l'attribut imbriqué sur son profil. Pour les propriétés d'événements personnalisés imbriqués, vous devez lancer une Campaign en direct ciblant un utilisateur test pour vérifier le rendu.
 
 ## Exemple d'API {#api-example}
 
@@ -68,7 +68,7 @@ Voici un exemple `/users/track` avec un objet « Most Played Song ». Pour captu
 
 {% endtab %}
 {% tab Mettre à jour %}
-Pour mettre à jour un objet existant, envoyez une requête POST à `users/track` avec le paramètre `_merge_objects` dans la requête. Cela fusionnera en profondeur votre mise à jour avec les données d'objet existantes. La fusion en profondeur garantit que tous les niveaux d'un objet sont fusionnés dans un autre objet, et pas seulement le premier niveau. Dans cet exemple, nous avons déjà un objet `most_played_song` dans Braze, et nous ajoutons maintenant un nouveau champ, `year_released`, à l'objet `most_played_song`.
+Pour mettre à jour un objet existant, envoyez une requête POST à `users/track` avec le paramètre `_merge_objects` dans la requête. Cela fusionnera en profondeur votre mise à jour avec les données d'objet existantes. La fusion en profondeur garantit que tous les niveaux d'un objet sont fusionnés dans un autre objet, et pas uniquement le premier niveau. Dans cet exemple, nous avons déjà un objet `most_played_song` dans Braze, et nous ajoutons maintenant un nouveau champ, `year_released`, à l'objet `most_played_song`.
 
 ```json
 {
@@ -84,7 +84,7 @@ Pour mettre à jour un objet existant, envoyez une requête POST à `users/track
 }
 ```
 
-Une fois cette requête reçue, l'objet d'attribut personnalisé ressemblera désormais à ceci :
+Une fois cette requête reçue, l'objet d'attribut personnalisé ressemblera désormais à ce qui suit :
 
 ```json
 {"most_played_song": {
@@ -279,7 +279,7 @@ AppboyBinding.UnsetCustomUserAttribute("most_played_song");
 Pour capturer des dates en tant que propriétés d'objet, vous devez utiliser la clé `$time`. Dans l'exemple suivant, un objet « Important Dates » est utilisé pour capturer l'ensemble des propriétés d'objet, `birthday` et `wedding_anniversary`. La valeur de ces dates est un objet avec une clé `$time`, qui ne peut pas être une valeur nulle.
 
 {% alert note %}
-Si vous n'avez pas initialement capturé les dates en tant que propriétés d'objet, nous vous recommandons de renvoyer ces données en utilisant la clé `$time` pour tous les utilisateurs. Dans le cas contraire, cela peut entraîner des Segments incomplets lors de l'utilisation de l'attribut `$time`. Cependant, si la valeur de `$time` dans un attribut personnalisé imbriqué n'est pas correctement formatée, l'ensemble de l'attribut personnalisé imbriqué ne sera pas mis à jour.
+Si vous n'avez pas initialement capturé les dates en tant que propriétés d'objet, nous vous recommandons de renvoyer ces données en utilisant la clé `$time` pour tous les utilisateurs. Dans le cas contraire, cela pourrait entraîner des Segments incomplets lors de l'utilisation de l'attribut `$time`. Cependant, si la valeur de `$time` dans un attribut personnalisé imbriqué n'est pas correctement formatée, l'ensemble de l'attribut personnalisé imbriqué ne sera pas mis à jour.
 {% endalert %}
 
 ```json
@@ -302,7 +302,7 @@ Pour les attributs personnalisés imbriqués, si l'année est inférieure à 0 o
 
 ## Modèles Liquid {#liquid-templating}
 
-L'exemple de modèle Liquid suivant montre comment référencer les propriétés d'objet d'attribut personnalisé enregistrées à partir de la requête API précédente et les utiliser dans vos messages.
+L'exemple de modèle Liquid suivant montre comment référencer les propriétés de l'objet d'attribut personnalisé enregistrées à partir de la requête API précédente et les utiliser dans vos messages.
 
 Utilisez la balise de personnalisation `custom_attribute` et la notation par points pour accéder aux propriétés d'un objet. Spécifiez le nom de l'objet (et la position dans le tableau si vous référencez un tableau d'objets), suivi d'un point, suivi du nom de la propriété.
 
@@ -314,9 +314,9 @@ Utilisez la balise de personnalisation `custom_attribute` et la notation par poi
 
 Pour utiliser le Liquid d'attribut personnalisé imbriqué dans votre message :
 
-1. Accédez à une Campaign ou un Canvas, puis ouvrez l'étape de message où vous souhaitez ajouter la personnalisation.
+1. Accédez à une Campaign ou un Canvas, puis ouvrez l'étape de message dans laquelle vous souhaitez ajouter une personnalisation.
 2. Dans le compositeur de message, insérez l'extrait de code Liquid à l'endroit où vous souhaitez que la valeur apparaisse.
-3. Utilisez **Aperçu et test** avec un utilisateur existant qui possède déjà l'attribut personnalisé imbriqué sur son profil pour confirmer que la valeur s'affiche comme prévu.
+3. Utilisez **Aperçu et test** avec un utilisateur existant qui possède déjà l'attribut personnalisé imbriqué dans son profil pour confirmer que la valeur s'affiche comme prévu.
 
 ### Personnalisation {#personalization}
 
@@ -324,19 +324,19 @@ Vous pouvez utiliser **Ajouter une personnalisation** pour insérer un attribut 
 
 Pour ouvrir **Ajouter une personnalisation** :
 
-1. Accédez à une Campaign ou un Canvas, puis ouvrez l'étape de message où vous souhaitez ajouter la personnalisation.
-2. Dans le compositeur de message, sélectionnez **Personnalisation** pour ouvrir le panneau latéral **Ajouter une personnalisation**, où vous pouvez choisir les options de personnalisation.
+1. Accédez à une Campaign ou un Canvas, puis ouvrez l'étape de message dans laquelle vous souhaitez ajouter une personnalisation.
+2. Dans le compositeur de message, sélectionnez **Personnalisation** pour ouvrir le volet latéral **Ajouter une personnalisation**, où vous pouvez choisir les options de personnalisation.
 
 Pour configurer la personnalisation d'attribut personnalisé imbriqué :
 
 1. Dans **Type de personnalisation**, sélectionnez **Attributs personnalisés imbriqués**.
 2. Dans **Attribut de niveau supérieur**, sélectionnez le chemin de l'attribut personnalisé imbriqué que vous souhaitez insérer.
    Par exemple, sélectionnez `preferences.neighborhood_office`.
-3. Facultatif : dans **Valeur par défaut**, saisissez une valeur de secours pour les utilisateurs qui n'ont pas leur propre valeur pour cet attribut.
+3. Facultatif : Dans **Valeur par défaut**, saisissez une valeur de repli pour les utilisateurs qui ne disposent pas de leur propre valeur pour cet attribut.
 4. Vérifiez l'**extrait de code Liquid** généré pour confirmer qu'il correspond au chemin attendu.
 5. Sélectionnez **Insérer**.
 
-Dans cet exemple, Braze insère la valeur imbriquée de `preferences.neighborhood_office` dans votre message. Les valeurs par défaut sont des valeurs de secours que votre message inclut pour les utilisateurs qui n'ont pas leur propre valeur pour un attribut.
+Dans cet exemple, Braze insère la valeur imbriquée de `preferences.neighborhood_office` dans votre message. Les valeurs par défaut sont des valeurs de repli que votre message inclut pour les utilisateurs qui ne disposent pas de leur propre valeur pour un attribut.
 
 {% alert tip %}
 Vérifiez qu'un schéma a été généré si vous ne voyez pas l'option d'insertion d'attributs personnalisés imbriqués.
@@ -377,15 +377,15 @@ Si les données n'apparaissent pas comme prévu après la régénération du sch
 
 Vous pouvez déclencher une action lorsqu'un objet d'attribut personnalisé imbriqué change. Cette option n'est pas disponible pour les modifications apportées aux tableaux d'objets. Si vous ne voyez pas d'option pour afficher l'explorateur de chemins, vérifiez que vous avez généré un schéma.
 
-Par exemple, dans une Campaign basée sur une action, vous pouvez ajouter une nouvelle action de déclenchement pour **Change Custom Attribute Value** afin de cibler les utilisateurs qui ont modifié leurs préférences de bureau de quartier.
+Par exemple, dans une Campaign par événement, vous pouvez ajouter une nouvelle action de déclenchement pour **Modifier la valeur de l'attribut personnalisé** afin de cibler les utilisateurs qui ont modifié leurs préférences de bureau de quartier.
 
-Pour configurer ce déclencheur dans une Campaign basée sur une action :
+Pour configurer ce déclencheur dans une Campaign par événement :
 
-1. Créez ou modifiez une Campaign, puis définissez le type de réception sur **Livraison par événement**.
-2. Dans les paramètres de déclenchement, sélectionnez **Change Custom Attribute Value**.
+1. Créez ou modifiez une Campaign, puis définissez le type de livraison sur **Livraison par événement**.
+2. Dans les paramètres de déclenchement, sélectionnez **Modifier la valeur de l'attribut personnalisé**.
 3. Sélectionnez le chemin de l'attribut personnalisé imbriqué que vous souhaitez surveiller.
    Par exemple, sélectionnez `preferences.neighborhood_office`.
-4. Sélectionnez la condition de déclenchement souhaitée, telle que **any new value**.
+4. Sélectionnez la condition de déclenchement souhaitée, telle que **toute nouvelle valeur**.
 5. Terminez la configuration du message et de l'audience de votre Campaign, puis lancez la Campaign.
 
 ## Résolution des problèmes {#troubleshooting}
@@ -396,19 +396,19 @@ Si vous constatez que les valeurs d'attributs personnalisés imbriqués ne sont 
 
 Pour diagnostiquer et résoudre ce problème :
 
-1. **Comparez des exemples d'utilisateurs :** Obtenez un exemple d'utilisateur réussi et un exemple non réussi pour lesquels l'attribut personnalisé imbriqué aurait dû être défini.
-2. **Examinez la structure des données :** Affichez et comparez les valeurs des attributs personnalisés sur les deux profils :
+1. **Comparez des exemples d'utilisateurs :** Obtenez un exemple d'utilisateur réussi et un exemple échoué pour lesquels l'attribut personnalisé imbriqué aurait dû être défini.
+2. **Examinez la structure des données :** Affichez et comparez les valeurs de l'attribut personnalisé sur les deux profils :
    - Les propriétés sont-elles stockées sous un objet ?
    - Les propriétés sont-elles stockées sous forme de tableau de propriétés ?
-3. **Vérifiez le filtre de segmentation :** Comparez la structure de données stockée avec la manière dont l'attribut personnalisé imbriqué est référencé dans vos filtres de segmentation.
+3. **Vérifiez le filtre de segmentation :** Comparez la structure des données stockées avec la façon dont l'attribut personnalisé imbriqué est référencé dans vos filtres de segmentation.
 4. **Vérifiez le type de données :** Pour identifier le type de données d'un attribut personnalisé :
    - Accédez à **Paramètres des données** > **Attributs personnalisés**.
    - Recherchez l'attribut personnalisé de niveau supérieur qui contient l'attribut imbriqué que vous souhaitez vérifier.
-   - Si la ligne affiche **Générer le schéma**, sélectionnez cette option pour générer le schéma au préalable.
-   - Une fois le schéma généré, sélectionnez l'icône plus dans la colonne **Nom de l'attribut** pour cet attribut.
-   - Dans la boîte de dialogue modale **Modifier le schéma**, examinez les attributs imbriqués et leurs valeurs correspondantes dans la colonne **Type de données**.
+   - Si la ligne affiche **Generate Schema**, sélectionnez cette option pour générer le schéma au préalable.
+   - Une fois le schéma généré, sélectionnez l'icône plus dans la colonne **Attribute Name** pour cet attribut.
+   - Dans la fenêtre modale **Edit schema**, examinez les attributs imbriqués et leurs valeurs correspondantes dans la colonne **Data type**.
 
-Si vous constatez que le type de données ne correspond pas au format prévu sur l'ensemble des profils utilisateur, supprimez la valeur mal formatée des profils utilisateur concernés et renvoyez l'attribut dans le format correct en utilisant la requête API ou la méthode SDK appropriée.
+Si vous constatez que le type de données ne correspond pas au format prévu sur les différents profils utilisateur, supprimez la valeur incorrectement formatée des profils utilisateur concernés et renvoyez l'attribut dans le format correct à l'aide de la requête API ou de la méthode SDK appropriée.
 
 ## Comportement de la segmentation avec les tableaux d'objets {#segmentation-behavior-with-arrays-of-objects}
 
@@ -432,7 +432,7 @@ Un Segment avec les filtres ET suivants :
 
 Cet utilisateur serait qualifié car le premier filtre correspond à l'élément « Shoes » (80 > 50) et le second filtre correspond à l'élément « Hat » (25 < 30). Même si aucun élément individuel ne satisfait les deux conditions, l'utilisateur entre tout de même dans le Segment.
 
-Si vous avez besoin que toutes les conditions correspondent au même élément au sein d'un tableau, utilisez la [segmentation multi-critères]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) sur le même chemin, ou restructurez vos données pour éviter la correspondance inter-éléments.
+Si vous avez besoin que toutes les conditions correspondent au même élément au sein d'un tableau, utilisez la [segmentation multicritère]({{site.baseurl}}/user_guide/audience/segments/segment_with_nested_custom_attributes#use-multi-criteria-segmentation) sur le même chemin, ou restructurez vos données pour éviter la correspondance inter-éléments.
 
 ## Points de donnée {#data-points}
 

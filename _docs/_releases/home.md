@@ -1,11 +1,10 @@
 ---
 nav_title: Home
 article_title: What's new in Braze
-description: "Braze release notes are published monthly so you can stay up-to-date on major product releases, ongoing product improvements, Braze partnerships, breaking SDK changes, and feature deprecations."
+description: "Braze release notes are published monthly so you can stay up-to-date on major product releases, ongoing product improvements, Braze partnerships,."
 page_order: 0
 search_rank: 1
 page_type: reference
-
 ---
 
 # What's new in Braze
@@ -477,11 +476,11 @@ When re-eligibility is enabled for Banner campaigns, users who dismiss a Banner 
 
 Quick Push A/B Testing now supports multi-platform push campaigns and Canvas steps through variant groups, so you can test aligned iOS and Android message variations in one workflow. For more information, refer to [Multiple platform push messages]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push/#use-cases).
 
-#### BrazeAI™ Variant Selection
+#### Optimize with BrazeAI™
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-BrazeAI™ Variant Selection automatically turns on when you add multiple push variants, applies recommended experiment defaults, and optimizes toward the highest-performing variant to improve engagement. You can turn it off if you need to send immediately. For more information, refer to [BrazeAI™ Variant Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection/).
+**Optimize with BrazeAI™** automatically turns on when you add multiple push variants, applies recommended experiment defaults, and optimizes toward the highest-performing variant. You can turn it off if you need to send immediately. For more information, see [Optimizing A/B tests with BrazeAI]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
 #### WhatsApp test send results
 
@@ -499,7 +498,7 @@ After sending a test WhatsApp message, you can view a [detailed delivery report]
 
 #### Databricks Mosaic - AI Model Providers
 
-[Databricks Mosaic]({{site.baseurl}}/partners/databricks_mosaic/) is Databricks' unified platform for building, deploying, and managing AI and machine learning models at scale on the Databricks Data Intelligence Platform.
+[Databricks Mosaic]({{site.baseurl}}/partners/ai_model_providers/databricks_mosaic) is Databricks' unified platform for building, deploying, and managing AI and machine learning models at scale on the Databricks Data Intelligence Platform.
 
 #### DinMo - Data and Analytics - Reverse ETL
 
@@ -660,7 +659,7 @@ Compose [multi-language messages]({{site.baseurl}}/user_guide/messaging/messagin
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Managing who can access your account and perform specific actions is critical for both security and operational efficiency. To give you more control, Braze is introducing [granular permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/granular_permissions_migration/), a more flexible and precise way to manage user access across your account.
+Managing who can access your account and perform specific actions is critical for both security and operational efficiency. To give you more control, Braze is introducing [granular permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions), a more flexible and precise way to manage user access across your account.
 
 #### Send to Destination Canvas component
 
@@ -761,7 +760,7 @@ Cloud Data Ingestion (CDI) has a new design that separates sources and syncs, so
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-After adding locales to your workspace, use [multi-language translations]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales/) to target users in different languages all within a single push, email, Banner, in-app message, or Content Block.
+After adding locales to your workspace, use [multi-language translations]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) to target users in different languages all within a single push, email, Banner, in-app message, or Content Block.
 
 ![Locale previews]({% image_buster /assets/img/multi-language_support/multi_language_user_preview.png %}){: style="max-width:70%;"}
 
@@ -771,10 +770,10 @@ After adding locales to your workspace, use [multi-language translations]({{site
 
 In Canvas, you can now reference context variables to set:
 
-- An [expiration]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables/#set-an-expiration) for Banners and in-app messages in a Message step
-- A [personalized delays]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables/#action-path-delays) for Action Paths steps
+- An [expiration]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) for Banners and in-app messages in a Message step
+- A [personalized delays]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) for Action Paths steps
 
-In the Context variable name field, you can also enter the context variable name or select it from the dropdown in the step editor. For more details, see [Context]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context) and [Context variables]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables).
+In the Context variable name field, you can also enter the context variable name or select it from the dropdown in the step editor. For more details, see [Context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) and [Context variables]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
 
 ### Channels & Touchpoints
 
@@ -790,7 +789,7 @@ In the Context variable name field, you can also enter the context variable name
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-You can use [Banners]({{site.baseurl}}/user_guide/message_building_by_channel/banners/) as a messaging channel in Canvas [Message steps]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step). Banners allow you to personalize app or website content dynamically, reflecting real-time user eligibility and behavior.
+You can use [Banners]({{site.baseurl}}/user_guide/channels/banners) as a messaging channel in Canvas [Message steps]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step). Banners allow you to personalize app or website content dynamically, reflecting real-time user eligibility and behavior.
 
 ### Partnerships
 
@@ -896,7 +895,7 @@ The [Messaging Diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dash
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Braze is introducing [granular permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/), a more flexible way to manage user access. Refer to [Migrating to granular permissions]({{site.baseurl}}/granular_permissions_migration/) to learn about the migration process, including how legacy permissions map to granular permissions.
+Braze is introducing [granular permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/), a more flexible way to manage user access. Refer to [Migrating to granular permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to learn about the migration process, including how legacy permissions map to granular permissions.
 
 #### Channel-based rate limiting
 
@@ -1096,7 +1095,7 @@ Events that do not have an external user ID defined can now be streamed to Custo
 
 #### Email Open event — "machine_open" field
 
-The [Email Open event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events) now generates the "machine_open" field value to report on the [_Machine Open_]({{site.baseurl}}/user_guide/analytics/reporting/report_metrics#machine-opens) metric. 
+The [Email Open event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events) now generates the "machine_open" field value to report on the [_Machine Open_]({{site.baseurl}}/user_guide/analytics/metrics_glossary) metric. 
 
 ### SDK
 

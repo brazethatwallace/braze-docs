@@ -1,11 +1,10 @@
 ---
 nav_title: Home
 article_title: Was ist neu in Braze
-description: "Die Braze-Versionshinweise werden monatlich veröffentlicht, damit Sie immer auf dem neuesten Stand sind, was wichtige Produktveröffentlichungen, laufende Produktverbesserungen, Braze-Partnerschaften, grundlegende SDK-Änderungen und veraltete Features betrifft."
+description: "Die Braze-Versionshinweise werden monatlich veröffentlicht, damit Sie immer auf dem neuesten Stand sind, was wichtige Produktveröffentlichungen, laufende Produktverbesserungen und Braze-Partnerschaften betrifft."
 page_order: 0
 search_rank: 1
 page_type: reference
-
 ---
 
 # Was ist neu in Braze {#whats-new-in-braze}
@@ -477,11 +476,11 @@ Wenn die Wiederberechtigung für Banner-Campaigns aktiviert ist, können Nutzer:
 
 Quick-Push-A/B-Tests unterstützen jetzt Multi-Plattform-Push-Campaigns und Canvas-Schritte durch Variantengruppen, sodass Sie aufeinander abgestimmte iOS- und Android-Nachrichtenvariationen in einem Workflow testen können. Weitere Informationen finden Sie unter [Push-Nachrichten für mehrere Plattformen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push#use-cases).
 
-#### BrazeAI<sup>TM</sup> Variantenauswahl {#brazeai-variant-selection}
+#### Mit BrazeAI<sup>TM</sup> optimieren {#optimize-with-brazeai}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-BrazeAI<sup>TM</sup> Variant Selection wird automatisch aktiviert, wenn Sie mehrere Push-Varianten hinzufügen, wendet empfohlene Experiment-Standardwerte an und optimiert in Richtung der leistungsstärksten Variante, um das Engagement zu verbessern. Sie können es deaktivieren, wenn Sie sofort senden müssen. Weitere Informationen finden Sie unter [BrazeAI<sup>TM</sup> Variant Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
+**Mit BrazeAI<sup>TM</sup> optimieren** wird automatisch aktiviert, wenn Sie mehrere Push-Varianten hinzufügen, wendet empfohlene Experiment-Standardwerte an und optimiert in Richtung der leistungsstärksten Variante. Sie können es deaktivieren, wenn Sie sofort senden müssen. Weitere Informationen finden Sie unter [A/B-Tests mit BrazeAI optimieren]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
 #### WhatsApp-Testversand-Ergebnisse {#whatsapp-test-send-results}
 
@@ -499,7 +498,7 @@ Nach dem Senden einer WhatsApp-Testnachricht können Sie einen [detaillierten Zu
 
 #### Databricks Mosaic – KI-Modellanbieter {#databricks-mosaic-ai-model-providers}
 
-[Databricks Mosaic]({{site.baseurl}}/partners/databricks_mosaic) ist die einheitliche Plattform von Databricks zum Erstellen, Bereitstellen und Verwalten von KI- und Machine-Learning-Modellen im großen Maßstab auf der Databricks Data Intelligence Platform.
+[Databricks Mosaic]({{site.baseurl}}/partners/ai_model_providers/databricks_mosaic) ist die einheitliche Plattform von Databricks zum Erstellen, Bereitstellen und Verwalten von KI- und Machine-Learning-Modellen im großen Maßstab auf der Databricks Data Intelligence Platform.
 
 #### DinMo – Daten und Analytics – Reverse ETL {#dinmo-data-and-analytics-reverse-etl}
 
@@ -660,7 +659,7 @@ Erstellen Sie [mehrsprachige Nachrichten]({{site.baseurl}}/user_guide/messaging/
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Die Verwaltung, wer auf Ihr Konto zugreifen und bestimmte Aktionen ausführen kann, ist sowohl für die Sicherheit als auch für die betriebliche Effizienz entscheidend. Um Ihnen mehr Kontrolle zu geben, führt Braze [granulare Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/granular_permissions_migration) ein, eine flexiblere und präzisere Möglichkeit, den Nutzerzugang in Ihrem Konto zu verwalten.
+Die Verwaltung, wer auf Ihr Konto zugreifen und bestimmte Aktionen ausführen kann, ist sowohl für die Sicherheit als auch für die betriebliche Effizienz entscheidend. Um Ihnen mehr Kontrolle zu geben, führt Braze [granulare Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) ein, eine flexiblere und präzisere Möglichkeit, den Nutzerzugang in Ihrem Konto zu verwalten.
 
 #### Canvas-Komponente „An Ziel senden“ {#send-to-destination-canvas-component}
 
@@ -761,7 +760,7 @@ Die Cloud-Datenaufnahme (CDI) hat ein neues Design, das Quellen und Synchronisie
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Nachdem Sie Ihrem Workspace Gebietsschemata hinzugefügt haben, verwenden Sie [mehrsprachige Übersetzungen]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales), um Nutzer:innen in verschiedenen Sprachen innerhalb einer einzigen Push-Benachrichtigung, E-Mail, eines Banners, einer In-App-Nachricht oder eines Content Blocks anzusprechen.
+Nachdem Sie Ihrem Workspace Gebietsschemata hinzugefügt haben, verwenden Sie [mehrsprachige Übersetzungen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages), um Nutzer:innen in verschiedenen Sprachen innerhalb einer einzigen Push-Benachrichtigung, E-Mail, eines Banners, einer In-App-Nachricht oder eines Content Blocks anzusprechen.
 
 ![Vorschau der Gebietsschemata]({% image_buster /assets/img/multi-language_support/multi_language_user_preview.png %}){: style="max-width:70%;"}
 
@@ -771,10 +770,10 @@ Nachdem Sie Ihrem Workspace Gebietsschemata hinzugefügt haben, verwenden Sie [m
 
 In Canvas können Sie jetzt Kontextvariablen referenzieren, um Folgendes festzulegen:
 
-- Einen [Ablauf]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#set-an-expiration) für Banner und In-App-Nachrichten in einem Nachrichten-Schritt
-- [Personalisierte Verzögerungen]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#action-path-delays) für Aktionspfad-Schritte
+- Einen [Ablauf]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) für Banner und In-App-Nachrichten in einem Nachrichten-Schritt
+- [Personalisierte Verzögerungen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) für Aktionspfad-Schritte
 
-Im Feld für den Kontextvariablennamen können Sie auch den Namen der Kontextvariable eingeben oder ihn aus dem Dropdown im Schritt-Editor auswählen. Weitere Details finden Sie unter [Context]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context) und [Kontextvariablen]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables).
+Im Feld für den Kontextvariablennamen können Sie auch den Namen der Kontextvariable eingeben oder ihn aus dem Dropdown im Schritt-Editor auswählen. Weitere Details finden Sie unter [Context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) und [Kontextvariablen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
 
 ### Kanäle und Touchpoints
 
@@ -790,7 +789,7 @@ Im Feld für den Kontextvariablennamen können Sie auch den Namen der Kontextvar
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Sie können [Banner]({{site.baseurl}}/user_guide/message_building_by_channel/banners) als Messaging-Kanal in Canvas-[Nachrichten-Schritten]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step) verwenden. Banner ermöglichen es Ihnen, App- oder Website-Inhalte dynamisch zu personalisieren und die Berechtigung und das Verhalten der Nutzer:innen in Echtzeit widerzuspiegeln.
+Sie können [Banner]({{site.baseurl}}/user_guide/channels/banners) als Messaging-Kanal in Canvas-[Nachrichten-Schritten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) verwenden. Banner ermöglichen es Ihnen, App- oder Website-Inhalte dynamisch zu personalisieren und die Berechtigung und das Verhalten der Nutzer:innen in Echtzeit widerzuspiegeln.
 
 ### Partnerschaften
 
@@ -888,7 +887,7 @@ Das [Messaging-Diagnose-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboa
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Braze-Agenten]({{site.baseurl}}/user_guide/brazeai/agents) sind KI-gestützte Helfer, die Sie innerhalb von Braze erstellen können. Agenten können Inhalte generieren, intelligente Entscheidungen treffen und Ihre Daten anreichern, sodass Sie personalisiertere Kundenerlebnisse zustellen können. Wenn Sie einen Agenten erstellen, definieren Sie seinen Zweck und legen Leitplanken fest, wie er sich verhalten soll. Sobald er aktiv ist, kann der Agent in Braze [eingesetzt]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents) werden, um personalisierte Texte zu generieren, Echtzeit-Entscheidungen zu treffen oder Katalogfelder zu aktualisieren.
+[Braze-Agenten]({{site.baseurl}}/user_guide/brazeai/agents) sind KI-gestützte Helfer, die Sie innerhalb von Braze erstellen können. Agenten können Inhalte generieren, intelligente Entscheidungen treffen und Ihre Daten anreichern, sodass Sie personalisiertere Kundenerlebnisse bereitstellen können. Wenn Sie einen Agenten erstellen, definieren Sie seinen Zweck und legen Leitplanken fest, wie er sich verhalten soll. Sobald er aktiv ist, kann der Agent in Braze [eingesetzt]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents) werden, um personalisierte Texte zu generieren, Echtzeit-Entscheidungen zu treffen oder Katalogfelder zu aktualisieren.
 
 ### Orchestrierung
 
@@ -896,7 +895,7 @@ Das [Messaging-Diagnose-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboa
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Braze führt [granulare Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) ein, eine flexiblere Möglichkeit, den Nutzerzugang zu verwalten. Unter [Migration zu granularen Berechtigungen]({{site.baseurl}}/granular_permissions_migration) erfahren Sie mehr über den Migrationsprozess, einschließlich der Zuordnung von Legacy-Berechtigungen zu granularen Berechtigungen.
+Braze führt [granulare Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) ein, eine flexiblere Möglichkeit, den Nutzerzugang zu verwalten. Unter [Migration zu granularen Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) erfahren Sie mehr über den Migrationsprozess, einschließlich der Zuordnung von Legacy-Berechtigungen zu granularen Berechtigungen.
 
 #### Kanalbasiertes Rate-Limiting {#channel-based-rate-limiting}
 
@@ -1096,7 +1095,7 @@ Events, für die keine externe Nutzer-ID definiert wurde, können jetzt zu Custo
 
 #### Event „E-Mail-Öffnung“ – Feld „machine_open“ {#email-open-event-machine_open-field}
 
-Das [Event „E-Mail-Öffnung“]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events) generiert jetzt den Feldwert „machine_open“, um über die Metrik [_Maschinenöffnungen_]({{site.baseurl}}/user_guide/analytics/reporting/report_metrics#machine-opens) zu berichten.
+Das [Event „E-Mail-Öffnung“]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events) generiert jetzt den Feldwert „machine_open“, um über die Metrik [_Machine Open_]({{site.baseurl}}/user_guide/analytics/metrics_glossary) zu berichten.
 
 ### SDK
 

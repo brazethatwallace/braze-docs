@@ -7,7 +7,6 @@ layout: api_page
 page_type: reference
 alias: /users_identify_merge/
 description: "En este artículo se describen los detalles del endpoint Identificar usuarios de Braze."
-
 ---
 {% api %}
 # Identificar usuarios {#identify-users}
@@ -32,7 +31,7 @@ Para identificar a un usuario es necesario incluir un `external_id` en los sigui
 Si no hay ningún usuario con ese `external_id`, el `external_id` se añade al registro del usuario con asignación de alias y se considera que el usuario está identificado. Los usuarios solo pueden tener un alias para una etiqueta específica. Si ya existe un usuario con el `external_id` y tiene un alias existente con la misma etiqueta que el perfil solo con alias, entonces los perfiles de usuario no se combinan.
 
 {% alert tip %}
-Para evitar la pérdida inesperada de datos al identificar a los usuarios, te recomendamos encarecidamente que primero consultes las [mejores prácticas de recopilación de datos]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices#capturing-user-data-when-alias-only-user-info-is-already-present) para saber cómo capturar datos de usuario cuando ya existe información de usuario solo con alias.
+Para evitar la pérdida inesperada de datos al identificar a los usuarios, te recomendamos encarecidamente que primero consultes las [mejores prácticas de recopilación de datos]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices) para saber cómo capturar datos de usuario cuando ya existe información de usuario solo con alias.
 {% endalert %}
 
 ### Comportamiento de fusión {#merging-behavior}
@@ -77,7 +76,7 @@ De forma predeterminada, este endpoint fusiona la siguiente lista de campos que 
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.identify`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics) con el permiso `users.identify`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -166,7 +165,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 El campo `alias_name` distingue entre mayúsculas y minúsculas. Una solicitud que devuelve un código de estado `201` solo confirma que la sintaxis de la solicitud era válida; no confirma que el alias haya coincidido. Si las mayúsculas y minúsculas de `alias_name` en tu solicitud no coinciden exactamente con el alias almacenado en el perfil de usuario, la operación fallará silenciosamente y el `external_id` no se asignará. Por ejemplo, si el alias almacenado es `JimJones@example.com`, una solicitud con `jimjones@example.com` devolverá éxito pero no producirá ningún resultado.
 
 {% alert tip %}
-Para más información sobre `alias_name` y `alias_label`, consulta nuestra documentación sobre [alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).
+Para más información sobre `alias_name` y `alias_label`, consulta nuestra documentación sobre [alias de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
 
 ### ¿Por qué mi solicitud de identificación devuelve éxito pero el perfil no se fusionó? {#why-does-my-identify-request-return-success-but-the-profile-did-not-merge}

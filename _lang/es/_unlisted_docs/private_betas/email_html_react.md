@@ -12,14 +12,14 @@ description: "Este artículo ofrece un resumen del editor HTML actualizado para 
 
 ## Beneficios {#benefits}
 
-El editor HTML actualizado crea una experiencia consistente en todos nuestros editores de otros canales de mensajería. Puedes cambiar fácilmente entre editores (HTML, clásico, texto sin formato y AMP) con la navegación superior del editor. Estas opciones estaban previamente ocultas en un menú desplegable en el antiguo editor HTML.
+El editor HTML actualizado crea una experiencia coherente con nuestros editores en otros canales de mensajería. Puedes cambiar fácilmente entre editores (HTML, clásico, texto sin formato y AMP) con la navegación superior del editor. Estas opciones estaban previamente ocultas en un desplegable en el antiguo editor HTML.
 
-Los beneficios también incluyen compatibilidad mejorada con la sintaxis de Liquid y [compatibilidad con la configuración multilingüe]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings/).
+Los beneficios también incluyen compatibilidad mejorada con la sintaxis de Liquid y [compatibilidad con la configuración multilingüe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings).
 
-La gestión de enlaces también es compatible con el editor HTML actualizado, incluso si no tienes activado el [aliasing de enlaces]({{site.baseurl}}/user_guide/message_building_by_channel/email/templates/link_aliasing/).
+La gestión de enlaces también es compatible con el editor HTML actualizado, incluso si no tienes activado el [aliasing de enlaces]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing).
 
-![El editor HTML actualizado para correo electrónico con un ejemplo de correo electrónico HTML.]({% image_buster /assets/unlisted_docs/img_archive/email_html_editor_updated.png %})
+![El editor HTML actualizado para correo electrónico con un ejemplo de correo electrónico en HTML.]({% image_buster /assets/unlisted_docs/img_archive/email_html_editor_updated.png %})
 
 {% alert tip %}
-Consulta nuestra sección dedicada al [editor HTML para correo electrónico]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor/) para obtener recursos adicionales.
+Consulta nuestra sección dedicada del [editor HTML para correo electrónico]({{site.baseurl}}/user_guide/channels/email/html_editor) para obtener recursos adicionales.
 {% endalert %}

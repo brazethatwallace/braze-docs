@@ -37,6 +37,18 @@ Currents allow you to:
 
 There's so much more you can do with event data, accessed by Currents. [Braze uses Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents) too!
 
+## Currents data distribution model
+
+Currents uses entitlement pools to control connector creation and optional event tracking.
+
+- **Engagement Events entitlements** are required for each standard Currents connector you create.
+- **Customer Behavior Events entitlements** are required when you enable **Track Customer Behavior and User Events** on a connector.
+- **User Profiles and Attributes entitlements** are required when you enable **Track user profiles and attributes** on a connector.
+
+Test Currents connectors use a separate test limit and don't consume standard connector entitlements.
+
+If you reach any entitlement limit, refer to [Set up Currents troubleshooting]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#troubleshooting) and [Currents FAQ]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq), or contact your account manager.
+
 ## How to access Currents
 
 A Currents connector is already included in many of our pro and enterprise-level packages. If you're interested in using Currents, contact your account manager. Your account manager and our data specialists can assist in your [Currents setup and integration]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents).

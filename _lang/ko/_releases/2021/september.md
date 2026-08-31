@@ -20,20 +20,20 @@ iOS 15에는 사용자가 하루 종일 집중하고 자주 방해받지 않도�
 
 ## 연락처 카드 {#contact-cards}
 
-연락처 카드는 비즈니스 및 연락처 정보를 전송하기 위한 표준화된 파일 형식으로 주소록이나 연락처 목록으로 쉽게 가져올 수 있습니다. 이제 SMS 및 MMS 메시지에 대한 연락처 카드를 업로드하고 만들 수 있습니다. 기본 제공 연락처 카드 생성기에서 연락처 카드를 만드는 방법에 대해 자세히 알아보려면 [설명서]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card)를 참조하세요.
+연락처 카드는 주소록이나 연락처 목록으로 쉽게 가져올 수 있는 비즈니스 및 연락처 정보를 전송하기 위한 표준화된 파일 형식입니다. 이제 SMS 및 MMS 메시지에 사용할 연락처 카드를 업로드하고 생성할 수 있습니다. 내장된 연락처 카드 생성기에서 연락처 카드를 만드는 방법에 대해 자세히 알아보려면 [설명서]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card)를 참조하세요.
 
-## 기본 Content Cards 커스터마이징 {#default-content-cards-customization}
+## 기본 Content Cards 커스터마이즈 {#default-content-cards-customization}
 
-`ABKContentCardsTableViewController`를 확장하여 모든 UI 요소와 Content Cards 동작을 커스터마이징하여 나만의 Content Cards 인터페이스를 만들 수 있습니다. Content Cards 피드를 커스터마이징하는 방법에 대한 자세한 내용은 [설명서]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style)를 참조하세요.
+`ABKContentCardsTableViewController`를 확장하여 모든 UI 요소와 Content Cards 동작을 커스터마이즈하는 자체 Content Cards 인터페이스를 만들 수 있습니다. Content Cards 피드 커스터마이즈 방법에 대한 자세한 내용은 [설명서]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style)를 참조하세요.
 
 ## API 사용량 제한 {#api-rate-limits}
 
-[사용량 제한]({{site.baseurl}}/api/basics#api-limits)은 2021년 9월 16일 이후에 가입한 모든 고객에게 적용됩니다.
+[사용량 제한]({{site.baseurl}}/api/api_limits)은 2021년 9월 16일 이후에 온보딩된 모든 고객에게 적용됩니다.
 
 ## Android 및 FireOS 개발자 가이드 업데이트 {#updates-to-android-and-fireos-developer-guides}
 
-Android 및 FireOS 개발자 가이드가 한 곳으로 통합되었습니다. FireOS 전용 문서는 이 [새로운 Android 섹션]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)에서 확인할 수 있습니다.
+Android 및 FireOS 개발자 가이드가 하나의 위치로 통합되었습니다. 전용 FireOS 문서는 이 [새로운 Android 섹션]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)에서 확인할 수 있습니다.
 
-## 퍼널 및 리텐션 보고서 업데이트 {#updates-to-funnel-and-retention-reports}
+## 퍼널 및 유지 보고서 업데이트 {#updates-to-funnel-and-retention-reports}
 
-이제 SMS Campaigns에 [퍼널 보고서]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports)와 [리텐션 보고서]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)를 사용할 수 있습니다.
+[퍼널 보고서]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) 및 [유지 보고서]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)를 이제 SMS Campaign에서도 사용할 수 있습니다.

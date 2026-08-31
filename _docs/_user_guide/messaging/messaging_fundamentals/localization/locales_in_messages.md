@@ -9,7 +9,7 @@ description: "This article provides steps on how to use locales in your messages
 
 # Multi-language messages
 
-> After adding locales to your workspace, you can target users in different languages all within a single push, email, banner, in-app message, or Content Block.
+> After adding locales to your workspace, you can target users in different languages all within a single push, email, webhook, banner, in-app message, or Content Block.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ description: "This article provides steps on how to use locales in your messages
 
 | Feature | Required user permissions |
 | --- | --- |
-| Templates | You need these permissions for the template type you want to add locales and translations to:<br><br> {::nomarkdown} <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
+| Templates | You need these permissions for the template type you want to add locales and translations to:<br><br> {::nomarkdown} <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Webhook Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
@@ -177,7 +177,7 @@ Then, upload the completed file and translations will be applied to your message
 {% endtab %}
 {% tab Use the translation API %}
 
-Use a partner translation API to manage and update translations in your campaigns and Canvases. This is useful if you use an external system for localization or want to directly connect with a translation partner.
+Use a partner translation API to manage and update translations in your campaigns, Canvases, Content Blocks, email templates, and webhook templates. This is useful if you use an external system for localization or want to directly connect with a translation partner.
 
 To use the translations endpoints with Canvases, include the following parameters:
   - `workflow_id`

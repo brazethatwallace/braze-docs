@@ -1,12 +1,11 @@
 ---
-nav_title: "POST : Envoyer des campagnes via une distribution déclenchée par API"
-article_title: "POST : Envoyer des campagnes via une distribution déclenchée par API"
+nav_title: "POST : Envoyer des Campaigns via une distribution déclenchée par API"
+article_title: "Envoyer des messages de Campaign via une distribution déclenchée par API"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Cet article présente les détails de l'endpoint Braze permettant d'envoyer des campagnes via une distribution déclenchée par API."
-
+description: "Cet article présente les détails de l'endpoint Braze permettant d'envoyer des Campaigns via une distribution déclenchée par API."
 ---
 {% api %}
 # Envoyer des messages de Campaign via une distribution déclenchée par API {#send-campaign-messages-using-api-triggered-delivery}

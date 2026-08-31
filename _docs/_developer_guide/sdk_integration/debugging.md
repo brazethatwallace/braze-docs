@@ -2,7 +2,7 @@
 page_order: 1.3
 nav_title: Debugging
 article_title: Debugging the Braze SDK 
-description: "Learn how to use the Braze SDK debugger, so you can troubleshoot issues for your SDK-powered channels, without enabling verbose logging in your app manually."
+description: "Learn how to use the Braze SDK debugger, so you can troubleshoot issues for your SDK-powered channels, without enabling verbose logging in your."
 ---
 
 # Debugging the Braze SDK

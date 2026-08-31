@@ -20,7 +20,7 @@ glossaries:
     description: SDK를 통해 사용자 프로필이 인식되면 관련 <a href="/docs/api/basics#user-ids">Braze 사용자 ID</a> 와 함께 익명 사용자 프로필이 생성됩니다.
     display_name: "익명 사용자"
   - name: API campaigns
-    description: <a href="/docs/api/api_campaigns">API 캠페인</a> 은 Braze 대시보드를 사용하여 <code>campaign_id</code>(및 변형 ID)를 생성하고, 카피, 오디언스, 스케줄, 자산은 <a href="/docs/api/endpoints/messaging">메시징 API</a> 를 통해 제공합니다. 이는 대시보드에서 완전히 구성된 캠페인을 API를 통해 트리거하는 <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery">API 트리거 캠페인</a> 과 다릅니다.
+    description: <a href="/docs/api/api_campaigns">API 캠페인</a> 은 Braze 대시보드를 사용하여 <code>campaign_id</code>(및 배리언트 ID)를 생성하고, 카피, 오디언스, 스케줄, 자산은 <a href="/docs/api/endpoints/messaging">메시징 API</a> 를 통해 제공합니다. 이는 대시보드에서 완전히 구성된 캠페인을 API를 통해 트리거하는 <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery">API 트리거 캠페인</a> 과 다릅니다.
     display_name: "API 캠페인"
   - name: Application program interface (API)
     description: <a href="/docs/api/basics">Braze API</a> 는 모바일 SDK를 통하지 않고 HTTP를 통해 사용자가 수행한 작업을 직접 기록할 수 있는 웹 서비스를 제공합니다. 예를 들어, 앱이나 웹사이트 내에서 추적되지 않는 사용자 데이터를 Braze에 전달할 수 있습니다.
@@ -71,7 +71,7 @@ glossaries:
     description: API <a href="/docs/api/endpoints">엔드포인트</a> 라고도 하는 커뮤니케이션 채널의 끝은 메시지를 전송하고 예약하기 위해 Braze 메시징 API 내에서 사용됩니다.
     display_name: "엔드포인트"
   - name: Exception event
-    description: Canvas에서 <a href="/docs/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events">예외 이벤트</a> 는 특정 행동이 발생했을 때(예&#58; 주문 완료) 사용자를 여정에서 제거하는 특정 작업입니다. 이를 통해 사용자가 목표를 완료한 후에도 후속 메시지의 관련성을 유지할 수 있습니다. 종료 기준이 어떻게 평가되고 시점이 결정되는지에 대해서는 <a href="/docs/user_guide/messaging/canvas/create_a_canvas/exit_criteria">종료 기준</a> 을 참조하세요.
+    description: "Canvas에서 <a href=\"/docs/user_guide/messaging/canvas/create_a_canvas/exit_criteria#exception-events\">예외 이벤트</a> 는 특정 행동이 발생했을 때(예: 주문 완료) 사용자를 여정에서 제거하는 특정 작업입니다. 이를 통해 사용자가 목표를 완료한 후에도 후속 메시지의 관련성을 유지할 수 있습니다. 종료 기준이 어떻게 평가되고 시점이 결정되는지에 대해서는 <a href=\"/docs/user_guide/messaging/canvas/create_a_canvas/exit_criteria\">종료 기준</a> 을 참조하세요."
     display_name: "예외 이벤트"
   - name: External ID
     description: "<code>external_id</code>는 Braze 사용자 프로필의 기본 사용자 식별자입니다. 자체 시스템에서 ID를 할당할 때 채널과 기기 전반에서 동일한 사람을 연결합니다. 익명 프로필은 사용자를 식별할 때까지 <code>external_id</code>가 없을 수 있습니다. 자세한 내용은 <a href=\"/docs/user_guide/get_started/users_and_segments\">사용자 및 Segments</a> 와 <a href=\"/docs/api/basics#user-ids\">사용자 ID</a> 를 참조하세요."
@@ -137,7 +137,7 @@ glossaries:
     description: <a href="/docs/developer_guide/getting_started/sdk_overview">SDK</a> 는 모바일 앱, 웹사이트 및 연결된 경험에 통합되며 마케팅, 메시징 및 분석 도구를 제공합니다. Braze는 <a href="/docs/developer_guide/sdk_integration?sdktab=swift">Swift</a> 및 <a href="/docs/developer_guide/sdk_integration?sdktab=android">Android</a> 등의 플랫폼에 대한 SDK 통합 가이드를 제공하며, 웹 및 기타 플랫폼은 SDK 개요에서 연결된 통합 경로를 따르세요.
     display_name: "소프트웨어 개발 키트(SDK)"
   - name: Subscription groups
-    description: <a href="/docs/user_guide/channels/email/subscriptions#subscription-groups">구독 그룹</a> 은 글로벌 구독 상태 위에 계층화되어 세분화된 옵트인 선택(예&#58; 뉴스레터 대 프로모션)을 제공할 수 있습니다. SMS 및 WhatsApp과 같은 채널에도 유사한 패턴이 존재하며, 채널에서 요구하는 경우 항상 구독 그룹을 타겟팅하세요.
+    description: "<a href=\"/docs/user_guide/audience/subscription_preferences/subscription_groups\">구독 그룹</a> 은 글로벌 구독 상태 위에 계층화되어 세분화된 옵트인 선택(예: 뉴스레터 대 프로모션)을 제공할 수 있습니다. SMS 및 WhatsApp과 같은 채널에도 유사한 패턴이 존재하며, 채널에서 요구하는 경우 항상 구독 그룹을 타겟팅하세요."
     display_name: "구독 그룹"
   - name: Sunsetting
     description: 서비스 종료란 참여하지 않는 사용자를 식별하고 해당 사용자가 아무런 조치를 취하지 않아도 해당 사용자에 대한 활성 메시징을 중단하는 프로세스를 말합니다. <a href="/docs/user_guide/channels/email/best_practices/sunset_policies">이메일</a> 및 <a href="/docs/user_guide/channels/push/best_practices#implement-a-sunset-policy-for-unresponsive-users">푸시</a> 메시지에 대한 서비스 종료 정책을 만들면 열람률에 미치는 영향을 억제하는 데 도움이 됩니다.

@@ -82,7 +82,7 @@ Liquid does not natively support arrays of arrays. Store values as an array of c
 
 You can create and assign variables by using the `assign` tag. This creates a variable in the message composer that can also be referenced throughout your message.
 
-You can split an `assign` across multiple lines if you wrap all Braze Liquid variables with double curly braces (`{{ }}`). Without those braces, multi-line assign statements can cause unexpected rendering, including custom attributes that fail to template. For examples and related syntax rules, see [Use Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
+You can split an `assign` across multiple lines if you wrap all Braze Liquid variables with double curly braces {% raw %}(`{{ }}`){% endraw %}. Without those braces, multi-line assign statements can cause unexpected rendering, including custom attributes that fail to template. For examples and related syntax rules, see [Use Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
 
 ### When should I use `assign` versus `capture`?
 

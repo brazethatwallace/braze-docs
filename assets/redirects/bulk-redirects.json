@@ -215,6 +215,51 @@
     "permanent": true
   },
   {
+    "source": "/docs/api/messaging_api",
+    "destination": "/docs/api/device_messaging_api",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/authentication",
+    "destination": "/docs/api/device_messaging_api/authentication",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints",
+    "destination": "/docs/api/device_messaging_api",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints/banners",
+    "destination": "/docs/api/device_messaging_api",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints/banners/post_sync_banners",
+    "destination": "/docs/api/device_messaging_api/endpoints/banners/post_sync_banners",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/endpoints/banners/post_track_banner_events",
+    "destination": "/docs/api/device_messaging_api/endpoints/banners/post_track_banner_events",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/error_handling",
+    "destination": "/docs/api/device_messaging_api/error_handling",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/overview",
+    "destination": "/docs/api/device_messaging_api/overview",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/messaging_api/rate_limits",
+    "destination": "/docs/api/device_messaging_api/rate_limits",
+    "permanent": true
+  },
+  {
     "source": "/docs/api/new_home",
     "destination": "/docs/api/home",
     "permanent": true
@@ -34565,6 +34610,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/data_and_analytics/analytics/npaw",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/data_and_analytics/business_intelligence/heap",
     "destination": "/docs/partners/data_and_analytics/analytics/heap",
     "permanent": true
@@ -34761,7 +34811,7 @@
   },
   {
     "source": "/docs/partners/data_and_infrastructure_agility/analytics/npaw",
-    "destination": "/docs/partners/data_and_analytics/analytics/npaw",
+    "destination": "/docs/partners/home",
     "permanent": true
   },
   {
@@ -35520,8 +35570,13 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/just_ai",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/just_words",
-    "destination": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/partners/home",
     "permanent": true
   },
   {
@@ -35662,11 +35717,6 @@
   {
     "source": "/docs/partners/message_orchestration/additional_channels/retargeting/remerge",
     "destination": "/docs/partners/message_orchestration/retargeting/remerge",
-    "permanent": true
-  },
-  {
-    "source": "/docs/partners/message_orchestration/attribution",
-    "destination": "/docs/partners/message_orchestration",
     "permanent": true
   },
   {
@@ -36045,11 +36095,6 @@
     "permanent": true
   },
   {
-    "source": "/docs/partners/message_personalization/dynamic_content",
-    "destination": "/docs/partners/message_personalization",
-    "permanent": true
-  },
-  {
     "source": "/docs/partners/message_personalization/dynamic_content/amazon_personalize",
     "destination": "/docs/partners/message_personalization/dynamic_content/personalized_recommendations/amazon_personalize/amazon_personalize",
     "permanent": true
@@ -36075,8 +36120,13 @@
     "permanent": true
   },
   {
+    "source": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
     "source": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_words",
-    "destination": "/docs/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai",
+    "destination": "/docs/partners/home",
     "permanent": true
   },
   {
@@ -36226,6 +36276,11 @@
   },
   {
     "source": "/docs/partners/neura",
+    "destination": "/docs/partners/home",
+    "permanent": true
+  },
+  {
+    "source": "/docs/partners/npaw",
     "destination": "/docs/partners/home",
     "permanent": true
   },
@@ -40161,7 +40216,7 @@
   },
   {
     "source": "/docs/user_guide/brazeai/decisioning_studio/personalized_paths",
-    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
     "permanent": true
   },
   {
@@ -40296,7 +40351,7 @@
   },
   {
     "source": "/docs/user_guide/brazeai/intelligence/intelligent_selection",
-    "destination": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {
@@ -40307,6 +40362,11 @@
   {
     "source": "/docs/user_guide/brazeai/intelligence/tutorial",
     "destination": "/docs/user_guide/brazeai/intelligence_suite/use_case",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {
@@ -40890,11 +40950,6 @@
     "permanent": true
   },
   {
-    "source": "/docs/user_guide/data/cloud_ingestion/sync_accounts_data",
-    "destination": "/docs/user_guide/data/unification/cloud_ingestion/sync_accounts_data",
-    "permanent": true
-  },
-  {
     "source": "/docs/user_guide/data/cloud_ingestion/sync_catalogs_data",
     "destination": "/docs/user_guide/data/unification/cloud_ingestion/sync_catalogs_data",
     "permanent": true
@@ -41205,17 +41260,17 @@
     "permanent": true
   },
   {
-    "source": "/docs/user_guide/data/unification/cloud_ingestion/decisioning_studio",
-    "destination": "/docs/user_guide/brazeai/decisioning_studio/prepare_data/connect_data_sources",
-    "permanent": true
-  },
-  {
     "source": "/docs/user_guide/data/unification/cloud_ingestion/deleteusers",
     "destination": "/docs/user_guide/data/unification/cloud_ingestion/delete_users",
     "permanent": true
   },
   {
     "source": "/docs/user_guide/data/unification/cloud_ingestion/overview",
+    "destination": "/docs/user_guide/data/unification/cloud_ingestion",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/data/unification/cloud_ingestion/sync_accounts_data",
     "destination": "/docs/user_guide/data/unification/cloud_ingestion",
     "permanent": true
   },
@@ -42841,12 +42896,12 @@
   },
   {
     "source": "/docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step/personal_path",
-    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
     "permanent": true
   },
   {
     "source": "/docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step/personalized_paths",
-    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
     "permanent": true
   },
   {
@@ -44066,7 +44121,7 @@
   },
   {
     "source": "/docs/user_guide/intelligence/intelligent_selection",
-    "destination": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {
@@ -46335,6 +46390,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
+    "permanent": true
+  },
+  {
     "source": "/docs/user_guide/messaging/canvas/create_a_canvas/canvas_templates",
     "destination": "/docs/user_guide/messaging/templates/canvas_templates",
     "permanent": true
@@ -47601,7 +47661,7 @@
   },
   {
     "source": "/docs/user_guide/sage_ai/intelligence/intelligent_selection",
-    "destination": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {

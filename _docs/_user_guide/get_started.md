@@ -1,10 +1,9 @@
 ---
 nav_title: Get started
-article_title: Getting Started&#58; Braze Overview
+article_title: "Get started: Braze overview"
 page_order: 1
 page_type: reference
 description: "Get acquainted with the core concepts you'll need to know when working in Braze."
-
 ---
 
 # Get started: Braze overview

@@ -11,7 +11,7 @@ Este Contrato de Licença de Contribuição (este **"Contrato"**), em vigor a pa
 Em contraprestação às avenças e acordos mútuos aqui contidos e a outras contraprestações válidas e suficientes, cujo recebimento e suficiência são aqui reconhecidos, as partes acordam o que segue, a partir da Data de Vigência:
 
 1. **Definições**.<br><br>
-  * **"Código"** significa o código de software, seja em formato legível por humanos ou executável por máquina, que é entregue por Você à Braze nos termos deste Contrato.<br><br>
+  * **"Código"** significa o código de software de computador, seja em formato legível por humanos ou executável por máquina, que é entregue por Você à Braze nos termos deste Contrato.<br><br>
   * **"Projeto"** significa qualquer um dos projetos de propriedade ou gerenciados pela Braze nos quais um software é oferecido sob uma licença aprovada pela [Open Source Initiative (OSI)](https://opensource.org) e a documentação é oferecida sob uma licença da OSI ou da [Creative Commons](https://creativecommons.org/licenses).<br><br>
   * **"Enviar"** ou **"Enviado"** é o ato de fazer upload, enviar, transmitir ou distribuir conteúdo para qualquer Projeto (e/ou qualquer forma de comunicação eletrônica, verbal ou escrita enviada à Braze ou a seu representante que resulte em tais atos), incluindo, sem restrição, comunicação em listas de discussão eletrônicas, sistemas de controle de código-fonte e sistemas de rastreamento de problemas que sejam gerenciados pela Braze ou em seu nome, com o objetivo de discutir e melhorar tal Projeto.<br><br>
   * **"Envio"** significa o Código e qualquer outro material sujeito a direitos autorais Enviado por Você para inclusão em qualquer um dos produtos ou Projetos de propriedade ou gerenciados pela Braze, ou em suas respectivas documentações, mas excluindo materiais que estejam visivelmente identificados ou de outra forma designados por escrito por Você como "Não é um Envio".<br><br>
@@ -36,7 +36,7 @@ Em contraprestação às avenças e acordos mútuos aqui contidos e a outras con
 
 9. **Lei aplicável.** Este Contrato será regido exclusivamente pelas leis internas do Estado de Nova York, sem levar em conta suas normas sobre conflitos de leis. Os tribunais estaduais e federais localizados no Estado de Nova York, Distrito de Manhattan, Cidade de Nova York, terão jurisdição exclusiva para julgar qualquer controvérsia decorrente deste Contrato ou a ele relacionada. Cada parte consente com a jurisdição exclusiva de tais tribunais. Cada parte também renuncia a qualquer direito a julgamento por júri em relação a qualquer ação ou litígio de qualquer forma decorrente ou relacionado a este Contrato. <br><br>
 
-10. **Integralidade/cessão do Contrato.** Este Contrato representa o acordo integral entre as partes com relação ao Seu Envio de quaisquer materiais para qualquer Projeto e substitui todos os acordos, propostas ou declarações anteriores e contemporâneos, escritos ou verbais, relativos ao seu objeto. Este Contrato poderá ser cedido pela Braze. <br><br>
+10. **Integralidade e cessão do Contrato.** Este Contrato representa o acordo integral entre as partes com relação ao Seu Envio de quaisquer materiais para qualquer Projeto e substitui todos os acordos, propostas ou declarações anteriores e contemporâneos, escritos ou verbais, relativos ao seu objeto. Este Contrato poderá ser cedido pela Braze. <br><br>
 
 Selecione uma das opções abaixo e assine conforme indicado. Ao assinar, Você aceita e concorda com os termos deste Contrato de Licença de Contribuição para Seus Envios atuais e futuros para a Braze.
 
@@ -92,7 +92,7 @@ Selecione uma das opções abaixo e assine conforme indicado. Ao assinar, Você 
   font-size: 14px;
   font-size: 1rem;
   line-height: 1.4;
-  font-family: Sailec W00 Bold, Arial, sans-serif;
+  font-family: 'Aribau Grotesk Bold', 'Aribau Grotesk', 'Aribau Grotesk Regular', Arial, sans-serif;
   text-transform: uppercase;
   padding: 1.14286rem 2.85714rem;
   border-radius: 0;

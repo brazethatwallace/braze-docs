@@ -1,9 +1,9 @@
 ---
 nav_title: Workspaces
-article_title: Getting Started&#58; Workspaces
+article_title: "Get started: Workspaces"
 page_order: 3
 page_type: reference
-description: "Everything you do in the Braze platform happens within a workspace. This article describes how they work and what important considerations to keep in mind when planning your workspaces in Braze."
+description: "Everything you do in the Braze platform happens within a workspace. This article describes how they work and what important considerations to keep."
 ---
 
 # Get started: Workspaces

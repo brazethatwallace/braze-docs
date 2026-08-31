@@ -1,9 +1,8 @@
 ---
 nav_title: Track location
-article_title: Track location through the Braze SDK
+article_title: "Track location"
 page_order: 3.4
 description: "Learn how to track location through the Braze SDK."
-
 ---
 
 # Track location

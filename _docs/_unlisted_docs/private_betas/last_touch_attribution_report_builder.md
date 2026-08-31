@@ -52,7 +52,7 @@ Revenue and purchase metrics are not available.
 ![The Customize metrics panel with last-touch attribution metrics.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
 
 {: start="7" }
-7. Follow steps 7-9 on the [Report Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) page.
+7. Follow steps 7-9 on the [Report Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder) page.
 
 {% alert note %}
 {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="last-touch attribution metrics in Report Builder" %}

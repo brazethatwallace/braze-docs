@@ -6,7 +6,7 @@ layout: dev_guide
 alias: /liquid/
 search_rank: 3
 guide_top_header: "Referência de Liquid"
-guide_top_text: "Liquid é uma linguagem de modelo de código aberto criada pela Shopify e usada pela Braze para possibilitar a personalização dinâmica. Em vez de enviar uma mensagem estática para todos, o Liquid permite criar modelos que alteram seu conteúdo com base nos dados de perfil, comportamento ou idioma de cada destinatário."
+guide_top_text: "Liquid é uma linguagem de modelo de código aberto criada pela Shopify e usada pela Braze para possibilitar a personalização dinâmica. Em vez de enviar uma mensagem estática para todos, o Liquid permite criar modelos que alteram seu conteúdo com base nos dados de perfil, comportamento ou idioma de cada destinatário. Use os artigos desta seção para conhecer tags compatíveis, filtros, lógica condicional, valores padrão e padrões comuns de personalização."
 description: "Esta landing page abrange tudo sobre Liquid, como tags de personalização compatíveis, filtros, definição de valores padrão e muito mais."
 
 guide_featured_title: "Artigos da seção"
@@ -49,25 +49,25 @@ guide_featured_list:
 
 ## Sobre o Liquid {#about-liquid}
 
-O Liquid funciona como uma ponte entre sua mensagem e os dados dos seus usuários. Quando você envia uma mensagem, a Braze analisa o texto em busca de sintaxe Liquid. Ao encontrá-la, ela busca os dados relevantes daquele usuário específico e substitui o código pelo valor real antes de a mensagem ser enviada.
+O Liquid funciona como uma ponte entre sua mensagem e os dados do usuário. Quando você envia uma mensagem, a Braze analisa o texto em busca de sintaxe Liquid. Ao encontrar Liquid, ela extrai os dados relevantes para aquele usuário específico e substitui o código pelo valor real antes de enviar a mensagem.
 
-Por exemplo, você pode recuperar um atributo personalizado de um perfil de usuário que seja do tipo inteiro e arredondar esse valor para o número inteiro mais próximo. Para saber mais sobre a sintaxe e o uso do Liquid, consulte [**Tags de personalização compatíveis**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
+Por exemplo, você pode recuperar um atributo personalizado de um perfil de usuário que seja um tipo de dado inteiro e arredondar esse valor para o número inteiro mais próximo. Para saber mais sobre a sintaxe e o uso do Liquid, consulte [**Tags de personalização compatíveis**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
-A linguagem de modelo Liquid suporta o uso de objetos, tags e filtros.
+A linguagem de modelo Liquid é compatível com o uso de objetos, tags e filtros.
 
 - [**Objetos**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) permitem inserir atributos personalizados nas suas mensagens.
-- [**Tags**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) permitem inserir dados nas mensagens e usar lógica condicional para enviar mensagens quando determinadas condições são atendidas. Por exemplo, você pode usar tags para incluir lógica inteligente, como instruções "if", nas suas campanhas.
+- [**Tags**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) permitem inserir dados no envio de mensagens e usar lógica condicional para enviar mensagens quando certas condições forem atendidas. Por exemplo, você pode usar tags para incluir lógica inteligente, como instruções "if", nas suas Campaigns.
 - [**Filtros**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters) permitem reformatar atributos personalizados e conteúdo dinâmico. Por exemplo, você pode usar o [filtro `date`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#date-filter) para converter um timestamp, como *2016-09-07 08:43:50 UTC*, em uma data, como *7 de setembro de 2016*.
 
 {% alert warning %}
-Atualmente, a Braze não oferece suporte a 100% do Liquid da Shopify, apenas a determinadas partes que tentamos descrever em nossa documentação. Recomendamos fortemente testar todas as mensagens que usam Liquid antes de enviá-las, para reduzir o risco de erros ou de uso de Liquid não compatível.
+Atualmente, a Braze não é compatível com 100% do Liquid da Shopify, apenas com certas partes que tentamos documentar. Recomendamos fortemente que você teste todas as mensagens que usam Liquid antes de enviá-las, para reduzir o risco de erros ou de uso de Liquid não compatível.
 {% endalert %}
 
-### Suporte ao Liquid 5 {#liquid-5-support}
+### Compatibilidade com Liquid 5 {#liquid-5-support}
 
-A Braze oferece suporte ao Liquid até e incluindo o **Liquid 5 da Shopify**. A implementação do Liquid suporta tipos de tags de personalização de sintaxe e controle de espaços em branco. Para saber mais sobre tags específicas, consulte [tags de sintaxe]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#syntax-tags).
+A Braze é compatível com Liquid até e incluindo o **Liquid 5 da Shopify**. A implementação do Liquid é compatível com tipos de tags de personalização de sintaxe e controle de espaços em branco. Para saber mais sobre tags específicas, consulte [tags de sintaxe]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#syntax-tags).
 
-Os seguintes filtros novos de array e matemáticos estão disponíveis para uso no seu Liquid ao criar suas mensagens.
+Os seguintes filtros novos de array e matemática estão disponíveis para uso no seu Liquid ao criar seu envio de mensagens.
 - `at_least`
 - `at_most`
 - `compact`
@@ -79,17 +79,17 @@ Consulte [Filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/persona
 
 ## Termos importantes {#terms-to-know}
 
-Estes termos são reinterpretados a partir da [**documentação da Shopify**](https://shopify.github.io/liquid/basics/introduction/) com base no nosso nível de suporte.
+Esses termos são reinterpretados a partir da [**documentação da Shopify**](https://shopify.github.io/liquid/basics/introduction/) com base no nosso nível de suporte.
 
 {% raw %}
 
 | Termo | Definição | Exemplo |
 |---|---|---|
-| Liquid | Uma linguagem de modelo voltada ao cliente, amplamente utilizada, criada pela Shopify e escrita em Ruby, usada para carregar e exibir conteúdo dinâmico. | `{{${first_name}}}` insere o nome do usuário em uma mensagem. |
-| Objeto | Uma indicação de variável e localização do nome da variável pretendida que diz ao Liquid onde exibir o conteúdo na mensagem. | `{{${city}}}` insere a cidade do usuário em uma mensagem. |
-| Tag de lógica condicional | Usada para criar lógica e controlar o fluxo do conteúdo da mensagem. Na Braze, as tags de lógica condicional são usadas para criar exceções e variações nas mensagens com base em determinados critérios predefinidos. | ```{% if ${language} == 'en' %}``` acionará sua mensagem de uma forma específica caso o usuário tenha definido "Inglês" como idioma. |
-| Filtros | Usados para alterar, restringir ou reformatar a saída do objeto Liquid. Frequentemente utilizados para criar operações matemáticas. | ```{{"Big Sale" | upcase}}``` fará com que as palavras "Big Sale" apareçam como "BIG SALE" na mensagem. |
-| Operadores | Usados nas mensagens para criar dependências ou critérios que podem afetar qual mensagem o usuário recebe. | Se um usuário atender aos critérios definidos em uma mensagem marcada com `{% custom_attribute.${Total_Revenue} > 0%}`, ele receberá a mensagem. Caso contrário, receberá outra mensagem designada (ou não), dependendo do que você configurou. |
+| Liquid | Uma linguagem de modelo amplamente utilizada, voltada para o cliente, criada pela Shopify e escrita em Ruby, usada para carregar e extrair conteúdo dinâmico. | `{{${first_name}}}` inserirá o nome do usuário em uma mensagem. |
+| Objeto | Uma referência a uma variável e à localização do nome da variável desejada, que indica ao Liquid onde exibir o conteúdo na mensagem. | `{{${city}}}` inserirá a cidade do usuário em uma mensagem. |
+| Tag de lógica condicional | Usada para criar lógica e controlar o fluxo do conteúdo da mensagem. Na Braze, as tags de lógica condicional são usadas para criar exceções e variações nas mensagens com base em critérios específicos e predefinidos. | ```{% if ${language} == 'en' %}``` disparará sua mensagem de uma forma designada caso o usuário tenha definido "English" como seu idioma. |
+| Filtros | Usados para alterar, restringir ou reformatar a saída do objeto Liquid. São frequentemente usados para criar operações matemáticas. | ```{{"Big Sale" | upcase}}``` fará com que as palavras "Big Sale" apareçam como "BIG SALE" na mensagem. |
+| Operadores | Usados nas mensagens para criar dependências ou critérios que podem afetar qual mensagem o usuário recebe. | Se um usuário atender aos critérios definidos em uma mensagem com a tag `{% custom_attribute.${Total_Revenue} > 0%}`, ele receberá a mensagem. Caso contrário, receberá outra mensagem designada (ou não), dependendo do que você configurar. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Termos importantes" }
 
 {% endraw %}

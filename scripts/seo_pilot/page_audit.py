@@ -40,6 +40,31 @@ def word_count(text: str) -> int:
     return len(re.sub(r"[>#*`\[\](){}]", " ", text).split())
 
 
+INTRO_FRONTMATTER_KEYS = ("guide_top_text", "glossary_top_text")
+
+
+def html_to_plain(text: str) -> str:
+    text = re.sub(r"<sup>.*?</sup>", "", text, flags=re.I | re.DOTALL)
+    text = re.sub(r"<br\s*/?>", " ", text, flags=re.I)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"&[^;\s]+;", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def frontmatter_intro_words(fm: dict[str, str]) -> int:
+    parts = [html_to_plain(fm[key]) for key in INTRO_FRONTMATTER_KEYS if fm.get(key, "").strip()]
+    return word_count(" ".join(parts)) if parts else 0
+
+
+def body_intro_text(body: str) -> str:
+    first_h2 = re.search(r"^##\s+", body, re.MULTILINE)
+    return body[: first_h2.start()] if first_h2 else body[:800]
+
+
+def intro_word_count(body: str, fm: dict[str, str]) -> int:
+    return max(word_count(body_intro_text(body)), frontmatter_intro_words(fm))
+
+
 def suggest_description(article_title: str, h1: str, intro: str) -> str:
     raw = intro.strip()
     raw = re.sub(r"\{%[^%]+%\}", "", raw)
@@ -67,9 +92,8 @@ def audit_page(md_path: Path, link_rows: list[dict]) -> str:
     article_title = fm.get("article_title", "")
     description = fm.get("description", "")
 
-    first_h2 = re.search(r"^##\s+", body, re.MULTILINE)
-    intro = body[: first_h2.start()] if first_h2 else body[:800]
-    intro_words = word_count(intro)
+    intro = body_intro_text(body)
+    intro_words = intro_word_count(body, fm)
 
     # heading skip check
     heading_issues = []
@@ -162,7 +186,7 @@ def audit_page(md_path: Path, link_rows: list[dict]) -> str:
             [
                 "### FAQ additions (proposed)",
                 "",
-                "Consider adding 2–3 `####` FAQ entries if support cases or search queries repeat for this topic.",
+                "Consider adding 2–3 `###` FAQ entries if support cases or search queries repeat for this topic.",
                 "",
             ]
         )

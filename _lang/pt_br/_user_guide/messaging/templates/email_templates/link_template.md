@@ -20,12 +20,12 @@ Os modelos de links são um recurso opcional. Se **Modelos de links de e-mail** 
 
 ## Como funciona {#how-it-works}
 
-Os modelos de link são usados com mais frequência nos seguintes casos de uso:
+Os modelos de link são mais frequentemente usados nos seguintes casos de uso:
 
 - Adicionar parâmetros de consulta do Google Analytics a todos os links em uma determinada mensagem de e-mail
 - Adicionar um URL como prefixo a todos os links em uma determinada mensagem de e-mail
 
-Digamos que você esteja executando uma Campaign de e-mail promocional para o lançamento de um novo produto. Você pode usar um modelo de link que direciona os usuários para a página do produto e personalizar o link para incluir o nome do usuário ou um código promocional específico. Isso permite rastrear quantos usuários clicaram no link e realizaram uma compra. Dessa forma, você pode criar consistência em seus links e acompanhar melhor sua análise de dados.
+Digamos que você esteja executando uma Campaign de e-mail promocional para o lançamento de um novo produto. Você pode usar um modelo de link que direcione os usuários para a página do produto e personalizar o link para incluir o nome do usuário ou um código promocional específico. Isso permite rastrear quantos usuários clicaram no link e realizaram uma compra. Dessa forma, você pode criar consistência em todos os seus links e acompanhar melhor sua análise de dados.
 
 ## Criando um modelo de link {#creating-a-link-template}
 
@@ -44,7 +44,7 @@ Existem dois tipos de modelos de link que você pode criar:
 
 Ao usar modelos de link e [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), o Liquid deve ser adicionado apenas dentro da tag body para garantir uma renderização consistente.
 
-### Prefixar: criar um modelo de link que insere antes de uma URL {#prepend-link-template}
+### Prefixo: criar um modelo de link que insere antes de uma URL {#prepend-link-template}
 
 Para adicionar uma string ou URL antes dos links na sua mensagem de e-mail, faça o seguinte:
 
@@ -54,9 +54,9 @@ Para adicionar uma string ou URL antes dos links na sua mensagem de e-mail, faç
 
 A **Prévia do modelo** é fornecida para mostrar um exemplo de como o modelo de link será inserido antes de uma URL.
 
-![Campos de posição do modelo, URL prefixada e prévia do modelo para o processo de inserção do modelo de link antes de uma URL.]({% image_buster /assets/img_archive/link_template_preappend.png %}){: style="max-width:90%;"}
+![Campos de posição do modelo, URL de prefixo e prévia do modelo para o processo de inserção do modelo de link antes de uma URL.]({% image_buster /assets/img_archive/link_template_preappend.png %}){: style="max-width:90%;"}
 
-### Sufixar: criar um modelo de link que insere depois de uma URL {#append-link-template}
+### Sufixo: criar um modelo de link que insere depois de uma URL {#append-link-template}
 
 Se você quiser adicionar parâmetros de consulta depois de uma URL na sua mensagem de e-mail:
 
@@ -66,14 +66,34 @@ Se você quiser adicionar parâmetros de consulta depois de uma URL na sua mensa
 
 ![Campos de posição do modelo, parâmetros de consulta e prévia do modelo para o processo de inserção do modelo de link depois de uma URL.]({% image_buster /assets/img_archive/link_template_postappend.png %}){: style="max-width:90%;"}
 
-## Usando modelos de link em Campaigns de e-mail {#using-link-templates-in-email-campaigns}
+#### Liquid tags para `utm_campaign` {#liquid-tags-for-utm_campaign}
+
+As Liquid tags para `utm_campaign` diferem entre Campaigns e Canvas.
+
+Em Campaigns, use:
+
+{% raw %}
+- `{{campaign.${name}}}` para obter o nome da Campaign
+- `{{campaign.${message_name}}}` para obter o nome da variante da mensagem
+{% endraw %}
+
+Em Canvas, use:
+
+{% raw %}
+- `{{canvas.${name}}}` para obter o nome do Canvas
+- `{{campaign.${name}}}` para obter o nome da etapa do Canvas (apenas etapas de mensagem)
+{% endraw %}
+
+Para uma comparação completa desses atributos em Liquid, REST API e Currents, consulte [Atributos de Campaign e Canvas entre fontes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources). Para orientações sobre codificação de URL, consulte [Nomes de Campaign em URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls).
+
+## Usando modelos de link em campanhas de e-mail {#using-link-templates-in-email-campaigns}
 
 Depois de configurar seus modelos de link, você pode aplicá-los no seu e-mail.
 
 Para aplicar um modelo de link no editor de HTML ou no editor de arrastar e soltar, siga estas etapas:
 
 {% alert note %}
-Se os modelos de link de e-mail ou o [link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) estiverem ativados para o seu espaço de trabalho, você pode acessar a guia **Link Management** no editor de HTML atualizado e no editor de arrastar e soltar.
+Se os modelos de link de e-mail ou o [link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) estiverem ativados para o seu espaço de trabalho, você poderá acessar a guia **Link Management** no editor de HTML atualizado e no editor de arrastar e soltar.
 {% endalert %}
 
 - **Editor de HTML atualizado:** Na guia **Content**, selecione **Link Management**, selecione **Add a Link Template**, escolha seu modelo de link e selecione **Add**.
@@ -91,7 +111,7 @@ Os modelos de link não são aplicados ao texto simples. Isso significa que o Cu
 Ao incluir links na sua mensagem, certifique-se de iniciar as URLs com `http://` ou `https://`.
 {% endalert %}
 
-## Gerenciando modelos de link {#managing-link-templates}
+## Gerenciamento de modelos de link {#managing-link-templates}
 
 Você também pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) modelos de link. Saiba mais sobre como criar e gerenciar modelos e conteúdo criativo em [Modelos e mídias]({{site.baseurl}}/user_guide/messaging/templates).
 
@@ -116,7 +136,7 @@ Por exemplo, se o link completo é `https://www.somewebsite.com/women/designer/j
 
 ### Parâmetros UTM ausentes em links renderizados por Liquid {#utm-parameters-missing-from-liquid-rendered-links}
 
-Ao aplicar modelos de link, a Braze analisa cada URL para determinar onde anexar os parâmetros. Se uma Liquid tag renderiza uma URL que não pode ser interpretada como um URI válido, o modelo de link é silenciosamente ignorado. Verifique se a saída do seu Liquid produz uma URL bem formada. Teste visualizando a prévia da mensagem para um usuário específico e verificando se a URL renderizada é válida. Se a URL incluir variáveis Liquid no caminho ou na query string, confirme se a saída não contém caracteres inválidos ou codificação incorreta.
+Ao aplicar modelos de link, a Braze analisa cada URL para determinar onde anexar os parâmetros. Se uma Liquid tag renderiza uma URL que não pode ser interpretada como um URI válido, o modelo de link é ignorado silenciosamente. Verifique se a saída do seu Liquid produz uma URL bem formada. Teste visualizando a prévia da mensagem para um usuário específico e verificando se a URL renderizada é válida. Se a URL inclui variáveis Liquid no caminho ou na query string, confirme se a saída não contém caracteres inválidos ou codificação quebrada.
 
 ### Valores UTM ausentes em envios de teste {#utm-values-missing-in-test-sends}
 
@@ -124,4 +144,4 @@ Ao fazer envios de teste com modelos de link, {% raw %}`{{${user_id}}}`{% endraw
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
-Para respostas a perguntas frequentes sobre modelos de link, confira nossa página de [Perguntas frequentes sobre modelos]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq).
+Para respostas às perguntas frequentes sobre modelos de link, confira nossa página de [Perguntas frequentes sobre modelos]({{site.baseurl}}/user_guide/messaging/templates/email_templates/faq).

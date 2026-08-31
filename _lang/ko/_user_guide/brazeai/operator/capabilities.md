@@ -11,13 +11,13 @@ description: "이 참조 문서에서는 BrazeAI Operator™가 대시보드 전
 
 > [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator)는 Braze 대시보드에 내장된 AI 어시스턴트입니다. 질문에 답하고, 메시지를 작성하며, 지원되는 페이지 전반에서 동작을 수행합니다. 원하는 내용을 자연어로 설명하면 Operator가 맥락에 맞게 처리합니다.
 
-Operator는 워크스페이스(브랜드 가이드라인, 커스텀 속성, 연결된 콘텐츠, 현재 작업 중인 페이지)를 이해하므로, 독립형 어시스턴트보다 더 맥락을 인식한 결과물을 생성합니다. Operator가 Campaign, Canvas, Segment 또는 기타 객체에 대한 변경을 제안하면, 저장되기 전에 사용자가 검토하고 승인할 수 있는 [액션 카드]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)로 변경 사항을 시각적 차이로 표시합니다.
+Operator는 워크스페이스(커스텀 속성, 연결된 콘텐츠, 현재 작업 중인 페이지, 컨텍스트로 추가한 브랜드 가이드라인)를 이해하므로, 독립형 어시스턴트보다 더 맥락을 인식한 결과물을 생성합니다. Operator가 Campaign, Canvas, Segment 또는 기타 객체에 대한 변경을 제안하면, 저장되기 전에 사용자가 검토하고 승인할 수 있는 [액션 카드]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)로 변경 사항을 시각적 차이로 표시합니다.
 
 후속 대화를 이어갈 수 있습니다. Operator는 채팅 기록을 지울 때까지 이전 메시지를 기억합니다.
 
-## 사전 요구 사항 {#prerequisites}
+## 전제 조건 {#prerequisites}
 
-Operator는 사용자와 동일한 권한을 가지므로, 특정 작업에는 해당 화면에 대한 관련 권한이 필요합니다. 예를 들어, 이미지를 생성하려면 *미디어 라이브러리 자산 편집* 권한이 필요합니다. 진입점이 보이지 않는 경우 관리자에게 권한을 확인하세요. 자세한 내용은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)을 참조하세요.
+Operator는 사용자와 동일한 권한을 가지고 있으므로 특정 작업을 수행하려면 해당 영역에 대한 관련 권한이 필요합니다. 예를 들어, 이미지를 생성하려면 *미디어 라이브러리 자산 편집* 권한이 필요합니다. 진입점이 보이지 않는 경우, 관리자에게 권한을 확인하세요. 자세한 내용은 [권한 목록]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions)을 참조하세요.
 
 ## 대시보드 탐색 {#navigate-the-dashboard}
 
@@ -80,15 +80,15 @@ Operator는 [에이전트 콘솔]({{site.baseurl}}/user_guide/brazeai/agents)에
 
 - **처음부터 에이전트 만들기:** Operator는 에이전트 콘솔의 모든 필드에 접근할 수 있으므로, 원하는 에이전트를 설명하면 Operator가 구성하는 데 도움을 줍니다. 여기에는 지침, 출력 설정, 기타 에이전트 필드가 포함됩니다.
 - **템플릿에서 시작:** 에이전트 콘솔은 카피라이팅, 감성 분석, 여정 라우팅, 카탈로그 보강 등 일반적인 사용 사례에 대해 미리 작성된 프롬프트를 로드하는 **Create agent with Operator** 옵션을 제공합니다. 카테고리를 선택하면 Operator가 다듬을 수 있는 에이전트 초안을 작성하는 데 도움을 줍니다. 전체 템플릿 목록은 [Operator로 구축된 에이전트 템플릿]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)을 참조하세요.
-- **기존 에이전트 다듬기:** 에이전트를 편집할 때, 에이전트의 지침 필드 근처에서 **Generate with Operator** 또는 **Refine with Operator**를 선택하여 에이전트의 프롬프트와 출력 설정을 작성하거나 수정하는 데 Operator의 도움을 받으세요.
+- **기존 에이전트 다듬기:** 에이전트를 편집할 때, 에이전트의 지침 필드 근처에서 **Generate with Operator** 또는 **Refine with Operator**를 선택하여 에이전트의 프롬프트와 출력 설정을 작성하거나 수정하는 데 Operator의 도움을 받으세요. 에이전트에 이미 브랜드 가이드라인이 있는 경우, Operator가 이를 컨텍스트로 첨부합니다.
 
 ## 콘텐츠 및 크리에이티브 {#content-and-creative}
 
-Operator는 카피, 메시지 HTML, Liquid, 이미지를 포함하여 메시지의 콘텐츠를 생성하고 검토할 수 있으며, 브랜드 가이드라인이 구성된 곳에서는 자동으로 적용합니다. 또한 템플릿 라이브러리와 개요 페이지에서 Operator에게 도움을 요청할 수도 있습니다. 예를 들어, [이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates)이나 Content Blocks를 목록 페이지에서 만들거나 업데이트하고, [콘텐츠 캘린더]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar)에서 작업을 예약하고, [인앱 메시지 색상 프로필 템플릿]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles)을 만들거나, [배너 배치]({{site.baseurl}}/developer_guide/banners/placements)를 구성할 수 있습니다.
+Operator는 카피, 메시지 HTML, Liquid, 이미지를 포함하여 메시지의 콘텐츠를 생성하고 검토할 수 있으며, 컨텍스트로 추가한 브랜드 가이드라인을 적용합니다. 또한 템플릿 라이브러리와 개요 페이지에서 Operator에게 도움을 요청할 수도 있습니다. 예를 들어, [이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates)이나 Content Blocks를 목록 페이지에서 만들거나 업데이트하고, [콘텐츠 캘린더]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar)에서 작업을 예약하고, [인앱 메시지 색상 프로필 템플릿]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles)을 만들거나, [배너 배치]({{site.baseurl}}/developer_guide/banners/placements)를 구성할 수 있습니다.
 
 ### 브랜드 가이드라인 적용 {#apply-brand-guidelines}
 
-Operator는 워크스페이스에 구성된 브랜드 가이드라인을 사용하여 생성된 카피, 템플릿, 이미지가 브랜드의 보이스, 톤, 스타일과 일치하도록 합니다. 브랜드 가이드라인을 설정하려면 **콘텐츠** > **브랜드 가이드라인**으로 이동하세요. 자세한 내용은 [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) 및 Operator 사용 가이드의 [브랜드 가이드라인 적용]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines)을 참조하세요.
+Operator 채팅 패널에서 [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)을 컨텍스트로 추가하면, 생성된 카피, 템플릿, 이미지가 브랜드의 보이스, 톤, 스타일과 일치하도록 할 수 있습니다.
 
 ### 카피 생성 {#generate-copy}
 
@@ -96,14 +96,14 @@ Operator를 사용하여 어디서든 카피를 브레인스토밍하거나 생�
 
 Operator는 독립형 카피라이터보다 몇 가지 면에서 개선되었습니다:
 
-- [브랜드 가이드라인](#apply-brand-guidelines)이 구성되어 있으면 자동으로 적용합니다.
-- [페이지 인식 컨텍스트]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)를 사용하므로 작업 중인 채널이나 메시지를 다시 설명할 필요가 없습니다. 페이지를 인식하기 때문에 처음부터 생성하는 대신 기존 메시지를 편집하거나 다듬는 데에도 사용할 수 있습니다.
+- 컨텍스트로 추가한 [브랜드 가이드라인](#apply-brand-guidelines)을 적용합니다.
+- [페이지 인식 컨텍스트]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)를 사용하므로, 작업 중인 채널이나 메시지를 다시 설명할 필요가 없습니다. 페이지를 인식하기 때문에 처음부터 생성하는 대신 기존 메시지를 편집하거나 다듬는 데에도 사용할 수 있습니다.
 - [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)과 이벤트를 조회할 수 있으므로, 실제 Liquid를 사용한 개인화된 카피 추천을 요청할 수 있습니다.
-- 대화를 이어가며 반복할 수 있습니다. 예를 들어, 다른 톤, 더 짧은 버전, 번역을 요청할 수 있습니다.
+- 대화를 계속하며 반복할 수 있습니다. 예를 들어, 다른 톤, 더 짧은 버전, 번역을 요청할 수 있습니다.
 
 #### 톤 {#generate-copy-tones}
 
-생성된 카피의 톤은 프롬프트에 의해 결정됩니다. 원하는 스타일을 설명하면 Operator가 그에 맞게 출력을 조정합니다. 예를 들어, 격식체, 캐주얼, 긴급, 눈길을 끄는 등의 스타일을 요청할 수 있습니다. 후속 프롬프트에서 톤을 다듬을 수도 있습니다. 예를 들어, 더 편안한 버전이나 더 세련된 버전을 요청할 수 있습니다. 브랜드 가이드라인이 구성되어 있으면 Operator가 자동으로 적용하여 카피가 브랜드의 보이스와 일관되게 유지됩니다.
+생성된 카피의 톤은 프롬프트에 의해 결정됩니다. 원하는 스타일을 설명하면 Operator가 그에 맞게 출력을 조정합니다. 예를 들어, 격식체, 캐주얼, 긴급, 눈길을 끄는 등의 스타일을 요청할 수 있습니다. 후속 프롬프트에서 톤을 다듬을 수도 있습니다. 예를 들어, 더 편안한 버전이나 더 세련된 버전을 요청할 수 있습니다. 브랜드 가이드라인을 컨텍스트로 추가하면 Operator가 이를 적용하여 카피가 브랜드의 보이스와 일관되게 유지됩니다.
 
 ### 메시지 생성 {#generate-messages}
 
@@ -117,9 +117,9 @@ Operator는 HTML 모드가 있는 모든 채널 또는 편집기에서 전체 �
 - 푸시
 - 웹훅
 
-드래그 앤 드롭 편집기는 직접적인 디자인 생성을 지원하지 않지만, Operator는 수동으로 추가하는 카피나 기타 콘텐츠에 대해 여전히 도움을 줄 수 있습니다. 원하는 메시지를 자연어로 설명하고, 출력을 검토한 후 작성기에 삽입하세요. 대화를 이어가며 결과를 다듬을 수 있습니다. 예를 들어, 다른 레이아웃, 더 짧은 카피, 업데이트된 버튼 스타일링을 요청한 후 HTML을 편집기에 삽입할 수 있습니다.
+드래그 앤 드롭 편집기는 직접적인 디자인 생성을 지원하지 않지만, Operator는 수동으로 추가하는 카피나 기타 콘텐츠에 대해 여전히 도움을 줄 수 있습니다. 원하는 메시지를 자연어로 설명하고, 출력을 검토한 후 작성기에 삽입하세요. 대화를 계속하며 결과를 다듬을 수 있습니다. 예를 들어, 다른 레이아웃, 더 짧은 카피, 업데이트된 버튼 스타일링을 요청한 후 HTML을 편집기에 삽입할 수 있습니다.
 
-작성 중인 작성기에서 Operator를 사용할 때 가장 좋은 결과를 얻을 수 있으며, 이 경우 채널과 메시지 유형에 대한 [페이지 인식 컨텍스트]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)를 활용합니다. 브랜드 가이드라인이 구성되어 있으면 Operator가 자동으로 적용합니다.
+작성 중인 작성기에서 Operator를 사용할 때 가장 좋은 결과를 얻을 수 있으며, 이 경우 채널과 메시지 유형에 대한 [페이지 인식 컨텍스트]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)를 활용합니다. 브랜드 가이드라인을 컨텍스트로 추가하면 Operator가 생성된 메시지에 이를 적용합니다.
 
 ### Content Blocks 만들기 {#create-content-blocks}
 

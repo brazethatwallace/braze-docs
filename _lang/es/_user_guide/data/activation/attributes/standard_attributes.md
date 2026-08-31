@@ -25,15 +25,15 @@ Los nombres de los atributos estándar distinguen entre mayúsculas y minúscula
 
 ## Identificadores {#identifiers}
 
-Los identificadores le indican a Braze qué perfil de usuario actualizar o crear. Cada solicitud de API y cada fila de CSV debe incluir al menos un identificador. Para más detalles sobre cómo elegir el adecuado, consulta [Resolución de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
+Los identificadores le dicen a Braze qué perfil de usuario actualizar o crear. Cada solicitud de API y fila de CSV debe incluir al menos un identificador. Para más detalles sobre cómo elegir el correcto, consulta [Resolución de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 
 | Campo | Tipo de datos | Formato y notas |
 |---|---|---|
 | `external_id` | Cadena | Un identificador de usuario único que tú asignas. Una vez establecido en un perfil, Braze lo utiliza para reconocer al usuario en todos los dispositivos. No se puede eliminar una vez añadido. |
 | `braze_id` | Cadena | Un identificador asignado por Braze que se crea cuando el SDK detecta un dispositivo por primera vez. Solo lectura. No se puede editar. |
 | `user_alias` | Objeto | Un objeto con `alias_name` (cadena) y `alias_label` (cadena), utilizado para identificar usuarios sin un `external_id`. Mutuamente excluyente con `external_id` en la misma solicitud. |
-| `email` | Cadena | Se puede utilizar como identificador cuando `external_id` y `user_alias` están ausentes. Tiene prioridad sobre `phone` si se envían ambos. |
-| `phone` | Cadena | Se puede utilizar como identificador cuando `external_id`, `user_alias` y `email` están ausentes. Usa el formato [E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format) (por ejemplo, `+14155552671`). |
+| `email` | Cadena | Se puede usar como identificador cuando `external_id` y `user_alias` están ausentes. Tiene prioridad sobre `phone` si se envían ambos. |
+| `phone` | Cadena | Se puede usar como identificador cuando `external_id`, `user_alias` y `email` están ausentes. Usa el formato [E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format) (por ejemplo, `+14155552671`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Campos de perfil {#profile-fields}
@@ -45,12 +45,12 @@ Estos campos capturan datos demográficos, de contacto y de configuración regio
 | `first_name` | Cadena | El nombre del usuario (por ejemplo, `Jane`). |
 | `last_name` | Cadena | El apellido del usuario (por ejemplo, `Doe`). |
 | `email` | Cadena | La dirección de correo electrónico del usuario (por ejemplo, `jane.doe@braze.com`). |
-| `phone` | Cadena | El número de teléfono del usuario. Utiliza el formato [E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format) (por ejemplo, `+14155552671`). |
+| `phone` | Cadena | El número de teléfono del usuario. Usa el formato [E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format) (por ejemplo, `+14155552671`). |
 | `dob` | Cadena | Fecha de nacimiento en formato `YYYY-MM-DD` (por ejemplo, `1988-02-14`). Permite la segmentación por cumpleaños. |
-| `gender` | Cadena | Uno de `M`, `F`, `O` (otro), `N` (no aplica), `P` (prefiere no decir) o `null` (desconocido). |
-| `country` | Cadena | Un código de país en formato [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1) (por ejemplo, `US`, `GB`). Configurar `country` mediante importación CSV o API impide que el SDK lo capture automáticamente. |
+| `gender` | Cadena | Uno de `M`, `F`, `O` (otro), `N` (no aplica), `P` (prefiere no decirlo) o `null` (desconocido). |
+| `country` | Cadena | Un código de país en formato [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1) (por ejemplo, `US`, `GB`). Establecer `country` mediante importación CSV o API impide que el SDK lo capture automáticamente. |
 | `home_city` | Cadena | La ciudad de residencia del usuario (por ejemplo, `London`). |
-| `language` | Cadena | Un código de idioma en formato [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (por ejemplo, `en`). Consulta la [lista de idiomas aceptados]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). Configurar `language` mediante importación CSV o API impide que el SDK lo capture automáticamente. |
+| `language` | Cadena | Un código de idioma en formato [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (por ejemplo, `en`). Consulta la [lista de idiomas aceptados]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). Establecer `language` mediante importación CSV o API impide que el SDK lo capture automáticamente. |
 | `time_zone` | Cadena | Un nombre de zona horaria de la [base de datos de zonas horarias de IANA](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (por ejemplo, `America/New_York` o `Eastern Time (US & Canada)`). |
 | `current_location` | Objeto | Un objeto que contiene `longitude` y `latitude` (por ejemplo, `{"longitude": -73.991443, "latitude": 40.753824}`). |
 | `image_url` | Cadena | Una URL de la imagen de perfil del usuario. Hasta 1024 caracteres. |
@@ -62,7 +62,7 @@ Estos campos gestionan cómo un usuario recibe mensajes a través de los canales
 
 | Campo | Tipo de datos | Formato y notas |
 |---|---|---|
-| `email_subscribe` | Cadena | Uno de `opted_in` (registrado explícitamente para recibir correo electrónico), `unsubscribed` (canceló explícitamente la suscripción de correo electrónico) o `subscribed` (ni optó por recibir ni canceló la suscripción). |
+| `email_subscribe` | Cadena | Uno de `opted_in` (registrado explícitamente para recibir correo electrónico), `unsubscribed` (ha cancelado explícitamente la suscripción de correo electrónico) o `subscribed` (ni aceptado ni rechazado). |
 | `push_subscribe` | Cadena | Uno de `opted_in`, `unsubscribed` o `subscribed`. Mismas definiciones que `email_subscribe`. |
 | `subscription_groups` | Matriz de objetos | Una matriz donde cada objeto tiene un `subscription_group_id` (cadena) y un `subscription_state` (`subscribed` o `unsubscribed`). Por ejemplo: `[{"subscription_group_id": "abc-123", "subscription_state": "subscribed"}]`. |
 | `email_open_tracking_disabled` | Booleano | `true` o `false`. Establécelo en `true` para desactivar el píxel de seguimiento de apertura de correo electrónico para este usuario. |
@@ -70,7 +70,7 @@ Estos campos gestionan cómo un usuario recibe mensajes a través de los canales
 | `marked_email_as_spam_at` | Cadena | Marca de tiempo en la que el correo electrónico del usuario fue marcado como correo no deseado. Usa el formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-Para obtener más información sobre la configuración de grupos de suscripción, consulta [Grupos de suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups).
+Para obtener más información sobre la configuración de grupos de suscripción, consulta [Grupos de suscripción]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
 
 ## Sesiones y participación {#sessions-and-engagement}
 
@@ -154,16 +154,16 @@ user1,Jane,Doe,jane.doe@example.com,US,en,1988-02-14,opted_in
 user2,Alex,Smith,alex.smith@example.com,GB,en,1992-09-30,subscribed
 ```
 
-No puedes establecer algunos atributos estándar a través de la importación de CSV. Debes enviar matrices, tokens de notificaciones push y objetos anidados a través de la API o de la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion). Para ver la lista completa de campos compatibles con CSV y los pasos de importación, consulta [Atributos predeterminados]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#default-attributes).
+No puedes establecer algunos atributos estándar a través de la importación de CSV. Debes enviar matrices, tokens de notificaciones push y objetos anidados a través de la API o de la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion). Para consultar la lista completa de campos compatibles con CSV y los pasos de importación, consulta [Atributos predeterminados]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#default-attributes).
 
 ## Consideraciones {#considerations}
 
 Ten en cuenta estos puntos cuando trabajes con atributos estándar:
 
-- **Los nombres de campo distinguen entre mayúsculas y minúsculas.** Usa siempre minúsculas. Un encabezado o clave que no coincida exactamente con el nombre de un atributo estándar se trata como un atributo personalizado.
-- **La captura automática del SDK se suprime cuando estableces valores a través de API o CSV.** Cuando estableces `country` o `language` a través de API o CSV, Braze deja de capturar automáticamente esos campos desde el SDK para ese usuario.
-- **`null` elimina un valor.** Establece un atributo estándar como `null` para eliminarlo del perfil. Algunos campos, incluidos `external_id` y `user_alias`, no se pueden eliminar una vez establecidos.
-- **Los valores en blanco en CSV no sobrescriben.** Una celda vacía en una importación CSV mantiene el valor existente en el perfil. Para borrar un valor, usa la API.
+- **Los nombres de los campos distinguen entre mayúsculas y minúsculas.** Usa siempre minúsculas. Un encabezado o clave que no coincida exactamente con el nombre de un atributo estándar se tratará como un atributo personalizado.
+- **La captura automática del SDK se suprime cuando estableces valores a través de la API o CSV.** Cuando estableces `country` o `language` a través de la API o CSV, Braze deja de capturar automáticamente esos campos desde el SDK para ese usuario.
+- **`null` elimina un valor.** Establece un atributo estándar como `null` para eliminarlo del perfil. Algunos campos, incluidos `external_id` y `user_alias`, no se pueden eliminar después de haber sido establecidos.
+- **Los valores en blanco en CSV no sobrescriben.** Una celda en blanco en una importación CSV mantiene el valor existente en el perfil. Para borrar un valor, usa la API.
 - **Las zonas horarias se establecen en UTC de forma predeterminada.** Las cadenas de fecha sin un desfase se interpretan como medianoche UTC y se muestran en la zona horaria de tu espacio de trabajo. Para especificar una zona horaria, añade un desfase UTC (por ejemplo, `2024-11-10T18:00:00-05:00`).
 
 ## Páginas relacionadas {#related-pages}

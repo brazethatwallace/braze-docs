@@ -10,12 +10,12 @@ description: "Référence du README du SDK Android de Braze, reproduite depuis G
 
 ## À propos du SDK Android de Braze {#about-the-braze-android-sdk}
 
-Le SDK Android de Braze vous aide à intégrer les fonctionnalités d'envoi de messages, d'analyse et d'engagement utilisateur de Braze dans votre application.
+Le SDK Android de Braze vous aide à intégrer les fonctionnalités de messaging, d'analyse et d'engagement utilisateur de Braze dans votre application.
 
 Pour commencer, consultez les ressources suivantes :
 
-- [Guide utilisateur de Braze](https://www.braze.com/docs/user_guide/introduction/)
-- [Guide développeur de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android)
+- [Guide de l'utilisateur Braze](https://www.braze.com/docs/user_guide/introduction/)
+- [Guide du développeur Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android)
 
 ## Démarrage rapide {#quickstart}
 
@@ -30,8 +30,8 @@ repositories {
 }
 // ...
 dependencies {
-  `implementation 'com.braze:android-sdk-ui:43.0.+'`
-  `implementation 'com.braze:android-sdk-location:43.0.+'`
+  `implementation 'com.braze:android-sdk-ui:43.1.+'`
+  `implementation 'com.braze:android-sdk-location:43.1.+'`
 }
 // ...
 ```
@@ -49,26 +49,26 @@ dependencies {
 Braze.getInstance(context).changeUser("Jane Doe");
 ```
 
-Pour plus d'informations sur les options d'intégration avancées, consultez le [Guide développeur de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android).
+Pour plus d'informations sur les options d'intégration avancées, consultez le [Guide du développeur Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=android).
 
-## Prise en charge des versions {#version-support}
+## Compatibilité des versions {#version-support}
 
 {% alert important %}
-Le SDK Android de Braze déclare un `minSdkVersion` de API 21+, ce qui permet au SDK de se compiler dans des applications prenant en charge dès l'API 21. Bien que le SDK se compile pour ces versions, Braze ne fournit pas de support officiel pour les versions d'API inférieures à 25, et le SDK peut ne pas fonctionner comme prévu sur les appareils exécutant ces versions.
+Le SDK Android de Braze déclare un `minSdkVersion` d'API 21+, ce qui permet au SDK d'être compilé dans des applications prenant en charge les versions d'API à partir de la 21. Bien que le SDK compile pour ces versions, Braze ne fournit pas de support formel pour les versions d'API inférieures à 25, et le SDK peut ne pas fonctionner comme prévu sur les appareils utilisant ces versions.
 
 Si votre application prend en charge ces versions, procédez comme suit :
 
-- Vérifiez que votre intégration du SDK fonctionne comme prévu sur des appareils physiques (pas uniquement des émulateurs) pour ces versions d'API.
-- Si vous ne pouvez pas valider le comportement attendu, vous devez soit appeler [disableSDK](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-sdk.html), soit ne pas initialiser le SDK sur ces versions. Sinon, vous risquez de provoquer des effets secondaires indésirables ou une dégradation des performances sur les appareils de vos utilisateurs.
+- Validez que votre intégration du SDK fonctionne comme prévu sur des appareils physiques (pas uniquement des émulateurs) pour ces versions d'API.
+- Si vous ne pouvez pas valider le comportement attendu, vous devez soit appeler [disableSDK](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-sdk.html), soit ne pas initialiser le SDK sur ces versions. Sinon, vous risquez de provoquer des effets indésirables ou une dégradation des performances sur les appareils de vos utilisateurs.
 {% endalert %}
 Le tableau suivant répertorie les versions minimales prises en charge pour les outils utilisés par le SDK Android de Braze.
 
 Outil | Version minimale prise en charge
 :----|:----
-minSdk|5.0+ / API 21+ (Lollipop et versions ultérieures)
+minSdk|5.0+ / API 21+ (Lollipop et supérieur)
 targetSdk|37
 Kotlin|`org.jetbrains.kotlin:kotlin-stdlib:2.2.20`
-Firebase Cloud Messaging|25.1.0
+Firebase Cloud Messaging|25.1.1
 Font Awesome|4.3.0
 
 ## Modules {#modules}
@@ -79,15 +79,15 @@ Module | Description
 :----|:----
 `android-sdk-base`|La bibliothèque d'analyse de base du SDK Braze.
 `android-sdk-ui`|La bibliothèque d'interface utilisateur du SDK Braze pour les messages in-app, les notifications push, les Content Cards et les bannières.
-`android-sdk-location`|La bibliothèque de localisation du SDK Braze pour la localisation et le géorepérage.
+`android-sdk-location`|La bibliothèque de localisation du SDK Braze pour l'emplacement et le géorepérage.
 `android-sdk-jetpack-compose`|La bibliothèque du SDK Braze pour la prise en charge de Jetpack Compose.
-`droidboy`|Un exemple d'application qui montre comment utiliser Braze en profondeur.
+`droidboy`|Une application d'exemple qui montre comment utiliser Braze en profondeur.
 `android-sdk-unity`|Une bibliothèque qui permet les intégrations du SDK Braze sur Unity.
-`samples`|Un dossier contenant des exemples d'applications pour diverses options d'intégration.
+`samples`|Un dossier contenant des applications d'exemple pour diverses options d'intégration.
 
 ## Contact {#contact}
 
-Pour toute question, contactez l'assistance technique de Braze.
+Pour toute question, contactez le support technique de Braze.
 <!-- END GENERATED README CONTENT -->
 
 Pour les détails du dépôt et les exemples de projets, consultez [https://github.com/braze-inc/braze-android-sdk](https://github.com/braze-inc/braze-android-sdk).

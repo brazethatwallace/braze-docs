@@ -29,7 +29,7 @@ Bezeichner teilen Braze mit, welches Nutzerprofil aktualisiert oder erstellt wer
 
 | Feld | Datentyp | Format und Hinweise |
 |---|---|---|
-| `external_id` | String | Ein eindeutiger Nutzerbezeichner, den Sie zuweisen. Sobald er in einem Profil festgelegt ist, verwendet Braze ihn, um die Nutzer:innen geräteübergreifend zu erkennen. Kann nach dem Hinzufügen nicht entfernt werden. |
+| `external_id` | String | Ein eindeutiger Nutzerbezeichner, den Sie zuweisen. Sobald er in einem Profil gesetzt ist, verwendet Braze ihn, um Nutzer:innen geräteübergreifend zu erkennen. Kann nach dem Hinzufügen nicht mehr entfernt werden. |
 | `braze_id` | String | Ein von Braze zugewiesener Bezeichner, der erstellt wird, wenn das SDK ein Gerät zum ersten Mal erkennt. Schreibgeschützt. Kann nicht bearbeitet werden. |
 | `user_alias` | Objekt | Ein Objekt mit `alias_name` (String) und `alias_label` (String), das zur Identifizierung von Nutzer:innen ohne `external_id` verwendet wird. Schließt sich mit `external_id` in derselben Anfrage gegenseitig aus. |
 | `email` | String | Kann als Bezeichner verwendet werden, wenn `external_id` und `user_alias` nicht vorhanden sind. Hat Vorrang vor `phone`, wenn beide gesendet werden. |
@@ -46,40 +46,40 @@ Diese Felder erfassen demografische Daten, Kontaktdaten und Gebietsschemadaten I
 | `last_name` | String | Der Nachname der/des Nutzer:in (zum Beispiel `Doe`). |
 | `email` | String | Die E-Mail-Adresse der/des Nutzer:in (zum Beispiel `jane.doe@braze.com`). |
 | `phone` | String | Die Telefonnummer der/des Nutzer:in. Verwenden Sie das [E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format)-Format (zum Beispiel `+14155552671`). |
-| `dob` | String | Geburtsdatum im Format `YYYY-MM-DD` (zum Beispiel `1988-02-14`). Ermöglicht Targeting nach Geburtstagen. |
-| `gender` | String | Einer der Werte `M`, `F`, `O` (andere), `N` (nicht zutreffend), `P` (keine Angabe) oder `null` (unbekannt). |
-| `country` | String | Ein Ländercode im Format [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1) (zum Beispiel `US`, `GB`). Wenn `country` per CSV-Import oder API gesetzt wird, wird die automatische Erfassung durch das SDK verhindert. |
+| `dob` | String | Geburtsdatum im Format `YYYY-MM-DD` (zum Beispiel `1988-02-14`). Ermöglicht Targeting auf Geburtstage. |
+| `gender` | String | Eines von `M`, `F`, `O` (andere), `N` (nicht zutreffend), `P` (keine Angabe) oder `null` (unbekannt). |
+| `country` | String | Ein Ländercode im Format [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1) (zum Beispiel `US`, `GB`). Das Setzen von `country` über CSV-Import oder API verhindert, dass das SDK diesen Wert automatisch erfasst. |
 | `home_city` | String | Der Wohnort der/des Nutzer:in (zum Beispiel `London`). |
-| `language` | String | Ein Sprachcode im Format [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (zum Beispiel `en`). Weitere Informationen finden Sie in der [Liste der akzeptierten Sprachen]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). Wenn `language` per CSV-Import oder API gesetzt wird, wird die automatische Erfassung durch das SDK verhindert. |
-| `time_zone` | String | Ein Zeitzonenname aus der [IANA-Zeitzonendatenbank](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (zum Beispiel `America/New_York` oder `Eastern Time (US & Canada)`). |
-| `current_location` | Object | Ein Objekt mit `longitude` und `latitude` (zum Beispiel `{"longitude": -73.991443, "latitude": 40.753824}`). |
+| `language` | String | Ein Sprachcode im Format [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (zum Beispiel `en`). Beachten Sie die [Liste der akzeptierten Sprachen]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). Das Setzen von `language` über CSV-Import oder API verhindert, dass das SDK diesen Wert automatisch erfasst. |
+| `time_zone` | String | Ein Zeitzonenname aus der [IANA Time Zone Database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (zum Beispiel `America/New_York` oder `Eastern Time (US & Canada)`). |
+| `current_location` | Objekt | Ein Objekt mit `longitude` und `latitude` (zum Beispiel `{"longitude": -73.991443, "latitude": 40.753824}`). |
 | `image_url` | String | Eine URL zum Profilbild der/des Nutzer:in. Maximal 1.024 Zeichen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Abo und Einwilligung {#subscription-and-consent}
 
-Diese Felder steuern, wie Nutzer:innen Nachrichten über verschiedene Kanäle erhalten. Ihre Aktualisierung wird nicht auf Ihre Datenpunkt-Nutzung angerechnet.
+Diese Felder verwalten, wie Nutzer:innen Nachrichten über verschiedene Kanäle empfangen. Eine Aktualisierung dieser Felder wird nicht auf Ihre Datenpunkt-Nutzung angerechnet.
 
 | Feld | Datentyp | Format und Hinweise |
 |---|---|---|
 | `email_subscribe` | String | Einer der Werte `opted_in` (explizit für den E-Mail-Empfang registriert), `unsubscribed` (explizit vom E-Mail-Empfang abgemeldet) oder `subscribed` (weder angemeldet noch abgemeldet). |
 | `push_subscribe` | String | Einer der Werte `opted_in`, `unsubscribed` oder `subscribed`. Gleiche Definitionen wie bei `email_subscribe`. |
-| `subscription_groups` | Array von Objekten | Ein Array, in dem jedes Objekt eine `subscription_group_id` (String) und einen `subscription_state` (`subscribed` oder `unsubscribed`) enthält. Beispiel: `[{"subscription_group_id": "abc-123", "subscription_state": "subscribed"}]`. |
-| `email_open_tracking_disabled` | Boolean | `true` oder `false`. Setzen Sie den Wert auf `true`, um das E-Mail-Öffnungs-Tracking-Pixel für diese:n Nutzer:in zu deaktivieren. |
-| `email_click_tracking_disabled` | Boolean | `true` oder `false`. Setzen Sie den Wert auf `true`, um das E-Mail-Klick-Tracking für diese:n Nutzer:in zu deaktivieren. |
+| `subscription_groups` | Array von Objekten | Ein Array, bei dem jedes Objekt eine `subscription_group_id` (String) und einen `subscription_state` (`subscribed` oder `unsubscribed`) enthält. Beispiel: `[{"subscription_group_id": "abc-123", "subscription_state": "subscribed"}]`. |
+| `email_open_tracking_disabled` | Boolean | `true` oder `false`. Auf `true` setzen, um das E-Mail-Öffnungs-Tracking-Pixel für diese:n Nutzer:in zu deaktivieren. |
+| `email_click_tracking_disabled` | Boolean | `true` oder `false`. Auf `true` setzen, um das E-Mail-Klick-Tracking für diese:n Nutzer:in zu deaktivieren. |
 | `marked_email_as_spam_at` | String | Zeitstempel, zu dem die E-Mail der/des Nutzer:in als Spam markiert wurde. Verwenden Sie das [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-Format. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-Weitere Informationen zur Einrichtung von Abo-Gruppen finden Sie unter [Abo-Gruppen]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups).
+Weitere Informationen zur Einrichtung von Abo-Gruppen finden Sie unter [Abo-Gruppen]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups).
 
 ## Sitzungen und Engagement {#sessions-and-engagement}
 
-Diese Felder erfassen, wann Nutzer:innen Ihre App zum ersten oder letzten Mal verwendet haben. Das SDK zeichnet sie automatisch auf; in der Regel setzen Sie sie nur über die API oder CSV, wenn Sie von einer anderen Plattform migrieren.
+Diese Felder erfassen, wann Nutzer:innen Ihre App zum ersten oder letzten Mal verwendet haben. Das SDK zeichnet sie automatisch auf; in der Regel setzen Sie sie nur über die API oder per CSV, wenn Sie von einer anderen Plattform migrieren.
 
 | Feld | Datentyp | Format und Hinweise |
 |---|---|---|
-| `date_of_first_session` | String | Das Datum, an dem die/der Nutzer:in die App zum ersten Mal verwendet hat. Verwenden Sie das [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-Format oder eines der folgenden: `yyyy-MM-ddTHH:mm:ss:SSSZ`, `yyyy-MM-ddTHH:mm:ss`, `yyyy-MM-dd HH:mm:ss`, `yyyy-MM-dd`, `MM/dd/yyyy` oder `ddd MM dd HH:mm:ss.TZD YYYY`. |
-| `date_of_last_session` | String | Das Datum, an dem die/der Nutzer:in die App zuletzt verwendet hat. Es werden dieselben Formate wie bei `date_of_first_session` akzeptiert. |
+| `date_of_first_session` | String | Das Datum, an dem die oder der Nutzer:in die App zum ersten Mal verwendet hat. Verwenden Sie das [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-Format oder eines der folgenden: `yyyy-MM-ddTHH:mm:ss:SSSZ`, `yyyy-MM-ddTHH:mm:ss`, `yyyy-MM-dd HH:mm:ss`, `yyyy-MM-dd`, `MM/dd/yyyy` oder `ddd MM dd HH:mm:ss.TZD YYYY`. |
+| `date_of_last_session` | String | Das Datum, an dem die oder der Nutzer:in die App zuletzt verwendet hat. Es gelten dieselben Formate wie bei `date_of_first_session`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Push-Token {#push-tokens}
@@ -89,7 +89,7 @@ Verwenden Sie diese Felder, wenn Sie Push-Token von einer anderen Plattform migr
 | Feld | Datentyp | Format und Hinweise |
 |---|---|---|
 | `push_tokens` | Array von Objekten | Ein Array, in dem jedes Objekt eine `app_id` (String) und ein `token` (String) enthält. Optional kann eine `device_id` (String) angegeben werden. Beispiel: `[{"app_id": "YOUR_APP_ID", "token": "abcd", "device_id": "optional_device_id"}]`. |
-| `push_token_import` | Boolean | Flag auf oberster Ebene (nicht in `attributes` verschachtelt). Setzen Sie es auf `true`, um ältere Push-Token für anonyme Nutzer:innen ohne `external_id` zu importieren. |
+| `push_token_import` | Boolean | Top-Level-Flag (nicht in `attributes` verschachtelt). Setzen Sie den Wert auf `true`, um ältere Push-Token für anonyme Nutzer:innen ohne `external_id` zu importieren. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Social-Profil {#social-profile}
@@ -98,8 +98,8 @@ Diese Felder speichern Daten aus Social-Network-Integrationen.
 
 | Feld | Datentyp | Format und Hinweise |
 |---|---|---|
-| `facebook` | Objekt | Ein Objekt, das beliebige der folgenden Werte enthalten kann: `id` (String), `likes` (String-Array) oder `num_friends` (Integer). |
-| `twitter` | Objekt | Ein Objekt, das beliebige der folgenden Werte enthalten kann: `id` (Integer), `screen_name` (String, X-Handle), `followers_count` (Integer), `friends_count` (Integer) oder `statuses_count` (Integer). |
+| `facebook` | Objekt | Ein Objekt, das eines der folgenden Elemente enthalten kann: `id` (String), `likes` (String-Array) oder `num_friends` (Integer). |
+| `twitter` | Objekt | Ein Objekt, das eines der folgenden Elemente enthalten kann: `id` (Integer), `screen_name` (String, X-Handle), `followers_count` (Integer), `friends_count` (Integer) oder `statuses_count` (Integer). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## API-Beispiel {#api-example}
@@ -146,7 +146,7 @@ Den vollständigen API-Vertrag finden Sie unter [Nutzerattribut-Objekt]({{site.b
 
 ## CSV-Beispiel {#csv-example}
 
-Die folgende CSV-Datei aktualisiert Standardattribute für zwei Nutzer:innen. Die Spaltenüberschriften müssen exakt mit den Feldnamen in diesem Artikel übereinstimmen. Überschriften, die nicht übereinstimmen (zum Beispiel `First_name` statt `first_name`), werden als angepasste Attribute importiert.
+Die folgende CSV-Datei aktualisiert Standardattribute für zwei Nutzer:innen. Die Spaltenüberschriften müssen exakt mit den Feldnamen in diesem Artikel übereinstimmen. Überschriften, die nicht übereinstimmen (z. B. `First_name` statt `first_name`), werden als angepasste Attribute importiert.
 
 ```plaintext
 external_id,first_name,last_name,email,country,language,dob,email_subscribe
@@ -154,17 +154,17 @@ user1,Jane,Doe,jane.doe@example.com,US,en,1988-02-14,opted_in
 user2,Alex,Smith,alex.smith@example.com,GB,en,1992-09-30,subscribed
 ```
 
-Einige Standardattribute können nicht über den CSV-Import festgelegt werden. Arrays, Push-Token und verschachtelte Objekte müssen stattdessen über die API oder [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) gesendet werden. Die vollständige Liste der CSV-unterstützten Felder und Importschritte finden Sie unter [Standardattribute]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#default-attributes).
+Einige Standardattribute können nicht über den CSV-Import festgelegt werden. Arrays, Push-Token und verschachtelte Objekte müssen stattdessen über die API oder die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) gesendet werden. Die vollständige Liste der CSV-unterstützten Felder und Importschritte finden Sie unter [Standardattribute]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#default-attributes).
 
 ## Hinweise {#considerations}
 
 Beachten Sie diese Punkte bei der Arbeit mit Standardattributen:
 
-- **Feldnamen sind case-sensitiv.** Verwenden Sie immer Kleinbuchstaben. Ein Header oder Schlüssel, der nicht exakt mit einem Standardattributnamen übereinstimmt, wird als angepasstes Attribut behandelt.
-- **Die automatische SDK-Erfassung wird unterdrückt, wenn Sie Werte über API oder CSV setzen.** Wenn Sie `country` oder `language` über API oder CSV setzen, stoppt Braze die automatische Erfassung dieser Felder über das SDK für diese:n Nutzer:in.
-- **`null` entfernt einen Wert.** Setzen Sie ein Standardattribut auf `null`, um es aus dem Profil zu entfernen. Einige Felder, darunter `external_id` und `user_alias`, können nach dem Setzen nicht mehr entfernt werden.
-- **Leere CSV-Werte überschreiben nicht.** Eine leere Zelle in einem CSV-Import behält den bestehenden Wert im Profil bei. Um einen Wert zu löschen, verwenden Sie die API.
-- **Zeitzonen sind standardmäßig UTC.** Datumsstrings ohne Offset werden als Mitternacht UTC interpretiert und in der Zeitzone Ihres Workspace angezeigt. Um eine Zeitzone anzugeben, fügen Sie einen UTC-Offset an (zum Beispiel `2024-11-10T18:00:00-05:00`).
+- **Feldnamen unterscheiden zwischen Groß- und Kleinschreibung.** Verwenden Sie immer Kleinbuchstaben. Ein Header oder Schlüssel, der nicht exakt mit einem Standardattribut-Namen übereinstimmt, wird als angepasstes Attribut behandelt.
+- **Die automatische SDK-Erfassung wird unterdrückt, wenn Sie Werte über API oder CSV festlegen.** Wenn Sie `country` oder `language` über API oder CSV festlegen, stoppt Braze die automatische Erfassung dieser Felder über das SDK für diese:n Nutzer:in.
+- **`null` entfernt einen Wert.** Setzen Sie ein Standardattribut auf `null`, um es aus dem Profil zu entfernen. Einige Felder, darunter `external_id` und `user_alias`, können nach dem Festlegen nicht mehr entfernt werden.
+- **Leere CSV-Werte überschreiben nicht.** Eine leere Zelle in einem CSV-Import behält den bestehenden Wert im Profil bei. Verwenden Sie die API, um einen Wert zu löschen.
+- **Zeitzonen verwenden standardmäßig UTC.** Datumsstrings ohne Offset werden als Mitternacht UTC interpretiert und in der Zeitzone Ihres Workspace angezeigt. Um eine Zeitzone anzugeben, fügen Sie einen UTC-Offset an (zum Beispiel `2024-11-10T18:00:00-05:00`).
 
 ## Verwandte Seiten {#related-pages}
 

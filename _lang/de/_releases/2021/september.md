@@ -20,20 +20,20 @@ Mit iOS 15 wurden neue Features für Benachrichtigungen eingeführt, die den Nut
 
 ## Kontaktkarten {#contact-cards}
 
-Kontaktkarten sind ein standardisiertes Dateiformat für das Versenden von Geschäfts- und Kontaktinformationen, die einfach in Adress- oder Kontaktbücher importiert werden können. Sie können jetzt Kontaktkarten für Ihre SMS- und MMS-Nachrichten hochladen und erstellen. Wenn Sie mehr darüber erfahren möchten, wie Sie Kontaktkarten mit unserem integrierten Kontaktkarten-Generator erstellen, besuchen Sie unsere [Dokumentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card).
+Kontaktkarten sind ein standardisiertes Dateiformat zum Senden von Geschäfts- und Kontaktinformationen, die einfach in Adressbücher oder Kontaktbücher importiert werden können. Sie können jetzt Kontaktkarten für Ihre SMS- und MMS-Nachrichten hochladen und erstellen. Weitere Informationen zum Erstellen von Kontaktkarten mit unserem integrierten Kontaktkarten-Generator finden Sie in unserer [Dokumentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card).
 
-## Standard-Content-Cards anpassen {#default-content-cards-customization}
+## Standardmäßige Content-Card-Anpassung {#default-content-cards-customization}
 
-Sie können Ihre eigene Content-Cards-Schnittstelle erstellen, indem Sie `ABKContentCardsTableViewController` erweitern, um alle UI-Elemente und das Verhalten der Content Cards anzupassen. Um mehr darüber zu erfahren, wie Sie den Content-Cards-Feed anpassen können, besuchen Sie unsere [Dokumentation]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style).
+Sie können Ihre eigene Content-Cards-Oberfläche erstellen, indem Sie `ABKContentCardsTableViewController` erweitern, um alle UI-Elemente und das Verhalten von Content Cards anzupassen. Weitere Informationen zur Anpassung des Content-Cards-Feeds finden Sie in unserer [Dokumentation]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style).
 
 ## API-Rate-Limits
 
-Die [Rate-Limits]({{site.baseurl}}/api/basics#api-limits) gelten für alle Kund:innen, die nach dem 16. September 2021 eingebunden werden.
+[Rate-Limits]({{site.baseurl}}/api/api_limits) gelten für alle Kund:innen, die nach dem 16. September 2021 ongeboardet wurden.
 
-## Updates für Android- und FireOS-Entwickler:innen-Anleitungen {#updates-to-android-and-fireos-developer-guides}
+## Updates für Android- und FireOS-Entwicklerhandbücher {#updates-to-android-and-fireos-developer-guides}
 
-Die Anleitungen für Android- und FireOS-Entwickler:innen wurden an einem Ort zusammengeführt. Spezielle FireOS-Artikel werden in diesem [neuen Android-Bereich]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) verfügbar sein.
+Die Entwicklerhandbücher für Android und FireOS wurden an einem Ort zusammengeführt. Dedizierte FireOS-Artikel sind in diesem [neuen Android-Bereich]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) verfügbar.
 
-## Updates für Funnel- und Bindungsberichte {#updates-to-funnel-and-retention-reports}
+## Updates für Funnel- und Retention-Berichte {#updates-to-funnel-and-retention-reports}
 
-[Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) und [Berichte zur Bindung]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) sind jetzt auch für SMS-Campaigns verfügbar.
+[Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) und [Retention-Berichte]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) sind jetzt für SMS-Campaigns verfügbar.
