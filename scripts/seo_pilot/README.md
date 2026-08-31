@@ -134,7 +134,7 @@ Applies `article_title` / `description` changes from audit packets and `redirect
 
 **Meta-exempt pages** (`layout: redirect`, `bare`, `broken_page`, `blank_config`, or `config_only: true`) are skipped for description/title recommendations and fixes. See `meta_exempt.py`.
 
-**Archived pages** under `_docs/**/archive_docs/` are excluded from all SEO pilot audits (unpublished content).
+**Archived pages** under `_docs/**/archive_docs/` and `_docs/**/archived_layouts/` are excluded from all SEO pilot audits (unpublished content).
 
 ## Typical workflow
 

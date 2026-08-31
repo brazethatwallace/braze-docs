@@ -326,7 +326,7 @@ def load_pages_file(path: Path) -> list[str]:
 def page_skip_reason(md_path: Path) -> str | None:
     rel = str(md_path.relative_to(REPO_ROOT)).replace("\\", "/")
     if skips_seo_audit(rel):
-        return "archive_docs (unpublished)"
+        return "unpublished archive path"
     if not md_path.is_file():
         return "missing_file"
     text = md_path.read_text(encoding="utf-8", errors="replace")

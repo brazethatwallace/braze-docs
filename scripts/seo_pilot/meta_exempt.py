@@ -9,21 +9,27 @@ FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 # Layouts that do not render description/article_title for search snippets.
 SKIP_META_LAYOUTS = frozenset({"redirect", "bare", "blank_config", "broken_page"})
 
-# Unpublished archived content under _hidden/archive_docs/ (not in public sitemap).
-ARCHIVE_DOCS_MARKER = "/archive_docs/"
+# Unpublished archived hidden content (not in public sitemap).
+UNPUBLISHED_PATH_MARKERS = ("/archive_docs/", "/archived_layouts/")
 
 
 def normalize_doc_path(rel: str) -> str:
     return rel.replace("\\", "/")
 
 
+def is_unpublished_doc_path(rel: str) -> bool:
+    path = normalize_doc_path(rel)
+    return any(marker in path for marker in UNPUBLISHED_PATH_MARKERS)
+
+
 def is_archive_doc_path(rel: str) -> bool:
-    return ARCHIVE_DOCS_MARKER in normalize_doc_path(rel)
+    """Backward-compatible alias."""
+    return is_unpublished_doc_path(rel)
 
 
 def skips_seo_audit(rel: str) -> bool:
     """True when a page should be excluded from SEO pilot audits entirely."""
-    return is_archive_doc_path(rel)
+    return is_unpublished_doc_path(rel)
 
 
 def parse_frontmatter(text: str) -> dict[str, str]:
