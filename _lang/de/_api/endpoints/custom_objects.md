@@ -35,13 +35,13 @@ guide_menu_list:
   - name: "GET: Angepasstes Objekt abrufen"
     link: /docs/api/endpoints/custom_objects/objects/get_custom_object
     image: /assets/img/braze_icons/search-md.svg
-  - name: "POST: Angepasstes Objekt erstellen"
+  - name: "POST: Benutzerdefiniertes Objekt erstellen"
     link: /docs/api/endpoints/custom_objects/objects/post_create_custom_object
     image: /assets/img/braze_icons/check-square-broken.svg
-  - name: "PUT: Angepasstes Objekt ersetzen"
+  - name: "PUT: Benutzerdefiniertes Objekt ersetzen"
     link: /docs/api/endpoints/custom_objects/objects/put_replace_custom_object
     image: /assets/img/braze_icons/refresh-ccw-04.svg
-  - name: "PATCH: Angepasstes Objekt aktualisieren"
+  - name: "PATCH: Benutzerdefiniertes Objekt aktualisieren"
     link: /docs/api/endpoints/custom_objects/objects/patch_update_custom_object
     image: /assets/img/braze_icons/user-edit.svg
   - name: "DELETE: Angepasstes Objekt löschen"
@@ -50,19 +50,19 @@ guide_menu_list:
 
 guide_menu_title2: "Objekt-Beziehungs-Endpunkte"
 guide_menu_list2:
-  - name: "GET: Objekt-Beziehungen auflisten"
+  - name: "GET: Objektbeziehungen auflisten"
     link: /docs/api/endpoints/custom_objects/object_relationships/get_list_object_relationships
     image: /assets/img/braze_icons/list.svg
-  - name: "POST: Objekt-Beziehung erstellen"
+  - name: "POST: Objektbeziehung erstellen"
     link: /docs/api/endpoints/custom_objects/object_relationships/post_create_object_relationship
     image: /assets/img/braze_icons/check-square-broken.svg
-  - name: "PUT: Objekt-Beziehung ersetzen"
+  - name: "PUT: Objektbeziehung ersetzen"
     link: /docs/api/endpoints/custom_objects/object_relationships/put_replace_object_relationship
     image: /assets/img/braze_icons/refresh-ccw-04.svg
-  - name: "PATCH: Objekt-Beziehung aktualisieren"
+  - name: "PATCH: Objektbeziehung aktualisieren"
     link: /docs/api/endpoints/custom_objects/object_relationships/patch_update_object_relationship
     image: /assets/img/braze_icons/user-edit.svg
-  - name: "DELETE: Objekt-Beziehung löschen"
+  - name: "DELETE: Objektbeziehung löschen"
     link: /docs/api/endpoints/custom_objects/object_relationships/delete_object_relationship
     image: /assets/img/braze_icons/edit-05.svg
 

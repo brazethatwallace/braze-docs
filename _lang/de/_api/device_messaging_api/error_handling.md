@@ -49,4 +49,4 @@ Verwenden Sie die folgenden Hinweise, um zu entscheiden, ob ein Wiederholungsver
 Die genauen Antwortkörper und unterstützten Statuscodes finden Sie beim jeweiligen Endpunkt:
 
 - [Banner für Nutzer:innen abrufen]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)
-- [Banner-Analytics-Events tracken]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_track_banner_events)
+- [Banner-Analytics-Ereignisse tracken]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_track_banner_events)

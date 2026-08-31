@@ -30,7 +30,7 @@ guide_menu_list:
   - name: "POST: Banner für eine:n Nutzer:in abrufen"
     link: /docs/api/device_messaging_api/endpoints/banners/post_sync_banners
     image: /assets/img/braze_icons/download-01.svg
-  - name: "POST: Banner-Analytics-Events tracken"
+  - name: "POST: Banner-Analytics-Ereignisse tracken"
     link: /docs/api/device_messaging_api/endpoints/banners/post_track_banner_events
     image: /assets/img/braze_icons/line-chart-up-02.svg
 ---
