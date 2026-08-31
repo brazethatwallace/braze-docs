@@ -23,16 +23,16 @@ Your agent's access mirrors your dashboard permissions. If your dashboard access
 ## Managing access (for admins)
 
 {% alert note %}
-Before users can connect, a company admin must turn on **MCP OAuth access** in **Settings** > **Admin Settings** > **OAuth**.
+Before users can connect, a company admin must turn on **MCP OAuth access** in **Settings** > **Admin Settings** > **OAuth**. For more information, see [Manage OAuth settings]({{site.baseurl}}/user_guide/administer/global/admin_settings/oauth_admin/).
 {% endalert %}
 
 ### Grant access
 
-Admins control access to the MCP server through the **Use MCP Server** permission. By default, users do not have this permission and it must be explicitly granted.
+Admins control access to the MCP server through the "Use MCP Server" permission. By default, users do not have this permission and it must be explicitly granted.
 
 ### Revoke access
 
-To revoke access, remove the **Use MCP Server** permission from the user. Removing dashboard permissions from a user also removes those capabilities from any connected agent on the next request.
+To revoke access, remove the "Use MCP Server" permission from the user. Removing dashboard permissions from a user also removes those capabilities from any connected agent on the next request.
 
 ### Audit usage
 
@@ -42,7 +42,7 @@ When a user successfully connects through OAuth, an event is logged to the [secu
 
 ### Step 1: Confirm permissions and workspace access
 
-1. You or your company admin need to confirm you have the **Use MCP Server** permission.
+1. You or your company admin need to confirm you have the "Use MCP Server" permission.
 2. If you need access to multiple workspaces, make sure the permission is enabled for all relevant workspaces.
 
 ### Step 2: Add Braze as a remote MCP connector
@@ -125,8 +125,8 @@ After you confirm your workflows and skills are working on the remote server, di
 
 ### Authentication fails in a supported client
 
-1. Confirm your company admin has turned on **MCP OAuth access** in **Settings** > **Admin Settings** > **OAuth**.
-2. Confirm your user has the **Use MCP Server** permission.
+1. Confirm your company admin has turned on **MCP OAuth access** in [OAuth settings]({{site.baseurl}}/user_guide/administer/global/admin_settings/oauth_admin/).
+2. Confirm your user has the "Use MCP Server" permission.
 3. Retry sign-in and authorization.
 
 ### Authentication is blocked in an unverified client
