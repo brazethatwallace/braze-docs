@@ -28,27 +28,27 @@ Vous ne savez pas si votre message doit être envoyé via une campagne ou un Can
 {% tabs %}
 {% tab Campaign %}
 
-1. Allez dans **Messagerie** > **Campaigns** et sélectionnez **Créer une campagne**.
+1. Accédez à **Messagerie** > **Campaigns** et sélectionnez **Créer une campagne**.
 2. Sélectionnez **Banner**.
-3. Donnez à votre campagne un nom clair et significatif.
+3. Donnez un nom clair et significatif à votre campagne.
 4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) selon vos besoins. Les tags facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le générateur de rapports, vous pouvez filtrer par les tags pertinents.
-5. Sélectionnez l'emplacement que vous avez précédemment créé pour l'associer à votre campagne.
-6. Ajoutez des variantes selon vos besoins. Vous pouvez choisir un type de message et une mise en page différents pour chacune. Pour plus d'informations sur les variantes, consultez [Test multivarié et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+5. Sélectionnez l'emplacement que vous avez créé précédemment pour l'associer à votre campagne.
+6. Ajoutez des variantes selon vos besoins. Vous pouvez choisir un type de message et une mise en page différents pour chacune. Pour plus d'informations sur les variantes, consultez [Test multivarié et test A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 7. Choisissez une date et une heure de début pour votre campagne Banner. Par défaut, les Banners durent indéfiniment. Vous pouvez modifier cela en sélectionnant **Heure de fin** et en spécifiant une date et une heure de fin.
 
 {% alert tip %}
-Si tous les messages de votre campagne vont être similaires ou avoir le même contenu, composez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite sélectionner **Copier depuis la variante** dans le menu déroulant **Ajouter une variante**.
+Si tous les messages de votre campagne sont similaires ou ont le même contenu, composez votre message avant d'ajouter des variantes supplémentaires. Vous pouvez ensuite sélectionner **Copier depuis la variante** dans le menu déroulant **Ajouter une variante**.
 {% endalert %}
 
 {% endtab %}
 {% tab Canvas %}
 
 1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) à l'aide du compositeur Canvas.
-2. Après avoir configuré votre Canvas, ajoutez une étape Message dans le générateur Canvas. Donnez à votre étape un nom clair et significatif.
+2. Après avoir configuré votre Canvas, ajoutez une étape Message dans le générateur Canvas. Donnez un nom clair et significatif à votre étape.
 3. Sélectionnez **Banner** comme canal de communication.
 4. Sélectionnez un emplacement pour le Banner.
-5. Définissez la priorité. La [priorité du Banner]({{site.baseurl}}/user_guide/channels/banners#priority) détermine l'ordre dans lequel les Banners sont affichés s'ils partagent le même emplacement.
-6. Définissez une expiration pour le Banner. Celle-ci peut être définie après une durée suivant la disponibilité de l'étape ou à une date et une heure spécifiques. La durée d'expiration maximale est de 31 jours après que l'étape devient disponible pour l'utilisateur.
+5. Définissez la priorité. La [priorité du Banner]({{site.baseurl}}/user_guide/channels/banners#priority) détermine l'ordre dans lequel les Banners s'affichent s'ils partagent le même emplacement.
+6. Définissez une expiration pour le Banner. Celle-ci peut intervenir après une durée définie à partir du moment où l'étape est disponible, ou à une date et une heure spécifiques. La durée d'expiration maximale est de 31 jours après que l'étape devient disponible pour l'utilisateur.
 
 {% endtab %}
 {% endtabs %}
@@ -57,31 +57,31 @@ Si tous les messages de votre campagne vont être similaires ou avoir le même c
 
 Ensuite, choisissez comment vous souhaitez commencer la création :
 
-- **Éditeur par glisser-déposer :** Commencez avec un Banner vierge et construisez visuellement avec des blocs et des lignes.
+- **Éditeur de glisser-déposer :** Commencez avec un Banner vierge et construisez visuellement à l'aide de blocs et de lignes.
 - **Éditeur HTML :** Commencez avec un Banner vierge et travaillez directement en HTML.
-- **Modèles :** Ouvrez la bibliothèque de modèles et sélectionnez un design parmi les **modèles Braze** ou **vos modèles**. Les modèles s'ouvrent dans l'éditeur par glisser-déposer pour personnalisation.
+- **Modèles :** Ouvrez la bibliothèque de modèles et sélectionnez un design parmi les **Modèles Braze** ou **Vos modèles**. Les modèles s'ouvrent dans l'éditeur de glisser-déposer pour personnalisation.
 
-![Options pour choisir l'éditeur par glisser-déposer, l'éditeur HTML ou les modèles pour votre Banner.]({% image_buster /assets/img/banners/choose_banner_editing_experience.png %})
+![Options pour choisir l'éditeur de glisser-déposer, l'éditeur HTML ou les modèles pour votre Banner.]({% image_buster /assets/img/banners/choose_banner_editing_experience.png %})
 
 #### Étape 3.1 : Styliser le Banner {#step-31-style-the-banner}
 
 {% tabs %}
-{% tab Éditeur par glisser-déposer %}
+{% tab Éditeur de glisser-déposer %}
 
-Vous pouvez glisser-déposer des blocs et des lignes dans la zone de travail pour commencer à créer votre message. Pour une référence des blocs de l'éditeur Banner et des liens vers les détails des propriétés partagées, consultez [Blocs éditeur (Banners)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners).
+Vous pouvez glisser-déposer des blocs et des lignes dans la zone de Canvas pour commencer à construire votre message. Pour une référence des blocs de l'éditeur Banner et des liens vers les détails des propriétés partagées, consultez [Blocs éditeur (Banners)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-Pour personnaliser les propriétés d'arrière-plan de votre message, les paramètres de bordure et plus encore, sélectionnez **Styles**. Si vous souhaitez uniquement personnaliser le style d'un bloc ou d'une ligne spécifique, sélectionnez-le pour effectuer les modifications.
+Pour personnaliser les propriétés d'arrière-plan, les paramètres de bordure et plus encore de votre message, sélectionnez **Styles**. Si vous souhaitez uniquement personnaliser le style d'un bloc ou d'une ligne spécifique, sélectionnez-le pour effectuer les modifications.
 
-![Panneau de style du compositeur Banner.]({% image_buster /assets/img/banners/banner_card_styles.png %})
+![Panneau de styles du compositeur Banner.]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
 {% multi_lang_include drag_and_drop/hide_rows_and_blocks_by_device.md channel='banner' %}
 
 {% endtab %}
 {% tab Éditeur HTML %}
 
-L'éditeur HTML est idéal pour les équipes qui maintiennent déjà leurs propres modèles HTML ou qui souhaitent un contrôle total sur le balisage et le style. Vous pouvez écrire ou coller du HTML personnalisé directement dans l'éditeur. Les balises de personnalisation Liquid sont entièrement prises en charge, vous pouvez donc référencer des attributs utilisateur, des attributs personnalisés, des éléments de catalogue, et plus encore.
+L'éditeur HTML est idéal pour les équipes qui maintiennent déjà leurs propres modèles HTML ou qui souhaitent un contrôle total sur le balisage et le style. Vous pouvez écrire ou coller du HTML personnalisé directement dans l'éditeur. Les tags de personnalisation Liquid sont entièrement pris en charge, ce qui vous permet de référencer des attributs utilisateur, des attributs personnalisés, des éléments de catalogue, et plus encore.
 
 {% alert tip %}
 Besoin d'aide pour créer le HTML de votre Banner ? Sélectionnez **Ask Operator** dans l'éditeur HTML et décrivez le Banner que vous souhaitez. [BrazeAI<sup>TM</sup> Operator]({{site.baseurl}}/user_guide/brazeai/operator) génère du HTML que vous pouvez examiner et insérer dans l'éditeur. Pour plus d'informations, consultez [Générer des messages]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages).
@@ -93,15 +93,15 @@ Pour le suivi des clics et des fermetures dans votre HTML personnalisé, vous de
 {% endtabs %}
 
 {% alert note %}
-Pour cibler des utilisateurs dans différentes langues au sein d'une seule campagne Banner, consultez [Messages multilingues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
+Pour cibler les utilisateurs dans différentes langues au sein d'une même campagne Banner, consultez [Messages multilingues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
 {% endalert %}
 
 #### Étape 3.2 : Définir le comportement au clic (facultatif) {#step-32-define-on-click-behavior-optional}
 
 {% tabs %}
-{% tab Éditeur par glisser-déposer %}
+{% tab Éditeur de glisser-déposer %}
 
-Lorsqu'un utilisateur clique sur un lien dans le Banner, vous pouvez choisir de le diriger plus profondément dans votre application ou de le rediriger vers une autre page web. De plus, vous pouvez choisir d'[enregistrer un attribut personnalisé ou un événement]({{site.baseurl}}/developer_guide/analytics), ce qui met à jour le profil de votre utilisateur avec des données personnalisées lorsqu'il clique sur le Banner. Pour un suivi des clics plus granulaire, attribuez un identifiant personnalisé à chaque élément interactif en utilisant le champ **Identifiant pour le reporting** dans son panneau de propriétés.
+Lorsqu'un utilisateur clique sur un lien dans le Banner, vous pouvez choisir de le diriger plus profondément dans votre application ou de le rediriger vers une autre page web. De plus, vous pouvez choisir de [journaliser un attribut personnalisé ou un événement]({{site.baseurl}}/developer_guide/analytics), ce qui met à jour le profil de l'utilisateur avec des données personnalisées lorsqu'il clique sur le Banner. Pour un suivi des clics plus granulaire, attribuez un identifiant personnalisé à chaque élément interactif à l'aide du champ **Identifiant pour le reporting** dans son panneau de propriétés.
 
 {% alert important %}
 {::nomarkdown}
@@ -126,12 +126,12 @@ Pour la référence complète du pont JavaScript, consultez [Code personnalisé 
 #### Étape 3.3 : Configurer le comportement de fermeture (facultatif) {#dismiss-behavior}
 
 {% alert important %}
-Les fermetures de Banner nécessitent les versions minimales de SDK suivantes. Les versions plus anciennes du SDK n'affichent pas les Banners avec la fermeture activée.
+La fermeture des Banners nécessite les versions minimales suivantes du SDK. Les versions antérieures du SDK n'affichent pas les Banners avec la fermeture activée.
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 reactnative:22.0.0 flutter:20.0.0 %}
 {% endalert %}
 
 {% tabs %}
-{% tab Éditeur par glisser-déposer %}
+{% tab Éditeur de glisser-déposer %}
 
 Cochez la case **Le Banner peut être fermé** dans la section **Comportement de fermeture** pour permettre aux utilisateurs de fermer le Banner. Cela est utile lorsque vous souhaitez promouvoir une offre à durée limitée auprès d'une large audience tout en permettant aux utilisateurs non intéressés de masquer le message.
 
@@ -141,21 +141,21 @@ Lorsque la fermeture est activée, vous pouvez personnaliser le bouton de fermet
 |---------|-------------|
 | **Taille du bouton** | La taille du bouton de fermeture affiché sur le Banner. |
 | **Couleur du bouton** | La couleur du bouton de fermeture. |
-| **Libellé ARIA** | Le libellé accessible pour le bouton de fermeture, utilisé par les lecteurs d'écran. Par défaut « Fermer » si laissé vide. |
+| **Libellé ARIA** | Le libellé accessible du bouton de fermeture, utilisé par les lecteurs d'écran. La valeur par défaut est « Fermer » si le champ est laissé vide. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paramètres du bouton de fermeture" }
 
-Lorsqu'un utilisateur ferme un Banner, celui-ci n'apparaît plus pour cet utilisateur, même s'il remplit toujours les critères de ciblage de la campagne.
+Lorsqu'un utilisateur ferme un Banner, celui-ci ne réapparaît plus pour cet utilisateur, même s'il remplit toujours les critères de ciblage de la campagne.
 
 {% endtab %}
 {% tab Éditeur HTML %}
 
-Dans l'éditeur HTML, la fermeture est gérée dans votre HTML en utilisant `brazeBridge.closeMessage()`. Associez-le à `brazeBridge.logClick()` pour également suivre l'action de fermeture comme un événement de clic. Par exemple :
+Dans l'éditeur HTML, la fermeture est gérée dans votre HTML à l'aide de `brazeBridge.closeMessage()`. Associez-le à `brazeBridge.logClick()` pour également suivre l'action de fermeture comme un événement de clic. Par exemple :
 
 ```html
 <a href="#" onclick="brazeBridge.logClick(); brazeBridge.closeMessage();">&#x2715; Close</a>
 ```
 
-Lorsqu'un utilisateur ferme un Banner de cette manière, celui-ci n'apparaît plus pour cet utilisateur, même s'il remplit toujours les critères de ciblage de la campagne.
+Lorsqu'un utilisateur ferme un Banner de cette manière, celui-ci ne réapparaît plus pour cet utilisateur, même s'il remplit toujours les critères de ciblage de la campagne.
 
 Pour la référence complète du pont JavaScript, consultez [Code personnalisé et pont JavaScript pour les Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge).
 
@@ -164,11 +164,11 @@ Pour la référence complète du pont JavaScript, consultez [Code personnalisé 
 
 #### Étape 3.4 : Ajouter des propriétés personnalisées (facultatif) {#custom-properties}
 
-Vous pouvez ajouter des propriétés personnalisées à un Banner pour y attacher des métadonnées structurées, telles que des chaînes de caractères ou des objets JSON. Ces propriétés n'affectent pas l'affichage du Banner mais peuvent être [accessibles via le SDK Braze]({{site.baseurl}}/developer_guide/banners/placements) pour modifier le comportement ou l'apparence de votre application. Par exemple, vous pourriez :
+Vous pouvez ajouter des propriétés personnalisées à un Banner pour y attacher des métadonnées structurées, telles que des chaînes de caractères ou des objets JSON. Ces propriétés n'affectent pas l'affichage du Banner, mais peuvent être [accessibles via le SDK Braze]({{site.baseurl}}/developer_guide/banners/placements) pour modifier le comportement ou l'apparence de votre application. Par exemple, vous pourriez :
 
 {% multi_lang_include banners/metadata_use_cases.md %}
 
-Les propriétés personnalisées fonctionnent de la même manière dans l'éditeur par glisser-déposer et dans l'éditeur HTML. Pour ajouter une propriété personnalisée, sélectionnez **Paramètres** > **Propriétés** > **Ajouter une propriété**.
+Les propriétés personnalisées fonctionnent de la même manière dans l'éditeur de glisser-déposer et dans l'éditeur HTML. Pour ajouter une propriété personnalisée, sélectionnez **Paramètres** > **Propriétés** > **Ajouter une propriété**.
 
 ![La page des propriétés montrant l'option d'ajouter la première propriété personnalisée à une campagne Banner.]({% image_buster /assets/img/banners/add_property.png %})
 
@@ -176,9 +176,9 @@ Pour chaque propriété que vous souhaitez ajouter, remplissez les champs suivan
 
 | Champ | Description | Exemple |
 |-------|-------------|---------|
-| Type de propriété | Le type de données de la propriété. Les types pris en charge incluent chaîne de caractères, booléen, nombre, horodatage, URL d'image et objet JSON. | Chaîne de caractères |
+| Type de propriété | Le type de données de la propriété. Les types pris en charge incluent chaîne de caractères, booléen, nombre, horodatage, URL d'image et objet JSON. | String |
 | Clé de propriété | L'identifiant unique de la propriété. Cette clé est utilisée dans le SDK pour accéder à la propriété. | `color` |
-| Valeur | La valeur attribuée à la propriété. Doit correspondre au type de propriété sélectionné. | `#FF0000` |
+| Valeur | La valeur attribuée à la propriété. Elle doit correspondre au type de propriété sélectionné. | `#FF0000` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 3.4 : Ajouter des propriétés personnalisées (facultatif)" }
 
 Lorsque vous avez terminé, sélectionnez **Terminé**.
@@ -189,17 +189,17 @@ Lorsque vous avez terminé, sélectionnez **Terminé**.
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='Connected Content for Banners' %}
 
-Étant donné que les Banners s'affichent en ligne lors d'une actualisation de session, le contenu connecté dans ce canal fonctionne différemment des autres canaux :
+Comme les Banners s'affichent en ligne lors d'une actualisation de session, le contenu connecté dans ce canal fonctionne différemment des autres canaux :
 
 - Seules les requêtes GET sont prises en charge.
-- Tous les emplacements dans une seule actualisation (jusqu'à 10) partagent un budget de rendu d'environ deux secondes. Si un appel est lent, expire ou si le budget est dépassé, le résultat du contenu connecté pour cet emplacement est traité comme nul. Les Banners ne réessaient pas.
+- Tous les emplacements d'une même actualisation (jusqu'à 10) partagent un budget de rendu d'environ deux secondes. Si un appel est lent, expire ou si le budget est dépassé, le résultat du contenu connecté pour cet emplacement est traité comme nul. Les Banners ne réessaient pas.
 
 Pour de meilleurs résultats :
 
-- Gardez vos endpoints rapides et [mettez en cache les réponses]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) autant que possible.
+- Gardez vos endpoints rapides et [mettez les réponses en cache]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) dans la mesure du possible.
 - Limitez le nombre d'URL de contenu connecté uniques parmi les emplacements qui s'affichent ensemble.
-- Évitez de chaîner les appels où une réponse de contenu connecté détermine l'URL de l'appel suivant. Chaque appel supplémentaire s'ajoute au budget partagé.
-- Utilisez des instructions de garde Liquid ou le [filtre `default`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) pour gérer les résultats nuls et éviter les Banners vides.
+- Évitez de chaîner les appels où une réponse de contenu connecté détermine l'URL du suivant. Chaque appel supplémentaire s'ajoute au budget partagé.
+- Utilisez des instructions de contrôle Liquid ou le [filtre `default`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) pour gérer les résultats nuls et éviter les Banners vides.
 
 ### Étape 4 : Construire le reste de votre campagne ou Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
@@ -208,7 +208,7 @@ Pour de meilleurs résultats :
 
 #### Définir la priorité du Banner (facultatif) {#set-banner-priority-optional}
 
-La [priorité du Banner]({{site.baseurl}}/user_guide/channels/banners#priority) détermine l'ordre dans lequel les Banners sont affichés s'ils partagent le même emplacement. Pour définir manuellement la priorité :
+La [priorité du Banner]({{site.baseurl}}/user_guide/channels/banners#priority) détermine l'ordre dans lequel les Banners s'affichent s'ils partagent le même emplacement. Pour définir manuellement la priorité :
 
 1. Sélectionnez **Set exact priority**.
 2. Glissez-déposez les campagnes pour les ordonner avec la bonne priorité.
@@ -220,30 +220,30 @@ Si vous avez plusieurs campagnes Banner utilisant le même ID d'emplacement, nou
 
 #### Configurer la rééligibilité (facultatif) {#re-eligibility}
 
-Par défaut, les utilisateurs qui ferment un Banner ne sont jamais rééligibles pour cette campagne. Pour permettre aux utilisateurs ayant fermé le Banner de le revoir, allez à l'étape **Contrôles de distribution** et sélectionnez **Permettre aux utilisateurs de redevenir éligibles pour recevoir la campagne**. Lorsque cette option est activée, définissez une fenêtre de temporisation en minutes, heures, jours ou semaines.
+Par défaut, les utilisateurs qui ferment un Banner ne sont jamais rééligibles pour cette campagne. Pour permettre aux utilisateurs ayant fermé le Banner de le revoir, accédez à l'étape **Contrôles de distribution** et sélectionnez **Autoriser les utilisateurs à redevenir éligibles pour recevoir la campagne**. Lorsque cette option est activée, définissez une période de refroidissement en minutes, heures, jours ou semaines.
 
-Le compte à rebours commence lorsque l'utilisateur ferme le Banner. Après l'expiration de la fenêtre, l'utilisateur est automatiquement rééligible — aucun redémarrage de campagne n'est nécessaire. La rééligibilité est suivie par utilisateur et par campagne.
+Le compte à rebours commence à partir du moment où l'utilisateur ferme le Banner. Après l'expiration de la période, l'utilisateur est automatiquement rééligible, sans qu'il soit nécessaire de redémarrer la campagne. La rééligibilité est suivie par utilisateur et par campagne.
 
 #### Choisir votre audience {#choose-your-audience}
 
-1. Dans **Audiences cibles**, choisissez des Segments ou des filtres pour affiner votre audience. Vous recevez automatiquement un aperçu de la population approximative du segment. L'appartenance exacte au segment est calculée avant l'envoi du message.
+1. Dans **Audiences cibles**, choisissez des Segments ou des filtres pour affiner votre audience. Vous obtenez automatiquement un aperçu de la population approximative du Segment. L'appartenance exacte au Segment est calculée avant l'envoi du message.
 
 {% multi_lang_include audience/target_audiences.md %}
 
 {:start="2"}
-2. Dans **Attribuer des conversions**, suivez la fréquence à laquelle les utilisateurs effectuent des actions spécifiques après avoir reçu une campagne en définissant des événements de conversion avec une fenêtre allant jusqu'à 30 jours pour comptabiliser l'action comme une conversion.
+2. Dans **Assigner des conversions**, suivez la fréquence à laquelle les utilisateurs effectuent des actions spécifiques après avoir reçu une campagne en définissant des événements de conversion avec une période maximale de 30 jours pour comptabiliser l'action comme une conversion.
 
 #### Choisir les événements de conversion {#choose-conversion-events}
 
-Braze vous permet de suivre les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), c'est-à-dire la fréquence à laquelle les utilisateurs effectuent des actions spécifiques après avoir reçu une campagne. Vous avez la possibilité d'autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle une conversion est comptabilisée si l'utilisateur effectue l'action spécifiée.
+Braze vous permet de suivre les [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), c'est-à-dire la fréquence à laquelle les utilisateurs effectuent des actions spécifiques après avoir reçu une campagne. Vous avez la possibilité d'autoriser une période de 30 jours maximum pendant laquelle une conversion est comptabilisée si l'utilisateur effectue l'action spécifiée.
 
 {% endtab %}
 
 {% tab Canvas %}
 
-Si vous ne l'avez pas encore fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, mettre en œuvre le [test multivarié]({{site.baseurl}}/user_guide/messaging/ab_testing) et la [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de notre documentation Canvas.
+Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la construction du reste de votre Canvas, y compris les tests multivariés et l'[optimisation avec BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#optimize-canvas-variants-with-brazeai), consultez [Créer votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas).
 
-Pour contrôler la rééligibilité des étapes Banner dans Canvas, utilisez les paramètres de réentrée Canvas. Pour plus d'informations, consultez [Rééligibilité pour les campagnes et Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
+Pour contrôler la rééligibilité des étapes Banner dans un Canvas, utilisez les paramètres de réentrée du Canvas. Pour plus d'informations, consultez [Rééligibilité pour les campagnes et les Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 
 {% endtab %}
 {% endtabs %}

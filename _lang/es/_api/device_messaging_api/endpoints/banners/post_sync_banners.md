@@ -46,6 +46,7 @@ Para más información, consulta [Límites de velocidad de la API de mensajería
   "external_user_id": "{EXTERNAL_USER_ID}",
   "app_id": "{APP_API_IDENTIFIER}",
   "app_version": "1.0.0",
+  "device_id": "{DEVICE_ID}",
   "placements": [
     "home_hero",
     "sidebar_promo"
@@ -61,7 +62,14 @@ Para más información, consulta [Límites de velocidad de la API de mensajería
 | `app_id` | Obligatorio | Cadena | El [identificador de API de la aplicación]({{site.baseurl}}/api/identifier_types#app-identifier). Debe identificar una aplicación en el espacio de trabajo autenticado. | `26a39c72-e647-4766-b62e-4521fa2dae59` |
 | `app_version` | Obligatorio | Cadena | La versión de la aplicación anfitriona. No debe superar los 255 caracteres. | `1.0.0` |
 | `placements` | Obligatorio | Matriz de cadenas | Uno o más ID de ubicación para los que recuperar Banners. Incluye al menos un ID de ubicación. | `["home_hero", "sidebar_promo"]` |
+| `device_id` | Opcional | Cadena | El identificador de dispositivo de Braze para el dispositivo al que se dirige esta solicitud. No debe superar los 1011 bytes. | `7bb8ac35-0a3f-4b8c-96ad-2e2e0dd1a4c9` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Parámetros de la solicitud" }
+
+### Personalización con atributos de dispositivo {#personalizing-with-device-attributes}
+
+Cuando incluyes `device_id` y ese dispositivo existe en el perfil del usuario, Braze rellena el espacio de nombres Liquid {% raw %}`{{targeted_device.${...}}}`{% endraw %} al renderizar el Banner. Esto te permite personalizar las propiedades del Banner según la plataforma, el modelo o el sistema operativo del dispositivo. Para más información, consulta [Información del dispositivo de destino]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information).
+
+Si omites `device_id`, envías un valor vacío o envías un identificador que no está en el perfil del usuario, Braze igualmente devuelve un código de estado `200` y renderiza el Banner con esas etiquetas sin resolver, por lo que recurren a cualquier valor de filtro `default` de Liquid. Braze no crea un dispositivo ni devuelve un error en estos casos.
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -75,6 +83,7 @@ curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/
   "external_user_id": "user_abc123",
   "app_id": "26a39c72-e647-4766-b62e-4521fa2dae59",
   "app_version": "1.0.0",
+  "device_id": "7bb8ac35-0a3f-4b8c-96ad-2e2e0dd1a4c9",
   "placements": [
     "home_hero",
     "sidebar_promo"

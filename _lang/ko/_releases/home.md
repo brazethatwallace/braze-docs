@@ -75,18 +75,18 @@ page_type: reference
 
 지원되는 단계 및 제한 사항은 [Operator로 할 수 있는 것]({{site.baseurl}}/user_guide/brazeai/operator/capabilities)을 참조하세요.
 
-#### 콘텐츠 최적화 프로그램 단계 업데이트 {#content-optimizer-step-updates}
+#### Content Optimizer 단계 업데이트 {#content-optimizer-step-updates}
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-[콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer) 단계에 다음 업데이트가 포함됩니다:
+[Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) 단계에 다음 업데이트가 포함됩니다:
 
-- **단계 상태:** 콘텐츠 최적화 프로그램 단계는 **학습 중**, **최적화 중** 또는 **조치 권장** 상태를 표시하여 각 단계의 현재 위치를 확인할 수 있습니다.
-- **출시 전 설정 검사:** 콘텐츠 최적화 프로그램은 초안 작성 중에 주요 구성 오류를 확인하여 출시 전에 문제를 발견할 수 있습니다.
+- **단계 상태:** Content Optimizer 단계는 **학습 중**, **최적화 중** 또는 **조치 권장** 상태를 표시하여 각 단계의 현재 위치를 확인할 수 있습니다.
+- **출시 전 설정 검사:** Content Optimizer는 초안 작성 중에 주요 구성 오류를 확인하여 출시 전에 문제를 발견할 수 있습니다.
 - **각 사용자가 받은 조합 추적:** 새로운 Liquid 태그와 고객 프로필 가시성을 통해 각 사용자가 받은 배리언트 조합을 처음부터 끝까지 추적할 수 있습니다.
-- **새로운 Currents 데이터:** 세 가지 새로운 이벤트 유형을 통해 콘텐츠 최적화 프로그램 데이터를 웨어하우스로 가져올 수 있습니다: `users.canvas.costep.Send`, `users.canvas.costep.Conversion`, `contentoptimizer.ComponentStore`.
+- **새로운 Currents 데이터:** 세 가지 새로운 이벤트 유형을 통해 Content Optimizer 데이터를 웨어하우스로 가져올 수 있습니다: `users.canvas.costep.Send`, `users.canvas.costep.Conversion`, `contentoptimizer.ComponentStore`.
 
-설정 세부 사항은 [콘텐츠 최적화 프로그램 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step)를 참조하세요.
+설정 세부 사항은 [Content Optimizer 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step)를 참조하세요.
 
 ### 오케스트레이션 {#orchestration}
 
@@ -442,11 +442,11 @@ Amazon SES를 통해 이메일을 전송하는 워크스페이스의 경우, [�
 
 {% multi_lang_include releases/brazeai_agent_console_enhancements.md %}
 
-#### 출시된 콘텐츠 최적화 프로그램 단계 편집 {#edit-a-launched-content-optimizer-step}
+#### 출시된 Content Optimizer 단계 편집 {#edit-a-launched-content-optimizer-step}
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-Canvas가 출시된 후 이제 [콘텐츠 최적화 프로그램 단계를 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step#edit-a-launched-step)하여 다음을 수행할 수 있습니다:
+Canvas가 출시된 후 이제 [Content Optimizer 단계를 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step#edit-a-launched-step)하여 다음을 수행할 수 있습니다:
 
 {% multi_lang_include messaging/canvas/content_optimizer_launched_step_actions.md %}
 
@@ -476,11 +476,11 @@ Canvas가 출시된 후 이제 [콘텐츠 최적화 프로그램 단계를 업�
 
 Quick Push A/B 테스트는 이제 배리언트 그룹을 통해 멀티 플랫폼 푸시 Campaign 및 캔버스 단계를 지원하므로 하나의 워크플로우에서 정렬된 iOS 및 Android 메시지 배리언트를 테스트할 수 있습니다. 자세한 내용은 [멀티 플랫폼 푸시 메시지]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push#use-cases)를 참조하세요.
 
-#### BrazeAI<sup>TM</sup> 배리언트 선택 {#brazeai-variant-selection}
+#### BrazeAI<sup>TM</sup>로 최적화 {#optimize-with-brazeai}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-BrazeAI<sup>TM</sup> 배리언트 선택은 여러 푸시 배리언트를 추가할 때 자동으로 활성화되며, 추천 실험 기본값을 적용하고, 인게이지먼트를 개선하기 위해 가장 성과가 좋은 배리언트로 최적화합니다. 즉시 전송해야 하는 경우 끌 수 있습니다. 자세한 내용은 [BrazeAI<sup>TM</sup> 배리언트 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection)을 참조하세요.
+**BrazeAI<sup>TM</sup>로 최적화**는 여러 푸시 배리언트를 추가할 때 자동으로 활성화되며, 추천 실험 기본값을 적용하고, 가장 성과가 좋은 배리언트로 최적화합니다. 즉시 전송해야 하는 경우 끌 수 있습니다. 자세한 내용은 [BrazeAI로 A/B 테스트 최적화]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection)를 참조하세요.
 
 #### WhatsApp 테스트 전송 결과 {#whatsapp-test-send-results}
 
@@ -548,11 +548,11 @@ BrazeAI<sup>TM</sup> 배리언트 선택은 여러 푸시 배리언트를 추가
 
 ### BrazeAI<sup>TM</sup>
 
-#### SMS, MMS 및 RCS 메시지를 위한 콘텐츠 최적화 프로그램 {#content-optimizer-for-sms-mms-and-rcs-messages}
+#### SMS, MMS 및 RCS 메시지를 위한 Content Optimizer {#content-optimizer-for-sms-mms-and-rcs-messages}
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-[콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer)을 사용하여 SMS, MMS 및 RCS 메시지의 훅, 본문 및 CTA를 최적화할 수 있습니다. 콘텐츠 최적화 프로그램은 AI를 사용하여 대량의 콘텐츠 배리언트를 자동으로 생성하고 평가하여 메시지 콘텐츠를 대규모로 테스트하고 최적화하는 데 도움이 됩니다.
+[Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer)를 사용하여 SMS, MMS 및 RCS 메시지의 훅, 본문 및 CTA를 최적화할 수 있습니다. Content Optimizer는 AI를 사용하여 대량의 콘텐츠 배리언트를 자동으로 생성하고 평가하여 메시지 콘텐츠를 대규모로 테스트하고 최적화하는 데 도움이 됩니다.
 
 ### 오케스트레이션
 
@@ -991,13 +991,13 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 ### BrazeAI<sup>TM</sup>
 
-#### 콘텐츠 최적화 프로그램 {#content-optimizer}
+#### Content Optimizer
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-[콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer)은 자동화된 인게이지먼트 최적화를 제공하는 지속적인 고배리언트 콘텐츠 테스트 캔버스 단계입니다. 메시지 단계와 유사한 드래그 앤 드롭 인터페이스를 사용하여 테스트할 구성요소를 정의하고, AI를 사용하여 배리언트를 생성하거나 수동으로 입력한 다음, Liquid 태그를 사용하여 이러한 구성요소를 메시지 콘텐츠에 매핑할 수 있습니다.
+[Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer)는 자동화된 인게이지먼트 최적화를 제공하는 지속적인 고배리언트 콘텐츠 테스트 캔버스 단계입니다. 메시지 단계와 유사한 드래그 앤 드롭 인터페이스를 사용하여 테스트할 구성요소를 정의하고, AI를 사용하여 배리언트를 생성하거나 수동으로 입력한 다음, Liquid 태그를 사용하여 이러한 구성요소를 메시지 콘텐츠에 매핑할 수 있습니다.
 
-비상황별 멀티암드 밴딧 옵티마이저를 기반으로 구축된 콘텐츠 최적화 프로그램은 사용자당 단일 메시지를 전송하며, 예측 추천을 기반으로 전달할 구성요소 배리언트 조합을 결정합니다. 단계가 시간이 지남에 따라 데이터를 수집하면서 성과가 우수한 배리언트는 자연스럽게 전송 할당이 증가하고 성과가 낮은 배리언트는 감소합니다. 콘텐츠 최적화 프로그램은 지속적인 최적화를 위해 일일 사용자 수가 일정한(하루 최소 수천 명) 반복 전송 Canvases에서 가장 잘 작동합니다.
+비상황별 멀티암드 밴딧 옵티마이저를 기반으로 구축된 Content Optimizer는 사용자당 단일 메시지를 전송하며, 예측 추천을 기반으로 전달할 구성요소 배리언트 조합을 결정합니다. 단계가 시간이 지남에 따라 데이터를 수집하면서 성과가 우수한 배리언트는 자연스럽게 전송 할당이 증가하고 성과가 낮은 배리언트는 감소합니다. Content Optimizer는 지속적인 최적화를 위해 일일 사용자 수가 일정한(하루 최소 수천 명) 반복 전송 Canvases에서 가장 잘 작동합니다.
 
 ### 데이터 및 보고
 
@@ -1073,7 +1073,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-이제 이메일, LINE, 푸시 알림, SMS, 웹훅, WhatsApp 채널에 새로운 [재시도 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)를 사용할 수 있습니다. 이러한 이벤트는 최대 게재빈도 설정으로 인해 예약된 메시지가 중단되지 않고 지연되는 경우에 대한 가시성을 제공합니다. 메시지의 우선순위가 낮아지거나 게재빈도가 제한되는 경우 이제 구성된 재시도 기간 내에 재시도할 수 있어 메시지 전달 패턴과 최대 게재빈도 제한의 영향에 대해 더 나은 인사이트를 얻을 수 있습니다. 자세한 내용은 [Currents 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
+이제 이메일, LINE, 푸시 알림, SMS, 웹훅, WhatsApp 채널에 새로운 [재시도 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)를 사용할 수 있습니다. 이러한 이벤트는 최대 게재빈도 설정으로 인해 예약된 메시지가 중단되지 않고 지연되는 경우에 대한 가시성을 제공합니다. 메시지의 우선순위가 낮아지거나 게재빈도가 제한되는 경우 이제 구성된 재시도 기간 내에 재시도할 수 있어 메시지 전달 패턴과 최대 게재빈도 설정의 영향에 대해 더 나은 인사이트를 얻을 수 있습니다. 자세한 내용은 [Currents 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
 
 #### TokenStateChange 이벤트에 새로운 'time_ms' 필드 추가 {#add-new-time_ms-field-to-tokenstatechange-event}
 
@@ -1085,13 +1085,13 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-이제 외부 사용자 ID가 정의되지 않은 이벤트도 [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1) 대상으로 스트리밍할 수 있습니다. Currents 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상에게 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 사용 사례에 매우 중요합니다.
+이제 외부 사용자 ID가 정의되지 않은 이벤트도 [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1) 대상으로 스트리밍할 수 있습니다. Currents 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상으로 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 사용 사례에 매우 중요합니다.
 
 ##### CustomHTTP 대상으로 익명 사용자 보내기 {#send-anonymous-user-to-customhttp-destinations}
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-이제 외부 사용자 ID가 정의되지 않은 이벤트도 CustomHTTP 대상으로 스트리밍할 수 있습니다. Currents 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상에게 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 사용 사례에 매우 중요합니다.
+이제 외부 사용자 ID가 정의되지 않은 이벤트도 CustomHTTP 대상으로 스트리밍할 수 있습니다. Currents 통합에서 "익명 사용자의 이벤트 포함" 확인란을 선택하면 외부 사용자 ID가 없는 이벤트가 억제되지 않고 대상으로 전송됩니다. 이 기능은 비식별 및 익명 사용자와 관련된 다운스트림 분석 및 사용 사례에 매우 중요합니다.
 
 #### 이메일 열기 이벤트 — "machine_open" 필드 {#email-open-event-machine_open-field}
 

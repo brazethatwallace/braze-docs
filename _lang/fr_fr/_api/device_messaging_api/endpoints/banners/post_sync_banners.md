@@ -46,6 +46,7 @@ Pour plus d'informations, consultez [Limites de débit de l'API Device Messaging
   "external_user_id": "{EXTERNAL_USER_ID}",
   "app_id": "{APP_API_IDENTIFIER}",
   "app_version": "1.0.0",
+  "device_id": "{DEVICE_ID}",
   "placements": [
     "home_hero",
     "sidebar_promo"
@@ -61,7 +62,14 @@ Pour plus d'informations, consultez [Limites de débit de l'API Device Messaging
 | `app_id` | Obligatoire | String | L'[identifiant API de l'application]({{site.baseurl}}/api/identifier_types#app-identifier). Il doit identifier une application dans l'espace de travail authentifié. | `26a39c72-e647-4766-b62e-4521fa2dae59` |
 | `app_version` | Obligatoire | String | La version de l'application hôte. Elle ne doit pas dépasser 255 caractères. | `1.0.0` |
 | `placements` | Obligatoire | Tableau de chaînes de caractères | Un ou plusieurs identifiants d'emplacement pour lesquels récupérer les bannières. Incluez au moins un identifiant d'emplacement. | `["home_hero", "sidebar_promo"]` |
+| `device_id` | Facultatif | String | L'identifiant d'appareil Braze pour l'appareil ciblé par cette requête. Il ne doit pas dépasser 1 011 octets. | `7bb8ac35-0a3f-4b8c-96ad-2e2e0dd1a4c9` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Paramètres de requête" }
+
+### Personnalisation avec les attributs de l'appareil {#personalizing-with-device-attributes}
+
+Lorsque vous incluez `device_id` et que cet appareil existe sur le profil de l'utilisateur, Braze renseigne l'espace de noms Liquid {% raw %}`{{targeted_device.${...}}}`{% endraw %} lors du rendu de la bannière. Cela vous permet de personnaliser les propriétés de la bannière en fonction de la plateforme, du modèle ou du système d'exploitation de l'appareil. Pour plus d'informations, consultez [Informations sur l'appareil ciblé]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information).
+
+Si vous omettez `device_id`, envoyez une valeur vide ou un identifiant qui ne figure pas sur le profil de l'utilisateur, Braze renvoie tout de même un code de statut `200` et effectue le rendu de la bannière avec ces tags non résolus, qui se rabattent alors sur les valeurs du filtre Liquid `default`. Braze ne crée pas d'appareil et ne renvoie pas d'erreur dans ces cas.
 
 ## Exemple de requête {#example-request}
 
@@ -75,6 +83,7 @@ curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/
   "external_user_id": "user_abc123",
   "app_id": "26a39c72-e647-4766-b62e-4521fa2dae59",
   "app_version": "1.0.0",
+  "device_id": "7bb8ac35-0a3f-4b8c-96ad-2e2e0dd1a4c9",
   "placements": [
     "home_hero",
     "sidebar_promo"
