@@ -33,7 +33,7 @@ Para programar el descarte automático después de que se inicie una actividad e
 2. Almacena ese `activity_id` y la hora de finalización objetivo en el programador de tu backend.
 3. En la hora de finalización objetivo, envía una solicitud `/messages/live_activity/update` con `end_activity` establecido en `true`.
 4. Configura el comportamiento de descarte en la misma solicitud de actualización. Para más detalles, consulta el endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update).
-5. Verifica los eventos de envío y resultado en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab).
+5. Verifica los eventos de envío y resultado en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 
@@ -41,8 +41,8 @@ Para programar el descarte automático después de que se inicie una actividad e
 
 Para utilizar este endpoint, tendrás que completar lo siguiente:
 
-- Genera una clave de API con el permiso `messages.live_activity.start`.
-- [Crea una actividad en vivo]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=local&sdktab=swift#swift_create-an-activity) utilizando el SDK de Braze para Swift.
+- Generar una clave de API con el permiso `messages.live_activity.start`.
+- [Crear una actividad en vivo]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?tab=local&sdktab=swift#swift_create-an-activity) utilizando el SDK de Braze para Swift.
 
 {% multi_lang_include api/payload_size_alert.md %}
 

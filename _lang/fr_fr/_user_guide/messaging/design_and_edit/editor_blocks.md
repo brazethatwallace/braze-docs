@@ -30,7 +30,7 @@ Les blocs éditeur se trouvent dans la section **Contenu** pour les e-mails. Gli
 Pour plus d'informations sur la création d'e-mails dans l'**éditeur par glisser-déposer**, consultez [Créer un e-mail par glisser-déposer]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) et <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Autres personnalisations</a> dans cet article.
 
 {% alert tip %}
-Vous pouvez également ajouter des [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes) à n'importe quelle URL dans les blocs éditeur `Image`, `Button` ou `Text`.
+Vous pouvez également ajouter des [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types) à n'importe quelle URL dans les blocs éditeur `Image`, `Button` ou `Text`.
 {% endalert %}
 
 ### Titre {#title}
@@ -306,7 +306,7 @@ Ajoute une liste d'options parmi lesquelles les utilisateurs peuvent en sélecti
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
-### Image {#image}
+### Image
 
 Insère une image depuis la [bibliothèque multimédia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
 
@@ -330,7 +330,7 @@ Insère un lien hypertexte sur lequel les utilisateurs peuvent cliquer pour acc�
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
-### Espacement {#spacer}
+### Espacement
 
 Ajoute de l'espace ou du remplissage entre les autres blocs.
 
@@ -347,7 +347,7 @@ Insère du HTML, CSS ou JavaScript personnalisé pour une personnalisation avanc
 
 ### Capture de téléphone {#phone-capture}
 
-Insère un champ de formulaire pour les numéros de téléphone. Lors de la soumission, l'utilisateur est abonné au [groupe d'abonnement SMS]({{site.baseurl}}/sms_rcs_subscription_groups) ou [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups).
+Insère un champ de formulaire pour les numéros de téléphone. Lors de la soumission, l'utilisateur est abonné au groupe d'abonnement [SMS]({{site.baseurl}}/sms_rcs_subscription_groups) ou [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups).
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
@@ -515,7 +515,7 @@ Les utilisateurs choisissent plusieurs options ; les valeurs sont définies ou a
 
 ### Gestion des abonnements {#manage-subscriptions}
 
-Ajoute une liste de [groupes d'abonnement e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups) afin que les visiteurs puissent s'abonner ou gérer leurs abonnements lors de la soumission du formulaire. Configurez-le après avoir ajouté des groupes d'abonnement au bloc. Ce bloc ne prend en charge que les groupes d'abonnement e-mail ; il ne prend pas en charge les groupes d'abonnement SMS, RCS ou WhatsApp.
+Ajoute une liste de [groupes d'abonnement e-mail]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups) afin que les visiteurs puissent s'abonner ou gérer leurs abonnements lors de la soumission du formulaire. Configurez-le après avoir ajouté des groupes d'abonnement au bloc. Ce bloc ne prend en charge que les groupes d'abonnement e-mail ; il ne prend pas en charge les groupes d'abonnement SMS, RCS ou WhatsApp.
 
 Pour les utilisateurs identifiés qui ouvrent la page via l'[étiquette Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) de la page de destination, le bloc pré-remplit chaque case à cocher avec l'état d'abonnement actuel de l'utilisateur, ce qui permet également de l'utiliser comme page de gestion des préférences.
 

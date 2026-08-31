@@ -99,13 +99,11 @@ This is also because of time zones—selecting a period of less than 3 days may 
 
 For more information, refer to [FAQ: Intelligent Timing](#when-does-braze-check-the-eligibility-criteria-for-segment-and-audience-filters).
 
-#### Schedule winning variants 2 days after A/B test
+#### Schedule the optimized send at least 2 days after the A/B test
 
-If you are leveraging [A/B testing with an optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations), such as automatically sending the **Winning Variant** or using a **Personalized Variant**, Intelligent Timing may affect the duration and timing of your campaign.
+If you use [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) for a single-send campaign, Intelligent Timing may affect the duration and timing of your campaign.
 
-When using Intelligent Timing, we recommend scheduling the Winning Variant send time at least **2 days after** the A/B test begins. For example, if your A/B test starts on April 16 at 4:00 PM, schedule the Winning Variant to send no sooner than April 18 at 4:00 PM. This gives Braze enough time to evaluate user behavior and send messages at the optimal time.
-
-![A/B testing sections showing A/B test with Winning Variant selected, with winning criteria, send date, and local send time selected]({% image_buster /assets/img/intelligent_timing/ab_testing_intelligent_timing.png %})
+When using Intelligent Timing, set the experiment duration so the optimized send begins at least two days after the A/B test starts. For example, if your test starts on April 16 at 4:00 PM, configure the optimized send to begin no sooner than April 18 at 4:00 PM. This gives Braze enough time to evaluate user behavior and send messages at the optimal time.
 
 ### Step 3: Configure quiet hours (optional)
 
@@ -205,9 +203,9 @@ If users don't receive messages as expected, check that the time zone field in t
 
 ### Sending past the scheduled date
 
-Your Intelligent Timing campaign might be sending past the scheduled date if you are leveraging [A/B testing with an optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations). Campaigns using A/B testing optimizations can automatically send the Winning Variant after the initial test is over, increasing the duration of the campaign. By default, campaigns with an optimization will send the Winning Variant to the remaining users the day after the initial test, but you can change this send date.
+Your Intelligent Timing campaign might send past the scheduled date if you use [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection). For a single-send campaign, Braze sends the best-performing variant to the remaining audience after the initial test, which increases the campaign duration.
 
-If you use Intelligent Timing, we recommend leaving more time for the A/B test to finish and scheduling the Winning Variant to send for 2 days after the initial test instead of 1 day.
+If you use Intelligent Timing, leave enough time for the A/B test to finish and schedule the optimized send for two days after the initial test.
 
 ## Frequently Asked Questions (FAQ) {#faq}
 
@@ -259,9 +257,9 @@ If there aren't any relevant engagement events for a user (for example, new user
 
 #### Why is my Intelligent Timing campaign sending past the scheduled date?
 
-Your Intelligent Timing campaign might be sending past the scheduled date because you are leveraging A/B testing. Campaigns using A/B testing can automatically send the Winning Variant after the A/B test is over, increasing the duration of campaign sending. By default, Intelligent Timing campaigns will be scheduled to send out the Winning Variant to the remaining users for the following day, but you can change this send date.
+Your Intelligent Timing campaign might send past the scheduled date when **Optimize with BrazeAI™** is on. For a single-send campaign, Braze sends the best-performing variant to the remaining audience after the A/B test ends, which increases the campaign duration.
 
-We recommend that if you have Intelligent Timing campaigns, leave more time for the A/B test to finish and schedule the Winning Variant to send for two days out instead of one. 
+Leave enough time for the A/B test to finish and schedule the optimized send for two days after the initial test.
 
 ### Functionality
 

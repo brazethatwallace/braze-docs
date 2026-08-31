@@ -6,7 +6,7 @@ layout: dev_guide
 alias: /liquid/
 search_rank: 3
 guide_top_header: "Liquid reference"
-guide_top_text: "Liquid is an open-source template language created by Shopify and used by Braze to power dynamic personalization. Instead of sending a static message to everyone, Liquid lets you create templates that change their content based on each recipient's specific profile data, behavior, or language."
+guide_top_text: "Liquid is an open-source template language created by Shopify and used by Braze to power dynamic personalization. Instead of sending a static message to everyone, Liquid lets you create templates that change their content based on each recipient's profile data, behavior, or language. Use the articles in this section for supported tags, filters, conditional logic, default values, and common personalization patterns."
 description: "This landing page covers all things Liquid, such as supported personalization tags, filters, setting default values, and more."
 
 guide_featured_title: "Section articles"

@@ -1,6 +1,6 @@
 ---
 nav_title: 메시지 사용자 지정
-article_title: Braze SDK용 인앱 메시지 사용자 지정
+article_title: 인앱 메시지 사용자 지정
 page_order: 0.1
 description: "Braze SDK의 인앱 메시지를 설정하는 방법을 알아보세요."
 platform:

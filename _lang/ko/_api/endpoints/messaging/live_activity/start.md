@@ -33,7 +33,7 @@ description: "이 문서에서는 라이브 활동 시작 엔드포인트에 대
 2. 해당 `activity_id`와 목표 종료 시간을 백엔드 스케줄러에 저장합니다.
 3. 목표 종료 시간에 `end_activity`를 `true`로 설정하여 `/messages/live_activity/update` 요청을 보냅니다.
 4. 동일한 업데이트 요청에서 해제 동작을 구성합니다. 자세한 내용은 [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) 엔드포인트를 참조하세요.
-5. [메시지 활동 로그]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab)에서 전송 및 성과 이벤트를 확인합니다.
+5. [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에서 전송 및 성과 이벤트를 확인합니다.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 

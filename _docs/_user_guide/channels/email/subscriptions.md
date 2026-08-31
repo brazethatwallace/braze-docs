@@ -67,7 +67,9 @@ Use any of the following methods to check a user's email subscription state:
 
 When a user updates their email address, their subscription state is set to subscribed. If the updated email address already exists elsewhere in a Braze workspace, the user inherits the subscription state from that existing user unless **Resubscribe users when they update their email setting** is turned on in **Sending Configuration**.
 
-To troubleshoot subscription state changes, review **Email Subscription-State Changes** in the user profile logs for the history and source. The following sources can trigger an email subscription state change:
+To troubleshoot subscription state changes, check the Currents [Global Subscription State Change]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events) event (`users.behaviors.subscription.GlobalStateChange`), which includes the history and source of subscription state changes.
+
+The following sources can trigger an email subscription state change:
 
 | Source | Description |
 | ------ | ----------- |

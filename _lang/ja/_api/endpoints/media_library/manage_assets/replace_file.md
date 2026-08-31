@@ -15,7 +15,7 @@ description: "この記事では、`PUT /media_library/replace_file` エンド�
 /media_library/replace_file
 {% endapimethod %}
 
-> このエンドポイントを使用して、[Brazeメディアライブラリ]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library)内の既存アセットのファイルを、アセットIDとURLを保持したまま置換できます。置換ファイルは、外部ホストURL（`asset_url`）またはリクエストボディで送信するバイナリファイルデータ（`asset_file`）のいずれかで指定できます。
+> このエンドポイントを使用して、[Brazeメディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications)内の既存アセットのファイルを、アセットIDとURLを保持したまま置換できます。置換ファイルは、外部ホストURL（`asset_url`）またはリクエストボディで送信するバイナリファイルデータ（`asset_file`）のいずれかで指定できます。
 
 ## 前提条件 {#prerequisites}
 

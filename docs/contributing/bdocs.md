@@ -232,6 +232,8 @@ Ideally, redirects added to [`assets/js/broken_redirect_list.js`](https://github
 
 It should not be used to redirect URLs on an existing Braze Docs page to another existing Braze Docs page. Instead, these URLs should be updated with the newest possible link. We want to avoid cases in which someone reading an existing Braze Docs page clicks a link and is redirected from one page, to another page, to another page, and so on. `ulinks` helps solves this issue, improving the end-user experience.
 
+`ulinks` skips redirect entries whose old URL matches a page `alias` in front matter (for example `/braze_support`). Those short paths are intentional and should stay in in-doc links.
+
 ### `mredirects`
 
 `mredirects` (short for "make redirects") checks for renamed files committed in the current branch, then creates [URL redirects](content_management/redirecting_urls.md) in `assets/js/broken_redirect_list.js` for each renamed file.

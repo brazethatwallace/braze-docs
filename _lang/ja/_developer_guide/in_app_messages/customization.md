@@ -1,6 +1,6 @@
 ---
 nav_title: メッセージングをカスタマイズする
-article_title: Braze SDKのアプリ内メッセージをカスタマイズする
+article_title: アプリ内メッセージをカスタマイズする
 page_order: 0.1
 description: "Braze SDKのアプリ内メッセージの設定方法について説明します。"
 platform:

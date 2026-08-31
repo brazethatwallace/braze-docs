@@ -1,11 +1,10 @@
 ---
 nav_title: Início
 article_title: O que há de novo na Braze
-description: "As notas de versão da Braze são publicadas mensalmente para que você possa se manter atualizado sobre os principais lançamentos de produtos, melhorias contínuas de produtos, parcerias da Braze, alterações significativas no SDK e descontinuações de recursos."
+description: "As notas de versão da Braze são publicadas mensalmente para que você possa se manter atualizado sobre os principais lançamentos de produtos, melhorias contínuas de produtos, parcerias da Braze."
 page_order: 0
 search_rank: 1
 page_type: reference
-
 ---
 
 # O que há de novo na Braze {#whats-new-in-braze}
@@ -477,7 +476,7 @@ Quando a reelegibilidade está habilitada para Campaigns de Banner, os usuários
 
 Os testes A/B de Quick Push agora suportam Campaigns de push multiplataforma e etapas do Canvas por meio de grupos de variantes, para que você possa testar variações de mensagens alinhadas para iOS e Android em um único fluxo de trabalho. Para saber mais, consulte [Mensagens push multiplataforma]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push#use-cases).
 
-#### BrazeAI<sup>TM</sup> Variant Selection {#brazeai-variant-selection}
+#### BrazeAI<sup>TM</sup> Variant Selection
 
 {% multi_lang_include release_type.md release="Early access" %}
 
@@ -499,7 +498,7 @@ O [Copy Pastd]({{site.baseurl}}/partners/copy_pastd) Building Blocks é um const
 
 #### Databricks Mosaic - Provedores de modelos de IA {#databricks-mosaic-ai-model-providers}
 
-O [Databricks Mosaic]({{site.baseurl}}/partners/databricks_mosaic) é a plataforma unificada da Databricks para construir, implantar e gerenciar modelos de IA e machine learning em escala na Databricks Data Intelligence Platform.
+O [Databricks Mosaic]({{site.baseurl}}/partners/ai_model_providers/databricks_mosaic) é a plataforma unificada da Databricks para construir, implantar e gerenciar modelos de IA e machine learning em escala na Databricks Data Intelligence Platform.
 
 #### DinMo - Dados e análises - Reverse ETL {#dinmo-data-and-analytics-reverse-etl}
 
@@ -660,7 +659,7 @@ Componha [mensagens multilíngues]({{site.baseurl}}/user_guide/messaging/messagi
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Gerenciar quem pode acessar sua conta e executar ações específicas é fundamental tanto para a segurança quanto para a eficiência operacional. Para dar a você mais controle, a Braze está introduzindo [permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/granular_permissions_migration), uma forma mais flexível e precisa de gerenciar o acesso dos usuários em toda a sua conta.
+Gerenciar quem pode acessar sua conta e executar ações específicas é fundamental tanto para a segurança quanto para a eficiência operacional. Para dar a você mais controle, a Braze está introduzindo [permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions), uma forma mais flexível e precisa de gerenciar o acesso dos usuários em toda a sua conta.
 
 #### Componente Send to Destination do Canvas {#send-to-destination-canvas-component}
 
@@ -760,7 +759,7 @@ O [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) agora inclui 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Depois de adicionar localidades ao seu espaço de trabalho, use [traduções multilíngues]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/localization/locales) para direcionar usuários em diferentes idiomas, tudo dentro de um único push, e-mail, Banner, mensagem no app ou Content Block.
+Depois de adicionar localidades ao seu espaço de trabalho, use [traduções multilíngues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para direcionar usuários em diferentes idiomas, tudo dentro de um único push, e-mail, Banner, mensagem no app ou Content Block.
 
 ![Pré-visualizações de localidade]({% image_buster /assets/img/multi-language_support/multi_language_user_preview.png %}){: style="max-width:70%;"}
 
@@ -770,10 +769,10 @@ Depois de adicionar localidades ao seu espaço de trabalho, use [traduções mul
 
 No Canvas, agora você pode referenciar variáveis de contexto para definir:
 
-- Uma [expiração]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#set-an-expiration) para Banners e mensagens no app em uma etapa de Mensagem
-- [Atrasos personalizados]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#action-path-delays) para etapas de jornadas de ação
+- Uma [expiração]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) para Banners e mensagens no app em uma etapa de Mensagem
+- [Atrasos personalizados]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) para etapas de jornadas de ação
 
-No campo de nome da variável de contexto, você também pode digitar o nome da variável de contexto ou selecioná-lo no menu suspenso do editor de etapas. Para mais detalhes, consulte [Contexto]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context) e [Variáveis de contexto]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables).
+No campo de nome da variável de contexto, você também pode digitar o nome da variável de contexto ou selecioná-lo no menu suspenso do editor de etapas. Para mais detalhes, consulte [Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) e [Variáveis de contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
 
 ### Canais e pontos de contato
 
@@ -789,7 +788,7 @@ O [KakaoTalk]({{site.baseurl}}/kakaotalk) é um canal de envio de mensagens que 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Você pode usar [Banners]({{site.baseurl}}/user_guide/message_building_by_channel/banners) como canal de envio de mensagens nas [etapas de Mensagem]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/message_step) do Canvas. Os Banners permitem personalizar o conteúdo do app ou site de forma dinâmica, refletindo a elegibilidade e o comportamento do usuário em tempo real.
+Você pode usar [Banners]({{site.baseurl}}/user_guide/channels/banners) como canal de envio de mensagens nas [etapas de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) do Canvas. Os Banners permitem personalizar o conteúdo do app ou site de forma dinâmica, refletindo a elegibilidade e o comportamento do usuário em tempo real.
 
 ### Parcerias
 
@@ -895,7 +894,7 @@ Os [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) são ajudantes com
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-A Braze está introduzindo [permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions), uma forma mais flexível de gerenciar o acesso dos usuários. Consulte [Migrando para permissões granulares]({{site.baseurl}}/granular_permissions_migration) para saber sobre o processo de migração, incluindo como as permissões legadas são mapeadas para permissões granulares.
+A Braze está introduzindo [permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions), uma forma mais flexível de gerenciar o acesso dos usuários. Consulte [Migrando para permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para saber sobre o processo de migração, incluindo como as permissões legadas são mapeadas para permissões granulares.
 
 #### Limite de taxa baseado em canal {#channel-based-rate-limiting}
 
@@ -929,7 +928,7 @@ O [Anthropic]({{site.baseurl}}/partners/ai_model_providers/anthropic) é uma emp
 
 #### Canva - Personalização de mensagens - Estúdio criativo {#canva-message-personalization-creative-studio}
 
-O [Canva]({{site.baseurl}}/partners/canva) sincroniza suas imagens no Canva diretamente com a Biblioteca de mídia da Braze, otimizando seu fluxo de trabalho criativo e mantendo seus ativos visuais atualizados em todos os seus canais de envio de mensagens.
+O [Canva]({{site.baseurl}}/partners/canva) sincroniza suas imagens no Canva diretamente com a biblioteca de mídia da Braze, otimizando seu fluxo de trabalho criativo e mantendo seus ativos visuais atualizados em todos os seus canais de envio de mensagens.
 
 #### DOTS.ECO - Recompensas {#dotseco-rewards}
 
@@ -937,7 +936,7 @@ O [DOTS.ECO]({{site.baseurl}}/partners/additional_channels_and_extensions/extens
 
 #### Figma - Personalização de mensagens - Estúdio criativo {#figma-message-personalization-creative-studio}
 
-O [Figma]({{site.baseurl}}/partners/figma) é uma plataforma de design colaborativo que permite construir, projetar e prototipar produtos. Use essa integração para enviar imagens e ativos visuais do Figma diretamente para a Biblioteca de mídia da Braze.
+O [Figma]({{site.baseurl}}/partners/figma) é uma plataforma de design colaborativo que permite construir, projetar e prototipar produtos. Use essa integração para enviar imagens e ativos visuais do Figma diretamente para a biblioteca de mídia da Braze.
 
 #### Flybuy - Personalização de mensagens - Localização {#flybuy-message-personalization-location}
 
@@ -1055,11 +1054,11 @@ O [Mailizio]({{site.baseurl}}/partners/mailizio) é uma plataforma de criação 
 
 ### APIs
 
-#### APIs POST da Biblioteca de mídia {#media-library-post-apis}
+#### APIs POST da biblioteca de mídia {#media-library-post-apis}
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Os ativos da Biblioteca de mídia agora podem ser adicionados via API, permitindo que clientes, parceiros e agências automatizem mais fluxos de trabalho de criação de mensagens. Use a [API]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) para fazer upload de um arquivo de ativo diretamente ou copiar um arquivo de um URL existente. Esse recurso desbloqueia recursos de integração e automação.
+Os ativos da biblioteca de mídia agora podem ser adicionados via API, permitindo que clientes, parceiros e agências automatizem mais fluxos de trabalho de criação de mensagens. Use a [API]({{site.baseurl}}/api/endpoints/media_library/manage_assets/create) para fazer upload de um arquivo de ativo diretamente ou copiar um arquivo de um URL existente. Esse recurso desbloqueia recursos de integração e automação.
 
 ### Currents e Datashare
 
@@ -1067,7 +1066,7 @@ Os ativos da Biblioteca de mídia agora podem ser adicionados via API, permitind
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Dois novos [eventos]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) estão agora disponíveis para destinos de armazenamento (AWS S3, GCS e Azure Blob Storage) e Snowflake Datashare: `agentconsole.AgentExecuted` e `agentconsole.ToolInvocation`. Esses eventos permitem que você analise o uso e os detalhes do Console do agente em seus sistemas downstream, ajudando-o a entender e aproveitar ao máximo o uso do agente. Os agentes permitem que você crie e implante agentes inteligentes que podem executar tarefas específicas na Braze, incluindo a geração de conteúdo em Canvas ou catálogos e o encaminhamento de usuários por diferentes caminhos com base em tomada de decisões inteligente. Para saber mais, consulte o [changelog do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04).
+Dois novos [eventos]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) estão agora disponíveis para destinos de armazenamento (AWS S3, GCS e Azure Blob Storage) e Snowflake Datashare: `agentconsole.AgentExecuted` e `agentconsole.ToolInvocation`. Esses eventos permitem que você analise o uso e os detalhes do Console do agente em seus sistemas downstream, ajudando-o a entender e aproveitar ao máximo o uso do agente. Os agentes permitem que você crie e implante agentes inteligentes que podem executar tarefas específicas na Braze, incluindo a geração de conteúdo em Canvas ou catálogos e o encaminhamento de usuários por diferentes caminhos com base em tomada de decisão inteligente. Para saber mais, consulte o [changelog do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04).
 
 #### Novos eventos de nova tentativa para canais individuais {#new-retry-events-for-individual-channels}
 
@@ -1095,7 +1094,7 @@ Os eventos que não têm um ID de usuário externo definido agora podem ser tran
 
 #### Evento de abertura de e-mail — campo "machine_open" {#email-open-event-machine_open-field}
 
-O [evento de abertura de e-mail]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events) agora gera o valor do campo "machine_open" para que você possa gerar relatórios sobre a métrica [_Abertura de máquina_]({{site.baseurl}}/user_guide/analytics/reporting/report_metrics#machine-opens).
+O [evento de abertura de e-mail]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-open-events) agora gera o valor do campo "machine_open" para que você possa gerar relatórios sobre a métrica [_Machine Open_]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 ### SDK
 

@@ -42,8 +42,8 @@ Before you start, you need the following:
 | Prerequisite | Description |
 | --- | --- |
 | A Talkable account | A Talkable site with at least one campaign configured is required to take advantage of this partnership. |
-| A Braze REST API key | A Braze REST API key with `users.track` permissions. Create this key in the Braze dashboard from **Settings** > **API Keys**. For more information, see [Creating REST API keys]({{site.baseurl}}/api/basics/#creating-rest-api-keys). |
-| A Braze REST endpoint | Your Braze REST endpoint URL (for example, `https://rest.iad-01.braze.com`). Both US (`.com`) and EU (`.eu`) Braze clusters are supported. For more information, see [REST API endpoints]({{site.baseurl}}/api/basics/#endpoints). |
+| A Braze REST API key | A Braze REST API key with `users.track` permissions. Create this key in the Braze dashboard from **Settings** > **API Keys**. For more information, see [Creating REST API keys]({{site.baseurl}}/api/basics#creating-rest-api-keys). |
+| A Braze REST endpoint | Your Braze REST endpoint URL (for example, `https://rest.iad-01.braze.com`). Both US (`.com`) and EU (`.eu`) Braze clusters are supported. For more information, see [REST API endpoints]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
@@ -93,7 +93,7 @@ The following optional customizations are available. Configure any combination; 
 
 ### Enroll opt-ins in a Braze subscription group
 
-1. In Braze, copy a subscription group ID from **Audience** > **Subscription Group Management**. For more information, see [Managing user subscriptions]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/).
+1. In Braze, copy a subscription group ID from **Audience** > **Subscription Group Management**. For more information, see [Managing user subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions).
 2. In the Talkable **Email opt-in** action, paste it into the **Subscription group identifier** field.
 
 Talkable enrolls each opt-in in that subscription group as subscribed, scoping referral opt-ins to that group instead of a global subscription. Talkable only adds subscriptions; it never removes them.

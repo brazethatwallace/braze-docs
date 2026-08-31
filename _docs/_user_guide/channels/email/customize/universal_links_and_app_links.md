@@ -306,15 +306,15 @@ Make sure your custom paths follow these requirements:
 - **Case sensitivity:** Paths are case-sensitive to match mobile OS requirements
 
 {:start="2"}
-2. Confirm your wrapped tracking URLs include the custom path segment. Links follow this format: `track.yourstore.com/L1/{customPath}/...`
+2. Confirm your wrapped tracking URLs include the custom path segment. Without the attribute, tracked links use `track.yourstore.com/CL0/{encodedUrl}/...`. With the attribute, they follow this format: `track.yourstore.com/CL1/{customPath}/{encodedUrl}/...`
 
 For example:
 
-- `track.yourstore.com/L1/shop/...`
-- `track.yourstore.com/L1/rewards/...`
+- `track.yourstore.com/CL1/shop/...`
+- `track.yourstore.com/CL1/rewards/...`
 
 {:start="3"}
-3. Configure your site association files on your click-tracking domain so paths match `/L1/{customPath}/`.
+3. Configure your site association files on your click-tracking domain so paths match `/CL1/{customPath}/`.
 
 **iOS (Apple App Site Association):**
 
@@ -324,10 +324,10 @@ For example:
     "apps": [],
     "details": [{
       "appID": "TEAMID.com.yourcompany.mainapp",
-      "paths": ["/L1/shop/*", "/L1/rewards/*"]
+      "paths": ["/CL1/shop/*", "/CL1/rewards/*"]
     }, {
       "appID": "TEAMID.com.yourcompany.limitedapp",
-      "paths": ["/L1/limited/*"]
+      "paths": ["/CL1/limited/*"]
     }]
   }
 }
@@ -342,10 +342,11 @@ For example:
     "namespace": "android_app",
     "package_name": "com.yourcompany.mainapp",
     "sha256_cert_fingerprints": ["..."]
-  },
-  "include": ["/L1/shop/*", "/L1/rewards/*"]
+  }
 }]
 ```
+
+Android matches paths in your app rather than in `assetlinks.json`. Set `android:pathPrefix="/CL1/{customPath}/"` on the intent filter in your `AndroidManifest.xml` for each custom path your app handles.
 
 Make sure your app is set up to handle these wrapped links. Add your click-tracking domain to your app's associated domains (iOS) or intent filters (Android), and host the AASA or Digital Asset Links file on that domain as described earlier in this article.
 

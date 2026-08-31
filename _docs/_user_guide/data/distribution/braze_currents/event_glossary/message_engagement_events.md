@@ -1050,6 +1050,10 @@ This event occurs when a user does an action that has been set as a conversion e
 Note that the conversion event is encoded in the `conversion_behavior` field, which includes the type of conversion event, the window (timeframe), and additional information depending on the conversion event type. The `conversion_behavior_index` field represents which conversion event, such as 0 = A, 1 = B, 2 = C, 3 = D.
 {% endalert %}
 
+{% alert note %}
+The `message_extras` field is only available in send events (for example, Email Send, Push Send). It is not included in conversion events. To associate `message_extras` data with downstream engagement, use `dispatch_id` or `send_id` to join send events with conversion events in your data warehouse. For evaluating copy effectiveness by conversion rate, consider using [campaign variants]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/create_multivariate_campaign/) instead.
+{% endalert %}
+
 {% tabs %}
 {% tab Cloud Storage %}
 ```json
@@ -1430,6 +1434,10 @@ This event occurs when a user does an action that has been set as a conversion e
 
 {% alert important %}
 Note that the conversion event is encoded in the `conversion_behavior` field, which includes the type of conversion event, the window (timeframe), and additional information depending on the conversion event type. The `conversion_behavior_index` field represents which conversion event, such as 0 = A, 1 = B, 2 = C, 3 = D.
+{% endalert %}
+
+{% alert note %}
+The `message_extras` field is only available in send events (for example, Email Send, Push Send). It is not included in conversion events. To associate `message_extras` data with downstream engagement, use `send_id` to join send events with conversion events in your data warehouse. For evaluating copy effectiveness by conversion rate, consider using [Canvas variants]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#creating-tests) instead.
 {% endalert %}
 
 {% tabs %}
@@ -8738,6 +8746,10 @@ In-App Messages, Abort
 {% endapitags %}
 
 This event occurs when an originally scheduled in-app message was aborted.
+
+{% alert note %}
+[Abort events]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) are only logged for [templated in-app messages]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated). Standard in-app messages don't log abort events because Liquid evaluation occurs before the trigger action. For more details on in-app message abort behavior, refer to [In-app messages FAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#how-does-abort-behavior-work-for-in-app-messages).
+{% endalert %}
 
 {% tabs %}
 {% tab Cloud Storage %}

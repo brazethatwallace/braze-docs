@@ -9,7 +9,7 @@ description: "이 랜딩 페이지에는 Braze 번역 엔드포인트가 나열�
 page_type: landing
 
 guide_top_header: "번역 엔드포인트"
-guide_top_text: "Braze 번역 엔드포인트를 사용하여 Campaigns, Canvases 및 Content Blocks에서 번역을 관리하고 업데이트하세요."
+guide_top_text: "Braze 번역 엔드포인트를 사용하여 Campaigns, Canvases, Content Blocks, 이메일 템플릿, 웹훅 템플릿에서 번역을 관리하고 업데이트하세요."
 
 guide_featured_title: "Campaign 엔드포인트"
 guide_featured_list:
@@ -59,28 +59,40 @@ guide_menu_list3:
     link: /docs/api/endpoints/translations/content_blocks/put_update_translation_content_block
     image: /assets/img/braze_icons/target-04.svg
 
+guide_menu_title4: "웹훅 템플릿 엔드포인트"
+guide_menu_list4:
+  - name: "GET: 웹훅 템플릿 기본 소스 번역 보기"
+    link: /docs/api/endpoints/translations/webhook_templates/get_view_source_webhook_template
+    image: /assets/img/braze_icons/message-plus-square.svg
+  - name: "GET: 웹훅 템플릿 번역 보기"
+    link: /docs/api/endpoints/translations/webhook_templates/get_view_translations_webhook_template
+    image: /assets/img/braze_icons/target-04.svg
+  - name: "PUT: 웹훅 템플릿에서 번역 업데이트"
+    link: /docs/api/endpoints/translations/webhook_templates/put_update_webhook_template
+    image: /assets/img/braze_icons/target-04.svg
+
 ---
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='Access to the Braze translation endpoints' %}
 
 ## 번역 엔드포인트 작동 방식 {#how-our-translation-endpoints-work}
 
-번역 엔드포인트는 [다국어 구성]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings)과 함께 작동하며, 메시지를 수신하는 사용자에 따라 다른 버전으로 렌더링될 수 있는 메시지를 지원합니다.
+번역 엔드포인트는 [다국어 작성]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings)과 함께 작동하며, 메시지를 수신하는 사용자에 따라 다른 버전으로 렌더링할 수 있는 메시지를 생성할 수 있습니다.
 
 ### 필수 조건 {#prerequisites}
 
-이러한 엔드포인트를 사용하기 전에 [로케일을 추가]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale)해야 합니다.
+이 엔드포인트를 사용하기 전에 [로케일을 추가]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale)해야 합니다.
 
-### 번역을 테스트하는 방법 {#how-to-test-your-translations}
+### 번역 테스트 방법 {#how-to-test-your-translations}
 
-API와 Braze 대시보드를 사용하여 Campaigns, Canvases(개별 단계 포함), Content Blocks 및 이메일 템플릿에서 번역 지원을 검증하는 두 가지 방법이 있습니다:
+API와 Braze 대시보드를 사용하여 Campaigns, Canvases(개별 단계 포함), Content Blocks, 이메일 템플릿, 웹훅 템플릿에서 번역 지원을 검증하는 두 가지 방법이 있습니다.
 
-- 구성 중(시작 전)
-- 시작 후(시작 후 초안 사용)
+- 작성 중(출시 전)
+- 출시 후(출시 후 초안 사용)
 
-번역 업데이트를 테스트하기 전에 다음을 수행해야 합니다:
+번역 업데이트를 테스트하기 전에 다음을 수행해야 합니다.
 
-1. [로케일을 추가합니다]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale).
-2. 메시지를 작성하고 적절한 곳에 번역 태그를 사용합니다.
+1. [로케일을 추가]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings#add-a-locale)합니다.
+2. 메시지를 작성하고 적절한 위치에 번역 태그를 사용합니다.
 3. 메시지를 저장합니다.
 4. 포함할 로케일을 선택합니다.

@@ -18,38 +18,38 @@ platform:
 
 {% multi_lang_include banners/content_card_alert.md %}
 
-## Eine Karte erstellen {#creating-a-card}
+## Eine Card erstellen {#creating-a-card}
 
-### 1. Schritt: Erstellen Sie ein angepasstes UI {#step-1-create-a-custom-ui}
+### Schritt 1: Eine benutzerdefinierte UI erstellen {#step-1-create-a-custom-ui}
 
 {% tabs local %}
 {% tab web %}
 
-Erstellen Sie zunächst Ihre angepasste HTML-Komponente, die zum Rendern der Karten verwendet werden soll.
+Erstellen Sie zunächst Ihre benutzerdefinierte HTML-Komponente, die zum Rendern der Cards verwendet wird.
 
 {% endtab %}
 {% tab android %}
 
-Erstellen Sie zunächst Ihr eigenes angepasstes Fragment. Das standardmäßige [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) ist nur für unsere Standard-Content-Card-Typen gedacht, ist aber ein guter Ausgangspunkt.
+Erstellen Sie zunächst Ihr eigenes benutzerdefiniertes Fragment. Das Standard-[`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) ist nur für die Verarbeitung unserer Standard-Content-Card-Typen konzipiert, bietet aber einen guten Ausgangspunkt.
 
 {% endtab %}
 {% tab swift %}
 
-Erstellen Sie zunächst Ihre eigene angepasste View-Controller-Komponente. Der standardmäßige [`BrazeContentCardUI.ViewController`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller) ist nur für unsere Standard-Content-Card-Typen gedacht, ist aber ein guter Ausgangspunkt.
+Erstellen Sie zunächst Ihre eigene benutzerdefinierte View-Controller-Komponente. Der Standard-[`BrazeContentCardUI.ViewController`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller) ist nur für die Verarbeitung unserer Standard-Content-Card-Typen konzipiert, bietet aber einen guten Ausgangspunkt.
 
 {% endtab %}
 {% endtabs %}
 
-### 2. Schritt: Updates für Karten abonnieren {#step-2-subscribe-to-card-updates}
+### Schritt 2: Card-Aktualisierungen abonnieren {#step-2-subscribe-to-card-updates}
 
-Registrieren Sie eine Callback-Funktion, um Daten-Updates zu abonnieren, wenn die Karten aktualisiert werden. Sie können die Content-Card-Objekte parsen und deren Payload-Daten wie `title`, `cardDescription` und `imageUrl` extrahieren und dann die resultierenden Modelldaten verwenden, um Ihr angepasstes UI zu befüllen.
+Registrieren Sie eine Callback-Funktion, um Datenaktualisierungen zu abonnieren, wenn Cards aktualisiert werden. Sie können die Content-Card-Objekte parsen und deren Payload-Daten wie `title`, `cardDescription` und `imageUrl` extrahieren und dann die resultierenden Modelldaten verwenden, um Ihre benutzerdefinierte UI zu befüllen.
 
-Um die Content-Card-Datenmodelle zu erhalten, abonnieren Sie Content-Card-Updates. Achten Sie dabei besonders auf die folgenden Eigenschaften:
+Um die Content-Card-Datenmodelle zu erhalten, abonnieren Sie Content-Card-Aktualisierungen. Achten Sie besonders auf die folgenden Eigenschaften:
 
-* **`id`:** Repräsentiert den Content-Card-ID-String. Dies ist der eindeutige Bezeichner, der zum Protokollieren von Analytics aus angepassten Content Cards verwendet wird.
+* **`id`:** Repräsentiert den Content-Card-ID-String. Dies ist der eindeutige Bezeichner, der zum Protokollieren von Analytics aus benutzerdefinierten Content Cards verwendet wird.
 * **`extras`:** Umfasst alle Schlüssel-Wert-Paare aus dem Braze-Dashboard.
 
-Alle Eigenschaften außer `id` und `extras` sind für angepasste Content Cards optional zu parsen. Weitere Informationen zum Datenmodell finden Sie im Integrationsartikel der jeweiligen Plattform: [Android]({{site.baseurl}}/developer_guide/content_cards?sdktab=android), [iOS]({{site.baseurl}}/developer_guide/content_cards?sdktab=swift), [Web]({{site.baseurl}}/developer_guide/content_cards?sdktab=web).
+Alle Eigenschaften außer `id` und `extras` sind für benutzerdefinierte Content Cards optional zu parsen. Weitere Informationen zum Datenmodell finden Sie in den Integrationsartikeln der jeweiligen Plattform: [Android]({{site.baseurl}}/developer_guide/content_cards?sdktab=android), [iOS]({{site.baseurl}}/developer_guide/content_cards?sdktab=swift), [Web]({{site.baseurl}}/developer_guide/content_cards?sdktab=web).
 
 {% tabs local %}
 {% tab web %}
@@ -77,7 +77,7 @@ braze.openSession();
 ```
 
 {% alert note %}
-Content Cards werden nur beim Sitzungsstart aktualisiert, wenn `subscribeToContentCardsUpdates()` vor `openSession()` aufgerufen wird. Sie können den [Feed auch jederzeit manuell aktualisieren]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed).
+Content Cards werden nur beim Sitzungsstart aktualisiert, wenn `subscribeToContentCardsUpdates()` vor `openSession()` aufgerufen wird. Sie können den Feed auch jederzeit [manuell aktualisieren]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed).
 {% endalert %}
 
 {% endtab %}
@@ -85,18 +85,18 @@ Content Cards werden nur beim Sitzungsstart aktualisiert, wenn `subscribeToConte
 {% subtabs local %}
 {% subtab Java %}
 
-#### Schritt 2a: Erstellen Sie eine private Subscriber-Variable {#step-2a-create-a-private-subscriber-variable}
+#### Schritt 2a: Eine private Abonnent-Variable erstellen {#step-2a-create-a-private-subscriber-variable}
 
-Um Karten-Updates zu abonnieren, deklarieren Sie zunächst eine private Variable in Ihrer angepassten Klasse, die Ihren Subscriber hält:
+Um Card-Aktualisierungen zu abonnieren, deklarieren Sie zunächst eine private Variable in Ihrer benutzerdefinierten Klasse, um Ihren Abonnenten zu halten:
 
 ```java
 // subscriber variable
 private IEventSubscriber<ContentCardsUpdatedEvent> mContentCardsUpdatedSubscriber;
 ```
 
-#### Schritt 2b: Updates abonnieren {#step-2b-subscribe-to-updates}
+#### Schritt 2b: Aktualisierungen abonnieren {#step-2b-subscribe-to-updates}
 
-Fügen Sie den folgenden Code hinzu, um Content-Card-Updates von Braze zu abonnieren, typischerweise innerhalb der `Activity.onCreate()` Ihrer angepassten Content-Cards-Activity:
+Fügen Sie den folgenden Code hinzu, um Content-Card-Aktualisierungen von Braze zu abonnieren, typischerweise innerhalb der `Activity.onCreate()` Ihrer benutzerdefinierten Content-Cards-Aktivität:
 
 ```java
 // Remove the previous subscriber before rebuilding a new one with our new activity.
@@ -114,9 +114,9 @@ Braze.getInstance(context).subscribeToContentCardsUpdates(mContentCardsUpdatedSu
 Braze.getInstance(context).requestContentCardsRefresh();
 ```
 
-#### Schritt 2c: Abo kündigen {#step-2c-unsubscribe}
+#### Schritt 2c: Abonnement beenden {#step-2c-unsubscribe}
 
-Kündigen Sie das Abo, wenn Ihre angepasste Activity nicht mehr sichtbar ist. Fügen Sie den folgenden Code zur `onDestroy()`-Lifecycle-Methode Ihrer Activity hinzu:
+Beenden Sie das Abonnement, wenn Ihre benutzerdefinierte Aktivität aus dem Sichtfeld verschwindet. Fügen Sie den folgenden Code in die `onDestroy()`-Lebenszyklusmethode Ihrer Aktivität ein:
 
 ```java
 Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscriber, ContentCardsUpdatedEvent.class);
@@ -125,17 +125,17 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 {% endsubtab %}
 {% subtab Kotlin %}
 
-#### Schritt 2a: Erstellen Sie eine private Subscriber-Variable
+#### Schritt 2a: Eine private Abonnent-Variable erstellen
 
-Um Karten-Updates zu abonnieren, deklarieren Sie zunächst eine private Variable in Ihrer angepassten Klasse, die Ihren Subscriber hält:
+Um Card-Aktualisierungen zu abonnieren, deklarieren Sie zunächst eine private Variable in Ihrer benutzerdefinierten Klasse, um Ihren Abonnenten zu halten:
 
 ```kotlin
 private var contentCardsUpdatedSubscriber: IEventSubscriber<ContentCardsUpdatedEvent>? = null
 ```
 
-#### Schritt 2b: Updates abonnieren
+#### Schritt 2b: Aktualisierungen abonnieren
 
-Fügen Sie den folgenden Code hinzu, um Content-Card-Updates von Braze zu abonnieren, typischerweise innerhalb der `Activity.onCreate()` Ihrer angepassten Content-Cards-Activity:
+Fügen Sie den folgenden Code hinzu, um Content-Card-Aktualisierungen von Braze zu abonnieren, typischerweise innerhalb der `Activity.onCreate()` Ihrer benutzerdefinierten Content-Cards-Aktivität:
 
 ```kotlin
 // Remove the previous subscriber before rebuilding a new one with our new activity.
@@ -150,9 +150,9 @@ Braze.getInstance(context).subscribeToContentCardsUpdates(mContentCardsUpdatedSu
 Braze.getInstance(context).requestContentCardsRefresh(true)
 ```
 
-#### Schritt 2c: Abo kündigen
+#### Schritt 2c: Abonnement beenden
 
-Kündigen Sie das Abo, wenn Ihre angepasste Activity nicht mehr sichtbar ist. Fügen Sie den folgenden Code zur `onDestroy()`-Lifecycle-Methode Ihrer Activity hinzu:
+Beenden Sie das Abonnement, wenn Ihre benutzerdefinierte Aktivität aus dem Sichtfeld verschwindet. Fügen Sie den folgenden Code in die `onDestroy()`-Lebenszyklusmethode Ihrer Aktivität ein:
 
 ```kotlin
 Braze.getInstance(context).removeSingleSubscription(contentCardsUpdatedSubscriber, ContentCardsUpdatedEvent::class.java)
@@ -172,9 +172,9 @@ Um auf das Content-Cards-Datenmodell zuzugreifen, rufen Sie [`contentCards.cards
 let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
 ```
 
-Zusätzlich können Sie ein Abo aufrechterhalten, um Änderungen an Ihren Content Cards zu beobachten. Dies ist auf zwei Arten möglich:
-1. Über ein Cancellable; oder
-2. Über einen `AsyncStream`.
+Zusätzlich können Sie ein Abonnement aufrechterhalten, um Änderungen an Ihren Content Cards zu beobachten. Dies ist auf zwei Arten möglich:
+1. Durch Aufrechterhaltung eines Cancellable; oder
+2. Durch Aufrechterhaltung eines `AsyncStream`.
 
 ##### Cancellable {#cancellable}
 
@@ -200,7 +200,7 @@ let stream: AsyncStream<[Braze.ContentCard]> = AppDelegate.braze?.contentCards.c
 NSArray<BRZContentCardRaw *> *contentCards = AppDelegate.braze.contentCards.cards;
 ```
 
-Wenn Sie zusätzlich ein Abo für Ihre Content Cards aufrechterhalten möchten, können Sie [`subscribeToUpdates`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/subscribetoupdates(_:)) aufrufen:
+Wenn Sie außerdem ein Abonnement für Ihre Content Cards aufrechterhalten möchten, können Sie [`subscribeToUpdates`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/subscribetoupdates(_:)) aufrufen:
 
 ```objc
 // This subscription is maintained through Braze cancellable, which will continue to observe for changes until the subscription is cancelled.
@@ -215,73 +215,73 @@ BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSAr
 {% endtabs %}
 
 
-### 3. Schritt: Analytics implementieren {#step-3-implement-analytics}
+### Schritt 3: Analytics implementieren {#step-3-implement-analytics}
 
-Impressionen, Klicks und Schließungen von Content Cards werden in Ihrer angepassten Ansicht nicht automatisch protokolliert. Sie müssen [die jeweilige Methode implementieren]({{site.baseurl}}/developer_guide/content_cards/logging_analytics), um alle Metriken ordnungsgemäß in die Analytics des Braze-Dashboards zu protokollieren.
+Content-Card-Impressionen, Klicks und Abweisungen werden in Ihrer benutzerdefinierten Ansicht nicht automatisch protokolliert. Sie müssen [jede entsprechende Methode implementieren]({{site.baseurl}}/developer_guide/content_cards/logging_analytics), um alle Metriken ordnungsgemäß an die Braze-Dashboard-Analytics zurückzumelden.
 
-### 4. Schritt: Testen Sie Ihre Karte (optional) {#step-4-test-your-card-optional}
+### Schritt 4: Ihre Card testen (optional) {#step-4-test-your-card-optional}
 
 So testen Sie Ihre Content Card:
 
 1. Legen Sie eine:n aktive:n Nutzer:in in Ihrer Anwendung fest, indem Sie die [`changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)-Methode aufrufen.
-2. Gehen Sie in Braze zu **Campaigns** und [erstellen Sie eine neue Content-Card-Kampagne]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card).
-3. Wählen Sie in Ihrer Kampagne **Test** aus und geben Sie die `user-id` der Testnutzer:in ein. Wenn Sie bereit sind, wählen Sie **Send Test**. Sie können dann in Kürze eine Content Card auf Ihrem Gerät starten.
+2. Gehen Sie in Braze zu **Campaigns** und [erstellen Sie eine neue Content-Card-Campaign]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card).
+3. Wählen Sie in Ihrer Campaign **Test** aus und geben Sie dann die `user-id` der Testnutzer:in ein. Wenn Sie bereit sind, wählen Sie **Send Test**. Sie können in Kürze eine Content Card auf Ihrem Gerät starten.
 
-![Eine Braze Content-Card-Kampagne, die zeigt, wie Sie Ihre eigene Nutzer-ID als Testempfänger:in hinzufügen können, um Ihre Content Card zu testen.]({% image_buster /assets/img/react-native/content-card-test.png %} "Content Card Campaign Test")
+![Eine Braze Content-Card-Campaign, die zeigt, dass Sie Ihre eigene Nutzer-ID als Testempfänger:in hinzufügen können, um Ihre Content Card zu testen.]({% image_buster /assets/img/react-native/content-card-test.png %} "Content Card Campaign Test")
 
-## Platzierung von Content Cards {#content-card-placements}
+## Content-Card-Platzierungen {#content-card-placements}
 
-Content Cards können auf viele verschiedene Arten verwendet werden. Drei gängige Implementierungen sind die Verwendung als Nachrichtenzentrale, als dynamische Bildanzeige oder als Bildkarussell. Für jede dieser Platzierungen weisen Sie Ihren Content Cards [Schlüssel-Wert-Paare]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior#key-value-pairs) (die Eigenschaft `extras` im Datenmodell) zu und passen auf der Grundlage der Werte das Verhalten, das Aussehen oder die Funktionalität der Karte während der Laufzeit dynamisch an.
+Content Cards können auf viele verschiedene Arten eingesetzt werden. Drei gängige Implementierungen sind die Verwendung als Nachrichtenzentrale, als dynamische Bildanzeige oder als Bildkarussell. Für jede dieser Platzierungen weisen Sie Ihren Content Cards [Schlüssel-Wert-Paare]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior) (die `extras`-Eigenschaft im Datenmodell) zu und passen basierend auf den Werten das Verhalten, das Erscheinungsbild oder die Funktionalität der Card zur Laufzeit dynamisch an.
 
-![Diagramm mit drei Beispielen für die Platzierung von Content Cards: Posteingang für Nachrichten, dynamische Bildanzeige und Bildkarussell.]({% image_buster /assets/img_archive/cc_placements.png %}){: style="border:0px;"}
+![Diagramm mit drei Beispielen für Content-Card-Platzierungen: Nachrichtenposteingang, dynamische Bildanzeige und Bildkarussell.]({% image_buster /assets/img_archive/cc_placements.png %}){: style="border:0px;"}
 
-### Posteingang für Nachrichten {#message-inbox}
+### Nachrichtenposteingang {#message-inbox}
 
-Content Cards können verwendet werden, um eine Nachrichtenzentrale zu simulieren. In diesem Format ist jede Nachricht eine eigene Karte, die [Schlüssel-Wert-Paare]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior#key-value-pairs) enthält, die Events beim Klicken triggern. Diese Schlüssel-Wert-Paare sind die Bezeichner, anhand derer die Anwendung entscheidet, wohin navigiert wird, wenn Nutzer:innen auf eine Nachricht im Posteingang klicken. Die Werte der Schlüssel-Wert-Paare sind frei wählbar.
+Content Cards können verwendet werden, um eine Nachrichtenzentrale zu simulieren. In diesem Format ist jede Nachricht eine eigene Card, die [Schlüssel-Wert-Paare]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior) enthält, welche Klick-Ereignisse steuern. Diese Schlüssel-Wert-Paare sind die zentralen Bezeichner, anhand derer die App entscheidet, wohin navigiert werden soll, wenn Nutzer:innen auf eine Posteingangs-Nachricht klicken. Die Werte der Schlüssel-Wert-Paare sind beliebig wählbar.
 
 #### Beispiel {#example}
 
-Sie möchten beispielsweise zwei Messaging-Karten erstellen: einen Call-to-Action für Nutzer:innen zum Aktivieren von Leseempfehlungen und einen Gutschein-Code für Ihr neues Segment von Abonnent:innen.
+Beispielsweise möchten Sie möglicherweise zwei Nachrichten-Cards erstellen: einen Handlungsaufruf, damit Nutzer:innen Leseempfehlungen aktivieren, und einen Gutscheincode für Ihr Segment neuer Abonnent:innen.
 
-Schlüssel wie `body`, `title` und `buttonText` können einfache String-Werte haben, die Ihre Marketer festlegen können. Schlüssel wie `terms` können Werte haben, die eine kleine Sammlung von Phrasen enthalten, die von Ihrer Rechtsabteilung genehmigt wurden. Schlüssel wie `style` und `class_type` haben String-Werte, die Sie festlegen können, um zu bestimmen, wie Ihre Karte in Ihrer App oder Website dargestellt wird.
+Schlüssel wie `body`, `title` und `buttonText` können einfache String-Werte haben, die Ihre Marketer festlegen können. Schlüssel wie `terms` können Werte enthalten, die eine kleine Sammlung von Formulierungen bereitstellen, die von Ihrer Rechtsabteilung genehmigt wurden. Schlüssel wie `style` und `class_type` haben String-Werte, die Sie festlegen können, um zu bestimmen, wie Ihre Card in Ihrer App oder auf Ihrer Website dargestellt wird.
 
 {% tabs local %}
-{% tab Reading recommendations %}
-Schlüssel-Wert-Paare für die Leseempfehlungskarte:
+{% tab Leseempfehlungen %}
+Schlüssel-Wert-Paare für die Leseempfehlungs-Card:
 
-| Schlüssel | Wert |
+| Schlüssel   | Wert                                                                 |
 |------------|----------------------------------------------------------------------|
-| `body` | Fügen Sie Ihre Interessen zu Ihrem Politer Weekly Profil hinzu, um persönliche Leseempfehlungen zu erhalten. |
-| `style` | info |
-| `class_type` | notification_center |
-| `card_priority` | 1 |
+| `body`       | Fügen Sie Ihre Interessen Ihrem Politer-Weekly-Profil hinzu, um persönliche Leseempfehlungen zu erhalten. |
+| `style`      | info                                                                 |
+| `class_type` | notification_center                                                 |
+| `card_priority` | 1                                                                 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Beispiel" }
 {% endtab %}
 
-{% tab New subscriber coupon %}
-Schlüssel-Wert-Paare für einen neuen Abonnent:innen-Gutschein:
+{% tab Gutschein für neue Abonnent:innen %}
+Schlüssel-Wert-Paare für einen Gutschein für neue Abonnent:innen:
 
-| Schlüssel | Wert |
+| Schlüssel   | Wert                                                             |
 |------------|------------------------------------------------------------------|
-| `title` | Unbegrenztes Spiele-Abo |
-| `body` | End of Summer Special – Hol dir 10 % Rabatt auf Politer-Spiele |
-| `buttonText` | Jetzt abonnieren |
-| `style` | promo |
-| `class_type` | notification_center |
-| `card_priority` | 2 |
-| `terms` | new_subscribers_only |
+| `title`      | Abonnieren Sie für unbegrenzte Spiele                            |
+| `body`       | Sommer-Spezial – Genießen Sie 10 % Rabatt auf Politer-Spiele    |
+| `buttonText` | Jetzt abonnieren                                                 |
+| `style`      | promo                                                            |
+| `class_type` | notification_center                                              |
+| `card_priority` | 2                                                              |
+| `terms`      | new_subscribers_only                                             |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Beispiel" }
 {% endtab %}
 {% endtabs %}
 
 {% details Zusätzliche Informationen für Android %}
 
-Im Android- und FireOS-SDK wird die Logik der Nachrichtenzentrale durch den Wert `class_type` gesteuert, der durch die Schlüssel-Wert-Paare von Braze bereitgestellt wird. Mit der Methode [`createContentCardable`]({{site.baseurl}}/developer_guide/content_cards) können Sie diese Klassentypen filtern und identifizieren.
+Im Android- und FireOS-SDK wird die Nachrichtenzentrale-Logik durch den `class_type`-Wert gesteuert, der von den Schlüssel-Wert-Paaren aus Braze bereitgestellt wird. Mit der Methode [`createContentCardable`]({{site.baseurl}}/developer_guide/content_cards) können Sie diese Klassentypen filtern und identifizieren.
 
 {% tabs local %}
 {% tab Kotlin %}
-**Verwendung von `class_type` für On-Click-Verhalten**<br>
-Wenn wir die Content-Card-Daten in unsere angepassten Klassen überführen, verwenden wir die Eigenschaft `ContentCardClass` der Daten, um zu bestimmen, welche konkrete Unterklasse zum Speichern der Daten verwendet werden soll.
+**Verwendung von `class_type` für das Klick-Verhalten**<br>
+Wenn wir die Content-Card-Daten in unsere benutzerdefinierten Klassen übertragen, verwenden wir die `ContentCardClass`-Eigenschaft der Daten, um zu bestimmen, welche konkrete Unterklasse zum Speichern der Daten verwendet werden soll.
 
 ```kotlin
  private fun createContentCardable(metadata: Map<String, Any>, type: ContentCardClass?): ContentCardable?{
@@ -297,7 +297,7 @@ Wenn wir die Content-Card-Daten in unsere angepassten Klassen überführen, verw
     }
 ```
 
-Bei der Verarbeitung der Nutzerinteraktion mit der Nachrichtenliste können wir dann anhand des Nachrichtentyps bestimmen, welche Ansicht den Nutzer:innen angezeigt werden soll.
+Wenn wir dann die Nutzer:innen-Interaktion mit der Nachrichtenliste verarbeiten, können wir den Typ der Nachricht verwenden, um zu bestimmen, welche Ansicht den Nutzer:innen angezeigt werden soll.
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -328,8 +328,8 @@ override fun onCreate(savedInstanceState: Bundle?) {
 ```
 {% endtab %}
 {% tab Java %}
-**Verwendung von `class_type` für On-Click-Verhalten**<br>
-Wenn wir die Content-Card-Daten in unsere angepassten Klassen überführen, verwenden wir die Eigenschaft `ContentCardClass` der Daten, um zu bestimmen, welche konkrete Unterklasse zum Speichern der Daten verwendet werden soll.
+**Verwendung von `class_type` für das Klick-Verhalten**<br>
+Wenn wir die Content-Card-Daten in unsere benutzerdefinierten Klassen übertragen, verwenden wir die `ContentCardClass`-Eigenschaft der Daten, um zu bestimmen, welche konkrete Unterklasse zum Speichern der Daten verwendet werden soll.
 
 ```java
 private ContentCardable createContentCardable(Map<String, ?> metadata,  ContentCardClass type){
@@ -360,7 +360,7 @@ private ContentCardable createContentCardable(Map<String, ?> metadata,  ContentC
 
 ```
 
-Bei der Verarbeitung der Nutzerinteraktion mit der Nachrichtenliste können wir dann anhand des Nachrichtentyps bestimmen, welche Ansicht den Nutzer:innen angezeigt werden soll.
+Wenn wir dann die Nutzer:innen-Interaktion mit der Nachrichtenliste verarbeiten, können wir den Typ der Nachricht verwenden, um zu bestimmen, welche Ansicht den Nutzer:innen angezeigt werden soll.
 
 ```java
 @Override
@@ -399,19 +399,19 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ### Karussell {#carousel}
 
-Sie können Content Cards in Ihrem vollständig angepassten Karussell-Feed einrichten, sodass Nutzer:innen durch zusätzliche hervorgehobene Karten wischen und diese ansehen können. Standardmäßig werden Content Cards nach Erstellungsdatum sortiert (das neueste zuerst), und Ihre Nutzer:innen sehen alle Karten, für die sie in Frage kommen.
+Sie können Content Cards in Ihrem vollständig angepassten Karussell-Feed einrichten und Nutzer:innen so ermöglichen, durch weitere hervorgehobene Cards zu wischen und sie anzuzeigen. Standardmäßig werden Content Cards nach Erstellungsdatum sortiert (neueste zuerst), und Ihre Nutzer:innen sehen alle Cards, für die sie berechtigt sind.
 
 So implementieren Sie ein Content-Card-Karussell:
 
-1. Erstellen Sie eine angepasste Logik, die auf [Änderungen in Ihren Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#refreshing-the-feed) achtet und die Ankunft der Content Cards behandelt.
-2. Erstellen Sie eine angepasste clientseitige Logik, um eine bestimmte Anzahl von Karten gleichzeitig im Karussell anzuzeigen. Sie könnten zum Beispiel die ersten fünf Content-Card-Objekte aus dem Array auswählen oder Schlüssel-Wert-Paare einführen, um bedingte Logik aufzubauen.
+1. Erstellen Sie benutzerdefinierte Logik, die [Änderungen an Ihren Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) beobachtet und den Eingang von Content Cards verarbeitet.
+2. Erstellen Sie benutzerdefinierte clientseitige Logik, um eine bestimmte Anzahl von Cards gleichzeitig im Karussell anzuzeigen. Beispielsweise könnten Sie die ersten fünf Content-Card-Objekte aus dem Array auswählen oder Schlüssel-Wert-Paare einführen, um bedingte Logik aufzubauen.
 
 {% alert tip %}
-Wenn Sie ein Karussell als sekundären Content-Cards-Feed implementieren, stellen Sie sicher, dass Sie [die Karten mithilfe von Schlüssel-Wert-Paaren in den richtigen Feed einsortieren]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).
+Wenn Sie ein Karussell als sekundären Content-Cards-Feed implementieren, stellen Sie sicher, dass Sie [Cards mithilfe von Schlüssel-Wert-Paaren dem richtigen Feed zuordnen]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed).
 {% endalert %}
 
 ### Nur Bild {#image-only}
 
-Content Cards müssen nicht wie „Karten“ aussehen. Content Cards können zum Beispiel als dynamisches Bild erscheinen, das persistent auf Ihrer Homepage oder am Anfang bestimmter Seiten angezeigt wird.
+Content Cards müssen nicht wie „Cards“ aussehen. Beispielsweise können Content Cards als dynamisches Bild erscheinen, das dauerhaft auf Ihrer Startseite oder am oberen Rand bestimmter Seiten angezeigt wird.
 
-Um dies zu erreichen, erstellen Ihre Marketer eine Kampagne oder einen Canvas-Schritt mit einer Content Card vom Typ **Nur Bild**. Legen Sie dann Schlüssel-Wert-Paare fest, die für die Verwendung von [Content Cards als ergänzende Inhalte]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior#content-cards-as-supplemental-content) geeignet sind.
+Um dies zu erreichen, erstellen Ihre Marketer eine Campaign oder einen Canvas-Schritt mit dem Content-Card-Typ **Nur Bild**. Legen Sie dann Schlüssel-Wert-Paare fest, die für die Verwendung von [Content Cards als ergänzende Inhalte]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior) geeignet sind.

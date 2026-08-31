@@ -26,7 +26,7 @@ Sie können API-getriggerte Campaigns über `user_alias` an Nutzer:innen senden,
 
 ## Wenn `alias_label` und `alias_name` bereits existieren {#when-alias_label-and-alias_name-already-exist}
 
-Die Kombination aus `alias_label` und `alias_name` muss in Ihrer Nutzerbasis eindeutig sein. Weitere Informationen finden Sie unter [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).
+Die Kombination aus `alias_label` und `alias_name` muss in Ihrer Nutzerbasis eindeutig sein. Weitere Informationen finden Sie unter [Nutzer-Aliase]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases).
 
 Wenn Sie eine Anfrage senden, bei der das Paar aus `alias_label` und `alias_name` bereits für Nutzer:innen existiert (ob bei denselben oder anderen Nutzer:innen), gibt der Endpunkt trotzdem eine erfolgreiche Antwort zurück (z. B. `"aliases_processed": 1`, `"message": "success"`). In diesem Fall wird den Nutzer:innen in der Anfrage kein neuer Alias hinzugefügt. Da das Paar aus `alias_label` und `alias_name` bereits verwendet wird, nimmt die Anfrage keine Änderungen vor, und es kann so aussehen, als ob der Alias den betreffenden Nutzer:innen nie hinzugefügt wurde.
 
@@ -57,7 +57,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `user_aliases` | Erforderlich | Array mit neuen Nutzer-Alias-Objekten | Siehe [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Weitere Informationen zu `alias_name` und `alias_label` finden Sie in unserer Dokumentation zu [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).|
+| `user_aliases` | Erforderlich | Array mit neuen Nutzer-Alias-Objekten | Siehe [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Weitere Informationen zu `alias_name` und `alias_label` finden Sie in unserer Dokumentation zu [Nutzer-Aliase]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases).|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ### Anfragetext des Endpunkts mit Spezifikation des neuen Nutzer-Alias-Objekts {#endpoint-request-body-with-new-user-alias-object-specification}
@@ -109,7 +109,7 @@ Setzen Sie `_update_existing_only` auf `false`, wenn Sie aus diesem Objekt mögl
 
 Sie können `/users/track` nicht verwenden, um bestehenden Nutzer:innen, die über eine `external_id` identifiziert werden, einen neuen Alias hinzuzufügen. In einem Nutzerattribut-Objekt schließen sich `external_id` und `user_alias` gegenseitig aus. Um identifizierten Nutzer:innen einen Alias hinzuzufügen, rufen Sie zuerst `/users/alias/new` auf. Nachdem der Alias zugeordnet wurde, können Sie dieses Profil mit `/users/track` über die `external_id` oder den vorhandenen Alias aktualisieren.
 
-Das folgende `/users/track`-Body erstellt beispielsweise ein reines Alias-Profil, wenn der Alias noch nicht existiert, oder aktualisiert das vorhandene Profil, das diesen Alias bereits hat:
+Der folgende `/users/track`-Body erstellt beispielsweise ein reines Alias-Profil, wenn der Alias noch nicht existiert, oder aktualisiert das vorhandene Profil, das diesen Alias bereits hat:
 ```json
 {
   "attributes": [

@@ -9,7 +9,7 @@ tool:
   - Dashboard
 
 guide_top_header: "BrazeAI<sup>TM</sup>"
-guide_top_text: "BrazeAI<sup>TM</sup> bietet eine Sammlung von leicht zugänglichen, benutzerfreundlichen Tools, die die Einstiegshürden für Kreativität, Personalisierung und Optimierung Ihrer Engagement-Strategie senken. Mit den Features von BrazeAI<sup>TM</sup> steht Ihnen ein vertrauenswürdiger Berater zur Seite, der Ihnen hilft, Ihre Kreativität zu entfalten, bessere Entscheidungen zu treffen und das Nutzererlebnis für Ihre Kund:innen zu optimieren."
+guide_top_text: "BrazeAI<sup>TM</sup> bietet eine Sammlung von leicht zugänglichen, benutzerfreundlichen Tools, die die Einstiegshürden für Kreativität, Personalisierung und Optimierung Ihrer Engagement-Strategie senken. Mit den Features von BrazeAI<sup>TM</sup> steht Ihnen ein vertrauenswürdiger Berater zur Seite, der Ihnen hilft, Ihre Kreativität zu entfalten, bessere Entscheidungen zu treffen und das Nutzererlebnis für Ihre Kund:innen zu optimieren. Dieser Hub verlinkt auf Anleitungen zu generativer KI, der Intelligence Suite, Artikelempfehlungen, Agenten und weiteren BrazeAI-Features, die Sie in Campaigns und Canvases nutzen können."
 
 guide_featured_title: "Features"
 guide_featured_list:
@@ -57,11 +57,21 @@ guide_featured_list:
 
 | Ihr Ziel | Empfohlenes Feature |
 | --- | --- |
-| Nachrichtentexte pro Nutzer:in anhand ihres Kontexts personalisieren | [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) ([Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) oder [Katalog]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)); für einmalige Textentwürfe: [Generative KI]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
-| Optimieren, welcher Nachrichteninhalt (z. B. Betreff, CTA) im Zeitverlauf am besten performt | [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) (E-Mail, Push-Benachrichtigungen oder SMS/MMS/RCS) oder [Gewinnervariante]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) |
+| Nachrichtentexte mit dem Kontext einzelner Nutzer:innen personalisieren | [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) ([Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) oder [Katalog]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)); für einmalige Textentwürfe: [Generative KI]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
+| Optimieren, welche Nachrichteninhalte (z. B. Betreff, CTA) im Laufe der Zeit am besten abschneiden | [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) (E-Mail, Push-Benachrichtigungen oder SMS/MMS/RCS) oder [Gewinnervariante]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) |
 | Eine Geschäftsmetrik (Umsatz, Conversions) mit 1:1-Entscheidungen über Angebote, Kanäle und Timing maximieren | [Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
-| Nutzer:innen finden, die wahrscheinlich churnen oder ein Ereignis ausführen werden | [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) oder [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
+| Nutzer:innen finden, die wahrscheinlich abwandern oder ein bestimmtes Ereignis ausführen werden | [Voraussichtliche Abwanderung]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) oder [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
 | Bestimmte Produkte aus einem Katalog in Nachrichten empfehlen | [Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |
 | Zum besten Zeitpunkt oder über den besten Kanal pro Nutzer:in senden | [Intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), [Intelligenter Kanal]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) |
-| Texte und Kreativinhalte direkt im Dashboard erstellen oder verfeinern | [Operator]({{site.baseurl}}/user_guide/brazeai/operator) |
+| Texte und Kreativmaterial direkt im Dashboard erstellen oder verfeinern | [Operator]({{site.baseurl}}/user_guide/brazeai/operator) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Feature-Übersicht" }
+
+## Häufig gestellte Fragen {#frequently-asked-questions}
+
+### Was ist BrazeAI? {#what-is-brazeai}
+
+BrazeAI ist eine Reihe von KI-gestützten Tools in Braze für generative Texterstellung, Personalisierung, Prognosen, Empfehlungen und Entscheidungsfindung. Nutzen Sie die Feature-Links auf dieser Seite, um Einrichtungsanleitungen für die einzelnen Funktionen zu öffnen.
+
+### Welches BrazeAI-Feature sollte ich zuerst verwenden? {#which-brazeai-feature-should-i-use-first}
+
+Beginnen Sie mit der Tabelle [Feature-Übersicht](#feature-overview) auf dieser Seite, um Ihr Ziel – wie Texterstellung, Sendezeitoptimierung oder Produktempfehlungen – dem empfohlenen BrazeAI-Feature zuzuordnen.

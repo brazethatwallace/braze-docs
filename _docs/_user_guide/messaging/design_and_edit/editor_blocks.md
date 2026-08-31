@@ -30,7 +30,7 @@ Editor blocks are in the **Content** section for email messages. Drag a block in
 For more information about creating emails in the **Drag-And-Drop Editor**, see [Create an email with drag-and-drop]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/) and <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Other customizations</a> in that article.
 
 {% alert tip %}
-You can also add [custom attributes]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/) to any URL within the `Image`, `Button`, or `Text` editor blocks.
+You can also add [custom attributes]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/) to any URL within the `Image`, `Button`, or `Text` editor blocks.
 {% endalert %}
 
 ### Title
@@ -515,7 +515,7 @@ Users pick multiple options; values set or append to a defined [array custom att
 
 ### Manage subscriptions
 
-Adds a checklist of [email]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-groups) or [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) subscription groups so visitors can opt in to or manage their subscriptions when they submit the form. Each block is for one channel. Configure it after you add subscription groups to the block. This block doesn't list RCS or WhatsApp subscription groups.
+Adds a checklist of [email]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups) or [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) subscription groups so visitors can opt in to or manage their subscriptions when they submit the form. Each block is for one channel. Configure it after you add subscription groups to the block. This block doesn't list RCS or WhatsApp subscription groups.
 
 For identified users who open the page through the landing page's [Liquid tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/), the block pre-fills each checkbox with the user's current subscription state, so it can also serve as a preference management page.
 

@@ -14,19 +14,19 @@ hidden: true
 
 ## Qui est éligible ? {#whos-eligible}
 
-Ce parcours de mise à niveau est destiné aux marques disposant d'un store Shopify headless ou Shopify Hydrogen.
+Ce parcours de mise à niveau est destiné aux marques disposant d'une boutique Shopify headless ou Shopify Hydrogen.
 
 {% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
-## Conditions requises pour la mise à niveau {#upgrade-requirements}
+## Conditions préalables à la mise à niveau {#upgrade-requirements}
 
-Avant de commencer, consultez les éléments suivants :
+Avant de commencer, passez en revue les éléments suivants :
 
-| Condition | Description |
+| Condition           | Description |
 |-----------------------|-------------|
-| **Changements critiques** | Assurez-vous d'avoir examiné tous les changements importants entre l'ancien connecteur et le nouveau dans l'[aperçu de la mise à niveau Shopify]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection). |
-| **Prérequis de mise à niveau** | Assurez-vous d'avoir rempli tous les [prérequis de mise à niveau]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites) nécessaires avec vos équipes d'ingénierie et de marketing. Pour mettre à niveau votre store Shopify headless avec Braze, vous devez effectuer deux étapes essentielles :<br><br>- Initialiser et charger le SDK Web de Braze pour activer le suivi sur site<br>- Mettre à niveau votre store existant via l'expérience de mise à niveau intégrée au produit |
-| **Changements incompatibles** | Examinez et corrigez tous les changements incompatibles signalés dans Braze. Pour un guide complet, consultez [Corriger les changements incompatibles](#fixing-breaking-changes-fixing-breaking-changes). |
+| **Changements critiques**  | Assurez-vous d'avoir examiné tous les changements importants entre l'ancien connecteur et le nouveau connecteur dans l'[aperçu de la mise à niveau Shopify]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection). |
+| **Prérequis de mise à niveau** | Vérifiez que vous avez rempli tous les [prérequis de mise à niveau]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites) nécessaires avec vos équipes d'ingénierie et de marketing. Pour mettre à niveau votre boutique Shopify headless avec Braze, vous devez effectuer deux étapes essentielles :<br><br>- Initialiser et charger le SDK Web de Braze pour activer le suivi sur site<br>- Mettre à niveau votre boutique existante via l'expérience de mise à niveau intégrée au produit |
+| **Changements non rétrocompatibles**  | Examinez et corrigez tous les changements non rétrocompatibles signalés dans Braze. Pour un guide complet, consultez [Corriger les changements non rétrocompatibles](#fixing-breaking-changes-fixing-breaking-changes). |
 {: .reset-td-br-1 .reset-td-br-2  role="presentation"}
 
 ## Corriger les changements incompatibles {#fixing-breaking-changes}
@@ -72,34 +72,34 @@ Lorsque la mise à niveau sera terminée, de nouveaux groupes d'abonnement par d
 ## Mise à niveau de Shopify {#upgrading-shopify}
 
 {% alert important %}
-Il est essentiel de [corriger tous les changements incompatibles](#fixing-breaking-changes) avant de démarrer votre mise à niveau.
+Il est essentiel de [corriger toutes les modifications avec rupture](#fixing-breaking-changes) avant de commencer la mise à niveau.
 {% endalert %}
 
 ### Étape 1 : Initialiser et charger le SDK Web de Braze pour activer le suivi sur site {#step-1}
 
-Si ce n'est pas déjà fait, initialisez et chargez le SDK Web de Braze pour activer le suivi sur site. Pour un guide complet, consultez [Configuration de l'intégration Shopify personnalisée]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration#step-1) :
+Si ce n'est pas déjà fait, initialisez et chargez le SDK Web de Braze pour activer le suivi sur site. Pour une procédure complète, consultez [Configuration de l'intégration Shopify personnalisée]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration#step-1) :
 - Créer une application web Braze
 - Ajouter le sous-domaine et les variables d'environnement
 - Activer le suivi sur site
 - Ajouter un événement de connexion au compte Shopify
-- Ajouter le suivi des événements de consultation de produit et de mise à jour du panier
+- Ajouter le suivi des événements Product Viewed et Cart Update
 
 ### Étape 2 : Démarrer la mise à niveau {#step-2-start-the-upgrade}
 
-Dans Braze, accédez à **Intégrations partenaires** > **Shopify**, puis sélectionnez **Start upgrade**.
+Dans Braze, accédez à **Partner Integrations** > **Shopify**, puis sélectionnez **Start upgrade**.
 
 ![Panneau avec une option pour démarrer la mise à niveau.]({% image_buster /assets/unlisted_docs/img/shopify/start_shopify_custom_upgrade.png %}){: style="max-width:35%;"}
 
-Acceptez les directives de mise à niveau en cochant la case, puis sélectionnez **Start the upgrade**.
+Acceptez les consignes de mise à niveau en cochant la case, puis sélectionnez **Start the upgrade**.
 
-![Fenêtre modale pour confirmer que vous comprenez que la mise à niveau peut entraîner des changements incompatibles.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_upgrade.png %}){: style="max-width:50%;"}
+![Fenêtre modale pour confirmer que vous comprenez que la mise à niveau peut causer des modifications avec rupture.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_upgrade.png %}){: style="max-width:50%;"}
 
-Vérifiez auprès de vos développeurs que vous avez terminé l'étape 1 du parcours de mise à niveau personnalisé en cochant la case, puis sélectionnez **Confirm**.
+Vérifiez auprès de vos développeurs que vous avez bien terminé l'étape 1 de la mise à niveau du chemin personnalisé en cochant la case, puis sélectionnez **Confirm**.
 
 ![Fenêtre modale avec une case à cocher pour vérifier que vous avez terminé les étapes 1 à 5.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_completed_steps.png %}){: style="max-width:50%;"}
 
 {% alert important %}
-Pour que l'intégration fonctionne correctement, assurez-vous de terminer l'[étape 1](#step-1) de la mise à niveau personnalisée. Si vous ignorez cette étape, l'intégration risque de ne pas fonctionner correctement.
+Pour que l'intégration fonctionne correctement, assurez-vous de compléter l'[étape 1](#step-1) de la mise à niveau personnalisée. Si vous ignorez cette étape, l'intégration pourrait ne pas fonctionner correctement.
 {% endalert %}
 
 ### Étape 3 : Réautoriser l'application Braze {#step-3-reauthorize-the-braze-app}
@@ -108,7 +108,7 @@ Pour réautoriser l'application Braze, sélectionnez **Go to Shopify**.
 
 ![Panneau avec une option pour accéder à Shopify.]({% image_buster /assets/unlisted_docs/img/shopify/custom_go_to_shopify.png %}){: style="max-width:35%"}
 
-Sur le site Shopify, suivez les instructions pour réautoriser votre application Braze. Cela permet à Braze d'accéder à vos données Shopify.
+Sur le site Shopify, suivez les invites pour réautoriser votre application Braze. Cela permet à Braze d'accéder à vos données Shopify.
 
 {% alert important %}
 Le processus de réautorisation peut prendre quelques minutes, mais il se mettra automatiquement à jour sur votre page Shopify une fois terminé.
@@ -118,7 +118,7 @@ Le processus de réautorisation peut prendre quelques minutes, mais il se mettra
 
 ### Étape 4 : Choisir un type d'ID externe {#step-4-choose-an-external-id-type}
 
-Le type d'ID externe que vous choisissez sera attribué aux nouveaux profils clients Shopify lorsqu'un compte Shopify est créé ou qu'une commande est passée. Il sera également utilisé pour mettre à jour les profils utilisateur existants s'ils possèdent déjà un alias d'ID client Shopify mais n'ont pas d'ID externe attribué dans Braze.
+Le type d'ID externe que vous choisissez sera attribué aux nouveaux profils clients Shopify lorsqu'un compte Shopify est créé ou qu'une commande est passée. Il sera également utilisé pour mettre à jour les profils utilisateur existants s'ils possèdent déjà un alias d'ID client Shopify mais ne disposent pas d'un ID externe attribué dans Braze.
 
 Pour choisir votre type d'ID externe, retournez dans Braze et sélectionnez **Confirm external ID**.
 
@@ -126,10 +126,10 @@ Pour choisir votre type d'ID externe, retournez dans Braze et sélectionnez **Co
 
 Choisissez l'ID externe que vous souhaitez utiliser pour l'intégration Shopify de votre espace de travail. Lorsque vous avez terminé, sélectionnez **Set external ID**.
 
-![Fenêtre modale avec un menu déroulant pour sélectionner l'ID externe.]({% image_buster /assets/unlisted_docs/img/shopify/external_id_custom.png %}){: style="max-width:50%;"}
+![Fenêtre modale avec une liste déroulante pour sélectionner l'ID externe.]({% image_buster /assets/unlisted_docs/img/shopify/external_id_custom.png %}){: style="max-width:50%;"}
 
 {% alert important %}
-Par défaut, Braze convertit automatiquement les e-mails provenant de Shopify en minuscules avant de les utiliser comme ID externe. Si vous utilisez l'e-mail ou l'e-mail haché comme ID externe, confirmez que vos adresses e-mail sont également converties en minuscules avant de les attribuer comme ID externe ou avant de les hacher à partir d'autres sources de données. Cela permet d'éviter les divergences dans les ID externes et la création de profils utilisateur en double dans Braze.
+Par défaut, Braze convertit automatiquement les e-mails provenant de Shopify en minuscules avant de les utiliser comme ID externe. Si vous utilisez l'e-mail ou l'e-mail haché comme ID externe, confirmez que vos adresses e-mail sont également converties en minuscules avant de les attribuer comme ID externe ou avant de les hacher à partir d'autres sources de données. Cela permet d'éviter les divergences d'ID externes et la création de profils utilisateur en double dans Braze.
 {% endalert %}
 
 Si vous avez sélectionné un type d'ID externe personnalisé, passez aux étapes 4.1 à 4.3. Sinon, continuez à l'étape 5.
@@ -141,11 +141,11 @@ Si vous avez sélectionné un type d'ID externe personnalisé, passez aux étape
 Une fois le métachamp créé, renseignez-le pour vos clients. Nous recommandons les approches suivantes :
 
 - **Écouter les webhooks de création de client :** Configurez un webhook pour écouter les [événements `customer/create`](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). Cela vous permet d'écrire le métachamp lorsqu'un nouveau client est créé.
-- **Remplir rétroactivement les clients existants :** Utilisez l'[API Admin](https://shopify.dev/docs/api/admin-graphql) ou l'[API Customer](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) pour remplir rétroactivement le métachamp pour les clients précédemment créés.
+- **Remplir rétroactivement les clients existants :** Utilisez l'[API Admin](https://shopify.dev/docs/api/admin-graphql) ou l'[API Customer](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) pour remplir rétroactivement le métachamp des clients créés précédemment.
 
 #### Étape 4.2 : Créer un endpoint pour récupérer votre ID externe {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 
-Vous devez créer un endpoint public que Braze peut appeler pour récupérer l'ID externe. Cela est nécessaire pour les scénarios où Shopify ne peut pas fournir le métachamp `braze.external_id`.
+Vous devez créer un endpoint public que Braze peut appeler pour récupérer l'ID externe. Cela est nécessaire dans les scénarios où Shopify ne peut pas fournir le métachamp `braze.external_id`.
 
 ##### Spécifications de l'endpoint {#endpoint-specifications}
 
@@ -155,7 +155,7 @@ Vous devez créer un endpoint public que Braze peut appeler pour récupérer l'I
 | --- | --- |
 | `shopify_customer_id` | L'ID client Shopify. |
 | `email_address` | L'adresse e-mail de l'utilisateur connecté. |
-| `shopify_storefront` | Le storefront pour la requête. |
+| `shopify_storefront` | La vitrine pour la requête. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ##### Exemple d'endpoint {#example-endpoint}
@@ -189,7 +189,7 @@ Répétez l'[étape 4](#step-4-choose-an-external-id-type) et saisissez l'URL de
 
 ### Étape 5 : Activer l'intégration de l'application Braze {#step-5-enable-the-braze-app-embed}
 
-Pour activer l'intégration de l'application Braze dans le thème de votre store, retournez dans Braze et sélectionnez **Go to Shopify**.
+Pour activer l'intégration de l'application Braze dans le thème de votre boutique, retournez dans Braze et sélectionnez Go to Shopify.
 
 ![Panneau de mise à niveau Shopify avec un bouton pour activer l'intégration de l'application Braze.]({% image_buster /assets/unlisted_docs/img/shopify/custom_enable_app_embed.png %}){: style="max-width:35%;"}
 
@@ -199,12 +199,12 @@ Sur le site Shopify, activez l'intégration de l'application Braze, puis enregis
 
 ### Étape 6 : Vérifier la mise à niveau {#step-6-verify-the-upgrade}
 
-De retour dans Braze, vous serez averti lorsque l'installation de votre intégration Shopify sera terminée.
+De retour dans Braze, vous serez notifié lorsque l'installation de votre intégration Shopify sera terminée.
 
 ![Page d'intégration Shopify avec une bannière de succès.]({% image_buster /assets/unlisted_docs/img/shopify/success_integration.png %})
 
-Pour vérifier que votre nouveau connecteur Shopify est en production, testez les éléments suivants :
+Pour vérifier que votre nouveau connecteur Shopify est en direct, testez les éléments suivants :
 
 {% multi_lang_include partners/shopify/upgrade_validation_checklist.md %}
 
-Si vous avez des questions, [contactez l'assistance]({{site.baseurl}}/user_guide/administrative/access_braze/support).
+Si vous avez des questions, [contactez le support]({{site.baseurl}}/user_guide/administer/personal/braze_support).

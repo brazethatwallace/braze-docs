@@ -20,7 +20,7 @@ The Braze React Native SDK connects your iOS and Android apps to Braze: user pro
 - **In-app messages**: Default Braze UI or custom handling via subscriptions and logging APIs
 - **Content Cards**: Default feed UI, or fetch cards and build your own UI
 - **Banners**: Placement-based HTML banners, including `BrazeBannerView`
-- **Push notifications**: Permission prompts, token registration, payload listeners (see [Push notifications](#push-notifications))
+- **Push notifications**: Permission prompts, token registration, payload listeners (see **Push notifications**)
 - **Feature flags**: Refresh, read properties, log impressions
 - **Analytics**: Custom events, purchases, immediate flush
 - **SDK controls**: Enable/disable SDK, wipe local data, SDK Authentication signatures
@@ -49,7 +49,7 @@ npm install @braze/react-native-sdk
 
 This section shows the minimum setup required to initialize the Braze React Native SDK.
 
-1. Install the npm package (see [Installation](#installation)).
+1. Install the npm package in **Installation**.
 2. Complete **native setup** for Android and iOS (configuration, permissions, push if needed).
 3. Initialize the SDK from JavaScript and start using it:
 
@@ -73,7 +73,7 @@ Calling `Braze.initialize` again with different credentials tears down the curre
 
 ## Native setup
 
-> **Source of truth:** Step-by-step screens, Gradle/CocoaPods changes, and the full list of Android XML keys are in the [Braze React Native developer guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native). The following snippets are minimal examples.
+> **Source of truth:** Step-by-step screens, Gradle/CocoaPods changes, and the full list of Android XML keys are in the [Braze React Native developer guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native). The **Android** and **iOS** snippets in this section are minimal examples.
 
 ### Android
 
@@ -96,7 +96,7 @@ Calling `Braze.initialize` again with different credentials tears down the curre
 ```
 
 {% alert note %}
-The API key and endpoint are no longer set in `braze.xml` — they are passed from JavaScript via `Braze.initialize(apiKey, endpoint)`.
+** The API key and endpoint are no longer set in `braze.xml` — they are passed from JavaScript via `Braze.initialize(apiKey, endpoint)`.
 {% endalert %}
 ### iOS
 
@@ -136,7 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 - **`postInitialization` closure** *(optional)*: receives the live `Braze` instance after creation, for setup that requires the instance (e.g. storing a reference, setting delegates).
 
 {% alert note %}
-`BrazeReactInitializer.configure` is a Swift-first API that replaces the deprecated `BrazeReactBridge.initBraze(_:)`. It also resolves a Swift type-resolution issue with `Braze.Configuration` in the Objective-C bridge.
+** `BrazeReactInitializer.configure` is a Swift-first API that replaces the deprecated `BrazeReactBridge.initBraze(_:)`. It also resolves a Swift type-resolution issue with `Braze.Configuration` in the Objective-C bridge.
 {% endalert %}
 ---
 
@@ -350,7 +350,7 @@ useEffect(() => {
 - **Expo**: use the [Braze Expo plugin](https://github.com/braze-inc/braze-expo-plugin) to avoid manual native wiring where possible.
 - **New Architecture / Turbo Modules**: supported on recent plugin versions; follow the developer guide and sample `AppDelegate` / Gradle settings if you migrate.
 - **Privacy (iOS)**: methods such as `updateTrackingPropertyAllowList` support privacy manifest–related configuration; see [Swift privacy manifest](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/).
-- **Jest**: mock `react-native` native modules or the Braze Turbo module (see `__tests__/jest.setup.js` in this repo for patterns).
+## - **Jest**: mock `react-native` native modules or the Braze Turbo module (see `__tests__/jest.setup.js` in this repo for patterns).
 
 ## Version support
 

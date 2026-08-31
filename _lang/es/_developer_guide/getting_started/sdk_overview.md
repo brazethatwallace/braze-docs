@@ -1,7 +1,7 @@
 ---
 nav_title: Visión general del SDK
 article_title: Resumen del SDK para desarrolladores
-description: "Este artículo de referencia sobre la incorporación proporciona un resumen técnico para desarrolladores del SDK de Braze. Habla de los análisis predeterminados de los que hace seguimiento el SDK, del bloqueo de la recopilación automática de datos y de la versión en vivo del SDK de tu aplicación."
+description: "Este artículo de referencia sobre la incorporación proporciona un resumen técnico para desarrolladores del SDK de Braze. Habla de los análisis predeterminados de los que hace seguimiento el SDK."
 page_order: 0
 ---
 
@@ -25,83 +25,83 @@ Mira el siguiente video para una breve introducción a los conceptos básicos de
 
 Braze no debería tener ningún impacto negativo en el rendimiento de tu aplicación.
 
-Los SDK de Braze ocupan muy poco espacio. Cambiamos automáticamente la tasa de vaciado de datos de usuario en función de la calidad de la red, además de permitir el control manual de la red. Agrupamos automáticamente las solicitudes de API del SDK para asegurarnos de que los datos se registren rápidamente y se mantenga, al mismo tiempo, la máxima eficiencia de la red. Por último, la cantidad de datos enviados desde el cliente a Braze en cada llamada a la API es extremadamente pequeña.
+Los SDK de Braze tienen una huella muy pequeña. Cambiamos automáticamente la frecuencia con la que enviamos los datos de los usuarios dependiendo de la calidad de la red, además de permitir el control manual de la red. Agrupamos automáticamente las solicitudes de API del SDK para asegurar que los datos se registran rápidamente y se mantiene la máxima eficiencia de red. Por último, la cantidad de datos enviados desde el cliente a Braze en cada llamada a la API es extremadamente pequeña.
 
 ## Compatibilidad del SDK {#sdk-compatibility}
 
-El SDK de Braze está diseñado para comportarse muy bien y no interferir con otros SDK presentes en tu aplicación. Si experimentas algún problema que creas que puede deberse a una incompatibilidad con otro SDK, ponte en contacto con el soporte de Braze.
+El SDK de Braze está diseñado para comportarse de manera muy eficiente y no interferir con otros SDK presentes en tu aplicación. Si experimentas algún problema que crees que podría deberse a una incompatibilidad con otro SDK, contacta con el soporte de Braze.
 
 ## Análisis predeterminados y gestión de sesiones {#default-analytics-and-session-handling}
 
-Nuestro SDK recopila automáticamente determinados datos de usuario, por ejemplo, primera aplicación utilizada, última aplicación utilizada, recuento total de sesiones, sistema operativo del dispositivo, etc. Si sigues nuestras guías de integración para implementar nuestros SDK, podrás aprovechar esta [recopilación de datos predeterminada]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection). Comprobar esta lista puede ayudarte a evitar almacenar la misma información sobre los usuarios más de una vez. A excepción del inicio y el final de la sesión, el resto de datos registrados automáticamente no se tienen en cuenta para el uso de puntos de datos.
+Ciertos datos de usuario son recopilados automáticamente por nuestro SDK, por ejemplo, Primera vez que se usó la aplicación, Última vez que se usó la aplicación, Recuento total de sesiones, SO del dispositivo, etc. Si sigues nuestras guías de integración para implementar nuestros SDK, podrás aprovechar esta [recopilación de datos predeterminada]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection). Revisar esta lista puede ayudarte a evitar almacenar la misma información sobre los usuarios más de una vez. Con la excepción del inicio y el final de sesión, todos los demás datos rastreados automáticamente no cuentan para tu uso de puntos de datos.
 
 {% alert note %}
-Todas nuestras características son configurables, pero es una buena idea implementar completamente el modelo predeterminado de recopilación de datos.
+Todas nuestras características son configurables, pero es buena idea implementar completamente el modelo de recopilación de datos predeterminado.
 
-<br>Si es necesario para tu caso de uso, puedes [limitar la recogida de determinados datos](#blocking-data-collection) una vez finalizada la integración.
+<br>Si es necesario para tu caso de uso, puedes [limitar la recopilación de ciertos datos](#blocking-data-collection) una vez completada la integración.
 {% endalert %}
 
 ## Carga y descarga de datos {#data-upload-and-download}
 
-El SDK de Braze almacena en caché los datos (sesiones, eventos personalizados, etc.) y los carga periódicamente. Solo cuando se hayan cargado los datos se actualizarán los valores en el dashboard. El intervalo de carga tiene en cuenta el estado del dispositivo y se rige por la calidad de la conexión a la red:
+El SDK de Braze almacena datos en caché (sesiones, eventos personalizados, etc.) y los carga periódicamente. Solo después de que los datos se hayan cargado se actualizarán los valores en el panel. El intervalo de carga tiene en cuenta el estado del dispositivo y se rige por la calidad de la conexión de red:
 
-| Calidad de la conexión a la red | Intervalo de vaciado de datos |
+|Calidad de la conexión de red |    Intervalo de vaciado de datos|
 |---|---|
-| Excelente | 10 segundos |
-| Buena | 30 segundos |
-| Deficiente | 60 segundos |
+|Excelente    |10 segundos|
+|Buena    |30 segundos|
+|Deficiente    |60 segundos|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Carga y descarga de datos" }
 
-Si no hay conexión de red, los datos se almacenan en caché localmente en el dispositivo hasta que se restablezca la conexión de red. Cuando se restablezca la conexión, los datos se cargarán en Braze.
+Si no hay conexión de red, los datos se almacenan en caché de forma local en el dispositivo hasta que se restablezca la conexión. Cuando se restablece la conexión, los datos se cargan a Braze.
 
-Braze envía datos al SDK al inicio de una sesión en función de los segmentos en los que se encuentra el usuario en el momento de la sesión. Los nuevos mensajes dentro de la aplicación no se actualizarán durante la sesión. Sin embargo, los datos de usuario durante la sesión se procesarán continuamente a medida que se envíen desde el cliente. Por ejemplo, un usuario inactivo (que utilizó la aplicación por última vez hace más de 7 días) seguirá recibiendo contenido dirigido a usuarios inactivos en su primera sesión de vuelta a la aplicación.
+Braze envía datos al SDK al inicio de una sesión en función de los Segments en los que se encuentra el usuario en el momento de la sesión. Los nuevos mensajes dentro de la aplicación no se actualizarán durante la sesión. Sin embargo, los datos del usuario durante la sesión se seguirán procesando continuamente a medida que se envían desde el cliente. Por ejemplo, un usuario inactivo (que no haya utilizado la aplicación en más de 7 días) seguirá recibiendo contenido dirigido a usuarios inactivos en su primera sesión de vuelta en la aplicación.
 
 ## Bloqueo de la recopilación de datos {#blocking-data-collection}
 
-Es posible (aunque no se recomienda) bloquear la recopilación automática de ciertos datos de tu integración de SDK, o incluir en una lista de permitidos los procesos que lo hagan.
+Es posible (aunque no se recomienda) bloquear la recopilación automática de ciertos datos de tu integración de SDK, o crear una lista de permitidos de los procesos que lo hacen.
 
-No se recomienda bloquear la recopilación de datos porque eliminar los datos de análisis reduce la capacidad de personalización y segmentación de tu plataforma. Por ejemplo:
+No se recomienda bloquear la recopilación de datos porque eliminar los datos analíticos reduce la capacidad de personalización y segmentación de tu plataforma. Por ejemplo:
 
-- Si decides no realizar una integración completa para la ubicación en uno de los SDK, no podrás personalizar tu mensajería en función del idioma o la ubicación.
-- Si decides no realizar la integración para la zona horaria, es posible que no puedas enviar mensajes dentro de la zona horaria de un usuario.
-- Si decides no realizar la integración para la información visual de un dispositivo específico, es posible que el contenido de los mensajes no esté optimizado para ese dispositivo.
+- Si decides no integrar completamente la ubicación en uno de los SDK, no podrás personalizar tus mensajes en función del idioma o la ubicación.
+- Si decides no integrar la zona horaria, es posible que no puedas enviar mensajes dentro de la zona horaria del usuario.
+- Si decides no integrar información visual específica del dispositivo, el contenido de los mensajes podría no estar optimizado para ese dispositivo.
 
 Recomendamos encarecidamente integrar completamente los SDK para aprovechar al máximo las capacidades de nuestro producto.
 
 {% tabs %}
 {% tab Web SDK %}
 
-Puedes simplemente no integrar determinadas partes del SDK, o utilizar [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk) para un usuario. Este método sincronizará los datos registrados antes de que se llamara a `disableSDK()`, y hará que se ignoren todas las llamadas posteriores al SDK Web de Braze para esta página y para futuras cargas de páginas. Si deseas reanudar la recopilación de datos en un momento posterior, puedes utilizar el método [`enableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk) en el futuro para reanudar la recopilación de datos. Puedes obtener más información al respecto en nuestro artículo [Desactivar el seguimiento Web]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=web).
+Puedes simplemente no integrar ciertas partes del SDK, o utilizar [`disableSDK`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#disablesdk) para un usuario. Este método sincronizará los datos registrados antes de que se llamara a `disableSDK()`, y hará que todas las llamadas posteriores al SDK Web de Braze para esta página y futuras cargas de página sean ignoradas. Si deseas reanudar la recopilación de datos en un momento posterior, puedes utilizar el método [`enableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk) en el futuro para reanudar la recopilación de datos. Puedes obtener más información sobre esto en nuestro artículo [Desactivación del seguimiento web]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=web).
 
 {% endtab %}
 {% tab Android SDK %}
 
-Puedes utilizar [`setDeviceObjectAllowlist`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html?query=fun%20setDeviceObjectAllowlist(deviceObjectAllowlist:%20EnumSet%3CDeviceKey%3E):%20BrazeConfig.Builder) para configurar el SDK para que solo envíe un subconjunto de claves o valores del objeto dispositivo según una lista de permitidos establecida. Esto debe habilitarse mediante [`setDeviceObjectAllowlistEnabled`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html?query=fun%20setDeviceObjectAllowlistEnabled(enabled:%20Boolean):%20BrazeConfig.Builder).
+Puedes utilizar [`setDeviceObjectAllowlist`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist.html?query=fun%20setDeviceObjectAllowlist(deviceObjectAllowlist:%20EnumSet%3CDeviceKey%3E):%20BrazeConfig.Builder) para configurar el SDK de modo que solo envíe un subconjunto de las claves o valores del objeto de dispositivo según una lista de permitidos. Esto debe habilitarse mediante [`setDeviceObjectAllowlistEnabled`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-device-object-allowlist-enabled.html?query=fun%20setDeviceObjectAllowlistEnabled(enabled:%20Boolean):%20BrazeConfig.Builder).
 
 {% alert important %}
-Si la lista de permitidos está vacía, **no se** enviarán datos de dispositivo a Braze.
+Una lista de permitidos vacía hará que **no** se envíe ningún dato de dispositivo a Braze.
 {% endalert %}
 
 {% endtab %}
 {% tab Swift SDK %}
 
-Puedes asignar un conjunto de campos elegibles a [`configuration.devicePropertyAllowList`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/devicepropertyallowlist) en tu `Braze.Configuration` para especificar una lista de permitidos para los campos del dispositivo que recoge el SDK. La lista completa de campos se define en [`Braze.Configuration.DeviceProperty`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/deviceproperty). Para desactivar la recopilación de todos los campos del dispositivo, establece el valor de esta propiedad en un conjunto vacío (`[]`).
+Puedes asignar un conjunto de campos elegibles a [`configuration.devicePropertyAllowList`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/devicepropertyallowlist) en tu `Braze.Configuration` para especificar una lista de permitidos de los campos de dispositivo que el SDK recopila. La lista completa de campos se define en [`Braze.Configuration.DeviceProperty`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/deviceproperty). Para desactivar la recopilación de todos los campos de dispositivo, establece el valor de esta propiedad como un conjunto vacío (`[]`).
 
 {% alert important %}
-De manera predeterminada, todos los campos son recogidos por el SDK Swift de Braze. Eliminar algunas propiedades del dispositivo puede desactivar características del SDK.
+De forma predeterminada, el SDK Swift de Braze recopila todos los campos. Eliminar algunas propiedades del dispositivo puede deshabilitar funciones del SDK.
 {% endalert %}
 
-Para más detalles de uso, consulta [Almacenamiento]({{site.baseurl}}/developer_guide/storage?tab=swift) en la documentación del SDK Swift.
+Para obtener más detalles de uso, consulta [Almacenamiento]({{site.baseurl}}/developer_guide/storage?tab=swift) en la documentación del SDK Swift.
 
 {% endtab %}
 {% endtabs %}
 
-## ¿En qué versión del SDK estoy? {#what-version-of-the-sdk-am-i-on}
+## ¿Qué versión del SDK estoy utilizando? {#what-version-of-the-sdk-am-i-on}
 
-Puedes utilizar el dashboard para ver la versión del SDK de una aplicación concreta visitando **Configuración** > **Configuración de la aplicación**. La **Versión del SDK en vivo** muestra la versión más alta del SDK de Braze utilizada por tu aplicación en vivo más reciente para al menos el 5 % de tus usuarios.
+Puedes usar el panel para ver la versión del SDK de una aplicación en particular visitando **Configuración > Configuración de la aplicación**. La **versión del SDK en vivo** muestra la versión más alta del SDK de Braze utilizada por tu aplicación en vivo más reciente para al menos el 5% de tus usuarios.
 
-![Una aplicación llamada Swifty en un espacio de trabajo. La versión del SDK en vivo es la 6.6.0.]({% image_buster /assets/img/live-sdk-version.png %}){: style="max-width:80%"}
+![Una aplicación llamada Swifty en un espacio de trabajo. La versión del SDK en vivo es 6.6.0.]({% image_buster /assets/img/live-sdk-version.png %}){: style="max-width:80%"}
 
 {% alert tip %}
-Si tienes una aplicación iOS, puedes confirmar que estás utilizando el [SDK Swift]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift) en lugar del [SDK Objective-C de iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) heredado si la **versión de tu SDK en vivo** es igual o superior a la 5.0.0, que fue la primera versión publicada del SDK Swift.
+Si tienes una aplicación iOS, puedes confirmar que estás utilizando el [SDK de Swift]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift) en lugar del antiguo [SDK de Objective-C para iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) si tu **versión del SDK en vivo** es igual o superior a 5.0.0, que fue la primera versión publicada del SDK de Swift.
 {% endalert %}

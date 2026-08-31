@@ -1,13 +1,13 @@
 ---
-nav_title: "Nutzer:in-Attribute festlegen"
-article_title: Legen Sie Benutzerattribute über das Braze SDK fest.
+nav_title: Nutzerattribute festlegen
+article_title: Nutzerattribute festlegen
 page_order: 1.2
-description: "Lernen Sie, wie Sie Nutzer:innen-Attribute mit dem Braze SDK festlegen können."
+description: "Erfahren Sie, wie Sie Nutzerattribute mit dem Braze SDK festlegen können."
 ---
 
-# Nutzer:in-Attribute festlegen
+# Nutzerattribute festlegen {#set-user-attributes}
 
-> Lernen Sie, wie Sie Nutzer:innen-Attribute mit dem Braze SDK festlegen können.
+> Erfahren Sie, wie Sie Nutzerattribute mit dem Braze SDK festlegen können.
 
 {% alert note %}
 Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die entsprechende native Android- oder Swift-Methode.

@@ -182,20 +182,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  /**
-   * Remove source/type label badges from the tab order — they are metadata
-   * inside result rows, not independent interactive controls.
-   * @param {Element} [root] — scope the search; defaults to document
-   */
-  function patchSourceLabels(root) {
-    (root || document)
-      .querySelectorAll(".su__source-label, .su__ribbon-title")
-      .forEach((el) => {
-        if (el.getAttribute("tabindex") !== "-1") {
-          el.setAttribute("tabindex", "-1");
-        }
-      });
-  }
+  const patchSourceLabels =
+    window.SuSearchA11y?.patchSourceLabels ||
+    function (root) {
+      (root || document)
+        .querySelectorAll(".su__source-label, .su__ribbon-title")
+        .forEach((el) => {
+          if (el.getAttribute("tabindex") !== "-1") {
+            el.setAttribute("tabindex", "-1");
+          }
+        });
+    };
 
   // Watch for dynamic content
   const targetNode = document.querySelector("#su_main_search");

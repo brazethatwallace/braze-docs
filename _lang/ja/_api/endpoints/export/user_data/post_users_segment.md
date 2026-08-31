@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "この記事では、「セグメント別ユーザーのエクスポート」Brazeエンドポイントの詳細について説明します。"
-
 ---
 {% api %}
 # セグメント別ユーザープロファイルのエクスポート {#export-user-profile-by-segment}
@@ -160,7 +159,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/segme
 | `phone` | 文字列 | Brazeにインポートされた形式のユーザーの電話番号。たとえば、電話番号を追加するリクエストが`1234567890`として送信された場合、同じ形式でエクスポートされます。 |
 | `purchases` | 配列 | このユーザーが過去90日間に行った購入。 |
 | `push_tokens` | 配列 | ユーザーのプッシュトークンに関する情報。 |
-| `random_bucket` | 整数 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event)。ランダムユーザーの均一分布セグメントを作成するために使用されます。 |
+| `random_bucket` | 整数 | ユーザーの[ランダムバケット番号]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)。ランダムユーザーの均一分布セグメントを作成するために使用されます。 |
 | `time_zone` | 文字列 | IANAタイムゾーンデータベースと同じ形式のユーザーのタイムゾーン。 |
 | `total_revenue` | 浮動小数点 | このユーザーに帰属する総収益。総収益は、受信したキャンペーンおよびキャンバスのコンバージョン期間中にユーザーが行った購入に基づいて計算されます。 |
 | `uninstalled_at` | タイムスタンプ | ユーザーがアプリをアンインストールした日時。アプリがアンインストールされていない場合は省略されます。 |

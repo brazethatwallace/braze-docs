@@ -158,11 +158,12 @@ If your landing page doesn’t include a form, continue to the next step.
 If your form uses a [multi-step form]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/multi_step_forms), skip this step. Multi-step forms include a built-in, locked confirmation step, so you don't need a separate confirmation page.
 {% endalert %}
 
-If your landing page includes a [form](#form-blocks), create a second landing page to serve as the confirmation experience. This page should thank users or provide a next step after form submission.
+If your landing page includes a [form](#form-blocks), you can optionally create a second landing page to serve as the confirmation experience. This page should thank users or provide a next step after form submission.
 
-To link the confirmation page:
-- Select the **Submit** button on your form
-- Use the **Open web URL** action to link to your confirmation page
+1. Select the **Submit** button on your form
+2. Choose whether to include a confirmation page when users submit your form
+    - Use the **Open web URL** on-click behavior to send users to a confirmation page
+    - Use the **None** on-click behavior for users to remain on the landing page
 
 If you don’t include a confirmation page, users may not know their form was submitted successfully. Always include a confirmation experience to complete the journey.
 

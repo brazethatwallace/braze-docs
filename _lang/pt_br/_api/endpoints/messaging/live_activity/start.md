@@ -33,7 +33,7 @@ Para configurar o encerramento automático após o início de uma Live Activity,
 2. Armazene esse `activity_id` e o horário de encerramento desejado no agendador do seu backend.
 3. No horário de encerramento desejado, envie uma solicitação `/messages/live_activity/update` com `end_activity` definido como `true`.
 4. Configure o comportamento de encerramento na mesma solicitação de atualização. Para mais detalhes, consulte o endpoint [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update).
-5. Verifique os eventos de envio e resultado no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab).
+5. Verifique os eventos de envio e resultado no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#2300226e-f26a-4154-9bcc-5883f1f294cd {% endapiref %}
 

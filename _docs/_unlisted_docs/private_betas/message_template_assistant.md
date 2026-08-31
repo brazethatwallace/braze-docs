@@ -25,7 +25,7 @@ In the HTML email template editor, the **Generate** sidebar group contains the *
 
 ## How it works
 
-Operator uses your [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) and [global style settings]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings/) to tailor the message content and style to your brand.
+Operator uses your [brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) and [global style settings]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) to tailor the message content and style to your brand.
 
 For example, if you have global style settings set up, Operator incorporates your brand's colors and styles. If you have brand guidelines defined in Braze, Operator also references these to create copy in the tone and personality of your brand.
 

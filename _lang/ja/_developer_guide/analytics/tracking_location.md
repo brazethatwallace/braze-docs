@@ -1,9 +1,8 @@
 ---
 nav_title: 位置情報の追跡
-article_title: Braze SDKを通じて位置情報の追跡を行う
+article_title: 位置情報の追跡
 page_order: 3.4
 description: "Braze SDKで位置情報を追跡する方法について説明します。"
-
 ---
 
 # 位置情報の追跡 {#track-location}

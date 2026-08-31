@@ -3,11 +3,11 @@ page_order: 0
 nav_title: Accueil
 layout: dev_guide
 guide_top_header: "Guide du développeur Braze"
-guide_top_text: "C'est ici que les développeurs trouveront tout ce qu'ils doivent savoir sur le SDK Braze. Chaque SDK est hébergé dans son propre dépôt public GitHub, qui comprend des exemples d'applications entièrement compilables que vous pouvez utiliser pour tester les fonctionnalités de Braze ou les intégrer à vos propres applications. Pour en savoir plus, consultez <a href='/docs/developer_guide/references'>Références, dépôts et exemples d'applications</a>.<br><br>Vous souhaitez échanger, apprendre et vous inspirer d'autres développeurs qui créent avec Braze ? Rejoignez la <a href='https://www.braze.com/dev-portal'>communauté des développeurs Braze</a> !"
+guide_top_text: "C'est ici que les développeurs trouveront tout ce dont ils ont besoin pour intégrer le SDK Braze et les API associées. Chaque SDK est hébergé dans son propre dépôt public GitHub, avec des exemples d'applications entièrement compilables que vous pouvez utiliser pour tester les fonctionnalités de Braze ou les implémenter avec vos propres applications. Parcourez les guides de plateforme pour Web, iOS, Android et d'autres intégrations, puis consultez <a href='/docs/developer_guide/references'>Références, dépôts et exemples d'applications</a> pour les liens vers les dépôts. Vous souhaitez échanger avec d'autres développeurs qui créent avec Braze ? Rejoignez la <a href='https://www.braze.com/dev-portal'>communauté des développeurs Braze</a> !"
 article_title: Guide du développeur Braze
 description: "Cette page d'accueil est l'endroit où les développeurs peuvent trouver toutes les intégrations disponibles avec Braze."
 
-guide_featured_title: "Intégrations disponibles"
+guide_featured_title: "Intégrations phares"
 guide_featured_list:
 - name: Web
   link: /docs/developer_guide/sdk_integration?sdktab=web

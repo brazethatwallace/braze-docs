@@ -31,28 +31,28 @@ hidden: true
 
 ## メリット {#benefits}
 
-ラストタッチアトリビューションは、標準的なコンバージョントラッキングに比べて主要な利点を提供します。
+ラストタッチアトリビューションは、標準的なコンバージョントラッキングに比べて重要な利点があります。
 
-* コンバージョンを特定のタッチポイントに帰属させることができ、どのチャネル（キャンペーンやキャンバスだけでなく）が成果を生み出しているかを理解できるようになります。
-* クレジットは最後にタッチされたメッセージにのみ付与されるため、各コンバージョンは1回だけカウントされ、共通のコンバージョンイベントやオーディエンスを持つキャンペーンやキャンバス間でのコンバージョンの重複が排除されます。
+* コンバージョンを特定のタッチポイントに帰属させることができるため、どのチャネル（キャンペーンやキャンバスだけでなく）が成果を生み出しているかを把握できます。
+* クレジットは最後にタッチされたメッセージにのみ付与されるため、各コンバージョンは1回だけカウントされ、コンバージョンイベントやオーディエンスを共有するキャンペーンやキャンバス間でのコンバージョンの重複が排除されます。
 
-## レポートにラストタッチアトリビューション指標を追加する {#add-last-touch-attribution-metrics-to-your-report}
+## ラストタッチアトリビューション指標をレポートに追加する {#add-last-touch-attribution-metrics-to-your-report}
 
-1. **Analytics**の**レポートビルダー**に移動します。
-2. **レポートを作成** > **カスタムレポートを作成**を選択します。
-3. **行**ドロップダウンで、レポートを作成する対象を選択します。
-4. （オプション）**ドリルダウンを追加**を選択し、レポートをさらに詳しく掘り下げる領域を選択します。
-5. **列**で**指標をカスタマイズ**を選択します。
-6. **コンバージョン**で**Last Touch Attribution**を選択し、次に**すべて選択**を選択します。
+1. **Analytics** の **レポートビルダー** に移動します。
+2. **Create report** > **Create custom report** を選択します。
+3. **Rows** ドロップダウンで、レポートを作成する対象を選択します。
+4. （オプション）**Add drilldown** を選択し、レポートをさらに詳しく分析する領域を選択します。
+5. **Columns** で **Customize metrics** を選択します。
+6. **Conversions** で **Last Touch Attribution** を選択し、**Select All** を選択します。
 
 {% alert note %}
-収益および購入指標は利用できません。
+収益および購入の指標は使用できません。
 {% endalert %}
 
-![ラストタッチアトリビューション指標が表示された指標カスタマイズパネル。]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
+![ラストタッチアトリビューション指標が表示された「Customize metrics」パネル。]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
 
 {: start="7" }
-7. [レポートビルダー]({{site.baseurl}}/user_guide/analytics/reporting/report_builder)ページのステップ7〜9に従ってください。
+7. [レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)ページのステップ7〜9に従ってください。
 
 {% alert note %}
 {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="last-touch attribution metrics in Report Builder" %}

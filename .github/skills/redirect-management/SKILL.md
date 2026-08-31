@@ -135,6 +135,7 @@ Run all commands from the **repository root**.
 - Builds a merged redirect map (handles A→B→C descendants).
 - Replaces `({{site.baseurl}}/old/path)` links with the canonical new path.
 - Updates YAML `link: /docs/...` lines in frontmatter and landing configs.
+- Skips old URLs that match a page `alias` in front matter (for example `/braze_support`) so intentional short links are preserved.
 
 **Scope:** Pass a single file or directory, for example:
 

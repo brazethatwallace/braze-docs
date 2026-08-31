@@ -9,7 +9,17 @@ description: "Durchsuchen Sie Braze-Technologie-Partner (Alloys) alphabetisch. F
 
 # Technologie-Partner {#technology-partners}
 
-Willkommen bei der Dokumentation der Braze-Technologie-Partner (Alloys). Durchsuchen Sie die Partner alphabetisch.
+> Braze-Technologie-Partner (Alloys) erweitern Braze um Personalisierung, Dateninfrastruktur, Attribution, E-Commerce, Audience Sync und Workflow-Tools. Dieser Dokumentationsbereich listet Partner alphabetisch auf und verlinkt zu Integrationsleitfäden für jede Anbindung. Nutzen Sie diese Artikel, um Voraussetzungen, Einrichtungsschritte und unterstützte Braze-Features zu prüfen, bevor Sie einen Partner in Ihrem Workspace aktivieren. Durchsuchen Sie die alphabetische Partnerliste oder springen Sie zu einem Buchstaben, um eine bestimmte Integration zu finden, und öffnen Sie dann den Artikel des Partners für Konfigurationsdetails. Für Partnerkategorien und Anwendungsfälle lesen Sie die nachfolgenden Abschnitte.
+
+## Häufig gestellte Fragen {#frequently-asked-questions}
+
+### Wie finde ich eine Braze-Technologie-Partnerintegration? {#how-do-i-find-a-braze-technology-partner-integration}
+
+Durchsuchen Sie die alphabetische Liste auf dieser Seite oder springen Sie zu einer Buchstabenüberschrift, um einen Partner nach Namen zu finden. Jeder Eintrag verlinkt auf den Braze-Integrationsartikel des jeweiligen Partners.
+
+### Was ist Braze Alloys? {#what-is-braze-alloys}
+
+Braze Alloys ist das Technologie-Partnerprogramm von Braze. Partner erweitern die Braze-Plattform um ergänzende Funktionen für Daten, Inhalte, Attribution und Orchestrierung, die in diesem Hub dokumentiert sind.
 
 <div class="partners-az-list" markdown="1">
 
@@ -168,7 +178,6 @@ Willkommen bei der Dokumentation der Braze-Technologie-Partner (Alloys). Durchsu
 - [Jasper]({{site.baseurl}}/partners/message_orchestration/templates/jasper)
 - [Jebbit]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/jebbit)
 - [Judo]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/judo)
-- [JustAI]({{site.baseurl}}/partners/message_personalization/dynamic_content/content_optimization_testing/just_ai)
 - [Justuno]({{site.baseurl}}/partners/data_and_analytics/leads_capture/justuno)
 
 </div>
@@ -401,12 +410,12 @@ Eine vollständige, durchsuchbare und filterbare Liste aller Braze-Technologie-P
 
 ## Fehlerbehebung bei Partnerverbindungen {#troubleshooting-partner-connections}
 
-Wenn die Integration eine Einrichtung auf Braze-Seite erfordert, melden Sie sich in Ihrem Braze-Dashboard an und navigieren Sie zu **Partnerintegrationen** > **Technologie-Partner**.
+Wenn die Integration eine Einrichtung auf der Braze-Seite erfordert, melden Sie sich in Ihrem Braze-Dashboard an und navigieren Sie zu **Partnerintegrationen** > **Technologie-Partner**.
 
 {% alert note %}
 Vollständig vom Partner verwaltete Integrationen sind hier möglicherweise nicht aufgeführt. Lesen Sie die partnerspezifische Dokumentation, um die Zuständigkeit für die Integration und die Konfigurationsschritte zu überprüfen.
 {% endalert %}
 
-Wenn Sie in Braze **Ungültige Zugangsdaten** für einen Partner sehen, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Technologie-Partnerseite und verbinden Sie sie erneut. Überprüfen Sie außerdem API-Schlüssel, OAuth-Token und Berechtigungen auf der Partnerseite.
+Wenn Sie für einen Partner in Braze **Ungültige Zugangsdaten** sehen, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Technologie-Partnerseite und verbinden Sie sie erneut. Bestätigen Sie API-Schlüssel, OAuth-Token und Berechtigungen auf der Partnerseite.
 
-Einige externe Dashboards (z. B. Tools zur Zustellbarkeits- oder Posteingangsüberwachung) können einen anderen Verbindungs- oder Verifizierungsstatus anzeigen als die Braze-Technologie-Partnerseite. Verwenden Sie die Partner-Kachel in Braze für den Verbindungsstatus, auf den sich Braze für Synchronisierung und Versand stützt.
+Einige externe Dashboards (z. B. Tools für Zustellbarkeit oder Posteingangs-Monitoring) können einen anderen Verbindungs- oder Verifizierungsstatus anzeigen als die Braze-Technologie-Partnerseite. Verwenden Sie die Partner-Kachel in Braze für den Verbindungsstatus, auf den sich Braze für Synchronisierung und Versand stützt.

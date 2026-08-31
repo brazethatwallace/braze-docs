@@ -107,7 +107,7 @@ Add a short footer to appear after the message body.
 
 #### Buttons (optional)
 
-Add up to 10 buttons to your template. Button types have different categories and specifications.
+Add up to 10 buttons to your template. Button types have different categories and specifications, and are grouped by category after the message body. By default, quick reply buttons appear first. To swap the order they appear—such as moving quick reply buttons after call-to-action buttons—select **Swap group order**.
 
 | Button type | Category | Specifications |
 | --- | --- | --- |
@@ -116,8 +116,6 @@ Add up to 10 buttons to your template. Button types have different categories an
 | Visit website | Call to Action buttons | {::nomarkdown}<ul><li><b>Maximum count:</b> 2</li><li><b>Button text:</b> Up to 25 characters</li><li><b>Website URL:</b> Up to 2,000 characters</li></ul> {:/}|
 | Copy offer code | Call to Action buttons | {::nomarkdown}<ul><li><b>Maximum count:</b> 1</li><li><b>Button text:</b> "Copy offer code" (can't be edited)</li><li><b>Offer code:</b> Up to 15 characters</li></ul> {:/}|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Buttons (optional)" }
-
-![WhatsApp template composer with quick reply and call to action buttons.]({% image_buster /assets/img/whatsapp/templates/buttons.png %})
 
 For Flow templates, configure the Flow button and select an existing Flow from Meta instead of adding standard call-to-action buttons.
 

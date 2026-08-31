@@ -30,7 +30,7 @@ Los bloques de editor se encuentran en la sección **Contenido** para mensajes d
 Para más información sobre cómo crear correos electrónicos en el **editor de arrastrar y soltar**, consulta [Crear un correo electrónico con arrastrar y soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) y <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Otras personalizaciones</a> en ese artículo.
 
 {% alert tip %}
-También puedes añadir [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes) a cualquier URL dentro de los bloques de editor `Image`, `Button` o `Text`.
+También puedes añadir [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types) a cualquier URL dentro de los bloques de editor `Image`, `Button` o `Text`.
 {% endalert %}
 
 ### Título {#title}
@@ -306,7 +306,7 @@ Añade una lista de opciones de las cuales los usuarios pueden seleccionar una. 
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
-### Imagen {#image}
+### Imagen
 
 Inserta una imagen de la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
 
@@ -330,7 +330,7 @@ Inserta un hipervínculo en el que los usuarios pueden hacer clic para navegar a
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 
-### Espaciador {#spacer}
+### Espaciador
 
 Añade espacio o relleno entre otros bloques.
 
@@ -515,7 +515,7 @@ Los usuarios eligen múltiples opciones; los valores se establecen o añaden a u
 
 ### Gestionar suscripciones {#manage-subscriptions}
 
-Añade una lista de verificación de [grupos de suscripción de correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups) para que los visitantes puedan optar por suscribirse o gestionar sus suscripciones cuando envíen el formulario. Configúralo después de añadir grupos de suscripción al bloque. Este bloque solo admite grupos de suscripción de correo electrónico; no admite grupos de suscripción de SMS, RCS ni WhatsApp.
+Añade una lista de verificación de [grupos de suscripción de correo electrónico]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups) para que los visitantes puedan optar por suscribirse o gestionar sus suscripciones cuando envíen el formulario. Configúralo después de añadir grupos de suscripción al bloque. Este bloque solo admite grupos de suscripción de correo electrónico; no admite grupos de suscripción de SMS, RCS ni WhatsApp.
 
 Para usuarios identificados que abren la página a través de la [etiqueta de Liquid]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) de la página de destino, el bloque rellena previamente cada casilla de verificación con el estado de suscripción actual del usuario, por lo que también puede servir como página de gestión de preferencias.
 

@@ -166,4 +166,4 @@ User profiles must have phone numbers in E.164 format to message them through Ka
 
 ### Import phone numbers
 
-Import phone numbers by [uploading a CSV or using the API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users) to create a user. Ensure phone numbers are in E.164 format before importing.
+Import phone numbers by [uploading a CSV or using the API]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/) to create a user. Ensure phone numbers are in E.164 format before importing.

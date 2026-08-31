@@ -151,7 +151,7 @@ At this stage, the Canvas can access the response to the Connected Content call,
 {% endraw %}
 {% enddetails %}
 
-You can leverage any of the data available in the preceding object using the context Liquid tag later in the user's Canvas journey. The following steps show how you can use this data in an [Agent]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/agent_step) step.
+You can leverage any of the data available in the preceding object using the context Liquid tag later in the user's Canvas journey. The following steps show how you can use this data in an [Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) step.
 
 {% alert note %}
 To avoid unexpected behavior, include an Audience Path step after the Context step, which can drop users out of the context if their Context tag is empty, indicating the Connected Content call failed or otherwise returned no information.

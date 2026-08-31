@@ -1,6 +1,6 @@
 ---
 nav_title: "POST : Créer et mettre à jour des utilisateurs"
-article_title: "POST : Créer et mettre à jour des utilisateurs"
+article_title: "Créer et mettre à jour des utilisateurs"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -28,7 +28,7 @@ Utilisez l'[endpoint `/users/track/bulk`]({{site.baseurl}}/api/endpoints/user_da
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `users.track`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics) avec l'autorisation `users.track`.
 
 Les clients qui utilisent l'API pour des appels de serveur à serveur devront peut-être ajouter `rest.iad-01.braze.com` à leur liste d'autorisations s'ils sont derrière un pare-feu.
 
@@ -57,7 +57,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 Pour chaque composant de la requête listé dans le tableau suivant, vous devez inclure l'un des éléments suivants : `external_id`, `user_alias`, `braze_id`, `email` ou `phone`.
 {% endalert %}
 
-| Paramètre | Requis | Type de données | Description |
+| Paramètre | Obligatoire | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
 | `attributes` | Facultatif | Tableau d'objets Attributs | Voir [objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object) |
 | `events` | Facultatif | Tableau d'objets Événement | Voir l'[objet événements]({{site.baseurl}}/api/objects_filters/event_object) |

@@ -31,25 +31,25 @@ Mit dem Empfänger:innen-Objekt können Sie das [Nutzer-Alias-Objekt]({{site.bas
 }]
 ```
 
-Wenn `send_to_existing_only` auf `true` gesetzt ist, sendet Braze die Nachricht nur an bestehende Nutzer:innen. Dieses Flag kann jedoch nicht mit Nutzer-Aliasen verwendet werden.
+Wenn `send_to_existing_only` auf `true` gesetzt ist, sendet Braze die Nachricht nur an bestehende Nutzer:innen. Dieses Flag kann jedoch nicht mit Nutzer-Aliases verwendet werden.
 
-Wenn `send_to_existing_only` auf `false` gesetzt ist, müssen Sie im selben Empfänger:innen-Eintrag ein `attributes`-Objekt angeben. Das Flag ersetzt nicht `attributes`. Braze verwendet `attributes` für die Profilerstellung oder -aktualisierung vor dem Versand (z. B. um `email`- oder Telefonnummernfelder für E-Mail- oder SMS-Zustellung hinzuzufügen oder Abo-Gruppen zu aktualisieren). Ohne dieses Objekt erhalten Sie nicht das beabsichtigte kombinierte Verhalten für völlig neue Nutzer:innen bei [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) oder [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
+Wenn `send_to_existing_only` auf `false` gesetzt ist, müssen Sie ein `attributes`-Objekt für denselben Empfänger bzw. dieselbe Empfängerin angeben. Das Flag ersetzt nicht `attributes`. Braze verwendet `attributes` für die Profilerstellung oder -aktualisierung vor dem Versand (z. B. das Hinzufügen von `email`- oder Telefonnummernfeldern für die E-Mail- oder SMS-Zustellung oder die Aktualisierung von Abo-Gruppen). Ohne dieses Objekt erhalten Sie nicht das beabsichtigte kombinierte Verhalten für völlig neue Nutzer:innen bei [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) oder [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 
-Das Profil muss weiterhin die Zielgruppen- und Kanalberechtigungsregeln der Nachricht erfüllen, bevor Braze den Versand durchführt.
+Das Profil muss weiterhin die Zielgruppen- und Kanalberechtigungsregeln der Nachricht erfüllen, bevor Braze die Nachricht sendet.
 
 - [Braze-ID]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
-- [Nutzer-Aliase]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
+- [Nutzer-Aliases]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases)
 - [Externe Nutzer-ID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
 - [Priorisierung]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)
 - [Nutzerattribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 
-## Deduplizierung von Empfänger:innen-Objekten {#recipient-object-deduping}
+## Deduplizierung des Empfänger:innen-Objekts {#recipient-object-deduping}
 
-Wenn Sie einen API-Aufruf mit dem Empfänger:innen-Objekt durchführen und **ein:e doppelte:r Empfänger:in mit derselben Adresse vorhanden ist (z. B. E-Mail, Push), führt Braze eine Deduplizierung durch** – das heißt, Braze entfernt identische Nutzer:innen und behält nur eine:n.
+Wenn Sie einen API-Aufruf mit dem Empfänger:innen-Objekt durchführen und **ein doppelter Empfänger bzw. eine doppelte Empfängerin vorhanden ist, der/die dieselbe Adresse anspricht (d. h. E-Mail, Push), dedupliziert Braze die Nutzer:innen** – das bedeutet, Braze entfernt identische Nutzer:innen und behält nur eine Person bei.
 
-Wenn Sie beispielsweise dieselbe `external_user_id` verwenden, erhält die/der Nutzer:in nur eine Nachricht. Ziehen Sie mehrere API-Aufrufe in Betracht, wenn Sie dieses Verhalten umgehen möchten.
+Wenn Sie beispielsweise dieselbe `external_user_id` verwenden, erhält die nutzende Person nur eine Nachricht. Erwägen Sie mehrere API-Aufrufe, wenn Sie dieses Verhalten umgehen müssen.
 
-Wenn dieselbe `external_user_id` mehrfach im Empfänger:innen-Array vorkommt, sendet Braze nur eine Nachricht und verwendet die Trigger-Eigenschaften des letzten Vorkommens im Array. Dieses Verhalten ist deterministisch und basiert auf der Reihenfolge im Array.
+Wenn dieselbe `external_user_id` mehrmals im Empfänger:innen-Array vorkommt, sendet Braze nur eine Nachricht und verwendet die Trigger-Eigenschaften aus dem letzten Vorkommen im Array. Dieses Verhalten ist deterministisch und basiert auf der Reihenfolge im Array.
 
 Im folgenden Beispiel erhält `userid1` eine Nachricht mit `"name": "Beth Test 2"`, da dieser Eintrag als letzter im Array steht.
 

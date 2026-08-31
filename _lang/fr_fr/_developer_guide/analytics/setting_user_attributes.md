@@ -1,11 +1,11 @@
 ---
-nav_title: "Définir les attributs de l'utilisateur"
-article_title: Définissez les attributs utilisateur via le SDK Braze.
+nav_title: Définir les attributs de l'utilisateur
+article_title: Définir les attributs de l'utilisateur
 page_order: 1.2
 description: "Découvrez comment définir les attributs de l'utilisateur via le SDK de Braze."
 ---
 
-# Définir les attributs de l'utilisateur
+# Définir les attributs de l'utilisateur {#set-user-attributes}
 
 > Découvrez comment définir les attributs de l'utilisateur via le SDK de Braze.
 

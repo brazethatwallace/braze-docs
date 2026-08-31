@@ -27,7 +27,7 @@ description: "この記事では、「ユーザーエイリアスの更新」Bra
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.alias.update`権限を持つ[API キー]({{site.baseurl}}/api/api_key)が必要です。
+このエンドポイントを使用するには、`users.alias.update`権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -50,7 +50,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | パラメーター | 必須 | データタイプ | 説明 |
 | --------- | --------- | --------- | ----------- |
-| `alias_updates` | 必須 | ユーザーエイリアス更新オブジェクトの配列 | [ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)を参照してください。<br><br>`old_alias_name`、`new_alias_name`、`alias_label`の詳細については、[ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)を参照してください。 |
+| `alias_updates` | 必須 | ユーザーエイリアス更新オブジェクトの配列 | [ユーザーエイリアスオブジェクト]({{site.baseurl}}/api/objects_filters/user_alias_object)を参照してください。<br><br>`old_alias_name`、`new_alias_name`、`alias_label`の詳細については、[ユーザーエイリアス]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ### ユーザーエイリアス更新オブジェクト指定のエンドポイントリクエスト本文 {#endpoint-request-body-with-update-user-alias-object-specification}

@@ -88,7 +88,25 @@ Adjust the tile size by dragging the resize handle, and adjust the tile position
 
 ### Available dashboards
 
-Braze provides pre-built dashboards for frequent use cases such as analysis of revenue using last-touch attribution. Note that the ability to edit a dashboard is not yet available. Contact your customer success manager if you'd like to see certain dashboard in the future.
+Braze provides pre-built dashboards for frequent use cases. Use the following table as the single reference for currently documented dashboards and where to access each one.
+
+| dashboard | Access path | Documentation |
+| --- | --- | --- |
+| Revenue - Last Touch Attribution | **Analytics** > **Dashboard Builder** | [Revenue - Last Touch Attribution](#revenue---last-touch-attribution) |
+| Devices and carriers | **Analytics** > **Dashboard Builder** | [Devices and carriers](#devices-and-carriers) |
+| Segment Insights - Email | **Analytics** > **Dashboard Builder** | [Segment Insights - Email](#segment-insights---email) |
+| Session Analytics | **Analytics** > **Dashboard Builder** | [Session Analytics](#session-analytics) |
+| eCommerce Revenue - Last Touch Attribution | **Analytics** > **Dashboard Builder** | [eCommerce revenue dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/ecommerce_revenue_dashboard) |
+| Messaging Diagnostics | **Analytics** > **Dashboard Builder** | [Messaging diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) |
+| Industry Benchmarks | **Analytics** > **Dashboard Builder** | [Industry Benchmarks dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/industry_benchmarks_dashboard) |
+| Email performance | **Analytics** > **Email Performance** | [Channel performance dashboards]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-performance-dashboard) |
+| SMS performance | **Analytics** > **SMS Performance** | [Channel performance dashboards]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#sms-performance-dashboard) |
+| Push performance | **Analytics** > **Dashboard Builder** > **Push Channel Dashboard** | [Channel performance dashboards]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#push-performance-dashboard) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Available dashboards" }
+
+{% alert note %}
+The ability to edit Braze-created dashboards isn't yet available. Contact your customer success manager if you'd like to request additional dashboards.
+{% endalert %}
 
 #### Revenue - Last Touch Attribution
 

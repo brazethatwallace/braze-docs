@@ -353,17 +353,15 @@ In this example, we have our Canvas divided into two variants. Variant 1 has 70%
 
 ![An example variant in a Braze Canvas, where 70% go to "Variant 1", which delays for 1 day in the first step, then sends a message in the second step. The other 30% go to a "Control" that does not have any follow-up steps.]({% image_buster /assets/img_archive/Canvas_Multivariate_Flow.png %})
 
-### Intelligent Selection for Canvas
+### Optimize Canvas variants with BrazeAI
 
-Intelligent Selection capabilities are now available within multivariate Canvases. Similar to the [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) feature for multivariate Campaigns, Intelligent Selection for Canvas analyzes the performance of each Canvas variant and adjusts the percentage of users being funneled through each variant. This distribution is based on each variant's performance metrics to maximize the total expected number of conversions.
+For a Canvas with multiple top-level variants, turn on **Optimize with BrazeAI™** to automatically adjust the percentage of users entering each variant. BrazeAI™ uses variant performance to maximize the expected number of conversions.
 
-Keep in mind that multivariate Canvases allow you to test more than copy, but timing and channels as well. Through Intelligent Selection, you can test Canvases more efficiently and have confidence that your users will be sent on the best possible Canvas journey.
+Add at least two variants and one conversion event. Then, select a variant percentage to open **Edit Variant Distribution** and turn on **Optimize with BrazeAI™**.
 
-![The "Intelligent Selection" option is enabled in the "Edit Variant Distribution" page. As it analyzes and optimizes the Canvas, it displays a horizontal bar across the page that's split into several sections, each varying in color and size. This is only a visual representation and does not correlate to any specific analytics.]({% image_buster /assets/img_archive/canvas_intelligent_selection.png %})
+After the initial conversion deadline, BrazeAI™ reviews performance every 12 hours and shifts more users toward the variant that drives the most conversions. When the optimization identifies a decisive winner, all future eligible users enter that variant.
 
-Intelligent Selection for Canvas optimizes your Canvas results by making gradual real-time adjustments to the distribution of users sorted into each variant. When the statistical algorithm determines a decisive winner among your variants, it will rule out the underperforming variants and slot all future eligible recipients of the Canvas into the Winning Variants. 
-
-For this reason, Intelligent Selection works best on Canvases that have new users entering frequently.
+This optimization works best for Canvases that have new users entering frequently.
 
 ## Step 4: Save and launch
 

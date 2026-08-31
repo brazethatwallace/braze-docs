@@ -21,13 +21,13 @@ Braze와 Stripe를 통합하면 다음을 수행할 수 있습니다.
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Stripe 계정 | 이 파트너십을 활용하려면 웹훅에 접근할 수 있는 Stripe 계정이 필요합니다. |
+| Stripe 계정 | 이 파트너십을 활용하려면 웹훅에 액세스할 수 있는 Stripe 계정이 필요합니다. |
 | Braze 데이터 변환 | Stripe에서 데이터를 수신하려면 [데이터 변환 URL]({{site.baseurl}}/data_transformation)이 필요합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
-### 1단계: Stripe 웹훅을 수신하기 위한 Braze 데이터 변환 설정 {#step-1}
+### 1단계: Stripe 웹훅을 수신할 Braze 데이터 변환 설정 {#step-1}
 
 {% multi_lang_include data_activation/create_transformation.md %}
 
@@ -35,38 +35,38 @@ Braze와 Stripe를 통합하면 다음을 수행할 수 있습니다.
 
 [Stripe 웹훅 설명서](https://docs.stripe.com/development/dashboard/webhooks)의 단계를 따라 웹훅을 설정합니다.
 
-데이터 변환 웹훅 URL을 **Destination URL**로 추가하고 Braze로 전송할 이벤트 유형을 선택합니다. 전체 이벤트 유형 목록은 [Stripe 설명서](https://docs.stripe.com/api/events/types)를 참조하세요.
+데이터 변환 웹훅 URL을 **Destination URL**로 추가하고 Braze로 전송할 이벤트 유형을 선택합니다. 이벤트 유형의 전체 목록은 [Stripe 설명서](https://docs.stripe.com/api/events/types)를 참조하세요.
 
 ![Stripe 웹훅 구성 예시.]({% image_buster /assets/img/stripe/stripe_webhook_configuration.png %}){: style="max-width:80%;"}
 
-그런 다음 데이터 변환으로 테스트 이벤트를 전송합니다.
+그런 다음 데이터 변환에 테스트 이벤트를 전송합니다.
 
-### 3단계: 선택한 Stripe 이벤트를 수신하기 위한 변환 코드 작성 {#step-3-write-transformation-code-to-accept-your-chosen-stripe-events}
+### 3단계: 선택한 Stripe 이벤트를 수신할 변환 코드 작성 {#step-3-write-transformation-code-to-accept-your-chosen-stripe-events}
 
-다음으로, Stripe에서 전송되는 웹훅 페이로드를 JavaScript 오브젝트 반환 값으로 변환합니다.
+다음으로 Stripe에서 전송될 웹훅 페이로드를 JavaScript 객체 반환값으로 변환합니다.
 
 1. 데이터 변환을 새로고침하고 **Webhook details** 섹션에서 Stripe 테스트 페이로드를 확인할 수 있는지 확인합니다.
 2. 선택한 Stripe 이벤트를 지원하도록 데이터 변환 코드를 업데이트합니다.
-3. **Validate**를 선택하여 코드 출력의 미리보기를 반환하고 유효한 `/users/track` 요청인지 확인합니다.
+3. **Validate**를 선택하여 코드 출력의 미리보기를 반환하고 올바른 `/users/track` 요청인지 확인합니다.
 4. 데이터 변환을 저장하고 활성화합니다.
 
-![웹훅 세부 정보 및 변환 코드의 예시.]({% image_buster /assets/img/stripe/stripe_data_transformation.png %})
+![웹훅 세부 정보와 변환 코드 예시.]({% image_buster /assets/img/stripe/stripe_data_transformation.png %})
 
 #### 요청 본문 형식 {#request-body-format}
 
-이 반환 값은 `/users/track` 엔드포인트 요청 본문 형식을 준수해야 합니다.
+이 반환값은 `/users/track` 엔드포인트 요청 본문 형식을 준수해야 합니다.
 
 - 변환 코드는 JavaScript 프로그래밍 언어로 작성됩니다. if/else 로직과 같은 모든 표준 JavaScript 제어 흐름이 지원됩니다.
-- 변환 코드는 payload 변수를 사용하여 웹훅 요청 본문에 접근합니다. 이 변수는 요청 본문 JSON을 파싱하여 채워진 오브젝트입니다.
-- `/users/track` 엔드포인트에서 지원하는 모든 기능이 지원되며, 다음을 포함합니다.
-    - 사용자 속성 오브젝트, 이벤트 오브젝트 및 구매 오브젝트
-    - 중첩 속성 및 중첩 커스텀 이벤트 등록정보
+- 변환 코드는 payload 변수를 사용하여 웹훅 요청 본문에 접근합니다. 이 변수는 요청 본문 JSON을 파싱하여 채워진 객체입니다.
+- `/users/track` 엔드포인트에서 지원되는 모든 기능이 지원되며, 여기에는 다음이 포함됩니다:
+    - 사용자 속성 객체, 이벤트 객체, 구매 객체
+    - 중첩 속성 및 중첩 커스텀 이벤트 속성정보
     - 구독 그룹 업데이트
     - 식별자로서의 이메일 주소
 
 ### 4단계: Stripe 웹훅 게시 {#step-4-publish-your-stripe-webhook}
 
-데이터 변환을 작성한 후 **Validate**를 선택하여 데이터 변환 코드가 올바르게 포맷되었는지, 예상대로 작동하는지 확인합니다. 그런 다음 데이터 변환을 저장하고 활성화합니다. 활성화 후 사용자가 이벤트를 완료하면 커스텀 이벤트 데이터가 해당 사용자의 프로필에 기록됩니다.
+데이터 변환 코드를 작성한 후 **Validate**를 선택하여 데이터 변환 코드가 올바르게 포맷되어 있고 예상대로 작동하는지 확인합니다. 그런 다음 데이터 변환을 저장하고 활성화합니다. 활성화 후 사용자가 이벤트를 완료하면 커스텀 이벤트 데이터가 해당 사용자의 프로필에 기록됩니다.
 
 ![Braze 고객 프로필에 표시된 Stripe 커스텀 이벤트 "Charge Succeeded".]({% image_buster /assets/img/stripe/stripe_braze_profile_event.png %}){: style="max-width:80%;"}
 
@@ -233,18 +233,18 @@ Braze와 Stripe를 통합하면 다음을 수행할 수 있습니다.
 }
 ```
 
-## 데이터 변환 활용 사례 {#data-transformation-use-cases}
+## 데이터 변환 사용 사례 {#data-transformation-use-cases}
 
-다음은 [Stripe 웹훅 페이로드 예시](#example)를 사용하여 구축한 예시 템플릿입니다. 이 템플릿을 시작점으로 사용할 수 있습니다. 처음부터 시작하거나 필요에 따라 특정 구성요소를 삭제할 수 있습니다.
+다음은 [Stripe 웹훅 페이로드 예시](#example)를 사용하여 구축한 예시 템플릿입니다. 이 템플릿을 시작점으로 사용할 수 있습니다. 처음부터 시작하거나 필요에 따라 특정 구성 요소를 삭제할 수 있습니다.
 
-이 예시 템플릿에서는 Braze 프로필에 커스텀 이벤트를 기록합니다. 이벤트 유형은 커스텀 이벤트 이름으로 전송되고, 데이터 오브젝트는 이벤트 등록정보로 전달됩니다.
+이 예시 템플릿에서는 Braze 프로필에 커스텀 이벤트를 기록합니다. 이벤트 유형은 커스텀 이벤트 이름으로 전송되며, 데이터 객체는 이벤트 속성정보로 전달됩니다.
 
-### 활용 사례: customer를 식별자로 사용 {#use-case-customer-as-an-identifier}
+### 사용 사례: 고객을 식별자로 사용 {#use-case-customer-as-an-identifier}
 
 이 예시 템플릿에서는 customer 필드를 식별자로 사용합니다.
 
 {% tabs local %}
-{% tab 입력 %}
+{% tab Input %}
 
 ```javascript
 
@@ -283,7 +283,7 @@ return brazecall;
 ```
 
 {% endtab %}
-{% tab 출력 %}
+{% tab Output %}
 
 ```json
 {
