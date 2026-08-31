@@ -87,7 +87,7 @@ At this point, you can't select a specific event or property within an action pa
 
 - For Canvases with top-level variants, select a variant at the start of the test.
 - For Experiment Paths, select the variant the user progresses through when the test user encounters the step.
-- For Experiment Paths using Personalized Path or Winning Variant, while there’s a delay period over which the test user waits in a Message step, this delay isn’t taken into account since Braze assumes the user progressed through the selected variant immediately.
+- For Experiment Paths using Winning Path, the preview doesn't include the delay period when a test user waits in a Message step. Braze assumes that the user progressed through the selected path immediately.
 
 ## Test sends
 

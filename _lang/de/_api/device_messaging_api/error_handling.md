@@ -39,7 +39,7 @@ Verwenden Sie die folgenden Hinweise, um zu entscheiden, ob ein Wiederholungsver
 
 | Statuscode | Anleitung für Wiederholungsversuche |
 |---|---|
-| `400` | Korrigieren Sie die Anfrage, bevor Sie es erneut versuchen. Korrigieren Sie beim Banner-Tracking übersprungene Ereignisse, bevor Sie diese erneut senden. |
+| `400` | Korrigieren Sie die Anfrage, bevor Sie es erneut versuchen. Korrigieren Sie beim Banner-Tracking übersprungene Events, bevor Sie diese erneut senden. |
 | `401` oder `403` | Überprüfen Sie den clientseitigen REST-API-Schlüssel und seine Berechtigungen, bevor Sie es erneut versuchen. |
 | `404` | Stellen Sie sicher, dass die Device Messaging API für den Workspace aktiviert ist und die Endpunkt-URL korrekt ist. |
 | `429` | Reduzieren Sie die Anfragerate und versuchen Sie es mit exponentiellem Backoff erneut. Verwenden Sie die Rate-Limit-Antwort-Header, wenn verfügbar. |
@@ -48,5 +48,5 @@ Verwenden Sie die folgenden Hinweise, um zu entscheiden, ob ein Wiederholungsver
 
 Die genauen Antwortkörper und unterstützten Statuscodes finden Sie beim jeweiligen Endpunkt:
 
-- [Banner für eine Nutzer:in abrufen]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)
+- [Banner für Nutzer:innen abrufen]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)
 - [Banner-Analytics-Ereignisse tracken]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_track_banner_events)

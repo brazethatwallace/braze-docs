@@ -42,7 +42,7 @@ Utilisez HTTPS et l'[endpoint REST]({{site.baseurl}}/api/basics#endpoints) corre
 
 ## Identité de l'utilisateur {#user-identity}
 
-Une clé API REST côté client authentifie l'application appelante et l'espace de travail, et non l'utilisateur. L'`external_user_id` dans une requête identifie l'utilisateur associé au contenu et aux événements du Banner.
+Une clé REST API côté client authentifie l'application appelante et l'espace de travail, et non l'utilisateur. Le champ `external_user_id` dans une requête identifie l'utilisateur associé au contenu et aux événements du Banner.
 
 Appliquez les contrôles d'autorisation de votre application avant d'effectuer des requêtes à l'API Device Messaging.
 

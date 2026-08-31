@@ -21,23 +21,23 @@ O método recomendado é o conector **Braze Currents Streaming** no Treasure Dat
 - Roteamento automático opcional de tabelas por tipo de evento
 - Um esquema plano, consultável via SQL, que não exige análise de JSON
 
-{% alert important %}
-O conector Braze Currents Streaming está em beta. Entre em contato com o suporte do Treasure Data para ativá-lo na sua conta do Treasure Data. Para detalhes de configuração do lado do parceiro, consulte a documentação do Treasure Data sobre [Integração de importação do Braze Currents](https://docs.treasuredata.com/int/braze-currents-import-integration).
+{% alert note %}
+O conector Braze Currents Streaming está disponível mediante solicitação. Entre em contato com o suporte do Treasure Data para ativá-lo na sua conta do Treasure Data. Para detalhes de configuração do lado do parceiro, consulte a documentação do Treasure Data sobre [Integração de importação do Braze Currents](https://docs.treasuredata.com/int/braze-currents-import-integration).
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 | ----------- | ----------- |
-| Conta do Treasure Data | É necessário ter uma [conta ativa do Treasure Data](https://console.treasuredata.com) para aproveitar essa parceria. |
-| Currents | Para exportar dados para o Treasure Data, você precisa ter o [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) configurado na sua conta. |
-| Conector Braze Currents Streaming | Entre em contato com o suporte do Treasure Data para ativar o conector Braze Currents Streaming (beta) na sua conta do Treasure Data. |
-| Chave de API de escrita do Treasure Data | Uma chave de API de escrita do Treasure Data autentica o fluxo de entrada vindo da Braze. |
+| Conta Treasure Data | Uma [conta Treasure Data](https://console.treasuredata.com) ativa é necessária para aproveitar esta parceria. |
+| Currents | Para exportar dados para o Treasure Data, você precisa do [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) configurado para a sua conta. |
+| Conector Braze Currents Streaming | Entre em contato com o suporte do Treasure Data para ativar o conector Braze Currents Streaming na sua conta Treasure Data. |
+| Chave de API de escrita do Treasure Data | Uma chave de API de escrita do Treasure Data autentica o fluxo de entrada da Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
-### Etapa 1: configure o conector no Treasure Data {#step-1-configure-the-connector-in-treasure-data}
+### Etapa 1: Configurar o conector no Treasure Data {#step-1-configure-the-connector-in-treasure-data}
 
 1. No console do Treasure Data, acesse **Connections** > **New Connection**.
 2. Selecione **Braze Currents Streaming**.
@@ -45,27 +45,27 @@ O conector Braze Currents Streaming está em beta. Entre em contato com o suport
 4. Em **Source Settings**, configure o seguinte:
 
 | Campo | Descrição |
-| ----- | ----------- |
+| ----- | --------- |
 | Source Name | Um nome descritivo para essa conexão |
 | Datastore | Selecione **Plazma** |
-| Database | O banco de dados do Treasure Data onde os eventos serão armazenados |
+| Database | O banco de dados do Treasure Data onde os eventos são armazenados |
 | Table | A tabela de destino padrão |
-| Multiple Tables | Selecione para rotear cada tipo de evento da Braze para sua própria tabela |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurações da fonte" }
+| Multiple Tables | Selecione para direcionar cada tipo de evento da Braze para sua própria tabela |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurações de origem" }
 
 5. Após salvar, copie o **Unique ID** (`task_id`). Você precisará desse valor na próxima etapa.
 
-### Etapa 2: crie uma Custom Currents Export na Braze {#step-2-create-a-custom-currents-export-in-braze}
+### Etapa 2: Criar uma exportação Custom Currents na Braze {#step-2-create-a-custom-currents-export-in-braze}
 
-A opção **Treasure Data Export** na interface de Currents da Braze usa o método legado de API de Postback e não é mais recomendada. Use **Custom Currents Export** em vez disso.
+A opção **Treasure Data Export** na interface de Braze Currents usa o método legado de API Postback e não é mais recomendada. Use **Custom Currents Export** em vez disso.
 
 1. Na Braze, acesse **Partner Integrations** > **Data Export**.
 2. Selecione **Create New Current** > **Custom Currents Export**.
 3. Insira um nome de integração e um e-mail de contato para notificações de erro.
-4. Em **Credentials**, insira a URL do endpoint para a sua região do Treasure Data. Insira sua chave de API de escrita do Treasure Data como o **Bearer Token**.
+4. Em **Credentials**, insira a URL do endpoint para sua região do Treasure Data. Insira sua chave de API de escrita do Treasure Data como o **Bearer Token**.
 
 | Região | URL do endpoint |
-| ------ | ------------ |
+| ------ | --------------- |
 | US | `https://braze-in-streaming.treasuredata.com/v1/task/{TASK_ID}` |
 | EU | `https://braze-in-streaming.eu01.treasuredata.com/v1/task/{TASK_ID}` |
 | AP02 | `https://braze-in-streaming.ap02.treasuredata.com/v1/task/{TASK_ID}` |
@@ -74,16 +74,16 @@ A opção **Treasure Data Export** na interface de Currents da Braze usa o méto
 
 Substitua `{TASK_ID}` pelo Unique ID que você copiou na [Etapa 1](#step-1-configure-the-connector-in-treasure-data).
 
-5. Selecione os tipos de evento que deseja exportar. As conexões Custom Currents podem enviar eventos para usuários identificados e para usuários sem um `external_user_id`. O Treasure Data ingere ambos.
+5. Selecione os tipos de evento que você deseja exportar. As conexões Custom Currents podem enviar eventos tanto para usuários identificados quanto para usuários sem um `external_user_id`. O Treasure Data ingere ambos.
 6. Selecione **Launch Current**.
 
 {% alert warning %}
-Mantenha sua chave de API de escrita do Treasure Data e a URL do endpoint atualizadas. Se o endpoint ficar inacessível por mais de **5&nbsp;dias**, a Braze descartará os eventos do conector e os dados serão perdidos permanentemente.
+Mantenha sua chave de API de escrita do Treasure Data e a URL do endpoint atualizadas. Se o endpoint ficar inacessível por mais de **5&nbsp;dias**, a Braze descarta os eventos do conector e os dados são permanentemente perdidos.
 {% endalert %}
 
 ## Consulte seus dados {#query-your-data}
 
-Depois que os eventos estiverem fluindo, consulte-os com SQL. O Treasure Data achata a carga útil, então você não precisa analisar JSON.
+Depois que os eventos estiverem fluindo, consulte-os com SQL. O Treasure Data planifica a carga útil, então você não precisa fazer parse de JSON.
 
 ```sql
 SELECT
@@ -98,12 +98,12 @@ WHERE TD_INTERVAL(time, '-1d', 'JST')
 ```
 
 {% alert note %}
-O campo `time` no Treasure Data é o timestamp de quando o Treasure Data recebeu e processou o evento, não o horário original de ocorrência do evento na Braze.
+O campo `time` no Treasure Data é o registro de data/hora de quando o Treasure Data recebeu e processou o evento, não o horário original de ocorrência do evento na Braze.
 {% endalert %}
 
-Se você selecionou **Multiple Tables**, cada tipo de evento será armazenado em sua própria tabela (por exemplo, `users_message_email_open` ou `users_behaviors_purchase`).
+Se você selecionou **Multiple Tables**, cada tipo de evento é direcionado para sua própria tabela (por exemplo, `users_message_email_open` ou `users_behaviors_purchase`).
 
-Para confirmar que os dados estão chegando, execute uma consulta de contagem alguns minutos após iniciar o Current:
+Para confirmar que os dados estão chegando, execute uma consulta de contagem alguns minutos após iniciar o Currents:
 
 ```sql
 SELECT COUNT(*)
@@ -113,9 +113,9 @@ WHERE TD_INTERVAL(time, '-1h')
 
 ## Esquema de dados {#data-schema}
 
-O Treasure Data achata JSON aninhado em até dois níveis de profundidade:
+O Treasure Data nivela JSON aninhado em até dois níveis de profundidade:
 
-| Tipo JSON | Tipo de coluna no Treasure Data |
+| Tipo JSON | Tipo de coluna do Treasure Data |
 | --------- | ------------------------- |
 | string | string |
 | number | long |
@@ -132,22 +132,22 @@ Os nomes das colunas usam apenas letras minúsculas e underscores.
 
 | Item | Limite |
 | ---- | ----- |
-| Tamanho máximo da carga útil | 1&nbsp;MB por requisição |
+| Tamanho máximo da carga útil | 1&nbsp;MB por solicitação |
 | Tamanho do lote | 100 eventos por lote (padrão) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Limites" }
 
 ## Detalhes da integração {#integration-details}
 
-A Braze oferece suporte à exportação de todos os dados listados nos [glossários de eventos do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para o Treasure Data. Isso inclui todas as propriedades nos eventos de [engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) e de [comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
+A Braze oferece suporte à exportação de todos os dados listados nos [glossários de eventos do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para o Treasure Data. Isso inclui todas as propriedades em eventos de [engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) e [comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 
-A estrutura de carga útil para dados exportados é a mesma dos conectores HTTP personalizados. Você pode revisar exemplos de carga útil no [repositório de exemplos para conectores HTTP personalizados](https://github.com/Appboy/currents-examples/tree/master/sample-data/Custom%20HTTP/users/behaviors).
+A estrutura da carga útil dos dados exportados corresponde à estrutura da carga útil dos conectores HTTP personalizados. Você pode consultar exemplos de cargas úteis no [repositório de exemplos para conectores HTTP personalizados](https://github.com/Appboy/currents-examples/tree/master/sample-data/Custom%20HTTP/users/behaviors).
 
 ## Migrar do método legado de Postback {#migrate-from-the-legacy-postback-method}
 
 Se você usava anteriormente o **Treasure Data Export** (Postback) na Braze:
 
-1. Conclua a configuração da Custom Currents Export descrita neste artigo.
-2. Confirme que os eventos estão fluindo para a nova tabela.
-3. Desative o Current antigo baseado em Postback na Braze.
+1. Conclua a configuração de Custom Currents Export neste artigo.
+2. Confirme se os eventos estão fluindo para a nova tabela.
+3. Desative o antigo Current baseado em Postback na Braze.
 
-Dados legados armazenados como arrays JSON brutos ainda podem ser consultados com `JSON_PARSE` e `UNNEST`. Novos dados ingeridos pelo conector de streaming usam o esquema plano descrito em [Esquema de dados](#data-schema).
+Os dados legados armazenados como arrays JSON brutos ainda podem ser consultados com `JSON_PARSE` e `UNNEST`. Os novos dados ingeridos pelo conector de streaming usam o esquema plano descrito em [Esquema de dados](#data-schema).

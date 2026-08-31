@@ -14,7 +14,7 @@ Braze aplica límites de velocidad de la API de mensajería del dispositivo por 
 Los límites de la API de mensajería del dispositivo son independientes de los límites predeterminados documentados para otros endpoints de la REST API de Braze. No asumas que un límite, ventana de tiempo, tamaño de carga útil o programación de reinicio documentados para otro endpoint se aplican a la API de mensajería del dispositivo.
 
 {% alert important %}
-Esta página está en fase beta. Las características y la documentación de la API de mensajería de dispositivos están sujetas a cambios. Ponte en contacto con tu director de cuentas de Braze para solicitar acceso.
+Esta página está en fase beta. Las características y la documentación de la API de mensajería del dispositivo están sujetas a cambios. Ponte en contacto con tu director de cuentas de Braze para solicitar acceso.
 {% endalert %}
 
 ## Encabezados de límite de velocidad {#rate-limit-headers}
@@ -27,7 +27,7 @@ Cuando la información sobre el límite de velocidad está disponible, una respu
 | `X-RateLimit-Remaining` | El número de solicitudes restantes en la ventana de límite de velocidad actual. |
 | `X-RateLimit-Reset` | La hora en formato epoch UTC en la que se restablece la ventana de límite de velocidad actual. |
 | `X-RateLimit-Retry-After` | El número de segundos que debes esperar antes de reintentar una solicitud con límite de velocidad. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Encabezados de límite de velocidad de la API de mensajería de dispositivos" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Encabezados de límite de velocidad de la API de mensajería del dispositivo" }
 
 Usa estos encabezados para reducir o pausar solicitudes antes de alcanzar un límite. Es posible que los encabezados no estén presentes en todas las respuestas.
 

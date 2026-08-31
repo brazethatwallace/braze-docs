@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "이 엔드포인트를 사용하여 배너의 노출 횟수 및 클릭 이벤트를 추적합니다."
+description: "이 엔드포인트를 사용하여 배너의 노출 횟수, 클릭 및 해제 이벤트를 추적합니다."
 hidden: true
 ---
 
@@ -15,7 +15,7 @@ hidden: true
 /v1/device-messaging/banners/track
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 배너의 노출 횟수 및 클릭 이벤트를 기록합니다.
+> 이 엔드포인트를 사용하여 배너의 노출 횟수, 클릭 및 해제 이벤트를 기록합니다.
 
 Braze는 각 이벤트를 개별적으로 검증합니다. 요청에 유효한 이벤트와 유효하지 않은 이벤트가 모두 포함된 경우, Braze는 유효한 이벤트를 처리하고 건너뛴 이벤트에 대한 세부 정보를 `errors` 배열에 반환합니다. 유효한 이벤트가 없는 경우, Braze는 `400` 상태 코드를 반환합니다.
 
@@ -39,6 +39,16 @@ Braze는 각 이벤트를 개별적으로 검증합니다. 요청에 유효한 �
 사용량 제한은 워크스페이스별로 적용됩니다. 사용량 제한을 초과하면 Braze는 `429` 상태 코드를 반환합니다. 가능한 경우 `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset`, `X-RateLimit-Retry-After` 응답 헤더를 사용하여 사용량을 모니터링하고 재시도 시점을 결정하세요.
 
 자세한 내용은 [Device Messaging API 사용량 제한]({{site.baseurl}}/api/device_messaging_api/rate_limits)을 참조하세요.
+
+## 배너 해제 {#dismissing-banners}
+
+`dismiss` 이벤트를 추적하면 해당 사용자에 대해 배너가 해제됩니다. 이후 해당 사용자에 대한 배너 동기화에서는 이전에 해제된 배너가 포함되지 않습니다. 단, Campaign(캠페인)에서 재자격이 설정된 경우는 예외입니다.
+
+{% alert note %}
+해제 이벤트는 비동기적으로 처리되며 즉시 반영되지 않습니다. 드문 경우 처리에 몇 분이 소요될 수 있습니다. 해제 직후 [사용자의 배너 조회 엔드포인트]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)를 호출하지 마세요. 이 기간 동안 배너가 여전히 반환될 수 있습니다.
+{% endalert %}
+
+Braze는 UI에서 배너의 상태를 조정하지 않습니다. 해제 후 배너를 숨기고 Braze가 이벤트를 처리할 때까지 숨긴 상태로 유지하는 것은 앱에서 처리해야 합니다.
 
 ## 요청 본문 {#request-body}
 
@@ -66,7 +76,7 @@ Braze는 각 이벤트를 개별적으로 검증합니다. 요청에 유효한 �
 | `app_version` | 필수 | 문자열 | 호스트 앱의 버전입니다. 255자를 초과할 수 없습니다. | `1.0.0` |
 | `events` | 필수 | 객체 배열 | 기록할 하나 이상의 배너 분석 이벤트입니다. | `[{"id":"bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E","event_type":"impression","timestamp":"2026-04-09T12:00:00Z"}]` |
 | `events[].id` | 필수 | 문자열 | 사용자의 배너 조회 엔드포인트에서 반환된 배너 `id`입니다. Braze가 이벤트를 올바른 Campaign 및 배리언트에 귀속시킬 수 있도록 `placement_id`가 아닌 배너 ID를 사용하세요. | `bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E` |
-| `events[].event_type` | 필수 | 문자열 | 이벤트 유형입니다. 가능한 값은 `impression` 및 `click`입니다. | `impression` |
+| `events[].event_type` | 필수 | 문자열 | 이벤트 유형입니다. 가능한 값은 `impression`, `click`, `dismiss`입니다. | `impression` |
 | `events[].timestamp` | 필수 | 문자열 | 이벤트가 발생한 날짜 및 시간으로, [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열 형식입니다. | `2026-04-09T12:00:00Z` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="요청 매개변수" }
 
@@ -131,7 +141,7 @@ Braze는 유효한 이벤트를 하나 이상 수락한 경우에도 `202` 상�
   "message": "success",
   "errors": [
     {
-      "type": "Invalid event_type. Valid types are: impression, click.",
+      "type": "Invalid event_type. Valid types are: impression, click, dismiss.",
       "index": 2
     }
   ]
@@ -147,7 +157,7 @@ Braze가 이벤트를 처리할 수 없는 경우 `400` 상태 코드를 반환�
   "message": "No valid events provided.",
   "errors": [
     {
-      "type": "Invalid event_type. Valid types are: impression, click.",
+      "type": "Invalid event_type. Valid types are: impression, click, dismiss.",
       "index": 0
     },
     {

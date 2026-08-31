@@ -37,7 +37,7 @@ Incluye la clave de API REST del lado del cliente en el encabezado `Authorizatio
 
 Los límites de velocidad se aplican por espacio de trabajo. Si superas el límite de velocidad, Braze devuelve un código de estado `429`. Cuando estén disponibles, utiliza los encabezados de respuesta `X-RateLimit-Limit`, `X-RateLimit-Remaining` y `X-RateLimit-Reset` para monitorear tu uso.
 
-Para más información, consulta [Límites de velocidad de la API de mensajería de dispositivo]({{site.baseurl}}/api/device_messaging_api/rate_limits).
+Para más información, consulta [Límites de velocidad de la API de mensajería de dispositivos]({{site.baseurl}}/api/device_messaging_api/rate_limits).
 
 ## Cuerpo de la solicitud {#request-body}
 
@@ -137,6 +137,6 @@ Una solicitud exitosa devuelve un código de estado `200` y el Banner resuelto p
 | `429` | El espacio de trabajo superó su límite de velocidad. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Códigos de estado" }
 
-Para más información, consulta [Manejo de errores y reintentos de la API de mensajería de dispositivo]({{site.baseurl}}/api/device_messaging_api/error_handling).
+Para más información, consulta [Manejo de errores y reintentos de la API de mensajería de dispositivos]({{site.baseurl}}/api/device_messaging_api/error_handling).
 
 {% endapi %}

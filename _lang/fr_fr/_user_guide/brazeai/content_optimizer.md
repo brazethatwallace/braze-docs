@@ -19,12 +19,12 @@ L'Optimiseur de contenu est actuellement en version bêta et n'est disponible qu
 
 L'Optimisateur de Contenu s'exécute dans une étape du Canvas. Il vous aide à définir les composants de message à tester, à générer des variantes à l'aide de l'IA générative ou d'une saisie manuelle, et à optimiser automatiquement les combinaisons de contenu envoyées aux utilisateurs. Cette fonctionnalité vous permet de :
 
-- Optimiser les lignes d'objet, l'en-tête du corps, le contenu du corps ou le CTA principal pour les e-mails.
+- Optimiser les lignes d'objet, les en-têtes de corps, le contenu du corps ou le CTA principal pour les e-mails.
 - Optimiser les titres et les messages pour les notifications push.
 - Optimiser les accroches, les corps de message et les CTA pour les messages SMS, MMS et RCS.
-- Améliorer en continu les performances des messages sans configuration manuelle de tests A/B.
-- Tester rapidement un grand volume de variantes de contenu en tirant parti de l'IA pour l'idéation.
-- Retirer automatiquement le contenu peu performant et développer les variantes gagnantes.
+- Améliorer continuellement les performances des messages sans configuration manuelle de tests A/B.
+- Tester rapidement de grands volumes de variantes de contenu, en s'appuyant sur l'IA pour l'idéation.
+- Retirer automatiquement le contenu peu performant et amplifier les variantes gagnantes.
 
 Découvrez comment créer une [étape d'Optimisateur de Contenu]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step).
 
@@ -32,10 +32,10 @@ Découvrez comment créer une [étape d'Optimisateur de Contenu]({{site.baseurl}
 
 ### OpenAI et l'Optimisateur de Contenu {#openai-and-content-optimizer}
 
-L'Optimisateur de Contenu utilise OpenAI uniquement lorsque vous demandez explicitement des suggestions de variantes générées par l'IA. Il n'utilise pas OpenAI pour choisir la variante reçue par chaque utilisateur ni pour répartir le trafic d'envoi.
+L'Optimisateur de Contenu utilise OpenAI uniquement lorsque vous demandez explicitement des suggestions de variantes générées par l'IA. Il n'utilise pas OpenAI pour choisir quelle variante chaque utilisateur reçoit ni pour répartir le trafic d'envoi.
 
-- **Utilise OpenAI :** Lorsque vous sélectionnez **Générer des suggestions IA** pour un composant de contenu, Braze envoie votre variante initiale, vos instructions, les [directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) optionnelles et (pour les étapes lancées disposant de suffisamment de données d'envoi) un contexte de performance agrégé à OpenAI pour générer des idées de variantes.
-- **Optimisation bandit :** L'algorithme propriétaire de bandit manchot multi-bras de Braze gère la répartition du trafic, la sélection des variantes au moment de l'envoi et l'optimisation basée sur les performances. Voir [Comment ça fonctionne](#how-it-works).
+- **Utilise OpenAI :** Lorsque vous sélectionnez **Générer des suggestions IA** pour un composant de contenu, Braze envoie votre variante initiale, vos instructions, une [directive de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) optionnelle, et (pour les étapes lancées avec suffisamment de données d'envoi) un contexte de performance agrégé à OpenAI afin de générer des idées de variantes.
+- **Optimisation par bandit :** L'algorithme propriétaire de bandit multi-bras de Braze gère la répartition du trafic, la sélection de la variante au moment de l'envoi et l'optimisation basée sur les performances. Voir [Comment ça fonctionne](#how-it-works).
 - **Saisie manuelle :** Vous pouvez définir des variantes en les saisissant vous-même sans envoyer de contenu à OpenAI.
 
 ## Cas d'usage {#use-cases}
@@ -44,10 +44,10 @@ L'Optimisateur de Contenu utilise OpenAI uniquement lorsque vous demandez explic
 
 | Cas d'usage d'optimisation | Objectif | Description |
 | --- | --- | --- |
-| Variations de la ligne d'objet | Augmenter le taux d'ouverture | Testez le ton, l'urgence, la personnalisation et l'utilisation d'émojis. |
-| Styles de message d'en-tête | Stimuler l'engagement | Comparez des messages émotionnels, axés sur la valeur et clairs dans l'en-tête du corps. |
-| Format du contenu du corps | Améliorer la lisibilité et l'engagement | Testez la narration par rapport aux listes de fonctionnalités, les puces par rapport aux paragraphes et la longueur du contenu. |
-| Texte et ton du CTA | Augmenter les clics | Comparez des formulations de CTA orientées action, axées sur les avantages et à la première personne. |
+| Variations de la ligne d'objet | Augmenter le taux d'ouverture | Testez le ton, l'urgence, la personnalisation et l'utilisation d'emojis. |
+| Styles de communication dans l'en-tête | Stimuler l'engagement | Comparez des messages émotionnels, axés sur la valeur et clairs dans l'en-tête du corps. |
+| Format du contenu du corps | Améliorer la lisibilité et l'engagement | Testez le storytelling par rapport aux listes de fonctionnalités, les puces par rapport aux paragraphes et la longueur du contenu. |
+| Texte et ton du CTA | Augmenter les clics | Comparez des formulations de CTA orientées action, axées sur les bénéfices et à la première personne. |
 | Combinaisons de contenu thématique | Découvrir les combinaisons les plus performantes | Mélangez et associez des composants thématiques d'objet, de corps et de CTA pour trouver la meilleure combinaison globale. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="E-mail" }
 
@@ -56,16 +56,16 @@ L'Optimisateur de Contenu utilise OpenAI uniquement lorsque vous demandez explic
 | Cas d'usage d'optimisation | Objectif | Description |
 | --- | --- | --- |
 | Variations du titre | Augmenter le taux d'ouverture | Testez la clarté, l'urgence, la personnalisation et le ton dans le titre de la notification push. |
-| Styles du texte du corps | Améliorer l'engagement | Comparez des messages concis, axés sur les avantages et orientés action dans le corps de la notification push. |
+| Styles du texte du corps | Améliorer l'engagement | Comparez des messages concis, axés sur les bénéfices et orientés action dans le corps de la notification push. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notifications push" }
 
 ### Messages SMS, MMS et RCS {#sms-mms-and-rcs-messages}
 
 | Cas d'usage d'optimisation | Objectif | Description |
 | --- | --- | --- |
-| Variations d'accroche | Augmenter l'engagement | Testez l'urgence, la personnalisation et le ton dans la première ligne affichée dans les aperçus SMS, les légendes MMS ou les introductions RCS. |
+| Variations de l'accroche | Augmenter l'engagement | Testez l'urgence, la personnalisation et le ton dans la première ligne affichée dans les aperçus SMS, les légendes MMS ou les introductions RCS. |
 | Styles du texte du corps | Améliorer l'engagement | Comparez des messages concis et orientés action dans le corps, y compris le texte accompagnant les médias sur MMS et RCS. |
-| Variations du texte du CTA | Augmenter les clics | Comparez des formulations de CTA orientées action et conversationnelles pour les liens et les invites à l'étape suivante en SMS, MMS et RCS. |
+| Variations du texte du CTA | Augmenter les clics | Comparez des formulations de CTA orientées action et conversationnelles pour les liens et les invites d'étape suivante dans les SMS, MMS et RCS. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messages SMS, MMS et RCS" }
 
 ## Fonctionnement {#how-it-works}
@@ -82,39 +82,41 @@ L'Optimiseur de contenu est similaire à l'étape Message dans Canvas, avec des 
 
 Chaque utilisateur reçoit un seul message par entrée dans l'étape d'Optimiseur de contenu. Les réentrées sont traitées comme de nouvelles entrées, sans mémoire des variantes précédentes.
 
-## Configuration de l'entrée dans le Canvas {#canvas-entry-setup}
+Pour attribuer les comportements en aval dans vos propres outils d'analyse, ajoutez une étiquette Liquid à votre message qui enregistre la combinaison reçue par chaque utilisateur. Pour en savoir plus, consultez [Jeton de combinaison]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step#combination-token).
 
-Pour obtenir les meilleurs résultats, utilisez l'Otimisateur de Contenu dans des Canvas où les utilisateurs entrent dans l'étape progressivement et régulièrement au fil du temps, comme dans des Canvas récurrents ou permanents avec un volume quotidien constant. Si tous les utilisateurs entrent dans l'étape en même temps, l'Optimisateur de Contenu n'aura pas le temps d'apprendre des premiers résultats. L'étape se comportera davantage comme un test A/B statique que comme un moteur d'optimisation en direct.
+## Configuration de l'entrée Canvas {#canvas-entry-setup}
 
-L'Optimisateur de Contenu convient le mieux aux Canvas à entrée récurrente quotidienne, ainsi qu'aux Canvas déclenchés par événement ou par API avec des entrées d'utilisateurs quotidiennes relativement constantes. Si vous utilisez l'Optimisateur de Contenu dans des Canvas à envoi unique ou des Canvas à entrée « en pics » (comme les récurrences mensuelles), envisagez d'utiliser les [contrôles d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) pour lisser les entrées d'utilisateurs sur plusieurs jours.
+Pour de meilleurs résultats, utilisez l'Optimiseur de Contenu dans des Canvas où les utilisateurs entrent dans l'étape progressivement et régulièrement au fil du temps, comme dans des Canvas récurrents ou toujours actifs avec un volume quotidien constant. Si tous les utilisateurs entrent dans l'étape en même temps, l'Optimiseur de Contenu n'aura pas le temps d'apprendre des premiers résultats. L'étape se comportera davantage comme un test A/B statique que comme un moteur d'optimisation en direct.
+
+L'Optimiseur de Contenu est idéal pour les Canvas à entrée récurrente quotidienne, ainsi que pour les Canvas déclenchés par événement et déclenchés par API avec des entrées utilisateur quotidiennes relativement constantes. Si vous utilisez l'Optimiseur de Contenu dans des Canvas à envoi unique ou des Canvas à entrée « irrégulière » (comme les récurrents mensuels), envisagez d'utiliser les [Contrôles d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) pour lisser les entrées utilisateur sur plusieurs jours.
 
 ### Concepts clés {#key-concepts}
 
 | Terme                    | Description |
 |-------------------------|-------------|
 | Message de base   | Le modèle de message principal à partir duquel les variantes sont construites, incluant tous les paramètres d'envoi. |
-| Composants de contenu  | Éléments au sein d'un message (par exemple, la ligne d'objet ou le CTA principal) qui peuvent être testés et optimisés. Les marketeurs doivent insérer l'étiquette Liquid correspondante dans le message à l'endroit où le composant doit apparaître. |
+| Composants de contenu  | Éléments au sein d'un message (par exemple, ligne d'objet ou CTA principal) qui peuvent être testés et optimisés. Les marketeurs doivent insérer l'étiquette Liquid correspondante dans le message à l'endroit où le composant doit apparaître. |
 | Variantes de contenu    | Les différentes valeurs qu'un composant de contenu peut prendre. |
-| Combinaisons de contenu | Messages uniques créés en mélangeant et en associant les variantes de contenu. |
-| Événement d'optimisation       | Détermine comment l'Optimisateur de Contenu évalue les performances et répartit le trafic entre les combinaisons de contenu au fil du temps, comme les clics ou les ouvertures pour les e-mails. S'applique à tous les composants de contenu d'une étape. L'Optimisateur de Contenu apprend en continu à partir de cet événement et oriente automatiquement la distribution vers les combinaisons de contenu les plus performantes. |
+| Combinaisons de contenu | Messages uniques créés en mélangeant et associant des variantes de contenu. |
+| Événement d'optimisation       | Détermine comment l'Optimiseur de Contenu évalue les performances et alloue le trafic aux combinaisons de contenu au fil du temps, comme les clics ou les ouvertures pour les e-mails. S'applique à tous les composants de contenu d'une étape. L'Optimiseur de Contenu apprend continuellement de cet événement et oriente automatiquement la distribution vers les combinaisons de contenu les plus performantes. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Concepts clés" }
 
 ## Considérations {#considerations}
 
 - L'Otimisateur de Contenu est actuellement en version bêta et n'est disponible que pour les canaux suivants : e-mail, notifications push et messages SMS/MMS/RCS.
-- Pour les e-mails, l'Otimisateur de Contenu peut générer jusqu'à 125 combinaisons par étape :
+- Pour les e-mails, l'Optimisateur de Contenu peut générer jusqu'à 125 combinaisons par étape :
    - Jusqu'à 3 composants par étape
    - Jusqu'à 5 variantes pour chaque composant
-- Pour les notifications push, l'Otimisateur de Contenu peut générer jusqu'à 25 combinaisons par étape :
+- Pour les notifications push, l'Optimisateur de Contenu peut générer jusqu'à 25 combinaisons par étape :
    - Jusqu'à 2 composants par étape
    - Jusqu'à 5 variantes pour chaque composant
-- Pour les messages SMS, MMS et RCS, l'Otimisateur de Contenu peut générer jusqu'à 25 combinaisons par étape :
+- Pour les messages SMS, MMS et RCS, l'Optimisateur de Contenu peut générer jusqu'à 25 combinaisons par étape :
    - Jusqu'à 2 composants par étape
    - Jusqu'à 5 variantes pour chaque composant
-- Un seul message est envoyé par utilisateur et par entrée. Il n'y a pas de mémorisation des envois précédents pour les ré-entrées.
+- Un seul message est envoyé par utilisateur et par entrée. Il n'y a pas de mémoire des envois précédents pour les réentrées.
 - Les marketeurs doivent insérer manuellement les étiquettes Liquid pour chaque composant dans le compositeur de messages, à l'endroit où les variantes de contenu définies doivent s'afficher.
 
 ## Étapes suivantes {#next-steps}
 
-- Contactez votre gestionnaire du succès des clients pour rejoindre la bêta ou pour obtenir de l'aide à l'onboarding.
-- Découvrez comment créer une [étape d'Optimiseur de contenu]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step).
+- Contactez votre gestionnaire du succès des clients pour rejoindre la bêta ou obtenir une assistance à l'onboarding.
+- Découvrez comment créer une [étape d'Optimisation de contenu]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step).

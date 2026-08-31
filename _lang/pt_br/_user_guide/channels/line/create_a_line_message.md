@@ -2,125 +2,154 @@
 nav_title: Criar uma mensagem LINE
 article_title: Criar uma mensagem LINE
 page_order: 1
-description: "Este artigo aborda como criar uma Campaign ou Canvas de mensagem LINE."
+description: "Crie uma mensagem LINE e configure tipos de mensagem, campos, rastreamento de cliques, configurações de entrega e comportamento específicos do canal."
 page_type: reference
 tool:
- - Campaigns
+  - Campaigns
+  - Canvas
 channel:
- - LINE
+  - LINE
 alias: /line/create/
 ---
 
 # Criar uma mensagem LINE {#create-a-line-message}
 
-> As Campaigns LINE podem alcançar diretamente e conversar de forma programática com seus clientes. Você pode usar Liquid e outros conteúdos dinâmicos para criar uma experiência pessoal com seus usuários e criar um ambiente que promova e aprimore uma experiência de usuário discreta com sua marca.
+> Crie mensagens LINE personalizadas em Campaigns ou Canvas. Escolha entre mensagens de texto, imagem, rica e baseada em cartão, e combine até cinco mensagens em um único envio.
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de criar uma mensagem LINE, faça o seguinte:
+Antes de começar, confirme que você tem o seguinte:
 
-1. Leia a visão geral do LINE.
-2. Reconheça as políticas, limites e regras de conteúdo.
-3. [Configure sua conexão LINE]({{site.baseurl}}/user_guide/channels/line/line_setup).
+| Requisito | Descrição |
+| --- | --- |
+| Conexão LINE | Conclua a [configuração do LINE]({{site.baseurl}}/user_guide/channels/line/line_setup) e revise as políticas, limites e regras de conteúdo do canal. |
+| Campaign ou Canvas | Use uma Campaign para uma única mensagem direcionada ou Canvas para uma jornada de usuário com várias etapas. |
+| Plano de mensagem | Prepare seu conteúdo, imagens, links e grupo de inscrições. |
+| Créditos de mensagem ou ação | Confirme que sua conta tem créditos disponíveis. O envio de mensagens LINE a partir da Braze utiliza esses créditos. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos de mensagem LINE" }
 
-O envio de mensagens LINE pela Braze consumirá os Créditos de Mensagem ou de Ação da sua conta.
+## Criar uma mensagem {#create-a-message}
 
-## Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
-
-Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canvas? Campaigns são melhores para campanhas de mensagens únicas e direcionadas, enquanto Canvas é melhor para jornadas de usuário com várias etapas.
+### Etapa 1: Escolha onde criar sua mensagem {#step-1-choose-where-to-build-your-message}
 
 {% tabs %}
 {% tab Campaign %}
 
-**Etapas:**
-
-1. Acesse **Messaging** > **Campaigns** e selecione **Create Campaign**.
-2. Selecione **LINE** ou, para campanhas direcionadas a vários canais, selecione **Multichannel Campaign**.
+1. Acesse **Envio de mensagens** > **Campaigns** e selecione **Criar Campaign**.
+2. Selecione **LINE** ou, para campanhas direcionadas a vários canais, selecione **Campanha multicanal**.
 3. Dê à sua campanha um nome claro e significativo.
-4. Adicione [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário.
-   * Tags facilitam a busca e a criação de relatórios das suas campanhas.
-5. Adicione e nomeie quantas variantes forem necessárias para sua campanha. Você pode escolher diferentes plataformas, tipos de mensagem e layouts para cada uma das variantes adicionadas. Para saber mais sobre esse tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+4. Adicione [Equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário.
+   * Tags facilitam a busca e o uso das suas campanhas em relatórios.
+5. Adicione e nomeie as variantes da sua campanha. Cada variante pode usar tipos de mensagem e layouts diferentes. Para saber mais, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Se todas as mensagens da sua campanha forem semelhantes ou tiverem o mesmo conteúdo, redija sua mensagem antes de adicionar variantes adicionais. Em seguida, você pode escolher **Copy from Variant** no menu suspenso **Add Variant**.
+Se as variantes da sua campanha tiverem conteúdo semelhante, redija a primeira mensagem antes de adicionar mais variantes. Depois, selecione **Copiar da variante** no menu suspenso **Adicionar variante**.
 {% endalert %}
 
 {% endtab %}
 {% tab Canvas %}
-
-**Etapas:**
 
 {% multi_lang_include messaging/canvas_message_step_setup.md %}
 
 {% endtab %}
 {% endtabs %}
 
-## Etapa 2: Componha sua mensagem LINE {#step-2-compose-your-line-message}
+### Etapa 2: Selecione um grupo de inscrições {#step-2-select-a-subscription-group}
 
-Escreva sua mensagem usando personalização (como Liquid ou Connected Content) conforme necessário. O LINE permite até cinco balões de mensagem em cada mensagem, que podem ser qualquer um dos layouts de mensagem disponíveis: texto, imagem, rica ou baseada em cartão.
+Selecione o **Grupo de inscrições** associado ao canal LINE que envia a mensagem. É necessário informar um grupo de inscrições antes de iniciar o editor.
+
+Todas as variantes em uma campanha LINE devem usar o mesmo grupo de inscrições. Para saber mais sobre os estados de inscrição do LINE, consulte [Grupos de inscrições do LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups).
+
+### Etapa 3: Redija sua mensagem LINE {#step-3-compose-your-line-message}
+
+Selecione **Iniciar editor** e arraste tipos de mensagem para o editor. Combine até cinco mensagens em um único envio e organize-as na ordem em que os usuários as receberão.
 
 ![Criador do LINE com uma mensagem exibida na prévia.]({% image_buster /assets/img/line/line_composer.png %})
 
-### Dicas {#tips}
+#### Tipos de mensagem {#message-types}
 
-#### Usando Liquid {#using-liquid}
+| Tipo de mensagem | Campos e configurações | Limites e comportamento |
+| --- | --- | --- |
+| **Texto** | Corpo da mensagem com emojis, Liquid e URLs | Até 5.000 caracteres. |
+| **Imagem** | Imagem da biblioteca de mídia ou de uma URL, incluindo URL dinâmica | URLs de imagem podem conter até 2.000 caracteres. Mensagens de imagem independentes não suportam ações ao clicar. |
+| **Mensagem rica** | Imagem, texto alternativo, modelo e áreas clicáveis com ações de URI | O texto alternativo pode conter até 400 caracteres. Adicione entre uma e 50 áreas clicáveis. Os rótulos de ação podem conter até 100 caracteres, e cada URI pode conter até 1.000 caracteres. |
+| **Mensagem baseada em cartão** | Até 10 cartões com imagem e cabeçalho opcionais, corpo obrigatório e ações de URI | O texto alternativo pode conter até 400 caracteres. Um cabeçalho pode conter até 40 caracteres. Um corpo pode conter até 60 caracteres com imagem ou cabeçalho, ou 120 caracteres sem nenhum dos dois. Cada cartão requer entre uma e três ações com rótulos de até 20 caracteres. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipos de mensagem LINE, campos e limites" }
 
-Se você planeja usar Liquid, inclua um valor padrão para sua personalização. Isso evitará que destinatários com perfis de usuário incompletos recebam um espaço reservado em branco. Por exemplo, em vez de um usuário receber a mensagem "Oi, !", ele pode receber a mensagem "Oi, novo inscrito!".
+Os limites de caracteres excluem a sintaxe Liquid.
+
+Para especificações de imagem, modelos de mensagem rica, configurações de imagem de carrossel e exemplos, consulte [Tipos de mensagem LINE]({{site.baseurl}}/user_guide/channels/line/create_a_line_message/message_types).
+
+{% alert note %}
+Mensagens baseadas em cartão aplicam os mesmos campos opcionais e número de ações a todos os cartões. Por exemplo, se um cartão incluir uma imagem e duas ações, todos os cartões devem incluir uma imagem e duas ações.
+{% endalert %}
+
+#### Comportamento ao clicar {#on-click-behavior}
+
+Para áreas clicáveis em mensagens ricas e cartões, selecione **URI** para **Comportamento ao clicar** e insira o destino em **Abrir URL**. Escolha se a URL deve abrir dentro do LINE.
+
+#### Personalização {#personalization}
+
+Use [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) ou [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para personalizar textos, imagens e URLs. Inclua um valor padrão para a personalização com Liquid para que perfis com dados incompletos não recebam conteúdo em branco.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-#### Criando mensagens da direita para a esquerda {#creating-right-to-left-messages}
+Para idiomas escritos da direita para a esquerda, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
-A aparência final das mensagens da direita para a esquerda depende em grande parte de como os prestadores de serviço as renderizam. Para práticas recomendadas sobre como criar mensagens da direita para a esquerda que sejam exibidas da forma mais precisa possível, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
+### Etapa 4: Configure o rastreamento de cliques {#step-4-configure-click-tracking}
 
-## Etapa 3: Prévia e teste da sua mensagem {#step-3-preview-and-test-your-message}
+Na guia **Configurações**, use **Rastreamento de cliques** para encurtar e rastrear links no momento do envio. O rastreamento de cliques está ativado por padrão para novas mensagens e se aplica a URLs HTTP e HTTPS em mensagens de texto, ricas e baseadas em cartão.
 
-Alterne para a guia **Teste** para enviar uma mensagem LINE de teste para grupos de teste de conteúdo ou usuários individuais, ou visualize a prévia da mensagem como um usuário diretamente na Braze.
+A Braze usa `https://brz.ai` ou o domínio personalizado configurado para o grupo de inscrições. Você pode personalizar URLs rastreadas com Liquid. Para configuração por tipo de mensagem, comportamento de teste, domínios personalizados e redirecionamento, consulte [Rastreamento de cliques do LINE]({{site.baseurl}}/user_guide/channels/line/create_a_line_message/line_click_tracking).
 
-![A guia "Testes" exibindo uma prévia de uma mensagem de teste.]({% image_buster /assets/img/line/test_preview.png %})
+### Etapa 5: Visualize e teste sua mensagem {#step-5-preview-and-test-your-message}
 
-Para saber mais, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=line).
+Acesse a guia **Prévia e teste** para visualizar a mensagem como um usuário ou enviar uma mensagem LINE de teste para um grupo de teste de conteúdo ou um usuário individual.
 
-## Etapa 4: Construa o restante da sua campanha ou Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+![A guia Prévia e teste exibindo uma prévia de uma mensagem de teste.]({% image_buster /assets/img/line/test_preview.png %})
+
+Para requisitos e etapas de teste, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=line).
+
+### Etapa 6: Construa o restante da sua campanha ou Canvas {#step-6-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-Construa o restante da sua campanha. Consulte as seções a seguir para mais detalhes sobre como usar nossas ferramentas da melhor forma para criar mensagens LINE.
+#### Escolha um cronograma ou gatilho de entrega {#choose-a-delivery-schedule-or-trigger}
 
-### Escolha o cronograma de entrega ou o disparo {#choose-delivery-schedule-or-trigger}
+Entregue mensagens LINE em um horário agendado ou em resposta a uma ação ou gatilho de API. Para opções de agendamento e gatilho, consulte [Agendar sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-As mensagens LINE podem ser entregues com base em um horário agendado, uma ação ou um disparo de API. Para saber mais sobre opções de agendamento e disparo, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Configure controles de entrega como [reelegibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) e [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping). Para entrega baseada em ação, defina a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-Você pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) para receber a campanha, ou ativar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping). Para entrega baseada em ação, você também pode definir a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
+#### Escolha os usuários para direcionar {#choose-users-to-target}
 
-### Escolha os usuários a serem direcionados {#choose-users-to-target}
+[Direcione usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) selecionando segmentos e filtros. A Braze calcula a associação exata ao segmento antes de enviar a mensagem.
 
-[Direcione usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros para refinar seu público. Você já deve ter escolhido o grupo de inscrições, que filtra os usuários pelo nível ou categoria de comunicação que desejam ter com você.
+O LINE controla o status de inscrição de cada usuário. Um usuário deve ter um `native_line_id` e seguir o canal LINE associado ao grupo de inscrições selecionado para receber a mensagem. Para mais detalhes, consulte [Status de inscrição do LINE]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#line).
 
-Selecione o público mais amplo dos seus segmentos e, opcionalmente, refine ainda mais esse segmento com nossos [filtros]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). Você recebe automaticamente um resumo de como é a população aproximada desse segmento. Lembre-se de que a composição exata do segmento é sempre calculada antes do envio da mensagem.
+#### Escolha eventos de conversão {#choose-conversion-events}
 
-### Escolha os eventos de conversão {#choose-conversion-events}
-
-A Braze permite que você rastreie com que frequência os usuários realizam ações específicas, chamadas [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), após receberem uma campanha. Você tem a opção de permitir uma janela de até 30 dias durante a qual uma conversão será contabilizada se o usuário realizar a ação especificada.
-
-Os eventos de conversão ajudam a medir o sucesso da sua campanha. Por exemplo:
-
-- Se você está usando geolocalização para disparar uma mensagem LINE com o objetivo final de o usuário realizar uma compra, defina o evento de conversão como `Purchase`.
-- Se você está tentando levar o usuário ao seu app, defina o evento de conversão como `Starts Session`.
-
-Você também pode definir eventos de conversão personalizados com base no seu caso de uso específico. Seja criativo e pense em como deseja medir o sucesso desta campanha.
+Use [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) para medir ações após um usuário receber a campanha. Defina uma janela de conversão de até 30 dias.
 
 {% endtab %}
 {% tab Canvas %}
 
-Se ainda não o fez, conclua as seções restantes do seu Canvas. Para saber mais sobre como construir o restante do seu Canvas, usar testes multivariantes e seleção inteligente, e muito mais, consulte [Criar um Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
+Conclua as seções restantes do seu Canvas. Para cronogramas de entrada, configurações de público e controles de envio, consulte [Criar um Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
+
+Você pode usar mensagens LINE recebidas para iniciar ou ramificar um Canvas com base em palavras-gatilho. Para requisitos de comportamento e capitalização, consulte [Enviar mensagens para usuários LINE]({{site.baseurl}}/user_guide/channels/line/message_users).
 
 {% endtab %}
 {% endtabs %}
 
-## Etapa 5: Revisar e implantar {#step-5-review-and-deploy}
+### Etapa 7: Revise e publique {#step-7-review-and-deploy}
 
-Depois de terminar de criar sua Campaign ou Canvas, revise os detalhes, teste e envie!
+Depois de terminar de construir sua campanha ou Canvas, revise os detalhes e teste a mensagem antes de enviá-la.
 
-Em seguida, confira [Relatórios do LINE]({{site.baseurl}}/line/reporting) para saber como acessar os resultados das suas Campaigns do LINE.
+Após o lançamento, use os [relatórios do LINE]({{site.baseurl}}/user_guide/channels/line/reporting) para analisar o desempenho das mensagens.
+
+## Informações importantes {#things-to-know}
+
+- Uma mensagem LINE pode conter entre uma e cinco bolhas de mensagem.
+- Um grupo de inscrições é mapeado para um canal LINE, e todas as variantes em uma campanha devem usar o mesmo grupo de inscrições.
+- O LINE é a fonte da verdade para o status de inscrição. Usuários que não seguem o canal LINE selecionado não recebem a mensagem.
+- O LINE calcula estatísticas de abertura e relacionadas a cliques somente quando mais de 20 usuários realizam o evento em um determinado dia.

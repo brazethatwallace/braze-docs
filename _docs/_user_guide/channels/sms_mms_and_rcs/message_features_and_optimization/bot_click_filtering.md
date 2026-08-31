@@ -28,7 +28,7 @@ The following Braze metrics and workflows are impacted by bot clicks:
 - **Segmentation filters:** Segment filters referencing SMS link interactions exclude bot clicks for more accurate retargeting in campaigns and Canvases.
 - **Orchestration:** Bot clicks are filtered from action-based triggers and Canvas action paths that reference SMS link interactions, allowing for triggers to reflect human behavior.
 - **Braze Intelligence:**
-    - **Intelligent Selection:** Excludes bot clicks when optimizing variant selection.
+    - **Optimize with BrazeAI™:** Excludes bot clicks when optimizing variant selection.
     - **Intelligent channel:** Excludes bot clicks when SMS or RCS is selected for accurate channel selection.
     - **Experiment steps:** Excludes bot clicks for reliable experiment outcomes.
     - **Currents data exports:** Includes `is_suspected_bot_click` and `suspected_bot_click_reason` fields to help analyze human versus bot clicks. These fields are available in [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), and [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder).

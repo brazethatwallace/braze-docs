@@ -20,14 +20,13 @@ Diese Funktionalität wird nur für den E-Mail-Kanal im HTML-Editor unterstützt
 
 ## Zugriff {#how-to-access}
 
-Im HTML-E-Mail-Template-Editor enthält die Seitenleistengruppe **Generieren** die Option **Template**. Wählen Sie diese aus, um ein markenkonformes HTML-E-Mail-Template zu generieren oder zu iterieren. Operator wendet Ihre [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) an, damit das Ergebnis zu Ihrer Stimme und Ihrem Stil passt.
-
+Im HTML-E-Mail-Template-Editor enthält die Seitenleistengruppe **Generate** die Option **Template**. Wählen Sie diese aus, um ein markenkonformes HTML-E-Mail-Template zu generieren oder zu iterieren. Der Operator wendet Ihre [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) an, damit das Ergebnis zu Ihrer Stimme und Ihrem Stil passt.
 
 ## Funktionsweise {#how-it-works}
 
-Operator verwendet Ihre [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) und [globalen Stileinstellungen]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings), um den Nachrichteninhalt und -stil an Ihre Marke anzupassen.
+Operator nutzt Ihre [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) und [globalen Stileinstellungen]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings), um den Nachrichteninhalt und -stil an Ihre Marke anzupassen.
 
-Wenn Sie beispielsweise globale Stileinstellungen eingerichtet haben, bezieht Operator die Farben und Stile Ihrer Marke ein. Wenn Sie Markenrichtlinien in Braze definiert haben, referenziert Operator diese ebenfalls, um Texte im Ton und in der Persönlichkeit Ihrer Marke zu erstellen.
+Wenn Sie beispielsweise globale Stileinstellungen eingerichtet haben, übernimmt Operator die Farben und Stile Ihrer Marke. Wenn Sie in Braze Markenrichtlinien definiert haben, greift Operator auch auf diese zurück, um Texte im Ton und in der Persönlichkeit Ihrer Marke zu erstellen.
 
 Operator optimiert Ihr Template außerdem für mobile Responsivität.
 

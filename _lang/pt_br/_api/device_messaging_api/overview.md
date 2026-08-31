@@ -17,18 +17,18 @@ Esta página está em beta. Os recursos e a documentação da API de envio de me
 
 ## Recursos suportados {#supported-capabilities}
 
-Durante o acesso antecipado, você pode usar a API de Device Messaging para:
+Durante o acesso antecipado, você pode usar a API de envio de mensagens para dispositivos para:
 
 - [Recuperar Banners elegíveis]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners) para um ID de usuário externo e um conjunto de posicionamentos
 - [Relatar eventos de impressão e clique de Banner]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_track_banner_events)
 
-A API de Device Messaging retorna propriedades estruturadas de Banner para que você possa criar uma interface personalizada. Ela não retorna HTML renderizado.
+A API de envio de mensagens para dispositivos retorna propriedades estruturadas de Banner para que você possa criar uma interface personalizada. Ela não retorna HTML renderizado.
 
 ## Requisitos de integração {#integration-requirements}
 
-Para integrar a API de envio de mensagens por dispositivo, você precisa de:
+Para integrar a API de envio de mensagens para dispositivos, você precisa de:
 
-- Um espaço de trabalho com a API de envio de mensagens por dispositivo ativada
+- Um espaço de trabalho com a API de envio de mensagens para dispositivos ativada
 - Uma chave da API REST do lado do cliente para esse espaço de trabalho
 - O endpoint REST para esse espaço de trabalho
 - O ID de usuário externo do usuário
@@ -36,8 +36,8 @@ Para integrar a API de envio de mensagens por dispositivo, você precisa de:
 
 Para saber mais sobre credenciais, consulte [Autenticação e segurança]({{site.baseurl}}/api/device_messaging_api/authentication).
 
-## Orientações sobre a API de mensagens do dispositivo e a REST API {#device-messaging-api-and-rest-api-guidance}
+## Orientações sobre a API de envio de mensagens para dispositivos e a REST API {#device-messaging-api-and-rest-api-guidance}
 
-A API de mensagens do dispositivo usa os mesmos endpoints REST regionais que a REST API da Braze, mas possui um contrato separado de autenticação e resposta. As orientações gerais da REST API sobre chaves privadas do lado do servidor, corpos de resposta, erros e limites de frequência não se aplicam, a menos que um artigo da API de mensagens do dispositivo faça referência explícita a elas.
+A API de envio de mensagens para dispositivos usa os mesmos endpoints REST regionais que a REST API da Braze, mas possui um contrato separado de autenticação e resposta. As orientações gerais da REST API sobre chaves privadas do lado do servidor, corpos de resposta, erros e limites de frequência não se aplicam, a menos que um artigo da API de envio de mensagens para dispositivos faça referência explícita a elas.
 
-Use a documentação de endpoints da API de mensagens do dispositivo como fonte de verdade para campos de requisição, corpos de resposta, códigos de status e limites.
+Use a documentação de endpoints da API de envio de mensagens para dispositivos como fonte de verdade para campos de requisição, corpos de resposta, códigos de status e limites.

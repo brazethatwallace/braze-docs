@@ -14,7 +14,7 @@ hidden: true
 
 ## Quem é elegível? {#whos-eligible}
 
-Esse caminho de upgrade é destinado a marcas com uma loja online no Shopify.
+Essa jornada de upgrade é destinada a marcas com uma loja online da Shopify.
 
 {% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
@@ -22,9 +22,9 @@ Esse caminho de upgrade é destinado a marcas com uma loja online no Shopify.
 
 Antes de começar, revise o seguinte:
 
-- **Mudanças críticas:** certifique-se de que você revisou todas as mudanças importantes do conector legado para o novo conector em [Visão geral do upgrade do Shopify]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection).
-- **Pré-requisitos do upgrade:** confirme que você concluiu todos os [pré-requisitos do upgrade]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites) necessários com suas equipes de engenharia e marketing.
-- **Mudanças que causam quebra:** revise e corrija todas as mudanças que causam quebra sinalizadas na Braze. Para um passo a passo completo, continue em [Corrigindo mudanças que causam quebra](#fixing-breaking-changes-fixing-breaking-changes).
+- **Mudanças críticas:** Verifique se você revisou todas as mudanças importantes do conector legado para o novo conector na [Visão geral do upgrade do Shopify]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection).
+- **Pré-requisitos do upgrade:** Confirme que você concluiu todos os [pré-requisitos do upgrade]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites) necessários com suas equipes de engenharia e marketing.
+- **Mudanças com incompatibilidades:** Revise e corrija todas as mudanças com incompatibilidades sinalizadas na Braze. Para um passo a passo completo, continue para [Corrigindo mudanças com incompatibilidades](#fixing-breaking-changes-fixing-breaking-changes).
 
 ## Corrigindo mudanças que causam quebra {#fixing-breaking-changes}
 
@@ -69,7 +69,7 @@ Quando o upgrade for concluído, novos grupos de inscrições padrão serão cri
 ## Fazendo upgrade do Shopify {#upgrading-shopify}
 
 {% alert important %}
-É essencial que você [corrija todas as mudanças que causam quebra](#fixing-breaking-changes) antes de iniciar o upgrade.
+É essencial que você [corrija todas as alterações com quebra de compatibilidade](#fixing-breaking-changes) antes de iniciar o upgrade.
 {% endalert %}
 
 ### Etapa 1: Iniciar o upgrade {#step-1-start-the-upgrade}
@@ -78,9 +78,9 @@ Na Braze, acesse **Partner Integrations** > **Shopify** e selecione **Start upgr
 
 ![Painel com a opção de iniciar o upgrade.]({% image_buster /assets/unlisted_docs/img/shopify/start_shopify_upgrade.png %}){: style="max-width:35%;"}
 
-Concorde com os termos e condições marcando a caixa e selecione **Start the upgrade**.
+Concorde com os termos e condições marcando a caixa de seleção e selecione **Start the upgrade**.
 
-![Modal para confirmar que você entende que o upgrade pode causar mudanças que causam quebra.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_upgrade.png %})
+![Modal para confirmar que você entende que o upgrade pode causar alterações com quebra de compatibilidade.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_upgrade.png %})
 
 ### Etapa 2: Configurar os SDKs da Braze {#step-2-set-up-the-braze-sdks}
 
@@ -92,7 +92,7 @@ A integração padrão adicionará automaticamente os SDKs da Braze ao seu site 
 
 Para reautorizar o app da Braze, selecione **Go to Shopify**.
 
-![Painel de upgrade do Shopify com um botão para ir ao Shopify e reautorizar o app da Braze.]({% image_buster /assets/unlisted_docs/img/shopify/reauthorize_braze_app.png %}){: style="max-width:35%;"}
+![Painel de upgrade do Shopify com um botão para acessar o Shopify e reautorizar o app da Braze.]({% image_buster /assets/unlisted_docs/img/shopify/reauthorize_braze_app.png %}){: style="max-width:35%;"}
 
 No site do Shopify, siga as instruções para reautorizar seu app da Braze. Isso permite que a Braze acesse seus dados do Shopify.
 
@@ -104,39 +104,39 @@ O processo de reautorização pode levar alguns minutos, mas será atualizado au
 
 ### Etapa 4: Escolher um tipo de ID externo {#step-4-choose-an-external-id-type}
 
-O tipo de ID externo que você escolher será atribuído a novos perfis de clientes do Shopify quando uma conta do Shopify for criada ou um pedido for feito. Ele também será usado para atualizar perfis de usuários existentes se eles já tiverem um alias de ID de cliente do Shopify, mas não tiverem um ID externo atribuído na Braze.
+O tipo de ID externo que você escolher será atribuído a novos perfis de clientes do Shopify quando uma conta Shopify for criada ou um pedido for realizado. Ele também será usado para atualizar perfis de usuário existentes se eles já tiverem um alias de ID de cliente do Shopify, mas não tiverem um ID externo atribuído na Braze.
 
 Para escolher seu tipo de ID externo, volte para a Braze e selecione **Confirm external ID**.
 
 ![Painel de upgrade do Shopify com um botão para confirmar o ID externo.]({% image_buster /assets/unlisted_docs/img/shopify/confirm_external_id.png %}){: style="max-width:35%;"}
 
-Escolha o ID externo que você gostaria de usar para a integração com o Shopify do seu espaço de trabalho. Quando terminar, selecione **Set external ID**.
+Escolha o ID externo que você deseja usar para a integração Shopify do seu espaço de trabalho. Quando terminar, selecione **Set external ID**.
 
-![Modal com um dropdown para selecionar o ID externo.]({% image_buster /assets/unlisted_docs/img/shopify/external_id_field.png %}){: style="max-width:70%;"}
+![Modal com um menu suspenso para selecionar o ID externo.]({% image_buster /assets/unlisted_docs/img/shopify/external_id_field.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-Usar um endereço de e-mail ou um endereço de e-mail com hash como seu ID externo da Braze pode ajudar a simplificar o gerenciamento de identidade entre suas fontes de dados. No entanto, é importante considerar os riscos potenciais à privacidade do usuário e à segurança dos dados.<br><br>
+Usar um endereço de e-mail ou um endereço de e-mail com hash como seu ID externo da Braze pode ajudar a simplificar o gerenciamento de identidade em suas fontes de dados. No entanto, é importante considerar os riscos potenciais para a privacidade do usuário e a segurança dos dados.<br><br>
 
-- **Informação previsível:** endereços de e-mail são facilmente previsíveis, tornando-os vulneráveis a ataques.
-- **Risco de exploração:** se um usuário mal-intencionado alterar seu navegador para enviar o endereço de e-mail de outra pessoa como seu ID externo, ele poderá acessar mensagens sensíveis ou informações da conta.
+- **Informações previsíveis:** endereços de e-mail são facilmente previsíveis, o que os torna vulneráveis a ataques.
+- **Risco de exploração:** se um usuário mal-intencionado alterar o navegador web para enviar o endereço de e-mail de outra pessoa como seu ID externo, ele poderá acessar mensagens confidenciais ou informações da conta.
 {% endalert %}
 
-Por padrão, a Braze converte automaticamente os e-mails do Shopify para letras minúsculas antes de usá-los como ID externo. Se você está usando e-mail ou e-mail com hash como seu ID externo, confirme que seus endereços de e-mail também são convertidos para letras minúsculas antes de atribuí-los como seu ID externo ou antes de aplicar o hash a partir de outras fontes de dados. Isso ajuda a evitar discrepâncias nos IDs externos e a criação de perfis de usuário duplicados na Braze.
+Por padrão, a Braze converte automaticamente os e-mails do Shopify para letras minúsculas antes de usá-los como ID externo. Se você estiver usando e-mail ou e-mail com hash como seu ID externo, confirme que seus endereços de e-mail também são convertidos para letras minúsculas antes de atribuí-los como seu ID externo ou antes de aplicar o hash a partir de outras fontes de dados. Isso ajuda a evitar discrepâncias nos IDs externos e a criação de perfis de usuário duplicados na Braze.
 
 Se você selecionou um tipo de ID externo personalizado, prossiga para as etapas 4.1 a 4.3. Caso contrário, continue para a etapa 5.
 
-#### Etapa 4.1: Criar o metafield `braze.external_id` {#step-41-create-the-brazeexternal_id-metafield}
+#### Etapa 4.1: Criar o metacampo `braze.external_id` {#step-41-create-the-brazeexternal_id-metafield}
 
 {% multi_lang_include partners/shopify/customer_metafield_definition_steps.md %}
 
-Após a criação do metafield, preencha-o para seus clientes. Recomendamos as seguintes abordagens:
+Após a criação do metacampo, preencha-o para seus clientes. Recomendamos as seguintes abordagens:
 
-- **Escutar webhooks de criação de clientes:** configure um webhook para escutar [eventos `customer/create`](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). Isso permite que você preencha o metafield quando um novo cliente é criado.
-- **Preencher retroativamente clientes existentes:** use a [Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para preencher retroativamente o metafield para clientes criados anteriormente.
+- **Escutar webhooks de criação de clientes:** configure um webhook para escutar [eventos `customer/create`](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). Isso permite que você preencha o metacampo quando um novo cliente é criado.
+- **Preencher clientes existentes retroativamente:** use a [Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para preencher retroativamente o metacampo para clientes criados anteriormente.
 
 #### Etapa 4.2: Criar um endpoint para recuperar seu ID externo {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 
-Você precisa criar um endpoint público que a Braze possa chamar para recuperar o ID externo. Isso é necessário para cenários em que o Shopify não pode fornecer o metafield `braze.external_id`.
+Você precisa criar um endpoint público que a Braze possa chamar para recuperar o ID externo. Isso é necessário para cenários em que o Shopify não pode fornecer o metacampo `braze.external_id`.
 
 ##### Especificações do endpoint {#endpoint-specifications}
 
@@ -144,9 +144,9 @@ Você precisa criar um endpoint público que a Braze possa chamar para recuperar
 
 | Parâmetros | Descrição |
 | --- | --- |
-| `shopify_customer_id` | O ID de cliente do Shopify. |
-| `email_address` | O endereço de e-mail do usuário logado. |
-| `shopify_storefront` | A storefront da requisição. |
+| `shopify_customer_id` | O ID do cliente Shopify. |
+| `email_address` | O endereço de e-mail do usuário conectado. |
+| `shopify_storefront` | A loja virtual da solicitação. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ##### Exemplo de endpoint {#example-endpoint}
@@ -169,7 +169,7 @@ A Braze espera um código de status `200`. Qualquer outro código é considerado
 {% endraw %}
 
 {% alert important %}
-É importante validar que o `shopify_customer_id` e o `email_address` correspondem aos valores do cliente no Shopify. Você pode usar a [Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para validar esses parâmetros e recuperar o metafield `braze.external_id`.
+É importante validar que o `shopify_customer_id` e o `email_address` correspondem aos valores do cliente no Shopify. Você pode usar a [Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para validar esses parâmetros e recuperar o metacampo `braze.external_id`.
 {% endalert %}
 
 #### Etapa 4.3: Inserir seu ID externo {#step-43-input-your-external-id}
@@ -188,16 +188,16 @@ Para ativar o app embed da Braze no tema da sua loja, volte para a Braze e selec
 
 No site do Shopify, ative o app embed da Braze e salve suas alterações.
 
-![Um exemplo de app embed.]({% image_buster /assets/unlisted_docs/img/shopify/app_embed.png %})
+![Exemplo de app embed.]({% image_buster /assets/unlisted_docs/img/shopify/app_embed.png %})
 
 ### Etapa 6: Verificar o upgrade {#step-6-verify-the-upgrade}
 
-De volta à Braze, você será notificado quando a instalação da sua integração com o Shopify for concluída.
+De volta à Braze, você receberá um alerta quando a instalação da sua integração Shopify for concluída.
 
-![Página de integração com o Shopify com um banner de sucesso.]({% image_buster /assets/unlisted_docs/img/shopify/success_integration.png %})
+![Página de integração do Shopify com um banner de sucesso.]({% image_buster /assets/unlisted_docs/img/shopify/success_integration.png %})
 
-Para verificar se o seu novo conector do Shopify está ativo, teste o seguinte:
+Para verificar se seu novo conector Shopify está ativo, teste o seguinte:
 
 {% multi_lang_include partners/shopify/upgrade_validation_checklist.md %}
 
-Se você tiver alguma dúvida, [fale com o Suporte]({{site.baseurl}}/user_guide/administrative/access_braze/support).
+Se você tiver dúvidas, [entre em contato com o suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support).

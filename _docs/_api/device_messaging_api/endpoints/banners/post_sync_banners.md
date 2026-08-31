@@ -46,6 +46,7 @@ For more information, see [Device Messaging API rate limits]({{site.baseurl}}/ap
   "external_user_id": "{EXTERNAL_USER_ID}",
   "app_id": "{APP_API_IDENTIFIER}",
   "app_version": "1.0.0",
+  "device_id": "{DEVICE_ID}",
   "placements": [
     "home_hero",
     "sidebar_promo"
@@ -61,7 +62,14 @@ For more information, see [Device Messaging API rate limits]({{site.baseurl}}/ap
 | `app_id` | Required | String | The [app API identifier]({{site.baseurl}}/api/identifier_types#app-identifier). It must identify an app in the authenticated workspace. | `26a39c72-e647-4766-b62e-4521fa2dae59` |
 | `app_version` | Required | String | The version of the host app. It must not exceed 255 characters. | `1.0.0` |
 | `placements` | Required | Array of strings | One or more placement IDs to retrieve Banners for. Include at least one placement ID. | `["home_hero", "sidebar_promo"]` |
+| `device_id` | Optional | String | The Braze device identifier for the device this request targets. It must not exceed 1,011 bytes. | `7bb8ac35-0a3f-4b8c-96ad-2e2e0dd1a4c9` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Request parameters" }
+
+### Personalizing with device attributes
+
+When you include `device_id` and that device exists on the user's profile, Braze populates the {% raw %}`{{targeted_device.${...}}}`{% endraw %} Liquid namespace while rendering the Banner. This lets you personalize Banner properties by the device's platform, model, or operating system. For more information, see [Targeted device information]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information).
+
+If you omit `device_id`, send an empty value, or send an identifier that isn't on the user's profile, Braze still returns a `200` status code and renders the Banner with those tags unresolved, so they fall back to any Liquid `default` filter values. Braze doesn't create a device or return an error in these cases.
 
 ## Example request
 
@@ -75,6 +83,7 @@ curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/
   "external_user_id": "user_abc123",
   "app_id": "26a39c72-e647-4766-b62e-4521fa2dae59",
   "app_version": "1.0.0",
+  "device_id": "7bb8ac35-0a3f-4b8c-96ad-2e2e0dd1a4c9",
   "placements": [
     "home_hero",
     "sidebar_promo"

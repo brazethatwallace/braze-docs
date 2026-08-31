@@ -31,28 +31,28 @@ Si une conversion se produit en dehors de la fenêtre d'attribution d'un canal, 
 
 ## Avantages {#benefits}
 
-L'attribution au dernier contact offre des avantages clés par rapport au suivi de conversion standard :
+L'attribution au dernier point de contact offre des avantages clés par rapport au suivi de conversion standard :
 
-* Elle vous permet d'attribuer des conversions à des points de contact spécifiques, ce qui vous donne la possibilité de comprendre quels canaux (et pas seulement quelles campagnes ou quels Canvas) génèrent des résultats.
-* Le crédit est attribué exclusivement au dernier message touché, de sorte que chaque conversion n'est comptée qu'une seule fois, éliminant ainsi les conversions en double entre les campagnes ou Canvas partageant des événements de conversion et des audiences communs.
+* Elle vous permet d'attribuer les conversions à des points de contact spécifiques, ce qui vous donne la possibilité de comprendre quels canaux (et pas seulement quels Campaigns ou Canvas) génèrent des résultats.
+* Le crédit est attribué exclusivement au dernier message consulté, de sorte que chaque conversion n'est comptabilisée qu'une seule fois, éliminant ainsi les conversions qui se chevauchent entre les Campaigns ou Canvas partageant des événements de conversion et des audiences communs.
 
 ## Ajouter des indicateurs d'attribution au dernier contact à votre rapport {#add-last-touch-attribution-metrics-to-your-report}
 
-1. Accédez au **Générateur de rapports**, sous **Analytics**.
-2. Sélectionnez **Créer le rapport** > **Créer un rapport personnalisé**.
-3. Dans le menu déroulant **Lignes**, sélectionnez l'objet sur lequel vous souhaitez créer un rapport.
-4. (Facultatif) Sélectionnez **Ajouter un sous-niveau**, puis choisissez un domaine pour approfondir votre analyse.
-5. Sous **Colonnes**, sélectionnez **Personnaliser les indicateurs**.
-6. Sous **Conversions**, sélectionnez **Last Touch Attribution**, puis sélectionnez **Tout sélectionner**.
+1. Accédez au **générateur de rapports**, sous **Analytics**.
+2. Sélectionnez **Create report** > **Create custom report**.
+3. Dans le menu déroulant **Rows**, sélectionnez l'élément sur lequel vous souhaitez créer un rapport.
+4. (Facultatif) Sélectionnez **Add drilldown**, puis choisissez un domaine pour approfondir votre analyse.
+5. Sous **Columns**, sélectionnez **Customize metrics**
+6. Sous **Conversions**, sélectionnez **Last Touch Attribution**, puis sélectionnez **Select All**.
 
 {% alert note %}
-Les indicateurs de chiffre d'affaires et d'achat ne sont pas disponibles.
+Les indicateurs de chiffre d'affaires et d'achats ne sont pas disponibles.
 {% endalert %}
 
-![Le panneau Personnaliser les indicateurs avec les indicateurs d'attribution au dernier contact.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
+![Le panneau de personnalisation des indicateurs avec les indicateurs d'attribution au dernier contact.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
 
 {: start="7" }
-7. Suivez les étapes 7 à 9 sur la page du [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reporting/report_builder).
+7. Suivez les étapes 7 à 9 sur la page du [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 {% alert note %}
 {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="last-touch attribution metrics in Report Builder" %}

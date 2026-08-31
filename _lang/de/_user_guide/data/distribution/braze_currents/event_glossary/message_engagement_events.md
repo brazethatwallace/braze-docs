@@ -5,7 +5,7 @@ alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "Dieses Glossar listet die verschiedenen Nachrichten-Engagement-Ereignisse auf, die Braze erfassen und über Currents an ausgewählte Data Warehouses senden kann."
+description: "Dieses Glossar listet die verschiedenen Nachrichten-Engagement-Ereignisse auf, die Braze verfolgen und mithilfe von Currents an ausgewählte Data Warehouses senden kann."
 tool: Currents
 search_rank: 6
 lazy_partner_tabs: true
@@ -15,25 +15,25 @@ lazy_partner_tabs: true
 
 {% details Schemabereich und verwandte Ressourcen %}
 
-Speicherschemas gelten für die Flat-File-Ereignisdaten, die wir an Data-Warehouse-Speicherpartner (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage) senden. Für Schemas, die für andere Partner gelten, besuchen Sie unsere Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) und prüfen Sie deren jeweilige Seiten.
+Speicherschemata gelten für die Flat-File-Ereignisdaten, die wir an Data-Warehouse-Speicherpartner senden (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage). Informationen zu Schemata, die für andere Partner gelten, finden Sie in unserer Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) und auf den jeweiligen Seiten.
 
 {% alert tip %}
-Diese Ereignisse sind auch als SQL-Tabellen im [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und im [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verfügbar. Für SQL-Tabellenschemas und Spaltendetails lesen Sie die [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Diese Ereignisse sind auch als SQL-Tabellen im [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und im [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verfügbar. SQL-Tabellenschemata und Spaltendetails finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugriff auf zusätzliche Ereignis-Berechtigungen benötigen. Falls Sie in diesem Artikel nicht finden, was Sie suchen, besuchen Sie unsere [Bibliothek der Kundenverhalten-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugriff auf zusätzliche Ereignisberechtigungen benötigen. Falls Sie in diesem Artikel nicht finden, was Sie suchen, werfen Sie einen Blick auf unsere [Kundenverhalten-Ereignisbibliothek]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
-{% details Erläuterung der Struktur und Plattformwerte von Nachrichten-Engagement-Ereignissen %}
+{% details Erklärung der Struktur und Plattformwerte von Nachrichten-Engagement-Ereignissen %}
 
 ## Ereignisstruktur {#event-structure}
 
-Diese Aufschlüsselung zeigt, welche Art von Informationen in der Regel in einem Nachrichten-Engagement-Ereignis enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategieteam die eingehenden Currents-Ereignisdaten nutzen, um datengestützte Berichte und Charts zu erstellen und weitere wertvolle Datenmetriken auszuwerten.
+Diese Aufschlüsselung zeigt, welche Art von Informationen in der Regel in einem Nachrichten-Engagement-Ereignis enthalten sind. Mit einem soliden Verständnis der einzelnen Bestandteile können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategieteam die eingehenden Currents-Ereignisdaten nutzen, um datengestützte Berichte und Charts zu erstellen und von weiteren wertvollen Datenmetriken zu profitieren.
 
-![Aufschlüsselung eines Nachrichten-Engagement-Ereignisses am Beispiel eines E-Mail-Abmeldeereignisses mit den aufgeführten Eigenschaften, gruppiert nach nutzerspezifischen Eigenschaften, Campaign- oder Canvas-Tracking-Eigenschaften und ereignisspezifischen Eigenschaften]({% image_buster /assets/img/message_engagement_event.png %})
+![Aufschlüsselung eines Nachrichten-Engagement-Ereignisses, das ein E-Mail-Abmeldeereignis zeigt, mit den aufgeführten Eigenschaften, gruppiert nach nutzerspezifischen Eigenschaften, Campaign-/Canvas-Tracking-Eigenschaften und ereignisspezifischen Eigenschaften]({% image_buster /assets/img/message_engagement_event.png %})
 
-Nachrichten-Engagement-Ereignisse bestehen aus **nutzerspezifischen** Eigenschaften, **Campaign-/Canvas-Tracking**-Eigenschaften und **ereignisspezifischen** Eigenschaften.
+Nachrichten-Engagement-Ereignisse setzen sich aus **nutzerspezifischen** Eigenschaften, **Campaign-/Canvas-Tracking**-Eigenschaften und **ereignisspezifischen** Eigenschaften zusammen.
 
 ### Nutzer-ID-Schema {#user-id-schema}
 
@@ -48,7 +48,7 @@ Beachten Sie die Namenskonventionen für Nutzer-IDs.
 ### Plattformwerte {#platform-values}
 
 Bestimmte Ereignisse geben einen `platform`-Wert zurück, der die Plattform des Geräts der Nutzer:in angibt.
-<br>Die folgende Tabelle zeigt die möglichen zurückgegebenen Werte:
+<br>Die folgende Tabelle zeigt die möglichen Rückgabewerte:
 
 | Gerät der Nutzer:in | Plattformwert |
 | --- | --- |
@@ -65,9 +65,9 @@ Bestimmte Ereignisse geben einen `platform`-Wert zurück, der die Plattform des 
 
 {% details Hinweise zu Nachrichten-Engagement-Ereignissen %}
 
-- Currents verwirft Ereignisse mit Payloads über 900&nbsp;KB.
-- Objekte im Zusammenhang mit Canvas Flow verfügen über IDs, die Sie zur Gruppierung verwenden und über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) in lesbare Namen übersetzen können.
-- Bestimmte Felder zeigen nach einer Aktualisierung einer Campaign oder eines Canvas möglicherweise nicht sofort den aktuellsten Stand an:
+- Currents verwirft Ereignisse mit Payloads von mehr als 900&nbsp;KB.
+- Objekte, die mit Canvas Flow zusammenhängen, besitzen IDs, die Sie zur Gruppierung verwenden und über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) in lesbare Namen übersetzen können.
+- Bestimmte Felder zeigen möglicherweise nicht sofort ihren aktuellsten Stand an, nachdem Sie eine Campaign oder ein Canvas aktualisiert haben:
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -75,7 +75,7 @@ Bestimmte Ereignisse geben einen `platform`-Wert zurück, der die Plattform des 
   - `canvas_variation_name`
   - `experiment_split_name`
   - `message_variation_name`
-- Wenn Sie für diese Felder vollständige Konsistenz benötigen, warten Sie eine Stunde nach der letzten Aktualisierung, bevor Sie Nachrichten an Ihre Nutzer:innen senden.
+- Wenn Sie vollständige Konsistenz für diese Felder benötigen, warten Sie eine Stunde nach der letzten Aktualisierung, bevor Sie Nachrichten an Ihre Nutzer:innen senden.
 
 {% enddetails %}
 
@@ -1050,6 +1050,10 @@ Dieses Ereignis tritt ein, wenn eine Nutzer:in eine Aktion ausführt, die als Ko
 Beachten Sie, dass das Konversions-Event im Feld `conversion_behavior` kodiert wird, das die Art des Konversions-Events, das Fenster (Zeitrahmen) und zusätzliche Informationen je nach Art des Konversions-Events enthält. Das Feld `conversion_behavior_index` gibt an, welches Konversions-Event vorliegt, z. B. 0 = A, 1 = B, 2 = C, 3 = D.
 {% endalert %}
 
+{% alert note %}
+Das Feld `message_extras` ist nur in Sendeereignissen verfügbar (z. B. E-Mail-Versand, Push-Versand). Es ist nicht in Konversions-Ereignissen enthalten. Um `message_extras`-Daten mit nachgelagertem Engagement zu verknüpfen, verwenden Sie `dispatch_id` oder `send_id`, um Sendeereignisse mit Konversions-Ereignissen in Ihrem Data Warehouse zu verknüpfen. Zur Bewertung der Wirksamkeit von Texten anhand der Konversionsrate sollten Sie stattdessen [Kampagnenvarianten]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/create_multivariate_campaign) verwenden.
+{% endalert %}
+
 {% tabs %}
 {% tab Cloud Storage %}
 ```json
@@ -1432,6 +1436,10 @@ Dieses Ereignis tritt ein, wenn eine Nutzer:in eine Aktion ausführt, die als Ko
 Beachten Sie, dass das Konversions-Event im Feld `conversion_behavior` kodiert wird, das die Art des Konversions-Events, das Fenster (Zeitrahmen) und zusätzliche Informationen je nach Art des Konversions-Events enthält. Das Feld `conversion_behavior_index` gibt an, welches Konversions-Event vorliegt, z. B. 0 = A, 1 = B, 2 = C, 3 = D.
 {% endalert %}
 
+{% alert note %}
+Das Feld `message_extras` ist nur in Sendeereignissen verfügbar (z. B. E-Mail-Versand, Push-Versand). Es ist nicht in Konversions-Ereignissen enthalten. Um `message_extras`-Daten mit nachgelagertem Engagement zu verknüpfen, verwenden Sie `send_id`, um Sendeereignisse mit Konversions-Ereignissen in Ihrem Data Warehouse zu verknüpfen. Zur Bewertung der Wirksamkeit von Texten anhand der Konversionsrate sollten Sie stattdessen [Canvas-Varianten]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#creating-tests) verwenden.
+{% endalert %}
+
 {% tabs %}
 {% tab Cloud Storage %}
 ```json
@@ -1626,7 +1634,7 @@ Beachten Sie, dass das Konversions-Event im Feld `conversion_behavior` kodiert w
 Canvas, Entry
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer in den Canvas eintritt. Dieses Ereignis teilt Ihnen mit, in welche Variante die Person eingetreten ist.
+Dieses Ereignis tritt ein, wenn ein:e Nutzer:in in den Canvas eintritt. Dieses Ereignis teilt Ihnen mit, in welche Variante die Person eingetreten ist.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -2874,7 +2882,7 @@ Dieses Ereignis tritt ein, wenn ein:e Nutzer:in einen Canvas-Experiment-Schritt-
 Canvas, Progression
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn Nutzer:innen einen Schritt in einem Canvas mit einem bestimmten Ergebnis durchlaufen. Beachten Sie, dass dieses Ereignis nicht eintritt, wenn Schritte betreten oder verlassen werden. Derzeit erzeugen nur geteilte Schritte (Zielgruppenpfade, Decision-Split, Aktionspfade, Experiment) und Fortschrittsergebnisse Schrittfortschrittsereignisse.
+Dieses Ereignis tritt ein, wenn Nutzer:innen einen Schritt in einem Canvas mit einem bestimmten Ergebnis durchlaufen. Beachten Sie, dass dieses Ereignis nicht eintritt, wenn Schritte betreten oder verlassen werden. Derzeit erzeugen nur Split-Schritte (Zielgruppenpfade, Decision-Split, Aktionspfade, Experiment) und Fortschrittsergebnisse Schrittfortschrittsereignisse.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -8738,6 +8746,10 @@ In-App Messages, Abort
 {% endapitags %}
 
 Dieses Ereignis tritt ein, wenn eine ursprünglich geplante In-App-Nachricht abgebrochen wurde.
+
+{% alert note %}
+[Abbruchereignisse]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) werden nur für [vorlagenbasierte In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) protokolliert. Standard-In-App-Nachrichten protokollieren keine Abbruchereignisse, da die Liquid-Auswertung vor der Trigger-Aktion stattfindet. Weitere Details zum Abbruchverhalten von In-App-Nachrichten finden Sie unter [FAQ zu In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#how-does-abort-behavior-work-for-in-app-messages).
+{% endalert %}
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -15992,7 +16004,7 @@ SMS, Rejection
 Dieses Ereignis tritt ein, wenn eine SMS-Sendung vom Netzbetreiber abgelehnt wird. Dies kann aus verschiedenen Gründen geschehen. Verwenden Sie dieses Ereignis und die bereitgestellten Fehlercodes, um Probleme mit der SMS-Zustellung zu beheben.
 
 {% alert note %}
-Braze gibt `users.messages.sms.Rejection` nur dann an Currents, Snowflake-Datenfreigabe und zugehörige Exporte aus, wenn das Braze-Nutzerprofil zum Zeitpunkt der Verarbeitung des Ereignisses für die Protokollierung noch im Workspace vorhanden ist. Wurde dieses Profil zuvor gelöscht, wird dieses Ereignis nicht in Ihrem Data Warehouse oder Currents-Export angezeigt. Dieselbe Verarbeitungsregel gilt für andere ausgehende `users.messages.sms.*`-Ereignisse, die Braze über dieselbe Pipeline protokolliert (z. B. Zustellung, Zustellungsfehler und Gesendet-an-Netzbetreiber). SMS-Metriken auf Workspace-Ebene können weiterhin aggregierte Zählungen enthalten, die nicht eins zu eins den Zeilen in Snowflake entsprechen.
+Braze gibt `users.messages.sms.Rejection` nur dann an Currents, Snowflake Data Sharing und zugehörige Exporte aus, wenn das Braze-Nutzerprofil zum Zeitpunkt der Verarbeitung des Ereignisses für die Protokollierung noch im Workspace vorhanden ist. Wurde dieses Profil zuvor gelöscht, wird dieses Ereignis nicht in Ihrem Data Warehouse oder Currents-Export angezeigt. Dieselbe Verarbeitungsregel gilt für andere ausgehende `users.messages.sms.*`-Ereignisse, die Braze über dieselbe Pipeline protokolliert (z. B. Zustellung, Zustellungsfehler und Gesendet-an-Netzbetreiber). SMS-Metriken auf Workspace-Ebene können weiterhin aggregierte Zählungen enthalten, die nicht eins zu eins den Zeilen in Snowflake entsprechen.
 {% endalert %}
 
 {% tabs %}

@@ -37,9 +37,9 @@ Variant assignment is randomized on each send, so the actual split may not match
 
 ### When is the initial test over?
 
-When using Winning Variant for single-send campaigns, the test is over when the Winning Variant Send Time arrives. Braze will deem a variant to be the winner if it shows the highest conversion rate by a statistically significant margin.
+For a single-send campaign using **Optimize with BrazeAI™**, the initial test ends after the configured experiment duration. BrazeAI™ then sends the best-performing variant to the remaining audience.
 
-For recurring, action-based, and API-triggered campaigns, you can use Intelligent Selection to continuously track each variant’s performance data and continuously optimize campaign traffic toward top-performing variants. With Intelligent Selection, rather than explicitly defining an experiment group where users receive random variants, the Braze algorithm will continuously refine its estimate of the best-performing variant, potentially allowing for faster selection of the top performer.
+For recurring, action-based, and API-triggered campaigns that send multiple times, **Optimize with BrazeAI™** continuously tracks variant performance and shifts campaign traffic toward better-performing variants.
 
 ### How does Braze handle users who received a message variant in a recurring campaign or Canvas entry step? 
 
@@ -77,4 +77,4 @@ To assign users to message variants, Canvas variants, or their respective contro
 
 ### Why can't I use rate limiting with a control group?
 
-Braze currently doesn’t support rate limiting with A/B testing that has a control group. This is because rate limiting doesn’t apply to the control group in the same way as the variants, thus introducing bias. Instead, consider using [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), which automatically adjusts the percentage of users that will receive each variant based on analytics and the performance of the campaign.
+Braze currently doesn’t support rate limiting with A/B testing that has a control group. Rate limiting doesn’t apply to the control group in the same way as the variants, which introduces bias. Instead, consider using [Optimize with BrazeAI™]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection), which automatically adjusts the percentage of users that receive each variant based on campaign performance.

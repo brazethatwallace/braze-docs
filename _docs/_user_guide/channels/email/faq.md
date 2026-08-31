@@ -108,6 +108,12 @@ Braze cannot distinguish between opens and clicks from the original recipient an
 
 When analyzing email metrics, be aware that forwarding activity can contribute to open and click counts. If you notice unusually high engagement rates or repeated activity from the same profile over time, forwarding may be a factor.
 
+### Can a sent email campaign or Canvas be recalled?
+
+No. After Braze hands a send request to your email service provider (ESP), that send can't be recalled. After the message is in the recipient's inbox, it also can't be removed.
+
+To stop further sends, select **Stop Campaign** or **Stop Canvas**. Messages already handed off to the ESP can still be delivered. For details, see [What happens when an email campaign or Canvas is stopped?](#what-happens-when-an-email-campaign-or-canvas-is-stopped).
+
 ### What happens when an email campaign or Canvas is stopped?
 
 Users are prevented from entering the Canvas, and no further messages are sent out. 

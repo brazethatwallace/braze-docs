@@ -8,12 +8,12 @@ description: "Diese Landing-Page stellt die Braze Device Messaging API vor."
 page_type: landing
 hidden: true
 guide_top_header: "Device Messaging API"
-guide_top_text: "Verwenden Sie die Braze Device Messaging API, um Banner-Eigenschaften abzurufen und Banner-Impression- und Klick-Ereignisse zu melden, ohne ein Braze SDK zu integrieren. Die Device Messaging API unterstützt client- und serverseitige Integrationen und verwendet clientseitige REST-API-Schlüssel, die auf einen einzelnen Workspace beschränkt sind."
+guide_top_text: "Verwenden Sie die Braze Device Messaging API, um Banner-Eigenschaften abzurufen und Banner-Impression- und Klick-Events zu melden, ohne ein Braze SDK zu integrieren. Die Device Messaging API unterstützt client- und serverseitige Integrationen und verwendet clientseitige REST-API-Schlüssel, die auf einen einzelnen Workspace beschränkt sind."
 guide_top_alert: "Diese Seite befindet sich in der Beta-Phase. Features und Dokumentation für die Device Messaging API können sich ändern. Wenden Sie sich an Ihren Braze Account Manager, um Zugang anzufordern."
 guide_top_text2: "Hinweis: Diese API ruft nur Eigenschaften für ein bestimmtes Banner ab, nicht das Banner-HTML."
 guide_featured_title: "Erste Schritte"
 guide_featured_list:
-  - name: "Device Messaging API – Übersicht"
+  - name: "Übersicht der Device Messaging API"
     link: /docs/api/device_messaging_api/overview
     image: /assets/img/braze_icons/annotation-info.svg
   - name: "Authentifizierung und Sicherheit"
@@ -34,4 +34,3 @@ guide_menu_list:
     link: /docs/api/device_messaging_api/endpoints/banners/post_track_banner_events
     image: /assets/img/braze_icons/line-chart-up-02.svg
 ---
-

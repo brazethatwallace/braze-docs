@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "このエンドポイントを使用して、バナーのインプレッションイベントとクリックイベントをトラッキングします。"
+description: "このエンドポイントを使用して、バナーのインプレッション、クリック、および却下イベントをトラッキングします。"
 hidden: true
 ---
 
@@ -15,12 +15,12 @@ hidden: true
 /v1/device-messaging/banners/track
 {% endapimethod %}
 
-> このエンドポイントを使用して、バナーのインプレッションイベントとクリックイベントを記録します。
+> このエンドポイントを使用して、バナーのインプレッション、クリック、および却下イベントを記録します。
 
 Brazeは各イベントを個別に検証します。リクエストに有効なイベントと無効なイベントの両方が含まれている場合、Brazeは有効なイベントを処理し、スキップされたイベントの詳細を`errors`配列で返します。有効なイベントがない場合、Brazeは`400`ステータスコードを返します。
 
 {% alert important %}
-このページはベータ版です。デバイスメッセージング API の機能とドキュメントは変更される可能性があります。アクセスをリクエストするには、Braze アカウントマネージャーにお問い合わせください。
+このページはベータ版です。デバイスメッセージングAPIの機能とドキュメントは変更される可能性があります。アクセスをリクエストするには、Brazeアカウントマネージャーにお問い合わせください。
 {% endalert %}
 
 ## 前提条件 {#prerequisites}
@@ -38,7 +38,17 @@ Brazeは各イベントを個別に検証します。リクエストに有効な
 
 レート制限はワークスペースごとに適用されます。レート制限を超えた場合、Brazeは`429`ステータスコードを返します。利用可能な場合は、`X-RateLimit-Limit`、`X-RateLimit-Remaining`、`X-RateLimit-Reset`、`X-RateLimit-Retry-After`レスポンスヘッダーを使用して使用状況を監視し、リトライのタイミングを判断してください。
 
-詳細については、[Device Messaging APIのレート制限]({{site.baseurl}}/api/device_messaging_api/rate_limits)を参照してください。
+詳細については、[デバイスメッセージングAPIのレート制限]({{site.baseurl}}/api/device_messaging_api/rate_limits)を参照してください。
+
+## バナーの却下 {#dismissing-banners}
+
+`dismiss`イベントをトラッキングすると、該当ユーザーのバナーが却下されます。そのユーザーに対する以降のバナー同期には、キャンペーンで再適格性が設定されていない限り、以前に却下されたバナーは含まれません。
+
+{% alert note %}
+却下イベントは非同期で処理されるため、即座には反映されません。まれに、処理に数分かかることがあります。却下の直後に[ユーザーのバナー取得エンドポイント]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners)を呼び出すことは避けてください。この期間中にバナーがまだ返される場合があります。
+{% endalert %}
+
+BrazeはUI内のバナーの状態を調整しません。却下後にバナーを非表示にし、Brazeがイベントを処理するまで非表示を維持するかどうかは、アプリ側の実装に委ねられます。
 
 ## リクエスト本文 {#request-body}
 
@@ -66,9 +76,9 @@ Brazeは各イベントを個別に検証します。リクエストに有効な
 | `app_version` | 必須 | String | ホストアプリのバージョン。255文字を超えてはなりません。 | `1.0.0` |
 | `events` | 必須 | オブジェクトの配列 | 記録する1つ以上のバナー分析イベント。 | `[{"id":"bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E","event_type":"impression","timestamp":"2026-04-09T12:00:00Z"}]` |
 | `events[].id` | 必須 | String | ユーザーのバナー取得エンドポイントから返されたバナー`id`。Brazeがイベントを正しいキャンペーンとバリアントに帰属させるために、`placement_id`ではなくバナーIDを使用してください。 | `bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E` |
-| `events[].event_type` | 必須 | String | イベントタイプ。使用可能な値は`impression`と`click`です。 | `impression` |
+| `events[].event_type` | 必須 | String | イベントタイプ。使用可能な値は`impression`、`click`、`dismiss`です。 | `impression` |
 | `events[].timestamp` | 必須 | String | イベントが発生した日時。[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)形式の文字列でフォーマットされます。 | `2026-04-09T12:00:00Z` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="リクエストパラメーター" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
 
@@ -106,7 +116,7 @@ curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/
 | `errors` | オブジェクトの配列 | Brazeがスキップしたイベントの詳細。Brazeがすべてのイベントを処理した場合、この配列は存在しません。 |
 | `errors[].type` | String | スキップされたイベントの検証エラー。 |
 | `errors[].index` | Integer | リクエストの`events`配列内のスキップされたイベントのゼロベースインデックス。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="レスポンスパラメーター" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response parameters" }
 
 ## レスポンス例 {#example-responses}
 
@@ -131,7 +141,7 @@ Brazeは、少なくとも1つの有効なイベントを受け入れた場合�
   "message": "success",
   "errors": [
     {
-      "type": "Invalid event_type. Valid types are: impression, click.",
+      "type": "Invalid event_type. Valid types are: impression, click, dismiss.",
       "index": 2
     }
   ]
@@ -147,7 +157,7 @@ Brazeがイベントを処理できない場合、`400`ステータスコード�
   "message": "No valid events provided.",
   "errors": [
     {
-      "type": "Invalid event_type. Valid types are: impression, click.",
+      "type": "Invalid event_type. Valid types are: impression, click, dismiss.",
       "index": 0
     },
     {
@@ -168,8 +178,8 @@ Brazeがイベントを処理できない場合、`400`ステータスコード�
 | `403` | クライアントサイドREST APIキーに`banners.track`権限がありません。 |
 | `404` | ワークスペースでバナー機能が有効になっていません。 |
 | `429` | ワークスペースがレート制限を超えました。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステータスコード" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Status codes" }
 
-詳細については、[Device Messaging APIのエラー処理とリトライ]({{site.baseurl}}/api/device_messaging_api/error_handling)を参照してください。
+詳細については、[デバイスメッセージングAPIのエラー処理とリトライ]({{site.baseurl}}/api/device_messaging_api/error_handling)を参照してください。
 
 {% endapi %}

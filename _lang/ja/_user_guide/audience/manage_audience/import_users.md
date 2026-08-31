@@ -11,24 +11,24 @@ description: "CSVインポート、REST API、クラウドデータ取り込み�
 
 ## インポートオプション {#import-options}
 
-BrazeでのCSVインポート、サーバーレスS3 Lambda CSVインポートスクリプト、直接APIコール、またはデータウェアハウスからのクラウドデータ取り込みを通じて、ユーザー属性やイベントをアップロードできます。
+BrazeのCSVインポート、サーバーレスS3 Lambda CSVインポートスクリプト、直接API呼び出し、またはデータウェアハウスからのCloud Data Ingestionを通じて、ユーザー属性とイベントをアップロードできます。
 
 ### Braze CSVインポート {#braze-csv-import}
 
-CSVインポートを使用して、以下のユーザー属性やカスタムイベントを記録・更新できます。開始するには、[CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)を参照してください。
+CSVインポートを使用して、以下のユーザー属性とカスタムイベントを記録・更新できます。開始するには、[CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)を参照してください。
 
 | タイプ | 定義 | 例 | 最大ファイルサイズ |
 |---|---|---|---|
-| デフォルト属性 | Brazeが認識する予約済みのユーザー属性。 | `first_name`、`email` | 500 MB |
-| カスタム属性 | ビジネス固有のユーザー属性。 | `last_destination_searched` | 500 MB |
-| カスタムイベント | ユーザーのアクションを表すビジネス固有のイベント。 | `trip_booked` | 50 MB |
+| デフォルト属性 | Brazeが認識する予約済みユーザー属性。 | `first_name`、`email` | 500 MB |
+| カスタム属性 | ビジネスに固有のユーザー属性。 | `last_destination_searched` | 500 MB |
+| カスタムイベント | ユーザーアクションを表す、ビジネスに固有のイベント。 | `trip_booked` | 50 MB |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze CSVインポート" }
 
 #### CSVの構成 {#constructing-your-csv}
 
-Brazeは標準CSV形式のユーザーデータを受け付けます。デフォルト属性とカスタム属性のインポートは最大500 MBのファイルをサポートし、カスタムイベントのインポートは最大50 MBのファイルをサポートします。識別子、列ヘッダー、バリデーションルール、および例については、[CSVインポート]({{site.baseurl}}/user_guide/data/user_data_collection/user_import/csv_import)を参照してください。
+Brazeは標準CSV形式のユーザーデータを受け付けます。デフォルト属性およびカスタム属性のインポートは最大500 MBのファイルをサポートしています。カスタムイベントのインポートは最大50 MBのファイルをサポートしています。識別子、列ヘッダー、バリデーションルール、および例については、[CSVインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)を参照してください。
 
-ダッシュボードの**Import Users**から大きなCSVをアップロードすると、Brazeがファイルを受信して計算ステップを実行している間、ページが応答しないか、応答が遅くなることがあります。アップロードと計算が完了するまでお待ちください。合計時間はファイルサイズに応じて数分から数時間の範囲で、ファイルが大きいほど計算に時間がかかります。
+ダッシュボードの**ユーザーをインポート**から大きなCSVをアップロードすると、Brazeがファイルを受信して計算ステップを実行している間、ページが応答しないように見えたり、応答が遅くなることがあります。アップロードと計算が完了するまでお待ちください。合計時間はファイルサイズに応じて数分から数時間かかり、ファイルが大きいほど計算に時間がかかります。
 
 {% alert note %}
 プロパティ付きのカスタムイベントをインポートする場合、CSVの列ヘッダーにドット表記を使用する必要があります。カスタムイベントのフォーマットの詳細については、[カスタムイベントのフォーマットについて]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import?tab=custom%20events#understanding-custom-event-formatting)を参照してください。
@@ -44,17 +44,17 @@ Brazeは標準CSV形式のユーザーデータを受け付けます。デフォ
 
 [`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、ユーザーのカスタムイベント、ユーザー属性、および購入を記録できます。
 
-### クラウドデータ取り込み {#cloud-data-ingestion}
+### Cloud Data Ingestion {#cloud-data-ingestion}
 
-Brazeの[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)を使用して、ユーザー属性をインポートおよび管理できます。
+Brazeの[Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)を使用して、ユーザー属性をインポートおよび管理できます。
 
 ## HTMLバリデーション {#html-validation}
 
-Brazeはインポート時にHTMLデータのサニタイズ、バリデーション、または再フォーマットを行わないため、Webパーソナライゼーションに使用するすべてのインポートデータからスクリプトタグを削除する必要があることに注意してください。
+Brazeはインポート中にHTMLデータのサニタイズ、バリデーション、または再フォーマットを行わないため、Webパーソナライゼーションに使用するすべてのインポートデータからスクリプトタグを削除する必要があります。
 
-Webブラウザでのパーソナライゼーション用途を目的としたデータをBrazeにインポートする場合、Webブラウザでレンダリングされた際に悪意を持って利用される可能性のあるHTML、JavaScript、またはその他のスクリプトタグが除去されていることを確認してください。
+Brazeにインポートするデータが特にWebブラウザーでのパーソナライゼーションを目的としている場合は、HTML、JavaScript、またはWebブラウザーでレンダリングされた際に悪意のある形で利用される可能性のあるスクリプトタグがすべて除去されていることを確認してください。
 
-あるいは、HTMLの場合、Braze Liquidフィルター（`strip_html`）を使用して、レンダリングされたテキストからHTMLを除去できます。例：
+また、HTMLについては、BrazeのLiquidフィルター（`strip_html`）を使用して、レンダリングされたテキストからHTMLを除去することもできます。例：
 
 {% tabs local %}
 {% tab 入力 %}

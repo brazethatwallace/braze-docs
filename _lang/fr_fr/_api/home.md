@@ -40,8 +40,10 @@ glossary_tags:
   - name: Catalogs
   - name: Content Blocks
   - name: Custom Events
+  - name: Custom Objects
   - name: Email List
   - name: Email Templates
+  - name: Webhook Templates
   - name: KPI
   - name: Media Library
   - name: Device Messaging API
@@ -107,6 +109,46 @@ glossaries:
     description: Fusionner un profil utilisateur avec un autre.
     tags:
       - User Data
+  - name: <a href='/docs/api/endpoints/custom_objects'>/custom_objects/*</a>
+    description: Consulter la référence complète des endpoints d'objets personnalisés, y compris les types d'objets, les objets et les endpoints de relations.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_custom_object_types'>/custom_objects/types</a>
+    description: Lister les types d'objets personnalisés dans l'espace de travail.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_custom_object_type'>/custom_objects/types/{type_name}</a>
+    description: Obtenir un type d'objet personnalisé et sa définition de schéma.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_user_relationship_types'>/custom_objects/types/{type_name}/user_relationship_types</a>
+    description: Lister les types de relations utilisateur pour un type d'objet personnalisé.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_object_relationship_types'>/custom_objects/types/{type_name}/object_relationship_types</a>
+    description: Lister les types de relations d'objet pour un type d'objet personnalisé.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_list_custom_objects'>/custom_objects/objects/{type_name}</a>
+    description: Lister les objets personnalisés pour un type.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_custom_object'>/custom_objects/objects/{type_name}/{external_id}</a>
+    description: "Obtenir un objet personnalisé, ou le remplacer, le mettre à jour et le supprimer."
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/object_relationships/get_list_object_relationships'>/custom_objects/objects/{type_name}/{external_id}/object_relationships</a>
+    description: "Lister, créer, remplacer, mettre à jour et supprimer des relations objet-objet."
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/get_list_user_relationships'>/custom_objects/objects/{type_name}/{external_id}/user_relationships</a>
+    description: Lister les relations utilisateur pour un objet personnalisé.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/post_create_user_relationship'>/custom_objects/objects/{type_name}/{external_id}/users</a>
+    description: "Créer, remplacer, mettre à jour et supprimer des relations utilisateur-objet."
+    tags:
+      - Custom Objects
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns'>/campaigns/trigger/send</a>
     description: Envoyer des messages immédiats et ponctuels à des utilisateurs désignés via la distribution déclenchée par l'API.
     tags:
@@ -235,6 +277,18 @@ glossaries:
     description: Obtenir une liste des modèles d'e-mail disponibles dans votre compte Braze.
     tags:
       - Email Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_source_webhook_template'>/templates/webhook/translations/source</a>
+    description: Consulter les traductions source par défaut pour un modèle de webhook.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_translations_webhook_template'>/templates/webhook/translations</a>
+    description: Consulter les traductions pour un modèle de webhook.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/put_update_webhook_template'>/templates/webhook/translations</a>
+    description: Mettre à jour les traductions pour un modèle de webhook.
+    tags:
+      - Webhook Templates
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaign_analytics'>/campaigns/data_series</a>
     description: Récupérer une série quotidienne de diverses statistiques pour une Campaign au fil du temps.
     tags:

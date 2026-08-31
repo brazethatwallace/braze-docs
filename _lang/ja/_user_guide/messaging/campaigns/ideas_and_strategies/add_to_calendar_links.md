@@ -44,8 +44,8 @@ https://ics.agical.io/?subject=EVENT_SUBJECT&location=EVENT_LOCATION&dtstart=STA
 
 - `EVENT_SUBJECT`: イベントのタイトル
 - `EVENT_LOCATION`: イベントの場所
-- `START_TIME`: ISO 8601形式（YYYY-MM-DDTHH:MM:SSZ）のUTCによるイベント開始時刻
-- `END_TIME`: ISO 8601形式（YYYY-MM-DDTHH:MM:SSZ）のUTCによるイベント終了時刻
+- `START_TIME`: イベントの開始時刻（ISO 8601形式（YYYY-MM-DDTHH:MM:SSZ）、UTC）
+- `END_TIME`: イベントの終了時刻（ISO 8601形式（YYYY-MM-DDTHH:MM:SSZ）、UTC）
 - `EVENT_DESCRIPTION`: イベントの説明
 
 スペースはHTMLエスケープコード `%20` に置き換えてください。たとえば、件名が「Meet Braze」の場合は「Meet%20Braze」となります。
@@ -58,25 +58,25 @@ https://ics.agical.io/?subject=Meet%20Braze&location=114%20Sansome%20Street&dtst
 
 ### 追加パラメーター {#additional-parameters}
 
-以下のパラメーターはオプションで、イベントの追加情報を定義するために使用できます。
+以下のパラメーターはオプションで、イベントの追加要素を定義するために使用できます。
 
 - **主催者名:** `&organizer=name`
 - **イベントに関連するURLを添付:** `&attach=http://www.example.com/`
-- **期間:** `duration=30M`。イベント終了時刻（dtend）の代わりに、1Hや30Mのように期間を指定できます
+- **期間:** `duration=30M`、イベント終了時刻（dtend）の代わりに、1Hや30Mのような期間を指定します
 - **リマインダーアラーム時間（分単位）:** `&reminder=15`
 - **終日イベント:** `&allday=1`
-- **UID:** イベントの一意の識別子をハードコードするためのオプションパラメーターです。一部のカレンダーアプリでイベントを経時的に更新できるようになります。文字列 @ics.agical.io が値に自動的に付加されます。
+- **UID:** イベントの一意の識別子をハードコードするオプションパラメーターで、一部のカレンダーアプリがイベントを経時的に更新できるようにします。文字列 @ics.agical.io が値に自動的に追加されます。
 
-繰り返しイベント用の追加パラメーターも設定できます:
+繰り返しイベント用の追加パラメーターも指定できます:
 - **毎週のイベント:** `&recur=weekly`
 - **毎月のイベント:** `&recur=monthly`
-- **繰り返しの終了:** `&recuruntil=END_DATE`。`END_DATE` は繰り返しが終了する日時で、ISO 8601形式（YYYY-MM-DDTHH:MM:SSZ）のUTCで指定します
+- **繰り返しの終了:** `&recuruntil=END_DATE`、`END_DATE` は繰り返しが終了する日時（ISO 8601形式（YYYY-MM-DDTHH:MM:SSZ）、UTC）です
 
 ## リンクの動作 {#link-behavior}
 
-ユーザーがリンクをクリックすると、カレンダーはURL内のUTCタイムスタンプを自動的にユーザーのカレンダーに設定されたタイムゾーンに変換します。
+ユーザーがリンクをクリックすると、カレンダーはURL内のUTCタイムスタンプを自動的に変換し、ユーザーのカレンダーに設定されたタイムゾーンを反映します。
 
-たとえば、「Googleカレンダーに追加」のサンプルリンクを開き、カレンダーがCSTに設定されている場合、イベントの時刻はUTC午後3時をCSTに変換した時刻（午前10時）で自動入力されます。
+たとえば、サンプルの「Googleカレンダーに追加」リンクを開き、カレンダーがCSTに設定されている場合、イベントの時刻は午後3時（UTC）をCSTに変換した時刻（午前10時）で自動入力されます。
 
 ### Googleカレンダー {#google-calendar}
 
@@ -86,21 +86,21 @@ https://ics.agical.io/?subject=Meet%20Braze&location=114%20Sansome%20Street&dtst
 
 ### iCalまたはOutlook {#ical-or-outlook}
 
-デスクトップでクリックすると、ICSファイルがダウンロードされます。ユーザーはICSファイルを開く必要があり、iCalまたはOutlookが起動してカレンダーにイベントを追加するよう求められます。
+デスクトップでクリックすると、ICSファイルがブラウザのデフォルトのダウンロード場所（通常は**ダウンロード**フォルダ）にダウンロードされます。ユーザーはそのICSファイルを開く必要があり、開くとiCalまたはOutlookが起動し、カレンダーにイベントを追加するよう促されます。
 
-![新しいイベントを追加するダイアログが表示されたiCalカレンダー。カレンダーの選択と確認を求めるプロンプトが表示されています。]({% image_buster /assets/img_archive/calendar_3.png %}){: style="max-width:75%"}
+![新しいイベントを追加するダイアログが表示されたiCalカレンダー。カレンダーの選択と確認を促しています。]({% image_buster /assets/img_archive/calendar_3.png %}){: style="max-width:75%"}
 
 ![イベントが追加されたiCalカレンダー。]({% image_buster /assets/img_archive/calendar_4.png %}){: style="max-width:81%"}
 
-モバイルでは、デバイスとメールアプリによって動作が異なります。
+モバイルでは、デバイスやメールアプリによって動作が異なります。
 
 {% alert note %}
-iPhoneでは、メールアプリとMicrosoft OutlookはユーザーがiCalリンクをタップするとICSファイルをダウンロードしますが、リンクからカレンダーを開くことはありません。イベントを追加するには、**ファイル**、**ダウンロード**、または添付ファイルビュー（アプリによって異なります）からダウンロードしたファイルを開き、カレンダーでステップを完了してください。
+iPhoneでは、メールアプリおよびMicrosoft Outlookは、ユーザーがiCalリンクをタップするとICSファイルをデバイスにダウンロードしますが、リンクからカレンダーを開くことはありません。イベントを追加するには、**ファイル**、**ダウンロード**、または添付ファイルビュー（アプリによって異なります）からダウンロードしたファイルを開き、カレンダーでステップを完了してください。具体的な場所はメールアプリとiOSの設定によって異なります。
 {% endalert %}
 
 一部のモバイルメールアプリやブラウザでは、リンクを長押しするとカレンダーにイベントを追加するオプションが表示される場合があります。
 
-![カレンダーリンクを長押ししたときに表示されるiOSのポップアップ。「カレンダーに追加」ボタンが含まれています。]({% image_buster /assets/img_archive/calendar_5.png %}){: style="max-width:50%"}
+![カレンダーリンクを長押しした際のiOSポップアップ。「カレンダーに追加」ボタンが含まれています。]({% image_buster /assets/img_archive/calendar_5.png %}){: style="max-width:50%"}
 
 詳細については、以下を参照してください。
 * [Create events for Google Calendar](https://developers.google.com/calendar/api/guides/create-events)

@@ -17,76 +17,76 @@ _この統合はStayfilmによって管理されています。_
 
 ## ユースケース {#use-cases}
 
-Stayfilmは、以下を含むカスタマーライフサイクル全体にわたるパーソナライズされたビデオ配信をサポートしています。
+Stayfilmは、カスタマーライフサイクル全体にわたるパーソナライズされた動画配信をサポートしています。主なユースケースは以下のとおりです。
 
-- **オンボーディングとウェルカムジャーニー：** プロファイルやサインアップのコンテキストに合わせてパーソナライズされたビデオで新規ユーザーを歓迎します
-- **商品およびマーケットプレイスコンテンツ：** カタログやユーザー提供のメディアから商品に焦点を当てたビデオを生成します
-- **コンバージョンとアクティベーション：** 文脈に応じたビデオメッセージングで重要なアクションを強化します
-- **ロイヤルティとアップセル：** パーソナライズされたオファーや利用マイルストーンをビデオ形式でハイライトします
-- **奪還と離脱防止：** カスタマイズされたビデオコンテンツで非アクティブなユーザーを再エンゲージします
+- **オンボーディングとウェルカムジャーニー：**プロファイルやサインアップの状況に応じてパーソナライズされた動画で新規ユーザーを歓迎します
+- **商品やマーケットプレイスのコンテンツ：**カタログやユーザー提供のメディアから商品にフォーカスした動画を生成します
+- **コンバージョンとアクティベーション：**文脈に応じた動画メッセージングで重要なアクションを強化します
+- **ロイヤルティとアップセル：**パーソナライズされたオファーや利用マイルストーンを動画形式でハイライトします
+- **奪還と離脱防止：**カスタマイズされた動画コンテンツで非アクティブなユーザーを再エンゲージします
 
 ## 前提条件 {#prerequisites}
 
-開始する前に、以下を確認してください。
+始める前に、以下の要件を確認してください。
 
 | 要件 | 説明 |
 | ----------- | ----------- |
-| Stayfilm APIアクセス | Stayfilmに連絡して、`idproject`、`Subscription-Key`、OAuthクライアント認証情報、Stayfilm APIベースURLを含むプロジェクト認証情報を取得してください。認証とエンドポイントの詳細については、[Stayfilm APIドキュメント](https://apidoc.stayfilm.com)を参照してください。 |
-| Brazeデータ変換 | [Brazeデータ変換]({{site.baseurl}}/user_guide/data/unification/data_transformation)を使用して、Stayfilmのコールバックを受信し、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を通じてBrazeユーザープロファイルにマッピングします。 |
-| Brazeユーザー識別子 | このウォークスルーでは、`external_id`を使用してStayfilmジョブをBrazeユーザープロファイルと関連付けます。`CallbackRelayData`で渡す値は、Brazeのユーザーの`external_id`と一致する必要があります。 |
-| Brazeサンドボックス（推奨） | 本番環境にデプロイする前に、Brazeサンドボックスワークスペースで統合をテストしてください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Stayfilm API アクセス | Stayfilm に連絡して、`idproject`、`Subscription-Key`、OAuth クライアント認証情報、Stayfilm API ベース URL を含むプロジェクト認証情報を取得してください。認証とエンドポイントの詳細については、[Stayfilm API ドキュメント](https://apidoc.stayfilm.com)を参照してください。 |
+| Braze データ変換 | [Braze データ変換]({{site.baseurl}}/user_guide/data/unification/data_transformation)を使用して、Stayfilm のコールバックを受信し、[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を通じて Braze ユーザープロファイルにマッピングします。 |
+| Braze ユーザー識別子 | このウォークスルーでは、`external_id` を使用して Stayfilm ジョブを Braze ユーザープロファイルに関連付けます。`CallbackRelayData` で渡す値は、Braze でのユーザーの `external_id` と一致する必要があります。 |
+| Braze サンドボックス（推奨） | 本番環境にデプロイする前に、Braze サンドボックスワークスペースで統合をテストしてください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合の仕組み {#how-the-integration-works}
+## 連携の仕組み {#how-the-integration-works}
 
-この統合は双方向のWebhookフローを使用します。
+この連携は、双方向のWebhookフローを使用します。
 
 1. **アウトバウンド：** Brazeの[Webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks)がStayfilmの`POST /Job`エンドポイントにレンダリングジョブを送信します。リクエストには、ユーザーメディア、テンプレート設定、およびBrazeユーザーの`external_id`に設定された`CallbackRelayData`が含まれます。
-2. **インバウンド：** Stayfilmがレンダリングを完了すると、Brazeデータ変換のWebhook URLにコールバックを送信します。変換により、レスポンスが一致するユーザープロファイルの[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)とカスタムイベントにマッピングされます。
-3. **配信：** 保存された`stayfilm_video_url`属性を、カスタムHTMLを使用した[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages)などのメッセージングチャネルで使用します。
+2. **インバウンド：** Stayfilmがレンダリングを完了すると、Brazeデータ変換のWebhook URLにコールバックを送信します。変換処理により、レスポンスが一致するユーザープロファイルの[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)およびカスタムイベントにマッピングされます。
+3. **配信：** 保存された`stayfilm_video_url`属性を、カスタムHTMLを使用した[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages)などのメッセージングチャネルで活用します。
 
-このウォークスルーのデータ変換は、以下のカスタム属性を書き込みます。
+このウォークスルーのデータ変換では、以下のカスタム属性が書き込まれます。
 
 | 属性 | 説明 |
 | --------- | ----------- |
 | `stayfilm_video_status` | レンダリングが成功した場合は`ready`、Stayfilmがエラーを報告した場合は`failed` |
-| `stayfilm_video_url` | レンダリングされたMP4ビデオのURL |
+| `stayfilm_video_url` | レンダリングされたMP4動画のURL |
 | `stayfilm_job_id` | Stayfilmジョブ識別子 |
 | `stayfilm_render_error` | レンダリング失敗時のエラーメッセージ |
 | `stayfilm_callback_received_at` | コールバックのISOタイムスタンプ |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="カスタム属性" }
 
-変換では、`stayfilm_video_ready`または`stayfilm_video_failed`という名前のカスタムイベントも記録されます。
+変換処理では、`stayfilm_video_ready`または`stayfilm_video_failed`という名前のカスタムイベントも記録されます。
 
-## 統合 {#integration}
+## 連携 {#integration}
 
-以下のステップでは、概念実証について説明します。フローを検証した後、ジョブペイロード、属性、メッセージングをユースケースに合わせて調整してください。
+以下のステップでは、概念実証の手順を説明します。フローを検証した後、ジョブペイロード、属性、メッセージングをユースケースに合わせて調整してください。
 
-### ステップ1：テストユーザーを作成する {#step-1-create-a-test-user}
+### ステップ1:テストユーザーを作成する {#step-1-create-a-test-user}
 
-統合の構築と検証に使用するテストユーザープロファイルを作成します。詳細については、[ユーザーのインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users)を参照してください。
+連携の構築と検証に使用するテストユーザープロファイルを作成します。詳細については、[ユーザーをインポートする]({{site.baseurl}}/user_guide/audience/manage_audience/import_users)を参照してください。
 
-1. **オーディエンス** > **ユーザーのインポート**に移動します。
-2. **クイックユーザー追加**を選択します。
-3. `external_id`とその他の必須フィールドを入力し、**新規ユーザーを作成**を選択します。
+1. **オーディエンス** > **ユーザーをインポート** に移動します。
+2. **クイックユーザー追加** を選択します。
+3. `external_id` とその他の必須フィールドを入力し、**新しいユーザーを作成** を選択します。
 
 {% alert important %}
-メール、電話番号、氏名、政府発行ID、住所、注文の詳細などの個人データを`external_id`として使用しないでください。この統合全体を通じて、`external_id`は大文字と小文字を区別するものとして扱ってください。
+メール、電話番号、氏名、政府発行 ID、住所、注文詳細などの個人データを `external_id` として使用しないでください。この連携全体を通じて、`external_id` は大文字と小文字が区別されるものとして扱ってください。
 {% endalert %}
 
-このウォークスルーでは、`stayfilm-poc-001`をサンプルの`external_id`として使用します。後のステップで使用するため、選択した値をメモしておいてください。
+このウォークスルーでは、`stayfilm-poc-001` をサンプルの `external_id` として使用します。後のステップで使用するため、選択した値を控えておいてください。
 
-### ステップ2：データ変換を作成する {#step-2-create-a-data-transformation}
+### ステップ2:データ変換を作成する {#step-2-create-a-data-transformation}
 
-Stayfilmのコールバックを受信し、ユーザープロファイルを更新するためのデータ変換を作成します。
+Stayfilm のコールバックを受信し、ユーザープロファイルを更新するためのデータ変換を作成します。
 
-1. **データ設定** > **データ変換**に移動します。
-2. **変換を作成**を選択します。
-3. `Stayfilm Callback Data Transformation`などの名前を入力します。
-4. **編集エクスペリエンス**で、**ゼロから始める**を選択します。
-5. **送信先を選択** > **送信先**で、**POST: Track users**を選択します。
-6. **変換を作成**を選択します。
-7. デフォルトの変換コードを以下に置き換えます。
+1. **データ設定** > **データ変換** に移動します。
+2. **変換を作成** を選択します。
+3. `Stayfilm Callback Data Transformation` などの名前を入力します。
+4. **編集エクスペリエンス** で、**ゼロから始める** を選択します。
+5. **送信先を選択** > **送信先** で、**POST: Track users** を選択します。
+6. **変換を作成** を選択します。
+7. デフォルトの変換コードを以下に置き換えます:
 
 ```javascript
 const brazeExternalId = payload.RelayedData;
@@ -134,8 +134,8 @@ return brazecall;
 ```
 
 {: start="8"}
-8. **保存**を選択し、生成されたWebhook URLをコピーします。
-9. 以下のサンプルStayfilmコールバックJSONを使用して、Webhook URLにテスト`POST`リクエストを送信します。`RelayedData`をステップ1で作成したテストユーザーの`external_id`に設定します。
+8. **保存** を選択し、生成された Webhook URL をコピーします。
+9. 以下のサンプル Stayfilm コールバック JSON を使用して、Webhook URL にテスト `POST` リクエストを送信します。`RelayedData` には、ステップ1で作成したテストユーザーの `external_id` を設定してください。
 
 ```json
 {
@@ -153,35 +153,35 @@ return brazecall;
 }
 ```
 
-cURL、Postman、または同様のツールでリクエストを送信します。成功したレスポンスは、HTTPステータス`201`と`{"message": "success"}`を返します。
+cURL、Postman、または同様のツールを使用してリクエストを送信します。成功した場合、HTTP ステータス `201` と `{"message": "success"}` が返されます。
 
 {: start="10"}
-10. **データ設定** > **データ変換**に移動し、変換がリストに表示されない場合はページをリロードします。
-11. 変換を開き、**検証**を選択します。**出力**で検証が成功したことを確認します。
-12. **有効化**を選択します。
-13. コピーしたWebhook URLをコールバックURLとしてStayfilmに提供します。
+10. **データ設定** > **データ変換** に移動し、変換がリストに表示されない場合はページを再読み込みします。
+11. 変換を開き、**検証** を選択します。**出力** で検証が成功したことを確認します。
+12. **有効化** を選択します。
+13. コピーした Webhook URL をコールバック URL として Stayfilm に提供します。
 
 {% alert note %}
-Brazeの`external_id`以外のデータを`CallbackRelayData`に保存する場合は、`RelayedData`を適切に解析するように変換コードを更新してください。
+Brazeの `external_id` 以外のデータを `CallbackRelayData` に格納する場合は、`RelayedData` を適切に解析するように変換コードを更新してください。
 {% endalert %}
 
-### ステップ3：Stayfilmにジョブを送信するWebhookキャンペーンを作成する {#step-3-create-a-webhook-campaign-to-send-jobs-to-stayfilm}
+### ステップ3:Stayfilm にジョブを送信する Webhook キャンペーンを作成する {#step-3-create-a-webhook-campaign-to-send-jobs-to-stayfilm}
 
-Stayfilmにレンダリングジョブを送信する[Webhookキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks)を作成します。
+Stayfilm にレンダリングジョブを送信する [Webhook キャンペーン]({{site.baseurl}}/user_guide/channels/webhooks)を作成します。
 
 {% alert important %}
-キャンペーンをテストする前に、Stayfilmがステップ2のデータ変換コールバックURLでプロジェクトを設定していることを確認してください。
+キャンペーンをテストする前に、Stayfilm がステップ2のデータ変換コールバック URL でプロジェクトを設定済みであることを確認してください。
 {% endalert %}
 
-1. **メッセージング** > **キャンペーン**に移動します。
-2. **キャンペーンを作成** > **Webhook**を選択します。
-3. `Stayfilm Webhook Integration`などのキャンペーン名を入力します。
-4. **Webhookを作成** > **ゼロから始める**を選択します。
-5. **Webhookを作成** > **Webhook URL**で、Stayfilmが提供する`POST /Job`エンドポイントURLを入力します。以下の例の*`{BASE_URL}`*を置き換えてください：`https://{BASE_URL}/stg/v3/job`
-6. **HTTPメソッド**を**POST**に設定します。
-7. **リクエストボディ**で**Raw Text**を選択し、Stayfilmが提供するジョブペイロードを貼り付けます。[Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call)を使用してボディをダイナミックにすることができます。
+1. **メッセージング** > **キャンペーン** に移動します。
+2. **キャンペーンを作成** > **Webhook** を選択します。
+3. `Stayfilm Webhook Integration` などのキャンペーン名を入力します。
+4. **Webhook を作成** > **ゼロから始める** を選択します。
+5. **Webhook を作成** > **Webhook URL** に、Stayfilm が提供する Stayfilm の `POST /Job` エンドポイント URL を入力します。以下の例の *`{BASE_URL}`* を置き換えてください: `https://{BASE_URL}/stg/v3/job`
+6. **HTTP メソッド** を **POST** に設定します。
+7. **リクエストボディ** で **Raw Text** を選択し、Stayfilm が提供するジョブペイロードを貼り付けます。[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) を使用して、ボディをダイナミックにすることができます。
 
-`CallbackRelayData`をBrazeユーザーの`external_id`に設定してください。Stayfilmはこの値をコールバックで`RelayedData`として返します。
+`CallbackRelayData` を Braze ユーザーの `external_id` に設定してください。Stayfilm はこの値をコールバックで `RelayedData` として返します。
 
 {% raw %}
 ```json
@@ -199,17 +199,17 @@ Stayfilmにレンダリングジョブを送信する[Webhookキャンペーン]
 ```
 {% endraw %}
 
-以下のリクエストヘッダーを追加します。
+以下のリクエストヘッダーを追加します:
 
 | キー | 値 |
 | --- | ----- |
-| `idproject` | Stayfilmが提供する`idproject`の値 |
-| `Subscription-Key` | Stayfilmが提供する`Subscription-Key` |
+| `idproject` | Stayfilm が提供する `idproject` の値 |
+| `Subscription-Key` | Stayfilm が提供する `Subscription-Key` |
 | `Content-Type` | `application/json` |
-| `Authorization` | Connected Contentを通じて取得したOAuthベアラートークン（以下の例を参照） |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Request headers" }
+| `Authorization` | Connected Content で取得した OAuth ベアラートークン（以下の例を参照） |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="リクエストヘッダー" }
 
-以下のConnected Contentブロックで、*`{TENANT_ID}`*、*`{CLIENT_ID}`*、*`{CLIENT_SECRET_URL_ENCODED}`*、*`{SCOPE_URL_ENCODED}`*をStayfilmが提供する値に置き換えます。*`{CLIENT_SECRET_URL_ENCODED}`*と*`{SCOPE_URL_ENCODED}`*はブロックに貼り付ける前にURLエンコードしてください。OAuthの要件については、[Stayfilm APIドキュメント](https://apidoc.stayfilm.com)を参照してください。
+以下の Connected Content ブロックで、*`{TENANT_ID}`*、*`{CLIENT_ID}`*、*`{CLIENT_SECRET_URL_ENCODED}`*、*`{SCOPE_URL_ENCODED}`* を Stayfilm が提供する値に置き換えます。*`{CLIENT_SECRET_URL_ENCODED}`* と *`{SCOPE_URL_ENCODED}`* はブロックに貼り付ける前に URL エンコードしてください。OAuth の要件については、[Stayfilm API ドキュメント](https://apidoc.stayfilm.com)を参照してください。
 
 {% raw %}
 ```
@@ -224,19 +224,19 @@ Stayfilmにレンダリングジョブを送信する[Webhookキャンペーン]
 {% endraw %}
 
 {: start="8"}
-8. **下書きを保存**を選択します。
+8. **下書きを保存** を選択します。
 
 {% alert note %}
-キャンペーンページを離れて戻った場合、**ステータス**を**すべて**に設定すると、まだ**下書き**のキャンペーンを見つけることができます。
+キャンペーンページから離れて戻った場合、**ステータス** を **すべて** に設定すると、まだ **下書き** のキャンペーンを見つけることができます。
 {% endalert %}
 
-### ステップ4：Webhookキャンペーンをテストする {#step-4-test-the-webhook-campaign}
+### ステップ4:Webhook キャンペーンをテストする {#step-4-test-the-webhook-campaign}
 
-1. Webhookコンポーザーから、**テスト**タブを選択します。
-2. **ユーザーとしてメッセージをプレビュー**で、**既存のユーザーを選択**を選択し、テストユーザー（例：`stayfilm-poc-001`）を検索します。
-3. **テストを送信**を選択します。
+1. Webhook コンポーザーから、**テスト** タブを選択します。
+2. **ユーザーとしてメッセージをプレビュー** で、**既存のユーザーを選択** を選択し、テストユーザーを検索します（例: `stayfilm-poc-001`）。
+3. **テストを送信** を選択します。
 
-成功したレスポンスは、HTTPステータス`201`と以下のようなJSONボディを返します。
+成功した場合、HTTP ステータス `201` と以下のような JSON ボディが返されます:
 
 ```json
 {
@@ -262,25 +262,25 @@ Stayfilmにレンダリングジョブを送信する[Webhookキャンペーン]
 }
 ```
 
-### ステップ5：Stayfilmのコールバックを確認する {#step-5-confirm-the-stayfilm-callback}
+### ステップ5:Stayfilm のコールバックを確認する {#step-5-confirm-the-stayfilm-callback}
 
-Stayfilmはビデオを非同期でレンダリングし、処理が完了するとデータ変換にコールバックを送信します。[Stayfilm APIドキュメント](https://apidoc.stayfilm.com)に記載されているStayfilm APIエンドポイントを通じてジョブステータスを監視してください。
+Stayfilm は動画を非同期でレンダリングし、処理が完了するとデータ変換にコールバックを送信します。[Stayfilm API ドキュメント](https://apidoc.stayfilm.com)に記載されている Stayfilm API エンドポイントからジョブのステータスを監視できます。
 
-1. **データ設定** > **データ変換**に移動します。
-2. 変換の**ログ**タブを選択します。
-3. **成功**ステータスのコールバックが表示されていることを確認します。
+1. **データ設定** > **データ変換** に移動します。
+2. 変換の **ログ** タブを選択します。
+3. **成功** ステータスのコールバックが表示されていることを確認します。
 
-### ステップ6：アプリ内メッセージでビデオを表示する {#step-6-display-the-video-in-an-in-app-message}
+### ステップ6:アプリ内メッセージで動画を表示する {#step-6-display-the-video-in-an-in-app-message}
 
-ユーザープロファイルに`stayfilm_video_url`が設定された後、レンダリングされたビデオをキャンペーンまたはキャンバスで表示します。
+ユーザープロファイルに `stayfilm_video_url` が設定された後、レンダリングされた動画をキャンペーンまたはキャンバスで表示します。
 
-1. **メッセージング** > **キャンペーン**に移動します。
-2. **キャンペーンを作成** > **アプリ内メッセージ**を選択します。
-3. `Stayfilm Video Show`などのキャンペーン名を入力します。
-4. メッセージ作成画面で、**トラディショナルエディター**を選択します。
-5. **送信先**で、**Webブラウザー**を選択します。
-6. **メッセージタイプ**を**カスタムコード**に設定します。
-7. 以下のHTMLを**HTML**フィールドに貼り付けます。
+1. **メッセージング** > **キャンペーン** に移動します。
+2. **キャンペーンを作成** > **アプリ内メッセージ** を選択します。
+3. `Stayfilm Video Show` などのキャンペーン名を入力します。
+4. メッセージ作成画面で、**従来のエディター** を選択します。
+5. **送信先** で、**Web ブラウザー** を選択します。
+6. **メッセージタイプ** を **カスタムコード** に設定します。
+7. 以下の HTML を **HTML** フィールドに貼り付けます:
 
 {% raw %}
 ```html
@@ -315,32 +315,32 @@ Your browser does not support HTML5 video.
 {% endraw %}
 
 {: start="8"}
-8. **下書きを保存**を選択します。
-9. **テスト**タブを選択します。
-10. **ユーザーとしてメッセージをプレビュー**で、**既存のユーザーを選択**を選択し、テストユーザーの`external_id`を検索します。
+8. **下書きを保存** を選択します。
+9. **テスト** タブを選択します。
+10. **ユーザーとしてメッセージをプレビュー** で、**既存のユーザーを選択** を選択し、テストユーザーの `external_id` を検索します。
 
-プロファイルに`stayfilm_video_url`が設定されている場合、レンダリングされたビデオがプレビューに表示され、再生されます。
+プロファイルに `stayfilm_video_url` が設定されている場合、レンダリングされた動画がプレビューに表示され、再生されます。
 
-## 統合の拡張 {#extend-the-integration}
+## 連携の拡張 {#extend-the-integration}
 
-このウォークスルーでは、Stayfilm APIの一部をカバーしています。ジョブテンプレート、メディア入力、またはダウンストリームメッセージングを調整するには、[Stayfilm APIドキュメント](https://apidoc.stayfilm.com)を参照し、Webhookペイロード、データ変換マッピング、キャンペーンロジックを適宜更新してください。
+このチュートリアルでは、Stayfilm API の一部を取り上げています。ジョブテンプレート、メディア入力、またはダウンストリームメッセージングを調整するには、[Stayfilm API ドキュメント](https://apidoc.stayfilm.com)を参照し、Webhookペイロード、データ変換マッピング、およびキャンペーンロジックを適宜更新してください。
 
-## 考慮事項 {#considerations}
+## 注意事項 {#considerations}
 
-- **非同期レンダリング：** ビデオ生成は即時ではありません。Webhookと同じフローでアプリ内メッセージを送信するのではなく、`stayfilm_video_ready`カスタムイベントまたは`stayfilm_video_status`のセグメントからフォローアップメッセージングをトリガーしてください。
-- **識別子の一貫性：** `CallbackRelayData`の値は、Brazeユーザーの`external_id`と正確に一致する必要があります。
-- **OAuthトークンのキャッシュ：** Connected Contentの例では、OAuthトークンを3000秒間キャッシュします。Stayfilmがトークンの有効期間要件を変更した場合は、`cache_max_age`を調整してください。
-- **サンドボックステスト：** 本番環境にリリースする前に、Brazeサンドボックスで完全なコールバックループを検証してください。
-- **カスタム属性の容量：** この統合で作成されるStayfilmのカスタム属性とイベントに対して、ワークスペースに十分な容量があることを確認してください。
+- **非同期レンダリング:** 動画の生成は即座には行われません。Webhookと同じフローでアプリ内メッセージを送信するのではなく、`stayfilm_video_ready`カスタムイベントまたは`stayfilm_video_status`のセグメントからフォローアップメッセージングをトリガーしてください。
+- **識別子の一貫性:** `CallbackRelayData`の値は、Brazeユーザーの`external_id`と正確に一致する必要があります。
+- **OAuthトークンのキャッシュ:** Connected Contentの例では、OAuthトークンを3000秒間キャッシュします。Stayfilmがトークンの有効期間の要件を変更した場合は、`cache_max_age`を調整してください。
+- **サンドボックステスト:** 本番環境にリリースする前に、Brazeサンドボックスでコールバックループ全体を検証してください。
+- **カスタム属性の容量:** この統合が作成するStayfilmのカスタム属性とイベントに対応できるワークスペースの容量があることを確認してください。
 
 ## トラブルシューティング {#troubleshooting}
 
-Stayfilm統合で問題が発生した場合は、以下の表を参照してください。
+Stayfilm インテグレーションで問題が発生した場合は、以下の表を参照してください。
 
 | 問題 | 解決方法 |
 | ----- | ---------- |
-| データ変換の検証が失敗する | テストペイロードの`RelayedData`が有効なBrazeの`external_id`と一致していることを確認し、**検証**を選択する前に**データ変換**ページをリロードしてください。 |
-| Webhookテストが201以外のレスポンスを返す | リクエストヘッダーのStayfilm認証情報を確認し、OAuth Connected ContentブロックがURLエンコードされた値を使用していることを確認し、`POST /Job` URLが正しいことを確認してください。 |
-| 変換ログにコールバックが表示されない | Stayfilmがアクティブなデータ変換のWebhook URLを持っていることを確認し、ビデオレンダリングが完了するまで待ってください。 |
-| アプリ内プレビューにビデオが表示されない | テストユーザープロファイルに`stayfilm_video_url`が設定されていること、およびアプリ内メッセージが**カスタムコード**で**Webブラウザー**をターゲットにしていることを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+| データ変換のバリデーションが失敗する | テストペイロードの `RelayedData` が有効な Braze `external_id` と一致していることを確認し、**データ変換**ページを再読み込みしてから**Validate**を選択してください。 |
+| Webhook テストで 201 以外のレスポンスが返される | リクエストヘッダーの Stayfilm 認証情報を確認し、OAuth Connected Content ブロックで URL エンコードされた値が使用されていること、`POST /Job` URL が正しいことを確認してください。 |
+| コールバックが変換ログに表示されない | Stayfilm にアクティブなデータ変換 Webhook URL が設定されていることを確認し、動画のレンダリングが完了するまで時間をおいてください。 |
+| アプリ内プレビューに動画が表示されない | テストユーザープロファイルに `stayfilm_video_url` が設定されていること、アプリ内メッセージが **Web Browsers** を **Custom Code** でターゲットにしていることを確認してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }

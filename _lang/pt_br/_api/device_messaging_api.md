@@ -13,7 +13,7 @@ guide_top_alert: "Esta página está em beta. Os recursos e a documentação da 
 guide_top_text2: "Nota: esta API recupera apenas as propriedades de um determinado Banner, e não o HTML do Banner."
 guide_featured_title: "Primeiros passos"
 guide_featured_list:
-  - name: "Visão geral da API de envio de mensagens do dispositivo"
+  - name: "Visão geral da API de envio de mensagens para dispositivos"
     link: /docs/api/device_messaging_api/overview
     image: /assets/img/braze_icons/annotation-info.svg
   - name: "Autenticação e segurança"
@@ -34,4 +34,3 @@ guide_menu_list:
     link: /docs/api/device_messaging_api/endpoints/banners/post_track_banner_events
     image: /assets/img/braze_icons/line-chart-up-02.svg
 ---
-

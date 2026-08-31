@@ -18,7 +18,7 @@ guide_featured_list:
     link: /docs/partners/data_and_analytics/business_intelligence/datadog
     image: /assets/img/braze_icons/layers-three-01.svg
   - name: "Heap"
-    link: /docs/partners/data_and_analytics/business_intelligence/heap
+    link: /docs/partners/data_and_analytics/analytics/heap
     image: /assets/img/braze_icons/bar-chart-01.svg
   - name: "Kubit"
     link: /docs/partners/data_and_analytics/business_intelligence/kubit

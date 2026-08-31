@@ -31,28 +31,28 @@ Si una conversión ocurre fuera de la ventana de atribución de un canal, no se 
 
 ## Beneficios {#benefits}
 
-La atribución de último contacto ofrece ventajas clave sobre el seguimiento de conversiones estándar:
+La atribución de último toque ofrece ventajas clave sobre el seguimiento de conversiones estándar:
 
-* Te permite atribuir conversiones a puntos de intervención específicos, lo que te da la capacidad de entender qué canales (no solo Campaigns o Canvas) están generando resultados.
-* El crédito se otorga exclusivamente al último mensaje con el que se interactuó, por lo que cada conversión se cuenta una sola vez, eliminando conversiones superpuestas entre Campaigns o Canvas con eventos de conversión y audiencias compartidos.
+* Te permite atribuir conversiones a puntos de intervención específicos, lo que desbloquea la capacidad de comprender qué canales (no solo Campaigns o Canvas) están generando resultados.
+* El crédito se otorga exclusivamente al último mensaje con el que se interactuó, de modo que cada conversión se cuenta solo una vez, lo que elimina las conversiones superpuestas entre Campaigns o Canvas con eventos de conversión y audiencias compartidos.
 
-## Añadir métricas de atribución de último contacto a tu informe {#add-last-touch-attribution-metrics-to-your-report}
+## Agrega métricas de atribución de último toque a tu informe {#add-last-touch-attribution-metrics-to-your-report}
 
 1. Ve a **Generador de informes**, en **Analytics**.
-2. Selecciona **Crear informe** > **Crear informe personalizado**.
-3. En el desplegable **Filas**, selecciona sobre qué quieres crear un informe.
-4. (Opcional) Selecciona **Añadir desglose** y luego elige un área para profundizar en tus informes.
-5. En **Columnas**, selecciona **Personalizar métricas**.
-6. En **Conversiones**, selecciona **Last Touch Attribution** y luego selecciona **Seleccionar todo**.
+2. Selecciona **Create report** > **Create custom report**.
+3. Dentro del menú desplegable **Rows**, selecciona sobre qué quieres crear un informe.
+4. (Opcional) Selecciona **Add drilldown** y luego elige un área para profundizar en tus informes.
+5. En **Columns**, selecciona **Customize metrics**
+6. En **Conversions**, selecciona **Last Touch Attribution** y luego selecciona **Select All**.
 
 {% alert note %}
 Las métricas de ingresos y compras no están disponibles.
 {% endalert %}
 
-![El panel Personalizar métricas con las métricas de atribución de último contacto.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
+![El panel Customize metrics con métricas de atribución de último toque.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
 
 {: start="7" }
-7. Sigue los pasos 7-9 en la página del [generador de informes]({{site.baseurl}}/user_guide/analytics/reporting/report_builder).
+7. Sigue los pasos 7-9 en la página del [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 {% alert note %}
 {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="last-touch attribution metrics in Report Builder" %}

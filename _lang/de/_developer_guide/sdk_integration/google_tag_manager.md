@@ -1,21 +1,14 @@
 ---
-nav_title: Google Tag Manager
-article_title: Google Tag Manager mit dem Braze SDK
+nav_title: Google tag manager
+article_title: Google Tag Manager with the Braze SDK
 platform:
   - Android
   - FireOS
   - Swift
 page_order: 1.1
-description: "Erfahren Sie, wie Sie das Braze SDK mit Methoden wie der Laufzeitinitialisierung, der verzögerten Initialisierung oder dem Google Tag Manager initialisieren."
+description: "Learn how to initialize the Braze SDK using methods like runtime initialization, delayed initialization, or Google Tag Manager."
 
 ---
-
-# Google Tag Manager mit dem Braze SDK {#google-tag-manager-with-the-braze-sdk}
-
-> Erfahren Sie, wie Sie den [Google Tag Manager (GTM)](https://developers.google.com/tag-platform/tag-manager) mit dem Braze SDK verwenden, um das Braze-Event-Tracking und Aktualisierungen von Nutzer:innen-Attributen per Fernzugriff zu steuern, ohne Codeänderungen oder neue App-Releases zu benötigen.
-
-{% sdktabs %}
-{% sdktab web %}
 ## Über Google Tag Manager für das Internet {#google-tag-manager}
 
 Mit dem Google Tag Manager (GTM) können Sie per Fernzugriff Tags auf Ihrer Website hinzufügen, entfernen und bearbeiten, ohne dass eine Freigabe des Produktionscodes oder technische Ressourcen erforderlich sind. Braze bietet die folgenden Templates für das Internet-SDK an:
@@ -41,86 +34,18 @@ Dadurch wird sichergestellt, dass das SDK vollständig geladen ist, bevor andere
 
 Weitere Informationen finden Sie unter [Tag-Sequenzierung für angepasste Events überprüfen]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_tag-sequencing).
 
-## Käufe mit GTM protokollieren {#log-purchases-with-gtm}
+## Fehlerbehebung
 
-In Braze-Aktions-Tags und Custom-HTML-Tags rufen Sie `braze.logPurchase()` auf, um Umsätze zu erfassen. Der veraltete Namespace `appboy.logPurchase()` wird in aktuellen Internet-SDK-Integrationen nicht unterstützt.
+### Internet-SDK-Sitzungen werden der falschen Nutzer:in zugeordnet
 
-## Angepasste Events mit GTM protokollieren {#logging-custom-events-with-gtm}
+Wenn GTM Braze-Initialisierungs- oder Event-Tags auslöst, bevor Ihre App die angemeldete Nutzer:in identifiziert, können Sitzungen und Events dem falschen Profil zugeordnet werden. Initialisieren Sie das Internet-SDK, rufen Sie `changeUser()` mit der `external_id` der angemeldeten Nutzer:in auf und rufen Sie dann `openSession()` auf, bevor Tags Events protokollieren oder Attribute festlegen. Verwenden Sie die GTM-Tag-Sequenzierung oder Consent-Trigger, damit Braze-Tags erst nach Abschluss Ihres Authentifizierungsflusses ausgelöst werden.
 
-Sie können angepasste Events mit einem **Custom HTML**-Tag in GTM protokollieren. Dieser Ansatz nutzt den GTM-[Data Layer](https://developers.google.com/tag-platform/tag-manager/datalayer), um Event-Daten von Ihrer Website an ein GTM-Tag zu übergeben, das das Braze Internet-SDK aufruft.
+### Internet-SDK-Konsolenprotokollierung mit Shopify oder Script-Tag-Installationen
 
-### Schritt 1: Event in den Data Layer pushen {#step-1-push-the-event-to-the-data-layer}
+Das Shopify-App-Embed lädt das Internet-SDK mit deaktivierter Konsolenprotokollierung. Aktivieren Sie die Protokollierung in Ihrem GTM-Initialisierungs-Tag oder in den `initialize()`-Optionen. Das Braze-Dashboard enthält keine Protokollierungssteuerung für diese Loader.
 
-Pushen Sie in Ihrem Website-Code ein Event in den Data Layer, wo immer Sie das angepasste Event auslösen möchten. Um beispielsweise ein angepasstes Event zu protokollieren, wenn ein Button geklickt wird:
+Wenn Braze-Protokolle in der Browser-Konsole erscheinen, entfernen Sie `enableLogging: true` aus dem GTM-Initialisierungs-Tag oder dem angepassten HTML, bevor Sie in die Produktion veröffentlichen. Verwenden Sie nach der Initialisierung `toggleLogging()` oder den URL-Parameter `?brazeLogging=true`. Die vollständigen Optionen des Internet-SDK finden Sie unter [Ausführliche Protokollierung]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging).
 
-```html
-<button onclick="dataLayer.push({'event': 'my_custom_event'});">Track Event</button>
-```
+Wenn Braze nicht initialisiert wird oder Events nicht wie erwartet angezeigt werden, überprüfen Sie, ob Ihr GTM-Container veröffentlicht ist, ob Trigger und Tag-Auslösereihenfolge mit Ihrer SDK-[Lebenszyklus- und Initialisierungsstrategie]({{site.baseurl}}/developer_guide/sdk_integration) übereinstimmen und ob Testgeräte keine Braze-Endpunkte blockieren.
 
-### Schritt 2: Trigger im GTM erstellen {#step-2-create-a-trigger-in-gtm}
-
-1. Gehen Sie in Ihrem GTM-Container zu **Triggers** und erstellen Sie einen neuen Trigger.
-2. Setzen Sie den **Trigger Type** auf **Custom Event**.
-3. Setzen Sie den **Event Name** auf denselben Wert, den Sie in den Data Layer gepusht haben (z. B. `my_custom_event`).
-4. Wählen Sie, wann der Trigger ausgelöst werden soll (z. B. **All Custom Events**).
-
-### Schritt 3: Custom-HTML-Tag erstellen {#step-3-create-a-custom-html-tag}
-
-1. Gehen Sie im GTM zu **Tags** und erstellen Sie ein neues Tag.
-2. Setzen Sie den **Tag Type** auf **Custom HTML**.
-3. Fügen Sie im HTML-Feld Folgendes hinzu:
-
-    ```html
-    <script>
-    window.braze.logCustomEvent("my_custom_event");
-    </script>
-    ```
-
-4. Wählen Sie unter **Triggering** den Trigger aus, den Sie in Schritt 2 erstellt haben.
-5. Speichern und veröffentlichen Sie Ihren Container.
-
-Um Event-Eigenschaften einzuschließen, übergeben Sie diese als zweites Argument:
-
-```html
-<script>
-window.braze.logCustomEvent("my_custom_event", {"property_key": "property_value"});
-</script>
-```
-
-## Googles EU-Richtlinie zur Nutzer:innen-Einwilligung {#googles-eu-user-consent-policy}
-
-{% alert important %}
-Google aktualisiert seine [EU-Richtlinie zur Nutzer:innen-Einwilligung](https://www.google.com/about/company/user-consent-policy/) als Reaktion auf Änderungen des [Digital Markets Act (DMA)](https://ads-developers.googleblog.com/2023/10/updates-to-customer-match-conversion.html), der seit dem 6. März 2024 in Kraft ist. Diese neue Änderung verpflichtet Werbetreibende, bestimmte Informationen an ihre Endnutzer:innen im EWR und in Großbritannien weiterzugeben sowie die erforderlichen Einwilligungen von ihnen einzuholen. Lesen Sie die folgende Dokumentation, um mehr zu erfahren.
-{% endalert %}
-
-Im Rahmen von Googles EU-Richtlinie zur Nutzer:innen-Einwilligung müssen die folgenden booleschen angepassten Attribute in Nutzerprofilen protokolliert werden:
-
-- `$google_ad_user_data`
-- `$google_ad_personalization`
-
-Wenn Sie diese über die GTM-Integration festlegen, erfordern angepasste Attribute die Erstellung eines Custom-HTML-Tags. Das folgende Beispiel zeigt, wie Sie diese Werte als boolesche Datentypen (nicht als Strings) protokollieren:
-
-```js
-<script>
-window.braze.getUser().setCustomUserAttribute("$google_ad_personalization", true);
-</script>
-```
-
-Weitere Informationen finden Sie unter [Audience Sync mit Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync).
-
-{% endsdktab %}
-
-{% sdktab android %}
-{% multi_lang_include developer_guide/android/google_tag_manager.md %}
-{% endsdktab %}
-
-{% sdktab swift %}
-{% multi_lang_include developer_guide/swift/google_tag_manager.md %}
-{% endsdktab %}
-{% endsdktabs %}
-
-## Fehlerbehebung {#troubleshooting}
-
-Wenn Braze nicht initialisiert wird oder Events nicht wie erwartet angezeigt werden, überprüfen Sie, ob Ihr GTM-Container veröffentlicht ist, ob Trigger und die Reihenfolge der Tag-Auslösung mit Ihrem SDK-[Lebenszyklus und Ihrer Initialisierungsstrategie]({{site.baseurl}}/developer_guide/sdk_integration) übereinstimmen und ob Testgeräte keine Braze-Endpunkte blockieren.
-
-Bei Initialisierungsfehlern überprüfen Sie, ob das Braze-Tag oder der Anbieter der angepassten Tags den erwarteten `actionType` und die erwarteten Parameter erhält (siehe die Tabs für Android, Swift und Internet auf dieser Seite). Um bei der Validierung von GTM-ausgelösten Events eine ausführliche Protokollierung zu aktivieren, aktivieren Sie das SDK-Debug-Logging Ihrer Plattform, wie in den Plattform-Integrationsleitfäden beschrieben, die über diese Tabs verlinkt sind.
+Überprüfen Sie bei Initialisierungsfehlern, ob das Braze-Tag oder der angepasste Tag-Anbieter den erwarteten `actionType` und die erwarteten Parameter erhält (siehe die Tabs für Android, Swift und Internet auf dieser Seite). Um ausführliche Protokollierung bei der Validierung von GTM-ausgelösten Events zu aktivieren, schalten Sie die SDK-Debug-Protokollierung Ihrer Plattform ein, wie in den Plattform-Integrationsleitfäden beschrieben, die über diese Tabs verlinkt sind.

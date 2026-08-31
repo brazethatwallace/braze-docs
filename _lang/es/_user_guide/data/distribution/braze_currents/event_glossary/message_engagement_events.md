@@ -15,23 +15,23 @@ lazy_partner_tabs: true
 
 {% details Alcance del esquema y recursos relacionados %}
 
-Los esquemas de almacenamiento se aplican a los datos de eventos de archivo plano que enviamos a los partners de almacenamiento en almacenes de datos (Google Cloud Storage, Amazon S3 y Microsoft Azure Blob Storage). Para los esquemas que se aplican a los demás partners, consulta nuestra lista de [partners disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) y revisa sus páginas respectivas.
+Los esquemas de almacenamiento se aplican a los datos de eventos en archivo plano que enviamos a los partners de almacenamiento en almacenes de datos (Google Cloud Storage, Amazon S3 y Microsoft Azure Blob Storage). Para los esquemas que se aplican a los demás partners, consulta nuestra lista de [partners disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) y revisa sus páginas respectivas.
 
 {% alert tip %}
-Estos eventos también están disponibles como tablas SQL en el [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para los esquemas de tablas SQL y detalles de columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Estos eventos también están disponibles como tablas SQL en el [generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder), las [extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) y el [uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para conocer los esquemas de tablas SQL y los detalles de las columnas, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Contacta a tu director de cuentas o abre un [ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) si necesitas acceso a derechos de eventos adicionales. Si no encuentras lo que necesitas en este artículo, consulta nuestra [biblioteca de eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) o nuestros [ejemplos de datos de muestra de Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Ponte en contacto con tu director de cuentas o abre un [ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) si necesitas acceso a derechos de eventos adicionales. Si no encuentras lo que necesitas en este artículo, consulta nuestra [biblioteca de eventos de comportamiento del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) o nuestros [ejemplos de datos de muestra de Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
-{% details Explicación de la estructura de los eventos de interacción con mensajes y valores de plataforma %}
+{% details Explicación de la estructura de los eventos de interacción con mensajes y los valores de plataforma %}
 
 ## Estructura del evento {#event-structure}
 
-Este desglose de eventos muestra qué tipo de información se incluye generalmente en un evento de interacción con mensajes. Con una comprensión sólida de sus componentes, tus desarrolladores y el equipo de estrategia de inteligencia empresarial pueden utilizar los datos de eventos de Currents entrantes para crear informes y gráficos basados en datos, y aprovechar otras métricas de datos valiosas.
+Este desglose de eventos muestra qué tipo de información se incluye generalmente en un evento de interacción con mensajes. Con una comprensión sólida de sus componentes, tu equipo de desarrolladores y de estrategia de inteligencia empresarial puede utilizar los datos de eventos entrantes de Currents para crear informes y gráficos basados en datos, y aprovechar otras métricas de datos valiosas.
 
-![Desglose de un evento de interacción con mensajes que muestra un evento de cancelación de suscripción de correo electrónico con las propiedades enumeradas agrupadas por propiedades específicas del usuario, propiedades de seguimiento de Campaign o Canvas y propiedades específicas del evento]({% image_buster /assets/img/message_engagement_event.png %})
+![Desglose de un evento de interacción con mensajes que muestra un evento de cancelación de suscripción de correo electrónico con las propiedades listadas agrupadas por propiedades específicas del usuario, propiedades de seguimiento de Campaign o Canvas, y propiedades específicas del evento]({% image_buster /assets/img/message_engagement_event.png %})
 
 Los eventos de interacción con mensajes se componen de propiedades **específicas del usuario**, propiedades de **seguimiento de Campaign/Canvas** y propiedades **específicas del evento**.
 
@@ -63,10 +63,10 @@ Ciertos eventos devuelven un valor `platform` que especifica la plataforma del d
 
 {% enddetails %}
 
-{% details Consideraciones para los eventos de interacción con mensajes %}
+{% details Consideraciones sobre los eventos de interacción con mensajes %}
 
 - Currents descarta los eventos con cargas útiles superiores a 900&nbsp;KB.
-- Los objetos relacionados con Canvas Flow tienen ID que puedes utilizar para agrupar y traducir a nombres legibles mediante el [endpoint Exportar detalles del Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
+- Los objetos relacionados con Canvas Flow tienen ID que puedes utilizar para agrupar y traducir a nombres legibles a través del [endpoint Exportar detalles de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
 - Es posible que ciertos campos no muestren su estado más reciente inmediatamente después de actualizar un Campaign o Canvas:
   - `campaign_name`
   - `canvas_name`
@@ -75,7 +75,7 @@ Ciertos eventos devuelven un valor `platform` que especifica la plataforma del d
   - `canvas_variation_name`
   - `experiment_split_name`
   - `message_variation_name`
-- Si necesitas consistencia completa para estos campos, espera una hora después de la última actualización antes de enviar mensajes a tus usuarios.
+- Si necesitas una consistencia completa para estos campos, espera una hora después de la última actualización antes de enviar mensajes a tus usuarios.
 
 {% enddetails %}
 
@@ -744,7 +744,6 @@ Este evento se produce cuando Braze recibe una solicitud para actualizar el esta
 | Other | Incluye cualquier otra fuente, como trabajos de sincronización de demostración o de proveedores, o devoluciones de llamada de eventos de SMS y WhatsApp |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Detalles de la propiedad" }
 
-
 {% endapi %}
 
 {% api %}
@@ -1021,7 +1020,7 @@ Los grupos de suscripción solo están disponibles para los canales de correo el
 </thead>
 <tbody>
 <tr><td>SDK</td><td>Endpoints del SDK</td></tr>
-<tr><td>Dashboard</td><td>Cuando se actualiza el estado de suscripción de un usuario desde la página Perfil de usuario del panel</td></tr>
+<tr><td>Dashboard</td><td>Cuando se actualiza el estado de suscripción de un usuario desde la página Perfil de usuario en el panel</td></tr>
 <tr><td>Subscription Page</td><td>Cuando un usuario cancela la suscripción a través de un enlace de correo electrónico que no es el centro de preferencias</td></tr>
 <tr><td>REST API</td><td>Endpoints de la REST API</td></tr>
 <tr><td>CSV import</td><td>Importación de usuarios en CSV</td></tr>
@@ -1048,6 +1047,10 @@ Este evento se produce cuando un usuario realiza una acción que se ha estableci
 
 {% alert important %}
 Ten en cuenta que el evento de conversión se codifica en el campo `conversion_behavior`, que incluye el tipo de evento de conversión, la ventana (marco temporal) e información adicional en función del tipo de evento de conversión. El campo `conversion_behavior_index` representa qué evento de conversión, como 0 = A, 1 = B, 2 = C, 3 = D.
+{% endalert %}
+
+{% alert note %}
+El campo `message_extras` solo está disponible en eventos de envío (por ejemplo, envío de correo electrónico, envío push). No se incluye en los eventos de conversión. Para asociar datos de `message_extras` con la participación posterior, usa `dispatch_id` o `send_id` para unir eventos de envío con eventos de conversión en tu almacén de datos. Para evaluar la efectividad del contenido por tasa de conversión, considera usar [variantes de Campaign]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/create_multivariate_campaign) en su lugar.
 {% endalert %}
 
 {% tabs %}
@@ -1430,6 +1433,10 @@ Este evento se produce cuando un usuario realiza una acción que se ha estableci
 
 {% alert important %}
 Ten en cuenta que el evento de conversión se codifica en el campo `conversion_behavior`, que incluye el tipo de evento de conversión, la ventana (marco temporal) e información adicional en función del tipo de evento de conversión. El campo `conversion_behavior_index` representa qué evento de conversión, como 0 = A, 1 = B, 2 = C, 3 = D.
+{% endalert %}
+
+{% alert note %}
+El campo `message_extras` solo está disponible en eventos de envío (por ejemplo, envío de correo electrónico, envío push). No se incluye en los eventos de conversión. Para asociar datos de `message_extras` con la participación posterior, usa `send_id` para unir eventos de envío con eventos de conversión en tu almacén de datos. Para evaluar la efectividad del contenido por tasa de conversión, considera usar [variantes de Canvas]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#creating-tests) en su lugar.
 {% endalert %}
 
 {% tabs %}
@@ -6057,7 +6064,7 @@ Este evento se produce cuando un proveedor de servicios de Internet devuelve un 
 ### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
+  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 {% endapi %}
 
@@ -6395,7 +6402,7 @@ Este evento se produce cuando un usuario hace clic en un correo electrónico. Se
 ### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
+  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados. Para más información, consulta [Comportamiento del ID de envío]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 {% endapi %}
 
@@ -6655,7 +6662,7 @@ Este evento se produce cuando un proveedor de servicios de Internet no entrega i
 ### Detalles de la propiedad
 
 - `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
-  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos de Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados.
+  - El comportamiento de `dispatch_id` difiere entre Canvas y Campaigns porque Braze trata los pasos en Canvas (excepto los pasos de entrada, que se pueden programar) como eventos desencadenados, incluso cuando están programados.
 
 {% endapi %}
 
@@ -8738,6 +8745,10 @@ In-App Messages, Abort
 {% endapitags %}
 
 Este evento se produce cuando se cancela un mensaje dentro de la aplicación programado originalmente.
+
+{% alert note %}
+Los [eventos de cancelación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) solo se registran para [mensajes dentro de la aplicación con plantilla]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated). Los mensajes dentro de la aplicación estándar no registran eventos de cancelación porque la evaluación de Liquid ocurre antes de la acción desencadenante. Para más detalles sobre el comportamiento de cancelación de los mensajes dentro de la aplicación, consulta [Preguntas frecuentes sobre mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#how-does-abort-behavior-work-for-in-app-messages).
+{% endalert %}
 
 {% tabs %}
 {% tab Almacenamiento en el cloud %}
@@ -11838,7 +11849,7 @@ Este evento se produce si se canceló un mensaje de notificación push debido a 
 
 ### Detalles de la propiedad
 
-- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
+- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 - El campo `abort_type` describe el motivo por el que se canceló el mensaje. Para ver una lista completa de valores, consulta [Tipos de cancelación]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types).
 - `abort_type` será `frequency_capped` si el mensaje se canceló debido a una regla de limitación de frecuencia global.
 - `abort_log` incluye información sobre la regla específica que desencadenó la cancelación. Un ejemplo es: `Frequency cap rule: 5 push messages every 1 week`
@@ -12103,7 +12114,7 @@ Este evento se produce cuando se recibe un error del servicio de notificaciones 
 ### Detalles de la propiedad
 
 - Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente o director de cuentas para habilitar el conmutador de características para el envío de `ad_id`.
-- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
+- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
@@ -12314,7 +12325,7 @@ Este evento no es compatible con nuestro [SDK Swift](https://github.com/braze-in
 
 - Para `ad_id`, `ad_id_type` y `ad_tracking_enabled`, necesitas recopilar explícitamente el IDFA de iOS y el ID de publicidad de Google de Android a través de los SDK nativos. Más información sobre esta configuración para [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) y [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Si utilizas Kafka para ingestar datos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), ponte en contacto con tu administrador de éxito de cliente para habilitar el envío de `ad_id`.
-- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
+- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una Campaign. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
@@ -15491,7 +15502,7 @@ Este evento se produce cuando se ha entregado correctamente un SMS al teléfono 
 
 ### Detalles de la propiedad
 
-- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
+- `dispatch_id` es un ID para un envío de mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 
@@ -15742,7 +15753,7 @@ Este evento se produce cuando un SMS experimenta un fallo en la entrega. Utiliza
 
 ### Detalles de la propiedad
 
-- `dispatch_id` es un ID para el envío de un mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
+- `dispatch_id` es un ID para un envío de mensaje específico, como el envío de una campaña. Todos los eventos push que se originan en el mismo envío incluyen el mismo `dispatch_id`. Utiliza `dispatch_id` para agrupar eventos que pertenecen al mismo envío, lo que te permite agrupar y correlacionar el ciclo de vida de los mensajes push para ese envío (como envío, rebote y apertura).
 
 {% endapi %}
 

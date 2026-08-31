@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "Utilisez cet endpoint pour suivre les événements d'impression et de clic pour les bannières."
+description: "Utilisez cet endpoint pour suivre les événements d'impression, de clic et de fermeture pour les bannières."
 hidden: true
 ---
 
@@ -15,7 +15,7 @@ hidden: true
 /v1/device-messaging/banners/track
 {% endapimethod %}
 
-> Utilisez cet endpoint pour enregistrer les événements d'impression et de clic pour les bannières.
+> Utilisez cet endpoint pour enregistrer les événements d'impression, de clic et de fermeture pour les bannières.
 
 Braze valide chaque événement séparément. Lorsqu'une requête contient à la fois des événements valides et invalides, Braze traite les événements valides et renvoie les détails des événements ignorés dans le tableau `errors`. Si aucun événement n'est valide, Braze renvoie un code de statut `400`.
 
@@ -39,6 +39,16 @@ Incluez la clé API REST côté client dans l'en-tête `Authorization` en tant q
 Les limites de débit s'appliquent par espace de travail. Si vous dépassez la limite de débit, Braze renvoie un code de statut `429`. Lorsqu'ils sont disponibles, utilisez les en-têtes de réponse `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset` et `X-RateLimit-Retry-After` pour surveiller votre utilisation et déterminer quand réessayer.
 
 Pour plus d'informations, consultez [Limites de débit de l'API Device Messaging]({{site.baseurl}}/api/device_messaging_api/rate_limits).
+
+## Fermeture des bannières {#dismissing-banners}
+
+Le suivi d'un événement `dismiss` ferme la bannière pour l'utilisateur donné. Les synchronisations de bannières suivantes pour cet utilisateur n'incluront pas les bannières précédemment fermées, sauf si la rééligibilité est configurée dans la campagne.
+
+{% alert note %}
+Les événements de fermeture sont traités de manière asynchrone et ne sont pas reflétés immédiatement. Dans de rares cas, le traitement peut prendre quelques minutes. Évitez d'appeler l'[endpoint de récupération des bannières pour un utilisateur]({{site.baseurl}}/api/device_messaging_api/endpoints/banners/post_sync_banners) immédiatement après une fermeture, car la bannière peut encore être renvoyée pendant cette fenêtre.
+{% endalert %}
+
+Braze ne réconcilie pas l'état de la bannière dans votre interface. Masquer la bannière après une fermeture et la maintenir masquée jusqu'à ce que Braze traite l'événement relève de votre application.
 
 ## Corps de la requête {#request-body}
 
@@ -66,7 +76,7 @@ Pour plus d'informations, consultez [Limites de débit de l'API Device Messaging
 | `app_version` | Obligatoire | String | La version de l'application hôte. Elle ne doit pas dépasser 255 caractères. | `1.0.0` |
 | `events` | Obligatoire | Tableau d'objets | Un ou plusieurs événements d'analyse de bannière à enregistrer. | `[{"id":"bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E","event_type":"impression","timestamp":"2026-04-09T12:00:00Z"}]` |
 | `events[].id` | Obligatoire | String | L'`id` de la bannière renvoyé par l'endpoint de récupération des bannières pour un utilisateur. Utilisez l'ID de la bannière, et non le `placement_id`, afin que Braze attribue l'événement à la bonne campagne et à la bonne variante. | `bnr_01HZ3K2QFGH9XVNJ4W8PCRMT5E` |
-| `events[].event_type` | Obligatoire | String | Le type d'événement. Les valeurs possibles sont `impression` et `click`. | `impression` |
+| `events[].event_type` | Obligatoire | String | Le type d'événement. Les valeurs possibles sont `impression`, `click` et `dismiss`. | `impression` |
 | `events[].timestamp` | Obligatoire | String | La date et l'heure auxquelles l'événement s'est produit, au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). | `2026-04-09T12:00:00Z` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Paramètres de la requête" }
 
@@ -131,7 +141,7 @@ Braze renvoie également un code de statut `202` lorsqu'il accepte au moins un �
   "message": "success",
   "errors": [
     {
-      "type": "Invalid event_type. Valid types are: impression, click.",
+      "type": "Invalid event_type. Valid types are: impression, click, dismiss.",
       "index": 2
     }
   ]
@@ -147,7 +157,7 @@ Si Braze ne peut traiter aucun événement, il renvoie un code de statut `400`.
   "message": "No valid events provided.",
   "errors": [
     {
-      "type": "Invalid event_type. Valid types are: impression, click.",
+      "type": "Invalid event_type. Valid types are: impression, click, dismiss.",
       "index": 0
     },
     {

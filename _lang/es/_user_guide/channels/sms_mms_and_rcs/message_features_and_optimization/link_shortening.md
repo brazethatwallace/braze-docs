@@ -24,7 +24,7 @@ Braze está implementando gradualmente el [acortamiento de enlaces unificado]({{
 {% sdktabs %}
 {% sdktab Legacy %}
 
-El acortamiento de enlaces y el seguimiento de clics te permiten acortar automáticamente las URL contenidas en mensajes SMS o RCS y recopilar análisis de tasa de clics, proporcionando métricas de participación adicionales para ayudarte a comprender cómo los usuarios interactúan con tus Campaigns.
+El acortamiento de enlaces y el seguimiento de clics te permiten acortar automáticamente las URL contenidas en mensajes SMS o RCS y recopilar análisis de tasa de clics, proporcionando métricas de participación adicionales para ayudarte a comprender cómo los usuarios interactúan con tus campañas.
 
 El acortamiento de enlaces y el seguimiento de clics se pueden activar a [nivel de variante de mensaje]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) tanto en Campaigns como en Canvas.
 
@@ -105,11 +105,11 @@ Para obtener una lista completa de parámetros de solicitud, ve a [parámetros d
 
 ## Pruebas {#testing}
 
-Antes de lanzar tu Campaign o Canvas, es una buena práctica previsualizar y probar tu mensaje primero. Para hacerlo, ve a la pestaña **Prueba** para previsualizar y enviar un mensaje SMS o RCS a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) o a un usuario individual.
+Antes de lanzar tu campaña o Canvas, es una buena práctica previsualizar y probar tu mensaje primero. Para hacerlo, ve a la pestaña **Prueba** para previsualizar y enviar un mensaje SMS o RCS a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) o a un usuario individual.
 
 Esta vista previa se actualiza con la personalización relevante y la URL acortada. El número de caracteres y los [segmentos facturables]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) también se actualizan para reflejar la personalización renderizada y la URL acortada.
 
-Asegúrate de guardar la Campaign o el Canvas antes de enviar un mensaje de prueba para recibir una representación de la URL acortada que se envía en tu mensaje. Si la Campaign o el Canvas no se guardan antes de un envío de prueba, el envío de prueba incluirá una URL de marcador de posición.
+Asegúrate de guardar la campaña o el Canvas antes de enviar un mensaje de prueba para recibir una representación de la URL acortada que se envía en tu mensaje. Si la campaña o el Canvas no se guardan antes de un envío de prueba, el envío de prueba incluirá una URL de marcador de posición.
 
 Para que los Canvas aparezcan en el filtro "Hizo clic en enlace SMS acortado", el paso en Canvas que contiene el enlace corto también debe estar habilitado con seguimiento avanzado, que permite el seguimiento de clics a nivel de usuario. Si el enlace corto está configurado con seguimiento básico, la opción de filtrar eventos de clic en enlaces SMS cortos no está disponible. El mismo requisito de seguimiento avanzado se aplica cuando configuras la entrada del Canvas o las Rutas de Acción que dependen de enlaces SMS acortados en los que se hizo clic.
 

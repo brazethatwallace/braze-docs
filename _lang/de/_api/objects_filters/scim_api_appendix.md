@@ -2,13 +2,13 @@
 nav_title: "SCIM-API-Objekte und Anhang"
 article_title: "SCIM-API-Objekte und Anhang"
 page_type: reference
-description: "Dieser Artikel erklärt die verschiedenen SCIM-API-Objekte und den Anhang."
+description: "Dieser Artikel erläutert die verschiedenen SCIM-API-Objekte und den Anhang."
 alias: /scim_api_appendix/
 ---
 
 # SCIM-API-Objekte und Anhang {#scim-api-objects-and-appendix}
 
-> Dieser Artikel erklärt die verschiedenen SCIM-API-Objekte und den Anhang.
+> Dieser Artikel erläutert die verschiedenen SCIM-API-Objekte und den Anhang.
 
 {% sdktabs %}
 {% sdktab Granular SCIM API %}
@@ -287,7 +287,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 
 
 {% alert important %}
-Braze bietet jetzt [granulare Berechtigungen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), eine flexiblere Möglichkeit, den Zugriff von Nutzer:innen zu verwalten. Weitere Informationen finden Sie unter [Migration zu granularen Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) und im Tab [Granular SCIM API]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/), um die granularen SCIM-API-Objekte und den Anhang einzusehen. Braze wird Legacy-SCIM-API-Werte ab Dezember 2026 nicht mehr akzeptieren.
+Braze bietet jetzt [granulare Berechtigungen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), eine flexiblere Möglichkeit, den Zugriff von Nutzer:innen zu verwalten. Weitere Informationen finden Sie unter [Migration zu granularen Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) und im Tab [Granular SCIM API]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/), um die granularen SCIM-API-Objekte und den Anhang einzusehen. Braze wird ab Dezember 2026 keine Legacy-SCIM-API-Werte mehr akzeptieren.
 {% endalert %}
 
 ## Berechtigungsobjekt
@@ -329,7 +329,7 @@ Ein gültiges Workspace-Berechtigungsobjekt ist ein JSON-Objekt mit den folgende
 | `team` | Optional | Array | Array von [Team-Berechtigungsobjekten]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team-permissions-object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace-Berechtigungsobjekt" }
 
-### Workspace-Berechtigungsset-Objekt
+### Workspace-Berechtigungsset-Objekt {#workspace-permissions-set-object}
 
 Ein gültiges Workspace-Berechtigungsset-Objekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert-Paaren:
 
@@ -339,7 +339,7 @@ Ein gültiges Workspace-Berechtigungsset-Objekt ist ein JSON-Objekt mit den folg
 | `appGroupPermissionSetID` | Erforderlich, wenn `appGroupPermissionSetName` fehlt | String | ID des Workspace, dient als alternative Methode zur Angabe des Workspace-Berechtigungssets, das der Nutzer:in für diesen Workspace zugewiesen wird. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace-Berechtigungsset-Objekt" }
 
-### Team-Berechtigungsobjekt
+### Team-Berechtigungsobjekt {#team-permissions-object}
 
 Ein gültiges Team-Berechtigungsobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert-Paaren:
 
@@ -350,7 +350,7 @@ Ein gültiges Team-Berechtigungsobjekt ist ein JSON-Objekt mit den folgenden Sch
 | `teamPermissions` | Erforderlich | Array | Array von Berechtigungs-Strings auf Team-Ebene aus der Tabelle [Team-Berechtigungs-Strings]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team), wobei das Vorhandensein des Strings bedeutet, dass die Nutzer:in die entsprechende Berechtigung für das angegebene Team hat. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Team-Berechtigungsobjekt" }
 
-## Rollenobjekt
+## Rollenobjekt {#role-object}
 
 Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert-Paaren:
 
@@ -362,7 +362,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 
 ## Anhang
 
-### Unternehmens-Berechtigungs-Strings
+### Unternehmens-Berechtigungs-Strings {#company}
 
 | Anzeige in der UI | SCIM-API-String |
 | --- | --- |
@@ -371,7 +371,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Can Add/Remove Workspaces | `add_remove_app_groups` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Unternehmens-Berechtigungs-Strings" }
 
-### Workspace-Berechtigungs-Strings
+### Workspace-Berechtigungs-Strings {#workspace-strings}
 
 | Berechtigungsname | SCIM-API-String |
 | --- | --- |
@@ -402,7 +402,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Manage Catalogs Dashboard Permission | `manage_catalogs_dashboard_permission` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace-Berechtigungs-Strings" }
 
-### Team-Berechtigungs-Strings
+### Team-Berechtigungs-Strings {#team}
 
 | Berechtigungsname | SCIM-API-String |
 | --- | --- |

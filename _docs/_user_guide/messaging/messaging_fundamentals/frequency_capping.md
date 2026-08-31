@@ -69,7 +69,7 @@ If you need follow-up campaigns to target users who were sent an earlier campaig
 
 ##### Maximum user cap with optimizations
 
-If you're using an optimization like Winning Variant or Personalized Variant, the campaign consists of two sends: the initial experiment and the final send. 
+For a single-send campaign using **Optimize with BrazeAI™**, the campaign consists of two sends: the initial experiment and the optimized send.
 
 To set up a maximum user cap in this scenario, select **Limit send volume**, then select **Lifetime of the campaign**, and enter a value for **Maximum sends**. Your audience limit is split by the percentages shown in the **A/B Testing** panel.
 
