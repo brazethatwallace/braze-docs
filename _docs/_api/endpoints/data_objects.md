@@ -1,93 +1,93 @@
 ---
-nav_title: Custom Objects
-article_title: Custom Objects Endpoints
+nav_title: Data Objects
+article_title: Data Objects Endpoints
 search_tag: Endpoint
 page_order: 9.5
 layout: dev_guide
 page_type: landing
-description: "This landing page lists the Braze Custom Objects endpoints."
+description: "This landing page lists the Braze Data Objects endpoints."
 needs_mermaid: true
 
-guide_top_header: "Custom Objects Endpoints"
-guide_top_text: "Use these endpoints to list custom object types, manage custom object records, and manage object and user relationships."
-guide_top_alert: "Custom Objects is currently in early access. Your workspace must be enabled before the Custom Objects API key permissions appear on **Settings** > **API Keys**."
+guide_top_header: "Data Objects Endpoints"
+guide_top_text: "Use these endpoints to list data object types, manage data object records, and manage object and user relationships."
+guide_top_alert: "Data Objects is currently in early access. Your workspace must be enabled before the Data Objects API key permissions appear on **Settings** > **API Keys**."
 
 guide_featured_title: "Type endpoints"
 guide_featured_list:
-  - name: "GET: List Custom Object Types"
-    link: /docs/api/endpoints/custom_objects/types/get_list_custom_object_types
+  - name: "GET: List Data Object Types"
+    link: /docs/api/endpoints/data_objects/types/get_list_data_object_types
     image: /assets/img/braze_icons/list.svg
-  - name: "GET: Get Custom Object Type"
-    link: /docs/api/endpoints/custom_objects/types/get_custom_object_type
+  - name: "GET: Get Data Object Type"
+    link: /docs/api/endpoints/data_objects/types/get_data_object_type
     image: /assets/img/braze_icons/search-md.svg
   - name: "GET: List User Relationship Types"
-    link: /docs/api/endpoints/custom_objects/types/get_list_user_relationship_types
+    link: /docs/api/endpoints/data_objects/types/get_list_user_relationship_types
     image: /assets/img/braze_icons/users-01.svg
   - name: "GET: List Object Relationship Types"
-    link: /docs/api/endpoints/custom_objects/types/get_list_object_relationship_types
+    link: /docs/api/endpoints/data_objects/types/get_list_object_relationship_types
     image: /assets/img/braze_icons/link-external-01.svg
 
 guide_menu_title: "Object endpoints"
 guide_menu_list:
-  - name: "GET: List Custom Objects"
-    link: /docs/api/endpoints/custom_objects/objects/get_list_custom_objects
+  - name: "GET: List Data Objects"
+    link: /docs/api/endpoints/data_objects/objects/get_list_data_objects
     image: /assets/img/braze_icons/list.svg
-  - name: "GET: Get Custom Object"
-    link: /docs/api/endpoints/custom_objects/objects/get_custom_object
+  - name: "GET: Get Data Object"
+    link: /docs/api/endpoints/data_objects/objects/get_data_object
     image: /assets/img/braze_icons/search-md.svg
-  - name: "POST: Create Custom Object"
-    link: /docs/api/endpoints/custom_objects/objects/post_create_custom_object
+  - name: "POST: Create Data Object"
+    link: /docs/api/endpoints/data_objects/objects/post_create_data_object
     image: /assets/img/braze_icons/check-square-broken.svg
-  - name: "PUT: Replace Custom Object"
-    link: /docs/api/endpoints/custom_objects/objects/put_replace_custom_object
+  - name: "PUT: Replace Data Object"
+    link: /docs/api/endpoints/data_objects/objects/put_replace_data_object
     image: /assets/img/braze_icons/refresh-ccw-04.svg
-  - name: "PATCH: Update Custom Object"
-    link: /docs/api/endpoints/custom_objects/objects/patch_update_custom_object
+  - name: "PATCH: Update Data Object"
+    link: /docs/api/endpoints/data_objects/objects/patch_update_data_object
     image: /assets/img/braze_icons/user-edit.svg
-  - name: "DELETE: Delete Custom Object"
-    link: /docs/api/endpoints/custom_objects/objects/delete_custom_object
+  - name: "DELETE: Delete Data Object"
+    link: /docs/api/endpoints/data_objects/objects/delete_data_object
     image: /assets/img/braze_icons/edit-05.svg
 
 guide_menu_title2: "Object relationship endpoints"
 guide_menu_list2:
   - name: "GET: List Object Relationships"
-    link: /docs/api/endpoints/custom_objects/object_relationships/get_list_object_relationships
+    link: /docs/api/endpoints/data_objects/object_relationships/get_list_object_relationships
     image: /assets/img/braze_icons/list.svg
   - name: "POST: Create Object Relationship"
-    link: /docs/api/endpoints/custom_objects/object_relationships/post_create_object_relationship
+    link: /docs/api/endpoints/data_objects/object_relationships/post_create_object_relationship
     image: /assets/img/braze_icons/check-square-broken.svg
   - name: "PUT: Replace Object Relationship"
-    link: /docs/api/endpoints/custom_objects/object_relationships/put_replace_object_relationship
+    link: /docs/api/endpoints/data_objects/object_relationships/put_replace_object_relationship
     image: /assets/img/braze_icons/refresh-ccw-04.svg
   - name: "PATCH: Update Object Relationship"
-    link: /docs/api/endpoints/custom_objects/object_relationships/patch_update_object_relationship
+    link: /docs/api/endpoints/data_objects/object_relationships/patch_update_object_relationship
     image: /assets/img/braze_icons/user-edit.svg
   - name: "DELETE: Delete Object Relationship"
-    link: /docs/api/endpoints/custom_objects/object_relationships/delete_object_relationship
+    link: /docs/api/endpoints/data_objects/object_relationships/delete_object_relationship
     image: /assets/img/braze_icons/edit-05.svg
 
 guide_menu_title3: "User relationship endpoints"
 guide_menu_list3:
   - name: "GET: List User Relationships"
-    link: /docs/api/endpoints/custom_objects/user_relationships/get_list_user_relationships
+    link: /docs/api/endpoints/data_objects/user_relationships/get_list_user_relationships
     image: /assets/img/braze_icons/list.svg
   - name: "POST: Create User Relationship"
-    link: /docs/api/endpoints/custom_objects/user_relationships/post_create_user_relationship
+    link: /docs/api/endpoints/data_objects/user_relationships/post_create_user_relationship
     image: /assets/img/braze_icons/check-square-broken.svg
   - name: "PUT: Replace User Relationship"
-    link: /docs/api/endpoints/custom_objects/user_relationships/put_replace_user_relationship
+    link: /docs/api/endpoints/data_objects/user_relationships/put_replace_user_relationship
     image: /assets/img/braze_icons/refresh-ccw-04.svg
   - name: "PATCH: Update User Relationship"
-    link: /docs/api/endpoints/custom_objects/user_relationships/patch_update_user_relationship
+    link: /docs/api/endpoints/data_objects/user_relationships/patch_update_user_relationship
     image: /assets/img/braze_icons/user-edit.svg
   - name: "DELETE: Delete User Relationship"
-    link: /docs/api/endpoints/custom_objects/user_relationships/delete_user_relationship
+    link: /docs/api/endpoints/data_objects/user_relationships/delete_user_relationship
     image: /assets/img/braze_icons/edit-05.svg
 ---
 
 ## Base URL and authentication
 
-Use your workspace REST endpoint and send `Authorization: Bearer YOUR_REST_API_KEY`. This section explains where Custom Objects endpoints are hosted and how requests are authenticated.
+Use your workspace REST endpoint and send `Authorization: Bearer YOUR_REST_API_KEY`. This section explains where Data Objects endpoints are hosted and how requests are authenticated.
 
 - For endpoint hosts, refer to [Braze API overview]({{site.baseurl}}/api/basics#endpoints).
 - All request and response payloads are JSON.
@@ -100,21 +100,21 @@ This section maps each endpoint to its required permission so you can scope API 
 
 | Permission | Endpoint group |
 |---|---|
-| `custom_objects.read` | Type and object reads, and object relationship reads |
-| `custom_objects.create` | Object create |
-| `custom_objects.update` | Object replace and update |
-| `custom_objects.delete` | Object delete |
-| `custom_objects.user_relationships.read` | User relationship reads |
-| `custom_objects.user_relationships.create` | User relationship create |
-| `custom_objects.user_relationships.update` | User relationship replace and update |
-| `custom_objects.user_relationships.delete` | User relationship delete |
-| `custom_objects.object_relationships.create` | Object relationship create |
-| `custom_objects.object_relationships.update` | Object relationship replace and update |
-| `custom_objects.object_relationships.delete` | Object relationship delete |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom Objects permission groups" }
+| `data_objects.read` | Type and object reads, and object relationship reads |
+| `data_objects.create` | Object create |
+| `data_objects.update` | Object replace and update |
+| `data_objects.delete` | Object delete |
+| `data_objects.user_relationships.read` | User relationship reads |
+| `data_objects.user_relationships.create` | User relationship create |
+| `data_objects.user_relationships.update` | User relationship replace and update |
+| `data_objects.user_relationships.delete` | User relationship delete |
+| `data_objects.object_relationships.create` | Object relationship create |
+| `data_objects.object_relationships.update` | Object relationship replace and update |
+| `data_objects.object_relationships.delete` | Object relationship delete |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Data Objects permission groups" }
 
 {% alert note %}
-Object relationship reads use `custom_objects.read`. There is no `custom_objects.object_relationships.read` permission.
+Object relationship reads use `data_objects.read`. There is no `data_objects.object_relationships.read` permission.
 {% endalert %}
 
 ## Rate limits
@@ -123,9 +123,9 @@ This section explains default request quotas and response headers for both read 
 
 | Bucket | Default limit |
 |---|---|
-| Custom Objects reads | 50 requests per minute |
-| Custom Objects writes | 50 requests per minute |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom Objects default rate limits" }
+| Data Objects reads | 50 requests per minute |
+| Data Objects writes | 50 requests per minute |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Data Objects default rate limits" }
 
 Every response includes `X-RateLimit-Limit`, `X-RateLimit-Remaining`, and `X-RateLimit-Reset`.
 
@@ -144,9 +144,9 @@ For throttled requests, Braze returns `429` and an error payload with `id` and `
 
 ## Core concepts
 
-This section defines the key identifiers used across all Custom Objects endpoints.
+This section defines the key identifiers used across all Data Objects endpoints.
 
-- `type_name`: The custom object type machine name, unique within a workspace.
+- `type_name`: The data object type machine name, unique within a workspace.
 - `external_id`: Your object identifier, unique within a type.
 - `braze_id`: The Braze user ID used on user-relationship endpoints.
 - `attributes`: Field-name-keyed object or relationship data validated against the configured schema.
@@ -163,7 +163,7 @@ Use this diagram to see how types, records, and relationships fit together, and 
 %%{init: {"flowchart": {"wrappingWidth": 400}} }%%
 flowchart LR
   subgraph define["Set up in the dashboard"]
-    objtype["Custom object types define<br/>the fields a record has"]
+    objtype["Data object types define<br/>the fields a record has"]
     reltype["Relationship types determine<br/>which links are allowed"]
   end
 
@@ -189,8 +189,8 @@ flowchart LR
 - Relationship types define which links are valid and are managed in the dashboard.
 - Relationship edges are the actual links between records and are created, updated, and deleted through these API endpoints.
 - Before writing relationships, list valid `rel_kind` values with:
-  - `GET /custom_objects/types/{type_name}/user_relationship_types`
-  - `GET /custom_objects/types/{type_name}/object_relationship_types`
+  - `GET /data_objects/types/{type_name}/user_relationship_types`
+  - `GET /data_objects/types/{type_name}/object_relationship_types`
 
 ### Why object relationships require `related_type_name`
 
@@ -204,8 +204,8 @@ Object relationships are directional. The URL object is interpreted based on `an
 
 | `anchor` | URL object role | Related object key in responses |
 |---|---|---|
-| `source` (default) | From side (outgoing edge) | `to_custom_object` |
-| `target` | To side (incoming edge) | `from_custom_object` |
+| `source` (default) | From side (outgoing edge) | `to_data_object` |
+| `target` | To side (incoming edge) | `from_data_object` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Anchor behavior for object relationships" }
 
 Creating the same edge from the opposite anchor perspective still targets one underlying relationship. A second create call for the same edge returns `409` (`duplicate-object-relationship`).
@@ -214,13 +214,13 @@ Creating the same edge from the opposite anchor perspective still targets one un
 
 User relationship reads and writes intentionally use different endpoint paths:
 
-- Read: `GET /custom_objects/objects/{type_name}/{external_id}/user_relationships`
-- Write: `POST|PUT|PATCH|DELETE /custom_objects/objects/{type_name}/{external_id}/users`
+- Read: `GET /data_objects/objects/{type_name}/{external_id}/user_relationships`
+- Write: `POST|PUT|PATCH|DELETE /data_objects/objects/{type_name}/{external_id}/users`
 
 ### Relationship attributes are separate from object attributes
 
 - Relationship endpoints return edge-level attributes in the top-level `attributes` field.
-- Object attributes stay nested under `to_custom_object` or `from_custom_object`.
+- Object attributes stay nested under `to_data_object` or `from_data_object`.
 - `PUT` replaces relationship `attributes`, and `PATCH` merges relationship `attributes`.
 
 ### Worked example
@@ -234,9 +234,9 @@ This example shows a common account workflow:
 
 To read back the links:
 
-- `GET /custom_objects/objects/account/acct-123/user_relationships` for linked users
-- `GET /custom_objects/objects/account/acct-123/object_relationships` for outgoing object links
-- `GET /custom_objects/objects/account/acct-456/object_relationships?anchor=target` for incoming object links
+- `GET /data_objects/objects/account/acct-123/user_relationships` for linked users
+- `GET /data_objects/objects/account/acct-123/object_relationships` for outgoing object links
+- `GET /data_objects/objects/account/acct-456/object_relationships?anchor=target` for incoming object links
 
 {% alert note %}
 The `DELETE` endpoints for object relationships and user relationships require a JSON request body.
@@ -250,11 +250,11 @@ This section covers list pagination behavior and expected data visibility timing
 - `limit` defaults to `100` and is clamped to `1` through `250`.
 - `offset` defaults to `0`, and negative values are floored to `0`.
 - Writes are immediately visible to reads and Liquid personalization.
-- Segment membership based on custom objects can lag by up to one hour because calculated filters refresh hourly.
+- Segment membership based on data objects can lag by up to one hour because calculated filters refresh hourly.
 
 ## Error behavior
 
-This section summarizes status and error response patterns used across the Custom Objects endpoints.
+This section summarizes status and error response patterns used across the Data Objects endpoints.
 
 - `404`, `409`, `422`, and `429` return an `errors` array with `id` and `message`.
 - `400`, `401`, and `403` return a single `error` string.

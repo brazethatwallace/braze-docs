@@ -10,26 +10,26 @@ description: "This article outlines details about the List object relationships 
 {% api %}
 # List object relationships
 {% apimethod get %}
-/custom_objects/objects/{type_name}/{external_id}/object_relationships
+/data_objects/objects/{type_name}/{external_id}/object_relationships
 {% endapimethod %}
 
-> Use this endpoint to list related custom objects from one object anchor.
+> Use this endpoint to list related data objects from one object anchor.
 
 {% alert important %}
-Custom Objects is currently in early access. Your workspace must be enabled before the Custom Objects API key permissions appear on **Settings** > **API Keys**.
+Data Objects is currently in early access. Your workspace must be enabled before the Data Objects API key permissions appear on **Settings** > **API Keys**.
 {% endalert %}
 
 ## Prerequisites
 
-To use this endpoint, you need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with `custom_objects.read`.
+To use this endpoint, you need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with `data_objects.read`.
 
 ## Rate limit
 
-This endpoint is in the Custom Objects read bucket with a default limit of 50 requests per minute.
+This endpoint is in the Data Objects read bucket with a default limit of 50 requests per minute.
 
 ## Path parameters
 
-The following table lists and describes the path parameters for the `/custom_objects/objects/{type_name}/{external_id}/object_relationships` endpoint.
+The following table lists and describes the path parameters for the `/data_objects/objects/{type_name}/{external_id}/object_relationships` endpoint.
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
@@ -39,7 +39,7 @@ The following table lists and describes the path parameters for the `/custom_obj
 
 ## Query parameters
 
-The following table lists and describes the query parameters for the `/custom_objects/objects/{type_name}/{external_id}/object_relationships` endpoint.
+The following table lists and describes the query parameters for the `/data_objects/objects/{type_name}/{external_id}/object_relationships` endpoint.
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
@@ -73,7 +73,7 @@ Use this JSON object as a reference for request parameters.
 This example lists the `subaccount` records that `acct-123` links out to, returning the first page of results.
 
 ```bash
-curl --location --request GET 'https://rest.iad-01.braze.com/custom_objects/objects/account/acct-123/object_relationships?anchor=source&rel_kind=subaccount&limit=100&offset=0' \
+curl --location --request GET 'https://rest.iad-01.braze.com/data_objects/objects/account/acct-123/object_relationships?anchor=source&rel_kind=subaccount&limit=100&offset=0' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY'
 ```
 
@@ -90,7 +90,7 @@ The status code `200` could return the following response body.
   "items": [
     {
       "rel_kind": "subaccount",
-      "to_custom_object": {
+      "to_data_object": {
         "type_name": "account",
         "external_id": "acct-456",
         "attributes": { "name": "Child Account" }
@@ -106,7 +106,7 @@ The status code `200` could return the following response body.
 }
 ```
 
-With `anchor=target`, related objects are returned as `from_custom_object`.
+With `anchor=target`, related objects are returned as `from_data_object`.
 
 ### Response parameters
 
@@ -116,14 +116,14 @@ The following table lists and describes the fields in a successful response.
 |---|---|---|---|
 | `items` | Required | Array | List of object relationship records |
 | `items[].rel_kind` | Required | String | Relationship kind value |
-| `items[].to_custom_object` | Conditional | Object | Related object when `anchor=source` |
-| `items[].from_custom_object` | Conditional | Object | Related object when `anchor=target` |
-| `items[].to_custom_object.type_name` | Conditional | String | Related object type name |
-| `items[].to_custom_object.external_id` | Conditional | String | Related object external ID |
-| `items[].to_custom_object.attributes` | Conditional | Object | Related object attributes |
-| `items[].from_custom_object.type_name` | Conditional | String | Related object type name |
-| `items[].from_custom_object.external_id` | Conditional | String | Related object external ID |
-| `items[].from_custom_object.attributes` | Conditional | Object | Related object attributes |
+| `items[].to_data_object` | Conditional | Object | Related object when `anchor=source` |
+| `items[].from_data_object` | Conditional | Object | Related object when `anchor=target` |
+| `items[].to_data_object.type_name` | Conditional | String | Related object type name |
+| `items[].to_data_object.external_id` | Conditional | String | Related object external ID |
+| `items[].to_data_object.attributes` | Conditional | Object | Related object attributes |
+| `items[].from_data_object.type_name` | Conditional | String | Related object type name |
+| `items[].from_data_object.external_id` | Conditional | String | Related object external ID |
+| `items[].from_data_object.attributes` | Conditional | Object | Related object attributes |
 | `items[].attributes` | Required | Object | Relationship attributes |
 | `total_count` | Required | Integer | Total number of matching records |
 | `has_more` | Required | Boolean | Whether another page of results is available |
@@ -141,7 +141,7 @@ The following table lists common errors for this endpoint and how to resolve the
 | `400` | Invalid `anchor` | Use `source` or `target` for `anchor`. |
 | `404` | Type or object not found | Confirm `type_name` and `external_id` both exist in the workspace. |
 | `401` | Missing or invalid REST API key | Verify the `Authorization` header uses `Bearer YOUR_REST_API_KEY` and that the key is active. |
-| `403` | API key lacks permission or request is blocked by allowlist | Confirm the key has `custom_objects.read` and that your source IP is on the key allowlist, if configured. |
+| `403` | API key lacks permission or request is blocked by allowlist | Confirm the key has `data_objects.read` and that your source IP is on the key allowlist, if configured. |
 | `429` | Rate limit exceeded | Retry after `X-RateLimit-Reset` and reduce request frequency. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="List object relationships errors" }
 {% endapi %}
