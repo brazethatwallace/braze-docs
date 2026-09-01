@@ -75,6 +75,10 @@ def apply_frontmatter_fixes(text: str, fixes: dict[str, str]) -> tuple[str, list
     return prefix + "\n".join(out_lines) + suffix + text[m.end() :], applied
 
 
+def looks_like_nav_path(text: str) -> bool:
+    return bool(re.search(r"\s>\s", text)) or ("**" in text and ">" in text)
+
+
 def parse_recommendations(rec_dir: Path) -> dict[str, dict[str, str]]:
     fixes: dict[str, dict[str, str]] = {}
     for path in sorted(rec_dir.glob("*.md")):
@@ -92,7 +96,7 @@ def parse_recommendations(rec_dir: Path) -> dict[str, dict[str, str]]:
                 if recommended.strip().startswith("<"):
                     continue
                 if "(missing)" in current_raw:
-                    if re.search(r"\s>\s", recommended):
+                    if looks_like_nav_path(recommended):
                         continue
                     page_fixes[field] = recommended
                 elif "chars)" in current_raw:

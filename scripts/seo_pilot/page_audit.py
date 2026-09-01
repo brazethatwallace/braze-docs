@@ -67,7 +67,20 @@ def intro_word_count(body: str, fm: dict[str, str]) -> int:
     return max(word_count(body_intro_text(body)), frontmatter_intro_words(fm))
 
 
-BREADCRUMB_PREFIX_RE = re.compile(r"^[^>]+>\s+")
+# Nav breadcrumb label: **Bold** or a short Title Case phrase (not prose).
+NAV_LABEL = r"(?:\*\*[^*]+\*\*|[A-Z][\w'-]*(?:\s+[A-Z][\w'-]*){0,3})"
+NAV_BREADCRUMB_PREFIX_RE = re.compile(rf"^(?:{NAV_LABEL}\s*>\s*)+")
+UI_PATH_LINE_RE = re.compile(rf"^(?:{NAV_LABEL}\s*>\s*)*{NAV_LABEL}\s*\.?$")
+
+
+def strip_nav_breadcrumb_prefix(line: str) -> str:
+    """Remove leading nav_title-style breadcrumb segments only."""
+    while True:
+        match = NAV_BREADCRUMB_PREFIX_RE.match(line)
+        if not match:
+            break
+        line = line[match.end() :]
+    return line
 
 
 def strip_intro_noise(text: str) -> str:
@@ -82,8 +95,9 @@ def strip_intro_noise(text: str) -> str:
             line = line.lstrip(">").strip()
         line = re.sub(r"\{%[^%]+%\}", "", line)
         line = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", line)
-        while BREADCRUMB_PREFIX_RE.match(line):
-            line = BREADCRUMB_PREFIX_RE.sub("", line, count=1)
+        if UI_PATH_LINE_RE.match(line):
+            continue
+        line = strip_nav_breadcrumb_prefix(line)
         if line:
             parts.append(line)
     return re.sub(r"\s+", " ", " ".join(parts)).strip()
