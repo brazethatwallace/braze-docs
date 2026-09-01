@@ -78,7 +78,7 @@ The first time your agent calls a Braze tool, your client opens a browser window
 3. On the consent screen, review the access the application is requesting.
 4. Select the acknowledgment checkbox to agree to the Braze Privacy Policy, then select **Continue** to return to your MCP client.
 
-![The Braze consent screen showing that Claude Desktop is requesting access to Braze account information and broad access to Braze data, with a Privacy Policy acknowledgment checkbox and Cancel and Continue buttons.]({% image_buster /assets/img/mcp_server/oauth_consent_screen.png %}){: style="max-width:65%;"}
+![The Braze consent screen showing that Claude Desktop is requesting access to Braze account information and broad access to Braze data, with a Privacy Policy acknowledgment checkbox and Cancel and Continue buttons.]({% image_buster /assets/img/mcp_server/oauth_consent_screen.png %}){: width="639" height="1024" style="max-width:65%;"}
 
 Your session uses short-lived access tokens that refresh automatically. You may occasionally need to sign in again.
 

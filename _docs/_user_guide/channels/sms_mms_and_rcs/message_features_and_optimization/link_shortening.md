@@ -46,11 +46,11 @@ Braze shortened links always include the `https://` protocol and can't be config
 
 To use link shortening, make sure the link shortening toggle in the message composer is turned on. Then, choose to use either basic or advanced tracking.
 
-![Message composer with a toggle for link shortening.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening1.png %})
+![Message composer with a toggle for link shortening.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening1.png %}){: width="1614" height="994"}
 
 Braze recognizes only URLs that start with `http://` or `https://`. When a URL is recognized, the **Preview** section updates with a placeholder URL. Braze estimates the length of the URL after shortening, but a warning prompts you to select a test user and save the message as a draft for a more accurate estimate.
 
-![Message composer with a long URL in the "Message" box and a generated shortened link in the preview.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %})
+![Message composer with a long URL in the "Message" box and a generated shortened link in the preview.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening3.png %}){: width="1569" height="516"}
 
 {% alert note %}
 If you plan to use the BrazeAI<sup>TM</sup> [Intelligent Channel filter]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) and want the SMS and RCS channels to be selectable, turn on link shortening with advanced tracking.
@@ -117,7 +117,7 @@ For Canvases to appear in the "Clicked shortened SMS link" filter, the Canvas st
 If a draft is created within an active Canvas, a shortened URL won't be generated. The actual shortened URL is generated when the Canvas draft is made active.
 {% endalert %}
 
-![Message "Test" tab with fields for selecting test recipients.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening2.png %})
+![Message "Test" tab with fields for selecting test recipients.]({% image_buster /assets/img/link_shortening/legacy/temp_shortening2.png %}){: width="1569" height="947"}
 
 {% alert note %}
 Liquid personalization and shortened URLs are templated in the **Test** tab after a user has been selected. Make sure a user is selected to receive an accurate character count.
@@ -127,7 +127,7 @@ Liquid personalization and shortened URLs are templated in the **Test** tab afte
 
 When link shortening is turned on, the **SMS/MMS/RCS Performance** table includes a column titled **Total Clicks** that shows a count of click events per variant and an associated click rate. **Total Clicks** excludes suspected bot clicks from dashboard counts. For more details on metrics, see [Message performance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting) and [Bot click filtering]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/bot_click_filtering).
 
-![SMS and MMS performance metrics table.]({% image_buster /assets/img/link_shortening/shortening4.png %})
+![SMS and MMS performance metrics table.]({% image_buster /assets/img/link_shortening/shortening4.png %}){: width="1586" height="191"}
 
 The **Historical Performance** and **SMS/MMS/RCS Performance** tables also include an option for **Total Clicks** and show a daily time series of click events. Clicks are incremented on redirect (such as when a user visits a link), and may be incremented more than once per user.
 
