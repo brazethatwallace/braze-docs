@@ -7,5 +7,6 @@ Use these guides when writing or reviewing customer-facing documentation in this
 - **[Alerts](style_guide/alerts.md)** — Important, Note, Tip, Warning
 - **[Product feedback CTAs](style_guide/product_feedback_ctas.md)** — in-article product feedback include and tiers
 - **[API endpoint guidelines](style_guide/api_endpoint_guidelines.md)** — API article structure and formatting
+- **[SEO and AEO page template](style_guide/seo_aeo_page_template.md)** — search and answer-engine page structure (titles, intros, FAQs, linking)
 
-Start with the writing style guide for voice and editorial standards; use the other pages when your change touches images, alerts, or API reference content.
+Start with the writing style guide for voice and editorial standards; use the other pages when your change touches images, alerts, API reference content, or SEO/AEO optimization.
