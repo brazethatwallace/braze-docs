@@ -94,8 +94,8 @@ Authorization: Bearer YOUR-SCIM-TOKEN-KEY
 | --------- | -------- | --------- | ----------- |
 | `schemas` | Required | Array of strings | Expected SCIM 2.0 schema name for user object. |
 | `name` | Required | JSON object | This object contains the user's given name and family name. |
-| `department` | Required | String | Valid department string from the [department string documentation]({{site.baseurl}}/scim_api_appendix#department-strings). |
-| `permissions` | Required | JSON object | Permissions object as described in the [permissions object documentation]({{site.baseurl}}/scim_api_appendix#permissions-object). |
+| `department` | Required | String | Valid department string from the [department string documentation]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
+| `permissions` | Required | JSON object | Permissions object as described in the [permissions object documentation]({{site.baseurl}}/api/objects_filters/scim_api_appendix). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 

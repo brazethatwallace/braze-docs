@@ -27,7 +27,7 @@ This endpoint does not guarantee the sequence of `alias_updates` objects being u
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.alias.update` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics) with the `users.alias.update` permission.
 
 ## Rate limit
 
