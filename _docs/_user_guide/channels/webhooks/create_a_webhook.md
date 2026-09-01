@@ -66,7 +66,7 @@ The **Compose** tab consists of the following fields:
 
 [Internationalization]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) is supported in the URL and the request body. To internationalize your message, select **Add languages** and fill out the required fields. 
 
-We recommend selecting your languages before writing your content so you can fill in your text where it belongs in the Liquid. For our full list of available languages you can use, refer to [Languages supported]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
+We recommend selecting your languages before writing your content so you can fill in your text where it belongs in the Liquid. For our full list of available languages you can use, refer to [Languages supported]({{site.baseurl}}/developer_guide/localization?tab=android).
 
 If you're adding copy in a language that is written right-to-left, note that the final appearance of right-to-left messages depends largely on how service providers render them. For best practices on crafting right-to-left messages that display as accurately as possible, refer to [Creating right-to-left messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
@@ -104,7 +104,7 @@ JSON key-value pairs allow you to easily write a request for an endpoint that ex
 
 ![Request body set to JSON key-value pairs.]({% image_buster /assets/img/webhook_json_1.png %})
 
-You can personalize your key-value pairs using Liquid, such as including any user attribute, [custom attribute]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids#additional-notes-and-best-practices), or [event property]({{site.baseurl}}/user_guide/data/activation/events/custom_events) in your request. For example, you can include a customer's first name and email in your request. Be sure to include a [default value]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web) for each attribute.
+You can personalize your key-value pairs using Liquid, such as including any user attribute, [custom attribute]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), or [event property]({{site.baseurl}}/user_guide/data/activation/events/custom_events) in your request. For example, you can include a customer's first name and email in your request. Be sure to include a [default value]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web) for each attribute.
 
 #### Raw text
 

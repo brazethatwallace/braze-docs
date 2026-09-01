@@ -35,7 +35,7 @@ Use this workflow when a user or test device didn't receive a push. Start at ste
 3. Check global frequency caps, rate limits, and control group assignment for the campaign or Canvas.
 4. Confirm you're using the correct push type for the device (for example, Android, iOS, or Kindle).
 5. For internal testing, confirm the tester is logged into the correct app on the device.
-6. If delivery still fails, review [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes) or contact [Braze Support]({{site.baseurl}}/braze_support) with the campaign or Canvas ID, user ID, and timestamp with timezone.
+6. If delivery still fails, review [Common push error messages]({{site.baseurl}}/user_guide/channels/push/push_error_codes) or contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) with the campaign or Canvas ID, user ID, and timestamp with timezone.
 
 ## Missing push notifications {#missing-push-notifications}
 
@@ -202,7 +202,7 @@ If links in your push notifications are opening in the app unexpectedly, it migh
 
 1. **Review the push delegate implementation:** Ensure that the Braze push delegate is implemented correctly. For detailed instructions, see the integration guide for push notifications for your [platform]({{site.baseurl}}/developer_guide/home/).
 2. **Inspect custom link handling:** Check if the app includes custom handling for all `https://` links. Custom configurations might override default behaviors. Collaborate with your development team to review and adjust these settings if necessary.
-3. **Verify iOS push registration:** For iOS, revisit step 1 of the push integration guide on [registering push notifications with APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-1-register-for-push-notifications-with-apns). Ensure your delegate object is assigned synchronously before the app finishes launching. This step should be completed in the `application:didFinishLaunchingWithOptions:` method.
+3. **Verify iOS push registration:** For iOS, revisit step 1 of the push integration guide on [registering push notifications with APNs]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift). Ensure your delegate object is assigned synchronously before the app finishes launching. This step should be completed in the `application:didFinishLaunchingWithOptions:` method.
 4. **Test your integration:** After making adjustments, test the push notification behavior on both iOS and Android devices to confirm the issue is resolved.
 
 ### Deep links with app still running in the background (iOS)

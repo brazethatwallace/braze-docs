@@ -31,16 +31,16 @@ Match your symptom in the table to navigate to the relevant section.
 Use this workflow when HTML email rendering or editor behavior doesn't match what you expect. Start at step 1.
 
 1. Validate your HTML markup in the editor or an external validator.
-2. Send a [test email]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) and note which email clients or browsers show the issue.
+2. Send a [test email]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) and note which email clients or browsers show the issue.
 3. Preview with [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) to compare rendering across clients.
 4. Rule out [browser extension conflicts](#extension-conflicts) if the editor itself misbehaves.
-5. If the issue persists, open a [support ticket]({{site.baseurl}}/braze_support) with screenshots from Inbox Vision and the affected clients.
+5. If the issue persists, open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support) with screenshots from Inbox Vision and the affected clients.
 
 ## HTML renders incorrectly in test emails {#html-renders-incorrectly-in-test-emails}
 
 ### Symptom
 
-A [test email]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) doesn't match what you expect from the editor.
+A [test email]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) doesn't match what you expect from the editor.
 
 Check your HTML setup first, then review [extension conflicts](#extension-conflicts), [email rendering](#email-rendering), [CSS inlining](#css-inlining), and [white space under images](#white-space-under-images).
 

@@ -115,7 +115,7 @@ Braze-Currents-Version: 1
 
 The version will always be `1`, as we don't expect to increment this number very often, if ever.
 
-Just like our [data warehouse storage schemas]({{site.baseurl}}/user_guide/data/braze_currents/event_delivery_semantics?redirected=1), every event field in an individual event is guaranteed to be backward-compatible with previous event payload versions, according to the [Apache Avro](https://avro.apache.org/) definition of backward-compatibility:
+Just like our [data warehouse storage schemas]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics?redirected=1), every event field in an individual event is guaranteed to be backward-compatible with previous event payload versions, according to the [Apache Avro](https://avro.apache.org/) definition of backward-compatibility:
 
 1. Specific event fields are guaranteed to always have the same datatype over time.
 2. Any new fields that are added to the payload over time must be considered optional by all parties.

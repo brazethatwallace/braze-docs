@@ -28,9 +28,9 @@ The following lists methods used across various platforms to log purchases. With
 - [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=swift)
 - [Web]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-purchases)
+- [React Native]({{site.baseurl}}/developer_guide/analytics#purchase-events--revenue-tracking)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=unity)
-- [.NET MAUI (formerly Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#logging-purchases)
+- [.NET MAUI (formerly Xamarin)]({{site.baseurl}}/developer_guide/analytics?sdktab=xamarin#purchase-events--revenue-tracking)
 - [Roku]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=roku)
 
 ## View purchase data
@@ -68,7 +68,7 @@ For details on each filter, refer to the [Segmentation filters]({{site.baseurl}}
 ![Filtering for users who made exactly three purchases]({% image_buster /assets/img/purchase_filter_example.gif %}){: style="max-width:80%;"}
 
 {% alert tip %} 
-To segment on the number of times a specific purchase has occurred, record that purchase individually as an [incrementing custom attribute]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#custom-attribute-storage).
+To segment on the number of times a specific purchase has occurred, record that purchase individually as an [incrementing custom attribute]({{site.baseurl}}/developer_guide/analytics#custom-attribute-storage).
 {% endalert %}
 
 ### Personalization

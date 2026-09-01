@@ -39,7 +39,7 @@ The closer to the last time a user was in the app, the more important it is to b
 
 ![Screenshot related to step 2: create a campaign.]({% image_buster /assets/img_archive/2weeklapse3.png %}){: style="max-width:70%;"}
 
-Next, we'll create a recurring schedule to send our weekly message on Thursdays at 5:45 pm using [local time zone delivery]({{site.baseurl}}/help/faqs#what-does-local-time-zone-delivery-offer) in **Time-Based Scheduling Options**. We recommended that you look at your sessions graph to target users just prior to high-usage periods. This ensures that you attempt to re-engage people when they're most likely to use the app. You can change this later and test your initial hypothesis.
+Next, we'll create a recurring schedule to send our weekly message on Thursdays at 5:45 pm using [local time zone delivery]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer) in **Time-Based Scheduling Options**. We recommended that you look at your sessions graph to target users just prior to high-usage periods. This ensures that you attempt to re-engage people when they're most likely to use the app. You can change this later and test your initial hypothesis.
 
 ![Next, we'll create a recurring schedule to send our weekly message on Thursdays at 5:45 pm using local time zone delivery in Time-Based Scheduling Options. We recommended that you look at your sessions graph to target users just prior to high-usage periods. This ensures that you attempt to re-engage people when they're most likely to use the app. You can change this later and test your initial hypothesis.]({% image_buster /assets/img_archive/2weeklapse4.png %}){: style="max-width:70%;"}
 
