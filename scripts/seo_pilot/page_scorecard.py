@@ -21,7 +21,7 @@ from collections import defaultdict
 from pathlib import Path
 from urllib.parse import urlparse
 
-from meta_exempt import skips_seo_audit
+from meta_exempt import skips_seo_audit, skips_seo_meta
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DOCS_ROOT = REPO_ROOT / "_docs"
@@ -222,9 +222,9 @@ def load_broken_link_counts() -> dict[str, int]:
     return dict(out)
 
 
-def metadata_penalty(fm: dict[str, str], body: str) -> tuple[float, list[str]]:
+def metadata_penalty(fm: dict[str, str], body: str, rel: str = "") -> tuple[float, list[str]]:
     """Higher penalty = more headroom / needs work."""
-    if skips_seo_meta(fm):
+    if skips_seo_meta(fm, rel):
         return 0.0, []
     penalty = 0.0
     notes: list[str] = []
@@ -361,7 +361,7 @@ def score_page(
 
     url = doc_path_to_url(rel)
     gsc = gsc_data.get(url, gsc_data.get(url + "/", {}))
-    meta_pen, meta_notes = metadata_penalty(fm, text)
+    meta_pen, meta_notes = metadata_penalty(fm, text, rel_s)
     editorial_boost = 35 if rel_s in hub_set else 0
     broken = broken_counts.get(rel_s, 0)
     support_n = support_data.get(rel_s, 0)

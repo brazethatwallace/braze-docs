@@ -192,7 +192,7 @@ The following table describes available segmentation options for time attributes
 Numeric attributes have a wide variety of use cases. Incrementing number custom attributes are useful for storing the number of times a given action or event has occurred. Standard numbers have all sorts of usages, such as recording shoe size, waist size, or the number of times a user has viewed a certain product feature or category.
 
 {% alert note %}
-Money spent should not be recorded by this method. Rather it should be recorded via our [purchase methods]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#purchase-events--revenue-tracking).
+Money spent should not be recorded by this method. Rather it should be recorded via our [purchase methods]({{site.baseurl}}/developer_guide/analytics#purchase-events--revenue-tracking).
 {% endalert %}
 
 The following table describes available segmentation options for numeric attributes.

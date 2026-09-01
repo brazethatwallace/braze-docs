@@ -224,6 +224,8 @@ def slugify(path: Path) -> str:
     parent = path.parent.name
     if parent.startswith("_"):
         parent = parent[1:]
+    if name == "home" and parent in COLLECTION_ROOTS:
+        return f"{parent}-home"
     return name if parent in COLLECTION_ROOTS else f"{parent}-{name}"
 
 

@@ -22,7 +22,7 @@ To register our default push categories, follow the integration instructions:
 
 ## Step 1: Adding Braze default push categories
 
-Use the following code to register for our default push categories when you [register for push]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-4-register-push-tokens-with-braze):
+Use the following code to register for our default push categories when you [register for push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-4-register-push-tokens-with-braze):
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -58,11 +58,11 @@ UIApplication.shared.registerUserNotificationSettings(settings)
 
 Clicking on push action buttons with background activation mode will only dismiss the notification and not open the app. The next time the user opens the app, the button click analytics for these actions will be flushed to the server.
 
-If you want to create your own custom notification categories, see [action button customization]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/customization/action_buttons#push-category-customization).
+If you want to create your own custom notification categories, see [action button customization]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons#push-category-customization).
 
 ## Step 2: Enable interactive push handling
 
-If you use the `UNNotification` framework and have implemented Braze [delegates]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-5-enable-push-handling), you should already have this method integrated. 
+If you use the `UNNotification` framework and have implemented Braze [delegates]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-5-enable-push-handling), you should already have this method integrated. 
 
 To enable our push action button handling, including click analytics and URL routing, add the following code to your app's `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` delegate method:
 

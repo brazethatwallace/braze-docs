@@ -5,13 +5,18 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+import yaml
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DOCS_ROOT = REPO_ROOT / "_docs"
 
+FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 HEADING_RE = re.compile(
     r"^(#{1,6})\s+(.+?)(?:\s+\{#([^}]+)\})?\s*$",
     re.MULTILINE,
 )
+IAL_RE = re.compile(r"\{#([^}]+)\}")
+GLOSSARY_LAYOUTS = frozenset({"glossary_page", "api_glossary"})
 
 
 def normalize_fragment(fragment: str) -> str:
@@ -41,6 +46,37 @@ def extract_heading_ids(text: str) -> list[str]:
     return ids
 
 
+def load_frontmatter_yaml(text: str) -> dict:
+    match = FRONTMATTER_RE.match(text)
+    if not match:
+        return {}
+    try:
+        data = yaml.safe_load(match.group(1)) or {}
+    except yaml.YAMLError:
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def local_redirect_keys(fm: dict) -> list[str]:
+    value = fm.get("local_redirect")
+    if isinstance(value, dict):
+        return [str(key) for key in value]
+    if isinstance(value, list):
+        keys: list[str] = []
+        for item in value:
+            if isinstance(item, dict):
+                keys.extend(str(key) for key in item)
+        return keys
+    return []
+
+
+def uses_rendered_includes(text: str, fm: dict) -> bool:
+    layout = str(fm.get("layout", "")).lower()
+    if layout in GLOSSARY_LAYOUTS:
+        return True
+    return "{% sdktabs %" in text or "{% multi_lang_include" in text
+
+
 def url_tail_to_markdown_path(tail: str) -> Path | None:
     tail = tail.lstrip("/")
     if not tail:
@@ -56,6 +92,13 @@ def url_tail_to_markdown_path(tail: str) -> Path | None:
     return candidate if candidate.is_file() else None
 
 
+def valid_anchor_ids(text: str, fm: dict) -> set[str]:
+    ids = set(extract_heading_ids(text))
+    ids.update(local_redirect_keys(fm))
+    ids.update(match.group(1) for match in IAL_RE.finditer(text))
+    return ids
+
+
 def sanitize_fragment_for_target(target_tail: str, fragment: str) -> str:
     """Return a valid fragment for the target page, or empty string."""
     fragment = normalize_fragment(fragment)
@@ -64,13 +107,22 @@ def sanitize_fragment_for_target(target_tail: str, fragment: str) -> str:
 
     md_path = url_tail_to_markdown_path(target_tail)
     if not md_path:
+        return fragment
+
+    text = md_path.read_text(encoding="utf-8")
+    fm = load_frontmatter_yaml(text)
+    if uses_rendered_includes(text, fm):
+        return fragment
+
+    heading_ids = extract_heading_ids(text)
+    valid_ids = valid_anchor_ids(text, fm)
+    if not valid_ids:
+        return fragment
+
+    if fragment not in valid_ids:
         return ""
 
-    heading_ids = extract_heading_ids(md_path.read_text(encoding="utf-8"))
-    if not heading_ids or fragment not in heading_ids:
-        return ""
-
-    if heading_ids[0] == fragment:
+    if heading_ids and heading_ids[0] == fragment:
         return ""
 
     return fragment

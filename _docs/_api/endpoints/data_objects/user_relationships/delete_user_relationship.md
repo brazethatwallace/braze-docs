@@ -10,26 +10,26 @@ description: "This article outlines details about the Delete user relationship e
 {% api %}
 # Delete user relationship
 {% apimethod delete %}
-/custom_objects/objects/{type_name}/{external_id}/users
+/data_objects/objects/{type_name}/{external_id}/users
 {% endapimethod %}
 
 > Use this endpoint to remove one user-to-object relationship.
 
 {% alert important %}
-Custom Objects is currently in early access. Your workspace must be enabled before the Custom Objects API key permissions appear on **Settings** > **API Keys**.
+Data Objects is currently in early access. Your workspace must be enabled before the Data Objects API key permissions appear on **Settings** > **API Keys**.
 {% endalert %}
 
 ## Prerequisites
 
-To use this endpoint, you need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with `custom_objects.user_relationships.delete`.
+To use this endpoint, you need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with `data_objects.user_relationships.delete`.
 
 ## Rate limit
 
-This endpoint is in the Custom Objects write bucket with a default limit of 50 requests per minute.
+This endpoint is in the Data Objects write bucket with a default limit of 50 requests per minute.
 
 ## Path parameters
 
-The following table lists and describes the path parameters for the `/custom_objects/objects/{type_name}/{external_id}/users` endpoint.
+The following table lists and describes the path parameters for the `/data_objects/objects/{type_name}/{external_id}/users` endpoint.
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
@@ -39,7 +39,7 @@ The following table lists and describes the path parameters for the `/custom_obj
 
 ## Request parameters
 
-The following table lists and describes the JSON request body parameters for the `/custom_objects/objects/{type_name}/{external_id}/users` endpoint.
+The following table lists and describes the JSON request body parameters for the `/data_objects/objects/{type_name}/{external_id}/users` endpoint.
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
@@ -69,7 +69,7 @@ This section includes a sample JSON payload and a sample cURL request.
 This example removes the `account_user` relationship between the specified user and `acct-123`. The user profile and the account record both remain.
 
 ```bash
-curl --location --request DELETE 'https://rest.iad-01.braze.com/custom_objects/objects/account/acct-123/users' \
+curl --location --request DELETE 'https://rest.iad-01.braze.com/data_objects/objects/account/acct-123/users' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -108,7 +108,7 @@ The following table lists common errors for this endpoint and how to resolve the
 | `400` | Validation error | Confirm the request body includes valid `braze_id` and `rel_kind` values. |
 | `404` | Relationship or object not found | Confirm the object, user, and relationship key values all exist. |
 | `401` | Missing or invalid REST API key | Verify the `Authorization` header uses `Bearer YOUR_REST_API_KEY` and that the key is active. |
-| `403` | API key lacks permission or request is blocked by allowlist | Confirm the key has `custom_objects.user_relationships.delete` and that your source IP is on the key allowlist, if configured. |
+| `403` | API key lacks permission or request is blocked by allowlist | Confirm the key has `data_objects.user_relationships.delete` and that your source IP is on the key allowlist, if configured. |
 | `429` | Rate limit exceeded | Retry after `X-RateLimit-Reset` and reduce request frequency. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Delete user relationship errors" }
 {% endapi %}

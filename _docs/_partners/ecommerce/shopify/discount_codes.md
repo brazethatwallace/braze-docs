@@ -28,17 +28,17 @@ This is a community-submitted integration and isn’t directly supported by Braz
 
 Use the Bulk Discount Code Bot to configure your discount codes based on the number of codes to generate, code length, discount value, and more.
 
-![The configuration options for a discount set.][1]
+![The configuration options for a discount set.][1]{: width="1203" height="677" style="max-width:100%;"}
 
 ### Step 2: Export your codes
 
 Find your discount set in the Bulk Discount Code Bot's search bar, then select **Export Codes** > **Download Codes** to download a CSV file to your Downloads folder.
 
-![Search bar with a dropdown displaying the discount set and a row of buttons to select from.][2]{: style="max-width:70%;"}
+![Search bar with a dropdown displaying the discount set and a row of buttons to select from.][2]{: width="1163" height="858" style="max-width:70%;"}
 
-In the CSV file, delete row 1 to remove the column header “Promo”. This will prevent "Promo" from becoming a discount code in Braze.
+In the CSV file, delete row 1 to remove the column header "Promo". This prevents "Promo" from becoming a discount code in Braze.
 
-![A flowchart showing the removal of the row header "Promo" in a CSV file.][3]{: style="max-width:60%;"}
+![A flowchart showing the removal of the row header "Promo" in a CSV file.][3]{: width="448" height="222" style="max-width:60%;"}
 
 ### Step 3: Add your discount codes to Braze
 
@@ -50,11 +50,11 @@ Then, upload your CSV file and select **Save List**.
 
 If you want to use your unique discount codes in a single-send campaign, or you don't mind users receiving multiple unique codes across different campaigns or Canvas steps, copy the code's Liquid snippet from the promotion codes list you saved.
 
-![A Liquid code snippet with a button copy it.][4]{: style="max-width:60%;"}
+![A Liquid code snippet with a button copy it.][4]{: width="958" height="295" style="max-width:60%;"}
 
 Paste the Liquid snippet into a campaign or Canvas step.
 
-<video autoplay muted loop playsinline loading="lazy" style="max-width:100%;" aria-label="A video showing the Liquid snippet being added to a Canvas step.">
+<video autoplay muted loop playsinline loading="lazy" width="800" height="540" style="max-width:100%;height:auto;aspect-ratio:800/540;" aria-label="A video showing the Liquid snippet being added to a Canvas step.">
   <source src="{% image_buster /assets/img/shopify/liquid_promo_code.mp4 %}" type="video/mp4">
 </video>
 
@@ -69,7 +69,7 @@ In the User Update step, do the following for each field:
 - **Action:** Select **Update**.
 - **Key Value:** Paste the Liquid code snippet.
 
-![A User Update step that updates a "Promo Code" attribute with the Liquid snippet.][6]
+![A User Update step that updates a "Promo Code" attribute with the Liquid snippet.][6]{: width="2464" height="1322" style="max-width:100%;"}
 
 Now, you can add the custom attribute {% raw %}`{{custom_attribute.${Promo Code}}}`{% endraw %} to any message, and the discount code will be templated in.
 

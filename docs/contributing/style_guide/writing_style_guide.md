@@ -2265,6 +2265,9 @@ Lowercase except when referring to a UI element that is capitalized.
 ⛔️ **ad hoc**
 Don’t use. Use “one-time” or similar.
 
+**Agentic Standards**  
+Always capitalized. When referring to standards without the “Agentic” prefix, use lowercase “standard” or “standards”.
+
 **AI**  
 Preferred over "artificial intelligence" after the first mention.
 
@@ -2357,6 +2360,9 @@ Use when differentiating between the original Canvas editor and Canvas Flow. Oth
 
 **campaign**  
 Lowercase except when referring to a UI element that is capitalized.
+
+**Campaign Standards**  
+Always capitalized. When referring to standards without the “Campaign” prefix, use lowercase “standard” or “standards”.
 
 **capacity**  
 Use when referring to custom data limits instead of the word "limit."
