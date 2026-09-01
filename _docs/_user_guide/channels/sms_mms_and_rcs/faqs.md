@@ -205,10 +205,22 @@ RCS messages may render differently on an iOS device depending on the operating 
 
 - Suggested actions from different RCS messages in the same conversation thread may be grouped together and shown in the wrong order.
 - Rich card buttons and suggested actions that are outside the rich card may remain visible even after tapping a rich card button or a suggested action.
+- GIFs in rich cards display as static images. For details, see [Why do GIFs in RCS rich cards appear static on iOS?](#why-do-gifs-in-rcs-rich-cards-appear-static-on-ios).
 
 {% alert note %}
 Braze sends the RCS payload you compose, while the messaging client controls how suggested actions are ordered, grouped, and hidden. Be sure to test RCS messages, especially those that use rich cards with suggested actions or suggested replies, on both Android and iOS devices before sending.
 {% endalert %}
+
+### Why do GIFs in RCS rich cards appear static on iOS?
+
+On iOS, GIFs in RCS rich cards display as a static image (the first frame). On Android, they animate as expected.
+
+The iOS messaging client controls this behavior. A GIF may still animate in the Braze preview. Send a test message to an iOS device to confirm how the delivered message looks.
+
+To send animated content to iOS:
+
+- Use an RCS **Media** message, which sends the GIF as a file
+- Use video in the rich card
 
 ### Can I send pre-recorded voicemails with RCS?
 
