@@ -116,7 +116,10 @@ jobs:
           cp "$SHARD_FILE" lhci-urls.txt
           echo "--- Shard ${{ matrix.shard }} URLs ---"
           wc -l lhci-urls.txt
-          node scripts/run-lhci-shard.js --input lhci-urls.txt --config lighthouserc.audit.js
+          node scripts/run-lhci-shard.js \
+            --input lhci-urls.txt \
+            --config lighthouserc.audit.js \
+            --failures-log "lhci-reports/collect-failures-shard-${{ matrix.shard }}.txt"
         env:
           LHCI_BUILD_CONTEXT__CURRENT_BRANCH: ${{ github.ref_name }}
 
@@ -125,9 +128,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: lhci-reports-full-site-shard-${{ matrix.shard }}
-          path: |
-            lhci-reports/
-            lhci-collect-failures.txt
+          path: lhci-reports/
           retention-days: 30
           if-no-files-found: warn
 
@@ -154,7 +155,13 @@ jobs:
           merge-multiple: true
 
       - name: Build summary artifacts
-        run: node scripts/summarize-lhci-reports.js --input lhci-reports --output lhci-summary.csv --markdown lhci-summary.md
+        run: |
+          node scripts/summarize-lhci-reports.js \
+            --input lhci-reports \
+            --output lhci-summary.csv \
+            --markdown lhci-summary.md \
+            --backlog-csv lhci-fix-backlog.csv \
+            --backlog-markdown lhci-fix-backlog.md
 
       - name: Upload summary artifacts
         uses: actions/upload-artifact@v7
@@ -163,6 +170,8 @@ jobs:
           path: |
             lhci-summary.csv
             lhci-summary.md
+            lhci-fix-backlog.csv
+            lhci-fix-backlog.md
           retention-days: 90
 
       - name: Print summary
@@ -175,4 +184,4 @@ jobs:
           fi
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "Audited **${{ needs.prepare.outputs.url_count }}** URLs across **${{ needs.prepare.outputs.shard_count }}** shard(s)." >> "$GITHUB_STEP_SUMMARY"
-          echo "Download \`lhci-full-site-summary-${{ github.run_number }}\` for CSV + Markdown rollups." >> "$GITHUB_STEP_SUMMARY"
+          echo "Download \`lhci-full-site-summary-${{ github.run_number }}\` for CSV, Markdown rollups, and the prioritized fix backlog." >> "$GITHUB_STEP_SUMMARY"
