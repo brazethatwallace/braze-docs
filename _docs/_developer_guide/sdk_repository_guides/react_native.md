@@ -73,11 +73,7 @@ Calling `Braze.initialize` again with different credentials tears down the curre
 
 ## Native setup
 
-<<<<<<< HEAD
-> **Source of truth:** Step-by-step screens, Gradle/CocoaPods changes, and the full list of Android XML keys are in the [Braze React Native developer guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native). The example snippets in this section are minimal.
-=======
 > **Source of truth:** Step-by-step screens, Gradle/CocoaPods changes, and the full list of Android XML keys are in the [Braze React Native developer guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native). The **Android** and **iOS** snippets in this section are minimal examples.
->>>>>>> origin/develop
 
 ### Android
 
