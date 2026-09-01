@@ -26,14 +26,14 @@ Sie können auch Kontohierarchien modellieren (z. B. übergeordnete und untergeo
 
 ## Warum Kontoobjekte verwenden? {#why-use-account-objects}
 
-Einige Anwendungsfälle erfordern Kontext auf Kontoebene, auch wenn Ihre Campaigns und Canvases an einzelne Nutzer:innen gesendet werden.
+Einige Anwendungsfälle erfordern Kontext auf Kontoebene, selbst wenn Ihre Campaigns und Canvases an einzelne Nutzer:innen gesendet werden.
 
-Mit Kontoobjekten können Sie Kontodaten einmalig speichern und für Segmentierung und Personalisierung in Braze wiederverwenden.
+Mit Kontoobjekten können Sie Kontodaten einmal speichern und sie für Segmentierung und Personalisierung in Braze wiederverwenden.
 
-Das ermöglicht Ihnen:
+So können Sie:
 
-- Segmentierung nach Kontoattributen
-- Nachrichten mit gemeinsam genutztem Kontokontext personalisieren (z. B. Firmenname oder Branche)
+- Nach Kontoattributen segmentieren
+- Nachrichten mit gemeinsamem Kontokontext personalisieren (z. B. Firmenname oder Branche)
 - Beziehungen zwischen Konten modellieren und ein Nutzerprofil mit mehreren Konten verknüpfen
 
 Dieser Ansatz ersetzt das Duplizieren derselben Kontoattribute über viele Nutzerprofile hinweg.
@@ -42,17 +42,17 @@ Dieser Ansatz ersetzt das Duplizieren derselben Kontoattribute über viele Nutze
 
 Bevor Sie beginnen:
 
-- Ihr Workspace muss für den Early Access von Accounts freigeschaltet sein. Wenden Sie sich an Ihr Braze-Konto-Team.
+- Ihr Workspace muss für den Early Access von Accounts freigeschaltet sein. Wenden Sie sich an Ihr Braze-Kontoteam.
 - Sie müssen bereits Nutzer:innen in Braze haben.
-- Nachdem Accounts aktiviert wurde, erscheint es unter **Dateneinstellungen** > **Accounts**. Wenn Sie Accounts zum ersten Mal verwenden, folgen Sie den Initialisierungsanweisungen auf dem Bildschirm.
+- Nachdem Accounts aktiviert wurde, erscheint es unter **Data Settings** > **Accounts**. Wenn Sie Accounts zum ersten Mal verwenden, folgen Sie den Initialisierungsanweisungen auf dem Bildschirm.
 
-## Konto-Datenmodell {#account-data-model}
+## Kontodatenmodell {#account-data-model}
 
 Jedes Konto erfordert eine externe ID (`id`) und einen Namen (`name`).
 
-Die Kontofelder in diesem Abschnitt definieren das Schema des Account-Objekts. Diese Felder gelten für jeden einzelnen Kontodatensatz, den Sie in Braze speichern.
+Die Kontofelder in diesem Abschnitt definieren das Schema des Kontoobjekts. Diese Felder gelten für jeden einzelnen Kontodatensatz, den Sie in Braze speichern.
 
-Braze enthält standardmäßig Account-Objekte mit Standardfeldern. Sie können angepasste Felder je nach Anwendungsfall hinzufügen und entfernen.
+Braze enthält standardmäßig Kontoobjekte mit Standardfeldern. Sie können angepasste Felder je nach Anwendungsfall hinzufügen und entfernen.
 
 | Feldname | Feldtyp | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
@@ -67,20 +67,20 @@ Braze enthält standardmäßig Account-Objekte mit Standardfeldern. Sie können 
 | `state` | String | Nein | Bundesland oder Provinz. |
 | `postal_code` | String | Nein | Postleitzahl. |
 | `country` | String | Nein | Land. |
-| `notes` | String | Nein | Zusätzliche Anmerkungen. |
+| `notes` | String | Nein | Zusätzliche Notizen. |
 | `website` | String | Nein | Website-URL. |
 | `main_phone` | String | Nein | Primäre Telefonnummer. |
-| `created_date` | Zeit | Nein | Zeitstempel der Kontoerstellung. |
+| `created_date` | Zeitstempel | Nein | Zeitstempel der Kontoerstellung. |
 | `sic_code` | String | Nein | Standard Industry Classification Code. |
-| Angepasste Felder | angepasst | Nein | Felder, die Sie selbst definieren und verwalten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Felder des Konto-Datenmodells" }
+| Angepasste Felder | angepasst | Nein | Felder, die Sie definieren und verwalten. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Felder des Kontodatenmodells" }
 
 ## Optionen für die Datenintegration {#data-integration-options}
 
 Sie können Kontodatensätze verwalten über:
 
 - REST API-Endpunkte für Kontodatensätze
-- Bearbeitung im Browser unter **Dateneinstellungen** > **Konten** für einzelne Datensätze
+- Bearbeitung im Browser unter **Data Settings** > **Accounts** für einzelne Datensätze
 
 ## Erste Schritte {#get-started}
 
@@ -92,7 +92,7 @@ Wenn Accounts aktiviert ist, gehen Sie zu **Data Settings** > **Accounts** und s
 
 ### Schritt 2: Kontodatensätze hinzufügen {#step-2-add-account-records}
 
-Fügen Sie Kontodatensätze über die REST API oder durch Bearbeitung im Browser hinzu oder aktualisieren Sie diese.
+Fügen Sie Kontodatensätze über die REST API oder die browserbasierte Bearbeitung hinzu oder aktualisieren Sie sie.
 
 ### Schritt 3: Einen berechneten Filter für Kontokriterien erstellen {#step-3-create-a-calculated-filter-for-account-criteria}
 
@@ -110,11 +110,11 @@ Wählen Sie im Segment Builder den von Ihnen erstellten berechneten Filter aus u
 
 ## Kontobasierte Segmente erstellen {#build-account-based-segments}
 
-Sobald Ihre Kontodatensätze und Ihr berechneter Filter fertig sind:
+Sobald Ihre Kontodatensätze und der berechnete Filter bereit sind:
 
 1. Gehen Sie zum [Segment Builder]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 2. Fügen Sie Ihren vorkonfigurierten berechneten Filter für Kontokriterien hinzu.
-3. Fügen Sie beliebige zusätzliche Nutzerattribut-Filter hinzu.
+3. Fügen Sie alle zusätzlichen Nutzerattribut-Filter hinzu.
 4. Speichern Sie Ihr Segment.
 
 Zum Beispiel:
@@ -124,10 +124,10 @@ Zum Beispiel:
 
 ## Mit Liquid personalisieren {#personalize-with-liquid}
 
-Verwenden Sie den Liquid-Tag `{% raw %}{% data_object account %}{% endraw %}`, um Kontodaten für die Nutzer:innen in das Array `data_objects` zu laden.
+Verwenden Sie den Liquid-Tag `{% raw %}{% data_object account %}{% endraw %}`, um Kontodaten für den/die Nutzer:in in das Array `data_objects` zu laden.
 
 {% alert note %}
-Wenn Sie **Vorschau und Test** verwenden, wählen Sie ein Segment aus, das Kontodaten enthält, damit die Personalisierung korrekt aufgelöst werden kann.
+Wenn Sie **Vorschau und Test** verwenden, nutzen Sie ein Segment, das Kontodaten enthält, damit die Personalisierung korrekt aufgelöst werden kann.
 {% endalert %}
 
 {% raw %}
@@ -138,7 +138,7 @@ We'd love to invite you and your peers at {{ data_objects[0].name }}.
 ```
 {% endraw %}
 
-Um über alle zugeordneten Konten zu iterieren:
+Um alle zugeordneten Konten zu durchlaufen:
 
 {% raw %}
 ```liquid
@@ -153,9 +153,9 @@ Um über alle zugeordneten Konten zu iterieren:
 
 Sie können die REST API verwenden, um Kontodatensätze während des Early Access zu verwalten.
 
-Einzelheiten zu den Endpunkten finden Sie unter [Custom Objects-Endpunkte]({{site.baseurl}}/api/endpoints/custom_objects).
+Einzelheiten zu den Endpunkten finden Sie unter [Data Objects-Endpunkte]({{site.baseurl}}/api/endpoints/data_objects).
 
-Informationen zu Authentifizierung und den Grundlagen von REST-Endpunkten finden Sie in der [Braze-API-Übersicht]({{site.baseurl}}/api/basics).
+Informationen zur Authentifizierung und den Grundlagen von REST-Endpunkten finden Sie in der [Braze-API-Übersicht]({{site.baseurl}}/api/basics).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 

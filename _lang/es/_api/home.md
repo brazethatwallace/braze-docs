@@ -40,7 +40,7 @@ glossary_tags:
   - name: Catalogs
   - name: Content Blocks
   - name: Custom Events
-  - name: Custom Objects
+  - name: Data Objects
   - name: Email List
   - name: Email Templates
   - name: Webhook Templates
@@ -109,46 +109,46 @@ glossaries:
     description: Fusiona un perfil de usuario con otro usuario.
     tags:
       - User Data
-  - name: <a href='/docs/api/endpoints/custom_objects'>/custom_objects/*</a>
-    description: Consulta la referencia completa de endpoints de objetos personalizados, incluyendo tipos de objeto, objetos y endpoints de relaciones.
+  - name: <a href='/docs/api/endpoints/data_objects'>/data_objects/*</a>
+    description: Consulta la referencia completa de endpoints de Data Objects, incluidos tipos de objeto, objetos y endpoints de relaciones.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_custom_object_types'>/custom_objects/types</a>
-    description: Lista los tipos de objeto personalizado en el espacio de trabajo.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_data_object_types'>/data_objects/types</a>
+    description: Lista los tipos de Data Objects en el espacio de trabajo.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_custom_object_type'>/custom_objects/types/{type_name}</a>
-    description: Obtiene un tipo de objeto personalizado y su definición de esquema.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_data_object_type'>/data_objects/types/{type_name}</a>
+    description: Obtiene un tipo de Data Object y su definición de esquema.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_user_relationship_types'>/custom_objects/types/{type_name}/user_relationship_types</a>
-    description: Lista los tipos de relación de usuario para un tipo de objeto personalizado.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_user_relationship_types'>/data_objects/types/{type_name}/user_relationship_types</a>
+    description: Lista los tipos de relación de usuario para un tipo de Data Object.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_object_relationship_types'>/custom_objects/types/{type_name}/object_relationship_types</a>
-    description: Lista los tipos de relación de objeto para un tipo de objeto personalizado.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/types/get_list_object_relationship_types'>/data_objects/types/{type_name}/object_relationship_types</a>
+    description: Lista los tipos de relación de objeto para un tipo de Data Object.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_list_custom_objects'>/custom_objects/objects/{type_name}</a>
-    description: Lista los objetos personalizados de un tipo.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_list_data_objects'>/data_objects/objects/{type_name}</a>
+    description: Lista los Data Objects de un tipo.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_custom_object'>/custom_objects/objects/{type_name}/{external_id}</a>
-    description: Obtiene un objeto personalizado, o lo reemplaza, actualiza y elimina.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/objects/get_data_object'>/data_objects/objects/{type_name}/{external_id}</a>
+    description: Obtiene un Data Object, o lo reemplaza, actualiza y elimina.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/object_relationships/get_list_object_relationships'>/custom_objects/objects/{type_name}/{external_id}/object_relationships</a>
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/object_relationships/get_list_object_relationships'>/data_objects/objects/{type_name}/{external_id}/object_relationships</a>
     description: Lista, crea, reemplaza, actualiza y elimina relaciones entre objetos.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/get_list_user_relationships'>/custom_objects/objects/{type_name}/{external_id}/user_relationships</a>
-    description: Lista las relaciones de usuario para un objeto personalizado.
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/get_list_user_relationships'>/data_objects/objects/{type_name}/{external_id}/user_relationships</a>
+    description: Lista las relaciones de usuario para un Data Object.
     tags:
-      - Custom Objects
-  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/post_create_user_relationship'>/custom_objects/objects/{type_name}/{external_id}/users</a>
+      - Data Objects
+  - name: <a href='/docs/api/endpoints/data_objects/user_relationships/post_create_user_relationship'>/data_objects/objects/{type_name}/{external_id}/users</a>
     description: Crea, reemplaza, actualiza y elimina relaciones entre usuarios y objetos.
     tags:
-      - Custom Objects
+      - Data Objects
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns'>/campaigns/trigger/send</a>
     description: Envía mensajes inmediatos y puntuales a usuarios designados mediante entrega desencadenada por API.
     tags:

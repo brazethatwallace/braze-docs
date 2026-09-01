@@ -41,37 +41,37 @@ Les envois via l'API d'e-mail transactionnel prennent en charge l'archivage des 
 
 Pour créer une nouvelle campagne d'e-mail transactionnel, créez une campagne et sélectionnez **Transactional Email** comme canal de communication.
 
-![Menu déroulant Créer une campagne avec l'option e-mail transactionnel mise en évidence.]({% image_buster /assets/img/transactional_email_campaign.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![Liste déroulante Créer une campagne avec l'option d'e-mail transactionnel mise en évidence.]({% image_buster /assets/img/transactional_email_campaign.png %}){: width="534" height="800" style="float:right;max-width:35%;margin-left:15px;height:auto;"}
 
 Vous pouvez maintenant passer à la configuration de votre campagne d'e-mail transactionnel.
 
 ## Étape 2 : Configurer votre campagne {#step-2-configure-your-campaign}
 
-Le flux de création de campagne pour les campagnes d'e-mail transactionnel est simplifié par rapport à celui d'une [campagne e-mail standard]({{site.baseurl}}/user_guide/channels/email/html_editor) afin de garantir que vos e-mails transactionnels critiques puissent atteindre tous les utilisateurs.
+Le flux de création de campagne pour les Campaigns d'e-mails transactionnels est simplifié par rapport à celui d'une [campagne e-mail standard]({{site.baseurl}}/user_guide/channels/email/html_editor) afin de garantir que vos e-mails transactionnels critiques puissent atteindre tous les utilisateurs.
 
-Par conséquent, vous remarquerez que plusieurs paramètres que vous connaissez peut-être d'autres types de campagnes Braze ne sont pas requis lors de la configuration de ce type de campagne :
+En conséquence, vous remarquerez que plusieurs paramètres que vous connaissez peut-être d'autres types de Campaigns Braze ne sont pas requis lors de la configuration de ce type de campagne :
 
-- L'étape **Delivery** a été simplifiée pour supprimer les options de planification. Les e-mails transactionnels seront toujours déclenchés via la REST API Braze en utilisant l'ID de campagne affiché sur la page **Delivery**. Des paramètres supplémentaires, comme les contrôles de rééligibilité et les paramètres de limite de fréquence, ont également été supprimés pour confirmer que tous les utilisateurs sont joignables pour ces alertes transactionnelles critiques lorsque votre service déclenche une demande d'envoi.
-- L'étape **Target Audiences** a été supprimée. Comme les e-mails transactionnels inscrivent l'ensemble de votre base d'utilisateurs comme éligible (y compris les utilisateurs désabonnés), il n'est pas nécessaire de spécifier des filtres ou des segments. Par conséquent, si vous avez une logique à appliquer pour déterminer qui doit recevoir ce message, nous vous recommandons d'appliquer cette logique avant de décider s'il faut effectuer la requête API à Braze pour déclencher le message à un utilisateur spécifique.
+- L'étape **Réception/distribution** a été simplifiée pour supprimer les options de planification. Les e-mails transactionnels seront toujours déclenchés via la REST API de Braze en utilisant l'ID de campagne affiché sur la page **Réception/distribution**. Les paramètres supplémentaires, tels que les contrôles de rééligibilité et les paramètres de limite de fréquence, ont également été supprimés pour confirmer que tous les utilisateurs sont joignables pour ces alertes transactionnelles critiques lorsque votre service déclenche une demande d'envoi.
+- L'étape **Audiences cibles** a été supprimée. Comme les e-mails transactionnels inscrivent l'ensemble de votre base d'utilisateurs comme éligibles (y compris les utilisateurs désabonnés), il n'est pas nécessaire de spécifier des filtres ou des Segments. Par conséquent, si vous avez une logique à appliquer pour déterminer qui doit recevoir ce message, nous vous recommandons d'appliquer cette logique avant de décider s'il faut effectuer la requête API à Braze pour déclencher le message à un utilisateur spécifique.
 - L'étape **Conversions** a été supprimée. Les e-mails transactionnels ne prennent pas en charge le suivi des événements de conversion pour le moment.
 
-![Flux de travail Rédiger, Réception et Confirmer pour créer une campagne d'e-mail transactionnel.]({% image_buster /assets/img/transactional_campaign_compose.png %}){: style="max-width:80%;"}
+![Flux de travail Composer, Réception/distribution et Confirmer pour créer une campagne d'e-mail transactionnel.]({% image_buster /assets/img/transactional_campaign_compose.png %}){: width="1586" height="1112" style="max-width:80%;height:auto;"}
 
 Pour configurer votre campagne d'e-mail transactionnel, suivez ces étapes :
 
-1. Ajoutez un nom descriptif afin de pouvoir retrouver les résultats sur votre page **Campaigns** après l'envoi de vos messages.
-2. Rédigez votre e-mail ou sélectionnez un modèle.
+1. Ajoutez un nom descriptif pour pouvoir retrouver les résultats sur votre page **Campaigns** après avoir envoyé vos messages.
+2. Composez votre e-mail ou sélectionnez un modèle.
 3. Notez votre `campaign_id`. Après avoir enregistré votre campagne API, vous devez inclure les champs `campaign_id` générés dans votre requête API, comme indiqué dans l'article sur l'[endpoint d'e-mail transactionnel]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message).
-4. Cliquez sur **Save Campaign**, et vous êtes prêt à lancer votre campagne API !
+4. Cliquez sur **Enregistrer la campagne**, et vous êtes prêt à lancer votre campagne API !
 
 {% alert note %}
-Le paramètre de désabonnement en un clic pour les campagnes d'e-mail transactionnel est défini par défaut sur **Use workspace default**, comme pour les autres campagnes e-mail. Comme il s'agit d'un envoi de messages transactionnels, Braze n'ajoute pas de désabonnement en un clic. Pour ajouter un désabonnement en un clic à ce type de campagne, [modifiez ce paramètre]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#message-level-one-click-list-unsubscribe) sous **Sending Info**.
+Le paramètre de désinscription en un clic pour les Campaigns d'e-mails transactionnels est défini par défaut sur **Utiliser la valeur par défaut de l'espace de travail**, comme pour les autres Campaigns e-mail. Comme ce type est destiné à la communication transactionnelle, Braze n'ajoute pas la désinscription en un clic. Pour ajouter une désinscription en un clic à ce type de campagne, [modifiez ce paramètre]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#message-level-one-click-list-unsubscribe) sous **Informations d'envoi**.
 {% endalert %}
 
 ### Étiquettes non autorisées dans les e-mails transactionnels {#disallowed-tags-in-transactional-emails}
 
-Les étiquettes Liquid `Connected Content` et `Promotion Code` ne sont pas disponibles dans les campagnes d'e-mail transactionnel.
+Les étiquettes Liquid `Connected Content` et `Promotion Code` ne sont pas disponibles dans les Campaigns d'e-mails transactionnels.
 
-L'utilisation de l'étiquette `Connected Content` nécessite que Braze effectue une requête API sortante pendant le processus d'envoi, ce qui peut ralentir l'envoi des messages si le service externe sollicité connaît de la latence. De même, l'étiquette `Promotion Code` nécessite que Braze effectue un traitement supplémentaire pour évaluer la disponibilité d'un code de promotion avant l'envoi, ce qui peut ralentir le processus si aucun code n'est disponible.
+L'utilisation de l'étiquette `Connected Content` nécessite que Braze effectue une requête API sortante pendant notre processus d'envoi, ce qui peut ralentir le processus d'envoi de messages si le service externe que nous interrogeons connaît une latence. De même, l'étiquette `Promotion Code` nécessite que Braze effectue un traitement supplémentaire pour évaluer la disponibilité d'un code de promotion avant l'envoi, ce qui peut ralentir le processus d'envoi si aucun n'est disponible.
 
-Par conséquent, l'inclusion des étiquettes `Connected Content` ou `Promotion Code` n'est pas prise en charge dans les champs de votre campagne d'e-mail transactionnel.
+Par conséquent, nous ne prenons pas en charge l'inclusion des étiquettes `Connected Content` ou `Promotion Code` dans les champs de votre campagne d'e-mail transactionnel.

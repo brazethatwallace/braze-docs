@@ -5,7 +5,7 @@ alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "Dieses Glossar listet die verschiedenen Nachrichten-Engagement-Ereignisse auf, die Braze verfolgen und mithilfe von Currents an ausgewählte Data Warehouses senden kann."
+description: "Dieses Glossar listet die verschiedenen Nachrichten-Engagement-Ereignisse auf, die Braze erfassen und mithilfe von Currents an ausgewählte Data Warehouses senden kann."
 tool: Currents
 search_rank: 6
 lazy_partner_tabs: true
@@ -15,25 +15,25 @@ lazy_partner_tabs: true
 
 {% details Schemabereich und verwandte Ressourcen %}
 
-Speicherschemata gelten für die Flat-File-Ereignisdaten, die wir an Data-Warehouse-Speicherpartner senden (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage). Informationen zu Schemata, die für andere Partner gelten, finden Sie in unserer Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) und auf den jeweiligen Seiten.
+Speicherschemata gelten für die Flat-File-Ereignisdaten, die wir an Data-Warehouse-Speicherpartner senden (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage). Für Schemata, die für andere Partner gelten, lesen Sie unsere Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) und prüfen Sie die jeweiligen Seiten.
 
 {% alert tip %}
-Diese Ereignisse sind auch als SQL-Tabellen im [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und im [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verfügbar. SQL-Tabellenschemata und Spaltendetails finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Diese Ereignisse sind auch als SQL-Tabellen im [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und im [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verfügbar. Für SQL-Tabellenschemata und Spaltendetails lesen Sie die [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugriff auf zusätzliche Ereignisberechtigungen benötigen. Falls Sie in diesem Artikel nicht finden, was Sie suchen, werfen Sie einen Blick auf unsere [Kundenverhalten-Ereignisbibliothek]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugriff auf zusätzliche Ereignisberechtigungen benötigen. Wenn Sie in diesem Artikel nicht finden, was Sie suchen, lesen Sie unsere [Kundenverhalten-Ereignisbibliothek]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
-{% details Erklärung der Struktur und Plattformwerte von Nachrichten-Engagement-Ereignissen %}
+{% details Erläuterung der Nachrichten-Engagement-Ereignisstruktur und Plattformwerte %}
 
 ## Ereignisstruktur {#event-structure}
 
-Diese Aufschlüsselung zeigt, welche Art von Informationen in der Regel in einem Nachrichten-Engagement-Ereignis enthalten sind. Mit einem soliden Verständnis der einzelnen Bestandteile können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategieteam die eingehenden Currents-Ereignisdaten nutzen, um datengestützte Berichte und Charts zu erstellen und von weiteren wertvollen Datenmetriken zu profitieren.
+Diese Ereignisaufschlüsselung zeigt, welche Art von Informationen in einem Nachrichten-Engagement-Ereignis in der Regel enthalten sind. Mit einem soliden Verständnis der Bestandteile können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategieteam die eingehenden Currents-Ereignisdaten nutzen, um datengestützte Berichte und Charts zu erstellen und andere wertvolle Datenmetriken zu verwenden.
 
-![Aufschlüsselung eines Nachrichten-Engagement-Ereignisses, das ein E-Mail-Abmeldeereignis zeigt, mit den aufgeführten Eigenschaften, gruppiert nach nutzerspezifischen Eigenschaften, Campaign-/Canvas-Tracking-Eigenschaften und ereignisspezifischen Eigenschaften]({% image_buster /assets/img/message_engagement_event.png %})
+![Aufschlüsselung eines Nachrichten-Engagement-Ereignisses, das ein E-Mail-Abmeldeereignis zeigt, mit den aufgeführten Eigenschaften, gruppiert nach nutzerspezifischen Eigenschaften, Campaign- oder Canvas-Tracking-Eigenschaften und ereignisspezifischen Eigenschaften]({% image_buster /assets/img/message_engagement_event.png %}){: width="2300" height="770" style="max-width:100%;height:auto;"}
 
-Nachrichten-Engagement-Ereignisse setzen sich aus **nutzerspezifischen** Eigenschaften, **Campaign-/Canvas-Tracking**-Eigenschaften und **ereignisspezifischen** Eigenschaften zusammen.
+Nachrichten-Engagement-Ereignisse bestehen aus **nutzerspezifischen** Eigenschaften, **Campaign-/Canvas-Tracking**-Eigenschaften und **ereignisspezifischen** Eigenschaften.
 
 ### Nutzer-ID-Schema {#user-id-schema}
 
@@ -41,16 +41,16 @@ Beachten Sie die Namenskonventionen für Nutzer-IDs.
 
 | Braze-Schema | Currents-Schema | Beschreibung |
 | ----------- | ----------- | ----------- |
-| `braze_id` | `"USER_ID"` | Der eindeutige Bezeichner, der automatisch von Braze zugewiesen wird. |
-| `external_id` | `"EXTERNAL_USER_ID"` | Der eindeutige Bezeichner eines Nutzerprofils, der vom Kunden festgelegt wird. |
+| `braze_id` | `"USER_ID"` | Die eindeutige Kennung, die automatisch von Braze vergeben wird. |
+| `external_id` | `"EXTERNAL_USER_ID"` | Die eindeutige Kennung eines Nutzerprofils, die vom Kunden festgelegt wird. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer-ID-Schema" }
 
 ### Plattformwerte {#platform-values}
 
 Bestimmte Ereignisse geben einen `platform`-Wert zurück, der die Plattform des Geräts der Nutzer:in angibt.
-<br>Die folgende Tabelle zeigt die möglichen Rückgabewerte:
+<br>Die folgende Tabelle zeigt die möglichen zurückgegebenen Werte:
 
-| Gerät der Nutzer:in | Plattformwert |
+| Nutzergerät | Plattformwert |
 | --- | --- |
 | iOS | `ios` |
 | Android | `android` |
@@ -65,9 +65,9 @@ Bestimmte Ereignisse geben einen `platform`-Wert zurück, der die Plattform des 
 
 {% details Hinweise zu Nachrichten-Engagement-Ereignissen %}
 
-- Currents verwirft Ereignisse mit Payloads von mehr als 900&nbsp;KB.
-- Objekte, die mit Canvas Flow zusammenhängen, besitzen IDs, die Sie zur Gruppierung verwenden und über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) in lesbare Namen übersetzen können.
-- Bestimmte Felder zeigen möglicherweise nicht sofort ihren aktuellsten Stand an, nachdem Sie eine Campaign oder ein Canvas aktualisiert haben:
+- Currents verwirft Ereignisse mit Payloads größer als 900&nbsp;KB.
+- Objekte in Bezug auf Canvas Flow verfügen über IDs, die Sie zur Gruppierung verwenden und über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) in lesbare Namen übersetzen können.
+- Bestimmte Felder zeigen möglicherweise nicht sofort ihren aktuellsten Status an, nachdem Sie eine Campaign oder einen Canvas aktualisiert haben:
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -75,7 +75,7 @@ Bestimmte Ereignisse geben einen `platform`-Wert zurück, der die Plattform des 
   - `canvas_variation_name`
   - `experiment_split_name`
   - `message_variation_name`
-- Wenn Sie vollständige Konsistenz für diese Felder benötigen, warten Sie eine Stunde nach der letzten Aktualisierung, bevor Sie Nachrichten an Ihre Nutzer:innen senden.
+- Wenn Sie vollständige Konsistenz für diese Felder benötigen, warten Sie nach der letzten Aktualisierung eine Stunde, bevor Sie Nachrichten an Ihre Nutzer:innen senden.
 
 {% enddetails %}
 
@@ -1023,7 +1023,7 @@ Abo-Gruppen sind derzeit nur für E-Mail-, SMS-, RCS- und WhatsApp-Kanäle verf�
 <tr><td>SDK</td><td>SDK-Endpunkte</td></tr>
 <tr><td>Dashboard</td><td>Wenn der Abo-Status einer Nutzer:in auf der Seite „Nutzerprofil“ im Dashboard aktualisiert wird</td></tr>
 <tr><td>Subscription Page</td><td>Wenn sich eine Nutzer:in über einen E-Mail-Link abmeldet, der nicht das Präferenzzentrum ist</td></tr>
-<tr><td>REST API</td><td>REST API-Endpunkte</td></tr>
+<tr><td>REST API</td><td>REST-API-Endpunkte</td></tr>
 <tr><td>CSV import</td><td>CSV-Nutzerimport</td></tr>
 <tr><td>Preference Center</td><td>Wenn eine Nutzer:in über das Präferenzzentrum aktualisiert wird</td></tr>
 <tr><td>Inbound Message</td><td>Wenn eine Nutzer:in durch eingehende Nachrichten von Endnutzer:innen über Kanäle wie z. B. SMS aktualisiert wird</td></tr>
@@ -1437,7 +1437,7 @@ Beachten Sie, dass das Konversions-Event im Feld `conversion_behavior` kodiert w
 {% endalert %}
 
 {% alert note %}
-Das Feld `message_extras` ist nur in Sendeereignissen verfügbar (z. B. E-Mail-Versand, Push-Versand). Es ist nicht in Konversions-Ereignissen enthalten. Um `message_extras`-Daten mit nachgelagertem Engagement zu verknüpfen, verwenden Sie `send_id`, um Sendeereignisse mit Konversions-Ereignissen in Ihrem Data Warehouse zu verknüpfen. Zur Bewertung der Wirksamkeit von Texten anhand der Konversionsrate sollten Sie stattdessen [Canvas-Varianten]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#creating-tests) verwenden.
+Das Feld `message_extras` ist nur in Sendeereignissen verfügbar (z. B. E-Mail-Versand, Push-Versand). Es ist nicht in Konversions-Ereignissen enthalten. Um `message_extras`-Daten mit nachgelagertem Engagement zu verknüpfen, verwenden Sie `send_id`, um Sendeereignisse mit Konversions-Ereignissen in Ihrem Data Warehouse zu verknüpfen. Zur Bewertung der Wirksamkeit von Texten anhand der Konversionsrate sollten Sie stattdessen [Canvas-Varianten]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) verwenden.
 {% endalert %}
 
 {% tabs %}
@@ -12859,7 +12859,7 @@ Dieses Ereignis tritt ein, wenn eine Nachricht herabgestuft oder durch Frequency
 Push, Sends
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn Braze eine Push-Nachricht für Nutzer:innen verarbeitet und diese an den Apple Push Notification Service oder Fire Cloud Messaging weiterleitet. Das bedeutet nicht, dass der Push an das Gerät zugestellt wurde, sondern nur, dass eine Nachricht gesendet wurde.
+Dieses Ereignis tritt ein, wenn Braze eine Push-Nachricht für Nutzer:innen verarbeitet und diese an den Apple Push Notification Service oder Fire Cloud Messaging weiterleitet. Das bedeutet nicht, dass die Push-Benachrichtigung an das Gerät zugestellt wurde, sondern nur, dass eine Nachricht gesendet wurde.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13850,7 +13850,7 @@ Dieses Ereignis wird ausgelöst, wenn eine RCS-Nachricht erfolgreich an das Mobi
 
 ### Eigenschaftsdetails
 
-- `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, beispielsweise den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zu demselben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
+- `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, beispielsweise den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
 {% endapi %}
 
@@ -16001,7 +16001,7 @@ Wenn Braze erkennt, dass diese eingehende Nachricht eine Antwort auf eine ausgeh
 SMS, Rejection
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn eine SMS-Sendung vom Netzbetreiber abgelehnt wird. Dies kann aus verschiedenen Gründen geschehen. Verwenden Sie dieses Ereignis und die bereitgestellten Fehlercodes, um Probleme mit der SMS-Zustellung zu beheben.
+Dieses Ereignis tritt ein, wenn ein SMS-Versand vom Netzbetreiber abgelehnt wird. Dies kann aus verschiedenen Gründen geschehen. Verwenden Sie dieses Ereignis und die bereitgestellten Fehlercodes, um Probleme mit der SMS-Zustellung zu beheben.
 
 {% alert note %}
 Braze gibt `users.messages.sms.Rejection` nur dann an Currents, Snowflake Data Sharing und zugehörige Exporte aus, wenn das Braze-Nutzerprofil zum Zeitpunkt der Verarbeitung des Ereignisses für die Protokollierung noch im Workspace vorhanden ist. Wurde dieses Profil zuvor gelöscht, wird dieses Ereignis nicht in Ihrem Data Warehouse oder Currents-Export angezeigt. Dieselbe Verarbeitungsregel gilt für andere ausgehende `users.messages.sms.*`-Ereignisse, die Braze über dieselbe Pipeline protokolliert (z. B. Zustellung, Zustellungsfehler und Gesendet-an-Netzbetreiber). SMS-Metriken auf Workspace-Ebene können weiterhin aggregierte Zählungen enthalten, die nicht eins zu eins den Zeilen in Snowflake entsprechen.

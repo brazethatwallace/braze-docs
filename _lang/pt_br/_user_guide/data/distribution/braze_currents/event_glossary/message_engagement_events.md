@@ -5,7 +5,7 @@ alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "Este glossário lista os vários eventos de engajamento com mensagem que a Braze pode rastrear e enviar para data warehouses escolhidos usando o Currents."
+description: "Este glossário lista os diversos eventos de engajamento com mensagem que a Braze pode rastrear e enviar para data warehouses escolhidos usando o Currents."
 tool: Currents
 search_rank: 6
 lazy_partner_tabs: true
@@ -15,39 +15,39 @@ lazy_partner_tabs: true
 
 {% details Escopo do esquema e recursos relacionados %}
 
-Os esquemas de armazenamento se aplicam aos dados de eventos em arquivo plano que enviamos para parceiros de armazenamento em data warehouse (Google Cloud Storage, Amazon S3 e Microsoft Azure Blob Storage). Para os esquemas que se aplicam a outros parceiros, consulte nossa lista de [parceiros disponíveis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) e verifique suas respectivas páginas.
+Os esquemas de armazenamento se aplicam aos dados de eventos em arquivo simples que enviamos para parceiros de armazenamento em data warehouse (Google Cloud Storage, Amazon S3 e Microsoft Azure Blob Storage). Para esquemas que se aplicam a outros parceiros, consulte nossa lista de [parceiros disponíveis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) e verifique suas respectivas páginas.
 
 {% alert tip %}
-Esses eventos também estão disponíveis como tabelas SQL no [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), nas [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e no [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para ver os esquemas das tabelas SQL e detalhes das colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Esses eventos também estão disponíveis como tabelas SQL no [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), nas [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e no [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para esquemas de tabelas SQL e detalhes das colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Entre em contato com seu gerente de conta ou abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) se precisar de acesso a direitos de eventos adicionais. Se não encontrar o que precisa neste artigo, confira nossa [Biblioteca de eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) ou nossos [exemplos de dados de amostra do Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Entre em contato com seu gerente de conta ou abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) se precisar de acesso a direitos de eventos adicionais. Se você não encontrar o que precisa neste artigo, confira nossa [Biblioteca de eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) ou nossos [exemplos de dados de amostra do Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
-{% details Explicação da estrutura de eventos de engajamento com mensagem e valores de plataforma %}
+{% details Explicação da estrutura e valores de plataforma dos eventos de engajamento com mensagem %}
 
 ## Estrutura do evento {#event-structure}
 
-Este detalhamento de eventos mostra que tipo de informação geralmente está incluída em um evento de engajamento com mensagem. Com uma compreensão sólida de seus componentes, seus desenvolvedores e sua equipe de estratégia de business intelligence podem usar os dados de eventos recebidos do Currents para criar relatórios e gráficos orientados por dados, além de aproveitar outras métricas de dados valiosas.
+Esta análise de evento mostra que tipo de informação geralmente é incluída em um evento de engajamento com mensagem. Com uma compreensão sólida de seus componentes, seus desenvolvedores e a equipe de estratégia de business intelligence podem usar os dados de eventos do Currents para criar relatórios e gráficos orientados por dados e aproveitar outras métricas de dados valiosas.
 
-![Detalhamento de um evento de engajamento com mensagem mostrando um evento de cancelamento de inscrição de e-mail com as propriedades listadas agrupadas por propriedades específicas do usuário, propriedades de rastreamento de Campaign ou Canvas e propriedades específicas do evento]({% image_buster /assets/img/message_engagement_event.png %})
+![Análise de um evento de engajamento com mensagem mostrando um evento de cancelamento de inscrição de e-mail com as propriedades listadas agrupadas por propriedades específicas do usuário, propriedades de rastreamento de campanha ou Canvas e propriedades específicas do evento]({% image_buster /assets/img/message_engagement_event.png %}){: width="2300" height="770" style="max-width:100%;height:auto;"}
 
-Os eventos de engajamento com mensagem são compostos por propriedades **específicas do usuário**, propriedades de **rastreamento de Campaign/Canvas** e propriedades **específicas do evento**.
+Os eventos de engajamento com mensagem são compostos por propriedades **específicas do usuário**, propriedades de **rastreamento de campanha/Canvas** e propriedades **específicas do evento**.
 
-### Esquema de ID de usuário {#user-id-schema}
+### Esquema de ID do usuário {#user-id-schema}
 
 Observe as convenções de nomenclatura para IDs de usuário.
 
-| Esquema Braze | Esquema Currents | Descrição |
+| Esquema da Braze | Esquema do Currents | Descrição |
 | ----------- | ----------- | ----------- |
-| `braze_id` | `"USER_ID"` | O identificador exclusivo que é atribuído automaticamente pela Braze. |
-| `external_id` | `"EXTERNAL_USER_ID"` | O identificador exclusivo do perfil de um usuário que é definido pelo cliente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de ID de usuário" }
+| `braze_id` | `"USER_ID"` | O identificador exclusivo atribuído automaticamente pela Braze. |
+| `external_id` | `"EXTERNAL_USER_ID"` | O identificador exclusivo do perfil de um usuário definido pelo cliente. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de ID do usuário" }
 
 ### Valores de plataforma {#platform-values}
 
-Determinados eventos retornam um valor `platform` que especifica a plataforma do dispositivo do usuário.
+Determinados eventos retornam um valor de `platform` que especifica a plataforma do dispositivo do usuário.
 <br>A tabela a seguir detalha os possíveis valores retornados:
 
 | Dispositivo do usuário | Valor da plataforma |
@@ -66,8 +66,8 @@ Determinados eventos retornam um valor `platform` que especifica a plataforma do
 {% details Considerações sobre eventos de engajamento com mensagem %}
 
 - O Currents descarta eventos com cargas úteis maiores que 900&nbsp;KB.
-- Objetos relacionados ao Canvas Flow possuem IDs que você pode usar para agrupamento e traduzir para nomes legíveis por meio do [endpoint Exportar detalhes do Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
-- Determinados campos podem não exibir seu estado mais recente imediatamente após a atualização de uma campanha ou Canvas:
+- Os objetos relacionados ao Canvas Flow possuem IDs que você pode usar para agrupamento e traduzir para nomes legíveis por meio do [endpoint Exportar detalhes do Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
+- Determinados campos podem não mostrar seu estado mais recente imediatamente após você atualizar uma campanha ou Canvas:
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -75,7 +75,7 @@ Determinados eventos retornam um valor `platform` que especifica a plataforma do
   - `canvas_variation_name`
   - `experiment_split_name`
   - `message_variation_name`
-- Se você precisar de consistência total para esses campos, aguarde uma hora após a última atualização antes de enviar mensagens aos seus usuários.
+- Se você precisar de consistência completa para esses campos, aguarde uma hora após a última atualização antes de enviar mensagens aos seus usuários.
 
 {% enddetails %}
 
@@ -1437,7 +1437,7 @@ Note que o evento de conversão é codificado no campo `conversion_behavior`, qu
 {% endalert %}
 
 {% alert note %}
-O campo `message_extras` está disponível apenas em eventos de envio (por exemplo, envio de e-mail, envio de push). Ele não é incluído em eventos de conversão. Para associar dados de `message_extras` a engajamento posterior, use `send_id` para unir eventos de envio com eventos de conversão no seu data warehouse. Para avaliar a eficácia do texto pela taxa de conversão, considere usar [variantes de Canvas]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#creating-tests).
+O campo `message_extras` está disponível apenas em eventos de envio (por exemplo, envio de e-mail, envio de push). Ele não é incluído em eventos de conversão. Para associar dados de `message_extras` a engajamento posterior, use `send_id` para unir eventos de envio com eventos de conversão no seu data warehouse. Para avaliar a eficácia do texto pela taxa de conversão, considere usar [variantes de Canvas]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests).
 {% endalert %}
 
 {% tabs %}
@@ -7987,7 +7987,7 @@ Esse evento ocorre quando uma solicitação de envio de e-mail foi comunicada co
 ### Detalhes da propriedade
 
 - `dispatch_id` é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push que se originam do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo que você agrupe e correlacione o ciclo de vida da mensagem push para esse envio (como Envio, Bounce e Abertura).
-  - O comportamento do `dispatch_id` difere entre Canvas e Campaigns porque a Braze trata as etapas do Canvas (exceto as etapas de entrada, que podem ser programadas) como eventos disparados, mesmo quando estão programadas. Para saber mais, consulte [Comportamento do dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
+  - O comportamento do `dispatch_id` difere entre Canvas e Campaigns porque a Braze trata as etapas do Canvas (exceto as etapas de entrada, que podem ser agendadas) como eventos disparados, mesmo quando estão agendadas. Para saber mais, consulte [Comportamento do dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 - `message_extras` permite que você anote seus eventos de envio com dados dinâmicos do Conteúdo Conectado, atributos personalizados (como idioma, país) e propriedades de entrada do Canvas. Consulte [Extras de mensagem]({{site.baseurl}}/message_extras_tag) para saber mais.
 
 {% endapi %}
@@ -8241,7 +8241,7 @@ Esse evento ocorre quando um provedor de serviços de internet retorna um soft b
 ### Detalhes da propriedade
 
 - `dispatch_id` é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push que se originam do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo que você agrupe e correlacione o ciclo de vida da mensagem push para esse envio (como Envio, Bounce e Abertura).
-  - O comportamento do `dispatch_id` difere entre Canvas e Campaigns porque a Braze trata as etapas do Canvas (exceto as etapas de entrada, que podem ser programadas) como eventos disparados, mesmo quando estão programadas. Para saber mais, consulte [Comportamento do dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
+  - O comportamento do `dispatch_id` difere entre Canvas e Campaigns porque a Braze trata as etapas do Canvas (exceto as etapas de entrada, que podem ser agendadas) como eventos disparados, mesmo quando estão agendadas. Para saber mais, consulte [Comportamento do dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 {% endapi %}
 
@@ -15503,7 +15503,7 @@ Esse evento ocorre quando um SMS é entregue com sucesso ao celular do usuário.
 
 ### Detalhes da propriedade
 
-- `dispatch_id` é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push que se originam do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo que você agrupe e correlacione o ciclo de vida da mensagem push para esse envio (como Enviar, Bounce e Abrir).
+- `dispatch_id` é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push que se originam do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, o que permite agrupar e correlacionar o ciclo de vida da mensagem push para esse envio (como Enviar, Bounce e Abrir).
 
 {% endapi %}
 
@@ -15754,7 +15754,7 @@ Esse evento ocorre quando um SMS apresenta falha na entrega. Use esse evento e o
 
 ### Detalhes da propriedade
 
-- `dispatch_id` é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push que se originam do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo que você agrupe e correlacione o ciclo de vida da mensagem push para esse envio (como Enviar, Bounce e Abrir).
+- `dispatch_id` é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push que se originam do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, o que permite agrupar e correlacionar o ciclo de vida da mensagem push para esse envio (como Enviar, Bounce e Abrir).
 
 {% endapi %}
 

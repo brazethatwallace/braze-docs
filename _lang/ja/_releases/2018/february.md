@@ -7,22 +7,20 @@ description: "この記事には2018年2月のリリースノートが含まれ�
 ---
 # 2018年2月 {#february-2018}
 
-## iOSプッシュバッジカウント {#ios-push-badge-count}
+## iOSプッシュバッジカウント
 
 Brazeのプッシュコンポーザーから[バッジカウントを更新]({{site.baseurl}}/help/best_practices/utilizing_badge_count#utilizing-badge-count)できるようになりました。
-プッシュメッセージごとに、その通知がトリガーするバッジカウントを指定できます。
+各プッシュメッセージについて、その通知がトリガーするバッジカウントを指定できます。
 
-## メールアドレスを使用してAPI経由でユーザーをエクスポートする {#exporting-users-via-api-using-email-addresses}
+## メールアドレスを使用したAPI経由でのユーザーエクスポート
 
-メールアドレスを指定して、[API経由でユーザープロファイルデータをエクスポート]({{site.baseurl}}/developer_guide/rest_api/export#user-export)できるようになりました。
+メールアドレスを指定することで、[API経由でユーザープロファイルデータをエクスポート]({{site.baseurl}}/developer_guide/rest_api/export#user-export)できるようになりました。
 このエクスポートには、そのメールアドレスに関連するすべてのプロファイルが含まれます。
 
-## メールテンプレートAPI {#email-template-apis}
+## メールテンプレートAPI
 
-[メールテンプレートをAPI経由で]({{site.baseurl}}/developer_guide/rest_api/email_templates#email-templates)作成および更新できるようになりました。各テンプレートには、他のAPIコールで参照できる**email_template_id**が付与されます。
+APIを使用して[メールテンプレートの作成と更新]({{site.baseurl}}/developer_guide/rest_api/email_templates#email-templates)ができるようになりました。各テンプレートには**email_template_id**が付与され、他のAPI呼び出しで参照できます。
 
-## REST APIキーの権限 {#rest-api-keys-permissions}
-
-[複数のREST APIキーを作成]({{site.baseurl}}/developer_guide/rest_api/basics#creating-rest-api-keys)し、それぞれにアクセス権限を設定できるようになりました。各キーは、特定のエンドポイントへのアクセスを許可するように設定できます。
+REST APIキーの権限を設定できるようになりました。[複数のREST APIキーを作成]({{site.baseurl}}/api/basics#creating-rest-api-keys)し、それぞれにアクセス権限を構成できます。各キーは、特定のエンドポイントへのアクセスを許可するように設定できます。
 
 また、特定のREST APIキーに対してREST APIリクエストを許可する[IPアドレスとサブネットのホワイトリスト]({{site.baseurl}}/developer_guide/rest_api/basics#api-ip-whitelisting)を指定することもできます。

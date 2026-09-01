@@ -37,41 +37,41 @@ Los correos electrónicos transaccionales difieren de las campañas transacciona
 Los envíos de la API de correo electrónico transaccional son compatibles con el archivado de mensajes. Si el archivado de mensajes está habilitado para correo electrónico en tu espacio de trabajo, Braze guarda una copia renderizada de cada envío de correo electrónico transaccional. Para más información, consulta [Archivado de mensajes]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving).
 {% endalert %}
 
-## Paso 1: Crear una nueva campaña {#step-1-create-a-new-campaign}
+## Paso 1: Crea una nueva Campaign {#step-1-create-a-new-campaign}
 
-Para crear una nueva campaña de correo electrónico transaccional, crea una campaña y selecciona **Transactional Email** como tu canal de mensajería.
+Para crear una nueva Campaign de correo transaccional, crea una Campaign y selecciona **Correo transaccional** como tu canal de mensajería.
 
-![Desplegable Crear campaña con la opción resaltada para correo electrónico transaccional.]({% image_buster /assets/img/transactional_email_campaign.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![Desplegable Crear Campaign con la opción de correo transaccional resaltada.]({% image_buster /assets/img/transactional_email_campaign.png %}){: width="534" height="800" style="float:right;max-width:35%;margin-left:15px;height:auto;"}
 
-Ahora puedes pasar a configurar tu campaña de correo electrónico transaccional.
+Ahora puedes continuar con la configuración de tu Campaign de correo transaccional.
 
-## Paso 2: Configurar tu campaña {#step-2-configure-your-campaign}
+## Paso 2: Configura tu campaña {#step-2-configure-your-campaign}
 
-El flujo de creación de campañas de correo electrónico transaccional está simplificado en comparación con el de una [campaña de correo electrónico estándar]({{site.baseurl}}/user_guide/channels/email/html_editor) para garantizar que tu correo electrónico transaccional crítico para el negocio pueda llegar a todos los usuarios.
+El flujo de creación de campañas de correo transaccional se ha simplificado en comparación con el de una [campaña de correo electrónico estándar]({{site.baseurl}}/user_guide/channels/email/html_editor) para garantizar que tu correo transaccional de importancia crítica para el negocio pueda llegar a todos los usuarios.
 
-Como resultado, notarás que varias configuraciones con las que puedes estar familiarizado de otros tipos de Campaign de Braze no son necesarias al configurar este tipo de campaña:
+Como resultado, notarás que varios ajustes con los que puedes estar familiarizado de otros tipos de Campaign de Braze no son necesarios al configurar este tipo de campaña:
 
-- El paso **Delivery** se ha simplificado para eliminar las opciones de programación. Los correos electrónicos transaccionales siempre se desencadenarán a través de la REST API de Braze usando el ID de campaña que se muestra en la página **Delivery**. También se han eliminado configuraciones adicionales, como los controles de reelegibilidad y la configuración de limitación de frecuencia, para confirmar que todos los usuarios son alcanzables para estas alertas transaccionales críticas cuando tu servicio desencadena una solicitud de envío.
-- El paso **Target Audiences** se ha eliminado. Dado que los correos electrónicos transaccionales inscriben a toda tu base de usuarios como elegible (incluidos los usuarios que cancelaron su suscripción), no es necesario especificar filtros ni segmentos. Como resultado, si tienes alguna lógica que aplicar sobre quién debe recibir este mensaje, te recomendamos aplicar esa lógica antes de determinar si hacer la solicitud a la API de Braze para desencadenar el mensaje a un usuario específico.
-- El paso **Conversions** se ha eliminado. Los correos electrónicos transaccionales no son compatibles con el seguimiento de eventos de conversión en este momento.
+- El paso **Entrega** se ha simplificado para eliminar las opciones de programación. Los correos transaccionales siempre se desencadenarán a través de la REST API de Braze utilizando el ID de campaña que se muestra en la página **Entrega**. También se han eliminado configuraciones adicionales, como los controles de reelegibilidad y la configuración de limitación de frecuencia, para confirmar que todos los usuarios son accesibles para estas alertas transaccionales críticas cuando tu servicio desencadena una solicitud de envío.
+- El paso **Target Audiences** se ha eliminado. Dado que los correos transaccionales inscriben a toda tu base de usuarios como elegible (incluidos los usuarios que cancelaron su suscripción), no es necesario especificar filtros o Segments. Como resultado, si tienes alguna lógica que aplicar a quién debe recibir este mensaje, te recomendamos aplicar esa lógica antes de determinar si hacer la solicitud a la API de Braze para desencadenar el mensaje a un usuario específico.
+- El paso **Conversiones** se ha eliminado. Los correos transaccionales no admiten seguimiento de eventos de conversión en este momento.
 
-![Flujo de trabajo de Redactar, Entrega y Confirmar para crear una campaña de correo electrónico transaccional.]({% image_buster /assets/img/transactional_campaign_compose.png %}){: style="max-width:80%;"}
+![Flujo de trabajo Redactar, Entrega y Confirmar para crear una campaña de correo transaccional.]({% image_buster /assets/img/transactional_campaign_compose.png %}){: width="1586" height="1112" style="max-width:80%;height:auto;"}
 
-Para configurar tu campaña de correo electrónico transaccional, sigue estos pasos:
+Para configurar tu campaña de correo transaccional, sigue estos pasos:
 
-1. Añade un nombre descriptivo para que puedas encontrar los resultados en tu página de **Campaigns** después de haber enviado tus mensajes.
+1. Añade un nombre descriptivo para poder encontrar los resultados en tu página de **Campaigns** después de haber enviado tus mensajes.
 2. Redacta tu correo electrónico o selecciona una plantilla.
-3. Toma nota de tu `campaign_id`. Después de guardar tu campaña de API, debes incluir los campos `campaign_id` generados con tu solicitud de API donde se indica en el artículo del [punto de conexión de correo electrónico transaccional]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message).
+3. Toma nota de tu `campaign_id`. Después de guardar tu campaña de API, debes incluir los campos `campaign_id` generados con tu solicitud de API donde se indica en el artículo del [endpoint de correo transaccional]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_transactional_message).
 4. Haz clic en **Save Campaign**, ¡y estarás listo para comenzar tu campaña de API!
 
 {% alert note %}
-La configuración de cancelación de suscripción con un clic para campañas de correo electrónico transaccional tiene como valor predeterminado **Use workspace default**, similar a otras campañas de correo electrónico. Dado que esto está destinado a mensajería transaccional, Braze no añade la cancelación de suscripción con un clic. Para añadir una cancelación de suscripción con un clic a este tipo de campaña, [edita esta configuración]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#message-level-one-click-list-unsubscribe) en **Sending Info**.
+La configuración de cancelación de suscripción con un clic en la lista para campañas de correo transaccional tiene como valor predeterminado **Usar valor predeterminado del espacio de trabajo**, similar a otras campañas de correo electrónico. Dado que esto está destinado a la mensajería transaccional, Braze no añade la cancelación de suscripción con un clic. Para añadir una cancelación de suscripción con un clic a este tipo de campaña, [edita esta configuración]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#message-level-one-click-list-unsubscribe) en **Sending Info**.
 {% endalert %}
 
-### Etiquetas no permitidas en correos electrónicos transaccionales {#disallowed-tags-in-transactional-emails}
+### Etiquetas no permitidas en correos transaccionales {#disallowed-tags-in-transactional-emails}
 
-Las etiquetas de Liquid `Connected Content` y `Promotion Code` no están disponibles dentro de las campañas de correo electrónico transaccional.
+Las etiquetas de Liquid `Connected Content` y `Promotion Code` no están disponibles dentro de las campañas de correo transaccional.
 
-Usar la etiqueta `Connected Content` requiere que Braze realice una solicitud de API saliente durante nuestro proceso de envío, lo que puede ralentizar el proceso de envío de mensajes si el servicio externo al que solicitamos experimenta latencia. De manera similar, la etiqueta `Promotion Code` requiere que Braze realice un procesamiento adicional para evaluar la disponibilidad de una promoción antes de enviar, lo que puede ralentizar el proceso de envío en caso de que no haya una disponible.
+Usar la etiqueta `Connected Content` requiere que Braze realice una solicitud de API saliente durante nuestro proceso de envío, lo que puede ralentizar el proceso de envío de mensajes si el servicio externo al que solicitamos experimenta latencia. Del mismo modo, la etiqueta `Promotion Code` requiere que Braze realice un procesamiento adicional para evaluar la disponibilidad de una promoción antes del envío, lo que puede ralentizar el proceso de envío en caso de que no haya una disponible.
 
-Como resultado, no admitimos la inclusión de etiquetas `Connected Content` o `Promotion Code` en ningún campo de tu campaña de correo electrónico transaccional.
+Como resultado, no admitimos incluir etiquetas `Connected Content` o `Promotion Code` dentro de ningún campo de tu campaña de correo transaccional.

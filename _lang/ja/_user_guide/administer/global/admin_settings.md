@@ -4,10 +4,10 @@ article_title: 管理者設定
 page_order: 3
 layout: dev_guide
 guide_top_header: "管理者設定"
-guide_top_text: "管理者設定は会社全体に適用され、すべてのワークスペースとユーザーに影響します。これらの設定を使用して、会社の連絡先情報の管理、通知設定の構成、認証ルールや IP 許可リストなどのセキュリティポリシーの適用を行います。<br><br>これらの設定を管理するには、<b>設定</b> > <b>管理者設定</b>に移動します。ほとんどの機能は Braze アカウント管理者のみが利用できます。ワークスペース固有の設定については、<a href='/docs/user_guide/administer/global/workspace_settings'>ワークスペース設定</a>を参照してください。"
+guide_top_text: "管理者設定は会社全体に適用され、すべてのワークスペースとユーザーに影響します。これらの設定を使用して、会社の連絡先情報の管理、通知設定の構成、認証ルールやIP許可リストなどのセキュリティポリシーの適用、およびBraze MCPサーバーのOAuthアクセスの制御を行います。<br><br>これらの設定を管理するには、<b>設定</b> > <b>管理者設定</b>に移動します。ほとんどの機能はBrazeアカウント管理者のみが利用できます。ワークスペース固有の設定については、<a href='/docs/user_guide/administer/global/workspace_settings'>ワークスペース設定</a> を参照してください。"
 
 page_type: landing
-description: "連絡先情報、通知設定、セキュリティポリシーなど、すべてのワークスペースに適用される会社全体の管理者設定を管理します。"
+description: "連絡先情報、通知設定、セキュリティポリシー、OAuthアクセスなど、すべてのワークスペースに適用される会社全体の管理者設定を管理します。"
 
 guide_featured_title: "トピック"
 guide_featured_list:
@@ -23,13 +23,16 @@ guide_featured_list:
 - name: ワークスペースのタイムゾーン
   link: /docs/user_guide/administer/global/admin_settings/workspace_time_zone
   image: /assets/img/braze_icons/user-circle.svg
-- name: SCIM プロビジョニング
+- name: OAuth設定
+  link: /docs/user_guide/administer/global/admin_settings/oauth_admin
+  image: /assets/img/braze_icons/lock-04.svg
+- name: SCIMプロビジョニング
   link: /docs/user_guide/administer/global/user_management/automated_user_provisioning
   image: /assets/img/braze_icons/users-01.svg
 ---
 
 {% alert warning %}
-**管理者設定**セクション内で行った変更は、会社に紐づくすべての Braze ユーザーアカウントに適用されます。
+**管理者設定**セクション内で行った変更は、会社に紐づくすべてのBrazeユーザーアカウントに適用されます。
 {% endalert %}
 
 <br>

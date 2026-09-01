@@ -16,15 +16,15 @@ Beachten Sie, dass das auf dieser Seite referenzierte „Credit-Verhältnis“ a
 
 ## Inhaltsverzeichnis {#table-of-contents}
 
-- [Details zum E-Mail-Kanal](#email-channel-details)
-- [Details zu SMS-, MMS- und RCS-Kanälen](#sms-mms-and-rcs-channel-details)
+- [E-Mail-Kanal – Details](#email-channel-details)
+- [SMS-, MMS- und RCS-Kanal – Details](#sms-mms-and-rcs-channel-details)
   - [SMS-Nachrichtensegmente](#sms-segments)
   - [MMS-Nachrichten](#mms-messages)
   - [RCS-Typen](#rcs-types)
-- [Details zum WhatsApp-Kanal](#whatsapp-channel-details)
+- [WhatsApp-Kanal – Details](#whatsapp-channel-details)
   - [Aufschlüsselung nach Abrechnungsregion](#billing-region-breakdown)
-- [Details zur Agent Console](#agent-console-details)
-- [Weitere Kanaldetails](#additional-channel-details)
+- [Agent Console – Details](#agent-console-details)
+- [Weitere Kanal-Details](#additional-channel-details)
   - [LINE](#line)
   - [KakaoTalk](#kakaotalk)
   - [Content Cards](#content-cards)
@@ -35,7 +35,7 @@ Beachten Sie, dass das auf dieser Seite referenzierte „Credit-Verhältnis“ a
 
 ## Details zum E-Mail-Kanal {#email-channel-details}
 
-E-Mail-Guthabenverhältnisse werden in Schritten von tausend gesendeten E-Mails (CPM) von der Braze-Plattform berechnet.
+Die Abrechnungsverhältnisse für E-Mail-Credits werden in Schritten von eintausend versendeten E-Mails (CPM) über die Braze-Plattform berechnet.
 
 {% alert note %}
 Weitere Informationen zu unserem E-Mail-Kanal finden Sie in unserer [E-Mail-Dokumentation]({{site.baseurl}}/user_guide/channels/email).
@@ -43,23 +43,23 @@ Weitere Informationen zu unserem E-Mail-Kanal finden Sie in unserer [E-Mail-Doku
 
 ## Details zu den Kanälen SMS, MMS und RCS {#sms-mms-and-rcs-channel-details}
 
-Die Anrechnungsverhältnisse für SMS- und MMS-Credits werden in Schritten von Nachrichtensegmenten berechnet, die über die Braze-Plattform gesendet werden. Die Anrechnungsverhältnisse für RCS-Credits werden in Schritten von Basic- und Rich-Media-Typen oder Single- und Rich-Media-Typen berechnet, die über die Braze-Plattform zugestellt werden. Sowohl eingehende als auch ausgehende Typen werden abgerechnet.
+Die SMS- und MMS-Credit-Verhältnisse werden in Inkrementen der von der Braze-Plattform gesendeten Nachrichtensegmente berechnet. Die RCS-Credit-Verhältnisse werden in Inkrementen der Typen „Basic“ und „Rich Media“ oder der Typen „Single“ und „Rich Media“ berechnet, die von der Braze-Plattform zugestellt werden. Sowohl eingehende als auch ausgehende Typen werden abgerechnet.
 
 {% alert note %}
-Sofern für diese Kanäle zutreffend, werden Carrier-Gebühren separat (nachträglich) in Rechnung gestellt und nicht als Teil der Action Credits betrachtet.
+Sofern für diese Kanäle zutreffend, werden Carrier-Gebühren separat (nachträglich) in Rechnung gestellt und nicht als Teil der Action Credits berücksichtigt.
 {% endalert %}
 
 ### SMS-Nachrichtensegmente {#sms-segments}
 
-In der SMS-Branche werden Nachrichten in SMS-Nachrichtensegmenten gezählt. Ein Nachrichtensegment ist eine Gruppierung von bis zu einer festgelegten Anzahl von Zeichen (160 bei GSM-7-Kodierung; 67 bei UCS-2-Kodierung), die in einem einzelnen SMS-Versand gesendet wird. Wenn Sie eine SMS mit 161 Zeichen in GSM-7-Kodierung versenden, werden zwei (2) Nachrichtensegmente gesendet. Das Senden mehrerer Nachrichtensegmente führt zu zusätzlichen Kosten.
+In der SMS-Branche werden Nachrichten in SMS-Nachrichtensegmenten gezählt. Ein Nachrichtensegment ist eine Gruppierung von bis zu einer definierten Anzahl von Zeichen (160 für GSM-7-Kodierung; 67 für UCS-2-Kodierung), die in einem einzelnen SMS-Versand gesendet werden. Wenn Sie eine SMS mit 161 Zeichen im GSM-7-Encoding versenden, werden zwei (2) Nachrichtensegmente gesendet. Das Senden mehrerer Nachrichtensegmente führt zu zusätzlichen Kosten.
 
 ### MMS-Nachrichten {#mms-messages}
 
-Für MMS liegt die Nachrichtenbegrenzung bei 5 MB (dies umfasst das Multimedia-Asset und die Größe des Nachrichtentexts). Um auf der sicheren Seite zu sein, empfiehlt Braze, 600 KB für Ihr Multimedia-Asset nicht zu überschreiten und gleichzeitig einen Nachrichtentext einzubeziehen.
+Für MMS liegt das Nachrichtenlimit bei 5 MB (dies umfasst das Multimedia-Asset und die Größe des Nachrichtentexts). Um auf der sicheren Seite zu sein, empfiehlt Braze, 600 KB für Ihr Multimedia-Asset nicht zu überschreiten und gleichzeitig einen Nachrichtentext einzuschließen.
 
 ### RCS-Typen {#rcs-types}
 
-RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines direkten, engagementstarken Kanals wie SMS – mit umfangreicheren Funktionen, die moderne Verbraucher:innen mittlerweile erwarten, wie Rich Content (Bilder, Videos, Dokumente), verifizierter und gebrandeter Versand, interaktive Features wie vorgeschlagene Antworten und Aktionen und mehr.
+RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines direkten Kanals mit hohem Engagement wie SMS – mit umfangreicheren Funktionen, die moderne Verbraucher:innen erwarten, wie etwa Rich Content (Bilder, Videos, Dokumente), verifiziertes und gebrandetes Senden, interaktive Features wie vorgeschlagene Antworten und Aktionen und mehr.
 
 {% multi_lang_include pricing/rcs_billing_message_types.md %}
 
@@ -67,7 +67,7 @@ RCS ist die nächste Generation von SMS und MMS. Es bietet die Vorteile eines di
 Weitere Informationen zu unseren SMS-Angeboten finden Sie in unserer [SMS- und MMS-Dokumentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs).
 {% endalert %}
 
-## WhatsApp-Kanaldetails {#whatsapp-channel-details}
+## Details zum WhatsApp-Kanal {#whatsapp-channel-details}
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
@@ -102,12 +102,12 @@ Bahrain, Irak, Jordanien, Kuwait, Libanon, Oman, Jemen
 Österreich, Belgien, Dänemark, Finnland, Irland, Norwegen, Portugal, Schweden, Schweiz
 
 {% alert note %}
-Weitere Informationen zu unseren WhatsApp-Angeboten finden Sie in unserer [WhatsApp-Dokumentation]({{site.baseurl}}/user_guide/channels/whatsapp).
+In unserer [WhatsApp-Dokumentation]({{site.baseurl}}/user_guide/channels/whatsapp) erfahren Sie mehr über unsere WhatsApp-Angebote.
 {% endalert %}
 
 ## Details zur Agent Console {#agent-console-details}
 
-Die Kreditverhältnisse der Agent Console werden in Schritten von eintausend (1.000) über die Braze-Plattform durchgeführten Invocations angegeben. Eine Invocation wird protokolliert, wenn ein Agent einen Aufruf an ein LLM initiiert. Standardmäßig enthält Ihr Vertrag ein Kontingent an Invocations, wie es Ihre Platform Edition für jeden Zeitraum Ihrer Abonnementlaufzeit vorsieht. Zusätzliche Invocations werden gemäß Ihrem Bestellformular berechnet.
+Die Credit-Verhältnisse der Agent Console werden in Schritten von eintausend (1.000) über die Braze-Plattform durchgeführten Invocations angegeben. Eine Invocation wird protokolliert, wenn ein Agent einen Aufruf an ein LLM initiiert. Standardmäßig umfasst Ihr Vertrag ein Kontingent an Invocations, wie in Ihrer Platform Edition für jeden Zeitraum Ihrer Abonnementlaufzeit festgelegt. Zusätzliche Invocations werden gemäß Ihrem Bestellformular berechnet.
 
 {% alert note %}
 Weitere Informationen zur Agent Console finden Sie in unserer [Braze Agents-Dokumentation]({{site.baseurl}}/user_guide/brazeai/agents).
@@ -117,7 +117,7 @@ Weitere Informationen zur Agent Console finden Sie in unserer [Braze Agents-Doku
 
 ### LINE {#line}
 
-Die Kreditverhältnisse für LINE werden in Schritten von LINE-Nachrichten berechnet, die über die Braze-Plattform gesendet werden.
+LINE-Credit-Verhältnisse werden in Inkrementen von LINE-Nachrichten berechnet, die von der Braze-Plattform gesendet werden.
 
 {% alert note %}
 Weitere Informationen zur Verwendung von LINE mit Braze finden Sie in unserer [LINE-Dokumentation]({{site.baseurl}}/user_guide/channels/line).
@@ -125,7 +125,7 @@ Weitere Informationen zur Verwendung von LINE mit Braze finden Sie in unserer [L
 
 ### KakaoTalk {#kakaotalk}
 
-Die Kreditverhältnisse für KakaoTalk werden in Schritten von KakaoTalk-Nachrichten berechnet, die über die Braze-Plattform gesendet werden.
+KakaoTalk-Credit-Verhältnisse werden in Inkrementen von KakaoTalk-Nachrichten berechnet, die von der Braze-Plattform gesendet werden.
 
 {% alert note %}
 Weitere Informationen zur Verwendung von KakaoTalk mit Braze finden Sie in unserer [KakaoTalk-Dokumentation]({{site.baseurl}}/kakaotalk).
@@ -133,11 +133,11 @@ Weitere Informationen zur Verwendung von KakaoTalk mit Braze finden Sie in unser
 
 ### Content Cards {#content-cards}
 
-Die Kreditverhältnisse für Content Cards werden in Schritten von eintausend täglichen eindeutigen Impressionen berechnet.
+Content-Cards-Credit-Verhältnisse werden in Inkrementen von eintausend täglichen eindeutigen Impressionen berechnet.
 
-Braze behält sich das Recht vor, Credits für Content Cards auf der Grundlage der Anzahl gesendeter Content Cards zu berechnen, wenn der Kunde Content Cards nicht so einrichtet, dass eindeutige Impressionen gemäß den Vorgaben von Braze protokolliert werden. Dies gilt als zutreffend, wenn der Kunde innerhalb von sechs (6) Monaten nach dem ersten Versand von Content Cards:
+Braze behält sich das Recht vor, Credits für Content Cards basierend auf der Anzahl der gesendeten Content Cards zu berechnen, wenn die Kundin bzw. der Kunde Content Cards nicht so einrichtet, dass eindeutige Impressionen gemäß den Braze-Richtlinien protokolliert werden. Dies gilt als zutreffend, wenn die Kundin bzw. der Kunde innerhalb von sechs (6) Monaten nach dem ersten Versand von Content Cards:
 - Mehr als fünf Millionen (5.000.000) Content Cards gesendet hat, UND ENTWEDER
-    - Null (0) Impressionen erfasst wurden
+    - Null (0) Impressionen verzeichnet wurden
     - Das Verhältnis von Sends zu täglichen eindeutigen Impressionen größer als einhundert (100) ist
 
 {% alert note %}
@@ -146,7 +146,7 @@ Weitere Informationen zu Braze Content Cards finden Sie in unserer [Content-Card
 
 ### Banner {#banners}
 
-Die Kreditverhältnisse für Banner werden in Schritten von eintausend täglichen eindeutigen Impressionen berechnet.
+Banner-Credit-Verhältnisse werden in Inkrementen von eintausend täglichen eindeutigen Impressionen berechnet.
 
 {% alert note %}
 Weitere Informationen zu Braze-Bannern finden Sie in unserer [Banner-Dokumentation]({{site.baseurl}}/developer_guide/banners).
@@ -154,7 +154,7 @@ Weitere Informationen zu Braze-Bannern finden Sie in unserer [Banner-Dokumentati
 
 ### Audience Sync {#audience-sync}
 
-Die Kreditverhältnisse für Audience Sync werden in Schritten von eintausend synchronisierten Nutzer:innen insgesamt berechnet. Standardmäßig umfasst Ihr Vertrag fünf Millionen Nutzer:innen-Synchronisierungen pro Zeitraum Ihrer Abonnementlaufzeit. Zusätzliche Nutzer:innen-Synchronisierungen werden gemäß Ihrem Bestellformular berechnet.
+Audience-Sync-Credit-Verhältnisse werden in Inkrementen von eintausend synchronisierten Nutzer:innen insgesamt berechnet. Standardmäßig umfasst Ihr Vertrag fünf Millionen Nutzer:innen-Synchronisierungen pro Zeitraum Ihrer Abonnementlaufzeit. Zusätzliche Nutzer:innen-Synchronisierungen werden gemäß Ihrem Bestellformular berechnet.
 
 {% alert note %}
 Weitere Informationen zu Canvas Audience Sync und verfügbaren Partnern finden Sie in unserer [Canvas-Dokumentation]({{site.baseurl}}/partners/canvas_audience_sync).
@@ -162,18 +162,18 @@ Weitere Informationen zu Canvas Audience Sync und verfügbaren Partnern finden S
 
 ### Nachrichtenarchivierung {#message-archiving}
 
-Die Kreditverhältnisse für die Nachrichtenarchivierung werden in Schritten von eintausend archivierten Nachrichten über Push-, E-Mail- und SMS/MMS-Kanäle berechnet.
+Credit-Verhältnisse für die Nachrichtenarchivierung werden in Inkrementen von eintausend archivierten Nachrichten über Push-, E-Mail- und SMS/MMS-Kanäle berechnet.
 
 {% alert note %}
-Weitere Informationen zur Nachrichtenarchivierung finden Sie in unserer [Dokumentation zur Nachrichtenarchivierung]({{site.baseurl}}/user_guide/data/export_braze_data/message_archiving#message-archiving).
+Weitere Informationen zur Nachrichtenarchivierung finden Sie in unserer [Dokumentation zur Nachrichtenarchivierung]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving).
 {% endalert %}
 
 ### Webhooks {#webhooks}
 
-Die Kreditverhältnisse für Webhooks werden in Schritten von eintausend erfolgreich über die Braze-Plattform gesendeten Webhooks berechnet. Standardmäßig umfasst Ihr Vertrag einhunderttausend Webhooks pro Zeitraum Ihrer Abonnementlaufzeit. Zusätzliche Webhooks werden gemäß Ihrem Bestellformular berechnet.
+Webhook-Credit-Verhältnisse werden in Inkrementen von eintausend erfolgreich von der Braze-Plattform gesendeten Webhooks berechnet. Standardmäßig umfasst Ihr Vertrag einhunderttausend Webhooks pro Zeitraum Ihrer Abonnementlaufzeit. Zusätzliche Webhooks werden gemäß Ihrem Bestellformular berechnet.
 
 {% multi_lang_include pricing/webhook_failed_requests_billing.md credit_name='Action Credits' %}
 
 {% alert note %}
-Weitere Informationen zu Braze-Webhooks finden Sie in unserer [Webhooks-Dokumentation]({{site.baseurl}}/user_guide/channels/webhooks).
+Weitere Informationen zu Braze Webhooks finden Sie in unserer [Webhook-Dokumentation]({{site.baseurl}}/user_guide/channels/webhooks).
 {% endalert %}

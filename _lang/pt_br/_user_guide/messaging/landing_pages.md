@@ -21,7 +21,7 @@ A disponibilidade de landing pages e domínios personalizados depende do seu pac
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de acessar, criar e publicar landing pages, você precisa ter [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) de administrador ou todas as seguintes permissões:
+Antes de poder acessar, criar e publicar landing pages, você precisa ter [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) de administrador ou todas as permissões a seguir:
 
 - View Landing Pages
 - Edit Landing Page Drafts
@@ -31,7 +31,7 @@ Antes de acessar, criar e publicar landing pages, você precisa ter [permissões
 
 ## Planos disponíveis {#plan-tiers}
 
-O número de landing pages publicadas, domínios personalizados e recursos que você pode usar depende do seu tipo de plano: gratuito ou pro (incremental).
+O número de landing pages publicadas, domínios personalizados e recursos que você pode usar depende do tipo do seu plano: gratuito ou pro (incremental).
 
 | Recurso                                                                                                   | Plano gratuito     | Plano pro (incremental)     |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
@@ -41,9 +41,15 @@ O número de landing pages publicadas, domínios personalizados e recursos que v
 | Campos de formulário pré-preenchidos | Não disponível | Disponível |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Planos disponíveis" }
 
+## Limites de frequência {#rate-limits}
+
+A Braze aplica um limite de frequência de 500 requisições a cada três segundos (aproximadamente 167 requisições por segundo) por espaço de trabalho para landing pages não armazenadas em cache. Esse limite ajuda a manter o desempenho e a confiabilidade do sistema durante períodos de alto tráfego.
+
+Visualizações de landing pages armazenadas em cache não contam para esse limite. Para saber como o cache afeta o tráfego, consulte [As landing pages conseguem lidar com cenários de alto tráfego?](#can-landing-pages-handle-high-traffic-scenarios).
+
 ## Adicionando o Google Tag Manager a uma landing page {#adding-google-tag-manager-to-a-landing-page}
 
-Para adicionar o Google Tag Manager às suas landing pages, adicione um bloco **Custom Code** à sua landing page no editor de arrastar e soltar e insira o código do Tag Manager no bloco. Certifique-se de adicionar uma camada de dados antes do código do Tag Manager, como neste exemplo:
+Para adicionar o Google Tag Manager às suas landing pages, insira um bloco de **Custom Code** na sua landing page no editor de arrastar e soltar e, em seguida, insira o código do Tag Manager no bloco. Certifique-se de adicionar uma camada de dados antes do código do Tag Manager, como neste exemplo:
 
 ```
 <script>
@@ -68,13 +74,15 @@ O corpo da landing page pode ter até 500 KB.
 
 ### As landing pages conseguem lidar com cenários de alto tráfego? {#can-landing-pages-handle-high-traffic-scenarios}
 
-Sim, landing pages não personalizadas conseguem lidar com cenários de alto tráfego de forma eficaz. Quando uma landing page não personalizada é solicitada pela primeira vez, a Braze a armazena em cache por meio do Cloudflare. Isso significa que todas as solicitações subsequentes para o mesmo link são servidas a partir do cache, então o desempenho não é prejudicado em solicitações de alto volume. Esse cache dura 24 horas, e as visualizações de página em cache não contam para os limites de frequência.
+Sim. Landing pages não personalizadas lidam com cenários de alto tráfego de forma eficaz. Quando uma landing page é solicitada pela primeira vez, a Braze faz o cache dela pelo Cloudflare. As solicitações subsequentes para o mesmo link são servidas a partir do cache, o que ajuda durante períodos de alto tráfego. Esse cache dura 24 horas, e as visualizações de página em cache não contam para os [limites de frequência](#rate-limits).
 
-Para landing pages personalizadas (usando personalização com Liquid), os limites de frequência se aplicam a solicitações não armazenadas em cache. Para manter o desempenho ideal, consulte [Considerações sobre personalização]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
+Landing pages personalizadas usam um cache do Cloudflare mais curto e geram mais solicitações não cacheadas à Braze. Essas solicitações não cacheadas estão sujeitas ao limite de frequência por espaço de trabalho descrito em [Limites de frequência](#rate-limits).
+
+Para limites de tamanho e outras orientações de desempenho para páginas personalizadas, consulte [Considerações sobre personalização]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages#personalization-considerations).
 
 ### Existem requisitos técnicos para publicar uma landing page? {#are-there-any-technical-requirements-to-publish-a-landing-page}
 
-Não, não há requisitos técnicos.
+Não, não existem requisitos técnicos.
 
 ### Existe um editor de HTML para landing pages? {#is-there-an-html-editor-for-landing-pages}
 
@@ -84,15 +92,15 @@ Sim. Use o bloco **Custom Code** no editor de arrastar e soltar para adicionar o
 
 Sim. Adicione um bloco **Custom Code** no editor de arrastar e soltar e inclua um elemento iframe com a URL do conteúdo que deseja incorporar.
 
-Se o site incorporado restringir o enquadramento por meio de `frame-ancestors` na sua Content Security Policy (CSP) ou `X-Frame-Options`, a página pode não carregar no iframe. A Braze não pode substituir essas configurações — o site incorporado deve ser configurado para permitir o domínio da sua landing page.
+Se o website incorporado restringir o enquadramento por meio de `frame-ancestors` na sua Política de Segurança de Conteúdo (CSP) ou `X-Frame-Options`, a página pode não carregar no iframe. A Braze não pode sobrescrever essas configurações — o site incorporado precisa ser configurado para permitir o domínio da sua landing page.
 
 ### Posso criar um webhook dentro de uma landing page? {#can-i-create-a-webhook-inside-a-landing-page}
 
-Não, mas o evento **Submitted a Landing Page form** pode atuar como um disparador para Canvas ou webhook Campaigns:
+Não, mas o evento **Submitted a Landing Page form** pode funcionar como um disparador para Canvas ou Campaigns de webhook:
 
-- **Canvas:** Use o evento **Submitted a Landing Page form** como disparador de entrada do Canvas e adicione uma etapa de webhook.
+- **Canvas:** Use o evento **Submitted a Landing Page form** como um disparador de entrada do Canvas e adicione uma etapa de webhook.
 - **Campaign:** Use o evento **Submitted a Landing Page form** para disparar com base no envio do formulário.
 
-Quando a página não é enviada por meio de um canal da Braze (como por um website ou anúncio), um novo perfil de usuário pode ser criado no envio — mesmo que essa pessoa já exista na Braze. Para lidar com isso, configure um Canvas disparado por **Submitted a Landing Page form** e adicione uma etapa de webhook Braze-to-Braze que chame o endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) para mesclar o novo perfil ao existente.
+Quando a página não é enviada por um canal da Braze (como por meio de um website ou anúncio), um novo perfil de usuário pode ser criado no envio — mesmo que essa pessoa já exista na Braze. Para lidar com isso, configure um Canvas disparado por **Submitted a Landing Page form** e adicione uma etapa de webhook Braze-para-Braze que chame o endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) para mesclar o novo perfil ao existente.
 
-Quando você usa a Liquid tag `landing_page_url` para compartilhar a página, os envios de formulário são automaticamente vinculados ao perfil de usuário existente. Você pode então referenciar os atributos de usuário enviados na landing page por meio de Liquid para a criação de templates subsequentes.
+Quando você usa a Liquid tag `landing_page_url` para compartilhar a página, os envios de formulário são automaticamente vinculados ao perfil de usuário existente. Você pode então referenciar os atributos de usuário enviados na landing page por meio de Liquid para templating subsequente.

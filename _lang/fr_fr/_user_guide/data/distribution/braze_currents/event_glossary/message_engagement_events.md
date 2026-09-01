@@ -5,7 +5,7 @@ alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "Ce glossaire répertorie les différents événements d'engagement lié aux messages que Braze peut suivre et envoyer vers les entrepôts de données de votre choix à l'aide de Currents."
+description: "Ce glossaire répertorie les différents événements d'engagement lié aux messages que Braze peut suivre et envoyer aux entrepôts de données de votre choix via Currents."
 tool: Currents
 search_rank: 6
 lazy_partner_tabs: true
@@ -13,42 +13,42 @@ lazy_partner_tabs: true
 
 <div class="api-glossary-preamble" markdown="1">
 
-{% details Portée du schéma et ressources associées %}
+{% details Périmètre des schémas et ressources associées %}
 
-Les schémas de stockage s'appliquent aux données d'événements sous forme de fichiers plats que nous envoyons aux partenaires de stockage en entrepôt de données (Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Pour les schémas qui s'appliquent aux autres partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) et consultez leurs pages respectives.
+Les schémas de stockage s'appliquent aux données d'événements de fichiers plats que nous envoyons aux partenaires de stockage en entrepôt de données (Google Cloud Storage, Amazon S3 et Microsoft Azure Blob Storage). Pour les schémas applicables aux autres partenaires, consultez notre liste de [partenaires disponibles]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) et vérifiez leurs pages respectives.
 
 {% alert tip %}
-Ces événements sont également disponibles sous forme de tables SQL dans le [générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder), les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) et le [partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Pour les schémas de tables SQL et les détails des colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Ces événements sont également disponibles sous forme de tables SQL dans le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder), les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) et le [partage de données Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Pour les schémas de tables SQL et les détails des colonnes, consultez la [référence des tables SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Contactez votre gestionnaire de compte ou ouvrez un [ticket d'assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support) si vous avez besoin d'accéder à des droits d'événements supplémentaires. Si vous ne trouvez pas ce que vous cherchez dans cet article, consultez notre [bibliothèque d'événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) ou nos [exemples de données Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Contactez votre gestionnaire de compte ou ouvrez un [ticket d'assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support) si vous avez besoin d'accéder à des droits d'accès supplémentaires pour les événements. Si vous ne trouvez pas ce que vous cherchez dans cet article, consultez notre [bibliothèque d'événements de comportement client]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) ou nos [exemples de données Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
 {% details Explication de la structure des événements d'engagement lié aux messages et des valeurs de plateforme %}
 
-## Structure des événements {#event-structure}
+## Structure de l'événement {#event-structure}
 
-Cette décomposition des événements montre le type d'informations généralement incluses dans un événement d'engagement lié aux messages. Avec une bonne compréhension de ses composants, vos développeurs et votre équipe d'aide à la décision peuvent utiliser les données d'événements Currents entrants pour créer des rapports et des graphiques basés sur les données, et tirer parti d'autres indicateurs précieux.
+Cette décomposition d'événement montre le type d'informations généralement incluses dans un événement d'engagement lié aux messages. Grâce à une bonne compréhension de ses composants, vos développeurs et votre équipe d'aide à la décision peuvent exploiter les données d'événements Currents entrantes pour créer des rapports et des graphiques basés sur les données, et tirer parti d'autres indicateurs précieux.
 
-![Décomposition d'un événement d'engagement lié aux messages montrant un événement de désabonnement par e-mail avec les propriétés listées regroupées par propriétés spécifiques à l'utilisateur, propriétés de suivi de Campaign ou Canvas, et propriétés spécifiques à l'événement]({% image_buster /assets/img/message_engagement_event.png %})
+![Décomposition d'un événement d'engagement lié aux messages montrant un événement de désabonnement par e-mail avec les propriétés listées regroupées par propriétés spécifiques à l'utilisateur, propriétés de suivi de Campaign ou Canvas, et propriétés spécifiques à l'événement]({% image_buster /assets/img/message_engagement_event.png %}){: width="2300" height="770" style="max-width:100%;height:auto;"}
 
-Les événements d'engagement lié aux messages sont composés de propriétés **spécifiques à l'utilisateur**, de propriétés de **suivi de Campaign/Canvas** et de propriétés **spécifiques à l'événement**.
+Les événements d'engagement lié aux messages sont composés de propriétés **spécifiques à l'utilisateur**, de propriétés de **suivi Campaign/Canvas** et de propriétés **spécifiques à l'événement**.
 
-### Schéma d'ID utilisateur {#user-id-schema}
+### Schéma d'identification utilisateur {#user-id-schema}
 
-Notez les conventions de nommage pour les ID utilisateur.
+Notez les conventions de nommage pour les identifiants utilisateur.
 
 | Schéma Braze | Schéma Currents | Description |
 | ----------- | ----------- | ----------- |
-| `braze_id` | `"USER_ID"` | L'identifiant unique attribué automatiquement par Braze. |
-| `external_id` | `"EXTERNAL_USER_ID"` | L'identifiant unique du profil d'un utilisateur, défini par le client. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Schéma d'ID utilisateur" }
+| `braze_id` | `"USER_ID"` | L'identifiant unique automatiquement attribué par Braze. |
+| `external_id` | `"EXTERNAL_USER_ID"` | L'identifiant unique du profil d'un utilisateur défini par le client. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schéma d'identification utilisateur" }
 
 ### Valeurs de plateforme {#platform-values}
 
 Certains événements renvoient une valeur `platform` qui spécifie la plateforme de l'appareil de l'utilisateur.
-<br>Le tableau suivant détaille les valeurs possibles renvoyées :
+<br>Le tableau suivant détaille les valeurs pouvant être renvoyées :
 
 | Appareil de l'utilisateur | Valeur de plateforme |
 | --- | --- |
@@ -63,11 +63,11 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 
 {% enddetails %}
 
-{% details Considérations pour les événements d'engagement lié aux messages %}
+{% details Considérations relatives aux événements d'engagement lié aux messages %}
 
-- Currents supprime les événements dont les payloads dépassent 900&nbsp;Ko.
-- Les objets liés à Canvas Flow disposent d'ID que vous pouvez utiliser pour le regroupement et traduire en noms lisibles via l'[endpoint Exporter les détails du Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
-- Certains champs peuvent ne pas refléter leur état le plus récent immédiatement après la mise à jour d'une Campaign ou d'un Canvas :
+- Currents abandonne les événements dont le payload dépasse 900&nbsp;Ko.
+- Les objets liés à Canvas Flow possèdent des identifiants que vous pouvez utiliser pour le regroupement et traduire en noms lisibles via l'[endpoint Exporter les détails du Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
+- Certains champs peuvent ne pas refléter immédiatement leur état le plus récent après la mise à jour d'une campagne ou d'un Canvas :
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -75,7 +75,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
   - `canvas_variation_name`
   - `experiment_split_name`
   - `message_variation_name`
-- Si vous avez besoin d'une cohérence totale pour ces champs, attendez une heure après la dernière mise à jour avant d'envoyer des messages à vos utilisateurs.
+- Si vous avez besoin d'une cohérence complète pour ces champs, attendez une heure après la dernière mise à jour avant d'envoyer des messages à vos utilisateurs.
 
 {% enddetails %}
 
@@ -346,7 +346,7 @@ Uninstall
 Cet événement se produit lorsqu'un utilisateur désinstalle une application. Utilisez ces données pour suivre les désinstallations d'applications. Bien qu'il s'agisse actuellement d'un événement d'engagement lié aux messages, il sera reclassé en événement de comportement utilisateur à l'avenir.
 
 {% alert important %}
-Cet événement n'est pas déclenché au moment précis où l'utilisateur désinstalle réellement l'application, car cette action est impossible à suivre exactement. Braze envoie une notification push silencieuse quotidienne pour déterminer si l'application existe toujours sur l'appareil de l'utilisateur, et si une erreur est renvoyée pour cette notification push silencieuse, on considère alors que l'application a été désinstallée.
+Cet événement n'est pas déclenché au moment précis où l'utilisateur désinstalle réellement l'application, car cette action est impossible à suivre exactement. Braze envoie une notification push silencieuse quotidienne pour déterminer si l'application existe toujours sur l'appareil de l'utilisateur, et si une erreur est renvoyée pour cette notification push silencieuse, on considère que l'application a été désinstallée.
 {% endalert %}
 
 {% tabs %}
@@ -1437,7 +1437,7 @@ Notez que l'événement de conversion est encodé dans le champ `conversion_beha
 {% endalert %}
 
 {% alert note %}
-Le champ `message_extras` est disponible uniquement dans les événements d'envoi (par exemple, envoi d'e-mail, envoi de notification push). Il n'est pas inclus dans les événements de conversion. Pour associer les données `message_extras` à l'engagement en aval, utilisez `send_id` pour joindre les événements d'envoi aux événements de conversion dans votre entrepôt de données. Pour évaluer l'efficacité du contenu par taux de conversion, envisagez d'utiliser les [variantes Canvas]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#creating-tests) à la place.
+Le champ `message_extras` est disponible uniquement dans les événements d'envoi (par exemple, envoi d'e-mail, envoi de notification push). Il n'est pas inclus dans les événements de conversion. Pour associer les données `message_extras` à l'engagement en aval, utilisez `send_id` pour joindre les événements d'envoi aux événements de conversion dans votre entrepôt de données. Pour évaluer l'efficacité du contenu par taux de conversion, envisagez d'utiliser les [variantes Canvas]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests) à la place.
 {% endalert %}
 
 {% tabs %}
@@ -5045,7 +5045,7 @@ Cet événement se produit lorsqu'un utilisateur rejette une Content Card.
 {% endtab %}
 {% endtabs %}
 
-### Détails de la propriété
+### Détails des propriétés
 
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. Pour en savoir plus sur cette configuration, consultez la documentation pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer les données de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), contactez votre gestionnaire du succès des clients pour activer l'envoi de `ad_id`.
@@ -5322,7 +5322,7 @@ Cet événement se produit lorsqu'un utilisateur visualise une Content Card.
 {% endtab %}
 {% endtabs %}
 
-### Détails de la propriété
+### Détails des propriétés
 
 - Pour `ad_id`, `ad_id_type` et `ad_tracking_enabled`, vous devez collecter explicitement l'IDFA iOS et l'identifiant publicitaire Google Android via les SDK natifs. Pour en savoir plus sur cette configuration, consultez la documentation pour [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) et [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - Si vous utilisez Kafka pour ingérer les données de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), contactez votre gestionnaire du succès des clients pour activer l'envoi de `ad_id`.
@@ -5554,7 +5554,7 @@ Cet événement se produit lorsqu'une Content Card est envoyée à un utilisateu
 {% endtab %}
 {% endtabs %}
 
-### Détails de la propriété
+### Détails des propriétés
 
 - `message_extras` vous permet d'annoter vos événements d'envoi avec des données dynamiques issues du contenu connecté, des attributs personnalisés (tels que la langue ou le pays) et des propriétés d'entrée Canvas. Pour en savoir plus, consultez la section [Suppléments de messages]({{site.baseurl}}/message_extras_tag).
 
@@ -6414,7 +6414,7 @@ Cet événement se produit lorsqu'un utilisateur clique sur un e-mail. Plusieurs
 Email, Deferral
 {% endapitags %}
 
-Cet événement se produit lorsqu'un fournisseur de services Internet ne délivre pas immédiatement l'e-mail à une adresse e-mail n'ayant pas fait l'objet d'un échec d'envoi définitif et que Braze tente à nouveau d'envoyer l'e-mail pendant une période pouvant aller jusqu'à 72 heures. Les raisons habituelles d'un report sont les suivantes : limitation du volume d'e-mails basée sur la réputation par le fournisseur de la boîte de réception, problèmes de connectivité temporaires, boîte aux lettres du destinataire pleine ou erreurs de DNS.
+Cet événement se produit lorsqu'un fournisseur de services Internet ne distribue pas immédiatement l'e-mail à une adresse n'ayant pas fait l'objet d'un échec d'envoi définitif et que Braze tente à nouveau d'envoyer l'e-mail pendant une période pouvant aller jusqu'à 72 heures. Les raisons habituelles d'un report sont les suivantes : limitation du volume d'e-mails basée sur la réputation par le fournisseur de la boîte de réception, problèmes de connectivité temporaires, boîte aux lettres du destinataire pleine ou erreurs de DNS.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -14806,7 +14806,7 @@ Cet événement est généré lorsqu'un message RCS est envoyé depuis Braze ver
 Abort, SMS
 {% endapitags %}
 
-Cet événement se produit si un message SMS a été interrompu en raison d'abandons Liquid, etc.
+Cet événement se produit lorsqu'un message SMS a été interrompu en raison d'abandons Liquid, etc.
 
 {% tabs %}
 {% tab Cloud Storage %}
