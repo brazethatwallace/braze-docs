@@ -141,6 +141,42 @@ def build_anchor_link_index(root)
   end
 end
 
+# Link URLs are baseurl-relative once {{site.baseurl}} (or a literal "/docs/"
+# prefix) is stripped in DocAnchorLinks; Jekyll's URL map keeps the baseurl.
+# Drop it so both sides compare on the same footing.
+def strip_baseurl(url)
+  stripped = url.to_s.sub(%r{\A/docs(?=/|\z)}, "")
+  stripped.empty? ? "/" : stripped
+end
+
+# url => path, from Jekyll's own URL map. Sorted so a URL served by more than
+# one source file (which would be a build bug) resolves deterministically.
+def path_by_url(url_map)
+  url_map.sort.each_with_object({}) do |(path, url), acc|
+    acc[normalize_url_for_compare(strip_baseurl(url))] ||= path
+  end
+end
+
+# Point each link at the file Jekyll actually serves for that URL. Pages with a
+# custom `permalink` (unlisted betas, /shopify_markets/, /delta_sharing/, and
+# others) do not live where DocAnchorLinks.resolve_doc_path guesses from the URL
+# shape, so without this their anchors are checked against a path that holds no
+# headings and every one of them looks broken. Links to a URL Jekyll doesn't
+# serve keep the guessed path: page existence is the "Broken internal links"
+# check's job, not this one's.
+def resolve_links_with_url_map(links, url_map)
+  by_url = path_by_url(url_map)
+
+  links.map do |link|
+    next link if link.target_url.nil?
+
+    real_path = by_url[normalize_url_for_compare(strip_baseurl(link.target_url))]
+    next link if real_path.nil? || real_path == link.target_path
+
+    link.class.new(**link.to_h, target_path: real_path)
+  end
+end
+
 def anchor_resolves?(heading_map, link)
   entry = heading_map[link.target_path]
   return false if entry.nil?
@@ -340,8 +376,8 @@ def validate!(options)
     puts "Building URL + heading-id maps for HEAD…"
     map_head, heading_map_head = jekyll_doc_maps(REPO_ROOT)
 
-    links_base = build_anchor_link_index(worktree)
-    links_head = build_anchor_link_index(REPO_ROOT)
+    links_base = resolve_links_with_url_map(build_anchor_link_index(worktree), map_base)
+    links_head = resolve_links_with_url_map(build_anchor_link_index(REPO_ROOT), map_head)
   ensure
     success = system("git", "-C", REPO_ROOT, "worktree", "remove", "-f", worktree, out: File::NULL, err: File::NULL)
     FileUtils.remove_entry(tmp_parent, true)
