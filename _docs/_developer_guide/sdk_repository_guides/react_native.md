@@ -31,7 +31,7 @@ The Braze React Native SDK connects your iOS and Android apps to Braze: user pro
 - **React Native** development environment ([React Native environment setup](https://reactnative.dev/docs/set-up-your-environment))
 - **iOS**: Xcode, CocoaPods (`cd ios && pod install`)
 - **Android**: Android Studio / Gradle; Kotlin Gradle plugin as required by your React Native template
-- **Push** (if used): FCM (Android) and APNs (iOS) setup per [push documentation](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/push_notifications/)
+- **Push** (if used): FCM (Android) and APNs (iOS) setup per [push documentation](https://www.braze.com/docs/developer_guide/push_notifications?sdktab=react%20native)
 
 For credential locations in the dashboard, follow the [integration overview](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native).
 
@@ -421,7 +421,7 @@ For deeper troubleshooting (network, session, or campaign behavior), see the [Br
 ## Additional resources
 
 - [Braze Developer Guide — React Native](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native)
-- [Push notifications — React Native](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/push_notifications/)
+- [Push notifications — React Native](https://www.braze.com/docs/developer_guide/push_notifications?sdktab=react%20native)
 - [GitHub repository](https://github.com/braze-inc/braze-react-native-sdk)
 - [npm package](https://www.npmjs.com/package/@braze/react-native-sdk)
 

@@ -32,7 +32,7 @@ Do not change the push certificate environment (development versus production). 
 
 #### Step 2: Devices register for APNs and provide Braze with push tokens
 
-When users open your app, they will be prompted to accept push notifications. If they accept this prompt, APNs will generate a push token for that particular device. The iOS SDK will immediately and asynchronously send up the push token for apps using the default [automatic flush policy]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/fine_network_traffic_control#automatic-request-processing). After we have a push token associated with a user, they will show as "Push Registered" in the dashboard on their user profile under the **Engagement** tab and will be eligible to receive push notifications from Braze campaigns.
+When users open your app, they will be prompted to accept push notifications. If they accept this prompt, APNs will generate a push token for that particular device. The iOS SDK will immediately and asynchronously send up the push token for apps using the default [automatic flush policy]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/fine_network_traffic_control#automatic-request-processing). After we have a push token associated with a user, they will show as "Push Registered" in the dashboard on their user profile under the **Engagement** tab and will be eligible to receive push notifications from Braze campaigns.
 
 {% alert note %}
 As of Xcode 14, you can test remote push notifications on an iOS simulator.
@@ -74,7 +74,7 @@ If the application does not prompt you to register for push notifications, there
     1. In Xcode, navigate to **Preferences > Accounts** (Or use the keyboard shortcut <kbd>Command</kbd>+<kbd>,</kbd>).
     2. Select the Apple ID you use for your developer account and click **View Details**.
     3. On the next page, click **<i class="fas fa-redo-alt"></i> Refresh** and confirm that you're pulling all available provisioning profiles.
-- Check you have [properly enabled push capability]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-2-enable-push-capabilities) in your app.
+- Check you have [properly enabled push capability]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-2-enable-push-capabilities) in your app.
 - Check your push provisioning profile matches the environment you're testing in. Universal certificates may be configured in the Braze dashboard to send to either the development or production APNs environment. Using a development certificate for a production app or a production certificate for a development app will not work.
 - Check that you are calling our `registerPushToken` method by setting a breakpoint in your code.
 - Check that you are on a device (push will not work on a simulator) and have good network connectivity.
@@ -123,7 +123,7 @@ To troubleshoot push notifications that aren't sending, refer to [Troubleshootin
 
 ### Received unregistered sending to push token {#received-unregistered-sending}
 
-- Make sure that the push token being sent to Braze from the method `[[Appboy sharedInstance] registerPushToken:]` is valid. You can look in the **Message Activity Log** to see the push token. It should look something like `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`, a long string containing a mix of letters and numbers. If your push token looks different, check your [code]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-4-register-push-tokens-with-braze) for sending Braze the push tokens.
+- Make sure that the push token being sent to Braze from the method `[[Appboy sharedInstance] registerPushToken:]` is valid. You can look in the **Message Activity Log** to see the push token. It should look something like `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`, a long string containing a mix of letters and numbers. If your push token looks different, check your [code]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-4-register-push-tokens-with-braze) for sending Braze the push tokens.
 - Ensure that your push provisioning profile matches the environment you're testing. Universal certificates may be configured in the Braze dashboard to send to either the development or production APNs environment. Using a development certificate for a production app or a production certificate for a development app will not work.
  - Check that the push token you have uploaded to Braze matches the provisioning profile you used to build the app you sent the push token from.
 
@@ -143,12 +143,12 @@ To add verification for your application's push handling, implement [push unit t
 
 ### Push clicks not logged {#push-clicks-not-logged}
 
-- If this is only occurring on iOS 10, make sure you have followed the push integration steps for [iOS 10]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-5-enable-push-handling).
-- Braze does not handle push notifications received silently in the foreground (for example, default foreground push behavior prior to the `UserNotifications` framework). This means that links will not be opened, and push clicks will not be logged. If your application has not yet integrated the `UserNotifications` framework, Braze will not handle push notifications when the application state is `UIApplicationStateActive`. You should ensure that your app does not delay calls to our [push handling methods]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/push_notifications/integration#step-5-enable-push-handling); otherwise, the iOS SDK may treat push notifications as silent foreground push events and not handing them.
+- If this is only occurring on iOS 10, make sure you have followed the push integration steps for [iOS 10]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-5-enable-push-handling).
+- Braze does not handle push notifications received silently in the foreground (for example, default foreground push behavior prior to the `UserNotifications` framework). This means that links will not be opened, and push clicks will not be logged. If your application has not yet integrated the `UserNotifications` framework, Braze will not handle push notifications when the application state is `UIApplicationStateActive`. You should ensure that your app does not delay calls to our [push handling methods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-5-enable-push-handling); otherwise, the iOS SDK may treat push notifications as silent foreground push events and not handing them.
 
 #### Web links from push clicks not opening
 
-iOS 9+ requires links to be ATS compliant to be opened in web views. Ensure that your web links use HTTPS. Refer to our [ATS compliance]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#app-transport-security-ats) article for more information.
+iOS 9+ requires links to be ATS compliant to be opened in web views. Ensure that your web links use HTTPS. Refer to our [ATS compliance]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/advanced_use_cases/linking#app-transport-security-ats) article for more information.
 
 #### Deep links from push clicks not opening
 
@@ -160,10 +160,10 @@ If opens are being logged, check whether it is an issue with the deep link in ge
 
 If at least one user opens your iOS push notification, but few or no _Direct Opens_ are logged to Braze, there may be an issue with your [SDK integration]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview). Keep in mind, _Direct Opens_ are not logged for test sends or silent push notifications.
 
-- Make sure that the messages are not being sent as [silent push notifications]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/silent_push_notifications#sending-silent-push-notifications). The message must have text in the title or body to not be considered silent.
+- Make sure that the messages are not being sent as [silent push notifications]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications#sending-silent-push-notifications). The message must have text in the title or body to not be considered silent.
 - Double-check the following steps from the [push integration guide]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration):
-   - [Register for push]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-1-register-for-push-notifications-with-apns): On every single app launch, preferably within `application:didFinishLaunchingWithOptions:`, the code from step 3 needs to occur. The delegate property of `UNUserNotificationCenter.current()` needs to be assigned to an object that implements `UNUserNotificationCenterDelegate` and contains the `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` method.
-   - [Enable push handling]({{site.baseurl}}/developer_guide/platform_integration_guides/legacy_sdks/ios/push_notifications/integration#step-5-enable-push-handling): Verify that the `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` method has been implemented.
+   - [Register for push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-3-register-for-push-notifications): On every single app launch, preferably within `application:didFinishLaunchingWithOptions:`, the code from step 3 needs to occur. The delegate property of `UNUserNotificationCenter.current()` needs to be assigned to an object that implements `UNUserNotificationCenterDelegate` and contains the `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` method.
+   - [Enable push handling]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-5-enable-push-handling): Verify that the `(void)userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:` method has been implemented.
 
 ### Push Story image clicks do nothing
 

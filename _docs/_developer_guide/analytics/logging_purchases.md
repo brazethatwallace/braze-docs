@@ -264,7 +264,7 @@ By default, `quantity` is set to `1`. However, you can add a quantity to your pu
 
 ### Using the REST API
 
-You can also use our REST API to record purchases. For more information, refer to [User Data Endpoints]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+You can also use our REST API to record purchases. For more information, refer to [User Data Endpoints]({{site.baseurl}}/api/endpoints/user_data).
 
 ## Logging orders
 

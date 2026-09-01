@@ -34,7 +34,7 @@ Use this workflow for every push notification incident. Start at step 1.
 2. In the dashboard, confirm the test user matches the campaign or Canvas [segment]({{site.baseurl}}/user_guide/channels/push/troubleshooting#segment) and is not in the [control group]({{site.baseurl}}/user_guide/channels/push/troubleshooting#control-group-status).
 3. Send a [test push]({{site.baseurl}}/developer_guide/push_notifications/sending_test_messages) to the test device.
 4. [Enable verbose logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduce the issue, and review platform-specific guidance in your [SDK tab](#platform-specific-troubleshooting).
-5. If the issue persists, contact [Braze Support]({{site.baseurl}}/braze_support) with verbose logs, platform, SDK version, and campaign or Canvas ID.
+5. If the issue persists, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) with verbose logs, platform, SDK version, and campaign or Canvas ID.
 
 ## Platform-specific troubleshooting
 
@@ -252,5 +252,5 @@ Custom notification factories (and all delegates) must extend [`Java.Lang.Object
 
 ## Line breaks in push notifications {#push-linebreaks}
 
-When composing push notifications with Liquid tags, line breaks adjacent to Liquid tags are automatically removed before the message is sent. In the [push notification composer]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message), these line breaks are re-added so your message remains readable while editing. If you notice line breaks around Liquid tags when saving your message, this is expected behavior.
+When composing push notifications with Liquid tags, line breaks adjacent to Liquid tags are automatically removed before the message is sent. In the [push notification composer]({{site.baseurl}}/user_guide/channels/push/create_a_push_message), these line breaks are re-added so your message remains readable while editing. If you notice line breaks around Liquid tags when saving your message, this is expected behavior.
 
