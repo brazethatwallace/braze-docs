@@ -67,12 +67,30 @@ def intro_word_count(body: str, fm: dict[str, str]) -> int:
     return max(word_count(body_intro_text(body)), frontmatter_intro_words(fm))
 
 
+BREADCRUMB_PREFIX_RE = re.compile(r"^[^>]+>\s+")
+
+
+def strip_intro_noise(text: str) -> str:
+    parts: list[str] = []
+    for line in text.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if re.match(r"^#{1,6}\s", line):
+            continue
+        if line.startswith(">"):
+            line = line.lstrip(">").strip()
+        line = re.sub(r"\{%[^%]+%\}", "", line)
+        line = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", line)
+        while BREADCRUMB_PREFIX_RE.match(line):
+            line = BREADCRUMB_PREFIX_RE.sub("", line, count=1)
+        if line:
+            parts.append(line)
+    return re.sub(r"\s+", " ", " ".join(parts)).strip()
+
+
 def suggest_description(article_title: str, h1: str, intro: str) -> str:
-    raw = intro.strip()
-    raw = re.sub(r"\{%[^%]+%\}", "", raw)
-    raw = re.sub(r"^#+\s*", "", raw)
-    raw = re.sub(r"^>\s*", "", raw)
-    raw = re.sub(r"\s+", " ", raw).strip()
+    raw = strip_intro_noise(intro)
     if not raw or len(raw) < 20:
         topic = h1 or article_title or "this topic"
         raw = f"Learn about {topic} in Braze."
@@ -216,17 +234,13 @@ def audit_page(md_path: Path, link_rows: list[dict]) -> str:
     return "\n".join(lines)
 
 
-COLLECTION_ROOTS = ("user_guide", "api", "developer_guide", "partners")
-
 
 def slugify(path: Path) -> str:
     name = path.stem
     parent = path.parent.name
     if parent.startswith("_"):
         parent = parent[1:]
-    if name == "home" and parent in COLLECTION_ROOTS:
-        return f"{parent}-home"
-    return name if parent in COLLECTION_ROOTS else f"{parent}-{name}"
+    return f"{parent}-{name}"
 
 
 def main() -> int:

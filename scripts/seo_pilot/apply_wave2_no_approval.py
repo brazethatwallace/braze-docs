@@ -41,6 +41,9 @@ def apply_frontmatter_fixes(text: str, fixes: dict[str, str]) -> tuple[str, list
     out_lines: list[str] = []
     present_keys: set[str] = set()
     for line in lines:
+        if line.startswith((" ", "\t")):
+            out_lines.append(line)
+            continue
         if ":" not in line:
             out_lines.append(line)
             continue
@@ -89,8 +92,8 @@ def parse_recommendations(rec_dir: Path) -> dict[str, dict[str, str]]:
                 if recommended.strip().startswith("<"):
                     continue
                 if "(missing)" in current_raw:
-                    if recommended.startswith(("Content Cards >", "Learn about")):
-                        recommended = recommended.split(">", 1)[-1].strip()
+                    if re.search(r"\s>\s", recommended):
+                        continue
                     page_fixes[field] = recommended
                 elif "chars)" in current_raw:
                     page_fixes[field] = recommended
