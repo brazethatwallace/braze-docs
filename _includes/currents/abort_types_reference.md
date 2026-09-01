@@ -12,9 +12,9 @@ These abort types can occur on any messaging channel.
 
 | `abort_type` value | Description |
 | --- | --- |
-| `liquid_abort_message` | The [abort_message]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/aborting_messages/) Liquid tag was called, so the send was canceled. |
+| `liquid_abort_message` | The [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) Liquid tag was called, so the send was canceled. |
 | `template_parse_error` | The message template could not be parsed due to a syntax or rendering error, so the send was canceled. |
-| `rate_limit` | The message was aborted because it exceeded the configured [rate limit]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/). |
+| `rate_limit` | The message was aborted because it exceeded the configured [rate limit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/). |
 | `campaign_disabled` | The campaign was disabled before the message could be sent. |
 | `campaign_does_not_exist` | The campaign associated with this message no longer exists. |
 | `campaign_action_does_not_exist` | The campaign action associated with this message no longer exists. |
@@ -34,7 +34,7 @@ These abort types can occur on any messaging channel.
 | `abort_type` value | Description |
 | --- | --- |
 | `exhausted_cc_retries` | Connected Content failed after the maximum number of retries, so the message was aborted. |
-| `connected_content_not_supported` | [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) is not supported in this context, so the message was aborted. |
+| `connected_content_not_supported` | [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) is not supported in this context, so the message was aborted. |
 | `promo_codes_not_supported` | Promotion codes are not supported in this context, so the message was aborted. |
 | `catalog_items_rerender_not_supported` | Catalog item re-rendering is not supported in this context, so the message was aborted. |
 | `blacklisted_media_url` | The media URL is blocklisted and cannot be used in messages. |
@@ -51,7 +51,7 @@ These abort types can occur on any messaging channel.
 | `abort_type` value | Description |
 | --- | --- |
 | `exhausted_cc_retries` | Connected Content failed after the maximum number of retries, so the message was aborted. |
-| `connected_content_not_supported` | [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) is not supported in this context, so the message was aborted. |
+| `connected_content_not_supported` | [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) is not supported in this context, so the message was aborted. |
 | `promo_codes_not_supported` | Promotion codes are not supported in this context, so the message was aborted. |
 | `catalog_items_rerender_not_supported` | Catalog item re-rendering is not supported in this context, so the message was aborted. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
@@ -64,7 +64,7 @@ These abort types can occur on any messaging channel.
 | `abort_type` value | Description |
 | --- | --- |
 | `exhausted_cc_retries` | Connected Content failed after the maximum number of retries, so the message was aborted. |
-| `connected_content_not_supported` | [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) is not supported in this context, so the message was aborted. |
+| `connected_content_not_supported` | [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) is not supported in this context, so the message was aborted. |
 | `promo_codes_not_supported` | Promotion codes are not supported in this context, so the message was aborted. |
 | `catalog_items_rerender_not_supported` | Catalog item re-rendering is not supported in this context, so the message was aborted. |
 | `blacklisted_media_url` | The media URL is blocklisted and cannot be used in messages. |
@@ -81,7 +81,7 @@ These abort types can occur on any messaging channel.
 | `abort_type` value | Description |
 | --- | --- |
 | `exhausted_cc_retries` | Connected Content failed after the maximum number of retries, so the message was aborted. |
-| `connected_content_not_supported` | [Connected Content]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) is not supported in this context, so the message was aborted. |
+| `connected_content_not_supported` | [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) is not supported in this context, so the message was aborted. |
 | `promo_codes_not_supported` | Promotion codes are not supported in this context, so the message was aborted. |
 | `catalog_items_rerender_not_supported` | Catalog item re-rendering is not supported in this context, so the message was aborted. |
 | `ssl_error` | An SSL error occurred while making a request. |

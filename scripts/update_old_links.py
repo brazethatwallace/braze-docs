@@ -12,10 +12,15 @@
 #   FILE              Updates old links in a single file.
 #   DIRECTORY         Recursively updates old links in a directory.
 
+from __future__ import annotations
+
 import os
 import json
 import re
 import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from doc_anchor_utils import sanitize_fragment_for_target
 
 PROJECT_ROOT = os.environ.get('PROJECT_ROOT')
 REDIRECT_MATCHES = os.environ.get('REDIRECT_MATCHES')
@@ -127,7 +132,7 @@ def update_old_links(filepath, redirects):
         return 0
 
     # Read file content
-    with open(filepath, 'r', encoding='utf-8', errors='replace') as f:
+    with open(filepath, 'r', encoding='utf-8', errors='replace', newline='') as f:
         content = f.read()
 
     original_content = content
@@ -149,20 +154,36 @@ def update_old_links(filepath, redirects):
                         + r"\)"
                 )
             else:
-                # Otherwise, match '({{site.baseurl}}/old_url/)' with an optional trailing slash.
+                # Match path-only old URLs, optionally preserving a trailing #fragment.
                 no_trailing_slash = old.rstrip('/')
-                pattern = (
-                        r"\("
-                        + re.escape("{{site.baseurl}}")
-                        + re.escape(no_trailing_slash)
-                        + r"/?\)"
+                pattern = re.compile(
+                    r"\("
+                    + re.escape("{{site.baseurl}}")
+                    + re.escape(no_trailing_slash)
+                    + r"/?(?P<frag>#[^)]+)?\)"
                 )
 
             # Find all matches of the old pattern.
-            found = len(re.findall(pattern, content))
-            # Replace them with the new baseurl link if any found.
-            if found > 0:
-                content = re.sub(pattern, f"({{{{site.baseurl}}}}{new_url})", content)
+            if "#" in old:
+                found = len(re.findall(pattern, content))
+                if found > 0:
+                    content = re.sub(
+                        pattern,
+                        liquid_replacement(new_url),
+                        content,
+                    )
+                    total_replacements += found
+            else:
+                found = 0
+
+                def _replace_liquid(match, *, replacement_url=new_url):
+                    nonlocal found
+                    found += 1
+                    return liquid_replacement(
+                        replacement_url, match.group("frag")
+                    )
+
+                content = pattern.sub(_replace_liquid, content)
                 total_replacements += found
 
         # 2) Replace 'link:' references in YAML with updated '/docs' link.
@@ -195,7 +216,7 @@ def update_old_links(filepath, redirects):
 
     # If file content changed, write the updated content back.
     if content != original_content:
-        with open(filepath, 'w', encoding='utf-8') as f:
+        with open(filepath, 'w', encoding='utf-8', newline='') as f:
             f.write(content)
 
     return total_replacements
@@ -206,6 +227,30 @@ def adjust_url(url):
     if '#' in url or '?' in url:
         return url.rstrip('/')
     return url
+
+
+def split_url_path_and_fragment(url: str) -> tuple[str, str]:
+    """Return (url_without_fragment, fragment_or_empty)."""
+    base, sep, frag = url.partition("#")
+    return base, f"#{frag}" if sep else ""
+
+
+def sanitize_preserved_fragment(path_url: str, fragment: str | None) -> str:
+    if not fragment:
+        return ""
+    frag_id = fragment.lstrip("#")
+    if not frag_id:
+        return ""
+    validated = sanitize_fragment_for_target(path_url, frag_id)
+    return f"#{validated}" if validated else ""
+
+
+def liquid_replacement(new_url: str, captured_fragment: str | None = None) -> str:
+    base_url, existing_frag = split_url_path_and_fragment(new_url)
+    if existing_frag:
+        return f"({{{{site.baseurl}}}}{base_url}{existing_frag})"
+    frag = sanitize_preserved_fragment(base_url, captured_fragment)
+    return f"({{{{site.baseurl}}}}{base_url}{frag})"
 
 
 # Function to recursively process all files in a given directory.

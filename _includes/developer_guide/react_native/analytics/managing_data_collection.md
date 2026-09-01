@@ -57,7 +57,7 @@ Braze.updateTrackingPropertyAllowList({
 });
 ```
 
-For more information, refer to [Privacy Manifest]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/privacy_manifest/).
+For more information, refer to [Privacy Manifest]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift#swift_privacy-manifest).
 
 ## Logout and Unregister Push
 

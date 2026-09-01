@@ -277,7 +277,7 @@ The **Credits Usage** dashboard excludes the end date of the selected range from
 
 When comparing Braze credits usage data with third-party providers (such as Infobip), keep in mind:
 
-- **Message segments versus messages**: Braze counts SMS messages by segments. A single SMS message that is split into multiple segments (for example, due to length) is counted as multiple segments in Braze. For more information, see [SMS and RCS billing calculators]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/segments/).
+- **Message segments versus messages**: Braze counts SMS messages by segments. A single SMS message that is split into multiple segments (for example, due to length) is counted as multiple segments in Braze. For more information, see [SMS and RCS billing calculators]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/).
 - **Credit versus non-credit based messages**: The dashboard includes both credit-based and non-credit-based messages. Third-party providers may count only credit-based messages, which can cause discrepancies in totals.
 - **Inbound versus outbound**: Ensure you're comparing the same message types. Some third-party dashboards include both inbound and outbound messages in their totals, while Braze allows you to filter by direction.
 - **Date range alignment**: Because the dashboard excludes the end date, day-by-day comparisons may align more closely than longer date ranges. If you're comparing data for a specific period, extend your Braze date range by one day to include the final day of your comparison period.

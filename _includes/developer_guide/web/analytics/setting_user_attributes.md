@@ -193,7 +193,7 @@ braze.getUser().setCustomUserAttribute(YOUR_ATTRIBUTE_KEY_STRING, null);
 
 ### Nesting custom attributes
 
-You can also nest properties within custom attributes. In the following example, a `favorite_book` object with nested properties is set as a custom attribute on the user profile. For more details, refer to [Nested Custom Attributes]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support).
+You can also nest properties within custom attributes. In the following example, a `favorite_book` object with nested properties is set as a custom attribute on the user profile. For more details, refer to [Nested Custom Attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
 
 ```javascript
 import * as braze from "@braze/web-sdk";

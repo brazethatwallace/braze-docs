@@ -177,7 +177,7 @@ Individuals may have the right to object to:
 
 ### Braze Recommendation
 
-Braze provides the ability to mark a User Profile as being unsubscribed from SMS, emails or push notifications via both our [REST APIs]({{site.baseurl}}/api/home/) and via the [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/analytics/setting_custom_attributes/), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/), and [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes/) SDKs. If you receive objections from Data Subjects to receiving such messages, you can use Braze’s APIs to unsubscribe those end users.
+Braze provides the ability to mark a User Profile as being unsubscribed from SMS, emails or push notifications via both our [REST APIs]({{site.baseurl}}/api/home/) and via the [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android), and [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web) SDKs. If you receive objections from Data Subjects to receiving such messages, you can use Braze’s APIs to unsubscribe those end users.
 
 If that is not sufficient, to avoid processing of end user Personal Data by Braze, the end user profile should be deleted in the same manner as specified under the ‘Right to Erasure’.
 
