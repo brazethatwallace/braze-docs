@@ -28,7 +28,7 @@ Here are some examples of agents that you can build with BrazeAI Decisioning Stu
 
 ### Prerequisites
 
-Before you can build an agent, you'll need to [integrate BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/integration).
+Before you can build an agent, you'll need to [integrate BrazeAI Decisioning Studio™]({{site.baseurl}}/developer_guide/decisioning_studio/integration).
 
 ### Step 1: Contact AI Expert Services
 
@@ -55,7 +55,7 @@ Next, the AI Expert Service team will help you set up your customer engagement p
 {% tab Braze %}
 To set up Braze:
 
-1. Create a [campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/api_triggered_delivery/) or [Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/?tab=api-triggered%20delivery#step-2b-determine-your-canvas-entry-schedule). BrazeAI Decisioning Studio™ will use this delivery method to send 1:1 personalized activation events to the users in your defined audience.
+1. Create a [campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) or [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=api-triggered%20delivery#step-12-determine-your-canvas-entry-schedule). BrazeAI Decisioning Studio™ will use this delivery method to send 1:1 personalized activation events to the users in your defined audience.
 2. Be sure you don't include a Braze [control group]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/create_multivariate_campaign#including-a-control-group), so BrazeAI™ can be the dedicated control group instead.
 3. Depending on your dimensions, you can configure Liquid tags in your creative content to dynamically populate your messaging with BrazeAI™ recommendations. BrazeAI™ will pass customer-specific content to the Liquid tags in your templates using the Braze API.
 {% endtab %}

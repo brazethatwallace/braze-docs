@@ -59,7 +59,7 @@ For further assistance with Canvas and campaign troubleshooting, be sure to cont
 - **Active Content Card campaigns limit**: You can have up to 500 active Content Card campaigns. This count includes Content Cards sent with either [card creation]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card) option.  
 - [**Reporting terms**]({{site.baseurl}}/user_guide/channels/content_cards/reporting): Review terms such as total impressions, unique impressions, and unique recipients as the definitions can sometimes cause confusion.
 - **Content Card refresh**: By default, Braze refreshes Content Card requests as they sync at session start, on feed down swipe (mobile), and when the cards view is opened if the last refresh was over one minute ago.
-- **Caching Content Cards**: Content Card caching options can be found in our [Android/FireOS]({{site.baseurl}}/developer_guide/platform_integration_guides/android/content_cards/customization/custom_styling#customizing-card-rendering-for-android) and [Web](https://js.appboycdn.com/web-sdk/latest/doc/modules/appboy.html#getcachedcontentcards) docs. 
+- **Caching Content Cards**: Content Card caching options can be found in our [Android/FireOS]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style) and [Web](https://js.appboycdn.com/web-sdk/latest/doc/modules/appboy.html#getcachedcontentcards) docs. 
 - **Frequency capping**: Frequency capping does not apply to Content Cards.
 - **Impressions**: Impressions are generally logged when a card is seen. For example, if you have a full inbox of Content Cards, an impression will not be logged until the user scrolls to the specific Content Card. There are some nuances between the Web, Android, and iOS platforms.
 - **SDK sessions and card creation**: Content Cards are not created for users without SDK sessions, even if those users meet the segment criteria. However, if a user already has an Android session, Content Cards with iOS-specific click actions will still be created, and the user can view those Content Cards on iOS once they have a session there. Refer to [Card creation]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card) for more information on when cards are created.  
@@ -96,7 +96,7 @@ For further assistance with Canvas and campaign troubleshooting, be sure to cont
 
 ### Things to know
 - **Web push**: If you have Braze [Web SDK setup]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web), consider utilizing Web push to engage users. Web push works the same way app push notifications operate on your phone. For more information on composing a web push, check out [Creating a push notification]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
-- **Targeting a singular app**: Review the [differences in segmentation]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#targeting-a-singular-app) to target a singular app and its users.
+- **Targeting a singular app**: Review the [differences in segmentation]({{site.baseurl}}/user_guide/get_started/workspaces) to target a singular app and its users.
 
 ## SMS
 

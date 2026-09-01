@@ -15,7 +15,7 @@ description: "Send transactional emails for critical, time-sensitive notificatio
 
 ## Prerequisites
 
-Transactional email is only available as part of select Braze packages. Contact your Braze customer success manager or open a [support ticket]({{site.baseurl}}/braze_support) for more details.
+Transactional email is only available as part of select Braze packages. Contact your Braze customer success manager or open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support) for more details.
 
 Before you start, make sure you have the following:
 
@@ -36,7 +36,7 @@ Transactional email is designed for sending non-promotional, service-triggered m
 
 ## How transactional email differs from marketing email
 
-Transactional emails are sent through a dedicated Braze [transactional HTTP API]({{site.baseurl}}/api/api_campaigns/transactional_api_campaign), which is optimized for speed and reliability. Unlike marketing emails, transactional emails:
+Transactional emails are sent through a dedicated Braze [transactional HTTP API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/), which is optimized for speed and reliability. Unlike marketing emails, transactional emails:
 
 - Don't require a user to be opted in to marketing communications
 - Are triggered by API calls rather than scheduled or action-based triggers

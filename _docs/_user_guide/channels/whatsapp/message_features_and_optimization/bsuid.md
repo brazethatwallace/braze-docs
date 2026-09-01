@@ -50,7 +50,7 @@ The key difference is that a user who adopts a username shares only their phone 
 
 ## How Braze will handle BSUIDs
 
-Braze will store BSUIDs as a [user alias]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases) with the label `whats_app_bsuid` on the user profile. This means BSUID-only users will have full Braze user profiles and can enter Canvases, receive messages, generate events, and be updated through the API.
+Braze will store BSUIDs as a [user alias]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases) with the label `whats_app_bsuid` on the user profile. This means BSUID-only users will have full Braze user profiles and can enter Canvases, receive messages, generate events, and be updated through the API.
 
 ### Send messages
 
@@ -202,7 +202,7 @@ We strongly recommend keeping the Contact Book enabled. If the Contact Book is d
 ## Additional resources
 
 * [WhatsApp setup]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)  
-* [User aliases]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases)  
+* [User aliases]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases)  
 * [WhatsApp subscription groups]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)  
-* [WhatsApp Currents events]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#whatsapp)  
+* [WhatsApp Currents events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#whatsapp-abort-events)  
 * [Meta: Business-scoped user IDs](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids)

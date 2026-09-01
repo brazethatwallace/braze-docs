@@ -346,7 +346,7 @@ public void onCreate() {
 {% endsubtab %}
 {% endsubtabs %}
 
-After creating the channel in your Android code, use the channel ID when sending push notifications from the Braze dashboard. For more information on notification channels, see [Android notification channels]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/).
+After creating the channel in your Android code, use the channel ID when sending push notifications from the Braze dashboard. For more information on notification channels, see [Android notification channels]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels/).
 
 ## Troubleshooting iOS builds after upgrading the plugin
 

@@ -32,5 +32,5 @@ Brazeユーザープロファイルのフィールド名（以下にリストさ
 }
 ```
 
-- [外部ユーザーID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
-- [ユーザーエイリアス]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
+- [外部ユーザー ID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
+- [ユーザーエイリアス]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases)

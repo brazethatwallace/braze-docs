@@ -23,8 +23,8 @@ Tealium AudienceStreams und EventStreams bieten sowohl Batch- als auch Non-Batch
 
 | Name | Beschreibung |
 | ---- | ----------- |
-| Tealium-Konto | Ein [Tealium-Konto](https://my.tealiumiq.com/) mit serverseitigem Zugriff ist erforderlich. Wir empfehlen, auch die clientseitigen Integrationen zu nutzen, um von dieser Partnerschaft zu profitieren. |
-| REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `users.track`, `users.delete` und `subscription.status.set`.<br><br>Dieser kann erstellt werden unter **Braze-Dashboard > Entwicklungskonsole > REST-API-Schlüssel > Neuen API-Schlüssel erstellen**. |
+| Tealium-Konto | Ein [Tealium-Konto](https://my.tealiumiq.com/) mit serverseitigem Zugriff ist erforderlich. Wir empfehlen außerdem die Verwendung der clientseitigen Integrationen, um diese Partnerschaft optimal zu nutzen. |
+| REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `users.track`, `users.delete` und `subscription.status.set`.<br><br>Dieser kann unter **Braze-Dashboard > Entwicklungskonsole > REST-API-Schlüssel > Neuen API-Schlüssel erstellen** erstellt werden. |
 | [Braze-REST-Endpunkt]({{site.baseurl}}/api/basics#endpoints) | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -213,24 +213,24 @@ Nachdem Ihr Konnektor betriebsbereit ist, sollten Sie ihn testen, um sicherzuste
 
 Ausführlichere Anweisungen zur Implementierung des Trace-Tools von Tealium finden Sie in der [Trace-Dokumentation](https://docs.tealium.com/server-side/connectors/trace/about/) von Tealium.
 
-## Demo zur Integration {#integration-demo}
+## Integrationsdemo {#integration-demo}
 
 <div class="video-container">
-  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" title="Demo zur Tealium-AudienceStream-Integration" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://drive.google.com/file/d/1m2JI4vdFt3fDePBdVvVcQWEjbC82ApGA/preview" title="Tealium AudienceStream Integrationsdemo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-## Mögliche Mehrkosten für Datenpunkte {#potential-data-point-overages}
+## Mögliche Datenpunkt-Mehrkosten {#potential-data-point-overages}
 
-Es gibt drei Hauptwege, wie Sie bei der Integration von Braze über Tealium versehentlich auf Mehrkosten bei den Datenpunkten stoßen können:
+Es gibt drei Hauptursachen, durch die bei der Integration von Braze über Tealium versehentlich Datenpunkt-Mehrkosten entstehen können:
 
 ### Doppelte Daten senden – nur Braze-Deltas von Attributen senden {#sending-duplicate-data-only-send-braze-deltas-of-attributes}
-Tealium sendet keine Braze-Deltas von Nutzerattributen. Wenn Sie zum Beispiel eine EventStream-Aktion haben, die den Vornamen, die E-Mail und die Handynummer von Nutzer:innen trackt, sendet Tealium alle drei Attribute an Braze, sobald die Aktion getriggert wird. Tealium sucht nicht danach, was sich geändert hat oder aktualisiert wurde, und sendet nur diese Informationen.<br><br>
-**Lösung**: <br>Sie können in Ihrem Backend überprüfen, ob sich ein Attribut geändert hat oder nicht, und wenn ja, die entsprechenden Methoden von Tealium aufrufen, um das Nutzerprofil zu aktualisieren. **Das tun Nutzer:innen, die Braze direkt integrieren, normalerweise auch.** <br>**ODER**<br> Wenn Sie keine eigene Version eines Nutzerprofils in Ihrem Backend speichern und nicht feststellen können, ob sich Attribute ändern oder nicht, können Sie AudienceStream verwenden und [Anreicherungen erstellen](https://docs.tealium.com/server-side/attributes/manage-enrichments/add-enrichment/), um Nutzerattribute nur dann zu senden, wenn sich die Werte geändert haben.
+Tealium sendet keine Braze-Deltas von Nutzerattributen. Wenn Sie beispielsweise eine EventStream-Aktion haben, die den Vornamen, die E-Mail-Adresse und die Handynummer eines Nutzers bzw. einer Nutzerin erfasst, sendet Tealium bei jedem Auslösen der Aktion alle drei Attribute an Braze. Tealium prüft nicht, was sich geändert hat oder aktualisiert wurde, um nur diese Informationen zu senden.<br><br>
+**Lösung**: <br>Sie können Ihr Backend überprüfen, um festzustellen, ob sich ein Attribut geändert hat, und falls ja, die entsprechenden Tealium-Methoden aufrufen, um das Nutzerprofil zu aktualisieren. **Dies ist das übliche Vorgehen von Nutzer:innen, die Braze direkt integrieren.** <br>**ODER**<br> Wenn Sie keine eigene Version eines Nutzerprofils in Ihrem Backend speichern und nicht feststellen können, ob sich Attribute geändert haben, können Sie AudienceStream nutzen und [Enrichments erstellen](https://docs.tealium.com/server-side/attributes/manage-enrichments/add-enrichment/), um Nutzerattribute nur dann zu senden, wenn sich Werte geändert haben.
 
 #### Irrelevante Daten senden oder Daten unnötig überschreiben {#sending-irrelevant-data-or-needlessly-overwriting-data}
-Wenn Sie mehrere EventStreams haben, die auf denselben Event-Feed zielen, werden **alle für diesen Konnektor aktivierten Aktionen** automatisch ausgelöst, sobald eine einzelne Aktion getriggert wird. **Dies kann auch dazu führen, dass Daten in Braze überschrieben werden.**<br><br>
-**Lösung**: <br>Richten Sie eine separate Ereignisspezifikation oder einen Feed ein, um jede Aktion zu tracken. <br>**ODER**<br> Deaktivieren Sie Aktionen (oder Konnektoren), die Sie nicht auslösen möchten, mit den Umschaltern im Tealium-Dashboard.
+Wenn Sie mehrere EventStreams haben, die denselben Event-Feed ansprechen, werden **alle für diesen Konnektor aktivierten Aktionen** automatisch ausgelöst, sobald eine einzelne Aktion getriggert wird. **Dies kann auch dazu führen, dass Daten in Braze überschrieben werden.**<br><br>
+**Lösung**: <br>Richten Sie eine separate Event-Spezifikation oder einen separaten Feed ein, um jede Aktion zu verfolgen. <br>**ODER**<br> Deaktivieren Sie Aktionen (oder Konnektoren), die nicht ausgelöst werden sollen, indem Sie die Umschalter im Tealium-Dashboard verwenden.
 
 #### Braze zu früh initialisieren {#initializing-braze-too-early}
-Wenn Sie Tealium mit dem Braze Web SDK Tag integrieren, können Sie einen dramatischen Anstieg Ihrer MAU verzeichnen. **Wenn Braze beim Laden der Seite initialisiert wird, erstellt Braze jedes Mal ein anonymes Profil, wenn Web-Nutzer:innen zum ersten Mal auf die Website navigieren.** Dies schließt Bot-Traffic ein, der Ihre Zahl aktiver Nutzer:innen aufblähen kann. Manche möchten das Nutzerverhalten nur dann tracken, wenn Nutzer:innen eine Aktion abgeschlossen haben, wie z. B. „Angemeldet“ oder „Video angesehen“, um ihre MAU-Zahl zu senken. <br><br>
-**Lösung**: <br>Richten Sie [Laderegeln](https://docs.tealium.com/iq-tag-management/load-rules/about/) ein, um genau zu bestimmen, wann und wo ein Tag auf Ihrer Website geladen wird. Umfassendere Anleitungen zum Filtern von Bot-Traffic und zur bedingten Initialisierung des SDK finden Sie unter [Bot-Traffic filtern]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_bot-filtering).
+Wenn Sie die Integration mit Tealium über den Braze Web SDK Tag durchführen, kann es zu einem drastischen Anstieg Ihrer MAU kommen. **Wenn Braze beim Laden der Seite initialisiert wird, erstellt Braze jedes Mal ein anonymes Profil, wenn ein:e Web-Nutzer:in die Website zum ersten Mal besucht.** Dies schließt Bot-Traffic ein, was Ihre Anzahl aktiver Nutzer:innen künstlich aufblähen kann. Einige möchten das Nutzerverhalten möglicherweise erst erfassen, wenn Nutzer:innen eine bestimmte Aktion abgeschlossen haben, wie z. B. „Angemeldet“ oder „Video angesehen“, um ihre MAU-Anzahl zu senken. <br><br>
+**Lösung**: <br>Richten Sie [Laderegeln](https://docs.tealium.com/iq-tag-management/load-rules/about/) ein, um genau festzulegen, wann und wo ein Tag auf Ihrer Website geladen wird. Eine umfassendere Anleitung zum Filtern von Bot-Traffic und zur bedingten Initialisierung des SDK finden Sie unter [Bot-Traffic filtern]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_bot-filtering).

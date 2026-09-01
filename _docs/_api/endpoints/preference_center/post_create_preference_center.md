@@ -6,7 +6,6 @@ page_order: 4
 layout: api_page
 page_type: reference
 description: "This article outlines details about the Create a preference center Braze endpoint."
-
 ---
 {% api %}
 # Create preference center
@@ -14,7 +13,7 @@ description: "This article outlines details about the Create a preference center
 /preference_center/v1
 {% endapimethod %}
 
-> Use this endpoint to create a preference center to allow users to manage their notification preferences for your email campaigns. Refer to [Create a preference center with API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api) for steps on how to build an API-generated preference center.
+> Use this endpoint to create a preference center to allow users to manage their notification preferences for your email campaigns. Refer to [Create a preference center with API]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/api_preference_center) for steps on how to build an API-generated preference center.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 

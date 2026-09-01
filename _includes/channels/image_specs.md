@@ -181,7 +181,7 @@ table td {
 | Banner    | Any aspect ratio | 600&nbsp;px minimum width |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Table" }
 
-For more information, refer to [Content Card creative details]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/).
+For more information, refer to [Content Card creative details]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/).
 
 {% endif %}
 

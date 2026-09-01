@@ -20,16 +20,15 @@ page_type: reference
 
 ## アクセス方法 {#how-to-access}
 
-HTMLメールテンプレートエディターで、**生成**サイドバーグループに**テンプレート**オプションがあります。これを選択すると、ブランドに沿ったHTMLメールテンプレートを生成または改善できます。オペレーターが[ブランド・ガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)を適用し、ブランドのボイスやスタイルに合った結果を生成します。
-
+HTMLメールテンプレートエディターの**生成**サイドバーグループには、**テンプレート**オプションがあります。これを選択すると、ブランドに沿ったHTMLメールテンプレートを生成または反復できます。オペレーターは[ブランド・ガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)を適用するため、結果はブランドのボイスとスタイルに一致します。
 
 ## 仕組み {#how-it-works}
 
-オペレーターは、[ブランド・ガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)と[グローバルスタイル設定]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/dnd_email_style_settings)を使用して、メッセージのコンテンツとスタイルをブランドに合わせて調整します。
+オペレーターは[ブランド・ガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)と[グローバルスタイル設定]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings)を使用して、メッセージのコンテンツとスタイルをブランドに合わせて調整します。
 
-たとえば、グローバルスタイル設定が設定されている場合、オペレーターはブランドのカラーやスタイルを取り入れます。Brazeでブランド・ガイドラインが定義されている場合、オペレーターはそれらも参照して、ブランドのトーンやパーソナリティに合ったコピーを作成します。
+たとえば、グローバルスタイル設定が設定されている場合、オペレーターはブランドのカラーやスタイルを反映します。Brazeでブランド・ガイドラインが定義されている場合、オペレーターはそれらも参照し、ブランドのトーンや個性に合ったコピーを作成します。
 
-オペレーターは、モバイルレスポンシブ対応のテンプレートへの改善も行います。
+また、オペレーターはモバイルレスポンシブに対応するようテンプレートを反復的に改善します。
 
 ## プロンプトの例 {#example-prompts}
 

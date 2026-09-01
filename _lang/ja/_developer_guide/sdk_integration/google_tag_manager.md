@@ -1,21 +1,14 @@
 ---
 nav_title: Google tag manager
-article_title: Braze SDKでのGoogle Tag Manager
+article_title: Google Tag Manager with the Braze SDK
 platform:
   - Android
   - FireOS
   - Swift
 page_order: 1.1
-description: "ランタイム初期化、遅延初期化、Google Tag Managerなどのメソッドを使用してBraze SDKを初期化する方法を説明します。"
+description: "Learn how to initialize the Braze SDK using methods like runtime initialization, delayed initialization, or Google Tag Manager."
 
 ---
-
-# Braze SDKでのGoogle Tag Manager {#google-tag-manager-with-the-braze-sdk}
-
-> [Google Tag Manager（GTM）](https://developers.google.com/tag-platform/tag-manager)をBraze SDKと組み合わせて使用し、コード変更や新しいアプリリリースを必要とせずに、Brazeのイベントトラッキングやユーザー属性の更新をリモートで制御する方法を説明します。
-
-{% sdktabs %}
-{% sdktab web %}
 ## Google Tag Manager for Webについて {#google-tag-manager}
 
 Google Tag Manager（GTM）を使えば、プロダクションコードのリリースやエンジニアリングリソースを必要とせずに、Webサイトのタグをリモートで追加、削除、編集できます。BrazeはWeb SDK用に以下のテンプレートを提供しています。
@@ -41,86 +34,18 @@ Google Tag Managerでタグシーケンスを設定するには：
 
 詳細については、[カスタムイベントのタグシーケンスの検証]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_tag-sequencing)を参照してください。
 
-## GTMで購入を記録する {#log-purchases-with-gtm}
+## トラブルシューティング
 
-Brazeアクションタグおよび Custom HTMLタグで`braze.logPurchase()`を呼び出して収益を記録します。レガシーの`appboy.logPurchase()`名前空間は、現在のWeb SDK連携ではサポートされていません。
+### Web SDKのセッションが誤ったユーザーに紐付けられる
 
-## GTMでカスタムイベントを記録する {#logging-custom-events-with-gtm}
+GTMがBrazeの初期化タグやイベントタグを、アプリがサインイン済みユーザーを特定する前に発火させると、セッションやイベントが誤ったプロファイルに紐付けられる場合があります。Web SDKを初期化し、サインイン済みユーザーの`external_id`を指定して`changeUser()`を呼び出し、その後イベントのロギングや属性の設定を行うタグの前に`openSession()`を呼び出してください。GTMのタグシーケンスや同意トリガーを使用して、認証フローが完了した後にのみBrazeタグが実行されるようにしてください。
 
-GTMの**Custom HTML**タグを使用してカスタムイベントを記録できます。このアプローチでは、GTMの[データレイヤー](https://developers.google.com/tag-platform/tag-manager/datalayer)を使用して、サイトからBraze Web SDKを呼び出すGTMタグにイベントデータを渡します。
+### ShopifyまたはスクリプトタグでインストールしたWeb SDKのコンソールログ
 
-### ステップ1：データレイヤーにイベントをプッシュする {#step-1-push-the-event-to-the-data-layer}
+Shopifyアプリの埋め込みはコンソールログをオフにしてWeb SDKを読み込みます。GTM初期化タグまたは`initialize()`オプションでログを設定してください。Brazeダッシュボードには、これらのローダーに対するログ制御は含まれていません。
 
-サイトのコードで、カスタムイベントをトリガーしたい場所でデータレイヤーにイベントをプッシュします。たとえば、ボタンがクリックされたときにカスタムイベントを記録するには：
+ブラウザコンソールにBrazeのログが表示される場合は、本番環境に公開する前にGTM初期化タグまたはカスタムHTMLから`enableLogging: true`を削除してください。初期化後は、`toggleLogging()`または`?brazeLogging=true` URLパラメーターを使用してください。Web SDKの全オプションについては、[詳細ログ]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)を参照してください。
 
-```html
-<button onclick="dataLayer.push({'event': 'my_custom_event'});">Track Event</button>
-```
+Brazeが初期化されない場合やイベントが期待どおりに表示されない場合は、GTMコンテナが公開済みであること、トリガーとタグの発火順序がSDKの[ライフサイクルと初期化戦略]({{site.baseurl}}/developer_guide/sdk_integration)と合致していること、テストデバイスがBrazeエンドポイントをブロックしていないことを確認してください。
 
-### ステップ2：GTMでトリガーを作成する {#step-2-create-a-trigger-in-gtm}
-
-1. GTMコンテナで、**Triggers**に移動し、新しいトリガーを作成します。
-2. **Trigger Type**を**Custom Event**に設定します。
-3. **Event Name**を、データレイヤーにプッシュした値と同じ値（たとえば`my_custom_event`）に設定します。
-4. トリガーを発火するタイミングを選択します（たとえば**All Custom Events**）。
-
-### ステップ3：Custom HTMLタグを作成する {#step-3-create-a-custom-html-tag}
-
-1. GTMで、**Tags**に移動し、新しいタグを作成します。
-2. **Tag Type**を**Custom HTML**に設定します。
-3. HTMLフィールドに以下を追加します：
-
-    ```html
-    <script>
-    window.braze.logCustomEvent("my_custom_event");
-    </script>
-    ```
-
-4. **Triggering**で、ステップ2で作成したトリガーを選択します。
-5. コンテナを保存して公開します。
-
-イベントプロパティを含めるには、2番目の引数として渡します：
-
-```html
-<script>
-window.braze.logCustomEvent("my_custom_event", {"property_key": "property_value"});
-</script>
-```
-
-## GoogleのEUユーザー同意ポリシー {#googles-eu-user-consent-policy}
-
-{% alert important %}
-Googleは、2024年3月6日に発効した[デジタル市場法（DMA）](https://ads-developers.googleblog.com/2023/10/updates-to-customer-match-conversion.html)の変更に対応して、[EUユーザー同意ポリシー](https://www.google.com/about/company/user-consent-policy/)を更新しています。この新しい変更により、広告主はEEAおよび英国のエンドユーザーに特定の情報を開示し、必要な同意を取得することが求められます。詳細については、以下のドキュメントを確認してください。
-{% endalert %}
-
-GoogleのEUユーザー同意ポリシーの一環として、以下のブール型カスタム属性をユーザープロファイルに記録する必要があります：
-
-- `$google_ad_user_data`
-- `$google_ad_personalization`
-
-GTM連携でこれらを設定する場合、カスタム属性にはCustom HTMLタグの作成が必要です。以下は、これらの値を（文字列ではなく）ブール型データとして記録する方法の例です：
-
-```js
-<script>
-window.braze.getUser().setCustomUserAttribute("$google_ad_personalization", true);
-</script>
-```
-
-詳細については、[Googleへのオーディエンス同期]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)を参照してください。
-
-{% endsdktab %}
-
-{% sdktab android %}
-{% multi_lang_include developer_guide/android/google_tag_manager.md %}
-{% endsdktab %}
-
-{% sdktab swift %}
-{% multi_lang_include developer_guide/swift/google_tag_manager.md %}
-{% endsdktab %}
-{% endsdktabs %}
-
-## トラブルシューティング {#troubleshooting}
-
-Brazeが初期化されない場合やイベントが期待どおりに表示されない場合は、GTMコンテナが公開されていること、トリガーとタグの発火順序がSDKの[ライフサイクルおよび初期化戦略]({{site.baseurl}}/developer_guide/sdk_integration)と一致していること、テストデバイスがBrazeのエンドポイントをブロックしていないことを確認してください。
-
-初期化の失敗については、Brazeタグまたはカスタムタグプロバイダーが期待される`actionType`とパラメーターを受信しているかを確認してください（このページのAndroid、Swift、Webタブを参照）。GTMから発火されたイベントを検証する際に詳細なログを取得するには、各タブからリンクされているプラットフォーム統合ガイドの説明に従って、プラットフォームのSDKデバッグログを有効にしてください。
+初期化の失敗については、Brazeタグまたはカスタムタグプロバイダーが期待される`actionType`とパラメーターを受信していることを確認してください（このページのAndroid、Swift、Webタブを参照）。GTMから発火されたイベントを検証する際の詳細ログについては、それらのタブからリンクされているプラットフォーム統合ガイドの説明に従って、各プラットフォームのSDKデバッグログを有効にしてください。

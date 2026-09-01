@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-The performance of the message across various channels. The metrics shown depend on the selected messaging channel, and whether the [Feature Flag experiment]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics) is a multivariate test.
+The performance of the message across various channels. The metrics shown depend on the selected messaging channel, and whether the [Feature Flag experiment]({{site.baseurl}}/developer_guide/feature_flags/experiments#campaign-analytics) is a multivariate test.
 
 {% endapi %}
 

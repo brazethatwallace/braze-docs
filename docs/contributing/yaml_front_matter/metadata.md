@@ -232,8 +232,9 @@ The `page_type` key is used to set formatting of a page. This key accepts any of
 - `landing`
 - `partner`
 - `update`
+- `FAQ`
 
-For more information about each value, see [Page types](page_layouts.md).
+For more information about each value, see [Page types](page_layouts.md). For FAQ hub structure and SEO guidance, see [SEO and AEO page template](../style_guide/seo_aeo_page_template.md).
 
 ### Usage example
 
@@ -244,6 +245,18 @@ page_type: tutorial
 ```
 
 
+
+### `search_rank`
+
+The `search_rank` key sets relative priority in Braze Docs on-site search. Lower numbers rank higher (for example, `1` before `10`). Use on high-traffic hub and channel landing pages. This key accepts any non-negative number.
+
+### Usage example
+
+```markdown
+---
+search_rank: 2
+---
+```
 
 ### `permalink`
 

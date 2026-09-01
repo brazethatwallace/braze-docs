@@ -17,49 +17,49 @@ La integración de Braze y Eppo te permite configurar pruebas A/B en Braze y ana
 
 ## Requisitos previos {#prerequisites}
 
-| Requisito | Descripción |
+| Requisito                          | Descripción                                                                         |
 |------------------------------------|-------------------------------------------------------------------------------------|
-| Cuenta Eppo | Se necesita una cuenta de Eppo para beneficiarse de esta asociación. |
-| Currents o uso compartido de datos de Snowflake | Para que Eppo analice los datos de los experimentos, es necesario Currents o el uso compartido de datos de Snowflake. |
+| Cuenta de Eppo                     | Se requiere una cuenta de Eppo para aprovechar esta integración.                    |
+| Currents o Snowflake Data Sharing  | Se requiere Currents o Snowflake Data Sharing para que Eppo pueda analizar los datos del experimento. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
-### Paso 1: Configurar Currents o el uso compartido de datos de Snowflake en Braze {#step-1-configure-currents-or-snowflake-data-sharing-in-braze}
+### Paso 1: Configura Currents o Snowflake Data Sharing en Braze {#step-1-configure-currents-or-snowflake-data-sharing-in-braze}
 
-Eppo analiza los experimentos directamente en tu almacén de datos. Para habilitar la integración, los datos de interacción con mensajes de Braze deben estar disponibles en el almacén conectado a Eppo. Puedes exportar datos de campañas desde Braze utilizando Currents, o acceder a los datos de Braze en tu instancia de Snowflake utilizando el [uso compartido de datos de Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/).
+Eppo analiza experimentos directamente en tu almacén de datos. Para habilitar la integración, los datos de participación en mensajes de Braze deben estar disponibles en el almacén conectado a Eppo. Puedes exportar datos de Campaigns desde Braze utilizando Currents, o acceder a los datos de Braze en tu instancia de Snowflake mediante [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake).
 
-### Paso 2: Configura tu experimento en una campaña o Canvas de Braze {#step-2-set-up-your-experiment-in-a-braze-campaign-or-canvas}
+### Paso 2: Configura tu experimento en una Campaign o Canvas de Braze {#step-2-set-up-your-experiment-in-a-braze-campaign-or-canvas}
 
-Puedes utilizar las características nativas de pruebas A/B en tus campañas y Canvas. Para saber más, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/#what-are-multivariate-and-ab-testing).
+Puedes utilizar las características nativas de pruebas A/B en tus Campaigns y Canvas. Para obtener más información, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
-### Paso 3: Configurar Eppo para medir experimentos de Braze {#step-3-set-up-eppo-to-measure-braze-experiments}
+### Paso 3: Configura Eppo para medir los experimentos de Braze {#step-3-set-up-eppo-to-measure-braze-experiments}
 
-Para realizar experimentos utilizando datos de Braze en Eppo, crea [tablas de asignaciones](https://docs.geteppo.com/data-management/definitions/assignment-sql/) en tu almacén basadas en los datos de eventos de mensajes a nivel de usuario exportados desde Braze. Se recomiendan tablas separadas para los experimentos en Canvas y en campañas, porque se basan en metadatos diferentes.
+Para ejecutar experimentos utilizando datos de Braze en Eppo, crea [tablas de asignaciones](https://docs.geteppo.com/data-management/definitions/assignment-sql/) en tu almacén basándote en los datos de eventos de mensajes a nivel de usuario exportados desde Braze. Se recomiendan tablas separadas para los experimentos en Canvas y en Campaigns, ya que dependen de metadatos diferentes.
 
 {% tabs local %}
-{% tab canvas experiments %}
+{% tab experimentos en Canvas %}
 Para los experimentos en Canvas, las asignaciones pueden crearse de dos formas:
 
-- En el nivel de entrada de Canvas (`users.canvas.Entry`)
+- A nivel de entrada del Canvas (`users.canvas.Entry`)
 - O en un paso de experimento en Canvas (`users.canvas.experimentstep.SplitEntry`)
 
-En estos casos, se utilizan campos como `canvas_name`, `experiment_step_id`, `canvas_variation_name` y `experiment_split_id` para definir el nombre y la variante del experimento.
+En estos casos, campos como `canvas_name`, `experiment_step_id`, `canvas_variation_name` y `experiment_split_id` se utilizan para definir el nombre del experimento y la variante.
 
 {% endtab %}
 
-{% tab campaign experiments %}
-Para los experimentos de campañas, utiliza eventos de envío (como push, correo electrónico, SMS) para determinar cuándo un usuario entró en el experimento. Se utilizan `campaign_name`, `message_variation_name` y `time` para rellenar la tabla de asignaciones.
+{% tab experimentos en Campaigns %}
+Para los experimentos en Campaigns, utiliza eventos de envío (como push, correo electrónico o SMS) para determinar cuándo un usuario entró en el experimento. Los campos `campaign_name`, `message_variation_name` y `time` se utilizan para poblar la tabla de asignaciones.
 
 {% endtab %}
 {% endtabs %}
 
-Para hacer un seguimiento de las métricas específicas de los mensajes (como clics o aperturas), incluye una **entidad secundaria** creando un `combined_id` que una el ID de usuario con el nombre de la campaña o Canvas. Este `combined_id` también se utiliza en tus tablas de hechos para alinear las métricas con el experimento y la variante correctos.
+Para realizar un seguimiento de métricas específicas de mensajes (como clics o aperturas), incluye una **Entidad secundaria** creando un `combined_id` que una el ID del usuario con el nombre de la Campaign o el Canvas. Este `combined_id` también se utiliza en tus tablas de hechos para alinear las métricas con el experimento y la variante correctos.
 
-Eppo utiliza estas asignaciones y tablas de hechos para analizar los resultados, y se recomienda establecer un **protocolo** en Eppo para estandarizar la configuración de futuros experimentos. Para más información, consulta [la documentación de Eppo](https://docs.geteppo.com/guides/marketing/integrating-with-braze/).
+Eppo utiliza estas asignaciones y tablas de hechos para analizar resultados, y se recomienda configurar un **Protocolo** en Eppo para estandarizar la configuración de futuros experimentos. Para más información, consulta la [documentación de Eppo](https://docs.geteppo.com/guides/marketing/integrating-with-braze/).
 
 ## Soporte {#support}
 
-Si tienes preguntas sobre cómo configurar Braze Currents, el uso compartido de datos de Snowflake o configurar campañas multivariantes, ponte en contacto con tu administrador del éxito del cliente de Braze.
+Si tienes preguntas sobre la configuración de Braze Currents, el uso compartido de datos de Snowflake o la configuración de Campaigns multivariantes, contacta a tu administrador de éxito de cliente de Braze.
 
-Si necesitas ayuda para configurar Eppo para medir experimentos de Braze, ponte en contacto con el equipo de soporte de Eppo.
+Para obtener asistencia con la configuración de Eppo para medir experimentos de Braze, contacta al equipo de soporte de Eppo.

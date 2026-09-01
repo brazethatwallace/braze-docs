@@ -12,7 +12,7 @@ tool: Canvas
 > Use this page to diagnose Canvas entry, send, and analytics issues. For definitions and deep dives, see the [Canvas FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs).
 
 {% alert note %}
-**Messaging History** and **Messaging Diagnostics** logs are available for up to **30 days** from the event. Contact [Braze Support]({{site.baseurl}}/braze_support) within that window if you need help investigating a specific incident.
+**Messaging History** and **Messaging Diagnostics** logs are available for up to **30 days** from the event. Contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) within that window if you need help investigating a specific incident.
 {% endalert %}
 
 ## Start here: Match your symptom
@@ -42,7 +42,7 @@ Use this workflow to investigate a specific user or an aggregate send issue. Sta
 5. Check aggregate outcomes on the Canvas analytics page by opening the [Messaging Diagnostics dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) and reviewing abort and drop reasons.
    - If you see an outcome you don't recognize, see [Abort outcomes]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard#abort-outcomes) in the diagnostics doc.
    - If a step shows zero entries (not zero sends), check the previous step type ([Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths), [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths), or [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)).
-6. If you're still blocked, contact [Braze Support]({{site.baseurl}}/braze_support) within 30 days with the Canvas ID, affected user IDs, timestamps (with timezone), and screenshots from Messaging History or Messaging Diagnostics.
+6. If you're still blocked, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) within 30 days with the Canvas ID, affected user IDs, timestamps (with timezone), and screenshots from Messaging History or Messaging Diagnostics.
 
 Before launch, use [Sending test Canvases]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases) and [Preview user paths]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) to validate your setup.
 
@@ -200,7 +200,7 @@ If the editor freezes on a large or complex Canvas, try the following:
 - Use Canvas zoom controls to reduce the view to 25% or 10% to lower the amount of UI the browser must render.
 - Try a different web browser.
 
-If the Canvas won't load and won't progress, a previous version didn't save correctly and may contain invalid steps. Duplicate the Canvas from the dashboard. If the issue persists, open a [support ticket]({{site.baseurl}}/braze_support).
+If the Canvas won't load and won't progress, a previous version didn't save correctly and may contain invalid steps. Duplicate the Canvas from the dashboard. If the issue persists, open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 For "Request Timed Out" support tickets, include a screen recording, timestamp and time zone, browser and version, steps to reproduce, and optionally a HAR log from your browser developer tools. See [What should I include when submitting a support ticket for a "Request Timed Out" error?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error) in the Canvas FAQ.
 
@@ -231,7 +231,7 @@ If you still need to launch the Canvas without changes and can't move to Canvas 
 
 ## When to contact Support
 
-Contact [Braze Support]({{site.baseurl}}/braze_support) within 30 days of the issue if you've completed the [standard investigation path](#standard-investigation-path) and still need help.
+Contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) within 30 days of the issue if you've completed the [standard investigation path](#standard-investigation-path) and still need help.
 
 Include:
 

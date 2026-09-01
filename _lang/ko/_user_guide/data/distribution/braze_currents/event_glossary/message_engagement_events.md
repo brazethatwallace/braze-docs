@@ -5,7 +5,7 @@ alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "이 용어집은 Braze가 추적하고 Currents를 사용하여 선택한 데이터 웨어하우스로 전송할 수 있는 다양한 메시지 인게이지먼트 이벤트를 나열합니다."
+description: "이 용어집에는 Braze가 추적하고 Currents를 사용하여 선택한 데이터 웨어하우스로 전송할 수 있는 다양한 메시지 인게이지먼트 이벤트가 나열되어 있습니다."
 tool: Currents
 search_rank: 6
 lazy_partner_tabs: true
@@ -15,13 +15,13 @@ lazy_partner_tabs: true
 
 {% details 스키마 범위 및 관련 리소스 %}
 
-스토리지 스키마는 데이터 웨어하우스 스토리지 파트너(Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage)에 전송하는 플랫 파일 이벤트 데이터에 적용됩니다. 다른 파트너에 적용되는 스키마는 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) 목록을 참조하고 각 파트너 페이지를 확인하세요.
+스토리지 스키마는 데이터 웨어하우스 스토리지 파트너(Google Cloud Storage, Amazon S3, Microsoft Azure Blob Storage)에 전송하는 플랫 파일 이벤트 데이터에 적용됩니다. 다른 파트너에 적용되는 스키마는 [사용 가능한 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) 목록을 참조하고 각 파트너의 해당 페이지를 확인하세요.
 
 {% alert tip %}
-이 이벤트는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder), [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments), [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)에서 SQL 테이블로도 사용할 수 있습니다. SQL 테이블 스키마 및 열 세부정보는 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)를 참조하세요.
+이러한 이벤트는 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder), [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments), [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)에서 SQL 테이블로도 사용할 수 있습니다. SQL 테이블 스키마 및 열 세부사항은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)를 참조하세요.
 {% endalert %}
 
-추가 이벤트 권한에 대한 액세스가 필요하면 계정 매니저에게 문의하거나 [지원 티켓]({{site.baseurl}}/user_guide/administer/personal/braze_support)을 열어주세요. 이 문서에서 필요한 내용을 찾을 수 없는 경우, [고객 행동 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 또는 [Currents 샘플 데이터 예제](https://github.com/Appboy/currents-examples/tree/master/sample-data)를 확인해 주세요.
+추가 이벤트 권한에 대한 액세스가 필요한 경우 계정 매니저에게 문의하거나 [지원 티켓]({{site.baseurl}}/user_guide/administer/personal/braze_support)을 개설하세요. 이 문서에서 필요한 내용을 찾지 못한 경우 [고객 행동 이벤트 라이브러리]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 또는 [Currents 샘플 데이터 예시](https://github.com/Appboy/currents-examples/tree/master/sample-data)를 확인하세요.
 
 {% enddetails %}
 
@@ -31,9 +31,9 @@ lazy_partner_tabs: true
 
 이 이벤트 분석은 메시지 인게이지먼트 이벤트에 일반적으로 포함되는 정보 유형을 보여줍니다. 구성 요소를 확실히 이해하면 개발자와 비즈니스 인텔리전스 전략 팀이 수신되는 Currents 이벤트 데이터를 사용하여 데이터 중심 보고서와 차트를 작성하고, 기타 유용한 데이터 측정기준을 활용할 수 있습니다.
 
-![사용자별 속성, 캠페인 또는 Canvas 추적 속성, 이벤트별 속성으로 그룹화된 나열된 속성과 함께 이메일 구독 취소 이벤트를 보여주는 메시지 인게이지먼트 이벤트 분석]({% image_buster /assets/img/message_engagement_event.png %})
+![사용자별 속성, 캠페인 또는 Canvas 추적 속성, 이벤트별 속성으로 그룹화된 속성이 나열된 이메일 구독 취소 이벤트를 보여주는 메시지 인게이지먼트 이벤트 분석]({% image_buster /assets/img/message_engagement_event.png %})
 
-메시지 인게이지먼트 이벤트는 **사용자별** 속성, **캠페인/Canvas 추적** 속성, **이벤트별** 속성으로 구성됩니다.
+메시지 인게이지먼트 이벤트는 **사용자별** 속성, **캠페인/캔버스 추적** 속성, **이벤트별** 속성으로 구성됩니다.
 
 ### 사용자 ID 스키마 {#user-id-schema}
 
@@ -48,7 +48,7 @@ lazy_partner_tabs: true
 ### 플랫폼 값 {#platform-values}
 
 특정 이벤트는 사용자 기기의 플랫폼을 지정하는 `platform` 값을 반환합니다.
-<br>다음 표는 반환될 수 있는 값을 자세히 설명합니다.
+<br>다음 표에서 반환될 수 있는 값을 자세히 설명합니다.
 
 | 사용자 기기 | 플랫폼 값 |
 | --- | --- |
@@ -63,11 +63,11 @@ lazy_partner_tabs: true
 
 {% enddetails %}
 
-{% details 메시지 인게이지먼트 이벤트에 대한 고려 사항 %}
+{% details 메시지 인게이지먼트 이벤트 관련 고려사항 %}
 
-- Currents는 페이로드가 900&nbsp;KB를 초과하는 이벤트를 삭제합니다.
-- Canvas Flow와 관련된 객체에는 그룹화에 사용할 수 있는 ID가 있으며, [Canvas 세부정보 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)를 통해 사람이 읽을 수 있는 이름으로 변환할 수 있습니다.
-- 캠페인이나 Canvas를 업데이트한 직후에는 특정 필드가 최신 상태를 즉시 표시하지 않을 수 있습니다.
+- Currents는 페이로드가 900&nbsp;KB보다 큰 이벤트를 삭제합니다.
+- Canvas Flow와 관련된 객체에는 그룹화에 사용하고 [Canvas 세부정보 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)를 통해 사람이 읽을 수 있는 이름으로 변환할 수 있는 ID가 있습니다.
+- 캠페인 또는 Canvas를 업데이트한 직후에는 특정 필드가 가장 최신 상태를 표시하지 않을 수 있습니다:
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -75,7 +75,7 @@ lazy_partner_tabs: true
   - `canvas_variation_name`
   - `experiment_split_name`
   - `message_variation_name`
-- 이러한 필드에 완전한 일관성이 필요한 경우, 마지막 업데이트 후 1시간 기다린 후 사용자에게 메시지를 전송하세요.
+- 이러한 필드의 완전한 일관성이 필요한 경우, 마지막 업데이트 후 1시간을 기다린 다음 사용자에게 메시지를 전송하세요.
 
 {% enddetails %}
 
@@ -1050,6 +1050,10 @@ Campaign, Conversion
 전환 이벤트는 `conversion_behavior` 필드에 인코딩되며, 여기에는 전환 이벤트 유형, 기간(타임프레임) 및 전환 이벤트 유형에 따른 추가 정보가 포함됩니다. `conversion_behavior_index` 필드는 전환 이벤트를 나타내며, 0 = A, 1 = B, 2 = C, 3 = D입니다.
 {% endalert %}
 
+{% alert note %}
+`message_extras` 필드는 발송 이벤트(예: 이메일 발송, 푸시 발송)에서만 사용할 수 있으며, 전환 이벤트에는 포함되지 않습니다. `message_extras` 데이터를 다운스트림 인게이지먼트와 연결하려면 `dispatch_id` 또는 `send_id`를 사용하여 데이터 웨어하우스에서 발송 이벤트와 전환 이벤트를 조인하세요. 전환율별 문구 효과를 평가하려면 [캠페인 배리언트]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/create_multivariate_campaign) 사용을 고려하세요.
+{% endalert %}
+
 {% tabs %}
 {% tab Cloud Storage %}
 ```json
@@ -1243,7 +1247,7 @@ Campaign, Conversion
 Campaign, Entry
 {% endapitags %}
 
-이 이벤트는 사용자가 멀티 배리언트 Campaign에 설정된 대조군 배리언트에 등록될 때 발생합니다. 이 사용자에 대한 채널 발송 이벤트가 없으므로 이 이벤트가 생성됩니다.
+이 이벤트는 사용자가 다변량 Campaign에 설정된 대조군 배리언트에 등록될 때 발생합니다. 이 사용자에 대한 채널 발송 이벤트가 없으므로 이 이벤트가 생성됩니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -1430,6 +1434,10 @@ Canvas, Conversion
 
 {% alert important %}
 전환 이벤트는 `conversion_behavior` 필드에 인코딩되며, 여기에는 전환 이벤트 유형, 기간(타임프레임) 및 전환 이벤트 유형에 따른 추가 정보가 포함됩니다. `conversion_behavior_index` 필드는 어떤 전환 이벤트인지를 나타내며, 0 = A, 1 = B, 2 = C, 3 = D입니다.
+{% endalert %}
+
+{% alert note %}
+`message_extras` 필드는 발송 이벤트(예: 이메일 발송, 푸시 발송)에서만 사용할 수 있으며, 전환 이벤트에는 포함되지 않습니다. `message_extras` 데이터를 다운스트림 인게이지먼트와 연결하려면 `send_id`를 사용하여 데이터 웨어하우스에서 발송 이벤트와 전환 이벤트를 조인하세요. 전환율별 문구 효과를 평가하려면 [Canvas 배리언트]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#creating-tests) 사용을 고려하세요.
 {% endalert %}
 
 {% tabs %}
@@ -2868,7 +2876,7 @@ Canvas, Entry
 {% endapi %}
 
 {% api %}
-## 캔버스 단계 진행 이벤트 {#canvas-step-progression-events}
+## Canvas 단계 진행 이벤트 {#canvas-step-progression-events}
 
 {% apitags %}
 Canvas, Progression
@@ -3082,7 +3090,7 @@ Canvas, Progression
 Banner, Abort
 {% endapitags %}
 
-이 이벤트는 원래 스케줄된 배너 메시지가 어떤 이유로 중단되었을 때 발생합니다.
+이 이벤트는 원래 예약된 배너 메시지가 어떤 이유로 중단되었을 때 발생합니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -3358,7 +3366,7 @@ Banner, Abort
 {% endtab %}
 {% endtabs %}
 
-### 속성 세부 정보
+### 속성 상세 정보
 
 - `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)을 참조하세요.
 - `abort_type`은 메시지가 글로벌 빈도 제한 규칙으로 인해 중단된 경우 `frequency_capped`가 됩니다.
@@ -4486,7 +4494,7 @@ Abort, Content Cards
 - `dispatch_id`는 Campaign 발송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하고, 해당 발송의 푸시 메시지 라이프사이클(발송, 반송, 열람 등)을 상관 분석할 수 있습니다.
 - `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)을 참조하세요.
 - 글로벌 빈도 제한 규칙으로 인해 메시지가 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
-- `abort_log`는 중단을 트리거한 특정 규칙에 대한 정보를 포함합니다. 예시: `Frequency cap rule: 5 Content Card messages every 1 week`
+- `abort_log`에는 중단을 트리거한 특정 규칙에 대한 정보가 포함됩니다. 예시: `Frequency cap rule: 5 Content Card messages every 1 week`
 
 {% endapi %}
 
@@ -6913,7 +6921,7 @@ Email, Delivery
 Email, Spam
 {% endapitags %}
 
-이 이벤트는 최종 사용자가 이메일의 "스팸" 버튼을 누를 때 발생합니다. Braze는 이메일이 스팸 폴더로 이동했는지 여부를 추적하지 않으므로, 이 이벤트가 스팸 폴더 이동을 나타내는 것은 아닙니다.
+이 이벤트는 최종 사용자가 이메일의 "스팸" 버튼을 눌렀을 때 발생합니다. Braze는 이메일이 스팸 폴더로 이동했는지 여부를 추적하지 않으므로, 이 이벤트가 스팸 폴더 이동을 나타내는 것은 아닙니다.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -8738,6 +8746,10 @@ In-App Messages, Abort
 {% endapitags %}
 
 이 이벤트는 원래 예약된 인앱 메시지가 중단되었을 때 발생합니다.
+
+{% alert note %}
+[중단 이벤트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)는 [템플릿 인앱 메시지]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated)에 대해서만 기록됩니다. 표준 인앱 메시지는 Liquid 평가가 트리거 동작 전에 발생하기 때문에 중단 이벤트를 기록하지 않습니다. 인앱 메시지 중단 동작에 대한 자세한 내용은 [인앱 메시지 FAQ]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#how-does-abort-behavior-work-for-in-app-messages)를 참조하세요.
+{% endalert %}
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -13849,7 +13861,7 @@ RCS, Delivery
 RCS, Inbound Received
 {% endapitags %}
 
-이 이벤트는 Braze가 사용자로부터 발생한 RCS 메시지를 수신할 때 생성됩니다.
+이 이벤트는 Braze가 사용자로부터 발신된 RCS 메시지를 수신할 때 생성됩니다.
 
 {% tabs %}
 {% tab Cloud Storage %}

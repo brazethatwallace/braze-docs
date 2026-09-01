@@ -10,11 +10,11 @@ Antes de começar, verifique se o seu ambiente é compatível com a [versão mai
 Adicione o SDK Cordova da Braze apenas usando os métodos a seguir. Não tente instalar usando outros métodos, pois isso pode causar uma falha de segurança.
 {% endalert %}
 
-Se você estiver usando o Cordova 6 ou posterior, pode adicionar o SDK diretamente do GitHub. Como alternativa, você pode baixar um ZIP do [repositório do GitHub](https://github.com/braze-inc/braze-cordova-sdk) e adicionar o SDK manualmente.
+Se você estiver usando o Cordova 6 ou posterior, pode adicionar o SDK diretamente do GitHub. Alternativamente, você pode baixar um ZIP do [repositório do GitHub](https://github.com/braze-inc/braze-cordova-sdk) e adicionar o SDK manualmente.
 
 {% tabs local %}
 {% tab geofence desativado %}
-Se você não planeja usar coleta de localização e geofences, use a branch `master` do GitHub.
+Se você não pretende usar coleta de localização e geofences, use a branch `master` do GitHub.
 
 ```bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
@@ -22,7 +22,7 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#master
 {% endtab %}
 
 {% tab geofence ativado %}
-Se você planeja usar coleta de localização e geofences, use a `geofence-branch` do GitHub.
+Se você pretende usar coleta de localização e geofences, use a `geofence-branch` do GitHub.
 
 ```bash
 cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branch
@@ -103,7 +103,7 @@ As preferências de inteiros são lidas como representações de string, como no
 {% endtab %}
 
 {% tab android %}
-Devido à forma como o framework Cordova 8.0.0+ lida com preferências, as preferências exclusivamente de inteiros (como IDs de remetente) devem ser definidas como strings precedidas por `str_`, como no exemplo a seguir:
+Devido à forma como o framework do Cordova 8.0.0+ lida com preferências, as preferências exclusivamente numéricas (como IDs de remetente) devem ser definidas como strings com o prefixo `str_`, como no exemplo a seguir:
 
 ```xml
 <platform name="android">
@@ -286,11 +286,11 @@ Para começar a rastrear as sessões novamente, chame `BrazePlugin.startSessionT
 
 No Android 8.0 (API nível 26) e versões posteriores, o comportamento das notificações é controlado por meio de canais de notificação. Para exibir notificações heads-up — alertas que aparecem brevemente no topo da tela enquanto o usuário está usando o dispositivo — você deve criar um canal de notificação com `NotificationManager.IMPORTANCE_HIGH` no código da sua aplicação Android.
 
-Embora o SDK do Cordova permita definir o nome e a descrição padrão do canal de notificação por meio das preferências do `config.xml` (`default_notification_channel_name` e `default_notification_channel_description`), o nível de importância deve ser configurado programaticamente no seu código nativo Android.
+Embora o SDK do Cordova permita definir o nome e a descrição padrão do canal de notificação por meio de preferências no `config.xml` (`default_notification_channel_name` e `default_notification_channel_description`), o nível de importância deve ser configurado programaticamente no seu código nativo Android.
 
 ### Exemplo: Criando um canal de notificação de alta importância {#example-creating-a-high-importance-notification-channel}
 
-Adicione o seguinte código ao método `onCreate()` da classe `Application` da sua aplicação Android:
+Adicione o código a seguir ao método `onCreate()` da classe `Application` da sua aplicação Android:
 
 {% subtabs local %}
 {% subtab Kotlin %}
@@ -347,3 +347,7 @@ public void onCreate() {
 {% endsubtabs %}
 
 Após criar o canal no seu código Android, use o ID do canal ao enviar notificações por push pelo dashboard da Braze. Para saber mais sobre canais de notificação, consulte [Canais de notificação do Android]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels).
+
+## Solução de problemas em builds iOS após a atualização do plugin {#troubleshooting-ios-builds-after-upgrading-the-plugin}
+
+O SDK da Braze para Cordova 9.0.0 e versões posteriores utiliza o Swift SDK 9.0.0 ou posterior. A partir do Swift SDK 8.0.0, esse SDK nativo é compilado com o **Xcode 15.2**. Se o seu build iOS falhar após a atualização do plugin Cordova para 9.0.0 ou posterior, atualize o Xcode para a versão 15.2 ou mais recente e confirme se ele corresponde ao [changelog do Swift SDK]({{site.baseurl}}/developer_guide/changelogs/?sdktab=swift) para a versão nativa do iOS que seu plugin utiliza.

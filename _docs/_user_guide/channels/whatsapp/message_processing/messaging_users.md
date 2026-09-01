@@ -7,7 +7,6 @@ channel:
   - WhatsApp
 page_order: 5.1
 alias: /whatsapp_quick_replies/
-
 ---
 
 # User messages
@@ -185,7 +184,7 @@ sequenceDiagram
 
 ### Filtering by a custom time attribute
 
-If your action-based WhatsApp campaign or Canvas audience depends on a custom time attribute falling within a relative window (for example, between now and the next 24 hours), combine two filters as described in [Time]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes#time).
+If your action-based WhatsApp campaign or Canvas audience depends on a custom time attribute falling within a relative window (for example, between now and the next 24 hours), combine two filters as described in [Time]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types).
 
 ### Inbound media storage and URL expiration
 

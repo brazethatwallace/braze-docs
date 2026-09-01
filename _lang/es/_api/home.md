@@ -7,7 +7,7 @@ glossary_top_header: "Guía de la API de Braze"
 glossary_top_text: "Braze ofrece una REST API de alto rendimiento para rastrear usuarios, enviar mensajes, exportar datos y gestionar Campaigns, Canvas, catálogos y más. Usa este glosario para explorar los endpoints por tipo, abre artículos de referencia para ver detalles de solicitudes y respuestas, y encuentra enlaces a documentación sobre autenticación, límites de velocidad y objetos."
 description: "Explora los endpoints de la REST API de Braze por tipo, con enlaces a documentación sobre autenticación, límites de velocidad y referencia de objetos."
 page_type: glossary
-glossary_tag_name: Endpoint Type
+glossary_tag_name: Tipo de endpoint
 
 glossary_filter_text: "Selecciona el tipo de endpoint para filtrar el glosario:"
 
@@ -40,8 +40,10 @@ glossary_tags:
   - name: Catalogs
   - name: Content Blocks
   - name: Custom Events
+  - name: Custom Objects
   - name: Email List
   - name: Email Templates
+  - name: Webhook Templates
   - name: KPI
   - name: Media Library
   - name: Device Messaging API
@@ -107,6 +109,46 @@ glossaries:
     description: Fusiona un perfil de usuario con otro usuario.
     tags:
       - User Data
+  - name: <a href='/docs/api/endpoints/custom_objects'>/custom_objects/*</a>
+    description: Consulta la referencia completa de endpoints de objetos personalizados, incluyendo tipos de objeto, objetos y endpoints de relaciones.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_custom_object_types'>/custom_objects/types</a>
+    description: Lista los tipos de objeto personalizado en el espacio de trabajo.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_custom_object_type'>/custom_objects/types/{type_name}</a>
+    description: Obtiene un tipo de objeto personalizado y su definición de esquema.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_user_relationship_types'>/custom_objects/types/{type_name}/user_relationship_types</a>
+    description: Lista los tipos de relación de usuario para un tipo de objeto personalizado.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/types/get_list_object_relationship_types'>/custom_objects/types/{type_name}/object_relationship_types</a>
+    description: Lista los tipos de relación de objeto para un tipo de objeto personalizado.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_list_custom_objects'>/custom_objects/objects/{type_name}</a>
+    description: Lista los objetos personalizados de un tipo.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/objects/get_custom_object'>/custom_objects/objects/{type_name}/{external_id}</a>
+    description: Obtiene un objeto personalizado, o lo reemplaza, actualiza y elimina.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/object_relationships/get_list_object_relationships'>/custom_objects/objects/{type_name}/{external_id}/object_relationships</a>
+    description: Lista, crea, reemplaza, actualiza y elimina relaciones entre objetos.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/get_list_user_relationships'>/custom_objects/objects/{type_name}/{external_id}/user_relationships</a>
+    description: Lista las relaciones de usuario para un objeto personalizado.
+    tags:
+      - Custom Objects
+  - name: <a href='/docs/api/endpoints/custom_objects/user_relationships/post_create_user_relationship'>/custom_objects/objects/{type_name}/{external_id}/users</a>
+    description: Crea, reemplaza, actualiza y elimina relaciones entre usuarios y objetos.
+    tags:
+      - Custom Objects
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns'>/campaigns/trigger/send</a>
     description: Envía mensajes inmediatos y puntuales a usuarios designados mediante entrega desencadenada por API.
     tags:
@@ -235,6 +277,18 @@ glossaries:
     description: Obtiene una lista de las plantillas de correo electrónico disponibles en tu cuenta de Braze.
     tags:
       - Email Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_source_webhook_template'>/templates/webhook/translations/source</a>
+    description: Consulta las traducciones de origen predeterminadas de una plantilla de webhook.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/get_view_translations_webhook_template'>/templates/webhook/translations</a>
+    description: Consulta las traducciones de una plantilla de webhook.
+    tags:
+      - Webhook Templates
+  - name: <a href='/docs/api/endpoints/translations/webhook_templates/put_update_webhook_template'>/templates/webhook/translations</a>
+    description: Actualiza las traducciones de una plantilla de webhook.
+    tags:
+      - Webhook Templates
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaign_analytics'>/campaigns/data_series</a>
     description: Recupera una serie diaria de diversas estadísticas de una Campaign a lo largo del tiempo.
     tags:
@@ -256,7 +310,7 @@ glossaries:
     tags:
       - Canvas
   - name: <a href='/docs/api/endpoints/export/canvas/get_canvas_analytics_summary'>/canvas/data_summary</a>
-    description: Exporta resúmenes acumulados de datos de series temporales para un Canvas, proporcionando un resumen conciso de los resultados de un Canvas.
+    description: Exporta resúmenes acumulados de datos de series temporales para un Canvas, proporcionando un resumen conciso de los resultados del Canvas.
     tags:
       - Canvas
   - name: <a href='/docs/api/endpoints/export/canvas/get_canvas_details'>/canvas/details</a>

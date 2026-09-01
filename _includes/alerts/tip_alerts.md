@@ -9,7 +9,7 @@ You can also manage subscriptions on a Braze landing page. Add a **Manage Subscr
 {% if include.alert == "Liquid email display name and reply-to address" %}
 
 {% alert tip %}
-You can use [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/) in the **From Display Name + Address** and **Reply-To Address** fields to dynamically template these based on custom attributes. This allows you to send from different brands, regions, or departments using a single email campaign or Canvas step.
+You can use [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) in the **From Display Name + Address** and **Reply-To Address** fields to dynamically template these based on custom attributes. This allows you to send from different brands, regions, or departments using a single email campaign or Canvas step.
 {% endalert %}
 
 {% endif %}
@@ -17,7 +17,7 @@ You can use [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_con
 {% if include.alert == "Reference properties from triggering event" %}
 
 {% alert tip %}
-You don't need a Context step to reference properties from the triggering event in [Audience Paths]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/audience_paths) or [Decision Split]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/decision_split) steps. You can reference the properties directly in the filter groups with the **Context Variable** filter. Make sure to select the correct data type.
+You don't need a Context step to reference properties from the triggering event in [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) or [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) steps. You can reference the properties directly in the filter groups with the **Context Variable** filter. Make sure to select the correct data type.
 {% endalert %}
 
 {% endif %}
@@ -33,7 +33,7 @@ To pull in images for catalog trigger items, your catalog must include a field n
 {% if include.alert == 'Export troubleshooting' %}
 
 {% alert tip %}
-For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/export_braze_data/export_troubleshooting/).
+For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
 {% endalert %}
 
 {% endif %}

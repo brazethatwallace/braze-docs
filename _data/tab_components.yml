@@ -1,0 +1,140 @@
+generic:
+  tabs:
+    toggle:
+      default: tab_toggle
+      local: tab_toggle_only
+    id_prefix: tab_
+    tab_scan_regex: 'data-tab="(.*?)"'
+    nav:
+      role: tablist
+      classes: ab-nav ab-nav-tabs
+      ul_suffix: _ul
+      id_suffix: _nav
+    list_item:
+      role: presentation
+      id_prefix: mt_
+      row_class: coderow
+      active_class: active
+    link:
+      role: tab
+      target_attr: data-tab-target
+      tab_attr: data-tab
+    content:
+      classes: ab-tab-content
+      div_suffix: _div
+  tab:
+    id_prefix: mc_
+    role: tabpanel
+    tabindex: "0"
+    pane_class: ab-tab-pane
+    pane_slug_suffix: "_tab "
+    tab_attr: data-tab
+  subtabs:
+    toggle:
+      default: sub_tab_toggle
+      non_global: sub_tab_toggle_only
+    id_prefix: sub_tab_
+    tab_scan_regex: 'data-sub_tab="(.*?)"'
+    nav:
+      role: tablist
+      classes: ab-sub_nav ab-sub_nav-sub_tabs
+      ul_suffix: _ul
+      id_suffix: _nav
+    list_item:
+      role: presentation
+      id_prefix: st_
+      row_class: coderow
+      slug_suffix: _sub_tab
+      active_class: sub_active
+    link:
+      role: tab
+      target_attr: data-sub_tab-target
+      tab_attr: data-sub_tab
+      slug_suffix: _sub_tab
+    content:
+      classes: ab-sub_tab-content
+      div_suffix: _div
+  subtab:
+    id_prefix: sc_
+    role: tabpanel
+    tabindex: "0"
+    pane_class: ab-sub_tab-pane
+    pane_slug_suffix: "_sub_tab "
+    tab_attr: data-sub_tab
+
+sdk:
+  tabs:
+    toggle:
+      default: sdk-tab_toggle
+      local: sdk-tab_toggle_only
+    id_prefix: sdk-tab_
+    tab_scan_regex: 'data-sdk-tab="sdk-(.*?)"'
+    nav:
+      role: tablist
+      classes: sdk-ab-nav sdk-ab-nav-tabs
+      ul_suffix: _ul
+      id_suffix: _nav
+    list_item:
+      role: presentation
+      id_prefix: sdkt_
+      row_class: sdkrow
+      active_class: active
+    link:
+      role: tab
+      target_attr: data-sdk-tab-target
+      tab_attr: data-sdk-tab
+    content:
+      classes: sdk-tab-content
+      div_suffix: _div
+  tab:
+    id_prefix: sdkc_
+    role: tabpanel
+    tabindex: "0"
+    pane_class: sdk-ab-tab-pane
+    pane_slug_suffix: "_tab "
+    tab_attr: data-sdk-tab
+    data_value_prefix: sdk-
+    heading_id_prefix_suffix: _
+  subtabs:
+    toggle:
+      default: sub_sdk-tab_toggle
+      non_global: sub_sdk-tab_toggle_only
+    id_prefix: sub_sdk-tab_
+    tab_scan_regex: 'data-sdk-sub_tab="(.*?)"'
+    nav:
+      role: tablist
+      classes: sdk-ab-sub_nav sdk-ab-sub_nav-sub_tabs
+      ul_suffix: _ul
+      id_suffix: _nav
+    list_item:
+      role: presentation
+      id_prefix: sdkst_
+      row_class: coderow
+      slug_suffix: _sub_sdk_tab
+      active_class: sub_active
+    link:
+      role: tab
+      target_attr: data-sdk-sub_tab-target
+      tab_attr: data-sdk-sub_tab
+      slug_suffix: _sub_sdk_tab
+    content:
+      classes: sdk-ab-sub_tab-content
+      div_suffix: _sdk_div
+  subtab:
+    id_prefix: sdksc_
+    role: tabpanel
+    tabindex: "0"
+    pane_class: sdk-ab-sub_tab-pane
+    pane_slug_suffix: "_sub_sdk_tab "
+    tab_attr: data-sdk-sub_tab
+
+glossary:
+  lazy:
+    fragments_dir: currents_glossary_tab_fragments
+    pane_class: ab-tab-pane
+    lazy_attribute: data-currents-lazy
+    fragment_attribute: data-currents-fragment
+    placeholder_class: currents-lazy-tab-placeholder
+    page_front_matter_key: lazy_partner_tabs
+    loading_text_i18n_key: glossary_currents_events_loading
+    loading_text_default: "Loading schema…"

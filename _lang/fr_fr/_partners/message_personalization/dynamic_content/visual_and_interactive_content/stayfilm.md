@@ -19,40 +19,40 @@ _Cette intégration est maintenue par Stayfilm._
 
 Stayfilm prend en charge la diffusion de vidéos personnalisées tout au long du cycle de vie client, notamment :
 
-- **Parcours d'onboarding et de bienvenue :** accueillez les nouveaux utilisateurs avec des vidéos personnalisées en fonction de leur profil ou de leur contexte d'inscription
-- **Contenu produit et marketplace :** générez des vidéos axées sur les produits à partir de catalogues ou de médias fournis par les utilisateurs
-- **Conversion et activation :** renforcez les actions clés avec des messages vidéo contextuels
-- **Fidélisation et ventes additionnelles :** mettez en avant des offres personnalisées ou des jalons d'utilisation au format vidéo
-- **Reconquête et prévention de l'attrition :** réengagez les utilisateurs inactifs avec du contenu vidéo sur mesure
+- **Onboarding et parcours de bienvenue :** Accueillez les nouveaux utilisateurs avec des vidéos personnalisées en fonction de leur profil ou de leur contexte d'inscription
+- **Contenu produit et marketplace :** Générez des vidéos axées sur les produits à partir du catalogue ou de médias fournis par l'utilisateur
+- **Conversion et activation :** Renforcez les actions clés avec des messages vidéo contextuels
+- **Fidélisation et upsell :** Mettez en avant des offres personnalisées ou des jalons d'utilisation au format vidéo
+- **Reconquête et prévention de l'attrition :** Réengagez les utilisateurs inactifs avec du contenu vidéo sur mesure
 
 ## Prérequis {#prerequisites}
 
 Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
-| Condition | Description |
-| --------- | ----------- |
-| Accès à l'API Stayfilm | Contactez Stayfilm pour obtenir les identifiants de votre projet, notamment `idproject`, `Subscription-Key`, les identifiants client OAuth et l'URL de base de l'API Stayfilm. Pour les détails d'authentification et d'endpoint, consultez la [documentation de l'API Stayfilm](https://apidoc.stayfilm.com). |
-| Transformation de données Braze | Utilisez la [transformation de données Braze]({{site.baseurl}}/user_guide/data/unification/data_transformation) pour recevoir les rappels Stayfilm et les associer aux profils utilisateur Braze via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). |
-| Identifiant utilisateur Braze | Ce guide utilise `external_id` pour corréler les tâches Stayfilm avec les profils utilisateur Braze. La valeur que vous transmettez dans `CallbackRelayData` doit correspondre à l'`external_id` de l'utilisateur dans Braze. |
-| Sandbox Braze (recommandé) | Testez l'intégration dans un espace de travail sandbox Braze avant de la déployer en production. |
+| Exigence | Description |
+| ----------- | ----------- |
+| Accès à l'API Stayfilm | Contactez Stayfilm pour obtenir les identifiants de votre projet, y compris `idproject`, `Subscription-Key`, les identifiants client OAuth et l'URL de base de l'API Stayfilm. Pour les détails d'authentification et des endpoints, consultez la [documentation de l'API Stayfilm](https://apidoc.stayfilm.com). |
+| Braze Data Transformation | Utilisez [Braze Data Transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) pour recevoir les rappels de Stayfilm et les associer aux profils utilisateur Braze via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). |
+| Identifiant utilisateur Braze | Ce guide utilise `external_id` pour associer les tâches Stayfilm aux profils utilisateur Braze. La valeur que vous transmettez dans `CallbackRelayData` doit correspondre à l'`external_id` de l'utilisateur dans Braze. |
+| Sandbox Braze (recommandé) | Testez l'intégration dans un espace de travail sandbox Braze avant de déployer en production. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 
 ## Fonctionnement de l'intégration {#how-the-integration-works}
 
-Cette intégration utilise un flux webhook bidirectionnel :
+Cette intégration utilise un flux de webhooks bidirectionnel :
 
-1. **Sortant :** une [Campaign webhook]({{site.baseurl}}/user_guide/channels/webhooks) Braze envoie une tâche de rendu à l'endpoint Stayfilm `POST /Job`. La requête inclut les médias de l'utilisateur, la configuration du modèle et `CallbackRelayData` défini sur l'`external_id` de l'utilisateur Braze.
-2. **Entrant :** lorsque Stayfilm termine le rendu, il envoie un rappel à l'URL webhook de votre transformation de données Braze. La transformation associe la réponse à des [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) et des événements personnalisés sur le profil utilisateur correspondant.
-3. **Diffusion :** utilisez l'attribut `stayfilm_video_url` stocké dans les canaux de communication, par exemple un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages) avec du HTML personnalisé.
+1. **Sortant :** Une [Campaign webhook]({{site.baseurl}}/user_guide/channels/webhooks) Braze envoie une tâche de rendu à l'endpoint Stayfilm `POST /Job`. La requête inclut les médias de l'utilisateur, la configuration du modèle et `CallbackRelayData` défini sur l'`external_id` de l'utilisateur Braze.
+2. **Entrant :** Lorsque Stayfilm termine le rendu, il envoie un rappel à l'URL de votre webhook de transformation de données Braze. La transformation associe la réponse à des [attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) et des événements personnalisés sur le profil utilisateur correspondant.
+3. **Distribution :** Utilisez l'attribut `stayfilm_video_url` stocké dans les canaux de communication, par exemple un [message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages) avec du HTML personnalisé.
 
-La transformation de données de ce guide écrit les attributs personnalisés suivants :
+La transformation de données présentée dans ce guide écrit les attributs personnalisés suivants :
 
 | Attribut | Description |
-| -------- | ----------- |
+| --------- | ----------- |
 | `stayfilm_video_status` | `ready` lorsque le rendu réussit, ou `failed` lorsque Stayfilm signale une erreur |
 | `stayfilm_video_url` | URL de la vidéo MP4 rendue |
 | `stayfilm_job_id` | Identifiant de la tâche Stayfilm |
-| `stayfilm_render_error` | Message d'erreur en cas d'échec du rendu |
+| `stayfilm_render_error` | Message d'erreur lorsque le rendu échoue |
 | `stayfilm_callback_received_at` | Horodatage ISO du rappel |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Attributs personnalisés" }
 
@@ -60,32 +60,32 @@ La transformation enregistre également des événements personnalisés nommés 
 
 ## Intégration {#integration}
 
-Les étapes suivantes vous guident à travers une preuve de concept. Après avoir validé le flux, adaptez le payload de la tâche, les attributs et la communication à votre cas d'usage.
+Les étapes suivantes vous guident dans une preuve de concept. Une fois le flux validé, adaptez le payload du job, les attributs et les messages à votre cas d'usage.
 
 ### Étape 1 : Créer un utilisateur test {#step-1-create-a-test-user}
 
 Créez un profil utilisateur test à utiliser pendant la construction et la validation de l'intégration. Pour plus d'informations, consultez [Importer des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
 
-1. Accédez à **Audience** > **Importer des utilisateurs**.
-2. Sélectionnez **Ajout rapide d'utilisateur**.
-3. Saisissez un `external_id` et tout autre champ requis, puis sélectionnez **Créer un nouvel utilisateur**.
+1. Accédez à **Audience** > **Import Users**.
+2. Sélectionnez **Quick User Add**.
+3. Saisissez un `external_id` ainsi que tous les autres champs requis, puis sélectionnez **Create new user**.
 
 {% alert important %}
-N'utilisez pas de données personnelles — telles que l'e-mail, le numéro de téléphone, le nom complet, le numéro d'identification gouvernemental, l'adresse ou les détails de commande — comme `external_id`. Traitez `external_id` comme sensible à la casse tout au long de cette intégration.
+N'utilisez pas de données personnelles (telles que l'e-mail, le numéro de téléphone, le nom complet, un numéro d'identification gouvernemental, l'adresse ou les détails de commande) comme `external_id`. Traitez `external_id` comme sensible à la casse tout au long de cette intégration.
 {% endalert %}
 
-Ce guide utilise `stayfilm-poc-001` comme exemple d'`external_id`. Notez la valeur que vous choisissez, car vous l'utiliserez dans les étapes suivantes.
+Ce guide utilise `stayfilm-poc-001` comme exemple d'`external_id`. Notez la valeur choisie, car vous l'utiliserez dans les étapes suivantes.
 
 ### Étape 2 : Créer une transformation de données {#step-2-create-a-data-transformation}
 
 Créez une transformation de données pour recevoir les rappels Stayfilm et mettre à jour les profils utilisateur.
 
-1. Accédez à **Paramètres des données** > **Transformation de données**.
-2. Sélectionnez **Créer une transformation**.
+1. Accédez à **Data Settings** > **Data Transformation**.
+2. Sélectionnez **Create transformation**.
 3. Saisissez un nom, par exemple `Stayfilm Callback Data Transformation`.
-4. Sous **Expérience d'édition**, sélectionnez **Partir de zéro**.
-5. Sous **Sélectionner la destination** > **Destination**, sélectionnez **POST: Track users**.
-6. Sélectionnez **Créer une transformation**.
+4. Sous **Editing experience**, sélectionnez **Start from scratch**.
+5. Sous **Select destination** > **Destination**, sélectionnez **POST: Track users**.
+6. Sélectionnez **Create transformation**.
 7. Remplacez le code de transformation par défaut par le suivant :
 
 ```javascript
@@ -134,8 +134,8 @@ return brazecall;
 ```
 
 {: start="8"}
-8. Sélectionnez **Enregistrer**, puis copiez l'URL webhook générée.
-9. Envoyez une requête `POST` de test à l'URL webhook avec le JSON de rappel Stayfilm suivant. Définissez `RelayedData` sur l'`external_id` de l'utilisateur test que vous avez créé à l'étape 1.
+8. Sélectionnez **Save**, puis copiez l'URL de webhook générée.
+9. Envoyez une requête `POST` de test à l'URL du webhook avec l'exemple de JSON de rappel Stayfilm suivant. Définissez `RelayedData` sur l'`external_id` de l'utilisateur test créé à l'étape 1.
 
 ```json
 {
@@ -156,30 +156,30 @@ return brazecall;
 Envoyez la requête avec cURL, Postman ou un outil similaire. Une réponse réussie renvoie le statut HTTP `201` avec `{"message": "success"}`.
 
 {: start="10"}
-10. Accédez à **Paramètres des données** > **Transformation de données** et rechargez la page si votre transformation n'apparaît pas dans la liste.
-11. Ouvrez la transformation et sélectionnez **Valider**. Confirmez que la validation réussit dans **Sortie**.
-12. Sélectionnez **Activer**.
-13. Fournissez l'URL webhook copiée à Stayfilm comme URL de rappel.
+10. Accédez à **Data Settings** > **Data Transformation** et rechargez la page si votre transformation n'apparaît pas dans la liste.
+11. Ouvrez la transformation et sélectionnez **Validate**. Confirmez que la validation réussit dans **Output**.
+12. Sélectionnez **Activate**.
+13. Fournissez l'URL de webhook copiée à Stayfilm comme URL de rappel.
 
 {% alert note %}
 Si vous stockez plus que l'`external_id` Braze dans `CallbackRelayData`, mettez à jour le code de transformation pour analyser `RelayedData` en conséquence.
 {% endalert %}
 
-### Étape 3 : Créer une Campaign webhook pour envoyer des tâches à Stayfilm {#step-3-create-a-webhook-campaign-to-send-jobs-to-stayfilm}
+### Étape 3 : Créer une Campaign webhook pour envoyer des jobs à Stayfilm {#step-3-create-a-webhook-campaign-to-send-jobs-to-stayfilm}
 
-Créez une [Campaign webhook]({{site.baseurl}}/user_guide/channels/webhooks) qui soumet des tâches de rendu à Stayfilm.
+Créez une [Campaign webhook]({{site.baseurl}}/user_guide/channels/webhooks) qui soumet des jobs de rendu à Stayfilm.
 
 {% alert important %}
 Avant de tester la Campaign, confirmez que Stayfilm a configuré votre projet avec l'URL de rappel de la transformation de données de l'étape 2.
 {% endalert %}
 
-1. Accédez à **Messagerie** > **Campaigns**.
-2. Sélectionnez **Créer une Campaign** > **Webhook**.
+1. Accédez à **Messaging** > **Campaigns**.
+2. Sélectionnez **Create campaign** > **Webhook**.
 3. Saisissez un nom de Campaign, par exemple `Stayfilm Webhook Integration`.
-4. Sélectionnez **Composer un webhook** > **Partir de zéro**.
-5. Sous **Composer un webhook** > **URL du webhook**, saisissez l'URL de l'endpoint Stayfilm `POST /Job` fournie par Stayfilm. Remplacez *`{BASE_URL}`* dans l'exemple suivant : `https://{BASE_URL}/stg/v3/job`
-6. Définissez la **Méthode HTTP** sur **POST**.
-7. Sous **Corps de la requête**, sélectionnez **Texte brut**, puis collez le payload de tâche fourni par Stayfilm. Vous pouvez utiliser le [contenu connecté]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call) pour rendre le corps dynamique.
+4. Sélectionnez **Compose webhook** > **Start from scratch**.
+5. Sous **Compose Webhook** > **Webhook URL**, saisissez l'URL de l'endpoint Stayfilm `POST /Job` fournie par Stayfilm. Remplacez *`{BASE_URL}`* dans l'exemple suivant : `https://{BASE_URL}/stg/v3/job`
+6. Définissez **HTTP method** sur **POST**.
+7. Sous **Request Body**, sélectionnez **Raw Text**, puis collez le payload de job fourni par Stayfilm. Vous pouvez utiliser le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) pour rendre le corps dynamique.
 
 Incluez `CallbackRelayData` défini sur l'`external_id` de l'utilisateur Braze. Stayfilm renvoie cette valeur dans le rappel sous la forme `RelayedData`.
 
@@ -206,7 +206,7 @@ Ajoutez les en-têtes de requête suivants :
 | `idproject` | La valeur `idproject` fournie par Stayfilm |
 | `Subscription-Key` | La `Subscription-Key` fournie par Stayfilm |
 | `Content-Type` | `application/json` |
-| `Authorization` | Jeton porteur OAuth récupéré via le contenu connecté (voir l'exemple suivant) |
+| `Authorization` | Jeton bearer OAuth récupéré via le contenu connecté (voir l'exemple suivant) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="En-têtes de requête" }
 
 Dans le bloc de contenu connecté suivant, remplacez *`{TENANT_ID}`*, *`{CLIENT_ID}`*, *`{CLIENT_SECRET_URL_ENCODED}`* et *`{SCOPE_URL_ENCODED}`* par les valeurs fournies par Stayfilm. Encodez en URL *`{CLIENT_SECRET_URL_ENCODED}`* et *`{SCOPE_URL_ENCODED}`* avant de les coller dans le bloc. Pour les exigences OAuth, consultez la [documentation de l'API Stayfilm](https://apidoc.stayfilm.com).
@@ -224,17 +224,17 @@ Dans le bloc de contenu connecté suivant, remplacez *`{TENANT_ID}`*, *`{CLIENT_
 {% endraw %}
 
 {: start="8"}
-8. Sélectionnez **Enregistrer le brouillon**.
+8. Sélectionnez **Save Draft**.
 
 {% alert note %}
-Si vous quittez la page Campaigns et y revenez, définissez le **Statut** sur **Tous** pour retrouver les Campaigns encore en **Brouillon**.
+Si vous quittez la page des Campaigns et y revenez, définissez **Status** sur **All** pour retrouver les Campaigns encore à l'état **Draft**.
 {% endalert %}
 
 ### Étape 4 : Tester la Campaign webhook {#step-4-test-the-webhook-campaign}
 
-1. Depuis le compositeur de webhook, sélectionnez l'onglet **Test**.
-2. Sous **Prévisualiser le message en tant qu'utilisateur**, sélectionnez **Sélectionner un utilisateur existant**, puis recherchez votre utilisateur test (par exemple, `stayfilm-poc-001`).
-3. Sélectionnez **Envoyer le test**.
+1. Depuis le composeur de webhook, sélectionnez l'onglet **Test**.
+2. Sous **Preview message as user**, sélectionnez **Select existing user**, puis recherchez votre utilisateur test (par exemple, `stayfilm-poc-001`).
+3. Sélectionnez **Send test**.
 
 Une réponse réussie renvoie le statut HTTP `201` avec un corps JSON similaire au suivant :
 
@@ -264,23 +264,23 @@ Une réponse réussie renvoie le statut HTTP `201` avec un corps JSON similaire 
 
 ### Étape 5 : Confirmer le rappel Stayfilm {#step-5-confirm-the-stayfilm-callback}
 
-Stayfilm effectue le rendu de la vidéo de manière asynchrone et envoie un rappel à votre transformation de données lorsque le traitement est terminé. Surveillez le statut de la tâche via les endpoints de l'API Stayfilm décrits dans la [documentation de l'API Stayfilm](https://apidoc.stayfilm.com).
+Stayfilm effectue le rendu de la vidéo de manière asynchrone et envoie un rappel à votre transformation de données lorsque le traitement est terminé. Suivez le statut du job via les endpoints de l'API Stayfilm décrits dans la [documentation de l'API Stayfilm](https://apidoc.stayfilm.com).
 
-1. Accédez à **Paramètres des données** > **Transformation de données**.
-2. Sélectionnez l'onglet **Journaux** de votre transformation.
-3. Confirmez qu'un rappel apparaît avec le statut **Succès**.
+1. Accédez à **Data Settings** > **Data Transformation**.
+2. Sélectionnez l'onglet **Logs** de votre transformation.
+3. Confirmez qu'un rappel apparaît avec le statut **Success**.
 
 ### Étape 6 : Afficher la vidéo dans un message in-app {#step-6-display-the-video-in-an-in-app-message}
 
-Une fois que `stayfilm_video_url` est renseigné sur le profil utilisateur, affichez la vidéo rendue dans une Campaign ou un Canvas.
+Une fois `stayfilm_video_url` renseigné sur le profil utilisateur, affichez la vidéo rendue dans une Campaign ou un Canvas.
 
-1. Accédez à **Messagerie** > **Campaigns**.
-2. Sélectionnez **Créer une Campaign** > **Message in-app**.
+1. Accédez à **Messaging** > **Campaigns**.
+2. Sélectionnez **Create campaign** > **In-app message**.
 3. Saisissez un nom de Campaign, par exemple `Stayfilm Video Show`.
-4. Dans le compositeur de messages, sélectionnez l'**Éditeur traditionnel**.
-5. Sous **Envoyer à**, sélectionnez **Navigateurs web**.
-6. Définissez le **Type de message** sur **Code personnalisé**.
-7. Collez le HTML suivant dans le champ **HTML** :
+4. Dans le composeur de messages, sélectionnez le **Traditional Editor**.
+5. Sous **Send To**, sélectionnez **Web Browsers**.
+6. Définissez **Message Type** sur **Custom Code**.
+7. Collez le code HTML suivant dans le champ **HTML** :
 
 {% raw %}
 ```html
@@ -315,32 +315,32 @@ Your browser does not support HTML5 video.
 {% endraw %}
 
 {: start="8"}
-8. Sélectionnez **Enregistrer le brouillon**.
+8. Sélectionnez **Save Draft**.
 9. Sélectionnez l'onglet **Test**.
-10. Sous **Prévisualiser le message en tant qu'utilisateur**, sélectionnez **Sélectionner un utilisateur existant**, puis recherchez l'`external_id` de votre utilisateur test.
+10. Sous **Preview message as user**, sélectionnez **Select existing user**, puis recherchez l'`external_id` de votre utilisateur test.
 
-La vidéo rendue apparaît et se lit dans l'aperçu lorsque `stayfilm_video_url` est défini sur le profil.
+La vidéo rendue s'affiche et se lit dans l'aperçu lorsque `stayfilm_video_url` est défini sur le profil.
 
 ## Étendre l'intégration {#extend-the-integration}
 
-Ce guide couvre un sous-ensemble de l'API Stayfilm. Pour adapter les modèles de tâches, les entrées médias ou la communication en aval, consultez la [documentation de l'API Stayfilm](https://apidoc.stayfilm.com) et mettez à jour votre payload webhook, le mappage de la transformation de données et la logique de Campaign en conséquence.
+Ce guide couvre un sous-ensemble de l'API Stayfilm. Pour adapter les modèles de tâches, les entrées média ou la communication en aval, consultez la [documentation de l'API Stayfilm](https://apidoc.stayfilm.com) et mettez à jour le payload de votre webhook, le mappage de la Data Transformation et la logique de votre Campaign en conséquence.
 
 ## Considérations {#considerations}
 
-- **Rendu asynchrone :** la génération vidéo n'est pas immédiate. Déclenchez la communication de suivi à partir de l'événement personnalisé `stayfilm_video_ready` ou d'un segment basé sur `stayfilm_video_status` au lieu d'envoyer le message in-app dans le même flux que le webhook.
-- **Cohérence des identifiants :** la valeur dans `CallbackRelayData` doit correspondre exactement à l'`external_id` de l'utilisateur Braze.
-- **Mise en cache du jeton OAuth :** l'exemple de contenu connecté met en cache le jeton OAuth pendant 3 000 secondes. Ajustez `cache_max_age` si Stayfilm modifie les exigences de durée de vie du jeton.
-- **Tests en sandbox :** validez la boucle complète de rappel dans un sandbox Braze avant le lancement en production.
-- **Capacité des attributs personnalisés :** confirmez que votre espace de travail dispose de la capacité nécessaire pour les attributs personnalisés et les événements créés par cette intégration.
+- **Rendu asynchrone :** La génération vidéo n'est pas immédiate. Déclenchez les messages de suivi à partir du custom event `stayfilm_video_ready` ou d'un Segment basé sur `stayfilm_video_status`, au lieu d'envoyer le message in-app dans le même flux que le webhook.
+- **Cohérence des identifiants :** La valeur dans `CallbackRelayData` doit correspondre exactement à l'`external_id` de l'utilisateur Braze.
+- **Mise en cache du jeton OAuth :** L'exemple de contenu connecté met en cache le jeton OAuth pendant 3000 secondes. Ajustez `cache_max_age` si Stayfilm modifie les exigences de durée de vie du jeton.
+- **Tests en sandbox :** Validez la boucle de rappel complète dans un sandbox Braze avant le lancement en production.
+- **Capacité des attributs personnalisés :** Vérifiez que votre espace de travail dispose de la capacité nécessaire pour les attributs personnalisés et les événements personnalisés créés par cette intégration Stayfilm.
 
 ## Résolution des problèmes {#troubleshooting}
 
 Consultez le tableau suivant si vous rencontrez des problèmes avec l'intégration Stayfilm.
 
 | Problème | Résolution |
-| -------- | ---------- |
-| La validation de la transformation de données échoue | Confirmez que `RelayedData` dans votre payload de test correspond à un `external_id` Braze valide, puis rechargez la page **Transformation de données** avant de sélectionner **Valider**. |
-| Le test du webhook renvoie une réponse autre que 201 | Vérifiez les identifiants Stayfilm dans vos en-têtes de requête, confirmez que le bloc de contenu connecté OAuth utilise des valeurs encodées en URL et vérifiez que votre URL `POST /Job` est correcte. |
-| Le rappel n'apparaît pas dans les journaux de transformation | Confirmez que Stayfilm dispose de votre URL webhook de transformation de données active et laissez le temps au rendu vidéo de se terminer. |
-| L'aperçu in-app n'affiche pas la vidéo | Confirmez que `stayfilm_video_url` est défini sur le profil de l'utilisateur test et que le message in-app cible les **Navigateurs web** avec le **Code personnalisé**. |
+| ----- | ---------- |
+| La validation de la Data Transformation échoue | Confirmez que `RelayedData` dans votre payload de test correspond à un `external_id` Braze valide, puis rechargez la page **Data Transformation** avant de sélectionner **Validate**. |
+| Le test du webhook renvoie une réponse autre que 201 | Vérifiez les identifiants Stayfilm dans les en-têtes de votre requête, confirmez que le bloc OAuth de contenu connecté utilise des valeurs encodées en URL et vérifiez que votre URL `POST /Job` est correcte. |
+| Le rappel n'apparaît pas dans les logs de transformation | Confirmez que Stayfilm dispose de l'URL de webhook de votre Data Transformation active et laissez le temps au rendu vidéo de se terminer. |
+| L'aperçu in-app n'affiche pas la vidéo | Confirmez que `stayfilm_video_url` est défini sur le profil utilisateur test et que le message in-app cible les **navigateurs web** avec du **code personnalisé**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }

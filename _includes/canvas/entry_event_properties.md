@@ -60,4 +60,4 @@ You can no longer create or duplicate Canvases using the original editor. This s
 {% endtab %}
 {% endtabs %}
 
-Refer to [Canvas entry properties and event properties]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/) for more information and examples.
+Refer to [Canvas entry properties and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) for more information and examples.

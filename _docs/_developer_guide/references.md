@@ -41,7 +41,7 @@ Currently, some SDKs do not have dedicated reference documentation&#8212;but we'
 
 Our test application within the [Android SDK GitHub repository](https://github.com/braze-inc/braze-android-sdk) is called Droidboy. Follow these instructions to build a fully functional copy of it alongside your project.
 
-1. Create a new [workspace]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#app-group-configuration) and note the Braze API identifier key.<br><br>
+1. Create a new [workspace]({{site.baseurl}}/user_guide/get_started/workspaces) and note the Braze API identifier key.<br><br>
 2. Copy your FCM sender ID and Braze API identifier key into the appropriate places within `/droidboy/res/values/braze.xml` (in between the tags for the strings named `com_braze_push_fcm_sender_id` and `com_braze_api_key`, respectively).<br><br>
 3. Copy your FCM server key and server ID into your workspace settings under **Manage Settings**.<br><br>
 4. To assemble the Droidboy APK, run `./gradlew assemble` within the SDK directory. Use `gradlew.bat` on Windows.<br><br>
@@ -67,7 +67,7 @@ For more information on the Android SDK build system, see the [GitHub Repository
 
 Follow these instructions to build and run our test applications.
 
-1. Create a new [workspace]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#creating-your-app-group-in-my-apps) and note the app identifier API key and endpoint.
+1. Create a new [workspace]({{site.baseurl}}/user_guide/get_started/workspaces) and note the app identifier API key and endpoint.
 2. Based on your integration method (Swift Package Manager, CocoaPods, Manual), select the appropriate `xcodeproj` file to open.
 3. Place your API key and your endpoint within the appropriate field in the `Credentials` file.
 {% endtab %}

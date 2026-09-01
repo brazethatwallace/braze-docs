@@ -24,12 +24,12 @@ alias: /line/subscription_groups/
 LINE aloja el estado de suscripción de los usuarios. Braze procesa los eventos de seguimiento y cancelación de seguimiento que actualizan el estado de suscripción.
 
 {% alert important %}
-Los grupos de suscripción de LINE no se pueden mover entre espacios de trabajo. Si vuelves a integrar un canal de LINE en otro espacio de trabajo después de archivar su grupo de suscripción, Braze crea un nuevo grupo de suscripción en el espacio de trabajo de destino; el original permanece en el primer espacio de trabajo.
+Los grupos de suscripción de LINE no se pueden mover entre espacios de trabajo. Si reintegras un canal de LINE en otro espacio de trabajo después de archivar su grupo de suscripción, Braze crea un nuevo grupo de suscripción en el espacio de trabajo de destino; el original permanece en el primer espacio de trabajo.
 {% endalert %}
 
-## Comportamiento del archivo {#archive-behavior}
+## Comportamiento del archivado {#archive-behavior}
 
-- **Archivo estándar:** Si archivas un grupo de suscripción de LINE y no reintegras el canal en otro espacio de trabajo, puedes desarchivar el grupo de suscripción más adelante.
-- **Archivo permanente:** Si reintegras el canal de LINE en un espacio de trabajo diferente después de archivar su grupo de suscripción, el grupo de suscripción original se archiva permanentemente y no se puede desarchivar a través del panel.
+- **Archivado estándar:** Si archivas un grupo de suscripción de LINE y no vuelves a integrar el canal en otro espacio de trabajo, puedes desarchivar el grupo de suscripción más tarde.
+- **Archivado permanente:** Si vuelves a integrar el canal de LINE en un espacio de trabajo diferente después de archivar su grupo de suscripción, el grupo de suscripción original se archiva de forma permanente y no se puede desarchivar a través del panel.
 
-Para consultar los pasos de reintegración del canal, consulta [Configuración de LINE]({{site.baseurl}}/user_guide/channels/line/line_setup#re-integrate-a-line-channel-in-another-workspace).
+Para conocer los pasos de reintegración del canal, consulta [Configuración de LINE]({{site.baseurl}}/user_guide/channels/line/line_setup#re-integrate-a-line-channel-in-another-workspace).

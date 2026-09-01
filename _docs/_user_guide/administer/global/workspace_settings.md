@@ -4,7 +4,7 @@ article_title: Workspace settings
 page_order: 4
 layout: dev_guide
 guide_top_header: "Workspace settings"
-guide_top_text: "Workspace settings apply only to the workspace you're currently viewing. Use these settings to manage API keys, configure email and push preferences, set up brand guidelines, and monitor workspace activity through logs and alerts.<br><br>Most features within <b>Workspace Settings</b> are only available to Braze account administrators. If you don't have access but feel that you should, contact your company's Braze account administrator. For company-wide configuration that affects all workspaces, see <a href='/docs/user_guide/administer/global/admin_settings'>Admin settings</a>."
+guide_top_text: "Workspace settings apply only to the workspace you're currently viewing. Use these settings to manage API keys, configure email and push preferences, set up brand guidelines, and monitor workspace activity through logs and alerts.<br><br>Most features within <b>Workspace Settings</b> are only available to Braze account administrators. If you don't have access but feel that you should, contact your company's Braze account administrator. Company-wide OAuth policy, including MCP access, is configured in <a href='/docs/user_guide/administer/global/admin_settings'>Admin settings</a>."
 
 page_type: landing
 description: "This section covers workspace-level settings—APIs and identifiers, brand guidelines, email preferences, logs and alerts, and more."
@@ -38,6 +38,9 @@ guide_featured_list:
 - name: Messaging rate limits
   link: /docs/user_guide/administer/global/workspace_settings/messaging_rate_limits
   image: /assets/img/braze_icons/mail-01.svg
+- name: OAuth and MCP access
+  link: /docs/user_guide/administer/global/workspace_settings/oauth_settings
+  image: /assets/img/braze_icons/lock-04.svg
 ---
 
 <br>

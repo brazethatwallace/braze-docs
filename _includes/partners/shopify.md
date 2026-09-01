@@ -24,7 +24,7 @@ If you plan to integrate with a custom external ID (for either the [standard int
 
 {% if include.section == "Liquid promotion codes with Currents" %}
 
-You can combine [`message_extras`]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/advanced_filters/message_extras/) with [promotion codes]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/promotion_codes/) to send promotion code information to Currents. Use the `capture` tag to store the promotion code in a variable, then reference that variable in `message_extras`:
+You can combine [`message_extras`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras/) with [promotion codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/) to send promotion code information to Currents. Use the `capture` tag to store the promotion code in a variable, then reference that variable in `message_extras`:
 
 {% raw %}
 ```liquid

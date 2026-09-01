@@ -40,7 +40,7 @@ Chord supports cloud mode (server-to-server calls through the Braze REST APIs) a
 2. Select **Add** next to destinations, choose **Braze** from the catalog, then enter a destination name and your Braze REST API key.
 3. Create the destination to finish connecting.
 
-Create the REST API key in the Braze dashboard from **Settings** > **API Keys**. If you use the older navigation, go to **Developer Console** > **API Settings**. Unless Chord documents different requirements for your workspace, the key needs the `users.track` and `users.identify` permissions. For more information, see [API keys]({{site.baseurl}}/api/api_key).
+Create the REST API key in the Braze dashboard from **Settings** > **API Keys**. If you use the older navigation, go to **Developer Console** > **API Settings**. Unless Chord documents different requirements for your workspace, the key needs the `users.track` and `users.identify` permissions. For more information, see [API keys]({{site.baseurl}}/api/basics).
 
 ### Device mode
 

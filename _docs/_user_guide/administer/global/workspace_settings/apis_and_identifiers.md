@@ -4,7 +4,6 @@ article_title: APIs and Identifiers
 page_order: 0
 page_type: reference
 description: "This article covers the APIs and Identifiers page, which displays API identifications for your workspace."
-
 ---
 
 # API keys
@@ -15,7 +14,7 @@ You can find the **APIs and Identifiers** page under **Settings**.
 
 ## API keys
 
-This section provides your workspace REST API keys, the unique identifiers that allow you access to your data for a workspace. A REST API key is required with every request to the Braze API. For more information on creating and using API keys, refer to our [REST API key overview]({{site.baseurl}}/api/api_key).
+This section provides your workspace REST API keys, the unique identifiers that allow you access to your data for a workspace. A REST API key is required with every request to the Braze API. For more information on creating and using API keys, refer to our [REST API key overview]({{site.baseurl}}/api/basics).
 
 ### API IP allowlisting
 

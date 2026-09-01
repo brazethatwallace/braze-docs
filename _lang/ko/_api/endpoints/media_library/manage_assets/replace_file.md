@@ -15,7 +15,7 @@ description: "이 문서에서는 `PUT /media_library/replace_file` 엔드포인
 /media_library/replace_file
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 [Braze 미디어 라이브러리]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library)에 있는 기존 자산의 파일을 자산 ID와 URL을 유지하면서 교체할 수 있습니다. 외부에서 호스팅되는 URL(`asset_url`) 또는 요청 본문에 포함된 바이너리 파일 데이터(`asset_file`)를 사용하여 교체 파일을 제공할 수 있습니다.
+> 이 엔드포인트를 사용하여 [Braze 미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications)에 있는 기존 자산의 파일을 자산 ID와 URL을 유지하면서 교체할 수 있습니다. 외부에서 호스팅되는 URL(`asset_url`) 또는 요청 본문에 포함된 바이너리 파일 데이터(`asset_file`)를 사용하여 교체 파일을 제공할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 

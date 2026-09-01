@@ -6,8 +6,8 @@ The following features are built into the Braze Android SDK. To use any other pu
 
 |Feature|Description|
 |-------|-----------|
-|Push Stories|Android Push Stories are built into the Braze Android SDK by default. To learn more, see [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/).|
-|Push Primers|Push primer campaigns encourage your users to enable push notifications on their device for your app. This can be done without SDK customization using our [no code push primer]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).|
+|Push Stories|Android Push Stories are built into the Braze Android SDK by default. To learn more, see [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/).|
+|Push Primers|Push primer campaigns encourage your users to enable push notifications on their device for your app. This can be done without SDK customization using our [no code push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Built-in features" }
 
 ## About the push notification lifecycle {#push-notification-lifecycle}
@@ -718,7 +718,7 @@ See the equivalent configuration for your `braze.xml`. Note that the class name 
 
 ### Step 5: Define notification channels
 
-The Braze Android SDK supports [Android notification channels](https://developer.android.com/preview/features/notification-channels.html). If a Braze notification does not contain the ID for a notification channel or that a Braze notification contains an invalid channel ID, Braze will display the notification with the default notification channel defined in the SDK. Company users use [Android Notification Channels]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/) within the platform to group notifications.
+The Braze Android SDK supports [Android notification channels](https://developer.android.com/preview/features/notification-channels.html). If a Braze notification does not contain the ID for a notification channel or that a Braze notification contains an invalid channel ID, Braze will display the notification with the default notification channel defined in the SDK. Company users use [Android Notification Channels]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels/) within the platform to group notifications.
 
 To set the user facing name of the default Braze notification channel, use [`BrazeConfig.setDefaultNotificationChannelName()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-name.html).
 
@@ -747,7 +747,7 @@ For issues related to push display, see our [troubleshooting guide]({{site.baseu
 
 #### Testing analytics
 
-At this point, you should also have analytics logging for push notification opens. Clicking on the notification when it arrives should result in the **Direct Opens** on your campaign results page to increase by 1. Check out our [push reporting]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_reporting/) article for a break down on push analytics.
+At this point, you should also have analytics logging for push notification opens. Clicking on the notification when it arrives should result in the **Direct Opens** on your campaign results page to increase by 1. Check out our [push reporting]({{site.baseurl}}/user_guide/channels/push/reporting/) article for a break down on push analytics.
 
 For issues related to push analytics, see our [troubleshooting guide]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android).
 
@@ -811,4 +811,4 @@ To request a rate limit increase from FCM, you can contact [Firebase Support](ht
 
 #### Apply a workspace rate limit
 
-You can apply a workspace rate limit for Android push notifications. This can help regulate the delivery rate of your outgoing messages. For more details, see [Workspace messaging rate limits]({{site.baseurl}}/user_guide/administrative/app_settings/messaging_rate_limits).
+You can apply a workspace rate limit for Android push notifications. This can help regulate the delivery rate of your outgoing messages. For more details, see [Workspace messaging rate limits]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits/).

@@ -16,25 +16,25 @@ After your campaign has launched, you can check how each variant is performing b
 
 Your analytics view varies depending on whether you selected an [optimization]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) during your initial setup.
 
-### No optimization
+### Manual variant distribution
 
-If you selected **No optimization** when setting up your campaign, your analytics view will stay the same. The **Campaign Analytics** page of your campaign will show the performance of your variants against your control group, if you included one.
+If **Optimize with BrazeAI™** is off, the **Campaign Analytics** page shows the performance of your variants against the control group, if you included one.
 
 ![Performance section of the Campaign Analytics for an email campaign with multiple variants. The table lists various performance metrics for each variant, such as recipients, bounces, clicks, and conversions.]({% image_buster /assets/img_archive/ab_analytics_no_optimization.png %})
 
 For more details, refer to the [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) article for your messaging channel.
 
-### BrazeAI™ variant selection (push only)
+### Optimize with BrazeAI™
 
-If you use BrazeAI™ variant selection, depending on whether it is a single send or recurring campaign, once the experiment window (or first period for recurring) has passed, you see the uplift, if any, on the home page of the campaign. You also see further details similar to Winning Variant if you run a single send campaign.
+If you use **Optimize with BrazeAI™**, the campaign overview shows any uplift after the experiment window for a single-send campaign or after the first optimization period for a multi-send campaign. Single-send campaigns also show details about the initial test and the best-performing variant.
 
-For more details on how we report uplift on BrazeAI™ Variant Selection, see [Variant selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
+For more information, see [Optimizing A/B tests with BrazeAI]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
-![Campaign analytics showing uplift from BrazeAI™ variant selection, including comparison metrics after the experiment window.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
+![Campaign analytics showing uplift from Optimize with BrazeAI™, including comparison metrics after the experiment window.]({% image_buster /assets/img_archive/braze_ai_variant_selection_reporting.png %})
 
-### Winning Variant
+### Single-send optimization
 
-If you selected **Winning Variant** for your optimization when setting up your campaign, you have access to an additional tab of your campaign analytics called **A/B Test Result**. After the Winning Variant is sent to the remaining users in your test, this tab shows the results of that send.
+For a single-send campaign using **Optimize with BrazeAI™**, the **A/B Test Result** tab shows the results of the initial test and the optimized send.
 
 The **A/B Test Result** is divided into two tabs: **Initial Test** and **Winning Variant**.
 
@@ -69,9 +69,9 @@ The **Winning Variant** tab shows the results of the second send, where each rem
 
 If you want to see the performance of the Winning Variant throughout the campaign, including the A/B test sends, check the **Campaign Analytics** page.
 
-### Personalized Variant {#personalized-variant}
+### Existing Personalized Variant campaigns {#personalized-variant}
 
-If you selected **Personalized Variant** for your optimization when setting up your campaign, the **A/B Test Result** is divided into two tabs: **Initial Test** and **Personalized Variant**.
+Personalized Variant isn't available for new campaigns. For an existing campaign that uses this optimization, the **A/B Test Result** is divided into two tabs: **Initial Test** and **Personalized Variant**.
 
 {% tabs local %}
 {% tab Initial Test %}

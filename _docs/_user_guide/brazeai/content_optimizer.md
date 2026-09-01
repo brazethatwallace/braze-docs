@@ -82,6 +82,8 @@ Content Optimizer is similar to the Message step in Canvas, with features like q
 
 Each user receives one message per entry into the Content Optimizer step. Re-entries are treated as new, with no memory of previous variants.
 
+To attribute downstream behavior in your own analytics tools, add a Liquid tag to your message that records which combination each user received. For more information, see [Combination token]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step#combination-token).
+
 ## Canvas entry setup
 
 For best results, use Content Optimizer in Canvases where users enter the step gradually and regularly over time, such as in recurring or always-on Canvases with consistent daily volume. If all users enter the step at once, Content Optimizer won’t have time to learn from early results. The step will behave more like a static A/B test than a live optimization engine.

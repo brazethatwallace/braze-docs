@@ -230,10 +230,17 @@ case $1 in
         ;;
     ulinks)
         require_git_fetch
-        require_path_or_file "$2"
+        shift
+        if [[ $# -eq 0 ]]; then
+            echo "Error: A file or directory path is required."
+            exit 1
+        fi
         touch "$REDIRECT_MATCHES"
         "$MRD"
-        logger "$ULINKS" "$2"
+        for target in "$@"; do
+            require_path_or_file "$target"
+            logger "$ULINKS" "$target" || exit $?
+        done
 
         # rm "$REDIRECT_MATCHES"
         ;;

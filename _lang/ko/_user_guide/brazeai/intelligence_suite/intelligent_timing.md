@@ -12,202 +12,200 @@ toc_headers: h2
 
 ## Intelligent Timing 정보 {#about-intelligent-timing}
 
-Braze는 사용자의 앱 과거 상호작용과 각 메시징 채널과의 상호작용에 대한 통계 분석을 기반으로 최적의 발송 시간을 계산합니다. 다음과 같은 상호작용 데이터가 사용됩니다:
+Braze는 사용자의 과거 앱 상호작용과 각 메시징 채널과의 상호작용에 대한 통계 분석을 기반으로 최적의 발송 시간을 계산합니다. 다음 상호작용 데이터가 사용됩니다:
 
 - 세션 시간
 - 푸시 직접 열람
 - 푸시 영향 열람
 - 이메일 클릭
-- 이메일 열람([머신 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) 제외)
-- SMS 클릭([링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) 및 고급 추적 기술이 활성화된 경우에만 해당)
+- 이메일 열람 ([머신 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) 제외)
+- SMS 클릭 ([링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) 및 고급 추적 기술이 활성화된 경우에만)
 
-예를 들어, Sam은 보통 아침에 이메일을 열어보지만, 앱을 열고 알림과 상호작용하는 것은 저녁 시간대입니다. 즉, Sam은 Intelligent Timing이 적용된 이메일 Campaign을 아침에 받고, 참여할 가능성이 더 높은 저녁 시간대에 푸시 알림이 포함된 Campaign을 받게 됩니다.
+예를 들어, Sam이 보통 아침에 이메일을 열고, 저녁에 앱을 열어 알림과 상호작용한다고 가정해 보겠습니다. 이 경우 Sam은 Intelligent Timing이 적용된 이메일 Campaign을 아침에 받게 되고, 참여할 가능성이 더 높은 저녁에는 푸시 알림이 포함된 Campaign을 받게 됩니다.
 
-사용자에게 Braze가 최적의 발송 시간을 계산할 수 있는 관련 인게이지먼트 데이터가 없는 경우, 대체 시간을 지정할 수 있습니다.
+사용자에게 Braze가 최적의 발송 시간을 계산하기에 충분한 인게이지먼트 데이터가 없는 경우, 대체 시간을 지정할 수 있습니다.
 
 ## 예시 {#examples}
 
 - 시간에 민감하지 않은 반복 Campaigns 발송
 - 여러 시간대의 사용자를 대상으로 Campaigns 자동화
-- 가장 활발하게 참여하는 사용자에게 메시지 발송 (인게이지먼트 데이터가 가장 풍부한 사용자)
+- 가장 활발히 참여하는 사용자에게 메시지 발송 (가장 많은 인게이지먼트 데이터를 보유)
 
 ## Intelligent Timing 사용하기 {#using-intelligent-timing}
 
-이 섹션에서는 Campaigns 및 Canvases에 Intelligent Timing을 구성하는 방법을 설명합니다.
+이 섹션에서는 Campaigns 및 Canvases에 대해 Intelligent Timing을 구성하는 방법을 설명합니다.
 
 {% tabs local %}
 {% tab Campaign %}
 ### 1단계: Intelligent Timing 추가 {#step-1-add-intelligent-timing}
 
-1. Campaign을 만들고 메시지를 작성합니다.
+1. Campaign을 생성하고 메시지를 작성합니다.
 2. 전달 유형으로 **예약 전달**을 선택합니다.
-3. **시간 기반 스케줄링 옵션**에서 **Intelligent Timing**을 선택합니다.
-4. 항목 빈도를 설정합니다. 일회성 전송의 경우 **한 번**을 선택하고 전송 날짜를 선택합니다. 반복 전송의 경우 **매일**, **매주** 또는 **매월**을 선택하고 반복 옵션을 구성합니다. 자세한 안내는 [고려사항](#considerations)을 참조하세요.
+3. **시간 기반 스케줄 옵션**에서 **Intelligent Timing**을 선택합니다.
+4. 항목 빈도를 설정합니다. 일회성 전송의 경우 **한 번**을 선택하고 전송 날짜를 선택합니다. 반복 전송의 경우 **매일**, **매주** 또는 **매월**을 선택하고 반복 옵션을 구성합니다. 자세한 내용은 [고려 사항](#considerations)을 참조하세요.
 5. 선택적으로 [방해금지 시간](#quiet-hours)을 구성합니다.
-6. [대체 시간](#campaign-fallback)을 지정합니다. 사용자의 프로필에 최적 시간을 계산할 관련 이벤트가 없는 경우 메시지가 전송되는 시간입니다.
+6. [대체 시간](#campaign-fallback)을 지정합니다. 사용자 프로필에 최적 시간을 계산할 관련 이벤트가 없는 경우 메시지가 전송되는 시간입니다.
 
-![Intelligent Timing과 대체 시간 및 방해금지 시간 설정이 표시된 Campaign 스케줄링 화면]({% image_buster /assets/img/intelligent_timing/campaign_scheduling.png %})
+![대체 시간과 방해금지 시간 설정이 포함된 Intelligent Timing Campaign 스케줄 화면]({% image_buster /assets/img/intelligent_timing/campaign_scheduling.png %})
 
 #### 방해금지 시간 {#quiet-hours}
 
-방해금지 시간을 사용하여 특정 시간대에 메시지가 전송되지 않도록 방지합니다. 이른 아침이나 야간에 메시지를 보내는 것을 피하면서도 Intelligent Timing이 최적의 전달 시간대를 결정할 수 있도록 할 때 유용합니다.
+방해금지 시간을 사용하면 특정 시간대에 메시지가 전송되는 것을 방지할 수 있습니다. 이른 아침이나 야간에 메시지를 보내지 않으면서도 Intelligent Timing이 최적의 전달 시간을 결정하도록 허용하고 싶을 때 유용합니다.
 
 {% alert note %}
-방해금지 시간은 **특정 시간대에만 전송** 설정을 대체했습니다. 이제 메시지를 보낼 시간을 선택하는 대신, 보내지 않을 시간을 선택합니다. 예를 들어 오후 4시부터 오후 6시 사이에 메시지를 보내려면, 방해금지 시간을 오후 6시부터 다음 날 오후 4시까지로 설정합니다.
+방해금지 시간은 **특정 시간대에만 전송** 설정을 대체합니다. 메시지를 보낼 시간을 선택하는 대신, 이제는 보내지 않을 시간을 선택합니다. 예를 들어 오후 4시에서 오후 6시 사이에 메시지를 보내려면 방해금지 시간을 오후 6시부터 다음 날 오후 4시까지로 설정하세요.
 {% endalert %}
 
 1. **방해금지 시간 활성화**를 선택합니다.
-2. 메시지를 보내지 **않을** 시작 시간과 종료 시간을 선택합니다.
+2. 메시지를 보내**지 않을** 시작 및 종료 시간을 선택합니다.
 
-![야간 메시지 전달을 차단하기 위해 시작 및 종료 시간이 설정된 방해금지 시간 토글이 켜진 화면]({% image_buster /assets/img/intelligent_timing/quiet_hours.png %})
+![방해금지 시간 토글이 켜져 있으며, 야간 메시지 전달을 차단하기 위한 시작 및 종료 시간이 설정된 화면]({% image_buster /assets/img/intelligent_timing/quiet_hours.png %})
 
-방해금지 시간이 켜져 있으면 Braze는 방해금지 기간 동안 메시지를 전송하지 않습니다. 해당 시간이 사용자의 최적 전송 시간과 일치하더라도 마찬가지입니다. 사용자의 최적 시간이 방해금지 시간대에 해당하면, 메시지는 가장 가까운 방해금지 시간대 경계에서 전송됩니다.
+방해금지 시간이 켜져 있으면 Braze는 방해금지 기간 동안 메시지를 보내지 않습니다. 해당 시간이 사용자의 최적 전송 시간과 일치하더라도 마찬가지입니다. 사용자의 최적 시간이 방해금지 시간대에 해당하면, 메시지는 대신 해당 시간대의 가장 가까운 경계 시간에 전송됩니다.
 
-예를 들어, 방해금지 시간이 오후 10시부터 오전 6시까지로 설정되어 있고 사용자의 최적 시간이 오전 5시 30분인 경우, Braze는 메시지를 보류하고 방해금지 시간대 밖의 가장 가까운 시간인 오전 6시에 전달합니다.
+예를 들어, 방해금지 시간이 오후 10시부터 오전 6시까지로 설정되어 있고 사용자의 최적 시간이 오전 5시 30분인 경우, Braze는 메시지를 보류한 후 방해금지 시간대 밖의 가장 가까운 시간인 오전 6시에 전달합니다.
 
 자세한 내용은 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)을 참조하세요.
 
 #### 전달 시간 미리보기 {#preview-delivery-times}
 
-하루 중 각 시간대에 메시지를 받을 사용자 수의 추정치를 확인하려면 미리보기 차트를 사용합니다(Campaigns에만 해당).
+하루 중 각 시간대에 메시지를 수신할 사용자 수의 예상치를 확인하려면 미리보기 차트를 사용하세요(Campaign에서만 사용 가능).
 
 1. 타겟 오디언스 단계에서 Segments 또는 필터를 추가합니다.
-2. **전달 시간 미리보기** 섹션(타겟 오디언스 및 전달 스케줄 단계 모두에 표시됨)에서 채널을 선택합니다.
+2. **전달 시간 미리보기** 섹션(타겟 오디언스 및 스케줄 전달 단계 모두에 표시됨)에서 채널을 선택합니다.
 3. **데이터 새로고침**을 클릭합니다.
 
-![Android 푸시의 전달 미리보기 차트로, 오후 12시에서 2시 사이가 피크 인게이지먼트 시간이며 가장 인기 있는 앱 시간은 오후 2시임을 보여줍니다.]({% image_buster /assets/img/intel-timing-preview.png %})
+![Android 푸시에 대한 전달 미리보기 차트. 오후 12시에서 2시 사이에 피크 인게이지먼트 시간이 표시되고 가장 인기 있는 앱 사용 시간은 오후 2시입니다.]({% image_buster /assets/img/intel-timing-preview.png %})
 
 ### 2단계: 전송 날짜 선택 {#step-2-choose-a-send-date}
 
-다음으로 Campaign의 전송 날짜를 선택합니다. Intelligent Timing으로 Campaigns를 스케줄링할 때 다음 사항을 유의하세요.
+다음으로, Campaign의 전송 날짜를 선택합니다. Intelligent Timing으로 Campaign을 스케줄할 때 다음 사항을 유의하세요.
 
-#### 최소 48시간 전에 Campaign 시작 {#launch-campaign-48-hours-in-advance}
+#### Campaign을 48시간 전에 시작 {#launch-campaign-48-hours-in-advance}
 
-예정된 전송 날짜보다 최소 48시간 전에 Campaign을 시작하세요. 이는 시간대 차이 때문입니다. Braze는 세계 최초 시간대 중 하나인 사모아 시간(UTC+13) 자정에 최적 시간을 계산합니다. 하루는 전 세계에 걸쳐 약 48시간에 해당하므로, 48시간 이내에 Campaign을 시작하면 사용자의 시간대에서 최적 시간이 이미 지났을 수 있으며 메시지가 전송되지 않을 수 있습니다.
+스케줄된 전송 날짜보다 최소 48시간 전에 Campaign을 시작하세요. 이는 시간대 차이 때문입니다. Braze는 세계 최초 시간대 중 하나인 사모아 시간(UTC+13)의 자정에 최적 시간을 계산합니다. 하루는 전 세계적으로 약 48시간에 걸쳐 있기 때문에, 48시간 이내에 Campaign을 시작하면 사용자의 최적 시간이 해당 시간대에서 이미 지나 메시지가 전송되지 않을 수 있습니다.
 
 {% alert important %}
-Campaign이 시작되고 사용자의 최적 시간이 1시간 이내로 지난 경우, 메시지가 즉시 발송됩니다. 최적 시간이 1시간 이상 지난 경우에는 메시지가 전혀 전송되지 않습니다.
+Campaign이 시작되었는데 사용자의 최적 시간이 1시간 미만 전에 지났다면, 메시지는 즉시 전송됩니다. 최적 시간이 1시간 이상 전에 지났다면, 메시지는 전혀 전송되지 않습니다.
 {% endalert %}
 
-#### Segment 필터에 3일 이상의 기간 설정 {#3-day-window-for-segment-filters}
+#### Segment 필터를 위한 3일 기간 {#3-day-window-for-segment-filters}
 
-특정 기간 내에 행동을 수행한 오디언스를 타겟팅하는 경우, Segment 필터에서 최소 3일의 기간을 허용하세요. 예를 들어 `First used app more than 1 day ago`와 `First used app less than 3 days ago` 대신, 1일과 4일을 사용하세요.
+특정 기간 내에 작업을 수행한 오디언스를 타겟팅하는 경우, Segment 필터에서 최소 3일의 기간을 허용하세요. 예를 들어, `First used app more than 1 day ago`와 `First used app less than 3 days ago` 대신 1일과 4일을 사용하세요.
 
-![타겟 오디언스의 필터로, 1일에서 4일 전 사이에 앱을 처음 사용한 사용자를 타겟팅하는 Campaign을 보여줍니다.]({% image_buster /assets/img/intelligent_timing/first_used_app.png %})
+![타겟 오디언스에 대한 필터. 1일에서 4일 전 사이에 앱을 처음 사용한 사용자를 대상으로 하는 Campaign입니다.]({% image_buster /assets/img/intelligent_timing/first_used_app.png %})
 
-이 또한 시간대 차이 때문입니다. 3일 미만의 기간을 선택하면 일부 사용자가 최적 전송 시간에 도달하기 전에 Segment에서 이탈할 수 있습니다.
+이 또한 시간대 때문입니다. 3일 미만의 기간을 선택하면 일부 사용자가 최적 전송 시간에 도달하기 전에 Segment에서 제외될 수 있습니다.
 
 자세한 내용은 [FAQ: Intelligent Timing](#when-does-braze-check-the-eligibility-criteria-for-segment-and-audience-filters)을 참조하세요.
 
-#### A/B 테스트 후 2일 뒤에 우승 배리언트 스케줄링 {#schedule-winning-variants-2-days-after-ab-test}
+#### 최적화 전송을 A/B 테스트 후 최소 2일 뒤로 스케줄 {#schedule-the-optimized-send-at-least-2-days-after-the-ab-test}
 
-최적화를 포함한 [A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations)(예: **우승 배리언트** 자동 전송 또는 **개인화된 배리언트** 사용)를 활용하는 경우, Intelligent Timing이 Campaign의 기간 및 타이밍에 영향을 줄 수 있습니다.
+일회성 전송 Campaign에 [BrazeAI<sup>TM</sup>로 최적화]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection)를 사용하는 경우, Intelligent Timing이 Campaign의 기간과 타이밍에 영향을 줄 수 있습니다.
 
-Intelligent Timing을 사용할 때는 A/B 테스트 시작 후 최소 **2일** 뒤에 우승 배리언트 전송 시간을 스케줄링하는 것을 권장합니다. 예를 들어, A/B 테스트가 4월 16일 오후 4시에 시작되면, 우승 배리언트는 4월 18일 오후 4시 이후로 전송을 스케줄링하세요. 이렇게 하면 Braze가 사용자 행동을 평가하고 최적 시간에 메시지를 보낼 충분한 시간을 확보할 수 있습니다.
+Intelligent Timing을 사용할 때는 A/B 테스트 시작 후 최소 2일 뒤에 최적화 전송이 시작되도록 실험 기간을 설정하세요. 예를 들어, 테스트가 4월 16일 오후 4시에 시작되면, 최적화 전송이 4월 18일 오후 4시 이후에 시작되도록 구성하세요. 이렇게 하면 Braze가 사용자 행동을 평가하고 최적 시간에 메시지를 전송할 충분한 시간이 확보됩니다.
 
-![A/B 테스트 섹션에서 우승 배리언트가 선택되어 있으며, 우승 기준, 전송 날짜, 현지 전송 시간이 선택된 화면]({% image_buster /assets/img/intelligent_timing/ab_testing_intelligent_timing.png %})
+### 3단계: 방해금지 시간 구성(선택 사항) {#step-3-configure-quiet-hours-optional}
 
-### 3단계: 방해금지 시간 구성 (선택사항) {#step-3-configure-quiet-hours-optional}
+선택적으로 전달 시간대를 제한할 수 있습니다. Campaign이 특정 이벤트, 세일 또는 프로모션과 관련된 경우 유용할 수 있지만, Intelligent Timing 사용 시에는 일반적으로 권장되지 않습니다. 자세한 내용은 [고려 사항](#considerations)을 참조하세요.
 
-선택적으로 전달 시간대를 제한할 수 있습니다. Campaign이 특정 이벤트, 세일 또는 프로모션과 관련된 경우 유용할 수 있지만, Intelligent Timing을 사용할 때는 일반적으로 권장되지 않습니다. 자세한 내용은 [고려사항](#considerations)을 참조하세요.
-
-방해금지 시간은 전송 금지 시간대로 작동합니다. Intelligent Timing은 여전히 각 사용자의 최적 전송 시간을 결정하지만, 해당 시간이 방해금지 시간대에 해당하면 Braze는 방해금지 시간대 밖의 다음 가능한 시간까지 메시지를 지연시킵니다.
+방해금지 시간은 전송 금지 시간대로 작동합니다. Intelligent Timing은 여전히 각 사용자의 최적 전송 시간을 결정하지만, 해당 시간이 방해금지 시간에 해당하면 Braze는 방해금지 시간 이후 다음으로 사용 가능한 시간까지 메시지를 지연합니다.
 
 방해금지 시간을 구성하려면:
 
-1. Intelligent Timing을 구성할 때 **방해금지 시간 활성화**를 선택합니다.
-2. 방해금지 시간대의 시작 시간과 종료 시간을 입력합니다.
+1. Intelligent Timing 구성 시 **방해금지 시간 활성화**를 선택합니다.
+2. 방해금지 시간대의 시작 및 종료 시간을 입력합니다.
 
 ### 4단계: 대체 시간 선택 {#campaign-fallback}
 
-사용자 프로필에 최적 전달 시간을 계산할 관련 이벤트가 없는 경우 사용할 대체 시간을 선택합니다.
+사용자의 프로필에 최적 전달 시간을 계산할 관련 이벤트가 없는 경우 사용할 대체 시간을 선택합니다.
 
-![Intelligent Timing으로 Campaign 스케줄링하기]({% image_buster /assets/img/intelligent_timing_1.png %})
+![Intelligent Timing으로 Campaign 스케줄 설정]({% image_buster /assets/img/intelligent_timing_1.png %})
 
 {% multi_lang_include brazeai/intelligent_suite/fallback_time.md type="campaign" %}
 
 ### 5단계: 전달 시간 미리보기 {#step-5-preview-delivery-times}
 
-하루 중 각 시간대에 메시지를 받을 사용자 수의 추정치를 확인하려면 미리보기 차트를 사용합니다:
+하루 중 각 시간대에 메시지를 수신하는 사용자 수의 예상치를 확인하려면 미리보기 차트를 사용하세요:
 
 1. **타겟 오디언스** 단계에서 Segments 또는 필터를 추가합니다.
-2. **전달 시간 미리보기** 섹션(**타겟 오디언스** 및 **전달 스케줄** 단계 모두에 표시됨)에서 채널을 선택합니다.
+2. **전달 시간 미리보기** 섹션(**타겟 오디언스** 및 **스케줄 전달** 단계 모두에 표시됨)에서 채널을 선택합니다.
 3. **데이터 새로고침**을 선택합니다.
 
-미리보기 차트는 현지 시간을 기준으로 하루의 각 시간대를 보여줍니다. 레이블은 하나의 글로벌 시간대로 설정되어 있지 않습니다.
+미리보기 차트는 사용자의 현지 시간으로 하루의 각 시간을 표시합니다. 레이블은 하나의 글로벌 시간대로 설정되지 않습니다.
 
-![Android 푸시의 전달 시간 미리보기 예시.]({% image_buster /assets/img/intel-timing-preview.png %})
+![Android 푸시에 대한 전달 시간 미리보기 예시]({% image_buster /assets/img/intel-timing-preview.png %})
 
-Intelligent Timing이나 Campaign 오디언스에 대한 설정을 변경할 때마다 데이터를 다시 새로고침하여 업데이트된 차트를 확인하세요.
+Intelligent Timing이나 Campaign 오디언스에 대한 설정을 변경할 때마다 데이터를 새로고침하여 업데이트된 차트를 확인하세요.
 
-차트에서 파란색은 최적 시간을 계산할 관련 이벤트가 있는 사용자를, 빨간색은 대체 시간을 사용할 사용자를 보여줍니다. 계산 필터를 사용하여 어느 한 사용자 그룹을 더 세밀하게 살펴볼 수 있도록 미리보기 보기를 조정하세요.
+차트에서 최적 시간을 계산할 관련 이벤트가 있는 사용자는 파란색으로, 대체 시간을 사용하는 사용자는 빨간색으로 표시됩니다. 계산 필터를 사용하여 각 사용자 그룹을 더 세밀하게 살펴볼 수 있도록 미리보기 뷰를 조정하세요.
 {% endtab %}
 
 {% tab Canvas %}
 
 ### 1단계: Intelligent Timing 추가
 
-Canvas에서 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 추가한 다음, **전달 설정**으로 이동하여 **Intelligent Timing 사용**을 선택합니다.
+Canvas에서 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 추가한 다음 **전달 설정**으로 이동하여 **Intelligent Timing 사용**을 선택합니다.
 
-해당 날짜에 단계에 진입한 사용자에게 최적의 현지 시간에 메시지가 전송됩니다. 그러나 해당 날짜에 최적 시간이 이미 지난 경우, 다음 날 최적 시간에 전달됩니다. 여러 채널을 타겟팅하는 메시지 단계는 채널에 따라 서로 다른 시간에 메시지를 전송하거나 전송을 시도할 수 있습니다. 메시지 단계의 첫 번째 메시지가 전송을 시도하면, 모든 사용자가 자동으로 다음 단계로 진행됩니다.
+해당 날짜에 단계에 진입한 사용자에게 최적의 현지 시간에 메시지가 전송됩니다. 다만 해당 날짜에 최적 시간이 이미 지났다면, 다음 날의 최적 시간에 전달됩니다. 여러 채널을 타겟팅하는 메시지 단계는 채널별로 서로 다른 시간에 메시지를 전송하거나 전송을 시도할 수 있습니다. 메시지 단계의 첫 번째 메시지가 전송을 시도하면, 모든 사용자가 자동으로 다음 단계로 진행됩니다.
 
 ### 2단계: 대체 시간 선택 {#step-2-choose-a-fallback-time}
 
-Braze가 최적 전송 시간을 계산할 관련 인게이지먼트 데이터가 없는 오디언스 내 사용자에게 메시지를 전송할 대체 시간을 선택합니다. {% multi_lang_include brazeai/intelligent_suite/fallback_time.md %}
+오디언스 내에서 Braze가 최적 전송 시간을 계산할 관련 인게이지먼트 데이터가 없는 사용자에게 메시지를 보낼 대체 시간을 선택합니다. {% multi_lang_include brazeai/intelligent_suite/fallback_time.md %}
 
 ### 4단계: 지연 단계 추가 {#step-4-add-a-delay-step}
 
-Campaigns와 달리, Canvas는 전송 날짜 48시간 전에 시작할 필요가 없습니다. Intelligent Timing이 Canvas 수준이 아닌 단계 수준에서 설정되기 때문입니다.
+Campaign과 달리 Canvas에서는 전송 날짜 48시간 전에 시작할 필요가 없습니다. Intelligent Timing이 Canvas 수준이 아닌 단계 수준에서 설정되기 때문입니다.
 
-대신 사용자가 Canvas에 진입하는 시점과 Intelligent Timing 단계를 받는 시점 사이에 최소 2일 이상의 [지연 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)를 추가하세요.
+대신, 사용자가 Canvas에 진입하는 시점과 Intelligent Timing 단계를 수신하는 시점 사이에 최소 2일(캘린더 일 기준)의 [지연 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)를 추가하세요.
 
-#### 캘린더 일수 vs. 24시간 일수 {#calendar-vs-24-hour-days}
+#### 캘린더 일 vs. 24시간 일 {#calendar-vs-24-hour-days}
 
-Intelligent Timing을 지연 단계 이후에 사용할 때, 지연을 계산하는 방식에 따라 전달 날짜가 달라질 수 있습니다. 이는 지연이 **기간 후**로 설정된 경우에만 적용되며, "일"과 "캘린더 일"의 계산 방식이 다르기 때문입니다.
+Intelligent Timing을 지연 단계 이후에 사용할 때, 지연 계산 방식에 따라 전달 날짜가 달라질 수 있습니다. 이는 지연이 **기간 이후**로 설정된 경우에만 적용되며, "일"과 "캘린더 일"의 계산 방식에 차이가 있기 때문입니다.
 
-- **일:** 1일은 24시간이며, 사용자가 지연 단계에 진입한 시점부터 계산됩니다.
-- **캘린더 일:** 1일은 사용자가 지연 단계에 진입한 시점부터 해당 사용자 시간대의 자정까지의 기간입니다. 따라서 1캘린더 일은 불과 몇 분이 될 수도 있습니다.
+- **일:** 1일은 사용자가 지연 단계에 진입한 시점부터 24시간입니다.
+- **캘린더 일:** 1일은 사용자가 지연 단계에 진입한 시점부터 해당 사용자 시간대의 자정까지의 기간입니다. 따라서 1 캘린더 일은 몇 분밖에 되지 않을 수도 있습니다.
 
-Intelligent Timing을 사용할 때는 24시간 일수보다 캘린더 일수를 지연에 사용하는 것을 권장합니다. 캘린더 일수를 사용하면 메시지가 지연의 마지막 날에 최적 시간에 전송되기 때문입니다. 24시간 일수를 사용하면, 사용자가 단계에 진입하기 전에 최적 시간이 이미 지났을 가능성이 있어 지연에 하루가 추가될 수 있습니다.
+Intelligent Timing을 사용할 때는 24시간 일보다 캘린더 일을 사용하는 것을 권장합니다. 캘린더 일을 사용하면 지연의 마지막 날에 최적 시간에 메시지가 전송됩니다. 24시간 일을 사용하면 사용자의 최적 시간이 단계 진입 전인 경우가 발생할 수 있으며, 이 경우 지연에 하루가 추가됩니다.
 
-예를 들어, Luka의 최적 시간이 오후 2시라고 합시다. 그는 3월 1일 오후 2시 1분에 지연 단계에 진입하며, 지연은 2일로 설정되어 있습니다.
+예를 들어, Luka의 최적 시간이 오후 2시라고 가정합니다. 그는 3월 1일 오후 2시 1분에 지연 단계에 진입하며, 지연은 2일로 설정되어 있습니다.
 
-- 1일차는 3월 2일 오후 2시 1분에 종료됩니다.
-- 2일차는 3월 3일 오후 2시 1분에 종료됩니다.
+- 1일차는 3월 2일 오후 2시 1분에 종료
+- 2일차는 3월 3일 오후 2시 1분에 종료
 
-하지만 Intelligent Timing은 오후 2시에 전달하도록 설정되어 있으며, 해당 시간은 이미 지났습니다. 따라서 Luka는 다음 날인 3월 4일 오후 2시에야 메시지를 받게 됩니다.
+그러나 Intelligent Timing은 오후 2시에 전달하도록 설정되어 있는데, 이미 지난 시간입니다. 따라서 Luka는 다음 날인 3월 4일 오후 2시까지 메시지를 수신하지 못합니다.
 
-![일수와 캘린더 일수의 차이를 보여주는 그래픽. 사용자의 최적 시간이 오후 2시이지만 오후 2시 1분에 지연 단계에 진입했고 지연이 2일로 설정된 경우, 일수 방식은 사용자가 최적 시간 이후에 단계에 진입했기 때문에 3일 후에 메시지를 전달하는 반면, 캘린더 일수 방식은 지연의 마지막 날인 2일 후에 메시지를 전달합니다.]({% image_buster /assets/img/intelligent_timing_daysvcalendardays.png %}){: style="border:none;"}
+![일과 캘린더 일의 차이를 보여주는 그래픽. 사용자의 최적 시간이 오후 2시이지만 오후 2시 1분에 지연 단계에 진입하고 지연이 2일로 설정된 경우, 일 기준은 사용자가 최적 시간 이후에 단계에 진입했기 때문에 3일 후에 메시지를 전달하고, 캘린더 일 기준은 지연의 마지막 날인 2일 후에 메시지를 전달합니다.]({% image_buster /assets/img/intelligent_timing_daysvcalendardays.png %}){: style="border:none;"}
 {% endtab %}
 {% endtabs %}
 
 ## 고려 사항 {#considerations}
 
 - 인앱 메시지와 웹훅은 즉시 전달되며 최적 시간이 적용되지 않습니다.
-- Intelligent Timing은 액션 기반 또는 API 트리거 Campaign에서는 사용할 수 없습니다.
+- Intelligent Timing은 액션 기반 또는 API 트리거 Campaigns에서는 사용할 수 없습니다.
 - Intelligent Timing은 다음 시나리오에서 사용하지 않는 것이 좋습니다:
-    - **사용량 제한조치:** 사용량 제한조치와 Intelligent Timing을 함께 사용하면 메시지가 언제 전달될지 보장할 수 없습니다. Intelligent Timing이 적용된 일일 반복 Campaign은 총 메시지 발송 한도를 정확하게 지원하지 않습니다.
-    - **IP 워밍 Campaign:** 일부 Intelligent Timing 동작은 IP를 처음 워밍업할 때 필요한 일일 발송량을 달성하는 데 어려움을 초래할 수 있습니다. 이는 Intelligent Timing이 세그먼트를 두 번 평가하기 때문입니다. 한 번은 Campaign 또는 Canvas가 처음 생성될 때, 그리고 다시 한 번은 사용자에게 발송하기 전에 해당 사용자가 여전히 해당 세그먼트에 속하는지 확인할 때 평가합니다. 이로 인해 세그먼트가 변동될 수 있으며, 두 번째 평가 시 일부 사용자가 세그먼트에서 이탈하는 경우가 자주 발생합니다. 이탈한 사용자는 대체되지 않으므로, 최대 사용자 한도에 근접하기 어려울 수 있습니다.
+    - **사용량 제한조치:** 사용량 제한조치와 Intelligent Timing을 함께 사용하면 메시지가 언제 전달될지 보장되지 않습니다. Intelligent Timing이 적용된 일일 반복 Campaigns는 총 메시지 발송 한도를 정확하게 지원하지 않습니다.
+    - **IP 워밍 Campaigns:** 일부 Intelligent Timing 동작은 IP 워밍 초기에 필요한 일일 발송량을 달성하는 데 어려움을 줄 수 있습니다. 이는 Intelligent Timing이 Segment를 두 번 평가하기 때문입니다. 한 번은 Campaign 또는 Canvas가 처음 생성될 때, 그리고 다시 사용자에게 발송하기 전에 해당 사용자가 여전히 해당 Segment에 포함되어야 하는지 확인할 때 평가합니다. 이로 인해 Segment가 변경될 수 있으며, 두 번째 평가에서 일부 사용자가 Segment에서 빠지는 경우가 종종 발생합니다. 빠진 사용자는 대체되지 않으므로, 최대 사용자 한도에 얼마나 근접할 수 있는지에 영향을 미칩니다.
 
 ## 문제 해결 {#troubleshooting}
 
-### 미리보기 차트에 최적 시간이 있는 사용자가 적게 표시되는 경우 {#preview-chart-showing-few-users-with-optimal-times}
+### 미리보기 차트에 최적 시간이 있는 사용자가 거의 표시되지 않는 경우 {#preview-chart-showing-few-users-with-optimal-times}
 
-사용자에게 관련 이벤트가 없는 경우(예: 인게이지먼트가 거의 없는 신규 사용자), Braze는 설정된 대체 설정을 사용합니다. 이는 커스텀 대체 시간이거나 모든 사용자 중 가장 인기 있는 앱 사용 시간입니다.
+사용자에게 관련 이벤트가 없는 경우(예: 참여가 거의 또는 전혀 없는 신규 사용자), Braze는 설정된 대체 설정을 사용합니다. 이는 커스텀 대체 시간이거나 전체 사용자 중 앱을 가장 많이 사용하는 시간입니다.
 
-### 시간대가 Intelligent Timing 전달에 미치는 영향 {#impact-of-time-zone-on-intelligent-timing-delivery}
+### Intelligent Timing 전달에 대한 시간대의 영향 {#impact-of-time-zone-on-intelligent-timing-delivery}
 
-Intelligent Timing은 각 사용자의 현지 시간대와 달력 날짜를 사용하여 최적의 전달 시간을 결정합니다. 이로 인해 Campaign의 기준 시간대보다 앞서거나 뒤처진 시간대에 있는 사용자는 예상과 다른 달력 날짜에 메시지를 받을 수 있습니다.
+Intelligent Timing은 각 사용자의 현지 시간대와 달력 일자를 사용하여 최적의 전달 시점을 결정합니다. 이로 인해 Campaign의 기준 시간대보다 앞서거나 뒤처진 시간대에 있는 사용자는 예상과 다른 달력 날짜에 메시지를 받을 수 있습니다.
 
-예를 들어 Campaign이 3월 15일로 스케줄되어 있고 사용자의 최적 시간이 해당 날짜로 계산된 경우, Campaign 기준 시간대보다 앞선 시간대의 사용자는 기준 시간대 기준으로 3월 14일 늦은 시간에 메시지를 받을 수 있으며, 기준 시간대보다 뒤처진 시간대의 사용자는 3월 16일에 메시지를 받을 수 있습니다.
+예를 들어, Campaign이 3월 15일로 예정되어 있고 사용자의 최적 시간이 해당 날짜로 계산된 경우, Campaign의 기준 시간대보다 앞선 시간대에 있는 사용자는 기준 시간대 기준으로 3월 14일 늦은 시간에 메시지를 받을 수 있으며, 기준 시간대보다 뒤처진 시간대에 있는 사용자는 3월 16일에 메시지를 받을 수 있습니다.
 
 사용자가 예상대로 메시지를 받지 못하는 경우, 프로필의 시간대 필드가 올바르게 입력되어 있는지 확인하세요. 시간대 필드가 비어 있으면 사용자는 현지 시간이 아닌 회사의 시간대에 맞춰 메시지를 받을 수 있습니다.
 
-### 예정된 날짜 이후에도 전송이 계속되는 경우 {#sending-past-the-scheduled-date}
+### 예정된 날짜 이후에 발송되는 경우 {#sending-past-the-scheduled-date}
 
-Intelligent Timing Campaign이 예정된 날짜 이후에도 전송되는 경우, [최적화가 포함된 A/B 테스트]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations)를 활용하고 있기 때문일 수 있습니다. A/B 테스트 최적화를 사용하는 Campaigns는 초기 테스트가 끝난 후 자동으로 우승 배리언트를 전송할 수 있으며, 이로 인해 Campaign 기간이 늘어납니다. 기본적으로 최적화가 적용된 Campaigns는 초기 테스트 다음 날 나머지 사용자에게 우승 배리언트를 전송하지만, 이 전송 날짜는 변경할 수 있습니다.
+[BrazeAI<sup>TM</sup>로 최적화]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection)를 사용하면 Intelligent Timing Campaign이 예정된 날짜 이후에 발송될 수 있습니다. 단일 발송 Campaign의 경우, Braze는 초기 테스트 이후 가장 성과가 좋은 배리언트를 나머지 오디언스에게 전송하므로 Campaign 기간이 늘어납니다.
 
-Intelligent Timing을 사용하는 경우, A/B 테스트가 완료될 충분한 시간을 확보하고 우승 배리언트 전송을 초기 테스트 후 1일이 아닌 2일 후로 스케줄하는 것을 권장합니다.
+Intelligent Timing을 사용하는 경우, A/B 테스트가 완료될 수 있도록 충분한 시간을 확보하고 최적화된 발송을 초기 테스트 이후 이틀 뒤로 스케줄하세요.
 
 ## 자주 묻는 질문(FAQ) {#faq}
 
@@ -251,7 +249,7 @@ Intelligent Timing은 세션 시작 및 메시지 열람 이벤트를 기반으�
 
 #### 모든 시간대의 모든 사용자에게 성공적으로 전달하려면 Intelligent Timing Campaign을 얼마나 미리 시작해야 하나요? {#how-far-in-advance-should-i-launch-an-intelligent-timing-campaign-to-successfully-deliver-it-to-all-users-in-all-time-zones}
 
-Braze는 세계에서 가장 이른 시간대 중 하나인 사모아 시간의 자정에 최적 시간을 계산합니다. 하루는 약 48시간에 걸쳐 있습니다. 예를 들어, 최적 시간이 오전 12시 1분이고 호주에 거주하는 사용자는 이미 최적 시간이 지나 메시지를 보내기에 "너무 늦은" 상태입니다. 이러한 이유로 앱을 사용하는 전 세계 모든 사용자에게 성공적으로 전달하려면 48시간 전에 예약해야 합니다.
+Braze는 세계에서 가장 이른 시간대 중 하나인 사모아 시간의 자정에 최적 시간을 계산합니다. 하루는 약 48시간에 걸쳐 있습니다. 예를 들어, 최적 시간이 오전 12시 1분이고 호주에 거주하는 사용자는 이미 최적 시간이 지나 메시지를 보내기에 "너무 늦은" 상태입니다. 이러한 이유로 앱을 사용하는 전 세계 모든 사용자에게 성공적으로 전달하려면 48시간 전에 스케줄해야 합니다.
 
 #### Intelligent Timing Campaign의 발송 수가 거의 없거나 전혀 없는 이유는 무엇인가요? {#why-is-my-intelligent-timing-campaign-showing-little-to-no-sends}
 
@@ -259,9 +257,9 @@ Braze는 세계에서 가장 이른 시간대 중 하나인 사모아 시간의 
 
 #### Intelligent Timing Campaign이 예정된 날짜를 지나서 발송되는 이유는 무엇인가요? {#why-is-my-intelligent-timing-campaign-sending-past-the-scheduled-date}
 
-A/B 테스트를 활용하고 있기 때문에 Intelligent Timing Campaign이 예정된 날짜를 지나서 발송될 수 있습니다. A/B 테스트를 사용하는 Campaign은 A/B 테스트가 종료된 후 자동으로 위닝 배리언트를 전송하여 Campaign 발송 기간을 늘릴 수 있습니다. 기본적으로 Intelligent Timing Campaign은 다음 날 나머지 사용자에게 위닝 배리언트를 발송하도록 예약되지만, 이 발송 날짜를 변경할 수 있습니다.
+**BrazeAI<sup>TM</sup>로 최적화**가 켜져 있는 경우 Intelligent Timing Campaign이 예정된 날짜를 지나서 발송될 수 있습니다. 단일 발송 Campaign의 경우, Braze는 A/B 테스트가 종료된 후 나머지 오디언스에 가장 성과가 좋은 배리언트를 전송하여 Campaign 기간을 늘립니다.
 
-Intelligent Timing Campaign이 있는 경우, A/B 테스트가 완료될 때까지 시간을 더 두고 위닝 배리언트를 1일이 아닌 2일 후에 발송하도록 예약하는 것이 좋습니다.
+A/B 테스트가 완료될 때까지 충분한 시간을 두고, 초기 테스트 이후 2일 뒤에 최적화된 발송을 스케줄하세요.
 
 ### 기능 {#functionality}
 
@@ -276,7 +274,7 @@ Braze는 Campaign이 시작될 때 두 가지 확인을 수행합니다:
 
 #### Intelligent Timing Campaign에서 방해금지 시간을 사용할 수 있나요? {#can-i-use-quiet-hours-in-my-intelligent-timing-campaign}
 
-Intelligent Timing을 사용하는 Campaign에서 방해금지 시간을 사용할 수 있습니다. Intelligent Timing 알고리즘은 방해금지 시간을 피하여 모든 적격 사용자에게 메시지를 전송합니다. 다만, 정책, 규정 준수 또는 기타 법적 요건으로 인해 메시지를 보낼 수 있는 시간과 보낼 수 없는 시간이 정해져 있지 않는 한 방해금지 시간을 끄는 것이 좋습니다.
+Intelligent Timing을 사용하는 Campaign에서 방해금지 시간을 사용할 수 있습니다. Intelligent Timing 알고리즘은 방해금지 시간을 피하여 모든 적격 사용자에게 메시지를 전송합니다. 다만, 정책, 규정 준수 또는 기타 법무 요건으로 인해 메시지를 보낼 수 있는 시간과 보낼 수 없는 시간이 정해져 있지 않는 한 방해금지 시간을 끄는 것이 좋습니다.
 
 #### 사용자의 최적 시간이 방해금지 시간 내에 있으면 어떻게 되나요? {#what-happens-if-the-optimal-time-for-a-user-is-within-the-quiet-hours}
 

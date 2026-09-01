@@ -3,24 +3,24 @@ nav_title: Transformación de datos
 hidden: true
 ---
 
-# Transformación de datos Braze
+# Transformación de datos de Braze {#braze-data-transformation}
 
-> Braze [Data Transformation]({{site.baseurl}}/data_transformation/) puede recibir un webhook de una plataforma asociada y permitir que un cliente defina una asignación para convertir la carga útil de ese webhook en los datos de usuario deseados, como atributos, eventos o compras en perfiles de usuario Braze.
+> [Transformación de datos]({{site.baseurl}}/data_transformation) de Braze puede recibir un webhook de una plataforma de un partner y permitir que un cliente defina un mapeado para convertir la carga útil de ese webhook en los datos de usuario deseados, como atributos, eventos o compras en perfiles de usuario de Braze.
 
-## Cómo sería una integración basada en la transformación de datos
+## Cómo sería una integración basada en Transformación de datos {#what-a-data-transformation-based-integration-would-look-like}
 
-Una integración de socios basada en la función de transformación de datos podría ser una plantilla de código de transformación compartida con los clientes a través de documentación pública.
+Una integración de un partner basada en la característica de Transformación de datos podría ser una plantilla de código de transformación compartida con los clientes a través de documentación pública.
 
-Para los clientes mutuos, sería algo así:
+Para los clientes en común, se vería algo así:
 
-1. Se conectan a su plataforma y configuran webhooks.
-2. Trabajan con su equipo Braze para obtener acceso a Braze Data Transformation y crear una nueva transformación dentro de su panel Braze.
+1. Inician sesión en tu plataforma y configuran los webhooks.
+2. Trabajan con su equipo de Braze para obtener acceso a Transformación de datos de Braze y crean una nueva transformación dentro de su panel de Braze.
 3. Se copia la URL generada por la transformación.
 4. De vuelta en Braze, envían un webhook de prueba a la URL de transformación copiada.
 5. En Braze, copian y pegan la plantilla de código de transformación.
-6. Permiten la transformación.
-7. Cuando se activa, pueden verificar a través de la herramienta de búsqueda de usuarios Braze que el perfil del usuario se actualiza en función del webhook y editar el código de transformación como se desee.
+6. Habilitan la transformación.
+7. Una vez habilitada, pueden verificar a través de la herramienta de búsqueda de usuarios de Braze que el perfil de usuario se haya actualizado en función del webhook y editar el código de transformación según lo deseen.
 
 {% alert tip %}
-Se recomienda crear una transformación por tipo de webhook enviado a Braze cuando se construyan ejemplos de código de transformación.
+Se recomienda crear una transformación por cada tipo de webhook enviado a Braze al desarrollar ejemplos de código de transformación.
 {% endalert %}

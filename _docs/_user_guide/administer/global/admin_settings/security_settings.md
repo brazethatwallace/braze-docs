@@ -5,7 +5,6 @@ page_order: 2
 toc_headers: h2
 page_type: reference
 description: "This reference article covers generic cross-company security settings, including authentication rules, IP allowlisting, PII, and two-factor authentication (2FA)."
-
 ---
 
 # Security settings
@@ -46,7 +45,7 @@ You can restrict your users from logging in using a password or SSO.
 
 For [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), customers need to set up their SAML settings before enforcing. If customers use Google SSO, they only need to enforce the security settings page with no additional lift.
 
-## Dashboard IP allowlisting
+## Dashboard IP allowlisting {#dashboard-ip-allowlisting}
 
 Use the field shown to allowlist specific IP addresses and subnets from which users can log in to your account (for example, from a company network or VPN). Specify IP addresses and subnets as CIDR ranges in a comma-separated list. If not specified, users can log in from any IP address.
 
@@ -342,7 +341,7 @@ If you find yourself caught in a loop after successfully entering your phone num
 3. Restart your PC or laptop.
 4. Attempt to set up 2FA again.
 
-If the problem persists after these steps, contact [Support]({{site.baseurl}}/braze_support) for assistance.
+If the problem persists after these steps, contact [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) for assistance.
 
 ### Can't enable two-factor authentication (2FA)
 

@@ -287,7 +287,7 @@ You can select [brand guidelines]({{site.baseurl}}/user_guide/administer/global/
 
 ## User-specific interaction history {#user-history}
 
-A user's interaction data includes their recent campaign and Canvas opens, clicks, and conversion data. For example, you can include this context for an agent to reference when it's evaluated in Canvas. User-specific interaction history can also help influence an agent when its job is to write personalized message copy.
+A user's interaction data includes their recently received campaign and Canvas messages by channel, the contents of each message, and whether the user interacted with each message. You can include this as user-specific context for an agent to reference when it's invoked for a user in Canvas. User-specific interaction history can help influence an agent to write copy that resonates with each user when its job is to write personalized message copy.
 
 ## Version history {#version-history}
 

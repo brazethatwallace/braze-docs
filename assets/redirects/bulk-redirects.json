@@ -110,6 +110,131 @@
     "permanent": true
   },
   {
+    "source": "/docs/api/endpoints/custom_objects",
+    "destination": "/docs/api/endpoints/data_objects",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/object_relationships",
+    "destination": "/docs/api/endpoints/data_objects/object_relationships",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/object_relationships/delete_object_relationship",
+    "destination": "/docs/api/endpoints/data_objects/object_relationships/delete_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/object_relationships/get_list_object_relationships",
+    "destination": "/docs/api/endpoints/data_objects/object_relationships/get_list_object_relationships",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/object_relationships/patch_update_object_relationship",
+    "destination": "/docs/api/endpoints/data_objects/object_relationships/patch_update_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/object_relationships/post_create_object_relationship",
+    "destination": "/docs/api/endpoints/data_objects/object_relationships/post_create_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/object_relationships/put_replace_object_relationship",
+    "destination": "/docs/api/endpoints/data_objects/object_relationships/put_replace_object_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/objects",
+    "destination": "/docs/api/endpoints/data_objects/objects",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/objects/delete_custom_object",
+    "destination": "/docs/api/endpoints/data_objects/objects/delete_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/objects/get_custom_object",
+    "destination": "/docs/api/endpoints/data_objects/objects/get_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/objects/get_list_custom_objects",
+    "destination": "/docs/api/endpoints/data_objects/objects/get_list_data_objects",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/objects/patch_update_custom_object",
+    "destination": "/docs/api/endpoints/data_objects/objects/patch_update_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/objects/post_create_custom_object",
+    "destination": "/docs/api/endpoints/data_objects/objects/post_create_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/objects/put_replace_custom_object",
+    "destination": "/docs/api/endpoints/data_objects/objects/put_replace_data_object",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/types",
+    "destination": "/docs/api/endpoints/data_objects/types",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/types/get_custom_object_type",
+    "destination": "/docs/api/endpoints/data_objects/types/get_data_object_type",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/types/get_list_custom_object_types",
+    "destination": "/docs/api/endpoints/data_objects/types/get_list_data_object_types",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/types/get_list_object_relationship_types",
+    "destination": "/docs/api/endpoints/data_objects/types/get_list_object_relationship_types",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/types/get_list_user_relationship_types",
+    "destination": "/docs/api/endpoints/data_objects/types/get_list_user_relationship_types",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/user_relationships",
+    "destination": "/docs/api/endpoints/data_objects/user_relationships",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/user_relationships/delete_user_relationship",
+    "destination": "/docs/api/endpoints/data_objects/user_relationships/delete_user_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/user_relationships/get_list_user_relationships",
+    "destination": "/docs/api/endpoints/data_objects/user_relationships/get_list_user_relationships",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/user_relationships/patch_update_user_relationship",
+    "destination": "/docs/api/endpoints/data_objects/user_relationships/patch_update_user_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/user_relationships/post_create_user_relationship",
+    "destination": "/docs/api/endpoints/data_objects/user_relationships/post_create_user_relationship",
+    "permanent": true
+  },
+  {
+    "source": "/docs/api/endpoints/custom_objects/user_relationships/put_replace_user_relationship",
+    "destination": "/docs/api/endpoints/data_objects/user_relationships/put_replace_user_relationship",
+    "permanent": true
+  },
+  {
     "source": "/docs/api/endpoints/email/bounce/remove",
     "destination": "/docs/api/endpoints/email/post_remove_hard_bounces",
     "permanent": true
@@ -40216,7 +40341,7 @@
   },
   {
     "source": "/docs/user_guide/brazeai/decisioning_studio/personalized_paths",
-    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
     "permanent": true
   },
   {
@@ -40351,7 +40476,7 @@
   },
   {
     "source": "/docs/user_guide/brazeai/intelligence/intelligent_selection",
-    "destination": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {
@@ -40362,6 +40487,11 @@
   {
     "source": "/docs/user_guide/brazeai/intelligence/tutorial",
     "destination": "/docs/user_guide/brazeai/intelligence_suite/use_case",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {
@@ -40945,11 +41075,6 @@
     "permanent": true
   },
   {
-    "source": "/docs/user_guide/data/cloud_ingestion/sync_accounts_data",
-    "destination": "/docs/user_guide/data/unification/cloud_ingestion/sync_accounts_data",
-    "permanent": true
-  },
-  {
     "source": "/docs/user_guide/data/cloud_ingestion/sync_catalogs_data",
     "destination": "/docs/user_guide/data/unification/cloud_ingestion/sync_catalogs_data",
     "permanent": true
@@ -41260,17 +41385,17 @@
     "permanent": true
   },
   {
-    "source": "/docs/user_guide/data/unification/cloud_ingestion/decisioning_studio",
-    "destination": "/docs/user_guide/brazeai/decisioning_studio/prepare_data/connect_data_sources",
-    "permanent": true
-  },
-  {
     "source": "/docs/user_guide/data/unification/cloud_ingestion/deleteusers",
     "destination": "/docs/user_guide/data/unification/cloud_ingestion/delete_users",
     "permanent": true
   },
   {
     "source": "/docs/user_guide/data/unification/cloud_ingestion/overview",
+    "destination": "/docs/user_guide/data/unification/cloud_ingestion",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/data/unification/cloud_ingestion/sync_accounts_data",
     "destination": "/docs/user_guide/data/unification/cloud_ingestion",
     "permanent": true
   },
@@ -42896,12 +43021,12 @@
   },
   {
     "source": "/docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step/personal_path",
-    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
     "permanent": true
   },
   {
     "source": "/docs/user_guide/engagement_tools/canvas/canvas_components/experiment_step/personalized_paths",
-    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
     "permanent": true
   },
   {
@@ -44121,7 +44246,7 @@
   },
   {
     "source": "/docs/user_guide/intelligence/intelligent_selection",
-    "destination": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {
@@ -46390,6 +46515,11 @@
     "permanent": true
   },
   {
+    "source": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths",
+    "destination": "/docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path",
+    "permanent": true
+  },
+  {
     "source": "/docs/user_guide/messaging/canvas/create_a_canvas/canvas_templates",
     "destination": "/docs/user_guide/messaging/templates/canvas_templates",
     "permanent": true
@@ -47656,7 +47786,7 @@
   },
   {
     "source": "/docs/user_guide/sage_ai/intelligence/intelligent_selection",
-    "destination": "/docs/user_guide/brazeai/intelligence_suite/intelligent_selection",
+    "destination": "/docs/user_guide/brazeai/intelligence_suite/variant_selection",
     "permanent": true
   },
   {

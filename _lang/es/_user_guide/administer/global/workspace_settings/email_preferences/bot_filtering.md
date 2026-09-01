@@ -26,7 +26,7 @@ Braze cuenta con un sistema de detección que emplea múltiples entradas para id
 El filtrado de bots bloquea activamente los clics automatizados sospechosos para mejorar la precisión de tus métricas de participación. Sin embargo, los escáneres y bots evolucionan continuamente con el tiempo, por lo que Braze no puede garantizar la eliminación de todas las interacciones no humanas.
 {% endalert %}
 
-Las siguientes métricas de Braze pueden verse afectadas por clics de bots:
+Las siguientes métricas de Braze pueden verse afectadas por los clics de bots:
 
 - Tasa de clics total
 - Tasa de clics únicos
@@ -37,22 +37,19 @@ Las siguientes métricas de Braze pueden verse afectadas por clics de bots:
 
 Cuando el filtrado de bots está activado, los clics sospechosos de bots se excluyen de los datos de clics. Las siguientes [características de Braze Intelligence]({{site.baseurl}}/user_guide/brazeai/intelligence_suite) pueden reflejar volúmenes más bajos relacionados con clics como resultado:
 
-- Selección inteligente
 - Canal inteligente
 - Sincronización inteligente
 - Paso de experimento
     - Ruta ganadora
-    - Ruta personalizada
-- Campaign
-    - Variante ganadora
-    - Variante personalizada
-- Tasa de apertura real estimada
+- Tasa estimada de apertura real
 
-Las cancelaciones de suscripción derivadas de clics sospechosos de bots no se verán afectadas. Braze seguirá procesando todas las solicitudes de cancelación de suscripción de la forma habitual. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
+[Optimizar con BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) también puede reflejar volúmenes más bajos relacionados con clics cuando optimizas para un objetivo basado en clics.
+
+Las cancelaciones de suscripción por clics sospechosos de bots no se verán afectadas. Braze seguirá procesando todas las solicitudes de cancelación de suscripción con normalidad. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
 ## Filtros de segmentación afectados por el filtrado de bots {#segmentation-filters-affected-by-bot-filtering}
 
-Los siguientes [filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) pueden verse afectados por el filtrado de bots en los mensajes de correo electrónico:
+Los siguientes [filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) pueden verse afectados por el filtrado de bots para mensajes de correo electrónico:
 
 - [Hizo clic/abrió Campaign o Canvas con etiqueta]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-opened-campaign-or-canvas-with-tag)
 - [Hizo clic/abrió paso]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-opened-step)
@@ -64,32 +61,32 @@ Los siguientes [filtros de segmentación]({{site.baseurl}}/user_guide/audience/s
 
 ## Activar el filtrado de bots {#turning-on-bot-filtering}
 
-Ve a **Configuración** > **Preferencias de correo electrónico**. Luego, selecciona **Eliminar clics de bots**. Esta configuración se aplica a nivel del espacio de trabajo.
+Ve a **Configuración** > **Preferencias de correo electrónico**. A continuación, selecciona **Eliminar clics de bots**. Esta configuración se aplica a nivel del espacio de trabajo.
 
-Los clics sospechosos de bots solo se eliminarán después de activar la configuración, y no se aplica de forma retroactiva a las métricas de tu espacio de trabajo.
+Los clics sospechosos de bots solo se eliminan después de activar la configuración, y no se aplica de forma retroactiva a las métricas de tu espacio de trabajo.
 
 ![Configuración de filtrado de bots activada en Preferencias de correo electrónico.]({% image_buster /assets/img/bot_tracking_email.png %})
 
 {% alert important %}
-Si activas esta configuración y luego la desactivas, Braze no podrá restaurar ninguna actividad de bots previamente eliminada en tus análisis.
+Si activas esta configuración y luego la desactivas, Braze no puede restaurar ninguna actividad de bots eliminada previamente en tus análisis.
 {% endalert %}
 
-## Campos en los eventos de clic de correo electrónico para Currents y Snowflake {#fields-in-email-click-events-for-currents-and-snowflake}
+## Campos en los eventos de clic en correo electrónico para Currents y Snowflake {#fields-in-email-click-events-for-currents-and-snowflake}
 
-Braze enviará los campos `is_suspected_bot_click` y `suspected_bot_click_reason` en Currents y Snowflake para un evento de clic de correo electrónico.
+Braze enviará los campos `is_suspected_bot_click` y `suspected_bot_click_reason` en Currents y Snowflake para un evento de clic en correo electrónico.
 
 | Campo | Tipo de datos | Descripción |
-| `is_suspected_bot_click` | Boolean | Indica que se trata de un clic sospechoso de bot. Se enviará como valores nulos hasta que actives la configuración del espacio de trabajo **Eliminar clics de bots**. Este enfoque te permite comprender de forma programática cuándo ha comenzado el filtrado de clics sospechosos de bots en tu espacio de trabajo, para que puedas compararlo con precisión con los datos en Currents y Snowflake. |
-| `suspected_bot_click_reason` | Array | Indica el motivo por el que se trata de un clic sospechoso de bot. Se completará con valores, como `user_agent` e `ip_address`, incluso si la configuración del espacio de trabajo de filtrado de bots está desactivada. Este campo puede proporcionar información sobre el impacto potencial de activar esta configuración, comparando el número de clics provenientes de clics sospechosos de bots con las interacciones humanas. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos en los eventos de clic de correo electrónico para Currents y Snowflake" }
+| `is_suspected_bot_click` | Boolean | Indica que se trata de un clic sospechoso de bot. Se enviará como valores nulos hasta que actives la configuración del espacio de trabajo **Eliminar clics de bots**. Este enfoque te permite comprender programáticamente cuándo ha comenzado el filtrado de clics sospechosos de bots en tu espacio de trabajo, para que puedas compararlo con precisión con los datos en Currents y Snowflake. |
+| `suspected_bot_click_reason` | Array | Indica el motivo por el que se considera un clic sospechoso de bot. Se completará con valores, como `user_agent` e `ip_address`, incluso si la configuración del espacio de trabajo de filtrado de bots está desactivada. Este campo puede proporcionar información sobre el impacto potencial de activar esta configuración, comparando el número de clics provenientes de clics sospechosos de bots con las interacciones humanas. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos en los eventos de clic en correo electrónico para Currents y Snowflake" }
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
 ### ¿Cómo afectará el filtrado de bots al rendimiento de mi Campaign? {#how-will-bot-filtering-impact-my-campaigns-performance}
 
-Esto no afectará a las métricas de ninguna Campaign anterior ya enviada. Cuando el filtrado de bots está activado en tu espacio de trabajo, Braze comenzará a filtrar los clics sospechosos de bots de todos los clics. Es posible que notes una caída en las tasas de clics, pero la tasa de clics será una representación más precisa de la participación de tus usuarios con sus mensajes de correo electrónico.
+Esto no afectará las métricas de ninguna Campaign anterior ya enviada. Cuando el filtrado de bots está activado en tu espacio de trabajo, Braze comenzará a filtrar los clics sospechosos de bots de todos los clics. Es posible que notes una caída en las tasas de clics, pero la tasa de clics será una representación más precisa de la participación de tus usuarios con sus mensajes de correo electrónico.
 
-### ¿El filtrado de bots evitará que los bots que hacen clic en el enlace de cancelar suscripción de Braze cancelen la suscripción? {#will-bot-filtering-prevent-bots-clicking-on-the-braze-unsubscribe-link-from-unsubscribing}
+### ¿El filtrado de bots evitará que los bots que hacen clic en el enlace de cancelación de suscripción de Braze cancelen la suscripción? {#will-bot-filtering-prevent-bots-clicking-on-the-braze-unsubscribe-link-from-unsubscribing}
 
 No. Todas las solicitudes de cancelación de suscripción seguirán siendo procesadas.
 

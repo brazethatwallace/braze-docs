@@ -4,7 +4,7 @@ nav_title: Home
 article_title: Technology Partners
 alias: /partners/partners/
 search_tag: Partner
-description: "Browse Braze technology partners (Alloys) alphabetically. Find integration documentation for personalization, orchestration, data, eCommerce, Audience Sync, and more."
+description: "Browse Braze Alloys technology partners and integration docs for personalization, data, eCommerce, and Audience Sync."
 ---
 
 # Technology Partners

@@ -20,10 +20,10 @@ Les événements d'achat sont des actions d'achat effectuées par vos utilisateu
 Vous pouvez enregistrer des achats en transmettant un [objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object) via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), ou en utilisant l'une de nos bibliothèques SDK répertoriées dans la section suivante.
 
 {% alert note %}
-Les propriétés d'événement d'achat utilisent les mêmes types de données que les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_events#expected-format).
+Les propriétés d'événement d'achat utilisent les mêmes types de données que les [propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#expected-format).
 {% endalert %}
 
-La liste suivante présente les méthodes utilisées sur les différentes plateformes pour enregistrer les achats. Dans ces pages, vous trouverez également de la documentation sur la façon d'ajouter des propriétés et des quantités à votre événement d'achat. Vous pouvez affiner le ciblage de vos utilisateurs en fonction de ces propriétés.
+La liste suivante présente les méthodes utilisées sur les différentes plateformes pour enregistrer des achats. Dans ces pages, vous trouverez également la documentation sur la façon d'ajouter des propriétés et des quantités à votre événement d'achat. Vous pouvez affiner le ciblage de vos utilisateurs en fonction de ces propriétés.
 
 - [Android et FireOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=swift)
@@ -35,47 +35,47 @@ La liste suivante présente les méthodes utilisées sur les différentes platef
 
 ## Consulter les données d'achat {#view-purchase-data}
 
-Après avoir configuré et commencé à enregistrer les événements d'achat, vous pouvez consulter ces données d'achat sur le profil d'un utilisateur dans l'[onglet Aperçu]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab).
+Après avoir configuré et commencé à enregistrer des événements d'achat, vous pouvez consulter ces données d'achat sur le profil d'un utilisateur dans l'[onglet Aperçu]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab).
 
 ## Utiliser les données d'achat {#use-purchase-data}
 
 Il existe plusieurs façons d'utiliser les données d'achat dans Braze :
 
 - **[Segmentation](#purchase-event-segmentation) :** Utilisez les données d'achat pour créer des Segments d'utilisateurs en fonction de leur comportement d'achat.
-- **[Personnalisation](#personalization) :** Utilisez les données d'achat pour personnaliser les messages envoyés aux utilisateurs.
+- **[Personnalisation](#personalization) :** Utilisez les données d'achat pour personnaliser les messages destinés aux utilisateurs.
 - **[Messages déclenchés](#trigger-messages) :** Configurez des messages qui se déclenchent en fonction des événements d'achat.
 - **[Analyse](#analytics) :** Analysez vos données d'achat pour obtenir des informations sur le comportement des utilisateurs et l'efficacité de vos Campaigns marketing.
 
 ### Segmentation {#purchase-event-segmentation}
 
-Vous pouvez déclencher un nombre et un type quelconques de Campaigns de suivi en fonction des événements d'achat enregistrés. Par exemple, vous pouvez créer un Segment d'utilisateurs ayant effectué un achat au cours des 30 derniers jours, ou un Segment d'utilisateurs ayant dépensé plus d'un certain montant.
+Vous pouvez déclencher un nombre et un type illimités de Campaigns de suivi en fonction des événements d'achat enregistrés. Par exemple, vous pouvez créer un Segment d'utilisateurs ayant effectué un achat au cours des 30 derniers jours, ou un Segment d'utilisateurs ayant dépensé plus d'un certain montant.
 
 Les filtres de segmentation suivants sont disponibles lors du ciblage des utilisateurs :
 
-- Premier achat effectué
-- Premier achat pour l'application
-- Dernier produit acheté
-- Montant dépensé
-- Produit acheté
-- Nombre total d'achats
-- X montant dépensé en Y jours
-- X produit acheté en Y jours
-- X propriété d'achat en Y jours
-- X achats au cours des Y derniers jours
+- First Made Purchase
+- First Purchase For App
+- Last Purchased Product
+- Money Spent
+- Purchased Product
+- Total Number of Purchases
+- X Money Spent in Y Days
+- X Product Purchased in Y Days
+- X Purchase Property in Y Days
+- X Purchases in Last Y Days
 
-Pour plus de détails sur chaque filtre, consultez le glossaire des [filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) et filtrez par « Comportement d'achat ».
+Pour plus de détails sur chaque filtre, consultez le glossaire des [filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) et filtrez par « Purchase behavior ».
 
 ![Filtrage des utilisateurs ayant effectué exactement trois achats]({% image_buster /assets/img/purchase_filter_example.gif %}){: style="max-width:80%;"}
 
 {% alert tip %}
-Pour segmenter en fonction du nombre de fois qu'un achat spécifique a été effectué, enregistrez cet achat individuellement en tant qu'[attribut personnalisé incrémentiel]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#custom-attribute-storage).
+Pour segmenter en fonction du nombre de fois qu'un achat spécifique a eu lieu, enregistrez cet achat individuellement en tant qu'[attribut personnalisé incrémentiel]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#custom-attribute-storage).
 {% endalert %}
 
 ### Personnalisation {#personalization}
 
 Comme tout autre type de données que vous collectez auprès de vos utilisateurs, vous pouvez utiliser les données d'achat pour personnaliser vos communications via Liquid. Par exemple, vous pouvez envoyer un e-mail personnalisé à un utilisateur en lui recommandant des produits similaires à ceux qu'il vient d'acheter.
 
-Supposons que vous ayez une propriété d'événement d'achat appelée `last_purchased_product` qui stocke le nom du dernier produit acheté par un utilisateur. Vous pouvez utiliser cette propriété pour personnaliser un e-mail comme ceci :
+Supposons que vous ayez une propriété d'événement d'achat appelée `last_purchased_product` qui stocke le nom du dernier produit acheté par un utilisateur. Vous pouvez utiliser cette propriété pour personnaliser un e-mail de la manière suivante :
 
 {% raw %}
 
@@ -91,15 +91,15 @@ Supposons que vous ayez une propriété d'événement d'achat appelée `last_pur
 
 {% endraw %}
 
-Dans cet exemple, le message est personnalisé en fonction de la propriété `last_purchased_product`. Si le dernier produit acheté par l'utilisateur était « Running Shoes », il reçoit un message recommandant des shorts de course et des bouteilles d'eau. Si le dernier produit était « Yoga Mat », il reçoit un message recommandant des blocs et des sangles de yoga. Si `last_purchased_product` correspond à autre chose, il reçoit un message de remerciement générique.
+Dans cet exemple, le message est personnalisé en fonction de la propriété `last_purchased_product`. Si le dernier produit acheté par l'utilisateur est « Running Shoes », il reçoit un message recommandant des shorts de course et des bouteilles d'eau. Si le dernier produit est « Yoga Mat », il reçoit un message recommandant des blocs et des sangles de yoga. Si `last_purchased_product` correspond à autre chose, il reçoit un message de remerciement générique.
 
 ### Messages déclenchés {#trigger-messages}
 
-Un cas d'usage courant consiste à envoyer automatiquement un message, tel qu'un e-mail, lorsqu'un utilisateur effectue un achat. Par exemple, vous pouvez envoyer un message de remerciement ou un code de réduction pour un prochain achat.
+Un cas d'usage courant consiste à envoyer automatiquement un message, tel qu'un e-mail, lorsqu'un utilisateur effectue un achat. Par exemple, vous pouvez envoyer un message de remerciement ou un code de réduction pour un futur achat.
 
-Pour ce faire, créez une Campaign ou un Canvas basé sur une action, puis définissez l'action de déclenchement sur **Effectuer un achat**. Vous pouvez également spécifier des conditions supplémentaires pour le déclencheur, telles que le produit acheté ou le montant de l'achat.
+Pour ce faire, créez une Campaign ou un Canvas basé sur une action, puis définissez l'action de déclenchement sur **Make Purchase**. Vous pouvez également spécifier des conditions supplémentaires pour le déclencheur, comme le produit acheté ou le montant de l'achat.
 
-Vous pouvez également personnaliser votre message déclenché avec Liquid. Dans l'exemple suivant, `${purchase_product_name}` est un attribut personnalisé que vous remplaceriez par le nom réel de l'attribut qui stocke le nom du produit acheté dans votre configuration Braze.
+Vous pouvez aussi personnaliser votre message déclenché avec Liquid. Dans l'exemple suivant, `${purchase_product_name}` est un attribut personnalisé que vous remplaceriez par le nom réel de l'attribut qui stocke le nom du produit acheté dans votre configuration Braze.
 
 {% raw %}
 
@@ -115,7 +115,7 @@ En plus du suivi des indicateurs d'achat pour la segmentation, Braze enregistre 
 
 Vous pouvez trouver ces données sur la page [Rapport de revenus]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data).
 
-### Calculs de revenus {#revenue-calculations}
+### Calculs du chiffre d'affaires {#revenue-calculations}
 
 <style>
     .no-split {
@@ -123,8 +123,8 @@ Vous pouvez trouver ces données sur la page [Rapport de revenus]({{site.baseurl
     }
 </style>
 
-<table aria-label="Calculs de revenus">
-  <caption>Calculs de revenus</caption>
+<table aria-label="Calculs du chiffre d'affaires">
+  <caption>Calculs du chiffre d'affaires</caption>
     <thead>
         <tr>
             <th>Indicateur</th>
@@ -157,30 +157,30 @@ Vous pouvez trouver ces données sur la page [Rapport de revenus]({{site.baseurl
 
 #### Conversion de devises {#currency-conversion}
 
-Lorsque des événements d'achat sont enregistrés dans une devise autre que l'USD, Braze convertit le montant en USD en utilisant les taux de change d'[Open Exchange Rates](http://openexchangerates.org). Ces taux sont actualisés une fois toutes les 24 heures (vers 4 h, heure de l'Est). Étant donné que les taux de change sont mis en cache, il peut y avoir de légères différences par rapport au taux du marché en temps réel, en particulier pour les devises connaissant des fluctuations rapides.
+Lorsque des événements d'achat sont enregistrés dans une devise autre que l'USD, Braze convertit le montant en USD à l'aide des taux de change d'[Open Exchange Rates](http://openexchangerates.org). Ces taux sont actualisés une fois toutes les 24 heures (vers 4 h ET). Étant donné que les taux de change sont mis en cache, il peut y avoir de légères différences par rapport au taux du marché en temps réel, en particulier pour les devises soumises à des fluctuations rapides.
 
 #### Calcul du chiffre d'affaires à vie {#lifetime-revenue-calculation}
 
-Braze utilise les événements d'achat pour calculer le chiffre d'affaires à vie (également appelé valeur à vie ou LTV) d'un utilisateur, qui est une prédiction du bénéfice net attribué à l'ensemble de la relation future avec un client. Cela peut vous aider à prendre des décisions éclairées concernant les stratégies d'acquisition et de fidélisation des clients.
+Braze utilise les événements d'achat pour calculer le chiffre d'affaires à vie (également appelé valeur à vie ou LTV) d'un utilisateur, qui est une prédiction du bénéfice net attribué à l'ensemble de la relation future avec un client. Cela peut vous aider à prendre des décisions éclairées sur les stratégies d'acquisition et de fidélisation des clients.
 
 $$\text{Average purchase value} = \frac{\text{Total spend in dollars}}{\text{Total number of purchase events}}$$
 
-Il existe deux endroits principaux dans Braze où vous pouvez consulter la LTV de vos utilisateurs :
+Il existe deux emplacements principaux dans Braze où vous pouvez consulter la LTV de vos utilisateurs :
 
-- Pour les indicateurs globaux tels que le *chiffre d'affaires à vie* et la *valeur à vie par utilisateur* pour chaque application et site, consultez votre [rapport de revenus]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data).
+- Pour les indicateurs globaux comme le *chiffre d'affaires à vie* et la *valeur à vie par utilisateur* pour chaque application et site, consultez votre [rapport de revenus]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data).
 - Pour comprendre le chiffre d'affaires à vie d'un utilisateur spécifique, consultez son [profil utilisateur]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab).
 
 ##### Impact des remboursements sur le chiffre d'affaires à vie {#impact-of-refunds-on-lifetime-revenue}
 
-Lorsque vous utilisez des événements d'achat pour suivre les données d'achat, vous devez enregistrer les remboursements en consignant un événement d'achat Braze avec une propriété `price` négative. Cette approche maintient un total précis pour le chiffre d'affaires à vie.
+Lorsque vous utilisez des événements d'achat pour suivre les données d'achat, vous devez enregistrer les remboursements en consignant un événement d'achat Braze avec une propriété `price` négative. Cette approche maintient un total exact pour le chiffre d'affaires à vie.
 
-Cependant, gardez à l'esprit que le remboursement comptera comme un événement d'achat supplémentaire. Prenons l'exemple suivant. Sam effectue son premier achat pour 12 $ mais retourne une partie de l'achat pour un remboursement de 5 $. Le profil de Sam enregistrerait :
+Cependant, gardez à l'esprit que le remboursement sera comptabilisé comme un événement d'achat supplémentaire. Prenons l'exemple suivant : Sam effectue son premier achat pour 12 $ mais retourne une partie de l'achat pour un remboursement de 5 $. Le profil de Sam enregistrerait :
 
 - 1 achat avec un prix de 12 $
 - 1 achat avec un prix de -5 $
 - Un chiffre d'affaires à vie de 7 $
 
-Bien que Sam ait deux événements d'achat sur son profil, en réalité, il n'a effectué qu'un seul achat. C'est un point important à prendre en compte si vous avez des Segments ou des cas d'usage basés sur le nombre d'achats effectués par un utilisateur. Des remboursements fréquents gonfleront le nombre d'achats sur le profil de l'utilisateur.
+Bien que le profil de Sam comporte deux événements d'achat, il n'a en réalité effectué qu'un seul achat. C'est un point important à prendre en compte si vous avez des Segments ou des cas d'usage construits autour du nombre d'achats effectués par un utilisateur. Des remboursements fréquents gonfleront le nombre d'achats sur le profil de l'utilisateur.
 
 ## Propriétés d'événement d'achat {#purchase-properties}
 
@@ -229,8 +229,8 @@ Chez Braze, nous proposons quelques conventions de nommage générales pour le `
 
 Cela rend les produits faciles à identifier pour la segmentation et le déclenchement.
 
-## Bloquer les événements d'achat {#blocklist-purchase-events}
+## Bloquer des événements d'achat {#blocklist-purchase-events}
 
-Il peut arriver que vous identifiiez des événements d'achat qui enregistrent trop de points de donnée, qui ne sont plus utiles à votre stratégie marketing ou qui ont été enregistrés par erreur. Pour empêcher ces données d'être envoyées à Braze, vous pouvez bloquer l'objet de données personnalisées pendant que votre équipe d'ingénierie travaille à le supprimer du backend de votre application ou site web.
+Il peut arriver que vous identifiiez des événements d'achat qui enregistrent trop de points de donnée, qui ne sont plus utiles à votre stratégie marketing, ou qui ont été enregistrés par erreur. Pour empêcher ces données d'être envoyées à Braze, vous pouvez bloquer l'objet de données personnalisées pendant que votre équipe d'ingénierie travaille à le supprimer du backend de votre application ou de votre site web.
 
-Dans le tableau de bord de Braze, vous pouvez gérer le blocage depuis **Paramètres des données** > **Produits**. Consultez [Gérer les données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) pour en savoir plus.
+Dans le tableau de bord de Braze, vous pouvez gérer le blocage depuis **Paramètres des données** > **Produits**. Consultez [Gestion des données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) pour en savoir plus.

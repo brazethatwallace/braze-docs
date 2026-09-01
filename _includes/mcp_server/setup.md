@@ -10,28 +10,29 @@ Before you start, make sure you have the following:
 
 | Prerequisite | Description |
 |--------------|-------------|
-| Early Access enrollment | Your account manager can enroll your company in the Early Access program. |
 | Supported MCP client | Any client that supports remote MCP servers with OAuth can work. Braze has verified Claude, ChatGPT, Cursor, OpenAI Codex, Claude Code, and Visual Studio Code. |
 | Braze dashboard account | You sign in with your normal Braze credentials, including SSO or SAML if your company uses it. There is no separate MCP login. |
 | Server endpoint selection | Choose `https://mcp.braze.com/mcp` (US) or `https://mcp.braze.eu/mcp` (EU). Either endpoint can reach any Braze cluster. |
-| No IP allowlisting | Customers who use [IP Allowlisting](https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#dashboard-ip-allowlisting) cannot participate in Early Access at this time. |
+| No IP allowlisting | Customers who use [IP Allowlisting](https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#dashboard-ip-allowlisting) cannot use the Braze MCP server at this time. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% alert note %}
-Your agent's access mirrors your dashboard permissions. If your dashboard access is scoped to a team rather than a full workspace, some tools may not work during Early Access.
+Your agent's access mirrors your dashboard permissions. If your dashboard access is scoped to a team rather than a full workspace, some tools may not work.
 {% endalert %}
 
 ## Managing access (for admins)
 
+{% alert note %}
+Before users can connect, a company admin must turn on **MCP OAuth access** in **Settings** > **Admin Settings** > **OAuth**. For more information, see [Manage OAuth settings]({{site.baseurl}}/user_guide/administer/global/admin_settings/oauth_admin/).
+{% endalert %}
+
 ### Grant access
 
-Admins control access to the MCP server through the **Use MCP Server** permission. By default, users do not have this permission and it must be explicitly granted.
-
-If an admin does not see this permission, contact your Braze account manager to request Early Access enrollment.
+Admins control access to the MCP server through the "Use MCP Server" permission. By default, users do not have this permission and it must be explicitly granted.
 
 ### Revoke access
 
-To revoke access, remove the **Use MCP Server** permission from the user. Removing dashboard permissions from a user also removes those capabilities from any connected agent on the next request.
+To revoke access, remove the "Use MCP Server" permission from the user. Removing dashboard permissions from a user also removes those capabilities from any connected agent on the next request.
 
 ### Audit usage
 
@@ -41,7 +42,7 @@ When a user successfully connects through OAuth, an event is logged to the [secu
 
 ### Step 1: Confirm permissions and workspace access
 
-1. You or your company admin need to confirm you have the **Use MCP Server** permission.
+1. You or your company admin need to confirm you have the "Use MCP Server" permission.
 2. If you need access to multiple workspaces, make sure the permission is enabled for all relevant workspaces.
 
 ### Step 2: Add Braze as a remote MCP connector
@@ -77,7 +78,7 @@ The first time your agent calls a Braze tool, your client opens a browser window
 3. On the consent screen, review the access the application is requesting.
 4. Select the acknowledgment checkbox to agree to the Braze Privacy Policy, then select **Continue** to return to your MCP client.
 
-![The Braze consent screen showing that Claude Desktop is requesting access to Braze account information and broad access to Braze data, with a Privacy Policy acknowledgment checkbox and Cancel and Continue buttons.]({% image_buster /assets/img/mcp_server/oauth_consent_screen.png %}){: style="max-width:65%;"}
+![The Braze consent screen showing that Claude Desktop is requesting access to Braze account information and broad access to Braze data, with a Privacy Policy acknowledgment checkbox and Cancel and Continue buttons.]({% image_buster /assets/img/mcp_server/oauth_consent_screen.png %}){: width="639" height="1024" style="max-width:65%;"}
 
 Your session uses short-lived access tokens that refresh automatically. You may occasionally need to sign in again.
 
@@ -124,13 +125,13 @@ After you confirm your workflows and skills are working on the remote server, di
 
 ### Authentication fails in a supported client
 
-1. Confirm your company is enrolled in Early Access.
-2. Confirm your user has the **Use MCP Server** permission.
+1. Confirm your company admin has turned on **MCP OAuth access** in [OAuth settings]({{site.baseurl}}/user_guide/administer/global/admin_settings/oauth_admin/).
+2. Confirm your user has the "Use MCP Server" permission.
 3. Retry sign-in and authorization.
 
 ### Authentication is blocked in an unverified client
 
-During Early Access, Braze maintains an allowlist of supported client domains for security. If you connect from a client that isn't on the allowlist, authentication may be blocked. If you believe your client should be supported, contact [mcp-product@braze.com](mailto:mcp-product@braze.com).
+Braze maintains an allowlist of supported client domains for security. If you connect from a client that isn't on the allowlist, authentication may be blocked. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="support for your MCP client" %}
 
 Clients that run locally on your machine without a custom scheme, such as Claude Code and OpenAI Codex, should also work.
 

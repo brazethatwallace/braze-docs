@@ -476,11 +476,11 @@ Lorsque la rééligibilité est activée pour les Campaigns de bannières, les u
 
 Le test A/B Quick Push prend désormais en charge les Campaigns push multiplateformes et les étapes Canvas via des groupes de variantes, vous permettant de tester des variations de messages iOS et Android alignées dans un seul flux de travail. Pour plus d'informations, consultez [Messages push multiplateformes]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push#use-cases).
 
-#### Sélection de variante BrazeAI<sup>TM</sup> {#brazeai-variant-selection}
+#### Optimiser avec BrazeAI<sup>TM</sup> {#optimize-with-brazeai}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-La sélection de variante BrazeAI<sup>TM</sup> s'active automatiquement lorsque vous ajoutez plusieurs variantes push, applique les paramètres d'expérience recommandés par défaut et optimise vers la variante la plus performante pour améliorer l'engagement. Vous pouvez la désactiver si vous devez envoyer immédiatement. Pour plus d'informations, consultez [Sélection de variante BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
+**Optimiser avec BrazeAI<sup>TM</sup>** s'active automatiquement lorsque vous ajoutez plusieurs variantes push, applique les paramètres d'expérience recommandés par défaut et optimise vers la variante la plus performante. Vous pouvez le désactiver si vous devez envoyer immédiatement. Pour plus d'informations, consultez [Optimiser les tests A/B avec BrazeAI]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
 #### Résultats d'envoi test WhatsApp {#whatsapp-test-send-results}
 

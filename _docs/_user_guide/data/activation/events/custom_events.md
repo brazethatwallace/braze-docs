@@ -72,9 +72,9 @@ Custom events require additional setup. Refer to the following platform document
 - [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
 - [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-events)
+- [React Native]({{site.baseurl}}/developer_guide/analytics#custom-events)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=unity)
-- [.NET MAUI (formerly Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#tracking-custom-events)
+- [.NET MAUI (formerly Xamarin)]({{site.baseurl}}/developer_guide/analytics?sdktab=xamarin#custom-events)
 - [Roku]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=roku)
 
 {% enddetails %}

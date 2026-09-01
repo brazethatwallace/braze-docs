@@ -37,7 +37,7 @@ Use this workflow when a user should be in a segment but isn't, or when a segmen
 3. **Calculate exact statistics:** If the segment estimate shows 0 users or seems wrong, select **Calculate exact stats** in the **Reachable users** panel. Save your segment before calculating. If a calculation is already running, wait for it to finish; stale numbers may display until the new calculation completes. For details, see [Calculating exact statistics]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics).
 4. **Check filter values:** Look for typos, data type mismatches, stale Canvas step references, and [negative filter + OR logic](#segment-is-much-larger-than-expected).
 5. **Check complexity:** If launch is blocked, see [Target audience is too complex to launch](#target-audience-is-too-complex-to-launch).
-6. **Contact Support:** If you're still blocked, contact [Braze Support]({{site.baseurl}}/braze_support).
+6. **Contact Support:** If you're still blocked, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## Segment shows zero users
 
@@ -69,7 +69,7 @@ Your dashboard will display an error when a campaign, Canvas, or segment exceeds
 - Segments that are just lists of user IDs or emails (which often use a regex filter) can be converted to a [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) and be simplified into a single CSV filter.
 - If you have CDI, you may be able to create a CDI segment that pulls the group directly from your data warehouse.
 
-You can also [contact Support]({{site.baseurl}}/braze_support) for further assistance with filter optimization.
+You can also [contact Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) for further assistance with filter optimization.
 
 {% alert note %}
 We began limiting character counts in April 2025. Campaigns and Canvases that launched before April 2025 were exempt, which means they can continue exceeding the limit, whereas newly created campaigns and Canvases can't exceed the limit. If you edit or clone an exempt campaign or Canvas, you cannot launch it until the audience is updated to be below the limit.

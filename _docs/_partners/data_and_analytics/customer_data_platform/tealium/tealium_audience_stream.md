@@ -6,7 +6,6 @@ alias: /partners/tealium_audience_stream/
 description: "This reference article outlines the partnership between Braze and Tealium, a universal data hub that enables you to connect mobile, web, and alternative data to other third-party sources."
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Tealium AudienceStream
@@ -16,7 +15,7 @@ search_tag: Partner
 The Braze and Tealium integration leverages AudienceStream visitor profiles. Shared behaviors segment these profiles to create sets of visitors with common traits, known as audiences. These audiences can help fuel your marketing technology stack in real-time via connectors. 
 
 {% alert important %}
-Tealium AudienceStreams and EventStreams offer both batch and non-batch connector actions. The non-batch connector should be used when real-time requests are important to the use case and there are no concerns about hitting the Braze API rate limit specifications. Contact Braze [Support]({{site.baseurl}}/braze_support) or your customer success manager if you have any questions. 
+Tealium AudienceStreams and EventStreams offer both batch and non-batch connector actions. The non-batch connector should be used when real-time requests are important to the use case and there are no concerns about hitting the Braze API rate limit specifications. Contact Braze [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your customer success manager if you have any questions. 
 {% endalert %}
 
 ## Prerequisites

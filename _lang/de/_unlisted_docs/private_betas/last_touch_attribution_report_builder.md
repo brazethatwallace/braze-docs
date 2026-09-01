@@ -31,28 +31,28 @@ Wenn eine Konversion außerhalb des Attributionsfensters eines Kanals stattfinde
 
 ## Vorteile {#benefits}
 
-Last-Touch-Attribution bietet wesentliche Vorteile gegenüber dem Standard-Conversion-Tracking:
+Last-Touch-Attribution bietet entscheidende Vorteile gegenüber dem standardmäßigen Conversion-Tracking:
 
-* Sie ermöglicht es Ihnen, Konversionen bestimmten Touchpoints zuzuordnen, sodass Sie nachvollziehen können, welche Kanäle (nicht nur Campaigns oder Canvases) Ergebnisse erzielen.
+* Sie ermöglicht es, Konversionen bestimmten Touchpoints zuzuordnen, wodurch Sie nachvollziehen können, welche Kanäle (nicht nur Campaigns oder Canvases) Ergebnisse erzielen.
 * Die Zuordnung erfolgt ausschließlich an die zuletzt berührte Nachricht, sodass jede Konversion nur einmal gezählt wird. Dadurch werden überlappende Konversionen über Campaigns oder Canvases mit gemeinsamen Konversions-Events und Zielgruppen hinweg eliminiert.
 
 ## Last-Touch-Attribution-Metriken zu Ihrem Bericht hinzufügen {#add-last-touch-attribution-metrics-to-your-report}
 
 1. Gehen Sie zum **Berichts-Builder** unter **Analytics**.
-2. Wählen Sie **Bericht erstellen** > **Benutzerdefinierten Bericht erstellen**.
-3. Wählen Sie im Dropdown **Zeilen** aus, worüber Sie einen Bericht erstellen möchten.
-4. (Optional) Wählen Sie **Drilldown hinzufügen** und dann einen Bereich, um tiefer in Ihre Berichterstattung einzutauchen.
-5. Wählen Sie unter **Spalten** die Option **Metriken anpassen**.
-6. Wählen Sie unter **Conversions** die Option **Last Touch Attribution** und dann **Alle auswählen**.
+2. Wählen Sie **Create report** > **Create custom report** aus.
+3. Wählen Sie im Dropdown **Rows** aus, worüber Sie einen Bericht erstellen möchten.
+4. (Optional) Wählen Sie **Add drilldown** aus und wählen Sie dann einen Bereich, um tiefer in Ihre Berichterstattung einzutauchen.
+5. Wählen Sie unter **Columns** die Option **Customize metrics** aus.
+6. Wählen Sie unter **Conversions** die Option **Last Touch Attribution** und dann **Select All** aus.
 
 {% alert note %}
 Umsatz- und Kauf-Metriken sind nicht verfügbar.
 {% endalert %}
 
-![Das Panel „Metriken anpassen“ mit Last-Touch-Attribution-Metriken.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
+![Das Panel „Customize metrics“ mit Last-Touch-Attribution-Metriken.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
 
 {: start="7" }
-7. Folgen Sie den Schritten 7–9 auf der Seite [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reporting/report_builder).
+7. Folgen Sie den Schritten 7–9 auf der Seite [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 {% alert note %}
 {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="last-touch attribution metrics in Report Builder" %}

@@ -77,7 +77,7 @@ You can create a settings page in your app that lets users tell you which notifi
 
 When the news app wants to create a campaign targeting only users interested in Politics, they add the `Subscribes to Politics` attribute filter to the segment. When set to true, only users who subscribe to notifications will receive them.
 
-For more information on setting custom attributes, refer to the following articles for [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes#setting-custom-attributes), or [REST API]({{site.baseurl}}/developer_guide/rest_api/user_data#user-attributes-object-specification).
+For more information on setting custom attributes, refer to the following articles for [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android), or [REST API]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 
 ## Increase opt-ins and relevance
 

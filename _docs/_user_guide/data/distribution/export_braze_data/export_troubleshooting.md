@@ -34,7 +34,7 @@ Use this workflow for every export incident. Start at step 1.
 3. Check how long ago the export completed. Emailed dashboard download links expire after four hours, whether you use the default Braze bucket or a connected storage partner. When a storage partner is connected, Braze also delivers a copy to your bucket; that copy follows your retention policies and may remain available after the email link expires.
 4. For large segment exports, confirm the audience is under the 500,000-user dashboard CSV export limit. Segment builder estimates can differ from the export pipeline evaluation.
 5. For API exports, wait for processing to finish before downloading. Use `callback_endpoint` on [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) or poll with exponential backoff instead of requesting the URL immediately.
-6. If you're still blocked, contact [Braze Support]({{site.baseurl}}/braze_support) with the export type (CSV or API), segment or campaign ID, timestamp (with timezone), and the exact error message.
+6. If you're still blocked, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) with the export type (CSV or API), segment or campaign ID, timestamp (with timezone), and the exact error message.
 
 ## Storage destinations {#cloud-storage-connected}
 
@@ -149,7 +149,7 @@ Symptom: A segment CSV export was triggered but no email arrived.
 
 First, check your spam folder for an email from `no-reply@alerts.braze.com`. If the email is there, add that address to your safe sender list so future export messages aren't filtered.
 
-If the email isn't in your spam folder, check whether someone else on your team can receive the export. If they can't, consider the size of your export. Delivery time varies with export size, but if the email hasn't arrived after an hour, contact [Support]({{site.baseurl}}/braze_support).
+If the email isn't in your spam folder, check whether someone else on your team can receive the export. If they can't, consider the size of your export. Delivery time varies with export size, but if the email hasn't arrived after an hour, contact [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## Segment export API downloads
 
@@ -182,4 +182,4 @@ If columns are missing from an API export ZIP, confirm the `fields_to_export` ar
 
 ## When to contact Support
 
-Contact [Braze Support]({{site.baseurl}}/braze_support) if you've completed the [standard investigation path](#standard-investigation-path) and still need help. Include the export type, segment or campaign ID, timestamp (with timezone), and the exact error message or HTTP status code.
+Contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) if you've completed the [standard investigation path](#standard-investigation-path) and still need help. Include the export type, segment or campaign ID, timestamp (with timezone), and the exact error message or HTTP status code.
