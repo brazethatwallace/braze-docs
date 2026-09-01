@@ -89,6 +89,12 @@ You cannot change the number of cards after submitting the template to Meta for 
 3. Configure button text and actions.
 4. Add Liquid variables where needed. You can add them wherever there is a **+** plus button.
 
+#### Duplicate a card
+
+To copy an existing card, select the three-dot menu on the card you want to duplicate and select **Duplicate card**. Braze copies the card's media, text, and button configuration to a new card appended at the end of the carousel.
+
+You can have between 2 and 10 cards. **Duplicate card** is unavailable when the carousel already has 10 cards or after you submit the template to Meta (when the card count is fixed).
+
 {% alert tip %}
 Use Liquid variables strategically to personalize content like discount percentages, product names, or user-specific offers. Variables can be added to card text, button text, and URLs.
 {% endalert %}
