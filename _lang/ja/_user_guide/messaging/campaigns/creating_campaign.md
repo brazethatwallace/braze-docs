@@ -13,29 +13,29 @@ tool: Campaigns
 
 ## 前提条件 {#prerequisites}
 
-キャンペーンを作成して起動するには、「キャンペーンを編集」と「キャンペーンを起動」の権限が必要です。ワークスペースの権限の一覧とダッシュボードでの表示については、[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を参照してください。
+キャンペーンを作成して起動するには、「キャンペーンの編集」と「キャンペーンの起動」の権限が必要です。ワークスペースの権限一覧とダッシュボードでの表示方法については、[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を参照してください。
 
 ### 始める前に {#before-you-begin}
 
-- メッセージを受け取るユーザーを定義する[セグメント]({{site.baseurl}}/user_guide/audience/segments)を作成するか、既存のものを選択してください。
-- メッセージングチャネル、配信タイプ、コンバージョン目標がユースケースに合っているか、[キャンペーンの基本]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics)を確認してください。
+- メッセージを受け取るユーザーを定義する[セグメント]({{site.baseurl}}/user_guide/audience/segments)を作成するか、既存のものを選択します。
+- メッセージングチャネル、配信タイプ、コンバージョン目標がユースケースに合っていることを確認するために、[キャンペーンの基本]({{site.baseurl}}/user_guide/messaging/campaigns/campaign_basics)を確認します。
 - 配信、ターゲティング、コンバージョンのガイド付きウォークスルーについては、[キャンペーンの設定](https://learning.braze.com/campaign-setup-delivery-targeting-conversions) Braze Learningコースを受講してください。
-- オペレーターに依頼して、ブリーフからキャンペーンの下書きを作成したり、ターゲティングや配信の選択を改善したりできます。詳細については、[オペレーターでできること]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences)を参照してください。
+- オペレーターに依頼して、概要からキャンペーンの下書きを作成したり、ターゲティングや配信の選択肢を調整したりできます。詳しくは、[オペレーターでできること]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#campaigns-and-audiences)を参照してください。
 
 ## キャンペーンコンポーザー {#campaign-composer}
 
-キャンペーンコンポーザーでは、配信、オーディエンス、コンバージョン、ローンチ設定を定義します。続行する前に、シングルチャネルキャンペーンとマルチチャネルキャンペーンのどちらを作成するかを決めてください。
+キャンペーンコンポーザーでは、配信、オーディエンス、コンバージョン、ローンチの設定を定義します。続行する前に、シングルチャネルキャンペーンとマルチチャネルキャンペーンのどちらを作成するかを決めてください。
 
 {% tabs %}
 {% tab シングルチャネル %}
 
 シングルチャネルキャンペーンは、1回のローンチにつき1つのメッセージングチャネルを通じてユーザーにリーチします。
 
-### 違い {#whats-different}
+### 相違点 {#whats-different}
 
 #### コンバージョンとレポート {#single-channel-conversions}
 
-シングルチャネルキャンペーンの場合、Brazeはキャンペーンに割り当てた[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)を、そのチャネルからの送信に対してトラッキングします。アトリビューションウィンドウとカウントルールについては、[コンバージョントラッキングルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)を参照してください。
+シングルチャネルキャンペーンでは、Brazeはキャンペーンに割り当てた[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)を、そのチャネルからの送信に対してトラッキングします。アトリビューションウィンドウとカウントルールについては、[コンバージョントラッキングルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)を参照してください。
 
 ワークスペースの[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)と送信制限は引き続き適用されます。
 
@@ -46,7 +46,7 @@ tool: Campaigns
 1. **メッセージング** > **キャンペーン**に移動します。
 2. **キャンペーンを作成**を選択します。
 3. ユースケースに合った[チャネル]({{site.baseurl}}/user_guide/channels)を選択します。
-4. [作成ステップ](#step-1-compose-messages)で、そのチャネル用のコピーを作成しプレビューします。
+4. [作成ステップ](#step-1-compose-messages)で、そのチャネルのコピーを作成しプレビューします。
 
 各キャンペーンでは一度に1つのチャネルタイプを使用します。クリエイティブの分割比較や[ABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を行いたい場合は、バリアントを追加してください。
 
@@ -59,15 +59,15 @@ tool: Campaigns
 [アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages)はマルチチャネルキャンペーンでは利用できません。代わりにシングルチャネルキャンペーンまたはキャンバスを作成してください。
 {% endalert %}
 
-### 違い
+### 相違点
 
 #### コントロールグループ {#multichannel-control-groups}
 
-キャンペーンのコントロールグループは、1つのチャネル内でバリアントを比較します（たとえば、メールAとメールBの比較）。1つのマルチチャネルキャンペーン内でチャネル全体を比較するためには使用されません。チャネル、クリエイティブ、またはタイミングをジャーニー全体でテストするには、[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas)を使用してください。
+キャンペーンのコントロールグループは、1つのチャネル内でバリアントを比較します（たとえば、メールAとメールBの比較）。マルチチャネルキャンペーン内でチャネル全体を比較するためには使用されません。チャネル、クリエイティブ、またはタイミングをジャーニー全体でテストするには、[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas)を使用してください。
 
 #### コンバージョンとレポート {#multichannel-conversions}
 
-マルチチャネルキャンペーンの場合、Brazeは[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)をチャネルごとにトラッキングします。ユーザーが複数のチャネルでメッセージを受信した後にコンバージョンした場合、Brazeはそのコンバージョンをそれらのチャネルにアトリビューションできます。コンバージョン数は*ユニークユーザー*を超える場合があり、レートが100%を超えることもあります。詳細なルールについては、[コンバージョントラッキングルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)を参照してください。
+マルチチャネルキャンペーンでは、Brazeはチャネルごとに[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)をトラッキングします。ユーザーが複数のチャネルでメッセージを受信した後にコンバージョンした場合、Brazeはそのコンバージョンをそれらのチャネルにアトリビューションすることができます。コンバージョン数は*ユニークユーザー数*を超える場合があり、レートは100%を超える場合があります。詳細なルールについては、[コンバージョントラッキングルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)を参照してください。
 
 複数のチャネルにまたがる送信のレート制限については、[マルチチャネルキャンペーンとキャンバス]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases)で説明されています。ワークスペース全体のルール（マルチチャネル送信がキャップにどのようにカウントされるかを含む）については、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)を参照してください。
 
@@ -76,7 +76,7 @@ tool: Campaigns
 1. **メッセージング** > **キャンペーン**に移動します。
 2. **キャンペーンを作成**を選択します。
 3. **マルチチャネル**を選択します。
-4. [作成ステップ](#step-1-compose-messages)で、**チャネルを追加**を選択し、必要な各チャネルを選択します。各チャネルのコピーを作成する際に、チャネルアイコンを選択してコンポーザーを切り替えます。
+4. [作成ステップ](#step-1-compose-messages)で、**チャネルを追加**を選択し、必要な各チャネルを選びます。各チャネルのコピーを作成する際は、チャネルアイコンを選択してコンポーザーを切り替えてください。
 
 {% endtab %}
 {% endtabs %}
@@ -165,7 +165,7 @@ Braze全体のスケジューリングの概念については、[キャンペ�
 
 単一チャネルをターゲットとするキャンペーンに対して、複数のデバイスを含む場合でも、[多変量テストまたはABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を作成できます。たとえば、プッシュキャンペーンで多変量テストまたはABテストを使用したい場合、iOSデバイスのみまたはAndroidデバイスのみをターゲットにできます。同じキャンペーン内で両方のデバイスタイプをターゲットにすることはできません。
 
-1回送信がスケジュールされたプッシュ、メール、Webhookキャンペーンでは、[最適化]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations)も使用できます。最適化は、ABテストからターゲットオーディエンスの一部を予約し、最初のテストの結果に基づいて2回目の最適化された送信のために保持します。
+サポートされている単一送信および複数送信キャンペーンでは、[BrazeAI<sup>TM</sup>で最適化]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection)をオンにして、バリアントの配分を自動的に最適化できます。
 
 ## ステップ4：コンバージョンイベントを割り当てる {#step-4-assign-conversion-events}
 
@@ -194,5 +194,5 @@ Braze全体のスケジューリングの概念については、[キャンペ�
 
 - [デザインと編集]({{site.baseurl}}/user_guide/messaging/design_and_edit)
 - [ABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)
-- [送信前に知っておくべきこと]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send)
+- [送信前の確認事項]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send)
 - [キャンペーン分析]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics)

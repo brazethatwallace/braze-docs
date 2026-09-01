@@ -198,7 +198,7 @@ Under some US state privacy laws, data subjects may object to the use of their P
 
 When building audiences for the purposes of targeting ads to your data subjects, you should ensure that you have excluded any data subjects who have objected to targeted advertising, for instance, California consumers who have exercised their “Do Not Sell or Share” right under the CCPA.
 
-For more information on how to build audiences to sync with third-party platforms, refer to [Audience sync]({{site.baseurl}}/partners/canvas_steps).
+For more information on how to build audiences to sync with third-party platforms, refer to [Audience sync]({{site.baseurl}}/partners/canvas_audience_sync).
 
 ## The Right to Non-Discrimination 
 

@@ -46,6 +46,7 @@ hidden: true
   "external_user_id": "{EXTERNAL_USER_ID}",
   "app_id": "{APP_API_IDENTIFIER}",
   "app_version": "1.0.0",
+  "device_id": "{DEVICE_ID}",
   "placements": [
     "home_hero",
     "sidebar_promo"
@@ -61,7 +62,14 @@ hidden: true
 | `app_id` | 필수 | 문자열 | [앱 API 식별자]({{site.baseurl}}/api/identifier_types#app-identifier)입니다. 인증된 워크스페이스의 앱을 식별해야 합니다. | `26a39c72-e647-4766-b62e-4521fa2dae59` |
 | `app_version` | 필수 | 문자열 | 호스트 앱의 버전입니다. 255자를 초과할 수 없습니다. | `1.0.0` |
 | `placements` | 필수 | 문자열 배열 | 배너를 조회할 하나 이상의 배치 ID입니다. 최소 하나의 배치 ID를 포함하세요. | `["home_hero", "sidebar_promo"]` |
+| `device_id` | 선택 사항 | 문자열 | 이 요청이 대상으로 하는 기기의 Braze 기기 식별자입니다. 1,011바이트를 초과할 수 없습니다. | `7bb8ac35-0a3f-4b8c-96ad-2e2e0dd1a4c9` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="요청 매개변수" }
+
+### 기기 속성으로 개인화하기 {#personalizing-with-device-attributes}
+
+`device_id`를 포함하고 해당 기기가 사용자 프로필에 존재하면, Braze는 배너를 렌더링할 때 {% raw %}`{{targeted_device.${...}}}`{% endraw %} Liquid 네임스페이스를 채웁니다. 이를 통해 기기의 플랫폼, 모델 또는 운영 체제별로 배너 속성정보를 개인화할 수 있습니다. 자세한 내용은 [대상 기기 정보]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information)를 참조하세요.
+
+`device_id`를 생략하거나, 빈 값을 전송하거나, 사용자 프로필에 없는 식별자를 전송하더라도 Braze는 여전히 `200` 상태 코드를 반환하고 해당 태그가 확인되지 않은 상태로 배너를 렌더링하므로, Liquid `default` 필터 값으로 폴백됩니다. 이러한 경우 Braze는 기기를 생성하거나 오류를 반환하지 않습니다.
 
 ## 요청 예시 {#example-request}
 
@@ -75,6 +83,7 @@ curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/
   "external_user_id": "user_abc123",
   "app_id": "26a39c72-e647-4766-b62e-4521fa2dae59",
   "app_version": "1.0.0",
+  "device_id": "7bb8ac35-0a3f-4b8c-96ad-2e2e0dd1a4c9",
   "placements": [
     "home_hero",
     "sidebar_promo"
@@ -86,7 +95,7 @@ curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/
 
 | 매개변수 | 데이터 유형 | 설명 |
 |---|---|---|
-| `banners` | 객체 | 요청된 각 배치 ID를 해당 배너로 매핑한 맵입니다. 배치에 적합한 배너가 없으면 값은 `null`입니다. |
+| `banners` | 객체 | 요청된 각 배치 ID를 확인된 배너로 매핑한 맵입니다. 배치에 적합한 배너가 없으면 값은 `null`입니다. |
 | `banners.{placement_id}.id` | 문자열 | 고유 배너 식별자입니다. 이 값을 사용하여 노출 횟수 및 클릭 이벤트를 보고합니다. |
 | `banners.{placement_id}.placement_id` | 문자열 | 배너에 매칭된 배치 ID입니다. |
 | `banners.{placement_id}.is_control` | 불리언 | 배너가 대조군 배리언트인지 여부입니다. |

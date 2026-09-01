@@ -40,14 +40,11 @@ guide_featured_list:
   - name: Predictive Suite
     link: /docs/user_guide/brazeai/predictive_suite
     image: /assets/img/braze_icons/stars-01.svg
-  - name: Chemins personnalisés
-    link: /docs/user_guide/messaging/canvas/canvas_components/experiment_step/personalized_paths
-    image: /assets/img/braze_icons/chevron-up-double.svg
   - name: Chemin gagnant
     link: /docs/user_guide/messaging/canvas/canvas_components/experiment_step/winning_path
     image: /assets/img/braze_icons/dataflow-03.svg
-  - name: Variante gagnante et variante personnalisée
-    link: /docs/user_guide/messaging/ab_testing/optimizations
+  - name: Optimiser avec BrazeAI<sup>TM</sup>
+    link: /docs/user_guide/brazeai/intelligence_suite/variant_selection
     image: /assets/img/braze_icons/trophy-01.svg
 ---
 
@@ -57,16 +54,16 @@ guide_featured_list:
 
 | Votre objectif | Fonctionnalité recommandée |
 | --- | --- |
-| Personnaliser le contenu des messages par utilisateur en fonction de son contexte | [Agents Braze]({{site.baseurl}}/user_guide/brazeai/agents) ([Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) ou [catalogue]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)) ; pour la rédaction ponctuelle de brouillons, [IA générative]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
-| Optimiser quel contenu de message (tel que l'objet ou le CTA) est le plus performant au fil du temps | [Optimiseur de contenu]({{site.baseurl}}/user_guide/brazeai/content_optimizer) (e-mail, notifications push ou SMS/MMS/RCS) ou [variante gagnante]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) |
-| Maximiser un indicateur d'entreprise (chiffre d'affaires, conversions) grâce à des décisions individualisées portant sur les offres, les canaux et le timing | [Studio de prise de décision]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
+| Personnaliser le contenu des messages par utilisateur en fonction de son contexte | [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) ([Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) ou [catalogue]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)) ; pour un brouillon ponctuel, [IA générative]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
+| Optimiser le contenu de message (comme l'objet ou le CTA) le plus performant au fil du temps | [Optimiseur de contenu]({{site.baseurl}}/user_guide/brazeai/content_optimizer) (e-mail, notifications push ou SMS/MMS/RCS) ou [Optimiser avec BrazeAI<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection) |
+| Maximiser un indicateur d'entreprise (chiffre d'affaires, conversions) grâce à des décisions individualisées sur les offres, les canaux et le timing | [Studio de prise de décision]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
 | Identifier les utilisateurs susceptibles de se désabonner ou de réaliser un événement | [Prédiction du taux d'attrition]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) ou [Événements prédictifs]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
 | Recommander des produits spécifiques d'un catalogue dans les messages | [Recommandations produit]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |
-| Envoyer au meilleur moment ou sur le meilleur canal pour chaque utilisateur | [Timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), [Canal intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) |
-| Créer ou affiner le contenu rédactionnel et créatif directement dans le tableau de bord | [Operator]({{site.baseurl}}/user_guide/brazeai/operator) |
+| Envoyer au meilleur moment ou via le meilleur canal pour chaque utilisateur | [Timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), [Canal intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) |
+| Créer ou peaufiner le contenu rédactionnel et créatif directement dans le tableau de bord | [Operator]({{site.baseurl}}/user_guide/brazeai/operator) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Aperçu des fonctionnalités" }
 
-## Questions fréquemment posées {#frequently-asked-questions}
+## Questions fréquentes {#frequently-asked-questions}
 
 ### Qu'est-ce que BrazeAI ? {#what-is-brazeai}
 
@@ -74,4 +71,4 @@ BrazeAI est un ensemble d'outils alimentés par l'IA dans Braze pour la généra
 
 ### Quelle fonctionnalité BrazeAI devrais-je utiliser en premier ? {#which-brazeai-feature-should-i-use-first}
 
-Commencez par le tableau [Aperçu des fonctionnalités](#feature-overview) sur cette page pour faire correspondre votre objectif — comme la génération de texte, l'optimisation du moment d'envoi ou les recommandations de produits — à la fonctionnalité BrazeAI recommandée.
+Commencez par le tableau [Aperçu des fonctionnalités](#feature-overview) sur cette page pour associer votre objectif — comme la génération de texte, l'optimisation du moment d'envoi ou les recommandations de produits — à la fonctionnalité BrazeAI recommandée.

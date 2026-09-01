@@ -476,11 +476,11 @@ Wenn die Wiederberechtigung für Banner-Campaigns aktiviert ist, können Nutzer:
 
 Quick-Push-A/B-Tests unterstützen jetzt Multi-Plattform-Push-Campaigns und Canvas-Schritte durch Variantengruppen, sodass Sie aufeinander abgestimmte iOS- und Android-Nachrichtenvariationen in einem Workflow testen können. Weitere Informationen finden Sie unter [Push-Nachrichten für mehrere Plattformen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/multiple_platform_push#use-cases).
 
-#### BrazeAI<sup>TM</sup> Variantenauswahl {#brazeai-variant-selection}
+#### Mit BrazeAI<sup>TM</sup> optimieren {#optimize-with-brazeai}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-BrazeAI<sup>TM</sup> Variant Selection wird automatisch aktiviert, wenn Sie mehrere Push-Varianten hinzufügen, wendet empfohlene Experiment-Standardwerte an und optimiert in Richtung der leistungsstärksten Variante, um das Engagement zu verbessern. Sie können es deaktivieren, wenn Sie sofort senden müssen. Weitere Informationen finden Sie unter [BrazeAI<sup>TM</sup> Variant Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
+**Mit BrazeAI<sup>TM</sup> optimieren** wird automatisch aktiviert, wenn Sie mehrere Push-Varianten hinzufügen, wendet empfohlene Experiment-Standardwerte an und optimiert in Richtung der leistungsstärksten Variante. Sie können es deaktivieren, wenn Sie sofort senden müssen. Weitere Informationen finden Sie unter [A/B-Tests mit BrazeAI optimieren]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/variant_selection).
 
 #### WhatsApp-Testversand-Ergebnisse {#whatsapp-test-send-results}
 
@@ -887,7 +887,7 @@ Das [Messaging-Diagnose-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboa
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Braze-Agenten]({{site.baseurl}}/user_guide/brazeai/agents) sind KI-gestützte Helfer, die Sie innerhalb von Braze erstellen können. Agenten können Inhalte generieren, intelligente Entscheidungen treffen und Ihre Daten anreichern, sodass Sie personalisiertere Kundenerlebnisse zustellen können. Wenn Sie einen Agenten erstellen, definieren Sie seinen Zweck und legen Leitplanken fest, wie er sich verhalten soll. Sobald er aktiv ist, kann der Agent in Braze [eingesetzt]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents) werden, um personalisierte Texte zu generieren, Echtzeit-Entscheidungen zu treffen oder Katalogfelder zu aktualisieren.
+[Braze-Agenten]({{site.baseurl}}/user_guide/brazeai/agents) sind KI-gestützte Helfer, die Sie innerhalb von Braze erstellen können. Agenten können Inhalte generieren, intelligente Entscheidungen treffen und Ihre Daten anreichern, sodass Sie personalisiertere Kundenerlebnisse bereitstellen können. Wenn Sie einen Agenten erstellen, definieren Sie seinen Zweck und legen Leitplanken fest, wie er sich verhalten soll. Sobald er aktiv ist, kann der Agent in Braze [eingesetzt]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents) werden, um personalisierte Texte zu generieren, Echtzeit-Entscheidungen zu treffen oder Katalogfelder zu aktualisieren.
 
 ### Orchestrierung
 

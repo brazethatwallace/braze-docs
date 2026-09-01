@@ -46,6 +46,7 @@ hidden: true
   "external_user_id": "{EXTERNAL_USER_ID}",
   "app_id": "{APP_API_IDENTIFIER}",
   "app_version": "1.0.0",
+  "device_id": "{DEVICE_ID}",
   "placements": [
     "home_hero",
     "sidebar_promo"
@@ -61,7 +62,14 @@ hidden: true
 | `app_id` | 必須 | String | [アプリAPI識別子]({{site.baseurl}}/api/identifier_types#app-identifier)。認証されたワークスペース内のアプリを識別する必要があります。 | `26a39c72-e647-4766-b62e-4521fa2dae59` |
 | `app_version` | 必須 | String | ホストアプリのバージョン。255文字を超えてはなりません。 | `1.0.0` |
 | `placements` | 必須 | Array of strings | バナーを取得する1つ以上のプレースメントID。少なくとも1つのプレースメントIDを含めてください。 | `["home_hero", "sidebar_promo"]` |
+| `device_id` | 任意 | String | このリクエストの対象デバイスのBrazeデバイス識別子。1,011バイトを超えてはなりません。 | `7bb8ac35-0a3f-4b8c-96ad-2e2e0dd1a4c9` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="リクエストパラメーター" }
+
+### デバイス属性によるパーソナライゼーション {#personalizing-with-device-attributes}
+
+`device_id` を含め、そのデバイスがユーザーのプロファイルに存在する場合、Brazeはバナーのレンダリング時に {% raw %}`{{targeted_device.${...}}}`{% endraw %} Liquid名前空間を設定します。これにより、デバイスのプラットフォーム、モデル、またはオペレーティングシステムに基づいてバナープロパティをパーソナライズできます。詳細については、[ターゲットデバイス情報]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information)を参照してください。
+
+`device_id` を省略した場合、空の値を送信した場合、またはユーザーのプロファイルに存在しない識別子を送信した場合でも、Brazeは `200` ステータスコードを返し、それらのタグが未解決のままバナーをレンダリングするため、Liquidの `default` フィルター値にフォールバックします。これらの場合、Brazeはデバイスを作成したりエラーを返したりしません。
 
 ## リクエスト例 {#example-request}
 
@@ -75,6 +83,7 @@ curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/
   "external_user_id": "user_abc123",
   "app_id": "26a39c72-e647-4766-b62e-4521fa2dae59",
   "app_version": "1.0.0",
+  "device_id": "7bb8ac35-0a3f-4b8c-96ad-2e2e0dd1a4c9",
   "placements": [
     "home_hero",
     "sidebar_promo"

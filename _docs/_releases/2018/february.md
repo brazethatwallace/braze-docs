@@ -23,7 +23,7 @@ You can now create and update [email templates via API]({{site.baseurl}}/develop
 
 ## REST API keys permissions
 
-You can now create [multiple REST API keys]({{site.baseurl}}/developer_guide/rest_api/basics#creating-rest-api-keys) and configure access permissions for each. Each key can be configured to grant access to certain endpoints.
+You can now create [multiple REST API keys]({{site.baseurl}}/api/basics#creating-rest-api-keys) and configure access permissions for each. Each key can be configured to grant access to certain endpoints.
 
 You can also specify a [whitelist of IP addresses]({{site.baseurl}}/developer_guide/rest_api/basics/#api-ip-whitelisting) and subnets that are allowed to make REST API requests for a given REST API Key.
 
