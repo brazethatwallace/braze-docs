@@ -110,7 +110,7 @@ You can break a long form into multiple steps, each with its own fields and a bu
 | Dropdown      | Users can select an item from a pre-defined list. You can add any custom attribute strings to the list. |
 | Checkbox      | If a user checks the box, the block's attribute is set to `true`. If left unchecked, its attribute is set to `false`. |
 | Checkbox Group| Users can select from multiple choices presented. Values are either set or added to a defined array custom attribute. |
-| Manage Subscriptions | A checklist of email or SMS subscription groups. Users select which groups they want to join when they submit the form. Each block is for one channel. For more information, see [Manage Subscriptions block]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions/). |
+| Manage Subscriptions | A checklist of email, SMS, or WhatsApp subscription groups. Users select which groups they want to join when they submit the form. Each block is for one channel. For more information, see [Manage Subscriptions block]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions/). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
 
 {% alert important %}
