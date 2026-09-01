@@ -5,7 +5,6 @@ description: "This article outlines the partnership between Braze and Oracle Cro
 alias: /partners/crowdtwist/
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Oracle Crowdtwist
@@ -37,7 +36,7 @@ For example, use a Data Push to pass relevant custom events and attributes to Br
 
 ## Integration
 
-Braze and Oracle Crowdtwist have created [Data Transformation templates]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation?redirected=1#step-2-create-a-transformation) to help our customers develop their own Data Transformations which leverage the User Profile, User Redemption, and User Activity events. 
+Braze and Oracle Crowdtwist have created [Data Transformation templates]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation?redirected=1#step-2-create-a-transformation) to help our customers develop their own Data Transformations which leverage the User Profile, User Redemption, and User Activity events. 
 
 ## Step 1: Create Data Transformation from Oracle Crowdtwist Template
 

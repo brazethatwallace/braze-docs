@@ -5,7 +5,6 @@ alias: /partners/foursquare/
 description: "This reference article outlines the partnership between Braze and Foursquare, a location data platform, providing real-time event triggering based on location."
 page_type: partner
 search_tag: Partner
-
 ---
 
 # Foursquare
@@ -22,7 +21,7 @@ _This integration is maintained by Foursquare._
 |---|---|
 | Foursquare account | A Foursquare account is required to take advantage of this partnership. |
 | Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-| Braze workspace and App IDs | The Braze workspace and App IDs can be found in the [developer console]({{site.baseurl}}/api/api_key). |
+| Braze workspace and App IDs | The Braze workspace and App IDs can be found in the [developer console]({{site.baseurl}}/api/basics). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Prerequisites" }
 
 ## Integration
