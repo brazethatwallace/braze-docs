@@ -26,6 +26,7 @@ tool: Canvas
 | Canvas analytics look wrong (control group, conversions, zero sends) | [Canvas analytics mismatches](#canvas-analytics-mismatches) |
 | Analytics show far more sends than entries or more exits than entries | [Date range filtering can show unexpected numbers](#date-range-filtering-can-show-unexpected-numbers) |
 | Canvas won't save or the editor freezes | [Editor and save issues](#editor-and-save-issues) |
+| Can't delete a Canvas variant | [Can't delete a Canvas variant because of an archived segment](#cant-delete-a-canvas-variant-because-of-an-archived-segment) |
 | I stopped the Canvas but messages still went out | [Stopped Canvas behavior](#stopped-canvas-behavior) |
 | "Too many Canvas branches" error when launching | ["Too many Canvas branches" error](#too-many-canvas-branches-error) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas symptom" }
@@ -203,6 +204,8 @@ If the editor freezes on a large or complex Canvas, try the following:
 If the Canvas won't load and won't progress, a previous version didn't save correctly and may contain invalid steps. Duplicate the Canvas from the dashboard. If the issue persists, open a [support ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 For "Request Timed Out" support tickets, include a screen recording, timestamp and time zone, browser and version, steps to reproduce, and optionally a HAR log from your browser developer tools. See [What should I include when submitting a support ticket for a "Request Timed Out" error?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error) in the Canvas FAQ.
+
+{% multi_lang_include audience/segments.md section='Canvas variant archived segment' %}
 
 ## Stopped Canvas behavior
 
