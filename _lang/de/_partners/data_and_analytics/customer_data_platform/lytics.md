@@ -32,7 +32,7 @@ Verbinden Sie Braze mit Lytics, um E-Mail-, SMS- und Push-Aktivitäten zu [impor
 | ----------- | ----------- |
 | Lytics-Konto | Um die Vorteile dieser Integration zu nutzen, ist ein Lytics-Konto erforderlich. |
 | Lytics-Kontonummer | Für die Konfiguration der Webhook-Endpunkt-URL ist eine Lytics-Kontonummer erforderlich. |
-| Lytics-API-Token / Textbaustein | Ein Lytics-REST-API-Token / Textbaustein mit Data-Manager:in-Berechtigungen. <br><br> Dieses kann im Lytics-Dashboard unter **Account Settings Console** > **Access Tokens** > **Create New Token / Textbaustein** erstellt werden. |
+| Lytics-API-Token | Ein Lytics-REST-API-Token mit Data-Manager:in-Berechtigungen. <br><br> Dieses kann im Lytics-Dashboard unter **Account Settings Console** > **Access Tokens** > **Create New Token** erstellt werden. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit der Berechtigung `users.track`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze-Instanz | Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Wenden Sie sich an Ihre:n Braze-Onboarding-Manager:in:in, wenn Sie sich nicht sicher sind. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -112,13 +112,13 @@ Sie können Zielgruppendaten aus Braze mit den folgenden Methoden in Lytics impo
 
 ### Webhooks verwenden {#using-webhooks}
 
-#### Schritt 1: Ein Lytics-API-Token / Textbaustein erstellen {#step-1-create-a-lytics-api-token}
+#### Schritt 1: Ein Lytics-API-Token erstellen {#step-1-create-a-lytics-api-token}
 
-Navigieren Sie zum Lytics-Kontomenü, indem Sie Ihren Kontonamen auswählen, und wählen Sie im Dropdown-Menü **Access Tokens** aus. Wählen Sie als Nächstes **Create API Token / Textbaustein**.
+Navigieren Sie zum Lytics-Kontomenü, indem Sie Ihren Kontonamen auswählen, und wählen Sie im Dropdown-Menü **Access Tokens** aus. Wählen Sie als Nächstes **Create API Token**.
 
 ![Lytics-Bildschirm „Access Tokens“ mit ausgewählter Option „Create API Token“ im Kontomenü.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
-Geben Sie einen Namen, eine optionale Beschreibung und eine Gültigkeitsdauer für den Token / Textbaustein ein. Aktivieren Sie als Nächstes den Bereich **Data Manager:in** für API-Berechtigungen und wählen Sie **Generate Token / Textbaustein**. Kopieren Sie den Token / Textbaustein und bewahren Sie ihn an einem sicheren Ort auf.
+Geben Sie einen Namen, eine optionale Beschreibung und eine Gültigkeitsdauer für den Token ein. Aktivieren Sie als Nächstes den Bereich **Data Manager:in** für API-Berechtigungen und wählen Sie **Generate Token**. Kopieren Sie den Token und bewahren Sie ihn an einem sicheren Ort auf.
 
 ![Lytics-API-Token-Berechtigungen mit aktiviertem Bereich „Data Manager“ vor der Token-Generierung.]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 
@@ -127,7 +127,7 @@ Geben Sie einen Namen, eine optionale Beschreibung und eine Gültigkeitsdauer f�
 Die Lytics-Webhook-URL wird von Braze verwendet, um eine Nachricht von Braze an die Lytics-API zu senden. Diese Nachricht kann zur Personalisierung Ihrer Kampagnen in Lytics oder zur Anreicherung Ihres Lytics-Kundenprofils verwendet werden. Die folgenden zwei Parameter müssen in der Lytics-Webhook-URL hinzugefügt werden:
 
 - Lytics-Kontonummer
-- Lytics-API-Token / Textbaustein
+- Lytics-API-Token
 
 Konfigurieren Sie Ihre Webhook-URL wie folgt:
 
@@ -135,7 +135,7 @@ Konfigurieren Sie Ihre Webhook-URL wie folgt:
 https://api.lytics.io/c/<ACCOUNT-NUMBER>/braze_users?key=<LYTICS-API-TOKEN>
 ```
 
-Ersetzen Sie `<ACCOUNT-NUMBER>` durch Ihre Kontonummer und `<LYTICS-API-TOKEN>` durch Ihr Lytics-API-Token / Textbaustein.
+Ersetzen Sie `<ACCOUNT-NUMBER>` durch Ihre Kontonummer und `<LYTICS-API-TOKEN>` durch Ihr Lytics-API-Token.
 
 #### Schritt 3: Einen Webhook in Braze erstellen {#step-3-create-a-webhook-on-braze}
 

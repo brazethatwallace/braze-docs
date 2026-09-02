@@ -3,14 +3,14 @@ nav_title: "Automatisierte Bereitstellung von Nutzer:innen"
 article_title: "Automatisierte Bereitstellung von Nutzer:innen"
 page_order: 3
 page_type: reference
-description: "In diesem Referenzartikel erfahren Sie, welche Informationen Sie für die automatisierte Bereitstellung von Nutzer:innen bereitstellen müssen und wie und wo Sie Ihr generiertes System for Cross-domain Identity Management (SCIM) Token / Textbaustein verwenden."
+description: "In diesem Referenzartikel erfahren Sie, welche Informationen Sie für die automatisierte Bereitstellung von Nutzer:innen bereitstellen müssen und wie und wo Sie Ihr generiertes System for Cross-domain Identity Management (SCIM) Token verwenden."
 alias: /scim/automated_user_provisioning/
 
 ---
 
 # Automatisierte Bereitstellung von Nutzer:innen {#automated-user-provisioning}
 
-> Die automatisierte Bereitstellung von Nutzer:innen ermöglicht es Ihnen, Braze-Nutzer:innen über eine API zu erstellen und zu verwalten, anstatt dies manuell im Dashboard zu tun. Braze unterstützt dies über das System for Cross-domain Identity Management (SCIM). In diesem Artikel erfahren Sie, welche Informationen Sie angeben müssen, wie Sie Ihr SCIM-Token / Textbaustein generieren und wo Sie Ihren SCIM-API-Endpunkt finden.
+> Die automatisierte Bereitstellung von Nutzer:innen ermöglicht es Ihnen, Braze-Nutzer:innen über eine API zu erstellen und zu verwalten, anstatt dies manuell im Dashboard zu tun. Braze unterstützt dies über das System for Cross-domain Identity Management (SCIM). In diesem Artikel erfahren Sie, welche Informationen Sie angeben müssen, wie Sie Ihr SCIM-Token generieren und wo Sie Ihren SCIM-API-Endpunkt finden.
 
 {% multi_lang_include scim/scim_alerts.md alert='one_integration' %}
 
@@ -177,13 +177,13 @@ Das Attribut `userName` muss exakt mit der E-Mail-Adresse der Nutzer:innen in Br
 - **Dienst-Herkunft:** Geben Sie die Herkunfts-Domain Ihrer SCIM-Anfragen ein. Braze verwendet diese im `X-Request-Origin`-Header, um zu überprüfen, woher Anfragen stammen.
 - **IP-Allowlisting (optional):** Sie können SCIM-Anfragen auf bestimmte IP-Adressen beschränken. Geben Sie eine kommagetrennte Liste oder einen Bereich von IP-Adressen ein, die zugelassen werden sollen. Der `X-Request-Origin`-Header in jeder Anfrage wird verwendet, um die Anfrage-IP-Adresse mit der Allowlist abzugleichen.
 
-## Schritt 2: SCIM-Token / Textbaustein generieren {#step-2-generate-a-scim-token}
+## Schritt 2: SCIM-Token generieren {#step-2-generate-a-scim-token}
 
-Nachdem Sie die erforderlichen Felder ausgefüllt haben, klicken Sie auf **SCIM-Token / Textbaustein generieren**, um ein SCIM-Token / Textbaustein zu generieren und Ihren SCIM-API-Endpunkt anzuzeigen. Stellen Sie sicher, dass Sie das SCIM-Token / Textbaustein kopieren, bevor Sie die Seite verlassen. **Dieses Token / Textbaustein wird nur einmal angezeigt.**
+Nachdem Sie die erforderlichen Felder ausgefüllt haben, klicken Sie auf **SCIM-Token generieren**, um ein SCIM-Token zu generieren und Ihren SCIM-API-Endpunkt anzuzeigen. Stellen Sie sicher, dass Sie das SCIM-Token kopieren, bevor Sie die Seite verlassen. **Dieses Token wird nur einmal angezeigt.**
 
 ![Felder für SCIM-API-Endpunkt und SCIM-Token mit maskierten Werten und Kopier-Buttons. Unterhalb des Token-Felds befindet sich ein Button „Token zurücksetzen“.]({% image_buster /assets/img/scim.png %})
 
-Braze erwartet, dass alle SCIM-Anfragen das SCIM-API-Bearer-Token / Textbaustein enthalten, das über einen HTTP-`Authorization`-Header angehängt wird.
+Braze erwartet, dass alle SCIM-Anfragen das SCIM-API-Bearer-Token enthalten, das über einen HTTP-`Authorization`-Header angehängt wird.
 
 {% endtab %}
 {% endtabs %}

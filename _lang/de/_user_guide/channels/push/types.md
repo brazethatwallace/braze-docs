@@ -83,7 +83,7 @@ Weitere Informationen finden Sie unter [Benachrichtigungskanäle]({{site.baseurl
 
 ## Hintergrund- oder stille Push-Benachrichtigungen {#background-push-notifications}
 
-Push-Benachrichtigungen, die nicht auf dem Gerät angezeigt werden. Sie werden in der Regel verwendet, um Informationspakete an die App für Hintergrundprozesse und Uninstall-Tracking zu senden. Ein hintergrundfähiges Push-Token / Textbaustein ist erforderlich, damit eine Hintergrund- oder stille Push-Benachrichtigung gesendet werden kann.
+Push-Benachrichtigungen, die nicht auf dem Gerät angezeigt werden. Sie werden in der Regel verwendet, um Informationspakete an die App für Hintergrundprozesse und Uninstall-Tracking zu senden. Ein hintergrundfähiges Push-Token ist erforderlich, damit eine Hintergrund- oder stille Push-Benachrichtigung gesendet werden kann.
 
 **Unterstützt auf:** Web, Android, iOS
 

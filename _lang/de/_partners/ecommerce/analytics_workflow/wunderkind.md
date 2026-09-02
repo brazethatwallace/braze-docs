@@ -46,7 +46,7 @@ In Ihrem Braze-Dashboard:
 4. Kopieren Sie den API-Schlüssel, um ihn im nächsten Abschnitt in der Wunderkind-Plattform einzugeben.
 
 {% alert note %}
-Für Wunderkind Signals werden Braze [REST API]({{site.baseurl}}/api/basics)-Anfragen mit einem REST-API-Schlüssel authentifiziert, nicht mit OAuth-Token / Textbaustein. Erstellen Sie einen dedizierten API-Schlüssel im Dashboard und stellen Sie diesen Schlüssel Wunderkind zur Verfügung.
+Für Wunderkind Signals werden Braze [REST API]({{site.baseurl}}/api/basics)-Anfragen mit einem REST-API-Schlüssel authentifiziert, nicht mit OAuth-Token. Erstellen Sie einen dedizierten API-Schlüssel im Dashboard und stellen Sie diesen Schlüssel Wunderkind zur Verfügung.
 {% endalert %}
 
 ### Schritt 2: Braze mit der Wunderkind-Plattform verbinden {#step-2-connect-braze-to-the-wunderkind-platform}

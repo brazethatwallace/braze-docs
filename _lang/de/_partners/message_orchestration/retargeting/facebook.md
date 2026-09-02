@@ -18,8 +18,8 @@ Häufige Anwendungsfälle für den Export von Facebook Custom Audiences sind:
 <br><br>
 
 {% alert note %}
-Der Facebook Audience Export verwendet das **User Access Token / Textbaustein**, um Anfragen zu autorisieren.<br><br>
-Wenn Sie dieses Feature zusammen mit dem Feature [Audience Sync to Facebook]({{site.baseurl}}/audience_sync_facebook) verwenden, verwendet Braze standardmäßig das zuverlässigere **System User Token / Textbaustein**, das Sie bereits erstellt haben, um Anfragen zu autorisieren.
+Der Facebook Audience Export verwendet das **User Access Token**, um Anfragen zu autorisieren.<br><br>
+Wenn Sie dieses Feature zusammen mit dem Feature [Audience Sync to Facebook]({{site.baseurl}}/audience_sync_facebook) verwenden, verwendet Braze standardmäßig das zuverlässigere **System User Token**, das Sie bereits erstellt haben, um Anfragen zu autorisieren.
 {% endalert %}
 
 {% alert note %}
@@ -49,10 +49,10 @@ Wenn Sie an den Beta-Tests für Meta Work Accounts teilnehmen, stellen Sie siche
 
 {: start="4"}
 4. Nachdem Braze mit Ihrem Facebook-Konto verknüpft ist, wählen Sie aus, welche Werbekonten Sie in Ihrem Braze-Workspace synchronisieren möchten. <br><br>![Eine Liste der verfügbaren Werbekonten, die Sie mit Facebook verbinden können.]({% image_buster /assets/img/fb/afb_4.png %}){: style="max-width:70%;"}<br><br> Nachdem Sie die Verbindung hergestellt haben, gelangen Sie zurück zur Partnerseite, wo Sie sehen können, welche Konten verbunden sind, und bestehende Konten trennen können. <br><br> ![Eine aktualisierte Version der Technologie-Partnerseite von Facebook, auf der die erfolgreich verbundenen Werbekonten angezeigt werden.]({% image_buster /assets/img/fb/afb_5.png %}){: style="max-width:70%;"}<br>
-<br> Ihre Facebook-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Facebook-Administrator Sie aus Ihrem Facebook Business Manager:in oder dem Zugriff auf die verbundenen Facebook-Konten entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Infolgedessen zeigen Ihre aktiven Canvases, die Facebook-Audience-Schritte verwenden, Fehler an, und Braze kann keine Nutzer:innen synchronisieren.
+<br> Ihre Facebook-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Facebook-Administrator Sie aus Ihrem Facebook Business Manager:in oder dem Zugriff auf die verbundenen Facebook-Konten entfernt, erkennt Braze ein ungültiges Token. Infolgedessen zeigen Ihre aktiven Canvases, die Facebook-Audience-Schritte verwenden, Fehler an, und Braze kann keine Nutzer:innen synchronisieren.
 
 {% alert important %}
-Für Kund:innen, die bereits den Facebook-App-Überprüfungsprozess für [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) und [Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard) durchlaufen haben, ist Ihr System User Token / Textbaustein für den Facebook-Audience-Schritt weiterhin gültig. Sie können das Facebook System User Token / Textbaustein nicht über die Facebook-Partnerseite bearbeiten oder widerrufen. Stattdessen können Sie Ihr Facebook-Konto verbinden, um Ihr Facebook System User Token / Textbaustein in Ihrem Braze-Workspace zu ersetzen.
+Für Kund:innen, die bereits den Facebook-App-Überprüfungsprozess für [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) und [Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard) durchlaufen haben, ist Ihr System User Token für den Facebook-Audience-Schritt weiterhin gültig. Sie können das Facebook System User Token nicht über die Facebook-Partnerseite bearbeiten oder widerrufen. Stattdessen können Sie Ihr Facebook-Konto verbinden, um Ihr Facebook System User Token in Ihrem Braze-Workspace zu ersetzen.
 
 <br><br>Die neue Facebook-oAuth-Konfiguration gilt auch für [Facebook-Exporte über Segmente]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook#prerequisites).
 {% endalert %}

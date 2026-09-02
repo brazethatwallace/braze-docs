@@ -51,7 +51,7 @@ Wenn das SDK initialisiert wird, werden die in der Warteschlange befindlichen El
 
 | Kanal | Verhalten vor der Initialisierung |
 |---------|----------------------------|
-| Push-Token / Textbaustein | In die Warteschlange eingereiht; bei Initialisierung verarbeitet |
+| Push-Token | In die Warteschlange eingereiht; bei Initialisierung verarbeitet |
 | Push-Öffnungen/Analytics | Standardmäßig in die Warteschlange eingereiht (konfigurierbar zum Verwerfen über `analyticsBehavior`) |
 | Deeplinks | In die Warteschlange eingereiht; bei Initialisierung verarbeitet |
 | In-App Messages | Vor der Initialisierung nicht gepuffert; erfordern ein laufendes SDK |
@@ -81,9 +81,9 @@ Für nicht standardmäßige Build-Systeme (Tuist, Bazel, Buck, CI) verwenden Sie
 
 Die Singularform `overrideResourceBundle` wurde in Swift SDK 8.1.0 als veraltet markiert und sollte nicht mehr verwendet werden.
 
-## Nutzeridentität und Push-Token / Textbaustein {#user-identity-and-push-tokens}
+## Nutzeridentität und Push-Token {#user-identity-and-push-tokens}
 
-### Gibt es eine Validierungs-Checkliste zur Bewahrung von Profilen, Gerätezuordnungen und Push-Token / Textbaustein? {#is-there-a-validation-checklist-for-preserving-profiles-device-associations-and-push-tokens}
+### Gibt es eine Validierungs-Checkliste zur Bewahrung von Profilen, Gerätezuordnungen und Push-Token? {#is-there-a-validation-checklist-for-preserving-profiles-device-associations-and-push-tokens}
 
 In der Dokumentation existiert keine offizielle migrationsspezifische Checkliste. Wir empfehlen, die folgenden Validierungsschritte durchzuführen:
 
@@ -91,6 +91,6 @@ In der Dokumentation existiert keine offizielle migrationsspezifische Checkliste
 2. Überprüfen Sie die Anzahl der Push-registrierten Nutzer:innen im Dashboard vor und nach dem Rollout.
 3. Prüfen Sie stichprobenartig einige spezifische externe IDs, um sicherzustellen, dass die Gerätezuordnungen intakt bleiben.
 
-### Garantiert `changeUser`, dass Push-Token / Textbaustein dem neuen/der neuen Nutzer:in folgen? {#does-changeuser-guarantee-that-push-tokens-follow-the-new-user}
+### Garantiert `changeUser`, dass Push-Token dem neuen/der neuen Nutzer:in folgen? {#does-changeuser-guarantee-that-push-tokens-follow-the-new-user}
 
-Es gibt keine explizite schriftlich dokumentierte Garantie. Die Designabsicht ist jedoch, dass Push-Token / Textbaustein dem Gerät folgen, nicht dem/der Nutzer:in. Der Aufruf von `changeUser` sollte das vorhandene Geräte-Token / Textbaustein mit dem neuen Kundenprofil neu verknüpfen. Sie sollten `changeUser` testen, das Dashboard überprüfen und bestätigen, dass das Token / Textbaustein im neuen Profil erscheint, bevor Sie einen Massen-Rollout durchführen.
+Es gibt keine explizite schriftlich dokumentierte Garantie. Die Designabsicht ist jedoch, dass Push-Token dem Gerät folgen, nicht dem/der Nutzer:in. Der Aufruf von `changeUser` sollte das vorhandene Geräte-Token mit dem neuen Kundenprofil neu verknüpfen. Sie sollten `changeUser` testen, das Dashboard überprüfen und bestätigen, dass das Token im neuen Profil erscheint, bevor Sie einen Massen-Rollout durchführen.

@@ -75,7 +75,7 @@ Die folgenden Daten sind je nach Ihrer Auswahl in Ihrem Export enthalten.
 | number_of_google_ad_ids     | Anzahl der verknüpften Google-Werbe-IDs                  |
 | number_of_IDFAs             | Anzahl der verknüpften IDFAs                             |
 | number_of_IDFVs             | Anzahl der verknüpften IDFVs                             |
-| number_of_push_tokens       | Anzahl der verknüpften Push-Benachrichtigungs-Token / Textbaustein      |
+| number_of_push_tokens       | Anzahl der verknüpften Push-Benachrichtigungs-Token      |
 | number_of_roku_ad_ids       | Anzahl der verknüpften Roku-Werbe-IDs                    |
 | number_of_windows_ad_ids    | Anzahl der verknüpften Windows-Werbe-IDs                 |
 | phone_number                | Telefonnummer                                            |

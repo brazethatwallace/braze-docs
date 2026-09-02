@@ -23,7 +23,7 @@ Die Integration von Braze und Optimizely ist eine bidirektionale Integration, di
 | Optimizely Data Platform-Konto | Ein Optimizely Data Platform (ODP)-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. |
 | Braze-REST-API-Schlüssel               | Ein Braze-REST-API-Schlüssel mit den folgenden Berechtigungen: `users.track`, `users.export.segments`, `segments.list`, `campaigns.trigger.send` und `canvas.trigger.send`. |
 | Currents                         | Um Daten zurück nach Optimizely zu exportieren, müssen Braze-Currents für Ihr Konto eingerichtet sein. |
-| Optimizely-URL und -Token / Textbaustein         | Diese können Sie abrufen, indem Sie zu Ihrem Optimizely-Dashboard navigieren und die Ingestion-URL und das Token / Textbaustein kopieren. |
+| Optimizely-URL und -Token         | Diese können Sie abrufen, indem Sie zu Ihrem Optimizely-Dashboard navigieren und die Ingestion-URL und das Token kopieren. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -37,7 +37,7 @@ Die Integration von Braze und Optimizely ist eine bidirektionale Integration, di
     2. Wählen Sie **Verify API Key**.
 3. Gehen Sie in Braze zu **[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents)**.
 4. Wählen Sie **Create New Current** > **Custom Currents Export**.
-5. Konfigurieren Sie den Current mit dem Endpunkt und dem Token / Textbaustein, die in ODP bereitgestellt werden. Dies ist erforderlich, um Braze-Ereignisse mit ODP zu synchronisieren.
+5. Konfigurieren Sie den Current mit dem Endpunkt und dem Token, die in ODP bereitgestellt werden. Dies ist erforderlich, um Braze-Ereignisse mit ODP zu synchronisieren.
 
 ![Optimizely-Autorisierung.]({% image_buster /assets/img/optimizely/image1_authorization.png %})
 

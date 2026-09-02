@@ -18,7 +18,7 @@ _Diese Integration wird von Databricks gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Databricks Mosaic ermöglicht es Ihnen, Ihr Databricks-Token / Textbaustein und Ihren Workspace mit Braze zu verbinden, damit Sie Databricks-Modelle beim Erstellen angepasster KI-Agenten verwenden können. Braze nutzt Ihre Databricks-Mosaic-Zugangsdaten, um Inhalte für Ihre Kund:innen zu generieren. Mit dieser Integration können Ihre Agenten personalisierte Texte generieren, Realtime-Entscheidungen treffen oder Katalogfelder mithilfe von Databricks-Modellen aktualisieren.
+Die Integration von Braze und Databricks Mosaic ermöglicht es Ihnen, Ihr Databricks-Token und Ihren Workspace mit Braze zu verbinden, damit Sie Databricks-Modelle beim Erstellen angepasster KI-Agenten verwenden können. Braze nutzt Ihre Databricks-Mosaic-Zugangsdaten, um Inhalte für Ihre Kund:innen zu generieren. Mit dieser Integration können Ihre Agenten personalisierte Texte generieren, Realtime-Entscheidungen treffen oder Katalogfelder mithilfe von Databricks-Modellen aktualisieren.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -34,7 +34,7 @@ Die Integration von Braze und Databricks Mosaic ermöglicht es Ihnen, Ihr Databr
 So verbinden Sie Ihre Databricks-Mosaic-Zugangsdaten mit Braze:
 
 1. Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** und suchen Sie **Databricks Mosaic Integration**.
-2. Geben Sie Ihr **Databricks-Token / Textbaustein** ein.
+2. Geben Sie Ihr **Databricks-Token** ein.
 3. Geben Sie Ihren **Databricks-Workspace-Namen** ein. Dies ist die Subdomain vor `.cloud.databricks.com` oder `.azuredatabricks.net`.
 4. Wählen Sie **Speichern**.
 

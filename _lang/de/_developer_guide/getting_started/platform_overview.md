@@ -38,7 +38,7 @@ Die [Braze SDKs](#integrating-braze) können in Ihre Mobil- und Webanwendungen i
 Kurz gesagt, wenn das SDK vollständig integriert ist:
 
 * Sammelt und synchronisiert es Nutzerdaten in einem konsolidierten Kundenprofil
-* Erfasst es automatisch Sitzungsdaten, Geräteinformationen und Push-Token / Textbaustein
+* Erfasst es automatisch Sitzungsdaten, Geräteinformationen und Push-Token
 * Erfasst es Marketing-Engagement-Daten und angepasste Daten speziell für Ihr Unternehmen
 * Ist es auf Sicherheit ausgelegt und wird von Dritten auf Penetration getestet
 * Ist es optimiert für Geräte mit niedrigem Batteriestand oder langsamem Netzwerk

@@ -36,7 +36,7 @@ Gehen Sie in Antavo zu **Modules** > **Braze** und klicken Sie auf **Configure**
 Geben Sie die folgenden Zugangsdaten an:
 
 - **Instance URL:** Der Braze REST-Endpunkt der Instanz, für die Sie bereitgestellt werden.
-- **API Token / Textbaustein (Identifier):** Der Braze REST-API-Schlüssel, den Antavo beim Senden von Anfragen an Braze verwenden soll.
+- **API Token (Identifier):** Der Braze REST-API-Schlüssel, den Antavo beim Senden von Anfragen an Braze verwenden soll.
 - **App Identifier:** Der Braze-App-Bezeichner.
 
 Nachdem Sie die Zugangsdaten eingegeben haben, klicken Sie auf **Connect**.

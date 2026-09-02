@@ -28,7 +28,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 ### 1. Schritt: Contentful-API-Zugangsdaten abrufen {#step-1-get-your-contentful-api-credentials}
 
 1. [Melden Sie sich bei Contentful an](https://app.contentful.com/login), indem Sie Ihre Zugangsdaten eingeben.
-2. Erstellen oder rufen Sie API-Zugangs-Token / Textbaustein im Contentful-Dashboard unter **Settings** > **API keys** ab. Wenn Sie noch keinen API-Schlüssel haben, erstellen Sie einen neuen:<br>2.1 Wählen Sie **Add API key** aus.<br>2.2 Geben Sie die erforderlichen Details ein und wählen Sie die entsprechende Umgebung aus.<br>2.3 Wählen Sie **Save** und notieren Sie sich die **Space ID** und das **Content Delivery API - access Token / Textbaustein**.
+2. Erstellen oder rufen Sie API-Zugangs-Token im Contentful-Dashboard unter **Settings** > **API keys** ab. Wenn Sie noch keinen API-Schlüssel haben, erstellen Sie einen neuen:<br>2.1 Wählen Sie **Add API key** aus.<br>2.2 Geben Sie die erforderlichen Details ein und wählen Sie die entsprechende Umgebung aus.<br>2.3 Wählen Sie **Save** und notieren Sie sich die **Space ID** und das **Content Delivery API - access Token**.
 3. Identifizieren Sie das Inhaltsmodell, auf das Sie über die Contentful-API zugreifen möchten.
 
 ### 2. Schritt: Braze Connected-Content konfigurieren {#step-2-configure-braze-connected-content}

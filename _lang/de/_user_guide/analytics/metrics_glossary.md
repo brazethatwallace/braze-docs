@@ -62,7 +62,7 @@ All
 Email, Web Push, iOS Push
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Bounces' %} Dies kann auftreten, weil kein gültiges Push-Token / Textbaustein vorhanden ist, die Nutzer:innen sich nach dem Start der Campaign abgemeldet haben oder die E-Mail-Adresse ungenau oder deaktiviert ist.
+{% multi_lang_include analytics/metrics.md metric='Bounces' %} Dies kann auftreten, weil kein gültiges Push-Token vorhanden ist, die Nutzer:innen sich nach dem Start der Campaign abgemeldet haben oder die E-Mail-Adresse ungenau oder deaktiviert ist.
 
 | Kanal | Zusätzliche Informationen |
 |-------|-----------------------|

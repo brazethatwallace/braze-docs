@@ -214,7 +214,7 @@ Deinstallationen über Ihren ausgewählten Datumsbereich, aufgeschlüsselt nach 
 
 | Metrik | Typ | Berechnung |
 | --- | --- | ---- |
-| Deinstallationsrate | Rate | (Gesamtanzahl der Geräte, bei denen Braze ein Deinstallationssignal erhalten hat, über jeden Tag im Datumsbereich) / (Gesamtanzahl der Geräte mit gültigen Token / Textbaustein über jeden Tag im Datumsbereich) |
+| Deinstallationsrate | Rate | (Gesamtanzahl der Geräte, bei denen Braze ein Deinstallationssignal erhalten hat, über jeden Tag im Datumsbereich) / (Gesamtanzahl der Geräte mit gültigen Token über jeden Tag im Datumsbereich) |
 | Absprungrate | Rate | (Gesamtanzahl der Bounces über jeden Tag im Datumsbereich) / (Gesamtanzahl der Sends über jeden Tag im Datumsbereich) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Berechnung der Metriken" }
 

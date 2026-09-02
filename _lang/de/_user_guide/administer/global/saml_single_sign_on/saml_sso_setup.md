@@ -211,7 +211,7 @@ THIS_IS_A_MOCKED_CERTIFICATE_4ysJLTzETANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNy
 -----END CERTIFICATE-----
 ```
 
-### Ist das Sitzungs-Token / Textbaustein der Nutzer:in gültig? {#is-the-users-session-token-valid}
+### Ist das Sitzungs-Token der Nutzer:in gültig? {#is-the-users-session-token-valid}
 
 Lassen Sie die betroffene Nutzer:in [den Cache und die Cookies ihres Browsers löschen](https://its.uiowa.edu/services/how-clear-cache-and-cookies-your-web-browser) und versuchen Sie dann erneut, sich mit SAML Single Sign-on anzumelden.
 

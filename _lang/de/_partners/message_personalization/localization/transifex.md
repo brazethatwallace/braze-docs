@@ -33,7 +33,7 @@ Seit dem 7. April 2022 hat Transifex die API-Versionen 2 und 2.5 zugunsten von V
 
 Die Transifex-Integration verwendet die [API für Ressourcenübersetzungen](https://developers.transifex.com/reference/get_resource-translations) von Transifex. Mit dem folgenden cURL-Befehl können Sie prüfen, ob Ihr Konto Inhaltswerte hat, die mit Übersetzungen verknüpft sind.
 
-Geben Sie zunächst die in Ihrem Transifex-Konto hinterlegten Werte für `<ORGANIZATION_NAME>`, `<PROJECT_NAME>` und `<RESOURCE_NAME>` ein. Ersetzen Sie anschließend `<LANGUAGE>` durch den Sprachcode, nach dem Sie die Übersetzungen filtern möchten, und `<TRANSIFEX_BEARER_TOKEN>` durch Ihr Transifex-[Bearer-Token / Textbaustein](https://developers.transifex.com/reference/api-authentication).
+Geben Sie zunächst die in Ihrem Transifex-Konto hinterlegten Werte für `<ORGANIZATION_NAME>`, `<PROJECT_NAME>` und `<RESOURCE_NAME>` ein. Ersetzen Sie anschließend `<LANGUAGE>` durch den Sprachcode, nach dem Sie die Übersetzungen filtern möchten, und `<TRANSIFEX_BEARER_TOKEN>` durch Ihr Transifex-[Bearer-Token](https://developers.transifex.com/reference/api-authentication).
 
 ```
 curl --request GET \

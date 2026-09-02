@@ -49,7 +49,7 @@ Starten Sie Ihr Test-Canvas, damit Nutzer:innen beginnen können, es zu betreten
 - Frequency-Capping-Einschränkungen
 - Nicht übereinstimmende Segment-Zugehörigkeit
 - Abgebrochene Nachrichten
-- Push-Token / Textbaustein, die anderen Nutzer:innen zugeordnet sind
+- Push-Token, die anderen Nutzer:innen zugeordnet sind
 
 Fahren Sie mit dem iterativen Testen des Canvas fort, um sicherzustellen, dass Ihr Canvas wie vorgesehen funktioniert.
 

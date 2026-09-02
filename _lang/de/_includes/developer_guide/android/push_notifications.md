@@ -12,7 +12,7 @@ Die folgenden Features sind im Braze Android SDK integriert. Um weitere Push-Ben
 
 ## Über den Lebenszyklus der Push-Benachrichtigung {#push-notification-lifecycle}
 
-Das folgende Flussdiagramm zeigt, wie Braze den Lebenszyklus der Push-Benachrichtigung handhabt, z. B. die Aufforderung zur Erteilung von Berechtigungen, die Generierung von Token / Textbaustein und die Zustellung von Nachrichten.
+Das folgende Flussdiagramm zeigt, wie Braze den Lebenszyklus der Push-Benachrichtigung handhabt, z. B. die Aufforderung zur Erteilung von Berechtigungen, die Generierung von Token und die Zustellung von Nachrichten.
 
 {% tabs local %}
 {% tab Berechtigungen erteilen %}
@@ -84,7 +84,7 @@ class H1,H2,H3,I1,J1,J2,J3,K1,L1,L2,L3,note1 brazeClass
 ```
 {% endtab %}
 
-{% tab Push-Token / Textbaustein generieren %}
+{% tab Push-Token generieren %}
 ```mermaid
 ---
 config:
@@ -218,7 +218,7 @@ Wählen Sie in Google Cloud das Projekt aus, das Ihre Android-App verwendet, und
 
 ### Schritt 4: Ein Dienstkonto erstellen {#service-account}
 
-Erstellen Sie als Nächstes ein neues Dienstkonto, damit Braze autorisierte API-Aufrufe bei der Registrierung von FCM-Token / Textbaustein durchführen kann. Navigieren Sie in Google Cloud zu **Service Accounts** und wählen Sie Ihr Projekt aus. Wählen Sie auf der Seite **Service Accounts** die Option **Create Service Account**.
+Erstellen Sie als Nächstes ein neues Dienstkonto, damit Braze autorisierte API-Aufrufe bei der Registrierung von FCM-Token durchführen kann. Navigieren Sie in Google Cloud zu **Service Accounts** und wählen Sie Ihr Projekt aus. Wählen Sie auf der Seite **Service Accounts** die Option **Create Service Account**.
 
 ![Die Startseite des Dienstkontos eines Projekts mit hervorgehobener Option „Create Service Account“.]({% image_buster /assets/img/android/push_integration/create_a_service_account/select-create-service-account.png %})
 
@@ -266,9 +266,9 @@ Wählen Sie unter den **Push Notification Settings** Ihrer Android-App **Firebas
 Private Keys können ein Sicherheitsrisiko darstellen, wenn sie kompromittiert werden. Da Ihr Schlüssel nun zu Braze hochgeladen wurde, löschen Sie die Datei, die [Sie zuvor generiert haben](#android_json).
 {% endalert %}
 
-### Schritt 7: Automatische Token / Textbaustein-registrieren einrichten {#step-7-set-up-automatic-token-registration}
+### Schritt 7: Automatische Token-registrieren einrichten {#step-7-set-up-automatic-token-registration}
 
-Wenn Nutzer:innen Push-Benachrichtigungen aktivieren, muss Ihre App ein FCM-Token / Textbaustein auf deren Gerät generieren, bevor Sie ihnen Push-Benachrichtigungen senden können. Mit dem Braze SDK können Sie die automatische FCM-Token-Registrierung für das Gerät jeder Nutzerin und jedes Nutzers in den Braze-Konfigurationsdateien Ihres Projekts aktivieren.
+Wenn Nutzer:innen Push-Benachrichtigungen aktivieren, muss Ihre App ein FCM-Token auf deren Gerät generieren, bevor Sie ihnen Push-Benachrichtigungen senden können. Mit dem Braze SDK können Sie die automatische FCM-Token-Registrierung für das Gerät jeder Nutzerin und jedes Nutzers in den Braze-Konfigurationsdateien Ihres Projekts aktivieren.
 
 Öffnen Sie zunächst die Firebase Console, öffnen Sie Ihr Projekt und wählen Sie <i class="fa-solid fa-gear" aria-label="Einstellungen"></i>&nbsp;**Settings** > **Project settings**.
 
@@ -356,7 +356,7 @@ Braze.configure(this, brazeConfig)
 {% endtabs %}
 
 {% alert tip %}
-Wenn Sie FCM-Token / Textbaustein stattdessen manuell registrieren möchten, setzen Sie die Eigenschaft [`registeredPushToken`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/registered-push-token.html) auf der Braze-Instanz in der [`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate())-Methode Ihrer App.
+Wenn Sie FCM-Token stattdessen manuell registrieren möchten, setzen Sie die Eigenschaft [`registeredPushToken`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/registered-push-token.html) auf der Braze-Instanz in der [`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate())-Methode Ihrer App.
 
 ```kotlin
 // Kotlin
@@ -375,7 +375,7 @@ Wenn Ihre App mehrere Firebase-Projekte verwendet, befolgen Sie diese Schritte:
 
 1. Belassen Sie Braze-Push im Standard-Firebase-Projekt, das über die `google-services.json` Ihrer App initialisiert wird.
 2. Wenn Sie einen benutzerdefinierten Firebase-Messaging-Service verwenden, führen Sie [Installations-IDs in benutzerdefinierten Firebase-Messaging-Services registrieren](#android_register-installation-id-custom-firebase-service) durch.
-3. Wenn Ihre App ein Push-Token / Textbaustein auf anderem Wege erhält, setzen Sie `registeredPushToken` manuell, wie im vorherigen Tipp gezeigt.
+3. Wenn Ihre App ein Push-Token auf anderem Wege erhält, setzen Sie `registeredPushToken` manuell, wie im vorherigen Tipp gezeigt.
 
 {% alert important %}
 Firebase Cloud Messaging bietet keine unterstützte API zum Abrufen eines Tokens von einer `FirebaseApp`, die Sie manuell initialisieren. `FirebaseMessagingService`-Callbacks wie `onNewToken` und `onRegistered` werden nur für das Standardprojekt ausgelöst. Weitere Informationen finden Sie unter [Configure multiple projects](https://firebase.google.com/docs/projects/multiprojects) in der Firebase-Dokumentation.

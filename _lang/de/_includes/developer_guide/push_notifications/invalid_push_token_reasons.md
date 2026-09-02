@@ -1,6 +1,6 @@
-- Die App hat ein Push-Token / Textbaustein erhalten, das für die im Dashboard hochgeladenen Zugangsdaten ungültig war.
+- Die App hat ein Push-Token erhalten, das für die im Dashboard hochgeladenen Zugangsdaten ungültig war.
 - Push wurde für diesen Workspace deaktiviert.
 - Die Nutzer:in hat Push deaktiviert.
 - Die App wurde deinstalliert.
-- Apple hat das Push-Token / Textbaustein aktualisiert, wodurch das alte Token / Textbaustein ungültig wurde.
+- Apple hat das Push-Token aktualisiert, wodurch das alte Token ungültig wurde.
 - Die App wurde für eine Produktionsumgebung erstellt, aber die in Braze hochgeladenen Push-Zugangsdaten sind für eine Entwicklungsumgebung konfiguriert (oder umgekehrt).

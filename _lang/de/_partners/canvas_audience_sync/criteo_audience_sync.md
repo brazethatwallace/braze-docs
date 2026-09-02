@@ -56,7 +56,7 @@ Nachdem Sie die Verbindung erfolgreich hergestellt haben, gelangen Sie zurück z
 
 ![Eine aktualisierte Version der Criteo-Technologie-Partnerseite, auf der die erfolgreich verbundenen Werbekonten angezeigt werden.]({% image_buster /assets/img/criteo/criteo4.png %}){: style="max-width:80%;"}
 
-Ihre Criteo-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Criteo-Administrator Sie aus Ihrem Criteo-Werbekonto entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Dies hat zur Folge, dass Ihre aktiven Canvases, die Criteo verwenden, Fehler anzeigen und Braze nicht in der Lage ist, Nutzer:innen zu synchronisieren.
+Ihre Criteo-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Criteo-Administrator Sie aus Ihrem Criteo-Werbekonto entfernt, erkennt Braze ein ungültiges Token. Dies hat zur Folge, dass Ihre aktiven Canvases, die Criteo verwenden, Fehler anzeigen und Braze nicht in der Lage ist, Nutzer:innen zu synchronisieren.
 
 ### Schritt 2: Canvas-Eingangskriterien konfigurieren {#step-2-configure-your-canvas-entry-criteria}
 
@@ -135,7 +135,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Users Synced | Anzahl der Nutzer:innen, die erfolgreich mit Criteo synchronisiert wurden. |
 | Users Not Synced | Anzahl der Nutzer:innen, die aufgrund fehlender Abgleichsfelder nicht synchronisiert wurden. |
 | Users Pending | Anzahl der Nutzer:innen, die derzeit von Braze verarbeitet werden, um mit Criteo synchronisiert zu werden. |
-| Users Errored | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Criteo synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Criteo-Token / Textbaustein oder eine auf Criteo gelöschte Zielgruppe sein. |
+| Users Errored | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Criteo synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Criteo-Token oder eine auf Criteo gelöschte Zielgruppe sein. |
 | Exited Canvas | Anzahl der Nutzer:innen, die den Canvas verlassen haben. Dies tritt auf, wenn der letzte Schritt in einem Canvas eine Audience-Sync-Komponente ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 

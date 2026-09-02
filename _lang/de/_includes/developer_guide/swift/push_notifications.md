@@ -4,7 +4,7 @@ Push-Benachrichtigungen unterliegen Rate-Limits – senden Sie also ruhig so vie
 
 ## Push-Benachrichtigungen einrichten {#setting-up-push-notifications}
 
-### Schritt 1: APNs-Token / Textbaustein hochladen {#step-1-upload-your-apns-token}
+### Schritt 1: APNs-Token hochladen {#step-1-upload-your-apns-token}
 
 {% multi_lang_include developer_guide/swift/apns_token.md %}
 
@@ -143,10 +143,10 @@ if (@available(iOS 12.0, *)) {
 
 {% alert warning %}
 Sie müssen Ihr Delegate-Objekt mit `center.delegate = self` synchron zuweisen, bevor Ihre App den Start abgeschlossen hat, vorzugsweise in `application:didFinishLaunchingWithOptions:`. Andernfalls kann es passieren, dass Ihre App eingehende Push-Benachrichtigungen verpasst. Besuchen Sie Apples [`UNUserNotificationCenterDelegate`](https://developer.apple.com/documentation/usernotifications/unusernotificationcenterdelegate)-Dokumentation, um mehr zu erfahren.
-Wenn Ihre App `wipeData()` aufruft und später das Braze SDK im selben App-Lauf erneut aktiviert, müssen Sie `registerForRemoteNotifications()` erneut aufrufen, um das vom SDK verwendete Geräte-Token / Textbaustein wiederherzustellen.
+Wenn Ihre App `wipeData()` aufruft und später das Braze SDK im selben App-Lauf erneut aktiviert, müssen Sie `registerForRemoteNotifications()` erneut aufrufen, um das vom SDK verwendete Geräte-Token wiederherzustellen.
 {% endalert %}
 
-#### Schritt 3.2: Push-Token / Textbaustein bei Braze registrieren {#step-32-register-push-tokens-with-braze}
+#### Schritt 3.2: Push-Token bei Braze registrieren {#step-32-register-push-tokens-with-braze}
 
 Sobald die APNs-Registrierung abgeschlossen ist, übergeben Sie das resultierende `deviceToken` an Braze, um Push-Benachrichtigungen für die Nutzer:innen zu aktivieren.
 
@@ -172,7 +172,7 @@ Fügen Sie den folgenden Code zur Methode `application:didRegisterForRemoteNotif
 {% endsubtabs %}
 
 {% alert important %}
-Die Delegate-Methode `application:didRegisterForRemoteNotificationsWithDeviceToken:` wird jedes Mal aufgerufen, nachdem `application.registerForRemoteNotifications()` aufgerufen wurde. <br><br>Wenn Sie von einem anderen Push-Dienst zu Braze migrieren und das Gerät Ihrer Nutzer:innen bereits bei APNs registriert ist, sammelt diese Methode Token / Textbaustein aus bestehenden Registrierungen beim nächsten Aufruf, und die Nutzer:innen müssen sich nicht erneut für Push anmelden.
+Die Delegate-Methode `application:didRegisterForRemoteNotificationsWithDeviceToken:` wird jedes Mal aufgerufen, nachdem `application.registerForRemoteNotifications()` aufgerufen wurde. <br><br>Wenn Sie von einem anderen Push-Dienst zu Braze migrieren und das Gerät Ihrer Nutzer:innen bereits bei APNs registriert ist, sammelt diese Methode Token aus bestehenden Registrierungen beim nächsten Aufruf, und die Nutzer:innen müssen sich nicht erneut für Push anmelden.
 {% endalert %}
 
 #### Schritt 3.3: Push-Verarbeitung aktivieren {#step-33-enable-push-handling}
@@ -431,11 +431,11 @@ Wenn Braze eine Push-Benachrichtigung sendet:
 
 #### Warum wurde dieses Feature eingeführt? {#why-was-this-feature-introduced}
 
-Mit dynamischem APNs-Gateway-Management wird die korrekte Umgebung automatisch ausgewählt. Zuvor mussten Sie das APNs-Gateway manuell konfigurieren, was zu `BadDeviceToken`-Fehlern, Token / Textbaustein-Invalidierung und potenziellen APNs-Rate-Limiting-Problemen führen konnte.
+Mit dynamischem APNs-Gateway-Management wird die korrekte Umgebung automatisch ausgewählt. Zuvor mussten Sie das APNs-Gateway manuell konfigurieren, was zu `BadDeviceToken`-Fehlern, Token-Invalidierung und potenziellen APNs-Rate-Limiting-Problemen führen konnte.
 
 #### Wie wirkt sich dies auf die Push-Zustellungs-Performance aus? {#how-does-this-impact-push-delivery-performance}
 
-Dieses Feature verbessert die Zustellungsraten, indem Push-Token / Textbaustein immer an die korrekte APNs-Umgebung weitergeleitet werden und Fehler durch falsch konfigurierte Gateways vermieden werden.
+Dieses Feature verbessert die Zustellungsraten, indem Push-Token immer an die korrekte APNs-Umgebung weitergeleitet werden und Fehler durch falsch konfigurierte Gateways vermieden werden.
 
 #### Kann ich dieses Feature deaktivieren? {#can-i-disable-this-feature}
 

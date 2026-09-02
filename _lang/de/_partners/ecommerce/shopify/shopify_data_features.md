@@ -490,7 +490,7 @@ Weitere Informationen zum Erstellen einer Liquid-`for`-Schleife, um alle Produkt
 **Anwendungsfall**: Checkout-Abbruch
 
 {% alert important %}
-Wenn eine Kund:in Shop Pay als beschleunigten Checkout nutzt, kann Shopify bestimmte Standard-Checkout-Events (wie den Shopify-Checkout-Started-Webhook) umgehen. Das bedeutet, dass Braze möglicherweise nicht die erforderlichen Daten erhält, um den Checkout-Token / Textbaustein-Alias hinzuzufügen, was sich auf das Tracking von Checkout-Abbrüchen und die Nutzerprofilzuordnung auswirken kann.
+Wenn eine Kund:in Shop Pay als beschleunigten Checkout nutzt, kann Shopify bestimmte Standard-Checkout-Events (wie den Shopify-Checkout-Started-Webhook) umgehen. Das bedeutet, dass Braze möglicherweise nicht die erforderlichen Daten erhält, um den Checkout-Token-Alias hinzuzufügen, was sich auf das Tracking von Checkout-Abbrüchen und die Nutzerprofilzuordnung auswirken kann.
 {% endalert %}
 
 Für Canvases bei abgebrochenem Checkout müssen Sie zunächst den folgenden Liquid-Tag verwenden:

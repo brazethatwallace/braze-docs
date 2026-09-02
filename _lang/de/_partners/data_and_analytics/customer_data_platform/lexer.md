@@ -46,7 +46,7 @@ Die Verwendung eines von Lexer verwalteten Buckets ist die bevorzugte Methode, u
 
 Wenn Sie bereits einen S3-Bucket mit Braze verbunden haben und ihn für andere Zwecke verwenden, müssen Sie stattdessen Lexer Zugriff auf diesen selbstverwalteten Bucket gewähren, indem Sie die vorangehenden Schritte ausführen.
 
-Diese Integration funktioniert, indem Sie Lexer Ihr bestehendes API-Token / Textbaustein und Ihre Secrets zur Verfügung stellen, sodass Lexer diese Exporte in Ihrem Namen durchführen kann. Außerdem importiert sie Ihre Braze-Daten mit diesen Zugangsdaten und Ihrer S3-Konfiguration in Lexer, um Ihre Daten auf beiden Plattformen automatisch zu synchronisieren.
+Diese Integration funktioniert, indem Sie Lexer Ihr bestehendes API-Token und Ihre Secrets zur Verfügung stellen, sodass Lexer diese Exporte in Ihrem Namen durchführen kann. Außerdem importiert sie Ihre Braze-Daten mit diesen Zugangsdaten und Ihrer S3-Konfiguration in Lexer, um Ihre Daten auf beiden Plattformen automatisch zu synchronisieren.
 
 ## Segmente an Braze senden {#sending-segments-to-braze}
 

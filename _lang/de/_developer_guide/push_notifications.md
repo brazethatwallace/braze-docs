@@ -31,7 +31,7 @@ Wenn **Redirect to web URL** mit **Open web URL inside app** nicht ausgewählt i
 
 ![Illustration eines Android-TV-Geräts für die Anleitung zu Android-TV-Push-Benachrichtigungen.]({% image_buster /assets/img/Television.png %}){: style="float:right;max-width:25%;margin-left:15px; border: 0"}
 
-Obwohl es sich nicht um ein natives Feature handelt, wird die Android-TV-Push-Integration durch die Nutzung des Braze Android SDK und Firebase Cloud Messaging ermöglicht, um ein Push-Token / Textbaustein für Android TV zu registrieren. Sie müssen jedoch eine UI erstellen, um den Benachrichtigungs-Payload nach dem Empfang anzuzeigen.
+Obwohl es sich nicht um ein natives Feature handelt, wird die Android-TV-Push-Integration durch die Nutzung des Braze Android SDK und Firebase Cloud Messaging ermöglicht, um ein Push-Token für Android TV zu registrieren. Sie müssen jedoch eine UI erstellen, um den Benachrichtigungs-Payload nach dem Empfang anzuzeigen.
 
 ## Voraussetzungen {#prerequisites}
 

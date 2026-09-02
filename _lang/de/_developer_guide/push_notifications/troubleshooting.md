@@ -30,7 +30,7 @@ Finden Sie das beobachtete Verhalten in der Tabelle und folgen Sie dann den Schr
 
 Verwenden Sie diesen Workflow für jeden Push-Benachrichtigungsvorfall. Beginnen Sie bei Schritt 1.
 
-1. Bestätigen Sie, dass das Gerät einen gültigen Push-Token / Textbaustein hat und die Push-Berechtigung in den Geräteeinstellungen erteilt ist.
+1. Bestätigen Sie, dass das Gerät einen gültigen Push-Token hat und die Push-Berechtigung in den Geräteeinstellungen erteilt ist.
 2. Bestätigen Sie im Dashboard, dass die/der Testnutzer:in dem Campaign- oder Canvas-[Segment]({{site.baseurl}}/user_guide/channels/push/troubleshooting#segment) entspricht und sich nicht in der [Kontrollgruppe]({{site.baseurl}}/user_guide/channels/push/troubleshooting#control-group-status) befindet.
 3. Senden Sie eine [Test-Push-Benachrichtigung]({{site.baseurl}}/developer_guide/push_notifications/sending_test_messages) an das Testgerät.
 4. [Aktivieren Sie die ausführliche Protokollierung]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduzieren Sie das Problem und lesen Sie die plattformspezifische Anleitung in Ihrem [SDK-Tab](#platform-specific-troubleshooting).

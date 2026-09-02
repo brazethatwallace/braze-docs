@@ -30,7 +30,7 @@ channel: push
 
 Verwenden Sie diesen Workflow, wenn eine:r Nutzer:in oder ein Testgerät keine Push-Benachrichtigung erhalten hat. Beginnen Sie bei Schritt 1.
 
-1. Bestätigen Sie, dass die:der Nutzer:in Push-abonniert oder opted-in ist und im Tab **Engagement** des Profils ein gültiges Push-Token / Textbaustein hat.
+1. Bestätigen Sie, dass die:der Nutzer:in Push-abonniert oder opted-in ist und im Tab **Engagement** des Profils ein gültiges Push-Token hat.
 2. Bestätigen Sie, dass die:der Nutzer:in zum Sendezeitpunkt zur Zielgruppe der Campaign oder des Canvas gehört (Segmente werden in Echtzeit aktualisiert).
 3. Prüfen Sie globales Frequency-Capping, Rate-Limits und Kontrollgruppen-Zuweisung für die Campaign oder den Canvas.
 4. Bestätigen Sie, dass der korrekte Push-Typ für das Gerät verwendet wird (zum Beispiel Android, iOS oder Kindle).
@@ -48,7 +48,7 @@ Wenn Push-Benachrichtigungen nicht wie erwartet ankommen, arbeiten Sie die folge
 - [Obergrenzen für Push-Benachrichtigungen](#push-notification-caps)
 - [Rate-Limits](#rate-limits)
 - [Kontrollgruppen-Status](#control-group-status)
-- [Gültiges Push-Token / Textbaustein](#valid-push-token)
+- [Gültiges Push-Token](#valid-push-token)
 - [Art der Push-Benachrichtigung](#push-notification-type)
 - [Aktuelle App](#current-app)
 
@@ -63,7 +63,7 @@ Sie können Nutzerprofile auch über die Braze-Export-Endpunkte exportieren:
 - [Nutzer:innen nach Bezeichner]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)
 - [Nutzer:innen nach Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)
 
-Beide Endpunkte geben ein Push-Token / Textbaustein-Objekt zurück, das Informationen zur Push-Aktivierung pro Gerät enthält.
+Beide Endpunkte geben ein Push-Token-Objekt zurück, das Informationen zur Push-Aktivierung pro Gerät enthält.
 
 ### Segment {#segment}
 
@@ -71,7 +71,7 @@ Bestätigen Sie, dass Sie in dem Segment sind, das Sie ansprechen (wenn es sich 
 
 ![Liste der Segmente]({% image_buster /assets/img_archive/trouble2.png %})
 
-Sie können auch bestätigen, dass die Nutzer:innen Teil des Segments sind, indem Sie beim Erstellen eines Segments die **Nutzersuche** verwenden. Die **Nutzersuche** akzeptiert nur `external_id` oder `braze_id` – keine E-Mail-Adressen oder Telefonnummern. Um nach E-Mail, Telefon, Push-Token / Textbaustein oder Nutzer-Alias zu suchen, verwenden Sie [**Nutzer:innen suchen**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
+Sie können auch bestätigen, dass die Nutzer:innen Teil des Segments sind, indem Sie beim Erstellen eines Segments die **Nutzersuche** verwenden. Die **Nutzersuche** akzeptiert nur `external_id` oder `braze_id` – keine E-Mail-Adressen oder Telefonnummern. Um nach E-Mail, Telefon, Push-Token oder Nutzer-Alias zu suchen, verwenden Sie [**Nutzer:innen suchen**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
 ![Abschnitt „Nutzersuche“ mit einem Suchfeld.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -94,9 +94,9 @@ Wenn es sich um eine Einkanal-Campaign oder einen Canvas mit einer Kontrollgrupp
   1. Überprüfen Sie die [Variantenverteilung]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-4-choose-a-segment-and-distribute-your-users-across-variants), um festzustellen, ob es eine Kontrollgruppe gibt.
   2. Falls ja, erstellen Sie ein Segment, das nach [In Campaign-Kontrollgruppe]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group) filtert, und [exportieren Sie das Segment]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details), um zu prüfen, ob Ihre Nutzer-ID auf der Liste steht.
 
-### Gültiges Push-Token / Textbaustein {#valid-push-token}
+### Gültiges Push-Token {#valid-push-token}
 
-Ein Push-Token / Textbaustein ist ein Bezeichner, den Absender verwenden, um ein bestimmtes Gerät mit einer Push-Benachrichtigung anzusprechen. Ohne ein gültiges Push-Token / Textbaustein kann Braze keine Push-Benachrichtigung an dieses Gerät senden.
+Ein Push-Token ist ein Bezeichner, den Absender verwenden, um ein bestimmtes Gerät mit einer Push-Benachrichtigung anzusprechen. Ohne ein gültiges Push-Token kann Braze keine Push-Benachrichtigung an dieses Gerät senden.
 
 Braze speichert bis zu 20 Geräte pro Kundenprofil. Wenn ein 21. Gerät registriert wird, wird das älteste Gerät entfernt (First-in-first-out, FIFO). Der Aufruf von [`changeUser()`]({{site.baseurl}}/developer_guide/analytics/setting_user_ids) im SDK registriert das aktuelle Gerät erneut im Profil.
 
@@ -136,7 +136,7 @@ So finden und ersetzen Sie den richtigen Firebase-Server-Key:
 4. Kopieren Sie den **Server Key** unter **Project credentials**.
 5. Gehen Sie in Braze zu **Einstellungen** > **App-Einstellungen**, wählen Sie Ihre App aus und fügen Sie den Server-Key in das Feld **Cloud Messaging API Key** ein (wobei der veraltete Schlüssel ersetzt wird).
 6. Wählen Sie **Speichern**.
-7. Senden Sie zur Überprüfung vor und nach der Änderung des API-Schlüssels eine Test-Push-Benachrichtigung an ein Gerät, ohne die Anwendung zu öffnen. So können Sie bestätigen, dass Nutzer:innen weiterhin Push-Benachrichtigungen erhalten, ohne dass eine neue Push-Registrierungs-ID (Push-Token / Textbaustein) generiert werden muss.
+7. Senden Sie zur Überprüfung vor und nach der Änderung des API-Schlüssels eine Test-Push-Benachrichtigung an ein Gerät, ohne die Anwendung zu öffnen. So können Sie bestätigen, dass Nutzer:innen weiterhin Push-Benachrichtigungen erhalten, ohne dass eine neue Push-Registrierungs-ID (Push-Token) generiert werden muss.
 
 ## Szenarien zur Fehlerbehebung {#troubleshooting-scenarios}
 
@@ -231,7 +231,7 @@ Wenn Sie ein `.p12`-Zertifikat durch einen `.p8`-Schlüssel ersetzen (oder neue 
 
 Bestätigen Sie unter **Einstellungen** > **App-Einstellungen** > **Push-Benachrichtigungseinstellungen**, dass **App Bundle ID**, **Team ID** und **Key ID** (für `.p8`-Schlüssel) mit den Werten in Ihrem Apple-Entwicklerkonto übereinstimmen. Mehrere Braze-Workspaces können dieselben Apple-Push-Zugangsdaten verwenden, wenn die iOS-App-**Bundle-ID** identisch ist; die Zugangsdaten-Umgebung (Entwicklung versus Produktion) muss mit der Art übereinstimmen, wie die App erstellt wurde.
 
-Apps mit [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) oder höher können [Dynamisches APNs-Gateway-Management]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#dynamic-apns-gateway-management) verwenden, das Token / Textbaustein automatisch an die richtige APNs-Umgebung weiterleitet.
+Apps mit [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) oder höher können [Dynamisches APNs-Gateway-Management]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#dynamic-apns-gateway-management) verwenden, das Token automatisch an die richtige APNs-Umgebung weiterleitet.
 
 ## Web-Push-Benachrichtigungen verhalten sich nicht wie erwartet {#web-push-notifications-are-not-behaving-as-expected}
 
@@ -337,4 +337,4 @@ Wenn Nutzer:innen Ihre App nach dem Empfang einer Push-Benachrichtigung öffnen,
 
 Definitionen häufiger Push-Fehlercodes (einschließlich `DEVICE_UNREGISTERED`, `NotRegistered` und `Unregistered`) finden Sie unter [Häufige Push-Fehlermeldungen]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
 
-Wenn FCM Fehler wie `DEVICE_UNREGISTERED` oder `NotRegistered` zurückgibt, entfernt Braze in der Regel das betroffene Push-Token / Textbaustein aus dem Kundenprofil. Diese Entfernung weist häufig darauf hin, dass die App deinstalliert wurde oder das Token / Textbaustein nicht mehr gültig ist. Uninstall-Tracking-Campaigns verwenden dieselbe Token / Textbaustein-Entfernungslogik im großen Maßstab.
+Wenn FCM Fehler wie `DEVICE_UNREGISTERED` oder `NotRegistered` zurückgibt, entfernt Braze in der Regel das betroffene Push-Token aus dem Kundenprofil. Diese Entfernung weist häufig darauf hin, dass die App deinstalliert wurde oder das Token nicht mehr gültig ist. Uninstall-Tracking-Campaigns verwenden dieselbe Token-Entfernungslogik im großen Maßstab.

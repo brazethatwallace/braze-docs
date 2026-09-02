@@ -21,13 +21,13 @@ Um auf das Profil von Nutzer:innen zuzugreifen, gehen Sie zur Seite **Search Use
 - Braze-ID
 - E-Mail
 - Telefonnummer
-- Push-Token / Textbaustein
+- Push-Token
 - Nutzer-Alias im Format „[user_alias]:[alias_name]“, z. B. „amplitude_id:user_123“
 
 Wenn eine Übereinstimmung gefunden wird, können Sie die Informationen einsehen, die Sie für diese:n Nutzer:in mit dem Braze SDK erfasst haben. Falls Ihre Suche mehrere Nutzerprofile zurückgibt, können Sie jedes Profil einzeln zusammenführen oder eine Massenzusammenführung durchführen. Eine vollständige Anleitung finden Sie unter [Doppelte Nutzer:innen zusammenführen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
 
 {% alert note %}
-**Search Users** ist nicht dasselbe wie **User Lookup** im Segment- oder Campaign-Composer. **User Lookup** prüft, ob bestimmte Nutzer:innen zu Ihrer Zielgruppe passen, und akzeptiert nur `external_id` oder `braze_id`. **Search Users** auf dieser Seite unterstützt E-Mail, Telefonnummer, Push-Token / Textbaustein und Nutzer-Alias. Weitere Informationen finden Sie unter [Segmente testen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments).
+**Search Users** ist nicht dasselbe wie **User Lookup** im Segment- oder Campaign-Composer. **User Lookup** prüft, ob bestimmte Nutzer:innen zu Ihrer Zielgruppe passen, und akzeptiert nur `external_id` oder `braze_id`. **Search Users** auf dieser Seite unterstützt E-Mail, Telefonnummer, Push-Token und Nutzer-Alias. Weitere Informationen finden Sie unter [Segmente testen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments).
 {% endalert %}
 
 {% alert important %}
@@ -83,7 +83,7 @@ Der Tab **Engagement** enthält Informationen über die Interaktionen von Nutzer
 
 | Engagement-Kategorie | Enthält |
 | --- | --- |
-| Kontakteinstellungen | Abo-Status für E-Mail, SMS und Push sowie die Abo-Gruppen, denen diese Nutzer:innen für diese drei Kanäle zugeordnet sind. Dieser Bereich enthält auch Changelog-Informationen für Push-Token / Textbaustein. Weitere Informationen zur Einrichtung von Abos und Opt-ins finden Sie unter [E-Mail]({{site.baseurl}}/user_guide/channels/email/subscriptions), [SMS]({{site.baseurl}}/sms_rcs_subscription_groups) und [Push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states). |
+| Kontakteinstellungen | Abo-Status für E-Mail, SMS und Push sowie die Abo-Gruppen, denen diese Nutzer:innen für diese drei Kanäle zugeordnet sind. Dieser Bereich enthält auch Changelog-Informationen für Push-Token. Weitere Informationen zur Einrichtung von Abos und Opt-ins finden Sie unter [E-Mail]({{site.baseurl}}/user_guide/channels/email/subscriptions), [SMS]({{site.baseurl}}/sms_rcs_subscription_groups) und [Push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states). |
 | Empfangene Campaigns | **Empfangene Campaigns** zeigt kanalspezifische Sende- und Anzeigezeitpunkte an. Die meisten Kanäle protokollieren einen Versand, wenn Braze die Nachricht an den Zustellungsanbieter übergibt, auch wenn die Nachricht letztendlich nicht zugestellt wird. **Content Cards** sind anders: Campaigns erscheinen hier erst, nachdem die Nutzer:innen die Karte in der App angesehen haben. Eine Aufschlüsselung nach Kanal finden Sie unter [Wann Campaigns unter „Empfangene Campaigns“ erscheinen](#when-campaigns-appear-in-campaigns-received). <br><br>Wenn eine Nachricht empfangen, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner wie das Profil teilen, das die Interaktion protokolliert hat (z. B. dieselbe E-Mail-Adresse für E-Mail oder dieselbe Telefonnummer für SMS oder WhatsApp). Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht empfangen, geöffnet oder angeklickt hat, können diesen Filter erfüllen, auch wenn sie ursprünglich nicht in der Campaign waren oder die Nachricht nicht direkt erhalten haben.<br><br>Diese Listen verwenden [Nachrichteninteraktionsdaten]({{site.baseurl}}/api/data_retention/messaging_interaction_data) (einschließlich Ablaufregeln), um zu bestimmen, was für Retargeting und Verlauf angezeigt wird.<br><br> Wählen Sie eine Campaign aus der Liste aus, um sie anzuzeigen. |
 | Segments | Segments, in denen diese Nutzer:innen enthalten sind. Wählen Sie ein Segment aus der Liste aus, um es anzuzeigen. |
 | Kommunikationsstatistiken | Wann diese Nutzer:innen zuletzt Nachrichten von Ihnen über jeden Kanal erhalten haben. |

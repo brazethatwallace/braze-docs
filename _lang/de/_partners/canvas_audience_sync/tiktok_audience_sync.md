@@ -55,7 +55,7 @@ Sobald die Verbindung erfolgreich hergestellt wurde, kehren Sie zur Partnerseite
 
 ![Braze-TikTok-Partnerseite mit verbundenen TikTok-Anzeigenkonten.]({% image_buster /assets/img/tiktok/tiktok3.png %}){: style="max-width:75%;"}
 
-Ihre TikTok-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr TikTok-Administrator Sie aus Ihrem TikTok Business Center oder dem Zugriff auf die verbundenen TikTok-Konten entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Infolgedessen werden Ihre aktiven Canvases, die TikTok Audience-Komponenten verwenden, Fehler anzeigen, und Braze wird die Nutzer:innen nicht synchronisieren können.
+Ihre TikTok-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr TikTok-Administrator Sie aus Ihrem TikTok Business Center oder dem Zugriff auf die verbundenen TikTok-Konten entfernt, erkennt Braze ein ungültiges Token. Infolgedessen werden Ihre aktiven Canvases, die TikTok Audience-Komponenten verwenden, Fehler anzeigen, und Braze wird die Nutzer:innen nicht synchronisieren können.
 
 ### Schritt 2: Eine TikTok Audience-Komponente in Canvas hinzufügen {#step-2-add-a-tiktok-audience-component-in-canvas}
 
@@ -125,7 +125,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Users Synced | Anzahl der Nutzer:innen, die erfolgreich mit TikTok synchronisiert wurden. Beachten Sie, dass dies nicht der Anzahl der auf TikTok abgeglichenen Nutzer:innen entspricht. |
 | Users Not Synced | Anzahl der Nutzer:innen, die aufgrund fehlender Abgleichsfelder nicht synchronisiert wurden. |
 | Users Pending | Anzahl der Nutzer:innen, die derzeit von Braze verarbeitet werden, um mit TikTok synchronisiert zu werden. |
-| Users Errored | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit TikTok synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges TikTok-Token / Textbaustein oder eine auf TikTok gelöschte Zielgruppe sein. |
+| Users Errored | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit TikTok synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges TikTok-Token oder eine auf TikTok gelöschte Zielgruppe sein. |
 | Exited Canvas | Anzahl der Nutzer:innen, die das Canvas verlassen haben. Dies tritt auf, wenn der letzte Schritt in einem Canvas eine Audience-Sync-Komponente ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 

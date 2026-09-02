@@ -16,7 +16,7 @@ platform:
 
 ## Funktionsweise {#how-it-works}
 
-Nachdem Sie dieses Feature in Ihrer App aktiviert haben, können Sie das Braze-Dashboard so konfigurieren, dass alle Anfragen mit einem ungültigen oder fehlenden JSON Web Token / Textbaustein (JWT) abgelehnt werden. Dies betrifft:
+Nachdem Sie dieses Feature in Ihrer App aktiviert haben, können Sie das Braze-Dashboard so konfigurieren, dass alle Anfragen mit einem ungültigen oder fehlenden JSON Web Token (JWT) abgelehnt werden. Dies betrifft:
 
 - Senden von angepassten Events, Attributen, Käufen und Sitzungsdaten
 - Erstellen neuer Nutzer:innen in Ihrem Braze-Workspace
@@ -39,7 +39,7 @@ Wir empfehlen einen RSA-Schlüssel mit 2048 Bit zur Verwendung mit dem RS256-JWT
 Denken Sie daran, Ihre Private Keys _privat_ zu halten. Geben Sie Ihren Private Key niemals preis und codieren Sie ihn niemals fest in Ihrer App oder Website. Jede Person, die Ihren Private Key kennt, kann Nutzer:innen in Ihrem Namen imitieren oder erstellen.
 {% endalert %}
 
-#### Schritt 1.2: JSON Web Token / Textbaustein für die aktuelle Nutzerin oder den aktuellen Nutzer erstellen {#create-jwt}
+#### Schritt 1.2: JSON Web Token für die aktuelle Nutzerin oder den aktuellen Nutzer erstellen {#create-jwt}
 
 Sobald Sie Ihren Private Key haben, sollte Ihre serverseitige Anwendung diesen verwenden, um ein JWT an Ihre App oder Website für die aktuell angemeldete Nutzerin oder den aktuell angemeldeten Nutzer zurückzugeben.
 
@@ -53,15 +53,15 @@ Bei der Generierung des JWT werden die folgenden Felder erwartet:
 | ----- | -------- | ----------------------------------- |
 | `alg` | Ja | Der unterstützte Algorithmus ist `RS256`. |
 | `typ` | Ja | Der Typ sollte `JWT` lauten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.2: JSON Web Token / Textbaustein für die aktuelle Nutzerin oder den aktuellen Nutzer erstellen" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.2: JSON Web Token für die aktuelle Nutzerin oder den aktuellen Nutzer erstellen" }
 
 **JWT-Payload**
 
 | Feld | Erforderlich | Beschreibung |
 | ----- | -------- | -------------------------------------------------------------------------------------- |
 | `sub` | Ja | Das „Subject“ sollte der Nutzer-ID entsprechen, die Sie dem Braze SDK beim Aufruf von `changeUser` übergeben. |
-| `exp` | Ja | Die „Expiration“ gibt an, wann dieses Token / Textbaustein ablaufen soll, als Unix-Zeitstempel in Sekunden (zum Beispiel `1893456000` für den 1. Januar 2030). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.2: JSON Web Token / Textbaustein für die aktuelle Nutzerin oder den aktuellen Nutzer erstellen" }
+| `exp` | Ja | Die „Expiration“ gibt an, wann dieses Token ablaufen soll, als Unix-Zeitstempel in Sekunden (zum Beispiel `1893456000` für den 1. Januar 2030). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.2: JSON Web Token für die aktuelle Nutzerin oder den aktuellen Nutzer erstellen" }
 
 {% alert tip %}
 Um mehr über JSON Web Tokens zu erfahren oder die vielen Open-Source-Bibliotheken zu durchsuchen, die diesen Signierungsprozess vereinfachen, besuchen Sie [https://jwt.io](https://jwt.io).
@@ -283,7 +283,7 @@ Ein vollständiges Implementierungsbeispiel finden Sie in der [Braze Expo Plugin
 
 Immer wenn Ihre App die Braze-Methode `changeUser` aufruft, übergeben Sie auch das JWT, das [serverseitig generiert](#braze-dashboard) wurde.
 
-Sie können das Token / Textbaustein auch so konfigurieren, dass es während der Sitzung für die aktuelle Nutzerin oder den aktuellen Nutzer aktualisiert wird.
+Sie können das Token auch so konfigurieren, dass es während der Sitzung für die aktuelle Nutzerin oder den aktuellen Nutzer aktualisiert wird.
 
 {% alert note %}
 Beachten Sie, dass `changeUser` nur aufgerufen werden sollte, wenn sich die Nutzer-ID _tatsächlich geändert_ hat. Sie sollten diese Methode nicht verwenden, um das Authentifizierungstoken (JWT) zu aktualisieren, wenn sich die Nutzer-ID nicht geändert hat.
@@ -298,7 +298,7 @@ import * as braze from "@braze/web-sdk";
 braze.changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-Oder wenn Sie das Token / Textbaustein der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
+Oder wenn Sie das Token der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -315,7 +315,7 @@ import Braze from '@braze/react-native-sdk';
 Braze.changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-Oder wenn Sie das Token / Textbaustein der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
+Oder wenn Sie das Token der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
 
 ```typescript
 import Braze from '@braze/react-native-sdk';
@@ -331,7 +331,7 @@ Braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 Braze.getInstance(this).changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-Oder wenn Sie das Token / Textbaustein der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
+Oder wenn Sie das Token der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
 
 ```java
 Braze.getInstance(this).setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
@@ -345,7 +345,7 @@ Braze.getInstance(this).setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 Braze.getInstance(this).changeUser("NEW-USER-ID", "JWT-FROM-SERVER")
 ```
 
-Oder wenn Sie das Token / Textbaustein der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
+Oder wenn Sie das Token der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
 
 ```kotlin
 Braze.getInstance(this).setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER")
@@ -359,7 +359,7 @@ Braze.getInstance(this).setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER")
 [AppDelegate.braze changeUser:@"userId" sdkAuthSignature:@"JWT-FROM-SERVER"];
 ```
 
-Oder wenn Sie das Token / Textbaustein der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
+Oder wenn Sie das Token der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
 
 ```objc
 [AppDelegate.braze setSDKAuthenticationSignature:@"NEW-JWT-FROM-SERVER"];
@@ -377,7 +377,7 @@ AppDelegate.braze?.changeUser(userId: "userId", sdkAuthSignature: "JWT-FROM-SERV
 `changeUser` gibt sofort auf dem aufrufenden Thread zurück. Die hier übergebene SDK-Authentifizierungssignatur wird angehängt, nachdem der Nutzerwechsel abgeschlossen ist.
 {% endalert %}
 
-Oder wenn Sie das Token / Textbaustein der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
+Oder wenn Sie das Token der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
 
 ```swift
 AppDelegate.braze?.set(sdkAuthenticationSignature: "NEW-JWT-FROM-SERVER")
@@ -390,7 +390,7 @@ AppDelegate.braze?.set(sdkAuthenticationSignature: "NEW-JWT-FROM-SERVER")
 ```dart
 braze.changeUser("userId", sdkAuthSignature: "JWT-FROM-SERVER")
 ```
-Oder wenn Sie das Token / Textbaustein der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
+Oder wenn Sie das Token der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
 
 ```dart
 braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER")
@@ -408,7 +408,7 @@ BrazePlugin braze = BrazePlugin();
 braze.changeUser("NEW-USER-ID", sdkAuthSignature: "JWT-FROM-SERVER");
 ```
 
-Oder wenn Sie das Token / Textbaustein der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
+Oder wenn Sie das Token der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
 
 ```dart
 import 'package:braze_plugin/braze_plugin.dart';
@@ -425,7 +425,7 @@ braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 BrazeBinding.ChangeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-Oder wenn Sie das Token / Textbaustein der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
+Oder wenn Sie das Token der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
 
 ```csharp
 BrazeBinding.SetSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
@@ -439,7 +439,7 @@ BrazeBinding.SetSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 BrazePlugin.changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-Oder wenn Sie das Token / Textbaustein der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
+Oder wenn Sie das Token der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
 
 ```javascript
 BrazePlugin.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
@@ -455,7 +455,7 @@ BrazePlugin.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 Braze.SharedInstance?.ChangeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-Oder wenn Sie das Token / Textbaustein der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
+Oder wenn Sie das Token der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
 
 ```csharp
 Braze.SharedInstance?.SetSDKAuthenticationSignature("NEW-JWT-FROM-SERVER");
@@ -467,7 +467,7 @@ Braze.SharedInstance?.SetSDKAuthenticationSignature("NEW-JWT-FROM-SERVER");
 Braze.GetInstance(this).ChangeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-Oder wenn Sie das Token / Textbaustein der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
+Oder wenn Sie das Token der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
 
 ```csharp
 Braze.GetInstance(this).SetSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
@@ -483,7 +483,7 @@ import Braze from '@braze/react-native-sdk';
 Braze.changeUser("NEW-USER-ID", "JWT-FROM-SERVER");
 ```
 
-Oder wenn Sie das Token / Textbaustein der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
+Oder wenn Sie das Token der Nutzerin oder des Nutzers während der Sitzung aktualisiert haben:
 
 ```typescript
 import Braze from '@braze/react-native-sdk';
@@ -502,7 +502,7 @@ Wenn dieses Feature auf [Erforderlich](#enforcement-options) gesetzt ist, führe
 
 Sie können `subscribeToSdkAuthenticationFailures` verwenden, um benachrichtigt zu werden, wenn SDK-Anfragen aus einem dieser Gründe fehlschlagen. Eine Callback-Funktion enthält ein Objekt mit dem relevanten [`errorCode`](#error-codes), dem `reason` für den Fehler, der `userId` der Anfrage (die Nutzerin oder der Nutzer darf nicht anonym sein) und dem Authentifizierungstoken (JWT), das den Fehler verursacht hat.
 
-Fehlgeschlagene Anfragen werden periodisch wiederholt, bis Ihre App ein neues gültiges JWT bereitstellt. Wenn diese Nutzerin oder dieser Nutzer noch angemeldet ist, können Sie diesen Callback als Gelegenheit nutzen, ein neues JWT von Ihrem Server anzufordern und das Braze SDK mit diesem neuen gültigen Token / Textbaustein zu versorgen.
+Fehlgeschlagene Anfragen werden periodisch wiederholt, bis Ihre App ein neues gültiges JWT bereitstellt. Wenn diese Nutzerin oder dieser Nutzer noch angemeldet ist, können Sie diesen Callback als Gelegenheit nutzen, ein neues JWT von Ihrem Server anzufordern und das Braze SDK mit diesem neuen gültigen Token zu versorgen.
 
 Wenn Sie einen Authentifizierungsfehler erhalten, überprüfen Sie, ob die `userId` im Fehler mit der aktuell angemeldeten Nutzerin oder dem aktuell angemeldeten Nutzer übereinstimmt. Rufen Sie dann eine neue Signatur von Ihrem Server ab und übergeben Sie sie dem Braze SDK. Sie können diese Fehler auch in Ihrem Monitoring- oder Fehlerberichtsdienst protokollieren.
 
@@ -712,7 +712,7 @@ Als Nächstes können Sie die Authentifizierung im Braze-Dashboard für die zuvo
 
 Beachten Sie, dass SDK-Anfragen weiterhin wie gewohnt ohne Authentifizierung fließen, es sei denn, die SDK-Authentifizierungseinstellung der App ist im Braze-Dashboard auf **Erforderlich** gesetzt.
 
-Sollte bei Ihrer Integration etwas schiefgehen (zum Beispiel übergibt Ihre App fälschlicherweise Token / Textbaustein an das SDK oder Ihr Server generiert ungültige Token / Textbaustein), deaktivieren Sie dieses Feature im Braze-Dashboard, und die Daten fließen wie gewohnt ohne Verifizierung weiter.
+Sollte bei Ihrer Integration etwas schiefgehen (zum Beispiel übergibt Ihre App fälschlicherweise Token an das SDK oder Ihr Server generiert ungültige Token), deaktivieren Sie dieses Feature im Braze-Dashboard, und die Daten fließen wie gewohnt ohne Verifizierung weiter.
 
 #### Erzwingungsoptionen {#enforcement-options}
 
@@ -773,12 +773,12 @@ Die Daten sind in Realtime verfügbar, und Sie können den Mauszeiger über Date
 | 10 | `EXPIRATION_REQUIRED` | Die Gültigkeitsdauer ist ein Pflichtfeld für die Verwendung von Braze. | Fügen Sie Ihrer JWT-Erstellungslogik ein `exp`- oder Ablaufdatum-Feld hinzu. |
 | 20 | `DECODING_ERROR` | Nicht übereinstimmender Public Key oder ein allgemeiner nicht abgefangener Fehler. | Kopieren Sie Ihr JWT in ein JWT-Testtool, um zu diagnostizieren, warum Ihr JWT ein ungültiges Format aufweist. |
 | 21 | `SUBJECT_MISMATCH` | Die erwarteten und tatsächlichen Subjects stimmen nicht überein. | Das `sub`-Feld sollte dieselbe Nutzer-ID enthalten, die an die SDK-Methode `changeUser` übergeben wurde. |
-| 22 | `EXPIRED` | Das bereitgestellte Token / Textbaustein ist abgelaufen. | Verlängern Sie die Gültigkeitsdauer oder aktualisieren Sie Tokens regelmäßig, bevor sie ablaufen. |
+| 22 | `EXPIRED` | Das bereitgestellte Token ist abgelaufen. | Verlängern Sie die Gültigkeitsdauer oder aktualisieren Sie Tokens regelmäßig, bevor sie ablaufen. |
 | 23 | `INVALID_PAYLOAD` | Die Payload des Tokens ist ungültig. | Kopieren Sie Ihr JWT in ein JWT-Testtool, um zu diagnostizieren, warum Ihr JWT ein ungültiges Format aufweist. |
 | 24 | `INCORRECT_ALGORITHM` | Der Algorithmus des Tokens wird nicht unterstützt. | Ändern Sie Ihr JWT, um `RS256`-Verschlüsselung zu verwenden. Andere Typen werden nicht unterstützt. |
 | 25 | `PUBLIC_KEY_ERROR` | Der Public Key konnte nicht in das richtige Format konvertiert werden. | Kopieren Sie Ihr JWT in ein JWT-Testtool, um zu diagnostizieren, warum Ihr JWT ein ungültiges Format aufweist. |
-| 26 | `MISSING_TOKEN` | Es wurde kein Token / Textbaustein in der Anfrage angegeben. | Stellen Sie sicher, dass Sie beim Aufruf von `changeUser(id, token)` ein Token / Textbaustein übergeben und dass Ihr Token / Textbaustein nicht leer ist. |
-| 27 | `NO_MATCHING_PUBLIC_KEYS` | Es gibt keine öffentlichen Schlüssel, die mit dem bereitgestellten Token / Textbaustein übereinstimmen. | Der im JWT verwendete Private Key stimmt mit keinem der für Ihre App konfigurierten Public Keys überein. Bestätigen Sie, dass Sie die öffentlichen Schlüssel zur richtigen App in Ihrem Workspace hinzugefügt haben, die mit diesem API-Schlüssel übereinstimmt. |
+| 26 | `MISSING_TOKEN` | Es wurde kein Token in der Anfrage angegeben. | Stellen Sie sicher, dass Sie beim Aufruf von `changeUser(id, token)` ein Token übergeben und dass Ihr Token nicht leer ist. |
+| 27 | `NO_MATCHING_PUBLIC_KEYS` | Es gibt keine öffentlichen Schlüssel, die mit dem bereitgestellten Token übereinstimmen. | Der im JWT verwendete Private Key stimmt mit keinem der für Ihre App konfigurierten Public Keys überein. Bestätigen Sie, dass Sie die öffentlichen Schlüssel zur richtigen App in Ihrem Workspace hinzugefügt haben, die mit diesem API-Schlüssel übereinstimmt. |
 | 28 | `PAYLOAD_USER_ID_MISMATCH` | Nicht alle Nutzer-IDs in der Anfrage-Payload stimmen wie erforderlich überein. | Dies ist unerwartet und kann zu einer fehlerhaften Payload führen. Öffnen Sie ein Support-Ticket, um Unterstützung zu erhalten. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Fehlercodes" }
 
@@ -800,7 +800,7 @@ Wir empfehlen, den höheren Wert der durchschnittlichen Sitzungsdauer, des Ablau
 
 ### Was passiert, wenn ein JWT mitten in der Sitzung einer Nutzer:in abläuft? {#faq-jwt-expiration}
 
-Sollte das Token / Textbaustein einer Nutzer:in mitten in der Sitzung ablaufen, verfügt das SDK über eine [Callback-Funktion](#sdk-callback), die Ihre App darüber informiert, dass ein neues JWT erforderlich ist, um weiterhin Daten an Braze zu senden.
+Sollte das Token einer Nutzer:in mitten in der Sitzung ablaufen, verfügt das SDK über eine [Callback-Funktion](#sdk-callback), die Ihre App darüber informiert, dass ein neues JWT erforderlich ist, um weiterhin Daten an Braze zu senden.
 
 ### Was passiert, wenn meine serverseitige Integration nicht mehr funktioniert und ich kein JWT mehr erstellen kann? {#faq-server-downtime}
 
@@ -810,7 +810,7 @@ Nach der Deaktivierung werden alle ausstehenden fehlgeschlagenen SDK-Anfragen vo
 
 ### Warum verwendet dieses Feature Public/Private Keys und nicht Shared Secrets? {#faq-shared-secrets}
 
-Bei der Verwendung von Shared Secrets könnte jeder, der Zugriff auf dieses Shared Secret hat, z. B. über die Braze-Dashboard-Seite, Token / Textbaustein generieren und sich als Ihre Endnutzer:innen ausgeben.
+Bei der Verwendung von Shared Secrets könnte jeder, der Zugriff auf dieses Shared Secret hat, z. B. über die Braze-Dashboard-Seite, Token generieren und sich als Ihre Endnutzer:innen ausgeben.
 
 Stattdessen verwenden wir Public/Private Keys, sodass selbst Braze-Mitarbeitende (geschweige denn die Nutzer:innen Ihres Unternehmens) keinen Zugriff auf Ihre Private Keys haben.
 

@@ -34,7 +34,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Voraussetzung | Beschreibung |
 |---|---|
 | DOTS.ECO-Konto | Zugang zu einem DOTS.ECO-Konto. |
-| DOTS.ECO-Zugangsdaten | Für die Anfrage in diesem Artikel benötigen Sie ein DOTS.ECO-App-Token / Textbaustein, einen API-Schlüssel und eine Zuordnungs-ID. Um diese abzurufen, wenden Sie sich an Ihren DOTS.ECO-CSM. |
+| DOTS.ECO-Zugangsdaten | Für die Anfrage in diesem Artikel benötigen Sie ein DOTS.ECO-App-Token, einen API-Schlüssel und eine Zuordnungs-ID. Um diese abzurufen, wenden Sie sich an Ihren DOTS.ECO-CSM. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. Erstellen Sie diesen Schlüssel im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
 | Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -93,7 +93,7 @@ Senden Sie die Anfrage an `https://impact.dots.eco/api/v1/certificate/add?format
 ![DOTS.ECO-Nutzeraktualisierungsschritt.]({% image_buster /assets/img/dots_eco/dotseco_user_update.png %})
 
 {% alert important %}
-Diese Integration verwendet Connected-Content innerhalb eines Canvas-Schrittes zur **Nutzeraktualisierung**, um die DOTS.ECO-API aufzurufen. Testen Sie Anfragen zunächst mit einem API-Client (z. B. Postman), um Ihr Token / Textbaustein und die Nutzdaten zu validieren.
+Diese Integration verwendet Connected-Content innerhalb eines Canvas-Schrittes zur **Nutzeraktualisierung**, um die DOTS.ECO-API aufzurufen. Testen Sie Anfragen zunächst mit einem API-Client (z. B. Postman), um Ihr Token und die Nutzdaten zu validieren.
 {% endalert %}
 
 ### 3. Schritt: Das Zertifikat in Nachrichten anzeigen {#step-3-display-the-certificate-in-messages}
@@ -123,6 +123,6 @@ Damit können Sie In-App-Nachrichten, Content Cards oder Push-Benachrichtigungen
 - **Attribute werden im Nachrichtenschritt nicht angezeigt**:
   - Stellen Sie sicher, dass die Namen der angepassten Attribute in Braze genau mit den Attributen übereinstimmen, die Sie im Nutzeraktualisierungsschritt festgelegt haben.
   - Verwenden Sie im Nutzeraktualisierungsschritt den Tab **Vorschau und Test**, um zu bestätigen, dass die Attribute befüllt werden. Senden Sie dann einen Test an eine:n Nutzer:in und bestätigen Sie, dass die Attribute in deren Kundenprofil gespeichert sind.
-- **`422`-Fehler (nicht verarbeitbare Entität)**: Stellen Sie sicher, dass Ihr App-Token / Textbaustein und die Impact-Menge gültig sind.
-- **`401`-Fehler**: Stellen Sie sicher, dass das Auth-Token / Textbaustein vorhanden und korrekt ist.
+- **`422`-Fehler (nicht verarbeitbare Entität)**: Stellen Sie sicher, dass Ihr App-Token und die Impact-Menge gültig sind.
+- **`401`-Fehler**: Stellen Sie sicher, dass das Auth-Token vorhanden und korrekt ist.
 - **Keine Bildvorschau im Nachrichtenschritt**: Wählen Sie im Nutzeraktualisierungsschritt **Test an Nutzer:in senden** und zeigen Sie dann eine Vorschau der Nachricht mit derselben/demselben Nutzer:in an.

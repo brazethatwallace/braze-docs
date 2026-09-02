@@ -536,7 +536,7 @@ Eine vollständige Liste der verfügbaren Methoden finden Sie in der [Braze Java
 
 Tealium iQ bietet eine grundlegende schlüsselfertige Braze-Integration. Um die Integration zu konfigurieren, suchen Sie in der Tealium Tag Management-Oberfläche nach Braze und geben Sie den Internet-SDK-API-Schlüssel aus Ihrem Dashboard an.
 
-Für weitere Details oder ausführliche Unterstützung bei der Tealium-Konfiguration lesen Sie unsere [Integrationsdokumentation]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium#about-tealium) oder wenden Sie sich an Ihren Tealium Account Manager:in.
+Für weitere Details oder ausführliche Unterstützung bei der Tealium-Konfiguration lesen Sie unsere [Integrationsdokumentation]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/tealium#about-tealium) oder wenden Sie sich an Ihren Tealium Account Manager.
 
 ### Vite {#vite}
 
@@ -548,6 +548,6 @@ optimizeDeps: {
 },
 ```
 
-### Andere Tag-Manager:in {#other-tag-managers}
+### Andere Tag-Manager {#other-tag-managers}
 
 Braze kann auch mit anderen Tag-Management-Lösungen kompatibel sein, indem Sie unsere Integrationsanweisungen innerhalb eines benutzerdefinierten HTML-Tags befolgen. Wenden Sie sich an eine Braze-Vertretung, wenn Sie Hilfe bei der Bewertung dieser Lösungen benötigen.

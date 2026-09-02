@@ -63,7 +63,7 @@ Sie können die folgenden Segment-Statistiken einsehen, die sich in Realtime akt
         </tr>
         <tr>
             <td class="no-split">Push Enabled (Opted-In)</td>
-            <td class="no-split">„Push Enabled“ bezieht sich auf die Anzahl der Nutzer:innen mit mindestens einem Push-Token / Textbaustein. Einige Nutzer:innen können mehrere Push-Token / Textbaustein haben (z. B. wenn sie ein iPhone und ein iPad besitzen), sodass die Anzahl der Push-Benachrichtigungen, die Sie an dieses Segment senden, größer sein kann als die Anzahl der „Push Enabled“-Nutzer:innen. „Opted In“ bezieht sich auf die Anzahl der Nutzer:innen, die sich ausdrücklich für Push-Benachrichtigungen entschieden haben. Nutzer:innen müssen immer ausdrücklich ein Opt-in durchführen, damit Sie ihnen Push-Benachrichtigungen senden können.</td>
+            <td class="no-split">„Push Enabled“ bezieht sich auf die Anzahl der Nutzer:innen mit mindestens einem Push-Token. Einige Nutzer:innen können mehrere Push-Token haben (z. B. wenn sie ein iPhone und ein iPad besitzen), sodass die Anzahl der Push-Benachrichtigungen, die Sie an dieses Segment senden, größer sein kann als die Anzahl der „Push Enabled“-Nutzer:innen. „Opted In“ bezieht sich auf die Anzahl der Nutzer:innen, die sich ausdrücklich für Push-Benachrichtigungen entschieden haben. Nutzer:innen müssen immer ausdrücklich ein Opt-in durchführen, damit Sie ihnen Push-Benachrichtigungen senden können.</td>
         </tr>
     </tbody>
 </table>

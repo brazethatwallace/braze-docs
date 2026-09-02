@@ -34,16 +34,16 @@ Wenden Sie sich an Ihren Account Manager:in oder eröffnen Sie ein [Support-Tick
 
 ### Schritt 1: Mixpanel-Zugangsdaten abrufen {#step-1-get-mixpanel-credentials}
 
-Klicken Sie in Ihrem Mixpanel-Dashboard unter einem neuen oder bestehenden Projekt auf **Project Settings**. Dort finden Sie das Mixpanel-API-Secret und das Mixpanel-Token / Textbaustein. Diese Zugangsdaten werden im nächsten Schritt zum Erstellen Ihrer Currents-Verbindung verwendet.
+Klicken Sie in Ihrem Mixpanel-Dashboard unter einem neuen oder bestehenden Projekt auf **Project Settings**. Dort finden Sie das Mixpanel-API-Secret und das Mixpanel-Token. Diese Zugangsdaten werden im nächsten Schritt zum Erstellen Ihrer Currents-Verbindung verwendet.
 
 ### Schritt 2: Braze-Current erstellen {#step-2-create-braze-current}
 
 1. Gehen Sie in Braze zu **Currents** > **+ Create Current** > **Create Mixpanel Export**.
-2. Geben Sie einen Integrationsnamen, eine Kontakt-E-Mail, das Mixpanel-API-Secret und das Mixpanel-Token / Textbaustein in die entsprechenden Felder ein.
+2. Geben Sie einen Integrationsnamen, eine Kontakt-E-Mail, das Mixpanel-API-Secret und das Mixpanel-Token in die entsprechenden Felder ein.
 3. Wählen Sie die Events aus, die Sie verfolgen möchten; eine Liste der verfügbaren Events wird bereitgestellt.
 4. Wählen Sie **Launch Current**.
 
-![Die Braze-Mixpanel-Currents-Seite. Diese Seite enthält Felder für den Integrationsnamen, die Kontakt-E-Mail, das API-Secret und das Mixpanel-Export-Token / Textbaustein. Die untere Hälfte der Currents-Seite zeigt die verfügbaren Currents-Events, die Sie senden können.]({% image_buster /assets/img_archive/mixpanel4.png %}){: style="max-width:80%;"}
+![Die Braze-Mixpanel-Currents-Seite. Diese Seite enthält Felder für den Integrationsnamen, die Kontakt-E-Mail, das API-Secret und das Mixpanel-Export-Token. Die untere Hälfte der Currents-Seite zeigt die verfügbaren Currents-Events, die Sie senden können.]({% image_buster /assets/img_archive/mixpanel4.png %}){: style="max-width:80%;"}
 
 {% tab note %}
 Weitere Informationen finden Sie in der [Integrationsdokumentation](https://help.mixpanel.com/hc/en-us/articles/360001243663) von Mixpanel.

@@ -27,6 +27,12 @@ PHRASE_REPLACEMENTS = [
     ("den LTV (LTV)", "den Lifetime Value (LTV)"),
     ("### BCC-Eigenschaften – ABKBannerContentCard", "### Banner-Content-Card-Eigenschaften – ABKBannerContentCard"),
     ('aria-label="Customize in-app message behavior on Klick, der"', 'aria-label="Customize in-app message behavior on click"'),
+    # token glossary: Textbaustein is unrelated to auth/push/API tokens
+    (" / Textbaustein", ""),
+    ("In App Message Manager:in Initial Display Operation", "In App Message Manager Initial Display Operation"),
+    ("Tag-Manager:in", "Tag-Manager"),
+    ("Tealium Account Manager:in", "Tealium Account Manager"),
+    ("{% tab Step 2: angepasste Attribute %}", "{% tab Step 2: Custom Attributes %}"),
     # Bug 1: Taxi product name leaked into rideshare example
     ("Taxi for Email-/Mitfahr-App", "Taxi-/Mitfahr-App"),
     ("Taxi for Email- oder Mitfahr-App", "Taxi- oder Mitfahr-App"),

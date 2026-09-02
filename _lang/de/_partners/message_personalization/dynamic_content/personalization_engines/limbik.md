@@ -20,7 +20,7 @@ Folgendes ist erforderlich, um Limbik mit Braze zu verwenden:
 | Anforderungen | Beschreibung |
 | --- | --- |
 | Limbik `account_id` | Wenden Sie sich an Ihr Limbik-Kontoteam oder senden Sie eine GET-Anfrage an Limbiks `/rest/api/organizations`-Endpunkt. |
-| Limbik-Zugriffstoken (`access_token`) | Senden Sie eine POST-Anfrage an Limbiks `login`-Endpunkt und verwenden Sie den zurückgegebenen `access_token`-Wert als Bearer-Token / Textbaustein im `Authorization`-Header. |
+| Limbik-Zugriffstoken (`access_token`) | Senden Sie eine POST-Anfrage an Limbiks `login`-Endpunkt und verwenden Sie den zurückgegebenen `access_token`-Wert als Bearer-Token im `Authorization`-Header. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit „Messages“-Berechtigungen. Erstellen Sie einen im Braze-Dashboard unter **Settings** > **API Keys**. |
 | Braze `campaign_id` | Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie eine Campaign aus. Falls die gewünschte Campaign noch nicht existiert, erstellen Sie eine und speichern Sie sie. Am Ende der Campaign-Seite finden Sie den Campaign-API-Bezeichner. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
@@ -58,7 +58,7 @@ Wählen Sie die `uid` Ihrer gewünschten Organisation aus, um sie als `account_i
 
 ## Authentifizierung {#authentication}
 
-Um auf die API-Endpunkte zuzugreifen, benötigen Sie ein Bearer-Token / Textbaustein zur Authentifizierung. Erhalten Sie Ihr Token / Textbaustein, indem Sie sich mit Ihren Zugangsdaten authentifizieren.
+Um auf die API-Endpunkte zuzugreifen, benötigen Sie ein Bearer-Token zur Authentifizierung. Erhalten Sie Ihr Token, indem Sie sich mit Ihren Zugangsdaten authentifizieren.
 
 {% details Anmeldeanfrage %}
 
@@ -77,7 +77,7 @@ curl -X 'POST' \
 
 {% details Beispielantwort %}
 
-Die Antwort enthält ein `access_token`, das Sie als Bearer-Token / Textbaustein in allen nachfolgenden API-Anfragen verwenden können:
+Die Antwort enthält ein `access_token`, das Sie als Bearer-Token in allen nachfolgenden API-Anfragen verwenden können:
 
 ```json
 {
@@ -86,7 +86,7 @@ Die Antwort enthält ein `access_token`, das Sie als Bearer-Token / Textbaustein
 }
 ```
 
-Fügen Sie dieses Token / Textbaustein im `Authorization`-Header für alle API-Anfragen ein:
+Fügen Sie dieses Token im `Authorization`-Header für alle API-Anfragen ein:
 
 ```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
@@ -116,7 +116,7 @@ curl -X 'GET' \
   -H 'accept: application/json'
 ```
 
-Ersetzen Sie `YOUR_PROMPT`, `YOUR_ACCOUNT_ID` und `YOUR_ACCESS_TOKEN` durch Ihren Prompt-Text, die Organisations-ID (vom Organisations-Endpunkt) und das Bearer-Token / Textbaustein vom Anmelde-Endpunkt.
+Ersetzen Sie `YOUR_PROMPT`, `YOUR_ACCOUNT_ID` und `YOUR_ACCESS_TOKEN` durch Ihren Prompt-Text, die Organisations-ID (vom Organisations-Endpunkt) und das Bearer-Token vom Anmelde-Endpunkt.
 
 {% enddetails %}
 

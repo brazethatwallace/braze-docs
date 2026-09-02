@@ -181,7 +181,7 @@ Sie müssen bei der Verwendung des JSON-Editors keine sensiblen Daten wie Ihren 
 * Externe Nutzer-ID
 * API-Schlüssel
 * Braze-Cluster-URL
-* Felder im Zusammenhang mit Push-Token / Textbaustein-Importen
+* Felder im Zusammenhang mit Push-Token-Importen
 
 {% alert important %}
 Canvas-Eigenschaften (wie die Liquid-Tags `canvas_id`, `canvas_name` und `canvas_variant_name`) werden in Nutzeraktualisierungsschritten nicht unterstützt.

@@ -27,7 +27,7 @@ Wenn Sie **Braze Auto** nicht als Option im **Modell**-Dropdown beim Erstellen e
 
 ### Option 2: Eigenen API-Schlüssel mitbringen {#option-2-bring-your-own-api-key}
 
-Mit dieser Option können Sie Ihr Braze-Konto mit Anbietern wie OpenAI, Anthropic oder Google Gemini verbinden. Wenn Sie Ihren eigenen API-Schlüssel von einem LLM-Anbieter mitbringen, werden die Token / Textbaustein-Kosten direkt über Ihren Anbieter abgerechnet, nicht über Braze.
+Mit dieser Option können Sie Ihr Braze-Konto mit Anbietern wie OpenAI, Anthropic oder Google Gemini verbinden. Wenn Sie Ihren eigenen API-Schlüssel von einem LLM-Anbieter mitbringen, werden die Token-Kosten direkt über Ihren Anbieter abgerechnet, nicht über Braze.
 
 Wir empfehlen, regelmäßig die neuesten Modelle zu testen, da ältere Modelle nach einigen Monaten eingestellt oder als veraltet markiert werden können. Stellen Sie sicher, dass Sie bei Ihrem Anbieter über ausreichend Guthaben verfügen, um Ihre Agenten im großen Maßstab auszuführen. Sie können sich auch für Agent-Console-Benachrichtigungen in den [Benachrichtigungseinstellungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) anmelden, um benachrichtigt zu werden, wenn Braze feststellt, dass ein Modell nicht mehr verfügbar ist oder Abrechnungsprobleme mit Ihrem LLM-Anbieter auftreten.
 
@@ -43,7 +43,7 @@ Wenn Sie ein von Braze bereitgestelltes LLM verwenden, agieren die Anbieter eine
 
 #### Denkstufen {#thinking-levels}
 
-Einige LLM-Anbieter ermöglichen es Ihnen, die Denkstufe eines ausgewählten Modells anzupassen. Denkstufen definieren den Umfang des Denkprozesses, den das Modell vor der Antwort durchläuft – von schnellen, direkten Antworten bis hin zu längeren Schlussfolgerungsketten. Dies beeinflusst die Antwortqualität, Latenz und Token / Textbaustein-Nutzung.
+Einige LLM-Anbieter ermöglichen es Ihnen, die Denkstufe eines ausgewählten Modells anzupassen. Denkstufen definieren den Umfang des Denkprozesses, den das Modell vor der Antwort durchläuft – von schnellen, direkten Antworten bis hin zu längeren Schlussfolgerungsketten. Dies beeinflusst die Antwortqualität, Latenz und Token-Nutzung.
 
 | Stufe | Wann verwenden |
 |-------|----------------|
@@ -53,7 +53,7 @@ Einige LLM-Anbieter ermöglichen es Ihnen, die Denkstufe eines ausgewählten Mod
 | **Hoch** | Komplexe Schlussfolgerungen, Grenzfälle oder wenn das Modell Schritte durcharbeiten soll, bevor es antwortet. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Denkstufen" }
 
-Wir empfehlen, mit **Minimal** zu beginnen und die Antworten Ihres Agenten zu testen. Anschließend können Sie die Denkstufe auf **Niedrig** oder **Mittel** anpassen, wenn der Agent Schwierigkeiten hat, präzise Antworten zu liefern. In seltenen Fällen kann eine **hohe** Denkstufe erforderlich sein, wobei diese Stufe zu hohen Token / Textbaustein-Kosten und längeren Antwortzeiten oder einem höheren Risiko von [Timeout-Fehlern]({{site.baseurl}}/user_guide/brazeai/agents/faq#what-might-cause-a-custom-agent-to-frequently-time-out) führen kann. Wenn Ihr Agent Schwierigkeiten hat, mehrstufiges Denken mit angemessenen Antwortzeiten in Einklang zu bringen, erwägen Sie, Ihren Anwendungsfall in mehrere Agenten aufzuteilen, die in einem Canvas oder Katalog zusammenarbeiten können.
+Wir empfehlen, mit **Minimal** zu beginnen und die Antworten Ihres Agenten zu testen. Anschließend können Sie die Denkstufe auf **Niedrig** oder **Mittel** anpassen, wenn der Agent Schwierigkeiten hat, präzise Antworten zu liefern. In seltenen Fällen kann eine **hohe** Denkstufe erforderlich sein, wobei diese Stufe zu hohen Token-Kosten und längeren Antwortzeiten oder einem höheren Risiko von [Timeout-Fehlern]({{site.baseurl}}/user_guide/brazeai/agents/faq#what-might-cause-a-custom-agent-to-frequently-time-out) führen kann. Wenn Ihr Agent Schwierigkeiten hat, mehrstufiges Denken mit angemessenen Antwortzeiten in Einklang zu bringen, erwägen Sie, Ihren Anwendungsfall in mehrere Agenten aufzuteilen, die in einem Canvas oder Katalog zusammenarbeiten können.
 
 Braze verwendet für ausgehende LLM-Aufrufe dieselben IP-Bereiche wie für Connected-Content. Die Bereiche sind in der [Connected-Content-IP-Zulassungsliste]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting) aufgeführt. Wenn Ihr Anbieter IP-Zulassungslisten unterstützt, können Sie den Schlüssel auf diese Bereiche beschränken, damit nur Braze ihn verwenden kann.
 
@@ -65,10 +65,10 @@ Wenn Sie ein von Braze bereitgestelltes LLM verwenden, agieren die Anbieter eine
 
 Jeder LLM-Anbieter hat eine leicht unterschiedliche Mischung aus Modellfähigkeiten, Kosten und Denkstufen. Hier sind einige allgemeine Richtlinien und Best Practices:
 
-- Für Kosteneffizienz priorisieren Sie das Testen von Modellen mit niedrigeren Token / Textbaustein-Kosten gegenüber Modellen mit höheren Kosten. Wechseln Sie nur dann zu kostenintensiveren Modellen, wenn günstigere Modelle Schwierigkeiten mit dem Anwendungsfall haben oder inkonsistente oder ungenaue Ergebnisse liefern.
+- Für Kosteneffizienz priorisieren Sie das Testen von Modellen mit niedrigeren Token-Kosten gegenüber Modellen mit höheren Kosten. Wechseln Sie nur dann zu kostenintensiveren Modellen, wenn günstigere Modelle Schwierigkeiten mit dem Anwendungsfall haben oder inkonsistente oder ungenaue Ergebnisse liefern.
 - Für Geschwindigkeit und Performance-Effizienz priorisieren Sie das Testen niedrigerer Modell-Denkstufen gegenüber höheren Denkstufen. Wechseln Sie nur dann zu Modellen mit höherer Denkstufe, wenn niedrigere Denkstufen Schwierigkeiten mit dem Anwendungsfall haben oder inkonsistente oder ungenaue Ergebnisse liefern.
 - Wenn Modelle mit niedrigeren Kosten oder Denkstufen Schwierigkeiten mit dem Anwendungsfall haben oder inkonsistente oder ungenaue Ergebnisse liefern, erwägen Sie den Wechsel zu kostenintensiveren Modellen oder Modellen mit höherer Denkstufe.
-- Achten Sie beim Testen darauf, die Zuverlässigkeit und Genauigkeit mit der Token / Textbaustein-Nutzung und der Aufruf-Dauer in Einklang zu bringen.
+- Achten Sie beim Testen darauf, die Zuverlässigkeit und Genauigkeit mit der Token-Nutzung und der Aufruf-Dauer in Einklang zu bringen.
 - Jeder Anwendungsfall kann ein anderes optimales Modell und eine andere Denkstufe haben. Wir empfehlen gründliches Testen, um konsistente Qualität ohne Timeouts sicherzustellen.
 
 ### Steuerung des Aufruf-Flusses {#invocation-flow-controls}
@@ -102,7 +102,7 @@ Gehen Sie zu **Einstellungen** > **Abrechnung** > **Credit-Verbrauch** > **Agent
 
 Die Credit-Verhältnisse ergeben sich aus Ihrem Vertrag und werden im Dashboard [Credit-Verbrauch]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage) angezeigt (Tab **Credit-Verhältnisse** und Tab **Agent Console**). Die Schätzung wird aktualisiert, wenn Sie das Modell oder das Aufruf-Limit ändern.
 
-Um die Ausgaben zu steuern, senken Sie das tägliche Aufruf-Limit. Bei [Bring-your-own (BYO)](#option-2-bring-your-own-api-key)-Modellen können Sie auch ein kostengünstigeres Modell wählen oder die [Denkstufe](#thinking-levels) reduzieren, um die Token / Textbaustein-Kosten des Anbieters zu senken. Braze Auto unterstützt keine Anpassung der Denkstufe.
+Um die Ausgaben zu steuern, senken Sie das tägliche Aufruf-Limit. Bei [Bring-your-own (BYO)](#option-2-bring-your-own-api-key)-Modellen können Sie auch ein kostengünstigeres Modell wählen oder die [Denkstufe](#thinking-levels) reduzieren, um die Token-Kosten des Anbieters zu senken. Braze Auto unterstützt keine Anpassung der Denkstufe.
 
 ### Rate-Limit-Fehler {#rate-limit-errors}
 
@@ -265,11 +265,11 @@ Wenn Sie Nutzer-Feedback zur letzten Restauranterfahrung in Ihrer Restaurantkett
 
 ## Kataloge und Felder {#catalogs-and-fields}
 
-Wählen Sie bestimmte Kataloge aus, auf die ein Agent verweisen soll, und geben Sie Ihrem Agenten den nötigen Kontext, um Ihre Produkte und andere nicht-nutzerbezogene Daten zu verstehen, wenn dies relevant ist. Agenten verwenden Tools, um nur die relevanten Artikel zu finden und diese an das LLM zu senden, um den Token / Textbaustein-Verbrauch zu minimieren. Für einen besseren Katalogabruf erstellen Sie eine [Wissensquelle]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources) und fügen Sie diese als Agentenkontext hinzu, anstatt den Katalog direkt anzuhängen.
+Wählen Sie bestimmte Kataloge aus, auf die ein Agent verweisen soll, und geben Sie Ihrem Agenten den nötigen Kontext, um Ihre Produkte und andere nicht-nutzerbezogene Daten zu verstehen, wenn dies relevant ist. Agenten verwenden Tools, um nur die relevanten Artikel zu finden und diese an das LLM zu senden, um den Token-Verbrauch zu minimieren. Für einen besseren Katalogabruf erstellen Sie eine [Wissensquelle]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources) und fügen Sie diese als Agentenkontext hinzu, anstatt den Katalog direkt anzuhängen.
 
 ![Der Katalog „restaurants“ und die Spalte „Loyalty_Program“, die für die Suche durch den Agenten ausgewählt wurden.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
-Wenn Sie einen Catalog Agent in einem Katalogfeld bereitstellen, aktivieren Sie die Pflichteingabe-Kontrolle und wählen Sie aus, welche ausgewählten Spalten als Pflichtfelder erforderlich sind, bevor der Agent ausgeführt wird. Der Agent überspringt eine Zeile nur dann, wenn eine dieser Pflichtspalten leer ist oder fehlt – zum Beispiel ein `gender`-Feld, das noch nicht ausgefüllt wurde. Ausgewählte Spalten sind standardmäßig als Pflichtfelder markiert, aber Sie können Spalten entfernen, die leer sein dürfen, ohne die Ausführung zu blockieren. Dadurch werden keine Token / Textbaustein für unvollständige Daten verschwendet.
+Wenn Sie einen Catalog Agent in einem Katalogfeld bereitstellen, aktivieren Sie die Pflichteingabe-Kontrolle und wählen Sie aus, welche ausgewählten Spalten als Pflichtfelder erforderlich sind, bevor der Agent ausgeführt wird. Der Agent überspringt eine Zeile nur dann, wenn eine dieser Pflichtspalten leer ist oder fehlt – zum Beispiel ein `gender`-Feld, das noch nicht ausgefüllt wurde. Ausgewählte Spalten sind standardmäßig als Pflichtfelder markiert, aber Sie können Spalten entfernen, die leer sein dürfen, ohne die Ausführung zu blockieren. Dadurch werden keine Token für unvollständige Daten verschwendet.
 
 Catalog Agents berücksichtigen auch die Spaltenreihenfolge, wenn Eingabefelder voneinander abhängen. Wenn Spalte D aus den Spalten B und C generiert werden soll, führt der Agent Spalte D erst aus, wenn B und C Werte für diese Zeile enthalten.
 

@@ -98,11 +98,11 @@ Nachdem der Integrationsprozess abgeschlossen ist, ruft Braze automatisch die LI
 | Provider-ID | Wählen Sie Ihren Provider aus und gehen Sie dann zu **Settings** > **Basic information** |
 | Channel-ID | Wählen Sie Ihren Provider aus und gehen Sie dann zu **Channels** > Ihr Kanal > **Basic settings** |
 | Channel-Secret | Wählen Sie Ihren Provider aus und gehen Sie dann zu **Channels** > Ihr Kanal > **Basic settings**. |
-| Channel-Access-Token / Textbaustein | Wählen Sie Ihren Provider aus und gehen Sie dann zu **Channels** > Ihr Kanal > **Messaging API**. Wenn kein Channel-Access-Token / Textbaustein vorhanden ist, wählen Sie **Issue**. |
+| Channel-Access-Token | Wählen Sie Ihren Provider aus und gehen Sie dann zu **Channels** > Ihr Kanal > **Messaging API**. Wenn kein Channel-Access-Token vorhanden ist, wählen Sie **Issue**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2.1: Webhook-Einstellungen bearbeiten" }
 
 {% alert note %}
-Sie können das Channel-Secret und den Channel-Access-Token / Textbaustein für einen bereits integrierten LINE-Kanal aktualisieren oder rotieren, indem Sie zu **Partnerintegrationen** > **Technologie-Partner** > **LINE** gehen und Ihre Integration auswählen.
+Sie können das Channel-Secret und den Channel-Access-Token für einen bereits integrierten LINE-Kanal aktualisieren oder rotieren, indem Sie zu **Partnerintegrationen** > **Technologie-Partner** > **LINE** gehen und Ihre Integration auswählen.
 {% endalert %}
 
 {: start="3"}
@@ -123,7 +123,7 @@ Braze erstellt eine [Abo-Gruppe]({{site.baseurl}}/user_guide/audience/subscripti
    - Provider-ID
    - Channel-ID
    - Channel-Secret
-   - Channel-Access-Token / Textbaustein
+   - Channel-Access-Token
 
 Wenn Sie IP-Whitelisting in Ihrem LINE-Konto hinzufügen möchten, fügen Sie alle IP-Adressen, die für Ihren Cluster unter [IP-Zulassungsliste]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting) aufgeführt sind, zu Ihrer Zulassungsliste hinzu.
 
@@ -317,7 +317,7 @@ Um die korrekte LINE-ID für alle Nutzer:innen zu erhalten, richten Sie LINE Log
   - [Anleitung für native Apps](https://developers.line.biz/en/docs/line-login/secure-login-process/#using-openid-to-register-new-users)<br><br>Stellen Sie sicher, dass `email` in der [Scope-Konfiguration](https://developers.line.biz/en/docs/line-login/integrate-line-login/#scopes) für Verifizierungsanfragen enthalten ist.
 
 {: start="3"}
-3. Verwenden Sie den [Verify ID Token / Textbaustein call](https://developers.line.biz/en/reference/line-login/#verify-id-token), um die E-Mail-Adresse der Nutzer:innen abzurufen.
+3. Verwenden Sie den [Verify ID Token call](https://developers.line.biz/en/reference/line-login/#verify-id-token), um die E-Mail-Adresse der Nutzer:innen abzurufen.
 
 4. Speichern Sie die LINE-ID (`native_line_id`) der Nutzer:innen im Kundenprofil mit einer übereinstimmenden E-Mail-Adresse in Ihrer Datenbank oder erstellen Sie ein neues Kundenprofil mit der E-Mail-Adresse und LINE-ID.
 

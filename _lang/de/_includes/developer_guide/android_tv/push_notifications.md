@@ -2,7 +2,7 @@
 
 ![Illustration eines Android TV-Geräts für die Anleitung zu Android TV Push-Benachrichtigungen.]({% image_buster /assets/img/Television.png %}){: style="float:right;max-width:25%;margin-left:15px; border: 0"}
 
-Obwohl es sich nicht um ein natives Feature handelt, wird die Push-Integration von Android TV ermöglicht, indem das Braze Android SDK und Firebase Cloud Messaging genutzt werden, um ein Push-Token / Textbaustein für Android TV zu registrieren. Es ist jedoch notwendig, eine UI zu erstellen, um die Nutzdaten der Benachrichtigung nach deren Empfang anzuzeigen.
+Obwohl es sich nicht um ein natives Feature handelt, wird die Push-Integration von Android TV ermöglicht, indem das Braze Android SDK und Firebase Cloud Messaging genutzt werden, um ein Push-Token für Android TV zu registrieren. Es ist jedoch notwendig, eine UI zu erstellen, um die Nutzdaten der Benachrichtigung nach deren Empfang anzuzeigen.
 
 ## Voraussetzungen {#prerequisites}
 

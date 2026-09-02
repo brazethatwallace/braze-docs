@@ -62,7 +62,7 @@ Bitte beachten Sie, dass Ihre Vorschau aufgrund von Unterschieden in der Hardwar
 {% tab Content-Card %}
 
 {% alert important %}
-Um einen Test an [Content-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) oder einzelne Nutzer:innen zu senden, muss Push auf Ihren Testgeräten aktiviert sein und ein gültiger Push-Token / Textbaustein für die Testnutzer:innen registriert sein, bevor Sie den Test senden. Für iOS-Nutzer:innen müssen Sie auf die von Braze gesendete Push-Benachrichtigung tippen, um die Test-Content-Card anzuzeigen. Dieses Verhalten gilt nur für Test-Content-Cards.
+Um einen Test an [Content-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) oder einzelne Nutzer:innen zu senden, muss Push auf Ihren Testgeräten aktiviert sein und ein gültiger Push-Token für die Testnutzer:innen registriert sein, bevor Sie den Test senden. Für iOS-Nutzer:innen müssen Sie auf die von Braze gesendete Push-Benachrichtigung tippen, um die Test-Content-Card anzuzeigen. Dieses Verhalten gilt nur für Test-Content-Cards.
 {% endalert %}
 
 Test-Content-Cards werden über eine Push-Benachrichtigung zugestellt. Die Karte wird in der Push-Payload verpackt, und das SDK extrahiert und speichert sie lokal, wenn der Push empfangen wird.
@@ -89,12 +89,12 @@ Im Tab **Vorschau** Ihres Composers stimmt die Ansicht Ihrer Nachricht mögliche
 
 ### Test-Checkliste
 
-- Sind Ihre Testnutzer:innen für Push mit einem gültigen Push-Token / Textbaustein angemeldet?
+- Sind Ihre Testnutzer:innen für Push mit einem gültigen Push-Token angemeldet?
 - Werden die Bilder und Medien wie erwartet angezeigt und verhalten sie sich entsprechend?
 - Funktioniert Liquid wie erwartet? Haben Sie einen [Standardattributwert]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) festgelegt, falls Liquid keine Informationen zurückgibt?
 - Ist Ihr Text klar, prägnant und korrekt?
 - Leiten Ihre Links die Nutzer:innen an die richtige Stelle weiter?
-- Sind Ihre Testnutzer:innen für Push mit einem gültigen Push-Token / Textbaustein angemeldet?
+- Sind Ihre Testnutzer:innen für Push mit einem gültigen Push-Token angemeldet?
 
 ### Fehlerbehebung bei fehlerhaften Bildern {#troubleshooting-broken-images}
 
@@ -245,7 +245,7 @@ Der Scanner läuft automatisch bei benutzerdefinierten HTML-Nachrichten und wert
 
 ![Push testen]({% image_buster /assets/img_archive/testpush.png %})
 
-Wenn Sie eine Fehlermeldung erhalten, dass keine der ausgewählten Nutzer:innen über passende Push-Token / Textbaustein verfügt, haben die Testnutzer:innen keinen gültigen Push-Token / Textbaustein für die ausgewählte Plattform. Die Nutzer:innen müssen eine Sitzung in der App gestartet und Push für dieses Gerät aktiviert haben. Weitere Informationen finden Sie unter [Push-Aktivierung und Push-Abo]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
+Wenn Sie eine Fehlermeldung erhalten, dass keine der ausgewählten Nutzer:innen über passende Push-Token verfügt, haben die Testnutzer:innen keinen gültigen Push-Token für die ausgewählte Plattform. Die Nutzer:innen müssen eine Sitzung in der App gestartet und Push für dieses Gerät aktiviert haben. Weitere Informationen finden Sie unter [Push-Aktivierung und Push-Abo]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
 #### Web-Push {#web-push}
 
@@ -258,7 +258,7 @@ Wenn Sie eine Fehlermeldung erhalten, dass keine der ausgewählten Nutzer:innen 
 
 Wenn Sie Push-Nachrichten vom Braze-Dashboard bereits akzeptiert haben, wird die Nachricht in der Ecke Ihres Bildschirms angezeigt. Andernfalls wählen Sie bei Aufforderung **Zulassen**, und die Nachricht wird angezeigt.
 
-Wenn Sie eine Fehlermeldung erhalten, dass keine der ausgewählten Nutzer:innen über passende Push-Token / Textbaustein für Web-Push verfügt, überprüfen Sie, ob die Testnutzer:innen einen gültigen Push-Token / Textbaustein für die ausgewählte Plattform registriert haben. Um einen Push-Token / Textbaustein zu erhalten, müssen die Nutzer:innen so konfiguriert sein, dass sie Push-Benachrichtigungen für die App auf ihrem Gerät empfangen können. Weitere Einzelheiten finden Sie unter [Push-Aktivierung und Push-Abo]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
+Wenn Sie eine Fehlermeldung erhalten, dass keine der ausgewählten Nutzer:innen über passende Push-Token für Web-Push verfügt, überprüfen Sie, ob die Testnutzer:innen einen gültigen Push-Token für die ausgewählte Plattform registriert haben. Um einen Push-Token zu erhalten, müssen die Nutzer:innen so konfiguriert sein, dass sie Push-Benachrichtigungen für die App auf ihrem Gerät empfangen können. Weitere Einzelheiten finden Sie unter [Push-Aktivierung und Push-Abo]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
 {% endtab %}
 {% tab SMS/MMS und RCS %}
@@ -387,7 +387,7 @@ Sie können angepasste Event-Eigenschaften testen, indem Sie Werte manuell mit L
 Es gibt einige Situationen, in denen sich Testnachrichten nicht genauso verhalten wie Campaigns oder Canvases, die an echte Nutzer:innen gesendet werden. Erwägen Sie in diesen Fällen, die Campaign oder das Canvas an eine begrenzte Gruppe von Testnutzer:innen zu senden, um dieses Verhalten zu validieren.
 
 - Wenn Sie das Braze-[Präferenzcenter]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) über Testnachrichten aufrufen, ist der Button **Einstellungen speichern** deaktiviert. Liquid-Tags des Präferenzcenters werden möglicherweise auch nicht zu gültigen Links aufgelöst. Dies ist das erwartete Verhalten. Informationen zum End-to-End-Testen finden Sie unter [Präferenzcenter testen]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
-- Zum Testen von In-App-Nachrichten und Content Cards muss die Zielnutzer:in über ein Push-Token / Textbaustein für das Zielgerät verfügen.
+- Zum Testen von In-App-Nachrichten und Content Cards muss die Zielnutzer:in über ein Push-Token für das Zielgerät verfügen.
 - Zum Testen von Abmeldelinks in E-Mails stellen Sie sicher, dass sich die E-Mail-Adresse Ihrer Testnutzer:in im entsprechenden Workspace befindet.
 - Der `List-Unsubscribe`-Header ist nicht in E-Mails enthalten, die über die Testnachrichtenfunktion gesendet werden.
 - E-Mails, die an Nutzer:innen einer Seed-Gruppe gesendet werden, aktualisieren nicht die Liste der empfangenen Campaigns im Kundenprofil und erhöhen auch nicht die Sendungen in den Dashboard-Analytics.

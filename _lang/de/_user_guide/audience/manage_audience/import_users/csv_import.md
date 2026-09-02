@@ -139,7 +139,7 @@ Die folgenden Datentypen können als angepasste Attribute für den CSV-Import ve
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Angepasste Attribute" }
 
 {% alert important %}
-Arrays, Push-Token / Textbaustein und angepasste Event-Datentypen werden beim Nutzerimport nicht unterstützt, da Kommata in Ihrer CSV-Datei als Spaltentrennzeichen interpretiert werden und Fehler beim Parsen der Datei verursachen.<br><br>Verwenden Sie stattdessen den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), um diese Arten von Werten hochzuladen.
+Arrays, Push-Token und angepasste Event-Datentypen werden beim Nutzerimport nicht unterstützt, da Kommata in Ihrer CSV-Datei als Spaltentrennzeichen interpretiert werden und Fehler beim Parsen der Datei verursachen.<br><br>Verwenden Sie stattdessen den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), um diese Arten von Werten hochzuladen.
 {% endalert %}
 
 #### Standardattribute {#default-attributes}

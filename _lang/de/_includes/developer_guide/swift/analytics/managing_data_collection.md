@@ -139,7 +139,7 @@ Sie können die Methode [`wipeData()`](https://braze-inc.github.io/braze-swift-s
 
 Ab Braze Swift Version 7.0.0 generieren das SDK und die Methode `wipeData()` eine zufällige UUID als Geräte-ID. Wenn jedoch `useUUIDAsDeviceId` auf `false` gesetzt ist _oder_ Sie Swift SDK Version 5.7.0 oder früher verwenden, müssen Sie zusätzlich eine POST-Anfrage an [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) senden, da der Identifier for Vendors (IDFV) automatisch als Geräte-ID dieser Nutzerin bzw. dieses Nutzers verwendet wird.
 
-Wenn Sie die manuelle Push-Integration verwenden und Ihre App `wipeData()` aufruft und das SDK anschließend im selben App-Durchlauf wieder aktiviert, rufen Sie erneut `registerForRemoteNotifications()` auf, damit Braze ein aktualisiertes Geräte-Token / Textbaustein empfangen kann. Weitere Informationen finden Sie unter [Push-Benachrichtigungen einrichten]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift).
+Wenn Sie die manuelle Push-Integration verwenden und Ihre App `wipeData()` aufruft und das SDK anschließend im selben App-Durchlauf wieder aktiviert, rufen Sie erneut `registerForRemoteNotifications()` auf, damit Braze ein aktualisiertes Geräte-Token empfangen kann. Weitere Informationen finden Sie unter [Push-Benachrichtigungen einrichten]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift).
 
 ## Datenerfassung fortsetzen {#resuming-data-tracking}
 
@@ -213,11 +213,11 @@ Setzen Sie nach einem erfolgreichen `logout` [`enabled`](https://braze-inc.githu
 
 #### Sofortige Abmeldeaufrufe vermeiden {#avoid-immediate-unregister-calls}
 
-Vermeiden Sie es, `logout` oder `unregisterPush` direkt nach der Registrierung für Push-Benachrichtigungen beim Betriebssystem oder Push-Anbieter aufzurufen. Aufgrund der asynchronen Serververarbeitung kann dies in seltenen Fällen dazu führen, dass das Push-Token / Textbaustein erneut zu den Braze-Nutzer:innen hinzugefügt wird.
+Vermeiden Sie es, `logout` oder `unregisterPush` direkt nach der Registrierung für Push-Benachrichtigungen beim Betriebssystem oder Push-Anbieter aufzurufen. Aufgrund der asynchronen Serververarbeitung kann dies in seltenen Fällen dazu führen, dass das Push-Token erneut zu den Braze-Nutzer:innen hinzugefügt wird.
 
 ### Push-Registrierung aufheben {#unregister-push}
 
-Um Push-Benachrichtigungen an ein Gerät zu stoppen, ohne zusätzliche automatische Bereinigung durchzuführen, verwenden Sie die Methode `unregisterPush`. Diese entfernt das Push-Token / Textbaustein des Geräts von den aktuellen Nutzer:innen auf dem Braze-Server und löscht das lokal gespeicherte Token / Textbaustein.
+Um Push-Benachrichtigungen an ein Gerät zu stoppen, ohne zusätzliche automatische Bereinigung durchzuführen, verwenden Sie die Methode `unregisterPush`. Diese entfernt das Push-Token des Geräts von den aktuellen Nutzer:innen auf dem Braze-Server und löscht das lokal gespeicherte Token.
 
 {% subtabs local %}
 {% subtab Swift %}
@@ -273,7 +273,7 @@ Registrieren Sie sich nach dem Aufruf von `unregisterPush` erneut für Benachric
 
 #### Sofortige Abmeldeaufrufe vermeiden
 
-Vermeiden Sie es, `logout` oder `unregisterPush` direkt nach der Registrierung für Push-Benachrichtigungen beim Betriebssystem oder Push-Anbieter aufzurufen. Aufgrund der asynchronen Serververarbeitung kann dies in seltenen Fällen dazu führen, dass das Push-Token / Textbaustein erneut zu den Braze-Nutzer:innen hinzugefügt wird.
+Vermeiden Sie es, `logout` oder `unregisterPush` direkt nach der Registrierung für Push-Benachrichtigungen beim Betriebssystem oder Push-Anbieter aufzurufen. Aufgrund der asynchronen Serververarbeitung kann dies in seltenen Fällen dazu führen, dass das Push-Token erneut zu den Braze-Nutzer:innen hinzugefügt wird.
 
 ### Push-to-Start-Tokens für Live Activities abmelden {#unregister-push-to-start}
 
@@ -286,7 +286,7 @@ Beachten Sie, dass aktuell laufende Live Activities weiterhin Updates erhalten u
 `unregisterPushToStart` beendet keine aktuell laufenden Live Activities. Beenden Sie im Erfolgs-Callback laufende Live Activities manuell mit der [`end(_:dismissalPolicy:)`](https://developer.apple.com/documentation/activitykit/activity/end(_:dismissalpolicy:))-Methode von ActivityKit.
 
 {% alert note %}
-Vermeiden Sie es, `logout` oder `unregisterPushToStart` direkt nach dem Aufruf von `registerPushToStart` für eine Live Activity aufzurufen. Aufgrund der asynchronen Serververarbeitung kann dies in seltenen Fällen dazu führen, dass das Push-to-Start-Token / Textbaustein erneut zu den Braze-Nutzer:innen hinzugefügt wird.
+Vermeiden Sie es, `logout` oder `unregisterPushToStart` direkt nach dem Aufruf von `registerPushToStart` für eine Live Activity aufzurufen. Aufgrund der asynchronen Serververarbeitung kann dies in seltenen Fällen dazu führen, dass das Push-to-Start-Token erneut zu den Braze-Nutzer:innen hinzugefügt wird.
 {% endalert %}
 
 Das folgende Beispiel zeigt, wie Sie alle Push-to-Start-Activity-Typen abmelden. Verwenden Sie es, wenn abgemeldete Nutzer:innen keine neuen remote gestarteten Live Activities mehr erhalten sollen.

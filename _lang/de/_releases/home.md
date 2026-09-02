@@ -208,7 +208,7 @@ Die neuesten SDK-Updates wurden veröffentlicht. Grundlegende Updates sind im Ab
 
 #### Zusammenfassung der neuesten SDK-Features und -Fixes {#summary-of-recent-sdk-features-and-fixes}
 
-- **Swift SDK v18.1.0:** Fügt Push-Token / Textbaustein-Logout-Methoden hinzu, zusätzlich zur bestehenden Push-Logout-Methode, um weitere Logout-Anwendungsfälle zu unterstützen. Aktualisiert außerdem den E-Commerce-Event-Typ.
+- **Swift SDK v18.1.0:** Fügt Push-Token-Logout-Methoden hinzu, zusätzlich zur bestehenden Push-Logout-Methode, um weitere Logout-Anwendungsfälle zu unterstützen. Aktualisiert außerdem den E-Commerce-Event-Typ.
 - **Flutter SDK v22.0.0:** Aktualisiert die native Bridge, um Funktionalität vom Android und Swift SDK zu übernehmen.
 - **Unity SDK v12.0.0:** Aktualisiert die native Bridge, um Funktionalität vom Android und Swift SDK zu übernehmen.
 
@@ -1079,7 +1079,7 @@ Neue [Wiederholungs-Events]({{site.baseurl}}/user_guide/data/distribution/braze_
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Dem Event [`users.behaviors.pushnotification.TokenStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) wurde ein neues `time_ms`-Feld hinzugefügt, das das Tracking von Änderungen des Push-Token / Textbaustein-Status auf Millisekunden-Ebene ermöglicht. Diese verbesserte Präzision hilft Ihnen, den neuesten Status eines Push-Tokens zu verstehen, wenn innerhalb derselben Sekunde mehrere Änderungen auftreten. So können Sie sich in nachgelagerten Systemen darauf verlassen, dass Sie den korrekten Abo-Status haben. Weitere Informationen finden Sie im [Currents Changelog]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04).
+Dem Event [`users.behaviors.pushnotification.TokenStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) wurde ein neues `time_ms`-Feld hinzugefügt, das das Tracking von Änderungen des Push-Token-Status auf Millisekunden-Ebene ermöglicht. Diese verbesserte Präzision hilft Ihnen, den neuesten Status eines Push-Tokens zu verstehen, wenn innerhalb derselben Sekunde mehrere Änderungen auftreten. So können Sie sich in nachgelagerten Systemen darauf verlassen, dass Sie den korrekten Abo-Status haben. Weitere Informationen finden Sie im [Currents Changelog]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04).
 
 #### Anonyme Nutzer:innen an Tealium-Ziele senden {#send-anonymous-user-to-tealium-destinations}
 

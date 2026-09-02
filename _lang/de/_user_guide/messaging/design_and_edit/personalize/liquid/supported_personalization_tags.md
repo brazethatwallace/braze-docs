@@ -128,7 +128,7 @@ Für Push-Benachrichtigungen, In-App-Nachrichten und Banner können Sie die folg
 
 Da es eine große Bandbreite an Mobilfunkanbietern, Modellnamen und Betriebssystemen gibt, empfehlen wir Ihnen, jede Logik, die bedingt von einem dieser Werte abhängt, gründlich zu testen. Diese Werte sind `null`, wenn sie auf einem bestimmten Gerät nicht verfügbar sind.
 
-Darüber hinaus ist es bei Push-Benachrichtigungen möglich, dass Braze unter bestimmten Umständen das mit der Push-Benachrichtigung verknüpfte Gerät nicht ermitteln kann, z. B. wenn das Push-Token / Textbaustein über die API importiert wurde, was dazu führt, dass die Werte für diese Nachrichten `null` sind.
+Darüber hinaus ist es bei Push-Benachrichtigungen möglich, dass Braze unter bestimmten Umständen das mit der Push-Benachrichtigung verknüpfte Gerät nicht ermitteln kann, z. B. wenn das Push-Token über die API importiert wurde, was dazu führt, dass die Werte für diese Nachrichten `null` sind.
 
 ![Beispiel für die Verwendung eines Standardwerts „there“ bei Nutzung einer Vornamens-Variable in einer Push-Nachricht.]({% image_buster /assets/img_archive/personalized_firstname_.png %})
 

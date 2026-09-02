@@ -739,7 +739,7 @@ Dieses Ereignis tritt ein, wenn Braze eine Anfrage zur Aktualisierung des global
 | Migration | Wenn eine Nutzer:in durch interne Migrationen oder Wartungsskripte aktualisiert wird |
 | Nutzer:innen zusammenführen | Wenn eine Nutzer:in durch den Prozess der Nutzerzusammenführung aktualisiert wird |
 | Canvas-Schritt „Nutzeraktualisierung“ | Wenn eine Nutzer:in durch den Canvas-Schritt „Nutzeraktualisierung“ aktualisiert wird |
-| Push-Token / Textbaustein-Registrierung | Wenn eine Nutzer:in durch den Token / Textbaustein-Registrierungsprozess aktualisiert wird |
+| Push-Token-Registrierung | Wenn eine Nutzer:in durch den Token-Registrierungsprozess aktualisiert wird |
 | List-Unsubscribe | Wenn sich eine Nutzer:in über Braze-Mailto oder den Ein-Klick-List-Unsubscribe-Header abmeldet |
 | Sonstiges | Umfasst alle anderen Quellen, wie z. B. Demo- oder Anbieter-Synchronisierungsaufträge oder SMS- und WhatsApp-Ereignis-Callbacks |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Eigenschaftsdetails" }

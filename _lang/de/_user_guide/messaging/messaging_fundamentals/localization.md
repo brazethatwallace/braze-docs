@@ -349,8 +349,8 @@ Erstellen Sie die Google-Tabelle so, dass jede Zeile eine Sprache darstellt. Zum
 
 Wenn Ihre Sheetlabs-API öffentlich ist, überspringen Sie diesen Schritt. Wenn eine Authentifizierung erforderlich ist:
 
-1. Gehen Sie zur Seite **My Account** in Sheetlabs und kopieren Sie Ihren API-Token / Textbaustein.
-2. Folgen Sie den Schritten unter [Braze-Authentifizierung mit Basic Auth]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#using-basic-authentication), um eine Basic-Authentication-Anmeldeinformation in Braze zu erstellen. Verwenden Sie Ihren Sheetlabs-Benutzernamen (E-Mail-Adresse) und den kopierten API-Token / Textbaustein.
+1. Gehen Sie zur Seite **My Account** in Sheetlabs und kopieren Sie Ihren API-Token.
+2. Folgen Sie den Schritten unter [Braze-Authentifizierung mit Basic Auth]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#using-basic-authentication), um eine Basic-Authentication-Anmeldeinformation in Braze zu erstellen. Verwenden Sie Ihren Sheetlabs-Benutzernamen (E-Mail-Adresse) und den kopierten API-Token.
 3. Speichern Sie die Anmeldeinformation mit einem Namen wie `sheetlabs_creds`.
 
 #### Schritt 4: Sheetlabs-API über Connected Content aufrufen {#step-4-call-the-sheetlabs-api-from-connected-content}

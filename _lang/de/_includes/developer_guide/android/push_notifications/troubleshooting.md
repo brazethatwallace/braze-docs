@@ -45,17 +45,17 @@ Bei der Entwicklung Ihrer App müssen Sie dem Braze Android SDK Ihre Firebase-Se
 Ein häufiger Fehler bei diesem Schritt ist die Verwendung des App-Bezeichner-API-Schlüssels anstelle des REST-API-Schlüssels.
 {% endalert %}
 
-### Schritt 2: Geräte registrieren sich bei FCM und stellen Braze Push-Token / Textbaustein bereit {#step-2-devices-register-for-fcm-and-provide-braze-with-push-tokens}
+### Schritt 2: Geräte registrieren sich bei FCM und stellen Braze Push-Token bereit {#step-2-devices-register-for-fcm-and-provide-braze-with-push-tokens}
 
-Bei typischen Integrationen übernimmt das Braze Android SDK die Registrierung der Geräte für die FCM-Funktionalität. Dies geschieht in der Regel direkt beim erstmaligen Öffnen der App. Nach der Registrierung erhält Braze eine FCM-Registrierungs-ID, die verwendet wird, um Nachrichten gezielt an dieses Gerät zu senden. Wir speichern die Registrierungs-ID für diese:n Nutzer:in, und diese:r Nutzer:in wird als „Push-registriert“ markiert, sofern zuvor kein Push-Token / Textbaustein für eine Ihrer Apps vorhanden war.
+Bei typischen Integrationen übernimmt das Braze Android SDK die Registrierung der Geräte für die FCM-Funktionalität. Dies geschieht in der Regel direkt beim erstmaligen Öffnen der App. Nach der Registrierung erhält Braze eine FCM-Registrierungs-ID, die verwendet wird, um Nachrichten gezielt an dieses Gerät zu senden. Wir speichern die Registrierungs-ID für diese:n Nutzer:in, und diese:r Nutzer:in wird als „Push-registriert“ markiert, sofern zuvor kein Push-Token für eine Ihrer Apps vorhanden war.
 
 ### Schritt 3: Eine Braze-Push-Campaign starten {#step-3-launch-a-braze-push-campaign}
 
-Wenn eine Push-Campaign gestartet wird, sendet Braze Anfragen an FCM, um Ihre Nachricht zuzustellen. Braze verwendet den im Dashboard hinterlegten API-Schlüssel, um sich zu authentifizieren und zu bestätigen, dass Push-Benachrichtigungen an die bereitgestellten Push-Token / Textbaustein gesendet werden können.
+Wenn eine Push-Campaign gestartet wird, sendet Braze Anfragen an FCM, um Ihre Nachricht zuzustellen. Braze verwendet den im Dashboard hinterlegten API-Schlüssel, um sich zu authentifizieren und zu bestätigen, dass Push-Benachrichtigungen an die bereitgestellten Push-Token gesendet werden können.
 
-### Schritt 4: Ungültige Token / Textbaustein entfernen {#step-4-remove-invalid-tokens}
+### Schritt 4: Ungültige Token entfernen {#step-4-remove-invalid-tokens}
 
-Wenn FCM uns mitteilt, dass Push-Token / Textbaustein, an die wir eine Nachricht senden wollten, ungültig sind, entfernen wir diese Token / Textbaustein aus den zugehörigen Nutzerprofilen. Wenn Nutzer:innen keine weiteren Push-Token / Textbaustein besitzen, werden sie auf der **Segments**-Seite nicht mehr als „Push-registriert“ angezeigt.
+Wenn FCM uns mitteilt, dass Push-Token, an die wir eine Nachricht senden wollten, ungültig sind, entfernen wir diese Token aus den zugehörigen Nutzerprofilen. Wenn Nutzer:innen keine weiteren Push-Token besitzen, werden sie auf der **Segments**-Seite nicht mehr als „Push-registriert“ angezeigt.
 
 Weitere Informationen zu FCM finden Sie unter [Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/).
 
@@ -92,7 +92,7 @@ Da die FCM-Registrierung außerhalb von Braze abgewickelt wird, kann ein Registr
 1. Während der Registrierung bei FCM
 2. Beim Übergeben des von FCM generierten Push-Tokens an Braze
 
-Wir empfehlen, einen Breakpoint zu setzen oder Logging zu aktivieren, um sicherzustellen, dass das von FCM generierte Push-Token / Textbaustein an Braze gesendet wird. Wenn ein Token / Textbaustein nicht korrekt oder gar nicht generiert wird, empfehlen wir, die [FCM-Dokumentation](https://firebase.google.com/docs/cloud-messaging/android/client) zu konsultieren.
+Wir empfehlen, einen Breakpoint zu setzen oder Logging zu aktivieren, um sicherzustellen, dass das von FCM generierte Push-Token an Braze gesendet wird. Wenn ein Token nicht korrekt oder gar nicht generiert wird, empfehlen wir, die [FCM-Dokumentation](https://firebase.google.com/docs/cloud-messaging/android/client) zu konsultieren.
 
 #### Google Play Services nicht vorhanden {#google-play-services-not-present}
 
@@ -122,13 +122,13 @@ Wenn eine Push-Benachrichtigung nicht zugestellt wird, stellen Sie sicher, dass 
 
 #### Fehler: InvalidRegistration {#error-invalidregistration}
 
-`InvalidRegistration` kann durch ein fehlerhaftes Push-Token / Textbaustein verursacht werden.
+`InvalidRegistration` kann durch ein fehlerhaftes Push-Token verursacht werden.
 
-1. Stellen Sie sicher, dass Sie ein gültiges Push-Token / Textbaustein von [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/android/client#retrieve-the-current-registration-token) an Braze übergeben.
+1. Stellen Sie sicher, dass Sie ein gültiges Push-Token von [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/android/client#retrieve-the-current-registration-token) an Braze übergeben.
 
 #### Fehler: NotRegistered {#error-notregistered}
 
-2. `NotRegistered` kann auch auftreten, wenn mehrere Registrierungen stattfinden und eine zweite registrieren das erste Token / Textbaustein ungültig macht.
+2. `NotRegistered` kann auch auftreten, wenn mehrere Registrierungen stattfinden und eine zweite registrieren das erste Token ungültig macht.
 
 ### Push-Benachrichtigungen gesendet, aber nicht auf Geräten der Nutzer:innen angezeigt {#push-notifications-sent-but-not-displayed-on-users-devices}
 
@@ -165,7 +165,7 @@ Es gibt mehrere mögliche Ursachen:
 
 #### Anwendung wurde deinstalliert {#application-was-uninstalled}
 
-Nutzer:innen haben die Anwendung deinstalliert. Dadurch wird ihr FCM-Push-Token / Textbaustein ungültig.
+Nutzer:innen haben die Anwendung deinstalliert. Dadurch wird ihr FCM-Push-Token ungültig.
 
 #### Ungültiger Firebase Cloud Messaging-Serverschlüssel {#invalid-firebase-cloud-messaging-server-key}
 

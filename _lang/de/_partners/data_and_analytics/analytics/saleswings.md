@@ -112,11 +112,11 @@ Klicken Sie auf **Start data push** unter **SalesWings-to-Braze insights data pu
 
 Wenn Sie [Nutzerverhalten-]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) und [Nachrichten-Engagement-]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)Events für Behavioral Intelligence, Lead- und Account-Scoring, Insights oder Berichte in Ihrem CRM nutzen möchten, gehen Sie auf die [Seite **SalesWings Integrations**](https://helium.saleswings.pro/integrations) und erweitern Sie den Abschnitt **Braze Integration**.
 
-Wählen Sie **Generate** unter **Generate an API Token / Textbaustein to setup a Custom Currents Export**.
+Wählen Sie **Generate** unter **Generate an API Token to setup a Custom Currents Export**.
 
 [Erstellen Sie dann einen neuen Current]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents) und wählen Sie als Current-Typ **Custom Currents Export** aus.
 
-Geben Sie im Abschnitt **Credentials** des Formulars zur Erstellung von Currents das API-Token / Textbaustein ein, das Sie auf der [Seite **SalesWings Integrations**](https://helium.saleswings.pro/integrations) für **Bearer Token / Textbaustein** generiert haben, und `https://helium.saleswings.pro/api/braze/currents/events` für **Endpoint**.
+Geben Sie im Abschnitt **Credentials** des Formulars zur Erstellung von Currents das API-Token ein, das Sie auf der [Seite **SalesWings Integrations**](https://helium.saleswings.pro/integrations) für **Bearer Token** generiert haben, und `https://helium.saleswings.pro/api/braze/currents/events` für **Endpoint**.
 
 ### Schritt 6: SalesWings-Lead- und Account-Scoring für Braze, CRM-Integration und mehr konfigurieren {#step-6-configuring-saleswings-lead-and-account-scoring-for-braze-crm-integration-and-more}
 

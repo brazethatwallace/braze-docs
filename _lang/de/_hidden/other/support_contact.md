@@ -2323,7 +2323,7 @@ document.getElementById('toStep2').addEventListener('Klick, der', async function
                 "search-id": "22d6676b-80b1-4145-af19-6a422417e5d0",
                 "sid-session": sid,
                 "taid-device": taid,
-                "Token / Textbaustein": "9ad5ad4164aea64521fd3c00a19b76c8",
+                "Token": "9ad5ad4164aea64521fd3c00a19b76c8",
                 "uid": "63590d8d-65fd-11f0-ada3-0242ac120007"
             },
             body: JSON.stringify(requestBody)

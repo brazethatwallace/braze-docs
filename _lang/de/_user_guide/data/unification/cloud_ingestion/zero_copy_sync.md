@@ -237,10 +237,10 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 Erstellen Sie ein persönliches Zugriffstoken in Databricks:
 
 1. Wählen Sie Ihren Benutzernamen und dann **User Settings** aus.
-2. Wählen Sie auf dem Tab **Access tokens** die Option **Generate new Token / Textbaustein** aus.
-3. Fügen Sie einen Kommentar hinzu, um das Token / Textbaustein zu identifizieren, z. B. „Braze CDI“.
+2. Wählen Sie auf dem Tab **Access tokens** die Option **Generate new Token** aus.
+3. Fügen Sie einen Kommentar hinzu, um das Token zu identifizieren, z. B. „Braze CDI“.
 4. Lassen Sie das Feld **Lifetime (days)** leer, wenn keine Ablaufzeit festgelegt werden soll, und wählen Sie dann **Generate** aus.
-5. Kopieren Sie das Token / Textbaustein und bewahren Sie es sicher auf, um es im Braze-Dashboard zu verwenden.
+5. Kopieren Sie das Token und bewahren Sie es sicher auf, um es im Braze-Dashboard zu verwenden.
 
 ##### Schritt 1.4: Netzwerkrichtlinien konfigurieren
 

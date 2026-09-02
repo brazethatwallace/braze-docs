@@ -57,7 +57,7 @@ Wenn die Verbindung erfolgreich hergestellt wurde, kehren Sie zur Partnerseite z
 
 ![Eine aktualisierte Version der Pinterest-Technologiepartnerseite, auf der die erfolgreich verbundenen Anzeigenkonten angezeigt werden.]({% image_buster /assets/img/pinterest/pinterest3.png %}){: style="max-width:80%;"}
 
-Ihre Pinterest-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Pinterest-Administrator Sie aus Ihrem Pinterest Business Hub oder dem Zugriff auf die verbundenen Pinterest-Konten entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Infolgedessen werden Ihre aktiven Canvases, die Pinterest Audience-Komponenten verwenden, Fehler anzeigen, und Braze wird die Nutzer:innen nicht synchronisieren können.
+Ihre Pinterest-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Pinterest-Administrator Sie aus Ihrem Pinterest Business Hub oder dem Zugriff auf die verbundenen Pinterest-Konten entfernt, erkennt Braze ein ungültiges Token. Infolgedessen werden Ihre aktiven Canvases, die Pinterest Audience-Komponenten verwenden, Fehler anzeigen, und Braze wird die Nutzer:innen nicht synchronisieren können.
 
 ### Schritt 2: Einen Audience Sync-Schritt mit Pinterest hinzufügen {#step-2-add-an-audience-sync-step-with-pinterest}
 
@@ -123,7 +123,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Synchronisierte Nutzer:innen | Anzahl der Nutzer:innen, die erfolgreich mit Pinterest synchronisiert wurden. |
 | Nicht synchronisierte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund fehlender Abgleichsfelder nicht synchronisiert wurden. |
 | Ausstehende Nutzer:innen | Anzahl der Nutzer:innen, die derzeit von Braze für die Synchronisierung mit Pinterest verarbeitet werden. |
-| Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Pinterest synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Pinterest-Token / Textbaustein oder eine auf Pinterest gelöschte Zielgruppe sein. |
+| Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Pinterest synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Pinterest-Token oder eine auf Pinterest gelöschte Zielgruppe sein. |
 | Canvas verlassen | Anzahl der Nutzer:innen, die das Canvas verlassen haben. Dies tritt auf, wenn der letzte Schritt in einem Canvas eine Audience-Sync-Komponente ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 
@@ -151,4 +151,4 @@ Stellen Sie sicher, dass Ihr Pinterest-Konto auf der Pinterest-Partnerseite erfo
 
 ### Warum kann ich mein Werbekonto für meinen Audience-Sync-Schritt nicht auswählen? {#why-cant-i-select-my-ad-account-for-my-audience-sync-step}
 
-Überprüfen Sie, ob Ihr Token / Textbaustein mit den richtigen Kontoberechtigungen generiert wurde. Beachten Sie, dass bei zu vielen Zielgruppen in Ihrem Pinterest-Werbekonto das Dropdown zur Auswahl Ihres Werbekontos möglicherweise eine Zeitüberschreitung verursacht. In diesem Fall empfehlen wir, die Anzahl der Zielgruppen in Ihrem Werbekonto zu reduzieren.
+Überprüfen Sie, ob Ihr Token mit den richtigen Kontoberechtigungen generiert wurde. Beachten Sie, dass bei zu vielen Zielgruppen in Ihrem Pinterest-Werbekonto das Dropdown zur Auswahl Ihres Werbekontos möglicherweise eine Zeitüberschreitung verursacht. In diesem Fall empfehlen wir, die Anzahl der Zielgruppen in Ihrem Werbekonto zu reduzieren.

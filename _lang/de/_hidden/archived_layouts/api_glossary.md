@@ -283,7 +283,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | marked_email_as_spam_at | (String) Datum, an dem die E-Mail der Nutzer:in als Spam markiert wurde. Erscheint im ISO-8601-Format oder im Format yyyy-MM-dd'T'HH:mm:ss:SSSZ. |
 | phone | (String) |
 | push_subscribe | (String) Verfügbare Werte sind „opted_in“ (explizit für den Empfang von Push-Nachrichten registriert), „unsubscribed“ (explizit von Push-Nachrichten abgemeldet) und „subscribed“ (weder Opt-in noch Opt-out). |
-| push_tokens | Array von Objekten mit `app_id` und `token` String. Sie können optional eine `device_id` für das Gerät angeben, mit dem dieses Token / Textbaustein verknüpft ist, zum Beispiel `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Wenn keine `device_id` angegeben wird, wird eine zufällig generiert. |
+| push_tokens | Array von Objekten mit `app_id` und `token` String. Sie können optional eine `device_id` für das Gerät angeben, mit dem dieses Token verknüpft ist, zum Beispiel `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Wenn keine `device_id` angegeben wird, wird eine zufällig generiert. |
 | time_zone | (String) Name der Zeitzone aus der [IANA-Zeitzonendatenbank][26] (zum Beispiel „America/New_York“ oder „Eastern Time (US & Canada)“). Es werden nur gültige Zeitzonenwerte gesetzt. |
 | twitter | Hash mit beliebigen der folgenden Werte: `id` (Ganzzahl), `screen_name` (String, X (ehemals Twitter) Handle), `followers_count` (Ganzzahl), `friends_count` (Ganzzahl), `statuses_count` (Ganzzahl). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Parameter-Details" }

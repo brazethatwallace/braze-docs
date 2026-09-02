@@ -167,7 +167,7 @@ Um bestimmte Teile der Flow-Antwort der Nutzer:innen zu speichern, führen Sie a
 {% endtab %}
 {% tab Parse-Funktion %}
 
-Verwenden Sie den Liquid-Tag `json_parse`, um bestimmte Antworten aus dem Flow zu extrahieren. Sie können beispielsweise das Flow-Token / Textbaustein und ausgewählte Optionen abrufen, um eine Folgenachricht anzupassen.
+Verwenden Sie den Liquid-Tag `json_parse`, um bestimmte Antworten aus dem Flow zu extrahieren. Sie können beispielsweise das Flow-Token und ausgewählte Optionen abrufen, um eine Folgenachricht anzupassen.
 
 Wählen Sie im UI-Editor Folgendes aus:
 

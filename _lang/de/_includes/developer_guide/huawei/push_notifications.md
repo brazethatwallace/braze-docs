@@ -26,7 +26,7 @@ Sobald Ihre neue Braze-App erstellt wurde, suchen Sie die Einstellungen für Pus
 
 Huawei hat ein [Android-Integrations-Codelab](https://developer.huawei.com/consumer/en/codelab/HMSPushKit/index.html) bereitgestellt, das die Integration des Huawei-Messaging-Dienstes in Ihre Anwendung beschreibt. Folgen Sie diesen Schritten, um loszulegen.
 
-Nachdem Sie das Codelab abgeschlossen haben, müssen Sie einen angepassten [Huawei Message Service](https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsMessageService-cls) erstellen, um Push-Token / Textbaustein zu erhalten und Nachrichten an das Braze SDK weiterzuleiten.
+Nachdem Sie das Codelab abgeschlossen haben, müssen Sie einen angepassten [Huawei Message Service](https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsMessageService-cls) erstellen, um Push-Token zu erhalten und Nachrichten an das Braze SDK weiterzuleiten.
 
 {% tabs %}
 {% tab JAVA %}

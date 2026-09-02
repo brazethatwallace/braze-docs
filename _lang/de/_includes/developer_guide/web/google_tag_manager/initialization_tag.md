@@ -51,7 +51,7 @@ Das Braze Initialization Tag bietet die folgenden Optionen. Die meisten davon la
 | **App Version Number** | `appVersion`, `appVersionNumber` | App-Version für die Segmentierung (zum Beispiel `1.2.3.4`). |
 | **Automatically Open New Session** | `braze.openSession()` | Öffnet eine neue Sitzung, nachdem das SDK initialisiert wurde, indem diese Methode automatisch aufgerufen wird. |
 | **Automatically show new in app messages** | `braze.automaticallyShowInAppMessages()` | Zeigt neue In-App-Nachrichten automatisch an, wenn sie vom Server eintreffen, indem diese Methode nach der Initialisierung aufgerufen wird. |
-| **Disable Automatic Push-Token / Textbaustein Maintenance** | `disablePushTokenMaintenance` | Verhindert, dass das SDK Push-Token / Textbaustein bei neuen Sitzungen mit dem Braze-Backend synchronisiert. |
+| **Disable Automatic Push-Token Maintenance** | `disablePushTokenMaintenance` | Verhindert, dass das SDK Push-Token bei neuen Sitzungen mit dem Braze-Backend synchronisiert. |
 | **Disable Automatic Service Worker Registration** | `manageServiceWorkerExternally` | Verwenden Sie diese Option, wenn Sie den Service Worker selbst registrieren und verwalten. |
 | **Disable Cookies** | `noCookies` | Verwendet localStorage anstelle von Cookies für Nutzer:innen- und Sitzungsdaten. Verhindert die subdomainübergreifende Erkennung. |
 | **Disable Font Awesome** | `doNotLoadFontAwesome` | Verhindert, dass das SDK Font Awesome aus dem CDN lädt. Verwenden Sie diese Option, wenn Ihre Website bereits über eine eigene Font-Awesome-Version verfügt. |

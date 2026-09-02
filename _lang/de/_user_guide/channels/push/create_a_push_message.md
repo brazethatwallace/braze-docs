@@ -143,22 +143,22 @@ Hier können Sie auch Button-Aktionen innerhalb Ihrer Push-Benachrichtigung einr
 
 ### Sendeoptionen {#sending-options}
 
-Wenn Nutzer:innen Ihre App auf mehreren Geräten installiert haben, wird Ihre Push-Nachricht standardmäßig an alle Geräte mit einem gültigen Push-Token / Textbaustein gesendet. Falls gewünscht, können Sie **Zuletzt verwendetes Gerät** auswählen.
+Wenn Nutzer:innen Ihre App auf mehreren Geräten installiert haben, wird Ihre Push-Nachricht standardmäßig an alle Geräte mit einem gültigen Push-Token gesendet. Falls gewünscht, können Sie **Zuletzt verwendetes Gerät** auswählen.
 
 ![Checkbox für Geräteoptionen, um diese Push-Benachrichtigung nur an das zuletzt verwendete Gerät der Nutzer:innen zu senden.]({% image_buster /assets/img_archive/push_recent_device.png %}){: style="max-width:70%;" }
 
 Es gibt einige Feinheiten bei dieser Einstellung. Wenn diese Option aktiviert ist, begrenzt Braze mehrfache Sendungen, außer wenn eine Campaign auf mehrere Plattformen abzielt, z. B. sowohl iOS als auch Android. Wenn Nutzer:innen Ihre App sowohl auf einem iOS- als auch auf einem Android-Gerät haben, erhalten sie eine Push-Benachrichtigung für beide Plattformen. Wenn das zuletzt verwendete Gerät von Nutzer:innen nicht [Push-aktiviert]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled) ist, wird die Nachricht nicht gesendet.
 
-Standardmäßig sendet Braze Nachrichten an jedes Gerät von Nutzer:innen, das ein gültiges Push-Token / Textbaustein besitzt. Für iOS können Sie Ihre Reichweite weiter eingrenzen, indem Sie Benachrichtigungen nur an iPad-Geräte oder nur an iPhone- und iPod-Geräte senden.
+Standardmäßig sendet Braze Nachrichten an jedes Gerät von Nutzer:innen, das ein gültiges Push-Token besitzt. Für iOS können Sie Ihre Reichweite weiter eingrenzen, indem Sie Benachrichtigungen nur an iPad-Geräte oder nur an iPhone- und iPod-Geräte senden.
 
 Falls gewünscht, können Sie das Push-Ziel auf **Zuletzt verwendetes Gerät** setzen.
 
 #### Zuletzt verwendetes Gerät {#most-recently-used-device}
 
-„Zuletzt verwendet“ ist ein technischer Status, kein verhaltensbezogener. Da Braze standardmäßig alle Geräte anspricht, schränkt der Wechsel zu dieser Einstellung Ihre Reichweite erheblich ein und stützt sich ausschließlich auf den Status des einzelnen Geräts mit dem neuesten Token / Textbaustein.
+„Zuletzt verwendet“ ist ein technischer Status, kein verhaltensbezogener. Da Braze standardmäßig alle Geräte anspricht, schränkt der Wechsel zu dieser Einstellung Ihre Reichweite erheblich ein und stützt sich ausschließlich auf den Status des einzelnen Geräts mit dem neuesten Token.
 
-Das zuletzt verwendete Gerät wird anhand des Geräts mit dem zuletzt aktualisierten Push-Token / Textbaustein bestimmt, nicht anhand des Geräts mit der letzten Sitzung.
-* Wenn ein Push-Token / Textbaustein eines neuen Geräts über die API zu einem Kundenprofil hinzugefügt wird, gilt dieses Gerät sofort als das zuletzt verwendete, auch wenn die Nutzer:innen noch keine Sitzung darauf gestartet haben.
+Das zuletzt verwendete Gerät wird anhand des Geräts mit dem zuletzt aktualisierten Push-Token bestimmt, nicht anhand des Geräts mit der letzten Sitzung.
+* Wenn ein Push-Token eines neuen Geräts über die API zu einem Kundenprofil hinzugefügt wird, gilt dieses Gerät sofort als das zuletzt verwendete, auch wenn die Nutzer:innen noch keine Sitzung darauf gestartet haben.
 * Wenn das zuletzt verwendete Gerät von Nutzer:innen nicht [Push-aktiviert]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled) ist, wird die Nachricht überhaupt nicht gesendet.
 
 Mehrfache Sendungen können weiterhin auftreten, wenn eine Campaign auf verschiedene Plattformen abzielt, z. B. sowohl iOS als auch Android. Wenn Nutzer:innen die App auf beiden Plattformen haben, können sie eine Push-Benachrichtigung für beide Plattformen erhalten.
@@ -194,7 +194,7 @@ Als Nächstes müssen Sie [Nutzer:innen als Zielgruppe auswählen]({{site.baseur
 
 {% details Warum stimmt meine Kennzahl „Insgesamt erreichbare Nutzer:innen“ nicht mit der Summe aller Kanäle überein? %}
 
-Wenn Sie die insgesamt erreichbaren Nutzer:innen für Ihre gefilterte Zielgruppe betrachten, fällt Ihnen möglicherweise auf, dass die Summe der einzelnen Spalten kleiner ist als die Gesamtzahl der erreichbaren Nutzer:innen. Diese Abweichung entsteht in der Regel dadurch, dass eine Reihe von Nutzer:innen zwar für das Segment oder die Filter der Campaign qualifiziert sind, aber nicht per Push erreichbar sind (z. B. weil sie keine gültigen oder aktiven [Push-Token / Textbaustein]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#push-tokens) haben).
+Wenn Sie die insgesamt erreichbaren Nutzer:innen für Ihre gefilterte Zielgruppe betrachten, fällt Ihnen möglicherweise auf, dass die Summe der einzelnen Spalten kleiner ist als die Gesamtzahl der erreichbaren Nutzer:innen. Diese Abweichung entsteht in der Regel dadurch, dass eine Reihe von Nutzer:innen zwar für das Segment oder die Filter der Campaign qualifiziert sind, aber nicht per Push erreichbar sind (z. B. weil sie keine gültigen oder aktiven [Push-Token]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#push-tokens) haben).
 
 {% enddetails %}
 

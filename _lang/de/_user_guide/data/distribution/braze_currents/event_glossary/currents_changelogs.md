@@ -235,13 +235,13 @@ tool: Currents
 ### Änderungen für Speicher:
 
 * Feldänderungen am Ereignistyp `users.behaviors.pushnotification.TokenStateChange`:
-    * Neues `string`-Feld `push_token` hinzugefügt: Push-Token / Textbaustein des Ereignisses
+    * Neues `string`-Feld `push_token` hinzugefügt: Push-Token des Ereignisses
 
 * Feldänderungen am Ereignistyp `users.messages.pushnotification.Bounce`:
-    * Neues `string`-Feld `push_token` hinzugefügt: Push-Token / Textbaustein des Ereignisses
+    * Neues `string`-Feld `push_token` hinzugefügt: Push-Token des Ereignisses
 
 * Feldänderungen am Ereignistyp `users.messages.pushnotification.Send`:
-    * Neues `string`-Feld `push_token` hinzugefügt: Push-Token / Textbaustein des Ereignisses
+    * Neues `string`-Feld `push_token` hinzugefügt: Push-Token des Ereignisses
 
 * Feldänderungen am Ereignistyp `users.messages.rcs.Click`:
     * Neues `string`-Feld `canvas_variation_name` hinzugefügt: Name der Canvas-Variante, die diese:r Nutzer:in erhalten hat

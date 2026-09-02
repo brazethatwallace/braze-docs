@@ -206,7 +206,7 @@ Fügen Sie die folgenden Anfrage-Header hinzu:
 | `idproject` | Der von Stayfilm bereitgestellte `idproject`-Wert |
 | `Subscription-Key` | Der von Stayfilm bereitgestellte `Subscription-Key` |
 | `Content-Type` | `application/json` |
-| `Authorization` | OAuth-Bearer-Token / Textbaustein, das über Connected Content abgerufen wird (siehe folgendes Beispiel) |
+| `Authorization` | OAuth-Bearer-Token, das über Connected Content abgerufen wird (siehe folgendes Beispiel) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Anfrage-Header" }
 
 Ersetzen Sie im folgenden Connected-Content-Block *`{TENANT_ID}`*, *`{CLIENT_ID}`*, *`{CLIENT_SECRET_URL_ENCODED}`* und *`{SCOPE_URL_ENCODED}`* durch die von Stayfilm bereitgestellten Werte. URL-kodieren Sie *`{CLIENT_SECRET_URL_ENCODED}`* und *`{SCOPE_URL_ENCODED}`*, bevor Sie sie in den Block einfügen. Informationen zu den OAuth-Anforderungen finden Sie in der [Stayfilm-API-Dokumentation](https://apidoc.stayfilm.com).
@@ -329,7 +329,7 @@ Diese Anleitung deckt einen Teil der Stayfilm-API ab. Um Job-Templates, Medienei
 
 - **Asynchrones Rendering:** Die Videogenerierung erfolgt nicht sofort. Triggern Sie Folgenachrichten über das angepasste Event `stayfilm_video_ready` oder ein Segment basierend auf `stayfilm_video_status`, anstatt die In-App-Nachricht im selben Flow wie den Webhook zu senden.
 - **Konsistenz der Bezeichner:** Der Wert in `CallbackRelayData` muss exakt mit der `external_id` der Braze-Nutzer:innen übereinstimmen.
-- **OAuth-Token / Textbaustein-Caching:** Das Connected-Content-Beispiel speichert das OAuth-Token / Textbaustein für 3000 Sekunden im Cache. Passen Sie `cache_max_age` an, falls Stayfilm die Anforderungen für die Token / Textbaustein-Lifetime ändert.
+- **OAuth-Token-Caching:** Das Connected-Content-Beispiel speichert das OAuth-Token für 3000 Sekunden im Cache. Passen Sie `cache_max_age` an, falls Stayfilm die Anforderungen für die Token-Lifetime ändert.
 - **Sandbox-Tests:** Validieren Sie den vollständigen Callback-Loop in einer Braze-Sandbox, bevor Sie in die Produktionsumgebung wechseln.
 - **Kapazität für angepasste Attribute:** Stellen Sie sicher, dass Ihr Workspace über ausreichend Kapazität für die angepassten Attribute und Events verfügt, die diese Stayfilm-Integration erstellt.
 

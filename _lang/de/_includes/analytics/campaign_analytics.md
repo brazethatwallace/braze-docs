@@ -697,7 +697,7 @@ Dennoch kann das manuelle Tracking von Push-Abmeldungen wertvolle Insights über
 {% tabs local %}
 {% tab Segmentfilter %}
 
-Sie können ein Segment erstellen, um Nutzer:innen zu identifizieren, die keine Push-Benachrichtigungen aktiviert haben – also nicht abonniert oder per Opt-in registriert sind und kein [Vordergrund-Push-Token / Textbaustein]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration#push-tokens) besitzen. Um beispielsweise die Anzahl der Abmeldungen in Ihrer App anzuzeigen, verwenden Sie eine „ODER“-Kombination der folgenden Segmente:
+Sie können ein Segment erstellen, um Nutzer:innen zu identifizieren, die keine Push-Benachrichtigungen aktiviert haben – also nicht abonniert oder per Opt-in registriert sind und kein [Vordergrund-Push-Token]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_registration#push-tokens) besitzen. Um beispielsweise die Anzahl der Abmeldungen in Ihrer App anzuzeigen, verwenden Sie eine „ODER“-Kombination der folgenden Segmente:
 
 - `Background or Foreground Push Enabled is false`
 - `Has Uninstalled`
@@ -747,9 +747,9 @@ Die Anzahl der _Sendungen_ kann die Anzahl der _eindeutigen Empfänger:innen_ au
 {% tabs %}
 {% tab Apple Push Notification service %}
 
-Bounces treten bei Apple Push Notification Services (APNs) auf, wenn eine Push-Benachrichtigung versucht, an ein Gerät zugestellt zu werden, auf dem die gewünschte App nicht installiert ist. APNs hat außerdem das Recht, Token / Textbaustein für Geräte beliebig zu ändern. Wenn Sie versuchen, an das Gerät einer Nutzer:in zu senden, deren Push-Token / Textbaustein sich zwischen der Registrierung (z. B. zu Beginn jeder Sitzung, wenn wir eine Nutzer:in für ein Push-Token manuell registrieren) und dem Zeitpunkt des Sendens geändert hat, führt dies zu einem Bounce.
+Bounces treten bei Apple Push Notification Services (APNs) auf, wenn eine Push-Benachrichtigung versucht, an ein Gerät zugestellt zu werden, auf dem die gewünschte App nicht installiert ist. APNs hat außerdem das Recht, Token für Geräte beliebig zu ändern. Wenn Sie versuchen, an das Gerät einer Nutzer:in zu senden, deren Push-Token sich zwischen der Registrierung (z. B. zu Beginn jeder Sitzung, wenn wir eine Nutzer:in für ein Push-Token manuell registrieren) und dem Zeitpunkt des Sendens geändert hat, führt dies zu einem Bounce.
 
-Wenn eine Nutzer:in Push in den Geräteeinstellungen deaktiviert, erkennt das SDK beim nächsten Öffnen der App, dass Push deaktiviert wurde, und benachrichtigt Braze. An diesem Punkt aktualisieren wir den Push-Aktivierungsstatus auf „deaktiviert“. Wenn eine deaktivierte Nutzer:in eine Push-Kampagne erhält, bevor sie eine neue Sitzung hat, wird die Kampagne erfolgreich gesendet und erscheint als zugestellt. Der Push wird für diese Nutzer:in nicht bouncen. Bei einer nachfolgenden Sitzung weiß Braze bereits, ob ein Vordergrund-Token / Textbaustein vorhanden ist, sodass keine Benachrichtigung gesendet wird.
+Wenn eine Nutzer:in Push in den Geräteeinstellungen deaktiviert, erkennt das SDK beim nächsten Öffnen der App, dass Push deaktiviert wurde, und benachrichtigt Braze. An diesem Punkt aktualisieren wir den Push-Aktivierungsstatus auf „deaktiviert“. Wenn eine deaktivierte Nutzer:in eine Push-Kampagne erhält, bevor sie eine neue Sitzung hat, wird die Kampagne erfolgreich gesendet und erscheint als zugestellt. Der Push wird für diese Nutzer:in nicht bouncen. Bei einer nachfolgenden Sitzung weiß Braze bereits, ob ein Vordergrund-Token vorhanden ist, sodass keine Benachrichtigung gesendet wird.
 
 Push-Benachrichtigungen, die vor der Zustellung ablaufen, gelten nicht als fehlgeschlagen und werden nicht als Bounce registriert.
 

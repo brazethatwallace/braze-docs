@@ -82,7 +82,7 @@ Der Content Optimizer ähnelt dem Nachricht-Schritt in Canvas und verfügt über
 
 Jede:r Nutzer:in erhält eine Nachricht pro Eintritt in den Content Optimizer-Schritt. Wiedereintritte werden als neu behandelt, ohne Berücksichtigung früherer Varianten.
 
-Um nachgelagertes Verhalten in Ihren eigenen Analytics-Tools zuzuordnen, fügen Sie Ihrer Nachricht einen Liquid-Tag hinzu, der aufzeichnet, welche Kombination jede:r Nutzer:in erhalten hat. Weitere Informationen finden Sie unter [Kombinations-Token / Textbaustein]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step#combination-token).
+Um nachgelagertes Verhalten in Ihren eigenen Analytics-Tools zuzuordnen, fügen Sie Ihrer Nachricht einen Liquid-Tag hinzu, der aufzeichnet, welche Kombination jede:r Nutzer:in erhalten hat. Weitere Informationen finden Sie unter [Kombinations-Token]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step#combination-token).
 
 ## Einrichtung des Canvas-Entry {#canvas-entry-setup}
 

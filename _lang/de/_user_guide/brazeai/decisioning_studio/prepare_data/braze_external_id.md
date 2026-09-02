@@ -21,7 +21,7 @@ Decisioning Studio arbeitet ausschließlich mit der Braze externen ID als Einhei
 Viele Organisationen pflegen zwei verschiedene Kundenbezeichnersysteme:
 
 - **Eine Warehouse- oder System-of-Record-ID** (manchmal als „kanonische ID“ oder „physische ID“ bezeichnet): die maßgebliche Quelle für Metriken wie LTV, Retouren und Loyalität. Sie befindet sich in Ihrem Data Warehouse oder ERP.
-- **Eine Plattform-ID:** der Bezeichner, der von Tools wie Braze verwendet wird und typischerweise an eine E-Mail-Adresse, ein Geräte-Token / Textbaustein oder einen ähnlichen Aktivierungskanal gebunden ist.
+- **Eine Plattform-ID:** der Bezeichner, der von Tools wie Braze verwendet wird und typischerweise an eine E-Mail-Adresse, ein Geräte-Token oder einen ähnlichen Aktivierungskanal gebunden ist.
 
 Die Versuchung besteht darin, die Warehouse-ID für den Aufbau von Kunden-Features zu verwenden (da dort die Daten liegen) und die Braze-ID für die Aktivierung (da Braze diese nutzt). Dies erfordert jedoch eine Übersetzungsschicht zwischen den beiden Systemen, und diese Übersetzungsschicht führt zu Fragilität.
 

@@ -26,7 +26,7 @@ Mit dem Punchh-Coupon-Framework und Braze können Sie die folgenden Szenarien re
 
 1. Erstellen Sie mit einer Punchh-Gutscheinkampagne eine dynamische Generierungs-Gutscheinkampagne, wie in der folgenden Abbildung gezeigt.
 2. Das Punchh-Coupon-Framework generiert die folgenden Parameter, um die dynamische Gutscheingenerierung zu ermöglichen:
-    - Token / Textbaustein zur dynamischen Gutscheingenerierung: Dies ist ein vom System generiertes Sicherheits-Token / Textbaustein für die Verschlüsselung.
+    - Token zur dynamischen Gutscheingenerierung: Dies ist ein vom System generiertes Sicherheits-Token für die Verschlüsselung.
     - URL zur dynamischen Gutscheingenerierung: Diese URL wird als Link oder Bild in die E-Mail eingebettet, je nach Bedarf des Unternehmens.
 
 ![Das Formular für die Erstellung einer Gutscheinkampagne in Punchh.]({% image_buster /assets/img/punchh/punchh8.png %}){: style="max-width:60%;"}
@@ -42,7 +42,7 @@ Die folgenden `ClaimType`-Namen können verwendet werden, um die Eindeutigkeit v
 - `first_name`: erfasst den Vornamen der Nutzer:in.
 - `last_name`: erfasst den Nachnamen der Nutzer:in.
 
-Um die dynamische Gutscheincode-API von Punchh zu nutzen, muss ein JWT-Token / Textbaustein erstellt werden. Fügen Sie die folgende Liquid-Vorlage in Ihrem Braze-Dashboard in den Nachrichtentext des Kanals ein, den Sie verwenden möchten:
+Um die dynamische Gutscheincode-API von Punchh zu nutzen, muss ein JWT-Token erstellt werden. Fügen Sie die folgende Liquid-Vorlage in Ihrem Braze-Dashboard in den Nachrichtentext des Kanals ein, den Sie verwenden möchten:
 
 {% raw %}
 ```liquid
@@ -79,7 +79,7 @@ Ersetzen Sie Folgendes:
 
 | Platzhalter | Beschreibung |
 |--------------------|------------------------------------------------------|
-| `DYNAMIC_COUPON_GENERATION_TOKEN` | Ihr Token / Textbaustein zur dynamischen Gutscheingenerierung. |
+| `DYNAMIC_COUPON_GENERATION_TOKEN` | Ihr Token zur dynamischen Gutscheingenerierung. |
 | `CAMPAIGN_ID` | Ihre Campaign-ID. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Signatur generieren und URL konstruieren" }
 
@@ -101,7 +101,7 @@ Wenn Nutzer:innen auf die Gutschein-URL klicken, werden sie auf eine von Punchh 
 
 #### Code über JSON als reinen Text extrahieren {#extracting-code-via-json-as-plain-text}
 
-Um eine JSON-Antwort zurückzugeben, fügen Sie `{% raw %}{{jwt}}{% endraw %}` an die dynamische Generierungs-URL an, [die Sie zuvor erstellt haben](#step-1-create-a-coupon-campaign-in-punchh), und fügen Sie dann `.json` nach dem Token / Textbaustein in den URL-String ein. Ihr Link sollte ähnlich wie der folgende aussehen:
+Um eine JSON-Antwort zurückzugeben, fügen Sie `{% raw %}{{jwt}}{% endraw %}` an die dynamische Generierungs-URL an, [die Sie zuvor erstellt haben](#step-1-create-a-coupon-campaign-in-punchh), und fügen Sie dann `.json` nach dem Token in den URL-String ein. Ihr Link sollte ähnlich wie der folgende aussehen:
 
 {% raw %}
 ```liquid
@@ -123,7 +123,7 @@ Sie könnten dann [Connected-Content]({{site.baseurl}}/user_guide/messaging/desi
 So verknüpfen Sie den Gutscheincode mit einem Bild:
 
 1. Fügen Sie `{% raw %}{{jwt}}{% endraw %}` an die dynamische Generierungs-URL an, [die Sie zuvor erstellt haben](#step-1-create-a-coupon-campaign-in-punchh).
-2. Fügen Sie `.png` nach dem Token / Textbaustein in den URL-String ein.
+2. Fügen Sie `.png` nach dem Token in den URL-String ein.
 3. Betten Sie Ihren Link in einen HTML-{% raw %}`<img>`{% endraw %}-Tag ein.
 
 {% tabs local %}

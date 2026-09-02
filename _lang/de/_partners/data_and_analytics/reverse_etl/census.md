@@ -66,5 +66,5 @@ Census unterstützt derzeit die Synchronisierung der folgenden Braze-Objekte:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Unterstützte Objekte" }
 
 Außerdem unterstützt Census das Senden [strukturierter Daten](https://docs.getcensus.com/destinations/braze#supported-objects) an Braze:
-- Push-Token / Textbaustein für Nutzer:innen: Um Push-Token / Textbaustein zu senden, sollten Ihre Daten als Array von Objekten mit 2–3 Werten strukturiert sein: `app_id`, `token` und einem optionalen `device_id`.
+- Push-Token für Nutzer:innen: Um Push-Token zu senden, sollten Ihre Daten als Array von Objekten mit 2–3 Werten strukturiert sein: `app_id`, `token` und einem optionalen `device_id`.
 - Verschachtelte angepasste Attribute: Es werden sowohl Objekte als auch Arrays unterstützt. Stand April 2022 befindet sich dieses Feature noch im Early Access. Möglicherweise müssen Sie Ihren Braze Account Manager:in kontaktieren, um Zugang zu erhalten.

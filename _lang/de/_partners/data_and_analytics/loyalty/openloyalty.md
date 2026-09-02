@@ -170,5 +170,5 @@ Wenn die Datentransformation aktiv ist, erscheinen die Daten in Braze als angepa
 
 ### Ausgehende Webhooks überprüfen {#verify-outbound-webhooks}
 Überprüfen Sie das Nachrichten-Aktivitätsprotokoll in Braze, um sicherzustellen, dass der Webhook den Status `200 OK` zurückgegeben hat.
-* **401-Fehler**: Überprüfen Sie Ihr Open Loyalty API-Token / Textbaustein.
+* **401-Fehler**: Überprüfen Sie Ihr Open Loyalty API-Token.
 * **404-Fehler**: Die Nutzer-ID in Braze existiert nicht in Open Loyalty.

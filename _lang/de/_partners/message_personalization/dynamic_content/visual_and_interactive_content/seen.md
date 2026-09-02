@@ -30,7 +30,7 @@ Bevor Sie beginnen, stellen Sie sicher, dass Sie über die Zugänge und Daten in
 
 | Voraussetzung | Beschreibung |
 |--------------|-------------|
-| Zugang zur Seen-Plattform | Sie benötigen ein Abo der Seen-Plattform mit einem veröffentlichten Projekt oder eine aktive Seen-Kampagne. Außerdem benötigen Sie Zugriff auf Ihr Projekt, um den Projekt-Endpunkt abzurufen und ein API-Token / Textbaustein zu generieren. |
+| Zugang zur Seen-Plattform | Sie benötigen ein Abo der Seen-Plattform mit einem veröffentlichten Projekt oder eine aktive Seen-Kampagne. Außerdem benötigen Sie Zugriff auf Ihr Projekt, um den Projekt-Endpunkt abzurufen und ein API-Token zu generieren. |
 | Braze-Datentransformation-Webhook-URL | Verwenden Sie die Braze-Datentransformation, um die von Seen eingehenden Daten so umzuformatieren, dass sie vom Braze-[`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) akzeptiert werden können. |
 | Braze-Nutzerdaten | Für die Video-Personalisierung sind Daten auf Nutzer:innen-Ebene erforderlich. Stellen Sie sicher, dass die relevanten Attribute in Braze verfügbar sind, und übergeben Sie **`braze_id`** als eindeutigen Bezeichner. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -100,7 +100,7 @@ Konfigurieren Sie den Webhook wie folgt:
   - `Authorization`: Bearer `{Seen_API_TOKEN}`
   - `Content-Type`: `application/json`
 
-  Generieren Sie ein [API-Token / Textbaustein](https://docs.seen.io/authorization) auf dem Run-Tab Ihres Seen-Plattform-Projekts. Kontaktieren Sie Ihren Seen CSM, wenn Sie Unterstützung benötigen.
+  Generieren Sie ein [API-Token](https://docs.seen.io/authorization) auf dem Run-Tab Ihres Seen-Plattform-Projekts. Kontaktieren Sie Ihren Seen CSM, wenn Sie Unterstützung benötigen.
 
 - Testen Sie den Webhook mit einer/einem Nutzer:in auf dem **Test**-Tab.
 - Schließen Sie nach einem erfolgreichen Test die Webhook-Einrichtung ab.

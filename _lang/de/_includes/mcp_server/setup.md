@@ -80,7 +80,7 @@ Wenn Ihr Agent zum ersten Mal ein Braze-Tool aufruft, öffnet Ihr Client ein Bro
 
 ![Der Braze-Einwilligungsbildschirm, der zeigt, dass Claude Desktop Zugriff auf Braze-Kontoinformationen und umfassenden Zugriff auf Braze-Daten anfordert, mit einem Kontrollkästchen zur Bestätigung der Datenschutzrichtlinie sowie den Buttons „Cancel“ und „Continue“.]({% image_buster /assets/img/mcp_server/oauth_consent_screen.png %}){: width="639" height="1024" style="max-width:65%;"}
 
-Ihre Sitzung verwendet kurzlebige Zugangs-Token / Textbaustein, die automatisch erneuert werden. Gelegentlich müssen Sie sich möglicherweise erneut anmelden.
+Ihre Sitzung verwendet kurzlebige Zugangs-Token, die automatisch erneuert werden. Gelegentlich müssen Sie sich möglicherweise erneut anmelden.
 
 ### Schritt 4: Ihrem Agenten mitteilen, welchen Workspace er verwenden soll {#step-4-tell-your-agent-which-workspace-to-use}
 

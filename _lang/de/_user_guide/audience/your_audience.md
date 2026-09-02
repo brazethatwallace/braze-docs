@@ -48,7 +48,7 @@ Die Identifizierung von Nutzer:innen ermöglicht Ihnen:
 - Mithilfe langfristiger Nutzerdaten zu segmentieren und zu personalisieren
 - Profile über APIs und Integrationen zu verwalten
 
-Wenn ein:e anonyme:r Nutzer:in später identifiziert wird, führt Braze berechtigte Daten gemäß [diesem Zusammenführungsverhalten]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior) in das identifizierte Profil zusammen. Beispielsweise werden Push-Token / Textbaustein und der Nachrichtenverlauf übernommen, und viele Felder aus dem anonymen Profil werden nur dann zusammengeführt, wenn sie im identifizierten Profil noch nicht gesetzt sind. Bei Konflikten wird das identifizierte Profil beibehalten.
+Wenn ein:e anonyme:r Nutzer:in später identifiziert wird, führt Braze berechtigte Daten gemäß [diesem Zusammenführungsverhalten]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior) in das identifizierte Profil zusammen. Beispielsweise werden Push-Token und der Nachrichtenverlauf übernommen, und viele Felder aus dem anonymen Profil werden nur dann zusammengeführt, wenn sie im identifizierten Profil noch nicht gesetzt sind. Bei Konflikten wird das identifizierte Profil beibehalten.
 
 ## Nutzer:innen über Kanäle erreichen {#message-users-through-channels}
 
@@ -75,7 +75,7 @@ Nutzer:innen werden in Braze angelegt, sobald jemand über eine unterstützte In
 {% tabs %}
 {% tab Mobile Apps %}
 - Wenn Nutzer:innen Ihre App zum ersten Mal öffnen, erstellt das Braze SDK ein Kundenprofil.
-- Geräte und Push-Token / Textbaustein werden automatisch registriert.
+- Geräte und Push-Token werden automatisch registriert.
 - Events und Attribute können sofort protokolliert werden.
 {% endtab %}
 

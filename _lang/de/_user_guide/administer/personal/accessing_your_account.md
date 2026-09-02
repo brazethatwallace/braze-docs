@@ -179,7 +179,7 @@ Braze kann die 2FA aus Sicherheitsgründen nicht im Namen von Nutzer:innen zurü
 - Wenn 2FA nicht auf Unternehmensebene erzwungen wird: Der/die Nutzer:in meldet sich am Dashboard an, ohne die 2FA erneut einrichten zu müssen. Wenn er/sie die 2FA aktivieren möchte, kann dies in den Kontoeinstellungen erfolgen.
 
 {% alert note %}
-Dieser Zurücksetzungsprozess gilt auch für Nutzer:innen, die aufgrund zu vieler Token / Textbaustein-Anfragen innerhalb der letzten Stunde aus ihrem Konto ausgesperrt wurden.
+Dieser Zurücksetzungsprozess gilt auch für Nutzer:innen, die aufgrund zu vieler Token-Anfragen innerhalb der letzten Stunde aus ihrem Konto ausgesperrt wurden.
 {% endalert %}
 
 ### Konto-Aussperrung {#locked-out-of-account}

@@ -23,7 +23,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Voraussetzung | Beschreibung |
 | --- | --- |
 | Ein Trustpilot-Konto | Sie benötigen ein Trustpilot-Konto mit Zugriff auf die API von Trustpilot. |
-| Ein Trustpilot-Authentifizierungsschlüssel | Sie müssen einen API-Schlüssel einrichten und ein Access Token / Textbaustein anfordern. |
+| Ein Trustpilot-Authentifizierungsschlüssel | Sie müssen einen API-Schlüssel einrichten und ein Access Token anfordern. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -44,10 +44,10 @@ Richten Sie eine aktionsbasierte Braze-Webhook-Campaign ein, um die Trustpilot-A
    * Methode: POST
    * Fügen Sie die relevanten Kundeninformationen als Schlüssel-Wert-Paare hinzu.
 
-### 2. Schritt: Access Token / Textbaustein abrufen {#step-2-retrieve-the-access-token}
+### 2. Schritt: Access Token abrufen {#step-2-retrieve-the-access-token}
 
-1. Verwenden Sie [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), um eine Anfrage an den [Authentifizierungs-Endpunkt von Trustpilot](https://documentation-apidocumentation.trustpilot.com/authentication?_gl=1*1hxojlc*_ga*MjEzMDkzNjQ5NS4xNzMxNjgxOTQ0*_ga_3TEL80JZSG*MTczNjU0MzY0Ny45LjAuMTczNjU0MzY0Ny4wLjAuMA..) zu stellen, um das Access Token / Textbaustein abzurufen.
-2. Verwenden Sie den Grant-Typ **client_credentials** und geben Sie Ihren API-Schlüssel und Ihr Secret in einen Connected-Content-Tag ein, um ein Token / Textbaustein abzurufen. Die Connected-Content-Anfrage kann in den Anfrage-Header eingegeben werden. Der Connected-Content kann wie folgt aussehen:
+1. Verwenden Sie [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), um eine Anfrage an den [Authentifizierungs-Endpunkt von Trustpilot](https://documentation-apidocumentation.trustpilot.com/authentication?_gl=1*1hxojlc*_ga*MjEzMDkzNjQ5NS4xNzMxNjgxOTQ0*_ga_3TEL80JZSG*MTczNjU0MzY0Ny45LjAuMTczNjU0MzY0Ny4wLjAuMA..) zu stellen, um das Access Token abzurufen.
+2. Verwenden Sie den Grant-Typ **client_credentials** und geben Sie Ihren API-Schlüssel und Ihr Secret in einen Connected-Content-Tag ein, um ein Token abzurufen. Die Connected-Content-Anfrage kann in den Anfrage-Header eingegeben werden. Der Connected-Content kann wie folgt aussehen:
 
 {% raw %}
 
@@ -68,7 +68,7 @@ https://api.trustpilot.com/v1/oauth/oauth-business-users-for-applications/access
 {% endraw %}
 
 {: start="3"}
-3. Fügen Sie das Access Token / Textbaustein in den Anfrage-Header Ihrer Webhook-Campaign ein.
+3. Fügen Sie das Access Token in den Anfrage-Header Ihrer Webhook-Campaign ein.
 
 {% alert tip %}
 Ausführlichere Anweisungen finden Sie in der [Dokumentation von Trustpilot](https://support.trustpilot.com/hc/en-us/community/posts/11947443933074-Braze-Trustpilot-Setup-Instructions-for-triggering-API-invites).

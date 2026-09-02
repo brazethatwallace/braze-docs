@@ -18,7 +18,7 @@ search_tag: Partner
 | Voraussetzung | Beschreibung |
 |---|---|
 | Ein Zendesk-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Zendesk-Konto. |
-| Ein Zendesk Basic Authorization Token / Textbaustein | Ein Zendesk Basic Authorization Token / Textbaustein wird verwendet, um eine ausgehende Webhook-Anfrage von Braze an Zendesk zu stellen. |
+| Ein Zendesk Basic Authorization Token | Ein Zendesk Basic Authorization Token wird verwendet, um eine ausgehende Webhook-Anfrage von Braze an Zendesk zu stellen. |
 | Ein Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `campaigns.trigger.send`-Berechtigungen. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -33,7 +33,7 @@ Verbessern Sie die Effizienz des Kundensupports, indem Sie die SMS-Funktionen vo
 1. Gehen Sie in der Zendesk-Entwicklungskonsole zu Webhooks: {% raw %}`https://{{url}}.zendesk.com/admin/apps-integrations/webhooks/webhooks`{% endraw %}
 2. Wählen Sie unter **Create Webhook** die Option **Trigger or automation** aus.
 3. Fügen Sie als **Endpoint URL** den Endpunkt **/campaign/trigger/send** hinzu.
-4. Wählen Sie unter **Authentication** die Option **Bearer Token / Textbaustein** aus und fügen Sie den Braze REST-API-Schlüssel mit den Berechtigungen `campaigns.trigger.send` hinzu.
+4. Wählen Sie unter **Authentication** die Option **Bearer Token** aus und fügen Sie den Braze REST-API-Schlüssel mit den Berechtigungen `campaigns.trigger.send` hinzu.
 
 ![Ein Beispiel für einen Zendesk-Webhook.]({% image_buster /assets/img/zendesk/instant_chat/chat1.png %}){: style="max-width:70%;"}
 
@@ -190,7 +190,7 @@ Füllen Sie im Webhook-Composer die folgenden Felder aus:
 - HTTP Method: POST
 - Request Headers:
 - Content-Type: application/json
-- Authorization: Basic {{Token / Textbaustein}}
+- Authorization: Basic {{Token}}
 - Request Body:
 
 {% raw %}
@@ -244,7 +244,7 @@ Im Webhook-Composer:
 - Request: PUT
 - KVPs:
     - Content-Type: application/JSON
-    - Authorization: Basic {{Token / Textbaustein}}
+    - Authorization: Basic {{Token}}
 
 Beispiel-Body:
 

@@ -71,11 +71,11 @@ Requesting data flush on internal session close flush timer.
 
 ## Push-Benachrichtigungen {#push-notifications}
 
-Push-Benachrichtigungsprotokolle helfen Ihnen zu überprüfen, ob Geräte-Token / Textbaustein registriert, Benachrichtigungen zugestellt und Klick-Events getrackt werden.
+Push-Benachrichtigungsprotokolle helfen Ihnen zu überprüfen, ob Geräte-Token registriert, Benachrichtigungen zugestellt und Klick-Events getrackt werden.
 
-### Token / Textbaustein-Registrierung {#token-registration}
+### Token-Registrierung {#token-registration}
 
-Wenn eine Sitzung beginnt, registriert das SDK das Push-Token / Textbaustein des Geräts bei Braze.
+Wenn eine Sitzung beginnt, registriert das SDK das Push-Token des Geräts bei Braze.
 
 {% tabs %}
 {% tab Swift %}
@@ -128,7 +128,7 @@ Ein häufiger Fehler ist `SENDER_ID_MISMATCH`, was bedeutet, dass die konfigurie
 
 ### Worauf Sie achten sollten
 
-- Wenn `push_token` im Request-Body fehlt, wurde das Token / Textbaustein nicht erfasst. Überprüfen Sie die Push-Einrichtung in Ihrer App-Konfiguration.
+- Wenn `push_token` im Request-Body fehlt, wurde das Token nicht erfasst. Überprüfen Sie die Push-Einrichtung in Ihrer App-Konfiguration.
 - Wenn `ios_push_auth` den Wert `denied` oder `provisional` anzeigt, hat die/der Nutzer:in keine vollständige Push-Berechtigung erteilt.
 - Wenn auf Android `SENDER_ID_MISMATCH` angezeigt wird, aktualisieren Sie Ihre FCM-Sender-ID, damit sie mit Ihrem Firebase-Projekt übereinstimmt.
 
@@ -508,7 +508,7 @@ Making request(id = <REQUEST_ID>) to <YOUR_BRAZE_ENDPOINT>
 - **API-Schlüssel**: Überprüfen Sie, ob `XBraze-ApiKey` mit dem API-Schlüssel Ihres Workspace übereinstimmt.
 - **Endpunkt**: Bestätigen Sie, dass die Anfrage-URL mit Ihrem konfigurierten SDK-Endpunkt übereinstimmt.
 - **Wiederholungsversuche**: Ein `XBraze-Req-Attempt`-Wert größer als 1 zeigt an, dass das SDK eine fehlgeschlagene Anfrage erneut versucht, was auf Verbindungsprobleme hindeuten kann.
-- **Rate-Limiting**: `XBraze-Req-Tokens-Remaining` zeigt die verbleibenden Anfrage-Token / Textbaustein an. Ein niedriger Wert kann darauf hinweisen, dass das SDK sich den Rate-Limits nähert.
+- **Rate-Limiting**: `XBraze-Req-Tokens-Remaining` zeigt die verbleibenden Anfrage-Token an. Ein niedriger Wert kann darauf hinweisen, dass das SDK sich den Rate-Limits nähert.
 - **Fehlende Anfragen**: Wenn Sie unter Android nach dem Sitzungsstart keine Anfrage an den Braze-Endpunkt sehen, überprüfen Sie Ihre API-Schlüssel- und Endpunkt-Konfiguration.
 
 ## Häufige Ereignisabkürzungen {#common-event-abbreviations}

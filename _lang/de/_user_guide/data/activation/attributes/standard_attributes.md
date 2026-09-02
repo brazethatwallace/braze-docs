@@ -82,14 +82,14 @@ Diese Felder erfassen, wann Nutzer:innen Ihre App zum ersten oder letzten Mal ve
 | `date_of_last_session` | String | Das Datum, an dem die oder der Nutzer:in die App zuletzt verwendet hat. Es gelten dieselben Formate wie bei `date_of_first_session`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-## Push-Token / Textbaustein {#push-tokens}
+## Push-Token {#push-tokens}
 
-Verwenden Sie diese Felder, wenn Sie Push-Token / Textbaustein von einer anderen Plattform migrieren. Nach der Integration des Braze SDK werden Push-Token / Textbaustein automatisch erfasst. Eine Anleitung zur Migration finden Sie unter [Push-Token / Textbaustein migrieren]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+Verwenden Sie diese Felder, wenn Sie Push-Token von einer anderen Plattform migrieren. Nach der Integration des Braze SDK werden Push-Token automatisch erfasst. Eine Anleitung zur Migration finden Sie unter [Push-Token migrieren]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 | Feld | Datentyp | Format und Hinweise |
 |---|---|---|
 | `push_tokens` | Array von Objekten | Ein Array, in dem jedes Objekt eine `app_id` (String) und ein `token` (String) enthält. Optional kann eine `device_id` (String) angegeben werden. Beispiel: `[{"app_id": "YOUR_APP_ID", "token": "abcd", "device_id": "optional_device_id"}]`. |
-| `push_token_import` | Boolean | Top-Level-Flag (nicht in `attributes` verschachtelt). Setzen Sie den Wert auf `true`, um ältere Push-Token / Textbaustein für anonyme Nutzer:innen ohne `external_id` zu importieren. |
+| `push_token_import` | Boolean | Top-Level-Flag (nicht in `attributes` verschachtelt). Setzen Sie den Wert auf `true`, um ältere Push-Token für anonyme Nutzer:innen ohne `external_id` zu importieren. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Social-Profil {#social-profile}
@@ -154,7 +154,7 @@ user1,Jane,Doe,jane.doe@example.com,US,en,1988-02-14,opted_in
 user2,Alex,Smith,alex.smith@example.com,GB,en,1992-09-30,subscribed
 ```
 
-Einige Standardattribute können nicht über den CSV-Import festgelegt werden. Arrays, Push-Token / Textbaustein und verschachtelte Objekte müssen stattdessen über die API oder die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) gesendet werden. Die vollständige Liste der CSV-unterstützten Felder und Importschritte finden Sie unter [Standardattribute]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#default-attributes).
+Einige Standardattribute können nicht über den CSV-Import festgelegt werden. Arrays, Push-Token und verschachtelte Objekte müssen stattdessen über die API oder die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) gesendet werden. Die vollständige Liste der CSV-unterstützten Felder und Importschritte finden Sie unter [Standardattribute]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#default-attributes).
 
 ## Hinweise {#considerations}
 

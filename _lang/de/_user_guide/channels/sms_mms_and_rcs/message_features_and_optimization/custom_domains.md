@@ -36,7 +36,7 @@ Self-Service-Custom-Domains ermöglichen es Ihnen, Ihre eigenen Custom Domains f
 Wir benötigen, dass Sie Ihre angepasste Domain an Braze delegieren, damit wir ein ordnungsgemäßes Routing und die Infrastrukturkompatibilität mit unseren Diensten zur Linkverkürzung und zum Klick-Tracking sicherstellen können. Wenn Sie Ihre Domain an Braze delegieren, kümmern wir uns automatisch um die Zertifikatserneuerung, um eine Unterbrechung des Dienstes zu verhindern.
 
 {% alert important %}
-Wenn Ihre DNS-Einträge nicht innerhalb von 45 Tagen aktualisiert werden, läuft das Setup-Token / Textbaustein ab. Starten Sie die Domain-Einrichtung über **SMS/RCS and Messaging Apps Domains** neu, um neue DNS-Einträge zu generieren.
+Wenn Ihre DNS-Einträge nicht innerhalb von 45 Tagen aktualisiert werden, läuft das Setup-Token ab. Starten Sie die Domain-Einrichtung über **SMS/RCS and Messaging Apps Domains** neu, um neue DNS-Einträge zu generieren.
 {% endalert %}
 
 ## Hinzufügen einer angepassten Domain {#adding-a-custom-domain}

@@ -121,7 +121,7 @@ Teilweise Synchronisierungen reduzieren die Serverlast und den Akkuverbrauch des
 
 ### Rate-Limits {#rate-limit}
 
-Braze verwendet einen Token / Textbaustein-Bucket-Algorithmus, um die folgenden Rate-Limits durchzusetzen:
+Braze verwendet einen Token-Bucket-Algorithmus, um die folgenden Rate-Limits durchzusetzen:
 - Bis zu 5 Aktualisierungsaufrufe pro Gerät, gemeinsam genutzt von Nutzer:innen und Aufrufen an `openSession()`
 - Nach Erreichen des Limits wird alle 180 Sekunden (3 Minuten) ein neuer Aufruf verfügbar
 - Das System hält bis zu fünf Aufrufe für Sie bereit, die Sie jederzeit nutzen können

@@ -57,7 +57,7 @@ glossaries:
     tags:
       - Other Filters
   - name: Created From
-    description: "Segmentiert Nutzer:innen danach, wo ihr Kundenprofil erstellt wurde.<br><br>Die folgenden Werte werden unterstützt:<br>- SDK (<code>sdk</code>): Kundenprofil über das Braze SDK erstellt.<br>- REST API (<code>rest</code>): Kundenprofil über die Braze REST API erstellt.<br>- Push-Token / Textbaustein-Import (<code>pti</code>): Kundenprofil über Push-Token / Textbaustein-Import erstellt.<br>- CSV (<code>csv</code>): Kundenprofil über CSV-Import erstellt.<br>- Demo (<code>demo</code>): Kundenprofil über Demodaten erstellt.<br>- SMS (<code>sms</code>): Kundenprofil über SMS erstellt.<br>- Shopify (<code>shopify</code>): Kundenprofil über Shopify erstellt.<br>- WhatsApp (<code>whats_app</code>): Kundenprofil über WhatsApp erstellt.<br>- Provider Event (<code>provider_event</code>): Kundenprofil über ein Provider-Event erstellt.<br>- Provider Sync (<code>provider_sync</code>): Kundenprofil über einen Provider-Sync erstellt.<br>- Landing-Page (<code>landing_page</code>): Kundenprofil über eine Landing-Page erstellt."
+    description: "Segmentiert Nutzer:innen danach, wo ihr Kundenprofil erstellt wurde.<br><br>Die folgenden Werte werden unterstützt:<br>- SDK (<code>sdk</code>): Kundenprofil über das Braze SDK erstellt.<br>- REST API (<code>rest</code>): Kundenprofil über die Braze REST API erstellt.<br>- Push-Token-Import (<code>pti</code>): Kundenprofil über Push-Token-Import erstellt.<br>- CSV (<code>csv</code>): Kundenprofil über CSV-Import erstellt.<br>- Demo (<code>demo</code>): Kundenprofil über Demodaten erstellt.<br>- SMS (<code>sms</code>): Kundenprofil über SMS erstellt.<br>- Shopify (<code>shopify</code>): Kundenprofil über Shopify erstellt.<br>- WhatsApp (<code>whats_app</code>): Kundenprofil über WhatsApp erstellt.<br>- Provider Event (<code>provider_event</code>): Kundenprofil über ein Provider-Event erstellt.<br>- Provider Sync (<code>provider_sync</code>): Kundenprofil über einen Provider-Sync erstellt.<br>- Landing-Page (<code>landing_page</code>): Kundenprofil über eine Landing-Page erstellt."
     tags:
       - Other Filters
   - name: Nested Custom Attributes
@@ -301,11 +301,11 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Foreground Push Enabled for App
-    description: "Segmentiert danach, ob Nutzer:innen Push für Ihre App auf ihrem Gerät aktiviert haben. Nutzer:innen, die für eine App Vordergrund-Push aktiviert haben. Dies berücksichtigt nicht den Push-Abo-Status. Diese Zählung umfasst Nutzer:innen, die vorläufig Vordergrund- und Hintergrund-Push-Token / Textbaustein autorisiert haben."
+    description: "Segmentiert danach, ob Nutzer:innen Push für Ihre App auf ihrem Gerät aktiviert haben. Nutzer:innen, die für eine App Vordergrund-Push aktiviert haben. Dies berücksichtigt nicht den Push-Abo-Status. Diese Zählung umfasst Nutzer:innen, die vorläufig Vordergrund- und Hintergrund-Push-Token autorisiert haben."
     tags:
       - Channel subscription behavior
   - name: Background or Foreground Push Enabled
-    description: "Segmentiert danach, ob Nutzer:innen ein Push-Token / Textbaustein haben und sich nicht abgemeldet haben. Nutzer:innen, die für eine Ihrer Apps Hintergrund- oder Vordergrund-Push aktiviert haben."
+    description: "Segmentiert danach, ob Nutzer:innen ein Push-Token haben und sich nicht abgemeldet haben. Nutzer:innen, die für eine Ihrer Apps Hintergrund- oder Vordergrund-Push aktiviert haben."
     tags:
       - Channel subscription behavior
   - name: Push Opt In Date

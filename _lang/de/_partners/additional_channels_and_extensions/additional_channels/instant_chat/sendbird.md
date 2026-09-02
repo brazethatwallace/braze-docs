@@ -52,7 +52,7 @@ Die Integration von Braze und Sendbird Notifications bietet eine Reihe von Anwen
 
 Wählen Sie im **Sendbird Dashboard** Ihre Anwendung aus, navigieren Sie zu **Notifications > Integrations** und klicken Sie unter dem Abschnitt **Braze** auf **Add**. Hier benötigen Sie Ihren Braze REST-API-Schlüssel und den Braze REST-Endpunkt.
 
-Sobald Sie alle Felder ausgefüllt haben, klicken Sie auf **Save**, um die Integration abzuschließen und auf die Endpunkte der Integration und das API-Token / Textbaustein zuzugreifen.
+Sobald Sie alle Felder ausgefüllt haben, klicken Sie auf **Save**, um die Integration abzuschließen und auf die Endpunkte der Integration und das API-Token zuzugreifen.
 
 ### 3. Schritt: Sendbird Notification Builder installieren {#step-3-install-sendbird-notification-builder}
 
@@ -62,7 +62,7 @@ Als Nächstes müssen Sie den [Sendbird Notification Builder](https://chrome.goo
 
 #### Fügen Sie die Sendbird-Zugangsdaten zur Erweiterung hinzu {#add-sendbird-credentials-to-the-extension}
 
-Sobald die Erweiterung installiert ist, klicken Sie auf das Sendbird-Symbol in der Symbolleiste Ihres Browsers und wählen Sie **Settings**. Geben Sie hier Ihre App-ID und Ihr API-Token / Textbaustein aus dem **Sendbird Notification Builder** an.
+Sobald die Erweiterung installiert ist, klicken Sie auf das Sendbird-Symbol in der Symbolleiste Ihres Browsers und wählen Sie **Settings**. Geben Sie hier Ihre App-ID und Ihr API-Token aus dem **Sendbird Notification Builder** an.
 
 ### 4. Schritt: Sendbird-Nutzer-ID der Braze-Nutzer-ID zuordnen {#step-4-map-sendbird-user-id-to-braze-user-id}
 
@@ -78,7 +78,7 @@ Gehen Sie in Braze unter **Templates und Medien** zu **Webhook-Templates** und w
 3. Klicken Sie im Feld **Receiver** auf das Symbol <i class="fas fa-plus" aria-label="Hinzufügen"></i> und fügen Sie das Nutzerattribut ein, das der Sendbird-Nutzer-ID zugeordnet ist.
     - `{{ '{{' }}custom_attribute.${sendbird_id}}}` wenn Sie ein angepasstes Attribut `sendbird_id` als Sendbird-Nutzer-ID verwenden.
     - `{{ '{{' }}${user_id}}}` wenn Sie die Braze-Nutzer-ID als Sendbird-Nutzer-ID verwenden.
-4. Ersetzen Sie im Tab **Settings** den Wert `SENDBIRD_API_TOKEN` durch das Benachrichtigungs-API-Token / Textbaustein aus dem Sendbird Dashboard.
+4. Ersetzen Sie im Tab **Settings** den Wert `SENDBIRD_API_TOKEN` durch das Benachrichtigungs-API-Token aus dem Sendbird Dashboard.
 5. Speichern Sie das Template.
 {% endraw %}
 

@@ -47,7 +47,7 @@ Bevor Sie den BYO-WhatsApp-Konnektor einrichten, bestätigen Sie, dass der bishe
 
 {: start="3"}
 3. Geben Sie dem Schlüssel einen aussagekräftigen Namen, z. B. „Braze - Mein Workspace-Name - Mein WABA-Name“.
-4. Legen Sie ein Ablaufdatum fest, das weit in der Zukunft liegt, um Probleme mit dem Token / Textbaustein-Ablauf zu vermeiden.
+4. Legen Sie ein Ablaufdatum fest, das weit in der Zukunft liegt, um Probleme mit dem Token-Ablauf zu vermeiden.
     - Notieren Sie sich, vor dem Ablaufdatum einen neuen API-Schlüssel zu generieren und Ihr WABA erneut zu verbinden.
 5. Wählen Sie diese Berechtigungen aus:
 - `Message:send`

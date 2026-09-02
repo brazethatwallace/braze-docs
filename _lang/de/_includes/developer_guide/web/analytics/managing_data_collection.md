@@ -58,11 +58,11 @@ Rufen Sie nach einem erfolgreichen `logout` [`enableSDK()`](https://js.appboycdn
 
 #### Sofortige Aufrufe zur Aufhebung der Registrierung vermeiden {#avoid-immediate-unregister-calls}
 
-Vermeiden Sie es, `logout` oder `unregisterPush` direkt nach der Registrierung für Push-Benachrichtigungen beim Betriebssystem oder Push-Anbieter aufzurufen. Aufgrund der asynchronen Serververarbeitung kann dies in seltenen Fällen dazu führen, dass das Push-Token / Textbaustein erneut der/dem Braze-Nutzer:in hinzugefügt wird.
+Vermeiden Sie es, `logout` oder `unregisterPush` direkt nach der Registrierung für Push-Benachrichtigungen beim Betriebssystem oder Push-Anbieter aufzurufen. Aufgrund der asynchronen Serververarbeitung kann dies in seltenen Fällen dazu führen, dass das Push-Token erneut der/dem Braze-Nutzer:in hinzugefügt wird.
 
 ### Push-Registrierung aufheben {#unregister-push}
 
-Um den Push-Versand an ein Gerät ohne zusätzliche automatische Bereinigung zu stoppen, verwenden Sie die `unregisterPush`-Methode. Diese entfernt das Push-Token / Textbaustein des Geräts von der/dem aktuellen Nutzer:in auf dem Braze-Server und löscht das lokal gespeicherte Token / Textbaustein.
+Um den Push-Versand an ein Gerät ohne zusätzliche automatische Bereinigung zu stoppen, verwenden Sie die `unregisterPush`-Methode. Diese entfernt das Push-Token des Geräts von der/dem aktuellen Nutzer:in auf dem Braze-Server und löscht das lokal gespeicherte Token.
 
 Das folgende Beispiel zeigt die Callback-basierte `unregisterPush`-Behandlung. Verwenden Sie es, wenn Sie eine sofortige Erfolgs- und Fehlerbehandlung benötigen, und ersetzen Sie das Logging durch Ihren App-Ablauf.
 
@@ -90,4 +90,4 @@ In unterstützten Browsern hebt `unregisterPush` bei einer aktiven Push-Subscrip
 
 #### Sofortige Aufrufe zur Aufhebung der Registrierung vermeiden
 
-Vermeiden Sie es, `logout` oder `unregisterPush` direkt nach der Registrierung für Push-Benachrichtigungen beim Betriebssystem oder Push-Anbieter aufzurufen. Aufgrund der asynchronen Serververarbeitung kann dies in seltenen Fällen dazu führen, dass das Push-Token / Textbaustein erneut der/dem Braze-Nutzer:in hinzugefügt wird.
+Vermeiden Sie es, `logout` oder `unregisterPush` direkt nach der Registrierung für Push-Benachrichtigungen beim Betriebssystem oder Push-Anbieter aufzurufen. Aufgrund der asynchronen Serververarbeitung kann dies in seltenen Fällen dazu führen, dass das Push-Token erneut der/dem Braze-Nutzer:in hinzugefügt wird.

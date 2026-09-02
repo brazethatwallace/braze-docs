@@ -143,7 +143,7 @@ Die folgenden Datentypen werden beim Nutzerimport akzeptiert:
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert important %}
-Arrays und Push-Token / Textbaustein werden beim Nutzerimport nicht unterstützt. Insbesondere bei Arrays werden Kommas in Ihrer CSV-Datei als Spaltentrennzeichen interpretiert, sodass Kommas in Werten zu Fehlern beim Parsen der Datei führen. <br>Um solche Werte hochzuladen, verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
+Arrays und Push-Token werden beim Nutzerimport nicht unterstützt. Insbesondere bei Arrays werden Kommas in Ihrer CSV-Datei als Spaltentrennzeichen interpretiert, sodass Kommas in Werten zu Fehlern beim Parsen der Datei führen. <br>Um solche Werte hochzuladen, verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder die [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 {% endalert %}
 
 ### Abo-Gruppenstatus aktualisieren {#updating-subscription-group-status}

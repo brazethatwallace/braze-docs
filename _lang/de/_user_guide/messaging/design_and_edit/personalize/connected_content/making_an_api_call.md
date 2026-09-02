@@ -167,7 +167,7 @@ Während Connected-Content-Aufrufe innerhalb einer einzelnen Nachricht sequenzie
 Wenn Ihre Nachrichten Connected-Content verwenden und Sie in hohem Volumen senden, planen Sie mehr Anfragen ein als die Anzahl der Empfänger:innen oder Sendungen:
 
 - **Spitzenlast einschätzen:** Verwenden Sie einen konservativen Multiplikator, wenn Sie Ihren Endpunkt oder Ihre Middleware dimensionieren – Connected-Content-Anfragen können die Anzahl der Empfänger:innen oder gesendeten Nachrichten übersteigen. Beispielsweise kann bei E-Mails eine einzelne Empfängerin oder ein einzelner Empfänger mehrere Aufrufe generieren (HTML, Klartext und AMP), sodass Empfänger:innen × 2 oder × 3 oft als konservative Schätzung verwendet wird.
-- **Caching sinnvoll einsetzen:** GET-Anfragen werden standardmäßig gecacht. Für POST-Anfragen fügen Sie `:cache_max_age` hinzu, wenn die Antwort für einen bestimmten Zeitraum wiederverwendet werden kann (z. B. Token / Textbaustein oder Inhalte, die sich nicht pro Anfrage ändern). Siehe [Antworten cachen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) und die [FAQ zum POST-Caching](#what-is-caching-behavior) im folgenden Abschnitt.
+- **Caching sinnvoll einsetzen:** GET-Anfragen werden standardmäßig gecacht. Für POST-Anfragen fügen Sie `:cache_max_age` hinzu, wenn die Antwort für einen bestimmten Zeitraum wiederverwendet werden kann (z. B. Token oder Inhalte, die sich nicht pro Anfrage ändern). Siehe [Antworten cachen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) und die [FAQ zum POST-Caching](#what-is-caching-behavior) im folgenden Abschnitt.
 - **Nachrichten-Rate-Limits festlegen:** [Workspace-Messaging-Rate-Limits]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) und [Rate-Limiting der Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) für Campaigns oder Canvases begrenzen indirekt das Anfragevolumen für Connected-Content – Braze selbst wendet kein Rate-Limiting auf Connected-Content an. Diese Werte sind Näherungen, keine perfekten Kontrollen, da Connected-Content-Anfragen nicht im Verhältnis 1:1 zu Nachrichten stehen. Nutzen Sie sie, um das Nachrichten- (und damit Connected-Content-) Volumen im Rahmen dessen zu halten, was Ihr Endpunkt bewältigen kann.
 - **Idempotenz und Wiederholungsversuche einplanen:** Braze kann Ihren Endpunkt pro Empfänger:in mehr als einmal aufrufen. Stellen Sie sicher, dass Ihr Endpunkt doppelte Anfragen tolerieren kann, ohne unerwünschte Nebeneffekte auszulösen.
 
@@ -201,11 +201,11 @@ Wenn Sie Zugangsdaten löschen, bedenken Sie, dass alle Connected-Content-Aufruf
 
 Gespeicherte Zugangsdaten gelten für {% raw %}`{% connected_content %}`{% endraw %}-Anfragen, während Braze eine Nachricht rendert. Sie werden nicht auf die primäre HTTP-Anfrage angewendet, die in einem [Webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#authentication-and-connected-content-credentials)-Schritt konfiguriert ist. Verwenden Sie Anfrage-Header oder ein {% raw %}`{% connected_content %}`{% endraw %}-Tag innerhalb eines Webhook-Headers oder -Body-Felds, wenn Sie Secrets für diesen Aufruf abrufen müssen.
 
-### Token / Textbaustein-Authentifizierung verwenden {#using-token-authentication}
+### Token-Authentifizierung verwenden {#using-token-authentication}
 
-Wenn Sie Braze Connected Content verwenden, stellen Sie möglicherweise fest, dass bestimmte APIs ein Token / Textbaustein anstelle eines Benutzernamens und Passworts erfordern. Braze kann auch Zugangsdaten speichern, die Werte für den Token / Textbaustein-Authentifizierungs-Header enthalten.
+Wenn Sie Braze Connected Content verwenden, stellen Sie möglicherweise fest, dass bestimmte APIs ein Token anstelle eines Benutzernamens und Passworts erfordern. Braze kann auch Zugangsdaten speichern, die Werte für den Token-Authentifizierungs-Header enthalten.
 
-Um Zugangsdaten hinzuzufügen, die Token / Textbaustein-Werte enthalten, wählen Sie **Zugangsdaten hinzufügen** > **Token / Textbaustein-Authentifizierung**. Fügen Sie dann die Schlüssel-Wert-Paare für die Header Ihres API-Aufrufs und die zulässige Domain hinzu.
+Um Zugangsdaten hinzuzufügen, die Token-Werte enthalten, wählen Sie **Zugangsdaten hinzufügen** > **Token-Authentifizierung**. Fügen Sie dann die Schlüssel-Wert-Paare für die Header Ihres API-Aufrufs und die zulässige Domain hinzu.
 
 ![Ein Beispiel-Token „token_credential_abc“ mit Details zur Token-Authentifizierung.]({% image_buster /assets/img/connected_content/token_auth.png %}){: style="max-width:60%"}
 
@@ -249,12 +249,12 @@ Das folgende Beispiel zeigt, wie ein Zugriffstoken abgerufen und in einer lokale
 {% endraw %}
 
 {% alert note %}
-Wenn der Token / Textbaustein-Endpunkt `application/x-www-form-urlencoded` erwartet und Sie Zugangsdaten in `:body` übergeben, URL-kodieren Sie alle Sonderzeichen in Parameterwerten. Zum Beispiel werden Schrägstriche (`/`) zu `%2F` und Pluszeichen (`+`) zu `%2B`. Nicht kodierte Sonderzeichen können dazu führen, dass OAuth-Token / Textbaustein-Anfragen fehlschlagen.
+Wenn der Token-Endpunkt `application/x-www-form-urlencoded` erwartet und Sie Zugangsdaten in `:body` übergeben, URL-kodieren Sie alle Sonderzeichen in Parameterwerten. Zum Beispiel werden Schrägstriche (`/`) zu `%2F` und Pluszeichen (`+`) zu `%2B`. Nicht kodierte Sonderzeichen können dazu führen, dass OAuth-Token-Anfragen fehlschlagen.
 {% endalert %}
 
 #### Schritt 2: Die API mit dem abgerufenen Zugriffstoken autorisieren {#step-2-authorize-the-api-using-the-retrieved-access-token}
 
-Nachdem das Token / Textbaustein gespeichert wurde, kann es dynamisch in den nachfolgenden Connected-Content-Aufruf eingesetzt werden, um die Anfrage zu autorisieren:
+Nachdem das Token gespeichert wurde, kann es dynamisch in den nachfolgenden Connected-Content-Aufruf eingesetzt werden, um die Anfrage zu autorisieren:
 
 {% raw %}
 ```
@@ -275,7 +275,7 @@ Nachdem das Token / Textbaustein gespeichert wurde, kann es dynamisch in den nac
 Sie können den Namen der Zugangsdaten für Authentifizierungsarten bearbeiten.
 
 - Für die einfache Authentifizierung können Sie den Benutzernamen und das Passwort aktualisieren. Beachten Sie, dass das zuvor eingegebene Passwort nicht sichtbar ist.
-- Für die Token / Textbaustein-Authentifizierung können Sie die Header-Schlüssel-Wert-Paare und die zulässige Domain aktualisieren. Beachten Sie, dass die zuvor festgelegten Header-Werte nicht sichtbar sind.
+- Für die Token-Authentifizierung können Sie die Header-Schlüssel-Wert-Paare und die zulässige Domain aktualisieren. Beachten Sie, dass die zuvor festgelegten Header-Werte nicht sichtbar sind.
 
 ## Connected-Content-IP-Positivliste {#connected-content-ip-allowlisting}
 
@@ -391,7 +391,7 @@ Connected Content hat kein eigenes Rate-Limit. Stattdessen basiert das Rate-Limi
 
 ### Wie funktioniert das Caching? {#what-is-caching-behavior}
 
-GET-Anfragen werden standardmäßig gecacht (siehe [Antworten cachen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)). **POST-Anfragen werden standardmäßig nicht gecacht**, aber Sie können das Caching aktivieren, indem Sie `:cache_max_age` zum Connected-Content-Aufruf hinzufügen. Dies kann die Endpunkt-Last reduzieren, wenn derselbe POST (z. B. eine Token / Textbaustein- oder Inhaltsanfrage) innerhalb des Cache-Zeitfensters wiederholt durchgeführt werden würde.
+GET-Anfragen werden standardmäßig gecacht (siehe [Antworten cachen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)). **POST-Anfragen werden standardmäßig nicht gecacht**, aber Sie können das Caching aktivieren, indem Sie `:cache_max_age` zum Connected-Content-Aufruf hinzufügen. Dies kann die Endpunkt-Last reduzieren, wenn derselbe POST (z. B. eine Token- oder Inhaltsanfrage) innerhalb des Cache-Zeitfensters wiederholt durchgeführt werden würde.
 
 {% raw %}
 ```liquid

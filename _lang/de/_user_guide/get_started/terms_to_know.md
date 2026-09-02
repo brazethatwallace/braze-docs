@@ -83,7 +83,7 @@ glossaries:
   - name: Push message
     description: "Eine <a href=\"/docs/user_guide/channels/push\">Push-Nachricht</a> oder Push-Benachrichtigung ist eine Benachrichtigung, die von einer mobilen Anwendung angezeigt wird. Push-Benachrichtigungen erscheinen oft als Popup-Dialoge und Banner für iOS und Android."
   - name: Push token
-    description: "Ein Push-Token / Textbaustein ist ein eindeutiger Schlüssel, der von Apple oder Google erstellt und zugewiesen wird, um eine Verbindung zwischen einer App und einem iOS-, Android- oder Web-Gerät herzustellen. Die <a href=\"/docs/api/objects_filters/user_attributes_object#migrate-push-tokens\">Push-Token / Textbaustein-Migration</a> ist das Importieren dieser bereits generierten Schlüssel in Braze."
+    description: "Ein Push-Token ist ein eindeutiger Schlüssel, der von Apple oder Google erstellt und zugewiesen wird, um eine Verbindung zwischen einer App und einem iOS-, Android- oder Web-Gerät herzustellen. Die <a href=\"/docs/api/objects_filters/user_attributes_object#migrate-push-tokens\">Push-Token-Migration</a> ist das Importieren dieser bereits generierten Schlüssel in Braze."
   - name: Push time to live (TTL)
     description: "Die auch als <a href=\"/docs/user_guide/administer/global/workspace_settings/push_settings\">Push TTL</a> bezeichnete Time-to-Live bezieht sich auf den Zeitraum, in dem Campaigns weiterhin versuchen, einer:einem Offline-Nutzer:in zugestellt zu werden."
   - name: Race condition

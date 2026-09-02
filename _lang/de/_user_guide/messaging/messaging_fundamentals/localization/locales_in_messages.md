@@ -255,7 +255,7 @@ Auf der Nachrichtenebene legen Sie die Barrierefreiheitssprache im Abschnitt **B
 
 Für mehrsprachige Nachrichten legen Sie die Barrierefreiheitssprache für jedes Locale in den **Lokalisierungseinstellungen** fest. Sie können {% raw %}`{{accessibility_language}}`{% endraw %} im Abschnitt **Barrierefreiheit** verwenden, damit die Dokument- oder Kartensprache auf diese Locale-Werte abgebildet wird.
 
-Ob dieses Token / Textbaustein standardmäßig bei neuen Nachrichten angezeigt wird, hängt vom Kanal und Editor ab. Beispielsweise verhalten sich In-App-Nachrichten und Banner anders als Landing-Pages und Drag-and-Drop-E-Mails. Details finden Sie unter [Barrierefreiheitssprache]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language).
+Ob dieses Token standardmäßig bei neuen Nachrichten angezeigt wird, hängt vom Kanal und Editor ab. Beispielsweise verhalten sich In-App-Nachrichten und Banner anders als Landing-Pages und Drag-and-Drop-E-Mails. Details finden Sie unter [Barrierefreiheitssprache]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 

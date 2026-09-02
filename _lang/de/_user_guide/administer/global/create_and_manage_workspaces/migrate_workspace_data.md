@@ -60,7 +60,7 @@ Gerätedatensätze im Export werden vom SDK befüllt. Sie können diese Daten ni
 Wenn Sie diese Informationen benötigen, bevor Nutzer:innen eine Sitzung in einer App starten, die auf den Ziel-Workspace ausgerichtet ist, senden Sie sie als angepasste Attribute, wenn Sie die Nutzer:innen importieren. Standard-Segmentierungsfilter und Liquid-Referenzen, die auf integrierten Gerätedaten basieren, verwenden die exportierten Gerätedaten erst, wenn Nutzer:innen eine Sitzung in einer App-Instanz öffnen, die mit dem neuen Workspace verbunden ist (wenn das SDK die Standard-Gerätefelder aktualisiert).
 
 {% alert note %}
-Dies ist getrennt von der [Push-Token / Textbaustein-Migration](#push-tokens), die das Feld `push_tokens` auf [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) verwendet.
+Dies ist getrennt von der [Push-Token-Migration](#push-tokens), die das Feld `push_tokens` auf [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) verwendet.
 {% endalert %}
 
 #### Gesamtsitzungen und App-bezogene Sitzungsdaten (`apps` und verschachtelte `sessions`) {#total-sessions-and-per-app-session-data-apps-and-nested-sessions}
@@ -79,9 +79,9 @@ Wenn Sie sich auf die alte Nummer für Holdouts oder Stichproben verlassen (z. B
 
 Attributionsfelder aus Partnerintegrationen (die `attributed_*`-Felder in einem Export) können nicht über die REST API auf die Standard-Attributionsfelder von Braze gesetzt werden. Ordnen Sie sie angepassten Attributen im Ziel-Workspace zu, wenn Sie sie für Segmentierung oder Messaging benötigen.
 
-### Push-Token / Textbaustein {#push-tokens}
+### Push-Token {#push-tokens}
 
-Wenn Nutzer:innen bereits Push-Token / Textbaustein von einem früheren Anbieter oder einer früheren App-Version haben, können Sie Token / Textbaustein für mobile Apps über die API importieren oder sich nach der Integration auf das SDK verlassen. Web-Push-Token / Textbaustein haben API-Einschränkungen. Vollständige Details und Beispiele finden Sie unter [Push-Token / Textbaustein migrieren]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+Wenn Nutzer:innen bereits Push-Token von einem früheren Anbieter oder einer früheren App-Version haben, können Sie Token für mobile Apps über die API importieren oder sich nach der Integration auf das SDK verlassen. Web-Push-Token haben API-Einschränkungen. Vollständige Details und Beispiele finden Sie unter [Push-Token migrieren]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 ### WhatsApp
 

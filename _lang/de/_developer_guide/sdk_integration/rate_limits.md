@@ -15,13 +15,13 @@ Das Rate-Limiting des Braze SDK nutzt die folgenden Features, um die Performance
 
 ### Asynchrone Verarbeitung {#asynchronous-processing}
 
-Das Braze SDK verwendet einen Token / Textbaustein-Bucket-Algorithmus für Rate-Limiting. Dieser Ansatz ermöglicht Aktivitätsschübe bei gleichzeitiger Aufrechterhaltung einer langfristigen Ratenkontrolle. Anstatt Anfragen in einer strengen Warteschlange zu verarbeiten, arbeitet der Token / Textbaustein-Bucket asynchron:
+Das Braze SDK verwendet einen Token-Bucket-Algorithmus für Rate-Limiting. Dieser Ansatz ermöglicht Aktivitätsschübe bei gleichzeitiger Aufrechterhaltung einer langfristigen Ratenkontrolle. Anstatt Anfragen in einer strengen Warteschlange zu verarbeiten, arbeitet der Token-Bucket asynchron:
 
-- **Token / Textbaustein-Generierung**: Die Token / Textbaustein werden kontinuierlich in den Bucket nachgefüllt.
-- **Bearbeitung von Anfragen**: Jeder SDK-Aufruf, der eingeht, wenn ein Token / Textbaustein verfügbar ist, wird sofort ausgeführt – unabhängig davon, wann andere Aufrufe eingegangen sind.
-- **Keine strenge Reihenfolge**: Anfragen warten nicht in einer Warteschlange; mehrere Aufrufe können um das nächste verfügbare Token / Textbaustein konkurrieren.
-- **Burst-Verarbeitung**: Kurze Aktivitätsausbrüche sind zulässig, sofern zum Zeitpunkt der Anfragen ausreichend Token / Textbaustein verfügbar sind.
-- **Ratenkontrolle**: Der langfristige Durchsatz wird durch die konstante Nachfüllrate der Token / Textbaustein begrenzt.
+- **Token-Generierung**: Die Token werden kontinuierlich in den Bucket nachgefüllt.
+- **Bearbeitung von Anfragen**: Jeder SDK-Aufruf, der eingeht, wenn ein Token verfügbar ist, wird sofort ausgeführt – unabhängig davon, wann andere Aufrufe eingegangen sind.
+- **Keine strenge Reihenfolge**: Anfragen warten nicht in einer Warteschlange; mehrere Aufrufe können um das nächste verfügbare Token konkurrieren.
+- **Burst-Verarbeitung**: Kurze Aktivitätsausbrüche sind zulässig, sofern zum Zeitpunkt der Anfragen ausreichend Token verfügbar sind.
+- **Ratenkontrolle**: Der langfristige Durchsatz wird durch die konstante Nachfüllrate der Token begrenzt.
 
 Dieser asynchrone Ablauf unterstützt das SDK dabei, schnell auf die verfügbare Netzwerkkapazität zu reagieren und gleichzeitig ein vorhersehbares Gesamtverkehrsaufkommen aufrechtzuerhalten.
 

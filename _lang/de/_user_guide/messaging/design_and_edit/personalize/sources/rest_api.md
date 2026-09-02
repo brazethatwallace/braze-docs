@@ -35,7 +35,7 @@ Connected-Content unterstützt GET- und POST-Anfragen. Braze erwartet, dass der 
 
 ## Authentifizierung {#authentication}
 
-Braze unterstützt Basic-Authentifizierung, Token / Textbaustein-Authentifizierung und OAuth für Connected-Content-Anfragen. Sie können Zugangsdaten sicher im Braze-Dashboard unter **Einstellungen** > **Connected Content** speichern und in Ihren API-Aufrufen referenzieren.
+Braze unterstützt Basic-Authentifizierung, Token-Authentifizierung und OAuth für Connected-Content-Anfragen. Sie können Zugangsdaten sicher im Braze-Dashboard unter **Einstellungen** > **Connected Content** speichern und in Ihren API-Aufrufen referenzieren.
 
 Weitere Informationen finden Sie unter [Einen Connected-Content-API-Aufruf durchführen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types).
 

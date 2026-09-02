@@ -139,7 +139,7 @@ Sobald die Integration aktiv ist, treffen Convercus-Events über den [`/users/tr
 | `convercus_status_level` | Die aktuelle Stufe oder der Statuslevel des Mitglieds. |
 | `convercus_balance` | Objekt mit den aktuellen `points`, `lockedPoints` und `statusPoints` des Mitglieds. |
 | `email_subscribe` | E-Mail-Abo-Status, abgeleitet aus Convercus-Opt-ins (`opted_in`, `subscribed` oder `unsubscribed`). |
-| `push_subscribe` | Push-Abo-Status, abgeleitet aus Convercus-Push-Token / Textbaustein-Events (`opted_in` oder `unsubscribed`). |
+| `push_subscribe` | Push-Abo-Status, abgeleitet aus Convercus-Push-Token-Events (`opted_in` oder `unsubscribed`). |
 | Standard-Profilfelder | `email`, `phone`, `first_name`, `last_name`, `dob`, `gender`, `home_city`, `country`. |
 | Angepasste Nutzer-Eigenschaften | Alle auf dem Convercus-Nutzerobjekt definierten angepassten Eigenschaften werden als angepasste Braze-Attribute weitergeleitet. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Angepasste Attribute" }
@@ -176,8 +176,8 @@ Innerhalb eines Braze-Workspace werden Mitglieder eindeutig durch `convercus_acc
 | `convercus_user_logged_out` | Sich das Mitglied abmeldet. |
 | `convercus_user_created` | Ein neuer Nutzer erstellt wird. |
 | `convercus_user_changed` | Sich die Profildaten eines Nutzers ändern. |
-| `convercus_push_token_created` | Ein Push-Token / Textbaustein für das Mitglied registriert wird. |
-| `convercus_push_token_deleted` | Ein Push-Token / Textbaustein entfernt wird. |
+| `convercus_push_token_created` | Ein Push-Token für das Mitglied registriert wird. |
+| `convercus_push_token_deleted` | Ein Push-Token entfernt wird. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Angepasste Events" }
 
 #### Käufe {#purchases}

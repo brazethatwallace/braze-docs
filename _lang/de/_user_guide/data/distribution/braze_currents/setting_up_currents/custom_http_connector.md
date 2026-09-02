@@ -26,13 +26,13 @@ Wenn Sie außerdem mehr als eine App-Gruppe in Braze haben, müssen Sie einen an
 
 ### Schritt 1: Endpunkt einrichten {#step-1-set-up-your-endpoint}
 
-Sie benötigen eine Endpunkt-URL, um diese Integration zu konfigurieren. Ihr Endpunkt sollte HTTP-POST-Anfragen empfangen können und einen `2XX`-Statuscode zurückgeben, um den erfolgreichen Empfang von Events zu bestätigen. Wenn Sie Anfragen von Braze authentifizieren möchten, benötigen Sie außerdem ein Bearer-Token / Textbaustein.
+Sie benötigen eine Endpunkt-URL, um diese Integration zu konfigurieren. Ihr Endpunkt sollte HTTP-POST-Anfragen empfangen können und einen `2XX`-Statuscode zurückgeben, um den erfolgreichen Empfang von Events zu bestätigen. Wenn Sie Anfragen von Braze authentifizieren möchten, benötigen Sie außerdem ein Bearer-Token.
 
 ### Schritt 2: Braze-Currents konfigurieren {#step-2-configure-braze-currents}
 
 Navigieren Sie in Braze zu **Partnerintegrationen** > **Datenexport**, klicken Sie auf **Create New Current** und wählen Sie **Custom Currents Export** aus.
 
-Geben Sie Ihrem Export einen Namen und eine Kontakt-E-Mail-Adresse an und fahren Sie dann mit der Seite **Current Details** fort. Geben Sie auf dieser Seite Ihre Endpunkt-URL und ein optionales Bearer-Token / Textbaustein ein.
+Geben Sie Ihrem Export einen Namen und eine Kontakt-E-Mail-Adresse an und fahren Sie dann mit der Seite **Current Details** fort. Geben Sie auf dieser Seite Ihre Endpunkt-URL und ein optionales Bearer-Token ein.
 
 Nachdem Sie Ihre Zugangsdaten konfiguriert haben, aktivieren Sie alle Nachrichten-Engagement-, Kundenverhalten- und Nutzer:innen-Events, die Sie exportieren möchten, und klicken Sie auf **Launch Current**.
 
@@ -87,7 +87,7 @@ Wenn ein nachgelagerter Endpunkt eine Payload mit null Events oder einen leeren 
 
 Authentifizierungstoken in Ihrem Payload sind optional. Sie können über einen HTTP-`Authorization`-Header mit dem `Bearer`-Autorisierungsschema übergeben werden, wie in [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1) festgelegt. Obwohl optional, wird Braze ein übergebenes Authentifizierungstoken immer zuerst validieren&#8212;auch wenn keine Events im Payload enthalten sind.
 
-Gemäß RFC 6750 sollten Token / Textbaustein Base64-kodierte Werte mit mindestens einem Zeichen sein. Beachten Sie, dass RFC 6750 zusätzlich zu den normalen Base64-Zeichen die folgenden Zeichen in Token / Textbaustein erlaubt: `-`, `.`, `_` und `~`. Sie können selbst entscheiden, ob Sie diese Zeichen in Ihr Token / Textbaustein aufnehmen möchten oder nicht&#8212;es muss jedoch im Base64-Format vorliegen.
+Gemäß RFC 6750 sollten Token Base64-kodierte Werte mit mindestens einem Zeichen sein. Beachten Sie, dass RFC 6750 zusätzlich zu den normalen Base64-Zeichen die folgenden Zeichen in Token erlaubt: `-`, `.`, `_` und `~`. Sie können selbst entscheiden, ob Sie diese Zeichen in Ihr Token aufnehmen möchten oder nicht&#8212;es muss jedoch im Base64-Format vorliegen.
 
 Wenn der `Authorization`-Header vorhanden ist, wird er außerdem im folgenden Format konstruiert:
 

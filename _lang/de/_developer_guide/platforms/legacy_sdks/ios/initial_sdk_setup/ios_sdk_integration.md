@@ -258,8 +258,8 @@ Leiten Sie als Nächstes die System-Push-Benachrichtigungsmethoden von `AppDeleg
 
 Erstellen Sie eine Extension für Ihren Push-Benachrichtigungscode in Ihrer `BrazeManager.swift`-Datei, damit die Datei übersichtlicher lesbar ist und der Zweck in der Hilfsdatei deutlich wird, wie folgt:
 
-1. Dem Muster folgend, keine `import AppboyUI`-Anweisung in Ihrem `AppDelegate` einzubinden, werden wir die Push-Benachrichtigungsmethoden in der `BrazeManager.swift`-Datei behandeln. Die Geräte-Token / Textbaustein der Nutzer:innen müssen aus der Methode `didRegisterForRemote...` an Braze übergeben werden. Diese Methode ist erforderlich, um stille Push-Benachrichtigungen zu implementieren. Fügen Sie als Nächstes dieselbe Methode aus dem `AppDelegate` in Ihre `BrazeManager`-Klasse ein.
-2. Fügen Sie die folgende Zeile innerhalb der Methode hinzu, um das Geräte-Token / Textbaustein bei Braze zu registrieren. Dies ist notwendig, damit Braze das Token / Textbaustein mit dem aktuellen Gerät verknüpfen kann.
+1. Dem Muster folgend, keine `import AppboyUI`-Anweisung in Ihrem `AppDelegate` einzubinden, werden wir die Push-Benachrichtigungsmethoden in der `BrazeManager.swift`-Datei behandeln. Die Geräte-Token der Nutzer:innen müssen aus der Methode `didRegisterForRemote...` an Braze übergeben werden. Diese Methode ist erforderlich, um stille Push-Benachrichtigungen zu implementieren. Fügen Sie als Nächstes dieselbe Methode aus dem `AppDelegate` in Ihre `BrazeManager`-Klasse ein.
+2. Fügen Sie die folgende Zeile innerhalb der Methode hinzu, um das Geräte-Token bei Braze zu registrieren. Dies ist notwendig, damit Braze das Token mit dem aktuellen Gerät verknüpfen kann.
 
 {% subtabs global %}
 {% subtab Swift %}
@@ -460,7 +460,7 @@ func logCustomEvent(_ eventName: String, withProperties properties: [AnyHashable
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Step 2: angepasste Attribute %}
+{% tab Step 2: Custom Attributes %}
 
 ##### Methode zum Protokollieren angepasster Attribute erstellen {#create-log-custom-attributes-method}
 

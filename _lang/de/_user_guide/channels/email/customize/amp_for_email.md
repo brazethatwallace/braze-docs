@@ -118,7 +118,7 @@ Verwenden Sie diese Komponenten, um dynamische Layouts und Verhaltensweisen in I
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Komponenten" }
 
 {% alert note %}
-Jede Komponente, die eine Authentifizierung der Nutzer:innen erfordert, muss [Google-Zugriffstoken](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) oder [Proxy-Assertion-Token / Textbaustein](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens) verwenden.
+Jede Komponente, die eine Authentifizierung der Nutzer:innen erfordert, muss [Google-Zugriffstoken](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) oder [Proxy-Assertion-Token](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens) verwenden.
 {% endalert %}
   {% endtab %}
   {% tab Kreativ %}
@@ -133,7 +133,7 @@ Jede Komponente, die eine Authentifizierung der Nutzer:innen erfordert, muss [Go
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Komponenten" }
 
 {% alert note %}
-Jede Komponente, die eine Authentifizierung der Nutzer:innen erfordert, muss [Google-Zugriffstoken](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) oder [Proxy-Assertion-Token / Textbaustein](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens) verwenden.
+Jede Komponente, die eine Authentifizierung der Nutzer:innen erfordert, muss [Google-Zugriffstoken](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) oder [Proxy-Assertion-Token](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens) verwenden.
 {% endalert %}
 
   {% endtab %}
@@ -145,7 +145,7 @@ Jede Komponente, die eine Authentifizierung der Nutzer:innen erfordert, muss [Go
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Komponenten" }
 
 {% alert note %}
-Jede Komponente, die eine Authentifizierung der Nutzer:innen erfordert, muss [Google-Zugriffstoken](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) oder [Proxy-Assertion-Token / Textbaustein](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens) verwenden.
+Jede Komponente, die eine Authentifizierung der Nutzer:innen erfordert, muss [Google-Zugriffstoken](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) oder [Proxy-Assertion-Token](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens) verwenden.
 {% endalert %}
 
 {% endtab %}

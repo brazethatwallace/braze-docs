@@ -20,7 +20,7 @@ Um Scuba Analytics mit Braze zu verwenden, benötigen Sie Folgendes:
 
 | Voraussetzung | Beschreibung |
 |---|---|
-| Scuba-API-Token / Textbaustein | Ein Scuba-API-Token / Textbaustein, das Sie vom Endpunkt `https://{scuba_hostname}/api/create_token` abrufen können. |
+| Scuba-API-Token | Ein Scuba-API-Token, das Sie vom Endpunkt `https://{scuba_hostname}/api/create_token` abrufen können. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze-REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz](https://scuba.io) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -56,7 +56,7 @@ Ersetzen Sie die folgenden Werte:
 | `BRAZE_API_ENDPOINT`    | Die Braze-REST-Endpunkt-URL Ihrer aktuellen Braze-Instanz. Weitere Informationen finden Sie unter [REST-API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). |
 | `BRAZE_API_KEY`         | Ihr Braze-REST-API-Schlüssel mit der Berechtigung `users.track`.                                                                                                                                      |
 | `HOSTNAME`              | Der Hostname Ihrer aktuellen Scuba-Instanz.                                                                                                                                                    |
-| `SCUBA_API_TOKEN`       | Ihr Scuba-API-Token / Textbaustein.                                                                                                                                                                           |
+| `SCUBA_API_TOKEN`       | Ihr Scuba-API-Token.                                                                                                                                                                           |
 | `TABLE_NAME`            | Die Tabelle, zu der Ihr Datensatz gehört. Weitere Informationen finden Sie unter [Glossary: Dataset table](https://docs.scuba.io/glossary/dataset-table).                                                                                                      |
 | `ACTOR_PROPERTY_NAME`   | Die Actor-Eigenschaft, zu der Ihr Datensatz gehört. Es werden nur Daten zurückgegeben, die mit diesem Namen übereinstimmen. Weitere Informationen finden Sie unter [Glossary: Actor property](https://docs.scuba.io/glossary/actor-property).                                             |
 | `ACTOR_PROPERTY_FILTER` | Der Zielgruppen-Suchfilter für Ihre Actor-Eigenschaft.                                                                                                                                             |

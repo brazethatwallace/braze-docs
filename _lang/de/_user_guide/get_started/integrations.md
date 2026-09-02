@@ -43,7 +43,7 @@ Teilen Sie Ihren Entwickler:innen unbedingt mit, welche Kanäle Sie nutzen möch
 | Kanal | Details |
 |---|---|
 | In-App-Nachrichten | Erfordert die SDK-Implementierung sowie diese kanalspezifischen Schritte. |
-| Push | Erfordert die SDK-Implementierung für den ordnungsgemäßen Umgang mit Messaging-Zugangsdaten und Push-Token / Textbaustein. |
+| Push | Erfordert die SDK-Implementierung für den ordnungsgemäßen Umgang mit Messaging-Zugangsdaten und Push-Token. |
 | E-Mail | Dies ist ein völlig anderer Prozess. Weitere Informationen zur Integration finden Sie im Abschnitt [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup). |
 | Content Cards | Um mit [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards) zu beginnen, wenden Sie sich an Ihren Braze CSM. |
 | SMS & MMS | Weitere Informationen zur Integration finden Sie im Abschnitt [SMS-Einrichtung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending). |

@@ -57,8 +57,8 @@ Tabelle | Beschreibung
 [USERS_BEHAVIORS_APP_SESSIONSTART_SHARED](#USERS_BEHAVIORS_APP_SESSIONSTART_SHARED) | Wenn Nutzer:innen eine Sitzung in einer App beginnen
 [USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | Wenn Nutzer:innen einen Geofence-Bereich auslösen – beispielsweise durch Betreten oder Verlassen eines Geofence. Dieses Ereignis wird mit anderen Ereignissen gebündelt und über den Standard-Endpunkt für Ereignisse empfangen, sodass es möglicherweise nicht in Echtzeit angezeigt wird.<br><br>Um Geofence-Aktivitäten in dieser Tabelle zu protokollieren, aktivieren Sie **Enable Analytics for Enter** und **Enable Analytics for Exit** in den erweiterten Einstellungen jedes Geofence. Weitere Details finden Sie in Schritt 3 unter [Geofences manuell erstellen]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences#manually-create-geofences).
 [USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED) | Wenn Nutzer:innen einen Geofence-Bereich auslösen (beispielsweise durch Betreten oder Verlassen eines Geofence). Dieses Ereignis wurde über den dedizierten Geofence-Endpunkt empfangen und wird daher in Echtzeit erfasst, sobald das Gerät erkennt, dass ein Geofence ausgelöst wurde. <br><br>Aufgrund von Rate-Limiting am Geofence-Endpunkt ist es zudem möglich, dass einige Geofence-Ereignisse nicht als RecordEvent widergespiegelt werden. Alle Geofence-Ereignisse werden jedoch durch DataEvent repräsentiert (allerdings möglicherweise mit einer gewissen Verzögerung durch die Bündelung).
-[USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED) | Wenn sich ein Push-to-Start-Token / Textbaustein einer Live Activity ändert
-[USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED) | Wenn sich ein Update-Token / Textbaustein einer Live Activity ändert
+[USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED) | Wenn sich ein Push-to-Start-Token einer Live Activity ändert
+[USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED) | Wenn sich ein Update-Token einer Live Activity ändert
 [USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED](#USERS_BEHAVIORS_PUSHNOTIFICATION_TOKENSTATECHANGE_SHARED) | Wenn sich der Status eines Push-Benachrichtigungs-Tokens ändert
 [USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED](#USERS_BEHAVIORS_SUBSCRIPTION_GLOBALSTATECHANGE_SHARED) | Wenn sich Nutzer:innen global für einen Kanal wie E-Mail an- oder abmelden
 [USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED](#USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED) | Wenn sich Nutzer:innen für eine Abo-Gruppe an- oder abmelden
@@ -670,11 +670,11 @@ Feld | Typ | Beschreibung
 `time` | `int` | UNIX-Zeitstempel, zu dem das Ereignis stattfand
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `activity_attributes_type` | `null,`&nbsp;`string` | Live-Activity-Attributtyp
-`push_to_start_token` | `null,`&nbsp;`string` | Push-to-Start-Token / Textbaustein der Live Activity
+`push_to_start_token` | `null,`&nbsp;`string` | Push-to-Start-Token der Live Activity
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis stattfand
 `sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, das während des Ereignisses verwendet wurde
 `ios_push_token_apns_gateway` | `null, int` | APNS-Gateway des Push-Tokens, gilt nur für iOS-Push-Tokens, 1 für Entwicklung, 2 für Produktion
-`push_token_state_change_type` | `null,`&nbsp;`string` | Beschreibung des Änderungstyps des Push-Token / Textbaustein-Status
+`push_token_state_change_type` | `null,`&nbsp;`string` | Beschreibung des Änderungstyps des Push-Token-Status
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis stattfand
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
@@ -695,7 +695,7 @@ Feld | Typ | Beschreibung
 `device_id` | `null,`&nbsp;`string` | ID des Geräts, auf dem das Ereignis stattfand
 `sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, das während des Ereignisses verwendet wurde
 `ios_push_token_apns_gateway` | `null, int` | APNS-Gateway des Push-Tokens, gilt nur für iOS-Push-Tokens, 1 für Entwicklung, 2 für Produktion
-`push_token_state_change_type` | `null,`&nbsp;`string` | Beschreibung des Änderungstyps des Push-Token / Textbaustein-Status
+`push_token_state_change_type` | `null,`&nbsp;`string` | Beschreibung des Änderungstyps des Push-Token-Status
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis stattfand
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
@@ -714,17 +714,17 @@ Feld | Typ | Beschreibung
 `sdk_version` | `null,`&nbsp;`string` | Version des Braze SDK, das während des Ereignisses verwendet wurde
 `platform` | `null,`&nbsp;`string` | Plattform des Geräts
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
-`push_token` | `null,`&nbsp;`string` | Push-Token / Textbaustein des Ereignisses
-`push_token_created_at` | `null, int` | UNIX-Zeitstempel, zu dem das Push-Token / Textbaustein erstellt wurde
-`push_token_updated_at` | `null, int` | UNIX-Zeitstempel, zu dem das Push-Token / Textbaustein zuletzt aktualisiert wurde
-`push_token_foreground_push_disabled` | `null, boolean` | Flag, ob Vordergrund-Push für das Push-Token / Textbaustein deaktiviert ist
+`push_token` | `null,`&nbsp;`string` | Push-Token des Ereignisses
+`push_token_created_at` | `null, int` | UNIX-Zeitstempel, zu dem das Push-Token erstellt wurde
+`push_token_updated_at` | `null, int` | UNIX-Zeitstempel, zu dem das Push-Token zuletzt aktualisiert wurde
+`push_token_foreground_push_disabled` | `null, boolean` | Flag, ob Vordergrund-Push für das Push-Token deaktiviert ist
 `push_token_device_id` | `null,`&nbsp;`string` | Geräte-ID des Push-Tokens
-`push_token_provisionally_opted_in` | `null, boolean` | Flag, ob das Push-Token / Textbaustein vorläufig angemeldet ist
+`push_token_provisionally_opted_in` | `null, boolean` | Flag, ob das Push-Token vorläufig angemeldet ist
 `ios_push_token_apns_gateway` | `null, int` | APNS-Gateway des Push-Tokens, gilt nur für iOS-Push-Tokens, 1 für Entwicklung, 2 für Produktion
 `web_push_token_public_key` | `null,`&nbsp;`string` | Public Key des Push-Tokens, gilt nur für Web-Push-Tokens
 `web_push_token_user_auth` | `null,`&nbsp;`string` | Nutzer-Authentifizierung des Push-Tokens, gilt nur für Web-Push-Tokens
 `web_push_token_vapid_public_key` | `null,`&nbsp;`string` | VAPID-Public-Key des Push-Tokens, gilt nur für Web-Push-Tokens
-`push_token_state_change_type` | `null,`&nbsp;`string` | Beschreibung des Änderungstyps des Push-Token / Textbaustein-Status
+`push_token_state_change_type` | `null,`&nbsp;`string` | Beschreibung des Änderungstyps des Push-Token-Status
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, in der dieses Ereignis stattfand
 `sf_created_at` | `timestamp`,&nbsp;`null` | Zeitpunkt, zu dem dieses Ereignis von der Snowpipe erfasst wurde
@@ -2093,8 +2093,8 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `activity_id` | `null,`&nbsp;`string` | Live-Activity-Bezeichner
 `activity_attributes_type` | `null,`&nbsp;`string` | Attributtyp der Live Activity
-`push_to_start_token` | `null,`&nbsp;`string` | Push-to-Start-Token / Textbaustein der Live Activity
-`update_token` | `null,`&nbsp;`string` | Update-Token / Textbaustein der Live Activity
+`push_to_start_token` | `null,`&nbsp;`string` | Push-to-Start-Token der Live Activity
+`update_token` | `null,`&nbsp;`string` | Update-Token der Live Activity
 `live_activity_event_type` | `null,`&nbsp;`string` | Ereignistyp der Live Activity. Einer von ['start', 'update', 'end']
 `live_activity_event_outcome` | `null,`&nbsp;`string` | Ergebnis des Live-Activity-Ereignisses
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
@@ -2114,8 +2114,8 @@ Feld | Typ | Beschreibung
 `app_group_id` | `null,`&nbsp;`string` | BSON-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `activity_id` | `null,`&nbsp;`string` | Live-Activity-Bezeichner
 `activity_attributes_type` | `null,`&nbsp;`string` | Attributtyp der Live Activity
-`push_to_start_token` | `null,`&nbsp;`string` | Push-to-Start-Token / Textbaustein der Live Activity
-`update_token` | `null,`&nbsp;`string` | Update-Token / Textbaustein der Live Activity
+`push_to_start_token` | `null,`&nbsp;`string` | Push-to-Start-Token der Live Activity
+`update_token` | `null,`&nbsp;`string` | Update-Token der Live Activity
 `live_activity_event_type` | `null,`&nbsp;`string` | Ereignistyp der Live Activity. Einer von ['start', 'update', 'end']
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID der App-Gruppe, zu der diese:r Nutzer:in gehört
 `app_api_id` | `null,`&nbsp;`string` | API-ID der App, auf der dieses Ereignis aufgetreten ist
@@ -2247,7 +2247,7 @@ Feld | Typ | Beschreibung
 `id` | `string` | Global eindeutige ID für dieses Ereignis
 `user_id` | `string` | Braze-ID der/des Nutzer:in, die/der dieses Ereignis ausgeführt hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer:innen-ID der/des Nutzer:in
-`push_token` | `null,`&nbsp;`string` | Push-Token / Textbaustein, das einen Bounce verursacht hat
+`push_token` | `null,`&nbsp;`string` | Push-Token, das einen Bounce verursacht hat
 `device_id` | `null,`&nbsp;`string` | `device_id`, an die ein Zustellversuch unternommen wurde, der einen Bounce verursachte
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese:r Nutzer:in gehört
 `time` | `int` | Unix-Zeitstempel, zu dem das Ereignis stattfand
@@ -2403,7 +2403,7 @@ Feld | Typ | Beschreibung
 `id` | `string` | Global eindeutige ID für dieses Ereignis
 `user_id` | `string` | Braze-ID der Nutzer:in, die dieses Ereignis ausgeführt hat
 `external_user_id` | `null,`&nbsp;`string` | [PII] Externe Nutzer-ID der Nutzer:in
-`push_token` | `null,`&nbsp;`string` | Push-Token / Textbaustein, an das ein Zustellversuch unternommen wurde
+`push_token` | `null,`&nbsp;`string` | Push-Token, an das ein Zustellversuch unternommen wurde
 `device_id` | `null,`&nbsp;`string` | `device_id`, an die ein Zustellversuch unternommen wurde
 `app_group_api_id` | `null,`&nbsp;`string` | API-ID des Workspace, zu dem diese Nutzer:in gehört
 `time` | `int` | Unix-Zeitstempel, zu dem das Ereignis aufgetreten ist

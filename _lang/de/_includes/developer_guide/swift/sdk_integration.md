@@ -211,7 +211,7 @@ empty_swift_file.swift
 
 ### Schritt 2: Verzögerte Initialisierung einrichten (optional) {#step-2-set-up-delayed-initialization-optional}
 
-Sie haben die Möglichkeit, die Initialisierung des Braze Swift SDK zu verzögern. Dies ist nützlich, wenn Ihre App vor dem Start des SDK eine Konfiguration laden oder auf die Zustimmung der Nutzer:innen warten muss. Die verzögerte Initialisierung stellt sicher, dass Braze-Push-Benachrichtigungen und Push-Token / Textbaustein, die vor der SDK-Initialisierung empfangen wurden, in die Warteschlange gestellt und nach der Initialisierung des SDK verarbeitet werden.
+Sie haben die Möglichkeit, die Initialisierung des Braze Swift SDK zu verzögern. Dies ist nützlich, wenn Ihre App vor dem Start des SDK eine Konfiguration laden oder auf die Zustimmung der Nutzer:innen warten muss. Die verzögerte Initialisierung stellt sicher, dass Braze-Push-Benachrichtigungen und Push-Token, die vor der SDK-Initialisierung empfangen wurden, in die Warteschlange gestellt und nach der Initialisierung des SDK verarbeitet werden.
 
 Um die verzögerte Initialisierung zu verwenden, ist die folgende Mindestversion des Braze SDK erforderlich:
 {% sdk_min_versions swift:11.2.0 %}
@@ -390,7 +390,7 @@ func initializeBraze() {
 {% endtabs %}
 
 {% alert note %}
-Bei der Initialisierung des SDK werden alle in der Warteschlange befindlichen Push-Benachrichtigungen, Push-Token / Textbaustein und Deeplinks automatisch verarbeitet.
+Bei der Initialisierung des SDK werden alle in der Warteschlange befindlichen Push-Benachrichtigungen, Push-Token und Deeplinks automatisch verarbeitet.
 {% endalert %}
 
 ### Schritt 3: Aktualisieren Sie Ihren App-Delegierten {#step-3-update-your-app-delegate}

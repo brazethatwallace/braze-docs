@@ -213,7 +213,7 @@ Webhooks basieren darauf, dass Braze-Server Anfragen an einen externen Endpunkt 
 
 Wenn Ihr Webhook nicht gesendet werden kann, wird eine Fehlermeldung im [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) protokolliert, einschließlich Details wie dem Fehlerzeitstempel, dem App-Namen und Details zum Fehler.
 
-![Webhook-Fehler mit der Meldung „An active access Token / Textbaustein must be used to query information about the current user“.]({% image_buster /assets/img_archive/webhook-error.png %})
+![Webhook-Fehler mit der Meldung „An active access Token must be used to query information about the current user“.]({% image_buster /assets/img_archive/webhook-error.png %})
 
 Wenn die Fehlermeldung nicht eindeutig genug ist, um die Fehlerquelle zu identifizieren, sollten Sie die Dokumentation des von Ihnen verwendeten API-Endpunkts prüfen. Diese enthalten in der Regel eine Erklärung der vom Endpunkt verwendeten Fehlercodes sowie deren übliche Ursachen.
 
@@ -253,7 +253,7 @@ Für weitere `4XX`-Fehlerbehebungsschritte lesen Sie [Fehlerbehebung bei Webhook
 
 #### Authentifizierung und Connected-Content-Zugangsdaten {#authentication-and-connected-content-credentials}
 
-Die ausgehende Webhook-HTTP-Anfrage unterstützt nicht das Anhängen von [Connected-Content-Zugangsdaten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` oder `:auth_credentials`) zur Authentifizierung gegen Ihren Endpunkt. Legen Sie die Authentifizierung stattdessen über **Anfrage-Header** im Webhook fest. Um ein Token / Textbaustein oder Secret zum Sendezeitpunkt abzurufen, können Sie ein {% raw %}`{% connected_content %}`{% endraw %}-Tag in ein Header- oder Body-Feld einfügen, damit Liquid es auflöst, bevor der Webhook gesendet wird.
+Die ausgehende Webhook-HTTP-Anfrage unterstützt nicht das Anhängen von [Connected-Content-Zugangsdaten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types) (`:basic_auth` oder `:auth_credentials`) zur Authentifizierung gegen Ihren Endpunkt. Legen Sie die Authentifizierung stattdessen über **Anfrage-Header** im Webhook fest. Um ein Token oder Secret zum Sendezeitpunkt abzurufen, können Sie ein {% raw %}`{% connected_content %}`{% endraw %}-Tag in ein Header- oder Body-Feld einfügen, damit Liquid es auflöst, bevor der Webhook gesendet wird.
 
 #### Gespeicherte Webhook-Templates und Campaign-Nutzung {#saved-webhook-templates-and-campaign-usage}
 

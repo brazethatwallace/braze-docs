@@ -17,7 +17,7 @@ Die Datenpunkte basieren auf Informationen, die anhand von Nutzerprofilen aufgez
 
 „Datenpunkte“ bezeichnen eine abrechenbare Nutzungseinheit der Braze-Dienste, gemessen an einem Sitzungsstart, einem Sitzungsende, einem angepassten Event oder einem erfassten Kauf sowie an jedem Attribut, das in einem Endnutzer:innen-Profil festgelegt wird. Zur Klarstellung: Jede der zuvor in diesem Abschnitt genannten Datenarten (wie Sitzungsstart, Sitzungsende, angepasstes Event oder erfasster Kauf sowie jedes Attribut), die zu einem bestimmten Zeitpunkt im Profil einer Endnutzerin oder eines Endnutzers festgelegt wird, zählt jeweils als ein einzelner Datenpunkt.
 
-Daten und Events, die standardmäßig von den Braze-Diensten erfasst werden – darunter beispielsweise Push-Token / Textbaustein, Geräteinformationen und alle Tracking-Events für das Campaign-Engagement, wie E-Mail-Öffnungen und Klicks auf Push-Benachrichtigungen – werden *nicht* als Datenpunkte gezählt.
+Daten und Events, die standardmäßig von den Braze-Diensten erfasst werden – darunter beispielsweise Push-Token, Geräteinformationen und alle Tracking-Events für das Campaign-Engagement, wie E-Mail-Öffnungen und Klicks auf Push-Benachrichtigungen – werden *nicht* als Datenpunkte gezählt.
 
 Im Abschnitt [Verbrauchszählung](#consumption-count) dieses Artikels erfahren Sie, welche Daten auf Ihr Datenpunkt-Kontingent angerechnet werden.
 

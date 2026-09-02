@@ -150,7 +150,7 @@ Das hängt davon ab, ob Sie Ihre App aktualisieren oder eine völlig neue App er
 
 Wenn Sie Ihre App aktualisieren, sollten Sie die alte und die neue Version trennen, indem Sie eine neue App-Instanz innerhalb desselben Workspace erstellen. Auf diese Weise können Sie Nutzer:innen der neuen Version effektiv ansprechen, wenn Sie diese App bei der Segmentierung auswählen. Wenn Sie Nutzer:innen der alten Version eine Nachricht senden möchten, können Sie Filter verwenden, um [die vorherige App-Version anzusprechen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
-Wenn Sie einen neuen Workspace erstellen, existieren Ihre Nutzer:innen an zwei Stellen: im alten Workspace und im neuen Workspace. Sie könnten auch potenziell dasselbe Push-Token / Textbaustein haben. Dies kann dazu führen, dass Nutzer:innen eine Marketing-Nachricht erhalten, die nur für Nutzer:innen des alten Workspace bestimmt war, selbst wenn sie bereits ein Upgrade durchgeführt haben.
+Wenn Sie einen neuen Workspace erstellen, existieren Ihre Nutzer:innen an zwei Stellen: im alten Workspace und im neuen Workspace. Sie könnten auch potenziell dasselbe Push-Token haben. Dies kann dazu führen, dass Nutzer:innen eine Marketing-Nachricht erhalten, die nur für Nutzer:innen des alten Workspace bestimmt war, selbst wenn sie bereits ein Upgrade durchgeführt haben.
 
 #### Eine neue App veröffentlichen {#releasing-a-new-app}
 
@@ -158,7 +158,7 @@ Wenn Sie eine völlig neue App im App Store veröffentlichen, sollten Sie einen 
 
 ### Ich habe mehrere App-Instanzen in einem Workspace – wie kann ich sicherstellen, dass meine Nachricht nur eine einzelne App anspricht? {#singular-app}
 
-Um sicherzustellen, dass Ihre Nachricht nur eine bestimmte App anspricht, fügen Sie ein Segment hinzu, das nur Nutzer:innen Ihrer ausgewählten App-Instanzen enthält. Dies ist besonders wichtig, wenn Nutzer:innen möglicherweise zwei Push-Token / Textbaustein für verschiedene App-Instanzen im selben Workspace haben. In diesem Szenario könnten Nutzer:innen eine Benachrichtigung für eine andere App erhalten als die, die sie gerade verwenden. Keine ideale Erfahrung!
+Um sicherzustellen, dass Ihre Nachricht nur eine bestimmte App anspricht, fügen Sie ein Segment hinzu, das nur Nutzer:innen Ihrer ausgewählten App-Instanzen enthält. Dies ist besonders wichtig, wenn Nutzer:innen möglicherweise zwei Push-Token für verschiedene App-Instanzen im selben Workspace haben. In diesem Szenario könnten Nutzer:innen eine Benachrichtigung für eine andere App erhalten als die, die sie gerade verwenden. Keine ideale Erfahrung!
 
 Standardmäßig zielt ein Segment auf alle Apps und Websites im Workspace ab. So richten Sie ein Segment ein, das nur eine App oder Website anspricht:
 

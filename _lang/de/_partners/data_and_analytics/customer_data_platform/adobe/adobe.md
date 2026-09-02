@@ -44,7 +44,7 @@ Wählen Sie auf der Adobe-Seite **Settings** unter **Collections** die Option **
 Wenn bereits eine Verbindung mit Braze besteht, sehen Sie auf der Zielkarte einen Button **Activate**. Weitere Informationen zum Unterschied zwischen „Activate“ und „Configure“ finden Sie im Abschnitt „Catalog“ in der [Dokumentation](https://experienceleague.adobe.com/docs/experience-platform/rtcdp/destinations/destinations-interface/destinations-workspace.html?lang=en#catalog) zum Adobe Workspace für Ziele.
 {% endalert %}
 
-### 2. Schritt: Braze-Token / Textbaustein bereitstellen {#step-2-provide-braze-token}
+### 2. Schritt: Braze-Token bereitstellen {#step-2-provide-braze-token}
 
 Geben Sie im Schritt **Account** Ihren Braze-API-Schlüssel an und wählen Sie **Connect to destination** aus.
 

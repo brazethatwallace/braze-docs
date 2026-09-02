@@ -59,7 +59,7 @@ Das Braze SDK kann die Push-Registrierung bei den Firebase Cloud Messaging-Serve
 
 | Einstellung | Beschreibung |
 |----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Automatic Firebase Cloud Messaging Registration Enabled | Weist das Braze SDK an, automatisch ein FCM-Push-Token / Textbaustein für ein Gerät abzurufen und zu senden. |
+| Automatic Firebase Cloud Messaging Registration Enabled | Weist das Braze SDK an, automatisch ein FCM-Push-Token für ein Gerät abzurufen und zu senden. |
 | Firebase Cloud Messaging Sender ID | Die Sender-ID aus Ihrer Firebase-Konsole. |
 | Handle Push Deeplinks Automatically | Gibt an, ob das SDK das Öffnen von Deeplinks oder das Öffnen der App beim Klicken auf Push-Benachrichtigungen verarbeiten soll. |
 | Small Notification Icon Drawable | Android-Drawable-Ressourcenreferenz für das kleine Symbol, das beim Empfang einer Push-Benachrichtigung angezeigt wird. Geben Sie die vollständige Referenz einschließlich des Präfixes `@drawable/` ein (z. B. `@drawable/hourglass_icon`). Die automatisierte Integration schreibt diesen Wert wie eingegeben in `braze.xml`. Wenn Sie dieses Feld leer lassen, verwendet die Benachrichtigung das Anwendungssymbol als kleines Symbol. |
@@ -72,7 +72,7 @@ Das Braze SDK kann die Push-Registrierung bei den Firebase Cloud Messaging-Serve
 {% endtab %}
 
 {% tab Swift %}
-#### Schritt 2.1: APNs-Token / Textbaustein hochladen {#step-21-upload-your-apns-token}
+#### Schritt 2.1: APNs-Token hochladen {#step-21-upload-your-apns-token}
 
 {% multi_lang_include developer_guide/swift/apns_token.md %}
 
@@ -80,7 +80,7 @@ Das Braze SDK kann die Push-Registrierung bei den Firebase Cloud Messaging-Serve
 
 Öffnen Sie die Braze-Konfigurationseinstellungen im Unity-Editor, indem Sie zu **Braze > Braze Configuration** navigieren.
 
-Aktivieren Sie **Integrate Push With Braze**, um Nutzer:innen automatisch für Push-Benachrichtigungen zu registrieren, Push-Token / Textbaustein an Braze weiterzugeben, Analytics für Push-Öffnungen zu verfolgen und die Vorteile unserer standardmäßigen Push-Benachrichtigungsverarbeitung zu nutzen.
+Aktivieren Sie **Integrate Push With Braze**, um Nutzer:innen automatisch für Push-Benachrichtigungen zu registrieren, Push-Token an Braze weiterzugeben, Analytics für Push-Öffnungen zu verfolgen und die Vorteile unserer standardmäßigen Push-Benachrichtigungsverarbeitung zu nutzen.
 
 #### Schritt 2.3: Hintergrund-Push aktivieren (optional) {#step-23-enable-background-push-optional}
 
@@ -316,9 +316,9 @@ Informationen zu den Gestaltungsregeln für kleine Symbole (nur Alpha-Kanal, kei
 {% endtab %}
 
 {% tab Swift %}
-#### Push-Token / Textbaustein-Callback
+#### Push-Token-Callback
 
-Um eine Kopie der Braze-Geräte-Token / Textbaustein vom Betriebssystem zu erhalten, setzen Sie einen Delegaten mit `AppboyBinding.SetPushTokenReceivedFromSystemDelegate()`.
+Um eine Kopie der Braze-Geräte-Token vom Betriebssystem zu erhalten, setzen Sie einen Delegaten mit `AppboyBinding.SetPushTokenReceivedFromSystemDelegate()`.
 {% endtab %}
 
 {% tab Amazon Device Messaging %}

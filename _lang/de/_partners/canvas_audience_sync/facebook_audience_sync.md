@@ -62,10 +62,10 @@ Nachdem Sie Braze mit Ihrem Facebook-Konto verknüpft haben, wählen Sie die Anz
 
 ![Eine aktualisierte Version der Facebook-Technologie-Partnerseite, auf der die erfolgreich verbundenen Anzeigenkonten angezeigt werden.]({% image_buster /assets/img/fb/afb_5.png %}){: style="max-width:85%;"}
 
-Ihre Facebook-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Facebook-Administrator Sie von Ihrem Facebook Business Manager:in oder dem Zugriff auf die verbundenen Facebook-Konten entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Infolgedessen werden Ihre aktiven Canvases, die Facebook-Audience-Komponenten verwenden, Fehler anzeigen, und Braze kann die Nutzer:innen nicht synchronisieren.
+Ihre Facebook-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Facebook-Administrator Sie von Ihrem Facebook Business Manager:in oder dem Zugriff auf die verbundenen Facebook-Konten entfernt, erkennt Braze ein ungültiges Token. Infolgedessen werden Ihre aktiven Canvases, die Facebook-Audience-Komponenten verwenden, Fehler anzeigen, und Braze kann die Nutzer:innen nicht synchronisieren.
 
 {% alert important %}
-Für Kund:innen, die zuvor den Facebook-App-Review-Prozess für [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) und [Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard) durchlaufen haben, ist Ihr System User Token / Textbaustein weiterhin für die Facebook-Audience-Komponente gültig. Sie können das Facebook System User Token / Textbaustein nicht über die Facebook-Partnerseite bearbeiten oder widerrufen. Stattdessen können Sie Ihr Facebook-Konto verbinden, um Ihr Facebook System User Token / Textbaustein innerhalb Ihres Braze-Workspace zu ersetzen.
+Für Kund:innen, die zuvor den Facebook-App-Review-Prozess für [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) und [Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard) durchlaufen haben, ist Ihr System User Token weiterhin für die Facebook-Audience-Komponente gültig. Sie können das Facebook System User Token nicht über die Facebook-Partnerseite bearbeiten oder widerrufen. Stattdessen können Sie Ihr Facebook-Konto verbinden, um Ihr Facebook System User Token innerhalb Ihres Braze-Workspace zu ersetzen.
 
 <br><br>Die Facebook-oAuth-Konfiguration gilt auch für [Facebook-Exporte mit Segments]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook#prerequisites).
 {% endalert %}
@@ -148,7 +148,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Synchronisierte Nutzer:innen | Anzahl der Nutzer:innen, die erfolgreich mit Facebook synchronisiert wurden. |
 | Nicht synchronisierte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund fehlender Abgleichfelder nicht synchronisiert wurden. Felder werden mit einem „ODER“-Operator abgeglichen, d. h. solange ein:e Nutzer:in eines der Felder in Facebook hat, wird Facebook die:den Nutzer:in zuordnen, auch wenn bei allen anderen Feldern keine Übereinstimmung besteht. |
 | Ausstehende Nutzer:innen | Anzahl der Nutzer:innen, die derzeit von Braze verarbeitet werden, um mit Facebook synchronisiert zu werden. |
-| Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Facebook synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Facebook-Token / Textbaustein oder eine gelöschte Custom Audience auf Facebook sein. |
+| Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Facebook synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Facebook-Token oder eine gelöschte Custom Audience auf Facebook sein. |
 | Canvas verlassen | Anzahl der Nutzer:innen, die den Canvas verlassen haben. Dies tritt auf, wenn der letzte Schritt in einem Canvas ein Facebook-Schritt ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 
@@ -168,7 +168,7 @@ Sie können Ihr Facebook-Konto auf der Facebook-Partnerseite einfach trennen und
 
 ### Warum darf mein Canvas nicht gestartet werden? {#why-is-my-canvas-not-allowed-to-launch}
 
-- Stellen Sie sicher, dass Ihr System-Nutzer-Token / Textbaustein authentifiziert ist und Zugriff auf die gewünschten Werbekonten im Facebook Business Manager:in hat.
+- Stellen Sie sicher, dass Ihr System-Nutzer-Token authentifiziert ist und Zugriff auf die gewünschten Werbekonten im Facebook Business Manager:in hat.
 - Stellen Sie sicher, dass Sie ein Werbekonto ausgewählt, einen Namen für die neue Custom Audience eingegeben und Felder zum Abgleich ausgewählt haben.
 - Möglicherweise haben Sie das Limit von 500 Custom Audiences auf Facebook erreicht. Gehen Sie zum Facebook Audience Manager:in, um einige nicht benötigte Zielgruppen zu löschen, bevor Sie neue Custom Audiences mit Canvas erstellen.
 
@@ -253,7 +253,7 @@ table td {
   </thead>
   <tbody>
     <tr>
-      <td><b>Invalid Token / Textbaustein</b></td>
+      <td><b>Invalid Token</b></td>
       <td>Typische Ursachen sind unter anderem, dass die Person, die die Integration verbunden hat, ihr Passwort ändert oder Zugangsdaten ablaufen.</td>
       <td>Gehen Sie zu <b>Partnerintegrationen</b> > <b>Facebook</b> und trennen Sie Ihr Konto und verbinden Sie es erneut. Weitere Schritte zur Überprüfung Ihres Facebook-Kontos finden Sie in <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>diesem Abschnitt zur Fehlerbehebung</a>.</td>
     </tr>
@@ -292,10 +292,10 @@ table td {
     <tr>
       <td><b>Ad account missing from dropdown</b></td>
       <td>Wenn Sie den Facebook-Audience-Schritt konfigurieren, wird ein erwartetes Werbekonto nicht in der Werbekonto-Auswahl angezeigt.</td>
-      <td>Bestätigen Sie, dass Ihre Facebook-App die <a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">App-Überprüfung</a> für <code>ads_management</code> mit der von Facebook für die Marketing-API-Nutzung erforderlichen Zugriffsebene abgeschlossen hat. Bestätigen Sie im <a href="https://business.facebook.com/">Facebook Business Manager:in</a>, dass das System-Nutzer-Token / Textbaustein die richtigen Berechtigungen hat und mit den Werbekonten verknüpft ist, die Sie in Braze verwenden, und dass die Nutzungsbedingungen des Werbekontos akzeptiert wurden. <br><br>Wenn das Dropdown in einem neuen Canvas funktioniert, aber nicht in einem bereits bearbeiteten Canvas, versuchen Sie einen Hard-Refresh Ihres Browsers (oder leeren Sie Ihren Cache) und bestätigen Sie, dass Sie als Nutzer:in angemeldet sind, die noch Zugriff auf diese Werbekonten hat.</td>
+      <td>Bestätigen Sie, dass Ihre Facebook-App die <a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">App-Überprüfung</a> für <code>ads_management</code> mit der von Facebook für die Marketing-API-Nutzung erforderlichen Zugriffsebene abgeschlossen hat. Bestätigen Sie im <a href="https://business.facebook.com/">Facebook Business Manager:in</a>, dass das System-Nutzer-Token die richtigen Berechtigungen hat und mit den Werbekonten verknüpft ist, die Sie in Braze verwenden, und dass die Nutzungsbedingungen des Werbekontos akzeptiert wurden. <br><br>Wenn das Dropdown in einem neuen Canvas funktioniert, aber nicht in einem bereits bearbeiteten Canvas, versuchen Sie einen Hard-Refresh Ihres Browsers (oder leeren Sie Ihren Cache) und bestätigen Sie, dass Sie als Nutzer:in angemeldet sind, die noch Zugriff auf diese Werbekonten hat.</td>
     </tr>
     <tr>
-      <td><b>Error validating access Token / Textbaustein</b></td>
+      <td><b>Error validating access Token</b></td>
       <td>Beim Verbinden von Braze mit Facebook oder beim Synchronisieren von Zielgruppen wird ein Fehler bei der Validierung des Facebook-Zugriffstokens angezeigt.</td>
       <td>Melden Sie sich in Ihrem Browser von Facebook ab. Gehen Sie in Braze zu <b>Partnerintegrationen</b> &gt; <b>Facebook</b>, entfernen Sie die gespeicherten Facebook-Zugangsdaten und verbinden Sie Facebook erneut. Trennen und verbinden Sie auf der Facebook-Technologie-Partnerseite für Braze die Integration erneut, falls die Option verfügbar ist. <br><br>Falls die Probleme weiterhin bestehen, folgen Sie den Schritten unter <a href="#audit-your-facebook-account">Facebook-Konto überprüfen</a>.</td>
     </tr>

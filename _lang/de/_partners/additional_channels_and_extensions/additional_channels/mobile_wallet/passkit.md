@@ -232,7 +232,7 @@ Sobald Sie das PassKit-Webhook-Template ausgewählt haben, sollten Sie Folgendes
 
 #### Anfrage-Header und Methode {#request-headers-and-method}
 
-PassKit benötigt zur Autorisierung einen `HTTP Header`, der Ihren PassKit-API-Schlüssel in Base 64 kodiert enthält. Das Folgende ist bereits als Schlüssel-Wert-Paar im Template enthalten, aber auf dem Tab **Settings** müssen Sie `<PASSKIT_LONG_LIVED_TOKEN>` durch Ihr PassKit-Token / Textbaustein ersetzen. Um Ihr Token / Textbaustein abzurufen, navigieren Sie zu Ihrem PassKit-Projekt/Programm und gehen Sie zu **Settings > Integrations > Long Lived Token / Textbaustein**.
+PassKit benötigt zur Autorisierung einen `HTTP Header`, der Ihren PassKit-API-Schlüssel in Base 64 kodiert enthält. Das Folgende ist bereits als Schlüssel-Wert-Paar im Template enthalten, aber auf dem Tab **Settings** müssen Sie `<PASSKIT_LONG_LIVED_TOKEN>` durch Ihr PassKit-Token ersetzen. Um Ihr Token abzurufen, navigieren Sie zu Ihrem PassKit-Projekt/Programm und gehen Sie zu **Settings > Integrations > Long Lived Token**.
 
 {% raw %}
 - **HTTP-Methode**: PUT

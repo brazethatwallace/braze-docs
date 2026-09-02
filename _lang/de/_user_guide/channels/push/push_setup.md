@@ -4,10 +4,10 @@ article_title: Push-Einrichtung
 page_order: 0
 layout: dev_guide
 guide_top_header: "Push-Einrichtung"
-guide_top_text: "Erfahren Sie mehr über den Push-Token / Textbaustein-Lebenszyklus und Abo-Status, damit Ihre Push-Benachrichtigungen die richtigen Nutzer:innen erreichen."
+guide_top_text: "Erfahren Sie mehr über den Push-Token-Lebenszyklus und Abo-Status, damit Ihre Push-Benachrichtigungen die richtigen Nutzer:innen erreichen."
 
 page_type: landing
-description: "Erfahren Sie mehr über den Push-Token / Textbaustein-Lebenszyklus und Abo-Status für Push-Benachrichtigungen in Braze."
+description: "Erfahren Sie mehr über den Push-Token-Lebenszyklus und Abo-Status für Push-Benachrichtigungen in Braze."
 
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:

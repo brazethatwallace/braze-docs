@@ -20,7 +20,7 @@ Das Braze React Native SDK verbindet Ihre iOS- und Android-Apps mit Braze: Nutze
 - **In-App-Nachrichten**: Standard-Braze-UI oder angepasste Verarbeitung über Abonnements und Logging-APIs
 - **Content Cards**: Standard-Feed-UI oder Karten abrufen und Ihre eigene UI erstellen
 - **Banner**: Platzierungsbasierte HTML-Banner, einschließlich `BrazeBannerView`
-- **Push-Benachrichtigungen**: Berechtigungsanfragen, Token / Textbaustein-Registrierung, Payload-Listener (siehe **Push-Benachrichtigungen**)
+- **Push-Benachrichtigungen**: Berechtigungsanfragen, Token-Registrierung, Payload-Listener (siehe **Push-Benachrichtigungen**)
 - **Feature-Flags**: Aktualisieren, Eigenschaften lesen, Impressionen protokollieren
 - **Analytics**: Angepasste Events, Käufe, sofortiges Flushen
 - **SDK-Steuerung**: SDK aktivieren/deaktivieren, lokale Daten löschen, SDK-Authentication-Signaturen
@@ -291,7 +291,7 @@ Braze.disableSDK();
 Braze.enableSDK();
 ```
 
-**`wipeData()`** — Löscht die **lokalen** Braze-Daten für diese Installation (zwischengespeicherter Nutzer-/Sitzungs-/Kartenstatus, Push-Token / Textbaustein-Zuordnung usw.). Verwenden Sie dies für **Abmelde-Verhalten**, wenn Sie den bisherigen Braze-Status der vorherigen Nutzer:in nicht auf dem Gerät belassen dürfen, sowie für **„Meine Daten auf diesem Gerät löschen“**, **QA**-Resets ohne Neuinstallation oder strikte **Datenschutz**-Abläufe. **`changeUser`** allein führt diese Bereinigung nicht durch – es legt lediglich fest, welche Nutzer-ID **neue** Ereignisse empfängt. Unter **iOS** kann das Verhalten von Android abweichen (z. B. bei der Interaktion mit dem deaktivierten SDK-Status); lesen Sie die nativen Braze-Dokumentationen, wenn Sie dies in der Produktion einsetzen.
+**`wipeData()`** — Löscht die **lokalen** Braze-Daten für diese Installation (zwischengespeicherter Nutzer-/Sitzungs-/Kartenstatus, Push-Token-Zuordnung usw.). Verwenden Sie dies für **Abmelde-Verhalten**, wenn Sie den bisherigen Braze-Status der vorherigen Nutzer:in nicht auf dem Gerät belassen dürfen, sowie für **„Meine Daten auf diesem Gerät löschen“**, **QA**-Resets ohne Neuinstallation oder strikte **Datenschutz**-Abläufe. **`changeUser`** allein führt diese Bereinigung nicht durch – es legt lediglich fest, welche Nutzer-ID **neue** Ereignisse empfängt. Unter **iOS** kann das Verhalten von Android abweichen (z. B. bei der Interaktion mit dem deaktivierten SDK-Status); lesen Sie die nativen Braze-Dokumentationen, wenn Sie dies in der Produktion einsetzen.
 
 **`disableSDK()`** — Stoppt den Betrieb des SDKs (keine Datenerfassung/-weiterleitung wie konfiguriert). Verwenden Sie dies für **Opt-out-Schalter** der Nutzer:innen, **eingeschränkte Modi** (Compliance, Kinder-Einstellungen) oder zum **Debuggen** ohne Entfernung der Abhängigkeit.
 

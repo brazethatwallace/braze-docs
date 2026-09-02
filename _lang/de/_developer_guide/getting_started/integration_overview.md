@@ -107,7 +107,7 @@ Sie brauchen Entwickler:innen, die sich mit Folgendem auskennen:
 * Arbeiten in der nativen Schicht Ihrer App oder Website
 * Erstellen von Prozessen, die auf unsere REST API zugreifen
 * Integrationstests
-* JSON-Web-Token / Textbaustein-Authentifizierung
+* JSON-Web-Token-Authentifizierung
 * Allgemeine Kenntnisse der Datenverwaltung
 * Einrichten von DNS-Einträgen
 
@@ -161,7 +161,7 @@ Datenpunkte sind eine Struktur, mit der Sie sicherstellen, dass Sie die richtige
 
 ### Migrieren alter Nutzerdaten {#migrating-legacy-user-data}
 
-Sie können den Braze-Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) verwenden, um historische Daten zu migrieren, die außerhalb von Braze aufgezeichnet wurden. Beispiele für häufig importierte Daten sind Push-Token / Textbaustein und frühere Käufe. Dieser Endpunkt kann für einmalige Importe oder regelmäßige Batch-Updates verwendet werden.
+Sie können den Braze-Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) verwenden, um historische Daten zu migrieren, die außerhalb von Braze aufgezeichnet wurden. Beispiele für häufig importierte Daten sind Push-Token und frühere Käufe. Dieser Endpunkt kann für einmalige Importe oder regelmäßige Batch-Updates verwendet werden.
 
 Sie können auch Nutzer:innen importieren und Kundenattributwerte durch einen einmaligen [CSV-Upload]({{site.baseurl}}/user_guide/audience/manage_audience/import_users) in das Dashboard aktualisieren. Das Hochladen von CSV-Dateien kann für Marketer hilfreich sein, während unsere REST API mehr Flexibilität ermöglicht.
 
@@ -195,8 +195,8 @@ Stellen Sie sicher, dass Ihre Produktions- und Testumgebungen eingerichtet sind,
 | Führen Sie Tests durch, um sicherzustellen, dass die Daten ordnungsgemäß gespeichert werden. | Erstellen Sie Segmente von Nutzer:innen. |
 | Vergewissern Sie sich, dass die Sitzungsdaten dem vorgesehenen Workspace in Braze korrekt zugewiesen werden. | Starten Sie Campaigns und Canvases erfolgreich. |
 | Bestätigen Sie, dass Beginn und Ende der Sitzung aufgezeichnet werden. | Vergewissern Sie sich, dass die richtigen Campaigns für die richtigen Nutzersegmente angezeigt werden. |
-| Bestätigen Sie, dass die Informationen zu den Nutzerattributen in den Nutzerprofilen korrekt erfasst sind. | Vergewissern Sie sich, dass die Push-Token / Textbaustein korrekt registriert werden. |
-| Testen Sie, ob die angepassten Daten in den Nutzerprofilen korrekt erfasst werden. | Vergewissern Sie sich, dass die Push-Token / Textbaustein korrekt entfernt werden. |
+| Bestätigen Sie, dass die Informationen zu den Nutzerattributen in den Nutzerprofilen korrekt erfasst sind. | Vergewissern Sie sich, dass die Push-Token korrekt registriert werden. |
+| Testen Sie, ob die angepassten Daten in den Nutzerprofilen korrekt erfasst werden. | Vergewissern Sie sich, dass die Push-Token korrekt entfernt werden. |
 | Erstellen Sie anonyme Nutzerprofile. | Testen Sie, ob die Push-Campaigns korrekt an die Geräte gesendet werden und das Engagement protokolliert wird. |
 | Bestätigen Sie, dass aus anonymen Nutzerprofilen bekannte Nutzerprofile werden, wenn die Methode `changeUser()` aufgerufen wird. | Testen Sie, ob In-App-Nachrichten zugestellt und Metriken protokolliert werden. |
 |                           | Testen Sie, ob Content Cards zugestellt und Metriken protokolliert werden. |

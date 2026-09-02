@@ -86,7 +86,7 @@ Diese Integration verwendet Shopify als maßgebliche Datenquelle für unterstüt
 | Nutzerbezeichner | Vorherige Version | Neueste Version |
 | --- | --- | --- |
 | Braze-Geräte-ID |  {::nomarkdown}<ul><li>Eine zufällig generierte ID, die im Browser gespeichert wird</li></ul>{:/} | {::nomarkdown} <ul><li>Eine zufällig generierte ID, die im Browser gespeichert wird</li></ul>{:/}|
-| Braze-Aliase | {::nomarkdown}<ul><li>Shopify-Kunden-ID</li><li>Shopify-E-Mail</li></ul>{:/} | {::nomarkdown}<ul><li>Shopify-Warenkorb-Token / Textbaustein</li><li>Shopify-Checkout-Token / Textbaustein</li></ul>{:/}|
+| Braze-Aliase | {::nomarkdown}<ul><li>Shopify-Kunden-ID</li><li>Shopify-E-Mail</li></ul>{:/} | {::nomarkdown}<ul><li>Shopify-Warenkorb-Token</li><li>Shopify-Checkout-Token</li></ul>{:/}|
 | Externe Braze-ID | {::nomarkdown}<ul><li>Nicht zutreffend</li></ul>{:/}| {::nomarkdown}<ul><li>Shopify-Kunden-ID</li><li>E-Mail</li><li>Gehashte E-Mail (SHA-256, SHA-1, MD5)</li><li>Angepasste externe ID</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Von der Integration unterstützte Nutzerbezeichner" }
 

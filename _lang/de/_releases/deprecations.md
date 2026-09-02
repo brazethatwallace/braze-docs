@@ -110,11 +110,11 @@ Das Braze SDK stellte ein Feedback-Widget zur Verfügung, das zu Ihrer App hinzu
 **Unterstützung zurückgezogen**: Braze hat die Unterstützung eingestellt: Juli 2018, Google hat die Unterstützung eingestellt: 29. Mai 2019<br>
 **Ersetzt durch**: [Firebase Cloud Messaging (FCM)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-1-enable-firebase)
 
-Ab dem 29. Mai 2019 hat Google [die Unterstützung für GCM eingestellt](https://developers.googleblog.com/2018/04/time-to-upgrade-from-gcm-to-fcm.html). Braze hat die Unterstützung für GCM in den Android SDKs im Juli 2018 eingestellt, was in unseren [SDK Changelogs für Android](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md) vermerkt wurde. Das bedeutet, dass bestehende GCM-Token / Textbaustein weiterhin funktionieren und Sie Ihren bestehenden Nutzer:innen Nachrichten schicken können. Allerdings können Sie neuen Nutzer:innen keine Nachrichten schicken.
+Ab dem 29. Mai 2019 hat Google [die Unterstützung für GCM eingestellt](https://developers.googleblog.com/2018/04/time-to-upgrade-from-gcm-to-fcm.html). Braze hat die Unterstützung für GCM in den Android SDKs im Juli 2018 eingestellt, was in unseren [SDK Changelogs für Android](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md) vermerkt wurde. Das bedeutet, dass bestehende GCM-Token weiterhin funktionieren und Sie Ihren bestehenden Nutzer:innen Nachrichten schicken können. Allerdings können Sie neuen Nutzer:innen keine Nachrichten schicken.
 
 Kund:innen, die noch nicht auf [Firebase Cloud Messaging (FCM)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-1-enable-firebase) migriert sind, können von dieser Änderung betroffen sein.
 
-Wenn Sie nicht auf FCM umgestellt haben, werden alle Registrierungen von GCM-Push-Token / Textbaustein fehlschlagen. Wenn Ihre Apps derzeit GCM unterstützen, müssen Sie mit Ihren Entwicklerteams an der [Umstellung von GCM auf Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/android/android-migrate-fcm) arbeiten.
+Wenn Sie nicht auf FCM umgestellt haben, werden alle Registrierungen von GCM-Push-Token fehlschlagen. Wenn Ihre Apps derzeit GCM unterstützen, müssen Sie mit Ihren Entwicklerteams an der [Umstellung von GCM auf Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/android/android-migrate-fcm) arbeiten.
 
 ### Eclipse
 

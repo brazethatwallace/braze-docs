@@ -209,18 +209,18 @@ Damit Braze auf Databricks zugreifen kann, muss ein persönliches Zugriffstoken 
 
 1. Wählen Sie in Ihrem Databricks-Workspace Ihren Databricks-Benutzernamen in der oberen Leiste aus und wählen Sie dann **User Settings** aus dem Dropdown-Menü.
 2. Stellen Sie sicher, dass das Dienstkonto `CREATE TABLE`-Berechtigungen für das Schema hat, das für die verbundene Quelle verwendet wird.
-3. Wählen Sie auf dem Tab **Access tokens** die Option **Generate new Token / Textbaustein**.
-4. Geben Sie einen Kommentar ein, der Ihnen hilft, dieses Token / Textbaustein zu identifizieren, z. B. „Braze CDI“, und ändern Sie die Lebensdauer des Tokens auf unbegrenzt, indem Sie das Feld „Lifetime (days)“ leer lassen.
+3. Wählen Sie auf dem Tab **Access tokens** die Option **Generate new Token**.
+4. Geben Sie einen Kommentar ein, der Ihnen hilft, dieses Token zu identifizieren, z. B. „Braze CDI“, und ändern Sie die Lebensdauer des Tokens auf unbegrenzt, indem Sie das Feld „Lifetime (days)“ leer lassen.
 5. Wählen Sie **Generate**.
-6. Kopieren Sie das angezeigte Token / Textbaustein und wählen Sie dann **Done**.
+6. Kopieren Sie das angezeigte Token und wählen Sie dann **Done**.
 
-Dieses Token / Textbaustein wird verwendet, um die Liste der verfügbaren Tabellen in Ihren CDI-Segmenterweiterungen zu generieren und Quelltabellen abzufragen, um neue Segmente zu erstellen. Nachdem die verbundene Quelle erstellt wurde, erkennt Braze die Namen und Beschreibungen aller Tabellen, die der Nutzer:in im Quellschema zur Verfügung stehen.
+Dieses Token wird verwendet, um die Liste der verfügbaren Tabellen in Ihren CDI-Segmenterweiterungen zu generieren und Quelltabellen abzufragen, um neue Segmente zu erstellen. Nachdem die verbundene Quelle erstellt wurde, erkennt Braze die Namen und Beschreibungen aller Tabellen, die der Nutzer:in im Quellschema zur Verfügung stehen.
 
 Sie können Zugriff auf alle Tabellen in einem Schema gewähren oder Berechtigungen nur für bestimmte Tabellen erteilen. Alle Tabellen, auf die die Braze-Rolle Zugriff hat, stehen in der CDI-Segmenterweiterung zur Abfrage zur Verfügung.
 
 Die Berechtigung `create table` ist erforderlich, damit Braze eine Tabelle mit den Abfrageergebnissen Ihrer CDI-Segmenterweiterung erstellen kann, bevor das Segment in Braze aktualisiert wird. Braze erstellt eine temporäre Tabelle pro Segment, die nur bestehen bleibt, solange Braze das Segment aktualisiert.
 
-Bewahren Sie das Token / Textbaustein an einem sicheren Ort auf, bis Sie es im Braze-Dashboard während des Schritts zur Erstellung der Zugangsdaten eingeben müssen.
+Bewahren Sie das Token an einem sicheren Ort auf, bis Sie es im Braze-Dashboard während des Schritts zur Erstellung der Zugangsdaten eingeben müssen.
 
 #### Schritt 2.2: Zugriff für Braze-IPs zulassen
 
@@ -349,7 +349,7 @@ Wählen Sie **Test Connection**, um zu überprüfen, ob die für die Nutzer:in s
 Erstellen Sie eine verbundene Quelle im Braze-Dashboard. Navigieren Sie zu **Data Settings** > **Cloud Data Ingestion** > **Connected Sources**, wählen Sie **Add data source** und dann **Databricks**.
 
 Geben Sie unter **Setup source** Folgendes ein:
-- **Credentials:** **Credential Name**, **Hostname**, **HTTP Path** und **Access Token / Textbaustein**
+- **Credentials:** **Credential Name**, **Hostname**, **HTTP Path** und **Access Token**
 - **Configuration:** **Catalog** und **Schema**
 
 #### Schritt 3.2: Synchronisierungsdetails konfigurieren

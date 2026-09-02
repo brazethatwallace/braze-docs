@@ -63,7 +63,7 @@ Das Braze SDK ist ein Code-Paket, das Daten von Ihren Nutzer:innen sammelt, soba
 Nachdem Pilot eine Verbindung zu Ihrem Braze-Dashboard hergestellt hat, funktioniert das Braze SDK in der App genauso wie nach der Integration des SDK in Ihre eigene App oder Website. Das bedeutet, dass Braze:
 
 - Daten zu Ihren Nutzeraktivitäten in Pilot speichert, einschließlich angepasster Daten, die für die fiktiven Marken in der App spezifisch sind.
-- Automatisch Sitzungsdaten, Geräteinformationen und Push-Token / Textbaustein erfasst.
+- Automatisch Sitzungsdaten, Geräteinformationen und Push-Token erfasst.
 - Push-Benachrichtigungen, In-App-Nachrichten und Content-Card-Messaging-Kanäle unterstützt, die eine SDK-Integration erfordern, um zu funktionieren.
 
 Weitere Informationen zum Braze SDK finden Sie unter [Integration]({{site.baseurl}}/user_guide/get_started/integrations).

@@ -45,7 +45,7 @@ Verwenden Sie [Operator]({{site.baseurl}}/user_guide/brazeai/operator), um herau
 
 ### Warum hat mein Catalog-Agent einige Zeilen übersprungen? {#why-did-my-catalog-agent-skip-some-rows}
 
-Catalog-Agents überspringen eine Zeile, wenn eine Spalte, die Sie als **für die Ausführung erforderlich** markiert haben, leer ist oder fehlt – zum Beispiel ein `gender`-Feld, das nicht ausgefüllt wurde. Nachdem Sie Eingabespalten ausgewählt haben, aktivieren Sie die Pflichtfeld-Steuerung für das Katalogfeld und wählen Sie aus, welche Spalten Werte enthalten müssen, bevor der Agent ausgeführt wird. Ausgewählte Spalten sind standardmäßig als erforderlich markiert, aber Sie können Spalten entfernen, die leer sein dürfen, ohne die Ausführung zu blockieren. So werden keine Token / Textbaustein für unvollständige Daten verschwendet.
+Catalog-Agents überspringen eine Zeile, wenn eine Spalte, die Sie als **für die Ausführung erforderlich** markiert haben, leer ist oder fehlt – zum Beispiel ein `gender`-Feld, das nicht ausgefüllt wurde. Nachdem Sie Eingabespalten ausgewählt haben, aktivieren Sie die Pflichtfeld-Steuerung für das Katalogfeld und wählen Sie aus, welche Spalten Werte enthalten müssen, bevor der Agent ausgeführt wird. Ausgewählte Spalten sind standardmäßig als erforderlich markiert, aber Sie können Spalten entfernen, die leer sein dürfen, ohne die Ausführung zu blockieren. So werden keine Token für unvollständige Daten verschwendet.
 
 Der Agent berücksichtigt auch Spaltenabhängigkeiten. Wenn eine Ausgabespalte von anderen Spalten abhängt (zum Beispiel erfordert Spalte D Werte in den Spalten B und C), wird der Agent erst ausgeführt, wenn diese vorgelagerten Spalten für die jeweilige Zeile befüllt sind.
 

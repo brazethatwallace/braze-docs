@@ -95,9 +95,9 @@ Die Anzahl der gespeicherten Protokolle wird von mehreren Bedingungen beeinfluss
     - A/B-Test-Fehler
 - Bis zu 20 Push-Benachrichtigungs-Fehlerprotokolle desselben Fehlertyps werden für dieselbe Campaign oder denselben Canvas-Schritt und dieselbe App-Kombination für die folgenden Fehlertypen gespeichert:
     - Ungültige Push-Anmeldedaten
-    - Ungültiges Push-Token / Textbaustein
+    - Ungültiges Push-Token
     - Keine Push-Anmeldedaten
-    - Token / Textbaustein-Fehler
+    - Token-Fehler
     - Kontingent überschritten
     - Zeitüberschreitung bei Wiederholungsversuchen
     - Ungültige Nutzlast
@@ -106,7 +106,7 @@ Die Anzahl der gespeicherten Protokolle wird von mehreren Bedingungen beeinfluss
     - Live-Activity-Fehler (Keine Push-Anmeldedaten)
     - Live-Activity-Fehler (Ungültige Push-Anmeldedaten)
     - Sonstige Live-Activity-Fehler
-    - APNS-Feedback-Removed-Token / Textbaustein-Fehler
+    - APNS-Feedback-Removed-Token-Fehler
 - Bis zu 100 Fehlerprotokolle desselben Fehlertyps werden für dieselbe Campaign oder denselben Canvas-Schritt innerhalb einer festen Taktungsstunde für die folgenden Fehlertypen gespeichert:
     - E-Mail-Soft-Bounce-Fehler
     - E-Mail-Hard-Bounce-Fehler

@@ -51,7 +51,7 @@ Sobald Sie sich erfolgreich verbunden haben, werden Sie auf die Partnerseite zur
 
 ![Ein erfolgreich verbundenes LinkedIn-Konto.]({% image_buster /assets/img/linkedin/linkedin6.png %}){: style="max-width:75%;"}
 
-Ihre LinkedIn-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr LinkedIn-Administrator Sie aus Ihrem LinkedIn-Anzeigenkonto entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Dies hat zur Folge, dass Ihre aktiven Canvases, die LinkedIn verwenden, Fehler anzeigen und Braze nicht in der Lage ist, Nutzer:innen zu synchronisieren.
+Ihre LinkedIn-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr LinkedIn-Administrator Sie aus Ihrem LinkedIn-Anzeigenkonto entfernt, erkennt Braze ein ungültiges Token. Dies hat zur Folge, dass Ihre aktiven Canvases, die LinkedIn verwenden, Fehler anzeigen und Braze nicht in der Lage ist, Nutzer:innen zu synchronisieren.
 
 ### Schritt 2: Canvas-Eingangskriterien konfigurieren {#step-2-configure-your-canvas-entry-criteria}
 
@@ -138,7 +138,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Synchronisierte Nutzer:innen | Anzahl der Nutzer:innen, die erfolgreich mit LinkedIn synchronisiert wurden. |
 | Nicht synchronisierte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund fehlender Abgleichfelder nicht synchronisiert wurden. |
 | Ausstehende Nutzer:innen | Anzahl der Nutzer:innen, die derzeit von Braze für die Synchronisierung mit LinkedIn verarbeitet werden. |
-| Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit LinkedIn synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges LinkedIn-Token / Textbaustein oder eine auf LinkedIn gelöschte Zielgruppe sein. |
+| Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit LinkedIn synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges LinkedIn-Token oder eine auf LinkedIn gelöschte Zielgruppe sein. |
 | Canvas verlassen | Anzahl der Nutzer:innen, die den Canvas verlassen haben. Dies tritt auf, wenn der letzte Schritt in einem Canvas eine Audience-Sync-Komponente ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 

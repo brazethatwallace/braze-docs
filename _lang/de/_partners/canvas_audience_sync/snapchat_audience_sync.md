@@ -58,7 +58,7 @@ Nach erfolgreicher Verbindung kehren Sie zur Partnerseite zurück, wo Sie sehen 
 
 ![Eine aktualisierte Version der Snapchat-Technologie-Partnerseite, auf der die erfolgreich verbundenen Anzeigenkonten angezeigt werden.]({% image_buster /assets/img/snapchat/snapchat3.png %}){: style="max-width:80%;"}
 
-Ihre Snapchat-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Snapchat-Admin Sie aus Ihrem Snapchat Business Manager:in oder dem Zugriff auf die verbundenen Snapchat-Anzeigenkonten entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Dies hat zur Folge, dass Ihre aktiven Canvases, die Snapchat verwenden, Fehler anzeigen und Braze nicht in der Lage ist, Nutzer:innen zu synchronisieren.
+Ihre Snapchat-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Snapchat-Admin Sie aus Ihrem Snapchat Business Manager:in oder dem Zugriff auf die verbundenen Snapchat-Anzeigenkonten entfernt, erkennt Braze ein ungültiges Token. Dies hat zur Folge, dass Ihre aktiven Canvases, die Snapchat verwenden, Fehler anzeigen und Braze nicht in der Lage ist, Nutzer:innen zu synchronisieren.
 
 ### Schritt 2: Einen Audience Sync-Schritt mit Snapchat hinzufügen {#step-2-add-an-audience-sync-step-with-snapchat}
 
@@ -125,7 +125,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Users Synced | Anzahl der Nutzer:innen, die erfolgreich mit Snapchat synchronisiert wurden. |
 | Users Not Synced | Anzahl der Nutzer:innen, die aufgrund fehlender Abgleichsfelder nicht synchronisiert wurden. |
 | Users Pending | Anzahl der Nutzer:innen, die derzeit von Braze verarbeitet werden, um mit Snapchat synchronisiert zu werden. |
-| Users Errored | Anzahl der Nutzer:innen, die nach etwa 13 Stunden Wiederholungsversuchen aufgrund eines API-Fehlers nicht mit Snapchat synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Snapchat-Token / Textbaustein oder eine auf Snapchat gelöschte Zielgruppe sein. |
+| Users Errored | Anzahl der Nutzer:innen, die nach etwa 13 Stunden Wiederholungsversuchen aufgrund eines API-Fehlers nicht mit Snapchat synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Snapchat-Token oder eine auf Snapchat gelöschte Zielgruppe sein. |
 | Exited Canvas | Anzahl der Nutzer:innen, die das Canvas verlassen haben. Dies tritt auf, wenn der letzte Schritt in einem Canvas eine Audience-Sync-Komponente ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 

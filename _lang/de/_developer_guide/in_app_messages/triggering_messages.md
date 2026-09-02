@@ -191,13 +191,13 @@ Für eine erweiterte Steuerung des Nachrichtenzeitpunkts, einschließlich dem Ve
 {% subtab Android %}
 Deaktivieren Sie für Android die Option **Automatically Display In-App Messages** im Braze-Konfigurationseditor. Alternativ können Sie `com_braze_inapp_show_inapp_messages_automatically` in der Datei `braze.xml` Ihres Unity-Projekts auf `false` setzen.
 
-Die anfängliche Anzeigeoperation für In-App-Nachrichten kann in der Braze-Konfiguration über „In App Message Manager:in Initial Display Operation“ festgelegt werden.
+Die anfängliche Anzeigeoperation für In-App-Nachrichten kann in der Braze-Konfiguration über „In App Message Manager Initial Display Operation“ festgelegt werden.
 {% endsubtab %}
 
 {% subtab iOS %}
 Legen Sie für iOS die Spielobjekt-Listener im Braze-Konfigurationseditor fest und stellen Sie sicher, dass **Braze Displays In-App Messages** nicht ausgewählt ist.
 
-Die anfängliche Anzeigeoperation für In-App-Nachrichten kann in der Braze-Konfiguration über „In App Message Manager:in Initial Display Operation“ festgelegt werden.
+Die anfängliche Anzeigeoperation für In-App-Nachrichten kann in der Braze-Konfiguration über „In App Message Manager Initial Display Operation“ festgelegt werden.
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
@@ -375,7 +375,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
 Wenn die stille Push-Benachrichtigung empfangen wird, wird ein SDK-erfasstes Event „In-App-Nachricht-Trigger“ gegen das Kundenprofil protokolliert.
 
 {% alert important %}
-Da eine Push-Nachricht verwendet wird, um ein SDK-protokolliertes angepasstes Event aufzuzeichnen, muss Braze für jede:n Nutzer:in ein Push-Token / Textbaustein speichern, um diese Lösung zu ermöglichen. Für iOS-Nutzer:innen speichert Braze ein Token / Textbaustein erst ab dem Zeitpunkt, an dem Nutzer:innen die Push-Eingabeaufforderung des Betriebssystems erhalten haben. Vorher sind Nutzer:innen nicht per Push erreichbar, und die oben beschriebene Lösung ist nicht möglich.
+Da eine Push-Nachricht verwendet wird, um ein SDK-protokolliertes angepasstes Event aufzuzeichnen, muss Braze für jede:n Nutzer:in ein Push-Token speichern, um diese Lösung zu ermöglichen. Für iOS-Nutzer:innen speichert Braze ein Token erst ab dem Zeitpunkt, an dem Nutzer:innen die Push-Eingabeaufforderung des Betriebssystems erhalten haben. Vorher sind Nutzer:innen nicht per Push erreichbar, und die oben beschriebene Lösung ist nicht möglich.
 {% endalert %}
 
 #### Schritt 2: Eine stille Push-Campaign erstellen {#step-2-create-a-silent-push-campaign}

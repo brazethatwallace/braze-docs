@@ -170,11 +170,11 @@ Während der Canvas läuft, mischt und kombiniert der Otimizador de Conteúdo Va
 | SMS/MMS/RCS | CTA | {% raw %}`{% message_component "CTA" %}`{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid-Referenzen" }
 
-#### Kombinations-Token / Textbaustein {#combination-token}
+#### Kombinations-Token {#combination-token}
 
-Verwenden Sie das Kombinations-Token / Textbaustein, um aufzuzeichnen, welche Kombination von Varianten eine Nutzerin oder ein Nutzer erhalten hat. Fügen Sie den Liquid-Tag {% raw %}`{{component_combination_token}}`{% endraw %} zu einem Link in Ihrer Basisnachricht hinzu und verwenden Sie den Wert dann in Ihren eigenen Analytics-Tools, um nachgelagertes Verhalten einer bestimmten Kombination zuzuordnen.
+Verwenden Sie das Kombinations-Token, um aufzuzeichnen, welche Kombination von Varianten eine Nutzerin oder ein Nutzer erhalten hat. Fügen Sie den Liquid-Tag {% raw %}`{{component_combination_token}}`{% endraw %} zu einem Link in Ihrer Basisnachricht hinzu und verwenden Sie den Wert dann in Ihren eigenen Analytics-Tools, um nachgelagertes Verhalten einer bestimmten Kombination zuzuordnen.
 
-Fügen Sie das Token / Textbaustein beispielsweise als UTM-Parameter zu einem Link hinzu:
+Fügen Sie das Token beispielsweise als UTM-Parameter zu einem Link hinzu:
 
 {% raw %}
 ```liquid
@@ -205,7 +205,7 @@ Beispiel: Ein E-Mail-Schritt optimiert eine Betreffzeile und einen primären CTA
 | Last chance: 20% off summer | 7 | Aktiv |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Subject-Varianten-Indizes" }
 
-Die Primary-CTA-Komponente hat zwei Varianten mit den Indizes 0 und 1. In diesem Schritt bedeutet ein Token / Textbaustein von `6_1`, dass die Nutzerin oder der Nutzer die Subject-Variante mit Index 6 („Don't miss 20% off“) und die Primary-CTA-Variante mit Index 1 erhalten hat.
+Die Primary-CTA-Komponente hat zwei Varianten mit den Indizes 0 und 1. In diesem Schritt bedeutet ein Token von `6_1`, dass die Nutzerin oder der Nutzer die Subject-Variante mit Index 6 („Don't miss 20% off“) und die Primary-CTA-Variante mit Index 1 erhalten hat.
 
 ### Schritt 5: Optimierungsereignis auswählen {#step-5-select-optimization-event}
 

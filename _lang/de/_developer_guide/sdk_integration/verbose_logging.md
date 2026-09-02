@@ -20,7 +20,7 @@ Wenn Sie debuggen möchten, ohne die ausführliche Protokollierung manuell zu ak
 Aktivieren Sie die ausführliche Protokollierung, wenn erforderlich:
 
 - **Überprüfen Sie die Initialisierung des SDK**: Bitte überprüfen Sie, ob das SDK mit dem korrekten SDK-API-Schlüssel und Endpunkt ordnungsgemäß startet.
-- **Fehlerbehebung bei der Zustellung von Nachrichten**: Bitte überprüfen Sie, ob Push-Token / Textbaustein registriert sind, In-App-Nachrichten ausgelöst werden oder Content-Cards synchronisiert sind.
+- **Fehlerbehebung bei der Zustellung von Nachrichten**: Bitte überprüfen Sie, ob Push-Token registriert sind, In-App-Nachrichten ausgelöst werden oder Content-Cards synchronisiert sind.
 - **Deeplinks debuggen**: Bitte überprüfen Sie, ob das SDK Deeplinks aus Push-Benachrichtigungen, In-App-Nachrichten oder Content-Cards empfängt und öffnet.
 - **SitzungsTracking überprüfen**: Bitte bestätigen Sie, dass die Sitzungen wie erwartet beginnen und enden.
 - **Diagnose von Verbindungsproblemen**: Bitte überprüfen Sie die Netzwerkanfragen und -antworten zwischen dem SDK und den Braze-Servern.

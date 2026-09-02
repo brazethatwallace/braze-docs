@@ -72,7 +72,7 @@ table td {
       <td>Die Anfrage erfordert eine Authentifizierung.</td>
       <td>
         <ul>
-          <li>Überprüfen Sie, ob die korrekten Zugangsdaten (z. B. API-Schlüssel oder Token / Textbaustein) in den Anfrage-Headern enthalten sind.</li>
+          <li>Überprüfen Sie, ob die korrekten Zugangsdaten (z. B. API-Schlüssel oder Token) in den Anfrage-Headern enthalten sind.</li>
           <li>Stellen Sie sicher, dass Sie über die entsprechenden Berechtigungen verfügen, um auf den Endpunkt zuzugreifen.</li>
         </ul>
       </td>
@@ -82,7 +82,7 @@ table td {
       <td>Der Endpunkt versteht die Anfrage, verweigert jedoch die Autorisierung.</td>
       <td>
         <ul>
-          <li>Überprüfen Sie, ob der API-Schlüssel oder das Token / Textbaustein die erforderlichen Berechtigungen besitzt.</li>
+          <li>Überprüfen Sie, ob der API-Schlüssel oder das Token die erforderlichen Berechtigungen besitzt.</li>
           <li>Stellen Sie sicher, dass Sie über die entsprechenden Berechtigungen verfügen, um auf den Endpunkt zuzugreifen.</li>
           <li>Wenn Anfragen durchgehend <code>403</code> zurückgeben und die Authentifizierung korrekt erscheint, blockiert möglicherweise Ihr Server, API-Gateway oder Ihre WAF die ausgehenden IP-Adressen von Braze. Setzen Sie die IPs für Ihren Braze-Cluster auf die Allowlist. Für Webhooks siehe <a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">IP-Allowlisting</a>. Für Connected-Content siehe <a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">Connected-Content-IP-Allowlisting</a>.</li>
         </ul>

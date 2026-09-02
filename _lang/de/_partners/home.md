@@ -416,6 +416,6 @@ Wenn die Integration eine Einrichtung auf der Braze-Seite erfordert, melden Sie 
 Vollständig partnereigene Integrationen sind hier möglicherweise nicht aufgeführt. Lesen Sie die partnerspezifische Dokumentation, um die Zuständigkeit für die Integration und die Konfigurationsschritte zu überprüfen.
 {% endalert %}
 
-Wenn Sie für einen Partner in Braze **Ungültige Zugangsdaten** sehen, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Technologie-Partnerseite und verbinden Sie sie erneut. Bestätigen Sie API-Schlüssel, OAuth-Token / Textbaustein und Berechtigungen auf der Partnerseite.
+Wenn Sie für einen Partner in Braze **Ungültige Zugangsdaten** sehen, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Technologie-Partnerseite und verbinden Sie sie erneut. Bestätigen Sie API-Schlüssel, OAuth-Token und Berechtigungen auf der Partnerseite.
 
 Einige externe Dashboards (z. B. Tools zur Zustellbarkeits- oder Posteingangsüberwachung) können einen anderen Verbindungs- oder Verifizierungsstatus anzeigen als die Braze-Technologie-Partnerseite. Verwenden Sie die Partner-Kachel in Braze für den Verbindungsstatus, auf den sich Braze für Synchronisierung und Versand stützt.

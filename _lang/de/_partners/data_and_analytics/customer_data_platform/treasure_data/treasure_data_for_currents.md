@@ -62,7 +62,7 @@ Die Option **Treasure Data Export** in der Braze-Currents-UI verwendet die veral
 1. Navigieren Sie in Braze zu **Partnerintegrationen** > **Data Export**.
 2. Wählen Sie **Create New Current** > **Custom Currents Export** aus.
 3. Geben Sie einen Integrationsnamen und eine Kontakt-E-Mail für Fehlerbenachrichtigungen ein.
-4. Geben Sie unter **Credentials** die Endpunkt-URL für Ihre Treasure Data-Region ein. Geben Sie Ihren Treasure Data Write-API-Schlüssel als **Bearer Token / Textbaustein** ein.
+4. Geben Sie unter **Credentials** die Endpunkt-URL für Ihre Treasure Data-Region ein. Geben Sie Ihren Treasure Data Write-API-Schlüssel als **Bearer Token** ein.
 
 | Region | Endpunkt-URL |
 | ------ | ------------ |

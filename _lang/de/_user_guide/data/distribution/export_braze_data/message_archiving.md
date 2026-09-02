@@ -35,12 +35,12 @@ Eine Beispieldatei könnte wie folgt aussehen:
 `sent_messages/email/819baa08d8d7e77e19d4666f5fc6050b/ee965cb2-8934-4b0a-acf1-91c899c2f915/651fd10b282850b39e1169c13975234b.json.gz`
 
 {% alert note %}
-Der MD5-Digest kann nur mit einer bekannten, kleingeschriebenen E-Mail-Adresse, einem Push-Token / Textbaustein oder einer E.164-Telefonnummer berechnet werden. Ein bekannter MD5-Digest kann nicht umgekehrt werden, um die kleingeschriebene E-Mail-Adresse, das Push-Token / Textbaustein oder die E.164-Telefonnummer zu erhalten.
+Der MD5-Digest kann nur mit einer bekannten, kleingeschriebenen E-Mail-Adresse, einem Push-Token oder einer E.164-Telefonnummer berechnet werden. Ein bekannter MD5-Digest kann nicht umgekehrt werden, um die kleingeschriebene E-Mail-Adresse, das Push-Token oder die E.164-Telefonnummer zu erhalten.
 {% endalert %}
 
 {% alert tip %}
-**Haben Sie Probleme, Ihre Push-Token / Textbaustein in Ihren Buckets zu finden?**<br>
-Braze wandelt Ihre Push-Token / Textbaustein in Kleinbuchstaben um, bevor sie gehasht werden. Dies führt dazu, dass das Push-Token / Textbaustein `Test_Push_Token12345` im Schlüsselpfad als `test_push_token12345` mit dem Hash `32b802170652af2b5624b695f34de089` erscheint.
+**Haben Sie Probleme, Ihre Push-Token in Ihren Buckets zu finden?**<br>
+Braze wandelt Ihre Push-Token in Kleinbuchstaben um, bevor sie gehasht werden. Dies führt dazu, dass das Push-Token `Test_Push_Token12345` im Schlüsselpfad als `test_push_token12345` mit dem Hash `32b802170652af2b5624b695f34de089` erscheint.
 {% endalert %}
 
 ## Einrichten der Nachrichtenarchivierung {#setting-up-message-archiving}
@@ -175,7 +175,7 @@ Das oberste Feld `payload` in Push-Benachrichtigungsarchiven enthält die gesamt
 
 Die Nachrichtenarchivierung erfasst die Nachrichten-Payload selbst, jedoch nicht die Zustellungs-Metadaten, die an FCM oder APNs gesendet werden. Zustellungs-Metadaten umfassen:
 
-- Geräte-Token / Textbaustein
+- Geräte-Token
 - Prioritätseinstellungen
 - Time-to-Live (TTL)
 - Collapse-IDs

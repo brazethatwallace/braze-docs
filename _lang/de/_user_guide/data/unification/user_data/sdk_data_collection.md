@@ -61,7 +61,7 @@ Mindestintegration bedeutet, dass Sie nur die erforderlichen Daten erfassen, die
 {% alert important %}
 Wenn Sie eine Mindestintegration wünschen und mParticle, Segment, Tealium oder GTM verwenden, beachten Sie Folgendes:
 - **Mobile Plattformen**: Sie müssen den Code für diese Konfigurationen manuell aktualisieren. mParticle und Segment bieten keine Möglichkeit, dies über ihre Plattform zu tun.
-- **Web**: Die Braze-Integration muss nativ erfolgen, um die Konfiguration der Mindestintegration zu ermöglichen. Tag-Manager:in bieten keine Möglichkeit, dies über ihre Plattform zu tun.
+- **Web**: Die Braze-Integration muss nativ erfolgen, um die Konfiguration der Mindestintegration zu ermöglichen. Tag-Manager bieten keine Möglichkeit, dies über ihre Plattform zu tun.
 {% endalert %}
 
 ## Optionale Daten, die standardmäßig erfasst werden {#optional-data-collected-by-default}

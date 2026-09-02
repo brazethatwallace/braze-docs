@@ -100,9 +100,9 @@ My encoded string is: {{my_string}}
 {% endraw %}
 {% endalert %}
 
-### Option 2: Authentifizierung mit JSON Web Token / Textbaustein {#option-2-authenticate-with-json-web-token}
+### Option 2: Authentifizierung mit JSON Web Token {#option-2-authenticate-with-json-web-token}
 
-Verwenden Sie ein [JSON Web Token / Textbaustein](https://auth0.com/learn/json-web-tokens/), um Nutzer:innen für einen Bereich Ihres Webservers zu authentifizieren (zum Beispiel Kontoeinstellungen), der normalerweise hinter einer Authentifizierungsschicht wie Nutzername und Passwort geschützt ist.
+Verwenden Sie ein [JSON Web Token](https://auth0.com/learn/json-web-tokens/), um Nutzer:innen für einen Bereich Ihres Webservers zu authentifizieren (zum Beispiel Kontoeinstellungen), der normalerweise hinter einer Authentifizierungsschicht wie Nutzername und Passwort geschützt ist.
 
 Dieser Ansatz erfordert keine in die URL eingebetteten Abfragestring-Wert-Paare, da diese im Payload des JSON Web Tokens übergeben werden können, zum Beispiel:
 

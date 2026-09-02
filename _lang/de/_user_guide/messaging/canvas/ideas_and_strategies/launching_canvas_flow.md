@@ -44,7 +44,7 @@ Fassen Sie Ihre Anfragen in einem einzigen API-Aufruf zusammen, anstatt mehrere 
 
 Eine weitere Möglichkeit, Race-Conditions zu vermeiden, besteht darin, den Delay-Schritt (idealerweise auf 5 Minuten eingestellt) als ersten Schritt Ihres Canvas zu verwenden.
 
-So bleibt ausreichend Zeit, damit Attribute, E-Mail-Adressen und Push-Token / Textbaustein für neue Nutzerprofile verarbeitet werden, bevor diese für die nachfolgenden Canvas-Schritte angesprochen werden. Ohne diesen Delay-Schritt kann es vorkommen, dass eine E-Mail an Nutzer:innen gesendet wird, deren E-Mail-Adresse noch nicht aktualisiert wurde.
+So bleibt ausreichend Zeit, damit Attribute, E-Mail-Adressen und Push-Token für neue Nutzerprofile verarbeitet werden, bevor diese für die nachfolgenden Canvas-Schritte angesprochen werden. Ohne diesen Delay-Schritt kann es vorkommen, dass eine E-Mail an Nutzer:innen gesendet wird, deren E-Mail-Adresse noch nicht aktualisiert wurde.
 
 ## Zustellungszeiten {#delivery-times}
 
@@ -88,7 +88,7 @@ Nachdem Sie die Details Ihres Canvas überprüft haben, finden Sie unter [Test-C
 ### Nutzerverfügbarkeit prüfen {#check-user-availability}
 
 - Stellen Sie sicher, dass Ihre Nutzer:innen Ihre Segmentierungskriterien erfüllen.
-- Bestätigen Sie, dass der Abo-Status „subscribed“ oder „opted-in“ ist und das Push-Token / Textbaustein vorhanden ist. Wenn Sie diese als Canvas-Eintrittsregeln hinzugefügt haben, ist es möglich, dass sich Nutzer:innen zwischen dem Eintritt in Ihren Canvas und dem Empfang des Nachrichtenschritts abgemeldet haben.
+- Bestätigen Sie, dass der Abo-Status „subscribed“ oder „opted-in“ ist und das Push-Token vorhanden ist. Wenn Sie diese als Canvas-Eintrittsregeln hinzugefügt haben, ist es möglich, dass sich Nutzer:innen zwischen dem Eintritt in Ihren Canvas und dem Empfang des Nachrichtenschritts abgemeldet haben.
 - Bestätigen Sie, dass sie mit Ihren Canvas-Sendeeinstellungen übereinstimmen. (Wenn Nutzer:innen „subscribed“ sind, aber die Einstellungen auf „Opted-in“ gesetzt sind, werden Nutzer:innen für den Kanal nicht aktiviert.)
 - Wenn globales Frequency-Capping für Ihren Canvas aktiviert ist, prüfen Sie, ob Ihre Regeln einschränken, wie oft jede:r Nutzer:in eine Nachricht von einem bestimmten Kanal erhalten kann.
 - Wenn Ruhezeiten aktiviert sind, kann die Sendezeit Ihrer Nachricht beeinflusst werden, was bedeutet, dass Ihre Nachricht zum nächsten verfügbaren Zeitpunkt (wenn die Ruhezeiten enden) gesendet oder ganz storniert werden kann.

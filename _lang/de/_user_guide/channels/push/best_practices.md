@@ -93,7 +93,7 @@ Sie haben nur eine Chance, Nutzer:innen um die Push-Erlaubnis zu bitten, und nac
 
 ### Push-Abo-Steuerung hinzufügen {#add-push-subscription-controls}
 
-Um zu vermeiden, dass Nutzer:innen Benachrichtigungen auf Geräteebene deaktivieren – was ihr Vordergrund-Push-Token / Textbaustein vollständig entfernt –, lassen Sie Nutzer:innen ihr Push-Abo direkt in Ihrer App steuern. Weitere Details finden Sie unter [Push-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
+Um zu vermeiden, dass Nutzer:innen Benachrichtigungen auf Geräteebene deaktivieren – was ihr Vordergrund-Push-Token vollständig entfernt –, lassen Sie Nutzer:innen ihr Push-Abo direkt in Ihrer App steuern. Weitere Details finden Sie unter [Push-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
 ### Erweiterte Zeitplanung verwenden oder Verzögerungen hinzufügen {#use-advanced-scheduling-or-add-delays}
 
@@ -107,9 +107,9 @@ Wir empfehlen außerdem, die Anzahl der API-Aufrufe durch Optimierung der benöt
 
 Der Push-Abo-Status garantiert nicht, dass eine Push-Benachrichtigung zugestellt wird – Nutzer:innen müssen außerdem Push-aktiviert sein, um Benachrichtigungen zu empfangen. Dies liegt daran, dass ein Kundenprofil mehrere Geräte mit unterschiedlichen Vordergrund-Push-Berechtigungen haben kann, aber nur einen einzigen Push-Abo-Status besitzt.
 
-Wenn Nutzer:innen kein gültiges Vordergrund-Push-Token / Textbaustein für eine App haben (d. h. sie Push-Tokens auf Geräteebene über die Einstellungen deaktivieren und sich entscheiden, keine Benachrichtigungen zu empfangen), kann ihr Abo-Status dennoch als `subscribed` für Push gelten. Diese Nutzer:innen wären jedoch in Braze nicht als `Foreground Push Enabled for App` eingestuft, da das Vordergrund-Push-Token / Textbaustein ungültig ist.
+Wenn Nutzer:innen kein gültiges Vordergrund-Push-Token für eine App haben (d. h. sie Push-Tokens auf Geräteebene über die Einstellungen deaktivieren und sich entscheiden, keine Benachrichtigungen zu empfangen), kann ihr Abo-Status dennoch als `subscribed` für Push gelten. Diese Nutzer:innen wären jedoch in Braze nicht als `Foreground Push Enabled for App` eingestuft, da das Vordergrund-Push-Token ungültig ist.
 
-Darüber hinaus ist der Filter `Foreground Push Enabled` in der Segmentierung auch auf „false“ gesetzt, wenn ein Kundenprofil kein gültiges oder registriertes Push-Token / Textbaustein für andere Apps besitzt.
+Darüber hinaus ist der Filter `Foreground Push Enabled` in der Segmentierung auch auf „false“ gesetzt, wenn ein Kundenprofil kein gültiges oder registriertes Push-Token für andere Apps besitzt.
 
 ## Eine Sunset-Richtlinie für nicht reagierende Nutzer:innen umsetzen {#implement-a-sunset-policy-for-unresponsive-users}
 

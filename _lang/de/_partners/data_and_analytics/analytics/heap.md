@@ -24,7 +24,7 @@ Um diese Integration zu konfigurieren, benötigen Sie eine Webhook-Endpunkt-URL,
 
 Navigieren Sie in Braze zu **Partnerintegrationen** > **Datenexport**, klicken Sie auf **Neuen Current erstellen** und wählen Sie **Heap-Export**.
 
-Geben Sie Ihrem Export einen Namen und fahren Sie dann mit der Seite **Current-Details** fort. Geben Sie auf dieser Seite den Endpunkt und das optionale Bearer-Token / Textbaustein ein (falls vorhanden).
+Geben Sie Ihrem Export einen Namen und fahren Sie dann mit der Seite **Current-Details** fort. Geben Sie auf dieser Seite den Endpunkt und das optionale Bearer-Token ein (falls vorhanden).
 
 Nachdem Sie die Zugangsdaten für Ihre Integration konfiguriert haben, markieren Sie alle Nachrichten-Engagement-, Kundenverhalten- und Nutzer:innen-Ereignisse, die Sie in Heap exportieren möchten, und klicken Sie auf **Current starten**.
 

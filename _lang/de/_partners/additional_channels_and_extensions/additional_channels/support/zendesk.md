@@ -21,7 +21,7 @@ Die Server-zu-Server-Integration von Braze und Zendesk ermöglicht Ihnen die Nut
 | Anforderung | Beschreibung |
 |---|---|
 | Zendesk-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Zendesk-Administratorkonto](https://`<your-zendesk-instance>`.zendesk.com/agent/admin). |
-| Zendesk-API-Token / Textbaustein | Ein Zendesk-[API-Token / Textbaustein](https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-\) ist erforderlich, um Anfragen von Braze an den Zendesk-Ticket-Endpunkt zu senden. |
+| Zendesk-API-Token | Ein Zendesk-[API-Token](https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-\) ist erforderlich, um Anfragen von Braze an den Zendesk-Ticket-Endpunkt zu senden. |
 | Gemeinsamer Bezeichner (empfohlen) | Ein [gemeinsamer Bezeichner](#common-identifier) zwischen Braze und Zendesk wird empfohlen. |
 | Braze-API-Schlüssel | Ein Braze-API-Schlüssel ist erforderlich, um Anfragen von Zendesk an einen Braze-Endpunkt zu senden. Vergewissern Sie sich, dass der von Ihnen verwendete API-Schlüssel die richtigen Berechtigungen für den Braze-Endpunkt hat, den Ihr Zendesk-Webhook verwendet. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -43,7 +43,7 @@ Weitere Anwendungsfälle können über die [Zendesk-Support-APIs](https://develo
 
 #### Anfrage-Header und Methode {#request-header-and-method}
 
-Zendesk benötigt einen HTTP-Header für die Autorisierung und eine HTTP-Methode. Ersetzen Sie im Tab **Settings** <email_address> durch Ihre Zendesk-Admin-E-Mail und <api_token> durch Ihr Zendesk-API-Token / Textbaustein.
+Zendesk benötigt einen HTTP-Header für die Autorisierung und eine HTTP-Methode. Ersetzen Sie im Tab **Settings** <email_address> durch Ihre Zendesk-Admin-E-Mail und <api_token> durch Ihr Zendesk-API-Token.
 
 - **HTTP-Methode**: POST
 - **Anfrage-Header**:
@@ -103,7 +103,7 @@ Wenn Sie einen gemeinsamen Bezeichner für Braze und Zendesk haben, empfiehlt es
 - Geben Sie einen Namen und eine Beschreibung für den Webhook ein.
 - Geben Sie die URL des Braze-Endpunkts ein, den Ihr Webhook verwenden soll. {% raw %}Unser Beispiel verwendet `https://{{instance_url}}/users/track`.{% endraw %}
 - Wählen Sie POST als Anfragemethode des Webhooks und setzen Sie das Anfrageformat auf JSON.
-- Wählen Sie die Bearer-Token / Textbaustein-Authentifizierungsmethode für den Webhook und geben Sie Ihren [Braze-API-Schlüssel]({{site.baseurl}}/api/basics#creating-rest-api-keys) an.
+- Wählen Sie die Bearer-Token-Authentifizierungsmethode für den Webhook und geben Sie Ihren [Braze-API-Schlüssel]({{site.baseurl}}/api/basics#creating-rest-api-keys) an.
   - Vergewissern Sie sich, dass der API-Schlüssel, den Sie verwenden, die [richtigen Berechtigungen]({{site.baseurl}}/api/basics#rest-api-key-permissions) für den Braze-Endpunkt hat, den Ihr Webhook verwendet.<br><br>
 5. (Empfohlen) Testen Sie den Webhook, um zu überprüfen, ob er ordnungsgemäß funktioniert.<br><br>
 6. Bei Trigger- und Automatisierungs-Webhooks müssen Sie den Webhook mit einem Trigger oder einer Automatisierung verbinden, bevor Sie die Einrichtung abschließen. Im folgenden Schritt finden Sie ein Beispiel für die Erstellung eines Triggers für den Webhook. Nachdem der Trigger erstellt wurde, können Sie zu dieser Seite zurückkehren und **Finish setup** auswählen.

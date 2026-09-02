@@ -82,7 +82,7 @@ Die Funktion `initialize` akzeptiert ein Options-Objekt mit den folgenden Eigens
 | `contentSecurityNonce` | `string` | `undefined` | Wenn Sie einen Wert für diese Option angeben, fügt das Braze SDK die Nonce allen vom SDK erstellten `<script>`- und `<style>`-Elementen hinzu. Dies kann verwendet werden, um das Braze SDK mit der Content Security Policy Ihrer Website kompatibel zu machen. Beachten Sie, dass Sie zusätzlich zum Setzen dieser Nonce möglicherweise auch das Laden von FontAwesome erlauben müssen. Dies können Sie tun, indem Sie `use.fontawesome.com` zur Allowlist Ihrer Content Security Policy hinzufügen oder die Option `doNotLoadFontAwesome` verwenden und FontAwesome manuell laden. |
 | `noCookies` | `boolean` | `false` | Standardmäßig verwendet das Braze Web SDK Cookies. Um die Cookie-Nutzung zu deaktivieren, setzen Sie diese Option auf „true“. Beachten Sie, dass das Deaktivieren von Cookies die Fähigkeit des SDK beeinträchtigen kann, die Identität von Nutzer:innen über Sitzungen hinweg zu speichern. |
 | `allowCrawlerActivity` | `boolean` | `false` | Standardmäßig ignoriert das Braze Web SDK Aktivitäten von bekannten Spidern oder Web-Crawlern, wie z. B. Google, basierend auf dem User-Agent-String. Dies spart Datenpunkte, macht die Analytics genauer und kann das Seitenranking verbessern. Wenn Sie möchten, dass Braze stattdessen die Aktivitäten dieser Crawler protokolliert, können Sie diese Option auf „true“ setzen. |
-| `disablePushTokenMaintenance` | `boolean` | `false` | Standardmäßig synchronisieren Nutzer:innen, die bereits die Web-Push-Berechtigung erteilt haben (z. B. über requestPushPermission oder von einem früheren Push-Anbieter), ihr Push-Token / Textbaustein bei einer neuen Sitzung automatisch mit dem Braze-Backend, um die Zustellbarkeit sicherzustellen. Um dieses Verhalten zu deaktivieren, setzen Sie diese Option auf „true“. |
+| `disablePushTokenMaintenance` | `boolean` | `false` | Standardmäßig synchronisieren Nutzer:innen, die bereits die Web-Push-Berechtigung erteilt haben (z. B. über requestPushPermission oder von einem früheren Push-Anbieter), ihr Push-Token bei einer neuen Sitzung automatisch mit dem Braze-Backend, um die Zustellbarkeit sicherzustellen. Um dieses Verhalten zu deaktivieren, setzen Sie diese Option auf „true“. |
 | `enableSdkAuthentication` | `boolean` | `false` | Setzen Sie diesen Wert auf „true“, um das Feature SDK-Authentifizierung zu aktivieren. Weitere Informationen zur SDK-Authentifizierung finden Sie in unserer Produktdokumentation. |
 | `manageServiceWorkerExternally` | `boolean` | `false` | Standardmäßig verwaltet das Braze Web SDK seinen eigenen Service Worker für Push-Benachrichtigungen. Wenn Sie in Ihrer Anwendung bereits einen Service Worker verwalten und die Braze-Service-Worker-Funktionalität darin integrieren möchten, setzen Sie diese Option auf „true“ und binden Sie den Braze-Service-Worker-Code in Ihre Service-Worker-Datei ein. |
 | `minimumIntervalBetweenTriggerActionsInSeconds` | `number` | `30` | Standardmäßig können Trigger-Aktionen (z. B. das Anzeigen einer In-App-Nachricht) pro Nutzer:in höchstens alle 30 Sekunden ausgelöst werden. Geben Sie einen Wert für diese Option an, um diesen Standard zu überschreiben. |
@@ -826,17 +826,17 @@ Electron unterstützt Web-Push-Benachrichtigungen nicht offiziell (siehe: dieses
 - **Eigenen Service Worker verwalten**: Wenn Sie bereits einen Service Worker in Ihrer Anwendung verwalten, setzen Sie die Initialisierungsoption `manageServiceWorkerExternally` auf `true`, fügen Sie den Braze-Service-Worker-Code in Ihre Service-Worker-Datei ein und registrieren Sie ihn selbst mit `navigator.serviceWorker.register()`.
 - **Push-Berechtigungen**: Rufen Sie `braze.requestPushPermission()` als Reaktion auf Nutzer:innen-Interaktionen auf (z. B. Button-Klicks). Verwenden Sie Soft-Push-Prompts (angepasste UI), bevor Sie die Browserberechtigung anfordern.
 
-### Tag-Manager:in {#tag-managers}
+### Tag-Manager {#tag-managers}
 
 #### Tealium iQ
 
-Tealium iQ bietet eine einfache schlüsselfertige Braze-Integration. Um die Integration zu konfigurieren, suchen Sie in der Tealium Tag-Management-Oberfläche nach Braze und geben Sie den Web-SDK-API-Schlüssel aus Ihrem Dashboard an. Weitere Details oder vertiefenden Tealium-Konfigurationssupport finden Sie in unserer [Integrationsdokumentation](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) oder wenden Sie sich an Ihren Tealium Account Manager:in.
+Tealium iQ bietet eine einfache schlüsselfertige Braze-Integration. Um die Integration zu konfigurieren, suchen Sie in der Tealium Tag-Management-Oberfläche nach Braze und geben Sie den Web-SDK-API-Schlüssel aus Ihrem Dashboard an. Weitere Details oder vertiefenden Tealium-Konfigurationssupport finden Sie in unserer [Integrationsdokumentation](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) oder wenden Sie sich an Ihren Tealium Account Manager.
 
 #### Google Tag Manager
 
 Das Web SDK kann über ein benutzerdefiniertes HTML-Tag in Ihrem Google Tag Manager-Container initialisiert und aufgerufen werden. Sehen Sie sich unsere [Google Tag Manager-Beispiel-App](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager) an, um ein Beispiel für das Senden von Events an Braze über GTM zu sehen, oder lesen Sie unsere [Integrationsdokumentation](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager) für weitere Details.
 
-#### Andere Tag-Manager:in {#other-tag-managers}
+#### Andere Tag-Manager {#other-tag-managers}
 
 Braze kann auch mit anderen Tag-Management-Lösungen kompatibel sein, indem Sie unsere Integrationsanweisungen in einem benutzerdefinierten HTML-Tag befolgen. Wenden Sie sich an eine Braze-Vertretung, wenn Sie Hilfe bei der Bewertung dieser Lösungen benötigen.
 

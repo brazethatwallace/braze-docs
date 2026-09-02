@@ -41,7 +41,7 @@ Folgen Sie den Aufforderungen auf dem Bildschirm **Enter Credential Details** un
   - **Anfrage-Header**:
     - **Authorization**: Bearer
     - **Content-Type**: application/json
-  - Token / Textbaustein: `<your-braze-api-key>`
+  - Token: `<your-braze-api-key>`
 
 ### Braze als System hinzufügen {#add-braze-as-a-system}
 

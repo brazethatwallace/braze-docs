@@ -515,9 +515,9 @@ Wenn Push-Benachrichtigungen über das Expo-Plugin nicht mehr funktionieren:
 Für iOS-Integrationen können Sie auch unser [Tutorial zur Einrichtung von Push-Benachrichtigungen](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b1-standard-push-notifications) heranziehen, um mögliche Konflikte mit Ihren Projektabhängigkeiten zu identifizieren.
 {% endalert %}
 
-#### Geräte-Token / Textbaustein wird nicht bei Braze registriert {#troubleshooting-token-registration}
+#### Geräte-Token wird nicht bei Braze registriert {#troubleshooting-token-registration}
 
-Wenn sich Ihr Geräte-Token / Textbaustein nicht bei Braze registrieren lässt, lesen Sie zunächst den Abschnitt [Push-Benachrichtigungen funktionieren nicht mehr](#troubleshooting-stopped-working).
+Wenn sich Ihr Geräte-Token nicht bei Braze registrieren lässt, lesen Sie zunächst den Abschnitt [Push-Benachrichtigungen funktionieren nicht mehr](#troubleshooting-stopped-working).
 
 Wenn das Problem weiterhin besteht, gibt es möglicherweise eine separate Abhängigkeit, die Ihre Braze-Push-Benachrichtigungskonfiguration beeinträchtigt. Sie können versuchen, diese zu entfernen, oder stattdessen manuell `Braze.registerPushToken` aufrufen.
 

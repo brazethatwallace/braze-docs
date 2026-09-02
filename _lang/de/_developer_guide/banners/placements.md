@@ -45,7 +45,7 @@ Die Rolle von `subscribeToBannersUpdates()` unterscheidet sich je nach Plattform
 
 In allen Fällen müssen Sie mindestens eine explizite Aktualisierungsanfrage pro App-Lebenszyklus stellen, damit das SDK weiß, welche Placement-IDs aktuell gehalten werden sollen. Banner werden beim ersten Start nicht automatisch abgerufen, wenn dieser initiale Aufruf fehlt, und die verfolgten Placement-IDs werden nach einem Neustart der App zurückgesetzt.
 
-Automatische Aktualisierungen beim Sitzungsstart verbrauchen kein Rate-Limiting-Token / Textbaustein.
+Automatische Aktualisierungen beim Sitzungsstart verbrauchen kein Rate-Limiting-Token.
 
 {% alert tip %}
 Aktualisieren Sie Placements so früh wie möglich, um Verzögerungen beim Herunterladen oder Anzeigen von Bannern zu vermeiden.
