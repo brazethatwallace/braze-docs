@@ -1,4 +1,7 @@
 ---
+# This file is a template consumed by the external `braze-currents-generate-docs` tool
+# (braze-agent-plugins / braze-currents plugin) to generate the Currents event glossary
+# docs. It is not referenced from within braze-docs, so do not delete it as "unused".
 nav_title: Customer behavior and user events
 article_title: Customer behavior and user events
 layout: customer_behavior_events_glossary
@@ -62,6 +65,7 @@ Certain events return a `platform` value that specifies the platform of the user
 </div>
 
 <!--overview-end-->
+
 
 {% api %}
 ## Random Bucket Number Update events {#random-bucket-number-update-events}
@@ -248,7 +252,7 @@ This event occurs when a specific custom event is triggered. Use this to track w
 
 ### Property details
 
-- For Custom Events, the payload will also be populated with any [custom event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) that are associated with the event.
+- For Custom Events, the payload will also be populated with any [custom event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-properties) that are associated with the event.
 - For `ad_id`, `ad_id_type`, and `ad_tracking_enabled`, you need to explicitly collect the iOS IDFA and Android Google ad ID through the native SDKs. Learn more about them here: [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
 - If you're using Kafka to ingest [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) data, contact your customer success manager or account manager to enable the feature flipper for sending `ad_id`.
 
